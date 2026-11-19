@@ -150,3 +150,62 @@ Op het oog: longshots kopen wint, favorieten kopen verliest, precies andersom da
 3. **Terugtests voorspellen weinig** (run 1: Sharpe 1,86 naar 0,33 in mijn eigen trendtest, GEZIEN; R² onder 0,025 over 888 strategieën, DERDEN). Trendvolgen beperkt dalingen, maakt geen fortuin.
 4. **Grok of een ander model**: geen bewijs dat sentiment van X het rendement in crypto voorspelt (DERDEN), en meelezen kost $5 per 1000 posts (GEZIEN). Hooguit als filter; laat de AI vooral de code schrijven en controleren.
 5. **€10.000 in 3 maanden** haalt geen van de routes in hoek A met een kleine pot (GOK). De beste kans binnen deze hoek is een maker-bot op voorspellingsmarkten die eerst weken op papier draait op openbare data (GEZIEN: alles zonder account op te halen), met de grijze risico's die D beschrijft.
+
+## Run 3 (19 nov 2026, ±02:35 tot 02:55 UTC)
+Hoek: de meting uit run 2 opnieuw doen **zonder de volumefout**. Dat is de belangrijkste open vraag in mijn hoek, want "maker op favorieten" staat bovenaan mijn rangorde.
+
+### 12. Eigen meting op Polymarket, nu eerlijk gekozen: dezelfde richting als Kalshi (GEZIEN)
+**Hoe gekozen** (alles vooraf te weten, niets over de uitslag):
+- Gesloten markten met een einddatum tussen 1 sep en 10 nov 2026 die minstens 8 dagen vóór die einddatum begonnen (filter `start_date_max` op `gamma-api.polymarket.com/markets/keyset`, zonder account). **Geen filter op volume.** Zo vallen de snelle "Up or Down"-markten van een paar minuten vanzelf weg.
+- Dat gaf 6.266 verschillende ja/nee-markten met een uitslag, uit 1.020 events (GEZIEN). Daaruit 3.000 willekeurig getrokken (vaste seed).
+- Instapmoment: vast 1 of 7 dagen vóór de **geplande** einddatum, en alleen als de markt toen nog open was. Run 2 nam "1 dag voor sluiten"; dat lekt ook, want een markt die vroeg sluit doet dat meestal omdat er iets gebeurde.
+- Prijs: de laatste dagnotering van "Ja" uit `clob.polymarket.com/prices-history` (`interval=max&fidelity=1440`) die niet ouder is dan 2 dagen; uurdata over deze periode gaf lege antwoorden (GEZIEN). Beide kanten meegeteld (ja tegen p, nee tegen 1 min p).
+- Onzekerheid: bootstrap per **event** (1.000 keer), omdat markten uit hetzelfde event samenhangen.
+
+**Uitslag, 7 dagen voor de einddatum** (1.909 markten, 672 events; GEZIEN, eigen telling, middenkoers, zonder kosten):
+
+| Prijs | n | gem. prijs | gewonnen | rendement | 90%-band (per event) | met 1 cent duurder instappen |
+|---|---|---|---|---|---|---|
+| 0 tot 10 cent | 422 | 3,2 ct | 2,6% | -19% | -61% tot +21% | -38% |
+| 10 tot 30 cent | 413 | 21,5 ct | 16,0% | **-26%** | -40% tot -10% | -29% |
+| 30 tot 70 cent | 2.138 | 49,9 ct | 50,0% | ±0% | | -2% |
+| 70 tot 90 cent | 422 | 78,2 ct | 83,4% | **+6,6%** | +2,2% tot +10,6% | +5,3% |
+| 90 tot 100 cent | 423 | 96,8 ct | 97,4% | +0,7% | -0,7% tot +2,0% | -0,4% |
+
+**1 dag voor de einddatum** (1.533 markten, 543 events, GEZIEN): 10 tot 30 cent -18% (band -34% tot -2%), 70 tot 90 cent **+4,9%** (band +0,4% tot +9,1%), 90 tot 100 cent -0,6%, onder 10 cent +14% maar met een band van -27% tot +60% (dus: niets te zeggen).
+
+**Per deel** (70 tot 90 cent, 7 dagen ervoor, GEZIEN): sep +3,9% (n=150), okt +5,0% (n=176), nov +13,9% (n=96); sport +11,9% (n=218), overig +1,2% (n=204). Overal positief, maar de grootte springt flink.
+
+**Wat dit leert** (GOK, op basis van de meting):
+1. **Run 2 was inderdaad een testfout.** Zonder volumefilter verdwijnt de "longshots winnen"-uitslag (+100% tot +199%) helemaal. Zelfde API, zelfde rekenwijze, alleen de keuze van markten anders. Het beste bewijs in dit bestand dat de selectie de uitslag maakt.
+2. **De richting klopt nu met de Kalshi-studie** (punt 9): ondergewaardeerde favorieten (70 tot 90 cent) en overgewaardeerde kanshebbers (10 tot 30 cent). Let op: dat zijn twee kanten van dezelfde markten, dus één bevinding, geen twee.
+3. **Het voordeel is klein en zit in de middenband.** Rond +5% per contract op de middenkoers, en het overleeft 1 cent slechtere instap (+5,3%). Boven 90 cent is er niets te halen. Twee cent slechter of de nieuwe kosten van Polymarket vanaf 20 nov (D punt 8) kunnen het grotendeels opeten (GOK).
+4. **Waarom je dit nog niet gelooft:** dagnoteringen tot 2 dagen oud, middenkoers in plaats van wat je echt kon krijgen, maar 2,5 maand data, en het verschil tussen sport (+12%) en de rest (+1%) is groot. De keyset-API gaf veel dubbele markten terug (113.600 regels voor 6.275 unieke), dus de steekproef per dag is niet compleet; die keuze hangt niet aan de uitslag, maar is wel onvolledig (GEZIEN voor de telling, GOK voor het effect).
+
+**Ruw rekenvoorbeeld** (GOK, eigen som op bovenstaande): +5% per contract met je geld een week vast, en 30 tot 60 van zulke markten per week in de band 70 tot 90 cent. Dan is het rendement op de inzet in 3 maanden hooguit enkele tientallen procenten, vóór kosten en vóór de kans dat het gat in 2025 tot 2026 al kleiner werd. €10.000 in 3 maanden vraagt dan nog steeds een pot van tienduizenden euro's.
+
+### 13. Het testprotocol voor een voorspellingsmarkt-bot (aangescherpt, GOK op basis van run 2 en 3)
+1. Kies markten op **begin- en einddatum**, nooit op volume, nooit op de echte sluittijd.
+2. Instappen op een **vast moment** ten opzichte van de geplande einddatum.
+3. Bootstrap per event; meld een band, geen los getal.
+4. Test met +1 en +2 cent slechtere instap. Wat bij +2 cent weg is, is te dun voor een echte bot.
+5. Splits per maand en per soort markt; als één soort alles draagt (hier sport), test die apart verder.
+6. Vanaf nu het **orderboek zelf opslaan** (de API bewaart geen oude boeken). Pas na een paar weken eigen opgeslagen boeken weet je wat een maker-order echt had opgeleverd.
+
+### Bijgestelde rangorde binnen hoek A (kans maal opbrengst, GOK)
+1. **Voorspellingsmarkten, favorieten 70 tot 90 cent, als maker, eerst op papier**: nu door twee onafhankelijke metingen gesteund (Kalshi 300.000 contracten, DERDEN; mijn eigen Polymarket-meting, GEZIEN). Wel klein (±5%) en wankel per soort markt. Kans op €10.000 in 3 maanden met een kleine pot: onder 5% (GOK, ongewijzigd). Grijs in Nederland (D punt 3).
+2. Simpele trendregel op spot (run 1): beperkt dalingen, geen geldmachine.
+3. Longshots, LLM-sentiment als hoofdsignaal, hefboom: vallen af.
+
+### Nog te doen (volgende runs)
+- Sport apart meten met meer maanden (jan tot aug 2026), en kijken of het voordeel in de band 70 tot 90 cent vlak voor de wedstrijd zit.
+- De keyset-API netjes pagineren (dubbele resultaten), zodat elke dag volledig is.
+- Momentum over meer munten met volatiliteit richten, op Binance-archieven, met dubbele kosten.
+- Openbaar, controleerbaar verslag van een LLM die maanden live meebeslist.
+
+## Stand na run 02:55 UTC (19 nov 2026)
+1. **Eerlijke herhaling op Polymarket** (GEZIEN, 1.909 markten uit 672 events, gekozen op datum, niet op volume): favorieten van 70 tot 90 cent wonnen vaker dan hun prijs zei, **+6,6%** 7 dagen voor de einddatum (band +2,2% tot +10,6%), en +4,9% 1 dag ervoor. Contracten van 10 tot 30 cent verloren 18 tot 26%. Zelfde richting als Kalshi (DERDEN, 300.000 contracten).
+2. **De longshot-winst uit run 2 was puur een selectiefout** (GEZIEN): zonder volumefilter is ze weg. Kies markten nooit op iets wat pas achteraf bekend is.
+3. **Het voordeel is dun**: het overleeft 1 cent slechtere instap (+5,3%), maar twee cent of de nieuwe Polymarket-kosten kunnen het opeten (GOK); en het zit vooral in sport (+12%) tegen +1% bij de rest (GEZIEN, kleine aantallen).
+4. **Terugtests voorspellen weinig** (run 1: Sharpe 1,86 naar 0,33 in mijn trendtest, GEZIEN; R² onder 0,025 over 888 strategieën, DERDEN). Trendvolgen beperkt dalingen, meer niet. Een taalmodel hooguit als filter; meelezen op X kost $5 per 1000 posts (GEZIEN).
+5. **€10.000 in 3 maanden** haalt geen route in hoek A met een kleine pot (GOK). De beste kans blijft een maker-bot op favorieten in voorspellingsmarkten, eerst weken op papier met zelf opgeslagen orderboeken (alles zonder account te halen, GEZIEN).
