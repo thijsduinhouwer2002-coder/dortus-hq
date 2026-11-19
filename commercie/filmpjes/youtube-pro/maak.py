@@ -52,7 +52,7 @@ g115, g90, g135 = graden("115", 115), graden("90", 90), graden("135", 135)
 # (deel, onderschrift, hoofdstuk links boven)
 DELEN = [
     ("haak", "Click Joints Pro: a print-ready hinge with a real end stop.", ""),
-    ("heel", "Start with one solid part. The 3D cursor marks where it bends.", "1  Place a hinge"),
+    ("heel", "Start with one solid part, like this leg.", "1  Place a hinge"),
     ("knop", "Pick the end stop: 90°, 115° or 135°. Click Place hinge.", "1  Place a hinge"),
     ("rond", "One click: the part is cut in two, with a hinge between them.", "1  Place a hinge"),
     ("buig", f"Drag Bend. The arc shows the real range: it stops at {g115}.", "2  Bend to the stop"),
@@ -65,7 +65,7 @@ DELEN = [
 VOLG = [d for d, _, _ in DELEN] + ["eind"]
 KAART_VOOR = {"heel": "1  Place a hinge", "buig": "2  Bend to the stop", "rood": "3  Past the stop",
               "stand90": "4  90°, 115° or 135°", "kogel": "5  Ball joints too"}
-KAART_S, BEGIN_S, EIND_S = 2.5, 5.0, 12.0
+KAART_S, BEGIN_S, EIND_S = 3.5, 7.0, 14.0   # YouTube-hoofdstukken minstens 10 s, video minstens 2:00
 
 
 def ff(*a):

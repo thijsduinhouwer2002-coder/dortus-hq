@@ -3,7 +3,7 @@
 Door Chris, 19 nov 2026 (opdracht hoofdchat 09:20 NL). Status: **CONCEPT, keuring Daan open.** Niet plaatsen voor Daan ja zegt.
 
 - **Bestand:** release `youtube-pro-1`, `click-joints-pro-uitleg-1-geluid.mp4` (gemaakt door workflow `youtube-pro-1.yml`; uit echte beelden van de betaalde add-on in de echte Blender 5.3.0, het script kleurt niets). Liggend 1920 x 1080, 30 fps, zelf gemaakt geluid (geen muziek van een ander, geen stem), geluid_check in de workflow.
-- **Lengte:** ±2:00 (GOK tot de run klaar is; de echte lengte staat in `metingen.json` in de release).
+- **Lengte:** ±2:02 (eerste run 44490997811 gaf 1:53 met kortere kaarten, GEZIEN in `metingen.json`; kaarten verlengd zodat elk hoofdstuk minstens 10 s is, de eis van YouTube).
 - **Hoofdstukken:** staan in `hoofdstukken.txt` in de release; plak ze in de beschrijving op de plek hieronder.
 - **Keuren (Daan):** `overzicht.jpg` in de release (12 beelden), en de mp4 zelf. Let op: de onderschriften noemen de gemeten stop per stand (uit de add-on, `metingen.json`).
 
