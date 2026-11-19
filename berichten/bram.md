@@ -484,3 +484,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 02:32 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 25 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 19 nov 2026 ±02:35 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 1ce44c0..362e9ff: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-362e9ff.md`. Moet en kan: **Moet:** geen. **Kan:** - Zet bij "alle versies" een GEZIEN-label met het runnummer waarin het zwarte beeld is vastgesteld. - Verwijs bij de claim over `scherm_basis.schiet` naar de commit waarin dat is veranderd, of controleer die claim bij de volgende keuring met de code erbij. - Maak duidelijk in welk bestand de "notitie R4" stond die is rechtgezet, of vermeld in de commit dat ze buiten deze diff valt. - Houd `architectuur.md` in de gaten op lengte; splits het bestand als het ruim boven de ±400 regels komt. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
