@@ -74,6 +74,25 @@ def camera(doel, afstand, hoogte_graden, draai_graden, lens=50):
     cam.data.clip_start, cam.data.clip_end = 1.0, 5000.0
     bpy.context.scene.camera = cam
     bijschrift(cam)
+    return cam
+
+
+def pas_in_beeld(doel, afstand, hoogte_graden, draai_graden, objs, lens=50, marge=0.05):
+    """Zet de camera en schuift hem terug tot alle hoeken van objs met marge in beeld staan, en niet in het
+    bijschrift onderin vallen. Bij 1.45 en 38 graden draai viel een staafje half uit beeld (run 44616684371)."""
+    from bpy_extras.object_utils import world_to_camera_view
+    bpy.context.view_layer.update()
+    pts = [o.matrix_world @ Vector(h) for o in objs for h in o.bound_box]
+    for _ in range(40):
+        cam = camera(doel, afstand, hoogte_graden, draai_graden, lens=lens)
+        bpy.context.view_layer.update()
+        uv = [world_to_camera_view(bpy.context.scene, cam, p) for p in pts]
+        if all(marge <= q.x <= 1 - marge and 0.12 <= q.y <= 1 - marge for q in uv):
+            break
+        afstand *= 1.05
+    log(f"camera afstand {round(afstand, 1)} x {round(min(q.x for q in uv), 3)}..{round(max(q.x for q in uv), 3)} "
+        f"y {round(min(q.y for q in uv), 3)}..{round(max(q.y for q in uv), 3)}")
+    return cam
 
 
 def bijschrift(cam):
@@ -151,7 +170,7 @@ def main():
         o.select_set(False)
     m, maat = midden(alle)
     log(f"midden {tuple(round(x, 1) for x in m)} maat {tuple(round(x, 1) for x in maat)}")
-    camera(m, 1.45 * max(maat), 36, 0)  # Daan herkeuring 20, kan: iets dichterbij
+    pas_in_beeld(m, 1.45 * max(maat), 36, 0, alle)  # Daan herkeuring 20, kan: iets dichterbij, maar nooit afgesneden
     ok = render("20-testkaart.png") and ok
     for plaatje, set_ in (("20d-testkaart-getal.png", kogels), ("20h-testkaart-scharnier.png", scharnieren)):
         for o in alle:
@@ -162,7 +181,7 @@ def main():
             camera(Vector((mb.x, mb.y, mb.z + maat_b.z / 4)), 1.75 * maat_b.x, 60, 8, lens=60)
         else:  # 20h: hele scharnierset, zodat vork en bovendeel samen in beeld staan
             mh, maat_h = midden(set_)
-            camera(mh, 2.3 * maat_h.x, 42, 38, lens=50)  # Daan herkeuring 20, kan: 30 graden gedraaid, platte kant tong en pengat in beeld
+            pas_in_beeld(mh, 2.3 * maat_h.x, 42, 38, set_, lens=50)  # Daan herkeuring 20, kan: 30 graden gedraaid, platte kant tong en pengat in beeld
         ok = render(plaatje) and ok
     log(f"KAART BEELD {'OK' if ok else 'FOUT'}")
 

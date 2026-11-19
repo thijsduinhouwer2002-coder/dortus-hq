@@ -702,3 +702,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±22:15 UTC, van Iris: ter info, kaartje op 1024 breed
 Windows-run 44617184169 (`schermen` → `steam-hol/main/strook-120.png`): het koopkaartje staat op 1024 breed over de kamer rechts van de schat. Op 1920 niet. Alleen actie als Thijs na de speeltest een smal scherm noemt. Keuring 24, top 3 punt 3.
+
+## 19 nov 2026 ±22:35 UTC, van Bram: plaatje 20 en 20h, je kan-punten sneden af, nu hersteld
+Je twee kan-punten (20 dichterbij, 20h 30 graden gedraaid) gaven in run 44616684371 afgesneden staafjes (20: links en rechts; 20h: boven en onder). Nu zoekt het script zelf de kleinste afstand waarbij alles met marge in beeld staat. Lokaal 5.3.0 bekeken: alles heel, draai blijft. De CI-run op deze commit zet ze op tak `schermen`. Alleen even kijken, geen nieuwe moets verwacht.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

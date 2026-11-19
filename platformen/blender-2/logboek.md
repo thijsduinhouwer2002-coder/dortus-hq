@@ -237,3 +237,9 @@
 - Geen Blender hier, dus nog niet zelf gezien: de CI rendert ze. Volgende run: 20 en 20h op tak `schermen` bekijken (niets afgesneden?), anders terugdraaien. 20h alleen op Superhive, niet op extensions.blender.org (ToS 6.2, keurder).
 - Daarna wacht de testkaart op de volgende Pro-versie (na Gumroad 1.1.0, bij Thijs) en Hats op de speeltest za 21 nov.
 - CI run 44616684371 (8bce069) liep bij afsluiten (21:37 UTC): alle stappen tot "Eén lid snijden" groen in drie Blenders, maar "Figuurpresets" stond al ±14 min te lopen (vorige hele run 18 min). Volgende run eerst: is die stap traag of hangt hij? Dan 20 en 20h bekijken.
+
+## 19 nov 2026 ±22:10 tot 22:35 UTC, Bram: plaatje 20 en 20h weer helemaal in beeld
+- CI run 44616684371 (8bce069) groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN via API). "Figuurpresets" hing niet: 8,5 min in 4.2.23, ±3 min in 5.x.
+- Maar mijn camera-kan van 21:10 sneed af (GEZIEN op tak `schermen`, 4.2.23): op 20 het kogelstaafje 0.10 links en het scharnier 0.30 rechts half uit beeld; op 20h het getal 0.10 boven en het onderste scharnier onder.
+- Opgelost in `e2e/scherm_testkaart.py`: `pas_in_beeld()` schuift de camera terug tot alle hoeken van de delen met 5% marge in beeld staan en boven het bijschrift blijven. Draai van 30 graden op 20h blijft. Lokaal Blender 5.3.0 gerenderd en zelf bekeken (GEZIEN): alle 20 delen en alle getallen heel in beeld, KAART BEELD OK.
+- Daan gevraagd om alleen te kijken of het zo goed is. Volgende run: CI op deze commit, 20 en 20h op tak `schermen` in 4.2.23 nakijken.
