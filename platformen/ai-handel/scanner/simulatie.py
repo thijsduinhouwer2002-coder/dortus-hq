@@ -9,20 +9,24 @@ richtingen samen):
     niet meer dan het geld op de koopbeurs en niet meer dan de munten op de verkoopbeurs. Er gaat bij een kans niets
     over de keten: de opnamekosten van de munt tellen pas bij het terugschuiven.
   - Dreigt een kant leeg te raken (onder DREMPEL van wat er aan het begin per kant stond), dan schuift hij terug:
-    de helft van het verschil gaat naar de lege kant, alleen als de opnamekosten hooguit 5% van het bedrag zijn.
+    de helft van het verschil gaat naar de lege kant, alleen als de opnamekosten hooguit 1% van het bedrag zijn.
     Tijdens het onderweg zijn is dat geld of die munt niet te gebruiken.
   - Het koerseffect is de waardeverandering van de aangehouden munten (op beide beurzen en onderweg), apart gemeld.
 Netto = bruto winst min kosten terugschuiven plus koerseffect; dat is precies de eindwaarde min de inleg.
 
 Elk cijfer is GEZIEN (gemeten of uit een API of tarievenpagina) of GOK (een aanname); zie AANNAMES onderaan.
 """
-import bisect
 import collections
 import datetime as dt
 
+from simbronnen import Koersen, Minima  # noqa: F401  (rapport.py gebruikt simulatie.Koersen en simulatie.Minima)
+
 DREMPEL = 0.25           # GOK: schuif terug als een kant onder 25% van zijn beginvoorraad komt
-MAX_KOSTEN_DEEL = 0.05   # GOK: schuif alleen als de opnamekosten hooguit 5% van het bedrag zijn
-MIN_ORDER_EUR = 10       # GOK: kleiner dan dit telt als gemist (minimale ordergrootte verschilt per beurs)
+MAX_KOSTEN_DEEL = 0.01   # GOK: schuif alleen als de opnamekosten hooguit 1% van het bedrag zijn (een kans levert ±0,3 tot 1% bruto)
+UITVOER_NA_S = 120       # een kans telt pas als echt na 2 minuten; dan pas uitvoeren (keuring S10)
+HEROPEN_S = 300          # GOK: zelfde paar en munt binnen 5 min weer open = hetzelfde boek, deels al gebruikt
+MIN_ORDER_EUR = 10       # GOK: minimale order als de API van de beurs niets geeft (anders Minima hieronder)
+INLEGGEN = (100, 150, 200, 2000, 5000)
 MUNT_REIS_S = 30 * 60    # GOK: een munt is na 30 minuten binnen (bevestigingen plus verwerking door de beurs)
 
 # Opnamekosten en reistijd van het geld (de quote) per beurs: (kosten in de quote, reistijd in seconden, bron).
@@ -32,6 +36,13 @@ QUOTE_OPNAME = {
     ("kraken", "EUR"): (1.0, 3600, "kosten GEZIEN (support.kraken.com/articles/360000381846: Instant SEPA, "
                                    "Banking Circle, 1 EUR, near-instant), tijd GOK (1 uur tot het op de andere beurs staat)"),
     ("kucoin", "USDT"): (1.0, 1800, "kosten GEZIEN (api.kucoin.com/api/v3/currencies/USDT: BEP20 1 USDT), tijd GOK"),
+}
+# Minimale opname van het geld per beurs: (minimum in de quote, bron). Onbekend: geen minimum (GOK).
+QUOTE_MIN = {
+    ("bitvavo", "EUR"): (0.0, "GEZIEN, api.bitvavo.com/v2/assets withdrawalMinAmount"),
+    ("kraken", "EUR"): (2.0, "GEZIEN, support.kraken.com/articles/360000381846 Instant SEPA (Banking Circle)"),
+    ("kucoin", "USDT"): (5.0, "GEZIEN, api.kucoin.com/api/v3/currencies/USDT BEP20 withdrawalMinSize"),
+    ("gate", "USDT"): (1.0, "GEZIEN, api.gateio.ws/api/v4/wallet/currency_chains withdraw_amount_min"),
 }
 QUOTE_STANDAARD = {"EUR": (1.0, 24 * 3600), "USD": (1.0, 24 * 3600), "USDT": (1.0, 1800), "USDC": (1.0, 1800)}
 
@@ -88,7 +99,7 @@ def munt_kosten(kansen):
 class Sim:
     """Eén beurspaar, één inleg. Geld in euro; munten in 'euro tegen de beginkoers' (r = koers nu / beginkoers)."""
 
-    def __init__(self, kansen, inleg, beurzen, koers=None, t0=None, t1=None):
+    def __init__(self, kansen, inleg, beurzen, koers=None, t0=None, t1=None, minima=None, drempel=DREMPEL):
         self.kansen = sorted(kansen, key=lambda r: r["begin"])
         self.beurzen = beurzen
         self.quotes = sorted({r["quote"] for r in kansen})
@@ -109,6 +120,35 @@ class Sim:
         self.koers_bekend = all(p for p in self.p0.values())
         self.per_dag = collections.defaultdict(lambda: collections.Counter())
         self.schuif_log = []
+        self.minima = minima or (lambda beurs, munt, quote: None)
+        self.drempel = drempel
+        self.gebruikt = {}   # (koop, verkoop, munt, quote) -> (eind van de kans, al ingezet uit dat boek)
+        self.q_munt = {r["munt"]: r["quote"] for r in reversed(self.kansen)}   # quote van de eerste kans
+
+    def p0_eur(self, m):
+        """Euro per munt tegen de beginkoers, of None."""
+        return self.p0[m] * self.eur_q[self.q_munt[m]] if self.p0.get(m) else None
+
+    def min_order(self, r):
+        """Kleinste order in euro die op beide beurzen mag (GEZIEN uit de API; niets bekend: MIN_ORDER_EUR, GOK)."""
+        m, q, grens = r["munt"], r["quote"], 0.0
+        for b in (r["koop"], r["verkoop"]):
+            mi = self.minima(b, m, q) or {}
+            if mi.get("order_q") is None and mi.get("order_m") is None:
+                grens = max(grens, MIN_ORDER_EUR)
+                continue
+            if mi.get("order_q") is not None:
+                grens = max(grens, mi["order_q"] * self.eur_q[q])
+            if mi.get("order_m") is not None and self.p0_eur(m):
+                grens = max(grens, mi["order_m"] * self.p0_eur(m) * self.r_laatst[m])
+        return grens
+
+    def min_opname(self, beurs, bezit):
+        """Kleinste opname, in de eenheid van self.bal (euro, of euro tegen de beginkoers bij munten)."""
+        if bezit in self.quotes:
+            return QUOTE_MIN.get((beurs, bezit), (0.0,))[0] * self.eur_q[bezit]
+        mi = self.minima(beurs, bezit, self.q_munt[bezit]) or {}
+        return mi["opname_m"] * self.p0_eur(bezit) if mi.get("opname_m") and self.p0_eur(bezit) else 0.0
 
     def r(self, m, t):
         p0 = self.p0.get(m)
@@ -134,7 +174,7 @@ class Sim:
             return
         a, b = self.beurzen
         leeg, vol = (a, b) if self.bal[a][bezit] <= self.bal[b][bezit] else (b, a)
-        if self.bal[leeg][bezit] >= DREMPEL * self.start[bezit]:
+        if self.bal[leeg][bezit] >= self.drempel * self.start[bezit]:
             return
         bedrag = (self.bal[vol][bezit] - self.bal[leeg][bezit]) / 2
         if bezit in self.quotes:
@@ -144,6 +184,11 @@ class Sim:
             kosten_eur = self.fee_munt.get((vol, bezit), self.fee_munt_alle.get(bezit, 0.0))
             kosten_eenheid = kosten_eur / self.r_laatst[bezit]
             reis = MUNT_REIS_S
+        minimum = self.min_opname(vol, bezit)
+        if bedrag < minimum:
+            if self.bal[vol][bezit] < minimum:
+                return
+            bedrag = minimum
         if bedrag <= 0 or kosten_eenheid > MAX_KOSTEN_DEEL * bedrag:
             return
         self.bal[vol][bezit] -= bedrag
@@ -154,7 +199,7 @@ class Sim:
 
     def draai(self):
         """Alle kansen op volgorde van begin; tussendoor aan het eind van elke dag het koerseffect bijwerken."""
-        gebeurt = [(ts(r["begin"]), 0, r) for r in self.kansen]
+        gebeurt = [(min(ts(r["begin"]) + UITVOER_NA_S, ts(r["eind"])), 0, r) for r in self.kansen]
         t = self.t0
         while t < self.t1:
             t = min(ts(dag(t) + "T00:00:00Z") + 86400 - 1, self.t1)
@@ -172,21 +217,27 @@ class Sim:
         d["kansen"] += 1
         koop, verkoop, m, q = r["koop"], r["verkoop"], r["munt"], r["quote"]
         ruimte = r.get("ruimte_eur_med") or 0
+        sleutel = (koop, verkoop, m, q)
+        eind_vorige, al = self.gebruikt.get(sleutel, (None, 0.0))
+        if eind_vorige is None or ts(r["begin"]) - eind_vorige > HEROPEN_S:
+            al = 0.0   # een nieuwe kans; binnen HEROPEN_S is het hetzelfde boek, dat deel is al op
         rm = self.r_laatst[m]
-        x = min(ruimte, self.bal[koop][q], self.bal[verkoop][m] * rm)
-        d["vol"] += bruto_bij(r, ruimte)
-        if x < MIN_ORDER_EUR:
+        x = max(0.0, min(ruimte - al, self.bal[koop][q], self.bal[verkoop][m] * rm))
+        d["vol"] += bruto_bij(r, ruimte) - bruto_bij(r, al)
+        if x < max(self.min_order(r), 0.01):
             d["gemist"] += 1
         else:
-            if x < ruimte - 0.01:
+            if x < ruimte - al - 0.01:
                 d["beperkt"] += 1
-            g = bruto_bij(r, x)
+            g = bruto_bij(r, al + x) - bruto_bij(r, al)
+            al += x
             self.bal[koop][q] -= x
             self.bal[koop][m] += x / rm
             self.bal[verkoop][m] -= x / rm
             self.bal[verkoop][q] += x + g
             d["bruto"] += g
             d["ingezet"] += x
+        self.gebruikt[sleutel] = (ts(r["eind"]), al)
         for bezit in (q, m):
             self.schuif(bezit, t)
 
@@ -198,9 +249,10 @@ class Sim:
         uit = {}
         for d in sorted(self.per_dag):
             c = self.per_dag[d]
-            netto = c["bruto"] - c["kosten"] + c["koers"]
+            handel, netto = c["bruto"] - c["kosten"], c["bruto"] - c["kosten"] + c["koers"]
             uit[d] = {**{k: c[k] for k in ("kansen", "gemist", "beperkt", "bruto", "kosten", "koers", "vol",
-                                           "schuif", "ingezet")}, "netto": netto, "rendement": netto / self.inleg}
+                                           "schuif", "ingezet")}, "handel": handel, "rendement_handel":
+                      handel / self.inleg, "netto": netto, "rendement": netto / self.inleg}
         return uit
 
 
@@ -232,7 +284,34 @@ def meet_venster(stand, echte):
     return ts_[0], ts_[-1], uren
 
 
-def blok(echte, stand, mica, koersbron=None, inleggen=(2000, 5000), grijs_top=5):
+def varianten(alle_paren, vergund, koers, t0, t1, minima, inleggen=(150, 2000)):
+    """Wat doet een andere schuifdrempel, of minder munten met meer voorraad per munt? Voor het MiCA-paar met de
+    meeste bruto winst (keuring, kan-punt 2). Alleen netto handel: het koerseffect is hier geen maat."""
+    if not vergund:
+        return []
+    p = max(vergund, key=lambda p: sum(bruto_bij(r, 1000) for r in alle_paren[p]))
+    ks = alle_paren[p]
+    per_munt = collections.Counter()
+    for r in ks:
+        per_munt[r["munt"]] += bruto_bij(r, 1000)
+    top2 = [m for m, _ in per_munt.most_common(2)]
+    uit = [f"### Andere keuzes bij {p[0]} - {p[1]} (netto handel, alle dagen samen; GOK)", "",
+           "| Keuze | Inleg | Kansen | Gemist | Bruto winst | Kosten terugschuiven | Netto handel |",
+           "|---|---|---|---|---|---|---|"]
+    keuzes = [(f"schuifdrempel {d:.0%}" + (" (standaard)" if d == DREMPEL else ""), ks, d) for d in (0.10, DREMPEL, 0.40)]
+    keuzes.append((f"alleen {' en '.join(top2)} (meer voorraad per munt, achteraf gekozen)",
+                   [r for r in ks if r["munt"] in top2], DREMPEL))
+    for naam, lijst, d in keuzes:
+        for inleg in inleggen:
+            c = collections.Counter()
+            for dg in Sim(lijst, inleg, p, koers, t0, t1, minima, d).draai().dagen().values():
+                c.update({k: dg[k] for k in ("kansen", "gemist", "bruto", "kosten", "handel")})
+            uit.append(f"| {naam} | {_eur(inleg)} | {c['kansen']} | {c['gemist']} | {_eur(c['bruto'])} | "
+                       f"{_eur(c['kosten'])} | **{_eur(c['handel'])}** |")
+    return uit + ["", "Bij \"alleen ...\" tellen de kansen in andere munten niet mee (je hebt die munten dan niet).", ""]
+
+
+def blok(echte, stand, mica, koersbron=None, inleggen=INLEGGEN, grijs_top=5, minima=None):
     """Markdown-regels voor het rapport. echte: alle echte kansen (niet samengevoegd: elk paar is los).
     koersbron(bronnen, van, tot) -> koers(munt, t); None = geen koersen ophalen (koerseffect onbekend)."""
     uit = ["## Wat houd je echt over? Voorraad op twee beurzen (simulatie)", "",
@@ -244,6 +323,7 @@ def blok(echte, stand, mica, koersbron=None, inleggen=(2000, 5000), grijs_top=5)
     if not echte:
         return uit + ["Nog geen echte kansen om mee te rekenen.", ""]
     t0, t1, uren = meet_venster(stand, echte)
+    kop, bij150 = len(uit), []
     alle_paren = paren(echte)
     vergund = sorted(p for p in alle_paren if p[0] in mica and p[1] in mica)
     grijs = sorted((p for p in alle_paren if p not in vergund),
@@ -253,7 +333,8 @@ def blok(echte, stand, mica, koersbron=None, inleggen=(2000, 5000), grijs_top=5)
         bronnen = {}
         for p in vergund + grijs:
             for r in alle_paren[p]:
-                lijst = sorted(p, key=lambda b: VOORKEUR.index(b) if b in VOORKEUR else 99)
+                # eerst de beurzen van het paar, dan elke andere beurs met candles (keuring S5)
+                lijst = sorted(VOORKEUR, key=lambda b: (b not in p, VOORKEUR.index(b)))
                 bronnen.setdefault(r["munt"], (r["quote"], lijst))
         koers = koersbron(bronnen, t0, t1)
     for titel, lijst in (("Alleen MiCA-beurzen (alle paren met echte kansen)", vergund),
@@ -263,88 +344,53 @@ def blok(echte, stand, mica, koersbron=None, inleggen=(2000, 5000), grijs_top=5)
             uit += ["Geen echte kansen op zo'n paar.", ""]
             continue
         uit += ["| Beurspaar | Inleg | Dag | Gemeten | Kansen | Gemist (geen voorraad) | Kleiner door voorraad | "
-                "Bruto winst | Kosten terugschuiven | Koerseffect voorraad | Netto | Rendement op de inleg |",
-                "|---|---|---|---|---|---|---|---|---|---|---|---|"]
+                "Bruto winst | Kosten terugschuiven | **Netto handel (bruto min kosten)** | Rendement handel | "
+                "Koerseffect voorraad | Netto met koerseffect | Rendement met koerseffect |", "|---" * 14 + "|"]
         notities = []
         for p in lijst:
             for inleg in inleggen:
-                s = Sim(alle_paren[p], inleg, p, koers, t0, t1).draai()
+                s = Sim(alle_paren[p], inleg, p, koers, t0, t1, minima).draai()
+                if inleg == 150 and lijst is vergund:
+                    dg = s.dagen().values()
+                    bij150.append(f"{_eur(sum(c['handel'] for c in dg) / len(dg))} per dag op {p[0]} - {p[1]}"
+                                  + (f" (koerseffect erbovenop {_eur(sum(c['koers'] for c in dg) / len(dg))})"
+                                     if s.koers_bekend else " (koerseffect onbekend)"))
                 for d, c in s.dagen().items():
-                    ke = _eur(c["koers"]) if s.koers_bekend else "onbekend"
+                    kb = s.koers_bekend
+                    rend = f"{c['rendement'] * 100:.2f}%" if kb else "onbekend*"
                     uit.append(f"| {p[0]} - {p[1]} | {_eur(inleg)} | {d} | {uren.get(d, 0):.1f} u | {c['kansen']} | "
                                f"{c['gemist']} | {c['beperkt']} | {_eur(c['bruto'])} | {_eur(c['kosten'])} "
-                               f"({c['schuif']}x) | {ke} | {_eur(c['netto'])}{'' if s.koers_bekend else '*'} | "
-                               f"{c['rendement'] * 100:.2f}% |")
+                               f"({c['schuif']}x) | **{_eur(c['handel'])}** | {c['rendement_handel'] * 100:.2f}% | "
+                               f"{_eur(c['koers']) if kb else 'onbekend'} | {_eur(c['netto']) if kb else 'onbekend*'} | "
+                               f"{rend} |")
                 tot = s.dagen().values()
                 notities.append(f"- {p[0]} - {p[1]}, {_eur(inleg)}: munten {', '.join(s.munten)}; bruto zonder "
                                 f"voorraadgrens zou {_eur(sum(c['vol'] for c in tot))} zijn, met voorraad "
                                 f"{_eur(sum(c['bruto'] for c in tot))} (GEZIEN boek, GOK model).")
         uit += [""] + notities + [""]
+    if bij150:
+        uit[kop:kop] = [f"**Met €150: netto {', '.join(bij150)} (GOK: netto handel, rekenmodel op ±"
+                        f"{sum(uren.values()) / max(len(uren), 1):.1f} uur meting per dag, alleen MiCA).**", ""]
+    uit += varianten(alle_paren, vergund, koers, t0, t1, minima)
     uit.append("Dag en Gemeten: de kansen komen alleen uit de uren dat de scanner mat (GEZIEN); het koerseffect loopt "
                "door over de hele tijd van de eerste tot de laatste meting. Rendement = netto gedeeld door de inleg, "
-               "voor die dag. * = koers niet op te halen, koerseffect onbekend (niet als 0 bedoeld).")
+               "voor die dag. * = koers niet op te halen, koerseffect onbekend (niet als 0 bedoeld). **Het koerseffect is "
+               "het risico van de voorraad, geen opbrengst van de methode:** bij één munt over een paar uur is het "
+               "vooral toeval. Kijk voor wat de methode oplevert naar Netto handel.")
     uit += ["", "**Aannames:**", ""] + [f"- {a}" for a in AANNAMES]
     gezien = sorted({(b, q) for p in vergund + grijs for b in p for q in {r["quote"] for r in alle_paren[p]}})
     uit += ["- Geld terugschuiven per beurs: " + "; ".join(
-        f"{b} {q}: {quote_opname(b, q)[0]:g} {q}, {quote_opname(b, q)[2]}" for b, q in gezien) + ".", ""]
+        f"{b} {q}: {quote_opname(b, q)[0]:g} {q}, {quote_opname(b, q)[2]}"
+        + (f", minimum {QUOTE_MIN[(b, q)][0]:g} {q} ({QUOTE_MIN[(b, q)][1]})" if (b, q) in QUOTE_MIN else "")
+        for b, q in gezien) + ".", ""]
     return uit
-
-
-# ---- koersen voor het koerseffect (openbare candles, alleen lezen; GEZIEN) ----
-
-def _candles(beurs, munt, quote, van, tot):
-    import beurzen
-
-    def haal(url):
-        return beurzen.haal(url, timeout=8)
-    iv = 900 if tot - van < 7 * 86400 else 3600
-    van, tot = int(van) - iv, int(tot) + iv
-    if beurs == "kraken":
-        d = haal(f"https://api.kraken.com/0/public/OHLC?pair={munt}{quote}&interval={iv // 60}&since={van}")
-        rij = next((v for v in (d.get("result") or {}).values() if isinstance(v, list)), [])
-        return [(int(c[0]), float(c[4])) for c in rij if isinstance(c, list)]
-    if beurs == "bitvavo":
-        d = haal(f"https://api.bitvavo.com/v2/{munt}-{quote}/candles?interval={iv // 60}m&start={van}000"
-                    f"&end={tot}000&limit=1440".replace("60m", "1h"))
-        return [(int(c[0]) // 1000, float(c[4])) for c in d]
-    if beurs == "kucoin":
-        d = haal(f"https://api.kucoin.com/api/v1/market/candles?type={'15min' if iv == 900 else '1hour'}"
-                    f"&symbol={munt}-{quote}&startAt={van}&endAt={tot}")
-        return [(int(c[0]), float(c[2])) for c in d.get("data") or []]
-    if beurs == "gate":
-        d = haal(f"https://api.gateio.ws/api/v4/spot/candlesticks?currency_pair={munt}_{quote}"
-                    f"&interval={'15m' if iv == 900 else '1h'}&from={van}&to={tot}")
-        return [(int(c[0]), float(c[2])) for c in d]
-    return []
-
-
-class Koersen:
-    """koers(munt, t): slotkoers van de candle waarin t valt, van de eerste beurs in de lijst die data geeft.
-    Geen data: None (dan telt het koerseffect voor die munt als onbekend, niet als 0)."""
-
-    def __init__(self, bronnen, van, tot, haal=_candles):
-        self.rij = {}
-        for munt, (quote, lijst) in bronnen.items():
-            for b in lijst:
-                try:
-                    c = sorted(haal(b, munt, quote, van, tot))
-                except Exception:
-                    c = []
-                if c:
-                    self.rij[munt] = c
-                    break
-
-    def __call__(self, munt, t):
-        c = self.rij.get(munt)
-        if not c:
-            return None
-        i = bisect.bisect_right(c, (t, float("inf"))) - 1
-        return c[max(i, 0)][1] or None
 
 
 AANNAMES = [
     "Winst per kans: de mediaan van wat de scanner op het boek mat bij €100, €500, €1.000, €2.500 en de volle ruimte "
-    "(GEZIEN), lineair daartussen (GOK). Uitgevoerd op het moment dat de kans begon, één keer per kans (GOK).",
+    "(GEZIEN), lineair daartussen (GOK). Uitgevoerd 2 minuten na het begin (dan pas weet je dat hij meetelt), één keer per "
+    f"kans; gaat dezelfde kans binnen {HEROPEN_S // 60} minuten weer open, dan is het deel van het boek dat je al "
+    "gebruikte op (GOK).",
     "Inleg: de helft geld (de quote van de kansen), de helft munten, verdeeld over de munten die op dat paar echte "
     "kansen hadden, en alles half op elke beurs (GOK). Die munten zijn **achteraf** gekozen; vooraf weet je dat niet.",
     f"Terugschuiven zodra een kant onder {DREMPEL:.0%} van zijn beginvoorraad komt: de helft van het verschil gaat "
@@ -353,8 +399,11 @@ AANNAMES = [
     "geschat uit andere beurzen, GOK). Geld: zie de tabel hieronder.",
     f"Een munt is na {MUNT_REIS_S // 60} minuten op de andere beurs (GOK). Zolang iets onderweg is, telt het niet "
     "als voorraad; kansen die daardoor niet of kleiner konden, staan als gemist of beperkt.",
-    f"Kleiner dan {MIN_ORDER_EUR} euro telt als gemist (GOK; minimale order- en opnamebedragen per beurs niet "
-    "meegeteld). USDT telt tegen de koers van het moment van de kans; de koers USDT-EUR zelf beweegt niet mee (GOK).",
+    "Minimale order (in euro en in munten) en minimale opname van de munt per beurs en munt: uit de openbare API van "
+    "Bitvavo, Kraken, KuCoin en Gate (GEZIEN, opgehaald bij het maken van het rapport). Een kans onder het minimum "
+    f"telt als gemist; een terugschuif onder het opnameminimum wordt opgehoogd tot het minimum. Andere beurzen of geen "
+    f"antwoord: minimale order {MIN_ORDER_EUR} euro (GOK). Kraken geeft zijn opnameminimum niet openbaar: daar geen "
+    "minimum (GOK). USDT telt tegen de koers van het moment van de kans; de koers USDT-EUR zelf beweegt niet mee (GOK).",
     "Koerseffect: slotkoers per 15 minuten (of per uur) uit de openbare candles van Bitvavo, Kraken, KuCoin of Gate "
     "(GEZIEN), over alle aangehouden munten, ook als de scanner tussen twee runs even niet mat.",
     "Niet meegeteld: andere bots die dezelfde kans pakken, dat het boek zich na jouw order aanvult (dan kan het "

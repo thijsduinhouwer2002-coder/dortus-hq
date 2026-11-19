@@ -154,8 +154,8 @@ def dekking(stand):
             "deel_nooit": med([x["nooit_gecontroleerd"] / x["kandidaten"] for x in rijen])}
 
 
-def maak(map_, met_proef=False, koersbron=None):
-    """koersbron: zie simulatie.blok (None = geen koersen ophalen, zoals in de tests)."""
+def maak(map_, met_proef=False, koersbron=None, minima=None):
+    """koersbron en minima: zie simulatie.blok (None = niets van het net halen, zoals in de tests)."""
     kansen, stand = lees(map_, met_proef)
     uren = gemeten_uren(stand)
     uit = ["# Rapport koersverschil-scanner", ""]
@@ -285,7 +285,7 @@ def maak(map_, met_proef=False, koersbron=None):
                 "somber kan zijn: niet alle kandidaten zijn gecontroleerd, en met voorraad op beide beurzen kun je "
                 "dezelfde kans vaker pakken als het boek zich aanvult; dat telt hier niet mee."]
     uit.append("")
-    uit += simulatie.blok(alle_echte, stand, MICA, koersbron, INLEGGEN)
+    uit += simulatie.blok(alle_echte, stand, MICA, koersbron, minima=minima)
 
     bronnen = collections.Counter(r.get("opname_bron") for r in echte)
     uit += ["## Over de meting", "",
@@ -307,5 +307,6 @@ def maak(map_, met_proef=False, koersbron=None):
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    print(maak(args[0] if args else ".", "--met-proef" in sys.argv,
-               None if "--zonder-koers" in sys.argv else simulatie.Koersen))
+    net = "--zonder-koers" not in sys.argv   # zonder: geen koersen en geen minima van de beurzen ophalen
+    print(maak(args[0] if args else ".", "--met-proef" in sys.argv, simulatie.Koersen if net else None,
+               simulatie.Minima() if net else None))

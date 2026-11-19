@@ -50,6 +50,13 @@ Keuzes: beide richtingen van een paar delen één voorraad; opnamekosten van de 
 al opsloeg); netto is precies eindwaarde min inleg (een test dwingt dat af); koersen alleen in het echte rapport
 (`rapport.py` vanaf de opdrachtregel), niet in de tests; geen koers = "onbekend", nooit 0.
 
+Na de keuring (KEURING.md, "Keuring simulatie") en de vraag naar weinig geld: inleg €100, €150 en €200 erbij met
+minimale order en opname uit de API; netto handel (bruto min kosten) apart van het koerseffect, rendement "onbekend"
+als de koers onbekend is; koersen van elke beurs met candles; uitvoeren 2 minuten na het begin; een heropende kans
+krijgt niet opnieuw het volle boek; koers van de laatste gesloten candle; schuiven alleen bij kosten tot 1% (bij 5%
+at het terugschuiven met €150 alle winst op); een tabel met andere drempels en minder munten. Koersen en minima staan
+in `simbronnen.py`, zodat `simulatie.py` onder de ±400 regels blijft.
+
 ## Bekende grenzen
 Netwerk alleen vergeleken waar beide beurzen het geven; overmaaktijd niet gemeten; opnamekosten bij een deel van de beurzen geschat;
 de API is de wereldwijde versie, niet altijd de EU-versie met vergunning. Alles staat in README.md.

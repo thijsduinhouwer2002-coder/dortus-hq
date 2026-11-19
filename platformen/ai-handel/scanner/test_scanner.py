@@ -275,9 +275,46 @@ class TestSimulatie(unittest.TestCase):
                 raise OSError("geen verbinding")
             return [(200, 3.0), (100, 2.0)]
         k = simulatie.Koersen({"X": ("EUR", ["kraken", "bitvavo"]), "Y": ("EUR", ["kraken"])}, 0, 300, haal)
-        self.assertEqual(k("X", 150), 2.0)
-        self.assertEqual(k("X", 250), 3.0)
+        self.assertEqual(k("X", 250), 2.0)                            # candle 200 sluit pas om 300
+        self.assertEqual(k("X", 300), 3.0)
         self.assertIsNone(k("Y", 150))                                # onbekend, niet 0
+
+    def test_minimale_order_en_opname(self):
+        # minimale order 600 euro op beurs a: een kans van 500 telt als gemist; opnameminimum hoogt een schuif op
+        mi = lambda beurs, munt, quote: {"order_q": 600.0 if beurs == "a" else 5.0, "order_m": None, "opname_m": None}
+        d = simulatie.Sim([self.kans(0)], 2000, ("a", "b"), minima=mi).draai().dagen()["2026-11-19"]
+        self.assertEqual((d["gemist"], d["bruto"]), (1, 0))
+        mi2 = lambda beurs, munt, quote: {"order_q": 5.0, "order_m": None, "opname_m": 1200.0}
+        s = simulatie.Sim([self.kans(0)], 2000, ("a", "b"), lambda m, t: 1.0, minima=mi2).draai()
+        self.assertFalse(any(x[1] == "X" for x in s.schuif_log))     # minimum 1200, er staan er maar 1000 op a
+        mi3 = lambda beurs, munt, quote: {"order_q": 5.0, "order_m": None, "opname_m": 300.0}
+        s = simulatie.Sim([self.kans(0)], 2000, ("a", "b"), lambda m, t: 1.0, minima=mi3).draai()
+        self.assertAlmostEqual(next(x[4] for x in s.schuif_log if x[1] == "X"), 500)   # helft verschil >= 300
+        mi4 = lambda beurs, munt, quote: {"order_q": 5.0, "order_m": None, "opname_m": 700.0}
+        s = simulatie.Sim([self.kans(0)], 2000, ("a", "b"), lambda m, t: 1.0, minima=mi4).draai()
+        self.assertAlmostEqual(next(x[4] for x in s.schuif_log if x[1] == "X"), 700)   # opgehoogd tot het minimum
+
+    def test_heropende_kans_krijgt_niet_opnieuw_het_volle_boek(self):
+        a = self.kans(0, quote="USDT", ruimte_eur_med=300, winst100_med=None, winst500_med=None,
+                      winst_ruimte_med=2.5, opname_eur=0.5)
+        b = dict(a, begin="2026-11-19T10:05:00Z", eind="2026-11-19T10:09:00Z")   # 2 min na het eind van a
+        d = simulatie.Sim([a, b], 5000, ("a", "b")).draai().dagen()["2026-11-19"]
+        self.assertAlmostEqual(d["ingezet"], 300)                     # samen niet meer dan één boek
+        self.assertEqual(d["gemist"], 1)
+
+    def test_handel_los_van_koerseffect(self):
+        koers = lambda munt, t: 1.0 if t < simulatie.ts("2026-11-19T10:05:00Z") else 2.0
+        d = simulatie.Sim([self.kans(0)], 2000, ("a", "b"), koers).draai().dagen()["2026-11-19"]
+        self.assertAlmostEqual(d["handel"], d["bruto"] - d["kosten"])
+        self.assertAlmostEqual(d["netto"], d["handel"] + d["koers"])
+        ks = [self.kans(0, koop="bitvavo", verkoop="kraken")]
+        tekst = "\n".join(simulatie.blok(ks, [], rapport.MICA))
+        self.assertIn("Netto handel", tekst)
+        self.assertNotIn("%' if", tekst)
+        rij = next(x for x in tekst.split("\n") if x.startswith("| bitvavo - kraken | €150,00"))
+        self.assertTrue(rij.rstrip(" |").endswith("onbekend*"))      # rendement met onbekende koers: geen getal
+        self.assertIn("**Met €150: netto", tekst)
+        self.assertIn("schuifdrempel 40%", tekst)
 
     def test_blok_in_rapport(self):
         ks = [self.kans(0, koop="bitvavo", verkoop="kraken"), self.kans(10, koop="mexc", verkoop="kraken")]
