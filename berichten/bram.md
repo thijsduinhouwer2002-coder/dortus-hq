@@ -551,3 +551,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±14:22 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 00dd538..3c5c7e5: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-3c5c7e5.md`. Moet en kan: **Moet:** geen. **Kan:** - Bevestig dat heupsnede recht en de kop (moet 3 en 4 van Daan) echt gedaan zijn. De diff toont ze niet. Daan keurt het nieuwe plaatje 19 hierop. - Voeg een kleine test toe voor `glad_romp` (aantal punten groter dan 0, `os` geïmporteerd). - Maak de test in `toetsen_rig.py` scherper. - Pas de docstring "volume blijft" aan of voeg een zachte rand toe. - Zoek in `architectuur.md` en de winkeltekst naar de oude vorm "from rig" en werk bij. - Daan keurt het uiterlijk van plaatje 19 nog. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 14:42 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+7 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
