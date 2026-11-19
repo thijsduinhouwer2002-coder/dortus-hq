@@ -14,6 +14,7 @@ Toetsen (Godot 4.3, moeten 0 FOUT geven):
 ```
 godot --headless --path producten/steam-hol/godot --import
 godot --headless --path producten/steam-hol/godot -s systemen/toetsen/toets_systemen.gd
+godot --headless --path producten/steam-hol/godot -s systemen/toetsen/toets_namen.gd
 godot --headless --path producten/steam-hol/godot -s systemen/toetsen/toets_held.gd
 ```
 - `kroniek_regels.gd`: de ene voorraad kroniekregels (Sanne, `platformen/steam/kroniek-regels.md`), ook met de soorten die `kern/strook.gd` gebruikt (terug_bewoner, terug_val, val, val_bewoner, plat, op, hoed_klein). `kies(soort, v, achter)`: achter een tekst (" +7") wordt erachter geplakt; achter een getal houdt zoveel tekens vrij en geeft nooit leeg (zoals Olafs oude `kern/regels.gd`). Per soort de laatste 4 overgeslagen en over alle soorten heen niets uit de laatste 10 (Sanne toets 5). Naamgenoot: `{naam}` is "Kees II", `{oud}` is "Kees".
