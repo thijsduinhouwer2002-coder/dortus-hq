@@ -398,3 +398,74 @@ Dat maakt een betere bot mogelijk dan "orders rond het midden van het boek": een
 | 9 | Spot- en driehoeksarbitrage, CS2-skins, kaartjes, airdrops, opkopers | n.v.t. | rond 0% | kosten en tijd kwijt |
 
 Verschil met run 4: route 1 blijft op 25 tot 35% maar is scherper: het meeste geld in jonge markten zit in temperatuur, en daar kan een bot een eigen prijs maken. Hyperliquid en Interactive Brokers vallen af als minder grijze kopie; Hyperliquid is wel nuttig om gratis in te dekken als een vraag op beide staat. Gaten tussen platforms zakken van 2 tot 5% naar 1 tot 3%.
+
+---
+
+## Run 6 (19 nov, ±06:25 tot 07:00 Nederlandse tijd)
+Deze run: punt 1 van "nog te doen" uit run 5. Is een eigen weer-prijs beter dan het boek van Polymarket? Zo ja, dan heeft route 1 een tweede poot naast de beloning.
+
+### 20. Terugtest: weermodel tegen de markt, 12 steden, 19 dagen (eigen meting)
+**Werkwijze (GEZIEN, openbare API's, geen account, 19 nov ±05:40 UTC):**
+- 12 steden met markten in hele graden Celsius (Londen, Parijs, München, Warschau, Milaan, Madrid, Ankara, Tokio, Seoul, Toronto, Wellington, Buenos Aires), dagen 26 okt tot 18 nov. Per dag de uitslag (welk vakje won) uit `gamma-api.polymarket.com/events?slug=highest-temperature-in-<stad>-on-<datum>`.
+- **Marktprijs een dag vooraf:** per vakje de prijs om 12:00 UTC de dag ervoor (`clob.polymarket.com/prices-history`), opgeschaald zodat alle vakjes samen 1 zijn.
+- **Model:** de verwachting van de dag ervoor voor het meetstation (Open-Meteo `previous-runs-api`, `temperature_2m_previous_day1`, hoogste uurwaarde van de lokale dag), plus een correctie per station uit de 10 dagen ervoor (alleen verleden, dus eerlijk), en een normale spreiding van 0,8 tot 2,0 graden.
+- Na de eerste 5 dagen per stad (nodig voor de correctie): **228 dagmarkten**.
+
+**Uitslag (GEZIEN):**
+| | Markt | Model (beste spreiding 1,3 graden) |
+|---|---|---|
+| Favoriet wint | **109 van 228 (48%)** | 69 van 228 (30%) |
+| Log-verlies (lager is beter) | **1,30** | 1,70 |
+| Brier (lager is beter) | **0,65** | 0,78 |
+
+Het model zit gemiddeld 0,7 tot 1,6 graden naast de uitslag (per stad, GEZIEN); bij vakjes van 1 graad is dat te grof. De markt is een dag vooraf duidelijk beter dan één weermodel met correctie.
+
+**Is de markt ergens scheef? (GEZIEN, zelfde 228 dagen, 2.508 vakjes):**
+| Prijs een dag vooraf | Vakjes | Gemiddelde prijs | Kwam uit |
+|---|---|---|---|
+| 0 tot 10 cent | 1.850 | 1,3 cent | 1,4% |
+| 10 tot 20 cent | 177 | 14,5 cent | 14,1% |
+| 20 tot 30 cent | 136 | 25,1 cent | 20,6% |
+| 30 tot 40 cent | 144 | 34,7 cent | 34,7% |
+| 40 tot 50 cent | 109 | 44,6 cent | 43,1% |
+| 50 tot 60 cent | 77 | 53,9 cent | 55,8% |
+
+De markt is een dag vooraf **goed geijkt**: de favoriet kost gemiddeld 46 cent en wint 48% (GEZIEN). Goedkope vakjes ("ladder" van neobrother uit run 5) kosten 1,3 cent en komen 1,4% uit: geen voordeel te zien. Alleen 20 tot 30 cent lijkt iets te duur (4,5 cent), maar met 136 vakjes is dat ruis (GOK, te weinig voor een conclusie).
+
+**Handelen op het model (GEZIEN, zelfde data, kopen tegen prijs plus 1 cent als het model een vakje 5 tot 15 cent hoger zag):** 9 van de 9 varianten tussen verlies van 22% en winst van 82%, zonder lijn: 5 tot 10 cent verschil verliest altijd (−2 tot −22%), alleen 15 cent of meer gaf twee keer winst, op een inzet van $3 tot $8 per stuk aandeel. Dat is toeval, geen voordeel.
+
+**Wat dit betekent:**
+1. **"Eigen eerlijke prijs uit gratis weerdata" verslaat het boek niet** (GEZIEN). Wie een voordeel wil, heeft meer nodig dan één model: meerdere modellen, statistiek per station (MOS), of de laatste uren van de dag zelf (de METAR-waarnemingen van vandaag, als de hoogste waarde al bijna vaststaat). Dat laatste is een race tegen bestaande bots (GOK, zie gopfan2 in run 5).
+2. **Goed nieuws voor de beloning:** omdat het boek een dag vooraf al goed geijkt is, kan de bot het midden van het boek als eerlijke prijs nemen. Een eigen weermodel is daarvoor niet nodig. Het verlies op vullingen ontstaat vooral als er nieuwe informatie komt: nieuwe modelruns (rond 00, 06, 12 en 18 UTC plus ±4 uur rekentijd, GOK op tijden) en de waarnemingen op de dag zelf. Een bot die orders weghaalt rond die momenten en op de dag zelf stopt, vermijdt het grootste deel (GOK, nog niet gemeten).
+3. Bouwwerk wordt dus kleiner: geen weermodel, wel een klok en een stopregel.
+
+**Grenzen van deze test (eerlijk):** 19 dagen, één tijdstip (12:00 UTC de dag ervoor), alleen Celsius-steden, en `previous_day1` is niet precies de run die om 12:00 UTC beschikbaar was (GOK: verschil van een paar uur). Een betere weerbron kan het verschil kleiner maken; het gat van 48% tegen 30% is te groot om met één model te dichten (GOK).
+
+### Nog te doen (volgende runs)
+1. Prijsgeschiedenis van afgelopen temperatuurmarkten per uur: hoeveel beweegt het midden rond de modelruns en op de dag zelf? Daaruit volgt hoe vaak een maker op 1 cent van het midden gevuld zou zijn en wat dat kostte (zelfde aanpak als run 4, nu alleen weer, met stopregel).
+2. Belasting op winst bij voorspellingsmarkten en doorverkoop (staat nog open sinds run 1).
+3. De laatste uren: zakt de prijs van het winnende vakje snel naar 1 zodra de METAR het maximum laat zien, of blijft er een paar cent liggen? (meten met dezelfde API's.)
+
+---
+
+## Stand na run 07:00 (19 nov, Nederlandse tijd)
+**Vijf belangrijkste dingen tot nu toe**
+1. Kapitaal-arbitrage (beurzen, driehoek, funding, sport-overlap tussen Hyperliquid en Polymarket) haalt met weinig geld nooit €10.000 in 3 maanden: 0,007% verschil op BTC tegen 0,2 tot 0,8% kosten, funding 3 tot 11% per jaar (GEZIEN, run 1); Hyperliquid HIP-4 heeft spreads van 0,001 cent en volgt Polymarket precies (GEZIEN, run 5).
+2. Het enige "geld voor werk" dat niet van gelijk hebben afhangt: de beloning van Polymarket voor wie orders laat liggen, ±$75.500 per dag (GEZIEN). In grote oude markten krijgt een kleine order bijna niets (0,04 tot 0,07%, GEZIEN); in markten jonger dan 48 uur met een strak boek 46 tot 61% (GEZIEN, run 5). De grootste pot daar: temperatuurmarkten, $5.347 per dag (GEZIEN, run 5).
+3. **Nieuw:** temperatuurmarkten zijn een dag vooraf goed geprijsd. Over 228 dagmarkten won de favoriet van de markt 48% tegen 30% voor een gratis weermodel met correctie, en prijzen kwamen uit zoals ze stonden (46 cent, 48% raak; 1,3 cent, 1,4% raak) (GEZIEN, run 6). Gelijk krijgen tegen het boek met gratis data werkt niet.
+4. Dat maakt route 1 eenvoudiger, niet slechter: de bot neemt het midden van het boek als prijs, pakt de beloning, en haalt zijn orders weg rond nieuwe modelruns en op de dag zelf. Het open risico is verlies op vullingen; dat is voor weer nog niet gemeten. Route 1 blijft grijs in Nederland: saldo kan bevroren worden en is niet af te dwingen (DERDEN, run 2 en 4).
+5. Tweedehands blijft de schone route, maar schaalt met uren: €60 tot €100 per telefoon, 8 tot 13 per week voor het doel (GOK op marge, prijzen GEZIEN, run 2).
+
+**Rangorde op kans maal opbrengst richting €10.000 in 3 maanden** (alle kansen GOK, met reden)
+| # | Route | Inleg geld / uren per week | Kans op €10.000 | Ergste geval |
+|---|---|---|---|---|
+| 1 | Polymarket: beloning pakken in jonge temperatuurmarkten (en andere telbare markten < 48 uur), prijs = midden van het boek, orders weg rond modelruns en op de dag zelf; nooit nieuws, peilingen of lege boeken | €2.000 tot €5.000 / 10 tot 15 bouwen, daarna 5 tot 10 | 20 tot 30% (pot en aandeel GEZIEN; markt goed geijkt GEZIEN, dus geen extra voordeel uit een eigen prijs; verlies op vullingen nog niet gemeten) | saldo bevroren, niet af te dwingen in NL; vullingen vlak voor nieuws eten de beloning op |
+| 2 | Tweedehands doorverkopen met een zoekbot (Marktplaats) | €1.000 tot €2.000 / 20 tot 30 | 15 tot 25% | gestolen of kapot toestel, voorraad, blokkade |
+| 3 | Weermarkten "gelijk krijgen" met een eigen model | €1.000 tot €3.000 / 20+ | onder 5% (gratis model verliest van het boek, GEZIEN run 6; alleen met betere data of de race op de dag zelf) | inleg langzaam kwijt aan een slechter model |
+| 4 | Voorspellingsmarkten: gaten tussen platforms (Polymarket, Hyperliquid, Kalshi, ForecastEx) | €1.000 tot €5.000 / 20+ | 1 tot 3% | markten beslissen anders, beide kanten kwijt |
+| 5 | Sportarbitrage en bonussen in Nederland | €1.000 tot €3.000 / 5 tot 10 | onder 5% (plafond ±€4.000) | accounts beperkt |
+| 6 | Hyperliquid HIP-4 als maker, Kalshi-beloning, ForecastEx-coupon | n.v.t. | rond 0% (geen beloning of buitenlanders uitgesloten, GEZIEN) | n.v.t. |
+| 7 | Odd-lot tenders, kleine promoties, funding-arbitrage | klein / 1 tot 2 | rond 0% met weinig geld | bod ingetrokken, beurs valt om |
+| 8 | Spot- en driehoeksarbitrage, CS2-skins, kaartjes, airdrops, opkopers | n.v.t. | rond 0% | kosten en tijd kwijt |
+
+Verschil met run 5: route 1 zakt licht (25 tot 35% naar 20 tot 30%), omdat de hoop op een eigen, betere weer-prijs wegvalt; de beloning zelf blijft staan en de bot wordt eenvoudiger. "Gelijk krijgen in weermarkten" staat nu apart als route 3 met minder dan 5%.
