@@ -78,3 +78,22 @@ Dit is meten, geen beleggingsadvies. Ik keur alleen of de meting klopt en eerlij
 4. "Hoge grens" in README en rapport "hoge schatting" noemen (A4).
 5. Munt-adres van de beloning nakijken (A15).
 6. Na de 2 weken: `schaduwbot.py` splitsen (B9), tests voor `trades()` en `zet_op_tak` (B10), meta alleen bij wijziging wegschrijven en `rapport.py` alleen `dag/` laten ophalen (B11), wat meer speling in de job-limiet (B6).
+
+## Herkeuring, 19 nov 2026 ±09:55 UTC, zelfde keurder
+Wat ik keurde: commit 48b9ea30 (`rapport.py`, `README.md`, `test_schaduwbot.py`, `.github/workflows/schaduwbot.yml`).
+Akkoord: **ja**. Het moet-punt is opgelost; de opschaling is nu eerlijk binnen wat 32 minuten data kan zeggen.
+
+| # | Wat ik nakeek | Uitslag |
+|---|---|---|
+| H1 | `voorraad_geld`: JA gekocht kost de prijs, een gevulde laat op JA voor a is NEE kopen voor 1 − a; per markt worden paren JA plus NEE weggestreept (samen altijd $1, terug te ruilen) tegen de gemiddelde kostprijs; wat overblijft zit vast tot de uitslag | klopt. Eigen script los van de code (FIFO in plaats van gemiddelde) op de echte vullingen: hoogste stand 1c **$438,21**, 3c **$42,38**; het rapport geeft $438 en $42,38 (GEZIEN). Mijn eerdere $476 was bruto, zonder wegstrepen |
+| H2 | Vrijkomen na de uitslag | voorraad van een markt valt weg op stop + 30 uur, als GOK gelabeld. Past bij de marktregel (uitslag bij de eerste METAR van de volgende dag, uiterlijk 23:59 ET de dag erna, plus tijd om te verzilveren); in het slechtste geval later. Test `test_voorraadgeld_streept_ja_en_nee_weg_en_komt_vrij` rekent wegstrepen en vrijkomen goed na |
+| H3 | Opschaling | het benodigde geld is nu gemiddelde open orders **plus** de hoogste voorraadstand, en de inleg wordt daarop begrensd. Getoetst op een nagemaakte tweede run (eigen kopie van de data, 2 uur verschoven, alleen om de opschaling te laten verschijnen): €5.000 wordt $5.000 van $5.775 nodig, dus 87%, in plaats van "alles". Het rapport zegt er zelf bij dat de voorraad groeit tot de eerste markten beslist zijn en dat het getal tot dan te laag is. Eerlijk |
+| H4 | Vullingen zonder prijs 1 uur later | tellen niet meer als 0: verlies geschat met het verlies per dollar van de rest (1 uur, anders 5 minuten), als GOK gelabeld, met het aantal erbij. De dagtabel zegt "alleen vullingen met prijs 1 uur later" |
+| H5 | Kan-punten | ondergrens en hoge schatting hernoemd en uitgelegd; beslisregel noemt ook "tegen de uitslag" en het geld uit orders plus voorraad; verlies per dollar apart voor hoogste (−0,73%, 61 vullingen) en laagste (+1,63%, 7 vullingen) na 5 minuten (GEZIEN, te weinig om iets te zeggen) |
+| H6 | Rapport op de echte tak | `python3 platformen/ai-handel/schaduwbot/rapport.py --tak .` draait zonder fout op `ai-handel-data` (tip 0e6cf34e): 32 minuten, nog geen opschaling (die verschijnt vanaf 60 minuten), wel de nieuwe kolom voorraadgeld |
+| H7 | Tests en workflow | 13 tests groen; meten 335 minuten in een job van 358, dus ±20 minuten speling voor rapport en opslaan; verder niets aan de veiligheid veranderd (geen geheimen, geen geforceerde push, alleen de tak `ai-handel-data`) |
+
+**Kan (blijft):**
+1. Zodra de eerste markten beslist zijn: de 30 uur voor vrijkomen naast de echte tijd van beslissen leggen (Gamma geeft per markt wanneer hij sloot).
+2. Kortere runs (5 uur 35) met de klok op 6 uur geven wat vaker een gat tussen twee runs. Het rapport rekent per gemeten minuut, dus geen fout, alleen minder data.
+3. De punten uit de eerste Kan-lijst onder 5 en 6 blijven staan voor na de 2 weken.
