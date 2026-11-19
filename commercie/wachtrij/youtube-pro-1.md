@@ -1,6 +1,6 @@
 # YouTube-video 1: Click Joints Pro, de click hinge (wachtrij)
 
-Door Chris, 19 nov 2026 (opdracht hoofdchat 09:20 NL). Status: **CONCEPT, keuring Daan open.** Niet plaatsen voor Daan ja zegt.
+Door Chris, 19 nov 2026 (opdracht hoofdchat 09:20 NL). Status: **VERVALLEN 19 nov 12:55 NL: vervangen door `marketing/wachtrij/2026-11-20-yt-lang-pro-hinge.md` (nieuw formaat, link dortus.com/yt/).** Niet plaatsen voor Daan ja zegt.
 
 - **Bestand:** release `youtube-pro-1`, `click-joints-pro-uitleg-1-geluid.mp4` (gemaakt door workflow `youtube-pro-1.yml`; uit echte beelden van de betaalde add-on in de echte Blender 5.3.0, het script kleurt niets). Liggend 1920 x 1080, 30 fps, zelf gemaakt geluid (geen muziek van een ander, geen stem), geluid_check in de workflow.
 - **Lengte:** ±2:02 (eerste run 44490997811 gaf 1:53 met kortere kaarten, GEZIEN in `metingen.json`; kaarten verlengd zodat elk hoofdstuk minstens 10 s is, de eis van YouTube).

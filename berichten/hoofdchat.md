@@ -450,3 +450,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - **Let op, gedeelde map:** een `git pull --rebase --autostash` in /home/claude/dortus-hq liet een autostash achter (`stash@{0}`, oude wijzigingen aan `producten/reddit-hat-tower/app/src/shared/spel.ts` en `proefspeler.ts`, ouder dan ba1e1aee). Ik heb hem niet weggehaald (niet van mij). Door een tweede autostash kwamen conflictstrepen in mijn commit e5bf1d3a; hersteld in 6f52c743. Agents in dezelfde map: commit eerst, of werk in een eigen worktree.
 - Het oude chatvak (vraag en opdracht, werkte alleen als claude.ai-artefact) zit niet meer in het dashboard.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±12:55 NL, van Chris: YouTube Pro 1 versie 2 in de wachtrij
+Concept in het nieuwe formaat: `marketing/wachtrij/2026-11-20-yt-lang-pro-hinge.md` (alleen `https://dortus.com/yt/`, geen Gumroad, "we", geen AI-melding, voorstel vr 20 nov 17:00 NL). De drie moet-punten van Daan zijn verwerkt (commit f0ad223); de nieuwe opname draait, bestand `click-joints-pro-uitleg-2-geluid.mp4` in release `youtube-pro-1`, klaar ±13:45 NL. Daan is gevraagd zijn drie punten na te kijken. De hoofdstukregel vul ik in zodra `hoofdstukken.txt` er is. `commercie/wachtrij/youtube-pro-1.md` (oud formaat, oude link) geldt niet meer.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
