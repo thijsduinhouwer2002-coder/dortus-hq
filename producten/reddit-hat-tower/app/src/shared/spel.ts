@@ -176,6 +176,49 @@ export function goudenHelden(dag: number): number[] {
   return [...uit].sort((a, b) => a - b)
 }
 
+/** Waar een held vandaan komt. Alleen beeld, behalve `tempo` (dat telt mee in de regels). */
+export type Kant = 'links' | 'rechts' | 'boven' | 'stuiterL' | 'stuiterR'
+export type HeldStijl = {
+  kant: Kant
+  /** Soort held: 0 ridder, 1 heks, 2 avonturier rood, 3 avonturier paars, 4 dief, 5 bard. */
+  soort: number
+  /** Hele draaiingen tijdens de val, met teken voor de richting. */
+  draai: number
+  /** Vermenigvuldiger op de valsnelheid (0,90 tot 1,10). Voor iedereen gelijk op dezelfde dag. */
+  tempo: number
+}
+
+export const AANTAL_SOORTEN = 6
+
+/**
+ * Stijl van held n op deze dag: vast uit de dagcode en het heldnummer, dus elke speler ziet dezelfde
+ * helden op dezelfde manier vallen, en de server speelt met hetzelfde tempo na.
+ * Held 1 is altijd een ridder van links op gewoon tempo, zodat de eerste hap meteen te lezen is.
+ */
+export function heldStijl(dag: number, held: number): HeldStijl {
+  if (held <= 1) return {kant: 'links', soort: 0, draai: 0.5, tempo: 1}
+  let z = meng(dagZaad(dag) ^ Math.imul(held, 0x9e3779b1))
+  const kies = (n: number): number => {
+    z = meng(z)
+    return z % n
+  }
+  const kanten: Kant[] = [
+    'links',
+    'rechts',
+    'links',
+    'rechts',
+    'boven',
+    'stuiterL',
+    'stuiterR',
+  ]
+  const kant = kanten[kies(kanten.length)] as Kant
+  const soort = kies(AANTAL_SOORTEN)
+  const draaien = [0.5, 1, 1.5, 2]
+  const draai = (draaien[kies(4)] as number) * (kies(2) === 0 ? 1 : -1)
+  const tempo = 0.9 + kies(21) / 100
+  return {kant, soort, draai, tempo}
+}
+
 /** Volgorde van de tien hoeden in de toren vandaag (index in de kit). */
 export function hoedVolgorde(dag: number): number[] {
   const basis = [4, 1, 9, 5, 2, 0, 6, 7, 3, 8]
@@ -200,6 +243,8 @@ export type Potje = {
   hapDicht: number
   /** Nummer van de held die nu valt (vanaf 1). */
   held: number
+  /** Tempo van de held die nu valt (uit heldStijl). */
+  tempo: number
   stap: number
   inhaal: number
   /** Hoeden van de laatste vangst (voor het scherm en de vliegende hoeden). */
@@ -232,6 +277,7 @@ export function nieuwPotje(dag: number): Potje {
     wachtDuur: 300,
     hapDicht: 0,
     held: 0,
+    tempo: 1,
     stap: 0,
     inhaal: 0,
     winst: 0,
@@ -256,6 +302,7 @@ function nieuweHeld(p: Potje): void {
   p.y = 0
   p.fase = 0
   p.held += 1
+  p.tempo = heldStijl(p.dag, p.held).tempo
 }
 
 export function inVangzone(p: Potje): boolean {
@@ -280,7 +327,7 @@ export function druk(p: Potje): void {
     p.besteReeks = Math.max(p.besteReeks, p.reeks)
     // Vroeg vangen geeft geen tempo: de pauze erna duurt zolang de held nog tot de onderkant van de
     // bek had moeten vallen. Zo levert vroeg happen (blind tikken) geen extra helden op.
-    p.inhaal = Math.round((p.regel.vangOnder - p.y) / p.snelheid)
+    p.inhaal = Math.round((p.regel.vangOnder - p.y) / (p.snelheid * p.tempo))
     p.snelheid = Math.min(p.snelheid * p.regel.sneller, p.regel.snelMax)
     p.uitslagen.push(goud ? Uitslag.Goud : p.raak ? Uitslag.Raak : Uitslag.Hap)
     p.toestand = Toestand.Slok
@@ -321,7 +368,7 @@ export function stap(p: Potje): void {
   }
   if (p.hapDicht > 0) p.hapDicht = Math.max(0, p.hapDicht - dt)
   if (p.toestand === Toestand.Valt) {
-    p.y += p.snelheid * dt
+    p.y += p.snelheid * p.tempo * dt
     if (p.y > p.regel.vangOnder) {
       // Gemist: de held loopt weg, de volgende valt iets langzamer. Nooit een hoed kwijt.
       p.toestand = Toestand.Weg

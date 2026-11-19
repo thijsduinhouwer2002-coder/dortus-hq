@@ -1,7 +1,7 @@
 // Het speelveld: grot, gezamenlijke toren, Gloop, de vallende held en de hoedentoren.
 // De spelregels komen uit shared/spel.ts; hier zit alleen hoe het eruitziet en beweegt.
 // Eenheden: de breedte is altijd 454 (zoals op het horloge), de hoogte volgt het scherm.
-import {inVangzone, type Potje, Toestand} from '../shared/spel.ts'
+import {heldStijl, inVangzone, type Potje, Toestand} from '../shared/spel.ts'
 import {B, type Beeld, CX, type Vlucht} from './basis.ts'
 import {klem, veerUit} from './effecten.ts'
 import * as geluid from './geluid.ts'
@@ -11,6 +11,9 @@ import type {GloopStand} from './kunst.ts'
 import {tekenSlot, zetCamera} from './slot.ts'
 
 export {B, type Beeld, nieuwBeeld} from './basis.ts'
+
+const HAP_WOORDEN = ['GULP!', 'CHOMP!', 'SLURP!', 'MUNCH!', 'NOM!']
+const DAG_WOORDEN = ['bye!', 'nope!', 'see ya!', 'phew!', 'not today!']
 
 export class Scene extends MetHeld {
   /** De spelregels melden iets: start de bijpassende beweging. */
@@ -43,7 +46,17 @@ export class Scene extends MetHeld {
           plek: al + i,
         })
       }
-      beeld.kreet = goud ? 'GOLDEN!' : soort === 'raak' ? 'PERFECT!' : 'GULP!'
+      beeld.kreet = goud
+        ? 'GOLDEN!'
+        : soort === 'raak'
+          ? p.reeks >= 10 && p.reeks % 5 === 0
+            ? 'UNSTOPPABLE!'
+            : p.reeks === 5
+              ? 'ON A ROLL!'
+              : 'PERFECT!'
+          : (HAP_WOORDEN[p.held % HAP_WOORDEN.length] as string)
+      // Na een gewone hap knipoogt Gloop even.
+      if (soort === 'hap' && !goud) beeld.knipperTot = nu + 520
       beeld.kreetSub =
         p.winst > 1
           ? `+${p.winst} hats${p.reeks > 1 ? `, streak ${p.reeks}` : ''}`
@@ -69,7 +82,17 @@ export class Scene extends MetHeld {
     ctx.imageSmoothingQuality = 'high'
     const s = beeld.schok.verschuiving(nu)
     ctx.translate(s.x, s.y)
-    tekenGrot(ctx, this.h, this.voet, this.mond())
+    // Licht en blik volgen de held: waar hij vandaan komt (in de pauze al de volgende, als hint).
+    const wie = p.toestand === Toestand.Wacht ? p.held + 1 : Math.max(1, p.held)
+    const komt = heldStijl(p.dag, wie)
+    beeld.baanX += (this.beginX(komt) - beeld.baanX) * Math.min(1, dt / 220)
+    const vanRechts = komt.kant === 'rechts' || komt.kant === 'stuiterL'
+    beeld.kijk += ((vanRechts ? -1 : 1) - beeld.kijk) * Math.min(1, dt / 70)
+    if (p.toestand === Toestand.Valt && beeld.gezienHeld !== p.held) {
+      beeld.gezienHeld = p.held
+      geluid.wie(komt.soort)
+    }
+    tekenGrot(ctx, this.h, this.voet, this.mond(), beeld.baanX)
 
     // Gezamenlijke toren achterin: de hoeden van de hele subreddit vandaag, plus die van deze ronde.
     if (beeld.sub)
@@ -121,9 +144,25 @@ export class Scene extends MetHeld {
       this.tekenTijd(p)
       this.tekenTeller(p, this.torenTop(beeld.toren, volgorde))
       this.tekenKreet(beeld, nu)
-      if (p.toestand === Toestand.Weg)
-        tekst(ctx, 'bye!', 30, voet - 190, 30, 'left', '#fff6e6')
+      if (p.toestand === Toestand.Weg) this.tekenDag(p)
     }
+  }
+
+  /** Wat de gemiste held roept, aan de kant waar hij wegloopt. */
+  tekenDag(p: Potje): void {
+    const rechts =
+      this.boog(900 / 815, this.mond(), heldStijl(p.dag, p.held)).x >
+      this.mond().x
+    const woord = DAG_WOORDEN[p.held % DAG_WOORDEN.length] as string
+    tekst(
+      this.ctx,
+      woord,
+      rechts ? B - 30 : 30,
+      this.voet - 190,
+      30,
+      rechts ? 'right' : 'left',
+      '#fff6e6',
+    )
   }
 
   gloopStand(p: Potje, beeld: Beeld, nu: number): GloopStand {
@@ -132,6 +171,7 @@ export class Scene extends MetHeld {
     if (p.toestand === Toestand.Valt && inVangzone(p) && p.hapDicht === 0)
       return 'hap'
     if (p.toestand === Toestand.Einde || nu < beeld.blijTot) return 'blij'
+    if (nu < beeld.knipperTot) return 'knipper'
     if (nu > beeld.volgendeKnipper) {
       beeld.knipperTot = nu + 120
       beeld.volgendeKnipper = nu + 2200 + Math.random() * 2600
@@ -160,6 +200,13 @@ export class Scene extends MetHeld {
     ctx.beginPath()
     ctx.ellipse(0, -4, g.b * 0.46, 10, 0, 0, Math.PI * 2)
     ctx.fill()
+    // Gloop kijkt naar de kant waar de held vandaan komt (gespiegeld, met een snelle draai).
+    ctx.scale(
+      Math.abs(beeld.kijk) < 0.15
+        ? 0.15 * Math.sign(beeld.kijk || 1)
+        : beeld.kijk,
+      1,
+    )
     ctx.drawImage(img, -g.b / 2, -g.h, g.b, g.h)
     ctx.restore()
     return {

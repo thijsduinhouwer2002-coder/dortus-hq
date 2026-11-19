@@ -6,7 +6,16 @@ let aan = localStorage.getItem('gloop-geluid') !== 'uit'
 const FILM = new URLSearchParams(location.search).has('film')
 const logboek: {t: number; naam: Klank; arg: number[]}[] = []
 
-type Klank = 'gulp' | 'goud' | 'lucht' | 'mis' | 'einde' | 'land' | 'start'
+type Klank =
+  | 'gulp'
+  | 'goud'
+  | 'lucht'
+  | 'mis'
+  | 'einde'
+  | 'land'
+  | 'start'
+  | 'boing'
+  | 'wie'
 
 export function geluidAan(): boolean {
   return aan
@@ -60,9 +69,18 @@ function toon(
 /** Alle klanken: (doel, starttijd, argumenten). */
 const KLANKEN: Record<Klank, (c: Doel, t: number, arg: number[]) => void> = {
   // De slok: een zakkende, ronde klank. Hoger bij een langere reeks; met een tinkel bij een voltreffer.
-  gulp: (c, t, [raak = 0, reeks = 0]) => {
+  gulp: (c, t, [raak = 0, reeks = 0, kleur = 1]) => {
     const op = Math.min(reeks, 8) * 18
-    toon(c, t, 260 + op, 70, 0.22, 'sine', 0.5)
+    // Elke slok net iets anders: toonhoogte en lengte wisselen een beetje.
+    toon(
+      c,
+      t,
+      (260 + op) * kleur,
+      70 * kleur,
+      0.2 + 0.05 * (kleur - 0.9) * 5,
+      'sine',
+      0.5,
+    )
     if (raak)
       toon(c, t, 880 + op * 3, 1320 + op * 3, 0.12, 'triangle', 0.18, 0.05)
   },
@@ -73,6 +91,16 @@ const KLANKEN: Record<Klank, (c: Doel, t: number, arg: number[]) => void> = {
   },
   lucht: (c, t) => toon(c, t, 180, 140, 0.06, 'square', 0.06),
   mis: (c, t) => toon(c, t, 320, 240, 0.16, 'sine', 0.12),
+  // Tegen de wand: een korte boing.
+  boing: (c, t) => {
+    toon(c, t, 150, 420, 0.09, 'triangle', 0.2)
+    toon(c, t, 420, 260, 0.14, 'sine', 0.12, 0.08)
+  },
+  // Een held komt binnen: een klein "wie!" omhoog, per soort held een eigen hoogte.
+  wie: (c, t, [soort = 0]) => {
+    const f = 520 + soort * 70
+    toon(c, t, f, f * 1.6, 0.16, 'sine', 0.05)
+  },
   land: (c, t) => toon(c, t, 520, 780, 0.08, 'triangle', 0.08),
   // Begin van de ronde: een korte, opgewekte "boing" omhoog.
   start: (c, t) => {
@@ -93,13 +121,15 @@ function speel(naam: Klank, arg: number[] = []): void {
 }
 
 export const gulp = (raak: boolean, reeks: number): void =>
-  speel('gulp', [raak ? 1 : 0, reeks])
+  speel('gulp', [raak ? 1 : 0, reeks, 0.92 + Math.random() * 0.16])
 export const goud = (): void => speel('goud')
 export const lucht = (): void => speel('lucht')
 export const mis = (): void => speel('mis')
 export const einde = (): void => speel('einde')
 export const land = (): void => speel('land')
 export const start = (): void => speel('start')
+export const boing = (): void => speel('boing')
+export const wie = (soort: number): void => speel('wie', [soort])
 
 /** Alleen voor het filmpje: rendert alle gespeelde klanken vanaf `vanaf` (performance.now) tot een WAV (base64). */
 async function filmGeluid(vanaf: number, seconden: number): Promise<string> {

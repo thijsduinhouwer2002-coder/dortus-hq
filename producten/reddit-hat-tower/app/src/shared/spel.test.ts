@@ -8,6 +8,7 @@ import {
   dagRegel,
   druk,
   goudenHelden,
+  heldStijl,
   nieuwPotje,
   RONDE_MS,
   STAP_MS,
@@ -138,4 +139,23 @@ test('zelfde dag, zelfde ritme: held n wacht voor iedereen even lang', () => {
   assert.deepEqual(a.drukken, b.drukken)
   const c = speelProef(8, 815, 0, 0, 1)
   assert.notDeepEqual(a.drukken, c.drukken)
+})
+
+test('helden wisselen van kant, soort en tempo, maar vast per dag en heldnummer', () => {
+  const kanten = new Set<string>()
+  const soorten = new Set<number>()
+  for (let held = 2; held < 40; held++) {
+    const a = heldStijl(7, held)
+    assert.deepEqual(a, heldStijl(7, held))
+    assert.ok(a.tempo >= 0.9 && a.tempo <= 1.1)
+    kanten.add(a.kant)
+    soorten.add(a.soort)
+  }
+  assert.equal(kanten.size, 5)
+  assert.ok(soorten.size >= 5)
+  assert.deepEqual(heldStijl(7, 1), heldStijl(8, 1))
+  assert.notDeepEqual(
+    Array.from({length: 10}, (_, i) => heldStijl(7, i + 2).kant),
+    Array.from({length: 10}, (_, i) => heldStijl(8, i + 2).kant),
+  )
 })

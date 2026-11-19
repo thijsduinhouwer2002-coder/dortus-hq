@@ -49,6 +49,14 @@ export type Beeld = {
   sub: string
   /** Bordje bij de gezamenlijke toren (uit achter het start- en uitslagscherm). */
   bordje: boolean
+  /** Welke held al tegen de wand stuiterde (één keer stof en klank). */
+  stuiterHeld: number
+  /** De laatste held die binnenkwam (voor zijn kreetje). */
+  gezienHeld: number
+  /** Kijkrichting van Gloop: 1 naar links, -1 naar rechts (vloeiend). */
+  kijk: number
+  /** Lichtbaan bovenin: x van waar de held komt (vloeiend). */
+  baanX: number
 }
 
 export function nieuwBeeld(): Beeld {
@@ -78,6 +86,10 @@ export function nieuwBeeld(): Beeld {
     slot: null,
     sub: '',
     bordje: true,
+    stuiterHeld: 0,
+    gezienHeld: 0,
+    kijk: 1,
+    baanX: -5,
   }
 }
 

@@ -28,7 +28,7 @@ SPELER = re.search(r'SPELER_JS = """(.*?)"""', (APP / "dev/schermen.py").read_te
 # Voor het filmpje mikt de speler iets beter (zoals iemand die het spel kent).
 SPELER = SPELER.replace("* 40", "* 22").replace("< 0.12", "< 0.04")
 # Het stuk uit het midden van de ronde dat eruit gaat (seconden vanaf de start), zodat het ±33 s wordt.
-KNIP = (12.0, 17.0)
+KNIP = (12.0, 18.0)
 
 ruw = WERK / "ruw.mp4"
 enc = subprocess.Popen(
@@ -60,7 +60,7 @@ with sync_playwright() as pw:
             t_einde = nu
         if t_einde is not None and t_vel is None and pagina.evaluate("!document.getElementById('einde').hidden"):
             t_vel = nu
-        if t_vel is not None and nu - t_vel > 2600:
+        if t_vel is not None and nu - t_vel > 4800:
             break
         if beelden > FPS * 60:
             raise SystemExit("ronde liep niet af")
@@ -76,34 +76,48 @@ enc.wait()
 
 e = (t_einde - t0) / 1000
 a, b = KNIP
-lengte = duur - (b - a)
 
 
 def na(t):
-    """Tijd in het ingekorte filmpje."""
-    return t if t <= a else t - (b - a)
+    """Tijd in het ingekorte filmpje (met de overgang op de knip)."""
+    return t if t <= a else t - (b - a) - 0.3
 
 
-def tekst(s, van, tot, grootte=66, y="h*0.17", kleur="white"):
+OVER = 0.3  # korte overgang op de knip
+
+
+def tekst(s, van, tot, grootte=66, y="h*0.17", kleur="white", x="(w-text_w)/2"):
     return (
         f"drawtext=fontfile={LETTER}:text='{s}':fontsize={grootte}:fontcolor={kleur}:borderw=9:bordercolor=0x2b1206:"
-        f"x=(w-text_w)/2:y={y}:enable='between(t,{van:.2f},{tot:.2f})'"
+        f"x={x}:y={y}:enable='between(t,{van:.2f},{tot:.2f})'"
     )
 
 
+knip = a - OVER  # in het ingekorte filmpje begint het tweede stuk hier (overgang van OVER s)
+t_vel_s = (t_vel - t0) / 1000
+lengte = duur - (b - a) - OVER
+slot = lengte - 2.2  # laatste 2,2 s: de eindkaart
+rechts = "w-text_w-50"  # titel rechts, zodat de eerste held (van links) niet over de G valt
 teksten = [
-    tekst("Gloop's Hat Tower".replace("'", "’"), 0.0, 2.4, 116, "h*0.14", "0x6fe0b0"),
-    tekst("a daily game on Reddit", 0.0, 2.4, 60, "h*0.14+135"),
+    tekst("Gloop's Hat Tower".replace("'", "\u2019"), 0.0, 2.4, 100, "h*0.13", "0x6fe0b0", rechts),
+    tekst("a daily game on Reddit", 0.0, 2.4, 56, "h*0.13+120", "white", rechts),
     tekst("One tap. 30 seconds.", 2.6, 6.0),
-    tekst("Perfect gulps stack more hats", 6.6, 10.4),
-    tekst("Same tower for everyone today", na(b + 0.3), na(b + 4.0)),
-    tekst("Every subreddit builds one tower", na(b + 4.8), na(e - 0.4)),
-    tekst("Share your run. New tower tomorrow.", na(t_vel_s := (t_vel - t0) / 1000) + 0.2, lengte, 60, "h*0.05"),
+    tekst("Perfect gulps stack more hats", 6.6, knip),
+    tekst("Same tower for everyone today", knip + OVER, knip + OVER + 4.2),
+    tekst("Every subreddit builds one tower", knip + OVER + 4.8, na(e) - 0.4),
+    tekst("Share your run.", na(t_vel_s) - OVER + 0.2, slot, 64, "h*0.05"),
 ]
+eindkaart = (
+    f"drawbox=x=0:y=0:w=iw:h=ih:color=0x24110a@0.78:t=fill:enable='gte(t,{slot:.2f})',"
+    + tekst("New tower every day", slot + 0.1, lengte, 84, "h*0.40", "white")
+    + ","
+    + tekst("on r/GloopsHatTower", slot + 0.1, lengte, 92, "h*0.40+120", "0x6fe0b0")
+)
 filter_complex = (
     f"[0:v]trim=0:{a},setpts=PTS-STARTPTS[v1];[0:v]trim={b}:{duur},setpts=PTS-STARTPTS[v2];"
     f"[1:a]atrim=0:{a},asetpts=PTS-STARTPTS[a1];[1:a]atrim={b}:{duur},asetpts=PTS-STARTPTS[a2];"
-    f"[v1][a1][v2][a2]concat=n=2:v=1:a=1[v][au];[v]{','.join(teksten)}[vt]"
+    f"[v1][v2]xfade=transition=fade:duration={OVER}:offset={knip:.3f}[v];"
+    f"[a1][a2]acrossfade=d={OVER}[au];[v]{','.join(teksten)},{eindkaart}[vt]"
 )
 subprocess.run(
     ["ffmpeg", "-v", "error", "-y", "-i", str(ruw), "-i", str(WERK / "geluid.wav"),
@@ -115,5 +129,5 @@ subprocess.run(
 for f in WERK.iterdir():
     f.unlink()
 WERK.rmdir()
-print(f"filmpje: {UIT} ({lengte:.1f} s, {beelden} beelden opgenomen), einde ronde op {na(e):.1f} s, vel op {na(t_vel_s):.1f} s")
+print(f"filmpje: {UIT} ({lengte:.1f} s, {beelden} beelden opgenomen), knip op {knip:.1f} s, einde ronde op {na(e):.1f} s")
 print("fouten in de browser:", fouten or "geen")

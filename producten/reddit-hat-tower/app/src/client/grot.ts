@@ -19,6 +19,7 @@ export function tekenGrot(
   h: number,
   voet: number,
   mond: {x: number; y: number},
+  baanX = -5,
 ): void {
   // Wand, druipstenen en vloer veranderen niet: één keer tekenen, daarna alleen kopiëren.
   const px = ctx.getTransform().a
@@ -34,14 +35,14 @@ export function tekenGrot(
     grotCache = {sleutel, doek}
   }
   ctx.drawImage(grotCache.doek, -20, -20, B + 40, h + 40)
-  // De lichtbaan van linksboven naar de bek, zoals op het horloge.
-  const lg = ctx.createLinearGradient(0, 0, mond.x, mond.y)
+  // De lichtbaan van waar de held komt naar de bek (op het horloge altijd van linksboven).
+  const lg = ctx.createLinearGradient(baanX, 0, mond.x, mond.y)
   lg.addColorStop(0, 'rgba(255, 214, 150, 0.40)')
   lg.addColorStop(1, 'rgba(255, 190, 120, 0.08)')
   ctx.fillStyle = lg
   ctx.beginPath()
-  ctx.moveTo(-60, -40)
-  ctx.lineTo(50, -40)
+  ctx.moveTo(baanX - 55, -40)
+  ctx.lineTo(baanX + 55, -40)
   ctx.lineTo(mond.x + 50, mond.y + 10)
   ctx.lineTo(mond.x - 50, mond.y + 10)
   ctx.closePath()
@@ -49,7 +50,7 @@ export function tekenGrot(
   const nu = performance.now()
   for (const s of STOF) {
     const t = (s.t + nu * s.v) % 1
-    const x = -5 + (mond.x + 5) * t + s.d * 70
+    const x = baanX + (mond.x - baanX) * t + s.d * 70
     const y = -40 + (mond.y + 40) * t
     ctx.fillStyle = `rgba(255, 236, 200, ${0.5 * Math.sin(t * Math.PI)})`
     ctx.beginPath()

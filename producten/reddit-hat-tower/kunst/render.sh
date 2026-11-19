@@ -15,6 +15,12 @@ done
 for s in schrik vallen stap1 stap2; do
   HOL_VERBERG='["hoed"]' "$PY" held.py "$UIT/held-$s.png" ridder "$s" 560 560 32 > "$UIT/log-held-$s.txt" 2>&1
 done
+for spec in heks:0 held:0 held:2 dief:0 bard:0; do
+  s=${spec%%:*}; k=${spec##*:}
+  for st in schrik stap1 stap2; do
+    HOL_VERBERG='["hoed"]' "$PY" held.py "$UIT/held-$s$k-$st.png" "$s" "$st" 560 560 32 "$k" > "$UIT/log-held-$s$k-$st.txt" 2>&1
+  done
+done
 for n in 0 1 2 3 4 5 6 7 8 9; do
   "$PY" hoeden.py "$UIT/hoed-$n.png" 360 360 32 "$n" > "$UIT/log-hoed-$n.txt" 2>&1
 done
