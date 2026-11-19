@@ -5,7 +5,7 @@
 - soort: video
 - product: click-joints-pro
 - bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/youtube-pro-1/click-joints-pro-uitleg-2-geluid.mp4
-- geluid_check: volgt uit run van commit 35858dc (workflow `youtube-pro-1.yml`, stap "In elkaar zetten met geluid"); proef op nepbeelden 19 nov 11:49 UTC: GOED (gemiddeld -16,6 dB, piek -1,3 dB, -14,3 LUFS)
+- geluid_check: volgt uit run 44519478563 (workflow `youtube-pro-1.yml`, stap "In elkaar zetten met geluid"); proef op nepbeelden 19 nov 11:49 UTC: GOED (gemiddeld -16,6 dB, piek -1,3 dB, -14,3 LUFS)
 - lengte: ±2:00 tot 2:07 (GOK; de echte staat na de run in `metingen.json` in de release), liggend 1920x1080
 - tijd: 2026-11-20T17:00:00+01:00
 - doel: https://dortus.com/yt/
@@ -44,7 +44,7 @@ Get Click Joints Pro, with the hinge that stops at 90°, 115° or 135°: https:/
 - "the arc turns red and shows how far you went": keuring Daan moet 1 (alleen de boog wordt rood in beeld, niet de vlakken).
 - Ball joints, fit band, Exploded view, STL en 3MF in Pro: `producten/blender-gewrichten/` en dortus.com/yt/ (GEZIEN 19 nov 11:50 UTC, geeft 200).
 - Gratis versie op extensions.blender.org: winkelpagina Click Joints (eerdere metingen in `commercie/blender-click-joints/`).
-- Keuring Daan versie 1: `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`, akkoord nee, 3 moet. Verwerkt in commit f0ad223: (1) zin over rood in video en tekst aangepast, (2) "Back inside the range" pas vanaf 2,1 s in dat deel (na de beweging terug, het rood is dan gemeten weg), (3) geen stilstaande titel meer: de video opent met de buig naar de stop met titel en "90° · 115° · 135°" erover, het stilstaande been van 9 naar 3 s. Kan 3 ook: geluid naar -14 LUFS.
+- Keuring Daan versie 1: `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`, akkoord nee, 3 moet. Verwerkt in commit ac0dbb7: (1) zin over rood in video en tekst aangepast, (2) "Back inside the range" pas vanaf 2,1 s in dat deel (na de beweging terug, het rood is dan gemeten weg), (3) geen stilstaande titel meer: de video opent met de buig naar de stop met titel en "90° · 115° · 135°" erover, het stilstaande been van 9 naar 3 s. Kan 3 ook: geluid naar -14 LUFS.
 - Herkeuring Daan versie 2: (volgt)
 
 ## Keuring
