@@ -64,3 +64,22 @@ zegt het rapport genoeg. Mag het? De beurzen waar de meeste kansen zitten (MEXC 
 Poloniex, XT) hebben geen MiCA-vergunning: dat is grijs en een keuze voor Thijs, geen reden om af te schieten.
 Daarom moet-punt 1: dan ziet Thijs in één oogopslag wat de route met alleen vergunde beurzen oplevert en wat de
 grijze route er bovenop doet.
+
+# Herkeuring, 19 nov 2026 09:45 UTC, zelfde keurder
+Wat ik keurde: commit d9357e4d (alle scannerbestanden en `scanner.yml`), run 44497441499 met de nieuwe code.
+Akkoord: **ja**. Beide moet-punten zijn goed opgelost en de netwerk-koppeling gooit bijna niets weg (zie H3).
+Tests: 18 groen (zelf gedraaid). Er zijn geen tests afgezwakt: de enige weggehaalde controle (`assertIn("3", ...)`)
+is vervangen door strengere.
+
+| # | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|
+| H1 | **Moet 1 opgelost.** `rapport.py` heeft `MICA` (de 10 beurzen uit de ESMA-tabel, klopt met wat ik in `CASPS.csv` nakeek) en `soort()`: vergund alleen als koop- en verkoopbeurs allebei vergund zijn. De trechter heeft drie kolommen (alle, alleen MiCA, met grijs). Per dag staan echte kansen en mediane winst apart voor MiCA en grijs. Bij de beste munten en beursparen staat de soort, grijze beurzen zijn gemarkeerd, de overmaaktijd staat per soort, en de sommen voor €2.000 en €5.000 staan apart voor "Alleen MiCA" en "Alle (met grijs)". Erbij staat dat de EU-dochter minder munten kan hebben (GOK) en dat het beste beurspaar achteraf gekozen is. Een test dwingt de aparte MiCA-som af. | feit | hoog |
+| H2 | **Moet 2 opgelost.** Het rapport heeft een nieuw blok "Hoeveel wordt er gecontroleerd?" uit `stand.jsonl`: kandidaten, gecontroleerd en nooit gecontroleerd (medianen). Is meer dan 5% nooit gecontroleerd, of ontbreekt het veld, dan noemt het rapport de aantallen en sommen een **ondergrens**; dat staat ook boven de sommen. Het rooster zelf is ook beter: eerst open kansen waar alles open is, dan kandidaten die nog nooit gecontroleerd zijn, dan open kansen met iets dicht of onbekend (hooguit eens per 55 s), dan de rest. Maximaal 120 controles per ronde. | feit | hoog |
+| H3 | **De netwerk-koppeling gooit bijna niets weg.** Ik heb live de wallets van de 8 beurzen opgehaald die netwerken geven, en voor elk munt-beurspaar waar opnemen en storten per munt open staan `netwerk_stand` gedraaid. Uitkomst: 14.587 open, 2.793 onbekend (die tellen gewoon mee) en 124 dicht. In de 124 gevallen "dicht" zocht ik naar plekken waar aan beide kanten een open netwerk staat dat niet gekoppeld werd. Dat zijn er 14, waarvan ±9 echt alleen een naamverschil zijn: TLOS (TELOS tegen TLOS, 5 keer), ASTR (ASTAR tegen ASTR), CRO (CRONOSCHAIN tegen CRO of CROCRONOS) en HYPE (HYPEEVM tegen HYPEREVM). De rest is echt een ander netwerk (GMT POLYGON tegen BSC, FLUX, TLM, C98 en dergelijke): daar is "dicht" terecht, want de munt komt niet aan. Onterecht weggegooid dus ±9 van ±17.500 paren (0,05%), bij een handvol kleine munten. De trechter toont het aantal dat zo afvalt. | feit (telling), naamverschil per geval mijn oordeel | hoog |
+| H4 | Signaal doorgeven: `trap 'kill -TERM "$PID"; wait "$PID"; exit 1' INT TERM` in de stap, `sleep 30 & wait $!` zodat de trap meteen afgaat, en SIGINT ook in `scanner.py`. Bewijs uit de praktijk: zie H6. | feit (code) | hoog |
+| H5 | De overige kan-punten zijn ook gedaan: ALIAS UST/IOT/DSH/UDC alleen bij Bitfinex, grens van 15% ook op het boek (`is_kans`), onbekende opnamekosten tellen niet meer, en `opslaan.sh` zet het rapport pas neer als het gelukt en niet leeg is. | feit | hoog |
+| H6 | Deze push raakt de map van de scanner en breekt daardoor run 44497441499 af (gestart 09:33). Wat er op de tak komt, staat in het eindantwoord aan de hoofdchat: als daar `samenvatting.json` van die run staat, werkt het doorgeven van het signaal. | volgt | |
+
+## Kan (na de herkeuring, blokkeert niet)
+1. Een paar netwerknamen extra in `NET`: TELOS=TLOS, ASTAR=ASTR, CRONOSCHAIN/CROCRONOS=CRO, HYPEEVM=HYPEREVM (H3). Of veiliger: noem "dicht" alleen als geen van beide kanten een open netwerk heeft dat niet te koppelen is; anders "onbekend".
+2. Open kansen met iets dicht of onbekend staan achter de nooit gecontroleerde kandidaten. Komen ze binnen 180 s niet aan de beurt, dan sluiten ze en gaan ze later als nieuwe kans verder. Dan wordt hun duur in stukken geknipt. Dat raakt alleen de regel "ter vergelijking: status onbekend", niet de echte kansen.
