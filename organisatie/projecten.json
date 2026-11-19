@@ -125,7 +125,10 @@
         "wat": "Superhive Cyber Sale (Black Friday)"
       },
       "thijs": [
-        "HP-sessie open laten zodat de hoofdchat Pro 1.1.0 op Gumroad kan zetten, vóór zo 22 nov 16:00"
+        {
+          "doen": "HP-sessie een keer open laten zodat de hoofdchat Pro 1.1.0 op Gumroad kan zetten (±15 min).",
+          "voor": "2026-11-22"
+        }
       ],
       "risico": "Superhive keurt niet op tijd (zegt 3 tot 5 dagen, staat er al 4). De AI-zin in de makersbio moet weg vóór de sale.",
       "laatste_update": "2026-11-19 17:55",
