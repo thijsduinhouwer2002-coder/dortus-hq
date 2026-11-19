@@ -6,4 +6,4 @@ git pull -q --rebase 2>/dev/null || echo "LET OP: git pull --rebase lukte niet (
 git config core.hooksPath .githooks
 chmod +x .githooks/* 2>/dev/null
 echo "Dortus: stand opgehaald ($(git log -1 --format='%h %cr')). Controle voor elke push staat aan."
-echo "Harde regels: geld alleen na ja van Thijs; geen persoonsgegevens (repo is openbaar); webpagina's met curl, nooit WebFetch; niets naar buiten onder de naam van Thijs; GEZIEN/GOK bij elk cijfer; alleen in je eigen plekken schrijven; nooit de koppelingen Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar (Gmail mag, alleen lezen); Nederlands zonder gedachtestreepjes."
+echo "Harde regels: geld alleen na ja van Thijs; geen persoonsgegevens (repo is openbaar); webpagina's met curl, nooit WebFetch; niets naar buiten onder de naam van Thijs; GEZIEN/GOK bij elk cijfer; alleen in je eigen plekken schrijven; alleen de koppelingen Gmail (lezen), Metricool (alleen de Maker van Roep plaatst), Claude Code Remote en context7, de rest nooit (ook AnythingMCP); Nederlands zonder gedachtestreepjes."

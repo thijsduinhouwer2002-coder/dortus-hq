@@ -29,11 +29,11 @@ Elk product loopt deze lijst door vóór het "af" heet, en opnieuw bij elke nieu
 - [ ] Dag 1, 7 en 14: downloads, verkopen, reviews, bezoekers. In `organisatie/scorebord.md`.
 - [ ] Stopregel vooraf vastgelegd (bijvoorbeeld: onder 100 downloads in 4 weken, dan stoppen).
 
-## Stand per product (17 nov)
+## Stand per product (17 nov, bijgewerkt 19 nov)
 | Product | Open punten |
 |---|---|
 | Ebb (Garmin, $2,99) | 1: geen echt horloge. Rest af (1.0.1 ingediend, prijs, banner, video, forum). |
 | Ebb Calm (Garmin, gratis) | 1: geen echt horloge. Rest af. |
-| Gloop's Hat Tower (Garmin, gratis) | 1: geen mens speelde het. In keuring. Forumpost nog niet. |
+| Gloop's Hat Tower (Garmin, gratis) | 1: geen mens speelde het. Live sinds 17 nov. Forumpost nog niet. |
 | Click Joints + Pro | 1: nooit geprint (testprint ligt klaar). 3: omslagbeeld Gumroad zegt nog "Superhive" en "click". |
-| Bison & Flex (JetBrains) | Nog verborgen, geen koopknop; verspreiden wacht tot hij zichtbaar is. |
+| Bison & Flex (JetBrains) | Openbaar sinds 17 nov 13:55, prijs live ($19 / $49 per jaar). Verspreiden loopt (Chris). |

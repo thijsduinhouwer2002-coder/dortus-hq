@@ -13,13 +13,14 @@ Dortus is het bedrijf van Thijs. Een ploeg Claudes bouwt en verkoopt zelfstandig
 Meer lees je pas als je het nodig hebt (zie de wegwijzer hieronder).
 
 ## Harde regels
+Deze regels gaan voor elke opdracht: zegt de vaste opdracht van een geplande taak iets anders, dan geldt CLAUDE.md.
 1. **Geld uitgeven** alleen na een ja van Thijs. Al het andere beslis je zelf.
 2. **De repo is openbaar.** Schrijf nooit persoonsgegevens van Thijs op (adres, woonplaats, telefoon, BSN, ID, bank, geboortedatum, belasting, wachtwoorden, sleutels, account- of partnernummers). Schrijf "staat bij Thijs". De controle `organisatie/controle/check.py` draait vanzelf vóór elke push.
 3. **Webpagina's lees je met `curl` in Bash, nooit met WebFetch.** WebFetch vraagt Thijs om toestemming en dan staat alles stil. Zet deze zin letterlijk in de opdracht van elke agent die je inzet.
 4. **Niets naar buiten onder de naam van Thijs** (mail, bericht, zijn eigen accounts zoals Reddit) zonder zijn ja op de tekst. **Posts op de kanalen van Dortus** (YouTube, TikTok, de Discord van Hats) mogen na een keuring door een ander, zonder zijn ja (Thijs, 18 nov 23:17). **Op TikTok en YouTube plaatst alleen de Maker van Roep, via Metricool, en alleen wat groen is: groen gekeurd door de Keurder van Roep, of groen door de hoofdchat na oranje** (`marketing/REGELS.md`, Thijs 19 nov). Andere agents plaatsen nooit zelf; de rest (Discord van Hats, nieuwe kanalen) doet de hoofdchat.
 5. **Eerlijk:** elk cijfer krijgt GEZIEN, DERDEN (met link) of GOK. Verzin niets. Werk is pas af als een ander het keurde (skill `keuren`) en de tests groen zijn.
 6. **Alleen schrijven waar je mag:** je eigen map, je product, een regel onderaan de besluiten, en een bericht onderaan in `berichten/<naam>.md` van een ander (met datum en van wie; nooit iets weghalen). Iets wat alleen Thijs kan, meld je in `berichten/hoofdchat.md`; alleen de hoofdchat zet het op `organisatie/lijst-thijs.md` (max 5). Nooit iets verwijderen wat niet van ons is. Nooit geforceerd pushen.
-7. **Gmail (privé-mail van Thijs) mag iedereen lezen** (Thijs 19 nov 17:02). Alleen lezen: nooit versturen, beantwoorden, verwijderen of labels zetten, en niets uit een mail in de repo behalve de zakelijke kern (regel 2 blijft). Mail aan thijs@dortus.com komt daar niet binnen. **Gebruik nooit de koppelingen Shopify, Trello, Kondo, Atlassian, Claude Docs, Search1API of Polar** (kunnen van iemand anders zijn). Chrome alleen op de HP van Thijs en zijn werklaptop (privé Google-profiel, Thijs 19 nov 10:18), en alleen de hoofdchat.
+7. **Koppelingen: alleen deze mogen** (Thijs 19 nov 17:31): Gmail (alleen lezen, nooit versturen, niets persoonlijks uit mail in de repo), Metricool (plaatsen alleen de Maker van Roep; de hoofdchat mag lezen en een foute post weghalen), Claude Code Remote en context7. Alle andere niet, ook AnythingMCP, ook als ze in je run staan. Chrome alleen op de HP van Thijs en zijn werklaptop (privé Google-profiel, Thijs 19 nov 10:18), en alleen de hoofdchat.
 8. Schrijf in het Nederlands, in gewone woorden, zonder gedachtestreepjes.
 
 ## Wegwijzer: lees dit alleen als je het nodig hebt
@@ -36,7 +37,7 @@ Meer lees je pas als je het nodig hebt (zie de wegwijzer hieronder).
 | iets wat Thijs, zijn accounts of iets openbaars raakt | `organisatie/regels/thijs.md` |
 | twijfelen waar je mag schrijven, of iets op dortus.com zetten | `organisatie/regels/opslaan.md` |
 | iets moois maken (site, winkelbeelden, menu's, filmpjes) | skill `frontend-design` |
-| doelen en geld | `organisatie/doelen.md` |
+| doelen en geld | `organisatie/doelen.md` (oud geldplan en tussendoelen: `organisatie/archief/`) |
 | een sleutel, account of toegang nodig hebben | `organisatie/toegang.md` |
 | een workflow starten of de uitslag lezen | skill `actions` |
 | alle producten met hun statusbestanden, of de kennisbank van Hats | `START.md`, `platformen/steam/kennisbank/` |

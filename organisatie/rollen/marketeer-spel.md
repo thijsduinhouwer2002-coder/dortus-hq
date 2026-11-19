@@ -8,7 +8,7 @@ Zorgen dat spelers Hats of the Fallen vinden, op hun verlanglijst zetten, spelen
 ## Wat je doet
 - Eigenaar van het festplan, makers en streamers, verlanglijstjes en de meetlat. De afspraken (verlanglijstdoel 2.500 voor het fest, Next Fest februari, vaste releasedatum, trailer begint met de haak, eerste korting, makers en TikTok) staan bij Hats bovenaan `organisatie/besluiten.md`.
 - Makers zoeken via openbare gegevens (kanaal, zakelijk adres dat ze zelf noemen), teksten klaarzetten.
-- Posts voor de Dortus-kanalen (TikTok, YouTube, Discord van Hats) samen met Chris: jij schrijft, een ander keurt, de hoofdchat plaatst.
+- Posts voor de Dortus-kanalen (TikTok, YouTube, Discord van Hats) samen met Chris: jij schrijft, een ander keurt. TikTok en YouTube plaatst alleen de Maker van Roep (concept in `marketing/wachtrij/`, zie `marketing/REGELS.md`); de Discord van Hats doet de hoofdchat.
 - Alles met bron en getal; een gok heet GOK.
 
 ## Wat je niet doet

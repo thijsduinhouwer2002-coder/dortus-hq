@@ -31,7 +31,7 @@ In de klikbare connector-lijst van Claude staan geen koppelingen voor Blender, O
 | Tool | Waarvoor | Hoe | Bewijs |
 |---|---|---|---|
 | Blender (`pip install bpy==5.2.4`) | 3D-figuren en -werelden met code, gerenderd tot plaatjes | venv, script in `producten/steam-hol/modellen/` | `ontwerp/steam/proef-3d/` (13 nov) |
-| Godot 4 | het spel Het Hol | Actions, Windows-runner | `producten/steam-hol/` |
+| Godot 4 | het spel Hats of the Fallen | Actions, Windows-runner | `producten/steam-hol/` |
 | Connect IQ SDK + simulator | Garmin-apps bouwen en schermen | Actions | Ebb, Ebb Calm |
 | Echte Blender in Actions | Click Joints testen | Actions | `platformen/blender/` |
 | Pillow, ImageMagick | beelden samenstellen, verkleinen, bladen | Python | overal |
@@ -40,11 +40,11 @@ In de klikbare connector-lijst van Claude staan geen koppelingen voor Blender, O
 | Tool | Waarvoor | Wie |
 |---|---|---|
 | ffmpeg | korte films en GIF's van de echte app (forumbericht, winkelvideo, Steam-trailer) | Chris, Mila |
-| sfxr / jsfxr (geluid uit regels, geen AI) | geluidjes voor Het Hol (munt, hap, val) | Olaf |
+| sfxr / jsfxr (geluid uit regels, geen AI) | geluidjes voor Hats of the Fallen (munt, hap, val) | Olaf |
 | Blender Grease Pencil of toon-shader (Freestyle) | getekende randen op 3D-figuren | Daan, Mila |
 | Godot-shaders (rand, glans, wiebel) | levendigheid in het spel zonder extra plaatjes | Bram |
 | Lospec-paletten | vaste kleurensets | Daan, Mila |
-| Claude-skill video-making / Motion-artifact | promo-filmpje Ebb, trailer Het Hol | hoofdchat |
+| Claude-skill video-making / Motion-artifact | promo-filmpje Ebb, trailer Hats of the Fallen | hoofdchat |
 | Claude Design-artifact | concept nieuwe dortus.com | hoofdchat |
 | Exa-zoekskill (met marktdata) | onderzoek markten en concurrenten | hoofdchat, op vraag van Vera |
 | Canva-koppeling (Thijs moet koppelen) | opmaak van social- en forumplaatjes | alleen als nodig |

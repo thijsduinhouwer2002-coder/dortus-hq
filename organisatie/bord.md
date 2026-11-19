@@ -10,14 +10,14 @@
 
 | Product | Platform | Stand | Prijs | Volgende stap | Wie |
 |---|---|---|---|---|---|
-| **Hats of the Fallen** | Steam | **RISICO (17 nov 17:00, GEZIEN in Steamworks): ID-controle (KYC) loopt nog; documenten ontvangen 15 nov, Valve zegt tot 45 werkdagen (uiterlijk ±eind januari). De docs zeggen dat je pas na goedkeuring van bank, belasting en bedrijfsgegevens je eerste product kunt opzetten. Wo 18 nov 16:47 GEPROBEERD (Thijs ja): Steamworks weigert: "Je bankgegevens, belastinggegevens en identiteitsverificatie moeten zijn goedgekeurd voordat je dit kunt doen." Geen app gemaakt, appcredit nog beschikbaar. Wachten op Valve; plan B van Olaf geldt.** In aanbouw. Hoofdzaak (besluit 15 nov 23:19) | nog te kiezen | **terugslag, Dame, naamfamilies en vaste plekjes staan op main sinds 17 nov ±17:50 (Olaf, Windows-runs groen); do 19 nov 20:00 bevriezen;** wo 18 nov 12:00 Steam-app aanmaken met Thijs; wo 18 nov 20:00 winkelbeelden keuren met Thijs; za 21 nov speeltest (link vr 20 nov); **vr 27 nov pagina indienen** (7 werkdagen keuring); pagina live ±8 dec; demo 4 jan; Fest 14 tot 18 jan. Iris 17 nov: leuk 7, aandacht 6, mooi 6, doordacht 6. Open: alle capsules en beelden hebben ja van Daan sinds 17 nov (winkelpagina-klaar.md); wacht op oordeel Thijs en trailer na speeltest; alle spel- en winkeltekst is concept tot Thijs hem schrijft | Olaf, Bram, Sanne, Daan, Iris |
+| **Hats of the Fallen** | Steam | **RISICO (17 nov 17:00, GEZIEN in Steamworks): ID-controle (KYC) loopt nog; documenten ontvangen 15 nov, Valve zegt tot 45 werkdagen (uiterlijk ±eind januari). De docs zeggen dat je pas na goedkeuring van bank, belasting en bedrijfsgegevens je eerste product kunt opzetten. Wo 18 nov 16:47 GEPROBEERD (Thijs ja): Steamworks weigert: "Je bankgegevens, belastinggegevens en identiteitsverificatie moeten zijn goedgekeurd voordat je dit kunt doen." Geen app gemaakt, appcredit nog beschikbaar. Wachten op Valve; plan B van Olaf geldt.** In aanbouw; het hoofdproduct is Click Joints Pro (Thijs 19 nov 13:36) | nog te kiezen | **terugslag, Dame, naamfamilies en vaste plekjes staan op main sinds 17 nov ±17:50 (Olaf, Windows-runs groen); do 19 nov 20:00 bevriezen;** wo 18 nov 12:00 Steam-app aanmaken met Thijs; wo 18 nov 20:00 winkelbeelden keuren met Thijs; za 21 nov speeltest (link vr 20 nov); **vr 27 nov pagina indienen** (7 werkdagen keuring); pagina live ±8 dec; demo 4 jan; Fest 14 tot 18 jan. Iris 17 nov: leuk 7, aandacht 6, mooi 6, doordacht 6. Open: alle capsules en beelden hebben ja van Daan sinds 17 nov (winkelpagina-klaar.md); wacht op oordeel Thijs en trailer na speeltest; alle spel- en winkeltekst is concept tot Thijs hem schrijft | Olaf, Bram, Sanne, Daan, Iris |
 | **Ebb** (ademen en adem inhouden) | Garmin | 1.0.1 live, 0 downloads. **Geparkeerd, 0 tokens** (koers 16:47) | $2,99 | niets; staat passief | niemand |
 | **Ebb Calm** (4-7-8 ademen) | Garmin | 1.0.1 live, 1 download. **Geparkeerd, 0 tokens** | gratis | niets | niemand |
 | **Gloop's Hat Tower** (spelletje) | Garmin | **goedgekeurd en live** (winkel-API status APPROVED, gezien 17 nov 21:30), 0 downloads | gratis | niets (geen Showcase-bericht, koers 16:47) | niemand |
 | **Gloop-wijzerplaat** | Garmin | **gestopt** 17 nov 16:47 (koers: geen losse wijzerplaten zonder directe verlanglijstjes). Tak blijft staan | | niets | niemand |
 | **Spraakmemo** | Garmin | **gestopt** 17 nov 16:35: 0 horloges met microfoon zonder ingebouwde spraaknotitie (Gijs, handleidingen nagelezen). Besluit in `besluiten.md` | | niets | niemand |
 | **Click Joints** (gratis) | Blender extensies | live, 234 downloads (18 nov 20:21, GEZIEN) | gratis | uitbrengen met één knop klaar (wacht op token van Thijs); README met GIF bij Daan | Bram |
-| **Click Joints Pro** | Gumroad + Superhive | Gumroad live (winkel "Dortus"). Superhive in keuring. Omslagfoto Gumroad zegt nog "click" en "Pro on Superhive" | zie Gumroad | wo 10:30 Superhive-check; omslag vervangen (bestandskiezer, lukt niet via Chrome) | hoofdchat |
+| **Click Joints Pro** (hoofdproduct, Thijs 19 nov 13:36: nooit klaar) | Gumroad + Superhive | Gumroad live (winkel "Dortus"). Superhive in keuring. Omslagfoto Gumroad zegt nog "click" en "Pro on Superhive" | zie Gumroad | wo 10:30 Superhive-check; omslag vervangen (bestandskiezer, lukt niet via Chrome) | hoofdchat |
 | **Click Joints Pro 1.1** | idem | Ruben bouwt ("Figure from rig") | idem | plan: di ±18:00 naar Daan, wo ±14:00 op Gumroad | Ruben, Daan |
 | **Bison & Flex** | JetBrains | openbaar sinds 17 nov 13:55, prijs staat live ($19 / $49 per jaar). Lege koopknop (buyUrl) is normaal bij verkoop via JetBrains (Chris, GEZIEN) | 30 dagen proef, $19/jaar | studenten/open bron en betalen per maand: vakjes in Sales Info zitten vast, mail aan marketplace@jetbrains.com verstuurd 17 nov ±17:00 vanaf thijs@dortus.com; antwoord afwachten; forumbericht wo 18 nov; awesome-lijst ±vr 20 nov | Chris, hoofdchat |
 | **Rollwright** | Obsidian | live, 44 downloads, 0 verkopen | | geparkeerd, alleen bugs | Olaf |
@@ -51,9 +51,10 @@ Verbruik: 6 agents aan (was 12 op 17 nov). Zoekers en Ruben blijven uit tot de m
 
 ## 3. Losse herinneringen (geplande taken van de hoofdchat)
 
-Sinds di 17 nov 16:10 hangen deze aan de nieuwe hoofdchat (sessie 01RMWUyi3eY8oWQXa8TGtqpE). Nieuwe hoofdchat later: zie `organisatie/overdracht.md` stap 1.
+Sinds di 17 nov 16:10 hangen deze aan de nieuwe hoofdchat (sessie 01RMWUyi3eY8oWQXa8TGtqpE). Nieuwe hoofdchat: lees CLAUDE.md en dit bord.
 
-- **Vaste hoofdchat-ronde** 08:41, 14:41, 17:41, 20:41 volgens `organisatie/hoofdchat-ronde.md`; elke ronde plant de volgende.
+- **Vaste hoofdchat-ronde** elk uur op minuut 40 (geplande taak "hoofdchat-ronde", cron `40 * * * *`, GEZIEN in list_triggers 19 nov) volgens `organisatie/hoofdchat-ronde.md`.
+- **Roep:** Maker elke dag 20:13, Keurder elke dag 20:43 (GEZIEN in list_triggers 19 nov).
 - di 17 nov 20:00: avondcheck plus ronde. trig_01Dz8krq9BLyD9CD5NZddyK6
 - wo 18 nov 08:41: eerste ochtendronde. trig_01YQsWUeM3KN6qiY1BPF1pUG
 - wo 18 nov 10:30: Superhive-keuring Click Joints Pro. trig_01WqQUEdmgLcStaopgWfBV7T
@@ -61,7 +62,7 @@ Sinds di 17 nov 16:10 hangen deze aan de nieuwe hoofdchat (sessie 01RMWUyi3eY8oW
 
 Oude herinneringen van de chat van 17 nov staan alle vier uit (Steam en Abel om 16:11, Avondcheck en Superhive om 17:12).
 
-- **Meetprojecten van Thijs zelf (los van Dortus), sinds 19 nov, gekeurd ja:** koersverschil-scanner (`scanner.yml`) en schaduwbot Polymarket (`schaduwbot.yml`), alleen lezen, geen geld. Data op tak `ai-handel-data`, rapporten `scanner/rapport.md` en `dag/rapport.md`.
+- **Meetprojecten van Thijs zelf (los van Dortus), sinds 19 nov, gekeurd ja:** koersverschil-scanner (`scanner.yml`) en schaduwbot Polymarket (`schaduwbot.yml`), alleen lezen, geen geld. Data op tak `ai-handel-data`; de rapporten `scanner/rapport.md` en `dag/rapport.md` staan op die tak, niet op main.
 
 ## 4. Wat de hoofdchat Thijs beloofde (open)
 - Rapporten meetprojecten aan Thijs: scanner vr 20 nov (1 dag) en wo 26 nov (week); schaduwbot za 21 nov (eerste uitslagen) en do 3 dec (2 weken, beslisregel in README).

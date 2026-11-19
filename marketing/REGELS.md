@@ -24,7 +24,7 @@ Gemaakt 19 nov 2026 door een bouwer, volgens de keuring van 19 nov (`platformen/
 | **Hoofdchat-ronde** | beslist over oranje (zet dan zelf groen of rood), houdt Maker en Keurder in de gaten, kan `marketing/STOP` zetten | zelf plaatsen via Metricool zodra de Maker draait |
 | **Chris en andere agents** | mogen concepten aanleveren in `marketing/wachtrij/` in hetzelfde formaat | zelf plaatsen of keuren |
 
-**Eén eigenaar van plaatsen:** alleen de Maker plaatst via Metricool (brand 8156503). Zo kan het quotum van 20 per maand niet dubbel opgaan. Overgang: zolang er geen Maker-blok in `marketing/dagrapport.md` staat, plaatst de hoofdchat-ronde nog zoals vroeger.
+**Eén eigenaar van plaatsen:** alleen de Maker plaatst via Metricool (brand 8156503). Zo kan het quotum van 20 per maand niet dubbel opgaan. Overgang: zolang er op main geen commit met kop `Roep-Maker:` staat (na te gaan met git log), plaatst de hoofdchat-ronde nog zoals vroeger (één teken, besluit 19 nov opruimen fase 1).
 
 ## Wat de tak mag
 - **Kanalen:** TikTok @dortusstudio en YouTube @Dortusapps, allebei via Metricool. Verder niets in deze fase (geen Bluesky, Mastodon, X, Reddit, Hacker News, fora, Steam, mail).

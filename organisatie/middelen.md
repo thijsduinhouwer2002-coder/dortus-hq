@@ -47,12 +47,12 @@ Kolom **Inloggen** zegt wie er mag inloggen:
 
 Thijs logt overal in met zijn eigen Google-account (keuze Thijs, 6 nov 2026). Een Claude met de browser kan daardoor op veel sites binnenkomen zonder wachtwoord. Daarom geldt:
 - Gebruik die inlog alleen voor sites met **Claude (lezen)** in de tabellen hierboven, en alleen om te lezen.
-- Open nooit Gmail, Google Drive, de instellingen van het Google-account of Google-betalingen.
-- Klik nooit op betalen, kopen, voorwaarden accepteren, verwijderen of plaatsen, ook niet als het kan. Zet zo'n stap op `lijst-thijs.md`.
+- Open nooit Google Drive, de instellingen van het Google-account of Google-betalingen. Gmail alleen lezen, via de koppeling (CLAUDE.md regel 7).
+- Klik nooit op betalen, kopen, verwijderen of plaatsen, ook niet als het kan. Inloggen met Google en voorwaarden accepteren mag alleen de hoofdchat (`organisatie/regels/thijs.md`). Wat alleen Thijs kan, meld je in `berichten/hoofdchat.md`.
 
 ## Nooit voor Claude
 
-Bank, betaalgegevens, de mailbox zelf, domein en DNS, het Google-account zelf.
+Bank, betaalgegevens, mail versturen of verwijderen, domein en DNS, het Google-account zelf.
 
 ## Gestopt
 

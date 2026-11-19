@@ -7,24 +7,26 @@
 
 ## Koers en doelen
 
+- **Hoofdzaak: snel veel geld verdienen.** Elke keuze toetsen op: brengt dit binnen weken geld op, en hoeveel? Bereik telt alleen als het naar geld leidt. Vervangt "eerst bereik, daarna geld" en "niet haasten". (19 nov 01:21)
+- **Hoofdproduct: Click Joints Pro** ("nooit klaar, je stopt nooit"): altijd beter en unieker maken; de vrijgekomen credits gaan daarheen. Hats of the Fallen blijft een product in aanbouw (speeltest za 21 nov, Fest jan 2027). Vervangt "Hats is het ene product dat moet winnen" (17 nov 16:45). (19 nov 13:36)
 - Geen nieuw gat-product nu: de werkwijze van succesvolle makers toepassen op Hats, Click Joints en Bison & Flex, meten op wo 9 dec tegen de nulmeting van 18 nov. (18 nov 18:40, "eerst investeren in wat we hebben")
 - Koers Kingmaker staat in `koers-kingmaker.md` en gaat voor oudere regels: vroeg zijn op een nieuw platform, de brede basistaak, niets wat het platform zelf gaat doen, eigen deel binnen 7 dagen live. (17 nov 16:50, "koers Kingmaker")
 - Wet 3 (kassa) is geen harde eis meer: zonder kassa mag een idee door bij groot bereik, met een opgeschreven route naar later geld; met kassa gaat voor bij gelijke kansen. (18 nov 07:45)
 - De droom van Thijs: een portfolio van goedkope, snelle vroege inzetten; snel stoppen mag. (17 nov 16:50, "de droom van Thijs")
 - Geen tijd voor geld: geen maatwerk, freelance of klantopdrachten, alleen producten die groeien zonder uren van Thijs. (17 nov 16:40)
 - De hoofdchat is compagnon: kritisch, commercieel, gedurfd, komt zelf met ideeën voor groei. (17 nov 16:40; 15 nov 23:05)
-- Hats of the Fallen is het ene product dat moet winnen; de rest staat op onderhoud of is geparkeerd. (17 nov 16:45)
+- Hats of the Fallen in aanbouw, Click Joints Pro is het hoofdproduct (zie boven); de rest staat op onderhoud of is geparkeerd. (19 nov 13:36, vervangt 17 nov 16:45)
 - De focus is niet heilig: een sterk voorstel met bron mag ook buiten Hats. (15 nov 23:21)
 - Elke marketingactie krijgt een doel en 14 dagen; geen tractie is stoppen. (17 nov 16:50, "koers Kingmaker")
 - Elk product is vanaf dag 1 te koop; bereik telt omdat het tot geld leidt. (10 nov 11:46) Zie Twijfel.
-- Geldoelen per maand: € 300 tot € 400 in maart 2027, € 1.000 in nov 2027, € 2.000 tot € 3.000 in nov 2028. (`doelen.md`, 6 nov)
+- Geldoelen per maand: € 300 tot € 400 in maart 2027, € 1.000 in nov 2027, € 2.000 tot € 3.000 in nov 2028; ondergrens, geen doel. Tussendoelen en het oude geldplan staan in het archief. (`doelen.md`, 6 nov; 19 nov 17:31)
 - Geen oude Dortus-apps (Mermaid, Math, PlantUML enzovoort) overzetten. (6 nov, "geen oude Dortus-apps overzetten")
 - Niets nep (reviews, cijfers, beloftes), geen platformregels breken, geen schulden. (9 nov 22:56, "Meer risico, nu geld")
 
 ## Per product
 
 **Hats of the Fallen (Steam)**
-- Hoofdzaak. Desktop Companion Fest 14 tot 18 jan 2027, demo ma 4 jan, pagina live ±8 dec zodra Valve bank, belasting en ID goedkeurt. (9 nov 23:37; 16 nov 23:00 UTC; 18 nov 16:55)
+- In aanbouw (hoofdproduct is Click Joints Pro, 19 nov 13:36). Desktop Companion Fest 14 tot 18 jan 2027, demo ma 4 jan, pagina live ±8 dec zodra Valve bank, belasting en ID goedkeurt. (9 nov 23:37; 16 nov 23:00 UTC; 18 nov 16:55)
 - Alle beelden uit code in Blender (3D), geen pixelart, geen AI-beeld, geen tekenaar; stijl ligt vast, naam akkoord. (13 nov 13:35; 15 nov 13:24; vervangt 13 nov 11:51)
 - Geen AI-melding op Steam: spelerstekst is concept tot Thijs hem schrijft, nergens "no AI" of "human-made". (16 nov 21:05)
 - Diep spel met level ups voor ±100 uur, samen spelen in de demo, nooit voortgang wissen. (16 nov 13:01; 16 nov 12:18)
@@ -37,6 +39,8 @@
 - Vijf beelden uit de mail aan Crunching Koalas niet verplaatsen of hernoemen tot 31 jan 2027; zodra de pagina live is link en appid naar hen. (18 nov 17:01)
 
 **Click Joints en Pro (Blender)**
+- **Click Joints Pro is het hoofdproduct:** nooit klaar, altijd beter en unieker; verbeteren zolang het de kans op geld zichtbaar vergroot. (19 nov 13:36)
+- Prijs Gumroad naar $19 Personal / $24 Supporter / $59 Studio tegelijk met Pro 1.1.0; Superhive pas na de Cyber Sale (2 dec) omhoog. (19 nov ±14:00)
 - Gratis versie heet "Click Joints Free" (0.1.2); geen knop of koopregel naar Pro in Blender, verwijzing alleen via het veld Website. (17 nov 18:35; 15 nov 23:20)
 - Pro: Gumroad live, Superhive ingediend (Personal $12, Studio $45, 12 maanden updates); koers: 10%, alleen conversie. (16 nov 15:02; 15 nov 19:36; 17 nov 16:50)
 - Pro 1.1 "Rig to Figure" gratis voor wie Pro al kocht, daarna $15 tot $19, alleen als Daan of kopers het indrukwekkend vinden. (16 nov 16:09; 16 nov 10:35 UTC)
@@ -94,9 +98,12 @@
 - Vaste afspraken: Hats-spelerstekst schrijft Thijs, geen AI-zin in posts, Ebb geen medische claims, geen AI-beeld of -geluid op Steam. (`regels.md` "Wanneer Thijs vragen"; 16 nov 21:05)
 - Repo is openbaar: geen persoonsgegevens, geen account- of partnernummers; `check.py` voor elke push. (`CLAUDE.md`; `regels.md` 15 nov)
 - Het bord is de ene plek met de stand; de hoofdchat werkt het bij bij elke wijziging. (17 nov 15:05)
-- Alle agents staan uit; aanzetten alleen als Thijs het zegt. (18 nov 16:35; 17 nov 18:36)
+- Agents aan of uit alleen als Thijs het zegt; de stand staat op het bord. (18 nov 16:35; 18 nov 20:12 zes weer aan op verzoek van Thijs)
 - Vooraf vastleggen wat klaar is (vaste lanceerlijst); het cijfer van een frisse keurder is nooit de poort. (12 nov 22:20; 17 nov 11:30)
-- Lat: "perfect" geldt alleen nog voor Hats; snelle Kingmaker-versies alleen op kritieke bugs. (`koers-kingmaker.md` aanpassing 3)
+- Lat: Hats en Click Joints Pro zo goed als het kan (Pro: nooit klaar); nieuwe snelle versies alleen op kritieke bugs. (`koers-kingmaker.md` aanpassing 3; 19 nov 13:36)
+- Op TikTok en YouTube plaatst alleen de Maker van Roep, via Metricool, en alleen wat groen is (Keurder van Roep, of de hoofdchat na oranje). De Discord van Hats en nieuwe kanalen doet de hoofdchat. Andere agents plaatsen nooit. (19 nov ±11:50; 18 nov 23:17)
+- Koppelingen: alleen Gmail (lezen), Metricool (Maker van Roep plaatst; hoofdchat leest en haalt een foute post weg), Claude Code Remote en context7. Alle andere niet, ook AnythingMCP. (19 nov 17:31, vervangt Twijfel 10)
+- Botst een vaste opdracht van een geplande taak met CLAUDE.md, dan geldt CLAUDE.md. (19 nov 17:31)
 - Eerst één voorbeeld op het echte scherm goed, dan pas de rest. (12 nov 08:05)
 - Kritiek van Thijs wordt een vaste regel, zodat hij hem nooit twee keer geeft. (10 nov 22:52)
 - Na goedkeuring door een winkel zelf nakijken of het product zichtbaar en koopbaar is. (17 nov 13:55)
@@ -127,10 +134,10 @@
 4. Android XR-audiobrillen, besluit vóór 5 dec: **opgeschort tot 9 dec**, om dezelfde reden. Komt mee in het besluit van 9 dec.
 5. Oude stopregels van Click Joints (minder dan 10 verkopen in 6 weken) en Bison & Flex (dag 30 onder 30 gebruikers): **vervangen door de meting van wo 9 dec** tegen de nulmeting van 18 nov. Dan beslissen we per product: doorgaan, veranderen of stoppen.
 6. Terugbetalen van Ebb binnen 14 dagen: **niet uitgezocht en nu niet nodig** (0 kopers, geparkeerd). Uitzoeken bij de eerste koper.
-7. "Keuzes nooit haasten" (doelen.md) tegenover de 7-dagenregel van Kingmaker: **geen botsing meer.** Voor Hats gaat kwaliteit voor de datum; de 7-dagenregel geldt alleen voor nieuwe Kingmaker-ideeën, en die liggen stil tot 9 dec.
-8. Tussendoel 20 dec (1.000 gebruikers, € 100 per maand) en de tussenstappen in `doelen.md`: **ligt bij Thijs** (zijn doelen). Zie de vraag aan Thijs van 18 nov 20:15.
+7. "Keuzes nooit haasten" (doelen.md) tegenover de 7-dagenregel van Kingmaker: **vervallen** door de hoofdzaak "snel veel geld verdienen" (19 nov 01:21); "niet haasten" staat niet meer in doelen.md.
+8. Tussendoel 20 dec (1.000 gebruikers, € 100 per maand) en de tussenstappen in `doelen.md`: **naar het archief** (Thijs 19 nov 17:31); `doelen.md` houdt de hoofdzaak, de bedragen per maand en de meting van wo 9 dec.
 9. Eigen openbare repo per product (7 nov) tegenover productcode privé (18 nov 17:04): **allebei, voor verschillende producten.** Betaalde code (Hats, Bison & Flex, Click Joints Pro) gaat privé vóór de paginadag van Hats; de openbare repo blijft als loket voor meldingen en voor gratis producten (zoals de winnaars bij JetBrains doen).
-10. "Gedeeld account" en de verboden koppelingen: **blijft gelden** (harde regel 7 in CLAUDE.md).
+10. "Gedeeld account" en de verboden koppelingen: **vervangen** (Thijs 19 nov 17:31). Het gedeelde account is voorbij; harde regel 7 is nu een lijst van wat mag (Gmail lezen, Metricool, Claude Code Remote, context7).
 
 ## Nieuwe besluiten (vanaf 18 nov 2026 19:30)
 
@@ -157,3 +164,4 @@
 - 19 nov 17:02 (Thijs): iedereen mag de Gmail-koppeling lezen (alleen lezen, niets versturen, geen persoonsgegevens uit mail in de repo). Waarom: antwoorden van winkels lagen te wachten. Die koppeling is zijn privé-Gmail; mail aan thijs@dortus.com (Superhive, Help Scout) komt daar niet binnen.
 - 19 nov 17:31 (Thijs, op het opruimvoorstel `organisatie/opruimen/voorstel-2026-11-19.md`): 1 ja, koppelingen worden een lijst van wat mag (Gmail lezen, Metricool, Claude Code Remote, context7; de rest niet, ook AnythingMCP). 2 ja, ±520 MB oude beelden en ruwe data uit main naar GitHub Releases en 489 oude takken weg (niet: schermen, klok, dashboard, datatakken en takken met werk van de laatste 3 dagen). 3 nee, ai-handel blijft in de openbare repo (dan zijn de meetbots gratis op GitHub Actions; privé kost het minuten), wel naar een eigen map onder onderzoek. 4 ja, de hoofdchat herschrijft de vaste opdrachten van de geplande taken; wat niet lukt doet Thijs in de app. 5 ja, oud geldplan en tussendoelen naar het archief; hoofdzaak en meting 9 dec blijven. Volgorde: tekst en tegenspraak nu, verhuizen pas na de speeltest (zo 22 nov).
 - 19 nov 2026 17:45, bouwer repo-radar (opdracht Thijs 17:18): **repo-radar gebouwd** (`platformen/ideeen/repo-radar/`, workflow `ideeen-radar.yml`, dagelijks, data op tak `ideeen-data`). **Geen voorbeoordeling met GitHub Models:** GitHub Models is sinds 30 juli 2026 helemaal gestopt (GEZIEN op docs.github.com, 19 nov). Het oordeel doet een wekelijkse agent met `platformen/ideeen/repo-radar/opdracht-beoordelaar.md`; de hoofdchat maakt die taak aan.
+- 19 nov 2026 ±18:00, opruim-bouwer (fase 1 van het besluit van 17:31, nog niets verhuisd): **tegenspraak en oude tekst rechtgezet.** Overzicht hierboven bijgewerkt: hoofdzaak en hoofdproduct Click Joints Pro bovenaan (Hats in aanbouw), agents aan of uit volgens het bord, lat Hats en Pro, wie plaatst, koppelingen, "CLAUDE.md gaat voor een vaste opdracht", Twijfel 7, 8 en 10. CLAUDE.md regel 7 is nu een lijst van wat mag; zelfde in `regels/thijs.md`, `toegang.md`, `start.sh` en alle sjablonen. Tijden gelijk aan wat draait (GEZIEN in list_triggers): hoofdchat-ronde elk uur op minuut 40, Roep Maker 20:13 en Keurder 20:43. **Eén teken voor het einde van de overgang van Roep: de eerste commit op main met kop `Roep-Maker:`** (vervangt "Maker-blok in marketing/dagrapport.md" uit het besluit van ±11:50; ook in `marketing/REGELS.md`). `doelen.md` kort (hoofdzaak, bedragen, meting 9 dec); oude doelen en geldplan in `organisatie/archief/`. Weggehaalde regels staan in `organisatie/archief/opruimen-fase1-2026-11-19.md`. | Thijs zei ja op punt 1, 4 en 5 van het voorstel. | Een keurder vindt nieuwe tegenspraak.

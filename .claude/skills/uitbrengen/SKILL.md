@@ -17,6 +17,6 @@ Loop de stappen in volgorde. **Faalt er één: stop, schrijf in je logboek wat f
 4. **Lanceerlijst** uit `organisatie/regels/uitbrengen.md` nagelopen voor wat deze versie raakt (beloftes kloppen, beelden en prijs gelijk overal).
 5. **Uitbrengen met de workflow** van het product, gestart door een tag te pushen (zie `organisatie/toegang.md`; "Run workflow" kan de ploeg niet) (bijvoorbeeld `click-joints-uitgave.yml`, `jetbrains-bison-flex-upload.yml`, `publiceer.sh release`). Geen workflow? Dan is het eerste werk er een maken (zie punt 1 van het ritme in de regels), niet met de hand uploaden.
 6. **Controleren of het echt live is:** haal de winkelpagina of winkel-API op met `curl` en zie de nieuwe versie staan. Pas dan is het uitgebracht (les Bison & Flex 17 nov: goedgekeurd is niet zichtbaar).
-7. **Vastleggen:** `organisatie/scorebord.md` (versie en datum), het bord via de hoofdchat, en de post of aankondiging als CONCEPT klaar voor de hoofdchat.
+7. **Vastleggen:** `organisatie/scorebord.md` (versie en datum), het bord via de hoofdchat, en de post of aankondiging als concept: voor TikTok en YouTube in `marketing/wachtrij/` (Roep keurt en plaatst), voor de Discord van Hats en andere plekken klaar voor de hoofdchat.
 
 Wat alleen Thijs kan (eerste aanmelding bij een winkel, een sleutel aanmaken, betalen) meld je in `berichten/hoofdchat.md`, met precies wat hij moet doen; de hoofdchat zet het op de lijst voor Thijs.

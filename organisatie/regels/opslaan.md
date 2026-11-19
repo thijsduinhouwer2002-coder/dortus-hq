@@ -5,7 +5,7 @@ Lees dit als je twijfelt waar je mag schrijven, of iets op dortus.com zet.
 ## Opslaan
 - Begin met `git pull --rebase`.
 - Je mag alleen schrijven in je eigen map in `platformen/` (de strateeg in `strategie/`, Chris in `commercie/`), in je eigen bestand in `berichten/` (alleen "verwerkt" erachter zetten), een regel onderaan bij "Nieuwe besluiten" in `organisatie/besluiten.md`, de code van je eigen product in `producten/`, en een bericht onderaan in het berichtenbestand van een ander (met datum en van wie). Wat alleen Thijs kan meld je in `berichten/hoofdchat.md`; alleen de hoofdchat schrijft in `organisatie/lijst-thijs.md`. Alleen de hoofdchat schrijft in `organisatie/bord.md` en `rapporten/`.
-- Code: werk op een tak `claude/<platform>-<datum>`. Voeg samen met `main` als de controleur akkoord is en de tests groen zijn.
+- Code: werk op een tak `claude/<platform>-<datum>`. Voeg samen met `main` als de keurder akkoord is en de tests groen zijn.
 - Notities in je eigen map mag je direct op `main` zetten.
 - Mislukt het opslaan omdat iemand anders net iets opsloeg: `git pull --rebase` en opnieuw. Nooit geforceerd overschrijven.
 
@@ -14,7 +14,6 @@ Sluit je run pas af nadat je met `git ls-remote origin main` (of `refs/heads/<ta
 
 Lukt opslaan niet: zet de volledige nieuwe inhoud van je bestanden in het eindantwoord en meld in je laatste zin dat het niet is opgeslagen. De status "geslaagd" van de taak zegt niets over opslaan.
 
-- **Polar-sleutel (`POLAR_TOKEN`, sinds 10 nov):** alleen gebruiken om te lezen. Iets veranderen in Polar (prijs, product, korting, terugbetaling) mag alleen na een ja van de hoofdchat, ook al kan de sleutel het.
 
 ## Controle openbare repo (15 nov 2026)
 De repo is openbaar. Draai vóór elke push `python3 organisatie/controle/check.py`: die kijkt naar wat jij toevoegt en stopt bij persoonsgegevens (IBAN, telefoonnummer, gmail-adres), sleutels en gedachtestreepjes in tekst. GitHub draait dezelfde controle na elke push (workflow "Controle openbare repo"); rood betekent: meteen weghalen en opnieuw pushen. Zet ook geen ruwe dumps van winkel-API's met andermans mailadressen in de repo; bewaar alleen de cijfers die je nodig hebt.

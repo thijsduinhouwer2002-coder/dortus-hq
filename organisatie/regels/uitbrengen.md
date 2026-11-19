@@ -3,8 +3,8 @@
 Lees dit als je een product of versie live zet. Laad ook de skill `uitbrengen`.
 
 ## Uitbrengen: eigen openbare repo per product
-- Elk product dat live gaat, krijgt een eigen openbare repo onder het account van Thijs (bijvoorbeeld `thijsduinhouwer2002-coder/rollwright`). Daar staat alleen wat openbaar hoort: code, tests, README, LICENSE, CHANGELOG. Geen interne notities, geen e2e, geen ontwerpstukken. Het werk zelf blijft in dortus-hq.
-- Zo'n repo maakt Thijs aan (één klik, het systeem staat het ons niet toe). Daarna maakt de projectchat de geplande taak van de manager opnieuw aan, zodat die in de repo mag pushen.
+- Elk product dat live gaat, krijgt een eigen openbare repo onder het account van Thijs (bijvoorbeeld `thijsduinhouwer2002-coder/rollwright`). Daar staat alleen wat openbaar hoort: code, tests, README, LICENSE, CHANGELOG. Geen interne notities, geen e2e, geen ontwerpstukken. Het werk zelf blijft in dortus-hq. Betaalde code (Hats, Bison & Flex, Click Joints Pro) gaat vóór de paginadag van Hats naar een privé-repo; de openbare repo blijft dan het loket voor meldingen en voor gratis producten (besluiten, Twijfel 9).
+- Zo'n repo maakt Thijs aan (één klik, het systeem staat het ons niet toe). Uitbrengen gaat daarna met een tag-push (bijvoorbeeld `click-joints-v0.1.3`): die start de uitgave-workflow, met dezelfde controles (tests groen, Daan akkoord). Zie `organisatie/toegang.md` en de skill `uitbrengen`.
 - Uitbrengen gaat zonder Thijs: het script `producten/<product>/publiceer.sh` zet de openbare bestanden in die repo. Met `release` als tweede woord maakt de workflow daar vanzelf een release met de versie uit `manifest.json` (sjabloon: `organisatie/sjablonen/obsidian-release.yml`). Updates pikt Obsidian daarna zelf op.
 - Alleen uitbrengen als de e2e-test groen is en Daan akkoord gaf, ook voor de README (dat is de winkelpagina).
 - De allereerste aanmelding bij een platform (bijvoorbeeld Obsidian via community.obsidian.md) doet Thijs één keer met zijn eigen login. Zet die klaar op zijn lijst met precies wat hij moet invullen.
@@ -28,5 +28,5 @@ Elk product loopt deze lijst door vóór het "af" heet, en opnieuw bij elke nieu
 - **Echt getest** zoals de koper het gebruikt (een echte print, een echt horloge of een mens die speelde, een echte installatie). Nog niemand het echt gebruikt: geen geld vragen en geen beloftes die dat vragen.
 - **Waarde en prijs:** in één zin wat de koper krijgt en waarom het beter is dan gratis; gratis of betaald om een reden met cijfers; prijs gelijk in winkel, site en posts.
 - **Winkelpagina:** zoekwoord vooraan in de titel; elke zin bewezen; beelden van het resultaat; elk veld van de winkel gebruikt (banner, video, alle beelden, supportadres); gratis linkt naar betaald waar het mag; geen resten van een oude versie.
-- **Verspreiden, dezelfde dag:** pagina op dortus.com, bericht waar de gebruikers zitten (regels gelezen, plaatsen via de hoofdchat), filmpje, reacties binnen 24 uur beantwoorden.
+- **Verspreiden, dezelfde dag:** pagina op dortus.com, bericht waar de gebruikers zitten (regels gelezen; TikTok en YouTube via Roep in `marketing/wachtrij/`, andere plekken via de hoofdchat), filmpje, reacties binnen 24 uur beantwoorden.
 - **Meten:** dag 1, 7 en 14 en een stopregel vooraf.
