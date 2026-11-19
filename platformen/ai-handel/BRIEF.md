@@ -4,6 +4,12 @@ Thijs wil met eigen geld gaan handelen met hulp van een AI-bot en ziet op TikTok
 
 **De repo is openbaar.** Schrijf nooit bedragen, rekeningen, accounts, wallets of andere persoonlijke of financiële gegevens van Thijs op. Alleen algemene informatie over tools en werkwijzen.
 
+## Vraag van Thijs 19 nov 01:11 (gaat voor, beide zoekers)
+Thijs wil elke maand een vast bedrag van een paar honderd euro inleggen en zoekt een bot of opzet die daarbij past, gevonden op GitHub en in forums. Zoek daarom ook, elk in je eigen hoek:
+- **A (strategie en testen):** welke aanpakken passen bij een vaste maandelijkse inleg van die grootte: periodiek kopen (DCA), DCA met regels (meer kopen na een daling), grid, herbalanceren tussen een paar munten of ETF's, en wat terugtests en ervaringen daarover zeggen tegenover gewoon elke maand kopen en vasthouden. Let op kosten: bij kleine bedragen eten kosten per trade de winst op; reken een voorbeeld door met echte tarieven (DERDEN met link).
+- **B (gereedschap):** open source projecten op GitHub die precies dit doen (bijv. DCA-bots, Freqtrade met DCA, herbalanceer-scripts) met sterren, laatste update, beurzen die ze steunen, en of ze in Nederland bruikbaar zijn (Bitvavo, Kraken). Plus wat beurzen en brokers zelf al ingebouwd hebben voor automatisch periodiek kopen of beleggen, zodat duidelijk is wanneer een eigen bot niets toevoegt. Plus ervaringen uit forums (r/algotrading, r/freqtrade, r/BitcoinBeginners, Tweakers, het forum van Freqtrade): wat werkt bij kleine maandbedragen en wat niet.
+Geen persoonlijk advies en geen "koop dit": alleen wat er is, wat het kost, wat de bewijzen zeggen, en de risico's.
+
 ## Bijgesteld 19 nov 00:55 (Thijs: "kant en klare sws niks")
 Thijs wil zelf bouwen. Zoeker A stopt met kant-en-klaar; wat hij al vond blijft staan in `A-kant-en-klaar.md` als lijst van wat te mijden. Vanaf nu:
 - **A. Strategie, data en testen** (`A-strategie-en-testen.md`): welke strategieën voor een eigen bot aantoonbaar iets doen (met bronnen, geen verkooppraat), hoe je eerlijk terugtest (overfitting, kosten, slippage), op papier handelt, risico beheert (stop-loss, positiegrootte, maximaal verlies per dag), welke data je nodig hebt en waar je die gratis haalt, en hoe je Grok of een ander model zinvol inzet (bijv. sentiment van X) en wat dat in de praktijk opleverde.
