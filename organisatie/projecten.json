@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-19 13:57",
+    "datum": "2026-11-19 14:55",
     "door": "hoofdchat-ronde"
   },
   "projecten": [
@@ -16,7 +16,7 @@
       "status": {
         "woord": "bouwen",
         "kleur": "let-op",
-        "zin": "Speelt op de computer en de tweede keuring zei ja; nu op Reddit zelf testen, dat kan na de login met Thijs."
+        "zin": "Afwisselingsronde gekeurd (akkoord). Speelkeuring Iris: plezier 6, beeld 8 (GOK, haar oordeel); stil tot de devvit-login met Thijs."
       },
       "eigenaar": "hoofdchat",
       "agents": [
@@ -41,7 +41,7 @@
         "reden": "Keurder snel-geld, route 1: verwacht ±€350 tot €800 toegezegd; uitkomst €0, €860, €5.200 of €12.900. Geld komt pas eind dec tot half feb.",
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
       },
-      "volgende_stap": "Login met Thijs, daarna op Reddit testen (ranglijst, dagpost, reactie namens de speler) en het filmpje van onder 1 minuut maken.",
+      "volgende_stap": "Login met Thijs vóór ma 23 nov; in de test- en filmronde daarna eerst de drie punten van Iris (doel in beeld, omslag en eindsprint, hoeden husselen); ±1 dec bevriezen en insturen.",
       "deadline": {
         "datum": "2026-12-09",
         "tijd": "03:00",
@@ -55,8 +55,8 @@
       ],
       "risico": "Zonder werkende demopost op Reddit scoort het spel op alle vier jurypunten laag; het filmpje onder 1 minuut is in de praktijk verplicht.",
       "laatste_update": {
-        "datum": "2026-11-19 12:22",
-        "door": "bouwer dashboard"
+        "datum": "2026-11-19 14:55",
+        "door": "hoofdchat-ronde"
       },
       "links": [
         {
@@ -119,7 +119,7 @@
         "reden": "Keurder snel-geld, route 2: €50 tot €300 in 12 weken. De gratis add-on mag in Blender niet naar Pro wijzen, dus kopers komen er niet vanzelf.",
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
       },
-      "volgende_stap": "Status bij Superhive kijken in de Chrome van Thijs; na goedkeuring tekst, tags, beelden en prijs $19 erop en het vinkje voor sitebrede sales aan.",
+      "volgende_stap": "Pro 1.1.0 af (Bram: nog twee moets van Daan op plaatje 19), dan Gumroad naar $19/$24/$59 (ja Thijs 14:00). Superhive: navraag verstuurd 13:59, antwoord per mail; Superhive-prijs pas na 2 dec omhoog.",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -127,7 +127,7 @@
       "thijs": [],
       "risico": "Superhive keurt niet op tijd (zegt 3 tot 5 dagen, staat er al 4). De AI-zin in de makersbio moet weg vóór de sale.",
       "laatste_update": {
-        "datum": "2026-11-19 13:57",
+        "datum": "2026-11-19 14:55",
         "door": "hoofdchat-ronde"
       },
       "links": [
