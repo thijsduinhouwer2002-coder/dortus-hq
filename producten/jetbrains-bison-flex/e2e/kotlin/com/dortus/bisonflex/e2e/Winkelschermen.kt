@@ -284,6 +284,8 @@ private fun IdeTest.winkelAllePlekken(d: Driver, naam: String) = with(d) {
         val v = actiefVenster()
         println("DORTUS-E2E [$naam] winkel: na Alt+F7 en Enter Find-paneel open $open, actief venster $v '${vensterNaam(v)}' (IDE $ide)")
         println("DORTUS-E2E [$naam] winkel: Find-paneel toont ${findTabblad()}")
+        // Pas als het Find-paneel stilstaat: de boom klapte in de ene run wel en in de andere niet open (roestronde R4).
+        wachtTotStil("winkel-alleplekken.png", "root")
         schermHeel("winkel-alleplekken.png")
         assertTrue(open, "Find-paneel open na Alt+F7 en Enter op de eerste regel ($naam)")
     } finally {

@@ -124,16 +124,17 @@ internal fun vensters(): List<Pair<String, String>> = try {
 }
 
 /**
- * Schermafbeelding met ImageMagick: alleen het actieve venster (de IDE), zodat rand en balk van het testscherm
- * niet in beeld staan (Daan, beoordeling 3a). Geen actief venster: het hele scherm, en dat staat in het log.
- */
-/**
  * Zoals [scherm], maar pas als het venster stilstaat: twee opnamen na elkaar (300 ms ertussen) zijn gelijk, hooguit
  * [pogingen] keer. Voor beelden met een melding die nog invaagt of een tooltip die nog komt (roestronde R4: zulke
  * plaatjes verschilden van run tot run, zodat de beeldvergelijking vals alarm gaf).
  */
 internal fun schermStil(bestand: String, pogingen: Int = 10) {
-    val venster = actiefVenster() ?: "root"
+    wachtTotStil(bestand, actiefVenster() ?: "root", pogingen)
+    scherm(bestand)
+}
+
+/** Wacht tot twee opnamen van [venster] (of "root") na elkaar gelijk zijn, hooguit [pogingen] keer. */
+internal fun wachtTotStil(bestand: String, venster: String, pogingen: Int = 10) {
     var vorige: ByteArray? = null
     for (i in 1..pogingen) {
         val tijdelijk = Files.createTempFile("dortus-stil", ".rgb")
@@ -148,9 +149,12 @@ internal fun schermStil(bestand: String, pogingen: Int = 10) {
         vorige = nu
         Thread.sleep(300)
     }
-    scherm(bestand)
 }
 
+/**
+ * Schermafbeelding met ImageMagick: alleen het actieve venster (de IDE), zodat rand en balk van het testscherm
+ * niet in beeld staan (Daan, beoordeling 3a). Geen actief venster: het hele scherm, en dat staat in het log.
+ */
 internal fun scherm(bestand: String) {
     val doel = schermen.resolve(bestand)
     val venster = actiefVenster()

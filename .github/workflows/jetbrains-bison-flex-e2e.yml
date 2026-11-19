@@ -73,7 +73,9 @@ jobs:
       # projectboom tellen niet mee, alleen op schermen van het hele IDE-venster (2880x1800, niet op dialogen).
       # Dialogen die een paar pixels van maat springen worden met verschuiving vergeleken (beeldvergelijk.py), en
       # de twee hernoem-plaatjes met een melding of tooltip neemt de test pas op als het beeld stilstaat (schermStil).
-      # Grens 0,3 procent.
+      # Twee bomen klappen in de ene run wel en in de andere niet open, ook als het beeld stilstaat (runs 44436778211
+      # en 44436781019, GEZIEN): de boom in het conflictvenster bij hernoemen en het Find-paneel op winkel-alleplekken.
+      # Die vakken tellen niet mee; de rest van die plaatjes wel. Grens 0,3 procent.
       - name: Beeldvergelijking met de vorige geslaagde run
         id: bv
         if: always()
@@ -87,7 +89,7 @@ jobs:
           echo "B=$B" >> "$GITHUB_ENV"
           N=$(echo "$NAAM" | tr '/' '-')
           bash "$B" vergelijk producten/jetbrains-bison-flex/e2e/screenshots "referentie/jetbrains-bison-flex/$N" \
-            /tmp/beeldverschil 0.3 "Bison & Flex ($N)" "jetbrains-bison-flex/$N" "*@2880x1800:0,0,1000,80;*-calc-y.png@2880x1800:80,1700,1040,1760"
+            /tmp/beeldverschil 0.3 "Bison & Flex ($N)" "jetbrains-bison-flex/$N" "*@2880x1800:0,0,1000,80;*-calc-y.png@2880x1800:80,1700,1040,1760;*-hernoem-conflict.png:0,60,1600,330;winkel-alleplekken.png:180,1225,2800,1745"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
