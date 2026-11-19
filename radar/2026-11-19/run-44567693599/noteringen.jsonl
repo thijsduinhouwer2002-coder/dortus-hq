@@ -1,3 +1,4 @@
 {"t": "2026-11-19T18:02:33Z", "beurs": "gate", "munt": "ANTON", "quote": "USDT", "elders": [], "elders_andere_quote": [], "contract": {}, "opname": false, "storting": true, "vlak_na_start": false, "vorige_lijst": null}
 {"t": "2026-11-19T18:32:33Z", "beurs": "okx", "munt": "XANT", "quote": "USDT", "elders": [], "elders_andere_quote": [], "contract": {}, "opname": null, "storting": null, "vlak_na_start": false, "vorige_lijst": null}
 {"t": "2026-11-19T18:32:33Z", "beurs": "okx", "munt": "XANT", "quote": "USDC", "elders": [], "elders_andere_quote": [], "contract": {}, "opname": null, "storting": null, "vlak_na_start": false, "vorige_lijst": null}
+{"t": "2026-11-19T19:41:33Z", "beurs": "gate", "munt": "ANTX", "quote": "USDT", "elders": [], "elders_andere_quote": [], "contract": {}, "opname": false, "storting": true, "vlak_na_start": false, "vorige_lijst": null}
