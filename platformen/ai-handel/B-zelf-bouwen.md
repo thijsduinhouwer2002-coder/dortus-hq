@@ -178,3 +178,78 @@ Rekensom achter de kans van route 4 (GOK): €10.000 winst in 3 maanden op een p
 3. **API-sleutels**: zowel Kraken als Bitvavo laten je opnemen uitzetten en het IP vastzetten; Kraken zegt zelf dat de IP-whitelist bijna alle misbruik tegenhoudt (GEZIEN).
 4. **€10.000 in 3 maanden** kan met een eigen bot alleen via hefboom of voorspellingsmarkten; in de EU is crypto-hefboom voor particulieren 2x (DERDEN), hogere hefboom en Kalshi zijn grijs (DERDEN). Kans op het doel blijft klein: hoogstens 5 tot 10% voor de beste route (GOK).
 5. **Voor voorspellingsmarkten bestaat goed gereedschap**: NautilusTrader (Kalshi, Polymarket, Betfair) en een Kalshi-demo met nepgeld om eerst op papier te draaien (GEZIEN). Malware-repo's rond Polymarket blijven het grootste gevaar (DERDEN).
+
+## Run 3 (19 nov 2026, ±03:00 Nederlandse tijd)
+Nieuwe hoeken deze run: wat Grok als "ogen op X" echt kost, de goedkoopste plek voor een bot (Hyperliquid) en het risico daarvan, de status van de koppelingen voor voorspellingsmarkten, en AI die via MCP je bot bedient.
+
+### 15. Grok als sentimentbron: X Search kost per post, niet per vraag
+- De Grok-API heeft een ingebouwde tool `x_search`. Prijs: **$5 per 1.000 opgehaalde posts** en $10 per 1.000 profielen, bovenop de tokens. Elke post telt, ook geciteerde en bovenliggende posts in een draad (GEZIEN, [docs.x.ai pricing](https://docs.x.ai/developers/pricing.md)). Web Search kost $5 per 1.000 aanroepen (GEZIEN, zelfde pagina).
+- Je kunt de zoektocht vastzetten op maximaal 20 accounts (`allowed_x_handles`) en op datums (`from_date`, `to_date`, hele dagen in UTC); `max_turns` beperkt hoe vaak het model zoekt (GEZIEN, [docs.x.ai X Search](https://docs.x.ai/developers/tools/x-search.md)). Datums gaan per dag, niet per uur (GEZIEN, "Dates in any other format, including full date-times, aren't applied").
+- xAI heeft zelf een voorbeeld-app "X Sentiment Tracker": één zoektocht geeft hoogstens 10 posts, dus de app zoekt 10 dagen tegelijk, haalt tot 100 posts op, doet er ongeveer anderhalve minuut over en **kost ongeveer 80 cent per run**, vooral voor X Search (GEZIEN, [xAI cookbook](https://docs.x.ai/cookbook/examples/x-sentiment-tracker.md)).
+- Correctie op run 1: daar rekende ik ±$5 per maand voor één vraag per uur, maar dat was alleen tokens. Met X Search erbij (GOK, eigen som op de GEZIEN-prijzen):
+  - elk uur 10 posts over één munt: 24 x 10 x $0,005 = $1,20 per dag, plus tokens, samen orde **$40 tot $50 per maand**;
+  - elk uur een volle run van 100 posts zoals het voorbeeld: 24 x $0,80 = ±$19 per dag, orde **$550 tot $600 per maand**.
+- Wat A vond over het nut van sentiment geldt hier: zonder test die laat zien dat het signaal na kosten iets toevoegt, is dit vooral een kostenpost (GOK, steunt op A punt 6). Begin met de goedkope variant (vaste lijst van een paar accounts, 1 keer per uur of per dag) en sla de scores op, zodat je ze later kunt terugtesten tegen de koers. Grok-scores van het verleden kun je niet achteraf eerlijk maken, want het model weet nu wat er daarna gebeurde (GOK; TradingAgents zegt hetzelfde, zie run 1).
+
+### 16. Hyperliquid: veruit de goedkoopste plek voor een bot, maar grijs
+**Kosten** (GEZIEN, [Hyperliquid fees](https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees.md)):
+- Perpetuals instapniveau: **0,045% taker en 0,015% maker**. Spot instapniveau: 0,070% taker en 0,040% maker. Niveau gaat op 14 dagen volume.
+- Een rondje perps met marktorders is dus 0,09%, tegen 0,5% bij Bitvavo spot en 1,6% bij Kraken spot (GOK, eigen som op GEZIEN-tarieven uit run 1 en 2). Voor een bot die vaak handelt is dat een factor 5 tot 18 goedkoper.
+- Voorspellingsmarkten op Hyperliquid (HIP-4 "outcome markets"): de eerste markt is een dagelijkse ja/nee op de BTC-prijs, afgerekend om 06:00 UTC; **kosten nu nul** "for initial testing"; geen hefboom en geen liquidatie (GEZIEN, [HIP-4](https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-4-outcome-markets.md)). NautilusTrader ondersteunt HIP-4 al (zie punt 17).
+
+**Veiligheid: API-wallet in plaats van een sleutel**
+- Hyperliquid is een DEX: er is geen API-sleutel maar een "API wallet" (ook "agent wallet") die namens je hoofdaccount alleen ondertekent (GEZIEN, [Hyperliquid API wallets](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/nonces-and-api-wallets.md)). Freqtrade zegt erover: "This key won't allow withdrawals, only trading" (GEZIEN, [Freqtrade exchanges](https://www.freqtrade.io/en/stable/exchanges/)).
+- Je kunt een vervaldatum zetten, hoogstens 180 dagen; per account 1 naamloze en 3 benoemde API-wallets (GEZIEN, [exchange endpoint](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint.md)). Hyperliquid raadt sterk aan een oude API-wallet nooit opnieuw te gebruiken, omdat oude ondertekende opdrachten anders opnieuw afgespeeld kunnen worden (GEZIEN, API wallets-pagina).
+- Freqtrade raadt aan: aparte software-wallet met alleen het handelsgeld, nooit je echte wallet-sleutel of de woorden van je hardware wallet op de server, en let op "supply chain attacks, like pip package poisoning" (GEZIEN, Freqtrade exchanges).
+
+**Wat Freqtrade erop kan** (GEZIEN, Freqtrade exchanges):
+- Futures (isolated en cross) met stop-loss op de beurs (stop-limit); spot zonder stop-loss op de beurs.
+- Geen echte marktorders: CCXT doet een limietorder met tot 5% slippage. Bij een dunne markt kan een "marktorder" dus flink slechter uitvallen (GOK, volgt uit die 5%).
+- **Maar 5.000 historische candles**: op 1h is dat ruim een half jaar, op 5m nog geen 18 dagen (GOK, eigen som). Je moet zelf data gaan verzamelen of een andere bron gebruiken; terugtesten op Hyperliquid zelf is dus beperkt.
+
+**Het grijze deel**
+- ESMA zei op 24 feb 2026 dat perpetuals voor particulieren waarschijnlijk onder de CFD-regels vallen met een hefboomgrens van 2:1 (DERDEN, [CryptoTicker](https://cryptoticker.io/en/perpetuals-mifid-classification-leverage-cap/)). De Hyperliquid Policy Center vroeg de Europese Commissie op 30 sep 2026 om perps onder MiFID II te regelen (DERDEN, zelfde bron en [CoinMarketCap](https://coinmarketcap.com/academy/article/hyperliquid-policy-group-urges-eu-to-classify-perpetuals-under-mifid)). Hyperliquid heeft dus geen EU-vergunning en de regels zijn nog niet af.
+- Er is een waarschuwing van de Britse FCA over Hyperliquid (DERDEN, kop van [FinTelegram](https://fintelegram.com/hyperliquid-after-the-fca-warning-defi-branding-meets-regulated-derivatives-reality/); artikel zelf niet kunnen lezen). Een AFM-waarschuwing niet gevonden (GOK, niet volledig gezocht).
+- Risico als particulier (GOK): geen toezicht, geen bescherming als het platform of de brug naar Arbitrum gehackt wordt, en met hoge hefboom kan een bot de inzet in minuten kwijtraken. Juridisch treft een eventuele maatregel vooral de aanbieder; voor jou is het ergste geval dat je geld vastzit of weg is (GOK).
+
+### 17. NautilusTrader: hoe rijp zijn de koppelingen (GEZIEN, losse integratiepagina's op nautilustrader.io)
+- **Hyperliquid**: spot, perps, HIP-3-perps staan als "Stable"; HIP-4 outcome markets worden ondersteund ([NT Hyperliquid](https://nautilustrader.io/docs/latest/integrations/hyperliquid)).
+- **Kalshi**: data (orderboek, trades, candles) en uitvoering met **alleen limietorders**; RFQ niet. Belangrijk: in terugtests en in de sandbox kan het model geen "NO"-positie openen, en de eigen saldoberekening klopt niet met hoe Kalshi geld verrekent, dus `calculate_account_state=false` voor live ([NT Kalshi](https://nautilustrader.io/docs/latest/integrations/kalshi)). Gevolg: een Kalshi-strategie die ook op NEE inzet, kun je in NautilusTrader nog niet eerlijk terugtesten (GOK, volgt uit die beperking).
+- **Polymarket**: marktorders KOPEN gaan in pUSD-bedrag, VERKOPEN in aantal; sommige ordersoorten worden vooraf geweigerd; posities van de hele wallet kan de koppeling niet opvragen ([NT Polymarket](https://nautilustrader.io/docs/latest/integrations/polymarket)). Polymarket is in Nederland verboden (run 2).
+- **Kalshi-kosten**: taker betaalt 0,07 x P x (1 - P) per contract, met P de prijs; het meest bij 50 cent: 1,75 cent per contract, dus 3,5% van de inzet (DERDEN, [Whirligig Bear](https://whirligigbear.substack.com/p/makertaker-math-on-kalshi); eigen deling voor de 3,5%). Sommige markten hebben ook een makerfee (DERDEN, zelfde). Een bot die als maker met limietorders werkt, ontloopt dat meestal (GOK). API-limieten gaan met "tokens": de meeste aanvragen kosten 10 tokens, met aparte budgetten voor lezen en schrijven per niveau (GEZIEN, [Kalshi rate limits](https://docs.kalshi.com/getting_started/rate_limits.md)).
+
+### 18. De AI je bot laten bedienen via MCP: handig, maar zet één ding uit
+- Er bestaan open source MCP-servers waarmee Claude (of een andere AI) via de REST-API met een draaiende Freqtrade praat, bijv. kukapay/freqtrade-mcp (code gelezen, niet uitgevoerd) en het PyPI-pakket freqtrade-mcp-server 0.2.0 van aug 2026 (GEZIEN, [README kukapay](https://raw.githubusercontent.com/kukapay/freqtrade-mcp/main/README.md), [PyPI](https://pypi.org/pypi/freqtrade-mcp-server/json)). Dat is iets anders dan de officiële Jesse MCP (run 1): dit zijn projecten van derden.
+- In de code van kukapay staat een tool `place_trade` die `forcebuy` en `forcesell` aanroept, naast `start_bot`, `stop_bot`, `reload_config` en `delete_lock` (GEZIEN, [__main__.py](https://raw.githubusercontent.com/kukapay/freqtrade-mcp/main/__main__.py)). Een AI kan dus zelf trades openen en een beveiligingsslot weghalen.
+- Freqtrade zelf heeft een rem: **`force_entry_enable` staat standaard uit** "for security reasons", en dan werken gedwongen aankopen via Telegram en REST niet (GEZIEN, [Freqtrade configuration](https://www.freqtrade.io/en/stable/configuration/)). Laat dat uit: dan kan de AI wel kijken (status, winst, trades), maar geen eigen aankopen doen (GOK, volgt uit de docs; verkopen en `stop_bot` kunnen nog wel).
+- De REST-API luistert standaard alleen op de eigen machine; Freqtrade raadt sterk af hem op internet te zetten en zegt: gebruik een ssh-tunnel of VPN naar je VPS. In Docker: `127.0.0.1:8080:8080`, niet `8080:8080` (GEZIEN, [Freqtrade REST API](https://www.freqtrade.io/en/stable/rest-api/)).
+- Zelfde malware-regel als in run 1: een MCP-server draait code op je machine met toegang tot je bot. Alleen gebruiken na zelf lezen van de code (het is hier ±300 regels), en nooit een kopie of fork van een onbekende (GOK).
+
+### 19. Kleine correctie Freqtrade en Bitvavo
+- Op de beurzenpagina van Freqtrade staat Bitvavo nu in het overzicht van "supported exchanges" (spot, geen stop-loss op de beurs), met een aparte notitie over `operatorId` (GEZIEN, [Freqtrade exchanges](https://www.freqtrade.io/en/stable/exchanges/)). In de README staat Bitvavo nog onder "Community tested" (GEZIEN, [README](https://raw.githubusercontent.com/freqtrade/freqtrade/develop/README.md)). De twee bronnen zijn het dus niet eens; behandel Bitvavo als werkend maar minder getest (GOK).
+- Bybit heeft een demomodus met echte markten en nepgeld die Freqtrade ondersteunt (`exchange.demo_trading`); Bybit EU staat officieel in de README (GEZIEN, beide bronnen). Niet in te zetten naast dry-run (GEZIEN). Een tweede manier om op papier te handelen, dichter bij echte uitvoering dan dry-run (GOK).
+
+### 20. Bijgewerkte rangorde van bouwroutes (kans maal opbrengst, alles GOK)
+Wat verandert ten opzichte van run 2: Hyperliquid maakt route 2 qua kosten veel beter, maar niet qua kans (er is nog steeds geen bewezen voordeel, zie A). HIP-4 is een nieuwe, kleine route.
+
+| # | Route en gereedschap | Inleg geld / uren per week | Kans op €10.000 netto in 3 mnd | Ergste geval | Gedaan door anderen? |
+|---|---|---|---|---|---|
+| 1 | Voorspellingsmarkt-bot als maker (Kalshi-API, eerst demo); grijs in NL | €1.000 tot €5.000 / 20+ | 5 tot 10% | inleg kwijt, account dicht | ja (DERDEN via D punt 3 en 10) |
+| 2 | Freqtrade futures op Hyperliquid, API-wallet, lage kosten; grijs | €2.000+ / 10 tot 15 | 2 tot 5% | inleg in dagen kwijt door liquidatie of hack | verhalen, zelden controleerbaar |
+| 3 | NautilusTrader op HIP-4 (dagelijkse BTC ja/nee, nu zonder kosten); grijs | €500+ / 15+ | onder 2% (markt is nieuw en klein) | inleg kwijt; kosten kunnen terugkomen | niet gevonden |
+| 4 | Freqtrade futures op Kraken met EU-hefboom 2x | €10.000+ / 10 | onder 2% | grote daling plus kosten | niet gevonden |
+| 5 | Freqtrade spot op Bitvavo | €10.000+ / 5 tot 10 | onder 1% | trage daling, kosten | ja, bescheiden rendement (A) |
+| 6 | Grok-sentiment als hoofdsignaal | $40 tot $600 per maand aan API / 10 | bijna 0% zonder eerst eigen data te verzamelen | API-kosten plus verlies | niet controleerbaar gevonden |
+
+### Nog te doen
+- AFM-waarschuwingslijst nalezen op Hyperliquid, Kalshi en andere DEX'en (de lijst laadt mogelijk met JavaScript).
+- Hyperliquid: maximale hefboom per munt en wat de brug naar Arbitrum aan risico heeft gehad (hacks of storingen).
+- Grok-sentiment: kijken of iemand een eerlijke, vooraf vastgelegde test heeft gedaan (samen met A).
+- Een volledig voorbeeld van een Freqtrade-config met alle remmen (StoplossGuard, MaxDrawdown, max_open_trades, force_entry_enable uit), alleen als tekst.
+
+## Stand na run 3 (19 nov 2026, ±03:00)
+1. **Freqtrade blijft de basis**, met de AI als schrijver van de strategie; laat `force_entry_enable` uit en zet de REST-API nooit open op internet, dan kan een AI via MCP wel meekijken maar niet zelf kopen (GEZIEN).
+2. **Kosten bepalen alles**: een rondje kost 1,6% op Kraken spot, 0,5% op Bitvavo spot en 0,09% op Hyperliquid perps (GEZIEN tarieven, eigen som). Hyperliquid is de goedkoopste en heeft een API-wallet zonder opnamerecht, maar heeft geen EU-vergunning (grijs) en geeft maar 5.000 candles voor terugtesten (GEZIEN).
+3. **Grok als ogen op X is duurder dan gedacht**: $5 per 1.000 posts; het voorbeeld van xAI kost ±80 cent per run, dus van ±$40 tot ±$600 per maand afhankelijk van hoe vaak (GEZIEN plus eigen som). Eerst goedkoop verzamelen en terugtesten.
+4. **Voor voorspellingsmarkten**: Kalshi kost een taker tot 3,5% van de inzet (DERDEN), NautilusTrader kan Kalshi alleen met limietorders en kan NEE-posities niet terugtesten; HIP-4 op Hyperliquid is nieuw en nu zonder kosten (GEZIEN).
+5. **Veiligheid blijft het grootste punt**: nooit opnamerecht, IP of API-wallet vastzetten, alleen officiële repo's, en MCP-servers van derden eerst zelf lezen (GEZIEN en GOK, zie per punt).
