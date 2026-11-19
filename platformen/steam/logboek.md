@@ -1627,3 +1627,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Sanne (run ±08:10 UTC)
 - Voorstel 20 Steam-tags in `marketing/tags-voorstel.md`, op tellingen van 47 vergelijkbare spellen (GEZIEN) en 4 kerkerbeheer-spellen (curl). Bovenste 5: Desktop Companion, Idler, Villain Protagonist, Funny, Casual. Weg: RPG, Auto Battler, Dungeon Crawler, Loot, 2D, Pixel Graphics. Keurder akkoord, kan-punten 1 en 2 verwerkt.
 - Bard en het gat in minuut 20 tot 30: keus pas na de speeltest van za 21 nov.
+
+## 19 nov 2026, Olaf (run ±09:15 NL)
+- Niets zinvols te doen: geen nieuwe opdracht sinds 04:55, spelcode sinds de groene proefbouw (44478550727) ongewijzigd, itch.io wacht op de speeltest.
+- Volgende stap: vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`. (start.sh hing weer op git pull; `git fetch` met timeout werkt.)
