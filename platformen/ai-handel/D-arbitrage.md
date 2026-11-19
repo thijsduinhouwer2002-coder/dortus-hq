@@ -247,3 +247,73 @@ Coolblue geeft bij inruil **"tot €170"** voor een iPhone 13 128GB, en dat is d
 | 7 | Spot- en driehoeksarbitrage, CS2-skins, kaartjes, airdrops, opkopers | n.v.t. | rond 0% | kosten en tijd kwijt |
 
 Verschil met run 2: route 1 stijgt van 5 tot 10% naar 15 tot 25% omdat de beloning per markt nu gemeten is en jonge markten bijna leeg blijken; hij staat boven tweedehands omdat de opbrengst niet aan uren vastzit, maar hij is grijs en het verlies op vullingen is nog niet gemeten. Wie geen grijs wil, kijkt naar route 2.
+
+---
+
+## Run 4 (19 nov, ±04:25 tot 04:55 Nederlandse tijd)
+Deze run: het grootste gat uit run 3 gemeten, namelijk hoeveel makers in jonge Polymarket-markten verliezen op orders die op het verkeerde moment gevuld worden. Plus: of Kalshi een uitweg is.
+
+### 15. Eigen meting: verlies op vullingen tegen beloning in de eerste 48 uur
+**Hoe gemeten (GEZIEN, openbare API's, geen account):** de 40 markten met de hoogste beloning (uit de 400 duurste in `clob.polymarket.com/rewards/markets/current`) die 2 tot 6 dagen oud zijn, zodat hun eerste 48 uur al voorbij is en er 24 uur na elke trade een prijs bestaat. Per markt alle trades uit `data-api.polymarket.com/v2/trades` (let op: de oude v1 is uitgezet, GEZIEN) en de prijsreeks per 10 minuten uit `clob.polymarket.com/prices-history`. Voor elke trade: wat de maker (de kant die liet liggen) won of verloor als je de prijs 1 uur en 24 uur later neemt ("markout"). Dat bevat zowel de winst op de spread als het verlies door nieuws.
+
+**Uitkomst (GEZIEN, eigen berekening, 19 nov):**
+| | Eerste 48 uur, alle 40 markten |
+|---|---|
+| Gevuld bij makers | ±$103.600 |
+| Resultaat makers na 24 uur | **−$3.470** (−3,3% van wat gevuld werd); na 1 uur −$4.130 |
+| Beloning in die 2 dagen (dagbedrag nu × 2) | **±$5.950** |
+| Mediaan per markt: verlies als deel van de beloning | **8%** |
+| Markten waar het verlies groter was dan de beloning | 9 van 40 |
+
+**Het verlies zit bijna helemaal in nieuwsmarkten** (indeling door mij gemaakt na het zien van de cijfers, dus met korrel zout):
+| Soort markt | Markten | Gevuld 48 uur | Resultaat makers | Beloning 2 dagen |
+|---|---|---|---|---|
+| Nieuws, politieke peilingen, roddel (Jensen Huang, "odds leader", Fed, Democratische meerderheid) | 16 | ±$98.900 | −$3.380 | $2.220 |
+| Telbaar of gepland (scheepvaart door Suez en Bab el-Mandeb, bbp Mexico, Codex-resets, openingskoers Anthropic) | 24 | ±$4.700 | **−$89** | **$3.730** |
+
+**Wat dit betekent:**
+- In de rustige, telbare markten werd bijna niets gevuld en ging bijna niets verloren, terwijl daar de grootste helft van de beloning lag. Daar betaalt Polymarket dus vooral voor het laten liggen, niet voor het risico (GEZIEN als som over 24 markten).
+- In nieuwsmarkten verliezen makers meer dan de hele beloning. Een bot moet die markten mijden of daar heel ver van het midden staan (GEZIEN).
+- Samen met run 3 (in jonge markten zou een order van $200 een mediaan van 32% van de pot krijgen): de gok "5 tot 20% van het model" uit run 3 was vooral bang voor verlies op vullingen. Dat verlies blijkt in rustige markten klein. **De grootste onzekerheid is nu de concurrentie, niet het verlies** (GOK, met reden: als het in de cijfers zo makkelijk is, zullen anderen het ook doen).
+
+**Kanttekeningen (eerlijk):**
+- De beloning per dag heb ik van nu genomen; of die in de eerste 2 dagen even hoog was, weet ik niet (GOK).
+- De prijsreeks is een punt per 10 minuten, niet het echte midden op het moment zelf; dat geeft ruis, maar geen vaste kant op (GOK).
+- Dit zijn alle makers samen. Een beloningsbot die vlakbij het midden staat wordt eerder gevuld dan iemand ver weg, dus zijn verlies per dollar kan hoger zijn dan het gemiddelde (GOK).
+- 40 markten, 2 dagen, één week van het jaar. Klein.
+
+**Bijgestelde som (GOK, vervangt die van run 3):** alleen rustige, telbare markten jonger dan 2 dagen, $2.000 tot $5.000 aan orders. Als je daar 10 tot 30% van het modelbedrag uit run 3 haalt (in plaats van 5 tot 20%) en het verlies op vullingen 10% van de beloning is: grofweg **$150 tot $900 per dag** bruto, $13.000 tot $80.000 over 90 dagen. Dat bovenste getal is niet geloofwaardig zolang niemand het met bewijs laat zien; het onderste ligt rond het doel. De schaduwbot (run 3) blijft de goedkope toets, nu met een duidelijke regel: alleen telbare of geplande markten, nooit peilingen of roddel.
+
+### 16. Kalshi is geen uitweg voor Nederland
+- Kalshi heeft een eigen beloning voor liquiditeit tot 1 jan 2027, maar **"International, non-U.S. users (ineligible for rewards)"** (GEZIEN, [Kalshi Help, Liquidity Incentive Program](https://help.kalshi.com/incentive-programs/liquidity-incentive-program)). Voor iemand in Nederland valt die route dus af.
+- Kalshi heeft in Nederland ook geen vergunning; het kreeg nog geen sanctie zoals Polymarket, maar de Ksa zegt dat vergelijkbare sites ook onder haar toezicht vallen (DERDEN, [Bright](https://www.bright.nl/nieuws/2123798/kalshi-mag-op-deze-plek-geen-weddenschappen-meer-aanbieden.html), [Cointelegraph, 5 mei 2026](https://cointelegraph.com/news/kalshi-hyperliquid-offer-prediction-markets-to-dutch-users-despite-polymarket-ban)).
+- Volgens het FD (via Cointelegraph, DERDEN) bieden ook Hyperliquid en Interactive Brokers voorspellingsmarkten aan Nederlanders aan; Interactive Brokers noemt ze financiële contracten. Of daar een beloning voor liquiditeit bestaat, nog niet nagekeken.
+
+### Nog te doen (volgende runs)
+1. Hyperliquid-voorspellingsmarkten en ForecastTrader van Interactive Brokers: is er een beloning voor makers, hoe groot, en zijn de boeken leeg? Dat zou dezelfde route zijn met minder grijs (Interactive Brokers) of zonder VPN (Hyperliquid, GOK).
+2. Concurrentie meten: in een paar nieuwe telbare Polymarket-markten elk kwartier het boek binnen 4,5 cent lezen in de eerste uren, om te zien hoe snel andere bots erbij komen.
+3. Belasting op winst bij voorspellingsmarkten en doorverkoop (staat nog open sinds run 1).
+
+---
+
+## Stand na run 04:55 (19 nov, Nederlandse tijd)
+**Vijf belangrijkste dingen tot nu toe**
+1. Kapitaal-arbitrage (beurzen, driehoek, funding) haalt met weinig geld nooit €10.000 in 3 maanden: 0,007% verschil op BTC tegen 0,2 tot 0,8% kosten, funding 3 tot 11% per jaar (GEZIEN, run 1).
+2. Polymarket betaalt ±$75.700 per dag aan wie orders laat liggen; in markten jonger dan 2 dagen zou een nieuwe order van $200 een mediaan van 32% van de pot krijgen (GEZIEN, run 2 en 3).
+3. **Nieuw:** het verlies op vullingen in de eerste 48 uur is in rustige, telbare markten klein: makers samen −$89 tegen $3.730 beloning in 24 markten; in nieuws- en peilingmarkten −$3.380 tegen $2.220 (GEZIEN, eigen meting op 40 markten). Een bot die alleen telbare, geplande markten pakt, ontloopt het grootste risico.
+4. Het is grijs: Polymarket is in Nederland verboden (VPN, saldo niet af te dwingen), en Kalshi geeft buitenlanders geen beloning (GEZIEN). Een schaduwbot zonder account kan het gratis een week toetsen.
+5. Tweedehands blijft de schone route, maar schaalt met uren: €60 tot €100 per telefoon, 8 tot 13 per week voor het doel (GOK op marge, prijzen GEZIEN).
+
+**Rangorde op kans maal opbrengst richting €10.000 in 3 maanden** (alle kansen GOK, met reden)
+| # | Route | Inleg geld / uren per week | Kans op €10.000 | Ergste geval |
+|---|---|---|---|---|
+| 1 | Polymarket: beloning pakken in telbare of geplande markten jonger dan 2 dagen, eigen bot, nooit nieuws of peilingen | €2.000 tot €5.000 / 15+ bouwen, daarna 5 tot 10 | 25 tot 35% (verlies op vullingen nu gemeten en klein; concurrentie en echte vulkans onbekend) | saldo bevroren, niet af te dwingen in NL; een fout in de bot laat orders staan bij nieuws |
+| 2 | Tweedehands doorverkopen met een zoekbot (Marktplaats) | €1.000 tot €2.000 / 20 tot 30 | 15 tot 25% | gestolen of kapot toestel, voorraad, blokkade |
+| 3 | Voorspellingsmarkten: gaten tussen Kalshi en Polymarket | €1.000 tot €5.000 / 20+ | 2 tot 5% | markten beslissen anders, beide kanten kwijt |
+| 4 | Sportarbitrage en bonussen in Nederland | €1.000 tot €3.000 / 5 tot 10 | onder 5% (plafond ±€4.000) | accounts beperkt |
+| 5 | Kalshi-beloning | n.v.t. | 0% (buitenlanders uitgesloten, GEZIEN) | n.v.t. |
+| 6 | Odd-lot tenders, kleine promoties | een paar honderd / 1 | rond 0% | bod ingetrokken |
+| 7 | Funding-arbitrage | groot kapitaal / 2 | rond 0% met weinig geld | beurs valt om, liquidatie |
+| 8 | Spot- en driehoeksarbitrage, CS2-skins, kaartjes, airdrops, opkopers | n.v.t. | rond 0% | kosten en tijd kwijt |
+
+Verschil met run 3: route 1 stijgt van 15 tot 25% naar 25 tot 35% omdat het verlies op vullingen nu gemeten is en in rustige markten klein blijkt. Hij blijft grijs; wie dat niet wil, kijkt naar route 2, of wacht op punt 1 van "nog te doen" (Interactive Brokers en Hyperliquid).
