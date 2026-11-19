@@ -19,7 +19,7 @@ AMAMI_DAGEN = 6
 AMAMI_START = "2026-11-16"  # Amami staat sinds 16 nov ±20:30 op dortus.com; eerdere dagen zouden nullen geven
 AMAMI_PAUZE = 7
 # productpagina's op dortus.com; alles eronder telt bij dat product
-PAGINAS = {"/click-joints": "Click Joints", "/ebb": "Ebb", "/rollwright": "Rollwright", "/bison-flex": "Bison & Flex"}
+PAGINAS = {"/click-joints": "Click Joints", "/ebb": "Ebb", "/rollwright": "Rollwright", "/bison-flex": "Bison & Flex", "/tt": "TikTok-adres", "/yt": "YouTube-adres"}
 
 
 # Bezoekcijfers dortus.com: (datum, product, maat, waarde); datum is de bezoekdag, niet de meetdag

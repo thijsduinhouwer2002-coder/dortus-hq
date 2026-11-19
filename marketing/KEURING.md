@@ -65,3 +65,34 @@ Getoetst aan: CLAUDE.md (hoofdzaak, regels 2, 4, 5, 7), `platformen/ideeen/marke
 - Gumroad-verkopen per verkoop met verwijzer uit de Gumroad-API (`/sales`) in het scorebord, zodat een verkoop aan dortus.com of YouTube te koppelen is.
 - Nagaan of Metricool `firstCommentText` voor YouTube echt plaatst (niet zelf gezien).
 - Profieltekst TikTok "Made by Thijs, NL": keuze van Thijs (stond al in de vorige keuring).
+
+## Herkeuring, 19 nov 2026 ±11:50 NL, zelfde keurder
+Wat ik keurde: commit 7967cb8c (dortus-hq; REGELS, LEESMIJ, dagrapport, beide sjablonen, VOORSTEL) en de pagina's `dortus.com/tt` en `dortus.com/yt/` (site-commit 17b64d0e), stand van main ±11:45 NL.
+Akkoord: **ja** (alle 7 moet-punten zijn weg; niets nieuws onveiligs gevonden; twee kleine kan-punten hieronder)
+
+### Moet-punten
+| # | Was | Nu | Weg? |
+|---|---|---|---|
+| 1 | Meetlat bestaat niet | Eigen meetadressen `dortus.com/tt` (TikTok, over te typen) en `https://dortus.com/yt/` (lange YouTube). Tot het scorebord ze apart telt schrijft de Maker "niet gemeten" en leunt de geld-stopregel alleen op Gumroad (REGELS, Maker-stap 2 en 4, dagrapport). De voorgestelde regel voor `PAGINAS` werkt met `pagina_van` zoals die nu is (GEZIEN, regel 64 tot 72): `/tt` en `/tt/` vallen er allebei onder. | ja (de scorebord-regel voert de hoofdchat door) |
+| 2 | Gumroad-link in posts | Overal vervangen door de meetadressen; een `gumroad.com`-adres in titel, tekst of eerste reactie is rood bij de Keurder (stap 5) en in vraag 6, en de Maker toetst het nog eens (stap 3). Geen `?ref=` meer in de zes bestanden (GEZIEN met grep). | ja |
+| 3 | Volgorde voorstel | "Doorvoeren tegelijk met het lijstpunt, vóór de eerste run van de Maker", overgangszin in stap 2 van de ronde, regel 4 met "of groen door de hoofdchat na oranje", ook in de besluitregel. | ja (doorvoeren doet de hoofdchat) |
+| 4 | Lege rondes | Maker-stap 0: bij STOP of zonder werk niets schrijven en niets vastleggen; dagrapport één blok per dag (20:13), anders alleen een regel als iets uitging of misging; geen regel meer in `geplaatst.md` voor rondes zonder plaatsing. Keurder kijkt eerst met grep of er iets open staat. | ja |
+| 5 | Maken zonder rem | Hoogstens 2 per dag (geteld op `gemaakt_door`), materiaal met paden en openbare URL genoemd, stoppen na 2 keer rood of zonder materiaal met één bericht, Chris alleen als er 48 uur geen open vraag staat. | ja |
+| 6 | Shorts | Elke Short oranje in REGELS, LEESMIJ, Keurder-stap 5 en 6; Maker plant een Short alleen na groen van de hoofdchat uit de reserve. | ja |
+| 7 | Stopregel niet in de opdracht | Maker-stap 2 "Quotum en stopregel" met beide regels, en de stand van de stopregel in het dagrapport. | ja |
+
+Ook verwerkt uit "Kan": profiel als tweede bron bij teruglezen en "mislukt" pas na 24 uur, lange YouTube eerst in het quotum, niet opnieuw proberen bij een vol quotum, commitkop "Roep-Keurder:" als tweede slot, LEESMIJ zegt wie welke status zet, taaknamen "Dortus Roep: ...".
+
+### Zelf gezien op de site (curl, ±11:45 NL)
+- `https://dortus.com/tt`, `/tt/`, `http://dortus.com/tt`, `/yt` en `/yt/`: alle 200 (zonder schuine streep of via http één of twee keer doorgestuurd naar `https://dortus.com/<tt|yt>/`). GEZIEN.
+- Beide pagina's zijn gelijk: titel "Click Joints Pro for Blender: hinges that click and stop", `$12` en `115°` zoals op `dortus.com/click-joints/`, knop naar Gumroad Pro, "Try the free version first", "Click Joints is made by Dortus", Blender-merkzin. Amami-script met hetzelfde website-id als de Click Joints-pagina, `noindex, follow`, niet in `sitemap.xml`. Geen persoonsgegevens in de tekst, geen AI-zinnen, geen ik-vorm. GEZIEN.
+
+### Nieuw gevonden (geen moet)
+| # | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|
+| H1 | De overgangszin "zolang er geen Maker-blok in `marketing/dagrapport.md` staat, plaatst de ronde nog zoals vroeger" botst licht met moet 4: de Maker schrijft zijn blok pas om 20:13. Plant hij om 08:13 al iets in, dan kan de hoofdchat-ronde tot de avond ook nog plaatsen, en kan er die dag één post boven het dagplafond uitgaan. Geen regelbreuk (beide alleen gekeurd werk, quotum telt Metricool mee), wel slordig. | feit | midden |
+| H2 | Meekijken in de ronde (stap 2b van het voorstel) zoekt "een nieuw blok, commit van vandaag"; door "geen lege rondes" laat een Maker-ronde zonder werk geen spoor. Het avondblok blijft het dagelijkse teken van leven. | feit | midden |
+
+### Kan
+- Overgangszin in REGELS en het voorstel: "zolang er geen commit met kop `Roep-Maker:` op main staat" in plaats van "geen Maker-blok in het dagrapport" (H1).
+- Hoofdchat-ronde: of de Maker en de Keurder draaien lezen met `last_run` uit list_triggers of het avondblok, niet met elke ronde een blok (H2).
