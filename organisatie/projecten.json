@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-19 20:50",
+    "datum": "2026-11-19 22:00",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -178,9 +178,9 @@
       "voor": "Dortus",
       "platform": "TikTok en YouTube (via Metricool)",
       "status": {
-        "woord": "opstarten",
-        "kleur": "let-op",
-        "zin": "De twee geplande taken staan aan sinds 19 nov 15:37 (Maker 20:13, Keurder 20:43); eerste ronde vanavond."
+        "woord": "draait",
+        "kleur": "op-koers",
+        "zin": "Maker en Keurder draaiden 19 nov (GEZIEN dagrapport). Chris maakte drie nieuwe TikToks (21, 22, 23 nov), wachten op de Keurder; lange video vr 17:00 krijgt versie 3 na ja van Daan."
       },
       "eigenaar": "hoofdchat",
       "agents": [
@@ -208,7 +208,7 @@
       "thijs": [],
       "risico": "Er is nog geen klikbare weg van post naar verkoop: TikTok heeft geen bio-link (KvK-verificatie), alleen lange YouTube-video's met link.",
       "laatste_update": {
-        "datum": "2026-11-19 16:00",
+        "datum": "2026-11-19 22:00",
         "door": "hoofdchat-ronde"
       },
       "links": [
