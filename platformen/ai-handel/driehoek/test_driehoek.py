@@ -6,7 +6,10 @@ import tempfile
 import unittest
 
 import driehoek as D
+import kosten as K
 import rapport as R
+import reken as Rk
+import volgen as V
 
 INF = float("inf")
 
@@ -15,26 +18,26 @@ def stappen(kosten=0.0, mins=None):
     """EUR > BTC > ETH > EUR met paren BTC-EUR (koop), ETH-BTC (koop), ETH-EUR (verkoop)."""
     paren = {("BTC", "EUR"): {"id": "BTC-EUR"}, ("ETH", "BTC"): {"id": "ETH-BTC"}, ("ETH", "EUR"): {"id": "ETH-EUR"}}
     kv = {sl: (kosten, kosten, "test") for sl in paren}
-    return D.maak_stappen(["EUR", "BTC", "ETH"], paren, kv, mins)
+    return Rk.maak_stappen(["EUR", "BTC", "ETH"], paren, kv, mins)
 
 
 class TestLoop(unittest.TestCase):
     def test_koop_over_lagen(self):
         # 150 euro: 1 munt voor 100, dan 50 euro voor 0,4 munt tegen 125
-        self.assertAlmostEqual(D.loop([(100, 1), (125, 10)], 150, True), 1.4)
+        self.assertAlmostEqual(Rk.loop([(100, 1), (125, 10)], 150, True), 1.4)
 
     def test_verkoop_over_lagen(self):
-        self.assertAlmostEqual(D.loop([(100, 1), (90, 10)], 1.5, False), 100 + 45)
+        self.assertAlmostEqual(Rk.loop([(100, 1), (90, 10)], 1.5, False), 100 + 45)
 
     def test_te_dun_boek(self):
-        self.assertIsNone(D.loop([(100, 1)], 200, True))
-        self.assertIsNone(D.loop([(100, 1)], 2, False))
+        self.assertIsNone(Rk.loop([(100, 1)], 200, True))
+        self.assertIsNone(Rk.loop([(100, 1)], 2, False))
 
 
 class TestDriehoeken(unittest.TestCase):
     def test_beide_richtingen_en_begin_eur(self):
         paren = {("BTC", "EUR"): {}, ("ETH", "BTC"): {}, ("ETH", "EUR"): {}, ("XRP", "EUR"): {}}
-        d = D.driehoeken(paren)
+        d = Rk.driehoeken(paren)
         self.assertEqual(len(d), 2)                       # één driehoek, twee richtingen; XRP hoort er niet bij
         self.assertTrue(all(v[0] == "EUR" for v in d))
 
@@ -53,16 +56,16 @@ class TestRekensom(unittest.TestCase):
                        "ETH-EUR": ([(2550, 100)], [(2560, 100)])}
 
     def test_top_met_en_zonder_kosten(self):
-        self.assertAlmostEqual(D.top(stappen(), self.prijzen, "hoog"), 1.02)
-        self.assertAlmostEqual(D.top(stappen(0.01), self.prijzen, "hoog"), 1.02 * 0.99 ** 3)
-        self.assertEqual(D.top(stappen(), {}, "hoog"), 0.0)
+        self.assertAlmostEqual(Rk.top(stappen(), self.prijzen, "hoog"), 1.02)
+        self.assertAlmostEqual(Rk.top(stappen(0.01), self.prijzen, "hoog"), 1.02 * 0.99 ** 3)
+        self.assertEqual(Rk.top(stappen(), {}, "hoog"), 0.0)
 
     def test_kosten_eten_winst(self):
-        self.assertLess(D.top(stappen(0.008), self.prijzen, "hoog"), 1)   # Kraken: 3 x 0,80% > 2%
-        self.assertIsNone(D.curve(stappen(0.008), self.boeken, 1.0, "hoog"))
+        self.assertLess(Rk.top(stappen(0.008), self.prijzen, "hoog"), 1)   # Kraken: 3 x 0,80% > 2%
+        self.assertIsNone(Rk.curve(stappen(0.008), self.boeken, 1.0, "hoog"))
 
     def test_diepte_stopt_waar_het_boek_duurder_wordt(self):
-        r = D.curve(stappen(), self.boeken, 1.0, "hoog")
+        r = Rk.curve(stappen(), self.boeken, 1.0, "hoog")
         # alleen 0,01 BTC (= €500) ligt op 50.000; daarna 51.000 en dan is het verlies (2550/2550 = 0%)
         self.assertGreater(r["winst_eur"], 0)
         self.assertLessEqual(r["diepte_eur"], 1000)
@@ -73,36 +76,82 @@ class TestRekensom(unittest.TestCase):
         self.assertLessEqual(r["pct"], 2.0 + 1e-9)
 
     def test_boek_nooit_beter_dan_top(self):
-        r = D.curve(stappen(0.002), self.boeken, 1.0, "hoog")
-        self.assertLessEqual(r["pct"] / 100, D.top(stappen(0.002), self.prijzen, "hoog") - 1 + 1e-12)
+        r = Rk.curve(stappen(0.002), self.boeken, 1.0, "hoog")
+        self.assertLessEqual(r["pct"] / 100, Rk.top(stappen(0.002), self.prijzen, "hoog") - 1 + 1e-12)
 
     def test_minimale_ordergrootte(self):
         # ETH-EUR minimaal 0,1 ETH (= €250): met €100 kan het niet
         st = stappen(0.0, {("ETH", "EUR"): {"base": 0.1}})
-        r = D.curve(st, self.boeken, 1.0, "hoog")
+        r = Rk.curve(st, self.boeken, 1.0, "hoog")
         self.assertEqual(r["winst_bij"]["100"], 0.0)
         self.assertEqual(r["winst_bij"]["150"], 0.0)
         self.assertGreaterEqual(r["min_inleg_eur"], 250)
         self.assertGreater(r["winst_bij"]["500"], 0)
-        self.assertEqual(D.min_inleg(st, self.prijzen, 1.0), min(b for b in D.BEDRAGEN if b >= 250))
+        self.assertEqual(Rk.min_inleg(st, self.prijzen, 1.0), min(b for b in Rk.BEDRAGEN if b >= 250))
 
     def test_minimum_in_quote(self):
         st = stappen(0.0, {("BTC", "EUR"): {"quote": 5}})
-        self.assertEqual(D.min_inleg(st, self.prijzen, 1.0), 10)   # €5 minimum, kleinste bedrag dat we toetsen is €10
+        self.assertEqual(Rk.min_inleg(st, self.prijzen, 1.0), 10)   # €5 minimum, kleinste bedrag dat we toetsen is €10
+
+    def test_stapgrootte_hele_munten(self):
+        # ETH alleen in hele munten (stap 1): €100 levert 0,04 ETH op, naar beneden afgerond 0: kan niet
+        st = stappen(0.0, {("ETH", "BTC"): {"stap": 1.0}})
+        r = Rk.curve(st, self.boeken, 1.0, "hoog")
+        self.assertEqual(r["winst_bij"]["100"], 0.0)
+        self.assertGreaterEqual(r["min_inleg_eur"], 2500)
+
+    def test_afronding_eet_winst_niet_op_bij_fijne_stap(self):
+        st = stappen(0.0, {("ETH", "BTC"): {"stap": 0.0001}})
+        r = Rk.curve(st, self.boeken, 1.0, "hoog")
+        self.assertAlmostEqual(r["winst_bij"]["100"], 2.0, places=2)   # 2% van wat rondging, bijna €100
+
+    def test_vaste_kosten_bitvavo(self):
+        st = stappen(0.0)
+        for x in st:
+            x["vast_eur"] = K.vaste_kosten_eur("bitvavo", x["sleutel"])
+        self.assertEqual([x["vast_eur"] for x in st], [0.01, 0.0, 0.01])   # alleen de euro-orders
+        r = Rk.curve(st, self.boeken, 1.0, "hoog")
+        self.assertAlmostEqual(r["winst_bij"]["100"], 2.0 - 0.02, places=6)
 
 
 class TestKosten(unittest.TestCase):
     def test_kraken(self):
-        self.assertEqual(D.kosten("kraken", ("ETH", "BTC"), {})[0], 0.008)
-        self.assertEqual(D.kosten("kraken", ("USDT", "EUR"), {})[0], 0.002)
-        self.assertEqual(D.kosten("kraken", ("EUR", "USD"), {})[0], 0.002)
+        self.assertEqual(K.kosten("kraken", ("ETH", "BTC"), {})[0], 0.008)
+        self.assertEqual(K.kosten("kraken", ("USDT", "EUR"), {})[0], 0.002)
+        self.assertEqual(K.kosten("kraken", ("EUR", "USD"), {})[0], 0.002)
+
+    def test_kraken_usde_usdg_gekoppeld(self):
+        self.assertEqual(K.kosten("kraken", ("USDE", "EUR"), {})[0], 0.0)
+        self.assertEqual(K.kosten("kraken", ("USDE", "USDT"), {})[0], 0.0)
+        self.assertEqual(K.kosten("kraken", ("USDG", "USD"), {})[0], 0.0001)
+        self.assertEqual(K.kosten("kraken", ("TBTC", "BTC"), {})[0], 0.002)
+        self.assertEqual(K.kosten("kraken", ("WBTC", "BTC"), {})[0], 0.002)
+        self.assertEqual(K.kosten("kraken", ("LSETH", "ETH"), {})[0], 0.008)   # niet genoemd: voorzichtig
+        self.assertEqual(K.kosten("kraken", ("USDGO", "USD"), {})[0], 0.008)   # een andere munt dan USDG
+
+    def test_bitstamp_en_okx(self):
+        self.assertEqual(K.kosten("bitstamp", ("BTC", "EUR"), {})[0], 0.004)
+        self.assertEqual(K.kosten("bitstamp", ("USDT", "EUR"), {})[0], 0.0008)
+        self.assertEqual(K.kosten("okx", ("BTC", "EUR"), {"taker": None})[0], 0.001)
+
+    def test_bitstamp_minimum_lezen(self):
+        m = {"name": "ETH/BTC", "minimum_order": "0.00005000 BTC", "base_decimals": 8}
+        self.assertEqual(K.bitstamp_minimum(m), {"stap": 1e-8, "quote": 0.00005})
+        m = {"name": "BTC/USD", "minimum_order": "10.00 USD", "base_decimals": 8}
+        self.assertEqual(K.bitstamp_minimum(m)["quote"], 10.0)
+
+    def test_afronden(self):
+        self.assertAlmostEqual(K.afronden(1.23456, 0.01), 1.23)
+        self.assertEqual(K.afronden(0.9, 1.0), 0.0)
+        self.assertEqual(K.afronden(3.0, 1.0), 3.0)       # geen fout door 2.9999999
+        self.assertEqual(K.afronden(1.5, 0), 1.5)
 
     def test_bitvavo_onzeker(self):
-        self.assertEqual(D.kosten("bitvavo", ("BTC", "EUR"), {}, "A")[:2], (0.0025, 0.0025))
-        self.assertEqual(D.kosten("bitvavo", ("BTC", "USDC"), {}, "B")[:2], (0.0025, 0.0))
+        self.assertEqual(K.kosten("bitvavo", ("BTC", "EUR"), {}, "A")[:2], (0.0025, 0.0025))
+        self.assertEqual(K.kosten("bitvavo", ("BTC", "USDC"), {}, "B")[:2], (0.0025, 0.0))
 
     def test_uit_api(self):
-        self.assertEqual(D.kosten("mexc", ("ETH", "USDT"), {"taker": 0.0005})[0], 0.0005)
+        self.assertEqual(K.kosten("mexc", ("ETH", "USDT"), {"taker": 0.0005})[0], 0.0005)
 
 
 class NepSchrijver:
@@ -135,16 +184,45 @@ class TestVolgen(unittest.TestCase):
         self.assertEqual(r["eind_reden"], "boek")
         self.assertEqual(r["status"], "MiCA-dochter")
         self.assertTrue(R.echt(r))
+        self.assertEqual(r["hoog"]["na_3s"]["t"], "1970-01-01T00:16:44Z")    # de latere meting (t = 1004)
+
+    def test_na_3_seconden_te_dun_is_niet_echt(self):
+        # keuring A9: eerste meting veel diepte, 4 s later nog maar ±€20, daarna weg
+        s = NepSchrijver()
+        m = D.Meter(type("Nep", (), {"naam": "okx"})(), s, None)
+        c = {"id": "EUR>BTC>ETH>EUR", "munten": ["EUR", "BTC", "ETH"], "stappen": stappen()}
+        diep = {"BTC-EUR": ([(49990, 10)], [(50000, 10)]), "ETH-BTC": ([(0.0499, 100)], [(0.05, 100)]),
+                "ETH-EUR": ([(2550, 100)], [(2560, 100)])}
+        dun = dict(diep, **{"BTC-EUR": ([(49990, 10)], [(50000, 0.0004), (52000, 10)])})
+        weg = dict(diep, **{"ETH-EUR": ([(2400, 100)], [(2410, 100)])})
+        m.verwerk(c, diep, 1.0, 1000.0)
+        m.verwerk(c, dun, 1.0, 1004.0)
+        m.verwerk(c, weg, 1.0, 1008.0)
+        r = s.regels[0]
+        self.assertGreaterEqual(r["hoog"]["diepte_eur"], 5000)          # het beste moment was diep
+        self.assertIsNone(r["hoog"]["na_3s"])
+        self.assertFalse(R.echt(r))
+
+    def test_bevestigd(self):
+        m = lambda t, d, w=1.0: {"t": t, "diepte_eur": d, "winst_eur": w}
+        self.assertEqual(V.bevestigd([m(0, 500), m(3, 200)])[0]["t"], 3)
+        self.assertIsNone(V.bevestigd([m(0, 500), m(2, 200)])[0])          # te kort
+        self.assertIsNone(V.bevestigd([m(0, 500), m(2, 50), m(4, 500)])[0])   # onderbroken
+        self.assertEqual(V.bevestigd([m(0, 50), m(2, 500), m(5, 500)])[0]["t"], 5)
+        self.assertEqual(V.bevestigd([m(0, 500), m(4, 500), m(9, 500)])[1], 9)
 
 
 def regel(beurs="okx", status="MiCA-dochter", winst=5.0, diepte=1000, duur=10, verdacht=False, dag="2026-11-20",
-          min_inleg=10):
-    h = {"begin": f"{dag}T10:00:00Z", "eind": f"{dag}T10:00:10Z", "checks": 3, "winst_eur": winst,
-         "diepte_eur": diepte, "pct": 0.5, "best_eur": diepte, "duur_s": duur, "min_inleg_eur": min_inleg,
-         "winst_bij": {str(k): min(winst, winst * k / diepte) for k in D.VASTE}}
+          min_inleg=10, begin="10:00:00", eind="10:00:10", paren=("BTC-EUR", "ETH-BTC", "ETH-EUR"), na_3s=True):
+    wb = {str(k): min(winst, winst * k / diepte) for k in Rk.VASTE}
+    na = {"t": f"{dag}T{begin}Z", "winst_eur": winst, "diepte_eur": diepte, "pct": 0.5, "best_eur": diepte,
+          "min_inleg_eur": min_inleg, "winst_bij": wb} if na_3s and duur >= 3 and diepte >= 100 else None
+    h = {"begin": f"{dag}T{begin}Z", "eind": f"{dag}T{eind}Z", "checks": 3, "winst_eur": winst,
+         "diepte_eur": diepte, "pct": 0.5, "best_eur": diepte, "duur_s": duur, "duur_100_s": duur,
+         "min_inleg_eur": min_inleg, "winst_bij": wb, "na_3s": na}
     return {"beurs": beurs, "status": status, "driehoek": "EUR>BTC>ETH>EUR", "kosten": [0.001] * 3, "zeker": True,
-            "hoog": h, "laag": h, "winst_mediaan_eur": winst, "duur_s": duur, "verdacht": verdacht,
-            "begin": h["begin"]}
+            "paren": list(paren), "hoog": h, "laag": h, "winst_mediaan_eur": winst, "duur_s": duur,
+            "verdacht": verdacht, "begin": h["begin"], "eind": h["eind"]}
 
 
 class TestRapport(unittest.TestCase):
@@ -153,9 +231,31 @@ class TestRapport(unittest.TestCase):
         self.assertFalse(R.echt(regel(diepte=50)))
         self.assertFalse(R.echt(regel(duur=0)))
         self.assertFalse(R.echt(regel(verdacht=True)))
+        self.assertFalse(R.echt(regel(winst=0.04)))                     # ondergrens €0,05
         r = regel()
         r["hoog"] = None
         self.assertFalse(R.echt(r))
+
+    def test_zelfde_kans_telt_een_keer(self):
+        a = regel(winst=5.0)
+        b = regel(winst=3.0, begin="10:00:05", eind="10:00:20", paren=("BTC-EUR", "XRP-BTC", "XRP-EUR"))
+        c = regel(winst=4.0, beurs="mexc", status="grijs")                                  # andere beurs
+        d = regel(winst=2.0, begin="11:00:00", eind="11:00:10")                              # later
+        e = regel(winst=1.0, begin="10:00:05", eind="10:00:08", paren=("ADA-EUR", "ADA-USDT", "USDT-EUR"))
+        groepen = R.kansen([a, b, c, d, e])
+        self.assertEqual(sorted(len(g) for g in groepen), [1, 1, 1, 2])
+        self.assertEqual(R.beste([a, b])["hoog"]["winst_eur"], 5.0)
+        with tempfile.TemporaryDirectory() as dd:
+            os.makedirs(os.path.join(dd, "2026-11-20", "run-1"))
+            with open(os.path.join(dd, "2026-11-20", "run-1", "driehoeken.jsonl"), "w") as fh:
+                fh.write("\n".join(json.dumps(r) for r in (a, b)) + "\n")
+            with open(os.path.join(dd, "2026-11-20", "run-1", "stand.jsonl"), "w") as fh:
+                for _ in range(288):     # 24 uur aan standregels van één beurs
+                    fh.write(json.dumps({"beurs": "okx", "status": "MiCA-dochter", "t": "2026-11-20T10:00:00Z"}) + "\n")
+            t = R.maak(dd)
+            self.assertIn("| 2026-11-20 | Alle beurzen | 2 | 1 |", t)
+            self.assertIn("| Alle beurzen | €5.000 | 1,0 | €5,00 |", t)                 # niet 5 + 3
+            self.assertIn("1 echte kansen die met €100 konden", t)
 
     def test_soort(self):
         self.assertEqual(R.soort(regel(status="MiCA")), "vergund")
@@ -180,8 +280,9 @@ class TestRapport(unittest.TestCase):
                         "driehoeken": 10, "mediaan_eur": 10, "met_eur": 4, "tot_100": 9, "tot_150": 9,
                         "tot_200": 10, "met_eur_tot_100": 4}}, fh)
             t = R.maak(d)
-            self.assertIn("| 2026-11-20 | Alle beurzen | 2 |", t)
-            self.assertIn("| 2026-11-20 | Grijs | 1 |", t)
+            self.assertIn("| 2026-11-20 | Alle beurzen | 2 | 2 |", t)
+            self.assertIn("| 2026-11-20 | Grijs | 1 | 1 |", t)
+            self.assertLess(t.index("## Kort antwoord"), t.index("| Beurs |"))
             self.assertNotIn("99,00", t)                    # proefrun telt niet
             self.assertIn("€100", t)
             self.assertIn("| okx | MiCA-dochter | 10 | 4 | ≤ €10 | 9 | 9 | 10 | 4 |", t)

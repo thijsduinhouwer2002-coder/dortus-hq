@@ -16,7 +16,9 @@ Alleen openbare API's: geen account, geen sleutel, geen handel, geen geld.
   beste prijzen, met de takerkosten van elke stap.
 - Geeft een driehoek dan winst, dan haalt hij de drie orderboeken op en loopt ze af: hoeveel euro kan erdoor met
   winst, en hoeveel blijft er over bij €100, €150, €200, €500, €1.000, €2.000, €5.000 en €10.000. Een bedrag telt
-  alleen als alle drie orders boven de **minimale ordergrootte** van de beurs blijven (uit de API, per paar).
+  alleen als alle drie orders boven de **minimale ordergrootte** van de beurs blijven (uit de API, per paar). Het
+  aantal munten rondt hij per order naar beneden af op de **stapgrootte** van de beurs (ook uit de API), en bij
+  Bitvavo rekent hij per euro-order €0,01 extra (Bitvavo rondt de kosten naar boven af op de cent).
 - Hij volgt elke driehoek met winst tot hij weg is en schrijft dan één regel: winst, diepte in euro, hoe lang
   hij bleef staan, en waarom hij stopte.
 - Elke 5 minuten noteert hij per beurs hoe de meting ervoor staat, ook als er niets te halen viel: hoeveel rondes,
@@ -30,13 +32,16 @@ Alleen openbare API's: geen account, geen sleutel, geen handel, geen geld.
 - Hij is niet snel. Wij meten elke paar seconden; snelle partijen (bots naast de server van de beurs) pakken een
   driehoek meestal binnen milliseconden. **Wat wij zien, is wat er overbleef.** Een driehoek die korter dan een
   ronde stond, zien we meestal niet.
-- Afronding op de stapgrootte van de beurs en de EU-versie van een beurs (die minder paren kan hebben dan de
-  wereldwijde API die we meten) rekent hij niet mee.
+- De EU-versie van een beurs (die minder paren kan hebben dan de wereldwijde API die we meten) rekent hij niet
+  mee.
 
 ## Hoe het draait
 - Workflow `.github/workflows/driehoek.yml`, naar het voorbeeld van de scanner: één job van ±5 uur 25 minuten,
   daarna de volgende. Hij start 4 keer per dag op een vast tijdstip en bij elke push naar main; de klok
-  (`organisatie/controle/klok.py`, interval 6 uur) beslist of hij aan de beurt is.
+  (`organisatie/controle/klok.py`, interval 6 uur) beslist of hij aan de beurt is. Een push die de code raakt
+  (`*.py` in deze map, `opslaan.sh` of de workflow) start de vaste run opnieuw met de nieuwe code; een push met
+  alleen tekst (README, KEURING.md) niet. Bij afbreken schrijft de meter binnen 5 seconden alles weg en zet de
+  opslaan-stap de data alsnog op de tak.
 - Meetweek: tot en met **27 nov 2026**. Daarna slaat de vaste run het meten over. Verlengen: `EINDE` in de
   workflow aanpassen.
 - Elk half uur en aan het eind zet hij de data op de tak **`ai-handel-data`**, map `driehoek/<datum>/run-<nummer>/`:
@@ -52,9 +57,21 @@ Alleen openbare API's: geen account, geen sleutel, geen handel, geen geld.
 ## Het rapport lezen
 Het staat op `https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/ai-handel-data/driehoek/rapport.md`.
 
+Bovenaan staat een **kort antwoord** in gewone woorden: hoeveel echte kansen er met €100 tot €200 waren en wat
+dat per dag opleverde (GOK), apart voor de beurzen met en zonder vergunning. Daarna pas de tabellen.
+
 Een **echte driehoek** moet aan alles voldoen: (1) winst na drie keer takerkosten op het orderboek, niet alleen
-tegen de beste prijs, (2) minstens €100 diepte, (3) minstens 3 seconden blijven staan (dus twee metingen na
-elkaar), (4) niet meer dan 5% winst per rondje (dat is bijna altijd een dode markt of een foute koers).
+tegen de beste prijs, (2) op twee metingen die minstens 3 seconden uit elkaar liggen (en alle metingen daartussen)
+elk minstens €100 diepte met winst, (3) bij die latere meting minstens €0,05 winst, (4) niet meer dan 5% winst per
+rondje (dat is bijna altijd een dode markt of een foute koers). Alle bedragen zijn die van de latere meting: wat
+er na 3 seconden nog stond, niet het beste moment. Wij meten op zijn best elke 3 seconden, dus dat is wat wij
+hadden kunnen pakken.
+
+**Eén kans, niet vier.** Eén scheve prijs op bijvoorbeeld een altcoin/BTC-paar zit op Kraken in meerdere
+driehoeken tegelijk (via EUR, USD, USDT en USDC). Die willen allemaal hetzelfde stukje orderboek, en dat kun je
+maar één keer leeghalen. Daarom voegt het rapport driehoeken op dezelfde beurs die tegelijk openstonden en
+minstens één paar delen samen tot **één kans**, en telt het alleen de beste. Aantallen per dag en de opschaling
+gaan over kansen, niet over driehoeken.
 
 Alles staat apart voor **MiCA** (de beurs of een EU-dochter heeft een vergunning in het ESMA-register) en
 **grijs** (geen vergunning). In het rapport:
@@ -62,12 +79,13 @@ Alles staat apart voor **MiCA** (de beurs of een EU-dochter heeft een vergunning
   verloor zelfs de beste driehoek geld. Een positieve marge is nog geen winst: de bulk-koers kan achterlopen of er
   ligt maar een paar cent op die prijs; het orderboek beslist.
 - **Trechter**: hoeveel driehoeken bij welke stap afvallen.
-- **Per dag**: aantal echte driehoeken, mediane winst per keer in euro, mediane diepte en duur.
+- **Per dag**: aantal echte driehoeken en kansen, mediane winst per kans in euro, mediane diepte en hoe lang er
+  minstens €100 diepte bleef staan.
 - **Beste driehoeken per beurs**, en de grootste die net niet echt waren.
 - **Kleine inleg**: per beurs hoeveel driehoeken met €100, €150 en €200 kunnen (minimale ordergrootte).
-- **Opschaling** naar €100, €150, €200, €2.000 en €5.000 (GOK): som van de winst die je bij die inleg had kunnen
-  pakken, per dag en maal 30 per maand, voor alle beurzen samen en voor alleen de beste beurs. Dit is een
-  bovengrens: je pakt elke driehoek als eerste, met het geld al op de beurs. Waarom het in het echt minder is,
+- **Opschaling** naar €100, €150, €200, €2.000 en €5.000 (GOK): som over de kansen van de winst die je bij die
+  inleg na 3 seconden nog had kunnen pakken, per dag en maal 30 per maand, voor alle beurzen samen en voor alleen
+  de beste beurs. Dit is een bovengrens: je pakt elke kans als eerste, met het geld al op de beurs. Waarom het in het echt minder is,
   staat eronder.
 
 **Wanneer zegt het iets?** Na de eerste vaste run (±5,5 uur) zie je per beurs hoe dicht het bij winst komt. Na
@@ -88,19 +106,24 @@ GEZIEN, run 44555682966 op een GitHub-runner, data op `ai-handel-data` in `drieh
 - Op MEXC werd 12% van de kandidaten overgeslagen door het budget; daarom is het budget daar naar 15 boeken per
   ronde gegaan.
 
+Na de keuring (19 nov) zijn de kosten van Kraken (USDe 0%, USDG 0,01%, pegged-token paren 0,20%) en Bitstamp
+(FX en stablecoin 0,08%) bijgesteld. Lokaal 75 seconden gemeten met de nieuwe kosten (GEZIEN, 19 nov 16:03 UTC):
+beste driehoek per ronde Kraken -0,21% (was -0,59%) en Bitstamp -0,24% (was -1,02%), dichter bij nul maar nog
+steeds verlies.
+
 Tien minuten zeggen weinig: het rapport wordt zinvol na een dag (4 vaste runs) en echt na de week.
 
 ## Takerkosten per stap (standaardtarief, laagste trede)
 
 | Beurs | Taker | Bron |
 |---|---|---|
-| Kraken | 0,80% op cryptoparen, 0,20% op FX- en stablecoinparen | GEZIEN, [kraken.com/pro/fees](https://www.kraken.com/pro/fees), 19 nov 2026: Tier 1 spot maker 0,40% taker 0,80%; "FX, stablecoin-base and pegged-token pairs" 0,20%. De korting van 0,02% op 634 paren rekenen we niet mee (voorzichtig) |
+| Kraken | 0,80% op cryptoparen; 0,20% op FX-, stablecoin- en pegged-token paren (TBTC/BTC, WBTC/BTC); 0,01% op USDG-paren; 0% op alle USDe-paren | GEZIEN, [kraken.com/pro/fees](https://www.kraken.com/pro/fees), 19 nov 2026: Tier 1 spot maker 0,40% taker 0,80%; "FX, stablecoin-base and pegged-token pairs" 0,20%; "USDG ($0+) Taker 0.01%"; "USDe (Any) Taker 0.00%, All USDe pairs". Staking-munten (LSETH/ETH, METH/ETH, CMETH/ETH) noemt de pagina niet: die rekenen we als crypto (0,80%, voorzichtig). De korting van 0,02% op 634 paren rekenen we niet mee (voorzichtig) |
 | Bitvavo | 0,25% (categorie A, euro-paren) | GEZIEN, [support.bitvavo.com](https://support.bitvavo.com/hc/en-us/articles/4405175148689): "maximum fee of 0.25%" |
 | Bitvavo | USDC- en stablecoinparen (categorie B, C, D in de API): hoog 0,25%, laag 0% | Bitvavo noemt ze lager, maar de tarievenpagina geeft ons geen getal (403). Rapport rekent met 0,25%; met 0% staat apart als bovengrens (GOK) |
 | KuCoin | 0,1% x klasse x coëfficiënt uit de API | klasse en coëfficiënt GEZIEN (API), 0,1% per klasse GOK (zoals de scanner) |
 | Gate, Bitget, MEXC | per paar uit de API | GEZIEN, zoals de scanner (`../scanner/README.md`) |
-| OKX | 0,10% | GOK, zoals de scanner. De OKX-site gaf ons de Amerikaanse versie met een andere tabel; niet nagekeken voor de EU |
-| Bitstamp | 0,40% | GOK, zoals de scanner, niet nagekeken |
+| OKX | 0,10% | DERDEN, [okx.com/en-eu/fees](https://www.okx.com/en-eu/fees), 19 nov 2026: tab Spot, Standard, munt EUR, "Regular user" takerFee 0,001. De pagina heeft ook een tab "Zero-fee pairs", maar de lijst staat niet in de pagina zelf; die 0%-paren rekenen we dus niet mee (te somber op die paren) |
+| Bitstamp | 0,40%; FX- en stablecoinparen 0,08% | DERDEN, [tradingview.com/broker/Bitstamp](https://www.tradingview.com/broker/Bitstamp/): "0.40% - 0.03% Taker", "FX/Stablecoin pairs receive an 80% reduction", "Fee free if < $1,000" (30 dagen volume; dat laatste rekenen we niet mee, het geldt maar voor een paar driehoeken). De pagina van Bitstamp zelf blokkeert curl |
 
 Coinbase doet niet mee: geen openbare bulk-koers met bod en laat (alleen de laatste prijs), en 1,20% taker (GOK)
 maakt drie stappen 3,6%. Bybit en Binance antwoorden niet vanaf onze server.
@@ -129,9 +152,12 @@ Bitvavo, Kraken, Bitstamp. Via een EU-dochter: OKX, KuCoin, Gate. Grijs (niet in
 ## Bestanden
 | Bestand | Wat |
 |---|---|
-| `driehoek.py` | de meting: driehoeken zoeken, doorrekenen, boeken aflopen, volgen en wegschrijven |
+| `driehoek.py` | de meting: per beurs een draad, kandidaten zoeken, boeken ophalen, wegschrijven |
+| `kosten.py` | takerkosten per paar met bron, minimale ordergrootte en stapgrootte uit de API, vergunning |
+| `reken.py` | driehoeken zoeken, doorrekenen tegen de beste prijs en tegen het boek (met afronding) |
+| `volgen.py` | een driehoek volgen en bevestigen (na 3 seconden nog €100 diepte) |
 | `rapport.py` | het rapport uit de data |
 | `opslaan.sh` | zet de data op de tak `ai-handel-data`, map `driehoek/` (nooit geforceerd) |
-| `test_driehoek.py` | tests van de rekensom, het volgen en het rapport |
+| `test_driehoek.py` | tests van de rekensom, de kosten, het volgen, het samenvoegen tot kansen en het rapport |
 | `ontwerp.md` | waarom zo gebouwd |
 | `../scanner/beurzen.py` | de koppelingen met de beurzen (hergebruikt van de scanner) |

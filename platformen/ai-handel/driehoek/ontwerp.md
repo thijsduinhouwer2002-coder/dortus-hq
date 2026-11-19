@@ -26,16 +26,28 @@ driehoeken per beurs en een GOK-som voor €2.000 en €5.000 van (MiCA en grijs
 - Kosten per stap: takertarief (laagste trede). Waar het tarief onzeker is (Bitvavo categorie B, C, D: "lager"
   volgens Bitvavo, maar geen getal), rekent hij twee keer: **hoog** (0,25%, het maximum dat Bitvavo noemt) en
   **laag** (0%, "zelfs als het gratis was"). Het rapport telt met hoog; laag staat apart als bovengrens.
-- Kraken: 0,80% taker op cryptoparen en 0,20% op FX- en stablecoinparen (GEZIEN, kraken.com/pro/fees, 19 nov).
+- Kraken: 0,80% taker op cryptoparen, 0,20% op FX-, stablecoin- en pegged-token paren (TBTC/BTC, WBTC/BTC),
+  0,01% op USDG-paren en 0% op alle USDe-paren (GEZIEN, kraken.com/pro/fees, 19 nov). Bitstamp 0,40%, op FX- en
+  stablecoinparen 0,08% (DERDEN, TradingView). OKX 0,10% (DERDEN, okx.com/en-eu/fees); de lijst met 0%-paren van
+  OKX staat niet in de pagina, die rekenen we niet mee (te somber op die paren).
 - Een driehoek opent als het boek winst na kosten geeft en sluit als de ticker of het boek dat niet meer geeft.
   Duur = laatste keer winst min eerste keer winst; resolutie = het ritme van die beurs (3 tot 5 s). Eén keer
   gezien = 0 s.
+- **Echt na de keuring (moet 1):** pas echt als twee metingen die minstens 3 seconden uit elkaar liggen (en alle
+  metingen daartussen) elk minstens €100 diepte met winst hadden, en de latere meting minstens €0,05 winst gaf.
+  Alle bedragen in het rapport zijn die van die latere meting (wat er na 3 seconden nog stond), niet van het beste
+  moment. Code: `volgen.py` (bevestigd), grenzen ook in `rapport.py` (dat draait met python3 -I).
+- **Eén kans, niet vier (moet 2):** driehoeken op dezelfde beurs die tegelijk openstonden en minstens één paar
+  delen, willen hetzelfde stukje boek. Het rapport voegt ze samen tot één kans (union-find over tijd en paar) en
+  telt alleen de beste. Zo telt één scheve prijs op een altcoin/BTC-paar niet via EUR, USD, USDT en USDC vier keer.
 - Diepte in euro: hij rekent de winst uit bij ±45 bedragen van €10 tot ±€75.000 (stappen van 25%, plus €100,
   €150 en €200). Diepte = het kleinste bedrag waarmee je 99% van de hoogste winst pakt (meer erin levert niets
   meer op). Ook de winst bij €100, €150, €200, €500, €1.000, €2.000, €5.000 en €10.000 (je mag minder inleggen als
   dat meer oplevert). Het opgehaalde boek is 20 tot 50 niveaus: diepte is een ondergrens.
-- Minimale ordergrootte per paar komt uit de API (Bitvavo, Kraken, OKX, KuCoin, Gate, Bitget, MEXC, Bitstamp). Een
-  bedrag telt alleen als alle drie orders het minimum halen. Per beurs staat in `beurs-<naam>.json` hoeveel
+- Minimale ordergrootte en stapgrootte per paar komen uit de API (Bitvavo, Kraken, OKX, KuCoin, Gate, Bitget,
+  MEXC, Bitstamp). Een bedrag telt alleen als alle drie orders het minimum halen; het aantal munten wordt per order
+  naar beneden afgerond op de stapgrootte (wat niet rondgaat, blijft liggen). Bitvavo rondt de kosten in euro naar
+  boven af op de cent: €0,01 extra per euro-order. Per beurs staat in `beurs-<naam>.json` hoeveel
   driehoeken met €100, €150 en €200 mogelijk zijn (vraag van Thijs: wat doet het met weinig geld?).
 - Winst boven 5% per rondje is verdacht (dode markt of foute ticker); die telt niet als echt en staat apart.
 - Euro: de begin-munt (EUR als die in de driehoek zit, anders USDT, USDC, USD, BTC, ETH) omgerekend met de
@@ -47,6 +59,16 @@ driehoeken per beurs en een GOK-som voor €2.000 en €5.000 van (MiCA en grijs
 
 ## Bekende grenzen
 Wij meten elke 3 tot 5 seconden. Snelle partijen pakken een driehoek meestal binnen milliseconden; wat wij zien
-is wat er overbleef. Een driehoek die korter dan een ronde stond, zien we vaak niet. Minimale ordergrootte en
-afronding van de beurs rekenen we niet mee (klein bij €100 of meer, GOK). De API is de wereldwijde versie, niet
-altijd de EU-versie met vergunning.
+is wat er overbleef. Een driehoek die korter dan een ronde stond, zien we vaak niet. De API is de wereldwijde
+versie, niet altijd de EU-versie met vergunning. Bitstamp is gratis onder $1.000 handelsvolume per 30 dagen
+(DERDEN); dat rekenen we niet mee, want het geldt maar voor een paar driehoeken.
+
+## Bestanden en waarom zo gesplitst (keuring B1)
+`kosten.py` (tarieven, minimum, stapgrootte, vergunning), `reken.py` (driehoeken zoeken, beste prijs, boek
+aflopen), `volgen.py` (een driehoek volgen en bevestigen), `driehoek.py` (de draden per beurs en het
+wegschrijven), `rapport.py` (los, draait met python3 -I). Elk onder de 400 regels.
+
+## Herstart en opslaan (na de keuring)
+De klok start de vaste run alleen opnieuw bij een push die code raakt (`*.py`, `opslaan.sh`, de workflow), niet
+bij tekst (README, KEURING.md). Na een stopsignaal wacht de meter hooguit 5 seconden op de draden en schrijft dan
+alles weg; GitHub stopt een afgebroken stap na ±10 seconden hard, en de opslaan-stap draait daarna altijd.
