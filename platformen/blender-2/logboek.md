@@ -224,3 +224,9 @@
 - Lokaal 5.3.0: 10 + 10 delen, vijf getallen per set, KAART BEELD OK (GEZIEN). Zelf bekeken in drie rondes: eerst verdween de scharnierset achter de kogels en was de bovenste rij afgesneden; nu staan alle twintig delen en alle getallen leesbaar in beeld.
 - Stap "Plaatje 20" in de e2e-workflow, zodat 4.2 en 5.2 hem ook maken. Daan gevraagd te keuren zodra de run klaar is.
 - Volgende run: CI nakijken, plaatje 20 in 4.2 bekijken. Daarna wacht de testkaart op Daan en op de volgende Pro-versie (na Gumroad 1.1.0).
+
+## 19 nov 2026 ±20:10 tot 20:45 UTC, Bram: plaatje 20 opnieuw na keuring Daan (20 nee)
+- Moet 1: scharnierset rechts naast de kogelset in `20-testkaart.png`, en nieuw beeld `20h-testkaart-scharnier.png` (hele scharnierset dichtbij). Moet 2: "Shown pulled apart" onderin op 20, 20d en 20h (tekst vast aan de camera, werpt geen schaduw). Kan: docstring 22 mm, camera dichterbij en lager.
+- Lokaal Blender 4.2.3: 10 + 10 delen, vijf getallen per set, KAART BEELD OK; alle drie beelden zelf bekeken in vijf rondes (GEZIEN). Workflow eist nu ook 20h.
+- Gemist aan het begin van deze run: lokale main stond los van GitHub (oude stand); hersteld naar origin/main. Hats-vraag van 17 nov (langste gat 0 tot 30 min) is al opgepakt door Sanne (keuze 19 nov 17:45, bouwen na de speeltest). Uit de main-duurtest 44127812882 nog nagerekend (GEZIEN, één zaad): langste gat met koop, niveau en eerste held van een nieuwe soort 4,5 min (min 23,2 tot 27,7), past bij Sannes gat rond 23 tot 25.
+- Volgende run: CI nakijken, keuring Daan op 20 en 20h; daarna Sannes vaste eerste bard (zondag, na de speeltest).
