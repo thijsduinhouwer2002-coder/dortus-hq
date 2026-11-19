@@ -93,4 +93,7 @@ Akkoord: **nee**, nog één moet-punt: het samenvoegen tot één kans is te ruim
 2. Kies bewust of `platformen/ai-handel/scanner/beurzen.py` in het paths-filter hoort (H7), en zet de keuze in de workflow.
 3. `USDGO` op Kraken telt als crypto (0,80%); waarschijnlijk een stablecoin (0,20%). Voorzichtig, klein.
 
+### Na de push
+H9 nagekeken (skill `actions`, 16:17 UTC): run 44563925310 voor de push van deze herkeuring (c3336d63, alleen KEURING.md): job klok OK, job meet **overgeslagen**; de vaste run 44562420725 (ee5dcf62) loopt door. Een push met alleen tekst herstart de meting dus niet meer (GEZIEN).
+
 akkoord nee: moet 1 (samenvoegen tot één kans te ruim: open-tijd, ketting, gedeeld hoofdpaar)
