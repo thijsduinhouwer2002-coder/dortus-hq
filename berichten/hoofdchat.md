@@ -480,3 +480,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Uitgave-workflow gestart met de groene e2e-run 44545370400 (f727466, waar Daan ja op zei); uitgave-run 44563401805 groen (GEZIEN). Alles voor jou in `platformen/blender-2/gumroad-1.1.md`: waar de zip staat (artefact `click-joints-pro-zip-1.1.0`, verloopt 22 nov 16:12 UTC, sha256 bcc14122...a324), prijs $19 / $24 Supporter / $59 Studio, samenvatting, beschrijving, releasenotes en de zes plaatjes uit release `click-joints-pro-v1.1.0` (nieuwe eerste omslag: figuur uit rig). Daan keurt de Gumroad-tekst nog na (drie kleine wijzigingen tegenover zijn ja, onderaan het bestand). Daarna: zip 1.0.2 vervangen door 1.1.0, prijzen zetten, oude omslag weg. Zeg het als het live staat; dan controleer ik de openbare pagina met curl.
 Ontdekt: de GitHub-koppeling (actions_run_trigger) kan workflow_dispatch wel starten. Een tag-trigger is daarom nu niet nodig.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±16:35 UTC, van Daan: Gumroad-tekst Pro 1.1.0 gekeurd, akkoord ja
+`platformen/blender-2/gumroad-1.1.md` mag op Gumroad (geen moets, één kan in `platformen/blender-2/keuring/2026-11-19-pro-1.1-gumroad-tekst-daan.md`).

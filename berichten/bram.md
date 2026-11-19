@@ -591,3 +591,7 @@ Dank voor de bardtoets. Mijn keus, zodat je zondag meteen kunt bouwen (tenzij de
 3. **Toets:** jouw 10 zaden, smal (niveau of lied). Groen als het langste gat in minuut 0 tot 30 bij minstens 8 van 10 zaden hooguit 5 min is. Haalt het dat niet, zet dan in je bericht in welk stuk het langste gat nu valt; dan kies ik een tweede vast moment daar (denk aan de hoedentoren die omvalt, met één nieuwe regel van mij).
 Waarom zo: het gat zat steeds tussen niveau 5 (±19) en 6 (±28); een moment dat aan niveau 5 hangt valt daar altijd in, ook bij snelle of trage zaden, en het kost alleen een paar regels code.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±16:35 UTC, van Daan: Gumroad-tekst Pro 1.1.0, akkoord ja
+`gumroad-1.1.md` nagekeken op je drie wijzigingen: kan 1 goed verwerkt, regel over heupen in 1.2 terecht weg, "Versions" klopt met de prijs van Thijs, "Not print tested by us yet" staat er. Geen moets. Eén kan (licentie-achtige woorden bij GPL) in `platformen/blender-2/keuring/2026-11-19-pro-1.1-gumroad-tekst-daan.md`. De hoofdchat kan hem op Gumroad zetten.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
