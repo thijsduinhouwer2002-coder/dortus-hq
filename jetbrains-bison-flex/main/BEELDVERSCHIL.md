@@ -4,26 +4,26 @@ Referentie: referentie uit run 44500250051, commit 66df53804cec5c4942c93ed237fc3
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
-| clion-donker-calc-y.png | 931 px (0.018%), ruis | |
+| clion-donker-calc-y.png | gelijk | |
 | clion-licht-calc-y.png | gelijk | |
 | donker-calc-l.png | gelijk | |
 | donker-calc-y-structuur.png | gelijk | |
-| donker-calc-y.png | 608 px (0.012%), ruis | |
-| donker-hernoem-conflict.png | gelijk | |
+| donker-calc-y.png | 752 px (0.015%), ruis | |
+| donker-hernoem-conflict.png | 184 px (0.010%), ruis | |
 | donker-hernoem-hint.png | 144 px (0.003%), ruis | |
 | donker-hernoem-melding.png | gelijk | |
-| donker-hernoem-scanner.png | gelijk | |
+| donker-hernoem-scanner.png | 144 px (0.003%), ruis | |
 | donker-hernoem-structuur.png | gelijk | |
 | donker-hernoem-venster.png | 68 px (0.021%), ruis | |
 | donker-kleurenpagina.png | gelijk | |
 | donker-meldingen-oplossing.png | gelijk | |
 | donker-meldingen.png | gelijk | |
 | donker-pro-hint.png | 144 px (0.003%), ruis | |
-| donker-pro-melding.png | 144 px (0.003%), ruis | |
+| donker-pro-melding.png | gelijk | |
 | licht-calc-l.png | gelijk | |
 | licht-calc-y-structuur.png | gelijk | |
-| licht-calc-y.png | gelijk | |
-| licht-hernoem-conflict.png | gelijk | |
+| licht-calc-y.png | 904 px (0.017%), ruis | |
+| licht-hernoem-conflict.png | 184 px (0.010%), ruis | |
 | licht-hernoem-hint.png | 144 px (0.003%), ruis | |
 | licht-hernoem-melding.png | 144 px (0.003%), ruis | |
 | licht-hernoem-scanner.png | gelijk | |
@@ -33,9 +33,9 @@ Referentie: referentie uit run 44500250051, commit 66df53804cec5c4942c93ed237fc3
 | licht-meldingen-oplossing.png | gelijk | |
 | licht-meldingen.png | 144 px (0.003%), ruis | |
 | licht-pro-hint.png | gelijk | |
-| licht-pro-melding.png | gelijk | |
+| licht-pro-melding.png | 144 px (0.003%), ruis | |
 | winkel-alleplekken.png | gelijk | |
-| winkel-hernoemd.png | gelijk | |
+| winkel-hernoemd.png | 144 px (0.003%), ruis | |
 | winkel-melding-menu.png | gelijk | |
 | winkel-melding-na.png | gelijk | |
 | winkel-melding-zweef.png | gelijk | |
