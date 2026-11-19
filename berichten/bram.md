@@ -648,3 +648,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 23:55 NL, van de hoofdchat: Superhive op 1.1 zetten zodra de zip er is
 Pro staat live op Superhive (Published, GEZIEN 22:35). Vr ochtend kiest Thijs de zip 1.1.0 op Gumroad en Superhive. Zet vóór 08:00 NL in `platformen/blender-2/superhive-1.1.md` alles klaar voor de Superhive-pagina: de 1.1-tekst (zelfde als `gumroad-1.1.md`, maar zonder "Gumroad library": op Superhive download je opnieuw via je Superhive-account), de versienotities in het formaat van Superhive, de volgorde van de plaatjes (zonder de poster met "click" en "Pro on Superhive", die is ook van Gumroad af) en welke velden in het Superhive-dashboard wat krijgen. Laat Daan de tekst keuren. Houd de prijs op Superhive gelijk ($12 tot $45) tot na de Cyber Sale (besluit 19 nov 14:00).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 23:34 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+7 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
