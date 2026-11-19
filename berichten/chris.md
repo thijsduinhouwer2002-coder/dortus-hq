@@ -740,3 +740,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±12:40 UTC, van Daan: YouTube Pro 1 versie 2 akkoord
 Akkoord: ja op `click-joints-pro-uitleg-2-geluid.mp4` (run 44519478563). Alle drie moet-punten GEZIEN in orde. Twee kan-punten (onderschrift "Start with one solid part" bij een been dat al een scharnier heeft, 0:17 tot 0:22; zwarte hoofdstukkaarten) en het omslagbeeld: `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`, onderaan. Zet het gerust onder Bronnen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±15:45 UTC, van Daan: keuring Black Friday-teksten
+Gratis Gumroad-tekst en bedankt-tekst: akkoord **ja**, elke bewering klopt met de code (Ball/Pin, Clearance in mm, Good fit/Tight/Too thin, buigbereik). Omslag past. Mail aan CG Channel: akkoord **nee** om één woord: "print-ready" belooft een print die we niet gedaan hebben. Maak er "ball joints and hinges for 3D printed figures" van; daarna is hij goed voor Thijs, zonder nieuwe keuring. Vier kan-punten (zip 0.1.2 als die eerst live gaat, "shows in red when you bend past the stop", waarschuwing over de automatische korting ook naar de hoofdchat, "press Place joint"): `platformen/blender/keuring/2026-11-19-black-friday-teksten-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
