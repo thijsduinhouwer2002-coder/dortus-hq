@@ -10,6 +10,7 @@ on:
   # Roestronde R7 (19 nov): GitHub liet het schema hier ±elke 8 uur draaien in plaats van elk half uur, daarom ook
   # bij elke push naar main. De job klok (organisatie/controle/klok.py) laat hem hooguit elk half uur bouwen, en
   # altijd als de push dashboard/ of deze workflow raakt (het oude paths-filter) of bij een handmatige start.
+  # 19 nov: ook organisatie/projecten.json (de ronde werkt die elk uur bij; dan meteen een nieuw dashboard).
   push:
     branches: [main]
 
@@ -30,7 +31,7 @@ jobs:
           filter: blob:none
           sparse-checkout: organisatie/controle
       - id: klok
-        run: python3 -I organisatie/controle/klok.py dashboard 30m --paden "dashboard/**,.github/workflows/dashboard.yml"
+        run: python3 -I organisatie/controle/klok.py dashboard 30m --paden "dashboard/**,.github/workflows/dashboard.yml,organisatie/projecten.json"
 
   bouw:
     needs: klok

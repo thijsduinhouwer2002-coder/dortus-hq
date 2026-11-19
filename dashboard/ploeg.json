@@ -244,6 +244,53 @@
       "sleutels": [
         "Kai"
       ]
+    },
+    {
+      "naam": "Hoofdchat",
+      "rol": "Leiding en rondes",
+      "team": "Leiding",
+      "schema": "4 rondes per dag",
+      "actief": true,
+      "sleutels": [
+        "Hoofdchat",
+        "Ronde",
+        "Bord",
+        "Besluit",
+        "Toegang",
+        "Lijst"
+      ]
+    },
+    {
+      "naam": "Roep",
+      "rol": "Marketing-tak (Maker en Keurder)",
+      "team": "Marketing",
+      "schema": "3 keer per dag",
+      "actief": true,
+      "sleutels": [
+        "Roep"
+      ]
+    },
+    {
+      "naam": "Reddit-bouwer",
+      "rol": "Bouwer Reddit-dagspel",
+      "team": "Reddit",
+      "schema": "agent van de hoofdchat",
+      "actief": true,
+      "sleutels": [
+        "Reddit Hat Tower"
+      ]
+    },
+    {
+      "naam": "Keurder",
+      "rol": "Losse keurders (agents en workflow)",
+      "team": "Keuring",
+      "schema": "na elk werkstuk",
+      "actief": true,
+      "sleutels": [
+        "Keuring",
+        "Herkeuring",
+        "Automatische keuring"
+      ]
     }
   ],
   "producten": [
