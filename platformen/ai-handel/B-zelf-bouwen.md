@@ -375,3 +375,84 @@ Reden voor 8 tot 15% bij route 1: D's model geeft na een zware korting $5.000 to
 3. **Malware is hier extreem**: een gekaapte geverifieerde GitHub-organisatie met een werkende Polymarket-bot die sleutels stal (maart 2026), en npm-pakketten als `polymarket-claude-code` die je sleutel vragen (mei 2026) (DERDEN). Alleen het officiële pakket, niets van onbekenden.
 4. **Elk verslag van een echte beloningsbot dat ik vond eindigde op verlies**: poly-maker ±−$15 in een korte sessie, een gekloonde bot netto negatief, een bot met een val leeggetrokken voor ruim $1.500 (DERDEN). De winst zit in klein blijven, dunne markten en momenten vlak voor nieuws mijden.
 5. **Bouwplan in 7 stappen**, waarvan 6 zonder account en zonder geld: marktenlijst, orderboek opslaan, 2 weken schaduwbot die zijn eigen beloning en nepverlies telt, remmen erin, dan pas beslissen (GOK op uren: 25 tot 40). Voor Freqtrade staat nu een config met alle remmen klaar (punt 28).
+
+## Run 5 (19 nov 2026, ±05:00 Nederlandse tijd)
+
+Deze run: de schaduwbot uit punt 27 uitgeschreven met de echte veldnamen uit de docs, de beloningsformule omgezet in iets wat je zelf kunt narekenen, en de openbare beloningslijst van vannacht zelf gemeten. Niets geïnstalleerd of uitgevoerd van anderen; alleen openbare API's gelezen met curl.
+
+### 30. De beloningsformule in gewone woorden (GEZIEN, [docs Liquidity Rewards](https://docs.polymarket.com/programs/liquidity-rewards.md))
+- Elke markt heeft een **maximale afstand** `rewards_max_spread` (in centen, v) en een **minimale grootte** `rewards_min_size`. Orders daarbuiten tellen niet.
+- Een order krijgt punten = **((v − afstand) / v)² × grootte**. Kwadratisch: op 1 cent van het midden bij v = 3 krijg je 44% van het maximum, op 2 cent maar 11% (GEZIEN plus eigen rekensom). Dicht bij het midden staan loont dus veel meer dan groot staan.
+- Twee kanten: je kooporders op JA tellen samen met je verkooporders op NEE (kant één), en andersom (kant twee). Je score is het **minimum van de twee kanten**; staat het midden tussen 10 en 90 cent, dan telt één kant ook, maar gedeeld door 3. Onder 10 of boven 90 cent: **alleen tweezijdig telt**.
+- Elke minuut, op een willekeurig moment, kijkt Polymarket naar het boek: jouw score gedeeld door die van alle makers. Over een UTC-dag (tot 1.440 metingen) opgeteld en dan verdeeld over de pot van die markt. Uitbetaling dagelijks om middernacht UTC, minimaal $1.
+- Bij sportwedstrijden tellen orders na de aftrap pas als ze zo lang liggen als de vertraging voor takers. Daarvoor tellen ze direct.
+- Wat de docs **niet** precies zeggen: hoe het "size-cutoff-adjusted midpoint" wordt berekend. De schaduwbot moet dat benaderen (GOK: het midden van de beste bied- en laatprijs waar nog minstens `rewards_min_size` staat).
+
+### 31. Gemeten vannacht: de openbare beloningslijst (GEZIEN, `GET https://clob.polymarket.com/rewards/markets/multi`, zonder account, 19 nov ±04:05 UTC)
+- De lijst is **groot**: ik haalde 20.000 verschillende markten op en was nog niet aan het eind (GEZIEN). Een volledige download duurt langer dan 10 minuten; filter dus altijd met `order_by=rate_per_day` en `position=DESC`.
+- Top 1.000 markten op beloning per dag samen: **±$57.000 per dag** aan actieve beloning (GEZIEN, eigen optelling van `rate_per_day` waar vandaag tussen `start_date` en `end_date` valt; de munt is het adres in `asset_address`, USDC op Polygon bij de markten die ik zag). De 10 grootste samen ±$6.400 per dag; nummer 500 krijgt $30 per dag, nummer 1.000 $13 (GEZIEN).
+- 306 van die 1.000 markten zijn op of na 17 nov gemaakt, samen ±$13.300 per dag (GEZIEN). Dat past bij D: jonge markten krijgen veel beloning.
+- Er is een veld **`market_competitiveness`** dat nergens in de docs wordt uitgelegd (GEZIEN, alleen als voorbeeldwaarde in de [CLOB OpenAPI](https://docs.polymarket.com/api-spec/clob-openapi.yaml)). Mediaan in de top 1.000: ±5. Er staan markten tussen met **$300 tot $400 per dag en een waarde rond 0** (bijvoorbeeld kleine vragen over de Anthropic-beurs en GTA VI-streams), naast drukke markten met 50 tot 170 (GEZIEN). GOK: het is de som van de scores van de makers die er nu staan. Als dat klopt, is "beloning per dag gedeeld door (competitiveness + 1)" de snelste filter voor de marktenlijst. **Dit is precies wat de schaduwbot als eerste moet toetsen**, want het is een gok op een ongedocumenteerd veld.
+- Let op: een markt met $400 per dag en bijna geen makers is ook de markt waar de val uit punt 26 het makkelijkst is en waar weinig handel is om je orders netjes te vullen (GOK).
+
+### 32. Hoe de schaduwbot de concurrentie schat zonder te weten wie wie is
+Het openbare boek toont per prijs alleen de totale grootte, niet van welke maker. Je kunt de score van de anderen dus niet exact uitrekenen. Wel twee grenzen (GOK, eigen wiskunde op de formule van punt 30):
+- **Optimistisch** (jij krijgt veel): neem voor de anderen samen het minimum van de twee kanten, berekend over het hele boek. Dat is te hoog geschat voor jou, want losse makers zijn vaak eenzijdig.
+- **Pessimistisch** (jij krijgt weinig): tel de twee kanten van het hele boek bij elkaar op als score van de anderen.
+- Je echte aandeel ligt daartussen. Log beide. Als de pessimistische schatting na kosten nog plus is, is dat een sterk teken; als alleen de optimistische plus is, niet doorgaan (GOK).
+- Toets daarna `market_competitiveness`: ligt het dicht bij een van je twee schattingen, dan weet je wat het veld is.
+
+### 33. De schaduwbot als tekst (veldnamen GEZIEN in [Real-Time Data](https://docs.polymarket.com/market-data/realtime-data.md) en de beloningsdocs; de logica is GOK)
+Dit is een opzet om aan een AI te geven, geen kant-en-klare code. Alles gebruikt alleen openbare data, dus geen account en geen sleutel.
+
+```text
+ELKE 10 MINUTEN  (marktenlijst)
+  GET clob.polymarket.com/rewards/markets/multi?order_by=rate_per_day&position=DESC&page_size=500
+  houd markten met:
+    actieve rewards_config (start_date <= vandaag <= end_date), rate_per_day >= drempel
+    created_at jonger dan 2 dagen (D)  of  rate_per_day / (market_competitiveness + 1) hoog
+    geen bekende uitslag binnen 48 uur (end_date, eigen lijst met momenten)
+  bewaar per markt: condition_id, tokens[].token_id, rewards_min_size, rewards_max_spread
+
+DOORLOPEND  (orderboek, openbaar)
+  websocket wss://ws-subscriptions-clob.polymarket.com/ws/market
+  of in polymarket-client: client.subscribe(MarketSpec(asset_ids=[...]))
+  berichten:
+    "book"             -> volledig boek: bids[], asks[] (price, size), tick_size, min_order_size
+    "price_change"     -> één prijsniveau veranderd: price, size, side, best_bid, best_ask
+    "last_trade_price" -> echte trade: price, size, side, timestamp   <- hiermee nepvullingen
+    "tick_size_change" -> nieuwe tick_size: orders opnieuw afronden
+  alles naar SQLite (eigen historie voor later terugtesten)
+
+ELKE MINUUT, op een willekeurige seconde  (zoals Polymarket zelf meet)
+  midden  = benadering van het adjusted midpoint (punt 30)
+  plan    = 1 bod en 1 laat per kant, grootte = rewards_min_size, op 1 tick binnen v,
+            scheef naar eigen nepvoorraad
+  score   = formule punt 30 voor plan; concurrentie optimistisch en pessimistisch (punt 32)
+  beloning_nu = rate_per_day / 1440 * aandeel   (twee getallen)
+
+BIJ ELK "last_trade_price"
+  als de trade door de prijs van een geplande order gaat: neem aan dat die order vol is
+  (strenger: alleen als de trade groter is dan alles wat vóór jou in de rij stond)
+  boek nepvoorraad en nepverlies op de koers 5 en 60 minuten later
+
+ELKE DAG om 00:00 UTC
+  regel per markt: beloning (2 schattingen), nepverlies, aantal nepvullingen, max nepvoorraad
+```
+
+Waarom de vulling streng geteld moet worden: je staat in de rij achter orders die er al lagen. Telt de bot elke trade op jouw prijs als vulling, dan is hij te somber; telt hij alleen trades die groter zijn dan de rij vóór jou, dan klopt het beter. Log beide (GOK, het probleem van de wachtrij is bekend bij elke terugtest van market making).
+
+Wat de AI vaak fout doet bij deze opzet (GOK, uit ervaring met gegenereerde handelscode en de valkuilen in punt 21 en 25): de oude `py-clob-client` gebruiken in plaats van `polymarket-client`, op `asset_id` filteren in de oude stijl (stuk na 14 dec), prijzen als float in plaats van Decimal (afrondingsfouten op ticks), en de nepvulling op de eigen order zonder wachtrij tellen. Vraag er expliciet naar.
+
+### Nog te doen
+- De echte top-lijst een paar dagen achter elkaar meten (wordt de pot groter of kleiner, hoe snel zakt de beloning van een nieuwe markt).
+- Uitvinden wat `market_competitiveness` is (forum, Discord-verslagen, of door vergelijken met het boek).
+- AFM-waarschuwingslijst nalezen op Hyperliquid en Polymarket (laadt met JavaScript; zoeken naar een andere ingang).
+- Hyperliquid: maximale hefboom per munt en incidenten met de brug.
+
+## Stand na run 5 (19 nov 2026, ±05:00)
+1. **De beloningsformule is openbaar en na te rekenen**: kwadratisch naar afstand tot het midden, minimum van twee kanten, elke minuut gemeten, dagelijks uitbetaald (GEZIEN). Dicht bij het midden met de minimale grootte staan is de kern; groot staan helpt weinig en vergroot het risico.
+2. **De pot is echt groot**: de top 1.000 beloonde markten samen ±$57.000 per dag, waarvan ±$13.300 in markten van de laatste 3 dagen (GEZIEN vannacht). Wat jij daarvan krijgt, hangt af van de concurrentie en is nog niet gemeten.
+3. **Er zijn markten met $300 tot $400 per dag en bijna geen concurrentie** volgens een ongedocumenteerd veld (GEZIEN plus GOK op de betekenis). Dat is de eerste hypothese voor de schaduwbot, en ook waar de grootste val ligt.
+4. **De schaduwbot staat als tekst klaar** (punt 33), met alleen openbare data, zonder account of geld, met twee schattingen voor concurrentie en twee voor vullingen, zodat de beslissing na 2 weken niet op één optimistisch getal rust (GOK op de opzet).
+5. **De vaste regels blijven**: alleen `polymarket-client`, Session Key en nooit de hoofdsleutel, malware rond Polymarket-bots is echt, juridisch grijs in Nederland, en elk verslag van een echte beloningsbot dat ik vond eindigde op verlies (runs 4 en eerder).
