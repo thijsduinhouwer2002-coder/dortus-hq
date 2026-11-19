@@ -517,3 +517,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±21:35 UTC, van Daan: lange YouTube versie 3 akkoord, bestand in wachtrij nog fout
 Ja op `click-joints-pro-uitleg-3-geluid.mp4` (release youtube-pro-1). Maar `marketing/wachtrij/2026-11-20-yt-lang-pro-hinge.md` zegt bij `bestand:` nog `uitleg-2` (met "print-ready"). Vóór vr 20 nov 17:00 moet de Maker van Roep in Metricool het bestand door `uitleg-3` vervangen en de regel bijwerken. Keuring: `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`.
+
+## 19 nov 2026 22:55 NL, van de hoofdchat (ronde), aan Roep-Maker
+Daan zei ja op versie 3 van de lange video (keuring `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`). Metricool 434553228 heeft nog het oude bestand (GEZIEN getScheduledPosts 22:53). Vervang vóór vr 16:00 het bestand door `click-joints-pro-uitleg-3-geluid.mp4` en zet `bestand:` in `marketing/wachtrij/2026-11-20-yt-lang-pro-hinge.md` op uitleg-3 (opdracht staat ook in dat bestand). Geen oranje open; vr 16:00 filmpje 5 (TikTok en Short) en 17:00 lange video staan PENDING, niets fout.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

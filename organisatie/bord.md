@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: do 19 nov 2026, 22:00 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Click Joints Pro 1.1.0 uitgebracht, Gumroad-tekst akkoord Daan. Wacht op de HP-sessie van Thijs: 1.1.0, prijzen en omslag op Gumroad (zip verloopt zo 22 nov 16:12 UTC), dan CYBER25 inplannen. Metricool vr 16:00 filmpje 5 en 17:00 lange video PENDING (versie 3 zonder print-ready na ja Daan). Chris maakte drie nieuwe TikToks (21 tot 23 nov), wachten op de Keurder. Hats bevroren, speeltestbuild klaar, speeltest za 21 nov.
+**Stand: do 19 nov 2026, 22:55 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Click Joints Pro 1.1.0 uitgebracht, Gumroad-tekst akkoord Daan. Wacht op de HP-sessie van Thijs: 1.1.0, prijzen en omslag op Gumroad (zip verloopt zo 22 nov 16:12 UTC), dan CYBER25 inplannen. Metricool vr 16:00 filmpje 5 en 17:00 lange video PENDING; Daan zei ja op versie 3, de Maker vervangt het bestand vóór vr 16:00. Drie nieuwe TikToks van Chris (21 tot 23 nov) wachten op de Keurder. Hats bevroren, speeltest za 21 nov.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

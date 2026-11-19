@@ -10,6 +10,7 @@
 - tijd: 2026-11-20T17:00:00+01:00
 - doel: https://dortus.com/yt/
 - gemaakt_door: Chris
+- voor de Maker (hoofdchat, 19 nov 22:55 NL): Daan zei ja op versie 3 (`click-joints-pro-uitleg-3-geluid.mp4`, release youtube-pro-1). Vervang vóór vr 20 nov 16:00 in Metricool 434553228 het bestand door versie 3 en zet de regel `bestand:` hierboven op uitleg-3. Lukt het niet op tijd, dan gaat versie 2 uit.
 - vorige: (eerste versie in het oude formaat: `commercie/wachtrij/youtube-pro-1.md`)
 
 Let op voor de Keurder: keur alleen `click-joints-pro-uitleg-2-geluid.mp4`. Geeft die URL nog geen 200, dan draait de opname nog (klaar ±12:45 UTC 19 nov). `uitleg-1` is de versie die Daan afkeurde. Daan keurt alleen zijn drie moet-punten na; zijn akkoord komt onder Bronnen.
