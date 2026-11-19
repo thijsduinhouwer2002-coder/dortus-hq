@@ -1,12 +1,6 @@
 // Het spel in de post (Devvit-entrypoint "game"): startscherm, spelen, uitslag.
 // De regels staan in shared/spel.ts; de server speelt de dagbeurt na en bewaart hem.
-import type {
-  InitRsp,
-  RijRanglijst,
-  ScoreRsp,
-  UitslagOpslag,
-} from '../shared/api.ts'
-import {kaartTekst} from '../shared/kaart.ts'
+import type {InitRsp, ScoreRsp, UitslagOpslag} from '../shared/api.ts'
 import {
   begin,
   dagNummer,
@@ -21,8 +15,10 @@ import {
   Toestand,
 } from '../shared/spel.ts'
 import * as geluid from './geluid.ts'
-import {deel, haalInit, stuurScore, stuurStart} from './net.ts'
-import {type Beeld, laadPlaatjes, nieuwBeeld, Tekenaar} from './teken.ts'
+import {laadKunst} from './kunst.ts'
+import {haalInit, stuurScore, stuurStart} from './net.ts'
+import {type Beeld, nieuwBeeld, Scene} from './scene.ts'
+import {toonEinde} from './uitslag.ts'
 
 const $ = <T extends HTMLElement>(id: string): T =>
   document.getElementById(id) as T
@@ -46,22 +42,18 @@ let modus: Modus = 'dag'
 let p: Potje = nieuwPotje(vandaagDag())
 let volgorde = hoedVolgorde(p.dag)
 let beeld: Beeld = nieuwBeeld()
-let tekenaar: Tekenaar
+let scene: Scene
 let stilTot = 0
 let laatsteTeller = 0
 let simTijd = 0
 let eindeSinds = 0
 
-function getal(n: number): string {
-  return n.toLocaleString('en-US')
-}
+const getal = (n: number): string => n.toLocaleString('en-US')
 
-function maakTekst(el: HTMLElement, html: string): void {
-  el.innerHTML = html
-}
-
-function esc(s: string): string {
-  return s.replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`)
+function vulBeeld(b: Beeld): Beeld {
+  b.samen = info?.gemeenschap.hoedenVandaag ?? 0
+  b.sub = info?.subreddit ?? ''
+  return b
 }
 
 // ---------- startscherm ----------
@@ -84,10 +76,9 @@ function toonStart(): void {
   if (al) {
     knop.hidden = true
     mijn.hidden = false
-    maakTekst(
-      mijn,
-      `You stacked <b>${al.hoeden}</b> hats today, place ${al.plek}. Come back tomorrow for tower #${dag + 1}.`,
-    )
+    mijn.innerHTML = al.afgebroken
+      ? `Your run for tower #${dag} was started and not finished, so it counts as 0. Tower #${dag + 1} comes tomorrow.`
+      : `You stacked <b>${al.hoeden}</b> hats today, place ${al.plek}. Tower #${dag + 1} comes tomorrow.`
     oefen.textContent = 'Practice'
     oefen.classList.add('hoofd')
   } else {
@@ -107,9 +98,10 @@ function toonStart(): void {
     info && info.dagenOpRij > 1 ? `${info.dagenOpRij} days in a row` : ''
   // Achter het startscherm staat Gloop met een kleine toren: je ziet meteen waar het om gaat.
   p = nieuwPotje(dag)
-  p.hoeden = Math.min(al?.hoeden ?? 4, 6)
   volgorde = hoedVolgorde(dag)
-  beeld = nieuwBeeld()
+  beeld = vulBeeld(nieuwBeeld())
+  beeld.toren = 5
+  beeld.bordje = false
   tikHint.hidden = true
   startLaag.hidden = false
   eindLaag.hidden = true
@@ -122,7 +114,7 @@ function start(nieuweModus: Modus): void {
     modus === 'dag' ? vandaagDag() : 100000 + Math.floor(Math.random() * 100000)
   p = nieuwPotje(dag)
   volgorde = hoedVolgorde(modus === 'dag' ? dag : vandaagDag())
-  beeld = nieuwBeeld()
+  beeld = vulBeeld(nieuwBeeld())
   begin(p)
   if (modus === 'dag' && !netFout) {
     // De dagbeurt telt vanaf nu. Was hij al gestart (herladen, tweede tabblad), dan wordt dit oefenen.
@@ -136,9 +128,7 @@ function start(nieuweModus: Modus): void {
   eindLaag.hidden = true
   tikHint.hidden = false
   tikHint.textContent =
-    modus === 'dag'
-      ? `Tower #${vandaagDag()}: tap when he reaches the mouth`
-      : 'Practice: tap when he reaches the mouth'
+    'Tap when he reaches the mouth. Perfect gulps stack more hats.'
 }
 
 // ---------- spelen ----------
@@ -153,25 +143,23 @@ function rekenTot(t: number): void {
   while (simTijd + STAP_MS <= t) {
     stap(p)
     simTijd += STAP_MS
+    verwerkGebeurtenis(t)
     if (p.toestand === Toestand.Einde) break
   }
-  verwerkGebeurtenis()
+  verwerkGebeurtenis(t)
 }
 
-function verwerkGebeurtenis(): void {
+function verwerkGebeurtenis(nu: number): void {
   if (p.laatste.teller === laatsteTeller) return
   laatsteTeller = p.laatste.teller
-  const soort = p.laatste.soort
+  const soort = p.laatste.soort ?? ''
+  scene.gebeurtenis(soort, p, beeld, volgorde, nu)
   if (soort === 'raak' || soort === 'hap') {
     const goud = p.uitslagen[p.uitslagen.length - 1] === 'gold'
-    beeld.kreet = 'GULP!'
-    beeld.kreetSub = goud ? '+3 hats' : p.reeks > 1 ? `x${p.reeks}` : ''
-    beeld.kreetMs = 0
     // Korte stilstand precies op het slikken (zoals op het horloge): 80 ms, alleen in beeld.
-    stilTot = performance.now() + 80
+    stilTot = nu + 80
     if (goud) geluid.goud()
     else geluid.gulp(soort === 'raak', p.reeks)
-    if (soort === 'raak' || goud) tekenaar.strooiVonken(beeld, goud)
     navigator.vibrate?.(soort === 'raak' ? 22 : 10)
     tikHint.hidden = true
   } else if (soort === 'lucht') {
@@ -180,7 +168,7 @@ function verwerkGebeurtenis(): void {
     geluid.mis()
   } else if (soort === 'einde') {
     geluid.einde()
-    eindeSinds = performance.now()
+    eindeSinds = nu
     void naEinde()
   }
 }
@@ -189,7 +177,7 @@ function drukNu(t: number): void {
   if (p.toestand === Toestand.Klaar || p.toestand === Toestand.Einde) return
   rekenTot(t)
   druk(p)
-  verwerkGebeurtenis()
+  verwerkGebeurtenis(t)
 }
 
 let vorigBeeld = performance.now()
@@ -201,14 +189,13 @@ function lus(t: number): void {
     // Camera trekt terug tot de hele toren in beeld is, boven het uitslagvel.
     const f = Math.min(1, (t - eindeSinds) / 900)
     const e = 1 - (1 - f) ** 3
-    const top = tekenaar.torenTop(p.hoeden, volgorde)
-    const ruimte = tekenaar.h * 0.42 - 30
-    const nodig = tekenaar.voet - top + 20
-    const doelZoom = Math.min(1, ruimte / nodig)
-    beeld.zoom = 1 + (doelZoom - 1) * e
+    const top = scene.torenTop(p.hoeden, volgorde)
+    const ruimte = scene.h * 0.42 - 30
+    const nodig = scene.voet - top + 20
+    beeld.zoom = 1 + (Math.min(1, ruimte / nodig) - 1) * e
     beeld.voetPlek = 1 + (0.44 - 1) * e
   }
-  tekenaar.teken(p, beeld, volgorde, dt)
+  scene.teken(p, beeld, volgorde, dt, t)
   requestAnimationFrame(lus)
 }
 
@@ -241,106 +228,11 @@ async function naEinde(): Promise<void> {
           : `Not saved: ${a.fout}.`
     }
   }
-  // Wacht tot de camera klaar is, dan schuift het vel omhoog.
   const wacht = Math.max(0, 950 - (performance.now() - eindeSinds))
-  setTimeout(() => toonEinde(rsp?.uitslag ?? eigen, rsp, fout), wacht)
-}
-
-function toonEinde(
-  u: UitslagOpslag,
-  rsp: ScoreRsp | undefined,
-  fout: string,
-): void {
-  const dag = modus === 'dag' ? p.dag : 0
-  $('eind-getal').textContent = String(u.hoeden)
-  $('eind-woord').textContent = u.hoeden === 1 ? 'hat' : 'hats'
-  const kop =
-    modus === 'oefen'
-      ? 'Practice tower'
-      : rsp?.nieuwBeste
-        ? 'New best tower!'
-        : `Tower #${dag}, ${dagRegel(dag).naam}`
-  $('eind-kop').textContent = kop
-  const regels: string[] = []
-  if (rsp) {
-    regels.push(
-      `Place ${rsp.uitslag.plek} of ${getal(rsp.gemeenschap.spelersVandaag)} today`,
-    )
-    if (rsp.dagenOpRij > 1) regels.push(`${rsp.dagenOpRij} days in a row`)
-  }
-  regels.push(`Best streak ${u.besteReeks}`)
-  if (fout) regels.push(fout)
-  $('eind-regels').textContent = regels.join('\n')
-
-  // De vakjes van de uitslagkaart.
-  const vak = $('eind-vakjes')
-  vak.replaceChildren(
-    ...u.uitslagen.map(s => {
-      const el = document.createElement('i')
-      el.className = `vak vak-${s}`
-      el.title = s
-      return el
-    }),
-  )
-
-  const delen = $('eind-delen')
-  delen.hidden = modus !== 'dag'
-  const kaart = kaartTekst(
-    dag,
-    u.hoeden,
-    u.besteReeks,
-    u.uitslagen,
-    rsp?.dagenOpRij ?? 1,
-  )
-  $<HTMLButtonElement>('knop-reactie').onclick = async () => {
-    const knop = $<HTMLButtonElement>('knop-reactie')
-    knop.disabled = true
-    const a = await deel({dag})
-    knop.textContent = a.ok
-      ? 'Posted as a comment'
-      : 'Could not post. Copy it instead.'
-    if (!a.ok) knop.disabled = false
-  }
-  $<HTMLButtonElement>('knop-kopie').onclick = async () => {
-    try {
-      await navigator.clipboard.writeText(kaart)
-      $('knop-kopie').textContent = 'Copied'
-    } catch {
-      $('knop-kopie').textContent = 'Copy failed'
-    }
-  }
-  $('knop-reactie').textContent = 'Comment my result'
-  $('knop-kopie').textContent = 'Copy'
-
-  const g = rsp?.gemeenschap ?? info?.gemeenschap
-  $('eind-samen').textContent =
-    g && g.hoedenVandaag > 0
-      ? `Today r/${info?.subreddit} stacked ${getal(g.hoedenVandaag)} hats in one tower. ${modus === 'dag' && rsp ? `Your ${u.hoeden} are in it.` : ''}`
-      : ''
-  toonTop(rsp?.top ?? info?.top ?? [])
-  $<HTMLButtonElement>('knop-weer').textContent =
-    modus === 'dag' ? 'Practice' : 'Practice again'
-  eindLaag.hidden = false
-  eindLaag.scrollTop = 0
-}
-
-function toonTop(top: RijRanglijst[]): void {
-  const lijst = $('eind-top')
-  if (top.length === 0) {
-    lijst.replaceChildren()
-    $('eind-top-kop').hidden = true
-    return
-  }
-  $('eind-top-kop').hidden = false
-  lijst.replaceChildren(
-    ...top.map(r => {
-      const li = document.createElement('li')
-      const mij = info?.naam && r.naam === info.naam
-      if (mij) li.className = 'mij'
-      li.innerHTML = `<span class="naam">u/${esc(r.naam)}</span><span class="tal">${r.hoeden}</span>`
-      return li
-    }),
-  )
+  setTimeout(() => {
+    beeld.bordje = false
+    toonEinde({modus, dag: p.dag, u: rsp?.uitslag ?? eigen, rsp, fout, info})
+  }, wacht)
 }
 
 // ---------- invoer ----------
@@ -382,10 +274,9 @@ zetGeluidKnop()
 
 async function opstart(): Promise<void> {
   await document.fonts.load('40px "Lilita One"').catch(() => undefined)
-  const pl = await laadPlaatjes()
-  tekenaar = new Tekenaar(canvas, pl)
-  tekenaar.pasAan()
-  new ResizeObserver(() => tekenaar.pasAan()).observe(canvas)
+  scene = new Scene(canvas, await laadKunst())
+  scene.pasAan()
+  new ResizeObserver(() => scene.pasAan()).observe(canvas)
   const a = await haalInit()
   if (a.ok) info = a.data
   else netFout = a.fout

@@ -238,7 +238,7 @@ body {
 
 .geluid {
   position: absolute;
-  right: 8px;
+  left: 8px;
   bottom: max(8px, env(safe-area-inset-bottom));
   font:
     500 12px 'Fredoka',
@@ -252,10 +252,6 @@ body {
 }
 .spel:has(.einde:not([hidden])) .geluid {
   display: none;
-}
-.spel:has(.start:not([hidden])) .geluid {
-  bottom: auto;
-  top: max(8px, env(safe-area-inset-top));
 }
 
 /* ---------- uitslag ---------- */
@@ -428,7 +424,7 @@ body {
   position: absolute;
   left: 18px;
   top: 16px;
-  width: min(58%, 300px);
+  width: min(64%, 320px);
   text-align: left;
   display: grid;
   justify-items: start;
@@ -447,4 +443,116 @@ body {
 .splash-tekst .knop {
   margin-top: 14px;
   min-width: 0;
+  white-space: nowrap;
+  font-size: clamp(18px, 5vw, 24px);
+  padding: 9px 18px 11px;
+}
+
+/* ---------- uitslag: uitleg van de vakjes, reactie met voorbeeld, lid worden ---------- */
+.uitleg-vakjes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px 8px;
+  margin: -6px 0 12px;
+  font-size: 13px;
+  color: rgba(255, 246, 230, 0.85);
+}
+.uitleg-vakjes .vak {
+  width: 13px;
+  height: 13px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.kaart-blok {
+  margin: 4px auto 8px;
+  max-width: 330px;
+}
+.kaart-blok[hidden] {
+  display: none;
+}
+.kaart-wie {
+  margin: 0 0 4px;
+  font-size: 13px;
+  text-align: left;
+  color: rgba(255, 246, 230, 0.8);
+}
+.kaart {
+  margin: 0 0 8px;
+  padding: 10px 12px;
+  text-align: left;
+  white-space: pre-wrap;
+  font:
+    500 14px / 1.45 'Fredoka',
+    system-ui,
+    sans-serif;
+  background: #24110a;
+  border: 2px solid var(--rand);
+  border-radius: 12px;
+}
+.knop.lid {
+  min-width: 0;
+  font-size: 18px;
+  margin: 8px 0 4px;
+  background: var(--goud);
+  color: var(--rand);
+  text-shadow: none;
+}
+.knop.lid[hidden] {
+  display: none;
+}
+
+/* ---------- liggend of laag scherm: compacter, knoppen naast elkaar ---------- */
+@media (max-height: 560px) {
+  #stage {
+    width: min(100vw, calc(100dvh * 0.95));
+  }
+  .start {
+    padding-top: 8px;
+    background: linear-gradient(
+      to bottom,
+      rgba(36, 17, 10, 0.85) 0%,
+      rgba(36, 17, 10, 0.5) 60%,
+      rgba(36, 17, 10, 0) 80%
+    );
+  }
+  .titel {
+    font-size: 30px;
+    margin: 0 0 2px;
+  }
+  .dag {
+    font-size: 17px;
+    margin-top: 2px;
+  }
+  .uitleg,
+  .goud,
+  .samen,
+  .mijn {
+    font-size: 13px;
+  }
+  .knoppen {
+    grid-auto-flow: column;
+    justify-content: center;
+    margin-top: 8px;
+    gap: 8px;
+  }
+  .knoppen .mijn,
+  .knoppen .samen,
+  .knoppen .reeks {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+  }
+  .knop,
+  .knop.hoofd {
+    min-width: 0;
+    font-size: 18px;
+    padding: 7px 16px 9px;
+  }
+  .hoe {
+    display: none;
+  }
+  .vel {
+    margin-top: 40dvh;
+  }
 }

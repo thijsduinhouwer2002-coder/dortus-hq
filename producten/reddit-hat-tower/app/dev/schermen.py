@@ -18,6 +18,7 @@ BREED = "--breed" in sys.argv
 UIT.mkdir(parents=True, exist_ok=True)
 BASIS = "http://localhost:5173"
 random.seed(4)
+NAAM = "you" + str(int(time.time()) % 100000)
 
 
 def stand(pagina):
@@ -66,7 +67,7 @@ with sync_playwright() as pw:
     # De post in de feed.
     ctx = browser.new_context(**({"viewport": {"width": 390, "height": 512}, "device_scale_factor": 3} if not BREED else maat))
     pagina = ctx.new_page()
-    pagina.goto(f"{BASIS}/splash.html")
+    pagina.goto(f"{BASIS}/splash.html?u={NAAM}")
     pagina.wait_for_selector("body.klaar")
     time.sleep(0.4)
     pagina.screenshot(path=str(UIT / "1-feed-post.png"))
@@ -78,7 +79,7 @@ with sync_playwright() as pw:
     fouten = []
     pagina.on("pageerror", lambda e: fouten.append(str(e)))
     pagina.on("console", lambda m: fouten.append(m.text) if m.type == "error" else None)
-    pagina.goto(f"{BASIS}/game.html?proef=1")
+    pagina.goto(f"{BASIS}/game.html?proef=1&u={NAAM}")
     pagina.wait_for_selector("body.klaar")
     time.sleep(0.6)
     pagina.screenshot(path=str(UIT / "2-start.png"))
@@ -87,11 +88,17 @@ with sync_playwright() as pw:
     speel(pagina, beelden, "3")
     time.sleep(1.6)
     pagina.screenshot(path=str(UIT / "4-uitslag.png"))
-    pagina.click("#knop-reactie")
+    try:
+        pagina.click("#knop-reactie", timeout=5000)
+    except Exception as e:  # noqa: BLE001
+        fouten.append(f"knop-reactie: {e}")
     time.sleep(0.5)
     pagina.screenshot(path=str(UIT / "5-gedeeld.png"))
+    pagina.evaluate("document.getElementById('einde').scrollTop = 99999")
+    time.sleep(0.3)
+    pagina.screenshot(path=str(UIT / "5b-uitslag-onder.png"))
     # Terug naar het startscherm: nu met de eigen uitslag.
-    pagina.click("#knop-terug")
+    pagina.click("#knop-terug", timeout=5000)
     time.sleep(0.4)
     pagina.screenshot(path=str(UIT / "6-start-na.png"))
     ctx.close()

@@ -10,6 +10,7 @@ import {
   FoutVerzoek,
   init,
   score,
+  start,
   type Wie,
 } from '../src/server/logica.ts'
 import {Endpoint} from '../src/shared/api.ts'
