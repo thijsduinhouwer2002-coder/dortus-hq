@@ -4,6 +4,9 @@ Thijs, 19 nov 01:32: "we moeten een tak in ons bedrijf bouwen met 1 of 2 agents 
 
 Twee onderzoekers, elk uur 's nachts tot ±08:00. Morgen ontwerpt de hoofdchat hiermee de tak en past regel 4 aan.
 
+## Nadruk (Thijs, 19 nov 01:34, gaat voor)
+**Vooral: hoe andere makers dit nu doen.** Indie-makers, solo-ontwikkelaars, kleine studio's en app-makers die hun marketing en PR door AI-agents laten draaien: hun precieze opzet (welke agent, welke planner of API, welk ritme, hoe ze plaatsen en reageren zonder dat er steeds een mens op een knop drukt), wat het opleverde, en wat er misging. Liefst met hun eigen repo, filmpje of verslag als bron. Hoek B kijkt daarnaast hoe zij het **zelfstandig plaatsen** technisch rond krijgen (geplande taken, GitHub Actions met API-sleutels, planners met een API, wachtrijen die na keuring vanzelf geplaatst worden) en wat daarvan bij ons kan.
+
 ## Wat we al hebben (niet opnieuw uitzoeken)
 `platformen/ideeen/marketing-2026-11-18/PLAN.md` (marketingplan), `platformen/ideeen/koppelingen-2026-11-18/` (A-posten: YouTube Data API, Buffer, crosspost; C-community: vraagradar), `organisatie/toegang.md` (Metricool Free met koppeling, Kit, Discord-webhook, Gumroad), `organisatie/regels/thijs.md` (wat onder de naam van Thijs valt). Kanalen van Dortus nu: YouTube @Dortusapps, TikTok (Metricool), Discord van Hats, dortus.com, maillijst Kit.
 
