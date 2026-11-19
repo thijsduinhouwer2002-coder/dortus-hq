@@ -21,10 +21,22 @@ _CTX = ssl.create_default_context(cafile=os.environ.get("SSL_CERT_FILE") or None
 
 # Standaard takerkosten (fractie) als de API ze niet per paar geeft. Bron en GEZIEN/GOK: README.md.
 TAKER = {
-    "kraken": 0.0040, "bitvavo": 0.0025, "coinbase": 0.0120, "bitstamp": 0.0040, "okx": 0.0010,
+    "kraken": 0.0080, "bitvavo": 0.0025, "coinbase": 0.0120, "bitstamp": 0.0040, "okx": 0.0010,
     "kucoin": 0.0010, "gate": 0.0020, "mexc": 0.0005, "bybit": 0.0010, "bitget": 0.0010, "htx": 0.0020,
     "cryptocom": 0.0050, "poloniex": 0.0020, "xt": 0.0020, "bingx": 0.0010, "bitfinex": 0.0, "binance": 0.0010,
 }
+
+# Kraken rekent op stablecoin- en FX-paren (bijv. USDT-EUR) 0,20% in plaats van 0,80% (GEZIEN, kraken.com/pro/fees).
+TAKER_STABIEL = {"kraken": 0.0020}
+STABIEL_FIAT = {"USDT", "USDC", "EUR", "USD", "DAI", "PYUSD", "EURC", "USDG"}
+
+
+def taker_standaard(beurs, munt, quote, standaard=0.002):
+    """Standaard takerkosten (fractie) voor een paar als de API er per paar geen geeft."""
+    if beurs in TAKER_STABIEL and munt in STABIEL_FIAT and quote in STABIEL_FIAT:
+        return TAKER_STABIEL[beurs]
+    return TAKER.get(beurs, standaard)
+
 
 # Andere namen voor dezelfde munt. XBT en XDG zijn namen van Kraken; die van Bitfinex staan bij Bitfinex zelf
 # (keuring A9: UST en IOT niet op elke beurs omzetten, daar kunnen het andere munten zijn).

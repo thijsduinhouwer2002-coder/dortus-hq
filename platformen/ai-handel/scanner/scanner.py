@@ -134,7 +134,7 @@ def kandidaten(koersen, paren, wallets=None, verdacht=VERDACHT):
 
 def taker(paren, beurs, k):
     t = paren.get(beurs, {}).get(k, {}).get("taker")
-    return beurzen.TAKER.get(beurs, 0.002) if t is None else t
+    return beurzen.taker_standaard(beurs, k[0], k[1]) if t is None else t
 
 
 def contract_stand(paren, wallets, a, b, k):

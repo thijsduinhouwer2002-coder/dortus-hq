@@ -26,6 +26,7 @@ import statistics
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # opslaan.sh draait met python3 -I
+import beurzen  # noqa: E402
 import simrapport  # noqa: E402
 import simulatie  # noqa: E402
 
@@ -37,6 +38,42 @@ INLEGGEN = (2000, 5000)
 # minder munten kan hebben dan de wereldwijde API die we meten (GOK).
 MICA = {"bitvavo", "kraken", "coinbase", "bitstamp", "okx", "cryptocom", "bybit", "kucoin", "gate", "bingx"}
 SOORTEN = (("alle", "Alle beurzen"), ("vergund", "Alleen MiCA-beurzen"), ("grijs", "Met minstens één grijze beurs"))
+
+
+# Takerkosten die de scanner eerder te laag nam: (beurs: oud tarief). Kansen met dat oude tarief in de data rekenen
+# we opnieuw door met beurzen.taker_standaard (keuring: Kraken 0,40% was 0,80%, GEZIEN kraken.com/pro/fees).
+TARIEF_OUD = {"kraken": 0.004}
+PLAFONDS = (100, 500, 1000, 2500)
+
+
+def herreken(r):
+    """Kans opnieuw doorrekenen als hij met een te laag oud tarief gemeten is (GOK, benadering): het verschil in
+    tarief gaat af van de inzet aan die kant, op elk gemeten punt van het boek (€100, €500, €1.000, €2.500 en de
+    volle ruimte). De nieuwe ruimte is het punt met de meeste winst; boven die ruimte blijft de winst gelijk. Het
+    boek zelf is niet bewaard, dus tussen de punten is het een schatting. Geeft een nieuwe regel met
+    "herrekend": True, of dezelfde regel als er niets te doen is."""
+    extra = {}
+    for kant in ("koop", "verkoop"):
+        b, oud = r.get(kant), r.get("taker_" + kant)
+        if b in TARIEF_OUD and oud == TARIEF_OUD[b]:
+            extra[kant] = beurzen.taker_standaard(b, r["munt"], r["quote"]) - oud
+    d = sum(extra.values())
+    if not d:
+        return r
+    ruimte = r.get("ruimte_eur_med") or 0
+    pts = {float(min(p, ruimte)): r[f"winst{p}_med"] for p in PLAFONDS if r.get(f"winst{p}_med") is not None}
+    if r.get("winst_ruimte_med") is not None:
+        pts[float(ruimte)] = r["winst_ruimte_med"]
+    nieuw = {x: w - d * x for x, w in pts.items() if x > 0}
+    uit = {**r, "herrekend": True, **{"taker_" + k: r["taker_" + k] + v for k, v in extra.items()}}
+    if not nieuw:
+        return uit
+    x_best = max(nieuw, key=lambda x: nieuw[x])
+    uit["ruimte_eur_med"], uit["winst_ruimte_med"] = round(x_best, 2), round(nieuw[x_best], 4)
+    for p in PLAFONDS:
+        if r.get(f"winst{p}_med") is not None:
+            uit[f"winst{p}_med"] = round(nieuw[x_best] if p >= x_best else r[f"winst{p}_med"] - d * p, 4)
+    return uit
 
 
 def echt(r):
@@ -65,7 +102,7 @@ def lees(map_, met_proef=False):
             rij = [json.loads(x) for x in fh if x.strip()]
         if rij:
             stand.append(rij)
-    return kansen, stand
+    return [herreken(r) for r in kansen], stand
 
 
 def gemeten_uren(stand):
@@ -168,6 +205,14 @@ def maak(map_, met_proef=False, koersbron=None, minima=None):
     uit.append("**Vergund** = beide beurzen hebben een MiCA-vergunning (ESMA-register), vaak via een EU-dochter die "
                "minder munten kan hebben dan de wereldwijde API die we meten (GOK). **Grijs** = minstens één beurs "
                "zonder vergunning (MEXC, Bitget, HTX, Poloniex, XT, Bitfinex, Binance). Zie README.md.")
+    her = [r for r in kansen if r.get("herrekend")]
+    if her:
+        uit.append(f"**Kraken-tarief:** Kraken rekent 0,80% taker op munt tegen EUR, USD, USDT of USDC (GEZIEN, "
+                   f"kraken.com/pro/fees, laagste trede); de scanner rekende tot 19 nov met 0,40%. {len(her)} opgeslagen "
+                   f"kansen met Kraken uit die runs zijn hier **opnieuw doorgerekend met 0,80%** (GOK-benadering: 0,40% "
+                   f"van de inzet aan de Kraken-kant extra op elk gemeten punt van het boek; het boek zelf is niet "
+                   f"bewaard). {sum(1 for r in her if (r.get('winst_ruimte_med') or 0) > 0)} houden daarna nog winst "
+                   f"op het boek. Dat ze met hogere kosten ook korter bleven staan, telt niet mee (dus eerder te gunstig).")
     uit.append("")
     d = dekking(stand)
     ondergrens = bool(d and d["deel_nooit"] > 0.05)

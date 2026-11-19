@@ -178,6 +178,34 @@ class TestRapport(unittest.TestCase):
         self.assertFalse(rapport.echt(self.regel(netwerk="dicht")))
         self.assertTrue(rapport.echt(self.regel(netwerk="onbekend", contract="onbekend")))
 
+    def test_kraken_tarief(self):
+        import beurzen
+        self.assertEqual(beurzen.taker_standaard("kraken", "SSV", "EUR"), 0.008)    # GEZIEN kraken.com/pro/fees
+        self.assertEqual(beurzen.taker_standaard("kraken", "USDT", "EUR"), 0.002)   # stablecoin en FX
+        self.assertEqual(beurzen.taker_standaard("bitvavo", "SSV", "EUR"), 0.0025)
+        self.assertEqual(scanner.taker({}, "kraken", ("SSV", "EUR")), 0.008)
+
+    def test_herreken_oud_kraken_tarief(self):
+        r = rapport.herreken(self.regel(koop="kraken", taker_koop=0.004, taker_verkoop=0.001))
+        self.assertTrue(r["herrekend"])
+        self.assertAlmostEqual(r["taker_koop"], 0.008)
+        self.assertAlmostEqual(r["winst100_med"], 1 - 0.4)                          # 0,4% van €100 extra
+        self.assertAlmostEqual(r["winst_ruimte_med"], 5 - 1.6)                      # 0,4% van €400 extra
+        self.assertAlmostEqual(r["winst500_med"], r["winst_ruimte_med"])            # boven de ruimte gelijk
+        r = rapport.herreken(self.regel(verkoop="kraken", taker_verkoop=0.004, ruimte_eur_med=2000,
+                                        winst100_med=0.5, winst500_med=1.5, winst1000_med=2.0,
+                                        winst2500_med=2.2, winst_ruimte_med=2.2))
+        self.assertEqual(r["ruimte_eur_med"], 100)                                  # ruimte krimpt
+        self.assertAlmostEqual(r["winst_ruimte_med"], 0.1)
+        self.assertAlmostEqual(r["winst1000_med"], 0.1)
+        weg = rapport.herreken(self.regel(koop="kraken", taker_koop=0.004, winst100_med=0.3, winst500_med=1.2,
+                                          winst1000_med=1.2, winst2500_med=1.2, winst_ruimte_med=1.2))
+        self.assertFalse(rapport.echt(weg))                                         # geen winst meer: valt af
+        nieuw = self.regel(koop="kraken", taker_koop=0.008)
+        self.assertIs(rapport.herreken(nieuw), nieuw)                               # al met 0,80%: niets
+        gewoon = self.regel()
+        self.assertIs(rapport.herreken(gewoon), gewoon)                             # andere beurzen: niets
+
     def test_vergund_en_grijs(self):
         self.assertEqual(rapport.soort(self.regel(koop="kraken", verkoop="bitvavo")), "vergund")
         self.assertEqual(rapport.soort(self.regel(koop="mexc", verkoop="kraken")), "grijs")
