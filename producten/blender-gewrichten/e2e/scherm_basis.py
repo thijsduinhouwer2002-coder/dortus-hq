@@ -2,6 +2,7 @@
 schermafbeelding, weergave, de pop met gewricht, de close-up en de kijkrichtingstoets.
 Opgesplitst uit schermen.py (opruimen 8 nov, regel: bestanden onder ±400 regels)."""
 import os
+import time
 import subprocess
 import sys
 import bpy
@@ -45,21 +46,20 @@ def xdo(*a):
         log(f"xdotool {' '.join(a)} faalde: {r.stderr.strip()}")
 
 
-def zijbalk_omlaag(keer=12):
-    """Scrolt de zijbalk naar beneden met view2d.scroll_down (Daan 19 nov moet 2: het xdotool-wiel deed op plaatje 19
-    niets, het paneel stond nog bovenaan). Geeft True als het lukte."""
+def klap_hoofdpaneel():
+    """Klapt het bovenste paneel van de zijbalk (Click Joints) in met een klik op de kop, zodat de panelen eronder
+    (Figure joints met teller en lijst) helemaal in beeld komen. Daan 19 nov moet 2: scrollen met het wiel of met
+    view2d.scroll_down deed op plaatje 19 niets (run 44541906286, GEZIEN). De kop staat bovenaan de zijbalk."""
     venster, gebied, regio = zijbalk()
     if not regio:
         return False
-    try:
-        with bpy.context.temp_override(window=venster, area=gebied, region=regio):
-            for _ in range(keer):
-                bpy.ops.view2d.scroll_down(deltax=0, deltay=200, page=True)
-        gebied.tag_redraw()
-        return True
-    except Exception as e:  # noqa: BLE001
-        log(f"zijbalk omlaag faalde: {e}")
-        return False
+    x = venster.x + regio.x + 60
+    y = venster.y + venster.height - (regio.y + regio.height) + 12
+    xdo("mousemove", str(x), str(y))
+    time.sleep(0.2)
+    xdo("click", "1")
+    gebied.tag_redraw()
+    return True
 
 
 def wiel_naar_tabblad():

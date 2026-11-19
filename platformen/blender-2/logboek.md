@@ -186,3 +186,4 @@
 - Moet 2: het xdotool-wiel scrolde de zijbalk niet (plaatje stond bovenaan, GEZIEN). Nieuw `zijbalk_omlaag()` in `scherm_basis.py` met `view2d.scroll_down` op de zijbalk; `scherm_mens.py` roept het aan voor de foto.
 - Kan 3: onderschrift naar `One button. Every joint. How far it bends.`
 - E2e-run start vanzelf op de push; daarna plaatje 19 zelf bekijken en Daan vragen.
+- 14:40 UTC: run 44541906286 groen in 5.2.3 en 5.3.0 (moet 1 opgelost). Plaatje 19 nog steeds bovenaan (GEZIEN): view2d.scroll_down meldde True maar scrolde niet. Nu klapt `klap_hoofdpaneel()` het paneel Click Joints in met een klik op de kop (Daans eigen voorstel), dan staat Figure joints met teller en lijst in beeld. Nieuwe run start op de push.

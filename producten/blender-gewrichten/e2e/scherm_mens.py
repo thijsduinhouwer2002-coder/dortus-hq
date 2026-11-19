@@ -19,7 +19,7 @@ from mathutils import Euler, Vector
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HIER)
-from scherm_basis import log, open_paneel, zijbalk_omlaag, schiet, toestand, uitmap, wiel_naar_tabblad, zijbalk, zip_pad  # noqa: E402
+from scherm_basis import klap_hoofdpaneel, log, open_paneel, schiet, toestand, uitmap, wiel_naar_tabblad, zijbalk, zip_pad  # noqa: E402
 
 os.environ["CJ_HOOGTE"] = os.environ.get("CJ_TOETS_HOOGTE", "220")
 _src = open(os.path.join(HIER, "proef_mens.py"), encoding="utf-8").read().replace("\nmain()\n", "\n")
@@ -243,13 +243,8 @@ def stap():
     if "geschoten" not in staat:
         staat["geschoten"] = True
         venster, gebied, regio = zijbalk()
-        if regio:  # zijbalk omlaag tot het vak Figure joints met de lijst in beeld is
-            x = venster.x + regio.x + regio.width // 2
-            y = venster.y + venster.height - (regio.y + regio.height // 2)
-            subprocess.run(["xdotool", "mousemove", str(x), str(y)])
-            for _ in range(25):
-                subprocess.run(["xdotool", "click", "5"])
-        log(f"MENS zijbalk omlaag: {zijbalk_omlaag()}")
+        if regio:  # paneel Click Joints dicht, zodat Figure joints met teller en lijst in beeld staat (Daan moet 2)
+            log(f"MENS hoofdpaneel ingeklapt: {klap_hoofdpaneel()}")
         gebied.tag_redraw()
         return 1.5
     schiet("19-mens.png")
