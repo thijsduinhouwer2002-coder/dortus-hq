@@ -475,3 +475,4 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 19 nov 2026 02:09 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 72 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+**(verwerkt 19 nov ±09:20 UTC Bram: hoofdchat 01:20 punt 2 was al af, Daan akkoord ja op GIF a04e06c (18 nov 21:45). R4 01:50: oorzaak bekend en al in de code beschreven, `bpy.ops.screen.screenshot` geeft onder Xvfb met software-OpenGL zwart; niets las die versie (uitsneden, rood- en boogtellingen gebruiken allemaal `-x`). Die opname is weg uit `e2e/scherm_basis.py`, dus de 24 zwarte plaatjes worden niet meer gemaakt. Punt 3 wacht op het token van Thijs.)**

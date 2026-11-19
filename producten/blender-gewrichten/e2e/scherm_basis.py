@@ -69,11 +69,8 @@ def wiel_naar_tabblad():
 
 def schiet(naam):
     pad = os.path.join(uitmap, naam)
-    venster = bpy.context.window_manager.windows[0]
-    with bpy.context.temp_override(window=venster):
-        bpy.ops.screen.screenshot(filepath=pad)
-    log(f"schermafbeelding {pad} {os.path.exists(pad)}")
-    # Blender leest onder Xvfb met software-OpenGL een zwart beeld uit; pak daarom ook het hele X-scherm.
+    # Alleen het hele X-scherm. bpy.ops.screen.screenshot leest onder Xvfb met software-OpenGL een helemaal
+    # zwart beeld uit (sinds 8 nov in alle versies, nagemeten door R4 op 19 nov), en niets gebruikte die versie.
     x_pad = pad.replace(".png", "-x.png")
     r = subprocess.run(["import", "-window", "root", x_pad], capture_output=True, text=True)
     log(f"X-scherm {x_pad} {os.path.exists(x_pad)} {r.stderr.strip()}")
