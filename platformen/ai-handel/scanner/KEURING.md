@@ -134,3 +134,33 @@ Akkoord: **nee**, met één moet-punt. Beide oude moet-punten zijn goed opgelost
 ## Kan (mag later)
 1. Bij de kop "Met €150 ... per dag" erbij zetten dat het om één gemeten dag gaat met een gelijk verdeelde voorraad aan het begin, en dat de voorraad aan het eind scheef staat (R7). Of de simulatie over meerdere dagen achter elkaar laten lopen zodra er meer dagen zijn; dat doet hij al als de data er is.
 2. `simulatie.py` iets kleiner maken (het blok voor het rapport kan naar een eigen bestand).
+
+# Tweede herkeuring simulatie, 19 nov 2026 ±17:15 UTC, zelfde keurder
+Wat ik keurde: commits 2b520c9e en 899f6d4c op main (`simulatie.py` 270 regels, nieuw `simrapport.py` 169, `rapport.py`, tests, README, ontwerp), het rapport op `ai-handel-data` in db15a6b7 (gemaakt 15:44 UTC, 9 runs). Op verzoek van de hoofdchat ook: het Kraken-tarief.
+Akkoord: **nee**, met één moet-punt. Het gaat niet om de simulatie zelf, die nu klopt, maar om het takertarief van Kraken in de scanner. Dat is half zo hoog als wat Kraken rekent, en daardoor is de MiCA-uitkomst van Bitvavo-Kraken te mooi.
+
+## Deel A: doet het wat beloofd is?
+| # | Bevinding | Feit of vermoeden | Zekerheid (hoog/midden/laag) | Wat het zou bevestigen of weerleggen |
+|---|---|---|---|---|
+| T1 | **Moet-punt van de herkeuring opgelost.** "Andere keuzes" heeft rijen "kostengrens 2% (achteraf vergeleken)" en "kostengrens 5% (achteraf vergeleken)" bij €150 en €2.000. Bij de aanname staat dat 1% achteraf gekozen is (ook als commentaar bij `MAX_KOSTEN_DEEL`). `Sim` heeft daarvoor de parameter `max_kosten`. | feit | hoog | |
+| T2 | **Kan-punt "per dag" opgelost.** Onder de kop staat nu: "Per dag" is hier één gemeten dag die begint met een gelijk verdeelde voorraad. Een nieuwe methode `scheef()` zegt of de voorraad aan het eind scheef staat. | feit | hoog | |
+| T3 | **Verschil €7,91 / €1,73 (bouwer) tegen €7,79 / €1,67 (ik) verklaard.** Het komt niet door een ander aantal runs. Mijn data van 16:00 en het rapport van 15:44 hebben allebei 46 echte kansen op Bitvavo-Kraken. Het verschil zit in de koers: ik rekende zonder koersen (`koers=None`), het rapport met. Met de nieuwe code op de data van db15a6b7 nagerekend: zonder koers €7,79 / €1,67 / €1,67 (1% / 2% / 5%), met koers **€7,91 / €1,73 / €1,73**, precies de cijfers uit het rapport. Met koersen wordt de inzet `x` begrensd door de munten tegen de koers van dat moment, en gelden de minima in munten. Dan verschuift er net één of twee keer of een kans gemist is (26 tegen 27 gemist bij 1%). | feit | hoog | |
+| T4 | **De opsplitsing verandert niets aan de uitkomst.** Ik draaide de oude `Sim` (013e9766) en de nieuwe `Sim` op dezelfde data, met dezelfde koers- en minima-objecten, voor alle 13 beursparen met echte kansen en alle 5 inleggen: 65 vergelijkingen, **0 verschillen** (alle velden per dag gelijk). | feit | hoog | |
+| T5 | **Takertarief Kraken is te laag.** De scanner rekent voor Kraken 0,40% (`beurzen.TAKER`, README: "GOK, niet nagekeken"). Met curl nagekeken op kraken.com/pro/fees (19 nov): "Spot fees, Tier 1: 0.40% maker, 0.80% taker", en apart "Stablecoin and FX pair fees ... from 0.20% maker and 0.20% taker". De API van Kraken geeft per paar geen tarief (`fees` is leeg bij SSVEUR, DYMEUR en USDTEUR). Alle paren die de scanner bij Kraken vergelijkt zijn munt tegen EUR, USD, USDT of USDC: dat zijn cryptoparen, dus **0,80%**. 0,20% geldt alleen voor stablecoin- en FX-paren (USDT-EUR, EUR-USD); die gebruikt de scanner alleen om om te rekenen naar euro, niet om te handelen. | feit | hoog | |
+| T6 | **Effect op Bitvavo-Kraken, geschat** (GOK, eigen som). Ik trok 0,40% extra af van de inzet aan de Kraken-kant, op elk gemeten punt van het boek. De ruimte kromp tot het punt met de meeste winst, en daarna draaide ik dezelfde simulatie (koersen en minima, kostengrens 1%). Uitkomst: van de **46** echte kansen op Bitvavo-Kraken blijven er **±25** over. Bruto zonder voorraadgrens gaat van €511,63 naar ±€198. **€2.000:** netto handel van **€7,91 naar ±€2,09** (bruto €15,85 naar ±€11,15, kosten terugschuiven €7,94 naar ±€9,06). **€150:** van **€0,20 naar ±€0,11**. Dit is eerder te gunstig dan te somber, want een kans met hogere kosten blijft in het echt ook korter staan, en dat telt mijn som niet mee. Alle 46 echte kansen met Kraken zitten op Bitvavo-Kraken. De hele MiCA-kant van het rapport (trechter, sommen, "Met €150") leunt dus op dit tarief. | schatting | midden | de scanner een run laten draaien met 0,008 voor Kraken en het rapport opnieuw maken |
+| T7 | De andere tarieven die "GOK, niet nagekeken" heten (Bitvavo 0,25%, Bitstamp 0,40%, Coinbase 1,20%, OKX, HTX, Crypto.com, Poloniex, XT, BingX) kunnen net zo goed afwijken. De Bitvavo-pagina gaf 403 op curl, dus die heb ik niet kunnen nakijken. | vermoeden | midden | de tarievenpagina's per beurs, of de hoofdchat in Chrome |
+
+## Deel B: houdt het zich aan onze regels?
+| # | Bevinding | Feit of vermoeden | Zekerheid | Regel |
+|---|---|---|---|---|
+| T8 | Tests: 29 groen (zelf gedraaid). De nieuwe test `test_kostengrens_instelbaar` controleert 1% tegen 5% en de nieuwe teksten. Geen bestaande controle weggehaald of afgezwakt. | feit | hoog | tests niet aangepast om te slagen |
+| T9 | Bestanden: `simulatie.py` 270 en `simrapport.py` 169 regels, nu allebei onder de ±400. Wel boven die grens: `beurzen.py` (665) en `scanner.py` (411). | feit | hoog | bestanden onder ±400 regels |
+| T10 | Kraken 0,40% staat in de README als GOK, dus eerlijk gelabeld. Maar het is nu GEZIEN dat het 0,80% is: het label moet mee. | feit | hoog | harde regel 5 |
+| T11 | Geen persoonsgegevens, alleen openbare API's. | feit | hoog | harde regel 2 |
+
+## Moet (blokkeert akkoord)
+1. **Kraken-taker naar 0,80%** in `beurzen.TAKER` (cryptoparen; 0,20% alleen voor stablecoin- en FX-paren als die ooit verhandeld worden), README-tabel naar GEZIEN met de bron kraken.com/pro/fees (Tier 1, 19 nov 2026), en het rapport opnieuw maken. Het tarief zit al in de opgeslagen kansen (`taker_verkoop`/`taker_koop` en de winst op het boek). Daarom eerlijk melden dat de kansen met Kraken van vóór de wijziging met 0,40% gerekend zijn: in het rapport apart zetten, of opnieuw tellen met een correctie zoals in T6. Verwachting (GOK): Bitvavo-Kraken bij €2.000 van €7,91 naar ±€2 netto handel, bij €150 van €0,20 naar ±€0,11.
+
+## Kan (mag later)
+1. De andere takertarieven met "GOK, niet nagekeken" met curl of via de hoofdchat nakijken (T7), te beginnen bij Bitvavo en Bitstamp (MiCA).
+2. `beurzen.py` en `scanner.py` onder de ±400 regels brengen (T9).
