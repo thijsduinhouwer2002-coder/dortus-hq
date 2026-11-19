@@ -1,6 +1,6 @@
 {
- "paren": 1248,
- "driehoeken": 2336,
+ "paren": 1250,
+ "driehoeken": 2338,
  "status": "MiCA-dochter",
  "ritme_s": 3,
  "max_boeken": 10,
@@ -8,13 +8,13 @@
   "DERDEN okx.com/en-eu/fees: Regular user taker 0,10%": {
    "hoog": 0.001,
    "laag": 0.001,
-   "paren": 1248
+   "paren": 1250
   }
  },
- "minima_paren": 1248,
- "geladen": "2026-11-19T18:05:43Z",
+ "minima_paren": 1250,
+ "geladen": "2026-11-19T18:35:44Z",
  "min_inleg": {
-  "driehoeken": 2336,
+  "driehoeken": 2338,
   "mediaan_eur": 10.0,
   "met_eur": 1090,
   "tot_100": 2328,
