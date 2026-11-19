@@ -54,3 +54,27 @@ Er zitten echte verkopende makers in, maar geen kans die ik Dortus binnen weken 
 6. Een zin bovenaan het rapport: "Voorselectie. Je hoeft niets te doen; de beoordelaar kiest elke week." (Deel C)
 
 akkoord nee: moet 1 (kopie-netwerkregel op naam gooit eerlijke makers weg), moet 2 (@-namen en eerlijke privacybelofte), moet 3 (opdracht-beoordelaar zuiniger met tokens)
+
+## Herkeuring, 19 nov 2026, zelfde keurder
+Wat ik keurde: main op `7c01b79f` (code) en tak `ideeen-data` commit `8d5c7705` (rapport 17:27Z). Tests: 25, lokaal groen (0,16 s).
+
+| # | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|
+| H1 | **Moet 1 opgelost.** Een groep met hetzelfde begin van de naam telt pas als spam als minstens 5 eigenaren ook in woorden van naam en beschrijving op elkaar lijken. Test `test_eerlijke_gelijke_namen_zijn_geen_spam` met 7 mohammed-makers geeft een lege set. In de nieuwe data staat geen enkele mohammed-repo meer onder spam; GuardAI, BOUNZO en pinakkaa-shopify zijn nu plannen (GEZIEN). Apimart: 106 gevangen, 1 ontsnapt (`apimart001a/unified-ai-api-model-catalog`, nu plek 16 in de top, reclame voor dezelfde API-poort). Kleinigheid: het commentaar bij de assert in die test hoort bij een andere test. | feit | hoog |
+| H2 | **Moet 2 opgelost.** `schoon()` haalt @-namen weg. `wat` is alleen gevuld bij de 25 met `in_top` (25 van 1025; GEZIEN); daarin geen @, mail, link of telefoon. De familieblog staat er nog als repo-naam, zonder beschrijving. De README zegt nu eerlijk wat we bewaren en dat gewone namen niet te herkennen zijn. Het oude bestand van 16:55Z met beschrijvingen staat nog in de geschiedenis van `ideeen-data`; weghalen kan alleen met geforceerd pushen, dus laten staan. | feit | hoog |
+| H3 | **Moet 3 opgelost.** opdracht-beoordelaar.md heeft een blok "zuinig lezen" met de maten van de grote bestanden. Hij leest per dag alleen het stuk Top van het rapport, één repo uit `kandidaten.json` via python, zoekt met grep in de vier oordeelbestanden en leest README's met `head -c 8000`. Nog steeds compleet: curl-zin en koppelingenzin letterlijk, ideeëntest met de 4 wetten eerst, geldende besluiten, snel geld als vraag, waar hij schrijft, eindantwoord. | feit | hoog |
+| H4 | **Steekproef 10 uit de nieuwe top (zelf gelezen met curl): 7 echt, 1 half, 2 onterecht.** Echt: Anode (zakelijke licentie £50 per jaar via Gumroad), hospitality-generator (tabel Free/$19/$49/$99), shortlab (een uitgeschreven productplan met Pro-prijzen, precies een app-idee), logmem (prijstabel vanaf $19 per maand), webhook-tamper-guard-signer (Pro $14), codelady-skills (panelen van $5 en $7 eenmalig), DWM-CLIP (Lite $2, Pro $9 per maand, Lemon Squeezy). Half: calab (cloudplannen "op aanvraag"). Onterecht: eater2/ai_agents_api_library op plek 1 (catalogus; de bedragen komen uit regels over andermans API's met woorden als "paid plan") en apimart001a (H1). Vorige keer 7 van 15. | feit | hoog |
+| H5 | Wat er buiten de steekproef in de top blijft: lijsten en kennisbanken met veel sterren (muse-use-cases, real-api-pricing, ai-system-design, ai-business-index), de twee hernoemde kopieën van één product staan nog steeds in de data (`betterluck720/saas_dashboard` plek 20), en deals-subscription-bot (plek 25) krijgt "abonnement, $20/gebruiker" terwijl er staat "No payment, no price, the subscription is free". | feit | hoog |
+| H6 | **Nieuwe fout in de regel "kopie van andermans repo":** 6 van de 19 zijn geen kopie maar een eigen repo met een voorbeeldnaam in de installatie-uitleg (`github.com/yourorg/villakurd`, `YOUR_USER`, `YOUR_USERNAME`, `yourusername`, `TU_USUARIO`, `VOTRE_NOM_UTILISATEUR`). Daaronder villakurd, dat vorige keer een plan met score 5 was. De andere 13 zijn wel echte kopieën. Het raakt de top niet en heet niet "spam of illegaal", maar het is hetzelfde soort fout als moet 1. | feit | hoog |
+| H7 | `regels.py` is 410 regels, net boven de grens van ±400. | feit | hoog |
+| H8 | Deel C: de zin "Voor Thijs: je hoeft hier niets mee te doen" staat bovenaan het rapport; hooguit 1 per maker werkt (LockFour staat er nog maar één keer in). | feit | hoog |
+
+### Kan (mag later, in deze volgorde)
+1. Kopie-regel (H6): voorbeeldnamen als eigenaar overslaan (your*, YOUR_*, user, username, TU_USUARIO, VOTRE_*), of links in `git clone`- en `remote add`-regels niet meetellen. Plus een test daarvoor.
+2. Verkooptekst: ook regels in grote tabellen niet meetellen als er meer dan een paar verschillende bedragen in staan (eater2), en "no payment" of "no price" als ontkenning (deals-subscription-bot).
+3. Kopieën met een andere naam herkennen (`github.com/<ander>/<andere naam>/issues` in de eerste 30 regels).
+4. `regels.py` splitsen (bijvoorbeeld de lijsten met patronen naar een eigen bestand) zodat hij onder 400 regels blijft.
+
+**Eerlijke indruk nu:** de top is duidelijk beter. Ongeveer 7 van de 10 zijn echte plannen van makers die al iets verkopen of een prijs hebben uitgeschreven. Voor Dortus zie ik er nog steeds geen snelle geldkans in: kleine tools van één maker met 0 tot 12 sterren. De waarde zit in het patroon en in wat anderen dagelijks uitbrengen; het oordeel blijft bij de wekelijkse beoordelaar.
+
+akkoord ja (moet 1, 2 en 3 zijn opgelost; de nieuwe fout in de kopie-regel staat bij kan 1)
