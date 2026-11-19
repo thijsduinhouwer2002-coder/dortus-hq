@@ -73,3 +73,39 @@ Wat goed is: de strook bovenaan beantwoordt meteen de twee vragen van Thijs (wat
 10. D7 ploeg: aan of uit voor Roep en Reddit-bouwer uit het bord halen; B4 CSS apart en `architectuur.md`.
 
 Schermen: gemaakt in /tmp tijdens de keuring (88 stuks, niet in de repo); de vier van de bouwer in `dashboard/beelden/` komen overeen met wat ik live zag.
+
+# Herkeuring, do 19 nov 2026 ±12:30, zelfde keurder
+Wat ik keurde: main 19ba128c (dashboard c75da25f, lijst en ronde 5035d6a3), live pagina gebouwd do 19 nov 12:24. Playwright op 390x844 en 1440x900, licht en donker, alle 12 tabs (nu met Ebb): 96 schermen bekeken, geen fouten in de console, geen zijwaarts scrollen. `dashboard/test_controle.py`: 8 groen. `bouw.py` in een eigen worktree gedraaid met een kapotte `projecten.json`.
+Akkoord: nee (één nieuw moet-punt, klein: GOK 15 minuten; de drie oude moet-punten zijn weg)
+
+## De moet-punten van de eerste keuring
+| # | Was | Nu | Opgelost |
+|---|---|---|---|
+| 1 | Niemand werkt `projecten.json` bij | `organisatie/hoofdchat-ronde.md` stap 5 "Dashboard bijwerken", met `bijgewerkt` ook als er niets veranderde | ja |
+| 2 | Geen ouderdom van de stand | Rechtsboven "Stand projecten do 19 nov 12:22, door ..." en "Pagina gebouwd ..."; oranje na 3 uur (stand) en 2 uur (bouw), in `sjabloon.html` regel 145 | ja |
+| 3 | "Jij moet doen" niet gelijk aan de bronnen | Alle 5 punten komen nu van `lijst-thijs.md` (Roep-taken, speeltest za 21 nov, devvit login, Insider Gaming, Reddit-label), met project en datum; `thijs` is een lijst, Hats toont speeltest en Insider Gaming | ja |
+
+## Is het mooier en rustiger?
+Ja, duidelijk. Wat ik zag:
+- Alle acht Dortus-projecten staan op 1440x900 op één scherm (was 1,5). Rijen van ±55 px, statuszin op één regel, "actie voor jou" als klein merkje. Telefoon: overzicht 2.636 px (was 3.888).
+- Het totaal "€400 tot €1.100" is nu de kop van de pagina, in Barlow Condensed; koppen en cijfers in die smalle letter geven het een eigen gezicht zonder drukte. De letter zit in de pagina zelf (geen extern adres), met de OFL erbij.
+- Geldlat: bedrag vast links en vet, lat alleen bij een eigen bedrag; Hats en Hat Tower Garmin zijn gewoon "€0".
+- Labels alleen bij getallen; `--zacht` is nu 5,5:1 in licht. "?" heet nu "niet gelezen" zonder label, "0,00" met komma, het Garmin-cijfer staat niet meer bij Reddit, Ebb staat erin.
+- Deadlines alleen van Dortus, de Reddit-inzending staat erbij. Ploeg: 6 aan volgens het bord, "Ook bezig" en "Hoofdchat en keurders" apart, 18 uit in één regel, runs alleen met echt werk. Wijzigingen zonder "niets te doen".
+- Donker is net zo verzorgd als licht.
+
+## Nieuw gevonden
+| # | Bevinding | Feit of vermoeden | Zekerheid | Wat het zou bevestigen of weerleggen |
+|---|---|---|---|---|
+| H1 | **Reddit toont bij Keuringen een rood "nog niet akkoord" (fase 1), terwijl de herkeuring van fase 2a "Akkoord: ja" zegt.** De herkeuring staat bovenaan `producten/reddit-hat-tower/KEURING.md` (regel 3), de oude keuring eronder (regel 60). `keuring()` in `bouw.py` neemt de laatste regel "Akkoord:" in het bestand. Daardoor spreekt de pagina de statuszin ("de tweede keuring zei ja") tegen. Bij herkeuringen onderaan (zoals hier) gaat het goed, bovenaan niet. | feit (live data: `oordeel: nee`) | hoog | Na de fix: Reddit toont "akkoord" met kop "Herkeuring ... fase 2a" |
+| H2 | Op 1440 breed worden teksten afgekapt waar ruimte genoeg is: "Superhive Cyber Sal…", "Inzending op Devpo…", "Stopregel: een video boven 1.…" bij de deadlines, "u/DortusGame…" bij Jij moet doen. Op de telefoon lopen ze wel door. | feit | hoog | |
+| H3 | Ongeldige JSON in `projecten.json` geeft een pagina met 0 projecten en een duidelijke rode melding. Een fout in één veld laat alleen dat veld weg (goed). Bij kapotte JSON zou de laatste goede stand met de melding erboven beter zijn dan een lege pagina. De controle draait in de bouw, niet vóór de push. | feit (geprobeerd) | hoog | |
+| H4 | In de kop van de geldlat staat geen "€1.000" meer bij de middelste streep; je ziet €0, €100 en €10.000. | feit | hoog | |
+
+## Moet (blokkeert akkoord)
+1. **H1:** het oordeel van een keuringsbestand moet het nieuwste zijn, niet het laatste in het bestand. Bijvoorbeeld: neem de regel "Akkoord:" onder de kop met de nieuwste datum, of de eerste als de eerste kop met "Herkeuring" begint. Na de fix kort laten zien op de Reddit-tab; geen nieuwe volle keuring nodig.
+
+## Kan (mag later)
+1. H2: deadlines en punten van Thijs op twee regels laten lopen in plaats van afkappen.
+2. H3: bij kapotte JSON de vorige `data.json` gebruiken; `dashboard/controle.py` ook in de controle vóór elke push.
+3. H4: "€1.000" terug in de kop, of de streep weg.
