@@ -44,7 +44,9 @@ haal() {
 }
 
 bewaar() {
-  local bron="$1" pad="$2" wat="$3" w poging
+  local bron="$1" pad="$2" wat="$3" w poging tijd oud
+  # Commitdatum van deze run: een run van oudere code die later klaar is, overschrijft een nieuwere referentie niet.
+  tijd=$(git -C "${GITHUB_WORKSPACE:-.}" log -1 --format=%ct 2>/dev/null || date +%s)
   [ -d "$bron" ] && [ -n "$(find "$bron" -name '*.png' | head -1)" ] || { echo "geen plaatjes in $bron"; return 0; }
   wie
   for poging in 1 2 3 4 5; do
@@ -54,9 +56,16 @@ bewaar() {
     else
       git init -q -b schermen "$w/s" && git -C "$w/s" remote add origin "$URL"
     fi
+    oud=$(sed -n 's/.*commitdatum \([0-9]*\).*/\1/p' "$w/s/$pad/RUN.txt" 2>/dev/null | head -1)
+    if [ -n "$oud" ] && [ "$oud" -gt "$tijd" ]; then
+      echo "referentie is van nieuwere code (commitdatum $oud, deze run $tijd), niet overschreven"; rm -rf "$w"; return 0
+    fi
+    # GEMELD.md (wat al gemeld is) blijft staan, de plaatjes worden vervangen.
+    [ -f "$w/s/$pad/GEMELD.md" ] && cp "$w/s/$pad/GEMELD.md" "$w/gemeld.md"
     rm -rf "${w:?}/s/$pad" && mkdir -p "$w/s/$pad"
+    [ -f "$w/gemeld.md" ] && cp "$w/gemeld.md" "$w/s/$pad/GEMELD.md"
     (cd "$bron" && find . -name '*.png' -print0 | xargs -0 -I{} cp --parents {} "$w/s/$pad"/)
-    echo "referentie uit run ${GITHUB_RUN_ID:-?}, commit ${GITHUB_SHA:-?}, $(date -u +%FT%TZ)" > "$w/s/$pad/RUN.txt"
+    echo "referentie uit run ${GITHUB_RUN_ID:-?}, commit ${GITHUB_SHA:-?}, commitdatum $tijd, $(date -u +%FT%TZ)" > "$w/s/$pad/RUN.txt"
     git -C "$w/s" add -A
     if git -C "$w/s" diff --cached --quiet; then echo "referentie ongewijzigd"; rm -rf "$w"; return 0; fi
     git -C "$w/s" commit -q -m "Referentiebeelden $wat run ${GITHUB_RUN_ID:-?}"
