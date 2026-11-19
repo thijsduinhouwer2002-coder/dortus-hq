@@ -1,6 +1,6 @@
 # Driehoek-meter: rapport
 
-Data: 0 driehoeken met winst op het boek gezien (ook kleine en korte), 0 dag(en) (- tot -). Gemeten: ±0,0 uur per beurs (GEZIEN, uit stand.jsonl).
+Data: 2 driehoeken met winst op het boek gezien (ook kleine en korte), 1 dag(en) (2026-11-19 tot 2026-11-19). Gemeten: ±0,2 uur per beurs (GEZIEN, uit stand.jsonl).
 
 **Lees dit eerst.** Wij meten elke 3 tot 5 seconden met de openbare API. Snelle partijen (bots naast de server van de beurs) pakken een winstgevende driehoek meestal binnen milliseconden. Wat wij zien, is wat er na hen overbleef: driehoeken die korter stonden dan onze ronde zien we vaak niet, en wat wij wel zien, kan jij alleen pakken als je sneller bent dan wie hem nu laat liggen. De sommen onderaan zijn GOK.
 
@@ -12,13 +12,23 @@ Beste marge = per ronde de beste driehoek tegen de beste prijzen na kosten (medi
 
 | Beurs | Status | Paren | Driehoeken | Uur | Rondes | Fouten (te veel) | Beste marge mediaan | Beste marge hoogst | Kandidaten | Bekeken | Overgeslagen | Zelfde | Winst op boek | Echt |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| bitget | grijs | 3659 | 202 | 0,2 | 271 | 0 (0) | -0,284% | -0,089% | 0 | 0 | 0 | 0 | 0 | 0 |
+| bitstamp | MiCA | 252 | 346 | 0,2 | 163 | 0 (0) | -0,973% | -0,406% | 0 | 0 | 0 | 0 | 0 | 0 |
+| bitvavo | MiCA | 435 | 22 | 0,2 | 204 | 0 (0) | -0,764% | -0,702% | 0 | 0 | 0 | 0 | 0 | 0 |
+| gate | MiCA-dochter | 2156 | 372 | 0,2 | 202 | 0 (0) | -0,079% | 0,273% | 41 | 16 | 0 | 25 | 0 | 0 |
+| kraken | MiCA | 1352 | 2352 | 0,2 | 163 | 0 (0) | -0,582% | -0,386% | 0 | 0 | 0 | 0 | 0 | 0 |
+| kucoin | MiCA-dochter | 968 | 452 | 0,2 | 270 | 0 (0) | 0,348% | 0,502% | 562 | 491 | 3 | 67 | 0 | 0 |
+| mexc | grijs | 1664 | 886 | 0,2 | 270 | 0 (0) | 0,501% | 1,549% | 1419 | 764 | 157 | 494 | 15 | 0 |
+| okx | MiCA-dochter | 1248 | 2336 | 0,2 | 271 | 0 (0) | -0,097% | 0,363% | 126 | 123 | 0 | 3 | 0 | 0 |
+
+Let op: 160 van 2148 kandidaten (7%) zijn overgeslagen omdat het budget van de ronde op was. De aantallen hieronder zijn dan een **ondergrens**.
 
 ## Trechter
 
 | Stap | Alle beurzen | MiCA (ook via EU-dochter) | Grijs |
 |---|---|---|---|
-| winst op het boek, met de lage kosten (bovengrens) | 0 | 0 | 0 |
-| winst op het boek, met de gewone kosten | 0 | 0 | 0 |
+| winst op het boek, met de lage kosten (bovengrens) | 2 | 0 | 2 |
+| winst op het boek, met de gewone kosten | 2 | 0 | 2 |
 | en minstens €100 diepte | 0 | 0 | 0 |
 | en minstens 3 s blijven staan | 0 | 0 | 0 |
 | en niet verdacht = **echt** | 0 | 0 | 0 |
@@ -29,6 +39,9 @@ De lage kosten verschillen alleen bij Bitvavo (categorie B, C en D: USDC- en sta
 
 | Dag | Soort | Aantal | Mediane winst per keer | Mediane diepte | Mediane duur | Totale winst (beste moment, volle diepte) |
 |---|---|---|---|---|---|---|
+| 2026-11-19 | Alle beurzen | 0 | - | - | - | €0,00 |
+| 2026-11-19 | MiCA (ook via EU-dochter) | 0 | - | - | - | €0,00 |
+| 2026-11-19 | Grijs | 0 | - | - | - | €0,00 |
 | totaal | Alle beurzen | 0 | - | - | - | €0,00 |
 | totaal | MiCA (ook via EU-dochter) | 0 | - | - | - | €0,00 |
 | totaal | Grijs | 0 | - | - | - | €0,00 |
@@ -37,12 +50,27 @@ De lage kosten verschillen alleen bij Bitvavo (categorie B, C en D: USDC- en sta
 
 Nog geen echte driehoeken gezien.
 
+Grootste driehoeken die **niet** echt waren (te kort, te dun of verdacht):
+
+| Beurs | Driehoek | Winst | Diepte | Duur | Verdacht |
+|---|---|---|---|---|---|
+| mexc | USDT>BTC>BDX>USDT | €0,02 | €16 | 33.0 s | nee |
+| mexc | USDT>BTC>BDX>USDT | €0,02 | €16 | 5.9 s | nee |
+
 ## Kan een kleine inleg meedoen? (€100, €150, €200)
 
 Minimale ordergrootte per paar uit de openbare API van elke beurs (aantal munten en bedrag in de quote; Bitget: waarde in USDT). Per beurs: hoeveel driehoeken je met dat bedrag kunt rondmaken zonder dat een van de drie orders onder het minimum valt (tegen de beste prijzen, GEZIEN). Het kleinste bedrag dat we toetsen is €10; "≤ €10" betekent dus €10 of minder. Afronding op de stapgrootte van de beurs rekenen we niet mee (bij €100 een paar cent, GOK).
 
 | Beurs | Status | Driehoeken | Met EUR | Mediaan minimale inleg | Mogelijk met €100 | €150 | €200 | Met EUR en €100 |
 |---|---|---|---|---|---|---|---|---|
+| bitget | grijs | 202 | 46 | ≤ €10 | 202 | 202 | 202 | 46 |
+| bitstamp | MiCA | 346 | 260 | €12 | 333 | 334 | 334 | 249 |
+| bitvavo | MiCA | 22 | 22 | ≤ €10 | 22 | 22 | 22 | 22 |
+| gate | MiCA-dochter | 372 | 0 | ≤ €10 | 372 | 372 | 372 | 0 |
+| kraken | MiCA | 2352 | 1368 | ≤ €10 | 2352 | 2352 | 2352 | 1368 |
+| kucoin | MiCA-dochter | 452 | 12 | ≤ €10 | 452 | 452 | 452 | 12 |
+| mexc | grijs | 886 | 76 | ≤ €10 | 886 | 886 | 886 | 76 |
+| okx | MiCA-dochter | 2336 | 1090 | ≤ €10 | 2332 | 2332 | 2332 | 1090 |
 
 Van de 0 echte driehoeken konden er 0 met €100 of minder (minimale ordergrootte gehaald op alle drie stappen).
 
