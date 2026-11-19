@@ -207,3 +207,4 @@
 - Wat misging: in een scene in meters met de cursor op 3 m kreeg het scharnier op 2 van 5 staafjes geen getal (3 tot 19 open randen na de union). Opgelost: union in een werkkopie in mm rond de oorsprong, en de set komt bij de oorsprong achter alles wat er staat in plaats van bij de cursor. De toets zet de cursor nu bewust op 3 m.
 - Lokaal 5.3.0: toetsen_testkaart 0 FOUT, test_betaald 0 FOUT, extensie valideert. Stap staat in de e2e-workflow; 4.2.23 en 5.2.3 toetst de CI.
 - Volgende run: CI nakijken, plaatje 20 (testkaartje schuin van boven) maken en zelf bekijken, dan Daan vragen. Niet los uitbrengen; mee met de volgende Pro-versie na Gumroad 1.1.0.
+- CI run 44576138702 (085e4c7) liep bij afsluiten: eerste taak volgende run. Uitgave 1.1.0 (run 44545370400) raakt dit niet.
