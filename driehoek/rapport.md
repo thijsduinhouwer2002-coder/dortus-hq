@@ -8,7 +8,9 @@ Uitleg: **takerkosten** zijn wat de beurs per order rekent als je meteen koopt o
 
 Data: 50 driehoeken met winst op het boek gezien (ook kleine en korte), 1 dag(en) (2026-11-19 tot 2026-11-19). Gemeten: ±1,0 uur per beurs (GEZIEN, uit stand.jsonl).
 
-Een **echte driehoek**: winst na drie keer takerkosten op het orderboek, op twee metingen die minstens 3 seconden uit elkaar liggen elk minstens €100 diepte, bij de latere meting minstens €0,05 winst, en niet meer dan 5% winst (verdacht). Alle bedragen zijn die van de latere meting: wat er na 3 seconden nog stond. Driehoeken op dezelfde beurs die tegelijk openstonden en een paar deelden, tellen als **één kans** (de beste telt): ze willen hetzelfde stukje orderboek.
+Een **echte driehoek**: winst na drie keer takerkosten op het orderboek, op twee metingen die minstens 3 seconden uit elkaar liggen elk minstens €100 diepte, bij de latere meting minstens €0,05 winst, en niet meer dan 5% winst (verdacht). Alle bedragen zijn die van de latere meting: wat er na 3 seconden nog stond. Driehoeken op dezelfde beurs die binnen 5 seconden van elkaar bevestigd werden en een paar delen dat geen paar van twee hoofdmunten is (EUR, USD, USDT, USDC, BTC, ETH), tellen als **één kans** (de beste telt): ze willen hetzelfde stukje orderboek. Er wordt niet doorgeketend: een driehoek hoort alleen bij een kans als hij met elk lid ervan dat stukje deelt. Omdat samenvoegen ook te streng kan zijn, staan aantallen en geld er ook los geteld bij (bovengrens).
+
+Regels van vóór 2026-11-19 16:07 UTC (vóór de keuring) hebben geen meting na 3 seconden en tellen daarom nooit als echt. Daar zat ook niets in dat 3 seconden met €100 diepte stond.
 
 ## Per beurs: hoe gemeten en hoe dicht bij winst
 
@@ -35,7 +37,7 @@ Beste marge = per ronde de beste driehoek tegen de beste prijzen na kosten (medi
 | en na 3 s nog steeds minstens €100 diepte | 0 | 0 | 0 |
 | en dan minstens €0,05 winst | 0 | 0 | 0 |
 | en niet verdacht = **echt** | 0 | 0 | 0 |
-| echte **kansen** (samen genomen als ze hetzelfde boek willen) | 0 | 0 | 0 |
+| echte **kansen** (samengevoegd als ze hetzelfde stukje boek willen; ondergrens) | 0 | 0 | 0 |
 
 De lage kosten verschillen alleen bij Bitvavo (categorie B, C en D: USDC- en stablecoinparen; Bitvavo noemt ze lager dan 0,25% maar geeft geen getal, dus laag = 0%, GOK). Overal elders is laag gelijk aan gewoon.
 
@@ -86,25 +88,27 @@ Van de 0 echte kansen konden er 0 met €100 (minimale ordergrootte gehaald op a
 
 ## Opschaling naar €100, €150, €200, €2.000 en €5.000 inleg (GOK)
 
-Per echte kans nemen we de winst die je bij die inleg na 3 seconden nog had kunnen maken (minder inleggen mag als het boek dunner is; alleen bedragen die de minimale ordergrootte halen). Driehoeken die dezelfde kans zijn (zelfde beurs, tegelijk open, een paar gemeen) tellen één keer, met de beste. Opgeteld per gemeten dag en dan maal 30 voor een maand.
+Per echte kans nemen we de winst die je bij die inleg na 3 seconden nog had kunnen maken (minder inleggen mag als het boek dunner is; alleen bedragen die de minimale ordergrootte halen). Opgeteld per gemeten dag en dan maal 30 voor een maand.
 
-| Soort | Inleg | Echte kansen per dag | Winst per dag | Per maand (GOK) | Alleen de beste beurs, per maand (GOK) |
+Elk getal staat er twee keer: **samengevoegd** (ondergrens: driehoeken die op hetzelfde moment, binnen 5 seconden na hun bevestiging, hetzelfde niet-hoofdpaar gebruiken, tellen als één kans; een paar van twee hoofdmunten zoals BTC/EUR of BTCUSDT telt daarbij niet, en er wordt niet doorgeketend) en **los** (bovengrens: elke driehoek apart).
+
+| Soort | Inleg | Kansen per dag (samengevoegd / los) | Winst per dag (samengevoegd / los) | Per maand (GOK, samengevoegd / los) | Alleen de beste beurs, per maand (GOK, samengevoegd) |
 |---|---|---|---|---|---|
-| Alle beurzen | €100 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| Alle beurzen | €150 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| Alle beurzen | €200 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| Alle beurzen | €2.000 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| Alle beurzen | €5.000 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| MiCA (ook via EU-dochter) | €100 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| MiCA (ook via EU-dochter) | €150 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| MiCA (ook via EU-dochter) | €200 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| MiCA (ook via EU-dochter) | €2.000 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| MiCA (ook via EU-dochter) | €5.000 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| Grijs | €100 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| Grijs | €150 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| Grijs | €200 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| Grijs | €2.000 | 0,0 | €0,00 | €0,00 | -: €0,00 |
-| Grijs | €5.000 | 0,0 | €0,00 | €0,00 | -: €0,00 |
+| Alle beurzen | €100 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| Alle beurzen | €150 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| Alle beurzen | €200 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| Alle beurzen | €2.000 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| Alle beurzen | €5.000 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| MiCA (ook via EU-dochter) | €100 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| MiCA (ook via EU-dochter) | €150 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| MiCA (ook via EU-dochter) | €200 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| MiCA (ook via EU-dochter) | €2.000 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| MiCA (ook via EU-dochter) | €5.000 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| Grijs | €100 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| Grijs | €150 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| Grijs | €200 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| Grijs | €2.000 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
+| Grijs | €5.000 | 0,0 / 0,0 | €0,00 / €0,00 | €0,00 / €0,00 | -: €0,00 |
 
 Waarom dit te rooskleurig is (GOK):
 
