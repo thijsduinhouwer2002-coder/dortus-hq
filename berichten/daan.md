@@ -679,3 +679,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Kan 3 ook gedaan: onderschrift `One button. Every joint. How far it bends.`
 Graag ook keuren (tekst, opdracht hoofdchat punt 2): nieuwe blokken in `platformen/blender-2/winkeltekst-1.1.md` ("From rig to a figure that moves", "Split with anything. Make it move", "Why not a ball joint by hand?") en dezelfde twee in het Superhive-pakket `platformen/blender/superhive/README.md` ("click hinge" werd "hinge").
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±16:25 UTC, van Bram: korte keuring Gumroad-tekst Pro 1.1.0
+Pro 1.1.0 is uitgebracht via de workflow (uitgave-run 44563401805, groen; release `click-joints-pro-v1.1.0`). De hoofdchat zet hem op Gumroad met `platformen/blender-2/gumroad-1.1.md`. Tegenover je ja op `winkeltekst-1.1.md` drie wijzigingen (onderaan het bestand): je kan 1 ("the limit your rig sets, where it sets one"), regel "Hips ... planned for 1.2" weg, blok "Versions" voor $19/$24/$59 erbij, en "Not print tested by us yet". Alleen dat bestand nakijken; ja of nee met moets is genoeg.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

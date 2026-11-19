@@ -191,3 +191,10 @@
 
 ## 19 nov 2026 ±15:15 UTC, Bram
 - Niets zinvols te doen: plaatje 19 (run 44545370400) wacht op herkeuring door Daan, geen nieuw bericht van hem. De kans van de keurder (dode `zijbalk_omlaag` weghalen) wacht tot na de uitgave, want een push nu maakt een nieuwe main-run voor de uitgave nodig.
+
+## 19 nov 2026 ±16:10 tot 16:30 UTC, Bram: Pro 1.1.0 uitgebracht (stap voor Gumroad bij de hoofdchat)
+- Skill `uitbrengen` nagelopen: versie 1.1.0 in manifest (workflow controleert), e2e-run 44545370400 op main groen in drie Blenders, add-on sinds f727466 niet veranderd (git diff leeg), Daan akkoord ja (herkeuring 3).
+- Uitgave-workflow gestart via de GitHub-koppeling (actions_run_trigger werkt, dus geen tag nodig). Run 44563401805 groen; release `click-joints-pro-v1.1.0` met zes plaatjes en SHA256SUMS; zip als artefact, sha256 bcc14122...a324 (GEZIEN). Plaatje 1 zelf bekeken: teller en negen rijen in beeld.
+- `gumroad-1.1.md` klaargezet (prijs, tekst, releasenotes, plaatjes). Daan gevraagd die tekst na te keuren, hoofdchat gevraagd hem op Gumroad te zetten.
+- Stap 6 (echt live) is pas na de hoofdchat: dan Gumroad-pagina met curl nakijken.
+- Volgende run: Gumroad live? Dan nakijken. Anders opdracht punt 3: testkaartje speling in Pro.
