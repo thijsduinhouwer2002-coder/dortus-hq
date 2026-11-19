@@ -1,139 +1,16 @@
 // Het speelveld: grot, gezamenlijke toren, Gloop, de vallende held en de hoedentoren.
 // De spelregels komen uit shared/spel.ts; hier zit alleen hoe het eruitziet en beweegt.
 // Eenheden: de breedte is altijd 454 (zoals op het horloge), de hoogte volgt het scherm.
-import {
-  inVangzone,
-  isGoud,
-  type Potje,
-  Toestand,
-  WEG_MS,
-} from '../shared/spel.ts'
-import {Deeltjes, klem, Schok, Veer, veerUit} from './effecten.ts'
+import {inVangzone, type Potje, Toestand} from '../shared/spel.ts'
+import {B, type Beeld, CX, type Vlucht} from './basis.ts'
+import {klem, veerUit} from './effecten.ts'
 import {tekenGrot, tekenSamen, tekst} from './grot.ts'
-import type {GloopStand, Kunst} from './kunst.ts'
+import {MetHeld} from './held.ts'
+import type {GloopStand} from './kunst.ts'
 
-export const B = 454
-const CX = B / 2
+export {B, type Beeld, nieuwBeeld} from './basis.ts'
 
-type Vlucht = {
-  hoed: number
-  vanX: number
-  vanY: number
-  start: number
-  duur: number
-  plek: number
-}
-
-/** Alles wat het beeld onthoudt tussen frames (veren, timers, deeltjes). */
-export type Beeld = {
-  zoom: number
-  voetPlek: number
-  opzij: number
-  gloopVeer: Veer
-  torenVeer: Veer
-  deeltjes: Deeltjes
-  schok: Schok
-  vluchten: Vlucht[]
-  /** Hoeden die echt op de toren staan (de rest vliegt nog). */
-  toren: number
-  landMs: number
-  slokSinds: number
-  misSinds: number
-  luchtSinds: number
-  blijTot: number
-  knipperTot: number
-  volgendeKnipper: number
-  kreet: string
-  kreetSub: string
-  kreetSinds: number
-  /** Hoeden van de subreddit vandaag (zonder deze ronde). */
-  samen: number
-  sub: string
-  /** Bordje bij de gezamenlijke toren (uit achter het start- en uitslagscherm). */
-  bordje: boolean
-}
-
-export function nieuwBeeld(): Beeld {
-  return {
-    zoom: 1,
-    voetPlek: 1,
-    opzij: 0,
-    gloopVeer: new Veer(0.0011, 0.011),
-    torenVeer: new Veer(0.0006, 0.004),
-    deeltjes: new Deeltjes(),
-    schok: new Schok(),
-    vluchten: [],
-    toren: 0,
-    landMs: -9999,
-    slokSinds: -9999,
-    misSinds: -9999,
-    luchtSinds: -9999,
-    blijTot: 0,
-    knipperTot: 0,
-    volgendeKnipper: 2500,
-    kreet: '',
-    kreetSub: '',
-    kreetSinds: -9999,
-    samen: 0,
-    sub: '',
-    bordje: true,
-  }
-}
-
-export class Scene {
-  readonly ctx: CanvasRenderingContext2D
-  h = 800
-  schaal = 1
-
-  readonly canvas: HTMLCanvasElement
-  readonly k: Kunst
-
-  constructor(canvas: HTMLCanvasElement, k: Kunst) {
-    this.canvas = canvas
-    this.k = k
-    const ctx = canvas.getContext('2d')
-    if (!ctx) throw new Error('geen canvas')
-    this.ctx = ctx
-  }
-
-  pasAan(): void {
-    const r = this.canvas.getBoundingClientRect()
-    const dpr = Math.min(window.devicePixelRatio || 1, 3)
-    this.canvas.width = Math.round(r.width * dpr)
-    this.canvas.height = Math.round(r.height * dpr)
-    this.schaal = this.canvas.width / B
-    this.h = this.canvas.height / this.schaal
-  }
-
-  get voet(): number {
-    return this.h - 46
-  }
-
-  /** Waar de mond van Gloop staat (midden), in spel-eenheden. */
-  mond(): {x: number; y: number} {
-    const g = this.k.maten.gloop
-    return {x: CX - g.b / 2 + g.mond[0], y: this.voet - g.h + g.mond[1]}
-  }
-
-  /** De plek van hoed i in de toren (onderkant), vanaf de kruin. */
-  hoedPlekken(n: number, volgorde: readonly number[]): number[] {
-    const g = this.k.maten.gloop
-    let y = this.voet - g.h + g.kruin[1] + 8
-    const uit: number[] = []
-    for (let i = 0; i < n; i++) {
-      const m = this.k.maten.hoed[volgorde[i % 10] as number] as {h: number}
-      uit.push(y)
-      y -= m.h * 0.56
-    }
-    uit.push(y)
-    return uit
-  }
-
-  torenTop(n: number, volgorde: readonly number[]): number {
-    const p = this.hoedPlekken(n, volgorde)
-    return (p[p.length - 1] as number) - 30
-  }
-
+export class Scene extends MetHeld {
   /** De spelregels melden iets: start de bijpassende beweging. */
   gebeurtenis(
     soort: string,
@@ -157,8 +34,8 @@ export class Scene {
       for (let i = 0; i < p.winst; i++) {
         beeld.vluchten.push({
           hoed: volgorde[(al + i) % 10] as number,
-          vanX: m.x - 10,
-          vanY: m.y - 30,
+          vanX: m.x - 14,
+          vanY: m.y - 70,
           start: nu + i * 90,
           duur: 430,
           plek: al + i,
@@ -237,7 +114,7 @@ export class Scene {
 
     if (p.toestand !== Toestand.Klaar && p.toestand !== Toestand.Einde) {
       this.tekenTijd(p)
-      this.tekenTeller(p)
+      this.tekenTeller(p, this.torenTop(beeld.toren, volgorde))
       this.tekenKreet(beeld, nu)
       if (p.toestand === Toestand.Weg)
         tekst(ctx, 'bye!', 30, voet - 190, 30, 'left', '#fff6e6')
@@ -355,6 +232,9 @@ export class Scene {
       ctx.save()
       ctx.translate(x, y + m.h / 2)
       ctx.rotate((1 - f) * 2.4)
+      // Klein uit de mond, groeit tot hij landt.
+      const groei = 0.55 + 0.45 * f
+      ctx.scale(groei, groei)
       ctx.drawImage(
         this.k.hoed[v.hoed] as HTMLImageElement,
         -m.b / 2,
@@ -366,162 +246,6 @@ export class Scene {
     }
   }
 
-  /** De held valt in een boog en tuimelt, met de hoed die hij straks kwijt is op zijn hoofd. */
-  heldPlek(p: Potje): {x: number; y: number; hoek: number; t: number} {
-    const m = this.mond()
-    return this.boog(p.y / 815, m)
-  }
-
-  /** De valboog: eerst vooral omlaag langs de lichtbaan, op het laatst opzij de mond in (niet door de toren). */
-  boog(
-    t: number,
-    m: {x: number; y: number},
-  ): {x: number; y: number; hoek: number; t: number} {
-    const sx = 30
-    const sy = 40
-    const tx = Math.max(0, t) ** 2.1
-    const x = sx + (m.x - 6 - sx) * tx
-    const y = sy + (m.y - sy) * (0.55 * t + 0.45 * t * t)
-    return {x, y, hoek: Math.PI * (0.15 + 0.88 * t), t}
-  }
-
-  tekenHeld(
-    p: Potje,
-    beeld: Beeld,
-    nu: number,
-    volgorde: readonly number[],
-  ): void {
-    const {ctx} = this
-    const mh = this.k.maten.held
-    const hoedNr = volgorde[
-      (beeld.toren + beeld.vluchten.length) % 10
-    ] as number
-    if (p.toestand === Toestand.Valt) {
-      const {x, y, hoek, t} = this.heldPlek(p)
-      if (isGoud(p)) {
-        const g = ctx.createRadialGradient(x, y, 6, x, y, 95)
-        g.addColorStop(0, 'rgba(255, 220, 90, 0.8)')
-        g.addColorStop(1, 'rgba(255, 200, 60, 0)')
-        ctx.fillStyle = g
-        ctx.fillRect(x - 95, y - 95, 190, 190)
-      }
-      const rek = 0.06 * t
-      ctx.save()
-      ctx.translate(x, y)
-      ctx.rotate(hoek + Math.sin(nu / 110) * 0.06)
-      ctx.scale(1 - rek, 1 + rek)
-      // Draaipunt is de kruin van het hoofd: daar zit de hoed, en daarmee gaat hij de mond in.
-      this.tekenHeldMetHoed('schrik', hoedNr, 0, 0)
-      ctx.restore()
-      if (inVangzone(p) && p.hapDicht === 0)
-        tekst(ctx, '!', x - 52, y - 70, 50, 'center', '#ffe94a')
-    } else if (
-      p.toestand === Toestand.Slok ||
-      (nu - beeld.slokSinds < 260 && p.toestand === Toestand.Wacht)
-    ) {
-      this.tekenSlok(beeld, nu)
-    } else if (p.toestand === Toestand.Weg) {
-      // Gemist: hij landt naast Gloop (squash), en hupt dan weg naar links.
-      const f = p.fase / WEG_MS
-      const s = mh.schrik
-      const landX = this.mond().x - 120
-      if (f < 0.16) {
-        // Eerst valt hij verder, langs de mond, naar de vloer; hij draait weer rechtop.
-        const k = f / 0.16
-        const van = this.boog(900 / 815, this.mond())
-        const x = van.x + (landX - van.x) * k
-        const y = van.y + (this.voet - s.h * 0.5 - van.y) * k * k
-        ctx.save()
-        ctx.translate(x, y)
-        ctx.rotate(van.hoek + (Math.PI * 2 - van.hoek) * k)
-        ctx.drawImage(this.k.held.schrik, -s.b / 2, -s.h / 2, s.b, s.h)
-        ctx.restore()
-      } else if (f < 0.32) {
-        const k = (f - 0.16) / 0.16
-        const squash = Math.sin(k * Math.PI) * 0.28
-        ctx.save()
-        ctx.translate(landX, this.voet)
-        ctx.scale(1 + squash, 1 - squash)
-        ctx.drawImage(this.k.held.schrik, -s.b / 2, -s.h, s.b, s.h)
-        ctx.restore()
-        if (k < 0.2) beeld.deeltjes.strooi('stof', landX, this.voet - 4, 2)
-      } else {
-        const k = (f - 0.32) / 0.68
-        const x = landX - (landX + s.b) * k
-        const hup = Math.abs(Math.sin(k * Math.PI * 4)) * 18
-        const img =
-          Math.floor(k * 8) % 2 === 0 ? this.k.held.stap1 : this.k.held.stap2
-        const st = Math.floor(k * 8) % 2 === 0 ? mh.stap1 : mh.stap2
-        ctx.save()
-        ctx.translate(x, this.voet - hup)
-        ctx.scale(-1, 1)
-        ctx.drawImage(img, -st.b / 2, -st.h, st.b, st.h)
-        ctx.restore()
-      }
-    }
-  }
-
-  /** De held zonder hoed, met de hoed van de toren op zijn hoofd; (x, y) is de kruin. */
-  tekenHeldMetHoed(
-    stand: 'schrik',
-    hoedNr: number | null,
-    x: number,
-    y: number,
-  ): void {
-    const s = this.k.maten.held[stand]
-    this.ctx.drawImage(
-      this.k.held[stand],
-      x - s.kruin[0],
-      y - s.kruin[1],
-      s.b,
-      s.h,
-    )
-    if (hoedNr === null) return
-    const m = this.k.maten.hoed[hoedNr] as {b: number; h: number}
-    const hb = m.b * 0.62
-    const hh = m.h * 0.62
-    this.ctx.drawImage(
-      this.k.hoed[hoedNr] as HTMLImageElement,
-      x - hb / 2,
-      y - hh * 0.8,
-      hb,
-      hh,
-    )
-  }
-
-  /** Slok: de held gaat ondersteboven de mond in en verdwijnt; alleen wat boven of in de mond is, is te zien. */
-  tekenSlok(beeld: Beeld, nu: number): void {
-    const {ctx} = this
-    const m = this.mond()
-    const g = this.k.maten.gloop
-    const f = klem((nu - beeld.slokSinds) / 240, 0, 1)
-    if (f >= 1) return
-    const s = this.k.maten.held.schrik
-    ctx.save()
-    ctx.beginPath()
-    ctx.rect(-200, -2000, B + 400, m.y + 2000)
-    ctx.ellipse(m.x, m.y, g.mond[2] * 1.15, g.mond[3] * 1.3, 0, 0, Math.PI * 2)
-    ctx.clip()
-    const zak = f * s.h * 1.05
-    const k = 1 - 0.25 * f
-    ctx.translate(m.x, m.y + zak)
-    ctx.rotate(Math.PI + Math.sin(f * 9) * 0.08)
-    ctx.scale(k * (1 + 0.15 * f), k)
-    this.tekenHeldMetHoed('schrik', null, 0, 0)
-    ctx.restore()
-  }
-
-  /** Gouden gloed achter Gloop als er een gouden held aankomt. */
-  tekenHeldAchter(p: Potje, _beeld: Beeld, nu: number): void {
-    if (p.toestand !== Toestand.Valt || !isGoud(p)) return
-    const m = this.mond()
-    const a = 0.12 + 0.06 * Math.sin(nu / 120)
-    this.ctx.fillStyle = `rgba(255, 210, 80, ${a})`
-    this.ctx.beginPath()
-    this.ctx.ellipse(m.x + 20, m.y, 130, 90, 0, 0, Math.PI * 2)
-    this.ctx.fill()
-  }
-
   tekenTijd(p: Potje): void {
     const {ctx} = this
     ctx.fillStyle = 'rgba(0, 0, 0, 0.35)'
@@ -530,14 +254,16 @@ export class Scene {
     ctx.fillRect(0, 0, (B * p.tijdOver) / 30000, 9)
   }
 
-  tekenTeller(p: Potje): void {
+  /** Teller bovenaan; komt de toren zo hoog, dan wijkt hij uit naar links (zoals op het horloge). */
+  tekenTeller(p: Potje, top: number): void {
     const kroon = this.k.hoed[4] as HTMLImageElement
     const km = this.k.maten.hoed[4] as {b: number; h: number}
     const s = String(p.hoeden)
     this.ctx.font = '44px "Lilita One", sans-serif'
     const tb = this.ctx.measureText(s).width
     const kb = km.b * 0.7
-    const x0 = CX - (tb + kb + 8) / 2
+    const midden = top < 100 ? 92 : CX
+    const x0 = midden - (tb + kb + 8) / 2
     this.ctx.drawImage(kroon, x0, 48 - (km.h * 0.7) / 2, kb, km.h * 0.7)
     tekst(this.ctx, s, x0 + kb + 8, 24, 44, 'left', '#ffe066')
   }

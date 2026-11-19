@@ -16,7 +16,7 @@ Overgenomen uit `Spel.mc` met dezelfde getallen: vangzone 700 tot 900, voltreffe
 | **Dagtoren** | Dag 1 is 19 nov 2026 (UTC). Uit het dagnummer volgen het ritme van de helden (pauze per held), welke helden goud zijn en de volgorde van de hoeden. Held 7 is voor iedereen dezelfde. | Daily Content: iedereen speelt dezelfde puzzel, dus vergelijken in de reacties betekent iets. |
 | **Dagregel** | Vijf regels die rouleren, elke vijf dagen allemaal een keer: Classic, Rush Hour (kortere pauzes), Heavy Heroes (sneller vallen), Golden Hour (vijf gouden helden), Big Mouth (grotere bek, zelfde kleine voltreffer). | Daily Content: elke dag voelt anders, zonder nieuw werk per dag. |
 | **Gouden helden** | Een paar helden per dag gloeien goud en zijn 3 hoeden waard. Het startscherm zegt welke ("#4 and #20"). | Gesprek in de reacties ("wie pakte #20?"), en een klein doel binnen de 30 s. |
-| **Eén dagbeurt** | De eerste ronde van de dag telt; daarna oefenen zoveel je wilt (andere, willekeurige toren). Er is ook "Warm up first". | Eerlijk en deelbaar, zoals Wordle; geen eindeloos opnieuw voor de ranglijst. |
+| **Eén dagbeurt** | De eerste ronde van de dag telt vanaf de start (`api/start`, één sleutel per speler per dag); herladen geeft geen nieuwe beurt. Daarna oefenen zoveel je wilt (andere, willekeurige toren). Er is ook "Warm up first". | Eerlijk en deelbaar, zoals Wordle; geen eindeloos opnieuw voor de ranglijst. |
 | **Ranglijst per dag** | Redis sorted set per subreddit per dag: eerst hoeden, dan beste reeks. Top 10 en je eigen plek. | Reddity: je subreddit tegen elkaar. |
 | **Dagen op rij** | Per speler: laatste dag en aantal. Valt terug naar 0 als je een dag overslaat. | Terugkomen. |
 | **Gezamenlijke toren** | Alle hoeden van alle dagbeurten van vandaag in deze subreddit tellen op: "r/... stacked 1,204 hats today, together. Your 16 are in it." Staat ook op de post in de feed. | Reddity: de hele subreddit bouwt één toren; dat is de grap van Hat Tower op gemeenschapsschaal. |
@@ -36,6 +36,9 @@ Overgenomen uit `Spel.mc` met dezelfde getallen: vangzone 700 tot 900, voltreffe
 2. **React-template.** Voordeel: menu's zijn makkelijk. Nadeel: het spel zelf is canvas; React voegt niets toe aan de kern en maakt de bundel groter. Niet gekozen.
 3. **Bare-template met eigen canvas (gekozen).** De officiële `reddit/devvit-template-bare` (51e9aab, opgehaald zonder login van GitHub), TypeScript en een canvas, zoals `SpelView.mc` ook direct tekent. De regels in één gedeeld bestand voor browser en server. Opslag via een klein `Opslag`-koppelvlak: op Reddit Redis, lokaal een Map. Reden: het kleinst, het dichtst bij de Garmin-code, en de server kan elke ronde naspelen.
 
+## Fase 2a (19 nov middag)
+De animatie is opnieuw gemaakt (Thijs vond hem slecht): renders uit de 3D-modellen in plaats van de horlogekit, de held valt in een boog en tuimelt met de hoed op die hij straks kwijt is, squash en stretch bij Gloop, de held en de landende hoeden, deeltjes en een korte schermschok. De gezamenlijke toren staat als beeld achterin de grot. Zie `stand.md` voor alles wat veranderde.
+
 ## Getoetst tegen de jury
 | Punt | Wat we doen | Wat nog zwak is |
 |---|---|---|
@@ -53,7 +56,7 @@ Overgenomen uit `Spel.mc` met dezelfde getallen: vangzone 700 tot 900, voltreffe
 - Geen taalmodel in de app; nergens een AI-melding (besluit 19 nov 01:30).
 
 ## Open vragen, zelf beantwoord
-- *Mag je spammen?* Op het horloge vang je alles door elke ±260 ms te tikken (de bek gaat maar 250 ms dicht). Hier ook: je vangt dan veel, maar bijna nooit een voltreffer, dus geen reeks. Zo laten, omdat het horloge zo gekeurd is; wel opnieuw bekijken na het eerste echte spel van een mens.
+- *Mag je spammen?* Niet meer (fase 2a, na de keuring): een voltreffer is 2 hoeden en een reeks voltreffers tot 4 per vangst, te vroeg happen breekt de reeks en sluit de bek 350 ms, en vroeg vangen geeft geen tempo. De toets eist dat mikken op elke dagregel minstens 25% meer haalt dan het beste vaste tikritme.
 - *Niet ingelogd?* Je kunt spelen; opslaan en delen vragen om inloggen ("Log in to Reddit to save your tower.").
 - *Server niet bereikbaar?* Het spel werkt gewoon als oefening en zegt dat de ranglijst even weg is.
 - *Welke tijd geldt voor de dag?* UTC, zoals de taak voor de dagpost om 00:00 UTC.

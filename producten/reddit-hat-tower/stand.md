@@ -1,6 +1,28 @@
 # Stand: Gloop's Hat Tower op Reddit
 
-## Do 19 nov 2026, fase 1 af (bouwer), nog niet gekeurd
+## Do 19 nov 2026 middag, fase 2a af (bouwer), nog niet gekeurd
+Na de keuring (`KEURING.md`: akkoord nee, UX 6, Polish 6, Reddity 5, Daily 7) en de reactie van Thijs op de animatie.
+
+### Wat er veranderd is (GEZIEN, zelf gedraaid en bekeken)
+1. **Mikken loont (moet 1).** Gewone vangst 1 hoed; voltreffer 2, met een reeks voltreffers 3 en daarna 4 per vangst; gouden held 2 extra. Te vroeg happen breekt de reeks (kost geen hoed) en de bek blijft 350 ms dicht (horloge 250). Vroeg vangen geeft geen tempo meer: de pauze na een vangst duurt zolang de held nog tot de onderkant van de bek had moeten vallen. Toets: mikken met spreiding 45 (en 10% te laat) haalt op alle vijf dagregels minstens 25% meer dan het beste vaste tikritme van 200 tot 400 ms (5 fasen per ritme). Nagerekend op dag 1 tot 15: verschil 30 tot 106% (kleinste op Classic en Golden Hour).
+2. **Eén dagbeurt (moet 2).** `api/start` zet per speler per dag één sleutel, alleen als die nog niet bestaat. Herladen of een tweede tabblad: de beurt staat als gebruikt (0 hoeden, "started and not finished") en wat je speelt is oefenen. Insturen kan alleen na een start, en de uitslag wordt eerst geclaimd (zet-als-nieuw) en dan pas geteld, dus twee gelijktijdige inzendingen tellen één keer. Een ronde die vlak voor middernacht UTC begon, telt nog voor die dag. Toetsen voor alle drie groen.
+3. **Animatie.** Nieuwe plaatjes uit de echte 3D-modellen van Hats (`kunst/render.sh` met bpy, `kunst/knip.py`), 2,6 keer zo groot als op het scherm nodig: geen pixels en geen zwarte rand meer. De held valt in een boog langs de lichtbaan, tuimelt, rekt een beetje uit en draagt de hoed die straks op de toren komt. Bij een slok gaat hij ondersteboven de mond in (alleen boven en in de mond zichtbaar), Gloop zakt in en veert na, slijmdruppels, vonken bij een voltreffer, goud bij een gouden held, een korte schermschok, 80 ms stilstand. De hoeden vliegen een voor een naar de toren, landen met squash en de toren zwiept na. Gloop ademt, knippert, rekt zich uit als een held nadert, hapt open in de vangzone, knijpt zijn oog dicht bij een misser of te vroeg happen en schudt zijn hoofd. Gemist: de held valt door, landt met squash en stof, en hupt weg. Gemeten 58 tot 60 beelden per seconde in headless Chrome op 3x zonder grafische kaart (grot en gezamenlijke toren worden één keer getekend en hergebruikt).
+4. **Gezamenlijke toren als beeld.** Achterin rechts staat de toren van de subreddit van vandaag (een hoed per hoed, wankel, verder weg en doffer), met een bordje "r/... / 1,204 hats today". Je eigen hoeden komen er live bij. Hij vult de lege grot.
+5. **Eindscherm.** Reactie met witregels; de tekst staat eerst in beeld met "Posts as u/... under today's post", daarna "Post as comment". Knop "Join r/... for tomorrow's tower" (Devvit `subscribeToCurrentSubreddit`, alleen na een tik). Uitleg van de vakjes. "Since tower #1: N hats" en "Yesterday's tallest towers". Liggend scherm (844x390) heeft nu een compacte opmaak met de knoppen naast elkaar; de knop in de feed breekt niet meer over twee regels en de pet valt niet meer buiten beeld.
+6. **Kan-punten.** `app/LICENSE`: code BSD (deels van de template van Reddit), Gloop, de helden, de hoeden en alle plaatjes (c) 2026 Dortus, letters onder OFL met de volledige teksten in `public/fonts/`. README: puntentelling, eerlijke start en een stuk voor moderators. Geen taknaam meer in het commentaar. `architectuur.md` erbij. Bestanden onder 400 regels (scene opgesplitst in basis, held en scene; css in stijl en uitslag).
+
+Beelden: `beelden/1-start.png`, `beelden/2-gouden-gulp.png`, `beelden/3-uitslag.png`, filmpje `beelden/filmpje-ronde-telefoon.mp4` (32 s, 390x780, een hele ronde plus het uitslagvel; gespeeld door de Playwright-speler in de pagina zelf, die rond de bek mikt en 12% te laat is). De ranglijsten op de beelden komen van vijf lokale proefspelers (`practice_bot_...`), geen echte mensen.
+
+Toetsen: `npm test` groen (types, lint, 18 toetsen, bouw).
+
+### Nog open
+- Niemand heeft het als mens gespeeld; of het tempo en de nieuwe telling goed voelen, weet alleen een mens.
+- Of `redis.set(..., {nx: true})` echt "OK" teruggeeft als de sleutel nieuw is, is GOK; testen in playtest (de toets gebruikt de opslag in het geheugen).
+- `submitComment` en `subscribeToCurrentSubreddit` namens de speler: pas te testen na de login; Reddit kan er goedkeuring voor vragen.
+- De dag hangt nog aan vandaag, niet aan de post (keuring A10): een oude post speelt de toren van vandaag.
+- Geluid is nog getekend met de Web Audio API; geen echte klanken.
+
+## Do 19 nov 2026 ochtend, fase 1 (bouwer)
 Wat er is: het ontwerp (`ontwerp.md`) en een speelbare webversie in `app/`, gebouwd op de officiële Devvit-template `reddit/devvit-template-bare` (51e9aab). Lokaal speelbaar op telefoon en desktop. Niet op Reddit: daarvoor is `devvit login` nodig (zie onderaan).
 
 ### Wat werkt (GEZIEN, zelf gedraaid)
@@ -11,7 +33,7 @@ Wat er is: het ontwerp (`ontwerp.md`) en een speelbare webversie in `app/`, gebo
 - **Gespeeld met Playwright** (`app/dev/schermen.py`) op 390x780 (telefoon, 3x) en 1280x760 (desktop): start, ronde met tikken, gouden held, gemist, uitslag, reactie plaatsen (lokaal: tekst in het log van de server), terug naar start met eigen uitslag. Geen fouten in de browser.
 - **Bekeken** (skill `kijken`): alle schermbeelden en 40 beelden uit het filmpje. Gevonden en opgelost: de geluidsknop lag over de ranglijst; de post in de feed liet de knop over Gloop vallen en werd op een brede post wazig groot; "New best" stond er bij de allereerste ronde; dag 0 gaf een fout.
 
-Beelden: `beelden/1-start-tower-1.png`, `beelden/2-gouden-gulp.png`, `beelden/3-uitslag-ranglijst.png`, filmpje van een ronde `beelden/filmpje-ronde-telefoon.mp4` (37 s, opname van de Playwright-speler, geen inzendfilmpje). De ranglijst op de beelden komt van vijf lokale proefspelers (`practice_bot_...`) die het spel echt spelen met de regels; dat zijn geen echte mensen.
+Beelden van fase 1 zijn vervangen door die van fase 2a (zie boven). De ranglijst op de beelden komt van vijf lokale proefspelers (`practice_bot_...`) die het spel echt spelen met de regels; dat zijn geen echte mensen.
 
 ### Lokaal draaien
 ```

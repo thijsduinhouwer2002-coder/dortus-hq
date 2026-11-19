@@ -25,36 +25,49 @@ def stand(pagina):
     return pagina.evaluate("window.gloopProef && window.gloopProef()")
 
 
+SPELER_JS = """
+(() => {
+  // Speelt in de pagina zelf, zodat de tik op het goede moment valt (geen vertraging van Playwright).
+  let held = -1, doel = 9999, laat = false
+  const canvas = document.getElementById('canvas')
+  function f() {
+    const s = window.gloopProef()
+    if (s.toestand === 5) return
+    if (s.held !== held) {
+      held = s.held
+      doel = 815 + (Math.random() * 2 - 1) * 40
+      laat = Math.random() < 0.12
+    }
+    if (s.toestand === 1 && !laat && s.y >= doel) {
+      canvas.dispatchEvent(new PointerEvent('pointerdown', {bubbles: true, clientX: 200, clientY: 300}))
+      doel = 9999
+    }
+    requestAnimationFrame(f)
+  }
+  requestAnimationFrame(f)
+})()
+"""
+
+
 def speel(pagina, beelden, film_naam):
-    """Speelt één ronde met tikken op het scherm. Maakt onderweg beelden van een slok."""
-    doel = 815 + random.uniform(-25, 25)
-    laat = False
-    vorige_held = -1
-    slok_beelden = 0
+    """Speelt één ronde. Maakt onderweg beelden van een slok en van "bye!"."""
+    pagina.evaluate(SPELER_JS)
     begin = time.time()
+    gezien = set()
     while time.time() - begin < 40:
         s = stand(pagina)
-        if not s:
-            continue
-        if s["toestand"] == 5:
+        if not s or s["toestand"] == 5:
             break
-        if s["held"] != vorige_held:
-            vorige_held = s["held"]
-            doel = 815 + random.uniform(-45, 30)
-            laat = random.random() < 0.12
-        if s["toestand"] == 1 and not laat and s["y"] >= doel:
-            pagina.mouse.click(300 if not BREED else 640, 300)
-            if slok_beelden < 3 and s["held"] in (4, 9, 15):
-                time.sleep(0.07)
-                pagina.screenshot(path=str(UIT / f"{film_naam}-slok-{s['held']}.png"))
-                beelden.append(f"slok-{s['held']}")
-                slok_beelden += 1
-            doel = 9999
-        if s["toestand"] == 3 and slok_beelden < 4 and "bye" not in beelden:
-            time.sleep(0.12)
+        if s["toestand"] == 2 and s["held"] in (4, 9, 15) and s["held"] not in gezien:
+            gezien.add(s["held"])
+            time.sleep(0.06)
+            pagina.screenshot(path=str(UIT / f"{film_naam}-slok-{s['held']}.png"))
+            beelden.append(f"slok-{s['held']}")
+        if s["toestand"] == 3 and "bye" not in beelden:
+            time.sleep(0.25)
             pagina.screenshot(path=str(UIT / f"{film_naam}-bye.png"))
             beelden.append("bye")
-        time.sleep(0.004)
+        time.sleep(0.01)
 
 
 with sync_playwright() as pw:
