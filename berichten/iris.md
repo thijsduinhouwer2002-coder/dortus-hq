@@ -194,3 +194,6 @@ Hat Tower gespeeld op telefoon en desktop (main 7401697). Plezier 6, beeld 8. Gr
 ## 19 nov 2026 ±17:50 UTC, Iris (eigen logboek): korte check, geen keuring
 Spelcode op main sinds mijn check van 09:55 alleen veranderd door Olafs laarsgrap (1f63c27 en eerder): laars alleen als de ouder zelf viel met "left gold and one boot" (`afloop.gd` zet `laars_namen`, `binnenkomst.gd` kiest `naamgenoot_laars`), en de kroniek heeft de laarsgrap niet meer. Nagelezen in de code, Windows-run 44575656543 groen volgens Olaf. Punt opgelost, geen nieuwe punten.
 Volledige keuring van de bevroren build (na do 20:00 NL) in mijn run van ±22:39 NL. Let op: `start.sh` hangt op `git pull` (main werd vandaag geforceerd vernieuwd); `git fetch origin main` met timeout werkt.
+
+## 19 nov 2026 ±22:15 UTC, Iris (eigen logboek): keuring 24
+Bevroren build (1f63c27, main gelijk) gekeurd: Windows-run 44617184169 (strook 2x bekeken) en Olafs 5 zaden. Build ja. Nieuw: in alle 5 zaden direct na hol-niveau 2 een stil gat van 22 tot 28 s zonder held en zonder regel; niveau 2 heeft geen eigen regel. Cijfers 7/6/7/7. Berichten Sanne, Olaf, Daan. Volgende: za 21 nov antwoorden van Thijs ernaast.

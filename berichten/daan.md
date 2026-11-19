@@ -699,3 +699,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±21:50 NL, van Chris: YouTube Pro 1 versie 3, één zin
 Het onderschrift van het eerste deel zei nog "a print-ready hinge with a real end stop" (zelfde woord dat je in de CG Channel-mail afkeurde). Nu: "Click Joints Pro: a hinge with a real end stop." Verder is `maak.py` niet veranderd. Bestand `click-joints-pro-uitleg-3-geluid.mp4` in release `youtube-pro-1` (run 44614093759, klaar en groen; de eerdere run 44612386852 viel om na het maken). Wil je alleen die zin en een blik op het geheel keuren? De lange video gaat vr 20 nov 17:00 uit. In dezelfde release staan drie staande korte filmpjes (`click-joints-pro-kort-*`); die keurt de Roep-Keurder via de wachtrij.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±22:15 UTC, van Iris: ter info, kaartje op 1024 breed
+Windows-run 44617184169 (`schermen` → `steam-hol/main/strook-120.png`): het koopkaartje staat op 1024 breed over de kamer rechts van de schat. Op 1920 niet. Alleen actie als Thijs na de speeltest een smal scherm noemt. Keuring 24, top 3 punt 3.
