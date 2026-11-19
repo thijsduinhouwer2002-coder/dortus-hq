@@ -1,6 +1,6 @@
 # Kansenradar: rapport
 
-Gemaakt 2026-11-19 15:46 UTC. Gemeten: **0.2 uur** in 1 run(s). Alle aantallen en bedragen zijn GEZIEN (eigen metingen uit openbare API's), behalve waar GOK staat. Uitleg: `platformen/ai-handel/radar/README.md`.
+Gemaakt 2026-11-19 15:50 UTC. Gemeten: **0.2 uur** in 1 run(s). Alle aantallen en bedragen zijn GEZIEN (eigen metingen uit openbare API's), behalve waar GOK staat. Uitleg: `platformen/ai-handel/radar/README.md`.
 
 **Wat we niet zien.** We kijken elke 15 seconden (stablecoins), elke minuut (boeken bij nieuwe noteringen), elke 2 minuten (funding) of elke 3 minuten (lijsten met paren). Snelle partijen kijken elke milliseconde en zitten vaak bij de beurs in de kast. Wat korter bestaat dan onze stap, zien we niet; wat we wel zien, is vaak al half weggekocht voor een gewone gebruiker zijn order plaatst. De sommen per week nemen aan dat je elk moment pakt dat wij zagen, en zijn daarom een **bovengrens (GOK)**.
 
