@@ -1,0 +1,1 @@
+{"workflow": "driehoek.yml", "invoer": {"minuten": "3"}, "van": "keurder driehoek", "waarom": "tweede herkeuring: nieuwe code (kans.py) en rapport via python3 -I in opslaan.sh op een runner proberen"}
