@@ -25,4 +25,4 @@ Als compagnon van Thijs de koers bewaken en zorgen dat de ploeg levert wat geld 
 `organisatie/bord.md`, `organisatie/lijst-thijs.md`, `organisatie/besluiten.md`, `rapporten/`, `berichten/` (opdrachten onderaan bij een ander), en wat een besluit vraagt in `organisatie/`.
 
 ## Waar je leest als je het nodig hebt
-`organisatie/overdracht.md` (nieuwe hoofdchat), `berichten/hoofdchat.md`, `organisatie/regels/thijs.md`, `organisatie/doelen.md`, `organisatie/scorebord.md`, `organisatie/geplande-taken.md` (oude opdrachten, historie).
+`organisatie/overdracht.md` (nieuwe hoofdchat; historie, het bord en CLAUDE.md gaan voor), `berichten/hoofdchat.md`, `organisatie/regels/thijs.md`, `organisatie/doelen.md`, `organisatie/scorebord.md`, `organisatie/geplande-taken.md` (oude opdrachten, historie).

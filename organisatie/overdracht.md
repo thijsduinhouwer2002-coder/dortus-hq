@@ -1,5 +1,7 @@
 # Overdracht: begin hier (bijgewerkt 18 nov 2026, 19:30 NL)
 
+**Stand 19 nov 2026: dit bestand is historie. Wat geldt staat in `CLAUDE.md`, `organisatie/bord.md` en bovenaan `organisatie/besluiten.md`; die gaan voor alles hieronder.** Hoofdzaak is snel veel geld verdienen (niet meer nieuwe platformen vinden), hoofdproduct Click Joints Pro. Het account is van Thijs zelf (geen gedeeld account meer); welke koppelingen mogen staat in CLAUDE.md regel 7. De herinneringen en taak-id's hieronder zijn oud: kijk met list_triggers wat er echt draait.
+
 **Sinds 18 nov 19:30 is de werkwijze omgebouwd** (besluit onderaan `organisatie/besluiten.md`): `CLAUDE.md` is een korte wegwijzer, de geldende besluiten staan bovenaan `organisatie/besluiten.md` (oude in `organisatie/archief/`), de regels per onderwerp in `organisatie/regels/`, en opdrachten voor geplande agents volgen `organisatie/sjablonen/agent-opdracht.md`. Zet je een agent weer aan, herschrijf zijn opdracht dan eerst naar dat sjabloon.
 
 **Nieuwe hoofdchat? Lees eerst `CLAUDE.md` en daarna `organisatie/bord.md`.** Het bord is de stand op één plek: producten, agents, herinneringen, beloftes. Daarna `organisatie/lijst-thijs.md` (max 5) en de geldende besluiten bovenaan `organisatie/besluiten.md`.
