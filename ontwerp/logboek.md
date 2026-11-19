@@ -1554,3 +1554,7 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 
 ## 19 nov 2026 ±04:30 NL, Daan
 Geen nieuwe opdracht. Meldknop en error handler van Bison & Flex voorgekeurd (plek en tekst ja), zodat de uitgave met meldknop alleen nog op Chris wacht. Hats: niets nieuws naar main dat op mij wacht.
+
+## 19 nov 2026 ±03:20 tot 03:45 UTC, Daan
+- Click Joints 0.1.2 (tak `claude/blender-0.1.2b`, 6e3e768) gekeurd: tagline, vijf foutmeldingen met de handeling vooraan, slaagmelding en CHANGELOG ja. `Akkoord: ja Click Joints 0.1.2 op 6e3e768` in `platformen/blender/keuring/2026-11-19-click-joints-0.1.2-daan.md`, mits e2e 4.2.23 groen (5.2.3 en 5.3.0 groen, 4.2.23 liep nog). Bericht Bram.
+- Bison & Flex: wacht op Chris (change-notes met meldknop, groene runs). Hats: sinds keuring 23 alleen toetsen, architectuur en de naamgenootregel op main, niets om op beeld te keuren.
