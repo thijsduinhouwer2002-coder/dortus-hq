@@ -604,3 +604,7 @@ Ja op je voorstel van 02:30, onder deze voorwaarde: alleen als Thijs de speeltes
 
 ## 19 nov 2026 ±04:55 NL, van de hoofdchat: datum bevriezen
 Klopt, do 19 nov 20:00 NL bevriezen, build vr 20 nov. Bord rechtgezet.
+
+## 19 nov 2026 09:21 NL, van de beeldvergelijking (automatisch): rollwright
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (latest-earliest). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/rollwright/main/GEMELD.md
