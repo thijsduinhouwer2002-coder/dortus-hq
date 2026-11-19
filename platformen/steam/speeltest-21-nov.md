@@ -9,11 +9,21 @@ Voor Thijs. Opgezet door Olaf, 15 nov 2026. Doel (besluit Thijs 15 nov 19:35): z
 2. Onderaan de pagina bij "Artifacts": klik **speeltest-hats-of-the-fallen-windows**. Je krijgt een zip.
 3. Pak de zip uit en lees `LEES-MIJ-EERST.txt` (starten, klikken, stoppen). Kort: dubbelklik `HetHol.exe`; zegt Windows "Windows heeft uw pc beschermd", dan "Meer informatie" en "Toch uitvoeren" (de .exe is nog niet ondertekend).
 
-Build: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44597872156 , zip `speeltest-hats-of-the-fallen-windows` (33 MB, te halen tot 3 dec). Main 1cb8219, spelcode gelijk aan de bevroren stand 1f63c27. Groen: bouwen, toetsen op de echte .exe en sluiten via de taakbalk (GEZIEN, Olaf 19 nov 20:40 NL). Eigen proef van 5 zaden volgt vr 20 nov.
+Build: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44597872156 , zip `speeltest-hats-of-the-fallen-windows` (33 MB, te halen tot 3 dec). Main 1cb8219, spelcode gelijk aan de bevroren stand 1f63c27. Groen: bouwen, toetsen op de echte .exe en sluiten via de taakbalk (GEZIEN, Olaf 19 nov 20:40 NL). Eigen proef van 5 zaden op deze stand: zie hieronder (do 19 nov 21:30 NL).
 
 Proefrun op de stand van 17 nov (werkt, nog niet de build voor jou): https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44137119222 , main 816eb97 (spelcode gelijk aan fb00619), groen, exe-toetsen 0 FOUT, sluiten 0 FOUT, zip `speeltest-hats-of-the-fallen-windows` 33 MB, beeld `strook-120-volledig.png` GEZIEN (Olaf 17 nov 17:40 UTC). CPU in deze korte meting 1,77 per 10 s, in lijn met eerdere exe-runs (2,14 / 2,77 / 2,81; deze meting telt het opstarten en kopen mee, niet de duurtest-grens).
 
 Oudere proefrun: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/43752055212 , main 04d6fad, groen, exe-toetsen 0 FOUT, zip 31 MB met `HetHol.exe` (82,5 MB uitgepakt), GEZIEN 15 nov 19:25 UTC via de API.
+
+## Eigen proef vooraf, op de bevroren stand 1f63c27 (Olaf, 19 nov 20:30 UTC)
+Zelfde opzet als 17 nov: vers spel, Godot 4.3 Linux onder Xvfb, `vers=1 hoogte=120 duur=220`, zaden 4242, 777, 2026, 1, 99. Logs in `data/vers-19nov/` (GEZIEN).
+- 4,1 s eerste held binnen, 12,8 s eerste val (+6), 26,3 tot 27,3 s Gloop eet de tweede held en houdt de kroon: bij alle vijf, gelijk aan 17 nov.
+- 102,8 tot 118,9 s Gloop plat.
+- Eerste koop mogelijk: 141, 145, 146, 206 s; bij zaad 99 nog niet binnen 220 s (goud 41 bij het einde). Ruim onder de grens van 600 s.
+- Langste stilte in de kroniek 22,1 tot 28,2 s, steeds rond 65 tot 78 s, net als 17 nov.
+- Laarsgrap: alleen "Anouk left gold and one boot" (zaad 2026, 206 s), geen foute "boot back"-regel.
+- Geen SCRIPT ERROR; alleen meldingen over geluid (geen geluidskaart) en de grafische driver van de testmachine.
+Uitkomst: de bevroren stand gedraagt zich als op 17 nov. De build van run 44597872156 kan zo naar Thijs.
 
 ## Eigen proef vooraf, opnieuw op main fb00619 (Olaf, 17 nov 17:30 UTC)
 Main na terugslag, Dame, naamfamilies en vaste plekjes. Vers spel (geen save), Godot 4.3 Linux onder Xvfb, `vers=1 hoogte=120`, 5 zaden (4242, 777, 2026, 1, 99), 200 tot 240 s. Uit de logs (GEZIEN):

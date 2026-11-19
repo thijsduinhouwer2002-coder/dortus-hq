@@ -1,0 +1,88 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=426x40 venster=(1280, 120) pos=(0, 452) held=res://systemen/held.gd
+HOL zaad 99
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 4.1 (wacht 0.0): Lotte brought a torch. And hope.
+HOL begin: vallen (Lotte)
+HOL held binnen: Lotte
+HOL zicht 4.2 1
+HOL kroniek 9.8 (wacht 0.0): Bram read about you in a tavern.
+HOL begin: opgegeten (Bram)
+HOL held binnen: Bram
+HOL meting t=10 beelden=62 helden=2 hol_vast=1
+HOL kroniek zelfde held vervangen: Lotte brought a torch. And hope.
+HOL kroniek 12.8 (wacht 0.0): Lotte stays forever. +6
+HOL kroniek 15.4 (wacht 2.6): New page: the Hero. The pit won.
+HOL meting t=20 beelden=128 helden=1 hol_vast=3
+HOL kroniek 26.5 (wacht 0.0): Gloop ate Bram. Kept the crown. +6
+HOL zicht 26.5 0
+HOL kroniek 29.0 (wacht 2.5): New stamp: Hero.
+HOL meting t=30 beelden=107 helden=0 hol_vast=4
+HOL begin: vluchten (Gerda)
+HOL held binnen: Gerda
+HOL zicht 31.5 1
+HOL kroniek 31.5 (wacht 0.1): Gerda knocks first. Polite.
+HOL meting t=40 beelden=87 helden=1 hol_vast=4
+HOL kroniek zelfde held vervangen: Gerda knocks first. Polite.
+HOL kroniek 45.2 (wacht 0.0): Gerda escaped with a limp.
+HOL zicht 45.3 0
+HOL kroniek 47.7 (wacht 2.5): New stamp for the Hero. Got away.
+HOL meting t=50 beelden=57 helden=0 hol_vast=4
+HOL meting t=60 beelden=16 helden=0 hol_vast=4
+HOL kroniek zelfde held vervangen: Gerda escaped with a limp.
+HOL kroniek 69.0 (wacht 0.0): Gerda remembers the Spike Pit.
+HOL begin: terug (Gerda)
+HOL held binnen: Gerda
+HOL zicht 69.1 1
+HOL meting t=70 beelden=21 helden=1 hol_vast=4
+HOL hol-niveau 2 (faam 3, t 77.7)
+HOL kroniek 77.7 (wacht 0.0): The Spike Pit won. Grudge settled. +9
+HOL zicht 77.8 0
+HOL bordje wip niveau 2
+HOL meting t=80 beelden=114 helden=0 hol_vast=6
+HOL meting t=90 beelden=9 helden=0 hol_vast=6
+HOL meting t=100 beelden=7 helden=0 hol_vast=6
+HOL kroniek 103.2 (wacht 0.0): Geert climbs into your hole.
+HOL begin: doorlopen (Geert)
+HOL held binnen: Geert
+HOL zicht 103.3 1
+HOL meting t=110 beelden=81 helden=1 hol_vast=6
+HOL kroniek 118.9 (wacht 0.0): Gloop is flat. Back soon.
+HOL meting t=120 beelden=101 helden=1 hol_vast=6
+HOL kroniek zelfde held vervangen: Geert climbs into your hole.
+HOL kroniek 122.9 (wacht 0.0): Geert touched your hoard!
+HOL meting t=130 beelden=101 helden=1 hol_vast=6
+HOL kroniek zelfde held vervangen: Geert touched your hoard!
+HOL kroniek 135.0 (wacht 0.0): Geert ran. Hands smell of gold.
+HOL zicht 135.1 0
+HOL held binnen: Tibbe
+HOL zicht 136.2 1
+HOL kroniek 137.6 (wacht 1.5): Tibbe has a map. It is wrong.
+HOL meting t=140 beelden=91 helden=1 hol_vast=6
+HOL kroniek zelfde held vervangen: Geert ran. Hands smell of gold.
+HOL kroniek 145.6 (wacht 0.0): Geert the Hoard-Toucher is back for Gloop.
+HOL held binnen: Geert
+HOL kroniek 148.9 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 150.0 (wacht 0.1): Tibbe fled, crying a little.
+HOL meting t=150 beelden=101 helden=1 hol_vast=6
+HOL meting t=160 beelden=101 helden=1 hol_vast=6
+HOL kroniek 161.3 (wacht 0.0): Gloop is flat. Back soon.
+HOL meting t=170 beelden=101 helden=1 hol_vast=6
+HOL kroniek 171.4 (wacht 0.0): Geert left. Took nothing. Angry.
+HOL zicht 171.5 0
+HOL meting t=181 beelden=5 helden=0 hol_vast=6
+HOL kroniek 181.7 (wacht 0.0): Femke is here for your gold.
+HOL held binnen: Femke
+HOL zicht 181.8 1
+HOL meting t=191 beelden=95 helden=1 hol_vast=6
+HOL kroniek 191.4 (wacht 0.0): Gloop is up again. Wobbly.
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=201 beelden=101 helden=1 hol_vast=6
+HOL kroniek zelfde held vervangen: Femke is here for your gold.
+HOL kroniek 207.5 (wacht 0.0): Femke ran. Swore revenge.
+HOL zicht 207.6 0
+HOL meting t=211 beelden=63 helden=0 hol_vast=6
+HOL kroniek 215.1 (wacht 0.0): Kobus says this is a quick one.
+HOL held binnen: Kobus
+HOL zicht 215.2 1
+HOL einde na 220 s, fps=10, goud=41, terugkomers=1

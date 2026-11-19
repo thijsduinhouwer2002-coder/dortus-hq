@@ -1,0 +1,96 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=426x40 venster=(1280, 120) pos=(0, 452) held=res://systemen/held.gd
+HOL zaad 2026
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 4.1 (wacht 0.0): Gerda read about you in a tavern.
+HOL begin: vallen (Gerda)
+HOL held binnen: Gerda
+HOL zicht 4.2 1
+HOL kroniek 9.6 (wacht 0.0): Siem knocks first. Polite.
+HOL begin: opgegeten (Siem)
+HOL held binnen: Siem
+HOL meting t=10 beelden=62 helden=2 hol_vast=1
+HOL kroniek zelfde held vervangen: Gerda read about you in a tavern.
+HOL kroniek 12.8 (wacht 0.0): Gerda took the short way down. +6
+HOL kroniek 15.4 (wacht 2.5): Page for the Hero. The pit won.
+HOL meting t=20 beelden=129 helden=1 hol_vast=3
+HOL kroniek 26.3 (wacht 0.0): Gloop ate Siem. Kept the crown. +6
+HOL zicht 26.3 0
+HOL begin: vluchten (Tibbe)
+HOL held binnen: Tibbe
+HOL zicht 27.8 1
+HOL kroniek 28.9 (wacht 2.6): New stamp: Hero.
+HOL meting t=30 beelden=129 helden=1 hol_vast=4
+HOL kroniek vervallen 30.9: Tibbe says this is a quick one.
+HOL meting t=40 beelden=100 helden=1 hol_vast=4
+HOL kroniek 41.6 (wacht 0.0): Tibbe fled, crying a little.
+HOL zicht 41.7 0
+HOL kroniek 44.1 (wacht 2.5): New stamp for the Hero. Got away.
+HOL meting t=50 beelden=23 helden=0 hol_vast=4
+HOL kroniek zelfde held vervangen: Tibbe fled, crying a little.
+HOL kroniek 56.3 (wacht 0.0): Tibbe limps back to the Spike Pit.
+HOL begin: terug (Tibbe)
+HOL held binnen: Tibbe
+HOL zicht 56.4 1
+HOL meting t=60 beelden=54 helden=1 hol_vast=4
+HOL hol-niveau 2 (faam 3, t 65.0)
+HOL kroniek zelfde held vervangen: Tibbe limps back to the Spike Pit.
+HOL kroniek 65.0 (wacht 0.0): Tibbe came back. The Spike Pit won. +9
+HOL zicht 65.1 0
+HOL bordje wip niveau 2
+HOL meting t=70 beelden=88 helden=0 hol_vast=6
+HOL meting t=80 beelden=24 helden=0 hol_vast=6
+HOL kroniek 87.1 (wacht 0.0): Kees has a map. It is wrong.
+HOL begin: doorlopen (Kees)
+HOL held binnen: Kees
+HOL zicht 87.2 1
+HOL meting t=90 beelden=44 helden=1 hol_vast=6
+HOL meting t=100 beelden=101 helden=1 hol_vast=6
+HOL kroniek 102.8 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek zelfde held vervangen: Kees has a map. It is wrong.
+HOL kroniek 106.8 (wacht 0.0): Kees tried to lift it. Too heavy.
+HOL meting t=110 beelden=100 helden=1 hol_vast=6
+HOL kroniek zelfde held vervangen: Kees tried to lift it. Too heavy.
+HOL kroniek 118.9 (wacht 0.0): Kees the Hoard-Toucher ran.
+HOL zicht 119.0 0
+HOL meting t=120 beelden=83 helden=0 hol_vast=6
+HOL kroniek 124.1 (wacht 0.0): Henk is here for your gold.
+HOL held binnen: Henk
+HOL zicht 124.2 1
+HOL meting t=130 beelden=67 helden=1 hol_vast=6
+HOL kroniek 132.8 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 139.8 (wacht 0.0): Gloop is flat. Back soon.
+HOL meting t=140 beelden=100 helden=1 hol_vast=6
+HOL kroniek 149.9 (wacht 0.0): Henk fled. Grudge: Gloop.
+HOL zicht 150.0 0
+HOL meting t=150 beelden=92 helden=0 hol_vast=6
+HOL kroniek zelfde held vervangen: Henk fled. Grudge: Gloop.
+HOL kroniek 155.3 (wacht 0.0): Henk the Once-Fled is back. Grudge: Gloop
+HOL held binnen: Henk
+HOL zicht 155.4 1
+HOL meting t=160 beelden=56 helden=1 hol_vast=6
+HOL kroniek 163.6 (wacht 0.0): Rik brought a torch. And hope.
+HOL held binnen: Rik
+HOL kroniek zelfde held vervangen: Henk the Once-Fled is back. Grudge: Gloop
+HOL kroniek 169.1 (wacht 0.0): Henk left. Took nothing. Angry.
+HOL meting t=171 beelden=101 helden=1 hol_vast=6
+HOL kroniek 171.7 (wacht 1.9): Gloop is up again. Wobbly.
+HOL plat zonder regel (2 keer gemeld)
+HOL meting t=181 beelden=101 helden=1 hol_vast=6
+HOL kroniek 189.4 (wacht 0.0): Rik ran. Swore revenge.
+HOL zicht 189.5 0
+HOL meting t=191 beelden=84 helden=0 hol_vast=6
+HOL kroniek 197.6 (wacht 0.0): Anouk climbs into your hole.
+HOL held binnen: Anouk
+HOL zicht 197.7 1
+HOL meting t=201 beelden=37 helden=1 hol_vast=6
+HOL kroniek 205.3 (wacht 0.0): Fenna has a map. It is wrong.
+HOL held binnen: Fenna
+HOL kroniek zelfde held vervangen: Anouk climbs into your hole.
+HOL kroniek 206.4 (wacht 0.0): Anouk left gold and one boot. +6
+HOL eerste koop mogelijk na 206 s speeltijd (goud 47)
+HOL meting t=211 beelden=129 helden=1 hol_vast=8
+HOL kroniek zelfde held vervangen: Fenna has a map. It is wrong.
+HOL kroniek 219.1 (wacht 0.0): Fenna escaped with a limp.
+HOL zicht 219.2 0
+HOL einde na 220 s, fps=10, goud=47, terugkomers=2

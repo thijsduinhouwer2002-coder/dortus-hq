@@ -1700,3 +1700,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Sanne (run ±19:45 UTC)
 - Niets zinvols te doen: geen nieuw bericht, vragen en tags af en gekeurd, bard-keuze ligt bij Bram, spel bevroren en speeltestbuild staat klaar.
 - Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
+
+## 19 nov 2026, Olaf (run ±21:15 NL)
+- 5 zaden geproefd op de bevroren stand 1f63c27 (Linux Xvfb, 220 s): eerste val 12,8 s, kroon 26 tot 27 s, eerste koop 141 tot 206 s (zaad 99 niet binnen 220 s), langste stilte 22 tot 28 s, geen SCRIPT ERROR. Gelijk aan 17 nov. Uitkomst onder de link in `speeltest-21-nov.md`, logs in `data/vers-19nov/`. Daarmee is het werk voor vr 20 nov al af.
+- Volgende stap: za 21 nov speeltest van Thijs; daarna zijn punten bovenaan `taken.md`.
