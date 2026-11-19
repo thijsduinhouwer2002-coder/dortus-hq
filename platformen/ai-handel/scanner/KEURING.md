@@ -164,3 +164,31 @@ Akkoord: **nee**, met één moet-punt. Het gaat niet om de simulatie zelf, die n
 ## Kan (mag later)
 1. De andere takertarieven met "GOK, niet nagekeken" met curl of via de hoofdchat nakijken (T7), te beginnen bij Bitvavo en Bitstamp (MiCA).
 2. `beurzen.py` en `scanner.py` onder de ±400 regels brengen (T9).
+
+# Derde herkeuring, 19 nov 2026 ±17:50 UTC, zelfde keurder
+Wat ik keurde: commits b335b992 (Kraken 0,80%, `taker_standaard`, `rapport.herreken`) en 1fca5adb (rekensom naar `rekensom.py`) op main; het rapport op `ai-handel-data` in 76a3cd6f (data van 15:53 UTC, 12 runs).
+Akkoord: **ja**. Het moet-punt over Kraken is goed opgelost, `herreken` is eerlijk en als GOK gelabeld, en de splitsing verandert niets. Er blijven twee kan-punten over.
+
+## Deel A: doet het wat beloofd is?
+| # | Bevinding | Feit of vermoeden | Zekerheid (hoog/midden/laag) | Wat het zou bevestigen of weerleggen |
+|---|---|---|---|---|
+| U1 | **Kraken-tarief goed.** `beurzen.TAKER["kraken"]` is 0,008. `taker_standaard` geeft 0,20% alleen als munt én quote een stablecoin of fiat zijn. `scanner.taker` gebruikt die functie als de API geen tarief geeft. In de README staat Kraken nu als GEZIEN, met de bron en de zin van de pagina. | feit | hoog | |
+| U2 | **`herreken` is eerlijk (vraag 1).** Hij werkt alleen op kansen die met precies het oude tarief 0,004 zijn opgeslagen; kansen uit nieuwe runs met 0,008 blijven ongemoeid (getest). Het verschil (0,40%) gaat van de inzet aan de Kraken-kant af, op elk gemeten punt (€100, €500, €1.000, €2.500 en de volle ruimte). De nieuwe ruimte is het punt met de meeste winst. Aan de koopkant is dat precies goed. Aan de verkoopkant mist hij 0,40% van de winst zelf (op €10 winst is dat 4 cent): verwaarloosbaar. Het rapport zegt bovenaan dat 399 kansen zo zijn doorgerekend, dat het een GOK-benadering is (het boek is niet bewaard), en dat kortere duur niet meetelt ("dus eerder te gunstig"). `lees()` past het toe, dus trechter, sommen en simulatie gebruiken allemaal de herrekende kansen. | feit | hoog | |
+| U3 | **Cijfers van de bouwer nagerekend.** Op de data van 76a3cd6f kom ik met de nieuwe code en koersen op 33 echte kansen Bitvavo-Kraken. €150 bij 1%, 2% en 5%: €0,14, €0,14, -€2,31. €2.000: €5,16, -€0,10, -€0,10. Precies het rapport. Op de oudere data (db15a6b7) geeft dezelfde code 25 kansen en €2,09 bij €2.000 en €0,11 bij €150: gelijk aan mijn schatting uit de tweede herkeuring. | feit | hoog | |
+| U4 | **Waarom 1% bij €2.000 €5,16 geeft en 2% -€0,10 (vraag 2): te verklaren, geen fout.** Ik heb beide simulaties stap voor stap gevolgd. Met 2% komen er 4 terugschuifjes bij voor GMT (3x) en AVA (1x), elk €0,98 opnamekosten op ±€82 (1,2%, dus net boven 1%). Een GMT- of AVA-kans levert maar €0,46 tot €0,57 op. Daarnaast komen de euro-schuifjes van Kraken naar Bitvavo (1 uur onderweg) op andere momenten. Daardoor kunnen de twee grootste MERL-kansen (€1,95 om 14:37 en €2,68 om 15:39) bij 2% niet, en bij 1% wel. Kosten +€3,61, bruto -€1,67, samen -€5,26. Het model reageert hier op het moment waarop het geld onderweg is: een paar kansen bepalen de uitkomst. Dat zie je ook tussen twee momenten: op de data van 15:44 gaven 1% en 2% allebei €2,09, op die van 15:53 €5,16 tegen -€0,10. **Voor Thijs:** bij Bitvavo-Kraken met €2.000 ligt de netto handel na ±7 uur meten ergens tussen ±€0 en ±€5, en die marge is ruis, geen keuze. | feit (spoor), duiding mijn oordeel | hoog | meer meetdagen: dan middelt dit uit |
+| U5 | **De splitsing verandert niets (vraag 3).** `vul`, `bereken` en `is_kans` in `rekensom.py` zijn in de AST gelijk aan die in `scanner.py` van b335b992. Het volledige rapport (zonder koers) van de oude en de nieuwe code op dezelfde data is regel voor regel gelijk (229 regels, `diff` leeg). `radar.py` gebruikt `scanner.vul`, `scanner.bereken`, `scanner.is_kans` en `scanner.taker`; `scanner.py` zet die namen door. Radar en driehoek veranderen nergens een constante van `scanner` (gezocht). Tests zelf gedraaid: scanner 31, radar 22 (`test_radar.py`) en driehoek 19, allemaal groen. | feit | hoog | |
+| U6 | **USDe en andere stablecoins (vraag 4).** kraken.com/pro/fees (curl, 19 nov): "Stablecoin and FX pair fees" geldt voor "FX, stablecoin-base and pegged-token pairs" (0,20%). Apart: "USDG and USDe pair fees": USDG 0,01% taker, "All USDe pairs" 0,00% taker. `STABIEL_FIAT` mist USDE, RLUSD en andere stablecoins (die krijgen 0,80%), en zet USDG op 0,20%. Dat is allebei te hoog, dus te streng, niet te mooi. In alle 6.994 opgeslagen kansen staat geen enkele stablecoin-munt met Kraken. **Geen moet-punt**: de scanner heeft die paren niet als kans gehad, en zou ze eerder missen dan te rooskleurig tellen. | feit | hoog | |
+
+## Deel B: houdt het zich aan onze regels?
+| # | Bevinding | Feit of vermoeden | Zekerheid | Regel |
+|---|---|---|---|---|
+| U7 | Tests niet afgezwakt; er zijn tests bij gekomen voor `herreken` (oud tarief, nieuw tarief, andere beurs, kans die zijn winst verliest). | feit | hoog | tests |
+| U8 | Bestanden: `scanner.py` 355, `rekensom.py` 63, `simulatie.py` 270, `simrapport.py` 169, `rapport.py` 358. Alleen `beurzen.py` (677) zit boven de ±400. De bouwer legt in ontwerp.md uit waarom hij die bewust niet splitst (driehoek.py zet `B.QUOTES` om, en de beursklassen lezen QUOTES uit hun eigen module). Die reden is goed. | feit | hoog | bestanden onder ±400 |
+| U9 | Elk cijfer is gelabeld (Kraken GEZIEN met bron, herrekening GOK). Geen persoonsgegevens. | feit | hoog | harde regels 2 en 5 |
+
+## Moet (blokkeert akkoord)
+Geen.
+
+## Kan (mag later)
+1. `STABIEL_FIAT` aanvullen met USDE (0,00%), RLUSD en de andere stablecoins die Kraken als "stablecoin-base" telt, en USDG op 0,01% zetten (U6). Dat maakt de scanner alleen minder streng.
+2. In het rapport bij "Andere keuzes" één zin zetten dat de uitkomst van Bitvavo-Kraken nu door een handvol kansen en het moment van het terugschuiven bepaald wordt (U4). Dan leest niemand het verschil tussen €5,16 en -€0,10 als een harde les over de kostengrens.
