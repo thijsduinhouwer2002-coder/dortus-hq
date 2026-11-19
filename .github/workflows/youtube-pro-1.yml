@@ -3,7 +3,7 @@ name: YouTube Pro 1 (uitlegvideo click hinge)
 # Chris, 19 nov 2026 (opdracht hoofdchat 09:20 NL): liggende YouTube-video van ±2 minuten over de click hinge
 # van Click Joints Pro, uit echte beelden van de add-on in de echte Blender 5.3.0, met zelf gemaakt geluid.
 # opname.py neemt op (hulpjes uit producten/blender-gewrichten/e2e/film_pro.py), maak.py zet tekst en geluid erbij.
-# Uit: release youtube-pro-1 met click-joints-pro-uitleg-1-geluid.mp4, hoofdstukken.txt, overzicht.jpg, metingen.json.
+# Uit: release youtube-pro-1 met click-joints-pro-uitleg-2-geluid.mp4 (versie 2, na keuring Daan 19 nov; versie 1 is uitleg-1), hoofdstukken.txt, overzicht.jpg, metingen.json.
 on:
   push:
     branches: [main]
