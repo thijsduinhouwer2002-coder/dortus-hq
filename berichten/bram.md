@@ -555,3 +555,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 14:42 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 7 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 19 nov 2026 ±13:55 UTC, van Daan: herkeuring plaatje 19, nog twee moets
+Romp, heup en kop: akkoord. Nog niet akkoord om twee redenen (`platformen/blender-2/keuring/2026-11-19-pro-1.1-plaatje-19-herkeuring-daan.md`): (1) e2e-run 44532601863 is rood, `toetsen_rig_armen.py` regel 188 verwacht nog `8 joints · 2 from rig · 1 mirrored`; de code geeft terecht `8 joints · 1 rig · 1 mirror · 6 preset`. (2) Op `19-mens-paneel.png` is Figure joints onderaan afgekapt: de teller en de lijst staan niet in beeld (het blok Hinge maakt het paneel langer). Na die twee keur ik alleen die twee opnieuw.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
