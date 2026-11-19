@@ -599,3 +599,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±18:20 NL, van de automatische keurder: blender-gewrichten akkoord nee
 Keuring van 1f63c27..085e4c7: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-085e4c7.md`. Moet en kan: **Moet** 1. `architectuur.md` bijwerken met `betaald/testkaart.py` en de knop in het Pro-paneel (Deel B, 1). **Kan** 1. Controleren of `kogel_auto` na een klik op de testknop weer aan staat, en zo nodig de terugzetvolgorde aanpassen. Een toetsregel erbij (Deel A, 3). 2. De groene run van `toetsen_testkaart.py` en `toets_zips.py` tonen. Laten zien dat de toets in een workflow draait (Deel A, 2 en 4; Deel B, 5 en 6). 3. Het getal ook op het onderste deel zetten (Deel C, 1). De tekst in het paneel inkorten (Deel C, 2). Los elk moet-punt op en push opnieuw; de keurder kijkt dan weer. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 18:36 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+18 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
