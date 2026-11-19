@@ -17,6 +17,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 import urllib.error
 import urllib.request
 
@@ -49,12 +50,31 @@ def check_regels():
         return []
 
 
+# Markdown-link of -beeld, ook zonder http: [tekst](doel), ![alt](//host/p.png). Alleen de tekst blijft over.
+MD_LINK = re.compile(r"!?\[([^\]]{0,200})\]\([^)]{0,500}\)")
+HTML_TAG = re.compile(r"<[^<>]{0,200}>")
+
+
 def schoon(titel, extra=()):
-    t = " ".join(str(titel or "").split())
+    """Titel van een buitenstaander veilig voor één regel markdown (keuring R5, moet 3).
+
+    Weg: regeleinden (ook U+2028/2029), stuurtekens (C0, DEL, C1, dus ook ESC), alle opmaaktekens van Unicode
+    (categorie C: bidi U+202A tot U+202E en U+2066 tot U+2069, zero-width U+200B tot U+200F, U+FEFF), markdown-links
+    en -beelden (alleen de tekst blijft), HTML-tags, backticks, mailadressen, links, telefoonnummers en alles wat
+    de pushcontrole tegenhoudt. Overgebleven [ ] < > en ! worden onschadelijk. Hoogstens 100 tekens."""
+    t = str(titel or "")
+    # Regeleinden en andere witruimte (ook U+2028, U+0085) naar één spatie, daarna elk teken van categorie C weg.
+    t = "".join(" " if (c.isspace() or unicodedata.category(c) in ("Zl", "Zp")) else c for c in t)
+    t = "".join(c for c in t if not unicodedata.category(c).startswith("C"))
+    t = " ".join(t.split())
+    for _ in range(3):  # genest: [![x](a)](b)
+        t = MD_LINK.sub(lambda m: m.group(1), t)
+    t = HTML_TAG.sub("", t)
     for patroon in (MAIL, LINK, TELEFOON, *extra):
-        t = patroon.sub("[weg]", t)
-    t = t.replace("—", ",").replace("–", ",").replace("`", "'").replace('"', "'")
-    t = t.replace("<", "(").replace(">", ")").replace("[weg]", "(weg)")
+        t = patroon.sub("(weg)", t)
+    t = t.replace("\u2014", ",").replace("\u2013", ",").replace("`", "'").replace('"', "'")
+    t = t.replace("<", "(").replace(">", ")").replace("[", "(").replace("]", ")").replace("!", ".")
+    t = " ".join(t.split())
     if len(t) > 100:
         t = t[:97].rstrip() + "..."
     return t or "(zonder titel)"

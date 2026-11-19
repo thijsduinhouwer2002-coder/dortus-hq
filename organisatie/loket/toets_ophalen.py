@@ -33,6 +33,30 @@ stap("hoogstens 100 tekens", len(s("x" * 500, extra)) <= 100)
 stap("lege titel", s("", extra) == "(zonder titel)")
 stap("sleutel weg", "ghp_" not in s("token ghp_" + "a" * 36, extra))
 
+# Keuring R5 moet 3: lastige titels, één toets per geval.
+def schoon_van(naam, titel, verboden, moet=None):
+    uit = s(titel, extra)
+    ok = not any(v in uit for v in verboden) and (moet is None or moet in uit) and len(uit) <= 100
+    stap(naam, ok, repr(uit))
+
+
+schoon_van("ESC weg", "rood \x1b[31mtekst\x1b[0m", ["\x1b"], "rood")
+schoon_van("C0-stuurtekens weg", "a\x00b\x07c\x08d\x7fe", ["\x00", "\x07", "\x08", "\x7f"], "abcde")
+schoon_van("C1-stuurtekens weg", "a\x85b\x9bc\x9fd", ["\x85", "\x9b", "\x9f"])
+schoon_van("bidi U+202A tot U+202E weg", "a\u202ab\u202bc\u202cd\u202de\u202ef", [chr(c) for c in range(0x202A, 0x202F)], "abcdef")
+schoon_van("bidi U+2066 tot U+2069 weg", "a\u2066b\u2067c\u2068d\u2069e", [chr(c) for c in range(0x2066, 0x206A)], "abcde")
+schoon_van("zero-width U+200B tot U+200F weg", "a\u200bb\u200cc\u200dd\u200ee\u200ff", [chr(c) for c in range(0x200B, 0x2010)], "abcdef")
+schoon_van("BOM U+FEFF weg", "\ufeffCrash", ["\ufeff"], "Crash")
+schoon_van("markdown-link zonder http", "zie [klik](evil.example/x) nu", ["evil", "](", "["], "klik")
+schoon_van("markdown-link met http", "zie [klik](https://evil.example/x)", ["evil", "http", "["], "klik")
+schoon_van("markdown-beeld met //", "![img](//evil.example/p.png) crash", ["evil", "![", "//"], "img")
+schoon_van("markdown-beeld genest in link", "[![a](//e.example/p.png)](//e.example)", ["e.example", "[", "]("])
+schoon_van("losse haken en uitroepteken", "![x] [y] ok", ["[", "]", "!"], "ok")
+schoon_van("HTML-tags weg", "<img src=x onerror=alert(1)> <b>vet</b> <script>x</script>", ["<", ">", "img", "script"], "vet")
+schoon_van("backticks weg", "```rm -rf``` en `x`", ["`"])
+schoon_van("regeleinden weg", "regel1\nregel2\r\nregel3\u2028regel4\u2029regel5", ["\n", "\r", "\u2028", "\u2029"], "regel1 regel2 regel3 regel4 regel5")
+schoon_van("lange titel hoogstens 100 tekens", "woord " * 60, [])
+
 data = {
     "bison-flex": [{"number": 2, "title": "Folding breaks"}, {"number": 1, "title": "Crash in CLion", "user": {"login": "iemand"}}],
     "click-joints": [{"number": 5, "title": "Pin too tight", "body": "mail me at a@b.nl"}],

@@ -1,6 +1,6 @@
 name: Loket-meldingen (nieuwe issues naar berichten/hoofdchat.md)
 
-# Roestronde R5: klachten bij ons in plaats van in reviews. Vier keer per dag leest deze workflow de open
+# Roestronde R5: klachten bij ons in plaats van in reviews. Hoogstens elke 6 uur (klok van R7) leest deze workflow de open
 # meldingen van de loketrepo's bison-flex, click-joints en rollwright via de openbare GitHub-API (geen eigen
 # sleutel, alleen de gewone workflow-sleutel) en zet nieuwe onderaan berichten/hoofdchat.md: product, nummer,
 # titel (opgeschoond) en link, nooit naam of mailadres van de melder. Wat al gemeld is staat in
@@ -10,16 +10,36 @@ on:
   schedule:
     - cron: "41 5,11,17,22 * * *"
   workflow_dispatch:
+  # Roestronde R7: GitHub laat geplande runs in deze repo vallen, daarom ook bij elke push naar main. De job klok
+  # (organisatie/controle/klok.py) geeft hoogstens elke 6 uur een beurt, en altijd als de push de workflow of
+  # organisatie/loket/ raakt, of bij een handmatige start (keuring R5, moet 1).
+  push:
+    branches: [main]
 
 permissions:
   contents: write
 
-concurrency:
-  group: loket-meldingen
-  cancel-in-progress: false
-
 jobs:
+  klok:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      beurt: ${{ steps.klok.outputs.beurt }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: organisatie/controle
+      - id: klok
+        run: python3 -I organisatie/controle/klok.py loket-meldingen 6h --paden ".github/workflows/loket-meldingen.yml,organisatie/loket/**"
+
   ophalen:
+    needs: klok
+    if: needs.klok.outputs.beurt == 'ja'
+    concurrency:
+      group: loket-meldingen
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
