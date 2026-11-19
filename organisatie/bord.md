@@ -59,7 +59,10 @@ Sinds di 17 nov 16:10 hangen deze aan de nieuwe hoofdchat (sessie 01RMWUyi3eY8oW
 
 Oude herinneringen van de chat van 17 nov staan alle vier uit (Steam en Abel om 16:11, Avondcheck en Superhive om 17:12).
 
+- **Meetprojecten van Thijs zelf (los van Dortus), sinds 19 nov, gekeurd ja:** koersverschil-scanner (`scanner.yml`) en schaduwbot Polymarket (`schaduwbot.yml`), alleen lezen, geen geld. Data op tak `ai-handel-data`, rapporten `scanner/rapport.md` en `dag/rapport.md`.
+
 ## 4. Wat de hoofdchat Thijs beloofde (open)
+- Rapporten meetprojecten aan Thijs: scanner vr 20 nov (1 dag) en wo 26 nov (week); schaduwbot za 21 nov (eerste uitslagen) en do 3 dec (2 weken, beslisregel in README).
 
 - Zelf doorwerken als Thijs in gesprek is; niet steeds vragen, eerst zelf proberen.
 - Elke avond: kijken of de Garmin-apps en Bison & Flex echt zichtbaar en koopbaar zijn.
