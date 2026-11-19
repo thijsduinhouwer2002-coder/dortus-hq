@@ -104,6 +104,8 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         # het omzetten van Flip bend in het paneel). Een tweede gewricht elders op het deel mag wel.
         # Kan-punt controleur (b): tegen alle scharnieren van het deel (afstand.scharnieren), niet alleen het laatste.
         oude = afstand.scharnieren(bron)
+        oud_pas, oud_punt, oud_wand = bron.get("cj_passing"), bron.get("cj_snijpunt"), bron.get("cj_wand_mm")
+        oud_punt = None if oud_punt is None else tuple(oud_punt)
         if any((Vector(punt) - p).length < 2.0 * k + 1e-9 for p, _r, k in oude):
             self.report({"WARNING"}, "There is already a hinge here. Undo first, or use Flip bend in the "
                                      "Redo panel right after placing.")
@@ -237,6 +239,12 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             # Daan 19 nov (film youtube-pro-1, 0:47): anders zegt "3 Fit and export" "No joint yet" naast een scharnier.
             # Een scharnier bestaat alleen bij Good fit (maten_neus weigert Tight), dus groen is waar. Zoals figuur.py.
             deel["cj_passing"] = "groen"
+            # Daan en keurder 19 nov (A4): een eerder gewricht met Tight of Too thin blijft zichtbaar op het deel
+            # waar het ligt. Groen gaat er niet overheen; zonder snijpunt van dat gewricht houden beide delen het.
+            if oud_pas in ("oranje", "rood") and (oud_punt is None or vorm.kant(frame, maat, oud_punt) == deel["cj_deel"]):
+                deel["cj_passing"] = oud_pas
+                if oud_wand is not None:
+                    deel["cj_wand_mm"] = oud_wand
             # Kan-punt controleur (b): elk deel erft de oude scharnieren aan zijn kant, plus dit nieuwe.
             lijst = [e for e in oude if vorm.kant(frame, maat, e[0]) == deel["cj_deel"]]
             deel["cj_scharnieren"] = afstand.plat(lijst + [(Vector(punt), gegevens["cj_reik"], maat["r"])])

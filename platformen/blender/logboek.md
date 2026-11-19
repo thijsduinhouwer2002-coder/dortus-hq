@@ -681,3 +681,6 @@ Alleen aanvullen, nooit iets weghalen.
 - Moet van Daan gedaan: tag `print in place` weg, `posable` ervoor in de plaats. Kan-punten: beeld 1 uitgesneden met één regel tekst links (zelf bekeken, GEZIEN), oud beeld 4 achteraan als 6. Label 115° in beeld 3 wacht op een nieuwe opname. Daan zei: daarna geen nieuwe keuring nodig.
 - Foutje "No joint yet" in Pro-paneel (Daan 10:05 UTC) staat op mijn lijst voor de volgende Pro-versie.
 - 10:35 UTC: "No joint yet" bij los scharnier opgelost in `betaald/scharnier.py` (cj_passing groen op beide delen, zoals figuur.py). E2e op main start door de push; keuring gevraagd aan Daan. Volgende run: uitslag van de e2e nakijken.
+
+## 19 nov 2026 ±12:15 UTC, Bram
+- Kan-punten keurder en Daan bij het scharnier: een eerder Tight of Too thin blijft op het deel waar dat gewricht ligt (groen gaat er niet overheen), toets na Place hinge (beide delen Good fit) en toets `toets_tight_blijft`, regel in `architectuur.md`. Geen Blender hier; e2e start door de push. Volgende run: uitslag nakijken en Daan vragen.

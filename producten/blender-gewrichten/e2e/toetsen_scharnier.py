@@ -83,6 +83,11 @@ def toets(stap, eigen):
     if a is None or b is None:
         stap("twee delen staaf_A en staaf_B", False)
         return
+    # Kan-punt keurder 19 nov: na Place hinge zegt stap 3 "Good fit" op beide delen, niet "No joint yet".
+    passing_m = sys.modules[eigen + ".passing"]
+    pas = [o.get("cj_passing") for o in (a, b)]
+    stap("stap 3 Good fit op beide delen na Place hinge", pas == ["groen", "groen"]
+         and passing_m.fit_tekst("groen", -1.0) == "Good fit", str(pas))
     ga, gb = gesloten.is_gesloten(a), gesloten.is_gesloten(b)
     stap("twee gesloten delen", ga[0] and gb[0], f"A {ga[1]} B {gb[1]} foute randen")
     h = Vector(b["cj_scharnier_as"])
@@ -123,6 +128,36 @@ def toets(stap, eigen):
     toetsen_print.toets(stap, eigen, _cursor)  # eis 5: oplegvlak en overhang bij neus, kuiltje en sleuf
     toetsen_scharnier_uit.toets(stap, eigen, _cursor)  # eis 6: Exploded view, export op de echte plek, te dichtbij
     toetsen_scharnier_pose.toets(stap, eigen, _cursor)  # eis 8: pose alleen weergave, export gelijk
+    toets_tight_blijft(stap, eigen)  # A4: als laatste, want hij ruimt de scène op
+
+
+def toets_tight_blijft(stap, eigen):
+    """A4 (keurder en Daan 19 nov): een eerder Tight-gewricht blijft Tight op het deel waar het ligt."""
+    for ob in list(bpy.data.objects):
+        bpy.data.objects.remove(ob)
+    inst = bpy.context.scene.click_joints
+    inst.uit_elkaar = False
+    inst.as_bron = "CURSOR"
+    staaf = figuren.staaf("tstaaf", 5.0)
+    staaf["cj_passing"] = "oranje"
+    staaf["cj_wand_mm"] = 0.9
+    staaf["cj_snijpunt"] = [15.0, 0.0, 0.0]
+    figuren.maak_actief(staaf)
+    _cursor((0, 0, 0), Vector((0, 1, 0)), Vector((0, 0, 1)), Vector((1, 0, 0)))
+    uitslag = bpy.ops.click_joints.plaats_scharnier(stand="115")
+    a, b = bpy.data.objects.get("tstaaf_A"), bpy.data.objects.get("tstaaf_B")
+    if uitslag != {"FINISHED"} or a is None or b is None:
+        stap("Tight blijft: scharnier geplaatst", False, str(uitslag))
+        return
+
+    def midden_x(o):
+        return sum((o.matrix_world @ v.co).x for v in o.data.vertices) / max(1, len(o.data.vertices))
+
+    rechts, links = (a, b) if midden_x(a) > midden_x(b) else (b, a)
+    ok = (rechts.get("cj_passing") == "oranje" and abs(rechts.get("cj_wand_mm", -1) - 0.9) < 1e-6
+          and links.get("cj_passing") == "groen")
+    stap("eerder Tight blijft op zijn eigen deel, ander deel Good fit", ok,
+         f"rechts {rechts.get('cj_passing')} {rechts.get('cj_wand_mm')} links {links.get('cj_passing')}")
 
 
 def toets_beweeg(stap, eigen):
