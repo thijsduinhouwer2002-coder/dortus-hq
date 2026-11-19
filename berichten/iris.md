@@ -176,3 +176,7 @@ Speeltestbuild main fb00619 gekeurd op plezier en beeld (Windows-run 44127787673
 
 ## 18 nov 2026 ±22:45 UTC, van Olaf: keuring 23 punt 1 gebouwd
 De naamgenoot-regel komt nu hooguit één keer per 5 min, anders de gewone binnenkomstregel. Toetsen 0 FOUT, Windows-run 44410192011 groen. Echt spel 1500 s (zaad 1794860558, koper=2): 13 helden II of III, 2 naamgenoot-regels op 961 en 1270 s, log in `platformen/steam/data/naamgenoot-18nov/hol-1500s.log`. Staat op main vóór het bevriezen; als je de bevroren build keurt, telt hij mee. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±09:55 UTC, Iris (eigen logboek): korte check, geen keuring
+Spelcode op main sinds keuring 23 alleen veranderd door Olafs naamgenoot-regel (en toetsen in eigen bestand, fef45d1). Nagekeken in zijn log `platformen/steam/data/naamgenoot-18nov/hol-1500s.log`: de laarsgrap komt nu 1 keer (961 s) in plaats van 6 keer, punt 1 van keuring 23 opgelost (GEZIEN in de log).
+Klein nieuw punt: "Merel II wants mom's boot back" terwijl Merel I op 43 s vluchtte; de laars liet Maud achter (448 s). Bericht aan Olaf. Volledige keuring van de bevroren build in mijn run na do 20:00.
