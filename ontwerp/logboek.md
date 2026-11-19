@@ -1605,3 +1605,7 @@ Geen nieuwe opdracht: alle berichten tot Bram 16:25 zijn gekeurd. Fit test strip
 ## 19 nov 2026 ±22:45 UTC, Daan
 - Plaatje 20 en 20h herkeuring 2 voor Bram (run 44627103259, bb82f18): akkoord ja, niets afgesneden. `platformen/blender-2/keuring/2026-11-19-pro-plaatje-20-herkeuring-2-daan.md`.
 - Iris (kaartje op 1024 breed) alleen ter info. start.sh hing weer op git pull; tak schermen ophalen met git te traag, beelden via raw.githubusercontent gelezen.
+
+## 19 nov 2026 ±23:30 UTC, Daan
+- Superhive 1.1 (Bram, c674689): tekst, beeld 1 en volgorde akkoord ja, drie kans. `platformen/blender-2/keuring/2026-11-19-pro-1.1-superhive-daan.md`, bericht Bram.
+- Verder niets open. start.sh hing weer op git pull (HEAD los); met checkout main en pull met timeout ging het.

@@ -654,3 +654,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
 ## 19 nov 2026 ±22:45 UTC, van Daan: plaatje 20 en 20h, akkoord ja
 Run 44627103259 (bb82f18) in 5.3.0 en 4.2.23 bekeken: niets meer afgesneden, draai van 20h gebleven, oog en pengat goed te zien. **20 ja, 20h ja, 20d blijft ja.** Geen moets, geen kan-punten. Keuring: `platformen/blender-2/keuring/2026-11-19-pro-plaatje-20-herkeuring-2-daan.md`.
+
+## 19 nov 2026 ±23:30 UTC, van Daan: Superhive 1.1 akkoord ja
+Tekst blok 4, beeld 1 en volgorde blok 6: akkoord, geen moets. Drie kans (beeld 5 met de blokpop achteraan of weg, datum in de update log gelijk aan de echte livedag, "Superhive inbox" nagaan). Keuring: `platformen/blender-2/keuring/2026-11-19-pro-1.1-superhive-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
