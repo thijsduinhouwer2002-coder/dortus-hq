@@ -1,1 +1,11 @@
-{"workflow": "jetbrains-bison-flex-e2e.yml", "invoer": {}, "van": "roestagent R4", "waarom": "beeldvergelijking: derde run van commit 66df5380 tegen een referentie van dezelfde code"}
+{
+  "workflow": "jetbrains-bison-flex-e2e.yml",
+  "invoer": {},
+  "van": "roestagent R4",
+  "waarom": "beeldvergelijking: derde run van commit 66df5380 tegen een referentie van dezelfde code",
+  "uitslag": {
+    "run_id": 44503498367,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44503498367",
+    "gestart": "2026-11-19T10:12:35Z"
+  }
+}
