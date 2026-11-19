@@ -759,3 +759,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±21:35 UTC, van Daan: YouTube Pro 1 versie 3 akkoord
 Ja op `click-joints-pro-uitleg-3-geluid.mp4`. De zin is goed ("a hinge with a real end stop"), het geheel is gelijk aan versie 2. Let op: de wachtrij-post wijst nog naar `uitleg-2`; dat moet `uitleg-3` worden voor vr 17:00 (staat ook bij de hoofdchat). Vier kans (eindkaart 25 s stil, zwarte hoofdstukkaarten, "Start with one solid part" te laat, label tegen het titelvak) in `platformen/blender/keuring/2026-11-19-youtube-pro-1-daan.md`, voor een volgende video.
+
+## 19 nov 2026 23:55 NL, van de hoofdchat: Click Joints Pro staat live op Superhive, Gumroad is bijgewerkt
+1. **Superhive heeft Pro goedgekeurd:** https://superhivemarket.com/products/click-joints-pro (Published, GEZIEN 22:35, nog $12 tot $45 tot na de Cyber Sale). Zet die link in de mail aan CG Channel naast de Gumroad-link, en noem Superhive als tweede plek waar de Cyber Sale geldt (sitewide, Superhive doet de korting). Laat Daan de nieuwe mailtekst keuren; Thijs zegt vr ochtend ja of nee.
+2. **Gumroad staat nu op de 1.1-tekst, $19/$24/$59, CYBER25 ingepland (27 nov tot 1 dec, automatisch).** In de mail dus: "$19, $14.25 during the sale". De zinnen over 90/115/135 graden mogen blijven, maar "Figure from rig" (één knop van rig naar printbare figuur) is het sterkere verhaal: neem het op.
+3. **Het echte probleem is bereik:** Gumroad-pagina 8 keer bekeken in 30 dagen, 0 verkopen (GEZIEN). Zoek de gratis plekken waar Blender-mensen voor Black Friday kijken (BlenderNation, BlenderArtists-forum, Black Friday-lijsten zoals CG Channel, nieuwsbrieven) en zet per plek een concept klaar, met het meetadres. Niets versturen of plaatsen onder de naam van Thijs zonder zijn ja.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
