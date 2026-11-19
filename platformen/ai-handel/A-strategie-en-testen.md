@@ -273,3 +273,65 @@ De indeling in soorten deed ik met trefwoorden in de vraag en de eventnaam; dat 
 3. **Mijn sportconclusie uit run 3 was ruis** (GEZIEN): de hoofdmarkten van wedstrijden geven op nieuwe data geen voordeel (-2,4% en +2,4%). Les voor elke bot: een uitsplitsing op een kleine groep is pas iets na een toets op nieuwe data.
 4. **Terugtests liegen makkelijk** (run 1: Sharpe 1,86 naar 0,33, GEZIEN; run 2: longshot-"winst" door volumekeuze, GEZIEN; R² onder 0,025 over 888 strategieën, DERDEN). Een taalmodel hooguit als filter; meelezen op X kost $5 per 1000 posts (GEZIEN).
 5. **€10.000 in 3 maanden** haalt geen route in hoek A met een kleine pot (GOK): bij ±1 à 2% per week op de pot is er ruwweg €40.000 tot €80.000 nodig. De beste stap nu kost niets: weken lang openbare orderboeken opslaan en op papier rekenen met echte laatprijzen (testplan punt 15).
+
+## Run 5 (19 nov 2026, ±04:35 tot 05:10 UTC)
+Hoek: run 4 rekende met de **getoonde koers per dag**. De open vraag was: kun je die prijs in het echt krijgen? Twee metingen, allebei openbaar en zonder account: (a) hoe breed en hoe dun zijn de boeken nu, (b) wat verdienden mensen die in sep tot nov 2026 **echt** een favoriet van 70 tot 90 cent kochten (echte uitgevoerde trades, geen koers). Geen namen of wallets van handelaren opgeschreven.
+
+### 16. Momentopname van de boeken: de getoonde prijs is vaak niet te krijgen (GEZIEN)
+**Hoe:** open markten met een einddatum binnen 8 dagen die minstens 2 dagen eerder begonnen, via `gamma-api.polymarket.com/markets/keyset` (20.000 markten opgehaald; ik stopte bij 200 pagina's, dus niet compleet, en het zijn bijna allemaal sportmarkten: 19.626 van de 20.000; GEZIEN). Indeling nu niet meer met trefwoorden maar met het veld `sportsMarketType` dat Polymarket zelf meegeeft (bijv. `moneyline`, `totals`, `soccer_exact_score`, `spreads`, `soccer_halftime_result`; GEZIEN). Hoofdmarkt = `moneyline` en `totals`; bijzetmarkt = elk ander sporttype; overig = geen sporttype. Daarvan alleen markten waar een kant tussen 70 en 90 cent staat. Steekproef van 75 boeken nagekeken met `clob.polymarket.com/book` (GEZIEN; de cijfers kwamen overeen met de velden `bestBid` en `bestAsk`).
+
+| Groep (kant 70 tot 90 cent) | n | halve bied-laat-afstand, mediaan | aandeel met halve afstand van 2 cent of minder |
+|---|---|---|---|
+| Bijzet, einde over minder dan 1 dag | 162 | 3,0 ct | 44% |
+| Bijzet, 1 tot 3 dagen | 1.828 | 3,0 ct | 33% |
+| Bijzet, 3 tot 8 dagen | 575 | **14,0 ct** | 23% |
+| Hoofd, minder dan 1 dag | 78 | 1,5 ct | 78% |
+| Hoofd, 1 tot 3 dagen | 1.169 | 3,5 ct | 38% |
+| Overig (alle termijnen) | 48 | 5,5 ct | 29% |
+
+In de 75 nagekeken boeken lag er bij de **mediane markt niets** te koop binnen 2 cent boven het midden; de beste laatprijs had een mediaan van $109 tot $208 aan stukken erop (GEZIEN).
+
+**Polymarket toont het midden, maar bij een afstand van meer dan 10 cent de laatste handelsprijs** (GEZIEN, [docs Prices & Orderbook](https://docs.polymarket.com/concepts/prices-orderbook.md)). Dat raakt run 4 direct: de "+16% in bijzetmarkten 7 dagen ervoor" komt uit precies de groep met een halve afstand van ±14 cent, dus daar rekende ik met de laatste handelsprijs, niet met een prijs die te krijgen was. Kopen tegen de laatprijs kost daar ±15% van de inzet extra (GOK, eigen som: 14 ct op 80 ct is 17%). **Die +16% is voor een bot die koopt dus niet te halen.**
+
+### 17. Wat echte kopers verdienden, sep tot nov 2026 (GEZIEN, vooraf vastgelegd)
+**Vooraf vastgelegd** (voor ik keek): periode 1 sep tot 10 nov 2026 (de periode van run 3, maar toen niet per soort gesplitst), indeling met `sportsMarketType` zoals in punt 16, en als maat het rendement op elke **echt uitgevoerde** trade waarbij iemand de kant van 70 tot 90 cent kocht.
+**Hoe:** per week en per sporttype de eerste pagina gesloten markten uit de keyset-API (filter `sports_market_types`), daaruit willekeurig getrokken: 520 markten, 356 met trades (207 bijzet, 149 hoofd; GEZIEN). Trades uit `data-api.polymarket.com/v2/trades?condition=...` (de oude v1 is uitgezet, GEZIEN). Een verkoop van de ene kant tegen p telde ik als koop van de andere kant tegen 1 min p. Ik neem aan dat het veld `side` de kant van de nemer is (GOK, niet in de docs nagelezen). Bootstrap per event, 90%-band. "Laat" = in de laatste 4 uur voor de laatste trade van die markt, dus meestal tijdens de wedstrijd (GOK voor die uitleg).
+
+| Groep | trades | events | per trade | per dollar |
+|---|---|---|---|---|
+| Bijzet, alles | 1.066 | 86 | +9,4% (band -6,7% tot +20,2%) | +17,4% (-0,5% tot +26,7%) |
+| Bijzet, vóór de laatste 4 uur | 503 | 30 | +10,5% (-18,4% tot +25,1%) | +20,7% (-1,8% tot +30,6%) |
+| Hoofd, alles | 5.673 | 106 | +6,2% (-1,8% tot +13,7%) | **+17,9% (+10,9% tot +23,9%)** |
+| Hoofd, vóór de laatste 4 uur | 717 | 44 | +6,5% (-15,2% tot +19,2%) | +20,0% (-8,4% tot +27,3%) |
+
+De mediane trade in deze band was $13, de 90% grootste $313 (GEZIEN).
+
+**Wat dit leert** (GOK, op basis van punt 16 en 17):
+1. **Het patroon is niet alleen een rekenfout.** Mensen die echt een favoriet van 70 tot 90 cent kochten, verdienden gemiddeld; alle getallen zijn positief. Dat steunt de richting van run 3 en 4 en de Kalshi-studie.
+2. **Maar het is niet bewezen voor een bot.** Bijna alle banden per trade lopen door nul, er zijn weinig events vóór de wedstrijd (30 en 44), en de enige band die ruim boven nul ligt (hoofd, per dollar) wordt gedragen door grote trades vlak voor of tijdens de wedstrijd. Wie tijdens de wedstrijd wint, weet vaak sneller wat er op het veld gebeurt; dat is geen voordeel dat een trage bot heeft.
+3. **Mijn sterkste getal uit run 4 vervalt.** De +16% in bijzetmarkten een week vooraf kwam uit boeken met ±14 cent halve afstand (punt 16), dus uit laatste handelsprijzen. Voortaan test ik alleen met echte trades of met opgeslagen boeken, nooit met de getoonde koers in dunne markten.
+4. **De ruimte is klein.** Een paar honderd dollar per markt op de beste prijs (punt 16), trades van gemiddeld $13 (punt 17). Zelfs als het voordeel echt is, kun je er per markt weinig geld in kwijt zonder de prijs te bederven. Dat maakt de route nog minder geschikt voor €10.000 in 3 maanden (GOK).
+
+### 18. Les voor elke terugtest op dunne markten (GOK, volgt uit punt 16 en 17)
+1. Vraag eerst: **welke prijs geeft de API?** Midden, laatste handel, of wat je kon krijgen? Bij Polymarket wisselt dat met de breedte van het boek.
+2. Kijk naar de **bied-laat-afstand van de markten die je test**, niet van de markt in het algemeen. Het voordeel zat juist in de markten met de breedste boeken.
+3. Gebruik **echte trades** als controle: wat verdienden mensen die echt kochten, op het moment dat jouw bot zou kopen.
+4. Haal trades **tijdens de wedstrijd** eruit voor een bot die vooraf beslist.
+
+### Bijgestelde rangorde binnen hoek A (kans maal opbrengst, GOK)
+1. **Voorspellingsmarkten, favorieten van 70 tot 90 cent, alleen als maker (eigen bod in het boek), alleen vóór de wedstrijd, eerst weken op papier met opgeslagen boeken.** Richting gesteund door Kalshi (DERDEN), run 3 en 4 (GEZIEN) en echte trades (GEZIEN, punt 17), maar de banden lopen door nul en er past weinig geld in. Als nemer kopen valt af: de afstand eet het voordeel op (punt 16). Kans op €10.000 in 3 maanden: onder 3% (GOK, omlaag van 5%, omdat er per markt minder in past dan ik dacht).
+2. Simpele trendregel op spot (run 1): beperkt dalingen, geen geldmachine, maar er past wel veel geld in.
+3. Bijzetmarkten een week vooraf als nemer: **valt af** (punt 16).
+4. Hoofdmarkten als losse route, longshots, LLM-sentiment als hoofdsignaal, hefboom: vallen af (run 1 en 4).
+
+### Nog te doen (volgende runs)
+- Punt 17 herhalen met alleen trades vóór de aftrap (aftraptijd uit `gameStartTime` of het event, als dat veld er is) en met meer events (de volledige pagina's, niet de eerste per week).
+- Nalezen in de docs van de Data API v2 of `side` echt de nemer is.
+- Hoe vaak wordt een maker-bod 1 à 2 cent onder het midden gevuld vóór de wedstrijd? Te meten uit trades: hoeveel volume ging er tegen een prijs onder het midden van dat moment.
+
+## Stand na run 05:10 UTC (19 nov 2026)
+1. **Echte kopers van favorieten (70 tot 90 cent) op Polymarket verdienden in sep tot nov 2026 gemiddeld** (GEZIEN, 356 markten, echte trades): sport hoofdmarkten +6,2% per trade en +17,9% per dollar (band +10,9% tot +23,9%), bijzetmarkten +9,4% per trade. Zelfde richting als Kalshi (DERDEN) en mijn runs 3 en 4. Maar de meeste banden lopen door nul en het grote geld zit vlak voor of tijdens de wedstrijd.
+2. **De getoonde koers is in dunne markten niet te krijgen** (GEZIEN): bij bijzetmarkten een week vooraf is de halve bied-laat-afstand ±14 cent, en Polymarket toont daar de laatste handelsprijs. Mijn "+16%" uit run 4 vervalt; als nemer kopen eet het voordeel op.
+3. **Er past weinig geld in** (GEZIEN): een paar honderd dollar op de beste prijs per markt, mediane trade $13. Ook met een echt voordeel is dit geen route naar €10.000 in 3 maanden met een kleine pot (GOK, kans onder 3%).
+4. **Terugtests liegen makkelijk, drie keer gezien in dit bestand**: Sharpe 1,86 naar 0,33 (run 1), longshot-"winst" door volumekeuze (run 2), "+16%" door de getoonde koers (run 5). Altijd: vooraf vastleggen, nieuwe data, echte prijzen of echte trades. Een taalmodel hooguit als filter; meelezen op X kost $5 per 1000 posts (GEZIEN).
+5. **Volgende stap kost niets**: boeken opslaan en alleen als maker vóór de wedstrijd op papier handelen; slaagt dat niet na 300 markten met band boven +2%, dan valt de route af (testplan punt 15). Voor groter geld blijft de trendregel op spot (run 1) de enige route in hoek A waar veel geld in past, maar zonder groot rendement.
