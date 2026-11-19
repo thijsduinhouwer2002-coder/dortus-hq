@@ -1,0 +1,411 @@
+# gemaakt: 2026-11-19T13:42:32Z
+# workflow: Blender gewrichten e2e (Click Joints, echte Blender) (.github/workflows/blender-gewrichten-e2e.yml)
+# run: 44532601863 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44532601863
+# commit: 3c5c7e57 tak main gestart door push
+# mislukte stappen: e2e (5.2.3): Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur); e2e (5.3.0): Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (5.2.3) / Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur) (laatste 200 van 290 regels) =====
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-vrij] Blender 5.2.3 LTS
+Info: Hinge placed. Bends 0° to 30°. 0.154 s.
+[cj-vrij] 30: stand 30 stop 30.000 gemeten 29.96 achter 2.69 duur 0.154 s
+[cj-vrij] OK   30: twee gesloten delen
+[cj-vrij] OK   30: stop uit de wig 30.000
+[cj-vrij] OK   30: gemeten bereik 29.96
+Info: Hinge placed. Bends 0° to 45°. 0.164 s.
+[cj-vrij] 45: stand 45 stop 45.000 gemeten 44.96 achter 2.69 duur 0.164 s
+[cj-vrij] OK   45: twee gesloten delen
+[cj-vrij] OK   45: stop uit de wig 45.000
+[cj-vrij] OK   45: gemeten bereik 44.96
+Info: Hinge placed. Bends 0° to 60°. 0.177 s.
+[cj-vrij] 60: stand 60 stop 60.001 gemeten 59.96 achter 2.69 duur 0.177 s
+[cj-vrij] OK   60: twee gesloten delen
+[cj-vrij] OK   60: stop uit de wig 60.001
+[cj-vrij] OK   60: gemeten bereik 59.96
+Info: Hinge placed. Bends 0° to 75°. 0.191 s.
+[cj-vrij] 75: stand 75 stop 75.000 gemeten 74.96 achter 2.69 duur 0.191 s
+[cj-vrij] OK   75: twee gesloten delen
+[cj-vrij] OK   75: stop uit de wig 75.000
+[cj-vrij] OK   75: gemeten bereik 74.96
+Info: Hinge placed. Bends 0° to 90°. 0.214 s.
+[cj-vrij] 90: stand 90 stop 90.001 gemeten 89.96 achter 2.69 duur 0.214 s
+[cj-vrij] OK   90: twee gesloten delen
+[cj-vrij] OK   90: stop uit de wig 90.001
+[cj-vrij] OK   90: gemeten bereik 89.96
+Info: Hinge placed. Bends 0° to 100°. 0.229 s.
+[cj-vrij] 100: stand 100 stop 100.000 gemeten 99.96 achter 2.69 duur 0.229 s
+[cj-vrij] OK   100: twee gesloten delen
+[cj-vrij] OK   100: stop uit de wig 100.000
+[cj-vrij] OK   100: gemeten bereik 99.96
+Info: Hinge placed. Bends 0° to 120°. 0.25 s.
+[cj-vrij] 120: stand 120 stop 119.999 gemeten 119.96 achter 2.69 duur 0.25 s
+[cj-vrij] OK   120: twee gesloten delen
+[cj-vrij] OK   120: stop uit de wig 119.999
+[cj-vrij] OK   120: gemeten bereik 119.96
+Info: Hinge placed. Bends 0° to 135°. 0.265 s.
+[cj-vrij] 135: stand 135 stop 135.000 gemeten 135.00 achter 2.69 duur 0.265 s
+[cj-vrij] OK   135: twee gesloten delen
+[cj-vrij] OK   135: stop uit de wig 135.000
+[cj-vrij] OK   135: gemeten bereik 135.00
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 0.256 s.
+[cj-vrij] 150: stand 150 stop 150.000 gemeten 150.00 achter 2.69 duur 0.256 s
+[cj-vrij] OK   150: twee gesloten delen
+[cj-vrij] OK   150: stop uit de wig 150.000
+[cj-vrij] OK   150: gemeten bereik 150.00
+Warning: End stop 20°: pick 30° to 150°.
+[cj-vrij] OK   20: geweigerd ({'CANCELLED'})
+Warning: End stop 170°: pick 30° to 150°.
+[cj-vrij] OK   170: geweigerd ({'CANCELLED'})
+[cj-vrij] KLAAR 0 FOUT
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-rig] Blender 5.2.3 LTS
+[cj-rig] OK   naam mixamorig:LeftForeArm -> ('ELBOW', 'Left elbow')
+[cj-rig] OK   naam mixamorig:RightUpLeg -> ('HIP', 'Right hip')
+[cj-rig] OK   naam mixamorig:RightLeg -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam mixamorig:Neck -> ('NECK', 'Neck')
+[cj-rig] OK   naam upper_arm.L -> ('SHOULDER', 'Left shoulder')
+[cj-rig] OK   naam DEF-shin.R -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam spine.004 -> ('NECK', 'Neck')
+[cj-rig] OK   naam Calf_L -> ('KNEE', 'Left knee')
+[cj-rig] OK   naam Hips -> None
+[cj-rig] OK   naam Spine -> None
+[cj-rig] OK   naam mixamorig:LeftHand -> None
+[cj-rig] OK   naam Leg -> None
+[cj-rig] OK   naam upperarm_l -> ('SHOULDER', 'Left shoulder')
+[cj-rig] OK   naam neck_01 -> ('NECK', 'Neck')
+[cj-rig] OK   naam CC_Base_L_Forearm -> ('ELBOW', 'Left elbow')
+[cj-rig] OK   naam CC_Base_R_Calf -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam J_Bip_L_UpperLeg -> ('HIP', 'Left hip')
+[cj-rig] OK   naam J_Bip_C_Neck -> ('NECK', 'Neck')
+[cj-rig] OK   naam Bip01 L Thigh -> ('HIP', 'Left hip')
+[cj-rig] OK   naam Bip01 R Calf -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam lShldrBend -> ('SHOULDER', 'Left shoulder')
+[cj-rig] OK   naam rForearmBend -> ('ELBOW', 'Right elbow')
+[cj-rig] OK   naam lShin -> ('KNEE', 'Left knee')
+[cj-rig] OK   naam lHand -> None
+[cj-rig] OK   naam clavicle_l -> None
+[cj-rig] OK   naam CC_Base_L_Hand -> None
+[cj-rig] OK   naam forearm_stretch.l -> ('ELBOW', 'Left elbow')
+[cj-rig] OK   naam arm_stretch.r -> ('SHOULDER', 'Right shoulder')
+[cj-rig] OK   naam thigh_stretch.l -> ('HIP', 'Left hip')
+[cj-rig] OK   naam leg_stretch.r -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam c_forearm_fk.l -> ('ELBOW', 'Left elbow')
+[cj-rig] OK   naam c_leg_fk.r -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam thigh_ref.l -> ('HIP', 'Left hip')
+[cj-rig] OK   naam neck.x -> ('NECK', 'Neck')
+[cj-rig] OK   naam c_neck.x -> ('NECK', 'Neck')
+[cj-rig] OK   naam forearm_twist.l -> None
+[cj-rig] OK   naam leg_twist.r -> None
+[cj-rig] OK   naam c_hand_fk.l -> None
+[cj-rig] OK   naam c_thigh_b.l -> None
+[cj-rig] OK   spiegelen knie ((120, 1), 'mirrored')
+[cj-rig] OK   zonder grens aan beide kanten blijft het preset
+[cj-rig] OK   eigen grens gaat voor spiegelen {'Left knee': ((120, 1), 'from rig'), 'Right knee': ((100, 1), 'from rig')}
+[cj-rig] OK   heup: leesbare reden
+[cj-rig] OK   andere gewrichten en meldingen ongewijzigd
+[cj-rig] OK   36 mm op een dij van 38: geen ruimte (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-rig] OK   20 mm op een dij van 38: oude melding blijft
+Warning: No rig found: this mesh has no Armature modifier or armature parent.
+[cj-rig] OK   zonder rig geweigerd ({'CANCELLED'})
+[cj-rig] gewrichten in de rig: [('thigh.L', 'HIP', 'Left hip'), ('shin.L', 'KNEE', 'Left knee'), ('thigh.R', 'HIP', 'Right hip'), ('shin.R', 'KNEE', 'Right knee')]
+[cj-rig] OK   vier gewrichten herkend
+Info: Hinge placed. Bends 0° to 120°. 1.094 s.
+Info: Hinge placed. Bends 0° to 120°. 1.009 s.
+Warning: Too close to another joint (keep 23 mm apart).
+Warning: Too close to another joint (keep 23 mm apart).
+Warning: 2 joints · 1 rig · 1 mirror. Skipped: Left hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-rig] OK   Figure from rig ({'FINISHED'})
+[cj-rig] regel: Left knee · Hinge · 0–120° · from rig
+[cj-rig] regel: Right knee · Hinge · 0–120° · mirror
+[cj-rig] OK   Left knee uit de rig: {'nr': 1, 'naam': 'Left knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'from rig', 'punt': [-8.969, 0.137, 30.071]}
+[cj-rig] OK   Right knee gespiegeld: {'nr': 2, 'naam': 'Right knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'mirrored', 'punt': [9.031, 0.137, 30.071]} (Left hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-rig] OK   alle 3 delen gesloten
+[cj-rig] OK   Left knee stand 120
+[cj-rig] OK   buigkant langs +Z van het bot ((0.0, 1.0, 0.0))
+[cj-rig] OK   linkeronderbeen alleen links (max x -2.00)
+[cj-rig] OK   rechteronderbeen alleen rechts (min x 2.00)
+[cj-rig] samenvatting: 2 joints · 1 rig · 1 mirror; overgeslagen: Left hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-rig] OK   samenvatting '2 joints · 1 rig · 1 mirror'
+[cj-rig] KLAAR 0 FOUT
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-armen] OK   komkant r + s + 0,5 = 3.70
+[cj-armen] OK   snijvlakkant naad_r + 0,4 r = 9.20
+[cj-armen] OK   pen overal 1,5 r + s = 4.70
+[cj-armen] OK   schuif uit romp 6.0
+[cj-armen] OK   schuif uit romp met naad vrij 9.0
+[cj-armen] OK   geen romp: niet schuiven
+Info: Hinge placed. Bends 0° to 135°. 1.406 s.
+Info: Hinge placed. Bends 0° to 140°. 0.665 s.
+Info: Hinge placed. Bends 0° to 135°. 1.275 s.
+Info: Hinge placed. Bends 0° to 140°. 0.58 s.
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 1.211 s. Auto found no width at the cut, kept 9.5 mm.
+Info: Joint placed. Good fit. 0.782 s.
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 1.134 s. Auto found no width at the cut, kept 9.5 mm.
+Info: Joint placed. Good fit. 0.71 s.
+Info: 8 joints · 1 rig · 1 mirror · 6 preset.
+[cj-armen] uitslag {'FINISHED'}; ['Left knee · Hinge · 0–135° · preset', 'Left elbow · Hinge · 0–140° · from rig', 'Right knee · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–140° · mirror', 'Left hip · Ball · ±8° · preset', 'Left shoulder · Ball · ±30° · preset', 'Right hip · Ball · ±30° · preset', 'Right shoulder · Ball · ±30° · preset']; overgeslagen: 
+[cj-armen] OK   alle acht gewrichten (['Left elbow', 'Left hip', 'Left knee', 'Left shoulder', 'Right elbow', 'Right hip', 'Right knee', 'Right shoulder'])
+[cj-armen] OK   knieën en ellebogen zijn scharnieren
+[cj-armen] OK   heupen en schouders zijn kogels
+[cj-armen] OK   Left elbow from rig 140: {'nr': 2, 'naam': 'Left elbow', 'preset': 'ELBOW', 'soort': 'HINGE', 'graden': 140.0, 'herkomst': 'from rig', 'punt': [55.0, 0.0, 145.0]}
+[cj-armen] OK   9 delen (9)
+[cj-armen] OK   alle delen gesloten
+[cj-armen] OK   Right elbow mirrored 140: {'nr': 4, 'naam': 'Right elbow', 'preset': 'ELBOW', 'soort': 'HINGE', 'graden': 140.1, 'herkomst': 'mirrored', 'punt': [-55.0, 0.0, 145.0]}
+[cj-armen] OK   knieën zonder grens aan beide kanten: preset
+[cj-armen] FOUT samenvatting '8 joints · 1 rig · 1 mirror · 6 preset'
+[cj-armen] OK   Left hip beweegt (±8.0°, niet geblokkeerd)
+[cj-armen] OK   Right hip beweegt (±30.0°, niet geblokkeerd)
+[cj-armen] Left hip kogelmidden z 75.8, bolnaad 8.7
+[cj-armen] OK   heupkogel onder de romp (z 75.8 < 85)
+[cj-armen] OK   bolnaad heup 8.7 <= 12 mm
+[cj-armen] OK   scharnieren bij het juiste deel ([])
+Info: Hinge placed. Bends 0° to 135°. 1.306 s.
+Info: Hinge placed. Bends 0° to 140°. 0.643 s.
+Info: Hinge placed. Bends 0° to 135°. 1.235 s.
+Info: Hinge placed. Bends 0° to 140°. 0.583 s.
+Warning: Too close to another joint (keep 30 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 0.758 s.
+Warning: Too close to another joint (keep 30 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 30 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 0.744 s.
+Warning: 6 joints · 1 rig · 1 mirror · 4 preset. Skipped: Left hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-armen] uitslag {'FINISHED'}; ['Left knee · Hinge · 0–135° · preset', 'Left elbow · Hinge · 0–140° · from rig', 'Right knee · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–140° · mirror', 'Left shoulder · Ball · ±30° · preset', 'Right shoulder · Ball · ±30° · preset']; overgeslagen: Left hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-armen] OK   korte figuur: schouders lukken
+[cj-armen] OK   korte figuur: heup eerlijk overgeslagen (Left hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-armen] OK   korte figuur: alle 7 delen gesloten
+[cj-armen] KLAAR 1 FOUT
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+
+Blender quit
+FOUT: figure from rig met armen
+##[error]Process completed with exit code 1.
+
+===== e2e (5.3.0) / Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur) (laatste 200 van 290 regels) =====
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-vrij] Blender 5.3.0
+Info: Hinge placed. Bends 0° to 30°. 0.122 s.
+[cj-vrij] 30: stand 30 stop 30.000 gemeten 29.96 achter 2.69 duur 0.122 s
+[cj-vrij] OK   30: twee gesloten delen
+[cj-vrij] OK   30: stop uit de wig 30.000
+[cj-vrij] OK   30: gemeten bereik 29.96
+Info: Hinge placed. Bends 0° to 45°. 0.136 s.
+[cj-vrij] 45: stand 45 stop 45.000 gemeten 44.96 achter 2.69 duur 0.136 s
+[cj-vrij] OK   45: twee gesloten delen
+[cj-vrij] OK   45: stop uit de wig 45.000
+[cj-vrij] OK   45: gemeten bereik 44.96
+Info: Hinge placed. Bends 0° to 60°. 0.135 s.
+[cj-vrij] 60: stand 60 stop 60.001 gemeten 59.96 achter 2.69 duur 0.135 s
+[cj-vrij] OK   60: twee gesloten delen
+[cj-vrij] OK   60: stop uit de wig 60.001
+[cj-vrij] OK   60: gemeten bereik 59.96
+Info: Hinge placed. Bends 0° to 75°. 0.154 s.
+[cj-vrij] 75: stand 75 stop 75.000 gemeten 74.96 achter 2.69 duur 0.154 s
+[cj-vrij] OK   75: twee gesloten delen
+[cj-vrij] OK   75: stop uit de wig 75.000
+[cj-vrij] OK   75: gemeten bereik 74.96
+Info: Hinge placed. Bends 0° to 90°. 0.176 s.
+[cj-vrij] 90: stand 90 stop 90.001 gemeten 89.96 achter 2.69 duur 0.176 s
+[cj-vrij] OK   90: twee gesloten delen
+[cj-vrij] OK   90: stop uit de wig 90.001
+[cj-vrij] OK   90: gemeten bereik 89.96
+Info: Hinge placed. Bends 0° to 100°. 0.184 s.
+[cj-vrij] 100: stand 100 stop 100.000 gemeten 99.96 achter 2.69 duur 0.184 s
+[cj-vrij] OK   100: twee gesloten delen
+[cj-vrij] OK   100: stop uit de wig 100.000
+[cj-vrij] OK   100: gemeten bereik 99.96
+Info: Hinge placed. Bends 0° to 120°. 0.21 s.
+[cj-vrij] 120: stand 120 stop 119.999 gemeten 119.96 achter 2.69 duur 0.21 s
+[cj-vrij] OK   120: twee gesloten delen
+[cj-vrij] OK   120: stop uit de wig 119.999
+[cj-vrij] OK   120: gemeten bereik 119.96
+Info: Hinge placed. Bends 0° to 135°. 0.205 s.
+[cj-vrij] 135: stand 135 stop 135.000 gemeten 135.00 achter 2.69 duur 0.205 s
+[cj-vrij] OK   135: twee gesloten delen
+[cj-vrij] OK   135: stop uit de wig 135.000
+[cj-vrij] OK   135: gemeten bereik 135.00
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 0.212 s.
+[cj-vrij] 150: stand 150 stop 150.000 gemeten 150.00 achter 2.69 duur 0.212 s
+[cj-vrij] OK   150: twee gesloten delen
+[cj-vrij] OK   150: stop uit de wig 150.000
+[cj-vrij] OK   150: gemeten bereik 150.00
+Warning: End stop 20°: pick 30° to 150°.
+[cj-vrij] OK   20: geweigerd ({'CANCELLED'})
+Warning: End stop 170°: pick 30° to 150°.
+[cj-vrij] OK   170: geweigerd ({'CANCELLED'})
+[cj-vrij] KLAAR 0 FOUT
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-rig] Blender 5.3.0
+[cj-rig] OK   naam mixamorig:LeftForeArm -> ('ELBOW', 'Left elbow')
+[cj-rig] OK   naam mixamorig:RightUpLeg -> ('HIP', 'Right hip')
+[cj-rig] OK   naam mixamorig:RightLeg -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam mixamorig:Neck -> ('NECK', 'Neck')
+[cj-rig] OK   naam upper_arm.L -> ('SHOULDER', 'Left shoulder')
+[cj-rig] OK   naam DEF-shin.R -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam spine.004 -> ('NECK', 'Neck')
+[cj-rig] OK   naam Calf_L -> ('KNEE', 'Left knee')
+[cj-rig] OK   naam Hips -> None
+[cj-rig] OK   naam Spine -> None
+[cj-rig] OK   naam mixamorig:LeftHand -> None
+[cj-rig] OK   naam Leg -> None
+[cj-rig] OK   naam upperarm_l -> ('SHOULDER', 'Left shoulder')
+[cj-rig] OK   naam neck_01 -> ('NECK', 'Neck')
+[cj-rig] OK   naam CC_Base_L_Forearm -> ('ELBOW', 'Left elbow')
+[cj-rig] OK   naam CC_Base_R_Calf -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam J_Bip_L_UpperLeg -> ('HIP', 'Left hip')
+[cj-rig] OK   naam J_Bip_C_Neck -> ('NECK', 'Neck')
+[cj-rig] OK   naam Bip01 L Thigh -> ('HIP', 'Left hip')
+[cj-rig] OK   naam Bip01 R Calf -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam lShldrBend -> ('SHOULDER', 'Left shoulder')
+[cj-rig] OK   naam rForearmBend -> ('ELBOW', 'Right elbow')
+[cj-rig] OK   naam lShin -> ('KNEE', 'Left knee')
+[cj-rig] OK   naam lHand -> None
+[cj-rig] OK   naam clavicle_l -> None
+[cj-rig] OK   naam CC_Base_L_Hand -> None
+[cj-rig] OK   naam forearm_stretch.l -> ('ELBOW', 'Left elbow')
+[cj-rig] OK   naam arm_stretch.r -> ('SHOULDER', 'Right shoulder')
+[cj-rig] OK   naam thigh_stretch.l -> ('HIP', 'Left hip')
+[cj-rig] OK   naam leg_stretch.r -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam c_forearm_fk.l -> ('ELBOW', 'Left elbow')
+[cj-rig] OK   naam c_leg_fk.r -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam thigh_ref.l -> ('HIP', 'Left hip')
+[cj-rig] OK   naam neck.x -> ('NECK', 'Neck')
+[cj-rig] OK   naam c_neck.x -> ('NECK', 'Neck')
+[cj-rig] OK   naam forearm_twist.l -> None
+[cj-rig] OK   naam leg_twist.r -> None
+[cj-rig] OK   naam c_hand_fk.l -> None
+[cj-rig] OK   naam c_thigh_b.l -> None
+[cj-rig] OK   spiegelen knie ((120, 1), 'mirrored')
+[cj-rig] OK   zonder grens aan beide kanten blijft het preset
+[cj-rig] OK   eigen grens gaat voor spiegelen {'Left knee': ((120, 1), 'from rig'), 'Right knee': ((100, 1), 'from rig')}
+[cj-rig] OK   heup: leesbare reden
+[cj-rig] OK   andere gewrichten en meldingen ongewijzigd
+[cj-rig] OK   36 mm op een dij van 38: geen ruimte (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-rig] OK   20 mm op een dij van 38: oude melding blijft
+Warning: No rig found: this mesh has no Armature modifier or armature parent.
+[cj-rig] OK   zonder rig geweigerd ({'CANCELLED'})
+[cj-rig] gewrichten in de rig: [('thigh.L', 'HIP', 'Left hip'), ('shin.L', 'KNEE', 'Left knee'), ('thigh.R', 'HIP', 'Right hip'), ('shin.R', 'KNEE', 'Right knee')]
+[cj-rig] OK   vier gewrichten herkend
+Info: Hinge placed. Bends 0° to 120°. 0.825 s.
+Info: Hinge placed. Bends 0° to 120°. 0.794 s.
+Warning: Too close to another joint (keep 23 mm apart).
+Warning: Too close to another joint (keep 23 mm apart).
+Warning: 2 joints · 1 rig · 1 mirror. Skipped: Left hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-rig] OK   Figure from rig ({'FINISHED'})
+[cj-rig] regel: Left knee · Hinge · 0–120° · from rig
+[cj-rig] regel: Right knee · Hinge · 0–120° · mirror
+[cj-rig] OK   Left knee uit de rig: {'nr': 1, 'naam': 'Left knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'from rig', 'punt': [-8.969, 0.137, 30.071]}
+[cj-rig] OK   Right knee gespiegeld: {'nr': 2, 'naam': 'Right knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'mirrored', 'punt': [9.031, 0.137, 30.071]} (Left hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-rig] OK   alle 3 delen gesloten
+[cj-rig] OK   Left knee stand 120
+[cj-rig] OK   buigkant langs +Z van het bot ((0.0, 1.0, 0.0))
+[cj-rig] OK   linkeronderbeen alleen links (max x -2.00)
+[cj-rig] OK   rechteronderbeen alleen rechts (min x 2.00)
+[cj-rig] samenvatting: 2 joints · 1 rig · 1 mirror; overgeslagen: Left hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-rig] OK   samenvatting '2 joints · 1 rig · 1 mirror'
+[cj-rig] KLAAR 0 FOUT
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-armen] OK   komkant r + s + 0,5 = 3.70
+[cj-armen] OK   snijvlakkant naad_r + 0,4 r = 9.20
+[cj-armen] OK   pen overal 1,5 r + s = 4.70
+[cj-armen] OK   schuif uit romp 6.0
+[cj-armen] OK   schuif uit romp met naad vrij 9.0
+[cj-armen] OK   geen romp: niet schuiven
+Info: Hinge placed. Bends 0° to 135°. 1.104 s.
+Info: Hinge placed. Bends 0° to 140°. 0.509 s.
+Info: Hinge placed. Bends 0° to 135°. 0.947 s.
+Info: Hinge placed. Bends 0° to 140°. 0.438 s.
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 0.918 s. Auto found no width at the cut, kept 9.5 mm.
+Info: Joint placed. Good fit. 0.578 s.
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 0.847 s. Auto found no width at the cut, kept 9.5 mm.
+Info: Joint placed. Good fit. 0.574 s.
+Info: 8 joints · 1 rig · 1 mirror · 6 preset.
+[cj-armen] uitslag {'FINISHED'}; ['Left knee · Hinge · 0–135° · preset', 'Left elbow · Hinge · 0–140° · from rig', 'Right knee · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–140° · mirror', 'Left hip · Ball · ±8° · preset', 'Left shoulder · Ball · ±30° · preset', 'Right hip · Ball · ±30° · preset', 'Right shoulder · Ball · ±30° · preset']; overgeslagen: 
+[cj-armen] OK   alle acht gewrichten (['Left elbow', 'Left hip', 'Left knee', 'Left shoulder', 'Right elbow', 'Right hip', 'Right knee', 'Right shoulder'])
+[cj-armen] OK   knieën en ellebogen zijn scharnieren
+[cj-armen] OK   heupen en schouders zijn kogels
+[cj-armen] OK   Left elbow from rig 140: {'nr': 2, 'naam': 'Left elbow', 'preset': 'ELBOW', 'soort': 'HINGE', 'graden': 140.0, 'herkomst': 'from rig', 'punt': [55.0, 0.0, 145.0]}
+[cj-armen] OK   9 delen (9)
+[cj-armen] OK   alle delen gesloten
+[cj-armen] OK   Right elbow mirrored 140: {'nr': 4, 'naam': 'Right elbow', 'preset': 'ELBOW', 'soort': 'HINGE', 'graden': 140.1, 'herkomst': 'mirrored', 'punt': [-55.0, 0.0, 145.0]}
+[cj-armen] OK   knieën zonder grens aan beide kanten: preset
+[cj-armen] FOUT samenvatting '8 joints · 1 rig · 1 mirror · 6 preset'
+[cj-armen] OK   Left hip beweegt (±8.0°, niet geblokkeerd)
+[cj-armen] OK   Right hip beweegt (±30.0°, niet geblokkeerd)
+[cj-armen] Left hip kogelmidden z 75.8, bolnaad 8.7
+[cj-armen] OK   heupkogel onder de romp (z 75.8 < 85)
+[cj-armen] OK   bolnaad heup 8.7 <= 12 mm
+[cj-armen] OK   scharnieren bij het juiste deel ([])
+Info: Hinge placed. Bends 0° to 135°. 1.024 s.
+Info: Hinge placed. Bends 0° to 140°. 0.489 s.
+Info: Hinge placed. Bends 0° to 135°. 0.989 s.
+Info: Hinge placed. Bends 0° to 140°. 0.474 s.
+Warning: Too close to another joint (keep 30 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 0.596 s.
+Warning: Too close to another joint (keep 30 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 30 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 0.562 s.
+Warning: 6 joints · 1 rig · 1 mirror · 4 preset. Skipped: Left hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-armen] uitslag {'FINISHED'}; ['Left knee · Hinge · 0–135° · preset', 'Left elbow · Hinge · 0–140° · from rig', 'Right knee · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–140° · mirror', 'Left shoulder · Ball · ±30° · preset', 'Right shoulder · Ball · ±30° · preset']; overgeslagen: Left hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-armen] OK   korte figuur: schouders lukken
+[cj-armen] OK   korte figuur: heup eerlijk overgeslagen (Left hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-armen] OK   korte figuur: alle 7 delen gesloten
+[cj-armen] KLAAR 1 FOUT
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+FOUT: figure from rig met armen
+##[error]Process completed with exit code 1.
