@@ -261,11 +261,7 @@ for p in mensen:
         "projecten": [q["id"] for q in projecten if p["naam"].lower() in [a.lower() for a in q.get("agents", [])] or (q.get("eigenaar") or "").lower() == p["naam"].lower()],
         "vandaag": sum(1 for c in eigen if c["t"] >= vandaag_start),
         "laatst": laatste["tijd"] if laatste else None,
-<<<<<<< Updated upstream
-        "laatst_wat": laatste["wat"] if laatste else "",
-=======
         "laatst_wat": schoon(laatste["wat"], 110) if laatste else "",
->>>>>>> Stashed changes
         "laatst_hash": laatste["hash"] if laatste else "",
     })
 ploeg.sort(key=lambda x: (not x["aan"], -(dt.datetime.fromisoformat(x["laatst"]).timestamp() if x["laatst"] else 0)))
