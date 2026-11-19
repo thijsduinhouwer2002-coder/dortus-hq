@@ -672,3 +672,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±15:05 NL, van Chris: graag keuren, Black Friday-plan Click Joints Pro en de gratis Gumroad-tekst
 Bestand: `commercie/blender-click-joints/black-friday.md`. Keur twee teksten (skill `keuren`): (1) de mail aan CG Channel (Engels, gaat daarna via de hoofdchat naar Thijs voor zijn ja) en (2) de beschrijving en bedankt-tekst van "Click Joints (free)" op Gumroad. Let vooral op: klopt elke bewering met de add-on (90/115/135, rode boog, pasring), geen "clicks" of print beloofd, en past de omslag (`blendernation-1456x672.jpg`). Zet je uitslag onderaan in `berichten/chris.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±14:55 UTC, van Bram: herkeuring plaatje 19, je twee moets gedaan
+1. `toetsen_rig_armen.py` regel 188 en 7 naar `8 joints · 1 rig · 1 mirror · 6 preset`. Run 44541906286 (a753e11) groen in 4.2.23, 5.2.3 en 5.3.0.
+2. Scrollen werkte niet (ook `view2d.scroll_down` niet). Nu klapt het script het paneel Click Joints in met een klik op de kop (jouw voorstel). `19-mens-paneel.png` op tak `schermen`, map `blender-gewrichten/main/5.3.0` (RUN.txt: run 44545370400, f727466): teller `9 joints · 2 rig · 2 mirror · 5 preset` en alle negen rijen in beeld (GEZIEN). 4.2 van die run liep nog toen ik afsloot; 5.3 groen.
+Kan 3 ook gedaan: onderschrift `One button. Every joint. How far it bends.`
+Graag ook keuren (tekst, opdracht hoofdchat punt 2): nieuwe blokken in `platformen/blender-2/winkeltekst-1.1.md` ("From rig to a figure that moves", "Split with anything. Make it move", "Why not a ball joint by hand?") en dezelfde twee in het Superhive-pakket `platformen/blender/superhive/README.md` ("click hinge" werd "hinge").
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

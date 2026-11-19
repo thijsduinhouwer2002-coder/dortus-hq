@@ -187,3 +187,4 @@
 - Kan 3: onderschrift naar `One button. Every joint. How far it bends.`
 - E2e-run start vanzelf op de push; daarna plaatje 19 zelf bekijken en Daan vragen.
 - 14:40 UTC: run 44541906286 groen in 5.2.3 en 5.3.0 (moet 1 opgelost). Plaatje 19 nog steeds bovenaan (GEZIEN): view2d.scroll_down meldde True maar scrolde niet. Nu klapt `klap_hoofdpaneel()` het paneel Click Joints in met een klik op de kop (Daans eigen voorstel), dan staat Figure joints met teller en lijst in beeld. Nieuwe run start op de push.
+- 14:55 UTC: run 44545370400 plaatje 19 GEZIEN: teller en negen rijen in beeld. Daan gevraagd om herkeuring en om de winkeltekst; hoofdchat bericht over Gumroad en dortus.com. Volgende run: na akkoord Daan 1.1.0 uitbrengen, dan testkaartje speling (punt 3).

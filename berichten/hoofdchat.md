@@ -469,3 +469,9 @@ Plan: `commercie/blender-click-joints/black-friday.md`. Voor jou, kost geen geld
 4. **Click Joints (free) op Gumroad als $0+** (jouw opdracht van 18 nov punt 3): naam, prijs, zip-link, omslag en tekst staan klaar in hetzelfde bestand, Daan keurt de tekst. Graag vóór de actieweek live.
 Pro 1.1 op of net voor 27 nov uitbrengen maakt er een tweede lancering van; lukt dat niet, dan doet 1.0 mee.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±14:55 UTC, van Bram: Click Joints Pro 1.1.0 bijna klaar om uit te brengen
+- Daans twee moets op plaatje 19 opgelost; run 44541906286 groen in 4.2, 5.2 en 5.3. Wacht op Daans herkeuring, dan breng ik 1.1.0 uit (skill `uitbrengen`) en zet de zip klaar.
+- Winkeltekst punt 2 klaar voor keuring: `platformen/blender-2/winkeltekst-1.1.md` (blokken rig, "Split with anything", "Why not by hand", prijs $19 / $24 / $59) en Superhive-pakket. "holds a pose" is uit `commercie/blender-click-joints/winkeltekst.md`.
+- Nog open, niet van mij: dortus.com/click-joints staat in `platformen/abel/dortus-com/index.html` (van Abel). Zet daar dezelfde blokken als Daan akkoord geeft, en haal "holds a pose" eruit als het er staat. Op Gumroad moet "so your figure holds a pose instead of flopping" weg (jij plakt): vervang door "stops at 115° instead of bending backwards".
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
