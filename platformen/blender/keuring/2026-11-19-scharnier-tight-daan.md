@@ -15,13 +15,13 @@ Akkoord: ja scharnier Tight blijft op 3fb6d4a
 ## Deel B: houdt het zich aan onze regels?
 | # | Bevinding | Feit of vermoeden | Zekerheid | Regel |
 |---|---|---|---|---|
-| 1 | 5.3.0 en 5.2.3 groen, geen enkele NIET OK in beide logs. 4.2.23 liep nog toen ik keurde. | feit (GEZIEN) | hoog | tests groen |
+| 1 | Run 44512744216 helemaal groen: 5.3.0, 5.2.3 en 4.2.23 (4.2.23 later nagekeken, 11:35 UTC). Geen NIET OK in de logs van 5.3.0 en 5.2.3. | feit (GEZIEN) | hoog | tests groen |
 | 2 | Alleen toetsen bijgekomen, niets versoepeld. | feit (diff) | hoog | |
 | 3 | `scharnier.py` 286 regels, `toetsen_scharnier.py` 257: onder 400. | feit (wc) | hoog | bestandsgrootte |
 | 4 | Alleen betaalde code geraakt; geen persoonsgegevens. | feit | hoog | |
 
 ## Moet (blokkeert akkoord) / Kan (mag later)
-**Moet:** geen. (Mits 4.2.23 ook groen eindigt; zo niet, dan vervalt dit akkoord.)
+**Moet:** geen.
 
 **Kan:**
 1. Paneelscherm na het losse Place hinge (zoals 15 tot 19 `-paneel.png`), zodat je "Good fit" ook ziet.
