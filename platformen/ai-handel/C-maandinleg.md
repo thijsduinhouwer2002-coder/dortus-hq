@@ -333,3 +333,73 @@ Om te voorkomen dat ik achteraf de winnaars kies, nam ik **de tien grootste munt
 3. **Een trendfilter helpt alleen bij 100% BTC** (diepste x0,66 tegen x0,51), **niet in een mix** (diepste x0,80 tegen x0,83, hele periode x7,38 tegen x8,95) (GEZIEN). Een kleiner vast BTC-deel dempt beter dan een filter.
 4. **Kosten: aanbieder kiezen is de grootste knop.** ETF-spaarplan gratis (Trade Republic) of 1 euro (DEGIRO); crypto 0,2 tot 0,25% (OKX, Bitvavo) tegen tot bijna 2% elders (DERDEN, links in run 1 en 2). Frequentie telt alleen bij vaste kosten per order.
 5. **Een eigen bot voegt voor een maandinleg bijna niets toe**: geen gebruikt open project doet "spaarplan plus filter" (GEZIEN), het filter helpt in een mix niet, en het maker-voordeel is 0,1%. De maandinleg haalt het doel van 10.000 euro in 3 maanden met geen enkele aanpak (GOK).
+
+## Run 5 (19 nov 2026, ±05:05 UTC)
+Deze run: twee open punten uit run 4. Een tweede mandje (startjaar 2021) om te zien of punt 17 niet aan één startjaar ligt, en een rekenscenario waarin BTC niet meer uitzonderlijk hard groeit. Scripts en data stonden in /tmp, niet in de repo; de opzet staat erbij.
+
+### 20. Eigen meting: mandje van tien munten met startjaar 2021 (GEZIEN)
+**Keuze:** de tien grootste munten van januari 2021 zonder stablecoins: BTC, ETH, XRP, LTC, BCH, ADA, DOT, LINK, BNB, XLM (GOK dat dit ongeveer de top tien van toen was; uit mijn eigen kennis, niet uit een bron die ik deze run las). Startjaar 2018 lukte niet eerlijk: veel munten van toen hadden in 2018 nog geen USDT-paar op Binance, dan kies je alsnog achteraf.
+
+**Data:** maandkoersen in USDT van `data-api.binance.vision/api/v3/klines` (interval 1M), zonder account, jan 2021 tot nov 2026, 71 maanden, 36 vensters van 36 maanden. Elke maand 300 (voorbeeldbedrag), gelijk verdeeld, 0,25% kosten, kopen tegen de openingskoers.
+
+**Koers nov 2026 gedeeld door jan 2021** (GEZIEN): BNB x18,8; XRP x5,7; ETH x3,1; BTC x2,7; XLM x1,3; ADA x1,1; LINK x1,0; BCH x0,83; LTC x0,45; DOT x0,10.
+
+| Aanpak | 36 mnd mediaan | slechtste | beste | diepste tussenstand | Hele periode | Wint van alleen BTC (36 mnd) |
+|---|---|---|---|---|---|---|
+| Alleen BTC | **x1,96** | **x0,94** | x3,05 | x0,50 | **x1,80** | |
+| BTC en ETH, half om half | x1,67 | x0,79 | x2,38 | x0,51 | x1,42 | 0 van 36 |
+| Mandje van tien, gelijk verdeeld | x1,29 | x0,73 | x2,55 | x0,52 | x1,13 | 0 van 36 |
+| Mandje van tien, jaarlijks herbalanceren | x1,32 | x0,73 | x2,73 | x0,51 | x1,07 | 0 van 36 |
+| De acht zonder BTC en ETH | x1,18 | x0,72 | x2,60 | x0,52 | x1,06 | 0 van 36 |
+
+(GEZIEN, eigen meting. "Hele periode" is de waarde bij de opening van nov 2026 gedeeld door alles wat erin ging.)
+
+**Wat ik eruit haal:**
+- **Zelfde les als met startjaar 2020, nog sterker:** in geen enkel venster van 36 maanden won het mandje van alleen BTC (0 van 36), en de dip was even diep (x0,51 tot x0,52 tegen x0,50) (GEZIEN). Spreiden over munten gaf dus in twee startjaren geen bescherming en minder opbrengst.
+- Ook hier zat één uitschieter in (BNB x18,8) en één bijna-nul (DOT x0,10); toch hield het mandje maar x1,13 over (GEZIEN). Gelijk verdelen over tien munten verdunt de winnaar meer dan het de verliezers dempt.
+- Jaarlijks herbalanceren gaf nu een iets hogere mediaan (x1,32 tegen x1,29) maar een lagere eindstand (x1,07 tegen x1,13) (GEZIEN): geen vaste winst, dus geen reden om het te doen.
+- Opvallend: BTC en ETH half om half verloor ook van alleen BTC, terwijl ETH over de hele periode meer steeg (x3,1 tegen x2,7) (GEZIEN). ETH stond in 2021 tot 2022 hoog toen veel inleg erin ging; volgorde van de koers telt bij een maandinleg mee.
+
+### 21. Rekenscenario: wat als BTC voortaan gewoon groeit als aandelen? (GOK met eigen berekening)
+De metingen in run 2, 4 en 16 vallen in een periode waarin BTC uitzonderlijk hard steeg. Om eerlijker te kijken heb ik de maanden opnieuw geschud (blokken van 6 maanden, ETF en BTC samen, zodat ze even vaak samen dalen als vroeger) en daarna de groei van BTC naar beneden gezet, met dezelfde schommelingen.
+
+**Data:** maandkoersen IWDA (Euronext Amsterdam, euro, stapelend) en BTC-EUR van de openbare grafiek-API van Yahoo Finance, okt 2014 tot okt 2026, 144 maanden (GEZIEN). In die periode: ETF typisch jaar +12%, schommeling 13% per jaar; BTC typisch jaar +59%, schommeling 66% per jaar; samenhang 0,33 (GEZIEN, eigen berekening; "typisch jaar" is het meetkundig gemiddelde).
+
+**Opzet:** 6.000 geschudde paden per regel, elke maand 300 (voorbeeldbedrag), verdeeld over ETF en BTC, BTC 0,25% kosten, geen herbalanceren. De ETF houdt steeds zijn eigen verleden (+12% per jaar, ook dat is aan de hoge kant, GOK). "Kans verlies" = kans dat je aan het eind minder hebt dan je inlegde.
+
+| Scenario BTC | BTC-deel | 36 mnd mediaan | slechtste 10% | beste 10% | kans verlies 36 mnd | 60 mnd mediaan | kans verlies 60 mnd |
+|---|---|---|---|---|---|---|---|
+| (alleen ETF) | 0% | x1,20 | x1,03 | x1,38 | 7% | x1,35 | 3% |
+| zoals 2014 tot 2026 | 20% | x1,45 | x1,06 | x2,76 | 6% | x2,00 | 2% |
+| zoals 2014 tot 2026 | 100% | x2,38 | x0,85 | x8,79 | 15% | x4,47 | 8% |
+| +10% per jaar | 20% | x1,23 | x0,97 | x1,83 | 14% | x1,41 | 7% |
+| +10% per jaar | 100% | x1,25 | x0,51 | x4,10 | 39% | x1,44 | 36% |
+| 0% per jaar | 20% | x1,19 | x0,96 | x1,71 | 16% | x1,34 | 9% |
+| 0% per jaar | 100% | x1,07 | x0,45 | x3,42 | 46% | x1,12 | 46% |
+| -10% per jaar | 20% | x1,16 | x0,94 | x1,59 | 19% | x1,29 | 11% |
+| -10% per jaar | 100% | x0,92 | x0,40 | x2,81 | 55% | x0,87 | 56% |
+
+(Eigen berekening; de uitkomst is een GOK omdat de toekomst geen geschud verleden is. Met 10% BTC liggen de getallen ongeveer midden tussen 0 en 20%.)
+
+**Wat ik eruit haal:**
+- **Een vast BTC-deel van 10 tot 20% is een gok op doorgaande uitzonderlijke groei, met een beperkt nadeel.** Groeit BTC als aandelen (+10%), dan is de mediaan bijna gelijk aan alleen de ETF (x1,23 tegen x1,20) maar de kans op verlies na 3 jaar verdubbelt (14% tegen 7%). Stijgt BTC niet of daalt het, dan kost een deel van 20% je in de mediaan ongeveer 1 tot 4% van je inleg na 3 jaar (GOK, uit de tabel).
+- **Alleen BTC wordt zonder de uitzonderlijke groei een munt opgooien.** Bij +10% per jaar: mediaan x1,25, maar 39% kans op verlies na 3 jaar en de slechtste 10% houdt de helft over (x0,51). Bij 0% is het bijna kop of munt (46%) (GOK).
+- **Het voordeel van BTC zit in de staart, niet in het midden:** ook bij +10% per jaar haalt de beste 10% van de paden met alleen BTC x4,10 of meer. Wie op die staart wil mikken, doet dat met een deel dat hij kan missen (GOK).
+- Dit verandert de rangorde van punt 19 niet, maar maakt de verwachting eerlijker: de x8,95 van 80/20 uit punt 16 kwam vrijwel helemaal uit de uitzonderlijke periode.
+
+### 22. Forums opnieuw geprobeerd (GEZIEN)
+Bogleheads (zoekpagina), Reddit (zoek-JSON van r/BitcoinBeginners) en Tweakers Gathering gaven met curl allemaal 403 (geweigerd) op 19 nov 2026. Forumervaringen blijven dus een gat; een volgende run zou het via WebSearch-fragmenten kunnen proberen (alleen samenvattingen, geen volledige draadjes).
+
+### 23. Wat dit betekent voor de hoofdzaak "snel veel geld" (GOK)
+Een maandinleg van een paar honderd euro brengt binnen weken geen noemenswaardig geld op, met welke aanpak ook: zelfs de beste 10% van de paden met alleen BTC verdubbelt pas over jaren, en de inleg zelf is dan nog klein. Het nut van hoek C is vermogen opbouwen naast het werk, niet snel geld. Voor snel geld kijk naar de routes van A en D, met hun eigen risico's.
+
+### Nog te doen (volgende runs)
+- Forumervaringen via WebSearch-fragmenten (spaarplan met crypto erbij, ervaringen met ingebouwde DCA bij Bitvavo en Trade Republic).
+- Tarieven van run 1 en 2 nalopen op wijzigingen (Bitvavo, Trade Republic, DEGIRO, Kraken), want die veranderen vaak.
+
+## Stand na run 05:05 UTC (19 nov 2026)
+1. **Gewone DCA wint van bijna alle slimme regels.** Dip-regels, value averaging, grid en mandjes van tien munten eindigden in elke meting lager dan gewoon elke maand kopen; het mandje verloor in twee startjaren van alleen BTC (2020: x1,79 tegen x2,60; 2021: x1,13 tegen x1,80, in 0 van 36 vensters beter) (GEZIEN, eigen metingen, run 1 tot 5).
+2. **Beste evenwicht blijft een wereld-ETF met 10 tot 20% BTC, zonder filter.** Maar de hoge uitkomst kwam uit een uitzonderlijke periode: groeit BTC voortaan als aandelen, dan is de mediaan na 3 jaar bijna gelijk aan alleen de ETF (x1,23 tegen x1,20) met twee keer zoveel kans op verlies (14% tegen 7%) (GOK, eigen rekenscenario, punt 21).
+3. **Alleen BTC is zonder uitzonderlijke groei bijna kop of munt** (39 tot 46% kans op verlies na 3 jaar bij 0 tot 10% groei per jaar), met wel een grote staart naar boven (GOK, punt 21). Een trendfilter helpt alleen bij 100% BTC (GEZIEN, run 3 en 4).
+4. **Kosten: aanbieder kiezen is de grootste knop.** ETF-spaarplan gratis (Trade Republic) of 1 euro (DEGIRO); crypto 0,2 tot 0,25% (OKX, Bitvavo) tegen tot bijna 2% elders (DERDEN, links in run 1 en 2).
+5. **Een eigen bot voegt voor een maandinleg bijna niets toe**, en een maandinleg brengt binnen weken geen noemenswaardig geld op: het is vermogen opbouwen, niet snel geld (GOK, punt 23).
