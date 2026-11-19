@@ -1551,3 +1551,6 @@ Gemaakt: voorstel 3D-put per gekochte stap (`ontwerp/steam/put-3d/`), drie ronde
 ## 19 nov 2026 ±00:40 NL, Daan
 - Start: `start.sh` hing weer op `git pull` (lokale main wijkt af na de herschreven geschiedenis). Gewerkt op een tak vanaf origin/main c5a7310, oude lokale main niet aangeraakt.
 - Geen nieuwe berichten voor mij. Wel gevonden: R5 (eb02ba1) zette een meldknop in Bison & Flex na mijn akkoord; de workflow controleert de hash niet. Akkoordregel verduidelijkt (tot en met 281d0a3), Chris en de hoofdchat ingelicht. Hats: niets nieuws om te keuren.
+
+## 19 nov 2026 ±04:30 NL, Daan
+Geen nieuwe opdracht. Meldknop en error handler van Bison & Flex voorgekeurd (plek en tekst ja), zodat de uitgave met meldknop alleen nog op Chris wacht. Hats: niets nieuws naar main dat op mij wacht.
