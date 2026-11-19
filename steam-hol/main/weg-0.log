@@ -1,15 +1,15 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795083978
+HOL zaad 1795109335
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.1 (wacht 0.0): Ineke says this is a quick one.
-HOL begin: vallen (Ineke)
-HOL held binnen: Ineke
-HOL zicht 4.2 1
+HOL kroniek 4.0 (wacht 0.0): Femke climbs into your hole.
+HOL begin: vallen (Femke)
+HOL held binnen: Femke
+HOL zicht 4.1 1
 HOL meting t=10 beelden=62 helden=1 hol_vast=1
-HOL kroniek 11.1 (wacht 0.0): Kees has a map. It is wrong.
-HOL begin: opgegeten (Kees)
-HOL held binnen: Kees
-HOL kroniek zelfde held vervangen: Ineke says this is a quick one.
-HOL kroniek 12.8 (wacht 0.0): Ineke took the short way down. +6
+HOL kroniek 10.0 (wacht 0.0): Lotte brought a torch. And hope.
+HOL begin: opgegeten (Lotte)
+HOL held binnen: Lotte
+HOL kroniek zelfde held vervangen: Femke climbs into your hole.
+HOL kroniek 12.7 (wacht 0.0): Femke stays forever. +6
 HOL einde na 15 s, fps=20, goud=26, terugkomers=0
