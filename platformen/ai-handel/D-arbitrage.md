@@ -317,3 +317,84 @@ Deze run: het grootste gat uit run 3 gemeten, namelijk hoeveel makers in jonge P
 | 8 | Spot- en driehoeksarbitrage, CS2-skins, kaartjes, airdrops, opkopers | n.v.t. | rond 0% | kosten en tijd kwijt |
 
 Verschil met run 3: route 1 stijgt van 15 tot 25% naar 25 tot 35% omdat het verlies op vullingen nu gemeten is en in rustige markten klein blijkt. Hij blijft grijs; wie dat niet wil, kijkt naar route 2, of wacht op punt 1 van "nog te doen" (Interactive Brokers en Hyperliquid).
+
+---
+
+## Run 5 (19 nov, ±05:25 tot 06:00 Nederlandse tijd)
+Deze run: punt 1 en 2 van "nog te doen" uit run 4. Zijn Hyperliquid (HIP-4) en Interactive Brokers een minder grijze plek voor dezelfde route? En hoeveel concurrentie zit er nu in jonge Polymarket-markten, per soort markt?
+
+### 17. Hyperliquid HIP-4: groot geworden, nul kosten, maar al strak bezet
+**Gemeten (GEZIEN, `api.hyperliquid.xyz/info` met type `outcomeMeta`, `l2Book` op munt `#<10 × outcome>` en `candleSnapshot`, geen account, 19 nov ±04:25 UTC):**
+- Niet meer alleen een dagelijkse BTC-markt (zoals B in een eerdere run zag): nu **303 uitkomsten en 27 vragen** met meerdere uitkomsten. Vooral sport (voetbalwedstrijden, kampioenen van Premier League, Champions League, NFL, NBA), koersmarkten op aandelen en grondstoffen, beursgangen en de Fed-beslissing van december.
+- Handel over de afgelopen 7 dagen op de uitkomsten die nu open staan: **±$13 miljoen** (GEZIEN, benadering: aantal contracten maal slotprijs per dag). Grootste: "Arsenal wint de Premier League" ±$1,8 miljoen.
+- **Kosten nul** "for initial testing" (GEZIEN, [HIP-4 docs](https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-4-outcome-markets.md)).
+- **Maar de boeken zijn al strak:** in de drukke markten zit tussen bod en laat **0,001 cent** (bijv. Juventus wint: 0,72199 tegen 0,722; Arsenal kampioen: 0,75485 tegen 0,75486), met $3.000 tot $7.000 binnen 1 cent van het midden (GEZIEN). De prijzen liggen precies op het midden van Polymarket (Man City tegen Fulham: Hyperliquid 0,6975, Polymarket 0,69 tot 0,70, GEZIEN). Er zit dus een professionele market maker die Polymarket volgt.
+- **Geen beloning voor makers** gevonden in de docs (GEZIEN, niet genoemd). Met nul kosten en een spread van 0,001 cent valt er voor een kleine maker niets te halen.
+- **Binnen-vraag-arbitrage:** bij 19 voetbalwedstrijden telden de laatprijzen van winst, gelijk en verlies op tot 0,9987 tot 1,0046 (GEZIEN). Onder 1 lijkt gratis geld, maar het gat (±0,07 cent) is precies de prijs van de vierde uitkomst "anders" (wedstrijd gestaakt), die geen boek heeft. Geen echte arbitrage.
+- **Tussen platforms:** één echt verschil gevonden. Fed december "verhoging": Hyperliquid laat 0,955, Polymarket bod op "25 bps omhoog" plus "50+ bps omhoog" samen ±0,972 (GEZIEN, beide openbaar). Dat is ±1,7 cent, maar op Hyperliquid stond maar 46 tot 60 contracten aan de beste prijs, het geld zit vast tot de beslissing, en de regels verschillen mogelijk (Hyperliquid kijkt naar de bovengrens van de rente-band). Een paar dollar, geen route.
+
+**Wat dit wel betekent:** Hyperliquid is nu de **goedkoopste plek om in te dekken**. Wie op Polymarket als maker gevuld wordt in een vraag die ook op Hyperliquid staat, kan die positie daar zonder kosten en tegen het eerlijke midden wegzetten. Dat haalt het grootste risico uit run 4 (verlies op vullingen) weg. Helaas: op Polymarket hebben juist die overlappende markten nauwelijks beloning. 21 voetbalwedstrijden: **$0 beloning** per dag; Champions League-, NFL- en NBA-kampioen samen ±$44 per dag (GEZIEN). Alleen Fed december heeft veel beloning ($1.050 per dag, GEZIEN), maar daar zou een order van 200 aandelen **0,04 tot 0,07%** van de pot krijgen, dus minder dan $1 per dag (GEZIEN, eigen model). Oude, grote markten zijn vol.
+**Nederland:** Hyperliquid vraagt geen KYC en heeft geen vergunning; de Ksa noemde vergelijkbare sites (DERDEN, run 4). Grijs, net als Polymarket, maar zonder VPN (GOK).
+
+### 18. Interactive Brokers (ForecastEx): schoon, maar geen route
+- ForecastEx-contracten geven een **"incentive coupon" van 3,38% per jaar** over de waarde van je posities, dagelijks opgebouwd, maandelijks uitbetaald (GEZIEN, [IBKR Ireland, Event Contracts](https://www.interactivebrokers.ie/en/trading/products-event-contracts.php)). Kosten **$0,00 commissie plus $0,01 beursvergoeding per contract** (GEZIEN, [IBKR Ireland, commissies](https://www.interactivebrokers.ie/en/pricing/commissions-events.php)). Beschikbaarheid hangt af van land en IBKR-dochter (GEZIEN, zelfde pagina).
+- Een beloning voor wie orders laat liggen, zoals bij Polymarket, vond ik niet. 3,38% per jaar is rente, geen route naar €10.000.
+- **Waar het wel past:** als legale tweede kant voor arbitrage tegen Hyperliquid of Polymarket op dezelfde economische vraag (Fed, inflatie). Prijzen van ForecastEx zijn zonder account niet openbaar uit te lezen gevonden in deze run, dus niet gemeten.
+
+### 19. Concurrentie in jonge Polymarket-markten, per soort (eigen meting)
+**Werkwijze (GEZIEN, openbare API's, 19 nov ±04:30 UTC, twee keer gemeten):** alle markten met beloning van $10 of meer per dag die jonger zijn dan 48 uur (`clob.polymarket.com/rewards/markets/multi` voor de leeftijd, `/rewards/markets/current` voor de pot, `/books` voor het boek): 414 tot 420 markten. Per markt dezelfde puntentelling als run 3, met een nieuwe order van 200 aandelen aan beide kanten op 1 cent van het midden. Nieuw: apart gekeken naar markten met een **strak boek** (spread hoogstens 5 cent), omdat een "lege" markt (bod 0,01, laat 0,99) wel 100% aandeel geeft, maar niemand weet wat de echte prijs is; daar word je meteen leeggehaald.
+
+| Leeftijd | Markten | Waarvan boek leeg (spread > 20 cent) | Strak boek: mediaan aandeel | Strak boek: mediaan $ per dag per $200 |
+|---|---|---|---|---|
+| 0 tot 12 uur | 124 tot 126 | ±94 van 122 | 46% (11 markten) | $23 |
+| 12 tot 24 uur | 116 tot 128 | 3 | 52% (95 markten) | $11 |
+| 24 tot 48 uur | 147 tot 162 | 42 | 61% (70 markten) | $14 |
+
+(GEZIEN, eigen model; de tweede meting gaf hetzelfde beeld: 52 en 61% op dezelfde 176 markten.) Dit is lager per markt dan de $62 uit run 3, omdat ik nu ook de kleinere potten ($10 tot $50) meetel; het aandeel is vergelijkbaar of hoger.
+
+**Per soort markt (GEZIEN, zelfde meting):**
+| Soort | Markten < 48 uur | Pot per dag | Strak boek | Mediaan aandeel | Som als je overal $200 zet |
+|---|---|---|---|---|---|
+| Temperatuur per stad | 200 | $5.347 | 129 | 64% | $1.780 per dag |
+| Streamers die GTA VI uitspelen | 31 | $3.801 | 10 | 47% | $575 per dag |
+| Senaat (dagvaarding) | 9 | $450 | 7 | 47% | $174 per dag |
+| Box office openingsweekend | 24 | $297 | 0 | n.v.t. (alle boeken leeg) | n.v.t. |
+| Tweets en posts tellen | 10 | $176 | 5 | 24% | $24 per dag |
+
+**De belangrijkste ontdekking van deze run:** de grootste pot in jonge markten zit in **temperatuurmarkten**: 200 markten, $5.347 per dag, en twee derde heeft een strak boek waar een order van $200 nu het grootste deel van de beloning zou pakken (GEZIEN). Die markten zijn telbaar: ze worden beslist op één meetstation (bijv. Londen: de hoogste uurwaarde in de METAR van London City Airport, GEZIEN in de marktregels), en er bestaat gratis weerdata (Open-Meteo, ECMWF-ensemble, zonder account).
+Dat maakt een betere bot mogelijk dan "orders rond het midden van het boek": een bot die **zijn eigen eerlijke prijs uit de weerverwachting** haalt, daar omheen orders zet voor de beloning, en dus minder vaak aan de verkeerde kant gevuld wordt.
+- Eén proef, geen bewijs (GEZIEN): Londen, hoogste temperatuur 20 nov. Markt: 10°C ±54%, 9°C ±34%. Ruwe ECMWF-ensemble (51 leden, rasterpunt bij London City): 9°C 61%, 10°C 22%, 8°C 18%. Groot verschil, maar ruwe modeldata hebben een afwijking per station (en de METAR meet per uur, niet het echte maximum). Zonder terugtest op afgelopen weken zegt dit niets over wie gelijk heeft.
+- Er wordt aantoonbaar verdiend in deze markten: account gopfan2 **$1,48 miljoen** winst over 18 maanden volgens PolymarketAnalytics (DERDEN, via [PrintMoneyLab](https://www.printmoneylab.com/2026/03/weather-bot-episode-1-betting-on-temperature-polymarket.html)); neobrother ruim **$20.000** met een "ladder" van goedkope temperaturen (DERDEN, [KuCoin/Odaily](https://www.kucoin.com/news/flash/traders-on-polymarket-earn-millions-by-predicting-weather)). Zoeker A vond dat favorieten vlak voor sluiten te duur zijn in weermarkten (DERDEN, arXiv in `A-strategie-en-testen.md`). Dat zijn winnaars die bovenaan staan; verliezers schrijven geen blogs.
+- **Valt af:** twee accounts verdienden $37.000 aan vreemde pieken bij het meetstation van Parijs, met vermoeden van geknoei aan de meting (DERDEN, [Blockchain.News](https://blockchain.news/news/polymarket-paris-weather-glitch)). Aan een meetstation zitten is fraude en marktmanipulatie.
+
+**Som (GOK):** temperatuurmarkten alleen, $200 per markt in ±40 tot 60 markten tegelijk (een paar steden, elke dag nieuwe), dus $8.000 tot $12.000 aan orders. Model: rond $500 tot $700 per dag. Neem daar net als in run 4 10 tot 30% van: **$50 tot $200 per dag, $4.500 tot $18.000 in 90 dagen**. Met $2.000 tot $5.000 inleg de helft daarvan. Het verlies op vullingen hoort klein te zijn als de eigen prijs goed is, en groot als hij slecht is: precies dat moet de schaduwbot eerst meten.
+
+### Nog te doen (volgende runs)
+1. Terugtest weer: voor 5 steden de ruwe ensemble-verwachting van de dag ervoor tegen de echte METAR-uitslag van de afgelopen weken (Open-Meteo heeft archief, aviationweather.gov heeft de METAR). Zo weet je of de eigen prijs beter is dan het boek, en welke afwijking per station je moet corrigeren.
+2. Prijsgeschiedenis van afgelopen temperatuurmarkten (`clob.polymarket.com/prices-history`) naast de uitslag: hoeveel zou een maker met de beloning verdiend en op vullingen verloren hebben (zelfde aanpak als run 4, nu alleen weer).
+3. Belasting op winst bij voorspellingsmarkten en doorverkoop (staat nog open sinds run 1).
+
+---
+
+## Stand na run 06:00 (19 nov, Nederlandse tijd)
+**Vijf belangrijkste dingen tot nu toe**
+1. Kapitaal-arbitrage (beurzen, driehoek, funding, sport-overlap tussen Hyperliquid en Polymarket) haalt met weinig geld nooit €10.000 in 3 maanden: 0,007% verschil op BTC tegen 0,2 tot 0,8% kosten, funding 3 tot 11% per jaar (GEZIEN, run 1); Hyperliquid HIP-4 heeft spreads van 0,001 cent en volgt Polymarket precies (GEZIEN, run 5).
+2. Het enige "geld voor werk" dat niet van gelijk hebben afhangt: de beloning van Polymarket voor wie orders laat liggen, ±$75.500 per dag (GEZIEN). In grote oude markten krijgt een kleine order bijna niets (Fed december: 0,04 tot 0,07%, GEZIEN); in markten jonger dan 48 uur met een strak boek 46 tot 61% (GEZIEN, run 5).
+3. **Nieuw:** de grootste pot in jonge markten zit in temperatuurmarkten: 200 markten, $5.347 per dag, 64% mediaan aandeel voor een order van $200 (GEZIEN). Ze zijn telbaar met gratis weerdata, en er wordt aantoonbaar verdiend ($1,48 miljoen en $20.000, DERDEN). Dat maakt "beloning pakken met een eigen weer-prijs" de scherpste vorm van route 1.
+4. Er is geen schone uitweg voor Nederland: Polymarket verboden, Hyperliquid zonder vergunning, Kalshi geeft buitenlanders geen beloning (run 4), Interactive Brokers geeft alleen 3,38% coupon en geen makerbeloning (GEZIEN). Route 1 blijft grijs: saldo kan bevroren worden en is in Nederland niet af te dwingen (DERDEN, run 2).
+5. Tweedehands blijft de schone route, maar schaalt met uren: €60 tot €100 per telefoon, 8 tot 13 per week voor het doel (GOK op marge, prijzen GEZIEN, run 2).
+
+**Rangorde op kans maal opbrengst richting €10.000 in 3 maanden** (alle kansen GOK, met reden)
+| # | Route | Inleg geld / uren per week | Kans op €10.000 | Ergste geval |
+|---|---|---|---|---|
+| 1 | Polymarket: beloning pakken in temperatuurmarkten (en andere telbare markten < 48 uur) met een eigen bot die zijn prijs uit weerdata haalt; nooit nieuws, peilingen of lege boeken | €2.000 tot €5.000 / 15 tot 20 bouwen, daarna 5 tot 10 | 25 tot 35% (pot en aandeel GEZIEN; of de weer-prijs beter is dan het boek is nog niet getest) | saldo bevroren, niet af te dwingen in NL; slechte eigen prijs zorgt voor verlies op elke vulling |
+| 2 | Tweedehands doorverkopen met een zoekbot (Marktplaats) | €1.000 tot €2.000 / 20 tot 30 | 15 tot 25% | gestolen of kapot toestel, voorraad, blokkade |
+| 3 | Voorspellingsmarkten: gaten tussen platforms (Polymarket, Hyperliquid, Kalshi, ForecastEx) | €1.000 tot €5.000 / 20+ | 1 tot 3% (zakt: Hyperliquid volgt Polymarket tot op 0,001 cent, GEZIEN) | markten beslissen anders, beide kanten kwijt |
+| 4 | Sportarbitrage en bonussen in Nederland | €1.000 tot €3.000 / 5 tot 10 | onder 5% (plafond ±€4.000) | accounts beperkt |
+| 5 | Hyperliquid HIP-4 als maker | n.v.t. | rond 0% (geen beloning, spread 0,001 cent, GEZIEN) | n.v.t. |
+| 6 | Kalshi-beloning, ForecastEx-coupon | n.v.t. | 0% (buitenlanders uitgesloten; 3,38% per jaar, GEZIEN) | n.v.t. |
+| 7 | Odd-lot tenders, kleine promoties | een paar honderd / 1 | rond 0% | bod ingetrokken |
+| 8 | Funding-arbitrage | groot kapitaal / 2 | rond 0% met weinig geld | beurs valt om, liquidatie |
+| 9 | Spot- en driehoeksarbitrage, CS2-skins, kaartjes, airdrops, opkopers | n.v.t. | rond 0% | kosten en tijd kwijt |
+
+Verschil met run 4: route 1 blijft op 25 tot 35% maar is scherper: het meeste geld in jonge markten zit in temperatuur, en daar kan een bot een eigen prijs maken. Hyperliquid en Interactive Brokers vallen af als minder grijze kopie; Hyperliquid is wel nuttig om gratis in te dekken als een vraag op beide staat. Gaten tussen platforms zakken van 2 tot 5% naar 1 tot 3%.
