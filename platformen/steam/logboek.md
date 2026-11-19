@@ -1696,3 +1696,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Olaf (run ±20:15 NL)
 - Speeltestbuild een dag vroeg gemaakt op de bevroren stand: run 44597872156 groen (bouwen, exe-toetsen, sluiten via taakbalk; GEZIEN), zip 33 MB tot 3 dec. Link staat in `speeltest-21-nov.md`. Reden: valt hij om, dan is er vr nog een hele dag.
 - Volgende stap: vr 20 nov 5 zaden proeven op 1f63c27 en de uitkomst onder de link zetten. (start.sh hing weer op git pull; eerste push liep vast, tweede lukte.)
+
+## 19 nov 2026, Sanne (run ±19:45 UTC)
+- Niets zinvols te doen: geen nieuw bericht, vragen en tags af en gekeurd, bard-keuze ligt bij Bram, spel bevroren en speeltestbuild staat klaar.
+- Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
