@@ -113,3 +113,70 @@ Grijs (voorwaarden van het project). Detectie is sterk verbeterd: Polymarket zeg
 | 4 | Odd-lot tenders en kleine promoties | een paar honderd / 1 | rond 0% | bod ingetrokken, klein verlies |
 | 5 | Funding-arbitrage | groot kapitaal nodig / 2 | rond 0% met weinig geld | beurs valt om, liquidatie |
 | 6 | Spot- en driehoeksarbitrage, CS2-skins, airdrops | n.v.t. | rond 0% | kosten en tijd kwijt |
+
+---
+
+## Run 2 (19 nov, ±02:00 tot 02:30 Nederlandse tijd)
+Deze run: wat er na de kosten op voorspellingsmarkten echt overblijft (met een grote kostenwijziging van morgen), een eigen meting van de beloningspot voor liquiditeit, en de eerste meting aan tweedehands (Marktplaats).
+
+### 8. Polymarket verandert morgen de kosten en kortingen (belangrijk voor elke bot)
+Vanaf **vrijdag 20 nov 2026, 23:59 UTC** (GEZIEN, [docs Polymarket, fee and rebate changes](https://docs.polymarket.com/programs/fee-and-rebate-changes-november-2026.md)):
+- Takerkosten blijven `aandelen × tarief × prijs × (1 − prijs)`. Tarief 0,05 voor sport, finance, tech, verkiezingen, combo's en de 5- en 15-minuten-BTC-markten; **0,01** voor overige crypto, overige politiek, economie, cultuur, weer en "mentions"; **0** voor geopolitiek. Makers (wie een order laat liggen) betalen niets.
+- **Kortingen voor kleine spelers verdwijnen:** onder $200.000 gewogen volume per 30 dagen krijg je geen takerkorting en geen makerkorting meer. De dagelijkse makerpotten worden vervangen door treden (3 tot 15% van de takerkosten die jouw orders opleveren), alleen boven die drempel.
+- **De beloning voor liquiditeit blijft** ("Liquidity rewards remain unchanged", GEZIEN, zelfde pagina). Dat is dus de enige vergoeding die een kleine bot nog krijgt voor het neerzetten van orders.
+
+Rekenvoorbeeld (GEZIEN uit de formule): 100 aandelen op 50 cent in een markt met tarief 0,05 kost $1,25 aan takerkosten, dus 2,5% van de inleg; met tarief 0,01 nog $0,25 (0,5%). Elk "gat" moet daar dus eerst overheen, en twee kanten nemen betekent twee keer kosten.
+
+### 9. Eigen meting: hoe groot is de beloningspot voor liquiditeit?
+Openbare API `clob.polymarket.com/rewards/markets/current`, alle 16 pagina's, 19 nov ±02:15 (GEZIEN):
+- **7.963 markten** hebben een beloning, samen **±$75.700 per dag** (rond $2,3 miljoen per maand, rekensom).
+- De pot is scheef: 156 markten geven $100 of meer per dag (samen $30.700), 316 markten $50 of meer (samen $39.800); de **mediaan is $3 per dag** per markt.
+- Voorwaarden per markt: meestal minstens 20 aandelen per order en hooguit 4,5 cent van het midden (GEZIEN, velden `rewards_min_size` en `rewards_max_spread`). Hoe dichter bij het midden en hoe groter, hoe meer je krijgt (formule in de docs, kwadratisch in de afstand).
+
+Wat dit betekent: er ligt elke dag echt geld voor wie orders neerzet, en het hangt niet af van gelijk hebben. Maar (1) iedereen met een bot ziet dezelfde lijst, dus de dikke markten zijn vol (GOK); (2) wie orders laat liggen wordt geraakt als er nieuws komt ("adverse selection"): je koopt net voordat de prijs instort. Een ontwikkelaar die een open source market-making-bot kloonde en draaide, beschrijft precies dat probleem (DERDEN, [dev.to](https://dev.to/fatherson/i-cloned-a-polymarket-market-making-bot-and-ran-it-heres-what-i-learned-46ag)).
+**Som (GOK):** stel een bot pakt gemiddeld $30 tot $100 per dag aan beloning in een paar honderd kleine markten waar weinig concurrentie is, met €2.000 tot €5.000 op de boeken. Over 90 dagen is dat **$2.700 tot $9.000 bruto**, waarvan een onbekend deel weer weglekt via verliezen op orders die op het verkeerde moment gevuld worden. Reden voor deze gok: de mediaanmarkt geeft $3 per dag, dus $30 tot $100 vraagt dat je in tientallen markten een flink deel van de pot pakt. Niemand die ik vond laat aantoonbaar zien dat hij dit haalt; wel claims op dev.to zonder bewijs.
+
+### 10. Wat kleine bots echt verdienden (verslagen, geen verkooppraat)
+- **176 trades, $2 winst:** een bouwer probeerde drie routes op de 15-minuten-cryptomarkten. Alleen de echte binnen-markt-arbitrage (beide kanten samen onder $1) won, 97% van de keren, maar met $0,10 tot $0,30 per trade. "Laat momentum" en "late snipe" (kopen op 93 tot 97 cent) verloren geld, en half gevulde arbitrage veranderde in een gok met verliezen tot $20 per keer (DERDEN, [dev.to, 176 trades](https://dev.to/manja316/176-trades-on-polymarket-what-my-bot-actually-made-its-not-what-you-think-3iib)). Les: de "bijna zekere" uitkomst kopen werkt niet als één misser tien winsten opeet.
+- **Kalshi tegen Polymarket:** rond 50 cent moet het prijsverschil **3,5 tot 4,1 cent per paar** zijn om alleen de twee takerkosten te betalen; in het voorbeeld met 3 cent verschil verlies je met twee takerorders $0,38 tot $1,01 per 100 paar, en win je alleen $0,67 tot $1,30 op $97 als de Kalshi-kant als makerorder vol loopt (DERDEN, [Bot for Kalshi, 9 nov 2026](https://www.botforkalshi.com/blog/kalshi-polymarket-arbitrage.md); let op, de schrijver verkoopt zelf een Kalshi-bot). Dat is ±1% per gebeurtenis, met het geld vast tot de uitslag. Plus het risico dat de twee platforms de vraag anders beslissen.
+- **Eigen meting "bijna zeker" (GEZIEN, `gamma-api.polymarket.com/markets`, 800 actieve markten met het meeste volume, 19 nov):** 64 uitkomsten stonden op 95 tot 99,5 cent met 1 tot 30 dagen te gaan. Opbrengst per keer 0,8 tot 4,8%. De hoge getallen horen bij echte twijfel (bijv. een voetbaluitslag op 97 cent, aantal tweets van Musk), dus het is geen gratis geld maar een eerlijke prijs voor een klein risico (GOK). Omgerekend naar "per jaar" ziet het er absurd hoog uit; dat getal zegt niets omdat je het niet elke dag opnieuw kunt doen met hetzelfde geld en dezelfde kans.
+
+### 11. Nederland: wat betekent een verbod voor jou als speler
+- De Wet op de kansspelen verbiedt het **aanbieden** zonder vergunning. Dat de speler zelf strafbaar is, vond ik niet (GOK, alleen bronnen over aanbieders gezien).
+- Wel belangrijk: de rechtbank Overijssel oordeelde in apr 2024 dat een gokovereenkomst met een aanbieder zonder vergunning **nietig** is; Bwin en PokerStars moesten spelers hun verlies terugbetalen (rond €200.000 elk) (DERDEN, [NJB](https://www.njb.nl/nieuws/illegale-gokbedrijven-moeten-geld-aan-spelers-terugbetalen/), ECLI:NL:RBOVE:2024:2078). De keerzijde (GOK): winst bij zo'n aanbieder kun je in Nederland ook niet afdwingen. Als Polymarket je saldo bevriest, heb je geen poot om op te staan.
+- Belasting: nog niet nagekeken.
+
+### 12. Tweedehands: eerste meting op Marktplaats
+Openbare zoek-JSON van Marktplaats (`marktplaats.nl/lrp/api/search`, zonder account), zoekterm "iphone 13 128gb", 19 nov (GEZIEN): 1.658 advertenties. Van de eerste 30 waren 11 een gewone iPhone 13 (geen Pro) met een prijs van een particulier: **€130 tot €250, mediaan rond €190**. Handelaren met garantie vroegen €249 en €259 voor hetzelfde toestel (GEZIEN, zelfde zoekopdracht).
+- **De route:** een bot die elke paar minuten nieuwe advertenties leest en meldt wat ver onder de mediaan staat, dan zelf ophalen, nakijken en doorverkopen. Er zijn kant-en-klare scrapers en "monitors" voor Marktplaats op Apify (DERDEN, [Apify Marktplaats Monitor](https://apify.com/bostomate/marktplaats-monitor), en tien andere), dus het idee is niet nieuw.
+- **Som (GOK):** €60 tot €100 marge per telefoon na nakijken, kleine reparaties en verzendkosten. Voor €10.000 in 3 maanden zijn dat **100 tot 170 toestellen, dus 8 tot 13 per week**, met €1.000 tot €2.000 in voorraad. Dat is een (bij)baan van 20 tot 30 uur per week. Het kan, maar het is werk, geen bot die geld maakt.
+- **Risico's:** gestolen toestellen of iCloud-slot (helen is strafbaar: altijd IMEI en iCloud nakijken), oplichting, onverkochte voorraad. Marktplaats verbiedt scrapen in de voorwaarden (grijs: kans op blokkade van je IP of account, GOK). Wie stelselmatig met winst doorverkoopt, moet dat als inkomen opgeven en is mogelijk ondernemer met KvK-plicht (GOK, nakijken).
+- **Kaartjes:** TicketSwap staat doorverkopen hoger dan 20% boven de oorspronkelijke prijs niet toe (DERDEN, [TicketSwap op Medium](https://medium.com/ticketswap/how-to-change-the-secondary-ticketing-market-part-3-the-120-rule-9e52a92e4b24)). Met verkoopkosten blijft er hooguit een paar euro per kaartje over. Valt af als route naar €10.000.
+
+### Nog te doen (volgende runs)
+1. Tweedehands verder meten: een tweede product (consoles, Lego, Pokemonkaarten verzegeld) en de inkoopprijzen van opkopers (Swappie, Back Market) tegen de laagste prijzen op Marktplaats; dat zou een echte arbitrage zonder doorverkopen aan particulieren zijn.
+2. Liquiditeitsbeloning: per markt uitrekenen wat een order van 20 tot 100 aandelen nu zou verdienen gegeven het boek (openbaar), om de gok van $30 tot $100 per dag te vervangen door een meting.
+3. Belasting op winst bij voorspellingsmarkten en doorverkoop.
+
+---
+
+## Stand na run 02:30 (19 nov, Nederlandse tijd)
+**Vijf belangrijkste dingen tot nu toe**
+1. Kapitaal-arbitrage (beurzen, driehoek, funding) levert met weinig geld nooit €10.000 in 3 maanden: gemeten 0,007% verschil op BTC tegen 0,2 tot 0,8% kosten, funding 3 tot 11% per jaar (GEZIEN, run 1). Voor het doel heb je bij funding ±€500.000 nodig (GOK).
+2. Polymarket haalt op **20 nov 23:59 UTC** alle maker- en takerkortingen weg voor wie onder $200.000 volume per maand zit (GEZIEN). Wat een kleine bot overhoudt is de **liquiditeitsbeloning: ±$75.700 per dag over 7.963 markten, mediaan $3 per markt** (GEZIEN, eigen telling). Dat is de grootste pot "geld voor werk" die ik vond die niet van gelijk hebben afhangt, maar de risico's (geraakt worden bij nieuws, concurrentie van bots) zijn niet gemeten.
+3. Echte arbitrage op voorspellingsmarkten bestaat maar is klein: Kalshi tegen Polymarket vraagt 3,5 tot 4,1 cent verschil alleen voor de kosten (DERDEN), en een eerlijk verslag van 176 bot-trades eindigde op $2 winst (DERDEN). "Bijna zeker" kopen op 95 tot 99 cent is een eerlijke prijs, geen gratis geld (GEZIEN plus GOK).
+4. In Nederland is een gokovereenkomst met een aanbieder zonder vergunning nietig (DERDEN, rechtbank Overijssel 2024). Dus: winst bij Polymarket is niet af te dwingen als het saldo bevroren wordt (GOK). Dat maakt route 1 grijzer dan het lijkt.
+5. De enige route die met weinig geld wél lineair richting €10.000 schaalt, is **tweedehands doorverkopen met een zoekbot**: op Marktplaats zit tussen particulier (mediaan ±€190) en handelaar (€249 tot €259) voor een iPhone 13 rond €60 tot €100 per stuk (GEZIEN prijzen, GOK marge). Het doel vraagt dan 8 tot 13 verkopen per week: haalbaar, maar het is een baan, geen passief inkomen.
+
+**Rangorde op kans maal opbrengst richting €10.000 in 3 maanden** (alle kansen GOK, met reden)
+| # | Route | Inleg geld / uren per week | Kans op €10.000 | Ergste geval |
+|---|---|---|---|---|
+| 1 | Tweedehands doorverkopen met een zoekbot (Marktplaats, telefoons en ander spul met vaste prijsband) | €1.000 tot €2.000 / 20 tot 30 | 15 tot 25% (schaalt met uren; vraag en aanbod zijn er, GEZIEN) | gestolen of kapot toestel, onverkochte voorraad, IP of account geblokkeerd |
+| 2 | Polymarket: liquiditeitsbeloning pakken met een eigen market-making-bot | €2.000 tot €5.000 / 15+ bouwen, daarna 5 | 5 tot 10% (pot is groot, GEZIEN; eigen aandeel en verlies op vullingen onbekend) | inleg deels kwijt aan vullingen vlak voor nieuws; saldo bevroren, niet af te dwingen in NL |
+| 3 | Voorspellingsmarkten: nieuwe gaten zoeken, Kalshi tegen Polymarket | €1.000 tot €5.000 / 20+ | 2 tot 5% (bekende gaten dicht, kosten 3,5 tot 4,1 cent per paar, DERDEN) | verkeerde of verschillende beslissing van een markt, beide kanten kwijt |
+| 4 | Sportarbitrage en bonussen in Nederland | €1.000 tot €3.000 / 5 tot 10 | onder 5% (plafond ±€4.000, run 1) | accounts beperkt |
+| 5 | Odd-lot tenders, kleine promoties | een paar honderd / 1 | rond 0% | bod ingetrokken |
+| 6 | Funding-arbitrage | groot kapitaal / 2 | rond 0% met weinig geld | beurs valt om, liquidatie |
+| 7 | Spot- en driehoeksarbitrage, CS2-skins, kaartjes (TicketSwap max 20% erboven), airdrops | n.v.t. | rond 0% | kosten en tijd kwijt |
+
+Verschil met run 1: tweedehands stijgt naar plek 1 omdat het als enige met uren schaalt en nu gemeten is; voorspellingsmarkten splitsen zich in market making (blijft kansrijk door de beloningspot) en pure arbitrage (zakt door de kosten en het wegvallen van kortingen op 20 nov).
