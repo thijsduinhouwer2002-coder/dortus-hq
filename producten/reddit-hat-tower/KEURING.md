@@ -1,3 +1,32 @@
+# Herkeuring filmpje, do 19 nov 2026, keurder (agent van de hoofdchat)
+Wat ik keurde: commit 3fddb918. Filmpje `beelden/inzendfilmpje-1080x1920.mp4` (33,8 s, 1080x1920, 30 beelden per seconde, AAC; GEZIEN met ffprobe): blad van de eerste 10 s (2 per seconde), van 10,5 tot 18,5 s (4 per seconde), de knip beeld voor beeld, het hele filmpje (1 per seconde), uitsnede op ware grootte, geluid met ffmpeg. Spel: `npm test` en een dagbeurt op 390x780 met 10 beelden van het eindmoment. Beelden in /tmp, na afloop opgeruimd.
+Akkoord: ja voor het spel. Ja voor het filmpje als concept, tot de opname op Reddit (moet 4 van de keuring fase 2b blijft staan).
+
+## Moet-punten 1 tot 3 voor het filmpje
+| # | Wat ik zag | Uitslag | Zekerheid |
+|---|---|---|---|
+| 1 | **Begint in de actie.** Beeld 1 is al de grot met een vallende held; titel "Gloop's Hat Tower / a daily game on Reddit" van 0 tot ±2,4 s; eerste "PERFECT! +2 hats" op ±1,5 tot 2 s; startklank op 0 s (stilte daarna van 0,17 tot 1,66 s, tot de eerste slok). Een jury ziet in de eerste 10 s: titel, drie keer PERFECT met oplopende reeks, "One tap. 30 seconds.", "Perfect gulps stack more hats", een gouden held (+6) en een toren van 15 hoeden. Dat haakt. Klein: de held vliegt bij 0,5 s even over de "G" van de titel. | opgelost | hoog |
+| 2 | **Geen proefnamen.** Overal "r/GloopsHatTower"; geen ranglijst, geen `practice_bot`, geen `u/film...`. Het voorbeeld zegt nu "Posts as a comment from your account, under this post". Wel nog: "129 hats today" aan het begin en "Place 1 of 6 today" komen van de lokale proefspelers; dat is geen naam die raar oogt, maar ook geen echte stand. In de opname op Reddit wordt het vanzelf echt. | opgelost | hoog |
+| 3 | **Echt scherp.** Uitsnede op ware grootte (Gloop met slijmbelletjes en vonken, de tekst PERFECT): scherpe randen, geen jpeg-blokjes meer. | opgelost | hoog |
+
+## De knip (±12,0 s)
+Eén harde knip: in één beeld springt de teller van 19 naar 31 en wordt de tijdbalk korter; de rest van het beeld (toren, camera, gezamenlijke toren, "129 hats today") blijft bijna gelijk, en de tekst "Same tower for everyone today" komt pas ±0,3 s later. Omdat alleen het getal verspringt, kan het lezen als een sprong in het spel in plaats van een montage. Geen fout die een jury afschrikt, maar makkelijk netter: laat de nieuwe tekst precies op de knip verschijnen, of zet er een korte overgang op (4 tot 6 beelden overvloeien of een witte flits). Kan, geen moet.
+
+## De drie spelpunten
+| # | Wat ik toetste | Uitslag | Zekerheid |
+|---|---|---|---|
+| 1 | **Mijlpaal links.** "r/GloopsHatTower passed 150 hats today!" staat links in het lege deel, niet meer over je toren (GEZIEN, filmpje en eigen ronde). | in orde | hoog |
+| 2 | **Overvliegen groter.** Je hoeden vliegen in een grote boog naar de gezamenlijke toren, met "+53 hats" erbij, en het bordje springt van 129 naar 182 (GEZIEN). Nu goed te zien, ook in het filmpje (+56 hats). | in orde | hoog |
+| 3 | **Pauzeren telt niet als te laat.** De browser telt de tijd dat het tabblad verborgen is (`visibilitychange`) en stuurt die mee; de server trekt hem af, hoogstens 10 minuten. Toets groen (5 minuten pauze gaat goed, een uur niet). `npm test`: 22 toetsen groen. Kanttekening: de pauze komt van de browser, dus met een zelfgemaakt verzoek kun je tot ±11,5 minuten na de start insturen; dat vraagt een script en levert niets op wat het naspelen niet al tegenhoudt. | in orde | hoog |
+| 4 | Geen fouten of waarschuwingen in de console. | in orde | hoog |
+
+## Kan
+1. De knip netter (zie boven).
+2. Eindigen met een korte oproep, bijvoorbeeld "New tower every day on r/GloopsHatTower", nu eindigt het op het uitslagvel.
+3. Bij de opname op Reddit (moet 4 van fase 2b): post in de feed, tik, groot spel, en de reactie onder de post; dan zijn ook de getallen echt.
+
+---
+
 # Keuring fase 2b, do 19 nov 2026, keurder (agent van de hoofdchat)
 Wat ik keurde: commit bd77639f. Lokaal gespeeld in een kopie in /tmp (npm ci, `npm test`, `PROEF=1 npm run local`), Playwright op 390x780 (2x, aanraken) en 1280x760, een dagbeurt per maat met daarna 22 beelden van het eindmoment (elke 0,3 s). Inzendfilmpje `beelden/inzendfilmpje-1080x1920.mp4` bekeken als blad van de eerste 10 s (2 per seconde) en van het hele filmpje (1 per seconde), losse beelden op ware grootte, en het geluid gemeten met ffmpeg. Beelden in /tmp, na afloop opgeruimd.
 Akkoord: ja voor het spel. Nee voor het inzendfilmpje: dat is nog een concept (vier moet-punten hieronder, vóór de inzending).
