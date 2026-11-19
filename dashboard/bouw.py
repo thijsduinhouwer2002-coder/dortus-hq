@@ -18,6 +18,7 @@ import urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "dashboard"))
 from controle import controleer  # noqa: E402
+from oordeel import blame_tijden, nieuwste  # noqa: E402
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "dashboard", "uit")
 REPO = "thijsduinhouwer2002-coder/dortus-hq"
@@ -107,6 +108,15 @@ def commits(*paden, n=None, since=None):
 
 # ---------- projecten.json: eerst controleren ----------
 pj, fouten = controleer(lees("organisatie/projecten.json") or "")
+if not pj.get("projecten") and fouten:
+    # Kapotte JSON: toon de laatste goede stand uit de geschiedenis, met de melding erboven.
+    for h in git("log", "-n", "30", "--format=%H", "--", "organisatie/projecten.json").split():
+        oud, oud_fouten = controleer(git("show", f"{h}:organisatie/projecten.json"))
+        if oud.get("projecten"):
+            wanneer = dt.datetime.fromtimestamp(int(git("log", "-1", "--format=%ct", h) or 0), dt.timezone.utc)
+            fouten.append(f"Hieronder staat daarom de laatste goede stand: commit {h[:7]} van {wanneer.astimezone(AMS).strftime('%d-%m %H:%M')}.")
+            pj = oud
+            break
 for r in fouten:
     print("projecten.json:", r, file=sys.stderr)
 
@@ -156,16 +166,12 @@ def keuring(pad):
     tekst = lees(pad)
     if not tekst:
         return None
-    kop, akkoord, kop_akkoord, laatste_kop = "", "", "", ""
-    for r in tekst.splitlines():
-        if r.startswith("#"):
-            laatste_kop = r.lstrip("# ").strip()
-            kop = kop or laatste_kop
-        if r.lower().startswith("akkoord:") or r.lower().startswith("**akkoord"):
-            akkoord, kop_akkoord = r, laatste_kop
+    kop_eerst = next((r.lstrip("# ").strip() for r in tekst.splitlines() if r.startswith("#")), "")
+    gevonden = nieuwste(tekst, blame_tijden(git("blame", "--line-porcelain", "HEAD", "--", pad)))
+    akkoord, kop_akkoord = gevonden if gevonden else ("", "")
     ts = git("log", "-1", "--format=%ct", "--", pad)
     oordeel = "ja" if re.match(r"\W*akkoord\W*\s*\**ja", akkoord, re.I) else ("nee" if re.match(r"\W*akkoord\W*\s*\**nee", akkoord, re.I) else "")
-    titel = (kop_akkoord or kop).split(",")[0]  # "Keuring X, 19 nov 2026, keurder (...)" wordt "Keuring X"
+    titel = (kop_akkoord or kop_eerst).split(",")[0]  # "Keuring X, 19 nov 2026, keurder (...)" wordt "Keuring X"
     return {"pad": pad, "link": repo_link(pad), "kop": schoon(titel, 120),
             "akkoord": schoon(re.sub(r"^\**akkoord\**:\**\s*(?:\**(?:ja|nee)\**[,.:]?\s*)?", "", akkoord, flags=re.I), 240),
             "oordeel": oordeel,

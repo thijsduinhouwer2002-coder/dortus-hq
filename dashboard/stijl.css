@@ -96,20 +96,20 @@ h2{font-size:16px;font-weight:650;letter-spacing:-.01em}
 .doen li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:baseline}
 .doen .vink{width:14px;height:14px;border:1.5px solid var(--accent);border-radius:4px;align-self:center}
 .doen li.klein-punt .vink{border-color:var(--lijn2)}
-.doen .t{font-weight:600;font-size:14px;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.doen .t{font-weight:600;font-size:14px;line-height:1.4;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
 .doen li.klein-punt .t{font-weight:500;color:var(--grijs)}
 .doen .m{font-size:12.5px;color:var(--grijs);white-space:nowrap;text-align:right}
 .wanneer{font-weight:600;color:var(--accent-inkt)}
 .wanneer.laat{color:var(--fout)}
 .dl{list-style:none;display:flex;flex-direction:column;gap:5px}
 .dl li{display:grid;grid-template-columns:62px minmax(0,1fr) auto;gap:10px;align-items:baseline;font-size:13.5px;line-height:1.45}
-.dl .w{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dl .w{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
 .dl .d{font-family:var(--smal);font-size:16px;font-weight:600}
 .dl small{color:var(--grijs);font-size:12px;white-space:nowrap}
 
 /* ranglijst: één regel per project */
 .lijst{background:var(--vlak);border:1px solid var(--lijn);border-radius:var(--r);overflow:hidden}
-.rij,.rijkop{display:grid;grid-template-columns:22px minmax(0,1fr) 300px 104px 92px;gap:16px;align-items:center;padding:7px 18px}
+.rij,.rijkop{display:grid;grid-template-columns:22px minmax(0,1fr) 320px 104px 92px;gap:16px;align-items:center;padding:7px 18px}
 .rijkop{padding-top:9px;padding-bottom:8px;font-size:12px;color:var(--zacht);border-bottom:1px solid var(--lijn);background:var(--vlak2)}
 .rij{border-top:1px solid var(--lijn);color:inherit}
 .rijkop+.rij{border-top:0}
@@ -135,10 +135,11 @@ h2{font-size:16px;font-weight:650;letter-spacing:-.01em}
 .lat .tik{position:absolute;top:2px;width:1px;height:8px;background:var(--lijn2)}
 .lat .span{position:absolute;top:5px;height:2px;background:var(--grijs);opacity:.5}
 .lat .band{position:absolute;top:1px;height:10px;border-radius:3px;background:var(--accent);min-width:4px}
-.askop{position:relative;height:15px;font-size:11.5px}
+.askop{position:relative;height:15px;font-size:11px}
 .askop span{position:absolute;white-space:nowrap;transform:translateX(-50%)}
 .askop span.links{transform:none}
 .askop span.rechts{transform:translateX(-100%)}
+.rijkop .askop .t10000{display:none}
 
 /* projectpagina */
 .terug{display:none;font-size:14px;margin-bottom:12px}
@@ -208,6 +209,7 @@ details.uit[open] summary{border-bottom:1px solid var(--lijn)}
 @media (max-width:1100px){
   .rij,.rijkop{grid-template-columns:22px minmax(0,1fr) 250px 96px 88px;gap:12px}
   .geld{grid-template-columns:124px 1fr}
+  .rijkop .askop .t100{display:none}
   .feiten{grid-template-columns:1fr 1fr}
   .feiten>div:nth-child(3){border-left:0}
   .feiten>div:nth-child(n+3){border-top:1px solid var(--lijn)}
@@ -231,7 +233,7 @@ details.uit[open] summary{border-bottom:1px solid var(--lijn)}
   .strook{grid-template-columns:1fr}
   .strook>div+div{border-left:0;border-top:1px solid var(--lijn)}
   .doen li{grid-template-columns:auto minmax(0,1fr)}
-  .doen .t{white-space:normal}
+  .doen .t{-webkit-line-clamp:4;line-clamp:4}
   .doen .m{grid-column:2;text-align:left;white-space:normal}
   .rijkop{display:none}
   .rij{grid-template-columns:20px minmax(0,1fr) auto;grid-template-areas:"r n n" ". g d" ". k d";gap:2px 12px;padding:11px 14px 12px 12px}
@@ -243,7 +245,7 @@ details.uit[open] summary{border-bottom:1px solid var(--lijn)}
   .kanscel>.w{display:inline}
   .doen li{row-gap:0}
   .dl li{grid-template-columns:62px minmax(0,1fr);row-gap:0}
-  .dl .w{white-space:normal}
+  .dl .w{-webkit-line-clamp:4;line-clamp:4}
   .dl small{grid-column:2}
   .cel .w,.getal{font-size:17px}
   .cel .w.woord{font-size:14px}

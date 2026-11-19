@@ -2,7 +2,7 @@
 
 controleer(tekst) geeft (data, fouten): data is altijd bruikbaar voor de bouw (foute velden zijn
 weggehaald of leeg gemaakt), fouten is een lijst van zinnen in gewone woorden die het dashboard
-bovenaan de pagina toont. Ook los te draaien: python3 dashboard/controle.py [pad]
+bovenaan de pagina toont. Ook los te draaien: python3 dashboard/controle.py [pad]  (pad - leest van stdin)
 """
 import json
 import re
@@ -40,7 +40,7 @@ def controleer(tekst):
     try:
         data = json.loads(tekst)
     except json.JSONDecodeError as e:
-        return {"projecten": []}, [f"projecten.json is geen geldige JSON (regel {e.lineno}, kolom {e.colno}: {e.msg}). Het dashboard toont daarom geen projecten tot dit is opgelost."]
+        return {"projecten": []}, [f"projecten.json is geen geldige JSON (regel {e.lineno}, kolom {e.colno}: {e.msg}). Het dashboard toont tot dit is opgelost de laatste goede stand."]
     if not isinstance(data, dict) or not isinstance(data.get("projecten"), list):
         return {"projecten": []}, ["projecten.json mist de lijst 'projecten'. Het dashboard toont daarom geen projecten."]
     b = data.get("bijgewerkt")
@@ -124,8 +124,11 @@ def controleer(tekst):
 
 if __name__ == "__main__":
     pad = sys.argv[1] if len(sys.argv) > 1 else "organisatie/projecten.json"
-    with open(pad, encoding="utf-8") as f:
-        _, fouten = controleer(f.read())
+    if pad == "-":  # vanuit de controle vóór elke push: de versie die mee gaat, via stdin
+        _, fouten = controleer(sys.stdin.read())
+    else:
+        with open(pad, encoding="utf-8") as f:
+            _, fouten = controleer(f.read())
     for r in fouten:
         print("FOUT:", r)
     print("projecten.json: OK" if not fouten else f"projecten.json: {len(fouten)} fout(en)")

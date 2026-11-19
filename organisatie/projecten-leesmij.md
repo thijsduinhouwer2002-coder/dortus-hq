@@ -6,7 +6,7 @@
 
 **Schrijf voor Thijs, niet voor agents.** De statuszin, volgende stap en het risico leest Thijs in één oogopslag: gewone woorden, zoals een eigenaar het zegt ("Speelt op de computer, wacht op een tweede keuring"). Geen commit-hashes, geen run-nummers, geen vaktaal als "moet-punten", "Pending", "e2e" of "R4". Op het overzicht staat alleen het begin van de statuszin (één regel): zet het belangrijkste vooraan.
 
-**Controle:** `dashboard/bouw.py` controleert dit bestand eerst (`dashboard/controle.py`). Klopt er iets niet (geen geldige JSON, een tekst waar een getal hoort, een datum als "27 nov"), dan bouwt het dashboard toch en zet bovenaan de pagina een rode melding met wat er mis is; het foute veld wordt weggelaten. Zelf nakijken vóór een push: `python3 dashboard/controle.py`.
+**Controle:** `dashboard/bouw.py` controleert dit bestand eerst (`dashboard/controle.py`). Klopt er iets niet (geen geldige JSON, een tekst waar een getal hoort, een datum als "27 nov"), dan bouwt het dashboard toch en zet bovenaan de pagina een rode melding met wat er mis is; het foute veld wordt weggelaten. Bij een bestand dat helemaal geen geldige JSON is, toont het dashboard de laatste goede stand uit de geschiedenis, met de melding erboven. Dezelfde controle draait vanzelf vóór elke push (`.githooks/pre-push`) als `projecten.json` meegaat: klopt hij niet, dan stopt de push. Zelf nakijken: `python3 dashboard/controle.py`.
 
 ## Bovenaan
 - `bijgewerkt`: `datum` ("JJJJ-MM-DD UU:MM", NL-tijd) en `door` van de laatste ronde die het bestand naliep.
@@ -33,7 +33,7 @@
 | `links` | lijst van `naam` en `url`; een pad in de repo wordt vanzelf een GitHub-link | |
 | `cijfers` | sleutels uit het scorebord: `product|platform|maat`, precies zoals in `organisatie/scorebord-data.csv`. Het dashboard haalt waarde, bron en reeks zelf op | `Rollwright|Obsidian|downloads` |
 | `mappen` | mappen in de repo; het dashboard toont de laatste commits die ze raakten | |
-| `keuringen` | keuringsbestanden; het dashboard toont de regel "Akkoord:" en de kop | |
+| `keuringen` | keuringsbestanden; het dashboard toont het nieuwste oordeel ("Akkoord:"-regel) met de kop erboven. Nieuwste = de regel die het laatst in git kwam, dus een herkeuring mag boven- of onderaan staan | |
 
 ## Hoe het dashboard sorteert en wat het toont
 Op de overzichtstab staan projecten van Dortus eerst, gesorteerd op verwachte opbrengst (het midden van `verwacht`, dat al kans maal opbrengst is). Daarna projecten zonder schatting, dan projecten met €0, en als laatste de meetprojecten van Thijs zelf. De kop van het overzicht telt `verwacht` van alle Dortus-projecten op. Bovenaan staat ook "Stand projecten" uit `bijgewerkt`; die wordt oranje als hij ouder is dan 3 uur, dus werk `bijgewerkt` elke ronde bij, ook als er niets veranderde. GEZIEN, DERDEN of GOK staat alleen bij getallen; een woord als "middel" of "laag" krijgt geen label op het scherm, maar wel in dit bestand.

@@ -11,11 +11,20 @@ while read -r lokaal_ref lokaal_sha remote_ref remote_sha; do
   else
     reeks="$remote_sha..$lokaal_sha"
   fi
+  laatste_sha="$lokaal_sha"; laatste_reeks="$reeks"
   for c in $(git rev-list --reverse "$reeks" 2>/dev/null); do
     ouder=$(git rev-parse -q --verify "$c^" 2>/dev/null) || continue
     uit=$(python3 organisatie/controle/check.py "$ouder" "$c") || { echo "In commit ${c:0:12}:"; echo "$uit"; fout=1; }
   done
 done
+# Dashboard: gaat er een nieuwe organisatie/projecten.json mee, dan moet die door dashboard/controle.py
+# (anders toont het dashboard een rode melding). Alleen de versie aan het eind van de push telt.
+if [ -f dashboard/controle.py ] && [ -n "${laatste_sha:-}" ] && git log --format= --name-only "$laatste_reeks" -- organisatie/projecten.json 2>/dev/null | grep -q .; then
+  if ! git show "$laatste_sha:organisatie/projecten.json" 2>/dev/null | python3 dashboard/controle.py - ; then
+    echo "Push gestopt: organisatie/projecten.json klopt niet (zie de regels FOUT hierboven, uitleg in organisatie/projecten-leesmij.md)."
+    exit 1
+  fi
+fi
 if [ $fout -ne 0 ]; then
   echo "Push gestopt door de controle van de openbare repo. Haal het weg uit ALLE commits hierboven (git rebase of opnieuw committen) en push dan."
   exit 1
