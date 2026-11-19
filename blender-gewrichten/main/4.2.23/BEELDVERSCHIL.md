@@ -1,33 +1,9 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (main)
-GROOT: 24 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 52 plaatjes vergeleken)
-Referentie: referentie uit run 44427731945, commit 7f492ff2ac453e02558e0883d9288cb90f2df75b, 2026-11-19T00:31:01Z
+GROOT: 9 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 28 plaatjes vergeleken)
+Referentie: referentie uit run 44432253445, commit c803ba2bd2ae6baf038e170a04ea761943d31a0b, commitdatum 1795049433, 2026-11-19T01:08:38Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
-| 1-paneel.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 10-winkel-paneel.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 11-scharnier.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 12-scharnier-rood.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 13-pro-knie-schoon.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 13-pro-knie.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 13d-pro-knie-dicht.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 14-pro-knie-rood.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 14b-pro-knie-rood-los.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 15-figuur.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 16-figuur-rig.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 17-figuur-heel.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 19-mens.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 2-gewricht.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 3-kijkrichting.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 4-material-preview.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 5-waaier.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 6-rood.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 7-plat.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 8-winkel.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| 9-winkel-rood.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| p13-d.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| p13-e.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
-| p14b-e.png | LEEG: (bijna) helemaal één kleur (standaardafwijking 0.00) | GROOT |
 | 1-paneel-x.png | gelijk | |
 | 10-winkel-paneel-x.png | gelijk | |
 | 11-scharnier-x.png | gelijk | |
@@ -37,22 +13,46 @@ Referentie: referentie uit run 44427731945, commit 7f492ff2ac453e02558e0883d9288
 | 13d-pro-knie-dicht-x.png | gelijk | |
 | 14-pro-knie-rood-x.png | gelijk | |
 | 14b-pro-knie-rood-los-x.png | gelijk | |
-| 15-figuur-paneel.png | gelijk | |
-| 15-figuur-x.png | gelijk | |
-| 16-figuur-rig-paneel.png | gelijk | |
-| 16-figuur-rig-x.png | gelijk | |
-| 17-figuur-heel-paneel.png | gelijk | |
-| 17-figuur-heel-x.png | gelijk | |
-| 19-mens-paneel.png | gelijk | |
-| 19-mens-x.png | gelijk | |
+| 15-figuur-paneel.png | 96243 px (36.830%), x 16 tot 252, y 0 tot 888 | GROOT |
+| 15-figuur-x.png | 96513 px (4.654%), x 651 tot 1547, y 81 tot 969 | GROOT |
+| 16-figuur-rig-paneel.png | 87851 px (33.618%), x 16 tot 260, y 0 tot 887 | GROOT |
+| 16-figuur-rig-x.png | 87851 px (4.237%), x 1311 tot 1555, y 81 tot 968 | GROOT |
+| 17-figuur-heel-paneel.png | 88235 px (33.765%), x 16 tot 252, y 0 tot 896 | GROOT |
+| 17-figuur-heel-x.png | 88235 px (4.255%), x 1311 tot 1547, y 81 tot 977 | GROOT |
+| 19-mens-paneel.png | 101427 px (35.639%), x 16 tot 252, y 3 tot 962 | GROOT |
+| 19-mens-x.png | 101427 px (4.891%), x 1645 tot 1881, y 84 tot 1043 | GROOT |
 | 2-gewricht-x.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
-| 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 14 px (0.001%), ruis | |
+| 4-material-preview-x.png | 117994 px (5.690%), x 67 tot 825, y 130 tot 741 | GROOT |
+| 5-waaier-x.png | 11 px (0.001%), ruis | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | gelijk | |
+| 7-plat-x.png | 47 px (0.002%), ruis | |
 | 8-winkel-x.png | gelijk | |
 | 9-winkel-rood-x.png | gelijk | |
 | p13-d-x.png | gelijk | |
 | p13-e-x.png | gelijk | |
 | p14b-e-x.png | gelijk | |
+| 1-paneel.png | verdwenen (wel in de referentie) | |
+| 10-winkel-paneel.png | verdwenen (wel in de referentie) | |
+| 11-scharnier.png | verdwenen (wel in de referentie) | |
+| 12-scharnier-rood.png | verdwenen (wel in de referentie) | |
+| 13-pro-knie-schoon.png | verdwenen (wel in de referentie) | |
+| 13-pro-knie.png | verdwenen (wel in de referentie) | |
+| 13d-pro-knie-dicht.png | verdwenen (wel in de referentie) | |
+| 14-pro-knie-rood.png | verdwenen (wel in de referentie) | |
+| 14b-pro-knie-rood-los.png | verdwenen (wel in de referentie) | |
+| 15-figuur.png | verdwenen (wel in de referentie) | |
+| 16-figuur-rig.png | verdwenen (wel in de referentie) | |
+| 17-figuur-heel.png | verdwenen (wel in de referentie) | |
+| 19-mens.png | verdwenen (wel in de referentie) | |
+| 2-gewricht.png | verdwenen (wel in de referentie) | |
+| 3-kijkrichting.png | verdwenen (wel in de referentie) | |
+| 4-material-preview.png | verdwenen (wel in de referentie) | |
+| 5-waaier.png | verdwenen (wel in de referentie) | |
+| 6-rood.png | verdwenen (wel in de referentie) | |
+| 7-plat.png | verdwenen (wel in de referentie) | |
+| 8-winkel.png | verdwenen (wel in de referentie) | |
+| 9-winkel-rood.png | verdwenen (wel in de referentie) | |
+| p13-d.png | verdwenen (wel in de referentie) | |
+| p13-e.png | verdwenen (wel in de referentie) | |
+| p14b-e.png | verdwenen (wel in de referentie) | |
