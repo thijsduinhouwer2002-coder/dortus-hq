@@ -469,3 +469,82 @@ De markt is een dag vooraf **goed geijkt**: de favoriet kost gemiddeld 46 cent e
 | 8 | Spot- en driehoeksarbitrage, CS2-skins, kaartjes, airdrops, opkopers | n.v.t. | rond 0% | kosten en tijd kwijt |
 
 Verschil met run 5: route 1 zakt licht (25 tot 35% naar 20 tot 30%), omdat de hoop op een eigen, betere weer-prijs wegvalt; de beloning zelf blijft staan en de bot wordt eenvoudiger. "Gelijk krijgen in weermarkten" staat nu apart als route 3 met minder dan 5%.
+
+---
+
+## Run 7 (19 nov, ±07:25 tot 08:00 Nederlandse tijd)
+Deze run: punt 1 en 3 van "nog te doen" uit run 6. Hoeveel verliezen makers in temperatuurmarkten op vullingen, per moment (rond de modelruns, op de dag zelf)? En hoe snel gaat het winnende vakje op de dag zelf naar 1? Plus een eerste stap op belasting.
+
+### 21. Eigen meting: verlies op vullingen in temperatuurmarkten, per moment
+**Werkwijze (GEZIEN, openbare API's, geen account, 19 nov ±06:25 UTC):** dezelfde 12 steden als run 6, dagen 5 tot 17 nov: **156 events, 1.716 vakjes, 196.182 trades, ±$3,62 miljoen** verhandeld (`gamma-api.polymarket.com/events?slug=highest-temperature-in-<stad>-on-<maand>-<dag>-2026`, trades uit `data-api.polymarket.com/v2/trades?condition=<id>`; let op: de parameter heet nu `condition`, niet `market`, GEZIEN). Per trade: wat de maker (de kant die liet liggen) won of verloor, gemeten tegen de **uitslag** (0 of 1) en tegen de **prijs 1 uur later** (laatste trade in dat vakje). De foutmarge (±, twee keer de standaardafwijking) is alleen voor de meting tegen de uitslag.
+
+**Per moment, ten opzichte van de lokale dag waarover het gaat (GEZIEN, eigen berekening):**
+| Moment | Verhandeld | Makers tegen uitslag | Makers 1 uur later |
+|---|---|---|---|
+| Meer dan 24 uur vooraf | $209.000 | −$46 (0,0% ±2,3) | −$2.275 (−1,1%) |
+| 0 tot 24 uur vooraf | $856.000 | −$3.531 (−0,4% ±1,3) | −$6.276 (−0,7%) |
+| Dag zelf, 00 tot 12 uur lokaal | $1.055.000 | +$4.430 (+0,4% ±0,7) | −$1.908 (−0,2%) |
+| Dag zelf, 12 tot 18 uur lokaal | $1.219.000 | −$2.115 (−0,2% ±0,4) | −$230 (0,0%) |
+| Dag zelf, na 18 uur lokaal | $286.000 | −$1.657 (−0,6% ±0,8) | −$1.710 (−0,6%) |
+| **Totaal** | **$3.624.000** | **−$2.919 (−0,1%)** | **−$12.400 (−0,3%)** |
+
+**Rond de modelruns (alleen trades vóór de dag, per blok van 6 uur UTC, GEZIEN):** 00 tot 06 uur −1,0%, 06 tot 12 uur −1,1%, 12 tot 18 uur −0,5%, 18 tot 24 uur −0,7% (1 uur later). Tegen de uitslag liggen alle vier binnen de foutmarge van nul (±1,9 tot ±2,8%). Er is **geen duidelijk slecht moment** te zien; 06 tot 12 UTC is het slechtst, maar dat is binnen de ruis (GOK, te weinig data voor meer).
+Per stad springen Wellington (−5,4%) en Tokio (−2,4%) eruit en Toronto en Buenos Aires (+4,5 tot +4,8%) de andere kant op (GEZIEN, vóór de dag). Met ±$50.000 tot $150.000 per stad is dat waarschijnlijk toeval (GOK).
+
+**Hoe snel gaat de winnaar naar 1 op de dag zelf (GEZIEN, prijs van de laatste trade in het winnende vakje, 156 dagen):**
+| Lokaal uur | Gemiddelde prijs winnaar | Mediaan | Nog onder 90 cent |
+|---|---|---|---|
+| 00:00 | 0,39 | 0,41 | 99% |
+| 10:00 | 0,42 | 0,44 | 97% |
+| 12:00 | 0,48 | 0,48 | 93% |
+| 14:00 | 0,67 | 0,78 | 66% |
+| 16:00 | 0,90 | 0,99 | 18% |
+| 18:00 | 0,95 | 1,00 | 7% |
+
+Tot de middag weet de markt nauwelijks meer dan de avond ervoor; **tussen 12 en 16 uur lokaal valt de beslissing**, als de hoogste waarde van de dag gemeten wordt. Daar is het een race tegen bots die de METAR lezen (gopfan2, run 5). Meer dan de helft van alle handel ($1,5 miljoen van $3,6 miljoen) gebeurt op de dag zelf na 12 uur (GEZIEN).
+
+**Beloning ernaast (GEZIEN, `clob.polymarket.com/rewards/markets/current`, één momentopname 19 nov ±06:30 UTC, deze 12 steden):** per event per dag $34 (vandaag, 19 nov), $63 (morgen) en $132 (overmorgen, net geopend). Opgeteld over het leven van een event dus ±$230, waarvan ±$195 (85%) vóór de dag zelf (GOK: één momentopname, aangenomen dat elke dag zo verloopt). Opvallend: bij Londen hadden de meeste vakjes vandaag en morgen **geen** beloning meer; die zit vooral in nieuwe events en enkele steden (GEZIEN).
+
+**Som per event (GOK, uit bovenstaande GEZIEN-cijfers):**
+- Vóór de dag: alle makers samen ±$6.800 gevuld, verlies ±$23 (uitslag) tot ±$55 (1 uur later) per event. Beloning in die periode ±$195. **De beloning is 4 tot 8 keer zo groot als het verlies van alle makers samen.**
+- Op de dag zelf: ±$16.400 gevuld per event (70% van alle handel) voor ±$34 beloning. Daar verdien je weinig en loop je de race na 12 uur.
+- **Stopregel die hieruit volgt:** orders weg om middernacht lokale tijd van de dag zelf. Dan mis je ±15% van de beloning en ontloop je ±70% van alle vullingen. Een klok per modelrun lijkt niet nodig (geen slecht moment gevonden). Dat maakt de bot nog eenvoudiger dan in run 6 gedacht.
+
+**Grenzen (eerlijk):**
+- Dit zijn **alle makers samen**. Een beloningsbot staat vlak bij het midden en wordt vaker gevuld dan het gemiddelde, en juist bij een snelle beweging. Zijn verlies per dollar kan 2 tot 3 keer hoger zijn (GOK). Ook dan blijft de beloning vóór de dag groter dan het verlies, maar de marge wordt kleiner.
+- "1 uur later" is de laatste trade, niet het echte midden; dat geeft ruis door het verschil tussen bod en laat (GOK, geen vaste kant).
+- 13 dagen in november, 12 steden, Celsius. De beloning is één momentopname.
+- De beloning wordt verdeeld met andere makers: run 5 mat 64% aandeel voor een order van $200 in jonge temperatuurmarkten (GEZIEN, run 5). Hoeveel daarvan blijft als er meer bots komen, is de grote onbekende.
+
+### 22. Belasting: eerste stap (nog niet af)
+- De Belastingdienst heeft een apart formulier "aangifte kansspelbelasting prijzen buitenlandse kansspelen" (DERDEN, [formulier, versie 1](https://download.belastingdienst.nl/belastingdienst/docs/aangif_ka_prijzen_buitenl_ka0042z29fol.pdf), [versie 2](https://download.belastingdienst.nl/belastingdienst/docs/aangif_ka_prijzen_buitenl_ka0042z230fol.pdf); niet te openen vanaf deze server, alleen in zoekresultaten gezien). Bij een buitenlandse aanbieder moet de speler dus zelf aangifte doen. Het tarief zou in 2026 37,8% zijn (DERDEN, alleen kop gezien van [Expert Zoom](https://expert-zoom.com/nl/nieuws/eredivisie-wedstrijden-2026-kansspelbelasting-nettowinst-berekenen), nakijken).
+- **Of Polymarket voor de belasting een kansspel is** (de Ksa vindt van wel, DERDEN run 1) of een belegging (box 3), en of een beloning voor liquiditeit "prijs" is, weet ik niet (GOK). Dat verschil is groot: bij 37,8% kansspelbelasting op de winst wordt €10.000 netto ±€16.000 bruto (GOK, rekensom). **Vraag dit aan een belastingadviseur voordat er echt geld in gaat**; zwijgen is belasting ontduiken en valt af.
+
+### Nog te doen (volgende runs)
+1. Vullingen meten voor een order **vlak bij het midden**, niet alle makers samen: per trade kijken hoe ver de prijs van het midden lag (boek per 10 minuten), en alleen trades binnen 1 tot 2 cent tellen.
+2. Hoe de beloning per event over de dagen verloopt (een paar keer per dag dezelfde events uitlezen), in plaats van één momentopname.
+3. Belasting nakijken bij een betrouwbare bron (Belastingdienst, fiscalist): kansspel of box 3, en wat geldt voor beloningen.
+
+---
+
+## Stand na run 08:00 (19 nov, Nederlandse tijd)
+**Vijf belangrijkste dingen tot nu toe**
+1. Kapitaal-arbitrage (beurzen, driehoek, funding, overlap tussen platforms) haalt met weinig geld nooit €10.000 in 3 maanden: 0,007% verschil op BTC tegen 0,2 tot 0,8% kosten, funding 3 tot 11% per jaar (GEZIEN, run 1); Hyperliquid HIP-4 volgt Polymarket tot op 0,001 cent (GEZIEN, run 5).
+2. Het enige "geld voor werk" dat niet van gelijk hebben afhangt: de beloning van Polymarket voor wie orders laat liggen. In oude markten krijgt een kleine order bijna niets (0,04 tot 0,07%, GEZIEN); in jonge markten met een strak boek 46 tot 64% (GEZIEN, run 5). Grootste pot: temperatuurmarkten.
+3. Temperatuurmarkten zijn een dag vooraf goed geprijsd; een gratis weermodel verliest van het boek (48% tegen 30% raak, GEZIEN, run 6). De bot neemt dus gewoon het midden van het boek als prijs.
+4. **Nieuw:** het verlies op vullingen is in temperatuurmarkten klein. Over $3,6 miljoen handel in 156 events verloren alle makers samen 0,1% (tegen de uitslag) tot 0,3% (1 uur later) (GEZIEN). Vóór de dag zelf is de beloning ±4 tot 8 keer zo groot als dat verlies (GOK op beloning uit één momentopname). De beslissing valt op de dag zelf tussen 12 en 16 uur lokaal (winnaar van 48 naar 99 cent mediaan, GEZIEN); stoppen om middernacht lokale tijd kost ±15% van de beloning en ontloopt ±70% van de vullingen (GOK uit GEZIEN-cijfers).
+5. Route 1 blijft grijs in Nederland (Polymarket verboden, saldo kan bevroren worden, DERDEN run 1 en 4) en de belasting is onduidelijk: als kansspelbelasting van ±37,8% geldt, moet er ±€16.000 bruto uit voor €10.000 netto (DERDEN op tarief, nakijken; GOK op toepassing). Tweedehands blijft de schone route die met uren schaalt (run 2).
+
+**Rangorde op kans maal opbrengst richting €10.000 in 3 maanden** (alle kansen GOK, met reden)
+| # | Route | Inleg geld / uren per week | Kans op €10.000 | Ergste geval |
+|---|---|---|---|---|
+| 1 | Polymarket: beloning pakken in jonge temperatuurmarkten (en andere telbare markten < 48 uur), prijs = midden van het boek, orders weg om middernacht lokale tijd van de dag zelf; nooit nieuws, peilingen of lege boeken | €2.000 tot €5.000 / 10 tot 15 bouwen, daarna 5 tot 10 | 25 tot 30% (verlies op vullingen nu gemeten en klein, GEZIEN; grootste onbekende is concurrentie en of een bot vlak bij het midden meer verliest; belasting kan de netto opbrengst ±40% verlagen) | saldo bevroren, niet af te dwingen in NL; meer bots verdunnen de pot; belastingaanslag achteraf |
+| 2 | Tweedehands doorverkopen met een zoekbot (Marktplaats) | €1.000 tot €2.000 / 20 tot 30 | 15 tot 25% | gestolen of kapot toestel, voorraad, blokkade |
+| 3 | Weermarkten "gelijk krijgen" (eigen model of race op de dag zelf met METAR) | €1.000 tot €3.000 / 20+ | onder 5% (gratis model verliest van het boek, run 6; de race na 12 uur lokaal is tegen snelle bots, run 7) | inleg langzaam kwijt |
+| 4 | Voorspellingsmarkten: gaten tussen platforms (Polymarket, Hyperliquid, Kalshi, ForecastEx) | €1.000 tot €5.000 / 20+ | 1 tot 3% | markten beslissen anders, beide kanten kwijt |
+| 5 | Sportarbitrage en bonussen in Nederland | €1.000 tot €3.000 / 5 tot 10 | onder 5% (plafond ±€4.000) | accounts beperkt |
+| 6 | Hyperliquid HIP-4 als maker, Kalshi-beloning, ForecastEx-coupon | n.v.t. | rond 0% (geen beloning of buitenlanders uitgesloten, GEZIEN) | n.v.t. |
+| 7 | Odd-lot tenders, kleine promoties, funding-arbitrage | klein / 1 tot 2 | rond 0% met weinig geld | bod ingetrokken, beurs valt om |
+| 8 | Spot- en driehoeksarbitrage, CS2-skins, kaartjes, airdrops, opkopers | n.v.t. | rond 0% | kosten en tijd kwijt |
+
+Verschil met run 6: route 1 gaat iets omhoog (20 tot 30% naar 25 tot 30%), omdat het verlies op vullingen nu gemeten is en klein blijkt, en de stopregel eenvoudig is (middernacht lokaal, geen klok per modelrun). De bovenkant gaat niet omhoog vanwege de onduidelijke belasting en omdat een bot vlak bij het midden meer kan verliezen dan het gemiddelde van alle makers.
