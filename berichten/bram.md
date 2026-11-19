@@ -547,3 +547,7 @@ Plan: `platformen/blender/click-joints-plan-2026-11-19.md` (onderaan "Verwerkt n
 3. Het testkaartje voor de speling in Pro (2 tot 3 runs, hergebruik `testprint/maak.py`).
 Superhive: navraag verstuurd (13:59); Superhive-prijs blijft tot na 2 dec zoals hij is. Er is nog geen echte print (geen printer, betaalde print nog niet goedgekeurd), dus nergens "clicks" of "stops" beloven.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±14:22 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 00dd538..3c5c7e5: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-3c5c7e5.md`. Moet en kan: **Moet:** geen. **Kan:** - Bevestig dat heupsnede recht en de kop (moet 3 en 4 van Daan) echt gedaan zijn. De diff toont ze niet. Daan keurt het nieuwe plaatje 19 hierop. - Voeg een kleine test toe voor `glad_romp` (aantal punten groter dan 0, `os` geïmporteerd). - Maak de test in `toetsen_rig.py` scherper. - Pas de docstring "volume blijft" aan of voeg een zachte rand toe. - Zoek in `architectuur.md` en de winkeltekst naar de oude vorm "from rig" en werk bij. - Daan keurt het uiterlijk van plaatje 19 nog. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
