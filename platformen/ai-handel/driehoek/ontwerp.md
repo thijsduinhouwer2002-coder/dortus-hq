@@ -37,9 +37,11 @@ driehoeken per beurs en een GOK-som voor €2.000 en €5.000 van (MiCA en grijs
   metingen daartussen) elk minstens €100 diepte met winst hadden, en de latere meting minstens €0,05 winst gaf.
   Alle bedragen in het rapport zijn die van die latere meting (wat er na 3 seconden nog stond), niet van het beste
   moment. Code: `volgen.py` (bevestigd), grenzen ook in `rapport.py` (dat draait met python3 -I).
-- **Eén kans, niet vier (moet 2):** driehoeken op dezelfde beurs die tegelijk openstonden en minstens één paar
-  delen, willen hetzelfde stukje boek. Het rapport voegt ze samen tot één kans (union-find over tijd en paar) en
-  telt alleen de beste. Zo telt één scheve prijs op een altcoin/BTC-paar niet via EUR, USD, USDT en USDC vier keer.
+- **Eén kans, niet vier (moet 2, herkeuring H3):** driehoeken worden één kans als ze op dezelfde beurs zitten,
+  binnen 5 seconden van elkaar bevestigd werden (rond het moment na 3 seconden, niet over de hele open-tijd) en
+  een paar delen dat geen paar van twee hoofdmunten is (EUR, USD, USDT, USDC, BTC, ETH). Geen ketting: de beste
+  begint een groep, een andere driehoek komt erbij alleen als hij met elk lid dezelfde kans is (`kans.py`). Het
+  rapport zet ernaast de som met elke driehoek los (bovengrens); samengevoegd is de ondergrens.
 - Diepte in euro: hij rekent de winst uit bij ±45 bedragen van €10 tot ±€75.000 (stappen van 25%, plus €100,
   €150 en €200). Diepte = het kleinste bedrag waarmee je 99% van de hoogste winst pakt (meer erin levert niets
   meer op). Ook de winst bij €100, €150, €200, €500, €1.000, €2.000, €5.000 en €10.000 (je mag minder inleggen als
@@ -65,10 +67,11 @@ versie, niet altijd de EU-versie met vergunning. Bitstamp is gratis onder $1.000
 
 ## Bestanden en waarom zo gesplitst (keuring B1)
 `kosten.py` (tarieven, minimum, stapgrootte, vergunning), `reken.py` (driehoeken zoeken, beste prijs, boek
-aflopen), `volgen.py` (een driehoek volgen en bevestigen), `driehoek.py` (de draden per beurs en het
+aflopen), `volgen.py` (een driehoek volgen en bevestigen), `kans.py` (echt en samenvoegen), `driehoek.py` (de draden per beurs en het
 wegschrijven), `rapport.py` (los, draait met python3 -I). Elk onder de 400 regels.
 
 ## Herstart en opslaan (na de keuring)
-De klok start de vaste run alleen opnieuw bij een push die code raakt (`*.py`, `opslaan.sh`, de workflow), niet
-bij tekst (README, KEURING.md). Na een stopsignaal wacht de meter hooguit 5 seconden op de draden en schrijft dan
+De klok start de vaste run alleen opnieuw bij een push die code raakt (`*.py`, `opslaan.sh`, de workflow, en
+`../scanner/beurzen.py`, omdat dat de koppelingen en een deel van de kosten bepaalt), niet bij tekst (README,
+KEURING.md). Na een stopsignaal wacht de meter hooguit 5 seconden op de draden en schrijft dan
 alles weg; GitHub stopt een afgebroken stap na ±10 seconden hard, en de opslaan-stap draait daarna altijd.

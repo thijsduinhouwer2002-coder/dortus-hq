@@ -10,7 +10,9 @@ name: Driehoek-meter (onderzoek ai-handel)
 # interval 6h) of hij aan de beurt is. Met de hand starten (opdrachtbestand) is een proefrun: eigen rij, raakt de
 # klok en de vaste run niet. Na de meetweek (EINDE) slaat de vaste run het meten over; verlengen = EINDE aanpassen.
 # Herstart alleen bij een push die code raakt (*.py, opslaan.sh, deze workflow); een push met alleen tekst (README,
-# KEURING.md) laat de lopende run doorlopen (keuring A16).
+# KEURING.md) laat de lopende run doorlopen (keuring A16). Ook scanner/beurzen.py herstart hem (keuring H7): dat
+# bestand bepaalt de koppelingen en een deel van de kosten van de meter; liever een herstart dan zes uur met oude
+# kosten, ook al verandert het soms een paar keer per dag.
 on:
   schedule:
     - cron: "47 5,11,17,23 * * *"
@@ -49,7 +51,7 @@ jobs:
           sparse-checkout: organisatie/controle
       - id: klok
         if: steps.week.outputs.na == 'nee'
-        run: python3 -I organisatie/controle/klok.py driehoek 6h --paden "platformen/ai-handel/driehoek/*.py,platformen/ai-handel/driehoek/opslaan.sh,.github/workflows/driehoek.yml"
+        run: python3 -I organisatie/controle/klok.py driehoek 6h --paden "platformen/ai-handel/driehoek/*.py,platformen/ai-handel/driehoek/opslaan.sh,platformen/ai-handel/scanner/beurzen.py,.github/workflows/driehoek.yml"
 
   meet:
     needs: klok

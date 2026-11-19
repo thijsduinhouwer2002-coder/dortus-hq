@@ -26,7 +26,8 @@ STATUS = {"bitvavo": "MiCA", "kraken": "MiCA", "bitstamp": "MiCA", "okx": "MiCA-
 
 FIAT = {"EUR", "USD", "GBP", "CAD", "AUD", "JPY", "CHF"}
 STABIEL = {"USDT", "USDC", "DAI", "PYUSD", "EURC", "USDG", "RLUSD", "USD1", "TUSD", "USDE", "FDUSD", "EURQ",
-           "EUROP", "EURCV", "USDQ", "USDS", "EURR", "USDR"}
+           "EUROP", "EURCV", "USDQ", "USDS", "EURR", "USDR",
+           "USDGO"}   # USDGO: dollar-stablecoin van OSL (DERDEN coingecko.com/en/coins/usdgo; Kraken bod/laat 0,9999/1,0001)
 # Kraken "pegged-token pairs" (voorbeeld op de tarievenpagina: TBTC/BTC). Staking-munten als LSETH/ETH en METH/ETH
 # rekenen we voorzichtig als gewone cryptoparen (0,80%): de pagina noemt ze niet.
 GEKOPPELD = {("TBTC", "BTC"), ("WBTC", "BTC")}

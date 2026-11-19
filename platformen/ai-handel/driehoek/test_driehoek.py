@@ -127,7 +127,7 @@ class TestKosten(unittest.TestCase):
         self.assertEqual(K.kosten("kraken", ("TBTC", "BTC"), {})[0], 0.002)
         self.assertEqual(K.kosten("kraken", ("WBTC", "BTC"), {})[0], 0.002)
         self.assertEqual(K.kosten("kraken", ("LSETH", "ETH"), {})[0], 0.008)   # niet genoemd: voorzichtig
-        self.assertEqual(K.kosten("kraken", ("USDGO", "USD"), {})[0], 0.008)   # een andere munt dan USDG
+        self.assertEqual(K.kosten("kraken", ("USDGO", "USD"), {})[0], 0.002)   # andere stablecoin dan USDG: 0,20%
 
     def test_bitstamp_en_okx(self):
         self.assertEqual(K.kosten("bitstamp", ("BTC", "EUR"), {})[0], 0.004)
@@ -213,16 +213,17 @@ class TestVolgen(unittest.TestCase):
 
 
 def regel(beurs="okx", status="MiCA-dochter", winst=5.0, diepte=1000, duur=10, verdacht=False, dag="2026-11-20",
-          min_inleg=10, begin="10:00:00", eind="10:00:10", paren=("BTC-EUR", "ETH-BTC", "ETH-EUR"), na_3s=True):
+          min_inleg=10, begin="10:00:00", eind="10:00:10", na_t=None, driehoek="EUR>BTC>ETH>EUR", na_3s=True):
     wb = {str(k): min(winst, winst * k / diepte) for k in Rk.VASTE}
-    na = {"t": f"{dag}T{begin}Z", "winst_eur": winst, "diepte_eur": diepte, "pct": 0.5, "best_eur": diepte,
+    na = {"t": f"{dag}T{na_t or begin}Z", "winst_eur": winst, "diepte_eur": diepte, "pct": 0.5, "best_eur": diepte,
           "min_inleg_eur": min_inleg, "winst_bij": wb} if na_3s and duur >= 3 and diepte >= 100 else None
     h = {"begin": f"{dag}T{begin}Z", "eind": f"{dag}T{eind}Z", "checks": 3, "winst_eur": winst,
          "diepte_eur": diepte, "pct": 0.5, "best_eur": diepte, "duur_s": duur, "duur_100_s": duur,
          "min_inleg_eur": min_inleg, "winst_bij": wb, "na_3s": na}
-    return {"beurs": beurs, "status": status, "driehoek": "EUR>BTC>ETH>EUR", "kosten": [0.001] * 3, "zeker": True,
-            "paren": list(paren), "hoog": h, "laag": h, "winst_mediaan_eur": winst, "duur_s": duur,
-            "verdacht": verdacht, "begin": h["begin"], "eind": h["eind"]}
+    m = driehoek.split(">")
+    return {"beurs": beurs, "status": status, "driehoek": driehoek, "kosten": [0.001] * 3, "zeker": True,
+            "paren": [f"{m[i]}-{m[i + 1]}" for i in range(3)], "hoog": h, "laag": h, "winst_mediaan_eur": winst,
+            "duur_s": duur, "verdacht": verdacht, "begin": h["begin"], "eind": h["eind"]}
 
 
 class TestRapport(unittest.TestCase):
@@ -236,15 +237,15 @@ class TestRapport(unittest.TestCase):
         r["hoog"] = None
         self.assertFalse(R.echt(r))
 
-    def test_zelfde_kans_telt_een_keer(self):
-        a = regel(winst=5.0)
-        b = regel(winst=3.0, begin="10:00:05", eind="10:00:20", paren=("BTC-EUR", "XRP-BTC", "XRP-EUR"))
-        c = regel(winst=4.0, beurs="mexc", status="grijs")                                  # andere beurs
-        d = regel(winst=2.0, begin="11:00:00", eind="11:00:10")                              # later
-        e = regel(winst=1.0, begin="10:00:05", eind="10:00:08", paren=("ADA-EUR", "ADA-USDT", "USDT-EUR"))
-        groepen = R.kansen([a, b, c, d, e])
-        self.assertEqual(sorted(len(g) for g in groepen), [1, 1, 1, 2])
+    def test_zelfde_kans_via_eur_en_usdt_telt_een_keer(self):
+        # één scheve XRP/BTC-prijs, gezien via EUR en via USDT in dezelfde ronde: één kans, de beste telt
+        a = regel(winst=5.0, driehoek="EUR>BTC>XRP>EUR", na_t="10:00:03")
+        b = regel(winst=3.0, driehoek="USDT>BTC>XRP>USDT", na_t="10:00:04")
+        self.assertEqual(len(R.kansen([a, b])), 1)
         self.assertEqual(R.beste([a, b])["hoog"]["winst_eur"], 5.0)
+        self.assertEqual(len(R.kansen([a, regel(winst=3.0, driehoek="USDT>BTC>XRP>USDT", na_t="10:00:09")])), 2)
+        self.assertEqual(len(R.kansen([a, regel(winst=3.0, driehoek="USDT>BTC>XRP>USDT", na_t="10:00:04",
+                                               beurs="mexc", status="grijs")])), 2)
         with tempfile.TemporaryDirectory() as dd:
             os.makedirs(os.path.join(dd, "2026-11-20", "run-1"))
             with open(os.path.join(dd, "2026-11-20", "run-1", "driehoeken.jsonl"), "w") as fh:
@@ -254,8 +255,34 @@ class TestRapport(unittest.TestCase):
                     fh.write(json.dumps({"beurs": "okx", "status": "MiCA-dochter", "t": "2026-11-20T10:00:00Z"}) + "\n")
             t = R.maak(dd)
             self.assertIn("| 2026-11-20 | Alle beurzen | 2 | 1 |", t)
-            self.assertIn("| Alle beurzen | €5.000 | 1,0 | €5,00 |", t)                 # niet 5 + 3
-            self.assertIn("1 echte kansen die met €100 konden", t)
+            self.assertIn("| Alle beurzen | €5.000 | 1,0 / 2,0 | €5,00 / €8,00 |", t)   # samengevoegd en los
+            self.assertIn("1 echte kansen die met €100 konden (2 als je elke driehoek los telt", t)
+
+    def test_keuring_a_alleen_hoofdpaar_gedeeld(self):
+        # (a) twee losse scheve paren (BTC/XRP en BTC/ADA) die alleen het diepe BTC/EUR delen: twee kansen
+        a = regel(winst=5.0, driehoek="EUR>BTC>XRP>EUR", na_t="10:00:03")
+        b = regel(winst=4.0, driehoek="EUR>BTC>ADA>EUR", na_t="10:00:03")
+        self.assertEqual(len(R.kansen([a, b])), 2)
+
+    def test_keuring_b_geen_ketting(self):
+        # (b) A deelt EUR/XRP met B, B deelt EUR/DOT met C, A en C delen niets: A en C nooit samen
+        a = regel(winst=3.0, driehoek="EUR>XRP>BTC>EUR", na_t="10:00:03")
+        b = regel(winst=5.0, driehoek="EUR>XRP>DOT>EUR", na_t="10:00:03")
+        c = regel(winst=4.0, driehoek="EUR>DOT>SOL>EUR", na_t="10:00:03")
+        groepen = R.kansen([a, b, c])
+        self.assertEqual(len(groepen), 2)
+        for g in groepen:
+            self.assertFalse(a in g and c in g)
+
+    def test_keuring_c_lange_open_tijd_voegt_niet_samen(self):
+        # (c) een driehoek die 2 uur openstaat, voegt twee kansen die 80 minuten uit elkaar liggen niet samen
+        a = regel(winst=3.0, driehoek="EUR>BTC>XRP>EUR", begin="10:00:00", eind="10:00:10", na_t="10:00:03")
+        b = regel(winst=5.0, driehoek="USDT>BTC>XRP>USDT", begin="10:00:00", eind="12:00:00", na_t="10:00:04")
+        c = regel(winst=4.0, driehoek="USDC>BTC>XRP>USDC", begin="11:20:00", eind="11:20:10", na_t="11:20:03")
+        groepen = R.kansen([a, b, c])
+        self.assertEqual(len(groepen), 2)
+        for g in groepen:
+            self.assertFalse(a in g and c in g)
 
     def test_soort(self):
         self.assertEqual(R.soort(regel(status="MiCA")), "vergund")

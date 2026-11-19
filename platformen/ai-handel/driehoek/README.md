@@ -39,7 +39,8 @@ Alleen openbare API's: geen account, geen sleutel, geen handel, geen geld.
 - Workflow `.github/workflows/driehoek.yml`, naar het voorbeeld van de scanner: één job van ±5 uur 25 minuten,
   daarna de volgende. Hij start 4 keer per dag op een vast tijdstip en bij elke push naar main; de klok
   (`organisatie/controle/klok.py`, interval 6 uur) beslist of hij aan de beurt is. Een push die de code raakt
-  (`*.py` in deze map, `opslaan.sh` of de workflow) start de vaste run opnieuw met de nieuwe code; een push met
+  (`*.py` in deze map, `opslaan.sh`, `../scanner/beurzen.py` of de workflow) start de vaste run opnieuw met de
+  nieuwe code; een push met
   alleen tekst (README, KEURING.md) niet. Bij afbreken schrijft de meter binnen 5 seconden alles weg en zet de
   opslaan-stap de data alsnog op de tak.
 - Meetweek: tot en met **27 nov 2026**. Daarna slaat de vaste run het meten over. Verlengen: `EINDE` in de
@@ -69,9 +70,15 @@ hadden kunnen pakken.
 
 **Eén kans, niet vier.** Eén scheve prijs op bijvoorbeeld een altcoin/BTC-paar zit op Kraken in meerdere
 driehoeken tegelijk (via EUR, USD, USDT en USDC). Die willen allemaal hetzelfde stukje orderboek, en dat kun je
-maar één keer leeghalen. Daarom voegt het rapport driehoeken op dezelfde beurs die tegelijk openstonden en
-minstens één paar delen samen tot **één kans**, en telt het alleen de beste. Aantallen per dag en de opschaling
-gaan over kansen, niet over driehoeken.
+maar één keer leeghalen. Daarom voegt het rapport driehoeken samen tot **één kans** (de beste telt) als ze:
+- op dezelfde beurs zitten,
+- binnen 5 seconden van elkaar bevestigd werden (het moment na 3 seconden, niet de hele tijd dat ze openstonden),
+- en een paar delen dat **geen** paar van twee hoofdmunten is (EUR, USD, USDT, USDC, BTC, ETH). Twee driehoeken die
+  alleen BTC/EUR of BTCUSDT delen, pakken elkaar niets af: die paren zijn diep genoeg.
+Er wordt niet doorgeketend: een driehoek hoort alleen bij een kans als hij met **elk** lid ervan zo'n paar deelt.
+Omdat samenvoegen ook te streng of te ruim kan zijn, staan in het korte antwoord en de opschaling beide getallen:
+**samengevoegd** (ondergrens) en **los** (elke driehoek apart, bovengrens). Regels van vóór 19 nov 16:07 UTC (van
+vóór de keuring) hebben geen meting na 3 seconden en tellen nooit als echt.
 
 Alles staat apart voor **MiCA** (de beurs of een EU-dochter heeft een vergunning in het ESMA-register) en
 **grijs** (geen vergunning). In het rapport:
@@ -117,7 +124,7 @@ Tien minuten zeggen weinig: het rapport wordt zinvol na een dag (4 vaste runs) e
 
 | Beurs | Taker | Bron |
 |---|---|---|
-| Kraken | 0,80% op cryptoparen; 0,20% op FX-, stablecoin- en pegged-token paren (TBTC/BTC, WBTC/BTC); 0,01% op USDG-paren; 0% op alle USDe-paren | GEZIEN, [kraken.com/pro/fees](https://www.kraken.com/pro/fees), 19 nov 2026: Tier 1 spot maker 0,40% taker 0,80%; "FX, stablecoin-base and pegged-token pairs" 0,20%; "USDG ($0+) Taker 0.01%"; "USDe (Any) Taker 0.00%, All USDe pairs". Staking-munten (LSETH/ETH, METH/ETH, CMETH/ETH) noemt de pagina niet: die rekenen we als crypto (0,80%, voorzichtig). De korting van 0,02% op 634 paren rekenen we niet mee (voorzichtig) |
+| Kraken | 0,80% op cryptoparen; 0,20% op FX-, stablecoin- (ook USDGO, een dollar-stablecoin volgens [CoinGecko](https://www.coingecko.com/en/coins/usdgo), DERDEN) en pegged-token paren (TBTC/BTC, WBTC/BTC); 0,01% op USDG-paren; 0% op alle USDe-paren | GEZIEN, [kraken.com/pro/fees](https://www.kraken.com/pro/fees), 19 nov 2026: Tier 1 spot maker 0,40% taker 0,80%; "FX, stablecoin-base and pegged-token pairs" 0,20%; "USDG ($0+) Taker 0.01%"; "USDe (Any) Taker 0.00%, All USDe pairs". Staking-munten (LSETH/ETH, METH/ETH, CMETH/ETH) noemt de pagina niet: die rekenen we als crypto (0,80%, voorzichtig). De korting van 0,02% op 634 paren rekenen we niet mee (voorzichtig) |
 | Bitvavo | 0,25% (categorie A, euro-paren) | GEZIEN, [support.bitvavo.com](https://support.bitvavo.com/hc/en-us/articles/4405175148689): "maximum fee of 0.25%" |
 | Bitvavo | USDC- en stablecoinparen (categorie B, C, D in de API): hoog 0,25%, laag 0% | Bitvavo noemt ze lager, maar de tarievenpagina geeft ons geen getal (403). Rapport rekent met 0,25%; met 0% staat apart als bovengrens (GOK) |
 | KuCoin | 0,1% x klasse x coëfficiënt uit de API | klasse en coëfficiënt GEZIEN (API), 0,1% per klasse GOK (zoals de scanner) |
@@ -158,6 +165,7 @@ Bitvavo, Kraken, Bitstamp. Via een EU-dochter: OKX, KuCoin, Gate. Grijs (niet in
 | `volgen.py` | een driehoek volgen en bevestigen (na 3 seconden nog €100 diepte) |
 | `rapport.py` | het rapport uit de data |
 | `opslaan.sh` | zet de data op de tak `ai-handel-data`, map `driehoek/` (nooit geforceerd) |
+| `kans.py` | wat telt als echt, en welke driehoeken samen één kans zijn (voor het rapport) |
 | `test_driehoek.py` | tests van de rekensom, de kosten, het volgen, het samenvoegen tot kansen en het rapport |
 | `ontwerp.md` | waarom zo gebouwd |
 | `../scanner/beurzen.py` | de koppelingen met de beurzen (hergebruikt van de scanner) |

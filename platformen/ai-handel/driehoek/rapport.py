@@ -13,10 +13,10 @@ Een ECHTE driehoek (alles moet waar zijn), gerekend met de kosten "hoog" (zie on
   3. bij die latere meting (wat er na MIN_DUUR seconden nog stond) was de winst minstens MIN_WINST euro;
   4. niet verdacht (meer dan 5% winst per rondje is bijna altijd een dode markt of foute ticker).
 Alle bedragen per kans zijn die van de latere meting, niet van het beste moment.
-Dezelfde kans telt één keer: driehoeken op dezelfde beurs die tegelijk openstonden en een paar delen, vormen samen
-één kans (de beste telt). MiCA (de beurs of een EU-dochter heeft een vergunning in het ESMA-register) en grijs
+Samengevoegd tot één kans (ondergrens, zie kans.py): zelfde beurs, binnen SAMEN_S seconden van elkaar bevestigd,
+een gedeeld paar dat geen paar van twee hoofdmunten is, zonder doorketenen. Los geteld staat ernaast (bovengrens). MiCA (de beurs of een EU-dochter heeft een vergunning in het ESMA-register) en grijs
 staan apart. Elk cijfer is GEZIEN (uit onze eigen metingen) of GOK (een aanname, met reden).
-Dit bestand draait met python3 -I (zonder de map in het zoekpad); de grenzen staan daarom ook in volgen.py.
+Dit bestand draait met python3 -I; het zet zijn eigen map daarom zelf in het zoekpad (voor kans.py).
 """
 import collections
 import glob
@@ -25,65 +25,9 @@ import os
 import statistics
 import sys
 
-MIN_DIEPTE = 100
-MIN_DUUR = 3
-MIN_WINST = 0.05
-INLEGGEN = (100, 150, 200, 2000, 5000)
-KLEIN = (100, 150, 200)
-STAND_S = 300
-VERGUND = {"MiCA", "MiCA-dochter"}
-SOORTEN = (("alle", "Alle beurzen"), ("vergund", "MiCA (ook via EU-dochter)"), ("grijs", "Grijs"))
-
-
-def soort(r):
-    return "vergund" if r.get("status") in VERGUND else "grijs"
-
-
-def van(rs, s):
-    return rs if s == "alle" else [r for r in rs if soort(r) == s]
-
-
-def na(r, scen="hoog"):
-    """De meting die bevestigt dat hij bleef staan (na MIN_DUUR seconden, met MIN_DIEPTE diepte), of None."""
-    return (r.get(scen) or {}).get("na_3s")
-
-
-def echt(r, scen="hoog"):
-    n = na(r, scen)
-    return bool(n) and n.get("winst_eur", 0) >= MIN_WINST and n.get("diepte_eur", 0) >= MIN_DIEPTE \
-        and not r.get("verdacht")
-
-
-def wb(r, inleg):
-    return (na(r) or {}).get("winst_bij", {}).get(str(inleg), 0) or 0
-
-
-def kansen(echte):
-    """Groepeer driehoeken die dezelfde kans zijn: zelfde beurs, tegelijk open (tijden overlappen) en minstens één
-    paar gemeen. Ze willen hetzelfde stukje boek; dat kun je maar één keer leeghalen. Geeft een lijst groepen."""
-    ouder = list(range(len(echte)))
-
-    def wortel(i):
-        while ouder[i] != i:
-            ouder[i] = ouder[ouder[i]]
-            i = ouder[i]
-        return i
-
-    for i, a in enumerate(echte):
-        for j in range(i + 1, len(echte)):
-            b = echte[j]
-            if a["beurs"] == b["beurs"] and a["begin"] <= b["eind"] and b["begin"] <= a["eind"] \
-                    and set(a.get("paren", [])) & set(b.get("paren", [])):
-                ouder[wortel(i)] = wortel(j)
-    groepen = collections.defaultdict(list)
-    for i, r in enumerate(echte):
-        groepen[wortel(i)].append(r)
-    return list(groepen.values())
-
-
-def beste(groep, inleg=None):
-    """De beste driehoek van een groep: bij een inleg de hoogste winst bij die inleg, anders de hoogste winst."""
-    return max(groep, key=lambda r: wb(r, inleg) if inleg else na(r)["winst_eur"])
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # draait met python3 -I: eigen map erbij
+from kans import (INLEGGEN, KLEIN, MIN_DIEPTE, MIN_DUUR, MIN_WINST, SAMEN_S, SOORTEN, STAND_S, VANAF,  # noqa: E402
+                  beste, echt, kansen, los, na, opgeteld, soort, van, wb)
 
 
 def lees(map_, met_proef=False):
@@ -153,6 +97,7 @@ def kort_antwoord(echte, stand, gem_dagen):
     for s, n in (("vergund", "Op de beurzen met vergunning (MiCA, ook via een EU-dochter)"),
                  ("grijs", "Op de grijze beurzen (geen vergunning)")):
         groepen = [g for g in kansen(van(echte, s)) if wb(beste(g, 100), 100) > 0]
+        losse = [g for g in los(van(echte, s)) if wb(g[0], 100) > 0]
         if not groepen:
             bm = [x["beste_marge_med"] for x in stand if soort(x) == s and x.get("beste_marge_med") is not None]
             zinnen.append(f"{n}: nog geen enkele driehoek die je met €100 tot €200 had kunnen pakken. Na de kosten"
@@ -160,10 +105,13 @@ def kort_antwoord(echte, stand, gem_dagen):
                           + (f" De beste driehoek per ronde zat in de mediaan op {pct(med(bm), 2)} (negatief ="
                              " verlies; positief zegt nog niet dat er op het boek iets te halen was)." if bm else ""))
             continue
-        w = {k: sum(wb(beste(g, k), k) for g in groepen) / gem_dagen for k in (100, 200)}
-        zinnen.append(f"{n}: {len(groepen)} echte kansen die met €100 konden ({getal(len(groepen) / gem_dagen)} per"
-                      f" dag), samen {eur(w[100])} per dag met €100 en {eur(w[200])} per dag met €200 (GOK,"
-                      " bovengrens: je pakt ze allemaal, als eerste, met het geld al op de juiste beurs).")
+        w = {k: opgeteld(groepen, k)[0] / gem_dagen for k in (100, 200)}
+        wl = {k: opgeteld(losse, k)[0] / gem_dagen for k in (100, 200)}
+        zinnen.append(f"{n}: {len(groepen)} echte kansen die met €100 konden ({len(losse)} als je elke driehoek los"
+                      f" telt; {getal(len(groepen) / gem_dagen)} per dag). Samen {eur(w[100])} tot {eur(wl[100])}"
+                      f" per dag met €100 en {eur(w[200])} tot {eur(wl[200])} per dag met €200 (GOK; het lage getal"
+                      " voegt driehoeken samen die hetzelfde stukje boek willen, het hoge telt ze los; allebei alsof"
+                      " je ze allemaal als eerste pakt, met het geld al op de juiste beurs).")
     u.append(" ".join(zinnen))
     u += ["", "Uitleg: **takerkosten** zijn wat de beurs per order rekent als je meteen koopt of verkoopt tegen de"
               " prijs die er ligt (0% tot 0,8% per order; een driehoek is drie orders). **Diepte** is hoeveel euro je"
@@ -191,8 +139,13 @@ def maak(map_, met_proef=False):
           f"Een **echte driehoek**: winst na drie keer takerkosten op het orderboek, op twee metingen die minstens"
           f" {MIN_DUUR} seconden uit elkaar liggen elk minstens {eur(MIN_DIEPTE, 0)} diepte, bij de latere meting minstens"
           f" {eur(MIN_WINST)} winst, en niet meer dan 5% winst (verdacht). Alle bedragen zijn die van de latere meting:"
-          f" wat er na {MIN_DUUR} seconden nog stond. Driehoeken op dezelfde beurs die tegelijk openstonden en een paar"
-          " deelden, tellen als **één kans** (de beste telt): ze willen hetzelfde stukje orderboek.", ""]
+          f" wat er na {MIN_DUUR} seconden nog stond. Driehoeken op dezelfde beurs die binnen {SAMEN_S} seconden van"
+          " elkaar bevestigd werden en een paar delen dat geen paar van twee hoofdmunten is (EUR, USD, USDT, USDC,"
+          " BTC, ETH), tellen als **één kans** (de beste telt): ze willen hetzelfde stukje orderboek. Er wordt niet"
+          " doorgeketend: een driehoek hoort alleen bij een kans als hij met elk lid ervan dat stukje deelt. Omdat"
+          " samenvoegen ook te streng kan zijn, staan aantallen en geld er ook los geteld bij (bovengrens).", "",
+          f"Regels van vóór {VANAF.replace('T', ' ')} UTC (vóór de keuring) hebben geen meting na 3 seconden en"
+          " tellen daarom nooit als echt. Daar zat ook niets in dat 3 seconden met €100 diepte stond.", ""]
 
     # ----- dekking per beurs
     u += ["## Per beurs: hoe gemeten en hoe dicht bij winst", "",
@@ -234,7 +187,7 @@ def maak(map_, met_proef=False):
     ]
     for naam, f in stappen:
         u.append(f"| {naam} | " + " | ".join(str(sum(1 for r in van(rs, s) if f(r))) for s, _ in SOORTEN) + " |")
-    u.append("| echte **kansen** (samen genomen als ze hetzelfde boek willen) | "
+    u.append("| echte **kansen** (samengevoegd als ze hetzelfde stukje boek willen; ondergrens) | "
              + " | ".join(str(len(kansen(van(echte, s)))) for s, _ in SOORTEN) + " |")
     u += ["", "De lage kosten verschillen alleen bij Bitvavo (categorie B, C en D: USDC- en stablecoinparen; Bitvavo"
               " noemt ze lager dan 0,25% maar geeft geen getal, dus laag = 0%, GOK). Overal elders is laag gelijk aan"
@@ -315,23 +268,24 @@ def maak(map_, met_proef=False):
     # ----- opschaling
     u += ["## Opschaling naar €100, €150, €200, €2.000 en €5.000 inleg (GOK)", "",
           "Per echte kans nemen we de winst die je bij die inleg na 3 seconden nog had kunnen maken (minder inleggen"
-          " mag als het boek dunner is; alleen bedragen die de minimale ordergrootte halen). Driehoeken die dezelfde"
-          " kans zijn (zelfde beurs, tegelijk open, een paar gemeen) tellen één keer, met de beste. Opgeteld per"
-          " gemeten dag en dan maal 30 voor een maand.", "",
-          "| Soort | Inleg | Echte kansen per dag | Winst per dag | Per maand (GOK) | Alleen de beste beurs, per maand (GOK) |",
+          " mag als het boek dunner is; alleen bedragen die de minimale ordergrootte halen). Opgeteld per gemeten"
+          " dag en dan maal 30 voor een maand.", "",
+          "Elk getal staat er twee keer: **samengevoegd** (ondergrens: driehoeken die op hetzelfde moment, binnen"
+          f" {SAMEN_S} seconden na hun bevestiging, hetzelfde niet-hoofdpaar gebruiken, tellen als één kans; een paar"
+          " van twee hoofdmunten zoals BTC/EUR of BTCUSDT telt daarbij niet, en er wordt niet doorgeketend) en"
+          " **los** (bovengrens: elke driehoek apart).", "",
+          "| Soort | Inleg | Kansen per dag (samengevoegd / los) | Winst per dag (samengevoegd / los) | Per maand (GOK, samengevoegd / los) | Alleen de beste beurs, per maand (GOK, samengevoegd) |",
           "|---|---|---|---|---|---|"]
     for s, n in SOORTEN:
-        groepen = kansen(van(echte, s))
+        groepen, losse = kansen(van(echte, s)), los(van(echte, s))
         for inleg in INLEGGEN:
-            per_b = collections.Counter()
-            for g in groepen:
-                r = beste(g, inleg)
-                per_b[r["beurs"]] += wb(r, inleg)
-            w = sum(per_b.values())
+            w, per_b = opgeteld(groepen, inleg)
+            wl, _ = opgeteld(losse, inleg)
             # met weinig geld staat alles op één beurs: ook de beste enkele beurs (achteraf gekozen)
             bb, bw = per_b.most_common(1)[0] if per_b else ("-", 0)
-            u.append(f"| {n} | {eur(inleg, 0)} | {getal(len(groepen) / gem_dagen)} |"
-                     f" {eur(w / gem_dagen)} | {eur(30 * w / gem_dagen)} | {bb}: {eur(30 * bw / gem_dagen)} |")
+            u.append(f"| {n} | {eur(inleg, 0)} | {getal(len(groepen) / gem_dagen)} / {getal(len(losse) / gem_dagen)} |"
+                     f" {eur(w / gem_dagen)} / {eur(wl / gem_dagen)} | {eur(30 * w / gem_dagen)} /"
+                     f" {eur(30 * wl / gem_dagen)} | {bb}: {eur(30 * bw / gem_dagen)} |")
     u += ["", "Waarom dit te rooskleurig is (GOK):", "",
           "- Het is een **bovengrens**: je pakt elke kans, op elke beurs tegelijk, met het geld al op die beurs."
           " Met weinig geld staat alles op één beurs; de laatste kolom neemt alleen de beste beurs (achteraf"
