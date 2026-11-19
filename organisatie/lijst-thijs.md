@@ -3,7 +3,7 @@
 **Regel (17 nov, Thijs): nooit meer dan 5 punten.** Alleen wat echt alleen Thijs kan: geld uitgeven, inloggen met wachtwoord, eigen gegevens, voorwaarden accepteren, Reddit. Al het andere doet de hoofdchat zelf, of probeert het eerst zelf. Agents zetten niets meer direct hier: ze melden het in `berichten/hoofdchat.md`, de hoofdchat kiest. De oude lijst staat in `organisatie/lijst-thijs-archief-2026-11-17.md`.
 
 ## Nu (max 5)
-1. **Eerst, vóór vr 20 nov 15:00 NL (±5 min): @dortusstudio in de TikTok-app gratis omzetten naar zakelijk account en de Gumroad-link van Click Joints Pro in de bio zetten.** Reden: vrijdag 16:00 gaat de enige Pro-post uit, en zonder klikbare link kan die niets verkopen (onderzoeker B run 6: profiel heeft geen link, `commerceUser: false`, GEZIEN 19 nov 05:50 UTC). Is het vrijdag 15:00 niet gedaan, dan schuift de hoofdchat die TikTok een week op. Liefst ook (±2 min) in YouTube Studio een kanaallink naar Gumroad bovenaan @Dortusapps: links onder een Short zijn niet klikbaar. Loskoppelen in Metricool is NIET nodig.
+1. **(Vervallen 19 nov 10:35) TikTok-bio-link.** Zakelijk account vraagt sinds 2026 bedrijfsverificatie met KvK-documenten (dagen). Thijs koos: geen verificatie nu; de Pro-TikTok van vr 20 nov verwijst naar `dortus.com/click-joints` (over te typen) en gaat gewoon door. Klikbare verkoopweg = lange YouTube-video van Chris. Later eventueel verificatie als Thijs dat wil.
 2. **Insider Gaming "New Year, New Games 2027" inzenden, vóór wo 25 nov** (±10 min). Zelfde bestand, deel "Showcase: Insider Gaming". Vragen ze geld: niet doen zonder jouw besluit.
 3. **(Klein, mag wachten) Reddit-label van de r/blender-post** op "Free Tools & Assets" zetten (1 min). Reddit kan de hoofdchat niet openen.
 
