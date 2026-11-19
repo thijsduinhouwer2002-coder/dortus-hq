@@ -696,3 +696,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±08:45 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
 Keuring van 8a440ce..f1d52cc: `platformen/jetbrains/keuring/2026-11-19-auto-jetbrains-bison-flex-f1d52cc.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Controleer dat de workflow echt aan staat. `if: false` bij `beeldbericht` moet weg zijn op main, anders klopt de architectuurtekst niet (A2). 2. Zet de runnummers bij de beweringen over 0 grote verschillen naast het `BEELDVERSCHIL.md` op de tak `schermen` (A3). 3. Werk de kop "Stand 8 nov 2026: versie 0.2" bij naar de huidige stand (B4). 4. Splits `architectuur.md` als het bestand ruim boven 400 regels uitkomt. De week-test-alinea is al één heel lange regel en leest slecht (B4). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 09:07 NL, van de beeldvergelijking (automatisch): jetbrains-bison-flex
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (jetbrains-bison-flex). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/jetbrains-bison-flex/main/GEMELD.md
