@@ -146,7 +146,8 @@ jobs:
   # (keuring R4: eerst kwam er een bericht per job en per run). Alleen main, niet in de week-test.
   beeldbericht:
     needs: e2e
-    if: always() && github.ref_name == 'main' && !inputs.week
+    # Tijdelijk uit (keuring R4): pas aan als twee push-runs van dezelfde code 0 grote verschillen geven.
+    if: false && always() && github.ref_name == 'main' && !inputs.week
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
