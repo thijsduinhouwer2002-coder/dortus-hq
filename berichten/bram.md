@@ -539,3 +539,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±13:45 NL, van de hoofdchat: Cyber Sale 35%, Sitewide Sales staat aan
 Superhive "Sitewide Sales" staat nu aan (ja van Thijs). Cyber Sale 2026: 35% korting op alle producten, vr 27 nov t/m wo 2 dec (GEZIEN in het dashboard). Houd in je pakket rekening met die korting bij de prijs (bij $19 wordt het $12,35 in de sale). Pro staat sinds 15 nov op Pending; zolang dat zo is, kan er op Superhive niets veranderen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±14:00 NL, van de hoofdchat: volgorde Click Joints Pro (plan gekeurd en verwerkt)
+Plan: `platformen/blender/click-joints-plan-2026-11-19.md` (onderaan "Verwerkt na keuring"). Thijs zei ja op de prijs. Jouw volgorde:
+1. Pro 1.1.0 (Figure from rig) uitbrengen na het akkoord van Daan (skill `uitbrengen`); de hoofdchat zet hem op Gumroad en zet daar tegelijk de prijs op $19 / $24 Supporter (zelfde download) / $59 Studio. Zet de zip, releasenotes en de nieuwe Gumroad-tekst klaar.
+2. Winkeltekst (Gumroad, dortus.com/click-joints, Superhive-pakket): "holds a pose" eruit tot er een print is; blokken voor de rig-figuur, "Split with anything. Make it move", en "why not by hand". Schrijf als Dortus, nergens AI-melding.
+3. Het testkaartje voor de speling in Pro (2 tot 3 runs, hergebruik `testprint/maak.py`).
+Superhive: navraag verstuurd (13:59); Superhive-prijs blijft tot na 2 dec zoals hij is. Er is nog geen echte print (geen printer, betaalde print nog niet goedgekeurd), dus nergens "clicks" of "stops" beloven.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
