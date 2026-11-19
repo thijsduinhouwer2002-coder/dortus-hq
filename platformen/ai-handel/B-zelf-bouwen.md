@@ -492,3 +492,64 @@ Polymarket is in oktober 2026 naar de rechter in Den Haag gestapt tegen het verb
 3. **Het echte risico zit in de vullingen bij nieuws**: de markten met de hoogste beloning per maker zijn juist markten met een vast nieuwsmoment. Elk verslag van een echte beloningsbot dat ik vond eindigde op verlies (runs 4 tot 6).
 4. **De pot is stabiel groot**: ±$56.000 per dag in de top 1.000, ±$13.500 daarvan in markten van de laatste dagen (GEZIEN, twee metingen een uur uit elkaar).
 5. **Vaste regels blijven**: alleen `polymarket-client`, Session Key en nooit de hoofdsleutel, malware rond Polymarket-bots is echt, en in Nederland is het verboden door de Ksa; Polymarket vecht dat sinds oktober aan bij de rechter, zonder uitspraak (DERDEN).
+
+## Run 7 (19 nov 2026, ±07:00 Nederlandse tijd)
+
+Deze run: het getal dat volgens run 6 beslist, namelijk hoeveel makers verliezen op vullingen in de markten die de schaduwbot nu zou kiezen. D mat dit in run 4 voor jonge markten in hun eerste 48 uur; ik meet de huidige top 100 op beloning over de laatste 24 uur, met een prijs per minuut, en toets of je een slechte markt op tijd kunt herkennen. Alleen openbare API's gelezen, geen account, niets uitgevoerd van anderen.
+
+### 38. Gereedschap: Data API v1 is uit, gebruik v2 (GEZIEN)
+- `data-api.polymarket.com/trades` geeft nu alleen nog "Data API v1 has been retired"; v1 stopte op 2 nov 2026 (GEZIEN, [Migrate from Data API v1 to v2](https://docs.polymarket.com/migrate/data-api-v1-to-v2.md)). Nieuw: `/v2/trades?condition=<condition_id>`, antwoord in `data`, bladeren met `pagination.next_cursor` in plaats van `offset`, velden in snake_case, `taker_only` staat standaard aan (elke vulling één keer). Oude parameters `market` en `offset` geven een fout 400.
+- Een AI die code schrijft uit oude voorbeelden gebruikt bijna zeker v1 (GOK). Zet dit expliciet in de opdracht, samen met de punten uit run 5.
+- Python-scripts zonder eigen User-Agent kregen bij mij fout 403 op alle routes; met een gewone User-Agent werkte het (GEZIEN). Klein, maar het kost een uur zoeken als je het niet weet.
+- `clob.polymarket.com/prices-history?market=<token_id>&interval=1d&fidelity=1` geeft een prijs per minuut zonder account (GEZIEN). Of dat het midden of de laatste trade is, zeggen de docs niet; de halve centen wijzen op het midden (GOK).
+
+### 39. Eigen meting: verlies op vullingen in de huidige top 100 (GEZIEN, eigen berekening, 19 nov ±06:00 UTC)
+Werkwijze: de 100 markten met de hoogste `rate_per_day` uit `/rewards/markets/multi`; per markt alle taker-trades van de laatste 24 uur uit `/v2/trades` (15.920 trades, ±$2,36 miljoen omzet); per trade wat de maker won of verloor als je de prijs 5 en 60 minuten later neemt (markout, inclusief de winst op de spread). 94 markten hadden genoeg handel.
+
+| | 94 markten, 24 uur |
+|---|---|
+| Beloningspot (dagbedrag nu) | ±$25.000 |
+| Resultaat alle makers samen, 5 min na de vulling | −$7.600 |
+| Resultaat alle makers samen, 60 min na de vulling | **−$12.000** |
+| Mediaan per markt: verlies als deel van de pot (60 min) | **9%** |
+| Markten waar het verlies groter was dan de pot | 14 van 94 |
+| Markten waar pot plus makerresultaat negatief was | 14 van 94 |
+
+Per soort markt (indeling door mij gemaakt na het zien van de cijfers, dus met korrel zout):
+| Soort | Markten | Omzet | Makers na 60 min | Pot per dag |
+|---|---|---|---|---|
+| Beursgang Anthropic (prijsbandjes) | 26 | ±$993.000 | −$800 (maar per markt van −$15.200 tot +$6.900) | $8.200 |
+| Nieuws en politiek (Iran, Israel, NVIDIA-topman, Fed, Trump) | 54 | ±$1.319.000 | −$9.300 | $14.000 |
+| Overig, vooral "maakt streamer X GTA VI af" | 14 | ±$46.000 | −$2.000 | $2.800 |
+
+Wat dit zegt (GEZIEN als som, de uitleg is GOK):
+- **De mediaan klopt met D (8 tot 9%)**, maar het gemiddelde niet: buiten de Anthropic-markten verloren makers samen ±67% van de pot. Het verlies zit in een paar markten die in één klap omslaan.
+- **Streamer-markten zijn geen rustige telbare markten.** Wie de stream live kijkt, weet het eerst en pakt de makers. Ze horen bij nieuwsmarkten, niet bij D's "telbaar of gepland".
+- De prijsbandjes rond de beursgang van Anthropic zijn één grote gok op de richting: makers verloren $15.200 in één bandje en wonnen $6.900 in een ander. Voor een kleine bot is dat geen beloning maar voorraadrisico.
+
+### 40. Kun je een slechte markt op tijd zien? Nauwelijks (GEZIEN, zelfde data, gesplitst in twee halve dagen)
+Toets: het verlies als deel van de pot in de eerste 12 uur tegenover de tweede 12 uur, 76 markten met handel in beide helften.
+- Rangcorrelatie tussen de twee helften: **0,26** (zwak).
+- Een remregel "stop met een markt als makers daar in de eerste helft meer dan de helft van de beloning verloren": die schrapte 17 markten, maar de andere 59 verloren in de tweede helft samen $8.600 tegen $8.200 halve pot. De regel ving het verlies dus niet.
+- De vijf slechtste markten van de tweede helft (een Anthropic-bandje −$15.100, "Jensen Huang terug bij NVIDIA" −$2.100, twee Israel-Iran-bestanden, de Fed) stonden in de eerste helft allemaal rond nul of in de plus.
+- Zonder dat ene Anthropic-bandje verdienden makers in de tweede helft samen +$5.600 bovenop $9.700 halve pot. Eén markt bepaalt dus de uitkomst van de dag.
+
+**Wat dit verandert aan het bouwplan (GOK, op deze meting):**
+1. Een remregel op basis van wat er net misging (terugkijken) helpt weinig. De bescherming moet vooraf zitten: geen markten met een live bron (streams, toespraken, wedstrijden), geen markten die aan één groot nieuwsmoment hangen (beursgang, rentebesluit, staakt-het-vuren), en orders weg vóór geplande momenten.
+2. **Maximale voorraad per markt** is de rem die wel werkt, want hij begrenst de schade van de ene markt die omslaat, wat er ook gebeurt. Voorbeeld als regel: nooit meer dan 2 keer `rewards_min_size` aan één kant vol; daarna alleen nog aan de andere kant staan of weggaan.
+3. Spreiden over veel kleine markten in plaats van een paar grote, zodat één omslag niet de week kost.
+4. De schaduwbot moet per markt per dag loggen: beloning (2 schattingen), markout na 5 en 60 minuten op zijn nepvullingen, en de grootste nepvoorraad. De beslissing na 2 weken hangt aan het **slechtste dag-resultaat**, niet aan de mediaan.
+5. Let op voor de som: een beloningsbot staat dicht bij het midden en wordt dus eerder gevuld dan het gemiddelde van alle makers; zijn verlies per dollar ligt waarschijnlijk hoger dan wat ik hier mat (GOK, D noemde dit ook).
+
+### Nog te doen
+- Dezelfde meting over meerdere dagen herhalen (één dag met een beursgang in de buurt is uitzonderlijk).
+- De markout alleen voor vullingen binnen 1 cent van het midden meten (`taker_only=false` geeft ook de makerrijen), dichter bij wat een beloningsbot meemaakt.
+- Een lijst van "live bron"-woorden voor het marktfilter (stream, say, speech, game, score) en toetsen hoeveel van het verlies die lijst vooraf had weggehaald.
+- Uitspraak in de zaak Polymarket tegen de Ksa volgen.
+
+## Stand na run 7 (19 nov 2026, ±07:00)
+1. **Verlies op vullingen is klein in de mediaanmarkt (±9% van de pot) maar groot in een paar markten**: in de top 100 verloren makers in 24 uur ±$12.000 tegen ±$25.000 pot, en 14 van 94 markten kostten meer dan ze opleverden (GEZIEN, eigen meting).
+2. **Je ziet een slechte markt niet aankomen aan zijn verleden**: de slechtste markten van de tweede halve dag waren in de eerste helft rond nul (rangcorrelatie 0,26). Bescherming moet vooraf: markten met live bron of één groot nieuwsmoment mijden, en een harde grens op voorraad per markt (GEZIEN plus GOK op de regel).
+3. **Streamer- en beursgangmarkten zijn geen rustige markten**, ook al lijken ze telbaar (GEZIEN). Dat verfijnt D's regel "alleen telbaar of gepland".
+4. **Gereedschap verandert snel**: Data API v1 is sinds 2 nov uit (v2 met cursor), `py-clob-client` is afgeschreven en op 14 dec veranderen API-routes; de kosten veranderen op 20 nov (D). Een AI die code schrijft gebruikt het oude spul tenzij je het verbiedt (GEZIEN plus GOK).
+5. **De route blijft nummer 1 met dezelfde kans (8 tot 15%, GOK)**: de pot is groot en de mediaan is gunstig, maar de uitkomst per dag hangt aan één omslaande markt. De schaduwbot beslist op het slechtste dag-resultaat. Vaste regels blijven: `polymarket-client`, Session Key, nooit de hoofdsleutel, juridisch grijs in Nederland.
