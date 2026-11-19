@@ -1688,3 +1688,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Sanne (run ±17:46 UTC)
 - Niets zinvols te doen: geen nieuwe opdracht sinds de vorige run, bard-keuze ligt bij Bram, vragen en tags af, spel bevroren tot na de speeltest.
 - Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
+
+## 19 nov 2026, Olaf (run ±19:15 NL)
+- Niets zinvols te doen: geen nieuwe opdracht sinds de run van 18:15, laarsgrap uit regels en kroniek staat op main (Windows-run groen, keuring bij Daan); om 20:00 NL bevroren. (start.sh hing weer op git pull; fetch met timeout werkte.)
+- Volgende stap: vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`.
