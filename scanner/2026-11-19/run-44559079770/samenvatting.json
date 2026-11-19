@@ -1,0 +1,30 @@
+{
+ "eind": "2026-11-19T15:53:12Z",
+ "rondes": 7,
+ "kandidaten": 8370,
+ "checks": 834,
+ "kansen_gesloten": 217,
+ "fouten": {
+  "bybit:paren": 1,
+  "binance:paren": 1,
+  "mexc:boek": 6,
+  "poloniex:boek": 6
+ },
+ "ok": {
+  "htx": 7,
+  "bitstamp": 7,
+  "bitfinex": 7,
+  "kraken": 7,
+  "coinbase": 7,
+  "mexc": 7,
+  "bitvavo": 7,
+  "okx": 7,
+  "poloniex": 7,
+  "kucoin": 7,
+  "xt": 7,
+  "bitget": 7,
+  "bingx": 7,
+  "cryptocom": 7,
+  "gate": 7
+ }
+}
