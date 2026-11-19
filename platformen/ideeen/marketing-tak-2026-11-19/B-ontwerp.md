@@ -105,6 +105,69 @@ Twee agents is genoeg: één die maakt, één die keurt. Het plaatsen zelf is ge
 - Schrijver als geplande sessie: geen extra kosten (GOK).
 - **Niet zonder ja van Thijs:** X (bij 2 posts per dag met link ±$12 per maand, rekensom op GEZIEN-prijs $0,20), Metricool Starter voor meer TikTok-posts, Buffer betaald.
 
+## Nieuw in run 2 (19 nov ±02:00): de weg naar plaatsen bestaat al, de rem is het quotum
+
+### 1. Metricool via de koppeling is nu al onze "Plaatser", en hij werkt
+- In Metricool staan 2 posts klaar voor vandaag 16:00 (filmpje 2 van Click Joints): één voor TikTok `screencuts.co`, één als YouTube Short, beide met `autoPublish: true` en status PENDING. Ze zijn op 17 en 18 nov via de koppeling aangemaakt (GEZIEN 19 nov ±01:50 met `getScheduledPosts`, alleen gelezen). De weg "Claude-sessie zet een post in Metricool en Metricool plaatst hem zelf op tijd" werkt dus al in onze omgeving.
+- De koppeling kan volgens haar eigen beschrijving ook naar **Bluesky, Threads, Instagram, Facebook, Pinterest en X** plaatsen (`providers`), met `autoPublish` (zelf plaatsen) of `false` (dan krijgt Thijs een melding in de app om zelf te drukken) (GEZIEN in de toolbeschrijving van `createScheduledPost`).
+- **De rem: Metricool Free geeft 20 posts per maand in de planner, telt per netwerk, en heeft geen X** ("Up to 20 posts per month in the planner", "Free does not include LinkedIn, X/Twitter": GEZIEN, [Metricool Help](https://help.metricool.com/en/article/main-differences-between-free-and-premium-plans-1udj06m/)). Eén filmpje op TikTok plus YouTube kost er 2 (GEZIEN: 2 aparte posts hierboven). Nu dus hooguit 10 filmpjes per maand.
+- **Gevolg voor het ontwerp:** Metricool alleen voor TikTok (20 per maand). YouTube Shorts via de YouTube Data API zodra Thijs de OAuth regelt (eigen pot van 100 per dag, A-posten.md), Bluesky en Mastodon direct via hun API. Zo blijft het hele quotum voor TikTok, het kanaal met het algoritme dat nieuwe accounts laat zien (A-voorbeelden.md patroon 6).
+- Starter kost geld (prijs niet zelf gezien; derden noemen alleen Advanced $53 per maand bij jaarbetaling: DERDEN, [Activepieces 9 nov 2026](https://www.activepieces.com/blog/metricool-pricing-2026-free-starter-advanced-plans)). Pas vragen als TikTok aantoonbaar kliks naar een winkel geeft.
+- Let op: de koppeling heeft een vakje `isAigc` (TikTok) en `isAiGeneratedContent` (YouTube). Voor schermopnames van onze echte add-on is `false` eerlijk. Maken we ooit beelden of stemmen met AI, dan eisen TikTok en YouTube die melding en botst dat met het besluit "nergens een AI-melding": dan geen AI-beeld of AI-stem gebruiken (GOK op de regels van die platforms, niet nagelezen in deze run).
+
+### 2. Geplande Claude-taken kunnen hoogstens elk uur
+De beschrijving van `create_trigger` zegt "Minimum interval is normally hourly" (GEZIEN). Alles wat sneller moet (reacties ophalen elke 15 minuten) kan dus niet als Claude-sessie en hoort in GitHub Actions zonder AI, zoals het ontwerp al zei. Een sessie heeft ook geen GitHub-secrets: plaatsen met een sleutel (Bluesky, Mastodon, YouTube, Discord) doet een workflow die de sessie start (skill `actions`); plaatsen via Metricool doet de sessie zelf met de koppeling.
+
+### 3. Lezen zonder account werkt beter dan gedacht: proef "Oor" gedraaid
+Script hieronder, `node oor.mjs 60`, zonder sleutel of account. Uitslag 19 nov ±01:55 UTC (alles GEZIEN):
+- **YouTube-RSS** van ons kanaal geeft titel en weergaven: Ebb-Short 75 weergaven.
+- **Mastodon** per hashtag: mastodon.social `#b3d` 40 posts sinds 16 nov 14:06 (±16 per dag, rekensom), waarvan 14 met een vraagteken; `#blender` 40 sinds 16 nov 18:04; gamedev.place `#blender` 40 sinds 14 nov; fosstodon `#jetbrains` maar 40 sinds 25 okt (±1,6 per dag). Mastodon is klein voor Blender en bijna leeg voor JetBrains.
+- **Bluesky Jetstream** (`wss://jetstream2.us-east.bsky.network/subscribe`, openbaar, geen login): 2.455 tot 2.616 nieuwe posts per minuut 's nachts. In 150 seconden 9 posts met onze woorden, waarvan 2 echt over Blender en 1 over gamedev, de rest ruis zoals keukenblenders. Zoeken zonder login is dicht (run 1), maar **meelezen met de hele stroom kan wel**. En Jetstream speelt terug: met `&cursor=<tijd in microseconden>` van 20 minuten geleden kwamen er in 15 seconden 52.349 posts binnen, beginnend 20,2 minuten terug (GEZIEN). Een workflow die elke 15 minuten de stroom inhaalt vanaf zijn vorige cursor, mist dus niets en is in ±15 seconden klaar. Hoe ver terug het kan, heb ik niet getest (GOK: uren, niet dagen). De radar kan zo ook zonder Dortus-account op Bluesky.
+- **BlenderArtists** zoeken geeft precies het soort koper dat we zoeken: "Help Creating a Custom Articulated 3D-Printable Figure" (31 okt, 4 berichten) en een concurrent "SlicerJoint Pro" (6 aug, 4 berichten) (GEZIEN, `blenderartists.org/search.json`). Zo'n draad is een kans voor een antwoord met de hand door de hoofdchat, niet voor een agent (forumregels, run 1).
+
+```js
+// oor.mjs: leest alleen, zonder account of sleutel. node oor.mjs [seconden-bluesky]
+const SEC = Number(process.argv[2] || 60);
+const WOORDEN = /\b(blender|b3d|click joints|3d ?print\w*|articulated|poseable|jetbrains|intellij|bison|yacc|flex lexer)\b/i;
+const uit = [];
+async function json(u){ const r = await fetch(u,{headers:{'user-agent':'dortus-oor/0.1'}}); return r.ok ? r.json() : {fout:r.status}; }
+const yt = await (await fetch('https://www.youtube.com/feeds/videos.xml?channel_id=UCTspMNCOwnBkGT2LZ7tB2dg')).text();
+for (const m of yt.matchAll(/<entry>[\s\S]*?<title>([^<]*)<\/title>[\s\S]*?views="(\d+)"/g)) uit.push({bron:'youtube', titel:m[1], weergaven:+m[2]});
+for (const [srv,tag] of [['mastodon.social','b3d'],['mastodon.social','blender'],['mastodon.gamedev.place','blender'],['fosstodon.org','jetbrains']]) {
+  const d = await json(`https://${srv}/api/v1/timelines/tag/${tag}?limit=40`);
+  if (Array.isArray(d)) uit.push({bron:`mastodon ${srv} #${tag}`, posts:d.length, oudste:d.at(-1)?.created_at, vragen:d.filter(p=>/\?/.test(p.content)).length});
+}
+const ba = await json('https://blenderartists.org/search.json?q=joint%20print%20order%3Alatest');
+uit.push({bron:'blenderartists', treffers:(ba.topics||[]).slice(0,5).map(t=>t.title)});
+const hits=[]; let n=0;
+await new Promise(res=>{ const ws=new WebSocket('wss://jetstream2.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post');
+  ws.onmessage=e=>{ n++; try{ const m=JSON.parse(e.data); const t=m.commit?.record?.text||''; if(WOORDEN.test(t)) hits.push({did:m.did, rkey:m.commit.rkey, tekst:t.slice(0,120)}); }catch{} };
+  ws.onerror=()=>res(); setTimeout(()=>{ws.close();res();}, SEC*1000); });
+uit.push({bron:'bluesky jetstream', seconden:SEC, posts_gezien:n, treffers:hits.length, voorbeelden:hits.slice(0,5)});
+console.log(JSON.stringify(uit,null,1));
+```
+Werkt met Node 22 (ingebouwde `fetch` en `WebSocket`), dus zonder `npm install` in Actions. Wie dit bouwt, zet het als `marketing/oor.mjs` met een workflow elke 15 minuten die de uitslag naar `marketing/inbox/` schrijft.
+
+### 4. Twee kanalen die afvallen
+- **Dev.to**: plaatsen kan met één `curl` en een API-sleutel (DERDEN, [DevForge op dev.to](https://dev.to/devforgedev/how-i-run-a-3-agent-content-marketing-team-with-claude-code-49b8): 3 Claude-agents, 14 artikelen, 439 weergaven in 10 dagen, geen omzet genoemd). Maar de regels eisen bij AI-teksten een melding en verbieden dat zulke artikelen "promote any business ... (including your own)" (GEZIEN, `dev.to/guidelines-for-ai-assisted-articles-on-dev`). Botst twee keer met ons; valt af.
+- **Postiz** als vervanger van Metricool: de cloud heeft geen gratis plan in de limietentabel (Standard en hoger), de API is beperkt tot 90 aanvragen per uur voor posts maar per aanvraag kunnen meer posts mee, en posts per maand zijn op betaalde plannen "effectively unlimited" (GEZIEN, `docs.postiz.com/cloud/limits.md` en `public-api/introduction.md`). Zelf hosten kan gratis maar vraagt een server die altijd aan staat, en dat is geld. Pas zinvol als Metricool Free echt knelt en Thijs liever Postiz betaalt dan Metricool Starter.
+
+### 5. De geld-kant: welk kanaal brengt binnen weken geld
+Te koop nu: **Click Joints Pro $12** (Gumroad live, Superhive in keuring, Cyber Sale ±27 nov) en **Bison & Flex $19 per jaar** (JetBrains) (GEZIEN, bord en keuring `upload-B.md`).
+- Rekensom (GOK): bij 1.000 weergaven van een Short en 0,5 % die doorklikt zijn dat 5 kliks; bij 2 % kopers onder de klikkers 0,1 verkoop. Eén filmpje van 1.000 weergaven levert dus bijna niets. Geld komt pas bij filmpjes van 10.000 weergaven of meer, of bij mensen die al zoeken. Dat ondersteunt het doel van Chris (vóór 1 dec één filmpje boven 1.000, anders stoppen) en de keuze voor TikTok in Metricool.
+- **Waar de kopers al zijn, op volgorde van geld (GOK, onderbouwd met het bovenstaande):**
+  1. De **234 gebruikers van de gratis Click Joints** (GEZIEN, bord): een nieuwe versie met een duidelijke Pro-regel in de changelog en README bereikt hen zonder kanaal. Geen werk voor de marketingtak, wel het snelste geld.
+  2. **Superhive Cyber Sale**: Pro meedoen met korting. Superhive zet sale-producten zelf in beeld (GOK, niet nagekeken in deze run).
+  3. **TikTok en YouTube Shorts** met demo's uit het echte product: het enige kanaal waar een account zonder volgers toch bereik krijgt.
+  4. **Forumdraden en vragen** (BlenderArtists, Mastodon `#b3d` met ±14 vragen in 2,5 dag): de radar vindt ze, de hoofdchat antwoordt met de hand.
+  5. **Bluesky en Mastodon met een eigen account**: goedkoop om erbij te doen, maar wij hebben er 0 volgers en een agent heeft zelf geen publiek (A-voorbeelden.md patroon 6). Pas na TikTok.
+- **Bison & Flex:** het publiek is klein en zit niet op Mastodon (fosstodon `#jetbrains` ±1,6 posts per dag, GEZIEN boven). Hier helpen de awesome-lijst en het JetBrains-forum meer dan een agent die post (GOK).
+
+### Bijgesteld ontwerp na run 2
+- **Plaatser bestaat uit twee delen:** (a) een geplande Claude-sessie "Plaatser", elk uur, die alleen groen gekeurde TikTok-posts uit `marketing/wachtrij/` met de Metricool-koppeling inplant (`autoPublish: true`) en het telt tegen het maximum van 20 per maand; (b) een workflow in Actions voor YouTube, Bluesky, Mastodon en Discord met de secrets. Regel 4 moet dan zeggen: "de Plaatser-sessie of de Plaatser-workflow plaatst wat een andere Claude groen keurde".
+- **Oor zonder account vanaf dag 1:** het script hierboven, ook voordat Thijs iets regelt. Alleen reageren onder onze eigen posts vraagt de accounts.
+- **Volgorde van bouwen:** eerst Oor (gratis, nu al mogelijk), dan Schrijver plus Keurder voor TikTok via Metricool (werkt nu al), dan YouTube OAuth, dan Bluesky en Mastodon.
+
 ## Bronnen
 - [WinBuzzer: Reddit RSS en API](https://winbuzzer.com/2026/10/01/reddit-to-end-feed-reader-updates-and-public-api-access-for-apps-a002-xcxwbn/)
 - [TikTok Content Posting API, get started](https://developers.tiktok.com/docs/en/content-posting-api-get-started)
@@ -114,6 +177,7 @@ Twee agents is genoeg: één die maakt, één die keurt. Het plaatsen zelf is ge
 - [Bluesky rate limits (docs-repo)](https://github.com/bluesky-social/bsky-docs/blob/main/docs/advanced-guides/rate-limits.md)
 - [HN guidelines](https://news.ycombinator.com/newsguidelines.html)
 - [YouTube spambeleid](https://support.google.com/youtube/answer/2801973)
+- [Metricool Free tegenover betaald](https://help.metricool.com/en/article/main-differences-between-free-and-premium-plans-1udj06m/), [Postiz limieten](https://docs.postiz.com/cloud/limits.md), [Postiz API](https://docs.postiz.com/public-api/introduction.md), [DEV AI-regels](https://dev.to/guidelines-for-ai-assisted-articles-on-dev), [DevForge 3 agents](https://dev.to/devforgedev/how-i-run-a-3-agent-content-marketing-team-with-claude-code-49b8), [Activepieces over Metricool-prijzen](https://www.activepieces.com/blog/metricool-pricing-2026-free-starter-advanced-plans)
 - [Buffer: content engine met GitHub Actions](https://buffer.com/resources/i-built-a-content-engine-that-creates-21-social-posts-a-week-using-the-buffer-api/), [Postiz: Accentify](https://postiz.com/blog/how-one-founder-automated-social-media-posting-with-ai-agents-notion-and-postiz-to-hit-1300-mrr)
 
 ## Stand na run 19 nov 01:05 (run 1)
@@ -124,3 +188,12 @@ Twee agents is genoeg: één die maakt, één die keurt. Het plaatsen zelf is ge
 5. **Ontwerp:** Schrijver (geplande sessie, elke 4 uur) schrijft in een wachtrij, Keurder (Actions, Claude API) keurt groen/oranje/rood, een gewone workflow plaatst groen met plafond, rem en intrekknop. Kosten ±$3 tot $10 per maand uit bestaand tegoed.
 
 **Voorstel:** de hoofdchat laat Thijs morgen punt 1, 2 en 4 van "Wat Thijs eenmalig regelt" doen (15 min) en bouwt eerst Bluesky plus Discord (snelst, gratis, geen keuring van een platform nodig), in week 1 alles op oranje. Volgende run: geld-kant scherper (welke kanalen in de eerste weken echt kliks naar Superhive, Gumroad en JetBrains geven) en een proefscript voor Bluesky en Discord dat alleen leest, klaar voor de dag dat de sleutels er zijn.
+
+## Stand na run 19 nov 02:05 (run 2)
+1. **Plaatsen zonder mens werkt al:** de 2 posts van vandaag 16:00 staan via de Metricool-koppeling met `autoPublish` klaar voor TikTok en YouTube (GEZIEN). Een geplande Claude-sessie kan dus TikTok-posts inplannen zonder sleutel; regel 4 moet alleen zeggen wie dat mag.
+2. **De rem is het quotum:** Metricool Free is 20 posts per maand, per netwerk geteld, zonder X (GEZIEN). Daarom TikTok via Metricool, YouTube via de Data API, Bluesky en Mastodon direct.
+3. **Lezen kan zonder enig account:** YouTube-RSS, Mastodon-hashtags, BlenderArtists en de volledige Bluesky-stroom via Jetstream, die zelfs 20 minuten terugspeelt (GEZIEN). De proef `oor.mjs` staat hierboven en draait op kale Node 22.
+4. **Geld:** een Short van 1.000 weergaven levert bijna niets op (GOK, rekensom). Snelste geld zit bij de 234 gratis gebruikers, de Cyber Sale en TikTok-demo's die 10.000+ halen; Bluesky en Mastodon pas daarna. Voor Bison & Flex is Mastodon bijna leeg (±1,6 posts per dag op fosstodon `#jetbrains`, GEZIEN).
+5. **Afgevallen:** Dev.to (eist AI-melding en verbiedt reclame voor eigen werk, GEZIEN) en Postiz cloud (geen gratis plan, GEZIEN).
+
+**Voorstel:** de hoofdchat laat vandaag een bouwer `marketing/oor.mjs` plus een workflow elke 15 minuten maken (gratis, geen account nodig), en zet de Schrijver als geplande taak elke 4 uur aan voor alleen TikTok-concepten in `marketing/wachtrij/`, in week 1 alles oranje zodat de hoofdchat ze zelf in Metricool zet. Thijs hoeft daarvoor niets te regelen. Volgende run: de BlenderArtists-draad en Mastodon-vragen omzetten in een voorbeeld van wat de Schrijver per ronde zou opleveren, en nagaan hoe ver Jetstream terugspeelt.
