@@ -1,6 +1,6 @@
 # Driehoek-meter: rapport
 
-Data: 3 driehoeken met winst op het boek gezien (ook kleine en korte), 1 dag(en) (2026-11-19 tot 2026-11-19). Gemeten: ±0,3 uur per beurs (GEZIEN, uit stand.jsonl).
+Data: 22 driehoeken met winst op het boek gezien (ook kleine en korte), 1 dag(en) (2026-11-19 tot 2026-11-19). Gemeten: ±0,5 uur per beurs (GEZIEN, uit stand.jsonl).
 
 **Lees dit eerst.** Wij meten elke 3 tot 5 seconden met de openbare API. Snelle partijen (bots naast de server van de beurs) pakken een winstgevende driehoek meestal binnen milliseconden. Wat wij zien, is wat er na hen overbleef: driehoeken die korter stonden dan onze ronde zien we vaak niet, en wat wij wel zien, kan jij alleen pakken als je sneller bent dan wie hem nu laat liggen. De sommen onderaan zijn GOK.
 
@@ -12,23 +12,21 @@ Beste marge = per ronde de beste driehoek tegen de beste prijzen na kosten (medi
 
 | Beurs | Status | Paren | Driehoeken | Uur | Rondes | Fouten (te veel) | Beste marge mediaan | Beste marge hoogst | Kandidaten | Bekeken | Overgeslagen | Zelfde | Winst op boek | Echt |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| bitget | grijs | 3659 | 202 | 0,3 | 273 | 0 (0) | -0,283% | -0,089% | 0 | 0 | 0 | 0 | 0 | 0 |
-| bitstamp | MiCA | 252 | 346 | 0,3 | 165 | 0 (0) | -0,840% | -0,406% | 0 | 0 | 0 | 0 | 0 | 0 |
-| bitvavo | MiCA | 435 | 22 | 0,3 | 207 | 0 (0) | -0,766% | -0,702% | 0 | 0 | 0 | 0 | 0 | 0 |
-| gate | MiCA-dochter | 2156 | 372 | 0,3 | 204 | 0 (0) | -0,055% | 0,273% | 43 | 17 | 0 | 26 | 0 | 0 |
-| kraken | MiCA | 1352 | 2352 | 0,3 | 165 | 0 (0) | -0,567% | -0,299% | 0 | 0 | 0 | 0 | 0 | 0 |
-| kucoin | MiCA-dochter | 968 | 452 | 0,3 | 272 | 0 (0) | 0,425% | 0,502% | 570 | 498 | 3 | 67 | 0 | 0 |
-| mexc | grijs | 1664 | 886 | 0,3 | 272 | 0 (0) | 0,502% | 1,549% | 1437 | 774 | 157 | 496 | 16 | 0 |
-| okx | MiCA-dochter | 1248 | 2336 | 0,3 | 274 | 0 (0) | -0,116% | 0,363% | 126 | 123 | 0 | 3 | 0 | 0 |
-
-Let op: 160 van 2176 kandidaten (7%) zijn overgeslagen omdat het budget van de ronde op was. De aantallen hieronder zijn dan een **ondergrens**.
+| bitget | grijs | 3659 | 202 | 0,5 | 466 | 0 (0) | -0,283% | -0,089% | 0 | 0 | 0 | 0 | 0 | 0 |
+| bitstamp | MiCA | 252 | 346 | 0,5 | 281 | 0 (0) | -0,761% | -0,406% | 0 | 0 | 0 | 0 | 0 | 0 |
+| bitvavo | MiCA | 435 | 22 | 0,5 | 353 | 0 (0) | -0,764% | -0,702% | 0 | 0 | 0 | 0 | 0 | 0 |
+| gate | MiCA-dochter | 2156 | 372 | 0,5 | 349 | 0 (0) | -0,129% | 0,273% | 60 | 20 | 0 | 40 | 0 | 0 |
+| kraken | MiCA | 1352 | 2352 | 0,5 | 282 | 0 (0) | -0,567% | -0,271% | 0 | 0 | 0 | 0 | 0 | 0 |
+| kucoin | MiCA-dochter | 968 | 452 | 0,5 | 465 | 0 (0) | 0,502% | 0,580% | 1020 | 881 | 8 | 129 | 0 | 0 |
+| mexc | grijs | 1664 | 886 | 0,5 | 465 | 0 (0) | 0,523% | 1,549% | 2532 | 1517 | 159 | 846 | 123 | 0 |
+| okx | MiCA-dochter | 1248 | 2336 | 0,5 | 468 | 0 (0) | -0,121% | 0,363% | 126 | 123 | 0 | 3 | 0 | 0 |
 
 ## Trechter
 
 | Stap | Alle beurzen | MiCA (ook via EU-dochter) | Grijs |
 |---|---|---|---|
-| winst op het boek, met de lage kosten (bovengrens) | 3 | 0 | 3 |
-| winst op het boek, met de gewone kosten | 3 | 0 | 3 |
+| winst op het boek, met de lage kosten (bovengrens) | 22 | 0 | 22 |
+| winst op het boek, met de gewone kosten | 22 | 0 | 22 |
 | en minstens €100 diepte | 0 | 0 | 0 |
 | en minstens 3 s blijven staan | 0 | 0 | 0 |
 | en niet verdacht = **echt** | 0 | 0 | 0 |
@@ -54,9 +52,14 @@ Grootste driehoeken die **niet** echt waren (te kort, te dun of verdacht):
 
 | Beurs | Driehoek | Winst | Diepte | Duur | Verdacht |
 |---|---|---|---|---|---|
+| mexc | USDT>SOL>BTC>USDT | €0,06 | €75 | 15 s | nee |
+| mexc | USDT>SOL>BTC>USDT | €0,04 | €75 | 42 s | nee |
+| mexc | USDT>SOL>BTC>USDT | €0,04 | €75 | 15 s | nee |
+| mexc | USDT>SOL>BTC>USDT | €0,03 | €75 | 21 s | nee |
+| mexc | USDT>SOL>BTC>USDT | €0,03 | €75 | 42 s | nee |
+| mexc | USDT>BTC>BDX>USDT | €0,03 | €16 | 33 s | nee |
 | mexc | USDT>BTC>BDX>USDT | €0,02 | €16 | 33 s | nee |
 | mexc | USDT>BTC>BDX>USDT | €0,02 | €16 | 6 s | nee |
-| mexc | USDT>BTC>BDX>USDT | €0,00 | €16 | 0 s | nee |
 
 ## Kan een kleine inleg meedoen? (€100, €150, €200)
 

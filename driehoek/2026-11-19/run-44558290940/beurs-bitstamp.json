@@ -1,0 +1,27 @@
+{
+ "paren": 252,
+ "driehoeken": 346,
+ "status": "MiCA",
+ "ritme_s": 5,
+ "max_boeken": 6,
+ "kosten": {
+  "GOK standaardtarief laagste trede": {
+   "hoog": 0.004,
+   "laag": 0.004,
+   "paren": 252
+  }
+ },
+ "minima_paren": 252,
+ "geladen": "2026-11-19T15:45:25Z",
+ "min_inleg": {
+  "driehoeken": 346,
+  "mediaan_eur": 12.5,
+  "met_eur": 260,
+  "tot_100": 333,
+  "met_eur_tot_100": 249,
+  "tot_150": 334,
+  "met_eur_tot_150": 250,
+  "tot_200": 334,
+  "met_eur_tot_200": 250
+ }
+}
