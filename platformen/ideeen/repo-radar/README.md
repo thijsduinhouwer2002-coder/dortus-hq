@@ -15,10 +15,10 @@ Lezen vanuit je checkout: `git fetch origin ideeen-data && git show origin/ideee
 ## Hoe het werkt
 1. **Zoeken.** 24 zoektermen (saas, side project, indie hacker, monetize, pricing, subscription, MRR, revenue, gumroad, stripe, lemon squeezy, paddle billing, business plan, go-to-market, app idea, startup, landing page, waitlist, pro version, freemium, premium features ...), elk twee keer: repo's van de laatste 2 dagen, en repo's jonger dan 90 dagen die gisteren of vandaag zijn bijgewerkt en minstens 5 sterren hebben.
 2. **Ruis eruit op naam:** forks, sjablonen, huiswerk en klonen, crypto-pump, cracks en spam, verzamellijsten, en kopie-netwerken (dezelfde tekst bij veel accounts).
-3. **README lezen** van de rest (hooguit 1200), eerst de nieuwe.
+3. **README lezen** van de rest (hooguit 2000), eerst de nieuwe.
 4. **Ruis eruit op tekst:** geen of lege README, alleen code zonder uitleg, sjabloon of huiswerk, geen verdienplan.
 5. **Plan eruit halen:** wat, voor wie, verdienmodel, prijs, platform, tractie (sterren, forks, betaalpagina, wachtlijst, eigen site).
-6. **Score** van 0 tot 10 met vaste regels (zie `ontwerp.md`) en een rapport met de top 25 en de ruis per reden.
+6. **Score** van 0 tot 10 met vaste regels (zie `ontwerp.md`) en een rapport met de top 25 (hooguit 2 per maker) en de ruis per reden.
 
 Het rapport is een voorselectie, geen oordeel. Het echte oordeel doet één keer per week een agent met de ideeëntest (`opdracht-beoordelaar.md`).
 

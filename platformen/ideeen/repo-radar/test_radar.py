@@ -167,6 +167,14 @@ class TestRapport(unittest.TestCase):
         self.assertIn("waarvan 1 al eerder in de top", tekst)
         self.assertNotIn("\u2014", tekst)
 
+    def test_hooguit_twee_per_maker(self):
+        d = self.data()
+        for p in d["plannen"][:5]:
+            p["naam"] = "zelfde/" + p["naam"].split("/")[1]
+        namen = [p["naam"] for p in rapport.top(d)]
+        self.assertEqual(sum(n.startswith("zelfde/") for n in namen), 2)
+        self.assertEqual(len(namen), 25)
+
     def test_leeg(self):
         d = self.data()
         d["plannen"] = []

@@ -10,9 +10,22 @@ import sys
 TOP = 25
 
 
+PER_MAKER = 2
+
+
 def top(data, n=TOP):
-    """De beste n plannen die niet op een eerdere dag al in de top stonden."""
-    return [p for p in data["plannen"] if not p.get("eerder_gemeld")][:n]
+    """De beste n plannen die niet op een eerdere dag al in de top stonden, hooguit 2 per maker (in de eerste
+    proefrun had één account 4 bijna gelijke repo's in de top)."""
+    uit, per_maker = [], {}
+    for p in data["plannen"]:
+        maker = p["naam"].split("/")[0].lower()
+        if p.get("eerder_gemeld") or per_maker.get(maker, 0) >= PER_MAKER:
+            continue
+        per_maker[maker] = per_maker.get(maker, 0) + 1
+        uit.append(p)
+        if len(uit) == n:
+            break
+    return uit
 
 
 def _lijst(x, leeg):

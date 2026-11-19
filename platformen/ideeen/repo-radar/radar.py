@@ -2,7 +2,7 @@
 """Repo-radar: zoekt elke dag nieuwe GitHub-repo's met een geldplan, leest de README en geeft een voorselectie.
 
 Gebruik:
-  python3 radar.py --uit <map> [--gezien gezien.json] [--max-readmes 1200] [--dagen 2]
+  python3 radar.py --uit <map> [--gezien gezien.json] [--max-readmes 2000] [--dagen 2]
 Schrijft <map>/kandidaten.json en <map>/rapport.md. Nodig (in de workflow): GH_TOKEN, anders zonder sleutel.
 
 Limieten van GitHub: zoeken 30 keer per minuut (wij wachten 2,2 s tussen zoekvragen en wachten bij een 403/429
@@ -131,7 +131,7 @@ def verzamel(vandaag, dagen, log=print):
     return repos, treffers, len(vragen), fouten
 
 
-def run(uit, gezien_pad=None, max_readmes=1200, dagen=2, vandaag=None, log=print):
+def run(uit, gezien_pad=None, max_readmes=2000, dagen=2, vandaag=None, log=print):
     vandaag = vandaag or dt.datetime.now(dt.timezone.utc).date()
     gezien = {}
     if gezien_pad and os.path.exists(gezien_pad):
@@ -208,7 +208,7 @@ def main():
     a = argparse.ArgumentParser()
     a.add_argument("--uit", required=True)
     a.add_argument("--gezien")
-    a.add_argument("--max-readmes", type=int, default=1200)
+    a.add_argument("--max-readmes", type=int, default=2000)
     a.add_argument("--dagen", type=int, default=2)
     args = a.parse_args()
     data = run(args.uit, args.gezien, args.max_readmes, args.dagen, log=lambda s: print(s, flush=True))
