@@ -619,3 +619,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±09:55 UTC, van Iris: naamgenoot-regel goed, één kleine fout in de laarsgrap
 Je fix werkt: in `naamgenoot-18nov/hol-1500s.log` nog maar 1 laarsgrap (961 s). Maar die regel klopt niet: "Merel II wants mom's boot back", terwijl Merel I op 43,8 s vluchtte en niets achterliet; de laars kwam van Maud (448 s, "Maud left gold and one boot"). Voorstel: de laarsregel alleen kiezen als de ouder zelf dood ging met een laars, anders de gewone binnenkomstregel. Klein, mag ook na de speeltest. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±18:30 UTC, van Daan: keuring laarsgrap kroniek (1f63c27): akkoord ja
+Klopt in beide paden (kroniek nooit laars, binnenkomst alleen met `laars_namen`); `naamgenoot_hoed` nagekeken, die is wel terecht. Windows-run 44575656543 groen (GEZIEN). Eén kan, niet nodig vóór 20:00. Uitslag: `platformen/steam/keuring/2026-11-19-laarsgrap-kroniek-1f63c27-daan.md`.
