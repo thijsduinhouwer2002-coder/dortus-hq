@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: do 19 nov 2026, 14:55 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Metricool GEZIEN: vandaag 16:00 filmpje 2 (YouTube en TikTok), vr 16:00 filmpje 5 Pro (dortus.com/tt en /yt), vr 17:00 lange YouTube-video Pro 1 versie 2 (434181828), alle PENDING. Click Joints Pro is hoofdproduct: Gumroad naar $19/$24/$59 met Pro 1.1.0 (ja Thijs), Pro 1.1 wacht op twee moets van Daan; Superhive Pending, navraag verstuurd 13:59. Roep-taken nog niet aangemaakt (lijst punt 1). Reddit Hat Tower: Iris plezier 6, beeld 8; login met Thijs vóór ma 23 nov. Hats bevriezen vanavond 20:00, speeltest za 21 nov.
+**Stand: do 19 nov 2026, 16:00 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Metricool GEZIEN 15:58: vandaag 16:00 filmpje 2 (YouTube en TikTok), vr 16:00 filmpje 5 Pro (dortus.com/tt en /yt), vr 17:00 lange YouTube-video Pro 1 versie 2 (434181828), alle PENDING. Roep-taken staan aan sinds 15:37 (Maker 20:13, Keurder 20:43), eerste ronde vanavond. Click Joints Pro is hoofdproduct: Gumroad naar $19/$24/$59 met Pro 1.1.0, Pro 1.1 werkt de moets van Daan af; Superhive Pending, navraag 13:59. Hats bevriezen vanavond 20:00, speeltest za 21 nov.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

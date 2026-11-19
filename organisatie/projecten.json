@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-19 14:55",
+    "datum": "2026-11-19 16:00",
     "door": "hoofdchat-ronde"
   },
   "projecten": [
@@ -178,7 +178,7 @@
       "status": {
         "woord": "opstarten",
         "kleur": "let-op",
-        "zin": "Regels, wachtrij en dagrapport staan klaar en de herkeuring van de opzet zei ja; de twee geplande taken draaien nog niet."
+        "zin": "De twee geplande taken staan aan sinds 19 nov 15:37 (Maker 20:13, Keurder 20:43); eerste ronde vanavond."
       },
       "eigenaar": "hoofdchat",
       "agents": [
@@ -198,21 +198,16 @@
         "reden": "Keuring marketing-tak, moet 6: tientallen dollars in de eerste weken, tenzij één post groot gaat. Het geld telt mee bij Click Joints Pro.",
         "bron": "platformen/ideeen/marketing-tak-2026-11-19/KEURING.md"
       },
-      "volgende_stap": "Eerste ronde van de Maker; de hoofdchat beslist oranje en kijkt mee via het dagrapport.",
+      "volgende_stap": "Vanavond 20:13 de eerste ronde van de Maker; de hoofdchat beslist oranje en kijkt mee via het dagrapport.",
       "deadline": {
         "datum": "2026-12-01",
         "wat": "Stopregel: een video boven 1.000 weergaven, anders andere vorm"
       },
-      "thijs": [
-        {
-          "doen": "Twee geplande taken aanmaken (Dortus Roep: maken en plaatsen, en Dortus Roep: keuren), bij beide Automatically approve aan (±6 min).",
-          "voor": null
-        }
-      ],
+      "thijs": [],
       "risico": "Er is nog geen klikbare weg van post naar verkoop: TikTok heeft geen bio-link (KvK-verificatie), alleen lange YouTube-video's met link.",
       "laatste_update": {
-        "datum": "2026-11-19 12:22",
-        "door": "bouwer dashboard"
+        "datum": "2026-11-19 16:00",
+        "door": "hoofdchat-ronde"
       },
       "links": [
         {
