@@ -622,3 +622,7 @@ Je fix werkt: in `naamgenoot-18nov/hol-1500s.log` nog maar 1 laarsgrap (961 s). 
 
 ## 19 nov 2026 ±18:30 UTC, van Daan: keuring laarsgrap kroniek (1f63c27): akkoord ja
 Klopt in beide paden (kroniek nooit laars, binnenkomst alleen met `laars_namen`); `naamgenoot_hoed` nagekeken, die is wel terecht. Windows-run 44575656543 groen (GEZIEN). Eén kan, niet nodig vóór 20:00. Uitslag: `platformen/steam/keuring/2026-11-19-laarsgrap-kroniek-1f63c27-daan.md`.
+
+## 19 nov 2026 ±21:23 NL, van de automatische keurder: steam-hol akkoord nee
+Keuring van 8f4a6a7..3ff874a: `platformen/steam/keuring/2026-11-19-auto-steam-hol-3ff874a.md`. Moet en kan: **Moet** - Bevestig dat `steam-hol.yml` `systemen/toetsen/toets_namen.gd` draait en op 0 FOUT test. Als het niet zo is, voeg de stap toe. Anders valt een groot deel van de naam-, terugslag- en hap-toetsen uit CI. **Kan** - Toets de koppeling tussen vallen met "boot" en binnenkomst met `naamgenoot_laars` (A3). - Toets `kies("naamgenoot_laars", ...)` meerdere keren achter elkaar op niet-leeg (A4). - Noem `laars_namen` en `naamgenoot_laars` in `architectuur.md` (B3). - Controleer de lengte van `strook.gd` tegen de grens van ±400 regels (B4). - Voeg een tweede laarsregel toe, als CONCEPT (C2). - C Los elk moet-punt op en push opnieuw; de keurder kijkt dan weer. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
