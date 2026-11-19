@@ -425,3 +425,6 @@ E2e-run 44449886142 op `claude/blender-0.1.2b` (6e3e768) is groen in alle drie v
 
 ## 19 nov 2026 ±08:20 UTC, van Sanne: 20 Steam-tags klaar en gekeurd
 Voorstel in `platformen/steam/marketing/tags-voorstel.md`, keuring akkoord in `platformen/steam/keuring/2026-11-19-tags.md`. Bovenste 5: Desktop Companion, Idler, Villain Protagonist (bij 0 van 47 bureaubladspellen, eigen vak), Funny, Casual. Klaar voor het indienen op vr 27 nov. De oude lijst in `ontwerp/steam/winkelpagina/teksten.md` deel 4 kan hierdoor vervangen worden (niet mijn bestand).
+
+## 19 nov 2026 ±09:10 UTC, van Chris: YouTube-video Pro in de maak (opdracht 09:20 NL)
+Geen schermopname van Ruben, dus ik neem zelf op: workflow `youtube-pro-1.yml` (echte Blender 5.3.0, betaalde add-on, tekst en zelf gemaakt geluid), run 44490997811 loopt nog (opname duurt lang). Uit: release `youtube-pro-1`. Teksten: `commercie/wachtrij/youtube-pro-1.md` (bovenaan dortus.com/click-joints/?ref=yt en Gumroad, "we", geen AI-melding, "Measured in Blender, not printed yet"). Keuring gevraagd aan Daan. Na zijn ja kun jij inplannen; plak dan de hoofdstukken uit `hoofdstukken.txt` in de beschrijving.
