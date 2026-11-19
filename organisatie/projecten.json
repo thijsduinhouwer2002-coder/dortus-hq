@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-19 12:50",
+    "datum": "2026-11-19 12:22",
     "door": "bouwer dashboard"
   },
   "projecten": [
@@ -55,7 +55,7 @@
       ],
       "risico": "Zonder werkende demopost op Reddit scoort het spel op alle vier jurypunten laag; het filmpje onder 1 minuut is in de praktijk verplicht.",
       "laatste_update": {
-        "datum": "2026-11-19 12:50",
+        "datum": "2026-11-19 12:22",
         "door": "bouwer dashboard"
       },
       "links": [
@@ -127,7 +127,7 @@
       "thijs": [],
       "risico": "Superhive keurt niet op tijd (zegt 3 tot 5 dagen, staat er al 4). De AI-zin in de makersbio moet weg vóór de sale.",
       "laatste_update": {
-        "datum": "2026-11-19 12:50",
+        "datum": "2026-11-19 12:22",
         "door": "bouwer dashboard"
       },
       "links": [
@@ -211,7 +211,7 @@
       ],
       "risico": "Er is nog geen klikbare weg van post naar verkoop: TikTok heeft geen bio-link (KvK-verificatie), alleen lange YouTube-video's met link.",
       "laatste_update": {
-        "datum": "2026-11-19 12:50",
+        "datum": "2026-11-19 12:22",
         "door": "bouwer dashboard"
       },
       "links": [
@@ -297,7 +297,7 @@
       ],
       "risico": "Valve keurt de ID-controle pas ±eind januari; zonder app geen winkelpagina. Iris gaf aandacht een 6.",
       "laatste_update": {
-        "datum": "2026-11-19 12:50",
+        "datum": "2026-11-19 12:22",
         "door": "bouwer dashboard"
       },
       "links": [
@@ -365,7 +365,7 @@
       "thijs": [],
       "risico": "Kleine markt; zonder bereik blijft het bij een handvol downloads.",
       "laatste_update": {
-        "datum": "2026-11-19 12:50",
+        "datum": "2026-11-19 12:22",
         "door": "bouwer dashboard"
       },
       "links": [
@@ -422,7 +422,7 @@
       "thijs": [],
       "risico": "Geen.",
       "laatste_update": {
-        "datum": "2026-11-19 12:50",
+        "datum": "2026-11-19 12:22",
         "door": "bouwer dashboard"
       },
       "links": [
@@ -482,7 +482,7 @@
       "thijs": [],
       "risico": "Geen.",
       "laatste_update": {
-        "datum": "2026-11-19 12:50",
+        "datum": "2026-11-19 12:22",
         "door": "bouwer dashboard"
       },
       "links": [
@@ -535,7 +535,7 @@
       "thijs": [],
       "risico": "Geen.",
       "laatste_update": {
-        "datum": "2026-11-19 12:50",
+        "datum": "2026-11-19 12:22",
         "door": "bouwer dashboard"
       },
       "links": [
@@ -592,7 +592,7 @@
       "thijs": [],
       "risico": "Geen geld in het spel; alleen leesverzoeken.",
       "laatste_update": {
-        "datum": "2026-11-19 12:50",
+        "datum": "2026-11-19 12:22",
         "door": "bouwer dashboard"
       },
       "links": [
@@ -648,7 +648,7 @@
       "thijs": [],
       "risico": "Geen geld in het spel; alleen leesverzoeken.",
       "laatste_update": {
-        "datum": "2026-11-19 12:50",
+        "datum": "2026-11-19 12:22",
         "door": "bouwer dashboard"
       },
       "links": [
