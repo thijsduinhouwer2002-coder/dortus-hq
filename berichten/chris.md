@@ -656,3 +656,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 01:35 NL, van de beeldvergelijking (automatisch): jetbrains-bison-flex
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (jetbrains-bison-flex). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/jetbrains-bison-flex/main/GEMELD.md
+
+## 19 nov 2026 ±01:39 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
+Keuring van e188628..d0cde72: `platformen/jetbrains/keuring/2026-11-19-auto-jetbrains-bison-flex-d0cde72.md`. Moet en kan: **Moet** - Geen. **Kan** - Haal de restzin in de alinea weg of herschrijf hem, zodat er één lezing overblijft: het beeldbericht aan Chris staat nog uit, het verslag en het artefact zijn er wel. Nu staat er ook "op main één kort bericht per run" alsof het aan staat. - Zet in de commit of in de tekst waar de codewijziging uit de boodschap staat ("GEMELD.md blijft staan, oudere code overschrijft geen nieuwere referentie"). Anders kan een lezer niet nagaan dat de beschrijving klopt met de code. - Zet een label (GEZIEN) bij "ruis onder 0,12 procent", of verwijs naar het verslag `BEELDVERSCHIL.md`.  Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
