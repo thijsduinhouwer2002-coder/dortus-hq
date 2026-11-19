@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """YouTube-video 1 van Click Joints Pro in elkaar zetten (Chris, 19 nov 2026).
     python3 maak.py <map met beelden/ en film.json van opname.py> <uitmap>
-Uit: click-joints-pro-uitleg-2-geluid.mp4 (1920x1080, 30 fps, H.264, AAC), hoofdstukken.txt (voor de
+Uit: click-joints-pro-uitleg-3-geluid.mp4 (versie 3: zonder "print-ready") (1920x1080, 30 fps, H.264, AAC), hoofdstukken.txt (voor de
 beschrijving), overzicht.jpg (12 beelden voor de keuring).
 Beeld: de echte opname met een onderschrift per deel, korte hoofdstukkaarten, begin- en eindkaart in de
 huisstijl van de demofilm (Inter, #23262D, mint #3BE6B0). Geluid: zelf gemaakt met de functies uit
@@ -51,7 +51,7 @@ def graden(sleutel, val):
 g115, g90, g135 = graden("115", 115), graden("90", 90), graden("135", 135)
 # (deel, onderschrift, hoofdstuk links boven)
 DELEN = [
-    ("haak", "Click Joints Pro: a print-ready hinge with a real end stop.", ""),
+    ("haak", "Click Joints Pro: a hinge with a real end stop.", ""),  # "print-ready" eruit (keuring Roep-Keurder 19 nov)
     ("heel", "Start with one solid part, like this leg.", "1  Place a hinge"),
     ("knop", "Pick the end stop: 90°, 115° or 135°. Click Place hinge.", "1  Place a hinge"),
     ("rond", "One click: the part is cut in two, with a hinge between them.", "1  Place a hinge"),
@@ -174,7 +174,7 @@ tijd += EIND_S
 
 lijst = TMP / "lijst.txt"
 lijst.write_text("".join(f"file '{p}'\n" for p in stukken))
-stil = UIT / "click-joints-pro-uitleg-2.mp4"
+stil = UIT / "click-joints-pro-uitleg-3.mp4"
 ff("-f", "concat", "-safe", "0", "-i", str(lijst), "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
    "-pix_fmt", "yuv420p", "-movflags", "+faststart", "-an", str(stil))
 duur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(stil)],
@@ -198,7 +198,7 @@ st = st / (np.abs(st).max() + 1e-9) * 0.7
 wav = TMP / "geluid.wav"
 g.schrijf_wav(wav, st)
 # Keuring Daan (kan 3): naar -14 LUFS zoals YouTube, met een begrenzer op -1,5 dB piek.
-mp4 = UIT / "click-joints-pro-uitleg-2-geluid.mp4"
+mp4 = UIT / "click-joints-pro-uitleg-3-geluid.mp4"
 ff("-i", str(stil), "-i", str(wav), "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy",
    "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
    "-ar", "48000", "-c:a", "aac", "-b:a", "160k", "-ac", "2", "-t", f"{duur:.3f}", "-movflags", "+faststart", str(mp4))
