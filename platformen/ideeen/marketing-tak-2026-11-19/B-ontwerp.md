@@ -410,6 +410,49 @@ Voor de hoofdchat die vandaag de tak ontwerpt. Alles hierboven blijft als onderb
 **Stopregel:** 14 dagen per reeks. Na 14 dagen zonder één verkoop op een dag met een post: die reeks stopt, de tak schuift naar de volgende vorm (diashow, lange video, ander product).
 
 
+## Nieuw in run 7 (19 nov ±06:50 UTC): de eerste reactie als uitgang, waarom een Short nooit een uitgang heeft, en meten via dortus.com
+
+### 1. Stand van de planner: niets veranderd sinds run 6
+Metricool om 06:50 UTC (GEZIEN, `getScheduledPosts`, alleen lezen): dezelfde vier posts op PENDING met `autoPublish: true`. Bij alle vier is `firstCommentText` leeg. @dortusstudio is nog steeds niet zakelijk (run 6). Thijs heeft dus nog niets van lijst punt 5 gedaan, of het is nog niet zichtbaar. De YouTube-RSS van @Dortusapps toont nog één video (Ebb, 77 weergaven, GEZIEN).
+
+### 2. Metricool kan een eerste reactie meeplannen, en dat veld staat al in onze posts
+Elke geplande post heeft een veld `firstCommentText` (GEZIEN in de planner). Volgens Metricool zelf (GEZIEN met curl, [help: first comment](https://help.metricool.com/how-to-schedule-a-first-comment-on-your-posts-pwm25)):
+
+| Netwerk | Eerste reactie | Tekens |
+|---|---|---|
+| YouTube | video's en Shorts | 10.000 |
+| TikTok | **alleen zakelijke (professional) accounts** | 150 |
+| Instagram, Facebook, LinkedIn | ja | 2.200 / 8.000 / 1.250 |
+
+Wat dit oplevert, per plek:
+- **Gewone (lange) YouTube-video:** een eerste reactie met de Gumroad-link is een tweede klikbare uitgang naast de beschrijving (GOK dat YouTube een link in een reactie van de maker zelf niet wegfiltert). Vastpinnen kan Metricool niet: "Pin comments" staat bij wat niet kan (GEZIEN, [Metricool API-beperkingen](https://help.metricool.com/api-limitations-per-social-network-n7zlr.md)). Een reactie van de maker staat meestal toch bovenaan bij weinig reacties (GOK).
+- **YouTube Short:** links in reacties onder een Short zijn sinds 31 aug 2023 niet klikbaar, net als in de beschrijving (DERDEN, [Lindsey Gamble](https://www.lindseygamble.com/blog/youtubes-link-changes-what-it-means-for-creators), [Tubefilter](https://www.tubefilter.com/2023/08/10/youtube-shorts-comments-spam/)). Een eerste reactie helpt daar dus niet aan geld, alleen als vraag ("welke gewrichten wil je nog?") om reacties uit te lokken.
+- **TikTok:** pas na zakelijk maken. Nog een reden voor lijst punt 5: dezelfde handeling van ±3 minuten geeft de link in de bio én de eerste reactie.
+
+**Voor de Keurder (techniek-check, aanvulling op run 5 punt 4 en run 6 punt 4):** "TikTok met `firstCommentText` terwijl het account niet zakelijk is: veld leegmaken (anders faalt de post mogelijk; GOK)". "Lange YouTube-video zonder link in `firstCommentText`: oranje, link erbij zetten."
+
+### 3. De koppeling Short naar lange video kan niet via een API: dat blijft handwerk in Studio
+Metricool noemt bij YouTube letterlijk als niet mogelijk: "Link or tag a video/Short as 'similar' or related to another existing video (YouTube's Data API has no field to associate videos with each other at upload time)" (GEZIEN, zelfde pagina). Run 6 punt 3 had dit als GOK; nu bevestigd. Ook eigen YouTube-OAuth helpt hier niet, want het veld bestaat niet in de Data API.
+
+**Gevolg voor het ontwerp:** de trechter "Short lokt, lange video verkoopt" (run 6 punt 3) vraagt per Short ±1 minuut in YouTube Studio (GOK). Dat kan de hoofdchat met Chrome op de HP van Thijs, of Thijs zelf. Zet het als vaste stap in het dagrapport: "Short X staat sinds gisteren live, gerelateerde video nog niet gezet." Tot dat gebeurt is elke Short alleen bereik. Wil de tak echt zonder mens: dan alleen lange video's maken voor Pro en Shorts laten voor de gratis versie.
+
+### 4. Zonder sleutel kan de tak YouTube-reacties niet lezen
+`www.youtube.com/watch?v=...` gaf vanuit onze omgeving een 302 naar `google.com/sorry` (captcha voor datacenters, GEZIEN). Het interne YouTube-adres (`youtubei/v1/next`) mocht ik hier niet proberen: de omgeving weigerde het als ongeoorloofde toegang (GEZIEN). Dus: reacties op YouTube lezen kan alleen met een API-sleutel. Een gewone sleutel uit Google Cloud is genoeg voor `commentThreads.list` op openbare video's (1 eenheid, run 1); antwoorden vraagt OAuth. Voorstel: Thijs maakt bij de YouTube-OAuth van later meteen ook een gewone sleutel (`YOUTUBE_API_KEY`, ±2 minuten extra, GOK), dan kan het Oor vanaf dag 1 reacties lezen in een workflow. Zolang die er niet is leest de hoofdchat reacties met de hand in Studio, en de Metricool-inbox in de webapp (niet via de koppeling, run 4).
+
+### 5. Meten waar een koper vandaan komt: laat elke link via dortus.com lopen
+Het scorebord leest al elke dag Gumroad-verkopen en omzet per product (GEZIEN, `scorebord.yml` met `GUMROAD_ACCESS_TOKEN`, 0 verkopen en $0,00 voor Click Joints Pro op 18 nov 23:49) en bezoekers per productpagina op dortus.com (GEZIEN: `dortus.com/click-joints/` had 31 weergaven op 18 nov, 3 op 17 nov). De Schrijver hoeft dus geen eigen sleutel: hij leest `organisatie/scorebord.md`.
+
+Wat ontbreekt: van welk kanaal een bezoeker kwam. Voorstel: **elke link die de tak plaatst wijst naar `dortus.com/click-joints/?ref=<kanaal>`** (bio TikTok `ref=tt`, lange YouTube-video `ref=yt`, Bluesky `ref=bs`, mail `ref=kit`) in plaats van rechtstreeks naar Gumroad. Die pagina heeft al knoppen naar Gumroad en naar de gratis versie (GEZIEN met curl). Amami is Umami (scorebord.md), en Umami kan bezoeken per zoekterm in het adres tellen (GOK dat onze Amami-sleutel dat rapport geeft; een bouwer van het scorebord kan dat in 10 minuten nagaan). Dan ziet de tak per dag: posts, bezoekers per kanaal, verkopen. Kost: één klik extra voor de koper (kleine daling, GOK), maar zonder deze meting weet niemand welke reeks moet stoppen (stopregel run 6).
+
+### 6. Threads als later kanaal (kleine aanvulling op de tabel)
+Threads heeft een eigen API met een plaatsquotum van 250 posts per 24 uur en een apart reactiequotum (GEZIEN in het voorbeeld van `developers.facebook.com/documentation/threads/troubleshooting.md`: `quota_total: 250`, `quota_duration: 86400`, `reply_quota_usage`). Vraagt een Meta-app en een Instagram-account van Dortus: eenmalig werk voor Thijs, en het publiek voor Blender-add-ons is daar onbekend (GOK: klein). Hoort bij "later", na Bluesky en Mastodon.
+
+### Bijgesteld ontwerp na run 7
+- Lijst punt 5 (TikTok zakelijk) levert nu drie dingen: link in de bio, eerste reactie op TikTok, en eigen omslagbeeld (Metricool: eigen omslag alleen bij zakelijke accounts, GEZIEN op de pagina API-beperkingen).
+- Pro verkopen via YouTube = **lange video's** met de link in beschrijving én eerste reactie. Shorts alleen met een gerelateerde video die een mens in Studio zet.
+- Alle links van de tak gaan via `dortus.com/click-joints/?ref=<kanaal>`; de meetlat komt uit het scorebord, geen nieuwe sleutel nodig.
+
+
 ## Bronnen
 - [WinBuzzer: Reddit RSS en API](https://winbuzzer.com/2026/10/01/reddit-to-end-feed-reader-updates-and-public-api-access-for-apps-a002-xcxwbn/)
 - [TikTok Content Posting API, get started](https://developers.tiktok.com/docs/en/content-posting-api-get-started)
@@ -425,6 +468,7 @@ Voor de hoofdchat die vandaag de tak ontwerpt. Alles hierboven blijft als onderb
 - [Buffer: content engine met GitHub Actions](https://buffer.com/resources/i-built-a-content-engine-that-creates-21-social-posts-a-week-using-the-buffer-api/), [Postiz: Accentify](https://postiz.com/blog/how-one-founder-automated-social-media-posting-with-ai-agents-notion-and-postiz-to-hit-1300-mrr)
 
 - Run 6: Blender-voorwaarden `extensions.blender.org/terms-of-service/` (GEZIEN, artikel 4.3 en 6.1 tot 6.3); gerelateerde video bij Shorts [YouTube Help 14075157](https://support.google.com/youtube/answer/14075157) (DERDEN); Metricool `getScheduledPosts` en `getBrandSettings` (GEZIEN, alleen lezen); profielpagina TikTok @dortusstudio en Gumroad-pagina Click Joints Pro met curl (GEZIEN).
+- Run 7: [Metricool first comment](https://help.metricool.com/how-to-schedule-a-first-comment-on-your-posts-pwm25), [Metricool API-beperkingen per netwerk](https://help.metricool.com/api-limitations-per-social-network-n7zlr.md) (GEZIEN); [Lindsey Gamble](https://www.lindseygamble.com/blog/youtubes-link-changes-what-it-means-for-creators) en [Tubefilter](https://www.tubefilter.com/2023/08/10/youtube-shorts-comments-spam/) over links in Shorts (DERDEN); Threads-quotum `developers.facebook.com/documentation/threads/troubleshooting.md` (GEZIEN); Metricool `getScheduledPosts` en `getBrandSettings`, scorebord.md, dortus.com/click-joints/ (GEZIEN).
 
 ## Stand na run 19 nov 01:05 (run 1)
 1. **Zonder geld kan een agent echt zelfstandig plaatsen en reageren op YouTube, Bluesky, Mastodon en Discord;** TikTok alleen plaatsen via Metricool. Reddit en HN blijven mensenwerk.
@@ -479,3 +523,12 @@ Voor de hoofdchat die vandaag de tak ontwerpt. Alles hierboven blijft als onderb
 5. **Eindontwerp staat nu op één plek** (run 6 punt 5): 2 agents plus het Oor als geplande sessies, Metricool Free, € 0 per maand, Thijs ±10 minuten eenmalig.
 
 **Voorstel:** de hoofdchat zet lijst punt 5 (zakelijk plus bio-link naar Pro) bovenaan de lijst van Thijs met de reden "zonder dit kan de Pro-post van vrijdag niets verkopen", en schuift de TikTok van vr 20 nov een week op als dat vóór vrijdag 15:00 niet gedaan is. Daarnaast laat ze per Pro-functie één liggende YouTube-video van 2 tot 4 minuten maken met de Gumroad-link bovenaan de beschrijving, waar elke Short als gerelateerde video naar wijst. Dan pas de twee taken van de tak aanzetten.
+
+## Stand na run 19 nov 07:00 UTC (run 7)
+1. **Niets veranderd in de planner** (GEZIEN 06:50 UTC): dezelfde vier posts, @dortusstudio nog niet zakelijk. Run 6 punt 1 geldt nog: geen van de vier kan nu iets verkopen.
+2. **Metricool plant ook een eerste reactie** (`firstCommentText`, GEZIEN): YouTube 10.000 tekens, TikTok alleen voor zakelijke accounts. Op een lange YouTube-video is dat een tweede klikbare plek voor de Gumroad-link; onder een Short is ook een link in een reactie dood (DERDEN).
+3. **Short koppelen aan een lange video kan via geen enkele API** (GEZIEN bij Metricool, ook niet met de YouTube Data API). Die trechter kost per Short een minuut handwerk in Studio; zonder dat zijn Shorts alleen bereik.
+4. **YouTube-reacties lezen zonder sleutel kan niet vanuit de cloud** (GEZIEN: captcha). Een gewone `YOUTUBE_API_KEY` erbij als Thijs de OAuth regelt.
+5. **De meetlat bestaat al**: het scorebord leest elke dag Gumroad-verkopen en bezoekers van dortus.com/click-joints/ (GEZIEN, 31 weergaven op 18 nov). Laat alle links via `dortus.com/click-joints/?ref=<kanaal>` lopen, dan ziet de tak per kanaal wat werkt.
+
+**Voorstel:** de hoofdchat (1) zet bij de TikTok en YouTube Short van vr 20 nov nu niets in `firstCommentText` (TikTok kan het nog niet, Short-link is dood) maar laat vóór vrijdag één liggende YouTube-video over de click hinge maken met in beschrijving en eerste reactie `dortus.com/click-joints/?ref=yt`, (2) laat de bouwer van het scorebord nagaan of Amami bezoeken per `ref` geeft, en (3) houdt lijst punt 5 bovenaan met de nieuwe reden "geeft link in bio, eerste reactie en eigen omslag in één keer". Volgende run: of een lange YouTube-video via Metricool Free kan (lengte, formaat) en wat dat van het quotum vraagt.
