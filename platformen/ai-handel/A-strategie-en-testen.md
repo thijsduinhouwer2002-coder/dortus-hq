@@ -209,3 +209,67 @@ Hoek: de meting uit run 2 opnieuw doen **zonder de volumefout**. Dat is de belan
 3. **Het voordeel is dun**: het overleeft 1 cent slechtere instap (+5,3%), maar twee cent of de nieuwe Polymarket-kosten kunnen het opeten (GOK); en het zit vooral in sport (+12%) tegen +1% bij de rest (GEZIEN, kleine aantallen).
 4. **Terugtests voorspellen weinig** (run 1: Sharpe 1,86 naar 0,33 in mijn trendtest, GEZIEN; R² onder 0,025 over 888 strategieën, DERDEN). Trendvolgen beperkt dalingen, meer niet. Een taalmodel hooguit als filter; meelezen op X kost $5 per 1000 posts (GEZIEN).
 5. **€10.000 in 3 maanden** haalt geen route in hoek A met een kleine pot (GOK). De beste kans blijft een maker-bot op favorieten in voorspellingsmarkten, eerst weken op papier met zelf opgeslagen orderboeken (alles zonder account te halen, GEZIEN).
+
+## Run 4 (19 nov 2026, ±03:35 tot 04:05 UTC)
+Hoek: de bevinding uit run 3 (favorieten van 70 tot 90 cent winnen ±5%) **toetsen op een periode die ik nog niet had bekeken**: jan tot aug 2026. Run 3 gebruikte sep tot nov. Ik legde vooraf vast wat telt: dezelfde keuze van markten, dezelfde instapmomenten, dezelfde band. Dat is de eerlijkste test die er is: een vooraf vastgelegde regel op nieuwe data.
+
+### 14. Toets op nieuwe data: het voordeel bij favorieten blijft, de sportconclusie niet (GEZIEN)
+**Hoe** (zelfde werkwijze als punt 12, alles openbaar en zonder account):
+- Alle gesloten markten met een geplande einddatum van 1 jan tot 31 aug 2026 die minstens 8 dagen ervoor begonnen, per dag volledig gepagineerd via `gamma-api.polymarket.com/markets/keyset` (nu wel netjes: 278.256 unieke markten, 273.765 met een uitslag, uit 42.346 events; GEZIEN). Geen filter op volume.
+- Daaruit 5.000 willekeurig getrokken (vaste seed), maximaal 2 per event, half "hoofdmarkt van een wedstrijd" (event met een datum in de naam, of over/onder), half de rest. Koersgeschiedenis per dag uit `clob.polymarket.com/prices-history` (4.959 met data, GEZIEN).
+- Instap 7 of 1 dag vóór de geplande einddatum, alleen als de markt toen nog open was; dagkoers niet ouder dan 2 dagen; beide kanten; bootstrap per event (1.000 keer, 90%-band). Plus drie kostenscenario's: 1 cent duurder, 2 cent duurder, en de takerkosten van Polymarket vanaf 20 nov (`tarief × p × (1 − p)`, sport 0,05, de rest gerekend met 0,01; tarieven GEZIEN door D punt 8).
+
+**Uitslag, alle markten** (GEZIEN, eigen telling, middenkoers):
+
+| Prijs | 7 dagen ervoor: n, rendement, band | +2 cent | 1 dag ervoor: n, rendement, band | +2 cent |
+|---|---|---|---|---|
+| 0 tot 10 cent | 364, **-50%**, -77% tot -19% | -66% | 766, -10%, -37% tot +18% | -37% |
+| 10 tot 30 cent | 550, **-20%**, -33% tot -7% | -28% | 947, **-18%**, -28% tot -7% | -26% |
+| 30 tot 70 cent | 6.455, -2,5% | -6% | 2.926, -1,6% | -5% |
+| 70 tot 90 cent | 555, **+4,4%**, +0,9% tot +7,7% | +1,8% | 933, **+4,3%**, +1,7% tot +6,9% | +1,7% |
+| 90 tot 100 cent | 374, +2,5%, +1,0% tot +3,8% | +0,4% | 792, -0,1% | -2,1% |
+
+Takerkosten maakten weinig uit (70 tot 90 cent: +3,8% en +3,5% na kosten), want ze zijn klein bij dure contracten. Een paar cent slechtere prijs weegt veel zwaarder (GEZIEN).
+
+**Per soort** (70 tot 90 cent, GEZIEN):
+
+| Soort | 7 dagen ervoor | 1 dag ervoor |
+|---|---|---|
+| Hoofdmarkt wedstrijd (wie wint, over/onder) | -2,4% (n=267, band -8% tot +4%) | +2,4% (n=563, band -1% tot +6%) |
+| Bijzetmarkten sport (exacte uitslag, handicap, gelijk bij rust, "meeste sixes") | **+16,1%** (n=168, band +12% tot +20%; +13% bij 2 cent duurder) | **+6,8%** (n=279, band +3% tot +11%) |
+| De rest (politiek, tweets van Musk, prijzen, "zegt Trump X") | +3,2% (n=120, band -4% tot +10%) | +8,3% (n=91, band +1% tot +15%) |
+
+De spiegelkant klopt: in de bijzetmarkten verloren contracten van 10 tot 30 cent **62%** (7 dagen) en 34% (1 dag) (GEZIEN). Per maand (70 tot 90 cent, alles behalve hoofdmarkten, 7 dagen): 7 van de 8 maanden positief (GEZIEN).
+De indeling in soorten deed ik met trefwoorden in de vraag en de eventnaam; dat is grof (GOK voor de nauwkeurigheid).
+
+**Wat dit leert** (GOK, op basis van de meting):
+1. **De hoofdbevinding houdt stand op nieuwe data.** Vooraf vastgelegd: band 70 tot 90 cent. Uitslag: +4,4% en +4,3%, band boven nul, tegen +6,6% en +4,9% in run 3. Twee perioden, twee keer dezelfde richting, plus de Kalshi-studie (punt 9). Dit is nu het best onderbouwde patroon in mijn hele bestand.
+2. **Mijn sportconclusie uit run 3 was ruis.** Toen droeg sport alles (+12%); nu doen de hoofdmarkten van wedstrijden niets (-2,4% en +2,4%). Les: een uitsplitsing op een kleine groep (n=218) is een nieuwe hypothese, geen bevinding. Precies daarom toets je op nieuwe data.
+3. **Waar het wel zit: de bijzetmarkten.** Mensen kopen graag "Ja" op een exacte uitslag of een grote handicap (een lot uit de loterij); "Nee" daarop is te goedkoop. Dat past bij de bekende longshot-fout bij bookmakers (GOK, zelfde mechanisme als Kalshi). Maar: dit is een uitsplitsing die ik pas ná het kijken maakte, dus het is een **nieuwe hypothese** die eerst op een derde periode moet (sep tot nov 2026, of de weken die nu komen op papier).
+4. **Waarom je het nog steeds niet blind gelooft:** middenkoers per dag, en bijzetmarkten hebben vaak dunne boeken met een grote afstand tussen bied en laat (GOK; niet gemeten, want oude orderboeken zijn niet op te halen). Als je daar 3 tot 5 cent meer betaalt dan het midden, is +16% snel +5% of minder (GOK, eigen som: bij 80 cent is 4 cent 5%).
+
+**Rekenvoorbeeld** (GOK, eigen som): +4% per contract op een week vastgezet geld, maar je kunt niet elke week alles inzetten (lang niet genoeg markten in de band met ruimte in het boek). Stel 20 tot 40% van de pot per week aan het werk: dan ±1 à 2% per week, ±12 à 25% in 3 maanden, vóór slechtere prijzen. €10.000 winst vraagt dan nog altijd een pot van ruwweg €40.000 tot €80.000, en de grootste onzekerheid is hoeveel je per markt echt kwijt kunt zonder de prijs te bederven.
+
+### 15. Wat de bot hieruit moet doen (testplan voor de komende weken, GOK)
+1. **Elke dag het orderboek opslaan** van alle open bijzetmarkten en "overige" markten waar een kant tussen 70 en 90 cent staat (openbaar, zonder account; zie B punt 27 voor het gereedschap).
+2. Per markt vastleggen: beste laatprijs, hoeveel er op die prijs ligt, en de middenkoers. Na de uitslag rekenen met de **laatprijs** (taker) en met "had een maker-order 1 cent onder het midden gevuld worden?".
+3. Vooraf vastleggen wat "werkt" betekent: na 300 markten, laatprijs, band per event boven +2%. Haalt het dat niet, dan valt de route af (GOK als drempel, gekozen omdat +2% de buffer is voor slechtere vullingen in het echt).
+4. Pas daarna denken aan echt geld; en dan met de grijze risico's die D (punt 3 en 16) voor Nederland beschrijft.
+
+### Bijgestelde rangorde binnen hoek A (kans maal opbrengst, GOK)
+1. **Voorspellingsmarkten, kant van 70 tot 90 cent kopen, vooral in bijzetmarkten van sport en "overige" markten, eerst weken op papier met echte laatprijzen.** Nu gesteund door twee perioden van eigen meting (GEZIEN) en de Kalshi-studie (DERDEN). Klein (±4% gemiddeld, misschien meer in bijzetmarkten) en afhankelijk van hoe dun de boeken zijn. Kans op €10.000 in 3 maanden met een kleine pot: onder 5% (GOK, ongewijzigd, want de pot is de grens, niet het voordeel).
+2. Simpele trendregel op spot (run 1): beperkt dalingen, geen geldmachine.
+3. Hoofdmarkten van wedstrijden (wie wint): **valt af** als aparte route; op nieuwe data geen voordeel.
+4. Longshots, LLM-sentiment als hoofdsignaal, hefboom: vallen af.
+
+### Nog te doen (volgende runs)
+- Bijzetmarkten apart toetsen op sep tot nov 2026 (derde periode), met een nette indeling op eventsoort in plaats van trefwoorden.
+- Hoe dun zijn de boeken nu? Een momentopname van de bied-laat-afstand in open bijzetmarkten met een kant tussen 70 en 90 cent (`clob.polymarket.com/book`, openbaar).
+- Momentum over meer munten met volatiliteit richten (blijft liggen; laagste kans op het doel).
+
+## Stand na run 04:05 UTC (19 nov 2026)
+1. **Vooraf vastgelegde toets op nieuwe data geslaagd** (GEZIEN): favorieten van 70 tot 90 cent op Polymarket wonnen in jan tot aug 2026 **+4,4%** (7 dagen voor de einddatum) en **+4,3%** (1 dag), band boven nul; in run 3 (sep tot nov) +6,6% en +4,9%. Zelfde richting als Kalshi (DERDEN, 300.000 contracten). Takerkosten eten weinig, 2 cent slechtere prijs halveert het ruwweg.
+2. **Het zit in de bijzetmarkten van sport** (exacte uitslag, handicap, gelijk bij rust): "Nee"-kant op 70 tot 90 cent **+16%** 7 dagen ervoor, +6,8% 1 dag ervoor; de "Ja"-loten van 10 tot 30 cent verloren 34 tot 62% (GEZIEN). Dit is een uitsplitsing achteraf, dus een nieuwe hypothese voor de volgende toets, en die boeken zijn waarschijnlijk dun (GOK).
+3. **Mijn sportconclusie uit run 3 was ruis** (GEZIEN): de hoofdmarkten van wedstrijden geven op nieuwe data geen voordeel (-2,4% en +2,4%). Les voor elke bot: een uitsplitsing op een kleine groep is pas iets na een toets op nieuwe data.
+4. **Terugtests liegen makkelijk** (run 1: Sharpe 1,86 naar 0,33, GEZIEN; run 2: longshot-"winst" door volumekeuze, GEZIEN; R² onder 0,025 over 888 strategieën, DERDEN). Een taalmodel hooguit als filter; meelezen op X kost $5 per 1000 posts (GEZIEN).
+5. **€10.000 in 3 maanden** haalt geen route in hoek A met een kleine pot (GOK): bij ±1 à 2% per week op de pot is er ruwweg €40.000 tot €80.000 nodig. De beste stap nu kost niets: weken lang openbare orderboeken opslaan en op papier rekenen met echte laatprijzen (testplan punt 15).
