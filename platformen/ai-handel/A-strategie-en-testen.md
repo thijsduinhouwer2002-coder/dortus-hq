@@ -335,3 +335,67 @@ De mediane trade in deze band was $13, de 90% grootste $313 (GEZIEN).
 3. **Er past weinig geld in** (GEZIEN): een paar honderd dollar op de beste prijs per markt, mediane trade $13. Ook met een echt voordeel is dit geen route naar €10.000 in 3 maanden met een kleine pot (GOK, kans onder 3%).
 4. **Terugtests liegen makkelijk, drie keer gezien in dit bestand**: Sharpe 1,86 naar 0,33 (run 1), longshot-"winst" door volumekeuze (run 2), "+16%" door de getoonde koers (run 5). Altijd: vooraf vastleggen, nieuwe data, echte prijzen of echte trades. Een taalmodel hooguit als filter; meelezen op X kost $5 per 1000 posts (GEZIEN).
 5. **Volgende stap kost niets**: boeken opslaan en alleen als maker vóór de wedstrijd op papier handelen; slaagt dat niet na 300 markten met band boven +2%, dan valt de route af (testplan punt 15). Voor groter geld blijft de trendregel op spot (run 1) de enige route in hoek A waar veel geld in past, maar zonder groot rendement.
+
+## Run 6 (19 nov 2026, ±05:35 tot 06:05 UTC)
+Hoek: de drie open punten van run 5. (a) Wat betekent het veld `side` echt, (b) wat verdienden kopers van favorieten **alleen vóór de aftrap** (het enige moment waarop een trage bot meedoet), apart voor nemer en maker, (c) hoe vaak wordt een maker vóór de aftrap gevuld. Plus iets wat ik in run 1 tot 5 vergat: **de kosten per trade op Polymarket**. Geen namen of wallets van handelaren opgeschreven.
+
+### 19. Kosten op Polymarket: nemers betalen, en er verandert morgen iets (GEZIEN)
+- Formule: kosten = aantal stukken × tarief × p × (1 − p). Makers betalen nooit. Tarief sport: 0,05 (GEZIEN, [docs Fees](https://docs.polymarket.com/trading/fees.md)). Bij een favoriet van 80 cent is dat 0,8 cent per stuk, dus **1,0% van de inzet**; bij 70 cent 1,5%. Gemiddeld over alle nemer-trades in mijn steekproef: 1,03% (GEZIEN, eigen som).
+- **Vanaf 20 nov 2026 23:59 UTC** (GEZIEN, [docs wijzigingen nov 2026](https://docs.polymarket.com/programs/fee-and-rebate-changes-november-2026.md)): sport blijft 0,05; crypto (behalve de 5- en 15-minuten BTC-markten), economie, cultuur, weer en politiek zonder verkiezingen gaan naar 0,01; geopolitiek blijft gratis. Belangrijk voor een kleine bot: **onder $200.000 handelsvolume per 30 dagen krijg je geen terugbetaling meer**, niet als nemer en niet als maker. De losse beloning voor liquiditeit (liquidity rewards) blijft wel bestaan.
+- Run 3 tot 5 rekenden zonder deze kosten. Voor nemers zakken die cijfers dus ±1 procentpunt (GOK, eigen som).
+
+### 20. Het veld `side` is de nemer (GEZIEN)
+De docs van `data-api.polymarket.com/v2/trades` zeggen: `taker_only` staat standaard aan, "each fill is served once, on its taker side" (GEZIEN, [docs List trades](https://docs.polymarket.com/api-reference/feeds/list-trades.md)). Mijn aanname uit run 5 klopt dus. Daarmee kun je per trade zien wie de maker was: verkoopt de nemer de favoriet, dan kocht een maker hem.
+
+### 21. Alleen vóór de aftrap: het voordeel bij favorieten verdwijnt (GEZIEN, vooraf vastgelegd)
+**Vooraf vastgelegd:** periode 1 sep tot 10 nov 2026, sportmarkten met een uitslag, indeling hoofd (`moneyline`, `totals`) en bijzet (andere `sportsMarketType`), aftrap uit het veld `gameStartTime` dat Polymarket meegeeft (GEZIEN). Maat 1: rendement per echte trade, gesplitst in nemer en maker en in tijdvakken. Maat 2 (de eerlijke maat voor een bot die per markt één keer koopt): koop de favoriet van 70 tot 90 cent tegen de laatste handelsprijs vóór de aftrap, min de nemer-kosten.
+**Hoe:** per dag de eerste 400 gesloten markten uit de keyset-API (28.400 opgehaald; dus niet compleet per dag), daaruit per dag maximaal 7 hoofd en 7 bijzet, één per event, vaste seed: 823 markten, 619 met trades, alle trades volledig opgehaald (GEZIEN). Bootstrap per event of per markt, 90%-band.
+
+**Maat 1, per trade (GEZIEN):**
+
+| Groep | trades | events | per trade | per dollar |
+|---|---|---|---|---|
+| Hoofd, nemer, vóór de aftrap | 3.720 | 167 | **-36,5%** (-61,5% tot -3,7%) | -70,0% (-92,0% tot -11,8%) |
+| Hoofd, nemer, tijdens of na | 11.995 | 295 | -4,8% (-14,1% tot +3,6%) | -9,6% (-34,7% tot +13,4%) |
+| Hoofd, maker, vóór de aftrap | 131 | 30 | -30,5% (-64,1% tot +22,9%) | -56,0% (-95,7% tot +37,1%) |
+| Hoofd, maker, tijdens of na | 1.464 | 167 | -0,4% (-8,6% tot +6,8%) | +8,6% (-4,1% tot +17,4%) |
+| Bijzet, nemer, vóór de aftrap | 535 | 40 | -24,0% (-65,4% tot +18,2%) | +10,2% (-76,5% tot +30,6%) |
+| Bijzet, nemer, tijdens of na | 700 | 66 | +4,4% (-6,4% tot +15,6%) | +17,6% (+5,3% tot +26,1%) |
+
+De -36% per trade is **geen eerlijk beeld**: een paar events met heel veel trades die verloren trekken het omlaag (de banden zijn enorm). Daarom maat 2.
+
+**Maat 2, één koop per markt, laatste prijs vóór de aftrap, na kosten (GEZIEN):**
+
+| Groep | markten | winst per markt | 90%-band | raakkans |
+|---|---|---|---|---|
+| Hoofd | 140 | **-3,6%** | -11,5% tot +3,9% | 76% |
+| Bijzet | 42 | +1,9% | -10,9% tot +13,3% | 83% |
+| Alle | 182 | **-2,4%** | -8,8% tot +4,0% | 78% |
+| Alle, 1 tot 24 uur vooraf | 151 | -4,3% | -11,7% tot +3,3% | 76% |
+| Alle, meer dan 24 uur vooraf | 88 | -6,7% | -16,6% tot +2,9% | 74% |
+
+Controle op de prijzen zelf (laatste prijs vóór de aftrap, per markt, beide kanten): band 70 tot 80 cent won 75% van de keren, band 80 tot 90 cent won 83% (GEZIEN, n = 112 en 64). Dat is precies wat de prijs zei. **Vóór de aftrap is de markt in deze steekproef gewoon eerlijk geprijsd**, en dan maken de kosten het netto negatief.
+
+**Hoe vaak wordt een maker vóór de aftrap gevuld?** Bijna nooit in deze steekproef: 146 trades in 36 events waar een maker vóór de aftrap een favoriet van 70 tot 90 cent kocht, tegen 4.255 trades aan de nemerkant (GEZIEN). Van alle trades in hoofdmarkten gebeurt ±78% tijdens of na de wedstrijd (GEZIEN, 13.459 van 17.310 rijen). De laatste trade ligt mediaan 2,5 uur na de aftrap (GEZIEN).
+
+**Wat dit leert** (GOK, op basis van punt 17 en 21):
+1. Het voordeel bij favorieten uit run 3 tot 5 **zit tijdens de wedstrijd**, niet ervoor. Wie tijdens de wedstrijd koopt, weet vaak sneller wat er op het veld gebeurt (live beeld, snelle data). Dat is een snelheidsvoordeel, geen patroon dat een simpele bot vooraf kan oogsten.
+2. Mijn hoofdroute in hoek A (favorieten als maker vóór de aftrap) **valt af** op deze data: de prijs is vooraf eerlijk, nemers betalen ±1% kosten, en makers worden vooraf bijna niet gevuld.
+3. Dit verschilt van punt 17 (run 5) omdat dat alle trades samen nam, ook tijdens de wedstrijd. Zelfde les als eerder: **knip je data op het moment waarop jouw bot echt beslist**, anders test je het voordeel van iemand anders.
+
+### Bijgestelde rangorde binnen hoek A (kans maal opbrengst, GOK)
+1. **Simpele trendregel op spot (run 1)**: beperkt dalingen, geen geldmachine, maar het enige in hoek A dat de toetsen overleeft en waar veel geld in past. Kans op €10.000 in 3 maanden met een kleine pot: onder 1% (GOK).
+2. **Voorspellingsmarkten tijdens de wedstrijd**: daar zit wel een voordeel (punt 17 en 21), maar het vraagt snelle live data en een bot die binnen seconden reageert; dat is een race tegen professionele partijen (GOK). Alleen te onderzoeken als iemand een eigen snelle databron heeft.
+3. Favorieten vóór de aftrap, als nemer of maker: **valt af** (punt 21).
+4. Bijzetmarkten als nemer, hoofdmarkten als losse route, longshots, LLM-sentiment als hoofdsignaal, hefboom: vallen af (run 1, 4 en 5).
+
+### Nog te doen (volgende runs)
+- Dezelfde toets (maat 2, alleen vóór het beslismoment) op de **niet-sport** markten met lage kosten na 20 nov (economie, weer, cultuur: tarief 0,01). Weinig kosten maakt een klein voordeel daar misschien wel netto positief.
+- Liquiditeitsbeloningen (liquidity rewards) nalezen: wat krijgt een kleine maker per dag voor een bod in het boek, en weegt dat op tegen het risico dat alleen de verkeerde kant gevuld wordt.
+
+## Stand na run 06:05 UTC (19 nov 2026)
+1. **Vóór de aftrap is Polymarket-sport eerlijk geprijsd** (GEZIEN, 182 markten, sep tot nov 2026): favorieten van 70 tot 90 cent wonnen 75% en 83%, wat de prijs zei. Eén koop per markt vóór de aftrap gaf na kosten -2,4% (band -8,8% tot +4,0%). Het voordeel dat run 3 tot 5 zag, zit tijdens de wedstrijd en is een snelheidsvoordeel.
+2. **Kosten**: nemers betalen bij sport ±1% van de inzet bij een favoriet van 80 cent; makers niets (GEZIEN). Vanaf 20 nov 23:59 UTC krijgen accounts onder $200.000 volume per 30 dagen geen terugbetaling meer; veel niet-sport markten gaan naar een laag tarief (0,01) (GEZIEN).
+3. **Makers worden vóór de aftrap bijna niet gevuld** (GEZIEN: 146 maker-trades tegen 4.255 nemer-trades; ±78% van de handel is tijdens de wedstrijd). De maker-route uit run 5 valt af.
+4. **Terugtests liegen makkelijk, nu vier keer gezien in dit bestand**: Sharpe 1,86 naar 0,33 (run 1), longshot-"winst" door volumekeuze (run 2), "+16%" door de getoonde koers (run 5), en "favorieten winnen" doordat trades tijdens de wedstrijd meetelden (run 6). Altijd: vooraf vastleggen, knippen op het beslismoment van de bot, echte prijzen en kosten.
+5. **Wat overblijft in hoek A**: de simpele trendregel op spot (run 1) als rustige basis, geen route naar €10.000 in 3 maanden (GOK, kans onder 1%). Volgende toets: voorspellingsmarkten met tarief 0,01 buiten sport, met dezelfde strenge opzet.
