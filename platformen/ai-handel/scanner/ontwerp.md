@@ -60,12 +60,11 @@ in `simbronnen.py`, zodat `simulatie.py` onder de ±400 regels blijft.
 Na de herkeuring (KEURING.md, "Herkeuring simulatie"): de tabel "Andere keuzes" toont ook de kostengrens 2% en 5%,
 en bij de aanname staat dat 1% achteraf gekozen is. De kop "per dag" zegt dat het om één gemeten dag gaat die begint
 met een gelijk verdeelde voorraad (en of de voorraad aan het eind scheef staat). Het rapportblok staat nu in
-`simrapport.py`. Eigen run op de data van 15:08 UTC (Bitvavo-Kraken, netto handel): €150: 1% €0,19, 2% €0,19, 5%
--€5,96; €2.000: €2,39 bij alle drie. De keurder kwam bij €2.000 op €7,79 (1%) en €1,67 (2% en 5%); dat krijg ik niet
-terug. Bij €2.000 kost elke terugschuif hier hooguit 1% (de duurste, GMT, 0,98%), dus de grens maakt niets uit; met
-een grens van 0,95% valt die ene schuif weg en wordt het €3,37. De uitkomst hangt dus aan één schuif rond de grens,
-en kleine verschillen in koers (candles worden bij elke run opnieuw opgehaald) kunnen hem net over of onder de grens
-duwen.
+`simrapport.py`. Rapport van 15:44 UTC (9 runs, Bitvavo-Kraken, netto handel): €150: 1% €0,20, 2% €0,20, 5%
+-€1,94 (gelijk aan de keurder); €2.000: 1% €7,91, 2% €1,73, 5% €1,73 (keurder: €7,79, €1,67, €1,67; zelfde beeld,
+klein verschil). Op de oudere data van 15:08 UTC (5 runs) maakte de grens bij €2.000 niets uit (€2,39 bij alle drie):
+daar kostte de duurste terugschuif (GMT) 0,98%, net onder de grens. De uitkomst hangt dus aan een paar schuiven rond
+de grens.
 
 ## Bekende grenzen
 Netwerk alleen vergeleken waar beide beurzen het geven; overmaaktijd niet gemeten; opnamekosten bij een deel van de beurzen geschat;
