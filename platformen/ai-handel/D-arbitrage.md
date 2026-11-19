@@ -180,3 +180,70 @@ Openbare zoek-JSON van Marktplaats (`marktplaats.nl/lrp/api/search`, zonder acco
 | 7 | Spot- en driehoeksarbitrage, CS2-skins, kaartjes (TicketSwap max 20% erboven), airdrops | n.v.t. | rond 0% | kosten en tijd kwijt |
 
 Verschil met run 1: tweedehands stijgt naar plek 1 omdat het als enige met uren schaalt en nu gemeten is; voorspellingsmarkten splitsen zich in market making (blijft kansrijk door de beloningspot) en pure arbitrage (zakt door de kosten en het wegvallen van kortingen op 20 nov).
+
+---
+
+## Run 3 (19 nov, ±03:25 tot 03:55 Nederlandse tijd)
+Deze run: de gok uit run 2 over de liquiditeitsbeloning op Polymarket vervangen door een meting per markt, en een snelle controle of opkopers meer betalen dan particulieren op Marktplaats.
+
+### 13. Eigen meting: wat zou een order van ±$200 per markt nu aan beloning pakken?
+**Werkwijze (GEZIEN, openbare API's zonder account, 19 nov 02:25 en 02:28 UTC):** alle markten met beloning opgehaald (`clob.polymarket.com/rewards/markets/current`: 7.909 markten, $74.571 per dag, past bij run 2). Daarvan de 120 met de hoogste beloning plus 120 willekeurige tussen $5 en $50 per dag. Per markt het orderboek (`clob.polymarket.com/books`) en de puntentelling uit de docs nagerekend: per order `((v − s) / v)² × aantal`, met v de maximale afstand tot het midden en s de afstand van de order; tweezijdig telt vol, eenzijdig (midden tussen 0,10 en 0,90) voor een derde; elke minuut een steekproef, aan het eind van de UTC-dag naar verhouding uitbetaald, minimaal $1 (GEZIEN, [docs Liquidity Rewards](https://docs.polymarket.com/programs/liquidity-rewards.md)). Daarna uitgerekend welk deel een nieuwe order van 200 aandelen aan beide kanten zou krijgen (±$200 vastgezet geld per markt) naast wat er al ligt.
+
+**Uitkomst (GEZIEN, mijn model; zie de kanttekeningen):**
+| Groep | Markten | Mediaan per dag per $200 |
+|---|---|---|
+| beloning $50+ per dag | 120 | $5 tot $6 |
+| beloning $5 tot $50 per dag | 120 | $1,3 tot $2 |
+
+**Het eigenlijke punt zit in de leeftijd van de markt** (GEZIEN, startdatum uit `gamma-api.polymarket.com/markets`, de 120 duurste markten):
+| Leeftijd markt | Markten | Mediaan aandeel dat een nieuwe $200-order zou krijgen | Mediaan per dag per $200 | Mediaan volume 24 uur |
+|---|---|---|---|---|
+| jonger dan 2 dagen | 29 | 32% | $62 | $936 |
+| 2 tot 7 dagen | 21 | 2% | $4 | $8.556 |
+| ouder dan 7 dagen | 70 | 2% | $4 | $15.342 |
+
+Voorbeeld: "Anthropic IPO closing market cap above $1.4T?" gaat sinds 18 nov 21:34 UTC, geeft $400 per dag aan beloning, en had binnen 4,5 cent van het midden op het moment van meten maar een paar honderd aandelen aan orders staan, bij $769 volume in 24 uur (GEZIEN). Een tweede meting 3 minuten later gaf bijna dezelfde aandelen (GEZIEN), dus het is geen flits van één seconde.
+Volgens het model zou $200 in elk van de 10 beste markten ($2.000 in totaal) ±$1.700 per dag opleveren (GEZIEN als rekenuitkomst). **Dat getal geloof ik niet als verwachting**, om deze redenen:
+- Het midden waar Polymarket mee rekent negeert orders onder de minimale grootte; in dunne boeken ligt dat ergens anders dan ik aannam, dus mijn order kan verder van het midden staan dan in het model (GOK).
+- Nieuwe markten hebben nog geen vaste prijs. Wie daar orders laat liggen, wordt gevuld door mensen die meer weten (bij de Anthropic-markten: elk nieuwtje over een beursgang). Dat verlies telt het model niet mee. Dit is het bekende risico van "adverse selection" (DERDEN, [Fifty Cent Dollars over Kalshi-beloningen](https://fiftycentdollars.substack.com/p/kalshis-new-liquidity-incentives)).
+- Bots die dit al doen kunnen binnen minuten bijschuiven zodra er iemand bijkomt; dan zakt je aandeel naar de 2% van de oudere markten (GOK).
+- De beloning voor nieuwe markten is groot omdat Polymarket juist dan liquiditeit wil; wie er als eerste staat pakt de pot, daarna zakt hij. Je moet dus elke dag nieuwe markten vinden en op tijd weg uit markten vlak voor een uitslag (DERDEN, [startpolymarket, reward farming](https://startpolymarket.com/strategies/reward-farming/): "avoid markets approaching a known catalyst").
+- Kleine bedragen per markt vallen onder de $1-drempel en worden dan niet uitbetaald, ook niet later (DERDEN, zelfde bron).
+
+**Som (GOK):** stel je haalt na al die aftrek 5 tot 20% van wat het model zegt, met $2.000 tot $5.000 aan orders verdeeld over 10 tot 25 jonge markten. Dat is $85 tot $500 per dag bruto, min verlies op vullingen, over 90 dagen grofweg **$5.000 tot $30.000**. De onzekerheid is enorm: niemand die ik vond laat dit met bewijs zien, en verslagen op dev.to zijn vaak verkooppraat. Wat wel vaststaat (GEZIEN): de pot is ±$75.000 per dag, blijft na 20 nov ongewijzigd, en in jonge markten ligt hij er voor het grijpen volgens het openbare boek.
+**Ergste geval:** de bot koopt een berg aandelen vlak voor nieuws (bijv. een markt die van 70 naar 5 cent valt), dus een flink deel van wat er op de boeken staat kwijt; of het account wordt bevroren (Nederland, zie hieronder).
+**Nederland (grijs, ongewijzigd t.o.v. run 2):** Polymarket is verboden door de Ksa, meedoen kan alleen met een VPN en breekt de voorwaarden, en een saldo is in Nederland niet af te dwingen (run 2, punt 11). Dat geldt hier net zo hard.
+**Nuttige volgende stap die niets kost en niets riskeert:** een "schaduwbot" die alleen openbare data leest en elke minuut uitrekent welk aandeel en welk verlies op vullingen een order zou hebben gehad, een week lang, zonder account en zonder handel. Pas als die week een duidelijk plus laat zien, is er iets om over te beslissen.
+
+Kleine bijvangst: de startdatum in de beloningsinstellingen zelf zegt niets over de leeftijd van de markt (1.740 instellingen "begonnen" vandaag, GEZIEN); ze worden kennelijk dagelijks vernieuwd. Gebruik de startdatum van de markt uit Gamma.
+
+### 14. Tweedehands: betalen opkopers meer dan particulieren?
+Coolblue geeft bij inruil **"tot €170"** voor een iPhone 13 128GB, en dat is de beste staat (DERDEN, [Coolblue, inruilwaarde iPhone 13](https://www.coolblue.nl/en/advice/what-is-the-value-of-your-iphone-13.html)). Particulieren op Marktplaats vroegen een mediaan van ±€190 (GEZIEN, run 2). Een opkoper betaalt dus **minder** dan de middelste particulier. Directe arbitrage (kopen op Marktplaats, meteen aan een opkoper verkopen) werkt alleen met de onderkant van de markt (€130 tot €150, GEZIEN in run 2), dus ±€20 tot €40 per toestel min reiskosten en risico (GOK). Dat is te weinig voor het doel; de marge zit bij verkopen aan een particulier of als handelaar met garantie (€249 tot €259, GEZIEN run 2), en dat is werk.
+
+### Nog te doen (volgende runs)
+1. Polymarket: het model verbeteren met het echte "aangepaste midden" en een schatting van verlies op vullingen uit de openbare trades van jonge markten (`data-api.polymarket.com/trades`), zodat de 5 tot 20% hierboven een meting wordt.
+2. Kalshi heeft ook een beloning voor liquiditeit (DERDEN, Fifty Cent Dollars hierboven). Nakijken: hoe groot nu, en of Kalshi Nederland toelaat (Ksa overwoog actie, run 1).
+3. Belasting op winst bij voorspellingsmarkten en doorverkoop (staat nog open sinds run 1).
+
+---
+
+## Stand na run 03:55 (19 nov, Nederlandse tijd)
+**Vijf belangrijkste dingen tot nu toe**
+1. Kapitaal-arbitrage (beurzen, driehoek, funding) haalt met weinig geld nooit €10.000 in 3 maanden: 0,007% verschil op BTC tegen 0,2 tot 0,8% kosten, funding 3 tot 11% per jaar (GEZIEN, run 1).
+2. **Nieuw en het sterkste spoor:** in Polymarket-markten jonger dan 2 dagen zou een nieuwe order van $200 volgens het openbare boek een mediaan van **32% van de beloningspot** krijgen, tegen 2% in oudere markten; mediaan **$62 per dag per $200** tegen $4 (GEZIEN, eigen model op 120 markten, twee metingen). Het model mist verlies op vullingen en het echte midden, dus reken met 5 tot 20% daarvan (GOK): $5.000 tot $30.000 in 90 dagen met $2.000 tot $5.000 inleg, met enorme spreiding.
+3. Dat spoor is in Nederland grijs: Polymarket verboden, VPN nodig, saldo niet af te dwingen (DERDEN, run 1 en 2). Een schaduwbot zonder account kan het gratis een week toetsen.
+4. Echte arbitrage op voorspellingsmarkten (Kalshi tegen Polymarket, "bijna zeker" kopen) is klein na kosten: 3,5 tot 4,1 cent per paar nodig (DERDEN), een verslag van 176 trades eindigde op $2 (DERDEN).
+5. Tweedehands schaalt met uren, niet met geld: €60 tot €100 per telefoon bij doorverkoop aan particulieren (GOK op marge, prijzen GEZIEN); opkopers betalen minder dan de middelste particulier (tot €170 tegen ±€190, DERDEN en GEZIEN), dus geen snelle arbitrage via opkopers.
+
+**Rangorde op kans maal opbrengst richting €10.000 in 3 maanden** (alle kansen GOK, met reden)
+| # | Route | Inleg geld / uren per week | Kans op €10.000 | Ergste geval |
+|---|---|---|---|---|
+| 1 | Polymarket: beloning voor liquiditeit pakken in markten jonger dan 2 dagen, met een eigen bot | €2.000 tot €5.000 / 15+ bouwen, daarna 5 tot 10 | 15 tot 25% (pot en lege boeken GEZIEN; verlies op vullingen en reactie van andere bots onbekend) | groot deel inleg kwijt bij nieuws in een dunne markt; saldo bevroren, niet af te dwingen in NL |
+| 2 | Tweedehands doorverkopen met een zoekbot (Marktplaats) | €1.000 tot €2.000 / 20 tot 30 | 15 tot 25% (schaalt met uren, GEZIEN vraag en aanbod) | gestolen of kapot toestel, voorraad, blokkade |
+| 3 | Voorspellingsmarkten: nieuwe gaten, Kalshi tegen Polymarket | €1.000 tot €5.000 / 20+ | 2 tot 5% | markten beslissen anders, beide kanten kwijt |
+| 4 | Sportarbitrage en bonussen in Nederland | €1.000 tot €3.000 / 5 tot 10 | onder 5% (plafond ±€4.000) | accounts beperkt |
+| 5 | Odd-lot tenders, kleine promoties | een paar honderd / 1 | rond 0% | bod ingetrokken |
+| 6 | Funding-arbitrage | groot kapitaal / 2 | rond 0% met weinig geld | beurs valt om, liquidatie |
+| 7 | Spot- en driehoeksarbitrage, CS2-skins, kaartjes, airdrops, opkopers | n.v.t. | rond 0% | kosten en tijd kwijt |
+
+Verschil met run 2: route 1 stijgt van 5 tot 10% naar 15 tot 25% omdat de beloning per markt nu gemeten is en jonge markten bijna leeg blijken; hij staat boven tweedehands omdat de opbrengst niet aan uren vastzit, maar hij is grijs en het verlies op vullingen is nog niet gemeten. Wie geen grijs wil, kijkt naar route 2.
