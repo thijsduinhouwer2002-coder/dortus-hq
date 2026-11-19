@@ -56,16 +56,21 @@ DELEN = [
     ("knop", "Pick the end stop: 90°, 115° or 135°. Click Place hinge.", "1  Place a hinge"),
     ("rond", "One click: the part is cut in two, with a hinge between them.", "1  Place a hinge"),
     ("buig", f"Drag Bend. The arc shows the real range: it stops at {g115}.", "2  Bend to the stop"),
-    ("rood", "Push past the stop: the faces that would collide turn red.", "3  Past the stop"),
+    ("rood", "Push past the stop: the arc turns red and shows how far you went.", "3  Past the stop"),
     ("terug", "Back inside the range, the red is gone.", "3  Past the stop"),
-    ("stand90", f"The same knee with 90°: it stops at {g90}.", "4  90°, 115° or 135°"),
-    ("stand135", f"With 135° it bends to {g135} before it stops.", "4  90°, 115° or 135°"),
+    ("stand90", f"The same knee with 90°: the arc ends at {g90}, red past it.", "4  90°, 115° or 135°"),
+    ("stand135", f"With 135° it bends to {g135}, red past it.", "4  90°, 115° or 135°"),
     ("kogel", "Ball joints with the green fit band are in Pro too.", "5  Ball joints too"),
 ]
 VOLG = [d for d, _, _ in DELEN] + ["eind"]
 KAART_VOOR = {"heel": "1  Place a hinge", "buig": "2  Bend to the stop", "rood": "3  Past the stop",
               "stand90": "4  90°, 115° or 135°", "kogel": "5  Ball joints too"}
-KAART_S, BEGIN_S, EIND_S = 3.5, 7.0, 14.0   # YouTube-hoofdstukken minstens 10 s, video minstens 2:00
+KAART_S, HAAK_BEELDEN = 3.5, 210   # YouTube-hoofdstukken minstens 10 s
+# Keuring Daan 19 nov (moet 2): het onderschrift van "terug" pas als het rood weg is. De schuif gaat in de
+# eerste 60 beelden (2 s) terug; daarna is het rood gemeten weg (rood_na_terug 0). Dus vanaf 2,1 s.
+TEKST_VANAF = {"terug": 2.1}
+# Keuring Daan (moet 3): het stilstaande been van 9 s naar 3 s, door elk derde beeld te nemen (sneller rond).
+VERSNEL = {"heel": 3}
 
 
 def ff(*a):
@@ -92,7 +97,11 @@ def kaart(naam, regels, duur):
 
 def opname(deel, onder, hoofdstuk):
     van, tot = D[deel], D[VOLG[VOLG.index(deel) + 1]]
-    f = [dt(onder, 46, LICHT, 60, "h-120", extra=f":box=1:boxcolor={BG}@0.88:boxborderw=22")]
+    aan = f":enable='gte(t,{TEKST_VANAF[deel]})'" if deel in TEKST_VANAF else ""
+    f = [dt(onder, 46, LICHT, 60, "h-120", extra=f":box=1:boxcolor={BG}@0.88:boxborderw=22{aan}")]
+    if deel in VERSNEL:
+        k = VERSNEL[deel]
+        f.insert(0, f"select='not(mod(n,{k}))',setpts=N/{FPS}/TB")
     if hoofdstuk:
         f.append(dt(hoofdstuk, 34, MINT, 60, 50, extra=f":box=1:boxcolor={BG}@0.80:boxborderw=14"))
     vf = ",".join(f)
@@ -106,15 +115,31 @@ def opname(deel, onder, hoofdstuk):
     else:
         ff("-framerate", str(FPS), "-start_number", str(van), "-i", str(IN / "beelden" / "b%05d.png"),
            "-frames:v", str(tot - van), "-vf", vf + ",format=yuv420p", *enc(uit))
-    return uit, (tot - van) / FPS
+    return uit, (tot - van) / FPS / VERSNEL.get(deel, 1)
+
+
+def haak():
+    """Keuring Daan (moet 3): geen stilstaande titel. Open met de buig naar de stop (deel buig, 7 s) met de
+    titel en de drie standen eroverheen."""
+    van = D["buig"]
+    n = min(HAAK_BEELDEN, D["rood"] - van)
+    vak = f":box=1:boxcolor={BG}@0.85:boxborderw=20"
+    vf = ",".join([dt("Click Joints Pro", 96, LICHT, 60, 60, extra=vak),
+                   dt("A hinge for 3D prints that stops where you want", 44, GRIJS, 60, 210, GEW, vak),
+                   dt("90°  ·  115°  ·  135°", 60, MINT, 60, 300, extra=vak),
+                   dt("Recorded in Blender 5.3. Measured in Blender, not printed yet.", 32, GRIJS, 60, "h-90",
+                      GEW, f":box=1:boxcolor={BG}@0.80:boxborderw=14")])
+    uit = TMP / "begin.mp4"
+    ff("-framerate", str(FPS), "-start_number", str(van), "-i", str(IN / "beelden" / "b%05d.png"),
+       "-frames:v", str(n), "-vf", vf + ",format=yuv420p", *enc(uit))
+    return uit, n / FPS
 
 
 stukken, tijd, hoofdstukken, geluid = [], 0.0, [("0:00", "What it does")], {"tik": [], "klik": [], "buig": [], "zoef": []}
-stukken.append(kaart("begin", [("Click Joints Pro", 110, LICHT, 330, True),
-                               ("A hinge for 3D printed parts that stops where you want.", 50, GRIJS, 490, False),
-                               ("90°  ·  115°  ·  135°", 64, MINT, 600, True),
-                               ("Recorded in Blender 5.3. Measured in Blender, not printed yet.", 34, GRIJS, 820, False)],
-                     BEGIN_S))
+s, BEGIN_S = haak()
+stukken.append(s)
+geluid["buig"].append((1.0 / FPS, 6.0))
+geluid["klik"].append(6.0)
 tijd += BEGIN_S
 for deel, onder, hst in DELEN:
     if deel in KAART_VOOR:
@@ -139,6 +164,7 @@ for deel, onder, hst in DELEN:
         geluid["zoef"].append((tijd + 1.5, 2.0))
     tijd += duur
 hoofdstukken.append((f"{int(tijd // 60)}:{int(tijd % 60):02d}", "Where to get it"))
+EIND_S = max(14.0, min(20.0, 121.0 - tijd))   # eindscherm 14 tot 20 s; video daardoor minstens 2:00 (opdracht)
 stukken.append(kaart("eind", [("Click Joints Pro", 100, LICHT, 300, True),
                               ("Hinges with an end stop, ball joints, STL and 3MF.", 48, GRIJS, 450, False),
                               ("dortus.com/click-joints", 72, MINT, 580, True),
@@ -171,13 +197,11 @@ st = np.stack([buf, np.concatenate([np.zeros(12), buf[:-12]])], axis=1)
 st = st / (np.abs(st).max() + 1e-9) * 0.7
 wav = TMP / "geluid.wav"
 g.schrijf_wav(wav, st)
-meet = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(wav), "-af", "loudnorm=print_format=json", "-f", "null", "-"],
-                      capture_output=True, text=True).stderr
-m = json.loads(meet[meet.rindex("{"):meet.rindex("}") + 1])
-winst = min(-16.0 - float(m["input_i"]), -2.0 - float(m["input_tp"]))
+# Keuring Daan (kan 3): naar -14 LUFS zoals YouTube, met een begrenzer op -1,5 dB piek.
 mp4 = UIT / "click-joints-pro-uitleg-1-geluid.mp4"
-ff("-i", str(stil), "-i", str(wav), "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-af", f"volume={winst:.2f}dB",
-   "-c:a", "aac", "-b:a", "160k", "-ac", "2", "-t", f"{duur:.3f}", "-movflags", "+faststart", str(mp4))
+ff("-i", str(stil), "-i", str(wav), "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy",
+   "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
+   "-ar", "48000", "-c:a", "aac", "-b:a", "160k", "-ac", "2", "-t", f"{duur:.3f}", "-movflags", "+faststart", str(mp4))
 stil.unlink()
 
 (UIT / "hoofdstukken.txt").write_text("".join(f"{t} {n}\n" for t, n in hoofdstukken))
