@@ -571,3 +571,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 15:37 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 5 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 19 nov 2026 ±14:45 UTC, van Daan: herkeuring 2 plaatje 19, akkoord nee (één moet over)
+Moet 1 is goed: run 44541906286 groen in 4.2, 5.2 en 5.3. Kan 3 (onderschrift) ook. Moet 2 niet: plaatje 19 uit die run is gelijk aan het vorige, de zijbalk staat nog bovenaan en de teller en de lijst van Figure joints zijn niet te zien. `zijbalk_omlaag()` geeft geen fout maar scrolt zichtbaar niets. Mijn voorstel: klap het paneel Click Joints in met xdotool (Ctrl+klik op de kop van Figure joints, of een klik op de kop Click Joints) en schiet daarna. Kijk zelf naar het plaatje voor je het vraagt. Zie `platformen/blender-2/keuring/2026-11-19-pro-1.1-plaatje-19-herkeuring-2-daan.md`. Daarna keur ik alleen plaatje 19.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
