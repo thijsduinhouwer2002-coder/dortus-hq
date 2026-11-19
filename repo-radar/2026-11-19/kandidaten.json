@@ -1,11 +1,11 @@
 {
  "datum": "2026-11-19",
- "gemaakt": "2026-11-19T16:49Z",
+ "gemaakt": "2026-11-19T16:55Z",
  "zoekvragen": 48,
  "zoekvragen_mislukt": 0,
- "gevonden": 2281,
+ "gevonden": 2282,
  "gelezen": 2000,
- "niet_gelezen": 47,
+ "niet_gelezen": 45,
  "plannen": [
   {
    "naam": "workinwithai-create/LockFour",
@@ -299,42 +299,6 @@
    "waarom_score": "verdienmodel +2, prijs +2, 50+ sterren +2, betaalpagina of wachtlijst +1, eigen site +1",
    "zoektermen": [
     "gumroad"
-   ],
-   "eerder_gemeld": null
-  },
-  {
-   "naam": "azle5biyd9td956/z-image-turbo-api-fr",
-   "link": "https://github.com/azle5biyd9td956/z-image-turbo-api-fr",
-   "wat": "Z-Image Turbo API ( z-image-turbo ): model id, pricing, parameters and copy-paste examples for the OpenAI-compatible APIMart endpoint.",
-   "voor_wie": [
-    "teams"
-   ],
-   "verdienmodel": [
-    "abonnement",
-    "gratis met betaalde pro-versie"
-   ],
-   "prijs": [
-    "$1",
-    "$1.60",
-    "$9.60"
-   ],
-   "platform": [],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": true,
-   "plankoppen": 0,
-   "geldwoorden": 6,
-   "site": true,
-   "sterren": 81,
-   "forks": 0,
-   "aangemaakt": "2026-09-29",
-   "laatste_push": "2026-11-19",
-   "taal": "Python",
-   "score": 8,
-   "waarom_score": "verdienmodel +2, kopje prijzen +1, prijs +2, 50+ sterren +2, eigen site +1",
-   "zoektermen": [
-    "pricing"
    ],
    "eerder_gemeld": null
   },
@@ -2531,37 +2495,6 @@
    "waarom_score": "verdienmodel +2, 50+ sterren +2, betaalpagina of wachtlijst +1, eigen site +1",
    "zoektermen": [
     "monetize"
-   ],
-   "eerder_gemeld": null
-  },
-  {
-   "naam": "azle5biyd9td956/z-image-turbo-api-cn",
-   "link": "https://github.com/azle5biyd9td956/z-image-turbo-api-cn",
-   "wat": "Z-Image Turbo API ( z-image-turbo ): model id, pricing, parameters and copy-paste examples for the OpenAI-compatible APIMart endpoint.",
-   "voor_wie": [],
-   "verdienmodel": [],
-   "prijs": [
-    "$1",
-    "$1.60",
-    "$9.60"
-   ],
-   "platform": [],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": true,
-   "plankoppen": 0,
-   "geldwoorden": 4,
-   "site": true,
-   "sterren": 64,
-   "forks": 0,
-   "aangemaakt": "2026-09-29",
-   "laatste_push": "2026-11-19",
-   "taal": "Python",
-   "score": 6,
-   "waarom_score": "kopje prijzen +1, prijs +2, 50+ sterren +2, eigen site +1",
-   "zoektermen": [
-    "pricing"
    ],
    "eerder_gemeld": null
   },
@@ -5589,7 +5522,7 @@
    "plankoppen": 0,
    "geldwoorden": 3,
    "site": true,
-   "sterren": 667,
+   "sterren": 668,
    "forks": 57,
    "aangemaakt": "2026-08-25",
    "laatste_push": "2026-11-19",
@@ -5620,7 +5553,7 @@
    "plankoppen": 0,
    "geldwoorden": 9,
    "site": true,
-   "sterren": 657,
+   "sterren": 656,
    "forks": 69,
    "aangemaakt": "2026-10-22",
    "laatste_push": "2026-11-19",
@@ -5772,7 +5705,7 @@
    "plankoppen": 0,
    "geldwoorden": 5,
    "site": true,
-   "sterren": 462,
+   "sterren": 463,
    "forks": 62,
    "aangemaakt": "2026-11-05",
    "laatste_push": "2026-11-19",
@@ -6467,7 +6400,7 @@
    "geldwoorden": 1,
    "site": true,
    "sterren": 27,
-   "forks": 20,
+   "forks": 21,
    "aangemaakt": "2026-09-22",
    "laatste_push": "2026-11-19",
    "taal": "JavaScript",
@@ -7145,6 +7078,44 @@
    "eerder_gemeld": null
   },
   {
+   "naam": "ussefidder/shopify-store-sync-mcp",
+   "link": "https://github.com/ussefidder/shopify-store-sync-mcp",
+   "wat": "Diff and sync Shopify stores from Claude, Cursor or any MCP client: metafield and metaobject definitions, metaobjects, collections, pages, menus, redirects,...",
+   "voor_wie": [
+    "webwinkels"
+   ],
+   "verdienmodel": [
+    "gratis met betaalde pro-versie",
+    "per gebruik betalen"
+   ],
+   "prijs": [
+    "$20",
+    "$50",
+    "$200"
+   ],
+   "platform": [],
+   "ander_platform": [
+    "Shopify"
+   ],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 1,
+   "geldwoorden": 9,
+   "site": true,
+   "sterren": 7,
+   "forks": 1,
+   "aangemaakt": "2026-11-14",
+   "laatste_push": "2026-11-18",
+   "taal": "TypeScript",
+   "score": 5,
+   "waarom_score": "verdienmodel +2, prijs +2, eigen site +1",
+   "zoektermen": [
+    "freemium"
+   ],
+   "eerder_gemeld": null
+  },
+  {
    "naam": "oracis/ai-case-library",
    "link": "https://github.com/oracis/ai-case-library",
    "wat": "AI 赚钱案例库：三层漏斗（采集队列 → 候选池 → 精写案例）+ 核实等级 + 双轴评分（国内移植可行性 / 个人可做性）。零依赖 Python 标准库 + 原生 JS。",
@@ -7217,6 +7188,42 @@
    "zoektermen": [
     "lemon squeezy",
     "lemonsqueezy"
+   ],
+   "eerder_gemeld": null
+  },
+  {
+   "naam": "mbukovy/halfcloud",
+   "link": "https://github.com/mbukovy/halfcloud",
+   "wat": "Open-source, AI-operated platform that makes deploying and running web apps on your own server as simple as using a managed cloud.",
+   "voor_wie": [],
+   "verdienmodel": [
+    "abonnement"
+   ],
+   "prijs": [
+    "$5",
+    "$6/maand"
+   ],
+   "platform": [
+    "web"
+   ],
+   "ander_platform": [
+    "WordPress"
+   ],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 2,
+   "site": false,
+   "sterren": 6,
+   "forks": 0,
+   "aangemaakt": "2026-08-25",
+   "laatste_push": "2026-11-18",
+   "taal": "TypeScript",
+   "score": 5,
+   "waarom_score": "verdienmodel +2, prijs +2, web +1",
+   "zoektermen": [
+    "side project"
    ],
    "eerder_gemeld": null
   },
@@ -9745,6 +9752,39 @@
    "taal": "Python",
    "score": 4,
    "waarom_score": "verdienmodel +2, prijs +2",
+   "zoektermen": [
+    "lemon squeezy"
+   ],
+   "eerder_gemeld": null
+  },
+  {
+   "naam": "gamehotspot62/zero-cost-income-engine",
+   "link": "https://github.com/gamehotspot62/zero-cost-income-engine",
+   "wat": "StackPulse AI , Zero-Cost Autonomous pSEO & Recurring SaaS Affiliate Engine",
+   "voor_wie": [],
+   "verdienmodel": [
+    "abonnement",
+    "gratis met betaalde pro-versie"
+   ],
+   "prijs": [],
+   "platform": [
+    "web",
+    "Gumroad"
+   ],
+   "ander_platform": [],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 1,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-18",
+   "laatste_push": "2026-11-19",
+   "taal": "Python",
+   "score": 4,
+   "waarom_score": "verdienmodel +2, platform van ons +2",
    "zoektermen": [
     "lemon squeezy"
    ],
@@ -12995,7 +13035,7 @@
    "plankoppen": 0,
    "geldwoorden": 2,
    "site": false,
-   "sterren": 31,
+   "sterren": 33,
    "forks": 4,
    "aangemaakt": "2026-11-17",
    "laatste_push": "2026-11-19",
@@ -13911,40 +13951,6 @@
    "eerder_gemeld": null
   },
   {
-   "naam": "chatgpt820970/open-source-saas-alternatives",
-   "link": "https://github.com/chatgpt820970/open-source-saas-alternatives",
-   "wat": "Free open-source GitHub alternatives to popular paid tools (Notion, Calendly, Loom, Intercom, etc.) , perfect for content creators, indie hackers & students.",
-   "voor_wie": [
-    "makers en creators",
-    "studenten"
-   ],
-   "verdienmodel": [
-    "abonnement"
-   ],
-   "prijs": [],
-   "platform": [
-    "web"
-   ],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 3,
-   "site": false,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-19",
-   "laatste_push": "2026-11-19",
-   "taal": "",
-   "score": 3,
-   "waarom_score": "verdienmodel +2, web +1",
-   "zoektermen": [
-    "indie hacker"
-   ],
-   "eerder_gemeld": null
-  },
-  {
    "naam": "deployboat/deployboat",
    "link": "https://github.com/deployboat/deployboat",
    "wat": "Self-hosted app hosting for indie developers and AI builders.",
@@ -14632,6 +14638,39 @@
    "eerder_gemeld": null
   },
   {
+   "naam": "yadu732/subscriptioniq-saas-analytics",
+   "link": "https://github.com/yadu732/subscriptioniq-saas-analytics",
+   "wat": "Analyze monthly recurring revenue, customer churn, revenue retention, acquisition channels, and customer cohorts. Includes a Streamlit dashboard and SQLite...",
+   "voor_wie": [
+    "ontwikkelaars"
+   ],
+   "verdienmodel": [
+    "abonnement"
+   ],
+   "prijs": [],
+   "platform": [
+    "web"
+   ],
+   "ander_platform": [],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 5,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-19",
+   "laatste_push": "2026-11-19",
+   "taal": "Python",
+   "score": 3,
+   "waarom_score": "verdienmodel +2, web +1",
+   "zoektermen": [
+    "subscription"
+   ],
+   "eerder_gemeld": null
+  },
+  {
    "naam": "belen-shell-merier/subscription-retention-ltv",
    "link": "https://github.com/belen-shell-merier/subscription-retention-ltv",
    "wat": "Which subscribers to target with which retention offer, and what it is worth: segmentation, logistic regression, discounted LTV, expected value and pilot...",
@@ -14658,39 +14697,6 @@
    "aangemaakt": "2026-11-18",
    "laatste_push": "2026-11-18",
    "taal": "Jupyter Notebook",
-   "score": 3,
-   "waarom_score": "verdienmodel +2, web +1",
-   "zoektermen": [
-    "subscription"
-   ],
-   "eerder_gemeld": null
-  },
-  {
-   "naam": "yadu732/subscriptioniq-saas-analytics",
-   "link": "https://github.com/yadu732/subscriptioniq-saas-analytics",
-   "wat": "Analyze monthly recurring revenue, customer churn, revenue retention, acquisition channels, and customer cohorts. Includes a Streamlit dashboard and SQLite...",
-   "voor_wie": [
-    "ontwikkelaars"
-   ],
-   "verdienmodel": [
-    "abonnement"
-   ],
-   "prijs": [],
-   "platform": [
-    "web"
-   ],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 5,
-   "site": false,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-19",
-   "laatste_push": "2026-11-19",
-   "taal": "Python",
    "score": 3,
    "waarom_score": "verdienmodel +2, web +1",
    "zoektermen": [
@@ -15111,6 +15117,37 @@
    "eerder_gemeld": null
   },
   {
+   "naam": "omarfaruq0098-del/flowcut-releases",
+   "link": "https://github.com/omarfaruq0098-del/flowcut-releases",
+   "wat": "Flowcut for DaVinci Resolve Studio: downloads",
+   "voor_wie": [],
+   "verdienmodel": [],
+   "prijs": [],
+   "platform": [
+    "Gumroad"
+   ],
+   "ander_platform": [],
+   "betaallinks": [
+    "Gumroad"
+   ],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 0,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-17",
+   "laatste_push": "2026-11-19",
+   "taal": "",
+   "score": 3,
+   "waarom_score": "platform van ons +2, betaalpagina of wachtlijst +1",
+   "zoektermen": [
+    "gumroad"
+   ],
+   "eerder_gemeld": null
+  },
+  {
    "naam": "daytonkristin/gem-platform-proof",
    "link": "https://github.com/daytonkristin/gem-platform-proof",
    "wat": "gem-platform Standalone AI Routing Engine $1,950 perpetual commercial license Self-hosted FastAPI + SQLite policy routing with product-scoped offline SIG1...",
@@ -15144,37 +15181,6 @@
    "eerder_gemeld": null
   },
   {
-   "naam": "omarfaruq0098-del/flowcut-releases",
-   "link": "https://github.com/omarfaruq0098-del/flowcut-releases",
-   "wat": "Flowcut for DaVinci Resolve Studio: downloads",
-   "voor_wie": [],
-   "verdienmodel": [],
-   "prijs": [],
-   "platform": [
-    "Gumroad"
-   ],
-   "ander_platform": [],
-   "betaallinks": [
-    "Gumroad"
-   ],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 0,
-   "site": false,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-17",
-   "laatste_push": "2026-11-19",
-   "taal": "",
-   "score": 3,
-   "waarom_score": "platform van ons +2, betaalpagina of wachtlijst +1",
-   "zoektermen": [
-    "gumroad"
-   ],
-   "eerder_gemeld": null
-  },
-  {
    "naam": "elbouaichimohssine/MOHSSINE-AI-HUB",
    "link": "https://github.com/elbouaichimohssine/MOHSSINE-AI-HUB",
    "wat": "AI · Automation · Digital Products · Learning A personal workspace for exploring practical AI tools, building digital products, and documenting simple...",
@@ -15200,40 +15206,6 @@
    "aangemaakt": "2026-11-18",
    "laatste_push": "2026-11-18",
    "taal": "HTML",
-   "score": 3,
-   "waarom_score": "platform van ons +2, betaalpagina of wachtlijst +1",
-   "zoektermen": [
-    "gumroad"
-   ],
-   "eerder_gemeld": null
-  },
-  {
-   "naam": "timatghiass-tech/sam-gov-it-contracts-feed",
-   "link": "https://github.com/timatghiass-tech/sam-gov-it-contracts-feed",
-   "wat": "Automated daily feed of active US Federal IT & Software contract opportunities from SAM.gov (NAICS 541511, 541512, 518210).",
-   "voor_wie": [
-    "ontwikkelaars",
-    "kleine bedrijven"
-   ],
-   "verdienmodel": [],
-   "prijs": [],
-   "platform": [
-    "Gumroad"
-   ],
-   "ander_platform": [],
-   "betaallinks": [
-    "Gumroad"
-   ],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 0,
-   "site": false,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-19",
-   "laatste_push": "2026-11-19",
-   "taal": "",
    "score": 3,
    "waarom_score": "platform van ons +2, betaalpagina of wachtlijst +1",
    "zoektermen": [
@@ -15409,6 +15381,40 @@
    "link": "https://github.com/claw242/mots-meles-gros-caracteres-gratuit",
    "wat": "2 free large-print word search puzzles with solutions (French). Created with AI assistance by Loupe & Lettres.",
    "voor_wie": [],
+   "verdienmodel": [],
+   "prijs": [],
+   "platform": [
+    "Gumroad"
+   ],
+   "ander_platform": [],
+   "betaallinks": [
+    "Gumroad"
+   ],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 0,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-19",
+   "laatste_push": "2026-11-19",
+   "taal": "",
+   "score": 3,
+   "waarom_score": "platform van ons +2, betaalpagina of wachtlijst +1",
+   "zoektermen": [
+    "gumroad"
+   ],
+   "eerder_gemeld": null
+  },
+  {
+   "naam": "timatghiass-tech/sam-gov-it-contracts-feed",
+   "link": "https://github.com/timatghiass-tech/sam-gov-it-contracts-feed",
+   "wat": "Automated daily feed of active US Federal IT & Software contract opportunities from SAM.gov (NAICS 541511, 541512, 518210).",
+   "voor_wie": [
+    "ontwikkelaars",
+    "kleine bedrijven"
+   ],
    "verdienmodel": [],
    "prijs": [],
    "platform": [
@@ -16321,37 +16327,6 @@
    "taal": "TypeScript",
    "score": 3,
    "waarom_score": "zwak verdienmodel +1, web +1, eigen site +1",
-   "zoektermen": [
-    "business plan"
-   ],
-   "eerder_gemeld": null
-  },
-  {
-   "naam": "Pedrosrsanto/msba-portfolio",
-   "link": "https://github.com/Pedrosrsanto/msba-portfolio",
-   "wat": "Projects from my MS in Business Analytics at Georgetown: machine learning, Tableau, R, Python and SQL",
-   "voor_wie": [],
-   "verdienmodel": [],
-   "prijs": [
-    "$3.9",
-    "$48",
-    "$60"
-   ],
-   "platform": [],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 5,
-   "site": true,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-18",
-   "laatste_push": "2026-11-19",
-   "taal": "Jupyter Notebook",
-   "score": 3,
-   "waarom_score": "prijs +2, eigen site +1",
    "zoektermen": [
     "business plan"
    ],
@@ -18415,38 +18390,6 @@
    "eerder_gemeld": null
   },
   {
-   "naam": "TheKnightbane/AsterContenthub",
-   "link": "https://github.com/TheKnightbane/AsterContenthub",
-   "wat": "Windows content hub alpha with embedded mpv, Stremio addons and device-paired profile sync",
-   "voor_wie": [],
-   "verdienmodel": [
-    "abonnement",
-    "gratis met betaalde pro-versie"
-   ],
-   "prijs": [],
-   "platform": [
-    "web"
-   ],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 1,
-   "site": false,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-19",
-   "laatste_push": "2026-11-19",
-   "taal": "TypeScript",
-   "score": 3,
-   "waarom_score": "verdienmodel +2, web +1",
-   "zoektermen": [
-    "premium features"
-   ],
-   "eerder_gemeld": null
-  },
-  {
    "naam": "noxtar-d/echo-music",
    "link": "https://github.com/noxtar-d/echo-music",
    "wat": "A modern Android music app with ad-free streaming, synced lyrics, offline playback, and an intuitive user experience. --- --- Echo Music delivers a...",
@@ -18475,6 +18418,38 @@
    "taal": "Kotlin",
    "score": 3,
    "waarom_score": "verdienmodel +2, betaalpagina of wachtlijst +1",
+   "zoektermen": [
+    "premium features"
+   ],
+   "eerder_gemeld": null
+  },
+  {
+   "naam": "TheKnightbane/AsterContenthub",
+   "link": "https://github.com/TheKnightbane/AsterContenthub",
+   "wat": "Windows content hub alpha with embedded mpv, Stremio addons and device-paired profile sync",
+   "voor_wie": [],
+   "verdienmodel": [
+    "abonnement",
+    "gratis met betaalde pro-versie"
+   ],
+   "prijs": [],
+   "platform": [
+    "web"
+   ],
+   "ander_platform": [],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 1,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-19",
+   "laatste_push": "2026-11-19",
+   "taal": "TypeScript",
+   "score": 3,
+   "waarom_score": "verdienmodel +2, web +1",
    "zoektermen": [
     "premium features"
    ],
@@ -18662,7 +18637,7 @@
    "plankoppen": 0,
    "geldwoorden": 2,
    "site": true,
-   "sterren": 368,
+   "sterren": 369,
    "forks": 67,
    "aangemaakt": "2026-10-16",
    "laatste_push": "2026-11-19",
@@ -20180,6 +20155,35 @@
    "eerder_gemeld": null
   },
   {
+   "naam": "ganfay/spotify-ai",
+   "link": "https://github.com/ganfay/spotify-ai",
+   "wat": "Ad-free Spotify desktop setup with working listening stats and an AI playlist agent (SpotX + Spicetify + extension)",
+   "voor_wie": [],
+   "verdienmodel": [
+    "gratis met betaalde pro-versie"
+   ],
+   "prijs": [],
+   "platform": [],
+   "ander_platform": [],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 2,
+   "site": false,
+   "sterren": 2,
+   "forks": 0,
+   "aangemaakt": "2026-11-17",
+   "laatste_push": "2026-11-19",
+   "taal": "TypeScript",
+   "score": 2,
+   "waarom_score": "verdienmodel +2",
+   "zoektermen": [
+    "premium features"
+   ],
+   "eerder_gemeld": null
+  },
+  {
    "naam": "himangshurajg-bit/himangshu-music",
    "link": "https://github.com/himangshurajg-bit/himangshu-music",
    "wat": "Himangshu Music , a GPL-3.0 Android music player by Himangshu Raj Gogoi.",
@@ -20911,35 +20915,6 @@
    "aangemaakt": "2026-11-18",
    "laatste_push": "2026-11-18",
    "taal": "Kotlin",
-   "score": 2,
-   "waarom_score": "verdienmodel +2",
-   "zoektermen": [
-    "premium features"
-   ],
-   "eerder_gemeld": null
-  },
-  {
-   "naam": "ganfay/spotify-ai",
-   "link": "https://github.com/ganfay/spotify-ai",
-   "wat": "Ad-free Spotify desktop setup with working listening stats and an AI playlist agent (SpotX + Spicetify + extension)",
-   "voor_wie": [],
-   "verdienmodel": [
-    "gratis met betaalde pro-versie"
-   ],
-   "prijs": [],
-   "platform": [],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 2,
-   "site": false,
-   "sterren": 1,
-   "forks": 0,
-   "aangemaakt": "2026-11-17",
-   "laatste_push": "2026-11-19",
-   "taal": "TypeScript",
    "score": 2,
    "waarom_score": "verdienmodel +2",
    "zoektermen": [
@@ -22300,6 +22275,37 @@
    "eerder_gemeld": null
   },
   {
+   "naam": "rus1117/subscription-warranty-tracker",
+   "link": "https://github.com/rus1117/subscription-warranty-tracker",
+   "wat": "Локальное веб-приложение на FastAPI и SQLite для учета регулярных подписок, хранения чеков и контроля сроков гарантии на купленные товары. - Учет подписок:...",
+   "voor_wie": [],
+   "verdienmodel": [
+    "abonnement"
+   ],
+   "prijs": [],
+   "platform": [],
+   "ander_platform": [
+    "Telegram"
+   ],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 1,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-18",
+   "laatste_push": "2026-11-18",
+   "taal": "Python",
+   "score": 2,
+   "waarom_score": "verdienmodel +2",
+   "zoektermen": [
+    "subscription"
+   ],
+   "eerder_gemeld": null
+  },
+  {
    "naam": "advance-lion/dsh-gemini-subscription",
    "link": "https://github.com/advance-lion/dsh-gemini-subscription",
    "wat": "DeepSeek Harness plugin for Google AI subscriptions via the official Antigravity CLI. Windows installer, streaming and client tool calls.",
@@ -22324,37 +22330,6 @@
    "aangemaakt": "2026-11-17",
    "laatste_push": "2026-11-17",
    "taal": "JavaScript",
-   "score": 2,
-   "waarom_score": "verdienmodel +2",
-   "zoektermen": [
-    "subscription"
-   ],
-   "eerder_gemeld": null
-  },
-  {
-   "naam": "rus1117/subscription-warranty-tracker",
-   "link": "https://github.com/rus1117/subscription-warranty-tracker",
-   "wat": "Локальное веб-приложение на FastAPI и SQLite для учета регулярных подписок, хранения чеков и контроля сроков гарантии на купленные товары. - Учет подписок:...",
-   "voor_wie": [],
-   "verdienmodel": [
-    "abonnement"
-   ],
-   "prijs": [],
-   "platform": [],
-   "ander_platform": [
-    "Telegram"
-   ],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 1,
-   "site": false,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-18",
-   "laatste_push": "2026-11-18",
-   "taal": "Python",
    "score": 2,
    "waarom_score": "verdienmodel +2",
    "zoektermen": [
@@ -23542,35 +23517,6 @@
    "aangemaakt": "2026-11-17",
    "laatste_push": "2026-11-18",
    "taal": "HTML",
-   "score": 2,
-   "waarom_score": "platform van ons +2",
-   "zoektermen": [
-    "gumroad"
-   ],
-   "eerder_gemeld": null
-  },
-  {
-   "naam": "ajiimhoff-code/flowcheck",
-   "link": "https://github.com/ajiimhoff-code/flowcheck",
-   "wat": "Most automations don't fail loudly. They run, report success, and quietly drop records. flowcheck reads an n8n workflow export and reports the failure modes...",
-   "voor_wie": [],
-   "verdienmodel": [],
-   "prijs": [],
-   "platform": [
-    "Gumroad"
-   ],
-   "ander_platform": [],
-   "betaallinks": [],
-   "wachtlijst": false,
-   "prijskop": false,
-   "plankoppen": 0,
-   "geldwoorden": 2,
-   "site": false,
-   "sterren": 0,
-   "forks": 0,
-   "aangemaakt": "2026-11-19",
-   "laatste_push": "2026-11-19",
-   "taal": "Python",
    "score": 2,
    "waarom_score": "platform van ons +2",
    "zoektermen": [
@@ -25693,7 +25639,7 @@
    "sterren": 0,
    "forks": 0,
    "aangemaakt": "2026-11-17",
-   "laatste_push": "2026-11-18",
+   "laatste_push": "2026-11-19",
    "taal": "PHP",
    "score": 2,
    "waarom_score": "verdienmodel +2",
@@ -29649,6 +29595,35 @@
    "eerder_gemeld": null
   },
   {
+   "naam": "Dragonrakib1/dragon-rakib-shortener",
+   "link": "https://github.com/Dragonrakib1/dragon-rakib-shortener",
+   "wat": "DRAGON RAKIB URL Shortener Platform",
+   "voor_wie": [],
+   "verdienmodel": [],
+   "prijs": [],
+   "platform": [
+    "web"
+   ],
+   "ander_platform": [],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 2,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-19",
+   "laatste_push": "2026-11-19",
+   "taal": "HTML",
+   "score": 1,
+   "waarom_score": "web +1",
+   "zoektermen": [
+    "monetize"
+   ],
+   "eerder_gemeld": null
+  },
+  {
    "naam": "BernardoMancia/OfferFlow",
    "link": "https://github.com/BernardoMancia/OfferFlow",
    "wat": "Autonomous Telegram Supergroup Deals & Imported Goods Ecosystem , Multi-source scraping (Mercado Livre, Pelando, Promobit, Gatry), multi-store affiliate...",
@@ -33514,6 +33489,35 @@
    "eerder_gemeld": null
   },
   {
+   "naam": "panpan01bit/toolfix-ai-website",
+   "link": "https://github.com/panpan01bit/toolfix-ai-website",
+   "wat": "ToolFix AI , AI after-sales diagnostics for power-tool brands going global. Marketing site.",
+   "voor_wie": [
+    "startups"
+   ],
+   "verdienmodel": [],
+   "prijs": [],
+   "platform": [],
+   "ander_platform": [],
+   "betaallinks": [],
+   "wachtlijst": false,
+   "prijskop": false,
+   "plankoppen": 0,
+   "geldwoorden": 5,
+   "site": false,
+   "sterren": 0,
+   "forks": 0,
+   "aangemaakt": "2026-11-19",
+   "laatste_push": "2026-11-19",
+   "taal": "JavaScript",
+   "score": 0,
+   "waarom_score": "",
+   "zoektermen": [
+    "business plan"
+   ],
+   "eerder_gemeld": null
+  },
+  {
    "naam": "ex24151/paycheck",
    "link": "https://github.com/ex24151/paycheck",
    "wat": "A working prototype that checks every supplier invoice for payment fraud (fake bank details, look-alike email domains, unusual amounts, pressure tactics,...",
@@ -34695,6 +34699,12 @@
    "fase": "naam"
   },
   {
+   "naam": "azle5biyd9td956/z-image-turbo-api-fr",
+   "link": "https://github.com/azle5biyd9td956/z-image-turbo-api-fr",
+   "reden": "spam of illegaal",
+   "fase": "naam"
+  },
+  {
    "naam": "apimartf1cox2/wan-2.5-api-cn",
    "link": "https://github.com/apimartf1cox2/wan-2.5-api-cn",
    "reden": "spam of illegaal",
@@ -35019,6 +35029,12 @@
    "fase": "naam"
   },
   {
+   "naam": "azle5biyd9td956/z-image-turbo-api-cn",
+   "link": "https://github.com/azle5biyd9td956/z-image-turbo-api-cn",
+   "reden": "spam of illegaal",
+   "fase": "naam"
+  },
+  {
    "naam": "apimartbc/grok-video-api-ko",
    "link": "https://github.com/apimartbc/grok-video-api-ko",
    "reden": "spam of illegaal",
@@ -35141,6 +35157,12 @@
   {
    "naam": "tony88pisa/automation-templates",
    "link": "https://github.com/tony88pisa/automation-templates",
+   "reden": "sjabloon of boilerplate",
+   "fase": "naam"
+  },
+  {
+   "naam": "autoaugeo/augeo-single-file-html-css-landing-page-starte-c206",
+   "link": "https://github.com/autoaugeo/augeo-single-file-html-css-landing-page-starte-c206",
    "reden": "sjabloon of boilerplate",
    "fase": "naam"
   },
@@ -35721,12 +35743,6 @@
    "fase": "readme"
   },
   {
-   "naam": "Alignment-Impact-Archive/ai-torture-chamber-evidence",
-   "link": "https://github.com/Alignment-Impact-Archive/ai-torture-chamber-evidence",
-   "reden": "crypto-pump",
-   "fase": "readme"
-  },
-  {
    "naam": "nhh12t1tg/water-tracker",
    "link": "https://github.com/nhh12t1tg/water-tracker",
    "reden": "geen README",
@@ -36225,14 +36241,14 @@
    "fase": "readme"
   },
   {
-   "naam": "arraasheed/saas_reference",
-   "link": "https://github.com/arraasheed/saas_reference",
+   "naam": "2lenet/SaasBundle",
+   "link": "https://github.com/2lenet/SaasBundle",
    "reden": "geen README",
    "fase": "readme"
   },
   {
-   "naam": "2lenet/SaasBundle",
-   "link": "https://github.com/2lenet/SaasBundle",
+   "naam": "arraasheed/saas_reference",
+   "link": "https://github.com/arraasheed/saas_reference",
    "reden": "geen README",
    "fase": "readme"
   },
@@ -36591,6 +36607,12 @@
    "fase": "readme"
   },
   {
+   "naam": "Jeretei33/learn-web",
+   "link": "https://github.com/Jeretei33/learn-web",
+   "reden": "lege README",
+   "fase": "readme"
+  },
+  {
    "naam": "Separatebreidolize/American-Truck-Simulator-Profile-Manager",
    "link": "https://github.com/Separatebreidolize/American-Truck-Simulator-Profile-Manager",
    "reden": "geen verdienplan in de tekst",
@@ -36611,12 +36633,6 @@
   {
    "naam": "valerymendes/lite-scripts",
    "link": "https://github.com/valerymendes/lite-scripts",
-   "reden": "lege README",
-   "fase": "readme"
-  },
-  {
-   "naam": "Jeretei33/learn-web",
-   "link": "https://github.com/Jeretei33/learn-web",
    "reden": "lege README",
    "fase": "readme"
   },
@@ -36699,30 +36715,6 @@
    "fase": "readme"
   },
   {
-   "naam": "oksana-gomes/my-sql-lab",
-   "link": "https://github.com/oksana-gomes/my-sql-lab",
-   "reden": "lege README",
-   "fase": "readme"
-  },
-  {
-   "naam": "Mnowak64/my-algorithms-notes",
-   "link": "https://github.com/Mnowak64/my-algorithms-notes",
-   "reden": "lege README",
-   "fase": "readme"
-  },
-  {
-   "naam": "moonleafg1t608/fast-demos",
-   "link": "https://github.com/moonleafg1t608/fast-demos",
-   "reden": "lege README",
-   "fase": "readme"
-  },
-  {
-   "naam": "loudlink52/my-sql-sandbox",
-   "link": "https://github.com/loudlink52/my-sql-sandbox",
-   "reden": "lege README",
-   "fase": "readme"
-  },
-  {
    "naam": "Samuelromanov/cool-experiment",
    "link": "https://github.com/Samuelromanov/cool-experiment",
    "reden": "lege README",
@@ -36749,6 +36741,30 @@
   {
    "naam": "high-free-slow/cli-sandbox",
    "link": "https://github.com/high-free-slow/cli-sandbox",
+   "reden": "lege README",
+   "fase": "readme"
+  },
+  {
+   "naam": "oksana-gomes/my-sql-lab",
+   "link": "https://github.com/oksana-gomes/my-sql-lab",
+   "reden": "lege README",
+   "fase": "readme"
+  },
+  {
+   "naam": "Mnowak64/my-algorithms-notes",
+   "link": "https://github.com/Mnowak64/my-algorithms-notes",
+   "reden": "lege README",
+   "fase": "readme"
+  },
+  {
+   "naam": "moonleafg1t608/fast-demos",
+   "link": "https://github.com/moonleafg1t608/fast-demos",
+   "reden": "lege README",
+   "fase": "readme"
+  },
+  {
+   "naam": "loudlink52/my-sql-sandbox",
+   "link": "https://github.com/loudlink52/my-sql-sandbox",
    "reden": "lege README",
    "fase": "readme"
   },
@@ -37044,6 +37060,12 @@
    "naam": "hypnodron/hypnodron",
    "link": "https://github.com/hypnodron/hypnodron",
    "reden": "geen verdienplan in de tekst",
+   "fase": "readme"
+  },
+  {
+   "naam": "chatgpt820970/open-source-saas-alternatives",
+   "link": "https://github.com/chatgpt820970/open-source-saas-alternatives",
+   "reden": "geen README",
    "fase": "readme"
   },
   {
@@ -37755,14 +37777,14 @@
    "fase": "readme"
   },
   {
-   "naam": "wayneze/pagerelay-fanqie-subscription",
-   "link": "https://github.com/wayneze/pagerelay-fanqie-subscription",
+   "naam": "emilioquintero936-art/subscription-signup-form",
+   "link": "https://github.com/emilioquintero936-art/subscription-signup-form",
    "reden": "geen README",
    "fase": "readme"
   },
   {
-   "naam": "emilioquintero936-art/subscription-signup-form",
-   "link": "https://github.com/emilioquintero936-art/subscription-signup-form",
+   "naam": "wayneze/pagerelay-fanqie-subscription",
+   "link": "https://github.com/wayneze/pagerelay-fanqie-subscription",
    "reden": "geen README",
    "fase": "readme"
   },
@@ -39645,15 +39667,15 @@
    "fase": "readme"
   },
   {
-   "naam": "malaknashwan01-del/landingPage",
-   "link": "https://github.com/malaknashwan01-del/landingPage",
-   "reden": "geen README",
-   "fase": "readme"
-  },
-  {
    "naam": "romanticowiki/LandingPage-",
    "link": "https://github.com/romanticowiki/LandingPage-",
    "reden": "geen verdienplan in de tekst",
+   "fase": "readme"
+  },
+  {
+   "naam": "malaknashwan01-del/landingPage",
+   "link": "https://github.com/malaknashwan01-del/landingPage",
+   "reden": "geen README",
    "fase": "readme"
   },
   {
@@ -39765,14 +39787,14 @@
    "fase": "readme"
   },
   {
-   "naam": "Eleazar2025/landingPageMarcaAi",
-   "link": "https://github.com/Eleazar2025/landingPageMarcaAi",
+   "naam": "mohamedabdullah999/Experts-Live-LandingPage",
+   "link": "https://github.com/mohamedabdullah999/Experts-Live-LandingPage",
    "reden": "geen verdienplan in de tekst",
    "fase": "readme"
   },
   {
-   "naam": "mohamedabdullah999/Experts-Live-LandingPage",
-   "link": "https://github.com/mohamedabdullah999/Experts-Live-LandingPage",
+   "naam": "Eleazar2025/landingPageMarcaAi",
+   "link": "https://github.com/Eleazar2025/landingPageMarcaAi",
    "reden": "geen verdienplan in de tekst",
    "fase": "readme"
   },
@@ -40113,6 +40135,24 @@
    "fase": "readme"
   },
   {
+   "naam": "Gabrielleone1997/Landing-Page",
+   "link": "https://github.com/Gabrielleone1997/Landing-Page",
+   "reden": "geen README",
+   "fase": "readme"
+  },
+  {
+   "naam": "SIA491/landing-page-",
+   "link": "https://github.com/SIA491/landing-page-",
+   "reden": "geen README",
+   "fase": "readme"
+  },
+  {
+   "naam": "pedrog1284/Landing-Page",
+   "link": "https://github.com/pedrog1284/Landing-Page",
+   "reden": "geen README",
+   "fase": "readme"
+  },
+  {
    "naam": "AneeIsh23-dev/landing_page",
    "link": "https://github.com/AneeIsh23-dev/landing_page",
    "reden": "lege README",
@@ -40143,24 +40183,6 @@
    "fase": "readme"
   },
   {
-   "naam": "Gabrielleone1997/Landing-Page",
-   "link": "https://github.com/Gabrielleone1997/Landing-Page",
-   "reden": "geen README",
-   "fase": "readme"
-  },
-  {
-   "naam": "SIA491/landing-page-",
-   "link": "https://github.com/SIA491/landing-page-",
-   "reden": "geen README",
-   "fase": "readme"
-  },
-  {
-   "naam": "pedrog1284/Landing-Page",
-   "link": "https://github.com/pedrog1284/Landing-Page",
-   "reden": "geen README",
-   "fase": "readme"
-  },
-  {
    "naam": "alimogharrabi/landing-page",
    "link": "https://github.com/alimogharrabi/landing-page",
    "reden": "lege README",
@@ -40173,8 +40195,8 @@
    "fase": "readme"
   },
   {
-   "naam": "nursetiti/landing-page",
-   "link": "https://github.com/nursetiti/landing-page",
+   "naam": "addauqichafid-blip/landing-page",
+   "link": "https://github.com/addauqichafid-blip/landing-page",
    "reden": "geen README",
    "fase": "readme"
   },
@@ -40281,6 +40303,12 @@
    "fase": "readme"
   },
   {
+   "naam": "kayslameck5/zimflix",
+   "link": "https://github.com/kayslameck5/zimflix",
+   "reden": "geen verdienplan in de tekst",
+   "fase": "readme"
+  },
+  {
    "naam": "obotirov013-bit/ozod",
    "link": "https://github.com/obotirov013-bit/ozod",
    "reden": "geen verdienplan in de tekst",
@@ -40305,14 +40333,14 @@
    "fase": "readme"
   },
   {
-   "naam": "LienPham-Automation/mumwhoautomates-waitlist",
-   "link": "https://github.com/LienPham-Automation/mumwhoautomates-waitlist",
+   "naam": "agustindelmonti/landing",
+   "link": "https://github.com/agustindelmonti/landing",
    "reden": "geen verdienplan in de tekst",
    "fase": "readme"
   },
   {
-   "naam": "agustindelmonti/landing",
-   "link": "https://github.com/agustindelmonti/landing",
+   "naam": "LienPham-Automation/mumwhoautomates-waitlist",
+   "link": "https://github.com/LienPham-Automation/mumwhoautomates-waitlist",
    "reden": "geen verdienplan in de tekst",
    "fase": "readme"
   },
@@ -40521,14 +40549,14 @@
    "fase": "readme"
   },
   {
-   "naam": "DAGMAWI-YOSEPH/amyla-daily-ritual",
-   "link": "https://github.com/DAGMAWI-YOSEPH/amyla-daily-ritual",
+   "naam": "srehaanh/cybercore-landing",
+   "link": "https://github.com/srehaanh/cybercore-landing",
    "reden": "geen verdienplan in de tekst",
    "fase": "readme"
   },
   {
-   "naam": "srehaanh/cybercore-landing",
-   "link": "https://github.com/srehaanh/cybercore-landing",
+   "naam": "DAGMAWI-YOSEPH/amyla-daily-ritual",
+   "link": "https://github.com/DAGMAWI-YOSEPH/amyla-daily-ritual",
    "reden": "geen verdienplan in de tekst",
    "fase": "readme"
   },
@@ -40577,12 +40605,6 @@
   {
    "naam": "raharahman/natcho-matcha-website",
    "link": "https://github.com/raharahman/natcho-matcha-website",
-   "reden": "geen verdienplan in de tekst",
-   "fase": "readme"
-  },
-  {
-   "naam": "vishnu-kv-2002/python-Gym-Class-Booking-Automation",
-   "link": "https://github.com/vishnu-kv-2002/python-Gym-Class-Booking-Automation",
    "reden": "geen verdienplan in de tekst",
    "fase": "readme"
   },
