@@ -40,3 +40,8 @@ Thijs (17:19): "jij schiet dit gelijk af, maar als ik dan een logische follow-up
 2. Wijs alleen het deel af dat niet klopt, met een reden. "Nee" is nooit het hele antwoord.
 3. Toegeven na een vervolgvraag mag alleen als de vervolgvraag echt iets nieuws toevoegt; zeg dan wat er nieuw aan is. Anders blijf je bij je oordeel.
 - **Aanvulling 16 nov 17:55:** Reddit is voor de browser van de hoofdchat geblokkeerd ("This site is not allowed due to safety restrictions"). Niet omzeilen via een andere browser. Op Reddit plaatst Thijs dus zelf; de hoofdchat zet titel, tekst, beeld en de controle van de regels kant-en-klaar klaar en legt daarna vast wat geplaatst is.
+
+## Browser: de hoofdchat doet het werk (19 nov 2026, 10:20)
+- De hoofdchat opent zelf de tabbladen in de Chrome van Thijs (HP of werklaptop) en doet alles zelf. Tabbladen blijven open zolang Thijs ermee bezig is; niet uit zichzelf sluiten.
+- **Inloggen met Google waar Thijs al is ingelogd: gewoon zelf op "Doorgaan met Google" klikken.** Geen wachtwoord typen, wel klikken.
+- Alleen wat echt niet kan (wachtwoord intypen, een code van zijn telefoon, CAPTCHA, geld) vraagt de hoofdchat kort aan Thijs, en daarna gaat ze zelf verder.
