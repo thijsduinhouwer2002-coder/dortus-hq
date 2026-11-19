@@ -53,6 +53,8 @@ Verbruik: 6 agents aan (was 12 op 17 nov). Zoekers en Ruben blijven uit tot de m
 
 Sinds di 17 nov 16:10 hangen deze aan de nieuwe hoofdchat (sessie 01RMWUyi3eY8oWQXa8TGtqpE). Nieuwe hoofdchat: lees CLAUDE.md en dit bord.
 
+- **Repo-radar beoordelaar** (geplande taak trig_01JgWcNXdc17MHJn6MAKQokk): elke maandag 10:37, beoordeelt de top van de repo-ideeënradar (workflow `ideeen-radar.yml`, gekeurd ja 19 nov) met de ideeëntest; kansen van 7+ komen in berichten/hoofdchat.md.
+- **Opruimen fase 2** (send_later trig_01Xij4B5fPLpRM4yCamdt9rp): zo 22 nov 10:17, verhuizen volgens `organisatie/opruimen/voorstel-2026-11-19.md`. Fase 1 gekeurd ja 19 nov.
 - **Vaste hoofdchat-ronde** elk uur op minuut 40 (geplande taak "hoofdchat-ronde", cron `40 * * * *`, GEZIEN in list_triggers 19 nov) volgens `organisatie/hoofdchat-ronde.md`.
 - **Roep:** Maker elke dag 20:13, Keurder elke dag 20:43 (GEZIEN in list_triggers 19 nov).
 - di 17 nov 20:00: avondcheck plus ronde. trig_01Dz8krq9BLyD9CD5NZddyK6
