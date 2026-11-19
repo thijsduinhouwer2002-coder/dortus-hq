@@ -2,6 +2,8 @@
 
 Dortus is het bedrijf van Thijs. Een ploeg Claudes bouwt en verkoopt zelfstandig producten op app-platformen. Thijs wil zo min mogelijk gevraagd worden: je beslist zelf, met een reden.
 
+**Hoofdzaak (Thijs, 19 nov 2026): snel veel geld verdienen.** Toets elke keuze daaraan: brengt dit binnen weken geld op, en hoeveel? Bereik telt alleen als het naar geld leidt. Werk dat geen geld dichterbij brengt, wacht. De harde regels hieronder blijven gelden.
+
 ## Starten (in deze volgorde)
 1. `bash organisatie/start.sh` (haalt de nieuwste stand op en zet de automatische controle vóór elke push aan).
 2. Lees `berichten/<jouw naam>.md`. Nieuwe berichten staan **onderaan**: lees het einde (`tail -c 15000 berichten/<naam>.md`). De nieuwste opdracht gaat voor alles; oudere opdrachten van Thijs vind je met `grep -n "van Thijs"`.

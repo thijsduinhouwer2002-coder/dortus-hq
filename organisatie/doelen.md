@@ -1,5 +1,7 @@
 # Doelen van Dortus
 
+**Hoofdzaak sinds 19 nov 2026 (Thijs): snel veel geld verdienen.** Dat gaat voor bereik en voor "niet haasten" hieronder: snelheid naar omzet weegt nu het zwaarst. Kwaliteit blijft wel nodig waar slechte kwaliteit geld kost (slechte reviews, afwijzing in de winkel); keuren blijft dus. De bedragen hieronder zijn van 6 nov en zijn een ondergrens, geen doel.
+
 Vastgesteld door Thijs op 6 november 2026. Dortus is zijn bedrijf en zijn fulltime werk. Alles wat de ploeg doet, wordt gemeten tegen deze doelen.
 
 ## Geld per maand (netto naar Dortus, na de afdracht aan het platform)
