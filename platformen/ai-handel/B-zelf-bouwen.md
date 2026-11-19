@@ -456,3 +456,39 @@ Wat de AI vaak fout doet bij deze opzet (GOK, uit ervaring met gegenereerde hand
 3. **Er zijn markten met $300 tot $400 per dag en bijna geen concurrentie** volgens een ongedocumenteerd veld (GEZIEN plus GOK op de betekenis). Dat is de eerste hypothese voor de schaduwbot, en ook waar de grootste val ligt.
 4. **De schaduwbot staat als tekst klaar** (punt 33), met alleen openbare data, zonder account of geld, met twee schattingen voor concurrentie en twee voor vullingen, zodat de beslissing na 2 weken niet op één optimistisch getal rust (GOK op de opzet).
 5. **De vaste regels blijven**: alleen `polymarket-client`, Session Key en nooit de hoofdsleutel, malware rond Polymarket-bots is echt, juridisch grijs in Nederland, en elk verslag van een echte beloningsbot dat ik vond eindigde op verlies (runs 4 en eerder).
+
+## Run 6 (19 nov 2026, ±06:00 Nederlandse tijd)
+
+Deze run: het ongedocumenteerde veld `market_competitiveness` getoetst tegen de echte orderboeken, een eerste ruwe schatting van wat een kleine bot uit de beloningspot zou halen, de pot een tweede keer gemeten, en de Nederlandse rechtszaak nagelopen. Alleen openbare API's gelezen met curl, geen account, niets uitgevoerd van anderen.
+
+### 34. `market_competitiveness` getoetst: het meet de diepte bij het midden (GEZIEN, eigen meting 19 nov ±05:00 UTC)
+Werkwijze: de top 120 beloonde markten opgehaald (`/rewards/markets/multi`), per markt het openbare boek van het JA-token (`GET https://clob.polymarket.com/book?token_id=...`), en daarop de formule van punt 30 losgelaten: midden zoals in punt 30 benaderd, elke prijs binnen `rewards_max_spread` telt mee met ((v − afstand)/v)² × grootte, biedkant en laatkant apart.
+- De docs geven alleen "Competitiveness score of the market" als uitleg (GEZIEN, [Get raw rewards for a specific market](https://docs.polymarket.com/api-reference/rewards/get-raw-rewards-for-a-specific-market.md)).
+- Het verband is sterk: correlatie ±0,9 (op log-schaal) tussen `market_competitiveness` en de score die ik uit het boek reken, het best met "minimum van twee kanten, of de grootste gedeeld door 3" (0,90), net als de echte regel in punt 30 (GEZIEN, eigen berekening over 120 markten).
+- Het veld is ongeveer 0,4% van mijn boekscore (mediaan), maar die verhouding schommelt per markt met een factor 2 tot 4 en verschilt per instelling van v en minimale grootte (GEZIEN). GOK: het is een gemiddelde over de dag van de echte makerscores, terwijl ik één momentopname heb en niet weet welke orders onder de minimale grootte vallen. **Conclusie: de gok uit run 5 klopt in grote lijnen.** "Beloning per dag gedeeld door (competitiveness + 1)" is een bruikbare eerste filter, maar de schaduwbot moet de echte deling zelf uit het boek rekenen.
+
+### 35. Eerste ruwe schatting: wat zou een kleine bot krijgen (GOK op GEZIEN-data, één momentopname, géén resultaat)
+Aanname: per markt één bod en één laat met de minimale grootte, op de beste prijs aansluitend (afstand = halve spread, minstens 0,5 cent), dus ongeveer de minimale grootte in dollars aan inzet per markt. Aandeel = mijn score / (mijn score + die van de rest), met de rest optimistisch (de regel uit punt 30) en pessimistisch (beide kanten opgeteld, punt 32).
+- Mediaan over de top 120: **±$5 per dag per $100 inzet optimistisch, ±$2 pessimistisch** (GEZIEN als rekensom, GOK als verwachting).
+- Uitschieters met $70 tot $245 per dag per $100 zitten allemaal in markten met bijna geen makers, zoals de prijsbandjes rond de beursgang van Anthropic, "zegt Trump woord X" en een OpenRouter-markt (GEZIEN).
+- **Waarom dit geen opbrengst is:** het telt geen verlies op vullingen. In precies die markten springt de prijs bij nieuws (beursgang, toespraak) en word je dan vol gelopen aan de verkeerde kant; de verslagen in punt 26 eindigden daardoor op verlies. Ook: één momentopname, andere makers reageren zodra jij er staat, en Polymarket meet elke minuut. Dit getal zegt alleen dat de schaduwbot het waard is om te draaien, niet dat de route werkt (GOK).
+- Wat dit wel oplevert voor het bouwplan: de schaduwbot moet per markt **nepverlies tegenover beloning** loggen, en markten met een bekend nieuwsmoment (beursgang op een vaste dag, een toespraak) uitsluiten of vlak ervoor alle orders weghalen. Dat stond als regel in punt 33; de meting bevestigt dat de duurste markten juist die nieuwsmarkten zijn.
+
+### 36. De pot een uur later (GEZIEN, zelfde meting als punt 31, 19 nov ±05:00 UTC)
+Top 1.000: **±$56.200 per dag** (run 5: ±$57.000). Top 10: ±$6.460. Nummer 500: $29, nummer 1.000: $12. Markten van 17 nov of later: 321 stuks, samen ±$13.500 per dag. Binnen een uur dus vrijwel gelijk; over dagen meten blijft nodig.
+
+### 37. Nederland: Polymarket vecht het verbod aan bij de rechter (DERDEN)
+Polymarket is in oktober 2026 naar de rechter in Den Haag gestapt tegen het verbod van de Ksa. Het stelt dat het financiële producten verkoopt (afgeleiden, toezicht door de AFM) en geen kansspel (DERDEN, [DutchNews 5 okt 2026](https://www.dutchnews.nl/2026/10/polymarket-goes-to-court-to-overturn-dutch-gambling-ban/), [NL Times](https://nltimes.nl/2026/10/05/us-prediction-site-polymarket-fight-dutch-ban-court), [Gambling Insider](https://www.gamblinginsider.com/nl/?p=109438)). Een uitspraak vond ik niet. Voor een gebruiker verandert het nu niets: het verbod en de blokkade gelden, meedoen kan alleen via een VPN en breekt de voorwaarden (zie punt 22 en D). Wint Polymarket, dan wordt het mogelijk legaal maar onder AFM-regels; verliest het, dan blijft het grijs of wordt het strenger (GOK).
+
+### Nog te doen
+- De meting van punt 34 en 35 een paar keer per dag herhalen om te zien of de verhouding stabiel is (dan kan de bot op het veld vertrouwen).
+- Per markt het nepverlies op vullingen schatten uit `last_trade_price` over een paar uur (dat is het getal dat beslist).
+- Uitspraak in de zaak Polymarket tegen de Ksa volgen.
+- Hyperliquid: maximale hefboom per munt en incidenten met de brug.
+
+## Stand na run 6 (19 nov 2026, ±06:00)
+1. **`market_competitiveness` is in grote lijnen de score van de makers bij het midden**: correlatie ±0,9 met wat ik zelf uit het openbare boek reken (GEZIEN). Bruikbaar als eerste filter, niet als exacte deling.
+2. **Ruwe papieren beloning voor een kleine bot: mediaan $2 tot $5 per dag per $100 inzet** in de top 120, met uitschieters in lege nieuwsmarkten (GOK op GEZIEN-data, momentopname zonder vullingsverlies). Dit is reden om de schaduwbot te draaien, geen belofte.
+3. **Het echte risico zit in de vullingen bij nieuws**: de markten met de hoogste beloning per maker zijn juist markten met een vast nieuwsmoment. Elk verslag van een echte beloningsbot dat ik vond eindigde op verlies (runs 4 tot 6).
+4. **De pot is stabiel groot**: ±$56.000 per dag in de top 1.000, ±$13.500 daarvan in markten van de laatste dagen (GEZIEN, twee metingen een uur uit elkaar).
+5. **Vaste regels blijven**: alleen `polymarket-client`, Session Key en nooit de hoofdsleutel, malware rond Polymarket-bots is echt, en in Nederland is het verboden door de Ksa; Polymarket vecht dat sinds oktober aan bij de rechter, zonder uitspraak (DERDEN).
