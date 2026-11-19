@@ -236,3 +236,4 @@
 - Kan van Daan gedaan in `e2e/scherm_testkaart.py`: 20h camera 30 graden gedraaid (platte kant tong en pengat), 20 iets dichterbij (1,6 naar 1,45). Kop van het script zegt nu "alle drie plaatjes". 20h gaat mee naar tak `schermen` (hele map screenshots, de workflow eist 20h al).
 - Geen Blender hier, dus nog niet zelf gezien: de CI rendert ze. Volgende run: 20 en 20h op tak `schermen` bekijken (niets afgesneden?), anders terugdraaien. 20h alleen op Superhive, niet op extensions.blender.org (ToS 6.2, keurder).
 - Daarna wacht de testkaart op de volgende Pro-versie (na Gumroad 1.1.0, bij Thijs) en Hats op de speeltest za 21 nov.
+- CI run 44616684371 (8bce069) liep bij afsluiten (21:37 UTC): alle stappen tot "Eén lid snijden" groen in drie Blenders, maar "Figuurpresets" stond al ±14 min te lopen (vorige hele run 18 min). Volgende run eerst: is die stap traag of hangt hij? Dan 20 en 20h bekijken.
