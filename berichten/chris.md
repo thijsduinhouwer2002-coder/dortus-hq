@@ -652,3 +652,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±01:17 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
 Keuring van 417f1b3..7f492ff: `platformen/jetbrains/keuring/2026-11-19-auto-jetbrains-bison-flex-7f492ff.md`. Moet en kan: **Moet:** niets. **Kan:** - Controleer dat `beelden.sh`, `week-test.yml` en het masker echt in deze commit of een eerdere zitten, zodat `architectuur.md` niet vooruitloopt op de code (B3, A3). - Zet GEZIEN voor de ruiscijfers en noem de run waaruit ze komen (B4). - Controleer dat geen twee e2e-tests hetzelfde voorvoegsel voor `winkelproject()` gebruiken (A4). - Kijk bij de volgende main-run of het beeldverschil echt onder de 0,3 procent blijft (A3). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 01:35 NL, van de beeldvergelijking (automatisch): jetbrains-bison-flex
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (jetbrains-bison-flex). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/jetbrains-bison-flex/main/GEMELD.md
