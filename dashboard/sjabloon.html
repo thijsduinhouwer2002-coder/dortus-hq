@@ -74,6 +74,10 @@ h2{font-size:17px;font-weight:650;letter-spacing:-.01em}
 .strook>div{padding:18px 20px 20px;min-width:0}
 .strook>div+div{border-left:1px solid var(--lijn)}
 .strook h2{font-size:13.5px;font-weight:600;color:var(--grijs);margin-bottom:10px;display:flex;gap:8px;align-items:baseline}
+<<<<<<< Updated upstream
+=======
+.strook .groot{font-size:28px}
+>>>>>>> Stashed changes
 .strook h2 .tel{color:var(--accent);font-size:13.5px}
 .doen{list-style:none;display:flex;flex-direction:column;gap:10px}
 .doen li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
@@ -95,7 +99,11 @@ h2{font-size:17px;font-weight:650;letter-spacing:-.01em}
 
 /* ranglijst */
 .lijst{background:var(--vlak);border:1px solid var(--lijn);border-radius:var(--r);box-shadow:var(--schaduw);overflow:hidden}
+<<<<<<< Updated upstream
 .rij,.rijkop{display:grid;grid-template-columns:34px minmax(0,1fr) 300px 104px 118px;gap:18px;align-items:center;padding:16px 20px}
+=======
+.rij,.rijkop{display:grid;grid-template-columns:34px minmax(0,1fr) 280px 124px 112px;gap:18px;align-items:center;padding:16px 20px}
+>>>>>>> Stashed changes
 .rijkop{padding-top:12px;padding-bottom:10px;font-size:12px;color:var(--zacht);border-bottom:1px solid var(--lijn);background:var(--vlak2)}
 .rij{border-top:1px solid var(--lijn);color:inherit;position:relative}
 .rijkop+.rij{border-top:0}
@@ -174,7 +182,11 @@ svg.spark circle{fill:var(--accent)}
 .voet{margin-top:40px;padding-top:16px;border-top:1px solid var(--lijn);font-size:12.5px;color:var(--grijs)}
 
 /* ploeg */
+<<<<<<< Updated upstream
 .persoon{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr) 190px;gap:18px;padding:14px 18px;border-top:1px solid var(--lijn);align-items:start}
+=======
+.persoon{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr) 270px;gap:18px;padding:14px 18px;border-top:1px solid var(--lijn);align-items:start}
+>>>>>>> Stashed changes
 .persoon:first-child{border-top:0}
 .persoon .n{font-weight:650;font-size:15px}
 .persoon .n small{display:block;font-weight:400;color:var(--grijs);font-size:12.5px;margin-top:1px}
@@ -184,7 +196,11 @@ svg.spark circle{fill:var(--accent)}
 .persoon .l b{font-weight:600}
 .persoon .l span{display:block;color:var(--grijs);font-size:12.5px;margin-top:2px}
 .persoon.uit .n,.persoon.uit .f{color:var(--grijs)}
+<<<<<<< Updated upstream
 .leeg{padding:30px;text-align:center;color:var(--grijs)}
+=======
+.niets{padding:30px;text-align:center;color:var(--grijs)}
+>>>>>>> Stashed changes
 
 /* telefoon en smal */
 @media (max-width:1100px){
@@ -215,12 +231,20 @@ svg.spark circle{fill:var(--accent)}
   .rij{grid-template-columns:22px minmax(0,1fr) auto;grid-template-areas:"r n n" ". l l" ". k d";gap:10px 12px;padding:16px 16px 16px 12px}
   .rij>.rang{grid-area:r}.rij>.hoofdcel{grid-area:n}.rij>.latcel{grid-area:l;margin-top:2px}.rij>.kanscel{grid-area:k}.rij>.dlcel{grid-area:d;text-align:right}
   .kl{display:block}
+<<<<<<< Updated upstream
+=======
+  .rij>.kanscel,.rij>.dlcel{align-self:start}
+>>>>>>> Stashed changes
   .feiten{grid-template-columns:1fr}
   .feiten>div+div{border-left:0;border-top:1px solid var(--lijn)}
   .tweeluik{grid-template-columns:1fr;gap:18px}
   .cijfer{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"m w" "s s" "b b";gap:8px 12px}
   .cijfer .maat{grid-area:m}.cijfer .waarde{grid-area:w;text-align:right}.cijfer .grafiek{grid-area:s}.cijfer .bron{grid-area:b}
+<<<<<<< Updated upstream
   svg.spark{width:100%;height:38px}
+=======
+  svg.spark{width:160px;height:38px}
+>>>>>>> Stashed changes
   .regels li{grid-template-columns:1fr;gap:2px}
   .persoon{grid-template-columns:1fr;gap:6px}
   .terug{display:inline-block}
@@ -451,12 +475,20 @@ function teken_project(p){
     </div>
     <section class="sectie">
       <div class="kop"><h2>Echte cijfers</h2><span class="klein">uit het scorebord${D.scorebord_gemeten ? `, gemeten ${esc(tijdKort(D.scorebord_gemeten))}` : ""}</span></div>
+<<<<<<< Updated upstream
       ${cijfers ? `<div class="tabel">${cijfers}</div>` : `<div class="tabel"><div class="leeg">${p.voor === "Thijs-zelf" ? "Geen cijfers op dit dashboard: de uitslagen staan in de rapporten op de tak ai-handel-data." : "Nog geen cijfers in het scorebord voor dit project."}</div></div>`}
+=======
+      ${cijfers ? `<div class="tabel">${cijfers}</div>` : `<div class="tabel"><div class="niets">${p.voor === "Thijs-zelf" ? "Geen cijfers op dit dashboard: de uitslagen staan in de rapporten op de tak ai-handel-data." : "Nog geen cijfers in het scorebord voor dit project."}</div></div>`}
+>>>>>>> Stashed changes
     </section>
     ${keuringen ? `<section class="sectie"><div class="kop"><h2>Keuringen</h2><span class="klein">laatste oordeel per bestand</span></div><ul class="regels">${keuringen}</ul></section>` : ""}
     <section class="sectie">
       <div class="kop"><h2>Laatste wijzigingen</h2><span class="klein">commits in ${esc((p.mappen || []).join(", ") || "geen map")}</span></div>
+<<<<<<< Updated upstream
       ${recent ? `<ul class="regels">${recent}</ul>` : `<div class="tabel"><div class="leeg">Nog geen commits.</div></div>`}
+=======
+      ${recent ? `<ul class="regels">${recent}</ul>` : `<div class="tabel"><div class="niets">Nog geen commits.</div></div>`}
+>>>>>>> Stashed changes
     </section>
     <p class="voet">Laatst bijgewerkt ${esc(p.laatste_update ? `${p.laatste_update.datum} door ${p.laatste_update.door}` : "onbekend")}. Bron: organisatie/projecten.json.</p>`;
 }
@@ -475,7 +507,11 @@ function teken_ploeg(){
     <p class="sub">Wie nu aan staat, waar hij aan werkt (uit het bord) en wanneer hij voor het laatst iets op GitHub zette.</p>
     <section class="sectie">
       <div class="kop"><h2>Aan</h2><span class="klein">${aan.length} agents</span></div>
+<<<<<<< Updated upstream
       <div class="tabel">${aan.map(persoon).join("") || `<div class="leeg">Niemand staat aan.</div>`}</div>
+=======
+      <div class="tabel">${aan.map(persoon).join("") || `<div class="niets">Niemand staat aan.</div>`}</div>
+>>>>>>> Stashed changes
     </section>
     <section class="sectie">
       <div class="kop"><h2>Uit</h2><span class="klein">${uit.length} agents</span></div>
@@ -487,7 +523,11 @@ function teken_ploeg(){
 
 /* ---------- route ---------- */
 function teken(){
+<<<<<<< Updated upstream
   if (!D) { $("view").innerHTML = `<p class="leeg">Geen gegevens. Bouw de pagina met python3 dashboard/bouw.py.</p>`; return; }
+=======
+  if (!D) { $("view").innerHTML = `<p class="niets">Geen gegevens. Bouw de pagina met python3 dashboard/bouw.py.</p>`; return; }
+>>>>>>> Stashed changes
   const h = decodeURIComponent(location.hash.slice(1)) || "overzicht";
   const p = project(h);
   const huidig = p ? p.id : (h === "ploeg" ? "ploeg" : "overzicht");
