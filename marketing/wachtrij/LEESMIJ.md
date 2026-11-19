@@ -11,7 +11,8 @@ Eén kanaal per bestand. Hetzelfde filmpje op TikTok en YouTube = twee bestanden
 | Deel | Schrijft | Anderen |
 |---|---|---|
 | Kop, Titel, Tekst, Eerste reactie, Bronnen | de maker van het concept (Maker of Chris) | niet aanraken |
-| `status` en `## Keuring` | de Keurder | niet aanraken |
+| `## Keuring`, en `status` op groen, oranje of rood | de Keurder | niet aanraken |
+| `status` op ingepland, geplaatst, mislukt, en rood na 24 uur oranje zonder besluit | de Maker | niet aanraken |
 | `## Oranje-besluit` | de hoofdchat-ronde | niet aanraken |
 | `## Na plaatsen` | de Maker | niet aanraken |
 
@@ -34,7 +35,7 @@ Nooit een concept weghalen, ook niet als het rood is. Een verbeterde versie is e
 - geluid_check: GOED (<dB>), <datum en tijd> | n.v.t. bij diashow
 - lengte: <mm:ss>, <liggend 1920x1080 | staand 1080x1920>
 - tijd: <JJJJ-MM-DDTUU:MM:00+01:00>   (voorgesteld moment, Europe/Amsterdam)
-- doel: <welke klikbare weg: Gumroad-link of dortus.com/click-joints/?ref=yt bovenaan; bij TikTok: dortus.com/click-joints over te typen>
+- doel: <meetadres: https://dortus.com/yt/ (lange YouTube) of dortus.com/tt (TikTok, over te typen)>
 - gemaakt_door: Roep-Maker | Chris | <naam>
 - vorige: <bestandsnaam als dit een verbeterde versie is, anders leeg>
 
@@ -42,12 +43,13 @@ Nooit een concept weghalen, ook niet als het rood is. Een verbeterde versie is e
 <YouTube: hoogstens 100 tekens, geen < of >. TikTok: korte titel voor tiktokData.title, mag leeg>
 
 ## Tekst
-<YouTube lang: eerste regel de link (Gumroad of https://dortus.com/click-joints/?ref=yt).
-TikTok: geen klikbare link, geen "link in bio"; wel "dortus.com/click-joints" of "search Click Joints". 5 tot 7 hashtags.
+<YouTube lang: eerste regel https://dortus.com/yt/ (nooit een Gumroad-link).
+TikTok: geen klikbare link, geen "link in bio"; wel het over te typen dortus.com/tt. 5 tot 7 hashtags.
+Short: altijd oranje, geen URL.
 Altijd: schrijf als Dortus ("we"), nooit in de ik-vorm.>
 
 ## Eerste reactie
-<YouTube lang: dezelfde link als bovenaan de beschrijving. TikTok: LEEG laten (persoonlijk account, kan niet). Short: geen URL.>
+<YouTube lang: https://dortus.com/yt/ met één zin erbij. TikTok: LEEG laten (persoonlijk account, kan niet). Short: geen URL.>
 
 ## Bronnen
 - <waar elke bewering vandaan komt: changelog, winkelpagina, meting, met pad of link>
@@ -81,7 +83,7 @@ Altijd: schrijf als Dortus ("we"), nooit in de ik-vorm.>
 - uitkomst: groen | oranje | rood
 - reden: <één zin>
 ```
-En zet dan bovenin `status:` op dezelfde uitkomst.
+En zet dan bovenin `status:` op dezelfde uitkomst. Commitkop van de Keurder begint met `Roep-Keurder:`; zo kan de Maker met `git log` zien dat groen van de Keurder kwam.
 
 ## Zo vult de hoofdchat `## Oranje-besluit` in
 ```
