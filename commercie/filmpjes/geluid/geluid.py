@@ -43,6 +43,17 @@ GELUID = {
         # de arm buigt van ±2,6 tot ±4,3 s: zacht oplopende toon
         "buig": [(2.6, 1.7)],
     },
+    "click-joints-5-pro-hinge-stops": {
+        # hoofdchat 19 nov ±02:55 NL: gemeten met beeldverschil per beeld (30 fps)
+        "duur": 14.7,
+        "bed": "joints",
+        # zachte tik bij elke nieuwe tekst (f5.json: 2,0 / 3,7 / 8,2 / 11,4)
+        "tik": [2.0, 3.7, 8.2, 11.4],
+        # de knie buigt: 0,3 tot 1,5 s, 4,0 tot 7,1 s, en voorbij de stop 8,3 tot 9,1 s
+        "buig": [(0.3, 1.2), (4.0, 3.1), (8.3, 0.8)],
+        # tok waar de beweging stilvalt tegen de stop (1,5 en 7,1 s)
+        "klik": [1.5, 7.1],
+    },
     "ebb-tip-1-eyes-closed": {
         "duur": 11.0,
         "bed": "ebb",

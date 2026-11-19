@@ -19,7 +19,7 @@ permissions:
 env:
   TAG: filmpjes-week-1
   MAP: commercie/filmpjes/geluid
-  FILMS: click-joints-7-tip-day-1-clearance click-joints-2-satisfying-bend ebb-tip-1-eyes-closed
+  FILMS: click-joints-7-tip-day-1-clearance click-joints-2-satisfying-bend ebb-tip-1-eyes-closed click-joints-5-pro-hinge-stops
 
 jobs:
   geluid:
