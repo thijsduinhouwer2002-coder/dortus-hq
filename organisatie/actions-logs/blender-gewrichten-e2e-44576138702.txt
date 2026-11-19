@@ -1,0 +1,209 @@
+# gemaakt: 2026-11-19T17:37:17Z
+# workflow: Blender gewrichten e2e (Click Joints, echte Blender) (.github/workflows/blender-gewrichten-e2e.yml)
+# run: 44576138702 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44576138702
+# commit: 085e4c72 tak main gestart door push
+# mislukte stappen: e2e (4.2.23): Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (4.2.23) / Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur) (laatste 200 van 424 regels) =====
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-armen] OK   komkant r + s + 0,5 = 3.70
+[cj-armen] OK   snijvlakkant naad_r + 0,4 r = 9.20
+[cj-armen] OK   pen overal 1,5 r + s = 4.70
+[cj-armen] OK   schuif uit romp 6.0
+[cj-armen] OK   schuif uit romp met naad vrij 9.0
+[cj-armen] OK   geen romp: niet schuiven
+Error: The cut gave no watertight parts (bad edges: part A 360, part B 0); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 135°. 5.814 s.
+Error: The cut gave no watertight parts (bad edges: part A 364, part B 0); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 140°. 1.498 s.
+Info: Hinge placed. Bends 0° to 135°. 3.013 s.
+Info: Hinge placed. Bends 0° to 135°. 2.986 s.
+Info: Hinge placed. Bends 0° to 135°. 2.953 s.
+Info: Hinge placed. Bends 0° to 140°. 1.406 s.
+Info: Joint placed. Good fit. 2.371 s.
+Info: Joint placed. Good fit. 1.324 s.
+Info: Joint placed. Good fit. 2.13 s.
+Info: Joint placed. Good fit. 1.069 s.
+Warning: 6 joints · 1 rig · 1 mirror · 4 preset. Skipped: Left knee (the cut lost part of the model here, place it by hand); Right knee (the cut lost part of the model here, place it by hand)
+[cj-armen] uitslag {'FINISHED'}; ['Left elbow · Hinge · 0–140° · from rig', 'Right elbow · Hinge · 0–140° · mirror', 'Left hip · Ball · ±8° · preset', 'Left shoulder · Ball · ±30° · preset', 'Right hip · Ball · ±30° · preset', 'Right shoulder · Ball · ±30° · preset']; overgeslagen: Left knee (the cut lost part of the model here, place it by hand); Right knee (the cut lost part of the model here, place it by hand)
+[cj-armen] BEKEND 4.2: niet geplaatst ['Left knee', 'Right knee']
+[cj-armen] OK   4.2: minstens 4 van 8, elk met reden (Left knee (the cut lost part of the model here, place it by hand); Right knee (the cut lost part of the model here, place it by hand))
+[cj-armen] OK   4.2: punt (10, 0, 3) nog in een deel
+[cj-armen] OK   4.2: punt (-10, 0, 3) nog in een deel
+[cj-armen] OK   4.2: punt (88, 0, 145) nog in een deel
+[cj-armen] OK   4.2: punt (-88, 0, 145) nog in een deel
+[cj-armen] OK   4.2: alle delen gesloten
+[cj-armen] OK   4.2: Left elbow from rig
+[cj-armen] OK   scharnieren bij het juiste deel ([])
+Info: Hinge placed. Bends 0° to 135°. 2.027 s.
+Info: Hinge placed. Bends 0° to 140°. 1.361 s.
+Info: Hinge placed. Bends 0° to 135°. 1.905 s.
+Info: Hinge placed. Bends 0° to 140°. 1.179 s.
+Warning: Too close to another joint (keep 30 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 1.167 s.
+Warning: Too close to another joint (keep 30 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 30 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 1.126 s.
+Warning: 6 joints · 1 rig · 1 mirror · 4 preset. Skipped: Left hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-armen] uitslag {'FINISHED'}; ['Left knee · Hinge · 0–135° · preset', 'Left elbow · Hinge · 0–140° · from rig', 'Right knee · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–140° · mirror', 'Left shoulder · Ball · ±30° · preset', 'Right shoulder · Ball · ±30° · preset']; overgeslagen: Left hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-armen] OK   korte figuur: schouders lukken
+[cj-armen] OK   korte figuur: heup eerlijk overgeslagen (Left hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-armen] OK   korte figuur: alle 7 delen gesloten
+[cj-armen] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-kaart] Blender 4.2.23 LTS
+Info: Joint placed. Good fit. 0.376 s.
+Info: Joint placed. Good fit. 0.377 s.
+Info: Joint placed. Good fit. 0.364 s.
+Info: Joint placed. Good fit. 0.368 s.
+Info: Joint placed. Good fit. 0.375 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   KOGEL: knop geeft FINISHED ({'FINISHED'})
+[cj-kaart] OK   KOGEL: 10 delen (10)
+[cj-kaart] OK   KOGEL: alle delen in collectie Fit test
+[cj-kaart] OK   KOGEL: speling 0.10 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.10 op één deel (['0.10'])
+[cj-kaart] OK   KOGEL: speling 0.15 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.15 op één deel (['0.15'])
+[cj-kaart] OK   KOGEL: speling 0.20 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.20 op één deel (['0.20'])
+[cj-kaart] OK   KOGEL: speling 0.25 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.25 op één deel (['0.25'])
+[cj-kaart] OK   KOGEL: speling 0.30 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.30 op één deel (['0.30'])
+[cj-kaart] OK   KOGEL: alle delen gesloten (open: [])
+[cj-kaart] OK   KOGEL: speling scene blijft 0.17 (0.170)
+[cj-kaart] OK   KOGEL: cursor blijft staan
+[cj-kaart] OK   KOGEL: eigen model niet aangeraakt
+Info: 10 STL files in [weggehaald: lange base64-reeks]
+[cj-kaart] OK   KOGEL: export geeft 10 bestanden (10)
+Info: Joint placed. Good fit. 0.363 s.
+Info: Joint placed. Good fit. 0.366 s.
+Info: Joint placed. Good fit. 0.373 s.
+Info: Joint placed. Good fit. 0.367 s.
+Info: Joint placed. Good fit. 0.37 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   KOGEL: tweede klik 10 nieuwe delen (10)
+[cj-kaart] OK   KOGEL: tweede set raakt de eerste niet
+[cj-kaart] KOGEL: maat set (140.0, 20.0, 60.6) mm
+Info: Joint placed. Good fit. 0.372 s.
+Info: Joint placed. Good fit. 0.375 s.
+Info: Joint placed. Good fit. 0.368 s.
+Info: Joint placed. Good fit. 0.379 s.
+Info: Joint placed. Good fit. 0.371 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   KOGEL meters: zelfde maat in mm ((140.0, 20.0, 60.6) tegen (140.0, 20.0, 60.6))
+[cj-kaart] OK   KOGEL meters: alle delen gesloten
+[cj-kaart] OK   KOGEL meters: vijf getallen (['0.10', '0.15', '0.20', '0.25', '0.30'])
+Info: Hinge placed. Bends 0° to 115°. 0.422 s.
+Info: Hinge placed. Bends 0° to 115°. 0.407 s.
+Info: Hinge placed. Bends 0° to 115°. 0.399 s.
+Info: Hinge placed. Bends 0° to 115°. 0.389 s.
+Info: Hinge placed. Bends 0° to 115°. 0.412 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER: knop geeft FINISHED ({'FINISHED'})
+[cj-kaart] OK   SCHARNIER: 10 delen (10)
+[cj-kaart] OK   SCHARNIER: alle delen in collectie Fit test
+[cj-kaart] OK   SCHARNIER: speling 0.10 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.10 op één deel (['0.10'])
+[cj-kaart] OK   SCHARNIER: speling 0.15 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.15 op één deel (['0.15'])
+[cj-kaart] OK   SCHARNIER: speling 0.20 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.20 op één deel (['0.20'])
+[cj-kaart] OK   SCHARNIER: speling 0.25 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.25 op één deel (['0.25'])
+[cj-kaart] OK   SCHARNIER: speling 0.30 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.30 op één deel (['0.30'])
+[cj-kaart] OK   SCHARNIER: alle delen gesloten (open: [])
+[cj-kaart] OK   SCHARNIER: speling scene blijft 0.17 (0.170)
+[cj-kaart] OK   SCHARNIER: cursor blijft staan
+[cj-kaart] OK   SCHARNIER: eigen model niet aangeraakt
+Info: 10 STL files in [weggehaald: lange base64-reeks]
+[cj-kaart] OK   SCHARNIER: export geeft 10 bestanden (10)
+Info: Hinge placed. Bends 0° to 115°. 0.934 s.
+Info: Hinge placed. Bends 0° to 115°. 0.421 s.
+Info: Hinge placed. Bends 0° to 115°. 0.395 s.
+Info: Hinge placed. Bends 0° to 115°. 0.41 s.
+Info: Hinge placed. Bends 0° to 115°. 0.422 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER: tweede klik 10 nieuwe delen (10)
+[cj-kaart] OK   SCHARNIER: tweede set raakt de eerste niet
+[cj-kaart] SCHARNIER: maat set (110.0, 14.0, 60.6) mm
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+Timer 'STL Export' took 0.65 ms
+Timer 'STL Export' took 0.68 ms
+Timer 'STL Export' took 0.61 ms
+Timer 'STL Export' took 0.66 ms
+Timer 'STL Export' took 0.60 ms
+Timer 'STL Export' took 0.72 ms
+Timer 'STL Export' took 0.62 ms
+Timer 'STL Export' took 0.72 ms
+Timer 'STL Export' took 0.58 ms
+Timer 'STL Export' took 0.75 ms
+Timer 'STL Export' took 0.32 ms
+Timer 'STL Export' took 0.42 ms
+Timer 'STL Export' took 0.28 ms
+Timer 'STL Export' took 0.42 ms
+Timer 'STL Export' took 0.28 ms
+Timer 'STL Export' took 0.47 ms
+Timer 'STL Export' took 0.28 ms
+Timer 'STL Export' took 0.46 ms
+Timer 'STL Export' took 0.27 ms
+Timer 'STL Export' took 0.50 ms
+Traceback (most recent call last):
+  File "/tmp/cj_figuur/extensions/user_default/click_joints/betaald/testkaart.py", line 153, in execute
+    uit = bpy.ops.click_joints.plaats_scharnier(stand="115")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/blender/4.2/scripts/modules/bpy/ops.py", line 109, in __call__
+    ret = _op_call(self.idname_py(), kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Error: The cut gave no watertight parts (bad edges: part A 0, part B 75); the mesh is unchanged.
+
+Info: Hinge placed. Bends 0° to 115°. 0.428 s.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 75); the mesh is unchanged.
+Error: Python: Traceback (most recent call last):
+  File "/tmp/cj_figuur/extensions/user_default/click_joints/betaald/testkaart.py", line 153, in execute
+    uit = bpy.ops.click_joints.plaats_scharnier(stand="115")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/blender/4.2/scripts/modules/bpy/ops.py", line 109, in __call__
+    ret = _op_call(self.idname_py(), kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Error: The cut gave no watertight parts (bad edges: part A 0, part B 75); the mesh is unchanged.
+Location: /tmp/blender/4.2/scripts/modules/bpy/ops.py:109
+[cj-kaart] FOUT SCHARNIER meters: 10 delen (fout Error: Python: Traceback (most recent call last):
+  File "/tmp/cj_figuur/extensions/user_default/click_joints/betaald/testkaart.py", line 153, in execute
+    uit = bpy.ops.click_joints.plaats_scharnier(stand="115")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/blender/4.2/scripts/modules/bpy/ops.py", line 109, in __call__
+    ret = _op_call(self.idname_py(), kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Error: The cut gave no watertight parts (bad edges: part A 0, part B 75); the mesh is unchanged.
+Location: /tmp/blender/4.2/scripts/modules/bpy/ops.py:109
+, 2)
+[cj-kaart] KLAAR 1 FOUT
+
+Blender quit
+FOUT: fit test strip
+##[error]Process completed with exit code 1.
