@@ -274,6 +274,7 @@ class IdeTest {
             Thread.sleep(2_000)
             typ("Bison/Yacc")
             Thread.sleep(3_000)
+            vastVenster(2000, 1400)
             scherm("$naam-kleurenpagina.png")
             toets("Escape")
             println("DORTUS-E2E [$naam] kleurenpagina: scherm gemaakt")

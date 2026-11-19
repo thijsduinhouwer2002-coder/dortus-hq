@@ -71,7 +71,8 @@ jobs:
       # projectmap (in de projectboom en als kleur van de projectknop bovenaan) en de voortgangsbalk van het indexeren.
       # Daarom: vaste projectmap (Gedeeld.kt), de strook linksboven (projectknop) en de voortgangsbalk onder de
       # projectboom tellen niet mee, alleen op schermen van het hele IDE-venster (2880x1800, niet op dialogen).
-      # Dialogen die een paar pixels van maat springen worden met verschuiving vergeleken (beeldvergelijk.py), en
+      # De twee dialogen die van maat sprongen zet de test vast (vastVenster in Gedeeld.kt); een klein maatverschil
+      # wordt anders met verschuiving vergeleken (beeldvergelijk.py), en
       # de twee hernoem-plaatjes met een melding of tooltip neemt de test pas op als het beeld stilstaat (schermStil).
       # Twee bomen klappen in de ene run wel en in de andere niet open, ook als het beeld stilstaat (runs 44436778211
       # en 44436781019, GEZIEN): de boom in het conflictvenster bij hernoemen en het Find-paneel op winkel-alleplekken.

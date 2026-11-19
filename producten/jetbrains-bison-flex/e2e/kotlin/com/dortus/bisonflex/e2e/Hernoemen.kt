@@ -185,7 +185,10 @@ private fun IdeTest.hernoemvenster(d: Driver, naam: String, melding: ProMeldingO
         wacht(20) { actiefVenster().let { it != null && it != ide && it != venster }.also { if (it) conflict = actiefVenster() } }
         Thread.sleep(2_000)
         println("DORTUS-E2E [$naam] naam 'line' ingevuld: conflictvenster ${conflict ?: "niet gezien"}")
-        if (conflict != null) schermStil("$naam-hernoem-conflict.png")
+        if (conflict != null) {
+            vastVenster(1600, 1174)
+            schermStil("$naam-hernoem-conflict.png")
+        }
     } finally {
         // Alles dicht tot de IDE weer actief is (Escape is Cancel in beide vensters).
         for (i in 1..4) {

@@ -103,6 +103,17 @@ internal fun toets(naam: String) {
     println("DORTUS-E2E xdotool key $naam: code $code")
 }
 
+/**
+ * Zet het actieve venster (een dialoog, nooit de IDE zelf) op een vaste maat, zodat de schermafbeelding elke run
+ * dezelfde maat heeft (roestronde R4: dialogen sprongen tussen 1600x1174 en 1592x1172, en panelen schoven mee).
+ */
+internal fun vastVenster(breedte: Int, hoogte: Int) {
+    val v = actiefVenster() ?: return
+    val code = ProcessBuilder("xdotool", "windowsize", v, breedte.toString(), hoogte.toString()).inheritIO().start().waitFor()
+    println("DORTUS-E2E venster $v vast op ${breedte}x$hoogte: code $code")
+    Thread.sleep(1_500)
+}
+
 /** Id van het actieve venster (de IDE of een dialoog), of null. */
 internal fun actiefVenster(): String? = try {
     val p = ProcessBuilder("xdotool", "getactivewindow").redirectErrorStream(true).start()

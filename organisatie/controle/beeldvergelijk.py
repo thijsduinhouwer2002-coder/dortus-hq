@@ -13,8 +13,9 @@ zodat zachte randen niet tellen), als procent van het plaatje. Boven de grens he
 een verschilbeeld bij (het oude plaatje grijs, de verschillen rood). Een andere maat telt als groot, behalve als
 hij hooguit MAAT_SPELING pixels scheelt: losse dialoogvensters van de IDE springen tussen runs een paar pixels
 (1600x1174 en 1592x1172, keuring R4). Dan wordt toch vergeleken: een pixel telt alleen als anders als hij ook niet
-klopt met het nieuwe plaatje verschoven naar rechts, onder of rechtsonder (zo kloppen knoppen die aan de rechter- of
-onderkant vastzitten), en het verschil telt net zo tegen de grens.
+klopt met het nieuwe plaatje verschoven over elke afstand van 0 tot het maatverschil, horizontaal en verticaal (zo
+kloppen knoppen die aan de rechter- of onderkant vastzitten en panelen die naar verhouding meeschuiven), en het
+verschil telt net zo tegen de grens.
 Nieuwe en verdwenen plaatjes staan in het verslag maar tellen niet als groot.
 Een plaatje van deze run dat (bijna) helemaal één kleur is (standaardafwijking onder LEEG_GRENS, bijvoorbeeld
 helemaal zwart) telt altijd als groot, met "LEEG", ook als de referentie net zo leeg is (keuring R5: 1-paneel.png
@@ -65,11 +66,11 @@ def past(patroon, rel, vorm):
 
 
 def verschil_verschoven(a, b):
-    """Masker op de maat van a: anders als b op geen van de vier hoekuitlijningen klopt."""
+    """Masker op de maat van a: anders als b bij geen enkele verschuiving tussen 0 en het maatverschil klopt."""
     ha, wa, hb, wb = a.shape[0], a.shape[1], b.shape[0], b.shape[1]
     dy, dx = hb - ha, wb - wa
     mask = np.ones((ha, wa), dtype=bool)
-    for sy, sx in ((0, 0), (dy, 0), (0, dx), (dy, dx)):
+    for sy, sx in ((y, x) for y in range(min(0, dy), max(0, dy) + 1) for x in range(min(0, dx), max(0, dx) + 1)):
         y0, y1 = max(0, -sy), min(ha, hb - sy)
         x0, x1 = max(0, -sx), min(wa, wb - sx)
         if y1 <= y0 or x1 <= x0:
