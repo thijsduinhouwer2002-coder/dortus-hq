@@ -202,7 +202,7 @@ def main():
     tekst = fig.samenvatting(alle)
     n_rig = sum(1 for x in alle if x["herkomst"] in ("from rig", "mirrored"))
     log(f"samenvatting: {tekst}; overgeslagen: {delen[0].get('cj_rig_overgeslagen') if delen else None}")
-    check(n_rig >= 1 and n_rig <= sum(1 for x in alle if x["soort"] == "HINGE") and "from rig" in tekst and ("mirrored" in tekst or rk is None),
+    check(n_rig >= 1 and n_rig <= sum(1 for x in alle if x["soort"] == "HINGE") and " rig" in tekst and ("mirror" in tekst or rk is None),
           f"samenvatting '{tekst}'")
     log(f"KLAAR {len(FOUT)} FOUT")
 

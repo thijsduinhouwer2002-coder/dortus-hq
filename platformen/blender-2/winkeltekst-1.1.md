@@ -3,7 +3,7 @@
 Concept voor Daan. Nog niet plakken: eerst CI groen in 4.2, 5.2 en 5.3 op de tak, dan ja van Daan, dan zet de hoofdchat het op Gumroad (en Superhive na goedkeuring van Pro). Volgt de pagina-regels van 17 nov en `organisatie/lanceerlijst.md`: geen "clicks", "never", "all" of "print tested"; niemand van ons heeft het geprint. Elke zin hieronder heeft rechts in de tabel onderaan zijn toets.
 
 ## Kop en eerste regel (zoekwoord vooraan)
-**Rig to printable figure: every joint stops where your rig stops.**
+**Rig to printable figure: elbows and knees stop where your rig stops.**
 
 Pick your rigged figure, press one button, and Click Joints Pro cuts it into printable parts with a joint at every shoulder, elbow, hip, knee and neck. Elbows and knees get a hinge with an end stop; shoulders, hips and neck get a ball joint. Next to each joint you see how far it bends, in degrees, before you print.
 

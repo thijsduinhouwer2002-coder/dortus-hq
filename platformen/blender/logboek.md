@@ -687,3 +687,11 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 19 nov 2026 ±12:15 UTC, Bram (run 13:07)
 - E2e-run 44512744216 op 3fb6d4a nu ook groen in 4.2.23 (alle drie versies plus beeldbericht, GEZIEN via API). Superhive-pagina Pro geeft nog 403, dus nog Pending (GEZIEN). Overige kan-punten (rood-toets, paneelscherm na Place hinge) leveren geen geld op vóór de sale; die wachten. Verder niets zinvols tot goedkeuring Superhive of de uitgave.
+
+## 19 nov 2026 ±13:45 UTC, Bram (run 14:07 NL)
+- Nieuwe opdracht: Pro 1.1.0 uitbrengen na ja van Daan. Daan zei 18 nov nee op plaatje 19 met vier moets; Ruben staat uit, dus ik pak ze op.
+- Moet 1 teller: `figuur.samenvatting` telt nu elk lid één keer: "9 joints · 2 rig · 2 mirror · 5 preset" (was "4 from rig · 2 mirrored"). Toetsen in `toetsen_figuur.py` en `toetsen_rig.py` mee aangepast; lokaal 5.3.0 toetsen_figuur KLAAR 0 FOUT (GEZIEN).
+- Moet 2 en 3 figuur en heup: `glad_romp` in `e2e/scherm_mens.py` strijkt de romp glad (z 92 tot 170 mm, |x| < 30). Lokaal 5.3.0 bekeken (GEZIEN): geen borsten, navel of billen meer, en de heupsnede is nu een rechte lijn zonder zaagtand; schouders blijven groen. Heupen worden daardoor ±20° (echte uitkomst van de knop).
+- Moet 4 kop: winkeltekst 1.1 zegt nu "elbows and knees stop where your rig stops".
+- Les: Blender 5.3 laadt hier in een halve minuut van download.blender.org; plaatje 19 lokaal maken kost 36 s. Lokaal bouwen kan dus.
+- Volgende: e2e-run op main geeft plaatje 19 met paneel en lijst; daarna Daan.

@@ -102,13 +102,17 @@ def figuur_gewrichten(objecten, figuur):
 def samenvatting(lijst):
     """Korte regel bovenaan: "3 joints" of "6 joints · 4 from rig · 1 mirrored". Kort (Daan moet 5, 17 nov): de
     lange vorm "7 joints, 4 ranges from your rig (2 mirrored)" liep in de zijbalk af."""
+    # Daan 18 nov moet 1 (plaatje 19): teller en lijst gelijk. Eerst telde "from rig" de gespiegelde mee
+    # ("9 joints · 4 from rig · 2 mirrored" naast 2 + 2 + 5 in de lijst). Nu elk woord zoals in de lijst, elk lid
+    # één keer: "9 joints · 2 rig · 2 mirror · 5 preset". Kort gehouden: 38 tekens past in de zijbalk.
     n = len(lijst)
-    rig = sum(1 for r in lijst if r.get("herkomst") in ("from rig", "mirrored"))
+    rig = sum(1 for r in lijst if r.get("herkomst") == "from rig")
     sp = sum(1 for r in lijst if r.get("herkomst") == "mirrored")
+    pre = n - rig - sp
     kop = f"{n} joint" + ("" if n == 1 else "s")
-    if not rig:
+    if not (rig or sp):
         return kop
-    return f"{kop} · {rig} from rig" + (f" · {sp} mirrored" if sp else "")
+    return kop + f" · {rig} rig" + (f" · {sp} mirror" if sp else "") + (f" · {pre} preset" if pre else "")
 
 
 def _snij(context, soort, stand, graden_vrij=0):

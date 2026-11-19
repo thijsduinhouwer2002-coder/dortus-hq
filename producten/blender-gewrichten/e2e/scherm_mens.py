@@ -53,6 +53,7 @@ def etalagepop(ob):
         wx = min(1.0, (abs(c.x) - 4.0) / 6.0) * min(1.0, (36.0 - abs(c.x)) / 6.0)
         w = math.sin(wz * math.pi / 2.0) ** 2 * wx
         c.y = c.y + (-2.5 - c.y) * w
+    glad_romp(ob)
     for f in ob.data.polygons:
         f.use_smooth = True
     mat = bpy.data.materials.new("pla_grijs")
@@ -62,6 +63,23 @@ def etalagepop(ob):
     ob.data.materials.clear()
     ob.data.materials.append(mat)
     ob.data.update()
+
+
+def glad_romp(ob):
+    """Daan 18 nov moet 2 (plaatje 19): geen geslachtskenmerken, glad als een tekenpop. Na het platdrukken van de
+    borst waren borsten, navel en billen nog te zien. Hier de romp (heup tot borst, zonder armen en benen) glad
+    strijken met Laplace (volume blijft), met een zachte rand naar hals en dijen. Alleen invoer van dit beeld."""
+    import bmesh
+    lo, hi = float(os.environ.get("CJ_GLAD_LO", "92")), float(os.environ.get("CJ_GLAD_HI", "170"))
+    bm = bmesh.new()
+    bm.from_mesh(ob.data)
+    romp = [v for v in bm.verts if lo < v.co.z < hi and abs(v.co.x) < float(os.environ.get("CJ_GLAD_X", "30"))]
+    for _ in range(int(os.environ.get("CJ_GLAD_N", "25"))):
+        bmesh.ops.smooth_vert(bm, verts=romp, factor=0.8, use_axis_x=True, use_axis_y=True, use_axis_z=True)
+    bm.to_mesh(ob.data)
+    bm.free()
+    staat["glad_romp"] = len(romp)
+    log(f"MENS romp glad: {len(romp)} punten")
 
 
 def heup_zonder_band(afstand=22.0):
