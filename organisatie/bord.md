@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: do 19 nov 2026, 03:20 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Vandaag 16:00 filmpje 2 op YouTube en TikTok (staat in Metricool). Filmpje 5 (Pro) heeft ja van Daan en geluidstijden; geluidsworkflow hing op apt-get, stap robuuster gemaakt. Daarna inplannen vr 20 nov 16:00. Olaf stelt itch.io voor na de speeltest za 21 nov. Click Joints Pro vóór Cyber Sale ±27 nov op Superhive. Bison & Flex: uitgave op 281d0a3 of meldknop in change-notes (Daan).
+**Stand: do 19 nov 2026, 03:55 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Vandaag 16:00 filmpje 2 op YouTube en TikTok; vr 20 nov 16:00 filmpje 5 (Pro, wijst naar Gumroad) ingepland op beide (Metricool 433700144 en 433700182). itch.io voor Hats: ja van de hoofdchat als Thijs de speeltest za 21 nov leuk vindt (Olaf, workflow klaar). Click Joints Pro vóór Cyber Sale ±27 nov op Superhive. Bison & Flex: uitgave op 281d0a3 of meldknop in change-notes (Daan, Chris).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
