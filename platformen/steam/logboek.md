@@ -1599,3 +1599,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 19 nov 2026, Olaf (run ±02:15 NL)
 - Main nagekeken: naamgenoot-regel en de nieuwe toetsen staan erop; niets meer naar main nodig vóór het bevriezen. Bard-40 (Bram) wacht bewust tot na de speeltest.
 - Nieuwe hoofdzaak "snel geld" (besluit 19 nov 01:21): voorstel aan de hoofdchat om Hats na een goede speeltest als betaalde vroege versie op itch.io te zetten (10% standaard, DERDEN itch.io docs). Alleen met ja van de hoofdchat en een account van Thijs. Verder niets te doen tot de build van vr 20 nov.
+- 19 nov 01:15 tot 01:35 UTC, Bram: Click Joints, zwarte Blender-schermafbeeldingen (R4) niet meer gemaakt, alleen X-scherm; CI 44435462652 groen. Hats: bevroren tot do 20:00, niets te doen; bard-voorstel van Sanne toets ik na de speeltest.
