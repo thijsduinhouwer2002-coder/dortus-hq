@@ -240,6 +240,20 @@ class TestFunding(unittest.TestCase):
             self.assertAlmostEqual(p["winst500"], -0.001 * 500 * 2 / 3, places=2)
             self.assertEqual(p["spot"], "okx")
 
+    def test_einde_run_houdt_spotprijs(self):
+        spot = nep_beurs("okx", [[("ABC", "USDT")]], koersen={("ABC", "USDT"): (10.0, 10.0)})
+        bron = lambda: {"ABC": {"rate": 0.002, "uur": 8, "volgende": time.time() + 999, "prijs": 10.0, "vol_usd": 1}}
+        with tempfile.TemporaryDirectory() as d:
+            r = radar.Radar(d, spot_klassen=[spot], perp_bronnen={"okx": bron}, log=lambda s: None)
+            r.ronde_paren()
+            r.ronde_funding()
+            r.ronde_funding()
+            r.afsluiten()
+            p = lees(os.path.join(d, "funding.jsonl"))[0]
+            self.assertTrue(p["einde_run"])
+            self.assertEqual(p["basis_pct"], 0.0)
+            self.assertTrue(p["al_bij_start"])
+
     def test_lage_funding_geen_piek(self):
         with tempfile.TemporaryDirectory() as d:
             r = radar.Radar(d, spot_klassen=[nep_beurs("okx", [[("A", "USDT")]])],

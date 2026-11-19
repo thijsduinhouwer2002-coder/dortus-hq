@@ -445,6 +445,16 @@ class Radar:
         r8 = per8(x["rate"], x["uur"])
         p = self.pieken.get(k)
         if p is not None:
+            if p["spot"] and (p["munt"], p["spot_quote"]) in koersen.get(p["spot"], {}):
+                p["spot_laatst"] = koersen[p["spot"]][(p["munt"], p["spot_quote"])]
+                if not p["spot_in"]:   # bij het begin geen spotkoers: instappen telt vanaf nu
+                    p["spot_in"] = p["spot_laatst"][1 if p["richting"] == "positief" else 0] or None
+                    p["prijs_perp_in"] = x["prijs"]
+            for veld, waarde in (("min_spot_eur", lambda: self.min_order_eur(p["spot"], m, p["spot_quote"],
+                                                                              p["spot_in"]) if p["spot"] else None),
+                                 ("min_perp_eur", lambda: self.min_perp_eur(b, m, x["prijs"]))):
+                if p.get(veld) is None:   # bij de eerste ronde was de euro-koers nog niet bekend
+                    p[veld] = waarde()
             # verrekening gezien: het tijdstip van de volgende verrekening schoof op, dus de vorige rate is betaald
             if vorig and x["volgende"] > vorig["volgende"] + 60 and vorig["volgende"] > p["begin_t"]:
                 teken = 1 if p["richting"] == "positief" else -1
@@ -488,7 +498,8 @@ class Radar:
 
     def sluit_piek(self, k, t, koersen, reden="onder drempel", einde_run=False):
         p = self.pieken.pop(k)
-        bod, laat = koersen.get(p["spot"], {}).get((p["munt"], p["spot_quote"]), (0, 0)) if p["spot"] else (0, 0)
+        bod, laat = koersen.get(p["spot"], {}).get((p["munt"], p["spot_quote"])) or p.get("spot_laatst") or (0, 0) \
+            if p["spot"] else (0, 0)
         spot_uit = (bod if p["richting"] == "positief" else laat) or None
         teken = 1 if p["richting"] == "positief" else -1
         basis = None
@@ -655,8 +666,8 @@ class Radar:
     def draai(self, minuten):
         eind = nu_s() + minuten * 60
         taken = (("paren", ELKE_PAREN_S, self.ronde_paren), ("wallet", ELKE_WALLET_S,
-                 lambda: (self.ververs_wallets(list(self.spot)), self.ververs_minima())), ("funding", ELKE_FUNDING_S, self.ronde_funding),
-                 ("stable", ELKE_STABLE_S, self.ronde_stable), ("noteringen", ELKE_NOTERING_S, self.ronde_noteringen),
+                 lambda: (self.ververs_wallets(list(self.spot)), self.ververs_minima())), ("stable", ELKE_STABLE_S, self.ronde_stable),
+                 ("funding", ELKE_FUNDING_S, self.ronde_funding), ("noteringen", ELKE_NOTERING_S, self.ronde_noteringen),
                  ("stand", 300, self.schrijf_stand))
         try:
             while nu_s() < eind:
