@@ -82,16 +82,19 @@ jobs:
           curl -fsS -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/steam-hol-exe.yml/runs?branch=main&status=success&per_page=30" \
             -o runs.json || echo '{"workflow_runs":[]}' > runs.json
-          run=""
+          run=""; los=""   # los = nieuwste levende build met andere spelcode (alleen goed voor een proefdraai)
           for r in $(jq -r '.workflow_runs[] | "\(.head_sha),\(.id)"' runs.json); do
             sha=${r%,*}; id=${r#*,}
             git cat-file -e "$sha^{commit}" 2>/dev/null || continue
-            [ "$(git rev-parse "$sha:producten/steam-hol" 2>/dev/null)" = "$boom" ] || continue
             n=$(curl -fsS -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/runs/$id/artifacts" \
                 | jq '[.artifacts[] | select(.name=="speeltest-hats-of-the-fallen-windows" and .expired==false)] | length')
-            if [ "${n:-0}" -gt 0 ]; then run="$id"; break; fi
+            [ "${n:-0}" -gt 0 ] || continue
+            if [ "$(git rev-parse "$sha:producten/steam-hol" 2>/dev/null)" = "$boom" ]; then run="$id"; break; fi
+            [ -n "$los" ] || los="$id"
           done
           if [ -n "$run" ]; then echo "- build: steam-hol-exe.yml run $run (zelfde spelcode, boom ${boom:0:7})" >> "$S"
+          elif [ "$proef" = "true" ] && [ -n "$los" ]; then
+            run="$los"; meld "geen exe-run met deze spelcode (boom ${boom:0:7}); proefdraai met de oudere build van run $los"
           else echo "::error::geen geslaagde steam-hol-exe.yml-run op main met deze spelcode en een levend speeltest-artifact (boom ${boom:0:7}). Start die eerst."; exit 1; fi
 
           # c. akkoord Daan
