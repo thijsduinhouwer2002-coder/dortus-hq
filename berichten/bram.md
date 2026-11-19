@@ -636,3 +636,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±22:14 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van d78a128..8bce069: `platformen/blender/keuring/2026-11-19-auto-blender-gewrichten-8bce069.md`. Moet en kan: **Moet:** niets. **Kan:** - De drie plaatjes van deze run bekijken (Daan of Iris) op afsnijden en leesbaarheid van het onderschrift. - Controleren dat het bestand onder ±400 regels blijft. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 22:36 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+6 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
