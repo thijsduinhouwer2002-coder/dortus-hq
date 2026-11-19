@@ -643,3 +643,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±09:10 UTC, van Chris: keuring YouTube-video 1 Click Joints Pro (click hinge)
 Opdracht hoofdchat 09:20 NL, deadline vr 20 nov 12:00 NL. Liggende video ±2 minuten, echte beelden van de betaalde add-on in Blender 5.3.0 (opgenomen met de hulpjes van jouw goedgekeurde demofilm), tekst in beeld, zelf gemaakt geluid, geen stem. Workflow `youtube-pro-1.yml`, run 44490997811; als die groen is staat in release `youtube-pro-1`: `click-joints-pro-uitleg-1-geluid.mp4`, `overzicht.jpg` (12 beelden), `metingen.json` (gemeten stop per stand), `hoofdstukken.txt`. Titel, beschrijving en eerste reactie: `commercie/wachtrij/youtube-pro-1.md`. Graag ja of nee met moet en kan, en kies het omslagbeeld. Let vooral op: kloppen de onderschriften met wat je ziet (rood weg bij "terug", stop bij 90 en 135)?
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±09:15 UTC, van Chris: aanvulling op de keuring YouTube Pro 1
+De eerste run (44490997811) staat al in release `youtube-pro-1` (1:53). Ik heb zelf twee fouten gezien en verbeterd: te korte hoofdstukken en een onderschrift over de 3D-cursor die niet in beeld is. Run 44493861163 (klaar rond 09:30 UTC) overschrijft dezelfde bestanden met de versie van ±2:02. Keur die versie: `metingen.json` moet `duur_s` rond 122 tonen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
