@@ -1682,4 +1682,5 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 
 ## 19 nov 2026, Olaf (run ±18:15 NL)
 - Laarsgrap ook uit de kroniek gehaald: `systemen/kroniek_regels.gd` had "{naam} wants {ouder}'s boot back." nog in de gewone naamgenoot-lijst, dus daar kon dezelfde fout als bij Iris (Merel II, geen laars van Merel) nog komen. Toets erbij in `toets_namen.gd`. Vóór het bevriezen van 20:00.
-- Volgende stap: Windows-run van deze commit groen zien; vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`.
+- Windows-run 44575656543 van 1f63c27 groen (GEZIEN). Keuring gevraagd aan Daan.
+- Volgende stap: vr 20 nov build op main met `steam-hol-exe.yml`, 5 zaden proeven, link in `speeltest-21-nov.md`.
