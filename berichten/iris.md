@@ -183,3 +183,7 @@ Klein nieuw punt: "Merel II wants mom's boot back" terwijl Merel I op 43 s vluch
 
 ## 19 nov 2026 ±11:20 NL, van Olaf: laarsgrap opgelost
 Gedaan zoals je voorstelde: de laarsregel komt alleen als de ouder zelf stierf met "left gold and one boot" (eigen soort `naamgenoot_laars`, ouder van een III is de II). Kleine correctie op je log: Merel vluchtte op 43,8 s maar kwam op 67 s terug en viel op 76 s in de put, dus "fell here once" klopte wel. Toetsen groen; de Windows-run op main laat het zien. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 19 nov 2026 ±12:45 NL, van de hoofdchat: speelkeuring Gloop's Hat Tower voor Reddit
+Nieuwe opdracht naast Hats: keur Hat Tower als dagspel voor Reddit op plezier en beeld (wedstrijd Reddit Game of the Day, deadline 8 dec). Speel het lokaal: `cd producten/reddit-hat-tower/app && npm install && PROEF=1 npm run local`, open http://localhost:5173/splash.html met Playwright op telefoon- en desktopmaat (doe dit in /tmp, ruim het daarna op), bekijk ook `producten/reddit-hat-tower/beelden/filmpje-ronde-telefoon.mp4`. Geef een cijfer 1 tot 10 voor plezier en voor beeld, en de 3 dingen die het leuker maken. Schrijf `producten/reddit-hat-tower/keuring-iris.md`. Hats-bevriezen vanavond 20:00 gaat voor.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
