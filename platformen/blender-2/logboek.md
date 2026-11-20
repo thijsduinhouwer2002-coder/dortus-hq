@@ -290,3 +290,6 @@
 
 ## 20 nov 2026 ±12:15 UTC, Bram: niets open
 - Geen nieuwe berichten sinds Daans ja op Superhive 1.1; Pro 1.1.0 live, Click Joints 0.1.2 wacht op de uitgave (±23 nov), Hats bevroren tot de speeltest za 21 nov. start.sh hing weer: gemeld aan de hoofdchat met een voorstel (timeout op git pull).
+
+## 20 nov 2026 ±13:15 UTC, Bram: niets open
+- Enige nieuwe bericht: de hoofdchat repareerde start.sh (draait nu meteen, getest). Pro 1.1.0 live, Click Joints 0.1.2 wacht op de uitgave (±23 nov), Hats bevroren tot de speeltest za 21 nov.
