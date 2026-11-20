@@ -1662,3 +1662,6 @@ Geen nieuwe keurvragen sinds 15:25 UTC (alleen logboeken van Olaf, Bram, Sanne e
 
 ## 20 nov 2026 17:24 UTC, Daan
 Geen nieuwe keurvragen sinds 16:25 UTC (alleen logboeken, de Short-keuring en de hoofdchat-ronde, die al door anderen zijn gedaan). Niets open, gestopt.
+
+## 20 nov 2026 18:24 UTC, Daan
+Geen nieuwe keurvragen sinds 17:24 UTC (alleen logboeken van Olaf, Bram, Sanne, Chris en Iris). Niets open, gestopt.
