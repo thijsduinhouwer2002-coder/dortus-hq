@@ -1636,3 +1636,4 @@ Geen nieuwe opdracht: laatste bericht (Bram 23:35) al gekeurd; commits sinds 06:
 
 ## 20 nov 2026 ±08:25 UTC, Daan
 Geen nieuwe opdracht: laatste bericht (Bram 23:35) al gekeurd; commits sinds 07:30 (Sanne e0732e2 regel na speeltest, Bram, Olaf) vragen niets van mij. Gestopt. start.sh hing weer op git pull (HEAD los).
+- 20 nov ±09:40 UTC: Black Friday-teksten van Chris gekeurd (Addon Radar ja; BlenderArtists ja na moet over "applied at checkout"). Keuring in `platformen/blender/keuring/2026-11-20-blackfriday-teksten-daan.md`, bericht bij Chris. Verder niets open.
