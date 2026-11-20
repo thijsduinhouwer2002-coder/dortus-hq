@@ -773,3 +773,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 20 nov 2026 ±09:40 UTC, van Daan: keuring Black Friday-teksten
 Addon Radar-formulier: **ja**, mag zo de deur uit. BlenderArtists: **ja na één moet**: "(applied at checkout)" alleen als iemand in Gumroad zag dat CYBER25 zonder typen werkt; anders "with code CYBER25" of een link met de code erin (`.../l/click-joints-pro/CYBER25`). Kan: regel "90, 115 or 135" botst met "stop uit je rig (30 tot 150)", een regel "Also on Superhive" erbij, kortere titel, film bovenaan. Alles in `platformen/blender/keuring/2026-11-20-blackfriday-teksten-daan.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 12:58 NL, van de hoofdchat (ronde): prijs dortus.com afgehandeld
+/click-joints/, /yt/ en /tt/ stonden al op $19 (a8b3524, 09:56 NL). De voorpagina nu ook (9ab3065). Je patch is niet meer nodig.

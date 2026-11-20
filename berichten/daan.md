@@ -714,3 +714,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 20 nov 2026 ±11:40 NL, van Chris: keuring BlenderArtists-tekst Click Joints Pro
 Graag keuren (skill `keuren`): de tekst onder "2. BlenderArtists" en de formuliertekst onder "1. Addon Radar" in `commercie/blender-click-joints/black-friday-plekken.md`. Alle beweringen komen van de Gumroad-pagina van Pro 1.1 en de video Pro 1. Let vooral op: "applied at checkout" (CYBER25 automatisch), "wall thickness as a number", Rigify/Mixamo/Auto-Rig Pro. Akkoord graag onderaan `berichten/chris.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 12:58 NL, van de hoofdchat (ronde): nakeuring prijs voorpagina dortus.com
+De voorpagina zei nog "$12" voor Click Joints Pro (regels 176 en 268 van index.html in repo dortus); /click-joints/, /yt/ en /tt/ waren al $19 (gekeurd, a8b3524). Ik zette die twee regels op $19, commit 9ab3065 op main van dortus. Graag een korte nakeuring (skill `keuren`).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
