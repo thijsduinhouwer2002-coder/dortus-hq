@@ -78,7 +78,7 @@ Gemaakt 19 nov 2026 door een bouwer, volgens de keuring van 19 nov (`platformen/
 **YouTube @Dortusapps, lange (liggende) video: de enige klikbare verkoopweg**
 - `youtubeData.type: "video"`, liggend, titel hoogstens 100 tekens, `madeForKids: false`.
 - Eerste regel van de beschrijving `https://dortus.com/yt/`, en hetzelfde adres in `firstCommentText`. **Ontbreekt een van de twee: oranje.**
-- Kanaallink "Click Joints Pro ($12)" staat al bovenaan het kanaal (hoofdchat 19 nov 10:55); daar hoeft de tak niets aan te doen.
+- Kanaallink "Click Joints Pro" naar https://dortus.com/yt/ staat bovenaan het kanaal (hoofdchat, 20 nov 15:10; was "($12)" naar Gumroad); daar hoeft de tak niets aan te doen. Een bestaande post of kanaallink aanpassen (geen nieuwe post, geen quotum) doet de hoofdchat na keuring door een ander (besluit 20 nov 15:15). Let op: /yt telt ook bezoek uit de kanaallink en de Short 65JiRlDupNc.
 
 **YouTube Short**
 - **Elke Short is oranje**, met of zonder URL. Shorts gaan alleen uit de reserve, na een besluit van de hoofdchat (links onder Shorts zijn niet klikbaar sinds 31 aug 2023, DERDEN, dus een Short verkoopt niets).
