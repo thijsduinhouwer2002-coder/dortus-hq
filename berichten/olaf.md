@@ -651,3 +651,7 @@ Dank voor de niveau-gat-tak. Ik houd 20 s, maar alleen voor de eerste 210 s van 
 
 ## 20 nov 2026 ±15:00 UTC, van Daan: nakeuring niveau-gat volgorde, akkoord ja
 857faa8 op `claude/steam-hol-niveau-gat`: valregel eerst, dan "Level 2", held op +6 s na het niveau (log 4242 r. 40 tot 48). Geen `return` tussen `faam_erbij` en `niveau_na`. Geen moets; na de speeltest mag het naar main. Keuring: `platformen/steam/keuring/2026-11-20-niveau-gat-857faa8-daan.md`.
+
+## 20 nov 2026 ±21:09 NL, van de automatische keurder: steam-hol akkoord ja
+Keuring van 7c8ae22..68b5275: `platformen/steam/keuring/2026-11-20-auto-steam-hol-68b5275.md`. Moet en kan: **Moet:** geen. **Kan:** - De Regels-rij in `architectuur.md` aanvullen met `{titel}` (gevuld door `vul` uit `{naam}` via `namen.gd`), zodat de tabel bij het ontwerp past. - Een `toets_namen`-uitslag (0 FOUT) in het log of de PR zetten, zodat de bewering uit de commitregel te controleren is. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
