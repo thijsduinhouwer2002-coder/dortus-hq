@@ -1,0 +1,23 @@
+# gemaakt: 2026-11-20T13:58:07Z
+# workflow: YouTube Pro 3 (Rig to printable figure, lang en staand) (.github/workflows/youtube-pro-3.yml)
+# run: 44747532791 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44747532791
+# commit: 3c5ceb24 tak main gestart door push
+# mislukte stappen: video: In elkaar zetten met geluid
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== video / In elkaar zetten met geluid (laatste 14 van 14 regels) =====
+##[group]Run mkdir -p /tmp/klaar
+mkdir -p /tmp/klaar
+python3 commercie/filmpjes/youtube-pro-3/maak.py /tmp/filmuit /tmp/klaar
+python3 commercie/filmpjes/youtube-pro-3/kort.py /tmp/filmuit /tmp/klaar
+cp /tmp/filmuit/film.json /tmp/klaar/film.json
+python3 organisatie/controle/geluid_check.py /tmp/klaar/*-geluid.mp4 | tee /tmp/klaar/geluid_check.txt
+(cd /tmp/klaar && sha256sum *.mp4 | tee SHA256SUMS.txt)
+for f in /tmp/klaar/*.mp4; do ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact "$f"; done
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: youtube-pro-3
+##[endgroup]
+python3: can't open file '/home/runner/work/dortus-hq/dortus-hq/commercie/filmpjes/youtube-pro-3/maak.py': [Errno 2] No such file or directory
+##[error]Process completed with exit code 2.
