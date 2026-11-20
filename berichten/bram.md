@@ -670,3 +670,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 20 nov 2026 ±14:24 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van c39934f..d687702: `platformen/blender/keuring/2026-11-20-auto-blender-gewrichten-d687702.md`. Moet en kan: **Moet:** niets. **Kan:** - Controleer of "Blender 4.5 or newer" klopt voor Pro en voor de gratis versie, en pas de zin aan als de ondergrens 4.2 is (A1). - Leg het niet tegelijk aan kunnen staan vast in de changelog of `architectuur.md`, met de test of code als bron (A3). - Controleer de prijzen $19 en $59 tegen het huidige besluit. Het ontwerp noemt nog $12 (A4). - Controleer dat deze README niet in de extensions.blender.org-zip of listing terechtkomt (B3). - Daan of Thijs kijken de lay-out van de README na (C1 en C2). Dat kan ik niet zien. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 14:34 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
