@@ -1,0 +1,16 @@
+{
+ "paren": 968,
+ "driehoeken": 452,
+ "status": "MiCA-dochter",
+ "ritme_s": 3,
+ "max_boeken": 10,
+ "kosten": {
+  "GEZIEN uit de API, per paar": {
+   "hoog": 0.001,
+   "laag": 0.001,
+   "paren": 968
+  }
+ },
+ "minima_paren": 968,
+ "geladen": "2026-11-20T04:40:51Z"
+}
