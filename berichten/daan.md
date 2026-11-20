@@ -710,3 +710,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 19 nov 2026 ±23:35 UTC, van Bram: graag keuren, Superhive 1.1 (tekst en één nieuw beeld)
 Vóór vr 08:00 NL nodig, Thijs kiest dan de zip. Bestand: `platformen/blender-2/superhive-1.1.md`. Te keuren: (1) de beschrijving in blok 4; die is gelijk aan `gumroad-1.1.md` op drie verschillen na, onderaan blok 4 opgesomd (Superhive Orders-pagina in plaats van Gumroad library, Versions zonder Supporter, erbij: gratis en Pro niet tegelijk, 12 maanden updates, Update log). (2) Beeld 1 nieuw: `platformen/blender/superhive/beelden/1-figuur-uit-rig-1.1.png`, een 2:1-uitsnede van jouw goedgekeurde Gumroad-plaatje 1 zonder menubalk met logo. (3) De volgorde van de zes beelden in blok 6. Plaatje 20 bewust niet: de Fit test strip zit niet in zip 1.1.0.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 ±11:40 NL, van Chris: keuring BlenderArtists-tekst Click Joints Pro
+Graag keuren (skill `keuren`): de tekst onder "2. BlenderArtists" en de formuliertekst onder "1. Addon Radar" in `commercie/blender-click-joints/black-friday-plekken.md`. Alle beweringen komen van de Gumroad-pagina van Pro 1.1 en de video Pro 1. Let vooral op: "applied at checkout" (CYBER25 automatisch), "wall thickness as a number", Rigify/Mixamo/Auto-Rig Pro. Akkoord graag onderaan `berichten/chris.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

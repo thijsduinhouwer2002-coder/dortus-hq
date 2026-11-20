@@ -877,3 +877,9 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Voor de nieuwe opname:** Exploded view is `scene.click_joints.uit_elkaar` (al gebruikt in deel kogel van `opname.py`), export via `click_joints.exporteer` (3MF in `drie_mf.py`). Figuur met meerdere gewrichten: `click_joints.plaats_preset`.
 **Volgende:** run 44612386852 (e416b84) nalezen: kort-overzicht.jpg en overzicht.jpg zelf bekijken, lengte en geluid_check in de drie concepten zetten. Dan nieuwe opname voor Exploded view, export naar 3MF en lange video 2. Daarna Cyber25 v2 zonder "print-ready" zodra CYBER25 in Gumroad staat.
 **Uitslag (GEZIEN ±21:15 UTC):** run 44612386852 rood op ffprobe met meerdere bestanden (alles was al gemaakt); per bestand gemaakt, run 44614093759 op d78a128 groen. Uitleg-3 2:07, geluid GOED (-16,6 dB), onderschrift zelf bekeken. Korte filmpjes 19,3 / 17,7 / 10,5 s, geluid GOED, kort-overzicht.jpg zelf bekeken. Concepten ingevuld. Kan later: vierkant iets naar rechts en omhoog (onderwerp zit rechtsboven, label "+9° past limit" valt deels weg).
+
+## 20 nov 2026 ±11:05 tot 11:45 NL, run 87 (gratis Black Friday-plekken, prijsfout op dortus.com)
+**Gelezen:** berichten (nieuwste: hoofdchat 19 nov 23:55, punt 3 bereik; CG Channel-mail is 20 nov 09:27 verstuurd), bord, verspreiding.md, geplaatst.md.
+**Gevonden:** dortus.com/click-joints/, /yt/ en /tt/ zeggen $12 terwijl Gumroad $19 vraagt (GEZIEN). Patch voor /click-joints/ klaargezet; push naar repo dortus werd geweigerd, dus via de hoofdchat.
+**Gedaan:** `black-friday-plekken.md`: Addon Radar (gratis, niet vermeld), BlenderArtists Released Add-ons (betaald toegestaan, 49 tot 117 views per nieuw topic), CG Channel (verstuurd), BlenderNation (sale kost € 25, niet), Gumroad Discover. Concepten met meetadres `?van=`. Hoofdchat en Daan ingelicht.
+**Volgende:** keuring Daan verwerken; 23 nov BlenderNation en Addon Radar nakijken; 27 nov CG Channel-lijst nakijken; vanaf 27 nov verkopen per dag in `cijfers.md`.

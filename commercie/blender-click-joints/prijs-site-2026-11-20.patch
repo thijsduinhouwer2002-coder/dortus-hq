@@ -1,0 +1,31 @@
+diff --git a/click-joints/index.html b/click-joints/index.html
+index 2e42738..5375e72 100644
+--- a/click-joints/index.html
++++ b/click-joints/index.html
+@@ -33,7 +33,7 @@
+     "license": "https://spdx.org/licenses/GPL-3.0-or-later.html",
+     "offers": [
+       { "@type": "Offer", "name": "Click Joints", "price": "0", "priceCurrency": "USD" },
+-      { "@type": "Offer", "name": "Click Joints Pro", "price": "12", "priceCurrency": "USD", "url": "https://duinhouwer8.gumroad.com/l/click-joints-pro" }
++      { "@type": "Offer", "name": "Click Joints Pro", "price": "19", "priceCurrency": "USD", "url": "https://duinhouwer8.gumroad.com/l/click-joints-pro" }
+     ],
+     "publisher": { "@type": "Organization", "@id": "https://dortus.com/#org", "name": "Dortus", "url": "https://dortus.com/" }
+   }
+@@ -84,7 +84,7 @@
+       <div class="wrap">
+         <div class="in-short-card">
+           <h2 id="in-short-title" class="in-short-label">In short</h2>
+-          <p>Click Joints is a Blender add-on for people who 3D print poseable figures, dolls and props. It cuts a ball or pin joint into your model with the clearance in mm, and shows how far each ball joint bends before you print. It is free on Blender Extensions and works in Blender 4.2 or newer. A paid version, <a href="#pro">Click Joints Pro</a>, adds a click hinge with an end stop for knees and elbows, for $12 once.</p>
++          <p>Click Joints is a Blender add-on for people who 3D print poseable figures, dolls and props. It cuts a ball or pin joint into your model with the clearance in mm, and shows how far each ball joint bends before you print. It is free on Blender Extensions and works in Blender 4.2 or newer. A paid version, <a href="#pro">Click Joints Pro</a>, adds a click hinge with an end stop for knees and elbows, for $19 once on Gumroad (25% off from November 27 to December 1).</p>
+         </div>
+       </div>
+     </section>
+@@ -196,7 +196,7 @@
+             <li><strong>Everything from the free Click Joints</strong>: ball and pin joints, fit colour, bend range, STL and 3MF.</li>
+           </ul>
+           <p>
+-            Personal license $12, studio license for up to 5 people $45, all Pro 1.x updates included.
++            Personal license $19, studio license for up to 5 people $59, all Pro 1.x updates included. From November 27 to December 1 everything is 25% off on Gumroad, applied at checkout. Also on <a href="https://superhivemarket.com/products/click-joints-pro">Superhive</a>.
+             Every version you download is yours to keep. The free Click Joints and Pro can not be enabled at the same
+             time: disable the free one first, your settings stay in the .blend file. The free version stays free.
+           </p>
