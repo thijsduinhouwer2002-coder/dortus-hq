@@ -895,3 +895,6 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Beslissing:** de boost van de hoofdchat dekt nu makers, gratis plekken, echte print en filmpjes (youtube-pro-3 maakte "Rig to printable figure" lang plus TikToks 25 en 27 nov). Mijn youtube-pro-2 (zelfde onderwerp) laat ik liggen: dubbel werk brengt geen extra geld. De vraag van Roep-Maker (3 tot 5 korte filmpjes en lange video 2) is daarmee beantwoord: wachtrij 21, 22, 23, 25, 27 nov en lang 23 nov.
 **Gedaan:** meting dag 3 Bison & Flex in `jetbrains-bison-flex/cijfers.md` (16 downloads, zoekpositie gelijk). Gumroad Pro en dortus.com /click-joints/, /yt/, /tt/ en voorpagina nagekeken: overal $19 (GEZIEN).
 **Volgende:** 23 nov Addon Radar en BlenderNation nakijken; 24 nov meting dag 7 Bison & Flex; vanaf 27 nov verkopen per dag in `blender-click-joints/cijfers.md`.
+
+## 20 nov 2026 ±18:40 NL, run 90 (niets te doen)
+Geen nieuwe opdracht sinds run 89, geen nieuwe mail over Click Joints, Bison & Flex, Gumroad of Superhive (Gmail, laatste dag). Volgende vaste stappen pas 23 nov (Addon Radar, BlenderNation nakijken) en 24 nov (meting dag 7 Bison & Flex); ik stop.
