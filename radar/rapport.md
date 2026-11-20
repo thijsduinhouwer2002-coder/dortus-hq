@@ -1,11 +1,11 @@
 # Kansenradar: rapport
 
-Gemaakt 2026-11-20 09:36 UTC. Gemeten: **17,3 uur** in 7 run(s). Cijfers zijn GEZIEN (eigen metingen uit openbare API's), behalve waar GOK staat. Uitleg: `platformen/ai-handel/radar/README.md`.
+Gemaakt 2026-11-20 10:13 UTC. Gemeten: **17,8 uur** in 8 run(s). Cijfers zijn GEZIEN (eigen metingen uit openbare API's), behalve waar GOK staat. Uitleg: `platformen/ai-handel/radar/README.md`.
 
 ## Het antwoord tot nu toe
 
 - **A, nieuwe noteringen:** 10 nieuwe munten gezien, 0 echte prijsverschillen daarna; met één pot van €150 had je hier tot nu toe niets kunnen pakken.
-- **B, funding-pieken:** 464 pieken afgerond met spot en perp, waarvan 26 met winst na alle kosten bij €150; met één pot van €150 had je 3 keer kunnen instappen, samen -€1,65 (van €150 gaat €100 in de positie, GOK).
+- **B, funding-pieken:** 476 pieken afgerond met spot en perp, waarvan 27 met winst na alle kosten bij €150; met één pot van €150 had je 3 keer kunnen instappen, samen -€1,65 (van €150 gaat €100 in de positie, GOK).
 - **C1, stablecoin tussen beurzen:** 0 echte momenten; met één pot van €150 had je hier tot nu toe niets kunnen pakken.
 - **C2, stablecoin naast zijn gewone prijs:** 6 momenten met winst na kosten; met één pot van €150 had je 5 keer kunnen instappen, samen €4,68. Dit is geen arbitrage: je wint alleen als de koers terugkomt.
 
@@ -43,7 +43,7 @@ Met één pot: je pakt een moment als je geld vrij is, bij gelijke start het bes
 
 ## B. Funding-pieken
 
-Positieve pieken (boven 0,1% per 8 uur, uit onder 0,05% na minstens één verrekening): **464 afgerond en te rekenen**. Verder: spotkoers onbekend 0, andere munt met dezelfde naam 14, geen spotmarkt 300, onderbroken door een te lang gat tussen runs 0; negatieve pieken 1409 (dan moet je spot shorten, dat kan een particulier meestal niet). Open pieken gaan mee naar de volgende run, dus een piek betaalt maar één keer de kosten.
+Positieve pieken (boven 0,1% per 8 uur, uit onder 0,05% na minstens één verrekening): **476 afgerond en te rekenen**. Verder: spotkoers onbekend 0, andere munt met dezelfde naam 16, geen spotmarkt 308, onderbroken door een te lang gat tussen runs 0; negatieve pieken 1466 (dan moet je spot shorten, dat kan een particulier meestal niet). Open pieken gaan mee naar de volgende run, dus een piek betaalt maar één keer de kosten.
 
 Som per piek: verrekende funding, min 4 keer takerkosten (spot in en uit, perp in en uit), plus of min het prijsverschil tussen spot en perp, min één keer overmaken (opname van USDT of USDC) als spot en perp op twee beurzen zitten. Inleg = 2/3 spot en 1/3 onderpand voor de short bij 2x hefboom (GOK). Bij 2x kan een sprong van ±50% de short liquideren; dat zit niet in de som.
 
@@ -65,16 +65,16 @@ Som per piek: verrekende funding, min 4 keer takerkosten (spot in en uit, perp i
 | Dag | Aantal (alle / MiCA / grijs) | Mediane winst bij €500 | Mediane duur |
 |---|---|---|---|
 | 2026-11-19 | 228 / 125 / 103 | -€3,33 | 74 min |
-| 2026-11-20 | 236 / 135 / 101 | -€3,71 | 70 min |
+| 2026-11-20 | 248 / 141 / 107 | -€3,76 | 71 min |
 
 | Inleg | Kan meedoen (alle / MiCA) | Minimum onbekend | Tegelijk open (hoogst) | Met één pot gepakt | Mediane winst per keer | Winst met één pot | Per week (GOK) |
 |---|---|---|---|---|---|---|---|
-| €100 | 144 / 131 | 320 | 67 | 3 | -€0,27 | -€1,10 | -€10,66 |
-| €150 | 144 / 131 | 320 | 67 | 3 | -€0,41 | -€1,65 | -€15,99 |
-| €200 | 144 / 131 | 320 | 67 | 3 | -€0,54 | -€2,19 | -€21,22 |
-| €500 | 464 / 260 | 320 | 110 | 3 | -€1,06 | -€3,10 | -€30,04 |
-| €2.000 | 464 / 260 | 320 | 110 | 3 | -€4,23 | -€12,35 | -€119,67 |
-| €5.000 | 464 / 260 | 320 | 110 | 3 | -€10,55 | -€30,84 | -€298,83 |
+| €100 | 146 / 133 | 330 | 69 | 3 | -€0,27 | -€1,10 | -€10,36 |
+| €150 | 146 / 133 | 330 | 69 | 3 | -€0,41 | -€1,65 | -€15,54 |
+| €200 | 146 / 133 | 330 | 69 | 3 | -€0,54 | -€2,19 | -€20,63 |
+| €500 | 476 / 266 | 330 | 112 | 4 | -€2,25 | -€6,53 | -€61,50 |
+| €2.000 | 476 / 266 | 330 | 112 | 4 | -€8,96 | -€26,03 | -€245,16 |
+| €5.000 | 476 / 266 | 330 | 112 | 4 | -€22,37 | -€65,02 | -€612,37 |
 
 Met één pot: je pakt een moment als je geld vrij is, bij gelijke start het beste. "Tegelijk open" zegt hoeveel potten je nodig had om alles te pakken. Bij €100 tot €200 doet een moment alleen mee als de minimale bedragen bekend zijn en eronder liggen; vanaf €500 telt onbekend mee (meestal €1 tot €10).
 
@@ -82,7 +82,7 @@ Vergund bij B: perp- en spotbeurs hebben een MiCA-vergunning voor spot. Of de EU
 
 ## C. Stablecoins
 
-**C1, tussen beurzen** (dezelfde stablecoin goedkoper kopen dan elders verkopen, na alle kosten): 644 momenten, waarvan **0 echt**.
+**C1, tussen beurzen** (dezelfde stablecoin goedkoper kopen dan elders verkopen, na alle kosten): 652 momenten, waarvan **0 echt**.
 
 **Echte momenten C1, per dag:** nog geen momenten.
 
@@ -110,12 +110,12 @@ Meest gezien: TUSD-USDT op kucoin (goedkoop) 2 keer, EURC-USD op cryptocom (duur
 
 | Inleg | Kan meedoen (alle / MiCA) | Minimum onbekend | Tegelijk open (hoogst) | Met één pot gepakt | Mediane winst per keer | Winst met één pot | Per week (GOK) |
 |---|---|---|---|---|---|---|---|
-| €100 | 6 / 5 | 0 | 2 | 5 | €0,16 | €3,26 | €31,58 |
-| €150 | 6 / 5 | 0 | 2 | 5 | €0,25 | €4,68 | €45,38 |
-| €200 | 6 / 5 | 0 | 2 | 5 | €0,33 | €5,53 | €53,59 |
-| €500 | 6 / 5 | 0 | 2 | 5 | €0,81 | €10,61 | €102,85 |
-| €2.000 | 6 / 5 | 0 | 2 | 5 | €1,80 | €33,20 | €321,72 |
-| €5.000 | 6 / 5 | 0 | 2 | 5 | €1,80 | €40,88 | €396,11 |
+| €100 | 6 / 5 | 0 | 2 | 5 | €0,16 | €3,26 | €30,69 |
+| €150 | 6 / 5 | 0 | 2 | 5 | €0,25 | €4,68 | €44,11 |
+| €200 | 6 / 5 | 0 | 2 | 5 | €0,33 | €5,53 | €52,09 |
+| €500 | 6 / 5 | 0 | 2 | 5 | €0,81 | €10,61 | €99,97 |
+| €2.000 | 6 / 5 | 0 | 2 | 5 | €1,80 | €33,20 | €312,70 |
+| €5.000 | 6 / 5 | 0 | 2 | 5 | €1,80 | €40,88 | €385,00 |
 
 Met één pot: je pakt een moment als je geld vrij is, bij gelijke start het beste. "Tegelijk open" zegt hoeveel potten je nodig had om alles te pakken. Bij €100 tot €200 doet een moment alleen mee als de minimale bedragen bekend zijn en eronder liggen; vanaf €500 telt onbekend mee (meestal €1 tot €10).
 
