@@ -27,9 +27,11 @@ Want a whole figure that moves? **[Click Joints Pro](https://duinhouwer8.gumroad
 - No rig? Six body-part presets: place the 3D cursor and click Shoulder, Hip, Neck, Elbow, Knee or Ankle.
 - Hinge with end stop and pose slider, red where parts hit past the stop, and spacing checks between joints.
 
-Measured in Blender, not print tested by us yet. Works best on figures of about 200 mm or taller with separate arms and legs.
+Measured in Blender, not print tested by us yet: print a test joint first. Works best on figures of about 200 mm or taller with separate arms and legs, in Blender 4.5 or newer. A joint that does not fit is skipped, and the list says why. The free Click Joints and Pro can not be enabled at the same time: disable the free one first.
 
-Personal license $19, studio license (up to 5 people) $59, all Pro 1.x updates included: https://duinhouwer8.gumroad.com/l/click-joints-pro (also on [Superhive](https://superhivemarket.com/products/click-joints-pro)).
+On Gumroad: personal license $19, studio license (up to 5 people) $59, all Pro 1.x updates included: https://duinhouwer8.gumroad.com/l/click-joints-pro
+
+Also sold on [Superhive](https://superhivemarket.com/products/click-joints-pro), with its own price and update terms.
 
 The free Click Joints stays free and keeps getting fixes. What changed in each version: [CHANGELOG.md](CHANGELOG.md).
 
