@@ -4,7 +4,7 @@
 - kanaal: yt-lang
 - soort: video
 - product: click-joints-pro
-- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/youtube-pro-1/click-joints-pro-uitleg-2-geluid.mp4
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/youtube-pro-1/click-joints-pro-uitleg-3-geluid.mp4 (vervangen in Metricool 20 nov 06:16 door de hoofdchat, nummer 435137918, ja Thijs; GEZIEN getScheduledPosts 07:00)
 - geluid_check: volgt uit run 44519478563 (workflow `youtube-pro-1.yml`, stap "In elkaar zetten met geluid"); proef op nepbeelden 19 nov 11:49 UTC: GOED (gemiddeld -16,6 dB, piek -1,3 dB, -14,3 LUFS)
 - lengte: 2:07 (GEZIEN, `metingen.json` in release youtube-pro-1: duur_s 127,0), liggend 1920x1080
 - tijd: 2026-11-20T17:00:00+01:00
