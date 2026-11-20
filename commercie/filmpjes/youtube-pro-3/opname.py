@@ -43,7 +43,7 @@ _mens = _mens.replace("HIER = os.path.dirname(os.path.abspath(__file__))", f"HIE
 SM = {"__name__": "scherm_mens_hulp", "__file__": os.path.join(E2E, "scherm_mens.py")}
 exec(compile(_mens, "scherm_mens_hulp", "exec"), SM)   # noqa: S102
 M, A = SM["M"], SM["A"]
-from scherm_basis import klap_hoofdpaneel, xdo  # noqa: E402
+from scherm_basis import xdo  # noqa: E402
 film["metingen"] = {}
 STOP_VOORBIJ = 12.0   # graden voorbij de stop in deel rood
 
@@ -72,22 +72,6 @@ def zijbalk_rect():
     return [venster.x + regio.x, venster.y + venster.height - (regio.y + regio.height), regio.width, regio.height]
 
 
-def klik_kop(y_boven):
-    """Klik op een paneelkop in de zijbalk (y in px vanaf de bovenrand van de zijbalk), zoals een gebruiker."""
-    venster, gebied, regio = zijbalk()
-    if not regio:
-        return False
-    x = venster.x + regio.x + 60
-    y = venster.y + venster.height - (regio.y + regio.height) + y_boven
-    xdo("mousemove", str(x), str(y))
-    time.sleep(0.2)
-    xdo("click", "1")
-    time.sleep(0.2)
-    xdo("mousemove", "5", "600")   # muis uit de zijbalk, geen oplichtende knop
-    gebied.tag_redraw()
-    return True
-
-
 def wiel(knop, keer):
     """Muiswiel boven de zijbalk (4 = omhoog, 5 = omlaag), zoals een gebruiker scrolt."""
     venster, gebied, regio = zijbalk()
@@ -109,8 +93,12 @@ def wiel(knop, keer):
                     bpy.ops.view2d.scroll_up(deltax=0, deltay=40)
     except Exception as fout:  # noqa: BLE001
         log(f"LANG scroll via view2d: {fout}")
-    xdo("mousemove", "5", "600")
     gebied.tag_redraw()
+
+
+def weg():
+    """Muis uit de zijbalk (in een latere stap dan de klik of het wiel, anders verwerkt Blender ze samen)."""
+    xdo("mousemove", "5", "600")
 
 
 def figuur_zonder_knop():
@@ -151,9 +139,11 @@ def verloop():
     while not wiel_naar_tabblad() and toestand["pogingen"] < 14:
         yield 0.5
     yield 0.5
-    # hoofdpaneel Click Joints dicht: paneel Figure joints met de knop staat dan bovenaan (zoals plaatje 19)
-    log(f"LANG hoofdpaneel dicht: {klap_hoofdpaneel()}")
-    xdo("mousemove", "5", "600")
+    # zijbalk omlaag scrollen: paneel Figure joints met de knop Figure from rig komt in beeld (run 1: inklappen met
+    # een klik op de kop deed niets, scrollen wel)
+    wiel("5", 30)
+    yield 0.5
+    weg()
     yield 1.0
     film["zijbalk"] = zijbalk_rect()
     log(f"LANG zijbalk {film['zijbalk']}")
@@ -181,7 +171,11 @@ def verloop():
     delen_fig = [o for o in bpy.context.scene.objects if o.get("cj_figuur") and o.type == "MESH"]
     if delen_fig:
         bpy.context.view_layer.objects.active = max(delen_fig, key=lambda o: len(o.data.vertices))
-    yield 1.5
+    yield 0.3
+    wiel("5", 30)   # het paneel werd langer: weer naar beneden, naar de lijst
+    yield 0.5
+    weg()
+    yield 1.0
     log(f"LANG {'OK' if len(lijst) >= 4 else 'FOUT'} druk gewrichten={len(lijst)}")
 
     # lijst: stil, zodat de lijst te lezen is
@@ -210,11 +204,12 @@ def verloop():
                    and o.get("cj_deel") == "A" and o.get("cj_naam") == "Right knee"), None)
     stop = float(a_knie["cj_bereik_graden"]) if a_knie is not None else 120.0
     film["metingen"]["knie_stop"] = stop
-    klik_kop(12)      # hoofdpaneel weer open
+    yield 0.3
+    wiel("5", 30)     # omlaag naar Hinge met de Bend-schuif en de lijst
+    yield 0.5
+    weg()
     yield 1.0
-    wiel("5", 25)     # omlaag naar Hinge
-    yield 1.0
-    cam(-35, 82.0, 260.0, -12.0, 80.0)
+    cam(-35, 82.0, 300.0, -12.0, 100.0)
     yield 0.5
     deel("buig")
     neem(20)
@@ -245,7 +240,9 @@ def verloop():
     log(f"LANG OK terug rood_na={rood_na}")
 
     # uitelkaar: Exploded view aan, paneel terug naar boven, rustig rond
-    wiel("4", 30)
+    wiel("4", 40)
+    yield 0.5
+    weg()
     inst = bpy.context.scene.click_joints
     inst.uit_elkaar = True
     bpy.context.view_layer.update()

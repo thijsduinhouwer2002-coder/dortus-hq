@@ -38,11 +38,10 @@ jobs:
           mkdir -p /tmp/oud
           if gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p opname-sha.txt -p opname-ruw.mkv -p film.json -D /tmp/oud 2>/dev/null \
              && [ "$(cat /tmp/oud/opname-sha.txt)" = "$nu" ] && [ -s /tmp/oud/opname-ruw.mkv ]; then
-            mkdir -p /tmp/filmuit/beelden
-            ffmpeg -v error -i /tmp/oud/opname-ruw.mkv -start_number 1 /tmp/filmuit/beelden/b%05d.png
-            cp /tmp/oud/film.json /tmp/filmuit/film.json
+            mkdir -p /tmp/filmuit
+            cp /tmp/oud/opname-ruw.mkv /tmp/oud/film.json /tmp/filmuit/
             echo "opnieuw=nee" >> "$GITHUB_OUTPUT"
-            echo "ruwe opname hergebruikt ($(ls /tmp/filmuit/beelden | wc -l) beelden)"
+            echo "ruwe opname hergebruikt"
           else
             echo "opnieuw=ja" >> "$GITHUB_OUTPUT"
           fi
@@ -77,7 +76,8 @@ jobs:
           grep -E "LANG|Traceback|Error" /tmp/film.log || true
           for d in rig druk lijst bogen buig rood terug uitelkaar export; do grep -q "LANG OK $d" /tmp/film.log || { echo "FOUT: deel $d"; exit 1; }; done
           mkdir -p /tmp/klaar
-          ffmpeg -v error -framerate 30 -start_number 1 -i /tmp/filmuit/beelden/b%05d.png -c:v libx264 -preset veryfast -crf 10 -pix_fmt yuv444p /tmp/klaar/opname-ruw.mkv
+          ffmpeg -v error -framerate 30 -start_number 1 -i /tmp/filmuit/beelden/b%05d.png -c:v libx264 -preset veryfast -crf 10 -pix_fmt yuv444p /tmp/filmuit/opname-ruw.mkv
+          cp /tmp/filmuit/opname-ruw.mkv /tmp/klaar/opname-ruw.mkv
           echo "${{ steps.ruw.outputs.sha }}" > /tmp/klaar/opname-sha.txt
           cp /tmp/film.log /tmp/klaar/opname.log
           cp /tmp/filmuit/film.json /tmp/klaar/film.json
