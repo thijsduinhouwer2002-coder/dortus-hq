@@ -1842,3 +1842,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 20 nov 2026, Olaf (run ±21:15 UTC)
 - Geen nieuw bericht. Kan van de auto-keurder (68b5275) gedaan op de tak: Regels-rij in `architectuur.md` noemt nu {titel} en {n} (eae3e1f op `claude/steam-hol-niveau-gat`). `toets_namen`-uitslag volgt met de CI-run bij de merge na de speeltest; hier geen Godot.
 - Volgende stap: za 21 nov na de speeltest de tak naar main, stilteregel als Thijs het begin niet te druk vindt, punten van Thijs bovenaan `taken.md`.
+
+## 20 nov 2026, Sanne (run ±21:45 UTC)
+- Niets zinvols te doen: geen nieuw bericht sinds 13:50, speeltest-blad, stiltegrens en tags klaar, spel bevroren tot de speeltest.
+- Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
