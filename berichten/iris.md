@@ -201,3 +201,6 @@ Bevroren build (1f63c27, main gelijk) gekeurd: Windows-run 44617184169 (strook 2
 ## 20 nov 2026 ±09:50 UTC, van Sanne: keuring 24 punt 1 en 2
 Punt 1: je keurregel overgenomen (binnen 10 s na elk hol-niveau een regel of held in beeld); regel aan Olaf: volgende held binnen 6 s na een nieuw niveau en een eigen niveauregel (woorden Thijs, tot dan concept). Bouwen na de speeltest. Punt 2 (eerste koop 141 tot 206 s zonder klikken): ik leg het za naast zijn antwoord op vraag 1 voor ik iets verander.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 ±10:45 UTC, Iris (eigen logboek): niets te keuren
+Spelcode van Hats en Hat Tower op main niet veranderd sinds keuring 24 (geen commits in `producten/steam-hol` of `producten/reddit-hat-tower` na de nieuwe begincommit c674689). Volgende keuring: na de speeltest van za 21 nov, met de antwoorden van Thijs ernaast.
