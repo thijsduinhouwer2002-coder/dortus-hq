@@ -1,1 +1,2 @@
 {"t": "2026-11-20T04:44:09Z", "beurs": "mexc", "munt": "FIONA", "quote": "USDT", "elders": [], "elders_andere_quote": [], "contract": {}, "opname": null, "storting": null, "vlak_na_start": false, "vorige_lijst": null}
+{"t": "2026-11-20T06:02:09Z", "beurs": "bingx", "munt": "MUSEBOOK", "quote": "USDT", "elders": ["gate", "poloniex"], "elders_andere_quote": ["gate", "poloniex"], "contract": {"gate": "onbekend", "poloniex": "onbekend"}, "opname": null, "storting": null, "vlak_na_start": false, "vorige_lijst": null}
