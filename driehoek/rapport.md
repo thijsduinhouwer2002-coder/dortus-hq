@@ -2,11 +2,11 @@
 
 ## Kort antwoord
 
-Op de beurzen met vergunning (MiCA, ook via een EU-dochter): 35 echte kansen die met €100 konden (35 als je elke driehoek los telt; 55,7 per dag). Samen €177,65 tot €177,65 per dag met €100 en €353,95 tot €353,95 per dag met €200 (GOK; het lage getal voegt driehoeken samen die hetzelfde stukje boek willen, het hoge telt ze los; allebei alsof je ze allemaal als eerste pakt, met het geld al op de juiste beurs). Op de grijze beurzen (geen vergunning): 8 echte kansen die met €100 konden (14 als je elke driehoek los telt; 12,7 per dag). Samen €2,34 tot €5,32 per dag met €100 en €3,10 tot €6,44 per dag met €200 (GOK; het lage getal voegt driehoeken samen die hetzelfde stukje boek willen, het hoge telt ze los; allebei alsof je ze allemaal als eerste pakt, met het geld al op de juiste beurs).
+Op de beurzen met vergunning (MiCA, ook via een EU-dochter): 35 echte kansen die met €100 konden (35 als je elke driehoek los telt; 53,9 per dag). Samen €171,95 tot €171,95 per dag met €100 en €342,59 tot €342,59 per dag met €200 (GOK; het lage getal voegt driehoeken samen die hetzelfde stukje boek willen, het hoge telt ze los; allebei alsof je ze allemaal als eerste pakt, met het geld al op de juiste beurs). Op de grijze beurzen (geen vergunning): 8 echte kansen die met €100 konden (14 als je elke driehoek los telt; 12,3 per dag). Samen €2,27 tot €5,15 per dag met €100 en €3,00 tot €6,23 per dag met €200 (GOK; het lage getal voegt driehoeken samen die hetzelfde stukje boek willen, het hoge telt ze los; allebei alsof je ze allemaal als eerste pakt, met het geld al op de juiste beurs).
 
 Uitleg: **takerkosten** zijn wat de beurs per order rekent als je meteen koopt of verkoopt tegen de prijs die er ligt (0% tot 0,8% per order; een driehoek is drie orders). **Diepte** is hoeveel euro je tegen die winstgevende prijzen echt kunt kopen en verkopen voordat de prijs slechter wordt. Wij meten elke 3 tot 5 seconden; snelle bots pakken zulke kansen meestal binnen milliseconden, dus wat hier staat is wat er na hen overbleef.
 
-Data: 189 driehoeken met winst op het boek gezien (ook kleine en korte), 2 dag(en) (2026-11-19 tot 2026-11-20). Gemeten: ±15,1 uur per beurs (GEZIEN, uit stand.jsonl).
+Data: 189 driehoeken met winst op het boek gezien (ook kleine en korte), 2 dag(en) (2026-11-19 tot 2026-11-20). Gemeten: ±15,6 uur per beurs (GEZIEN, uit stand.jsonl).
 
 Een **echte driehoek**: winst na drie keer takerkosten op het orderboek, op twee metingen die minstens 3 seconden uit elkaar liggen elk minstens €100 diepte, bij de latere meting minstens €0,05 winst, en niet meer dan 5% winst (verdacht). Alle bedragen zijn die van de latere meting: wat er na 3 seconden nog stond. Driehoeken op dezelfde beurs die binnen 5 seconden van elkaar bevestigd werden en een paar delen dat geen paar van twee hoofdmunten is (EUR, USD, USDT, USDC, BTC, ETH), tellen als **één kans** (de beste telt): ze willen hetzelfde stukje orderboek. Er wordt niet doorgeketend: een driehoek hoort alleen bij een kans als hij met elk lid ervan dat stukje deelt. Omdat samenvoegen ook te streng kan zijn, staan aantallen en geld er ook los geteld bij (bovengrens).
 
@@ -18,14 +18,14 @@ Beste marge = per ronde de beste driehoek tegen de beste prijzen na kosten (medi
 
 | Beurs | Status | Paren | Driehoeken | Uur | Rondes | Fouten (te veel) | Beste marge mediaan | Beste marge hoogst | Kandidaten | Bekeken | Overgeslagen | Zelfde | Winst op boek | Echt |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| bitget | grijs | 3658 | 202 | 15,1 | 17817 | 1 (0) | -0,284% | 0,344% | 396 | 332 | 0 | 64 | 0 | 0 |
-| bitstamp | MiCA | 252 | 346 | 15,1 | 10700 | 0 (0) | -0,228% | 3,905% | 5079 | 5078 | 0 | 0 | 5013 | 31 |
-| bitvavo | MiCA | 435 | 22 | 15,1 | 13379 | 1 (0) | -0,757% | -0,318% | 156 | 145 | 0 | 11 | 0 | 0 |
-| gate | MiCA-dochter | 2153 | 372 | 15,1 | 13300 | 1 (0) | -0,142% | 2,127% | 3888 | 1598 | 14 | 2276 | 1 | 0 |
-| kraken | MiCA | 1352 | 2352 | 15,1 | 10707 | 0 (0) | -0,200% | 3,182% | 4430 | 2776 | 1 | 1653 | 0 | 0 |
-| kucoin | MiCA-dochter | 968 | 452 | 15,1 | 17846 | 0 (0) | 1,394% | 4,691% | 23974 | 10015 | 79 | 13878 | 0 | 0 |
-| mexc | grijs | 1665 | 886 | 15,1 | 17831 | 0 (0) | 0,206% | 4,975% | 36005 | 19093 | 266 | 16604 | 740 | 14 |
-| okx | MiCA-dochter | 1250 | 2338 | 15,1 | 17844 | 0 (0) | -0,134% | 4,743% | 8447 | 7572 | 37 | 838 | 779 | 4 |
+| bitget | grijs | 3658 | 202 | 15,6 | 18417 | 1 (0) | -0,284% | 0,344% | 396 | 332 | 0 | 64 | 0 | 0 |
+| bitstamp | MiCA | 252 | 346 | 15,6 | 11059 | 0 (0) | -0,228% | 3,905% | 5439 | 5437 | 0 | 0 | 5372 | 31 |
+| bitvavo | MiCA | 435 | 22 | 15,6 | 13828 | 1 (0) | -0,757% | -0,318% | 156 | 145 | 0 | 11 | 0 | 0 |
+| gate | MiCA-dochter | 2153 | 372 | 15,6 | 13748 | 1 (0) | -0,142% | 2,127% | 4024 | 1662 | 14 | 2348 | 1 | 0 |
+| kraken | MiCA | 1352 | 2352 | 15,6 | 11067 | 0 (0) | -0,200% | 3,182% | 4448 | 2788 | 1 | 1659 | 0 | 0 |
+| kucoin | MiCA-dochter | 968 | 452 | 15,6 | 18445 | 0 (0) | 1,439% | 4,715% | 24898 | 10267 | 79 | 14550 | 0 | 0 |
+| mexc | grijs | 1666 | 886 | 15,6 | 18431 | 0 (0) | 0,195% | 4,975% | 36742 | 19333 | 266 | 17101 | 740 | 14 |
+| okx | MiCA-dochter | 1250 | 2338 | 15,6 | 18444 | 0 (0) | -0,135% | 4,743% | 8451 | 7574 | 37 | 840 | 779 | 4 |
 
 ## Trechter
 
@@ -118,21 +118,21 @@ Elk getal staat er twee keer: **samengevoegd** (ondergrens: driehoeken die op he
 
 | Soort | Inleg | Kansen per dag (samengevoegd / los) | Winst per dag (samengevoegd / los) | Per maand (GOK, samengevoegd / los) | Alleen de beste beurs, per maand (GOK, samengevoegd) |
 |---|---|---|---|---|---|
-| Alle beurzen | €100 | 68,4 / 78,0 | €179,99 / €182,97 | €5.399,78 / €5.489,00 | bitstamp: €5.241,05 |
-| Alle beurzen | €150 | 68,4 / 78,0 | €268,75 / €272,09 | €8.062,64 / €8.162,76 | bitstamp: €7.843,04 |
-| Alle beurzen | €200 | 68,4 / 78,0 | €357,05 / €360,39 | €10.711,49 / €10.811,61 | bitstamp: €10.445,06 |
-| Alle beurzen | €2.000 | 68,4 / 78,0 | €409,30 / €412,63 | €12.278,92 / €12.379,04 | bitstamp: €11.840,57 |
-| Alle beurzen | €5.000 | 68,4 / 78,0 | €414,01 / €417,35 | €12.420,42 / €12.520,53 | bitstamp: €11.840,57 |
-| MiCA (ook via EU-dochter) | €100 | 55,7 / 55,7 | €177,65 / €177,65 | €5.329,51 / €5.329,51 | bitstamp: €5.241,05 |
-| MiCA (ook via EU-dochter) | €150 | 55,7 / 55,7 | €265,82 / €265,82 | €7.974,74 / €7.974,74 | bitstamp: €7.843,04 |
-| MiCA (ook via EU-dochter) | €200 | 55,7 / 55,7 | €353,95 / €353,95 | €10.618,36 / €10.618,36 | bitstamp: €10.445,06 |
-| MiCA (ook via EU-dochter) | €2.000 | 55,7 / 55,7 | €402,69 / €402,69 | €12.080,65 / €12.080,65 | bitstamp: €11.840,57 |
-| MiCA (ook via EU-dochter) | €5.000 | 55,7 / 55,7 | €402,69 / €402,69 | €12.080,65 / €12.080,65 | bitstamp: €11.840,57 |
-| Grijs | €100 | 12,7 / 22,3 | €2,34 / €5,32 | €70,27 / €159,49 | mexc: €70,27 |
-| Grijs | €150 | 12,7 / 22,3 | €2,93 / €6,27 | €87,90 / €188,01 | mexc: €87,90 |
-| Grijs | €200 | 12,7 / 22,3 | €3,10 / €6,44 | €93,13 / €193,24 | mexc: €93,13 |
-| Grijs | €2.000 | 12,7 / 22,3 | €6,61 / €9,95 | €198,27 / €298,39 | mexc: €198,27 |
-| Grijs | €5.000 | 12,7 / 22,3 | €11,33 / €14,66 | €339,77 / €439,88 | mexc: €339,77 |
+| Alle beurzen | €100 | 66,2 / 75,5 | €174,22 / €177,10 | €5.226,53 / €5.312,88 | bitstamp: €5.072,89 |
+| Alle beurzen | €150 | 66,2 / 75,5 | €260,13 / €263,36 | €7.803,95 / €7.900,85 | bitstamp: €7.591,40 |
+| Alle beurzen | €200 | 66,2 / 75,5 | €345,59 / €348,82 | €10.367,81 / €10.464,71 | bitstamp: €10.109,93 |
+| Alle beurzen | €2.000 | 66,2 / 75,5 | €396,16 / €399,40 | €11.884,95 / €11.981,85 | bitstamp: €11.460,66 |
+| Alle beurzen | €5.000 | 66,2 / 75,5 | €400,73 / €403,96 | €12.021,90 / €12.118,81 | bitstamp: €11.460,66 |
+| MiCA (ook via EU-dochter) | €100 | 53,9 / 53,9 | €171,95 / €171,95 | €5.158,51 / €5.158,51 | bitstamp: €5.072,89 |
+| MiCA (ook via EU-dochter) | €150 | 53,9 / 53,9 | €257,30 / €257,30 | €7.718,87 / €7.718,87 | bitstamp: €7.591,40 |
+| MiCA (ook via EU-dochter) | €200 | 53,9 / 53,9 | €342,59 / €342,59 | €10.277,67 / €10.277,67 | bitstamp: €10.109,93 |
+| MiCA (ook via EU-dochter) | €2.000 | 53,9 / 53,9 | €389,77 / €389,77 | €11.693,04 / €11.693,04 | bitstamp: €11.460,66 |
+| MiCA (ook via EU-dochter) | €5.000 | 53,9 / 53,9 | €389,77 / €389,77 | €11.693,04 / €11.693,04 | bitstamp: €11.460,66 |
+| Grijs | €100 | 12,3 / 21,6 | €2,27 / €5,15 | €68,02 / €154,37 | mexc: €68,02 |
+| Grijs | €150 | 12,3 / 21,6 | €2,84 / €6,07 | €85,08 / €181,98 | mexc: €85,08 |
+| Grijs | €200 | 12,3 / 21,6 | €3,00 / €6,23 | €90,14 / €187,04 | mexc: €90,14 |
+| Grijs | €2.000 | 12,3 / 21,6 | €6,40 / €9,63 | €191,91 / €288,81 | mexc: €191,91 |
+| Grijs | €5.000 | 12,3 / 21,6 | €10,96 / €14,19 | €328,87 / €425,77 | mexc: €328,87 |
 
 Waarom dit te rooskleurig is (GOK):
 
