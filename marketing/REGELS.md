@@ -2,7 +2,7 @@
 
 Gemaakt 19 nov 2026 door een bouwer, volgens de keuring van 19 nov (`platformen/ideeen/marketing-tak-2026-11-19/KEURING.md`), het ontwerp van onderzoeker B (`B-ontwerp.md`, run 5 tot 7) en de keuring van deze opzet (`marketing/KEURING.md`). Wie deze regels wil veranderen: een regel onderaan `organisatie/besluiten.md` en een bericht aan de hoofdchat.
 
-**Doel: Click Joints Pro verkopen** ($12 op Gumroad, later Superhive). Het is nu het enige product dat via onze eigen kanalen geld kan opleveren: de gratis add-on mag in Blender niet naar Pro wijzen (voorwaarden extensions.blender.org 6.1 tot 6.3, GEZIEN door onderzoeker B). Bereik telt alleen als het naar een klik op een winkel leidt.
+**Doel: Click Joints Pro verkopen** ($19 op Gumroad, ook op Superhive; prijs bijgewerkt 20 nov). Het is nu het enige product dat via onze eigen kanalen geld kan opleveren: de gratis add-on mag in Blender niet naar Pro wijzen (voorwaarden extensions.blender.org 6.1 tot 6.3, GEZIEN door onderzoeker B). Bereik telt alleen als het naar een klik op een winkel leidt.
 
 ## Meetadressen (in posts alleen deze)
 | Kanaal | Adres in de post | Wat het is |
