@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: vr 20 nov 2026, 13:05 NL** (hoofdchat). **HOOFDZAAK: snel veel geld verdienen.** Click Joints Pro 1.1.0 live op Gumroad ($19/$24/$59, CYBER25 27 nov tot 1 dec) en Superhive ($12/$45); gratis versie op Gumroad. Vandaag in Metricool, PENDING (GEZIEN 13:00): 16:00 filmpje 5 (TikTok en Short), 17:00 lange YouTube versie 3. dortus.com noemt $19. Black Friday-plekken: Addon Radar gekeurd, insturen lukt nog niet (proxy weigert de site); BlenderArtists op lijst-thijs punt 5. Verkopen: 0, het probleem is bereik.
+**Stand: vr 20 nov 2026, 13:05 NL** (hoofdchat). **HOOFDZAAK: snel veel geld verdienen.** Click Joints Pro 1.1.0 live op Gumroad ($19/$24/$59, CYBER25 27 nov tot 1 dec) en Superhive ($12/$45); gratis versie op Gumroad. Vandaag in Metricool, PENDING (GEZIEN 13:00): 16:00 filmpje 5 (TikTok en Short), 17:00 lange YouTube versie 3. dortus.com noemt $19. Black Friday-plekken: Addon Radar ingestuurd 20 nov 11:20 (bevestigd); BlenderArtists op lijst-thijs punt 5. Verkopen: 0, het probleem is bereik.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
