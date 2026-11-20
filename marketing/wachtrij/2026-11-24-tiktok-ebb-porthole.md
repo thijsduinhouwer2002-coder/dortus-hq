@@ -4,7 +4,7 @@
 - kanaal: tiktok
 - soort: video
 - product: ebb
-- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/ebb-roep-1/ebb-roep-1-porthole-geluid.mp4 (bestaat pas na de workflow, zie Let op)
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/ebb-roep-1/ebb-roep-1-porthole-geluid.mp4
 - geluid_check: GOED (gemiddeld -18,7 dB, piek -3,0 dB), 20 nov 2026 ±11:42 NL, lokale bouw met dezelfde code; na de workflow opnieuw op het releasebestand
 - lengte: 0:15,6, staand 1080x1920
 - tijd: 2026-11-24T18:00:00+01:00
@@ -36,6 +36,8 @@ Garmin breathing app: your round watch face becomes a porthole on a small sea. B
 
 ## Let op (voor de hoofdchat, vóór dit naar de wachtrij gaat)
 - Het filmpje staat nog niet op een openbare URL. De release `ebb-roep-1` vraagt een workflow; die heb ik niet gepusht (de toestemmingscontrole hield een nieuwe workflow tegen). Het voorstel staat klaar in `platformen/garmin/marketing/film/ebb-roep-film.yml.voorstel`. Zet de hoofdchat die als `.github/workflows/ebb-roep-film.yml` op main, dan bouwt hij beide filmpjes en zet hij ze in de release. Daarna: `curl -sIL` op de URL hierboven (200), `geluid_check.py` op het releasebestand, en dit bestand naar `marketing/wachtrij/`.
+
+- **Gedaan door de hoofdchat, 20 nov 13:55 NL:** workflow `ebb-roep-film.yml` staat op main (gelijk aan het voorstel), run 1 op fe15a6dd geslaagd (20 nov 11:55 NL), inclusief de stap Geluidscontrole (`geluid_check.py`) op precies de bestanden in de release. Release `ebb-roep-1` heeft beide `-geluid.mp4` (1,8 MB elk); de URL hierboven geeft bij GitHub 302 naar het bestand (GEZIEN). Concept naar de wachtrij gezet.
 
 ## Keuring
 
