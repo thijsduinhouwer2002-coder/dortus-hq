@@ -1,6 +1,6 @@
 # Click Joints Pro: de knie stopt waar je rig stopt
 
-- status: open
+- status: groen
 - kanaal: tiktok
 - soort: video
 - product: click-joints-pro
@@ -30,6 +30,20 @@ One button turns a rigged figure into printable parts. Bend the knee and it stop
 - Niet gelijk aan een TikTok van de laatste 14 dagen: het rood-filmpje van 22 nov (`2026-11-22-tiktok-pro-rood-voorbij-stop.md`) toont een los been met een vaste stand van 115°; dit toont de figuur uit de rig. Keurder: weeg dit mee bij vraag 8.
 
 ## Keuring
+- keurder: Roep-Keurder, 20 Nov 2026 20:45 NL
+- 1 bron klopt: ja
+- 2 geen AI-zin, geen AI-melding: ja
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: ja (beelden op 0,1, 1, midden en einde bekeken; geluid_check zelf gedraaid: GOED)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja
+- 9 geen AI-beeld, AI-stem of AI-persoon: ja
+- 10 schrijft als Dortus, niet als Thijs: ja
+- techniek-check: media-URL geeft via GET 302 naar het bestand en het downloaden werkt (de HEAD-controle via de proxy geeft 401, GEZIEN); geen eerste reactie, geen link of https, geen Gumroad, 6 hashtags, geen < of >; tijd in de toekomst; quotum door de Maker te tellen
+- uitkomst: groen
+- reden: Zonder kortingszin een gewone post met echt beeld en dortus.com/tt; ander beeld dan het rood-filmpje van 22 nov, dat nog niet uitging.
 
 ## Oranje-besluit
 

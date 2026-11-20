@@ -1,6 +1,6 @@
 # Click Joints Pro: één knop van rig naar printbare figuur
 
-- status: open
+- status: groen
 - kanaal: tiktok
 - soort: video
 - product: click-joints-pro
@@ -29,6 +29,20 @@ One button in Blender: your rigged figure gets a hinge with an end stop at every
 - Niet gelijk aan een TikTok van de laatste 14 dagen (`commercie/geplaatst.md`: tot nu toe scharnier-filmpjes, geen Figure from rig).
 
 ## Keuring
+- keurder: Roep-Keurder, 20 Nov 2026 20:45 NL
+- 1 bron klopt: ja
+- 2 geen AI-zin, geen AI-melding: ja
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: ja (beelden op 0,1, 1, midden en einde bekeken; geluid_check zelf gedraaid: GOED)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja
+- 9 geen AI-beeld, AI-stem of AI-persoon: ja
+- 10 schrijft als Dortus, niet als Thijs: ja
+- techniek-check: media-URL geeft via GET 302 naar het bestand en het downloaden werkt (de HEAD-controle via de proxy geeft 401, GEZIEN); geen eerste reactie, geen link of https, geen Gumroad, 6 hashtags, geen < of >; tijd in de toekomst; quotum door de Maker te tellen
+- uitkomst: groen
+- reden: Echt Blender-beeld, haak 'One button' vanaf beeld één, geen prijs of korting, meetadres dortus.com/tt, alle 10 ja.
 
 ## Oranje-besluit
 

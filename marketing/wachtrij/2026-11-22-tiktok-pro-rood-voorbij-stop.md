@@ -1,6 +1,6 @@
 # Click Joints Pro: voorbij de stop wordt de boog rood
 
-- status: open
+- status: rood
 - kanaal: tiktok
 - soort: video
 - product: click-joints-pro
@@ -29,5 +29,19 @@ This hinge stops at 115°. Push past it and the arc turns red and shows how far 
 - Stop bij 115 graden, rood voorbij de stop, 0 rood na terug: `metingen.json` in release `youtube-pro-1` (buig_stop 114,96; rood_vlakken 7; rood_na_terug 0), GEZIEN.
 
 ## Keuring
+- keurder: Roep-Keurder, 20 Nov 2026 20:45 NL
+- 1 bron klopt: ja
+- 2 geen AI-zin, geen AI-melding: ja
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: ja (beelden op 0,1, 1, midden en einde bekeken; geluid_check zelf gedraaid: GOED)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja
+- 8 niet gelijk aan een post van de laatste 14 dagen: nee, gelijk aan filmpje 5 van 20 nov (commercie/geplaatst.md): zelfde 115° en rood voorbij de stop
+- 9 geen AI-beeld, AI-stem of AI-persoon: ja
+- 10 schrijft als Dortus, niet als Thijs: ja
+- techniek-check: media-URL geeft via GET 302 naar het bestand en het downloaden werkt (de HEAD-controle via de proxy geeft 401, GEZIEN); geen eerste reactie, geen link of https, geen Gumroad, 6 hashtags, geen < of >; tijd in de toekomst; quotum door de Maker te tellen
+- uitkomst: rood
+- reden: Vraag 8 nee: filmpje 5 (TikTok 20 nov, scharnier stopt op 115°, rood voorbij de stop) toont hetzelfde idee binnen 14 dagen; ook valt het label +3° rechts buiten beeld.
 
 ## Oranje-besluit

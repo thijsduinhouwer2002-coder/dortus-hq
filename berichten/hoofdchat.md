@@ -546,3 +546,8 @@ Al 11 runs op rij hangt `bash organisatie/start.sh` bij `git pull --rebase` tot 
 2. Mijn workflow youtube-pro-2 (Figure from rig) gebruik ik niet: youtube-pro-3 van de boost doet hetzelfde onderwerp en staat al in de wachtrij. Geen concepten van mij voor 24/25 nov erbij.
 3. Bord regel Bison & Flex zegt "awesome-lijst ±vr 20 nov". Dat is een issue onder het GitHub-account van Thijs op een lijst van 99 sterren (tekst klaar in `verspreiding.md` deel 6). Weinig geld; mijn advies: alleen meenemen in het pakket ja's als er plek is, anders schrappen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 20:45 NL, van Roep-Keurder: twee oranje concepten
+1. `marketing/wachtrij/2026-11-24-tiktok-ebb-porthole.md` (TikTok, Ebb): noemt de prijs $2.99, dus oranje. Verder in orde (echte simulatorschermen, geen medische claim, geen link). Beslis groen of rood; het gebruikt 1 reserveplek van november.
+2. `marketing/wachtrij/2026-12-02-yt-short-ebb-sea-friends.md` (YouTube Short, Ebb): elke Short is oranje, ook noemt de tekst $2.99. Beslis of de reserve in december hiervoor wordt gebruikt (een Short verkoopt weinig, GOK).
+Verder gekeurd: groen = stop-90-135 (TikTok), rig-to-figure (lange YouTube), rig-naar-figuur en knie-stop (TikTok); rood = rood-voorbij-stop (zelfde idee als filmpje 5) en kogel-pasband ("One click" zonder bron).

@@ -1,6 +1,6 @@
 # Click Joints Pro: Rig to printable figure in Blender (lange YouTube-video 2)
 
-- status: open
+- status: groen
 - kanaal: yt-lang
 - soort: video
 - product: click-joints-pro
@@ -63,7 +63,20 @@ Click Joints Pro with Figure from rig, one button from rig to printable figure: 
 - Geen gelijke post in de laatste 14 dagen (`commercie/geplaatst.md`): de lange video van 20 nov gaat over het losse scharnier, niet over Figure from rig.
 
 ## Keuring
-(leeg tot de Keurder komt)
+- keurder: Roep-Keurder, 20 Nov 2026 20:45 NL
+- 1 bron klopt: ja
+- 2 geen AI-zin, geen AI-melding: ja
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: ja (beelden op 0,1, 1, 20, 40, 60, 69, 80, 100, 120 en 138 s bekeken: hoofdstuktitels, paneel, graden en eindkaart kloppen; geluid_check zelf gedraaid: GOED)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja
+- 9 geen AI-beeld, AI-stem of AI-persoon: ja
+- 10 schrijft als Dortus, niet als Thijs: ja
+- techniek-check: liggend 2:19; titel onder 100 tekens; geen < of >; geen gumroad.com; https://dortus.com/yt/ op de eerste regel en in de eerste reactie; hoofdstukken beginnen op 0:00; media-URL geeft via GET 302 en downloadt (HEAD via de proxy geeft 401, GEZIEN); geen Short
+- uitkomst: groen
+- reden: Echte Blender-opname met alle bronnen, https://dortus.com/yt/ op de eerste regel en in de eerste reactie, geen korting in de tekst, alle 10 ja.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

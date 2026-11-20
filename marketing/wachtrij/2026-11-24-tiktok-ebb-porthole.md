@@ -1,6 +1,6 @@
 # Ebb: de wijzerplaat wordt een patrijspoort
 
-- status: open
+- status: oranje
 - kanaal: tiktok
 - soort: video
 - product: ebb
@@ -40,6 +40,21 @@ Garmin breathing app: your round watch face becomes a porthole on a small sea. B
 - **Gedaan door de hoofdchat, 20 nov 13:55 NL:** workflow `ebb-roep-film.yml` staat op main (gelijk aan het voorstel), run 1 op fe15a6dd geslaagd (20 nov 11:55 NL), inclusief de stap Geluidscontrole (`geluid_check.py`) op precies de bestanden in de release. Release `ebb-roep-1` heeft beide `-geluid.mp4` (1,8 MB elk); de URL hierboven geeft bij GitHub 302 naar het bestand (GEZIEN). Concept naar de wachtrij gezet.
 
 ## Keuring
+- keurder: Roep-Keurder, 20 Nov 2026 20:45 NL
+- 1 bron klopt: ja
+- 2 geen AI-zin, geen AI-melding: ja
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: ja (beelden op 0,1, 1, 7,8 en einde bekeken: ronde Garmin-schermen uit de simulator, tekst binnen beeld; geluid_check zelf gedraaid: GOED)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja
+- 9 geen AI-beeld, AI-stem of AI-persoon: ja
+- 10 schrijft als Dortus, niet als Thijs: ja
+- techniek-check: oranje: prijs in tekst en beeld ($2.99, REGELS: prijs = oranje). Verder goed: media-URL geeft via GET 302 naar het bestand en het downloaden werkt (de HEAD-controle via de proxy geeft 401, GEZIEN); geen eerste reactie, geen link of https, geen Gumroad, 6 hashtags, geen < of >; tijd in de toekomst; quotum door de Maker te tellen; zoekregel in plaats van meetadres is bewust (geen Ebb-meetadres)
+- uitkomst: oranje
+- reden: Noemt de prijs ($2.99), dus de hoofdchat beslist; verder goed: echte simulatorschermen, geen medische claim, geen link.
+- 8 noot: niets over Ebb in commercie/geplaatst.md, dus niet gelijk aan een recente post
 
 ## Oranje-besluit
 
