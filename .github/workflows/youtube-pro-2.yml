@@ -1,0 +1,85 @@
+name: YouTube Pro 2 (Figure from rig en Exploded view)
+
+# Chris, 20 nov 2026 (vraag Roep-Maker 19 nov 20:35 NL): korte staande filmpjes over Figure from rig en Exploded view
+# op de echte figuur van plaatje 19 (MakeHuman base.obj, CC0), in de echte Blender 5.3.0 met de betaalde add-on.
+# opname_figuur.py neemt op, kort_figuur.py maakt de staande filmpjes. Export naar 3MF wordt alleen gemeten.
+# Uit: release youtube-pro-2.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/youtube-pro/opname_figuur.py", "commercie/filmpjes/youtube-pro/kort_figuur.py", ".github/workflows/youtube-pro-2.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: youtube-pro-2
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PRO_VERSIE: "1.1.0"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter
+          python3 -m pip install -q --break-system-packages numpy
+      - name: Blender 5.3.0 ophalen
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+          curl -fsSL --retry 3 -o /tmp/mh_base.obj https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj
+      - name: Betaalde zip
+        working-directory: producten/blender-gewrichten
+        run: bash e2e/maak_zip.sh betaald
+      - name: Opnemen
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          CJ_MENS_OBJ: /tmp/mh_base.obj
+          BLENDER_USER_RESOURCES: /tmp/cj_film
+          BLENDER_USER_CONFIG: /tmp/cj_film/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_film/extensions
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_f.blend')"
+          timeout 3000 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_f.blend --python commercie/filmpjes/youtube-pro/opname_figuur.py -- /tmp/filmuit /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/film.log || true
+          grep -E "FIGUUR|MENS|Traceback|Error" /tmp/film.log || true
+          for d in rig knop buig uitelkaar; do grep -q "FIGUUR OK $d" /tmp/film.log || { echo "FOUT: deel $d"; exit 1; }; done
+      - name: In elkaar zetten met geluid
+        run: |
+          python3 commercie/filmpjes/youtube-pro/kort_figuur.py /tmp/filmuit /tmp/klaar
+          cp /tmp/filmuit/film.json /tmp/klaar/film-figuur.json
+          ffmpeg -y -v error -i /tmp/filmuit/beelden/b00200.png -vf scale=960:-1 /tmp/klaar/scherm-b00200.jpg || true
+          python3 organisatie/controle/geluid_check.py /tmp/klaar/*.mp4
+          cp /tmp/film.log /tmp/klaar/opname.log
+          (cd /tmp/klaar && sha256sum *.mp4 | tee SHA256SUMS.txt)
+          for f in /tmp/klaar/*.mp4; do ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact "$f"; done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: youtube-pro-2
+          path: |
+            /tmp/klaar
+            /tmp/film.log
+      - name: In de release zetten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Korte filmpjes Click Joints Pro: Figure from rig en Exploded view, opgenomen in de echte Blender 5.3.0 met de add-on. Keuring Daan nog open." > /tmp/notes.md
+          if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" /tmp/klaar/* --clobber -R "$GITHUB_REPOSITORY"
+          else
+            gh release create "$TAG" /tmp/klaar/* -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube Pro 2 (Figure from rig)" --notes-file /tmp/notes.md
+          fi
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
