@@ -26,6 +26,9 @@
 | **Kingmaker: nieuwe ideeën** | alle platformen | 17 nov: 19 ideeën zelf afgeschoten, 0 overlevers. Zoekers sinds 16:47 alle drie op wat nu opent; Patrick toetst op de 4 wetten | | eerste overlever 7+: Gijs bouwt binnen 72 uur, Gijs dan elk uur | Noor, Lars, Joris, Patrick, Gijs, Daan |
 | **Filmpjes** | YouTube, TikTok (Metricool) | Ebb-Short live; TikTok 1 volger, filmpjes gingen zonder geluid | | doel: vóór di 1 dec één filmpje boven 1.000 weergaven, anders stoppen (Chris) | Chris |
 
+## 1b. Boost Click Joints Pro (20 nov 14:45, Thijs: "doe alles wat nodig is, je mag opschalen")
+Vier losse agents van de hoofdchat, tot ±17:00: (1) makers en affiliates: mails naar Pro 1.1, adviespercentage, `commercie/blender-click-joints/makers-1.1-2026-11-20.md`; (2) uitleg-video Pro 1.1 en 2 staande filmpjes als concept in `marketing/wachtrij/`; (3) alle gratis plekken en het Reddit-pakket, `plekken-boost-2026-11-20.md`; (4) echte print via een printdienst en Printables/MakerWorld, `echte-print-2026-11-20.md`. Elk met eigen keurder. Daarna één pakket ja's voor Thijs (mails, affiliates, geld voor print, accounts, Reddit). Trechter gratis naar Pro is al dicht (besluit 14:40).
+
 ## 2. Agents (18 nov 20:12: zes weer aan op verzoek van Thijs, met de nieuwe korte opdracht; de rest uit)
 
 | Agent | Aan? | Hoe vaak (NL-tijd) | Focus nu |
