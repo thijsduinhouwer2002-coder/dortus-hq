@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: vr 20 nov 2026, 13:58 NL** (hoofdchat). **HOOFDZAAK: snel veel geld verdienen.** Click Joints Pro 1.1.0 live op Gumroad ($19/$24/$59, CYBER25 27 nov tot 1 dec) en Superhive ($12/$45); dortus.com overal $19. Vandaag in Metricool: 16:00 filmpje 5 (TikTok en Short), 17:00 lange YouTube versie 3, alle PENDING (GEZIEN 13:56). Ebb-filmpjes in de wachtrij van Roep (TikTok 24 nov, Short 2 dec). Geen Pro-link in de gratis Click Joints (Blender-regels). start.sh hangt niet meer. Verkopen Pro: 0.
+**Stand: vr 20 nov 2026, 14:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Click Joints Pro 1.1.0 live op Gumroad ($19/$24/$59, CYBER25 27 nov tot 1 dec) en Superhive ($12/$45). Trechter gratis naar Pro gedicht (site, README, Short-beschrijving, kanaallink; gekeurd, 14:40). Vandaag in Metricool: 16:00 filmpje 5 (TikTok en Short), 17:00 lange YouTube versie 3, alle PENDING (GEZIEN 14:43). Ebb-filmpjes in de wachtrij van Roep (TikTok 24 nov, Short 2 dec). Geen oranje open. Verkopen Pro: 0.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

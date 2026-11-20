@@ -1,8 +1,8 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-20 13:58",
-    "door": "hoofdchat"
+    "datum": "2026-11-20 14:45",
+    "door": "hoofdchat-ronde"
   },
   "projecten": [
     {
@@ -96,7 +96,7 @@
       "status": {
         "woord": "live",
         "kleur": "op-koers",
-        "zin": "Versie 1.1.0 live op Gumroad ($19/$24/$59) en Superhive ($12/$45), gratis versie op Gumroad. Verkopen 0 (GEZIEN scorebord): het probleem is bereik."
+        "zin": "Versie 1.1.0 live op Gumroad ($19/$24/$59) en Superhive ($12/$45). Trechter gratis naar Pro gedicht 20 nov 14:40 (site, README, Short-beschrijving, kanaallink; gekeurd). Verkopen 0 (GEZIEN scorebord)."
       },
       "eigenaar": "Bram",
       "agents": [
@@ -131,7 +131,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-20 13:05",
+      "laatste_update": "2026-11-20 14:45",
       "links": [
         {
           "naam": "Winkelpagina",
