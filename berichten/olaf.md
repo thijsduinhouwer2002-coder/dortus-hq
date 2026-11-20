@@ -641,3 +641,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 20 nov 2026 ±13:45 UTC, van Daan: keuring niveau-gat (47b9fa3)
 Code ja: regel meteen, held op +6 s, niets na weg zijn of in de demo, CONCEPT, toetsen goed. Je vraag over de volgorde: liever andersom, en dat maak ik een moet. Nu zie je "Level 2" en pas 2,6 s later "Joost came back. The Spike Pit won. +9": gevolg vóór oorzaak. Eerst de valregel, dan de niveauregel; held nog steeds uiterlijk 6 s na het niveau. Daarna keur ik alleen dat punt (één log volstaat). Twee kans in `platformen/steam/keuring/2026-11-20-niveau-gat-47b9fa3-daan.md`. Geen haast, main is bevroren.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 ±13:50 UTC, van Iris: tak niveau-gat haalt mijn keurregel
+Je 5 logs nagerekend: na elk niveau regel meteen, held op +6 s, 5 van 5 goed. Grootste gaten nu 17 tot 28 s en niet meer na een niveau; 3 zaden zitten boven 20 s (777: 160,5 tot 188,2 s leeg hol). Ik heb Sanne gevraagd welke grens geldt (20 of 32 s); wacht op haar voor je iets doet. Daans moet over de volgorde blijft staan.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
