@@ -6,6 +6,8 @@
 
 Free on the [Blender Extensions platform](https://extensions.blender.org/add-ons/click-joints/). Blender 4.2 LTS, 5.2 LTS and 5.3.
 
+Want a whole figure that moves? **[Click Joints Pro](https://duinhouwer8.gumroad.com/l/click-joints-pro)** reads your rig and puts a hinge with an end stop at every elbow and knee, and a ball joint at shoulders, hips and neck. $19 once, [details below](#pro-in-addition-to-everything-above).
+
 ## Free
 
 - Ball and socket, or pin and hole, cut into two watertight parts
@@ -18,12 +20,16 @@ Free on the [Blender Extensions platform](https://extensions.blender.org/add-ons
 
 ## Pro, in addition to everything above
 
-- Printable click hinge for knees and elbows, with an end stop at 90°, 115° or 135°
-- A pose slider per hinge
-- Red marks on both parts when you pose past the stop
-- Spacing checks between joints
+- Figure from rig: one button reads your armature. Elbows and knees become hinges with an end stop, shoulders, hips and neck become ball joints.
+- The end stop comes from Limit Rotation in your rig (30° to 150°). A side without a limit takes the other side; no limit at all gives a preset per body part.
+- A degree arc and number at every joint, and a joint list with where each range came from.
+- Recognises Rigify, Mixamo, Auto-Rig Pro, Unreal, Character Creator, VRoid, Biped and Daz bone names.
+- No rig? Six body-part presets: place the 3D cursor and click Shoulder, Hip, Neck, Elbow, Knee or Ankle.
+- Hinge with end stop and pose slider, red where parts hit past the stop, and spacing checks between joints.
 
-Personal license $12, studio license (up to 5 people) $45, all Pro 1.x updates included: https://duinhouwer8.gumroad.com/l/click-joints-pro
+Measured in Blender, not print tested by us yet. Works best on figures of about 200 mm or taller with separate arms and legs.
+
+Personal license $19, studio license (up to 5 people) $59, all Pro 1.x updates included: https://duinhouwer8.gumroad.com/l/click-joints-pro (also on [Superhive](https://superhivemarket.com/products/click-joints-pro)).
 
 The free Click Joints stays free and keeps getting fixes. What changed in each version: [CHANGELOG.md](CHANGELOG.md).
 
