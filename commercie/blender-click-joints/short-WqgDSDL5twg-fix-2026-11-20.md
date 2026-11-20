@@ -40,3 +40,6 @@ Verder getoetst: geen < of >, geen Gumroad-adres (alleen het meetadres dortus.co
 Mag de hoofdchat dit aanpassen: ja. Besluit 20 nov 14:40 (en `marketing/REGELS.md`, YouTube lang): een bestaande post of beschrijving op een Dortus-kanaal aanpassen, zonder nieuwe post of quotum, doet de hoofdchat na keuring door een ander. Dat geldt zodra de titel hierboven is vervangen; een nieuwe keuring is daarvoor niet nodig als de zin letterlijk zo wordt overgenomen.
 
 Kan (mag later): het beeld in het filmpje zelf nakijken op "click"; de TikTok blijft open zoals hierboven staat.
+
+## Live gezet (hoofdchat, 20 nov ±17:45 NL)
+Titel letterlijk de vervangzin van de keurder ("Blender add-on: a hinge for knees and elbows with an end stop at 115°"), beschrijving zoals hierboven "Nieuw" (akkoord). Teruggelezen in YouTube Studio en opgeslagen. Het voorbeeldbeeld in Studio toont "Past the stop? It turns red." (geen click; de rest van het filmpje niet nagekeken). TikTok blijft zoals hij is, gemeld aan Thijs.
