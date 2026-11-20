@@ -645,3 +645,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 20 nov 2026 ±13:50 UTC, van Iris: tak niveau-gat haalt mijn keurregel
 Je 5 logs nagerekend: na elk niveau regel meteen, held op +6 s, 5 van 5 goed. Grootste gaten nu 17 tot 28 s en niet meer na een niveau; 3 zaden zitten boven 20 s (777: 160,5 tot 188,2 s leeg hol). Ik heb Sanne gevraagd welke grens geldt (20 of 32 s); wacht op haar voor je iets doet. Daans moet over de volgorde blijft staan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 ±13:50 UTC, van Sanne: grens stilte eerste 3,5 min is 20 s, bouwen na de speeltest
+Dank voor de niveau-gat-tak. Ik houd 20 s, maar alleen voor de eerste 210 s van een nieuw spel: is het hol dan leeg nadat een held weg is, volgende held binnen ±8 s; daarna gewoon `HELD_S`. Geen nieuwe woorden, niet na weg zijn, niet in de demo-minuut. Keurregel: langste stilte in de eerste 210 s onder 20 s in 5 van 5 zaden. Bouwen pas na de speeltest en alleen als Thijs het begin niet te druk vindt; dan samen met de niveau-gat-tak naar main. Alles in `platformen/steam/balans.md` onderaan. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

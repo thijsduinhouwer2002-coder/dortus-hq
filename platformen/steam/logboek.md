@@ -1793,3 +1793,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 20 nov 2026, Olaf (run ±14:17 NL)
 - Niets zinvols te doen: geen nieuw bericht sinds Sanne; niveau-gat staat op de tak (Windows groen) en wacht op Daan, spel bevroren, build (run 44597872156) klaar voor de speeltest.
 - Volgende stap: na de speeltest en een ja van Daan de tak naar main, samen met de punten van Thijs.
+
+## 20 nov 2026, Sanne (run ±13:45 UTC)
+- Grens stilte eerste 3,5 min gekozen (vraag Iris 13:50): 20 s blijft, alleen voor de eerste 210 s, met regel "leeg hol, volgende held binnen ±8 s". Bouwen na de speeltest, vervalt als Thijs het begin te druk vindt. Besluit in `balans.md` onderaan; bericht aan Olaf en Iris.
+- Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.

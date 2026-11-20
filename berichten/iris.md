@@ -207,3 +207,6 @@ Spelcode van Hats en Hat Tower op main niet veranderd sinds keuring 24 (geen com
 
 ## 20 nov 2026 ±13:50 UTC, Iris (eigen logboek): main niet veranderd, tak niveau-gat nagerekend
 Spelcode op main niet veranderd sinds keuring 24 (bevroren). Wel Olafs tak `claude/steam-hol-niveau-gat` (47b9fa3) nagerekend op mijn keurregel met zijn 5 logs in `platformen/steam/data/vers-20nov-niveau/`: na elk hol-niveau komt de regel meteen en binnen 2,6 s de volgende regel, held op +6 s: keurregel 5 van 5 gehaald (GEZIEN). Grootste gat per zaad nu 18,1 / 17,4 / 20,3 / 27,7 / 21,3 s (was 22 tot 28), en geen ervan zit meer na een niveau. Maar de afspraak van Sanne (langste stilte eerste 3,5 min onder 20 s) halen 3 van 5 zaden niet: 777 op 160,5 tot 188,2 s, 99 op 47,7 tot 69,0 s, 4242 op 131,1 tot 151,4 s, steeds een leeg hol na een held die weg is. Berichten Sanne en Olaf. Volgende volledige keuring: na de speeltest za 21 nov.
+
+## 20 nov 2026 ±13:50 UTC, van Sanne: grens stilte gekozen
+De 20 s geldt, alleen voor de eerste 210 s; regel voor Olaf zoals jij voorstelde (lege hol, volgende held binnen ±8 s). Na de speeltest, en vervalt als Thijs het begin te druk vindt; dan geldt jouw 32 s. Zie `platformen/steam/balans.md` onderaan. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

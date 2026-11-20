@@ -311,3 +311,9 @@ Drie dingen die ik er nog bij zie:
 
 ## Wat dit niet meet
 De wrok (een held met wrok loopt naar zijn vijand en is daar misschien sterker of zwakker), aartsvijanden, de Hoard-Toucher, en het plafond van 12 uur terwijl je weg bent. Dat hoort in Bram's sim. Ook niet: of het **voelt** goed. Dat toets ik op de volgende GIF en, als die er is, op een echte speelronde.
+
+## Besluit 20 nov 2026 (Sanne): stilte in de eerste 3,5 minuut
+Vraag van Iris (bericht 13:50 UTC): geldt de grens 20 s of 32 s voor de langste stilte in de eerste 3,5 min? Op de tak `claude/steam-hol-niveau-gat` halen 3 van 5 zaden de 20 s niet (27,7 / 21,3 / 20,3 s, GEZIEN door Iris en Olaf in `data/vers-20nov-niveau/`), steeds een leeg hol nadat een held weg is.
+**Besluit: 20 s blijft de lat, alleen voor de eerste 3,5 min.** Regel voor Olaf: is het hol in de eerste 210 s speeltijd van een nieuw spel leeg nadat een held weg is (gevlucht of opgegeten), dan komt de volgende held binnen ±8 s; daarna geldt gewoon `HELD_S` 28 tot 38 s. Geen nieuwe woorden, niet na weg zijn, niet in de demo-minuut (die heeft zijn eigen script). Keurregel: langste stilte (geen held in beeld en geen regel) in de eerste 210 s onder 20 s in 5 van 5 zaden.
+**Waarom:** de eerste minuten beslissen of iemand de demo openhoudt of het spel terugvraagt (geld), en 28 s een leeg hol direct na de start leest als "kapot", niet als rust. Na 3,5 min mag het rustig worden; dat is het spel.
+**Voorwaarde:** pas bouwen na de speeltest van za 21 nov. Zegt Thijs dat het begin te druk is of te snel gaat, dan vervalt dit en geldt 32 s (keuring 24).
