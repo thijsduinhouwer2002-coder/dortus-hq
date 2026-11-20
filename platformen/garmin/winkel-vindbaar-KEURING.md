@@ -55,3 +55,21 @@ Geen. De teksten kloppen met de app, de veiligheidsregels staan er, en niets bot
 8. **Geld meten (A19):** zet in de meting van 1 dec ook verkopen van Ebb naast downloads van Calm, om te zien of de link naar gratis kopers kost.
 
 akkoord ja (geen moet-punten; kan-punten 1 tot 8 hierboven, punt 1 en 2 het liefst vóór het plakken)
+
+## Nakeuring plakbestand
+Wat ik keurde: `platformen/garmin/winkel-plak-2026-11-20.md`, commit 15e5d79c. 20 nov 2026, dezelfde keurder (Claude). Alle blokken met `diff` vergeleken met de gekeurde blokken uit 88bb682e en met de live tekst van Calm (API, `curl`).
+
+| # | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|
+| 1 | **Ebb EN: alleen de genoemde wijzigingen.** De diff toont precies zes regels: de nieuwe linkzin, "That hold is not averaged." weg, de kop "4-7-8 AND MY PATTERN", "exactly" weg, "For interest only, no score." en "calm" uit de tags. Niets anders veranderd. 3977 tekens (zelf geteld), onder 4.000. | feit | hoog |
+| 2 | **Geen veiligheidszin verdwenen.** Eerste alinea (land, zittend of liggend, nooit in of bij water, nooit tijdens het rijden, alleen zolang het makkelijk voelt), "Before every session Ebb reminds you: sit or lie down", "never by holding longer", stop na vijf minuten, tril elke 30 s na 3:00 en het hele blok SAFETY staan er nog. "That hold is not averaged" is geen veiligheidszin; het weglaten maakt niets onwaar. | feit | hoog |
+| 3 | **"24 sea animals" klopt.** `DierenData.mc` (1.0.1) heeft 25 namen: 24 dieren plus het bonusdier; `EindScherm.mc` toont "24 of 24 friends", `KrabV2Basis.mc` rekent modulo 24. De tekst zegt ook "plus one bonus animal". | feit (code) | hoog |
+| 4 | **Calm heeft geen breath hold rounds en geen My pattern.** `Soort.mc` op `claude/ebb-calm-101`: "alleen Calm 4-7-8 met de zee, één dier (de vis), geen verzameling, geen sea log, geen reeksen, geen rondes en geen My pattern". "Ebb has everything in the free Ebb Calm" klopt: alles wat Calm heeft (4-7-8, trilling, pauze, opslaan in Garmin Connect, vanzelf opslaan na 30 minuten) zit ook in Ebb. | feit (code) | hoog |
+| 5 | **Kan-punt 1 (Calm DE en NL helemaal uitgeschreven): verwerkt.** Tegen de live tekst: DE verandert alleen de linkzin ("Lust auf mehr? ... eine eigene kostenpflichtige App ..."); NL alleen "Gratis 4-7-8-ademhaling", de linkzin ("Meer willen? ... een aparte betaalde app ...") en de tags. Beide zeggen dat de app Engels is. | feit | hoog |
+| 6 | **Kan-punt 2 (Frans): verwerkt, letterlijk.** "représentés par une petite mer" (Ebb), "représentée par une petite mer" (Calm), "Appuyez sur un bouton pour terminer la rétention, puis prenez une grande inspiration et retenez-la brièvement pour récupérer.", kop "DES ANIMAUX MARINS EN PRATIQUANT RÉGULIÈREMENT", "un circuit par cycle". Verder gelijk aan wat ik keurde. | feit | hoog |
+| 7 | **Kan-punt 3 (Duits): verwerkt.** "leichtfällt" in Ebb DE, "Lust auf mehr?" in Calm DE. Ebb NL en Calm EN zijn ongewijzigd ten opzichte van de keuring. | feit | hoog |
+| 8 | **Kan-punten 4, 5, 7 en 8 ook verwerkt.** Meetregel noemt nu welke titels terug gaan en meet atemübungen, atem anhalten, adem inhouden en ademhalingsoefeningen; geen beeld van Ebb in de lijst van Calm (eindscherm van Calm op plek 3); lengtegrens heet "afgeleid"; verkopen van Ebb worden naast downloads van Calm gemeten. | feit | hoog |
+
+Moet: geen. Kan: niets nieuws.
+
+akkoord ja
