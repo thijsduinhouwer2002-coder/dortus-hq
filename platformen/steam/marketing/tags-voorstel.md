@@ -54,4 +54,4 @@ Eruit: 2D (half waar, zie boven), Building (Base Building zegt het beter). Erin:
 Klachten in recensies van de 13 winnaars lezen om te zien of tags verkeerde verwachtingen wekten. Na het fest kijken welke tags spelers zelf toevoegen en de volgorde in de Tag Wizard bijstellen.
 
 ## Keuring
-Akkoord ja, 19 nov (`platformen/steam/keuring/2026-11-19-tags.md`). Kan-punt 1 (reden bij 2D) en 2 (GOK bij de flophoek) verwerkt. Open: Funny en Comedy, Stylized en Cartoony overlappen deels; Mila mag één plek ruilen voor een tag van de winnaars.
+Akkoord ja, 19 nov (`platformen/steam/keuring/2026-11-19-tags.md`). Kan-punt 1 (reden bij 2D), 2 (GOK bij de flophoek) en 4 (lijst in `ontwerp/steam/winkelpagina/teksten.md` deel 4 vervangen, 20 nov) verwerkt. Open: Funny en Comedy, Stylized en Cartoony overlappen deels; Mila mag één plek ruilen voor een tag van de winnaars.

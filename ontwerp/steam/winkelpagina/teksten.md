@@ -87,31 +87,31 @@ Nagelezen en klopt: hoogte 96/120/160 met rechtsklik, klikken door de lucht (zie
 11. Ter info, niet veranderd: tag 14 "2D". Het spel is een zijaanzicht dat niet schuift, met 3D gerenderde plaatjes. Dat is in spel 2D; Mila kiest of de tag blijft.
 
 ## 4. Tags (Valve raadt tot 20 aan, alleen de bovenste 20 zijn te zien en filters kijken naar de eerste 15, DERDEN: partner.steamgames.com/doc/store/tags)
-Alle namen bestaan in de taglijst van Steam (GEZIEN, `store.steampowered.com/tagdata/populartags/english`, 429 tags):
+Geldende lijst sinds 20 nov (Sanne): het gekeurde voorstel van 19 nov, met per tag de reden in `platformen/steam/marketing/tags-voorstel.md` (keuring `platformen/steam/keuring/2026-11-19-tags.md`, akkoord ja). Dit is de lijst voor het indienen; de lijst van 9 nov is vervangen. Alle namen bestaan in de taglijst van Steam (GEZIEN, `store.steampowered.com/tagdata/populartags/english`, 429 tags).
 1. **Desktop Companion** (verplicht voor het fest, zie `fest.md`)
 2. Idler
-3. Stylized (was Pixel Graphics; sinds 13 nov is alles 3D gerenderd, zie eerlijk-check Olaf 14 nov; Mila mag een andere stijl-tag kiezen, Stylized bestaat, GEZIEN)
+3. Villain Protagonist (jij bent de kerker)
 4. Funny
 5. Casual
 6. Management
-7. Cute
-8. Relaxing
-9. Villain Protagonist (jij bent de kerker)
-10. Comedy
-11. Building
-12. Incremental
-13. Fantasy
-14. 2D
-15. Singleplayer
-16. Cozy
-17. Simulation
-18. Base Building (je graaft en breidt je hol uit)
+7. Relaxing
+8. Cute (schrappen als Daan vindt dat de 3D-stijl niet schattig leest)
+9. Incremental
+10. Base Building (je graaft en breidt je hol uit)
+11. Collectathon
+12. Simulation
+13. Singleplayer
+14. Underground
+15. Comedy
+16. Stylized (Mila mag een andere stijl-tag kiezen)
+17. Fantasy
+18. Cozy
 19. Indie
-20. Cartoony (bestaat, GEZIEN; Mila mag hem schrappen als hij niet bij de stijl past)
+20. Cartoony (Mila mag hem schrappen, of 2D hier zetten als het zijaanzicht als 2D leest)
 
 Niet Side Scroller: het beeld schuift niet.
 
-Bewust niet: Tower Defense (helden lopen door vallen, maar je bouwt geen torens en stuurt niets tijdens het lopen; dat zou kopers misleiden), Dungeon Crawler (jij crawlt niet), Strategy (te licht), Dark Humor (het is eerder slapstick dan grimmig).
+Bewust niet (zie ook `tags-voorstel.md`): 2D, 3D en Pixel Graphics, RPG, Loot, Auto Battler, Utilities, Tower Defense (helden lopen door vallen, maar je bouwt geen torens en stuurt niets tijdens het lopen; dat zou kopers misleiden), Dungeon Crawler (jij crawlt niet), Strategy (te licht), Dark Humor (het is eerder slapstick dan grimmig).
 
 ## 4b. Systeemeisen (Olaf, 14 nov 2026; Steam vraagt dit veld op de winkelpagina)
 Alleen minimum, alleen Windows (de enige build). Engels zoals het in Steamworks komt:
