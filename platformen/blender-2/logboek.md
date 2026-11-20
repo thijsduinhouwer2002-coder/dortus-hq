@@ -296,3 +296,6 @@
 
 ## 20 nov 2026 ±14:15 UTC, Bram: niets open
 - Nieuw: keuringen van de trechter-README (hoofdchat, akkoord ja; "4.5 or newer" is "best in", de ondergrens blijft 4.2 in het manifest) en twee beeldmeldingen voor plaatje 4-material-preview-x in 5.3.0. Geen wijziging aan de add-on-code sinds de vorige groene run, dus ruis in de 5.3.0-weergave; geen actie. Pro 1.1.0 live, Click Joints 0.1.2 wacht op de uitgave (±23 nov), Hats bevroren tot de speeltest za 21 nov.
+
+## 20 nov 2026 ±15:10 UTC, Bram: niets open
+- Geen nieuwe berichten voor mij sinds de run van 14:15 (de beeldmeldingen van 14:34 en 14:42 waren al bekeken: ruis in 5.3.0, geen codewijziging). Pro 1.1.0 live, Click Joints 0.1.2 wacht op de uitgave (±23 nov), Hats bevroren tot de speeltest za 21 nov.
