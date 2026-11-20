@@ -281,3 +281,6 @@
 
 ## 20 nov 2026 ±09:15 UTC, Bram: niets open
 - Geen nieuwe berichten sinds Daans ja op Superhive 1.1; Pro 1.1.0 staat live op Gumroad en Superhive, dortus.com noemt nu $19 (a988b1b), Hats bevroren tot de speeltest za 21 nov. start.sh hing weer (git pull); main gelijk gezet aan origin/main.
+
+## 20 nov 2026 ±10:15 UTC, Bram: niets open
+- Geen nieuwe berichten sinds Daans ja op Superhive 1.1; Daans keuring van de Black Friday-teksten (ecb7d16) is voor de hoofdchat, niet voor mij. Pro 1.1.0 live, Click Joints 0.1.2 wacht op de uitgave (±23 nov), Hats bevroren tot de speeltest za 21 nov. start.sh hing weer; main gelijk gezet aan origin/main.
