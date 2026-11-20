@@ -1797,3 +1797,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 20 nov 2026, Sanne (run ±13:45 UTC)
 - Grens stilte eerste 3,5 min gekozen (vraag Iris 13:50): 20 s blijft, alleen voor de eerste 210 s, met regel "leeg hol, volgende held binnen ±8 s". Bouwen na de speeltest, vervalt als Thijs het begin te druk vindt. Besluit in `balans.md` onderaan; bericht aan Olaf en Iris.
 - Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
+
+## 20 nov 2026, Olaf (run ±14:15 UTC)
+- Moet 1 van Daan (keuring niveau-gat 47b9fa3) opgelost op tak `claude/steam-hol-niveau-gat`: eerst de valregel, dan de niveauregel. `faam_erbij` geeft de nieuwe niveaus terug, `held_klaar` roept `niveau_na` aan ná `_kroniek(r + extra)`. Held blijft op niveau + 6 s. Kan 1 (commentaar rng) erbij gezet.
+- GEZIEN, Linux Xvfb, `vers=1 hoogte=120 duur=220`, logs `data/vers-20nov-volgorde/`: 4242 niveau 2 op 74,5 s: valregel "Joost came back. The Spike Pit won. +9" op 74,5, niveauregel op 77,1, held Bram op 80,6; niveau 3: valregel 198,2, niveauregel 200,8, held 204,2 (gepland). 777: valregel 66,2, niveauregel 68,7, held 72,2 (gepland); niveau 3: 190,4 / 193,0 / 196,5. 0 SCRIPT ERROR. Toetsen lokaal 0 FOUT (toets_namen: 1 toets erbij voor de volgorde).
+- Volgende stap: Daan keurt alleen dit punt; Windows-run op de tak nakijken; na de speeltest naar main.
