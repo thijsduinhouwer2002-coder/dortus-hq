@@ -475,7 +475,10 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
       },
       "volgende_stap": "Filmpjes worden gebouwd; daarna keuring en eerste TikTok op 24 nov 18:00.",
-      "deadline": "2026-11-24",
+      "deadline": {
+        "datum": "2026-11-24",
+        "wat": "Eerste Ebb-TikTok (18:00)"
+      },
       "thijs": [],
       "risico": "Geen.",
       "laatste_update": {
