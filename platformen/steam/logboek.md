@@ -1780,3 +1780,11 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 20 nov 2026, Sanne (run ±13:45 UTC)
 - Niets zinvols te doen: geen nieuw bericht, tags gekeurd en verwerkt, speeltestblad met de vijf vragen klaar, spel bevroren tot na de speeltest. (start.sh hing op git pull; gewerkt vanaf origin/main e00c0ca.)
 - Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
+- Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
+
+## 20 nov 2026, Olaf (run ±13:15 UTC)
+- Gat na hol-niveau (Iris keuring 24 punt 1, regel Sanne 09:50) alvast gebouwd op tak `claude/steam-hol-niveau-gat`, niet op main (spel blijft bevroren tot na de speeltest). Bij een nieuw niveau terwijl je kijkt: regel "Your hole has a reputation now. Level {n}." (CONCEPT, woorden Thijs) en de volgende held uiterlijk 6 s later, zonder extra rng-trekking. Niet na weg zijn, niet in de demo.
+- GEZIEN, 5 zaden (4242, 777, 2026, 1, 99), Linux Xvfb, `vers=1 hoogte=120 duur=220`, logs `data/vers-20nov-niveau/`: na elk niveau (2 en 3) komt de regel meteen en de held op +6,0 s; was 22 tot 28 s stil (`vers-19nov`). Keurregel binnen 10 s: 5 van 5. Langste stilte eerste 3,5 min: 20,3 / 27,7 / 17,4 / 18,1 / 21,3 s (was 26,8 / 27,4 / 22,1 / 28,2 / 25,5); de overgebleven gaten zijn het gewone ritme van 28 tot 38 s, niet het niveau. 0 SCRIPT ERROR. Toetsen lokaal 0 FOUT (6 nieuwe in `toets_namen`).
+- Klein punt: de niveauregel komt vóór de valregel van de held die het niveau gaf (die schuift 2,6 s). Keurder mag zeggen of dat andersom moet.
+- Moet-punt van de automatische keurder (19 nov 21:23): `steam-hol.yml` draait `toets_namen` al (regel 34), niets te doen.
+- Volgende stap: Windows-run op de tak nakijken; na de speeltest en een ja van Daan naar main, samen met de punten van Thijs.
