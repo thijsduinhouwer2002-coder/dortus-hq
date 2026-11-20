@@ -3,8 +3,8 @@
 Opdracht hoofdchat 20 nov ±14:45 NL. Niets geplaatst of verstuurd, geen accounts gemaakt. Pro-feiten alleen uit `platformen/blender-2/gumroad-1.1.md`. Elk cijfer: GEZIEN (zelf met curl, 20 nov), DERDEN (bron met link) of GOK.
 
 ## Kort
-1. **Dortus zelf, nu (hoofdchat, na keuring van de tekst):** Pro-regel op de gratis Gumroad-pagina vervangen (noemt nog 90/115/135 van Pro 1.0, GEZIEN) en in Gumroad een Workflow zetten voor nieuwe gratis downloads (tekst 2b).
-2. **Dortus zelf, vr 27 nov ±09:00 NL (hoofdchat):** Gumroad-mail aan wie de gratis versie haalde (tekst 2a), en de kortingsregel in de README van click-joints (tekst 4).
+1. **Dortus zelf, vr 27 nov (hoofdchat, na keuring van de tekst):** op de gratis Gumroad-pagina de kortingszin toevoegen (tekst 4).
+2. **Geschrapt (keuring 20 nov):** een Gumroad-mail aan gratis downloaders en een Workflow kunnen niet: Gumroad laat pas mailen na $100 omzet en een uitbetaling, wij staan op $0. De kortingsregel in de README van click-joints (tekst 4) doet de hoofdchat vr 27 nov.
 3. **Roep, vr 27 nov:** de TikTok "25% off" staat op rood (in beeld staat "print-ready"); v2 zonder die regel, en dezelfde knip als YouTube Short (tekst 3). CYBER25 staat nu in Gumroad, dat bezwaar is weg.
 4. **Dortus zelf, als het Discord-account op Dortus staat (hoofdchat):** één post in de Blender Community Discord, 27 nov, eerst de regels lezen (tekst 6). Staat het account op de naam van Thijs: dan is het punt 6 voor Thijs.
 5. **Thijs (ja op de tekst, zijn Reddit):** r/blender Pro-post vr 27 nov ±15:00 NL met flair Paid Product/Service Promotion (tekst 1). Grootste kans op geld.
@@ -24,7 +24,7 @@ Wie: (a) Dortus zelf zonder account van Thijs, (b) Thijs of zijn account (ja nod
 | # | Plek | Wat ze vragen | Deadline | Bereik | Zelfpromotie (bron) | Wie | Keus |
 |---|---|---|---|---|---|---|---|
 | 1 | r/blender, eigen post | flair verplicht bij betaald | geen; post vr 27 nov | 1.271.346 leden (DERDEN, Arctic Shift subreddits-API) | Regel "No Deception": "If you are promoting product/service that is not fully free, use the 'Non-free Product/Service' flair" (DERDEN, Arctic Shift rules-API, stand jan 2025). In de praktijk heet de flair nu "Paid Product/Service Promotion": 5 van de 100 posts sinds 15 okt (GEZIEN, Arctic Shift posts-API) | b | **ja** |
-| 2 | Gumroad-mail aan wie de gratis versie haalde, plus Workflow | niets; mail kan naar "customers" van een product, ook "not purchased" filter (DERDEN, https://gumroad.com/help/article/169-how-to-send-an-update) | vr 27 nov | aantal gratis downloads op Gumroad ziet alleen de hoofdchat (GOK 5 tot 40 op 27 nov) | eigen winkel "by Dortus" (GEZIEN) | a | **ja** |
+| 2 | Gumroad-mail aan wie de gratis versie haalde, plus Workflow | niets; mail kan naar "customers" van een product, ook "not purchased" filter (DERDEN, https://gumroad.com/help/article/169-how-to-send-an-update) | vr 27 nov | aantal gratis downloads op Gumroad ziet alleen de hoofdchat (GOK 5 tot 40 op 27 nov) | eigen winkel "by Dortus" (GEZIEN) | a | nee: Gumroad laat pas mailen na $100 omzet en een uitbetaling (DERDEN, https://gumroad.com/help/article/169-how-to-send-an-update); wij staan op $0 (GEZIEN, scorebord 20 nov) |
 | 3 | YouTube en TikTok van Dortus (Roep) | keuring Keurder van Roep | vr 27 nov 18:00 (wachtrij) | onbekend (GOK) | eigen kanaal, `marketing/REGELS.md` | a (Roep) | **ja** |
 | 4 | Gratis Gumroad-pagina en README click-joints | niets | nu (Gumroad), 27 nov (README) | klein (GOK) | eigen pagina's | a | **ja** |
 | 5 | BlenderNation, betaalde post | "Commercial promotions require a 'Commercial Blender User' membership on our Patreon ... a one-off post, we'll charge you EUR 25 per post" (GEZIEN, https://www.blendernation.com/submit-news/) | GOK: uiterlijk ma 23 nov insturen, ze keuren met de hand | grootste Blender-nieuwssite (GOK, geen cijfer gevonden) | betaald mag, met die € 25 | b (geld) | **ja, als Thijs betaalt** |
@@ -61,7 +61,7 @@ Prijs in de actie: Gumroad $19 wordt $14,25; Superhive $12 wordt $7,80 (35%). Ee
 | Rang | Plek | Verwacht | Reden |
 |---|---|---|---|
 | 1 | r/blender Pro-post (b) | 0 tot 4 verkopen | groot en precies Blender; betaalde posts halen daar weinig stemmen (archief toont 0 tot 2, ondergrens, GEZIEN), en het account van Thijs heeft weinig karma, dus filterrisico |
-| 2 | Gumroad-mail en Workflow (a) | 0 tot 3 | mensen die de gratis versie al hebben; warmste publiek dat we hebben, maar klein |
+| 2 | ~~Gumroad-mail en Workflow (a)~~ geschrapt | 0 | kan niet vóór $100 omzet en een uitbetaling (keuring 20 nov) |
 | 3 | YouTube Short en TikTok (a, Roep) | 0 tot 3 | gratis en op ons eigen kanaal; hangt af van de views |
 | 4 | Gratis Gumroad-pagina en README (a) | 0 tot 2 | wie daar komt zoekt al Click Joints; kost 5 minuten |
 | 5 | BlenderNation betaald (b, € 25) | 0 tot 4 | groot Blender-publiek, maar kost geld; terug bij 2 tot 3 verkopen |
@@ -115,7 +115,7 @@ Free version with ball and pin joints: https://extensions.blender.org/add-ons/cl
 There's also a paid version, Click Joints Pro. It reads a rigged figure and puts a hinge with an end stop at every elbow and knee and a ball joint at shoulders, hips and neck: https://dortus.com/click-joints/?van=rb2 . It's 25% off until December 1. The free version stays free.
 ```
 
-### 2a. Gumroad-mail aan wie de gratis versie haalde
+### 2a. Gumroad-mail aan wie de gratis versie haalde (GESCHRAPT: kan pas na $100 omzet en een uitbetaling, keuring 20 nov)
 - **Wie, wanneer:** hoofdchat, Gumroad > Emails, vr 27 nov ±09:00 NL. Publiek: customers van `Click Joints (free) for Blender`, filter "not purchased" Click Joints Pro. Kanaal: e-mail. Eén keer, geen herinnering.
 - **Knop:** tekst `Get Click Joints Pro`, adres `https://dortus.com/click-joints/?van=gm`.
 
@@ -142,7 +142,7 @@ If ball joints are all you need, the free version stays free and you don't need 
 Dortus
 ```
 
-### 2b. Gumroad Workflow (automatisch, voor nieuwe gratis downloads)
+### 2b. Gumroad Workflow (GESCHRAPT: zelfde reden)
 - **Wie, wanneer:** hoofdchat, nu. Gumroad > Workflows, trigger: aankoop van `Click Joints (free) for Blender`, mail 2 dagen erna. Na 1 dec de zin over de korting weghalen.
 
 **Onderwerp**
@@ -163,7 +163,7 @@ Dortus
 ```
 
 ### 3. YouTube Short en TikTok (voor Roep; de hoofdchat geeft dit door)
-- De TikTok van 27 nov (`marketing/wachtrij/2026-11-27-tiktok-pro-cyber25.md`) staat op rood om "print-ready" in beeld. Roep maakt v2 zonder die regel. Dezelfde v2 kan als YouTube Short (doel dortus.com/yt). Tekst hieronder is een voorstel; de Keurder van Roep beslist.
+- De TikTok van 27 nov (`marketing/wachtrij/2026-11-27-tiktok-pro-cyber25.md`) staat op rood om "print-ready" in beeld. Roep maakt v2 zonder die regel. Dezelfde v2 kan als YouTube Short (doel dortus.com/yt). Tekst hieronder is een voorstel. De Keurder van Roep keurt; een Short en een korting zijn altijd oranje, dus daarna beslist de hoofdchat-ronde, en de Short gaat alleen uit de reserve (marketing/REGELS.md).
 
 **YouTube Short, titel**
 ```
@@ -171,7 +171,7 @@ Click Joints Pro is 25% off this week #blender #3dprinting
 ```
 **YouTube Short, beschrijving**
 ```
-A hinge with an end stop for knees and elbows, red where the parts hit past the stop. Click Joints Pro 1.1 also reads a rigged figure and puts hinges and ball joints at every joint in one go. 25% off from Nov 27 to Dec 1. Not print tested by us yet. https://dortus.com/yt
+A hinge with an end stop for knees and elbows, red where the parts hit past the stop. Click Joints Pro 1.1 also reads a rigged figure and puts a hinge at every elbow and knee and a ball joint at shoulders, hips and neck in one go. 25% off from Nov 27 to Dec 1. Not print tested by us yet. https://dortus.com/yt
 ```
 **TikTok-tekst v2** (zelfde als nu, alleen gelijk getrokken op 1.1)
 ```
@@ -179,7 +179,7 @@ A hinge with an end stop that turns red when you bend past it. Click Joints Pro 
 ```
 
 ### 4. Gratis Gumroad-pagina en README
-**Gratis Gumroad-pagina** (hoofdchat, nu): vervang de alinea "Want knees and elbows? ... https://duinhouwer8.gumroad.com/l/click-joints-pro" door:
+**Gratis Gumroad-pagina** (hoofdchat, vr 27 nov): vervang de alinea "Want a whole figure that moves? ... https://duinhouwer8.gumroad.com/l/click-joints-pro" door:
 ```
 Want a whole figure that moves? Click Joints Pro reads your rig and puts a hinge with an end stop at every elbow and knee and a ball joint at shoulders, hips and neck. 25% off from November 27 to December 1: https://dortus.com/click-joints/?van=gf
 ```
@@ -282,3 +282,7 @@ Per code `?van=` op dortus.com/click-joints/ (Umami; of Umami de code apart toon
 
 ## Keuring
 Nog niet gekeurd. Deze run had geen gereedschap om een aparte keurder (Agent) te starten, en `keurder.yml` keurt alleen `producten/`. De hoofdchat zet een keurder in met de skill `keuren` (opdracht: deel A tegen deze opdracht en `gumroad-1.1.md`, deel B tegen CLAUDE.md en `organisatie/regels/thijs.md`; met de zin "Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil."), uitkomst in `plekken-boost-KEURING.md`. Tot die keuring geen tekst hieruit gebruiken.
+
+
+## Verwerkt na de keuring (hoofdchat, 20 nov ±15:45 NL)
+Alle vier moet-punten van `plekken-boost-KEURING.md` letterlijk overgenomen: 2a en 2b geschrapt (Gumroad mailt pas na $100 omzet en een uitbetaling), Short-zin "a hinge at every elbow and knee and a ball joint at shoulders, hips and neck", de Short en de korting zijn oranje (hoofdchat-ronde beslist, Short uit de reserve), Kort 1 en tekst 4 verwijzen naar de huidige alinea. Teksten 1, 5, 6, 7 en 8 waren al akkoord.
