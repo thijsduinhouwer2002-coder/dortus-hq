@@ -7,9 +7,9 @@
 2. **(Klein, mag wachten) Reddit-label van de r/blender-post** op "Free Tools & Assets" zetten (1 min). Reddit kan de hoofdchat niet openen.
 3. **Za 21 nov: speeltest Hats of the Fallen** (build van vr 20 nov; Olaf zet hem klaar).
 4. **Vóór ma 23 nov: samen met de hoofdchat `devvit login` met u/DortusGames (±5 min).** Reddit is geblokkeerd voor Claude, dus Thijs doet de klikken op reddit.com; de hoofdchat regelt de rest.
-5. **Jouw ja op de mail aan CG Channel** voor hun Black Friday-lijst (tekst in `commercie/blender-click-joints/black-friday.md`; Chris zet de Superhive-link en de prijs $19 / $14.25 erin, Daan keurt). Gaat van jouw adres, dus alleen met jouw ja.
+5. (leeg)
 
-Afgehandeld (niets te doen): Click Joints Pro 1.1.0 staat op Gumroad en Superhive, gratis versie live op Gumroad (20 nov 06:15 tot 07:00, Thijs koos de zip); Superhive heeft Click Joints Pro goedgekeurd (Published, gezien 19 nov 22:35); Roep-taken aangemaakt door Thijs 19 nov 15:37; Steam-app aanmaken wacht op Valve (Steamworks weigert tot bank, belasting en ID goedgekeurd zijn); Laughs & Smiles ingestuurd 18 nov, uitslag uiterlijk 27 nov per mail aan thijs@dortus.com.
+Afgehandeld (niets te doen): mail aan CG Channel verstuurd door de hoofdchat op verzoek van Thijs (20 nov 09:27); Click Joints Pro 1.1.0 staat op Gumroad en Superhive, gratis versie live op Gumroad (20 nov 06:15 tot 07:00, Thijs koos de zip); Superhive heeft Click Joints Pro goedgekeurd (Published, gezien 19 nov 22:35); Roep-taken aangemaakt door Thijs 19 nov 15:37; Steam-app aanmaken wacht op Valve (Steamworks weigert tot bank, belasting en ID goedgekeurd zijn); Laughs & Smiles ingestuurd 18 nov, uitslag uiterlijk 27 nov per mail aan thijs@dortus.com.
 
 ## Later (geen actie nu)
 - Als je tijd hebt, in de app: projectbeschrijving van "Dortus-HQ" bijwerken (voorstel van opruim-bouwer onderaan `berichten/hoofdchat.md`, 19 nov ±18:15) en de koppelingen die niet mogen weghalen bij de geplande taken. Niet dringend: CLAUDE.md gaat voor.
