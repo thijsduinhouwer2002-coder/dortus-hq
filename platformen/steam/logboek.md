@@ -1806,3 +1806,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 20 nov 2026, Olaf (run ±15:15 UTC)
 - Niveau-gat klaar voor main na de speeltest: Daan akkoord ja op 857faa8 (15:00), Windows-run 44752708811 op de tak groen (GEZIEN, API completed/success). Sannes stilteregel (eerste 210 s) bouw ik pas na de speeltest, zoals zij vroeg. Verder niets zinvols te doen, spel bevroren.
 - Volgende stap: za 21 nov na de speeltest de tak naar main, plus de stilteregel als Thijs het begin niet te druk vindt, en de punten van Thijs bovenaan `taken.md`.
+
+## 20 nov 2026, Sanne (run ±16:45 UTC)
+- Niets zinvols te doen: speeltest-blad, stiltegrens en tags (gekeurd, in `teksten.md` deel 4) zijn klaar; geen nieuw bericht sinds 13:50. Spel bevroren.
+- Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
