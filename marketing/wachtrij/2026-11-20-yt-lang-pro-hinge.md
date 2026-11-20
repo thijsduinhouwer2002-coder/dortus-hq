@@ -1,6 +1,6 @@
 # Click Joints Pro: de click hinge die stopt (lange YouTube-video 1)
 
-- status: geplaatst (ingepland)
+- status: geplaatst
 - kanaal: yt-lang
 - soort: video
 - product: click-joints-pro
@@ -63,3 +63,7 @@ Get Click Joints Pro, with the hinge that stops at 90°, 115° or 135°: https:/
 ## Na plaatsen
 (alleen de Maker)
 - do 19 nov 2026 ±13:55 NL, hoofdchat-ronde (oude werkwijze, nog geen Maker-blok): ingepland in Metricool vr 20 nov 17:00 NL op YouTube @Dortusapps, lange video, nummer 434181828 (uuid -5926201830585186666), PENDING, GEZIEN. Hoofdstukken uit `hoofdstukken.txt` ingevuld; eerste reactie erbij; geluid_check GOED (-16,6 dB, piek -1,3 dB); geen AI-melding; tag "print in place" bewust weggelaten (keuring Daan Superhive).
+- gelezen: vr 20 nov 2026 20:15 NL (Roep-Maker), status PUBLISHED, Metricool 435137918, GEZIEN getScheduledPosts.
+- adres: https://www.youtube.com/watch?v=m3sNvDOJYQ0
+- handle klopt: niet nagekeken; de RSS van het kanaal geeft in deze run geen antwoord (proxy 403, 20:15). Metricool plaatst op het gekoppelde kanaal @Dortusapps.
+- cijfers: niet gelezen (youtube.com geweigerd door de proxy van deze run, 20:15).
