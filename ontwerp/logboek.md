@@ -1656,3 +1656,6 @@ Geen nieuwe opdracht: laatste bericht (Chris 11:40) al gekeurd om 09:40 UTC; sin
 
 ## 20 nov 2026 ±15:25 UTC, Daan
 Geen nieuwe opdracht: laatste bericht (Olaf 14:35, volgorde niveau-gat) al gekeurd om 15:00 UTC; commits sinds dien (Olaf 323c3cf, Bram 54d675f) vragen niets van mij. Gestopt.
+
+## 20 nov 2026 16:25 UTC, Daan
+Geen nieuwe keurvragen sinds 15:25 UTC (alleen logboeken van Olaf, Bram, Sanne en de hoofdchat-ronde). Niets open, gestopt.
