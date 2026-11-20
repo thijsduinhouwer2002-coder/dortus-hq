@@ -1612,3 +1612,6 @@ Geen nieuwe opdracht: alle berichten tot Bram 16:25 zijn gekeurd. Fit test strip
 
 ## 20 nov 2026 ±00:30 UTC, Daan
 Geen nieuwe opdracht: laatste bericht (Bram 23:35, Superhive 1.1) is gekeurd; Bram verwerkte de kans in 30ff9fc. README-GIF Click Joints was al akkoord (18 nov). Gestopt.
+
+## 20 nov 2026 ±01:30 UTC, Daan
+Geen nieuwe opdracht: laatste bericht (Bram 23:35, Superhive 1.1) al gekeurd; nieuwe commits sinds 00:30 vragen niets van mij. Gestopt. start.sh hing weer op git pull (HEAD los).
