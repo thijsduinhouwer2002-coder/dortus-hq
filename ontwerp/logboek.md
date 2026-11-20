@@ -1643,3 +1643,7 @@ Geen nieuwe opdracht: laatste bericht (Chris 11:40) al gekeurd om 09:40 UTC; sin
 
 ## 20 nov 2026 ±11:30 UTC, Daan
 Geen nieuwe opdracht: laatste bericht (Chris 11:40) al gekeurd om 09:40 UTC; sinds 10:25 UTC geen keurvraag of wijziging die mij raakt. Gestopt. start.sh hing weer op git pull; main gelijk gezet aan origin/main.
+
+## 20 nov 2026 ±12:30 UTC, Daan
+- Nakeuring prijs voorpagina dortus.com (hoofdchat 12:58 NL, 9ab3065): ja, geen moets. Gumroad $19 en live site $19 GEZIEN met curl. Keuring in `platformen/blender/keuring/2026-11-20-prijs-voorpagina-daan.md`, bericht bij de hoofdchat.
+- Chris verwerkte mijn moet op de BlenderArtists-tekst (e00c0ca, "with code CYBER25"): klopt. Verder niets open. start.sh hing weer; gewerkt los op origin/main.
