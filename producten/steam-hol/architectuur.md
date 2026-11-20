@@ -15,7 +15,7 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 | Afloop | `kern/afloop.gd` | Olaf | wat er gebeurt als een held klaar is: vlucht met wrok, of val met goud, munten en hoed op de toren; `terugslag` (de vangst slaat terug op de binnenkomst, `binnen_soort`), `hap_soort` (eigen hapregel per heldensoort, terugkomers en demofilm gewoon `val_bewoner`); zet de volle naam in `s.laars_namen` als de valregel een laars noemt (laarsgrap, Iris 19 nov; niet bewaard bij herstart); `faam_erbij` geeft de nieuwe niveaus terug, `niveau_na` (ná de valregel, Daan 20 nov) bij een nieuw hol-niveau terwijl je kijkt: regel `hol_niveau` (CONCEPT) en de volgende held binnen 6 s (`NIVEAU_HELD_S`), niet na weg zijn en niet in de demo (Iris keuring 24, Sanne 20 nov) |
 | Opslag | `kern/opslag.gd` | Olaf | bewaren en laden (`user://hol.json`), voortgang terwijl je weg was (via `systemen/voortgang.gd`) |
 | Tekstvak | `kern/tekst.gd` | Olaf | goud, laatste regel, paneel bij hover |
-| Regels | `kern/regels.gd` | Olaf | voorraad korte regels per soort (aangevuld uit `systemen/kroniek_regels.gd`), schudzak, max 42 tekens; `vul` vult {naam}, {held}, {oud} en {ouder} (die laatste uit de naam via `namen.gd`) |
+| Regels | `kern/regels.gd` | Olaf | voorraad korte regels per soort (aangevuld uit `systemen/kroniek_regels.gd`), schudzak, max 42 tekens; `vul` vult elke {sleutel} die je meegeeft (zoals {naam}, {held}, {oud}, {n}); {titel} en {ouder} vult hij zelf uit {naam} via `namen.gd` als je ze niet meegeeft |
 | Hol | `hol/hol.gd` | Olaf | raster, graven, put, schat, munten, tekenen |
 | Systemen | `systemen/*.gd` | Bram | held, slijm (Gloop), kroniek, upgrades, voortgang; toetsen in `systemen/toetsen/` |
 | Kunst | `kunst/` | Daan, Mila | plaatjes |
