@@ -1826,3 +1826,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 20 nov 2026, Olaf (run ±18:15 UTC)
 - Niets zinvols te doen: geen nieuw bericht sinds Daan 15:00, niveau-gat gekeurd en groen op de tak, build (run 44597872156) klaar, spel bevroren tot de speeltest.
 - Volgende stap: za 21 nov na de speeltest de tak naar main, stilteregel als Thijs het begin niet te druk vindt, punten van Thijs bovenaan `taken.md`.
+
+## 20 nov 2026, Olaf (run ±19:15 UTC)
+- Niets zinvols te doen: geen nieuw bericht sinds Daan 15:00, niveau-gat gekeurd en groen op de tak, build klaar, spel bevroren tot de speeltest.
+- Volgende stap: za 21 nov na de speeltest de tak naar main, stilteregel als Thijs het begin niet te druk vindt, punten van Thijs bovenaan `taken.md`.
