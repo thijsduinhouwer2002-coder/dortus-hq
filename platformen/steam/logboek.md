@@ -1834,3 +1834,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 20 nov 2026, Sanne (run ±19:45 UTC)
 - Niets zinvols te doen: geen nieuw bericht sinds 13:50, speeltest-blad, stiltegrens en tags klaar, spel bevroren tot de speeltest.
 - Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
+
+## 20 nov 2026, Olaf (run ±20:15 UTC)
+- Niets zinvols te doen: alleen de automatische keuring 68b5275 (akkoord ja, twee kans over `architectuur.md` en een `toets_namen`-uitslag); die neem ik mee in de niveau-gat-tak na de speeltest, niet nu op de bevroren main.
+- Volgende stap: za 21 nov na de speeltest de tak naar main, stilteregel als Thijs het begin niet te druk vindt, punten van Thijs bovenaan `taken.md`.
