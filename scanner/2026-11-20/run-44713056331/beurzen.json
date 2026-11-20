@@ -1,0 +1,116 @@
+{
+ "t": "2026-11-20T10:13:34Z",
+ "beurzen": {
+  "kraken": {
+   "paren": 1209,
+   "wallet_munten": 864,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.008
+  },
+  "bitvavo": {
+   "paren": 435,
+   "wallet_munten": 484,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.0025
+  },
+  "coinbase": {
+   "paren": 460,
+   "wallet_munten": 95,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.012
+  },
+  "bitstamp": {
+   "paren": 237,
+   "wallet_munten": 169,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.004
+  },
+  "okx": {
+   "paren": 1078,
+   "wallet_munten": 0,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.001
+  },
+  "kucoin": {
+   "paren": 874,
+   "wallet_munten": 2287,
+   "taker_uit_api": 874,
+   "taker_standaard": 0.001
+  },
+  "gate": {
+   "paren": 2080,
+   "wallet_munten": 5730,
+   "taker_uit_api": 2080,
+   "taker_standaard": 0.002
+  },
+  "mexc": {
+   "paren": 1548,
+   "wallet_munten": 0,
+   "taker_uit_api": 1548,
+   "taker_standaard": 0.0005
+  },
+  "bybit": {
+   "paren": 0,
+   "wallet_munten": 0,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.001
+  },
+  "bitget": {
+   "paren": 3635,
+   "wallet_munten": 5661,
+   "taker_uit_api": 3635,
+   "taker_standaard": 0.001
+  },
+  "htx": {
+   "paren": 602,
+   "wallet_munten": 1769,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.002
+  },
+  "cryptocom": {
+   "paren": 524,
+   "wallet_munten": 0,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.005
+  },
+  "poloniex": {
+   "paren": 826,
+   "wallet_munten": 1069,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.002
+  },
+  "xt": {
+   "paren": 943,
+   "wallet_munten": 1061,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.002
+  },
+  "bingx": {
+   "paren": 635,
+   "wallet_munten": 0,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.001
+  },
+  "bitfinex": {
+   "paren": 150,
+   "wallet_munten": 0,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.0
+  },
+  "binance": {
+   "paren": 0,
+   "wallet_munten": 0,
+   "taker_uit_api": 0,
+   "taker_standaard": 0.001
+  }
+ },
+ "fouten": {
+  "bybit:paren": 2,
+  "binance:paren": 2,
+  "poloniex:boek": 69,
+  "mexc:boek": 105,
+  "htx:boek": 9,
+  "gate:boek": 25,
+  "xt:boek": 16
+ }
+}
