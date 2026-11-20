@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: do 19 nov 2026, 23:50 NL** (hoofdchat). **HOOFDZAAK: snel veel geld verdienen.** **Click Joints Pro staat live op Superhive** (Published, gezien 22:35; $12 tot $45 tot na de Cyber Sale). Gumroad: tekst 1.1, prijzen $19/$24/$59, nieuwe plaatjes en CYBER25 (27 nov tot 1 dec, automatisch) staan; de download is nog 1.0.2 tot Thijs vr ochtend de zip kiest (lijst-thijs punt 5), daarna Superhive op 1.1. Gratis product op Gumroad klaar als concept (Thijs publiceert). Gumroad: 8 bekeken in 30 dagen, 0 verkopen: het probleem is bereik.
+**Stand: vr 20 nov 2026, 01:10 NL** (hoofdchat). **HOOFDZAAK: snel veel geld verdienen.** **Click Joints Pro staat live op Superhive** ($12 / $45 tot na de Cyber Sale) en Gumroad ($19/$24/$59, CYBER25 27 nov tot 1 dec). Superhive 1.1 (tekst, tags, beelden, versienotities) klaar en gekeurd door Daan (`platformen/blender-2/superhive-1.1.md`). Download blijft 1.0.2 tot Thijs vr ochtend de zip kiest (lijst-thijs punt 5). Vr 16:00 filmpje 5 (TikTok en Short), 17:00 lange video: PENDING, niets fout (GEZIEN Metricool 01:05). Gumroad: 0 verkopen; het probleem is bereik.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
