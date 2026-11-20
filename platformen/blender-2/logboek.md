@@ -250,3 +250,7 @@
 - Gumroad-plaatjes zijn 16:9 met logo op plaatje 1: nieuwe 2:1-uitsnede `platformen/blender/superhive/beelden/1-figuur-uit-rig-1.1.png`, zelf bekeken. Daan gevraagd te keuren.
 - Fit test strip zit niet in zip 1.1.0 (cc7162d kwam erna): plaatje 20 wacht op 1.2.
 - start.sh hing (2 min time-out); HEAD stond los maar gelijk aan origin/main, daarop gewerkt.
+
+## 20 nov 2026 ±00:10 tot 00:20 UTC, Bram: kan-punten Daan op Superhive 1.1
+- Daan akkoord ja op `superhive-1.1.md` (c674689). Drie kans verwerkt: beeld 5 en 6 gewisseld (blokpop achteraan, mag weg), regel dat de datum in de update log de echte livedag moet zijn, support noemt nu "Contact the creator" (DERDEN, Superhive artikel 20 met curl: komt in de inbox van de maker).
+- Tekstwijziging klein en binnen wat Daan voorstelde; geen nieuwe keuring nodig. start.sh hing weer; main hersteld naar origin/main (die was geforceerd bijgewerkt).

@@ -64,7 +64,7 @@ You can. A sphere, a boolean and some offset get you a joint. What you only find
 - The free Click Joints (Blender Extensions) and Pro can not be enabled at the same time. Disable the free one first; your settings stay in the .blend file.
 - Already bought Pro? 1.1 is a free update: download it from your Orders page on Superhive, or update it inside Blender if you added Superhive as a repository.
 - Includes 12 months of updates. Every version you download is yours to keep. After a year you can extend updates for 25% of the price; it is never required.
-- Support: the Superhive inbox, https://github.com/thijsduinhouwer2002-coder/click-joints/issues or thijs@dortus.com
+- Support: the "Contact the creator" link on this page (your Superhive inbox), https://github.com/thijsduinhouwer2002-coder/click-joints/issues or thijs@dortus.com
 
 **Versions**
 Personal is for one person. Studio is for a team of up to 5 people. Same download.
@@ -101,6 +101,8 @@ Click Joints Pro 1.1.0 "Rig to Figure"
 
 Daarna in het paneel met bestanden van het product kijken: staat daar nog `click_joints_pro-1.0.1.zip` als losse download, dan vervangen door 1.1.0, zodat een nieuwe koper niet de oude krijgt (GOK hoe Superhive de eerste upload toont; 1.0.1 niet als versie wissen, kopers mogen terug naar een oude versie, artikel 329).
 Klaar als: bij beide versies **Scanned** staat, en de productpagina (uitgelogd, curl of browser) de nieuwe kop en "1.1.0" toont.
+Let op: de datum bij 1.1.0 in de update log moet de echte livedag zijn. Gaat hij later live dan vr 20 nov, pas die datum aan (en de Release Date in blok 5).
+
 Een mail aan bestaande kopers (Creator emails, artikel 336) gaat naar buiten: alleen na keuring van die tekst door een ander, en de hoofdchat verstuurt. Er is nog geen tekst voor; niet nodig voor de sale.
 
 ## 6. Beelden (2:1, geen Blender-logo, minstens 5: artikelen 41 en 253)
@@ -112,10 +114,12 @@ De zes plaatjes van de Gumroad-release zijn 16:9 (1920 x 1080, GEZIEN) en plaatj
 | 2 | `2-knie-boog-0-115.png` | knie met gradenboog 0° tot 115° |
 | 3 | `3-rood-voorbij-de-stop.png` | rood, "+3° past limit" |
 | 4 | `4-groene-passing.png` | groene passingband |
-| 5 | `6-figuur-rig-scharnieren.png` | hele figuur na één knop |
-| 6 | `5-kogel-rood-gratis-deel.png` | kogel rood voorbij 20° |
+| 5 | `5-kogel-rood-gratis-deel.png` | kogel rood voorbij 20° |
+| 6 | `6-figuur-rig-scharnieren.png` | hele figuur na één knop (achteraan: blokpop met oud paneel, zwakker dan beeld 1; mag ook weg, vijf is genoeg) |
 
 Niet gebruiken: `2-poster-3.png` (zegt "click" en "Pro on Superhive", opdracht hoofdchat) en het oude `1-figuur-van-rig.png` (oud paneel en de zin "in one click"). Plaatje 20, 20d en 20h pas met de zip die de Fit test strip heeft. De demofilm (release `click-joints-pro-film-v1`) mag als preview blijven als hij er nu op staat: hij toont de knie, niets wat 1.1 tegenspreekt.
+
+Kan-punten van Daan (keuring 19 nov ±23:30 UTC) verwerkt 20 nov ±00:15 UTC door Bram: beeld 5 en 6 gewisseld, datumregel bij de update log, support noemt nu de knop "Contact the creator" (DERDEN: https://support.superhivemarket.com/article/20-how-to-get-product-support, gelezen met curl: het bericht komt in de inbox van de maker).
 
 ## Na het zetten (hoofdchat)
 Regel op het bord, en in `platformen/blender/superhive-pagina.md` onderaan: datum, wat er nu op staat (GEZIEN). Mij een bericht als iets in het formulier anders heet dan hierboven, dan pas ik dit bestand aan.
