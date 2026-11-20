@@ -1,5 +1,7 @@
 # Echte print voor Click Joints Pro (20 nov 2026, agent print-onderzoek, opdracht hoofdchat ±14:45 NL)
 
+**Besluit Thijs 20 nov ±15:05: nee op de testprint (nu niet).** Dit stuk blijft staan voor als het later terugkomt. Let op bij een nieuw voorstel: support laten weghalen door de dienst kost €4,84 met btw extra, totaal dan ±€16,76 (nakeuring 20 nov); in het lijf staat nog de oude schatting ±€15.
+
 ## Voorstel voor Thijs (geld: alleen na zijn ja)
 1. **Laat de 4 testdelen (scharnier 115° en kogel, 1 bestand `testprint/testset-4-delen.stl`, 26 cm³) in PLA printen bij Elektronica Voor Jou** (Nederlandse winkel, Bambu Lab, STL uploaden en direct prijs zien). **Totaal ±€12: print €7,93 met btw plus brievenbus vanaf €3,99.** De printprijs is GEZIEN door de keurder in hun eigen rekenhulp (anoniem, geen account, geen bestelling): 14,11 g, 71 minuten, €6,55 zonder btw, met support aan. Na het omdraaien van twee delen kan dat iets anders uitvallen (GOK: een paar cent). Kies bij bestellen expliciet PLA (de dienst raadt nylon aan voor scharnieren). Support blijft nodig onder de bol van kogel-deel A; de andere drie delen liggen plat op het bed.
 2. **Binnen:** zij versturen binnen 3 werkdagen (GEZIEN). Besteld vóór ma 23 nov: binnen do 26 of vr 27 nov (GOK).
@@ -53,8 +55,8 @@ Bron: https://elektronicavoorjou.nl/3d-print-service/ en https://elektronicavoor
 ## B. Welk testobject, welke bestanden
 
 **Sturen: `commercie/blender-click-joints/testprint/testset-4-delen.stl`** (nieuw, vandaag samengevoegd uit de vier bestaande delen, niets aan de vorm veranderd).
-- Inhoud: `scharnier-115-deel-A` en `-B` (staaf 14 mm dik, scharnier met eindstop 115°) en `kogel-deel-A` en `-B` (staaf 20 mm dik, kogelgewricht), naast elkaar met 10 mm ruimte, plat op z = 0.
-- Maat: **98 x 20 x 44,5 mm, 26,05 cm³, 14.368 driehoeken, 702 kB** (GEZIEN, eigen meting; de vier losse bestanden samen ook 26,05 cm³).
+- Inhoud: `scharnier-115-deel-A` en `-B` (staaf 14 mm dik, scharnier met eindstop 115°) en `kogel-deel-A` en `-B` (staaf 20 mm dik, kogelgewricht), naast elkaar met 5 mm ruimte, plat op z = 0.
+- Maat: **83 x 20 x 44,5 mm, 26,05 cm³, 14.368 driehoeken, 702 kB** (GEZIEN, eigen meting; de vier losse bestanden samen ook 26,05 cm³).
 - Gemaakt met de echte Pro-code 1.0.2 in bpy 5.3.0, speling 0,2 mm (`testprint/LEESMIJ.md`, `testprint/maak.py`). Of de gewrichtsvorm in 1.1.0 anders is, weet ik niet (GOK: nee, 1.1 voegde vooral "Figure from rig" toe). Bram kan dat in één regel bevestigen; zo niet, `maak.py` opnieuw draaien met de 1.1-zip.
 - Vraag bij de bestelling: PLA, 0,2 mm laag, delen los printen; daarna zelf in elkaar klikken.
 
