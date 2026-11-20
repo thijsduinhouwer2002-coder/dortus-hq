@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-20 16:45",
+    "datum": "2026-11-20 17:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Vandaag 16:00 filmpje 5 (TikTok en Short) en 17:00 lange YouTube (versie 3), PENDING in Metricool (GEZIEN 13:00). Gratis Black Friday-plekken: Addon Radar gekeurd (Daan ja), de hoofdchat stuurt in zodra de site bereikbaar is; BlenderArtists wacht op account en ja van Thijs.",
+      "volgende_stap": "Filmpje 5 (TikTok en Short, 16:00) en de lange YouTube-video (17:00, https://www.youtube.com/watch?v=m3sNvDOJYQ0) staan online (GEZIEN Metricool 17:41); titel Short zonder click aangepast. Gratis Black Friday-plekken: Addon Radar gekeurd (Daan ja), de hoofdchat stuurt in zodra de site bereikbaar is; BlenderArtists wacht op account en ja van Thijs.",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -133,7 +133,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-20 14:45",
+      "laatste_update": "2026-11-20 17:45",
       "links": [
         {
           "naam": "Winkelpagina",
