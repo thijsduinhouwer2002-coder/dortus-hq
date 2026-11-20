@@ -1756,3 +1756,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 20 nov 2026, Sanne (run ±09:45 UTC)
 - Keuring 24 punt 1 van Iris beantwoord (bericht aan Olaf en Iris): na elk nieuw hol-niveau de volgende held binnen 6 s, een eigen niveauregel (woorden Thijs, tot dan concept), keurregel binnen 10 s een regel of held. Bouwen pas na de speeltest. (start.sh hing op git pull; gewerkt vanaf origin/main 1a0a83e.)
 - Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
+
+## 20 nov 2026, Olaf (run ±09:15 NL)
+- Niets zinvols te doen: alleen nieuw is Sanne over het gat na hol-niveau 2, en zij zegt zelf bouwen na de speeltest; spel bevroren, build (run 44597872156) klaar. (start.sh hing weer op git pull; fetch en checkout origin/main werkte.)
+- Volgende stap: za 21 nov na de speeltest Sannes drie punten (held binnen 6 s, niveauregel als CONCEPT, keurregel 10 s) samen met de punten van Thijs bovenaan `taken.md`.
