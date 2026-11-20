@@ -220,21 +220,26 @@ func _init() -> void:
 	var AFN = load("res://kern/afloop.gd")
 	var nn := NepNiveau.new()
 	nn.faam = 2
-	AFN.faam_erbij(nn, 1, true)   # faam 3 = hol-niveau 2
+	var niv_nn: Array = AFN.faam_erbij(nn, 1, true)   # faam 3 = hol-niveau 2
+	ok(nn.kroniek.is_empty() and niv_nn == [2], "niveau live: faam_erbij zegt zelf nog niets, geeft het niveau terug (%s)" % str(niv_nn))
+	nn._kroniek("Joost came back. The Spike Pit won. +9", false, "val")   # valregel eerst, zoals held_klaar
+	AFN.niveau_na(nn, niv_nn)
+	ok(nn.kroniek.size() == 2 and nn.kroniek[0][0] == "val" and nn.kroniek[1][0] == "hol_niveau", "niveau live: niveauregel na de valregel (%s)" % str(nn.kroniek))
+	nn.kroniek = nn.kroniek.slice(1)
 	ok(nn.kroniek.size() == 1 and nn.kroniek[0][0] == "hol_niveau" and String(nn.kroniek[0][1]).contains("2"), "niveau live: eigen regel met nummer (%s)" % str(nn.kroniek))
 	ok(absf(nn.volgende_held - 106.0) < 0.01, "niveau live: volgende held naar voren tot t+6 (%.1f)" % nn.volgende_held)
 	nn.volgende_held = 103.0
 	nn.faam = 4
-	AFN.faam_erbij(nn, 1, true)   # faam 5 = hol-niveau 3
+	AFN.niveau_na(nn, AFN.faam_erbij(nn, 1, true))   # faam 5 = hol-niveau 3
 	ok(absf(nn.volgende_held - 103.0) < 0.01, "niveau live: held die al eerder komt blijft (%.1f)" % nn.volgende_held)
 	var nw := NepNiveau.new()
 	nw.faam = 2
-	AFN.faam_erbij(nw, 1)   # zoals na weg zijn
+	AFN.niveau_na(nw, AFN.faam_erbij(nw, 1))   # zoals na weg zijn
 	ok(nw.kroniek.is_empty() and nw.volgende_held == 130.0, "niveau na weg: geen extra regel of held (weg_regel zegt het al)")
 	var nd := NepNiveau.new()
 	nd.demo = true
 	nd.faam = 2
-	AFN.faam_erbij(nd, 1, true)
+	AFN.niveau_na(nd, AFN.faam_erbij(nd, 1, true))
 	ok(nd.kroniek.is_empty() and nd.volgende_held == 130.0, "niveau in de demo: niets extra")
 	var lang_n: Array = []
 	for n in range(2, 13):

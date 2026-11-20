@@ -1,0 +1,102 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=640x40 venster=(1920, 120) pos=(320, 480) held=res://systemen/held.gd
+HOL zaad 4242
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 4.1 (wacht 0.0): Wout read about you in a tavern.
+HOL begin: vallen (Wout)
+HOL held binnen: Wout
+HOL zicht 4.2 1
+HOL kroniek 9.8 (wacht 0.0): Fenna climbs into your hole.
+HOL begin: opgegeten (Fenna)
+HOL held binnen: Fenna
+HOL meting t=10 beelden=62 helden=2 hol_vast=1
+HOL kroniek zelfde held vervangen: Wout read about you in a tavern.
+HOL kroniek 12.8 (wacht 0.0): Wout took the short way down. +6
+HOL kroniek 15.4 (wacht 2.6): Page for the Hero. The pit won.
+HOL meting t=20 beelden=128 helden=1 hol_vast=3
+HOL kroniek 26.5 (wacht 0.0): Gloop ate Fenna. Kept the crown. +6
+HOL zicht 26.5 0
+HOL kroniek 29.1 (wacht 2.6): New stamp: Hero.
+HOL meting t=30 beelden=107 helden=0 hol_vast=4
+HOL begin: vluchten (Joost)
+HOL held binnen: Joost
+HOL zicht 30.5 1
+HOL kroniek 31.6 (wacht 1.2): Joost brought a torch. And hope.
+HOL meting t=40 beelden=98 helden=1 hol_vast=4
+HOL kroniek zelfde held vervangen: Joost brought a torch. And hope.
+HOL kroniek 44.2 (wacht 0.0): Joost ran. Swore revenge.
+HOL zicht 44.3 0
+HOL kroniek 46.7 (wacht 2.5): New stamp for the Hero. Got away.
+HOL meting t=50 beelden=48 helden=0 hol_vast=4
+HOL meting t=60 beelden=16 helden=0 hol_vast=4
+HOL kroniek zelfde held vervangen: Joost ran. Swore revenge.
+HOL kroniek 65.8 (wacht 0.0): Joost remembers the Spike Pit.
+HOL begin: terug (Joost)
+HOL held binnen: Joost
+HOL zicht 65.9 1
+HOL meting t=70 beelden=49 helden=1 hol_vast=4
+HOL hol-niveau 2 (faam 3, t 74.5)
+HOL kroniek zelfde held vervangen: Joost remembers the Spike Pit.
+HOL kroniek 74.5 (wacht 0.0): Joost came back. The Spike Pit won. +9
+HOL niveau-held voor t 80.5
+HOL zicht 74.5 0
+HOL bordje wip niveau 2
+HOL kroniek 77.1 (wacht 2.6): Your hole has a reputation now. Level 2.
+HOL meting t=80 beelden=98 helden=0 hol_vast=6
+HOL kroniek 80.6 (wacht 0.0): Bram is here for your gold.
+HOL begin: doorlopen (Bram)
+HOL held binnen: Bram
+HOL zicht 80.7 1
+HOL meting t=90 beelden=99 helden=1 hol_vast=6
+HOL kroniek 96.3 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek zelfde held vervangen: Bram is here for your gold.
+HOL kroniek 100.3 (wacht 0.0): Bram tried to lift it. Too heavy.
+HOL meting t=100 beelden=100 helden=1 hol_vast=6
+HOL meting t=110 beelden=101 helden=1 hol_vast=6
+HOL kroniek zelfde held vervangen: Bram tried to lift it. Too heavy.
+HOL kroniek 112.4 (wacht 0.0): Bram ran. Hands smell of gold.
+HOL zicht 112.5 0
+HOL kroniek zelfde held vervangen: Bram ran. Hands smell of gold.
+HOL kroniek 117.3 (wacht 0.0): Bram the Hoard-Toucher is back for Gloop.
+HOL held binnen: Bram
+HOL zicht 117.4 1
+HOL meting t=120 beelden=53 helden=1 hol_vast=6
+HOL kroniek zelfde held vervangen: Bram the Hoard-Toucher is back for Gloop.
+HOL kroniek 126.0 (wacht 0.0): Bram will not be leaving. +9
+HOL zicht 126.0 0
+HOL eerste koop mogelijk na 126 s speeltijd (goud 50)
+HOL kroniek 128.5 (wacht 2.3): Gloop is up again. Wobbly.
+HOL meting t=130 beelden=96 helden=0 hol_vast=8
+HOL meting t=140 beelden=10 helden=0 hol_vast=8
+HOL meting t=150 beelden=27 helden=0 hol_vast=8
+HOL kroniek 151.4 (wacht 0.0): Rik says this is a quick one.
+HOL held binnen: Rik
+HOL zicht 151.5 1
+HOL meting t=161 beelden=96 helden=1 hol_vast=8
+HOL kroniek 167.1 (wacht 0.0): Gloop is flat. Back soon.
+HOL meting t=171 beelden=101 helden=1 hol_vast=8
+HOL kroniek zelfde held vervangen: Rik says this is a quick one.
+HOL kroniek 177.2 (wacht 0.0): Rik escaped with a limp.
+HOL zicht 177.3 0
+HOL kroniek 181.1 (wacht 0.0): Teun has a map. It is wrong.
+HOL held binnen: Teun
+HOL zicht 181.2 1
+HOL meting t=181 beelden=63 helden=1 hol_vast=8
+HOL meting t=191 beelden=101 helden=1 hol_vast=8
+HOL kroniek 197.2 (wacht 0.0): Gloop is up again. Wobbly.
+HOL hol-niveau 3 (faam 5, t 198.2)
+HOL kroniek zelfde held vervangen: Teun has a map. It is wrong.
+HOL kroniek 198.2 (wacht 0.0): Teun went down in one gulp. +6
+HOL niveau-held voor t 204.2
+HOL zicht 198.3 0
+HOL bordje wip niveau 3
+HOL kroniek 200.8 (wacht 2.6): Your hole has a reputation now. Level 3.
+HOL meting t=201 beelden=113 helden=0 hol_vast=9
+HOL kroniek 204.3 (wacht 0.0): Odo knocks first. Polite.
+HOL held binnen: Odo
+HOL zicht 204.4 1
+HOL meting t=211 beelden=72 helden=1 hol_vast=9
+HOL kroniek zelfde held vervangen: Odo knocks first. Polite.
+HOL kroniek 218.1 (wacht 0.0): Odo fled, crying a little.
+HOL zicht 218.2 0
+HOL einde na 220 s, fps=10, goud=56, terugkomers=2

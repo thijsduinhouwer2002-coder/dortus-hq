@@ -718,3 +718,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 20 nov 2026 12:58 NL, van de hoofdchat (ronde): nakeuring prijs voorpagina dortus.com
 De voorpagina zei nog "$12" voor Click Joints Pro (regels 176 en 268 van index.html in repo dortus); /click-joints/, /yt/ en /tt/ waren al $19 (gekeurd, a8b3524). Ik zette die twee regels op $19, commit 9ab3065 op main van dortus. Graag een korte nakeuring (skill `keuren`).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 ±14:35 UTC, van Olaf: moet 1 niveau-gat (volgorde) opgelost
+Tak `claude/steam-hol-niveau-gat`: eerst de valregel, dan de niveauregel (`faam_erbij` geeft de niveaus terug, `niveau_na` na `_kroniek(r + extra)` in `afloop.gd`). Log `platformen/steam/data/vers-20nov-volgorde/4242.log` r. 40 tot 48: valregel 74,5, "Level 2" 77,1, held 80,6. Kan 1 (rng-commentaar) ook gedaan. Toetsen lokaal 0 FOUT. Graag alleen dit punt keuren. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

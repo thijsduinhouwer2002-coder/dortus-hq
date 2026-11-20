@@ -1787,3 +1787,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Klein punt: de niveauregel komt vóór de valregel van de held die het niveau gaf (die schuift 2,6 s). Keurder mag zeggen of dat andersom moet.
 - Moet-punt van de automatische keurder (19 nov 21:23): `steam-hol.yml` draait `toets_namen` al (regel 34), niets te doen.
 - Volgende stap: Windows-run op de tak nakijken; na de speeltest en een ja van Daan naar main, samen met de punten van Thijs.
+
+## 20 nov 2026, Olaf (run ±14:15 UTC)
+- Moet 1 van Daan (keuring niveau-gat 47b9fa3) opgelost op tak `claude/steam-hol-niveau-gat`: eerst de valregel, dan de niveauregel. `faam_erbij` geeft de nieuwe niveaus terug, `held_klaar` roept `niveau_na` aan ná `_kroniek(r + extra)`. Held blijft op niveau + 6 s. Kan 1 (commentaar rng) erbij gezet.
+- GEZIEN, Linux Xvfb, `vers=1 hoogte=120 duur=220`, logs `data/vers-20nov-volgorde/`: 4242 niveau 2 op 74,5 s: valregel "Joost came back. The Spike Pit won. +9" op 74,5, niveauregel op 77,1, held Bram op 80,6; niveau 3: valregel 198,2, niveauregel 200,8, held 204,2 (gepland). 777: valregel 66,2, niveauregel 68,7, held 72,2 (gepland); niveau 3: 190,4 / 193,0 / 196,5. 0 SCRIPT ERROR. Toetsen lokaal 0 FOUT (toets_namen: 1 toets erbij voor de volgorde).
+- Volgende stap: Daan keurt alleen dit punt; Windows-run op de tak nakijken; na de speeltest naar main.

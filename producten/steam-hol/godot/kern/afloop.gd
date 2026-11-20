@@ -6,21 +6,30 @@ const HOL_NIVEAU := preload("res://systemen/hol_niveau.gd")
 
 # Faam erbij (een gevangen held, of wie er vielen terwijl je weg was). Faam gaat nooit omlaag.
 # Nog geen bordje of feestje (Mila), alleen de log zodat de toetsen en de duurtest het hol-niveau kunnen volgen.
-# live = een vangst terwijl je kijkt (niet na weg zijn; daar zegt hol_niveau.gd weg_regel het al).
-static func faam_erbij(s, n: int, live := false) -> void:
+# live = een vangst terwijl je kijkt (niet na weg zijn; daar zegt hol_niveau.gd weg_regel het al). Geeft de nieuwe
+# niveaus terug; de regel en de held komen pas met niveau_na, ná de valregel van de held die het niveau gaf (Daan moet 1).
+static func faam_erbij(s, n: int, live := false) -> Array:
+	var nieuw: Array = []
 	if n <= 0:
-		return
+		return nieuw
 	var oud: int = s.faam
 	s.faam += n
 	for niv in HOL_NIVEAU.erbij(oud, s.faam):
 		s.log_regel("HOL hol-niveau %d (faam %d, t %.1f)" % [niv, s.faam, s.t])
 		if live and s.get("demo") != true:
-			niveau_live(s, niv)
+			nieuw.append(niv)
+	return nieuw
 
-# Nieuw hol-niveau terwijl je kijkt (Iris keuring 24 punt 1, regel Sanne 20 nov 09:50): een eigen kroniekregel met het
-# nummer, en de volgende held binnen NIVEAU_HELD_S (wacht hij langer, dan naar voren; korter, dan niets). Geen rng-trekking,
-# zodat de rest van het zaad gelijk blijft. Niet in de demofilm (die houdt zijn vaste tekst en ritme).
+# Nieuwe hol-niveaus terwijl je kijkt (Iris keuring 24 punt 1, regel Sanne 20 nov 09:50), aanroepen ná de valregel
+# (eerst oorzaak, dan gevolg; Daan 20 nov moet 1): een eigen kroniekregel met het nummer, en de volgende held binnen
+# NIVEAU_HELD_S na het niveau (wacht hij langer, dan naar voren; korter, dan niets). Geen rng-trekking zolang
+# "hol_niveau" één regel heeft (randi_range(0, 0)); komen er varianten bij, dan schuift de rest van het zaad (Daan kan 1).
+# Niet in de demofilm (die houdt zijn vaste tekst en ritme).
 const NIVEAU_HELD_S := 6.0
+static func niveau_na(s, niveaus: Array) -> void:
+	for niv in niveaus:
+		niveau_live(s, int(niv))
+
 static func niveau_live(s, niv: int) -> void:
 	s._kroniek(s.regels.kies("hol_niveau", {"n": str(niv)}), false, "hol_niveau")
 	s.volgende_held = minf(s.volgende_held, s.t + NIVEAU_HELD_S)
@@ -105,7 +114,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		# plus graafbonus: +1 per 8 zelf gegraven cellen, hooguit +3 (Sanne 16 nov 21:00, balans.md)
 		var buit := 6 + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven))
 		s.hol.goud += buit
-		faam_erbij(s, 1, true)
+		var niveaus := faam_erbij(s, 1, true)
 		var naam: String = String(info.naam)
 		var basis := naam.split(" ")[0]
 		s.gevallen_namen[basis] = int(s.gevallen_namen.get(basis, 0)) + 1
@@ -144,6 +153,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		else:
 			r = s.regels.kies(terugslag(s, info, "val"), {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
 		s._kroniek(r + extra)
+		niveau_na(s, niveaus)   # na de valregel: eerst de vangst, dan het nieuwe niveau (Daan 20 nov moet 1)
 		if r.contains("boot"):   # dan mag zijn naamgenoot later "wants mom's boot back" zeggen (Iris 19 nov)
 			s.laars_namen[naam] = true
 		# Heldenboek: een stempel door Gloop of door de put (bij afgerekend: wie hem kreeg)

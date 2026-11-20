@@ -1,0 +1,98 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=640x40 venster=(1920, 120) pos=(320, 480) held=res://systemen/held.gd
+HOL zaad 777
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 4.1 (wacht 0.0): Maud climbs into your hole.
+HOL begin: vallen (Maud)
+HOL held binnen: Maud
+HOL zicht 4.2 1
+HOL kroniek 9.7 (wacht 0.0): Teun has a map. It is wrong.
+HOL begin: opgegeten (Teun)
+HOL held binnen: Teun
+HOL meting t=10 beelden=62 helden=2 hol_vast=1
+HOL kroniek zelfde held vervangen: Maud climbs into your hole.
+HOL kroniek 12.8 (wacht 0.0): Maud found the Spike Pit. Hard. +6
+HOL kroniek 15.3 (wacht 2.5): New page: the Hero. The pit won.
+HOL meting t=20 beelden=129 helden=1 hol_vast=3
+HOL kroniek 26.4 (wacht 0.0): Gloop ate Teun. Kept the crown. +6
+HOL zicht 26.5 0
+HOL begin: vluchten (Lotte)
+HOL held binnen: Lotte
+HOL zicht 28.1 1
+HOL kroniek 29.0 (wacht 2.5): New stamp: Hero.
+HOL meting t=30 beelden=124 helden=1 hol_vast=4
+HOL kroniek vervallen 31.2: Lotte says this is a quick one.
+HOL meting t=40 beelden=100 helden=1 hol_vast=4
+HOL kroniek 41.9 (wacht 0.0): Lotte fled. Grudge: the Spike Pit.
+HOL zicht 42.0 0
+HOL kroniek 44.4 (wacht 2.5): New stamp for the Hero. Got away.
+HOL meting t=50 beelden=27 helden=0 hol_vast=4
+HOL kroniek zelfde held vervangen: Lotte fled. Grudge: the Spike Pit.
+HOL kroniek 57.5 (wacht 0.0): Lotte remembers the Spike Pit.
+HOL begin: terug (Lotte)
+HOL held binnen: Lotte
+HOL zicht 57.6 1
+HOL meting t=60 beelden=42 helden=1 hol_vast=4
+HOL hol-niveau 2 (faam 3, t 66.2)
+HOL kroniek zelfde held vervangen: Lotte remembers the Spike Pit.
+HOL kroniek 66.2 (wacht 0.0): Lotte came back. The Spike Pit won. +9
+HOL niveau-held voor t 72.2
+HOL zicht 66.2 0
+HOL bordje wip niveau 2
+HOL kroniek 68.7 (wacht 2.5): Your hole has a reputation now. Level 2.
+HOL meting t=70 beelden=100 helden=0 hol_vast=6
+HOL kroniek 72.2 (wacht 0.0): Jop knocks first. Polite.
+HOL begin: doorlopen (Jop)
+HOL held binnen: Jop
+HOL zicht 72.3 1
+HOL meting t=80 beelden=85 helden=1 hol_vast=6
+HOL kroniek 87.9 (wacht 0.0): Gloop is flat. Back soon.
+HOL meting t=90 beelden=100 helden=1 hol_vast=6
+HOL kroniek zelfde held vervangen: Jop knocks first. Polite.
+HOL kroniek 91.9 (wacht 0.0): Jop tried to lift it. Too heavy.
+HOL meting t=100 beelden=101 helden=1 hol_vast=6
+HOL kroniek zelfde held vervangen: Jop tried to lift it. Too heavy.
+HOL kroniek 104.0 (wacht 0.0): Jop the Hoard-Toucher ran.
+HOL zicht 104.1 0
+HOL kroniek 107.2 (wacht 0.0): Gerda read about you in a tavern.
+HOL held binnen: Gerda
+HOL zicht 107.3 1
+HOL meting t=110 beelden=70 helden=1 hol_vast=6
+HOL kroniek zelfde held vervangen: Gerda read about you in a tavern.
+HOL kroniek 115.9 (wacht 0.0): Gerda is part of the hole now. +6
+HOL zicht 116.0 0
+HOL eerste koop mogelijk na 115 s speeltijd (goud 47)
+HOL kroniek 118.5 (wacht 0.5): Gloop is up again. Wobbly.
+HOL meting t=120 beelden=102 helden=0 hol_vast=8
+HOL meting t=130 beelden=8 helden=0 hol_vast=8
+HOL kroniek 136.9 (wacht 0.0): Fenna is here for your gold.
+HOL held binnen: Fenna
+HOL zicht 137.0 1
+HOL meting t=140 beelden=44 helden=1 hol_vast=8
+HOL kroniek zelfde held vervangen: Fenna is here for your gold.
+HOL kroniek 150.7 (wacht 0.0): Fenna fled, crying a little.
+HOL zicht 150.8 0
+HOL meting t=150 beelden=101 helden=0 hol_vast=8
+HOL meting t=160 beelden=8 helden=0 hol_vast=8
+HOL meting t=170 beelden=8 helden=0 hol_vast=8
+HOL kroniek 173.7 (wacht 0.0): Henk brought a torch. And hope.
+HOL held binnen: Henk
+HOL zicht 173.8 1
+HOL meting t=181 beelden=85 helden=1 hol_vast=8
+HOL hol-niveau 3 (faam 5, t 190.4)
+HOL kroniek zelfde held vervangen: Henk brought a torch. And hope.
+HOL kroniek 190.4 (wacht 0.0): Gloop ate Henk. Kept the feather cap. +6
+HOL niveau-held voor t 196.4
+HOL zicht 190.4 0
+HOL bordje wip niveau 3
+HOL meting t=191 beelden=117 helden=0 hol_vast=9
+HOL kroniek 193.0 (wacht 2.6): Your hole has a reputation now. Level 3.
+HOL kroniek 196.5 (wacht 0.0): Kees has a map. It is wrong.
+HOL held binnen: Kees
+HOL zicht 196.6 1
+HOL meting t=201 beelden=68 helden=1 hol_vast=9
+HOL kroniek zelfde held vervangen: Kees has a map. It is wrong.
+HOL kroniek 210.3 (wacht 0.0): Kees left. Took nothing. Angry.
+HOL zicht 210.4 0
+HOL meting t=211 beelden=93 helden=0 hol_vast=9
+HOL einde na 220 s, fps=10, goud=53, terugkomers=0
