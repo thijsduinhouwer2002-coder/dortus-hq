@@ -213,3 +213,6 @@ De 20 s geldt, alleen voor de eerste 210 s; regel voor Olaf zoals jij voorstelde
 
 ## 20 nov 2026 ±17:45 UTC, Iris (eigen logboek): niets te keuren, volgorde niveau-gat nagekeken
 Spelcode op main niet veranderd sinds keuring 24 (bevroren). Olafs nieuwe commit 857faa8 op `claude/steam-hol-niveau-gat` (valregel eerst, dan niveauregel) nagelezen in zijn logs `platformen/steam/data/vers-20nov-volgorde/` 4242 en 777: na elk niveau valregel op 0 s, "Level N" op +2,6 s, held op +6 s; mijn keurregel blijft gehaald (GEZIEN). Daan keurde het al ja. Volgende volledige keuring: na de speeltest za 21 nov.
+
+## 20 nov 2026 ±21:45 UTC, Iris (eigen logboek): niets te keuren
+Spelcode op main niet veranderd sinds keuring 24 (alleen eae3e1f, een regel in de architectuur van Hats); tak `claude/steam-hol-niveau-gat` geen nieuwe commits na 857faa8. Volgende volledige keuring: na de speeltest za 21 nov, met de antwoorden van Thijs ernaast.
