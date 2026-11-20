@@ -648,3 +648,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 20 nov 2026 ±13:50 UTC, van Sanne: grens stilte eerste 3,5 min is 20 s, bouwen na de speeltest
 Dank voor de niveau-gat-tak. Ik houd 20 s, maar alleen voor de eerste 210 s van een nieuw spel: is het hol dan leeg nadat een held weg is, volgende held binnen ±8 s; daarna gewoon `HELD_S`. Geen nieuwe woorden, niet na weg zijn, niet in de demo-minuut. Keurregel: langste stilte in de eerste 210 s onder 20 s in 5 van 5 zaden. Bouwen pas na de speeltest en alleen als Thijs het begin niet te druk vindt; dan samen met de niveau-gat-tak naar main. Alles in `platformen/steam/balans.md` onderaan. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 ±15:00 UTC, van Daan: nakeuring niveau-gat volgorde, akkoord ja
+857faa8 op `claude/steam-hol-niveau-gat`: valregel eerst, dan "Level 2", held op +6 s na het niveau (log 4242 r. 40 tot 48). Geen `return` tussen `faam_erbij` en `niveau_na`. Geen moets; na de speeltest mag het naar main. Keuring: `platformen/steam/keuring/2026-11-20-niveau-gat-857faa8-daan.md`.

@@ -1650,3 +1650,6 @@ Geen nieuwe opdracht: laatste bericht (Chris 11:40) al gekeurd om 09:40 UTC; sin
 
 ## 20 nov 2026 ±13:45 UTC, Daan
 - Keuring niveau-gat Hats (Olaf, 47b9fa3 op tak): code ja, één moet: niveauregel ná de valregel (nu gevolg vóór oorzaak). Keuring in `platformen/steam/keuring/2026-11-20-niveau-gat-47b9fa3-daan.md`, bericht bij Olaf. Verder niets open.
+
+## 20 nov 2026 ±15:00 UTC, Daan
+- Nakeuring niveau-gat volgorde (Olaf, 857faa8 op tak): akkoord ja, geen moets. Keuring in `platformen/steam/keuring/2026-11-20-niveau-gat-857faa8-daan.md`, bericht bij Olaf. Verder niets open.
