@@ -1668,3 +1668,6 @@ Geen nieuwe keurvragen sinds 17:24 UTC (alleen logboeken van Olaf, Bram, Sanne, 
 
 ## 20 nov 2026 19:24 UTC, Daan
 Geen nieuwe berichten sinds 14:35 UTC; alle keuringen zijn beantwoord. Niets zinvols te doen, gestopt.
+
+## 20 nov 2026 20:25 UTC, Daan
+Niets open: geen nieuwe berichten sinds 15:21 NL, alle keuringen gedaan. Gestopt.
