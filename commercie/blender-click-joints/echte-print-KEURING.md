@@ -1,0 +1,51 @@
+# Keuring echte print Click Joints Pro, 20 nov 2026, keurder (losse agent, niet de maker)
+Wat ik keurde: `commercie/blender-click-joints/echte-print-2026-11-20.md` en `commercie/blender-click-joints/testprint/testset-4-delen.stl` (commit 9effa708)
+Akkoord: nee
+
+Kort: het onderzoek klopt bijna overal en de prijs valt zelfs lager uit dan geschat. Maar het bestand dat we zouden sturen legt de twee B-delen ondersteboven op het bed. De rekenhulp van de printer zet er dan zelf support onder, ook in de kom van de kogel en onder de knokkel van het scharnier. Dan test de print de support en niet ons gewricht. Dat moet eerst goed, daarna is het voorstel klaar voor Thijs.
+
+## Deel A: doet het wat beloofd is?
+| # | Bevinding | Feit of vermoeden | Zekerheid | Wat het zou bevestigen of weerleggen |
+|---|---|---|---|---|
+| A1 | Tarieven Elektronica Voor Jou kloppen: start €3,99 per bestand, PLA €0,06 per gram, €1,45 per printuur, zonder btw. Ik heb ons STL-bestand anoniem in hun rekenhulp gezet (geen account, geen bestelling, geen gegevens van Thijs). Uitslag 14,11 g en 71 minuten, prijs €6,55 zonder btw, **€7,93 met btw** (GEZIEN, 20 nov). Narekenen: 3,99 + 14,11 x 0,06 + 71/60 x 1,45 = €6,55, dus de tarieven op de pagina zijn de echte. | feit | hoog | |
+| A2 | Let op: in de broncode van dezelfde pagina staat ook een oud tekstblok met €4,13 per object, €0,08 per gram en €1,50 per uur. Dat blok wordt niet getoond en de rekenhulp rekent met €3,99/€0,06/€1,45 (A1). Geen probleem, wel goed om te weten als Thijs iets anders ziet. | feit | hoog | |
+| A3 | Totaalprijs-GOK ±€15 is redelijk maar aan de hoge kant. Eigen som: massief 26,05 cm³ x 1,24 = 32,3 g; met 2 wanden en 15% vulling zegt hun slicer 14,1 g (het stuk gokte 20 tot 32 g) en 71 min (stuk: 1,5 tot 3 uur). Echte totaal: €7,93 + brievenbus vanaf €3,99 = **±€12** (GEZIEN, of de €3,99 met btw is staat er niet). Laat Thijs de dienst de support weghalen (€4 zonder btw, €4,84 met btw, rekenhulp telde het één keer voor het hele bestand): **€16,76**. Met 100% vulling: €9,81 + €3,99 = €13,80. Dus "±€12, hooguit €17" is eerlijker dan "±€15". | feit | hoog | |
+| A4 | **De rekenhulp zet automatisch support aan (`supports_used: true`)**. Oorzaak gemeten: in de set staan scharnier-deel-B en kogel-deel-B ondersteboven. Ze zijn alleen omlaag geschoven, niet omgedraaid. Scharnier-B raakt het bed met 4,3 mm² (de knokkel), kogel-B met 3,0 mm² (de rand van de kom, de kom gaat open naar beneden). Hun platte eind (153,5 en 313,3 mm²) staat bovenaan. Omgedraaid: overhang van scharnier-B gaat van 65,9 naar 3,2 mm², van kogel-B van 70,9 naar 0 mm². Support in een kogelkom of tegen een knokkel met 0,2 mm speling kan het gewricht vast of ruw maken, dan zegt de test niets over Pro. Het stuk noemt dit nergens en schrijft "plat op z = 0", dat klopt dus maar half. | feit (meting met trimesh), gevolg voor de print is vermoeden | hoog (meting), midden (gevolg) | Rekenhulp opnieuw met omgedraaide B-delen: verwacht `supports_used` alleen nog voor de onderkant van de bol op kogel-A (44 mm² overhang, normaal bij een kogel) |
+| A5 | Levertijd klopt: "binnen 3 werkdagen verzonden", met sterretje "op basis van vijf objecten"; brievenbus alleen NL vanaf €3,99; GLS €6,45, PostNL €6,95 (GEZIEN). "Besteld vóór ma 23 nov, binnen do 26 of vr 27 nov" is een redelijke GOK. Delen zijn hooguit 20 mm dik, dus passen door de brievenbus (GOK 32 mm grens van PostNL). | feit | hoog | |
+| A6 | Let op: hun eigen materiaaltabel zegt "Kies nylon als het onderdeel scharniert, klemt of langs iets schuurt" (nylon op aanvraag). Voor onze test is PLA wel juist, want dat printen onze kopers thuis. Goed om te noemen zodat de dienst niet zelf iets anders voorstelt. | feit | hoog | |
+| A7 | Tweede keus Marktplaats klopt: advertentie m2466120333, "€0,05 per gram filament, Minimale besteding: €5 (ca. 50 gram)", Bambu Lab P2S, ophalen of verzenden (GEZIEN). Zoekopdracht geeft 284 advertenties (GEZIEN via de zoek-API). | feit | hoog | |
+| A8 | STL klopt: 1 bestand, 98 x 20 x 44,47 mm, 26,048 cm³, 14.368 driehoeken, 718.484 bytes, **4 losse delen, alle 4 waterdicht** en goed gericht (trimesh). Elk deel is precies het losse bestand uit `testprint/` (scharnier-115 A en B, kogel A en B), alleen verschoven, afwijking 0,000004 mm. Volume van de 4 losse samen ook 26,048 cm³. 10 mm tussen de delen. | feit | hoog | |
+| A9 | Gemaakt met Pro van vóór 1.1 en **de vorm is in 1.1 niet anders: dat is nu een feit, geen GOK meer**. Ik heb `maak.py` zelf gedraaid in bpy 5.3.0, één keer met de code van commit 56e466504 (de stand toen de STL's gemaakt zijn) en één keer met de huidige main (Pro 1.1 plus de Fit test strip). Alle vier delen zijn in beide gevallen exact gelijk aan de STL's in de repo (afstand 0,0 mm, zelfde volume). In de code: 1.1 voegde zwaairuimte (alleen als vlees botst), het wegruimen van snippers, een diepere snede voor de Exact-solver en `snede_reik` toe; volgens het commentaar "op een recht lid gelijk aan reik(m)". De stopvlakken en de knokkel zelf veranderden niet. "Print tested" op Gumroad mag na een goede print dus ook voor 1.1 gelden, zolang het om deze rechte staven gaat. | feit | hoog | |
+| A10 | Printables-cijfers kloppen: TrailPrint3D (model 1242540) 3.882 downloads, 1.198 likes, met links naar Patreon (versie met extra functies), eigen site en Amazon (GEZIEN via de Printables-API). "tolerance test" 267 modellen, Clearance Tolerance Test 76.866 downloads (GEZIEN). Klein: "grootste" klopt niet helemaal, in dezelfde zoekopdracht staat een alles-in-één printertest (die ook een tolerantietest heeft) met 97.422 downloads. De les blijft staan. Dummy 13: 2.756 modellen, 331.969 downloads; articulated figure 253, grootste 15.741 (GEZIEN, medianen schuiven per dag een beetje). | feit | hoog | |
+| A11 | MakerWorld-regel klopt als DERDEN: regel 7 "Do not post advertising information or links on your account name, description, pictures, etc." (forumpost 8 nov 2024), "non-MakerWorld related businesses, organizations, online stores, or websites" (forumpost 23 dec 2024), en MakerWorld zelf "case by case" (7 mei 2026). TrailPrint3D op MakerWorld: 8.324 downloads (GEZIEN via hun zoek-API). Advies "op MakerWorld geen link" is voorzichtig en goed. Prusa-voorwaarden over "unsolicited messages or commercial communications" en de forumklacht over "teasers" kloppen ook (GEZIEN). | feit | hoog | |
+| A12 | JLC3DP: €3 per soort artikel vanaf 1 juli 2026 voor een particulier onder €150 klopt (GEZIEN op hun nieuwspagina). Overige diensten (Hubs, Shapeways, Treatstock, Craftcloud) niet nagelopen; ze dragen het voorstel niet. | feit / niet getoetst | hoog / laag | |
+| A13 | "Eén verkoop van Pro ($19) betaalt de print terug": na de kosten van Gumroad (GOK ±10% plus $0,50) en btw blijft er GOK ±€14 tot €15 over. Bij ±€12 klopt het, bij €16,76 net niet. Liever "één à twee verkopen". | vermoeden | midden | Uitbetaling van één echte Gumroad-verkoop |
+
+## Deel B: houdt het zich aan onze regels?
+| # | Bevinding | Feit of vermoeden | Zekerheid | Regel |
+|---|---|---|---|---|
+| B1 | Geen persoonsgegevens van Thijs: geen adres, woonplaats of account. Het afleveradres vult hij zelf in en komt niet in de repo; FabLab "geen plaats genoemd". `check.py`: OK. | feit | hoog | harde regel 2 |
+| B2 | Cijfers hebben GEZIEN, DERDEN of GOK, op twee plekken na: "Pro kost $19" en "mediaan 2 punten, 6 van 13 posts weggehaald" (wel met bron in de repo, maar zonder label). | feit | hoog | harde regel 5 |
+| B3 | Eerlijk alternatief staat erbij (punt 5: niets uitgeven, gratis licentie voor de eerste printfoto), met het nadeel eerlijk benoemd. Ook de eerdere besluiten van Thijs (17 nov geen testprint, 19 nov betaalde testprint niet goedgekeurd) staan erbij en kloppen met `besluiten.md` regel 47 en 161. | feit | hoog | harde regel 1, regels/thijs.md |
+| B4 | Niets besteld, geen account gemaakt; het stuk is een voorstel. Bestellen blijft na een ja van Thijs. De Marktplaats-route vraagt een bericht vanaf zijn account; dat staat erbij. | feit | hoog | harde regel 1 en 4 |
+| B5 | Geen gedachtestreepjes, Nederlands, gewone woorden. 98 regels. | feit | hoog | harde regel 8 |
+| B6 | Het stuk zegt eerlijk dat de keuring nog niet gedaan was. | feit | hoog | harde regel 5 |
+
+## Deel C: zou Thijs (de lezer) het fijn vinden?
+| # | Bevinding | Wat het beter maakt | Moeite |
+|---|---|---|---|
+| C1 | Het voorstel staat bovenaan in vijf punten: goed. Maar het totaal is een GOK terwijl een exacte prijs nu bekend is. | Zet bovenaan "€7,93 print + €3,99 post = ±€12 (GEZIEN in hun rekenhulp), €16,76 als zij de support weghalen". Thijs wil een getal, geen bandbreedte. | klein |
+| C2 | Thijs moet bij de bestelling zelf instellingen kiezen. | Eén regel "wat je kiest": PLA (Standaard), 0,4 mm spuitkop, laag 0,2 mm, 2 wanden, 15% vulling, support aan, één bestand. | klein |
+| C3 | De Fit test strip als tweede bestand kost weer €3,99 startgeld. | Als Bram de strip op tijd als STL heeft: in hetzelfde bestand stoppen, dan één keer startgeld. | klein |
+
+## Moet (blokkeert akkoord)
+1. **B-delen omdraaien in `testset-4-delen.stl`** (scharnier-deel-B en kogel-deel-B 180 graden kantelen, platte eind op het bed), opnieuw meten (4 delen, waterdicht, zelfde volume) en in het stuk de zin "plat op z = 0" vervangen door wat waar is. Daarna in de rekenhulp nakijken dat support alleen nog onder de bol van kogel-A komt. Zonder dit test de €12 tot €17 vooral de support. (A4)
+2. **Prijs bovenaan vervangen** door de prijs uit de rekenhulp: €7,93 met btw plus brievenbus vanaf €3,99, en €4 zonder btw extra als de dienst de support weghaalt; noem dat support nodig is (ook na moet 1, voor de bol). (A1, A3, C1)
+
+## Kan (mag later)
+1. De zin "Of de gewrichtsvorm in 1.1.0 anders is, weet ik niet (GOK: nee)" vervangen door: gelijk, getoetst door de keurder op 20 nov (A9). Bram hoeft het niet meer na te kijken.
+2. "Eén verkoop betaalt terug" naar "één à twee verkopen" (A13).
+3. Labels bij "$19" en bij de r/3Dprinting-cijfers (B2).
+4. "Grootste" bij tolerance test: de alles-in-één test met 97.422 noemen of "grootste losse tolerantietest" schrijven (A10).
+5. Bij de bestelling PLA expliciet kiezen; de dienst raadt zelf nylon aan voor scharnieren (A6).
+6. Bestelinstellingen in één regel (C2) en de Fit test strip in hetzelfde bestand als dat op tijd kan (C3).
