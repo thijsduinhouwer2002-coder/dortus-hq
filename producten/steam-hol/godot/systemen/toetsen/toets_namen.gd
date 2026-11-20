@@ -10,6 +10,19 @@ func ok(voorwaarde: bool, wat: String) -> void:
 		fout += 1
 		print("[hol-toets] FOUT ", wat)
 
+# nep-strook voor het nieuwe hol-niveau terwijl je kijkt (Iris keuring 24 punt 1, Sanne 20 nov 09:50)
+class NepNiveau:
+	var faam := 0
+	var t := 100.0
+	var demo := false
+	var volgende_held := 130.0
+	var regels = load("res://kern/regels.gd").new()
+	var kroniek: Array = []
+	func log_regel(_r: String) -> void:
+		pass
+	func _kroniek(r: String, _binnen := false, soort := "") -> void:
+		kroniek.append([soort, r])
+
 func _init() -> void:
 	# terugslag (Sanne 17 nov 09:02, Iris keuring 21): elke soort en trek heeft een eigen val- en vluchtlijst, past met " +12"
 	# bij een lange naam, zonder he/his/him, en terugslag() kiest de eigen lijst alleen bij een opzet.
@@ -203,5 +216,31 @@ func _init() -> void:
 			if txt.contains(w):
 				hs_hij.append(w)
 	ok(hs_hij.is_empty(), "Heldenboek en uitleg zonder he/his/him (%s)" % str(hs_hij))
+	# nieuw hol-niveau terwijl je kijkt: eigen regel met het nummer, volgende held binnen 6 s, niet na weg en niet in de demo
+	var AFN = load("res://kern/afloop.gd")
+	var nn := NepNiveau.new()
+	nn.faam = 2
+	AFN.faam_erbij(nn, 1, true)   # faam 3 = hol-niveau 2
+	ok(nn.kroniek.size() == 1 and nn.kroniek[0][0] == "hol_niveau" and String(nn.kroniek[0][1]).contains("2"), "niveau live: eigen regel met nummer (%s)" % str(nn.kroniek))
+	ok(absf(nn.volgende_held - 106.0) < 0.01, "niveau live: volgende held naar voren tot t+6 (%.1f)" % nn.volgende_held)
+	nn.volgende_held = 103.0
+	nn.faam = 4
+	AFN.faam_erbij(nn, 1, true)   # faam 5 = hol-niveau 3
+	ok(absf(nn.volgende_held - 103.0) < 0.01, "niveau live: held die al eerder komt blijft (%.1f)" % nn.volgende_held)
+	var nw := NepNiveau.new()
+	nw.faam = 2
+	AFN.faam_erbij(nw, 1)   # zoals na weg zijn
+	ok(nw.kroniek.is_empty() and nw.volgende_held == 130.0, "niveau na weg: geen extra regel of held (weg_regel zegt het al)")
+	var nd := NepNiveau.new()
+	nd.demo = true
+	nd.faam = 2
+	AFN.faam_erbij(nd, 1, true)
+	ok(nd.kroniek.is_empty() and nd.volgende_held == 130.0, "niveau in de demo: niets extra")
+	var lang_n: Array = []
+	for n in range(2, 13):
+		var r: String = nn.regels.kies("hol_niveau", {"n": str(n)})
+		if r.length() > 42 or not r.contains(str(n)):
+			lang_n.append(r)
+	ok(lang_n.is_empty(), "hol_niveau past in 42 tekens met nummer 2 tot 12 (%s)" % str(lang_n))
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

@@ -1,0 +1,73 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:360)
+OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.4 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM default
+ERROR: Condition "status < 0" is true. Returning: ERR_CANT_OPEN
+   at: init_output_device (drivers/alsa/audio_driver_alsa.cpp:90)
+WARNING: All audio drivers failed, falling back to the dummy driver.
+     at: initialize (servers/audio_server.cpp:247)
+
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=426x40 venster=(1280, 120) pos=(0, 452) held=res://systemen/held.gd
+HOL zaad 4242
+HELD3D geladen: ridder, heks, dief, bard, held0, held1, held2, held3, held4, hoeden, hoeden_hap, tekens; zonder eigen blad: geen; terugval op ridder/heks: true
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 4.1 (wacht 0.0): Wout read about you in a tavern.
+HOL begin: vallen (Wout)
+HOL held binnen: Wout
+HOL kroniek 9.8 (wacht 0.0): Fenna climbs into your hole.
+HOL begin: opgegeten (Fenna)
+HOL held binnen: Fenna
+HOL kroniek zelfde held vervangen: Wout read about you in a tavern.
+HOL kroniek 12.8 (wacht 0.0): Wout took the short way down. +6
+HOL kroniek 15.4 (wacht 2.6): New page: the Hero. The pit won.
+HOL kroniek 26.5 (wacht 0.0): Gloop ate Fenna. Kept the crown. +6
+HOL kroniek 29.1 (wacht 2.6): New stamp: Hero.
+HOL begin: vluchten (Joost)
+HOL held binnen: Joost
+HOL kroniek 31.6 (wacht 1.2): Joost brought a torch. And hope.
+HOL kroniek zelfde held vervangen: Joost brought a torch. And hope.
+HOL kroniek 44.2 (wacht 0.0): Joost ran. Swore revenge.
+HOL kroniek 46.7 (wacht 2.5): New stamp for the Hero. Got away.
+HOL kroniek zelfde held vervangen: Joost ran. Swore revenge.
+HOL kroniek 65.8 (wacht 0.0): Joost remembers the Spike Pit.
+HOL begin: terug (Joost)
+HOL held binnen: Joost
+HOL hol-niveau 2 (faam 3, t 74.5)
+HOL kroniek 74.5 (wacht 0.0): Your hole has a reputation now. Level 2.
+HOL niveau-held voor t 80.5
+HOL bordje wip niveau 2
+HOL kroniek zelfde held vervangen: Joost remembers the Spike Pit.
+HOL kroniek 77.1 (wacht 2.6): Joost came back. The Spike Pit won. +9
+HOL kroniek 80.6 (wacht 0.0): Bram is here for your gold.
+HOL begin: doorlopen (Bram)
+HOL held binnen: Bram
+HOL kroniek 96.3 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek zelfde held vervangen: Bram is here for your gold.
+HOL kroniek 100.3 (wacht 0.0): Bram tried to lift it. Too heavy.
+HOL kroniek zelfde held vervangen: Bram tried to lift it. Too heavy.
+HOL kroniek 112.4 (wacht 0.0): Bram ran. Hands smell of gold.
+HOL kroniek zelfde held vervangen: Bram ran. Hands smell of gold.
+HOL kroniek 117.3 (wacht 0.0): Bram the Hoard-Toucher is back for Gloop.
+HOL held binnen: Bram
+HOL kroniek 126.3 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek zelfde held vervangen: Bram the Hoard-Toucher is back for Gloop.
+HOL kroniek 131.1 (wacht 0.0): Bram fled, crying a little.
+HOL kroniek 151.4 (wacht 0.0): Tibbe says this is a quick one.
+HOL held binnen: Tibbe
+HOL kroniek zelfde held vervangen: Tibbe says this is a quick one.
+HOL kroniek 165.2 (wacht 0.0): Tibbe escaped with a limp.
+HOL kroniek 184.8 (wacht 0.0): Maud has a map. It is wrong.
+HOL held binnen: Maud
+HOL kroniek zelfde held vervangen: Maud has a map. It is wrong.
+HOL kroniek 201.5 (wacht 0.0): Maud is gone. The helmet stays. +6
+HOL eerste koop mogelijk na 201 s speeltijd (goud 47)
+HOL einde na 220 s, fps=10, goud=47, terugkomers=2

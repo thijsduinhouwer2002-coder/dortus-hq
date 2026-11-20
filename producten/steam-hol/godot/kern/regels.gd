@@ -18,6 +18,8 @@ const VOORRAAD := {
 	"naamgenoot": ["{naam} climbs in. Family business.", "{naam}. {oud} fell here once."],
 	# alleen als de ouder echt een laars achterliet (Iris 19 nov: "Merel II wants mom's boot back" terwijl Merel geen laars liet)
 	"naamgenoot_laars": ["{naam} wants {ouder}'s boot back."],
+	# CONCEPT (spelerstekst, Thijs schrijft de echte na de speeltest; Sanne 20 nov 09:50): nieuw hol-niveau terwijl je kijkt
+	"hol_niveau": ["Your hole has a reputation now. Level {n}."],
 	"terug": ["{held} is back.", "{naam} came back. Bigger sword.", "{naam} is back. Still limping."],
 	"terug_bewoner": ["{naam} is back for {bewoner}.", "{held} is back. Grudge: {bewoner}", "{naam} wrote a song about {bewoner}."],
 	"terug_val": ["{naam} remembers {val}.", "{naam} is back for {val}.", "{naam} limps back to {val}."],

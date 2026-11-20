@@ -6,13 +6,25 @@ const HOL_NIVEAU := preload("res://systemen/hol_niveau.gd")
 
 # Faam erbij (een gevangen held, of wie er vielen terwijl je weg was). Faam gaat nooit omlaag.
 # Nog geen bordje of feestje (Mila), alleen de log zodat de toetsen en de duurtest het hol-niveau kunnen volgen.
-static func faam_erbij(s, n: int) -> void:
+# live = een vangst terwijl je kijkt (niet na weg zijn; daar zegt hol_niveau.gd weg_regel het al).
+static func faam_erbij(s, n: int, live := false) -> void:
 	if n <= 0:
 		return
 	var oud: int = s.faam
 	s.faam += n
 	for niv in HOL_NIVEAU.erbij(oud, s.faam):
 		s.log_regel("HOL hol-niveau %d (faam %d, t %.1f)" % [niv, s.faam, s.t])
+		if live and s.get("demo") != true:
+			niveau_live(s, niv)
+
+# Nieuw hol-niveau terwijl je kijkt (Iris keuring 24 punt 1, regel Sanne 20 nov 09:50): een eigen kroniekregel met het
+# nummer, en de volgende held binnen NIVEAU_HELD_S (wacht hij langer, dan naar voren; korter, dan niets). Geen rng-trekking,
+# zodat de rest van het zaad gelijk blijft. Niet in de demofilm (die houdt zijn vaste tekst en ritme).
+const NIVEAU_HELD_S := 6.0
+static func niveau_live(s, niv: int) -> void:
+	s._kroniek(s.regels.kies("hol_niveau", {"n": str(niv)}), false, "hol_niveau")
+	s.volgende_held = minf(s.volgende_held, s.t + NIVEAU_HELD_S)
+	s.log_regel("HOL niveau-held voor t %.1f" % s.volgende_held)
 
 # Vangst of vlucht die terugslaat op de binnenkomst (Sanne 17 nov 09:02, features.md, Iris keuring 21): een held die
 # bij binnenkomst een soort- of trekregel kreeg, krijgt bij zijn vangst in de put of vlucht een regel uit "val_<soort>" of
@@ -93,7 +105,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		# plus graafbonus: +1 per 8 zelf gegraven cellen, hooguit +3 (Sanne 16 nov 21:00, balans.md)
 		var buit := 6 + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven))
 		s.hol.goud += buit
-		faam_erbij(s, 1)
+		faam_erbij(s, 1, true)
 		var naam: String = String(info.naam)
 		var basis := naam.split(" ")[0]
 		s.gevallen_namen[basis] = int(s.gevallen_namen.get(basis, 0)) + 1
