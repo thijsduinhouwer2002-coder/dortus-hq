@@ -1,0 +1,17 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL demo: speeltijd 0 s, grens 10 s
+HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
+HOL zaad 1795178058
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 4.0 (wacht 0.0): Bram says this is a quick one.
+HOL begin: vallen (Bram)
+HOL held binnen: Bram
+HOL zicht 4.1 1
+HOL demo voorbij na 10 s speeltijd
+HOL kroniek 10.0 (wacht 0.0): That's the demo. Your hole keeps going.
+HOL meting t=10 beelden=62 helden=1 hol_vast=1
+HOL begin: opgegeten (Anouk)
+HOL held binnen: Anouk
+HOL kroniek 12.6 (wacht 2.2): Anouk knocks first. Polite.
+HOL kroniek 13.6 (wacht 0.8): Bram is part of the hole now. +6
+HOL einde na 15 s, fps=19, goud=26, terugkomers=0
