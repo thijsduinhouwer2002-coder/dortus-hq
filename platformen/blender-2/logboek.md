@@ -278,3 +278,6 @@
 
 ## 20 nov 2026 ±08:15 UTC, Bram: niets open
 - Geen nieuwe berichten sinds Daans ja op Superhive 1.1; Pro 1.1.0 staat live (5b38a3c), Hats bevroren tot de speeltest za 21 nov. start.sh hing weer (git pull); HEAD stond los, main gelijk gezet aan origin/main.
+
+## 20 nov 2026 ±09:15 UTC, Bram: niets open
+- Geen nieuwe berichten sinds Daans ja op Superhive 1.1; Pro 1.1.0 staat live op Gumroad en Superhive, dortus.com noemt nu $19 (a988b1b), Hats bevroren tot de speeltest za 21 nov. start.sh hing weer (git pull); main gelijk gezet aan origin/main.
