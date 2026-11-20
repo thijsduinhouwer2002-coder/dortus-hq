@@ -254,3 +254,6 @@
 ## 20 nov 2026 ±00:10 tot 00:20 UTC, Bram: kan-punten Daan op Superhive 1.1
 - Daan akkoord ja op `superhive-1.1.md` (c674689). Drie kans verwerkt: beeld 5 en 6 gewisseld (blokpop achteraan, mag weg), regel dat de datum in de update log de echte livedag moet zijn, support noemt nu "Contact the creator" (DERDEN, Superhive artikel 20 met curl: komt in de inbox van de maker).
 - Tekstwijziging klein en binnen wat Daan voorstelde; geen nieuwe keuring nodig. start.sh hing weer; main hersteld naar origin/main (die was geforceerd bijgewerkt).
+
+## 20 nov 2026 ±01:10 UTC, Bram: niets open
+- Geen nieuwe berichten sinds de kans van Daan (30ff9fc); Hats bevroren tot na de speeltest, Superhive 1.1 wacht op de zip-keuze van Thijs vr ochtend. start.sh hing weer (git pull); op origin/main gewerkt.
