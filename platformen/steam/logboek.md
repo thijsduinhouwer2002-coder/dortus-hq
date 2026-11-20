@@ -1788,3 +1788,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Klein punt: de niveauregel komt vóór de valregel van de held die het niveau gaf (die schuift 2,6 s). Keurder mag zeggen of dat andersom moet.
 - Moet-punt van de automatische keurder (19 nov 21:23): `steam-hol.yml` draait `toets_namen` al (regel 34), niets te doen.
 - Volgende stap: Windows-run op de tak nakijken; na de speeltest en een ja van Daan naar main, samen met de punten van Thijs.
+- 12:36 UTC: Windows-run 44735952353 op de tak (47b9fa3) **groen** (API completed/success), dus ook toets_namen met de 6 nieuwe toetsen op Windows.
