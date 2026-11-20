@@ -112,7 +112,8 @@ function geldCel(p){
   else if (soort === "nul") getal = `<span class="getal licht">${metLabel(verwachtTekst(p), g.label)}</span>`;
   else if (soort === "samen") getal = `<span class="getal licht" title="${esc(g.reden || "")}">${esc(verwachtTekst(p))}<small>samen</small>${lb(g.label)}</span>`;
   else getal = `<span class="getal geen">${esc(g.tekst || "nog geen schatting")}</span>`;
-  return `<div class="geld"><div><span class="kl">Verwacht</span>${getal}</div>${lat(p)}</div>`;
+  const waarsch = (g.waarschijnlijk != null && soort === "eigen") ? `<small class="waarsch">meest waarschijnlijk ${euro(g.waarschijnlijk)}</small>` : "";
+  return `<div class="geld"><div><span class="kl">Gemiddeld</span>${getal}${waarsch}</div>${lat(p)}</div>`;
 }
 
 function spark(reeks){
@@ -206,9 +207,9 @@ function tekenOverzicht(){
       <div><h2>Eerstvolgende deadlines</h2><ul class="dl">${dls || `<li class="klein">Geen deadlines.</li>`}</ul></div>
     </div>
     <section class="sectie">
-      <div class="kop"><h2>Projecten van Dortus</h2><span class="klein">op volgorde van verwacht geld (kans maal opbrengst)</span></div>
+      <div class="kop"><h2>Projecten van Dortus</h2><span class="klein">op volgorde van gemiddeld verwacht geld: het gemiddelde over alle uitkomsten (kans maal opbrengst). Het kan veel lager uitvallen; de meest waarschijnlijke uitkomst staat eronder.</span></div>
       <div class="lijst">
-        <div class="rijkop"><span></span><span>Project en stand</span><div class="geld"><span>Verwacht</span>${askop()}</div><span>Kans op geld</span><span>Deadline</span></div>
+        <div class="rijkop"><span></span><span>Project en stand</span><div class="geld"><span>Gemiddeld verwacht</span>${askop()}</div><span>Kans op geld</span><span>Deadline</span></div>
         ${dortus.map(rij).join("")}
       </div>
       <p class="klein" style="margin-top:8px">Balk: verwachte opbrengst, lijn: slechtste tot beste uitkomst, op een as die naar rechts ruimer wordt. "Samen": één bedrag voor meer projecten.</p>
@@ -225,7 +226,7 @@ function tekenProject(p){
   const bronLink = x => x && x.bron_link ? ` <a href="${esc(x.bron_link)}">bron</a>` : "";
   const soort = geldSoort(p);
   const geldGroot = soort === "geen" ? `<div class="groot woord leeg">${esc(verwachtTekst(p))}</div>` : `<div class="groot">${metLabel(verwachtTekst(p), g.label)}</div>`;
-  const prognoseExtra = (g.laag != null && g.hoog != null && soort !== "nul") ? `<p>Slechtste ${euro(g.laag)}, beste ${euro(g.hoog)}${g.samen ? ", samen met andere projecten" : ""}.</p>` : "";
+  const prognoseExtra = ((g.laag != null && g.hoog != null && soort !== "nul") ? `<p>Slechtste ${euro(g.laag)}, beste ${euro(g.hoog)}${g.samen ? ", samen met andere projecten" : ""}.</p>` : "") + (g.waarschijnlijk != null && soort !== "nul" ? `<p><strong>Meest waarschijnlijk: ${euro(g.waarschijnlijk)}</strong> (GOK).</p>` : "");
   const dl = p.deadline ? `<div class="groot">${esc(datumKort(p.deadline.datum))}</div><p><b style="color:var(--inkt);font-weight:600">${esc(aftellen(p.deadline.datum))}</b>${p.deadline.tijd ? `, ${esc(p.deadline.tijd)} NL` : ""}. ${esc(p.deadline.wat)}</p>` : `<div class="groot woord leeg">geen</div>`;
   const punten = p.thijs || [];
   const jij = punten.length

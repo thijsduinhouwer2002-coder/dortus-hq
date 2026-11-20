@@ -1,8 +1,8 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-20 14:45",
-    "door": "hoofdchat-ronde"
+    "datum": "2026-11-20 15:24",
+    "door": "hoofdchat"
   },
   "projecten": [
     {
@@ -38,8 +38,9 @@
         ],
         "hoog": 12900,
         "label": "GOK",
-        "reden": "Keurder snel-geld, route 1: verwacht ±€350 tot €800 toegezegd; uitkomst €0, €860, €5.200 of €12.900. Geld komt pas eind dec tot half feb.",
-        "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+        "reden": "Keurder snel-geld, route 1: verwacht ±€350 tot €800 toegezegd; uitkomst €0, €860, €5.200 of €12.900. Geld komt pas eind dec tot half feb. Let op: €350 tot €800 is een gemiddelde over de uitkomsten; de meest waarschijnlijke uitkomst is €0 (80 tot 90% kans, GOK uit dezelfde keuring).",
+        "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+        "waarschijnlijk": 0
       },
       "volgende_stap": "Login met Thijs vóór ma 23 nov; in de test- en filmronde daarna eerst de drie punten van Iris (doel in beeld, omslag en eindsprint, hoeden husselen); ±1 dec bevriezen en insturen.",
       "deadline": {
@@ -107,7 +108,7 @@
       "kans": {
         "tekst": "middel",
         "label": "GOK",
-        "reden": "Keurder snel-geld, route 2: middel, want de keuring van Superhive moet vóór ±27 nov klaar zijn. Geen percentage gegeven.",
+        "reden": "Keurder snel-geld 19 nov, route 2: middel. Bijgewerkt 20 nov (hoofdchat): Superhive keurde Pro goed (19 nov), dus dat bezwaar vervalt; nu hangt het af van bereik in de saleweek (makers, filmpjes, Reddit).",
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
       },
       "prognose": {
@@ -116,8 +117,9 @@
           300
         ],
         "label": "GOK",
-        "reden": "Keurder snel-geld, route 2: €50 tot €300 in 12 weken. De gratis add-on mag in Blender niet naar Pro wijzen, dus kopers komen er niet vanzelf.",
-        "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+        "reden": "Keurder snel-geld, route 2: €50 tot €300 in 12 weken. De gratis add-on mag in Blender niet naar Pro wijzen, dus kopers komen er niet vanzelf. Meest waarschijnlijk ±€30 (2 à 3 verkopen in de saleweek, GOK van de hoofdchat 20 nov): nog 0 verkopen (GEZIEN), maar sinds 20 nov trechter dicht, 11 makers gemaild op ma 23 nov, uitleg-video 23 nov, korting 27 nov tot 1 dec.",
+        "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+        "waarschijnlijk": 30
       },
       "volgende_stap": "Vandaag 16:00 filmpje 5 (TikTok en Short) en 17:00 lange YouTube (versie 3), PENDING in Metricool (GEZIEN 13:00). Gratis Black Friday-plekken: Addon Radar gekeurd (Daan ja), de hoofdchat stuurt in zodra de site bereikbaar is; BlenderArtists wacht op account en ja van Thijs.",
       "deadline": {
