@@ -207,5 +207,5 @@ Vóór versturen invullen: `<CODE>` (eigen 100%-code per maker, zie boven). Van:
 - Per maker een regel bijhouden: verstuurd op, antwoord, affiliate ja/nee, video met link, verkopen via de link (Affiliates-dashboard).
 - Klopt een feit niet meer op de dag van versturen (nieuwe versie, wel geprint), dan eerst de zin aanpassen.
 
-## Verwerkt na de keuring (hoofdchat, 20 nov ±15:30 NL)
+## Verwerkt na de keuring (hoofdchat, 20 nov ±14:58 NL)
 Alle vier moet-punten van `makers-1.1-KEURING.md`: (1) abonnees InspirationTuts 342K en askNK 290K, twijfeltekst weg; volgorde blijft per groep; (2) CYBER25-waarschuwing vervangen door de echte regel (grootste korting wint, nooit optellen), versturen ma 23 of di 24 nov blijft om de saleweek te halen; (3) geldverwachting naar $8,13 per verkoop, ±$40 per goede video; (4) de mails vragen nu echt om te zeggen dat Pro gratis was en de link een affiliatelink is ("Mention it and get 30% ... please disclose it was free and an affiliate link."), mails 112 tot 120 woorden. Kan-punten nog niet verwerkt.

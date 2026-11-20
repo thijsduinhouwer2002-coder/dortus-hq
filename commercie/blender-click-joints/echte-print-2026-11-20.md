@@ -98,7 +98,7 @@ Printables (Prusa-account) en MakerWorld (Bambu-account) vragen een account: **e
 `platformen/blender-2/gumroad-1.1.md`, `commercie/blender-click-joints/testprint/`, `organisatie/besluiten.md` (regel 47 en 161), `organisatie/archief/besluiten-t-m-2026-11-18.md` (regel 456), `commercie/blender-click-joints/verspreiding.md` (punt 8), `platformen/blender-2/testkaart-ontwerp.md`, `berichten/hoofdchat.md` (Stijn 16 en 17 nov).
 
 
-## Verwerkt na de keuring (hoofdchat, 20 nov ±16:00 NL)
+## Verwerkt na de keuring (hoofdchat, 20 nov ±15:03 NL)
 - Moet 1: in `testprint/testset-4-delen.stl` zijn scharnier-deel B en kogel-deel B 180° om de X-as gedraaid, zodat het platte eind op het bed ligt. Nagemeten met trimesh: alle 4 delen raken het bed met hun platte eind (153,5 en 313,3 mm²), overhang scharnier-B 3 mm², kogel-B 0 mm², kogel-A 44 mm² (bol, support nodig). Volume 26,05 cm³, 4 waterdichte delen, 83 x 20 x 44,5 mm.
 - Moet 2: prijs bovenaan vervangen door de prijs uit hun rekenhulp (€7,93 met btw, plus post ±€12 totaal), met de opmerking over support.
 - Gewrichtsvorm in 1.1 gelijk aan 1.0.2: getoetst door de keurder (maak.py in bpy 5.3.0, beide commits, exact gelijk).

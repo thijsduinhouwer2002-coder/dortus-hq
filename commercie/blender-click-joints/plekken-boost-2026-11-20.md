@@ -284,5 +284,5 @@ Per code `?van=` op dortus.com/click-joints/ (Umami; of Umami de code apart toon
 Nog niet gekeurd. Deze run had geen gereedschap om een aparte keurder (Agent) te starten, en `keurder.yml` keurt alleen `producten/`. De hoofdchat zet een keurder in met de skill `keuren` (opdracht: deel A tegen deze opdracht en `gumroad-1.1.md`, deel B tegen CLAUDE.md en `organisatie/regels/thijs.md`; met de zin "Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil."), uitkomst in `plekken-boost-KEURING.md`. Tot die keuring geen tekst hieruit gebruiken.
 
 
-## Verwerkt na de keuring (hoofdchat, 20 nov ±15:45 NL)
+## Verwerkt na de keuring (hoofdchat, 20 nov ±15:00 NL)
 Alle vier moet-punten van `plekken-boost-KEURING.md` letterlijk overgenomen: 2a en 2b geschrapt (Gumroad mailt pas na $100 omzet en een uitbetaling), Short-zin "a hinge at every elbow and knee and a ball joint at shoulders, hips and neck", de Short en de korting zijn oranje (hoofdchat-ronde beslist, Short uit de reserve), Kort 1 en tekst 4 verwijzen naar de huidige alinea. Teksten 1, 5, 6, 7 en 8 waren al akkoord.
