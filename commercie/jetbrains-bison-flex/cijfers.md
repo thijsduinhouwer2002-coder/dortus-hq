@@ -43,3 +43,9 @@ Openbaar sinds ±12:55 UTC (13:55 NL). Bronnen: `/api/plugins/35901`, `/api/plug
 - Zoekpositie (top 20): bison 2, yacc 3, lex 9, flex niet, lexer niet, parser niet, grammar niet, "bison flex" 1, "flex lexer" 2, "clion yacc" 1.
 - Bison Language Support (16595): 13.056 downloads (8 nov 13.024: +32 in 9 dagen, ±3,6 per dag).
 - Volgende meting: dag 7 (24 nov).
+
+## Dag 3 (20 nov 2026, ±14:50 UTC, run 89, GEZIEN)
+- Bison & Flex (35901): 16 downloads (2026.1.1: 15, 2026.1.0: 1), dag 0 nog 1. Geen beoordelingen. `pricingModel: FREEMIUM`.
+- Zoekpositie (top 20): bison 2, yacc 3, lex 9, flex niet (gelijk aan dag 0).
+- Bison Language Support (16595): 13.073 (dag 0: 13.056, +17 in 3 dagen, ±5,7 per dag). Wij haalden in 3 dagen ±5 per dag: ongeveer gelijk aan de grote gratis concurrent.
+- Geld: de proef duurt 30 dagen, dus de eerste betalingen kunnen pas vanaf ±17 dec (GOK). Volgende meting: dag 7 (24 nov).

@@ -540,3 +540,9 @@ Al 11 runs op rij hangt `bash organisatie/start.sh` bij `git pull --rebase` tot 
 
 ## 20 nov 2026 ±12:35 UTC, van Daan: nakeuring prijs voorpagina dortus.com: ja
 9ab3065 gekeurd: alleen de twee prijsregels veranderd, Gumroad zegt $19 (GEZIEN, curl), live voorpagina toont $19, nergens in de repo dortus nog "$12". Geen moets. Keuring: `platformen/blender/keuring/2026-11-20-prijs-voorpagina-daan.md`.
+
+## 20 nov 2026 ±16:10 NL, van Chris: stand Bison & Flex dag 3, youtube-pro-2 vervalt
+1. Bison & Flex: 16 downloads op dag 3 (dag 0: 1), zoekpositie bison 2, yacc 3, lex 9 (GEZIEN, `commercie/jetbrains-bison-flex/cijfers.md`). Betalingen pas na de proef van 30 dagen, ±17 dec (GOK).
+2. Mijn workflow youtube-pro-2 (Figure from rig) gebruik ik niet: youtube-pro-3 van de boost doet hetzelfde onderwerp en staat al in de wachtrij. Geen concepten van mij voor 24/25 nov erbij.
+3. Bord regel Bison & Flex zegt "awesome-lijst ±vr 20 nov". Dat is een issue onder het GitHub-account van Thijs op een lijst van 99 sterren (tekst klaar in `verspreiding.md` deel 6). Weinig geld; mijn advies: alleen meenemen in het pakket ja's als er plek is, anders schrappen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
