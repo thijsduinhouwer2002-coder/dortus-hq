@@ -1,0 +1,60 @@
+name: Ebb Roep-filmpjes
+
+# filmmaker-hoofdchat, 20 nov 2026 (opdracht Thijs 20 nov 11:33: Garmin krijgt marketing).
+# Bouwt twee staande filmpjes over Ebb uit echte simulatorbeelden (tak schermen, garmin-adem/plaatjes/namen,
+# en commercie/ebb/ebb-film.mp4), met maak.py van week 1 en zelf gemaakt geluid (geluid.py van Chris, tijden
+# in platformen/garmin/marketing/film/geluid_ebb.py). Uit: release ebb-roep-1 met <naam>-geluid.mp4.
+# Plaatst niets: de Keurder van Roep keurt, de Maker van Roep plant in (marketing/REGELS.md).
+on:
+  push:
+    branches: [main]
+    paths: ["platformen/garmin/marketing/film/**", ".github/workflows/ebb-roep-film.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: ebb-roep-1
+  MAP: platformen/garmin/marketing/film
+
+jobs:
+  bouw:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gereedschap
+        run: |
+          timeout 180 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 300 sudo apt-get install -y -q --no-install-recommends -o Acquire::http::Timeout=20 -o Acquire::Retries=3 ffmpeg fonts-inter >/dev/null
+          python3 -m pip install -q --break-system-packages numpy matplotlib pillow
+      - name: Bronbeelden ophalen en nakijken
+        working-directory: ${{ env.MAP }}
+        run: sh haal.sh
+      - name: Filmpjes bouwen, geluid erbij, toetsen
+        working-directory: ${{ env.MAP }}
+        run: |
+          mkdir -p /tmp/uit
+          for j in ebb-roep-1 ebb-roep-2; do python3 "$GITHUB_WORKSPACE/commercie/filmpjes/week-1/maak.py" "$j.json" "/tmp/werk-$j"; done
+          for f in ebb-roep-1-porthole ebb-roep-2-sea-friends; do
+            ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height -of default=nw=1 "$f.mp4" | tee /tmp/p.txt
+            grep -qx 'codec_name=h264' /tmp/p.txt && grep -qx 'width=1080' /tmp/p.txt && grep -qx 'height=1920' /tmp/p.txt || { echo "FOUT: $f is geen 1080x1920 H.264"; exit 1; }
+            python3 geluid_ebb.py maak "$f.mp4" "/tmp/uit/$f-geluid.mp4"
+            python3 geluid_ebb.py toets "$f.mp4" "/tmp/uit/$f-geluid.mp4" "/tmp/uit/$f-geluid-golf.png"
+            ffmpeg -v error -y -i "/tmp/uit/$f-geluid.mp4" -vf "fps=1,scale=216:384,tile=8x2" -frames:v 1 "/tmp/uit/$f-beelden.jpg"
+          done
+          (cd /tmp/uit && sha256sum * | tee SHA256SUMS.txt)
+      - name: Geluidscontrole (geen filmpje zonder hoorbaar geluid naar buiten, roestronde R6)
+        run: python3 organisatie/controle/geluid_check.py /tmp/uit/*.mp4
+      - name: Release maken of bijwerken
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          printf '%s\n' "Twee staande filmpjes over Ebb voor de marketingtak Roep (concept, nog niet gekeurd)." "Echte schermen uit de Garmin-simulator, zelf gemaakt geluid. Concepten: marketing/wachtrij/." > /tmp/notes.md
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" /tmp/uit/* --clobber
+          else
+            gh release create "$TAG" /tmp/uit/* --target "$GITHUB_SHA" --prerelease --title "Ebb Roep-filmpjes 1 (concept)" --notes-file /tmp/notes.md
+          fi
+          gh release view "$TAG" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'

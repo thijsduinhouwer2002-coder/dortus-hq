@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-20 13:05",
+    "datum": "2026-11-20 11:58",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -454,11 +454,11 @@
       "voor": "Dortus",
       "platform": "Garmin Connect IQ",
       "status": {
-        "woord": "geparkeerd",
-        "kleur": "stil",
-        "zin": "Live voor $2,99, geen werk aan; sinds 17 nov geparkeerd."
+        "woord": "marketing",
+        "kleur": "op-koers",
+        "zin": "Live voor $2,99; sinds 20 nov krijgt Ebb marketing: betere winkelpagina en twee filmpjes."
       },
-      "eigenaar": "niemand",
+      "eigenaar": "hoofdchat",
       "agents": [],
       "kans": {
         "tekst": "laag",
@@ -474,13 +474,13 @@
         "reden": "Keurder snel-geld, route 15: €0 tot €80 voor Bison & Flex, Rollwright en Ebb (Garmin) samen.",
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
       },
-      "volgende_stap": "Niets.",
-      "deadline": null,
+      "volgende_stap": "Filmpjes worden gebouwd; daarna keuring en eerste TikTok op 24 nov 18:00.",
+      "deadline": "2026-11-24",
       "thijs": [],
       "risico": "Geen.",
       "laatste_update": {
-        "datum": "2026-11-19 12:22",
-        "door": "bouwer dashboard"
+        "datum": "2026-11-20 11:58",
+        "door": "hoofdchat"
       },
       "links": [
         {
