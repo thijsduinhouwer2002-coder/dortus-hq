@@ -1846,3 +1846,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 20 nov 2026, Sanne (run ±21:45 UTC)
 - Niets zinvols te doen: geen nieuw bericht sinds 13:50, speeltest-blad, stiltegrens en tags klaar, spel bevroren tot de speeltest.
 - Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
+
+## 20 nov 2026, Olaf (run ±22:15 UTC)
+- Niets zinvols te doen: geen nieuw bericht sinds de auto-keuring 68b5275 (al verwerkt op de tak), build klaar, spel bevroren tot de speeltest.
+- Volgende stap: za 21 nov na de speeltest de tak naar main, stilteregel als Thijs het begin niet te druk vindt, punten van Thijs bovenaan `taken.md`.
