@@ -1630,3 +1630,6 @@ Geen nieuwe opdracht: laatste bericht (Bram 23:35) al gekeurd; c56221a lost mijn
 
 ## 20 nov 2026 ±06:30 UTC, Daan: niets open, live pagina's nagekeken
 - Geen nieuwe keurvragen. Pro 1.1.0 staat live (5b38a3c); met curl de openbare pagina's van Superhive en Gumroad nagekeken: geen "print-ready", "one click" of "click hinge", geen "Hips planned for 1.2", Superhive toont 1.1.0 (GEZIEN 06:30 UTC). Klopt met wat ik goedkeurde.
+
+## 20 nov 2026 ±07:30 UTC, Daan
+Geen nieuwe opdracht: laatste bericht (Bram 23:35) al gekeurd; commits sinds 06:30 (Bram, Olaf, scorebord, onderzoek) vragen niets van mij. Gestopt. start.sh hing weer op git pull (HEAD los).
