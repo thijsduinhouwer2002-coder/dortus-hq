@@ -1659,3 +1659,6 @@ Geen nieuwe opdracht: laatste bericht (Olaf 14:35, volgorde niveau-gat) al gekeu
 
 ## 20 nov 2026 16:25 UTC, Daan
 Geen nieuwe keurvragen sinds 15:25 UTC (alleen logboeken van Olaf, Bram, Sanne en de hoofdchat-ronde). Niets open, gestopt.
+
+## 20 nov 2026 17:24 UTC, Daan
+Geen nieuwe keurvragen sinds 16:25 UTC (alleen logboeken, de Short-keuring en de hoofdchat-ronde, die al door anderen zijn gedaan). Niets open, gestopt.
