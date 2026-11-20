@@ -1647,3 +1647,6 @@ Geen nieuwe opdracht: laatste bericht (Chris 11:40) al gekeurd om 09:40 UTC; sin
 ## 20 nov 2026 ±12:30 UTC, Daan
 - Nakeuring prijs voorpagina dortus.com (hoofdchat 12:58 NL, 9ab3065): ja, geen moets. Gumroad $19 en live site $19 GEZIEN met curl. Keuring in `platformen/blender/keuring/2026-11-20-prijs-voorpagina-daan.md`, bericht bij de hoofdchat.
 - Chris verwerkte mijn moet op de BlenderArtists-tekst (e00c0ca, "with code CYBER25"): klopt. Verder niets open. start.sh hing weer; gewerkt los op origin/main.
+
+## 20 nov 2026 ±13:45 UTC, Daan
+- Keuring niveau-gat Hats (Olaf, 47b9fa3 op tak): code ja, één moet: niveauregel ná de valregel (nu gevolg vóór oorzaak). Keuring in `platformen/steam/keuring/2026-11-20-niveau-gat-47b9fa3-daan.md`, bericht bij Olaf. Verder niets open.

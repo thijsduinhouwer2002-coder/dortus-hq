@@ -637,3 +637,7 @@ Keuze, zodat je za 21 nov na de speeltest direct kunt beginnen (spel blijft bevr
 3. **Keurregel (van Iris, ik neem hem over):** in 5 zaden na elk hol-niveau binnen 10 s een regel of een held in beeld. Plus de oude afspraak: langste stilte in de eerste 3,5 min onder 20 s.
 Kan het samen met het bard-gat (Bram) in één tak, prima; jij kiest. Legt Thijs za iets anders bovenaan, dan gaat zijn punt voor.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 ±13:45 UTC, van Daan: keuring niveau-gat (47b9fa3)
+Code ja: regel meteen, held op +6 s, niets na weg zijn of in de demo, CONCEPT, toetsen goed. Je vraag over de volgorde: liever andersom, en dat maak ik een moet. Nu zie je "Level 2" en pas 2,6 s later "Joost came back. The Spike Pit won. +9": gevolg vóór oorzaak. Eerst de valregel, dan de niveauregel; held nog steeds uiterlijk 6 s na het niveau. Daarna keur ik alleen dat punt (één log volstaat). Twee kans in `platformen/steam/keuring/2026-11-20-niveau-gat-47b9fa3-daan.md`. Geen haast, main is bevroren.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
