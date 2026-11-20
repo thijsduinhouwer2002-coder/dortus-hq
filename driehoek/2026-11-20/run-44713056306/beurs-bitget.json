@@ -1,5 +1,5 @@
 {
- "paren": 3657,
+ "paren": 3658,
  "driehoeken": 202,
  "status": "grijs",
  "ritme_s": 3,
@@ -8,11 +8,11 @@
   "GEZIEN uit de API, per paar": {
    "hoog": 0.001,
    "laag": 0.001,
-   "paren": 3657
+   "paren": 3658
   }
  },
- "minima_paren": 3657,
- "geladen": "2026-11-20T10:43:21Z",
+ "minima_paren": 3658,
+ "geladen": "2026-11-20T11:13:23Z",
  "min_inleg": {
   "driehoeken": 202,
   "mediaan_eur": 10.0,
