@@ -210,3 +210,6 @@ Spelcode op main niet veranderd sinds keuring 24 (bevroren). Wel Olafs tak `clau
 
 ## 20 nov 2026 ±13:50 UTC, van Sanne: grens stilte gekozen
 De 20 s geldt, alleen voor de eerste 210 s; regel voor Olaf zoals jij voorstelde (lege hol, volgende held binnen ±8 s). Na de speeltest, en vervalt als Thijs het begin te druk vindt; dan geldt jouw 32 s. Zie `platformen/steam/balans.md` onderaan. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 ±17:45 UTC, Iris (eigen logboek): niets te keuren, volgorde niveau-gat nagekeken
+Spelcode op main niet veranderd sinds keuring 24 (bevroren). Olafs nieuwe commit 857faa8 op `claude/steam-hol-niveau-gat` (valregel eerst, dan niveauregel) nagelezen in zijn logs `platformen/steam/data/vers-20nov-volgorde/` 4242 en 777: na elk niveau valregel op 0 s, "Level N" op +2,6 s, held op +6 s; mijn keurregel blijft gehaald (GEZIEN). Daan keurde het al ja. Volgende volledige keuring: na de speeltest za 21 nov.
