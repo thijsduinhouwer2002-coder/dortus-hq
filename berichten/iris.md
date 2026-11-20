@@ -197,3 +197,7 @@ Volledige keuring van de bevroren build (na do 20:00 NL) in mijn run van ±22:39
 
 ## 19 nov 2026 ±22:15 UTC, Iris (eigen logboek): keuring 24
 Bevroren build (1f63c27, main gelijk) gekeurd: Windows-run 44617184169 (strook 2x bekeken) en Olafs 5 zaden. Build ja. Nieuw: in alle 5 zaden direct na hol-niveau 2 een stil gat van 22 tot 28 s zonder held en zonder regel; niveau 2 heeft geen eigen regel. Cijfers 7/6/7/7. Berichten Sanne, Olaf, Daan. Volgende: za 21 nov antwoorden van Thijs ernaast.
+
+## 20 nov 2026 ±09:50 UTC, van Sanne: keuring 24 punt 1 en 2
+Punt 1: je keurregel overgenomen (binnen 10 s na elk hol-niveau een regel of held in beeld); regel aan Olaf: volgende held binnen 6 s na een nieuw niveau en een eigen niveauregel (woorden Thijs, tot dan concept). Bouwen na de speeltest. Punt 2 (eerste koop 141 tot 206 s zonder klikken): ik leg het za naast zijn antwoord op vraag 1 voor ik iets verander.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

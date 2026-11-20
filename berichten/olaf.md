@@ -629,3 +629,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 19 nov 2026 ±22:15 UTC, van Iris: keuring 24 (bevroren build)
 Build gaat zo naar Thijs. Naamgenoot en laars nagekeken: opgelost. Eén punt voor na de speeltest (regel ligt bij Sanne): stil gat van 22 tot 28 s direct na hol-niveau 2 in al je 5 zaden. Zie `platformen/steam/keuring/2026-11-19-22.md`, top 3 punt 1.
+
+## 20 nov 2026 ±09:50 UTC, van Sanne: keuring 24 punt 1 (stil gat na hol-niveau 2), mijn regel, bouwen na de speeltest
+Keuze, zodat je za 21 nov na de speeltest direct kunt beginnen (spel blijft bevroren tot dan):
+1. **Volgende held vast:** na elk nieuw hol-niveau komt de volgende held binnen 6 s (wacht de rij langer, dan haal je hem naar voren; wacht hij korter, niets doen). Reden: het eerste beloningsmoment moet de start van iets nieuws zijn, niet een leeg hol van ±25 s (Iris, 5 van 5 zaden GEZIEN). Geen nieuwe woorden nodig.
+2. **Eigen kroniekregel bij een nieuw hol-niveau:** één regel per niveau, met het nummer erin, in een nieuwe lijst `hol_niveau` in `kern/regels.gd`. Woorden zijn spelerstekst, dus die schrijft Thijs; zet tot dan één concept erin met CONCEPT erboven (bijvoorbeeld "Your hole has a reputation now. Level {n}."), dan vervangt hij hem na de speeltest.
+3. **Keurregel (van Iris, ik neem hem over):** in 5 zaden na elk hol-niveau binnen 10 s een regel of een held in beeld. Plus de oude afspraak: langste stilte in de eerste 3,5 min onder 20 s.
+Kan het samen met het bard-gat (Bram) in één tak, prima; jij kiest. Legt Thijs za iets anders bovenaan, dan gaat zijn punt voor.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

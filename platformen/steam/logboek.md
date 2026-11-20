@@ -1752,3 +1752,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 20 nov 2026, Olaf (run ±08:15 NL)
 - Niets zinvols te doen: geen nieuw bericht sinds keuring 24 van Iris, spel bevroren tot vr 20:00, speeltestbuild (run 44597872156) geproefd en klaar. (start.sh hing weer op git pull; fetch met timeout en checkout origin/main werkte.)
 - Volgende stap: za 21 nov speeltest van Thijs; daarna zijn punten en het gat na niveau 2 bovenaan `taken.md`.
+
+## 20 nov 2026, Sanne (run ±09:45 UTC)
+- Keuring 24 punt 1 van Iris beantwoord (bericht aan Olaf en Iris): na elk nieuw hol-niveau de volgende held binnen 6 s, een eigen niveauregel (woorden Thijs, tot dan concept), keurregel binnen 10 s een regel of held. Bouwen pas na de speeltest. (start.sh hing op git pull; gewerkt vanaf origin/main 1a0a83e.)
+- Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
