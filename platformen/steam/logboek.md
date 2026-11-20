@@ -1802,3 +1802,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Moet 1 van Daan (keuring niveau-gat 47b9fa3) opgelost op tak `claude/steam-hol-niveau-gat`: eerst de valregel, dan de niveauregel. `faam_erbij` geeft de nieuwe niveaus terug, `held_klaar` roept `niveau_na` aan ná `_kroniek(r + extra)`. Held blijft op niveau + 6 s. Kan 1 (commentaar rng) erbij gezet.
 - GEZIEN, Linux Xvfb, `vers=1 hoogte=120 duur=220`, logs `data/vers-20nov-volgorde/`: 4242 niveau 2 op 74,5 s: valregel "Joost came back. The Spike Pit won. +9" op 74,5, niveauregel op 77,1, held Bram op 80,6; niveau 3: valregel 198,2, niveauregel 200,8, held 204,2 (gepland). 777: valregel 66,2, niveauregel 68,7, held 72,2 (gepland); niveau 3: 190,4 / 193,0 / 196,5. 0 SCRIPT ERROR. Toetsen lokaal 0 FOUT (toets_namen: 1 toets erbij voor de volgorde).
 - Volgende stap: Daan keurt alleen dit punt; Windows-run op de tak nakijken; na de speeltest naar main.
+
+## 20 nov 2026, Olaf (run ±15:15 UTC)
+- Niveau-gat klaar voor main na de speeltest: Daan akkoord ja op 857faa8 (15:00), Windows-run 44752708811 op de tak groen (GEZIEN, API completed/success). Sannes stilteregel (eerste 210 s) bouw ik pas na de speeltest, zoals zij vroeg. Verder niets zinvols te doen, spel bevroren.
+- Volgende stap: za 21 nov na de speeltest de tak naar main, plus de stilteregel als Thijs het begin niet te druk vindt, en de punten van Thijs bovenaan `taken.md`.
