@@ -26,7 +26,7 @@ film = json.loads((IN / "film.json").read_text())
 FPS, D, MT = film["fps"], film["delen"], film.get("metingen", {})
 VOLG = sorted(D, key=lambda k: D[k])
 BG, LICHT, GRIJS, MINT = "0x23262D", "0xF1F3F7", "0xC9CDD8", "0x3BE6B0"
-KX = int(os.environ.get("KORT_KX", "250"))
+KX = int(os.environ.get("KORT_KX", "500"))   # vierkant van 960 px uit het scherm (x 500 tot 1460, y 40 tot 1000), zonder menubalk en zijbalk, vergroot naar 1080
 STOP = int(round(MT.get("knie_stop", 120)))
 N_GEW = MT.get("gewrichten", 9)
 
@@ -90,7 +90,7 @@ for naam, (stukken, boven, klanken) in FILMPJES.items():
         laatste = min(deel_eind(deel), D[deel] + tot) if tot is not None else deel_eind(deel)
         uit = TMP / f"{naam}{i}.mp4"
         ff("-i", str(IN / "opname-ruw.mkv"),
-           "-vf", f"trim=start_frame={eerste - 1}:end_frame={laatste - 1},crop=1080:1080:{KX}:0,"
+           "-vf", f"trim=start_frame={eerste - 1}:end_frame={laatste - 1},crop=960:960:{KX}:40,scale=1080:1080:flags=lanczos,"
                   f"setpts={traag}*(PTS-STARTPTS),fps={FPS},format=yuv420p",
            "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", str(uit))
         delen.append(uit)

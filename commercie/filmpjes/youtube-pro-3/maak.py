@@ -84,14 +84,14 @@ def graad(naam, val):
 L_KNIE, L_ELL = graad("Left knee", 120), graad("Left elbow", 140)
 
 # Vergrote stukken van de zijbalk: (x, y binnen de zijbalk, breedte, hoogte, schaal, plek x, plek y)
+# Plekken gemeten op beelden 200, 240, 960 en 1700 van opname 2 (run 44749515895); x en y binnen de zijbalk.
 ZOOM = {
-    "knop": (0, 30, ZW - 40, 130, 1.8, 60, 330),
-    "lijst": (0, 300, ZW - 40, 330, 1.5, 40, 200),
-    "presets": (0, 30, ZW - 40, 200, 1.6, 60, 300),
-    "hinge": (0, 0, ZW - 40, 0, 1.6, 60, 300),
-    "export": (0, 0, ZW - 40, 0, 1.6, 60, 300),
+    "knop": (5, 744, 360, 160, 1.8, 60, 330),      # Figure joints met de knop Figure from rig
+    "lijst": (5, 706, 360, 300, 1.5, 40, 250),     # 9 joints · 2 rig · 2 mirror · 5 preset en de lijst
+    "presets": (5, 590, 360, 120, 1.8, 40, 330),   # Or put the 3D cursor on a joint, then: Shoulder ... Neck
+    "hinge": (5, 336, 360, 140, 1.6, 40, 300),     # blok Hinge met Bends 0° to 120° en de Bend-schuif
+    "export": (5, 524, 360, 200, 1.6, 40, 330),    # 3 Fit and export, 3MF, Export 3MF
 }
-ZOOM.update(json.loads((HIER / "zoom.json").read_text()) if (HIER / "zoom.json").exists() else {})
 
 
 def zoomfilter(sleutel, bron, doel, tijd=None):
@@ -123,7 +123,7 @@ def stuk(naam, deel, van=0, tot=None, traag=1.0, onder=(), hoofdstuk="", zooms=(
             laatst = f"z{k}"
     vf = list(extra_vf)
     for tekst, a, b in onder:
-        vf.append(dt(tekst, 44, LICHT, 60, "h-118", extra=f":box=1:boxcolor={BG}@0.88:boxborderw=22" + tussen(a, b)))
+        vf.append(dt(tekst, 40, LICHT, 60, "h-112", extra=f":box=1:boxcolor={BG}@0.88:boxborderw=22" + tussen(a, b)))
     if hoofdstuk:
         vf.append(dt(hoofdstuk, 34, MINT, 60, 50, extra=f":box=1:boxcolor={BG}@0.80:boxborderw=14"))
     keten.append(f"[{laatst}]" + (",".join(vf) + "," if vf else "") + "format=yuv420p[uit]")
@@ -177,33 +177,33 @@ voeg(s3, d3)
 # 1 rig
 hoofdstuk(1, "Start with a rigged figure")
 s, d = stuk("rig", "rig", traag=1.25, hoofdstuk="1  Start with a rigged figure",
-            onder=[("Start with your rigged figure. This one: 220 mm, 20 bones, one solid mesh.", 0, 99)])
+            onder=[("Start with your rigged figure: here 220 mm tall, 20 bones.", 0, 99)])
 voeg(s, d, (0.05,))
 s, d = stuk("druk", "druk", houd=1.5, hoofdstuk="1  Start with a rigged figure", zooms=[("knop", None)],
-            onder=[("Open the Figure joints panel and press Figure from rig.", 0, 99)])
+            onder=[("Scroll to Figure joints and press Figure from rig.", 0, 99)])
 voeg(s, d, (0.05,))
 geluid["klik"].append(tijd - 0.1)
 
 # 2 one button
 hoofdstuk(2, "One button, every joint")
 s, d = stuk("lijst", "lijst", traag=1.5, hoofdstuk="2  One button, every joint",
-            zooms=[("lijst", (0, 8)), ("presets", (8, 12.1))],
-            onder=[(f"{N_GEW} joints from one button. Elbows and knees: hinge. Shoulders, hips, neck: ball.", 0, 4),
-                   ("The list shows each range and where it came from: from rig, mirror or preset.", 4, 8),
+            zooms=[("lijst", (0, 7.95)), ("presets", (8.05, 12.1))],
+            onder=[(f"{N_GEW} joints: hinges at elbows and knees, ball joints at the rest.", 0, 4),
+                   ("The list shows each range and where it came from.", 4, 8),
                    ("No rig? Put the 3D cursor on a joint and pick the body part.", 8, 99)])
 voeg(s, d, (0.05, 4.0, 8.0))
 
 # 3 ranges
 hoofdstuk(3, "Every range in degrees")
 s, d = stuk("bogen", "bogen", traag=1.25, hoofdstuk="3  Every range in degrees",
-            onder=[("Next to every joint you see how far it bends, in degrees.", 0, 6),
-                   (f"Left knee {L_KNIE}° and left elbow {L_ELL}° come from Limit Rotation in the rig.", 6, 99)])
+            onder=[("Next to every joint: how far it bends, in degrees.", 0, 6),
+                   (f"Left knee {L_KNIE}°, left elbow {L_ELL}°: from Limit Rotation in the rig.", 6, 99)])
 voeg(s, d, (0.05, 6.0))
 
 # 4 bend
 hoofdstuk(4, "Bend to the stop")
 s, d = stuk("buig", "buig", hoofdstuk="4  Bend to the stop", zooms=[("hinge", None)],
-            onder=[(f"Drag Bend: the right knee stops at {STOP}°, mirrored from the left side of the rig.", 0, 99)])
+            onder=[(f"Drag Bend: the right knee stops at {STOP}° (mirrored from the left).", 0, 99)])
 geluid["buig"].append((tijd + 0.7, 5.0))
 geluid["klik"].append(tijd + 0.7 + 5.0)
 voeg(s, d, (0.05,))
@@ -211,7 +211,7 @@ voeg(s, d, (0.05,))
 # 5 past the stop
 hoofdstuk(5, "Past the stop")
 s, d = stuk("rood", "rood", hoofdstuk="5  Past the stop", zooms=[("hinge", None)],
-            onder=[(f"Push past {STOP}° and the arc turns red, with how far you went.", 0, 99)])
+            onder=[(f"Push past {STOP}°: the arc turns red and shows how far you went.", 0, 99)])
 geluid["zoef"].append((tijd + 0.1, 1.5))
 voeg(s, d, (0.05,))
 s, d = stuk("terug", "terug", hoofdstuk="5  Past the stop", zooms=[("hinge", None)],
@@ -221,7 +221,7 @@ voeg(s, d, (2.0,))
 # 6 exploded
 hoofdstuk(6, "Exploded view")
 s, d = stuk("uitelkaar", "uitelkaar", traag=1.25, hoofdstuk="6  Exploded view",
-            onder=[("Exploded view pulls every part apart, so you see each joint before you print.", 0, 7.5),
+            onder=[("Exploded view: see every joint before you print.", 0, 7.5),
                     ("Clearance is 0.2 mm by default. You can change it.", 7.5, 99)])
 geluid["zoef"].append((tijd + 0.2, 2.0))
 voeg(s, d, (0.05, 7.5))
@@ -229,16 +229,17 @@ voeg(s, d, (0.05, 7.5))
 # 7 export
 hoofdstuk(7, "Export STL or 3MF")
 s, d = stuk("export", "export", houd=2.0, hoofdstuk="7  Export STL or 3MF", zooms=[("export", None)],
-            onder=[(f"Export as STL or 3MF. Here: {N_EXPORT} parts as 3MF files, one click.", 0, 99)])
+            onder=[(f"Export every part as STL or 3MF. Here: {N_EXPORT} parts as 3MF.", 0, 99)])
 geluid["klik"].append(tijd + 1.5)
 voeg(s, d, (0.05,))
 
 # 8 good to know
 hoofdstuk(8, "Good to know")
 s, d = stuk("goed", "bogen", traag=1.0, omgekeerd=True, hoofdstuk="8  Good to know",
-            onder=[("Works best on figures with separate arms and legs, about 200 mm tall or more.", 0, 5),
-                   ("Measured in Blender, not print tested by us yet. Print a test joint first.", 5, 99)])
-voeg(s, d, (0.05, 5.0))
+            onder=[("Best on figures with separate arms and legs, about 200 mm tall.", 0, 3.5),
+                   ("Measured in Blender, not print tested by us yet.", 3.5, 6.5),
+                   ("Print a test joint first: every printer is different.", 6.5, 99)])
+voeg(s, d, (0.05, 3.5, 6.5))
 
 hoofdstukken.append((f"{int(tijd // 60)}:{int(tijd % 60):02d}", "Where to get it"))
 EIND_S = 16.0
