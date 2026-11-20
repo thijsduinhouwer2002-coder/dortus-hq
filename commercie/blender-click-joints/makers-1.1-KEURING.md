@@ -55,3 +55,17 @@ Kort: het meeste klopt goed. De mails zijn netjes, eerlijk en kort, alle Pro-bew
 2. Bij InspirationTuts en askNK "if your rig has one" of "where your rig sets a limit" toevoegen bij Limit Rotation.
 3. Bij Stefan noemen dat hij betaalde plekken gewend is (zijn contacttekst), zoals bij 6 en 7.
 4. "on Gumroad" bij de korting, en de laatste alinea in korte zinnen (deel C).
+
+## Nakeuring 20 nov
+Wat ik keurde: alleen de 4 moet-punten, zoals verwerkt in commit c8a3d726 (deel "Verwerkt na de keuring"). Losse keurder, niet de maker. Nagekeken met curl op vr 20 nov ±16:00 UTC.
+Akkoord: ja
+
+| # | Moet-punt | Opgelost? | Wat ik zag |
+|---|---|---|---|
+| 1 | Abonnees InspirationTuts en askNK | ja | Kanaalpagina's opnieuw met curl: `"content":"342K subscribers"` op @InspirationTuts/about en `"content":"290K subscribers"` op @asknk/about (GEZIEN). De tabel zegt nu 342K en 290K; de twijfeltekst over 3,63K en "slecht passen" is weg. De volgorde blijft 1 tot 5 eerst, met als reden dat zij zelf figuren printen en de overzichtskanalen mogelijk geld vragen. Dat is opnieuw bekeken en beargumenteerd, goed genoeg. |
+| 2 | CYBER25 | ja | gumroad.com/help/article/128-discount-codes, kopje Automatically apply, staat letterlijk: "If a customer arrives with a different discount from a discount link or URL parameter, Gumroad applies whichever discount is larger. Discounts never stack." Het stuk citeert dat nu goed, en punt 5 van "Wat Thijs moet beslissen" geeft de echte reden (video af vóór of in de saleweek). De oude, verkeerd gelezen zin is weg. |
+| 3 | Geldverwachting | ja | Nu $8,13 per verkoop in de saleweek, ±$40 per video bij 5 verkopen, ±$80 tot $120 bij 2 tot 3 video's (GOK). Klopt met het eigen rekenvoorbeeld (5 x 8,13 = 40,65). |
+| 4 | Affiliatelink melden | ja | Alle 11 mails hebben nu dezelfde zin: "Mention it and get 30% of each sale via your own link (send us your Gumroad email); please disclose it was free and an affiliate link." Eerlijk: de maker wordt gevraagd zowel gratis als affiliate te melden. Natuurlijk Engels: kort en zakelijk, goed te begrijpen. De zin "en staat in onze mail" is vervangen door wat nu waar is. |
+| 4b | Max 120 woorden | ja | Zelf geteld met een script, zonder onderwerp, met aanhef en groet (en met het mailadres bij de formulieren): 119, 113, 116, 115, 119, 116, 120, 115, 119, 112, 112. askNK zit precies op 120, de rest eronder. |
+
+Kan (geen blokkade): "please disclose it was free and an affiliate link" leest strikt als "Pro was een affiliatelink". Netter is "disclose that it was free and that the link is an affiliate link", maar dat brengt askNK boven 120; dan elders twee woorden schrappen. De kan-punten uit de eerste keuring staan nog open, zoals het stuk zelf zegt.

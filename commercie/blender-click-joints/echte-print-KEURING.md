@@ -49,3 +49,20 @@ Kort: het onderzoek klopt bijna overal en de prijs valt zelfs lager uit dan gesc
 4. "Grootste" bij tolerance test: de alles-in-één test met 97.422 noemen of "grootste losse tolerantietest" schrijven (A10).
 5. Bij de bestelling PLA expliciet kiezen; de dienst raadt zelf nylon aan voor scharnieren (A6).
 6. Bestelinstellingen in één regel (C2) en de Fit test strip in hetzelfde bestand als dat op tijd kan (C3).
+
+## Nakeuring 20 nov
+Wat ik keurde: alleen de 2 moet-punten, zoals verwerkt in commit cfe93cea (`testprint/testset-4-delen.stl` en `echte-print-2026-11-20.md`). Losse keurder, niet de maker.
+Akkoord: nee
+
+| # | Moet-punt | Opgelost? | Wat ik zag |
+|---|---|---|---|
+| 1 | B-delen omdraaien | ja, op één tekstfout na | Gemeten met trimesh: 1 bestand, 4 losse delen, alle 4 waterdicht, totaal 26,048 cm³, 14.368 driehoeken. Alle 4 liggen op z = 0 met het platte eind op het bed: scharnier-A en -B 153,5 mm², kogel-A en -B 313,3 mm². Overhang: scharnier-A 0, scharnier-B 3,2 mm², kogel-A 44,0 mm² (onderkant van de bol), kogel-B 0. Scharnier-B en kogel-B zijn precies de losse bestanden 180 graden om X gedraaid (afwijking 0,000004 mm), A-delen alleen verschoven. Dus de vorm is niet veranderd. **Maar:** de delen staan nu 5 mm uit elkaar en het bestand is 83 x 20 x 44,5 mm, terwijl deel B van het stuk (regel 56 en 57) nog zegt "naast elkaar met 10 mm ruimte" en "98 x 20 x 44,5 mm ... (GEZIEN, eigen meting)". Het verwerkt-blok onderaan zegt wel 83 mm, dus het stuk spreekt zichzelf tegen en er staat een GEZIEN-maat in die niet meer klopt. |
+| 2 | Prijs bovenaan | half | Wat er staat klopt met wat de keurder zag: 14,11 g, 71 minuten, €6,55 zonder btw, €7,93 met btw, brievenbus vanaf €3,99, totaal ±€12, support aan, support blijft nodig onder de bol van kogel-A. **Het ontbreekt aan het tweede deel van het moet-punt:** "€4 zonder btw extra als de dienst de support weghaalt", dus €4,84 met btw en **€16,76 totaal**. Dat is geen kleinigheid: de support zit juist onder de bol van het kogelgewricht. Haalt Thijs die zelf weg, dan kan de bol ruw worden en zegt de test minder. Thijs moet die keuze en dat bedrag zien vóór hij ja zegt. |
+
+### Moet (blokkeert akkoord)
+1. In de prijsregel bovenaan toevoegen: support weghalen door de dienst kost €4 zonder btw (€4,84 met btw), totaal dan €16,76; met advies welke van de twee (GEZIEN door de keurder, 20 nov).
+2. Deel B regel 56 en 57 laten kloppen met het nieuwe bestand: 5 mm ruimte, 83 x 20 x 44,5 mm (en de bestandsgrootte opnieuw meten).
+
+### Kan (mag later)
+1. In het lijf van het stuk staat nog ±€15 (tabel A1, kopje "hoe ik op ±€15 kom", regel 62 en "Kosten ±€15" bij geld). Bovenaan staat nu de echte prijs; zet in die regels "zie bovenaan: ±€12, of €16,76 met support weghalen", anders ziet Thijs twee prijzen.
+2. Of de rekenhulp met de omgedraaide delen nog steeds 14,11 g en 71 minuten geeft, heb ik niet opnieuw gedaan (GOK in het stuk: een paar cent verschil). Bij bestellen ziet Thijs de echte prijs toch.
