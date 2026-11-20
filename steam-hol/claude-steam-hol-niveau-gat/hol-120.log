@@ -43,15 +43,15 @@ HOL hol-niveau 2 (faam 3, t 38.4)
 HOL bordje wip niveau 2
 HOL kroniek 38.7 (wacht 0.3): Anouk came back. The Spike Pit won. +9
 HOL zicht 39.2 0
-HOL meting t=40 beelden=130 helden=0 hol_vast=18
+HOL meting t=40 beelden=129 helden=0 hol_vast=18
 HOL begin: opgegeten2 (Maud)
 HOL held binnen: Maud
-HOL zicht 40.5 1
+HOL zicht 40.6 1
 HOL kroniek 41.3 (wacht 2.1): Jop ran. Hands smell of gold.
-HOL kroniek vervallen 43.5: Maud read about you in a tavern.
-HOL kroniek 43.9 (wacht 23.2): A song about you! Heroes on the way.
+HOL kroniek vervallen 43.6: Maud read about you in a tavern.
+HOL kroniek 43.8 (wacht 23.0): A song about you! Heroes on the way.
 HOL gegraven kolom 3 (zelf 5, graafbonus 0)
-HOL kroniek 46.4 (wacht 8.0): Gloop is up again. Wobbly.
+HOL kroniek 46.3 (wacht 7.8): Gloop is up again. Wobbly.
 HOL held binnen: Bram
-HOL kroniek 48.9 (wacht 2.4): Bram knocks first. Polite.
+HOL kroniek 48.8 (wacht 2.2): Bram knocks first. Polite.
 HOL einde na 50 s, fps=10, goud=42, terugkomers=1
