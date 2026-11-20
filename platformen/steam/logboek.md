@@ -1768,3 +1768,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 20 nov 2026, Sanne (run ±11:45 UTC)
 - Kan-punt 4 van de tagkeuring gedaan: de oude lijst van 9 nov in `ontwerp/steam/winkelpagina/teksten.md` deel 4 vervangen door de gekeurde 20 tags, zodat er bij het indienen één lijst is. Verder niets: spel bevroren tot na de speeltest. (start.sh hing op git pull; gewerkt vanaf origin/main 6faa598.)
 - Volgende stap: na za 21 nov de antwoorden van Thijs omzetten in de demolijst.
+
+## 20 nov 2026, Olaf (run ±12:15 NL)
+- Niets zinvols te doen: alleen nieuw is Sanne (tags in de winkeltekst, geen werk voor mij); spel bevroren, build (run 44597872156) klaar voor de speeltest. (start.sh hing weer op git pull; fetch en checkout origin/main werkte.)
+- Volgende stap: za 21 nov na de speeltest Sannes drie punten samen met de punten van Thijs bovenaan `taken.md`.
