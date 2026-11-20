@@ -1,13 +1,13 @@
 # Echte print voor Click Joints Pro (20 nov 2026, agent print-onderzoek, opdracht hoofdchat ±14:45 NL)
 
 ## Voorstel voor Thijs (geld: alleen na zijn ja)
-1. **Laat de 4 testdelen (scharnier 115° en kogel, 1 bestand, 26 cm³) in PLA printen bij Elektronica Voor Jou** (Nederlandse winkel, Bambu Lab H2D, STL uploaden en direct prijs zien). **Totaal ±€15 met btw en brievenbuspost (GOK)**, opgebouwd uit hun tarieven: start €3,99 per bestand, €0,06 per gram PLA, €1,45 per printuur, alles zonder btw, brievenbus vanaf €3,99 (GEZIEN, zie A1).
+1. **Laat de 4 testdelen (scharnier 115° en kogel, 1 bestand `testprint/testset-4-delen.stl`, 26 cm³) in PLA printen bij Elektronica Voor Jou** (Nederlandse winkel, Bambu Lab, STL uploaden en direct prijs zien). **Totaal ±€12: print €7,93 met btw plus brievenbus vanaf €3,99.** De printprijs is GEZIEN door de keurder in hun eigen rekenhulp (anoniem, geen account, geen bestelling): 14,11 g, 71 minuten, €6,55 zonder btw, met support aan. Na het omdraaien van twee delen kan dat iets anders uitvallen (GOK: een paar cent). Kies bij bestellen expliciet PLA (de dienst raadt nylon aan voor scharnieren). Support blijft nodig onder de bol van kogel-deel A; de andere drie delen liggen plat op het bed.
 2. **Binnen:** zij versturen binnen 3 werkdagen (GEZIEN). Besteld vóór ma 23 nov: binnen do 26 of vr 27 nov (GOK).
-3. **Wat we ermee doen:** Thijs buigt het scharnier tot de stop en draait de kogel, filmpje van 10 s met de telefoon. Werkt het: filmpje naar de Maker van Roep (na keuring), post op r/3Dprinting (zijn account, zijn ja op de tekst), "print tested" op Gumroad, gratis testmodel op Printables. Werkt het niet: we weten het vóór een koper het merkt en passen de speling aan. Eén verkoop van Pro ($19) betaalt de print terug.
+3. **Wat we ermee doen:** Thijs buigt het scharnier tot de stop en draait de kogel, filmpje van 10 s met de telefoon. Werkt het: filmpje naar de Maker van Roep (na keuring), post op r/3Dprinting (zijn account, zijn ja op de tekst), "print tested" op Gumroad, gratis testmodel op Printables. Werkt het niet: we weten het vóór een koper het merkt en passen de speling aan. Eén à twee verkopen van Pro ($19, GEZIEN op Gumroad) betaalt de print terug.
 4. **Tweede keus:** een hobbyprinter via Marktplaats (Bambu Lab, €0,05 per gram, minimaal €5, GEZIEN), ±€10 met verzending (GOK), maar dat vraagt een bericht en een betaalverzoek vanaf zijn eigen account.
 5. **Eerlijk alternatief, niets uitgeven:** "not print tested yet" blijft staan en we bieden de eerste koper of maker die een printfoto stuurt een gratis Pro-licentie. Kost geen geld, maar r/3Dprinting, Printables en Thangs blijven dicht tot iemand dat doet, en wanneer dat is weet niemand.
 
-**Keuring: nog niet gedaan.** In deze sessie kon ik geen aparte keurder starten (geen Agent-gereedschap; de losse `claude` in de shell geeft een inlogfout). De hoofdchat zet er een keurder op (skill `keuren`, uitkomst in `echte-print-KEURING.md`) vóór dit naar Thijs gaat.
+**Keuring:** `echte-print-KEURING.md` (20 nov), akkoord nee met 2 moet-punten, beide verwerkt door de hoofdchat (zie onderaan).
 
 Wat al besloten is: 17 nov 13:40 "geen testprint" (Thijs, `organisatie/archief/besluiten-t-m-2026-11-18.md` regel 456) en 19 nov 14:00 "geen eigen 3D-printer, betaalde testprint nog niet goedgekeurd" (`organisatie/besluiten.md` regel 161). Dit stuk bestelt niets; het legt de keuze opnieuw voor met een exacte prijsopbouw.
 
@@ -96,3 +96,9 @@ Printables (Prusa-account) en MakerWorld (Bambu-account) vragen een account: **e
 
 ## Bronnen nagelezen in de repo
 `platformen/blender-2/gumroad-1.1.md`, `commercie/blender-click-joints/testprint/`, `organisatie/besluiten.md` (regel 47 en 161), `organisatie/archief/besluiten-t-m-2026-11-18.md` (regel 456), `commercie/blender-click-joints/verspreiding.md` (punt 8), `platformen/blender-2/testkaart-ontwerp.md`, `berichten/hoofdchat.md` (Stijn 16 en 17 nov).
+
+
+## Verwerkt na de keuring (hoofdchat, 20 nov ±16:00 NL)
+- Moet 1: in `testprint/testset-4-delen.stl` zijn scharnier-deel B en kogel-deel B 180° om de X-as gedraaid, zodat het platte eind op het bed ligt. Nagemeten met trimesh: alle 4 delen raken het bed met hun platte eind (153,5 en 313,3 mm²), overhang scharnier-B 3 mm², kogel-B 0 mm², kogel-A 44 mm² (bol, support nodig). Volume 26,05 cm³, 4 waterdichte delen, 83 x 20 x 44,5 mm.
+- Moet 2: prijs bovenaan vervangen door de prijs uit hun rekenhulp (€7,93 met btw, plus post ±€12 totaal), met de opmerking over support.
+- Gewrichtsvorm in 1.1 gelijk aan 1.0.2: getoetst door de keurder (maak.py in bpy 5.3.0, beide commits, exact gelijk).
