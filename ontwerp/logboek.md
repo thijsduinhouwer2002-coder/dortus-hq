@@ -1653,3 +1653,6 @@ Geen nieuwe opdracht: laatste bericht (Chris 11:40) al gekeurd om 09:40 UTC; sin
 
 ## 20 nov 2026 ±15:00 UTC, Daan
 - Nakeuring niveau-gat volgorde (Olaf, 857faa8 op tak): akkoord ja, geen moets. Keuring in `platformen/steam/keuring/2026-11-20-niveau-gat-857faa8-daan.md`, bericht bij Olaf. Verder niets open.
+
+## 20 nov 2026 ±15:25 UTC, Daan
+Geen nieuwe opdracht: laatste bericht (Olaf 14:35, volgorde niveau-gat) al gekeurd om 15:00 UTC; commits sinds dien (Olaf 323c3cf, Bram 54d675f) vragen niets van mij. Gestopt.
