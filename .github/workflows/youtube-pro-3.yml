@@ -1,0 +1,118 @@
+name: YouTube Pro 3 (Rig to printable figure, lang en staand)
+
+# 20 nov 2026, opdracht hoofdchat 14:45 NL: lange YouTube-uitleg over Figure from rig (1920x1080) en twee staande
+# TikToks (1080x1920), opgenomen in de echte Blender 5.3.0 met de betaalde add-on 1.1.0 op de figuur van plaatje 19
+# (MakeHuman base.obj, CC0). Scripts: commercie/filmpjes/youtube-pro-3/ (opname.py, maak.py, kort.py).
+# Is opname.py niet veranderd sinds de vorige run, dan wordt de ruwe opname uit de release hergebruikt (sneller).
+# Uit: release youtube-pro-3 met *-geluid.mp4, geluid_check op elk bestand.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/youtube-pro-3/**", ".github/workflows/youtube-pro-3.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: youtube-pro-3
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter
+          python3 -m pip install -q --break-system-packages numpy
+      - name: Ruwe opname hergebruiken als opname.py gelijk is
+        id: ruw
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          nu=$(sha256sum commercie/filmpjes/youtube-pro-3/opname.py | cut -c1-64)
+          echo "sha=$nu" >> "$GITHUB_OUTPUT"
+          mkdir -p /tmp/oud
+          if gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p opname-sha.txt -p opname-ruw.mkv -p film.json -D /tmp/oud 2>/dev/null \
+             && [ "$(cat /tmp/oud/opname-sha.txt)" = "$nu" ] && [ -s /tmp/oud/opname-ruw.mkv ]; then
+            mkdir -p /tmp/filmuit/beelden
+            ffmpeg -v error -i /tmp/oud/opname-ruw.mkv -start_number 1 /tmp/filmuit/beelden/b%05d.png
+            cp /tmp/oud/film.json /tmp/filmuit/film.json
+            echo "opnieuw=nee" >> "$GITHUB_OUTPUT"
+            echo "ruwe opname hergebruikt ($(ls /tmp/filmuit/beelden | wc -l) beelden)"
+          else
+            echo "opnieuw=ja" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Blender 5.3.0 ophalen
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+          curl -fsSL --retry 3 -o /tmp/mh_base.obj https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj
+      - name: Betaalde zip
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        working-directory: producten/blender-gewrichten
+        run: bash e2e/maak_zip.sh betaald
+      - name: Opnemen
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          CJ_MENS_OBJ: /tmp/mh_base.obj
+          BLENDER_USER_RESOURCES: /tmp/cj_film
+          BLENDER_USER_CONFIG: /tmp/cj_film/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_film/extensions
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_f.blend')"
+          timeout 3000 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_f.blend --python commercie/filmpjes/youtube-pro-3/opname.py -- /tmp/filmuit /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/film.log || true
+          grep -E "LANG|Traceback|Error" /tmp/film.log || true
+          for d in rig druk lijst bogen buig rood terug uitelkaar export; do grep -q "LANG OK $d" /tmp/film.log || { echo "FOUT: deel $d"; exit 1; }; done
+          mkdir -p /tmp/klaar
+          ffmpeg -v error -framerate 30 -start_number 1 -i /tmp/filmuit/beelden/b%05d.png -c:v libx264 -preset veryfast -crf 10 -pix_fmt yuv444p /tmp/klaar/opname-ruw.mkv
+          echo "${{ steps.ruw.outputs.sha }}" > /tmp/klaar/opname-sha.txt
+          cp /tmp/film.log /tmp/klaar/opname.log
+          cp /tmp/filmuit/film.json /tmp/klaar/film.json
+      - name: Ruwe opname alvast in de release
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Click Joints Pro: Rig to printable figure (lange YouTube-uitleg en twee staande TikToks), opgenomen in de echte Blender 5.3.0 met de add-on 1.1.0. Concepten: marketing/wachtrij/. opname-ruw.mkv is alleen werkmateriaal." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube Pro 3 (Rig to printable figure)" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/klaar/opname-ruw.mkv /tmp/klaar/opname-sha.txt /tmp/klaar/opname.log /tmp/klaar/film.json --clobber -R "$GITHUB_REPOSITORY"
+      - name: In elkaar zetten met geluid
+        run: |
+          mkdir -p /tmp/klaar
+          python3 commercie/filmpjes/youtube-pro-3/maak.py /tmp/filmuit /tmp/klaar
+          python3 commercie/filmpjes/youtube-pro-3/kort.py /tmp/filmuit /tmp/klaar
+          cp /tmp/filmuit/film.json /tmp/klaar/film.json
+          python3 organisatie/controle/geluid_check.py /tmp/klaar/*-geluid.mp4 | tee /tmp/klaar/geluid_check.txt
+          (cd /tmp/klaar && sha256sum *.mp4 | tee SHA256SUMS.txt)
+          for f in /tmp/klaar/*.mp4; do ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact "$f"; done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: youtube-pro-3
+          path: |
+            /tmp/klaar
+            /tmp/film.log
+      - name: In de release zetten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Click Joints Pro: Rig to printable figure (lange YouTube-uitleg en twee staande TikToks), opgenomen in de echte Blender 5.3.0 met de add-on 1.1.0. Concepten: marketing/wachtrij/. opname-ruw.mkv is alleen werkmateriaal." > /tmp/notes.md
+          if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" /tmp/klaar/* --clobber -R "$GITHUB_REPOSITORY"
+          else
+            gh release create "$TAG" /tmp/klaar/* -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube Pro 3 (Rig to printable figure)" --notes-file /tmp/notes.md
+          fi
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
