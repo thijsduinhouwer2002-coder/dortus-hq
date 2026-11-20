@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: vr 20 nov 2026, 17:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Click Joints Pro 1.1.0 live op Gumroad ($19/$24/$59, CYBER25 27 nov tot 1 dec) en Superhive ($12/$45). Filmpje 5 (Pro-scharnier) staat sinds 16:00 online op TikTok en als YouTube Short; lange YouTube-video sinds 17:00 online (youtube.com/watch?v=m3sNvDOJYQ0, GEZIEN Metricool). Bison & Flex 16 downloads op dag 3 (GEZIEN, Chris). Ebb-filmpjes in de wachtrij van Roep (TikTok 24 nov, Short 2 dec). Geen oranje open. Verkopen Pro: 0.
+**Stand: vr 20 nov 2026, 21:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Click Joints Pro 1.1.0 live op Gumroad ($19/$24/$59, CYBER25 27 nov tot 1 dec) en Superhive ($12/$45). Filmpje 5 en lange video 1 online (youtube.com/watch?v=m3sNvDOJYQ0, GEZIEN Metricool). Roep-Keurder: 4 groen (TikToks 21, 25, 27 nov; lange video 23 nov). Ebb-TikTok 24 nov groen, Ebb-Short 2 dec rood (Short verkoopt niets). Bison & Flex 16 downloads dag 3 (GEZIEN). Verkopen Pro: 0.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

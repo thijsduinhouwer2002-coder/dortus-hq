@@ -1,6 +1,6 @@
 # Ebb: de wijzerplaat wordt een patrijspoort
 
-- status: oranje
+- status: groen
 - kanaal: tiktok
 - soort: video
 - product: ebb
@@ -57,5 +57,6 @@ Garmin breathing app: your round watch face becomes a porthole on a small sea. B
 - 8 noot: niets over Ebb in commercie/geplaatst.md, dus niet gelijk aan een recente post
 
 ## Oranje-besluit
+- hoofdchat, 20 nov 2026 21:45 NL: **groen.** Ebb verkoopt direct ($2.99, GEZIEN winkel-API) en de prijs klopt; er zijn in november nog 7 TikTok-plekken en maar 3 groene Pro-TikToks, dus dit neemt een gewone TikTok-plek, geen reserve.
 
 ## Na plaatsen

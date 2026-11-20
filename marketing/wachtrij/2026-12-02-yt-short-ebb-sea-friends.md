@@ -1,6 +1,6 @@
 # Ebb: inhouden en je horloge gaat onder water, met 24 zeedieren
 
-- status: oranje
+- status: rood
 - kanaal: yt-short
 - soort: video
 - product: ebb
@@ -56,5 +56,6 @@ Garmin breathing app Ebb: hold your breath and your watch face goes under water 
 - 8 noot: niets over Ebb in commercie/geplaatst.md
 
 ## Oranje-besluit
+- hoofdchat, 20 nov 2026 21:45 NL: **rood.** Een Short verkoopt niets (links niet klikbaar, REGELS) en de reserve van december blijft voor spoed. Het filmpje is goed: de Maker mag het in december als TikTok voorstellen (nieuw concept, opnieuw keuren), daar zijn 14 plekken.
 
 ## Na plaatsen
