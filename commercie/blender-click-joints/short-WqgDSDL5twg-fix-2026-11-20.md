@@ -27,3 +27,16 @@ The link is also at the top of our channel page.
 - TikTok (Metricool 434027330, https://www.tiktok.com/@screencuts.co/video/7710270617886444833): onderschrift na plaatsen aanpassen kan niet via Metricool; de hoofdchat meldt het aan Thijs.
 
 ## Keuring
+Keurder (losse agent, 20 nov 2026, niet de maker). Wat ik keurde: de nieuwe titel en beschrijving hierboven.
+
+Akkoord: nee (alleen de titel; de beschrijving is akkoord)
+
+Reden: in de nieuwe tekst staat nergens meer "click" of "clicks" als belofte, alleen de productnaam Click Joints Pro (GEZIEN met grep). De beschrijving past bij besluit regel 161 zoals de gekeurde teksten van 20 nov het doen: "a hinge with an end stop" komt letterlijk uit `platformen/blender-2/gumroad-1.1.md`, en "in Blender it bends to 115° and stops there" zegt waar het stopt (in Blender, zoals "the hinge stops at that angle" in de gekeurde Gumroad-tekst over de rig), met "Measured in Blender, not printed yet." erbij. De titel zegt "that stops at 115°" zonder "in Blender" of "end stop". Wie alleen de titel ziet, leest een geprint scharnier dat stopt, en dat is precies wat het besluit nog niet toestaat. Vervangen kost niets, dus dit moet anders.
+
+Letterlijke vervangzin titel (69 tekens): `Blender add-on: a hinge for knees and elbows with an end stop at 115°`
+
+Verder getoetst: geen < of >, geen Gumroad-adres (alleen het meetadres dortus.com/yt), titel onder 100 tekens, Engels leest natuurlijk, schrijft als "We", eerlijkheidszin blijft staan.
+
+Mag de hoofdchat dit aanpassen: ja. Besluit 20 nov 14:40 (en `marketing/REGELS.md`, YouTube lang): een bestaande post of beschrijving op een Dortus-kanaal aanpassen, zonder nieuwe post of quotum, doet de hoofdchat na keuring door een ander. Dat geldt zodra de titel hierboven is vervangen; een nieuwe keuring is daarvoor niet nodig als de zin letterlijk zo wordt overgenomen.
+
+Kan (mag later): het beeld in het filmpje zelf nakijken op "click"; de TikTok blijft open zoals hierboven staat.
