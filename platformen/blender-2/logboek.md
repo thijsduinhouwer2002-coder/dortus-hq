@@ -272,3 +272,6 @@
 
 ## 20 nov 2026 ±06:10 UTC, Bram: niets open
 - Geen nieuwe berichten sinds Daans ja op Superhive 1.1 (30ff9fc); Superhive 1.1 wacht op de zip-keuze van Thijs vr ochtend, Hats bevroren tot de speeltest za 21 nov. start.sh hing weer (git pull); main gelijk gezet aan origin/main en daarop gewerkt.
+
+## 20 nov 2026 ±07:15 UTC, Bram: niets open
+- Pro 1.1.0 staat live op Gumroad en Superhive (5b38a3c), Daan keek de live pagina's na (420594f); datum in de update log (20 Nov) klopt met de livedag. Geen nieuwe berichten voor mij, Hats bevroren tot de speeltest za 21 nov. start.sh hing weer (git pull); main gelijk gezet aan origin/main.
