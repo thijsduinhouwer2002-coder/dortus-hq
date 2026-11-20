@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-20 12:15",
+    "datum": "2026-11-20 13:05",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -96,7 +96,7 @@
       "status": {
         "woord": "live",
         "kleur": "op-koers",
-        "zin": "Live op Superhive (Published, GEZIEN 19 nov 22:35) en Gumroad; download nog 1.0.2 tot Thijs vr 20 nov de zip 1.1.0 kiest."
+        "zin": "Versie 1.1.0 live op Gumroad ($19/$24/$59) en Superhive ($12/$45), gratis versie op Gumroad. Verkopen 0 (GEZIEN scorebord): het probleem is bereik."
       },
       "eigenaar": "Bram",
       "agents": [
@@ -119,19 +119,19 @@
         "reden": "Keurder snel-geld, route 2: €50 tot €300 in 12 weken. De gratis add-on mag in Blender niet naar Pro wijzen, dus kopers komen er niet vanzelf.",
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
       },
-      "volgende_stap": "Superhive 1.1 klaar en gekeurd (Bram, Daan akkoord ja 19 nov ±23:25, platformen/blender-2/superhive-1.1.md). Vr 20 nov: Thijs kiest zip 1.1.0 op zijn HP, dan Gumroad-download en Superhive (twee versies: Personal en Studio, nieuwe tekst en tags).",
+      "volgende_stap": "Vandaag 16:00 filmpje 5 (TikTok en Short) en 17:00 lange YouTube (versie 3), PENDING in Metricool (GEZIEN 13:00). Gratis Black Friday-plekken: Addon Radar gekeurd (Daan ja), de hoofdchat stuurt in zodra de site bereikbaar is; BlenderArtists wacht op account en ja van Thijs.",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
       },
       "thijs": [
         {
-          "doen": "Vr 20 nov ochtend op de HP: zip 1.1.0 kiezen voor Gumroad en Superhive, gratis product publiceren, ja op CG Channel-mail (lijst-thijs punt 5).",
-          "voor": "2026-11-22"
+          "doen": "BlenderArtists: account aanmaken en ja op de gekeurde tekst (lijst-thijs punt 5), plaatsen op of na 27 nov.",
+          "voor": "2026-11-27"
         }
       ],
-      "risico": "Superhive keurt niet op tijd (zegt 3 tot 5 dagen, staat er al 4). De AI-zin in de makersbio moet weg vóór de sale.",
-      "laatste_update": "2026-11-20 01:10",
+      "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
+      "laatste_update": "2026-11-20 13:05",
       "links": [
         {
           "naam": "Winkelpagina",
