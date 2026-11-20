@@ -1,0 +1,171 @@
+{
+ "uit": "ebb-roep-1-porthole.mp4",
+ "segmenten": [
+  {
+   "bron": "bron/ebb-film.mp4",
+   "start": 1.5,
+   "dur": 5.5,
+   "vf": "crop=548:548:26:26,scale=900:900:flags=lanczos,format=rgba,geq=r='r(X,Y)':g='g(X,Y)':b='b(X,Y)':a='if(lte(hypot(X-450,Y-450),448),255,0)',pad=1080:1080:90:90:color=0x15171c",
+   "h": 1080,
+   "y": 470
+  },
+  {
+   "bron": "bron/ebb-film.mp4",
+   "start": 7.0,
+   "dur": 2.3,
+   "vf": "crop=548:548:26:26,scale=900:900:flags=lanczos,format=rgba,geq=r='r(X,Y)':g='g(X,Y)':b='b(X,Y)':a='if(lte(hypot(X-450,Y-450),448),255,0)',pad=1080:1080:90:90:color=0x15171c",
+   "h": 1080,
+   "y": 470
+  },
+  {
+   "bron": "bron/basisoctopus-hold-dag.png",
+   "dur": 0.6,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/basiszeepaard-hold-dag.png",
+   "dur": 0.6,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/schild2-hold-dag.png",
+   "dur": 0.6,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/einde-6b.png",
+   "dur": 0.8,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/veilig-1.png",
+   "dur": 2.6,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/menu-krab.png",
+   "dur": 2.6,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.04,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  }
+ ],
+ "teksten": [
+  {
+   "van": 0,
+   "tot": 2.6,
+   "regels": [
+    "Your watch face becomes",
+    "a *porthole*"
+   ],
+   "y": 240,
+   "grootte": 66
+  },
+  {
+   "van": 2.6,
+   "tot": 5.5,
+   "regels": [
+    "Breathe in: the sea *rises*",
+    "Breathe out: it *falls*"
+   ],
+   "y": 240,
+   "grootte": 64
+  },
+  {
+   "van": 5.5,
+   "tot": 7.8,
+   "regels": [
+    "Hold your breath,",
+    "and you go *under water*"
+   ],
+   "y": 240,
+   "grootte": 64
+  },
+  {
+   "van": 7.8,
+   "tot": 10.4,
+   "regels": [
+    "New *sea friends* join",
+    "as you keep coming back"
+   ],
+   "y": 240,
+   "grootte": 64
+  },
+  {
+   "van": 10.4,
+   "tot": 13.0,
+   "regels": [
+    "Holds on *land only*,",
+    "only while it feels easy"
+   ],
+   "y": 240,
+   "grootte": 64
+  },
+  {
+   "van": 13.0,
+   "tot": 15.6,
+   "regels": [
+    "*Ebb* for Garmin, $2.99",
+    "Search Ebb in the Connect IQ Store"
+   ],
+   "y": 240,
+   "grootte": 58
+  },
+  {
+   "regels": [
+    "Screens from the Garmin simulator"
+   ],
+   "grootte": 36,
+   "y": 425,
+   "licht": true,
+   "van": 0,
+   "tot": 15.6
+  }
+ ]
+}

@@ -1,0 +1,220 @@
+{
+ "uit": "ebb-roep-2-sea-friends.mp4",
+ "segmenten": [
+  {
+   "bron": "bron/krab2-hold-nacht.png",
+   "dur": 2.6,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.05,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/basisoctopus-hold-nacht.png",
+   "dur": 0.4,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.02,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/basiszeepaard-hold-nacht.png",
+   "dur": 0.4,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.02,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/schild2-hold-nacht.png",
+   "dur": 0.4,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.02,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/sessie-otter-hold-nacht.png",
+   "dur": 0.4,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.02,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/sessie-kreeft-hold-nacht.png",
+   "dur": 0.4,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.02,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/sessie-komkommer-hold-nacht.png",
+   "dur": 0.4,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.02,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/einde-6b.png",
+   "dur": 2.7,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.04,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/sealog-3-alle25.png",
+   "dur": 2.3,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.04,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/veilig-1.png",
+   "dur": 2.6,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.03,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  },
+  {
+   "bron": "bron/menu-krab.png",
+   "dur": 2.6,
+   "rond": [
+    356,
+    482,
+    306
+   ],
+   "zoom": 0.04,
+   "h": 1080,
+   "y": 470,
+   "marge": 1.2
+  }
+ ],
+ "teksten": [
+  {
+   "van": 0,
+   "tot": 2.6,
+   "regels": [
+    "Hold your breath and your",
+    "watch goes *under water*"
+   ],
+   "y": 240,
+   "grootte": 64
+  },
+  {
+   "van": 2.6,
+   "tot": 5.0,
+   "regels": [
+    "*24 sea animals*",
+    "can swim with you"
+   ],
+   "y": 240,
+   "grootte": 64
+  },
+  {
+   "van": 5.0,
+   "tot": 7.7,
+   "regels": [
+    "You earn them by *showing up*,",
+    "never by holding longer"
+   ],
+   "y": 240,
+   "grootte": 64
+  },
+  {
+   "van": 7.7,
+   "tot": 10.0,
+   "regels": [
+    "Pick the one that",
+    "*swims with you*"
+   ],
+   "y": 240,
+   "grootte": 64
+  },
+  {
+   "van": 10.0,
+   "tot": 12.6,
+   "regels": [
+    "Holds on *land only*,",
+    "only while it feels easy"
+   ],
+   "y": 240,
+   "grootte": 64
+  },
+  {
+   "van": 12.6,
+   "tot": 15.2,
+   "regels": [
+    "*Ebb* for Garmin, $2.99",
+    "Search Ebb in the Connect IQ Store"
+   ],
+   "y": 240,
+   "grootte": 58
+  },
+  {
+   "regels": [
+    "Screens from the Garmin simulator"
+   ],
+   "grootte": 36,
+   "y": 425,
+   "licht": true,
+   "van": 0,
+   "tot": 15.2
+  }
+ ]
+}
