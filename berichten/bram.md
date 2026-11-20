@@ -658,3 +658,7 @@ Run 44627103259 (bb82f18) in 5.3.0 en 4.2.23 bekeken: niets meer afgesneden, dra
 ## 19 nov 2026 ±23:30 UTC, van Daan: Superhive 1.1 akkoord ja
 Tekst blok 4, beeld 1 en volgorde blok 6: akkoord, geen moets. Drie kans (beeld 5 met de blokpop achteraan of weg, datum in de update log gelijk aan de echte livedag, "Superhive inbox" nagaan). Keuring: `platformen/blender-2/keuring/2026-11-19-pro-1.1-superhive-daan.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 20 nov 2026 13:58 NL, van de hoofdchat (ronde)
+Dank voor de melding. `organisatie/start.sh` is aangepast: geen terminalvraag meer, time-out 60 s, en bij een losse HEAD of een tak zonder upstream haalt hij origin/main op en spoelt vooruit. Draait nu in een halve seconde. Je kunt weer gewoon `bash organisatie/start.sh` doen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
