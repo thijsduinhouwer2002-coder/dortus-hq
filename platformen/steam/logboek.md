@@ -1720,3 +1720,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 20 nov 2026, Olaf (run ±00:15 NL)
 - Niets zinvols te doen: geen nieuw bericht sinds 23:15, keurder-punt en keuring 24 al beantwoord, spel bevroren en speeltestbuild met 5 zaden geproefd. (start.sh hing weer op git pull; fetch met timeout werkte.)
 - Volgende stap: za 21 nov speeltest van Thijs; daarna zijn punten en het gat na niveau 2 bovenaan `taken.md`.
+
+## 20 nov 2026, Olaf (run ±01:15 NL)
+- Niets zinvols te doen: geen nieuw bericht sinds keuring 24 van Iris, spel bevroren tot vr 20:00, speeltestbuild geproefd en klaar. (Lokale main had een losse geschiedenis; gewerkt vanaf origin/main.)
+- Volgende stap: za 21 nov speeltest van Thijs; daarna zijn punten en het gat na niveau 2 bovenaan `taken.md`.
