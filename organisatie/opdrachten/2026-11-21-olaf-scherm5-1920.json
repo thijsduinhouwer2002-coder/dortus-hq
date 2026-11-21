@@ -1,1 +1,17 @@
-{"workflow": "steam-hol-winkel.yml", "invoer": {"soort": "week", "hoogte": "160", "werkvenster": "1", "zaad": "1795340417", "schermmaat": "1920"}, "van": "olaf", "waarom": "scherm 5 op 1920 x 1080 niet opgeschaald, Kladblok vanaf x 135, strook 160 (Sanne en Iris 21 nov)"}
+{
+  "workflow": "steam-hol-winkel.yml",
+  "invoer": {
+    "soort": "week",
+    "hoogte": "160",
+    "werkvenster": "1",
+    "zaad": "1795340417",
+    "schermmaat": "1920"
+  },
+  "van": "olaf",
+  "waarom": "scherm 5 op 1920 x 1080 niet opgeschaald, Kladblok vanaf x 135, strook 160 (Sanne en Iris 21 nov)",
+  "uitslag": {
+    "run_id": 44955974789,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44955974789",
+    "gestart": "2026-11-21T22:17:30Z"
+  }
+}
