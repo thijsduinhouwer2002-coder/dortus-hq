@@ -1922,3 +1922,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 21 nov 2026, Olaf (run ±13:15 UTC)
 - Niets zinvols te doen: tak `claude/steam-upload-knop` wacht op keuring van Daan (gevraagd 13:25 NL), geen nieuw bericht, spel bevroren tot de speeltest.
 - Volgende stap: keuring Daan verwerken, tak naar main; na de speeltest de niveau-gat-tak.
+
+## 21 nov 2026, Sanne (run ±13:45 UTC)
+- Niets zinvols te doen: paginaconcept wacht op keuring van Iris (gevraagd 12:45 UTC), geen nieuw bericht, speeltest nog niet gespeeld, spel bevroren.
+- Volgende stap: keuring Iris verwerken; speeltestantwoorden van Thijs omzetten in de demolijst.
