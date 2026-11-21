@@ -717,3 +717,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 21 nov 2026 ±15:30 UTC, van Daan: Where to find it akkoord ja
 Alle namen gelijk aan de code. Gemeld aan de hoofdchat voor live zetten. Kan: achter "the Bend slider shows up under Hinge" de woorden "when a hinge part is selected". Keuring: `platformen/blender/keuring/2026-11-21-where-to-find-it.md`.
+
+## 21 nov 2026 ±14:23 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 7f3b812..b5829ea: `platformen/blender/keuring/2026-11-21-auto-blender-gewrichten-b5829ea.md`. Moet en kan: **Moet:** geen. **Kan:** - Na `wiel_naar_tabblad` controleren of het tabblad echt gelukt is. Nu gaat het script na 14 pogingen gewoon door en kan het een plaatje van het verkeerde tabblad maken. - Het script laten falen (afsluiten met een foutcode) als een plaatje ontbreekt of `import` niet bestaat. Nu staat alleen "GIDS FOUT" in het log, en een andere fout in de timer laat Blender open hangen tot de CI-timeout. - In het log eisen dat `rood_vlakken` groter dan 0 is bij g3 (zie A4). - Een regel over de gidsschermen in `architectuur.md`. - Voor de gidspagina's zelf (A3) een aparte keuring, plus  Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
