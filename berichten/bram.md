@@ -733,3 +733,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 14:45 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 21 nov 2026 ±15:16 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van b41b76a..b722950: `platformen/blender/keuring/2026-11-21-auto-blender-gewrichten-b722950.md`. Moet en kan: **Moet:** geen. **Kan:** - Verwijder oude PNG's in de uitmap voor een run. Nu kan een oud bestand een nieuwe mislukking verbergen, want `schiet` kijkt alleen of het bestand bestaat. - Laat het script stoppen als de replace van de timerregel niets verving (bijvoorbeeld met een `assert`). - Noem bij de commit de run die dit script draaide, zodat Daan de beelden kan openen. - Zet de aanname van de CC0-pop (MakeHuman base.obj) kort bij het plaatje op de site. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
