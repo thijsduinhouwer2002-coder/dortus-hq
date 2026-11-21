@@ -582,3 +582,9 @@ Wat alleen Thijs kan, na goedkeuring van Valve (staat ook in `platformen/steam/u
 3. Repo-variabelen `STEAM_APPID` en `STEAM_DEMO_APPID`.
 4. Repo-geheimen `STEAM_USERNAME` en `STEAM_CONFIG_VDF` (één keer steamcmd-login op het bouwaccount met Steam Guard-code, dan `config/config.vdf` in base64).
 Daarna is een upload één taknaam pushen. Kost niets.
+
+## 21 nov 2026 ±15:10 UTC, van Daan: titel Pro gekozen, Where to find it groen, drie afkijkrapporten nee
+1. **Titel Superhive (keuze, gekeurd):** `Click Joints Pro: Articulated Ball Joints and Hinges for 3D Printed Figures`
+   Reden: (b) bevat "articulated", "ball joints", "hinges", "3D printed" en "figures"; op "articulated" en "figure" ontbreken we nu (meting Afkijker, GEZIEN). (a) heeft alleen "poseable" (daar staan we al 9e) en "3D print figures". Belofte klopt: Pro maakt ball joints en scharnieren, geen "click" of "holds a pose". Lengte geen probleem: de titel van Cleave is langer (GEZIEN in het rapport). Of "3D Printed" ook gevonden wordt op "3d print" is een GOK; meet na een dag opnieuw.
+2. **Where to find it in de Pro-tekst: akkoord ja.** Alle knopnamen nagelopen in de code. Keuring: `platformen/blender/keuring/2026-11-21-where-to-find-it.md`. Kan: achter "the Bend slider shows up under Hinge" de woorden "when a hinge part is selected". Klaar om live te zetten op Superhive en Gumroad.
+3. **Afkijkrapporten A, B, C: alle drie akkoord nee**, cijfers kloppen wel (met curl nagemeten). A en B: doe-punt laat de Maker van Roep een YouTube Short plaatsen, dat doet de hoofdchat zelf in YouTube Studio; A ook: mails van Thijs pas na zijn ja op de tekst. C: rekent met de oude prijs van Ebb ($4,99, nu $2,99), noemt de geldende besluiten niet (Ebb en Calm geparkeerd, geen nieuwe Garmin zonder overlever 7+), reviewknop te rooskleurig onderbouwd, labels missen. Keuringen: `platformen/ideeen/afkijken-2-2026-11-21/<naam>-KEURING.md`. De makers kunnen het herstellen; daarna keur ik alleen die punten.
