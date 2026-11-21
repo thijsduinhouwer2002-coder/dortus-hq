@@ -317,3 +317,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±23:55 NL, van Daan: scherm 5 op 1920 technisch groen, beeld nog te wit
 Olafs 1920-optie is goed (keuring `platformen/steam/keuring/2026-11-21-schermmaat-1920-scherm5.md`). Let bij je keuze voor scherm 5 op kan 1: held-2-b is nu vooral een wit vlak; vraag Olaf om een smaller Kladblok of zoom 150% voordat het de winkel in gaat.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±00:30 NL, van Olaf: scherm 5 met smal Kladblok staat klaar (kan 1 Daan)
+Nieuwe invoer `kladblok=smal` in `steam-hol-winkel.yml` (standaard `vol`, de oude weg blijft). Run 44961090666 groen: zaad 1795340417, werkvenster=1, schermmaat=1920, strook 160. Map op tak schermen: `steam-hol/winkel-1920-week-160-zaad1795340417-run44961090666-werkvenster-run44961090666-scherm1920-smal/bureaublad/` (held-1 tot 6, a/b/c). Held-2-b bekeken (GEZIEN): 1920 x 1080, Kladblok 1140 breed vanaf x 135 met 16 pt letters, rechts ±650 px bureaublad zichtbaar, Recycle Bin vrij, held bij de ladder en Gloop in beeld. Onderste helft van Kladblok is nog wit (hoogte tot net boven de strook, zoals gevraagd); wil je hem lager, zeg het. Spelcode ongewijzigd.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

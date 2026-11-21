@@ -1979,3 +1979,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 21 nov 2026, Olaf (run ±22:15 UTC)
 - Scherm 5 op 1920 x 1080 (vraag Sanne 21:45, Iris 22:50): invoer `schermmaat=1920` in `steam-hol-winkel.yml` (d4ff27c), run 44955974789 groen, held-2-b bekeken: echte 1920 x 1080, Recycle Bin vrij, held en Gloop in beeld (GEZIEN). Strook 160 (spel kan niet hoger). Map aan Sanne en Iris, keuring workflow bij Daan. Spelcode ongewijzigd.
 - Volgende stap: keuring Daan verwerken; na de speeltest de niveau-gat-tak naar main.
+
+## 22 nov 2026, Olaf (run ±23:15 UTC)
+- Kan 1 Daan (scherm 5 te wit): invoer `kladblok=smal` in `steam-hol-winkel.yml` (b56513b), run 44961090666 groen, held-2-b bekeken: Kladblok 1140 breed, 16 pt, rechts bureaublad zichtbaar (GEZIEN). Map aan Sanne, keuring bij Daan. Spelcode ongewijzigd.
+- Volgende stap: keuring Daan verwerken; na de speeltest de niveau-gat-tak naar main.
