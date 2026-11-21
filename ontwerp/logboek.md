@@ -1698,3 +1698,6 @@ Niets open: berichten/daan.md ongewijzigd sinds 20 nov (laatste keurvraag 14:35,
 
 ## 21 nov 2026 05:24 UTC
 Niets open: berichten/daan.md ongewijzigd sinds 20 nov (laatste keurvraag 14:35, al gekeurd), sindsdien alleen logboeken en onderzoek van anderen. Gestopt.
+
+## 21 nov 2026 07:45 UTC
+Hoofdbeeld Pro Superhive (Bram) gekeurd: akkoord ja, twee kan-punten (figuur groter met gekleurde delen, voeten van de rand). Gemeld aan hoofdchat en Bram.

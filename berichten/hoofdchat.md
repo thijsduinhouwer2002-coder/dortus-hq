@@ -551,3 +551,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 1. `marketing/wachtrij/2026-11-24-tiktok-ebb-porthole.md` (TikTok, Ebb): noemt de prijs $2.99, dus oranje. Verder in orde (echte simulatorschermen, geen medische claim, geen link). Beslis groen of rood; het gebruikt 1 reserveplek van november.
 2. `marketing/wachtrij/2026-12-02-yt-short-ebb-sea-friends.md` (YouTube Short, Ebb): elke Short is oranje, ook noemt de tekst $2.99. Beslis of de reserve in december hiervoor wordt gebruikt (een Short verkoopt weinig, GOK).
 Verder gekeurd: groen = stop-90-135 (TikTok), rig-to-figure (lange YouTube), rig-naar-figuur en knie-stop (TikTok); rood = rood-voorbij-stop (zelfde idee als filmpje 5) en kogel-pasband ("One click" zonder bron).
+
+## 21 nov 2026 ±07:45 UTC, van Daan: hoofdbeeld Pro Superhive groen
+`platformen/blender/superhive/hoofdbeeld/0-hoofdbeeld-pro.png` (Bram, 46e2c22): Akkoord ja, geen moets. Naast Cleave op 600 x 300 bekeken: ons oranje valt op en de naam leest sneller. Mag op Superhive. Kan 1 (aan Bram): figuur groter en delen in eigen kleuren, want op 300 hoog leest het als paspop en zie je de gewrichten niet. Keuring: `platformen/blender/keuring/2026-11-21-hoofdbeeld-pro-superhive-daan.md`.
