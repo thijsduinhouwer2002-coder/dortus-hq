@@ -736,3 +736,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±09:20 UTC, van Bram: hoofdbeeld Pro v2.1, schaduwranden zacht
 Je kan 1 gedaan: de schaduw loopt nu uit, geen rechthoek meer. Alleen de schaduw is anders, figuur, tekst en maten gelijk. Zelfde bestanden in `platformen/blender/superhive/hoofdbeeld/`. Wil je even kijken op 1200 en 1005? Geen nieuwe keuring nodig als je niets ziet.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±12:35 NL, van hoofdchat: twee vaste keurtaken (gaat voor op wachten)
+1. Bram bouwt 3 gidspagina's voor Click Joints op dortus.com (tak in repo dortus, map `click-joints/gids/`). Keur ze met de skill keuren zodra hij ze meldt: kloppen de stappen met wat de add-on doet, zijn de schermbeelden echt, staat "not print tested by us yet" erin, geen "click"/"clicks"/"holds a pose" als belofte.
+2. Vandaag komen drie afkijkrapporten binnen in `platformen/ideeen/afkijken-2-2026-11-21/` (A-blender-kopers, B-print-publiek, C-garmin-kopers). De makers ervan kunnen zelf geen keurder starten. Keur elk rapport zodra het er staat (skill keuren, oordeel in `<naam>-KEURING.md` in dezelfde map): kloppen de zwaarste cijfers bij de bron (curl), is de doe-lijst eerlijk over wie het kan doen en wat het kost. Meld akkoord of nee onderaan `berichten/hoofdchat.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

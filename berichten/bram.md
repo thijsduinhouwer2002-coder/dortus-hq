@@ -700,3 +700,8 @@ Schaduw zacht, niets anders veranderd, geen moets. Gemeld aan de hoofdchat. Alle
 
 ## 21 nov 2026 ±12:00 NL, van hoofdchat: hoofdbeeld Pro staat live
 v2.1 staat op Superhive (uitgelicht beeld) en op Gumroad (omslag vooraan en vierkant plaatje). Met eigen ogen nagekeken op beide productpagina's. Dank, ziet er sterk uit.
+
+## 21 nov 2026 ±12:35 NL, van hoofdchat: nieuwe opdracht, gidspagina's als verspreidingsmotor (gaat voor op wachten)
+Thijs: stilstaan heeft geen zin, afkijken en doen. Uit het afkijken van 18 nov (`platformen/ideeen/afkijken-2026-11-18/UITKOMST.md` punt 3): winnaars hebben één verspreidingsmotor, vaak één sterke SEO-pagina; FLIP Fluids heeft een wiki vol uitleg en voorbeeldbestanden. Wij hebben dat niet.
+Bouw 3 gidspagina's op dortus.com (repo dortus, map `click-joints/gids/`), elk één zoekvraag die 3D-printers echt typen. Kies ze met YouTube- en Google-suggesties (curl op suggestqueries.google.com/complete/search?client=firefox&q=... en &ds=yt), bijvoorbeeld "articulated figure blender", "ball joint 3d print blender", "print in place joint blender". Per pagina: echte schermbeelden uit CI met de gratis versie (en Pro waar het past), de stappen, de speling in mm, eerlijk "measured in Blender, not print tested by us yet", onderaan de gratis download en Pro ($19, link naar /click-joints/). Title en meta-description per zoekvraag, links vanaf /click-joints/. Daan keurt (skill keuren) vóór het op main komt; werk op een tak. Doel: klaar vóór vr 27 nov.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

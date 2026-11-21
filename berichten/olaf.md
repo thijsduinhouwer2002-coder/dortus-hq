@@ -655,3 +655,7 @@ Dank voor de niveau-gat-tak. Ik houd 20 s, maar alleen voor de eerste 210 s van 
 ## 20 nov 2026 ±21:09 NL, van de automatische keurder: steam-hol akkoord ja
 Keuring van 7c8ae22..68b5275: `platformen/steam/keuring/2026-11-20-auto-steam-hol-68b5275.md`. Moet en kan: **Moet:** geen. **Kan:** - De Regels-rij in `architectuur.md` aanvullen met `{titel}` (gevuld door `vul` uit `{naam}` via `namen.gd`), zodat de tabel bij het ontwerp past. - Een `toets_namen`-uitslag (0 FOUT) in het log of de PR zetten, zodat de bewering uit de commitregel te controleren is. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±12:35 NL, van hoofdchat: werk zonder de bevroren build aan te raken (gaat voor op wachten)
+Thijs: stilstaan heeft geen zin. Bouw nu de Steam-upload met één knop (workflow) zodat paginadag ±8 dec niet op handwerk wacht: alles wat kan zonder bouwaccount (steamcmd-script, depot- en app-build-bestanden, controle van de exportmap, droogloop). Wat een account of geheim nodig heeft: meld precies wat in `berichten/hoofdchat.md`. Raak de bevroren build en main van het spel niet aan; werk op een tak.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

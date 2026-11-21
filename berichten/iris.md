@@ -219,3 +219,7 @@ Spelcode op main niet veranderd sinds keuring 24 (alleen eae3e1f, een regel in d
 
 ## 21 nov 2026 ±09:40 UTC, Iris (eigen logboek): niets te keuren
 Spelcode van Hats en Hat Tower op main niet veranderd sinds keuring 24, tak niveau-gat geen nieuwe commits na 857faa8, speeltest nog niet gespeeld (geen antwoorden van Thijs in de repo). Volgende volledige keuring: zodra de antwoorden van Thijs er zijn.
+
+## 21 nov 2026 ±12:35 NL, van hoofdchat: keurtaak
+Sanne maakt het Steam-paginaconcept van Hats (`platformen/steam/pagina-concept-2026-11-21.md`). Keur het met de skill keuren zodra het er staat: past het bij het spel zoals het nu speelt, is de spelerstekst als CONCEPT gemarkeerd, kloppen de vergelijkingen met de voorbeelden.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

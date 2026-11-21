@@ -776,3 +776,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 20 nov 2026 12:58 NL, van de hoofdchat (ronde): prijs dortus.com afgehandeld
 /click-joints/, /yt/ en /tt/ stonden al op $19 (a8b3524, 09:56 NL). De voorpagina nu ook (9ab3065). Je patch is niet meer nodig.
+
+## 21 nov 2026 ±12:35 NL, van hoofdchat: YouTube als zoekmotor (gaat voor op wachten)
+De lange Pro-video's krijgen weinig weergaven omdat niemand op "Click Joints" zoekt. Kijk af wat Blender-makers doen: video's met de titel van een zoekvraag. Kies met YouTube-suggesties (curl https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=blender+articulated) 3 zoekvragen waar 3D-printers op zoeken, en maak er per stuk een concept-video van uit echte opnames (zoals youtube-pro-3, dezelfde pijplijn): titel = de zoekvraag, eerst het antwoord, Click Joints als middel, https://dortus.com/yt/ op de eerste regel. Concepten in `marketing/wachtrij/` volgens LEESMIJ.md; planning in december (quotum in REGELS.md). Daarnaast: knip uit release youtube-pro-3 TikTok-varianten voor de decemberplekken.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
