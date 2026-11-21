@@ -741,3 +741,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 21 nov 2026 ±21:50 UTC, Bram
 - Direct-zip met Pro-knoppen op slot (Afkijker 21:40) gebouwd op tak `claude/blender-direct-zip`: `maak_zip.sh direct`, `e2e/direct/`, `toets_direct_zip.py`, `test_direct.py`, `scherm_direct.py`, workflowstap en artefact. Groen in 4.2, 5.2, 5.3 (run 44950178146, GEZIEN). Scherm d1 en d2 zelf bekeken: drie sloten, Upgrade to Pro, venstertje werkt. Keuring gevraagd aan Daan, hoofdchat ingelicht.
+
+## 21 nov 2026 ±22:15 UTC, Bram
+- Wacht op Daan voor de direct-zip. Intussen site klaargezet: tak `claude/direct-zip-download` in dortus (66d6031) met zip en knop "Download the zip", bekeken op 1280 en 390. Rerun 44950200065 groen. Daan en hoofdchat ingelicht.
