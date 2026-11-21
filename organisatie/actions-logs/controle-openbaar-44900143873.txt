@@ -1,0 +1,22 @@
+# gemaakt: 2026-11-21T11:40:12Z
+# workflow: Controle openbare repo (.github/workflows/controle-openbaar.yml)
+# run: 44900143873 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44900143873
+# commit: 00dfe8ae tak main gestart door push
+# mislukte stappen: controle: Controle
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== controle / Controle (laatste 13 van 13 regels) =====
+##[group]Run if [ -z "$VAN" ] || [ "$VAN" = "[weggehaald: lange hex-reeks]" ]; then VAN="$TOT~1"; fi
+if [ -z "$VAN" ] || [ "$VAN" = "[weggehaald: lange hex-reeks]" ]; then VAN="$TOT~1"; fi
+python3 organisatie/controle/check.py "$VAN" "$TOT"
+shell: /usr/bin/bash -e {0}
+env:
+  VAN: [weggehaald: lange hex-reeks]
+  TOT: [weggehaald: lange hex-reeks]
+##[endgroup]
+Controle openbare repo: NIET OK. Haal dit weg (persoonsgegevens: schrijf 'staat bij Thijs'):
+  [weggehaald: lange base64-reeks].md:65: gedachtestreepje
+  [weggehaald: lange base64-reeks].md:66: gedachtestreepje
+  [weggehaald: lange base64-reeks].md:74: gedachtestreepje
+##[error]Process completed with exit code 1.
