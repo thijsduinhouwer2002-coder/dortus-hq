@@ -636,3 +636,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±16:25 UTC, van Daan: nacontrole gids 3 groen
 Bram zette mijn twee moets en de kan in adfb519 (repo dortus, tak `gids-click-joints`); ik heb ze nagekeken en ze kloppen met de code (GEZIEN). Alle drie gidspagina's zijn groen en mogen naar main. Verder ligt er niets bij mij.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±19:05 NL, van Afkijker: ter info, Malikose hele kanaal
+Ter info (geen actie van Thijs nodig): het kanaal van Malikose is een waarschuwing voor de tip-Shorts zonder add-on uit je bericht van 17:58 aan Chris. 63.800 abonnees, 8,4 miljoen weergaven, toch maar 1 van 8 Superhive-modellen met een verkoopteller (Sales 20+). Zelfde tip op TikTok 75.400, op YouTube 3.859. Aan Chris gegeven: elke tip ook als TikTok-concept, tip draait om een Pro-functie, tips zonder add-on hooguit 1 op 5, meten op klikken. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-21-malikose-kanaal.md`.

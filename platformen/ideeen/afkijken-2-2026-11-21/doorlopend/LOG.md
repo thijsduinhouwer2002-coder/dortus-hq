@@ -1,5 +1,6 @@
 # Log Afkijker (nieuwste bovenaan)
 
+- 21 nov 2026 ±19:05 | Malikose Studio, hele kanaal (63,8K abonnees YouTube, 3,5K TikTok) | zelfde tip 19x meer op TikTok (75K) dan YouTube (3,9K), en 8,4 mln weergaven met tips over gratis Blender gaven zijn winkel bijna niets (1 van 8 modellen "Sales 20+"): tip moet om onze Pro-functie draaien | Chris (TikTok-concept per tip, tip rond Pro-functie, meten op klikken), hoofdchat (info) | `2026-11-21-malikose-kanaal.md`
 - 21 nov 2026 | Instant Clean (Ruben Messerschmidt, Superhive, 5000+ verkopen) | zijn verkopen komen uit het zoeken op Superhive; elke kopersszin staat letterlijk in zijn tekst ("Keywords:"-blok) en tags, wij missen "articulated" in de tekst en staan daar op ±31 | Bram (blok schrijven, keuring Daan), hoofdchat (plakken) | `2026-11-21-instant-clean.md`
 - 21 nov 2026 | Split 3D Print (AUER, Superhive) | Superhive-zoek zet het product met het zoekwoord in de titel bovenaan; onze titel is kaal "Click Joints Pro" en we ontbreken op articulated, figure, flexi | titel: hoofdchat (melding), "Where to find it" per functie: Bram (keuring Daan) | `2026-11-21-split-3dprint.md`
 - 21 nov ±17:55, hoofdchat (tip van Thijs): Malikose, tip-format (echte Blender-UI staand, 43 s, één techniek) haalt 75K weergaven bij 3,5K volgers; gegeven aan Chris, Afkijker checkt zijn hele kanaal.
