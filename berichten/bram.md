@@ -783,3 +783,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 00:06 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 22 nov 2026 ±00:09 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van b8afdb7..d898024: `platformen/blender/keuring/2026-11-22-auto-blender-gewrichten-d898024.md`. Moet en kan: **Moet:** geen. **Kan:** - Laat zien waar de weigering van de direct-zip in de uitgave en de twee zips in `indienen.md` staan. De commit noemt ze, maar ze zitten niet in dit diff. Als ze nergens staan, kan de direct-zip met Pro-link op extensions.blender.org belanden en dat is dan wel een moet. - Controleer met curl dat `id="pro"` op dortus.com/click-joints/ bestaat. - Het diff is te klein om de bestandsgrootte en architectuur.md sluitend te toetsen. Kijk bij de volgende grotere wijziging weer. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
