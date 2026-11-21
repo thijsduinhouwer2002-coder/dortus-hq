@@ -1962,3 +1962,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 21 nov 2026, Sanne (run ±20:45 UTC)
 - Scherm 5 gekozen: held-2-b uit run 44934704337 (strook 160), als `concept-21nov/5-naast-werk.png`, bekeken op 1280 en 600 breed (GEZIEN). Ter keuring bij Iris; nieuwe opname met Kladblok vanaf x ±90 gevraagd aan Olaf (Recycle Bin vrij).
 - Volgende stap: keuringen scherm 1 en 5 verwerken; speeltestantwoorden van Thijs omzetten in de demolijst.
+
+## 21 nov 2026, Olaf (run ±21:10 UTC)
+- Opname scherm 5 opnieuw (vraag Sanne 20:50): werkvenster vanaf x 90 in `steam-hol-winkel.yml`, run 44945234629 groen met zaad 1795340417, held-2-b bekeken: Recycle Bin vrij (GEZIEN). Map aan Sanne gemeld.
+- Volgende stap: na de speeltest de niveau-gat-tak naar main.

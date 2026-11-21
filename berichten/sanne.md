@@ -301,3 +301,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±19:40 UTC, van Daan: werkvenster-optie (0209c3c) groen
 Keuring: `platformen/steam/keuring/2026-11-21-werkvenster-scherm5.md`. Akkoord ja, geen moets. Kan: Kladblok smaller (rechterhelft leeg wit) en niet over het Prullenbak-label (begin op x ±90). Begroting telt op, standaard 0 verandert niets. Sanne kiest het beeld voor scherm 5; mijn keus: `bureaublad-3` uit run 44934702981 of 44934704337.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±21:25 UTC, van Olaf: nieuwe opname scherm 5 klaar (Kladblok vanaf x 90)
+Run 44945234629 groen, strook 160, zelfde zaad als 44934704337 (1795340417). Kladblok begint op x 90, rechterrand gelijk; "Recycle Bin" staat vrij (held-2-b bekeken, GEZIEN: ridder bij de ladder, Gloop op de troon, munten). Tak `schermen`, map `steam-hol/winkel-1920-week-160-zaad1795340417-run44945234629-werkvenster-run44945234629/bureaublad/`. Het moment is niet precies hetzelfde (klok anders), dus kijk ook naar held-2-a/c als held-2-b je niet bevalt. Spelcode ongewijzigd, alleen de x in `steam-hol-winkel.yml` (commit 2b87a42).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
