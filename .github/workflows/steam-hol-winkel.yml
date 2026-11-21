@@ -25,6 +25,9 @@ on:
       werkvenster:
         description: "1 = een groot Kladblok-venster met nepwerk boven de strook in plaats van het kleine briefje (scherm 5, Sanne 21 nov); 0 = het kleine briefje"
         default: "0"
+      schermmaat:
+        description: "1280 = het echte bureaublad op 1280 x 720 (zoals tot nu); 1920 = op 1920 x 1080, niet opgeschaald (Valve: schermen minstens 1920 x 1080; Sanne en Iris 21 nov)"
+        default: "1280"
   push:
     branches: [main]
     paths: [".github/workflows/steam-hol-winkel.yml"]
@@ -43,6 +46,7 @@ jobs:
       MOMENT: ${{ inputs.moment || '' }}
       DRUKTE: ${{ inputs.drukte || '1' }}
       WERKVENSTER: ${{ inputs.werkvenster || '0' }}
+      SCHERMMAAT: ${{ inputs.schermmaat || '1280' }}
     steps:
       - uses: actions/checkout@v4
       # Olaf 15 nov (kan 1 Daan 04:45): virtuele geluidskaart, zodat de luidspreker in het systeemvak geen kruisje
@@ -123,7 +127,7 @@ jobs:
           $stap = $(if ($env:MOMENT) { 10 } else { 5 })
           foreach ($b in $alle) { if ($i % $stap -eq 0) { Copy-Item $b.FullName "$uit/los/$($b.Name)" }; $i++ }
           Remove-Item $film -Recurse -Force
-      - name: Echt bureaublad op 1280 x 720 met de echte taakbalk (alleen bij week)
+      - name: Echt bureaublad op 1280 x 720 (of 1920 x 1080 met schermmaat=1920) met de echte taakbalk (alleen bij week)
         if: env.SOORT == 'week'
         shell: pwsh
         run: |
@@ -176,12 +180,17 @@ jobs:
             }
           }
           "@
-          $r = [Scherm]::Zet(1280, 720)
+          # Olaf 21 nov (Sanne 21:45, Iris 22:50): met schermmaat=1920 blijft het scherm op 1920 x 1080, niet opgeschaald.
+          # Valve vraagt schermen van minstens 1920 x 1080 (DERDEN, partner.steamgames.com/doc/store/assets/standard).
+          # De strook kan in het spel hooguit 160 (kern/strook.gd: 96 tot 160); 240 naar verhouding kan dus niet.
+          $sb = $(if ($env:SCHERMMAAT -eq '1920') { 1920 } else { 1280 }); $sh = $(if ($sb -eq 1920) { 1080 } else { 720 })
+          $sf = $sb / 1280.0
+          $r = [Scherm]::Zet($sb, $sh)
           Start-Sleep 3
           Add-Type -AssemblyName System.Windows.Forms
           $s = [System.Windows.Forms.Screen]::PrimaryScreen
           Write-Output "ChangeDisplaySettings gaf $r (0 = gelukt); scherm $($s.Bounds), werkgebied $($s.WorkingArea)"
-          if ($s.Bounds.Width -ne 1280) { Write-Output "== SCHERMMAAT NIET GEZET, geen bureaubladbeelden"; exit 0 }
+          if ($s.Bounds.Width -ne $sb) { Write-Output "== SCHERMMAAT NIET GEZET, geen bureaubladbeelden"; exit 0 }
           $uit = "producten/steam-hol/e2e/winkel/bureaublad"
           New-Item -ItemType Directory -Force $uit | Out-Null
           $vol = (Resolve-Path $uit).Path
@@ -282,10 +291,12 @@ jobs:
           [Scherm]::ShowWindow($h, 9) | Out-Null
           if ($env:WERKVENSTER -eq '1') {
             $wg = [System.Windows.Forms.Screen]::PrimaryScreen.WorkingArea
-            $vh = $wg.Height - [int]$env:HOOGTE - 16 - 10
+            # Olaf 21 nov: bij schermmaat=1920 alles maal 1,5 (x 135, boven 24, rechts 60, ruimte boven de strook 15), Iris 22:50.
+            $wx = [int](90 * $sf); $wy = [int](16 * $sf); $wr = [int](40 * $sf); $wo = [int](10 * $sf)
+            $vh = $wg.Height - [int]$env:HOOGTE - $wy - $wo
             # Olaf 21 nov (Sanne 20:50, kan Daan 19:40): links vanaf x 90, zodat het label "Recycle Bin" vrij staat; rechterrand blijft op 40 van de rand.
-            $gezet = [Scherm]::MoveWindow($h, 90, 16, $wg.Width - 130, $vh, $true)
-            Write-Output "werkvenster groot: 90,16 $($wg.Width - 130) x $vh (werkgebied $wg, strook $env:HOOGTE)"
+            $gezet = [Scherm]::MoveWindow($h, $wx, $wy, $wg.Width - $wx - $wr, $vh, $true)
+            Write-Output "werkvenster groot: $wx,$wy $($wg.Width - $wx - $wr) x $vh (werkgebied $wg, strook $env:HOOGTE)"
           } else {
             $gezet = [Scherm]::MoveWindow($h, 110, 24, 420, 196, $true)
           }
@@ -404,6 +415,8 @@ jobs:
           [ -z "$MOMENT" ] || D_REL="$D_REL-moment$MOMENT-run$GITHUB_RUN_ID"
           # Olaf 21 nov: het grote werkvenster (scherm 5) krijgt een eigen map met het run-id.
           [ "$WERKVENSTER" != 1 ] || D_REL="$D_REL-werkvenster-run$GITHUB_RUN_ID"
+          # Olaf 21 nov: het bureaublad op 1920 x 1080 krijgt "-scherm1920" erbij, zodat het nooit een 1280-map overschrijft.
+          [ "$SCHERMMAAT" != 1920 ] || D_REL="$D_REL-scherm1920"
           # Olaf 15 nov (tip Bram 04:45): smalle kloon, alleen onze eigen map uitpakken. Heel klonen duurde ±1,5 min
           # (de tak is groot); zo 2 tot 3 s, dus bij een geweigerde push gewoon opnieuw klonen en onze commit erop zetten.
           gelukt=0
