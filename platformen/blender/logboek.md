@@ -698,3 +698,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 21 nov 2026 ±04:10 NL, Bram
 - Niets zinvols te doen: geen nieuw bericht sinds 20 nov 14:42 NL. Gratis 0.1.2 wacht op de uitgave (±23 nov), Pro 1.1.0 is live, Hats-speeltest ligt bij Olaf.
+
+## 21 nov 2026 ±08:35 UTC (Bram)
+- Hoofdbeeld Pro versie 2 (opdracht hoofdchat 08:50 NL): figuur groter, drie kleuren zodat de 10 delen te tellen zijn, ook 1005 x 565 en 600 x 600 voor Gumroad. Echte Cycles-render, Blender 5.3.0 lokaal, Pro 1.1.0 op de mensfiguur: 9 gewrichten, 10 delen, alle gesloten en één stuk (GEZIEN). Keuring gevraagd aan Daan. Volgende run: zijn uitslag nakijken.

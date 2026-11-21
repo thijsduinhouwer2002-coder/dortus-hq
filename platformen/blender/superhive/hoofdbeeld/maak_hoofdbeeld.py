@@ -1,5 +1,9 @@
-"""Zet de Blender-render (render_hoofdbeeld.py) op een oranje vlak met naam en één belofte, 1200 x 600.
-Ook een proefblad op 600 x 300. Letter: Inter Display (OFL), uit het systeem.
+"""Zet de Blender-render (render_hoofdbeeld.py) op een oranje vlak met naam en één belofte, in drie maten:
+- 0-hoofdbeeld-pro.png        1200 x 600  (Superhive, uitgelicht beeld)
+- 0-hoofdbeeld-pro-1005.png   1005 x 565  (Gumroad, omslag op de productpagina)
+- 0-hoofdbeeld-pro-vierkant.png 600 x 600 (Gumroad, zoeken, Discover en profiel)
+Plus proefbladen op kleine maat en naast elkaar, om in de rijtjes te keuren.
+Letter: Inter Display (OFL), uit het systeem.
     python3 maak_hoofdbeeld.py <fig.png> <uitmap>
 """
 import os
@@ -8,53 +12,85 @@ import sys
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 fig_pad, uitmap = sys.argv[1], sys.argv[2]
-W, H = 1200, 600
 F = "/usr/share/fonts/opentype/inter/"
 ORANJE_BOVEN, ORANJE_ONDER = (255, 122, 36), (240, 84, 16)
 INKT = (20, 20, 26)
+WIT = (255, 255, 255)
 
-# Achtergrond: oranje met een zachte verloop van boven naar onder
-bg = Image.new("RGB", (W, H))
-d = ImageDraw.Draw(bg)
-for y in range(H):
-    t = y / (H - 1)
-    d.line([(0, y), (W, y)], fill=tuple(round(a + (b - a) * t) for a, b in zip(ORANJE_BOVEN, ORANJE_ONDER)))
-# Licht vlak achter de figuur, zodat hij loskomt
-gloed = Image.new("L", (W, H), 0)
-ImageDraw.Draw(gloed).ellipse([760, 40, 1180, 640], fill=90)
-gloed = gloed.filter(ImageFilter.GaussianBlur(70))
-bg = Image.composite(Image.new("RGB", (W, H), (255, 170, 90)), bg, gloed)
+FIG = Image.open(fig_pad).convert("RGBA")
+# Bijsnijden op duidelijke dekking: de schaduwvanger laat ver weg een vage waas achter die anders meetelt.
+FIG = FIG.crop(FIG.getchannel("A").point(lambda a: 255 if a > 24 else 0).getbbox())
 
-# Figuur: doorzichtige randen eraf, schalen op 600 hoog (voeten net boven de rand)
-fig = Image.open(fig_pad).convert("RGBA")
-fig = fig.crop(fig.getbbox())
-schaal = 585 / fig.height
-fig = fig.resize((round(fig.width * schaal), round(fig.height * schaal)), Image.LANCZOS)
-x = 975 - fig.width // 2
-bg = bg.convert("RGBA")
-bg.alpha_composite(fig, (x, H - fig.height - 8))
 
-d = ImageDraw.Draw(bg)
-links = 64
-f_naam = ImageFont.truetype(F + "InterDisplay-Black.otf", 104)
-f_pro = ImageFont.truetype(F + "InterDisplay-Black.otf", 104)
-f_belofte = ImageFont.truetype(F + "InterDisplay-Bold.otf", 46)
-f_klein = ImageFont.truetype(F + "InterDisplay-SemiBold.otf", 28)
+def vlak(W, H, gloed_box):
+    bg = Image.new("RGB", (W, H))
+    d = ImageDraw.Draw(bg)
+    for y in range(H):
+        t = y / (H - 1)
+        d.line([(0, y), (W, y)], fill=tuple(round(a + (b - a) * t) for a, b in zip(ORANJE_BOVEN, ORANJE_ONDER)))
+    gloed = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(gloed).ellipse(gloed_box, fill=90)
+    gloed = gloed.filter(ImageFilter.GaussianBlur(H // 9))
+    return Image.composite(Image.new("RGB", (W, H), (255, 170, 90)), bg, gloed).convert("RGBA")
 
-d.text((links, 92), "Click Joints", font=f_naam, fill=INKT)
-# "PRO" als wit blok, zodat het in de kleine weergave ook leesbaar is
-y_pro = 206
-pro_b = d.textbbox((0, 0), "Pro", font=f_pro)
-bw, bh = pro_b[2] - pro_b[0], pro_b[3] - pro_b[1]
-d.rounded_rectangle([links, y_pro, links + bw + 44, y_pro + bh + 40], radius=18, fill=INKT)
-d.text((links + 22 - pro_b[0], y_pro + 20 - pro_b[1]), "Pro", font=f_pro, fill=(255, 255, 255))
 
-d.text((links, 380), "Turn your rig into a", font=f_belofte, fill=(255, 255, 255))
-d.text((links, 434), "poseable 3D print", font=f_belofte, fill=(255, 255, 255))
-d.text((links, 522), "Add-on for Blender", font=f_klein, fill=INKT)
+def zet_figuur(bg, hoogte, midden_x, onder):
+    """Figuur op hoogte px, voeten `onder` px boven de onderrand (Daan kan 2)."""
+    s = hoogte / FIG.height
+    f = FIG.resize((round(FIG.width * s), hoogte), Image.LANCZOS)
+    bg.alpha_composite(f, (round(midden_x - f.width / 2), bg.height - hoogte - onder))
+    return f.width
+
+
+def pro_blok(d, x, y, grootte):
+    f = ImageFont.truetype(F + "InterDisplay-Black.otf", grootte)
+    b = d.textbbox((0, 0), "Pro", font=f)
+    bw, bh = b[2] - b[0], b[3] - b[1]
+    pad_x, pad_y = round(grootte * 0.21), round(grootte * 0.19)
+    d.rounded_rectangle([x, y, x + bw + 2 * pad_x, y + bh + 2 * pad_y], radius=round(grootte * 0.17), fill=INKT)
+    d.text((x + pad_x - b[0], y + pad_y - b[1]), "Pro", font=f, fill=WIT)
+
+
+def breed(W, H):
+    """Liggend (1200 x 600 en 1005 x 565): tekst links, figuur rechts zo groot als past."""
+    s = H / 600
+    bg = vlak(W, H, [W - round(470 * s), round(20 * s), W - round(10 * s), H + round(40 * s)])
+    breedte = zet_figuur(bg, round(560 * s), W - round(235 * s), round(22 * s))
+    d = ImageDraw.Draw(bg)
+    x = round(60 * s)
+    d.text((x, round(84 * s)), "Click Joints", font=ImageFont.truetype(F + "InterDisplay-Black.otf", round(104 * s)), fill=INKT)
+    pro_blok(d, x, round(200 * s), round(104 * s))
+    f_b = ImageFont.truetype(F + "InterDisplay-Bold.otf", round(46 * s))
+    d.text((x, round(376 * s)), "Turn your rig into a", font=f_b, fill=WIT)
+    d.text((x, round(430 * s)), "poseable 3D print", font=f_b, fill=WIT)
+    d.text((x, round(518 * s)), "Add-on for Blender", font=ImageFont.truetype(F + "InterDisplay-SemiBold.otf", round(28 * s)), fill=INKT)
+    return bg.convert("RGB"), breedte
+
+
+def vierkant(W=600):
+    """Vierkant (600 x 600): naam in drie regels links boven, figuur rechts over bijna de hele hoogte."""
+    H = W
+    bg = vlak(W, H, [round(W * 0.42), round(H * 0.02), W + round(W * 0.1), H + round(H * 0.08)])
+    breedte = zet_figuur(bg, round(H * 0.93), round(W * 0.71), round(H * 0.03))
+    d = ImageDraw.Draw(bg)
+    x = round(W * 0.06)
+    f_n = ImageFont.truetype(F + "InterDisplay-Black.otf", round(W * 0.135))
+    d.text((x, round(H * 0.07)), "Click", font=f_n, fill=INKT)
+    d.text((x, round(H * 0.215)), "Joints", font=f_n, fill=INKT)
+    pro_blok(d, x, round(H * 0.385), round(W * 0.135))
+    f_b = ImageFont.truetype(F + "InterDisplay-Bold.otf", round(W * 0.052))
+    for i, regel in enumerate(("Turn your rig", "into a poseable", "3D print")):
+        d.text((x, round(H * (0.66 + i * 0.068))), regel, font=f_b, fill=WIT)
+    return bg.convert("RGB"), breedte
+
 
 os.makedirs(uitmap, exist_ok=True)
-groot = bg.convert("RGB")
-groot.save(os.path.join(uitmap, "0-hoofdbeeld-pro.png"), optimize=True)
+for naam, (beeld, bw) in {
+    "0-hoofdbeeld-pro.png": breed(1200, 600),
+    "0-hoofdbeeld-pro-1005.png": breed(1005, 565),
+    "0-hoofdbeeld-pro-vierkant.png": vierkant(600),
+}.items():
+    beeld.save(os.path.join(uitmap, naam), optimize=True)
+    print(f"{naam}: {beeld.size}, figuur {bw} px breed ({100 * bw / beeld.width:.0f}% van de breedte)")
+groot = Image.open(os.path.join(uitmap, "0-hoofdbeeld-pro.png"))
 groot.resize((600, 300), Image.LANCZOS).save(os.path.join(uitmap, "0-hoofdbeeld-pro-600.png"), optimize=True)
-print("klaar", groot.size)
