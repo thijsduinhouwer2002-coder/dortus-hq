@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (main)
 GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 31 plaatjes vergeleken)
-Referentie: referentie uit run 44743980271, commit d687702ce86c6d97e4653087b5f8090050a18f4a, commitdatum 1795181041, 2026-11-20T13:42:30Z
+Referentie: referentie uit run 44908526228, commit b5829ea872bea4db89493cabac0c229e9ad323cf, commitdatum 1795267336, 2026-11-21T13:44:38Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -8,11 +8,11 @@ Referentie: referentie uit run 44743980271, commit d687702ce86c6d97e4653087b5f80
 | 10-winkel-paneel-x.png | gelijk | |
 | 11-scharnier-x.png | gelijk | |
 | 12-scharnier-rood-x.png | gelijk | |
-| 13-pro-knie-schoon-x.png | gelijk | |
-| 13-pro-knie-x.png | gelijk | |
-| 13d-pro-knie-dicht-x.png | 1 px (0.000%), ruis | |
-| 14-pro-knie-rood-x.png | 12 px (0.001%), ruis | |
-| 14b-pro-knie-rood-los-x.png | gelijk | |
+| 13-pro-knie-schoon-x.png | 19 px (0.001%), ruis | |
+| 13-pro-knie-x.png | 8 px (0.000%), ruis | |
+| 13d-pro-knie-dicht-x.png | gelijk | |
+| 14-pro-knie-rood-x.png | gelijk | |
+| 14b-pro-knie-rood-los-x.png | 7 px (0.000%), ruis | |
 | 15-figuur-paneel.png | gelijk | |
 | 15-figuur-x.png | gelijk | |
 | 16-figuur-rig-paneel.png | gelijk | |
@@ -27,11 +27,11 @@ Referentie: referentie uit run 44743980271, commit d687702ce86c6d97e4653087b5f80
 | 20h-testkaart-scharnier.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 9 px (0.000%), ruis | |
+| 5-waaier-x.png | gelijk | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | 110 px (0.005%), ruis | |
-| 8-winkel-x.png | 58 px (0.003%), ruis | |
-| 9-winkel-rood-x.png | 36 px (0.002%), ruis | |
-| p13-d-x.png | 33 px (0.002%), ruis | |
-| p13-e-x.png | 1 px (0.000%), ruis | |
-| p14b-e-x.png | 7 px (0.000%), ruis | |
+| 7-plat-x.png | 17 px (0.001%), ruis | |
+| 8-winkel-x.png | gelijk | |
+| 9-winkel-rood-x.png | gelijk | |
+| p13-d-x.png | gelijk | |
+| p13-e-x.png | gelijk | |
+| p14b-e-x.png | gelijk | |
