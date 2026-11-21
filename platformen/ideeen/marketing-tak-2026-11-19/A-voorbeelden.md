@@ -1008,3 +1008,61 @@ Vijf belangrijkste dingen:
 5. **Pro staat op Superhive op $12 zonder korting** (besluit 19 nov), dus zonder sale-badge en buiten het rijtje on_sale (GEZIEN, 101).
 
 Voorstel: (a) de Blender-manager laat vandaag een nieuwe hoofdafbeelding maken, €0: echte render van een figuur met gewrichten (of een foto van een echte print), "Click Joints Pro" groot, één belofte, kleur, 1200 x 600, en laat die keuren naast Cleave op 600 x 300; tegelijk met de nieuwe titel en tags uit run 18; (b) de lange YouTube-video rig-to-figure (groen gekeurd, zie berichten hoofdchat 20 nov) ingebed bovenaan de Superhive-pagina zodra hij online staat; (c) de hoofdchat weegt of Pro vanaf de Cyber Sale toch een zichtbare korting krijgt (badge en rijtje on_sale) of op $12 blijft zoals besloten, met deze telling als nieuw gegeven; (d) de meetagent telt de rijtjes en de zoektabel elke dag, zodat we na (a) zien of het iets doet. Volgende run: hoe de hoofdbeelden op Gumroad Discover en in de zoekresultaten van Gumroad eruitzien naast die van Pro, en of daar hetzelfde gat zit.
+
+## Ronde 20 (run 21 nov ±06:20 UTC, klok van de container): de beelden van Pro op Gumroad naast de concurrenten, en een verborgen pagina-agent in Gumroad zelf
+
+Vraag van run 19: zit op Gumroad hetzelfde gat in de beelden als op Superhive? Alles met curl gelezen uit de cloud, zonder account (de openbare zoekfunctie `gumroad.com/products/search` en de productpagina's); de beelden zelf bekeken op ware grootte (skill kijken). Broncode van Gumroad alleen gelezen via raw.githubusercontent.com, niets uitgevoerd.
+
+### 103. Wie op Gumroad vooraan staat bij de zoekwoorden van Pro
+Zoekresultaten van 21 nov ±06:15 UTC, standaardvolgorde (GEZIEN):
+
+| Zoekwoord | Treffers | Bovenaan bij Blender en 3D-print |
+|---|---|---|
+| articulated | 245 | 1. CatPin ($21, was $30, 84 beoordelingen); 7. SlicerJoint Pro ($20, 0) |
+| joints | 1.160 | 1. CatPin; 2. Auto-Rig Pro ($50, 7) |
+| 3d print blender | 264 | 1. CatPin; 2. Split 3D Print (gratis, 23); 3. Cleave ($20, 5) |
+| poseable, print in place | 114, 2.704 | niets voor Blender, alleen VRChat-avatars en boeken |
+
+- **Click Joints Pro staat bij geen enkel zoekwoord in de lijst** (GEZIEN). Dat klopt met 79: zonder verkoop en zonder $100 saldo is Pro niet "eligible" voor Discover en zoeken. De Gumroad-pagina krijgt dus alleen bezoek via onze eigen links (TikTok, YouTube, dortus.com).
+- **Nieuwe concurrent: SlicerJoint Pro** (ayhancelik, $20, 0 beoordelingen): snijden, scharnieren, pinnen, magneten, "articulated parts", 3MF-export; 3 beelden en **5 YouTube-video's als omslag** (GEZIEN, productpagina). Hij kondigt aan dat hij op 1 jan 2027 als "BlendArt SliceJoint" verdergaat met gratis upgrade (GEZIEN). Zijn vierkante beeld is alleen een logo "BA", dus ook zwak.
+- **CatPin gebruikt de automatische korting van Gumroad**: in de zoeklijst staat $21 met de oude prijs $30 erbij (GEZIEN, `original_price_cents` 3000). Gumroad zelf: met een standaardcode "the discounted pricing will automatically appear everywhere across the platform", zonder dat de koper een code typt (DERDEN, [Gumroad blog](https://gumroad.com/blog/p/new-feature-automatically-apply-discount-codes-to-your-products-e3ec070a-5d74-4f0b-a1d5-4bb13c0520dd)). Dat beantwoordt de vraag uit berichten hoofdchat (CYBER25 "with code" of vanzelf): het kan vanzelf, als de code als standaardcode in de productinstellingen staat. Of dat bij Pro zo staat, zie ik van buiten niet: de pagina toont nu $19 zonder oude prijs, maar CYBER25 begint pas 27 nov (GEZIEN).
+
+### 104. De beelden: hetzelfde gat als op Superhive
+Bekeken op ware grootte, vierkant beeld (600 x 600, wat Gumroad in zoeken, Discover en op het profiel toont) en omslag (1005 x 565) (GEZIEN, 21 nov):
+
+| | Vierkant beeld | Omslag | Video op de pagina |
+|---|---|---|---|
+| Click Joints Pro ($19) | grijs Blender-poppetje, tekst "Right knee: bends 0° to 120°" klein bovenaan | hetzelfde grijze Blender-scherm met paneel | 0 (5 beelden, 0 video's) |
+| CatPin ($21, 84 beoordelingen) | gekleurd logo met een kat en een punaise, "CatPin" groot | logo plus een render van een vrouwenfiguur in losse delen met pinnen | geen ingebed, wel "Latest Tutorial" |
+| Cleave ($20, 5) | "CLEAVE" groot, 3 beloftes, felgekleurde print in delen | idem op een snijmat met echte prints | 3 links naar YouTube op de pagina |
+| SlicerJoint Pro ($20, 0) | alleen logo "BA" | | 5 YouTube-video's als omslag |
+
+- **Op Gumroad is het gat hetzelfde als op Superhive (101)**: de twee die verkopen, laten een kleurige render van een figuur in delen zien met de naam groot; Pro een grijs werkscherm zonder naam. Op 300 x 300 (de grootte in een zoekraster) is bij Pro geen woord te lezen (GEZIEN, zelf naast elkaar bekeken).
+- Het bord zegt al: "Omslagfoto Gumroad zegt nog 'click' en 'Pro on Superhive'... omslag vervangen (bestandskiezer, lukt niet via Chrome)" en Bram maakt nu een nieuw hoofdbeeld voor Superhive (GEZIEN, `organisatie/bord.md` 21 nov 06:45 NL). **Het vierkante beeld van Gumroad staat niet op het bord** en is een apart bestand (`thumbnail_url` naast `covers`, GEZIEN in de pagina-gegevens).
+- **Gumroad accepteert een YouTube-video als omslag** (oembed, zie SlicerJoint, GEZIEN). De lange video van Pro staat online (bord: youtube.com/watch?v=m3sNvDOJYQ0). Die als eerste omslag op Gumroad kost niets en geeft elke bezoeker van onze TikTok- en YouTube-links meteen de werking te zien (GOK hoeveel het scheelt).
+
+### 105. Gumroad heeft een eigen "store agent" die productpagina's als HTML schrijft, nog achter een vlag
+- CatPin en Cleave hebben **geen gewone Gumroad-pagina maar een eigen HTML-pagina** (in een afgeschermd frame, met een eigen statistiekscript `custom_html_analytics`; GEZIEN in de pagina's: geen `data-page`, wel dat script). Cleave leest als een echte verkooppagina: "Too big to print? Split it.", "NEW IN 1.7", voor en na, waarom niet gewoon met de hand (GEZIEN, ±1.370 woorden).
+- In de open broncode van Gumroad (stand 21 nov 2026, gelezen): `app/services/pages/custom_html_writer.rb` en `app/services/ai/custom_html_snippet_matcher.rb` beschrijven een **store agent** die de pagina leest, een stukje kiest en vervangt, met een voorbeeld en een knop "Confirm" voor de verkoper, plus API-eindpunten om de hele pagina te vervangen of één stuk aan te passen (`PUT custom_html` via de product-API met scope `edit_products`). De API waarschuwt als er geen koopknop (`data-gumroad-action="buy"`) in staat (GEZIEN, `app/controllers/api/v2/links_controller.rb`).
+- **Maar:** alles zit achter `Feature.active?(:custom_html_pages, ...)`, per verkoper aangezet (GEZIEN, zelfde bestand). In de blogs van Gumroad staat er niets over (GEZIEN, blogoverzicht 21 nov). Hoe je erin komt: onbekend, GOK dat Gumroad het per verkoper uitrolt of op aanvraag via support. Ik heb het niet aangevraagd (regel: niemand benaderen).
+- **Waarom dit telt voor de tak:** het is het eerste voorbeeld van een verkoopplatform dat zelf een agent aan de verkoper geeft die de verkooppagina schrijft en kleine wijzigingen doet met een bevestiging door de mens: precies ons patroon "agent maakt, ander keurt" (zie 56, 60). Wie de vlag heeft, kan via de API ook vanuit een eigen agent de pagina bijwerken (nieuwe versie, sale-regel). Twee kleine concurrenten van Pro hebben hem al.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Wel zelf, €0:** de nieuwe hoofdafbeelding die Bram voor Superhive maakt ook in 600 x 600 uitsnijden voor het vierkante Gumroad-beeld, en in 1005 x 565 als omslag; de lange YouTube-video als eerste omslag. Plaatsen in Gumroad doet wie de winkel beheert (bestandskiezer lukte niet via Chrome, zie bord), na keuring.
+- **Wel zelf:** elke dag de Gumroad-zoekwoorden van 103 uitlezen (`products/search`, geen sleutel nodig) zodat we zien wanneer Pro na de eerste verkopen in de lijst komt, en of CatPin, Cleave of SlicerJoint hun prijs of beeld veranderen.
+- **Niet zelf:** de vlag voor eigen HTML-pagina's aanvragen bij Gumroad (dat is iemand benaderen onder de winkel van Thijs; kan alleen met zijn ja).
+
+## Patronen na ronde 20
+68. **Het beeldgat van Pro zit op elke winkel** (101, 104): Superhive en Gumroad tonen allebei een grijs werkscherm, terwijl alles wat daar verkoopt een kleurige render met de naam groot heeft. Eén goed beeld in drie maten lost het overal op.
+69. **De winkel zelf brengt Pro nog geen kopers** (103, 79): op Gumroad pas na verkoop en $100 saldo, op Superhive pas als het beeld goed is (98). Tot dan komt elke koper via onze eigen links, dus de pagina waar die links landen moet het werk doen (video bovenaan, beeld dat leest).
+70. **Platforms beginnen zelf agents aan verkopers te geven** (105): de pagina schrijven en bijwerken met een bevestigknop. Dat maakt het "agent maakt, mens bevestigt"-patroon gewoon, en het is het eerste wat wij zouden kunnen aanvragen zodra er verkoop is.
+
+## Stand na run 21 nov ±06:35 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **Op Gumroad staat Pro bij geen enkel zoekwoord in de lijst; CatPin staat bovenaan bij "articulated", "joints" en "3d print blender"** (GEZIEN, 103). Elke koper van Pro komt dus via onze eigen links.
+2. **Hetzelfde beeldgat als op Superhive: het vierkante beeld en de omslag van Pro op Gumroad zijn een grijs Blender-scherm**, CatPin en Cleave een kleurige render met de naam groot (GEZIEN, 104). Het vierkante beeld staat nog niet op het bord.
+3. **Gumroad neemt een YouTube-video als omslag** (GEZIEN bij SlicerJoint); onze lange video staat online en kan er gratis bovenaan.
+4. **Automatische korting op Gumroad bestaat en toont de oude prijs doorgestreept "everywhere"** (DERDEN, 103; CatPin $30 naar $21 GEZIEN). CYBER25 kan zo vanzelf werken als hij als standaardcode staat.
+5. **Gumroad heeft een verborgen store agent die productpagina's als HTML schrijft en bijwerkt met een bevestigknop**, achter een vlag; CatPin en Cleave hebben hem al (GEZIEN in broncode en pagina's, 105). Nieuwe concurrent SlicerJoint Pro ($20, 0 beoordelingen, 5 video's).
+
+Voorstel: (a) Bram levert het nieuwe hoofdbeeld in drie maten (Superhive 1200 x 600, Gumroad vierkant 600 x 600, Gumroad omslag 1005 x 565), Daan keurt alle drie op kleine grootte naast CatPin en Cleave; (b) wie de Gumroad-winkel bijwerkt, zet de lange YouTube-video als eerste omslag en zet CYBER25 op 27 nov als standaardcode, zodat de korting doorgestreept zichtbaar is en de zin "with code" weer weg kan; (c) de hoofdchat zet "vlag custom HTML-pagina aanvragen bij Gumroad" op de lijst voor na de eerste verkopen (vraagt het ja van Thijs, geen geld); (d) de meetagent neemt de Gumroad-zoekwoorden van 103 mee in de dagelijkse telling. Volgende run: hoe de landingspagina dortus.com/click-joints/ eruitziet naast de eigen HTML-pagina van Cleave (beeld, belofte, video, koopknop bovenaan), want daar komen al onze links binnen.
