@@ -16,6 +16,8 @@ Stappen en controles: zie `platformen/steam/uitgaven.md` en de kop van de workfl
 | `maak-appbuild.sh <appid> <map> <tak> <omschrijving> <uit>` | schrijft het app-build-bestand voor steamcmd (één depot, appid+1), weigert `default` en `public` |
 | `upload.sh [--droog] <map> [vol\|demo\|beide] [tak]` | reservepad vanaf een eigen pc met steamcmd, op de artifact `steam-depots` van een run. Gebruikt dezelfde twee scripts |
 
+Let op bij `upload.sh`: het weigert een map zonder `VERSIE.txt` en een proefdraai (de knop zet dan "PROEFDRAAI" in `VERSIE.txt`), zodat alleen een echte run met akkoord van Daan naar Steam gaat. Het script slaat zelf niets op, maar steamcmd onthoudt na de eerste keer inloggen de login op die pc (in zijn eigen map `config/`). Draai het dus alleen op de eigen pc van Thijs, en log op een gedeelde pc uit of wis die map.
+
 De workflow gebruikt dezelfde twee scripts, dus een droogloop op GitHub toetst ook het reservepad.
 
 ## Wat alleen Thijs kan (na goedkeuring van Valve, staat in `berichten/hoofdchat.md`)

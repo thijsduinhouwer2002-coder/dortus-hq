@@ -186,6 +186,7 @@ jobs:
         shell: pwsh
         env:
           WELKE: ${{ needs.toetsen.outputs.welke }}
+          PROEF: ${{ needs.toetsen.outputs.proef }}
         run: |
           $lijst = @()
           if ($env:WELKE -ne "demo") { $lijst += ,@("Windows", "vol") }
@@ -198,7 +199,8 @@ jobs:
             if (-not (Test-Path "producten/steam-hol/steam/$($v[1])/HetHol.exe")) { Write-Output "FOUT: geen exe voor $($v[0])"; $fout++ }
             if ($uit -match "Resources Modification|completed with warnings") { Write-Output "FOUT: icoon of versie niet gezet voor $($v[0])"; $fout++ }
           }
-          "Gebouwd uit commit $env:GITHUB_SHA, run $env:GITHUB_RUN_ID, $(Get-Date -AsUTC -Format 'yyyy-MM-dd HH:mm') UTC" | Set-Content "producten/steam-hol/steam/VERSIE.txt"
+          $soort = if ($env:PROEF -eq "true") { "PROEFDRAAI (niet uploaden)" } else { "echte uitgave" }
+          "Gebouwd uit commit $env:GITHUB_SHA, run $env:GITHUB_RUN_ID, $(Get-Date -AsUTC -Format 'yyyy-MM-dd HH:mm') UTC, $soort" | Set-Content "producten/steam-hol/steam/VERSIE.txt"
           if ($fout -gt 0) { exit 1 }
       - name: Korte rooktoets (start de volle exe 20 s, geen SCRIPT ERROR)
         if: needs.toetsen.outputs.welke != 'demo'
