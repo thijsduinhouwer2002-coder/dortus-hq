@@ -1,6 +1,6 @@
 # YouTube Short reeks 1, nr 8: Free Blender add-on: ball joint neck for a 3D printed figure
 
-- status: oranje
+- status: groen
 - kanaal: youtube-short
 - soort: video
 - product: click-joints (gratis) en click-joints-pro
@@ -55,7 +55,7 @@ Real recording in Blender 5.3 with Click Joints 0.1.1, free on extensions.blende
 - reden: Elke YouTube Short is oranje; alle 10 vragen ja en techniek goed, dus de hoofdchat kan hem in de ronde van 21:17 groen zetten (REGELS 21 nov).
 
 ## Oranje-besluit
-(alleen de hoofdchat, alleen bij oranje)
+- hoofdchat, 21 nov 2026 21:20 NL: **groen.** Alleen oranje omdat het een Short is (oude opdracht van de Keurder); alle 10 vragen ja en techniek goed. REGELS.md deel YouTube Short (keuze Thijs 21 nov ±12:40): de hoofdchat plant hem in YouTube Studio in.
 
 ## Na plaatsen
 (alleen de hoofdchat: regel onderaan `commercie/geplaatst.md`)

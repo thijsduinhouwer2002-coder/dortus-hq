@@ -1,6 +1,6 @@
 # YouTube Short reeks 2, nr 9: Rigged character to poseable 3D print in Blender: one button
 
-- status: oranje
+- status: groen
 - kanaal: youtube-short
 - soort: video
 - product: click-joints-pro
@@ -54,7 +54,7 @@ Click Joints Pro: type dortus.com/yt in your browser.
 - reden: Elke YouTube Short is oranje; alle 10 vragen ja en techniek goed, dus de hoofdchat kan hem in de ronde van 21:17 groen zetten (REGELS 21 nov).
 
 ## Oranje-besluit
-(alleen de hoofdchat, alleen bij oranje)
+- hoofdchat, 21 nov 2026 21:20 NL: **groen.** Alleen oranje omdat het een Short is (oude opdracht van de Keurder); alle 10 vragen ja en techniek goed. REGELS.md deel YouTube Short (keuze Thijs 21 nov ±12:40): de hoofdchat plant hem in YouTube Studio in.
 
 ## Na plaatsen
 (alleen de hoofdchat: regel onderaan `commercie/geplaatst.md`)
