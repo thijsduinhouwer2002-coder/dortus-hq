@@ -1,0 +1,127 @@
+name: YouTube Shorts 1 (8 staande filmpjes Click Joints)
+
+# 21 nov 2026, opdracht hoofdchat ±12:45 NL: eerste reeks van 8 YouTube Shorts (1080x1920, 10 tot 25 s), elk één
+# gewricht of één ding, uit echte opnames in Blender 5.3.0:
+#  - opname-ruw.mkv uit release youtube-pro-3 (Pro 1.1, grijze MakeHuman-figuur, liggend);
+#  - opname.py met CJ_SOORT=pro: Pro 1.1.0 (code van commit f727466, dezelfde als de Gumroad-zip), staand;
+#  - opname.py met CJ_SOORT=gratis: gratis 0.1.1 (tag click-joints-v0.1.1, zoals op extensions.blender.org), staand.
+# Scripts: commercie/filmpjes/youtube-shorts-1/ (opname.py, kort.py). Is opname.py niet veranderd sinds de vorige
+# run, dan worden de ruwe opnames uit de release hergebruikt. Uit: release youtube-shorts-1 met *-geluid.mp4,
+# geluid_check op elk bestand.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/youtube-shorts-1/**", ".github/workflows/youtube-shorts-1.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: youtube-shorts-1
+  PRO_COMMIT: f72746613d498097dffd6549f567ce9b04d6044a
+  GRATIS_COMMIT: 1aed80fba05e91cdee6c9f7990c102ab7c36619c
+
+jobs:
+  shorts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter
+          python3 -m pip install -q --break-system-packages numpy
+      - name: Opname youtube-pro-3 ophalen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/pro3
+          gh release download youtube-pro-3 -R "$GITHUB_REPOSITORY" -p opname-ruw.mkv -p film.json -D /tmp/pro3
+          ls -la /tmp/pro3
+      - name: Ruwe opnames hergebruiken als opname.py gelijk is
+        id: ruw
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          nu=$(sha256sum commercie/filmpjes/youtube-shorts-1/opname.py | cut -c1-64)
+          echo "sha=$nu" >> "$GITHUB_OUTPUT"
+          mkdir -p /tmp/oud /tmp/pro /tmp/gratis
+          if gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p opname-sha.txt -p opname-pro.mkv -p film-pro.json -p opname-gratis.mkv -p film-gratis.json -D /tmp/oud 2>/dev/null \
+             && [ "$(cat /tmp/oud/opname-sha.txt)" = "$nu" ] && [ -s /tmp/oud/opname-pro.mkv ] && [ -s /tmp/oud/opname-gratis.mkv ]; then
+            cp /tmp/oud/opname-pro.mkv /tmp/pro/opname-ruw.mkv; cp /tmp/oud/film-pro.json /tmp/pro/film.json
+            cp /tmp/oud/opname-gratis.mkv /tmp/gratis/opname-ruw.mkv; cp /tmp/oud/film-gratis.json /tmp/gratis/film.json
+            echo "opnieuw=nee" >> "$GITHUB_OUTPUT"
+            echo "ruwe opnames hergebruikt"
+          else
+            echo "opnieuw=ja" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Blender 5.3.0, MakeHuman-figuur en de twee zips
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          curl -fsSL --retry 3 -o /tmp/mh_base.obj https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj
+          git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT" "$GRATIS_COMMIT"
+          mkdir -p /tmp/v11 /tmp/v011
+          git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v11
+          git archive "$GRATIS_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v011
+          (cd /tmp/v11/producten/blender-gewrichten && PRO_VERSIE=1.1.0 bash e2e/maak_zip.sh betaald)
+          (cd /tmp/v011/producten/blender-gewrichten && bash e2e/maak_zip.sh gratis)
+          grep -h "^version\|^name" /tmp/v011/producten/blender-gewrichten/click_joints/blender_manifest.toml
+          sha256sum /tmp/click_joints_betaald.zip /tmp/click_joints.zip
+      - name: Opnemen (pro en gratis, staand 1080x1920)
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          CJ_MENS_OBJ: /tmp/mh_base.obj
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_s.blend')"
+          mkdir -p /tmp/klaar
+          for s in pro gratis; do
+            zip=/tmp/click_joints_betaald.zip; [ "$s" = gratis ] && zip=/tmp/click_joints.zip
+            export BLENDER_USER_RESOURCES=/tmp/cj_$s BLENDER_USER_CONFIG=/tmp/cj_$s/config BLENDER_USER_EXTENSIONS=/tmp/cj_$s/extensions
+            CJ_SOORT=$s timeout 2400 xvfb-run --auto-servernum --server-args="-screen 0 1080x1920x24" \
+              /tmp/blender/blender --gpu-backend opengl /tmp/start_s.blend --python commercie/filmpjes/youtube-shorts-1/opname.py -- /tmp/opn_$s $zip 2>&1 | tee /tmp/opname-$s.log || true
+            grep -E "KORT|Traceback|Error" /tmp/opname-$s.log || true
+            if grep -q "KORT FOUT" /tmp/opname-$s.log; then echo "FOUT in opname $s"; exit 1; fi
+            ffmpeg -v error -framerate 30 -start_number 1 -i /tmp/opn_$s/beelden/b%05d.png -c:v libx264 -preset veryfast -crf 12 -pix_fmt yuv444p /tmp/$s/opname-ruw.mkv
+            cp /tmp/opn_$s/film.json /tmp/$s/film.json
+            rm -rf /tmp/opn_$s/beelden
+            cp /tmp/$s/opname-ruw.mkv /tmp/klaar/opname-$s.mkv
+            cp /tmp/$s/film.json /tmp/klaar/film-$s.json
+            cp /tmp/opname-$s.log /tmp/klaar/opname-$s.log
+          done
+          for d in heel knop elleboog schouder pose; do grep -q "KORT OK $d" /tmp/opname-pro.log || { echo "FOUT: pro deel $d"; exit 1; }; done
+          for d in heel plaats bereik; do grep -q "KORT OK $d" /tmp/opname-gratis.log || { echo "FOUT: gratis deel $d"; exit 1; }; done
+          echo "${{ steps.ruw.outputs.sha }}" > /tmp/klaar/opname-sha.txt
+      - name: Ruwe opnames alvast in de release
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "YouTube Shorts reeks 1 (Click Joints): 8 staande filmpjes uit echte opnames in Blender 5.3.0 (Pro 1.1.0 en de gratis 0.1.1). Concepten: marketing/wachtrij/. opname-*.mkv is alleen werkmateriaal." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube Shorts 1 (Click Joints)" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/klaar/* --clobber -R "$GITHUB_REPOSITORY"
+      - name: Shorts in elkaar zetten met geluid
+        run: |
+          mkdir -p /tmp/klaar
+          python3 commercie/filmpjes/youtube-shorts-1/kort.py /tmp/pro3 /tmp/pro /tmp/gratis /tmp/klaar
+          python3 organisatie/controle/geluid_check.py /tmp/klaar/*-geluid.mp4 | tee /tmp/klaar/geluid_check.txt
+          (cd /tmp/klaar && sha256sum *-geluid.mp4 | tee SHA256SUMS.txt)
+          for f in /tmp/klaar/*-geluid.mp4; do echo "$(basename $f) $(ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact $f | tr '\n' ' ')"; done
+      - name: In de release zetten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "YouTube Shorts reeks 1 (Click Joints): 8 staande filmpjes uit echte opnames in Blender 5.3.0 (Pro 1.1.0 en de gratis 0.1.1). Concepten: marketing/wachtrij/. opname-*.mkv is alleen werkmateriaal." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube Shorts 1 (Click Joints)" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/klaar/*.mp4 /tmp/klaar/*.jpg /tmp/klaar/*.txt /tmp/klaar/metingen.json --clobber -R "$GITHUB_REPOSITORY"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
