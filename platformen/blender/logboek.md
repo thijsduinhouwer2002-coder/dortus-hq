@@ -715,3 +715,6 @@ Alleen aanvullen, nooit iets weghalen.
 ## 21 nov 2026 ±15:15 UTC, Bram
 - Gids 1: Daans kan C1 (paneeluitsnede op telefoon, `<picture>`) en C3 ("Green: good fit") gedaan en in sitemap, tak `gids-click-joints` 2e99b6d; bekeken op 390 en 1280, geen zijwaarts scrollen (GEZIEN). Naar main pushen in repo dortus mag ik niet (geweigerd); gevraagd aan de hoofdchat.
 - Gids 2 (hinge met eindstop, Pro) klaar, 7257543, keuring bij Daan. Schermen met de live Pro 1.1.0 (gebouwd uit f727466) via nieuw script `e2e/scherm_gids_scharnier.py`, Blender 5.3.0 lokaal (xdotool moest erbij). Volgende run: gids 3 (figuur uit rig) en Daans uitslag.
+
+## 21 nov 2026 ±15:15 UTC, Bram (run 2)
+- Gids 2: Daans kan 1 tot 5 gedaan (knie-uitsneden op telefoon, tekst rode lijn, kop, Export STL), tak `gids-click-joints` 97f373a, bekeken op 390 en 1280 (GEZIEN). Hoofdchat gevraagd om main. Volgende: gids 3 (figuur uit rig).
