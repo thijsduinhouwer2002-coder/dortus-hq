@@ -62,7 +62,7 @@ def ff(*a):
 
 
 def tussen(a, b):
-    return f":enable='between(t,{a},{b})'"
+    return f":enable='gte(t,{a})*lt(t,{b})'"   # eind niet meegerekend: nooit twee teksten tegelijk op de grens
 
 
 def deel_eind(bron, deel):
