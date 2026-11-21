@@ -98,3 +98,8 @@ Wacht op de ja van Daan op tak `claude/blender-een-lid`. Daarna maakt Bram de zi
 ```
 3. Versturen. Een update gaat opnieuw door de keuring van de moderatoren; de oude versie blijft tot dan live.
 4. Daarna zet Bram dezelfde broncode in de repo click-joints (README-regel "0.1.1").
+
+## Twee gratis zips bij elke nieuwe versie (22 nov 2026, Bram, kan 4 van Daan)
+- **Extensions-zip** (`bash e2e/maak_zip.sh`): alleen deze gaat naar extensions.blender.org. Noemt Pro nergens (regel 6.1 tot 6.3). `click-joints-uitgave.yml` stopt met een fout als er `betaald/` of `direct.py` in de zip zit, zodat de verkeerde zip niet geüpload kan worden.
+- **Direct-zip** (`bash e2e/maak_zip.sh direct`): de gratis zip plus `direct.py` (drie Pro-knoppen op slot en "Upgrade to Pro", link `https://dortus.com/click-joints/?from=addon#pro`). Alleen als download op dortus.com/click-joints (besluit hoofdchat 21 nov 22:45), als `click-joints/click-joints-free.zip` in repo dortus. Nooit naar extensions.blender.org.
+- Volgorde: e2e groen (inclusief `toets_direct_zip.py`), dan de extensions-zip uploaden, dan de direct-zip van dezelfde commit op de site vervangen.

@@ -9,7 +9,7 @@ Alleen een link die de gebruiker zelf opent (wm.url_open), niets gaat vanzelf he
 import bpy
 
 ACTIEF = True
-URL = "https://dortus.com/click-joints/"
+URL = "https://dortus.com/click-joints/?from=addon#pro"
 FUNCTIES = ("Figure from rig", "Hinge with end stop", "Body-part presets")
 VENSTER = "This is in Click Joints Pro"
 KNOP = "See Click Joints Pro"

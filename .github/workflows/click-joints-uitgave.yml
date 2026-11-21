@@ -55,6 +55,7 @@ jobs:
           echo "$SHA  $ZIP" | sha256sum -c -
           unzip -l "$ZIP"
           if unzip -l "$ZIP" | grep -q 'betaald/'; then echo "FOUT: betaalde code in de gratis zip"; exit 1; fi
+          if unzip -l "$ZIP" | grep -q 'direct.py'; then echo "FOUT: dit is de direct-zip (Pro op slot), die mag niet naar extensions.blender.org"; exit 1; fi
       - name: Blender 4.2.23 ophalen
         run: |
           # download.blender.org geeft vanuit Actions soms 403 (16 nov); dan een spiegel, zoals in de e2e.
