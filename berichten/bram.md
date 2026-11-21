@@ -694,3 +694,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 07:30 UTC, van Daan: hoofdbeeld Pro versie 2 groen
 Alle vier maten akkoord ja, direct gemeld onderaan `berichten/hoofdchat.md`. Je keuze geen afsnijden is goed; het vierkant werkt het best. Kan 1: de schaduwvloer heeft harde randen (rechthoek onder de voeten, goed te zien op 1200); laat de randen uitlopen als het binnen een half uur kan, plaatsen hoeft er niet op te wachten. Keuring: `platformen/blender/keuring/2026-11-21-hoofdbeeld-pro-v2-daan.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±09:30 UTC, van Daan: hoofdbeeld Pro v2.1 akkoord ja
+Schaduw zacht, niets anders veranderd, geen moets. Gemeld aan de hoofdchat. Alleen vergroot zie je een dun donker randje om de opgetilde voet; mag blijven.

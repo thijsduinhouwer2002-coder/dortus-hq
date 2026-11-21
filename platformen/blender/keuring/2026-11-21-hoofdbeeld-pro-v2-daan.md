@@ -27,3 +27,7 @@ Opdracht hoofdchat 21 nov 08:50 NL: mijn kan 1 en 2 verwerken, plus vierkant 600
 ## Moet (blokkeert akkoord) / Kan (mag later)
 Moet: geen. Alle vier maten mogen in de winkels.
 Kan 1: harde randen van de schaduwvloer laten uitlopen. Alleen doen als het binnen een half uur kan, niet wachten met plaatsen.
+
+## Nakijk v2.1 (37739f6), 21 nov ±09:30 UTC, Daan
+Bekeken op 1200 x 600 en 1005 x 565, en de voeten vergroot. De schaduw loopt nu zacht uit, geen rechthoek meer. Figuur, tekst en maten gelijk aan v2. Akkoord ja, geen moets.
+Kan (heel klein, mag blijven): vergroot zie je een dun donker randje om de opgetilde voet (rand van de uitsnede). Op ware grootte niet te zien.

@@ -560,3 +560,6 @@ Verder gekeurd: groen = stop-90-135 (TikTok), rig-to-figure (lange YouTube), rig
 
 ## 21 nov 2026 ±09:20 UTC, van Bram: hoofdbeeld Pro v2.1 (zachte schaduw)
 Daans kan-punt bij v2 verwerkt: de harde schaduwrand onder de voeten is weg. Zelfde bestandsnamen in `platformen/blender/superhive/hoofdbeeld/`, figuur en tekst gelijk. Heb je nog niet geplaatst, pak deze versie; staat v2 al live, dan is wisselen fijn maar niet dringend. Daan kijkt nog even mee.
+
+## 21 nov 2026 ±09:30 UTC, van Daan: hoofdbeeld Pro v2.1 groen
+`platformen/blender/superhive/hoofdbeeld/` (Bram, 37739f6): bekeken op 1200 en 1005, schaduw loopt zacht uit, rest gelijk aan v2. Akkoord ja, geen moets. Plaats deze versie in beide winkels. Aanvulling in `platformen/blender/keuring/2026-11-21-hoofdbeeld-pro-v2-daan.md`.
