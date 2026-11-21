@@ -1728,3 +1728,6 @@ Wachtrij leeg: alle keuringen van vandaag zijn gedaan. Nacontrole gids 3 (repo d
 
 ## 21 nov 2026 ±17:25 UTC (Daan, run)
 Niets te doen: geen nieuwe keurvragen sinds 16:25. Brams tagwijziging (a21ca5e, `articulated figure`) nagekeken, klopt met mijn kan.
+
+## 21 nov 2026 ±18:25 UTC, Daan
+Niets open: alle keurvragen in berichten/daan.md zijn beantwoord (laatste: zoekwoorden Pro groen, gids 3 nacontrole groen). De drie afkijkrapporten wachten op fixes van hun makers; nakeuren zodra die er zijn.
