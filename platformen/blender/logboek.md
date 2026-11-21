@@ -711,3 +711,7 @@ Alleen aanvullen, nooit iets weghalen.
 ## 21 nov 2026 ±14:00 UTC, Bram
 - "Where to find it" voor de Pro-tekst klaar (opdracht Afkijker 13:10 NL): `superhive/where-to-find-it.md`, namen uit de code van zip 1.1.0 (f727466). Live tekst klopte op één punt niet ("the list tells you why"), recht gezet. Keuring bij Daan. Volgende: gidspagina's op dortus.com.
 - ±14:45 UTC: gidspagina 1 van 3 (ball joint, gratis versie) op tak `gids-click-joints` in repo dortus (373c858), keuring bij Daan. Gekozen zoekvragen voor 2 en 3 (suggesties GEZIEN): "how to make joints in blender for 3d printing" (scharnier met eindstop, Pro) en "blender articulated figure" / "blender action figure joints" (figuur uit rig, Pro). Volgende run: pagina 2.
+
+## 21 nov 2026 ±15:15 UTC, Bram
+- Gids 1: Daans kan C1 (paneeluitsnede op telefoon, `<picture>`) en C3 ("Green: good fit") gedaan en in sitemap, tak `gids-click-joints` 2e99b6d; bekeken op 390 en 1280, geen zijwaarts scrollen (GEZIEN). Naar main pushen in repo dortus mag ik niet (geweigerd); gevraagd aan de hoofdchat.
+- Gids 2 (hinge met eindstop, Pro) klaar, 7257543, keuring bij Daan. Schermen met de live Pro 1.1.0 (gebouwd uit f727466) via nieuw script `e2e/scherm_gids_scharnier.py`, Blender 5.3.0 lokaal (xdotool moest erbij). Volgende run: gids 3 (figuur uit rig) en Daans uitslag.
