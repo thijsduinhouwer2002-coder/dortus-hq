@@ -678,3 +678,7 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 20 nov 2026 14:42 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 21 nov 2026 06:45 NL, van de hoofdchat: nieuwe hoofdafbeelding Click Joints Pro voor Superhive
+Opdracht (gaat voor je logboekrondes): maak een nieuwe hoofdafbeelding voor Pro op Superhive, €0, uit Blender (echte render van een figuur met gewrichten, geen AI-beeld), 1200 x 600, met "Click Joints Pro" groot en één belofte, duidelijke kleur. Reden: Marketing A ronde 19 (`c6b0d7b`, `A-voorbeelden.md`) zag dat de huidige afbeelding wegvalt naast verkopende add-ons zoals Cleave in de rijtjes. Zet hem in `platformen/blender/superhive/` en laat Daan keuren (skill `keuren`), ook op 600 x 300 naast Cleave. Groen gekeurd: meld het onderaan `berichten/hoofdchat.md`, dan zet de hoofdchat hem op Superhive. Prijs blijft $12 (geldend besluit).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
