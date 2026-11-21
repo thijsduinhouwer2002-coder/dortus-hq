@@ -57,7 +57,7 @@ Gemaakt 19 nov 2026 door een bouwer, volgens de keuring van 19 nov (`platformen/
 
 ## Uitkomst
 - **groen:** eigen kanaal, gewone post, alle 10 ja, techniek-check zonder oranje of rood. De Maker mag inplannen.
-- **oranje:** wacht op de hoofdchat-ronde. Altijd bij: **elke YouTube Short**, een prijs of korting, de Cyber Sale, alles over Hats, een antwoord op een klacht, en de oranje regels uit de techniek-check. De hoofdchat zet het op groen of rood. **Geen besluit binnen 24 uur = rood** (de Maker zet het).
+- **oranje:** wacht op de hoofdchat-ronde. Altijd bij: een prijs of korting, de Cyber Sale, alles over Hats, een antwoord op een klacht, en de oranje regels uit de techniek-check. De hoofdchat zet het op groen of rood. **Geen besluit binnen 24 uur = rood** (de Maker zet het).
 - **rood:** een vraag is nee, of iets onder de naam van Thijs, of tegen een regel. Met een reden van één zin. De Maker mag het concept verbeteren en als **nieuw** bestand opnieuw op open zetten; het rode bestand blijft staan.
 
 ## Techniek-check per kanaal (de Keurder vóór groen; de Maker nog een keer vlak voor inplannen)
@@ -80,8 +80,13 @@ Gemaakt 19 nov 2026 door een bouwer, volgens de keuring van 19 nov (`platformen/
 - Eerste regel van de beschrijving `https://dortus.com/yt/`, en hetzelfde adres in `firstCommentText`. **Ontbreekt een van de twee: oranje.**
 - Kanaallink "Click Joints Pro" naar https://dortus.com/yt/ staat bovenaan het kanaal (hoofdchat, 20 nov 14:38; was "($12)" naar Gumroad); daar hoeft de tak niets aan te doen. Een bestaande post of kanaallink aanpassen (geen nieuwe post, geen quotum) doet de hoofdchat na keuring door een ander (besluit 20 nov 14:40). Let op: /yt telt ook bezoek uit de kanaallink en de Short 65JiRlDupNc.
 
-**YouTube Short**
-- **Elke Short is oranje**, met of zonder URL. Shorts gaan alleen uit de reserve, na een besluit van de hoofdchat (links onder Shorts zijn niet klikbaar sinds 31 aug 2023, DERDEN, dus een Short verkoopt niets).
+**YouTube Short (sinds 21 nov ±12:40: de Shorts-motor)**
+- Afgekeken: CatPin (400+ verkopen in 3 maanden) en Cleave (200+ in 2 maanden, 3 Shorts per dag, 700 tot 1.600 weergaven per stuk, 157 abonnees) verkopen hun Blender-add-ons voor 3D-print met dagelijkse Shorts op hun eigen kanaal (GEZIEN 21 nov, `platformen/ideeen/afkijken-2-2026-11-21/A-blender-kopers.md`). De oude regel "een Short verkoopt niets" vervalt.
+- **Wie plaatst:** de hoofdchat, zelf in YouTube Studio in Chrome op de HP van Thijs, buiten Metricool om (keuze Thijs 21 nov ±12:40: "Gratis: ik upload zelf"; Metricool blijft voor TikTok en lange video's). De hoofdchat plant gekeurde Shorts in een sessie in voor de komende dagen (YouTube Studio: inplannen), **2 tot 3 per dag**, op vaste tijden (bijvoorbeeld 12:00, 17:00, 20:00 NL).
+- **Keuring:** een Short gaat alleen uit als hij **groen** is: groen gekeurd door de Keurder van Roep of door Daan (skill keuren, de 10 vragen hierboven en de techniek-check). Een Short is niet meer vanzelf oranje; wel oranje bij een prijs, korting of Hats.
+- **Vorm (afgekeken van Cleave en CatPin):** één figuur, één belofte in de titel (bijvoorbeeld "Make a goblin poseable: 8 joints in Blender"), haak in de eerste seconde, echte beelden uit Blender, 10 tot 30 seconden, beschrijving met het over te typen dortus.com/yt. Bij elke Short als "Gerelateerde video" de nieuwste lange Pro-video (de enige klikbare link). Eerlijk: "measured in Blender, not print tested by us yet" waar het over printen gaat.
+- **Wie maakt:** Chris en de Maker van Roep, als concept in `marketing/wachtrij/` met kanaal `youtube-short`. Voorraad: minstens 7 groene Shorts klaar.
+- Na plaatsen: de hoofdchat zet per Short een regel onderaan `commercie/geplaatst.md` (datum, adres, titel).
 
 **Na plaatsen (de Maker, in de eerstvolgende ronde na het plaatsmoment)**
 - Status in Metricool lezen: PUBLISHED of ERROR.
