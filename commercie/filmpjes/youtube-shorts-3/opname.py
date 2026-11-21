@@ -519,13 +519,14 @@ def verloop_pro():
 
     # pose: andere knie en ellebogen, terug naar de hele figuur
     deel("pose")
-    standen = {"Right knee": 35.0, "Left elbow": 115.0, "Right elbow": 50.0}
+    standen = {"Left knee": 95.0, "Right knee": 25.0, "Left elbow": 130.0, "Right elbow": 75.0}
     paren = {n: paar(n) for n in standen}
+    van = {n: float(pb.get("cj_pose_graden", 0.0)) if pb is not None else 0.0 for n, (pa, pb) in paren.items()}
 
     def zet_pose(t):
         for n, (pa, pb) in paren.items():
             if pb is not None:
-                buig(pb, standen[n] * t)
+                buig(pb, van[n] + (standen[n] - van[n]) * t)
         cam(70 - 95 * t, 84.0, 165.0 + (D_HEEL - 165.0) * t, mengen(blik, heel, t))
     yield from stuk(70, zet_pose)
     geen_selectie()

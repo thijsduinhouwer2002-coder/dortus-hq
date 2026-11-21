@@ -185,7 +185,7 @@ N_EXPORT = len([b for b in MT.get("export", []) if b.endswith(".3mf")]) or 10
 H = 75   # haak: 2,5 s eindresultaat
 SHORTS = {
     (1, "make-poseable"): [
-        ("held", 20, 20 + H, 1, "held", ("Make your character", "poseable for 3D printing")),
+        ("held", 20, 20 + H, 1, "knie", ("Make your character", "poseable for 3D printing")),
         ("heel", 0, None, 1, "knop", ("1. Select your", "rigged character")),
         ("kies", 0, None, 1, "knop", None),
         ("knop", 0, None, 2, "knop", ("2. Click", "Figure from rig")),
@@ -198,7 +198,7 @@ SHORTS = {
         ("held", 0, None, 1, "held", ("Ready to slice", "and test print")),
     ],
     (2, "knee-bend"): [
-        ("held", 60, 60 + H, 1, "held", ("How far can", "this knee bend?")),
+        ("held", 60, 60 + H, 1, "knie", ("How far can", "this knee bend?")),
         ("heel", 0, None, 1, "knop", ("A rig with", f"Limit Rotation {K_STOP}°")),
         ("kies", 0, None, 1, "knop", None),
         ("knop", 0, None, 2, "knop", ("Click", "Figure from rig")),
@@ -210,12 +210,13 @@ SHORTS = {
         ("held", 0, None, 1, "held", ("Check the pose", "before you print")),
     ],
     (3, "posable-toy"): [
-        ("held", 70, 70 + H, 1, "held", ("Turn your rigged character", "into a posable toy")),
+        ("held", 70, 70 + H, 1, "knie", ("Turn your rigged character", "into a posable toy")),
         ("heel", 0, None, 1, "knop", ("Start with", "a rigged figure")),
         ("kies", 0, None, 1, "knop", None),
         ("knop", 0, None, 2, "knop", ("One button:", "Figure from rig")),
         ("lijst", 0, 60, 1, "lijst", ("Hinges at elbows", "and knees")),
         ("lijst", 60, 140, 1, "lijst", ("Ball joints at shoulders,", "hips and neck")),
+        ("knie", 0, None, 1, None, ("Bend a knee", "to its end stop")),
         ("pose", 0, None, 2, "knie", ("Pose it", "right in Blender")),
         ("uitelkaar", 0, None, 2, None, ("Every part", "comes apart")),
         ("held", 0, None, 2, "held", ("Print a test joint", "first")),
@@ -225,10 +226,11 @@ SHORTS = {
         ("heel", 0, None, 1, "knop", ("Select the", "rigged figure")),
         ("kies", 0, None, 1, "knop", None),
         ("knop", 0, None, 2, "knop", ("Click", "Figure from rig")),
-        ("lijst", 0, 160, 1, "lijst", ("Cut into parts", f"with {N_GEW} joints")),
+        ("lijst", 0, None, 1, "lijst", ("Cut into parts", f"with {N_GEW} joints")),
+        ("pose", 0, None, 1, "knie", ("Each joint", "shows its range")),
         ("uitelkaar", 0, None, 2, None, ("Exploded view", "shows every part")),
         ("export", 0, None, 2, None, ("Pick 3MF,", "then Export")),
-        ("held", 0, None, 1, "held", (f"{N_EXPORT} files", "ready to slice")),
+        ("held", 0, None, 2, "knie", (f"{N_EXPORT} files", "ready to slice")),
     ],
 }
 
