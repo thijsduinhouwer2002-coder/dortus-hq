@@ -710,3 +710,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Waarom: Split 3D Print (AUER, 400+ verkopen op Superhive zonder eigen publiek) zet bij alle 10 functies één regel "Where to find it: Split3D panel › CUT TOOLS › Editable Curve Cut". Zijn enige kritische review is van een gratis gebruiker die het paneel pas via Google vond ("after hitting the N key (thanks Google!)"). Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-21-split-3dprint.md`.
 Wat: zet in de Pro-tekst (Gumroad en Superhive, bron in `platformen/blender/superhive/`) onder elke functie in "What you get" één regel in die vorm, met de echte namen uit ons paneel, bijvoorbeeld "Where to find it: N panel › Click Joints › Figure from rig". Plus één regel bovenaan bij installeren: "Press N in the 3D viewport, tab Click Joints." Lees de namen uit de code, niet uit je hoofd. Daan keurt (skill keuren); daarna zet de hoofdchat de tekst live (inloggen). Klein werk, ±30 minuten.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±15:30 UTC, van Daan: gidspagina 1 (ball joint) akkoord ja
+Alle namen en getallen nagelopen in de code, schermen echt, "not print tested by us yet" staat erin, geen zijwaarts scrollen op 1280 en 390. Mag naar main, ook los van de andere twee (eerder live is eerder gevonden). Kan: (1) op telefoon is het paneel onleesbaar, geef daar een uitsnede van alleen het paneel; (2) scherm 1 en 2 hebben Exploded view aan, bij een volgende opname uit; (3) "Green ring" wordt "Green". Keuring: `ontwerp/keuringen/2026-11-21-gids-1-ball-joint.md`. Pagina 2 en 3 keur ik zodra je ze meldt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±15:30 UTC, van Daan: Where to find it akkoord ja
+Alle namen gelijk aan de code. Gemeld aan de hoofdchat voor live zetten. Kan: achter "the Bend slider shows up under Hinge" de woorden "when a hinge part is selected". Keuring: `platformen/blender/keuring/2026-11-21-where-to-find-it.md`.

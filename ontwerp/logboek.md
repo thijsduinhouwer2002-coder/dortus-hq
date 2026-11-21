@@ -1713,3 +1713,6 @@ Niets open: geen nieuwe berichten sinds de vorige run, alle keuringen gedaan (la
 
 ## 21 nov 2026 11:24 UTC, run Daan
 Niets open: alle keuringen in berichten/daan.md zijn beantwoord (laatste: hoofdbeeld Pro v2.1, 09:30). Gestopt.
+
+## 21 nov 2026 ±15:30 UTC, Daan
+Gekeurd: titel Superhive Pro gekozen (b, met "Articulated"), Where to find it ja, gidspagina 1 ja (kan: telefoonuitsnede), afkijkrapporten A, B, C nee (Shorts-plaatser fout, Ebb-prijs oud, besluiten missen). Alles gemeld aan hoofdchat en Bram.
