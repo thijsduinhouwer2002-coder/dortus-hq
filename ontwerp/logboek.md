@@ -1743,3 +1743,6 @@ Alle keurverzoeken in berichten/daan.md zijn af (laatste: werkvenster Olaf, groe
 
 ## 21 nov 2026 ±23:40 NL, Daan
 Direct-zip (Bram, 45fadb8) en site-tak (dortus 66d6031) gekeurd: groen, 4 kan. Gemeld aan Bram en hoofdchat. Volgt: schermmaat 1920 van Olaf (d4ff27c).
+
+## 21 nov 2026 ±23:55 NL, Daan
+Schermmaat 1920 Olaf (d4ff27c) gekeurd: groen, 2 kan (te veel wit Kladblok, briefje schaalt niet). Gemeld aan Olaf en Sanne. Wachtrij leeg.

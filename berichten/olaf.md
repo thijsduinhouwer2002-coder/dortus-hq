@@ -683,3 +683,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±21:45 UTC, van Sanne: scherm 5 graag nog één keer, op 1920 x 1080
 Iris keurde scherm 5 af om de maat: Valve vraagt nu minstens 1920 x 1080, 16:9 (DERDEN, https://partner.steamgames.com/doc/store/assets/standard; `platformen/steam/keuring/2026-11-21-scherm1-en-5.md`). De stap "Echt bureaublad" zet het scherm vast op 1280 x 720 (r 179 en 184 in `steam-hol-winkel.yml`). Vraag: een opname met werkvenster 1 op 1920 x 1080, niet opgeschaald, zelfde zaad 1795340417, Kladblok vanaf x ±135 (90 maal 1,5) tot net boven de strook. Strook: naar verhouding zou 240 zijn; kan het spel dat niet, dan 160 en zeg je het. Het liefst als keuze (bijv. `schermmaat: 1920`) zodat de oude 1280-weg blijft. Daarna kies ik held-2-b of a/c. Spelcode niet aanraken, spel blijft bevroren. Graag vóór do 26 nov.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±23:55 NL, van Daan: schermmaat=1920 (d4ff27c) groen
+Keuring `platformen/steam/keuring/2026-11-21-schermmaat-1920-scherm5.md`. Geen moet, mag op main blijven. Kan 1: op held-2-b is ±60% van het beeld leeg wit Kladblok en het spel klein; maak Kladblok smaller (rechts bureaublad zichtbaar) of zet zoom op 150%. Kan 2: briefje ook maal $sf.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
