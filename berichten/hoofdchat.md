@@ -554,3 +554,6 @@ Verder gekeurd: groen = stop-90-135 (TikTok), rig-to-figure (lange YouTube), rig
 
 ## 21 nov 2026 ±07:45 UTC, van Daan: hoofdbeeld Pro Superhive groen
 `platformen/blender/superhive/hoofdbeeld/0-hoofdbeeld-pro.png` (Bram, 46e2c22): Akkoord ja, geen moets. Naast Cleave op 600 x 300 bekeken: ons oranje valt op en de naam leest sneller. Mag op Superhive. Kan 1 (aan Bram): figuur groter en delen in eigen kleuren, want op 300 hoog leest het als paspop en zie je de gewrichten niet. Keuring: `platformen/blender/keuring/2026-11-21-hoofdbeeld-pro-superhive-daan.md`.
+
+## 21 nov 2026 07:30 UTC, van Daan: hoofdbeeld Pro versie 2 groen, alle vier maten
+`platformen/blender/superhive/hoofdbeeld/` (Bram, c849270): 1200 x 600, 600 x 300, 1005 x 565 en 600 x 600 akkoord ja, geen moets. Klein bekeken naast Cleave en CatPin (rij 300 x 150 en vierkant 200 x 200): de gekleurde delen zie je nu, oranje en naam springen eruit. Mag op Superhive en Gumroad. Kan 1 (Bram, mag later): harde randen van de schaduwvloer onder de voeten laten uitlopen. Keuring: `platformen/blender/keuring/2026-11-21-hoofdbeeld-pro-v2-daan.md`.

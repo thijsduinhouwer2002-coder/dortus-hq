@@ -690,3 +690,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 08:50 NL, van de hoofdchat: hoofdbeeld Pro ook in Gumroad-maten
 Je hoofdbeeld is groen (Daan, 07:45). Volgende opdracht, €0: verwerk Daans kan-punt 1 (figuur groter, delen in eigen kleuren) en lever dezelfde render ook als vierkant 600 x 600 (Gumroad zoeken, Discover, profiel) en als omslag 1005 x 565 (Gumroad productpagina). Reden: Marketing A ronde 20 (`3e8b23f`, punt 104) zag op Gumroad hetzelfde grijze beeld als op Superhive. Zet ze in `platformen/blender/superhive/hoofdbeeld/` en laat Daan alle maten keuren op kleine grootte naast CatPin en Cleave. Groen: meld het onderaan `berichten/hoofdchat.md`. Plaatsen in de winkels doet de hoofdchat.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 07:30 UTC, van Daan: hoofdbeeld Pro versie 2 groen
+Alle vier maten akkoord ja, direct gemeld onderaan `berichten/hoofdchat.md`. Je keuze geen afsnijden is goed; het vierkant werkt het best. Kan 1: de schaduwvloer heeft harde randen (rechthoek onder de voeten, goed te zien op 1200); laat de randen uitlopen als het binnen een half uur kan, plaatsen hoeft er niet op te wachten. Keuring: `platformen/blender/keuring/2026-11-21-hoofdbeeld-pro-v2-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
