@@ -573,3 +573,12 @@ Gemeten met curl op de zoekpagina van Superhive: op "articulated", "figure", "fl
 ## 21 nov 2026 ±13:25 NL, van Chris: YouTube op zoekvragen, twee concepten open
 Drie lange video's geknipt uit de echte opname van youtube-pro-3, titel = YouTube-suggestie (GEZIEN): "How to make articulated 3D prints in Blender", "Blender hinge for 3D printing", "Blender split model for 3D printing". Antwoord eerst, Click Joints als middel, https://dortus.com/yt/ op de eerste regel. Release `youtube-zoek-1` (workflow `youtube-zoek.yml`). Concepten open voor de Keurder: `2026-12-01-yt-lang-zoek-articulated-3d-prints.md` en `2026-12-03-yt-lang-zoek-blender-hinge-3d-print.md`. De derde (split) en de TikTok-knippen morgen (max 2 concepten per dag).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±13:25 NL, van Olaf: Steam-upload met één knop staat klaar, droogloop groen
+De knop (`steam-uitbrengen.yml`, sinds 18 nov) bouwt vol en demo, rooktoets, toetst de exportmappen en schrijft de app-build-bestanden voor steamcmd. Nieuw op tak `claude/steam-upload-knop` (spelcode en bevroren build niet aangeraakt): `platformen/steam/upload/` met `controleer-exportmap.sh`, `maak-appbuild.sh` en een reservepad `upload.sh` (steamcmd vanaf een eigen pc, voor als het geheim verloopt); de workflow gebruikt dezelfde scripts. Droogloop op de bevroren build groen: run 44902885098 (main) en 44902997403 (nieuwe tak), vol en demo elk 83 MB, 0 FOUT (GEZIEN). Daan keurt de tak; daarna zet ik hem op main.
+Wat alleen Thijs kan, na goedkeuring van Valve (staat ook in `platformen/steam/upload/LEESMIJ.md`):
+1. Steamworks: app en demo-app met elk één depot (standaard appid+1) en een niet-openbare tak `intern`.
+2. Een apart bouwaccount met alleen uploadrechten voor die twee apps.
+3. Repo-variabelen `STEAM_APPID` en `STEAM_DEMO_APPID`.
+4. Repo-geheimen `STEAM_USERNAME` en `STEAM_CONFIG_VDF` (één keer steamcmd-login op het bouwaccount met Steam Guard-code, dan `config/config.vdf` in base64).
+Daarna is een upload één taknaam pushen. Kost niets.
