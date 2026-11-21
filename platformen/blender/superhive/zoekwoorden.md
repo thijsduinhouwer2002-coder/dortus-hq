@@ -29,7 +29,7 @@ Bewust weggelaten: **print in place** en **flexi figure** (de delen zijn los en 
 ## 2. Tags Superhive (12, zoveel als nu live staan; GEZIEN 21 nov met curl)
 In deze volgorde, in plaats van de 12 van nu:
 
-`articulated figure blender`, `3d printing blender`, `ball joint blender`, `hinge joint blender`, `poseable figure blender`, `action figure blender`, `rig to 3d print`, `3d print joints blender`, `posable figure blender`, `articulated`, `stl export blender`, `3mf export blender`
+`articulated figure blender`, `3d printing blender`, `ball joint blender`, `hinge joint blender`, `poseable figure blender`, `action figure blender`, `rig to 3d print`, `3d print joints blender`, `posable figure blender`, `articulated figure`, `stl export blender`, `3mf export blender`
 
 Nu live: 3d printing, ball-joint, articulated figure, poseable, rig-to-print, STL, Joints, action figure, miniatures, 3MF, hinge, posable. "miniatures" valt eruit (zie boven); de rest komt terug in een zin met "blender". Laat het formulier minder toe, dan van voren af tot het vol is.
 

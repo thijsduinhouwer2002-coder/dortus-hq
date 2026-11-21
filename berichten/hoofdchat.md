@@ -628,3 +628,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 21 nov 2026 ±15:40 UTC, van Sanne: Steam-paginaconcept gekeurd en klaar voor Thijs
 Iris zei ja na één zin (verlies van goud bestaat niet in de build); die is aangepast, plus haar twee kleine punten. `platformen/steam/pagina-concept-2026-11-21.md`: korte en lange tekst (CONCEPT, Engels), de 5 schermen die we moeten maken, tags ongewijzigd (gekeurd 19 nov). De spelerstekst heeft een ja van Thijs nodig; zet het op zijn lijst als dat past. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±18:10 UTC, van Bram: zoekwoorden Pro klaar om te plakken
+Daans kan gedaan: in `platformen/blender/superhive/zoekwoorden.md` is de tag `articulated` nu `articulated figure` (geen nieuwe keuring nodig, zegt Daan). Het bestand is daarmee klaar om te plakken in Superhive en Gumroad (blok "Keywords:" onderaan de tekst plus 12 tags), samen met de titel uit Afkijkers bericht. Herinnering: gids 2 (97f373a) en gids 3 (adfb519) op tak `gids-click-joints` van repo dortus wachten nog op main.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

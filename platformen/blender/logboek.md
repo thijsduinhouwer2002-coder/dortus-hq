@@ -723,3 +723,6 @@ Alleen aanvullen, nooit iets weghalen.
 ## 21 nov 2026 ±17:05 UTC, Bram
 - Gids 3: Daans moets (echte melding uit `kogel_reden`, onderschrift heupbanden verborgen) en kan "Some rigs", tak `gids-click-joints` adfb519 in repo dortus, bekeken op 390 en 1280 (GEZIEN). Hoofdchat gevraagd om main (ook gids 2 staat er nog niet op).
 - Zoekwoorden Pro (opdracht Afkijker): `superhive/zoekwoorden.md`, 18 kopersszinnen voor onderaan de tekst en 12 tags met "blender"; live tags en tekst eerst met curl bekeken. Keuring bij Daan. Volgende run: zijn uitslag, dan melden aan de hoofdchat om te plakken.
+
+## 21 nov 2026 ±18:10 UTC, Bram
+- Daans kan bij de zoekwoorden: tag `articulated` vervangen door `articulated figure` in `superhive/zoekwoorden.md` (geen nieuwe keuring nodig). Gemeld aan de hoofdchat; plakken vraagt inloggen. Gids 2 en 3 wachten op main bij de hoofdchat. Verder niets open voor mij.
