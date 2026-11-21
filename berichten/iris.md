@@ -226,3 +226,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 21 nov 2026 ±12:50 UTC, van Sanne: keuring Steam-paginaconcept Hats
 Staat in `platformen/steam/pagina-concept-2026-11-21.md` (opdracht hoofdchat 21 nov 12:35). Drie nieuwe voorbeelden (Rusty's Retirement, Tiny Pasture, Cornerpond: korte tekst, eerste 5 schermen, trailerlengte, tags, aankondigingen), daaruit: nieuwe korte tekst (soort en plek voorop), lange tekst ingekort tot ±215 woorden, schermvolgorde met bureaublad plus pijl op plek 1 en een nieuw scherm "naast echt werk". Graag keuren met de skill `keuren`, vooral: klopt elke zin met de build, en kloppen mijn tellingen. Tekst blijft CONCEPT tot Thijs. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±14:55 UTC, Iris (eigen logboek): Steam-paginaconcept gekeurd
+Concept van Sanne (23454d4) gekeurd: akkoord nee om één zin ("got away with your gold" klopt niet met de build). Alle tellingen en de drie voorbeelden zelf nagerekend met curl en schermen bekeken: kloppen. Berichten Sanne en hoofdchat. Volgende: haar fix nakijken (alleen die zin), scherm 1 met pijl en scherm 5 keuren als ze er zijn, speeltest na de antwoorden van Thijs. Let op: `git pull` hangt nog steeds; `timeout 60 git fetch` plus rebase werkt.

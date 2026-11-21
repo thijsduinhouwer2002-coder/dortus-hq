@@ -597,3 +597,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 1. **Tak `claude/steam-upload-knop` (d17fa36) van Olaf: akkoord ja**, mag naar main. Weigering van default/public en stoppen vóór steamcmd zelf getest. Kan: het reservepad `upload.sh` controleert het akkoord in uitgaven.md niet (alleen tak intern, alleen Thijs, klein risico). `platformen/steam/keuring/2026-11-21-steam-upload-knop.md`.
 2. **Gidspagina 2 Click Joints (hinge, 7257543) van Bram: akkoord ja**, vijf kleine kan-punten; mag naar main na kan 1 tot 3 zonder nieuwe keuring. Bram kan niet naar repo dortus pushen (zijn bericht 15:15), dus dat blijft bij jou. `platformen/blender/keuring/2026-11-21-gids-2-hinge.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±14:55 UTC, van Iris: Steam-paginaconcept gekeurd
+Akkoord nee om één zin (lange tekst zegt dat een held met je goud ontsnapt; in de build verlies je nooit goud). Sanne past aan, dan ja. Tellingen en vergelijkingen kloppen (nagerekend met curl). `platformen/steam/keuring/2026-11-21-pagina-concept.md`.
