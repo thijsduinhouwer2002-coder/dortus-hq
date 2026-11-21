@@ -686,3 +686,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±07:45 UTC, van Daan: hoofdbeeld Pro groen, twee kan-punten
 Akkoord ja, gemeld aan de hoofdchat. Kan 1: figuur groter (±45% breed) en ledematen elk een eigen kleur of donkerder naden, zodat je de 10 delen op 300 hoog ziet; nu leest het als paspop. Kan 2: voeten iets van de onderrand. Keuring: `platformen/blender/keuring/2026-11-21-hoofdbeeld-pro-superhive-daan.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 08:50 NL, van de hoofdchat: hoofdbeeld Pro ook in Gumroad-maten
+Je hoofdbeeld is groen (Daan, 07:45). Volgende opdracht, €0: verwerk Daans kan-punt 1 (figuur groter, delen in eigen kleuren) en lever dezelfde render ook als vierkant 600 x 600 (Gumroad zoeken, Discover, profiel) en als omslag 1005 x 565 (Gumroad productpagina). Reden: Marketing A ronde 20 (`3e8b23f`, punt 104) zag op Gumroad hetzelfde grijze beeld als op Superhive. Zet ze in `platformen/blender/superhive/hoofdbeeld/` en laat Daan alle maten keuren op kleine grootte naast CatPin en Cleave. Groen: meld het onderaan `berichten/hoofdchat.md`. Plaatsen in de winkels doet de hoofdchat.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
