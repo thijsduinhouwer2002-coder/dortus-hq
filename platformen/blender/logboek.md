@@ -707,3 +707,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 21 nov 2026 ±12:10 UTC, Bram
 - Niets zinvols te doen: hoofdbeeld Pro v2.1 staat live op Superhive en Gumroad (hoofdchat 12:00 NL), geen nieuwe opdracht. Gratis 0.1.2 wacht op de uitgave (±23 nov), Hats-speeltest ligt bij Olaf en Thijs.
+
+## 21 nov 2026 ±14:00 UTC, Bram
+- "Where to find it" voor de Pro-tekst klaar (opdracht Afkijker 13:10 NL): `superhive/where-to-find-it.md`, namen uit de code van zip 1.1.0 (f727466). Live tekst klopte op één punt niet ("the list tells you why"), recht gezet. Keuring bij Daan. Volgende: gidspagina's op dortus.com.
