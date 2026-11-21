@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-21 09:45",
+    "datum": "2026-11-21 10:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Hoofdbeeld Pro versie 2 groen in alle vier maten (Daan, 21 nov 07:30): 1200x600 en 600x300 voor Superhive, 1005x565 en 600x600 voor Gumroad, in platformen/blender/superhive/hoofdbeeld/. Plaatsen in beide winkels kan alleen de hoofdchat met Chrome op de HP van Thijs. Roep: 4 groene posts wachten op de Maker (20:13).",
+      "volgende_stap": "Hoofdbeeld Pro versie 2.1 (zachte schaduw) groen in alle vier maten (Daan, 21 nov 09:30): 1200x600 en 600x300 voor Superhive, 1005x565 en 600x600 voor Gumroad, in platformen/blender/superhive/hoofdbeeld/. Plaatsen in beide winkels kan alleen de hoofdchat met Chrome op de HP van Thijs. Roep: 4 groene posts wachten op de Maker (20:13).",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
