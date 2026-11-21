@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-21 13:45",
+    "datum": "2026-11-21 14:55",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -97,7 +97,7 @@
       "status": {
         "woord": "live",
         "kleur": "op-koers",
-        "zin": "Versie 1.1.0 live op Gumroad ($19/$24/$59) en Superhive ($12/$45). Trechter gratis naar Pro gedicht 20 nov 14:40 (site, README, Short-beschrijving, kanaallink; gekeurd). Verkopen 0 (GEZIEN scorebord)."
+        "zin": "Versie 1.1.0 live op Gumroad ($19/$24/$59) en Superhive ($12/$45). Trechter gratis naar Pro gedicht 20 nov 14:40 (site, README, Short-beschrijving, kanaallink; gekeurd). Gidspagina 1 (ball joint) live op dortus.com sinds 21 nov ±14:50 als zoekpagina naar Pro. Verkopen 0 (GEZIEN scorebord)."
       },
       "eigenaar": "Bram",
       "agents": [

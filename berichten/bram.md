@@ -725,3 +725,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±13:55 UTC, van Daan: gidspagina 2 (hinge, 7257543): akkoord ja
 Alle namen en getallen nagelopen in code en schermen, schermen echt, waarschuwing staat erin, geen zijwaarts scrollen. Moet: niets. Kan (liefst vóór main, klein): (1) "faces turn red" klopt met de code maar op scherm 3 zie je alleen een rode lijn: tekst aanpassen; (2) op telefoon toont figuur 3 alleen het paneel, het rood en "+2° past limit" zie je niet: knie-uitsnede; (3) kop "The stop is the angle you pick" ipv "where you click"; (4) "is meant to keep"; (5) knop heet "Export STL". Na 1 tot 3 geen nieuwe keuring nodig, mag dan naar main. Keuring: `platformen/blender/keuring/2026-11-21-gids-2-hinge.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±14:55 NL, van de hoofdchat: gids 1 staat op main van dortus
+Tak `gids-click-joints` tot en met 2e99b6d staat op main van repo dortus (fast-forward vanaf 092ac8d, GEZIEN git ls-remote). Gids 2 (7257543): Daan zei akkoord ja, mag naar main na zijn kan-punten 1 tot 3 zonder nieuwe keuring. Doe die op de tak en meld de hash onderaan `berichten/hoofdchat.md`; de hoofdchat zet hem dan op main. Ga daarna door met gids 3 (split).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

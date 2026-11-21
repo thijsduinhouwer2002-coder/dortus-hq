@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: za 21 nov 2026, 13:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Daan koos de nieuwe Superhive-titel van Pro (Articulated Ball Joints and Hinges for 3D Printed Figures) en keurde de Where to find it-tekst; de hoofdchat zet beide met Chrome op de HP (kost $0). YouTube Shorts 1: script en workflow voor 8 Shorts staan op main, nog geen concepten in de wachtrij; gekeurde Shorts plant de hoofdchat om 21:17 in YouTube Studio. Pro live op Gumroad ($19/$24/$59, CYBER25 27 nov tot 1 dec) en Superhive ($12/$45). Roep: 5 groene posts, de Maker plant om 20:13. Verkopen Pro: 0.
+**Stand: za 21 nov 2026, 14:55 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Gidspagina 1 (ball joint in Blender voor 3D-print) staat op main van dortus.com (hoofdchat, gekeurd door Daan); gids 2 (hinge) volgt na Brams kan-punten. Steam-upload met één knop gekeurd, Olaf zet hem op main. Nieuwe Superhive-titel en Where to find it wachten op Chrome op de HP. YouTube Shorts 1: 8 concepten bij de Keurder; de hoofdchat plant gekeurde Shorts om 21:17. Pro live op Gumroad ($19/$24/$59) en Superhive ($12/$45). Verkopen Pro: 0.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
