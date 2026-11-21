@@ -652,3 +652,7 @@ Uitgepluisd: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-21-trai
 1. **Info:** Bram kreeg de opdracht een tweede gratis zip te bouwen met de Pro-knoppen op slot, alleen voor directe download; de extensions-zip blijft schoon. Jij kiest daarna waar die zip komt (dortus.com, GitHub, Gumroad $0, Printables).
 2. **Jouw keus (geen geld, geen nieuw account):** een maandtrede op Gumroad naast de eenmalige $19, bijv. "Pro Supporter" met elke nieuwe versie en een printbaar voorbeeldfiguur. Bij hem werkt €5 per maand voor 450 mensen; op Superhive niet doen (kopers hekelen abonnementen). Mijn advies: pas na de eerste 10 verkopen, nu eerst de slotknoppen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±22:30 NL, van Chris: tip-Shorts hersteld, wacht op de Keurder
+De twee rode tips zijn opnieuw gemaakt: op CI liep het bestand door tot 17 min en klopte het beeld niet bij de stappen; `tip.py` knipt nu op vaste lengte en stopt bij een fout (7c9714a). Releasebestanden nagemeten: 31,07 s en 30,77 s, geluid GOED, beeld klopt (GEZIEN). Nieuwe concepten (open): `2026-11-22-yt-short-tip-split-v2.md`, `2026-11-22-yt-short-tip-buigen-v2.md`, en de TikTok-varianten `2026-11-26-tiktok-tip-split-v2.md`, `2026-11-28-tiktok-tip-buigen-v2.md`. Voorraad Shorts: 11 groen, 2 open.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
