@@ -748,3 +748,4 @@ Alleen aanvullen, nooit iets weghalen.
 ## 22 nov 2026 ±00:50 UTC, Bram
 - Daans kan 1 tot 4 bij de direct-zip: link `?from=addon#pro`, uitgave-workflow weigert een zip met `direct.py`, twee zips in `indienen.md` (dortus-hq tak `claude/blender-2026-11-22` d898024, auto-keurder geen moet; zijn twijfel klopt niet, beide staan in d898024, GEZIEN git show). Site-tak dortus b1050f4 met nieuwe zip en zin, bekeken op 390 en 1280 (GEZIEN). Daan en hoofdchat ingelicht.
 - Beeldvergelijking 4.2.23 `3-kijkrichting-x.png`: het plaatje op `schermen` is nu gelijk aan de referentie (GEZIEN, naast elkaar bekeken); waarschijnlijk eenmalig, geen actie.
+- ±01:10 UTC: e2e groen in 4.2, 5.2, 5.3 (run 44960327101, GEZIEN), tak `claude/blender-2026-11-22` op main gezet.
