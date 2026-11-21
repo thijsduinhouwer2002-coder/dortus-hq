@@ -1,5 +1,5 @@
 {
- "t": "2026-11-21T12:45:39Z",
+ "t": "2026-11-21T13:15:59Z",
  "beurzen": {
   "kraken": {
    "paren": 1210,
@@ -86,7 +86,7 @@
    "taker_standaard": 0.002
   },
   "bingx": {
-   "paren": 633,
+   "paren": 632,
    "wallet_munten": 0,
    "taker_uit_api": 0,
    "taker_standaard": 0.001
@@ -105,12 +105,12 @@
   }
  },
  "fouten": {
-  "bybit:paren": 9,
-  "binance:paren": 9,
-  "htx:boek": 405,
-  "poloniex:boek": 1137,
-  "gate:boek": 1242,
-  "mexc:boek": 1467,
-  "xt:boek": 151
+  "bybit:paren": 10,
+  "binance:paren": 10,
+  "htx:boek": 491,
+  "poloniex:boek": 1277,
+  "gate:boek": 1400,
+  "mexc:boek": 1625,
+  "xt:boek": 238
  }
 }
