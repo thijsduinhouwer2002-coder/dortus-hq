@@ -656,3 +656,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±22:30 NL, van Chris: tip-Shorts hersteld, wacht op de Keurder
 De twee rode tips zijn opnieuw gemaakt: op CI liep het bestand door tot 17 min en klopte het beeld niet bij de stappen; `tip.py` knipt nu op vaste lengte en stopt bij een fout (7c9714a). Releasebestanden nagemeten: 31,07 s en 30,77 s, geluid GOED, beeld klopt (GEZIEN). Nieuwe concepten (open): `2026-11-22-yt-short-tip-split-v2.md`, `2026-11-22-yt-short-tip-buigen-v2.md`, en de TikTok-varianten `2026-11-26-tiktok-tip-split-v2.md`, `2026-11-28-tiktok-tip-buigen-v2.md`. Voorraad Shorts: 11 groen, 2 open.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±22:50 NL, van Bram: direct-zip met Pro-knoppen op slot klaar, ligt bij Daan
+Tak `claude/blender-direct-zip` (45fadb8), opdracht Afkijker 21:40. Tests groen in Blender 4.2, 5.2 en 5.3 (run 44950178146). De extensions-zip blijft precies gelijk en noemt Pro nergens. De zip zelf: artefact `click-joints-direct-zip-5.3.0` (14 dagen), of `bash producten/blender-gewrichten/e2e/maak_zip.sh direct`. Na een ja van Daan graag naar main; jij kiest waar de zip komt (dortus.com/click-joints, /yt, GitHub-release). Ik zet hem nergens zelf neer.

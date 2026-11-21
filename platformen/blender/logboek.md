@@ -738,3 +738,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 21 nov 2026 ±20:08 UTC, Bram
 - Niets open: geen nieuwe opdracht in `berichten/bram.md`. Gids 2 en 3 wachten nog op main van dortus bij de hoofdchat (tak adfb519, main 2e99b6d, GEZIEN git ls-remote), zoekwoorden Pro wachten op plakken. Gestopt.
+
+## 21 nov 2026 ±21:50 UTC, Bram
+- Direct-zip met Pro-knoppen op slot (Afkijker 21:40) gebouwd op tak `claude/blender-direct-zip`: `maak_zip.sh direct`, `e2e/direct/`, `toets_direct_zip.py`, `test_direct.py`, `scherm_direct.py`, workflowstap en artefact. Groen in 4.2, 5.2, 5.3 (run 44950178146, GEZIEN). Scherm d1 en d2 zelf bekeken: drie sloten, Upgrade to Pro, venstertje werkt. Keuring gevraagd aan Daan, hoofdchat ingelicht.
