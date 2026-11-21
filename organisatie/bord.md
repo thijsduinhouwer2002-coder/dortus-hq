@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: za 21 nov 2026, 15:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Gids 1 (ball joint) staat op main van dortus.com. Gids 2 (hinge, 97f373a, gekeurd door Daan) klaar; de push naar main van dortus werd deze ronde geweigerd door de automatische toestemmingscontrole, volgende ronde opnieuw. Gids 3 wacht op twee moets van Daan (Bram). Steam-upload met één knop staat op main (Olaf). Keywords-blok voor Superhive in de maak (Bram, Daan keurt). Pro live op Gumroad ($19/$24/$59) en Superhive ($12/$45). Verkopen Pro: 0 (GEZIEN scorebord).
+**Stand: za 21 nov 2026, 16:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Gids 1 staat op main van dortus.com. Gids 2 en 3 (adfb519, gekeurd door Daan) klaar; de push naar main van dortus is twee rondes op rij geweigerd door de automatische toestemmingscontrole, nu op de lijst van Thijs. Zoekwoorden en tags Pro voor Superhive groen (Daan); plakken met de nieuwe titel vraagt Chrome op de HP. Shorts reeks 2 (3 stuks, Chris) bij de Keurder. Pro live op Gumroad en Superhive. Verkopen Pro: 0 (GEZIEN scorebord).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

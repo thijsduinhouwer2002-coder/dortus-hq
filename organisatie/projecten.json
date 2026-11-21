@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-21 15:45",
+    "datum": "2026-11-21 16:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Daan koos 21 nov de nieuwe Superhive-titel: Click Joints Pro: Articulated Ball Joints and Hinges for 3D Printed Figures (gekeurd), en keurde de Where to find it-tekst ja. De hoofdchat zet beide met Chrome op de HP van Thijs op Superhive en Gumroad (kost $0) en meet na een dag opnieuw. Roep: 5 groene posts, Metricool heeft nog niets ingepland (GEZIEN 13:40), de Maker plant om 20:13.",
+      "volgende_stap": "Gids 2 en 3 klaar voor main van dortus (adfb519, gekeurd door Daan), push geweigerd door de toestemmingscontrole: Thijs zet main op adfb519. Zoekwoorden en tags Superhive groen (Daan), plakken samen met de nieuwe titel zodra de hoofdchat op de HP in Chrome zit.",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -133,7 +133,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-21 13:45",
+      "laatste_update": "2026-11-21 16:45",
       "links": [
         {
           "naam": "Winkelpagina",
