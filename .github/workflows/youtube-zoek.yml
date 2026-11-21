@@ -1,0 +1,58 @@
+name: YouTube zoekvragen (drie lange video's uit de opname van youtube-pro-3)
+
+# 21 nov 2026, opdracht hoofdchat 12:35 NL (YouTube als zoekmotor), Chris. Knipt drie lange video's (1920x1080) uit de
+# echte opname van youtube-pro-3 (opname-ruw.mkv en film.json uit die release, Blender 5.3.0, Click Joints Pro 1.1.0).
+# Script: commercie/filmpjes/youtube-zoek/maak_zoek.py. Uit: release youtube-zoek-1 met *-geluid.mp4 en geluid_check.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/youtube-zoek/**", ".github/workflows/youtube-zoek.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: youtube-zoek-1
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pakketten
+        run: |
+          timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 ffmpeg fonts-inter
+          python3 -m pip install -q --break-system-packages numpy
+      - name: Ruwe opname uit youtube-pro-3
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/filmuit
+          gh release download youtube-pro-3 -R "$GITHUB_REPOSITORY" -p opname-ruw.mkv -p film.json -p opname.log -D /tmp/filmuit
+          ls -la /tmp/filmuit
+      - name: In elkaar zetten met geluid
+        run: |
+          mkdir -p /tmp/klaar
+          python3 commercie/filmpjes/youtube-zoek/maak_zoek.py /tmp/filmuit /tmp/klaar abc
+          cp /tmp/filmuit/film.json /tmp/klaar/film.json
+          python3 organisatie/controle/geluid_check.py /tmp/klaar/*-geluid.mp4 | tee /tmp/klaar/geluid_check.txt
+          (cd /tmp/klaar && sha256sum *.mp4 | tee SHA256SUMS.txt)
+          for f in /tmp/klaar/*.mp4; do ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact "$f"; done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: youtube-zoek-1
+          path: /tmp/klaar
+      - name: In de release zetten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Drie lange YouTube-video's op zoekvragen (articulated 3D prints, hinge 3D print, split model), geknipt uit de echte opname van youtube-pro-3 (Blender 5.3.0, Click Joints Pro 1.1.0). Concepten: marketing/wachtrij/." > /tmp/notes.md
+          if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" /tmp/klaar/* --clobber -R "$GITHUB_REPOSITORY"
+          else
+            gh release create "$TAG" /tmp/klaar/* -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube zoekvragen 1" --notes-file /tmp/notes.md
+          fi
