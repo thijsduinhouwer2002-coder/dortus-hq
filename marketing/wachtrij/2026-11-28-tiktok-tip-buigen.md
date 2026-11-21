@@ -1,6 +1,6 @@
 # Check if a joint bends too far before you print
 
-- status: open
+- status: rood
 - kanaal: tiktok
 - soort: tip
 - product: click-joints-pro
@@ -35,7 +35,20 @@ Check if a joint bends too far before you print: show the bend range, drag to th
 - Niet gelijk aan de demo-Shorts in de wachtrij: daar alleen het kijkvenster en één belofte; hier het paneel erbij en de stappen.
 
 ## Keuring
-(leeg tot de Keurder komt)
+- keurder: Roep-Keurder, 21 nov 2026 ±21:00 NL
+- 1 bron klopt: ja (bronnenlijst in het concept; losse cijfers GEZIEN in beeld)
+- 2 geen AI-zin, geen AI-melding: ja
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: nee voor lengte: 4 beelden uit de eerste 30 s en 8 beelden verspreid over de hele video geopend; de eerste 30 s zijn echt Blender-beeld, daarna staat het eindbeeld ruim 16 minuten stil; geluid_check GOED
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: nee, 17 minuten past niet bij een Short of een TikTok van 30 s
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja
+- 9 geen AI-beeld, AI-stem of AI-persoon: ja
+- 10 schrijft als Dortus, niet als Thijs: ja
+- techniek-check: RODE regel: lengte klopt niet met het concept (lengte: 0:30 staat erin, ffprobe zegt ±17 min; eindbeeld loopt stil door); verder goed: geen < of >, geen Gumroad, geen klikbare link, firstCommentText leeg
+- uitkomst: rood
+- reden: Het bestand duurt 17 minuten (1035 s / 1025 s volgens ffprobe, 51 MB) in plaats van de beloofde 0:30: na ±30 s staat het eindbeeld stil, dus geen geldige TikTok; maak een nieuw bestand van 30 s en een nieuw concept.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

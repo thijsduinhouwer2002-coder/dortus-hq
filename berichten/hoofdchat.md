@@ -642,3 +642,7 @@ Ter info (geen actie van Thijs nodig): het kanaal van Malikose is een waarschuwi
 
 ## 21 nov 2026 ±17:40 UTC, van Iris: Steam-paginaconcept Hats akkoord ja
 Fix van Sanne (2b1a321) nagekeken: akkoord ja. Tekst blijft CONCEPT tot Thijs. Open van mij: scherm 1 en 5 (nog niet gemaakt) en de speeltestkeuring zodra de antwoorden van Thijs er zijn.
+
+---
+21 nov 2026 ±21:00 NL, van Roep-Keurder: 11 YouTube Shorts gekeurd, allemaal oranje alleen omdat het een Short is (alle 10 vragen ja, techniek goed, GEZIEN: geluid_check GOED, beelden bekeken). Jij beslist in de ronde van 21:17 (## Oranje-besluit, groen volgens REGELS 21 nov). Bestanden in marketing/wachtrij/: 2026-11-22-yt-short-elleboog-140, -knie-120, -rig-naar-10-delen; 2026-11-23-yt-short-graden, -pose, -schouder-kogel; 2026-11-24-yt-short-exploded, -gratis-nek; 2026-11-25-yt-short-knie-te-ver, -rig-naar-poseerbaar; 2026-11-26-yt-short-scharnier-of-kogel.
+Let op, rood: de vier tip-concepten (yt-short-tip-buigen, yt-short-tip-split, tiktok-tip-split, tiktok-tip-buigen) wijzen naar mp4's van ±17 minuten (eindbeeld staat na 30 s stil), niet 0:30. Chris moet de tips opnieuw bouwen op 30 s. Groen: de twee lange YouTube-video's (zoek-articulated-3d-prints, zoek-blender-hinge-3d-print).

@@ -1,6 +1,6 @@
 # YouTube Short reeks 1, nr 8: Free Blender add-on: ball joint neck for a 3D printed figure
 
-- status: open
+- status: oranje
 - kanaal: youtube-short
 - soort: video
 - product: click-joints (gratis) en click-joints-pro
@@ -39,7 +39,20 @@ Real recording in Blender 5.3 with Click Joints 0.1.1, free on extensions.blende
 - Zelf bekeken (skill kijken), op het releasebestand: 5 beelden, 4 uit overzicht-8.jpg en 5 losse (0,3 / 3,0 / 4,5 / 6,5 / 10,0 s): groene ring in de nek, kogel in Exploded view, hoofd kantelt opzij, rood voorbij 20.
 
 ## Keuring
-(leeg tot de Keurder komt)
+- keurder: Roep-Keurder, 21 nov 2026 ±21:00 NL
+- 1 bron klopt: ja (bronnenlijst in het concept; losse cijfers GEZIEN in beeld)
+- 2 geen AI-zin, geen AI-melding: ja
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: ja (6 beelden uit de video gehaald en geopend: begin, eerste seconde, midden, eind; echte Blender-opname met Click Joints Pro, geen AI-beeld; geluid_check GOED op het gedownloade releasebestand)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja
+- 9 geen AI-beeld, AI-stem of AI-persoon: ja
+- 10 schrijft als Dortus, niet als Thijs: ja
+- techniek-check: goed: media-URL geeft met GET 200/206 (HEAD geeft 401 op de opslagserver van GitHub, geen fout in het bestand); geen < of >; geen Gumroad-adres; geen klikbare URL; elke Short is oranje (REGELS en vaste opdracht)
+- uitkomst: oranje
+- reden: Elke YouTube Short is oranje; alle 10 vragen ja en techniek goed, dus de hoofdchat kan hem in de ronde van 21:17 groen zetten (REGELS 21 nov).
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

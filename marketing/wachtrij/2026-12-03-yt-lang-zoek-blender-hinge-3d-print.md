@@ -1,6 +1,6 @@
 # Blender hinge for 3D printing, with an end stop (zoekvraag-video 2)
 
-- status: open
+- status: groen
 - kanaal: yt-lang
 - soort: video
 - product: click-joints-pro
@@ -54,7 +54,20 @@ Click Joints Pro, a hinge with an end stop for 3D printing in Blender: https://d
 - Verschil met eerdere posts: de lange video van 20 nov ging over het losse scharnier (andere opname), die van 23 nov over Figure from rig. Deze heeft de zoekvraag als titel en het antwoord eerst. Keurder beslist over punt 8.
 
 ## Keuring
-(leeg tot de Keurder komt)
+- keurder: Roep-Keurder, 21 nov 2026 ±21:00 NL
+- 1 bron klopt: ja (bronnenlijst in het concept; losse cijfers GEZIEN in beeld)
+- 2 geen AI-zin, geen AI-melding: ja
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: ja (6 beelden verspreid over de video, 8 tegels erbij geopend: echte Blender-schermopname met Click Joints Pro, einde met eindkaart; geluid_check GOED op het gedownloade bestand; duur 105 s en 111 s klopt met het concept)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja
+- 9 geen AI-beeld, AI-stem of AI-persoon: ja
+- 10 schrijft als Dortus, niet als Thijs: ja
+- techniek-check: goed: eerste regel van de beschrijving https://dortus.com/yt/ en dezelfde URL in de eerste reactie; liggend 1920x1080; titel onder 100 tekens; geen < of >; geen Gumroad-adres; media-URL geeft met GET 200/206 (HEAD geeft 401 op de opslagserver, geen fout in het bestand); gewone lange video, geen Short, geen prijs
+- uitkomst: groen
+- reden: Alle 10 vragen ja, echt Blender-beeld, meetadres op de eerste regel en in de eerste reactie, geen Gumroad-adres.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)
