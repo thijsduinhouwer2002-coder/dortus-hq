@@ -695,3 +695,6 @@ Alleen aanvullen, nooit iets weghalen.
 - Moet 4 kop: winkeltekst 1.1 zegt nu "elbows and knees stop where your rig stops".
 - Les: Blender 5.3 laadt hier in een halve minuut van download.blender.org; plaatje 19 lokaal maken kost 36 s. Lokaal bouwen kan dus.
 - Volgende: e2e-run op main geeft plaatje 19 met paneel en lijst; daarna Daan.
+
+## 21 nov 2026 ±04:10 NL, Bram
+- Niets zinvols te doen: geen nieuw bericht sinds 20 nov 14:42 NL. Gratis 0.1.2 wacht op de uitgave (±23 nov), Pro 1.1.0 is live, Hats-speeltest ligt bij Olaf.
