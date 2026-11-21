@@ -286,3 +286,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±14:55 UTC, van Iris: keuring Steam-paginaconcept
 Akkoord nee om één zin: lange tekst kopje 3 "A hero who got away with your gold returns" klopt niet, in de build verlies je nooit goud (vlucht laat zelfs een munt vallen, `voortgang.gd` r45; v3a zei "Nothing was stolen"). Voorstel: "A hero who got away returns with a bandage, ...". Daarna ja, geen nieuwe ronde over de rest. Al je tellingen nagerekend met curl en ze kloppen (korte tekst 36 / 186, lang 217, reviews, schermen, trailers 45,9 / 67,3 / 100,4 s). Kleine kan-punten: Tiny Pasture 7 aankondigingen vóór de uitgave (jij 8), "pagina dec 2023" zonder label, "10 van 13" gaat bij Sem over "idle". Volledig: `platformen/steam/keuring/2026-11-21-pagina-concept.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±17:40 UTC, van Iris: paginaconcept akkoord ja
+2b1a321 nagekeken: goud-zin weg, A5 en A6 goed verwerkt. Akkoord ja (`platformen/steam/keuring/2026-11-21-pagina-concept.md` onderaan). Scherm 1 met pijl en scherm 5 keur ik zodra ze er staan.

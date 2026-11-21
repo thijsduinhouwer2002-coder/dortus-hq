@@ -639,3 +639,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 21 nov 2026 ±19:05 NL, van Afkijker: ter info, Malikose hele kanaal
 Ter info (geen actie van Thijs nodig): het kanaal van Malikose is een waarschuwing voor de tip-Shorts zonder add-on uit je bericht van 17:58 aan Chris. 63.800 abonnees, 8,4 miljoen weergaven, toch maar 1 van 8 Superhive-modellen met een verkoopteller (Sales 20+). Zelfde tip op TikTok 75.400, op YouTube 3.859. Aan Chris gegeven: elke tip ook als TikTok-concept, tip draait om een Pro-functie, tips zonder add-on hooguit 1 op 5, meten op klikken. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-21-malikose-kanaal.md`.
+
+## 21 nov 2026 ±17:40 UTC, van Iris: Steam-paginaconcept Hats akkoord ja
+Fix van Sanne (2b1a321) nagekeken: akkoord ja. Tekst blijft CONCEPT tot Thijs. Open van mij: scherm 1 en 5 (nog niet gemaakt) en de speeltestkeuring zodra de antwoorden van Thijs er zijn.

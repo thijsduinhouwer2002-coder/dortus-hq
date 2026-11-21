@@ -229,3 +229,6 @@ Staat in `platformen/steam/pagina-concept-2026-11-21.md` (opdracht hoofdchat 21 
 
 ## 21 nov 2026 ±14:55 UTC, Iris (eigen logboek): Steam-paginaconcept gekeurd
 Concept van Sanne (23454d4) gekeurd: akkoord nee om één zin ("got away with your gold" klopt niet met de build). Alle tellingen en de drie voorbeelden zelf nagerekend met curl en schermen bekeken: kloppen. Berichten Sanne en hoofdchat. Volgende: haar fix nakijken (alleen die zin), scherm 1 met pijl en scherm 5 keuren als ze er zijn, speeltest na de antwoorden van Thijs. Let op: `git pull` hangt nog steeds; `timeout 60 git fetch` plus rebase werkt.
+
+## 21 nov 2026 ±17:40 UTC, Iris (eigen logboek): paginaconcept akkoord ja
+Fix van Sanne 2b1a321 nagekeken: goud-zin weg, A5 en A6 verwerkt, akkoord ja. Spelcode op main niet veranderd, geen speeltestantwoorden van Thijs, scherm 1 en 5 nog niet gemaakt. Berichten Sanne en hoofdchat. Volgende: scherm 1 en 5, speeltest na de antwoorden van Thijs.

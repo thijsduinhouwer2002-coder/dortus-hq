@@ -37,3 +37,6 @@ Opdracht hoofdchat 21 nov 12:35: past het bij het spel zoals het nu speelt, is d
 - A5: Tiny Pasture 7 of 8 rechtzetten; "pagina begin dec 2023" GOK of bron.
 - A6: "10 van de 13" aan "noemt idle" koppelen.
 - C1, C2 bij het maken van scherm 1 en 5.
+
+## Nakeuring 21 nov ±17:40 UTC, Iris
+Sanne 2b1a321 nagelezen: moet 1 opgelost ("A hero who got away returns with a bandage, a nickname and a grudge", geen goud meer). A5 (GOK bij begin dec 2023, 7 vóór 17 feb 2025) en A6 (10 van 13 gekoppeld aan "idle") verwerkt. Rest ongewijzigd. **Akkoord: ja.** Spelerstekst blijft CONCEPT tot Thijs. C1 en C2 keur ik als scherm 1 en 5 er zijn.
