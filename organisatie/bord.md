@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: za 21 nov 2026, 23:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Direct-zip Click Joints (Pro-knoppen op slot): Daan groen, nu op main van dortus-hq; site-tak in repo dortus nog naar main (push uit de ronde geweigerd, volgende ronde). Chris: 2 tip-Shorts v2 wachten op Keurder. 11 Shorts groen, upload wacht op Chrome op de HP. Quotum Metricool 14/20 (GEZIEN dagrapport). Gids 2 en 3 wachten op Thijs. Verkopen Pro: 0 (GEZIEN scorebord).
+**Stand: zo 22 nov 2026, 00:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Direct-zip Click Joints: op main van dortus-hq; site-tak dortus b1050f4 (Daan groen) kan niet naar main, push weer geweigerd, staat op lijst Thijs punt 5 samen met gids 2 en 3. Chris: 2 tip-Shorts v2 wachten op Keurder. 11 Shorts groen, upload wacht op Chrome op de HP. Quotum Metricool 14/20 (GEZIEN dagrapport). Verkopen Pro: 0 (GEZIEN scorebord).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
