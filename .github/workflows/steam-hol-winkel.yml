@@ -22,6 +22,9 @@ on:
       moment:
         description: "leeg, hap, val of munt: het spel staat stil op het winkelmoment (Brams moment=, scherm 2 en 3; Olaf 15 nov). Werkt pas als claude/steam-hol-moment op main staat"
         default: ""
+      werkvenster:
+        description: "1 = een groot Kladblok-venster met nepwerk boven de strook in plaats van het kleine briefje (scherm 5, Sanne 21 nov); 0 = het kleine briefje"
+        default: "0"
   push:
     branches: [main]
     paths: [".github/workflows/steam-hol-winkel.yml"]
@@ -39,6 +42,7 @@ jobs:
       ZAAD: ${{ inputs.zaad || '' }}
       MOMENT: ${{ inputs.moment || '' }}
       DRUKTE: ${{ inputs.drukte || '1' }}
+      WERKVENSTER: ${{ inputs.werkvenster || '0' }}
     steps:
       - uses: actions/checkout@v4
       # Olaf 15 nov (kan 1 Daan 04:45): virtuele geluidskaart, zodat de luidspreker in het systeemvak geen kruisje
@@ -248,12 +252,42 @@ jobs:
           $briefje = Join-Path $env:RUNNER_TEMP "notes.txt"
           # Olaf 15 nov: briefje op 4 regels zonder lege regel en Kladblok 196 hoog (186 gaf nog een smalle schuifbalk, kan 2 Daan 04:45) (op 420 x 170 viel het af na regel 4, met schuifbalk; runs 43669366909 en 43671848393)
           Set-Content -Encoding utf8 $briefje "Monday`r`n- reply to Sam about the draft`r`n- slides for the 2 pm call`r`n- lunch with Noor"
+          # Olaf 21 nov (Sanne 18:55, scherm 5 "naast echt werk"): met werkvenster=1 een groot Kladblok met een nep-begroting
+          # (geen namen), van boven tot net boven de strook, zodat je ziet dat het spel onder gewoon werk doorleeft.
+          if ($env:WERKVENSTER -eq '1') {
+            $briefje = Join-Path $env:RUNNER_TEMP "Q4 budget draft.txt"
+            $regels = @(
+              "Q4 budget draft (v3)", "",
+              "Item                      Oct      Nov      Dec    Total",
+              "--------------------------------------------------------",
+              "Office rent              1,850    1,850    1,850    5,550",
+              "Software licences          420      420      460    1,300",
+              "Printing                    85      120       60      265",
+              "Travel                     310      180      540    1,030",
+              "Team lunch                  95       95      240      430",
+              "Coffee machine lease        40       40       40      120",
+              "--------------------------------------------------------",
+              "Total                    2,800    2,705    3,190    8,695", "",
+              "Notes",
+              "- check travel for December, seems high",
+              "- licences go up 40 in Dec (new seat)",
+              "- send to finance before Friday",
+              "- ask about the printer contract")
+            Set-Content -Encoding utf8 $briefje ($regels -join "`r`n")
+          }
           $kl = Start-Process notepad.exe -ArgumentList "`"$briefje`"" -PassThru
           Start-Sleep 3
           $h = [IntPtr]::Zero
           for ($w = 0; $w -lt 10 -and $h -eq [IntPtr]::Zero; $w++) { $h = (Get-Process notepad -ErrorAction SilentlyContinue | Where-Object MainWindowHandle -ne 0 | Select-Object -First 1).MainWindowHandle; if (-not $h) { $h = [IntPtr]::Zero; Start-Sleep 1 } }
           [Scherm]::ShowWindow($h, 9) | Out-Null
-          $gezet = [Scherm]::MoveWindow($h, 110, 24, 420, 196, $true)
+          if ($env:WERKVENSTER -eq '1') {
+            $wg = [System.Windows.Forms.Screen]::PrimaryScreen.WorkingArea
+            $vh = $wg.Height - [int]$env:HOOGTE - 16 - 10
+            $gezet = [Scherm]::MoveWindow($h, 40, 16, $wg.Width - 80, $vh, $true)
+            Write-Output "werkvenster groot: 40,16 $($wg.Width - 80) x $vh (werkgebied $wg, strook $env:HOOGTE)"
+          } else {
+            $gezet = [Scherm]::MoveWindow($h, 110, 24, 420, 196, $true)
+          }
           # de runner laat bij de start een melding "System Properties" (tijdelijk wisselbestand) staan (run 43642948819).
           # Olaf 15 nov 03:30: FindWindow(null, "System Properties") vond hem in run 43669366909 niet, terwijl hij in alle
           # 18 beelden stond. Nu: alle zichtbare vensters loggen (titel, klasse, proces) en elk venster met "System
@@ -367,6 +401,8 @@ jobs:
           [ -z "$ZAAD" ] || D_REL="$D_REL-zaad$ZAAD-run$GITHUB_RUN_ID"
           # Olaf 15 nov: met moment= een eigen map met het run-id, zodat de gewone opname niet overschreven wordt.
           [ -z "$MOMENT" ] || D_REL="$D_REL-moment$MOMENT-run$GITHUB_RUN_ID"
+          # Olaf 21 nov: het grote werkvenster (scherm 5) krijgt een eigen map met het run-id.
+          [ "$WERKVENSTER" != 1 ] || D_REL="$D_REL-werkvenster-run$GITHUB_RUN_ID"
           # Olaf 15 nov (tip Bram 04:45): smalle kloon, alleen onze eigen map uitpakken. Heel klonen duurde ±1,5 min
           # (de tak is groot); zo 2 tot 3 s, dus bij een geweigerde push gewoon opnieuw klonen en onze commit erop zetten.
           gelukt=0
