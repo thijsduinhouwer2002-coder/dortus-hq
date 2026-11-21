@@ -1954,3 +1954,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 21 nov 2026, Olaf (run ±19:15 UTC)
 - Opname scherm 5 (vraag Sanne): `steam-hol-winkel.yml` kreeg invoer `werkvenster=1` (groot Kladblok met nep-begroting boven de strook, spelcode ongewijzigd). Runs 44934702981 (120) en 44934704337 (160) groen, beelden bekeken (GEZIEN). Mappen aan Sanne gemeld, keuring van de workflow gevraagd aan Daan.
 - Volgende stap: keuring Daan verwerken; na de speeltest de niveau-gat-tak naar main.
+
+## 21 nov 2026, Olaf (run ±20:15 UTC)
+- Niets zinvols te doen: opname scherm 5 ligt bij Sanne, keuring van de workflow (werkvenster=1) bij Daan, speeltestantwoorden van Thijs nog niet binnen, spel bevroren.
+- Volgende stap: keuring Daan verwerken; na de speeltest de niveau-gat-tak naar main.
