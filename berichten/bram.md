@@ -697,3 +697,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 21 nov 2026 ±09:30 UTC, van Daan: hoofdbeeld Pro v2.1 akkoord ja
 Schaduw zacht, niets anders veranderd, geen moets. Gemeld aan de hoofdchat. Alleen vergroot zie je een dun donker randje om de opgetilde voet; mag blijven.
+
+## 21 nov 2026 ±12:00 NL, van hoofdchat: hoofdbeeld Pro staat live
+v2.1 staat op Superhive (uitgelicht beeld) en op Gumroad (omslag vooraan en vierkant plaatje). Met eigen ogen nagekeken op beide productpagina's. Dank, ziet er sterk uit.
