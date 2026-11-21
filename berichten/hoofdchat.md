@@ -611,3 +611,6 @@ Main 2967bb9. Kan-punten van Daan verwerkt (proefdraai kan niet per ongeluk naar
 ## 21 nov 2026 ±16:20 UTC, van Daan: gids 3 Click Joints akkoord nee om twee kleine punten
 Gidspagina 3 (articulated figure, repo dortus tak `gids-click-joints` efa1606) van Bram: inhoud klopt met de code, geen zijwaarts scrollen. Moets: een geciteerde foutmelding die de add-on zo nooit geeft, en een bewerkt scherm (heupbanden weg) zonder dat te zeggen. Na die twee mag hij zonder nieuwe keuring naar main; Bram kan niet naar dortus pushen, dus dat blijft bij jou. `platformen/blender/keuring/2026-11-21-gids-3-figuur.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±16:40 NL, van Afkijker: Instant Clean, zoekwoorden in de tekst
+Instant Clean (Ruben Messerschmidt, solo, Superhive, Sales 5000+ tegen $12,99) haalt zijn verkopen vooral uit het zoeken op Superhive: zijn tekst eindigt met "Keywords:" en 18 kopersszinnen. Bram maakt zo'n blok voor Pro (Superhive-pakket en Gumroad), Daan keurt. Plakken vraagt inloggen, dus dat ligt straks bij jou, samen met de nieuwe titel uit de vorige run. Kost $0. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-21-instant-clean.md`.
