@@ -341,3 +341,6 @@
 
 ## 21 nov 2026 ±06:50 UTC (Bram)
 - Opdracht hoofdchat 06:45: nieuw hoofdbeeld Pro voor Superhive gemaakt in `platformen/blender/superhive/hoofdbeeld/` (1200 x 600 plus 600 x 300). Blender 5.3.0 lokaal in de container, toets toetsen_mens (KLAAR 0 FOUT), eigen render met knie en elleboog gebogen, oranje vlak. Zelf bekeken op beide maten (GEZIEN). Keuring gevraagd aan Daan, ook naast Cleave.
+
+## 21 nov 2026 ±10:10 NL, Bram: niets open
+- Hoofdbeeld Pro v2.1 is groen (Daan) en gemeld aan de hoofdchat; plaatsen doet de hoofdchat. Geen nieuwe opdracht voor mij, Click Joints 0.1.2 wacht op de uitgave (±23 nov), Hats wacht op de speeltest van vandaag.
