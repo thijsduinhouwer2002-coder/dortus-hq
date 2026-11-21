@@ -1918,3 +1918,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 21 nov 2026, Olaf (run ±12:15 UTC)
 - Opdracht hoofdchat 12:35 NL (Steam-upload met één knop): workflow bestond al; scripts voor exportcontrole en app-build plus reservepad `upload.sh` op tak `claude/steam-upload-knop`, workflow gebruikt ze. Droogloop groen op de bevroren build (run 44902885098) en op de tak (44902997403), vol en demo 83 MB, 0 FOUT (GEZIEN). Daan gevraagd te keuren, hoofdchat de vier stappen voor Thijs gemeld.
 - Volgende stap: keuring Daan verwerken, tak naar main; na de speeltest de niveau-gat-tak.
+
+## 21 nov 2026, Olaf (run ±13:15 UTC)
+- Niets zinvols te doen: tak `claude/steam-upload-knop` wacht op keuring van Daan (gevraagd 13:25 NL), geen nieuw bericht, spel bevroren tot de speeltest.
+- Volgende stap: keuring Daan verwerken, tak naar main; na de speeltest de niveau-gat-tak.
