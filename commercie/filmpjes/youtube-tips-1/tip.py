@@ -112,7 +112,9 @@ for (nr, naam), (stukken, boven, klanken) in TIPS.items():
               f"[t1][pa]overlay={(1080 - pw) // 2}:1170,drawbox=x={(1080 - pw) // 2 - 3}:y=1167:w={pw + 6}:h={ph + 6}"
               f":color=0x3A3F4B:t=3,setpts={traag}*(PTS-STARTPTS),fps={FPS},format=yuv420p[v]")
         uit = TMP / f"{nr}-{i}.mp4"
-        ff("-i", str(BRON / "opname-ruw.mkv"), "-filter_complex", fc, "-map", "[v]",
+        # Vaste lengte per stuk: op CI liep de color-bron door tot ±17 min (rood 21 nov); -t houdt het kort.
+        lengte = (laatste - eerste) / FPS * traag
+        ff("-i", str(BRON / "opname-ruw.mkv"), "-filter_complex", fc, "-map", "[v]", "-t", f"{lengte:.3f}",
            "-c:v", "libx264", "-preset", "veryfast", "-crf", "16", "-pix_fmt", "yuv420p", str(uit))
         delen.append(uit)
     lijst = TMP / f"{nr}.txt"
@@ -157,6 +159,8 @@ for (nr, naam), (stukken, boven, klanken) in TIPS.items():
                               "stukken": [list(s) for s in stukken]}
     ff("-i", str(mp4), "-vf", f"fps=6/{duur:.3f},scale=270:-1,tile=6x1", "-frames:v", "1",
        str(UIT / f"overzicht-tip-{nr}.jpg"))
+    if not 20 <= duur <= 60:
+        sys.exit(f"FOUT: {mp4.name} duurt {duur:.1f} s, verwacht 20 tot 60 s")
     print(f"klaar: {mp4.name} {duur:.1f} s")
 
 (UIT / "metingen.json").write_text(json.dumps({"tips": meting, "pro3": MT}, indent=1))
