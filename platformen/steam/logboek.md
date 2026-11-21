@@ -1970,3 +1970,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 21 nov 2026, Olaf (run ±22:15 UTC)
 - Niets zinvols te doen: opname scherm 5 (x 90) ligt bij Sanne, geen nieuw bericht, speeltestantwoorden van Thijs nog niet binnen, spel bevroren.
 - Volgende stap: na de speeltest de niveau-gat-tak naar main.
+
+## 21 nov 2026, Sanne (run ±21:45 UTC)
+- Keuring Iris scherm 1 en 5 verwerkt. Scherm 1: woorden eraf (Valve: geen marketingtekst op schermen), pijl wijst nu naar Gloop; GEZIEN op 600. Concept en LEESMIJ bijgewerkt met de Valve-regel en de maat 1920 x 1080 (DERDEN).
+- Scherm 5 (1280 x 720) gaat niet mee: opname op 1920 x 1080 gevraagd aan Olaf; Iris gevraagd scherm 1 na te keuren.
+- Volgende stap: held-2-b kiezen uit de nieuwe run van Olaf, naar Iris.

@@ -80,14 +80,14 @@ Valve vraagt minstens 5 met het label "gameplay" (`app-aanmaken.md` punt 3). Win
 
 | Plek | Beeld | Stand | Wie |
 |---|---|---|---|
-| 1 | **Bureaublad met pijl**: `2-bureaublad.png` (echt Windows, Kladblok, strook boven de taakbalk) plus een witte pijl naar de strook en hooguit 5 woorden, voorstel "Lives above your taskbar" (CONCEPT) | **gemaakt 21 nov (Sanne)**: `ontwerp/steam/winkelpagina/concept-21nov/1-bureaublad-pijl.png`, wacht op keuring Iris | Iris keurt |
+| 1 | **Bureaublad met pijl**: `2-bureaublad.png` (echt Windows, Kladblok, strook boven de taakbalk) plus een witte pijl naar de troon van Gloop, **zonder woorden** (Valve-regel, zie onder) | **gemaakt 21 nov, woorden weg 21 nov laat (Sanne)**: `ontwerp/steam/winkelpagina/concept-21nov/1-bureaublad-pijl.png`, wacht op nakeuring Iris | Iris keurt |
 | 2 | `1-hoedentoren.png` (Gloop met hoedenberg) | klaar | |
 | 3 | `3-hap.png` ("Gloop ate Odo. Kept the crown.") | klaar | |
 | 4 | `4-val.png` ("Tibbe is back for the Spike Pit.") | klaar | |
-| 5 | **Naast echt werk**: de strook onder een gewoon werkvenster (spreadsheet of teksteditor met nepinhoud zonder namen), held in beeld | **gekozen 21 nov (Sanne)**: `ontwerp/steam/winkelpagina/concept-21nov/5-naast-werk.png` (held-2-b, strook 160, run 44934704337); nieuwe opname met Kladblok vanaf x ±90 gevraagd aan Olaf | Iris keurt |
+| 5 | **Naast echt werk**: de strook onder een gewoon werkvenster (spreadsheet of teksteditor met nepinhoud zonder namen), held in beeld | **gekozen 21 nov (Sanne)**: `ontwerp/steam/winkelpagina/concept-21nov/5-naast-werk.png` (held-2-b, strook 160, run 44934704337) is 1280 x 720 en dus te klein: nieuwe opname op 1920 x 1080 gevraagd aan Olaf (21 nov laat), daarna held-2-b uit die run | Iris keurt |
 | 6 | `5-kaartje.png` (Big Gloop kopen) | klaar, schuift een plek op | |
 
-Waarom: punt 1 en 5 van "wat ze alle drie doen". De pijl en de woorden staan niet in het spel zelf; GOK dat Valve dat als "gameplay" goedkeurt, want alle drie voorbeelden zijn zo door de keuring gekomen. Lukt plek 1 of 5 niet vóór 27 nov, dan dienen we in met de huidige 5 in de volgorde 2, 1, 3, 4, 5 (bureaublad voorop) en vervangen we later; schermen zijn na de keuring nog te wisselen (GOK, niet nagekeken in de docs).
+Waarom: punt 1 en 5 van "wat ze alle drie doen". Valve schrijft: "Screenshots should exclusively show the gameplay of your game. This means avoiding ... images showing awards, marketing copy, written descriptions", en vraagt schermen van minstens 1920 x 1080, 16:9 (DERDEN, https://partner.steamgames.com/doc/store/assets/standard, gelezen door Iris 21 nov). Daarom geen woorden op scherm 1, alleen de pijl; de woorden "Lives above your taskbar" (CONCEPT) kunnen in de korte of lange tekst. Dat de pijl zelf mag: GOK (een pijl is geen tekst; de drie voorbeelden hebben er een). Lukt plek 1 of 5 niet vóór 27 nov, dan dienen we in met de huidige 5 in de volgorde 2, 1, 3, 4, 5 (bureaublad voorop) en vervangen we later; schermen zijn na de keuring nog te wisselen (GOK, niet nagekeken in de docs).
 
 ## Trailer
 45 s volgens Daans draaiboek houden; de drie voorbeelden zitten op 46 tot 67 s. Eerste seconden: het bureaublad, dan inzoomen op de strook (zoals scherm 1, en het besluit van 17 nov). Opname na de speeltest, zoals gepland.
@@ -101,4 +101,4 @@ Geen wijziging aan A1 tot A11. De voorbeelden bevestigen het ritme: één berich
 ## Open voor Thijs (via de hoofdchat)
 1. Korte tekst: deze nieuwe of v3a.
 2. De zinnen van de lange tekst in eigen woorden (of ja op deze).
-3. De 5 woorden op scherm 1.
+3. ~~De 5 woorden op scherm 1.~~ Vervallen 21 nov laat: geen woorden op schermen (Valve-regel).

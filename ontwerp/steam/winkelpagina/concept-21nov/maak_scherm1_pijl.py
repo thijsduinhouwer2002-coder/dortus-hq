@@ -1,23 +1,15 @@
-# Scherm 1 met pijl (CONCEPT, Sanne 21 nov 2026). Bron: schermen-steam/2-bureaublad.png, niets aan het beeld zelf veranderd.
+# Scherm 1 met pijl (CONCEPT, Sanne 21 nov 2026; 21 nov laat: woorden weg na keuring Iris, Valve-regel geen tekst op schermen). Bron: schermen-steam/2-bureaublad.png, niets aan het beeld zelf veranderd.
 from PIL import Image, ImageDraw, ImageFont
 import math, sys
 bron = 'schermen-steam/2-bureaublad.png'
 uit = sys.argv[1] if len(sys.argv) > 1 else 'concept-21nov/1-bureaublad-pijl.png'
-tekst = "Lives above your taskbar"
 S = 2  # tekenen op 2x voor gladde randen
 im = Image.open(bron).convert('RGBA')
 W, H = im.size
 laag = Image.new('RGBA', (W*S, H*S), (0, 0, 0, 0))
 d = ImageDraw.Draw(laag)
-font = ImageFont.truetype('/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf', 96*S)
-# tekst rechts in het lege bureaublad
-bx = d.textbbox((0, 0), tekst, font=font)
-tw, th = bx[2]-bx[0], bx[3]-bx[1]
-tx, ty = (1880*S - tw), 330*S
-d.text((tx+4*S, ty+5*S), tekst, font=font, fill=(0, 0, 0, 110))
-d.text((tx, ty), tekst, font=font, fill=(255, 255, 255, 255))
-# gebogen pijl van onder de tekst naar de strook (boven de graslijn, punt op ±y 740)
-start = (1500, 470); ctrl = (1640, 560); eind = (1560, 735)
+# gebogen pijl uit het lege bureaublad naar de troon van Gloop (punt boven de graslijn, ±y 745)
+start = (1460, 430); ctrl = (1090, 440); eind = (1030, 750)
 pts = []
 for i in range(41):
     t = i/40
