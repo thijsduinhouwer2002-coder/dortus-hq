@@ -12,3 +12,9 @@
 ## Nog niet bekend
 - Of zijn andere 46 video's ook zo lopen (één video is geen bewijs). Opdracht voor de volgende ronde van de Afkijker.
 - Trending muziek: op YouTube geeft muziek van anderen een claim; via Metricool kan het op TikTok alleen bij diashows (autoAddMusic). Wij houden eigen geluid of de gratis YouTube-audiobibliotheek.
+
+## Tweede video (Thijs 21 nov 23:55: "onze filmpjes zijn kak vergeleken met dit")
+- https://www.tiktok.com/@malikose.studio/video/7696852298428992800, "Make a Realistic animated OCEAN 👀 | Blender 3D 🔥", 96 s, 15 okt 2026, Original Sound. 81.000 weergaven, 5.806 likes, 3.348 opgeslagen, 38 reacties (GEZIEN 21 nov 23:58). Twee van zijn 47 video's lopen dus rond 75K tot 81K.
+- Omslag zelf bekeken: het mooie eindresultaat (blauwe oceaan met schuim) in het echte Blender-scherm, muis in beeld.
+- **Recept v2 voor onze Shorts:** (1) eerste beeld = het mooie eindresultaat, een gekleurd figuur in een leuke pose, geen grijze mannequin; (2) echt Blender-scherm met bewegende muis, stap voor stap, 40 tot 60 s; (3) een les die je zelf kunt nadoen, Click Joints als gereedschap; (4) grote ondertitels, rustig eigen geluid (geen AI-stem; een stem van Thijs zou het beste zijn); (5) titel als belofte met emoji: "Make any character poseable for 3D printing 🔥 | Blender".
+- Besluit hoofdchat: van de 11 groene Shorts van reeks 1 alleen de 3 beste als vergelijking (rig-naar-10-delen, knie-te-ver, rig-naar-poseerbaar); de rest blijft liggen tot reeks 2 er is.
