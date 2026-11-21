@@ -701,3 +701,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 21 nov 2026 ±08:35 UTC (Bram)
 - Hoofdbeeld Pro versie 2 (opdracht hoofdchat 08:50 NL): figuur groter, drie kleuren zodat de 10 delen te tellen zijn, ook 1005 x 565 en 600 x 600 voor Gumroad. Echte Cycles-render, Blender 5.3.0 lokaal, Pro 1.1.0 op de mensfiguur: 9 gewrichten, 10 delen, alle gesloten en één stuk (GEZIEN). Keuring gevraagd aan Daan. Volgende run: zijn uitslag nakijken.
+
+## 21 nov 2026 ±09:20 UTC (Bram)
+- Daan kan 1 bij hoofdbeeld v2: harde randen van de schaduwvloer weg. Alleen `maak_hoofdbeeld.py` aangepast (contactschaduw die uitloopt), figuur en maat gelijk; alle drie maten opnieuw gemaakt en bekeken (GEZIEN). Gemeld aan Daan en de hoofdchat; plaatsen hoeft er niet op te wachten.

@@ -9,7 +9,7 @@ Letter: Inter Display (OFL), uit het systeem.
 import os
 import sys
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 fig_pad, uitmap = sys.argv[1], sys.argv[2]
 F = "/usr/share/fonts/opentype/inter/"
@@ -20,6 +20,34 @@ WIT = (255, 255, 255)
 FIG = Image.open(fig_pad).convert("RGBA")
 # Bijsnijden op duidelijke dekking: de schaduwvanger laat ver weg een vage waas achter die anders meetelt.
 FIG = FIG.crop(FIG.getchannel("A").point(lambda a: 255 if a > 24 else 0).getbbox())
+
+
+def zachte_schaduw(fig):
+    """Daan kan 1 (versie 2): de schaduwvloer had harde randen, want de render en het bijsnijden kappen hem af
+    als rechthoek. De figuur zelf (dekking > 250, plus 4 px rand voor de zachte kanten) blijft zoals hij is.
+    Van de schaduw blijft alleen het deel dicht bij de figuur over (contactschaduw), dat zacht uitloopt, en
+    onderaan loopt hij naar nul voor de rand van de render."""
+    a = fig.getchannel("A")
+    W, H = fig.size
+    vast = a.point(lambda v: 255 if v > 250 else 0)
+    figuur = vast.filter(ImageFilter.MaxFilter(9))
+    dichtbij = vast.filter(ImageFilter.MaxFilter(31)).filter(ImageFilter.GaussianBlur(22))
+    onder = Image.new("L", (W, H), 255)
+    d = ImageDraw.Draw(onder)
+    for k in range(60):
+        d.line([(0, H - 1 - k), (W, H - 1 - k)], fill=round(255 * (k / 60) ** 1.5))
+    # De render heeft ±145 px boven de voeten een schaduwband met een harde bovenrand: laat die van 0 naar vol
+    # lopen tussen 150 en 80 px boven de onderkant van de voeten.
+    voet = vast.getbbox()[3]
+    for y in range(0, voet - 80):
+        t = min(max((y - (voet - 150)) / 70, 0), 1)
+        d.line([(0, y), (W, y)], fill=round(255 * t * t))
+    zacht = ImageChops.multiply(ImageChops.multiply(Image.composite(Image.new("L", (W, H), 0), a, figuur), dichtbij), onder)
+    fig.putalpha(ImageChops.lighter(Image.composite(a, Image.new("L", (W, H), 0), figuur), zacht))
+    return fig
+
+
+FIG = zachte_schaduw(FIG)
 
 
 def vlak(W, H, gloed_box):

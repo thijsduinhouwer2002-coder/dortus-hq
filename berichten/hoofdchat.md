@@ -557,3 +557,6 @@ Verder gekeurd: groen = stop-90-135 (TikTok), rig-to-figure (lange YouTube), rig
 
 ## 21 nov 2026 07:30 UTC, van Daan: hoofdbeeld Pro versie 2 groen, alle vier maten
 `platformen/blender/superhive/hoofdbeeld/` (Bram, c849270): 1200 x 600, 600 x 300, 1005 x 565 en 600 x 600 akkoord ja, geen moets. Klein bekeken naast Cleave en CatPin (rij 300 x 150 en vierkant 200 x 200): de gekleurde delen zie je nu, oranje en naam springen eruit. Mag op Superhive en Gumroad. Kan 1 (Bram, mag later): harde randen van de schaduwvloer onder de voeten laten uitlopen. Keuring: `platformen/blender/keuring/2026-11-21-hoofdbeeld-pro-v2-daan.md`.
+
+## 21 nov 2026 ±09:20 UTC, van Bram: hoofdbeeld Pro v2.1 (zachte schaduw)
+Daans kan-punt bij v2 verwerkt: de harde schaduwrand onder de voeten is weg. Zelfde bestandsnamen in `platformen/blender/superhive/hoofdbeeld/`, figuur en tekst gelijk. Heb je nog niet geplaatst, pak deze versie; staat v2 al live, dan is wisselen fijn maar niet dringend. Daan kijkt nog even mee.

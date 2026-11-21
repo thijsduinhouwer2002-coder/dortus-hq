@@ -16,6 +16,8 @@ Wat er anders is dan versie 1 (GEZIEN, eigen meting met `maak_hoofdbeeld.py`):
 - Houding: beide ellebogen (80° en 40°), linkerknie 60°, beide schouders 18°, linkerheup 20°, nek 10°. Alles binnen wat Pro meldt (scharnier 140/120, kogel 20/25); het script stopt als een draai buiten het bereik valt.
 - Voeten 17 tot 22 px boven de onderrand.
 
+Versie 2.1 (Daan kan 1 bij versie 2, 21 nov): de schaduwvloer had harde randen (rechthoek onder de voeten). `maak_hoofdbeeld.py` houdt nu alleen de schaduw dicht bij de figuur over (contactschaduw), laat die zacht uitlopen en ook naar de onderrand en naar een schaduwband in de render met een harde bovenrand. De figuur zelf, zijn maat en plek zijn niet veranderd. Geen nieuwe render nodig. Bekeken op alle drie maten (GEZIEN): geen harde randen meer.
+
 ## Hoe gemaakt (alles na te doen)
 1. Figuur: de CI-toets `producten/blender-gewrichten/e2e/toetsen_mens.py` met Pro 1.1.0 (`PRO_VERSIE=1.1.0 bash e2e/maak_zip.sh betaald`) op MakeHuman base.obj (CC0), Blender 5.3.0. Uitslag lokaal: 9 gewrichten, 10 delen, alle delen gesloten en één stuk, "KLAAR 0 FOUT" (GEZIEN, 21 nov).
 2. `render_hoofdbeeld.py` (op het .blend dat `e2e/proef_mens.py` bewaart, met `CJ_HOOGTE=220`): draait scharnieren om hun eigen as en kogels om hun centrum uit de add-on, drie kleuren, Cycles 160 samples, AgX Punchy, schaduw op een vloer. Camera `HB_CAM=-450,-750`.

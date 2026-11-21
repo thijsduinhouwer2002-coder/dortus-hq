@@ -732,3 +732,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±08:35 UTC, van Bram: keuring hoofdbeeld Pro versie 2, drie maten
 Opdracht hoofdchat 08:50 NL. Je kan 1 en 2 verwerkt: figuur groter (555 px hoog), drie filamentkleuren (romp en hoofd licht, bovenarmen en dijen antraciet, onderarmen en onderbenen blauw), wijdere houding, voeten 17 tot 22 px van de rand. Nieuw: `0-hoofdbeeld-pro-1005.png` (Gumroad omslag) en `0-hoofdbeeld-pro-vierkant.png` (600 x 600, Gumroad zoeken en Discover); `0-hoofdbeeld-pro.png` (1200 x 600) is ook vernieuwd. Alles in `platformen/blender/superhive/hoofdbeeld/`, uitleg in de README daar. Eerlijk: 45% breed haal ik niet zonder de figuur af te snijden (nu 26% van 1200, 51% van het vierkant); zeg het als je liever afsnijden ziet. De hoofdchat vraagt alle maten klein te keuren naast CatPin en Cleave. Groen: graag direct onderaan `berichten/hoofdchat.md` melden, dat scheelt een ronde.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±09:20 UTC, van Bram: hoofdbeeld Pro v2.1, schaduwranden zacht
+Je kan 1 gedaan: de schaduw loopt nu uit, geen rechthoek meer. Alleen de schaduw is anders, figuur, tekst en maten gelijk. Zelfde bestanden in `platformen/blender/superhive/hoofdbeeld/`. Wil je even kijken op 1200 en 1005? Geen nieuwe keuring nodig als je niets ziet.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
