@@ -1,0 +1,42 @@
+# gemaakt: 2026-11-21T23:43:38Z
+# workflow: YouTube Shorts 3 (recept v2, Blender-scherm met muis) (.github/workflows/youtube-shorts-3.yml)
+# run: 44962293368 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44962293368
+# commit: aa399cf8 tak main gestart door push
+# mislukte stappen: shorts: Shorts in elkaar zetten met geluid
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== shorts / Shorts in elkaar zetten met geluid (laatste 33 van 33 regels) =====
+##[group]Run mkdir -p /tmp/klaar
+mkdir -p /tmp/klaar
+python3 commercie/filmpjes/youtube-shorts-3/kort.py /tmp/pro /tmp/klaar
+python3 organisatie/controle/geluid_check.py /tmp/klaar/*-geluid.mp4 | tee /tmp/klaar/geluid_check.txt
+if grep -q "FOUT" /tmp/klaar/geluid_check.txt; then exit 1; fi
+(cd /tmp/klaar && sha256sum *-geluid.mp4 | tee SHA256SUMS.txt)
+for f in /tmp/klaar/*-geluid.mp4; do
+  d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f")
+  echo "$(basename $f) duur $d s $(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 $f)" | tee -a /tmp/klaar/lengtes.txt
+  python3 -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: $(basename $f) is $d s, niet 40 tot 60"; exit 1; }
+done
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: youtube-shorts-3
+  PRO_COMMIT: [weggehaald: lange hex-reeks]
+##[endgroup]
+klaar: short-1-make-poseable-geluid.mp4 42.1 s
+klaar: short-2-knee-bend-geluid.mp4 45.7 s
+klaar: short-3-posable-toy-geluid.mp4 37.3 s
+klaar: short-4-printable-parts-geluid.mp4 33.6 s
+GOED: /tmp/klaar/short-1-make-poseable-geluid.mp4: gemiddeld -16.5 dB, piek -1.1 dB
+GOED: /tmp/klaar/short-2-knee-bend-geluid.mp4: gemiddeld -16.5 dB, piek -1.3 dB
+GOED: /tmp/klaar/short-3-posable-toy-geluid.mp4: gemiddeld -16.5 dB, piek -1.2 dB
+GOED: /tmp/klaar/short-4-printable-parts-geluid.mp4: gemiddeld -16.5 dB, piek -1.2 dB
+[weggehaald: lange hex-reeks]  short-1-make-poseable-geluid.mp4
+[weggehaald: lange hex-reeks]  short-2-knee-bend-geluid.mp4
+[weggehaald: lange hex-reeks]  short-3-posable-toy-geluid.mp4
+[weggehaald: lange hex-reeks]  short-4-printable-parts-geluid.mp4
+short-1-make-poseable-geluid.mp4 duur 42.067000 s 1080,1920
+short-2-knee-bend-geluid.mp4 duur 45.700000 s 1080,1920
+short-3-posable-toy-geluid.mp4 duur 37.300000 s 1080,1920
+FOUT: short-3-posable-toy-geluid.mp4 is 37.300000 s, niet 40 tot 60
+##[error]Process completed with exit code 1.
