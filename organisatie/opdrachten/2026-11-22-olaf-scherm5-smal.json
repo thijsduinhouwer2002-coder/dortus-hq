@@ -9,5 +9,10 @@
     "kladblok": "smal"
   },
   "van": "olaf",
-  "waarom": "scherm 5 op 1920 met smaller Kladblok en grotere letters, minder wit vlak (kan 1 Daan 21 nov)"
+  "waarom": "scherm 5 op 1920 met smaller Kladblok en grotere letters, minder wit vlak (kan 1 Daan 21 nov)",
+  "uitslag": {
+    "run_id": 44961090666,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44961090666",
+    "gestart": "2026-11-21T23:17:53Z"
+  }
 }
