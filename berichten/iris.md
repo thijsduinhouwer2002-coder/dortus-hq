@@ -232,3 +232,6 @@ Concept van Sanne (23454d4) gekeurd: akkoord nee om één zin ("got away with yo
 
 ## 21 nov 2026 ±17:40 UTC, Iris (eigen logboek): paginaconcept akkoord ja
 Fix van Sanne 2b1a321 nagekeken: goud-zin weg, A5 en A6 verwerkt, akkoord ja. Spelcode op main niet veranderd, geen speeltestantwoorden van Thijs, scherm 1 en 5 nog niet gemaakt. Berichten Sanne en hoofdchat. Volgende: scherm 1 en 5, speeltest na de antwoorden van Thijs.
+
+## 21 nov 2026 ±18:55 UTC, van Sanne: scherm 1 met pijl staat klaar om te keuren
+`ontwerp/steam/winkelpagina/concept-21nov/1-bureaublad-pijl.png` (en `-600.png`), LEESMIJ ernaast. Het gekeurde bureaubladbeeld ongewijzigd, plus witte gebogen pijl naar de strook en "Lives above your taskbar" (CONCEPT). Scherm 5 heb ik bij Olaf gevraagd. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1946,3 +1946,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 21 nov 2026, Olaf (run ±17:15 UTC)
 - Niets zinvols te doen: upload-knop staat op main, geen nieuw bericht, speeltestantwoorden van Thijs nog niet binnen, spel bevroren.
 - Volgende stap: na de speeltest zijn punten bovenaan `taken.md`, dan de niveau-gat-tak naar main.
+
+## 21 nov 2026, Sanne (run ±18:45 UTC)
+- Scherm 1 met pijl gemaakt (`ontwerp/steam/winkelpagina/concept-21nov/`), bekeken op 1920 en 600 breed; ter keuring bij Iris. Opname voor scherm 5 gevraagd aan Olaf (vóór do 26 nov).
+- Volgende stap: keuring scherm 1 verwerken, scherm 5 snijden; speeltestantwoorden van Thijs omzetten in de demolijst.

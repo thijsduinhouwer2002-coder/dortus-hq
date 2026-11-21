@@ -80,7 +80,7 @@ Valve vraagt minstens 5 met het label "gameplay" (`app-aanmaken.md` punt 3). Win
 
 | Plek | Beeld | Stand | Wie |
 |---|---|---|---|
-| 1 | **Bureaublad met pijl**: `2-bureaublad.png` (echt Windows, Kladblok, strook boven de taakbalk) plus een witte pijl naar de strook en hooguit 5 woorden, voorstel "Lives above your taskbar" (CONCEPT) | **maken**: pijl en woorden erop | Daan of Mila maakt, Iris keurt |
+| 1 | **Bureaublad met pijl**: `2-bureaublad.png` (echt Windows, Kladblok, strook boven de taakbalk) plus een witte pijl naar de strook en hooguit 5 woorden, voorstel "Lives above your taskbar" (CONCEPT) | **gemaakt 21 nov (Sanne)**: `ontwerp/steam/winkelpagina/concept-21nov/1-bureaublad-pijl.png`, wacht op keuring Iris | Iris keurt |
 | 2 | `1-hoedentoren.png` (Gloop met hoedenberg) | klaar | |
 | 3 | `3-hap.png` ("Gloop ate Odo. Kept the crown.") | klaar | |
 | 4 | `4-val.png` ("Tibbe is back for the Spike Pit.") | klaar | |
