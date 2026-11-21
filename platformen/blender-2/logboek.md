@@ -344,3 +344,6 @@
 
 ## 21 nov 2026 ±10:10 NL, Bram: niets open
 - Hoofdbeeld Pro v2.1 is groen (Daan) en gemeld aan de hoofdchat; plaatsen doet de hoofdchat. Geen nieuwe opdracht voor mij, Click Joints 0.1.2 wacht op de uitgave (±23 nov), Hats wacht op de speeltest van vandaag.
+
+## 21 nov 2026 ±11:10 NL, Bram: niets open
+- Geen nieuw bericht sinds Daans akkoord op hoofdbeeld v2.1; plaatsen doet de hoofdchat. Click Joints 0.1.2 wacht op de uitgave (±23 nov), Hats wacht op de speeltest.
