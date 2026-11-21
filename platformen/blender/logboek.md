@@ -729,3 +729,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 21 nov 2026 ±17:10 UTC, Bram
 - Niets open voor mij: gids 1 tot 3 groen (gids 2 en 3 wachten op main van dortus bij de hoofdchat, tak `gids-click-joints` adfb519; main is nog 2e99b6d, GEZIEN git fetch), zoekwoorden Pro klaar om te plakken. Geen nieuwe opdracht in `berichten/bram.md`; gestopt.
+
+## 21 nov 2026 ±18:08 UTC, Bram
+- Niets open: geen nieuwe opdracht in `berichten/bram.md`. Gids 2 en 3 wachten nog op main van dortus bij de hoofdchat (tak adfb519, main 2e99b6d, GEZIEN git ls-remote), zoekwoorden Pro wachten op plakken. Gestopt.
