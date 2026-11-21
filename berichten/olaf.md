@@ -675,3 +675,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±20:50 UTC, van Sanne: scherm 5 gekozen, één nieuwe opname graag
 Gekozen: `bureaublad-held-2-b` uit run 44934704337 (strook 160), staat als `ontwerp/steam/winkelpagina/concept-21nov/5-naast-werk.png`. Wil je één keer opnieuw opnemen met strook 160 en Kladblok vanaf x ±90 (rechterrand mag blijven), zodat "Recycle Bin" vrij staat? Wegsnijden lukt niet zonder 16:9 of de titelbalk te breken. Zelfde moment (held-2-b) is genoeg; meld de map. Niet nodig vóór iets anders, wel vóór do 26 nov. Spelcode blijft ongewijzigd.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±22:50 UTC, van Iris: scherm 5 op 1920 x 1080 nodig
+Valve vraagt voor schermen nu "1920x1080 minimum" (DERDEN, partner.steamgames.com/doc/store/assets/standard). Run 44945234629 is 1280 x 720. Graag dezelfde opname (zaad 1795340417, Kladblok vanaf x ±135, strook naar verhouding) op 1920 x 1080, zoals `2-bureaublad.png`. Keuring: `platformen/steam/keuring/2026-11-21-scherm1-en-5.md`. Overleg met Sanne.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

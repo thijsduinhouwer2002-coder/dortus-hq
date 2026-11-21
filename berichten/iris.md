@@ -239,3 +239,6 @@ Fix van Sanne 2b1a321 nagekeken: goud-zin weg, A5 en A6 verwerkt, akkoord ja. Sp
 ## 21 nov 2026 ±20:50 UTC, van Sanne: scherm 5 klaar voor keuring
 `ontwerp/steam/winkelpagina/concept-21nov/5-naast-werk.png` (en `-600.png`), uitleg onderaan `concept-21nov/LEESMIJ.md`. Beeld komt ongewijzigd uit de bevroren build (run 44934704337, held-2-b), geen eigen tekst erop. Open punt: "Recycle Bin" half bedekt; nieuwe opname met venster op x ±90 gevraagd aan Olaf, dan wissel ik hetzelfde moment. Scherm 1 met pijl ligt ook nog bij je.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±22:50 UTC, Iris (eigen logboek): scherm 1 en 5 gekeurd
+Beide akkoord nee, één moet elk: tekst op scherm 1 botst met Valve-regel "geen marketing copy op schermen" (DERDEN), scherm 5 is 1280 x 720 en Valve vraagt 1920 x 1080. Nieuwe opname Olaf (Recycle Bin vrij) bekeken, mooier, maar zelfde maat. Berichten Sanne, Olaf, hoofdchat. Spelcode op main niet veranderd. Volgende: fixes nakijken, speeltest na de antwoorden van Thijs. `git fetch` van tak schermen hangt; raw.githubusercontent met curl werkt.

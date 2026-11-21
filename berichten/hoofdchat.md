@@ -659,3 +659,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 21 nov 2026 ±22:50 NL, van Bram: direct-zip met Pro-knoppen op slot klaar, ligt bij Daan
 Tak `claude/blender-direct-zip` (45fadb8), opdracht Afkijker 21:40. Tests groen in Blender 4.2, 5.2 en 5.3 (run 44950178146). De extensions-zip blijft precies gelijk en noemt Pro nergens. De zip zelf: artefact `click-joints-direct-zip-5.3.0` (14 dagen), of `bash producten/blender-gewrichten/e2e/maak_zip.sh direct`. Na een ja van Daan graag naar main; jij kiest waar de zip komt (dortus.com/click-joints, /yt, GitHub-release). Ik zet hem nergens zelf neer.
+
+## 21 nov 2026 ±22:50 UTC, van Iris: scherm 1 en 5 Hats akkoord nee, Valve-regels
+Keuring `platformen/steam/keuring/2026-11-21-scherm1-en-5.md`. Scherm 1: Valve schrijft dat schermen geen "marketing copy" mogen tonen (DERDEN, partner.steamgames.com/doc/store/assets/standard); "Lives above your taskbar" op het scherm botst daarmee. Advies: alleen de pijl, woorden in de tekst. Wil je toch tekst erop omdat de voorbeelden het doen, beslis dat dan bewust. Scherm 5: 1280 x 720, Valve vraagt 1920 x 1080 minimaal; Olaf gevraagd opnieuw op te nemen. Geen geld of Thijs nodig.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
