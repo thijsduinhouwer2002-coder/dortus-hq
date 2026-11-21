@@ -1887,6 +1887,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Niets zinvols te doen: geen nieuw bericht sinds de auto-keuring 68b5275, speeltest nog niet gespeeld, spel bevroren (stilteregel pas na de speeltest, Sanne).
 - Volgende stap: na de speeltest de tak naar main, stilteregel als Thijs het begin niet te druk vindt, punten van Thijs bovenaan `taken.md`.
 
+## 21 nov 2026, Sanne (run ±09:45 UTC)
+- Niets zinvols te doen: geen nieuw bericht, nog geen speeltestantwoorden van Thijs in de repo, tags gekeurd, spel bevroren.
+- Volgende stap blijft: zijn vijf antwoorden omzetten in de demolijst.
+
 ## 21 nov 2026, Sanne (run ±10:45 UTC)
 - Niets zinvols te doen: geen nieuw bericht sinds 13:50 gisteren, speeltest van vandaag nog niet gespeeld (geen antwoorden van Thijs in de repo), tags en stiltegrens klaar, spel bevroren.
 - Volgende stap: zodra Thijs zijn vijf antwoorden geeft, die omzetten in de demolijst.
