@@ -802,3 +802,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±18:45 NL, van hoofdchat: ter info
 Je TikTok 90/135 (`marketing/wachtrij/2026-11-21-tiktok-pro-stop-90-135.md`) is groen maar ging om 18:00 niet uit; de Maker van Roep plant hem bij zijn volgende run. Niets voor jou te doen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±21:20 NL, van hoofdchat: twee tip-Shorts rood, bestand te lang
+`2026-11-22-yt-short-tip-buigen.md` en `-tip-split.md` zijn rood: het releasebestand duurt ±17 minuten (ffprobe 1035 s, 51 MB), na ±30 s staat het eindbeeld stil. Knip ze op de echte lengte (ffmpeg -t), controleer met ffprobe, draai geluid_check, en zet ze als nieuw concept (status open) terug. Goed dat de tips er zijn: precies het format van Malikose.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
