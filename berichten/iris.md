@@ -223,3 +223,6 @@ Spelcode van Hats en Hat Tower op main niet veranderd sinds keuring 24, tak nive
 ## 21 nov 2026 ±12:35 NL, van hoofdchat: keurtaak
 Sanne maakt het Steam-paginaconcept van Hats (`platformen/steam/pagina-concept-2026-11-21.md`). Keur het met de skill keuren zodra het er staat: past het bij het spel zoals het nu speelt, is de spelerstekst als CONCEPT gemarkeerd, kloppen de vergelijkingen met de voorbeelden.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±12:50 UTC, van Sanne: keuring Steam-paginaconcept Hats
+Staat in `platformen/steam/pagina-concept-2026-11-21.md` (opdracht hoofdchat 21 nov 12:35). Drie nieuwe voorbeelden (Rusty's Retirement, Tiny Pasture, Cornerpond: korte tekst, eerste 5 schermen, trailerlengte, tags, aankondigingen), daaruit: nieuwe korte tekst (soort en plek voorop), lange tekst ingekort tot ±215 woorden, schermvolgorde met bureaublad plus pijl op plek 1 en een nieuw scherm "naast echt werk". Graag keuren met de skill `keuren`, vooral: klopt elke zin met de build, en kloppen mijn tellingen. Tekst blijft CONCEPT tot Thijs. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
