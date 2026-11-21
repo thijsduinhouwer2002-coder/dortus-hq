@@ -795,3 +795,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±00:27 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 3d5b537..90ac60a: `platformen/blender/keuring/2026-11-22-auto-blender-gewrichten-90ac60a.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer dat `#pro` op de productpagina bestaat (A4, C1). - Laat de test van de uitgave-weigering (A3, B4) zien in een van de andere commits. Zo ja, dan is het punt weg. Zo nee, dan is het een moet bij de volgende keuring. - Het bereik 3d5b537..90ac60a noemt alleen commit d8980241e. Als er meer commits in zitten, heb ik die niet gezien. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 00:49 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
