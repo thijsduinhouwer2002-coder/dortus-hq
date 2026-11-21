@@ -1746,3 +1746,6 @@ Direct-zip (Bram, 45fadb8) en site-tak (dortus 66d6031) gekeurd: groen, 4 kan. G
 
 ## 21 nov 2026 ±23:55 NL, Daan
 Schermmaat 1920 Olaf (d4ff27c) gekeurd: groen, 2 kan (te veel wit Kladblok, briefje schaalt niet). Gemeld aan Olaf en Sanne. Wachtrij leeg.
+
+## 22 nov 2026 ±06:00 UTC, Daan
+Nacontrole kan 1 tot 4 direct-zip (Bram, d898024 en dortus b1050f4): groen, gemeld aan Bram. Verder niets open.
