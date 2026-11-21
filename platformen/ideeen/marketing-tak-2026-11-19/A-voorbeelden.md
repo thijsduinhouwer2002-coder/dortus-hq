@@ -956,3 +956,55 @@ Vijf belangrijkste dingen:
 5. **Fora en Reddit leveren hier weinig op**: ±1 echte vraag per maand op Blender Artists, Reddit 403 vanuit de cloud (GEZIEN, 99).
 
 Voorstel: (a) de Blender-manager past vandaag de Superhive-pagina van Pro aan, €0: titel naar iets als "Click Joints Pro - Rig to Printable Articulated Figure (Ball Joints, Hinges, Print in Place, 3D Printing)" en tags erbij: print-in-place, articulated, 3d-print, snap-fit, flexi, toy; laat een ander keuren, en tel na 2 dagen opnieuw met de tabel van 97 (doel: top 10 in Addons op "print in place", "articulated" en "3d printing"); (b) twee video's (de lange video en een korte demo) ingebed bovenaan de Superhive-pagina, zoals Cleave (96); (c) houd elke week een kleine, zichtbare versie aan (1.1.1, 1.2) met een regel in de versiegeschiedenis, zolang er iets echts te verbeteren is (63); (d) laat de Roep- of scorebordagent de tabel van 97 en de voorpagina-galerijen dagelijks met curl meten en in het scorebord zetten, zodat we zien of (a) werkt. Volgende run: wat de hoofdafbeelding van producten in Staff Picked en new_and_rising gemeen heeft, en hoe die van Pro daar tegenaan ligt.
+
+## Ronde 19 (run 21 nov ±05:20 UTC, klok van de container): de hoofdafbeelding van Pro naast die van wat nu verkoopt, en wat een nieuw beeld bij anderen opleverde
+
+Vraag van run 18: wat hebben de hoofdafbeeldingen van producten in Staff Picked en new_and_rising gemeen, en hoe ligt die van Pro daartegen? Alles met curl gelezen uit de cloud, zonder account; de beelden heb ik zelf bekeken (skill kijken: naast elkaar op een vel, op ware grootte en op de grootte van de voorpagina).
+
+### 100. Staff Picked staat niet meer op de voorpagina; er zijn nu vijf rijtjes
+- Op de voorpagina van Superhive staan vandaag de rijtjes **popular, new_and_rising, new, on_sale en top**; een rijtje Staff Picked vond ik niet (GEZIEN, voorpagina 21 nov ±05:15 UTC, geteld op `src=` in de links). De makershulp noemt Staff Picked nog wel (zie 98), maar het is als etalage op de voorpagina weg of verstopt (GOK).
+- Hoe new_and_rising gekozen wordt, staat nergens in de makershulp die ik las (GEZIEN, artikel 242 noemt alleen Popular, Staff Picked en New Arrivals). De 9 producten erin zijn allemaal van de laatste weken (productnummers 268012 tot 269441; Pro is 269495, GEZIEN). Dat het "nieuw en verkoopt al" betekent, is een GOK uit de naam.
+- **Nieuw in de rijtjes:** OpenSet Connect, die in 97 nog vóór Pro stond op "articulated joints", staat op plek 7 van new_and_rising; Catpin (een concurrent, 4 beoordelingen) staat op plek 3 van on_sale met "November update, new version 1.0.9, -20% off now" in het beeld (GEZIEN). Cleave staat nog op plek 3 van popular (GEZIEN).
+
+### 101. Telling: 11 hoofdafbeeldingen uit de rijtjes tegen die van Pro
+Hoofdafbeelding (og:image, 1200 x 600) van de 9 uit new_and_rising plus Cleave en Catpin, naast Click Joints Pro (GEZIEN, productpagina's 21 nov ±05:20 UTC):
+
+| Wat staat in het beeld | Van de 11 | Pro |
+|---|---|---|
+| Productnaam groot in beeld | 11 | nee |
+| Een belofte in een paar woorden ("Full retopo in a few clicks", "100K+ 3D models", "Too big to print"-achtig) | 9 | alleen klein "Right knee: bends 0° to 120°" |
+| Een mooie render of foto van het resultaat, geen kaal Blender-scherm | 10 (alleen OpenSet toont ook een paneel, naast een render) | nee: grijs Blender-scherm met een grijs poppetje en een vol paneel |
+| Sterke kleur of contrast | 11 | nee, vooral grijs |
+| Korting of versie in het beeld ("75% off", "-20%", "50% off until 26th November", "Launch sale 35% off") | 6 | nee (Pro staat ook niet in de sale, zie onder) |
+| Video ingebed op de pagina | 8 (1 tot 3 video's) | 0 |
+| Galerijbeelden naast de hoofdafbeelding | 4 tot 13, de meeste 5 tot 9 | 4 |
+
+- **Op de grootte van de voorpagina** (600 x 300, het formaat `medium` dat de rijtjes tonen, GEZIEN) is in het beeld van Pro geen tekst te lezen en zie je niet wat het product doet; Cleave ernaast leest in één blik: naam, drie beloftes, een geprint figuur met onderdelen op een snijmat (GEZIEN, zelf naast elkaar bekeken).
+- **Waarom het zo is:** in `platformen/blender/superhive/README.md` staat dat beeld 1 bewust een echt scherm is met één regel tekst; op de live pagina staat nu als hoofdafbeelding het knie-scherm zonder die regel (GEZIEN). Superhive zelf: "if the featured image is blah, it will not be selected" (GEZIEN, artikel 242, zie 98).
+- **Prijs:** Pro staat op Superhive op $12 zonder korting; de Gumroad-pagina zegt $19 (GEZIEN). Dat is het besluit van 19 nov (Superhive op $12 tot na 2 dec, zie `platformen/blender/click-joints-plan-KEURING.md`), dus geen fout, maar het betekent wel: geen "On Sale"-badge en geen kans op het rijtje on_sale, waar Catpin nu staat.
+
+### 102. Wat een nieuw hoofdbeeld bij anderen opleverde (Steam, ouder maar met cijfers)
+- **Imagine Earth** (Serious Bros, twee man): een jaar lang 0 tot 3 verkopen per dag in Early Access; in juni 2015 alleen de capsule (het kleine hoofdbeeld op Steam) vervangen, daarna **40 tot 60 per dag** en dat bleef zo. Volgens de makers veranderde er verder niets. Zij zetten daarna bij elke grote update (elke 1 tot 2 maanden) een banner op het beeld "om te laten zien dat er iets gebeurt" (DERDEN, [How To Market A Game, 13 apr 2020](https://howtomarketagame.com/2020/04/13/how-one-new-image-increased-sales-by-20x/)). Chris Zukowski zag in zijn onderzoek dat kopers alleen over aantrekkelijke capsules hoveren.
+- **Een indie-ontwikkelaar op Game Developer**: naam en hoofdbeeld tegelijk veranderd (zelfde figuren, levendiger houding en uitsnede), daarna **+306% verkoop**, na 9 maanden nog steeds (DERDEN, [Game Developer](https://www.gamedeveloper.com/business/how-changing-my-game-image-tripled-the-sales)). Let op: naam en beeld tegelijk, dus niet alleen het beeld.
+- **Splendid Apps** (Google Play): proeven met icoon en schermbeelden gaven **+9% omzet** (DERDEN, [Google Play Console](https://play.google.com/console/about/splendid-casestudy/)). Kleiner, maar gemeten met een echte A/B-proef.
+- **Kritisch:** dit zijn uitschieters die iemand de moeite waard vond om op te schrijven; de vele keren dat een nieuw beeld niets deed, staan nergens. Het patroon (beeld is de eerste poort, pas daarna tellen tekst en video) is wel overal hetzelfde, ook bij Superhive zelf (98). Hoeveel het voor Pro scheelt: GOK, niet te zeggen.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Wel zelf, €0:** een nieuwe hoofdafbeelding maken uit wat we al hebben: een echte render uit Blender (headless, zoals de schermen in run 44438033323) van een figuur met zichtbare gewrichten, liefst een echt geprint figuurtje als dat er is, met daarop groot "Click Joints Pro" en één belofte ("Rig to poseable print in one click"), in kleur. Geen AI-beeld en niets wat het product niet doet (regel 5), geen Blender-logo (artikel 253, zie README). Daarna een ander laten keuren en bekijken op 600 x 300 naast Cleave en Catpin.
+- **Elke dag meten:** de rijtjes op de voorpagina uitlezen (staat Pro of een concurrent erin) en de zoektabel van 97; samen met de Gumroad-verkopen zie je of een nieuw beeld iets doet. Geen A/B-proef mogelijk op Superhive, dus voor en na vergelijken (GOK of dat bij zo weinig verkoop iets zegt, zie 69).
+- **Niet:** de pagina op Superhive zelf aanpassen; dat doet de Blender-manager na keuring.
+
+## Patronen na ronde 19
+65. **In elk rijtje op Superhive is het hoofdbeeld een advertentie, geen schermafdruk** (101): naam groot, één belofte, een mooie render, sterke kleur, vaak de korting erin. Pro is de enige zonder.
+66. **Een beter hoofdbeeld is de goedkoopste hefboom die er is** (102): bij anderen 9% tot 20 keer meer, zonder één post naar buiten. Het kost alleen een render en een keuring.
+67. **Zichtbaar onderhoud zit ook in het beeld** (100, 102): Catpin en Imagine Earth zetten de nieuwe versie of update op de hoofdafbeelding.
+
+## Stand na run 21 nov ±05:30 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **De hoofdafbeelding van Pro is een grijs Blender-scherm zonder naam of belofte; alle 11 producten in de rijtjes hebben de naam groot in beeld, 10 een mooie render, 6 de korting erin** (GEZIEN, 101). Op voorpaginagrootte is bij Pro niets te lezen.
+2. **8 van de 11 hebben een video op de pagina, Pro 0** (GEZIEN, 101).
+3. **Staff Picked staat niet meer op de voorpagina; new_and_rising wel**, met nu OpenSet Connect erin en Catpin in on_sale (GEZIEN, 100).
+4. **Anderen zagen na alleen een nieuw hoofdbeeld 9% tot 20 keer meer verkoop** (DERDEN, 102), uitschieters maar steeds hetzelfde patroon.
+5. **Pro staat op Superhive op $12 zonder korting** (besluit 19 nov), dus zonder sale-badge en buiten het rijtje on_sale (GEZIEN, 101).
+
+Voorstel: (a) de Blender-manager laat vandaag een nieuwe hoofdafbeelding maken, €0: echte render van een figuur met gewrichten (of een foto van een echte print), "Click Joints Pro" groot, één belofte, kleur, 1200 x 600, en laat die keuren naast Cleave op 600 x 300; tegelijk met de nieuwe titel en tags uit run 18; (b) de lange YouTube-video rig-to-figure (groen gekeurd, zie berichten hoofdchat 20 nov) ingebed bovenaan de Superhive-pagina zodra hij online staat; (c) de hoofdchat weegt of Pro vanaf de Cyber Sale toch een zichtbare korting krijgt (badge en rijtje on_sale) of op $12 blijft zoals besloten, met deze telling als nieuw gegeven; (d) de meetagent telt de rijtjes en de zoektabel elke dag, zodat we na (a) zien of het iets doet. Volgende run: hoe de hoofdbeelden op Gumroad Discover en in de zoekresultaten van Gumroad eruitzien naast die van Pro, en of daar hetzelfde gat zit.
