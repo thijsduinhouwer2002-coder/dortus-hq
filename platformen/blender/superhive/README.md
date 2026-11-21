@@ -20,6 +20,7 @@ Opdracht hoofdchat 19 nov 09:20 NL. Alles hier is klaar om te plakken of te uplo
 - Mijn advies: **niet doen**. $49 per maand vraagt ±5 verkopen per maand alleen om quitte te spelen (GOK, rekensom), en de gratis versie staat al op extensions.blender.org (234 downloads, GEZIEN 18 nov). Wil Thijs het toch: zip `producten/blender-gewrichten/uitgave/click_joints-0.1.1.zip` (gelijk aan Extensions) als variant "Free (ball joints only)" $0.
 
 ## Tags (max die het formulier toelaat; de 9 van 15 nov aanvullen met de woorden van de koper)
+**21 nov:** vervangen door `zoekwoorden.md` (12 tags als zinnen met "blender" en een blok "Keywords:" onderaan de tekst). De lijst hieronder is oud.
 `3d printing`, `3d print`, `joints`, `ball joint`, `hinge`, `articulated`, `poseable`, `action figure`, `figure`, `rig to print`, `posable`, `stl`, `3mf`, `cosplay`, `miniature`
 
 ## Producttekst (Engels, na goedkeuring plakken in plaats van de tekst van 15 nov)

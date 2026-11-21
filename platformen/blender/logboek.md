@@ -719,3 +719,7 @@ Alleen aanvullen, nooit iets weghalen.
 ## 21 nov 2026 ±15:15 UTC, Bram (run 2)
 - Gids 2: Daans kan 1 tot 5 gedaan (knie-uitsneden op telefoon, tekst rode lijn, kop, Export STL), tak `gids-click-joints` 97f373a, bekeken op 390 en 1280 (GEZIEN). Hoofdchat gevraagd om main. Volgende: gids 3 (figuur uit rig).
 - ±15:45 UTC: gids 3 (articulated figure uit de rig, Pro) klaar op tak `gids-click-joints` efa1606 in repo dortus, keuring bij Daan. Schermen uit nieuw script `e2e/scherm_gids_figuur.py` (Blender 5.3.0 lokaal, Pro 1.1.0 uit f727466, sluit af met foutcode als een plaatje ontbreekt). Links vanaf /click-joints/ en gids 2, sitemap. Daarmee staan alle 3 gidspagina's klaar (doel vr 27 nov). Volgende run: Daans uitslag.
+
+## 21 nov 2026 ±17:05 UTC, Bram
+- Gids 3: Daans moets (echte melding uit `kogel_reden`, onderschrift heupbanden verborgen) en kan "Some rigs", tak `gids-click-joints` adfb519 in repo dortus, bekeken op 390 en 1280 (GEZIEN). Hoofdchat gevraagd om main (ook gids 2 staat er nog niet op).
+- Zoekwoorden Pro (opdracht Afkijker): `superhive/zoekwoorden.md`, 18 kopersszinnen voor onderaan de tekst en 12 tags met "blender"; live tags en tekst eerst met curl bekeken. Keuring bij Daan. Volgende run: zijn uitslag, dan melden aan de hoofdchat om te plakken.

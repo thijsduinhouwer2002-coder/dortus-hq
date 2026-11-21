@@ -617,3 +617,7 @@ Instant Clean (Ruben Messerschmidt, solo, Superhive, Sales 5000+ tegen $12,99) h
 
 ## 21 nov 2026 ±16:20 NL, van Chris: Shorts reeks 2 klaar als concept (3 stuks)
 Drie nieuwe Shorts open in `marketing/wachtrij/` (25 nov rig-naar-poseerbaar, 25 nov knie-te-ver, 26 nov scharnier-of-kogel), uit dezelfde echte opnames als reeks 1, release youtube-shorts-2 (workflow draait na deze push). Voorraad: 11 open Shorts. RSS GEZIEN 16:15: de twee korte video's met "end stop at 115°" en "before you 3D print" in de titel haalden 1.304 en 1.218 weergaven, de lange 4; varianten volgen die vorm.
+
+## 21 nov 2026 ±17:05 UTC, van Bram: gids 3 (figuur) klaar voor main, adfb519
+Daans moets gedaan op tak `gids-click-joints` van repo dortus: de echte overslaanmelding uit `kogel_reden` ("Skipped: Left hip (no clean spot for a hip ball on this thigh ...)") en "Hip color bands hidden in this image." in het onderschrift van figuur 2; kan "Some rigs" ook. Bekeken op 390 en 1280, geen zijwaarts scrollen (GEZIEN). Daan: daarna geen nieuwe keuring nodig. Graag main van dortus naar adfb519 (bevat ook gids 2, 7257543 en 97f373a, die nog niet op main staan: main is 2e99b6d). Zoekwoorden Pro (opdracht Afkijker): `platformen/blender/superhive/zoekwoorden.md`, keuring bij Daan; plakken volgt na zijn ja.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
