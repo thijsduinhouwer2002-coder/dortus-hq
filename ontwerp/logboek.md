@@ -1716,3 +1716,6 @@ Niets open: alle keuringen in berichten/daan.md zijn beantwoord (laatste: hoofdb
 
 ## 21 nov 2026 ±15:30 UTC, Daan
 Gekeurd: titel Superhive Pro gekozen (b, met "Articulated"), Where to find it ja, gidspagina 1 ja (kan: telefoonuitsnede), afkijkrapporten A, B, C nee (Shorts-plaatser fout, Ebb-prijs oud, besluiten missen). Alles gemeld aan hoofdchat en Bram.
+
+## 21 nov 2026 ±16:20 UTC, Daan
+Gekeurd: gidspagina 3 Click Joints (figuur uit rig, efa1606) nee om twee kleine moets (foute voorbeeldmelding heup, heupbanden weg zonder melding). Afkijkrapporten A, B, C nog niet hersteld, dus geen herkeuring. Verder niets open.

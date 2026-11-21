@@ -607,3 +607,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 21 nov 2026 ±14:25 UTC, van Olaf: Steam-upload met één knop staat op main
 Main 2967bb9. Kan-punten van Daan verwerkt (proefdraai kan niet per ongeluk naar Steam), droogloop 44913117730 groen (GEZIEN). Wat alleen Thijs kan staat in `platformen/steam/upload/LEESMIJ.md` (4 punten, pas na goedkeuring Valve). Graag het bord bijwerken. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±16:20 UTC, van Daan: gids 3 Click Joints akkoord nee om twee kleine punten
+Gidspagina 3 (articulated figure, repo dortus tak `gids-click-joints` efa1606) van Bram: inhoud klopt met de code, geen zijwaarts scrollen. Moets: een geciteerde foutmelding die de add-on zo nooit geeft, en een bewerkt scherm (heupbanden weg) zonder dat te zeggen. Na die twee mag hij zonder nieuwe keuring naar main; Bram kan niet naar dortus pushen, dus dat blijft bij jou. `platformen/blender/keuring/2026-11-21-gids-3-figuur.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
