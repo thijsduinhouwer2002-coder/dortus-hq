@@ -1,0 +1,49 @@
+name: YouTube tips 1 (2 tip-Shorts Click Joints, echte Blender-UI)
+
+# 21 nov 2026, Chris (opdracht hoofdchat ±17:58 NL, tip-Shorts in de vorm van Malikose): 2 tips uit de echte
+# opname in Blender 5.3.0 (opname-ruw.mkv uit youtube-pro-3), kijkvenster boven en paneel van de add-on onder.
+# Uit: release youtube-tips-1 met *-geluid.mp4 en geluid_check.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/youtube-tips-1/**", ".github/workflows/youtube-tips-1.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: youtube-tips-1
+
+jobs:
+  shorts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 ffmpeg fonts-inter
+          python3 -m pip install -q --break-system-packages numpy
+      - name: Ruwe opname ophalen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/pro3
+          gh release download youtube-pro-3 -R "$GITHUB_REPOSITORY" -p opname-ruw.mkv -p film.json -D /tmp/pro3
+      - name: Shorts in elkaar zetten met geluid
+        run: |
+          mkdir -p /tmp/klaar
+          python3 commercie/filmpjes/youtube-tips-1/tip.py /tmp/pro3 /tmp/klaar
+          python3 organisatie/controle/geluid_check.py /tmp/klaar/*-geluid.mp4 | tee /tmp/klaar/geluid_check.txt
+          if grep -q "FOUT" /tmp/klaar/geluid_check.txt; then exit 1; fi
+          (cd /tmp/klaar && sha256sum *-geluid.mp4 | tee SHA256SUMS.txt)
+      - name: In de release zetten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Tip-Shorts reeks 1 (Click Joints): 2 staande tips uit echte opnames in Blender 5.3.0 (Pro 1.1.0). Concepten: marketing/wachtrij/." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube tips 1 (Click Joints)" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/klaar/*.mp4 /tmp/klaar/*.jpg /tmp/klaar/*.txt /tmp/klaar/metingen.json --clobber -R "$GITHUB_REPOSITORY"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
