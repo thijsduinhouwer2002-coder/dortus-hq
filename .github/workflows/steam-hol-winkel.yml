@@ -28,6 +28,9 @@ on:
       schermmaat:
         description: "1280 = het echte bureaublad op 1280 x 720 (zoals tot nu); 1920 = op 1920 x 1080, niet opgeschaald (Valve: schermen minstens 1920 x 1080; Sanne en Iris 21 nov)"
         default: "1280"
+      kladblok:
+        description: "vol = het werkvenster tot 40 px van de rechterrand (zoals tot nu); smal = 760 breed (maal 1,5 bij 1920) en grotere letters, zodat rechts het bureaublad te zien is (kan 1 Daan 21 nov 23:55)"
+        default: "vol"
   push:
     branches: [main]
     paths: [".github/workflows/steam-hol-winkel.yml"]
@@ -47,6 +50,7 @@ jobs:
       DRUKTE: ${{ inputs.drukte || '1' }}
       WERKVENSTER: ${{ inputs.werkvenster || '0' }}
       SCHERMMAAT: ${{ inputs.schermmaat || '1280' }}
+      KLADBLOK: ${{ inputs.kladblok || 'vol' }}
     steps:
       - uses: actions/checkout@v4
       # Olaf 15 nov (kan 1 Daan 04:45): virtuele geluidskaart, zodat de luidspreker in het systeemvak geen kruisje
@@ -284,6 +288,13 @@ jobs:
               "- ask about the printer contract")
             Set-Content -Encoding utf8 $briefje ($regels -join "`r`n")
           }
+          # Olaf 22 nov (kan 1 Daan 23:55): met kladblok=smal grotere letters in Kladblok (16 pt bij 1920, 10,5 pt bij 1280), via de vaste plek in het register.
+          if ($env:WERKVENSTER -eq '1' -and $env:KLADBLOK -eq 'smal') {
+            New-Item -Path "HKCU:\Software\Microsoft\Notepad" -Force | Out-Null
+            Set-ItemProperty -Path "HKCU:\Software\Microsoft\Notepad" -Name iPointSize -Type DWord -Value ([int](110 * $sf - 5))
+            Set-ItemProperty -Path "HKCU:\Software\Microsoft\Notepad" -Name lfFaceName -Type String -Value "Consolas"
+            Write-Output "Kladblok letters: $([int](110 * $sf - 5)) tienden pt"
+          }
           $kl = Start-Process notepad.exe -ArgumentList "`"$briefje`"" -PassThru
           Start-Sleep 3
           $h = [IntPtr]::Zero
@@ -295,8 +306,11 @@ jobs:
             $wx = [int](90 * $sf); $wy = [int](16 * $sf); $wr = [int](40 * $sf); $wo = [int](10 * $sf)
             $vh = $wg.Height - [int]$env:HOOGTE - $wy - $wo
             # Olaf 21 nov (Sanne 20:50, kan Daan 19:40): links vanaf x 90, zodat het label "Recycle Bin" vrij staat; rechterrand blijft op 40 van de rand.
-            $gezet = [Scherm]::MoveWindow($h, $wx, $wy, $wg.Width - $wx - $wr, $vh, $true)
-            Write-Output "werkvenster groot: $wx,$wy $($wg.Width - $wx - $wr) x $vh (werkgebied $wg, strook $env:HOOGTE)"
+            $wb = $wg.Width - $wx - $wr
+            # Olaf 22 nov (kan 1 Daan 23:55): smal = 760 breed (1140 bij 1920), rechts blijft bureaublad zichtbaar.
+            if ($env:KLADBLOK -eq 'smal') { $wb = [Math]::Min($wb, [int](760 * $sf)) }
+            $gezet = [Scherm]::MoveWindow($h, $wx, $wy, $wb, $vh, $true)
+            Write-Output "werkvenster groot: $wx,$wy $wb x $vh (werkgebied $wg, strook $env:HOOGTE, kladblok $env:KLADBLOK)"
           } else {
             $gezet = [Scherm]::MoveWindow($h, 110, 24, 420, 196, $true)
           }
@@ -417,6 +431,7 @@ jobs:
           [ "$WERKVENSTER" != 1 ] || D_REL="$D_REL-werkvenster-run$GITHUB_RUN_ID"
           # Olaf 21 nov: het bureaublad op 1920 x 1080 krijgt "-scherm1920" erbij, zodat het nooit een 1280-map overschrijft.
           [ "$SCHERMMAAT" != 1920 ] || D_REL="$D_REL-scherm1920"
+          [ "$KLADBLOK" != smal ] || D_REL="$D_REL-smal"
           # Olaf 15 nov (tip Bram 04:45): smalle kloon, alleen onze eigen map uitpakken. Heel klonen duurde ±1,5 min
           # (de tak is groot); zo 2 tot 3 s, dus bij een geweigerde push gewoon opnieuw klonen en onze commit erop zetten.
           gelukt=0
