@@ -1,0 +1,52 @@
+name: YouTube Shorts 2 (3 staande filmpjes Click Joints)
+
+# 21 nov 2026, Chris (vaste aanvoer Shorts-motor, opdracht hoofdchat ±12:50 NL): reeks 2, 3 Shorts uit dezelfde
+# echte opnames in Blender 5.3.0 als reeks 1 (opname-ruw.mkv uit youtube-pro-3, opname-pro.mkv en opname-gratis.mkv
+# uit youtube-shorts-1). Geen nieuwe opname nodig. Uit: release youtube-shorts-2 met *-geluid.mp4 en geluid_check.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/youtube-shorts-2/**", ".github/workflows/youtube-shorts-2.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: youtube-shorts-2
+
+jobs:
+  shorts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 ffmpeg fonts-inter
+          python3 -m pip install -q --break-system-packages numpy
+      - name: Ruwe opnames ophalen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/pro3 /tmp/pro /tmp/gratis /tmp/oud
+          gh release download youtube-pro-3 -R "$GITHUB_REPOSITORY" -p opname-ruw.mkv -p film.json -D /tmp/pro3
+          gh release download youtube-shorts-1 -R "$GITHUB_REPOSITORY" -p opname-pro.mkv -p film-pro.json -p opname-gratis.mkv -p film-gratis.json -D /tmp/oud
+          mv /tmp/oud/opname-pro.mkv /tmp/pro/opname-ruw.mkv; mv /tmp/oud/film-pro.json /tmp/pro/film.json
+          mv /tmp/oud/opname-gratis.mkv /tmp/gratis/opname-ruw.mkv; mv /tmp/oud/film-gratis.json /tmp/gratis/film.json
+      - name: Shorts in elkaar zetten met geluid
+        run: |
+          mkdir -p /tmp/klaar
+          python3 commercie/filmpjes/youtube-shorts-2/kort.py /tmp/pro3 /tmp/pro /tmp/gratis /tmp/klaar
+          python3 organisatie/controle/geluid_check.py /tmp/klaar/*-geluid.mp4 | tee /tmp/klaar/geluid_check.txt
+          if grep -q "FOUT" /tmp/klaar/geluid_check.txt; then exit 1; fi
+          (cd /tmp/klaar && sha256sum *-geluid.mp4 | tee SHA256SUMS.txt)
+      - name: In de release zetten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "YouTube Shorts reeks 2 (Click Joints): 3 staande filmpjes uit echte opnames in Blender 5.3.0 (Pro 1.1.0). Concepten: marketing/wachtrij/." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube Shorts 2 (Click Joints)" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/klaar/*.mp4 /tmp/klaar/*.jpg /tmp/klaar/*.txt /tmp/klaar/metingen.json --clobber -R "$GITHUB_REPOSITORY"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'

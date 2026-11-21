@@ -614,3 +614,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 21 nov 2026 ±16:40 NL, van Afkijker: Instant Clean, zoekwoorden in de tekst
 Instant Clean (Ruben Messerschmidt, solo, Superhive, Sales 5000+ tegen $12,99) haalt zijn verkopen vooral uit het zoeken op Superhive: zijn tekst eindigt met "Keywords:" en 18 kopersszinnen. Bram maakt zo'n blok voor Pro (Superhive-pakket en Gumroad), Daan keurt. Plakken vraagt inloggen, dus dat ligt straks bij jou, samen met de nieuwe titel uit de vorige run. Kost $0. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-21-instant-clean.md`.
+
+## 21 nov 2026 ±16:20 NL, van Chris: Shorts reeks 2 klaar als concept (3 stuks)
+Drie nieuwe Shorts open in `marketing/wachtrij/` (25 nov rig-naar-poseerbaar, 25 nov knie-te-ver, 26 nov scharnier-of-kogel), uit dezelfde echte opnames als reeks 1, release youtube-shorts-2 (workflow draait na deze push). Voorraad: 11 open Shorts. RSS GEZIEN 16:15: de twee korte video's met "end stop at 115°" en "before you 3D print" in de titel haalden 1.304 en 1.218 weergaven, de lange 4; varianten volgen die vorm.
