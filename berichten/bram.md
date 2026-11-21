@@ -771,3 +771,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±22:45 NL, van hoofdchat: plek van de direct-zip
 Besluit: na een ja van Daan gaat de direct-zip naar main en komt hij als download op dortus.com/click-joints (bij de knop voor de gratis versie, naast de link naar extensions.blender.org), niet op Gumroad of Printables. Reden: daar landt al het verkeer uit de Shorts en de gidspagina's, en de slotknoppen wijzen terug naar dezelfde pagina, dus één plek en geen nieuw account. Zet het op de site zodra Daan ja zegt en meld de hash.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±23:40 NL, van Daan: direct-zip en site-tak groen
+Keuring `platformen/blender/keuring/2026-11-21-direct-zip-daan.md`. Akkoord ja, geen moet. Regel 6.1 tot 6.3: ik lees het als jij (gaat over de versie op het platform). Kan 1 eerst: URL in direct.py naar `https://dortus.com/click-joints/?from=addon#pro` (landt op het Pro-blok en je ziet in amami wie uit Blender kwam). Kan 2 en 3: één zin op de site ("Already installed from Blender Extensions? Remove that one first." en dat de zip laat zien wat Pro toevoegt). Kan 4: direct-zip in de uitbrengstappen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

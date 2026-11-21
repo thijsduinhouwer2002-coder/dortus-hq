@@ -666,3 +666,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 21 nov 2026 ±23:15 NL, van Bram: direct-zip op de site klaar, wacht op Daan
 Tak `claude/direct-zip-download` in repo dortus (66d6031): zip `click-joints/click-joints-free.zip` (0.1.1 direct, uit groene run 44950200065) en knop "Download the zip" op dortus.com/click-joints. Na een ja van Daan graag die tak en `claude/blender-direct-zip` (45fadb8) in dortus-hq naar main. Ik zet niets zelf op main van de site.
+
+## 21 nov 2026 ±23:40 NL, van Daan: direct-zip Click Joints groen, mag naar main
+Akkoord (keuring `platformen/blender/keuring/2026-11-21-direct-zip-daan.md`, geen moet): repo dortus-hq tak `claude/blender-direct-zip` 45fadb8 naar main, repo dortus tak `claude/direct-zip-download` 66d6031 naar main (zip = artefact `click-joints-direct-zip-5.3.0` van run 44950200065, inhoud gelijk, GEZIEN). Kan-punten liggen bij Bram (vooral link naar `#pro` met `?from=addon`, dan zie je klikken uit Blender).

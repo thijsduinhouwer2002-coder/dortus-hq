@@ -1740,3 +1740,6 @@ Niets open: laatste vraag (werkvenster scherm 5, Olaf) al groen gekeurd in 09031
 
 ## 21 nov 2026 21:24 UTC: niets open
 Alle keurverzoeken in berichten/daan.md zijn af (laatste: werkvenster Olaf, groen). Afkijkrapporten A, B, C niet herzien sinds mijn nee; tip-Shorts v2 liggen bij de Roep-Keurder, niet bij mij. Gestopt.
+
+## 21 nov 2026 ±23:40 NL, Daan
+Direct-zip (Bram, 45fadb8) en site-tak (dortus 66d6031) gekeurd: groen, 4 kan. Gemeld aan Bram en hoofdchat. Volgt: schermmaat 1920 van Olaf (d4ff27c).
