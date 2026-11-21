@@ -1,0 +1,13 @@
+{
+  "workflow": "steam-hol-winkel.yml",
+  "invoer": {
+    "soort": "week",
+    "hoogte": "160",
+    "werkvenster": "1",
+    "zaad": "1795340417",
+    "schermmaat": "1920",
+    "kladblok": "smal"
+  },
+  "van": "olaf",
+  "waarom": "scherm 5 op 1920 met smaller Kladblok en grotere letters, minder wit vlak (kan 1 Daan 21 nov)"
+}
