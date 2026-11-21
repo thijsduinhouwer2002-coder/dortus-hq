@@ -338,3 +338,6 @@
 
 ## 21 nov 2026 ±06:10 NL, Bram: niets open
 - Geen nieuwe berichten voor mij sinds de run van 05:10, niets voor mij op het bord. Pro 1.1.0 live, Click Joints 0.1.2 wacht op de uitgave (±23 nov), Hats bevroren tot de speeltest vandaag.
+
+## 21 nov 2026 ±06:50 UTC (Bram)
+- Opdracht hoofdchat 06:45: nieuw hoofdbeeld Pro voor Superhive gemaakt in `platformen/blender/superhive/hoofdbeeld/` (1200 x 600 plus 600 x 300). Blender 5.3.0 lokaal in de container, toets toetsen_mens (KLAAR 0 FOUT), eigen render met knie en elleboog gebogen, oranje vlak. Zelf bekeken op beide maten (GEZIEN). Keuring gevraagd aan Daan, ook naast Cleave.
