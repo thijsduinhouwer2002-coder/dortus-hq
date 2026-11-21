@@ -901,3 +901,6 @@ Geen nieuwe opdracht sinds run 89, geen nieuwe mail over Click Joints, Bison & F
 
 ## 20 nov 2026 ±21:45 NL, run 91 (niets te doen)
 Geen nieuwe opdracht sinds 12:58 NL en geen nieuwe mail over Click Joints, Bison & Flex, Gumroad, Superhive of JetBrains (Gmail, laatste dag, GEZIEN). Volgende vaste stappen 23 nov (Addon Radar, BlenderNation nakijken) en 24 nov (meting dag 7 Bison & Flex); ik stop.
+
+## 21 nov 2026 ±09:45 NL, run 92 (niets te doen)
+Geen nieuwe opdracht sinds 20 nov 12:58 NL en geen nieuwe mail over Click Joints, Bison & Flex, Gumroad, Superhive of JetBrains (Gmail, laatste dag, GEZIEN). Volgende vaste stappen 23 nov (Addon Radar, BlenderNation nakijken) en 24 nov (meting dag 7 Bison & Flex); ik stop.
