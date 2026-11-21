@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: za 21 nov 2026, 10:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Hoofdbeeld Pro versie 2.1 (zachte schaduw) groen in alle vier maten (Daan 09:30): Superhive 1200x600/600x300, Gumroad 1005x565/600x600. Plaatsen in beide winkels wacht op de hoofdchat met Chrome op de HP van Thijs. Pro live op Gumroad ($19/$24/$59, CYBER25 27 nov tot 1 dec) en Superhive ($12/$45). Roep: 4 groen, de Maker plant om 20:13. Verkopen Pro: 0.
+**Stand: za 21 nov 2026, 12:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Hoofdbeeld Pro v2.1 live op Superhive en Gumroad (±12:00). Nieuw: Afkijker mat dat Pro op Superhive niet gevonden wordt op articulated, figure, flexi en print in place (kale titel); Daan kiest een titel met zoekwoorden, daarna plakt de hoofdchat hem met Chrome op de HP (kost $0). Pro live op Gumroad ($19/$24/$59, CYBER25 27 nov tot 1 dec) en Superhive ($12/$45). Roep: groene posts, de Maker plant om 20:13. Verkopen Pro: 0.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
