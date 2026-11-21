@@ -779,3 +779,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±23:42 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 0827e42..0dbf978: `platformen/blender/keuring/2026-11-21-auto-blender-gewrichten-0dbf978.md`. Moet en kan: **Moet:** geen. **Kan:** - Bevestig dat de workflow `Direct-zip` en de grep echt in de repo staan (zie B4). Zonder die stap bewijst alleen `toets_direct_zip.py` iets als je hem zelf draait. Groen vinkje van de volledige run met `test_direct.py` en `scherm_direct.py` afwachten. - Leg de direct-zip kort vast in `ontwerp.md`, met Thijs' ja. Laat Daan `d1-slot` bekijken voordat de zip ergens live gaat (A5). - Zorg dat de directe download en de extensions-zip niet door elkaar kunnen komen bij het uploaden. De toets bewaakt de inhoud van de zip, maar niet welk bestand je uploadt. Een duidelijke best Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 00:06 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
