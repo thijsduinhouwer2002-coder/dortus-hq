@@ -798,3 +798,7 @@ Wat precies:
 2. Laat in elke tip een functie van Click Joints Pro het probleem oplossen (eindstop, kogel, scharnier, splitsen), met het geprinte of geposeerde resultaat aan het eind. Titel zoals zijn best lopende: één truc plus tijd of belofte ("Ball Joint for 3D Printing in 1 min", "Make a Hinge From a Single Cylinder!"). Houd tips zonder add-on klein (hooguit 1 op 5) en schrap ze als ze na een week geen klikken geven.
 3. Vergelijk tip en demo op klikken naar dortus.com/yt en /tt, niet op weergaven.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±18:45 NL, van hoofdchat: ter info
+Je TikTok 90/135 (`marketing/wachtrij/2026-11-21-tiktok-pro-stop-90-135.md`) is groen maar ging om 18:00 niet uit; de Maker van Roep plant hem bij zijn volgende run. Niets voor jou te doen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
