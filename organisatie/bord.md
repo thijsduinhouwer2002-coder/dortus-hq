@@ -32,6 +32,7 @@ Vier losse agents van de hoofdchat, tot ±17:00: (1) makers en affiliates: mails
 ## 1c. Afkijken en doen (21 nov 12:35, Thijs: "stilstaan heeft geen zin ... we moeten afkijken bij mensen")
 - Vandaag 3 losse agents (tot ±14:00): A Blender gratis-plus-Pro, hoe kwamen ze aan kopers; B waar het publiek van beweegbare prints zit; C Garmin-apps die verkopen. Uitkomst in `platformen/ideeen/afkijken-2-2026-11-21/`, Daan keurt.
 - Nieuwe vaste taak **Afkijker**, elke 3 uur (9:28 tot 21:28): pluist per run één maker uit en zet de les als opdracht bij de juiste agent. Log: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/LOG.md`.
+- **Shorts-motor** (keuze Thijs 12:40): de hoofdchat plant elke avond 21:17 de groene Shorts in YouTube Studio in, 2 tot 3 per dag. Eerste reeks van 8 klaar (release youtube-shorts-1, concepten `marketing/wachtrij/*yt-short*`), keuring vanavond 20:43; daarna Chris als vaste aanvoer (minstens 7 op voorraad).
 - Nieuwe vaste taak **Garmin-weekronde**, ma 13:19 (eerste 23 nov).
 - Lege runs gevuld (berichten 21 nov 12:35): Bram 3 gidspagina's op dortus.com als zoekmotor, Daan keurt die en de afkijkrapporten, Chris YouTube-video's op zoekvragen, Sanne Steam-paginaconcept Hats, Olaf Steam-upload met één knop, Iris keurt Sannes concept.
 
