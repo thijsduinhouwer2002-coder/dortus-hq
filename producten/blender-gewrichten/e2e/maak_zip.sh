@@ -3,6 +3,9 @@
 #   bash e2e/maak_zip.sh          -> gratis build /tmp/click_joints.zip (zonder click_joints/betaald/)
 #   bash e2e/maak_zip.sh betaald  -> betaalde build /tmp/click_joints_betaald.zip (met betaald/ en de
 #                                    registratie uit e2e/betaald/init_betaald.py achter __init__.py)
+#   bash e2e/maak_zip.sh direct   -> gratis build voor directe download /tmp/click_joints_direct.zip: de gratis zip plus
+#                                    e2e/direct/direct.py als direct.py en e2e/direct/init_direct.py achter __init__.py
+#                                    (Pro-knoppen op slot). NIET voor extensions.blender.org, die krijgt de gratis zip.
 # Twee builds uit één bron (ontwerp betaald v1.1): de gratis code noemt de betaalde versie nergens.
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -26,5 +29,17 @@ case "$soort" in
     rm -rf "$werk"
     echo /tmp/click_joints_betaald.zip
     ;;
-  *) echo "onbekend: $soort (gratis of betaald)" >&2; exit 2 ;;
+  direct)
+    werk="$(mktemp -d)"
+    cp -r click_joints "$werk/click_joints"
+    rm -rf "$werk/click_joints/betaald"
+    find "$werk" -name '__pycache__' -prune -exec rm -rf {} +
+    cp e2e/direct/direct.py "$werk/click_joints/direct.py"
+    cat e2e/direct/init_direct.py >> "$werk/click_joints/__init__.py"
+    rm -f /tmp/click_joints_direct.zip
+    (cd "$werk/click_joints" && zip -qr /tmp/click_joints_direct.zip .)
+    rm -rf "$werk"
+    echo /tmp/click_joints_direct.zip
+    ;;
+  *) echo "onbekend: $soort (gratis, betaald of direct)" >&2; exit 2 ;;
 esac
