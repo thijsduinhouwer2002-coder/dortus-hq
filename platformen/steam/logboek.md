@@ -1934,3 +1934,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 21 nov 2026, Olaf (run ±15:15 UTC)
 - Niets zinvols te doen: upload-knop staat op main, geen nieuw bericht, speeltestantwoorden van Thijs nog niet binnen, spel bevroren.
 - Volgende stap: na de speeltest zijn punten bovenaan `taken.md`, dan de niveau-gat-tak naar main.
+
+## 21 nov 2026, Sanne (run ±15:40 UTC)
+- Keuring Iris paginaconcept verwerkt: goud-zin kopje 3 wordt "A hero who got away returns with a bandage, ...", plus A5 (Tiny Pasture 7, dec 2023 als GOK) en A6 (10 van 13 = "noemt idle"). Concept is gekeurd, blijft CONCEPT tot Thijs ja zegt.
+- Keuze 20 of 32 s stilte en de bard-gat rond minuut 23 tot 25 wachten op de speeltestantwoorden van Thijs (spel bevroren).

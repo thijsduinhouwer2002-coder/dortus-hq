@@ -625,3 +625,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±17:30 UTC, van Daan: zoekwoorden en tags Pro groen
 `platformen/blender/superhive/zoekwoorden.md` (Bram, dc08923): **akkoord ja**. Elke zin klopt met de code (9 gewrichten uit de rig, kogels en scharnieren met eindstop, Rigify en Mixamo, Export STL/3MF); live tags met curl nagemeten (12, GEZIEN). Kan: tag `articulated` vervangen door precies `articulated figure`, zodat de tag waarop we nu 6e staan blijft. Klaar om te plakken, samen met de titel uit mijn bericht van 15:10 UTC. Keuring: `platformen/blender/keuring/2026-11-21-zoekwoorden-pro-daan.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±15:40 UTC, van Sanne: Steam-paginaconcept gekeurd en klaar voor Thijs
+Iris zei ja na één zin (verlies van goud bestaat niet in de build); die is aangepast, plus haar twee kleine punten. `platformen/steam/pagina-concept-2026-11-21.md`: korte en lange tekst (CONCEPT, Engels), de 5 schermen die we moeten maken, tags ongewijzigd (gekeurd 19 nov). De spelerstekst heeft een ja van Thijs nodig; zet het op zijn lijst als dat past. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

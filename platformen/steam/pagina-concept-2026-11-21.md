@@ -1,5 +1,7 @@
 # Steam-pagina Hats of the Fallen: concept (Sanne, 21 nov 2026)
 
+**Keuring:** Iris akkoord na de goud-zin (21 nov, `keuring/2026-11-21-pagina-concept.md`); zin en kan-punten A5, A6 verwerkt. Spelerstekst blijft CONCEPT tot Thijs ja zegt.
+
 Opdracht hoofdchat 21 nov 12:35 NL: maak de Steam-pagina klaar als CONCEPT, afgekeken van kleine indie-spellen die op hun paginadag veel aandacht haalden; verdiep `platformen/ideeen/afkijken-2026-11-18/D-steam-indie.md` met 3 nieuwe voorbeelden. Iris keurt. **Alle spelerstekst hieronder is CONCEPT tot Thijs ja zegt of het in eigen woorden schrijft** (regel 16 nov, `teksten-thijs.md`). De bevroren build is niet aangeraakt.
 
 ## Wat er al lag (niet opnieuw gedaan)
@@ -24,7 +26,7 @@ Waarom deze drie: alle drie zijn kleine bureaubladspellen (zelfde soort als Hats
 | Scherm 2 tot 5 | ingezoomde stukken boerderij, één voorraadscherm | 2 sterk ingezoomd (dieren boven de Windows-zoekknop), dan menu op bureaublad, dan **strook onder een code-editor met "Will not affect your work and study"** | ingezoomd: vissen, visvenster, winkel |
 | Aantal schermen | 6 | 8 | 7 |
 | Trailers | aankondiging **45,9 s**, uitgave 60 s | uitgave **67,3 s** (later DLC 63,6 s, nieuwjaar 40,8 s) | één van **100,4 s** |
-| Aankondigingen tussen paginadag en uitgave | 7 (demo, 2 builds, versierwedstrijd, fest-livestream, festslot, uitgavedatum), pagina ±begin dec 2023 | 8 (aankondiging 28 aug 2024, demo, 2 builds, uitgavedatum, uitverkoop, aftellen, "morgen") | 0; eerste bericht op de uitgavedag, daarna 6 updates in 10 dagen |
+| Aankondigingen tussen paginadag en uitgave | 7 (demo, 2 builds, versierwedstrijd, fest-livestream, festslot, uitgavedatum), pagina ±begin dec 2023 (GOK, niet uit het nieuws te halen; eerste aankondiging 30 jan 2024) | 7 vóór 17 feb 2025 volgens Iris (ik telde 8, waarschijnlijk met het bericht op de uitgavedag; aankondiging 28 aug 2024, demo, 2 builds, uitgavedatum, uitverkoop, aftellen, "morgen") | 0; eerste bericht op de uitgavedag, daarna 6 updates in 10 dagen |
 | Rond de uitgave | 13 berichten in apr tot mei 2024 | 14 in feb 2025 | 7 in apr tot mei 2025 |
 | Top 5 tags | Idler, Farming Sim, Desktop Companion, Automation, Management | Idler, Cute, Farming Sim, Incremental, Pixel Graphics | Desktop Companion, Idler, Incremental, Simulation, Fishing |
 
@@ -38,7 +40,7 @@ Waarom deze drie: alle drie zijn kleine bureaubladspellen (zelfde soort als Hats
 ## Korte beschrijving (CONCEPT, 36 woorden, 186 tekens)
 > An idle game that lives right above your taskbar while you work. Heroes come for your gold, Gloop the Slime eats them and wears their hats, and the ones who flee come back with a grudge.
 
-Waarom anders dan v3a: zin 1 is soort plus plek plus "while you work", zoals Rusty's, Cornerpond en 10 van de 13 winnaars van Sem; de haak (hoeden, wrok) staat in zin 2, zoals bij de winnaars. "Dungeon" staat er niet in (0 van 13 winnaars). Alles klopt met de build: held naar de schat, hap, hoed op Gloop, terugkomen met wrok (film van main, toets 5). Wil Thijs v3a houden, dan is dat ook goed gekeurd (Daan 16 nov); dit is een keuze, geen fout in v3a.
+Waarom anders dan v3a: zin 1 is soort plus plek plus "while you work", zoals Rusty's en Cornerpond (bij Sem noemen 10 van de 13 winnaars "idle"; soort plus plek plus "while you work" is niet apart geteld); de haak (hoeden, wrok) staat in zin 2, zoals bij de winnaars. "Dungeon" staat er niet in (0 van 13 winnaars). Alles klopt met de build: held naar de schat, hap, hoed op Gloop, terugkomen met wrok (film van main, toets 5). Wil Thijs v3a houden, dan is dat ook goed gekeurd (Daan 16 nov); dit is een keuze, geen fout in v3a.
 
 ## Lange beschrijving (CONCEPT, ±215 woorden, Steam-opmaak)
 Volgt de vier kopjes van Z6 (gifs van Chris), plus één kort lijstje. Korter dan v3a (±400 woorden), want winnaars zitten op mediaan 207. Wat eruit ging staat eronder.
@@ -57,7 +59,7 @@ A crown, a chef's hat, a bucket, a frying pan: they stack on Gloop's head and pi
 
 [h2]The ones who escape come back[/h2]
 [gif 3: boze held met pleister]
-A hero who got away with your gold returns with a bandage, a nickname and a grudge. "Tibbe is back for the Spike Pit." Flee three times and you have a nemesis.
+A hero who got away returns with a bandage, a nickname and a grudge. "Tibbe is back for the Spike Pit." Flee three times and you have a nemesis.
 
 [h2]It keeps going while you work[/h2]
 [gif 4: nieuw, moet beweging tonen (Daan: oude te stil)]
