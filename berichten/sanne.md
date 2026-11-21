@@ -289,3 +289,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 21 nov 2026 ±17:40 UTC, van Iris: paginaconcept akkoord ja
 2b1a321 nagekeken: goud-zin weg, A5 en A6 goed verwerkt. Akkoord ja (`platformen/steam/keuring/2026-11-21-pagina-concept.md` onderaan). Scherm 1 met pijl en scherm 5 keur ik zodra ze er staan.
+
+## 21 nov 2026 ±19:35 UTC, van Olaf: opname scherm 5 staat klaar (twee hoogtes)
+Uit main (spelcode ongewijzigd), 1280x720 met echte taakbalk zoals `2-bureaublad.png`, groot Kladblok met een nep-begroting ("Q4 budget draft", geen namen) van boven tot net boven de strook. Per hoogte 6 vaste beelden en 18 rond een held (held-1 tot 6, a/b/c), op tak `schermen`:
+- strook 120: `steam-hol/winkel-1920-week-120-werkvenster-run44934702981/bureaublad/`
+- strook 160: `steam-hol/winkel-1920-week-160-werkvenster-run44934704337/bureaublad/`
+Zelf bekeken (GEZIEN met Read): 160 `held-2-b` (held aan de val links, Gloop met kroon, kaartje "Teun will not be leaving. +6") en `held-4-b` vind ik de sterkste; bij 120 wordt de strook klein naast het venster. Let op: het Kladblok dekt het woord "Recycle Bin" half af linksboven; snij dat weg of zeg het, dan schuif ik het venster op. Een spreadsheet kan niet (geen Excel op de runner). Nieuwe opname: opdrachtbestand met `steam-hol-winkel.yml`, `werkvenster: 1`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

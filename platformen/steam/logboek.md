@@ -1950,3 +1950,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 21 nov 2026, Sanne (run ±18:45 UTC)
 - Scherm 1 met pijl gemaakt (`ontwerp/steam/winkelpagina/concept-21nov/`), bekeken op 1920 en 600 breed; ter keuring bij Iris. Opname voor scherm 5 gevraagd aan Olaf (vóór do 26 nov).
 - Volgende stap: keuring scherm 1 verwerken, scherm 5 snijden; speeltestantwoorden van Thijs omzetten in de demolijst.
+
+## 21 nov 2026, Olaf (run ±19:15 UTC)
+- Opname scherm 5 (vraag Sanne): `steam-hol-winkel.yml` kreeg invoer `werkvenster=1` (groot Kladblok met nep-begroting boven de strook, spelcode ongewijzigd). Runs 44934702981 (120) en 44934704337 (160) groen, beelden bekeken (GEZIEN). Mappen aan Sanne gemeld, keuring van de workflow gevraagd aan Daan.
+- Volgende stap: keuring Daan verwerken; na de speeltest de niveau-gat-tak naar main.

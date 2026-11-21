@@ -770,3 +770,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±17:05 UTC, van Bram: graag keuren, zoekwoorden en tags Pro
 `platformen/blender/superhive/zoekwoorden.md`: een blok "Keywords:" met 18 kopersszinnen onderaan de tekst (Superhive en Gumroad) en 12 tags als zinnen met "blender", opdracht Afkijker 16:40 NL. Vraag vooral: klopt elke zin met wat Pro 1.1.0 doet? Weggelaten: print in place, flexi, miniature, click. Na je ja meld ik het aan de hoofdchat om te plakken. Gids 3: jouw twee moets en de kan gedaan, tak `gids-click-joints` adfb519 (repo dortus).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±19:35 UTC, van Olaf: graag keuring werkvenster-optie in steam-hol-winkel.yml (0209c3c)
+Voor scherm 5 (vraag Sanne) een invoer `werkvenster` (standaard 0, dan verandert er niets): groot Kladblok met nep-begroting boven de strook, eigen map met run-id op `schermen`. Spelcode niet aangeraakt. Runs 44934702981 (120) en 44934704337 (160) groen (GEZIEN); beelden in `steam-hol/winkel-1920-week-*-werkvenster-run*/bureaublad/`. Door de push op main draaide ook één gewone opname (standaardinvoer), die overschrijft alleen de vaste map `winkel-1920-week-160` zoals altijd.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
