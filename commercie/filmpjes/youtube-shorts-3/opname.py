@@ -329,6 +329,8 @@ def verloop_pro():
     SM["rustig"]()
     leeg_beeld()
     bpy.context.preferences.view.ui_scale = UI
+    # zijbalk naast de weergave, niet erover: dan staat de tekst van de add-on midden in de linkerhelft
+    bpy.context.preferences.system.use_region_overlap = False
     kijk_breed()
     _, gebied, _ = zijbalk()
     gebied.spaces.active.overlay.show_outline_selected = True
@@ -451,7 +453,7 @@ def verloop_pro():
     film["metingen"]["knie_herkomst"] = a.get("cj_herkomst")
     k = p["l-knee"]
     blik = (k.x, k.y, k.z + 5.0)
-    yield from stuk(30, lambda t: cam(10 + 60 * t, 84.0, D_HEEL - 270 * t, mengen(heel, blik, t)))
+    yield from stuk(30, lambda t: cam(10 + 60 * t, 84.0, D_HEEL - 230 * t, mengen(heel, blik, t)))
     deel("knie")
     onder = scherm_punt((p["l-knee"] + p["l-ankle"]) / 2)
     yield from muis_naar(onder[0], onder[1], 22)
@@ -503,7 +505,7 @@ def verloop_pro():
         for n, (pa, pb) in paren.items():
             if pb is not None:
                 buig(pb, standen[n] * t)
-        cam(70 - 95 * t, 84.0, 150 + 270 * t, mengen(blik, heel, t))
+        cam(70 - 95 * t, 84.0, 190 + 230 * t, mengen(blik, heel, t))
     yield from stuk(70, zet_pose)
     geen_selectie()
     bpy.context.view_layer.objects.active = b
