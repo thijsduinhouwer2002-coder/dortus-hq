@@ -17,8 +17,8 @@ name: Het Hol naar Steam (met de hand of met een tag, niet-openbare tak)
 #   d. akkoord Daan: regel "| <versie> | ja | <keuringsbestand> |" in platformen/steam/uitgaven.md, en dat bestand bestaat
 #      (bij een proeftag alleen een waarschuwing; bij handmatig proefdraaien zijn alle controles waarschuwingen)
 #
-# Proefdraaien: alles behalve de upload. Maakt de depotmappen, toetst ze en schrijft de manifesten
-# die steamcmd zou krijgen naar de samenvatting. Geen sleutel nodig, niets gaat naar Steam.
+# Proefdraaien: alles behalve de upload. Maakt de depotmappen, toetst ze en schrijft de app-build-bestanden
+# die steamcmd zou krijgen naar de samenvatting (scripts in platformen/steam/upload/, ook bruikbaar met upload.sh vanaf een eigen pc). Geen sleutel nodig, niets gaat naar Steam.
 #
 # Echt uploaden kan pas als Thijs één keer heeft gezet (zie berichten/hoofdchat.md, 18 nov, en organisatie/toegang.md):
 #   variabelen (Settings, Variables):  STEAM_APPID, STEAM_DEMO_APPID   (appids zijn openbaar, daarom geen geheim)
@@ -186,6 +186,7 @@ jobs:
         shell: pwsh
         env:
           WELKE: ${{ needs.toetsen.outputs.welke }}
+          PROEF: ${{ needs.toetsen.outputs.proef }}
         run: |
           $lijst = @()
           if ($env:WELKE -ne "demo") { $lijst += ,@("Windows", "vol") }
@@ -198,7 +199,8 @@ jobs:
             if (-not (Test-Path "producten/steam-hol/steam/$($v[1])/HetHol.exe")) { Write-Output "FOUT: geen exe voor $($v[0])"; $fout++ }
             if ($uit -match "Resources Modification|completed with warnings") { Write-Output "FOUT: icoon of versie niet gezet voor $($v[0])"; $fout++ }
           }
-          "Gebouwd uit commit $env:GITHUB_SHA, run $env:GITHUB_RUN_ID, $(Get-Date -AsUTC -Format 'yyyy-MM-dd HH:mm') UTC" | Set-Content "producten/steam-hol/steam/VERSIE.txt"
+          $soort = if ($env:PROEF -eq "true") { "PROEFDRAAI (niet uploaden)" } else { "echte uitgave" }
+          "Gebouwd uit commit $env:GITHUB_SHA, run $env:GITHUB_RUN_ID, $(Get-Date -AsUTC -Format 'yyyy-MM-dd HH:mm') UTC, $soort" | Set-Content "producten/steam-hol/steam/VERSIE.txt"
           if ($fout -gt 0) { exit 1 }
       - name: Korte rooktoets (start de volle exe 20 s, geen SCRIPT ERROR)
         if: needs.toetsen.outputs.welke != 'demo'
@@ -232,11 +234,15 @@ jobs:
       cancel-in-progress: false
     timeout-minutes: 20
     steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: platformen/steam/upload
+          path: repo
       - uses: actions/download-artifact@v4
         with:
           name: steam-depots
           path: steam
-      - name: Depots toetsen en manifesten schrijven
+      - name: Depots toetsen en app-build-bestanden schrijven (zelfde scripts als upload.sh)
         shell: bash
         env:
           TAK: ${{ needs.toetsen.outputs.tak }}
@@ -247,31 +253,19 @@ jobs:
         run: |
           fout=0
           S="$GITHUB_STEP_SUMMARY"
+          U=repo/platformen/steam/upload
           echo "## Het Hol naar Steam: $( [ "$PROEF" = "true" ] && echo PROEFDRAAIEN || echo ECHTE UPLOAD )" >> "$S"
           echo "Commit \`$GITHUB_SHA\`, Steam-tak \`$TAK\`, build: $WELKE" >> "$S"
           for d in vol demo; do
             [ "$WELKE" = "beide" ] || [ "$WELKE" = "$d" ] || continue
-            [ -f "steam/$d/HetHol.exe" ] || { echo "FOUT: steam/$d/HetHol.exe ontbreekt"; fout=$((fout+1)); continue; }
-            # verboden in een depot: logs, saves, debugbestanden en vdf's (steam-deploy sluit *.pdb, *.log, *.vdf ook uit)
-            vreemd=$(find "steam/$d" -type f \( -name '*.log' -o -name '*.pdb' -o -name '*.vdf' -o -name '*.save' -o -name '*.tres' -o -name '*.tmp' \) | wc -l)
-            [ "$vreemd" -eq 0 ] || { echo "FOUT: $vreemd vreemde bestanden in steam/$d"; fout=$((fout+1)); }
-            mb=$(du -sm "steam/$d" | cut -f1)
-            [ "$mb" -lt 500 ] || { echo "FOUT: steam/$d is $mb MB"; fout=$((fout+1)); }
-            id=$([ "$d" = "vol" ] && echo "${APPID:-APPID}" || echo "${DEMO_APPID:-DEMO_APPID}")
-            depot=$([[ "$id" =~ ^[0-9]+$ ]] && echo $((id+1)) || echo "${id}+1")
-            m="manifest-$d.vdf"
-            # zelfde vorm als het manifest dat steam-deploy voor steamcmd maakt (app_build met één depot en SetLive op de tak)
-            {
-              echo "\"AppBuild\""; echo "{"
-              echo "  \"AppID\" \"$id\""
-              echo "  \"Desc\" \"Het Hol $d ${GITHUB_SHA:0:7} run $GITHUB_RUN_ID\""
-              echo "  \"ContentRoot\" \"steam/$d\""
-              echo "  \"SetLive\" \"$TAK\""
-              echo "  \"Depots\" { \"$depot\" { \"FileMapping\" { \"LocalPath\" \"*\" \"DepotPath\" \".\" \"recursive\" \"1\" } \"FileExclusion\" \"*.pdb\" \"FileExclusion\" \"*.log\" \"FileExclusion\" \"*.vdf\" } }"
-              echo "}"
-            } > "$m"
-            echo "### $d: $mb MB, $(find "steam/$d" -type f | wc -l) bestanden" >> "$S"
-            echo '```' >> "$S"; find "steam/$d" -type f -printf '%P  %s\n' >> "$S"; cat "$m" >> "$S"; echo '```' >> "$S"
+            id=$([ "$d" = "vol" ] && echo "$APPID" || echo "$DEMO_APPID")
+            # bij proefdraaien zonder appid een nepnummer, zodat het bestand toch te zien is
+            [[ "$id" =~ ^[0-9]+$ ]] || id=$([ "$d" = "vol" ] && echo 1000 || echo 2000)
+            echo "### $d" >> "$S"; echo '```' >> "$S"
+            bash $U/controleer-exportmap.sh "steam/$d" "$d" > uit.txt 2>&1 || fout=$((fout+1))
+            bash $U/maak-appbuild.sh "$id" "steam/$d" "$TAK" "Het Hol $d ${GITHUB_SHA:0:7} run $GITHUB_RUN_ID" "app_build_$d.vdf" >> uit.txt 2>&1 || fout=$((fout+1))
+            cat uit.txt; cat uit.txt >> "$S"; [ -f "app_build_$d.vdf" ] && cat "app_build_$d.vdf" >> "$S"
+            echo '```' >> "$S"
           done
           echo "uitslag: $fout FOUT" | tee -a "$S"
           [ "$fout" -eq 0 ] || exit 1
