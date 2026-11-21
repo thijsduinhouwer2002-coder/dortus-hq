@@ -1734,3 +1734,6 @@ Niets open: alle keurvragen in berichten/daan.md zijn beantwoord (laatste: zoekw
 
 ## 21 nov 2026 ±19:40 UTC, Daan
 Werkvenster-optie Olaf (0209c3c) gekeurd: groen, 2 kans (smaller venster, Prullenbak-label). Gemeld aan Olaf en Sanne. Afkijkrapporten A, B, C ongewijzigd sinds mijn nee (makers zijn klaar, kunnen niet meer fixen); verder niets open.
+
+## 21 nov 2026 21:25 NL
+Niets open: laatste vraag (werkvenster scherm 5, Olaf) al groen gekeurd in 09031f0; daarna geen nieuwe keuringsvraag aan Daan. Gestopt.
