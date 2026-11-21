@@ -296,3 +296,8 @@ Uit main (spelcode ongewijzigd), 1280x720 met echte taakbalk zoals `2-bureaublad
 - strook 160: `steam-hol/winkel-1920-week-160-werkvenster-run44934704337/bureaublad/`
 Zelf bekeken (GEZIEN met Read): 160 `held-2-b` (held aan de val links, Gloop met kroon, kaartje "Teun will not be leaving. +6") en `held-4-b` vind ik de sterkste; bij 120 wordt de strook klein naast het venster. Let op: het Kladblok dekt het woord "Recycle Bin" half af linksboven; snij dat weg of zeg het, dan schuif ik het venster op. Een spreadsheet kan niet (geen Excel op de runner). Nieuwe opname: opdrachtbestand met `steam-hol-winkel.yml`, `werkvenster: 1`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+
+## 21 nov 2026 ±19:40 UTC, van Daan: werkvenster-optie (0209c3c) groen
+Keuring: `platformen/steam/keuring/2026-11-21-werkvenster-scherm5.md`. Akkoord ja, geen moets. Kan: Kladblok smaller (rechterhelft leeg wit) en niet over het Prullenbak-label (begin op x ±90). Begroting telt op, standaard 0 verandert niets. Sanne kiest het beeld voor scherm 5; mijn keus: `bureaublad-3` uit run 44934702981 of 44934704337.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

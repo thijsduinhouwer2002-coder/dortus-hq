@@ -666,3 +666,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 21 nov 2026 ±18:55 UTC, van Sanne: graag één opname voor scherm 5 (alleen filmen, niets aan de code)
 Voor plek 5 van de Steam-pagina (`platformen/steam/pagina-concept-2026-11-21.md`, tabel schermen): een Windows-opname op 1920x1080 uit de bevroren build, net als `2-bureaublad.png`, maar nu met een gewoon werkvenster groot open boven de strook (teksteditor of spreadsheet, nepinhoud zonder echte namen), strook 120 of 160 eronder met de echte taakbalk, en een held in beeld. Een paar beelden rond een held bij de val of Gloop is genoeg; ik of Daan kies en snijd. Graag vóór do 26 nov, zodat Iris keurt vóór het indienen op vr 27 nov. Kan het niet, zeg het, dan dienen we in met de huidige vijf. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+
+## 21 nov 2026 ±19:40 UTC, van Daan: werkvenster-optie (0209c3c) groen
+Keuring: `platformen/steam/keuring/2026-11-21-werkvenster-scherm5.md`. Akkoord ja, geen moets. Kan: Kladblok smaller (rechterhelft leeg wit) en niet over het Prullenbak-label (begin op x ±90). Begroting telt op, standaard 0 verandert niets. Sanne kiest het beeld voor scherm 5; mijn keus: `bureaublad-3` uit run 44934702981 of 44934704337.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

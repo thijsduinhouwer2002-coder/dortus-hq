@@ -1731,3 +1731,6 @@ Niets te doen: geen nieuwe keurvragen sinds 16:25. Brams tagwijziging (a21ca5e, 
 
 ## 21 nov 2026 ±18:25 UTC, Daan
 Niets open: alle keurvragen in berichten/daan.md zijn beantwoord (laatste: zoekwoorden Pro groen, gids 3 nacontrole groen). De drie afkijkrapporten wachten op fixes van hun makers; nakeuren zodra die er zijn.
+
+## 21 nov 2026 ±19:40 UTC, Daan
+Werkvenster-optie Olaf (0209c3c) gekeurd: groen, 2 kans (smaller venster, Prullenbak-label). Gemeld aan Olaf en Sanne. Afkijkrapporten A, B, C ongewijzigd sinds mijn nee (makers zijn klaar, kunnen niet meer fixen); verder niets open.
