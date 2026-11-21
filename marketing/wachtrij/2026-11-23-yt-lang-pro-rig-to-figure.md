@@ -1,6 +1,6 @@
 # Click Joints Pro: Rig to printable figure in Blender (lange YouTube-video 2)
 
-- status: groen
+- status: ingepland
 - kanaal: yt-lang
 - soort: video
 - product: click-joints-pro
@@ -82,4 +82,4 @@ Click Joints Pro with Figure from rig, one button from rig to printable figure: 
 (alleen de hoofdchat, alleen bij oranje)
 
 ## Na plaatsen
-(alleen de Maker)
+- ingepland: 21 nov 2026 20:15 NL, Metricool-nummer 436948555, moment 2026-11-22 17:00 NL (eerste vrije plek voor een groene lange video), status PENDING (GEZIEN createScheduledPost)

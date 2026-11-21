@@ -1,6 +1,6 @@
 # Click Joints Pro: één knop van rig naar printbare figuur
 
-- status: groen
+- status: ingepland
 - kanaal: tiktok
 - soort: video
 - product: click-joints-pro
@@ -47,3 +47,4 @@ One button in Blender: your rigged figure gets a hinge with an end stop at every
 ## Oranje-besluit
 
 ## Na plaatsen
+- ingepland: 21 nov 2026 20:15 NL, Metricool-nummer 436948770, moment 2026-11-25 18:00 NL, status PENDING (GEZIEN createScheduledPost)

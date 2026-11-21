@@ -35,3 +35,13 @@ Schrijft: de Maker (geplande taak "Dortus Roep: maken en plaatsen"), één blok 
 - gemaakt vandaag: niets.
 - stopregel: beste TikTok blijft 305 weergaven (nulmeting 19 nov, video 7709157242309774625), kijktijd niet gelezen. Dagen met posts met een meetadres zonder verkoop van Pro: dag 1 (vandaag).
 
+
+### za 21 nov 2026 NL
+- uitgegaan vandaag: niets. De groene TikTok 90/135 (moment 21 nov 18:00) stond nog niet in Metricool; nu ingepland op zo 22 nov 18:00.
+- ingepland deze ronde (Metricool, alle PENDING, GEZIEN 20:15): lange video 2 Rig to figure zo 22 nov 17:00 (436948555); TikTok 90/135 zo 22 nov 18:00 (436948591); TikTok Ebb patrijspoort di 24 nov 18:00 (436948714); TikTok rig naar figuur wo 25 nov 18:00 (436948770); TikTok knie stopt vr 27 nov 18:00 (436948801). Keuring groen door Roep-Keurder (commit 8cd3829), Ebb groen door de hoofdchat (Oranje-besluit 20 nov 21:45). Media-URL's: HEAD via de proxy geeft 401, GET met bereik geeft 206 (GEZIEN), zoals de Keurder ook zag.
+- cijfers: niet gelezen. De proxy van deze run weigert tiktok.com (403, GEZIEN 20:16).
+- geld: Gumroad-verkopen Pro 0, omzet $0 (GEZIEN, `organisatie/scorebord.md`, meting 21 nov 06:44 UTC); bezoeken dortus.com/tt niet gemeten, dortus.com/yt niet gemeten.
+- quotum november: 14 posts in Metricool deze maand (9 eerder, 5 nu), GEZIEN; over 6 van 20. Over volgens het plan vanaf 20 nov: TikTok 3, lang YouTube 0, reserve 1.
+- wachtrij: groen 0, oranje 0, ingepland 5, open 17 (Shorts, 2 TikTok-tips, 2 lange zoekvideo's voor december), rood 4. Voorraad TikTok ingepland t/m 27 nov; geen nieuwe concepten gemaakt (genoeg open).
+- gemaakt vandaag: niets.
+- stopregel: beste TikTok blijft 305 weergaven (nulmeting 19 nov, video 7709157242309774625), kijktijd niet gelezen. Dagen met posts met een meetadres zonder verkoop van Pro: dag 2.

@@ -1,6 +1,6 @@
 # Click Joints Pro: de knie stopt waar je rig stopt
 
-- status: groen
+- status: ingepland
 - kanaal: tiktok
 - soort: video
 - product: click-joints-pro
@@ -48,3 +48,4 @@ One button turns a rigged figure into printable parts. Bend the knee and it stop
 ## Oranje-besluit
 
 ## Na plaatsen
+- ingepland: 21 nov 2026 20:15 NL, Metricool-nummer 436948801, moment 2026-11-27 18:00 NL, status PENDING (GEZIEN createScheduledPost)
