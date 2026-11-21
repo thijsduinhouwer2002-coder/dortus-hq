@@ -710,3 +710,4 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 21 nov 2026 ±14:00 UTC, Bram
 - "Where to find it" voor de Pro-tekst klaar (opdracht Afkijker 13:10 NL): `superhive/where-to-find-it.md`, namen uit de code van zip 1.1.0 (f727466). Live tekst klopte op één punt niet ("the list tells you why"), recht gezet. Keuring bij Daan. Volgende: gidspagina's op dortus.com.
+- ±14:45 UTC: gidspagina 1 van 3 (ball joint, gratis versie) op tak `gids-click-joints` in repo dortus (373c858), keuring bij Daan. Gekozen zoekvragen voor 2 en 3 (suggesties GEZIEN): "how to make joints in blender for 3d printing" (scharnier met eindstop, Pro) en "blender articulated figure" / "blender action figure joints" (figuur uit rig, Pro). Volgende run: pagina 2.
