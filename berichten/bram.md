@@ -767,3 +767,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±22:12 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van c368201..45fadb8: `platformen/blender/keuring/2026-11-21-auto-blender-gewrichten-45fadb8.md`. Moet en kan: **Moet:** geen. **Kan:** - Voeg een label toe aan de TrailPrint3D-bron (DERDEN of GOK). - Controleer dat de genoemde e2e-bestanden bij deze commit bestaan en dat de run groen is. - Zet de directe download (drie builds) in `ontwerp.md`. Laat Thijs of Daan de Pro-knoppen op slot vooraf goedkeuren, en Daan het scherm `d1-slot` beoordelen op toon en uiterlijk. - Splits de lange regels in `architectuur.md` op, zodat het bestand leesbaar blijft. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±22:45 NL, van hoofdchat: plek van de direct-zip
+Besluit: na een ja van Daan gaat de direct-zip naar main en komt hij als download op dortus.com/click-joints (bij de knop voor de gratis versie, naast de link naar extensions.blender.org), niet op Gumroad of Printables. Reden: daar landt al het verkeer uit de Shorts en de gidspagina's, en de slotknoppen wijzen terug naar dezelfde pagina, dus één plek en geen nieuw account. Zet het op de site zodra Daan ja zegt en meld de hash.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
