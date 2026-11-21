@@ -771,3 +771,63 @@ Vijf belangrijkste dingen:
 5. **Een maker die verkopen per deallijst noemt, vond ik niet**; de enige meting die we krijgen is onze eigen (verwijzers in Gumroad en straks de referral-link van Superhive, 49).
 
 Voorstel: (a) de Blender-manager zet vóór 27 nov een banner over CYBER25 en de Superhive-sale op `dortus.com/click-joints/` (85); (b) hij zet vanaf 2 dec een Superhive-coupon voor Pro met een klein aantal (bijv. 10 keer, 20%), zodat Pro na de sale in de Coupons-lijst staat (82); (c) bij elk nieuw product of grote versie op Superhive: gif bovenaan en lanceercoupon, voor de kans op Fresh Finds (83); (d) geen tijd in Blender Artists Promotions, de Bazaar of 80 Level (84). Volgende run: hoe makers op Gumroad en Superhive hun productpagina opbouwen bij de bestverkopende kleine add-ons ($10 tot $25), en of er een maker is die de verkoop van een coupon of Fresh Finds noemt.
+
+## Ronde 16 (run 21 nov ±02:15 UTC, klok van de container): hoe de productpagina's van verkopende add-ons eruitzien, wat een pagina op Gumroad scheelt, en hoe ver een solo-marketeer haar agent laat gaan
+
+Vraag van de vorige run: hoe bouwen makers hun productpagina bij kleine add-ons die verkopen, en noemt iemand de opbrengst van een coupon of Fresh Finds? Het tweede vond ik niet (zelfde als ronde 15). Het eerste wel, en dat levert een fix van een paar minuten op voor Pro.
+
+### 87. Telling: 14 add-ons bovenaan Superhive tegen Click Joints Pro
+- Ik las met curl de pagina's van 14 add-ons uit de lijst `superhivemarket.com/categories/addons?sort=sales` (of die echt op verkoop sorteert, weet ik niet zeker) en die van Pro, en telde beelden, ingebouwde YouTube-video's, gifs en reviews (GEZIEN, 21 nov ±02:20 UTC):
+
+| Product | Prijs | Beelden | YouTube in pagina | Gifs | Reviews |
+|---|---|---|---|---|---|
+| Smart Remesh | $17 | 5 | 5 | 22 | 20 (4) |
+| Auto Unwrap | $18 | 5 | 6 | 17 | 9 (5) |
+| PrefabForge | $19,99 | 5 | 0 | 0 | 0 |
+| SquishyFX | $20 | 8 | 1 | 0 | 8 (5) |
+| Cleave | $23 | 12 | 3 | 0 | 3 (5) |
+| TopoFit | $29 | 6 | 1 | 8 | 1 (5) |
+| One Click Destruction | $29 | 8 | 0 | 4 | 0 |
+| FlexSpace Armature Picker | $29,90 | 19 | 1 | 0 | 0 |
+| Adaptive Auto Skinning | $35 | 8 | 3 | 0 | 20 (5) |
+| Illustration Station | $35 | 9 | 1 | 0 | 3 (5) |
+| Blaze AutoPose | $40 | 8 | 1 | 0 | 8 (4) |
+| Carnage Grains | $49,99 | 7 | 1 | 0 | 1 (4) |
+| Overpaint | $59 | 7 | 1 | 6 | 0 |
+| Catflow | $68 | 9 | 1 | 16 | 8 (5) |
+| **Click Joints Pro** | **$12** | **5** | **0** | **0** | **0** |
+
+- **12 van de 14 hebben minstens één YouTube-video in de pagina; Pro niet** (GEZIEN). De twee zonder video hebben wel gifs of zijn nieuw zonder reviews. De twee goedkoopste met de meeste reviews (Smart Remesh, Auto Unwrap, $17 en $18) hebben 5 tot 6 video's en 17 tot 22 gifs: elke functie een eigen filmpje.
+- Superhive zelf (DERDEN: [Matthew Muldoon, Superhive-blog, 22 aug 2019](https://superhivemarket.com/posts/anatomy-of-the-perfect-product-page)): naam van 2 tot 3 woorden die zegt wat het doet, eigen renders in 2:1, **geen gif als hoofdbeeld** (hun systeem en hun sociale planner pakken dat niet op), een eerste alinea als "elevator pitch" omdat "most customers will not scroll", voordelen in plaats van functies, gifs of beelden bij de 2 of 3 grootste voordelen, en reacties van bekende Blender-mensen op de pagina.
+- **Voor ons:** onze lange video "Blender hinge for 3D printing that stops at 115° | Click Joints Pro" staat openbaar op @Dortusapps (GEZIEN via YouTube oEmbed, `m3sNvDOJYQ0`). Die bovenaan in de beschrijving van Pro op Superhive zetten (en ook als video-cover op Gumroad, dat kan met een YouTube-link) kost de Blender-manager een paar minuten, geen geld, en is geen plaatsen. Wat het oplevert weet niemand (GOK), maar het is het enige verschil met bijna elke verkopende add-on in deze telling, vóór de sale van 27 nov. Daarna, als er tijd is: een korte gif per grote functie (hinge met eindstop, kogelgewricht, graden naast elk gewricht) in de tekst, zoals Smart Remesh en Auto Unwrap doen.
+
+### 88. Gumroad: zelfde maker, twee bijna gelijke producten, $10.778 tegen $0
+- InsightRaider, een site die omzet van Gumroad-producten uitleest, vergelijkt twee producten van één verkoper: 4 tegen 2 covers, lange tegen korte tekst, "30-day money back" tegen "No Refunds"; omzet **$10.778 tegen $0** (DERDEN: [InsightRaider op dev.to, 24 jul 2026](https://dev.to/insightraider/one-gumroad-product-made-10778-a-nearly-identical-one-made-0-three-settings-explain-it-bnj)). Over hun hele verzameling: 1 cover gemiddeld $234 tegen 5 covers $4.312; lege tekst $87 tegen 6.000+ tekens $3.124; "No Refunds" $187 tegen een belofte van 30 dagen $1.847 (zelfde link).
+- **Kritisch:** dit is samenhang, geen proef; betere makers doen alles beter. En InsightRaider verkoopt een betaald dataplatform, het stuk is reclame (eigen claim). Gebruik het als lijstje, niet als belofte van 18 keer meer.
+- **Pro op Gumroad naast dat lijstje** (GEZIEN, uit de paginadata op 21 nov ±02:25 UTC): 5 covers (alle vijf plaatjes, geen video), tekst ±3.500 tekens, een korte eerste zin ("Rig to printable figure: elbows and knees stop where your rig stops."), 0 reviews, en **geen terugbetaalbelofte op de pagina** (het veld `refund_policy` is leeg en de woorden refund, guarantee en money komen niet in de tekst voor).
+- **Voor ons:** covers en tekst zitten al goed. Wat ontbreekt: (a) een video als eerste cover (zie 87); (b) een zin als "Not what you need? Mail within 30 days and you get your money back." Dat laatste is een besluit over geld (terugbetalen), dus voor de Blender-manager en bij twijfel Thijs; het kost niets vooraf. Bij een product van $19 zonder reviews haalt het het grootste risico van een koper weg (GOK, volgens de redenering in de bron).
+
+### 89. Superhive over sales: kopers wachten niet, en ruim 75% koopt voor de volle prijs
+- Kyle Maurer van Superhive, over hun eigen cijfers (DERDEN: [Superhive-blog, 5 mrt 2026](https://superhivemarket.com/posts/do-people-only-buy-during-sales-here-s-what-the-data-says)): van kopers met meer dan één aankoop kocht **0,4%** alleen in de sale; **0,3%** kocht 70% of meer in de sale. In de week vóór de Cyber Sale lag de omzet per dag in 6 van de 7 jaren **boven** het jaargemiddelde (alleen 2024: 0,2% eronder); over de 30 dagen ervoor de laatste 3 jaar 3% tot 9% eronder. Elk jaar gaat **meer dan 75%** van de aankopen voor de volle prijs.
+- Nieuw sinds zomer 2025: **bundels**. Ze verklaren het grootste deel van de groei in aankopen met korting en waren volgens Superhive "a huge net positive". Voorbeeld: "Creators 4 Creators: Pick of the Pack by Southern Shotty", 17 producten gekozen door een YouTuber, $508,40 waarde voor $254, zonder updates, met in veel producten een coupon om bij de maker zelf te kopen (GEZIEN, [bundelpagina](https://superhivemarket.com/bundles/southern-shottys-picks), afgelopen 28 nov).
+- **Voor ons:** (a) de week vóór 27 nov is geen dode week; een pagina met video helpt dus ook nu al (GOK uit de cijfers hierboven). (b) Een bundel is een etalage die Superhive samenstelt, niet wij; erin komen vraagt een aanvraag bij Superhive (benaderen, dus via de hoofdchat en regel 4). Voor nu alleen onthouden; eerst reviews en een video.
+
+### 90. Een solo-marketeer met Claude Cowork: alles intern zelfstandig, niets naar buiten
+- Sacra sprak een hoofd productmarketing van een kleine start-up die haar hele marketing alleen doet met Claude Code, Cowork, Skills en Design (DERDEN: [Sacra-interview, 2026, datum niet op de pagina](https://sacra.com/research/product-marketer-saas-automating-marketing-with-claude-cowork/)). Zelfstandig laat ze alleen terugkerende interne stukken lopen: concurrenten volgen, vacatures van klanten als verkoopsignaal, een maandelijkse brancheupdate, als lijstje in Slack.
+- Haar grens, letterlijk: "I wouldn't have Cowork autonomously post to our LinkedIn page ... the words still sound like AI ... Almost anything going externally, I won't just let an agent post autonomously." Wat misging: bronnen van het web die niet klopten; haar fix was interne "grondwaarheid"-documenten boven webbronnen zetten. Ze noemt het ontbreken van geheugen tussen sessies het grootste gat ("Every conversation starts fresh").
+- **Voor ons:** dit bevestigt wat we al hebben (patroon bij 55 en 61: vaste grondwaarheid in een bestand, keuring vóór iets naar buiten gaat). Onze repo is precies dat geheugen tussen sessies. Geen nieuwe opdracht, wel een tegenwicht voor elk "laat de agent alles plaatsen"-verhaal: wie het zelf dagelijks doet, laat het buiten niet los.
+
+## Patronen na ronde 16
+56. **De productpagina is goedkoper dan bereik**: bijna elke verkopende add-on heeft een video in de pagina, Pro niet (87). Eerst de pagina, dan pas meer posts die ernaar wijzen.
+57. **Kleine dingen die risico wegnemen tellen bij een onbekende maker**: video, reviews, een terugbetaalbelofte (88). Van deze drie kunnen we er twee vandaag zelf.
+58. **Sales trekken niet leeg wat ervoor komt** (89): de week vóór Black Friday verkoopt Superhive gewoon, dus nu verbeteren telt mee.
+
+## Stand na run 21 nov 02:30 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **12 van 14 verkopende add-ons op Superhive hebben een YouTube-video in de pagina, Click Joints Pro niet** (GEZIEN, 87). Onze lange video `m3sNvDOJYQ0` staat al openbaar.
+2. **De goedkope add-ons met de meeste reviews ($17 tot $18) tonen elke functie in een eigen filmpje of gif**: 5 tot 6 video's, 17 tot 22 gifs (GEZIEN, 87).
+3. **Op de Gumroad-pagina van Pro staat geen terugbetaalbelofte en geen video** (GEZIEN, 88); covers (5) en tekst (±3.500 tekens) zijn al in orde. De bron die zegt dat een belofte ±10 keer scheelt is reclame en samenhang (DERDEN, 88).
+4. **Kopers wachten niet op de sale** (DERDEN, 89): de week voor Black Friday ligt bij Superhive meestal boven gemiddeld, en meer dan 75% koopt voor de volle prijs.
+5. **Een marketeer die Cowork dagelijks gebruikt laat alleen intern werk zelfstandig lopen** (DERDEN, 90); naar buiten altijd een mens of keuring. Past bij onze regel 4.
+
+Voorstel: (a) de Blender-manager zet vóór 27 nov de video `m3sNvDOJYQ0` bovenaan de beschrijving van Pro op Superhive en als eerste cover op Gumroad (87, een paar minuten, €0); (b) hij besluit over een zin "money back within 30 days" op Gumroad, of meldt het aan de hoofdchat voor Thijs als hij dat een geldbesluit vindt (88); (c) de Maker van Roep maakt bij de volgende filmpjes per functie een korte gif zonder geluid die ook in de producttekst kan (87). Volgende run: hoe kleine Blender-makers aan hun eerste reviews komen zonder nepreviews (vragen na aankoop, Discord, testers), en of een agent dat zelfstandig kan binnen regel 4.
