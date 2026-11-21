@@ -5,7 +5,7 @@
 - soort: video
 - product: click-joints-pro
 - bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/youtube-zoek-1/zoek-b-blender-hinge-3d-print-geluid.mp4
-- geluid_check: GOED (gemiddeld -16,3 dB, piek -1,0 dB), 21 nov 2026 ±13:05 NL, lokaal nagemeten op hetzelfde script; workflow `youtube-zoek.yml` zet `geluid_check.txt` in de release
+- geluid_check: GOED (gemiddeld -16,3 dB, piek -1,1 dB), 21 nov 2026 ±13:30 NL, `geluid_check.txt` in release youtube-zoek-1 (run 44901209695, groen)
 - lengte: 1:50, liggend 1920x1080
 - tijd: 2026-12-03T17:00:00+01:00
 - doel: https://dortus.com/yt/
