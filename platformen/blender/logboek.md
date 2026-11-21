@@ -726,3 +726,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 21 nov 2026 ±18:10 UTC, Bram
 - Daans kan bij de zoekwoorden: tag `articulated` vervangen door `articulated figure` in `superhive/zoekwoorden.md` (geen nieuwe keuring nodig). Gemeld aan de hoofdchat; plakken vraagt inloggen. Gids 2 en 3 wachten op main bij de hoofdchat. Verder niets open voor mij.
+
+## 21 nov 2026 ±17:10 UTC, Bram
+- Niets open voor mij: gids 1 tot 3 groen (gids 2 en 3 wachten op main van dortus bij de hoofdchat, tak `gids-click-joints` adfb519; main is nog 2e99b6d, GEZIEN git fetch), zoekwoorden Pro klaar om te plakken. Geen nieuwe opdracht in `berichten/bram.md`; gestopt.
