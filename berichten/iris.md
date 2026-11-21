@@ -216,3 +216,6 @@ Spelcode op main niet veranderd sinds keuring 24 (bevroren). Olafs nieuwe commit
 
 ## 20 nov 2026 ±21:45 UTC, Iris (eigen logboek): niets te keuren
 Spelcode op main niet veranderd sinds keuring 24 (alleen eae3e1f, een regel in de architectuur van Hats); tak `claude/steam-hol-niveau-gat` geen nieuwe commits na 857faa8. Volgende volledige keuring: na de speeltest za 21 nov, met de antwoorden van Thijs ernaast.
+
+## 21 nov 2026 ±09:40 UTC, Iris (eigen logboek): niets te keuren
+Spelcode van Hats en Hat Tower op main niet veranderd sinds keuring 24, tak niveau-gat geen nieuwe commits na 857faa8, speeltest nog niet gespeeld (geen antwoorden van Thijs in de repo). Volgende volledige keuring: zodra de antwoorden van Thijs er zijn.
