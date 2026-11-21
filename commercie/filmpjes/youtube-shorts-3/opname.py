@@ -357,7 +357,7 @@ def verloop_pro():
     xdo("mousemove", "400", "900")
     yield 0.5
     heel = (0.0, 0.0, 112.0)
-    D_HEEL = 420.0
+    D_HEEL = 340.0
     cam(-25, 84.0, D_HEEL, heel)
     yield 0.8
     meet_schaal(heel, D_HEEL)
@@ -453,7 +453,7 @@ def verloop_pro():
     film["metingen"]["knie_herkomst"] = a.get("cj_herkomst")
     k = p["l-knee"]
     blik = (k.x, k.y, k.z + 5.0)
-    yield from stuk(30, lambda t: cam(10 + 60 * t, 84.0, D_HEEL - 230 * t, mengen(heel, blik, t)))
+    yield from stuk(30, lambda t: cam(10 + 60 * t, 84.0, D_HEEL + (165.0 - D_HEEL) * t, mengen(heel, blik, t)))
     deel("knie")
     onder = scherm_punt((p["l-knee"] + p["l-ankle"]) / 2)
     yield from muis_naar(onder[0], onder[1], 22)
@@ -505,7 +505,7 @@ def verloop_pro():
         for n, (pa, pb) in paren.items():
             if pb is not None:
                 buig(pb, standen[n] * t)
-        cam(70 - 95 * t, 84.0, 190 + 230 * t, mengen(blik, heel, t))
+        cam(70 - 95 * t, 84.0, 165.0 + (D_HEEL - 165.0) * t, mengen(blik, heel, t))
     yield from stuk(70, zet_pose)
     geen_selectie()
     bpy.context.view_layer.objects.active = b
