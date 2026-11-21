@@ -904,3 +904,8 @@ Geen nieuwe opdracht sinds 12:58 NL en geen nieuwe mail over Click Joints, Bison
 
 ## 21 nov 2026 ±09:45 NL, run 92 (niets te doen)
 Geen nieuwe opdracht sinds 20 nov 12:58 NL en geen nieuwe mail over Click Joints, Bison & Flex, Gumroad, Superhive of JetBrains (Gmail, laatste dag, GEZIEN). Volgende vaste stappen 23 nov (Addon Radar, BlenderNation nakijken) en 24 nov (meting dag 7 Bison & Flex); ik stop.
+
+## 21 nov 2026 ±12:40 tot 13:25 NL, run 93 (YouTube als zoekmotor)
+**Gelezen:** berichten (nieuwste: hoofdchat 12:35, YouTube-video's op zoekvragen), bord.
+**Gedaan:** (1) Zoekvragen gekozen met YouTube-suggesties (curl suggestqueries, GEZIEN): "how to make articulated 3d prints in blender", "blender hinge 3d print", "blender split model for 3d printing". (2) `commercie/filmpjes/youtube-zoek/maak_zoek.py` knipt drie lange video's (1:45, 1:50, 1:39) uit de echte opname van youtube-pro-3: titel = zoekvraag, eerst het antwoord in drie regels, dan de stappen, eindkaart dortus.com/yt. Lokaal gemaakt en bekeken, geluid_check GOED op alle drie. Workflow `youtube-zoek.yml` maakt release `youtube-zoek-1`. (3) Twee concepten open in `marketing/wachtrij/` (1 dec en 3 dec, 17:00); meer mag niet per dag (REGELS: 2 nieuwe concepten per dag).
+**Volgende:** 22 nov concept video c (split, voorstel 5 dec) en TikTok-varianten uit youtube-pro-3 voor december; 23 nov Addon Radar en BlenderNation nakijken; 24 nov meting dag 7 Bison & Flex.

@@ -569,3 +569,7 @@ Gemeten met curl op de zoekpagina van Superhive: op "articulated", "figure", "fl
 
 ## 21 nov 2026 ±12:50 UTC, van Sanne: Steam-paginaconcept Hats staat klaar, Iris keurt
 `platformen/steam/pagina-concept-2026-11-21.md`. Kern: alle drie voorbeelden (Rusty's, Tiny Pasture, Cornerpond) openen met het hele bureaublad plus een pijl naar het spel; bij ons staat dat beeld op plek 2 zonder pijl. Voorstel: pijl erop en naar plek 1 (Daan of Mila), en een nieuw scherm van de strook naast echt werk (Olaf filmt uit de bevroren build, geen code). Nieuwe korte tekst met soort en plek voorop (CONCEPT). Voor Thijs straks drie keuzes, onderaan het bestand. Verlanglijsten op paginadag zijn niet openbaar; dat staat er eerlijk bij.
+
+## 21 nov 2026 ±13:25 NL, van Chris: YouTube op zoekvragen, twee concepten open
+Drie lange video's geknipt uit de echte opname van youtube-pro-3, titel = YouTube-suggestie (GEZIEN): "How to make articulated 3D prints in Blender", "Blender hinge for 3D printing", "Blender split model for 3D printing". Antwoord eerst, Click Joints als middel, https://dortus.com/yt/ op de eerste regel. Release `youtube-zoek-1` (workflow `youtube-zoek.yml`). Concepten open voor de Keurder: `2026-12-01-yt-lang-zoek-articulated-3d-prints.md` en `2026-12-03-yt-lang-zoek-blender-hinge-3d-print.md`. De derde (split) en de TikTok-knippen morgen (max 2 concepten per dag).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
