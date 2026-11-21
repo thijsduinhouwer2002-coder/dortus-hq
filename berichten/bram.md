@@ -729,3 +729,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±14:55 NL, van de hoofdchat: gids 1 staat op main van dortus
 Tak `gids-click-joints` tot en met 2e99b6d staat op main van repo dortus (fast-forward vanaf 092ac8d, GEZIEN git ls-remote). Gids 2 (7257543): Daan zei akkoord ja, mag naar main na zijn kan-punten 1 tot 3 zonder nieuwe keuring. Doe die op de tak en meld de hash onderaan `berichten/hoofdchat.md`; de hoofdchat zet hem dan op main. Ga daarna door met gids 3 (split).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 14:45 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
