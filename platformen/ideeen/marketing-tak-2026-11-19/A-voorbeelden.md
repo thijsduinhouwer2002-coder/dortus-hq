@@ -888,3 +888,71 @@ Vijf belangrijkste dingen:
 5. **Een vraag in het product na een moment van waarde werkt het best** (DERDEN: 4 tot 8 naar 56 reviews per maand bij een WordPress-plugin, 95); alleen in Pro, nooit in de gratis versie.
 
 Voorstel: (a) geen tijd steken in "reviews regelen" zolang Pro 0 verkopen heeft; de voorstellen van run 16 (video bovenaan, terugbetaalbelofte) gaan voor (94); (b) de Blender-manager zet op Gumroad één workflow-mail klaar voor 3 dagen na de koop ("werkt alles? hier de video, antwoord als iets misgaat"), zonder extra reviewvraag, en laat hem keuren en door de hoofdchat aanzetten (92, 93); (c) in Pro 1.2 een rustige, weg te klikken beoordelingsregel na het 20e gewricht (95), €0; (d) zodra er een review is: binnen een dag een gekeurd antwoord, en de review in de Gumroad-beschrijving (93). Volgende run: waar de eerste 10 kopers van een add-on zonder publiek vandaan komen (zoekwoorden in Superhive, de nieuwe-productenlijst, Reddit-draadjes met een vraag waar Pro het antwoord op is), en welk deel een agent daarvan zelf kan vinden.
+
+## Ronde 18 (run 21 nov ±04:20 UTC, klok van de container): waar de eerste kopers van een add-on zonder publiek vandaan komen, en wat een agent daarvan zelf kan meten
+
+Vraag van run 17: hoe komt een add-on zonder eigen publiek aan zijn eerste 10 kopers, en welk deel kan een agent zelf vinden? Ik keek naar Superhive zelf (zoeken, galerijen), een concurrent die nu goed verkoopt, en de fora. Alles hieronder is met curl uit de cloud gelezen, zonder account.
+
+### 96. Cleave: een 3D-print-add-on van 2 maanden oud staat op plek 3 van "Popular" op Superhive, met een kanaal van 153 abonnees
+- **Wat:** Cleave van V4SS3UR (modellen splitsen voor 3D-print, met pennen, magneten en sinds 1.6 ook kogelgewrichten) staat vandaag als **nummer 3** in de galerij Popular op de voorpagina van Superhive (GEZIEN, voorpagina 21 nov ±04:10 UTC, `cleave?num=3&src=popular`). Volgens Superhive zijn dat "the eight products with the top sales over the past 7 days" (GEZIEN, [How to Get Your Product Featured](https://support.blendermarket.com/article/242-how-to-get-your-product-featured)). Het staat tussen Auto-Rig Pro, HumGen3D en Botaniq.
+- **Cijfers:** gepubliceerd ±2 maanden geleden, nu $23 (van $28), **3 beoordelingen** (GEZIEN, [productpagina](https://superhivemarket.com/products/cleave)). **11 versies in 8 weken**, van 1.0.0 op 23 sep tot 1.7.0 op 17 nov (GEZIEN, versiegeschiedenis). Het YouTube-kanaal heeft **153 abonnees** en 5 video's met **350 tot 830 weergaven** (GEZIEN, youtube.com/@V4SS3UR). Eén forumbericht op Blender Artists, een echte stap-voor-stap uitleg "eerst met de hand, dan sneller met een add-on die ik schreef": **264 keer bekeken, 0 likes** (GEZIEN, [Blender Artists, 1 okt](https://blenderartists.org/t/1654018)).
+- **Wat de pagina doet:** een lange titel vol zoekwoorden ("Smart Model Split & Cut for 3D Printing with Connectors (Pegs, Dowel, Rod Channel, Magnets, Ball Joints)"), bovenaan "Too big to print? Split it.", twee tutorials en een demo ingebed, een voor/na-beeld, en een stuk "Why not just bisect it by hand?" dat de gratis weg eerlijk naast de add-on legt (GEZIEN).
+- **Wat dit zegt:** met een klein kanaal en een forumbericht dat weinig deed, komt het grootste deel van de kopers vrijwel zeker van Superhive zelf: zoeken, de galerijen en de sale-badge (GOK, Superhive geeft geen verkoopcijfers per product). En: **een add-on voor 3D-print met gewrichten kan op Superhive bij de best verkopende van de week staan**. De markt bestaat dus.
+- **Voor ons:** Cleave is de beste vergelijking voor Pro (zelfde kopers, deels zelfde functie: kogelgewrichten). Wat zij hebben en Pro nog niet: zoekwoorden in de titel, video's ingebed op de pagina, en elke week een zichtbare nieuwe versie.
+
+### 97. Waar Click Joints Pro nu staat in de zoekfunctie van Superhive
+Telling op 21 nov ±04:00 UTC, zoeken in alle categorieën en in Addons (GEZIEN, `superhivemarket.com/search?search[q]=...`, 24 producten per pagina). De zoekwoorden komen uit de suggesties die Superhive zelf geeft als je begint te typen (GEZIEN, `/search/suggestions`: "articulated joints", "print in place", "ball joint", "joint", "hinge", "printable").
+
+| Zoekwoord | Plek Pro (alles) | Plek Pro (Addons) | Wie staat ervoor (Addons) |
+|---|---|---|---|
+| click joints | 1 | 1 | |
+| posable | | 1 | |
+| ball joint | 3 | 3 | Cleave, Cut Flex |
+| joints | 8 | 5 | Cleave, Join Mesh, JointLab, Dovetail Key |
+| joint | 10 | | |
+| hinge | 20 | 4 | PhysForge, LayerMechanic, Pro Origin Tools |
+| articulated joints | | 5 | JointLab, Cut Flex, Articulator, OpenSet Connect |
+| action figure | | 10 | |
+| printable | | 19 | |
+| articulated | niet in top 24 | | JointLab, losse modellen |
+| print in place | niet in top 24 | niet in top 24 | LayerMechanic, Fit & Tolerance Test Generator |
+| 3d printing / 3d print | niet in top 24 | niet in top 24 | Ultimate STL Export, Cleave, PuzzleUrPrint, JointLab |
+| snap fit, flexi | niet in top 24 | niet in top 24 | |
+
+- **Concurrenten die ik zo vond** (GEZIEN, productpagina's): JointLab $65 (3 beoordelingen, 4 maanden), Cut Flex $34,99 ("3d-printed-poseable", "ball-joints", 1 maand), Articulator $1 (2 beoordelingen), Catpin $24 (4 beoordelingen), LayerMechanic $25 (print-in-place, 1 maand), Printwright $19 (18 dagen). Buiten Superhive: SlicerJoint Pro op Gumroad $20, **0 beoordelingen** na 3,5 maand, twee forumberichten met 310 en 223 weergaven (GEZIEN, [Gumroad](https://ayhancelik.gumroad.com/l/slicerjointpro), [Blender Artists](https://blenderartists.org/t/slicerjoint-pro/1649572)).
+- **Waarom Pro mist op "print in place" en "3d printing":** de titel is alleen "Click Joints Pro", en de tags missen precies die woorden (Pro heeft wel 3d-printing, ball-joint, hinge, posable, articulated-figure; GEZIEN). Hoe Superhive zoekt (titel, tags, tekst) staat nergens beschreven; dat titel en tags meetellen is een GOK uit de tabel.
+- **Hoe lang "nieuw" helpt:** Superhive zegt zelf dat zoeken standaard het nieuwste eerst toont, maar "with dozens of products uploaded daily, the amount of time that your product spends on that first search page may not be very long" (GEZIEN, [How to Increase Sales](https://support.blendermarket.com/article/203-how-to-increase-sales)). Pro staat sinds ±20 nov live en staat vandaag al niet meer in het rijtje "new" op de voorpagina (GEZIEN). Het moment van de New Arrivals-galerij is dus al voorbij.
+
+### 98. Wat Superhive zelf zegt over de eerste verkoop
+Uit de makershulp (GEZIEN, laatst bijgewerkt 30 sep 2026, [Tips for Success](https://support.blendermarket.com/article/174-tips-for-success), [How to Increase Sales](https://support.blendermarket.com/article/203-how-to-increase-sales), [Featured](https://support.blendermarket.com/article/242-how-to-get-your-product-featured)):
+- **Popular** = de 8 met de meeste verkopen in 7 dagen. **Staff Picked** = 2 producten, elke maandag, woensdag en vrijdag met de hand gekozen, vooral uit nieuwe inzendingen; "if the featured image is blah, it will not be selected". **New Arrivals** = de 8 nieuwste.
+- Een sale geeft een "On Sale"-badge en vergroot de kans om in "Popular" en "Top Selling" te komen; een publieke coupon komt op de couponpagina en in de zijbalk van het product (zie ook 82).
+- Mond-tot-mond via support: "Someone ... calls out your product on a YouTube video or in their Blenderartists post and you suddenly have dozens more people looking at and buying your product." Dat komt volgens hen door een goed product plus snel en goed antwoorden.
+- Tegengeluid: een oud stuk van Superhive zelf zegt "If you build it they will not come" en raadt aan overal te promoten (DERDEN, [This Is What Successful Creators Are Doing](https://superhivemarket.com/posts/this-is-what-successful-blender-market-vendors-are-doing)); Andreas Esau (BPainter, duizenden verkopen volgens Superhive) haalde zijn kopers vooral via Twitter en BlenderNation (DERDEN, [interview](https://superhivemarket.com/posts/andreas-esau-if-you-want-to-sell-blender-add-ons-learn-how-to-communicate)). Beide stukken zijn van jaren geleden, toen er veel minder producten waren.
+
+### 99. Vragen op fora als bron van kopers: weinig aanbod, en Reddit is dicht vanuit de cloud
+- **Blender Artists** heeft een open JSON-zoekfunctie zonder account (GEZIEN, `blenderartists.org/search.json`). Zoeken op "articulated joints print" geeft in 2026 maar **1 echte vraag** (31 okt, iemand die een beweegbaar figuurtje wil maken, 104 keer bekeken, 4 berichten) en verder vooral berichten van add-on-makers zelf (GEZIEN). Het aanbod aan vragen waar Pro het antwoord op is, is dus klein: grofweg één per maand op dit forum (GOK).
+- **Blender Stack Exchange** (open API, 300 aanvragen per dag zonder sleutel, GEZIEN quota 280): de vragen over gewrichten voor 3D-print zijn oud (2016 tot 2024) en een paar honderd tot ±2.200 keer bekeken (GEZIEN). Die oude vragen worden wel nog gevonden via Google, maar een antwoord met een link naar een betaald product mag daar meestal niet (GOK, niet nagelezen in deze run).
+- **Reddit** geeft vanuit de cloud een 403, ook op old.reddit en de RSS (GEZIEN, deze run). Dat klopt met 68 en met wat Aria13 en anderen meldden. Een agent kan Reddit dus niet zelf lezen vanaf hier; alleen via WebSearch-resultaten, zonder de nieuwste draadjes.
+- **Indie Hackers** staat achter een Cloudflare-scherm voor curl (GEZIEN). De vele "ik kreeg 60 klanten via Reddit" en "9 keer verbannen"-verhalen daar kon ik dus niet lezen; ik tel ze niet mee.
+- **Tools die Reddit afspeuren naar kopers** (Subradar, ReplyRadar, Okara, LeadsFromURL, op Product Hunt en Indie Hackers) noemen geen eigen verkoopuitslag op hun pagina's in de zoekresultaten (GEZIEN, alleen titels; verkooppraat tot het tegendeel blijkt).
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Wel zelf, elke dag, €0:** de tabel van 97 opnieuw maken (de plek van Pro voor 10 tot 15 zoekwoorden, alles en Addons), de galerijen op de voorpagina uitlezen (Popular, new, new_and_rising, staff picks) en kijken of Pro of een concurrent erin staat, de versies en prijzen van Cleave, Cut Flex en JointLab volgen, en Blender Artists doorzoeken op nieuwe vragen. Dit is allemaal openbaar en werkt met curl uit de cloud (GEZIEN).
+- **Na keuring, door de Blender-manager:** titel, ondertitel en tags van Pro op Superhive aanpassen (zie voorstel). Dat is onze eigen productpagina, geen post naar buiten.
+- **Niet:** Reddit lezen of plaatsen vanaf hier, en geen antwoorden op fora onder een account van Thijs zonder zijn ja (regel 4).
+
+## Patronen na ronde 18
+62. **Op Superhive brengt de winkel zelf de eerste kopers, als je gevonden wordt** (96, 97): een concurrent met 153 abonnees staat in de top 8 van de week. Zoekplek en galerijen zijn de hefboom, niet eigen bereik.
+63. **Zichtbaar onderhoud verkoopt** (96): Cleave bracht elke week een versie uit, elk met een nieuwe functie die op de pagina staat.
+64. **Vragen op fora zijn voor Pro een klein kanaal** (99): ±1 echte vraag per maand op Blender Artists, en Reddit is dicht vanuit de cloud. Niet de plek waar de eerste 10 kopers vandaan komen.
+
+## Stand na run 21 nov 04:35 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **Cleave, een 3D-print-add-on met kogelgewrichten van 2 maanden oud, staat vandaag op plek 3 van de best verkopende week op Superhive, met een YouTube-kanaal van 153 abonnees** (GEZIEN, 96). De kopers komen dus vooral uit Superhive zelf, en de markt voor Pro bestaat.
+2. **Pro is goed te vinden op "click joints", "posable", "ball joint", "joints" en "hinge" (Addons: plek 1 tot 5), maar niet op "print in place", "3d printing", "articulated" en "snap fit"** (GEZIEN, 97), woorden die Superhive zelf als zoeksuggestie geeft.
+3. **De titel van Pro is alleen "Click Joints Pro"**; Cleave, JointLab en anderen zetten hun zoekwoorden in de titel (GEZIEN, 96, 97).
+4. **Het moment "nieuw" is na een dag voorbij** (GEZIEN, 97): Pro staat al niet meer in het rijtje new op de voorpagina. Staff Picked (2 per keer, ma/wo/vr) hangt af van een sterke hoofdafbeelding (GEZIEN, 98).
+5. **Fora en Reddit leveren hier weinig op**: ±1 echte vraag per maand op Blender Artists, Reddit 403 vanuit de cloud (GEZIEN, 99).
+
+Voorstel: (a) de Blender-manager past vandaag de Superhive-pagina van Pro aan, €0: titel naar iets als "Click Joints Pro - Rig to Printable Articulated Figure (Ball Joints, Hinges, Print in Place, 3D Printing)" en tags erbij: print-in-place, articulated, 3d-print, snap-fit, flexi, toy; laat een ander keuren, en tel na 2 dagen opnieuw met de tabel van 97 (doel: top 10 in Addons op "print in place", "articulated" en "3d printing"); (b) twee video's (de lange video en een korte demo) ingebed bovenaan de Superhive-pagina, zoals Cleave (96); (c) houd elke week een kleine, zichtbare versie aan (1.1.1, 1.2) met een regel in de versiegeschiedenis, zolang er iets echts te verbeteren is (63); (d) laat de Roep- of scorebordagent de tabel van 97 en de voorpagina-galerijen dagelijks met curl meten en in het scorebord zetten, zodat we zien of (a) werkt. Volgende run: wat de hoofdafbeelding van producten in Staff Picked en new_and_rising gemeen heeft, en hoe die van Pro daar tegenaan ligt.
