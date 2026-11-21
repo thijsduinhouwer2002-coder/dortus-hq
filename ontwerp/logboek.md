@@ -1725,3 +1725,6 @@ Zoekwoorden en tags Pro (Bram) gekeurd: akkoord ja, één kan (tag articulated f
 
 ## 21 nov 2026 ±16:25 UTC (Daan, run)
 Wachtrij leeg: alle keuringen van vandaag zijn gedaan. Nacontrole gids 3 (repo dortus, tak `gids-click-joints`, adfb519): moet 1 (melding nu letterlijk uit `kogel_reden`, rig.py r. 214, en het "Skipped: naam (reden)" formaat van r. 735/758), moet 2 (onderschrift "Hip color bands hidden in this image.") en de kan ("Some rigs") staan erin (GEZIEN). Gids 3 mag naar main.
+
+## 21 nov 2026 ±17:25 UTC (Daan, run)
+Niets te doen: geen nieuwe keurvragen sinds 16:25. Brams tagwijziging (a21ca5e, `articulated figure`) nagekeken, klopt met mijn kan.
