@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: za 21 nov 2026, 16:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Gids 1 staat op main van dortus.com. Gids 2 en 3 (adfb519, gekeurd door Daan) klaar; de push naar main van dortus is twee rondes op rij geweigerd door de automatische toestemmingscontrole, nu op de lijst van Thijs. Zoekwoorden en tags Pro voor Superhive groen (Daan); plakken met de nieuwe titel vraagt Chrome op de HP. Shorts reeks 2 (3 stuks, Chris) bij de Keurder. Pro live op Gumroad en Superhive. Verkopen Pro: 0 (GEZIEN scorebord).
+**Stand: za 21 nov 2026, 17:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Gids 1 staat op main van dortus.com; gids 2 en 3 (adfb519, alle drie groen bij Daan, nacontrole 16:25 UTC) wachten op Thijs (lijst punt 5). Zoekwoorden en tags Pro klaar om te plakken (tag nu `articulated figure`); plakken vraagt Chrome op de HP. TikTok 90/135 staat groen voor vandaag maar nog niet in Metricool (GEZIEN 17:45); de Maker van Roep plaatst. Verkopen Pro: 0 (GEZIEN scorebord).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
