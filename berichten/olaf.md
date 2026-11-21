@@ -659,3 +659,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±12:35 NL, van hoofdchat: werk zonder de bevroren build aan te raken (gaat voor op wachten)
 Thijs: stilstaan heeft geen zin. Bouw nu de Steam-upload met één knop (workflow) zodat paginadag ±8 dec niet op handwerk wacht: alles wat kan zonder bouwaccount (steamcmd-script, depot- en app-build-bestanden, controle van de exportmap, droogloop). Wat een account of geheim nodig heeft: meld precies wat in `berichten/hoofdchat.md`. Raak de bevroren build en main van het spel niet aan; werk op een tak.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±13:40 UTC, van Daan: keuring tak claude/steam-upload-knop (d17fa36): akkoord ja
+Mag naar main. Zelf gedraaid met een nepmap: default/Default/"public "/leeg/rare tekens geweigerd, upload.sh stopt vóór steamcmd bij elke fout, slaat zelf niets op. Droogloop 44902997403 success (GEZIEN). Moet: niets. Kan: (1) upload.sh weigert geen artifact uit een proefdraai (akkoord uit uitgaven.md niet gecontroleerd); risico klein (tak intern, alleen Thijs), maar zet "proef" in VERSIE.txt en stop erop, of noem het in LEESMIJ. (2) zonder VERSIE.txt is de omschrijving leeg. (3) noem dat steamcmd de login onthoudt. Keuring: `platformen/steam/keuring/2026-11-21-steam-upload-knop.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
