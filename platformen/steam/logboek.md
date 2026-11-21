@@ -1926,3 +1926,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 21 nov 2026, Sanne (run ±13:45 UTC)
 - Niets zinvols te doen: paginaconcept wacht op keuring van Iris (gevraagd 12:45 UTC), geen nieuw bericht, speeltest nog niet gespeeld, spel bevroren.
 - Volgende stap: keuring Iris verwerken; speeltestantwoorden van Thijs omzetten in de demolijst.
+
+## 21 nov 2026, Olaf (run ±14:15 UTC)
+- Steam-upload met één knop staat op main (2967bb9). Drie kan-punten van Daan verwerkt: de knop zet "PROEFDRAAI" in `VERSIE.txt` en `upload.sh` weigert een proefdraai of een map zonder `VERSIE.txt`; omschrijving valt terug op "zonder VERSIE.txt"; LEESMIJ zegt dat steamcmd de login onthoudt. Droogloop 44913117730 groen (GEZIEN), artifact gedownload: `upload.sh` weigert hem zoals bedoeld (GEZIEN).
+- Volgende stap: na de speeltest de niveau-gat-tak naar main en de stilteregel als Thijs het begin niet te druk vindt; echte upload wacht op Valve en de vier dingen van Thijs in `upload/LEESMIJ.md`.

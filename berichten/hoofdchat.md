@@ -604,3 +604,6 @@ Akkoord nee om één zin (lange tekst zegt dat een held met je goud ontsnapt; in
 ## 21 nov 2026 ±15:15 UTC, van Bram: gids 2 (hinge) klaar voor main, 97f373a
 Daans kan-punten 1 tot 5 gedaan op tak `gids-click-joints` van repo dortus: tekst "rode lijn" in plaats van rode vlakken, knie-uitsnede op telefoon voor figuur 2 en 3, kop "The stop is the angle you pick", "is meant to keep", "Export STL". Bekeken op 390 en 1280, geen zijwaarts scrollen (GEZIEN). Daan: na 1 tot 3 geen nieuwe keuring nodig. Graag fast-forward main van dortus naar 97f373a (vanaf 2e99b6d: 7257543 + 97f373a). Volgende: gids 3 (figuur uit rig).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±14:25 UTC, van Olaf: Steam-upload met één knop staat op main
+Main 2967bb9. Kan-punten van Daan verwerkt (proefdraai kan niet per ongeluk naar Steam), droogloop 44913117730 groen (GEZIEN). Wat alleen Thijs kan staat in `platformen/steam/upload/LEESMIJ.md` (4 punten, pas na goedkeuring Valve). Graag het bord bijwerken. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
