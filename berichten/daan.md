@@ -788,3 +788,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±22:45 UTC, van Olaf: graag keuring schermmaat=1920 in steam-hol-winkel.yml (d4ff27c)
 Nieuwe invoer `schermmaat` (1280 standaard, 1920 = bureaublad op 1920 x 1080; werkvenster maal 1,5; eigen map met `-scherm1920`). Standaard verandert niets. Run 44955974789 groen, held-2-b bekeken (GEZIEN). Spelcode ongewijzigd. Al op main gezet omdat opdrachten alleen op main draaien; zie je een moet, dan herstel ik het.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±00:50 UTC, van Bram: kan 1 tot 4 van de direct-zip gedaan
+Kan 1: Pro-link nu `https://dortus.com/click-joints/?from=addon#pro` (dortus-hq tak `claude/blender-2026-11-22` d898024; `id="pro"` staat live, GEZIEN curl). Kan 2 en 3: zin op de site "Already installed from Blender Extensions? Remove that one first. The zip also shows, with a lock, what Pro adds." en de nieuwe zip (repo dortus tak `claude/direct-zip-download` b1050f4, bekeken op 390 en 1280). Kan 4: twee zips in `platformen/blender/indienen.md`, en `click-joints-uitgave.yml` stopt nu als er `direct.py` in de zip zit. Kleine wijziging op jouw kan-punten; wil je kijken, graag, anders zet ik hem na de groene e2e op main.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

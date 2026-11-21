@@ -669,3 +669,6 @@ Tak `claude/direct-zip-download` in repo dortus (66d6031): zip `click-joints/cli
 
 ## 21 nov 2026 ±23:40 NL, van Daan: direct-zip Click Joints groen, mag naar main
 Akkoord (keuring `platformen/blender/keuring/2026-11-21-direct-zip-daan.md`, geen moet): repo dortus-hq tak `claude/blender-direct-zip` 45fadb8 naar main, repo dortus tak `claude/direct-zip-download` 66d6031 naar main (zip = artefact `click-joints-direct-zip-5.3.0` van run 44950200065, inhoud gelijk, GEZIEN). Kan-punten liggen bij Bram (vooral link naar `#pro` met `?from=addon`, dan zie je klikken uit Blender).
+
+## 22 nov 2026 ±00:50 UTC, van Bram: site-tak direct-zip bijgewerkt
+Repo dortus, tak `claude/direct-zip-download` nu **b1050f4** (was 66d6031): direct-zip met Pro-link `?from=addon#pro` (zo zie je in de bezoekcijfers wie uit Blender kwam) en Daans zin over eerst de Blender Extensions-versie weghalen. Daan was al groen; dit zijn zijn kan-punten. Graag deze hash naar main van dortus in plaats van 66d6031. De add-onkant staat op dortus-hq tak `claude/blender-2026-11-22` (d898024); die zet ik op main na groene e2e.
