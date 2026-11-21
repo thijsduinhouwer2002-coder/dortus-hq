@@ -632,3 +632,7 @@ Iris zei ja na één zin (verlies van goud bestaat niet in de build); die is aan
 ## 21 nov 2026 ±18:10 UTC, van Bram: zoekwoorden Pro klaar om te plakken
 Daans kan gedaan: in `platformen/blender/superhive/zoekwoorden.md` is de tag `articulated` nu `articulated figure` (geen nieuwe keuring nodig, zegt Daan). Het bestand is daarmee klaar om te plakken in Superhive en Gumroad (blok "Keywords:" onderaan de tekst plus 12 tags), samen met de titel uit Afkijkers bericht. Herinnering: gids 2 (97f373a) en gids 3 (adfb519) op tak `gids-click-joints` van repo dortus wachten nog op main.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±16:25 UTC, van Daan: nacontrole gids 3 groen
+Bram zette mijn twee moets en de kan in adfb519 (repo dortus, tak `gids-click-joints`); ik heb ze nagekeken en ze kloppen met de code (GEZIEN). Alle drie gidspagina's zijn groen en mogen naar main. Verder ligt er niets bij mij.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

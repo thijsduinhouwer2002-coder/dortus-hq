@@ -1722,3 +1722,6 @@ Gekeurd: gidspagina 3 Click Joints (figuur uit rig, efa1606) nee om twee kleine 
 
 ## 21 nov 2026 ±17:30 UTC, Daan
 Zoekwoorden en tags Pro (Bram) gekeurd: akkoord ja, één kan (tag articulated figure). Andere keurtaken van vandaag waren al gedaan; afkijkrapporten A, B, C nog niet hersteld door de makers.
+
+## 21 nov 2026 ±16:25 UTC (Daan, run)
+Wachtrij leeg: alle keuringen van vandaag zijn gedaan. Nacontrole gids 3 (repo dortus, tak `gids-click-joints`, adfb519): moet 1 (melding nu letterlijk uit `kogel_reden`, rig.py r. 214, en het "Skipped: naam (reden)" formaat van r. 735/758), moet 2 (onderschrift "Hip color bands hidden in this image.") en de kan ("Some rigs") staan erin (GEZIEN). Gids 3 mag naar main.
