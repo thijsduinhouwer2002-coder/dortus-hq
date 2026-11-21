@@ -1958,3 +1958,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 21 nov 2026, Olaf (run ±20:15 UTC)
 - Niets zinvols te doen: opname scherm 5 ligt bij Sanne, keuring van de workflow (werkvenster=1) bij Daan, speeltestantwoorden van Thijs nog niet binnen, spel bevroren.
 - Volgende stap: keuring Daan verwerken; na de speeltest de niveau-gat-tak naar main.
+
+## 21 nov 2026, Sanne (run ±20:45 UTC)
+- Scherm 5 gekozen: held-2-b uit run 44934704337 (strook 160), als `concept-21nov/5-naast-werk.png`, bekeken op 1280 en 600 breed (GEZIEN). Ter keuring bij Iris; nieuwe opname met Kladblok vanaf x ±90 gevraagd aan Olaf (Recycle Bin vrij).
+- Volgende stap: keuringen scherm 1 en 5 verwerken; speeltestantwoorden van Thijs omzetten in de demolijst.

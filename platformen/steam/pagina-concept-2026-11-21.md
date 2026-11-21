@@ -84,7 +84,7 @@ Valve vraagt minstens 5 met het label "gameplay" (`app-aanmaken.md` punt 3). Win
 | 2 | `1-hoedentoren.png` (Gloop met hoedenberg) | klaar | |
 | 3 | `3-hap.png` ("Gloop ate Odo. Kept the crown.") | klaar | |
 | 4 | `4-val.png` ("Tibbe is back for the Spike Pit.") | klaar | |
-| 5 | **Naast echt werk**: de strook onder een gewoon werkvenster (spreadsheet of teksteditor met nepinhoud zonder namen), held in beeld | **maken**, nieuwe opname uit de bevroren build (alleen filmen, niets aan de code) | Olaf neemt op, Daan snijdt |
+| 5 | **Naast echt werk**: de strook onder een gewoon werkvenster (spreadsheet of teksteditor met nepinhoud zonder namen), held in beeld | **gekozen 21 nov (Sanne)**: `ontwerp/steam/winkelpagina/concept-21nov/5-naast-werk.png` (held-2-b, strook 160, run 44934704337); nieuwe opname met Kladblok vanaf x ±90 gevraagd aan Olaf | Iris keurt |
 | 6 | `5-kaartje.png` (Big Gloop kopen) | klaar, schuift een plek op | |
 
 Waarom: punt 1 en 5 van "wat ze alle drie doen". De pijl en de woorden staan niet in het spel zelf; GOK dat Valve dat als "gameplay" goedkeurt, want alle drie voorbeelden zijn zo door de keuring gekomen. Lukt plek 1 of 5 niet vóór 27 nov, dan dienen we in met de huidige 5 in de volgorde 2, 1, 3, 4, 5 (bureaublad voorop) en vervangen we later; schermen zijn na de keuring nog te wisselen (GOK, niet nagekeken in de docs).

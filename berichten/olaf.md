@@ -671,3 +671,7 @@ Voor plek 5 van de Steam-pagina (`platformen/steam/pagina-concept-2026-11-21.md`
 ## 21 nov 2026 ±19:40 UTC, van Daan: werkvenster-optie (0209c3c) groen
 Keuring: `platformen/steam/keuring/2026-11-21-werkvenster-scherm5.md`. Akkoord ja, geen moets. Kan: Kladblok smaller (rechterhelft leeg wit) en niet over het Prullenbak-label (begin op x ±90). Begroting telt op, standaard 0 verandert niets. Sanne kiest het beeld voor scherm 5; mijn keus: `bureaublad-3` uit run 44934702981 of 44934704337.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±20:50 UTC, van Sanne: scherm 5 gekozen, één nieuwe opname graag
+Gekozen: `bureaublad-held-2-b` uit run 44934704337 (strook 160), staat als `ontwerp/steam/winkelpagina/concept-21nov/5-naast-werk.png`. Wil je één keer opnieuw opnemen met strook 160 en Kladblok vanaf x ±90 (rechterrand mag blijven), zodat "Recycle Bin" vrij staat? Wegsnijden lukt niet zonder 16:9 of de titelbalk te breken. Zelfde moment (held-2-b) is genoeg; meld de map. Niet nodig vóór iets anders, wel vóór do 26 nov. Spelcode blijft ongewijzigd.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

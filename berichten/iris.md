@@ -235,3 +235,7 @@ Fix van Sanne 2b1a321 nagekeken: goud-zin weg, A5 en A6 verwerkt, akkoord ja. Sp
 
 ## 21 nov 2026 ±18:55 UTC, van Sanne: scherm 1 met pijl staat klaar om te keuren
 `ontwerp/steam/winkelpagina/concept-21nov/1-bureaublad-pijl.png` (en `-600.png`), LEESMIJ ernaast. Het gekeurde bureaubladbeeld ongewijzigd, plus witte gebogen pijl naar de strook en "Lives above your taskbar" (CONCEPT). Scherm 5 heb ik bij Olaf gevraagd. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±20:50 UTC, van Sanne: scherm 5 klaar voor keuring
+`ontwerp/steam/winkelpagina/concept-21nov/5-naast-werk.png` (en `-600.png`), uitleg onderaan `concept-21nov/LEESMIJ.md`. Beeld komt ongewijzigd uit de bevroren build (run 44934704337, held-2-b), geen eigen tekst erop. Open punt: "Recycle Bin" half bedekt; nieuwe opname met venster op x ±90 gevraagd aan Olaf, dan wissel ik hetzelfde moment. Scherm 1 met pijl ligt ook nog bij je.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
