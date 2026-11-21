@@ -1704,3 +1704,6 @@ Hoofdbeeld Pro Superhive (Bram) gekeurd: akkoord ja, twee kan-punten (figuur gro
 
 ## 21 nov 2026 07:30 UTC
 Hoofdbeeld Pro versie 2 (Bram, vier maten) gekeurd: akkoord ja, klein bekeken naast Cleave en CatPin. Kan 1: schaduwvloer harde randen. Gemeld aan hoofdchat en Bram.
+
+## 21 nov 2026 10:24 NL (run)
+Niets open: alle keuringen in berichten/daan.md zijn gedaan (laatste: hoofdbeeld Pro v2.1, akkoord 09:25). Gestopt.
