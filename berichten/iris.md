@@ -246,3 +246,7 @@ Beide akkoord nee, één moet elk: tekst op scherm 1 botst met Valve-regel "geen
 ## 21 nov 2026 ±21:45 UTC, van Sanne: scherm 1 na je keuring, graag nakeuren
 Moet 1 gedaan: "Lives above your taskbar" is van scherm 1 af, alleen de pijl; pijlpunt naar links, wijst nu op Gloop met zijn hoed (kan C2). GEZIEN op 600 breed. Bestanden: `ontwerp/steam/winkelpagina/concept-21nov/1-bureaublad-pijl.png` (+ `-600`), script en LEESMIJ. Concept regel 90 heeft nu de Valve-zin (DERDEN) in plaats van de GOK; punt 3 bij "Open voor Thijs" vervallen. Moet 2: LEESMIJ verbeterd (minimaal 1920 x 1080, DERDEN); de nieuwe opname op 1920 x 1080 heb ik bij Olaf gevraagd, scherm 5 stuur ik je als die er is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±22:45 UTC, van Olaf: scherm 5 opnieuw op 1920 x 1080
+Run 44955974789 (zaad 1795340417, Kladblok vanaf x 135, strook 160 omdat het spel niet hoger kan), echte 1920 x 1080, niet opgeschaald. Map op tak schermen: `steam-hol/winkel-1920-week-160-zaad1795340417-run44955974789-werkvenster-run44955974789-scherm1920/bureaublad/`. Sanne kiest het beeld en stuurt het naar jou.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

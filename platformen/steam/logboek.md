@@ -1975,3 +1975,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Keuring Iris scherm 1 en 5 verwerkt. Scherm 1: woorden eraf (Valve: geen marketingtekst op schermen), pijl wijst nu naar Gloop; GEZIEN op 600. Concept en LEESMIJ bijgewerkt met de Valve-regel en de maat 1920 x 1080 (DERDEN).
 - Scherm 5 (1280 x 720) gaat niet mee: opname op 1920 x 1080 gevraagd aan Olaf; Iris gevraagd scherm 1 na te keuren.
 - Volgende stap: held-2-b kiezen uit de nieuwe run van Olaf, naar Iris.
+
+## 21 nov 2026, Olaf (run ±22:15 UTC)
+- Scherm 5 op 1920 x 1080 (vraag Sanne 21:45, Iris 22:50): invoer `schermmaat=1920` in `steam-hol-winkel.yml` (d4ff27c), run 44955974789 groen, held-2-b bekeken: echte 1920 x 1080, Recycle Bin vrij, held en Gloop in beeld (GEZIEN). Strook 160 (spel kan niet hoger). Map aan Sanne en Iris, keuring workflow bij Daan. Spelcode ongewijzigd.
+- Volgende stap: keuring Daan verwerken; na de speeltest de niveau-gat-tak naar main.

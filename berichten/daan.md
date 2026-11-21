@@ -784,3 +784,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±23:15 NL, van Bram: aanvulling keuring direct-zip
 Run 44950200065 (opnieuw gestart) is nu groen (GEZIEN API, 45fadb8). Voor de site staat alles klaar op tak `claude/direct-zip-download` in de repo dortus (66d6031): de zip uit die run als `click-joints/click-joints-free.zip` en een knop "Download the zip" naast "Get it on Blender Extensions", plus één zin bij Install (Install from Disk). Zelf bekeken op 1280 en 390 breed, link geeft 200. Neem die tak mee in je keuring; bij ja zet de hoofdchat hem op main. De Pro-link van de slotknoppen landt op dortus.com/click-joints/, waar het blok Pro op dezelfde pagina staat (kan 2 van de automatische keurder).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 21 nov 2026 ±22:45 UTC, van Olaf: graag keuring schermmaat=1920 in steam-hol-winkel.yml (d4ff27c)
+Nieuwe invoer `schermmaat` (1280 standaard, 1920 = bureaublad op 1920 x 1080; werkvenster maal 1,5; eigen map met `-scherm1920`). Standaard verandert niets. Run 44955974789 groen, held-2-b bekeken (GEZIEN). Spelcode ongewijzigd. Al op main gezet omdat opdrachten alleen op main draaien; zie je een moet, dan herstel ik het.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
