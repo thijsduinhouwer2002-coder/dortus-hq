@@ -1719,3 +1719,6 @@ Gekeurd: titel Superhive Pro gekozen (b, met "Articulated"), Where to find it ja
 
 ## 21 nov 2026 ±16:20 UTC, Daan
 Gekeurd: gidspagina 3 Click Joints (figuur uit rig, efa1606) nee om twee kleine moets (foute voorbeeldmelding heup, heupbanden weg zonder melding). Afkijkrapporten A, B, C nog niet hersteld, dus geen herkeuring. Verder niets open.
+
+## 21 nov 2026 ±17:30 UTC, Daan
+Zoekwoorden en tags Pro (Bram) gekeurd: akkoord ja, één kan (tag articulated figure). Andere keurtaken van vandaag waren al gedaan; afkijkrapporten A, B, C nog niet hersteld door de makers.
