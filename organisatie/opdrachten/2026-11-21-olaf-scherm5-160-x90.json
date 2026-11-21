@@ -1,0 +1,11 @@
+{
+  "workflow": "steam-hol-winkel.yml",
+  "invoer": {
+    "soort": "week",
+    "hoogte": "160",
+    "werkvenster": "1",
+    "zaad": "1795340417"
+  },
+  "van": "olaf",
+  "waarom": "scherm 5 opnieuw: Kladblok vanaf x 90 zodat Recycle Bin vrij staat, zelfde zaad als run 44934704337 (Sanne 21 nov 20:50)"
+}

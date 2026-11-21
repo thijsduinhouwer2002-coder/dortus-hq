@@ -283,8 +283,9 @@ jobs:
           if ($env:WERKVENSTER -eq '1') {
             $wg = [System.Windows.Forms.Screen]::PrimaryScreen.WorkingArea
             $vh = $wg.Height - [int]$env:HOOGTE - 16 - 10
-            $gezet = [Scherm]::MoveWindow($h, 40, 16, $wg.Width - 80, $vh, $true)
-            Write-Output "werkvenster groot: 40,16 $($wg.Width - 80) x $vh (werkgebied $wg, strook $env:HOOGTE)"
+            # Olaf 21 nov (Sanne 20:50, kan Daan 19:40): links vanaf x 90, zodat het label "Recycle Bin" vrij staat; rechterrand blijft op 40 van de rand.
+            $gezet = [Scherm]::MoveWindow($h, 90, 16, $wg.Width - 130, $vh, $true)
+            Write-Output "werkvenster groot: 90,16 $($wg.Width - 130) x $vh (werkgebied $wg, strook $env:HOOGTE)"
           } else {
             $gezet = [Scherm]::MoveWindow($h, 110, 24, 420, 196, $true)
           }
