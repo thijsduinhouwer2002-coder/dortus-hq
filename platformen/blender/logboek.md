@@ -704,3 +704,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 21 nov 2026 ±09:20 UTC (Bram)
 - Daan kan 1 bij hoofdbeeld v2: harde randen van de schaduwvloer weg. Alleen `maak_hoofdbeeld.py` aangepast (contactschaduw die uitloopt), figuur en maat gelijk; alle drie maten opnieuw gemaakt en bekeken (GEZIEN). Gemeld aan Daan en de hoofdchat; plaatsen hoeft er niet op te wachten.
+
+## 21 nov 2026 ±12:10 UTC, Bram
+- Niets zinvols te doen: hoofdbeeld Pro v2.1 staat live op Superhive en Gumroad (hoofdchat 12:00 NL), geen nieuwe opdracht. Gratis 0.1.2 wacht op de uitgave (±23 nov), Hats-speeltest ligt bij Olaf en Thijs.
