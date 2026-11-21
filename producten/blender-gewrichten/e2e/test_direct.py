@@ -51,7 +51,7 @@ def main():
         return
     stap("slotknoppen hangen onder het hoofdpaneel", direct.teken in tekenfuncties())
     stap("drie functies met slot", direct.FUNCTIES == ("Figure from rig", "Hinge with end stop", "Body-part presets"))
-    stap("link naar de Pro-pagina", direct.URL == "https://dortus.com/click-joints/")
+    stap("link naar de Pro-pagina", direct.URL == "https://dortus.com/click-joints/?from=addon#pro")
     stap("teksten", (direct.VENSTER, direct.KNOP, direct.ONDERAAN)
          == ("This is in Click Joints Pro", "See Click Joints Pro", "Upgrade to Pro"))
     # Zonder venster (achtergrond) doet de knop niets en opent hij geen link; het venster zelf staat op het scherm.
