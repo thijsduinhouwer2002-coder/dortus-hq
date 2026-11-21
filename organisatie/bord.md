@@ -29,6 +29,12 @@
 ## 1b. Boost Click Joints Pro (20 nov 14:45, Thijs: "doe alles wat nodig is, je mag opschalen")
 Vier losse agents van de hoofdchat, tot ±17:00: (1) makers en affiliates: mails naar Pro 1.1, adviespercentage, `commercie/blender-click-joints/makers-1.1-2026-11-20.md`; (2) uitleg-video Pro 1.1 en 2 staande filmpjes als concept in `marketing/wachtrij/`; (3) alle gratis plekken en het Reddit-pakket, `plekken-boost-2026-11-20.md`; (4) echte print via een printdienst en Printables/MakerWorld, `echte-print-2026-11-20.md`. Elk met eigen keurder. Daarna één pakket ja's voor Thijs (mails, affiliates, geld voor print, accounts, Reddit). Trechter gratis naar Pro is al dicht (besluit 14:40).
 
+## 1c. Afkijken en doen (21 nov 12:35, Thijs: "stilstaan heeft geen zin ... we moeten afkijken bij mensen")
+- Vandaag 3 losse agents (tot ±14:00): A Blender gratis-plus-Pro, hoe kwamen ze aan kopers; B waar het publiek van beweegbare prints zit; C Garmin-apps die verkopen. Uitkomst in `platformen/ideeen/afkijken-2-2026-11-21/`, Daan keurt.
+- Nieuwe vaste taak **Afkijker**, elke 3 uur (9:28 tot 21:28): pluist per run één maker uit en zet de les als opdracht bij de juiste agent. Log: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/LOG.md`.
+- Nieuwe vaste taak **Garmin-weekronde**, ma 13:19 (eerste 23 nov).
+- Lege runs gevuld (berichten 21 nov 12:35): Bram 3 gidspagina's op dortus.com als zoekmotor, Daan keurt die en de afkijkrapporten, Chris YouTube-video's op zoekvragen, Sanne Steam-paginaconcept Hats, Olaf Steam-upload met één knop, Iris keurt Sannes concept.
+
 ## 2. Agents (18 nov 20:12: zes weer aan op verzoek van Thijs, met de nieuwe korte opdracht; de rest uit)
 
 | Agent | Aan? | Hoe vaak (NL-tijd) | Focus nu |
