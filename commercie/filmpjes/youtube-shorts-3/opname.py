@@ -133,16 +133,33 @@ def ocr(tekst, vak=None):
             woorden.append(w)
             regels.setdefault((d[2], d[3], d[4]), []).append(w)
     doel = tekst.lower().split()
-    for ws in regels.values():   # per regel van tesseract: de woorden van `tekst` achter elkaar
-        ws.sort(key=lambda w: w[1])
-        for i in range(len(ws) - len(doel) + 1):
-            if all(ws[i + j][0].startswith(doel[j]) for j in range(len(doel))):
-                stuk_ = ws[i:i + len(doel)]
-                xa, xb = min(w[1] for w in stuk_), max(w[1] + w[3] for w in stuk_)
-                ya, yb = min(w[2] for w in stuk_), max(w[2] + w[4] for w in stuk_)
-                return (x0 + (xa + xb) // 2, y0 + (ya + yb) // 2)
+    for alleen_begin in (True, False):   # eerst regels die met `tekst` beginnen ("Bend" en niet "Flip bend")
+        for ws in regels.values():
+            ws.sort(key=lambda w: w[1])
+            for i in ([0] if alleen_begin else range(len(ws) - len(doel) + 1)):
+                if i + len(doel) <= len(ws) and all(ws[i + j][0] == doel[j] for j in range(len(doel))):
+                    stuk_ = ws[i:i + len(doel)]
+                    xa, xb = min(w[1] for w in stuk_), max(w[1] + w[3] for w in stuk_)
+                    ya, yb = min(w[2] for w in stuk_), max(w[2] + w[4] for w in stuk_)
+                    return (x0 + (xa + xb) // 2, y0 + (ya + yb) // 2)
     log(f"KORT ocr niet gevonden: {tekst!r} ({len(woorden)} woorden: {' '.join(w[0] for w in woorden[:60])})")
     return None
+
+
+def zoek(tekst, keer=5):
+    """ocr() opnieuw na een korte pauze (panelen schuiven met een animatie open). Gebruik: r = yield from zoek(..)"""
+    for _ in range(keer):
+        r = ocr(tekst)
+        if r:
+            return r
+        yield 0.6
+    return None
+
+
+def herteken():
+    for venster in bpy.context.window_manager.windows:
+        for gebied in venster.screen.areas:
+            gebied.tag_redraw()
 
 
 def sleep_zijbalk(breed):
@@ -290,6 +307,9 @@ def figuur():
     ob.modifiers.new("Armature", "ARMATURE").object = arm
     inst = bpy.context.scene.click_joints
     inst.speling_mm, inst.as_bron, inst.uit_elkaar, inst.kogel_auto = 0.2, "CURSOR", False, True
+    exportmap = os.path.join(scherm_basis.uitmap, "export")
+    os.makedirs(exportmap, exist_ok=True)
+    inst.exportmap = exportmap
     return ob, arm, punten
 
 
@@ -398,7 +418,7 @@ def verloop_pro():
 
     # knop: Figure from rig
     deel("knop")
-    knop = ocr("Figure from rig")
+    knop = yield from zoek("Figure from rig")
     film["metingen"]["knop_ocr"] = knop
     film["paneel_y"]["knop"] = knop[1] if knop else None
     if knop is None:
@@ -432,7 +452,7 @@ def verloop_pro():
     # lijst: de muis loopt langs de lijst met gewrichten en graden
     vlak("lijst")
     deel("lijst")
-    eerste = ocr(f"{len(lijst)} joints")
+    eerste = yield from zoek(f"{len(lijst)} joints")
     film["paneel_y"]["lijst"] = eerste[1] if eerste else None
     film["metingen"]["lijst_ocr"] = eerste
     if eerste:
@@ -472,8 +492,9 @@ def verloop_pro():
         klik()
         yield 0.5
         neem_m(4)
+        yield 1.0
     vlak("knie")
-    schuif = ocr("Bend")
+    schuif = yield from zoek("Bend")
     film["metingen"]["bend_ocr"] = schuif
     film["paneel_y"]["knie"] = schuif[1] if schuif else None
     if schuif is None:
@@ -515,7 +536,7 @@ def verloop_pro():
     # uitelkaar: Exploded view aan (echte klik), rustig rond
     vlak("uitelkaar")
     deel("uitelkaar")
-    ex = ocr("Exploded view")
+    ex = yield from zoek("Exploded view")
     film["metingen"]["exploded_ocr"] = ex
     film["paneel_y"]["uitelkaar"] = ex[1] if ex else None
     inst = bpy.context.scene.click_joints
@@ -526,6 +547,7 @@ def verloop_pro():
     if not inst.uit_elkaar:
         log("KORT vangnet uitelkaar: Exploded view via script")
         inst.uit_elkaar = True
+        herteken()
     bpy.context.view_layer.update()
     neem_m(6)
     yield from stuk(110, lambda t: cam(-25 + 70 * t, 84.0, D_HEEL, heel))
@@ -534,13 +556,12 @@ def verloop_pro():
     log(f"KORT {'OK' if los else 'FOUT'} uitelkaar {len(los)}")
 
     # export: 3MF kiezen en Export (echte klikken), melding in de statusbalk
-    exportmap = os.path.join(scherm_basis.uitmap, "export")
-    os.makedirs(exportmap, exist_ok=True)
-    inst.exportmap = exportmap
-    yield 0.3
+    exportmap = inst.exportmap
+    herteken()
+    yield 0.5
     vlak("export")
     deel("export")
-    drie = ocr("3MF")
+    drie = yield from zoek("3MF")
     if drie:
         yield from muis_naar(drie[0], drie[1], 22)
         klik()
@@ -548,10 +569,12 @@ def verloop_pro():
     if inst.formaat != "3MF":
         log("KORT vangnet export: 3MF via script")
         inst.formaat = "3MF"
+        herteken()
+        yield 0.6
     neem_m(6)
     for o in bpy.context.view_layer.objects:
         o.select_set(bool(o.get("cj_deel")))
-    knop_e = ocr("Export 3MF")
+    knop_e = yield from zoek("Export 3MF")
     film["metingen"]["export_ocr"] = knop_e
     film["paneel_y"]["export"] = knop_e[1] if knop_e else None
     if knop_e:

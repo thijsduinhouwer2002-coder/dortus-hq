@@ -130,7 +130,9 @@ def stukken_naar_video(nr, stukken, uit):
                             "-pix_fmt", "yuv420p", str(uit)], stdin=subprocess.PIPE)
     muis = FILM.get("muis", [])
     kliks, t_uit = [], 0
-    for deel, van, tot, traag, pdeel in stukken:
+    begin = []
+    for deel, van, tot, traag, pdeel, _tekst in stukken:
+        begin.append(t_uit / FPS)
         d0 = FILM["delen"][deel]
         eerste = d0 + van
         laatste = min(deel_eind(deel), d0 + tot) if tot is not None else deel_eind(deel)
@@ -171,73 +173,75 @@ def stukken_naar_video(nr, stukken, uit):
         dec.wait()
     enc.stdin.close()
     enc.wait()
-    return kliks, t_uit / FPS
+    return kliks, t_uit / FPS, begin
 
 
 K_STOP = int(round(MT.get("knie_stop", 120)))
 N_GEW = MT.get("gewrichten", 9)
-N_EXPORT = len(MT.get("export", [])) or 10
+N_EXPORT = len([b for b in MT.get("export", []) if b.endswith(".3mf")]) or 10
 
-# nr, naam: (stukken [(deel, van, tot, traag, paneeldeel)], teksten [(regel1, regel2, a, b)])
+# nr, naam: stukken [(deel, van, tot, traag, paneeldeel, tekst)]; tekst (regel1, regel2) staat vanaf het begin van
+# dat stuk tot de volgende tekst (None: de vorige blijft staan). traag 2 = elk beeld twee keer (halve snelheid).
 H = 75   # haak: 2,5 s eindresultaat
 SHORTS = {
-    (1, "make-poseable"): (
-        [("held", 20, 20 + H, 1, "held"), ("heel", 0, None, 1, "knop"), ("kies", 0, None, 1, "knop"),
-         ("knop", 0, None, 2, "knop"), ("lijst", 0, None, 1, "lijst"), ("knie", 0, None, 1, None),
-         ("knie_rood", 0, None, 1, "knie"), ("pose", 0, None, 1, "knie"), ("uitelkaar", 0, None, 1, None),
-         ("export", 0, None, 1, None), ("held", 0, None, 1, "held")],
-        [("Make any character", "poseable for 3D printing", 0, 2.5),
-         ("1. Select your", "rigged character", 2.5, 4.6),
-         ("2. Click", "Figure from rig", 4.6, 7.5),
-         (f"{N_GEW} joints, each", "with its range", 7.5, 13.0),
-         ("3. Bend the knee", "to its end stop", 13.0, 20.0),
-         ("Past the stop:", "it turns red", 20.0, 25.5),
-         ("Pose the rest", "of the figure", 25.5, 28.5),
-         ("4. Exploded view:", "hinges and ball joints", 28.5, 33.2),
-         ("5. Export every part", "as 3MF", 33.2, 36.8),
-         ("Ready to slice", "and test print", 36.8, 99)]),
-    (2, "knee-bend"): (
-        [("held", 60, 60 + H, 1, "held"), ("heel", 0, None, 1, "knop"), ("kies", 0, None, 1, "knop"),
-         ("knop", 0, None, 2, "knop"), ("lijst", 0, None, 2, "lijst"), ("knie", 0, None, 1, None),
-         ("knie_rood", 0, None, 2, "knie"), ("pose", 0, None, 1, "knie"), ("held", 0, None, 1, "held")],
-        [("How far can", "this knee bend?", 0, 2.5),
-         ("A rigged figure with", f"Limit Rotation {K_STOP}°", 2.5, 4.6),
-         ("Click", "Figure from rig", 4.6, 7.5),
-         ("Left knee:", f"0 to {K_STOP}° from rig", 7.5, 13.0),
-         ("Right knee:", "mirrored from the left", 13.0, 18.3),
-         ("Bend it", "in the panel", 18.3, 25.5),
-         (f"It stops at {K_STOP}°", "like your rig", 25.5, 30.5),
-         ("Past the stop", "the parts turn red", 30.5, 40.0),
-         ("Check every joint", "before you print", 40.0, 99)]),
-    (3, "posable-toy"): (
-        [("held", 70, 70 + H, 1, "held"), ("heel", 0, None, 1, "knop"), ("kies", 0, None, 1, "knop"),
-         ("knop", 0, None, 2, "knop"), ("lijst", 0, 120, 1, "lijst"), ("pose", 0, None, 2, "knie"),
-         ("uitelkaar", 0, None, 2, None), ("held", 0, None, 2, "held")],
-        [("Turn your rigged character", "into a posable toy", 0, 2.5),
-         ("Start with", "any rigged figure", 2.5, 4.6),
-         ("One button:", "Figure from rig", 4.6, 7.5),
-         ("Hinges at elbows", "and knees", 7.5, 11.5),
-         ("Ball joints at shoulders,", "hips and neck", 11.5, 15.0),
-         ("Pose it right", "in Blender", 15.0, 21.0),
-         ("Every part", "comes apart", 21.0, 30.0),
-         ("Print a test joint", "first", 30.0, 99)]),
-    (4, "printable-parts"): (
-        [("uitelkaar", 60, 60 + H, 1, None), ("heel", 0, None, 1, "knop"), ("kies", 0, None, 1, "knop"),
-         ("knop", 0, None, 2, "knop"), ("lijst", 0, 160, 1, "lijst"), ("uitelkaar", 0, None, 2, None),
-         ("export", 0, None, 2, None), ("held", 0, None, 1, "held")],
-        [("Your character as", "printable parts", 0, 2.5),
-         ("Select the", "rigged figure", 2.5, 4.6),
-         ("Click", "Figure from rig", 4.6, 7.5),
-         (f"Cut into parts", f"with {N_GEW} joints", 7.5, 12.8),
-         ("Exploded view", "shows every part", 12.8, 22.0),
-         ("Pick 3MF,", "then Export", 22.0, 28.6),
-         ("One file", "per part", 28.6, 99)]),
+    (1, "make-poseable"): [
+        ("held", 20, 20 + H, 1, "held", ("Make your character", "poseable for 3D printing")),
+        ("heel", 0, None, 1, "knop", ("1. Select your", "rigged character")),
+        ("kies", 0, None, 1, "knop", None),
+        ("knop", 0, None, 2, "knop", ("2. Click", "Figure from rig")),
+        ("lijst", 0, None, 1, "lijst", (f"{N_GEW} joints, each", "with its range")),
+        ("knie", 0, None, 1, None, ("3. Bend the knee", "to its end stop")),
+        ("knie_rood", 0, None, 1, "knie", ("Past the stop", "it turns red")),
+        ("pose", 0, None, 1, "knie", ("Pose the rest", "of the figure")),
+        ("uitelkaar", 0, None, 1, None, ("4. Exploded view:", "hinges and ball joints")),
+        ("export", 0, None, 1, None, ("5. Export every part", "as 3MF")),
+        ("held", 0, None, 1, "held", ("Ready to slice", "and test print")),
+    ],
+    (2, "knee-bend"): [
+        ("held", 60, 60 + H, 1, "held", ("How far can", "this knee bend?")),
+        ("heel", 0, None, 1, "knop", ("A rig with", f"Limit Rotation {K_STOP}°")),
+        ("kies", 0, None, 1, "knop", None),
+        ("knop", 0, None, 2, "knop", ("Click", "Figure from rig")),
+        ("lijst", 0, 100, 2, "lijst", ("Left knee:", f"0 to {K_STOP}° from rig")),
+        ("lijst", 100, None, 1, "lijst", ("Right knee:", "mirrored from the left")),
+        ("knie", 0, None, 1, None, ("Bend it", "in the panel")),
+        ("knie_rood", 0, None, 2, "knie", (f"It stops at {K_STOP}°,", "past that: red")),
+        ("pose", 0, None, 1, "knie", ("Same check", "for every joint")),
+        ("held", 0, None, 1, "held", ("Check the pose", "before you print")),
+    ],
+    (3, "posable-toy"): [
+        ("held", 70, 70 + H, 1, "held", ("Turn your rigged character", "into a posable toy")),
+        ("heel", 0, None, 1, "knop", ("Start with", "a rigged figure")),
+        ("kies", 0, None, 1, "knop", None),
+        ("knop", 0, None, 2, "knop", ("One button:", "Figure from rig")),
+        ("lijst", 0, 60, 1, "lijst", ("Hinges at elbows", "and knees")),
+        ("lijst", 60, 140, 1, "lijst", ("Ball joints at shoulders,", "hips and neck")),
+        ("pose", 0, None, 2, "knie", ("Pose it", "right in Blender")),
+        ("uitelkaar", 0, None, 2, None, ("Every part", "comes apart")),
+        ("held", 0, None, 2, "held", ("Print a test joint", "first")),
+    ],
+    (4, "printable-parts"): [
+        ("uitelkaar", 60, 60 + H, 1, None, ("Your character as", "printable parts")),
+        ("heel", 0, None, 1, "knop", ("Select the", "rigged figure")),
+        ("kies", 0, None, 1, "knop", None),
+        ("knop", 0, None, 2, "knop", ("Click", "Figure from rig")),
+        ("lijst", 0, 160, 1, "lijst", ("Cut into parts", f"with {N_GEW} joints")),
+        ("uitelkaar", 0, None, 2, None, ("Exploded view", "shows every part")),
+        ("export", 0, None, 2, None, ("Pick 3MF,", "then Export")),
+        ("held", 0, None, 1, "held", (f"{N_EXPORT} files", "ready to slice")),
+    ],
 }
 
 meting = {}
-for (nr, naam), (stukken, teksten) in SHORTS.items():
+for (nr, naam), stukken in SHORTS.items():
     rauw = TMP / f"{nr}-rauw.mp4"
-    kliks, duur = stukken_naar_video(nr, stukken, rauw)
+    kliks, duur, begin = stukken_naar_video(nr, stukken, rauw)
+    teksten = []
+    for s, t0 in zip(stukken, begin):
+        if s[5] is not None:
+            if teksten:
+                teksten[-1][3] = round(t0, 2)
+            teksten.append([s[5][0], s[5][1], round(t0, 2), 99])
     vf = [f"drawbox=x=0:y=965:w=1080:h=200:color=black@0.45:t=fill"]
     for r1, r2, a, b in teksten:
         vf += [dt(r1, 74, LICHT, 975, extra=tussen(a, b)), dt(r2, 74, GEEL, 1065, extra=tussen(a, b))]
@@ -267,7 +271,7 @@ for (nr, naam), (stukken, teksten) in SHORTS.items():
                     "-b:a", "160k", "-ac", "2", "-t", f"{duur:.3f}", "-movflags", "+faststart", str(mp4)], check=True)
     meting[f"{nr}-{naam}"] = {"duur_s": round(duur, 2), "kliks_s": [round(k, 2) for k in kliks],
                               "teksten": [[r1, r2, a, b] for r1, r2, a, b in teksten],
-                              "stukken": [list(s) for s in stukken]}
+                              "stukken": [list(s[:5]) for s in stukken]}
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(mp4), "-vf", f"fps=6/{duur:.3f},scale=270:-1,tile=6x1",
                     "-frames:v", "1", str(UIT / f"overzicht-{nr}.jpg")], check=True)
     print(f"klaar: {mp4.name} {duur:.1f} s")
