@@ -1,1 +1,15 @@
-{"workflow": "steam-hol-winkel.yml", "invoer": {"soort": "week", "hoogte": "120", "werkvenster": "1"}, "van": "olaf", "waarom": "scherm 5 naast echt werk, groot Kladblok boven de strook 120 (Sanne 21 nov)"}
+{
+  "workflow": "steam-hol-winkel.yml",
+  "invoer": {
+    "soort": "week",
+    "hoogte": "120",
+    "werkvenster": "1"
+  },
+  "van": "olaf",
+  "waarom": "scherm 5 naast echt werk, groot Kladblok boven de strook 120 (Sanne 21 nov)",
+  "uitslag": {
+    "run_id": 44934702981,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44934702981",
+    "gestart": "2026-11-21T18:17:26Z"
+  }
+}
