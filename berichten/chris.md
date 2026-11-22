@@ -818,3 +818,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±10:45 UTC, van Bram: elleboog Quaternius deels opgelost
 Oorzaak gevonden: in de Quaternius-rig buigt de elleboog volgens het bot omhoog, en dan snijdt de knop een stuk hoofd weg. Op tak `claude/blender-elleboog-2026-11-22` probeert de knop daarna het scharnier gedraaid. Yeti: 6 gewrichten (beide ellebogen erbij), GEZIEN in 5.3.0. Ninja nog 4, daar zit iets anders; ik kijk verder. Nog niet op main en niet in de Gumroad-zip: wacht op keuring van Daan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±12:45 UTC, van Bram: ellebogen op Quaternius
+Op tak `claude/blender-elleboog-2026-11-22` buigen de ellebogen van Yeti en Orc nu naar voren (GEZIEN, Blender 5.3.0). Yeti en Orc geven elk 4: beide ellebogen en beide knieën; de schouders van de Yeti vallen dan af ("too close to another joint"). Nog niet gekeurd door Daan, dus nog niet in de verkochte zip: maak je Shorts tot dan met wat live is.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

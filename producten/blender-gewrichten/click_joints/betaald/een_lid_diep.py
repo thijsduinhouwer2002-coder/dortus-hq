@@ -15,6 +15,13 @@ from mathutils.bvhtree import BVHTree
 from .. import een_lid as _l
 
 
+# Pro 1.1 (22 nov, keuring Daan elleboog gedraaid): ook met één lus een omhulsel H, zodat de snede binnen het lid
+# blijft. Zonder H lopen wig en stopvlakken over het hele object. Bij een gedraaide elleboog in T-houding die naar
+# voren buigt, sneed de wig zo de hele voorkant van romp en hoofd weg (Quaternius Yeti 150 mm: 18 tot 21% van de
+# punten kwijt, y van -38 tot 10 mm, GEZIEN). rig.py zet dit alleen aan voor de gedraaide plekken.
+ALTIJD_H = [False]
+
+
 def bereid_diep(werk, frame, vlak_z, diepte, marge, solver, hulp):
     """Zet een_lid.STAND voor de volgende snede. (True, None): snijden mag (met of zonder H). (False, melding): niet."""
     _l.reset()
@@ -31,7 +38,7 @@ def bereid_diep(werk, frame, vlak_z, diepte, marge, solver, hulp):
     vlak = [e for e in bm.edges if all(abs(v.co.z - vlak_z) <= tol for v in e.verts)]
     lussen = _l._groepen(vlak)
     _l.LAATSTE["lussen"] = len(lussen)
-    if len(lussen) <= 1:
+    if len(lussen) < 1 or (len(lussen) == 1 and not ALTIJD_H[0]):
         bm.free()
         return True, None
     rond = [l for l in lussen if _l._binnen(l)]

@@ -671,14 +671,18 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
             else:
                 kandidaten = scharnier_plekken(context, doel, m, lengte) or [(m, 0.0)]
                 # Vangnet: lukt geen plek met de as uit de rig (de snede verliest een stuk), dan dezelfde plekken met
-                # het scharnier gedraaid (eerst naar voren buigend, dan de eerste plek naar achteren). Komt alleen aan
-                # de beurt na een weigering, dus een rig waar het al lukte merkt er niets van. Alleen de elleboog: een
-                # knie of enkel die zijwaarts buigt is fout, die slaan we liever eerlijk over (keuring 86800a6, A5).
+                # het scharnier gedraaid, alleen naar voren buigend, en met omhulsel H (een_lid_diep.ALTIJD_H), want
+                # zonder H sneed de wig de voorkant van de romp weg. Nooit naar achteren: een elleboog die naar de rug
+                # buigt is een kapot figuur (keuring Daan 22 nov). Komt alleen aan de beurt na een weigering, dus een
+                # rig waar het al lukte merkt er niets van. Alleen de elleboog: een knie of enkel die zijwaarts buigt
+                # is fout, die slaan we liever eerlijk over (keuring 86800a6, A5).
                 if sleutel == "ELBOW":
-                    kandidaten = kandidaten + [(gedraaid(k)[0], mm) for k, mm in kandidaten] \
-                        + [(gedraaid(kandidaten[0][0])[1], kandidaten[0][1])]
+                    eigen_n = len(kandidaten)
+                    kandidaten = kandidaten + [(gedraaid(k)[0], mm) for k, mm in kandidaten]
             geblokkeerd, vangnet = False, None
-            from . import afstand
+            if soort != "HINGE" or sleutel != "ELBOW":
+                eigen_n = len(kandidaten)
+            from . import afstand, een_lid_diep
             andere, eerste = [], None
             for poging_kk in ((0, 1) if soort != "HINGE" else (0,)):
                 if poging_kk == 1:
@@ -703,7 +707,11 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                     cursor.rotation_mode = "QUATERNION"
                     cursor.matrix = m
                     voor = {o.name for o in bpy.data.objects}
-                    ok, melding, nieuw = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
+                    een_lid_diep.ALTIJD_H[0] = i >= eigen_n
+                    try:
+                        ok, melding, nieuw = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
+                    finally:
+                        een_lid_diep.ALTIJD_H[0] = False
                     if ok:
                         # Run 27: ook zonder H (een_lid) kan een snede een kruimel van 0,1 mm achterlaten, ver van het
                         # gewricht (MakeHuman-mens: 4 punten bij de rechterelleboog na de rechterschoudersnede). Zelfde
