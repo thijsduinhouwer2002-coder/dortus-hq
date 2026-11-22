@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (main)
 GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 44961828915, commit 90ac60a77753c69a08d14f4c9821889fe23be99e, commitdatum 1795303603, 2026-11-21T23:48:38Z
+Referentie: referentie uit run 45021026734, commit 01ac949787b3977967a20b689a592b652d440cfc, commitdatum 1795349504, 2026-11-22T12:29:12Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -10,9 +10,9 @@ Referentie: referentie uit run 44961828915, commit 90ac60a77753c69a08d14f4c98218
 | 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | gelijk | |
 | 13-pro-knie-x.png | gelijk | |
-| 13d-pro-knie-dicht-x.png | 55 px (0.003%), ruis | |
-| 14-pro-knie-rood-x.png | 12 px (0.001%), ruis | |
-| 14b-pro-knie-rood-los-x.png | 7 px (0.000%), ruis | |
+| 13d-pro-knie-dicht-x.png | gelijk | |
+| 14-pro-knie-rood-x.png | gelijk | |
+| 14b-pro-knie-rood-los-x.png | gelijk | |
 | 15-figuur-paneel.png | gelijk | |
 | 15-figuur-x.png | gelijk | |
 | 16-figuur-rig-paneel.png | gelijk | |
@@ -27,15 +27,15 @@ Referentie: referentie uit run 44961828915, commit 90ac60a77753c69a08d14f4c98218
 | 20h-testkaart-scharnier.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 53 px (0.003%), ruis | |
+| 5-waaier-x.png | 11 px (0.001%), ruis | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | 24 px (0.001%), ruis | |
-| 8-winkel-x.png | 58 px (0.003%), ruis | |
-| 9-winkel-rood-x.png | 36 px (0.002%), ruis | |
+| 7-plat-x.png | 47 px (0.002%), ruis | |
+| 8-winkel-x.png | gelijk | |
+| 9-winkel-rood-x.png | gelijk | |
 | d1-slot-paneel.png | gelijk | |
 | d1-slot.png | gelijk | |
 | d2-venster-paneel.png | gelijk | |
 | d2-venster.png | gelijk | |
-| p13-d-x.png | 33 px (0.002%), ruis | |
-| p13-e-x.png | 1 px (0.000%), ruis | |
-| p14b-e-x.png | 7 px (0.000%), ruis | |
+| p13-d-x.png | gelijk | |
+| p13-e-x.png | gelijk | |
+| p14b-e-x.png | gelijk | |
