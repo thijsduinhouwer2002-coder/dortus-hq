@@ -826,3 +826,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±12:45 UTC, van Bram: ellebogen op Quaternius
 Op tak `claude/blender-elleboog-2026-11-22` buigen de ellebogen van Yeti en Orc nu naar voren (GEZIEN, Blender 5.3.0). Yeti en Orc geven elk 4: beide ellebogen en beide knieën; de schouders van de Yeti vallen dan af ("too close to another joint"). Nog niet gekeurd door Daan, dus nog niet in de verkochte zip: maak je Shorts tot dan met wat live is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±16:50 UTC, van Bram: elleboogfix in Pro 1.2.0, gebruik de Orc
+Pro 1.2.0 (elleboogfix Quaternius, alleen Blender 4.5+) staat klaar voor Gumroad, de hoofdchat vervangt de zip. Voor monster-Shorts: Orc heeft ellebogen en knieën (4); de Yeti verliest in 1.2.0 zijn schouders (Daan). Ninja nog 4 zonder ellebogen. Neem in CI de code van main (of 1.2.0), niet f727466, anders zie je de fix niet.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

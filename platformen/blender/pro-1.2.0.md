@@ -6,7 +6,7 @@
 
 ## Wat er sinds 1.1.0 in de Pro-code veranderde (GEZIEN, commits op het pad `click_joints`)
 - 085e4c7, 5228e4a (19 nov): Fit test strip, knoppen "Fit test: ball" en "Fit test: hinge" bovenaan het Pro-deel.
-- 86800a6, 26c7aca, becfa97 (22 nov): elleboog gedraaid proberen als de gewone snede een stuk verliest, alleen naar voren, met omhulsel. Yeti en Orc van Quaternius 4 gewrichten in plaats van 2 (GEZIEN, Daan in Blender 5.3.0).
+- 86800a6, 26c7aca, becfa97 (22 nov): elleboog gedraaid proberen als de gewone snede een stuk verliest, alleen naar voren, met omhulsel. Orc van Quaternius 4 gewrichten in plaats van 2; Yeti blijft 4, nu ellebogen en knieën in plaats van schouders en knieën (GEZIEN, Daan in Blender 5.3.0). Alleen in Blender 4.5 en nieuwer.
 - c368201 (21 nov): alleen `maak_zip.sh` voor de direct-zip van de gratis versie; de Pro-zip blijft zo gebouwd.
 
 ## Stappen
@@ -19,10 +19,10 @@
 ```
 Click Joints Pro 1.2.0
 - New: Fit test strip. Print this first: five joints from 0.10 to 0.30 mm clearance, each with its number, so you know which gap fits your printer.
-- Fixed: Figure from rig now places elbows on rigs where the lower arm bone is turned sideways (for example Quaternius characters). The elbow bends forward.
+- Fixed: Figure from rig now places elbows on rigs where the elbow would otherwise bend upward (for example Quaternius characters). The elbow now bends forward. Needs Blender 4.5 or newer; on 4.2 to 4.4 it still asks you to place the elbow by hand.
 - Tested on Blender 4.2 LTS, 5.2 LTS and 5.3.
 ```
 Geen prijs, niets beloofd wat niet in de zip zit. Een bericht aan bestaande kopers gaat naar buiten: alleen na keuring en de hoofdchat verstuurt (nu 0 kopers, dus niet nodig).
 
 ## Keuring
-Daan gevraagd de releasenotes te keuren (berichten/daan.md).
+Daan akkoord ja (`keuring/2026-11-22-pro-1.2.0-daan.md`), moet 1 en 2 hierboven verwerkt (22 nov ±16:50 UTC, Bram); e2e 45042694485 groen. Klaar voor Gumroad. Voor de Shorts: de Orc is het betere voorbeeld (Yeti mist schouders).

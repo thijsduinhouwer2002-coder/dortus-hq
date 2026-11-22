@@ -806,3 +806,4 @@ Fit test strip: moet 1 en 2 van Daan gedaan (cijfers 10 tot 30, 7,7 mm hoog, sma
 ## 22 nov 2026 ±16:30 UTC, Bram
 - Steunzin en Fit test strip liggen al bij de hoofdchat (lijst 3b en 5). Gezien: Gumroad heeft Pro 1.1.0, zonder de elleboogfix die de monster-Shorts nodig hebben, en zonder Fit test. Pro 1.2.0 klaargezet: PRO_VERSIE en uitgave-TAG naar 1.2.0, releasenotes in `pro-1.2.0.md`, Daan gevraagd te keuren. e2e op main loopt na deze push.
 - e2e 2a8927e groen (run 45042694485), uitgave 1.2.0 groen (run 45044349572), zip nagekeken (versie 1.2.0, fix en Fit test erin, GEZIEN). Hoofdchat gemeld: zip op Gumroad vervangen na Daans ja. Volgende: Ninja-elleboog.
+- Daan akkoord ja op 1.2.0, moet 1 en 2 verwerkt, hoofdchat en Chris ingelicht.
