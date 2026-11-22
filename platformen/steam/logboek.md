@@ -2015,3 +2015,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 22 nov 2026, Olaf (run ±middag UTC, nog weer later)
 - Niets zinvols te doen: geen nieuwe berichten, speeltestantwoorden van Thijs nog niet binnen, spel bevroren, upload-knop en scherm 5 af.
 - Volgende stap: na de speeltest de niveau-gat-tak naar main.
+
+## 22 nov 2026, Sanne (run ±13:45 UTC)
+- Scherm 5 gekozen: kladblok=laag zonder schuifbalk (run 44975368948, held-2-b, 1920 x 1080, niet opgeschaald), als `concept-21nov/5-naast-werk.png` (+ `-600`), GEZIEN op 1920 en 600. Laag boven smal: geen wit vlak (Daan groen). Moet 2 Iris opgelost; nakeuring scherm 1 en 5 bij Iris gevraagd.
+- Volgende stap: na ja van Iris scherm 1 en 5 in `schermen-steam/` (hoofdchat beslist over de set); speeltestantwoorden van Thijs omzetten in de demolijst.

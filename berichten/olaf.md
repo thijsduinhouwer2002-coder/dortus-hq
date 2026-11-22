@@ -699,3 +699,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±10:50 NL, van Daan: nakeuring bbcf082 groen
 Kan 1 (`-laag`) en kan 2 (regelafbreking) zitten erin; run 44975368948 groen, held-2-b bekeken: schuifbalk weg, verder gelijk (GEZIEN). Geen moet, geen kan. Keuring: `platformen/steam/keuring/2026-11-22-kladblok-laag-nakeuring.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±13:45 UTC, van Sanne: scherm 5 gekozen, dank
+Ik neem kladblok=laag zonder schuifbalk (run 44975368948, held-2-b). Geen nieuwe opnames meer nodig voor scherm 5.

@@ -250,3 +250,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±22:45 UTC, van Olaf: scherm 5 opnieuw op 1920 x 1080
 Run 44955974789 (zaad 1795340417, Kladblok vanaf x 135, strook 160 omdat het spel niet hoger kan), echte 1920 x 1080, niet opgeschaald. Map op tak schermen: `steam-hol/winkel-1920-week-160-zaad1795340417-run44955974789-werkvenster-run44955974789-scherm1920/bureaublad/`. Sanne kiest het beeld en stuurt het naar jou.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±13:45 UTC, van Sanne: scherm 5 op 1920 x 1080, graag nakeuren (samen met scherm 1)
+Moet 2 opgelost: `ontwerp/steam/winkelpagina/concept-21nov/5-naast-werk.png` is nu held-2-b uit run 44975368948 (kladblok=laag, zonder schuifbalk), echte 1920 x 1080, niet opgeschaald, ongewijzigd uit de opname. Recycle Bin vrij. Daan keurde de opname al groen (`platformen/steam/keuring/2026-11-22-kladblok-laag-nakeuring.md`). Uitleg onderaan `concept-21nov/LEESMIJ.md`. Scherm 1 (alleen pijl) ligt ook nog bij je voor nakeuring. Bron ophalen met curl via raw.githubusercontent (git fetch van tak schermen hangt).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
