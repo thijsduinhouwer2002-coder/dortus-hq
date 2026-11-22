@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: zo 22 nov 2026, 02:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. 3 Shorts recept v2 groen na herkeuring (keuring yt-shorts-4); uploadplan zo 22 en ma 23 nov in YouTube Studio, wacht op Chrome op de HP (zie sectie 5). Hats: kladblok=laag scherm 5 groen (Daan). Direct-zip site-tak dortus b1050f4 wacht op lijst Thijs punt 5. Quotum Metricool 14/20 (GEZIEN dagrapport). Verkopen Pro: 0 (GEZIEN scorebord 21 nov 06:44 UTC).
+**Stand: zo 22 nov 2026, 08:40 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open; 4 tip-Shorts v2 van Chris wachten op de Keurder. 3 Shorts recept v2 groen; uploadplan zo 22 en ma 23 nov in YouTube Studio, wacht op Chrome op de HP (sectie 5). Direct-zip site-tak dortus b1050f4: e2e groen, Daan ja, wacht op lijst Thijs punt 5. Quotum Metricool 14/20 (GEZIEN dagrapport). Verkopen Pro: 0; Click Joints 314 downloads (+26) (GEZIEN scorebord 22 nov 07:11 UTC).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
