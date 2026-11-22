@@ -1779,3 +1779,6 @@ Geen nieuwe keuringen sinds de vorige run (berichten/daan.md onveranderd; Sanne 
 
 ## 22 nov 2026 ±10:23 NL, Daan
 Geen nieuwe keuringen sinds de vorige run (berichten/daan.md onveranderd; alleen logboeken, monsterproef van Chris en Afkijker). Niets zinvols open, gestopt.
+
+## 22 nov 2026 ±12:50 NL, Daan
+Keuring elleboog gedraaid (Bram, tak `claude/blender-elleboog-2026-11-22`): akkoord nee. Zelf in Blender 5.3.0 gedraaid op Yeti en Orc; de gedraaide ellebogen buigen naar achteren (GEZIEN, render). Keuring en beelden in `platformen/blender/keuring/2026-11-22-elleboog-gedraaid-*`, bericht aan Bram.
