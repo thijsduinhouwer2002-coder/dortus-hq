@@ -24,7 +24,10 @@ else
   cd "$map" || exit 1
   # shellcheck disable=SC2086
   git sparse-checkout set --cone $BASIS "$@" && timeout 300 git checkout -q main || { echo "STOP: uitpakken lukte niet."; exit 1; }
-  echo "Uitgepakt: de hoofdmap plus $BASIS $*. Meer nodig: git sparse-checkout add <map>."
+  echo "Uitgepakt: de hoofdmap plus $BASIS${*:+ $*}. Meer nodig: git sparse-checkout add <map>."
+  # Let op: wegwijzer.py geeft in deze sparse kloon valse meldingen (mappen die niet zijn uitgepakt lijken weg).
+  # Draai hem in Actions (wegwijzer.yml) of na git sparse-checkout disable; niets "repareren" op zijn melding hier.
+  echo "Let op: in deze kloon geeft wegwijzer.py valse meldingen (niet uitgepakte mappen); draai hem in Actions of na git sparse-checkout disable."
 fi
 # Losse HEAD of een tak zonder upstream: haal main op en werk daarop verder (hing anders tot de time-out, Bram 20 nov).
 if ! git symbolic-ref -q HEAD >/dev/null || ! git rev-parse -q --verify '@{u}' >/dev/null 2>&1; then

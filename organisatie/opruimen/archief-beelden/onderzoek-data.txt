@@ -16,7 +16,6 @@ platformen/pionier/data/altstore-explore-2026-11-09.json
 platformen/pionier/data/altstore-explore-meet.py
 platformen/pionier/data/androidxr-meet.py
 platformen/pionier/data/androidxr.csv
-platformen/pionier/data/attio-apps-2026-11-09.json
 platformen/pionier/data/attio-apps-meet.py
 platformen/pionier/data/cfx-marketplace-2026-11-08/creators.json
 platformen/pionier/data/cfx-marketplace-2026-11-08/items.json
@@ -29,13 +28,11 @@ platformen/pionier/data/chatgpt-plugins-meet.py
 platformen/pionier/data/chatgpt-plugins.csv
 platformen/pionier/data/cmdpal-2026-11-08.json
 platformen/pionier/data/cmdpal-meet.py
-platformen/pionier/data/ctrader-store-2026-11-08.json
 platformen/pionier/data/ctrader-store-analyse.py
 platformen/pionier/data/ctrader-store-meet.py
 platformen/pionier/data/devvit-apps-2026-11-08.json
 platformen/pionier/data/devvit-apps-meet.py
 platformen/pionier/data/devvit-apps.csv
-platformen/pionier/data/filament-plugins-2026-11-08.json
 platformen/pionier/data/filament-plugins-analyse.py
 platformen/pionier/data/filament-plugins-meet.py
 platformen/pionier/data/framer-plugins-meet.py
@@ -57,12 +54,10 @@ platformen/pionier/data/highlevel-apps-meet.py
 platformen/pionier/data/hytale-curseforge-meet.py
 platformen/pionier/data/hytale-curseforge.csv
 platformen/pionier/data/m365-agents-meet.py
-platformen/pionier/data/m365-apps-2026-11-09.jsonl
 platformen/pionier/data/mcp-register-2026-11-08.json
 platformen/pionier/data/mcp-register-meet.py
 platformen/pionier/data/meta-brillen-meet.py
 platformen/pionier/data/meta-brillen.csv
-platformen/pionier/data/meta-glasses-ios-2026-11-09.json
 platformen/pionier/data/nativephp-plugins-2026-11-08.json
 platformen/pionier/data/nativephp-plugins-meet.py
 platformen/pionier/data/nativephp-plugins.csv
@@ -71,7 +66,6 @@ platformen/pionier/data/notion-marketplace-meet.py
 platformen/pionier/data/nuvemshop-apps-2026-11-09.json
 platformen/pionier/data/nuvemshop-apps-details.py
 platformen/pionier/data/nuvemshop-apps-lijst.py
-platformen/pionier/data/omi-apps-2026-11-09.json
 platformen/pionier/data/omi-apps-meet.py
 platformen/pionier/data/payload-plugins-2026-11-08.json
 platformen/pionier/data/payload-plugins-meet.py
@@ -83,7 +77,6 @@ platformen/pionier/data/premiere-uxp-meet.js
 platformen/pionier/data/salla-reviews-meet.sh
 platformen/pionier/data/shadcn-registries-2026-11-08.json
 platformen/pionier/data/shadcn-registries-meet.py
-platformen/pionier/data/superhuman-go-2026-11-08.json
 platformen/pionier/data/superhuman-go-meet.py
 platformen/pionier/data/superhuman-go.csv
 platformen/pionier/data/tiktokshop-apps-AT-2026-11-08.json
@@ -98,7 +91,6 @@ platformen/pionier/data/tiktokshop-apps-GR-2026-11-08.json
 platformen/pionier/data/tiktokshop-apps-HU-2026-11-08.json
 platformen/pionier/data/tiktokshop-apps-IE-2026-11-08.json
 platformen/pionier/data/tiktokshop-apps-IT-2026-11-08.json
-platformen/pionier/data/tiktokshop-apps-JP-2026-11-08.json
 platformen/pionier/data/tiktokshop-apps-MX-2026-11-08.json
 platformen/pionier/data/tiktokshop-apps-NL-2026-11-08.json
 platformen/pionier/data/tiktokshop-apps-PL-2026-11-08.json
@@ -117,7 +109,6 @@ platformen/pionier/data/whop-apps-2026-11-08.json
 platformen/pionier/data/whop-apps-meet.py
 platformen/pionier/data/worldapp-2026-11-08.json
 platformen/pionier/data/worldapp-meet.py
-platformen/pionier/data/xeneon-widgets-2026-11-08.json
 platformen/pionier/data/xeneon-widgets-meet.py
 platformen/succes/data/adaptive-auto-skinning-2026-11-17.tsv
 platformen/succes/data/auto-rig-pro-ratings-2026-11-17.tsv
@@ -190,7 +181,6 @@ platformen/succes/data/lanceer-verval-bureaublad-2026-11-16.csv
 platformen/succes/data/lanceerkorting-bureaublad-2026-11-17.csv
 platformen/succes/data/little-writer-2026-11-16.csv
 platformen/succes/data/mac-linux-nieuws-haal.py
-platformen/succes/data/mac-linux-nieuws-top40-2026-11-17.csv
 platformen/succes/data/mac-linux-platformen-analyse.py
 platformen/succes/data/mac-linux-platformen-bureaublad-2026-11-17.csv
 platformen/succes/data/mac-linux-platformen-haal.py
@@ -315,12 +305,10 @@ platformen/verkenner/data/chrome-web-store-trustmrr-2026-11-16.tsv
 platformen/verkenner/data/chrome-zoek-ids-script.py
 platformen/verkenner/data/click-joints-uur-script.sh
 platformen/verkenner/data/click-joints-uur.csv
-platformen/verkenner/data/clover-apps-2026-11-09.jsonl
 platformen/verkenner/data/clover-haal-script.py
 platformen/verkenner/data/coda-haal-script.py
 platformen/verkenner/data/coda-nieuwste150-2026-11-08.jsonl
 platformen/verkenner/data/craft-meting-script.py
-platformen/verkenner/data/craft-plugin-store-2026-11-07.json
 platformen/verkenner/data/crealitycloud-haal-script.py
 platformen/verkenner/data/crealitycloud-steekproef-2026-11-14.json.gz
 platformen/verkenner/data/csa-alle-mei-aug-2026-11-08.jsonl.gz
@@ -333,7 +321,6 @@ platformen/verkenner/data/csa-makers-script.py
 platformen/verkenner/data/ctrader-alle-ids-2026-11-09.txt
 platformen/verkenner/data/ctrader-analyse-script.py
 platformen/verkenner/data/ctrader-pagina-script.py
-platformen/verkenner/data/ctrader-steekproef-2026-11-09.jsonl
 platformen/verkenner/data/cws-detail-script.py
 platformen/verkenner/data/cws-ondertitels-2026-11-09.jsonl
 platformen/verkenner/data/cws-vinted-2026-11-09.jsonl
@@ -376,7 +363,6 @@ platformen/verkenner/data/fgforge-haal-script.sh
 platformen/verkenner/data/fgforge-items-2026-11-07.json
 platformen/verkenner/data/firefox-analyse-script.py
 platformen/verkenner/data/firefox-haal-script.py
-platformen/verkenner/data/firefox-steekproef-2026-11-07.json
 platformen/verkenner/data/fivem-forum-betaald-per-maand.txt
 platformen/verkenner/data/fivem-forum-steekproef-sep2026.txt
 platformen/verkenner/data/fivem-resources-2026-11-09.json
@@ -415,14 +401,11 @@ platformen/verkenner/data/garmin-kans-haal.py
 platformen/verkenner/data/garmin-kans-reviews.py
 platformen/verkenner/data/garmin-kans-trefwoorden.py
 platformen/verkenner/data/garmin-niet-wijzerplaten-2026-11-09.json.gz
-platformen/verkenner/data/garmin-nieuw-sinds-jun2025-2026-11-06.json
 platformen/verkenner/data/garmin-showcase-haal-script.py
-platformen/verkenner/data/garmin-spellen-details-2026-11-13.jsonl
 platformen/verkenner/data/garmin-spellen-details-script.py
 platformen/verkenner/data/garmin-spellen-gratis-eerst-2026-11-13.jsonl
 platformen/verkenner/data/garmin-spellen-gratis-eerst-script.py
 platformen/verkenner/data/garmin-spellen-modellen-analyse.py
-platformen/verkenner/data/garmin-spellen-reviews-2026-11-13.jsonl
 platformen/verkenner/data/garmin-spellen-reviews-modellen-script.py
 platformen/verkenner/data/garmin-spellen-stappen-script.py
 platformen/verkenner/data/garmin-spellen-vorm-script.py
@@ -438,27 +421,21 @@ platformen/verkenner/data/googleplay-analyse-makers-script.py
 platformen/verkenner/data/googleplay-analyse-script.py
 platformen/verkenner/data/googleplay-haal-script.py
 platformen/verkenner/data/googleplay-ids-2026-11-15.json
-platformen/verkenner/data/googleplay-makers-lichting-2026-11-15.json
 platformen/verkenner/data/googleplay-makers-script.py
 platformen/verkenner/data/googleplay-sitemap-steekproef-script.py
-platformen/verkenner/data/googleplay-steekproef-13726-2026-11-15.jsonl
 platformen/verkenner/data/gumroad-haal-script.py
-platformen/verkenner/data/gumroad-juni2026-steekproef-2026-11-07.json
 platformen/verkenner/data/gumroad-steekproef-haal.sh
 platformen/verkenner/data/gumroad-steekproef-mei-jun-2026.json
 platformen/verkenner/data/gumroad-steekproef-tel.py
 platformen/verkenner/data/gumroad-teller-script.py
-platformen/verkenner/data/gwm-detail-2026-11-07.jsonl
 platformen/verkenner/data/gwm-haal-script.py
 platformen/verkenner/data/gwm-kapot-script.py
-platformen/verkenner/data/gwm-reviews-100k-2026-11-09.jsonl
 platformen/verkenner/data/gwm-tel-script.py
 platformen/verkenner/data/gwm-zoek-script.py
 platformen/verkenner/data/iphone-haal.py
 platformen/verkenner/data/iphone-lichting-mei-aug-2026-11-15.json
 platformen/verkenner/data/itch-assets-lijst-script.py
 platformen/verkenner/data/itch-assets-per-maand-2026-11-17.json
-platformen/verkenner/data/itch-assets-steekproef-2026-11-17.json
 platformen/verkenner/data/itch-lijst-script.py
 platformen/verkenner/data/itch-pagina-script.py
 platformen/verkenner/data/itch-tools-mei-jul-2026.json
@@ -469,7 +446,6 @@ platformen/verkenner/data/jetbrains-betaald-eerste-versie-2026-11-08.jsonl
 platformen/verkenner/data/jetbrains-cohort-analyse-script.py
 platformen/verkenner/data/jetbrains-cohort-haal-script.py
 platformen/verkenner/data/jetbrains-eerste-versie-script.py
-platformen/verkenner/data/jetbrains-localization-zoek-2026-11-08.jsonl
 platformen/verkenner/data/jetbrains-taalpakketten-2026-11-08.json
 platformen/verkenner/data/jetbrains-taalpakketten-script.py
 platformen/verkenner/data/jinxxy-analyse-script.py
@@ -484,8 +460,6 @@ platformen/verkenner/data/makerworld-analyse-script.py
 platformen/verkenner/data/makerworld-haal-script.py
 platformen/verkenner/data/makerworld-steekproef-2026-11-08.jsonl
 platformen/verkenner/data/mcp-marketplace-haal-script.py
-platformen/verkenner/data/mcp-marketplace-makers-2026-11-15.json
-platformen/verkenner/data/meta-horizon-vrdb-2026-11-08.jsonl
 platformen/verkenner/data/meta-vrdb-analyse-script.py
 platformen/verkenner/data/meta-vrdb-devalue.py
 platformen/verkenner/data/meta-vrdb-haal-script.py
@@ -498,7 +472,6 @@ platformen/verkenner/data/miro-apps-2026-11-08.json
 platformen/verkenner/data/miro-haal-script.py
 platformen/verkenner/data/modrinth-analyse-script.py
 platformen/verkenner/data/modrinth-haal-script.py
-platformen/verkenner/data/modrinth-mods-2026-11-07.json
 platformen/verkenner/data/modrinth-top-script.py
 platformen/verkenner/data/modrinth-top3000-a-2026-11-07.json
 platformen/verkenner/data/modrinth-top3000-b-2026-11-07.json
@@ -506,10 +479,8 @@ platformen/verkenner/data/moodle-gratis-steekproef-2026-11-08.jsonl
 platformen/verkenner/data/moodle-gratis-steekproef-lijst-2026-11-08.json
 platformen/verkenner/data/moodle-marketplace-betaald-2026-11-08.jsonl
 platformen/verkenner/data/moodle-marketplace-haal-script.py
-platformen/verkenner/data/moodle-pluglist-2026-11-08.json
 platformen/verkenner/data/msstore-analyse-script.py
 platformen/verkenner/data/msstore-haal-script.py
-platformen/verkenner/data/msstore-steekproef-2026-11-08.jsonl
 platformen/verkenner/data/n8n-gumroad-2026-11-09.jsonl
 platformen/verkenner/data/n8n-templates-2026-11-09.json
 platformen/verkenner/data/nexus-steekproef-2026-11-14.json
@@ -526,11 +497,6 @@ platformen/verkenner/data/odoo-lijst-script.py
 platformen/verkenner/data/odoo-oudste-script.py
 platformen/verkenner/data/odoo-pagina-script.py
 platformen/verkenner/data/odoo/kand2.json
-platformen/verkenner/data/odoo/kandoud2.json
-platformen/verkenner/data/odoo/lijst19.json
-platformen/verkenner/data/odoo/pag19.json
-platformen/verkenner/data/opencart-2025-05tot08-2026-11-07.jsonl
-platformen/verkenner/data/opencart-2026-05tot08-2026-11-07.jsonl
 platformen/verkenner/data/opencart-analyse-script.py
 platformen/verkenner/data/opencart-haal-script.py
 platformen/verkenner/data/openvsx-haal-script.py
@@ -568,7 +534,6 @@ platformen/verkenner/data/printables-betaald-2026-11-08.jsonl
 platformen/verkenner/data/printables-betaald-script.py
 platformen/verkenner/data/printables-haal-script.py
 platformen/verkenner/data/printables-steekproef-2026-11-08.jsonl
-platformen/verkenner/data/railway-templates-2026-11-14.jsonl
 platformen/verkenner/data/railway-templates-haal-script.py
 platformen/verkenner/data/reacties-geschiedenis.csv
 platformen/verkenner/data/reacties-script.py
@@ -585,8 +550,6 @@ platformen/verkenner/data/renderosity-best-selling-2026-11-14.csv
 platformen/verkenner/data/renderosity-browse-script.py
 platformen/verkenner/data/rhino-yak-analyse-script.py
 platformen/verkenner/data/rhino-yak-haal-script.py
-platformen/verkenner/data/rhino-yak-lijst-2026-11-08.json
-platformen/verkenner/data/rhino-yak-versies-2026-11-08.jsonl
 platformen/verkenner/data/roblox-betaald-2026-11-06.json
 platformen/verkenner/data/roblox-betaald-feb-aug-2026-met-favorieten.json
 platformen/verkenner/data/roblox-favorieten-script.py
@@ -622,7 +585,6 @@ platformen/verkenner/data/shopify-efactuur-haal-script.py
 platformen/verkenner/data/shopify-efactuur-kandidaten-2026-11-07.json
 platformen/verkenner/data/shopify-efactuur-urls-2026-11-07.txt
 platformen/verkenner/data/shopify-garan-golf-2026-11-07.json
-platformen/verkenner/data/shopify-steekproef-2026-11-06.json
 platformen/verkenner/data/shopify-steekproef-script.py
 platformen/verkenner/data/shopify-storecensus-2026-11-07.json
 platformen/verkenner/data/shopify-storecensus-analyse-script.py
@@ -639,7 +601,6 @@ platformen/verkenner/data/silhouette-design-store-artiesten-2026-11-14.csv
 platformen/verkenner/data/silhouette-design-store-meting.py
 platformen/verkenner/data/simracing-graphtreon-2026-11-15.csv
 platformen/verkenner/data/simracing-graphtreon-script.py
-platformen/verkenner/data/sketchup-ew-2026-11-09.jsonl
 platformen/verkenner/data/sketchup-ew-script.py
 platformen/verkenner/data/slack-marketplace-urls-2026-11-08.txt
 platformen/verkenner/data/slack-nieuwste-prijslabels-2026-11-08.txt
@@ -712,7 +673,6 @@ platformen/verkenner/data/superhive-modellen-2026-11-13.jsonl.gz
 platformen/verkenner/data/superhive-modellen-script.py
 platformen/verkenner/data/superhive-nieuwe-addons-2026-11-09.jsonl
 platformen/verkenner/data/superhive-nieuwe-addons-script.py
-platformen/verkenner/data/superhive-steekproef-2026-11-07.jsonl
 platformen/verkenner/data/superhive-steekproef-urls-2026-11-07.txt
 platformen/verkenner/data/superhive-top600-beoordelingen-2026-11-08.jsonl
 platformen/verkenner/data/superhive-zwakke-leider-script.py
@@ -720,15 +680,12 @@ platformen/verkenner/data/sylius-addons-2026-11-14.jsonl
 platformen/verkenner/data/thangs-pagina-script.py
 platformen/verkenner/data/thangs-steekproef-2026-11-13.jsonl
 platformen/verkenner/data/thunderbird-analyse-script.py
-platformen/verkenner/data/thunderbird-extensies-2026-11-07.json
 platformen/verkenner/data/thunderbird-haal-script.py
 platformen/verkenner/data/tiktok-claude-geld-reacties-2026-11-09.csv
 platformen/verkenner/data/tpt-haal-script.py
 platformen/verkenner/data/tpt-steekproef-2026-11-09.jsonl
 platformen/verkenner/data/trmnl-analyse-script.py
-platformen/verkenner/data/trmnl-recipes-2026-11-09.json
 platformen/verkenner/data/trmnl-recipes-json-script.py
-platformen/verkenner/data/trustmrr-alle-2026-11-08.jsonl
 platformen/verkenner/data/trustmrr-alle-haal-script.py
 platformen/verkenner/data/trustmrr-mac-kanalen-2026-11-09.tsv
 platformen/verkenner/data/trustmrr-mac-volgers-2026-11-09.tsv
@@ -783,7 +740,6 @@ platformen/verkenner/data/woo-2026-11-07.jsonl
 platformen/verkenner/data/woo-analyse-script.py
 platformen/verkenner/data/woo-haal-script.py
 platformen/verkenner/data/woo-urls-2026-11-07.txt
-platformen/verkenner/data/xero-apps-2026-11-07.json
 platformen/verkenner/data/xero-haal-script.py
 platformen/verkenner/data/xero-lijst-2026-11-07.json
 platformen/verkenner/data/xero-lijst-script.py
@@ -797,7 +753,6 @@ platformen/verkenner/data/zedge-gratis-steekproef-2026-11-14.jsonl
 platformen/verkenner/data/zedge-haal-gratis-script.py
 platformen/verkenner/data/zedge-haal-premium-script.py
 platformen/verkenner/data/zedge-premium-zoektreffers-2026-11-14.jsonl
-platformen/verkenner/data/zendesk-marketplace-2026-11-16.jsonl
 platformen/verkenner/data/zendesk-marketplace-haal-script.py
 platformen/verkenner/data/zoho-haal-script.py
 platformen/verkenner/data/zoho-maandlijsten-script.sh
@@ -821,4 +776,3 @@ platformen/zijpad/data/crazygames-spellen-2026-11-09.jsonl
 platformen/zijpad/data/shopify-themes-2026-11-09.jsonl
 platformen/zijpad/data/shopify-themes.py
 platformen/zijpad/data/umbraco-haal.py
-platformen/zijpad/data/umbraco-pakketten-2026-11-09.jsonl

@@ -7,6 +7,9 @@ name: Archief beelden naar release
 # Elke lijst <naam>.txt (een pad per regel) wordt <naam>.zip in de release, met de lijst zelf erbij.
 # Paden in de zip zijn de paden op main op het moment van de run.
 # Staat <naam>.zip al in de release, dan slaat de run die lijst over (de bestanden zijn dan al uit main).
+# Schoonmaken (keuring fase 2, 22 nov): staat er een <naam>.weglaten (een pad per regel), dan haalt de run de zip uit de
+# release, gooit die paden eruit (zip -d), controleert dat in geen enkel tekstbestand nog een mailadres staat, en
+# vervangt de zip en zijn lijst in de release (--clobber). Al schoon: dan doet hij niets.
 # Pas als deze run groen is en de zips met curl te downloaden zijn, gaan de bestanden uit main (nieuwe commit,
 # geen geschiedenis herschreven).
 on:
@@ -52,6 +55,39 @@ jobs:
             echo "$naam.zip: $(unzip -Z1 "/tmp/uit/$naam.zip" | wc -l) bestanden, $(du -h "/tmp/uit/$naam.zip" | cut -f1)"
           done
           ls -la /tmp/uit
+      - name: Zips schoonmaken (<naam>.weglaten)
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/schoon
+          for weg in organisatie/opruimen/archief-beelden/*.weglaten; do
+            [ -s "$weg" ] || continue
+            naam=$(basename "$weg" .weglaten)
+            gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p "$naam.zip" -D /tmp/schoon --clobber || { echo "geen $naam.zip in de release, overgeslagen"; continue; }
+            unzip -Z1 "/tmp/schoon/$naam.zip" | sort > /tmp/schoon/in-zip.txt
+            grep -v '^$' "$weg" | sort > /tmp/schoon/weg.txt
+            comm -12 /tmp/schoon/in-zip.txt /tmp/schoon/weg.txt > /tmp/schoon/eruit.txt
+            if [ -s /tmp/schoon/eruit.txt ]; then
+              zip -q -d "/tmp/schoon/$naam.zip" -@ < /tmp/schoon/eruit.txt
+              echo "$naam.zip: $(wc -l < /tmp/schoon/eruit.txt) bestanden eruit"
+            else
+              echo "$naam.zip: niets meer weg te laten"
+            fi
+            python3 -I - "/tmp/schoon/$naam.zip" <<'PY'
+          import re, sys, zipfile
+          rx = re.compile(rb"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
+          tekst = (".json", ".jsonl", ".csv", ".tsv", ".md", ".txt", ".py", ".html", ".htm", ".xml", ".js", ".yml", ".yaml", ".sh")
+          z = zipfile.ZipFile(sys.argv[1])
+          fout = [n for n in z.namelist() if n.lower().endswith(tekst) and rx.search(z.read(n))]
+          print(f"{sys.argv[1]}: {len(z.namelist())} bestanden, tekstbestanden met mailadres: {len(fout)}")
+          for n in fout: print("  mailadres in", n)
+          sys.exit(1 if fout else 0)
+          PY
+            if [ -s /tmp/schoon/eruit.txt ]; then
+              cp "organisatie/opruimen/archief-beelden/$naam.txt" "/tmp/schoon/$naam-lijst.txt"
+              gh release upload "$TAG" "/tmp/schoon/$naam.zip" "/tmp/schoon/$naam-lijst.txt" -R "$GITHUB_REPOSITORY" --clobber
+            fi
+            rm -f "/tmp/schoon/$naam.zip"
+          done
       - name: Release maken
         run: |
           set -euo pipefail

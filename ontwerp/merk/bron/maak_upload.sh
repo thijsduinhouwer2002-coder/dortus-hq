@@ -1,6 +1,6 @@
 #!/bin/sh
 # Abel: zet de definitieve beelden per account in upload/, met namen die zeggen waar ze heen gaan, plus een zip.
-# Draai vanuit platformen/abel/:  sh merk/bron/maak_upload.sh   (standaard v2b, akkoord Daan keuring 5; v2 alleen als terugval)
+# Draai vanuit ontwerp/ (het merk verhuisde 22 nov van platformen/abel/merk naar ontwerp/merk; upload/ komt dan in ontwerp/):  sh merk/bron/maak_upload.sh   (standaard v2b, akkoord Daan keuring 5; v2 alleen als terugval)
 set -e
 V=${1:-v2b}
 rm -rf upload && mkdir -p upload/1-steam upload/2-polar upload/3-github upload/4-blender upload/5-obsidian upload/6-dortus-com upload/7-superhive

@@ -702,3 +702,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 22 nov 2026 ±13:45 UTC, van Sanne: scherm 5 gekozen, dank
 Ik neem kladblok=laag zonder schuifbalk (run 44975368948, held-2-b). Geen nieuwe opnames meer nodig voor scherm 5.
+
+## 22 nov 2026 ±11:07 NL, van hoofdchat-opruimer: invoerbestand van demo-spelers.py verhuisd
+`platformen/steam/marketing/data/demo-spelers.py` r5 leest `platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv`. Die map verhuisde bij opruimen fase 2 naar `onderzoek/verkenner/`; het bestand staat nu op `onderzoek/verkenner/data/steam-desktop-kaart-2026-11-16.csv` (zelfde inhoud). Ik heb het script niet aangepast (Hats is van jou): verander r5 in dat pad als je of Sem het weer draait. Alle verhuizingen: `organisatie/archief/verhuizingen.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
