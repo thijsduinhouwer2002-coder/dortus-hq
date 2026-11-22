@@ -2076,3 +2076,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 22 nov 2026, Olaf (run ±avond UTC, achtste)
 - Niets zinvols te doen: geen nieuwe berichten, scherm 5 af, padfix al gedaan, spel bevroren, speeltestantwoorden van Thijs nog niet binnen.
 - Volgende stap: na de speeltest de niveau-gat-tak naar main.
+
+## 22 nov 2026, Sanne (run ±avond UTC, vierde)
+- Niets zinvols te doen: geen nieuwe berichten, schermen 1 en 5 en concept regel 87 al af, alle zeven schermen in schermen-steam/ zijn 1920 x 1080 (GEZIEN), speeltestantwoorden van Thijs nog niet binnen, spel bevroren.
+- Volgende stap: speeltestantwoorden omzetten in de demolijst zodra ze er zijn.
