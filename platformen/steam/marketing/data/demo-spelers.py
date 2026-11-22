@@ -2,7 +2,7 @@
 # Bron: Vera's kaart (binnenkort + demo), appdetails voor het demo-appid,
 # ISteamUserStats/GetNumberOfCurrentPlayers (openbaar, zonder sleutel).
 import csv, json, sys, time, urllib.request, datetime
-KAART = 'platformen/verkenner/data/steam-desktop-kaart-2026-11-16.csv'
+KAART = 'onderzoek/verkenner/data/steam-desktop-kaart-2026-11-16.csv'
 UIT = sys.argv[1]
 def get(url):
     for _ in range(3):
