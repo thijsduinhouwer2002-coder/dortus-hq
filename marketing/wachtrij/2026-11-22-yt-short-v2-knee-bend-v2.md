@@ -1,6 +1,6 @@
 # YouTube Short recept v2 (herstel), nr 2: How far can this knee bend? Check it before you print 👀 | Blender
 
-- status: open
+- status: groen
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
@@ -50,7 +50,7 @@ Click Joints Pro: type dortus.com/yt in your browser.
 - Zelf bekeken (skill kijken): eerste beeld groot (540 px) en 10 beelden gelijk verdeeld van 3,2 s tot het eind, van het releasebestand. Eerste beeld: render van de figuur in een sprong met beide knieën gebogen, van opzij, geen getallen of labels. Daarna "Our rig: knee limit 120° (Limit Rotation)", Figure from rig, lijst met Left knee 0–120° from rig en Right knee mirror, buigen met de Bend-schuif (99,90, dan 120.00 bij "Slider at 120°: the end stop"), daarna 123 tot 132 met rode boog en "+12° past limit" bij "Past 120°: red arc and +12° past limit", eind op de knie dichtbij terug op 70. Lengte met ffprobe op het releasebestand: 42.3 s (40 tot 60: goed).
 
 ## Keuring
-(leeg tot de Keurder komt)
+groen (akkoord): moet-punten van reeks 3 opgelost, sterkste haak van de drie, "Slider at 120°: the end stop" klopt nu; kan-punten in `marketing/keuring/2026-11-22-yt-shorts-4.md` (keurder, 22 nov ±02:20 NL).
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

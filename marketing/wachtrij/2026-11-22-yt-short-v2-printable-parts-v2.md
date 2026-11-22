@@ -1,6 +1,6 @@
 # YouTube Short recept v2 (herstel), nr 3: Your rigged character as printable parts with joints 🧩 | Blender
 
-- status: open
+- status: groen
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
@@ -50,7 +50,7 @@ Click Joints Pro: type dortus.com/yt in your browser.
 - Zelf bekeken (skill kijken): eerste beeld groot (540 px) en 10 beelden gelijk verdeeld van 3,2 s tot het eind, van het releasebestand. Eerste beeld: render in Exploded view dichtbij romp en heupen, de twee kogels tussen romp en benen goed te zien, onderkant zacht vervaagd, niets achter de ondertitel. Daarna kiezen, Figure from rig, Exploded view bij de schouder en bij de heup, 3MF gekozen (knop blauw) en Export 3MF, eind op render-4: de hele figuur uit elkaar van schuin achter met "One 3MF file / per part" en dortus.com/yt. Lengte met ffprobe op het releasebestand: 43.3 s (40 tot 60: goed).
 
 ## Keuring
-(leeg tot de Keurder komt)
+groen (akkoord): moet-punten van reeks 3 opgelost, eerste beeld toont losse delen met kogels; figuur zonder hoofd en grijze onderarm mogen later (kan-punten in `marketing/keuring/2026-11-22-yt-shorts-4.md`, keurder, 22 nov ±02:20 NL).
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)
