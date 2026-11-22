@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: zo 22 nov 2026, 14:40 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. 6 Shorts ingepland in YouTube Studio t/m ma 23 nov 20:00 (GEZIEN geplaatst.md). Vandaag 17:00 en 18:00 lange video en TikTok via Metricool (PENDING). Hats: alle zes Steam-schermen klaar. Fit test strip: nakeuring Daan akkoord ja (bc096c5), Bram zet hem op dortus.com met "foto naar thijs@dortus.com, gratis Pro-code". Quotum Metricool 14/20. Verkopen Pro: 0; Click Joints 316 downloads (GEZIEN scorebord 22 nov 09:50 UTC).
+**Stand: zo 22 nov 2026, 15:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Vandaag 17:00 en 18:00 lange video en TikTok via Metricool (PENDING). Fit test strip: site-keuring Daan ja; staat op tak `claude/fit-test-strip` (466e421) van repo dortus, samen met de direct-zip; live na één push naar main (lijst Thijs 5). Nieuw op de lijst: voorgestelde prijs $10 bij de gratis Click Joints op Gumroad. Quotum Metricool 14/20. Verkopen Pro: 0; Click Joints 316 downloads (GEZIEN scorebord 22 nov 09:50 UTC).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

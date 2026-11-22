@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-22 14:40",
+    "datum": "2026-11-22 15:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Direct-zip met Pro-knoppen op slot: keuring Daan groen (23:40); in dortus-hq op main (hoofdchat 23:45). Site-tak claude/direct-zip-download (66d6031) in repo dortus nog naar main: push vanuit de ronde werd geweigerd, volgende ronde opnieuw of Bram. Gids 2 en 3 wachten op Thijs.",
+      "volgende_stap": "Site-tak claude/fit-test-strip (466e421) in repo dortus: direct-zip met Pro-knoppen op slot plus gratis Fit test strip (foto sturen, Pro gratis), beide gekeurd door Daan. Live na één push naar main door Thijs (lijst 5). Voorgestelde prijs $10 bij de gratis versie op Gumroad (lijst 3). Gids 2 en 3 wachten op Thijs.",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -133,7 +133,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-21 23:45",
+      "laatste_update": "2026-11-22 15:45",
       "links": [
         {
           "naam": "Winkelpagina",
