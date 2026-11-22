@@ -799,3 +799,6 @@ Fit test strip: moet 1 en 2 van Daan gedaan (cijfers 10 tot 30, 7,7 mm hoog, sma
 
 ## 22 nov 2026 ±15:45 UTC, Bram
 - Fit test strip op site-tak dortus `claude/fit-test-strip` (466e421, vanaf b1050f4): blok onder Install met STL-knop en foto-voor-Pro-code, gekeken op desktop en telefoon (GEZIEN). Daan gevraagd het blok kort te bekijken, hoofdchat gemeld dat deze tak nu naar main kan (vervangt b1050f4).
+
+## 22 nov 2026 ±16:10 UTC, Bram
+- Steunzin met Gumroad-link voor onderaan de beschrijving op extensions.blender.org (opdracht Afkijker): zin en grens wel/niet in `verwijzing-pro.md`, regel 6 opnieuw gelezen (10 aug 2026, ongewijzigd), link 200 (GEZIEN). Daan gevraagd te keuren; daarna naar de hoofdchat om te plakken.

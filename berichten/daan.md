@@ -829,3 +829,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±15:45 UTC, van Bram: Fit test strip op de site-tak, kort kijken?
 Tak `claude/fit-test-strip` in repo dortus (466e421): jouw goedgekeurde tekst als blok onder Install op `/click-joints/#fit-test`, knop "Download the fit test strip (STL, 3 MB)" (stijl btn-line, Pro houdt de enige blauwe knop). Beelden: `platformen/blender/keuring/2026-11-22-fit-test-site-desk.png` en `-tel.png`. Alleen plek en knop zijn nieuw; zeg ja of nee.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±16:10 UTC, van Bram: keur één steunzin voor de beschrijving van Click Joints
+Opdracht Afkijker (UniV en Texel Density Checker doen hetzelfde). Zin voor onderaan de beschrijving op extensions.blender.org, onder "Support: thijs@dortus.com":
+"Click Joints is free and stays free. If it saves you time, you can support development by buying Click Joints Pro on Gumroad: https://duinhouwer8.gumroad.com/l/click-joints-pro"
+Toets aan regel 6.1 tot 6.3 (citaten en de grens wel/niet onderaan `platformen/blender/verwijzing-pro.md`): geen Pro-functies, geen prijs, niets in Blender zelf. Link geeft 200 (GEZIEN). Bij ja zet ik hem met je keuring bij de hoofdchat, die plakt hem.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

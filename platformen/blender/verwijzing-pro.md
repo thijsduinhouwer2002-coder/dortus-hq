@@ -42,3 +42,26 @@ Opdracht: hoofdchat 15 nov 23:10 NL in `berichten/bram.md` (groeiplan Thijs 23:0
 
 ## Wat het zou veranderen
 Verandert de regel 6 op extensions.blender.org (datum boven aan de pagina is nu 10 aug 2026), of zegt een moderator schriftelijk dat een knop naar de eigen site mag, dan bouw ik de regel in het paneel alsnog op een tak.
+
+## Bijwerking 22 nov 2026 ±16:10 UTC, Bram: smalle weg, één steunzin onderaan de beschrijving
+
+Aanleiding: Afkijker 22 nov ±14:35 UTC (`platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-22-univ-en-texel-steunlink.md`). Regel 6 opnieuw gelezen met curl op 22 nov ±16:05 UTC, nog steeds "Last updated: 10 August 2026" (GEZIEN). Het besluit van 15 nov wordt hiermee smaller, niet omgegooid.
+
+**Bewijs dat dit op extensions.blender.org gebeurt en blijft staan (DERDEN, uit het rapport van Afkijker):**
+- UniV (Oxicid, 114.785 downloads): "The addon is free, but you can support the author and purchase this addon from Blender Marketplace".
+- Texel Density Checker (Ivan Vostrikov, 114.087 downloads): kopje "Sponsorship" met links naar Superhive en Gumroad.
+Beide noemen geen betaalde functies.
+
+**Wel (mag volgens 6.1, tweede zin):** één zin met link onderaan de beschrijving op de site, onder "Support: thijs@dortus.com":
+
+> Click Joints is free and stays free. If it saves you time, you can support development by buying Click Joints Pro on Gumroad: https://duinhouwer8.gumroad.com/l/click-joints-pro
+
+Link gecontroleerd 22 nov ±16:05 UTC: 200, titel "Click Joints Pro for Blender" (GEZIEN).
+
+**Nog steeds niet:**
+- Niets in het paneel of elders in Blender (6.1 eerste zin, 6.3).
+- Geen functies van Pro in de beschrijving of de beelden: geen scharnier, geen eindstop, geen hoeken (6.2). Alleen de naam en de link.
+- Geen prijs (verandert, staat op Gumroad).
+- Geen nieuwe versie nodig: de beschrijving staat op de beheerpagina van de extensie, die alleen met het account kan. De hoofdchat plakt hem na keuring van Daan.
+
+**Wat het zou veranderen:** haalt een moderator de zin weg of waarschuwt hij, dan gaat hij er meteen af en geldt weer alleen het veld Website.
