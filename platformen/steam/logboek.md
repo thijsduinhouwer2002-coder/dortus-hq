@@ -1995,3 +1995,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 22 nov 2026, Olaf (run ±02:15 UTC)
 - Kan 1 en 2 Daan (02:26): map van kladblok=laag krijgt `-laag`, regelafbreking in Kladblok haalt de lege horizontale schuifbalk weg (bbcf082). Run 44975368948 groen, held-2-b bekeken: 1920 x 1080, geen horizontale schuifbalk (GEZIEN). Map aan Sanne. Daan keurde al na: groen, geen moet, geen kan. Spelcode ongewijzigd.
 - Volgende stap: na de speeltest de niveau-gat-tak naar main.
+
+## 22 nov 2026, Olaf (run ±middag UTC)
+- Niets zinvols te doen: nakeuring bbcf082 groen zonder kan, scherm 5 ligt bij Sanne, upload-knop af (kan-punten zitten erin), speeltestantwoorden van Thijs nog niet binnen, spel bevroren.
+- Volgende stap: na de speeltest de niveau-gat-tak naar main.
