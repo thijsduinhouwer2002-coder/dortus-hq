@@ -294,6 +294,8 @@ jobs:
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Notepad" -Name iPointSize -Type DWord -Value ([int](110 * $sf - 5))
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Notepad" -Name lfFaceName -Type String -Value "Consolas"
             Write-Output "Kladblok letters: $([int](110 * $sf - 5)) tienden pt"
+            # Olaf 22 nov (kan 2 Daan 02:26): regelafbreking aan, dan valt de lege horizontale schuifbalk weg.
+            Set-ItemProperty -Path "HKCU:\Software\Microsoft\Notepad" -Name fWrap -Type DWord -Value 1
           }
           $kl = Start-Process notepad.exe -ArgumentList "`"$briefje`"" -PassThru
           Start-Sleep 3
@@ -433,7 +435,9 @@ jobs:
           [ "$WERKVENSTER" != 1 ] || D_REL="$D_REL-werkvenster-run$GITHUB_RUN_ID"
           # Olaf 21 nov: het bureaublad op 1920 x 1080 krijgt "-scherm1920" erbij, zodat het nooit een 1280-map overschrijft.
           [ "$SCHERMMAAT" != 1920 ] || D_REL="$D_REL-scherm1920"
+          # Olaf 22 nov (kan 1 Daan 02:26): ook laag krijgt een eigen achtervoegsel.
           [ "$KLADBLOK" != smal ] || D_REL="$D_REL-smal"
+          [ "$KLADBLOK" != laag ] || D_REL="$D_REL-laag"
           # Olaf 15 nov (tip Bram 04:45): smalle kloon, alleen onze eigen map uitpakken. Heel klonen duurde ±1,5 min
           # (de tak is groot); zo 2 tot 3 s, dus bij een geweigerde push gewoon opnieuw klonen en onze commit erop zetten.
           gelukt=0

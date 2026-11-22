@@ -1,0 +1,13 @@
+{
+  "workflow": "steam-hol-winkel.yml",
+  "invoer": {
+    "soort": "week",
+    "hoogte": "160",
+    "werkvenster": "1",
+    "zaad": "1795340417",
+    "schermmaat": "1920",
+    "kladblok": "laag"
+  },
+  "van": "olaf",
+  "waarom": "scherm 5 kladblok laag met regelafbreking en map-achtervoegsel laag (kan 1 en 2 Daan 22 nov)"
+}
