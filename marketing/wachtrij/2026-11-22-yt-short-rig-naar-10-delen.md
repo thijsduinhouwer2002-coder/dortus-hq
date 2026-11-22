@@ -1,13 +1,14 @@
 # YouTube Short reeks 1, nr 1: One click: rig to 10 printable parts in Blender
 
-- status: groen
+- status: ingepland
 - kanaal: youtube-short
 - soort: video
 - product: click-joints-pro
 - bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/youtube-shorts-1/short-1-rig-to-parts-geluid.mp4
 - geluid_check: GOED (gemiddeld -16,6 dB, piek -1,5 dB), 21 nov 2026 ±14:45 NL, op het releasebestand (`geluid_check.txt` in de release en zelf nagemeten)
 - lengte: 0:13,3, staand 1080x1920
-- tijd: (leeg: de hoofdchat plant in YouTube Studio in, 2 tot 3 per dag)
+- tijd: zo 22 nov 17:00 NL (ingepland in YouTube Studio door de hoofdchat, 22 nov ±10:40 NL)
+- adres: https://www.youtube.com/shorts/I78weVdhwdw (privé tot het moment, dan openbaar; gerelateerde video m3sNvDOJYQ0; niet voor kinderen)
 - doel: dortus.com/yt (over te typen; niet klikbaar in een Short). Als gerelateerde video: de nieuwste lange Pro-video.
 - gemaakt_door: Shorts-agent van de hoofdchat (21 nov 2026)
 - vorige:

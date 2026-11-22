@@ -1,13 +1,15 @@
 # YouTube Short recept v2 (herstel), nr 1: Make your rigged character poseable for 3D printing 🔥 | Blender
 
-- status: groen
+- status: ingepland
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
 - bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/youtube-shorts-4/short-1-make-poseable-geluid.mp4
 - geluid_check: GOED (gemiddeld -16,5 dB, piek -0,9 dB), 22 nov 2026 ±02:25 NL, op het releasebestand: workflow run 44969683236 (`geluid_check.txt` in de release) en lokaal opnieuw na downloaden
 - lengte: 0:43,9, staand 1080x1920
-- tijd: (leeg: de hoofdchat plant in YouTube Studio in)
+- tijd: zo 22 nov 20:00 NL (ingepland in YouTube Studio door de hoofdchat, 22 nov ±10:40 NL)
+- adres: https://www.youtube.com/shorts/eQsepIbHdgU (privé tot het moment, dan openbaar; gerelateerde video m3sNvDOJYQ0; niet voor kinderen)
+- geüpload bestand: 720x1280, opnieuw gecodeerd naar ±3,5 MB omdat het uploadgereedschap maximaal 3,8 MB per bestand aanneemt; geluid_check GOED (±-16,4 dB). Inhoud verder gelijk aan het releasebestand.
 - doel: dortus.com/yt (over te typen; niet klikbaar in een Short). Als gerelateerde video: de nieuwste lange Pro-video.
 - gemaakt_door: Shorts-agent recept v2 (herstel na keuring, opdracht hoofdchat 22 nov ±01:25 NL)
 - vorige: 2026-11-22-yt-short-v2-make-poseable.md

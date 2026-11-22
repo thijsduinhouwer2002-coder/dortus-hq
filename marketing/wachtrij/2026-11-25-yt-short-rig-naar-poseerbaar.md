@@ -1,13 +1,14 @@
 # YouTube Short reeks 2, nr 9: Rigged character to poseable 3D print in Blender: one button
 
-- status: groen
+- status: ingepland
 - kanaal: youtube-short
 - soort: video
 - product: click-joints-pro
 - bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/youtube-shorts-2/short-9-rig-to-poseable-geluid.mp4
 - geluid_check: GOED (gemiddeld -16,6 dB, piek -1,5 dB), 21 nov 2026 ±16:00 NL, lokaal gemaakt met dezelfde code; op het releasebestand: `geluid_check.txt` in release youtube-shorts-2
 - lengte: 0:13,8, staand 1080x1920
-- tijd: (leeg: de hoofdchat plant in YouTube Studio in, 2 tot 3 per dag)
+- tijd: ma 23 nov 20:00 NL (ingepland in YouTube Studio door de hoofdchat, 22 nov ±10:40 NL)
+- adres: https://www.youtube.com/shorts/awtDyH5hOPI (privé tot het moment, dan openbaar; gerelateerde video m3sNvDOJYQ0; niet voor kinderen)
 - doel: dortus.com/yt (over te typen; niet klikbaar in een Short). Als gerelateerde video: de nieuwste lange Pro-video.
 - gemaakt_door: Chris
 - vorige:
