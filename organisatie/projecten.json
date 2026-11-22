@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-22 10:40",
+    "datum": "2026-11-22 11:40",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -279,7 +279,7 @@
         "reden": "Keurder snel-geld, route 16: €0 in 12 weken; demo 4 jan, Next Fest 14 tot 18 jan.",
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
       },
-      "volgende_stap": "Speeltest za 21 nov door Thijs; Steam-paginaconcept is gekeurd (Iris akkoord ja 21 nov) en wacht op ja van Thijs op de tekst; daarna scherm 1 en 5, trailer, indienen vr 27 nov.",
+      "volgende_stap": "Speeltest za 21 nov door Thijs; Steam-paginaconcept is gekeurd (Iris akkoord ja 21 nov) en wacht op ja van Thijs op de tekst; alle zes schermen staan klaar in schermen-steam (Iris akkoord, Sanne 22 nov); daarna trailer, indienen vr 27 nov.",
       "deadline": {
         "datum": "2026-11-21",
         "wat": "Speeltest"
