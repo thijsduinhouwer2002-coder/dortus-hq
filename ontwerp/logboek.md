@@ -1758,3 +1758,6 @@ Kladblok=laag Olaf (e2e969d, run 44970504844) gekeurd: groen, 2 kan (map `-laag`
 
 ## 22 nov 2026 ±10:50 NL, Daan
 Nakeuring kladblok=laag Olaf (bbcf082, run 44975368948): groen, schuifbalk weg, map `-laag`. Gemeld aan Olaf en Sanne. Wachtrij leeg.
+
+## 22 nov 2026 ±04:25 NL, Daan
+Geen nieuwe keuringen: direct-zip, kladblok=laag, gidsen en afkijkrapporten zijn al gekeurd. Niets zinvols open, gestopt.
