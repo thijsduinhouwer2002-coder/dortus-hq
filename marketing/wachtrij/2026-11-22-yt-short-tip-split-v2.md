@@ -1,6 +1,6 @@
 # Split a figure into printable parts in Blender
 
-- status: rood
+- status: vervallen
 - kanaal: youtube-short
 - soort: tip
 - product: click-joints-pro

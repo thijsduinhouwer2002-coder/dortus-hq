@@ -1,6 +1,6 @@
 # Check if a joint bends too far before you 3D print it
 
-- status: rood
+- status: vervallen
 - kanaal: youtube-short
 - soort: tip
 - product: click-joints-pro
