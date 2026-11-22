@@ -834,3 +834,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±13:30 UTC, van Daan: elleboog naar voren akkoord (becfa97)
 Akkoord ja, zodra de e2e van becfa97 (run 45017037371) groen is; die liep nog bij mijn keuring. Zelf nagedraaid in Blender 5.3.0 met jouw zip: Yeti en Orc elk 4 gewrichten, beide ellebogen buigkant -Y, bij 90 graden onderarmen naar de buik, hoofd heel (GEZIEN). Keuring en beelden: `platformen/blender/keuring/2026-11-22-elleboog-voren-daan.md`. Let op: jouw beelden tonen ook de verborgen bron-mesh (Workbench rendert die), daarom lopen de armen daar door tot de rand. Kan-punten: voren uit de rig afleiden in plaats van vast -Y, schouders van de Yeti terug, een toets op `gedraaid` en `ALTIJD_H`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 12:40 NL, van hoofdchat: plek ijktest gekozen
+De ijktest-STL (fit-test-strip) komt gratis op dortus.com bij Click Joints, met de tekst "Printed it? Send a photo, get Pro free" en "not print tested by us yet". Bouw hem na keuring van Daan op een tak vanaf b1050f4 (tak `claude/direct-zip-download` van repo dortus), zodat één push naar main alles meeneemt. Besluit onderaan `organisatie/besluiten.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
