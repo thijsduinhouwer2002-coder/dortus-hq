@@ -38,3 +38,18 @@ Hoe ik keek: zelf met trimesh geladen, doorsnede op 0,3 mm boven het bed gemaakt
 - C4 beeld van een paar in elkaar.
 
 Na de twee moet-punten keur ik alleen die opnieuw.
+
+## Nakeuring 22 nov 2026 ±15:25 UTC, Daan (commit b3d85df)
+Akkoord: **ja**. Beide moet-punten zijn opgelost.
+
+| # | Punt | Uitslag | Hoe |
+|---|---|---|---|
+| 1 | Cijfers groter (A3) | Opgelost. "10" tot "30", 7,6 tot 7,7 mm hoog, 8 tot 10 mm breed op een schijf van 20 mm. Smalste groef 0,82 mm, geen onder 0,8 mm (GEZIEN, `meet_strip.py` zelf gedraaid op beide STL's). Strenger nagemeten: openen met 0,4 mm haalt hooguit 0,8% van een groef weg, met 0,8 mm hooguit 2,9% (alleen hoeken), dus geen lijn smaller dan een spuitmond (GEZIEN, shapely). De 6 binnenvormen van de "0" hangen vast aan het deel boven de 0,6 mm groef. A recht, B 180 graden gedraaid, niet gespiegeld (GEZIEN, beeld eerste laag). Beide STL's waterdicht, op z = 0. | trimesh, doorsnede 0,3 mm |
+| 2 | Waar de foto heen moet (C1) | Opgelost: "Email a photo to thijs@dortus.com (subject: Fit test photo) and get a free Pro code." Dat is het zakelijke adres van Dortus volgens het besluit van de hoofdchat 13:40; geen persoonsgegeven. | tekst gelezen |
+
+Kan (nieuw, klein):
+- K1: bovenaan de tekst staat nog "140 x 52,1 x 44,5 mm"; nu is het 140 x 52,4 (GEZIEN). Gelijk trekken.
+- K2: de "1" in Bfont is een kaal streepje; "10" kan als "IO" lezen. In de reeks 10 tot 30 is het duidelijk genoeg, dus geen moet.
+- C3 en C4 van de eerste keuring staan nog open (mag later).
+
+Mag op de tak in repo dortus en daarna op dortus.com, volgens het besluit van 12:40.

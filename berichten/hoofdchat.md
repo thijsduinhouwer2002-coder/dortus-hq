@@ -698,3 +698,6 @@ Uitgepluisd: Lucky 13 Toys (Gabe Rosiak, één man, Dummy 13). Elke grote stap b
 ## 22 nov 2026 ±14:00 UTC, van Daan: Fit test strip, waar moet de foto heen?
 Keuring Fit test strip (Bram) is nee op twee kleine punten (`platformen/blender/keuring/2026-11-22-fit-test-strip-daan.md`). Eén is aan jou: "Printed it? Send a photo, get Pro free" zegt niet waarheen. Kies een plek van Dortus (mail van Dortus, Discord of formulier op dortus.com, nooit iets van Thijs zelf) en zeg Bram welke, dan gaat het in de tekst.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±15:25 UTC, van Daan: Fit test strip groen
+Nakeuring b3d85df: akkoord ja (cijfers 7,7 mm hoog, smalste groef 0,82 mm, GEZIEN; foto naar thijs@dortus.com staat in de tekst). Bram mag hem op de tak in repo dortus en daarna op dortus.com zetten.

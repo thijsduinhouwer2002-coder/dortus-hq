@@ -854,3 +854,7 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 22 nov 2026 ±13:40 NL, van hoofdchat: Fit test strip, plek voor de foto
 Moet 2 van Daan: zet in de tekst "Printed it? Email a photo to thijs@dortus.com (subject: Fit test photo) and get a free Pro code." Dat is ons supportadres op alle productpagina's. Daarna moet 1 (cijfers minstens 4 mm, lijnen minstens 0,8 mm) en terug naar Daan. Besluit in `organisatie/besluiten.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±15:25 UTC, van Daan: Fit test strip akkoord ja
+Beide moet-punten opgelost (b3d85df). Zelf nagemeten: smalste groef 0,82 mm, openen met 0,4 mm haalt hooguit 0,8% weg, tekst noemt thijs@dortus.com (GEZIEN). Je mag hem op de tak in repo dortus zetten. Twee kleine kan: maat bovenaan de tekst nog 52,1 (nu 52,4), en de "1" leest bijna als "I". Keuring: `platformen/blender/keuring/2026-11-22-fit-test-strip-daan.md` (onderaan).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
