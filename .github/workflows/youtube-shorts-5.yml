@@ -1,0 +1,133 @@
+name: YouTube Shorts 5 (CC0-monster door Figure from rig)
+
+# 22 nov 2026, Chris, opdracht Afkijker 22 nov ±09:45: elke Short een ander figuur. Zelfde opname als reeks 4 (echte
+# Blender 5.3.0, Click Joints Pro 1.1.0 van de Gumroad-commit, echte muis), maar met een monster uit Quaternius
+# "Ultimate Monsters" (CC0 1.0, https://quaternius.com/packs/ultimatemonsters.html) met zijn eigen rig. Het .blend
+# komt van de Google Drive van Quaternius (gdown, zonder inloggen); is die druk, dan het volgende monster.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/youtube-shorts-5/**", ".github/workflows/youtube-shorts-5.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: youtube-shorts-5
+  PRO_COMMIT: f72746613d498097dffd6549f567ce9b04d6044a
+
+jobs:
+  shorts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter tesseract-ocr
+          python3 -m pip install -q --break-system-packages numpy pillow
+      - name: Ruwe opname hergebruiken als opname.py gelijk is
+        id: ruw
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          nu=$(cat commercie/filmpjes/youtube-shorts-5/opname.py commercie/filmpjes/youtube-shorts-4/opname.py | sha256sum | cut -c1-64)
+          echo "sha=$nu" >> "$GITHUB_OUTPUT"
+          mkdir -p /tmp/oud /tmp/pro
+          if gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p opname-sha.txt -p opname-pro.mkv -p film-pro.json -p 'render-*.png' -p monster.txt -D /tmp/oud 2>/dev/null \
+             && [ "$(cat /tmp/oud/opname-sha.txt)" = "$nu" ] && [ -s /tmp/oud/opname-pro.mkv ]; then
+            cp /tmp/oud/opname-pro.mkv /tmp/pro/opname-ruw.mkv; cp /tmp/oud/film-pro.json /tmp/pro/film.json; cp /tmp/oud/render-*.png /tmp/pro/; cp /tmp/oud/monster.txt /tmp/pro/monster.txt
+            echo "opnieuw=nee" >> "$GITHUB_OUTPUT"
+            echo "ruwe opname hergebruikt"
+          else
+            echo "opnieuw=ja" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Blender 5.3.0, MakeHuman-figuur en de Pro-zip
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          curl -fsSL --retry 3 -o /tmp/mh_base.obj https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj
+          git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
+          mkdir -p /tmp/v11
+          git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v11
+          (cd /tmp/v11/producten/blender-gewrichten && PRO_VERSIE=1.1.0 bash e2e/maak_zip.sh betaald)
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Monster van Quaternius (CC0)
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        run: |
+          python3 -m pip install -q --break-system-packages gdown
+          mkdir -p /tmp/mon /tmp/pro
+          # Big/Blends uit https://drive.google.com/drive/folders/18m4KpzpEzhC9wl7jzr6dUc0N8Jozr79C
+          for paar in Yeti:174GVv54Yo0q2dNRYVoJifKyepy8K3gO7 Ninja:1fVlQGO1_fWPFPK_oOVtSVjNlA3ebIhRT; do
+            n=${paar%%:*}; id=${paar#*:}
+            for poging in 1 2 3; do
+              timeout 180 gdown -q "$id" -O "/tmp/mon/$n.blend" && break
+              rm -f "/tmp/mon/$n.blend"; sleep 30
+            done
+            if [ -s "/tmp/mon/$n.blend" ]; then echo "$n" > /tmp/pro/monster.txt; break; fi
+          done
+          [ -s /tmp/pro/monster.txt ] || { echo "FOUT: Google Drive van Quaternius gaf geen monster (te druk), later opnieuw"; exit 1; }
+          ls -la /tmp/mon; sha256sum /tmp/mon/*.blend
+      - name: Opnemen (breed 2160x1920, echte muis)
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          CJ_HOOGTE: "225"
+          BLENDER_USER_RESOURCES: /tmp/cj_pro
+          BLENDER_USER_CONFIG: /tmp/cj_pro/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_pro/extensions
+        run: |
+          export CJ_MONSTER_BLEND="/tmp/mon/$(cat /tmp/pro/monster.txt).blend"
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_s.blend')"
+          mkdir -p /tmp/klaar
+          timeout 4800 xvfb-run --auto-servernum --server-args="-screen 0 2160x1920x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_s.blend --python commercie/filmpjes/youtube-shorts-5/opname.py -- /tmp/opn /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/opname-pro.log || true
+          grep -E "KORT|Traceback|Error" /tmp/opname-pro.log | cut -c1-400 || true
+          if grep -q "KORT FOUT" /tmp/opname-pro.log; then echo "FOUT in de opname"; exit 1; fi
+          for d in heel kies knop lijst knie pose uitelkaar export held render; do grep -q "KORT OK $d" /tmp/opname-pro.log || { echo "FOUT: deel $d"; exit 1; }; done
+          ffmpeg -v error -framerate 30 -start_number 1 -i /tmp/opn/beelden/b%05d.png -c:v libx264 -preset veryfast -crf 12 -pix_fmt yuv444p /tmp/pro/opname-ruw.mkv
+          cp /tmp/opn/film.json /tmp/pro/film.json
+          rm -rf /tmp/opn/beelden
+          cp /tmp/pro/opname-ruw.mkv /tmp/klaar/opname-pro.mkv
+          cp /tmp/pro/film.json /tmp/klaar/film-pro.json
+          cp /tmp/opn/render-*.png /tmp/pro/ && cp /tmp/opn/render-*.png /tmp/klaar/
+          cp /tmp/pro/monster.txt /tmp/klaar/monster.txt
+          cp /tmp/opname-pro.log /tmp/klaar/opname-pro.log
+          echo "${{ steps.ruw.outputs.sha }}" > /tmp/klaar/opname-sha.txt
+      - name: Ruwe opname alvast in de release
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "YouTube Shorts reeks 5 (CC0-monster van Quaternius): staande Shorts van 40 tot 60 s uit een echte opname in Blender 5.3.0 met Click Joints Pro 1.1.0 en de echte muis. Model: Quaternius Ultimate Monsters (CC0). Concepten: marketing/wachtrij/. opname-pro.mkv is alleen werkmateriaal." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube Shorts 5 (CC0-monster)" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/klaar/* --clobber -R "$GITHUB_REPOSITORY"
+      - name: Shorts in elkaar zetten met geluid
+        run: |
+          mkdir -p /tmp/klaar
+          CJ_MONSTER=$(cat /tmp/pro/monster.txt) python3 commercie/filmpjes/youtube-shorts-5/kort.py /tmp/pro /tmp/klaar
+          python3 organisatie/controle/geluid_check.py /tmp/klaar/*-geluid.mp4 | tee /tmp/klaar/geluid_check.txt
+          if grep -q "FOUT" /tmp/klaar/geluid_check.txt; then exit 1; fi
+          (cd /tmp/klaar && sha256sum *-geluid.mp4 | tee SHA256SUMS.txt)
+          for f in /tmp/klaar/*-geluid.mp4; do
+            d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f")
+            echo "$(basename $f) duur $d s $(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 $f)" | tee -a /tmp/klaar/lengtes.txt
+            python3 -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: $(basename $f) is $d s, niet 40 tot 60"; exit 1; }
+          done
+      - name: In de release zetten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "YouTube Shorts reeks 5 (CC0-monster van Quaternius): staande Shorts van 40 tot 60 s uit een echte opname in Blender 5.3.0 met Click Joints Pro 1.1.0 en de echte muis. Model: Quaternius Ultimate Monsters (CC0). Concepten: marketing/wachtrij/. opname-pro.mkv is alleen werkmateriaal." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube Shorts 5 (CC0-monster)" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/klaar/*.mp4 /tmp/klaar/*.jpg /tmp/klaar/*.txt /tmp/klaar/metingen.json --clobber -R "$GITHUB_REPOSITORY"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
