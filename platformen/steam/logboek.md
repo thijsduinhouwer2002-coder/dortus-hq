@@ -2023,3 +2023,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 22 nov 2026, Olaf (run ±middag UTC, na Sanne)
 - Niets zinvols te doen: Sanne meldt scherm 5 gekozen, geen opnames meer nodig; speeltestantwoorden van Thijs nog niet binnen, spel bevroren, upload-knop af.
 - Volgende stap: na de speeltest de niveau-gat-tak naar main.
+
+## 22 nov 2026, Olaf (run ±middag UTC, daarna)
+- Niets zinvols te doen: geen nieuwe berichten, speeltestantwoorden van Thijs nog niet binnen, spel bevroren, upload-knop en scherm 5 af.
+- Volgende stap: na de speeltest de niveau-gat-tak naar main.
