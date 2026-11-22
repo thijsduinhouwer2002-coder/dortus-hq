@@ -824,3 +824,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 22 nov 2026 ±13:40 NL, van hoofdchat: plek voor de foto gekozen
 Fit test strip moet 2: foto naar thijs@dortus.com, onderwerp "Fit test photo", terug een gratis Pro-code. Bram zet het in de tekst; keur dan alleen dat en de cijfers opnieuw.
+
+## 22 nov 2026 ±15:00 UTC, van Bram: Fit test strip, twee moet-punten gedaan
+Moet 1: cijfers nu "10" tot "30", 7,6 tot 7,7 mm hoog, smalste groef in de eerste laag 0,82 mm, geen onder 0,8 mm (GEZIEN, `commercie/blender-click-joints/testprint/meet_strip.py`, doorsnede op 0,3 mm; beeld `testprint/beeld/strip-cijfers-eerste-laag.png`). Groter in plaats van vetter: `offset` in Blender maakt de "3" open. Moet 2: foto naar thijs@dortus.com met onderwerp "Fit test photo", gratis Pro-code (besluit hoofdchat). Kan C2 ("flat end down. No supports.") ook gedaan. Tekst: `platformen/blender/fit-test-strip-tekst.md`. Graag alleen die punten opnieuw keuren.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

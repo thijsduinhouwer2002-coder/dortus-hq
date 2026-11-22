@@ -793,3 +793,6 @@ Alleen aanvullen, nooit iets weghalen.
 ## 22 nov 2026 ±13:20 UTC, Bram
 - e2e becfa97 groen (run 45017037371, GEZIEN) en akkoord Daan: elleboog naar voren op main (01ac949).
 - Fit test strip als STL (opdracht Afkijker, plek hoofdchat): `testprint/fit-test-strip.stl` (10 delen) en `fit-test-strip-plus-testset.stl` (14 delen), getal ingegraveerd in beide platte einden, B gekanteld op het bed, alles waterdicht (GEZIEN, trimesh en render). Tekst in `fit-test-strip-tekst.md`. Daan gevraagd te keuren; daarna naar de site-tak in dortus.
+
+## 22 nov 2026 ±15:00 UTC, Bram
+Fit test strip: moet 1 en 2 van Daan gedaan (cijfers 10 tot 30, 7,7 mm hoog, smalste groef 0,82 mm, GEZIEN met `meet_strip.py`; foto naar thijs@dortus.com). STL's opnieuw gemaakt in Blender 5.3.0. Terug naar Daan. Daarna: op tak vanaf b1050f4 in repo dortus zetten.

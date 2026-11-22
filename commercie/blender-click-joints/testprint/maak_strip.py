@@ -7,7 +7,7 @@ Gebruik (vanuit producten/blender-gewrichten):
 Wat het doet:
 1. Pro installeren, scene in mm, knop "Fit test: ball" (standaard) met de echte code `betaald/testkaart.py`.
    Het getal in reliëf van Pro zetten we hier uit: het zou bij het printen op het bed liggen.
-2. Per paar het getal 0,6 mm ingegraveerd in het platte eind van beide delen (A onder, B boven), zodat je na het
+2. Per paar het getal (10 tot 30, honderdsten mm, minstens 4 mm hoog, lijnen 0,8 mm) 0,6 mm ingegraveerd in het platte eind van beide delen (A onder, B boven), zodat je na het
    printen weet welke A bij welke B hoort. Gesloten na de snede, anders zonder getal (en melden).
 3. Klaar om te printen: A-delen staan zoals ze zijn (plat eind op het bed), B-delen 180 graden om X gekanteld met
    het platte eind op het bed (les keuring echte print A4: anders support in de kom). Rij A voor, rij B erachter.
@@ -27,6 +27,7 @@ ZIP = "/tmp/click_joints_betaald.zip"
 DIEP_MM = 0.6   # zo diep gaat het getal in het deel
 UIT_MM = 0.3    # zo ver steekt de snijvorm buiten het vlak (geen samenvallende vlakken)
 RIJ_MM = 12.0   # ruimte tussen rij A en rij B
+LETTER_MM = 11.0  # keuring Daan A3: Bfont, cijfers ±7,7 mm hoog en dunste lijn minstens 0,8 mm (dikker maken met offset breekt de "3")
 
 bpy.ops.extensions.package_install_files(filepath=ZIP, repo="user_default", enable_on_install=True)
 cj = importlib.import_module("bl_ext.user_default.click_joints")
@@ -59,7 +60,7 @@ def graveer(deel, tekst, onder):
     my = (min(p.y for p in pts) + max(p.y for p in pts)) / 2
     cu = bpy.data.curves.new("cj_strip_tekst", "FONT")
     cu.body = tekst
-    cu.size = tk.LETTER_MM
+    cu.size = LETTER_MM
     cu.align_x, cu.align_y = "CENTER", "CENTER"
     cu.extrude = (DIEP_MM + UIT_MM) / 2
     cu.fill_mode = "BOTH"
@@ -107,7 +108,7 @@ for d in delen:
 for s, paar in sorted(paren.items()):
     paar.sort(key=lambda o: min(v.co.z for v in o.data.vertices))
     a, b = paar
-    tekst = f"{s:.2f}"
+    tekst = f"{round(s * 100)}"  # "10" tot "30": kort genoeg voor grote cijfers (keuring Daan A3)
     for deel, onder in ((a, True), (b, False)):
         if not graveer(deel, tekst, onder):
             fouten.append(f"{deel.name}: geen getal")

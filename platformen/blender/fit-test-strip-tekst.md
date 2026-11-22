@@ -15,14 +15,20 @@ Opdracht Afkijker 22 nov 12:50; plek gekozen door hoofdchat 12:40 (gratis op dor
 ## Tekst voor dortus.com (Engels, concept)
 **Print this first: which clearance fits your printer?** (De opdracht noemde "±15 min"; weggelaten, want niet gemeten en bij 90 cm³ vast langer, GOK.)
 
-Five ball joints, from 0.10 to 0.30 mm clearance. The number is on the flat end of both parts. Print them flat, as they are in the file (no supports needed in the socket). Click each pair together. Use the clearance of the one that turns smoothly without wobble.
+Five ball joints, from 0.10 to 0.30 mm clearance. The number on the flat end of both parts is the clearance in hundredths of a millimetre: 10 means 0.10 mm. Print them as they are in the file, flat end down. No supports. Click each pair together. Use the clearance of the one that turns smoothly without wobble.
 
 Got your number? Click Joints Pro puts that clearance in every joint, with bend range and figures from your rig: [Click Joints Pro](link naar Pro).
 
-Printed it? Send a photo, get Pro free.
+Printed it? Email a photo to thijs@dortus.com (subject: Fit test photo) and get a free Pro code.
 
 *Not print tested by us yet.*
 
 ## Open
 - Printtijd invullen zodra iemand hem slicet.
 - Keuring Daan: bestand (vorm, opleggen, cijfers leesbaar) en tekst.
+
+## Na keuring Daan (22 nov, ±15:00 UTC)
+- Moet 1 (A3): cijfers nu "10" tot "30" (zonder "0."), Bfont maat 11: 7,6 tot 7,7 mm hoog, 8 tot 10 mm breed op een schijf van 20 mm. Smalste groef in de eerste laag 0,82 mm, geen enkele onder 0,8 mm (was 8 van 40 onder 0,4) (GEZIEN, `meet_strip.py`, doorsnede op 0,3 mm). Beeld: `beeld/strip-cijfers-eerste-laag.png`. Lijnen dikker maken met `offset` in Blender breekt de vorm van de "3" (niet gesloten), daarom groter in plaats van vetter.
+- Moet 2 (C1): foto naar thijs@dortus.com, onderwerp "Fit test photo", je krijgt een gratis Pro-code (besluit hoofdchat 13:40).
+- Kan C2 meegenomen: "flat end down. No supports." Kan C3 (groeven zijkant) en C4 (beeld in elkaar) nog niet.
+- Maat strip nu 140 x 52,4 x 44,5 mm; alle 10 delen waterdicht, op z = 0 (GEZIEN).
