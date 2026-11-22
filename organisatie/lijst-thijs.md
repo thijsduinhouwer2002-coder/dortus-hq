@@ -1,6 +1,6 @@
 # Lijst voor Thijs
 
-**Regel (17 nov, Thijs): nooit meer dan 5 punten.** Alleen wat echt alleen Thijs kan: geld uitgeven, inloggen met wachtwoord, eigen gegevens, voorwaarden accepteren, Reddit. Al het andere doet de hoofdchat zelf, of probeert het eerst zelf. Agents zetten niets meer direct hier: ze melden het in `berichten/hoofdchat.md`, de hoofdchat kiest. De oude lijst staat in `organisatie/lijst-thijs-archief-2026-11-17.md`.
+**Regel (17 nov, Thijs): nooit meer dan 5 punten.** Alleen wat echt alleen Thijs kan: geld uitgeven, inloggen met wachtwoord, eigen gegevens, voorwaarden accepteren, Reddit. Al het andere doet de hoofdchat zelf, of probeert het eerst zelf. Agents zetten niets meer direct hier: ze melden het in `berichten/hoofdchat.md`, de hoofdchat kiest. De oude lijst staat in `organisatie/archief/lijst-thijs-archief-2026-11-17.md`.
 
 ## Nu (max 5)
 1. **Insider Gaming "New Year, New Games 2027" inzenden, vóór wo 25 nov** (±10 min). Tekst in `platformen/steam/marketing/teksten-makers.md`, deel "Showcase: Insider Gaming". Vragen ze geld: niet doen zonder jouw besluit.
