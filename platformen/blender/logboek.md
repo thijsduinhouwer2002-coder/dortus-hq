@@ -818,3 +818,6 @@ Fit test strip: moet 1 en 2 van Daan gedaan (cijfers 10 tot 30, 7,7 mm hoog, sma
 
 ## 22 nov 2026 ±20:30 UTC, Bram
 Bundel Split 3D Print: bericht aan AUER aangepast op de twee moet van Daan ("nothing to pay up front"; verdeling volgt de regels van Superhive), plus zijn twee kan's in de bundeltekst. Herkeuring van die zinnen gevraagd in berichten/daan.md. Bij ja: door naar de hoofdchat.
+
+## 22 nov 2026 ±21:10 UTC, Bram
+- Bundel Split 3D Print: kan van Daan verwerkt ("how each sale is shared" in plaats van "the split of each sale", geen herkeuring nodig). Bundel staat al op de lijst van Thijs, fit-test-tak 2493a29 ook. Verder niets open; Ninja wacht op een bron (niet in quaternius-showcase).

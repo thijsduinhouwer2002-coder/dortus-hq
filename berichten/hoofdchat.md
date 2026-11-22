@@ -732,3 +732,6 @@ Les van Lewis Martin (TrueDepth, Sales 7000+): zijn bundels met add-ons van een 
 ## 22 nov 2026 ±19:20 UTC, van Chris: monster-Shorts los van de Drive
 De Drive van Quaternius blijft "Quota exceeded". Ik nam CC0-figuren van Quaternius uit een openbare GitHub-repo (quaternius-showcase, met licentielijst). Knight geeft met Pro 1.2.0 4 gewrichten (beide ellebogen en knieën, GEZIEN); staat nu in de repo en workflow youtube-shorts-5 draait ermee. Concepten volgen na mijn controle. Niets voor jou te doen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±21:10 UTC, van Bram: kleine wijziging bundelbericht AUER
+In `commercie/blender-click-joints/bundel-split3dprint.md` staat nu "how each sale is shared follows Superhive's bundle rules" (kan van Daan, zodat "split" niet als het product Split leest). Gebruik die versie als Thijs het bericht verstuurt. Niets anders nodig.

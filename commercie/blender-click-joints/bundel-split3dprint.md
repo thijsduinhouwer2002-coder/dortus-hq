@@ -43,7 +43,7 @@ Hi AUER,
 
 I make Click Joints Pro on Superhive: it cuts a figure into printable parts with hinges and ball joints, so it moves after printing. Our page already says "Splitting makes it fit on the bed. Click Joints makes it move." Many of our users make figures that are too big for one print bed, and Split 3D Print is exactly what they need next.
 
-Would you like to make a bundle together? Click Joints Pro + Split 3D Print, about 20% off the two prices; the split of each sale follows Superhive's bundle rules. Superhive shows bundles in their own blocks on the front page ("Brand New Bundles", "Top Selling Bundles This Week"), so your add-on would be seen by people who buy ours, with nothing to pay up front.
+Would you like to make a bundle together? Click Joints Pro + Split 3D Print, about 20% off the two prices; how each sale is shared follows Superhive's bundle rules. Superhive shows bundles in their own blocks on the front page ("Brand New Bundles", "Top Selling Bundles This Week"), so your add-on would be seen by people who buy ours, with nothing to pay up front.
 
 I have a draft of the bundle text ready and I am happy to change anything you like. If it's not for you, no problem at all.
 
