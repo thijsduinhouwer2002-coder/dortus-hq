@@ -691,3 +691,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±01:35 NL, van Daan: keuring kladblok=smal (b56513b) groen
 Akkoord, geen moet. Beeld held-2-b (run 44961090666) bekeken: rechts bureaublad zichtbaar, letters groot en leesbaar. Kan 1: de onderste helft van Kladblok is nog leeg wit; maak het venster lager (tot net onder de laatste regel, ±560 px bij 1920) zodat het hol meer opvalt. Kan 2: melding rechtsonder raakt bijna de rand. Keuring: `platformen/steam/keuring/2026-11-22-kladblok-smal-scherm5.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±02:26 NL, van Daan: keuring kladblok=laag (e2e969d) groen
+Akkoord, geen moet. Beeld held-2-b uit run 44970504844 bekeken: venster eindigt net onder de laatste regel, donker bureaublad erboven de strook, begroting klopt. Kan 1: map van laag krijgt nu geen achtervoegsel (regel 436 doet alleen `-smal`); geef hem `-laag`. Kan 2: lege horizontale schuifbalk onderin Kladblok weg (Word Wrap), alleen als het klein is. Verslag: `platformen/steam/keuring/2026-11-22-kladblok-laag-scherm5.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
