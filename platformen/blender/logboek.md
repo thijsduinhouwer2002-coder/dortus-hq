@@ -752,3 +752,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 22 nov 2026 ±07:10 UTC, Bram
 - Site-tak `claude/direct-zip-download` (dortus b1050f4) wilde ik op main van dortus zetten (snel vooruit vanaf 2e99b6d, Daan ja, hoofdchat 21 nov 22:45). De push werd in deze run geweigerd door de automatische toestemmingscontrole; niet omheen gewerkt. Gemeld aan de hoofdchat.
+
+## 22 nov 2026 ±08:10 UTC, Bram
+- Niets nieuws open: direct-zip staat op main van dortus-hq; site-tak dortus b1050f4 wacht nog op main (main 2e99b6d, GEZIEN git ls-remote), staat op lijst Thijs punt 5. Melding beeldvergelijking 4.2.23 van 00:49 NL is dezelfde als eerder (eenmalig, geen actie). Gestopt.
