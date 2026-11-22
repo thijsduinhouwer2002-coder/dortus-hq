@@ -1,23 +1,22 @@
 # Kansenradar: rapport
 
-Gemaakt 2026-11-22 03:49 UTC. Gemeten: **57,9 uur** in 15 run(s). Cijfers zijn GEZIEN (eigen metingen uit openbare API's), behalve waar GOK staat. Uitleg: `platformen/ai-handel/radar/README.md`.
+Gemaakt 2026-11-22 04:19 UTC. Gemeten: **58,4 uur** in 15 run(s). Cijfers zijn GEZIEN (eigen metingen uit openbare API's), behalve waar GOK staat. Uitleg: `platformen/ai-handel/radar/README.md`.
 
 ## Het antwoord tot nu toe
 
-- **A, nieuwe noteringen:** 26 nieuwe munten gezien, 0 echte prijsverschillen daarna; met één pot van €150 had je hier tot nu toe niets kunnen pakken.
-- **B, funding-pieken:** 2095 pieken afgerond met spot en perp, waarvan 126 met winst na alle kosten bij €150; met één pot van €150 had je 5 keer kunnen instappen, samen -€1,21 (van €150 gaat €100 in de positie, GOK).
-- **C1, stablecoin tussen beurzen:** 398 echte momenten; met één pot van €150 had je 57 keer kunnen instappen, samen -€34,01.
-- **C2, stablecoin naast zijn gewone prijs:** 520 momenten met winst na kosten; met één pot van €150 had je 87 keer kunnen instappen, samen €21,33. Dit is geen arbitrage: je wint alleen als de koers terugkomt.
+- **A, nieuwe noteringen:** 27 nieuwe munten gezien, 0 echte prijsverschillen daarna; met één pot van €150 had je hier tot nu toe niets kunnen pakken.
+- **B, funding-pieken:** 2137 pieken afgerond met spot en perp, waarvan 131 met winst na alle kosten bij €150; met één pot van €150 had je 6 keer kunnen instappen, samen -€0,59 (van €150 gaat €100 in de positie, GOK).
+- **C1, stablecoin tussen beurzen:** 418 echte momenten; met één pot van €150 had je 64 keer kunnen instappen, samen -€35,73.
+- **C2, stablecoin naast zijn gewone prijs:** 526 momenten met winst na kosten; met één pot van €150 had je 93 keer kunnen instappen, samen €22,10. Dit is geen arbitrage: je wint alleen als de koers terugkomt.
 
 Alle sommen zijn een **bovengrens (GOK)**: we kijken elke 15 seconden tot 3 minuten, snelle partijen elke milliseconde. Wat we zien, is vaak al deels weg voor een gewone gebruiker zijn order plaatst. Apart gezet en niet geteld: 823 regels uit de eerste uren (oude code of het oude Kraken-tarief, zie onderaan).
 
 ## A. Nieuwe noteringen
 
-Nieuwe munten op een beurs: **26** (waarvan 0 bij de eerste vergelijking na de start: die kunnen in het gat tussen twee runs genoteerd zijn); 16 stonden al op een andere beurs met dezelfde quote. Prijsverschillen daarna: 14, waarvan **0 echt**.
+Nieuwe munten op een beurs: **27** (waarvan 0 bij de eerste vergelijking na de start: die kunnen in het gat tussen twee runs genoteerd zijn); 16 stonden al op een andere beurs met dezelfde quote. Prijsverschillen daarna: 14, waarvan **0 echt**.
 
 | Tijd | Beurs | Munt | Al op | Opnemen / storten op de nieuwe beurs |
 |---|---|---|---|---|
-| 11-20 10:49 | xt (grijs) | DUSK3S-USDT | - | onbekend / onbekend |
 | 11-20 10:49 | xt (grijs) | GALA3L-USDT | gate | onbekend / onbekend |
 | 11-20 10:49 | xt (grijs) | OP3L-USDT | gate | onbekend / onbekend |
 | 11-20 10:49 | xt (grijs) | SHIB3L-USDT | gate | onbekend / onbekend |
@@ -32,6 +31,7 @@ Nieuwe munten op een beurs: **26** (waarvan 0 bij de eerste vergelijking na de s
 | 11-20 14:01 | bitget (grijs) | CLEAR-USDT | mexc | open / open |
 | 11-20 14:31 | kucoin | ANTX-USDT | gate, mexc, bingx | dicht / open |
 | 11-20 15:04 | kraken | BFI-USD | - | open / open |
+| 11-22 04:09 | mexc (grijs) | RINGS-USDT | - | onbekend / onbekend |
 
 **Echte momenten A, per dag:** nog geen momenten.
 
@@ -48,7 +48,7 @@ Met één pot: je pakt een moment als je geld vrij is, bij gelijke start het bes
 
 ## B. Funding-pieken
 
-Positieve pieken (boven 0,1% per 8 uur, uit onder 0,05% na minstens één verrekening): **2095 afgerond en te rekenen**. Verder: spotkoers onbekend 0, andere munt met dezelfde naam 92, geen spotmarkt 859, onderbroken door een te lang gat tussen runs 0; negatieve pieken 5158 (dan moet je spot shorten, dat kan een particulier meestal niet). Open pieken gaan mee naar de volgende run, dus een piek betaalt maar één keer de kosten.
+Positieve pieken (boven 0,1% per 8 uur, uit onder 0,05% na minstens één verrekening): **2137 afgerond en te rekenen**. Verder: spotkoers onbekend 0, andere munt met dezelfde naam 92, geen spotmarkt 860, onderbroken door een te lang gat tussen runs 0; negatieve pieken 5244 (dan moet je spot shorten, dat kan een particulier meestal niet). Open pieken gaan mee naar de volgende run, dus een piek betaalt maar één keer de kosten.
 
 Som per piek: verrekende funding, min 4 keer takerkosten (spot in en uit, perp in en uit), plus of min het prijsverschil tussen spot en perp, min één keer overmaken (opname van USDT of USDC) als spot en perp op twee beurzen zitten. Inleg = 2/3 spot en 1/3 onderpand voor de short bij 2x hefboom (GOK). Bij 2x kan een sprong van ±50% de short liquideren; dat zit niet in de som.
 
@@ -72,16 +72,16 @@ Som per piek: verrekende funding, min 4 keer takerkosten (spot in en uit, perp i
 | 2026-11-19 | 231 / 127 / 104 | -€3,28 | 74 min |
 | 2026-11-20 | 909 / 561 / 348 | -€3,57 | 94 min |
 | 2026-11-21 | 907 / 563 / 344 | -€3,87 | 64 min |
-| 2026-11-22 | 48 / 27 / 21 | -€6,63 | 53 min |
+| 2026-11-22 | 90 / 60 / 30 | -€4,83 | 57 min |
 
 | Inleg | Kan meedoen (alle / MiCA) | Minimum onbekend | Tegelijk open (hoogst) | Met één pot gepakt | Mediane winst per keer | Winst met één pot | Per week (GOK) |
 |---|---|---|---|---|---|---|---|
-| €100 | 656 / 554 | 1436 | 97 | 5 | -€0,18 | -€0,81 | -€2,35 |
-| €150 | 659 / 554 | 1436 | 98 | 5 | -€0,27 | -€1,21 | -€3,51 |
-| €200 | 659 / 554 | 1436 | 98 | 5 | -€0,36 | -€1,61 | -€4,68 |
-| €500 | 2095 / 1278 | 1436 | 160 | 24 | -€1,23 | -€20,85 | -€60,55 |
-| €2.000 | 2095 / 1278 | 1436 | 160 | 24 | -€4,90 | -€82,90 | -€240,73 |
-| €5.000 | 2095 / 1278 | 1436 | 160 | 24 | -€12,26 | -€207,01 | -€601,14 |
+| €100 | 672 / 570 | 1462 | 97 | 6 | €0,01 | -€0,40 | -€1,15 |
+| €150 | 675 / 570 | 1462 | 98 | 6 | €0,02 | -€0,59 | -€1,70 |
+| €200 | 675 / 570 | 1462 | 98 | 6 | €0,02 | -€0,78 | -€2,25 |
+| €500 | 2137 / 1311 | 1462 | 160 | 24 | -€1,10 | -€17,42 | -€50,15 |
+| €2.000 | 2137 / 1311 | 1462 | 160 | 24 | -€4,41 | -€69,20 | -€199,23 |
+| €5.000 | 2137 / 1311 | 1462 | 160 | 24 | -€11,01 | -€172,78 | -€497,44 |
 
 Met één pot: je pakt een moment als je geld vrij is, bij gelijke start het beste. "Tegelijk open" zegt hoeveel potten je nodig had om alles te pakken. Bij €100 tot €200 doet een moment alleen mee als de minimale bedragen bekend zijn en eronder liggen; vanaf €500 telt onbekend mee (meestal €1 tot €10).
 
@@ -89,7 +89,7 @@ Vergund bij B: perp- en spotbeurs hebben een MiCA-vergunning voor spot. Of de EU
 
 ## C. Stablecoins
 
-**C1, tussen beurzen** (dezelfde stablecoin goedkoper kopen dan elders verkopen, na alle kosten): 2139 momenten, waarvan **398 echt**.
+**C1, tussen beurzen** (dezelfde stablecoin goedkoper kopen dan elders verkopen, na alle kosten): 2167 momenten, waarvan **418 echt**.
 
 **Echte momenten C1, per dag**
 
@@ -97,22 +97,22 @@ Vergund bij B: perp- en spotbeurs hebben een MiCA-vergunning voor spot. Of de EU
 |---|---|---|---|
 | 2026-11-20 | 173 / 99 / 74 | €0,03 | 2 min |
 | 2026-11-21 | 188 / 109 / 79 | €0,04 | 3 min |
-| 2026-11-22 | 37 / 0 / 37 | €0,10 | 1 min |
+| 2026-11-22 | 57 / 0 / 57 | €0,12 | 1 min |
 
 | Inleg | Kan meedoen (alle / MiCA) | Minimum onbekend | Tegelijk open (hoogst) | Met één pot gepakt | Mediane winst per keer | Winst met één pot | Per week (GOK) |
 |---|---|---|---|---|---|---|---|
-| €100 | 100 / 39 | 298 | 3 | 57 | -€0,91 | -€39,13 | -€113,64 |
-| €150 | 100 / 39 | 298 | 3 | 57 | -€0,86 | -€34,01 | -€98,76 |
-| €200 | 100 / 39 | 298 | 3 | 57 | -€0,82 | -€28,92 | -€83,98 |
-| €500 | 398 / 208 | 298 | 9 | 94 | €0,04 | €12,32 | €35,79 |
-| €2.000 | 398 / 208 | 298 | 9 | 94 | €0,33 | €78,33 | €227,45 |
-| €5.000 | 398 / 208 | 298 | 9 | 94 | €0,42 | €155,12 | €450,46 |
+| €100 | 107 / 39 | 311 | 3 | 64 | -€0,90 | -€41,25 | -€118,76 |
+| €150 | 107 / 39 | 311 | 3 | 64 | -€0,85 | -€35,73 | -€102,88 |
+| €200 | 107 / 39 | 311 | 3 | 64 | -€0,80 | -€30,27 | -€87,16 |
+| €500 | 418 / 208 | 311 | 9 | 98 | €0,03 | €12,74 | €36,68 |
+| €2.000 | 418 / 208 | 311 | 9 | 98 | €0,34 | €80,30 | €231,18 |
+| €5.000 | 418 / 208 | 311 | 9 | 98 | €0,48 | €157,40 | €453,16 |
 
 Met één pot: je pakt een moment als je geld vrij is, bij gelijke start het beste. "Tegelijk open" zegt hoeveel potten je nodig had om alles te pakken. Bij €100 tot €200 doet een moment alleen mee als de minimale bedragen bekend zijn en eronder liggen; vanaf €500 telt onbekend mee (meestal €1 tot €10).
 
-**C2, naast de gewone prijs** (minstens 0,3% naast de basislijn: de mediaan per dag over de laatste 45 dagen): 870 momenten met basislijn, waarvan 561 met minstens €100 op het boek en **520 met winst na 2 keer takerkosten** (bij de eerste meting). Zonder basislijn (munt te nieuw of geen bron, niet geteld): 11. Geen arbitrage: je wint alleen als de koers naar zijn gewone prijs terugkomt (GOK).
+**C2, naast de gewone prijs** (minstens 0,3% naast de basislijn: de mediaan per dag over de laatste 45 dagen): 887 momenten met basislijn, waarvan 568 met minstens €100 op het boek en **526 met winst na 2 keer takerkosten** (bij de eerste meting). Zonder basislijn (munt te nieuw of geen bron, niet geteld): 11. Geen arbitrage: je wint alleen als de koers naar zijn gewone prijs terugkomt (GOK).
 
-Meest gezien: USDC-USD op bitfinex (duur) 170 keer, USDT-EUR op kucoin (duur) 130 keer, USDT-EUR op bitget (duur) 74 keer, EURQ-EUR op kraken (duur) 72 keer, USDC-EUR op bitget (duur) 36 keer, TUSD-USDT op kucoin (goedkoop) 20 keer, USDC-EUR op kucoin (duur) 17 keer, USDQ-USD op kraken (duur) 15 keer.
+Meest gezien: USDC-USD op bitfinex (duur) 170 keer, USDT-EUR op kucoin (duur) 130 keer, EURQ-EUR op kraken (duur) 79 keer, USDT-EUR op bitget (duur) 74 keer, USDC-EUR op bitget (duur) 36 keer, TUSD-USDT op kucoin (goedkoop) 20 keer, USDC-EUR op kucoin (duur) 17 keer, USDQ-USD op kraken (duur) 15 keer.
 
 **C2 met winst na kosten, per dag**
 
@@ -121,16 +121,16 @@ Meest gezien: USDC-USD op bitfinex (duur) 170 keer, USDT-EUR op kucoin (duur) 13
 | 2026-11-19 | 5 / 4 / 1 | €0,81 | 5 min |
 | 2026-11-20 | 167 / 97 / 70 | €0,59 | 45 s |
 | 2026-11-21 | 313 / 99 / 214 | €1,54 | 15 s |
-| 2026-11-22 | 35 / 27 / 8 | €0,06 | 4 min |
+| 2026-11-22 | 41 / 33 / 8 | €0,07 | 3 min |
 
 | Inleg | Kan meedoen (alle / MiCA) | Minimum onbekend | Tegelijk open (hoogst) | Met één pot gepakt | Mediane winst per keer | Winst met één pot | Per week (GOK) |
 |---|---|---|---|---|---|---|---|
-| €100 | 520 / 227 | 0 | 8 | 87 | €0,11 | €14,43 | €41,91 |
-| €150 | 520 / 227 | 0 | 8 | 87 | €0,17 | €21,33 | €61,93 |
-| €200 | 520 / 227 | 0 | 8 | 87 | €0,23 | €27,00 | €78,40 |
-| €500 | 520 / 227 | 0 | 8 | 87 | €0,56 | €60,22 | €174,86 |
-| €2.000 | 520 / 227 | 0 | 8 | 74 | €2,22 | €211,45 | €614,04 |
-| €5.000 | 520 / 227 | 0 | 8 | 75 | €4,79 | €429,56 | €1.247,41 |
+| €100 | 526 / 233 | 0 | 8 | 93 | €0,11 | €14,97 | €43,11 |
+| €150 | 526 / 233 | 0 | 8 | 93 | €0,17 | €22,10 | €63,63 |
+| €200 | 526 / 233 | 0 | 8 | 93 | €0,23 | €27,78 | €79,97 |
+| €500 | 526 / 233 | 0 | 8 | 93 | €0,54 | €61,00 | €175,61 |
+| €2.000 | 526 / 233 | 0 | 8 | 80 | €2,13 | €212,23 | €611,02 |
+| €5.000 | 526 / 233 | 0 | 8 | 81 | €4,71 | €430,34 | €1.238,97 |
 
 Met één pot: je pakt een moment als je geld vrij is, bij gelijke start het beste. "Tegelijk open" zegt hoeveel potten je nodig had om alles te pakken. Bij €100 tot €200 doet een moment alleen mee als de minimale bedragen bekend zijn en eronder liggen; vanaf €500 telt onbekend mee (meestal €1 tot €10).
 
