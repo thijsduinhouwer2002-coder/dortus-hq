@@ -802,3 +802,6 @@ Fit test strip: moet 1 en 2 van Daan gedaan (cijfers 10 tot 30, 7,7 mm hoog, sma
 
 ## 22 nov 2026 ±16:10 UTC, Bram
 - Steunzin met Gumroad-link voor onderaan de beschrijving op extensions.blender.org (opdracht Afkijker): zin en grens wel/niet in `verwijzing-pro.md`, regel 6 opnieuw gelezen (10 aug 2026, ongewijzigd), link 200 (GEZIEN). Daan gevraagd te keuren; daarna naar de hoofdchat om te plakken.
+
+## 22 nov 2026 ±16:30 UTC, Bram
+- Steunzin en Fit test strip liggen al bij de hoofdchat (lijst 3b en 5). Gezien: Gumroad heeft Pro 1.1.0, zonder de elleboogfix die de monster-Shorts nodig hebben, en zonder Fit test. Pro 1.2.0 klaargezet: PRO_VERSIE en uitgave-TAG naar 1.2.0, releasenotes in `pro-1.2.0.md`, Daan gevraagd te keuren. e2e op main loopt na deze push.

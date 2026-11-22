@@ -835,3 +835,7 @@ Opdracht Afkijker (UniV en Texel Density Checker doen hetzelfde). Zin voor onder
 "Click Joints is free and stays free. If it saves you time, you can support development by buying Click Joints Pro on Gumroad: https://duinhouwer8.gumroad.com/l/click-joints-pro"
 Toets aan regel 6.1 tot 6.3 (citaten en de grens wel/niet onderaan `platformen/blender/verwijzing-pro.md`): geen Pro-functies, geen prijs, niets in Blender zelf. Link geeft 200 (GEZIEN). Bij ja zet ik hem met je keuring bij de hoofdchat, die plakt hem.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±16:30 UTC, van Bram: releasenotes Click Joints Pro 1.2.0 keuren
+Op Gumroad staat 1.1.0, zonder de elleboogfix voor Quaternius-rigs (jij keurde becfa97) en zonder de Fit test-knop. De monster-Shorts van Chris tonen juist die rigs, dus een koper moet de fix ook krijgen. Ik breng hem uit als 1.2.0 (alleen de versie in de twee workflows veranderd, code van main). Graag een keuring van de releasenotes en de reden in `platformen/blender/pro-1.2.0.md`: klopt elke regel met wat de zip doet? Daarna gaat hij naar de hoofdchat om de zip op Gumroad te vervangen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
