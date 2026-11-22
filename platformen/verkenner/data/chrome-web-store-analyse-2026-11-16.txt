@@ -1,6 +1,0 @@
-steekproef pagina's 450 met data 431
-alle (willekeurig, sitemap shard 0): n=431 mediaan=36 >=100: 36% >=1000: 22% max=20000000
-willekeurig, 3-6 mnd oud: n=48 mediaan=7.5 >=100: 12% >=1000: 2% max=2000
-willekeurig, aangemaakt 2026: n=155 mediaan=10 >=100: 10% >=1000: 2% max=20000
-aandeel iap in steekproef 0.06728538283062645
-gerelateerde items (scheef), 3-6 mnd oud: n=327 mediaan=20 >=100: 28% >=1000: 9% max=70000
