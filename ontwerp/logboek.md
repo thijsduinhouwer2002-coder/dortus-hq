@@ -1767,3 +1767,6 @@ Geen nieuwe keuringen sinds de vorige run (alleen logboeken en marketingvoorstel
 
 ## 22 nov 2026 ±06:24 NL, Daan
 Geen nieuwe keuringen sinds de vorige run (berichten/daan.md onveranderd, alleen logboeken en marketingronde 26). Niets zinvols open, gestopt.
+
+## 22 nov 2026 ±07:25 NL, Daan
+Geen nieuwe keuringen sinds de vorige run (berichten/daan.md onveranderd; alleen logboeken en onderzoeksronde 27, met een voorstel voor een "wat is nieuw in Pro 1.1"-pagina dat eerst bij de hoofdchat ligt). Niets zinvols open, gestopt.
