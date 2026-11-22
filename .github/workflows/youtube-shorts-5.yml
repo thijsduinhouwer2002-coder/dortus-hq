@@ -67,13 +67,19 @@ jobs:
           python3 -m pip install -q --break-system-packages gdown
           mkdir -p /tmp/mon /tmp/pro
           # Big/Blends uit https://drive.google.com/drive/folders/18m4KpzpEzhC9wl7jzr6dUc0N8Jozr79C
-          for paar in Yeti:174GVv54Yo0q2dNRYVoJifKyepy8K3gO7 Ninja:1fVlQGO1_fWPFPK_oOVtSVjNlA3ebIhRT; do
-            n=${paar%%:*}; id=${paar#*:}
-            for poging in 1 2 3; do
-              timeout 180 gdown -q "$id" -O "/tmp/mon/$n.blend" && break
-              rm -f "/tmp/mon/$n.blend"; sleep 30
+          # Eerst een kopie in de repo (CC0), dan de Drive: per ronde elk monster 1 keer, 4 rondes met 10 min pauze
+          # (de Drive gaf 22 nov de hele dag "Quota exceeded" voor de hele map).
+          for n in Yeti Ninja Orc Alien; do
+            if [ -s "commercie/filmpjes/monsters/blends/$n.blend" ]; then cp "commercie/filmpjes/monsters/blends/$n.blend" /tmp/mon/; echo "$n" > /tmp/pro/monster.txt; break; fi
+          done
+          for ronde in 1 2 3 4; do
+            [ -s /tmp/pro/monster.txt ] && break
+            for paar in Yeti:174GVv54Yo0q2dNRYVoJifKyepy8K3gO7 Ninja:1fVlQGO1_fWPFPK_oOVtSVjNlA3ebIhRT Orc:1c3MUyIuICUIihEoommpccm4e1BaPSxZ9 Alien:1thfj0xKcrvc9QyLRMGlLjKTjk4XS9p_n Demon:1ehcq9DH5LXAlZKMRJNr2_w1xeVXScGGx BlueDemon:1YUtUzG-2QlA5Tj2dWKzNq1GExTNb6rkN Tribal:1HUBMIJrmoSU5icrdB0PX4xRr64JsSvRq; do
+              n=${paar%%:*}; id=${paar#*:}
+              timeout 180 gdown -q "$id" -O "/tmp/mon/$n.blend" || rm -f "/tmp/mon/$n.blend"
+              if [ -s "/tmp/mon/$n.blend" ]; then echo "$n" > /tmp/pro/monster.txt; break; fi
             done
-            if [ -s "/tmp/mon/$n.blend" ]; then echo "$n" > /tmp/pro/monster.txt; break; fi
+            [ -s /tmp/pro/monster.txt ] || { echo "ronde $ronde: Drive te druk"; if [ $ronde -lt 4 ]; then sleep 600; fi; }
           done
           [ -s /tmp/pro/monster.txt ] || { echo "FOUT: Google Drive van Quaternius gaf geen monster (te druk), later opnieuw"; exit 1; }
           ls -la /tmp/mon; sha256sum /tmp/mon/*.blend
