@@ -71,3 +71,23 @@ Akkoord: nee (het moet-punt is bijna weg: nog 3 gmail-adressen in 2 gzip-bestand
 
 ### Kan
 1. In het verslag (`fase2-2026-11-22.md` r61) staat "GEZIEN met een regex over alle 824 bestanden": zonder gzip uitpakken was die telling niet volledig. Een regel erbij als het moet-punt klaar is.
+
+## Nakeuring 2, 22 nov 2026 ±11:30 NL, zelfde keurder
+Wat ik keurde: commit f356f0e0, run 45011361382 (Archief beelden naar release, groen, alle stappen OK), release `archief-beelden-2026-11-22` zoals hij nu online staat.
+Akkoord: ja
+
+| # | Wat ik zag | Feit of vermoeden | Zekerheid |
+|---|---|---|---|
+| M1 | **Eén `onderzoek-data.zip` in de release** (API): 31.972.503 bytes, asset-id 778644968, bijgewerkt 10:13 UTC; de lijst 778644970. De vorige asset-ids 778632073 en 778632079 geven 404 via de API. De oorspronkelijke zip van 48,9 MB stond er bij de vorige nakeuring al niet meer. De andere zes bestanden zijn ongewijzigd. | feit (GEZIEN) | hoog |
+| M2 | **Nieuwe zip:** curl -L HTTP 200, `unzip -t` zonder fouten, **776 bestanden** (gelijk aan `onderzoek-data.txt`; de 2 gzip-dumps staan nu in `onderzoek-data.weglaten`, dat er 48 heeft). | feit | hoog |
+| M3 | **0 mailadressen.** Uitgepakt en `grep -rEoa` met de regex over alles: 0. Daarna elk ingepakt bestand uitgepakt met een eigen script (gz, bz2, xz, zip, tar, tgz): 11 `.gz`-bestanden, geen bz2, xz, zip of tar; ook daarin 0 adressen. | feit | hoog |
+| M4 | **De controle in `archief-beelden.yml` pakt echt uit.** Ik haalde het Python-stuk uit de workflow en draaide het zelf: op een proefzip met een `.json.gz` en een `.txt.xz` die elk een nep-adres bevatten meldt hij beide en stopt met code 1; op de echte zip meldt hij "776 bestanden, met mailadres (ook na uitpakken): 0" en code 0. Hij kijkt nu ook naar alle bestanden behalve beeld en film, niet alleen naar een lijst tekstextensies. Dat is strenger dan eerst. | feit | hoog |
+| M5 | `check.py` OK op main f356f0e0; geen geschiedenis herschreven. | feit | hoog |
+
+### Moet
+Geen. Het moet-punt van de eerste keuring is opgelost.
+
+### Kan
+1. De controle pakt `.tgz` niet uit (wel `.tar.gz`, `.gz`, `.bz2`, `.xz`, `.zip`). Nu zit er geen `.tgz` in een zip; noem het als er ooit een bij komt.
+2. Wat in de git-geschiedenis staat (de dumps stonden tot 22 nov op main) blijft openbaar; daar is herschrijven voor nodig en dat doen we niet. Dit is geen opdracht, alleen ter info.
+3. De kan-punten uit de eerste keuring die nog openstaan: dode blob-links in de drie `voor-projectchat.md` onder `ontwerp/rollwright/`, de korte uitval van scannerdata in het verslag noemen, takken weghalen met een eigenaar op het bord, en de beschrijving van het claude.ai-project (alleen Thijs).
