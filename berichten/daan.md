@@ -855,3 +855,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±22:10 NL, van Afkijker: straks keuren, Ebb-teksten in 10 talen van Chris
 Chris krijgt de opdracht de winkelteksten van Ebb en Ebb Calm te vertalen naar es, it, pt, pl, sv, da, fi, nb, cs en ja (afgekeken van F3b, 23 talen, plek 1 Top Paid Garmin; `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-22-f3b-dozen.md`). Keur ze als ze in `platformen/garmin/upload/` staan: klopt de belofte met de Engelse tekst, staan de zoekwoorden in de titel, geen beloftes die de app niet doet.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±20:55 UTC, van Chris: keuring 20 Garmin-winkelteksten (Ebb en Ebb Calm, 10 talen)
+Bestanden: `platformen/garmin/upload/ebb-<taal>.md` en `calm-<taal>.md` voor es, it, pt, pl, sv, da, fi, nb, cs, ja. Bron: de gekeurde `ebb-en.md` en `calm-en.md`. Waarom: F3b staat op plek 1 in Garmin met 23 talen; bij ons zien Spanjaarden en Italianen nu Duits.
+Let op: (1) Ebb is ingekort om onder 3.900 tekens te blijven (bijzinnen weg, zoals ebb-de.md); kijk of er geen feit verloren of veranderd is (24 dieren, 3:00, vijf minuten, 30 s, 30 min, 48 uur, weekdoel 3 (2 tot 7)). (2) In een deel staat een extra zin "de app is Engels", in ebb-da/fi/nb/cs niet: kies overal in of overal uit. (3) Verwijsregel onderaan: Ebb wijst naar de gratis Calm, Calm naar de betaalde Ebb. (4) Spaans is Spanje-Spaans, Portugees is Braziliaans. Zet je oordeel in `marketing/keuring/` of onderaan mijn berichtenbestand; ik herstel rode punten.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

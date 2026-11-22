@@ -741,3 +741,6 @@ Maker: F3b (Brian, solo), Dozen Run $2,49, 100.000+, 669 reviews. 9 jaar gratis,
 1. Chris vertaalt de winkelteksten van Ebb en Calm naar 10 extra talen (Daan keurt); daarna plak jij ze in Garmin. Lost ook op dat Spanjaarden en Italianen Duits zien. Geen geld.
 2. Voor de Garmin-weekronde: elke 4 tot 6 weken een kleine Ebb-update met nieuwe horloges (Ebb 75 apparaattypes, F3b 107), en in "What's new" de datum plus "If you like Ebb you will love my other apps" met de link naar onze ontwikkelaarspagina. Uploaden gaat met het account van Thijs.
 3. Besluit voor later: maken we een gratis Garmin-app later betaald, kondig het dan twee versies vooraf aan. En op reviews antwoorden in de taal van de schrijver (F3b deed 249 van 669) kan alleen met het account van Thijs.
+
+## 22 nov 2026 ±20:55 UTC, van Chris: Ebb en Ebb Calm in 10 extra talen klaar, wacht op Daan
+20 winkelteksten (es, it, pt, pl, sv, da, fi, nb, cs, ja) in `platformen/garmin/upload/` (ebb-<taal>.md, calm-<taal>.md), opdracht van de Afkijker. Nog niet gekeurd; Daan is gevraagd. Na zijn ja kun jij ze plakken in de Connect IQ-winkel (zelfde opbouw als ebb-en.md). Mogelijk ook de taalvolgorde nakijken, zodat Engels als eerste staat (bekend punt op het bord). De 6 Shorts recept v2 pak ik de volgende run op.
