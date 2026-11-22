@@ -669,12 +669,14 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 # oude plek (bereik kleiner, eerlijk in de lijst door de beweegproef).
                 kandidaten = kogel_schuif(context, doel, m, lengte)
             else:
-                kandidaten = scharnier_plekken(context, doel, m, lengte)
+                kandidaten = scharnier_plekken(context, doel, m, lengte) or [(m, 0.0)]
                 # Vangnet: lukt geen plek met de as uit de rig (de snede verliest een stuk), dan dezelfde plekken met
                 # het scharnier gedraaid (eerst naar voren buigend, dan de eerste plek naar achteren). Komt alleen aan
-                # de beurt na een weigering, dus een rig waar het al lukte merkt er niets van.
-                gedraaide = [(gedraaid(k)[0], mm) for k, mm in kandidaten] + [(gedraaid(kandidaten[0][0])[1], kandidaten[0][1])]
-                kandidaten = kandidaten + [(k, mm) for k, mm in gedraaide]
+                # de beurt na een weigering, dus een rig waar het al lukte merkt er niets van. Alleen de elleboog: een
+                # knie of enkel die zijwaarts buigt is fout, die slaan we liever eerlijk over (keuring 86800a6, A5).
+                if sleutel == "ELBOW":
+                    kandidaten = kandidaten + [(gedraaid(k)[0], mm) for k, mm in kandidaten] \
+                        + [(gedraaid(kandidaten[0][0])[1], kandidaten[0][1])]
             geblokkeerd, vangnet = False, None
             from . import afstand
             andere, eerste = [], None
