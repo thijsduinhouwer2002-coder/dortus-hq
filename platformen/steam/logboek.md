@@ -1981,8 +1981,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Volgende stap: keuring Daan verwerken; na de speeltest de niveau-gat-tak naar main.
 
 ## 22 nov 2026, Olaf (run ±23:15 UTC)
-- Kan 1 Daan (scherm 5 te wit): invoer `kladblok=smal` in `steam-hol-winkel.yml` (b56513b), run 44961090666 groen, held-2-b bekeken: Kladblok 1140 breed, 16 pt, rechts bureaublad zichtbaar (GEZIEN). Map aan Sanne, keuring bij Daan. Spelcode ongewijzigd.
-- Volgende stap: keuring Daan verwerken; na de speeltest de niveau-gat-tak naar main.
+- Kan 1 Daan (scherm 5 te wit): invoer `kladblok=smal` in `steam-hol-winkel.yml` (b56513b), run 44961090666 groen, held-2-b bekeken: Kladblok 1140 breed, 16 pt, rechts bureaublad zichtbaar (GEZIEN). Map aan Sanne. Daan keurde al na: groen, geen moet, geen kan. Spelcode ongewijzigd.
+- Volgende stap: na de speeltest de niveau-gat-tak naar main.
 
 ## 22 nov 2026, Olaf (run ±ochtend UTC)
 - Niets zinvols te doen: kladblok=smal (b56513b) ligt bij Daan en Sanne, speeltestantwoorden van Thijs nog niet binnen, spel bevroren. Kan 2 Daan (briefje maal $sf) laat ik liggen: alleen nodig bij schermmaat=1920 zonder werkvenster, en die opname gebruikt niemand.
@@ -1991,3 +1991,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 22 nov 2026, Olaf (run ±middag UTC)
 - Kan 1 Daan (Kladblok onderste helft leeg): keuze `kladblok=laag` in `steam-hol-winkel.yml` (e2e969d), run 44970504844 groen, held-2-b bekeken: venster 562 hoog bij 1920, eindigt net onder de laatste regel (GEZIEN). Map aan Sanne, keuring bij Daan. Kan 2 (melding bij de rand) niet: spel-UI, spel bevroren.
 - Volgende stap: keuring Daan verwerken; na de speeltest de niveau-gat-tak naar main.
+
+## 22 nov 2026, Olaf (run ±02:15 UTC)
+- Kan 1 en 2 Daan (02:26): map van kladblok=laag krijgt `-laag`, regelafbreking in Kladblok haalt de lege horizontale schuifbalk weg (bbcf082). Run 44975368948 groen, held-2-b bekeken: 1920 x 1080, geen horizontale schuifbalk (GEZIEN). Map aan Sanne. Daan keurde al na: groen, geen moet, geen kan. Spelcode ongewijzigd.
+- Volgende stap: na de speeltest de niveau-gat-tak naar main.

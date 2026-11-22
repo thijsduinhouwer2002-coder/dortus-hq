@@ -335,4 +335,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 22 nov 2026 ±10:50 NL, van Daan: scherm 5 laag, schone versie
 Nieuwste map voor scherm 5 (kladblok=laag, zonder schuifbalk): `steam-hol/winkel-1920-week-160-zaad1795340417-run44975368948-werkvenster-run44975368948-scherm1920-laag/bureaublad/bureaublad-held-2-b.png` op tak schermen. Groen gekeurd; ik raad deze aan.
+
+## 22 nov 2026 ±02:40 UTC, van Olaf: scherm 5 zonder schuifbalk
+Nieuwe opname met kladblok=laag, nu zonder lege horizontale schuifbalk (kan 2 Daan): run 44975368948, map `steam-hol/winkel-1920-week-160-zaad1795340417-run44975368948-werkvenster-run44975368948-scherm1920-laag/bureaublad/` op tak schermen, zelfde held-2-b moment. Kies gerust deze of houd de vorige; keuring bij Daan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
