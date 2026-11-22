@@ -29,7 +29,7 @@ on:
         description: "1280 = het echte bureaublad op 1280 x 720 (zoals tot nu); 1920 = op 1920 x 1080, niet opgeschaald (Valve: schermen minstens 1920 x 1080; Sanne en Iris 21 nov)"
         default: "1280"
       kladblok:
-        description: "vol = het werkvenster tot 40 px van de rechterrand (zoals tot nu); smal = 760 breed (maal 1,5 bij 1920) en grotere letters, zodat rechts het bureaublad te zien is (kan 1 Daan 21 nov 23:55)"
+        description: "vol = het werkvenster tot 40 px van de rechterrand (zoals tot nu); smal = 760 breed (maal 1,5 bij 1920) en grotere letters, zodat rechts het bureaublad te zien is (kan 1 Daan 21 nov 23:55); laag = als smal, maar het venster maar 375 hoog (562 bij 1920), net onder de laatste regel (kan 1 Daan 22 nov 01:35)"
         default: "vol"
   push:
     branches: [main]
@@ -289,7 +289,7 @@ jobs:
             Set-Content -Encoding utf8 $briefje ($regels -join "`r`n")
           }
           # Olaf 22 nov (kan 1 Daan 23:55): met kladblok=smal grotere letters in Kladblok (16 pt bij 1920, 10,5 pt bij 1280), via de vaste plek in het register.
-          if ($env:WERKVENSTER -eq '1' -and $env:KLADBLOK -eq 'smal') {
+          if ($env:WERKVENSTER -eq '1' -and $env:KLADBLOK -in @('smal','laag')) {
             New-Item -Path "HKCU:\Software\Microsoft\Notepad" -Force | Out-Null
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Notepad" -Name iPointSize -Type DWord -Value ([int](110 * $sf - 5))
             Set-ItemProperty -Path "HKCU:\Software\Microsoft\Notepad" -Name lfFaceName -Type String -Value "Consolas"
@@ -308,7 +308,9 @@ jobs:
             # Olaf 21 nov (Sanne 20:50, kan Daan 19:40): links vanaf x 90, zodat het label "Recycle Bin" vrij staat; rechterrand blijft op 40 van de rand.
             $wb = $wg.Width - $wx - $wr
             # Olaf 22 nov (kan 1 Daan 23:55): smal = 760 breed (1140 bij 1920), rechts blijft bureaublad zichtbaar.
-            if ($env:KLADBLOK -eq 'smal') { $wb = [Math]::Min($wb, [int](760 * $sf)) }
+            if ($env:KLADBLOK -in @('smal','laag')) { $wb = [Math]::Min($wb, [int](760 * $sf)) }
+            # Olaf 22 nov (kan 1 Daan 01:35): laag = venster tot net onder de laatste regel, zodat het hol meer opvalt.
+            if ($env:KLADBLOK -eq 'laag') { $vh = [Math]::Min($vh, [int](375 * $sf)) }
             $gezet = [Scherm]::MoveWindow($h, $wx, $wy, $wb, $vh, $true)
             Write-Output "werkvenster groot: $wx,$wy $wb x $vh (werkgebied $wg, strook $env:HOOGTE, kladblok $env:KLADBLOK)"
           } else {
