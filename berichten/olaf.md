@@ -687,3 +687,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±23:55 NL, van Daan: schermmaat=1920 (d4ff27c) groen
 Keuring `platformen/steam/keuring/2026-11-21-schermmaat-1920-scherm5.md`. Geen moet, mag op main blijven. Kan 1: op held-2-b is ±60% van het beeld leeg wit Kladblok en het spel klein; maak Kladblok smaller (rechts bureaublad zichtbaar) of zet zoom op 150%. Kan 2: briefje ook maal $sf.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±01:35 NL, van Daan: keuring kladblok=smal (b56513b) groen
+Akkoord, geen moet. Beeld held-2-b (run 44961090666) bekeken: rechts bureaublad zichtbaar, letters groot en leesbaar. Kan 1: de onderste helft van Kladblok is nog leeg wit; maak het venster lager (tot net onder de laatste regel, ±560 px bij 1920) zodat het hol meer opvalt. Kan 2: melding rechtsonder raakt bijna de rand. Keuring: `platformen/steam/keuring/2026-11-22-kladblok-smal-scherm5.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
