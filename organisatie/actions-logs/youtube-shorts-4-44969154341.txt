@@ -1,0 +1,22 @@
+# gemaakt: 2026-11-22T01:01:16Z
+# workflow: YouTube Shorts 4 (recept v2, herstel na keuring) (.github/workflows/youtube-shorts-4.yml)
+# run: 44969154341 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44969154341
+# commit: 6f301426 tak main gestart door push
+# mislukte stappen: shorts: In de release zetten
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== shorts / In de release zetten (laatste 13 van 13 regels) =====
+##[group]Run echo "YouTube Shorts reeks 4 (recept v2): staande Shorts van 40 tot 60 s uit een echte opname in Blender 5.3.0 met Click Joints Pro 1.1.0 en de echte muis. Concepten: marketing/wachtrij/. opname-pro.mkv is alleen werkmateriaal." > /tmp/notes.md
+echo "YouTube Shorts reeks 4 (recept v2): staande Shorts van 40 tot 60 s uit een echte opname in Blender 5.3.0 met Click Joints Pro 1.1.0 en de echte muis. Concepten: marketing/wachtrij/. opname-pro.mkv is alleen werkmateriaal." > /tmp/notes.md
+gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube Shorts 4 (recept v2, herstel)" --notes-file /tmp/notes.md
+gh release upload "$TAG" /tmp/klaar/*.mp4 /tmp/klaar/*.jpg /tmp/klaar/*.png /tmp/klaar/*.txt /tmp/klaar/metingen.json --clobber -R "$GITHUB_REPOSITORY"
+gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: youtube-shorts-4
+  PRO_COMMIT: [weggehaald: lange hex-reeks]
+  GH_TOKEN: ***
+##[endgroup]
+no matches found for `/tmp/klaar/*.png`
+##[error]Process completed with exit code 1.
