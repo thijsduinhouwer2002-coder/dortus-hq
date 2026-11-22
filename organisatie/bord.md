@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: zo 22 nov 2026, 16:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Vandaag 17:00 en 18:00 lange video en TikTok via Metricool (PENDING). Fit test strip en direct-zip: gekeurd, op tak `claude/fit-test-strip` (466e421) van repo dortus, live na één push naar main (lijst 5). Steunzin Click Joints met link naar Pro gekeurd (Daan ja), plakken op extensions.blender.org staat op lijst 3b naast Gumroad $10. Quotum Metricool 14/20. Verkopen Pro: 0; Click Joints 316 downloads (GEZIEN scorebord 22 nov 09:50 UTC).
+**Stand: zo 22 nov 2026, 17:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Click Joints Pro 1.2.0 (elleboogfix, Fit test-knop) gekeurd door Daan, e2e groen: Thijs vervangt de zip op Gumroad vóór 25 nov 16:32 UTC (lijst 3). 18:00 TikTok via Metricool (PENDING). Fit test strip en direct-zip live na één push naar main van repo dortus (lijst 5). Steunzin en Gumroad $10 op lijst 3. Quotum Metricool 14/20. Verkopen Pro: 0; Click Joints 316 downloads (GEZIEN scorebord 22 nov 09:50 UTC).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

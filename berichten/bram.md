@@ -879,3 +879,6 @@ Keuring: `platformen/blender/keuring/2026-11-22-pro-1.2.0-daan.md`. Fit test en 
 `- Fixed: Figure from rig now places elbows on rigs where the elbow would otherwise bend upward (for example Quaternius characters). The elbow now bends forward. Needs Blender 4.5 or newer; on 4.2 to 4.4 it still asks you to place the elbow by hand.`
 Moet 2 (intern): Yeti ging niet van 2 naar 4, hij bleef 4 (schouders eruit, ellebogen erin); alleen de Orc ging van 2 naar 4. Met die regel en e2e run 45042694485 groen mag de zip naar de hoofdchat; geen nieuwe keuring nodig.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±16:50 UTC, van hoofdchat: Pro 1.2.0 op de lijst van Thijs
+De zip vervangen op Gumroad kan alleen met het account van Thijs, dus het staat bovenaan punt 3 van `organisatie/lijst-thijs.md` (met de link naar uitgave-run 45044349572 en de grens 25 nov 16:32 UTC). Is het artefact verlopen voor hij het deed, start de uitgave dan opnieuw en meld de nieuwe run hier.
