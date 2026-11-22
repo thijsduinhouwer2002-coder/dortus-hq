@@ -1,79 +1,88 @@
 HOL save geschoven -9 kolommen: schat 12, ingang 1, vallen [2, 7]
-HOL weg geweest 47 s (klok terug: false): goud voor 511, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 1 terugkomers, 511 goud, faam 11
+HOL weg geweest 59 s (klok terug: false): goud voor 511, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 2 terugkomers, 511 goud, faam 8
 HOL start hoogte=160 schaal=4 spelpixels=320x40 venster=(1280, 160) pos=(0, 512) held=res://systemen/held.gd
-HOL zaad 1795340415
+HOL zaad 1795340417
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Anouk hums on the way in.
-HOL held binnen: Anouk
-HOL zicht 4.1 1
-HOL hol-niveau 5 (faam 12, t 9.6)
-HOL kroniek zelfde held vervangen: Anouk hums on the way in.
-HOL kroniek 9.6 (wacht 0.0): The ballad of Anouk: one verse. +6
-HOL zicht 9.6 0
-HOL bordje wip niveau 5
-HOL held binnen: Jop
-HOL zicht 10.0 1
-HOL meting t=10 beelden=76 helden=1 hol_vast=3
-HOL kroniek 12.1 (wacht 2.6): Page for the Bard. The pit won.
-HOL kroniek vervallen 13.0: Jop read about you in a tavern.
-HOL kroniek 16.0 (wacht 0.0): Pim brought a torch. And hope.
-HOL held binnen: Pim
-HOL meting t=20 beelden=114 helden=2 hol_vast=4
-HOL kroniek 22.2 (wacht 0.0): Elke is back for the Spike Pit.
-HOL held binnen: Elke
-HOL meting t=30 beelden=101 helden=3 hol_vast=4
-HOL kroniek 30.9 (wacht 0.0): Jop fled. Grudge: the Spike Pit.
-HOL held binnen: Kobus
-HOL kroniek 33.4 (wacht 2.5): New stamp for the Hero. Got away.
-HOL kroniek vervallen 34.0: Sir Kobus polished up for this.
-HOL kroniek 37.0 (wacht 0.0): Pim left. Took nothing. Angry.
-HOL held binnen: Joost
-HOL kroniek 39.5 (wacht 1.2): Joost is here for a story.
-HOL meting t=40 beelden=101 helden=3 hol_vast=4
-HOL kroniek zelfde held vervangen: Joost is here for a story.
-HOL kroniek 43.9 (wacht 0.0): Joost's last song was short. +6
+HOL kroniek 4.1 (wacht 0.0): Rik the Bard tunes a lute.
 HOL held binnen: Rik
-HOL kroniek 46.4 (wacht 1.8): Sir Kobus was very sure. Was. +6
-HOL kroniek 49.0 (wacht 1.3): Elke ran. Swore revenge.
-HOL kroniek vervallen 49.2: Sir Rik clanks in.
-HOL meting t=50 beelden=136 helden=1 hol_vast=8
-HOL kroniek 52.0 (wacht 0.0): Sir Geert is very slow. Very sure.
-HOL held binnen: Geert
-HOL kroniek zelfde held vervangen: Sir Geert is very slow. Very sure.
-HOL kroniek 57.5 (wacht 0.0): Sir Geert clanked all the way down. +6
-HOL zicht 59.7 0
-HOL held binnen: Pim
-HOL zicht 59.9 1
-HOL kroniek 60.1 (wacht 0.4): Sir Rik was very sure. Was. +6
-HOL meting t=60 beelden=138 helden=1 hol_vast=11
-HOL kroniek 62.6 (wacht 2.8): Pim limps back to the Spike Pit.
-HOL kroniek 66.5 (wacht 0.0): Fenna climbs into your hole.
-HOL held binnen: Fenna
-HOL meting t=70 beelden=113 helden=2 hol_vast=12
-HOL kroniek 73.0 (wacht 0.0): Lotte casts Light. It is a candle.
-HOL held binnen: Lotte
-HOL hol-niveau 6 (faam 17, t 73.3)
-HOL bordje wip niveau 6
-HOL kroniek 74.1 (wacht 0.7): Pim will not be leaving. +9
-HOL kroniek 78.2 (wacht 0.0): Gerda has a map. It is wrong.
-HOL held binnen: Gerda
-HOL kroniek 80.0 (wacht 0.0): Fenna left gold and one boot. +6
-HOL meting t=80 beelden=142 helden=2 hol_vast=15
-HOL kroniek zelfde held vervangen: Gerda has a map. It is wrong.
-HOL kroniek 83.8 (wacht 0.0): Gerda checked the floor. Too late. +6
-HOL held binnen: Henk
-HOL kroniek 86.3 (wacht 1.3): Henk sneaks in. Nobody saw. You saw.
-HOL meting t=90 beelden=144 helden=2 hol_vast=18
-HOL kroniek 90.7 (wacht 0.0): Maud the Sleepy shuffles in.
-HOL held binnen: Maud
-HOL kroniek 94.0 (wacht 0.0): Lotte saw the trap. Told no one.
+HOL zicht 4.2 1
+HOL meting t=10 beelden=62 helden=1 hol_vast=2
+HOL kroniek 10.5 (wacht 0.0): Ineke read about you in a tavern.
+HOL held binnen: Ineke
+HOL kroniek zelfde held vervangen: Ineke read about you in a tavern.
+HOL kroniek 16.0 (wacht 0.0): Ineke fell to the Spike Pit. +6
 HOL held binnen: Wout
-HOL kroniek 96.5 (wacht 2.5): New page: the Wizard. Ran off. Counts.
-HOL kroniek 99.1 (wacht 3.0): Wout is here for your gold.
-HOL meting t=100 beelden=100 helden=3 hol_vast=18
-HOL kroniek 104.2 (wacht 0.0): Maud gets a long nap now. +6
+HOL kroniek zelfde held vervangen: Rik the Bard tunes a lute.
+HOL kroniek 18.5 (wacht 0.9): Rik hit a low note. Very low. +6
+HOL kroniek vervallen 19.4: Wout the Thief tiptoes in.
+HOL meting t=20 beelden=146 helden=1 hol_vast=6
+HOL kroniek vervallen 20.7: New page: the Bard. The pit won.
+HOL kroniek 21.9 (wacht 0.0): Wout picked the wrong floor. +6
+HOL zicht 21.9 0
+HOL held binnen: Merel
+HOL zicht 22.6 1
+HOL kroniek 24.5 (wacht 1.9): Merel is back for the Spike Pit.
+HOL hol-niveau 5 (faam 12, t 27.7)
+HOL kroniek 27.7 (wacht 0.0): The Spike Pit wins round two. +9
+HOL zicht 27.7 0
+HOL bordje wip niveau 5
+HOL held binnen: Lotte
+HOL zicht 29.9 1
+HOL meting t=30 beelden=148 helden=1 hol_vast=10
+HOL kroniek 30.3 (wacht 0.5): Lotte has a map. It is wrong.
+HOL kroniek 37.2 (wacht 0.0): Femke limps back to the Spike Pit.
+HOL held binnen: Femke
+HOL meting t=40 beelden=100 helden=2 hol_vast=10
+HOL kroniek zelfde held vervangen: Femke limps back to the Spike Pit.
+HOL kroniek 42.7 (wacht 0.0): Femke came back. The Spike Pit won. +9
+HOL held binnen: Geert
+HOL kroniek 45.3 (wacht 1.0): Sir Geert is very slow. Very sure.
+HOL kroniek zelfde held vervangen: Sir Geert is very slow. Very sure.
+HOL kroniek 49.8 (wacht 0.0): Sir Geert was very sure. Was. +6
+HOL meting t=50 beelden=143 helden=1 hol_vast=13
+HOL zicht 50.8 0
 HOL held binnen: Bram
-HOL kroniek 106.7 (wacht 0.7): Henk escaped. You saw that too.
-HOL kroniek vervallen 107.3: Bram says this is a quick one.
-HOL kroniek vervallen 109.1: New stamp for the Thief. Got away.
+HOL zicht 52.3 1
+HOL kroniek 52.4 (wacht 1.6): Lotte fled. Grudge: the Spike Pit.
+HOL kroniek 54.9 (wacht 2.7): Sir Bram clanks in.
+HOL kroniek zelfde held vervangen: Sir Bram clanks in.
+HOL kroniek 57.7 (wacht 0.0): Sir Bram clanked all the way down. +6
+HOL zicht 57.7 0
+HOL held binnen: Teun
+HOL zicht 57.8 1
+HOL kroniek 60.3 (wacht 2.5): Teun knocks first. Polite.
+HOL meting t=60 beelden=132 helden=1 hol_vast=16
+HOL kroniek 64.4 (wacht 0.0): Dame Elke polished up for this.
+HOL held binnen: Elke
+HOL kroniek zelfde held vervangen: Dame Elke polished up for this.
+HOL kroniek 69.9 (wacht 0.0): Dame Elke was very sure. Was. +6
+HOL meting t=70 beelden=115 helden=1 hol_vast=18
+HOL hol-niveau 6 (faam 17, t 71.3)
+HOL zicht 71.3 0
+HOL bordje wip niveau 6
+HOL held binnen: Gerda
+HOL zicht 72.0 1
+HOL kroniek zelfde held vervangen: Teun knocks first. Polite.
+HOL kroniek 72.4 (wacht 1.1): Teun left gold and one boot. +6
+HOL kroniek vervallen 75.0: Gerda picks the lock. It was open.
+HOL kroniek 77.5 (wacht 0.0): Maud is here for your gold.
+HOL held binnen: Maud
+HOL meting t=80 beelden=130 helden=2 hol_vast=21
+HOL kroniek 81.1 (wacht 0.0): Nobody saw Gerda fall. You saw. +6
+HOL held binnen: Henk
+HOL kroniek zelfde held vervangen: Maud is here for your gold.
+HOL kroniek 83.7 (wacht 0.6): Maud is part of the hole now. +6
+HOL kroniek vervallen 86.0: Henk climbs into your hole.
+HOL kroniek 88.7 (wacht 0.0): Kobus brought a torch. And hope.
+HOL held binnen: Kobus
+HOL meting t=90 beelden=145 helden=2 hol_vast=24
+HOL kroniek 93.8 (wacht 0.0): Sir Joost clanks in.
+HOL held binnen: Joost
+HOL kroniek 96.4 (wacht 0.0): Henk took the short way down. +6
+HOL meting t=100 beelden=129 helden=2 hol_vast=26
+HOL kroniek 101.3 (wacht 0.0): Jop the Spiteful is here.
+HOL held binnen: Jop
+HOL kroniek 102.3 (wacht 0.0): Kobus checked the floor. Too late. +6
+HOL kroniek 106.7 (wacht 0.0): Tibbe says this is a quick one.
+HOL held binnen: Tibbe
