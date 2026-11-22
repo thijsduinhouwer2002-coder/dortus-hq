@@ -1364,3 +1364,70 @@ Vijf belangrijkste dingen:
 5. **Betaald kan ook, maar is duur:** sponsored article $2.200, losse post $400 (GEZIEN, tarievenkaart). Valt onder regel 1; de gratis route werkt voor kleine makers.
 
 Voorstel: (a) het perspakket voor Pro (ronde 24 en 25) wordt korter en beeldgerichter: één filmpje van 30 tot 90 seconden op @Dortusapps (de Maker van Roep maakt het, Keurder keurt), drie zinnen citeerbare uitleg, aanleiding versie 1.1 plus de sale, link; Thijs zegt ja op de mailtekst (regel 4), versturen vóór do 26 nov. (b) De hoofdchat weegt of een X-kanaal voor Dortus (Blender-clips) de moeite is: het is de plek waar 80 Level makers vindt (GOK dat het voor ons werkt, het patroon is GEZIEN); nieuw kanaal is aan de hoofdchat. (c) Volgende run: hetzelfde voor Digital Production en BlenderNation (wie komt erin, met welk beeld), zodat het pakket voor alle drie past.
+
+## Ronde 27 (run 22 nov ±06:20 UTC, klok van de container): wat ons gratis BlenderNation-bericht opleverde, en hoe Digital Production over hele kleine makers schrijft
+
+Vervolg op het voorstel van ronde 26 (Digital Production en BlenderNation naast elkaar). Alles gelezen met curl op RSS, WordPress-zoekpagina's, YouTube-kanaalpagina's en -RSS (zonder sleutel), de listing op extensions.blender.org en Superhive.
+
+### 128. Ons eigen BlenderNation-bericht: geen zichtbare sprong in downloads
+- Click Joints staat sinds wo 18 nov 08:35 UTC op BlenderNation als bericht van de "Community Reporter" (GEZIEN, `article:published_time` 2026-11-18T08:35:39). Het staat nog in de RSS (de laatste 10 berichten), naast vooral videotutorials.
+- Downloads op extensions.blender.org (GEZIEN, `platformen/blender/downloads.csv`, `commercie/blender-click-joints/geplaatst.md` en een eigen curl):
+
+| Stuk | Van, tot (UTC) | Downloads | Per dag |
+|---|---|---|---|
+| Voor Reddit | 15 nov 12:10 tot 16 nov 11:16 | 136 naar 157 | ±22 |
+| Na r/blender (16 nov 19:09) | 16 nov 11:16 tot 17 nov 04:57 | 157 naar 196 | sprong van ±39 in ±10 uur na de post |
+| Tussenstuk | 17 nov 04:57 tot 17 nov 17:11 | 196 naar 205 | ±18 |
+| Rond BlenderNation (18 nov 08:35) | 17 nov 17:11 tot 18 nov 20:21 | 205 naar 234 | ±26 |
+| Daarna | 18 nov 20:21 tot 22 nov 06:17 | 234 naar 313 | ±23 |
+
+- Wat dit zegt: het gratis BlenderNation-bericht gaf hooguit een paar extra downloads op de dag zelf (GOK, ±5 boven het gewone tempo), de r/blender-post gaf de enige echte bult. Let op: de teller telt ook downloads van updates (0.1.1 kwam 16 nov), dus het gewone tempo is wat ruw (GOK).
+- Past bij ronde 25: ook bij CatPin gaf een vakbladstukje een kleine bult, geen sprong. Een tekst op een nieuwssite zonder sterk filmpje erbij verkoopt weinig; dat is een argument tegen de € 25 voor een commercieel BlenderNation-bericht over Pro (beslissing Thijs, regel 1).
+
+### 129. Digital Production schrijft elke paar dagen over een klein Blender-add-on, ook van makers met 7 abonnees
+- De Blender-feed van Digital Production heeft 20 stukken van 28 sep tot 16 nov, 19 daarvan door één redacteur (Bela Beier). 15 gaan over een los add-on of hulpmiddel (GEZIEN, [tag-feed](https://digitalproduction.com/tag/blender/feed/), eigen telling). Dat is ±2 per week.
+- 13 van de 20 sluiten de YouTube-video van de maker in (GEZIEN). Van die makers telde ik de abonnees (GEZIEN, kanaalpagina's, 22 nov):
+
+| Stuk (datum) | Kanaal van de maker | Abonnees | Weergaven video | Video tot stuk |
+|---|---|---|---|---|
+| CL Sculpt Assistant (16 nov) | Calappa Lab | 16 | 469 | 23 dagen |
+| MetaWrap (10 nov) | MetaWrap AI | 505 | 248 | 16 dagen |
+| SculptForge (4 nov) | askNK | 3.630 | 39.162 | video kort erna |
+| Fumaris (30 okt) | Venous FX | 47.100 | 2.193 | ±7 weken |
+| Print & Pin (28 okt) | G_ni | 7 | 528 | 14 dagen |
+| Animatica Marionette (21 okt) | Animatica | 897 | 49.015 | 6 dagen |
+| Nitro Retopo (13 okt) | Adrien Rouquié | 326 | 21.691 | 15 dagen |
+| CatPin (9 okt) | AlexSokolArt | 1.240 | niet in RSS | |
+| Vision Canvas (7 okt) | GLI | 91 | niet in RSS | |
+| Alpaca3D (5 okt) | Stanislav Marakulin | 93 | 5.074 | 6 dagen |
+| Hair Bone Generator (28 sep) | MORI.3D | 7 | 1.443 | 31 dagen |
+
+- 7 van de 11 hebben minder dan 1.000 abonnees, 4 minder dan 100 (GEZIEN). Een groot kanaal is dus geen voorwaarde. Wel bestaat de video altijd eerst, meestal 1 tot 4 weken eerder.
+- Geen van de 10 add-ons die ik zocht stond op BlenderNation (GEZIEN, zoekpagina blendernation.com, "Click Joints" werd wel gevonden als controle). Digital Production haalt ze dus niet bij BlenderNation weg.
+- CatPin, de concurrent van Pro, kreeg dus naast 80 Level ook een stuk in Digital Production (GEZIEN). Click Joints staat er nog niet (GEZIEN, zoekfeed).
+- Nitro Retopo: 400+ verkopen op Superhive in 2 maanden, $25, met een kanaal van 326 abonnees (GEZIEN, [productpagina](https://superhivemarket.com/products/nitro-retopo)). Fumaris: 40+ in 3 maanden voor $39, ondanks een kanaal van 47.100 (GEZIEN, [productpagina](https://superhivemarket.com/products/fumaris)). Het verschil zit niet in het kanaal maar in het filmpje en het nut (GOK).
+
+### 130. Wat Digital Production overneemt: de release notes, niet een persbericht
+- De site zegt over zichzelf: "We read the release notes. Then ..." (GEZIEN, tekst onder elk stuk). Het stuk over 3D Measure Master linkt als enige bron naar de nieuwspagina van de maker over versie 1.30 (GEZIEN, [stuk](https://digitalproduction.com/2026/11/20/3d-measure-master-live-update/)). De twee stukken die ik las beginnen allebei met "For those who don't know the tool:" en zijn ±700 woorden (GEZIEN); een vast format, mogelijk met hulp van AI geschreven (GOK).
+- Het stuk over CL Sculpt Assistant heeft geen enkele link naar het product, alleen de ingesloten video (GEZIEN, HTML van het artikel). Direct verkeer naar een winkel is hier dus klein (GOK); wat het oplevert is weergaven op het filmpje en een stuk om naar te verwijzen.
+- Er is geen formulier voor nieuws; het enige adres op de contactpagina is info@digitalproduction.com (GEZIEN, [contact](https://digitalproduction.com/contact/)). Een stuk van RenderJuice draagt `utm_content=story_pitch` in de link (GEZIEN), dus pitchen gebeurt.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- Een openbare "wat is nieuw in Pro 1.1"-pagina op dortus.com maken, met het filmpje van Roep ingesloten bovenaan en de wijzigingen in gewone zinnen. Dat is precies de bron die Digital Production leest. Valt onder de site (hoofdchat of Daan, `organisatie/regels/opslaan.md`).
+- Een mail van vijf regels klaarzetten voor info@digitalproduction.com: wat het is, wat nieuw is, link naar die pagina, link naar het filmpje, saleperiode. Versturen alleen na ja van Thijs op de tekst (regel 4).
+- Elke week de Blender-feed van Digital Production en de RSS van BlenderNation lezen (curl, zonder sleutel), en de downloads per dag naast elk bericht leggen, zoals hierboven. Zo leert de tak welk kanaal echt beweegt.
+
+## Patronen na ronde 27
+87. **Reddit bewoog de downloads, BlenderNation niet zichtbaar** (128): ±39 extra in 10 uur na r/blender, hooguit ±5 op de dag van BlenderNation (GOK op het gewone tempo).
+88. **Vakbladen schrijven over hele kleine makers, maar pas als er een filmpje is** (129): 7 van 11 met minder dan 1.000 abonnees, de video steeds 1 tot 4 weken eerder.
+89. **Een versiepagina met video is het persbericht** (130): Digital Production leest release notes en sluit de video in; een lange perstekst is overbodig.
+
+## Stand na run 22 nov ±06:30 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **Ons gratis BlenderNation-bericht (18 nov) gaf geen zichtbare sprong:** ±23 downloads per dag ervoor en erna; alleen de r/blender-post gaf een bult van ±39 in 10 uur (GEZIEN, tellingen; effect per kanaal GOK).
+2. **Digital Production schrijft ±2 keer per week over een los Blender-add-on**, door één redacteur (GEZIEN, 15 van 20 stukken in 7 weken).
+3. **7 van de 11 makers in die stukken hebben minder dan 1.000 YouTube-abonnees, twee maar 7** (GEZIEN). Wij kunnen er dus in, met het filmpje dat Roep al maakt.
+4. **CatPin, de concurrent van Pro, staat in 80 Level én Digital Production; Click Joints in geen van beide** (GEZIEN).
+5. **Digital Production leest release notes en linkt soms niet eens naar de winkel** (GEZIEN). De waarde is het filmpje en het stuk, niet direct verkeer; verwachte verkoop eruit klein, 0 tot 3 (GOK).
+
+Voorstel: (a) vóór do 26 nov één openbare pagina "Click Joints Pro 1.1: what's new" op dortus.com met het filmpje van Roep bovenaan; die pagina is de basis voor alle drie de vakbladen (80 Level, Digital Production, CG Channel heeft Pro al). (b) Chris zet één korte mail klaar voor info@digitalproduction.com en editor@80.lv met de link naar die pagina en de sale (27 nov tot 1 dec); Thijs zegt ja op de tekst. (c) Geen € 25 voor een commercieel BlenderNation-bericht: het gratis bericht bewoog niets zichtbaar. (d) Een tweede Reddit-post rond de sale (r/3Dprinting, met een geprint figuur) weegt zwaarder dan pers; dat is aan Thijs (zijn account). Volgende run: verkopen van Nitro Retopo en CatPin rond hun Digital Production-stuk (reviews per datum via Gumroad/Superhive), om te zien of zo'n stuk wél verkoop gaf.
