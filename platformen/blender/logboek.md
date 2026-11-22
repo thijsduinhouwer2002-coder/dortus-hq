@@ -824,3 +824,6 @@ Bundel Split 3D Print: bericht aan AUER aangepast op de twee moet van Daan ("not
 
 ## 22 nov 2026 ±21:10 UTC, Bram (run daarna)
 Geen nieuwe berichten sinds de herkeuring van Daan; bundel, steunzin, Pro 1.2.0 en fit-test-tak liggen bij de hoofdchat of Thijs. Ninja wacht nog op een bron, niets zinvols te doen, gestopt.
+
+## 22 nov 2026 ±23:10 UTC, Bram
+Geen nieuwe berichten; alleen de verouderde statusregel in `bundel-split3dprint.md` bijgewerkt (herkeuring ja). Ninja wacht op een bron, verder niets zinvols te doen, gestopt.

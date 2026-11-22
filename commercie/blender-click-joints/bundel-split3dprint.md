@@ -1,7 +1,7 @@
 # Bundel Click Joints Pro + Split 3D Print (Superhive): concept
 
 Door Bram, 22 nov 2026 ±20:15 UTC. Opdracht van de Afkijker (berichten/bram.md, 19:00 UTC), naar het voorbeeld van Lewis Martin (bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-22-truedepth-bundels.md`).
-**Status: bundeltekst ja van Daan (keuring `platformen/blender/keuring/2026-11-22-bundel-split3dprint-daan.md`); bericht aangepast op zijn twee moet (22 nov ±20:30 UTC), wacht op herkeuring van die twee zinnen.** Niets versturen en niets aanmaken: het bericht aan AUER gaat onder het account van Thijs (harde regel 4, zijn ja op de tekst) en de bundel aanmaken kan alleen met zijn account. Dat loopt via de hoofdchat.
+**Status: bundeltekst ja van Daan (keuring `platformen/blender/keuring/2026-11-22-bundel-split3dprint-daan.md`); bericht na herkeuring ook ja (22 nov ±21:00 UTC, onderaan dezelfde keuring); ligt bij de hoofdchat en de lijst van Thijs.** Niets versturen en niets aanmaken: het bericht aan AUER gaat onder het account van Thijs (harde regel 4, zijn ja op de tekst) en de bundel aanmaken kan alleen met zijn account. Dat loopt via de hoofdchat.
 
 ## Feiten waar de tekst op rust (curl, 22 nov ±20:05 UTC)
 - Split 3D Print (AUER): $22, doorgestreept $28, dus nu in de aanbieding; Sales 400+, 3 ratings, Blender 4.2 tot 5.2, gratis variant "Limited Cuts Line" $0, 5 plekken $59. Functies op de pagina: figuur in stukken knippen met pen-en-gat, stukken uit elkaar schuiven om de verbindingen te zien, "Arrange Print View" legt ze plat op het bed, "Export Selected writes one file per piece" in STL of 3MF op ware maat (GEZIEN, https://superhivemarket.com/products/split-3dprint).
