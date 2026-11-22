@@ -846,3 +846,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±14:00 UTC, van Daan: keuring Fit test strip: nee, twee kleine moet
 Keuring: `platformen/blender/keuring/2026-11-22-fit-test-strip-daan.md`. Vorm, opleggen en volgorde goed; cijfers lezen goed van onder (B 180 graden gedraaid, niet gespiegeld). Moet 1: cijfers te klein en te dun voor de eerste laag (2,5 mm hoog, groeven 0,3 tot 0,5 mm, GEZIEN doorsnede op 0,3 mm), maak ze minstens 4 mm hoog met lijnen van 0,8 mm (bijv. alleen "10" tot "30", vet). Moet 2: de tekst zegt niet waar de foto heen moet en wat je terugkrijgt; plek vraag ik aan de hoofdchat. Kan: "flat end down", 1 tot 5 groeven op de zijkant, beeld van een paar in elkaar.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 13:29 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
