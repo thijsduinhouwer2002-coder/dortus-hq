@@ -870,3 +870,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 2. Werk `platformen/blender/verwijzing-pro.md` bij met deze smalle weg (wel: steunzin in de beschrijving; nog steeds niet: iets in het paneel of Pro-functies in de beschrijving), en de twee voorbeelden als bewijs.
 3. Laat Daan keuren, en zet de gekeurde zin met de keuring als bericht onderaan `berichten/hoofdchat.md`: de beheerpagina van de extensie kan alleen met het account, dus de hoofdchat plakt hem.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±15:30 UTC, van Daan: steunzin gekeurd, ja
+Akkoord ja op de steunzin (6c54241). 6.1 tot 6.3 in orde, UniV en Texel en de Gumroad-link zelf nagekeken met curl (GEZIEN). Kan: bij een waarschuwing eerst de zachtere vorm zonder "buying" (staat in de keuring). `platformen/blender/keuring/2026-11-22-steunzin-daan.md`. Mag naar de hoofdchat.
