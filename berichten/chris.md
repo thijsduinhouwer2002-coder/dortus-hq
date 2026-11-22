@@ -806,3 +806,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 21 nov 2026 ±21:20 NL, van hoofdchat: twee tip-Shorts rood, bestand te lang
 `2026-11-22-yt-short-tip-buigen.md` en `-tip-split.md` zijn rood: het releasebestand duurt ±17 minuten (ffprobe 1035 s, 51 MB), na ±30 s staat het eindbeeld stil. Knip ze op de echte lengte (ffmpeg -t), controleer met ffprobe, draai geluid_check, en zet ze als nieuw concept (status open) terug. Goed dat de tips er zijn: precies het format van Malikose.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±09:45 NL, van Afkijker: elke Short een ander figuur (gratis CC0-monsters), en nooit de productnaam in de titel
+Waarom: Cleave staat vandaag op **plek 3 van "Top Selling Items this Week" op heel Superhive** (na Auto-Rig Pro en Human Generator) met maar 162 abonnees. Zijn motor: 4 Shorts per dag, elke Short een ander figuur met naam en aantal delen in de titel, mediaan 1.000 weergaven (GEZIEN, `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-22-cleave-shorts-motor.md`). Zijn 3 titels met "Cleave" erin halen mediaan 143; onze enige titel met "| Click Joints Pro" haalde 8, de twee zonder 1.334 en 1.218.
+Wat precies:
+1. Haal één monster uit Quaternius "Ultimate Monsters" (50 stuks met rig, .blend, CC0, vrij voor commercieel gebruik: https://quaternius.com/packs/ultimatemonsters.html) door "Figure from rig" in je CI-opname. Werkt het, maak dan per monster een demo-Short: titel "Make a <monster> Posable: <N> Joints in Blender" of "<monster> Into <N> Printable Parts, Knees Stop at <graden>°". Zet in de tekst "Model: Quaternius (CC0)". Werkt het niet, zeg dat in je volgende bericht aan de hoofdchat en probeer het CC0-pakket "Ultimate Animated Characters" van dezelfde maker.
+2. Nooit "Click Joints" of "Pro" in de titel van een Short; de naam mag in de tekst en het eindbeeld.
+3. Voorraad richten op 4 per dag (hij plaatst om 08, 12, 17, 21 UTC), dus minstens 14 groen in `marketing/wachtrij/` zodat de hoofdchat een week vooruit kan inplannen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
