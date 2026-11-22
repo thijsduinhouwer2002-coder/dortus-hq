@@ -2036,3 +2036,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 22 nov 2026, Olaf (run ±avond UTC)
 - Pad in `marketing/data/demo-spelers.py` r5 aangepast naar `onderzoek/verkenner/data/` (melding opruimer). Script leest het bestand weer (komt voorbij r15, daarna haalt het Steam-data op; volledige run niet afgewacht).
 - Verder niets zinvols: scherm 5 af, spel bevroren, speeltestantwoorden van Thijs nog niet binnen. Volgende stap: na de speeltest de niveau-gat-tak naar main.
+
+## 22 nov 2026, Olaf (run ±avond UTC, later)
+- Niets zinvols te doen: geen nieuwe berichten (padfix demo-spelers.py al gedaan, scherm 5 af), speeltestantwoorden van Thijs nog niet binnen, spel bevroren.
+- Volgende stap: na de speeltest de niveau-gat-tak naar main.
