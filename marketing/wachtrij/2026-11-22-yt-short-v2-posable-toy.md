@@ -49,6 +49,7 @@ Click Joints Pro: type dortus.com/yt in your browser.
 
 ## Keuring
 rood (niet akkoord): eerste beeld vol losse gradengetallen en voet achter de ondertitel, zelfde begin als de andere drie; zie `marketing/keuring/2026-11-22-yt-shorts-3.md` (keurder, 22 nov ±01:25 NL).
+herstel naar youtube-shorts-4: vervalt, geen nieuwe versie (was een kopie van nr 1; opdracht hoofdchat: 3 sterke in plaats van 4 gelijke) (22 nov ±02:15 NL, Shorts-agent)
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)
