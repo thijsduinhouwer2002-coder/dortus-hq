@@ -1217,3 +1217,65 @@ Vijf belangrijkste dingen:
 5. **Matt Busel: 1.383 agentposts, 3 met een winkellink, 0 verkopen** (DERDEN). Een tak die veel plaatst zonder link naar het product levert niets op.
 
 Voorstel: (a) de hoofdchat kijkt vandaag in het Gumroad-dashboard van Pro (Share, Landing page) of de knop "Copy prompt" er is, of laat één keer `gumroad products page preview` draaien met het bestaande token (schrijft niets). (b) Is de knop er: een agent maakt vóór do 26 nov een landingspagina voor Pro met dezelfde opbouw als in run 22 voorgesteld voor Superhive, met de beelden van Roep als bestanden bij het product, keuring door Daan, en de hoofdchat publiceert; de bron komt in `producten/`. (c) Elke post van Roep krijgt een link met UTM-tag naar Pro, en de Maker telt wekelijks hoeveel posts een link hadden (les van 116). (d) De twee prijzen ($12 Superhive, $19 Gumroad) gelijktrekken of bewust houden: besluit van de hoofdchat na de saleweek. Volgende run: of Superhive iets vergelijkbaars heeft (API of agent voor productpagina's), en wat Cleave en CatPin op hun Gumroad-pagina's verkopen sinds ze de eigen pagina hebben, voor zover zichtbaar.
+
+## Ronde 24 (run 22 nov ±03:20 UTC, klok van de container): wat de concurrenten van Pro echt verkopen (openbaar te lezen), en welke gratis pers ze daarvoor kregen
+
+### 117. Superhive heeft geen API voor makers; wel staat de verkoop per product openbaar in banden
+- **Geen API:** `superhivemarket.com/api`, `/docs/api` en `/llms.txt` geven de voorpagina terug; robots.txt noemt alleen de sitemap (GEZIEN, 22 nov). Een agent kan een productpagina op Superhive dus niet zelf schrijven of plaatsen, alleen wie inlogt. Dat beantwoordt de vraag uit run 23.
+- **Wel openbaar:** op elke productpagina staat onder "Details" een verkoopband ("Sales 10+", "200+", "400+") als die er is (GEZIEN). Producten onder ±10 verkopen tonen niets (GOK, nooit lager dan "10+" gezien).
+- **Telling** (GEZIEN, 69 producten uit de zoekresultaten van "3d print", "split 3d print", "connectors print" en "joints", 22 nov ±03:15 UTC; hier alleen de directe concurrenten van Pro):
+
+| Product | Prijs | Band | Reviews | Sinds |
+|---|---|---|---|---|
+| Dovetail Key | $18 | 800+ | 13 | 5 maanden |
+| Split-3DPrint | $22 | 400+ | 3 | 4 maanden |
+| CatPin | $24 | 400+ | 4 | 3 maanden |
+| Cleave | $23 | 200+ | 3 | 2 maanden |
+| SnapSplit | $20 | 30+ | 0 | 8 maanden |
+| Cutlink Studio | $2 | 30+ | 0 | 3 maanden |
+| Articulator | $1 | 30+ | 2 | 3 maanden |
+| JointLab | $65 | 20+ | 3 | 4 maanden |
+| Split It | $8,40 | 20+ | 0 | 1 maand |
+| Cut Flex | $34,99 | 10+ | 0 | 1 maand |
+| Click Joints Pro | $12 | geen band | 0 | "Published 2 days ago" |
+| Mesh Split, JointForge, RagdollForge, NinjaCut, North Slice, PrintSplit Easy, Print Forge, LayerMechanic, Regosplit, Print Ready Modelling Kit | $9 tot $24 | geen band | 0 | 16 uur tot 3 maanden |
+
+- **Wat dit zegt:** de hoek "model splitsen en verbinden voor 3D-print" is vol. In de laatste maand kwamen er minstens 7 bij (GEZIEN, publicatiedatum), en geen ervan heeft een band. De vier die verkopen hebben elk iets van buiten Superhive: pers (CatPin, zie 119), een kanaal van 198.000 abonnees (Dovetail Key, zie 118), of snelle updates met video's op de pagina (Cleave, run 18). Dat veel nieuwkomers met AI gebouwd zijn: GOK, niet nagegaan.
+- Opvallend: Superhive zegt bij Pro "Published 2 days ago" (GEZIEN). Volgens eerdere runs stond Pro er al eerder; misschien telt een nieuwe versie als nieuwe publicatie (GOK). De hoofdchat kan dat in het dashboard zien.
+
+### 118. Dovetail Key: 800+ in 5 maanden, gemaakt door een kanaal met 198.000 abonnees
+- Op de pagina staan twee ingebedde video's van 3DRedBox (GEZIEN, oembed: auteur `@miladkambaritutorials`). Dat kanaal heeft **198K abonnees, 454 video's** (GEZIEN, kanaalpagina). De twee productvideo's zelf hebben maar **1.310 en 1.029 weergaven** (GEZIEN, YouTube-zoekresultaat 22 nov).
+- 80 Level schreef er een nieuwsbericht over met link `superhivemarket.com/products/dovetail-key?ref=586` (GEZIEN, artikel "easily make your blender models 3d printable by drawing lines"). Dat `ref` is een affiliatecode: 80 Level verdient zo 5% van elke verkoop via dat bericht (GOK op wie de code heeft; het systeem van 5% voor elke affiliate staat in run 8, item 47).
+- Les: de productvideo's trekken weinig; de verkoop komt waarschijnlijk van de naam van de maker, de pers en Superhive zelf (GOK).
+
+### 119. CatPin: 2.029 verkopen op Gumroad en 400+ op Superhive in 4 maanden, met een kanaal van 1.240 abonnees
+- **Gumroad zet de cijfers in openbare JSON:** `<product-url>.json` geeft zonder sleutel prijs, opties, aantal en gemiddelde van de reviews, de laatste reviews, de volledige beschrijving, en `sales_count` als de verkoper het aantal toont (GEZIEN, 22 nov, ook voor Pro).
+- **CatPin** (`alexsokol.gumroad.com/l/catpin`): $30 Basic, opties +$15 en +$70, **`sales_count` 2.029**, **84 reviews, gemiddeld 4,8**, gemaakt 20 jul 2026, bijgewerkt 20 nov (GEZIEN). Op Superhive $24, "Sales 400+", 4 reviews (GEZIEN). Dat is ±4 reviews per 100 verkopen op Gumroad, binnen de 4 tot 11 uit run 17. Omzet: minstens ±$60.000 over beide winkels samen als iedereen Basic kocht zonder korting (GOK, rekensom 2.029 x $30 plus 400 x $24, kortingen en btw niet meegeteld).
+- **Waar het niet van komt:** het YouTube-kanaal heeft **1,24K abonnees en 387 video's**; de CatPin-video's hebben **22.847, 12.354, 2.554 en 2.099 weergaven** (GEZIEN, kanaalpagina en zoekresultaat 22 nov). Geen groot publiek dus.
+- **Waar het wel van kan komen: gratis redactionele pers.** 80 Level schreef op 5 okt 2026 een nieuwsbericht ("Prepare Your 3D Models for Printing with This Blender Add-On", rubriek News en Marketplace, geen label Sponsored bij het artikel) met link naar de Superhive-pagina en het YouTube-kanaal (GEZIEN, [80 Level](https://80.lv/articles/prepare-your-3d-models-for-printing-with-this-blender-add-on)). Digital Production volgde op 9 okt (GEZIEN, [Digital Production](https://digitalproduction.com/2026/10/09/catpin-blender-cuts-3d-printing/)). Beide noemen de nieuwe versie (1.0.7) als aanleiding. Dat die berichten de verkoop gaven: GOK, er is geen cijfer per bron.
+- **Opbouw van de pagina** (GEZIEN, JSON): ±1.040 woorden, belofte bovenaan ("Cut. Connect. Print."), "Latest Tutorial", twee modi (Draft en Easy) met stappen, een lijst "Is CatPin Right for You?" met 9 soorten kopers (figuren, bustes, resin, FDM, studio's), en een eigen landingspagina via Gumroad (`/landing/embed` geeft 200, GEZIEN). Pro heeft die niet (404, GEZIEN).
+
+### 120. De rubriek Marketplace van 80 Level: elke dag korte stukjes over losse tools, ook kleine en gratis
+- Op `80.lv/articles/marketplace` staan nu 10 berichten over losse tools, waarvan 4 voor Blender: een generator op Fab, een korrelsimulatie op Superhive, een gratis add-on op Gumroad (vallende bladeren), en een cursus (GEZIEN, 22 nov). Het gaat dus niet alleen om grote pakketten; dat corrigeert run 15 (item 84), waar ik alleen de betaalde dealslijsten zag.
+- Op de pagina "About & Contact" van 80 Level staat een algemeen redactieadres `editor@80.lv` (GEZIEN). Een vast formulier voor nieuws vond ik niet. Digital Production heeft `info@digitalproduction.com` (GEZIEN, contactpagina). BlenderNation vraagt sinds kort €25 per commerciële post (run 9, item 50).
+- **Hoe dit bij een agent-tak past:** de redactie herschrijft een korte mail met beelden tot een stukje. Een agent kan dat pakket maken (wat is nieuw, 3 tot 5 gifs of beelden, 1 video, link met eigen referral-code, wat het kost en of er sale is). Versturen gaat van een adres van Dortus of Thijs en valt onder regel 4: Thijs zegt ja op de tekst. CG Channel werkte al zo (run 14, item 77).
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Wel zelf, elke dag, €0:** een concurrentenmeter. Lees voor ±20 producten de band op Superhive en de JSON op Gumroad (prijs, reviews, `sales_count` waar zichtbaar), schrijf één regel per dag in een bestand, en meld sprongen (bijv. een product dat van 200+ naar 400+ gaat, of een nieuwe review van 1 ster). Ook Pro zelf: zijn eigen band op Superhive verschijnt zodra hij ±10 verkopen heeft. Alles openbaar, geen account, geen sleutel (GEZIEN, getest met curl).
+- **Wel zelf, één keer:** een perspakket voor de update 1.x van Pro klaarzetten in de wachtrij, in de vorm van 119 (nieuwe versie als aanleiding, beelden, video, link met `?ref=` naar de eigen code).
+- **Niet zelf:** de mail versturen (regel 4), of iets op Superhive wijzigen (geen API, alleen inloggen).
+
+## Patronen na ronde 24
+78. **In een volle hoek verkoopt alleen wie iets van buiten de winkel meebrengt** (117 tot 119): van ±20 split- en verbindtools op Superhive verkopen er 4 meer dan 30 keer; zij hebben pers, een groot kanaal of zichtbare snelle updates. Zeven nieuwkomers van de laatste maand hebben samen nog geen band.
+79. **Gratis redactionele pers is voor een kleine add-on bereikbaar en kost alleen een goede mail** (119, 120): 80 Level en Digital Production schreven binnen 4 dagen over CatPin, met een nieuwe versie als aanleiding. Dit is de goedkoopste route naar kopers die we zelf niet kunnen bereiken, en een agent kan alles behalve het versturen.
+80. **De cijfers van concurrenten zijn openbaar en machineleesbaar** (117, 119): Superhive-banden en Gumroad-JSON. Een agent kan elke dag meten wat werkt bij anderen, in plaats van te gokken.
+
+## Stand na run 22 nov ±03:25 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **CatPin (zelfde kopers als Pro) haalde in 4 maanden 2.029 verkopen op Gumroad en 400+ op Superhive** (GEZIEN, Gumroad-JSON en productpagina), met maar 1.240 YouTube-abonnees. Minstens ±$60.000 omzet (GOK, rekensom). Het bewijs dat deze hoek geld oplevert.
+2. **Wat CatPin wel had: gratis pers bij een nieuwe versie** (80 Level 5 okt, Digital Production 9 okt, GEZIEN) en een eigen Gumroad-landingspagina (GEZIEN). Pro heeft geen van beide.
+3. **De hoek is vol:** minstens 7 nieuwe split- en verbindtools in de laatste maand, geen ervan met een verkoopband; alleen Dovetail Key (800+), Split-3DPrint (400+), CatPin (400+) en Cleave (200+) verkopen echt (GEZIEN). Pro heeft nog geen band (minder dan ±10, GOK op de grens).
+4. **Superhive heeft geen API voor makers** (GEZIEN); een agent kan daar niets plaatsen, alleen lezen.
+5. **Gumroad-JSON en Superhive-banden zijn zonder sleutel te lezen** (GEZIEN). Een agent kan elke dag een concurrentenmeter bijhouden.
+
+Voorstel: (a) een agent zet vóór di 24 nov een perspakket klaar voor Pro (wat is nieuw, 3 tot 5 beelden of gifs van Roep, de lange YouTube-video, Superhive-link met eigen referral-code, de saleprijs van 27 nov tot 1 dec) voor `editor@80.lv` en `info@digitalproduction.com`; Daan keurt, Thijs zegt ja op de tekst (regel 4), en het gaat vóór do 26 nov de deur uit zodat een stukje in de saleweek kan vallen. (b) De Blender-manager laat een agent elke dag de concurrentenmeter van hierboven draaien (±20 producten, één regel per dag in `platformen/blender-2/`), met Pro erin, zodat we zien wanneer Pro zijn eerste band krijgt. (c) Voorstel (a) en (b) van run 23 (Gumroad-landingspagina voor Pro) blijven staan; CatPin en Cleave hebben er allebei een. Volgende run: of de pers voor de andere drie verkopers (Dovetail Key, Split-3DPrint, Cleave) ook bij een nieuwe versie kwam, en hoeveel dagen na een stukje in 80 Level een maker het merkt (reviews per week in de Gumroad-JSON van CatPin rond 5 okt, voor zover de datums zichtbaar zijn).
