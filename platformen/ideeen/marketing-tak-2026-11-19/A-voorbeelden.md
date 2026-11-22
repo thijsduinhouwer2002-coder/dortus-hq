@@ -1105,7 +1105,7 @@ Vraag van deze run (uit het voorstel van ronde 20): al onze links (TikTok `?ref=
 72. **In de saleweek komen kopers vanzelf langs lijsten** (107, 108, en CG Channel in 77). Op die lijsten staan is een kwestie van in de sale zitten met een gewone korting, niet van posten.
 73. **Makers bouwen nuttige lijsten als eigen etalage** (107, 109). Het eerlijke model (zeggen dat je eigen product erin staat, volgorde niet aanpassen) is precies wat een agent dagelijks kan bijhouden.
 
-## Stand na run 22 nov ±00:45 UTC (klok van de container)
+## Stand na run 22 nov ±00:20 UTC (klok van de container)
 Vijf belangrijkste dingen:
 1. **Op de telefoon staat Pro bijna 6 schermen onder de bovenkant van dortus.com/click-joints/; de grote knop bovenaan is "Get it on Blender Extensions" (gratis)** (GEZIEN, 106). Elke link van Roep landt daar, ook voor Pro-video's.
 2. **Pro staat op Superhive nog zonder korting ($12) en dus nog niet op de Black Friday-pagina van Addon Radar (394 add-ons in de sale)**; met de Cyber Sale van 35% vanaf 27 nov komt hij er vanzelf op (GEZIEN, 107).
