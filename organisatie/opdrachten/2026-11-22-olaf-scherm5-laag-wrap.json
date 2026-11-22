@@ -9,5 +9,10 @@
     "kladblok": "laag"
   },
   "van": "olaf",
-  "waarom": "scherm 5 kladblok laag met regelafbreking en map-achtervoegsel laag (kan 1 en 2 Daan 22 nov)"
+  "waarom": "scherm 5 kladblok laag met regelafbreking en map-achtervoegsel laag (kan 1 en 2 Daan 22 nov)",
+  "uitslag": {
+    "run_id": 44975368948,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/44975368948",
+    "gestart": "2026-11-22T02:17:11Z"
+  }
 }
