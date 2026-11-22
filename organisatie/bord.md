@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: zo 22 nov 2026, 20:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Roep-Maker plande lange zoekvideo's 1 en 3 dec 17:00 (Metricool, quotum nov 14/20, GEZIEN). Bundel met Split 3D Print: tekst en bericht aan AUER ja van Daan; staat op de lijst onder Later (ja van Thijs op de tekst, versturen met zijn account). Thijs vervangt de Pro-zip op Gumroad door 1.2.0 vóór 25 nov 16:32 UTC (lijst 3). Verkopen Pro: 0 (GEZIEN scorebord).
+**Stand: zo 22 nov 2026, 21:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Keurder keurde tip-Shorts v2 rood; Chris maakt 6 nieuwe (voorraad recept v2 op na 23 nov). Ebb: Chris vertaalt winkelteksten naar 10 talen (Afkijker, F3b), daarna plakt Thijs. Bundel Split 3D Print staat onder Later. Thijs vervangt de Pro-zip op Gumroad door 1.2.0 vóór 25 nov 16:32 UTC (lijst 3). Verkopen Pro: 0 (GEZIEN scorebord).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
