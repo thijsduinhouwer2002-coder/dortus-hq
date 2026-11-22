@@ -14,7 +14,7 @@ BRONNEN = ["CLAUDE.md", "START.md"] + glob.glob(".claude/skills/*/SKILL.md") + g
     + glob.glob("organisatie/rollen/*.md")
 PAD = re.compile(r"`([A-Za-z0-9_.\-/]+)`")
 VOORVOEGSELS = ("organisatie/", "platformen/", "producten/", "commercie/", "berichten/", ".claude/", ".github/",
-                "ontwerp/", "strategie/", "rapporten/")
+                "ontwerp/", "strategie/", "rapporten/", "onderzoek/", "dashboard/", "marketing/")
 
 
 def main():

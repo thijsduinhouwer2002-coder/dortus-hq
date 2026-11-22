@@ -1,0 +1,54 @@
+name: Archief beelden naar release
+
+# Opruimen fase 2 (besluit Thijs 19 nov 17:31, vraag 2): oude beelden en ruwe data uit main naar een GitHub-release.
+# Start bij een tag-push archief-beelden-* (agents hebben geen werkende GitHub-sleutel, zie skill actions).
+# Elke lijst in organisatie/opruimen/archief-beelden/<naam>.txt (een pad per regel) wordt <naam>.zip in de release,
+# met de lijst zelf erbij. Paden in de zip zijn de paden op main op het moment van de tag.
+# Pas als deze run groen is en de zips met curl te downloaden zijn, gaan de bestanden uit main (nieuwe commit,
+# geen geschiedenis herschreven).
+on:
+  push:
+    tags: ["archief-beelden-*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Zips maken
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/uit
+          for lijst in organisatie/opruimen/archief-beelden/*.txt; do
+            naam=$(basename "$lijst" .txt)
+            ontbreekt=0
+            while IFS= read -r pad; do
+              [ -z "$pad" ] && continue
+              [ -f "$pad" ] || { echo "ontbreekt: $pad"; ontbreekt=$((ontbreekt+1)); }
+            done < "$lijst"
+            [ "$ontbreekt" -eq 0 ] || { echo "FOUT: $ontbreekt bestanden uit $lijst staan niet in de tag"; exit 1; }
+            grep -v '^$' "$lijst" | zip -q -@ "/tmp/uit/$naam.zip"
+            cp "$lijst" "/tmp/uit/$naam-lijst.txt"
+            aantal=$(unzip -Z1 "/tmp/uit/$naam.zip" | wc -l)
+            echo "$naam.zip: $aantal bestanden, $(du -h "/tmp/uit/$naam.zip" | cut -f1)"
+          done
+          ls -la /tmp/uit
+      - name: Release maken
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          notitie="Oude beelden en ruwe onderzoeksdata uit dortus-hq, uit main gehaald bij opruimen fase 2 (besluit Thijs 19 nov 2026). Elke zip heeft een lijst met de oude paden. Zie organisatie/opruimen/ in de repo."
+          if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" /tmp/uit/* -R "$GITHUB_REPOSITORY" --clobber
+          else
+            gh release create "$TAG" /tmp/uit/* -R "$GITHUB_REPOSITORY" --title "$TAG" --notes "$notitie"
+          fi
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json assets --jq '.assets[] | "\(.name) \(.size)"'
