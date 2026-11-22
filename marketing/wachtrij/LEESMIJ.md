@@ -45,11 +45,11 @@ Nooit een concept weghalen, ook niet als het rood is. Een verbeterde versie is e
 ## Tekst
 <YouTube lang: eerste regel https://dortus.com/yt/ (nooit een Gumroad-link).
 TikTok: geen klikbare link, geen "link in bio"; wel het over te typen dortus.com/tt. 5 tot 7 hashtags.
-Short: altijd oranje, geen URL.
+Short (REGELS 21 nov): geen klikbare link, wel het over te typen dortus.com/yt in de beschrijving; niet meer vanzelf oranje.
 Altijd: schrijf als Dortus ("we"), nooit in de ik-vorm.>
 
 ## Eerste reactie
-<YouTube lang: https://dortus.com/yt/ met één zin erbij. TikTok: LEEG laten (persoonlijk account, kan niet). Short: geen URL.>
+<YouTube lang: https://dortus.com/yt/ met één zin erbij. TikTok: LEEG laten (persoonlijk account, kan niet). Short: leeg laten.>
 
 ## Bronnen
 - <waar elke bewering vandaan komt: changelog, winkelpagina, meting, met pad of link>
