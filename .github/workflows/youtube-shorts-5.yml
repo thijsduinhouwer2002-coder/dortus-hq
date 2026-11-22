@@ -15,7 +15,7 @@ permissions:
 
 env:
   TAG: youtube-shorts-5
-  PRO_COMMIT: f72746613d498097dffd6549f567ce9b04d6044a
+  PRO_COMMIT: 4d0a9c2c7ab3db35b576e6d4c76dc3df1eb2ccfc  # main met Pro 1.2.0 (elleboogfix), Bram 22 nov 16:50
 
 jobs:
   shorts:
@@ -59,7 +59,7 @@ jobs:
           git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
           mkdir -p /tmp/v11
           git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v11
-          (cd /tmp/v11/producten/blender-gewrichten && PRO_VERSIE=1.1.0 bash e2e/maak_zip.sh betaald)
+          (cd /tmp/v11/producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald)
           sha256sum /tmp/click_joints_betaald.zip
       - name: Monster van Quaternius (CC0)
         if: steps.ruw.outputs.opnieuw == 'ja'
@@ -69,7 +69,8 @@ jobs:
           # Big/Blends uit https://drive.google.com/drive/folders/18m4KpzpEzhC9wl7jzr6dUc0N8Jozr79C
           # Eerst een kopie in de repo (CC0), dan de Drive: per ronde elk monster 1 keer, 4 rondes met 10 min pauze
           # (de Drive gaf 22 nov de hele dag "Quota exceeded" voor de hele map).
-          for n in Yeti Ninja Orc Alien; do
+          # 22 nov 19:00: Knight (Single Knight Pack) en Mike (Animated Mech Pack), CC0 van Quaternius via glb in quaternius-showcase.
+          for n in Knight Mike Yeti Ninja Orc Alien; do
             if [ -s "commercie/filmpjes/monsters/blends/$n.blend" ]; then cp "commercie/filmpjes/monsters/blends/$n.blend" /tmp/mon/; echo "$n" > /tmp/pro/monster.txt; break; fi
           done
           for ronde in 1 2 3 4; do
