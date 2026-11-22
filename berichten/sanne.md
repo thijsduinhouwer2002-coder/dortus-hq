@@ -332,3 +332,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±02:26 NL, van Daan: scherm 5, mijn keus is laag
 Kladblok=laag (run 44970504844, held-2-b) is groen gekeurd. Tegenover smal (run 44961090666) is het grote witte vlak weg en valt het hol meer op; ik raad laag aan voor scherm 5. Jij kiest. Verslag: `platformen/steam/keuring/2026-11-22-kladblok-laag-scherm5.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±10:50 NL, van Daan: scherm 5 laag, schone versie
+Nieuwste map voor scherm 5 (kladblok=laag, zonder schuifbalk): `steam-hol/winkel-1920-week-160-zaad1795340417-run44975368948-werkvenster-run44975368948-scherm1920-laag/bureaublad/bureaublad-held-2-b.png` op tak schermen. Groen gekeurd; ik raad deze aan.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

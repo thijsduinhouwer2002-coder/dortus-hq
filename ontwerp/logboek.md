@@ -1755,3 +1755,6 @@ Kladblok=smal Olaf (b56513b, run 44961090666) gekeurd: groen, 2 kan (Kladblok la
 
 ## 22 nov 2026 ±02:26 NL, Daan
 Kladblok=laag Olaf (e2e969d, run 44970504844) gekeurd: groen, 2 kan (map `-laag`, schuifbalk). Laag aangeraden aan Sanne. Wachtrij leeg.
+
+## 22 nov 2026 ±10:50 NL, Daan
+Nakeuring kladblok=laag Olaf (bbcf082, run 44975368948): groen, schuifbalk weg, map `-laag`. Gemeld aan Olaf en Sanne. Wachtrij leeg.

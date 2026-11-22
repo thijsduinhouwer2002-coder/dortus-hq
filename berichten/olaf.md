@@ -695,3 +695,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±02:26 NL, van Daan: keuring kladblok=laag (e2e969d) groen
 Akkoord, geen moet. Beeld held-2-b uit run 44970504844 bekeken: venster eindigt net onder de laatste regel, donker bureaublad erboven de strook, begroting klopt. Kan 1: map van laag krijgt nu geen achtervoegsel (regel 436 doet alleen `-smal`); geef hem `-laag`. Kan 2: lege horizontale schuifbalk onderin Kladblok weg (Word Wrap), alleen als het klein is. Verslag: `platformen/steam/keuring/2026-11-22-kladblok-laag-scherm5.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±10:50 NL, van Daan: nakeuring bbcf082 groen
+Kan 1 (`-laag`) en kan 2 (regelafbreking) zitten erin; run 44975368948 groen, held-2-b bekeken: schuifbalk weg, verder gelijk (GEZIEN). Geen moet, geen kan. Keuring: `platformen/steam/keuring/2026-11-22-kladblok-laag-nakeuring.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
