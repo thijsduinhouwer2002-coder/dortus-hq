@@ -1,0 +1,60 @@
+HOL weg geweest 54 s (klok terug: false): goud voor 523, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 523 goud, faam 10
+HOL start hoogte=160 schaal=4 spelpixels=480x40 venster=(1920, 160) pos=(0, 872) held=res://systemen/held.gd
+HOL zaad 1795340417
+HOL muisvlak 4 punten, lucht vrij op x=-1
+HOL kroniek 4.0 (wacht 0.0): Maud knocks first. Polite.
+HOL held binnen: Maud
+HOL zicht 4.1 1
+HOL kroniek 9.5 (wacht 0.0): Ineke read about you in a tavern.
+HOL held binnen: Ineke
+HOL meting t=10 beelden=62 helden=2 hol_vast=2
+HOL kroniek 15.3 (wacht 0.0): Jop is here for your gold.
+HOL held binnen: Jop
+HOL kroniek zelfde held vervangen: Ineke read about you in a tavern.
+HOL kroniek 19.9 (wacht 0.0): Ineke checked the floor. Too late. +6
+HOL meting t=20 beelden=112 helden=2 hol_vast=3
+HOL held binnen: Fenna
+HOL kroniek 22.4 (wacht 2.0): Fenna brought a torch. And hope.
+HOL meting t=30 beelden=117 helden=3 hol_vast=4
+HOL kroniek 34.7 (wacht 0.0): Maud ran. Swore revenge.
+HOL held binnen: Siem
+HOL kroniek 37.2 (wacht 2.5): New stamp for the Hero. Got away.
+HOL kroniek vervallen 37.8: Siem says this is a quick one.
+HOL meting t=40 beelden=100 helden=3 hol_vast=4
+HOL kroniek 46.0 (wacht 0.0): Jop fled. Grudge: the Spike Pit.
+HOL held binnen: Merel
+HOL kroniek 48.5 (wacht 2.4): Merel climbs into your hole.
+HOL meting t=50 beelden=101 helden=3 hol_vast=4
+HOL kroniek 51.0 (wacht 0.0): Fenna fled, crying a little.
+HOL kroniek zelfde held vervangen: Fenna fled, crying a little.
+HOL kroniek 53.9 (wacht 0.0): Fenna is back for the Spike Pit.
+HOL held binnen: Fenna
+HOL meting t=60 beelden=101 helden=3 hol_vast=4
+HOL kroniek 65.4 (wacht 0.0): Siem left. Took nothing. Angry.
+HOL held binnen: Henk
+HOL hol-niveau 5 (faam 12, t 66.0)
+HOL bordje wip niveau 5
+HOL kroniek 67.9 (wacht 1.9): Merel stays forever. +6
+HOL kroniek vervallen 68.5: Sir Henk clanks in.
+HOL meting t=70 beelden=129 helden=2 hol_vast=6
+HOL kroniek 71.0 (wacht 0.0): Pim sneaks in. Nobody saw. You saw.
+HOL held binnen: Pim
+HOL kroniek 73.9 (wacht 0.0): Fenna left gold and one boot. +9
+HOL kroniek 76.4 (wacht 0.6): Sir Henk clanked all the way down. +6
+HOL held binnen: Tibbe
+HOL kroniek 78.9 (wacht 0.5): Tibbe knows every trap. Almost.
+HOL meting t=80 beelden=147 helden=2 hol_vast=10
+HOL kroniek 83.8 (wacht 0.0): Anouk has a map. It is wrong.
+HOL held binnen: Anouk
+HOL meting t=90 beelden=104 helden=3 hol_vast=11
+HOL kroniek 91.0 (wacht 0.0): Nobody saw Pim fall. You saw. +6
+HOL held binnen: Kobus
+HOL kroniek 93.5 (wacht 2.6): New page: the Thief. The pit won.
+HOL kroniek vervallen 94.0: Kobus knocks first. Polite.
+HOL meting t=100 beelden=125 helden=3 hol_vast=13
+HOL kroniek 101.4 (wacht 0.0): Kobus fell to the Spike Pit. +6
+HOL held binnen: Bram
+HOL kroniek 103.9 (wacht 2.5): Bram says this is a quick one.
+HOL kroniek 109.0 (wacht 0.0): Tibbe vanished. Took the stairs.
+HOL held binnen: Tibbe
