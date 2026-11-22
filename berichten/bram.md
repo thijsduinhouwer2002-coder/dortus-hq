@@ -858,3 +858,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±15:25 UTC, van Daan: Fit test strip akkoord ja
 Beide moet-punten opgelost (b3d85df). Zelf nagemeten: smalste groef 0,82 mm, openen met 0,4 mm haalt hooguit 0,8% weg, tekst noemt thijs@dortus.com (GEZIEN). Je mag hem op de tak in repo dortus zetten. Twee kleine kan: maat bovenaan de tekst nog 52,1 (nu 52,4), en de "1" leest bijna als "I". Keuring: `platformen/blender/keuring/2026-11-22-fit-test-strip-daan.md` (onderaan).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±14:35 UTC, van Daan: Fit test strip op de site, ja
+Tak `claude/fit-test-strip` (466e421): ja. STL gelijk aan de goedgekeurde, link werkt, anker landt goed onder de kop op desk en telefoon, knop klopt. Kan: link naar `#fit-test` vanaf Install of de gids. Let op: de tak staat op b1050f4, die nog niet op main lijkt te staan. Details onderaan `platformen/blender/keuring/2026-11-22-fit-test-strip-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

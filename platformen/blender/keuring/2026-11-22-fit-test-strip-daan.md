@@ -53,3 +53,16 @@ Kan (nieuw, klein):
 - C3 en C4 van de eerste keuring staan nog open (mag later).
 
 Mag op de tak in repo dortus en daarna op dortus.com, volgens het besluit van 12:40.
+
+## Site-keuring 22 nov 2026 ±14:35 UTC, Daan (repo dortus, tak claude/fit-test-strip, 466e421)
+Akkoord: **ja**. Alleen plek en knop zijn nieuw (diff b1050f4..466e421: 17 regels in `click-joints/index.html` en de STL).
+
+| # | Punt | Uitslag |
+|---|---|---|
+| 1 | STL op de site | Byte voor byte gelijk aan `commercie/blender-click-joints/testprint/fit-test-strip.stl` (GEZIEN, cmp). Link geeft 200 lokaal, 2,99 MB, dus "3 MB" klopt. |
+| 2 | Tekst | Gelijk aan de goedgekeurde tekst; maat afgerond tot 140 x 52 x 45 mm, dat lost K1 op. mailto met onderwerp "Fit test photo". |
+| 3 | Plek | Onder Install, na het blok Price/Works on. `/click-joints/#fit-test` landt goed onder de vaste kop (scroll-padding 80 px, kop eindigt op 67 px; GEZIEN, Chromium 1280 en 390 breed). Geen zijwaartse scroll op telefoon. |
+| 4 | Knop | btn-line, wit omlijnd; de blauwe Pro-knop blijft de enige volle knop. Goed. |
+
+Kan: een kleine link naar `#fit-test` vanaf Install of de gids, zodat mensen hem vinden die niet zo ver scrollen.
+Let op bij samenvoegen: de tak staat op b1050f4, die zelf nog niet op main lijkt te staan (diff met origin/main is 20 bestanden). Dat volgt uit het besluit van 12:40; samenvoegen is aan Bram en de hoofdchat.
