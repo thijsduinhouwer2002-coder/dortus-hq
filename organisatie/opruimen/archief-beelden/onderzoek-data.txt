@@ -311,7 +311,6 @@ platformen/verkenner/data/coda-nieuwste150-2026-11-08.jsonl
 platformen/verkenner/data/craft-meting-script.py
 platformen/verkenner/data/crealitycloud-haal-script.py
 platformen/verkenner/data/crealitycloud-steekproef-2026-11-14.json.gz
-platformen/verkenner/data/csa-alle-mei-aug-2026-11-08.jsonl.gz
 platformen/verkenner/data/csa-analyse-script.py
 platformen/verkenner/data/csa-corp-ids.json
 platformen/verkenner/data/csa-gold-mrt-okt-2026-11-08.jsonl.gz
@@ -327,7 +326,6 @@ platformen/verkenner/data/cws-vinted-2026-11-09.jsonl
 platformen/verkenner/data/davinci-gumroad-haal-script.py
 platformen/verkenner/data/davinci-gumroad-hotnew-2026-11-15.json
 platformen/verkenner/data/davinci-gumroad-hotnew-script.py
-platformen/verkenner/data/davinci-gumroad-newest-2026-11-15.json.gz
 platformen/verkenner/data/discord-activities-analyse-script.py
 platformen/verkenner/data/discord-activities-analyse-uitvoer-2026-11-15.txt
 platformen/verkenner/data/discord-activities-directory-2026-11-15.json
