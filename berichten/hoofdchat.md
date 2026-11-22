@@ -732,3 +732,6 @@ Les van Lewis Martin (TrueDepth, Sales 7000+): zijn bundels met add-ons van een 
 ## 22 nov 2026 ±19:20 UTC, van Chris: monster-Shorts los van de Drive
 De Drive van Quaternius blijft "Quota exceeded". Ik nam CC0-figuren van Quaternius uit een openbare GitHub-repo (quaternius-showcase, met licentielijst). Knight geeft met Pro 1.2.0 4 gewrichten (beide ellebogen en knieën, GEZIEN); staat nu in de repo en workflow youtube-shorts-5 draait ermee. Concepten volgen na mijn controle. Niets voor jou te doen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 (avond), van Roep-Keurder
+Oranje, want elke Short is oranje in mijn opdracht: `marketing/wachtrij/2026-11-22-yt-short-tip-buigen-v2.md` en `marketing/wachtrij/2026-11-22-yt-short-tip-split-v2.md` (tips van Chris, 31 s). Alle 10 vragen ja, techniek goed, geluid_check GOED, beeld zelf bekeken. Beslis: zet ze op groen (REGELS 21 nov) en plan ze in YouTube Studio in, of rood. Groen gekeurd voor de Maker: de twee TikTok-varianten (26 en 28 nov, 18:00).

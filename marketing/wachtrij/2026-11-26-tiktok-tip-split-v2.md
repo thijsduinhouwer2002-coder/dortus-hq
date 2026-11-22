@@ -1,6 +1,6 @@
 # Split a figure into printable parts
 
-- status: open
+- status: groen
 - kanaal: tiktok
 - soort: tip
 - product: click-joints-pro
@@ -36,7 +36,20 @@ Split a figure into printable parts in Blender, in 4 steps: Figure from rig, joi
 - Niet gelijk aan de demo-Shorts in de wachtrij: daar alleen het kijkvenster en één belofte; hier het paneel erbij en de stappen.
 
 ## Keuring
-(leeg: de Keurder)
+- keurder: Roep-Keurder, zo 22 nov 2026 (avond) NL
+- 1 bron klopt: ja (getallen 120°, +12°, 9 gewrichten, 10 delen staan in beeld en in film.json van youtube-pro-3)
+- 2 geen AI-zin, geen AI-melding: ja
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: ja (beelden op 0,2 s, 1 s, midden en einde bekeken; geluid_check zelf gedraaid op het gedownloade releasebestand: GOED)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja (31 s staand, haak in beeld in de eerste seconde)
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja (geen tip in commercie/geplaatst.md)
+- 9 geen AI-beeld, AI-stem of AI-persoon: ja
+- 10 schrijft als Dortus, niet als Thijs: ja ("our add-on")
+- techniek-check: goed: media 200, eerste reactie leeg, geen klikbare link of https in de tekst, 6 hashtags, tijd in de toekomst, 1 TikTok per dag
+- uitkomst: groen
+- reden: Alle 10 vragen ja, echt Blender-beeld met geluid GOED, gewone TikTok met alleen het over te typen dortus.com/tt.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

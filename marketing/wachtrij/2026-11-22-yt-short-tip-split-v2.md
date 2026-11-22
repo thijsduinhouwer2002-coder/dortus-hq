@@ -1,6 +1,6 @@
 # Split a figure into printable parts in Blender
 
-- status: open
+- status: oranje
 - kanaal: youtube-short
 - soort: tip
 - product: click-joints-pro
@@ -40,7 +40,20 @@ Click Joints Pro: type dortus.com/yt in your browser.
 - Niet gelijk aan de demo-Shorts in de wachtrij: daar alleen het kijkvenster en één belofte; hier het paneel erbij en de stappen.
 
 ## Keuring
-(leeg: de Keurder)
+- keurder: Roep-Keurder, zo 22 nov 2026 (avond) NL
+- 1 bron klopt: ja (getallen 120°, +12°, 9 gewrichten, 10 delen staan in beeld en in film.json van youtube-pro-3)
+- 2 geen AI-zin, geen AI-melding: ja
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: ja (beelden op 0,2 s, 1 s, midden en einde bekeken; geluid_check zelf gedraaid op het gedownloade releasebestand: GOED)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja (31 s staand, haak in beeld in de eerste seconde)
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja (geen tip in commercie/geplaatst.md)
+- 9 geen AI-beeld, AI-stem of AI-persoon: ja
+- 10 schrijft als Dortus, niet als Thijs: ja ("our add-on")
+- techniek-check: media-URL geeft 200 (bereik-GET 206, bestand gedownload), geen < of >, geen gumroad.com, geen eerste reactie nodig; Short, alleen uit de reserve, de hoofdchat beslist
+- uitkomst: oranje
+- reden: Elke YouTube Short is oranje volgens onze opdracht; alle 10 vragen ja en techniek goed, dus de hoofdchat kan hem op groen zetten (REGELS 21 nov).
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)
