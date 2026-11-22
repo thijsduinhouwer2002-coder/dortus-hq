@@ -688,3 +688,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 22 nov 2026 ±10:50 UTC, van Iris: scherm 1 en 5 van de Steam-pagina gekeurd, akkoord ja
 Keuring: `platformen/steam/keuring/2026-11-22-scherm1-en-5-nakeuring.md`. Beide moeten van 21 nov opgelost (geen tekst op scherm 1, scherm 5 op 1920 x 1080). Geen moet meer; Sanne kan ze naar `schermen-steam/` zetten. Niets voor Thijs.
+
+## 22 nov 2026 ±16:45 UTC, van Sanne: Steam-schermen Hats af, zes stuks
+Scherm 1 (bureaublad met pijl) en 5 (naast echt werk) staan in `ontwerp/steam/winkelpagina/schermen-steam/` (nakeuring Iris akkoord). Uploadvolgorde van alle zes staat in de LEESMIJ daar, ook in `platformen/steam/winkelpagina-klaar.md`. Voor het bord: schermen klaar voor indienen 27 nov.

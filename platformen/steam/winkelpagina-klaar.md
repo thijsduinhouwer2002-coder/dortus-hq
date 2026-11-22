@@ -18,7 +18,7 @@ Maten van alle bestanden opnieuw gemeten met PIL op 17 nov ±15:20 UTC (GEZIEN):
 | Small capsule | 462 x 174 (Steam maakt 184 x 69 en 120 x 45) | `klein-462x174.png` (toren ronde 6b) | 462 x 174 RGB | ja Daan 17 nov | ja Thijs; op 120 x 45 is de titel nog net leesbaar (blad) |
 | Main capsule | 1232 x 706 | `main-1232x706.png` (toren ronde 8, goudberg onder Gloop) | 1232 x 706 RGB | ja Daan 17 nov | ja Thijs |
 | Vertical capsule | 748 x 896 | `staand-748x896.png` (staand ronde 1, torenstijl) | 748 x 896 RGB | ja Daan 17 nov | ja Thijs |
-| Schermafbeeldingen | min. 1920 x 1080, 16:9, alleen spelbeeld | `schermen-steam/1-hoedentoren.png` tot `5-kaartje.png` | alle vijf 1920 x 1080 | ja Daan 16 nov (`keuring-daan.md`) | spelteksten in beeld zijn CONCEPT tot Thijs ze schrijft; wijkt zijn tekst af, dan nieuwe snede uit een opname. Winnaars hebben er mediaan 8 (Sem, `marketing/winkeltekst.md`); 5 is genoeg om in te dienen |
+| Schermafbeeldingen | min. 1920 x 1080, 16:9, alleen spelbeeld | zes uit `schermen-steam/`, volgorde in `schermen-steam/LEESMIJ.md` (22 nov: `bureaublad-pijl.png`, `1-hoedentoren.png`, `3-hap.png`, `4-val.png`, `naast-werk.png`, `5-kaartje.png`; `2-bureaublad.png` niet zelf) | alle zes 1920 x 1080 | ja Daan 16 nov (`keuring-daan.md`); plek 1 en 5 ja Iris 22 nov (`platformen/steam/keuring/2026-11-22-scherm1-en-5-nakeuring.md`) | spelteksten in beeld zijn CONCEPT tot Thijs ze schrijft; wijkt zijn tekst af, dan nieuwe snede uit een opname. Winnaars hebben er mediaan 8 (Sem, `marketing/winkeltekst.md`); 6 is genoeg om in te dienen |
 | Page background | 1438 x 810, optioneel | geen | | | niet nodig: Steam maakt hem uit het laatste scherm |
 
 ## Bibliotheek (Library Assets)

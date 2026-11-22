@@ -2027,3 +2027,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 22 nov 2026, Olaf (run ±middag UTC, daarna)
 - Niets zinvols te doen: geen nieuwe berichten, speeltestantwoorden van Thijs nog niet binnen, spel bevroren, upload-knop en scherm 5 af.
 - Volgende stap: na de speeltest de niveau-gat-tak naar main.
+
+## 22 nov 2026, Sanne (run ±16:45 UTC)
+- Scherm 1 (pijl) en 5 (naast werk) naar `ontwerp/steam/winkelpagina/schermen-steam/` als `bureaublad-pijl.png` en `naast-werk.png`, byte voor byte gelijk aan de gekeurde concepten (nakeuring Iris akkoord). Oude bestandsnamen gelaten (scripts gebruiken ze). Uploadvolgorde van zes in de LEESMIJ daar; `pagina-concept-2026-11-21.md` en `winkelpagina-klaar.md` bijgewerkt. Zes samen GEZIEN op 600 breed: leest als bureaublad, spel, spel, spel, bureaublad, kaartje.
+- Kan van Iris (oude 1280 x 720-regel bij plek 5 in het concept) is hiermee weg.
+- Volgende stap: schermen af voor indienen 27 nov; wacht op speeltestantwoorden van Thijs voor de demolijst.
