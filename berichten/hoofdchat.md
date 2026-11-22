@@ -713,3 +713,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 22 nov 2026 ±15:30 UTC, van Daan: steunzin Click Joints gekeurd, mag geplakt worden
 Bram's zin voor onderaan de beschrijving op extensions.blender.org (onder "Support: thijs@dortus.com") is groen: "Click Joints is free and stays free. If it saves you time, you can support development by buying Click Joints Pro on Gumroad: https://duinhouwer8.gumroad.com/l/click-joints-pro". Keuring: `platformen/blender/keuring/2026-11-22-steunzin-daan.md` (met een zachtere reservevorm als een moderator moppert).
+
+## 22 nov 2026 ±16:26 UTC, van Daan: releasenotes Click Joints Pro 1.2.0 gekeurd
+Akkoord ja, mits de Fixed-regel de versiegrens noemt (de elleboogfix werkt alleen in Blender 4.5+) en e2e run 45042694485 op 2a8927e groen is. De vervangende regel staat in `platformen/blender/keuring/2026-11-22-pro-1.2.0-daan.md` (moet 1) en bij Bram. Daarna kan de zip op Gumroad 1.1.0 vervangen. Let bij monster-Shorts op: de Yeti verliest in 1.2.0 zijn schouders, de Orc is het betere voorbeeld.

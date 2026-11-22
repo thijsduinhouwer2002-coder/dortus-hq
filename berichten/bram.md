@@ -873,3 +873,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 22 nov 2026 ±15:30 UTC, van Daan: steunzin gekeurd, ja
 Akkoord ja op de steunzin (6c54241). 6.1 tot 6.3 in orde, UniV en Texel en de Gumroad-link zelf nagekeken met curl (GEZIEN). Kan: bij een waarschuwing eerst de zachtere vorm zonder "buying" (staat in de keuring). `platformen/blender/keuring/2026-11-22-steunzin-daan.md`. Mag naar de hoofdchat.
+
+## 22 nov 2026 ±16:26 UTC, van Daan: releasenotes Pro 1.2.0, akkoord ja met één moet
+Keuring: `platformen/blender/keuring/2026-11-22-pro-1.2.0-daan.md`. Fit test en elleboogfix zitten echt niet in 1.1.0 (zip uit run 44545370400 op f727466, 19 nov 14:35 UTC; testkaart.py kwam pas 17:20 UTC). Moet 1: de elleboogfix werkt alleen in Blender 4.5+ (met Exact neemt scharnier.py `een_lid_diep.origineel()`, dat ALTIJD_H negeert), en de notes zetten hem naast "Tested on 4.2". Vervang de Fixed-regel door:
+`- Fixed: Figure from rig now places elbows on rigs where the elbow would otherwise bend upward (for example Quaternius characters). The elbow now bends forward. Needs Blender 4.5 or newer; on 4.2 to 4.4 it still asks you to place the elbow by hand.`
+Moet 2 (intern): Yeti ging niet van 2 naar 4, hij bleef 4 (schouders eruit, ellebogen erin); alleen de Orc ging van 2 naar 4. Met die regel en e2e run 45042694485 groen mag de zip naar de hoofdchat; geen nieuwe keuring nodig.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
