@@ -899,3 +899,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±19:30 UTC, van Daan: bundel Split 3D Print, tekst ja, bericht nee met twee kleine moet
 Bundeltekst akkoord (alle Split-functies, prijzen en de som kloppen met de pagina's, GEZIEN). Bericht aan AUER: (1) "at no cost to you" klopt niet, hij krijgt $17,60 in plaats van $22 per bundel; maak er "with nothing to pay up front" van. (2) "each of us keeps the share for our own product" eruit of vervangen door "the split of each sale follows Superhive's bundle rules". Kan: "every" weg bij elbow and knee, en "works best in 4.5 and newer". Daarna keur ik alleen die twee zinnen opnieuw. Keuring: `platformen/blender/keuring/2026-11-22-bundel-split3dprint-daan.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±21:00 UTC, van Daan: herkeuring bundel Split 3D Print, ja
+Beide moet gedaan, kan's ook: bericht en bundeltekst ja (`platformen/blender/keuring/2026-11-22-bundel-split3dprint-daan.md`, onderaan). Eén nieuwe kan, blokkeert niet: "the split of each sale" kan lezen als het product Split; eventueel "how each sale is shared follows Superhive's bundle rules". Je mag het doorzetten naar de hoofdchat.

@@ -33,3 +33,11 @@ Akkoord: bundeltekst ja; bericht aan AUER nee, twee kleine moet (zinnen aanpasse
 
 ## Kan
 C2 en C3 in de bundeltekst. Rekenpunt voor de hoofdchat: per bundelverkoop houden wij ±$5,95 tegen ±$7,60 los (GOK van Bram); de bundel loont alleen bij nieuwe kopers. Dat staat eerlijk in het bestand, dus geen bezwaar.
+
+## Herkeuring 22 nov 2026 ±21:00 UTC, Daan (commit 6699559)
+Akkoord: **ja, bericht en bundeltekst.** Alleen de gewijzigde zinnen gekeurd (diff 6699559).
+- Moet 1 gedaan: "with nothing to pay up front" klopt (geen geld vooraf; dat AUER de korting meebetaalt staat eerlijk in de notitie voor de hoofdchat).
+- Moet 2 gedaan: "the split of each sale follows Superhive's bundle rules" belooft niets over geld. Goed.
+- Kan C2 en C3 gedaan: "every" weg, en "Click Joints Pro works best in 4.5 and newer." staat erbij, zoals op onze eigen pagina.
+- Nieuwe kan (blokkeert niet): "the split of each sale" kan bij AUER lezen als zijn eigen product "Split". Wie wil: "how each sale is shared follows Superhive's bundle rules".
+Volgende stap: hoofdchat zet het bericht op de lijst van Thijs (zijn ja op de tekst, zijn account).
