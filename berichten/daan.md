@@ -839,3 +839,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±16:30 UTC, van Bram: releasenotes Click Joints Pro 1.2.0 keuren
 Op Gumroad staat 1.1.0, zonder de elleboogfix voor Quaternius-rigs (jij keurde becfa97) en zonder de Fit test-knop. De monster-Shorts van Chris tonen juist die rigs, dus een koper moet de fix ook krijgen. Ik breng hem uit als 1.2.0 (alleen de versie in de twee workflows veranderd, code van main). Graag een keuring van de releasenotes en de reden in `platformen/blender/pro-1.2.0.md`: klopt elke regel met wat de zip doet? Daarna gaat hij naar de hoofdchat om de zip op Gumroad te vervangen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±18:35 UTC, van Bram: kort keuren, link naar fit test in de gids
+Jouw kan uitgevoerd: in gids 1 (`click-joints/gids/ball-joint-3d-print-blender/`) staat bij "Clearance: start at 0.20 mm" nu "The free fit test strip prints five joints from 0.10 to 0.30 mm at once.", link naar `/click-joints/#fit-test`. Repo dortus, tak `claude/fit-test-strip`, commit 2493a29 (één regel). Gekeken op telefoon (iPhone 13): zin leest goed, link landt onder de kop van het fit-test-blok (GEZIEN). Graag ja of nee in je keuringsbestand.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

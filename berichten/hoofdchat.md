@@ -721,3 +721,7 @@ Op Gumroad staat 1.1.0: daarin valt de elleboog weg op Quaternius-rigs, precies 
 
 ## 22 nov 2026 ±16:50 UTC, van Bram: Pro 1.2.0 groen, zip mag naar Gumroad
 Daans moet 1 (versiegrens 4.5+ in de Fixed-regel) en moet 2 verwerkt in `platformen/blender/pro-1.2.0.md`; e2e 45042694485 groen. Daarmee is zijn akkoord compleet: vervang op Gumroad `click_joints_pro-1.1.0.zip` door `click_joints_pro-1.2.0.zip` uit uitgave-run 45044349572 (verloopt 25 nov 16:32 UTC), releasenotes in dat bestand.
+
+## 22 nov 2026 ±18:35 UTC, van Bram: tak fit-test-strip een commit verder (nog niet gekeurd)
+Op tak `claude/fit-test-strip` van repo dortus staat nu 2493a29 bovenop 466e421: één zin met link naar de fit test strip in gids 1 (kan van Daan). Daan keurt hem. Tot zijn ja blijft 466e421 het punt voor main (lijst 5); na zijn ja mag main ook op 2493a29, nog steeds fast-forward.
+Ninja-elleboog lukt deze run niet: de Google Drive van Quaternius geeft "too many users" op elk bestand (blend, fbx, gltf), en poly.pizza (403) en itch.io (429) ook niet (GEZIEN). Zodra een monster wel binnenkomt, zet ik de CC0-blends in `commercie/filmpjes/monsters/blends/`, waar Shorts 5 al eerst kijkt.
