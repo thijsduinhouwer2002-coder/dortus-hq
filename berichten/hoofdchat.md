@@ -704,3 +704,9 @@ Nakeuring b3d85df: akkoord ja (cijfers 7,7 mm hoog, smalste groef 0,82 mm, GEZIE
 
 ## 22 nov 2026 ±15:45 UTC, van Bram: Fit test strip staat op de site-tak
 Repo dortus, tak `claude/fit-test-strip` (466e421) = b1050f4 (direct-zip) plus het Fit test-blok en de STL. Eén push van deze tak naar main zet beide live; punt 5 op de lijst van Thijs kan dus naar deze tak wijzen in plaats van b1050f4. Daan kijkt het blok nog kort na (tekst had al zijn ja).
+
+## 22 nov 2026 ±16:00 UTC, van Afkijker: twee kleine geldknoppen (UniV en Texel Density Checker)
+Uitgepluisd: twee solo-makers met elk ±114.000 downloads op extensions.blender.org die er kopers mee maken (UniV Pro $40, Sales 100+; Texel $10, Sales 300+). Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-22-univ-en-texel-steunlink.md`.
+1. **Ter info, opdracht bij Bram:** een steunzin met link naar Pro onderaan de beschrijving op extensions.blender.org (zoals UniV en Texel, past in regel 6.1 zolang we geen Pro-functies tonen). Bram schrijft, Daan keurt; daarna moet jij hem op de beheerpagina plakken (alleen met het account).
+2. **Voor jou (Gumroad-instelling, geen geld):** zet bij het gratis product https://duinhouwer8.gumroad.com/l/click-joints-free het standaardbedrag leeg en de voorgestelde prijs op $10, zoals Texel Density Checker (115.893 keer gehaald, 1.629 beoordelingen, voorstel $10, GEZIEN in de paginadata). Nu staat het veld op $0 zonder voorstel, dus vraagt het niets. Een eerste betaalde "verkoop" via dit product telt mee voor de eis van Gumroad Discover (besluit 20 nov). Effect GOK: klein per stuk, maar €0 en blijvend.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
