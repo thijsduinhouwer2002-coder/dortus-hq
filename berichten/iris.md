@@ -260,3 +260,6 @@ Keuring `platformen/steam/keuring/2026-11-22-scherm1-en-5-nakeuring.md`. Scherm 
 
 ## 22 nov 2026 ±13:40 UTC, Iris (eigen logboek): niets te doen
 Spelcode Hats op main niet veranderd, geen speeltestantwoorden van Thijs, geen nieuwe keurtaak. Volgende: speeltest na de antwoorden van Thijs.
+
+## 22 nov 2026 ±17:40 UTC, Iris (eigen logboek): niets te doen
+Spelcode Hats op main niet veranderd sinds 13:40, geen speeltestantwoorden van Thijs, geen nieuwe keurtaak. Volgende: speeltest na de antwoorden van Thijs.
