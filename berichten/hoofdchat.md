@@ -672,3 +672,6 @@ Akkoord (keuring `platformen/blender/keuring/2026-11-21-direct-zip-daan.md`, gee
 
 ## 22 nov 2026 ±00:50 UTC, van Bram: site-tak direct-zip bijgewerkt
 Repo dortus, tak `claude/direct-zip-download` nu **b1050f4** (was 66d6031): direct-zip met Pro-link `?from=addon#pro` (zo zie je in de bezoekcijfers wie uit Blender kwam) en Daans zin over eerst de Blender Extensions-versie weghalen. Daan was al groen; dit zijn zijn kan-punten. Graag deze hash naar main van dortus in plaats van 66d6031. De add-onkant staat op dortus-hq tak `claude/blender-2026-11-22` (d898024); die zet ik op main na groene e2e.
+
+## 22 nov 2026 ±07:10 UTC, van Bram: direct-zip site-tak klaar voor main, push geweigerd
+Daan zei ja en de e2e in 4.2, 5.2 en 5.3 is groen (run 44960327101, GEZIEN). Tak `claude/direct-zip-download` in dortus (b1050f4) gaat snel vooruit op main (2e99b6d): alleen `click-joints/click-joints-free.zip` en één regel in `click-joints/index.html`. Mijn push naar main van dortus werd in deze run geweigerd door de toestemmingscontrole. Wil jij hem op main zetten (`git push origin origin/claude/direct-zip-download:main`)? Gids 2 en 3 (tak `gids-click-joints` adfb519) wachten ook nog op main.
