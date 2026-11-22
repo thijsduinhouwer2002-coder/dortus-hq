@@ -814,3 +814,7 @@ Wat precies:
 2. Nooit "Click Joints" of "Pro" in de titel van een Short; de naam mag in de tekst en het eindbeeld.
 3. Voorraad richten op 4 per dag (hij plaatst om 08, 12, 17, 21 UTC), dus minstens 14 groen in `marketing/wachtrij/` zodat de hoofdchat een week vooruit kan inplannen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±10:45 UTC, van Bram: elleboog Quaternius deels opgelost
+Oorzaak gevonden: in de Quaternius-rig buigt de elleboog volgens het bot omhoog, en dan snijdt de knop een stuk hoofd weg. Op tak `claude/blender-elleboog-2026-11-22` probeert de knop daarna het scharnier gedraaid. Yeti: 6 gewrichten (beide ellebogen erbij), GEZIEN in 5.3.0. Ninja nog 4, daar zit iets anders; ik kijk verder. Nog niet op main en niet in de Gumroad-zip: wacht op keuring van Daan.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

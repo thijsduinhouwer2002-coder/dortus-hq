@@ -776,3 +776,7 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 22 nov 2026 ±08:10 UTC, Bram (run :07)
 - Niets nieuws open: geen nieuwe opdracht in `berichten/bram.md`. Site-tak dortus b1050f4 wacht nog op main (main 2e99b6d, GEZIEN git ls-remote), staat op lijst Thijs punt 5. Gestopt.
+
+## 22 nov 2026 ±10:45 UTC, Bram
+- Chris 10:40: elleboog faalt op Quaternius-monsters. Nagebootst in Blender 5.3.0 met Pro 1.1.0 op Yeti (Big): zelfde uitslag, 4 gewrichten (GEZIEN). Oorzaak: in deze rig staat de X-as van LowerArm voor-achter, dus buigt de elleboog omhoog; de snede haalt de bovenkant van het hoofd weg (16% van de punten kwijt, deel A stopt op z 126 van 150 mm, GEZIEN met tijdelijke debugregels).
+- Oplossing in `betaald/rig.py`: na de gewone plekken ook dezelfde plekken met het scharnier 90 graden om de lidas gedraaid (eerst naar voren buigend). Alleen na een weigering, dus rigs waar het al lukte merken niets. Yeti nu 6 gewrichten, beide ellebogen 0 tot 135, hoofd heel (GEZIEN, beeld voor en boven bekeken). Ninja nog steeds 4: andere oorzaak, volgende run. Tak `claude/blender-elleboog-2026-11-22`, e2e moet nog draaien; Daan gevraagd te keuren.
