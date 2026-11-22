@@ -10,8 +10,8 @@
 - c368201 (21 nov): alleen `maak_zip.sh` voor de direct-zip van de gratis versie; de Pro-zip blijft zo gebouwd.
 
 ## Stappen
-1. e2e op main met PRO_VERSIE 1.2.0 groen (run: zie logboek).
-2. `click-joints-pro-uitgave.yml` met die run: artefact `click-joints-pro-zip-1.2.0` (3 dagen), release `click-joints-pro-v1.2.0` met plaatjes.
+1. e2e op main (2a8927e) groen in 4.2.23, 5.2.3 en 5.3.0: run 45042694485 (GEZIEN).
+2. Uitgave-run 45044349572 groen (GEZIEN): artefact `click-joints-pro-zip-1.2.0` (154 kB, verloopt 25 nov 16:32 UTC; daarna de uitgave opnieuw starten met run_id 45042694485), https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45044349572 . sha256 `13bf539255d66ca1add3ec146c7d6ba1776baf113ed9d95d9125613efe1ae0fb`. Zelf nagekeken: manifest versie 1.2.0, naam Click Joints Pro, testkaart.py en ALTIJD_H zitten erin (GEZIEN). Release met plaatjes: tag `click-joints-pro-v1.2.0`.
 3. **Hoofdchat:** op Gumroad het bestand `click_joints_pro-1.1.0.zip` vervangen door `click_joints_pro-1.2.0.zip`. Prijzen blijven. Kopers van 1.0 en 1.1 krijgen hem zo gratis.
 4. Superhive: zodra Pro daar live is, dezelfde zip als nieuwe versie (twee keer, Personal en Studio).
 
