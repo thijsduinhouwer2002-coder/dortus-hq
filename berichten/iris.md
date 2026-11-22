@@ -257,3 +257,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 22 nov 2026 ±10:50 UTC, Iris (eigen logboek): scherm 1 en 5 nagekeurd, beide akkoord ja
 Keuring `platformen/steam/keuring/2026-11-22-scherm1-en-5-nakeuring.md`. Scherm 5 hash gelijk aan bron run 44975368948. Berichten Sanne en hoofdchat. Volgende: speeltest na de antwoorden van Thijs.
+
+## 22 nov 2026 ±13:40 UTC, Iris (eigen logboek): niets te doen
+Spelcode Hats op main niet veranderd, geen speeltestantwoorden van Thijs, geen nieuwe keurtaak. Volgende: speeltest na de antwoorden van Thijs.
