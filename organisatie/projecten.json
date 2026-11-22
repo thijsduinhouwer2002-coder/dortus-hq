@@ -133,7 +133,10 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-22 16:45",
+      "laatste_update": {
+        "datum": "2026-11-22 16:45",
+        "door": "hoofdchat-ronde"
+      },
       "links": [
         {
           "naam": "Winkelpagina",
