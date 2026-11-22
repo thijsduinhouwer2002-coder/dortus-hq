@@ -1,0 +1,114 @@
+# gemaakt: 2026-11-22T11:50:32Z
+# workflow: YouTube Shorts 5 (CC0-monster door Figure from rig) (.github/workflows/youtube-shorts-5.yml)
+# run: 45018888351 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45018888351
+# commit: a6b1f6d1 tak main gestart door push
+# mislukte stappen: shorts: Monster van Quaternius (CC0)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== shorts / Monster van Quaternius (CC0) (laatste 105 van 105 regels) =====
+##[group]Run python3 -m pip install -q --break-system-packages gdown
+python3 -m pip install -q --break-system-packages gdown
+mkdir -p /tmp/mon /tmp/pro
+# Big/Blends uit https://drive.google.[weggehaald: lange base64-reeks]
+for paar in Yeti:[weggehaald: lange base64-reeks] Ninja:[weggehaald: lange base64-reeks]; do
+  n=${paar%%:*}; id=${paar#*:}
+  for poging in 1 2 3; do
+    timeout 180 gdown -q "$id" -O "/tmp/mon/$n.blend" && break
+    rm -f "/tmp/mon/$n.blend"; sleep 30
+  done
+  if [ -s "/tmp/mon/$n.blend" ]; then echo "$n" > /tmp/pro/monster.txt; break; fi
+done
+[ -s /tmp/pro/monster.txt ] || { echo "FOUT: Google Drive van Quaternius gaf geen monster (te druk), later opnieuw"; exit 1; }
+ls -la /tmp/mon; sha256sum /tmp/mon/*.blend
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: youtube-shorts-5
+  PRO_COMMIT: [weggehaald: lange hex-reeks]
+##[endgroup]
+Failed to retrieve file url:
+
+	Too many users have viewed or downloaded this file recently. Please
+	try accessing the file again later. If the file you are trying to
+	access is particularly large or is shared with many people, it may
+	take up to 24 hours to be able to view or download the file. If you
+	still can't access a file after 24 hours, contact your domain
+	administrator.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=174GVv54Yo0q2dNRYVoJifKyepy8K3gO7
+
+but Gdown can't. Please check connections and permissions.
+Failed to retrieve file url:
+
+	Too many users have viewed or downloaded this file recently. Please
+	try accessing the file again later. If the file you are trying to
+	access is particularly large or is shared with many people, it may
+	take up to 24 hours to be able to view or download the file. If you
+	still can't access a file after 24 hours, contact your domain
+	administrator.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=174GVv54Yo0q2dNRYVoJifKyepy8K3gO7
+
+but Gdown can't. Please check connections and permissions.
+Failed to retrieve file url:
+
+	Too many users have viewed or downloaded this file recently. Please
+	try accessing the file again later. If the file you are trying to
+	access is particularly large or is shared with many people, it may
+	take up to 24 hours to be able to view or download the file. If you
+	still can't access a file after 24 hours, contact your domain
+	administrator.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=174GVv54Yo0q2dNRYVoJifKyepy8K3gO7
+
+but Gdown can't. Please check connections and permissions.
+Failed to retrieve file url:
+
+	Too many users have viewed or downloaded this file recently. Please
+	try accessing the file again later. If the file you are trying to
+	access is particularly large or is shared with many people, it may
+	take up to 24 hours to be able to view or download the file. If you
+	still can't access a file after 24 hours, contact your domain
+	administrator.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1fVlQGO1_fWPFPK_oOVtSVjNlA3ebIhRT
+
+but Gdown can't. Please check connections and permissions.
+Failed to retrieve file url:
+
+	Too many users have viewed or downloaded this file recently. Please
+	try accessing the file again later. If the file you are trying to
+	access is particularly large or is shared with many people, it may
+	take up to 24 hours to be able to view or download the file. If you
+	still can't access a file after 24 hours, contact your domain
+	administrator.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1fVlQGO1_fWPFPK_oOVtSVjNlA3ebIhRT
+
+but Gdown can't. Please check connections and permissions.
+Failed to retrieve file url:
+
+	Too many users have viewed or downloaded this file recently. Please
+	try accessing the file again later. If the file you are trying to
+	access is particularly large or is shared with many people, it may
+	take up to 24 hours to be able to view or download the file. If you
+	still can't access a file after 24 hours, contact your domain
+	administrator.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1fVlQGO1_fWPFPK_oOVtSVjNlA3ebIhRT
+
+but Gdown can't. Please check connections and permissions.
+FOUT: Google Drive van Quaternius gaf geen monster (te druk), later opnieuw
+##[error]Process completed with exit code 1.
