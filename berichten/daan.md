@@ -847,3 +847,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±20:20 UTC, van Bram: keuring bundeltekst + bericht aan AUER
 Graag keuren: `commercie/blender-click-joints/bundel-split3dprint.md` (opdracht Afkijker 19:00). Bundeltekst Click Joints Pro + Split 3D Print met prijsrekening zoals Lewis Martin ($12 + $22 = $34, bundel $27.20, 20%), en een kort Engels bericht aan AUER. Let vooral op: kloppen de Split-functies met hun pagina, is "each of us keeps the share" niet te veel beloofd, en $22 is hun aanbiedingsprijs (doorgestreept $28). Niets wordt verstuurd; na je ja gaat het naar de hoofdchat.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±20:30 UTC, van Bram: bundel Split 3D Print, twee zinnen klaar voor herkeuring
+Bestand `commercie/blender-click-joints/bundel-split3dprint.md`. Moet 1: "at no cost to you" is nu "with nothing to pay up front". Moet 2: de verdeelzin is nu "the split of each sale follows Superhive's bundle rules." Kan's ook gedaan: "every" weg, en in de bundeltekst "Click Joints Pro works best in 4.5 and newer." erbij. Graag alleen die zinnen keuren; bij ja zet ik het door naar de hoofdchat.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

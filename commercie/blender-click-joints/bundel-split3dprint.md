@@ -1,7 +1,7 @@
 # Bundel Click Joints Pro + Split 3D Print (Superhive): concept
 
 Door Bram, 22 nov 2026 ±20:15 UTC. Opdracht van de Afkijker (berichten/bram.md, 19:00 UTC), naar het voorbeeld van Lewis Martin (bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-22-truedepth-bundels.md`).
-**Status: concept, ter keuring bij Daan.** Niets versturen en niets aanmaken: het bericht aan AUER gaat onder het account van Thijs (harde regel 4, zijn ja op de tekst) en de bundel aanmaken kan alleen met zijn account. Dat loopt via de hoofdchat.
+**Status: bundeltekst ja van Daan (keuring `platformen/blender/keuring/2026-11-22-bundel-split3dprint-daan.md`); bericht aangepast op zijn twee moet (22 nov ±20:30 UTC), wacht op herkeuring van die twee zinnen.** Niets versturen en niets aanmaken: het bericht aan AUER gaat onder het account van Thijs (harde regel 4, zijn ja op de tekst) en de bundel aanmaken kan alleen met zijn account. Dat loopt via de hoofdchat.
 
 ## Feiten waar de tekst op rust (curl, 22 nov ±20:05 UTC)
 - Split 3D Print (AUER): $22, doorgestreept $28, dus nu in de aanbieding; Sales 400+, 3 ratings, Blender 4.2 tot 5.2, gratis variant "Limited Cuts Line" $0, 5 plekken $59. Functies op de pagina: figuur in stukken knippen met pen-en-gat, stukken uit elkaar schuiven om de verbindingen te zien, "Arrange Print View" legt ze plat op het bed, "Export Selected writes one file per piece" in STL of 3MF op ware maat (GEZIEN, https://superhivemarket.com/products/split-3dprint).
@@ -23,7 +23,7 @@ Wat wij per bundelverkoop houden: onbekend, want hoe Superhive een bundel van tw
 
 **Tekst:**
 ```
-Make a figure that moves, cut it to fit your printer, and print it. Click Joints Pro puts a hinge with an end stop at every elbow and knee and a ball joint at shoulders, hips and neck, and shows how far each joint bends before you print. Split 3D Print cuts the parts that are too big for your bed into pieces with pegs and sockets, lays them flat and exports one file per piece.
+Make a figure that moves, cut it to fit your printer, and print it. Click Joints Pro puts a hinge with an end stop at elbows and knees and a ball joint at shoulders, hips and neck, and shows how far each joint bends before you print. Split 3D Print cuts the parts that are too big for your bed into pieces with pegs and sockets, lays them flat and exports one file per piece.
 
 Included Products
 - Click Joints Pro (by Dortus)
@@ -33,7 +33,7 @@ Click Joints Pro usual price: $12. Bundle price: $9.60
 Split 3D Print usual price: $22. Bundle price: $17.60
 Total savings = $6.80. 20% Saved
 
-Works in Blender 4.2 to 5.2, on Windows, macOS and Linux.
+Works in Blender 4.2 to 5.2, on Windows, macOS and Linux. Click Joints Pro works best in 4.5 and newer.
 ```
 Toets: geen functie genoemd die een van beide niet heeft. Pro-zin volgt onze eigen Superhive-pagina (hinge met end stop, ball joint, bereik in graden; geen "clicks", zie `winkeltekst.md`); Split-functies letterlijk van hun pagina. 4.2 tot 5.2 is de overlap van beide (Split zegt 4.2 tot 5.2; Pro is getest op 4.2, 5.2 en 5.3).
 
@@ -43,14 +43,14 @@ Hi AUER,
 
 I make Click Joints Pro on Superhive: it cuts a figure into printable parts with hinges and ball joints, so it moves after printing. Our page already says "Splitting makes it fit on the bed. Click Joints makes it move." Many of our users make figures that are too big for one print bed, and Split 3D Print is exactly what they need next.
 
-Would you like to make a bundle together? Click Joints Pro + Split 3D Print, about 20% off the two prices, each of us keeps the share for our own product. Superhive shows bundles in their own blocks on the front page ("Brand New Bundles", "Top Selling Bundles This Week"), so your add-on would be seen by people who buy ours, at no cost to you.
+Would you like to make a bundle together? Click Joints Pro + Split 3D Print, about 20% off the two prices; the split of each sale follows Superhive's bundle rules. Superhive shows bundles in their own blocks on the front page ("Brand New Bundles", "Top Selling Bundles This Week"), so your add-on would be seen by people who buy ours, with nothing to pay up front.
 
 I have a draft of the bundle text ready and I am happy to change anything you like. If it's not for you, no problem at all.
 
 Thanks for making Split 3D Print,
 Thijs (Dortus)
 ```
-Let op voor de hoofdchat: "each of us keeps the share for our own product" is hoe wij het willen; hoe Superhive het echt regelt weten we niet. Vraagt AUER ernaar, eerst bij Superhive navragen voor iets toezeggen.
+Let op voor de hoofdchat: hoe Superhive een bundel van twee makers verdeelt weten we niet; daarom belooft het bericht niets over de verdeling. Vraagt AUER ernaar, eerst bij Superhive navragen voor iets toezeggen. AUER betaalt de korting mee ($17,60 in plaats van $22 per bundel), daarom staat er "nothing to pay up front" en niet "no cost".
 
 ## Volgende stappen
 1. Daan keurt tekst en bericht (skill `keuren`).
