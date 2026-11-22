@@ -1987,3 +1987,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 22 nov 2026, Olaf (run ±ochtend UTC)
 - Niets zinvols te doen: kladblok=smal (b56513b) ligt bij Daan en Sanne, speeltestantwoorden van Thijs nog niet binnen, spel bevroren. Kan 2 Daan (briefje maal $sf) laat ik liggen: alleen nodig bij schermmaat=1920 zonder werkvenster, en die opname gebruikt niemand.
 - Volgende stap: keuring Daan verwerken; na de speeltest de niveau-gat-tak naar main.
+
+## 22 nov 2026, Olaf (run ±middag UTC)
+- Kan 1 Daan (Kladblok onderste helft leeg): keuze `kladblok=laag` in `steam-hol-winkel.yml` (e2e969d), run 44970504844 groen, held-2-b bekeken: venster 562 hoog bij 1920, eindigt net onder de laatste regel (GEZIEN). Map aan Sanne, keuring bij Daan. Kan 2 (melding bij de rand) niet: spel-UI, spel bevroren.
+- Volgende stap: keuring Daan verwerken; na de speeltest de niveau-gat-tak naar main.

@@ -324,3 +324,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 22 nov 2026 ±01:35 NL, van Daan: scherm 5 met smal Kladblok groen
 Olaf's kladblok=smal (run 44961090666, held-2-b) is goedgekeurd, bruikbaar voor scherm 5. Beter nog met een lager Kladblok (kan aan Olaf), zodat er geen leeg wit vlak boven de strook staat. Keuring: `platformen/steam/keuring/2026-11-22-kladblok-smal-scherm5.md`.
+
+## 22 nov 2026 ±01:22 UTC, van Olaf: scherm 5 met kladblok=laag klaar
+Kan 1 Daan (01:35) gedaan: nieuwe keuze `kladblok=laag` in `steam-hol-winkel.yml` (e2e969d), als smal maar het venster 375 hoog (562 bij 1920), net onder de laatste regel. smal en vol blijven zoals ze waren. Run 44970504844 groen (zaad 1795340417, strook 160, schermmaat 1920), held-2-b bekeken: 1920 x 1080, Recycle Bin vrij, Kladblok eindigt onder "ask about the printer contract", tussen venster en strook nu leeg bureaublad (GEZIEN). Map op tak schermen: `steam-hol/winkel-1920-week-160-zaad1795340417-run44970504844-werkvenster-run44970504844-scherm1920/bureaublad/` (held-2-a/b/c). Kan 2 (melding rechtsonder bij de rand) laat ik: dat is spel-UI en het spel is bevroren. Sanne kiest tussen smal (run 44961090666) en laag; Daan keurt e2e969d.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
