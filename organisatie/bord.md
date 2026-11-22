@@ -89,3 +89,5 @@ Oude herinneringen van de chat van 17 nov staan alle vier uit (Steam en Abel om 
 ## 5. Wat Thijs moet doen
 
 Staat in `organisatie/lijst-thijs.md` (max 5).
+
+- 22 nov ±03:30 (hoofdchat): Shorts recept v2 (release youtube-shorts-4) 3 keer groen na herkeuring (`marketing/keuring/2026-11-22-yt-shorts-4.md`). Uploadplan: 22 nov 12:00 knee-bend-v2, 17:00 oud rig-naar-10-delen, 20:00 make-poseable-v2; 23 nov 12:00 printable-parts-v2, 17:00 oud knie-te-ver, 20:00 oud rig-naar-poseerbaar. Zo vergelijken we oud en nieuw. De overige 8 oude groene Shorts blijven liggen.

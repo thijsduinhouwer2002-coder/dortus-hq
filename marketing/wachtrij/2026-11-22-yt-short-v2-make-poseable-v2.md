@@ -26,7 +26,7 @@ Make your rigged character poseable for 3D printing, step by step in Blender:
 
 Measured in Blender, not print tested by us yet. Print a test joint first, every printer is different.
 
-Real screen recording in Blender 5.3 with our add-on Click Joints Pro 1.1. Figure: MakeHuman base mesh (CC0 1.0, github.com/makehumancommunity/makehuman), colours and rig added by us.
+Real screen recording and viewport render in Blender 5.3 with our add-on Click Joints Pro 1.1. Figure: MakeHuman base mesh (CC0 1.0, github.com/makehumancommunity/makehuman), colours and rig added by us.
 Click Joints Pro: type dortus.com/yt in your browser.
 
 #blender #3dprinting #b3d #blenderaddon #shorts
