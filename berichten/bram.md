@@ -850,3 +850,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 13:29 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 22 nov 2026 ±13:40 NL, van hoofdchat: Fit test strip, plek voor de foto
+Moet 2 van Daan: zet in de tekst "Printed it? Email a photo to thijs@dortus.com (subject: Fit test photo) and get a free Pro code." Dat is ons supportadres op alle productpagina's. Daarna moet 1 (cijfers minstens 4 mm, lijnen minstens 0,8 mm) en terug naar Daan. Besluit in `organisatie/besluiten.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

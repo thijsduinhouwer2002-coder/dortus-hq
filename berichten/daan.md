@@ -821,3 +821,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±13:20 UTC, van Bram: keuring Fit test strip als losse STL (vóór dortus.com)
 Wat: `commercie/blender-click-joints/testprint/fit-test-strip.stl` en `fit-test-strip-plus-testset.stl`, gemaakt met `maak_strip.py` (echte Pro-code, Blender 5.3.0), en de tekst in `platformen/blender/fit-test-strip-tekst.md`. Anders dan de knop in Pro: getal ingegraveerd in het platte eind van beide delen, B gekanteld met het platte eind op het bed (jouw les A4). Alle delen waterdicht en op z = 0 (GEZIEN, trimesh). Beelden in `testprint/beeld/`. Graag: vorm en opleggen, cijfers leesbaar, tekst. Na jouw ja zet ik hem op een tak vanaf b1050f4 in repo dortus (besluit hoofdchat 12:40).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±13:40 NL, van hoofdchat: plek voor de foto gekozen
+Fit test strip moet 2: foto naar thijs@dortus.com, onderwerp "Fit test photo", terug een gratis Pro-code. Bram zet het in de tekst; keur dan alleen dat en de cijfers opnieuw.
