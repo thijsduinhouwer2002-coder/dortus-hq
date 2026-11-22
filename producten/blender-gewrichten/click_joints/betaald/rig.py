@@ -371,6 +371,23 @@ def scharnier_plekken(context, doel, m, lengte):
     return uit
 
 
+def gedraaid(m, voor=Vector((0, -1, 0))):
+    """Pro 1.1 (22 nov, Chris: Quaternius-monsters): dezelfde plek met het scharnier 90 graden om de lidas gedraaid.
+    Game-rigs in T-houding zetten de X-as van de onderarm vaak voor-achter, dan buigt de elleboog omhoog en haalt de
+    snede een stuk van het hoofd weg (Yeti 150 mm: 16% van de punten kwijt, alles boven z 126 mm, GEZIEN). Gedraaid
+    buigt hij horizontaal. Eerst de stand die naar voren buigt (Blender: voorkant is -Y), dan de andere. Rechtshandig:
+    (h, buig, lid) naar (buig, -h, lid) of (-buig, h, lid)."""
+    h, buig = m.col[0].to_3d(), m.col[1].to_3d()
+    uit = []
+    for nh, nb in ((buig, -h), (-buig, h)):
+        k = m.copy()
+        k.col[0][:3] = nh
+        k.col[1][:3] = nb
+        uit.append(k)
+    uit.sort(key=lambda k: -k.col[1].to_3d().dot(voor))
+    return uit
+
+
 def _binnen_bvh(bvh, punt):
     richtingen = (Vector((0.5774, 0.5774, 0.5774)), Vector((-0.7071, 0.1, -0.7)).normalized(),
                   Vector((0.13, -0.98, 0.17)).normalized())
@@ -652,9 +669,20 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 # oude plek (bereik kleiner, eerlijk in de lijst door de beweegproef).
                 kandidaten = kogel_schuif(context, doel, m, lengte)
             else:
-                kandidaten = scharnier_plekken(context, doel, m, lengte)
+                kandidaten = scharnier_plekken(context, doel, m, lengte) or [(m, 0.0)]
+                # Vangnet: lukt geen plek met de as uit de rig (de snede verliest een stuk), dan dezelfde plekken met
+                # het scharnier gedraaid, alleen naar voren buigend, en met omhulsel H (een_lid_diep.ALTIJD_H), want
+                # zonder H sneed de wig de voorkant van de romp weg. Nooit naar achteren: een elleboog die naar de rug
+                # buigt is een kapot figuur (keuring Daan 22 nov). Komt alleen aan de beurt na een weigering, dus een
+                # rig waar het al lukte merkt er niets van. Alleen de elleboog: een knie of enkel die zijwaarts buigt
+                # is fout, die slaan we liever eerlijk over (keuring 86800a6, A5).
+                if sleutel == "ELBOW":
+                    eigen_n = len(kandidaten)
+                    kandidaten = kandidaten + [(gedraaid(k)[0], mm) for k, mm in kandidaten]
             geblokkeerd, vangnet = False, None
-            from . import afstand
+            if soort != "HINGE" or sleutel != "ELBOW":
+                eigen_n = len(kandidaten)
+            from . import afstand, een_lid_diep
             andere, eerste = [], None
             for poging_kk in ((0, 1) if soort != "HINGE" else (0,)):
                 if poging_kk == 1:
@@ -679,7 +707,11 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                     cursor.rotation_mode = "QUATERNION"
                     cursor.matrix = m
                     voor = {o.name for o in bpy.data.objects}
-                    ok, melding, nieuw = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
+                    een_lid_diep.ALTIJD_H[0] = i >= eigen_n
+                    try:
+                        ok, melding, nieuw = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
+                    finally:
+                        een_lid_diep.ALTIJD_H[0] = False
                     if ok:
                         # Run 27: ook zonder H (een_lid) kan een snede een kruimel van 0,1 mm achterlaten, ver van het
                         # gewricht (MakeHuman-mens: 4 punten bij de rechterelleboog na de rechterschoudersnede). Zelfde

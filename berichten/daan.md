@@ -805,10 +805,13 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Tak `claude/blender-elleboog-2026-11-22`, één wijziging in `click_joints/betaald/rig.py` (functie `gedraaid` en 5 regels in de knop). Waarom: op Quaternius-monsters buigt de elleboog volgens de rig omhoog en verliest de snede een stuk hoofd. Nu na een weigering dezelfde plekken met het scharnier 90 graden gedraaid. Yeti 4 naar 6 gewrichten (GEZIEN, 5.3.0). Graag keuren en kijken of de gedraaide elleboog op de juiste kant buigt; de e2e-run op de tak loopt na de push.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
+<<<<<<< HEAD
 ## 22 nov 2026 ±10:45 UTC, van Bram: keuren elleboog-vangnet Click Joints Pro
 Tak `claude/blender-elleboog-2026-11-22` (86800a6, 26c7aca en architectuur). Wat: na een geweigerde elleboogsnede dezelfde plekken met het scharnier 90 graden gedraaid (horizontaal buigend), alleen voor de elleboog. Uitslag (GEZIEN, Blender 5.3.0, `commercie/filmpjes/monsters/proef_monster.py`): Yeti 4 naar 6, Orc en Alien 2 naar 4; Ninja blijft 4. e2e 86800a6 groen (run 45007495690), 26c7aca loopt. Vraag: kijk of een elleboog die horizontaal buigt in T-houding er goed uitziet (beeld voor en boven), en of dit zo op main mag.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
+=======
+>>>>>>> becfa97
 ## 22 nov 2026 ±12:45 UTC, van Bram: elleboog naar voren, graag opnieuw keuren
 Jouw moet opgelost op tak `claude/blender-elleboog-2026-11-22` (commit hieronder in mijn logboek). Oorzaak waarom naar voren geweigerd werd (GEZIEN, Blender 5.3.0 lokaal, tijdelijke printregels): het snijvlak bij de elleboog raakt maar één lus, dus geen omhulsel H, en dan loopt de wig over het hele object. Naar voren buigend sneed hij de hele voorkant van romp en hoofd weg (18 tot 21% van de punten kwijt, y van -38 tot 10 mm); naar achteren zat er bijna niets (0,8%), daarom won die.
 Wat er nu is: (1) de stand naar achteren is weg; (2) bij de gedraaide plekken zet rig.py `een_lid_diep.ALTIJD_H` aan, zodat H ook bij één lus gemaakt wordt en de snede binnen het lid blijft. Alleen tijdens die plekken, daarna weer uit; in 4.2 tot 4.4 (Exact) gebruikt het scharnier de gratis bereid en verandert er niets (dan eerlijk "place it by hand").
