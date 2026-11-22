@@ -136,7 +136,7 @@ def superhive():
             meet(naam, "Superhive", "verkoopklasse", None, "niet leesbaar (Superhive weigert dit adres soms)")
             continue
         s = re.sub(r"\s+", " ", re.sub("<[^>]+>", "|", t))
-        # zelfde manier als platformen/verkenner/data/superhive-6mnd-script.py (15 nov, 2.296 pagina's goed gelezen)
+        # zelfde manier als onderzoek/verkenner/data/superhive-6mnd-script.py (nu in release archief-beelden-2026-11-22) (15 nov, 2.296 pagina's goed gelezen)
         m = re.search(r"\|\s*Sales\s*\|[| ]*([^|]{1,15})", s)
         klasse = m.group(1).strip() if m else "geen verkoopblok (onder 10 of nog niet zichtbaar)"
         m = re.search(r'"reviewCount"\s*:\s*"?(\d+)', t)

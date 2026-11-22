@@ -1,10 +1,10 @@
 """Beelden voor het YouTube-kanaal Dortus (@dortusstudio). Chris, 16 nov 2026, run 58 (arm aangepast in run 59).
-Bouwt voort op het uniform van Mila (platformen/abel/merk/bron/maak_uniform.py): zelfde deur-D, kleuren,
+Bouwt voort op het uniform van Mila (ontwerp/merk/bron/maak_uniform.py): zelfde deur-D, kleuren,
 licht en spullen. Er komt alleen een kogelgewricht bij (Click Joints), want het kanaal gaat vooral over
 Blender-tips voor 3D-printen. Draai: python3 maak_kanaal.py  (schrijft in deze map)."""
 import os, sys, subprocess
 HIER = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HIER, "../../../platformen/abel/merk/bron"))
+sys.path.insert(0, os.path.join(HIER, "../../../ontwerp/merk/bron"))
 import maak_uniform as U   # alleen lezen, we schrijven niets in Abels map
 
 W, H = 2560, 1440
@@ -79,8 +79,8 @@ def schrijf(naam, svgtekst, breed):
 if __name__ == "__main__":
     schrijf("banner-2560x1440", banner(), W)
     # profielfoto: de goedgekeurde avatar v2 (Daan, 10 nov), op 800 x 800
-    subprocess.run(["rsvg-convert", os.path.join(HIER, "../../../platformen/abel/merk/avatar-v2.svg"), "-w", "800",
+    subprocess.run(["rsvg-convert", os.path.join(HIER, "../../../ontwerp/merk/avatar-v2.svg"), "-w", "800",
                     "-o", os.path.join(HIER, "profielfoto-800.png")], check=True)
     # watermerk in video's (min 150 x 150, onder 1 MB): kleine D, leest beter op 150 dan de grote
-    subprocess.run(["rsvg-convert", os.path.join(HIER, "../../../platformen/abel/merk/merkteken-klein.svg"), "-w", "300",
+    subprocess.run(["rsvg-convert", os.path.join(HIER, "../../../ontwerp/merk/merkteken-klein.svg"), "-w", "300",
                     "-o", os.path.join(HIER, "watermerk-300.png")], check=True)

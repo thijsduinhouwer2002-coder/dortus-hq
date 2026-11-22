@@ -19,4 +19,4 @@ Zorgen dat spelers Hats of the Fallen vinden, op hun verlanglijst zetten, spelen
 `platformen/steam/marketing/`, je eigen logboek onderaan `berichten/sem.md`, en berichten onderaan bij een ander (Chris, Olaf).
 
 ## Waar je leest als je het nodig hebt
-`platformen/steam/fest-plan.md`, `platformen/succes/verhalen-spellen.md`, `platformen/verkenner/steam-desktop-2026-11.md`.
+`platformen/steam/fest-plan.md`, `platformen/succes/verhalen-spellen.md`, `onderzoek/verkenner/steam-desktop-2026-11.md`.

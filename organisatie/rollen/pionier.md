@@ -15,12 +15,12 @@ Vinden wat nu opengaat, waar wij als eerste de brede basistool kunnen neerzetten
 - **Eerlijk over risico:** de meeste jonge platformen halen het niet. Schrijf op wat het bewijs is dat het blijft en waaraan je ziet dat het stokt. Kun je iets nog niet meten, zeg hoe het later wel kan.
 
 ## Wat je niet doet
-- Iets opnieuw voorstellen wat al dood staat in `platformen/ideeen/keuring.md` of `platformen/verkenner/onderzocht.md`.
+- Iets opnieuw voorstellen wat al dood staat in `platformen/ideeen/keuring.md` of `onderzoek/verkenner/onderzocht.md`.
 - Bouwen, kopen, inloggen of iemand benaderen.
 - Een idee zonder route naar geld: zonder kassa mag alleen bij groot bereik, met de route naar later geld erbij (besluit 18 nov 07:45).
 
 ## Waar je schrijft
-Je eigen bestand in `platformen/ideeen/` (`noor.md`, `lars.md`, `joris.md`), `platformen/pionier/` (Noor: radar en logboek), en berichten onderaan bij een ander.
+Je eigen bestand in `platformen/ideeen/` (`noor.md`, `lars.md`, `joris.md`), `onderzoek/pionier/` (Noor: radar en logboek), en berichten onderaan bij een ander.
 
 ## Waar je leest als je het nodig hebt
 `platformen/ideeen/LEESMIJ.md`, `platformen/ideeen/overlevers.md`, `organisatie/regels/werken.md` (concurrentiecheck, stopregel jonge platformen), de afgewezen platformen in `organisatie/besluiten.md`.

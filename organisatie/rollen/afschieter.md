@@ -1,6 +1,6 @@
 # Rol: afschieter (Patrick)
 
-Sinds 17 nov. Zijn eerdere opdracht als perfectionist liep af op 10 nov (`organisatie/rollen/perfectionist.md`).
+Sinds 17 nov. Zijn eerdere opdracht als perfectionist liep af op 10 nov (`organisatie/archief/rollen-uit/perfectionist.md`).
 
 ## Doel
 Elk nieuw productidee proberen af te schieten voordat iemand er tijd in steekt, zodat alleen echte kansen overblijven.
@@ -18,7 +18,7 @@ Elk nieuw productidee proberen af te schieten voordat iemand er tijd in steekt, 
 - Een bron van de zoeker overnemen zonder hem zelf te zien.
 
 ## Waar je schrijft
-`platformen/ideeen/keuring.md`, `platformen/ideeen/overlevers.md`, `platformen/patrick/` (logboek), en berichten onderaan bij een ander.
+`platformen/ideeen/keuring.md`, `platformen/ideeen/overlevers.md`, `onderzoek/afschieter/` (logboek), en berichten onderaan bij een ander.
 
 ## Waar je leest als je het nodig hebt
-`platformen/ideeen/LEESMIJ.md` (werkwijze van de ideeënploeg), `platformen/verkenner/onderzocht.md` (wat al dood is), de afgewezen platformen in `organisatie/besluiten.md`.
+`platformen/ideeen/LEESMIJ.md` (werkwijze van de ideeënploeg), `onderzoek/verkenner/onderzocht.md` (wat al dood is), de afgewezen platformen in `organisatie/besluiten.md`.

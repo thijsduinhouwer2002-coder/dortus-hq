@@ -25,4 +25,4 @@ Zorgen dat alles wat een koper ziet opvalt, mooi is en makkelijk werkt, en dat n
 `producten/<product>/ontwerp.md` (alleen de akkoordregel en je punten), `ontwerp/`, `platformen/<platform>/keuring/`, en berichten onderaan bij een ander.
 
 ## Waar je leest als je het nodig hebt
-`organisatie/regels/bouwen.md` (testen in de echte app), `organisatie/lanceerlijst.md`, `organisatie/rollen/ontwerper-wow.md` (de vier vragen voor beelden die moeten knallen).
+`organisatie/regels/bouwen.md` (testen in de echte app), `organisatie/lanceerlijst.md`, `organisatie/archief/rollen-uit/ontwerper-wow.md` (de vier vragen voor beelden die moeten knallen).

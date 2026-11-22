@@ -28,8 +28,8 @@ https://dortus.com
 ```
 
 Waarom zo:
-- **Eerste zin is de belofte** (wat je hier krijgt, voor wie). Geen "innovatief", geen cijfers zonder bron (toon uit `platformen/abel/merk/teksten.md`).
-- **Alleen wat klopt:** "click in and still turn" en "clearances" volgen Brams nakijk van dag 1 (speling bepaalt of de kogel draait, niet het inklikken); "walls thick enough" is dag 2 met dag 4 als aanvulling (1,5 mm wand); "exports at the right scale" is dag 7. Geen "small games" als belofte van nu: er is nog geen spel uit (Daan, kan 5 bij Abel), dus "Small games are on the way", zoals de goedgekeurde regel "Focused tools today, small games on the way" (`platformen/abel/merk/LEESMIJ-upload.md`). Geen "print-in-place": Click Joints print de delen los (`youtube-1.md`).
+- **Eerste zin is de belofte** (wat je hier krijgt, voor wie). Geen "innovatief", geen cijfers zonder bron (toon uit `ontwerp/merk/teksten.md`).
+- **Alleen wat klopt:** "click in and still turn" en "clearances" volgen Brams nakijk van dag 1 (speling bepaalt of de kogel draait, niet het inklikken); "walls thick enough" is dag 2 met dag 4 als aanvulling (1,5 mm wand); "exports at the right scale" is dag 7. Geen "small games" als belofte van nu: er is nog geen spel uit (Daan, kan 5 bij Abel), dus "Small games are on the way", zoals de goedgekeurde regel "Focused tools today, small games on the way" (`ontwerp/merk/LEESMIJ-upload.md`). Geen "print-in-place": Click Joints print de delen los (`youtube-1.md`).
 - **"Checked in Blender itself":** klopt voor de reeks, Bram keek elke tip na in de echte Blender (`platformen/blender/tips-nagekeken.md`). Komt er een tip die niet zo is nagekeken, dan niet plaatsen of deze zin aanpassen.
 - **AI-zin:** geen (Thijs 16 nov 20:09, via de hoofdchat 20:12; weggehaald in run 66). Nooit beweren dat het zonder AI is; vraagt iemand ernaar, dan eerlijk antwoorden (FAQ op dortus.com).
 - **"I'm Thijs":** het kanaal is van Thijs en hij plaatst; "we" zou een team suggereren.
