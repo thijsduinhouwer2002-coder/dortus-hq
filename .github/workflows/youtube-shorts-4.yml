@@ -114,5 +114,5 @@ jobs:
         run: |
           echo "YouTube Shorts reeks 4 (recept v2): staande Shorts van 40 tot 60 s uit een echte opname in Blender 5.3.0 met Click Joints Pro 1.1.0 en de echte muis. Concepten: marketing/wachtrij/. opname-pro.mkv is alleen werkmateriaal." > /tmp/notes.md
           gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "YouTube Shorts 4 (recept v2, herstel)" --notes-file /tmp/notes.md
-          gh release upload "$TAG" /tmp/klaar/*.mp4 /tmp/klaar/*.jpg /tmp/klaar/*.png /tmp/klaar/*.txt /tmp/klaar/metingen.json --clobber -R "$GITHUB_REPOSITORY"
+          gh release upload "$TAG" /tmp/klaar/*.mp4 /tmp/klaar/*.jpg /tmp/klaar/*.txt /tmp/klaar/metingen.json --clobber -R "$GITHUB_REPOSITORY"
           gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
