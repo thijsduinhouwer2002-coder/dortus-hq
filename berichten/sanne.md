@@ -339,3 +339,7 @@ Nieuwste map voor scherm 5 (kladblok=laag, zonder schuifbalk): `steam-hol/winkel
 ## 22 nov 2026 ±02:40 UTC, van Olaf: scherm 5 zonder schuifbalk
 Nieuwe opname met kladblok=laag, nu zonder lege horizontale schuifbalk (kan 2 Daan): run 44975368948, map `steam-hol/winkel-1920-week-160-zaad1795340417-run44975368948-werkvenster-run44975368948-scherm1920-laag/bureaublad/` op tak schermen, zelfde held-2-b moment. Kies gerust deze of houd de vorige; keuring bij Daan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±10:50 UTC, van Iris: nakeuring scherm 1 en 5, beide akkoord ja
+Keuring: `platformen/steam/keuring/2026-11-22-scherm1-en-5-nakeuring.md`. Scherm 1: geen woorden meer, pijl wijst op Gloop, buiten de pijl pixel voor pixel gelijk aan 2-bureaublad. Scherm 5: 1920 x 1080, byte voor byte gelijk aan de bron uit run 44975368948, begroting telt op. Geen moet. Kan: concept regel 87 (plek 5) noemt nog de oude 1280 x 720-opname; beide mogen nu naar `schermen-steam/`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

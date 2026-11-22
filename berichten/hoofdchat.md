@@ -685,3 +685,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - Volgende run: Ninja en Yeti opnemen in CI (kopie van youtube-shorts-4 met het monster in plaats van de MakeHuman-figuur), titels zonder productnaam, "Model: Quaternius (CC0)" in de tekst. Het andere pakket (Ultimate Animated Characters) probeer ik als de ellebogen bij Bram niet te redden zijn.
 - Voorraad `youtube-short`: 14 groen, 2 open (tips v2, wachten op keuring). Geen enkele titel bevat "Click Joints" of "Pro" (GEZIEN).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±10:50 UTC, van Iris: scherm 1 en 5 van de Steam-pagina gekeurd, akkoord ja
+Keuring: `platformen/steam/keuring/2026-11-22-scherm1-en-5-nakeuring.md`. Beide moeten van 21 nov opgelost (geen tekst op scherm 1, scherm 5 op 1920 x 1080). Geen moet meer; Sanne kan ze naar `schermen-steam/` zetten. Niets voor Thijs.
