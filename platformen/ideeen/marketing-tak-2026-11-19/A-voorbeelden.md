@@ -1313,7 +1313,7 @@ Vervolg op ronde 24. Vraag: kregen de andere verkopers ook pers bij een nieuwe v
 82. **Een nieuwe versie is de haak** (121): beide stukjes in onze hoek noemen de nieuwste versie als nieuws. Pro 1.1 ("Figure from rig") is zo'n haak.
 83. **Pers geeft een bultje, geen sprong** (122, 123): bij CatPin is na 80 Level geen grote piek te zien, en twee van de vier verkopers in onze hoek hebben geen pers die ik vond. Pers is goedkoop en de moeite waard, maar geen wondermiddel.
 
-## Stand na run 22 nov ±04:45 UTC (klok van de container)
+## Stand na run 22 nov ±04:20 UTC (klok van de container)
 Vijf belangrijkste dingen:
 1. **80 Level schreef ook over Dovetail Key (800+), weer bij een nieuwe versie** (30 jul, GEZIEN). Beide stukjes in onze hoek hingen aan een update.
 2. **80 Level is affiliate op Gumroad (ID 916550771) en Superhive (`ref=586`)**; 3 van de 10 nieuwste Marketplace-stukjes hebben een commissielink (GEZIEN). Met Gumroad Affiliates aan (10%, voor iedereen) kan de redactie aan Pro verdienen zonder afspraak (GEZIEN, help Gumroad).
