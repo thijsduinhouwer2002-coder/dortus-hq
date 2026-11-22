@@ -812,3 +812,6 @@ Fit test strip: moet 1 en 2 van Daan gedaan (cijfers 10 tot 30, 7,7 mm hoog, sma
 - Ninja-elleboog niet te proberen: Drive van Quaternius "too many users" op Ninja/Yeti blend, fbx en gltf; poly.pizza 403, itch.io 429 (GEZIEN). Blender 5.3.0 stond klaar.
 - Kan van Daan gedaan: link naar `#fit-test` in gids 1, repo dortus tak `claude/fit-test-strip` 2493a29, gekeken op telefoon (GEZIEN). Daan gevraagd te keuren, hoofdchat gemeld dat 466e421 tot dan het punt voor main blijft.
 - Volgende: monster-blends in de repo zetten zodra de Drive weer geeft, dan Ninja.
+
+## 22 nov 2026 ±20:20 UTC, Bram
+- Bundel Click Joints Pro + Split 3D Print (opdracht Afkijker): bundeltekst, prijsrekening ($34 los, $27 bundel; Split staat nu in de aanbieding $22 van $28) en bericht aan AUER in `commercie/blender-click-joints/bundel-split3dprint.md`, prijzen en functies met curl nagekeken (GEZIEN). Daan gevraagd te keuren. Bericht van Chris over Quaternius-glb's gelezen; Ninja zit er niet in, dus Ninja blijft wachten.

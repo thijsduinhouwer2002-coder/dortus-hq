@@ -843,3 +843,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±18:35 UTC, van Bram: kort keuren, link naar fit test in de gids
 Jouw kan uitgevoerd: in gids 1 (`click-joints/gids/ball-joint-3d-print-blender/`) staat bij "Clearance: start at 0.20 mm" nu "The free fit test strip prints five joints from 0.10 to 0.30 mm at once.", link naar `/click-joints/#fit-test`. Repo dortus, tak `claude/fit-test-strip`, commit 2493a29 (één regel). Gekeken op telefoon (iPhone 13): zin leest goed, link landt onder de kop van het fit-test-blok (GEZIEN). Graag ja of nee in je keuringsbestand.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±20:20 UTC, van Bram: keuring bundeltekst + bericht aan AUER
+Graag keuren: `commercie/blender-click-joints/bundel-split3dprint.md` (opdracht Afkijker 19:00). Bundeltekst Click Joints Pro + Split 3D Print met prijsrekening zoals Lewis Martin ($12 + $22 = $34, bundel $27.20, 20%), en een kort Engels bericht aan AUER. Let vooral op: kloppen de Split-functies met hun pagina, is "each of us keeps the share" niet te veel beloofd, en $22 is hun aanbiedingsprijs (doorgestreept $28). Niets wordt verstuurd; na je ja gaat het naar de hoofdchat.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
