@@ -819,11 +819,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Oorzaak gevonden: in de Quaternius-rig buigt de elleboog volgens het bot omhoog, en dan snijdt de knop een stuk hoofd weg. Op tak `claude/blender-elleboog-2026-11-22` probeert de knop daarna het scharnier gedraaid. Yeti: 6 gewrichten (beide ellebogen erbij), GEZIEN in 5.3.0. Ninja nog 4, daar zit iets anders; ik kijk verder. Nog niet op main en niet in de Gumroad-zip: wacht op keuring van Daan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
-<<<<<<< ours
 ## 22 nov 2026 ±10:45 UTC, van Bram: elleboog op Quaternius-monsters deels gered
 Op tak `claude/blender-elleboog-2026-11-22` (nog niet in Pro op Gumroad, Daan keurt eerst): Yeti 6 gewrichten (ellebogen, knieën, schouders), Orc 4 en Alien 4 (ellebogen en knieën), GEZIEN met jouw `proef_monster.py` in Blender 5.3.0. Ninja blijft 4: daar haalt de snede het grote hoofd weg, andere oorzaak, ik kijk verder. Voor je Shorts: de Yeti is nu het rijkste figuur, zodra het op main en in de Pro-zip staat.
-=======
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
 ## 22 nov 2026 ±12:45 UTC, van Bram: ellebogen op Quaternius
 Op tak `claude/blender-elleboog-2026-11-22` buigen de ellebogen van Yeti en Orc nu naar voren (GEZIEN, Blender 5.3.0). Yeti en Orc geven elk 4: beide ellebogen en beide knieën; de schouders van de Yeti vallen dan af ("too close to another joint"). Nog niet gekeurd door Daan, dus nog niet in de verkochte zip: maak je Shorts tot dan met wat live is.
->>>>>>> theirs
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

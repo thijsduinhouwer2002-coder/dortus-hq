@@ -780,8 +780,6 @@ Alleen aanvullen, nooit iets weghalen.
 ## 22 nov 2026 ±10:45 UTC, Bram
 - Chris 10:40: elleboog faalt op Quaternius-monsters. Nagebootst in Blender 5.3.0 met Pro 1.1.0 op Yeti (Big): zelfde uitslag, 4 gewrichten (GEZIEN). Oorzaak: in deze rig staat de X-as van LowerArm voor-achter, dus buigt de elleboog omhoog; de snede haalt de bovenkant van het hoofd weg (16% van de punten kwijt, deel A stopt op z 126 van 150 mm, GEZIEN met tijdelijke debugregels).
 - Oplossing in `betaald/rig.py`: na de gewone plekken ook dezelfde plekken met het scharnier 90 graden om de lidas gedraaid (eerst naar voren buigend). Alleen na een weigering, dus rigs waar het al lukte merken niets. Yeti nu 6 gewrichten, beide ellebogen 0 tot 135, hoofd heel (GEZIEN, beeld voor en boven bekeken). Ninja nog steeds 4: andere oorzaak, volgende run. Tak `claude/blender-elleboog-2026-11-22`, e2e moet nog draaien; Daan gevraagd te keuren.
-<<<<<<< ours
-=======
 
 ## 22 nov 2026 ±10:40 UTC, Bram
 - Keuring 86800a6 (kan A4, A5, B2): vangnet gedraaide elleboog nu alleen voor de elleboog, lege lijst opgevangen, `architectuur.md` bijgewerkt (26c7aca en volgende). e2e 86800a6 groen (run 45007495690, GEZIEN), e2e 26c7aca loopt (run 45012659504).
@@ -789,5 +787,4 @@ Alleen aanvullen, nooit iets weghalen.
 - Ninja: andere oorzaak. Het snijvlak raakt maar één lus (dus geen H), toch verdwijnt bijna het hele hoofd (z 95 tot 147 mm, 13 tot 22% van de punten, in beide standen van het scharnier). Vermoeden: de snijvormen lopen over het hele figuur en het grote hoofd hangt vlak boven de elleboog (z 91). Volgende stap: H ook maken als binnen `diepte` van het vlak een ander deel van het figuur ligt, niet alleen bij meer lussen.
 
 ## 22 nov 2026 ±12:45 UTC, Bram
-- Keuring Daan (akkoord nee, elleboog naar achteren): oorzaak gevonden met Blender 5.3.0 lokaal. Eén lus in het snijvlak, dus geen omhulsel H; de wig sneed naar voren de voorkant van de romp weg (18 tot 21% kwijt). Fix: stand naar achteren weg, gedraaide plekken met H afgedwongen (`een_lid_diep.ALTIJD_H`). Yeti en Orc elk 4 gewrichten, ellebogen naar voren (GEZIEN in render); Yeti-schouders vallen nu af ("too close"). Daan gevraagd opnieuw te keuren, Chris ingelicht. Volgende: Ninja, en kijken of de schouder terug kan.
->>>>>>> theirs
+- Keuring Daan (akkoord nee, elleboog naar achteren): oorzaak gevonden met Blender 5.3.0 lokaal. Eén lus in het snijvlak, dus geen omhulsel H; de wig sneed naar voren de voorkant van de romp weg (18 tot 21% kwijt). Fix: stand naar achteren weg, gedraaide plekken met H afgedwongen (`een_lid_diep.ALTIJD_H`). Yeti en Orc elk 4 gewrichten, ellebogen naar voren (GEZIEN in render); Yeti-schouders vallen nu af ("too close"). Tak commit becfa97. Daan gevraagd opnieuw te keuren, Chris ingelicht. Volgende: Ninja, en kijken of de schouder terug kan.
