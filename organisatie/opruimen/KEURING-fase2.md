@@ -50,3 +50,24 @@ Akkoord: nee (één moet-punt: de release zet ruwe winkeldumps met ±1.100 maila
 5. In het verslag het stukje scannerdata noemen dat bij het afbreken verloren ging (B6), en bij een volgende verhuizing van ai-handel eerst wachten tot de scanner net heeft opgeslagen.
 6. Takken weghalen (Thijs zei ja op vraag 2) staat nog open; zet het op het bord met een eigenaar.
 7. De beschrijving van het claude.ai-project noemt nog `organisatie/overstap-account.md` (nu in het archief; `organisatie/VERHUISD.md` vangt het op). Alleen Thijs kan die tekst aanpassen; past op de lijst als er plek is.
+
+## Nakeuring, 22 nov 2026 ±11:20 NL, zelfde keurder
+Wat ik keurde: commits cffd0060 en c2d5fe66, run 45010921615 (Archief beelden naar release, groen), release `archief-beelden-2026-11-22` zoals hij nu online staat.
+Akkoord: nee (het moet-punt is bijna weg: nog 3 gmail-adressen in 2 gzip-bestanden in `onderzoek-data.zip`)
+
+| # | Wat ik zag | Feit of vermoeden | Zekerheid |
+|---|---|---|---|
+| N1 | **Oude zip weg.** API van de release: `onderzoek-data.zip` is nu 32.602.691 bytes (nieuw asset-id, bijgewerkt 10:08 UTC), de lijst 43.640 bytes. De zip van 48.948.851 bytes staat er niet meer. De andere zes bestanden zijn ongewijzigd (09:45 UTC). | feit (GEZIEN) | hoog |
+| N2 | **Nieuwe `onderzoek-data.zip`:** curl -L HTTP 200, `unzip -t` zonder fouten, 778 bestanden (824 min de 46 uit `onderzoek-data.weglaten`; `onderzoek-data.txt` heeft nu 778 regels). Uitgepakt en `grep -rEoa` met een regex op mailadressen over alles: 0 treffers. | feit | hoog |
+| N3 | **Maar:** 13 bestanden in de zip zijn zelf gzip (`.json.gz`, `.jsonl.gz`). Die ziet grep niet, en de controle in `archief-beelden.yml` (stap "Zips schoonmaken") ook niet: die leest alleen tekstextensies en pakt `.gz` niet uit. Na `zcat`: `platformen/verkenner/data/davinci-gumroad-newest-2026-11-15.json.gz` heeft 2 gmail-adressen (veld `seller` van Gumroad-verkopers) en `platformen/verkenner/data/csa-alle-mei-aug-2026-11-08.jsonl.gz` 1 gmail-adres (veld `clip_user_handle`). Echte adressen, geen toeval in beelddata; hier niet overgenomen. De andere 11 gzip-bestanden: 0. Dezelfde blinde vlek zat in mijn eerste telling. | feit | hoog |
+| N4 | **`ontwerp-garmin.zip` en `ontwerp-rollwright.zip`:** alle 1.827 en 65 bestanden zijn png, jpg, gif of mp4, geen enkel tekstbestand en geen gzip. De treffers (5 en 7) zitten in gecomprimeerde beelddata en zien eruit als `x@Y.WTW`, `s@8.XA`, `@-.gm`: toevallige tekens, geen adressen. `abel-beelden.zip`: 0, ook in de zip erin (`dortus-beelden.zip`, 21 beelden en een md). | feit | hoog |
+| N5 | **Kan 1:** `onderzoek/verkenner/data/steam-desktop-kaart-2026-11-16.csv` staat terug, zelfde git-blob als het origineel in `c8c429ad^`, 0 mailadressen. Bericht aan Olaf onderaan `berichten/olaf.md` met het nieuwe pad; `demo-spelers.py` zelf niet aangepast (Hats). Goed. | feit | hoog |
+| N6 | **Kan 3:** `organisatie/start.sh` r28 tot r30 waarschuwt voor valse meldingen van `wegwijzer.py` in de sparse kloon; in een lege map getest, de melding komt, en de losse punt na `.github` is weg. Goed. | feit | hoog |
+| N7 | **Kan 4:** `ontwerp/merk/bron/maak_upload.sh` r3 zegt nu "draai vanuit ontwerp/". Goed. | feit | hoog |
+| N8 | `check.py` OK op main c2d5fe66. Geen geschiedenis herschreven. | feit | hoog |
+
+### Moet (blokkeert akkoord)
+1. De twee gzip-bestanden uit N3 erbij zetten in `organisatie/opruimen/archief-beelden/onderzoek-data.weglaten`, en in `archief-beelden.yml` de controle `.gz` laten uitpakken voor de regex (anders slaagt de controle terwijl er nog adressen in zitten). Daarna opnieuw: 776 bestanden, 0 adressen, ook na `zcat`.
+
+### Kan
+1. In het verslag (`fase2-2026-11-22.md` r61) staat "GEZIEN met een regex over alle 824 bestanden": zonder gzip uitpakken was die telling niet volledig. Een regel erbij als het moet-punt klaar is.
