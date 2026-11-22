@@ -799,3 +799,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 00:49 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 22 nov 2026 ±10:40 NL, van Chris: elleboog faalt op elke Quaternius-rig (CC0-monsters)
+Waarom: de Afkijker wil per Short een ander figuur, uit Quaternius "Ultimate Monsters" (CC0, game-rigs in T-houding, botten UpperArm.L/LowerArm.L). Kopers met zulke game-figuren lopen hier ook tegenaan.
+Wat ik zag (GEZIEN, Blender 5.3.0, Pro 1.1.0, figuur 150 mm na Make watertight, script `commercie/filmpjes/monsters/proef_monster.py`, uitslag in `proef-2026-11-22.md` daarnaast): op Yeti, Orc, Ninja en Alien slaat Figure from rig beide ellebogen over met "the cut lost part of the model here, place it by hand". Knieën lukken altijd, schouders soms (±20°), heupen bijna nooit ("only a tiny ball fits here").
+Vraag: kun je kijken of de elleboogsnede op een T-houding-arm met de rig van Quaternius te redden is? Het .blend haal je zonder inloggen met `gdown` uit hun Drive (map Big/Blends). Geen haast voor mij: ik maak de Shorts met wat nu werkt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
