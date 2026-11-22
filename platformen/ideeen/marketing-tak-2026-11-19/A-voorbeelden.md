@@ -1322,3 +1322,45 @@ Vijf belangrijkste dingen:
 5. **Journalisten gooien 88% van de pitches buiten hun onderwerp weg** (DERDEN, Muck Rack 2026): weinig, gerichte mails met een bewezen passende rubriek.
 
 Voorstel: (a) het perspakket uit ronde 24 (a) blijft, met twee toevoegingen: de aanleiding is Pro 1.1 ("Figure from rig") plus de sale, en de mail noemt de eerdere stukjes over Dovetail Key en CatPin zodat de redactie ziet dat het past; Daan keurt, Thijs zegt ja op de tekst (regel 4). (b) Zet op `organisatie/lijst-thijs.md` (via de hoofdchat) één vinkje: in het Gumroad-account kijken of Pro in Discover staat en of "Gumroad Affiliates" aan staat; aanzetten kost niets tot er een verkoop is en maakt een stukje voor 80 Level lonend. (c) De concurrentenmeter (ronde 24 (b)) neemt ook de prijs uit `display_price` mee, zodat we zien wie wanneer in de sale gaat, en de reviews per week via `product_reviews`. Volgende run: of er een manier is om te zien welke van de 10 Marketplace-stukjes per mail van de maker kwam (bijv. dezelfde zinnen in de winkeltekst als in het stukje, dan is het een herschreven persbericht), zodat we weten hoe ver een kant-en-klare tekst komt.
+
+## Ronde 26 (run 22 nov ±05:20 UTC, klok van de container): hoe ver komt een kant-en-klare tekst bij 80 Level, en waar de redactie haar stukjes vandaan haalt
+
+Vervolg op ronde 25. Vraag: zijn de stukjes in de rubriek Marketplace herschreven persberichten (dan komt een agent met een goede tekst ver), of zoekt de redactie zelf? Methode: de 10 nieuwste stukjes (13 tot 21 nov) naast de winkeltekst van het product gelegd, en per stukje geteld welk deel van de woorden in reeksen van 6 of meer letterlijk in de winkeltekst staat (eigen script, GEZIEN). Plus: welke video staat in het stukje, en van wie (YouTube oEmbed, GEZIEN).
+
+### 125. De redactie herschrijft bijna alles; alleen een grote studio met affiliate-link komt dicht bij de eigen tekst
+- **Overlap met de winkeltekst** (deel van het stukje dat letterlijk in de winkeltekst staat, GEZIEN, eigen telling): Smooth Weights 0%, Fluid Frenzy 0%, Falling Leaves 0%, Organic Zombie Web 1%, CADQuader 4%, NYC-pakket van Leartes 8%, Carnage Grains 9%, Stylized Water (itch.io) 11%, **Project Optimization Toolkit van Leartes 40%**. De cursus van Titanium Studio kon ik niet vergelijken (ArtStation geeft 403).
+- Het enige stukje dat dicht bij de winkeltekst ligt, is van Leartes Studios, met een affiliate-link via Gumroad (`gumroad.com/a/916550771/msxlab`, GEZIEN). Leartes had twee stukjes in de 10 (16 nov, beide met commissie). Lezing: een studio die vaak levert en waar 80 Level aan verdient, krijgt bijna zijn eigen tekst geplaatst; een kleine maker krijgt een eigen stukje van de redactie (GOK op het waarom, de telling is GEZIEN).
+- Geen van de 10 heeft het label Sponsored (GEZIEN, de labels bovenaan zijn #News #Marketplace en het programma). Betaald kan ook: een "Sponsored article" kost $2.200, een post op hun X (262K) of Instagram (476K) $400, een plek in de nieuwsbrief $400 (GEZIEN, [tarievenkaart 80 Level](https://80lv.info/partnership)). Dat valt onder harde regel 1 (geld), dus alleen ter vergelijking: de gratis route bestaat en wordt gebruikt.
+
+### 126. Wat de redactie wel overneemt: de video van de maker, en wat de maker zelf op X laat zien
+- **In 7 van de 10 stukjes staat een YouTube-video, en in 6 daarvan is het de eigen video van de maker** (3DCoat, Leartes 2x, Max Miles, Titanium Studio, Fluid Frenzy; de zevende is een uitlegvideo van een derde bij het Godot-stukje) (GEZIEN, oEmbed-auteur per video).
+- **Smooth Weights kwam niet via de maker binnen, maar via een gebruiker op X:** het stukje is opgebouwd rond twee posts van 3D-artiesten (Flat en AldoTheVamp) die de add-on in hun werk lieten zien (GEZIEN, ingesloten posts). Smooth Weights staat op Superhive op 400+ verkopen, $17,99, 4 maanden oud (GEZIEN, [productpagina](https://superhivemarket.com/products/smooth-weights)).
+- **Twee stukjes zijn een vervolg:** Carnage Grains ("the super sticky project by Max Miles we featured back in the summer") en Fluid Frenzy (nieuw effect als filmpje getoond, 2.0 als achtergrond) (GEZIEN). De redactie volgt makers die al eerder iets liet zien.
+- **Twee stukjes hebben een citaat van de maker** ("We asked Deepak to tell us a bit more", en een uitleg van Frenzy Byte) (GEZIEN). Een maker die snel een paar zinnen uitleg kan geven, krijgt een langer stukje.
+- **Falling Leaves is een product uit januari 2025** (gratis, 674 downloads, 10 beoordelingen van 5 sterren; `created_at` 2025-01-15, `updated_at` 22 nov 2026, GEZIEN, Gumroad-JSON). Een stukje hoeft dus niet bij de lancering te vallen; een oud product met een nieuwe versie of nieuw filmpje telt ook.
+- Les voor een agent-tak: de tekst van een persmail wordt niet overgenomen, het beeld wel. Wat werkt is een sterk filmpje van 30 tot 90 seconden op YouTube (en liefst ook op X, waar de redactie zichtbaar rondkijkt), een korte uitleg die de redactie kan citeren, en een aanleiding. Een agent kan dat filmpje, de uitleg en het mailtje klaarzetten; de mail zelf valt onder regel 4.
+
+### 127. Carnage Grains: 50+ verkopen in 7 dagen voor $49,99, met "Built with AI-generated code" op de pagina en in het stukje
+- Superhive: $49,99, "Sales 50+", "Published 7 days ago", 1 beoordeling, en bovenaan de pagina letterlijk "Built with AI-generated code" (GEZIEN, [productpagina](https://superhivemarket.com/products/carnage-grains), 22 nov). Dus minstens ±$2.500 omzet in de eerste week (GOK, rekensom, voor de korting en het deel van Superhive).
+- 80 Level schreef er op 18 nov over en noemde het AI-gebruik zelf: de maker "has also been open that ... Carnage was built with heavy AI assistance" en respecteert wie daarom niet koopt (GEZIEN, [80 Level](https://80.lv/articles/houdini-style-gpu-accelerated-grain-simulations-in-blender)). Het stukje kwam er toch, met een gewone link zonder commissie.
+- Wat dit voor ons zegt: openlijk AI-gebouwd zijn hield deze maker niet uit de pers en niet van een goede eerste week. Ons besluit van 19 nov (nergens een AI-melding) blijft staan; dit is alleen een tegenvoorbeeld voor de vrees dat het uitkomen schaadt. Of Carnage zonder die zin meer had verkocht, is niet te zien (GOK).
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- Elke week de rubriek Marketplace van 80 Level lezen (curl, zonder sleutel) en per stukje noteren: product, winkel, video van wie, commissie ja of nee. Zo ziet de tak welke soort maker erin komt.
+- Voor Pro een perspakket maken dat past bij wat de redactie echt gebruikt: (1) één YouTube-filmpje van 30 tot 90 seconden van Roep, (2) drie zinnen uitleg in de eerste persoon die als citaat kunnen, (3) de aanleiding (versie 1.1, sale 27 nov tot 1 dec), (4) de link. Geen lange persbericht-tekst; die wordt toch herschreven.
+- Niet zelf: de mail versturen, iets op X plaatsen (we hebben daar geen kanaal; regel 4 en de plaatsregels van Roep gelden).
+
+## Patronen na ronde 26
+84. **Bij een vakblad telt het beeld, niet de tekst** (125, 126): 7 van de 9 vergeleken stukjes hebben minder dan 10% overlap met de winkeltekst, en 6 van de 10 sluiten de eigen video van de maker in. Een agent moet het filmpje perfect maken, niet de persmail.
+85. **Redacties vinden makers op X en volgen ze daarna** (126): Smooth Weights via posts van gebruikers, Carnage en Fluid Frenzy als vervolg op eerder werk. Een kanaal waar de redactie kijkt, is zelf een persroute.
+86. **Openlijk AI-gebouwd is geen beletsel voor pers of eerste verkoop** (127): Carnage Grains, 50+ in een week voor $49,99.
+
+## Stand na run 22 nov ±05:25 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **80 Level herschrijft persteksten bijna volledig:** 0 tot 11% overlap met de winkeltekst bij 8 van de 9 vergeleken stukjes; alleen Leartes (twee stukjes in 10, affiliate) zit op 40% (GEZIEN, eigen telling).
+2. **De eigen video van de maker staat in 6 van de 10 stukjes** (GEZIEN). Het filmpje is wat de redactie overneemt.
+3. **Smooth Weights (400+ verkopen) kwam in 80 Level via posts van gebruikers op X**, niet via een pitch (GEZIEN). Dortus heeft geen X-kanaal.
+4. **Carnage Grains: 50+ verkopen in 7 dagen voor $49,99, met "Built with AI-generated code" op de pagina** en toch een stukje in 80 Level (GEZIEN).
+5. **Betaald kan ook, maar is duur:** sponsored article $2.200, losse post $400 (GEZIEN, tarievenkaart). Valt onder regel 1; de gratis route werkt voor kleine makers.
+
+Voorstel: (a) het perspakket voor Pro (ronde 24 en 25) wordt korter en beeldgerichter: één filmpje van 30 tot 90 seconden op @Dortusapps (de Maker van Roep maakt het, Keurder keurt), drie zinnen citeerbare uitleg, aanleiding versie 1.1 plus de sale, link; Thijs zegt ja op de mailtekst (regel 4), versturen vóór do 26 nov. (b) De hoofdchat weegt of een X-kanaal voor Dortus (Blender-clips) de moeite is: het is de plek waar 80 Level makers vindt (GOK dat het voor ons werkt, het patroon is GEZIEN); nieuw kanaal is aan de hoofdchat. (c) Volgende run: hetzelfde voor Digital Production en BlenderNation (wie komt erin, met welk beeld), zodat het pakket voor alle drie past.
