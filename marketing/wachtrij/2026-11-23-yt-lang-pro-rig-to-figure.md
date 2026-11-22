@@ -1,6 +1,6 @@
 # Click Joints Pro: Rig to printable figure in Blender (lange YouTube-video 2)
 
-- status: ingepland
+- status: geplaatst
 - kanaal: yt-lang
 - soort: video
 - product: click-joints-pro
@@ -83,3 +83,7 @@ Click Joints Pro with Figure from rig, one button from rig to printable figure: 
 
 ## Na plaatsen
 - ingepland: 21 nov 2026 20:15 NL, Metricool-nummer 436948555, moment 2026-11-22 17:00 NL (eerste vrije plek voor een groene lange video), status PENDING (GEZIEN createScheduledPost)
+- gelezen: 22 nov 2026 20:15 NL, status PUBLISHED (GEZIEN getScheduledPosts)
+- adres: https://www.youtube.com/watch?v=4-3l3MZZWPc
+- handle klopt: niet nagekeken in de RSS (proxy van deze run weigert youtube.com, 403); adres komt uit Metricool brand 8156503 (@Dortusapps)
+- cijfers: niet gelezen (youtube.com geweigerd door de proxy, 22 nov 20:15)

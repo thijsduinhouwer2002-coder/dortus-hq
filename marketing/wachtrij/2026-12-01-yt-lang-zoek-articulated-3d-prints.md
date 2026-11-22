@@ -1,6 +1,6 @@
 # How to make articulated 3D prints in Blender (zoekvraag-video 1)
 
-- status: groen
+- status: ingepland
 - kanaal: yt-lang
 - soort: video
 - product: click-joints-pro
@@ -75,4 +75,5 @@ Click Joints Pro, one button from a rigged figure to printable parts with joints
 (alleen de hoofdchat, alleen bij oranje)
 
 ## Na plaatsen
-(alleen de Maker)
+- ingepland: 22 nov 2026 20:15 NL, Metricool-nummer 437867666, moment 2026-12-01 17:00 NL, status PENDING (GEZIEN createScheduledPost). Keuring groen Roep-Keurder commit c71ce042. Techniek: media GET 206 (HEAD 401 op de opslagserver, zoals de Keurder zag), geen < of >, geen Gumroad, https://dortus.com/yt/ op regel 1 en in de eerste reactie.
+

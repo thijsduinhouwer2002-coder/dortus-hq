@@ -45,3 +45,13 @@ Schrijft: de Maker (geplande taak "Dortus Roep: maken en plaatsen"), één blok 
 - wachtrij: groen 0, oranje 0, ingepland 5, open 17 (Shorts, 2 TikTok-tips, 2 lange zoekvideo's voor december), rood 4. Voorraad TikTok ingepland t/m 27 nov; geen nieuwe concepten gemaakt (genoeg open).
 - gemaakt vandaag: niets.
 - stopregel: beste TikTok blijft 305 weergaven (nulmeting 19 nov, video 7709157242309774625), kijktijd niet gelezen. Dagen met posts met een meetadres zonder verkoop van Pro: dag 2.
+
+### zo 22 nov 2026 NL
+- uitgegaan vandaag: lange video 2 Rig to figure, https://www.youtube.com/watch?v=4-3l3MZZWPc (Metricool 436948555, PUBLISHED 17:00); TikTok 90/135, https://www.tiktok.com/@dortusstudio/video/7711044046633913632 (436948591, PUBLISHED 18:00). GEZIEN getScheduledPosts 20:15. Shorts in YouTube Studio: zie de regel van de hoofdchat in `commercie/geplaatst.md`.
+- cijfers: niet gelezen. De proxy van deze run weigert tiktok.com en youtube.com (403, 20:15); Metricool TKPO03 heeft de TikTok van vandaag nog niet. Eerdere TikToks volgens Metricool TKPO03 (telt minder dan de videopagina): 115°-scharnier 14, buigen 10, kogel 12, Ebb 11 (GEZIEN 20:16; welke kolom dit is, is niet nagekeken: GOK dat het weergaven zijn).
+- geld: Gumroad-verkopen Pro 0, omzet $0 (GEZIEN, `organisatie/scorebord.md`, meting 22 nov 09:50 UTC, van vóór de posts van vandaag). Bezoeken dortus.com/tt: 0 op 20 en 21 nov, 0 op 22 nov tot 10:50; dortus.com/yt: 6 op 20 nov, 0 op 21 nov, 0 op 22 nov tot 10:50 (GEZIEN, Amami-tabel in `organisatie/scorebord.md`).
+- ingepland deze ronde: lange zoekvideo 1 di 1 dec 17:00 (437867666) en lange zoekvideo 2 do 3 dec 17:00 (437867758), PENDING, groen door Roep-Keurder (c71ce042). November had geen plek meer voor lange video's.
+- quotum: november 14 posts in Metricool (GEZIEN), over 6 van 20; volgens het plan vanaf 20 nov: TikTok 3, lang 0, reserve 1. December: 2 in Metricool, over volgens het plan: TikTok 14, lang 2, reserve 2.
+- wachtrij: TikTok ingepland 24, 25 en 27 nov; open 2 TikTok-tips v2 (26 en 28 nov) en 2 Short-tips v2; groen 9 Shorts (plaatst de hoofdchat in YouTube Studio, niet via Metricool); oranje 0. Voorraad TikTok tot 27 nov plus 2 open: genoeg, niets gemaakt.
+- gemaakt vandaag: niets.
+- stopregel: beste TikTok blijft 305 weergaven (nulmeting 19 nov), kijktijd niet gelezen; de regel geldt vanaf 1 dec. Dagen met posts met een meetadres zonder verkoop van Pro: dag 3 van 14.

@@ -1,6 +1,6 @@
 # Blender hinge for 3D printing, with an end stop (zoekvraag-video 2)
 
-- status: groen
+- status: ingepland
 - kanaal: yt-lang
 - soort: video
 - product: click-joints-pro
@@ -73,4 +73,5 @@ Click Joints Pro, a hinge with an end stop for 3D printing in Blender: https://d
 (alleen de hoofdchat, alleen bij oranje)
 
 ## Na plaatsen
-(alleen de Maker)
+- ingepland: 22 nov 2026 20:15 NL, Metricool-nummer 437867758, moment 2026-12-03 17:00 NL, status PENDING (GEZIEN createScheduledPost). Keuring groen Roep-Keurder commit c71ce042. Techniek: media GET 206 (HEAD 401 op de opslagserver), geen < of >, geen Gumroad, https://dortus.com/yt/ op regel 1 en in de eerste reactie.
+
