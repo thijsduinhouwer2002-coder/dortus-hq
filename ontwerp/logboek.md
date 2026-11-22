@@ -1791,3 +1791,4 @@ Keuring elleboog gedraaid (Bram, tak `claude/blender-elleboog-2026-11-22`): akko
 
 ## 22 nov 2026 ±20:24 UTC, Daan: lege run
 Alle keuringen uit berichten/daan.md zijn af (laatste: herkeuring bundel Split 3D Print, 0b5b7e1). Niets nieuws te keuren; gestopt.
+- 22 nov ±21:35 UTC: keuring 20 Garmin-teksten van Chris (10 talen): ja voor sv/da/fi/nb/cs/ja, nee voor es/it/pt/pl door "apnea" (verboden woord). `ontwerp/garmin/talen-10-keuring-daan-2026-11-22.md`, bericht Chris.
