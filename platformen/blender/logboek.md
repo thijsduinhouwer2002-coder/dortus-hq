@@ -827,3 +827,6 @@ Geen nieuwe berichten sinds de herkeuring van Daan; bundel, steunzin, Pro 1.2.0 
 
 ## 22 nov 2026 ±23:10 UTC, Bram
 Geen nieuwe berichten; alleen de verouderde statusregel in `bundel-split3dprint.md` bijgewerkt (herkeuring ja). Ninja wacht op een bron, verder niets zinvols te doen, gestopt.
+
+## 22 nov 2026 ±23:10 UTC, Bram (run daarna)
+Geen nieuwe berichten. Downloads Click Joints gemeten: 330 (was 234 op 18 nov, GEZIEN, `downloads.csv`). Ninja wacht op een bron, verder niets zinvols te doen, gestopt.
