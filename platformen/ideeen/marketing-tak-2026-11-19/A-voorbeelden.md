@@ -1114,3 +1114,58 @@ Vijf belangrijkste dingen:
 5. **"Verified Black Friday 2026" laat zien hoe een agent-bijgehouden lijst er naar buiten uitziet** (dagelijks, met eerlijke notities), maar zet een klein onbekend product op plek 1 zonder uitleg (GEZIEN; dat het van de maker is: GOK, 109).
 
 Voorstel: (a) de hoofdchat laat een bouwer vóór do 26 nov een pagina `dortus.com/click-joints/pro/` maken met bovenaan het filmpje van de figuur uit de rig, de prijs, de sale en twee koopknoppen (Gumroad, Superhive), keuring door Daan op telefoonbreedte; zolang de site-tak niet naar main kan, wijzen de bio van TikTok en de beschrijving van de lange YouTube-video direct naar Gumroad; (b) wie de Gumroad-prijs beheert, beslist of de Gumroad-sale op 35% gaat zodat beide winkels gelijk zijn en de landingspagina klopt; (c) de meetagent neemt vanaf 27 nov de plek van Pro op addonradar.com/black-friday mee in het dagrapport. Volgende run: hoe de verkooppagina's van de drie best verkopende 3D-print-add-ons op Superhive bovenaan opgebouwd zijn (beeld, belofte, prijs, knop), als voorbeeld voor de Pro-pagina.
+
+## Ronde 22 (run 22 nov ±01:20 UTC, klok van de container): hoe de pagina's van de 3D-print-add-ons op Superhive bovenaan opgebouwd zijn, naast die van Pro
+
+Vraag uit de vorige run: wat staat er bovenaan bij de add-ons die Pro voorgaan, als voorbeeld voor een Pro-pagina. Alles hieronder is met curl gelezen op 22 nov ±01:00 UTC; tellingen gedaan met een klein script op de HTML van het tabblad "About" (alleen de beschrijving, zonder menu en FAQ).
+
+### 110. Telling: zes 3D-print-add-ons tegen Click Joints Pro
+
+| Add-on | Prijs (GEZIEN) | Beoordelingen | Woorden | Woorden vóór het eerste beeld | Bewegend beeld in de tekst | Stilstaande beelden |
+|---|---|---|---|---|---|---|
+| Cleave (plek 3 Popular, zie 96) | $23 (van $28) | 3 | ±1.450 | 1 | 3 YouTube-filmpjes | ±40 |
+| Cut Flex | $34,99 | 0 | ±1.130 | ±155 | 10 GIF/WebP-lusjes | 5 |
+| JointLab | $65 | 3 | ±610 | 6 | 1 YouTube-filmpje direct onder de kop | 5 |
+| CatPin | $24 (van $30) | 4 | ±1.230 | ±130 | 7 korte filmpjes die vanzelf en zonder geluid spelen (Kinescope) | 0 |
+| Printwright | $19 | 0 | ±630 | ±340 | 4 GIF's | 4 |
+| Connector Fit QA (LayerMechanic) | $12 | 0 | ±385 | geen beeld | 0 | 0 |
+| **Click Joints Pro** | **$12** | 0 | **±770** | **geen beeld** | **0** | **0** |
+
+(alles GEZIEN in de HTML; woorden afgerond)
+
+- **Pro is de enige van de zeven met koppen en ±770 woorden tekst maar nul beelden in de beschrijving** (GEZIEN: 0 `<img>`, 0 filmpjes in het tabblad About). Alleen het hoofdbeeld bovenaan de pagina laat iets zien. Connector Fit QA is ook kaal, maar is een klein hulpje van een maker met een hele reeks (LayerMechanic, 5 losse add-ons, GEZIEN).
+- **Vier van de vijf met beeld laten iets bewegen**: GIF-lusjes (Cut Flex, Printwright), filmpjes die vanzelf afspelen (CatPin) of YouTube (Cleave, JointLab). Bij gewrichten is beweging het hele punt: een knie die buigt en stopt.
+- **Bovenaan staat telkens een korte belofte in gewone woorden, dan meteen beeld**: Cleave "Too big to print? Split it." met beeld vóór de tekst; JointLab kop, één zin, filmpje; Cut Flex "Turn one sculpt into a poseable, jointed figure." met daaronder vier cijfertjes (15 joint presets, 1 panel, 3 export formats) en een knop "Get CutFlex ↑ Use Add to Cart at the top of this page" (GEZIEN). Pro heeft een goede belofte ("Rig to printable figure: elbows and knees stop where your rig stops.") maar daarna drie alinea's tekst.
+- **Waar de beelden staan:** Cleave zet ze op `public-files.gumroad.com` (dezelfde plaatjes als op zijn Gumroad-pagina), Cut Flex op een losse beeldhoster, Printwright en JointLab uploaden ze bij Superhive zelf (GEZIEN, adressen van de `<img>`). Een beschrijving met GIF's en externe plaatjes kan dus op Superhive; je hoeft niets nieuws te hosten als de GIF's al op Gumroad of dortus.com staan.
+- **Titels:** Cleave (19 woorden), JointLab (10) en Printwright (8) zetten zoekwoorden in de titel ("for 3D Printing"); Cut Flex en CatPin niet (GEZIEN). Superhive zelf raadt juist 2 tot 3 woorden aan (zie 111). Dat Cleave met de lange titel bovenaan staat, bewijst niet dat de titel het doet (GOK; Cleave heeft ook het meeste beeld en elke week een versie).
+- **Prijs:** Pro is met $12 de goedkoopste van de gewrichten-add-ons; JointLab $65, Cut Flex $34,99, CatPin en Cleave rond $23 tot $24 (GEZIEN). Pro heeft ook een tweede keuze van $45 (meer "Seats", GEZIEN `data-price="$45"`). Of $12 te laag is om serieus genomen te worden, weet ik niet (GOK; geen cijfers van Superhive per prijs).
+
+### 111. Wat Superhive zelf zegt over een pagina die verkoopt
+Twee eigen artikelen van Superhive (GEZIEN, [How to Make a Blender Product Page that Sells](https://superhivemarket.com/posts/anatomy-of-the-perfect-product-page), [How to Create Graphics for Blender Add-Ons](https://blendermarket.com/posts/how-to-create-graphics-for-technical-blender-products)):
+- "Most customers will not scroll through your entire product page, so give them all they need to know right there in the first paragraph." Eerste alinea = de hele pitch.
+- Kies 2 of 3 hoofdvoordelen en "add additional images or GIFs to this section".
+- Hoofdbeeld: eigen render, verhouding 2:1, **geen GIF als hoofdbeeld** (hun systeem en hun social-planner pakken geen GIF's). Tekst op het hoofdbeeld mag, maar leesbaar op postzegelformaat. Toon het nummer 1 voordeel in één oogopslag; voor/na-beelden "always make sense".
+- Titel kort en duidelijk ("be clear, not clever"), 2 tot 3 woorden. Getuigenissen van bekende Blender-makers op de pagina, als ze die willen geven.
+- Dit zijn adviezen zonder cijfers (DERDEN, link hierboven); de telling in 110 laat zien dat de verkopers het in de praktijk ook zo doen.
+
+### 112. Agents die productpagina's herschrijven: veel beloftes, geen bruikbaar cijfer
+- Ik zocht naar makers of winkels die een agent hun productpagina laten herschrijven en testen, met uitslag. Wat bovenkomt zijn verkopers van zulke tools (OptiMonk "Smart Product Pages", Teikametrics, Seatext) met procenten zonder methode (DERDEN, [OptiMonk case studies](https://www.optimonk.com/varnish-vine-case-study): "Conversions up 600% with a mystery discount" en tientallen meer, zonder aantallen bezoekers). Verkooppraat; niet bruikbaar.
+- Voor ons is een A/B-test ook niet zinvol: met ±30 bezoekers per dag op dortus.com/click-joints/ (GEZIEN eerder, 31 op 18 nov) en 0 verkopen geeft een test weken lang geen uitslag (GOK, zie ook 69). Beter: één keer goed doen volgens wat de verkopers doen (110, 111), en meten op verkoop per week.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Wel zelf, €0:** een nieuwe beschrijving voor Pro schrijven met bovenaan belofte, één GIF van de figuur uit de rig die buigt en stopt, dan per hoofdvoordeel (rig wordt figuur; stop uit de rig; graden vóór het printen) een korte alinea met een GIF of beeld eronder, en de bestaande tekst daaronder. De GIF's kunnen uit de filmpjes van Roep komen. Keuring door Daan (beeld) en een tweede keurder (tekst).
+- **Niet zelf:** de beschrijving op Superhive vervangen gebeurt in het makersaccount (inloggen); dat doet de hoofdchat of Thijs. Een bekende maker om een getuigenis vragen is iemand benaderen (regel 4).
+
+## Patronen na ronde 22
+74. **Op een marktplaats is de productpagina het eind van elke trechter, en die van Pro is alleen tekst** (110). Alle anderen laten de werking zien, bijna altijd bewegend.
+75. **Wat al gemaakt is voor socials kan zonder extra werk op de pagina** (110: Cleave gebruikt dezelfde plaatjes als op Gumroad). De filmpjes van Roep zijn dus ook winkelbeelden.
+
+## Stand na run 22 nov ±01:25 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **De beschrijving van Click Joints Pro op Superhive heeft ±770 woorden en nul beelden of filmpjes** (GEZIEN). Van de zes vergelijkbare 3D-print-add-ons hebben er vijf beeld in de tekst, vier daarvan bewegend.
+2. **De verkopers zetten bovenaan één korte belofte en dan meteen beeld** (Cleave: beeld na 1 woord, JointLab: filmpje na 6 woorden, GEZIEN). Superhive zegt zelf dat de meeste kopers niet verder lezen dan de eerste alinea (DERDEN, 111).
+3. **GIF's en plaatjes van buiten (Gumroad, eigen site) mogen in een Superhive-beschrijving** (GEZIEN bij Cleave, Cut Flex); de beelden van Roep kunnen er direct in.
+4. **Pro is met $12 de goedkoopste van de gewrichten-add-ons** (JointLab $65, Cut Flex $34,99, Cleave $23, CatPin $24, GEZIEN). Of dat helpt of schaadt is een GOK.
+5. **Agent-tools die productpagina's herschrijven en testen hebben geen cijfers met methode** (DERDEN, 112); bij onze aantallen bezoekers heeft testen ook geen zin. Eén keer goed doen naar het voorbeeld van de verkopers.
+
+Voorstel: (a) de hoofdchat laat vóór do 26 nov (vóór de Cyber Sale van 27 nov) een nieuwe beschrijving voor Pro maken: belofte, één GIF van de figuur uit de rig die buigt en stopt, drie hoofdvoordelen elk met een GIF of beeld, dan de bestaande tekst; GIF's uit de filmpjes van Roep, gehost op dortus.com of Gumroad; keuring Daan; de hoofdchat zet hem in het makersaccount. Dezelfde opbouw dient voor de Pro-pagina op dortus.com (voorstel run 21). (b) De prijs van $12 niet nu veranderen (sale komt eraan), maar na de saleweek opnieuw bekijken tegen $19 tot $24 van de buren. Volgende run: wat de beschrijving en beelden van Pro op Gumroad tonen na deze telling, en of Gumroad GIF's in de beschrijving toont.
