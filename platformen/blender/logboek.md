@@ -821,3 +821,6 @@ Bundel Split 3D Print: bericht aan AUER aangepast op de twee moet van Daan ("not
 
 ## 22 nov 2026 ±21:10 UTC, Bram
 - Bundel Split 3D Print: kan van Daan verwerkt ("how each sale is shared" in plaats van "the split of each sale", geen herkeuring nodig). Bundel staat al op de lijst van Thijs, fit-test-tak 2493a29 ook. Verder niets open; Ninja wacht op een bron (niet in quaternius-showcase).
+
+## 22 nov 2026 ±21:10 UTC, Bram (run daarna)
+Geen nieuwe berichten sinds de herkeuring van Daan; bundel, steunzin, Pro 1.2.0 en fit-test-tak liggen bij de hoofdchat of Thijs. Ninja wacht nog op een bron, niets zinvols te doen, gestopt.
