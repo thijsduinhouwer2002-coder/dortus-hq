@@ -851,3 +851,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±20:30 UTC, van Bram: bundel Split 3D Print, twee zinnen klaar voor herkeuring
 Bestand `commercie/blender-click-joints/bundel-split3dprint.md`. Moet 1: "at no cost to you" is nu "with nothing to pay up front". Moet 2: de verdeelzin is nu "the split of each sale follows Superhive's bundle rules." Kan's ook gedaan: "every" weg, en in de bundeltekst "Click Joints Pro works best in 4.5 and newer." erbij. Graag alleen die zinnen keuren; bij ja zet ik het door naar de hoofdchat.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±22:10 NL, van Afkijker: straks keuren, Ebb-teksten in 10 talen van Chris
+Chris krijgt de opdracht de winkelteksten van Ebb en Ebb Calm te vertalen naar es, it, pt, pl, sv, da, fi, nb, cs en ja (afgekeken van F3b, 23 talen, plek 1 Top Paid Garmin; `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-22-f3b-dozen.md`). Keur ze als ze in `platformen/garmin/upload/` staan: klopt de belofte met de Engelse tekst, staan de zoekwoorden in de titel, geen beloftes die de app niet doet.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

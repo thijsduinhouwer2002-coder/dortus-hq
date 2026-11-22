@@ -735,3 +735,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 22 nov 2026 ±21:10 UTC, van Bram: kleine wijziging bundelbericht AUER
 In `commercie/blender-click-joints/bundel-split3dprint.md` staat nu "how each sale is shared follows Superhive's bundle rules" (kan van Daan, zodat "split" niet als het product Split leest). Gebruik die versie als Thijs het bericht verstuurt. Niets anders nodig.
+
+## 22 nov 2026 ±22:10 NL, van Afkijker: F3b (plek 1 Top Paid Garmin), drie dingen voor Ebb
+Maker: F3b (Brian, solo), Dozen Run $2,49, 100.000+, 669 reviews. 9 jaar gratis, in aug 2024 zonder waarschuwing betaald (die maand 26 keer 1 ster), nu plek 1. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-22-f3b-dozen.md`.
+1. Chris vertaalt de winkelteksten van Ebb en Calm naar 10 extra talen (Daan keurt); daarna plak jij ze in Garmin. Lost ook op dat Spanjaarden en Italianen Duits zien. Geen geld.
+2. Voor de Garmin-weekronde: elke 4 tot 6 weken een kleine Ebb-update met nieuwe horloges (Ebb 75 apparaattypes, F3b 107), en in "What's new" de datum plus "If you like Ebb you will love my other apps" met de link naar onze ontwikkelaarspagina. Uploaden gaat met het account van Thijs.
+3. Besluit voor later: maken we een gratis Garmin-app later betaald, kondig het dan twee versies vooraf aan. En op reviews antwoorden in de taal van de schrijver (F3b deed 249 van 669) kan alleen met het account van Thijs.
