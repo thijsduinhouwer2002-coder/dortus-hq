@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""YouTube Shorts reeks 3 (recept v2, opdracht hoofdchat 22 nov 2026 ±00:05 NL): 4 staande Shorts van 40 tot 60 s
+"""YouTube Shorts reeks 4 (recept v2, herstel na keuring reeks 3, opdracht hoofdchat 22 nov ±01:25 NL): 3 staande Shorts
+van 40 tot 60 s, elk met een eigen eerste beeld: een render uit de opname (render-N.png, EEVEE door de camera, wat de
+3D-weergave laat zien) met een langzame zoom. Basis reeks 3 (opdracht hoofdchat 22 nov 2026 ±00:05 NL):
 uit één echte opname in Blender 5.3.0 met Click Joints Pro 1.1.0 (opname.py, breed X-scherm 2160x1920).
     python3 kort.py <map met opname-ruw.mkv en film.json> <uitmap>
 Per beeld: boven de echte 3D-weergave met menubalk (links 1080x1180 van het scherm), onder het echte paneel van Click
@@ -123,6 +125,29 @@ def paneel_y(deel):
 
 # ---------- in elkaar zetten ----------
 
+def achtergrond():
+    y = np.linspace(0, 1, 1920)[:, None, None]
+    boven, onder = np.array([0xF1, 0xF5, 0xFB], np.float32), np.array([0xD5, 0xDF, 0xEC], np.float32)
+    return np.broadcast_to(boven * (1 - y) + onder * y, (1920, 1080, 3)).astype(np.float32)
+
+
+def render_beelden(pad, n):
+    """n beelden 1080x1920: de render (RGBA) op de achtergrond, zoom van 1,00 naar 1,06 rond het figuur."""
+    from PIL import Image
+    im = Image.open(pad).convert("RGBA")
+    if im.size != (1080, 1920):
+        im = im.resize((1080, 1920), Image.LANCZOS)
+    a = np.asarray(im).astype(np.float32) / 255.0
+    vol = (achtergrond() * (1 - a[..., 3:4]) + a[..., :3] * 255.0 * a[..., 3:4]).astype(np.uint8)
+    basis = Image.fromarray(vol)
+    cx, cy = 540, 1920 * 0.31
+    for i in range(n):
+        z = 1.0 + 0.06 * i / max(1, n - 1)
+        b, h = 1080 / z, 1920 / z
+        x0, y0 = cx - b / 2, cy - h * 0.31
+        yield np.asarray(basis.resize((1080, 1920), Image.BICUBIC, box=(x0, y0, x0 + b, y0 + h)))
+
+
 def stukken_naar_video(nr, stukken, uit):
     """stukken: [(deel, van, tot, traag, paneel_deel)] -> stille mp4 1080x1920 met muis. Geeft klikmomenten (s)."""
     enc = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", "1080x1920",
@@ -133,6 +158,11 @@ def stukken_naar_video(nr, stukken, uit):
     begin = []
     for deel, van, tot, traag, pdeel, _tekst in stukken:
         begin.append(t_uit / FPS)
+        if deel.startswith("@"):   # stilstaande render met een langzame zoom, op een effen achtergrond
+            for o in render_beelden(BRON / deel[1:], tot - van):
+                enc.stdin.write(o.tobytes())
+                t_uit += 1
+            continue
         d0 = FILM["delen"][deel]
         eerste = d0 + van
         laatste = min(deel_eind(deel), d0 + tot) if tot is not None else deel_eind(deel)
@@ -186,57 +216,50 @@ K_STOP = int(round(MT.get("knie_stop", 120)))
 N_GEW = MT.get("gewrichten", 9)
 N_EXPORT = len([b for b in MT.get("export", []) if b.endswith(".3mf")]) or 10
 
-# nr, naam: stukken [(deel, van, tot, traag, paneeldeel, tekst)]; tekst (regel1, regel2) staat vanaf het begin van
-# dat stuk tot de volgende tekst (None: de vorige blijft staan). traag 2 = elk beeld twee keer (halve snelheid).
-H = 75   # haak: 2,5 s eindresultaat
+# nr, naam: stukken [(deel, van, tot, traag, paneeldeel, tekst)]; deel "@render-N.png" = stilstaande render (van..tot =
+# aantal beelden). tekst (regel1, regel2[, y]) staat vanaf het begin van dat stuk tot de volgende tekst (None: de vorige
+# blijft). traag 2 = elk beeld twee keer (halve snelheid).
+H = 90    # eerste beeld: 3 s render
+YH = 1330  # ondertitel onder de render (niets van het figuur erachter)
+VOORBIJ = int(round(MT.get("knie_pose_rood", K_STOP + 12) - K_STOP))
 SHORTS = {
     (1, "make-poseable"): [
-        ("held", 20, 20 + H, 1, "knie", ("Make your character", "poseable for 3D printing")),
+        ("@render-1.png", 0, H, 1, None, ("Make your character", "poseable for 3D printing", YH)),
         ("heel", 0, None, 1, "knop", ("1. Select your", "rigged character")),
         ("kies", 0, None, 1, "knop", None),
         ("knop", 0, None, 2, "knop", ("2. Press", "Figure from rig")),
         ("lijst", 0, None, 1, "lijst", (f"{N_GEW} joints, each", "with its range")),
         ("knie", 0, None, 1, None, ("3. Bend the knee", "to its end stop")),
-        ("knie_rood", 0, None, 1, "knie", ("Past the stop", "it turns red")),
+        ("knie_stop", 0, None, 1, "knie", None),
+        ("knie_rood", 0, 96, 1, "knie", ("Past the stop: red arc", f"and +{VOORBIJ}° past limit")),
+        ("knie_rood", 96, None, 1, "knie", None),
         ("pose", 0, None, 1, "knie", ("Pose the rest", "of the figure")),
-        ("uitelkaar", 0, None, 1, None, ("4. Exploded view:", "see the ball joints")),
+        ("uitelkaar", 0, 168, 1, None, ("4. Exploded view:", "see the ball joints")),
         ("export", 0, None, 1, None, ("5. Export every part", "as 3MF")),
-        ("held", 0, None, 1, "held", ("Ready to slice", "and test print")),
+        ("held", 0, 120, 1, "held", ("Print a test joint", "first")),
     ],
     (2, "knee-bend"): [
-        ("held", 60, 60 + H, 1, "knie", ("How far can", "this knee bend?")),
-        ("heel", 0, None, 1, "knop", ("A rig with", f"Limit Rotation {K_STOP}°")),
+        ("@render-2.png", 0, H, 1, None, ("How far can", "this knee bend?", YH)),
+        ("heel", 0, None, 1, "knop", ("Our rig: knee limit", f"{K_STOP}° (Limit Rotation)")),
         ("kies", 0, None, 1, "knop", None),
         ("knop", 0, None, 2, "knop", ("Press", "Figure from rig")),
         ("lijst", 0, 100, 2, "lijst", ("Left knee:", f"0 to {K_STOP}° from rig")),
         ("lijst", 100, None, 1, "lijst", ("Right knee:", "mirrored from the left")),
-        ("knie", 0, None, 1, None, ("Bend it", "in the panel")),
-        ("knie_rood", 0, None, 2, "knie", (f"It stops at {K_STOP}°,", "past that: red")),
-        ("pose", 0, None, 1, "knie", ("Same check", "for every joint")),
-        ("held", 0, None, 1, "held", ("Check the pose", "before you print")),
+        ("knie", 0, None, 1, None, ("Bend it with", "the Bend slider")),
+        ("knie_stop", 0, None, 2, "knie", (f"Slider at {K_STOP}°:", "the end stop")),
+        ("knie_rood", 0, 96, 2, "knie", (f"Past {K_STOP}°: red arc", f"and +{VOORBIJ}° past limit")),
+        ("knie_rood", 96, None, 2, "knie", ("Check every joint", "before you print")),
     ],
-    (3, "posable-toy"): [
-        ("held", 70, 70 + H, 1, "knie", ("Turn your rigged character", "into a posable toy")),
-        ("heel", 0, None, 1, "knop", ("Start with", "a rigged figure")),
-        ("kies", 0, None, 1, "knop", None),
-        ("knop", 0, None, 2, "knop", ("One button:", "Figure from rig")),
-        ("lijst", 0, 60, 1, "lijst", ("Hinges at elbows", "and knees")),
-        ("lijst", 60, 140, 1, "lijst", ("Ball joints at shoulders,", "hips and neck")),
-        ("knie", 0, None, 1, None, ("Bend a knee", "to its end stop")),
-        ("pose", 0, None, 2, "knie", ("Pose it", "right in Blender")),
-        ("uitelkaar", 0, None, 2, None, ("Exploded view:", "the ball joint inside")),
-        ("held", 0, None, 2, "held", ("Print a test joint", "first")),
-    ],
-    (4, "printable-parts"): [
-        ("held", 105, 105 + H, 1, "knie", ("Your character as", "printable parts")),
+    (3, "printable-parts"): [
+        ("@render-3.png", 0, H, 1, None, ("Your character as", "printable parts", YH)),
         ("heel", 0, None, 1, "knop", ("Select the", "rigged figure")),
         ("kies", 0, None, 1, "knop", None),
         ("knop", 0, None, 2, "knop", ("Press", "Figure from rig")),
-        ("lijst", 0, None, 1, "lijst", ("Cut into parts", f"with {N_GEW} joints")),
-        ("pose", 0, None, 1, "knie", ("Each joint", "shows its range")),
-        ("uitelkaar", 0, None, 2, None, ("Exploded view:", "ball and socket")),
+        ("lijst", 0, 100, 1, "lijst", ("Cut into parts", f"with {N_GEW} joints")),
+        ("uitelkaar", 0, 168, 2, None, ("Exploded view:", "ball and socket")),
+        ("uitelkaar", 168, None, 2, None, ("Same at", "the hip")),
         ("export", 0, None, 2, None, ("Pick 3MF,", "then Export")),
-        ("held", 0, None, 2, "knie", (f"{N_EXPORT} files", "ready to slice")),
+        ("@render-4.png", 0, 105, 1, None, ("One 3MF file", "per part", YH)),
     ],
 }
 
@@ -249,11 +272,15 @@ for (nr, naam), stukken in SHORTS.items():
         if s[5] is not None:
             if teksten:
                 teksten[-1][3] = round(t0, 2)
-            teksten.append([s[5][0], s[5][1], round(t0, 2), 99])
-    vf = [f"drawbox=x=0:y=965:w=1080:h=200:color=black@0.45:t=fill"]
-    for r1, r2, a, b in teksten:
-        vf += [dt(r1, 74, LICHT, 975, extra=tussen(a, b)), dt(r2, 74, GEEL, 1065, extra=tussen(a, b))]
-    vf += [dt(PRINT, 28, GRIJS, 1880, GEW), dt("dortus.com/yt", 34, MINT, 1835, VET, extra=tussen(duur - 5, 99))]
+            teksten.append([s[5][0], s[5][1], round(t0, 2), 99, s[5][2] if len(s[5]) > 2 else 975])
+    vf = []
+    for r1, r2, a, b, y in teksten:
+        vf += [f"drawbox=x=0:y={y - 10}:w=1080:h=200:color=black@0.45:t=fill:enable='gte(t,{a})*lt(t,{b})'",
+               dt(r1, 74, LICHT, y, extra=tussen(a, b)), dt(r2, 74, GEEL, y + 90, extra=tussen(a, b))]
+    # printzin en meetadres boven de onderste 15% (daar legt de Shorts-speler titel en kanaal overheen)
+    vf += ["drawbox=x=0:y=1572:w=1080:h=50:color=black@0.55:t=fill", dt(PRINT, 30, LICHT, 1582, GEW),
+           f"drawbox=x=0:y=1516:w=1080:h=56:color=black@0.55:t=fill:enable='gte(t,{duur - 5})'",
+           dt("dortus.com/yt", 40, MINT, 1524, VET, extra=tussen(duur - 5, 99))]
     stil = TMP / f"{nr}-stil.mp4"
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(rauw), "-vf", ",".join(vf) + ",format=yuv420p",
                     "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p", "-r", str(FPS),
@@ -261,7 +288,7 @@ for (nr, naam), stukken in SHORTS.items():
     duur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
                                  str(stil)], capture_output=True, text=True).stdout)
     buf = g.bed_joints(duur)
-    for _r1, _r2, a, _b in teksten[1:]:
+    for _r1, _r2, a, _b, _y in teksten[1:]:
         if a < duur:
             g.plak(buf, a, g.tik())
     for k in kliks:
@@ -278,7 +305,7 @@ for (nr, naam), stukken in SHORTS.items():
                     "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-c:a", "aac",
                     "-b:a", "160k", "-ac", "2", "-t", f"{duur:.3f}", "-movflags", "+faststart", str(mp4)], check=True)
     meting[f"{nr}-{naam}"] = {"duur_s": round(duur, 2), "kliks_s": [round(k, 2) for k in kliks],
-                              "teksten": [[r1, r2, a, b] for r1, r2, a, b in teksten],
+                              "teksten": [[r1, r2, a, b] for r1, r2, a, b, _y in teksten],
                               "stukken": [list(s[:5]) for s in stukken]}
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(mp4), "-vf", f"fps=6/{duur:.3f},scale=270:-1,tile=6x1",
                     "-frames:v", "1", str(UIT / f"overzicht-{nr}.jpg")], check=True)
