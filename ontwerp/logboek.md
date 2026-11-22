@@ -1782,3 +1782,4 @@ Geen nieuwe keuringen sinds de vorige run (berichten/daan.md onveranderd; alleen
 
 ## 22 nov 2026 ±12:50 NL, Daan
 Keuring elleboog gedraaid (Bram, tak `claude/blender-elleboog-2026-11-22`): akkoord nee. Zelf in Blender 5.3.0 gedraaid op Yeti en Orc; de gedraaide ellebogen buigen naar achteren (GEZIEN, render). Keuring en beelden in `platformen/blender/keuring/2026-11-22-elleboog-gedraaid-*`, bericht aan Bram.
+- 22 nov ±13:30 UTC: keuring elleboog naar voren (becfa97, Click Joints Pro): akkoord ja na groene e2e. Zelf nagedraaid in Blender 5.3.0, Yeti en Orc 4 gewrichten, ellebogen buigen naar voren (GEZIEN). `platformen/blender/keuring/2026-11-22-elleboog-voren-daan.md`. Bericht Bram.
