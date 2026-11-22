@@ -1,6 +1,6 @@
 # YouTube Short recept v2, nr 2: How far can this knee bend? Check it before you print 👀 | Blender
 
-- status: open
+- status: rood
 - kanaal: youtube-short
 - soort: tip
 - product: click-joints-pro
@@ -48,7 +48,7 @@ Click Joints Pro: type dortus.com/yt in your browser.
 - Zelf bekeken (skill kijken): 10 beelden met Read (0,05 s, 3,5, 6, 9, 13, 18, 23, 28, 33, 38 s). Eerste beeld: figuur in pose met bogen, kop "How far can / this knee bend?". Lijst met "Left knee · Hinge · 0–120° · from rig" en "Right knee ... mirror" leesbaar in het paneel, Bend-schuif met de muis erop, rood voorbij de stop, terug naar 81. Lengte met ffprobe op het releasebestand: 43.7 s (40 tot 60: goed; de workflow faalt bij een andere lengte).
 
 ## Keuring
-(leeg tot de Keurder komt)
+rood (niet akkoord): eerste beeld vol losse gradengetallen en voet achter de ondertitel, zelfde begin als de andere drie, "parts turn red" en "It stops at 120°" kloppen niet met het beeld; zie `marketing/keuring/2026-11-22-yt-shorts-3.md` (keurder, 22 nov ±01:25 NL).
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

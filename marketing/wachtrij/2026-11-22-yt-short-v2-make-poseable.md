@@ -1,6 +1,6 @@
 # YouTube Short recept v2, nr 1: Make your rigged character poseable for 3D printing 🔥 | Blender
 
-- status: open
+- status: rood
 - kanaal: youtube-short
 - soort: tip
 - product: click-joints-pro
@@ -49,7 +49,7 @@ Click Joints Pro: type dortus.com/yt in your browser.
 - Zelf bekeken (skill kijken): 13 beelden met Read (0,05 s, 3,5, 6, 9, 13, 18, 23, 28, 33, 38, 44 s en het eerste beeld groot). Eerste beeld: oranje-turquoise figuur in pose (linkerknie gebogen, armen gebogen) met bogen en graden, kop "Make your character / poseable for 3D printing" groot en leesbaar, onder het blok Hinge met Bend 95. Daarna klik op de figuur (oranje rand), Figure from rig in het paneel, de lijst met 9 gewrichten, knie tot 120 en "+12° past limit" in rood, Exploded view dichtbij schouder en heup, 3MF en Export 3MF. Muis steeds zichtbaar, geel kringetje bij elke klik. Let op: de voeten raken in het eerste beeld net de balk met de ondertitel; de armen gaan naar voren, niet echt omhoog. Lengte met ffprobe op het releasebestand: 49.4 s (40 tot 60: goed; de workflow faalt bij een andere lengte).
 
 ## Keuring
-(leeg tot de Keurder komt)
+rood (niet akkoord): eerste beeld vol losse gradengetallen en voet achter de ondertitel, zelfde begin als de andere drie, tekst "parts turn red" klopt niet met het beeld; zie `marketing/keuring/2026-11-22-yt-shorts-3.md` (keurder, 22 nov ±01:25 NL).
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

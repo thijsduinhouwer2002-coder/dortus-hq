@@ -1,6 +1,6 @@
 # YouTube Short recept v2, nr 3: Turn your rigged character into a posable toy ✨ | Blender 3D
 
-- status: open
+- status: rood
 - kanaal: youtube-short
 - soort: tip
 - product: click-joints-pro
@@ -48,7 +48,7 @@ Click Joints Pro: type dortus.com/yt in your browser.
 - Zelf bekeken (skill kijken): 13 beelden met Read (0,05 s tot 55 s). Eerste beeld: figuur in pose, kop "Turn your rigged character / into a posable toy" (past net in de breedte). Lijst, knie buigen, pose met "Right elbow: bends 0° to 140°", Exploded view dichtbij schouder (arm los met de kogel) en heup (kleine kogel tussen romp en been), eind met dortus.com/yt. Lengte met ffprobe op het releasebestand: 57.1 s (40 tot 60: goed; de workflow faalt bij een andere lengte).
 
 ## Keuring
-(leeg tot de Keurder komt)
+rood (niet akkoord): eerste beeld vol losse gradengetallen en voet achter de ondertitel, zelfde begin als de andere drie; zie `marketing/keuring/2026-11-22-yt-shorts-3.md` (keurder, 22 nov ±01:25 NL).
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)
