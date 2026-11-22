@@ -1,6 +1,6 @@
 # Split a figure into printable parts in Blender
 
-- status: open
+- status: rood
 - kanaal: youtube-short
 - soort: tip
 - product: click-joints-pro
@@ -40,7 +40,7 @@ Click Joints Pro: type dortus.com/yt in your browser.
 - Niet gelijk aan de demo-Shorts in de wachtrij: daar alleen het kijkvenster en één belofte; hier het paneel erbij en de stappen.
 
 ## Keuring
-(leeg: de Keurder)
+- Keurder 22 nov ±21:30 NL: rood. Eerste beeld is een grijze kale pop met botlijnen zonder eindresultaat (onder shorts-4), bijna gelijk aan rig-naar-10-delen en printable-parts-v2 (vraag 8), 31,1 s waar REGELS 40 tot 60 s vraagt; ffprobe en geluid_check GOED. Zie `marketing/keuring/2026-11-22-yt-tips-v2.md`.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

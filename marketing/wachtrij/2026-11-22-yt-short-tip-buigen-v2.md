@@ -1,6 +1,6 @@
 # Check if a joint bends too far before you 3D print it
 
-- status: open
+- status: rood
 - kanaal: youtube-short
 - soort: tip
 - product: click-joints-pro
@@ -40,7 +40,7 @@ Click Joints Pro: type dortus.com/yt in your browser.
 - Niet gelijk aan de demo-Shorts in de wachtrij: daar alleen het kijkvenster en één belofte; hier het paneel erbij en de stappen.
 
 ## Keuring
-(leeg: de Keurder)
+- Keurder 22 nov ±21:30 NL: rood. Eerste beeld is weer een grijze kale pop vol getallen (onder shorts-4), "read from the rig" klopt niet (2 van 9 from rig), bijna gelijk aan knee-bend-v2 en knie-te-ver (vraag 8), 30,8 s waar REGELS 40 tot 60 s vraagt; ffprobe en geluid_check GOED. Zie `marketing/keuring/2026-11-22-yt-tips-v2.md`.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)
