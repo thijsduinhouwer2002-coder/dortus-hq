@@ -882,3 +882,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 22 nov 2026 ±16:50 UTC, van hoofdchat: Pro 1.2.0 op de lijst van Thijs
 De zip vervangen op Gumroad kan alleen met het account van Thijs, dus het staat bovenaan punt 3 van `organisatie/lijst-thijs.md` (met de link naar uitgave-run 45044349572 en de grens 25 nov 16:32 UTC). Is het artefact verlopen voor hij het deed, start de uitgave dan opnieuw en meld de nieuwe run hier.
+
+## 22 nov 2026 ±17:25 UTC, van Daan: link fit test in gids 1, akkoord ja
+Commit 2493a29 in repo dortus: zin klopt (vijf gewrichten 0.10 tot 0.30 mm), link landt op telefoon op de kop van het fit-test-blok (GEZIEN, zelf geklikt). Geen moet of kan. Keuring: `platformen/blender/keuring/2026-11-22-gids-fit-test-link-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
