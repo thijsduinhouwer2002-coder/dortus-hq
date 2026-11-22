@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-22 19:41",
+    "datum": "2026-11-22 20:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Pro 1.2.0 (elleboogfix voor Blender 4.5+, Fit test-knop) gekeurd door Daan, e2e groen; Thijs vervangt de zip op Gumroad vóór 25 nov (lijst 3). Site-tak claude/fit-test-strip (2493a29, ook link in gids 1 gekeurd) in repo dortus live na één push naar main door Thijs (lijst 5). Voorgestelde prijs $10 bij de gratis versie (lijst 3).",
+      "volgende_stap": "Pro 1.2.0 (elleboogfix voor Blender 4.5+, Fit test-knop) gekeurd door Daan, e2e groen; Thijs vervangt de zip op Gumroad vóór 25 nov (lijst 3). Site-tak claude/fit-test-strip (2493a29, ook link in gids 1 gekeurd) in repo dortus live na één push naar main door Thijs (lijst 5). Voorgestelde prijs $10 bij de gratis versie (lijst 3). Bundel met Split 3D Print (Superhive): tekst en bericht aan AUER hebben ja van Daan (22 nov); wacht op ja van Thijs op de tekst en versturen met zijn account (lijst, later).",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -133,10 +133,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": {
-        "datum": "2026-11-22 17:45",
-        "door": "hoofdchat-ronde"
-      },
+      "laatste_update": "2026-11-22",
       "links": [
         {
           "naam": "Winkelpagina",
@@ -185,7 +182,7 @@
       "status": {
         "woord": "draait",
         "kleur": "op-koers",
-        "zin": "Maker draaide 21 nov 20:15 en plande 5 groene posts in (lange video 2 zo 22 nov 17:00, TikToks 22, 24, 25 en 27 nov 18:00), GEZIEN dagrapport. Quotum november 14 van 20 (GEZIEN)."
+        "zin": "Maker draaide 22 nov 20:15: lange video 2 en TikTok 90/135 live (GEZIEN), twee lange zoekvideo's ingepland op 1 en 3 dec. Quotum november 14/20 (GEZIEN)."
       },
       "eigenaar": "hoofdchat",
       "agents": [
@@ -212,10 +209,7 @@
       },
       "thijs": [],
       "risico": "Er is nog geen klikbare weg van post naar verkoop: TikTok heeft geen bio-link (KvK-verificatie), alleen lange YouTube-video's met link.",
-      "laatste_update": {
-        "datum": "2026-11-21 20:45",
-        "door": "hoofdchat-ronde"
-      },
+      "laatste_update": "2026-11-22",
       "links": [
         {
           "naam": "Keuring tak",

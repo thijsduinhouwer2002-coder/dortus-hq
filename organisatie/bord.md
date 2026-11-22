@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: zo 22 nov 2026, 19:41 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Live vandaag via Metricool: lange video Rig to figure (YouTube 4-3l3MZZWPc) en TikTok 90/135, GEZIEN. Thijs vervangt de Pro-zip op Gumroad door 1.2.0 vóór 25 nov 16:32 UTC (lijst 3). Repo dortus main naar 2493a29 (lijst 5). Bundel met Split 3D Print: tekst ja van Daan, bericht aan AUER heeft twee moet; Bram past aan, daarna naar Thijs. Chris: monster-Shorts met CC0 Knight. Quotum Metricool 14/20. Verkopen Pro: 0 (GEZIEN scorebord).
+**Stand: zo 22 nov 2026, 20:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Roep-Maker plande lange zoekvideo's 1 en 3 dec 17:00 (Metricool, quotum nov 14/20, GEZIEN). Bundel met Split 3D Print: tekst en bericht aan AUER ja van Daan; staat op de lijst onder Later (ja van Thijs op de tekst, versturen met zijn account). Thijs vervangt de Pro-zip op Gumroad door 1.2.0 vóór 25 nov 16:32 UTC (lijst 3). Verkopen Pro: 0 (GEZIEN scorebord).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
