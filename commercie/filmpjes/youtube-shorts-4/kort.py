@@ -138,6 +138,10 @@ def render_beelden(pad, n):
     if im.size != (1080, 1920):
         im = im.resize((1080, 1920), Image.LANCZOS)
     a = np.asarray(im).astype(np.float32) / 255.0
+    if pad.name == "render-3.png":   # dichtbij: de benen lopen door tot onderaan; zacht laten vervagen boven de ondertitel
+        a = a.copy()
+        y = np.arange(1920)[:, None]
+        a[..., 3] *= np.clip((1250 - y) / 200.0, 0.0, 1.0)
     vol = (achtergrond() * (1 - a[..., 3:4]) + a[..., :3] * 255.0 * a[..., 3:4]).astype(np.uint8)
     basis = Image.fromarray(vol)
     cx, cy = 540, 1920 * 0.31
@@ -220,7 +224,7 @@ N_EXPORT = len([b for b in MT.get("export", []) if b.endswith(".3mf")]) or 10
 # aantal beelden). tekst (regel1, regel2[, y]) staat vanaf het begin van dat stuk tot de volgende tekst (None: de vorige
 # blijft). traag 2 = elk beeld twee keer (halve snelheid).
 H = 90    # eerste beeld: 3 s render
-YH = 1330  # ondertitel onder de render (niets van het figuur erachter)
+YH = 1280  # ondertitel onder de render (niets van het figuur erachter)
 VOORBIJ = int(round(MT.get("knie_pose_rood", K_STOP + 12) - K_STOP))
 SHORTS = {
     (1, "make-poseable"): [
@@ -240,11 +244,11 @@ SHORTS = {
     ],
     (2, "knee-bend"): [
         ("@render-2.png", 0, H, 1, None, ("How far can", "this knee bend?", YH)),
-        ("heel", 0, None, 1, "knop", ("Our rig: knee limit", f"{K_STOP}° (Limit Rotation)")),
-        ("kies", 0, None, 1, "knop", None),
+        ("heel", 0, None, 2, "knop", ("Our rig: knee limit", f"{K_STOP}° (Limit Rotation)")),
+        ("kies", 0, None, 2, "knop", None),
         ("knop", 0, None, 2, "knop", ("Press", "Figure from rig")),
         ("lijst", 0, 100, 2, "lijst", ("Left knee:", f"0 to {K_STOP}° from rig")),
-        ("lijst", 100, None, 1, "lijst", ("Right knee:", "mirrored from the left")),
+        ("lijst", 100, None, 2, "lijst", ("Right knee:", "mirrored from the left")),
         ("knie", 0, None, 1, None, ("Bend it with", "the Bend slider")),
         ("knie_stop", 0, None, 2, "knie", (f"Slider at {K_STOP}°:", "the end stop")),
         ("knie_rood", 0, 96, 2, "knie", (f"Past {K_STOP}°: red arc", f"and +{VOORBIJ}° past limit")),
@@ -272,15 +276,22 @@ for (nr, naam), stukken in SHORTS.items():
         if s[5] is not None:
             if teksten:
                 teksten[-1][3] = round(t0, 2)
-            teksten.append([s[5][0], s[5][1], round(t0, 2), 99, s[5][2] if len(s[5]) > 2 else 975])
+            teksten.append([s[5][0], s[5][1], round(t0, 2), 99, s[5][2] if len(s[5]) > 2 else 935])
     vf = []
     for r1, r2, a, b, y in teksten:
         vf += [f"drawbox=x=0:y={y - 10}:w=1080:h=200:color=black@0.45:t=fill:enable='gte(t,{a})*lt(t,{b})'",
                dt(r1, 74, LICHT, y, extra=tussen(a, b)), dt(r2, 74, GEEL, y + 90, extra=tussen(a, b))]
-    # printzin en meetadres boven de onderste 15% (daar legt de Shorts-speler titel en kanaal overheen)
-    vf += ["drawbox=x=0:y=1572:w=1080:h=50:color=black@0.55:t=fill", dt(PRINT, 30, LICHT, 1582, GEW),
-           f"drawbox=x=0:y=1516:w=1080:h=56:color=black@0.55:t=fill:enable='gte(t,{duur - 5})'",
-           dt("dortus.com/yt", 40, MINT, 1524, VET, extra=tussen(duur - 5, 99))]
+    # printzin en meetadres boven de onderste 15% (daar legt de Shorts-speler titel en kanaal overheen). Bij het scherm
+    # staat de printzin in de strook net boven het paneel (niet over de Bend-schuif), bij een render onder de ondertitel.
+    eind = begin[1:] + [duur]
+    rr = [(round(b0, 2), round(e0, 2)) for s, b0, e0 in zip(stukken, begin, eind) if s[0].startswith("@")]
+    bij_render = "+".join(f"between(t,{a},{b - 0.001})" for a, b in rr) or "0"
+    vf += [f"drawbox=x=0:y=1135:w=1080:h=44:color=black@0.55:t=fill:enable='not({bij_render})'",
+           dt(PRINT, 30, LICHT, 1142, GEW, extra=f":enable='not({bij_render})'"),
+           f"drawbox=x=0:y=1550:w=1080:h=44:color=black@0.55:t=fill:enable='{bij_render}'",
+           dt(PRINT, 30, LICHT, 1557, GEW, extra=f":enable='{bij_render}'"),
+           f"drawbox=x=0:y=1480:w=1080:h=56:color=black@0.55:t=fill:enable='gte(t,{duur - 5})'",
+           dt("dortus.com/yt", 42, MINT, 1486, VET, extra=tussen(duur - 5, 99))]
     stil = TMP / f"{nr}-stil.mp4"
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(rauw), "-vf", ",".join(vf) + ",format=yuv420p",
                     "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p", "-r", str(FPS),
