@@ -39,8 +39,8 @@ Beloning per minuut = dagbedrag / 1440 × aandeel. De echte beloning ligt waarsc
 ## Hoe je het rapport leest
 Het nieuwste rapport staat op de tak: `https://raw.githubusercontent.com/<eigenaar van deze repo>/dortus-hq/ai-handel-data/dag/rapport.md` (de korte proef: `proef/rapport.md`). Zelf maken:
 ```
-python3 platformen/ai-handel/schaduwbot/rapport.py --tak .          # haalt de tak op en drukt het rapport af
-python3 platformen/ai-handel/schaduwbot/rapport.py <map>            # vanaf een map met dag/<datum>/...
+python3 onderzoek/ai-handel/schaduwbot/rapport.py --tak .          # haalt de tak op en drukt het rapport af
+python3 onderzoek/ai-handel/schaduwbot/rapport.py <map>            # vanaf een map met dag/<datum>/...
 ```
 - **Per dag en totaal**, per variant: gemeten minuten, gemiddeld aantal markten en geld in open orders, hoogste stand van het geld in gevulde voorraad, beloning ondergrens tot hoge schatting (GOK), vullingen los en streng, gevuld bedrag, resultaat 1 uur later en tegen de uitslag (GEZIEN), en netto.
 - **Verlies per gevulde dollar:** vergelijk met B (−1,05% voor alle makers binnen 1 cent) en D (−0,1 tot −0,3% in temperatuurmarkten). Dit is het getal waar de route op staat of valt.

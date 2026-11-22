@@ -285,7 +285,7 @@ def rapport(map_, met_proef=False):
     o = ["# Kansenradar: rapport", "",
          f"Gemaakt {nu}. Gemeten: **{getal(uren, 1)} uur** in {len(stand)} run(s)"
          + (" (met proefruns)" if met_proef else "") + ". Cijfers zijn GEZIEN (eigen metingen uit openbare API's), "
-         "behalve waar GOK staat. Uitleg: `platformen/ai-handel/radar/README.md`.", "",
+         "behalve waar GOK staat. Uitleg: `onderzoek/ai-handel/radar/README.md`.", "",
          "## Het antwoord tot nu toe", "",
          f"- **A, nieuwe noteringen:** {len(noteringen)} nieuwe munten gezien, {len(echt_a)} echte prijsverschillen "
          f"daarna; {zin_pot(echt_a, 'A')}.",

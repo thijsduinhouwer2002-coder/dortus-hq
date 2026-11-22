@@ -578,13 +578,13 @@
         "tekst": "niet van toepassing",
         "label": "GOK",
         "reden": "Meetproject van Thijs zelf, los van Dortus; geen geld in het spel.",
-        "bron": "platformen/ai-handel/scanner/KEURING.md"
+        "bron": "onderzoek/ai-handel/scanner/KEURING.md"
       },
       "prognose": {
         "tekst": "€150: ±€0 per dag",
         "label": "GOK",
         "reden": "Simulatie op ±7 uur meetdata, Bitvavo-Kraken; minimumbedragen en terugschuifkosten eten de winst op.",
-        "bron": "platformen/ai-handel/scanner/KEURING.md"
+        "bron": "onderzoek/ai-handel/scanner/KEURING.md"
       },
       "volgende_stap": "Weekrapport met de €150-lijn per bot op wo 26 nov; stoppen als er niets uit komt.",
       "deadline": {
@@ -600,19 +600,19 @@
       "links": [
         {
           "naam": "Uitleg",
-          "url": "platformen/ai-handel/scanner/README.md"
+          "url": "onderzoek/ai-handel/scanner/README.md"
         },
         {
           "naam": "Keuring",
-          "url": "platformen/ai-handel/scanner/KEURING.md"
+          "url": "onderzoek/ai-handel/scanner/KEURING.md"
         }
       ],
       "cijfers": [],
       "mappen": [
-        "platformen/ai-handel/scanner"
+        "onderzoek/ai-handel/scanner"
       ],
       "keuringen": [
-        "platformen/ai-handel/scanner/KEURING.md"
+        "onderzoek/ai-handel/scanner/KEURING.md"
       ]
     },
     {
@@ -634,13 +634,13 @@
         "tekst": "niet van toepassing",
         "label": "GOK",
         "reden": "Meetproject van Thijs zelf, los van Dortus; geen geld in het spel.",
-        "bron": "platformen/ai-handel/schaduwbot/KEURING.md"
+        "bron": "onderzoek/ai-handel/schaduwbot/KEURING.md"
       },
       "prognose": {
         "tekst": "€150: -$0,83 tot +$4,23 per dag",
         "label": "GOK",
         "reden": "Dag 1, opschaling met minimale ordergrootte; verlies -2,55% per gevulde dollar.",
-        "bron": "platformen/ai-handel/schaduwbot/KEURING.md"
+        "bron": "onderzoek/ai-handel/schaduwbot/KEURING.md"
       },
       "volgende_stap": "Eerste uitslagen za 21 nov; na 2 weken (do 3 dec) de beslisregel uit de README.",
       "deadline": {
@@ -656,19 +656,19 @@
       "links": [
         {
           "naam": "Uitleg",
-          "url": "platformen/ai-handel/schaduwbot/README.md"
+          "url": "onderzoek/ai-handel/schaduwbot/README.md"
         },
         {
           "naam": "Keuring",
-          "url": "platformen/ai-handel/schaduwbot/KEURING.md"
+          "url": "onderzoek/ai-handel/schaduwbot/KEURING.md"
         }
       ],
       "cijfers": [],
       "mappen": [
-        "platformen/ai-handel/schaduwbot"
+        "onderzoek/ai-handel/schaduwbot"
       ],
       "keuringen": [
-        "platformen/ai-handel/schaduwbot/KEURING.md"
+        "onderzoek/ai-handel/schaduwbot/KEURING.md"
       ]
     },
     {
@@ -690,13 +690,13 @@
         "tekst": "niet van toepassing",
         "label": "GOK",
         "reden": "Meetproject van Thijs zelf, los van Dortus; geen geld in het spel.",
-        "bron": "platformen/ai-handel/driehoek/KEURING.md"
+        "bron": "onderzoek/ai-handel/driehoek/KEURING.md"
       },
       "prognose": {
         "tekst": "€150: €0 per dag",
         "label": "GOK",
         "reden": "Na ±1 uur meten nog geen enkel rondje met €100 diepte dat 3 seconden bleef staan.",
-        "bron": "platformen/ai-handel/driehoek/KEURING.md"
+        "bron": "onderzoek/ai-handel/driehoek/KEURING.md"
       },
       "volgende_stap": "Weekrapport met de €150-lijn per bot op wo 26 nov; stoppen als er niets uit komt.",
       "deadline": {
@@ -712,19 +712,19 @@
       "links": [
         {
           "naam": "Uitleg",
-          "url": "platformen/ai-handel/driehoek/README.md"
+          "url": "onderzoek/ai-handel/driehoek/README.md"
         },
         {
           "naam": "Keuring",
-          "url": "platformen/ai-handel/driehoek/KEURING.md"
+          "url": "onderzoek/ai-handel/driehoek/KEURING.md"
         }
       ],
       "cijfers": [],
       "mappen": [
-        "platformen/ai-handel/driehoek"
+        "onderzoek/ai-handel/driehoek"
       ],
       "keuringen": [
-        "platformen/ai-handel/driehoek/KEURING.md"
+        "onderzoek/ai-handel/driehoek/KEURING.md"
       ]
     },
     {
@@ -746,13 +746,13 @@
         "tekst": "niet van toepassing",
         "label": "GOK",
         "reden": "Meetproject van Thijs zelf, los van Dortus; geen geld in het spel.",
-        "bron": "platformen/ai-handel/radar/KEURING.md"
+        "bron": "onderzoek/ai-handel/radar/KEURING.md"
       },
       "prognose": {
         "tekst": "€150: €0 per dag tot nu toe",
         "label": "GOK",
         "reden": "Eerste uren: geen moment dat je met één pot van €150 had kunnen pakken; funding-uitkomsten komen pas na verrekeningen.",
-        "bron": "platformen/ai-handel/radar/KEURING.md"
+        "bron": "onderzoek/ai-handel/radar/KEURING.md"
       },
       "volgende_stap": "Weekrapport met de €150-lijn per bot op wo 26 nov; stoppen als er niets uit komt.",
       "deadline": {
@@ -768,19 +768,19 @@
       "links": [
         {
           "naam": "Uitleg",
-          "url": "platformen/ai-handel/radar/README.md"
+          "url": "onderzoek/ai-handel/radar/README.md"
         },
         {
           "naam": "Keuring",
-          "url": "platformen/ai-handel/radar/KEURING.md"
+          "url": "onderzoek/ai-handel/radar/KEURING.md"
         }
       ],
       "cijfers": [],
       "mappen": [
-        "platformen/ai-handel/radar"
+        "onderzoek/ai-handel/radar"
       ],
       "keuringen": [
-        "platformen/ai-handel/radar/KEURING.md"
+        "onderzoek/ai-handel/radar/KEURING.md"
       ]
     }
   ]

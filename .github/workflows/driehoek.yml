@@ -2,7 +2,7 @@ name: Driehoek-meter (onderzoek ai-handel)
 
 # Bouwer driehoek-meter, 19 nov 2026. Meet een week lang of er binnen één beurs driehoeken (bijv. EUR > BTC > ETH
 # > EUR) bestaan met winst na drie keer takerkosten. Alleen openbare API's: geen account, geen sleutel, geen
-# handel, geen geld. Uitleg: platformen/ai-handel/driehoek/README.md. Data en rapport gaan naar de tak
+# handel, geen geld. Uitleg: onderzoek/ai-handel/driehoek/README.md. Data en rapport gaan naar de tak
 # ai-handel-data, map driehoek/ (niet main).
 #
 # Ritme zoals de scanner: één job van ±5 uur 25 minuten, daarna de volgende. GitHub laat geplande runs in deze
@@ -51,7 +51,7 @@ jobs:
           sparse-checkout: organisatie/controle
       - id: klok
         if: steps.week.outputs.na == 'nee'
-        run: python3 -I organisatie/controle/klok.py driehoek 6h --paden "platformen/ai-handel/driehoek/*.py,platformen/ai-handel/driehoek/opslaan.sh,platformen/ai-handel/scanner/beurzen.py,.github/workflows/driehoek.yml"
+        run: python3 -I organisatie/controle/klok.py driehoek 6h --paden "onderzoek/ai-handel/driehoek/*.py,onderzoek/ai-handel/driehoek/opslaan.sh,onderzoek/ai-handel/scanner/beurzen.py,.github/workflows/driehoek.yml"
 
   meet:
     needs: klok
@@ -69,8 +69,8 @@ jobs:
         with:
           fetch-depth: 1
           sparse-checkout: |
-            platformen/ai-handel/driehoek
-            platformen/ai-handel/scanner
+            onderzoek/ai-handel/driehoek
+            onderzoek/ai-handel/scanner
       - name: Meten (en elk half uur tussentijds opslaan)
         run: |
           MINUTEN=325
@@ -83,7 +83,7 @@ jobs:
           [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && UIT="$UIT-proef"
           mkdir -p "$UIT"
           echo "Meten: $MINUTEN minuten, naar $UIT"
-          python3 -u platformen/ai-handel/driehoek/driehoek.py --minuten "$MINUTEN" --uit "$UIT" &
+          python3 -u onderzoek/ai-handel/driehoek/driehoek.py --minuten "$MINUTEN" --uit "$UIT" &
           PID=$!
           # Bij afbreken het signaal doorgeven, zodat de meter zijn open driehoeken en samenvatting.json nog wegschrijft.
           trap 'kill -TERM "$PID" 2>/dev/null; wait "$PID"; exit 1' INT TERM
@@ -91,16 +91,16 @@ jobs:
           while kill -0 "$PID" 2>/dev/null; do
             sleep 30 & wait $!
             if [ $(( $(date +%s) - LAATST )) -ge 1800 ]; then
-              bash platformen/ai-handel/driehoek/opslaan.sh "$RUNNER_TEMP/dh" || true
+              bash onderzoek/ai-handel/driehoek/opslaan.sh "$RUNNER_TEMP/dh" || true
               LAATST=$(date +%s)
             fi
           done
           wait "$PID"
       - name: Opslaan op de tak ai-handel-data
         if: always()
-        run: bash platformen/ai-handel/driehoek/opslaan.sh "$RUNNER_TEMP/dh"
+        run: bash onderzoek/ai-handel/driehoek/opslaan.sh "$RUNNER_TEMP/dh"
       - name: Rapport in het log
         if: always()
         run: |
-          python3 -I platformen/ai-handel/driehoek/rapport.py "$RUNNER_TEMP/dh" --met-proef | head -120
+          python3 -I onderzoek/ai-handel/driehoek/rapport.py "$RUNNER_TEMP/dh" --met-proef | head -120
           cat "$RUNNER_TEMP"/dh/*/*/samenvatting.json 2>/dev/null | head -80 || true

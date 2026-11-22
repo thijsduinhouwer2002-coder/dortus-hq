@@ -2,7 +2,7 @@ name: Koersverschil-scanner (onderzoek ai-handel)
 
 # Bouwer scanner, 19 nov 2026. Meet een week lang of er tussen crypto-beurzen prijsverschillen boven de kosten
 # bestaan. Alleen openbare API's: geen account, geen sleutel, geen handel, geen geld. Uitleg:
-# platformen/ai-handel/scanner/README.md. Data en rapport gaan naar de tak ai-handel-data, map scanner/ (niet main).
+# onderzoek/ai-handel/scanner/README.md. Data en rapport gaan naar de tak ai-handel-data, map scanner/ (niet main).
 #
 # Ritme: één job van ±5 uur 25 minuten, daarna de volgende. GitHub laat geplande runs in deze repo vaak vallen,
 # daarom start hij ook bij elke push naar main en beslist de klok (organisatie/controle/klok.py, interval 6h) of
@@ -38,7 +38,7 @@ jobs:
           filter: blob:none
           sparse-checkout: organisatie/controle
       - id: klok
-        run: python3 -I organisatie/controle/klok.py scanner 6h --paden "platformen/ai-handel/scanner/**,.github/workflows/scanner.yml"
+        run: python3 -I organisatie/controle/klok.py scanner 6h --paden "onderzoek/ai-handel/scanner/**,.github/workflows/scanner.yml"
 
   meet:
     needs: klok
@@ -55,7 +55,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-          sparse-checkout: platformen/ai-handel/scanner
+          sparse-checkout: onderzoek/ai-handel/scanner
       - name: Meten (en elk half uur tussentijds opslaan)
         run: |
           MINUTEN=325
@@ -68,7 +68,7 @@ jobs:
           [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && UIT="$UIT-proef"
           mkdir -p "$UIT"
           echo "Meten: $MINUTEN minuten, naar $UIT"
-          python3 -u platformen/ai-handel/scanner/scanner.py --minuten "$MINUTEN" --uit "$UIT" &
+          python3 -u onderzoek/ai-handel/scanner/scanner.py --minuten "$MINUTEN" --uit "$UIT" &
           PID=$!
           # Bij afbreken stuurt de runner SIGINT/SIGTERM naar deze shell; een achtergrondproces krijgt dat niet
           # vanzelf. Doorgeven, zodat de scanner zijn open kansen en samenvatting.json nog wegschrijft (keuring A13).
@@ -77,16 +77,16 @@ jobs:
           while kill -0 "$PID" 2>/dev/null; do
             sleep 30 & wait $!
             if [ $(( $(date +%s) - LAATST )) -ge 1800 ]; then
-              bash platformen/ai-handel/scanner/opslaan.sh "$RUNNER_TEMP/scan" || true
+              bash onderzoek/ai-handel/scanner/opslaan.sh "$RUNNER_TEMP/scan" || true
               LAATST=$(date +%s)
             fi
           done
           wait "$PID"
       - name: Opslaan op de tak ai-handel-data
         if: always()
-        run: bash platformen/ai-handel/scanner/opslaan.sh "$RUNNER_TEMP/scan"
+        run: bash onderzoek/ai-handel/scanner/opslaan.sh "$RUNNER_TEMP/scan"
       - name: Rapport in het log
         if: always()
         run: |
-          python3 -I platformen/ai-handel/scanner/rapport.py "$RUNNER_TEMP/scan" --met-proef | head -80
+          python3 -I onderzoek/ai-handel/scanner/rapport.py "$RUNNER_TEMP/scan" --met-proef | head -80
           cat "$RUNNER_TEMP"/scan/*/*/samenvatting.json 2>/dev/null | head -60 || true
