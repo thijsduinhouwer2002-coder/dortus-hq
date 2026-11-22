@@ -3,7 +3,7 @@
 Opdracht Afkijker 22 nov 12:50; plek gekozen door hoofdchat 12:40 (gratis op dortus.com bij Click Joints). Nog niet online: eerst keuring Daan, dan op een tak vanaf b1050f4 in repo dortus.
 
 ## Bestanden (in `commercie/blender-click-joints/testprint/`)
-- `fit-test-strip.stl`: 10 delen, vijf kogelgewrichten bij 0.10 / 0.15 / 0.20 / 0.25 / 0.30 mm speling. Gemaakt met de echte Pro-code (knop "Fit test: ball", standaardwaarden) in Blender 5.3.0, script `maak_strip.py`. 140 x 52,1 x 44,5 mm, 90,2 cm³ (GEZIEN, trimesh).
+- `fit-test-strip.stl`: 10 delen, vijf kogelgewrichten bij 0.10 / 0.15 / 0.20 / 0.25 / 0.30 mm speling. Gemaakt met de echte Pro-code (knop "Fit test: ball", standaardwaarden) in Blender 5.3.0, script `maak_strip.py`. 140 x 52,4 x 44,5 mm (GEZIEN, trimesh, na moet 1).
 - `fit-test-strip-plus-testset.stl`: dezelfde strip plus de 4 delen van `testset-4-delen.stl` erachter, 14 delen, 140 x 84,1 x 44,5 mm (GEZIEN). Voor de echte testprint (keuring C3: één bestand, één keer startgeld).
 - Beelden: `beeld/strip-plus-testset-schuin.png` en `-onder.png`.
 
@@ -32,3 +32,8 @@ Printed it? Email a photo to thijs@dortus.com (subject: Fit test photo) and get 
 - Moet 2 (C1): foto naar thijs@dortus.com, onderwerp "Fit test photo", je krijgt een gratis Pro-code (besluit hoofdchat 13:40).
 - Kan C2 meegenomen: "flat end down. No supports." Kan C3 (groeven zijkant) en C4 (beeld in elkaar) nog niet.
 - Maat strip nu 140 x 52,4 x 44,5 mm; alle 10 delen waterdicht, op z = 0 (GEZIEN).
+
+## Op de site-tak (22 nov, ±15:45 UTC)
+- Repo dortus, tak `claude/fit-test-strip` (466e421) vanaf b1050f4 (`claude/direct-zip-download`): blok "Print this first" onder Install op `/click-joints/` (anker `#fit-test`), knop naar `/click-joints/fit-test-strip.stl` (3 MB). Eén push van deze tak naar main neemt ook de direct-zip mee.
+- Gekeken op 1280 en 390 px breed, geen zijdelings scrollen (GEZIEN): `platformen/blender/keuring/2026-11-22-fit-test-site-desk.png` en `-tel.png`.
+- Kan van Daan: maat bijgewerkt (52,4). De "1" die op een "I" lijkt: nog niet, vraagt een ander lettertype in `maak_strip.py` en opnieuw meten.

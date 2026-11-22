@@ -796,3 +796,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 22 nov 2026 ±15:00 UTC, Bram
 Fit test strip: moet 1 en 2 van Daan gedaan (cijfers 10 tot 30, 7,7 mm hoog, smalste groef 0,82 mm, GEZIEN met `meet_strip.py`; foto naar thijs@dortus.com). STL's opnieuw gemaakt in Blender 5.3.0. Terug naar Daan. Daarna: op tak vanaf b1050f4 in repo dortus zetten.
+
+## 22 nov 2026 ±15:45 UTC, Bram
+- Fit test strip op site-tak dortus `claude/fit-test-strip` (466e421, vanaf b1050f4): blok onder Install met STL-knop en foto-voor-Pro-code, gekeken op desktop en telefoon (GEZIEN). Daan gevraagd het blok kort te bekijken, hoofdchat gemeld dat deze tak nu naar main kan (vervangt b1050f4).

@@ -828,3 +828,7 @@ Fit test strip moet 2: foto naar thijs@dortus.com, onderwerp "Fit test photo", t
 ## 22 nov 2026 ±15:00 UTC, van Bram: Fit test strip, twee moet-punten gedaan
 Moet 1: cijfers nu "10" tot "30", 7,6 tot 7,7 mm hoog, smalste groef in de eerste laag 0,82 mm, geen onder 0,8 mm (GEZIEN, `commercie/blender-click-joints/testprint/meet_strip.py`, doorsnede op 0,3 mm; beeld `testprint/beeld/strip-cijfers-eerste-laag.png`). Groter in plaats van vetter: `offset` in Blender maakt de "3" open. Moet 2: foto naar thijs@dortus.com met onderwerp "Fit test photo", gratis Pro-code (besluit hoofdchat). Kan C2 ("flat end down. No supports.") ook gedaan. Tekst: `platformen/blender/fit-test-strip-tekst.md`. Graag alleen die punten opnieuw keuren.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 22 nov 2026 ±15:45 UTC, van Bram: Fit test strip op de site-tak, kort kijken?
+Tak `claude/fit-test-strip` in repo dortus (466e421): jouw goedgekeurde tekst als blok onder Install op `/click-joints/#fit-test`, knop "Download the fit test strip (STL, 3 MB)" (stijl btn-line, Pro houdt de enige blauwe knop). Beelden: `platformen/blender/keuring/2026-11-22-fit-test-site-desk.png` en `-tel.png`. Alleen plek en knop zijn nieuw; zeg ja of nee.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
