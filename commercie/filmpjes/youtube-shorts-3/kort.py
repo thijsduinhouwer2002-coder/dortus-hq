@@ -136,7 +136,12 @@ def stukken_naar_video(nr, stukken, uit):
         d0 = FILM["delen"][deel]
         eerste = d0 + van
         laatste = min(deel_eind(deel), d0 + tot) if tot is not None else deel_eind(deel)
-        py = paneel_y(pdeel or deel)
+        py0 = paneel_y(pdeel or deel)
+        # in deel knie is het hoofdpaneel eerst dicht: bovenaan tot de klik op de kop (eerste klik in de zijbalk)
+        wissel = 0
+        if deel == "knie":
+            wissel = next((i + 1 for i in range(d0 - 1, min(len(muis), deel_eind(deel) - 1))
+                           if muis[i][2] and muis[i][0] >= ZB[0]), 0) + 14
         dec = subprocess.Popen(["ffmpeg", "-v", "error", "-i", str(BRON / "opname-ruw.mkv"), "-vf",
                                 f"trim=start_frame={eerste - 1}:end_frame={laatste - 1},setpts=PTS-STARTPTS",
                                 "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
@@ -147,6 +152,7 @@ def stukken_naar_video(nr, stukken, uit):
             if len(buf) < SW * SH * 3:
                 break
             src = np.frombuffer(buf, np.uint8).reshape(SH, SW, 3)
+            py = ZB[1] if n < wissel else py0
             out = np.empty((1920, 1080, 3), np.uint8)
             out[:BOVEN_H] = src[:BOVEN_H, :1080]
             out[BOVEN_H:] = src[py:py + ONDER_H, ZB[0] + 1:ZB[0] + 1 + 1080]
@@ -188,12 +194,12 @@ SHORTS = {
         ("held", 20, 20 + H, 1, "knie", ("Make your character", "poseable for 3D printing")),
         ("heel", 0, None, 1, "knop", ("1. Select your", "rigged character")),
         ("kies", 0, None, 1, "knop", None),
-        ("knop", 0, None, 2, "knop", ("2. Click", "Figure from rig")),
+        ("knop", 0, None, 2, "knop", ("2. Press", "Figure from rig")),
         ("lijst", 0, None, 1, "lijst", (f"{N_GEW} joints, each", "with its range")),
         ("knie", 0, None, 1, None, ("3. Bend the knee", "to its end stop")),
         ("knie_rood", 0, None, 1, "knie", ("Past the stop", "it turns red")),
         ("pose", 0, None, 1, "knie", ("Pose the rest", "of the figure")),
-        ("uitelkaar", 0, None, 1, None, ("4. Exploded view:", "hinges and ball joints")),
+        ("uitelkaar", 0, None, 1, None, ("4. Exploded view:", "see the ball joints")),
         ("export", 0, None, 1, None, ("5. Export every part", "as 3MF")),
         ("held", 0, None, 1, "held", ("Ready to slice", "and test print")),
     ],
@@ -201,7 +207,7 @@ SHORTS = {
         ("held", 60, 60 + H, 1, "knie", ("How far can", "this knee bend?")),
         ("heel", 0, None, 1, "knop", ("A rig with", f"Limit Rotation {K_STOP}°")),
         ("kies", 0, None, 1, "knop", None),
-        ("knop", 0, None, 2, "knop", ("Click", "Figure from rig")),
+        ("knop", 0, None, 2, "knop", ("Press", "Figure from rig")),
         ("lijst", 0, 100, 2, "lijst", ("Left knee:", f"0 to {K_STOP}° from rig")),
         ("lijst", 100, None, 1, "lijst", ("Right knee:", "mirrored from the left")),
         ("knie", 0, None, 1, None, ("Bend it", "in the panel")),
@@ -218,17 +224,17 @@ SHORTS = {
         ("lijst", 60, 140, 1, "lijst", ("Ball joints at shoulders,", "hips and neck")),
         ("knie", 0, None, 1, None, ("Bend a knee", "to its end stop")),
         ("pose", 0, None, 2, "knie", ("Pose it", "right in Blender")),
-        ("uitelkaar", 0, None, 2, None, ("Every part", "comes apart")),
+        ("uitelkaar", 0, None, 2, None, ("Exploded view:", "the ball joint inside")),
         ("held", 0, None, 2, "held", ("Print a test joint", "first")),
     ],
     (4, "printable-parts"): [
-        ("uitelkaar", 60, 60 + H, 1, None, ("Your character as", "printable parts")),
+        ("held", 105, 105 + H, 1, "knie", ("Your character as", "printable parts")),
         ("heel", 0, None, 1, "knop", ("Select the", "rigged figure")),
         ("kies", 0, None, 1, "knop", None),
-        ("knop", 0, None, 2, "knop", ("Click", "Figure from rig")),
+        ("knop", 0, None, 2, "knop", ("Press", "Figure from rig")),
         ("lijst", 0, None, 1, "lijst", ("Cut into parts", f"with {N_GEW} joints")),
         ("pose", 0, None, 1, "knie", ("Each joint", "shows its range")),
-        ("uitelkaar", 0, None, 2, None, ("Exploded view", "shows every part")),
+        ("uitelkaar", 0, None, 2, None, ("Exploded view:", "ball and socket")),
         ("export", 0, None, 2, None, ("Pick 3MF,", "then Export")),
         ("held", 0, None, 2, "knie", (f"{N_EXPORT} files", "ready to slice")),
     ],

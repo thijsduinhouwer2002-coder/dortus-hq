@@ -351,6 +351,7 @@ def verloop_pro():
     bpy.context.preferences.view.ui_scale = UI
     # zijbalk naast de weergave, niet erover: dan staat de tekst van de add-on midden in de linkerhelft
     bpy.context.preferences.system.use_region_overlap = False
+    bpy.context.preferences.view.show_tooltips = False   # geen gele uitlegvakjes als de muis stilstaat
     kijk_breed()
     _, gebied, _ = zijbalk()
     gebied.spaces.active.overlay.show_outline_selected = True
@@ -551,7 +552,16 @@ def verloop_pro():
         herteken()
     bpy.context.view_layer.update()
     neem_m(6)
-    yield from stuk(110, lambda t: cam(-25 + 70 * t, 84.0, D_HEEL, heel))
+    w = rect("WINDOW")
+    yield from muis_naar(w[0] + 80, w[1] + w[3] - 120, 14)   # muis uit het paneel (geen tooltip)
+    # dichtbij de linkerschouder: kogel en kom te zien, dan de linkerheup
+    sch = p["l-shoulder"] + (p["l-elbow"] - p["l-shoulder"]) * 0.3
+    hp = p["l-upper-leg"]
+    yield from stuk(36, lambda t: cam(-25 + 35 * t, 84.0 + 2 * t, D_HEEL + (75.0 - D_HEEL) * t, mengen(heel, sch, t)))
+    yield from stuk(90, lambda t: cam(10 + 30 * t, 86.0, 75.0, sch))
+    yield from stuk(30, lambda t: cam(40, 86.0 - 6 * t, 75.0 + 10 * t, mengen(sch, hp, t)))
+    yield from stuk(60, lambda t: cam(40 - 25 * t, 80.0, 85.0, hp))
+    yield from stuk(30, lambda t: cam(15 - 40 * t, 80.0 + 4 * t, 85.0 + (D_HEEL - 85.0) * t, mengen(hp, heel, t)))
     los = [o.name for o in bpy.context.scene.objects if o.get("cj_deel") == "B" and o.delta_location.length > 1e-6]
     film["metingen"]["uit_elkaar_delen"] = len(los)
     log(f"KORT {'OK' if los else 'FOUT'} uitelkaar {len(los)}")
@@ -582,6 +592,8 @@ def verloop_pro():
         yield from muis_naar(knop_e[0], knop_e[1], 22)
         klik()
         yield 1.5
+        neem_m(4)
+        yield from muis_naar(knop_e[0] - 260, knop_e[1] + 260, 14)   # muis van de knop af (geen tooltip)
     if not glob.glob(os.path.join(exportmap, "**", "*.3mf"), recursive=True):
         log("KORT vangnet export: Export via script")
         bpy.ops.click_joints.exporteer()
@@ -597,7 +609,7 @@ def verloop_pro():
     bpy.context.view_layer.update()
     yield from muis_naar(rect("WINDOW")[0] + 60, rect("WINDOW")[1] + rect("WINDOW")[3] - 80, 12)
     deel("held")
-    yield from stuk(150, lambda t: cam(-40 + 80 * t, 84.0, D_HEEL - 20, heel))
+    yield from stuk(180, lambda t: cam(-40 + 90 * t, 84.0, D_HEEL - 20, heel))
     log("KORT OK held")
 
 
