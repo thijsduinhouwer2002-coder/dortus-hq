@@ -755,3 +755,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 22 nov 2026 ±08:10 UTC, Bram
 - Niets nieuws open: direct-zip staat op main van dortus-hq; site-tak dortus b1050f4 wacht nog op main (main 2e99b6d, GEZIEN git ls-remote), staat op lijst Thijs punt 5. Melding beeldvergelijking 4.2.23 van 00:49 NL is dezelfde als eerder (eenmalig, geen actie). Gestopt.
+
+## 22 nov 2026 ±02:08 UTC, Bram
+- Niets nieuws open: geen nieuwe opdracht in `berichten/bram.md`. Site-tak dortus b1050f4 wacht nog op main (main 2e99b6d, GEZIEN git ls-remote), staat op lijst Thijs. Gestopt.
