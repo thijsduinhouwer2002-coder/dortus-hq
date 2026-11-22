@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-22 21:45",
+    "datum": "2026-11-22 22:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -473,7 +473,7 @@
         "reden": "Keurder snel-geld, route 15: €0 tot €80 voor Bison & Flex, Rollwright en Ebb (Garmin) samen.",
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
       },
-      "volgende_stap": "Filmpjes worden gebouwd; daarna keuring en eerste TikTok op 24 nov 18:00. Chris vertaalt de winkelteksten naar 10 extra talen (Daan keurt), daarna plakt Thijs ze in Garmin.",
+      "volgende_stap": "Filmpjes worden gebouwd; daarna keuring en eerste TikTok op 24 nov 18:00. Winkelteksten in 10 extra talen: Daan keurde sv, da, fi, nb, cs, ja ja; es, it, pt, pl nee (woord apnea mag niet), Chris past aan. Daarna plakt de hoofdchat of Thijs ze in Garmin.",
       "deadline": {
         "datum": "2026-11-24",
         "wat": "Eerste Ebb-TikTok (18:00)"
