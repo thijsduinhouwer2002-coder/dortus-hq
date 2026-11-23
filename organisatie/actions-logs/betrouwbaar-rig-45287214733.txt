@@ -1,0 +1,53 @@
+# gemaakt: 2026-11-23T23:51:49Z
+# workflow: Betrouwbaarheid Figure from rig (testset, echte Blender) (.github/workflows/betrouwbaar-rig.yml)
+# run: 45287214733 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45287214733
+# commit: 25efd957 tak claude/betrouwbaar-rig gestart door push
+# mislukte stappen: meet (4.2.23, robot-fijn, nul, 2): Figure from rig op robot-fijn (nul, herhaling 2); meet (4.2.23, robot-fijn, nul, 1): Figure from rig op robot-fijn (nul, herhaling 1)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== meet (4.2.23, robot-fijn, nul, 2) / Figure from rig op robot-fijn (nul, herhaling 2) (laatste 21 van 21 regels) =====
+##[group]Run mkdir -p /tmp/uit
+mkdir -p /tmp/uit
+N="$FIG-$H"; T=""
+[ -n "$CJ_THREADS" ] && { N="$N-t1"; T="-t $CJ_THREADS"; }
+echo "N=$N" >> "$GITHUB_ENV"
+timeout 2700 /tmp/blender/blender -b --factory-startup $T --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip "$FIG" "/tmp/uit/$N.json" > /tmp/vol.log 2>&1 || true
+{ grep -E "\[meet\]|^MEET|Traceback|Error" /tmp/vol.log | cut -c1-2000; tail -30 /tmp/vol.log | cut -c1-400; grep -m1 "model name" /proc/cpuinfo; } > "/tmp/uit/$N.log"
+grep "^MEET" /tmp/vol.log || tail -20 /tmp/vol.log
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  NUL_COMMIT: [weggehaald: lange hex-reeks]
+  CJ_PROEVEN: 
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: robot-fijn
+  H: 2
+  CJ_THREADS: 
+##[endgroup]
+##[error]Process completed with exit code 143.
+
+===== meet (4.2.23, robot-fijn, nul, 1) / Figure from rig op robot-fijn (nul, herhaling 1) (laatste 21 van 21 regels) =====
+##[group]Run mkdir -p /tmp/uit
+mkdir -p /tmp/uit
+N="$FIG-$H"; T=""
+[ -n "$CJ_THREADS" ] && { N="$N-t1"; T="-t $CJ_THREADS"; }
+echo "N=$N" >> "$GITHUB_ENV"
+timeout 2700 /tmp/blender/blender -b --factory-startup $T --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip "$FIG" "/tmp/uit/$N.json" > /tmp/vol.log 2>&1 || true
+{ grep -E "\[meet\]|^MEET|Traceback|Error" /tmp/vol.log | cut -c1-2000; tail -30 /tmp/vol.log | cut -c1-400; grep -m1 "model name" /proc/cpuinfo; } > "/tmp/uit/$N.log"
+grep "^MEET" /tmp/vol.log || tail -20 /tmp/vol.log
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  NUL_COMMIT: [weggehaald: lange hex-reeks]
+  CJ_PROEVEN: 
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: robot-fijn
+  H: 1
+  CJ_THREADS: 
+##[endgroup]
+##[error]Process completed with exit code 143.
