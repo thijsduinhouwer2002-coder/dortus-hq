@@ -21,7 +21,7 @@ from mathutils import Matrix, Vector
 from mathutils.bvhtree import BVHTree
 
 POGINGEN, SNEDEN = [], []
-KEUS = ("lussen", "lid", "h_soort", "lid_open", "vreemd", "marge", "h_voxel", "h_vlakken", "h_buiten", "h_pogingen")
+KEUS = ("lussen", "lid", "h_soort", "lid_open", "vreemd", "marge", "h_voxel", "h_vlakken", "h_buiten", "h_buiten_om", "h_pogingen")
 _HUIDIG = {}
 
 
@@ -89,14 +89,32 @@ def overlap_ab(deel_a, deel_b, frame, maat):
     return sum(1 for i, j in paren if not (ra[i] and rb[j]))
 
 
-def staat(deel_a, deel_b, frame, maat):
+def herstel_proef(ob):
+    """Alleen meten: wordt een deel met randen van 4 vlakken gesloten als je die randen splitst?"""
+    import bmesh
+    bm = bmesh.new()
+    bm.from_mesh(ob.data)
+    vier = [e for e in bm.edges if len(e.link_faces) == 4]
+    if not vier:
+        bm.free()
+        return None
+    bmesh.ops.split_edges(bm, edges=vier)
+    fout = sum(1 for e in bm.edges if len(e.link_faces) != 2)
+    bm.free()
+    return {"vier": len(vier), "fout_na": fout}
+
+
+def staat(deel_a, deel_b, frame, maat, zelf=False):
     ges = mod("gesloten")
     uit = {}
     for letter, d in (("A", deel_a), ("B", deel_b)):
         ok, fout = ges.is_gesloten(d.data)
         uit[letter] = {"gesloten": ok, "fout": fout, "punten": len(d.data.vertices)}
+        if zelf:
+            uit[letter]["zelf"] = zelf_overlap(d)
         if not ok:
             uit[letter]["open"] = open_plekken(d, frame, maat)
+            uit[letter]["herstel"] = herstel_proef(d)
     uit["overlap_ab"] = overlap_ab(deel_a, deel_b, frame, maat)
     uit["goed"] = uit["A"]["gesloten"] and uit["B"]["gesloten"] and uit["overlap_ab"] == 0
     return uit
@@ -118,6 +136,7 @@ def proeven(oud, hulp, werk, frame, maat, soort, solver):
     u = maat["s"] / 0.2 if maat.get("s") else 1.0
     varianten = [
         ("exact", frame, "EXACT"),
+        ("exact_zelf", frame, "EXACT"),
         ("schuif_0.05", frame @ Matrix.Translation((0, 0, 0.05 * u)), solver),
         ("draai_0.3", frame @ Matrix.Rotation(math.radians(0.3), 4, "X"), solver),
         ("draai_1.0", frame @ Matrix.Rotation(math.radians(1.0), 4, "X"), solver),
@@ -129,6 +148,9 @@ def proeven(oud, hulp, werk, frame, maat, soort, solver):
             een_lid.STAND["solver"] = sv
             een_lid.STAND["bronnen"] = {}
         t0 = time.perf_counter()
+        gw = mod("gewricht")
+        zelf_oud = gw.EXACT_ZELF
+        gw.EXACT_ZELF = naam == "exact_zelf"
         try:
             a, b = oud(hulp, werk, f, maat, soort, sv)
             st = staat(a, b, f, maat)
@@ -136,6 +158,7 @@ def proeven(oud, hulp, werk, frame, maat, soort, solver):
                          "s": round(time.perf_counter() - t0, 2)}
         except Exception as e:  # meten mag de knop nooit breken
             uit[naam] = {"fout": str(e)[:200]}
+        gw.EXACT_ZELF = zelf_oud
         _ruim(hulp, voor)
     een_lid.STAND.update(bewaar)
     return uit
@@ -156,7 +179,8 @@ def instrumenteer():
                "r_mm": round(maat["r"], 3), "naad_r": round(maat.get("naad_r", -1.0), 3),
                "een_lid": {k: een_lid.LAATSTE.get(k) for k in KEUS}}
         try:
-            rec.update(staat(a, b, frame, maat))
+            rec.update(staat(a, b, frame, maat, zelf=True))
+            rec["werk_zelf"] = zelf_overlap(werk)
             if een_lid.STAND.get("h") is not None:
                 rec["h_zelf_overlap"] = zelf_overlap(een_lid.STAND["h"])
             if not rec["goed"] and os.environ.get("CJ_PROEVEN"):
@@ -194,6 +218,12 @@ def instrumenteer():
         for letter, d in (("A", a), ("B", b)):
             ok, fout = ges.is_gesloten(d.data)
             rec[letter] = {"gesloten": ok, "fout": fout, "punten": len(d.data.vertices)}
+            try:
+                rec[letter]["zelf"] = zelf_overlap(d)
+                if not ok:
+                    rec[letter]["herstel"] = herstel_proef(d)
+            except Exception as e:
+                rec["meetfout"] = str(e)[:200]
         rec["goed"] = rec["A"]["gesloten"] and rec["B"]["gesloten"]
         SNEDEN.append(rec)
         return a, b

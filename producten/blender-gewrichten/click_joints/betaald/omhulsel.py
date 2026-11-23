@@ -23,8 +23,11 @@ from mathutils.bvhtree import BVHTree
 from .. import een_lid as _l
 
 AAN = [True]          # voor de meting: False geeft precies de oude weg
-MAX_VLAKKEN = 160000  # voxelmaat zo dat H hooguit ±zoveel vlakken krijgt (snelheid van de booleans)
-BUITEN_MAX = 0.002    # hooguit dit deel van de controlepunten mag buiten H vallen
+MAX_VLAKKEN = 250000  # voxelmaat zo dat H hooguit ±zoveel vlakken krijgt (snelheid van de booleans)
+# Hooguit dit deel van de controlepunten van het lid mag buiten H vallen. Niet 0: in een holte van de figuur vouwt de
+# verschoven huid om, en daar ligt het controlepunt (huid min m langs de nieuwe normaal) niet meer op de echte huid
+# (run 45255097554: 0,2 tot 1,9 procent, ook waar de snede daarna goed was).
+BUITEN_MAX = 0.02
 _oud = [None]
 
 
@@ -54,7 +57,8 @@ def voxel_h(hb, lb, frame, hulp, m):
     a, b = hb.copy(), lb.copy()
     a.transform(frame)
     b.transform(frame)
-    controle = _binnen_punten(a, m) + _binnen_punten(b, m)
+    controle = _binnen_punten(b, m)  # het lid; het omhulsel rond het vlak alleen voor het verslag
+    controle_om = _binnen_punten(a, m)
     opp = _oppervlak(a) + _oppervlak(b)
     v = max(0.5 * m, math.sqrt(opp / MAX_VLAKKEN))
     kaart = {x: a.verts.new(x.co) for x in b.verts}
@@ -81,7 +85,9 @@ def voxel_h(hb, lb, frame, hulp, m):
     if ok:
         bm = bmesh.new()
         bm.from_mesh(nm)
-        buiten = _buiten_deel(BVHTree.FromBMesh(bm), controle)
+        bvh = BVHTree.FromBMesh(bm)
+        buiten = _buiten_deel(bvh, controle)
+        gegevens["h_buiten_om"] = round(_buiten_deel(bvh, controle_om), 4)
         bm.free()
         gegevens["h_buiten"] = round(buiten, 4)
         ok = buiten <= BUITEN_MAX
