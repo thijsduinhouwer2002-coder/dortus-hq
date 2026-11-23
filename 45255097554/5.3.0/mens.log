@@ -1,0 +1,47 @@
+[meet] figuur mens: mens, {'bron_punten': 13380, 'bron_zelf_overlap': 0}
+[meet] Blender 5.3.0 figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 37, sneden 17, slechte sneden 1
+[meet]   SLECHT {"poging": 11, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 0.95, "r_mm": 1.75, "naad_r": 7.839, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.27129702674594763, "h_voxel": 0.1356, "h_vlakken": 105932, "h_buiten": 0.0023, "h_pogingen": [[false, 965.0, 2139.2, false], [true, 0.0, 2139.2, false]]}, "A": {"gesloten": true, "fout": 0, "punten": 29010}, "B": {"gesloten": true, "fout": 0, "punten": 22888}, "overlap_ab": 13277, "goed": false, "h_zelf_overlap": 459, "proeven": {"exact": {"goed": false, "A": 117, "B": 265, "overlap": 156, "s": 14.88}, "schuif_0.05": {"goed": false, "A": 0, "B": 0, "overlap": 12952, "s": 1.22}, "draai_0.3": {"goed": false, "A": 0, "B": 0, "overlap": 13551, "s": 1.15}, "draai_1.0": {"goed": false, "A": 0, "B": 0, "overlap": 13971, "s": 1.17}}}
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=1
+Info: Hinge placed. Bends 0° to 120°. 0.546 s.
+Info: Joint placed. Good fit. 1.036 s.
+Info: Joint placed. Good fit. 2.805 s.
+Info: Joint placed. Good fit. 2.725 s.
+Info: Joint placed. Good fit. 23.231 s.
+Info: Joint placed. Good fit. 2.698 s.
+Info: Joint placed. Good fit. 2.708 s.
+Info: Joint placed. Good fit. 2.454 s.
+Info: Joint placed. Good fit. 2.45 s.
+Info: Joint placed. Good fit. 2.476 s.
+Info: Joint placed. Good fit. 2.43 s.
+Info: Joint placed. Good fit. 2.481 s.
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Info: Joint placed. Good fit. 1.641 s.
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Info: Joint placed. Good fit. 1.645 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 5.3.0 figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 37, sneden 17, slechte sneden 1
+[meet]   SLECHT {"poging": 11, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 0.95, "r_mm": 1.75, "naad_r": 7.839, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.27129702674594763, "h_voxel": 0.1356, "h_vlakken": 105932, "h_buiten": 0.0023, "h_pogingen": [[false, 965.0, 2139.2, false], [true, 0.0, 2139.2, 
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=1
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+OBJ import of 'makehuman-base.obj' took 23.69 ms
+
+Blender quit
+model name	: INTEL(R) XEON(R) PLATINUM 8573C
