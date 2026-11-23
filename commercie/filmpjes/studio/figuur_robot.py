@@ -42,8 +42,8 @@ def punten(h=220.0):
     }
     for k, s in (("l", 1), ("r", -1)):
         p.update({
-            f"{k}-upper-leg": (15 * s, 0, 116), f"{k}-knee": (17 * s, -1, 57), f"{k}-ankle": (18 * s, 1, 14),
-            f"{k}-foot-1": (18 * s, -17, 3),
+            f"{k}-upper-leg": (17 * s, 0, 116), f"{k}-knee": (18.5 * s, -1, 57), f"{k}-ankle": (19.5 * s, 1, 14),
+            f"{k}-foot-1": (19.5 * s, -17, 3),
             f"{k}-clavicle": (4 * s, 0, 174), f"{k}-shoulder": (29 * s, 0, 174), f"{k}-elbow": (48 * s, -1, 136),
             f"{k}-hand": (59 * s, -3, 108), f"{k}-hand-2": (62 * s, -4, 100),
         })
@@ -168,7 +168,7 @@ def bouw_vormen(p, f=1.0):
     B.doos(P(0, 1, 141.5), P(27, 19, 23), "metaal", rond=4 * s)                # buik, van bekken tot borst
     for z in (138.5, 143, 147.5):
         B.doos(P(0, 1, z), P(30, 21, 2.6), "donker", rond=1.2 * s)           # ribbels
-    B.doos(P(0, 0.5, 126.5), P(40, 23, 12), "blauw", rond=4.5 * s, taps=(0.86, 0.95))   # bekken
+    B.doos(P(0, 0.5, 127.5), P(43, 23, 11), "blauw", rond=4.5 * s, taps=(0.86, 0.95))   # bekken
     B.doos(P(0, -10.6, 127.5), P(11, 3, 7), "oranje", rond=1.5 * s)            # gesp
     B.doos(P(0, 1, 179), P(14, 12, 5), "metaal", rond=2 * s)                 # kraag
     # ---- nek en hoofd ----
@@ -201,8 +201,8 @@ def bouw_vormen(p, f=1.0):
         # ---- benen ----
         hp, kn, an = p[f"{k}-upper-leg"], p[f"{k}-knee"], p[f"{k}-ankle"]
         B.buis(hp, kn, 10.4 * s, 9.6 * s, "donker")
-        B.schaal_langs(hp, kn, 0.28, 0.64, 13.0 * s, 11.6 * s, "wit", rond=2.6 * s, ovaal=(0.92, 1.0))
-        B.schaal_langs(hp, kn, 0.56, 0.62, 12.2 * s, 12.0 * s, "blauw", rond=0.6 * s, ovaal=(0.92, 1.0))
+        B.schaal_langs(hp, kn, 0.28, 0.64, 13.0 * s, 11.6 * s, "wit", rond=2.6 * s, ovaal=(0.88, 1.0))
+        B.schaal_langs(hp, kn, 0.56, 0.62, 12.2 * s, 12.0 * s, "blauw", rond=0.6 * s, ovaal=(0.88, 1.0))
         # kniestuk aan de voorkant (-y): de knie buigt naar achteren
         B.doos(kn + P(0, -8.8, -3.0), P(16, 6, 16), "oranje", rond=2.8 * s, draai=_richting(hp, an))
         B.buis(kn, an, 9.6 * s, 8.2 * s, "donker")
@@ -210,15 +210,18 @@ def bouw_vormen(p, f=1.0):
         B.schaal_langs(kn, an, 0.40, 0.62, 11.6 * s, 12.2 * s, "wit", rond=2.6 * s, ovaal=(0.95, 1.0))
         B.schaal_langs(kn, an, 0.58, 1.04, 12.5 * s, 13.0 * s, "blauw", rond=2.6 * s, ovaal=(0.95, 1.0))
         B.schaal_langs(kn, an, 0.56, 0.62, 12.8 * s, 12.8 * s, "oranje", rond=0.6 * s, ovaal=(0.95, 1.0))
-        B.doos(P(18 * sx, -5, 8.5), P(23, 38, 15), "blauw", rond=5.5 * s)          # voet
-        B.doos(P(18 * sx, -5.5, 2.0), P(24.4, 39.5, 4.0), "donker", rond=1.6 * s)   # zool
-        B.doos(P(18 * sx, -20, 8.5), P(20, 9, 9.5), "oranje", rond=3.8 * s)         # neus
+        B.doos(P(19.5 * sx, -5, 8.5), P(23, 38, 15), "blauw", rond=5.5 * s)          # voet
+        B.doos(P(19.5 * sx, -5.5, 2.0), P(24.4, 39.5, 4.0), "donker", rond=1.6 * s)   # zool
+        B.doos(P(19.5 * sx, -20, 8.5), P(20, 9, 9.5), "oranje", rond=3.8 * s)         # neus
     return B.bm, namen
 
 
-def laad_robot(hoogte_mm=220.0, stijl=None, voxel_mm=0.5):
-    """Bouwt de robot, maakt er met Make watertight van de add-on één gesloten mesh van, zet de kleuren terug en
-    hangt de rig eraan. Geeft (rig, figuur, punten)."""
+def laad_robot(hoogte_mm=220.0, stijl=None, methode=None, voxel_mm=0.5):
+    """Bouwt de robot, maakt er één gesloten mesh van en hangt de rig eraan. Geeft (rig, figuur, punten).
+    methode "voxel" (standaard): Make watertight van de add-on
+    (voxel-remesh, kleuren terug per vlak). "boolean": echte vereniging van de vormen, strakker, maar daarop gaf
+    Figure from rig maar 4 gewrichten (proef 23 nov: "parts overlap"). Knop: CJ_ROBOT_MESH."""
+    methode = methode or os.environ.get("CJ_ROBOT_MESH", "voxel")
     stijl = dict(STIJL, **(stijl or {}))
     voxel_mm = float(os.environ.get("CJ_VOXEL", voxel_mm))
     for o in list(bpy.data.objects):
@@ -241,19 +244,35 @@ def laad_robot(hoogte_mm=220.0, stijl=None, voxel_mm=0.5):
     fig = bpy.data.objects.new("Figuur", me)
     bpy.context.scene.collection.objects.link(fig)
     FL.log(f"robot: {len(me.vertices)} punten voor de remesh, maat {tuple(round(d, 1) for d in fig.dimensions)}")
-    bron_me = fig.data.copy()
-    bron_mw = fig.matrix_world.copy()
-    bpy.context.scene.click_joints.voxel_mm = voxel_mm
-    FL.actief(fig)
-    bpy.ops.click_joints.maak_gesloten()
-    nieuw = bpy.context.view_layer.objects.active
-    if nieuw is not fig:
-        bpy.data.objects.remove(fig)
-        fig = nieuw
-    FL.kleur_terug(bron_me, bron_mw, fig)
-    bpy.data.meshes.remove(bron_me)
+    if methode == "boolean":
+        # Alle vormen samen tot één gesloten huid met een echte vereniging (Boolean, Exact, zelfdoorsnijding): strakke
+        # randen en kleurgrenzen precies op de vorm, geen trapjes zoals na een voxel-remesh. ±20 s.
+        leeg = bpy.data.collections.new("cj_robot_leeg")
+        mod = fig.modifiers.new("vereniging", "BOOLEAN")
+        mod.operation, mod.operand_type, mod.collection, mod.solver = "UNION", "COLLECTION", leeg, "EXACT"
+        mod.use_self = True
+        FL.actief(fig)
+        bpy.ops.object.modifier_apply(modifier="vereniging")
+        bpy.data.collections.remove(leeg)
+        bpy.ops.object.shade_smooth_by_angle(angle=math.radians(40))
+        st = FL.mesh_staat(fig)
+        if st["open_randen"] or st["stukken"] != 1:
+            FL.log(f"vereniging niet gesloten ({st}), terug naar voxel-remesh")
+            methode = "voxel"
+    if methode != "boolean":
+        bron_me = fig.data.copy()
+        bron_mw = fig.matrix_world.copy()
+        bpy.context.scene.click_joints.voxel_mm = voxel_mm
+        FL.actief(fig)
+        bpy.ops.click_joints.maak_gesloten()
+        nieuw = bpy.context.view_layer.objects.active
+        if nieuw is not fig:
+            bpy.data.objects.remove(fig)
+            fig = nieuw
+        FL.kleur_terug(bron_me, bron_mw, fig)
+        bpy.data.meshes.remove(bron_me)
     fig.name = fig.data.name = "Figuur"
-    FL.log(f"robot na watertight: {len(fig.data.vertices)} punten, {FL.mesh_staat(fig)}")
+    FL.log(f"robot na {methode}: {len(fig.data.vertices)} punten, {FL.mesh_staat(fig)}")
     M = FL._mens_module(hoogte_mm)
     arm = M["maak_rig"](rig_punten(p, f))
     arm.data.display_type = "STICK"
