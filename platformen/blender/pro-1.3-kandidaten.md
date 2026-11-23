@@ -14,6 +14,7 @@ Toets: brengt het binnen weken geld op? Kopers printen vaak gestileerde figuren 
 2. **Volgende kandidaat bij "no watertight parts"** in `rig.py` (`verder`): de volgende plek van `kogel_schuif` proberen (Olaf).
 3. **NECK-zin** en tip bij dikke ledematen (Olaf, ochtend 23 nov).
 4. Kan's van de automatische keurder (13:37): materiaalindex per vlak niet als lijst op het object bewaren; echte telling in `selected_ok`.
+5. **Kapotte snede zelf herstellen (A4 keurder, advies Olaf 23 nov 17:45):** direct na elke kogelsnede in Figure from rig de overlap in rust meten en bij een kapotte snede die snede met Exact overdoen, in plaats van de plek te verschuiven. De 0,3 mm-plek van 6dcadc8 is geluk, geen vangnet (toets `CJ_HERKANS=2` lukt op geen enkel lid, GEZIEN door Olaf). Toets `CJ_HERKANS=2` gaat de e2e in zodra dit groen maakt.
 
 ## Volgorde
 Eerst e2e groen op de tak met de terugval, dan 1a+1c (meeste winst voor kopers), dan 2. Elke stap met keuring door Daan.
