@@ -1,6 +1,6 @@
 # Tip-reeks 1: Find holes in your model before you print 🔍
 
-- status: open
+- status: rood
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL, voorbeeld Thijs: BlenderSecrets)
@@ -48,7 +48,20 @@ More Blender tips for 3D printing: type dortus.com/yt in your browser.
 - **Releasebestand nagekeken (23 nov ±18:52 NL, GEZIEN):** run 45227517215 geslaagd; zelfde delen en metingen als de lokale opname (menu echt geraakt, randen 22 naar 0, hoogte 310 naar 217 mm); synchroon in CI GOED (10 van 10, grootste 0,18 s); eerste beeld op 540 breed en 6 beelden van het releasebestand zelf bekeken, gelijk aan de lokale bouw.
 
 ## Keuring
-(open)
+- keurder: Roep-Keurder, 23 nov 2026 ±20:50 NL
+- 1 bron klopt: ja (getallen en stappen staan in beeld; bronnen in het concept)
+- 2 geen AI-zin, geen AI-melding: nee, de tekst bevat "Voice: AI text to speech (Kokoro, Apache 2.0)"; geen AI in titel of beschrijving toegestaan
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: nee, bestand heet tip-*.mp4 en eindigt niet op -geluid.mp4 (geluid_check wel GOED -16,4 dB); echt Blender-beeld wel bekeken (4 beelden en tegel)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja
+- 9 geen AI-beeld, AI-stem of AI-persoon: nee voor de tekst (AI-vermelding); beeld echt, stem Kokoro mag volgens de uitzondering van 23 nov
+- 10 schrijft als Dortus, niet als Thijs: ja
+- techniek-check: oranje-regels: Short (alleen uit de reserve, hoofdchat beslist); geen Gumroad, geen < of >, eerste reactie leeg; media bereikbaar (GET 206)
+- uitkomst: rood
+- reden: De beschrijving noemt de AI-stem ("Voice: AI text to speech"), dat mag niet volgens REGELS (Thijs 23 nov 20:28), en het bestand eindigt niet op -geluid.mp4; nieuw bestand met schone tekst en een -geluid.mp4 nodig.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

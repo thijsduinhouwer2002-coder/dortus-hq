@@ -1,6 +1,6 @@
 # Check if a joint bends too far before you print
 
-- status: open
+- status: groen
 - kanaal: tiktok
 - soort: tip
 - product: click-joints-pro
@@ -36,7 +36,20 @@ Check if a joint bends too far before you print: show the bend range, drag to th
 - Niet gelijk aan de demo-Shorts in de wachtrij: daar alleen het kijkvenster en één belofte; hier het paneel erbij en de stappen.
 
 ## Keuring
-(leeg: de Keurder)
+- keurder: Roep-Keurder, 23 nov 2026 ±20:50 NL
+- 1 bron klopt: ja (getallen en stappen staan in beeld; bronnen in het concept)
+- 2 geen AI-zin, geen AI-melding: ja
+- 3 geen medische claim: ja
+- 4 geen Hats-spelerstekst: ja
+- 5 echt beeld zelf bekeken, -geluid.mp4 en geluid_check GOED: ja (-geluid.mp4, geluid_check GOED -16,3 dB; 4 beelden en een tegel van de hele video bekeken: echt Blender-scherm met paneel van de add-on)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja
+- 9 geen AI-beeld, AI-stem of AI-persoon: ja (geen AI-beeld, geen stem, geen persoon)
+- 10 schrijft als Dortus, niet als Thijs: ja
+- techniek-check: goed: media bereikbaar (GET 200/206), eerste reactie leeg, geen https of Gumroad, 6 hashtags, tekst ver onder 2.200 tekens, geen < of >, dortus.com/tt zonder https, geen STOP
+- uitkomst: groen
+- reden: Echt beeld uit Blender, alle 10 vragen ja en techniek goed.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)
