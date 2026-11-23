@@ -47,6 +47,54 @@ hetzelfde aantal (8, 9, 8).
 In 5.2 en 5.3 nu elk haalbaar gewricht en geen enkele slechte snede meer onderweg (was 16 per versie). Het aangeklede
 figuur (de filmpjes) ging van 8 naar 9 en van ±8 naar ±1 minuut. In 5.x komt de voxelvorm alleen nog waar de oude vereniging mislukte (19 keer in run 45267268513), dus lichte figuren zijn even snel als eerst (kale mens 19 s).
 
+## Herhaald: 5 keer per figuur per versie, en waarom dezelfde mesh wisselend uitkwam (run 45273407326)
+Opdracht hoofdchat 23 nov ±23:00 (robot van studio-3: in 6 CI-jobs 5 keer 9 en 1 keer 8). Elke figuur 5 keer per versie
+in een eigen Blender, voor de nulstand (Pro 1.2.2, `NUL_COMMIT` e8769d2, zelfde figuren) en voor deze tak (commit 0eb3510).
+Let op: vanaf hier is de robot die van studio-3 (dikker, vuisten met vingers); de tabellen hierboven hadden die van studio-2.
+Cel: gewrichten per herhaling / slechte sneden opgeteld / mediane tijd / aantal verschillende uitkomsten (vingerafdruk:
+regels met bereik plus punten per deel).
+
+Nulstand (Pro 1.2.2):
+
+| Figuur | 4.2.23 | 5.2.3 | 5.3.0 |
+|---|---|---|---|
+| robot-a | 4,4,4,4,4 | **9,8,8,9,9** | **8,9,9,8,9** |
+| robot-b | 4,4,4,4,4 | **9,9,8,9,8** | **8,9,9,9,9** |
+| robot-fijn | (afgebroken) | 5,5,5,5,5 | 5,5,5 |
+| kleding | 6,6,6,6,6 | 8,8,8,8,8 | 8,8,8,8,8 |
+| mens | 3,3,3,3,3 | 9,9,9,9,9 | 9,9,9,9,9 |
+| rigify | 5,5,5,5,5 | 7,7,7,7,7 | 7,7,7,7,7 |
+| armen | 6,6,6,6,6 | 8,8,8,8,8 | 8,8,8,8,8 |
+
+Deze tak. 5.2.3 en 5.3.0 uit run 45273407326 (commit 0eb3510); 4.2.23 uit run 45275271607 (commit 183fae2, met
+`herstel.opschonen`; zonder die stap gaf de robot van studio-3 in 4.2 maar 2,2,2,2,2):
+
+| Figuur | 4.2.23 | 5.2.3 | 5.3.0 |
+|---|---|---|---|
+| robot-a | 6,6,6,6,6 | 9,9,9,9,9 | 9,9,9,9,9 |
+| robot-b | 6,6,6,6,6 | 9,9,9,9,9 | 9,9,9,9,9 |
+| robot-fijn | 7,7,7,7,7 | 9,9,9,9,9 | 9,9,9 |
+| kleding | 8,8,8,8,8 | 9,9,9,9,9 | 9,9,9,9,9 |
+| mens | 9,9,9,9,9 | 9,9,9,9,9 | 9,9,9,9,9 |
+| rigify | 7,7,7,7 | 7,7,7,7,7 | 7,7,7,7,7 |
+| armen | 8,8,8,8,8 | 8,8,8,8,8 | 8,8,8,8,8 |
+| **samen (elke herhaling)** | **51 van 60** | **60 van 60** | **60 van 60** |
+
+Nulstand samen: 4.2.23 28 van 51 (zonder robot-fijn, die jobs werden afgebroken), 5.2.3 en 5.3.0 53 tot 55 van 60, wisselend per run.
+
+Op deze tak zijn de gewrichten en hun bereik in elke herhaling precies gelijk, op elke figuur en in elke versie (21 van 21
+groepen één set regels, GEZIEN). Alleen het aantal punten van een paar delen verschilt (enkele tientallen tot ±180).
+
+**Bron van het wisselen (GEZIEN):** in de nulstand gaven 186 van de 558 kogelsneden in 5.x een H "los", en precies die 186
+waren slecht (open of overlappend); geen enkele andere snede was slecht. Op dezelfde mesh en dezelfde plek gaf de
+Exact-vereniging van omhulsel en lid (`een_lid._samen`) de ene keer "samen" en de andere keer "los" (robot-a, rechterschouder:
+herhaling 1, 4, 5 "samen" en ±30°, herhaling 3 "los", 9181 paren overlap, "blocked"). Ook op hetzelfde processortype (AMD
+EPYC 7763) verschilde het, dus het is niet alleen de processor: de vereniging werkt op een vorm die zichzelf snijdt, en de
+uitkomst daarvan hangt af van de volgorde waarin het parallelle rekenwerk klaar is (GOK voor dat laatste stapje; dat het
+precies de "los"-sneden zijn is GEZIEN). In 4.2 was alles in de nulstand en op de tak in elke herhaling gelijk.
+Op deze tak: 0 van 430 kogelsneden "los" (85 keer werd een mislukte vereniging een voxelvorm), 0 slechte sneden. Het kleine
+verschil in punten komt doordat de keuze "samen" of "voxel" per run nog kan wisselen; de gewrichten en het bereik niet.
+
 ## Oorzaak (met bewijs)
 Figure from rig snijdt een lid los met een omhulsel H (`een_lid`): een convex omhulsel rond het snijvlak plus het lid
 zelf, elk punt `m` (0,2 tot 0,6 mm) langs zijn normaal naar buiten, samengevoegd met een Exact-vereniging.
@@ -85,10 +133,11 @@ zelf, elk punt `m` (0,2 tot 0,6 mm) langs zijn normaal naar buiten, samengevoegd
   keer gesloten, dus geluk en niet gebouwd.
 
 ## Wat nog niet lukt (eerlijk)
-- **Blender 4.2: 55 van 60.** Robot: beide knieën (alleen de vierde plek is niet Tight, en daar geeft Exact een onderbeen
-  van 717 punten of overlappende delen). Aangekleed figuur: rechterknie (eerste plek overlap, verdere plekken Tight). De
-  koper krijgt daar nu een zin met wat hij kan doen. Een betere 4.2-snede vraagt een eigen spoor (bijvoorbeeld de
-  scharniersnede lokaal rond het gewricht), niet vóór woensdag.
+- **Blender 4.2: 51 van 60 met de robot van studio-3** (55 van 60 met die van studio-2, tabel boven). Robot: linkerschouder
+  en linkerheup ("no room ... next to the elbow/knee": in 4.2 reikt het linkerscharnier verder, zijn snede is niet goed,
+  bereik 0 tot 150 in plaats van 120) en linkerknie (delen overlappen in rust); robot-fijn: linkerschouder en linkerheup;
+  aangekleed: rechterknie. Alle 5 herhalingen gelijk. De koper krijgt een zin met wat hij kan doen. Een echte 4.2-oplossing
+  (de scharniersnede zelf in Exact) is een eigen spoor, niet vóór woensdag.
 - **Tijd in 4.2:** daar is H altijd een voxelvorm, en Exact is traag: 2 tot 5 minuten per figuur (was ook 3 tot 30).
 - **Meshy knight (alleen in de gewone e2e, licentie niet zelf nagelezen, niet in de testset):** de rechterknie zit op de
   grens van het vangnet "lost part of the model" (6%): 5,3 tot 5,6% verloren, net als op main (zes metingen in run
