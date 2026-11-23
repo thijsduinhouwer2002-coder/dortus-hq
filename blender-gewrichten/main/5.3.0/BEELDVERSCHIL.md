@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 5.3.0 (main)
 GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 45176086351, commit 4a4f97176753516a57e1aed5030539841503a3bd, commitdatum 1795437451, 2026-11-23T12:51:37Z
+Referentie: referentie uit run 45182536267, commit 4e9864c68b9279ff4f1baf882c4e2849f1f72e5f, commitdatum 1795439734, 2026-11-23T13:35:14Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -21,13 +21,13 @@ Referentie: referentie uit run 45176086351, commit 4a4f97176753516a57e1aed503053
 | 17-figuur-heel-x.png | gelijk | |
 | 19-mens-paneel.png | gelijk | |
 | 19-mens-x.png | gelijk | |
-| 2-gewricht-x.png | 60 px (0.003%), ruis | |
+| 2-gewricht-x.png | 4 px (0.000%), ruis | |
 | 20-testkaart.png | gelijk | |
 | 20d-testkaart-getal.png | gelijk | |
 | 20h-testkaart-scharnier.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 17 px (0.001%), ruis | |
+| 5-waaier-x.png | 7 px (0.000%), ruis | |
 | 6-rood-x.png | gelijk | |
 | 7-plat-x.png | 24 px (0.001%), ruis | |
 | 8-winkel-x.png | 72 px (0.003%), ruis | |
