@@ -66,9 +66,9 @@ def stap():
             return 1.0
         wacht = toestand.get("shaderwacht", 0)
         if wacht and strook_gekleurd():
-            log(f"SHADERS klaar na {wacht} s extra wachten")
+            log(f"SHADERS klaar na {wacht} pogingen van 1 s extra wachten")
         elif wacht:
-            log(f"SHADERS nog niet klaar na {wacht} s extra wachten, plaatje 4 toch geschoten")
+            log(f"SHADERS nog niet klaar na {wacht} pogingen van 1 s extra wachten, plaatje 4 toch geschoten")
         schiet("4-material-preview.png")
         meet_strook()
         return 0.5
