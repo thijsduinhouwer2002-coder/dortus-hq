@@ -1,0 +1,51 @@
+[meet] figuur kleding: Figuur_gesloten, {'bron_punten': 156684, 'bron_zelf_overlap': 0}
+[meet] Blender 5.3.0 figuur kleding: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 21, sneden 17, slechte sneden 5
+[meet]   SLECHT {"poging": 9, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.72, "r_mm": 1.75, "naad_r": 6.952, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.23792430359919953, "h_voxel": 0.119, "h_vlakken": 121518, "h_buiten": 0.0028, "h_pogingen": [[false, 0.0, 1609.9, false], [true, 0.0, 1609.9, false]]}, "A": {"gesloten": true, "fout": 0, "punten": 105717}, "B": {"gesloten": true, "fout": 0, "punten": 26652}, "overlap_ab": 13961, "goed": false, "h_zelf_overlap": 778, "proeven": {"exact": {"goed": false, "A": 0, "B": 369, "overlap": 0, "s": 25.33}, "schuif_0.05": {"goed": false, "A": 0, "B": 0, "overlap": 13714, "s": 2.17}, "draai_0.3": {"goed": false, "A": 0, "B": 0, "overlap": 13800, "s": 2.12}, "draai_1.0": {"goed": false, "A": 0, "B": 0, "overlap": 14058, "s": 2.11}}}
+[meet]   SLECHT {"poging": 10, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.7, "r_mm": 2.0, "naad_r": 6.983, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.2361590239536202, "h_voxel": 0.1181, "h_vlakken": 126064, "h_buiten": 0.0028, "h_pogingen": [[false, 356.8, 1692.4, false], [true, 0.0, 1692.4, false]]}, "A": {"gesloten": true, "fout": 0, "punten": 105708}, "B": {"gesloten": true, "fout": 0, "punten": 26757}, "overlap_ab": 13931, "goed": false, "h_zelf_overlap": 776, "proeven": {"exact": {"goed": false, "A": 76, "B": 371, "overlap": 0, "s": 25.44}, "schuif_0.05": {"goed": false, "A": 0, "B": 0, "overlap": 13794, "s": 2.1}, "draai_0.3": {"goed": false, "A": 0, "B": 0, "overlap": 13858, "s": 2.09}, "draai_1.0": {"goed": false, "A": 0, "B": 0, "overlap": 14015, "s": 2.08}}}
+[meet]   SLECHT {"poging": 11, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.68, "r_mm": 2.25, "naad_r": 7.011, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.2350584724403769, "h_voxel": 0.1175, "h_vlakken": 129918, "h_buiten": 0.0033, "h_pogingen": [[false, 0.0, 1775.0, false], [true, 0.0, 1775.0, false]]}, "A": {"gesloten": true, "fout": 0, "punten": 105814}, "B": {"gesloten": true, "fout": 0, "punten": 26922}, "overlap_ab": 14070, "goed": false, "h_zelf_overlap": 770, "proeven": {"exact": {"goed": false, "A": 195, "B": 413, "overlap": 227, "s": 25.32}, "schuif_0.05": {"goed": false, "A": 0, "B": 0, "overlap": 14075, "s": 2.07}, "draai_0.3": {"goed": false, "A": 0, "B": 0, "overlap": 14169, "s": 2.04}, "draai_1.0": {"goed": false, "A": 0, "B": 0, "overlap": 14173, "s": 2.03}}}
+[meet]   SLECHT {"poging": 12, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.62, "r_mm": 2.5, "naad_r": 7.047, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.23768086142325776, "h_voxel": 0.1188, "h_vlakken": 129398, "h_buiten": 0.0027, "h_pogingen": [[false, 0.0, 1853.5, false], [true, 0.0, 1853.5, false]]}, "A": {"gesloten": true, "fout": 0, "punten": 105875}, "B": {"gesloten": true, "fout": 0, "punten": 26953}, "overlap_ab": 14246, "goed": false, "h_zelf_overlap": 722, "proeven": {"exact": {"goed": false, "A": 214, "B": 406, "overlap": 215, "s": 24.97}, "schuif_0.05": {"goed": false, "A": 0, "B": 0, "overlap": 14109, "s": 2.0}, "draai_0.3": {"goed": false, "A": 0, "B": 0, "overlap": 14372, "s": 2.03}, "draai_1.0": {"goed": false, "A": 0, "B": 0, "overlap": 14158, "s": 2.02}}}
+[meet]   SLECHT {"poging": 13, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.61, "r_mm": 2.5, "naad_r": 7.019, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.24215423158598737, "h_voxel": 0.1211, "h_vlakken": 127618, "h_buiten": 0.0038, "h_pogingen": [[false, 0.0, 1949.9, false], [true, 0.0, 1949.9, false]]}, "A": {"gesloten": true, "fout": 0, "punten": 106221}, "B": {"gesloten": true, "fout": 0, "punten": 27095}, "overlap_ab": 14883, "goed": false, "h_zelf_overlap": 713, "proeven": {"exact": {"goed": false, "A": 213, "B": 377, "overlap": 221, "s": 25.11}, "schuif_0.05": {"goed": false, "A": 0, "B": 0, "overlap": 14688, "s": 2.08}, "draai_0.3": {"goed": false, "A": 0, "B": 0, "overlap": 14493, "s": 2.05}, "draai_1.0": {"goed": false, "A": 0, "B": 0, "overlap": 14760, "s": 2.04}}}
+MEET kleding gewrichten=9 overgeslagen=0 slechte_sneden=5
+[studio] schoen r: schil van 151 punten
+Info: Watertight copy Figuur_gesloten made (156682 faces)
+[studio] na watertight: 156684 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (20.9, 10.3, 59.1), elleboog L (41.3, 12.8, 154.0)
+[meet] figuur kleding: Figuur_gesloten, {'bron_punten': 156684, 'bron_zelf_overlap': 0}
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 3.088 s.
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 3.234 s.
+Info: Hinge placed. Bends 0° to 120°. 3.394 s.
+Info: Hinge placed. Bends 0° to 120°. 1.584 s.
+Info: Joint placed. Good fit. 2.265 s.
+Info: Joint placed. Good fit. 37.772 s.
+Info: Joint placed. Good fit. 37.84 s.
+Info: Joint placed. Good fit. 37.505 s.
+Info: Joint placed. Good fit. 36.913 s.
+Info: Joint placed. Good fit. 37.067 s.
+Info: Joint placed. Good fit. 3.198 s.
+Info: Joint placed. Good fit. 2.979 s.
+Info: Joint placed. Good fit. 2.985 s.
+Info: Joint placed. Good fit. 3.185 s.
+Info: Joint placed. Good fit. 2.877 s.
+Info: Joint placed. Good fit. 1.366 s.
+Info: Joint placed. Good fit. 1.342 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 5.3.0 figuur kleding: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 21, sneden 17, slechte sneden 5
+[meet]   SLECHT {"poging": 9, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.72, "r_mm": 1.75, "naad_r": 6.952, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.23792430359919953, "h_voxel": 0.119, "h_vlakken": 121518, "h_buiten": 0.0028, "h_pogingen": [[false, 0.0, 1609.9, false], [true, 0.0, 1609.9, fals
+[meet]   SLECHT {"poging": 10, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.7, "r_mm": 2.0, "naad_r": 6.983, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.2361590239536202, "h_voxel": 0.1181, "h_vlakken": 126064, "h_buiten": 0.0028, "h_pogingen": [[false, 356.8, 1692.4, false], [true, 0.0, 1692.4, fal
+[meet]   SLECHT {"poging": 11, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.68, "r_mm": 2.25, "naad_r": 7.011, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.2350584724403769, "h_voxel": 0.1175, "h_vlakken": 129918, "h_buiten": 0.0033, "h_pogingen": [[false, 0.0, 1775.0, false], [true, 0.0, 1775.0, fal
+[meet]   SLECHT {"poging": 12, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.62, "r_mm": 2.5, "naad_r": 7.047, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.23768086142325776, "h_voxel": 0.1188, "h_vlakken": 129398, "h_buiten": 0.0027, "h_pogingen": [[false, 0.0, 1853.5, false], [true, 0.0, 1853.5, fal
+[meet]   SLECHT {"poging": 13, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.61, "r_mm": 2.5, "naad_r": 7.019, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.24215423158598737, "h_voxel": 0.1211, "h_vlakken": 127618, "h_buiten": 0.0038, "h_pogingen": [[false, 0.0, 1949.9, false], [true, 0.0, 1949.9, fal
+MEET kleding gewrichten=9 overgeslagen=0 slechte_sneden=5
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+OBJ import of 'makehuman-base.obj' took 17.84 ms
+
+Blender quit
+model name	: Intel(R) Xeon(R) 6975P-C
