@@ -1,0 +1,42 @@
+[meet] figuur robot-b: Figuur, {'bron_punten': 273112, 'bron_zelf_overlap': 0}
+Error: The cut gave no watertight parts (bad edges: part A 425, part B 0); the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur robot-b: 4 gewrichten ['Left elbow', 'Right elbow', 'Neck', 'Right hip']
+[meet] ontbreekt: ['Left shoulder', 'Right shoulder', 'Left hip', 'Left knee', 'Right knee']; overgeslagen: Left knee (The parts overlap before they move; the mesh is unchanged.); Right knee (the cut left a loose piece here, place it by hand); Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (the cut left a loose piece here, place it by hand); Left hip (no room on this 59 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[meet] pogingen 23, sneden 12, slechte sneden 4
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.5439481674694698, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 23981.9, 16733.4, true]]}, "A": {"gesloten": false, "fout": 3, "punten": 273995, "zelf": 2, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 18862, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.5439177119212537, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 23976.5, 16729.5, true]]}, "A": {"gesloten": false, "fout": 487, "punten": 248039, "zelf": 2, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 18857, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.5439882238477345, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 23983.9, 16738.3, true]]}, "A": {"gesloten": false, "fout": 425, "punten": 248003, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 18846, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 6, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.5800309692533397, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 55847.2, 37492.0, true]]}, "A": {"gesloten": false, "fout": 380, "punten": 187411, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 23873, "zelf": 0}, "goed": false}
+MEET robot-b gewrichten=4 overgeslagen=5 slechte_sneden=4
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 7.608 s.
+Info: Joint placed. Good fit. 8.385 s.
+Warning: Too close to another joint (keep 44 mm apart).
+Warning: Too close to another joint (keep 44 mm apart).
+Warning: Too close to another joint (keep 44 mm apart).
+Warning: Too close to another joint (keep 44 mm apart).
+Info: Joint placed. Good fit. 11.041 s.
+Info: Joint placed. Good fit. 10.99 s.
+Warning: Too close to another joint (keep 53 mm apart).
+Warning: Too close to another joint (keep 53 mm apart).
+Warning: Too close to another joint (keep 53 mm apart).
+Warning: Too close to another joint (keep 53 mm apart).
+Info: Joint placed. Good fit. 12.915 s.
+Warning: 4 joints · 1 rig · 1 mirror · 2 preset. Skipped: Left knee (The parts overlap before they move; the mesh is unchanged.); Right knee (the cut left a loose piece here, place it by hand); Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (the cut left a loose piece here, place it by hand); Left hi
+[meet] Blender 4.2.23 LTS figuur robot-b: 4 gewrichten ['Left elbow', 'Right elbow', 'Neck', 'Right hip']
+[meet] ontbreekt: ['Left shoulder', 'Right shoulder', 'Left hip', 'Left knee', 'Right knee']; overgeslagen: Left knee (The parts overlap before they move; the mesh is unchanged.); Right knee (the cut left a loose piece here, place it by hand); Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (the cut l
+[meet] pogingen 23, sneden 12, slechte sneden 4
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.5439481674694698, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 23981.9, 16733.4, true]]}, "A": {"gesloten": false, "fout": 3, "punten": 273995, "zelf": 2,
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.5439177119212537, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 23976.5, 16729.5, true]]}, "A": {"gesloten": false, "fout": 487, "punten": 248039, "zelf": 
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.5439882238477345, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 23983.9, 16738.3, true]]}, "A": {"gesloten": false, "fout": 425, "punten": 248003, "zelf": 
+[meet]   SLECHT {"poging": 6, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.5800309692533397, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 55847.2, 37492.0, true]]}, "A": {"gesloten": false, "fout": 380, "punten": 187411, "zelf": 0
+MEET robot-b gewrichten=4 overgeslagen=5 slechte_sneden=4
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+model name	: AMD EPYC 7763 64-Core Processor
