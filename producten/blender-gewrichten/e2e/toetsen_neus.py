@@ -177,6 +177,12 @@ def toets(stap, eigen, cursor):
          (not tekst or reden in tekst), reden)
     stap("Tight-rekensom: hoge neus op een korte lip geeft Tight", neus.maten_neus(
         {"s": 0.2, "wx": 5.0, "tw": 1.0, "rn": 0.3, "wy": 0.2, "r": 1.0}, 1.0) == neus.TIGHT)
+    # 23 nov (Bram): is de volle lip goed en maakt alleen de onderkant vlak onder H hem te kort, dan de reden
+    # TIGHT_KORT (verder van het uiteinde), niet "thicker spot". Wang t = 1,5 - 0,9 - 0,2 = 0,4; volle lip 1,3 x 5
+    # = 6,5 (klikt); met diepte 1,0 is L = 1,0 - 0,8 = 0,2: k = 0,03 x 0,04 / 0,6 = 0,002, onder 0,1.
+    stap("Tight-reden: korte onderkant geeft TIGHT_KORT, zonder onderkant klikt hij", neus.maten_neus(
+        {"s": 0.2, "wx": 1.5, "tw": 0.9, "rn": 1.0, "wy": 5.0, "r": 1.0}, 1.0, 1.0) == neus.TIGHT_KORT
+        and neus.maten_neus({"s": 0.2, "wx": 1.5, "tw": 0.9, "rn": 1.0, "wy": 5.0, "r": 1.0}, 1.0) == "")
     stap("rekensom: L is de afstand van H tot de zaagbodem", math.isclose(neus.ZAAG, ZAAG))
     # Controleur punt 4: wang dunner dan 0,8 mm (t = 1,5 - 0,9 - 0,2 = 0,4), dan is de rest 0,8 en L = diepte - 0,8.
     m08 = {"s": 0.2, "wx": 1.5, "tw": 0.9, "rn": 1.0, "wy": 5.0, "r": 1.0}

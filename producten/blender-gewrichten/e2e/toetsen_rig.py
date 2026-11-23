@@ -133,6 +133,9 @@ def main():
     check(rigm.kogel_reden("KNEE", "nothing was cut") == "nothing was cut"
           and rigm.kogel_reden("HIP", "the cut left a loose piece here, place it by hand").startswith("the cut left"),
           "andere gewrichten en meldingen ongewijzigd")
+    check("neck" in rigm.kogel_reden("NECK", None) and "neck" in rigm.kogel_reden("NECK", "nothing was cut")
+          and rigm.kogel_reden("NECK", "the cut left a loose piece here, place it by hand").startswith("the cut left"),
+          "nek: leesbare reden in plaats van 'not placed'")
     g36 = rigm.geen_ruimte("too close to another joint, keep 36 mm apart", "Left hip", 38.0)
     check(g36 is not None and "next to the knee" in g36, f"36 mm op een dij van 38: geen ruimte ({g36})")
     check(rigm.geen_ruimte("too close to another joint, keep 20 mm apart", "Left hip", 38.0) is None,
