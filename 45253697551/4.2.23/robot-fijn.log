@@ -1,0 +1,58 @@
+[meet] figuur robot-fijn: Figuur, {'bron_punten': 489604, 'bron_zelf_overlap': 0}
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 3); the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur robot-fijn: 5 gewrichten ['Left elbow', 'Right elbow', 'Neck', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Left shoulder', 'Right shoulder', 'Left knee', 'Right knee']; overgeslagen: Left knee (the cut left a loose piece here, place it by hand); Right knee (the cut left a loose piece here, place it by hand); Left shoulder (The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.); Right shoulder (The cut gave no watertight parts (bad edges: part A 0, part B 3); the mesh is unchanged.)
+[meet] pogingen 17, sneden 15, slechte sneden 8
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": false, "fout": 398, "punten": 450255}, "B": {"gesloten": true, "fout": 0, "punten": 28272}, "goed": false}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": false, "fout": 928, "punten": 1773}, "B": {"gesloten": true, "fout": 0, "punten": 28267}, "goed": false}
+[meet]   SLECHT {"poging": 5, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": false, "fout": 58, "punten": 364580}, "B": {"gesloten": true, "fout": 0, "punten": 46262}, "goed": false}
+[meet]   SLECHT {"poging": 5, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": false, "fout": 132, "punten": 364625}, "B": {"gesloten": true, "fout": 0, "punten": 708}, "goed": false}
+[meet]   SLECHT {"poging": 11, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "EXACT", "terugval": false, "s": 7.74, "r_mm": 4.5, "naad_r": 8.706, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": true, "fout": 0, "punten": 374073}, "B": {"gesloten": false, "fout": 0, "punten": 0, "open": {"aantal": 0}}, "overlap_ab": 0, "goed": false, "h_zelf_overlap": 226, "proeven": {"exact": {"goed": false, "A": 0, "B": 0, "overlap": 0, "s": 8.53}, "schuif_0.05": {"goed": false, "A": 0, "B": 0, "overlap": 0, "s": 8.78}, "draai_0.3": {"goed": false, "A": 0, "B": 0, "overlap": 0, "s": 8.58}, "draai_1.0": {"goed": false, "A": 0, "B": 0, "overlap": 0, "s": 8.42}}}
+[meet]   SLECHT {"poging": 12, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "EXACT", "terugval": false, "s": 7.99, "r_mm": 4.5, "naad_r": 8.7, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": true, "fout": 0, "punten": 376054}, "B": {"gesloten": false, "fout": 0, "punten": 0, "open": {"aantal": 0}}, "overlap_ab": 0, "goed": false, "h_zelf_overlap": 224, "proeven": {"exact": {"goed": false, "A": 0, "B": 0, "overlap": 0, "s": 8.78}, "schuif_0.05": {"goed": false, "A": 0, "B": 0, "overlap": 0, "s": 8.46}, "draai_0.3": {"goed": false, "A": 0, "B": 0, "overlap": 0, "s": 8.74}, "draai_1.0": {"goed": false, "A": 0, "B": 0, "overlap": 0, "s": 8.54}}}
+[meet]   SLECHT {"poging": 13, "gewricht": "Right shoulder", "soort": "KOGEL", "solver": "EXACT", "terugval": false, "s": 8.0, "r_mm": 4.5, "naad_r": 8.706, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": true, "fout": 0, "punten": 376004}, "B": {"gesloten": false, "fout": 0, "punten": 0, "open": {"aantal": 0}}, "overlap_ab": 0, "goed": false, "h_zelf_overlap": 233, "proeven": {"exact": {"goed": false, "A": 0, "B": 0, "overlap": 0, "s": 8.99}, "schuif_0.05": {"goed": false, "A": 0, "B": 0, "overlap": 0, "s": 8.2}, "draai_0.3": {"goed": false, "A": 0, "B": 0, "overlap": 0, "s": 8.13}, "draai_1.0": {"goed": false, "A": 0, "B": 0, "overlap": 0, "s": 8.03}}}
+[meet]   SLECHT {"poging": 14, "gewricht": "Right shoulder", "soort": "KOGEL", "solver": "EXACT", "terugval": false, "s": 7.93, "r_mm": 4.5, "naad_r": 8.697, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": true, "fout": 0, "punten": 376038}, "B": {"gesloten": false, "fout": 3, "punten": 51, "open": {"aantal": 3, "vlakken_per_rand": [4], "plekken": [{"vlakken": 4, "z_vlak": 33.1146, "rho": 3.087, "d_mid": 33.272, "d_naad": 24.5749, "d_kogel": 28.7718, "lengte": 0.17089}, {"vlakken": 4, "z_vlak": 33.4387, "rho": 5.317, "d_mid": 33.872, "d_naad": 25.1753, "d_kogel": 29.3723, "lengte": 0.19653}, {"vlakken": 4, "z_vlak": 33.5931, "rho": 5.42, "d_mid": 34.041, "d_naad": 25.3442, "d_kogel": 29.5411, "lengte": 0.19769}]}}, "overlap_ab": 29, "goed": false, "h_zelf_overlap": 236, "proeven": {"exact": {"goed": false, "A": 0, "B": 3, "overlap": 29, "s": 8.75}, "schuif_0.05": {"goed": false, "A": 0, "B": 3, "overlap": 9, "s": 8.81}, "draai_0.3": {"goed": false, "A": 0, "B": 3, "overlap": 29, "s": 8.93}, "draai_1.0": {"goed": false, "A": 0, "B": 3, "overlap": 29, "s": 8.95}}}
+MEET robot-fijn gewrichten=5 overgeslagen=4 slechte_sneden=8
+STATUS Installed "click_joints"
+[studio] robot: 18564 punten voor de remesh, maat (140.6, 41.2, 220.4)
+Info: Watertight copy Figuur_gesloten made (489602 faces)
+[studio] kleuren per vorm: 489602 vlakken, 1478 buiten elke vorm
+[studio] robot na voxel: 489604 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.5, 2.0, 57.0), elleboog L (48.0, -4.0, 136.0)
+[meet] figuur robot-fijn: Figuur, {'bron_punten': 489604, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 140°. 34.363 s.
+Info: Hinge placed. Bends 0° to 140°. 9.776 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 23.68 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 7.633 s.
+Info: Joint placed. Good fit. 8.138 s.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 3); the mesh is unchanged.
+Info: Joint placed. Good fit. 12.708 s.
+Info: Joint placed. Good fit. 10.926 s.
+Warning: 5 joints · 1 rig · 1 mirror · 3 preset. Skipped: Left knee (the cut left a loose piece here, place it by hand); Right knee (the cut left a loose piece here, place it by hand); Left shoulder (The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.); Right shoulder (The cut gave no watertight parts (bad edges: part A 0, part B 3); the mesh is unchanged.)
+[meet] Blender 4.2.23 LTS figuur robot-fijn: 5 gewrichten ['Left elbow', 'Right elbow', 'Neck', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Left shoulder', 'Right shoulder', 'Left knee', 'Right knee']; overgeslagen: Left knee (the cut left a loose piece here, place it by hand); Right knee (the cut left a loose piece here, place it by hand); Left shoulder (The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.); Right shoulder (The cut gave no watertight parts (bad edges: part A 0, 
+[meet] pogingen 17, sneden 15, slechte sneden 8
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": false, "fout": 398, "punten": 450255}, "B": {"gesloten": true, "fout": 0, "punten": 28272}, "goed": false}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": false, "fout": 928, "punten": 1773}, "B": {"gesloten": true, "fout": 0, "punten": 28267}, "goed": false}
+[meet]   SLECHT {"poging": 5, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": false, "fout": 58, "punten": 364580}, "B": {"gesloten": true, "fout": 0, "punten": 46262}, "goed": false}
+[meet]   SLECHT {"poging": 5, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": false, "fout": 132, "punten": 364625}, "B": {"gesloten": true, "fout": 0, "punten": 708}, "goed": false}
+[meet]   SLECHT {"poging": 11, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "EXACT", "terugval": false, "s": 7.74, "r_mm": 4.5, "naad_r": 8.706, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": true, "fout": 0, "punten": 374073}, "B": {"gesloten": false, "fout": 0, "punten": 0, "open": {"aantal": 0}}, "overlap_ab": 0, "goed": false
+[meet]   SLECHT {"poging": 12, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "EXACT", "terugval": false, "s": 7.99, "r_mm": 4.5, "naad_r": 8.7, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": true, "fout": 0, "punten": 376054}, "B": {"gesloten": false, "fout": 0, "punten": 0, "open": {"aantal": 0}}, "overlap_ab": 0, "goed": false, 
+[meet]   SLECHT {"poging": 13, "gewricht": "Right shoulder", "soort": "KOGEL", "solver": "EXACT", "terugval": false, "s": 8.0, "r_mm": 4.5, "naad_r": 8.706, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": true, "fout": 0, "punten": 376004}, "B": {"gesloten": false, "fout": 0, "punten": 0, "open": {"aantal": 0}}, "overlap_ab": 0, "goed": false
+[meet]   SLECHT {"poging": 14, "gewricht": "Right shoulder", "soort": "KOGEL", "solver": "EXACT", "terugval": false, "s": 7.93, "r_mm": 4.5, "naad_r": 8.697, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": true, "fout": 0, "punten": 376038}, "B": {"gesloten": false, "fout": 3, "punten": 51, "open": {"aantal": 3, "vlakken_per_rand": [4], "plek
+MEET robot-fijn gewrichten=5 overgeslagen=4 slechte_sneden=8
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+model name	: AMD EPYC 9V45 96-Core Processor
