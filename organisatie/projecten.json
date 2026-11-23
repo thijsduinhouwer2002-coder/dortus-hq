@@ -459,7 +459,7 @@
       "status": {
         "woord": "marketing",
         "kleur": "op-koers",
-        "zin": "Live voor $2,99; sinds 20 nov krijgt Ebb marketing: betere winkelpagina en twee filmpjes."
+        "zin": "Live voor $2,99, 1+ downloads (GEZIEN 23 nov). Nieuwe titels gaven hogere zoekplekken (breathwork 33 naar 7); de 20 gekeurde teksten in 10 talen wachten op plakken."
       },
       "eigenaar": "hoofdchat",
       "agents": [],
@@ -484,7 +484,7 @@
       },
       "thijs": [],
       "risico": "Geen.",
-      "laatste_update": "2026-11-22",
+      "laatste_update": "2026-11-23",
       "links": [
         {
           "naam": "Status Garmin",
@@ -498,7 +498,11 @@
       "mappen": [
         "producten/garmin-adem"
       ],
-      "keuringen": []
+      "keuringen": [],
+      "bijgewerkt": {
+        "datum": "2026-11-23",
+        "door": "Garmin-ronde"
+      }
     },
     {
       "id": "gloop-garmin",

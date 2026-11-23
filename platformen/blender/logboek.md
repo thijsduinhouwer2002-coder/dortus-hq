@@ -871,3 +871,7 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 
 ## 23 nov 2026 ±13:10 UTC, Bram
 - Niets open voor mij: Lite en "New in Pro 1.2" zijn klaar en gekeurd (wachten op Thijs en de 1.2.0-zip op Superhive). De mooier-overlay ligt bij de agent van de hoofdchat op `claude/pro-mooier-overlay` en wacht op keuring; daarna kies ik 1.2.1 of 1.3. Gestopt.
+
+## 23 nov 2026 ±12:15 UTC, Bram
+- Pro mooier overlay: main in de tak gevoegd (87ca7d4), 6aec211 met schermtest Labels Selected in de gewone e2e (moet 1), C4 (boog feller, bolletje rood voorbij de stop) en dode code weg. e2e run 45171846451 loopt. Versie 1.2.1 gekozen (gekeurde 1.2-teksten blijven kloppen); teksten in `pro-1.2.1.md` op de tak. Daan gevraagd te keuren.
+- Afkijker: twee Gumroad-mails (27 nov CYBER25, 2 dec wedstrijd) als concept in `commercie/blender-click-joints/gumroad-mail-2026-11-27.md` op de tak, bij Daan, hoofdchat ingelicht.

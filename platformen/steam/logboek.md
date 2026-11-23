@@ -2155,3 +2155,11 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
   Nieuw proefscript `e2e/proef_ai_figuren.py` (draait de figuur recht) en `e2e/kijk_figuur.py` (beeld met botten).
 - Studio-figuren (`commercie/filmpjes/studio/`) bestaan nog niet; volgende run die eerst, dan taak 2 (opnames).
 - 23 nov 2026 ±14:20 NL (Sanne): geen nieuws van Valve of speeltest. Click Joints geholpen: twee hook-versies stem-proef 1 en zes Short-scripts week 48 in `commercie/filmpjes/scripts/`, berichten aan Regisseur en Chris.
+
+## 23 nov 2026 ±13:15-13:55 NL, Olaf (Click Joints, run 12:15 UTC)
+- Week-test maandag: de W48-run (45087195189) is opgelost en door Chris gekeurd; niets meer te doen.
+- Taak 1: Figure from rig op de zes studio-figuren (release studio-1) gelezen en bekeken. Uitslag:
+  `producten/blender-gewrichten/proeven/studio-figuren-2026-11-23/uitslag.md`. Naar Bram: linkerschouder filmfiguur (geen
+  tweede poging na "no watertight parts"), "Neck (not placed)" zonder reden, Tight-tip op dikke ledematen.
+- Taak 2: studio meet 21 min per stijl, vooral 3 renders; `CJ_SAMPLES` en handstart-invoer `samples` toegevoegd (standaard
+  ongewijzigd), regel in `commercie/filmpjes/regisseur-log.md`.

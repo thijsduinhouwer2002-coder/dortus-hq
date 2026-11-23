@@ -1835,3 +1835,6 @@ Lege run: geen open keuringen. Bram nam moet 1 van "New in Pro 1.2" letterlijk o
 ## 23 nov 2026 ±12:35 UTC, Daan
 - Keuring Pro mooier overlay (uit eigen beweging, de agent vroeg een keurder): ontwerp ja, uitbrengen pas na e2e groen en tak bijgewerkt met main. Kan's: boog feller (nu te bleek voor een telefoon), bolletje rood voorbij de stop. `platformen/blender/keuring/2026-11-23-pro-mooier-overlay-daan.md`. Bram en hoofdchat ingelicht.
 - ±12:50: live Gumroad-tekst Pro nagekeken tegen 1.2.0: twee moet's (regel "1.1 is a free update", Fit test strip ontbreekt) naar Bram en hoofdchat. Superhive en extensions al eerder gekeurd. Volgende run: punt 2 en 3 van de lijst (Shorts-wachtrij, dortus.com), en herkeuring mooier overlay als Bram de moet's heeft.
+
+## 23 nov 2026 ±12:40 UTC, Daan
+Keuring Pro 1.2.1 (Bram, tak pro-mooier-overlay 649680f): code 6aec211 ja (C2/C3 opgelost, GEZIEN), uitbrengen na groene e2e 45171846451; teksten ja met moet "clean render" wordt "clean viewport"; mail 1 ja, mail 2 nee op moet (foto naar thijs@dortus.com). `platformen/blender/keuring/2026-11-23-pro-1.2.1-daan.md`, bericht Bram. Volgende run: punt 2 en 3 van de lijst van de hoofdchat (Shorts-wachtrij, dortus.com).

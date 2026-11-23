@@ -1036,3 +1036,25 @@ De tak `claude/pro-mooier-overlay` (2250ff6) is gekeurd: akkoord ja voor samenvo
 5. Kan-punten uit de keuring mogen mee als ze klein zijn (dode code, hint als niets gekozen is). Winkelplaatjes 15 tot 19 opnieuw, eerste beeld in Selected, schuin.
 Doel: live vóór wo 25 nov, zodat de saleweek (vanaf 26 nov) met de nette versie begint. Lukt dat niet veilig, dan na de sale; niet overhaasten.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±13:11 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 2250ff6..6aec211: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-6aec211.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Controleer met grep dat `tekst_rand` en `FIGUUR_X` echt nergens meer worden gebruikt, en wacht op de groene gewone e2e voor het uitbrengen (zie A2 en B3). 2. Bevestig dat de workflow op `MOOI SELECTED OK` eist en dat `koppen`, `rood_vlakken` en `KNIE` bestaan (A4, A5). 3. Corrigeer in `uitslag.md` "5 van 6 heupen" naar het gelogde aantal. Markeer de MIT-licentie als DERDEN en neem de run met `CJ_HEUP_PCT=52` op in het log. 4. Daan keurt het uiterlijk van de labels en de boog (Deel C 1 en 2) voor het in een winkelplaatje komt. Het huidige akkoord in `ontwerp.md` geld Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±13:40 NL, van Olaf: Figure from rig op de studio-figuren, 2 fouten in het filmfiguur en de nek
+Uitslag met beeld: `producten/blender-gewrichten/proeven/studio-figuren-2026-11-23/uitslag.md` (bron release studio-1, GEZIEN).
+1. Filmfiguur (makehuman-kleding, figuur a en b): **linkerschouder valt weg**, "The cut gave no watertight parts (bad edges: part A 1)". Beeld `figuur-a-lijst-linkerschouder-weg.jpg`. `rig.py` r746 probeert dan geen volgende plek; voorstel: ook bij "no watertight parts" door naar de volgende kandidaat van `kogel_schuif`. Op studio-1 miste in elk filmpje een schouder; na studio-commit f9391c8 (minder dikte op de schouders) zegt de studio 9 gewrichten, dus voor de filmpjes is het omzeild. Voor kopers blijft het: geen tweede poging.
+2. **"Neck (not placed)" zonder reden** op 4 van 6 figuren: `kogel_reden` kent alleen HIP en SHOULDER. Voorstel: een zin voor NECK.
+3. "Tight: cheek too stiff ... Try a thicker spot" op dikke ledematen nu op drie figuren (robot, knight, spacetrooper1). De tip klopt daar niet.
+Mag mee in 1.2.1 als het klein is; jij beslist. Ik bouw niet in de add-on.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±13:23 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van f9391c8..2a79af9: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-2a79af9.md`. Moet en kan: **Moet:** geen. **Kan:** - Na studio f9391c8 de uitslag voor figuur a opnieuw draaien en de tabel bijwerken (8 van 9 wordt waarschijnlijk 9). - Bij king uitleggen welke 4 gewrichten er zijn. - Bij de claim over de wand onder 1 mm (medieval) een label GOK of GEZIEN zetten. - De licentie (CC0 of niet) van de Quaternius- en makehuman-modellen noemen, voordat ze in filmpjes of op een winkelpagina komen. - `figuur-a-staand-pose.jpg` wordt in de tekst niet genoemd. Noem het, of haal het weg. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+
+## 23 nov 2026 ±12:40 UTC, van Daan: keuring Pro 1.2.1, teksten en mails
+`platformen/blender/keuring/2026-11-23-pro-1.2.1-daan.md`.
+1. Code 6aec211: **ja**. Boog feller en rood bolletje zelf gezien (vergelijk-m3, na-m4). Uitbrengen zodra run 45171846451 in alle drie de versies groen is (12:40 UTC nog bezig; de nieuwe stap Selected was in 5.2.3 en 5.3.0 al groen).
+2. Teksten pro-1.2.1.md: **ja met 1 moet**: "or None for a clean render" wordt "or None for a clean viewport" (releasenotes en winkelzin). Een render toont de overlay nooit, dus de oude zin belooft niets echts. Letterlijke zin staat in de keuring; bij overname geen herkeuring. "Tested on 4.2, 5.2, 5.3" pas plaatsen na groene e2e.
+3. Mails: **mail 1 ja** (kan: link met /CYBER25 erin). **Mail 2 nee op 1 moet**: "reply to this email" wordt "send a photo to thijs@dortus.com" (besluit 22 nov 13:40). Letterlijke zin in de keuring; bij overname akkoord. Kan: "first name or username" in plaats van "name".
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
