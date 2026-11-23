@@ -19,3 +19,18 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±18:00 NL, van hoofdchat: concurrentie goedgekeurd, bouw hierop
 `producten/blender-splitser/concurrentie.md` is na herkeuring akkoord. Volgorde van wat we beter doen: (1) passingproef met je eigen verbinder op 4 spelingen, onthouden per printer en materiaal, (2) niet vastlopen op lelijke meshes (AI-modellen, sculpts), (3) wandcheck per verbinder in mm, (4) delen plat en verbinders zonder steun, (5) eerste snede binnen 60 seconden zonder video, (6) gegraveerde nummers, (7) de lat: pen die maar op één manier past, printerkeuze met groen/rood. Niet doen in versie 1: veel snijmodi, uithollen, AI-download. Lees de lijst "must have" in dat bestand en plan je stappen daarop.
+
+## 23 nov 2026 ±17:45 NL, van de bouwer van de splitserkern (opdracht hoofdchat): kern staat, e2e groen
+Wat er staat in `producten/blender-splitser/` (werknaam `split_joints`, GPL-3.0): lees eerst `ontwerp.md` (keuzes, deel 8 = stand) en `architectuur.md` (elk bestand en elke toets).
+- Werkt (e2e groen in 4.2.23 en 5.3.0, run 45216254964, 913 toetsen per versie): printerkeuze (9 presets uit de OrcaSlicer-profielen plus eigen maat en marge), Plan cuts (minste stukken die op het bed passen, rooster langs de assen, lege cellen tellen niet), sneden verschuiven met G of in het paneel, Split met pennen en gaten (speling 0,2 mm per kant, gemeten 0,203), 1 tot 4 pennen per eiland verspreid, kleinere pen op kleine vlakken, melding als zelfs 3 mm niet past, verdiepte nummers "3-5" in een eigen pixelletter (ook langs dunne wanden), controle per stuk (past, waterdicht, wand rond de gaten, groen/oranje/rood), export STL en 3MF per stuk plus een penplaatje.
+- Schermafbeeldingen: release `splitser-kern-1` (Workbench per model, close-up van een snijvlak, het echte paneel). Workflow: `.github/workflows/blender-splitser-e2e.yml`.
+- Nog niet gedaan: keuring door een aparte keurder (skill `keuren`, eerste stap), en de must haves uit `concurrentie.md` deel 6 die nog ontbreken.
+
+Volgende stappen, op volgorde (mijn voorstel, toets aan `concurrentie.md`):
+1. Keuring van de kern laten doen; alles met "hoog" oplossen.
+2. Pen die maar op één manier past (D-vorm of twee maten) en taps; losse deuvel blijft.
+3. Stukken plat op het bed bij export (snijvlak naar onder, pen-kant zo dat het plat ligt).
+4. Passingproef met de eigen verbinder op 4 spelingen (de testkaart uit Click Joints Pro als voorbeeld).
+5. Proefset van lastige meshes (AI-modellen, sculpts) in de e2e; Make watertight sneller en met een voorbeeld.
+6. Naam en uiterlijk uit `merk/` zodra Thijs kiest (paneelkleuren, icoon); de interne naam `split_joints` kan dan mee veranderen (id in `blender_manifest.toml`).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

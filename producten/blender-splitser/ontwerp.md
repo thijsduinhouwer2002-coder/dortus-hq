@@ -56,3 +56,10 @@ Af voor deze kern (toetsbaar, in echte Blender 4.2 en 5.3 in CI):
 
 ## 7. Wat getest wordt
 Zie `architectuur.md`, deel Testen.
+
+## 8. Stand ma 23 nov 2026 ±17:45 NL (bouwer van de kern)
+- e2e groen in echte Blender 4.2.23 (Exact) en 5.3.0 (Manifold): run [45216254964](https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45216254964), 913 toetsen per versie, 0 fout (GEZIEN).
+- Suzanne 330 mm: 8 stukken, 40 pennen; vaas 600 mm: 16 stukken, 32 pennen, een paar dunne vlakken krijgen terecht "too small for a pin ... Glue this joint"; schedel 300 mm: 8 stukken, 44 pennen. Alle 232 gaten gemeten: speling 0,203 mm bij 0,2 ingesteld (de 0,003 komt van de meetstralen naast het midden van een plat vlak; de kleinste opening is door de bouw precies 0,2). Duur van Split: 2,6 / 19,2 / 5,0 s op 5.3 en 5,8 / 46,4 / 11,1 s op 4.2 (GEZIEN, runners van GitHub).
+- Schermafbeeldingen (Workbench en het echte paneel): release [splitser-kern-1](https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/splitser-kern-1). Zelf bekeken: stukken groen, gaten en "1-2" zichtbaar in het snijvlak, paneel leesbaar in de standaardbreedte van de zijbalk.
+- Lessen: de "4" van het ingebouwde lettertype gaf in 4.2 (Exact) steeds 4 open randen, daarom een eigen pixelletter; tekst nooit van een al gesneden stuk aftrekken maar eerst van de doos; de wandmeting moet het eigen snijvlak overslaan.
+- Nog niet gekeurd door een aparte keurder (skill `keuren`): dat is de eerste stap voor de Productbouwer.
