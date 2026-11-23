@@ -2,7 +2,7 @@ name: Blender gewrichten e2e (Click Joints, echte Blender)
 
 on:
   push:
-    branches: [main, "claude/blender-*"]
+    branches: [main, "claude/blender-*", "claude/pro-mooier-*"]
     paths: ["producten/blender-gewrichten/**", ".github/workflows/blender-gewrichten-e2e.yml"]
   workflow_dispatch:
   # Week-test (roestronde R4): week-test.yml roept deze workflow aan met de nieuwste Blender alpha en dailies.

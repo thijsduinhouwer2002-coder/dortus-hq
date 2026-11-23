@@ -53,6 +53,48 @@ def gesloten(ob):
     return fout == 0
 
 
+def mooier(a, b):
+    """Mooier overlay (23 nov): schakelaar Labels en het hele deel B rood voorbij de stop, zonder scherm."""
+    import importlib
+    labels = importlib.import_module("bl_ext.user_default.click_joints.betaald.labels")
+    beweeg = importlib.import_module("bl_ext.user_default.click_joints.betaald.scharnier_beweeg")
+    kleur = importlib.import_module("bl_ext.user_default.click_joints.kleur")
+    ctx, wm = bpy.context, bpy.context.window_manager
+    check(wm.cj_labels == "SELECTED", f"Labels staat standaard op Selected ({wm.cj_labels})")
+    for o in ctx.view_layer.objects:
+        o.select_set(False)
+    ctx.view_layer.objects.active = None
+    check(not labels.toon(ctx, a, b), "Selected, niets gekozen: geen boog en label")
+    figuren.maak_actief(a)
+    check(labels.toon(ctx, a, b) and labels.met_naam(ctx, b), "Selected, deel A gekozen: boog en label met naam")
+    wm.cj_labels = "NONE"
+    check(not labels.toon(ctx, a, b), "None: geen boog en label, ook als het gewricht gekozen is")
+    wm.cj_labels = "ALL"
+    for o in ctx.view_layer.objects:
+        o.select_set(False)
+    ctx.view_layer.objects.active = None
+    check(labels.toon(ctx, a, b) and not labels.met_naam(ctx, b), "All: boog en label zonder naam, ook zonder keuze")
+    los = bpy.data.objects.new("los", None)
+    wm.cj_labels = "NONE"
+    check(labels.toon(ctx, None, los), "Los gewricht (geen figuur): altijd, ook bij None")
+    bpy.data.objects.remove(los)
+    wm.cj_labels = "SELECTED"
+    vakken = {ob.name: [f.material_index for f in ob.data.polygons] for ob in (a, b)}
+    grens = float(a["cj_bereik_graden"])
+    rood = kleur.materiaal("rood")
+    beweeg.pose(a, b, grens + 5.0, rood)
+    namen = [m.name if m else None for m in b.data.materials]
+    vak = namen.index(rood.name) if rood.name in namen else -1
+    allemaal = vak >= 0 and all(f.material_index == vak for f in b.data.polygons)
+    check(allemaal and len(b.get("cj_rood_deel", [])) == len(b.data.polygons),
+          f"voorbij de stop: hele deel B rood ({len(b.data.polygons)} vlakken)")
+    beweeg.pose(a, b, grens - 5.0, rood)
+    terug = all([f.material_index for f in ob.data.polygons] == vakken[ob.name] for ob in (a, b))
+    check(terug and "cj_rood_deel" not in b and not b.get("cj_rood_vlakken"),
+          "binnen de stop: alle vakken van A en B weer zoals eerst")
+    beweeg.pose(a, b, 0.0, rood)
+
+
 def main():
     zip_pad = sys.argv[sys.argv.index("--") + 1]
     bpy.ops.extensions.package_install_files(filepath=zip_pad, repo="user_default", enable_on_install=True)
@@ -94,6 +136,7 @@ def main():
     log(f"regel: {tekst}")
     check(tekst == f"Knee · Hinge · 0–{g:.0f}° · preset", "Knee: regel in het paneel")
     check(a.get("cj_figuur") == "pop" and b.get("cj_figuur") == "pop", "Knee: figuurnaam op beide delen")
+    mooier(a, b)
 
     rechts = b  # lidas is +X, dus deel B ligt rechts van de knie
     check(rechts is not None, f"deel rechts gevonden ({rechts.name if rechts else None})")
