@@ -1,0 +1,44 @@
+# Keuring Betrouwbaarheid Figure from rig (deel B), 23 nov 2026, keurder Betrouwbaarheid B
+Wat ik keurde: tak `claude/betrouwbaar-rig`, laatste commit 5aa27a88d, add-on 183fae2, diff tegen origin/main (merge-base 782ca4b).
+Akkoord: ja (deel B). Geen moet-punten in de tak zelf; twee verplichte stappen bij het samenvoegen (zie onder).
+
+Opdracht: hoofdchat, ma 23 nov 2026. Ik keurde alleen deel B (regels). Deel A doet een andere keurder.
+
+## Deel A: doet het wat beloofd is?
+Niet mijn deel. Wel gezien als bijvangst (GEZIEN): de e2e op 183fae2 is groen in 4.2.23, 5.2.3 en 5.3.0 (run 45275271494).
+
+## Deel B: houdt het zich aan onze regels?
+| # | Bevinding | Feit of vermoeden | Zekerheid | Regel |
+|---|---|---|---|---|
+| B1 | Geen bestaande toets aangepast of versoepeld. In `producten/blender-gewrichten/e2e/` zijn alleen nieuwe bestanden (`meet_diag.py`, `meet_eis.py`, `meet_rig.py`, `meet_tabel.py`, `meet_drempel.json`); geen enkel `toetsen_*.py`, `toets_zips.py` of `test_betaald.py` veranderd. In `blender-gewrichten-e2e.yml` is alleen de tak `claude/betrouwbaar-rig` aan de push-trigger toegevoegd; stappen, eisen en `PRO_VERSIE` zijn gelijk aan main. | Feit (`git diff origin/main...HEAD`) | hoog | bouwen.md 1 |
+| B2 | `meet_drempel.json` bestaat niet op main, dus er is geen bestaande drempel verlaagd. Binnen de tak wel twee keer bijgesteld: rigify 9 naar 7 voor alle versies (7ea796e) en voor 4.2 robot-a/b 9 naar 7 naar 6, robot-fijn 9 naar 7, kleding 8. Eerlijk uitgelegd: het veld `uitleg` en `uitslag.md` zeggen dat het de gemeten stand is (doel blijft 9), rigify haalt 7 ook op main in elke versie (bovenarm 29 mm te kort), en de stap van 7 naar 6 komt door de nieuwe, dikkere robot van studio-3 (nulstand op die robot in 4.2: 4). Ik heb de JSON-uitslagen op de tak `betrouwbaar-uitslag` nagekeken: run 45275271607 en 45279729768, 4.2.23, tak: robot-a 6, robot-b 6, robot-fijn 7, kleding 8, mens 9, rigify 7, armen 8, elke herhaling gelijk, 0 open delen. De drempel valt dus precies op de meting en vangt een terugval. Toegestaan volgens de opdracht. | Feit | hoog | bouwen.md 1 |
+| B3 | Gratis zip blijft gelijk aan main. Bestandslijst van de gratis map: geen enkel bestand buiten `click_joints/betaald/` veranderd. Gebouwd met `e2e/maak_zip.sh` vanuit main en vanuit de tak: inhoud (sha256 van alle 19 bestanden samen) gelijk, 14d78539de33... `toets_zips.py` met `PRO_VERSIE=1.2.3`: 0 FOUT, ook "gratis zip gelijk aan de gekeurde stand 014172e". De zip in `uitgave/click_joints-0.1.2.zip` raakt de tak niet aan (main veranderde hem na het aftakken, de tak laat hem staan, dus samenvoegen houdt die van main). | Feit (zelf gebouwd) | hoog | ontwerp betaald v1.1, eis 7 |
+| B4 | Bestandsgrootte: alle nieuwe bestanden onder 400 regels (herstel 81, omhulsel 152, redenen 32, meet_diag 272, meet_rig 204, workflow 193). `scharnier.py` 296. `betaald/rig.py` is 815 regels (was 812 op main): al te groot vóór deze tak, de tak voegt 3 regels toe. | Feit (`wc -l`) | hoog | bouwen.md 4 |
+| B5 | `architectuur.md` klopt met de code voor omhulsel (voxelmaat, `MAX_VLAKKEN` 250000, `BUITEN_MAX` 2%, Exact altijd, Manifold alleen bij "los", `AAN`), herstel (`MAX_RANDEN` 4, `SNAP_MM` 0,0001 mm, `na_exact`), redenen en rig.py. Klein verschil: er staat dat herstel in `scharnier.py` "direct na `vorm.snij`" draait; in de code gebeurt dat na het opruimen van de snippers. Daarnaast draait in 5.x ook `herstel.herstel` na een scharniersnede, wat de tekst niet noemt. | Feit | hoog | bouwen.md 4 |
+| B6 | Dode code: `scharnier.DIEP_EXACT = [False]` wordt nergens op True gezet (geen toets, geen omgevingsvariabele); het is de schakelaar van een afgewezen proef (run 45261862637). Wel uitgelegd in code en architectuur, geen gedrag. `omhulsel.AAN` wordt wel gebruikt (`meet_diag.py`, `CJ_OMHULSEL_UIT`). Geen `print`, breakpoints of TODO's in de add-on. | Feit | hoog | opdracht: geen dode code |
+| B7 | Licenties testfiguren: robot is eigen werk (gemaakt door `commercie/filmpjes/studio/figuur_robot.py`, geen download); MakeHuman `base.obj` CC0 1.0 met `makehuman-base-LICENTIE.md` en de licentietekst; Rigify-metarig komt uit Blender zelf (`proef_rigify.py`); buizenfiguur uit `toetsen_rig_armen.py`, eigen werk. `meet_rig.py` voert alleen bestanden uit de repo uit (`exec` van `proef_mens.py`, `toetsen_rig_armen.py`, `proef_meshy_rig.py`, `proef_rigify.py`). De job `regressie` haalt de Meshy-GLB's van Hugging Face en `remotezip` met pip, precies zoals de gewone e2e op main al doet; GLB is data, geen code. Licentie Meshy staat eerlijk als "niet zelf nagelezen" in `uitslag.md` en zit niet in de testset. | Feit | hoog | opdracht |
+| B8 | Persoonsgegevens: `organisatie/controle/check.py` op de tak: "Controle openbare repo: OK". Niets gevonden bij het lezen van de diff. | Feit | hoog | harde regel 2 |
+| B9 | Cijfers: `uitslag.md` zet bovenaan dat alle cijfers GEZIEN zijn in de JSON op `betrouwbaar-uitslag` (met runnummers) en noemt de verklaringen die niet bewezen zijn GOK (processorafronding, volgorde van parallel rekenwerk). De docstrings van `herstel.py` en `omhulsel.py` noemen run en GEZIEN. | Feit | hoog | harde regel 5 |
+| B10 | Geen gedachtestreepjes in de toegevoegde regels (alleen `--` als scheiding voor Blender-argumenten in commando's). | Feit (grep op de diff) | hoog | harde regel 8 |
+| B11 | Engelse teksten in `redenen.py`: "the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably" en de twee andere. Geen spelfouten; zelfde stijl als de bestaande meldingen in de lijst (kleine letter, komma's). De oude kern ("no watertight parts", "overlap before they move", "it would be blocked") blijft erin, zodat bestaande toetsen die erop zoeken blijven werken. Daan keurt de toon nog (staat al in de opdracht aan Bram). | Feit | midden (toon is aan Daan) | opdracht |
+| B12 | Workflows: `betrouwbaar-rig.yml` draait bij push alleen op de tak `claude/betrouwbaar-rig` (plus handmatig); op main dus niet bij elke push. `blender-gewrichten-e2e.yml` houdt zijn paths-filter. Na samenvoegen staat de extra tak nog in de trigger van de e2e (onschuldig). De matrix van `betrouwbaar-rig.yml` staat in een verkleinde stand (alleen 4.2.23, alleen `tak`); de commentaren zeggen hoe je hem terugzet. | Feit | hoog | opdracht |
+| B13 | Samenvoegen met main: `git merge-tree` geeft één conflict, in `berichten/hoofdchat.md` (beide kanten voegden onderaan toe). Geen conflict in code, workflows of de add-on; main veranderde na het aftakken niets in `producten/blender-gewrichten` behalve de gratis uitgave-zip, die de tak niet aanraakt. | Feit | hoog | opdracht |
+| B14 | `PRO_VERSIE` staat in `blender-gewrichten-e2e.yml` en in `betrouwbaar-rig.yml` nog op "1.2.2". Voor een uitgave als 1.2.3 moet de e2e-workflow 1.2.3 krijgen, anders heet de Pro-zip uit de run `click_joints_pro-1.2.2.zip` en zegt het manifest 1.2.2. Gecontroleerd: met `PRO_VERSIE=1.2.3` bouwt `maak_zip.sh betaald` een manifest met version "1.2.3" en name "Click Joints Pro", en `toets_zips.py` is groen. | Feit | hoog | opdracht (op main als 1.2.3) |
+| B15 | De job `regressie (4.2.23)` liep op het moment van keuren nog in run 45275271607 en 45279729768 (5.2.3 en 5.3.0 groen); de gewone e2e op 183fae2 deed dezelfde rig-toetsen in 4.2.23 en was groen. Run 45279729821 (e2e op 5aa27a8, alleen tekst en drempel veranderd) liep nog. | Feit | hoog | bouwen.md (tests groen) |
+
+## Deel C: zou een gebruiker het leuk en fijn vinden?
+| # | Bevinding | Wat het beter maakt | Moeite |
+|---|---|---|---|
+| C1 | In 4.2 zegt de lijst "Skipped" nu wat de koper kan doen, en raadt Blender 4.5 of nieuwer aan. Goed. In 4.2 duurt de knop wel 2 tot 5 minuten per figuur (GEZIEN in `uitslag.md`) zonder dat de koper dat vooraf weet. | Een korte regel in de Pro-beschrijving of het paneel: "In Blender 4.2 this can take a few minutes." | klein |
+
+## Moet (blokkeert akkoord)
+Geen in de tak. Wel verplicht bij het samenvoegen op main (anders klopt de uitgave niet):
+1. `PRO_VERSIE` naar "1.2.3" in `.github/workflows/blender-gewrichten-e2e.yml` (B14), en daarna de e2e op main groen zien.
+2. Conflict in `berichten/hoofdchat.md` oplossen door beide kanten te houden (B13), nooit iets weghalen.
+
+## Kan (mag later)
+1. `scharnier.DIEP_EXACT` weghalen of in een proefbestand zetten (B6).
+2. Tak `claude/betrouwbaar-rig` uit de push-trigger van `blender-gewrichten-e2e.yml` halen na het samenvoegen, en de matrix van `betrouwbaar-rig.yml` terugzetten naar de volle meting of de verkleinde stand in de kop uitleggen (B12).
+3. `architectuur.md`: "direct na `vorm.snij`" wordt "na het opruimen van de snippers", en noemen dat in 5.x ook `herstel.herstel` draait (B5).
+4. `betaald/rig.py` (815 regels) splitsen in de volgende opruimronde (B4, al zo op main).
+5. De uitslag van `regressie (4.2.23)` nalezen als de job klaar is (B15).
