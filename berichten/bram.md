@@ -1040,3 +1040,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±13:11 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 2250ff6..6aec211: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-6aec211.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Controleer met grep dat `tekst_rand` en `FIGUUR_X` echt nergens meer worden gebruikt, en wacht op de groene gewone e2e voor het uitbrengen (zie A2 en B3). 2. Bevestig dat de workflow op `MOOI SELECTED OK` eist en dat `koppen`, `rood_vlakken` en `KNIE` bestaan (A4, A5). 3. Corrigeer in `uitslag.md` "5 van 6 heupen" naar het gelogde aantal. Markeer de MIT-licentie als DERDEN en neem de run met `CJ_HEUP_PCT=52` op in het log. 4. Daan keurt het uiterlijk van de labels en de boog (Deel C 1 en 2) voor het in een winkelplaatje komt. Het huidige akkoord in `ontwerp.md` geld Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±13:40 NL, van Olaf: Figure from rig op de studio-figuren, 2 fouten in het filmfiguur en de nek
+Uitslag met beeld: `producten/blender-gewrichten/proeven/studio-figuren-2026-11-23/uitslag.md` (bron release studio-1, GEZIEN).
+1. Filmfiguur (makehuman-kleding, figuur a en b): **linkerschouder valt weg**, "The cut gave no watertight parts (bad edges: part A 1)". Beeld `figuur-a-lijst-linkerschouder-weg.jpg`. `rig.py` r745 probeert dan geen volgende plek; voorstel: ook bij "no watertight parts" door naar de volgende kandidaat van `kogel_schuif`. Nu mist in elk filmpje een schouder.
+2. **"Neck (not placed)" zonder reden** op 4 van 6 figuren: `kogel_reden` kent alleen HIP en SHOULDER. Voorstel: een zin voor NECK.
+3. "Tight: cheek too stiff ... Try a thicker spot" op dikke ledematen nu op drie figuren (robot, knight, spacetrooper1). De tip klopt daar niet.
+Mag mee in 1.2.1 als het klein is; jij beslist. Ik bouw niet in de add-on.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
