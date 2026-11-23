@@ -479,7 +479,7 @@ def camera(doel, afstand, hoek_h, hoek_v, lens=70):
     return cam
 
 
-def kader(objs, c, straal, hh, hv, xbereik, yhalf, lens=60):
+def kader(objs, c, straal, hh, hv, xbereik, yhalf, lens=60, ymid=0.5):
     """Camera zo zetten dat alle stukken precies in het vak vallen (x van xbereik, y binnen 0,5 +- yhalf)."""
     from bpy_extras.object_utils import world_to_camera_view
     sc = bpy.context.scene
@@ -505,7 +505,7 @@ def kader(objs, c, straal, hh, hv, xbereik, yhalf, lens=60):
         d = (cam.location - c).length
         # schuif zodat het midden van de stukken op het midden van het vak valt
         mx_ = (x0 + x1) / 2 - (xbereik[0] + xbereik[1]) / 2
-        my_ = (y0 + y1) / 2 - 0.5
+        my_ = (y0 + y1) / 2 - ymid
         breedte_wereld = 2 * d * math.tan(cam.data.angle_x / 2)
         hoogte_wereld = breedte_wereld * sc.render.resolution_y / sc.render.resolution_x
         cam.location += rechts * mx_ * breedte_wereld + boven * my_ * hoogte_wereld
@@ -619,7 +619,7 @@ def main():
             bpy.data.objects.remove(p)
         pennen = []
         for d in delen:
-            d.data.materials[0] = plastic_mat("heel", "F7F4EE" if STIJL == "a" else "C9B9FF", nor_img)
+            d.data.materials[0] = plastic_mat("heel", "F7F4EE" if STIJL == "a" else "FFD25C", nor_img)
             d.data.materials[1] = d.data.materials[0]
         vol = bouwvolume((0, 0, 0))
     elif SHOT == "bed":
@@ -644,23 +644,23 @@ def main():
     log("bereik", tuple(round(v) for v in mn), tuple(round(v) for v in mx))
     if SHOT == "cover":
         render_instellingen(2400, 1200)
-        kader(objs, c, straal, 30, 8, (0.50, 0.965), 0.44)
+        kader(objs, c, straal, 30, 8, (0.53, 0.975), 0.465)
     elif SHOT == "bed":
         render_instellingen(1600, 1600)
         objs = objs + [o for o in bpy.data.objects if o.name.startswith("plaat")]
-        kader(objs, c, straal, 18, 34, (0.05, 0.95), 0.36, lens=50)
+        kader(objs, c, straal, 18, 34, (0.05, 0.95), 0.33, lens=50, ymid=0.42)
     elif SHOT == "pen":
         render_instellingen(1600, 1600)
         nb = [o for o in delen if o.name in ("d_gezicht", "d_manen_ro", "d_manen_rb")]
         nb += [p for p in pennen if p["a"] in ("d_gezicht",) and p["b"] in ("d_manen_ro", "d_manen_rb")]
-        kader(nb, c, straal, 62, 6, (0.04, 0.96), 0.47, lens=85)
+        kader(nb, c, straal, 62, 6, (0.06, 0.94), 0.38, lens=85, ymid=0.41)
     elif SHOT in ("heel", "samen"):
         render_instellingen(1600, 1600)
         objs = objs + ([vol] if SHOT == "heel" else [])
-        kader(objs, c, straal, 28, 9, (0.1, 0.9), 0.4)
+        kader(objs, c, straal, 28, 9, (0.12, 0.88), 0.355, ymid=0.415)
     else:
         render_instellingen(1600, 1600)
-        kader(objs, c, straal, 34, 16, (0.04, 0.96), 0.46)
+        kader(objs, c, straal, 34, 16, (0.06, 0.94), 0.37, ymid=0.42)
     bpy.context.scene.render.filepath = os.path.join(UIT, f"{STIJL}-{SHOT}.png")
     bpy.ops.render.render(write_still=True)
     log("klaar", bpy.context.scene.render.filepath)

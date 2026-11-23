@@ -76,7 +76,7 @@ def cover(stijl):
     ic = icoon(132)
     img.alpha_composite(ic, (x, 170))
     ImageDraw.Draw(img).text((x + 160, 205), "Add-on for Blender", font=tekst(46, "SemiBold"), fill=t["klein"])
-    schaduwtekst(img, (x - 8, 330), NAAM, kop(250), t["kop"], r=18)
+    schaduwtekst(img, (x - 8, 340), NAAM, kop(225), t["kop"], r=18)
     schaduwtekst(img, (x, 650), "Print bigger than\nyour printer.", kop(112), KLEUR["goud"] if stijl == "b" else KLEUR["wit"],
                  r=14, spatie=10)
     ImageDraw.Draw(img).text((x, 960), "Parts that fit your bed, with pins that line up.", font=tekst(46),
@@ -260,6 +260,7 @@ def vergelijk(covers):
 
 
 def gumroad_vierkant(stijl):
+    """Vierkant voor Gumroad: de uiteengevallen leeuw, naam en icoon bovenaan (daar laat de camera ruimte)."""
     src = os.path.join(RENDER, f"{stijl}-delen.png")
     if not os.path.exists(src):
         return None
@@ -268,10 +269,10 @@ def gumroad_vierkant(stijl):
     laag = Image.new("RGBA", img.size, (0, 0, 0, 0))
     d = ImageDraw.Draw(laag)
     for y in range(300):
-        d.line([(0, 1200 - y), (1200, 1200 - y)], fill=(10, 8, 30, int(120 * (1 - y / 300) ** 1.4)))
+        d.line([(0, y), (1200, y)], fill=(10, 8, 30, int(110 * (1 - y / 300) ** 1.6)))
     img.alpha_composite(laag)
-    schaduwtekst(img, (70, 1040), NAAM, kop(110), t["kop"], r=12)
-    img.alpha_composite(icoon(100), (1200 - 100 - 60, 1200 - 100 - 50))
+    img.alpha_composite(icoon(118), (70, 64))
+    schaduwtekst(img, (214, 66), NAAM, kop(112), t["kop"], r=12)
     uit = os.path.join(UIT, f"gumroad-{stijl}-1200.png")
     img.convert("RGB").save(uit, optimize=True)
     return uit
