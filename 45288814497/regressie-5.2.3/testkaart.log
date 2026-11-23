@@ -1,0 +1,134 @@
+STATUS Installed "click_joints"
+[cj-kaart] Blender 5.2.3 LTS
+Info: Joint placed. Good fit. 0.207 s.
+Info: Joint placed. Good fit. 0.201 s.
+Info: Joint placed. Good fit. 0.204 s.
+Info: Joint placed. Good fit. 0.203 s.
+Info: Joint placed. Good fit. 0.202 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   KOGEL: knop geeft FINISHED ({'FINISHED'})
+[cj-kaart] OK   KOGEL: 10 delen (10)
+[cj-kaart] OK   KOGEL: alle delen in collectie Fit test
+[cj-kaart] OK   KOGEL: speling 0.10 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.10 op één deel (['0.10'])
+[cj-kaart] OK   KOGEL: speling 0.15 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.15 op één deel (['0.15'])
+[cj-kaart] OK   KOGEL: speling 0.20 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.20 op één deel (['0.20'])
+[cj-kaart] OK   KOGEL: speling 0.25 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.25 op één deel (['0.25'])
+[cj-kaart] OK   KOGEL: speling 0.30 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.30 op één deel (['0.30'])
+[cj-kaart] OK   KOGEL: alle delen gesloten (open: [])
+[cj-kaart] OK   KOGEL: speling scene blijft 0.17 (0.170)
+[cj-kaart] OK   KOGEL: Auto-diameter blijft aan
+[cj-kaart] OK   KOGEL: cursor blijft staan
+[cj-kaart] OK   KOGEL: eigen model niet aangeraakt
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: 10 STL files in /tmp/blender_zPR8v4/cj_kaart_KOGEL/
+[cj-kaart] OK   KOGEL: export geeft 10 bestanden (10)
+Info: Joint placed. Good fit. 0.202 s.
+Info: Joint placed. Good fit. 0.207 s.
+Info: Joint placed. Good fit. 0.204 s.
+Info: Joint placed. Good fit. 0.205 s.
+Info: Joint placed. Good fit. 0.204 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   KOGEL: tweede klik 10 nieuwe delen (10)
+[cj-kaart] OK   KOGEL: tweede set raakt de eerste niet
+[cj-kaart] KOGEL: maat set (140.0, 20.0, 60.6) mm
+Info: Joint placed. Good fit. 0.201 s.
+Info: Joint placed. Good fit. 0.201 s.
+Info: Joint placed. Good fit. 0.201 s.
+Info: Joint placed. Good fit. 0.202 s.
+Info: Joint placed. Good fit. 0.204 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   KOGEL meters: zelfde maat in mm ((140.0, 20.0, 60.6) tegen (140.0, 20.0, 60.6))
+[cj-kaart] OK   KOGEL meters: alle delen gesloten
+[cj-kaart] OK   KOGEL meters: vijf getallen (['0.10', '0.15', '0.20', '0.25', '0.30'])
+Info: Hinge placed. Bends 0° to 115°. 0.226 s.
+Info: Hinge placed. Bends 0° to 115°. 0.22 s.
+Info: Hinge placed. Bends 0° to 115°. 0.219 s.
+Info: Hinge placed. Bends 0° to 115°. 0.217 s.
+Info: Hinge placed. Bends 0° to 115°. 0.236 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER: knop geeft FINISHED ({'FINISHED'})
+[cj-kaart] OK   SCHARNIER: 10 delen (10)
+[cj-kaart] OK   SCHARNIER: alle delen in collectie Fit test
+[cj-kaart] OK   SCHARNIER: speling 0.10 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.10 op één deel (['0.10'])
+[cj-kaart] OK   SCHARNIER: speling 0.15 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.15 op één deel (['0.15'])
+[cj-kaart] OK   SCHARNIER: speling 0.20 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.20 op één deel (['0.20'])
+[cj-kaart] OK   SCHARNIER: speling 0.25 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.25 op één deel (['0.25'])
+[cj-kaart] OK   SCHARNIER: speling 0.30 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.30 op één deel (['0.30'])
+[cj-kaart] OK   SCHARNIER: alle delen gesloten (open: [])
+[cj-kaart] OK   SCHARNIER: speling scene blijft 0.17 (0.170)
+[cj-kaart] OK   SCHARNIER: Auto-diameter blijft aan
+[cj-kaart] OK   SCHARNIER: cursor blijft staan
+[cj-kaart] OK   SCHARNIER: eigen model niet aangeraakt
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: 10 STL files in /tmp/blender_zPR8v4/cj_kaart_SCHARNIER/
+[cj-kaart] OK   SCHARNIER: export geeft 10 bestanden (10)
+Info: Hinge placed. Bends 0° to 115°. 0.228 s.
+Info: Hinge placed. Bends 0° to 115°. 0.224 s.
+Info: Hinge placed. Bends 0° to 115°. 0.219 s.
+Info: Hinge placed. Bends 0° to 115°. 0.221 s.
+Info: Hinge placed. Bends 0° to 115°. 0.238 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER: tweede klik 10 nieuwe delen (10)
+[cj-kaart] OK   SCHARNIER: tweede set raakt de eerste niet
+[cj-kaart] SCHARNIER: maat set (110.0, 14.0, 60.6) mm
+Info: Hinge placed. Bends 0° to 115°. 0.22 s.
+Info: Hinge placed. Bends 0° to 115°. 0.219 s.
+Info: Hinge placed. Bends 0° to 115°. 0.221 s.
+Info: Hinge placed. Bends 0° to 115°. 0.212 s.
+Info: Hinge placed. Bends 0° to 115°. 0.232 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER meters: zelfde maat in mm ((110.0, 14.0, 60.6) tegen (110.0, 14.0, 60.6))
+[cj-kaart] OK   SCHARNIER meters: alle delen gesloten
+[cj-kaart] OK   SCHARNIER meters: vijf getallen (['0.10', '0.15', '0.20', '0.25', '0.30'])
+[cj-kaart] KLAAR 0 FOUT
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+Timer 'STL Export' took 1.46 ms
+Timer 'STL Export' took 1.42 ms
+Timer 'STL Export' took 1.29 ms
+Timer 'STL Export' took 1.28 ms
+Timer 'STL Export' took 1.27 ms
+Timer 'STL Export' took 1.42 ms
+Timer 'STL Export' took 1.29 ms
+Timer 'STL Export' took 1.39 ms
+Timer 'STL Export' took 1.28 ms
+Timer 'STL Export' took 1.44 ms
+Timer 'STL Export' took 1.07 ms
+Timer 'STL Export' took 1.12 ms
+Timer 'STL Export' took 0.93 ms
+Timer 'STL Export' took 1.07 ms
+Timer 'STL Export' took 0.90 ms
+Timer 'STL Export' took 1.17 ms
+Timer 'STL Export' took 0.93 ms
+Timer 'STL Export' took 1.16 ms
+Timer 'STL Export' took 0.91 ms
+Timer 'STL Export' took 1.21 ms
+
+Blender quit
