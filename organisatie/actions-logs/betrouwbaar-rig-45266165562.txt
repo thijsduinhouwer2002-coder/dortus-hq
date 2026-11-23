@@ -1,0 +1,24 @@
+# gemaakt: 2026-11-23T22:03:08Z
+# workflow: Betrouwbaarheid Figure from rig (testset, echte Blender) (.github/workflows/betrouwbaar-rig.yml)
+# run: 45266165562 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45266165562
+# commit: f804f10f tak claude/betrouwbaar-rig gestart door push
+# mislukte stappen: meet (4.2.23, robot-fijn): Eis van de testset; meet (4.2.23, rigify): Figure from rig op rigify; meet (4.2.23, robot-b): Eis van de testset; meet (4.2.23, robot-a): Eis van de testset
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== meet (4.2.23, robot-fijn) / Eis van de testset (laatste 15 van 15 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: robot-fijn
+  V: 4.2.23
+##[endgroup]
+EIS robot-fijn Blender 4.2.23: 7 gewrichten (nodig 9), slechte sneden onderweg 2, knop 292.3 s
+EIS FOUT: 7 gewrichten, nodig 9; ontbreekt ['Left shoulder', 'Left hip']: Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (no room on this 59 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+##[error]Process completed with exit code 1.
