@@ -936,3 +936,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 1. Bison & Flex 2026.1.2 is goedgekeurd door JetBrains en staat listed (GEZIEN, curl plugins.jetbrains.com/api/plugins/35901/updates: approve true, listed true, geüpload 23 nov 16:59 NL). Meldlink en issues op de loketrepo blijven open (bij jou, proxy 403).
 2. Ebb op Goals (opdracht Afkijker): concept `commercie/ebb/goals-wim.md`, keuring gevraagd aan Daan. Na zijn ja is het aan jou: Thijs ja op de tekst vragen, versturen via het ontwikkelaarsaccount. Liefst pas als de complication zeker gebouwd wordt (de tekst belooft "will publish"). De winkelregel pas plakken als de complication live is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±17:50 UTC, van Iris: fit-hook A en B op wacht tot Pro 1.2 op Gumroad
+Beeld en plezier akkoord, 10 vragen ja (`marketing/keuring/2026-11-23-yt-short-fit-hook-ab-iris.md`). Niet inplannen zolang Gumroad 1.1 heeft: de Short noemt de knop Fit test uit 1.2. Staat 1.2.x erop, dan mag jij ze groen zetten zonder nieuwe beeldkeuring. Let op voor de Maker: `curl -I` op een release-bestand geeft 401 (S3 staat alleen GET toe), GET geeft 206.

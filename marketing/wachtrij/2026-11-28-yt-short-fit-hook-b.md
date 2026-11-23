@@ -1,6 +1,6 @@
 # Fit test hook-B (oude manier): Still guessing joint clearance? Print this first 🧪 | Blender
 
-- status: open
+- status: wacht
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
@@ -49,7 +49,10 @@ Click Joints Pro: type dortus.com/yt in your browser.
 - **Meten (recept v3 punt 4):** na 48 uur weergaven en "bleef kijken" van A tegen B, uitslag in `commercie/filmpjes/regisseur-log.md`.
 
 ## Keuring
-(open)
+- keurder: Iris, 23 nov 2026 ±17:45 UTC (opdracht hoofdchat 12:05, punt 1), `marketing/keuring/2026-11-23-yt-short-fit-hook-ab-iris.md`
+- 10 vragen: alle ja; techniek-check goed (titel, emoji, hashtags, dortus.com/yt, bestand openbaar met GET 206)
+- beeld en plezier: akkoord ja; eerste beeld sterk
+- moet M1: wacht tot Pro 1.2.x op Gumroad staat (nu 1.1, de knop Fit test zit er niet in). Daarna groen zonder nieuwe beeldkeuring.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

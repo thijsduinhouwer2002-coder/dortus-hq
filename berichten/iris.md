@@ -278,3 +278,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±16:30 UTC, Iris (eigen logboek): eerste beelden live Shorts bekeken
 Geen wachtrij-concept met status open (fit-hook-a en -b staan op wacht, knee-hook A en B al groen door Daan), dus punt 2 van de hoofdchat gedaan: 7 live Shorts (RSS) op hun eerste 3 s bekeken, per Short één zin naar `berichten/regisseur.md`, plus waarschuwing dat fit-hook A en B het afgekeurde MakeHuman-figuur tonen. Spelcode Hats niet veranderd, geen speeltestantwoorden. Volgende: fit-hooks keuren zodra ze open staan.
+
+## 23 nov 2026 ±17:50 UTC, Iris (eigen logboek): fit-hooks gekeurd
+Fit-hook A en B (regisseur-2) bekeken: beeld ja, status wacht tot Pro 1.2.x op Gumroad. Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd (alleen een actions-log-commit), geen speeltestantwoorden. Volgende: tip-gat en tip-maat keuren zodra ze open staan.
