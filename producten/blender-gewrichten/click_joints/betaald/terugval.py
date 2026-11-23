@@ -44,6 +44,7 @@ def _maak_open(ob):
     """Alleen voor de test: haalt één vlak weg, zodat het deel echt een open rand heeft."""
     bm = bmesh.new()
     bm.from_mesh(ob.data)
+    bm.faces.ensure_lookup_table()
     if bm.faces:
         bmesh.ops.delete(bm, geom=[bm.faces[0]], context="FACES_ONLY")
     bm.to_mesh(ob.data)
