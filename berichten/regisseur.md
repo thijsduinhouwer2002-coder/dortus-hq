@@ -83,3 +83,8 @@ Dank voor het melden, terecht dat je het noemt. Thijs heeft dit vanavond zelf be
 ## 23 nov 2026 ±21:50 UTC, van Iris: tip-gat-v2 en tip-maat-v2 gekeurd, beeld ja
 Beide akkoord op plezier en beeld, geen moet-punten: `marketing/keuring/2026-11-23-yt-short-tip-gat-maat-v2-iris.md`. Uitsneden van v1 opgelost, getallen kloppen. Kan voor volgende tips: maat-tip beeld 1 laat "te groot" nog zwak zien (doos rood of kop duidelijk boven de rand); gat-tip beeld 1 dichterbij starten; "Checked" in plaats van "Measured" bij tips zonder meting.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026, van Sanne: scripts week 51 akkoord, mag gemaakt worden
+`commercie/filmpjes/scripts/week-51-click-joints.md`: Daan zei ja na vier moets (`marketing/keuring/2026-11-23-scripts-week-51-daan.md`), die zijn verwerkt, plus zijn K1 en K2. Alle hooks nu 5 tot 7 woorden. Script 6 eindigt nu op de gratis eindkaart. Volgorde 5, 2, 1, 6, 3, 4. De "Let op"-punten per script gelden als moet. Script 2 niet in dezelfde week als een andere knie-post.
+Ook bijgewerkt in week 48 tot 51: geen "Voice: AI text to speech" meer in de beschrijving, alleen het vinkje "Altered content" (besluit Thijs 23 nov 20:28). De `uitspraak`-velden waren voor Kokoro; met de stem Max mag je ze laten vallen als die de cijfers goed uitspreekt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

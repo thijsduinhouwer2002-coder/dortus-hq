@@ -2,7 +2,7 @@
 
 **Stand: akkoord, Daan 23 nov** (`marketing/keuring/2026-11-23-scripts-week-49-daan.md` en `-herkeuring-daan.md`). Script 4 pas als 1.2.1 of nieuwer op Gumroad staat.
 
-Door Sanne, 23 nov 2026. Opdracht hoofdchat 23 nov ±12:05 en ±12:45 NL. Zelfde bouw als `week-48-click-joints.md` (zin 1 = hook A of B, max 7 woorden, vraag over het probleem van de kijker; daarna zinnen van 11 tot 16 woorden, 4 tot 6 s; printzin altijd; "Voice: AI text to speech (Kokoro)" in de beschrijving). Bronnen: `platformen/blender-2/gumroad-1.1.md` en `platformen/blender/pro-1.2.0.md`; script 4 rust ook op `platformen/blender/pro-1.2.1.md` (zie daar).
+Door Sanne, 23 nov 2026. Opdracht hoofdchat 23 nov ±12:05 en ±12:45 NL. Zelfde bouw als `week-48-click-joints.md` (zin 1 = hook A of B, max 7 woorden, vraag over het probleem van de kijker; daarna zinnen van 11 tot 16 woorden, 4 tot 6 s; printzin altijd; geen AI of stem in titel of beschrijving, alleen het vinkje "Altered content" in YouTube Studio (besluit Thijs 23 nov 20:28 NL)). Bronnen: `platformen/blender-2/gumroad-1.1.md` en `platformen/blender/pro-1.2.0.md`; script 4 rust ook op `platformen/blender/pro-1.2.1.md` (zie daar).
 
 ## Wat ik meenam uit de keuringen van 23 nov
 - **Geen knie in beeld als hoofdzaak** (B3 stem-Short, B1 Daan knie-hook): vier knie-Shorts in een week is genoeg. Waar een buigend deel nodig is, neem ik de elleboog.

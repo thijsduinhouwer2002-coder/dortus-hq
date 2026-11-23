@@ -6,7 +6,7 @@ Door Sanne, 23 nov 2026. Opdracht hoofdchat 23 nov ±12:05 en ±12:45 NL: 6 scri
 - **Zin 1 is de hook** (recept v3): een vraag aan de kijker over zijn probleem, max 7 woorden, gesproken én als grote kop vanaf beeld 1, met het probleem in beeld. Per script twee hooks, A en B; de rest is gelijk, en het hook-beeld ook (dan meet je alleen de woorden). Nooit de productnaam in zin 1.
 - **Zin 2 tot het eind**: 11 tot 16 woorden per zin, dat is 4 tot 6 s bij Kokoro op snelheid 0,95 (GOK: ±2,7 woorden per seconde, gemeten aan proef-1: 15 zinnen, 58,4 s). De workflow meet het echt.
 - **Recept v2**: eerste beeld na de hook = het mooie eindresultaat (gekleurd figuur, uit studio-1 zodra die er is), echt Blender-scherm met bewegende muis, een les die je kunt nadoen, Click Joints als gereedschap.
-- **Altijd** de printzin: "Measured in Blender, not print tested by us yet. Print a test joint first." En onderaan in de beschrijving "Voice: AI text to speech (Kokoro)" als er een stem op zit.
+- **Altijd** de printzin: "Measured in Blender, not print tested by us yet. Print a test joint first." Geen vermelding van AI of de stem in titel of beschrijving; alleen het vinkje "Altered content" in YouTube Studio (besluit Thijs 23 nov 20:28 NL, vervangt de oude regel "Voice: AI text to speech" in de beschrijving).
 - Geen prijs, geen korting, geen "holds a pose", geen "clicks". Alleen wat in de twee bronnen staat. Waar een zin op een bron rust, staat het bij "Bron".
 - Vorm voor de stem-machine: elke zin kan zo een scène in een json van `commercie/filmpjes/stem/` worden (tekst, label, kop). Het beeld dat ik voorstel moet de Regisseur nog opnemen of uit een bestaande opname halen; "nieuw" betekent dat er nog geen opname van is.
 
