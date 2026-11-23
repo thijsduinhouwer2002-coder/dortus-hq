@@ -183,7 +183,10 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                 if snippers.actief():  # 1.1: dunne losse snippers van de snede met H weg
                     for d in (deel_a, deel_b):
                         d["cj_snippers"] = snippers.ruim_snippers(d, u)
-                herstel.herstel((deel_a, deel_b))  # 1.2.3: een paar randen met 4 vlakken (Exact, 4.2) splitsen
+                if solver == "EXACT":  # 1.2.3: randen met 4 vlakken splitsen en bijna samenvallende punten samenvoegen
+                    herstel.na_exact((deel_a, deel_b), u)
+                else:
+                    herstel.herstel((deel_a, deel_b))
             except RuntimeError as e:  # controleur (d), punt 4: geen hulpobjecten achterlaten
                 ruim_op(hulp)
                 if i < laatste:
