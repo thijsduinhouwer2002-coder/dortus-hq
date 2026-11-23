@@ -22,6 +22,7 @@ STANDEN = (
 ACHTER = (0.067, 0.071, 0.082, 0.86)  # #111215, 86 procent: donkerder dan Blender (50 procent), leest op elk model
 ROOD_ACHTER = (0.86, 0.20, 0.20, 0.95)  # pil voorbij de stop: rood vlak met witte tekst
 WIT = (1.0, 1.0, 1.0)
+FIGUUR_X_ALLE = 0.7  # zelfde als scharnier_boog.FIGUUR_X en figuur_teken.FIGUUR_X (stand All)
 
 
 def stand(context=None):
@@ -60,6 +61,19 @@ def toon(context, a, b):
 def met_naam(context, b):
     """In de stand Selected staat de naam in het label ("Right knee  0-120°") in plaats van bovenin het beeld."""
     return stand(context) == "SELECTED" and b is not None and bool(b.get("cj_naam"))
+
+
+def label_tekst(b, n, naam=False):
+    """Tekst van een scharnierlabel bij een figuur: "120°", of met naam "Right knee  0–120°" (stand Selected)."""
+    if naam and b.get("cj_naam"):
+        return f"{b['cj_naam']}  0\u2013{n}°"
+    return f"{n}°"
+
+
+def figuur_x(context=None):
+    """Verkleining van boog en wig bij een figuur: 0,7 als er meer tegelijk staan (stand All, zes waaiers naast
+    elkaar mogen niet overlappen), heel (1,0) in de stand Selected, want dan staat er meestal maar één."""
+    return 1.0 if stand(context) == "SELECTED" else FIGUUR_X_ALLE
 
 
 def _rond_vlak(x0, y0, x1, y1, r, stappen=6):

@@ -71,6 +71,7 @@ def alle_labels():
     if hasattr(wm, "cj_labels"):
         wm.cj_labels = "ALL"
 
+
 def stap():
     toestand["n"] += 1
     n = toestand["n"]

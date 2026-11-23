@@ -13,6 +13,7 @@ import bpy
 from mathutils import Vector
 
 from . import scharnier_beweeg as beweeg
+from .labels import figuur_x, label_tekst  # noqa: F401  (mooier overlay; ook gebruikt door figuur_teken)
 
 WIT = (1.0, 1.0, 1.0)
 ROOD = (1.0, 0x4D / 255.0, 0x4D / 255.0)  # zelfde rood als de kogelboog
@@ -213,13 +214,6 @@ def _tot_vak(van, m, breed, hoog, rand):
     return m - d * min(1.0, sx, sy)
 
 
-def figuur_x(context=None):
-    """Verkleining van de boog bij een figuur: 0,7 als er meer bogen tegelijk staan (stand All, zes waaiers naast
-    elkaar mogen niet overlappen), heel (1,0) in de stand Selected, want dan staat er maar één."""
-    from . import labels
-    return 1.0 if labels.stand(context) == "SELECTED" else FIGUUR_X
-
-
 def figuur_kleur(a):
     """Kleur van de boog bij een figuur: de passingkleur van het gewricht. Een scharnier bestaat alleen bij
     Good fit (Tight geeft geen scharnier, eis 3), dus groen, zoals de ring rond de snede in de weergave."""
@@ -241,13 +235,6 @@ def _klein(v, f):
     w["rood_vlak"] = [k(x) for x in v["rood_vlak"]]
     w["streepjes"] = [(g, k(s0), k(s1)) for g, s0, s1 in v["streepjes"]]
     return w
-
-
-def label_tekst(b, n, naam=False):
-    """Tekst van het label bij een figuur: "120°", of met naam "Right knee  0–120°" (stand Selected)."""
-    if naam and b.get("cj_naam"):
-        return f"{b['cj_naam']}  0\u2013{n}°"
-    return f"{n}°"
 
 
 def _teken_een(regio, rv3d, a, b, schaal, actief=True):
@@ -305,7 +292,10 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
             if vrij:  # dun rood lijntje van het eind van de pose-lijn naar de tekst op de vrije plek
                 waaier._lijn(dik, regio, [q["pose_eind"], _tot_vak(q["pose_eind"], plek, breed, hoog, 6.0 * schaal)],
                              (*ROOD, 0.9), 2.0 * schaal)
-            rood_tekst = labels.pil(plek, v["voorbij_tekst"], groot, schaal, achter=labels.ROOD_ACHTER) is not None
+            if fig:  # mooier overlay: bij een figuur een rode pil; een los scharnier houdt zijn gekeurde beeld (12, 14)
+                rood_tekst = labels.pil(plek, v["voorbij_tekst"], groot, schaal, achter=labels.ROOD_ACHTER) is not None
+            else:
+                rood_tekst = waaier._tekst(0, plek, v["voorbij_tekst"], ROOD, groot)
     if fig and getal:
         getal = labels.pil(q["label"], label_tekst(b, v["getal"], naam), int(FIGUUR_PX * schaal), schaal,
                            accent=KL) is not None
