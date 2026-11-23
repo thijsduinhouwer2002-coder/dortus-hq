@@ -1,1 +1,13 @@
-{"workflow": "actions-log.yml", "invoer": {"run": "45095465886"}, "van": "olaf", "waarom": "log van tweede e2e op EAP lezen"}
+{
+  "workflow": "actions-log.yml",
+  "invoer": {
+    "run": "45095465886"
+  },
+  "van": "olaf",
+  "waarom": "log van tweede e2e op EAP lezen",
+  "uitslag": {
+    "run_id": 45096455453,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45096455453",
+    "gestart": "2026-11-23T01:46:33Z"
+  }
+}
