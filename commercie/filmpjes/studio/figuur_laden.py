@@ -537,11 +537,14 @@ MENS_OBJ = os.path.join(HIER, "modellen", "makehuman-base.obj")
 
 
 def laad_figuur(keuze="robot", hoogte_mm=220.0, stijl=None, weg=(), armen=0.0):
-    """Eén ingang voor elk figuur. keuze: "robot" (figuur_robot.py, standaard), "mens" (MakeHuman met kleding) of
+    """Eén ingang voor elk figuur. keuze: "robot" (figuur_robot.py, standaard), "tekenpop" (figuur_tekenpop.py), "mens" (MakeHuman met kleding) of
     een pad naar een .glb/.blend met eigen rig. Geeft (rig, figuur, punten); punten is None bij een eigen glb."""
     if keuze == "robot":
         import figuur_robot as R
         return R.laad_robot(hoogte_mm, stijl=stijl)
+    if keuze == "tekenpop":   # houten tekenpop (figuur_tekenpop.py, 23 nov ±22:35), één materiaal: hout
+        import figuur_tekenpop as T
+        return T.laad_tekenpop(hoogte_mm)
     if keuze == "mens" or keuze.endswith(".obj"):
         return laad_mens_kleding(MENS_OBJ if keuze == "mens" else keuze, hoogte_mm, stijl=stijl)
     arm, body = laad(keuze, hoogte_mm, weg, armen=armen)

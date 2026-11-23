@@ -1,0 +1,107 @@
+name: Tekenpop (houten pop met de gewrichten van Click Joints Pro)
+
+# 23 nov 2026, tekenpop-agent (opdracht hoofdchat ±22:35): de houten tekenpop uit
+# commercie/filmpjes/studio/figuur_tekenpop.py, de echte knop Figure from rig van Pro 1.2.0 (tag click-joints-pro-v1.2.0),
+# gewrichten messing, Cycles in Blender 5.3.0, studio in stijl B (pruim en goud) van ontwerp/click-joints-pro-v2.
+# Elke render-job draait Figure from rig opnieuw en schrijft in b-<shot>.json hoeveel gewrichten de add-on maakte.
+# Alles in release tekenpop-1. Niets wordt geplaatst, niets kost geld.
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/tekenpop.yml", "commercie/filmpjes/studio/figuur_tekenpop.py",
+            "commercie/filmpjes/studio/tekenpop_beelden.py", "commercie/filmpjes/studio/tekenpop_cover.py"]
+  workflow_dispatch:
+    inputs:
+      samples:
+        description: "Samples per render (standaard 64)"
+        default: "64"
+
+permissions:
+  contents: write
+
+env:
+  TAG: tekenpop-1
+  PRO_COMMIT: f8dfbd30850afbee2da32219fe735c7b386827bd   # tag click-joints-pro-v1.2.0
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        shot: [staand, uit, pop169, dyn169]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Blender 5.3.0 en de Pro-zip 1.2.0
+        run: |
+          B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          sudo apt-get install -y -q libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 >/dev/null || true
+          git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
+          mkdir -p /tmp/v12 && git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v12
+          (cd /tmp/v12/producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald)
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Render ${{ matrix.shot }}
+        env:
+          SHOT: ${{ matrix.shot }}
+          SAMPLES: ${{ github.event.inputs.samples || '64' }}
+          BLENDER_USER_RESOURCES: /tmp/cj
+          BLENDER_USER_CONFIG: /tmp/cj/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+        run: |
+          mkdir -p /tmp/uit
+          case "$SAMPLES" in ''|*[!0-9]*) SAMPLES=64 ;; esac
+          timeout 3000 /tmp/blender/blender -b --factory-startup --python commercie/filmpjes/studio/tekenpop_beelden.py -- /tmp/click_joints_betaald.zip /tmp/uit b "$SHOT" "$SAMPLES" 100 2>&1 | tee /tmp/uit/b-$SHOT.log | grep -E "\[pro\]|\[tekenpop\]|\[studio\]|Traceback|Error" | cut -c1-400
+          [ -s "/tmp/uit/b-$SHOT.png" ] || { echo "FOUT: geen render"; exit 1; }
+          python3 -c "import json,sys; d=json.load(open('/tmp/uit/b-$SHOT.json')); print('GEWRICHTEN', len(d['gewrichten']), d['uitslag'], 'delen', d['delen'])"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: render-${{ matrix.shot }}
+          path: /tmp/uit/
+          retention-days: 7
+
+  beelden:
+    needs: render
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: /tmp/a
+      - name: Tekst erop, dynamische cover, vergelijkingsblad
+        run: |
+          sudo apt-get install -y -q librsvg2-bin >/dev/null
+          pip install -q pillow
+          mkdir -p /tmp/r /tmp/f /tmp/v /tmp/b
+          find /tmp/a -type f \( -name '*.png' -o -name '*.log' -o -name '*.json' \) -exec cp {} /tmp/r/ \;
+          G=https://raw.githubusercontent.com/google/fonts/main/ofl
+          curl -fsSL -o /tmp/f/Bricolage.ttf "$G/bricolagegrotesque/BricolageGrotesque%5Bopsz%2Cwdth%2Cwght%5D.ttf"
+          curl -fsSL -o /tmp/f/Inter.ttf "$G/inter/Inter%5Bopsz%2Cwght%5D.ttf"
+          # cover B met de robot (release click-joints-pro-v2), alleen voor het vergelijkingsblad
+          curl -fsSL -o /tmp/v/robot-b.png "https://github.com/${GITHUB_REPOSITORY}/releases/download/click-joints-pro-v2/cover-b-2560x1440-1280x720.png" || true
+          python3 commercie/filmpjes/studio/tekenpop_cover.py /tmp/r /tmp/b /tmp/f ontwerp/click-joints/bron/icoon.svg /tmp/v/robot-b.png
+          for s in staand uit; do [ -f /tmp/r/b-$s.png ] && cp /tmp/r/b-$s.png /tmp/b/tekenpop-$s.png; done
+          for f in /tmp/r/*.png; do cp "$f" "/tmp/b/render-$(basename $f)"; done
+          cp /tmp/r/*.json /tmp/b/ 2>/dev/null || true
+          for f in /tmp/b/*.json; do python3 -c "import json,sys; d=json.load(open(sys.argv[1])); print(sys.argv[1], 'GEWRICHTEN', len(d.get('gewrichten', [])), 'delen', d.get('delen'))" "$f"; done
+          ls -la /tmp/b
+      - name: In release tekenpop-1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          printf '%s\n' "Houten tekenpop met de gewrichten van Click Joints Pro, 23 nov 2026, tekenpop-agent Dortus. Gemaakt in Blender 5.3.0 (Cycles) in deze workflow, geen AI-beeld." "Figuur: eigen werk van Dortus (commercie/filmpjes/studio/figuur_tekenpop.py). De gewrichten komen uit de echte knop Figure from rig van Click Joints Pro 1.2.0, in messing gekleurd; ellebogen en knieen gebogen met de schuif van de add-on, kogels gedraaid zoals de add-on dat doet, binnen het gemeten bereik." "tekenpop-staand: loophouding, gewrichten 0,45 keer de Exploded view uit elkaar zodat je het messing ziet. tekenpop-uit: uit elkaar (2,3 keer). cover-b-pop-*: cover B met de pop (pose plus precies de Exploded view). cover-pop-dynamisch(-sale): delen schuin uit elkaar, alleen voor het beeld; -sale alleen in de saleweek (CYBER25, Gumroad, 27 nov tot en met 1 dec). vergelijk-pop.png: cover B robot naast de pop, groot en klein. b-*.json: wat de add-on meldde. Werkmateriaal, niets geplaatst." > /tmp/notes.md
+          for i in 1 2 3; do
+            if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              gh release upload "$TAG" /tmp/b/* --clobber -R "$GITHUB_REPOSITORY" && break
+            else
+              gh release create "$TAG" /tmp/b/* -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Tekenpop 1 (houten pop met gewrichten)" --notes-file /tmp/notes.md && break
+            fi
+            sleep 20
+          done
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
