@@ -2184,3 +2184,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
   Verschil: 7e plek linkerschouder geeft in CI "no watertight parts (part A 1)", en `rig.py` stopte dan met zoeken.
 - Fix `rig.py` (volgende plek na die melding) en toets `CJ_HERKANS=1` in `toetsen_mens.py` (zonder fix 1 FOUT, met
   fix 0 FOUT, GEZIEN), stap in de e2e. Naar Bram (volgende Pro-versie, keuring) en hoofdchat.
+
+## 23 nov 2026 ±16:15-16:55 NL, Olaf (Click Joints, run 15:13 UTC)
+- Kan-punten keuring 1.2.2: zoekregel na "no watertight parts" in architectuur.md (8e07654).
+- Studio-2: Figure from rig op robot en vier Quaternius-figuren gelezen; robot CI 8, lokaal 9. Met meetregels in CI
+  (tak claude/olaf-diag-heup) de oorzaak: snede per processor anders, linkerheup in CI kapot. Fix extra kogelplek
+  0,3 mm (6dcadc8), CI en lokaal 9 (GEZIEN). Naar Bram en hoofdchat. Uitslag in proeven/studio2-figuren-2026-11-23.
