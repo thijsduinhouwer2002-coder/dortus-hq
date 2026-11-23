@@ -56,10 +56,16 @@ def volume_mm3(ob, u):
     return float(volume(ob.data) / (u ** 3))
 
 
-def bvh_mm(ob, u):
+def bvh_mm(ob, u, zonder_vlak=None):
+    """BVH of the mesh in mm. zonder_vlak=(axis, position mm): leave out the faces that lie on that plane
+    (the cut face a hole opens onto, which would otherwise be the nearest surface)."""
     bm = bmesh.new()
     bm.from_mesh(ob.data)
     bm.transform(Matrix.Scale(1.0 / u, 4))
+    if zonder_vlak is not None:
+        a, c = zonder_vlak
+        weg = [f for f in bm.faces if all(abs(v.co[a] - c) < 1e-3 for v in f.verts)]
+        bmesh.ops.delete(bm, geom=weg, context="FACES_ONLY")
     boom = BVHTree.FromBMesh(bm)
     bm.free()
     return boom
@@ -67,17 +73,22 @@ def bvh_mm(ob, u):
 
 def wand_rond_gaten(ruw, gaten, u):
     """Smallest wall (mm) around the holes of one piece: from the hole wall and the hole bottom to the
-    outside of the piece before the holes were cut, and between the holes themselves. None without holes."""
+    outside of the piece before the holes were cut (without the cut face the hole opens onto), and between
+    the holes themselves. None without holes."""
     if not gaten:
         return None
-    boom = bvh_mm(ruw, u)
+    bomen = {}
     kleinste = math.inf
     for g in gaten:
+        sleutel = (g["as"], round(g["snede"], 4))
+        if sleutel not in bomen:
+            bomen[sleutel] = bvh_mm(ruw, u, (g["as"], g["snede"]))
+        boom = bomen[sleutel]
         n = as_vec(g["as"])
         richting = -n * g["teken"]  # into this piece
         p = Vector(g["p"])
         e1, e2 = as_vec((g["as"] + 1) % 3), as_vec((g["as"] + 2) % 3)
-        for z in np.linspace(0.5, g["diepte"], 6):
+        for z in np.linspace(0.0, g["diepte"], 6):
             for k in range(16):
                 hoek = 2 * math.pi * k / 16
                 q = p + richting * float(z) + (e1 * math.cos(hoek) + e2 * math.sin(hoek)) * g["r_gat"]

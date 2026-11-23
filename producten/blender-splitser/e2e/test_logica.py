@@ -118,6 +118,20 @@ kl = doorsnede.klaring(us, vs, binnen)
 res = verbinders.plan_vlak(us, vs, binnen, kl, lab, n, opties, lambda u, v_, r: True, "1-2")
 stap("dunne buis: geen pen en een melding", all(not r["pennen"] and r["melding"] for r in res), res[0]["melding"])
 
+# 5b. tube with a 6 mm wall: the number follows the wall (no room for straight text)
+v4, f4 = ring(50, 44, 100)
+segs = doorsnede.snijlijnen(v4, f4, 0, 0.0137)
+us, vs, binnen = doorsnede.raster(segs, (-60, -10, 60, 110), 0.5)
+lab, n = doorsnede.eilanden(binnen)
+kl = doorsnede.klaring(us, vs, binnen)
+res = verbinders.plan_vlak(us, vs, binnen, kl, lab, n, opties, lambda u, v_, r: True, "12-13")
+for r in res:
+    lb = r["label"]
+    stap(f"buis 6 mm eiland {r['eiland']}: nummer langs de wand", lb is not None and lb[3] is not None and lb[2] >= 3.0,
+         str(lb))
+    if lb and lb[3]:
+        stap("buis 6 mm: tekst loopt langs de wand (v-richting)", abs(lb[3][1]) > 0.95, str(lb[3]))
+
 # 6. big face: several pins, spread, label away from the holes
 segs = doorsnede.snijlijnen(v, f, 0, 100.0)
 us, vs, binnen = doorsnede.raster(segs, (-10, -10, 160, 130), 1.0)

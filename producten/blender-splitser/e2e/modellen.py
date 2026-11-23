@@ -1,6 +1,7 @@
 """Test models in a scene with 1 unit = 1 mm. Free licenses only:
 - Suzanne: Blender's own monkey (bmesh.ops.create_monkey), scaled to 330 mm wide.
-- Vase: GlassAlpha from GlassVaseFlowers (KhronosGroup glTF-Sample-Assets, CC0 1.0, Eric Chadwick), 320 mm high.
+- Vase: GlassAlpha from GlassVaseFlowers (KhronosGroup glTF-Sample-Assets, CC0 1.0, Eric Chadwick), 600 mm high
+  (a floor vase; the glass wall is then about 6.5 mm, at 320 mm it was 3.5 mm: too thin for any pin).
 - Skull: ScatteringSkull (KhronosGroup glTF-Sample-Assets, CC0 1.0, Vladimir Petkovic), 300 mm long.
 - Tube: a thin tube (2 mm wall) for the "too small for a pin" message.
 Every model is made watertight with the add-on's own Make watertight (voxel remesh) before the split."""
@@ -100,7 +101,7 @@ def gltf(pad, naam_bevat):
 
 def vaas(pad):
     ob = gltf(pad, "GlassAlpha")
-    schaal_naar(ob, 2, 320.0)
+    schaal_naar(ob, 2, 600.0)
     return waterdicht(ob, 2.0)
 
 

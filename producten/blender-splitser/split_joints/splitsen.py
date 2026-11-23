@@ -16,6 +16,9 @@ from .gesloten import foute_randen, is_gesloten
 
 STUKKEN = "Split Joints pieces"
 BUITEN_MM = 10.0  # outer boxes reach this far past the model
+# The cut lies this far past the plane you set: a cut exactly through existing points gave open edges in
+# Blender 4.2 (lesson from Click Joints, gewricht.py). Far below anything a printer can show.
+SCHUIF_MM = 0.0137
 
 
 def solver_naam():
@@ -45,6 +48,22 @@ def bak(ob, naam, collectie):
     uit = bpy.data.objects.new(naam, me)
     collectie.objects.link(uit)
     return uit
+
+
+def herstel(ob, u):
+    """Repair after a Boolean that left a few bad edges (seen with Exact in 4.2): merge points that lie on top
+    of each other and dissolve slivers. Returns the number of bad edges after the repair."""
+    fout = foute_randen(ob.data)
+    if fout == 0:
+        return 0
+    bm = bmesh.new()
+    bm.from_mesh(ob.data)
+    bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=0.0005 * u)
+    bmesh.ops.dissolve_degenerate(bm, edges=bm.edges, dist=0.0005 * u)
+    bm.to_mesh(ob.data)
+    bm.free()
+    ob.data.update()
+    return foute_randen(ob.data)
 
 
 def weg(ob):
@@ -83,7 +102,8 @@ def gat_object(naam, gaten, u, col):
 def label_object(naam, labels, diepte, u, col, meldingen):
     bm = bmesh.new()
     for lb in labels:
-        me, _breedte = vormen.label_mesh(lb["tekst"], lb["h"], diepte, lb["p"], lb["as"], lb["teken"], u)
+        me, _breedte = vormen.label_mesh(lb["tekst"], lb["h"], diepte, lb["p"], lb["as"], lb["teken"], u,
+                                         max_breedte=lb.get("breed"), richting=lb.get("richting"))
         if me is None or foute_randen(me):
             meldingen.append(f"Piece {lb['tekst'].split('-')[0]}: the number {lb['tekst']} could not be made "
                              "as a closed shape and was left out")
@@ -142,7 +162,7 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
         u = eenheid_per_mm(scene)
         punten, tri = snedes.mesh_mm(ob, scene)
         lo, hi = tuple(punten.min(axis=0)), tuple(punten.max(axis=0))
-        lijst, grenzen = plan.cellen(lo, hi, snedes.lees(scene))
+        lijst, grenzen = plan.cellen(lo, hi, [(a, pos + SCHUIF_MM) for a, pos in snedes.lees(scene)])
         ruim_oud_op(scene)
         col = nieuwe_collectie(STUKKEN, scene)
         hulp = nieuwe_collectie("sj_hulp", scene)
@@ -162,6 +182,7 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
             if len(stuk.data.polygons) == 0:
                 weg(stuk)
                 continue
+            stuk["sj_fout"] = [foute_randen(stuk.data), herstel(stuk, u)]
             ruw[ijk], cellen[ijk] = stuk, (mn, mx)
         volgorde = sorted(ruw, key=lambda t: (t[2], t[1], t[0]))
         nummers = {ijk: i + 1 for i, ijk in enumerate(volgorde)}
@@ -175,13 +196,20 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
             nr = nummers[ijk]
             stuk = ruw[ijk]
             werk = bak(stuk, "sj_werk", hulp)
-            if gaten.get(ijk):
+            fout = list(stuk["sj_fout"])
+            if gaten.get(ijk):  # holes and numbers one after the other, baked in between (Click Joints, 4.2)
                 boolean(werk, gat_object("sj_gaten", gaten[ijk], u, hulp), "DIFFERENCE", solver)
+                vorig, werk = werk, bak(werk, "sj_werk2", hulp)
+                weg(vorig)
+                fout += [foute_randen(werk.data), herstel(werk, u)]
             lbo = label_object("sj_labels", labels.get(ijk, []), inst.label_diepte_mm, u, hulp, meldingen) \
                 if labels.get(ijk) else None
             if lbo is not None:
                 boolean(werk, lbo, "DIFFERENCE", solver)
             af = bak(werk, f"Piece {nr:02d}", col)
+            if lbo is not None:
+                fout += [foute_randen(af.data), herstel(af, u)]
+            af["sj_fout_stappen"] = fout  # bad edges per step: cut, repaired, holes, repaired, numbers, repaired
             af["sj_stuk"] = nr
             af["sj_cel"] = list(ijk)
             mn, mx = cellen[ijk]

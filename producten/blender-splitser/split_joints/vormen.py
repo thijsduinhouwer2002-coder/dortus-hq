@@ -78,17 +78,26 @@ def pen_bmesh(bm, voet, d, lengte, u):
     bpy.data.meshes.remove(me)
 
 
-def label_frame(as_, teken):
+def label_frame(as_, teken, richting=None):
     """3x3 frame (right, up, normal) for a label on a face whose outward normal is teken * axis as_.
-    Text reads normally when you look at the face from outside."""
+    Text reads normally when you look at the face from outside. richting: direction of the text line
+    (along a thin face); it is flipped if needed so the text is never upside down or mirrored."""
     n = Vector((0.0, 0.0, 0.0))
     n[as_] = float(teken)
     op = Vector((0.0, 0.0, 1.0)) if as_ != 2 else Vector((0.0, 1.0, 0.0))
     rechts = op.cross(n)
+    if richting is not None:
+        r = Vector(richting)
+        r = (r - n * r.dot(n)).normalized()
+        if r.length > 0.5:
+            if r.dot(rechts) < 0:
+                r = -r
+            rechts = r
+            op = n.cross(rechts)
     return Matrix((rechts, op, n)).transposed()
 
 
-def label_mesh(tekst, h, diepte, punt, as_, teken, u, max_breedte=None):
+def label_mesh(tekst, h, diepte, punt, as_, teken, u, max_breedte=None, richting=None):
     """Closed mesh of the label text, h mm high, from 0.2 mm outside the face to diepte mm inside, centered
     on punt (mm). Returns (mesh, width mm) or (None, 0) if Blender could not make a closed text mesh."""
     cu = bpy.data.curves.new("sj_label", "FONT")
@@ -121,7 +130,7 @@ def label_mesh(tekst, h, diepte, punt, as_, teken, u, max_breedte=None):
     bm.transform(Matrix.Translation(-midden))
     bm.transform(Matrix.Diagonal((schaal, schaal, 1.0, 1.0)))
     bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
-    frame = label_frame(as_, teken).to_4x4()
+    frame = label_frame(as_, teken, richting).to_4x4()
     bm.transform(Matrix.Scale(u, 4) @ Matrix.Translation(Vector(punt)) @ frame)
     bm.to_mesh(me)
     bm.free()

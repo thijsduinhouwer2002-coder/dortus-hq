@@ -149,10 +149,17 @@ def plan_alles(punten, driehoeken, cellen, nummers, grenzen, opties, label_aan):
                         else:
                             meldingen.append(f"{naam}: {eil['melding']}")
                     if label_aan and eil["label"]:
-                        u_, v_, hh = eil["label"]
+                        u_, v_, hh, d2 = eil["label"]
                         p3 = list(punt3(u_, v_))
-                        labels.setdefault(ijk_p, []).append({"tekst": tekst_p, "p": p3, "as": as_, "teken": 1, "h": hh})
-                        labels.setdefault(ijk_q, []).append({"tekst": tekst_q, "p": p3, "as": as_, "teken": -1, "h": hh})
+                        richting = None
+                        if d2 is not None:
+                            r3 = [0.0, 0.0, 0.0]
+                            r3[ua], r3[va] = d2
+                            richting = r3
+                        breed = verbinders.label_maat(tekst_p, hh)[0]
+                        for ijk, tk, tt in ((ijk_p, 1, tekst_p), (ijk_q, -1, tekst_q)):
+                            labels.setdefault(ijk, []).append({"tekst": tt, "p": p3, "as": as_, "teken": tk, "h": hh,
+                                                               "richting": richting, "breed": breed})
                     elif label_aan and eil["oppervlak"] > 4.0:
                         meldingen.append(f"{naam}: no room for the number on a part of this face")
     return gaten, labels, sorted(pennen.items()), meldingen

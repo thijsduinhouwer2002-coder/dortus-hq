@@ -3,7 +3,6 @@ blender -b --factory-startup --python e2e/scherm_kern.py -- <dir with suzanne.bl
 Per model: the pieces in exploded view with the pins (color = check: green fits, red does not), and a
 close-up of one cut face with its pin holes and engraved number. Logs SCHERM OK per picture."""
 import json
-import math
 import os
 import sys
 

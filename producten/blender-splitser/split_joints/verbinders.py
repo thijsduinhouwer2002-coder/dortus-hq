@@ -9,7 +9,7 @@ import math
 
 import numpy as np
 
-LABEL_HOOGTES = (8.0, 6.0, 5.0, 4.0, 3.0)  # text height in mm, largest that fits
+LABEL_HOOGTES = (8.0, 6.0, 5.0, 4.0, 3.0, 2.5)  # text height in mm, largest that fits
 LABEL_BREEDTE = 0.62  # width of one character in text heights (Blender's built-in font, digits and "-")
 MAX_PENNEN = 4
 
@@ -97,22 +97,67 @@ def plan_vlak(us, vs, binnen, kl, labels, n_eil, opties, toets, tekst):
             breed = 2.0 * float(k.max()) if len(k) else 0.0
             res["melding"] = (f"too small for a pin: the face is {breed:.1f} mm across, a {d_min:g} mm pin needs "
                               f"{d_min + 2 * (opties['speling'] + opties['wand']):.1f} mm. Glue this joint")
-        res["label"] = kies_label(pu, pv, k, res["pennen"], opties, tekst)
+        res["label"] = kies_label(us, vs, np.where(m, kl, -np.inf), res["pennen"], opties, tekst)
         uit.append(res)
     return uit
 
 
-def kies_label(pu, pv, k, pennen, opties, tekst):
-    """(u, v, h) for the label: the point with the most room, away from the pin holes, or None."""
-    if len(k) == 0:
-        return None
-    ruimte = k.copy()
+def kies_label(us, vs, kl2d, pennen, opties, tekst):
+    """(u, v, h, richting) for the label, or None. kl2d: clearance on the grid, -inf outside this island.
+    First straight (the text box fits in a circle), else along the face (a thin wall such as a vase or a
+    hollow statue): the text follows the main direction of the face around the spot. richting is None for
+    straight text, else (du, dv), the direction of the text line in the plane."""
+    gu, gv = np.meshgrid(us, vs)
+    ruimte = kl2d.copy()
     for (u, v, d) in pennen:
         r_gat = d / 2.0 + opties["speling"]
-        ruimte = np.minimum(ruimte, np.hypot(pu - u, pv - v) - r_gat - 0.8)
-    beste = int(np.argmax(ruimte))
+        ruimte = np.minimum(ruimte, np.hypot(gu - u, gv - v) - r_gat - 0.8)
+    if not np.isfinite(ruimte).any():
+        return None
+    plat = np.where(np.isfinite(ruimte), ruimte, -1.0)
+    i, j = np.unravel_index(int(np.argmax(plat)), plat.shape)
     for h in LABEL_HOOGTES:
         w, hh = label_maat(tekst, h)
-        if ruimte[beste] >= math.hypot(w / 2.0, hh / 2.0) + 0.5:
-            return (float(pu[beste]), float(pv[beste]), h)
-    return None
+        if plat[i, j] >= math.hypot(w / 2.0, hh / 2.0) + 0.5:
+            return (float(us[j]), float(vs[i]), h, None)
+    return langs_vlak(us, vs, plat, tekst)
+
+
+def langs_vlak(us, vs, plat, tekst):
+    """Label along a thin face: per spot the main direction of the roomy points around it (PCA), then the
+    largest height whose text line keeps h/2 + 0.3 mm room along its whole length."""
+    nv, nu = plat.shape
+    hu = (us[1] - us[0]) if nu > 1 else 1.0
+    hv = (vs[1] - vs[0]) if nv > 1 else 1.0
+    volgorde = np.argsort(-plat, axis=None)[:300]
+    beste = None
+    for idx in volgorde:
+        i, j = np.unravel_index(int(idx), plat.shape)
+        if plat[i, j] <= 1.0:
+            break
+        straal = 15.0
+        ri, rj = int(straal / hv) + 1, int(straal / hu) + 1
+        blok = plat[max(0, i - ri):i + ri + 1, max(0, j - rj):j + rj + 1]
+        bi, bj = np.nonzero(blok >= 0.6 * plat[i, j])
+        if len(bi) < 3:
+            continue
+        pts = np.stack([us[bj + max(0, j - rj)], vs[bi + max(0, i - ri)]], axis=1)
+        pts = pts - pts.mean(axis=0)
+        _w, vecs = np.linalg.eigh(pts.T @ pts)
+        d = vecs[:, -1]
+        for h in LABEL_HOOGTES:
+            if beste is not None and h <= beste[2]:
+                break
+            w, _hh = label_maat(tekst, h)
+            t = np.linspace(-w / 2.0, w / 2.0, 13)
+            qu, qv = us[j] + t * d[0], vs[i] + t * d[1]
+            jj = np.rint((qu - us[0]) / hu).astype(int)
+            ii = np.rint((qv - vs[0]) / hv).astype(int)
+            if (jj < 0).any() or (jj >= nu).any() or (ii < 0).any() or (ii >= nv).any():
+                continue
+            if plat[ii, jj].min() >= h / 2.0 + 0.3:
+                beste = (float(us[j]), float(vs[i]), h, (float(d[0]), float(d[1])))
+                break
+        if beste is not None and beste[2] >= LABEL_HOOGTES[0]:
+            break
+    return beste

@@ -41,7 +41,7 @@ def toets_stukken(naam, verwacht_pennen=True):
         m = maat(ob)
         stap(f"{naam} stuk {ob['sj_stuk']}: past op het bed", past(m, BED), f"{[round(v, 1) for v in m]}")
         ok, slecht, vol = dicht(ob)
-        stap(f"{naam} stuk {ob['sj_stuk']}: waterdicht", ok, f"slechte randen {slecht}, volume {vol:.0f} mm3")
+        stap(f"{naam} stuk {ob['sj_stuk']}: waterdicht", ok, f"slechte randen {slecht}, volume {vol:.0f} mm3, per stap {list(ob.get('sj_fout_stappen', []))}")
         stap(f"{naam} stuk {ob['sj_stuk']}: status groen", ob.get("sj_status") == "groen",
              f"{ob.get('sj_status')}, wand {ob.get('sj_wand_mm')}")
     # pins: every hole measured in the finished piece, against the pins that come with it
