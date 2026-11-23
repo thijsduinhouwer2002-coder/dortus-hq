@@ -466,10 +466,10 @@ def main():
     studio(laagste(objs))
     if SHOT == "cover169":
         render_instellingen(2560, 1440)
-        kader(objs, 34, 6, (0.55, 0.97), 0.56, lens=70, ymid=0.42)
+        kader(objs, 34, 6, (0.55, 0.98), 0.62, lens=70, ymid=0.35)
     elif SHOT == "cover21":
         render_instellingen(2400, 1200)
-        kader(objs, 34, 6, (0.57, 0.97), 0.56, lens=70, ymid=0.42)
+        kader(objs, 34, 6, (0.57, 0.98), 0.62, lens=70, ymid=0.35)
     elif SHOT == "pose":
         render_instellingen(1600, 1600)
         kader(objs, 30, 2, (0.14, 0.86), 0.40, lens=60, ymid=0.43)
