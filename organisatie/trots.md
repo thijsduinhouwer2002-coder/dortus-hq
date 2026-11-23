@@ -1,6 +1,10 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
 
+## 23 nov 2026 23:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat (betrouwbaarheid Figure from rig) gaat dicht. Keuring B van `claude/betrouwbaar-rig` (5aa27a8) zegt ja, geen moet-punten (GEZIEN, keuring/2026-11-24-betrouwbaar-rig-B.md); de automatische keurder vraagt B nog welke 4.2-uitslag hij echt zag. Keuring A staat nog niet in de repo. Wie: keurder A, dan Bram (samenvoegen als 1.2.3), dan hoofdchat (Gumroad, Superhive). Af: doel vóór do 26 nov. Ontbreekt A de volgende ronde nog, dan zet de hoofdchat zelf een keurder A in.
+- **Idee deze ronde:** bij de 1.2.3-update op Gumroad de kopers wel mailen (nu "Skip for now") met één zin "every joint placed on our test set", als reden om terug te komen en een review te geven (GOK op effect, kost niets).
+
 ## 23 nov 2026 23:10 NL (hoofdchat)
 - **Click Joints Pro:** grootste gat wordt gedicht. Betrouwbaarheid vond de oorzaak en maakte Figure from rig in 5.2 en 5.3 60 van 60 op de testset, elke run gelijk (was 53 tot 55, wisselend); 4.2 51 van 60. Twee keurders bezig, dan Bram als 1.2.3, doel live vóór do 26 nov. Daarna: nieuwe cover (robot of tekenpop, Thijs kiest) en video vooraan op de winkelpagina's.
 ## 23 nov 2026 23:20 NL (hoofdchat kwartier-check)
