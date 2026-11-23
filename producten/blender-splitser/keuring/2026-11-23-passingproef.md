@@ -45,3 +45,19 @@ Akkoord: nee
 - C1 vorm van de "1", C2 korte uitleg bij de knoppen, C5 melding bij overschrijven, A9 undo, B3 `__init__`-regel in `architectuur.md`.
 - B4: CI-run 45228604028 groen zien voor de herkeuring; C3 paneelbeeld bekijken.
 - Melding als autosave van de voorkeuren uit staat (A5).
+
+## Herkeuring M1 tot M3, 23 nov 2026, zelfde keurder
+Wat ik keurde: commit f2979ad (zip opnieuw gemaakt, zelf gemeten in Blender 4.2.23, scripts in /tmp/keur).
+Akkoord: ja
+
+| # | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|
+| M1 | Opgelost. Kubus van 300 mm, A1 mini, Make fit test: Cube blijft actief en gekozen; Plan cuts geeft 8 stukken met bron Cube, Split 8 stukken met 48 pennen, de proef blijft staan. Klik je zelf het proefblok aan, dan is Plan cuts grijs (poll False). Zonder model actief werkt Make fit test ook. | feit | hoog |
+| M2 | Opgelost. Bewaard A1 + PLA = 0,25: nieuwe scene staat meteen op 0,25, en Split maakt gaten met speling 0,25 (r_gat min pen/2). Een zelf getypte 0,12 blijft 0,12 na opslaan en opnieuw openen. Een bestand zonder eigen waarde krijgt bij openen 0,25. Na herstart (zonder factory-startup, voorkeuren bewaard) staat de startscene op 0,25. | feit | hoog |
+| M3 | Opgelost. Bij 1,0 geeft de proef 0.85 / 0.90 / 0.95 / 1.00, en elke knop zet en bewaart precies die waarde. Bij 0,0 en 0,02: 0,00 tot 0,15. `test_logica.py` lokaal 0 fout. | feit | hoog |
+
+Kan (nieuw, mag later):
+- Bij een ingestelde speling die geen veelvoud van 0,05 is (0,02 of 0,97) staat die waarde zelf niet in de proef; bijna niemand stelt dat zo in.
+- Een ouder bestand zonder `sj_speling_eigen` dat al gesplitst is met 0,20, krijgt bij openen zonder melding de bewaarde speling. De stukken zelf veranderen niet, alleen de instelling voor de volgende Split. Een melding "Clearance set to 0.25 (saved)" zou helpen (zelfde als C5).
+- De e2e-runs in CI voor f2979ad (45229610044) liepen nog tijdens deze herkeuring. Die van ccf3800 (45228604028) is groen. Groen voor f2979ad zien voor het uitbrengen.
+- De Kan-punten van de eerste keuring blijven staan.
