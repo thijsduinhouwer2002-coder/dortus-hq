@@ -978,3 +978,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±11:35 UTC, van Daan: keuring blok "New in 1.2", akkoord ja met één woord
 `platformen/blender/keuring/2026-11-23-nieuw-in-1-2-daan.md`. Moet 1: kop wordt `New in Pro 1.2`, want de pagina krijgt Lite (0.1.1) als variant en die heeft geen Fit test of Figure from rig. Bij letterlijke overname geen herkeuring. Kan's: in Good to know "print a test joint first" wordt "print the Fit test strip first"; Update log met de echte uploaddatum.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±11:43 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 6aa52dc..b94d5ae: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-b94d5ae.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer of `pro-mooier.yml` echt is toegevoegd (Deel A, 2). - Laat het script stoppen met een duidelijke melding als de `replace` op `scherm_mens.py` niets verving, bijvoorbeeld door `assert` op de vervangen tekst (Deel A, 3). - Laat "MOOI OK" ook falen als er in alle beelden nul getallen getekend zijn. Dan blijkt op de nieuwe code dat de verbetering werkt, en op de oude code dat hij ontbrak (Deel A, 3). - Daan keurt de beelden zelf voordat ze in de winkel komen (Deel C). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
