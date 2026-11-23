@@ -114,6 +114,8 @@ def maak_zinnen(zinnen, map_):
     """zinnen: [{"tekst":..., "uitspraak":...}] -> (lijst met {"wav", "duur"}, info van de stem)."""
     map_ = Path(map_)
     map_.mkdir(parents=True, exist_ok=True)
+    if os.environ.get("STEM_MP3", "").strip():
+        return _zinnen_uit_bestand(zinnen, map_, os.environ["STEM_MP3"].strip())
     stem = kies_stem()
     uit = []
     for i, z in enumerate(zinnen):
@@ -124,3 +126,20 @@ def maak_zinnen(zinnen, map_):
         uit.append({"wav": str(pad), "duur": round(len(x) / SR, 3)})
         print(f"stem {stem.naam}: zin {i + 1} {len(x) / SR:.2f} s  {z['tekst']}")
     return uit, dict(stem.info(), soort=stem.naam)
+
+
+def _zinnen_uit_bestand(zinnen, map_, pad):
+    """STEM_MP3 gezet: één opname met alle zinnen (bijvoorbeeld ElevenLabs, door de hoofdchat gemaakt) knippen
+    met splits.py, zelfde uitvoer als hierboven. STEM_BRON zet de naam in de info (standaard elevenlabs)."""
+    import splits
+    stukken, verslag = splits.knip(splits.lees_audio(pad), zinnen)
+    uit = []
+    for i, (z, x) in enumerate(zip(zinnen, stukken)):
+        x = _stil_weg(x)
+        x = x / (np.abs(x).max() + 1e-9) * 0.9
+        p = map_ / f"zin-{i + 1:02d}.wav"
+        schrijf_wav(p, x)
+        uit.append({"wav": str(p), "duur": round(len(x) / SR, 3)})
+        print(f"stem bestand: zin {i + 1} {len(x) / SR:.2f} s  {z['tekst']}")
+    bron = os.environ.get("STEM_BRON", "elevenlabs")
+    return uit, {"soort": bron, "bestand": Path(pad).name, "knippen": verslag["manier"]}

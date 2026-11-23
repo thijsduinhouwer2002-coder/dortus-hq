@@ -4,7 +4,8 @@ name: Scorebord (elke dag 06:41 UTC)
 # organisatie/controle/scorebord.py, schrijft organisatie/scorebord.md en scorebord-data.csv,
 # draait de controle voor de openbare repo en commit naar main. Openbare bronnen, niet inloggen;
 # sinds 16 nov ook bezoekers van dortus.com uit Amami met de leessleutel AMAMI_API_KEY; sinds 18 nov (R6)
-# ook Gumroad, Kit, Discord en YouTube (organisatie/controle/scorebord_bronnen.py).
+# ook Gumroad, Kit, Discord en YouTube (organisatie/controle/scorebord_bronnen.py); sinds 23 nov (Meter) ook
+# TikTok-weergaven, herkomst per Gumroad-verkoop (/v2/sales) en organisatie/meten/dag.csv.
 on:
   schedule:
     - cron: "41 6 * * *"  # 06:41 UTC: GitHub stelt runs op :00 vaak uit of slaat ze over (17 nov 07:00 kwam niet)
@@ -65,7 +66,8 @@ jobs:
             git fetch -q origin main
             git reset -q --hard origin/main
             python3 organisatie/controle/scorebord.py
-            git add organisatie/scorebord.md organisatie/scorebord-data.csv
+            # Meter 23 nov: herkomst per Gumroad-verkoop (zonder persoonsgegevens) en één regel per bron per dag
+            git add organisatie/scorebord.md organisatie/scorebord-data.csv organisatie/meten
             if git diff --cached --quiet; then echo "niets nieuw"; exit 0; fi
             git commit -q -m "Scorebord $(date -u +%F) (workflow Scorebord, run ${GITHUB_RUN_ID})"
             python3 organisatie/controle/check.py HEAD~1 HEAD

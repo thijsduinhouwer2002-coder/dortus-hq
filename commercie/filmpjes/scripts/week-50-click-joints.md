@@ -2,7 +2,7 @@
 
 Door Sanne, 23 nov 2026. Opdracht hoofdchat 23 nov ±12:05 en ±12:45 NL (recept v3: hook eerst). Zelfde bouw als week 48 en 49: zin 1 = hook A of B, max 7 woorden, een vraag over het probleem van de kijker, nooit de productnaam; daarna zinnen van 10 tot 16 woorden (4 tot 6 s); printzin altijd; "Voice: AI text to speech (Kokoro)" in de beschrijving; kop korter dan de gesproken vraag; getallen als cijfer in de kop en uitgeschreven alleen in het json-veld `uitspraak`. Bronnen: `platformen/blender-2/gumroad-1.1.md`, `platformen/blender/pro-1.2.0.md`, `platformen/blender/pro-1.2.2.md` en de code in `producten/blender-gewrichten/click_joints/` (regels genoemd per script).
 
-**Stand: concept, keuring gevraagd aan Daan.**
+**Stand: akkoord, Daan 23 nov, na moet M1 (script 5 zin 6)** (`marketing/keuring/2026-11-23-scripts-week-50-daan.md`). Script 3 pas als 1.2.2 op Gumroad staat.
 
 ## Wat anders is dan week 49
 - **Drie tips die ook zonder Pro waarde hebben** (script 2, 4 en 5), zoals de tip-reeks van Thijs vraagt: wie de tip bewaart, kent ons daarna. Script 2 en 4 laten knoppen uit de gratis Click Joints zien; dat zeggen ze eerlijk.

@@ -1,5 +1,10 @@
 # Ebb op de Goals-wijzerplaten: bericht aan Wim (VAW.BE) en één winkelregel
 
+Akkoord: ja (Daan, 23 nov 2026 ±19:25 NL), op voorwaarde van moet M1; daarna geldt het ja zonder nieuwe ronde. Versturen blijft pas na ja van Thijs op de tekst (harde regel 4) en alleen als Gijs de complication echt bouwt.
+- **M1.** "followed by vibration" betekent "gevolgd door trillen" (na afloop). Wordt: "guided by vibration". Ebb trilt per fase tijdens de sessie (`producten/garmin-adem/ontwerp.md`, regel 32).
+- Kan K1: "the way you show Push-Up Hero and Hydration PRO" wordt "the way you show Push-Up Hero". Hydration PRO is van Wim zelf; als voorbeeld van een app van een ander is alleen Push-Up Hero sterk.
+- Goed: geen apnea, geen freediving, geen klassement, geen cijfers, geen naam of gegevens van Thijs, ondertekend met Dortus, korte vraag met een uitweg ("If a different data format suits Goals better"). Winkelregel ja: belooft alleen wat de complication doet, en pas plakken als hij live is.
+
 Chris, 23 nov 2026 (opdracht Afkijker 18:40 NL, bewijs `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-23-pushup-hero-goals.md`).
 Status: concept, wacht op keuring Daan. Versturen via het Contact Developer-formulier van Goals vanaf het ontwikkelaarsaccount (dat doet de hoofdchat na ja van Thijs op de tekst, harde regel 4). Niet versturen voor de complication gebouwd is of in elk geval zeker gebouwd wordt: de tekst zegt "will publish", dus het mag eerder, maar dan moeten we het ook echt maken.
 
