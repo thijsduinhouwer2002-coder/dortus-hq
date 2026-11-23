@@ -1,0 +1,38 @@
+[meet] figuur robot-a: Figuur, {'bron_punten': 273114, 'bron_zelf_overlap': 0}
+[meet] Blender 5.3.0 figuur robot-a: 8 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Right shoulder']; overgeslagen: Right shoulder (no room for a ball joint that can move here (it would be blocked))
+[meet] pogingen 16, sneden 10, slechte sneden 2
+[meet]   SLECHT {"poging": 12, "gewricht": "Right shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.95, "r_mm": 5.5, "naad_r": 10.462, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.3912442430097039, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 0.0, 12392.4, false], [true, 0.0, 12392.4, false]]}, "A": {"gesloten": true, "fout": 0, "punten": 127238, "zelf": 772}, "B": {"gesloten": true, "fout": 0, "punten": 25852, "zelf": 5300}, "overlap_ab": 9187, "goed": false, "werk_zelf": 0, "h_zelf_overlap": 1999}
+[meet]   SLECHT {"poging": 13, "gewricht": "Right shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.94, "r_mm": 5.5, "naad_r": 10.536, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.3939722906358884, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 0.0, 12321.9, false], [true, 0.0, 12321.9, false]]}, "A": {"gesloten": true, "fout": 0, "punten": 127468, "zelf": 867}, "B": {"gesloten": true, "fout": 0, "punten": 26036, "zelf": 5481}, "overlap_ab": 9434, "goed": false, "werk_zelf": 0, "h_zelf_overlap": 1987}
+MEET robot-a gewrichten=8 overgeslagen=1 slechte_sneden=2
+[studio] kleuren per vorm: 273112 vlakken, 3198 buiten elke vorm
+[studio] robot na voxel: 273114 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.5, 4.0, 57.0), elleboog L (50.0, -3.6, 132.0)
+[meet] figuur robot-a: Figuur, {'bron_punten': 273114, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 140°. 5.444 s.
+Info: Hinge placed. Bends 0° to 140°. 4.819 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 120°. 5.183 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 120°. 4.658 s.
+Info: Joint placed. Good fit. 4.026 s.
+Info: Joint placed. Good fit. 4.817 s.
+Info: Joint placed. Good fit. 7.486 s.
+Info: Joint placed. Good fit. 7.523 s.
+Info: Joint placed. Good fit. 5.209 s.
+Info: Joint placed. Good fit. 4.633 s.
+Warning: 8 joints · 2 rig · 2 mirror · 4 preset. Skipped: Right shoulder (no room for a ball joint that can move here (it would be blocked))
+[meet] Blender 5.3.0 figuur robot-a: 8 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Right shoulder']; overgeslagen: Right shoulder (no room for a ball joint that can move here (it would be blocked))
+[meet] pogingen 16, sneden 10, slechte sneden 2
+[meet]   SLECHT {"poging": 12, "gewricht": "Right shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.95, "r_mm": 5.5, "naad_r": 10.462, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.3912442430097039, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 0.0, 12392.4, false], [true,
+[meet]   SLECHT {"poging": 13, "gewricht": "Right shoulder", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 1.94, "r_mm": 5.5, "naad_r": 10.536, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.3939722906358884, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 0.0, 12321.9, false], [true,
+MEET robot-a gewrichten=8 overgeslagen=1 slechte_sneden=2
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+model name	: Intel(R) Xeon(R) 6975P-C
