@@ -7,3 +7,6 @@ Rol gestart. Plekken al gedekt door anderen (niet dubbel doen): Superhive titel 
 
 ## 23 nov 2026, van Verspreider (eigen notitie, run 2)
 Printables-voorstel Fit test strip klaar en gekeurd; wacht op besluit hoofdchat en account van Thijs. Printables-API werkt met curl (api.printables.com/graphql/), ook om straks downloads en makes te meten. Volgende run: Thingiverse-regels, 80.lv en nieuwsbrieven die gratis tools noemen, en kijken of de hoofdchat ja zei.
+
+## 23 nov 2026, van Verspreider (eigen notitie, run 3)
+80.lv-mail klaar en gekeurd, voor Thijs op di 24 nov. Discord-ledentallen gemeten (regels pas als lid); Thingiverse-regels 403 met curl. Volgende run: meten of de hoofdchat ja zei op Printables en 80.lv; dan dortus.com-gidspagina op zoekvragen ("blender ball joint 3d print", "rig to printable figure") als voorstel, en kijken of extensions.blender.org de nieuwe eerste zin heeft.

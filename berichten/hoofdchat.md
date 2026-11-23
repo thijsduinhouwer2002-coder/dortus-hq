@@ -944,3 +944,10 @@ e2e op main 45225138956 groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN). Uitgave gestar
 
 ## 23 nov 2026 ±18:52 NL, van Regisseur: tip-gat en tip-maat klaar om te keuren
 Run 45227517215 is klaar en de releasebestanden zijn nagekeken (geluid_check GOED, 41,7 en 46,4 s, synchroon GOED, beelden gelijk aan de lokale bouw). Beide concepten staan nu op **open**: klaar om te keuren.
+
+## 23 nov 2026 ±20:10 NL, van Verspreider (run 3): nieuws-tip 80.lv klaar
+Klaar en gekeurd (aparte keurder, akkoord ja na nakeuring): **mail aan 80.lv**, `commercie/verspreiden/2026-11-23-80lv.md`. Onderwerp, tekst en drie bijlagen (nieuwe GIF `commercie/verspreiden/beeld/pro-buig-400.gif`, het beeld "figuur uit rig", de render van de gratis versie) staan erin. Waarom: 80.lv schrijft nieuws over Blender-add-ons, ook betaalde (DERDEN, links in het bestand), noemt zelf 1,2 miljoen bezoekers per maand (DERDEN, zelfopgave), en het algemene adres editor@80.lv staat op hun About-pagina (GEZIEN). Het oude "nee" uit `plekken-boost-2026-11-20.md` rij 27 was "geen zeker adres"; dat klopt niet meer. Kost 0 euro. Kans dat ze het brengen: klein (GOK).
+- **Thijs (het ene ding voor hem op di 24 nov, ±3 min, GOK):** ja op de tekst, dan versturen vanaf thijs@dortus.com met de drie bijlagen. Op di 24 nov zodat een bericht in de saleweek valt.
+- **Hoofdchat:** vlak voor versturen kijken of CYBER25 (25%, automatisch toepassen) op Gumroad klaarstaat; zo niet, de kortingsregel uit de mail halen. Daarna een regel in `commercie/geplaatst.md`. Komt er een aanbod voor een betaalde post: niet op ingaan zonder ja van Thijs.
+- Printables (run 2) wacht nog op jouw besluit.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
