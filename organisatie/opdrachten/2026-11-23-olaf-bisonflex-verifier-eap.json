@@ -1,1 +1,13 @@
-{"workflow": "jetbrains-bison-flex-clion.yml", "invoer": {"verifier_extra": "IU/263.8311.30"}, "van": "olaf", "waarom": "Plugin Verifier tegen IntelliJ 2026.3.1 EAP: breekt de plug-in daar, ook als de e2e een licentievenster krijgt"}
+{
+  "workflow": "jetbrains-bison-flex-clion.yml",
+  "invoer": {
+    "verifier_extra": "IU/263.8311.30"
+  },
+  "van": "olaf",
+  "waarom": "Plugin Verifier tegen IntelliJ 2026.3.1 EAP: breekt de plug-in daar, ook als de e2e een licentievenster krijgt",
+  "uitslag": {
+    "run_id": 45105452508,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45105452508",
+    "gestart": "2026-11-23T03:21:00Z"
+  }
+}
