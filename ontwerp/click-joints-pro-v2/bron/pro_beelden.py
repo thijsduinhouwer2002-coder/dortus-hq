@@ -388,6 +388,7 @@ def kader(objs, hh, hv, xbereik, yhalf, lens=60, ymid=0.5, doel=None):
     straal = max((p - c).length for p in hoeken)
     cd = bpy.data.cameras.new("cam")
     cd.lens, cd.clip_start, cd.clip_end = lens, 1, 100000
+    cd.sensor_fit = "HORIZONTAL"   # anders klopt angle_x niet bij staande beelden (de camera schoot weg: zwart beeld)
     cam = bpy.data.objects.new("cam", cd)
     sc.collection.objects.link(cam)
     a, e = math.radians(hh), math.radians(hv)
@@ -410,6 +411,8 @@ def kader(objs, hh, hv, xbereik, yhalf, lens=60, ymid=0.5, doel=None):
         cam.location += (m @ Vector((0, 0, 1))) * d * (schaal - 1) * 0.7
         if abs(schaal - 1) < 0.01 and abs(mx_) < 0.005 and abs(my_) < 0.005:
             break
+    log("kader", len(objs), "objecten, straal", round(straal, 1), "afstand", round((cam.location - c).length, 1),
+        "schaal", round(schaal, 3), "x", round(x0, 2), round(x1, 2), "y", round(y0, 2), round(y1, 2))
     return cam
 
 
@@ -463,10 +466,10 @@ def main():
     studio(laagste(objs))
     if SHOT == "cover169":
         render_instellingen(2560, 1440)
-        kader(objs, 34, 6, (0.56, 0.93), 0.45, lens=70)
+        kader(objs, 34, 6, (0.55, 0.97), 0.56, lens=70, ymid=0.42)
     elif SHOT == "cover21":
         render_instellingen(2400, 1200)
-        kader(objs, 34, 6, (0.58, 0.94), 0.45, lens=70)
+        kader(objs, 34, 6, (0.57, 0.97), 0.56, lens=70, ymid=0.42)
     elif SHOT == "pose":
         render_instellingen(1600, 1600)
         kader(objs, 30, 2, (0.14, 0.86), 0.40, lens=60, ymid=0.43)
@@ -478,10 +481,10 @@ def main():
         kader(objs, 26, 8, (0.08, 0.92), 0.36, lens=60, ymid=0.46)
     elif SHOT == "knie":
         render_instellingen(800, 1600)
-        kader([doos_om(midden_gewricht("Left knee", "Left hip"), 40)], float(os.environ.get("KNIE_HOEK", "38")), 8, (0.1, 0.9), 0.36, lens=100, ymid=0.43)
+        kader([doos_om(midden_gewricht("Left knee", "Left hip"), 24)], float(os.environ.get("KNIE_HOEK", "38")), 8, (0.1, 0.9), 0.36, lens=100, ymid=0.43)
     elif SHOT == "kogel":
         render_instellingen(800, 1600)
-        kader([doos_om(midden_gewricht("Left shoulder", ""), 42)], 34, 12, (0.06, 0.94), 0.38, lens=100,
+        kader([doos_om(midden_gewricht("Left shoulder", ""), 24)], 34, 12, (0.06, 0.94), 0.38, lens=100,
               ymid=0.43)
     meting["objecten"] = sorted({(o.get("cj_naam") or o.name) for o in objs})[:40]
     render(SHOT)
