@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-23 16:45",
+    "datum": "2026-11-23 17:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Pro 1.2.1 uitgegeven (uitgave-run 45186779633 groen, 23 nov 14:47; zip als artefact tot 26 nov 13:44 UTC). Thijs zet de 1.2.1-zip op Gumroad en Superhive vóór 26 nov 13:44 UTC (lijst 3) en Lite $3 aan op Superhive (lijst 3c) vóór de Cyber Sale (27 nov). Voor 1.2.2 (Bram): fix 8 tegen 9 gewrichten (Olaf, op main) en terugval Exact (tak, Daan zei nog nee: toets_zips).",
+      "volgende_stap": "Pro 1.2.1 uitgegeven (uitgave-run 45186779633 groen, 23 nov 14:47; zip als artefact tot 26 nov 13:44 UTC). Thijs zet de 1.2.1-zip op Gumroad en Superhive vóór 26 nov 13:44 UTC (lijst 3) en Lite $3 aan op Superhive (lijst 3c) vóór de Cyber Sale (27 nov). Pro 1.2.2: Daan akkoord (23 nov 17:30); Bram zet hem op main en vraagt de hoofdchat de uitgave-run.",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -137,7 +137,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-23",
+      "laatste_update": "2026-11-23 17:45",
       "links": [
         {
           "naam": "Winkelpagina",
@@ -174,6 +174,36 @@
       "keuringen": [
         "platformen/blender/keuring/2026-11-19-superhive-pakket-daan.md"
       ]
+    },
+    {
+      "id": "blender-splitser",
+      "naam": "Click Cuts (splitser)",
+      "kort": "Click Cuts",
+      "wat": "Tweede betaalde Blender-add-on: een model dat te groot is voor de printer in stukken snijden, met pennen of klikverbinders die passen. Doel: beter dan CatPin en Cleave.",
+      "soort": "product",
+      "voor": "Dortus",
+      "platform": "Superhive en Gumroad (gepland)",
+      "status": {
+        "woord": "bouwen",
+        "kleur": "op-koers",
+        "zin": "Concurrentie akkoord (herkeuring 23 nov). Merk klaar: naam Click Cuts gekozen door de hoofdchat, stijl B voor de cover. Kern (werknaam Split Joints): keuring nee, 4 moet-punten (meterscene, stukkental, tests, vaas-zin)."
+      },
+      "eigenaar": "Productbouwer",
+      "agents": [
+        "Productbouwer",
+        "merk-agent",
+        "keurder kern",
+        "hoofdchat"
+      ],
+      "kans": {
+        "tekst": "onbekend",
+        "label": "GOK",
+        "reden": "Nog geen keuring van kans of prognose; concurrentie.md is gekeurd, de omzet daarin is een scenario.",
+        "bron": "producten/blender-splitser/concurrentie.md"
+      },
+      "volgende_stap": "Productbouwer lost moet-punten M1 tot M4 van de kernkeuring op, dan snede die niet alleen langs de assen gaat en kleur per stuk; interne naam naar click_cuts.",
+      "thijs": [],
+      "laatste_update": "2026-11-23 17:45"
     },
     {
       "id": "roep",
