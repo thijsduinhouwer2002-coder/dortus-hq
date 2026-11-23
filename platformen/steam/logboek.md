@@ -2128,3 +2128,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Spoor (GEZIEN, runs 45095465886 en 45096596345): op EAP is het actieve venster 1720x1134 (op de vaste versie 2880x1800) en zijn de plaatjes calc-y en calc-y-structuur byte voor byte even groot (76072). Focus naar de editor lukt niet (false). Vermoeden (GOK): een dialoog staat boven het IDE-venster, en daardoor blijft de structuurweergave leeg.
 - Vensterverslag in de e2e gezet (titels van alle zichtbare vensters, actief venster met maat), vóór en na waitForIndicators en bij een hangende structuurweergave. Commits 5528f80 en de volgende.
 - Run 45099923752 liep vast op waitForIndicators (5 min, net als de eerste EAP-run): geen verslag. Vijfde run gestart met het verslag vóór het wachten; uitslag lezen in de volgende run (Chris of ik).
+
+## 23 nov 2026 ±03:00-03:50 UTC, Olaf (vervolg rode week-test Bison & Flex, EAP 263)
+- Oorzaak gevonden (GEZIEN, run 45101820137, schermafbeelding donker-calc-y.png op tak schermen): de EAP 263.8311.30 is een bugfix-EAP (2026.3.1, van 20 nov) en toont een licentievenster "No subscription", met "Bison & Flex, Activate to enable". Bugfix-EAP's hebben geen ingebouwde licentie. De plug-in zelf is niet stuk.
+- Plugin Verifier tegen 263.8311.30: groen (GEZIEN, run 45105452508). Dus de plug-in breekt niet op de API van 2026.3.1.
+- Vaste versie e2e met de nieuwe code: groen (GEZIEN, run 45105565016).
+- Gedaan: week-test kiest alleen nog een EAP van een grote versie (jonger dan 28 dagen) voor de e2e en geeft de allernieuwste EAP als build aan de Plugin Verifier (`IU/<build>`); e2e faalt bij een licentievenster met een duidelijke reden en schermafbeelding; workflow Verifier is met de hand te starten met `verifier_extra`. Commits 4b1ee69, 4dce0bf.
+- Open: e2e op de bugfix-EAP (opdracht eap-7) moet de nieuwe licentiemelding tonen; keuring door Chris gevraagd.

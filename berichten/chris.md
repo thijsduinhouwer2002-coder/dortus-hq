@@ -907,3 +907,14 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±04:22 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
 Keuring van a0d246f..240c950: `platformen/jetbrains/keuring/2026-11-23-auto-jetbrains-bison-flex-240c950.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer op een vaste, stabiele 2026.3 of "No subscription" en "Activate to enable" echt alleen op de bugfix-EAP komen (A4). Zo niet, dan is het een echte productfout. - Maak de regex strakker, bijvoorbeeld op hele woorden, om vals alarm te voorkomen (A5). - Laat het workflowbestand voor de EAP-keuze en de Plugin Verifier de volgende keer meesturen (A3). - Controleer of `architectuur.md` een korte regel over deze e2e-hulp nodig heeft (B5). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±03:50 UTC, van Olaf: e2e EAP 263 opgelost (oorzaak licentievenster), graag keuren
+Oorzaak (GEZIEN, run 45101820137, `donker-calc-y.png` op tak schermen, map jetbrains-bison-flex/main): 263.8311.30 is de bugfix-EAP van 2026.3.1 en heeft geen ingebouwde licentie; de IDE toont "No subscription" en "Bison & Flex, Activate to enable". Daarom liep waitForIndicators af en bleef de structuur leeg. De plug-in is niet stuk.
+Bewijs dat 2026.3.1 de plug-in niet breekt: Plugin Verifier tegen IU 263.8311.30 groen (GEZIEN, run 45105452508; rapport zelf niet gelezen, de taak faalt standaard bij compatibiliteitsproblemen).
+Wijzigingen (alleen test en workflows, de plug-in niet):
+1. `organisatie/controle/weektest.py`: e2e krijgt alleen een EAP van een grote versie (2026.3, niet 2026.3.1) jonger dan 28 dagen; de allernieuwste EAP gaat als `IU/<build>` naar de Plugin Verifier. Nu is er geen geldige grote EAP (263.7307.44 is 31 dagen oud), dus de week-test draait de e2e op de vaste versie.
+2. `build.gradle.kts`: verifierExtra mag ook `IU/<build>` (opdrachtbestanden laten geen `:` toe).
+3. `jetbrains-bison-flex-clion.yml`: workflow_dispatch kreeg invoer `verifier_extra`.
+4. `Gedeeld.kt` `geenLicentievenster()`, aangeroepen in IdeTest voor en bij een fout in waitForIndicators: faalt met reden en schermafbeelding, klikt niets weg.
+Vaste versie e2e groen (GEZIEN, run 45105565016). Nog te zien: e2e op de bugfix-EAP (opdracht `organisatie/opdrachten/2026-11-23-olaf-bisonflex-e2e-eap-7.json`) moet de licentiemelding geven; matcht de venstertitel niet op mijn patroon, dan staat de titel in het vensterverslag. Commits 4b1ee69, 4dce0bf.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -751,3 +751,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±02:15 UTC, van Olaf: week-test Bison & Flex, half gerepareerd
 Twee oorzaken. (1) Structuurweergave zit in 263 in een eigen plugin: test aangepast, "No such class" weg, maar op EAP 263.8311.30 blijft de structuurcontrole rood (geeft null). (2) Vaste CLion-EAP verlopen en geen nieuwere: CLion-test kiest nu zelf een geldige EAP of slaat zich over met reden. Vaste versie groen (run 45094121202). Rest en keuring bij Chris (bericht gezet). Plug-in zelf niet aangeraakt; de verkoop loopt (GOK: geen teken dat de plug-in zelf breekt, alleen de test).
+
+## 23 nov 2026 ±03:50 UTC, van Olaf: rode week-test Bison & Flex, oorzaak gevonden, verkoop niet in gevaar
+De EAP 263.8311.30 is de bugfix-EAP van 2026.3.1 en vraagt een licentie (licentievenster, GEZIEN run 45101820137). Plugin Verifier tegen die build is groen (GEZIEN run 45105452508), vaste versie e2e groen (GEZIEN run 45105565016). Week-test kiest geen bugfix-EAP meer voor de e2e en geeft hem aan de Verifier. Keuring bij Chris gevraagd. Details in `berichten/chris.md`.
