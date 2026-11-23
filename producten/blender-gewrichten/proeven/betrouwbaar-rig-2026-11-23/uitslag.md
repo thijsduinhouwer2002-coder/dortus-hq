@@ -28,21 +28,24 @@ Nulmeting, main zoals uitgebracht als Pro 1.2.2 (run 45253697551):
 | armen | 6 / 7 / 40 s | 8 / 0 / 12 s | 8 / 0 / 13 s |
 | **samen** | **35 van 60** | **59 van 60** | **59 van 60** |
 
-Eindmeting (run 45264302449, commit 7ea796e, de eindstand van de add-on op de tak; run 45260223259 op da1c134 gaf hetzelfde aantal gewrichten):
+Eindmeting, eindstand van de add-on op de tak (commit 6dc00b2). 5.2.3 en 5.3.0 uit run 45267268513. Kolom 4.2.23 uit run
+45264302449 (commit 7ea796e): de 4.2-jobs voor robot en rigify van 45267268513 werden door GitHub afgebroken (exit 143,
+SIGTERM van de runner), en de weg in 4.2 (Exact) is in beide commits dezelfde; kleding, mens en armen gaven in 45267268513
+hetzelfde aantal (8, 9, 8).
 
 | Figuur | 4.2.23 | 5.2.3 | 5.3.0 |
 |---|---|---|---|
-| robot-a | 7 / 1 / 136 s | 9 / 0 / 62 s | 9 / 0 / 91 s |
-| robot-b | 7 / 1 / 171 s | 9 / 0 / 89 s | 9 / 0 / 87 s |
-| robot-fijn | 9 / 4 / 239 s | 9 / 0 / 171 s | 9 / 0 / 163 s |
-| kleding | 8 / 6 / 205 s | 9 / 0 / 92 s | 9 / 0 / 89 s |
-| mens | 9 / 0 / 153 s | 9 / 0 / 54 s | 9 / 0 / 47 s |
-| rigify | 7 / 4 / 291 s | 7 / 0 / 47 s | 7 / 0 / 29 s |
-| armen | 8 / 0 / 43 s | 8 / 0 / 30 s | 8 / 0 / 23 s |
+| robot-a | 7 / 1 / 136 s | 9 / 0 / 66 s | 9 / 0 / 75 s |
+| robot-b | 7 / 1 / 171 s | 9 / 0 / 93 s | 9 / 0 / 95 s |
+| robot-fijn | 9 / 4 / 239 s | 9 / 0 / 244 s | 9 / 0 / 202 s |
+| kleding | 8 / 6 / 205 s | 9 / 0 / 69 s | 9 / 0 / 59 s |
+| mens | 9 / 0 / 153 s | 9 / 0 / 19 s | 9 / 0 / 20 s |
+| rigify | 7 / 4 / 291 s | 7 / 0 / 30 s | 7 / 0 / 21 s |
+| armen | 8 / 0 / 43 s | 8 / 0 / 24 s | 8 / 0 / 24 s |
 | **samen** | **55 van 60** | **60 van 60** | **60 van 60** |
 
 In 5.2 en 5.3 nu elk haalbaar gewricht en geen enkele slechte snede meer onderweg (was 16 per versie). Het aangeklede
-figuur (de filmpjes) ging van 8 naar 9 en van ±8 naar ±1,5 minuut. De kale mens is trager (14 naar ±50 s), zie "Wat nog niet".
+figuur (de filmpjes) ging van 8 naar 9 en van ±8 naar ±1 minuut. In 5.x komt de voxelvorm alleen nog waar de oude vereniging mislukte (19 keer in run 45267268513), dus lichte figuren zijn even snel als eerst (kale mens 19 s).
 
 ## Oorzaak (met bewijs)
 Figure from rig snijdt een lid los met een omhulsel H (`een_lid`): een convex omhulsel rond het snijvlak plus het lid
@@ -68,8 +71,8 @@ zelf, elk punt `m` (0,2 tot 0,6 mm) langs zijn normaal naar buiten, samengevoegd
 
 ## Oplossing (allemaal Pro, het gratis deel blijft gelijk)
 - `betaald/omhulsel.py`: H wordt één schone, gesloten vorm door een voxel-remesh van omhulsel en lid samen, met een
-  controle dat het lid erin ligt; lukt dat niet, dan de oude weg. Dit is de echte oplossing: elke H in de eindmeting is
-  "voxel", nul slechte sneden in 5.x, zonder geluk (zelfde uitkomst op AMD en Intel in CI).
+  controle dat het lid erin ligt; lukt dat niet, dan de oude weg. Dit is de echte oplossing: nul slechte sneden in 5.x,
+  zonder geluk (zelfde uitkomst op AMD- en Intel-runners in CI, runs 45256924126 tot 45267268513).
   Bijstelling na run 45264302449 (GEZIEN): met Manifold alleen nog bij een mislukte vereniging ("los"); met voxel-H
   altijd verloor de rechterknie van de Meshy-knight 8,2 tot 9,2% van de punten (vangnet 6%) in plaats van 5,3 tot 5,6%,
   want de voxelvorm vult holtes en neemt wat stof naast het lid mee. In 4.2 (Exact) altijd voxel.
@@ -77,18 +80,19 @@ zelf, elk punt `m` (0,2 tot 0,6 mm) langs zijn normaal naar buiten, samengevoegd
 - `rig.py`: na "overlap before they move" (scharnier in 4.2) de volgende plek, zoals al bij "no watertight parts".
 - `betaald/redenen.py`: bij een overgeslagen gewricht door een mislukte snede zegt de lijst wat de koper kan doen
   ("place it by hand a few mm along the bone", in 4.2 ook "or use Blender 4.5 or newer, which cuts more reliably").
-- Geprobeerd en niet gehouden: scharnieren in 4.2 met het diepe omhulsel (`DIEP_EXACT`, run 45261862637): geen gewricht erbij.
+- Geprobeerd en niet gehouden: scharnieren in 4.2 met het diepe omhulsel (`DIEP_EXACT`, run 45261862637): geen gewricht
+  erbij. Scharniersnede in 4.2 met Self Intersection aan (run 45266243590): nooit gesloten; 0,05 mm verschoven: 2 van 6
+  keer gesloten, dus geluk en niet gebouwd.
 
 ## Wat nog niet lukt (eerlijk)
 - **Blender 4.2: 55 van 60.** Robot: beide knieën (alleen de vierde plek is niet Tight, en daar geeft Exact een onderbeen
   van 717 punten of overlappende delen). Aangekleed figuur: rechterknie (eerste plek overlap, verdere plekken Tight). De
   koper krijgt daar nu een zin met wat hij kan doen. Een betere 4.2-snede vraagt een eigen spoor (bijvoorbeeld de
   scharniersnede lokaal rond het gewricht), niet vóór woensdag.
-- **Tijd:** op een licht figuur kost H nu meer (kale mens 14 naar 47 tot 57 s voor 9 gewrichten). Op de zware figuren werd het
-  sneller (aangekleed 611 naar 91 s). Kan sneller met een grovere voxel op kleine figuren; niet gedaan om de uitkomst
-  niet te raken.
-- **Meshy knight (alleen in de gewone e2e, licentie niet nagelezen, niet in de testset):** de rechterknie zit op de grens
-  van het vangnet "lost part of the model" (6%): in 5.2.3 één keer rood (run 45258254417), daarna groen (45260223259).
-  Dat vangnet telt binnenschillen van een Make watertight-kopie mee; meting loopt.
-- **Keuring:** door de automatische keurder per commit (akkoord ja op fc5b58f); een aparte keurder volgens
+- **Tijd in 4.2:** daar is H altijd een voxelvorm, en Exact is traag: 2 tot 5 minuten per figuur (was ook 3 tot 30).
+- **Meshy knight (alleen in de gewone e2e, licentie niet zelf nagelezen, niet in de testset):** de rechterknie zit op de
+  grens van het vangnet "lost part of the model" (6%): 5,3 tot 5,6% verloren, net als op main (zes metingen in run
+  45267268513). Een grensgeval dat al bestond; met voxel-H altijd was het 8 tot 9% (daarom de bijstelling).
+- **Keuring:** door de automatische keurder per commit (ja op fc5b58f, nee op 7ea796e om de drempel voor 4.2, opgelost in
+  f804f10); een aparte keurder volgens
   `.claude/skills/keuren/SKILL.md` kon ik niet inzetten (geen Agent-tool). Keuring: nog niet gedaan.
