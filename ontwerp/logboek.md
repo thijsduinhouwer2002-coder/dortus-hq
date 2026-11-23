@@ -1869,3 +1869,4 @@ Gids 3 titel en gids 4 joint tolerance (Bram) ja, voorwaarde fit-test-strip eers
 
 ## 23 nov 2026 ±23:30 NL, Daan
 Drie keuringen: gidsen 3-4 met fit-test-strip (Bram, dortus 72a3997) ja op fast-forward van main; volgorde-stem.md (Sanne) ja na M1 (week 50 nr. 2 en 4 nog Pro-eindkaart bij ElevenLabs); apt-snel.sh met .deb-cache (Olaf) ja, veilig nagespeeld (apt haalt beschadigde .deb opnieuw), M1 cachesleutel op image en pakketlijst. Berichten Bram, Sanne, Olaf. Geen open keuringen meer.
+- 24 nov ±09:00: Pro 1.2.3 releasenote ja na M1 (geen 'always') en M2 (knie niet gemeten); redenen.py ja. `platformen/blender/keuring/2026-11-24-pro-1.2.3-teksten-daan.md`.
