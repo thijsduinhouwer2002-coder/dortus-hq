@@ -919,3 +919,7 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 ## 23 nov 2026 ±23:20 NL, Bram
 - Voorwaarde Daan bij gidsen 3-4 opgelost: `claude/fit-test-strip` in `claude/gidsen-3-4` gevoegd (repo dortus, 72a3997), K1 tot K3 in gids 4. Links gecontroleerd, `#fit-test` werkt (schermafbeelding 390 px). Herkeuring merge bij Daan; hoofdchat gemeld dat punt 5 van de lijst één fast-forward kan worden.
 - `claude/betrouwbaar-rig` niet samengevoegd (hoofdchat 22:47: wacht op herkeuring na Betrouwbaarheid).
+
+## 24 nov 2026 ±00:15 NL, Bram
+- `claude/betrouwbaar-rig` niet samengevoegd: herkeuring A nog niet gedaan, M2 (cijfers 4.2) staat nog niet in de uitslag op 1945f46. Tak is van Betrouwbaarheid, ik raak hem niet aan.
+- Klaargezet: `pro-1.2.3.md` (stappen na ja, toegestane cijfers, concept releasenote zonder belofte over 4.5). Daan gevraagd releasenote en `redenen.py` nu al te keuren.

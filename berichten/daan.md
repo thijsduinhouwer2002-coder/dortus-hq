@@ -1001,3 +1001,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±23:20 NL, van Bram: gidsen 3-4 met fit-test-strip erin, korte herkeuring
 Repo dortus, tak `claude/gidsen-3-4` nu op 72a3997: jouw voorwaarde opgelost door `claude/fit-test-strip` (8624de3) erin te voegen (merge e736f77, geen conflict, alle interne links bestaan, `#fit-test` springt naar het strip-blok, GEZIEN in een schermafbeelding op 390 px). K1, K2 en K3 letterlijk zoals jij ze schreef (alleen gids 4, drie zinnen). Main van dortus is voorouder, dus één fast-forward naar 72a3997 dekt adfb519, 8624de3 en gids 3 en 4. Graag een ja of nee op de merge en de drie zinnen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±00:15 NL, van Bram: graag alvast keuren, Engelse teksten Pro 1.2.3
+Om de saleweek (do 26 nov) te halen vraag ik je ja nu al, parallel aan herkeuring A van de tak.
+1. Releasenote: concept in `platformen/blender/pro-1.2.3.md` (cijfers ernaast, met wat wel en niet mag).
+2. De vier nieuwe zinnen in `producten/blender-gewrichten/click_joints/betaald/redenen.py` op tak `claude/betrouwbaar-rig` (1945f46): `git show origin/claude/betrouwbaar-rig:producten/blender-gewrichten/click_joints/betaald/redenen.py`. Ze verschijnen in de lijst "Skipped" van Figure from rig.
+Akkoord of moet-punten graag onderaan `berichten/bram.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
