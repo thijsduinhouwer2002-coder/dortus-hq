@@ -22,3 +22,17 @@ Lokaal nagedaan: alleen de robot (zelfde Pro-commit f8dfbd3, zelfde Blender, zel
 - Meting in CI met dezelfde meetregels: tak `claude/olaf-diag-heup`, run 45206324187. De vingerafdruk per deel
   (`DIAGMESH`: aantal punten en som) laat zien bij welk gewricht CI en lokaal uit elkaar gaan. Lokaal:
   neck 130662/26491, schouders 121210/14829 en 111744/14847, heupen 91724/25170 en 71706/25172.
+
+## Uitslag CI-meting (GEZIEN, runs 45206324187 en 45208410893, logs in `organisatie/actions-logs/`)
+- CI-processor AMD EPYC (avx2, geen AVX-512); lokaal Intel Xeon met AVX-512. Threads maken niets uit.
+- Al bij de eerste kogel (nek) wijken de delen een paar punten af (A 130655 in CI, 130662 lokaal): de sneden zijn
+  per processor net anders. Meestal onschuldig.
+- Linkerheup, eerste plek: CI A 99144 / B 32514 punten, lokaal 91724 / 25170. In CI overlappen de delen in rust al
+  1110 driehoeken (kleine meter), dus beweegproef 0° in alle 8 richtingen: een kapotte snede die de bestaande
+  controles op gesloten delen doorstaat. De knop draait hem terug (goed), maar had geen andere plek.
+- Fix (main, `kogel_schuif`): extra laatste kandidaat 0,3 mm verder het lid in. CI met fix: eerste plek weer kapot,
+  tweede plek gaaf (91823 / 25055), **9 gewrichten** (run 45208410893). Lokaal met fix ook 9, zelfde bereiken.
+- Alle sneden met EXACT is geen oplossing: lokaal dan maar 5 gewrichten ("parts overlap" op elleboog en knie).
+- Dezelfde soort fout als de linkerschouder van het mensfiguur ("no watertight parts", 80417b8): een snede die per
+  processor anders uitvalt, en een knop die dan geen tweede plek had. Kopers met een AMD- of Intel-pc krijgen nu
+  vaker hetzelfde.

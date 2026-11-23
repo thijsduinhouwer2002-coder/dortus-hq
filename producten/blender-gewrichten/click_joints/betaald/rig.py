@@ -313,6 +313,13 @@ def kogel_schuif(context, doel, m, lengte):
         stappen.append(t)
         t -= 0.5 * u
     stappen.append(t_oud)
+    # 23 nov (Olaf, robot studio-2: lokaal 9 gewrichten, CI 8): dezelfde heupsnede gaf op een AMD-processor delen
+    # die al in rust 1110 driehoeken overlappen ("blocked"), op een Intel-processor een gave heup (GEZIEN, run
+    # 45206324187, meetregels DIAGMESH). De snede valt op zo'n plek per processor net anders uit. Als laatste
+    # kandidaat daarom dezelfde plek 0,3 mm verder het lid in: komt alleen aan de beurt na een weigering, dus een
+    # figuur waar het al lukte merkt niets.
+    if t_vrij + 0.3 * u < 0.5 * lengte:
+        stappen.append(t_vrij + 0.3 * u)
     uit = []
     for t in stappen:
         if any(abs(t / u - mm) < 1e-6 for _m, mm in uit):
