@@ -37,3 +37,8 @@
   hangen. Nieuw: `commercie/filmpjes/apt-snel.sh <pakketten>` installeert eerst zonder update en doet pas een update
   (hooguit 120 s) als dat mislukt. Nog in geen workflow gezet (regisseur-4 liep, een push start een nieuwe run); gebruik
   het in de volgende workflow in plaats van de twee apt-regels. Niet in CI getoetst (GOK dat het de uitschieters scheelt).
+- 23 nov 2026 ±22:20 NL, Olaf: `stem/splits.py` na keuring Daan (M1, M2). Hoort whisper één kant van een zingrens niet,
+  dan knipt hij in de eerste pauze vanaf de gehoorde kant en meldt de grens als onzeker (`onzeker` in het verslag en in
+  de stem-info: die zinnen naluisteren). Een niet verstane zin wordt alleen nog gevuld met pauzes tussen de zekere
+  knippunten eromheen, en geeft een fout als die er niet zijn, in plaats van stil verkeerd te knippen. Toets zonder
+  whisper: `toets_splits.py --zonder-whisper`, 0 FOUT (GEZIEN, lokaal).
