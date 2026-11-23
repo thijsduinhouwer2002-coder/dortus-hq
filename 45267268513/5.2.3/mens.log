@@ -1,0 +1,46 @@
+[meet] figuur mens: mens, {'bron_punten': 13380, 'bron_zelf_overlap': 0}
+[meet] Blender 5.2.3 LTS figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 37, sneden 17, slechte sneden 0
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=0
+Info: Hinge placed. Bends 0° to 120°. 0.593 s.
+Info: Hinge placed. Bends 0° to 120°. 0.429 s.
+Info: Joint placed. Good fit. 0.714 s.
+Info: Joint placed. Good fit. 0.882 s.
+Info: Joint placed. Good fit. 0.89 s.
+Info: Joint placed. Good fit. 0.865 s.
+Info: Joint placed. Good fit. 0.845 s.
+Info: Joint placed. Good fit. 0.844 s.
+Info: Joint placed. Good fit. 0.954 s.
+Info: Joint placed. Good fit. 0.899 s.
+Info: Joint placed. Good fit. 0.853 s.
+Info: Joint placed. Good fit. 0.833 s.
+Info: Joint placed. Good fit. 0.835 s.
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Info: Joint placed. Good fit. 0.828 s.
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Info: Joint placed. Good fit. 0.86 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 5.2.3 LTS figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 37, sneden 17, slechte sneden 0
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=0
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+OBJ import of 'makehuman-base.obj' took 25.07 ms
+
+Blender quit
+model name	: AMD EPYC 7763 64-Core Processor
