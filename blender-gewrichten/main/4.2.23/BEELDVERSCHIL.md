@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (main)
-GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 45216528540, commit 5aa4aa5e7beafb7387f8e07e9bd4aafeaa277b97, commitdatum 1795451182, 2026-11-23T16:54:13Z
+GROOT: 1 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
+Referentie: referentie uit run 45225138956, commit 752f6c6e990daf9160f0a94cd2d6aa36d7240c60, commitdatum 1795453957, 2026-11-23T17:42:12Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -21,11 +21,11 @@ Referentie: referentie uit run 45216528540, commit 5aa4aa5e7beafb7387f8e07e9bd4a
 | 17-figuur-heel-x.png | gelijk | |
 | 19-mens-paneel.png | gelijk | |
 | 19-mens-x.png | gelijk | |
-| 2-gewricht-x.png | gelijk | |
+| 2-gewricht-x.png | 20 px (0.001%), ruis | |
 | 20-testkaart.png | gelijk | |
 | 20d-testkaart-getal.png | gelijk | |
 | 20h-testkaart-scharnier.png | gelijk | |
-| 3-kijkrichting-x.png | gelijk | |
+| 3-kijkrichting-x.png | 429 px (0.021%), x 9 tot 811, y 263 tot 976 | GROOT |
 | 4-material-preview-x.png | gelijk | |
 | 5-waaier-x.png | gelijk | |
 | 6-rood-x.png | gelijk | |
