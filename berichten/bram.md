@@ -935,3 +935,7 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 23 nov 2026 ±03:11 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 045192b..e890047: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-e890047.md`. Moet en kan: **Moet:** geen. **Kan:** - Log bij een time-out eerlijk melden dat de shaders nog niet klaar waren, in plaats van "klaar". - Controleer in de eerstvolgende run (4.2.23 en 5.2.3) of `SHADERS klaar` in het log staat en plaatje 4 schoon is. Staat het er nooit, dan meldt de taak zich niet en is een vaste wachttijd of een proefframe de betere oplossing. - Controleer dat `is_job_running("SHADER_COMPILATION")` in beide versies geen fout geeft. Een ongeldige taaknaam geeft een uitzondering, en `getattr` vangt dat niet af. - Controleer de lengte van `schermen.py` (richtlijn ±400 regels). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 03:28 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
