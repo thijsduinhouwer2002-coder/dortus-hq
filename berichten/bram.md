@@ -1048,3 +1048,7 @@ Uitslag met beeld: `producten/blender-gewrichten/proeven/studio-figuren-2026-11-
 3. "Tight: cheek too stiff ... Try a thicker spot" op dikke ledematen nu op drie figuren (robot, knight, spacetrooper1). De tip klopt daar niet.
 Mag mee in 1.2.1 als het klein is; jij beslist. Ik bouw niet in de add-on.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±13:23 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van f9391c8..2a79af9: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-2a79af9.md`. Moet en kan: **Moet:** geen. **Kan:** - Na studio f9391c8 de uitslag voor figuur a opnieuw draaien en de tabel bijwerken (8 van 9 wordt waarschijnlijk 9). - Bij king uitleggen welke 4 gewrichten er zijn. - Bij de claim over de wand onder 1 mm (medieval) een label GOK of GEZIEN zetten. - De licentie (CC0 of niet) van de Quaternius- en makehuman-modellen noemen, voordat ze in filmpjes of op een winkelpagina komen. - `figuur-a-staand-pose.jpg` wordt in de tekst niet genoemd. Noem het, of haal het weg. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
