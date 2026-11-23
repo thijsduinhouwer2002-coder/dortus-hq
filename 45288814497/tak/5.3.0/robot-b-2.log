@@ -1,0 +1,36 @@
+[meet] figuur robot-b: Figuur, {'bron_punten': 273114, 'bron_zelf_overlap': 0}
+[meet] Blender 5.3.0 figuur robot-b: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 15, sneden 9, slechte sneden 0
+MEET robot-b gewrichten=9 overgeslagen=0 slechte_sneden=0
+STATUS Installed "click_joints"
+[studio] robot: 20100 punten voor de remesh, maat (148.5, 42.2, 220.4)
+Info: Watertight copy Figuur_gesloten made (273112 faces)
+[studio] kleuren per vorm: 273112 vlakken, 3198 buiten elke vorm
+[studio] robot na voxel: 273114 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.5, 4.0, 57.0), elleboog L (50.0, -3.6, 132.0)
+[meet] figuur robot-b: Figuur, {'bron_punten': 273114, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 140°. 5.829 s.
+Info: Hinge placed. Bends 0° to 140°. 5.608 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 120°. 5.889 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 120°. 5.29 s.
+Info: Joint placed. Good fit. 4.505 s.
+Info: Joint placed. Good fit. 5.322 s.
+Info: Joint placed. Good fit. 4.888 s.
+Info: Joint placed. Good fit. 5.339 s.
+Info: Joint placed. Good fit. 4.668 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 5.3.0 figuur robot-b: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 15, sneden 9, slechte sneden 0
+MEET robot-b gewrichten=9 overgeslagen=0 slechte_sneden=0
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+model name	: AMD EPYC 9V74 80-Core Processor
