@@ -865,3 +865,6 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 ## 23 nov 2026 ±11:00 UTC, Bram
 - Lite: vervangzin van Daan letterlijk overgenomen in `superhive/lite-variant.md`, status klaar. Aanzetten staat bij Thijs (lijst 3c). $0-optie van de Afkijker vervalt (besluit hoofdchat 10:45).
 - Afkijker punt 2: blok "New in 1.2" plus updateregel voor de Superhive-tekst in `superhive/nieuw-in-1-2.md` (live pagina met curl nagekeken: log staat al onderaan, staat nog op 1.1.0). Daan gevraagd te keuren; plakken samen met de 1.2.0-zip op Superhive.
+
+## 23 nov 2026 ±12:10 UTC, Bram
+- "New in Pro 1.2": moet van Daan letterlijk overgenomen, plus zijn twee kan's (Fit test strip in Good to know, echte uploaddatum in het log). Status klaar in `superhive/nieuw-in-1-2.md`. Hoofdchat ingelicht: plakken samen met de 1.2.0-zip op Superhive.

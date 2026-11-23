@@ -2,7 +2,7 @@
 
 Opdracht Afkijker 23 nov ±08:45 UTC, punt 2 (punt 1, de $0-variant, vervalt: besluit hoofdchat 10:45). Voorbeeld: auron3d opent zijn pagina met "BIG UPDATE" en wat er nieuw is; SquishyFX verkoopt 400+ keer (DERDEN, `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-23-auron3d-squishyfx.md`).
 
-**Status: ter keuring bij Daan.** Alleen plakken als de zip op Superhive 1.2.0 is (samen met stap 4 van `platformen/blender/pro-1.2.0.md`). Zolang daar 1.1.0 staat, klopt het blok niet.
+**Status: klaar (23 nov).** Akkoord van Daan met moet 1 letterlijk overgenomen (kop `New in Pro 1.2`), dus geen herkeuring (`platformen/blender/keuring/2026-11-23-nieuw-in-1-2-daan.md`). Ook zijn twee kan's verwerkt (punt 4 en de datum in punt 3). Alleen plakken als de zip op Superhive 1.2.0 is (samen met stap 4 van `platformen/blender/pro-1.2.0.md`). Zolang daar 1.1.0 staat, klopt het blok niet.
 
 ## Wat er nu live staat (GEZIEN met curl, 23 nov ±11:05 UTC)
 - Eerste alinea "Pick your rigged figure, press one button, ...", daarna "From rig to a figure that moves.".
@@ -11,7 +11,7 @@ Opdracht Afkijker 23 nov ±08:45 UTC, punt 2 (punt 1, de $0-variant, vervalt: be
 
 ## 1. Nieuw blok, direct na de eerste alinea (Engels, plakken)
 ```
-New in 1.2
+New in Pro 1.2
 - Fit test strip: print this first. Five joints from 0.10 to 0.30 mm clearance, each with its number, so you know which gap fits your printer.
 - Figure from rig now places elbows on rigs where the elbow would otherwise bend upward (for example Quaternius characters). Needs Blender 4.5 or newer.
 - Tested on Blender 4.2 LTS, 5.2 LTS and 5.3.
@@ -25,7 +25,15 @@ Already bought Pro? 1.2 is a free update: download it from your Orders page on S
 
 ## 3. Bovenaan het Update log erbij
 ```
-1.2.0 (Nov 2026): Fit test strip; Figure from rig places elbows on rigs where they would bend upward (Blender 4.5 and newer).
+1.2.0 (<dag van upload> Nov 2026): Fit test strip; Figure from rig places elbows on rigs where they would bend upward (Blender 4.5 and newer).
+```
+
+Vul bij het plakken de echte uploaddatum in, zoals bij "1.1.0 (20 Nov 2026)".
+
+## 4. In Good to know (kan 1 van Daan)
+Vervang "print a test joint first" door:
+```
+print the Fit test strip first
 ```
 
 ## Na te kijken door de keurder
