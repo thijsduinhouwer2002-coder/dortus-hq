@@ -1694,3 +1694,63 @@ Vijf belangrijkste dingen:
 5. **"Published ... ago" op Superhive is de laatste versie, het productId is de echte leeftijd** (GEZIEN); oude banden via archive.org lukten deze run niet (verbinding verbroken).
 
 Voorstel: (a) in de Cyber Sale (vr 27 nov t/m wo 2 dec) stuurt de hoofdchat alle eigen kanalen naar de Superhive-pagina van Pro in plaats van Gumroad, om in "New and Rising" te komen (GOK of dat werkt; geen geld). (b) Thijs zet één bestaande uitlegvideo op de Superhive-pagina van Pro (nu 0 video's), op de lijst als dat erbij past. (c) Een etalagewacht die elke 3 uur de twee blokken op de voorpagina in een bestand schrijft, zodat we na de sale zien of Pro erin kwam. Volgende run: de etalagewacht zelf een paar keer handmatig draaien, en nagaan hoe lang producten in "New and Rising" blijven en of er ook producten zonder band in staan.
+
+## Ronde 33 (run 23 nov ±05:15 UTC, klok van de container): de etalagewacht met de hand, wat er nodig is om in "New and Rising" te staan, het blok "On Sale", en wat de Cyber Sale van Superhive zelf doet
+
+Werkwijze: voorpagina, categoriepagina Addons en alle producten in de blokken met curl gelezen (band, prijs, `productData` en `productId` uit de broncode). Twee stukken van Superhive zelf over hun sales gelezen. web.archive.org verbreekt nog steeds elke verbinding (GEZIEN, `Connection reset` bij de TLS-handdruk), dus oude voorpagina's kon ik niet vergelijken.
+
+### 151. "New and Rising" om ±05:15: dezelfde negen als om ±04:00, en geen enkel product zonder band
+| Plek | Product | id | Band | Prijs nu | Let op |
+|---|---|---|---|---|---|
+| 1 | Eden (characters studio) | 268996 | 300+ | $7,50 (was $30) | in de aanbieding |
+| 2 | Materialify Pro | 269780 | 100+ | vanaf $1 | **jonger dan Pro**, zie 152 |
+| 3 | Image to 3D (Milad_Kambari) | 268012 | 1500+ | $18 | oudste in het blok |
+| 4 | Carnage Grains | 269441 | 50+ | $49,99 | |
+| 5 | NexFoliage | 269093 | 90+ | $17 | |
+| 6 | Curve Sculpt 3D (Mark Kingsnorth) | 268865 | **30+** | $25 | laagste band in het blok |
+| 7 | OpenSet Connect | 269235 | 100+ | $9 (was $14) | nu in de aanbieding |
+| 8 | TopoFit | 269026 | 40+ | $19,20 | |
+| 9 | AutoCreatures (DanilGOE) | 269172 | 60+ | $14,99 lanceerprijs (was $59,96) | beoordeling 2 uit 3 reviews |
+| - | Click Joints Pro | 269495 | geen | $12 | 3 varianten, $12 tot $45 |
+
+(GEZIEN, 23 nov ±05:15 UTC.) Op /categories/addons staat hetzelfde blok zonder Eden (GEZIEN).
+- **Antwoord op de vraag van vorige run:** er staat geen product zonder band in; de ondergrens is nu 30+ (GEZIEN). Een slechte beoordeling (AutoCreatures, 2 sterren) houdt een product er niet uit (GEZIEN). Het lijkt dus vooral om aantal verkopen te gaan (GOK).
+- **Hoe lang een product erin blijft:** de id's lopen van 268012 tot 269780, met ±1.000 id's per week (GOK uit 147) is dat een venster van ±4 weken sinds lancering (GOK). Pro (269495) zit midden in dat venster, dus Pro kan er tot ongeveer half december nog in komen (GOK). De Cyber Sale (vr 27 nov t/m wo 2 dec) valt daar precies in.
+- In ±75 minuten veranderde alleen de volgorde (Curve Sculpt en OpenSet ruilden), het blok is dus traag (GEZIEN, twee metingen; meer metingen nodig).
+
+### 152. Materialify Pro: jonger dan Pro, al 100+, met een instapvariant van $1
+- Vier varianten op één productpagina (GEZIEN): "Demo Version" (100 PBR + 50 procedurele materialen) **$1, standaard aangevinkt**; 500+ procedurele materialen $3; 5000+ PBR-browser $5; alles $7. In de tekst: "Discounted price from 70 $ to 7 $" (GEZIEN). In `productData`: min_price 100, max_price 700 (centen, GEZIEN).
+- id 269780, dus enkele dagen ná Pro gelanceerd (GOK uit de id-klok), en nu al 100+ verkopen en plek 2 in "New and Rising" (GEZIEN). Een verkoop van $1 telt voor de band net zo hard als een verkoop van $45.
+- Wat het oplevert in geld: onbekend; als de meeste kopers de $1 nemen is 100+ verkopen ±$100 bruto (GOK). Het levert wel de etalage op, en daarmee kopers van de duurdere varianten.
+- Voor Pro (GOK, beslissing voor de hoofdchat): Pro heeft al 3 varianten (min $12, max $45, GEZIEN). Een goedkope instapvariant ("Pro Lite", één functie die de gratis Click Joints niet heeft, bv. $3 tot $5) is het snelste middel om in de eerste weken tientallen verkopen te halen. Risico: lagere opbrengst per koper en mensen die anders $12 hadden betaald. De gratis versie op extensions.blender.org blijft de echte demo, dus een "$1 demo" zoals hier heeft voor ons geen zin.
+
+### 153. Het blok "On Sale" op de voorpagina: zes plekken, alleen voor producten in de aanbieding
+- Nu (GEZIEN): Eden, Adaptive Auto Skinning, CatPin (400+, id 261693), OpenSet Connect, Blaze Autopose (500+, id 260693), SquishyFX (400+, id 261470). Alle zes hebben `on_sale: true` in de broncode (GEZIEN).
+- Dit blok staat naast "New and Rising"; in de Cyber Sale staat Pro met 35% korting op `on_sale` en dingt dan mee om twee etalages tegelijk. Hoe Superhive de zes kiest staat nergens (GOK: verkoop tijdens de aanbieding). In de sale doen duizenden producten mee, dus de kans is klein zonder eigen verkeer (GOK).
+- Er draait nu al een kleine Cyber Sale op de voorpagina: "Cyber Sale: 50% off Signage until 26 November" (GEZIEN).
+
+### 154. Wat de Cyber Sale van Superhive zelf doet (hun eigen cijfers)
+- Cyber Sale 2024: vijf dagen, meer dan **$700.000** omzet over de winkel, terwijl een gewone maand in 2024 gemiddeld **$881.000** was: ±80% van een maand in vijf dagen. 33.691 verkochte producten (zonder gratis), 4.952 verschillende producten met minstens één verkoop, gemiddeld $48,33 per bestelling (DERDEN, [Superhive, 2024 Cyber Sale Recap](https://superhivemarket.com/posts/blender-market-2024-cyber-sale-recap)).
+- Het sterkste product van die sale was Lens Sim, "published just prior to Cyber", met bètatesters uit het vak en "genuine Affiliate marketing" (DERDEN, zelfde link). Dat is precies onze situatie: net gelanceerd vlak voor de sale.
+- De Cyber Sale 2023 verkocht per dag **8 keer** zoveel als het gemiddelde van de 60 dagen ervoor, het hoogste ooit; meer dan 75% van alle aankopen per jaar is tegen volle prijs; en in de week vóór de Cyber Sale kopen mensen méér, niet minder (DERDEN, [Superhive, "Do People Only Buy During Sales?"](https://superhivemarket.com/posts/do-people-only-buy-during-sales-here-s-what-the-data-says)).
+- Sommetje voor Pro (GOK, geen belofte): als Pro buiten de sale ±1 verkoop per twee dagen haalt, is 8x in vijf dagen ±20 verkopen tegen $7,80. Dat is net onder de 30+ van Curve Sculpt; met eigen verkeer of een instapvariant erbij komt "New and Rising" binnen bereik.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Etalagewacht (€ 0, alleen lezen):** de opdracht staat nu vast: elke 3 uur de voorpagina lezen, per blok (`src=new_and_rising`, `popular`, `on_sale`) de slugs, en per product id, band en `on_sale` noteren. Twee metingen deze run; een geplande taak hiervoor zet de hoofdchat, niet ik.
+- **Vergelijkingslijst voor de sale:** op vr 27 nov 's ochtends en wo 2 dec 's avonds de banden van de negen uit 151 plus Pro en Cleave lezen. Dan zien we hoeveel een nieuw product in de sale wint.
+- **Niet doen:** een "$1 demo" van Pro naast de gratis versie, en geen nep-aankopen om de band op te krikken (bedrog, en Superhive ziet het).
+
+## Patronen na ronde 33
+105. **De drempel van "New and Rising" is laag en het venster ±4 weken** (151): 30+ verkopen in de eerste weken is genoeg, slechte reviews tellen niet mee (GEZIEN voor de band, GOK voor de regel).
+106. **Goedkope instap telt mee** (152): Materialify Pro haalt met een variant van $1 100+ in een paar dagen en staat op plek 2.
+107. **Net lanceren vlak voor de Cyber Sale is het beste moment van het jaar** (154): ±80% van een maandomzet in vijf dagen, 8x per dag in 2023, en het topproduct van 2024 was er ook een van net voor de sale.
+
+## Stand na run 23 nov ±05:25 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **Om in "New and Rising" te komen is ±30 verkopen in de eerste ±4 weken genoeg** (laagste nu: Curve Sculpt 30+, GEZIEN; venster GOK uit de id's). Pro zit nog in dat venster tot ongeveer half december (GOK).
+2. **Materialify Pro, jonger dan Pro, staat op plek 2 met 100+ dankzij een instapvariant van $1** (GEZIEN). Een verkoop van $1 telt even zwaar voor de band.
+3. **De Cyber Sale van Superhive is ±80% van een maandomzet in vijf dagen** ($700k+ tegen $881k per maand in 2024) en in 2023 8x per dag (DERDEN, links in 154). Het topproduct van 2024 was net voor de sale gelanceerd.
+4. **In de sale dingt Pro ook mee om het blok "On Sale"** (6 plekken, nu CatPin, Blaze Autopose, SquishyFX en drie andere, GEZIEN).
+5. **Geen product zonder band in "New and Rising", en een review van 2 sterren houdt je er niet uit** (GEZIEN). Het gaat om aantal verkopen.
+
+Voorstel: (a) de hoofdchat stuurt in de Cyber Sale (vr 27 nov t/m wo 2 dec) alle eigen kanalen naar de Superhive-pagina van Pro (blijft staan uit ronde 32). (b) Nieuw: de hoofdchat overweegt vóór vrijdag een goedkope vierde variant van Pro op Superhive (één extra functie, $3 tot $5) om in de sale de 30 verkopen te halen; Thijs moet die in het dashboard zetten, dus alleen als het op de lijst past. (c) Een geplande etalagewacht elke 3 uur (curl, € 0). Volgende run: de banden van de negen plus Pro en Cleave opnieuw lezen voor een nulmeting vóór de sale, en kijken of Superhive al een Cyber Sale-pagina voor 2026 heeft (deelname, data, eigen blok).
