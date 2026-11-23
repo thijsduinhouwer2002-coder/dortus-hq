@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: ma 23 nov 2026, 14:50 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro 1.2.1 uitgegeven: uitgave-run 45186779633 groen (release click-joints-pro-v1.2.1, zip als artefact tot do 26 nov 13:44 UTC); lijst 3 (0) en (d) zeggen nu 1.2.1. Shorts knie hook A (25 nov) en B (27 nov) groen door Daan. Gratis 0.1.2 zip klaar (Bram), upload alleen Thijs. JetBrains-melding verdwijnt met 2026.1.2 (Chris). Verkopen Pro: 1 (GEZIEN 23 nov 11:05).
+**Stand: ma 23 nov 2026, 15:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro 1.2.1 uitgegeven (run 45186779633 groen, zip als artefact tot do 26 nov 13:44 UTC); Thijs zet hem op Gumroad en Superhive (lijst 3). Voor 1.2.2 bij Bram: fix 8 tegen 9 gewrichten (Olaf, main) en terugval Exact (tak). Shorts knie hook A (25 nov) en B (27 nov) groen; fit-hooks opnieuw gemonteerd zonder figuur. Flexi Joints ontwerp v0.1 werkt in Blender. Verkopen Pro: 1 (GEZIEN 23 nov 11:05).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
