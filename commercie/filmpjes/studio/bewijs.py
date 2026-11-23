@@ -78,12 +78,14 @@ def naar_tabblad(doel="Click Joints"):
 
 
 def wiel(keer, knop="5"):
-    """Zijbalk scrollen met het muiswiel (zoals een gebruiker): knop 5 omlaag, 4 omhoog."""
+    """Zijbalk scrollen met het muiswiel (zoals een gebruiker): knop 5 omlaag, 4 omhoog. Een generator: tussen de
+    klikken tekent Blender opnieuw, anders blijft het scrollen hangen op de oude lengte van het paneel."""
     venster, gebied, regio = zijbalk()
     xdo("mousemove", str(venster.x + regio.x + regio.width // 2), str(venster.y + venster.height // 2))
     for _ in range(keer):
         xdo("click", knop)
-        time.sleep(0.04)
+        herteken()
+        yield 0.03
     xdo("mousemove", "300", "900")
 
 
@@ -163,7 +165,7 @@ def verloop():
     yield 0.5
     S.kijk_naar((0, 0, 108), 400, draai=-28, kantel=84)
     yield 1.0
-    wiel(40)   # zijbalk helemaal omlaag: daar staat Figure joints met de knop en later de lijst
+    yield from wiel(60)   # zijbalk helemaal omlaag: daar staat Figure joints met de knop en later de lijst
     yield 1.0
     # scherm 1: figuur gekozen, knop Figure from rig in het paneel
     if ob is not None:
@@ -193,7 +195,7 @@ def verloop():
     groot.select_set(True)
     herteken()
     yield 0.8
-    wiel(120)
+    yield from wiel(120)
     yield 1.0
     schiet("scherm-2-lijst.png")
     log("STUDIO OK scherm2")
@@ -209,9 +211,9 @@ def verloop():
         except Exception:  # noqa: BLE001
             pass
         yield 0.8
-        wiel(60, "4")   # eerst helemaal omhoog, dan omlaag tot het blok Hinge met de Bend-schuif
+        yield from wiel(60, "4")   # eerst helemaal omhoog, dan omlaag tot het blok Hinge met de Bend-schuif
         yield 0.5
-        wiel(int(os.environ.get("CJ_WIEL", "14")))
+        yield from wiel(int(os.environ.get("CJ_WIEL", "14")))
         yield 0.8
         k = a.get("cj_snijpunt") if a is not None else None
         S.kijk_naar(k if k else (0, 0, 60), 280, draai=38, kantel=80)
