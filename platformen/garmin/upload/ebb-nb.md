@@ -14,7 +14,7 @@ Ebb Pusteøvelser & Holde pusten
 Breathwork-runder og rolig 4-7-8-pust på Garmin-klokken din. Følg hver fase med vibrasjon og lukkede øyne, mens et lite hav fylles med dyr når du fortsetter å komme tilbake. Pusteøvelser og trening i å holde pusten med runder med kraftig pust, tegnet som vann: den runde urskiven blir et koøye mot et lite hav. Vannet stiger når du puster inn og synker når du puster ut, og når du holder pusten, er du under vann. Hold bare så lenge det føles lett. Kun til trening på land: sitt eller ligg, aldri i eller nær vann, aldri mens du kjører.
 ```
 
-## Lange beschrijving (3819 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
+## Lange beschrijving (3852 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
 
 Heeft het formulier GEEN apart veld voor trefwoorden, plak dan dit hele blok. Is er WEL een veld voor trefwoorden, laat dan de laatste regel (Tags) hier weg.
 
@@ -35,7 +35,7 @@ CALM 4-7-8 OG MY PATTERN
 • Pust inn i 4, hold i 7, ut i 8, mens havet stiger og synker. My pattern (ditt eget mønster): velg selv sekunder for inn, hold, ut og hold i innstillingene.
 
 SE TRENINGEN DIN
-• Etter Rounds: holdetiden din for hver runde og uken din. Etter Calm: hvor lenge du pustet, og pustene dine. I menyen: dagens hold som søyler, og 8 uker med økter per uke og gjennomsnittlig hold.
+• Etter Rounds: holdetiden din for hver runde og uken din. Etter Calm: hvor lenge du pustet, og pustene dine. I menyen: Today med dagens hold som søyler, og 8 weeks med økter per uke og gjennomsnittlig hold.
 
 PUST MED LUKKEDE ØYNE
 • Hver fase har sin egen vibrasjon; de tre siste pustene før holdet kjennes annerledes. Hvis du vil, en myk summing hvert 30. sekund mens du holder. Vibrasjon kan slås av. Én summing er alltid på: hvert 30. sekund etter 3:00, for din sikkerhet.
@@ -53,7 +53,7 @@ Pust per runde, tempo, runder, restitusjonshold, ukemål, vibrasjon og My patter
 • Ebb samler ikke inn noe. Økter, dyr og innstillinger blir på klokken. Bare en lagret aktivitet går til Garmin Connect, under Garmins personvernerklæring. Ingen analyse, ingen reklame.
 
 STØTTE OG REFUSJON
-Send e-post til thijs@dortus.com med klokkemodellen din. Vi prøver å svare innen 5 arbeidsdager. Refusjon følger reglene i Garmins Connect IQ Store: 48 timers returrett etter kjøpet.
+Send e-post til thijs@dortus.com med klokkemodellen din. Vi prøver å svare innen 5 arbeidsdager. Refusjon følger reglene i Garmins Connect IQ Store: 48 timers returrett etter kjøpet. Appen er på engelsk.
 
 SIKKERHET
 Sitt eller ligg. Hold aldri pusten i eller nær vann, i badekaret eller mens du kjører. Svimmel eller prikking? Stopp og pust normalt. Ikke ved graviditet, under 18 år eller ved epilepsi, hjerte- eller blodtrykksproblemer. Ebb har ingen CO2- eller O2-tabeller og er ikke medisinsk utstyr.

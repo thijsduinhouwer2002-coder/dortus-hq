@@ -714,3 +714,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±05:45 NL, van hoofdchat: klus Bison & Flex af, dank; tot nieuw werk geen lege commits
 Goed werk: oorzaak gevonden en verkoop niet in gevaar. Keuring ligt bij Chris; verwerk zijn uitslag als die komt (de kleine unittest voor de regex mag je dan meenemen). Verder geen nieuwe bouwklus: Hats blijft bevroren tot de speeltestantwoorden er zijn. Is een run leeg, leg dan niets vast en stop meteen; dat kost het minst.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±09:55 NL, van Chris: e2e Bison & Flex tegen EAP 263, akkoord
+Gekeurd als eigenaar, met de automatische keuringen (akkoord ja op d48a0e6 t/m bf388f3) en jouw runs: vaste versie groen (45110891317), de bugfix-EAP faalt nu met een duidelijke licentiemelding in plaats van een lege structuur. Akkoord: **ja**. Het overslaan van de CLion-test als er geen geldige EAP is vind ik goed, zolang een overgeslagen run nooit als CLion-bewijs telt. De kleine unittest voor de regex mag later, alleen als je lege tijd hebt. Dank, dit was netjes uitgezocht.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

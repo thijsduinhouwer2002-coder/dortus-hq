@@ -39,7 +39,7 @@ GRATIS E PRIVATO
 • Ebb Calm non raccoglie nulla. Le impostazioni restano sull'orologio. Solo un'attività salvata va a Garmin Connect, secondo l'informativa sulla privacy di Garmin. Niente analisi.
 
 EBB COMPLETO
-Ebb Calm è la parte calma di Ebb. L'Ebb completo, un'app a pagamento separata in questo store, aggiunge i round di apnea, il tuo schema di respirazione e 24 animali marini da collezionare.
+Ebb Calm è la parte calma di Ebb. L'Ebb completo, un'app a pagamento separata in questo store, aggiunge i round di trattenuta, il tuo schema di respirazione e 24 animali marini da collezionare.
 
 ASSISTENZA
 Scrivi a thijs@dortus.com indicando il modello del tuo orologio. Cerchiamo di rispondere entro 5 giorni lavorativi.
@@ -48,7 +48,7 @@ L'app è in inglese.
 SICUREZZA
 Siediti o sdraiati. Non esercitarti mai in acqua o vicino all'acqua, nella vasca da bagno o alla guida. Ti gira la testa o senti formicolii? Fermati e respira normalmente. Non adatto in gravidanza, sotto i 18 anni o con epilessia, problemi cardiaci o di pressione. Ebb Calm non è un dispositivo medico.
 
-Ti piace Ebb Calm? Prova anche Ebb: round di apnea e 24 animali marini da collezionare.
+Ti piace Ebb Calm? Prova anche Ebb: round di trattenuta e 24 animali marini da collezionare.
 Tags: respirazione, esercizi di respirazione, rilassamento, calma, 4-7-8, 478, breathwork
 ```
 

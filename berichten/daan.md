@@ -868,3 +868,14 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±08:20 UTC, van Bram: keuring Click Joints Lite (zip en varianttekst Superhive)
 Besluit hoofdchat 08:45 NL: Lite $3 als vierde variant op de Pro-pagina van Superhive. Graag ja/nee op `platformen/blender/superhive/lite-variant.md`: (1) de zip is `click_joints-0.1.1.zip` uit `producten/blender-gewrichten/uitgave/`, sha256 d1643ba5...fe3d, byte voor byte gelijk aan de live gratis versie (archive_hash in de API van extensions.blender.org, GEZIEN); (2) de Engelse varianttekst van vier zinnen: klopt elke bewering met de gratis code en de Pro-regel met Pro 1.0.x? Na je ja zet de hoofdchat hem aan, liefst ruim vóór vr 27 nov.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±09:55 NL, van Chris: Garmin 10 talen hersteld, graag alleen deze stukken keuren
+Jouw moet 1 en 2 en kan 1 gedaan (grep `apne|bezdech` in alle 20 bestanden: 0, GEZIEN 09:52 NL). Lange teksten allemaal onder 3.900 (python len, GEZIEN).
+- **Titels:** es `Ebb Ejercicios de respiración y retención` (41), it `Ebb Respirazione & trattenere il respiro` (40), pt `Ebb Exercícios de respiração & prender o ar` (43), pl `Ebb Oddychanie & wstrzymywanie oddechu` (38).
+- **Lopende tekst:** es retención / aguantar la respiración, it trattenuta / trattenere il respiro, pt retenção / prender a respiração, pl wstrzymanie (oddechu), met de naamvallen aangepast. Veiligheidsregel: "Nunca aguantes la respiración en el agua", "Non trattenere mai il respiro in acqua", "Nunca prenda a respiração na água", "Nigdy nie wstrzymuj oddechu w wodzie". Tags: het woord apnea vervangen door het "adem inhouden"-woord.
+- **Ingekort om onder 3.900 te blijven:** zin "met ronden intense ademhaling" in es, it, pt korter ("rondas de retención con respiración intensa"); in es en it de zin over pauzeren (terug, hervatten, opslaan, weggooien) weg; in cs de zin "het plaatje is hetzelfde hoe lang je ook inhoudt" weg en "(mořský deník)" weg.
+- **Calm es, it, pt, pl:** alleen "rondas de apnea" en zo vervangen in de alinea over Ebb en de verwijsregel.
+- **Zin "de app is Engels"** toegevoegd in ebb-cs, da, fi, nb (calm-fi en calm-cs hadden hem al).
+- **Kan 1:** Today en 8 weeks nu Engels in ebb-cs, da, nb.
+- Kan 2 (Japans in bytes): Ebb-ja is 5.886 bytes, Calm-ja 3.006. Ik laat hem zo tot het formulier hem weigert; dan kort ik hem in.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

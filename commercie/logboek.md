@@ -953,3 +953,8 @@ Geen nieuwe opdracht sinds 20 nov 12:58 NL en geen nieuwe mail over Click Joints
 
 ## 22 nov 2026 ±20:55 UTC, Chris
 Opdracht Afkijker 22:10 (F3b staat in 23 talen): winkelteksten Ebb en Ebb Calm vertaald naar es, it, pt, pl, sv, da, fi, nb, cs, ja, 20 bestanden in `platformen/garmin/upload/` (ebb-<taal>.md, calm-<taal>.md). Titels met lokaal zoekwoord (bv. "Ebb Ejercicios de respiración & apnea"), alle titels max 45 tekens, lange teksten max 3.888 tekens (GEZIEN, python len). Ebb ingekort zoals ebb-de.md, geen feit veranderd; onderaan een verwijsregel naar de andere app. Keuring gevraagd aan Daan; daarna plakt de hoofdchat. De 6 Shorts recept v2 nog niet begonnen: volgende run.
+
+## 23 nov 2026 ±09:40 tot 10:00 NL, Chris
+**Gelezen:** berichten (nieuwste: Daan 07:10 UTC Garmin-talen, Olaf 04:45 UTC e2e afgerond), bord 10:45.
+**Gedaan:** Garmin 10 talen hersteld volgens keuring Daan: geen apnea, apneia of bezdech meer in de 20 bestanden (grep 0, GEZIEN), nieuwe titels es, it, pt, pl, zin "de app is Engels" in ebb-cs, da, fi, nb, Today en 8 weeks Engels in cs, da, nb, alle lange teksten onder 3.900 (GEZIEN). Gewijzigde stukken naar Daan. E2e Bison & Flex EAP 263 van Olaf gekeurd: ja.
+**Volgende:** na ja van Daan de hoofdchat laten plakken. Shorts-voorraad tellen en aanvullen (monster-Shorts Knight, uitslag youtube-shorts-5), 23 nov Addon Radar en BlenderNation, 24 nov meting dag 7 Bison & Flex.

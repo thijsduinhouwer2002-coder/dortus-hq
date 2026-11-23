@@ -14,7 +14,7 @@ Ebb Hengitysharjoitus & hengityksen pidätys
 Breathwork-kierroksia ja rauhallista 4-7-8-hengitystä Garmin-kellossasi. Seuraa vaiheita värinästä silmät kiinni, ja pieni meri täyttyy eläimistä, kun palaat harjoittelemaan. Hengitysharjoituksia ja hengityksen pidätyksen harjoittelua voimakkaan hengityksen kierroksilla, piirrettynä vedeksi: pyöreä kellotaulu on kuin laivan ikkuna pieneen mereen. Vesi nousee, kun hengität sisään, ja laskee, kun hengität ulos, ja kun pidätät hengitystä, olet veden alla. Pidätä vain niin kauan kuin se tuntuu helpolta. Harjoittele vain maalla: istu tai makaa, ei koskaan vedessä tai veden lähellä, ei koskaan ajaessa.
 ```
 
-## Lange beschrijving (3865 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
+## Lange beschrijving (3897 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
 
 Heeft het formulier GEEN apart veld voor trefwoorden, plak dan dit hele blok. Is er WEL een veld voor trefwoorden, laat dan de laatste regel (Tags) hier weg.
 
@@ -50,7 +50,7 @@ REHELLINEN JA YKSITYINEN
 • Ebb ei kerää mitään. Harjoitukset, eläimet ja asetukset pysyvät kellossa. Vain tallennettu aktiviteetti siirtyy Garmin Connectiin Garminin tietosuojakäytännön mukaisesti. Ei analytiikkaa, ei mainoksia.
 
 TUKI JA HYVITYKSET
-Sähköposti thijs@dortus.com, kerro kellosi malli. Pyrimme vastaamaan 5 arkipäivän kuluessa. Hyvitykset Garminin Connect IQ Storen käytännön mukaan: 48 tunnin palautusaika ostosta.
+Sähköposti thijs@dortus.com, kerro kellosi malli. Pyrimme vastaamaan 5 arkipäivän kuluessa. Hyvitykset Garminin Connect IQ Storen käytännön mukaan: 48 tunnin palautusaika ostosta. Sovellus on englanninkielinen.
 
 TURVALLISUUS
 Istu tai makaa. Älä koskaan harjoittele hengityksen pidätystä vedessä tai veden lähellä, kylvyssä tai ajaessa. Huimaako tai pisteleekö? Lopeta ja hengitä normaalisti. Ei raskaana oleville, alle 18-vuotiaille eikä epilepsiaa, sydän- tai verenpainevaivoja sairastaville. Ebbissä ei ole CO2- tai O2-taulukoita, eikä se ole lääkinnällinen laite.

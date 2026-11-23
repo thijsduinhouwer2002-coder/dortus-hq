@@ -14,7 +14,7 @@ Ebb Åndedrætsøvelser & Hold vejret
 Breathwork-runder og rolig 4-7-8-vejrtrækning på dit Garmin-ur. Følg hver fase via vibration med lukkede øjne, mens et lille hav fyldes med dyr, når du bliver ved med at komme tilbage. Åndedrætsøvelser og træning i at holde vejret med runder af kraftig vejrtrækning, tegnet som vand: din runde urskive bliver et koøje ud mod et lille hav. Vandet stiger, når du ånder ind, og falder, når du ånder ud, og når du holder vejret, er du under vand. Hold kun vejret, så længe det føles let. Kun til træning på land: sid eller lig ned, aldrig i eller nær vand, aldrig mens du kører.
 ```
 
-## Lange beschrijving (3853 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
+## Lange beschrijving (3886 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
 
 Heeft het formulier GEEN apart veld voor trefwoorden, plak dan dit hele blok. Is er WEL een veld voor trefwoorden, laat dan de laatste regel (Tags) hier weg.
 
@@ -35,7 +35,7 @@ CALM 4-7-8 OG MY PATTERN
 • Ånd ind i 4, hold i 7, ud i 8, mens havet stiger og falder. My pattern (dit eget mønster): vælg selv sekunder for ind, hold, ud og hold i indstillingerne.
 
 SE DIN TRÆNING
-• Efter Rounds: din holdetid for hver runde og din uge. Efter Calm: hvor længe du åndede, og dine vejrtrækninger. I menuen: dagens hold som søjler, og 8 uger med sessioner pr. uge og dit gennemsnitlige hold.
+• Efter Rounds: din holdetid for hver runde og din uge. Efter Calm: hvor længe du åndede, og dine vejrtrækninger. I menuen: Today med dagens hold som søjler, og 8 weeks med sessioner pr. uge og dit gennemsnitlige hold.
 
 ÅND MED LUKKEDE ØJNE
 • Hver fase har sin egen vibration; de sidste tre vejrtrækninger før holdet føles anderledes. Valgfrit: en blid summen hvert 30. sekund under holdet. Vibration kan slås fra. Én summen bliver altid på: hvert 30. sekund efter 3:00, for din sikkerheds skyld.
@@ -53,7 +53,7 @@ Vejrtrækninger pr. runde, tempo, runder, genopretningshold, ugemål, vibration 
 • Ebb indsamler intet. Sessioner, dyr og indstillinger bliver på dit ur. Kun en gemt aktivitet går til Garmin Connect, under Garmins privatlivspolitik. Ingen analyse, ingen reklamer.
 
 SUPPORT OG REFUSION
-Skriv til thijs@dortus.com med din urmodel. Vi stræber efter at svare inden for 5 arbejdsdage. Refusion følger Garmins Connect IQ Store-regler: 48 timers returret efter køb.
+Skriv til thijs@dortus.com med din urmodel. Vi stræber efter at svare inden for 5 arbejdsdage. Refusion følger Garmins Connect IQ Store-regler: 48 timers returret efter køb. Appen er på engelsk.
 
 SIKKERHED
 Sid eller lig ned. Hold aldrig vejret i eller nær vand, i badekarret eller mens du kører. Svimmel eller prikken? Stop og ånd normalt. Ikke ved graviditet, under 18 år eller ved epilepsi, hjerte- eller blodtryksproblemer. Ebb har ingen CO2- eller O2-tabeller og er ikke medicinsk udstyr.
