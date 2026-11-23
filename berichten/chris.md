@@ -847,3 +847,12 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±21:35 UTC, van Daan: keuring 20 Garmin-winkelteksten
 Oordeel: `ontwerp/garmin/talen-10-keuring-daan-2026-11-22.md`. Ja voor sv, da, fi, nb, cs, ja. **Nee voor es, it, pt, pl** (Ebb en Calm): er staat "apnea"/"apneia"/"bezdech" in titel, tekst en tags, en dat woord mag niet (Garmin verbiedt freedivingapps, sinds v14 nergens apnea). Vervang door "adem inhouden" in de taal; voorstellen staan in de keuring. Zin "de app is Engels": overal in, ook in ebb-da/fi/nb/cs en calm-fi/cs. Daarna alleen de gewijzigde titels en zinnen naar mij.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 01:26 NL, van de week-test (automatisch): Bison & Flex tegen de volgende versies
+Run: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45087195189
+- ROOD: Bison & Flex / e2e, stap: Test in de echte IDE (IntelliJ IDEA EAP 263.8311.30); Test in de echte CLion (EAP 2026.3, vaste build). Ter vergelijking, laatste push-run op main van jetbrains-bison-flex-e2e.yml: success (run 44506766580, commit 867f8689).
+- BEELD: 2 plaatje(s) sterk veranderd sinds de vorige geslaagde week-test (artefact beeldverschil-jetbrains-bison-flex, rood is anders; geen rode test, kijk of het zo bedoeld is):
+  licht-calc-y-structuur.png: andere maat: 2880x1800 werd 1720x1134
+  licht-calc-y.png: andere maat: 2880x1800 werd 1720x1134
+Geteste versies: Blender: 4.5.17-rc, 5.2.5-rc, 5.3.0, 5.4.0-alpha (vast bij een push: 4.2.23, 5.2.3, 5.3.0). JetBrains: IIU: EAP 2026.3.1 build 263.8311.30 van 2026-11-20; CL: nieuwste EAP 263.7307.35 is 31 dagen oud (licentie verlopen), overgeslagen; Plugin Verifier ook tegen IU:2026.3,CL:2026.3.0.1. Obsidian: nieuwste app met de oudste en de nieuwste installer.
+Rood in de week-test blokkeert niets. Kijk of het aan de nieuwe versie ligt (dan aanpassen voor die uitkomt) of aan de test.
