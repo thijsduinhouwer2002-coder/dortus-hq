@@ -1,0 +1,41 @@
+Error: The cut gave no watertight parts (bad edges: part A 1123, part B 0); the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur rigify: 7 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Left shoulder', 'Right shoulder']; overgeslagen: Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[meet] pogingen 26, sneden 12, slechte sneden 4
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.277337539818236, "h_voxel": 0.1387, "h_vlakken": 214150, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": true, "fout": 0, "punten": 54731, "zelf": 2}, "B": {"gesloten": false, "fout": 39, "punten": 3642, "zelf": 0, "herstel": null}, "goed": false}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.27724496480154964, "h_voxel": 0.1386, "h_vlakken": 214274, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": true, "fout": 0, "punten": 57983, "zelf": 0}, "B": {"gesloten": false, "fout": 38, "punten": 3633, "zelf": 0, "herstel": null}, "goed": false}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.27762287890342363, "h_voxel": 0.1388, "h_vlakken": 213724, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": false, "fout": 1123, "punten": 14448, "zelf": 8, "herstel": {"vier": 151, "fout_na": 1576}}, "B": {"gesloten": true, "fout": 0, "punten": 3590, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 3, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.2773377585180292, "h_voxel": 0.1387, "h_vlakken": 192972, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": false, "fout": 118, "punten": 54437, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 3535, "zelf": 0}, "goed": false}
+MEET rigify gewrichten=7 overgeslagen=2 slechte_sneden=4
+Warning: Too close to another joint (keep 24 mm apart).
+Warning: Too close to another joint (keep 72 mm apart).
+Warning: Too close to another joint (keep 72 mm apart).
+Warning: Too close to another joint (keep 65 mm apart).
+Warning: Too close to another joint (keep 66 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Info: Joint placed. Good fit. 7.069 s.
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Info: Joint placed. Good fit. 6.836 s.
+Warning: 7 joints. Skipped: Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+PROBE {'FINISHED'} ['Left elbow · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–135° · preset', 'Left knee · Hinge · 0–135° · preset', 'Right knee · Hinge · 0–135° · preset', 'Neck · Ball · ±30° · preset', 'Left hip · Ball · ±14° · preset', 'Right hip · Ball · ±30° · preset']
+PROBE overgeslagen Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+PROBE delen 8 open []
+[meet] Blender 4.2.23 LTS figuur rigify: 7 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Left shoulder', 'Right shoulder']; overgeslagen: Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[meet] pogingen 26, sneden 12, slechte sneden 4
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.277337539818236, "h_voxel": 0.1387, "h_vlakken": 214150, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": true, "fout": 0, "punten": 54731, "zelf": 2}, "B": {"gesloten": false, "fo
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.27724496480154964, "h_voxel": 0.1386, "h_vlakken": 214274, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": true, "fout": 0, "punten": 57983, "zelf": 0}, "B": {"gesloten": false, "
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.27762287890342363, "h_voxel": 0.1388, "h_vlakken": 213724, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": false, "fout": 1123, "punten": 14448, "zelf": 8, "herstel": {"vier": 151
+[meet]   SLECHT {"poging": 3, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.2773377585180292, "h_voxel": 0.1387, "h_vlakken": 192972, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": false, "fout": 118, "punten": 54437, "zelf": 0, "herstel": null}, "B": {"
+MEET rigify gewrichten=7 overgeslagen=2 slechte_sneden=4
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+model name	: AMD EPYC 9V45 96-Core Processor
