@@ -1,0 +1,164 @@
+name: Studio filmpjes (bewijs studio-2, robot)
+
+# 23 nov 2026, opdracht hoofdchat ±14:35 NL: Thijs vond het mensfiguur van studio-1 "super nep" en koos een robot of
+# actiefiguur, goed gedaan. Figuur: commercie/filmpjes/studio/figuur_robot.py (zelf gebouwd, LEESMIJ daar).
+# Job kandidaten: Figure from rig (Pro 1.2.0, Blender 5.3.0, zonder beeldscherm) op de robot en op de beste gevonden
+# figuren, telt gewrichten. Job studio: per figuur in de studio (xvfb): schermafbeeldingen met het paneel en renders
+# (robot: staand in pose, uit elkaar, liggend, in twee kleurstellingen; gevonden figuren: alleen staand).
+# Job release: alles in release studio-2. Niets wordt geplaatst.
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/studio2.yml", "commercie/filmpjes/studio/figuur_robot.py"]
+  workflow_dispatch:
+    inputs:
+      samples:
+        description: "Samples per render (standaard 64)"
+        default: "64"
+
+permissions:
+  contents: write
+
+env:
+  TAG: studio-2
+  PRO_COMMIT: f8dfbd30850afbee2da32219fe735c7b386827bd   # tag click-joints-pro-v1.2.0
+  QS: https://raw.githubusercontent.com/trebeljahr/quaternius-showcase/0128ca510d653bb04d6d1e4885bd8890b5050b4f/public/glb
+
+jobs:
+  kandidaten:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        kandidaat:
+          - { naam: robot, bron: "robot", hoogte: 220, armen: 0 }
+          - { naam: stan, bron: "qs:mech_pack/Stan.glb", hoogte: 240, armen: 40 }
+          - { naam: mike, bron: "qs:mech_pack/Mike.glb", hoogte: 240, armen: 40 }
+          - { naam: george, bron: "qs:mech_pack/George.glb", hoogte: 240, armen: 40 }
+          - { naam: cyberpunk, bron: "qs:cyberpunk_pack/Character.glb", hoogte: 240, armen: 40 }
+    steps:
+      - uses: actions/checkout@v4
+      - name: Blender 5.3.0 en de Pro-zip 1.2.0
+        run: |
+          B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          sudo apt-get install -y -q libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 >/dev/null || true
+          git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
+          mkdir -p /tmp/v12 && git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v12
+          (cd /tmp/v12/producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald)
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Proef ${{ matrix.kandidaat.naam }}
+        env:
+          BRON: ${{ matrix.kandidaat.bron }}
+          NAAM: ${{ matrix.kandidaat.naam }}
+          HOOGTE: ${{ matrix.kandidaat.hoogte }}
+          CJ_ARMEN: ${{ matrix.kandidaat.armen }}
+          CJ_NAAM: ${{ matrix.kandidaat.naam }}
+          BLENDER_USER_RESOURCES: /tmp/cj
+          BLENDER_USER_CONFIG: /tmp/cj/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+        run: |
+          mkdir -p /tmp/k /tmp/uit
+          case "$BRON" in
+            robot) m=robot ;;
+            qs:*) curl -fsSL --retry 3 -o "/tmp/k/$NAAM.glb" "$QS/${BRON#qs:}"; m="/tmp/k/$NAAM.glb" ;;
+          esac
+          timeout 2400 /tmp/blender/blender -b --factory-startup --python commercie/filmpjes/studio/proef_figuur.py -- /tmp/click_joints_betaald.zip "$m" "$HOOGTE" "" /tmp/uit 2>&1 | tee /tmp/uit/proef-$NAAM.log | grep -E "\[studio\]|PROEF|Traceback" | cut -c1-600
+          rm -f /tmp/uit/*.blend
+          ls /tmp/uit
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kandidaat-${{ matrix.kandidaat.naam }}
+          path: /tmp/uit/
+          retention-days: 7
+
+  studio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    strategy:
+      fail-fast: false
+      matrix:
+        f:
+          - { naam: robot-a, figuur: robot, stijl: a, hoogte: 220, armen: 0, alleen: "" }
+          - { naam: robot-b, figuur: robot, stijl: b, hoogte: 220, armen: 0, alleen: "" }
+          - { naam: stan, figuur: "qs:mech_pack/Stan.glb", stijl: a, hoogte: 240, armen: 40, alleen: "1" }
+          - { naam: mike, figuur: "qs:mech_pack/Mike.glb", stijl: a, hoogte: 240, armen: 40, alleen: "1" }
+          - { naam: george, figuur: "qs:mech_pack/George.glb", stijl: a, hoogte: 240, armen: 40, alleen: "1" }
+          - { naam: cyberpunk, figuur: "qs:cyberpunk_pack/Character.glb", stijl: a, hoogte: 240, armen: 40, alleen: "1" }
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 imagemagick xdotool
+      - name: Blender 5.3.0 en de Pro-zip 1.2.0
+        run: |
+          B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
+          mkdir -p /tmp/v12 && git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v12
+          (cd /tmp/v12/producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald)
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Studio (${{ matrix.f.naam }})
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          NAAM: ${{ matrix.f.naam }}
+          BRON: ${{ matrix.f.figuur }}
+          CJ_STIJL: ${{ matrix.f.stijl }}
+          CJ_HOOGTE: ${{ matrix.f.hoogte }}
+          CJ_ARMEN: ${{ matrix.f.armen }}
+          CJ_ALLEEN_STAAND: ${{ matrix.f.alleen }}
+          CJ_SAMPLES: ${{ inputs.samples || '64' }}
+          BLENDER_USER_RESOURCES: /tmp/cj
+          BLENDER_USER_CONFIG: /tmp/cj/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref()"
+          mkdir -p /tmp/uit /tmp/k
+          case "$BRON" in
+            robot) export CJ_FIGUUR=robot ;;
+            qs:*) curl -fsSL --retry 3 -o "/tmp/k/$NAAM.glb" "$QS/${BRON#qs:}"; export CJ_FIGUUR="/tmp/k/$NAAM.glb" ;;
+          esac
+          timeout 5400 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl -p 0 0 1920 1080 --python commercie/filmpjes/studio/bewijs.py -- \
+            /tmp/uit /tmp/click_joints_betaald.zip commercie/filmpjes/studio/modellen/makehuman-base.obj "$NAAM" 2>&1 | tee /tmp/uit/studio-$NAAM.log | grep -E "\[studio\]|Traceback|Error" | cut -c1-600 || true
+          if grep -q "STUDIO FOUT" /tmp/uit/studio-$NAAM.log; then echo "FOUT in de studio"; exit 1; fi
+          stappen="bouw scherm1 scherm2 render1 klaar"
+          [ -z "$CJ_ALLEEN_STAAND" ] && stappen="bouw scherm1 scherm2 scherm3 render1 render2 render3 klaar"
+          for d in $stappen; do grep -q "STUDIO OK $d" /tmp/uit/studio-$NAAM.log || { echo "FOUT: stap $d"; exit 1; }; done
+          for f in /tmp/uit/scherm-*.png; do [ -f "$f" ] && mv "$f" "/tmp/uit/${NAAM}-$(basename $f)"; done
+          ls -la /tmp/uit
+      - uses: actions/upload-artifact@v4
+        with:
+          name: studio-${{ matrix.f.naam }}
+          path: /tmp/uit/
+          retention-days: 7
+
+  release:
+    needs: [kandidaten, studio]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: /tmp/a
+      - name: In release studio-2
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/r && find /tmp/a -type f \( -name '*.png' -o -name '*.json' -o -name '*.log' \) -exec cp {} /tmp/r/ \;
+          ls -la /tmp/r
+          (cd /tmp/r && for j in *-[0-9]*.json; do [ -f "$j" ] && python3 -c "import json,sys; d=json.load(open('$j')); print(d['model'], d['hoogte_mm'], 'mm:', d['gewrichten'], 'gewrichten,', d['delen'], 'delen, stukken', d['stukken'], '| overgeslagen:', d['overgeslagen'])"; done) | tee /tmp/r/kandidaten.txt
+          echo "Studio 2: de zelfgebouwde robot-actiefiguur (commercie/filmpjes/studio/figuur_robot.py) in de studio, met Click Joints Pro 1.2.0 in Blender 5.3.0. robot-a en robot-b: staand in pose, uit elkaar (Exploded view), liggend, en 3 schermafbeeldingen met het paneel. stan, mike, george, cyberpunk: gevonden figuren (Quaternius, CC0) ter vergelijking, alleen staand. kandidaten.txt: Figure from rig per figuur. Werkmateriaal, niets geplaatst." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Studio 2 (robot-actiefiguur, filmpjes Click Joints Pro)" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/r/* --clobber -R "$GITHUB_REPOSITORY"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'

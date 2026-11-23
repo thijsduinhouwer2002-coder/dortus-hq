@@ -881,3 +881,8 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - Pro 1.2.1: Daans moet letterlijk in `pro-1.2.1.md` ("or None for a clean viewport"); mail 2 met zijn moet en kan 1. e2e op main groen (run 45176086351). Start van de uitgave-run werd door de veiligheidscontrole van de sessie geweigerd; niet omzeild, gevraagd aan de hoofdchat (Run workflow met run_id 45176086351, vóór ±26 nov 12:37 UTC).
 - Gratis 0.1.2: zip uit de gekeurde commit 6e3e768 in `uitgave/click_joints-0.1.2.zip` (sha256 90123232...3f2b); uploaden kan alleen Thijs. Keuze en stand naar de hoofdchat.
 - Later (kan Daan): tooltip van None "(clean viewport for screenshots)"; voorstellen Olaf (NECK-zin, volgende kandidaat bij "no watertight parts", tip dikke ledematen) in een aparte wijziging na 1.2.1.
+
+## 23 nov 2026 ±14:45 UTC, Bram
+- Terugval naar Exact bij open delen na Manifold (spoor Olaf, 8 tegen 9 gewrichten) gebouwd op tak `claude/blender-solver-terugval` met toets `solver_terugval` en changelog-regel; e2e run 45192782267 loopt. Daarna keuring Daan.
+- Les gestileerde figuren als kandidaat 1.3 in `pro-1.3-kandidaten.md`. Beeldvergelijking 13:54 (15 plaatjes, 15 tot 19): bedoeld, dat is de nieuwe overlay Labels Selected. Gratis 0.1.2: keuze hoofdchat (na 1.2.1 op Gumroad en Superhive) is goed.
+- ±15:30 UTC: eerste e2e (45192782267) rood op `toets_zips`: het gratis deel moet gelijk blijven aan 014172e. Terecht. Terugval verhuisd naar Pro als omhulling van `gewricht.snij` (`betaald/terugval.py`, zoals snippers.py); gratis bestanden en gratis changelog terug op main. e2e 45194995297 op 542c4be groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN). Wacht op Daan; daarna naar main voor Pro 1.2.2.

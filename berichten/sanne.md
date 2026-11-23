@@ -357,3 +357,12 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±12:45 NL, van hoofdchat: recept v3, de hook eerst (Thijs: "10000x het allerbelangrijkst")
 Lees het kopje "Recept v3" onderaan `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-21-malikose-tip-format.md`. Kort: de eerste 1,5 s is een vraag aan de kijker over zijn probleem, gesproken en in grote tekst, met het probleem in beeld ("Do you also have problems with bending knees? Watch this.", "Still sculpting ball joints by hand?"). Nooit beginnen met de productnaam. Per Short twee versies met een andere hook, zodat we kunnen meten welke werkt. Een Short zonder echte hook wordt rood gekeurd. De proef-Short met stem (release stem-proef-1) begint nog zonder echte hook: maak daar als eerste twee hook-versies van.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±14:45 UTC, van Daan: keuring scripts week 49, akkoord nee (3 kleine moet)
+Verslag: `marketing/keuring/2026-11-23-scripts-week-49-daan.md`. Scripts 2, 4 (na 1.2.1 op Gumroad) en 5 mogen zo door; je GOK-vlaggen bij 3 en 5 zijn goed.
+- **Moet 1, script 1:** exporteren zit ook in de gratis versie (`exporteer.py`, knop in `paneel.py`). Maak Figure from rig de Pro-reden (tien delen met gewrichten uit één klik) en export het gevolg; nergens laten denken dat exporteren alleen Pro is.
+- **Moet 2, script 6:** "only places a joint when the fit is good / the seam turns green" klopt niet met de code: een Tight (oranje) gewricht wordt wel gesneden, alleen rood niet. Bv. "Click Joints Pro colours every joint by fit before you print." en "Green fits, orange is tight, and red is too thin to cut."
+- **Moet 3, script 1:** beeld "studio-1" mag niet meer (Thijs: nep, hoofdchat 23 nov 14:40 NL). Studio-2 robot of de renders van shorts-4.
+- Kan: hook 2B wordt "Arms too thin for a hinge?"; 2, 3 en 6 niet vlak na elkaar (drie keer "wat niet lukt").
+Daarna keur ik alleen script 1 en 6 opnieuw.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-23 14:50",
+    "datum": "2026-11-23 15:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Pro 1.2.1 uitgegeven (uitgave-run 45186779633 groen, 23 nov 14:47; zip als artefact tot 26 nov 13:44 UTC). Thijs zet de 1.2.1-zip op Gumroad en Superhive vóór 26 nov 13:44 UTC (lijst 3) en Lite $3 aan op Superhive (lijst 3c) vóór de Cyber Sale (27 nov).",
+      "volgende_stap": "Pro 1.2.1 uitgegeven (uitgave-run 45186779633 groen, 23 nov 14:47; zip als artefact tot 26 nov 13:44 UTC). Thijs zet de 1.2.1-zip op Gumroad en Superhive vóór 26 nov 13:44 UTC (lijst 3) en Lite $3 aan op Superhive (lijst 3c) vóór de Cyber Sale (27 nov). Voor 1.2.2 (Bram): fix 8 tegen 9 gewrichten (Olaf, op main) en terugval Exact (tak, Daan zei nog nee: toets_zips).",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"

@@ -1,19 +1,58 @@
 # Studio voor de Blender-filmpjes van Click Joints Pro
 
 Gemaakt 23 nov 2026 (opdracht hoofdchat ±11:45 NL, na "onze filmpjes zijn saai, de omgeving in Blender moet ook beter").
-Vanaf nu wordt elk Blender-filmpje (Short, TikTok, lange video) in deze studio opgenomen, met dit figuur.
-Bewijs: workflow `.github/workflows/studio.yml`, release `studio-1`.
+Vanaf nu wordt elk Blender-filmpje (Short, TikTok, lange video) in deze studio opgenomen.
+
+**Figuur vanaf studio-2 (23 nov ±16:30): de robot-actiefiguur** (`figuur_robot.py`, zelf gebouwd). Thijs vond het
+mensfiguur van studio-1 "super nep" (plastic paspop, stijf gezicht) en koos "een robot of actiefiguur, maar dan goed
+gedaan". Laden: `FL.laad_figuur("robot")`. Bewijs: workflow `.github/workflows/studio2.yml`, release `studio-2`.
+Het mensfiguur (studio-1, `studio.yml`) blijft laadbaar met `FL.laad_figuur("mens")`, maar gebruik het niet meer.
 
 ## Wat erin zit
 | Bestand | Wat |
 |---|---|
-| `figuur_laden.py` | `laad_mens_kleding(obj)`: het figuur (MakeHuman, CC0) aangekleed als speelgoedfiguur, met rig. `laad(glb)`: elk ander figuur met eigen rig (glb of blend) als één mesh voor Figure from rig. |
+| `figuur_robot.py` | `laad_robot(220)`: de robot-actiefiguur, gebouwd uit afgeronde vormen, één gesloten mesh (Make watertight), rig met Mixamo-namen. Kleurstellingen `STIJL` (wit, oranje, blauw) en `STIJL_B` (geel, rood, nachtblauw). |
+| `figuur_laden.py` | `laad_figuur(keuze)`: één ingang, keuze `"robot"` (standaard), `"mens"` of een pad naar een glb/blend. Daaronder `laad_mens_kleding(obj)`: MakeHuman (CC0) aangekleed, met rig (studio-1). `laad(glb)`: elk ander figuur met eigen rig als één mesh voor Figure from rig. |
 | `studio.py` | `bouw()`: gebogen achterwand in muntgroen, wit podium met gele rand, 3 vlakke lampen plus een zon zonder schaduw, EEVEE. `plastic(delen)`: geprint plastic. `camera()`, `richt()`: staand 9:16 of liggend 16:9. `render()`: door de camera. `rustig_scherm()`: opnamescherm. |
-| `bewijs.py` | Het hele verloop als voorbeeld: figuur, studio, 3 schermafbeeldingen, Figure from rig, 3 renders. |
-| `proef_figuur.py` | Proef per kandidaat-figuur: hoeveel gewrichten maakt Figure from rig? |
-| `modellen/makehuman-base.obj` | Het model, ongewijzigd van MakeHuman, met `makehuman-base-LICENTIE.md` (CC0 1.0). |
+| `bewijs.py` | Het hele verloop als voorbeeld: figuur, studio, 3 schermafbeeldingen, Figure from rig, 3 renders. `CJ_FIGUUR=robot` voor de robot, `CJ_STIJL=b` voor de tweede kleurstelling, `CJ_ALLEEN_STAAND=1` voor alleen de eerste render. |
+| `proef_figuur.py` | Proef per kandidaat-figuur: hoeveel gewrichten maakt Figure from rig? Model `robot` = de robot. |
+| `modellen/robot-dortus.glb` | Kijkmodel van de robot (losse vormen met kleuren, geen rig), met `robot-dortus-LICENTIE.md` (eigen werk van Dortus). GitHub laat het draaien. De studio laadt het niet: die bouwt de robot uit het script. |
+| `modellen/makehuman-base.obj` | Het model van studio-1, ongewijzigd van MakeHuman, met `makehuman-base-LICENTIE.md` (CC0 1.0). |
 
-## Het figuur
+## De robot-actiefiguur (studio-2)
+Zelf gebouwd met `figuur_robot.py` (geen download, geen AI-model, geen merk of bekend personage), 220 mm hoog:
+- **Vormen:** helm als afgeronde doos met een donker vizier, twee lichtblauwe oog-leds, oren en een oranje kam;
+  borstkas smal naar de taille met een oranje borstplaat en een lichtblauwe kern; geribde metalen buik; blauw bekken
+  met oranje gesp; wit pantser op bovenarm, dij en scheen; oranje onderarmen; oranje kniestukken; stevige blauwe
+  laarzen met oranje neus; grijze vuisten. Gewrichten (schouder, elleboog, heup, knie, nek) zijn gladde
+  antraciet buizen: daar zet de add-on zijn kogels en scharnieren.
+- **Kleuren (sRGB), `STIJL`:** wit F3F1EA, oranje FF6A1F, blauw 1F44B0, metaal 8E95A3 (zijdeglans in de renders),
+  antraciet 3A404D, vizier 15171E, led 4DF0FF (gloeit zacht in de renders). **`STIJL_B`:** geel FFD23F, rood E8364F,
+  nachtblauw 1B1F3B, led groen 7CFF6B.
+- **Mesh:** alle vormen samen, dan Make watertight van de add-on (voxel 0,5 mm) en de kleuren per vlak terug. Een
+  echte vereniging (Boolean Exact) is strakker, maar daarop gaf Figure from rig maar 4 gewrichten ("parts overlap");
+  daarom voxel (`CJ_ROBOT_MESH=boolean` om het te proberen).
+- **Rig:** dezelfde als het mensfiguur (`maak_rig` uit `producten/blender-gewrichten/e2e/proef_mens.py`, Mixamo-namen,
+  linkerknie 120 en linkerelleboog 140 in Limit Rotation), maar elleboog en knie liggen dicht bij de huid aan de
+  buigkant (zie hieronder).
+
+### Wat de add-on van een figuur nodig heeft (geleerd met de robot, Pro 1.2.0, GEZIEN in de proeven van 23 nov)
+1. **Elleboog en knie dicht bij de buigkant.** Het scharnier meet zijn stopvlakken vanaf het bot schuin naar de
+   buigkant (wig van ±70° bij 140°, ±60° bij 120°) tot ze de huid raken. Met het bot midden in een buis van 6,4 mm
+   straal reikte de elleboog 35 mm langs de arm (`cj_reik`), en dan past de schouderkogel niet meer op een bovenarm
+   van 41 mm ("no room on this 41 mm bone ... next to the elbow"). Met het bot 4,4 mm van de huid aan de buigkant:
+   elleboog 16,6 mm, knie ±29 mm. De knie niet nog dichter bij de huid: bij 4,4 mm gaf hij "parts overlap".
+2. **Pantser niet op de schouder en niet tegen de romp.** Een kogel schuift uit de romp tot de doorsnede van het lid
+   niet breder is dan 1,3 keer de dunste straal. Alles wat daar dwars uitsteekt (een as van de romp naar de schouder,
+   een schouderstuk) maakt de doorsnede breed: "only a tiny ball fits here". Een bol aan de bovenarm die net de zijkant
+   van de borst raakt werkt wel (schouders ±30°).
+3. **Ruimte tussen de benen en onder het bekken.** Met de heupen op x = ±15 en dik pantser op de dijen: "it would be
+   blocked". Op ±17 met smaller pantser lukt het (±27 tot ±30°). Het heupbot op 113 mm in plaats van 116 maakte het
+   slechter (beide heupen geblokkeerd).
+4. **Uitkomst hangt aan de voxelmaat:** op 0,5 mm 9 gewrichten, op 0,35 mm 8 (linkerheup geblokkeerd). Daarom blijft
+   0,5 mm de standaard.
+
+## Het mensfiguur (studio-1, niet meer gebruiken)
 MakeHuman `base.obj` (CC0 1.0, bron en licentietekst in `modellen/`), door ons aangekleed in `laad_mens_kleding`:
 borst plat en romp glad (zoals de e2e-figuur), dan per stuk kleding het oppervlak een fractie naar buiten zodat zomen in
 de vorm zitten: shirt met korte mouwen (0,45 mm), broek (0,45 mm), riem (0,9 mm), schoenen (bolle schil om de voet, platte zool, geen tenen),
@@ -52,7 +91,7 @@ e2e/maak_zip.sh betaald`) en `xvfb-run` met `--gpu-backend opengl`. In het opnam
 ```python
 import sys; sys.path.insert(0, "commercie/filmpjes/studio")
 import figuur_laden as FL, studio as S
-arm, ob, punten = FL.laad_mens_kleding("commercie/filmpjes/studio/modellen/makehuman-base.obj", 220.0)  # stijl={...} mag
+arm, ob, punten = FL.laad_figuur("robot", 220.0)   # de robot; stijl=R.STIJL_B (import figuur_robot as R) voor geel en rood
 arm.hide_set(True)
 S.bouw(220.0)                  # studio rond het figuur (voeten op z=0, podium eronder)
 S.rustig_scherm(ui=1.35)       # alleen 3D-weergave en paneel, groter lettertype, studiolicht in beeld
@@ -62,11 +101,11 @@ S.plastic(delen)               # alleen voor de renders: plastic en de passingkl
 cam = S.camera(); S.richt(cam, delen, "staand", draai=-32, kantel=7, vul=0.74, midden_y=0.56)
 S.render("/tmp/uit/eind.png")  # door de 3D-weergave, dus met de buiging van de add-on
 ```
-- In `youtube-shorts-4/opname.py` vervang je `figuur()` door `FL.laad_mens_kleding` en `zet_render_scene()` door
+- In `youtube-shorts-4/opname.py` vervang je `figuur()` door `FL.laad_figuur("robot")` en `zet_render_scene()` door
   `S.bouw` plus `S.plastic` en `S.camera`. Het scherm: `S.rustig_scherm` in plaats van `kijk_breed` (de zijbalk breed
   slepen en de echte muis blijven werken zoals ze waren).
 - Poseren alleen via de add-on: scharnieren met `wm.cj_scharnier_pose` op deel B (knie 0 tot 120, elleboog 0 tot 140).
-  De kogels (schouder, heup, nek) zijn ±20 tot ±25° en draaien in de add-on allemaal tegelijk; laat ze in de renders op 0.
+  De kogels (schouder, heup, nek) zijn ±20 tot ±30° en draaien in de add-on allemaal tegelijk; laat ze in de renders op 0.
 - Zijbalk scrollen gaat met het muiswiel (xdotool klik 5 omlaag, 4 omhoog, boven het paneel); klikken op de kop van
   het paneel om in te klappen werkte in de proef niet betrouwbaar.
 - Renders gaan door de 3D-weergave (`bpy.ops.render.opengl`, Material Preview met de lampen van de scene). EEVEE in

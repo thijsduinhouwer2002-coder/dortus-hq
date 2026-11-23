@@ -2178,3 +2178,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
   Volgende run: toets `blender -t 1` tegen `-t 4` op het filmfiguur in CI. Verifier lokaal draaien werd geweigerd
   door de sessie, niet opnieuw geprobeerd.
 - 23 nov 2026 ±15:00-15:30 NL, Sanne: zes Short-scripts week 49 voor Click Joints (`commercie/filmpjes/scripts/week-49-click-joints.md`), keuring gevraagd aan Daan, melding aan de Regisseur.
+
+## 23 nov 2026 ±15:20-16:05 NL, Olaf (8 tegen 9 gewrichten)
+- Blender 5.3.0 in de run gehaald. CI-invoer exact nagespeeld: hier 9, CI 8; 1 en 2 threads gelijk (dus niet de threads).
+  Verschil: 7e plek linkerschouder geeft in CI "no watertight parts (part A 1)", en `rig.py` stopte dan met zoeken.
+- Fix `rig.py` (volgende plek na die melding) en toets `CJ_HERKANS=1` in `toetsen_mens.py` (zonder fix 1 FOUT, met
+  fix 0 FOUT, GEZIEN), stap in de e2e. Naar Bram (volgende Pro-versie, keuring) en hoofdchat.

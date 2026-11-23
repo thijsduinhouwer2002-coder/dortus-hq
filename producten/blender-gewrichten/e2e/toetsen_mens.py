@@ -67,10 +67,29 @@ def main():
     inst.speling_mm, inst.as_bron, inst.uit_elkaar, inst.kogel_auto = 0.2, "CURSOR", False, True
     A["actief"](ob)
     voor = {m.name for m in bpy.data.meshes}
+    herkans = os.environ.get("CJ_HERKANS") == "1"
+    nep = []
+    if herkans:
+        # 23 nov (Olaf): in CI gaf het studio-figuur bij de linkerschouder één keer "no watertight parts" (één slechte
+        # rand, per machine anders) en dan stopte de knop met zoeken: 8 gewrichten in CI, 9 lokaal. Hier doen we die
+        # ene mislukte snede na op de eerste plek van de linkerschouder; de knop moet dan een volgende plek nemen.
+        figm = mod("betaald.figuur")
+        echt = figm.plaats_gewricht
+
+        def plaats_nep(context, sleutel, naam=None, *a, **k):
+            if naam == "Left shoulder" and not nep:
+                nep.append(naam)
+                return False, ("The cut gave no watertight parts (bad edges: part A 1, part B 0); "
+                               "the mesh is unchanged."), []
+            return echt(context, sleutel, naam, *a, **k)
+        figm.plaats_gewricht = plaats_nep
     try:
         r = bpy.ops.click_joints.figuur_uit_rig()
     except RuntimeError as e:
         r = f"fout {str(e).strip()[:300]}"
+    if herkans:
+        figm.plaats_gewricht = echt
+        check(nep == ["Left shoulder"], f"mislukte snede nagedaan op de linkerschouder ({nep})")
     # 17 nov run 26: eerder bleven hier 172 lege tussenmeshes in het bestand.
     wees = [m.name for m in bpy.data.meshes if m.name not in voor and m.users == 0]
     check(not wees, f"geen lege tussenmeshes achtergebleven ({len(wees)})")
