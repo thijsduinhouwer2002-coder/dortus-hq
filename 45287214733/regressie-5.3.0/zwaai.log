@@ -1,0 +1,19 @@
+[cj-zwaai-toets] OK   stop 115: lijst zegt 0–115 (lijst: Left elbow · Hinge · 0–115° · from rig)
+[cj-zwaai-toets] OK   stop 115: zwaairuimte uitgesneden (zwaai: van=89.22 gesloten=True stukken=1,1 wees=172)
+[cj-zwaai-toets] OK   stop 115: delen gesloten, elk één stuk (zwaai: van=89.22 gesloten=True stukken=1,1 wees=172)
+[cj-zwaai-toets] OK   stop 115: niets steekt uit (huid erbij (uitstekend > 0,3 mm): 0 punten)
+[cj-zwaai-toets] OK   stop 115: diepste weggesneden punt 7.0 mm van de elleboog
+[cj-zwaai-toets] OK   stop 90: lijst zegt 0–90 (lijst: Left elbow · Hinge · 0–90° · from rig)
+[cj-zwaai-toets] OK   stop 90: zwaairuimte uitgesneden (zwaai: van=77.19 gesloten=True stukken=1,1 wees=172)
+[cj-zwaai-toets] OK   stop 90: delen gesloten, elk één stuk (zwaai: van=77.19 gesloten=True stukken=1,1 wees=172)
+[cj-zwaai-toets] OK   stop 90: niets steekt uit (huid erbij (uitstekend > 0,3 mm): 0 punten)
+[cj-zwaai-toets] OK   stop 90: diepste weggesneden punt 6.5 mm van de elleboog
+[cj-zwaai-toets] OK   minstens één stop echt getoetst (2)
+[cj-zwaai-toets] OK   terugzetten: bereik zonder uitsnede (lijst: Left elbow · Hinge · 0–89° · from rig)
+[cj-zwaai-toets] OK   terugzetten: geen cj_zwaai_van (zwaai: van=None gesloten=True stukken=2,1 wees=172)
+[cj-zwaai-toets] OK   terugzetten: delen gesloten (zwaai: van=None gesloten=True stukken=2,1 wees=172)
+[cj-zwaai-toets] OK   terugzetten: losse meshes 172, normaal 172
+[cj-zwaai-toets] KLAAR 0 FOUT
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
