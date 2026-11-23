@@ -1,0 +1,278 @@
+"""Bewijs van de studio (23 nov 2026): laadt het figuur, bouwt de studio, maakt 3 schermafbeeldingen van het rustige
+Blender-scherm met het paneel van Click Joints Pro en 3 renders per figuur (staand in pose, staand uit elkaar met
+Exploded view, liggend in pose). Draait in een echte Blender met beeldscherm (xvfb-run), want de renders gaan door de
+3D-weergave (Material Preview, EEVEE) en de schermafbeeldingen zijn van het X-scherm.
+
+    xvfb-run -s "-screen 0 1920x1080x24" blender --gpu-backend opengl -p 0 0 1920 1080 \
+        --python bewijs.py -- <uitmap> <pro-zip> <base.obj> [naam]
+Knoppen (env): CJ_SNEL=<.blend met al gesneden delen> slaat de knop over (alleen om de studio snel te testen);
+CJ_STIJL=b geeft de tweede kleurstelling. Regels "STUDIO OK <stap>" in het log; de workflow eist ze.
+"""
+import importlib
+import json
+import os
+import subprocess
+import sys
+import time
+import traceback
+
+import bpy
+
+HIER = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HIER)
+import figuur_laden as FL  # noqa: E402
+import studio as S  # noqa: E402
+
+args = sys.argv[sys.argv.index("--") + 1:]
+UIT, ZIP, OBJ = args[0], args[1], args[2]
+NAAM = args[3] if len(args) > 3 else "figuur"
+os.makedirs(UIT, exist_ok=True)
+SNEL = os.environ.get("CJ_SNEL", "")
+STIJLEN = {
+    "a": {},   # oranje shirt, blauwe broek, gele schoenen, bruin haar (FL.STIJL)
+    "b": {"shirt": "7B5CFF", "broek": "2B2D42", "schoen": "FF4F79", "haar": "F4B942", "riem": "FF4F79"},
+}
+STIJL = STIJLEN[os.environ.get("CJ_STIJL", "a")]
+UI = float(os.environ.get("CJ_UI", "1.35"))
+meting = {"naam": NAAM, "stijl": os.environ.get("CJ_STIJL", "a")}
+
+
+def log(t):
+    print(f"[studio] {t}", flush=True)
+
+
+def xdo(*a):
+    subprocess.run(["xdotool", *a], capture_output=True, text=True)
+
+
+def schiet(naam):
+    pad = os.path.join(UIT, naam)
+    subprocess.run(["import", "-window", "root", pad], capture_output=True)
+    log(f"scherm {pad} {os.path.exists(pad)}")
+
+
+def zijbalk():
+    for venster in bpy.context.window_manager.windows:
+        for gebied in venster.screen.areas:
+            if gebied.type == "VIEW_3D":
+                for regio in gebied.regions:
+                    if regio.type == "UI":
+                        return venster, gebied, regio
+    return None, None, None
+
+
+def naar_tabblad(doel="Click Joints"):
+    """Ctrl+wiel boven de tabbladen van de zijbalk tot Click Joints actief is (zoals een gebruiker)."""
+    for poging in range(16):
+        venster, gebied, regio = zijbalk()
+        if regio.active_panel_category == doel:
+            return True
+        x = venster.x + regio.x + regio.width - 8
+        y = venster.y + venster.height - (regio.y + regio.height // 2)
+        xdo("mousemove", str(x), str(y))
+        xdo("keydown", "ctrl")
+        xdo("click", "5" if poging < 7 else "4")
+        xdo("keyup", "ctrl")
+        yield 0.4
+    return False
+
+
+def klik_kop():
+    """Klik op de kop van het bovenste paneel (Click Joints): in- of uitklappen."""
+    venster, gebied, regio = zijbalk()
+    x = venster.x + regio.x + int(70 * UI)
+    y = venster.y + venster.height - (regio.y + regio.height) + int(13 * UI)
+    xdo("mousemove", str(x), str(y))
+    time.sleep(0.2)
+    xdo("click", "1")
+    xdo("mousemove", "300", "900")
+
+
+def herteken():
+    for venster in bpy.context.window_manager.windows:
+        for gebied in venster.screen.areas:
+            gebied.tag_redraw()
+
+
+def delen_van(naam):
+    return [o for o in bpy.context.scene.objects if o.type == "MESH" and o.get("cj_figuur") == naam and o.visible_get()]
+
+
+def paar(naam):
+    a = b = None
+    for o in bpy.context.scene.objects:
+        if o.get("cj_figuur") and o.get("cj_naam") == naam and o.get("cj_soort", "") == "SCHARNIER":
+            if o.get("cj_deel") == "A":
+                a = o
+            elif o.get("cj_deel") == "B":
+                b = o
+    return a, b
+
+
+def buig(naam, graden):
+    """Scharnier buigen met de schuif van de add-on (zelfde als de gebruiker), binnen het bereik."""
+    a, b = paar(naam)
+    if b is None:
+        log(f"geen scharnier {naam}")
+        return None
+    stop = float(a.get("cj_bereik_graden", 0) or 0) if a is not None else 0
+    g = min(graden, stop) if stop else graden
+    bpy.context.view_layer.objects.active = b
+    bpy.context.window_manager.cj_scharnier_pose = round(g, 1)
+    bpy.context.view_layer.update()
+    return round(float(b.get("cj_pose_graden", g)), 1), stop
+
+
+def geen_selectie():
+    for o in bpy.context.view_layer.objects:
+        o.select_set(False)
+
+
+POSE = {"Left knee": 100.0, "Right knee": 20.0, "Left elbow": 115.0, "Right elbow": 55.0}   # rennen, binnen het bereik
+
+
+def verloop():
+    log(f"Blender {bpy.app.version_string}")
+    if "figuur_uit_rig" not in dir(bpy.ops.click_joints):
+        bpy.ops.extensions.package_install_files(filepath=ZIP, repo="user_default", enable_on_install=True)
+    yield 1.0
+    inst = bpy.context.scene.click_joints
+    if SNEL:
+        for o in list(bpy.data.objects):
+            bpy.data.objects.remove(o)
+        us = bpy.context.scene.unit_settings
+        us.system, us.scale_length, us.length_unit = "METRIC", 0.001, "MILLIMETERS"
+        with bpy.data.libraries.load(SNEL, link=False) as (van, naar):
+            naar.objects = list(van.objects)
+        for o in naar.objects:
+            if o is not None:
+                bpy.context.scene.collection.objects.link(o)
+        arm = next(o for o in bpy.context.scene.objects if o.type == "ARMATURE")
+        fignaam = next(o.get("cj_figuur") for o in bpy.context.scene.objects if o.get("cj_figuur"))
+        ob = None
+    else:
+        arm, ob, _p = FL.laad_mens_kleding(OBJ, 220.0, stijl=STIJL)
+        fignaam = ob.name
+    arm.hide_set(True)
+    inst.speling_mm, inst.as_bron, inst.uit_elkaar, inst.kogel_auto = 0.2, "CURSOR", False, True
+    S.bouw(220.0)
+    log("STUDIO OK bouw")
+    venster, gebied = S.rustig_scherm(ui=UI)
+    yield 1.0
+    S.view3d()[1].spaces.active.show_region_ui = True
+    yield from naar_tabblad()
+    yield 0.5
+    S.kijk_naar((0, 0, 108), 400, draai=-28, kantel=84)
+    yield 1.0
+    klik_kop()   # hoofdpaneel in: Figure joints (knop en lijst) komt bovenaan
+    yield 1.0
+    # scherm 1: figuur gekozen, knop Figure from rig in het paneel
+    if ob is not None:
+        FL.actief(ob)
+        herteken()
+        yield 1.0
+        schiet("scherm-1-figuur-kiezen.png")
+        log("STUDIO OK scherm1")
+        t0 = time.time()
+        r = bpy.ops.click_joints.figuur_uit_rig()
+        meting["knop_s"] = round(time.time() - t0, 1)
+        log(f"Figure from rig {r} in {meting['knop_s']} s")
+        yield 0.5
+    fig = importlib.import_module("bl_ext.user_default.click_joints.betaald.figuur")
+    lijst = fig.figuur_gewrichten(bpy.context.scene.objects, fignaam)
+    meting["gewrichten"] = len(lijst)
+    meting["regels"] = [fig.regel(x) for x in lijst]
+    delen = delen_van(fignaam)
+    meting["delen"] = len(delen)
+    meting["overgeslagen"] = str(next((o.get("cj_rig_overgeslagen") for o in delen if o.get("cj_rig_overgeslagen")), None))
+    log(f"gewrichten {len(lijst)}: {meting['regels']}")
+    log(f"overgeslagen: {meting['overgeslagen']}")
+    # scherm 2: de lijst met gewrichten en graden
+    geen_selectie()
+    groot = max(delen, key=lambda o: len(o.data.vertices))
+    bpy.context.view_layer.objects.active = groot
+    groot.select_set(True)
+    herteken()
+    yield 1.5
+    schiet("scherm-2-lijst.png")
+    log("STUDIO OK scherm2")
+    # scherm 3: linkerknie gekozen, hoofdpaneel open met de Bend-schuif, boog van de add-on in beeld
+    geen_selectie()
+    a, b = paar("Left knee")
+    if b is not None:
+        b.select_set(True)
+        bpy.context.view_layer.objects.active = b
+        meting["knie_scherm"] = buig("Left knee", 95.0)
+        try:
+            bpy.context.window_manager.cj_scharnier_boog = True
+        except Exception:  # noqa: BLE001
+            pass
+        klik_kop()   # hoofdpaneel weer open
+        yield 1.0
+        venster, gebied, regio = zijbalk()   # zijbalk omlaag tot het blok Hinge met de Bend-schuif
+        xdo("mousemove", str(venster.x + regio.x + regio.width // 2), str(venster.y + venster.height // 2))
+        for _ in range(int(os.environ.get("CJ_WIEL", "14"))):
+            xdo("click", "5")
+            yield 0.05
+        xdo("mousemove", "300", "900")
+        yield 0.5
+        k = a.get("cj_snijpunt") if a is not None else None
+        S.kijk_naar(k if k else (0, 0, 60), 260, draai=60, kantel=82)
+        herteken()
+        yield 1.5
+        schiet("scherm-3-knie.png")
+        log("STUDIO OK scherm3")
+        buig("Left knee", 0.0)
+    # renders: alleen het figuur en de studio, geen bogen of getallen
+    try:
+        bpy.context.window_manager.cj_scharnier_boog = False
+        inst.toon_bereik = False
+    except Exception:  # noqa: BLE001
+        pass
+    S.plastic(delen)
+    cam = S.camera()
+    meting["pose"] = {n: buig(n, g) for n, g in POSE.items()}
+    geen_selectie()
+    bpy.context.view_layer.update()
+    yield 0.5
+    S.richt(cam, delen, "staand", draai=-32, kantel=7, vul=0.74, midden_y=0.56)
+    yield 0.3
+    S.render(os.path.join(UIT, f"{NAAM}-1-staand-pose.png"))
+    log("STUDIO OK render1")
+    inst.uit_elkaar = True
+    herteken()
+    bpy.context.view_layer.update()
+    yield 0.5
+    S.richt(cam, delen_van(fignaam), "staand", draai=-24, kantel=6, vul=0.80, midden_y=0.55)
+    yield 0.3
+    S.render(os.path.join(UIT, f"{NAAM}-2-staand-uit-elkaar.png"))
+    log("STUDIO OK render2")
+    inst.uit_elkaar = False
+    herteken()
+    bpy.context.view_layer.update()
+    yield 0.5
+    S.richt(cam, delen, "liggend", draai=-38, kantel=8, vul=0.80, midden_y=0.5)
+    yield 0.3
+    S.render(os.path.join(UIT, f"{NAAM}-3-liggend-pose.png"))
+    log("STUDIO OK render3")
+    json.dump(meting, open(os.path.join(UIT, f"{NAAM}-meting.json"), "w"), indent=1, ensure_ascii=False)
+    if not SNEL and os.environ.get("CJ_BEWAAR"):
+        bpy.ops.wm.save_as_mainfile(filepath=os.path.join(UIT, f"{NAAM}-studio.blend"))
+    log("STUDIO OK klaar")
+
+
+G = verloop()
+
+
+def stap():
+    try:
+        return next(G)
+    except StopIteration:
+        bpy.ops.wm.quit_blender()
+    except Exception as fout:  # noqa: BLE001
+        log(f"STUDIO FOUT {fout}\n{traceback.format_exc()}")
+        bpy.ops.wm.quit_blender()
+    return None
+
+
+bpy.app.timers.register(stap, first_interval=2.0)
