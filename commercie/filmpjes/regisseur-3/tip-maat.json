@@ -1,0 +1,221 @@
+{
+ "naam": "tip-maat",
+ "titel": "Will your model fit your printer? Check it first 📏 #blender #3dprinting",
+ "eind": {
+  "titel": "Blender for 3D printing",
+  "zin": "A new Blender tip for 3D printing every week.",
+  "adres": "dortus.com/yt",
+  "render": "render-eind.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "scenes": [
+  {
+   "tekst": "Is your model too big for your printer?",
+   "label": "QUICK CHECK",
+   "kleur": "oranje",
+   "kop": "Too big to print?",
+   "beeld": {
+    "deel": "b_heel",
+    "van": 0,
+    "tot": 80,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      1150
+     ],
+     [
+      1080,
+      900,
+      1000
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Check it in Blender, before you slice.",
+   "label": "TIP",
+   "kleur": "blauw",
+   "kop": "Check in Blender",
+   "beeld": {
+    "deel": "b_heel",
+    "van": 40,
+    "tot": 80,
+    "uitsnede": [
+     [
+      1080,
+      950,
+      1500
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "First, in Scene properties, set Unit Scale to 0.001 and Length to millimeters.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Units: millimeters",
+   "beeld": {
+    "deel": "b_units",
+    "van": 30,
+    "tot": 96,
+    "uitsnede": [
+     [
+      1350,
+      720,
+      1500
+     ]
+    ],
+    "nadruk": [
+     [
+      700,
+      612,
+      2140,
+      656
+     ],
+     [
+      700,
+      758,
+      2140,
+      800
+     ]
+    ],
+    "nadruk_rel": [
+     0,
+     96
+    ]
+   },
+   "uitspraak": "First, in Scene properties, set Unit Scale to zero point zero zero one, and Length to millimeters."
+  },
+  {
+   "tekst": "Press N. Under Dimensions you see the real size: 310 mm tall.",
+   "label": "STEP 2",
+   "kleur": "blauw",
+   "kop": "310 mm tall",
+   "beeld": {
+    "deel": "b_maat",
+    "van": 0,
+    "tot": 96,
+    "uitsnede": [
+     [
+      1700,
+      900,
+      900
+     ]
+    ],
+    "nadruk": [
+     [
+      1610,
+      925,
+      2090,
+      965
+     ]
+    ],
+    "nadruk_rel": [
+     0,
+     96
+    ]
+   },
+   "uitspraak": "Press N. Under Dimensions you see the real size: three hundred ten millimeters tall."
+  },
+  {
+   "tekst": "This box is a print bed of 220 by 220 by 250 mm. The pawn is too tall for it.",
+   "label": "TOO TALL",
+   "kleur": "rood",
+   "kop": "Bed: 220 x 220 x 250 mm",
+   "beeld": {
+    "deel": "b_maat",
+    "van": 30,
+    "tot": 96,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      1150
+     ]
+    ]
+   },
+   "uitspraak": "This box is a print bed of two hundred twenty by two hundred twenty by two hundred fifty millimeters. The pawn is too tall for it."
+  },
+  {
+   "tekst": "Hover over the view, press S, type 0.7 and press Enter.",
+   "label": "STEP 3",
+   "kleur": "oranje",
+   "kop": "S, 0.7, Enter",
+   "beeld": {
+    "deel": "b_schaal",
+    "van": 0,
+    "tot": 74,
+    "uitsnede": [
+     [
+      1300,
+      900,
+      1650
+     ]
+    ]
+   },
+   "uitspraak": "Hover over the view, press S, type zero point seven, and press Enter."
+  },
+  {
+   "tekst": "Now it is 217 mm tall, and it fits inside the bed.",
+   "label": "IT FITS",
+   "kleur": "groen",
+   "kop": "217 mm: it fits",
+   "beeld": {
+    "deel": "b_past",
+    "van": 0,
+    "tot": 100,
+    "uitsnede": [
+     [
+      1700,
+      900,
+      900
+     ]
+    ],
+    "nadruk": [
+     [
+      1610,
+      925,
+      2090,
+      965
+     ]
+    ],
+    "nadruk_rel": [
+     0,
+     100
+    ]
+   },
+   "uitspraak": "Now it is two hundred seventeen millimeters tall, and it fits inside the bed."
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Save this for your next print.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Save this tip",
+   "beeld": {
+    "deel": "b_past",
+    "van": 60,
+    "tot": 100,
+    "uitsnede": [
+     [
+      1080,
+      950,
+      1150
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "More Blender tips for 3D printing at dortus.com/yt.",
+   "label": "MORE TIPS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   },
+   "uitspraak": "More Blender tips for three D printing, at dortus dot com slash Y T."
+  }
+ ],
+ "venster": "Blender 5.3"
+}

@@ -139,7 +139,7 @@ def basis(V, script):
         cx, cy = x0 + 30 + i * 26, y0 + b // 2
         d.ellipse((cx - 8, cy - 8, cx + 8, cy + 8), fill=kl)
     f = font("Medium", 20 if V["W"] < V["H"] else 18)
-    titel = "Blender 5.3 with Click Joints Pro"
+    titel = script.get("venster", "Blender 5.3 with Click Joints Pro")   # tip-reeks: "Blender 5.3" (geen add-on)
     d.text(((x0 + x1) / 2 - f.getlength(titel) / 2, y0 + b / 2 - 11), titel, font=f, fill=(120, 128, 142))
     return im
 
