@@ -43,13 +43,13 @@ HOOGTE = 436.0       # mm, hoogte van het model (de leeuwenkop van Poly Haven is
 STIJLEN = {
     "a": {
         "vloer": "7F95FF", "wand": "2443E6",
-        "delen": ["FFC83D", "FF5B3A", "FF7AB6", "2ED3A8", "FF9A3C", "F7F4EE", "A58CFF"],
+        "delen": ["FFC83D", "FF5B3A", "FF7AB6", "2ED3A8", "FF9A3C", "F7F4EE", "8C6CFF"],
         "pen": "FFFFFF", "snijvlak_licht": 0.35,
         "lucht": "C9D3FF",
     },
     "b": {
         "vloer": "2E1F3A", "wand": "4A2E57",
-        "delen": ["FFD25C", "A58CFF", "FF6B5B", "FF9A3C", "C9B9FF", "47D7B4", "FFF4E0"],
+        "delen": ["FFD25C", "A58CFF", "FF6B5B", "FF9A3C", "C9B9FF", "FFF4E0", "47D7B4"],
         "pen": "FFD25C", "snijvlak_licht": 0.3,
         "lucht": "1D1426",
     },
@@ -600,7 +600,7 @@ def main():
     if os.path.exists(nor_path):
         nor_img = bpy.data.images.load(nor_path)
         nor_img.colorspace_settings.name = "Non-Color"
-    factor = {"cover": 1.0, "delen": 1.25, "heel": 0.0, "bed": 1.0, "pen": 1.5}.get(SHOT, 1.0)
+    factor = {"cover": float(os.environ.get("MERK_UITEEN", "0.7")), "delen": 1.25, "heel": 0.0, "bed": 1.0, "pen": 1.5, "samen": 0.035}.get(SHOT, 1.0)
     pennen = []
     delen = [ob]
     global ORIG_BVH
@@ -624,6 +624,12 @@ def main():
         vol = bouwvolume((0, 0, 0))
     elif SHOT == "bed":
         leg_op_platen(delen, pennen)
+    elif SHOT == "samen":
+        # weer in elkaar: de pennen zitten binnenin, de naden zijn net zichtbaar
+        for p in pennen:
+            bpy.data.objects.remove(p)
+        pennen = []
+        uit_elkaar(delen, pennen, h, factor)
     else:
         uit_elkaar(delen, pennen, h, factor)
     studio(h, Vector((0, 0, h * 0.5)))
@@ -648,9 +654,9 @@ def main():
         nb = [o for o in delen if o.name in ("d_gezicht", "d_manen_ro", "d_manen_rb")]
         nb += [p for p in pennen if p["a"] in ("d_gezicht",) and p["b"] in ("d_manen_ro", "d_manen_rb")]
         kader(nb, c, straal, 62, 6, (0.04, 0.96), 0.47, lens=85)
-    elif SHOT == "heel":
+    elif SHOT in ("heel", "samen"):
         render_instellingen(1600, 1600)
-        objs = objs + [vol]
+        objs = objs + ([vol] if SHOT == "heel" else [])
         kader(objs, c, straal, 28, 9, (0.1, 0.9), 0.4)
     else:
         render_instellingen(1600, 1600)

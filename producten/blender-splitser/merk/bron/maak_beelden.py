@@ -91,7 +91,8 @@ KOPPEN = {
     "heel": ("Bigger than your build plate?", "One model, way past what your printer can do."),
     "delen": ("Split it into parts that fit.", "Clean cuts where you want them."),
     "pen": ("Pins and holes that line up.", "Clearance built in, so parts press together."),
-    "bed": ("Every part fits the bed.", "Print, press the pins in, done."),
+    "bed": ("Every part fits the bed.", "Each part sized to your printer."),
+    "samen": ("One piece again.", "Press the pins in and the parts line up."),
 }
 
 
@@ -280,7 +281,7 @@ if __name__ == "__main__":
     gemaakt = []
     for st in ("a", "b"):
         gemaakt.append(cover(st))
-        for nr, sh in ((1, "heel"), (2, "bed"), (3, "pen")):
+        for nr, sh in ((1, "heel"), (2, "bed"), (3, "pen"), (5, "samen")):
             gemaakt.append(winkelbeeld(st, sh, nr))
         gemaakt.append(gumroad_vierkant(st))
     pp, pimg = paneel()
