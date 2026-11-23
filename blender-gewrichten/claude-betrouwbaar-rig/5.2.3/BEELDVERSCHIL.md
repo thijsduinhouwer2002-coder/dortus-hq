@@ -1,13 +1,11 @@
 ## Beeldvergelijking Click Joints, Blender 5.2.3 (claude-betrouwbaar-rig)
-GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 45260223385, commit da1c13465dae07a16289d60fea8448f6aba65977, commitdatum 1795465876, 2026-11-23T20:49:32Z
+GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 33 plaatjes vergeleken)
+Referentie: referentie uit run 45261862661, commit 63f4c6ef23b86676ccf573a051873fc75551da1e, commitdatum 1795466445, 2026-11-23T21:01:14Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
 | 1-paneel-x.png | gelijk | |
 | 10-winkel-paneel-x.png | gelijk | |
-| 11-scharnier-x.png | gelijk | |
-| 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | 31 px (0.001%), ruis | |
 | 13-pro-knie-x.png | 8 px (0.000%), ruis | |
 | 13d-pro-knie-dicht-x.png | 52 px (0.003%), ruis | |
@@ -39,3 +37,5 @@ Referentie: referentie uit run 45260223385, commit da1c13465dae07a16289d60fea844
 | p13-d-x.png | 40 px (0.002%), ruis | |
 | p13-e-x.png | 1 px (0.000%), ruis | |
 | p14b-e-x.png | 7 px (0.000%), ruis | |
+| 11-scharnier-x.png | verdwenen (wel in de referentie) | |
+| 12-scharnier-rood-x.png | verdwenen (wel in de referentie) | |
