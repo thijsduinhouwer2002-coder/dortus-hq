@@ -29,8 +29,6 @@ jobs:
         working-directory: producten/blender-splitser
     steps:
       - uses: actions/checkout@v4
-      - name: Logica zonder Blender (plan, doorsnede, pennen)
-        run: python3 -I e2e/test_logica.py
       - name: Systeempakketten (Xvfb en software-OpenGL)
         run: |
           sudo apt-get update -q
@@ -46,6 +44,10 @@ jobs:
           [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
           mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
           /tmp/blender/blender --version | head -1
+      - name: Logica met de Python en numpy van Blender (plan, doorsnede, pennen)
+        run: |
+          PY=$(ls /tmp/blender/*/python/bin/python3* | grep -v config | head -1)
+          "$PY" -I e2e/test_logica.py
       - name: Modellen ophalen (CC0 1.0, KhronosGroup glTF-Sample-Assets)
         run: |
           mkdir -p /tmp/modellen
