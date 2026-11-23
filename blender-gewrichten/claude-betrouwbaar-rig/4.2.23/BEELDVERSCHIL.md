@@ -10,8 +10,8 @@ Referentie: referentie uit run 45258116805, commit 3ac8b893b13e25d0719d57f85cbd4
 | 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | gelijk | |
 | 13-pro-knie-x.png | gelijk | |
-| 13d-pro-knie-dicht-x.png | gelijk | |
-| 14-pro-knie-rood-x.png | gelijk | |
+| 13d-pro-knie-dicht-x.png | 55 px (0.003%), ruis | |
+| 14-pro-knie-rood-x.png | 12 px (0.001%), ruis | |
 | 14b-pro-knie-rood-los-x.png | gelijk | |
 | 15-figuur-paneel.png | gelijk | |
 | 15-figuur-x.png | gelijk | |
@@ -20,18 +20,18 @@ Referentie: referentie uit run 45258116805, commit 3ac8b893b13e25d0719d57f85cbd4
 | 17-figuur-heel-paneel.png | gelijk | |
 | 17-figuur-heel-x.png | gelijk | |
 | 19-mens-paneel.png | 5779 px (2.031%), x 22 tot 239, y 174 tot 410 | GROOT |
-| 19-mens-x.png | 19509 px (0.941%), x 767 tot 1868, y 153 tot 792 | GROOT |
-| 2-gewricht-x.png | gelijk | |
+| 19-mens-x.png | 19301 px (0.931%), x 767 tot 1868, y 153 tot 792 | GROOT |
+| 2-gewricht-x.png | 61 px (0.003%), ruis | |
 | 20-testkaart.png | gelijk | |
 | 20d-testkaart-getal.png | gelijk | |
 | 20h-testkaart-scharnier.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | gelijk | |
+| 5-waaier-x.png | 31 px (0.001%), ruis | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | 17 px (0.001%), ruis | |
-| 8-winkel-x.png | gelijk | |
-| 9-winkel-rood-x.png | gelijk | |
+| 7-plat-x.png | 116 px (0.006%), ruis | |
+| 8-winkel-x.png | 28 px (0.001%), ruis | |
+| 9-winkel-rood-x.png | 36 px (0.002%), ruis | |
 | d1-slot-paneel.png | gelijk | |
 | d1-slot.png | gelijk | |
 | d2-venster-paneel.png | gelijk | |
