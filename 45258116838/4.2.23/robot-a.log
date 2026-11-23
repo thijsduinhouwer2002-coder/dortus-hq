@@ -1,0 +1,40 @@
+[meet] figuur robot-a: Figuur, {'bron_punten': 240112, 'bron_zelf_overlap': 0}
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur robot-a: 6 gewrichten ['Left elbow', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Right elbow', 'Left knee', 'Right knee']; overgeslagen: Right elbow (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Left knee (the cut left a loose piece here, place it by hand); Right knee (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably)
+[meet] pogingen 15, sneden 9, slechte sneden 1
+[meet]   SLECHT {"poging": 1, "gewricht": "Right elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4153768279033681, "h_voxel": 0.2077, "h_vlakken": 131872, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": true, "fout": 0, "punten": 224681, "zelf": 0}, "B": {"gesloten": false, "fout": 1, "punten": 14368, "zelf": 0, "herstel": {"vier": 1, "fout_na": 0}}, "goed": false}
+MEET robot-a gewrichten=6 overgeslagen=3 slechte_sneden=1
+STATUS Installed "click_joints"
+[studio] robot: 18564 punten voor de remesh, maat (140.6, 41.2, 220.4)
+Info: Watertight copy Figuur_gesloten made (240110 faces)
+[studio] kleuren per vorm: 240110 vlakken, 2750 buiten elke vorm
+[studio] robot na voxel: 240112 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.5, 2.0, 57.0), elleboog L (48.0, -4.0, 136.0)
+[meet] figuur robot-a: Figuur, {'bron_punten': 240112, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 140°. 9.978 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 8.886 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Joint placed. Good fit. 7.154 s.
+Info: Joint placed. Good fit. 15.179 s.
+Info: Joint placed. Good fit. 20.002 s.
+Info: Joint placed. Good fit. 13.887 s.
+Info: Joint placed. Good fit. 11.988 s.
+Warning: 6 joints · 1 rig · 5 preset. Skipped: Right elbow (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Left knee (the cut left a loose piece here, place it by hand); Right knee (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which 
+[meet] Blender 4.2.23 LTS figuur robot-a: 6 gewrichten ['Left elbow', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Right elbow', 'Left knee', 'Right knee']; overgeslagen: Right elbow (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Left knee (the cut left a loose piece here, place it by hand); Right knee (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use
+[meet] pogingen 15, sneden 9, slechte sneden 1
+[meet]   SLECHT {"poging": 1, "gewricht": "Right elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4153768279033681, "h_voxel": 0.2077, "h_vlakken": 131872, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": true, "fout": 0, "punten": 224681, "zelf": 0}, "B": {"gesloten": false, 
+MEET robot-a gewrichten=6 overgeslagen=3 slechte_sneden=1
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+model name	: AMD EPYC 9V74 80-Core Processor
