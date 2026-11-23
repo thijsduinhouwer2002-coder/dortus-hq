@@ -44,6 +44,9 @@ DRAAI_MIN = 10.0     # en alleen als het minstens 10 graden verder naar onder ki
 RINGEN = 10
 SEGMENTEN = 32
 TIGHT = "Tight: cheek too stiff to click. Try a thicker spot."
+# 23 nov (Bram, studio-figuren van Olaf: Tight op knight en robot-expressive): eindigt het lid vlak onder H, dan is
+# niet de dikte het probleem maar de korte lip. Een dikkere plek helpt dan niet; verder van het uiteinde wel.
+TIGHT_KORT = "Tight: the limb ends too close past this joint for the hinge to click. Try a spot further from the end."
 
 
 def rek(t, h, lip):
@@ -97,17 +100,25 @@ def maten_neus(m, u, diepte=None):
     diepte (zaag_diepte): ligt de onderkant van het lid dichter dan L + rest, dan wordt L korter."""
     s = m["s"]
     t = m["wx"] - m["tw"] - s
-    lip = ZAAG * 2 * m["wy"]
+    lip_vol = ZAAG * 2 * m["wy"]
+    lip = lip_vol
     if diepte is not None:
         lip = min(lip, diepte - max(t, ZAAG_REST_MM * u))
         m["zaag_diepte"] = diepte
-    if lip <= 0:
-        return TIGHT
-    k = H_MM * u
-    if t > 0 and rek(t, k, lip) > REK_MAX:
-        k = REK_MAX * lip * lip / (1.5 * t)
-    if k < H_MIN_MM * u or t <= 0:
-        return TIGHT
+
+    def klik_bij(l):
+        if l <= 0 or t <= 0:
+            return None
+        k = H_MM * u
+        if rek(t, k, l) > REK_MAX:
+            k = REK_MAX * l * l / (1.5 * t)
+        return k if k >= H_MIN_MM * u else None
+
+    k = klik_bij(lip)
+    if k is None:
+        # De eerlijke reden: had de volle lip (zonder de onderkant van het lid) wel geklikt, dan ligt het aan het
+        # uiteinde vlak onder H, niet aan de dikte.
+        return TIGHT_KORT if lip < lip_vol and klik_bij(lip_vol) is not None else TIGHT
     h = s + k
     voet = BASIS * m["r"]
     rho = (voet * voet + h * h) / (2 * h)       # straal van de bol waar het kapje van is

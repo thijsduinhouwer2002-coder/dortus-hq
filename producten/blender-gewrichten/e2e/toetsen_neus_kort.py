@@ -83,7 +83,7 @@ def _kort(stap, cursor, eig, neus, vorm, ops, gesloten):
     reden = _reden(ops, vorm, neus, staaf, u)
     print(f"[cj-betaald] METING korte staaf 6 mm: {uitslag}, melding \"{reden}\"")
     stap("korte staaf (onderkant 6 mm onder H): Tight, CANCELLED, geen nieuwe objecten",
-         uitslag == {"CANCELLED"} and voor == na and reden == neus.TIGHT, f"{uitslag} {reden}")
+         uitslag == {"CANCELLED"} and voor == na and reden == neus.TIGHT_KORT, f"{uitslag} {reden}")
 
 
 BREED, DIK, LENGTE, SCHUIN = 40.0, 10.0, 6.0, 3.0
@@ -178,7 +178,7 @@ def _schuin_tight(stap, cursor, eig, neus, vorm, ops):
     """Echt dunne onderkant: onderkant 6,5 mm onder H. Alleen midden gemeten: L = 6,5 - 1,9 = 4,6, klikdiepte
     min(0,25, 0,03 x 4,6^2 / (1,5 x 1,9)) = 0,223, dus wel een scharnier. Met de rand: diepte rond_diepte(4,75,
     6,5) = 4,103, L = 2,203, klikdiepte 0,051 onder 0,1: Tight, CANCELLED en geen objecten. De reden moet
-    neus.TIGHT zijn (zoals bij de korte staaf), niet zomaar een andere weigering."""
+    neus.TIGHT_KORT zijn (zoals bij de korte staaf: de onderkant, niet de dikte), niet zomaar een andere weigering."""
     onder, t = 6.5, 1.9
     lip = rond_diepte(0.95 * DIK / 2, onder) - t
     k = 0.03 * lip * lip / (1.5 * t)
@@ -189,5 +189,5 @@ def _schuin_tight(stap, cursor, eig, neus, vorm, ops):
     print(f"[cj-betaald] METING dunne ronde onderkant 6.5 mm: {uitslag}, melding \"{reden}\", eigen L {lip:.3f} "
           f"klikdiepte {k:.4f}")
     stap("dunne ronde onderkant (6.5 mm onder H, rand 4.1 mm): eigen klikdiepte onder 0.1 en Tight (CANCELLED, "
-         "melding Tight, geen delen)", k < 0.1 and tight and reden == neus.TIGHT and a is None and b is None
+         "melding Tight, geen delen)", k < 0.1 and tight and reden == neus.TIGHT_KORT and a is None and b is None
          and len(bpy.data.objects) == 1, f"{uitslag} {reden} k {k:.4f}")

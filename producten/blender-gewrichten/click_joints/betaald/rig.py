@@ -207,9 +207,13 @@ def kogel_reden(sleutel, melding):
     "too thin" of "nothing was cut" zegt. Gezien op AI-figuren van 150 mm (Meshy): de dijen raken elkaar tot vlak boven
     de knie en de dij is 35 tot 38 mm, korter dan kogel plus knie nodig hebben; een spleet tussen de benen hielp niet
     (proef run 16). Dan weet de koper waar hij moet bijsturen. Andere meldingen blijven zoals ze zijn."""
-    if sleutel not in ("HIP", "SHOULDER") or (melding or "nothing was cut") not in (
+    if sleutel not in ("HIP", "SHOULDER", "NECK") or (melding or "nothing was cut") not in (
             "too thin here for a ball joint", "nothing was cut"):
         return melding
+    if sleutel == "NECK":
+        # 23 nov (Olaf, studio-figuren): "Neck (not placed)" zonder reden op 4 van 6 Quaternius-figuren (korte, dikke
+        # nek in het hoofd, bot 14 mm op de knight).
+        return "no clean spot for a neck ball (the neck is short or sits inside the head), place it by hand"
     if sleutel == "HIP":
         return "no clean spot for a hip ball on this thigh (legs touch or the thigh is short), place it by hand"
     return "no clean spot for a shoulder ball on this upper arm (arm touches the body or is short), place it by hand"
