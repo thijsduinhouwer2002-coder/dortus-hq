@@ -60,7 +60,7 @@ Nulstand (Pro 1.2.2):
 |---|---|---|---|
 | robot-a | 4,4,4,4,4 | **9,8,8,9,9** | **8,9,9,8,9** |
 | robot-b | 4,4,4,4,4 | **9,9,8,9,8** | **8,9,9,9,9** |
-| robot-fijn | (afgebroken) | 5,5,5,5,5 | 5,5,5 |
+| robot-fijn | (afgebroken) | 5,5,5,5,5 | 5,5,5,5,5 |
 | kleding | 6,6,6,6,6 | 8,8,8,8,8 | 8,8,8,8,8 |
 | mens | 3,3,3,3,3 | 9,9,9,9,9 | 9,9,9,9,9 |
 | rigify | 5,5,5,5,5 | 7,7,7,7,7 | 7,7,7,7,7 |
@@ -73,7 +73,7 @@ Deze tak. 5.2.3 en 5.3.0 uit run 45273407326 (commit 0eb3510); 4.2.23 uit run 45
 |---|---|---|---|
 | robot-a | 6,6,6,6,6 | 9,9,9,9,9 | 9,9,9,9,9 |
 | robot-b | 6,6,6,6,6 | 9,9,9,9,9 | 9,9,9,9,9 |
-| robot-fijn | 7,7,7,7,7 | 9,9,9,9,9 | 9,9,9 |
+| robot-fijn | 7,7,7,7,7 | 9,9,9,9,9 | 9,9,9,9,9 |
 | kleding | 8,8,8,8,8 | 9,9,9,9,9 | 9,9,9,9,9 |
 | mens | 9,9,9,9,9 | 9,9,9,9,9 | 9,9,9,9,9 |
 | rigify | 7,7,7,7 | 7,7,7,7,7 | 7,7,7,7,7 |
@@ -81,19 +81,48 @@ Deze tak. 5.2.3 en 5.3.0 uit run 45273407326 (commit 0eb3510); 4.2.23 uit run 45
 | **samen (elke herhaling)** | **51 van 60** | **60 van 60** | **60 van 60** |
 
 Nulstand samen: 4.2.23 28 van 51 (zonder robot-fijn, die jobs werden afgebroken), 5.2.3 en 5.3.0 53 tot 55 van 60, wisselend per run.
+**Eerlijke vergelijking 4.2 (keuring A, M2):** op dezelfde zes figuren (zonder robot-fijn) gaat 4.2 van **28 naar 44 van 51**; de 51 van 60 in de tabel is met robot-fijn erbij, die in de nulstand niet afliep.
 
 Op deze tak zijn de gewrichten en hun bereik in elke herhaling precies gelijk, op elke figuur en in elke versie (21 van 21
 groepen één set regels, GEZIEN). Alleen het aantal punten van een paar delen verschilt (enkele tientallen tot ±180).
 
-**Bron van het wisselen (GEZIEN):** in de nulstand gaven 186 van de 558 kogelsneden in 5.x een H "los", en precies die 186
+**Bron van het wisselen (GEZIEN):** in de nulstand gaven 194 van de 567 kogelsneden in 5.x een H "los" (alle 5 herhalingen geteld, telling keurder A), en precies die 194
 waren slecht (open of overlappend); geen enkele andere snede was slecht. Op dezelfde mesh en dezelfde plek gaf de
 Exact-vereniging van omhulsel en lid (`een_lid._samen`) de ene keer "samen" en de andere keer "los" (robot-a, rechterschouder:
 herhaling 1, 4, 5 "samen" en ±30°, herhaling 3 "los", 9181 paren overlap, "blocked"). Ook op hetzelfde processortype (AMD
 EPYC 7763) verschilde het, dus het is niet alleen de processor: de vereniging werkt op een vorm die zichzelf snijdt, en de
 uitkomst daarvan hangt af van de volgorde waarin het parallelle rekenwerk klaar is (GOK voor dat laatste stapje; dat het
-precies de "los"-sneden zijn is GEZIEN). In 4.2 was alles in de nulstand en op de tak in elke herhaling gelijk.
-Op deze tak: 0 van 430 kogelsneden "los" (85 keer werd een mislukte vereniging een voxelvorm), 0 slechte sneden. Het kleine
+precies de "los"-sneden zijn is GEZIEN). In 4.2 waren de gewrichten in de nulstand en op de tak in elke herhaling gelijk; op snede-niveau niet altijd (run 45279729768: mens-3 had één slechte linkerschoudersnede die de andere herhalingen niet hadden, de volgende plek redde het; robot-fijn had twee vingerafdrukken). De Meshy knight wisselt in 4.2 ook (1 of 2 gewrichten), al op main.
+Op deze tak: 0 van 440 kogelsneden "los" (93 keer werd een mislukte vereniging een voxelvorm), 0 slechte sneden. Bij scharnieren gaf een "los"-H in de nulstand 20 keer wel een goede snede; het verband geldt voor kogels. Het kleine
 verschil in punten komt doordat de keuze "samen" of "voxel" per run nog kan wisselen; de gewrichten en het bereik niet.
+
+## Verlies bij kogelsneden (keuring A, moet 1; run 45282711505, commit 1945f46)
+Het vangnet "the cut lost part of the model" (`rig.verloren_stuk`, grens 6%) gold alleen voor scharnieren, terwijl de
+voxelvorm juist bij kogelsneden zit. Nu:
+- **In de add-on:** `rig.py` past het vangnet ook toe op elke kogelsnede (`VERLOREN_MAX` 0,06): meer verlies, dan
+  terugdraaien en de volgende plek. Toets in de e2e: `CJ_HERKANS=3` in `e2e/toetsen_mens.py` (eerste
+  linkerschoudersnede verliest zogenaamd 50%; de knop moet een volgende plek nemen en de schouder toch plaatsen). Groen in
+  de rig-toetsen van run 45282711505 voor 5.2.3 en 5.3.0 (GEZIEN: "na een kogelsnede die te veel verliest neemt de knop
+  een volgende plek"); 4.2 zie het bericht.
+- **Gemeten:** bij elke geslaagde kogelsnede hetzelfde `verloren_stuk` (bol van 15 mm rond de cursor overgeslagen), in
+  nulstand (2 herhalingen) en tak (5 herhalingen), drie versies. Cel: grootste verlies / kogelsneden boven 6%.
+
+| Figuur | 4.2.23 nul | 4.2.23 tak | 5.2.3 nul | 5.2.3 tak | 5.3.0 nul | 5.3.0 tak |
+|---|---|---|---|---|---|---|
+| robot-a | 5,0% / 0 | 0,0% / 0 | 0,3% / 0 | 0,0% / 0 | 0,0% / 0 | 0,3% / 0 |
+| robot-b | 5,0% / 0 | 0,0% / 0 | 0,0% / 0 | 0,3% / 0 | 0,0% / 0 | 0,3% / 0 |
+| robot-fijn | afgebroken | 0,0% / 0 | 0,0% / 0 | 0,0% / 0 | 0,0% / 0 | 0,0% / 0 |
+| kleding | 0,0% / 0 | 0,0% / 0 | 0,5% / 0 | 0,0% / 0 | 0,5% / 0 | 0,0% / 0 |
+| mens | 0,0% / 0 | 0,0% / 0 | 0,0% / 0 | 0,0% / 0 | 0,0% / 0 | 0,0% / 0 |
+| rigify | 0,2% / 0 | 0,2% / 0 | 0,2% / 0 | 0,2% / 0 | 0,2% / 0 | 0,2% / 0 |
+| armen | 0,0% / 0 | 0,0% / 0 | 0,9% / 0 | 0,9% / 0 | 0,9% / 0 | 0,9% / 0 |
+
+  Nergens boven 6%, nergens slechter dan de nulstand (grootste verlies tak 0,9%, nul 5,0%). De kogelsneden met voxelvorm
+  (125 in 4.2, 37 en 35 in 5.2.3 en 5.3.0) verloren elk 0,0%. Het vangnet heeft op de testset dus niets geweigerd; het
+  aantal gewrichten is gelijk aan run 45273407326 en 45275271607, en per figuur in elke herhaling dezelfde gewrichten met
+  hetzelfde bereik (21 van 21 groepen). De 7 tot 11% van de knight in 4.2 was een scharniersnede (rechterknie), waar het
+  vangnet al gold en doorschoof.
+- Afgebroken door GitHub (exit 143, SIGTERM van de runner): 4.2 robot-fijn nulstand (beide), 4.2 rigify tak 1 van 5.
 
 ## Oorzaak (met bewijs)
 Figure from rig snijdt een lid los met een omhulsel H (`een_lid`): een convex omhulsel rond het snijvlak plus het lid
@@ -127,18 +156,18 @@ zelf, elk punt `m` (0,2 tot 0,6 mm) langs zijn normaal naar buiten, samengevoegd
 - `betaald/herstel.py`: in 4.2 een paar randen met 4 vlakken splitsen als het deel daarna gesloten is (geen punt verschuift).
 - `rig.py`: na "overlap before they move" (scharnier in 4.2) de volgende plek, zoals al bij "no watertight parts".
 - `betaald/redenen.py`: bij een overgeslagen gewricht door een mislukte snede zegt de lijst wat de koper kan doen
-  ("place it by hand a few mm along the bone", in 4.2 ook "or use Blender 4.5 or newer, which cuts more reliably").
+  ("place it by hand a few mm along the bone", in 4.2 ook "or use a newer Blender such as 5.2, which cuts more reliably"; 4.5 is niet gemeten, dus niet genoemd; niet bij "blocked"; "The cut failed" heeft een eigen zin).
 - Geprobeerd en niet gehouden: scharnieren in 4.2 met het diepe omhulsel (`DIEP_EXACT`, run 45261862637): geen gewricht
   erbij. Scharniersnede in 4.2 met Self Intersection aan (run 45266243590): nooit gesloten; 0,05 mm verschoven: 2 van 6
   keer gesloten, dus geluk en niet gebouwd.
 
 ## Wat nog niet lukt (eerlijk)
-- **Blender 4.2: 51 van 60 met de robot van studio-3** (55 van 60 met die van studio-2, tabel boven). Robot: linkerschouder
+- **Blender 4.2: 51 van 60 met de robot van studio-3 (op de zes figuren van de nulstand 28 naar 44 van 51)** (55 van 60 met die van studio-2, tabel boven). Robot: linkerschouder
   en linkerheup ("no room ... next to the elbow/knee": in 4.2 reikt het linkerscharnier verder, zijn snede is niet goed,
   bereik 0 tot 150 in plaats van 120) en linkerknie (delen overlappen in rust); robot-fijn: linkerschouder en linkerheup;
   aangekleed: rechterknie. Alle 5 herhalingen gelijk. De koper krijgt een zin met wat hij kan doen. Een echte 4.2-oplossing
   (de scharniersnede zelf in Exact) is een eigen spoor, niet vóór woensdag.
-- **Tijd in 4.2:** daar is H altijd een voxelvorm, en Exact is traag: 2 tot 5 minuten per figuur (was ook 3 tot 30).
+- **Tijd in 4.2:** daar is H altijd een voxelvorm, en Exact is traag. Mediaan nulstand tegen tak (runs 45273407326 en 45275271607): lichte figuren zijn **2 tot 3,6 keer trager** (rigify 64 naar 230 s, mens 84 naar 165 s, robot 125 naar 184 s); kleding werd sneller (761 naar 202 s), armen ook (49 naar 34 s). In 5.x is de tak even snel of sneller (kleding 166 naar 89 s, robot-fijn 397 naar 205 s).
 - **Meshy knight (alleen in de gewone e2e, licentie niet zelf nagelezen, niet in de testset):** de rechterknie zit op de
   grens van het vangnet "lost part of the model" (6%): 5,3 tot 5,6% verloren, net als op main (zes metingen in run
   45267268513). Een grensgeval dat al bestond; met voxel-H altijd was het 8 tot 9% (daarom de bijstelling).
