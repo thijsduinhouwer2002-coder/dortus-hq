@@ -1125,3 +1125,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 16:03 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 23 nov 2026 ±16:12 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 542c4be..957a9ac: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-957a9ac.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer in de workflow dat `CJ_HERKANS=1` is gezet, anders draait de herkansingstoets niet (A4). - Laat de run zien dat de `global`-regel in `_snij` en de handtekening van `_markeer` kloppen (A5, A6). Het gaat om een groene Pro-run op 5.2.3 en 5.3.0. - Voeg de zoekregel na "no watertight parts" toe aan `architectuur.md` (B2). - Controleer de volgorde van afmelden in `__init__.py` (B7). - Splits `rig.py` op, het bestand is ruim boven de ±400 regels (B3). - Voeg bij "CI 8 tegen lokaal 9" een label toe (B6). - Overweeg de twee kleine gebruikersmeldingen uit deel C. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
