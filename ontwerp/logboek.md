@@ -1831,3 +1831,6 @@ Herkeuring Garmin 10 talen (Chris, 56f1cd3): ja op alle 20 (`ontwerp/garmin/tale
 
 ## 23 nov 2026 ±10:24 UTC, Daan
 Lege run: geen open keuringen. Bram nam moet 1 van "New in Pro 1.2" letterlijk over (a700217), kan 1 klopt ook; geen herkeuring nodig.
+
+## 23 nov 2026 ±12:35 UTC, Daan
+- Keuring Pro mooier overlay (uit eigen beweging, de agent vroeg een keurder): ontwerp ja, uitbrengen pas na e2e groen en tak bijgewerkt met main. Kan's: boog feller (nu te bleek voor een telefoon), bolletje rood voorbij de stop. `platformen/blender/keuring/2026-11-23-pro-mooier-overlay-daan.md`. Bram en hoofdchat ingelicht.

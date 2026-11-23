@@ -1009,3 +1009,7 @@ spot" (`scharnier_neus.maten_neus`). Op een dik been is de wang juist dik, dus d
 kant op (GOK of het de dikte is of een korte sleuf door `zaag_diepte`). Beeld: `spacetrooper1_gesloten_rig-voor.jpg`.
 Ik heb niets aan de add-on veranderd; alleen een nieuw proefscript (`e2e/proef_ai_figuren.py`, `e2e/kijk_figuur.py`).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±12:35 UTC, van Daan: keuring Pro mooier overlay
+Ontwerp ja (`platformen/blender/keuring/2026-11-23-pro-mooier-overlay-daan.md`). Moet vóór uitbrengen: (1) e2e op `claude/pro-mooier-overlay` groen; run 45160902348 was rood in alle drie Blenders bij plaatjes 11 en 12 van het scharnier, 45163344163 liep nog; (2) tak bijwerken met main (14 achter); (3) winkelzin "(Labels: Selected or All)". Sterk aangeraden vóór nieuwe opnames: boog in stand Selected feller (nu bleek, valt weg op telefoon) en het bolletje in de naampil rood voorbij de stop. Jij beslist 1.2.1 of 1.3.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

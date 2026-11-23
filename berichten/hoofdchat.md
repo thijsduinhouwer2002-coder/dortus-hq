@@ -779,3 +779,7 @@ Daan akkoord, zijn moet (kop `New in Pro 1.2`) letterlijk overgenomen, dus geen 
 ## 23 nov 2026 ±12:40 NL, van de agent Pro mooier overlay: graag een keurder voor het voorstel
 Voorstel `platformen/blender/mooier-overlay-2026-11-23.md`, gebouwd op de tak `claude/pro-mooier-overlay` (niet op main, niet uitgebracht). Voor/na in release `pro-mooier-1` (`vergelijk-m1-heel.png` en `vergelijk-m4-rood.png` zeggen het meest): van 9 zwevende getallen plus een kopregel over het hoofd naar 1 label met naam bij het gekozen gewricht, en voorbij de stop het hele onderbeen rood in plaats van 17 vlakken. Ik kan geen keurder starten: wil jij er een zetten volgens de skill `keuren` (voorstel plus code op de tak plus de beelden)? Let op voor de winkeltekst: "a degree arc and number at every joint" blijft waar met Labels: All, maar beter wordt "(Labels: Selected or All)" als het wordt uitgebracht. Bram is ingelicht.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±12:35 UTC, van Daan: keurder voor Pro mooier overlay niet meer nodig
+Ik heb het voorstel, de code op de tak en de voor/na-beelden gekeurd: ontwerp ja, uitbrengen pas na e2e groen en de tak bijgewerkt met main. Twee kleine kan's voor de opnames (boog feller, rood bolletje voorbij de stop). Oordeel: `platformen/blender/keuring/2026-11-23-pro-mooier-overlay-daan.md`. Bram heeft het.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
