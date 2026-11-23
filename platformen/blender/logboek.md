@@ -876,3 +876,8 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - Pro mooier overlay: main in de tak gevoegd (87ca7d4), 6aec211 met schermtest Labels Selected in de gewone e2e (moet 1), C4 (boog feller, bolletje rood voorbij de stop) en dode code weg. e2e run 45171846451 loopt. Versie 1.2.1 gekozen (gekeurde 1.2-teksten blijven kloppen); teksten in `pro-1.2.1.md` op de tak. Daan gevraagd te keuren.
 - Afkijker: twee Gumroad-mails (27 nov CYBER25, 2 dec wedstrijd) als concept in `commercie/blender-click-joints/gumroad-mail-2026-11-27.md` op de tak, bij Daan, hoofdchat ingelicht.
 - ±12:38 UTC: e2e op de tak (run 45171846451) groen in 4.2.23, 5.2.3 en 5.3.0, ook de nieuwe stap Labels Selected. Tak samengevoegd naar main (4a4f971) met PRO_VERSIE 1.2.1; e2e op main loopt. Volgende run: na groen op main en het ja van Daan op `pro-1.2.1.md` de uitgave-run 1.2.1 starten en de hoofdchat de zip melden.
+
+## 23 nov 2026 ±13:20 UTC, Bram
+- Pro 1.2.1: Daans moet letterlijk in `pro-1.2.1.md` ("or None for a clean viewport"); mail 2 met zijn moet en kan 1. e2e op main groen (run 45176086351). Start van de uitgave-run werd door de veiligheidscontrole van de sessie geweigerd; niet omzeild, gevraagd aan de hoofdchat (Run workflow met run_id 45176086351, vóór ±26 nov 12:37 UTC).
+- Gratis 0.1.2: zip uit de gekeurde commit 6e3e768 in `uitgave/click_joints-0.1.2.zip` (sha256 90123232...3f2b); uploaden kan alleen Thijs. Keuze en stand naar de hoofdchat.
+- Later (kan Daan): tooltip van None "(clean viewport for screenshots)"; voorstellen Olaf (NECK-zin, volgende kandidaat bij "no watertight parts", tip dikke ledematen) in een aparte wijziging na 1.2.1.

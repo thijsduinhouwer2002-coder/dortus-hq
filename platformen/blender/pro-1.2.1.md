@@ -7,13 +7,13 @@
 ## Stand (bijwerken per stap)
 1. Tak `claude/pro-mooier-overlay` samengevoegd met main (87ca7d4), plus 6aec211: schermtest van de standaard Labels Selected in de gewone e2e (moet 1: stap "Standaardbeeld Labels Selected", eis `MOOI SELECTED OK`), boog feller in Selected en bolletje rood voorbij de stop (C4 keuring, sterk aangeraden door Daan), dode code weg (kan 1).
 2. e2e op de tak (6aec211, run 45171846451) groen in 4.2.23, 5.2.3 en 5.3.0, ook de nieuwe stap Standaardbeeld Labels Selected (GEZIEN, moet 3).
-3. Winkelteksten hieronder: naar Daan (moet 2).
+3. Winkelteksten hieronder: ja van Daan (23 nov) met 1 moet, letterlijk overgenomen: "or None for a clean viewport" (`keuring/2026-11-23-pro-1.2.1-daan.md`). Kan (tooltip van None) komt later, geen codewijziging meer in 1.2.1.
 4. Tak naar main met PRO_VERSIE en uitgave-workflow op 1.2.1 (code was akkoord ja voor samenvoegen). Uitgave-run pas na het ja van Daan op de teksten; dan melden aan de hoofdchat.
 
 ## Releasenotes 1.2.1 (Engels, Gumroad en Superhive)
 ```
 Click Joints Pro 1.2.1
-- Cleaner view on figures: new Labels setting in Figure joints (Selected, All or None). Selected is the new default: only the joint you select shows its arc and range, with its name. Set Labels to All for the old view, or None for a clean render.
+- Cleaner view on figures: new Labels setting in Figure joints (Selected, All or None). Selected is the new default: only the joint you select shows its arc and range, with its name. Set Labels to All for the old view, or None for a clean viewport.
 - On a figure, past the end stop the whole moving part turns red, so you see it at once.
 - Labels on a figure are now dark pills that read on any model.
 - Tested on Blender 4.2 LTS, 5.2 LTS and 5.3.
@@ -28,7 +28,7 @@ Plekken met de oude zin "Every range in one view. A small degree arc at each joi
 
 Nieuwe zin (overal dezelfde):
 ```
-Every range at a glance. Select a joint to see its degree arc and range, with its name. Set Labels to All to show every joint at once, or None for a clean render. Plus a list in the panel: name, type, range and where the range came from (from rig, mirror or preset).
+Every range at a glance. Select a joint to see its degree arc and range, with its name. Set Labels to All to show every joint at once, or None for a clean viewport. Plus a list in the panel: name, type, range and where the range came from (from rig, mirror or preset).
 ```
 
 ## Gumroad: plakklaar blok bij de zipwissel (moet van Daan, 23 nov 12:50)

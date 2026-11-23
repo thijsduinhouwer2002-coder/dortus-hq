@@ -2,7 +2,7 @@
 
 Opdracht Afkijker 23 nov ±13:40 NL (`berichten/bram.md`). Voorbeeld: 3D Zip Guy stuurt bij elke uitgave een korte Gumroad-mail met één link (DERDEN, `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-23-3dzipguy.md`). Gumroad kan een mail richten op "products purchased, not purchased" (DERDEN, https://gumroad.com/help/article/169-how-to-send-an-update).
 
-**Status: concept, keuring Daan gevraagd.** Daarna naar de hoofdchat; die verstuurt (het bord zegt: tekst moet ook langs Thijs, want de Gumroad-winkel staat op zijn account).
+**Status: gekeurd door Daan (23 nov, `platformen/blender/keuring/2026-11-23-pro-1.2.1-daan.md`): mail 1 ja, mail 2 ja na zijn moet (letterlijk overgenomen: foto naar thijs@dortus.com) plus kan 1 (first name or username).** Daarna naar de hoofdchat; die verstuurt (het bord zegt: tekst moet ook langs Thijs, want de Gumroad-winkel staat op zijn account).
 
 Feiten die de mail gebruikt (nagekeken in de repo):
 - CYBER25: 25% op Gumroad, 27 nov 00:00 tot 1 dec 23:59 NL (`organisatie/besluiten.md`, 19 nov 23:00). Daan wil "with code CYBER25" in teksten (lijst Thijs, BlenderArtists).
@@ -37,17 +37,17 @@ Printfoto-wedstrijd tot 30 dec. Voorbeeld: Zip Guy deed dit in okt en nov 2023 m
 ```
 Hi, we would love to see what you print with Click Joints.
 
-Print a figure you made with Click Joints (free or Pro) and reply to this email with a photo before December 30.
+Print a figure you made with Click Joints (free or Pro) and send a photo to thijs@dortus.com before December 30.
 
-The three best prints get Click Joints Pro for free and are shown with your name on dortus.com.
+The three best prints get Click Joints Pro for free and are shown with your first name or username on dortus.com.
 
-Short rules: only photos you took yourself of your own print, by sending one you let us show it on dortus.com and our channels with your name, and there is no cash prize.
+Short rules: only photos you took yourself of your own print, by sending one you let us show it on dortus.com and our channels with your first name or username, and there is no cash prize.
 
 We will email the winners in the first week of January.
 
 Dortus
 ```
 Open punten voor de keurder en de hoofdchat:
-- Komt een antwoord op een Gumroad-mail aan bij een adres dat wij lezen? Zo niet, dan "reply to this email" vervangen door het supportadres dat op extensions.blender.org staat. Na te kijken door de hoofdchat (Gmail lezen mag).
+- Opgelost (moet Daan): foto's gaan naar thijs@dortus.com (besluit 22 nov 13:40), geen "reply to this email" meer.
 - Wie Pro al heeft en wint: dan een Studio-licentie of een vermelding alleen; besluit hoofdchat.
 - "and our channels": alleen houden als de hoofdchat foto's ook op YouTube of TikTok wil tonen; anders weg.
