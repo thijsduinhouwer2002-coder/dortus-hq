@@ -7,20 +7,20 @@
 [sj-e2e] OK   operator split_joints.snede_weg bestaat 
 [sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
 [sj-e2e] suzanne: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] suzanne: split {'FINISHED'} in 9.4 s, solver EXACT
+[sj-e2e] suzanne: split {'FINISHED'} in 7.06 s, solver EXACT
 [sj-e2e] OK   suzanne: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   suzanne stuk 1: past op het bed [84.6, 96.1, 115.1]
 [sj-e2e] OK   suzanne stuk 1: waterdicht slechte randen 0, volume 255117 mm3, per stap [0, 0, 0, 0]
 [sj-e2e] OK   suzanne stuk 1: status groen groen, wand 1.402
 [sj-e2e] OK   suzanne stuk 2: past op het bed [84.6, 96.1, 115.1]
-[sj-e2e] FOUT suzanne stuk 2: waterdicht slechte randen 4, volume 254922 mm3, per stap [0, 0, 0, 4, 4, 19, 4, 4]
-[sj-e2e] FOUT suzanne stuk 2: status groen rood, wand 1.391
+[sj-e2e] OK   suzanne stuk 2: waterdicht slechte randen 0, volume 254924 mm3, per stap [0, 0, 0, 4, 0]
+[sj-e2e] OK   suzanne stuk 2: status groen groen, wand 1.391
 [sj-e2e] OK   suzanne stuk 3: past op het bed [137.6, 88.1, 47.7]
-[sj-e2e] FOUT suzanne stuk 3: waterdicht slechte randen 4, volume 137357 mm3, per stap [0, 0, 0, 4, 6, 9, 4, 4]
-[sj-e2e] FOUT suzanne stuk 3: status groen rood, wand 1.255
+[sj-e2e] OK   suzanne stuk 3: waterdicht slechte randen 0, volume 137358 mm3, per stap [0, 0, 0, 4, 0]
+[sj-e2e] OK   suzanne stuk 3: status groen groen, wand 1.255
 [sj-e2e] OK   suzanne stuk 4: past op het bed [137.5, 88.1, 47.7]
-[sj-e2e] FOUT suzanne stuk 4: waterdicht slechte randen 12, volume 137302 mm3, per stap [0, 0, 0, 12, 12, 12, 12, 12]
-[sj-e2e] FOUT suzanne stuk 4: status groen rood, wand 1.254
+[sj-e2e] OK   suzanne stuk 4: waterdicht slechte randen 0, volume 137303 mm3, per stap [0, 0, 0, 12, 0]
+[sj-e2e] OK   suzanne stuk 4: status groen groen, wand 1.254
 [sj-e2e] OK   suzanne stuk 5: past op het bed [98.8, 96.3, 113.5]
 [sj-e2e] OK   suzanne stuk 5: waterdicht slechte randen 0, volume 622096 mm3, per stap [0, 0, 3, 0, 0]
 [sj-e2e] OK   suzanne stuk 5: status groen groen, wand 1.724
@@ -31,8 +31,8 @@
 [sj-e2e] OK   suzanne stuk 7: waterdicht slechte randen 0, volume 721398 mm3, per stap [0, 0, 0, 0]
 [sj-e2e] OK   suzanne stuk 7: status groen groen, wand 1.453
 [sj-e2e] OK   suzanne stuk 8: past op het bed [159.6, 96.3, 115.1]
-[sj-e2e] FOUT suzanne stuk 8: waterdicht slechte randen 4, volume 721112 mm3, per stap [0, 0, 0, 4, 4, 12, 4, 4]
-[sj-e2e] FOUT suzanne stuk 8: status groen rood, wand 1.451
+[sj-e2e] OK   suzanne stuk 8: waterdicht slechte randen 0, volume 721113 mm3, per stap [0, 0, 0, 4, 0]
+[sj-e2e] OK   suzanne stuk 8: status groen groen, wand 1.451
 [sj-e2e] OK   suzanne: aantal pennen gelijk aan de gatenparen 40 pennen, 40 paren
 [sj-e2e] OK   suzanne: er zijn pennen 
 [sj-e2e] OK   suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
@@ -204,25 +204,25 @@
 [sj-e2e] OK   suzanne stuk 1: nummer 1-5 verdiept in het vlak 86 punten op de bodem
 [sj-e2e] OK   suzanne stuk 2: heeft een nummer ['2-1', '2-4', '2-6']
 [sj-e2e] OK   suzanne stuk 2: nummer 2-1 begint met het eigen nummer 
-[sj-e2e] OK   suzanne stuk 2: nummer 2-1 verdiept in het vlak 97 punten op de bodem
+[sj-e2e] OK   suzanne stuk 2: nummer 2-1 verdiept in het vlak 436 punten op de bodem
 [sj-e2e] OK   suzanne stuk 2: nummer 2-4 begint met het eigen nummer 
-[sj-e2e] OK   suzanne stuk 2: nummer 2-4 verdiept in het vlak 108 punten op de bodem
+[sj-e2e] OK   suzanne stuk 2: nummer 2-4 verdiept in het vlak 236 punten op de bodem
 [sj-e2e] OK   suzanne stuk 2: nummer 2-6 begint met het eigen nummer 
-[sj-e2e] OK   suzanne stuk 2: nummer 2-6 verdiept in het vlak 214 punten op de bodem
+[sj-e2e] OK   suzanne stuk 2: nummer 2-6 verdiept in het vlak 247 punten op de bodem
 [sj-e2e] OK   suzanne stuk 3: heeft een nummer ['3-4', '3-1', '3-7']
 [sj-e2e] OK   suzanne stuk 3: nummer 3-4 begint met het eigen nummer 
-[sj-e2e] OK   suzanne stuk 3: nummer 3-4 verdiept in het vlak 166 punten op de bodem
+[sj-e2e] OK   suzanne stuk 3: nummer 3-4 verdiept in het vlak 256 punten op de bodem
 [sj-e2e] OK   suzanne stuk 3: nummer 3-1 begint met het eigen nummer 
-[sj-e2e] OK   suzanne stuk 3: nummer 3-1 verdiept in het vlak 155 punten op de bodem
+[sj-e2e] OK   suzanne stuk 3: nummer 3-1 verdiept in het vlak 390 punten op de bodem
 [sj-e2e] OK   suzanne stuk 3: nummer 3-7 begint met het eigen nummer 
-[sj-e2e] OK   suzanne stuk 3: nummer 3-7 verdiept in het vlak 157 punten op de bodem
+[sj-e2e] OK   suzanne stuk 3: nummer 3-7 verdiept in het vlak 225 punten op de bodem
 [sj-e2e] OK   suzanne stuk 4: heeft een nummer ['4-3', '4-2', '4-8']
 [sj-e2e] OK   suzanne stuk 4: nummer 4-3 begint met het eigen nummer 
-[sj-e2e] OK   suzanne stuk 4: nummer 4-3 verdiept in het vlak 166 punten op de bodem
+[sj-e2e] OK   suzanne stuk 4: nummer 4-3 verdiept in het vlak 552 punten op de bodem
 [sj-e2e] OK   suzanne stuk 4: nummer 4-2 begint met het eigen nummer 
-[sj-e2e] OK   suzanne stuk 4: nummer 4-2 verdiept in het vlak 108 punten op de bodem
+[sj-e2e] OK   suzanne stuk 4: nummer 4-2 verdiept in het vlak 485 punten op de bodem
 [sj-e2e] OK   suzanne stuk 4: nummer 4-8 begint met het eigen nummer 
-[sj-e2e] OK   suzanne stuk 4: nummer 4-8 verdiept in het vlak 211 punten op de bodem
+[sj-e2e] OK   suzanne stuk 4: nummer 4-8 verdiept in het vlak 329 punten op de bodem
 [sj-e2e] OK   suzanne stuk 5: heeft een nummer ['5-6', '5-7', '5-1']
 [sj-e2e] OK   suzanne stuk 5: nummer 5-6 begint met het eigen nummer 
 [sj-e2e] OK   suzanne stuk 5: nummer 5-6 verdiept in het vlak 203 punten op de bodem
@@ -246,62 +246,62 @@
 [sj-e2e] OK   suzanne stuk 7: nummer 7-3 verdiept in het vlak 157 punten op de bodem
 [sj-e2e] OK   suzanne stuk 8: heeft een nummer ['8-7', '8-6', '8-4']
 [sj-e2e] OK   suzanne stuk 8: nummer 8-7 begint met het eigen nummer 
-[sj-e2e] OK   suzanne stuk 8: nummer 8-7 verdiept in het vlak 202 punten op de bodem
+[sj-e2e] OK   suzanne stuk 8: nummer 8-7 verdiept in het vlak 626 punten op de bodem
 [sj-e2e] OK   suzanne stuk 8: nummer 8-6 begint met het eigen nummer 
-[sj-e2e] OK   suzanne stuk 8: nummer 8-6 verdiept in het vlak 317 punten op de bodem
+[sj-e2e] OK   suzanne stuk 8: nummer 8-6 verdiept in het vlak 587 punten op de bodem
 [sj-e2e] OK   suzanne stuk 8: nummer 8-4 begint met het eigen nummer 
-[sj-e2e] OK   suzanne stuk 8: nummer 8-4 verdiept in het vlak 211 punten op de bodem
+[sj-e2e] OK   suzanne stuk 8: nummer 8-4 verdiept in het vlak 324 punten op de bodem
 [sj-e2e] OK   suzanne: aantal stukken gelijk aan het plan 8 / 8
 [sj-e2e] OK   suzanne: export STL 9 bestanden
 [sj-e2e] OK   suzanne: STL piece_01.stl maat gelijk 10246 driehoeken, [84.59, 96.1, 115.08]
-[sj-e2e] OK   suzanne: STL piece_02.stl maat gelijk 10622 driehoeken, [84.56, 96.1, 115.08]
-[sj-e2e] OK   suzanne: STL piece_03.stl maat gelijk 8040 driehoeken, [137.57, 88.06, 47.69]
-[sj-e2e] OK   suzanne: STL piece_04.stl maat gelijk 7994 driehoeken, [137.54, 88.06, 47.69]
+[sj-e2e] OK   suzanne: STL piece_02.stl maat gelijk 18142 driehoeken, [84.56, 96.1, 115.08]
+[sj-e2e] OK   suzanne: STL piece_03.stl maat gelijk 14832 driehoeken, [137.57, 88.06, 47.69]
+[sj-e2e] OK   suzanne: STL piece_04.stl maat gelijk 16916 driehoeken, [137.54, 88.06, 47.69]
 [sj-e2e] OK   suzanne: STL piece_05.stl maat gelijk 14272 driehoeken, [98.82, 96.34, 113.5]
 [sj-e2e] OK   suzanne: STL piece_06.stl maat gelijk 15596 driehoeken, [98.79, 96.34, 113.5]
 [sj-e2e] OK   suzanne: STL piece_07.stl maat gelijk 17214 driehoeken, [159.6, 96.31, 115.05]
-[sj-e2e] OK   suzanne: STL piece_08.stl maat gelijk 18300 driehoeken, [159.57, 96.31, 115.05]
+[sj-e2e] OK   suzanne: STL piece_08.stl maat gelijk 28606 driehoeken, [159.57, 96.31, 115.05]
 [sj-e2e] OK   suzanne: STL pins_5mm_x40.stl maat gelijk 10080 driehoeken, [59.0, 50.0, 12.0]
 [sj-e2e] OK   suzanne: export 3MF 9 bestanden
 [sj-e2e] OK   suzanne: 3MF piece_01.3mf 10246 driehoeken
-[sj-e2e] OK   suzanne: 3MF piece_02.3mf 10622 driehoeken
-[sj-e2e] OK   suzanne: 3MF piece_03.3mf 8040 driehoeken
-[sj-e2e] OK   suzanne: 3MF piece_04.3mf 7994 driehoeken
+[sj-e2e] OK   suzanne: 3MF piece_02.3mf 18142 driehoeken
+[sj-e2e] OK   suzanne: 3MF piece_03.3mf 14832 driehoeken
+[sj-e2e] OK   suzanne: 3MF piece_04.3mf 16916 driehoeken
 [sj-e2e] OK   suzanne: 3MF piece_05.3mf 14272 driehoeken
 [sj-e2e] OK   suzanne: 3MF piece_06.3mf 15596 driehoeken
 [sj-e2e] OK   suzanne: 3MF piece_07.3mf 17214 driehoeken
-[sj-e2e] OK   suzanne: 3MF piece_08.3mf 18300 driehoeken
+[sj-e2e] OK   suzanne: 3MF piece_08.3mf 28606 driehoeken
 [sj-e2e] OK   suzanne: 3MF pins_5mm_x40.3mf 10080 driehoeken
 [sj-e2e] OK   verschuif: er is een snede 
 [sj-e2e] OK   verschuif: een stuk eindigt op de nieuwe plek {'FINISHED'}, snede 0.00 -> 5.00
 [sj-e2e] OK   verschuif: geen stuk eindigt op de oude plek 
 [sj-e2e] OK   verschuif stuk 1: past en waterdicht 
-[sj-e2e] FOUT verschuif stuk 2: past en waterdicht 
-[sj-e2e] FOUT verschuif stuk 3: past en waterdicht 
-[sj-e2e] FOUT verschuif stuk 4: past en waterdicht 
+[sj-e2e] OK   verschuif stuk 2: past en waterdicht 
+[sj-e2e] OK   verschuif stuk 3: past en waterdicht 
+[sj-e2e] OK   verschuif stuk 4: past en waterdicht 
 [sj-e2e] OK   verschuif stuk 5: past en waterdicht 
 [sj-e2e] OK   verschuif stuk 6: past en waterdicht 
 [sj-e2e] OK   verschuif stuk 7: past en waterdicht 
-[sj-e2e] FOUT verschuif stuk 8: past en waterdicht 
+[sj-e2e] OK   verschuif stuk 8: past en waterdicht 
 [sj-e2e] waterdicht GlassAlpha: {'FINISHED'} -> GlassAlpha_watertight 345960 vlakken
 [sj-e2e] vaas: plan {'FINISHED'} 16 stukken, n=[2, 2, 4]
-[sj-e2e] vaas: split {'FINISHED'} in 38.58 s, solver EXACT
+[sj-e2e] vaas: split {'FINISHED'} in 45.15 s, solver EXACT
 [sj-e2e] OK   vaas: meer dan 1 stuk 16 stukken
 [sj-e2e] vaas: meldingen: 'Cut 9-10: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-14: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 11-12: too small for a pin: the face is 5.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 15-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 9-11: too small for a pin: the face is 5.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-15: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 10-12: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 14-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 5-9: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 7-11: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 6-10: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 8-12: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 9-13: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 11-15: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 10-14: too small for a pin: the face is 5.4 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 12-16: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint'
 [sj-e2e] OK   vaas stuk 1: past op het bed [144.0, 144.1, 150.0]
 [sj-e2e] OK   vaas stuk 1: waterdicht slechte randen 0, volume 924386 mm3, per stap [0, 0, 0, 0]
 [sj-e2e] OK   vaas stuk 1: status groen groen, wand 1.389
 [sj-e2e] OK   vaas stuk 2: past op het bed [144.1, 144.1, 150.0]
-[sj-e2e] FOUT vaas stuk 2: waterdicht slechte randen 4, volume 925544 mm3, per stap [0, 0, 0, 4, 4, 23, 4, 4]
-[sj-e2e] FOUT vaas stuk 2: status groen rood, wand 1.39
+[sj-e2e] OK   vaas stuk 2: waterdicht slechte randen 0, volume 925546 mm3, per stap [0, 0, 0, 4, 0]
+[sj-e2e] OK   vaas stuk 2: status groen groen, wand 1.39
 [sj-e2e] OK   vaas stuk 3: past op het bed [144.0, 144.0, 150.0]
-[sj-e2e] OK   vaas stuk 3: waterdicht slechte randen 0, volume 924078 mm3, per stap [0, 0, 0, 4, 4, 0]
+[sj-e2e] OK   vaas stuk 3: waterdicht slechte randen 0, volume 924080 mm3, per stap [0, 0, 0, 4, 0]
 [sj-e2e] OK   vaas stuk 3: status groen groen, wand 1.388
 [sj-e2e] OK   vaas stuk 4: past op het bed [144.1, 144.0, 150.0]
-[sj-e2e] FOUT vaas stuk 4: waterdicht slechte randen 1, volume 925158 mm3, per stap [0, 0, 0, 12, 12, 1, 12, 12]
-[sj-e2e] FOUT vaas stuk 4: status groen rood, wand 1.389
+[sj-e2e] OK   vaas stuk 4: waterdicht slechte randen 0, volume 925160 mm3, per stap [0, 0, 0, 12, 0]
+[sj-e2e] OK   vaas stuk 4: status groen groen, wand 1.389
 [sj-e2e] OK   vaas stuk 5: past op het bed [140.4, 140.5, 150.0]
-[sj-e2e] OK   vaas stuk 5: waterdicht slechte randen 0, volume 236924 mm3, per stap [0, 0, 9, 0, 6, 0]
+[sj-e2e] OK   vaas stuk 5: waterdicht slechte randen 0, volume 236924 mm3, per stap [0, 0, 9, 0, 6, 6, 0]
 [sj-e2e] OK   vaas stuk 5: status groen groen, wand 1.391
 [sj-e2e] OK   vaas stuk 6: past op het bed [140.5, 140.5, 150.0]
 [sj-e2e] OK   vaas stuk 6: waterdicht slechte randen 0, volume 237106 mm3, per stap [0, 0, 0, 0]
@@ -310,28 +310,28 @@
 [sj-e2e] OK   vaas stuk 7: waterdicht slechte randen 0, volume 236871 mm3, per stap [0, 0, 6, 0, 0]
 [sj-e2e] OK   vaas stuk 7: status groen groen, wand 1.39
 [sj-e2e] OK   vaas stuk 8: past op het bed [140.5, 140.4, 150.0]
-[sj-e2e] FOUT vaas stuk 8: waterdicht slechte randen 5, volume 237045 mm3, per stap [0, 0, 0, 13, 5, 10, 13, 13]
+[sj-e2e] FOUT vaas stuk 8: waterdicht slechte randen 5, volume 237045 mm3, per stap [0, 0, 0, 13, 9, 5, 10, 13, 13]
 [sj-e2e] FOUT vaas stuk 8: status groen rood, wand 1.398
 [sj-e2e] OK   vaas stuk 9: past op het bed [150.0, 150.1, 150.0]
-[sj-e2e] OK   vaas stuk 9: waterdicht slechte randen 0, volume 206517 mm3, per stap [0, 0, 15, 0]
+[sj-e2e] OK   vaas stuk 9: waterdicht slechte randen 0, volume 206517 mm3, per stap [0, 0, 15, 15, 0]
 [sj-e2e] OK   vaas stuk 9: status groen groen, wand -1.0
 [sj-e2e] OK   vaas stuk 10: past op het bed [150.1, 150.1, 150.0]
 [sj-e2e] OK   vaas stuk 10: waterdicht slechte randen 0, volume 206601 mm3, per stap [0, 0, 0]
 [sj-e2e] OK   vaas stuk 10: status groen groen, wand -1.0
 [sj-e2e] OK   vaas stuk 11: past op het bed [150.0, 150.1, 150.0]
-[sj-e2e] OK   vaas stuk 11: waterdicht slechte randen 0, volume 206485 mm3, per stap [0, 0, 21, 0]
+[sj-e2e] OK   vaas stuk 11: waterdicht slechte randen 0, volume 206485 mm3, per stap [0, 0, 21, 21, 0]
 [sj-e2e] OK   vaas stuk 11: status groen groen, wand -1.0
 [sj-e2e] OK   vaas stuk 12: past op het bed [150.1, 150.1, 150.0]
 [sj-e2e] OK   vaas stuk 12: waterdicht slechte randen 0, volume 206571 mm3, per stap [0, 0, 0]
 [sj-e2e] OK   vaas stuk 12: status groen groen, wand -1.0
 [sj-e2e] OK   vaas stuk 13: past op het bed [158.6, 158.7, 150.0]
-[sj-e2e] OK   vaas stuk 13: waterdicht slechte randen 0, volume 185376 mm3, per stap [0, 0, 15, 0]
+[sj-e2e] OK   vaas stuk 13: waterdicht slechte randen 0, volume 185376 mm3, per stap [0, 0, 15, 15, 0]
 [sj-e2e] OK   vaas stuk 13: status groen groen, wand -1.0
 [sj-e2e] OK   vaas stuk 14: past op het bed [158.7, 158.7, 150.0]
 [sj-e2e] OK   vaas stuk 14: waterdicht slechte randen 0, volume 185415 mm3, per stap [0, 0, 0]
 [sj-e2e] OK   vaas stuk 14: status groen groen, wand -1.0
 [sj-e2e] OK   vaas stuk 15: past op het bed [158.6, 158.7, 150.0]
-[sj-e2e] OK   vaas stuk 15: waterdicht slechte randen 0, volume 185330 mm3, per stap [0, 0, 18, 0]
+[sj-e2e] OK   vaas stuk 15: waterdicht slechte randen 0, volume 185330 mm3, per stap [0, 0, 18, 18, 0]
 [sj-e2e] OK   vaas stuk 15: status groen groen, wand -1.0
 [sj-e2e] OK   vaas stuk 16: past op het bed [158.7, 158.7, 150.0]
 [sj-e2e] OK   vaas stuk 16: waterdicht slechte randen 0, volume 185404 mm3, per stap [0, 0, 0]
@@ -475,25 +475,25 @@
 [sj-e2e] OK   vaas stuk 1: nummer 1-5 verdiept in het vlak 86 punten op de bodem
 [sj-e2e] OK   vaas stuk 2: heeft een nummer ['2-1', '2-4', '2-6']
 [sj-e2e] OK   vaas stuk 2: nummer 2-1 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 2: nummer 2-1 verdiept in het vlak 97 punten op de bodem
+[sj-e2e] OK   vaas stuk 2: nummer 2-1 verdiept in het vlak 169 punten op de bodem
 [sj-e2e] OK   vaas stuk 2: nummer 2-4 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 2: nummer 2-4 verdiept in het vlak 108 punten op de bodem
+[sj-e2e] OK   vaas stuk 2: nummer 2-4 verdiept in het vlak 238 punten op de bodem
 [sj-e2e] OK   vaas stuk 2: nummer 2-6 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 2: nummer 2-6 verdiept in het vlak 214 punten op de bodem
+[sj-e2e] OK   vaas stuk 2: nummer 2-6 verdiept in het vlak 242 punten op de bodem
 [sj-e2e] OK   vaas stuk 3: heeft een nummer ['3-4', '3-1', '3-7']
 [sj-e2e] OK   vaas stuk 3: nummer 3-4 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 3: nummer 3-4 verdiept in het vlak 166 punten op de bodem
+[sj-e2e] OK   vaas stuk 3: nummer 3-4 verdiept in het vlak 305 punten op de bodem
 [sj-e2e] OK   vaas stuk 3: nummer 3-1 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 3: nummer 3-1 verdiept in het vlak 155 punten op de bodem
+[sj-e2e] OK   vaas stuk 3: nummer 3-1 verdiept in het vlak 422 punten op de bodem
 [sj-e2e] OK   vaas stuk 3: nummer 3-7 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 3: nummer 3-7 verdiept in het vlak 157 punten op de bodem
+[sj-e2e] OK   vaas stuk 3: nummer 3-7 verdiept in het vlak 212 punten op de bodem
 [sj-e2e] OK   vaas stuk 4: heeft een nummer ['4-3', '4-2', '4-8']
 [sj-e2e] OK   vaas stuk 4: nummer 4-3 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 4: nummer 4-3 verdiept in het vlak 166 punten op de bodem
+[sj-e2e] OK   vaas stuk 4: nummer 4-3 verdiept in het vlak 224 punten op de bodem
 [sj-e2e] OK   vaas stuk 4: nummer 4-2 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 4: nummer 4-2 verdiept in het vlak 108 punten op de bodem
+[sj-e2e] OK   vaas stuk 4: nummer 4-2 verdiept in het vlak 539 punten op de bodem
 [sj-e2e] OK   vaas stuk 4: nummer 4-8 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 4: nummer 4-8 verdiept in het vlak 211 punten op de bodem
+[sj-e2e] OK   vaas stuk 4: nummer 4-8 verdiept in het vlak 305 punten op de bodem
 [sj-e2e] OK   vaas stuk 5: heeft een nummer ['5-6', '5-7', '5-1', '5-9']
 [sj-e2e] OK   vaas stuk 5: nummer 5-6 begint met het eigen nummer 
 [sj-e2e] OK   vaas stuk 5: nummer 5-6 verdiept in het vlak 203 punten op de bodem
@@ -597,9 +597,9 @@
 [sj-e2e] OK   vaas: aantal stukken gelijk aan het plan 16 / 16
 [sj-e2e] OK   vaas: export STL 17 bestanden
 [sj-e2e] OK   vaas: STL piece_01.stl maat gelijk 36402 driehoeken, [144.02, 144.07, 150.01]
-[sj-e2e] OK   vaas: STL piece_02.stl maat gelijk 36732 driehoeken, [144.11, 144.07, 150.01]
-[sj-e2e] OK   vaas: STL piece_03.stl maat gelijk 36970 driehoeken, [144.02, 144.05, 150.01]
-[sj-e2e] OK   vaas: STL piece_04.stl maat gelijk 36990 driehoeken, [144.11, 144.05, 150.01]
+[sj-e2e] OK   vaas: STL piece_02.stl maat gelijk 43742 driehoeken, [144.11, 144.07, 150.01]
+[sj-e2e] OK   vaas: STL piece_03.stl maat gelijk 44466 driehoeken, [144.02, 144.05, 150.01]
+[sj-e2e] OK   vaas: STL piece_04.stl maat gelijk 45344 driehoeken, [144.11, 144.05, 150.01]
 [sj-e2e] OK   vaas: STL piece_05.stl maat gelijk 52018 driehoeken, [140.39, 140.45, 150.0]
 [sj-e2e] OK   vaas: STL piece_06.stl maat gelijk 53168 driehoeken, [140.48, 140.45, 150.0]
 [sj-e2e] OK   vaas: STL piece_07.stl maat gelijk 51448 driehoeken, [140.39, 140.43, 150.0]
@@ -615,9 +615,9 @@
 [sj-e2e] OK   vaas: STL pins_5mm_x32.stl maat gelijk 8064 driehoeken, [50.0, 50.0, 12.0]
 [sj-e2e] OK   vaas: export 3MF 17 bestanden
 [sj-e2e] OK   vaas: 3MF piece_01.3mf 36402 driehoeken
-[sj-e2e] OK   vaas: 3MF piece_02.3mf 36732 driehoeken
-[sj-e2e] OK   vaas: 3MF piece_03.3mf 36970 driehoeken
-[sj-e2e] OK   vaas: 3MF piece_04.3mf 36990 driehoeken
+[sj-e2e] OK   vaas: 3MF piece_02.3mf 43742 driehoeken
+[sj-e2e] OK   vaas: 3MF piece_03.3mf 44466 driehoeken
+[sj-e2e] OK   vaas: 3MF piece_04.3mf 45344 driehoeken
 [sj-e2e] OK   vaas: 3MF piece_05.3mf 52018 driehoeken
 [sj-e2e] OK   vaas: 3MF piece_06.3mf 53168 driehoeken
 [sj-e2e] OK   vaas: 3MF piece_07.3mf 51448 driehoeken
@@ -633,19 +633,19 @@
 [sj-e2e] OK   vaas: 3MF pins_5mm_x32.3mf 8064 driehoeken
 [sj-e2e] waterdicht Skull: {'FINISHED'} -> Skull_watertight 79582 vlakken
 [sj-e2e] schedel: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] schedel: split {'FINISHED'} in 16.38 s, solver EXACT
+[sj-e2e] schedel: split {'FINISHED'} in 17.85 s, solver EXACT
 [sj-e2e] OK   schedel: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   schedel stuk 1: past op het bed [90.2, 149.9, 106.6]
 [sj-e2e] OK   schedel stuk 1: waterdicht slechte randen 0, volume 335464 mm3, per stap [0, 0, 9, 0, 0]
 [sj-e2e] OK   schedel stuk 1: status groen groen, wand 1.418
 [sj-e2e] OK   schedel stuk 2: past op het bed [90.1, 149.5, 106.7]
-[sj-e2e] FOUT schedel stuk 2: waterdicht slechte randen 4, volume 335475 mm3, per stap [0, 0, 0, 4, 4, 15, 7, 4]
+[sj-e2e] FOUT schedel stuk 2: waterdicht slechte randen 3, volume 335484 mm3, per stap [0, 0, 0, 4, 3, 4, 15, 7, 4]
 [sj-e2e] FOUT schedel stuk 2: status groen rood, wand 1.417
 [sj-e2e] OK   schedel stuk 3: past op het bed [89.2, 149.8, 111.0]
-[sj-e2e] FOUT schedel stuk 3: waterdicht slechte randen 4, volume 974708 mm3, per stap [0, 0, 0, 4, 4, 11, 4, 4]
-[sj-e2e] FOUT schedel stuk 3: status groen rood, wand 1.403
+[sj-e2e] OK   schedel stuk 3: waterdicht slechte randen 0, volume 974710 mm3, per stap [0, 0, 0, 4, 0]
+[sj-e2e] OK   schedel stuk 3: status groen groen, wand 1.403
 [sj-e2e] OK   schedel stuk 4: past op het bed [89.2, 149.9, 111.7]
-[sj-e2e] FOUT schedel stuk 4: waterdicht slechte randen 7, volume 974241 mm3, per stap [0, 0, 0, 15, 12, 7, 15, 15]
+[sj-e2e] FOUT schedel stuk 4: waterdicht slechte randen 3, volume 974241 mm3, per stap [0, 0, 0, 15, 3, 12, 7, 15, 15]
 [sj-e2e] FOUT schedel stuk 4: status groen rood, wand 1.402
 [sj-e2e] OK   schedel stuk 5: past op het bed [76.8, 105.3, 111.5]
 [sj-e2e] OK   schedel stuk 5: waterdicht slechte randen 0, volume 363312 mm3, per stap [0, 0, 0, 0]
@@ -657,8 +657,8 @@
 [sj-e2e] OK   schedel stuk 7: waterdicht slechte randen 0, volume 801922 mm3, per stap [0, 0, 0, 0]
 [sj-e2e] OK   schedel stuk 7: status groen groen, wand 1.603
 [sj-e2e] OK   schedel stuk 8: past op het bed [84.0, 148.7, 111.6]
-[sj-e2e] FOUT schedel stuk 8: waterdicht slechte randen 4, volume 799321 mm3, per stap [0, 0, 0, 4, 4, 6, 4, 4]
-[sj-e2e] FOUT schedel stuk 8: status groen rood, wand 1.602
+[sj-e2e] OK   schedel stuk 8: waterdicht slechte randen 0, volume 799323 mm3, per stap [0, 0, 0, 4, 0]
+[sj-e2e] OK   schedel stuk 8: status groen groen, wand 1.602
 [sj-e2e] OK   schedel: aantal pennen gelijk aan de gatenparen 44 pennen, 44 paren
 [sj-e2e] OK   schedel: er zijn pennen 
 [sj-e2e] OK   schedel stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
@@ -848,27 +848,27 @@
 [sj-e2e] OK   schedel stuk 1: nummer 1-5 verdiept in het vlak 86 punten op de bodem
 [sj-e2e] OK   schedel stuk 2: heeft een nummer ['2-1', '2-1', '2-4', '2-6']
 [sj-e2e] OK   schedel stuk 2: nummer 2-1 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 2: nummer 2-1 verdiept in het vlak 97 punten op de bodem
+[sj-e2e] OK   schedel stuk 2: nummer 2-1 verdiept in het vlak 205 punten op de bodem
 [sj-e2e] OK   schedel stuk 2: nummer 2-1 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 2: nummer 2-1 verdiept in het vlak 97 punten op de bodem
+[sj-e2e] OK   schedel stuk 2: nummer 2-1 verdiept in het vlak 660 punten op de bodem
 [sj-e2e] OK   schedel stuk 2: nummer 2-4 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 2: nummer 2-4 verdiept in het vlak 108 punten op de bodem
+[sj-e2e] OK   schedel stuk 2: nummer 2-4 verdiept in het vlak 779 punten op de bodem
 [sj-e2e] OK   schedel stuk 2: nummer 2-6 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 2: nummer 2-6 verdiept in het vlak 214 punten op de bodem
+[sj-e2e] OK   schedel stuk 2: nummer 2-6 verdiept in het vlak 864 punten op de bodem
 [sj-e2e] OK   schedel stuk 3: heeft een nummer ['3-4', '3-1', '3-7']
 [sj-e2e] OK   schedel stuk 3: nummer 3-4 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 3: nummer 3-4 verdiept in het vlak 166 punten op de bodem
+[sj-e2e] OK   schedel stuk 3: nummer 3-4 verdiept in het vlak 259 punten op de bodem
 [sj-e2e] OK   schedel stuk 3: nummer 3-1 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 3: nummer 3-1 verdiept in het vlak 155 punten op de bodem
+[sj-e2e] OK   schedel stuk 3: nummer 3-1 verdiept in het vlak 183 punten op de bodem
 [sj-e2e] OK   schedel stuk 3: nummer 3-7 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 3: nummer 3-7 verdiept in het vlak 157 punten op de bodem
+[sj-e2e] OK   schedel stuk 3: nummer 3-7 verdiept in het vlak 483 punten op de bodem
 [sj-e2e] OK   schedel stuk 4: heeft een nummer ['4-3', '4-2', '4-8']
 [sj-e2e] OK   schedel stuk 4: nummer 4-3 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 4: nummer 4-3 verdiept in het vlak 166 punten op de bodem
+[sj-e2e] OK   schedel stuk 4: nummer 4-3 verdiept in het vlak 542 punten op de bodem
 [sj-e2e] OK   schedel stuk 4: nummer 4-2 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 4: nummer 4-2 verdiept in het vlak 108 punten op de bodem
+[sj-e2e] OK   schedel stuk 4: nummer 4-2 verdiept in het vlak 274 punten op de bodem
 [sj-e2e] OK   schedel stuk 4: nummer 4-8 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 4: nummer 4-8 verdiept in het vlak 211 punten op de bodem
+[sj-e2e] OK   schedel stuk 4: nummer 4-8 verdiept in het vlak 611 punten op de bodem
 [sj-e2e] OK   schedel stuk 5: heeft een nummer ['5-6', '5-7', '5-1']
 [sj-e2e] OK   schedel stuk 5: nummer 5-6 begint met het eigen nummer 
 [sj-e2e] OK   schedel stuk 5: nummer 5-6 verdiept in het vlak 203 punten op de bodem
@@ -892,35 +892,35 @@
 [sj-e2e] OK   schedel stuk 7: nummer 7-3 verdiept in het vlak 157 punten op de bodem
 [sj-e2e] OK   schedel stuk 8: heeft een nummer ['8-7', '8-6', '8-4']
 [sj-e2e] OK   schedel stuk 8: nummer 8-7 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 8: nummer 8-7 verdiept in het vlak 202 punten op de bodem
+[sj-e2e] OK   schedel stuk 8: nummer 8-7 verdiept in het vlak 606 punten op de bodem
 [sj-e2e] OK   schedel stuk 8: nummer 8-6 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 8: nummer 8-6 verdiept in het vlak 317 punten op de bodem
+[sj-e2e] OK   schedel stuk 8: nummer 8-6 verdiept in het vlak 307 punten op de bodem
 [sj-e2e] OK   schedel stuk 8: nummer 8-4 begint met het eigen nummer 
-[sj-e2e] OK   schedel stuk 8: nummer 8-4 verdiept in het vlak 211 punten op de bodem
+[sj-e2e] OK   schedel stuk 8: nummer 8-4 verdiept in het vlak 290 punten op de bodem
 [sj-e2e] OK   schedel: aantal stukken gelijk aan het plan 8 / 8
 [sj-e2e] OK   schedel: export STL 9 bestanden
 [sj-e2e] OK   schedel: STL piece_01.stl maat gelijk 33314 driehoeken, [90.17, 149.88, 106.59]
-[sj-e2e] OK   schedel: STL piece_02.stl maat gelijk 33256 driehoeken, [90.14, 149.49, 106.73]
-[sj-e2e] OK   schedel: STL piece_03.stl maat gelijk 25730 driehoeken, [89.17, 149.85, 111.0]
-[sj-e2e] OK   schedel: STL piece_04.stl maat gelijk 25817 driehoeken, [89.15, 149.85, 111.66]
+[sj-e2e] OK   schedel: STL piece_02.stl maat gelijk 54801 driehoeken, [90.14, 149.49, 106.73]
+[sj-e2e] OK   schedel: STL piece_03.stl maat gelijk 32738 driehoeken, [89.17, 149.85, 111.0]
+[sj-e2e] OK   schedel: STL piece_04.stl maat gelijk 34721 driehoeken, [89.15, 149.85, 111.66]
 [sj-e2e] OK   schedel: STL piece_05.stl maat gelijk 18078 driehoeken, [76.83, 105.31, 111.54]
 [sj-e2e] OK   schedel: STL piece_06.stl maat gelijk 19502 driehoeken, [76.82, 105.32, 111.54]
 [sj-e2e] OK   schedel: STL piece_07.stl maat gelijk 20164 driehoeken, [84.02, 148.74, 111.64]
-[sj-e2e] OK   schedel: STL piece_08.stl maat gelijk 21282 driehoeken, [83.98, 148.67, 111.64]
+[sj-e2e] OK   schedel: STL piece_08.stl maat gelijk 29822 driehoeken, [83.98, 148.67, 111.64]
 [sj-e2e] OK   schedel: STL pins_5mm_x44.stl maat gelijk 11088 driehoeken, [59.0, 59.0, 12.0]
 [sj-e2e] OK   schedel: export 3MF 9 bestanden
 [sj-e2e] OK   schedel: 3MF piece_01.3mf 33314 driehoeken
-[sj-e2e] OK   schedel: 3MF piece_02.3mf 33256 driehoeken
-[sj-e2e] OK   schedel: 3MF piece_03.3mf 25730 driehoeken
-[sj-e2e] OK   schedel: 3MF piece_04.3mf 25817 driehoeken
+[sj-e2e] OK   schedel: 3MF piece_02.3mf 54801 driehoeken
+[sj-e2e] OK   schedel: 3MF piece_03.3mf 32738 driehoeken
+[sj-e2e] OK   schedel: 3MF piece_04.3mf 34721 driehoeken
 [sj-e2e] OK   schedel: 3MF piece_05.3mf 18078 driehoeken
 [sj-e2e] OK   schedel: 3MF piece_06.3mf 19502 driehoeken
 [sj-e2e] OK   schedel: 3MF piece_07.3mf 20164 driehoeken
-[sj-e2e] OK   schedel: 3MF piece_08.3mf 21282 driehoeken
+[sj-e2e] OK   schedel: 3MF piece_08.3mf 29822 driehoeken
 [sj-e2e] OK   schedel: 3MF pins_5mm_x44.3mf 11088 driehoeken
 [sj-e2e] buis: plan {'FINISHED'} 2 stukken, n=[1, 1, 2]
 [sj-e2e] OK   buis: melding te klein voor een pen 'Cut 1-2: too small for a pin: the face is 2.0 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 1-2: no room for the number on a part of this face'
 [sj-e2e] OK   buis: geen pennen 
 [sj-e2e] OK   buis stuk 1: past en waterdicht 
 [sj-e2e] OK   buis stuk 2: past en waterdicht 
-[sj-e2e] KLAAR 26 FOUT ['suzanne stuk 2: waterdicht', 'suzanne stuk 2: status groen', 'suzanne stuk 3: waterdicht', 'suzanne stuk 3: status groen', 'suzanne stuk 4: waterdicht', 'suzanne stuk 4: status groen', 'suzanne stuk 8: waterdicht', 'suzanne stuk 8: status groen', 'verschuif stuk 2: past en waterdicht', 'verschuif stuk 3: past en waterdicht', 'verschuif stuk 4: past en waterdicht', 'verschuif stuk 8: past en waterdicht', 'vaas stuk 2: waterdicht', 'vaas stuk 2: status groen', 'vaas stuk 4: waterdicht', 'vaas stuk 4: status groen', 'vaas stuk 8: waterdicht', 'vaas stuk 8: status groen', 'schedel stuk 2: waterdicht', 'schedel stuk 2: status groen', 'schedel stuk 3: waterdicht', 'schedel stuk 3: status groen', 'schedel stuk 4: waterdicht', 'schedel stuk 4: status groen', 'schedel stuk 8: waterdicht', 'schedel stuk 8: status groen']
+[sj-e2e] KLAAR 6 FOUT ['vaas stuk 8: waterdicht', 'vaas stuk 8: status groen', 'schedel stuk 2: waterdicht', 'schedel stuk 2: status groen', 'schedel stuk 4: waterdicht', 'schedel stuk 4: status groen']
