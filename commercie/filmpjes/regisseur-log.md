@@ -21,3 +21,8 @@
   Regisseur: start met samples 24 en vergelijk de renders met studio-1; houdt het beeld stand, dan ±10 min sneller per
   stijl (GOK, nog niet gemeten). Ook: op studio-1 miste de linkerschouder op figuur a; na f9391c8 zegt de studio 9
   gewrichten (`producten/blender-gewrichten/proeven/studio-figuren-2026-11-23/uitslag.md`).
+- 23 nov 2026 ±19:15 tot 19:35 NL, Olaf: de ElevenLabs-mp3 van de hoofdchat in sync leggen gaat nu zonder handwerk.
+  `stem/splits.py` knipt één opname in zinnen (whisper-woordtijden op het script, knip in het langste stille stuk), en
+  `stem.maak_zinnen()` gebruikt dat vanzelf als `STEM_MP3` gezet is; montage2 en de controle blijven gelijk. Toets
+  `stem/toets_splits.py` (andere Kokoro-stem, wisselende pauzes, ruis, lange pauze midden in een zin): tip-gat en
+  tip-maat met 3 stemmen 0 FOUT, alleen-stiltes 3 tot 5 fout (GEZIEN, lokaal). Echte ElevenLabs-opname nog niet getoetst.

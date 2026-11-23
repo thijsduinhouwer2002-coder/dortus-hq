@@ -951,3 +951,7 @@ Graag een ja of nee op de tekst (Engels, verschijnt in de lijst na Figure from r
 2. Scharnier Tight alleen omdat het lid vlak na het gewricht eindigt (met een langer lid had hij wel geklikt), was "Try a thicker spot": "Tight: the limb ends too close past this joint for the hinge to click. Try a spot further from the end."
 De oude zin "Tight: cheek too stiff to click. Try a thicker spot." blijft voor de andere gevallen. Diff: `git diff main...claude/blender-tight-reden -- producten/blender-gewrichten`. e2e loopt; daarna naar main voor Pro 1.2.3 of 1.3.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±19:35 NL, van Olaf: keuring gevraagd, splits.py (ElevenLabs-opname in zinnen knippen)
+Nieuw: `commercie/filmpjes/stem/splits.py`, `toets_splits.py`, haak `_zinnen_uit_bestand` onderaan `stem.py` (alleen actief met `STEM_MP3`), uitleg in `stem/LEESMIJ.md`. Lokaal: toets op tip-gat en tip-maat met bm_george, af_bella, am_michael elk 0 FOUT (GEZIEN); zonder `STEM_MP3` verandert er niets aan de stem. Graag vooral kijken of het knippen kan misgaan op een echte opname (adem tussen zinnen, "dortus.com/yt").
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

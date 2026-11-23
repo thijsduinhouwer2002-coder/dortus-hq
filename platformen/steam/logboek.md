@@ -2205,3 +2205,7 @@ Drie moet verwerkt in `commercie/filmpjes/scripts/week-49-click-joints.md`: scri
 - Lokale main liep 104 commits achter/uiteen; gelijkgezet aan origin/main (oude stand lokaal bewaard, niets gepusht).
 ## 23 nov 2026, Sanne: week 49 akkoord verwerkt, week 50 geschreven
 Week 49: stand akkoord, 6B eerst, "Yellow" geen GOK meer; Regisseur ingelicht. Week 50 (7 tot 13 dec) in `commercie/filmpjes/scripts/week-50-click-joints.md`: zes nieuwe onderwerpen (rig-grenzen, waterdicht, Exact na 1.2.2, export in mm, Blender 4.2, botnamen VRoid/Auto-Rig Pro), elk nagelopen in de code. Keuring gevraagd aan Daan.
+
+## 23 nov 2026 ±19:15-19:35 NL, Olaf (filmpjes, ElevenLabs in sync)
+- `stem/splits.py` en haak `STEM_MP3` in `stem.py`: de ElevenLabs-mp3 van de hoofdchat wordt vanzelf in zinnen geknipt,
+  montage2 ongewijzigd. Toets 0 FOUT op 2 scripts x 3 stemmen (GEZIEN). Regisseur ingelicht, keuring gevraagd aan Daan.

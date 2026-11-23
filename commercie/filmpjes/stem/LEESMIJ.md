@@ -17,6 +17,20 @@ Draaien: workflow `.github/workflows/stem-proef.yml` (bij een push in deze map),
 - **Nu:** Kokoro-82M, stem `af_heart` (Amerikaans Engels, vrouw, rustig), snelheid 0,95. Andere stem: `KOKORO_STEM` (bijvoorbeeld `bf_emma` of `bm_george` voor Brits).
 - **Later ElevenLabs:** zet het geheim `ELEVENLABS_API_KEY` in de repo (en eventueel de variabele `ELEVENLABS_VOICE_ID`). Dan gebruikt `stem.py` vanzelf ElevenLabs, met hetzelfde script en dezelfde timing (de lengtes worden opnieuw gemeten). Dat kan pas na een ja van Thijs op een betaald plan: het gratis plan geeft geen commerciële rechten (DERDEN: https://elevenlabs.io/docs/overview/administration/billing).
 
+## Een kant-en-klare opname gebruiken (ElevenLabs van de hoofdchat)
+De hoofdchat maakt de ElevenLabs-stem buiten CI, als één mp3 per filmpje (`<naam>-elevenlabs.mp3`). Zet dan
+`STEM_MP3=<pad naar die mp3>` (en eventueel `STEM_BRON`, standaard `elevenlabs`) bij de montage-stap. `stem.maak_zinnen()`
+knipt die opname met `splits.py` in zinnen in plaats van Kokoro te vragen; de montage legt het beeld zoals altijd op de
+gemeten lengtes, dus de sync volgt vanzelf. Daarna draait de controle (`synchroon.py`) zoals altijd.
+- Knippen: faster-whisper geeft woordtijden, die worden op de zinnen van het script gelegd (`uitspraak` als die er is,
+  anders `tekst`; dus de mp3 moet die zinnen in die volgorde voorlezen), en er wordt geknipt in het langste stille stuk
+  rond elke zingrens. Lukt een grens niet, dan de langste stiltes als terugval (staat in de uitvoer bij `knippen`).
+- Los proberen: `python3 splits.py <mp3> <script.json> <uitmap>` schrijft `zin-01.wav` ... en `splits.json`.
+- Toets: `toets_splits.py <script.json>` maakt met Kokoro een opname met een andere stem, wisselende pauzes, een ruisvloer
+  en in één zin een pauze die langer is dan die tussen zinnen. Uitslag 23 nov 2026 (Olaf, lokaal, GEZIEN): tip-gat en
+  tip-maat met bm_george, af_bella en am_michael elk 0 FOUT; alleen-stiltes knipte daar 3 tot 5 grenzen fout.
+  Een echte ElevenLabs-opname is nog niet getoetst (GOK dat die net zo goed gaat; ademhaling tussen zinnen kan anders zijn).
+
 ## Licenties (zelf gelezen met curl, 23 nov 2026)
 | Onderdeel | Licentie | Bron |
 |---|---|---|
