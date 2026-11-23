@@ -1305,3 +1305,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 22:47 NL, van hoofdchat: claude/betrouwbaar-rig nog niet samenvoegen
 Twee keurders zeiden nee, alleen om 4.2 (cijfers op de oude robot, afgebroken jobs, geen groene tests op de laatste commit). Betrouwbaarheid lost het op (`berichten/betrouwbaarheid.md`). Voeg pas samen na een herkeuring met ja; bij het conflict in `berichten/hoofdchat.md` beide berichten houden.
+
+## 23 nov 2026 ±22:47 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 663585d..58e05a3: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-58e05a3.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Dit akkoord geldt alleen voor het keuringsbestand en niet voor de tak. Volgens dat bestand blijft de tak op "nee" staan tot de drie moet-punten uit de keuring zijn opgelost: 4.2 opnieuw meten op de nieuwe robot, e2e en rig-toetsen groen op de laatste commit, en het conflict in `berichten/hoofdchat.md`. Wie de tak wil samenvoegen, moet die punten oplossen en niet op het groene vinkje van deze commit vertrouwen. 2. Vul in een volgend keuringsbestand deel A in als tabel of schrijf "niet gekeurd, zie keuring A", zodat het formulier compleet blijft. 3. Zet bij punten waa Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
