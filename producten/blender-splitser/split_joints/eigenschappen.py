@@ -2,7 +2,12 @@
 import bpy
 from bpy.props import BoolProperty, EnumProperty, FloatProperty, PointerProperty, StringProperty
 
-from . import printers
+from . import passing, printers
+
+
+def _onthouden(inst, context):
+    from . import passingproef
+    passingproef.pas_toe(context)
 
 
 def _uit_elkaar(inst, context):
@@ -11,7 +16,10 @@ def _uit_elkaar(inst, context):
 
 
 class SplitJointsInstellingen(bpy.types.PropertyGroup):
-    printer: EnumProperty(name="Printer", items=printers.items(), default="A1")
+    printer: EnumProperty(name="Printer", items=printers.items(), default="A1", update=_onthouden)
+    materiaal: EnumProperty(
+        name="Material", description="Your filament. The clearance that fits is remembered per printer and material",
+        items=passing.MATERIALEN, default="PLA", update=_onthouden)
     eigen_x: FloatProperty(name="X (mm)", default=200.0, min=20.0, max=2000.0, precision=0)
     eigen_y: FloatProperty(name="Y (mm)", default=200.0, min=20.0, max=2000.0, precision=0)
     eigen_z: FloatProperty(name="Z (mm)", default=200.0, min=20.0, max=2000.0, precision=0)

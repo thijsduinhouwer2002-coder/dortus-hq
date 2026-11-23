@@ -1,7 +1,7 @@
 """Sidebar (N), tab Split Joints: four numbered steps, each with one big button."""
 import bpy
 
-from . import controle, exporteer, printers, schaal, snedes
+from . import controle, exporteer, passingproef, printers, schaal, snedes
 from .eigenschappen import bed
 
 
@@ -80,6 +80,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         stap.prop(inst, "pen_auto")
         stap.prop(inst, "pen_lengte_mm")
         stap.prop(inst, "speling_mm")
+        passingproef.teken(stap, context)
         stap.prop(inst, "wand_mm")
         stap.prop(inst, "labels")
         sub = stap.row()

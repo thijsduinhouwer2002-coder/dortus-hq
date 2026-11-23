@@ -13,6 +13,7 @@ import bpy
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import modellen  # noqa: E402
 import toetsen_extra  # noqa: E402
+import toetsen_passing  # noqa: E402
 from hulp import (SCHAAL, bestaat, dicht, fouten, gat_maten, gaten, label_punten, labels, lees_3mf,  # noqa: E402
                   lees_stl, log, maat, past, pen_objecten, pennen, raakvlak, stap, stukken)
 
@@ -163,7 +164,8 @@ def main():
         except Exception:
             traceback.print_exc()
             stap(f"{naam}: geen fout", False)
-    for naam, f in (("buis", te_klein), ("extra", lambda: toetsen_extra.alles(model, uitmap))):
+    for naam, f in (("buis", te_klein), ("extra", lambda: toetsen_extra.alles(model, uitmap)),
+                    ("passing", lambda: toetsen_passing.alles(uitmap))):
         try:
             f()
         except Exception:

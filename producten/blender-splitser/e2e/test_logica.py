@@ -16,6 +16,7 @@ printers = importlib.import_module("split_joints.printers")
 plan = importlib.import_module("split_joints.plan")
 doorsnede = importlib.import_module("split_joints.doorsnede")
 verbinders = importlib.import_module("split_joints.verbinders")
+passing = importlib.import_module("split_joints.passing")
 
 fouten = []
 
@@ -168,6 +169,31 @@ if lb:
 # 7. 3D check that refuses everything: no pins, message
 res = verbinders.plan_vlak(us, vs, binnen, kl, lab, n, opties, lambda u, v_, r: False, "2-3")[0]
 stap("3D-toets weigert: geen pen, wel melding", not res["pennen"] and res["melding"])
+
+# 8. fit test: clearances, saved values per printer and material, block layout
+stap("passing: 0,20 geeft 0,15 tot 0,30", passing.spelingen(0.2) == [0.15, 0.2, 0.25, 0.3], str(passing.spelingen(0.2)))
+stap("passing: nooit onder 0", passing.spelingen(0.02) == [0.0, 0.05, 0.1, 0.15], str(passing.spelingen(0.02)))
+stap("passing: tekst met punt", passing.tekst(0.2) == "0.20" and passing.tekst(0.0) == "0.00")
+j = passing.bewaar("", "A1MINI", "PLA", 0.25)
+j = passing.bewaar(j, "A1MINI", "PETG", 0.3)
+stap("passing: los bewaard per materiaal", passing.opgeslagen(j, "A1MINI", "PLA") == 0.25 and
+     passing.opgeslagen(j, "A1MINI", "PETG") == 0.3 and passing.opgeslagen(j, "MK4", "PLA") is None, j)
+stap("passing: kapotte tekst geeft niets", passing.lees("{kapot") == {} and passing.lees('[1]') == {} and
+     passing.lees('{"a": "x", "b": 5}') == {})
+m = passing.maten(5.0, 12.0, 1.2, 0.2, 0.3)
+xs = [g["p"][0] for g in m["gaten"]]
+tussen = min(b - a for a, b in zip(xs, xs[1:])) - 2 * (2.5 + 0.3)
+stap("passing: wand tussen de gaten minstens 2 mm", tussen >= 2.0, f"{tussen:.2f}")
+rand = min(xs[0] - m["mn"][0], m["mx"][0] - xs[-1], m["mx"][1]) - (2.5 + 0.3)
+stap("passing: wand naar de rand minstens 2 mm", rand >= 2.0, f"{rand:.2f}")
+vloer = m["mx"][2] - m["gaten"][0]["diepte"]
+stap("passing: gat half de pen plus 0,3 en vloer eronder", abs(m["gaten"][0]["diepte"] - 6.3) < 1e-9 and vloer >= 2.0)
+voor = min(nr["p"][1] - nr["h"] / 2 for nr in m["nummers"]) - m["mn"][1]
+breed = (4 * 4 - 1) * passing.LETTER_MM / 5.0
+gat_nr = min(b["p"][0] - a["p"][0] for a, b in zip(m["nummers"], m["nummers"][1:])) - breed
+stap("passing: ruimte tussen twee nummers minstens 4 mm", gat_nr >= 4.0, f"{gat_nr:.2f}")
+stap("passing: nummer binnen het blok en niet op het gat", voor >= 1.0 and
+     all(g["p"][1] - (nr["p"][1] + nr["h"] / 2) >= g["r_gat"] + 1.0 for g, nr in zip(m["gaten"], m["nummers"])), f"{voor:.2f}")
 
 print(f"[sj-logica] KLAAR {len(fouten)} FOUT {fouten}")
 sys.exit(1 if fouten else 0)

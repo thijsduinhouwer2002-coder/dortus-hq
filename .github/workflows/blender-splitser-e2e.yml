@@ -78,6 +78,14 @@ jobs:
           ! grep -q "SCHERM FOUT" /tmp/scherm.log || { echo "FOUT: schermafbeelding"; exit 1; }
           grep -q "SCHERM OK suzanne-1" /tmp/scherm.log || { echo "FOUT: geen beeld van Suzanne"; exit 1; }
           grep "\[sj-e2e\]" /tmp/kern.log > "e2e/screenshots/${{ matrix.blender }}/uitslag.txt" || true
+      - name: Schermafbeeldingen van de passingproef (blok en pennen, bovenaanzicht)
+        if: always()
+        run: |
+          [ -s /tmp/sj_uit/passing.blend ] || { echo "geen passing.blend"; exit 1; }
+          timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender -b --factory-startup --python e2e/scherm_passing.py -- /tmp/sj_uit "$PWD/e2e/screenshots/${{ matrix.blender }}" 2>&1 | tee /tmp/passing.log || true
+          grep "\[sj-scherm\]" /tmp/passing.log || true
+          grep -q "SCHERM OK passing-2" /tmp/passing.log || { echo "FOUT: geen beeld van de passingproef"; exit 1; }
       - name: Schermafbeelding van het paneel (echte interface)
         if: always()
         env:
