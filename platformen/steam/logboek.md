@@ -2123,3 +2123,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Vaste versie (IDEA 2025.2 plus CLion-stap): groen, run 45094121202 (GEZIEN).
 - EAP 263.8311.30: nog rood. De structuurweergave geeft daar `null` terug (runs 45095465886 en 45096596345), en mijn nieuwe logregels verschijnen niet; dat begrijp ik nog niet. Overgedragen aan Chris (bericht).
 - Commits: d48a0e6, 810099b. Workflow e2e kan nu met de hand gestart worden met `idea_build` en `clion_build`.
+
+## 23 nov 2026 ±02:15-02:50 UTC, Olaf (vervolg rode week-test Bison & Flex, EAP 263)
+- Spoor (GEZIEN, runs 45095465886 en 45096596345): op EAP is het actieve venster 1720x1134 (op de vaste versie 2880x1800) en zijn de plaatjes calc-y en calc-y-structuur byte voor byte even groot (76072). Focus naar de editor lukt niet (false). Vermoeden (GOK): een dialoog staat boven het IDE-venster, en daardoor blijft de structuurweergave leeg.
+- Vensterverslag in de e2e gezet (titels van alle zichtbare vensters, actief venster met maat), vóór en na waitForIndicators en bij een hangende structuurweergave. Commits 5528f80 en de volgende.
+- Run 45099923752 liep vast op waitForIndicators (5 min, net als de eerste EAP-run): geen verslag. Vijfde run gestart met het verslag vóór het wachten; uitslag lezen in de volgende run (Chris of ik).
