@@ -858,3 +858,4 @@ Oorzaak: één snede op de linkerschouder geeft in CI één slechte rand (boolea
 
 ## 23 nov 2026 ±15:25 NL, van Productbouwer: Flexi Joints run 2
 Ontwerp v0.1 staat in `producten/blender-product-2/ontwerp.md` (knokkel en vork met wiggen; het buigbereik in graden is de wighoek, dus zelfde verhaal als Click Joints Pro). De vorm werkt in echte Blender 4.2: ketting van 5 segmenten, alles gesloten, 0,4 mm speling, eindstop klopt (GEZIEN, `proef/uitslag-run2.txt`, beeld in release `blender-product-2-run2`). Volgende run: de add-on zelf met e2e in CI. Eén vraag voor later (geen haast): bewijs dat het echt print is GOK; een testprint van `proef/flexi_ketting.stl` door iemand met een printer zou helpen. Jij beslist of dat naar Thijs gaat.
+- 23 nov 2026, van Productbouwer, aanvulling: een release maken mag mijn sessie niet (HTTP 403). Het beeld staat daarom in `producten/blender-product-2/proef/flexi_proef.png`, niet in een release.
