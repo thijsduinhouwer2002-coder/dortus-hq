@@ -1,0 +1,85 @@
+# gemaakt: 2026-11-23T15:03:25Z
+# workflow: Regisseur 2 (Shorts in vorm groot, grote ondertitels) (.github/workflows/regisseur-2.yml)
+# run: 45199700492 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45199700492
+# commit: 4364c8e4 tak main gestart door push
+# mislukte stappen: short: Controle (synchroon, geluid, lengte)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== short / Controle (synchroon, geluid, lengte) (laatste 76 van 76 regels) =====
+##[group]Run cd /tmp/klaar
+cd /tmp/klaar
+ok=0
+for n in fit-groot-a fit-groot-b; do
+  mkdir -p meting-$n
+  python $[weggehaald: lange base64-reeks].py $n.mp4 $n-groot-script.json meting-$n || ok=1
+  for f in meting-$n/*; do mv "$f" "$(basename ${f%.*})-$n.${f##*.}"; done
+  d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $n.mp4)
+  echo "$n $d s" | tee -a lengtes.txt
+  python -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: $n is $d s"; ok=1; }
+done
+python $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py *.mp4 | tee geluid_check.txt
+grep -q "FOUT" geluid_check.txt && ok=1
+sha256sum *.mp4 | tee SHA256SUMS.txt
+exit $ok
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-2
+  BRON: regisseur-1
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+  PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+  Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+  WHISPER_MODEL: small.en
+##[endgroup]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+# Synchroon-meting fit-groot-a.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **FOUT**, 9 van 10 zinnen binnen 0.3 s; grootste verschil 0.407 s, gemiddeld 0.169 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.22 | 0.22 | 7/7 | ja | Not sure which gap your printer needs? |
+| 2 | 2.3 | 2.44 | 2.42 | 0.12 | 13/13 | ja | Before you print a whole figure, print this small fit test strip first. |
+| 3 | 6.33 | 6.48 | 6.46 | 0.127 | 10/12 | ja | In Click Joints Pro, press Fit test: ball, or Fit test: hinge. |
+| 4 | 10.77 | 10.88 | 10.91 | 0.143 | 10/13 | ja | You get five ball joints, from 0.10 to 0.30 mm clearance. |
+| 5 | 16.6 | 16.72 | 16.73 | 0.13 | 15/15 | ja | Each joint has its clearance number on top, so you know which one is which. |
+| 6 | 20.87 | 20.9 | 21.01 | 0.143 | 11/11 | ja | The hinge strip works the same way, for knees and elbows. |
+| 7 | 24.47 | 24.62 | 24.6 | 0.133 | 14/14 | ja | Print both strips, try each joint, and pick the gap that fits your printer. |
+| 8 | 28.77 | 28.36 | 28.36 | -0.407 | 15/16 | NEE | Put that number in Clearance before you cut your figure. The default is 0.2 mm. |
+| 9 | 34.7 | 34.92 | 34.84 | 0.14 | 13/13 | ja | Measured in Blender, not print tested by us yet. Every printer is different. |
+| 10 | 39.47 | 39.66 | 39.59 | 0.123 | 11/11 | ja | Click Joints Pro. Find your gap first, then print the figure. |
+fit-groot-a 44.936000 s
+# Synchroon-meting fit-groot-b.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **FOUT**, 9 van 10 zinnen binnen 0.3 s; grootste verschil 0.42 s, gemiddeld 0.161 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.16 | 0.16 | 5/5 | ja | Still guessing your joint clearance? |
+| 2 | 2.0 | 2.14 | 2.13 | 0.13 | 13/13 | ja | Before you print a whole figure, print this small fit test strip first. |
+| 3 | 6.03 | 6.2 | 6.17 | 0.137 | 10/12 | ja | In Click Joints Pro, press Fit test: ball, or Fit test: hinge. |
+| 4 | 10.5 | 10.58 | 10.64 | 0.14 | 10/13 | ja | You get five ball joints, from 0.10 to 0.30 mm clearance. |
+| 5 | 16.33 | 16.44 | 16.45 | 0.117 | 15/15 | ja | Each joint has its clearance number on top, so you know which one is which. |
+| 6 | 20.6 | 20.66 | 20.73 | 0.13 | 11/11 | ja | The hinge strip works the same way, for knees and elbows. |
+| 7 | 24.2 | 24.34 | 24.32 | 0.12 | 14/14 | ja | Print both strips, try each joint, and pick the gap that fits your printer. |
+| 8 | 28.5 | 28.08 | 28.08 | -0.42 | 15/16 | NEE | Put that number in Clearance before you cut your figure. The default is 0.2 mm. |
+| 9 | 34.43 | 34.64 | 34.57 | 0.137 | 13/13 | ja | Measured in Blender, not print tested by us yet. Every printer is different. |
+| 10 | 39.2 | 39.38 | 39.32 | 0.12 | 10/11 | ja | Click Joints Pro. Find your gap first, then print the figure. |
+fit-groot-b 44.666667 s
+GOED: fit-groot-a.mp4: gemiddeld -16.3 dB, piek -1.3 dB
+GOED: fit-groot-b.mp4: gemiddeld -16.3 dB, piek -1.4 dB
+[weggehaald: lange hex-reeks]  fit-groot-a.mp4
+[weggehaald: lange hex-reeks]  fit-groot-b.mp4
+##[error]Process completed with exit code 1.
