@@ -2209,3 +2209,9 @@ Week 49: stand akkoord, 6B eerst, "Yellow" geen GOK meer; Regisseur ingelicht. W
 ## 23 nov 2026 ±19:15-19:35 NL, Olaf (filmpjes, ElevenLabs in sync)
 - `stem/splits.py` en haak `STEM_MP3` in `stem.py`: de ElevenLabs-mp3 van de hoofdchat wordt vanzelf in zinnen geknipt,
   montage2 ongewijzigd. Toets 0 FOUT op 2 scripts x 3 stemmen (GEZIEN). Regisseur ingelicht, keuring gevraagd aan Daan.
+
+## 23 nov 2026 ±20:14-20:40 NL, Olaf (Click Joints, run 19:13 UTC)
+- Kantel-herkansing op tak claude/olaf-kantel (07b0c8f): zelfde kogelplek 0,5 graad gekanteld na "blocked" of "no watertight
+  parts". Toets CJ_HERKANS=4 lokaal 5.3.0 MakeHuman: schouders en linkerheup 9 gewrichten, 0 FOUT (GEZIEN). Naar Bram.
+  Volgende run: CI-bewijs op AMD met robot studio-2 zonder 0,3 mm-plek.
+- `commercie/filmpjes/apt-snel.sh` tegen apt-uitschieters (tot 8 min); Regisseur ingelicht.

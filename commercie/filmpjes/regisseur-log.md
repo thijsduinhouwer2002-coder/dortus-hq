@@ -29,3 +29,8 @@
   `stem.maak_zinnen()` gebruikt dat vanzelf als `STEM_MP3` gezet is; montage2 en de controle blijven gelijk. Toets
   `stem/toets_splits.py` (andere Kokoro-stem, wisselende pauzes, ruis, lange pauze midden in een zin): tip-gat en
   tip-maat met 3 stemmen 0 FOUT, alleen-stiltes 3 tot 5 fout (GEZIEN, lokaal). Echte ElevenLabs-opname nog niet getoetst.
+- 23 nov 2026 ±20:30 NL, Olaf: minder wachttijd in CI. De stap "Systeempakketten" duurt meestal 10 tot 60 s, maar soms
+  3 tot 8 min (regisseur-3 run 45227517215: 8 min 17 s, GEZIEN in 22 runs van vandaag), omdat `apt-get update` blijft
+  hangen. Nieuw: `commercie/filmpjes/apt-snel.sh <pakketten>` installeert eerst zonder update en doet pas een update
+  (hooguit 120 s) als dat mislukt. Nog in geen workflow gezet (regisseur-4 liep, een push start een nieuwe run); gebruik
+  het in de volgende workflow in plaats van de twee apt-regels. Niet in CI getoetst (GOK dat het de uitschieters scheelt).
