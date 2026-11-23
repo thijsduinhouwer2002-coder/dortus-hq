@@ -18,15 +18,29 @@ permissions:
 jobs:
   meet:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
+        # Hoofdchat 23 nov: dezelfde mesh gaf wisselend 8 of 9. Daarom elke meting 5 keer (herhaal), voor de code van
+        # deze tak en voor de nulstand (NUL_COMMIT, Pro 1.2.2 op main), met dezelfde figuren uit deze checkout.
         blender: ["4.2.23", "5.2.3", "5.3.0"]
         figuur: [robot-a, robot-b, robot-fijn, kleding, mens, rigify, armen]
+        code: [tak, nul]
+        herhaal: [1, 2, 3, 4, 5]
+        threads: [""]
+        include:
+          # Zelfde machine, één thread: verdwijnt het verschil dan (Manifold rekent parallel)?
+          - { blender: "5.3.0", figuur: robot-a, code: nul, herhaal: 1, threads: "1" }
+          - { blender: "5.3.0", figuur: robot-a, code: nul, herhaal: 2, threads: "1" }
+          - { blender: "5.3.0", figuur: robot-a, code: nul, herhaal: 3, threads: "1" }
+          - { blender: "5.3.0", figuur: kleding, code: nul, herhaal: 1, threads: "1" }
+          - { blender: "5.3.0", figuur: kleding, code: nul, herhaal: 2, threads: "1" }
+          - { blender: "5.3.0", figuur: kleding, code: nul, herhaal: 3, threads: "1" }
     env:
       PRO_VERSIE: "1.2.2"
-      CJ_PROEVEN: "1"
+      NUL_COMMIT: e8769d22bce26c401b2421ef0d9fef50aa122087
+      CJ_PROEVEN: ""
       BLENDER_USER_RESOURCES: /tmp/cj
       BLENDER_USER_CONFIG: /tmp/cj/config
       BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
@@ -44,50 +58,58 @@ jobs:
           [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
           mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
           /tmp/blender/blender --version | head -1
-          grep -m1 "model name" /proc/cpuinfo
-      - name: Pro-zip
-        working-directory: producten/blender-gewrichten
-        run: bash e2e/maak_zip.sh betaald
-      - name: Figure from rig op ${{ matrix.figuur }}
+      - name: Pro-zip (${{ matrix.code }})
+        env:
+          CODE: ${{ matrix.code }}
+        run: |
+          if [ "$CODE" = "nul" ]; then
+            git fetch -q --no-tags --depth=1 origin "$NUL_COMMIT"
+            mkdir -p /tmp/nul && git archive "$NUL_COMMIT" producten/blender-gewrichten/click_joints producten/blender-gewrichten/e2e/maak_zip.sh producten/blender-gewrichten/e2e/betaald | tar -x -C /tmp/nul
+            (cd /tmp/nul/producten/blender-gewrichten && bash e2e/maak_zip.sh betaald)
+          else
+            (cd producten/blender-gewrichten && bash e2e/maak_zip.sh betaald)
+          fi
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Figure from rig op ${{ matrix.figuur }} (${{ matrix.code }}, herhaling ${{ matrix.herhaal }})
         working-directory: producten/blender-gewrichten
         env:
           FIG: ${{ matrix.figuur }}
-          V: ${{ matrix.blender }}
+          H: ${{ matrix.herhaal }}
+          CJ_THREADS: ${{ matrix.threads }}
         run: |
           mkdir -p /tmp/uit
-          timeout 2700 /tmp/blender/blender -b --factory-startup --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip "$FIG" "/tmp/uit/$FIG.json" > /tmp/uit/$FIG-vol.log 2>&1 || true
-          grep -E "\[meet\]|^MEET|Traceback|Error" /tmp/uit/$FIG-vol.log | cut -c1-2000 | tee /tmp/uit/$FIG.log
-          tail -40 /tmp/uit/$FIG-vol.log | cut -c1-400 >> /tmp/uit/$FIG.log
-          grep -m1 "model name" /proc/cpuinfo >> /tmp/uit/$FIG.log
-          rm -f /tmp/uit/$FIG-vol.log
+          N="$FIG-$H"; T=""
+          [ -n "$CJ_THREADS" ] && { N="$N-t1"; T="-t $CJ_THREADS"; }
+          echo "N=$N" >> "$GITHUB_ENV"
+          timeout 2700 /tmp/blender/blender -b --factory-startup $T --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip "$FIG" "/tmp/uit/$N.json" > /tmp/vol.log 2>&1 || true
+          { grep -E "\[meet\]|^MEET|Traceback|Error" /tmp/vol.log | cut -c1-2000; tail -30 /tmp/vol.log | cut -c1-400; grep -m1 "model name" /proc/cpuinfo; } > "/tmp/uit/$N.log"
+          grep "^MEET" /tmp/vol.log || tail -20 /tmp/vol.log
       - name: Uitslag op tak betrouwbaar-uitslag
         if: always()
         env:
           TOKEN: ${{ github.token }}
-          FIG: ${{ matrix.figuur }}
           V: ${{ matrix.blender }}
+          CODE: ${{ matrix.code }}
         run: |
           URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
-          for poging in 1 2 3 4 5 6 7 8; do
+          for poging in 1 2 3 4 5 6 7 8 9 10; do
             rm -rf /tmp/s
-            if git clone -q --depth 1 --branch betrouwbaar-uitslag "$URL" /tmp/s 2>/dev/null; then :; else
-              mkdir /tmp/s && cd /tmp/s && git init -q -b betrouwbaar-uitslag && git remote add origin "$URL" && cd - >/dev/null
-            fi
-            D="/tmp/s/${GITHUB_RUN_ID}/$V"
+            git clone -q --depth 1 --branch betrouwbaar-uitslag "$URL" /tmp/s 2>/dev/null || { sleep 5; continue; }
+            D="/tmp/s/${GITHUB_RUN_ID}/$CODE/$V"
             mkdir -p "$D" && cp /tmp/uit/* "$D"/ 2>/dev/null || true
-            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}" > "/tmp/s/${GITHUB_RUN_ID}/RUN.txt"
-            cd /tmp/s && git add -A && git commit -q -m "Meting $FIG $V run ${GITHUB_RUN_ID}" || exit 0
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, nul ${NUL_COMMIT}" > "/tmp/s/${GITHUB_RUN_ID}/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Meting $N $CODE $V run ${GITHUB_RUN_ID}" || exit 0
             if git push -q origin betrouwbaar-uitslag; then cd - >/dev/null; break; fi
-            cd - >/dev/null; sleep $((poging * 4 + RANDOM % 5))
+            cd - >/dev/null; sleep $((poging * 3 + RANDOM % 7))
           done
       - name: Eis van de testset
+        if: matrix.code == 'tak'
         working-directory: producten/blender-gewrichten
         env:
-          FIG: ${{ matrix.figuur }}
           V: ${{ matrix.blender }}
-        run: python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+        run: python3 e2e/meet_eis.py "/tmp/uit/$N.json" "$V" e2e/meet_drempel.json
 
   # De rig-toetsen uit de gewone e2e (stap "Figuurpresets"), met hun log op de tak betrouwbaar-uitslag, zodat een
   # agent zonder sleutel ziet welke eis faalt. De gewone e2e draait op deze tak ook (blender-gewrichten-e2e.yml).

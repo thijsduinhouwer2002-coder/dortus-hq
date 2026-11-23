@@ -144,7 +144,11 @@ def verslag(naam, t0, extra=None):
            "regels": [fig.regel(x) for x in alle], "overgeslagen": over,
            "ontbreekt": [n for n in STANDAARD if n not in namen],
            "delen": len(delen), "open_delen": [o.name for o in delen if not ges.is_gesloten(o)[0]],
-           "knop_s": round(time.perf_counter() - t0, 1), "pogingen": meet_diag.POGINGEN, "sneden": meet_diag.SNEDEN}
+           "knop_s": round(time.perf_counter() - t0, 1), "pogingen": meet_diag.POGINGEN, "sneden": meet_diag.SNEDEN,
+           # Vingerafdruk voor herhalingen (hoofdchat 23 nov: zelfde mesh, wisselende uitkomst): de regels met bereik en
+           # het aantal punten per deel. Twee runs met dezelfde vingerafdruk gaven precies hetzelfde figuur.
+           "vinger": {"regels": sorted(fig.regel(x) for x in alle), "punten": sorted(len(o.data.vertices) for o in delen)},
+           "threads": os.environ.get("CJ_THREADS", "")}
     uit.update(extra or {})
     os.makedirs(os.path.dirname(os.path.abspath(UIT)), exist_ok=True)
     json.dump(uit, open(UIT, "w"), indent=1, default=str)
