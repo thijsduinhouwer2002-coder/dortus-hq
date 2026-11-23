@@ -435,35 +435,31 @@ def laad_mens_kleding(obj_pad, hoogte_mm=220.0, stijl=None, voxel_mm=0.5, dikte=
     # schoenen: per voet de bolle schil (convex hull) van de voet onder de enkel, iets ruimer, samen met het lichaam
     # in de remesh. Zo verdwijnen de tenen in een gladde schoen met een platte zool.
     schoen_i = volgorde.index("schoen")
-    schillen = []
+    bm = bmesh.new()
+    bm.from_mesh(me)
     for k in "lr":
         enk = p[f"{k}-ankle"]
         vs = [v.co.copy() for v in me.vertices if v.co.z < enk.z + 1.0 * f and (v.co.x > 0) == (enk.x > 0)
               and (v.co - Vector((enk.x, enk.y, v.co.z))).length < 40 * f]
         if len(vs) < 8:
             continue
-        bm = bmesh.new()
-        for c in vs:
-            bm.verts.new(c)
-        bmesh.ops.convex_hull(bm, input=bm.verts[:])
-        midden = sum(vs, Vector()) / len(vs)
-        for v in bm.verts:
+        nieuw_v = [bm.verts.new(c) for c in vs]
+        res = bmesh.ops.convex_hull(bm, input=nieuw_v)
+        weg = list({g for g in res["geom_interior"] + res["geom_unused"] if isinstance(g, bmesh.types.BMVert)})
+        bmesh.ops.delete(bm, geom=weg, context="VERTS")
+        schil_v = [g for g in res["geom"] if isinstance(g, bmesh.types.BMVert) and g.is_valid]
+        midden = sum((v.co for v in schil_v), Vector()) / max(1, len(schil_v))
+        for v in schil_v:
             d = v.co - midden
             v.co = midden + Vector((d.x * 1.08, d.y * 1.04, d.z * 1.06))
             v.co.z = max(v.co.z, 0.0)
-        smesh = bpy.data.meshes.new(f"schoen_{k}")
-        bm.to_mesh(smesh)
-        bm.free()
-        smesh.materials.append(me.materials[schoen_i])
-        so = bpy.data.objects.new(f"schoen_{k}", smesh)
-        bpy.context.scene.collection.objects.link(so)
-        schillen.append(so)
-    if schillen:
-        for o in bpy.context.view_layer.objects:
-            o.select_set(o in schillen or o is body)
-        bpy.context.view_layer.objects.active = body
-        bpy.ops.object.join()
-        body = bpy.context.view_layer.objects.active
+        for g in res["geom"]:
+            if isinstance(g, bmesh.types.BMFace) and g.is_valid:
+                g.material_index = schoen_i
+        log(f"schoen {k}: schil van {len(schil_v)} punten")
+    bm.to_mesh(me)
+    bm.free()
+    me.update()
     fig = body
     fig.name = fig.data.name = "Figuur"
     bron_me = fig.data.copy()
