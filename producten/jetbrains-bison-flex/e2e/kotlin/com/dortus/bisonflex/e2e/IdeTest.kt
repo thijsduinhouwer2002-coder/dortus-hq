@@ -97,7 +97,13 @@ class IdeTest {
                 // Vensterverslag ook vóór het wachten: op EAP 263 liep waitForIndicators twee keer af (runs 45093981465,
                 // 45099923752), mogelijk door een dialoog boven het IDE-venster.
                 vensterVerslag("$naam-voor-wachten")
-                waitForIndicators(5.minutes)
+                geenLicentievenster(naam)
+                try {
+                    waitForIndicators(5.minutes)
+                } catch (e: Throwable) {
+                    geenLicentievenster(naam, e)
+                    throw e
+                }
                 vensterVerslag("$naam-start")
                 val ftm = service<FileTypeManagerOpAfstand>()
                 for ((bestand, soort) in listOf("calc.y" to "Bison", "calc.yy" to "Bison", "calc.l" to "Flex", "calc.ll" to "Flex")) {

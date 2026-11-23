@@ -6,10 +6,12 @@
       blender   JSON-lijst: de nieuwste vaste versie uit blender-gewrichten-e2e.yml (de huidige), elke alpha, beta
                 of rc van builder.blender.org, en elke nieuwere patch van een vaste versie (bijvoorbeeld 5.2.4-stable).
       idea_build, clion_build
-                build van de nieuwste IntelliJ IDEA- en CLion-EAP, alleen als die jonger is dan 28 dagen
-                (een EAP heeft een ingebouwde licentie van 30 dagen na de builddatum; anders leeg).
+                build van de nieuwste IntelliJ IDEA- en CLion-EAP van een grote versie (2026.3, geen bugfix als
+                2026.3.1), alleen als die jonger is dan 28 dagen (zo'n EAP heeft een ingebouwde licentie van 30 dagen
+                na de builddatum; een bugfix-EAP vraagt een licentie; anders leeg).
       verifier_extra
-                nieuwste IntelliJ IDEA- en CLion-release voor de Plugin Verifier, bijvoorbeeld IU:2026.3,CL:2026.3.0.1.
+                nieuwste IntelliJ IDEA- en CLion-release voor de Plugin Verifier, plus de allernieuwste IntelliJ-EAP
+                als build, bijvoorbeeld IU:2026.3,CL:2026.3.0.1,IU/263.8311.30.
       obsidian  JSON-lijst: nieuwste Obsidian met de oudste en met de nieuwste installer. De insider-versie
                 (catalyst) vraagt inloggen met een betaald account, die halen we niet.
 
@@ -98,15 +100,34 @@ def blender_lijst(vast, builds):
     return sorted(set(lijst), key=lambda x: (num(x), x))
 
 
-def eap(code, vandaag):
-    r = haal(f"https://data.services.jetbrains.com/products/releases?code={code}&type=eap&latest=true")
-    rel = (r.get(code) or [None])[0]
-    if not rel:
+def eap(code, vandaag, lijst=None):
+    """Nieuwste EAP van een grote versie (2026.3, niet 2026.3.1) die jonger is dan 28 dagen.
+
+    Alleen de EAP van een grote versie heeft een ingebouwde licentie. De EAP van een bugfix (2026.3.1, build
+    263.8311.30) toont een licentievenster "No subscription" (GEZIEN, run 45101820137, donker-calc-y.png), en
+    dat klikt de test niet weg. Zo'n build gaat wel naar de Plugin Verifier (zie verifier_eap).
+    """
+    if lijst is None:
+        lijst = haal(f"https://data.services.jetbrains.com/products/releases?code={code}&type=eap&latest=false").get(code) or []
+    if not lijst:
         return "", f"{code}: geen EAP gevonden"
+    nieuwste = max(lijst, key=lambda r: r["date"])
+    groot = [r for r in lijst if len(num(r.get("version", ""))) <= 2]
+    if not groot:
+        return "", f"{code}: geen EAP van een grote versie (alleen bugfix-EAP {nieuwste['build']}, vraagt een licentie)"
+    rel = max(groot, key=lambda r: r["date"])
     leeftijd = (vandaag - datetime.date.fromisoformat(rel["date"])).days
     if leeftijd > 28:
-        return "", f"{code}: nieuwste EAP {rel['build']} is {leeftijd} dagen oud (licentie verlopen), overgeslagen"
+        return "", (f"{code}: nieuwste EAP van een grote versie {rel['build']} is {leeftijd} dagen oud (licentie verlopen), "
+                    f"overgeslagen; nieuwste EAP is {nieuwste['version']} build {nieuwste['build']}")
     return rel["build"], f"{code}: EAP {rel['version']} build {rel['build']} van {rel['date']}"
+
+
+def verifier_eap(code, lijst=None):
+    """Build van de allernieuwste EAP (ook bugfix) voor de Plugin Verifier, als IU/<build>: die vraagt geen licentie."""
+    if lijst is None:
+        lijst = haal(f"https://data.services.jetbrains.com/products/releases?code={code}&type=eap&latest=true").get(code) or []
+    return lijst[0]["build"] if lijst else ""
 
 
 def release(code):
@@ -124,6 +145,9 @@ def versies():
     idea, idea_tekst = eap("IIU", vandaag)
     clion, clion_tekst = eap("CL", vandaag)
     extra = f"IU:{release('IIU')},CL:{release('CL')}"
+    nieuwste_eap = verifier_eap("IIU")
+    if nieuwste_eap:
+        extra += f",IU/{nieuwste_eap}"
     obsidian = [{"app": "latest", "installer": "earliest"}, {"app": "latest", "installer": "latest"}]
     uit(blender=json.dumps(blender), idea_build=idea, clion_build=clion, verifier_extra=extra,
         obsidian=json.dumps(obsidian, separators=(",", ":")))

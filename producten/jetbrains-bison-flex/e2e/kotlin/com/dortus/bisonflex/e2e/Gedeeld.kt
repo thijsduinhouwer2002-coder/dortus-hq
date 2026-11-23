@@ -150,6 +150,25 @@ internal fun vensterVerslag(naam: String) {
     for ((id, titel) in vensters()) println("DORTUS-E2E [$naam] zichtbaar venster $id: '$titel'")
 }
 
+private val LICENTIE = Regex("licen|activat|subscription|trial|log ?in|sign ?in|evaluat|expired|agreement|terms|eula", RegexOption.IGNORE_CASE)
+
+/**
+ * Faalt met een duidelijke reden als er een licentie-, inlog- of voorwaardenvenster zichtbaar is (titel, xdotool).
+ * Er wordt niets aangeklikt. Waarom: de bugfix-EAP 263.8311.30 (2026.3.1) toont "No subscription" en "Bison & Flex,
+ * Activate to enable" (GEZIEN, run 45101820137, donker-calc-y.png); de test liep dan vast op waitForIndicators of
+ * gaf een lege structuurweergave, wat op een fout in de plug-in leek. [oorzaak]: de fout die erna kwam, of null.
+ */
+internal fun geenLicentievenster(naam: String, oorzaak: Throwable? = null) {
+    val (id, titel) = vensters().firstOrNull { LICENTIE.containsMatchIn(it.second) } ?: return
+    val doel = schermen.resolve("$naam-licentievenster.png")
+    val code = try { ProcessBuilder("import", "-window", id, doel.toString()).inheritIO().start().waitFor() } catch (e: Exception) { -1 }
+    val reden = "IDE toont een licentie- of voorwaardenvenster '$titel' (schermafbeelding ${doel.fileName}, code $code). " +
+        "Een bugfix-EAP (zoals 2026.3.1) heeft geen ingebouwde licentie: kies een EAP van een grote versie of de vaste versie. " +
+        "Of de plug-in werkt, zegt de Plugin Verifier."
+    println("DORTUS-E2E [$naam] LICENTIE/VOORWAARDEN: $reden")
+    if (oorzaak != null) fail(reden, oorzaak) else fail(reden)
+}
+
 /** Zichtbare vensters met titel (xdotool): id en titel. */
 internal fun vensters(): List<Pair<String, String>> = try {
     val p = ProcessBuilder("bash", "-c", "for w in \$(xdotool search --onlyvisible --name . 2>/dev/null); do printf '%s\\t%s\\n' \"\$w\" \"\$(xdotool getwindowname \$w)\"; done")
