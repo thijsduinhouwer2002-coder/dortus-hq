@@ -1,0 +1,79 @@
+# gemaakt: 2026-11-23T23:01:58Z
+# workflow: Betrouwbaarheid Figure from rig (testset, echte Blender) (.github/workflows/betrouwbaar-rig.yml)
+# run: 45275271607 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45275271607
+# commit: 183fae21 tak claude/betrouwbaar-rig gestart door push
+# mislukte stappen: meet (4.2.23, robot-a, tak, 5): Eis van de testset; meet (4.2.23, robot-a, tak, 2): Eis van de testset; meet (4.2.23, robot-b, tak, 1): Eis van de testset; meet (4.2.23, robot-b, tak, 3): Eis van de testset; meet (4.2.23, robot-a, tak, 4): Eis van de testset; meet (4.2.23, robot-a, tak, 3): Eis van de testset; meet (4.2.23, robot-b, tak, 2): Eis van de testset; meet (4.2.23, robot-fijn, tak, 5): Eis van de testset; meet (4.2.23, robot-fijn, tak, 1): Eis van de testset; meet (4.2.23, robot-fijn, tak, 3): Eis van de testset; meet (4.2.23, robot-b, tak, 5): Eis van de testset; meet (4.2.23, robot-b, tak, 4): Eis van de testset; meet (4.2.23, robot-fijn, tak, 4): Eis van de testset; meet (4.2.23, robot-a, tak, 1): Eis van de testset; regressie (4.2.23): Eis; meet (4.2.23, robot-fijn, tak, 2): Eis van de testset
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== meet (4.2.23, robot-a, tak, 5) / Eis van de testset (laatste 16 van 16 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$N.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$N.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  NUL_COMMIT: [weggehaald: lange hex-reeks]
+  CJ_PROEVEN: 
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  N: robot-a-5
+  V: 4.2.23
+##[endgroup]
+EIS robot-a Blender 4.2.23: 6 gewrichten (nodig 7), slechte sneden onderweg 5, knop 152.8 s
+EIS FOUT: 6 gewrichten, nodig 7; ontbreekt ['Left shoulder', 'Left hip', 'Left knee']: Left knee (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (no room on this 59 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+##[error]Process completed with exit code 1.
+
+===== meet (4.2.23, robot-a, tak, 2) / Eis van de testset (laatste 16 van 16 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$N.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$N.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  NUL_COMMIT: [weggehaald: lange hex-reeks]
+  CJ_PROEVEN: 
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  N: robot-a-2
+  V: 4.2.23
+##[endgroup]
+EIS robot-a Blender 4.2.23: 6 gewrichten (nodig 7), slechte sneden onderweg 5, knop 191.8 s
+EIS FOUT: 6 gewrichten, nodig 7; ontbreekt ['Left shoulder', 'Left hip', 'Left knee']: Left knee (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (no room on this 59 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+##[error]Process completed with exit code 1.
+
+===== meet (4.2.23, robot-b, tak, 1) / Eis van de testset (laatste 16 van 16 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$N.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$N.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  NUL_COMMIT: [weggehaald: lange hex-reeks]
+  CJ_PROEVEN: 
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  N: robot-b-1
+  V: 4.2.23
+##[endgroup]
+EIS robot-b Blender 4.2.23: 6 gewrichten (nodig 7), slechte sneden onderweg 5, knop 192.4 s
+EIS FOUT: 6 gewrichten, nodig 7; ontbreekt ['Left shoulder', 'Left hip', 'Left knee']: Left knee (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (no room on this 59 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+##[error]Process completed with exit code 1.
+
+===== meet (4.2.23, robot-b, tak, 3) / Eis van de testset (laatste 16 van 16 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$N.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$N.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  NUL_COMMIT: [weggehaald: lange hex-reeks]
+  CJ_PROEVEN: 
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  N: robot-b-3
+  V: 4.2.23
+##[endgroup]
+EIS robot-b Blender 4.2.23: 6 gewrichten (nodig 7), slechte sneden onderweg 5, knop 191.1 s
+EIS FOUT: 6 gewrichten, nodig 7; ontbreekt ['Left shoulder', 'Left hip', 'Left knee']: Left knee (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (no room on this 59 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+##[error]Process completed with exit code 1.
