@@ -30,6 +30,7 @@ STIJL = {
 }
 STIJL_B = {"wit": "FFD23F", "oranje": "E8364F", "blauw": "1B1F3B", "metaal": "8A909C", "led": "7CFF6B"}
 METAAL = ("metaal",)
+GEWRICHT = "3A404D"   # kleur van kogel, kom en scharnier in de renders (studio.plastic gewricht="contrast")
 LICHT = ("led",)
 
 
@@ -68,15 +69,19 @@ class Bouwer:
     def __init__(self, namen):
         self.bm = bmesh.new()
         self.namen = list(namen)
+        self.laag = self.bm.faces.layers.int.new("vorm")   # nummer van de vorm, in volgorde van bouwen
+        self.n = 0
 
     def _klaar(self, geom, mat, m):
         vs = [g for g in geom if isinstance(g, bmesh.types.BMVert)]
         bmesh.ops.transform(self.bm, matrix=m, verts=vs)
         fs = {f for v in vs for f in v.link_faces}
         i = self.namen.index(mat)
+        self.n += 1
         for fc in fs:
             fc.material_index = i
             fc.smooth = True
+            fc[self.laag] = self.n
 
     def doos(self, mid, maat, mat, rond=2.0, draai=None, seg=3, taps=None):
         """Afgeronde doos: maat (b, d, h) in mm, rond = straal van de randen. taps=(fx, fy): onderkant smaller."""
@@ -195,8 +200,8 @@ def bouw_vormen(p, f=1.0):
         # vuist: afgeronde doos langs de onderarm, duim als kleine doos naar voren
         dr = _richting(ha, h2)
         mid = ha + (h2 - ha).normalized() * 7.5 * s
-        B.doos(mid, P(14, 15, 15), "metaal", rond=5.0 * s, draai=dr)
-        B.doos(mid + dr @ P(0, -7.0, -2.0), P(5.5, 5, 8), "metaal", rond=2.4 * s, draai=dr)
+        B.doos(mid, P(14, 15, 15), "donker", rond=5.0 * s, draai=dr)
+        B.doos(mid + dr @ P(0, -7.0, -2.0), P(5.5, 5, 8), "donker", rond=2.4 * s, draai=dr)
         B.doos(mid + dr @ P(0, 0, 3.5), P(15, 16, 3.0), "blauw", rond=1.2 * s, draai=dr)   # pols
         # ---- benen ----
         hp, kn, an = p[f"{k}-upper-leg"], p[f"{k}-knee"], p[f"{k}-ankle"]
@@ -214,6 +219,88 @@ def bouw_vormen(p, f=1.0):
         B.doos(P(19.5 * sx, -5.5, 2.0), P(24.4, 39.5, 4.0), "donker", rond=1.6 * s)   # zool
         B.doos(P(19.5 * sx, -20, 8.5), P(20, 9, 9.5), "oranje", rond=3.8 * s)         # neus
     return B.bm, namen
+
+
+def kleur_vormen(bron_me, doel, diep=0.25, herstel=False):
+    """Kleur per vlak van de gesloten mesh: de vorm waar het vlak (een fractie naar binnen) in zit, en zitten er meer
+    vormen, de laatst gebouwde (details liggen over de basis: kern over borstplaat over borstkas). Strakker dan het
+    dichtstbijzijnde vlak (FL.kleur_terug), dat bij een uitstekende plaat soms de borstkas eronder koos (witte
+    snippers op de randen, studio-2 eerste run). Buiten elke vorm (vulhoekjes van de remesh): dichtstbijzijnde vlak.
+    herstel=True: voor een deel na Figure from rig. Alleen vlakken met een toy_-materiaal, de materialen van het deel
+    blijven staan (kogel, kom en scharnier houden hun kleur van de add-on)."""
+    from mathutils.bvhtree import BVHTree
+    vorm = [a.value for a in bron_me.attributes["vorm"].data]
+    per = {}
+    for poly, v in zip(bron_me.polygons, vorm):
+        per.setdefault(v, []).append(poly)
+    cel = 8.0
+    rooster, vormen = {}, {}
+    for v, polys in per.items():
+        idx = sorted({i for p in polys for i in p.vertices})
+        nieuw = {i: k for k, i in enumerate(idx)}
+        co = [bron_me.vertices[i].co.copy() for i in idx]
+        bvh = BVHTree.FromPolygons(co, [tuple(nieuw[i] for i in p.vertices) for p in polys])
+        lo = Vector((min(c.x for c in co), min(c.y for c in co), min(c.z for c in co)))
+        hi = Vector((max(c.x for c in co), max(c.y for c in co), max(c.z for c in co)))
+        vormen[v] = (bvh, lo, hi, polys[0].material_index)
+        for gx in range(int(math.floor(lo.x / cel)), int(math.floor(hi.x / cel)) + 1):
+            for gy in range(int(math.floor(lo.y / cel)), int(math.floor(hi.y / cel)) + 1):
+                for gz in range(int(math.floor(lo.z / cel)), int(math.floor(hi.z / cel)) + 1):
+                    rooster.setdefault((gx, gy, gz), []).append(v)
+    alles = BVHTree.FromPolygons([v.co for v in bron_me.vertices], [tuple(p.vertices) for p in bron_me.polygons])
+    mats = [p.material_index for p in bron_me.polygons]
+    if herstel:
+        slot = {m.name: i for i, m in enumerate(doel.data.materials) if m is not None}
+        naar = [slot.get(m.name, -1) for m in bron_me.materials]
+        toy = {i for i, m in enumerate(doel.data.materials) if m is not None and m.name.startswith("toy_")}
+    else:
+        doel.data.materials.clear()
+        for m in bron_me.materials:
+            doel.data.materials.append(m)
+        naar = list(range(len(bron_me.materials)))
+        toy = None
+    mw = doel.matrix_world
+    buiten = 0
+    for f in doel.data.polygons:
+        if toy is not None and f.material_index not in toy:
+            continue
+        q = mw @ (f.center - f.normal * diep)
+        beste = None
+        for v in rooster.get((int(math.floor(q.x / cel)), int(math.floor(q.y / cel)), int(math.floor(q.z / cel))), ()):
+            bvh, lo, hi, mi = vormen[v]
+            if beste is not None and v < beste:
+                continue
+            if not (lo.x <= q.x <= hi.x and lo.y <= q.y <= hi.y and lo.z <= q.z <= hi.z):
+                continue
+            loc, nor, _i, _d = bvh.find_nearest(q)
+            if loc is not None and (q - loc).dot(nor) < 0:
+                beste = v
+        if beste is not None:
+            mi = vormen[beste][3]
+        else:
+            buiten += 1
+            _l, _n, i, _d = alles.find_nearest(mw @ f.center)
+            mi = mats[i] if i is not None else 0
+        if naar[mi] >= 0:
+            f.material_index = naar[mi]
+        f.use_smooth = True
+    doel.data.update()
+    FL.log(f"kleuren per vorm: {len(doel.data.polygons)} vlakken, {buiten} buiten elke vorm")
+
+
+VORMEN = "cj_robot_vormen"
+
+
+def kleur_herstel(delen):
+    """Na Figure from rig, alleen voor renders: de add-on zet de kleuren van de delen na elke snede terug per
+    dichtstbijzijnd vlak, en dan schuiven kleine details (kern op de borst, randen van platen) een beetje (GEZIEN 23 nov:
+    na de schouders werd een deel van de antraciet ring rond de kern oranje en lichtblauw). Hier krijgt elk gewoon vlak
+    weer de kleur van zijn vorm. Doe dit in rusthouding (voor het poseren), zoals S.plastic."""
+    bron = bpy.data.meshes.get(VORMEN)
+    if bron is None:
+        return
+    for o in delen:
+        kleur_vormen(bron, o, herstel=True)
 
 
 def laad_robot(hoogte_mm=220.0, stijl=None, methode=None, voxel_mm=0.5):
@@ -269,8 +356,9 @@ def laad_robot(hoogte_mm=220.0, stijl=None, methode=None, voxel_mm=0.5):
         if nieuw is not fig:
             bpy.data.objects.remove(fig)
             fig = nieuw
-        FL.kleur_terug(bron_me, bron_mw, fig)
-        bpy.data.meshes.remove(bron_me)
+        kleur_vormen(bron_me, fig)
+        bron_me.name = VORMEN
+        bron_me.use_fake_user = True   # voor kleur_herstel na Figure from rig
     fig.name = fig.data.name = "Figuur"
     FL.log(f"robot na {methode}: {len(fig.data.vertices)} punten, {FL.mesh_staat(fig)}")
     M = FL._mens_module(hoogte_mm)

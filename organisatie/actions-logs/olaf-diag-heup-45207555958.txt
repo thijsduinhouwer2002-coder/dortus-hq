@@ -1,0 +1,84 @@
+# gemaakt: 2026-11-23T15:43:38Z
+# workflow: Olaf diag CI-verschil (robot linkerheup) (.github/workflows/olaf-diag-heup.yml)
+# run: 45207555958 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45207555958
+# commit: 489f4bda tak claude/olaf-diag-heup gestart door push
+# mislukte stappen: diag: Meten
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== diag / Meten (laatste 75 van 75 regels) =====
+##[group]Run B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B"; do
+  curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break; rm -f /tmp/blender.tar.xz
+done
+mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+sudo apt-get install -y -q libgl1 libegl1 libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 >/dev/null 2>&1 || true
+git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
+mkdir -p /tmp/v12 && git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v12
+patch /tmp/v12/producten/blender-gewrichten/click_joints/beweeg.py producten/blender-gewrichten/proeven/ci-verschil/diag-beweeg.patch
+# Ronde 2: alle sneden met solver EXACT (CJ_SOLVER), om te zien of de linkerheup dan wel lukt op deze processor.
+sed -i 's/^FORCEER_SOLVER = None$/import os as _os; FORCEER_SOLVER = _os.environ.get("CJ_SOLVER") or None/' /tmp/v12/producten/blender-gewrichten/click_joints/gewricht.py
+grep -n "FORCEER_SOLVER =" /tmp/v12/producten/blender-gewrichten/click_joints/gewricht.py
+(cd /tmp/v12/producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald)
+mkdir -p /tmp/uit
+CJ_SOLVER=EXACT timeout 1800 /tmp/blender/blender -b --factory-startup --python commercie/filmpjes/studio/proef_figuur.py -- \
+  /tmp/click_joints_betaald.zip robot 220 "" /tmp/uit > /tmp/uit/proef.log 2>&1 || true
+echo "===== CPU ====="
+grep -m1 "model name" /proc/cpuinfo; nproc; grep -o -w "avx512f\|avx2\|fma" /proc/cpuinfo | sort -u | tr '\n' ' '; echo
+echo "===== UITSLAG ====="
+grep -E "na voxel|DIAG|Joint placed|Hinge placed|Skipped|Warning|PROEF|Traceback|Error" /tmp/uit/proef.log | cut -c1-600
+echo "Expres rood: zo zet actions-log dit einde in de repo."
+exit 1
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_COMMIT: [weggehaald: lange hex-reeks]
+  CJ_NAAM: robot
+  CJ_ARMEN: 0
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+##[endgroup]
+patching file /tmp/v12/producten/blender-gewrichten/click_joints/beweeg.py
+26:import os as _os; FORCEER_SOLVER = _os.environ.get("CJ_SOLVER") or None
+/tmp/click_joints_betaald.zip
+===== CPU =====
+model name	: AMD EPYC 7763 64-Core Processor
+4
+avx2 fma 
+===== UITSLAG =====
+[studio] robot na voxel: 240130 punten, {'open_randen': 0, 'stukken': 1}
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Error: The parts overlap before they move; the mesh is unchanged.
+DIAGMESH Figuur_A Figuur_B 218522 26490 28361943.36 5812058.7
+DIAGBEWEEG Figuur_A klein [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 8 min 0.0006219148053787649 neg 0
+DIAGGROOT Figuur_A grenzen [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4] raakt0 [False, False, False, False, False, False, False, False] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None vlakken 1625 6489 gesnoeid True
+Info: Joint placed. Good fit. 7.784 s.
+DIAGMESH Figuur_A_A Figuur_A_B 193669 29923 23803536.24 5584137.1
+DIAGBEWEEG Figuur_A_A klein [30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None neg 0
+DIAGGROOT Figuur_A_A grenzen [30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] raakt0 [False, False, False, False, False, False, False, False] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None vlakken 6463 9731 gesnoeid True
+Info: Joint placed. Good fit. 12.969 s.
+DIAGMESH Figuur_A_A_A Figuur_A_A_B 166869 29912 18853294.57 5582019.12
+DIAGBEWEEG Figuur_A_A_A klein [30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None neg 0
+DIAGGROOT Figuur_A_A_A grenzen [30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] raakt0 [False, False, False, False, False, False, False, False] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None vlakken 6464 9733 gesnoeid True
+Info: Joint placed. Good fit. 11.943 s.
+DIAGMESH Figuur_A_A_A_A Figuur_A_A_A_B 118359 54084 15402445.05 4173615.48
+DIAGBEWEEG Figuur_A_A_A_A klein [30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None neg 0
+DIAGGROOT Figuur_A_A_A_A grenzen [30.4, 27.8, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] raakt0 [False, False, False, False, False, False, False, False] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None vlakken 9913 16386 gesnoeid True
+Info: Joint placed. Good fit. 88.789 s.
+DIAGMESH Figuur_A_A_A_A_A Figuur_A_A_A_A_B 69854 53674 11952438.8 4122693.06
+DIAGBEWEEG Figuur_A_A_A_A_A klein [30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None neg 0
+DIAGGROOT Figuur_A_A_A_A_A grenzen [30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] raakt0 [False, False, False, False, False, False, False, False] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None vlakken 6193 16011 gesnoeid True
+Info: Joint placed. Good fit. 9.583 s.
+Warning: 5 joints. Skipped: Left elbow (The parts overlap before they move; the mesh is unchanged.); Right elbow (The parts overlap before they move; the mesh is unchanged.); Left knee (The parts overlap before they move; the mesh is unchanged.); Right knee (The parts overlap before they move; the mesh is unchanged.)
+PROEF robot hoogte=220 gewrichten=5 delen=6 stukken=[1, 1, 1, 1, 1, 1]
+Expres rood: zo zet actions-log dit einde in de repo.
+##[error]Process completed with exit code 1.

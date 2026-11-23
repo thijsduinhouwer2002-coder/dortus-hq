@@ -1,0 +1,14 @@
+schema_version = "1.0.0"
+id = "split_joints"
+version = "0.1.0"
+name = "Split Joints"
+tagline = "Split big models to fit your printer, with pins that fit"
+maintainer = "Dortus <thijs@dortus.com>"
+type = "add-on"
+website = "https://dortus.com/"
+tags = ["Mesh", "Modeling"]
+blender_version_min = "4.2.0"
+license = ["SPDX:GPL-3.0-or-later"]
+
+[permissions]
+files = "Export the pieces and pins as STL or 3MF files"

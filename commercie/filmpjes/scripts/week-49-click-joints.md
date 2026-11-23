@@ -11,22 +11,24 @@ Door Sanne, 23 nov 2026. Opdracht hoofdchat 23 nov ±12:05 en ±12:45 NL. Zelfde
 
 ---
 
-## 1. Twintig delen exporteren? Eén knop
-Titel: Export every part of your figure for 3D printing 🔥 | Blender
+## 1. Figuur nog in één stuk? Eén knop maakt delen met gewrichten
+Titel: Turn your rigged figure into printable parts in one click 🔥 | Blender
+
+*Herzien 23 nov na keuring Daan (moet 1 en 3): de Pro-reden is Figure from rig, exporteren is het gevolg en zit ook in de gratis Click Joints. Beeld: de robot van studio-2, niet het mensfiguur van studio-1.*
 
 | # | gesproken | kop (groot) | beeld |
 |---|---|---|---|
-| 1A | Still exporting every part one by one? | One by one? | Blender met de lijst van tien delen, muis die er één selecteert en File, Export kiest (nieuw) |
-| 1B | Is exporting your figure taking forever? | Taking forever? | zelfde beeld |
-| 2 | This figure is cut into ten parts, each with its own joint already. | Ten parts | de gekleurde figuur in delen (studio-1) |
-| 3 | In Click Joints Pro, step three is Fit and export, at the bottom. | Step 3 | paneel, inzoomen op "3 Fit and export" |
-| 4 | Pick STL or 3MF with the two buttons right above the export button. | STL or 3MF | klik op 3MF, de knop wordt "Export 3MF" |
-| 5 | Click once, and every part becomes its own file, ready for your slicer. | One file per part | map met de bestanden (opname, nieuw) |
-| 6 | Every hinge and ball joint stays in its part, so nothing gets lost. | Joints stay in | delen apart naast elkaar |
-| 7 | Measured in Blender, not print tested by us yet. Print a test joint first. | Print a test joint first | render van de delen |
+| 1A | Still cutting your figure into parts yourself? | Cutting it yourself? | robot van studio-2 in één stuk in Blender, muis met een boolean-blok bij de schouder (nieuw) |
+| 1B | Is your figure still one solid piece? | One solid piece? | robot van studio-2 in één stuk, draait rond (nieuw) |
+| 2 | One button, Figure from rig, cuts this robot into parts, each with its own joint. | One button | klik op Figure from rig, de delen verschijnen (opname studio-2) |
+| 3 | It reads the rig you already made: shoulders, elbows, hips, knees and the neck. | From your own rig | lijst van Figure from rig, gewricht voor gewricht |
+| 4 | Elbows and knees get a hinge with an end stop, the rest a ball joint. | Hinge or ball | inzoomen op een elleboogscharnier en een schouderkogel |
+| 5 | Then step three, Fit and export, writes every part as its own file. | Step 3 | paneel "3 Fit and export", klik, map met de bestanden |
+| 6 | Exporting is in the free Click Joints too. The one-click figure is Pro. | One click is Pro | delen van de robot apart naast elkaar |
+| 7 | Measured in Blender, not print tested by us yet. Print a test joint first. | Print a test joint first | render van de robot in delen (studio-2) |
 | 8 | Click Joints Pro. Elbows and knees stop where your rig stops. | (eindkaart) | eindkaart |
 
-Bron: zin 3 en 4: knoppen "3 Fit and export", STL | 3MF en "Export STL / Export 3MF" (gumroad-1.1.md: "split into parts, export to STL or 3MF"; knopnamen uit `paneel.py` r. 119, GEZIEN door Daan in eerdere keuring). Zin 5: één bestand per deel, uit de beschrijving van `exporteer.py` ("elk zichtbaar deel", één bestand per deel in mm). Zin 2: tien delen is de studio-figuur ("rig to 10 printable parts", eerdere Short). **Let op:** zin 6 is een gevolg van splitsen met het gewricht erin; de Regisseur laat in beeld een deel met zijn kogel of scharnier zien, anders zin 6 weglaten. Geen slicer-naam noemen of tonen.
+Bron: zin 2, 3 en 4: "press one button, and Click Joints Pro cuts it into printable parts with a joint at every shoulder, elbow, hip, knee and neck. Elbows and knees get a hinge with an end stop; shoulders, hips and neck get a ball joint" en "Figure from rig reads the bones you made" (gumroad-1.1.md). Zin 5: knop "3 Fit and export" en één bestand per deel (`paneel.py` r. 119, `exporteer.py`). Zin 6: exporteren zit in de gratis bestanden `exporteer.py` en `paneel.py` (keuring Daan A1, GEZIEN in de code); Figure from rig zit in `betaald/`. **Let op:** geen aantal delen uitgesproken: de robot gaf lokaal 9 gewrichten en in CI soms 8 (`commercie/filmpjes/studio/LEESMIJ.md`). Wil de Regisseur een getal in de kop, dan het getal uit de eigen opname. Toont de opname geen nek of mist een gewricht, dan wordt zin 3 "It reads the rig you already made, and lists every joint it placed." Geen slicer-naam noemen of tonen.
 
 ---
 
@@ -36,9 +38,9 @@ Titel: Why your small 3D printed figure can't have joints 🔥 | Blender
 | # | gesproken | kop (groot) | beeld |
 |---|---|---|---|
 | 2A | Is your figure too small for joints? | Too small? | dunne arm met een scharnier dat er niet in past (nieuw, render) |
-| 2B | Printing your figure at 150 millimetres? | 150 mm? | zelfde beeld, liniaal ernaast |
+| 2B | Arms too thin for a hinge? | Arms too thin? | zelfde beeld, liniaal ernaast |
 | 2 | A hinge needs room: a pin, a wall around it, and a gap. | A hinge needs room | doorsnede van een elleboog |
-| 3 | On a realistic figure at 150 millimetres, the arms are simply too thin. | Arms too thin | figuur op 150 mm, arm in beeld |
+| 3 | On a realistic figure at 150 millimetres, the arms are simply too thin. | 150 mm: too thin | figuur op 150 mm, arm in beeld |
 | 4 | Click Joints Pro does not force it. The list tells you why it skipped. | The list says why | lijst met een overgeslagen gewricht en reden |
 | 5 | Our tip: scale the figure to about 200 millimetres or more first. | 200 mm or more | schaal in Blender, maat in beeld |
 | 6 | It also works best when the arms and legs stand apart from the body. | Arms and legs apart | figuur in A-pose |
@@ -46,7 +48,7 @@ Titel: Why your small 3D printed figure can't have joints 🔥 | Blender
 | 8 | Measured in Blender, not print tested by us yet. Print a test joint first. | Print a test joint first | render |
 | 9 | Click Joints Pro. Elbows and knees stop where your rig stops. | (eindkaart) | eindkaart |
 
-Bron: zin 3, 5 en 6 uit "Good to know": "Works best on figures with separate arms and legs, at about 200 mm tall or more. On a realistic figure at 150 mm the arms are too thin for a hinge; the list says so." Zin 4: "Honest when it can not. A joint that does not fit is skipped, and the list tells you why and what to try." **Let op:** dat het op 200 mm bij dezelfde figuur wél lukt is GOK; de Regisseur neemt beide maten op met dezelfde figuur en toont alleen wat echt gebeurt. Lukt 200 mm niet, dan zin 7 weg en eindigen op zin 6. `uitspraak` zin 1B en 3: "one hundred fifty millimetres", zin 5: "two hundred millimetres".
+Bron: zin 3, 5 en 6 uit "Good to know": "Works best on figures with separate arms and legs, at about 200 mm tall or more. On a realistic figure at 150 mm the arms are too thin for a hinge; the list says so." Zin 4: "Honest when it can not. A joint that does not fit is skipped, and the list tells you why and what to try." **Let op:** dat het op 200 mm bij dezelfde figuur wél lukt is GOK; de Regisseur neemt beide maten op met dezelfde figuur en toont alleen wat echt gebeurt. Lukt 200 mm niet, dan zin 7 weg en eindigen op zin 6. Hook 2B is de kan van Daan (23 nov). `uitspraak` zin 3: "one hundred fifty millimetres", zin 5: "two hundred millimetres".
 
 ---
 
@@ -108,25 +110,27 @@ Bron: zin 2 en 3: "a joint at every shoulder, elbow, hip, knee and neck" en "Ank
 
 ---
 
-## 6. Gewricht geweigerd? Zo lees je waarom
-Titel: Why a joint won't place on your 3D print model 🔥 | Blender
+## 6. Goed, krap of te dun? Zo lees je de passing
+Titel: Check every joint's fit before you 3D print 🔥 | Blender
+
+*Herzien 23 nov na keuring Daan (moet 2): een krap gewricht wordt wel gesneden, alleen te dun niet.*
 
 | # | gesproken | kop (groot) | beeld |
 |---|---|---|---|
 | 6A | Is a joint missing, with no reason? | Missing joint? | figuur met één gewricht minder in de lijst (nieuw) |
 | 6B | Still finding bad joints after printing? | After printing? | mislukte print-tekening of tekst, geen nep-foto (nieuw) |
-| 2 | Click Joints Pro only places a joint when the fit is good. | Only a good fit | gewricht verschijnt |
-| 3 | When it is placed, the seam turns green, so you know it fits. | Green seam | inzoomen op de groene naad |
-| 4 | Ball joints get a fit colour too, right around the cut. | Fit colour | ring rond de kogel |
+| 2 | Click Joints Pro checks the fit of every joint before you print. | Fit check | gewricht verschijnt met zijn kleur |
+| 3 | Green is a good fit. Yellow is tight, but it is still cut. | Green, yellow | inzoomen op een groene en een gele naad, paneel met "Good fit" en "Tight: wall ... mm" |
+| 4 | Red is too thin, so that joint is not cut at all. | Red: not cut | paneel met "Too thin" en het rode icoon |
 | 5 | Two joints too close together? It refuses them, with a clear message. | Too close | melding in beeld (opname, nieuw) |
-| 6 | And when a joint does not fit, the list tells you why and what to try. | Why, and what to try | regel in de lijst met reden |
-| 7 | So you fix it in Blender, not after a failed print. | Fix it first | figuur, groene naden |
+| 6 | And the list tells you why, and what to try instead. | Why, and what to try | regel in de lijst met reden |
+| 7 | So you fix it in Blender, not after a failed print. | Fix it first | figuur na de fix, naden groen |
 | 8 | Measured in Blender, not print tested by us yet. Print a test joint first. | Print a test joint first | render |
 | 9 | Click Joints Pro. Elbows and knees stop where your rig stops. | (eindkaart) | eindkaart |
 
-Bron: zin 2 en 3: "Green fit band. A joint is only placed when the fit is good; the seam turns green." (Pro 1.0, in gumroad-1.1.md samengevat als "green fit band"). Zin 4: "ball joints with a fit colour". Zin 5: "spacing checks" (gumroad-1.1.md), uitgelegd in de Pro 1.0-tekst: "hinges and ball joints too close together are refused with a clear message". Zin 6: "Honest when it can not ...". **Let op:** zin 7 belooft niet dat de print dan lukt, alleen dat je de fout eerder ziet; zo laten. De echte meldtekst van de spacing check in beeld opnemen en niet uitspreken (die ken ik niet letterlijk).
+Bron: zin 2, 3 en 4 uit de code: `passing.py` r. 137 tot 141 (wand onder 0,8 mm = rood, onder 1,5 mm = krap, anders groen) en r. 182 tot 189 (paneeltekst "Good fit", "Tight: wall ... mm", "Too thin: ..."); keuring Daan A2: Tight wordt gesneden, alleen rood niet. Zin 5: "spacing checks" (gumroad-1.1.md) en de Pro 1.0-tekst "too close together are refused with a clear message". Zin 6: "Honest when it can not ... the list tells you why and what to try". **Let op:** de code noemt de middelste kleur "oranje", maar de waarde (1.0, 0.82, 0.0) ziet er op het scherm geel uit (GOK; `passing.py` r. 8 noemt de tint mosterd). De Regisseur zegt de kleur die je in de opname echt ziet: yellow of orange. De opname moet een groen en een krap gewricht tonen; lukt dat niet, dan wordt zin 3 "Green is a good fit, and the panel says so in words." Zin 7 belooft niet dat de print dan lukt, alleen dat je de fout eerder ziet. De echte meldtekst van de spacing check in beeld opnemen en niet uitspreken.
 
 ---
 
 ## Volgorde voorstel (geld eerst)
-6 en 1 eerst: die laten zien wat Pro je bespaart (minder mislukte prints, minder klikwerk) en raken de grootste groep, iedereen die al print. Dan 3 (AI-figuren: grote groep die nu instroomt), 2, 5, en 4 pas als 1.2.1 op Gumroad staat. De Regisseur kiest.
+Volgorde: **6, 1, 3, 5, 2, 4** (4 pas als 1.2.1 op Gumroad staat). 6 en 1 eerst: die laten zien wat Pro je bespaart (minder mislukte prints, een hele figuur in één klik) en raken de grootste groep, iedereen die al print. Dan 3 (AI-figuren: grote groep die nu instroomt). 2, 3 en 6 gaan over wat niet lukt; daarom staan ze niet vlak na elkaar (kan 2 van Daan), met 1 en 5 ertussen. De Regisseur kiest.

@@ -1,0 +1,80 @@
+# gemaakt: 2026-11-23T15:35:03Z
+# workflow: Olaf diag CI-verschil (robot linkerheup) (.github/workflows/olaf-diag-heup.yml)
+# run: 45206324187 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45206324187
+# commit: fae434ce tak claude/olaf-diag-heup gestart door push
+# mislukte stappen: diag: Meten
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== diag / Meten (laatste 71 van 71 regels) =====
+##[group]Run B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B"; do
+  curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break; rm -f /tmp/blender.tar.xz
+done
+mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+sudo apt-get install -y -q libgl1 libegl1 libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 >/dev/null 2>&1 || true
+git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
+mkdir -p /tmp/v12 && git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v12
+patch /tmp/v12/producten/blender-gewrichten/click_joints/beweeg.py producten/blender-gewrichten/proeven/ci-verschil/diag-beweeg.patch
+(cd /tmp/v12/producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald)
+mkdir -p /tmp/uit
+timeout 1800 /tmp/blender/blender -b --factory-startup --python commercie/filmpjes/studio/proef_figuur.py -- \
+  /tmp/click_joints_betaald.zip robot 220 "" /tmp/uit > /tmp/uit/proef.log 2>&1 || true
+echo "===== CPU ====="
+grep -m1 "model name" /proc/cpuinfo; nproc; grep -o -w "avx512f\|avx2\|fma" /proc/cpuinfo | sort -u | tr '\n' ' '; echo
+echo "===== UITSLAG ====="
+grep -E "na voxel|DIAG|Joint placed|Hinge placed|Skipped|Warning|PROEF|Traceback|Error" /tmp/uit/proef.log | cut -c1-600
+echo "Expres rood: zo zet actions-log dit einde in de repo."
+exit 1
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_COMMIT: [weggehaald: lange hex-reeks]
+  CJ_NAAM: robot
+  CJ_ARMEN: 0
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+##[endgroup]
+patching file /tmp/v12/producten/blender-gewrichten/click_joints/beweeg.py
+/tmp/click_joints_betaald.zip
+===== CPU =====
+model name	: AMD EPYC 9V74 80-Core Processor
+4
+avx2 fma 
+===== UITSLAG =====
+[studio] robot na voxel: 240130 punten, {'open_randen': 0, 'stukken': 1}
+Info: Hinge placed. Bends 0° to 140°. 4.651 s.
+Info: Hinge placed. Bends 0° to 140°. 4.489 s.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Info: Hinge placed. Bends 0° to 120°. 5.251 s.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Info: Hinge placed. Bends 0° to 120°. 4.801 s.
+DIAGMESH Figuur_A_A_A_A_A Figuur_A_A_A_A_B 130655 26491 20101452.81 5812245.14
+DIAGBEWEEG Figuur_A_A_A_A_A klein [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 8 min 0.0006219148053787649 neg 0
+DIAGGROOT Figuur_A_A_A_A_A grenzen [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4] raakt0 [False, False, False, False, False, False, False, False] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None vlakken 1623 6489 gesnoeid True
+Info: Joint placed. Good fit. 2.88 s.
+DIAGMESH Figuur_A_A_A_A_A_A Figuur_A_A_A_A_A_B 121203 14813 18256825.27 2925009.95
+DIAGBEWEEG Figuur_A_A_A_A_A_A klein [30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None neg 0
+DIAGGROOT Figuur_A_A_A_A_A_A grenzen [30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] raakt0 [False, False, False, False, False, False, False, False] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None vlakken 6463 9508 gesnoeid True
+Info: Joint placed. Good fit. 3.705 s.
+DIAGMESH Figuur_A_A_A_A_A_A_A Figuur_A_A_A_A_A_A_B 111737 14847 16409326.97 2931530.67
+DIAGBEWEEG Figuur_A_A_A_A_A_A_A klein [30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None neg 0
+DIAGGROOT Figuur_A_A_A_A_A_A_A grenzen [30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] raakt0 [False, False, False, False, False, False, False, False] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None vlakken 6463 9510 gesnoeid True
+Info: Joint placed. Good fit. 3.532 s.
+DIAGMESH Figuur_A_A_A_A_A_A_A_A Figuur_A_A_A_A_A_A_A_B 99144 32514 15292501.16 3627300.36
+DIAGBEWEEG Figuur_A_A_A_A_A_A_A_A klein [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] ov0 [1110, 1110, 1110, 1110, 1110, 1110, 1110, 1110] bijna 0 min None neg 0
+DIAGGROOT Figuur_A_A_A_A_A_A_A_A grenzen [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] raakt0 [True, True, True, True, True, True, True, True] ov0 [8574, 8574, 8574, 8574, 8574, 8574, 8574, 8574] bijna 0 min None vlakken 14070 21913 gesnoeid True
+Info: Joint placed. Good fit. 10.111 s.
+DIAGMESH Figuur_A_A_A_A_A_A_A_A Figuur_A_A_A_A_A_A_A_B 91723 25169 14368124.64 2711608.74
+DIAGBEWEEG Figuur_A_A_A_A_A_A_A_A klein [30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4, 30.4] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None neg 0
+DIAGGROOT Figuur_A_A_A_A_A_A_A_A grenzen [30.4, 30.4, 30.4, 30.4, 30.4, 27.8, 30.4, 30.4] raakt0 [False, False, False, False, False, False, False, False] ov0 [0, 0, 0, 0, 0, 0, 0, 0] bijna 0 min None vlakken 9913 15987 gesnoeid True
+Info: Joint placed. Good fit. 4.265 s.
+Warning: 8 joints · 2 rig · 2 mirror · 4 preset. Skipped: Left hip (no room for a ball joint that can move here (it would be blocked))
+PROEF robot hoogte=220 gewrichten=8 delen=9 stukken=[1, 1, 1, 1, 1, 1, 1, 1, 1]
+Expres rood: zo zet actions-log dit einde in de repo.
+##[error]Process completed with exit code 1.

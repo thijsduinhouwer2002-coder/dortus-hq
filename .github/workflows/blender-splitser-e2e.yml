@@ -1,0 +1,147 @@
+name: Blender splitser e2e (Split Joints, echte Blender)
+
+# Kern van het tweede Blender-product (23 nov 2026): model in stukken die op het bed passen, met pennen.
+# Toetst in echte Blender 4.2 en 5.3 op drie modellen met vrije licentie (Suzanne, vaas en schedel uit
+# KhronosGroup glTF-Sample-Assets, beide CC0 1.0). Schermafbeeldingen gaan in de release splitser-kern-1
+# (alleen beelden, geen zip of code) en op de tak schermen.
+on:
+  push:
+    branches: [main]
+    paths: ["producten/blender-splitser/**", ".github/workflows/blender-splitser-e2e.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: splitser-kern-1
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        blender: ["4.2.23", "5.3.0"]
+    defaults:
+      run:
+        working-directory: producten/blender-splitser
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten (Xvfb en software-OpenGL)
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool
+      - name: Blender ${{ matrix.blender }} ophalen
+        run: |
+          V="${{ matrix.blender }}"; KORT="${V%.*}"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+          /tmp/blender/blender --version | head -1
+      - name: Logica met de Python en numpy van Blender (plan, doorsnede, pennen)
+        run: |
+          PY=$(ls /tmp/blender/*/python/bin/python3* | grep -v config | head -1)
+          "$PY" -I e2e/test_logica.py
+      - name: Modellen ophalen (CC0 1.0, KhronosGroup glTF-Sample-Assets)
+        run: |
+          mkdir -p /tmp/modellen
+          K=https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models
+          curl -fsSL --retry 3 -o /tmp/modellen/vaas.glb "$K/GlassVaseFlowers/glTF-Binary/GlassVaseFlowers.glb"
+          curl -fsSL --retry 3 -o /tmp/modellen/schedel.glb "$K/ScatteringSkull/glTF-Binary/ScatteringSkull.glb"
+          ls -la /tmp/modellen
+      - name: Add-on inpakken en valideren
+        run: |
+          bash e2e/maak_zip.sh
+          /tmp/blender/blender --command extension validate /tmp/split_joints.zip
+      - name: Test zonder scherm (passen, waterdicht, pen in gat, nummers, export)
+        env:
+          BLENDER_USER_RESOURCES: /tmp/sj
+          BLENDER_USER_CONFIG: /tmp/sj/config
+          BLENDER_USER_EXTENSIONS: /tmp/sj/extensions
+        run: |
+          mkdir -p /tmp/sj_uit
+          /tmp/blender/blender -b --factory-startup --python e2e/test_kern.py -- /tmp/split_joints.zip /tmp/modellen/vaas.glb /tmp/modellen/schedel.glb /tmp/sj_uit 2>&1 | tee /tmp/kern.log
+          grep -q "KLAAR 0 FOUT" /tmp/kern.log || { echo "FOUT: kerntest"; grep "FOUT\|Traceback\|Error" /tmp/kern.log | head -60; exit 1; }
+      - name: Schermafbeeldingen (Workbench-render van de stukken en een snijvlak)
+        if: always()
+        run: |
+          mkdir -p "e2e/screenshots/${{ matrix.blender }}"
+          timeout 600 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender -b --factory-startup --python e2e/scherm_kern.py -- /tmp/sj_uit "$PWD/e2e/screenshots/${{ matrix.blender }}" 2>&1 | tee /tmp/scherm.log || true
+          grep "\[sj-scherm\]" /tmp/scherm.log || true
+          ! grep -q "SCHERM FOUT" /tmp/scherm.log || { echo "FOUT: schermafbeelding"; exit 1; }
+          grep -q "SCHERM OK suzanne-1" /tmp/scherm.log || { echo "FOUT: geen beeld van Suzanne"; exit 1; }
+          grep "\[sj-e2e\]" /tmp/kern.log > "e2e/screenshots/${{ matrix.blender }}/uitslag.txt" || true
+      - name: Schermafbeelding van het paneel (echte interface)
+        if: always()
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/sj_ui
+          BLENDER_USER_CONFIG: /tmp/sj_ui/config
+          BLENDER_USER_EXTENSIONS: /tmp/sj_ui/extensions
+        run: |
+          [ -s /tmp/sj_uit/suzanne.blend ] || { echo "geen suzanne.blend"; exit 1; }
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
+          timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start.blend --python e2e/scherm_paneel.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/split_joints.zip /tmp/sj_uit/suzanne.blend 2>&1 | tee /tmp/paneel.log || true
+          grep "\[sj-scherm\]\|Traceback\|Error" /tmp/paneel.log | head -20 || true
+          grep -q "PANEEL OK" /tmp/paneel.log || { echo "FOUT: geen schermafbeelding van het paneel"; exit 1; }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: blender-splitser-screenshots-${{ matrix.blender }}
+          path: producten/blender-splitser/e2e/screenshots
+          if-no-files-found: warn
+      - name: Release splitser-kern-1 bijwerken (alleen beelden en het testverslag)
+        if: always() && github.ref_name == 'main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          D="e2e/screenshots/${{ matrix.blender }}"
+          [ -d "$D" ] && [ -n "$(ls -A "$D")" ] || { echo "geen beelden"; exit 0; }
+          mkdir -p /tmp/rel
+          for f in "$D"/*; do cp "$f" "/tmp/rel/blender-${{ matrix.blender }}-$(basename "$f")"; done
+          printf 'Split Joints kern, eerste versie (werknaam). Schermafbeeldingen uit de e2e in echte Blender.\n\nRun %s, commit %s.\n\nModellen: Suzanne (Blender), vaas uit GlassVaseFlowers en schedel uit ScatteringSkull (KhronosGroup glTF-Sample-Assets, CC0 1.0). Groen = past op een Bambu Lab A1 mini, waterdicht, wand rond de gaten in orde.\n' "$GITHUB_RUN_ID" "$GITHUB_SHA" > /tmp/notes.md
+          for poging in 1 2 3; do
+            if gh release view "$TAG" >/dev/null 2>&1; then
+              gh release upload "$TAG" /tmp/rel/* --clobber && gh release edit "$TAG" --notes-file /tmp/notes.md && break
+            else
+              gh release create "$TAG" /tmp/rel/* --target "$GITHUB_SHA" --title "Split Joints kern 1 (schermafbeeldingen)" --notes-file /tmp/notes.md && break
+            fi
+            sleep $((poging * 7))
+          done
+          gh release view "$TAG" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
+      - name: Schermafbeeldingen openbaar zetten (tak schermen)
+        if: always()
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/blender-splitser/e2e/screenshots"
+          [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            if git clone -q --depth 1 --filter=blob:none --sparse --branch schermen "$URL" /tmp/s 2>/dev/null; then
+              git -C /tmp/s sparse-checkout set "blender-splitser/$NAAM/${{ matrix.blender }}"
+            else
+              mkdir /tmp/s && cd /tmp/s && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="/tmp/s/blender-splitser/$NAAM/${{ matrix.blender }}"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC/${{ matrix.blender }}"/. "$D"/ 2>/dev/null || true
+            find "$D" -type f \( -name '*.zip' -o -name '*.py' -o -name '*.blend' \) -delete
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Schermen blender-splitser/$NAAM/${{ matrix.blender }} run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; git -C /tmp/s fetch -q origin schermen 2>/dev/null; sleep $((poging * 3))
+          done

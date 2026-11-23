@@ -1,0 +1,411 @@
+# gemaakt: 2026-11-23T15:39:54Z
+# workflow: Blender gewrichten e2e (Click Joints, echte Blender) (.github/workflows/blender-gewrichten-e2e.yml)
+# run: 45202556640 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45202556640
+# commit: 957a9ac8 tak claude/blender-solver-terugval gestart door push
+# mislukte stappen: e2e (5.2.3): Geen terugval (alle toetsen van de gratis versie op de Pro-zip, les Retopoflow); e2e (5.3.0): Geen terugval (alle toetsen van de gratis versie op de Pro-zip, les Retopoflow)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (5.2.3) / Geen terugval (alle toetsen van de gratis versie op de Pro-zip, les Retopoflow) (laatste 200 van 909 regels) =====
+[cj-e2e] OK   terugval 1x open: arm_B gesloten
+[cj-e2e] RING terugval 1x open: arm_B vak=1 Click Joints Good fit met_passing=14119/62067 (22.7%) ring=11863/11863 kogel_of_kom=1800/1800 oppervlak_met_passing=38.9% addon_deel=0.2275
+[cj-e2e] OK   terugval 1x open: arm_B passingmateriaal in kleur groen
+[cj-e2e] OK   terugval 1x open: arm_B minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   terugval 1x open: arm_B alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   terugval 1x open: arm_B kogel of kom in passingkleur
+[cj-e2e] OK   terugval 1x open: twee delen, solver EXACT, terugval aan, geen hulpresten
+Traceback (most recent call last):
+  File "/tmp/cj_terug/extensions/user_default/click_joints/gewricht.py", line 291, in execute
+    deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/cj_terug/extensions/user_default/click_joints/betaald/terugval.py", line 66, in _snij
+    _maak_open(deel_a)
+    ~~~~~~~~~~^^^^^^^^
+  File "/tmp/cj_terug/extensions/user_default/click_joints/betaald/terugval.py", line 48, in _maak_open
+    bmesh.ops.delete(bm, geom=[bm.faces[0]], context="FACES_ONLY")
+                               ~~~~~~~~^^^
+IndexError: BMElemSeq[index]: outdated internal index table, run ensure_lookup_table() first
+02:38.036  bpy.rna          | ERROR Python script error in CLICK_JOINTS_OT_plaats.execute
+Error: Python: Traceback (most recent call last):
+  File "/tmp/cj_terug/extensions/user_default/click_joints/gewricht.py", line 291, in execute
+    deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/cj_terug/extensions/user_default/click_joints/betaald/terugval.py", line 66, in _snij
+    _maak_open(deel_a)
+    ~~~~~~~~~~^^^^^^^^
+  File "/tmp/cj_terug/extensions/user_default/click_joints/betaald/terugval.py", line 48, in _maak_open
+    bmesh.ops.delete(bm, geom=[bm.faces[0]], context="FACES_ONLY")
+                               ~~~~~~~~^^^
+IndexError: BMElemSeq[index]: outdated internal index table, run ensure_lookup_table() first
+Location: /home/runner/work/dortus-hq/dortus-hq/producten/blender-gewrichten/e2e/toetsen_correcties.py:111
+[cj-e2e] TERUGVAL 2x open: uitslag=None delen=0 solver=[] melding=Error: Python: Traceback (most recent call last):
+  File "/tmp/cj_terug/extensions/user_default/click_joints/gewricht.py", line 291, in execute
+    deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/cj_terug/extensions/user_default/click_joints/betaald/terugval.py", line 66, in _snij
+    _maak_open(deel_a)
+    ~~~~~~~~~~^^^^^^^^
+  File "/tmp/cj_terug/extensions/user_default/click_joints/betaald/terugval.py", line 48, in _maak_open
+    bmesh.ops.delete(bm, geom=[bm.faces[0]], context="FACES_ONLY")
+                               ~~~~~~~~^^^
+IndexError: BMElemSeq[index]: outdated internal index table, run ensure_lookup_table() first
+Location: /home/runner/work/dortus-hq/dortus-hq/producten/blender-gewrichten/e2e/toetsen_correcties.py:111 hulp=['cj_hulp']
+[cj-e2e] FOUT terugval 2x open: geweigerd, figuur heel en zichtbaar, geen hulpresten
+Warning: arm_masker is not watertight: 128 edges without exactly 2 faces. Use Make watertight.
+[cj-e2e] MODIFIER opent: foute_randen_zonder_modifier=0 cj_gesloten=False
+[cj-e2e] OK   modifier opent: mesh zonder modifier is gesloten
+[cj-e2e] OK   modifier opent: Controleer zegt niet gesloten
+Error: The mesh arm_masker is not watertight (128 edges without exactly 2 faces). Click Make watertight first.
+[cj-e2e] MODIFIER opent: uitslag=None melding=Error: The mesh arm_masker is not watertight (128 edges without exactly 2 faces). Click Make watertight first.
+[cj-e2e] OK   modifier opent: nette melding niet gesloten
+[cj-e2e] OK   modifier opent: geen delen
+Info: open_arm_remesh is watertight
+[cj-e2e] MODIFIER sluit: foute_randen_zonder_modifier=3 cj_gesloten=True
+[cj-e2e] OK   modifier sluit: mesh zonder modifier is open
+[cj-e2e] OK   modifier sluit: Controleer zegt gesloten
+Info: Joint placed. Good fit. 0.22 s.
+[cj-e2e] OK   modifier sluit: na plaatsen niets geselecteerd
+[cj-e2e] OK   modifier sluit: Manifold onder 5 s (0.30s)
+[cj-e2e] TIJD modifier sluit: 0.30s solver=MANIFOLD driehoeken_bron=65023 uitslag={'FINISHED'}
+[cj-e2e] OK   modifier sluit: precies twee delen (gevonden 2)
+[cj-e2e] modifier sluit: deel open_arm_remesh_A foute_randen=0 volume=1043.88mm3 passing=groen wand=1.625mm
+[cj-e2e] OK   modifier sluit: open_arm_remesh_A gesloten
+[cj-e2e] RING modifier sluit: open_arm_remesh_A vak=1 Click Joints Good fit met_passing=3396/7017 (48.4%) ring=1960/1960 kogel_of_kom=1980/1980 oppervlak_met_passing=43.6% addon_deel=0.484
+[cj-e2e] OK   modifier sluit: open_arm_remesh_A passingmateriaal in kleur groen
+[cj-e2e] OK   modifier sluit: open_arm_remesh_A alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   modifier sluit: open_arm_remesh_A kogel of kom in passingkleur
+[cj-e2e] modifier sluit: deel open_arm_remesh_B foute_randen=0 volume=931.63mm3 passing=groen wand=1.625mm
+[cj-e2e] OK   modifier sluit: open_arm_remesh_B gesloten
+[cj-e2e] RING modifier sluit: open_arm_remesh_B vak=1 Click Joints Good fit met_passing=2916/6469 (45.1%) ring=1444/1444 kogel_of_kom=1800/1800 oppervlak_met_passing=40.0% addon_deel=0.4508
+[cj-e2e] OK   modifier sluit: open_arm_remesh_B passingmateriaal in kleur groen
+[cj-e2e] OK   modifier sluit: open_arm_remesh_B alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   modifier sluit: open_arm_remesh_B kogel of kom in passingkleur
+Info: arm_spiegel is watertight
+[cj-e2e] SPIEGEL: determinant=-1.00 volume_eigen=2092.7mm3 cj_gesloten=True
+[cj-e2e] OK   gespiegeld: Controleer zegt gesloten
+Info: Joint placed. Good fit. 0.226 s.
+[cj-e2e] OK   gespiegeld: na plaatsen niets geselecteerd
+[cj-e2e] OK   gespiegeld: Manifold onder 5 s (0.31s)
+[cj-e2e] TIJD gespiegeld: 0.31s solver=MANIFOLD driehoeken_bron=16128 uitslag={'FINISHED'}
+[cj-e2e] OK   gespiegeld: precies twee delen (gevonden 2)
+[cj-e2e] gespiegeld: deel arm_spiegel_A foute_randen=0 volume=1040.64mm3 passing=groen wand=1.585mm
+[cj-e2e] OK   gespiegeld: arm_spiegel_A gesloten
+[cj-e2e] RING gespiegeld: arm_spiegel_A vak=1 Click Joints Good fit met_passing=3998/6890 (58.0%) ring=2430/2430 kogel_of_kom=1980/1980 oppervlak_met_passing=44.9% addon_deel=0.5803
+[cj-e2e] OK   gespiegeld: arm_spiegel_A passingmateriaal in kleur groen
+[cj-e2e] OK   gespiegeld: arm_spiegel_A minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   gespiegeld: arm_spiegel_A alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   gespiegeld: arm_spiegel_A kogel of kom in passingkleur
+[cj-e2e] gespiegeld: deel arm_spiegel_B foute_randen=0 volume=939.57mm3 passing=groen wand=1.585mm
+[cj-e2e] OK   gespiegeld: arm_spiegel_B gesloten
+[cj-e2e] RING gespiegeld: arm_spiegel_B vak=1 Click Joints Good fit met_passing=3148/6040 (52.1%) ring=1620/1620 kogel_of_kom=1800/1800 oppervlak_met_passing=40.8% addon_deel=0.5212
+[cj-e2e] OK   gespiegeld: arm_spiegel_B passingmateriaal in kleur groen
+[cj-e2e] OK   gespiegeld: arm_spiegel_B minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   gespiegeld: arm_spiegel_B alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   gespiegeld: arm_spiegel_B kogel of kom in passingkleur
+[cj-e2e] OK   gespiegeld: cj_gespiegeld staat op de delen
+[cj-e2e] OK   gespiegeld: passing niet rood (groen)
+[cj-e2e] SPIEGEL: steekproef bewust weg 13421/200000 punten, kubus 11.93 mm, 114.0 mm3
+[cj-e2e] SPIEGEL: volume delen samen=1980.2mm3 bewust weg=114.0mm3 figuur=2092.7mm3 verschil=0.070% (zonder de weggenomen ruimte 5.376%)
+[cj-e2e] OK   gespiegeld: volume van de delen samen plus de bewust weggenomen ruimte binnen 5% van het figuur
+[cj-e2e] SPELING gespiegeld ingesteld=0.2 gemeten_gem=0.1996 afwijking=0.0004 max=0.1998 min=0.1995 punten=1521 addon_meting=0.1996
+[cj-e2e] OK   SPELING gespiegeld 0.2: minstens 500 punten
+[cj-e2e] OK   SPELING gespiegeld 0.2: gemiddelde afwijking < 0,02 mm
+Warning: No 3D viewport found for the view direction; the axis now follows the Z axis of the 3D cursor. Click Place joint in the 3D viewport.
+Info: Joint placed. Good fit. 0.223 s (axis along the cursor: no 3D viewport).
+[cj-e2e] OK   kijk zonder venster: na plaatsen niets geselecteerd
+[cj-e2e] OK   kijk zonder venster: Manifold onder 5 s (0.33s)
+[cj-e2e] TIJD kijk zonder venster: 0.33s solver=MANIFOLD driehoeken_bron=16128 uitslag={'FINISHED'}
+[cj-e2e] OK   kijk zonder venster: precies twee delen (gevonden 2)
+[cj-e2e] kijk zonder venster: deel arm_kijk_A foute_randen=0 volume=1040.64mm3 passing=groen wand=1.585mm
+[cj-e2e] OK   kijk zonder venster: arm_kijk_A gesloten
+[cj-e2e] RING kijk zonder venster: arm_kijk_A vak=1 Click Joints Good fit met_passing=3998/6890 (58.0%) ring=2430/2430 kogel_of_kom=1980/1980 oppervlak_met_passing=44.9% addon_deel=0.5803
+[cj-e2e] OK   kijk zonder venster: arm_kijk_A passingmateriaal in kleur groen
+[cj-e2e] OK   kijk zonder venster: arm_kijk_A minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   kijk zonder venster: arm_kijk_A alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   kijk zonder venster: arm_kijk_A kogel of kom in passingkleur
+[cj-e2e] kijk zonder venster: deel arm_kijk_B foute_randen=0 volume=939.57mm3 passing=groen wand=1.585mm
+[cj-e2e] OK   kijk zonder venster: arm_kijk_B gesloten
+[cj-e2e] RING kijk zonder venster: arm_kijk_B vak=1 Click Joints Good fit met_passing=3148/6040 (52.1%) ring=1620/1620 kogel_of_kom=1800/1800 oppervlak_met_passing=40.8% addon_deel=0.5212
+[cj-e2e] OK   kijk zonder venster: arm_kijk_B passingmateriaal in kleur groen
+[cj-e2e] OK   kijk zonder venster: arm_kijk_B minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   kijk zonder venster: arm_kijk_B alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   kijk zonder venster: arm_kijk_B kogel of kom in passingkleur
+[cj-e2e] KIJK zonder venster: as_bron=CURSOR terugval=True as=(1.0, 0.0, -0.0) hoek_met_cursor=0.000000rad
+[cj-e2e] OK   kijk zonder venster: terugval op cursor gemeld
+[cj-e2e] OK   kijk zonder venster: as gelijk aan cursor-as
+[cj-e2e] OK   meterscene: 1 mm = 0.001 eenheden
+[cj-e2e] METER: arm (0.08, 0.0204, 0.0201) m
+Info: Joint placed. Good fit. 0.436 s.
+[cj-e2e] OK   meterscene: na plaatsen niets geselecteerd
+[cj-e2e] OK   meterscene: Manifold onder 5 s (0.60s)
+[cj-e2e] TIJD meterscene: 0.60s solver=MANIFOLD driehoeken_bron=65024 uitslag={'FINISHED'}
+[cj-e2e] OK   meterscene: precies twee delen (gevonden 2)
+[cj-e2e] meterscene: deel arm_meter_A foute_randen=0 volume=7001.89mm3 passing=groen wand=3.783mm
+[cj-e2e] OK   meterscene: arm_meter_A gesloten
+[cj-e2e] RING meterscene: arm_meter_A vak=1 Click Joints Good fit met_passing=4266/18158 (23.5%) ring=2430/2430 kogel_of_kom=2008/2008 oppervlak_met_passing=18.0% addon_deel=0.2349
+[cj-e2e] OK   meterscene: arm_meter_A passingmateriaal in kleur groen
+[cj-e2e] OK   meterscene: arm_meter_A minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   meterscene: arm_meter_A alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   meterscene: arm_meter_A kogel of kom in passingkleur
+[cj-e2e] meterscene: deel arm_meter_B foute_randen=0 volume=9070.76mm3 passing=groen wand=3.783mm
+[cj-e2e] OK   meterscene: arm_meter_B gesloten
+[cj-e2e] RING meterscene: arm_meter_B vak=1 Click Joints Good fit met_passing=5702/19454 (29.3%) ring=3930/3930 kogel_of_kom=1800/1800 oppervlak_met_passing=28.0% addon_deel=0.2931
+[cj-e2e] OK   meterscene: arm_meter_B passingmateriaal in kleur groen
+[cj-e2e] OK   meterscene: arm_meter_B minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   meterscene: arm_meter_B alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   meterscene: arm_meter_B kogel of kom in passingkleur
+[cj-e2e] SPELING meter ingesteld=0.2 gemeten_gem=0.1996 afwijking=0.0004 max=0.1998 min=0.1995 punten=1521 addon_meting=0.1996
+[cj-e2e] OK   SPELING meter 0.2: minstens 500 punten
+[cj-e2e] OK   SPELING meter 0.2: gemiddelde afwijking < 0,02 mm
+[cj-e2e] OK   meterscene: speling van de add-on 0.1996 mm (0,2 +- 0,02)
+[cj-e2e] OPENING meter: opening=4.255mm (0.851 x kogel) nek=1.969mm kogel=5.000mm
+[cj-e2e] OK   meter: opening tussen 0,80 en 0,90 x kogeldiameter
+[cj-e2e] OK   meter: nek past door de opening
+[cj-e2e] OK   meterscene: kogeldiameter 5.0 mm (5 +- 0,01)
+[cj-e2e] METER: schil 8.071 mm, trechterwand 3.783 mm
+[cj-e2e] METER: passing=groen wand=3.783mm verwacht=3.783mm kogel_r=0.0025m
+[cj-e2e] OK   meterscene: passing groen, wand gelijk aan de kleinste van schil en trechterwand in mm (+- 0,02)
+[cj-e2e] METER: bolnaad deel B verst 10.77139 mm van het kogelmidden, verwacht 10.77139 mm; punten buiten de bol onder het vlak door het kogelmidden: 0
+[cj-e2e] OK   meterscene: naad van deel B is de bol naad_r - s/2 om het kogelmidden (+- 0,001 mm)
+[cj-e2e] OK   meterscene: buiten de bol ligt deel B boven het vlak door het kogelmidden + 0,0137 mm
+[cj-e2e] METER: hoekstand 30 graden, berekende grens 30.5 graden, nek_r 0.986 mm
+[cj-e2e] OK   meterscene: hoekstand 30, 25 of 20 en berekende grens minstens die stand
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export/
+[cj-e2e] OK   STL meter arm_meter_A.stl bestaat
+02:47.915  io.stl           | WARNING Removed 3 duplicate triangles during import
+[cj-e2e] STL meter arm_meter_A: maat (46.0, 20.109, 20.103) mm, terug (46.0, 20.109, 20.103) mm, verschil 0.00000 mm, driehoeken 37625
+[cj-e2e] OK   STL meter arm_meter_A: zelfde maat binnen 0,01 mm
+[cj-e2e] OK   STL meter arm_meter_B.stl bestaat
+[cj-e2e] STL meter arm_meter_B: maat (44.982, 20.217, 20.103) mm, terug (44.982, 20.217, 20.103) mm, verschil 0.00000 mm, driehoeken 39658
+[cj-e2e] OK   STL meter arm_meter_B: zelfde maat binnen 0,01 mm
+Info: 2 3MF files in /tmp/cj_export_3mf/
+[cj-e2e] OK   3MF meter: export klaar ({'FINISHED'})
+[cj-e2e] OK   3MF meter: na export niets geselecteerd
+[cj-e2e] OK   3MF meter arm_meter_A.3mf bestaat
+[cj-e2e] OK   3MF meter arm_meter_A: vaste delen in de zip
+[cj-e2e] OK   3MF meter arm_meter_A: unit millimeter
+[cj-e2e] OK   3MF meter arm_meter_A: 37628 driehoeken, deel heeft er 37628
+[cj-e2e] OK   3MF meter arm_meter_A: maat (46.0, 20.109, 20.103) mm gelijk aan het deel binnen 0,01 mm (verschil 0.00000)
+[cj-e2e] 3MF arm_meter_A: foute randen in 3MF 0 {'dubbel': 0, 'open': 0}, in de mesh zelf 0 {'dubbel': 0, 'open': 0}
+[cj-e2e] OK   3MF meter arm_meter_A: gesloten en dezelfde draairichting (foute randen 3MF 0, mesh 0)
+[cj-e2e] OK   3MF meter arm_meter_A: volume 7001.89 mm3 gelijk aan het deel (7001.89) binnen 0,1%
+[cj-e2e] 3MF arm_meter_A: 515144 bytes, 18816 punten, 37628 driehoeken
+[cj-e2e] OK   3MF meter arm_meter_B.3mf bestaat
+[cj-e2e] OK   3MF meter arm_meter_B: vaste delen in de zip
+[cj-e2e] OK   3MF meter arm_meter_B: unit millimeter
+[cj-e2e] OK   3MF meter arm_meter_B: 39658 driehoeken, deel heeft er 39658
+[cj-e2e] OK   3MF meter arm_meter_B: maat (44.982, 20.217, 20.103) mm gelijk aan het deel binnen 0,01 mm (verschil 0.00000)
+[cj-e2e] 3MF arm_meter_B: foute randen in 3MF 0 {'dubbel': 0, 'open': 0}, in de mesh zelf 0 {'dubbel': 0, 'open': 0}
+[cj-e2e] OK   3MF meter arm_meter_B: gesloten en dezelfde draairichting (foute randen 3MF 0, mesh 0)
+[cj-e2e] OK   3MF meter arm_meter_B: volume 9070.75 mm3 gelijk aan het deel (9070.76) binnen 0,1%
+[cj-e2e] 3MF arm_meter_B: 542708 bytes, 19831 punten, 39658 driehoeken
+[cj-e2e] klaar, fouten: ['terugval 2x open: geweigerd, figuur heel en zichtbaar, geen hulpresten']
+Timer 'STL Export' took 2325.31 ms
+Timer 'STL Export' took 2367.53 ms
+Timer 'STL Import' took 5.68 ms
+Timer 'STL Import' took 5.47 ms
+##[error]Process completed with exit code 1.
+
+===== e2e (5.3.0) / Geen terugval (alle toetsen van de gratis versie op de Pro-zip, les Retopoflow) (laatste 200 van 909 regels) =====
+[cj-e2e] OK   terugval 1x open: arm_B gesloten
+[cj-e2e] RING terugval 1x open: arm_B vak=1 Click Joints Good fit met_passing=14119/62067 (22.7%) ring=11863/11863 kogel_of_kom=1800/1800 oppervlak_met_passing=38.9% addon_deel=0.2275
+[cj-e2e] OK   terugval 1x open: arm_B passingmateriaal in kleur groen
+[cj-e2e] OK   terugval 1x open: arm_B minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   terugval 1x open: arm_B alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   terugval 1x open: arm_B kogel of kom in passingkleur
+[cj-e2e] OK   terugval 1x open: twee delen, solver EXACT, terugval aan, geen hulpresten
+Traceback (most recent call last):
+  File "/tmp/cj_terug/extensions/user_default/click_joints/gewricht.py", line 291, in execute
+    deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/cj_terug/extensions/user_default/click_joints/betaald/terugval.py", line 66, in _snij
+    _maak_open(deel_a)
+    ~~~~~~~~~~^^^^^^^^
+  File "/tmp/cj_terug/extensions/user_default/click_joints/betaald/terugval.py", line 48, in _maak_open
+    bmesh.ops.delete(bm, geom=[bm.faces[0]], context="FACES_ONLY")
+                               ~~~~~~~~^^^
+IndexError: BMElemSeq[index]: outdated internal index table, run ensure_lookup_table() first
+03:50.318  bpy.rna          | ERROR Python script error in CLICK_JOINTS_OT_plaats.execute
+Error: Python: Traceback (most recent call last):
+  File "/tmp/cj_terug/extensions/user_default/click_joints/gewricht.py", line 291, in execute
+    deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/cj_terug/extensions/user_default/click_joints/betaald/terugval.py", line 66, in _snij
+    _maak_open(deel_a)
+    ~~~~~~~~~~^^^^^^^^
+  File "/tmp/cj_terug/extensions/user_default/click_joints/betaald/terugval.py", line 48, in _maak_open
+    bmesh.ops.delete(bm, geom=[bm.faces[0]], context="FACES_ONLY")
+                               ~~~~~~~~^^^
+IndexError: BMElemSeq[index]: outdated internal index table, run ensure_lookup_table() first
+Location: /home/runner/work/dortus-hq/dortus-hq/producten/blender-gewrichten/e2e/toetsen_correcties.py:111
+[cj-e2e] TERUGVAL 2x open: uitslag=None delen=0 solver=[] melding=Error: Python: Traceback (most recent call last):
+  File "/tmp/cj_terug/extensions/user_default/click_joints/gewricht.py", line 291, in execute
+    deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/cj_terug/extensions/user_default/click_joints/betaald/terugval.py", line 66, in _snij
+    _maak_open(deel_a)
+    ~~~~~~~~~~^^^^^^^^
+  File "/tmp/cj_terug/extensions/user_default/click_joints/betaald/terugval.py", line 48, in _maak_open
+    bmesh.ops.delete(bm, geom=[bm.faces[0]], context="FACES_ONLY")
+                               ~~~~~~~~^^^
+IndexError: BMElemSeq[index]: outdated internal index table, run ensure_lookup_table() first
+Location: /home/runner/work/dortus-hq/dortus-hq/producten/blender-gewrichten/e2e/toetsen_correcties.py:111 hulp=['cj_hulp']
+[cj-e2e] FOUT terugval 2x open: geweigerd, figuur heel en zichtbaar, geen hulpresten
+Warning: arm_masker is not watertight: 128 edges without exactly 2 faces. Use Make watertight.
+[cj-e2e] MODIFIER opent: foute_randen_zonder_modifier=0 cj_gesloten=False
+[cj-e2e] OK   modifier opent: mesh zonder modifier is gesloten
+[cj-e2e] OK   modifier opent: Controleer zegt niet gesloten
+Error: The mesh arm_masker is not watertight (128 edges without exactly 2 faces). Click Make watertight first.
+[cj-e2e] MODIFIER opent: uitslag=None melding=Error: The mesh arm_masker is not watertight (128 edges without exactly 2 faces). Click Make watertight first.
+[cj-e2e] OK   modifier opent: nette melding niet gesloten
+[cj-e2e] OK   modifier opent: geen delen
+Info: open_arm_remesh is watertight
+[cj-e2e] MODIFIER sluit: foute_randen_zonder_modifier=3 cj_gesloten=True
+[cj-e2e] OK   modifier sluit: mesh zonder modifier is open
+[cj-e2e] OK   modifier sluit: Controleer zegt gesloten
+Info: Joint placed. Good fit. 0.369 s.
+[cj-e2e] OK   modifier sluit: na plaatsen niets geselecteerd
+[cj-e2e] OK   modifier sluit: Manifold onder 5 s (0.51s)
+[cj-e2e] TIJD modifier sluit: 0.51s solver=MANIFOLD driehoeken_bron=65023 uitslag={'FINISHED'}
+[cj-e2e] OK   modifier sluit: precies twee delen (gevonden 2)
+[cj-e2e] modifier sluit: deel open_arm_remesh_A foute_randen=0 volume=1043.88mm3 passing=groen wand=1.625mm
+[cj-e2e] OK   modifier sluit: open_arm_remesh_A gesloten
+[cj-e2e] RING modifier sluit: open_arm_remesh_A vak=1 Click Joints Good fit met_passing=3396/7017 (48.4%) ring=1960/1960 kogel_of_kom=1980/1980 oppervlak_met_passing=43.6% addon_deel=0.484
+[cj-e2e] OK   modifier sluit: open_arm_remesh_A passingmateriaal in kleur groen
+[cj-e2e] OK   modifier sluit: open_arm_remesh_A alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   modifier sluit: open_arm_remesh_A kogel of kom in passingkleur
+[cj-e2e] modifier sluit: deel open_arm_remesh_B foute_randen=0 volume=931.63mm3 passing=groen wand=1.625mm
+[cj-e2e] OK   modifier sluit: open_arm_remesh_B gesloten
+[cj-e2e] RING modifier sluit: open_arm_remesh_B vak=1 Click Joints Good fit met_passing=2916/6469 (45.1%) ring=1444/1444 kogel_of_kom=1800/1800 oppervlak_met_passing=40.0% addon_deel=0.4508
+[cj-e2e] OK   modifier sluit: open_arm_remesh_B passingmateriaal in kleur groen
+[cj-e2e] OK   modifier sluit: open_arm_remesh_B alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   modifier sluit: open_arm_remesh_B kogel of kom in passingkleur
+Info: arm_spiegel is watertight
+[cj-e2e] SPIEGEL: determinant=-1.00 volume_eigen=2092.7mm3 cj_gesloten=True
+[cj-e2e] OK   gespiegeld: Controleer zegt gesloten
+Info: Joint placed. Good fit. 0.372 s.
+[cj-e2e] OK   gespiegeld: na plaatsen niets geselecteerd
+[cj-e2e] OK   gespiegeld: Manifold onder 5 s (0.51s)
+[cj-e2e] TIJD gespiegeld: 0.51s solver=MANIFOLD driehoeken_bron=16128 uitslag={'FINISHED'}
+[cj-e2e] OK   gespiegeld: precies twee delen (gevonden 2)
+[cj-e2e] gespiegeld: deel arm_spiegel_A foute_randen=0 volume=1040.64mm3 passing=groen wand=1.585mm
+[cj-e2e] OK   gespiegeld: arm_spiegel_A gesloten
+[cj-e2e] RING gespiegeld: arm_spiegel_A vak=1 Click Joints Good fit met_passing=3998/6890 (58.0%) ring=2430/2430 kogel_of_kom=1980/1980 oppervlak_met_passing=44.9% addon_deel=0.5803
+[cj-e2e] OK   gespiegeld: arm_spiegel_A passingmateriaal in kleur groen
+[cj-e2e] OK   gespiegeld: arm_spiegel_A minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   gespiegeld: arm_spiegel_A alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   gespiegeld: arm_spiegel_A kogel of kom in passingkleur
+[cj-e2e] gespiegeld: deel arm_spiegel_B foute_randen=0 volume=939.57mm3 passing=groen wand=1.585mm
+[cj-e2e] OK   gespiegeld: arm_spiegel_B gesloten
+[cj-e2e] RING gespiegeld: arm_spiegel_B vak=1 Click Joints Good fit met_passing=3148/6040 (52.1%) ring=1620/1620 kogel_of_kom=1800/1800 oppervlak_met_passing=40.8% addon_deel=0.5212
+[cj-e2e] OK   gespiegeld: arm_spiegel_B passingmateriaal in kleur groen
+[cj-e2e] OK   gespiegeld: arm_spiegel_B minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   gespiegeld: arm_spiegel_B alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   gespiegeld: arm_spiegel_B kogel of kom in passingkleur
+[cj-e2e] OK   gespiegeld: cj_gespiegeld staat op de delen
+[cj-e2e] OK   gespiegeld: passing niet rood (groen)
+[cj-e2e] SPIEGEL: steekproef bewust weg 13421/200000 punten, kubus 11.93 mm, 114.0 mm3
+[cj-e2e] SPIEGEL: volume delen samen=1980.2mm3 bewust weg=114.0mm3 figuur=2092.7mm3 verschil=0.070% (zonder de weggenomen ruimte 5.376%)
+[cj-e2e] OK   gespiegeld: volume van de delen samen plus de bewust weggenomen ruimte binnen 5% van het figuur
+[cj-e2e] SPELING gespiegeld ingesteld=0.2 gemeten_gem=0.1996 afwijking=0.0004 max=0.1998 min=0.1995 punten=1521 addon_meting=0.1996
+[cj-e2e] OK   SPELING gespiegeld 0.2: minstens 500 punten
+[cj-e2e] OK   SPELING gespiegeld 0.2: gemiddelde afwijking < 0,02 mm
+Warning: No 3D viewport found for the view direction; the axis now follows the Z axis of the 3D cursor. Click Place joint in the 3D viewport.
+Info: Joint placed. Good fit. 0.37 s (axis along the cursor: no 3D viewport).
+[cj-e2e] OK   kijk zonder venster: na plaatsen niets geselecteerd
+[cj-e2e] OK   kijk zonder venster: Manifold onder 5 s (0.51s)
+[cj-e2e] TIJD kijk zonder venster: 0.51s solver=MANIFOLD driehoeken_bron=16128 uitslag={'FINISHED'}
+[cj-e2e] OK   kijk zonder venster: precies twee delen (gevonden 2)
+[cj-e2e] kijk zonder venster: deel arm_kijk_A foute_randen=0 volume=1040.64mm3 passing=groen wand=1.585mm
+[cj-e2e] OK   kijk zonder venster: arm_kijk_A gesloten
+[cj-e2e] RING kijk zonder venster: arm_kijk_A vak=1 Click Joints Good fit met_passing=3998/6890 (58.0%) ring=2430/2430 kogel_of_kom=1980/1980 oppervlak_met_passing=44.9% addon_deel=0.5803
+[cj-e2e] OK   kijk zonder venster: arm_kijk_A passingmateriaal in kleur groen
+[cj-e2e] OK   kijk zonder venster: arm_kijk_A minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   kijk zonder venster: arm_kijk_A alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   kijk zonder venster: arm_kijk_A kogel of kom in passingkleur
+[cj-e2e] kijk zonder venster: deel arm_kijk_B foute_randen=0 volume=939.57mm3 passing=groen wand=1.585mm
+[cj-e2e] OK   kijk zonder venster: arm_kijk_B gesloten
+[cj-e2e] RING kijk zonder venster: arm_kijk_B vak=1 Click Joints Good fit met_passing=3148/6040 (52.1%) ring=1620/1620 kogel_of_kom=1800/1800 oppervlak_met_passing=40.8% addon_deel=0.5212
+[cj-e2e] OK   kijk zonder venster: arm_kijk_B passingmateriaal in kleur groen
+[cj-e2e] OK   kijk zonder venster: arm_kijk_B minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   kijk zonder venster: arm_kijk_B alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   kijk zonder venster: arm_kijk_B kogel of kom in passingkleur
+[cj-e2e] KIJK zonder venster: as_bron=CURSOR terugval=True as=(1.0, 0.0, -0.0) hoek_met_cursor=0.000000rad
+[cj-e2e] OK   kijk zonder venster: terugval op cursor gemeld
+[cj-e2e] OK   kijk zonder venster: as gelijk aan cursor-as
+[cj-e2e] OK   meterscene: 1 mm = 0.001 eenheden
+[cj-e2e] METER: arm (0.08, 0.0204, 0.0201) m
+Info: Joint placed. Good fit. 0.713 s.
+[cj-e2e] OK   meterscene: na plaatsen niets geselecteerd
+[cj-e2e] OK   meterscene: Manifold onder 5 s (0.99s)
+[cj-e2e] TIJD meterscene: 0.99s solver=MANIFOLD driehoeken_bron=65024 uitslag={'FINISHED'}
+[cj-e2e] OK   meterscene: precies twee delen (gevonden 2)
+[cj-e2e] meterscene: deel arm_meter_A foute_randen=0 volume=7001.89mm3 passing=groen wand=3.783mm
+[cj-e2e] OK   meterscene: arm_meter_A gesloten
+[cj-e2e] RING meterscene: arm_meter_A vak=1 Click Joints Good fit met_passing=4266/18158 (23.5%) ring=2430/2430 kogel_of_kom=2008/2008 oppervlak_met_passing=18.0% addon_deel=0.2349
+[cj-e2e] OK   meterscene: arm_meter_A passingmateriaal in kleur groen
+[cj-e2e] OK   meterscene: arm_meter_A minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   meterscene: arm_meter_A alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   meterscene: arm_meter_A kogel of kom in passingkleur
+[cj-e2e] meterscene: deel arm_meter_B foute_randen=0 volume=9070.76mm3 passing=groen wand=3.783mm
+[cj-e2e] OK   meterscene: arm_meter_B gesloten
+[cj-e2e] RING meterscene: arm_meter_B vak=1 Click Joints Good fit met_passing=5702/19454 (29.3%) ring=3930/3930 kogel_of_kom=1800/1800 oppervlak_met_passing=28.0% addon_deel=0.2931
+[cj-e2e] OK   meterscene: arm_meter_B passingmateriaal in kleur groen
+[cj-e2e] OK   meterscene: arm_meter_B minder dan de helft van het oppervlak in passingkleur
+[cj-e2e] OK   meterscene: arm_meter_B alle vlakken binnen de ring in passingkleur
+[cj-e2e] OK   meterscene: arm_meter_B kogel of kom in passingkleur
+[cj-e2e] SPELING meter ingesteld=0.2 gemeten_gem=0.1996 afwijking=0.0004 max=0.1998 min=0.1995 punten=1521 addon_meting=0.1996
+[cj-e2e] OK   SPELING meter 0.2: minstens 500 punten
+[cj-e2e] OK   SPELING meter 0.2: gemiddelde afwijking < 0,02 mm
+[cj-e2e] OK   meterscene: speling van de add-on 0.1996 mm (0,2 +- 0,02)
+[cj-e2e] OPENING meter: opening=4.255mm (0.851 x kogel) nek=1.969mm kogel=5.000mm
+[cj-e2e] OK   meter: opening tussen 0,80 en 0,90 x kogeldiameter
+[cj-e2e] OK   meter: nek past door de opening
+[cj-e2e] OK   meterscene: kogeldiameter 5.0 mm (5 +- 0,01)
+[cj-e2e] METER: schil 8.071 mm, trechterwand 3.783 mm
+[cj-e2e] METER: passing=groen wand=3.783mm verwacht=3.783mm kogel_r=0.0025m
+[cj-e2e] OK   meterscene: passing groen, wand gelijk aan de kleinste van schil en trechterwand in mm (+- 0,02)
+[cj-e2e] METER: bolnaad deel B verst 10.77139 mm van het kogelmidden, verwacht 10.77139 mm; punten buiten de bol onder het vlak door het kogelmidden: 0
+[cj-e2e] OK   meterscene: naad van deel B is de bol naad_r - s/2 om het kogelmidden (+- 0,001 mm)
+[cj-e2e] OK   meterscene: buiten de bol ligt deel B boven het vlak door het kogelmidden + 0,0137 mm
+[cj-e2e] METER: hoekstand 30 graden, berekende grens 30.5 graden, nek_r 0.986 mm
+[cj-e2e] OK   meterscene: hoekstand 30, 25 of 20 en berekende grens minstens die stand
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export/
+[cj-e2e] OK   STL meter arm_meter_A.stl bestaat
+04:05.781  io.stl           | WARNING Removed 3 duplicate triangles during import
+[cj-e2e] STL meter arm_meter_A: maat (46.0, 20.109, 20.103) mm, terug (46.0, 20.109, 20.103) mm, verschil 0.00000 mm, driehoeken 37625
+[cj-e2e] OK   STL meter arm_meter_A: zelfde maat binnen 0,01 mm
+[cj-e2e] OK   STL meter arm_meter_B.stl bestaat
+[cj-e2e] STL meter arm_meter_B: maat (44.982, 20.217, 20.103) mm, terug (44.982, 20.217, 20.103) mm, verschil 0.00000 mm, driehoeken 39658
+[cj-e2e] OK   STL meter arm_meter_B: zelfde maat binnen 0,01 mm
+Info: 2 3MF files in /tmp/cj_export_3mf/
+[cj-e2e] OK   3MF meter: export klaar ({'FINISHED'})
+[cj-e2e] OK   3MF meter: na export niets geselecteerd
+[cj-e2e] OK   3MF meter arm_meter_A.3mf bestaat
+[cj-e2e] OK   3MF meter arm_meter_A: vaste delen in de zip
+[cj-e2e] OK   3MF meter arm_meter_A: unit millimeter
+[cj-e2e] OK   3MF meter arm_meter_A: 37628 driehoeken, deel heeft er 37628
+[cj-e2e] OK   3MF meter arm_meter_A: maat (46.0, 20.109, 20.103) mm gelijk aan het deel binnen 0,01 mm (verschil 0.00000)
+[cj-e2e] 3MF arm_meter_A: foute randen in 3MF 0 {'dubbel': 0, 'open': 0}, in de mesh zelf 0 {'dubbel': 0, 'open': 0}
+[cj-e2e] OK   3MF meter arm_meter_A: gesloten en dezelfde draairichting (foute randen 3MF 0, mesh 0)
+[cj-e2e] OK   3MF meter arm_meter_A: volume 7001.89 mm3 gelijk aan het deel (7001.89) binnen 0,1%
+[cj-e2e] 3MF arm_meter_A: 515077 bytes, 18816 punten, 37628 driehoeken
+[cj-e2e] OK   3MF meter arm_meter_B.3mf bestaat
+[cj-e2e] OK   3MF meter arm_meter_B: vaste delen in de zip
+[cj-e2e] OK   3MF meter arm_meter_B: unit millimeter
+[cj-e2e] OK   3MF meter arm_meter_B: 39658 driehoeken, deel heeft er 39658
+[cj-e2e] OK   3MF meter arm_meter_B: maat (44.982, 20.217, 20.103) mm gelijk aan het deel binnen 0,01 mm (verschil 0.00000)
+[cj-e2e] 3MF arm_meter_B: foute randen in 3MF 0 {'dubbel': 0, 'open': 0}, in de mesh zelf 0 {'dubbel': 0, 'open': 0}
+[cj-e2e] OK   3MF meter arm_meter_B: gesloten en dezelfde draairichting (foute randen 3MF 0, mesh 0)
+[cj-e2e] OK   3MF meter arm_meter_B: volume 9070.75 mm3 gelijk aan het deel (9070.76) binnen 0,1%
+[cj-e2e] 3MF arm_meter_B: 542970 bytes, 19831 punten, 39658 driehoeken
+[cj-e2e] klaar, fouten: ['terugval 2x open: geweigerd, figuur heel en zichtbaar, geen hulpresten']
+Timer 'STL Export' took 3247.89 ms
+Timer 'STL Export' took 3288.44 ms
+Timer 'STL Import' took 16.35 ms
+Timer 'STL Import' took 8.44 ms
+##[error]Process completed with exit code 1.
