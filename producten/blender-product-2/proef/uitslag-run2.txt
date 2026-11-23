@@ -1,0 +1,29 @@
+staaf staaf_A: foute randen 0, volume 3714.4 mm3, eilanden 1 OK
+staaf staaf_B: foute randen 0, volume 3757.1 mm3, eilanden 1 OK
+staaf rust: raakvlakken 0, kleinste afstand 0.400 mm OK
+staaf draai +27 graden: raakt 0; +33: raakt 20 OK
+staaf draai -27 graden: raakt 0; -33: raakt 20 OK
+slang zelf: foute randen 0, volume 7036.7
+ketting0 seg0_A: foute randen 0, volume 1310.1 mm3, eilanden 1 OK
+ketting0 seg0_B: foute randen 0, volume 5568.0 mm3, eilanden 1 OK
+ketting0 rust: raakvlakken 0, kleinste afstand 0.400 mm OK
+ketting0 draai +27 graden: raakt 0; +33: raakt 34 OK
+ketting0 draai -27 graden: raakt 0; -33: raakt 36 OK
+ketting1 seg1_A: foute randen 0, volume 1248.7 mm3, eilanden 1 OK
+ketting1 seg1_B: foute randen 0, volume 4160.6 mm3, eilanden 1 OK
+ketting1 rust: raakvlakken 0, kleinste afstand 0.400 mm OK
+ketting1 draai +27 graden: raakt 0; +33: raakt 35 OK
+ketting1 draai -27 graden: raakt 0; -33: raakt 36 OK
+ketting2 seg2_A: foute randen 0, volume 1248.7 mm3, eilanden 1 OK
+ketting2 seg2_B: foute randen 0, volume 2753.3 mm3, eilanden 1 OK
+ketting2 rust: raakvlakken 0, kleinste afstand 0.400 mm OK
+ketting2 draai +27 graden: raakt 0; +33: raakt 37 OK
+ketting2 draai -27 graden: raakt 0; -33: raakt 34 OK
+ketting3 seg3_A: foute randen 0, volume 1248.7 mm3, eilanden 1 OK
+ketting3 seg3_B: foute randen 0, volume 1345.9 mm3, eilanden 1 OK
+ketting3 rust: raakvlakken 0, kleinste afstand 0.400 mm OK
+ketting3 draai +27 graden: raakt 0; +33: raakt 35 OK
+ketting3 draai -27 graden: raakt 0; -33: raakt 32 OK
+export /tmp/flexi/flexi_ketting.stl 276884 bytes
+beeld /tmp/flexi/flexi_proef.png
+PROEF OK
