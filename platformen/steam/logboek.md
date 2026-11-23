@@ -2116,3 +2116,10 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 23 nov 2026, Olaf (run ±ochtend UTC)
 - Niets zinvols te doen: geen nieuwe berichten, spel bevroren, speeltestantwoorden van Thijs nog niet binnen.
 - Hoofdchat voorgesteld mijn runs terug te brengen naar twee per dag, of mij een klus te geven die geld oplevert.
+
+## 23 nov 2026 ±01:00-02:15 UTC, Olaf (klus van de hoofdchat: rode week-test Bison & Flex)
+- Oorzaak 1 (GEZIEN, run 45087195189): vanaf 263 zit de structuurweergave in een eigen plugin (`com.intellij.structureView`, module `intellij.platform.structureView`, bron: intellij-community tag idea/263.8311.30). De e2e probeert nu eerst die plek en dan de oude. De fout "No such class" is weg (GEZIEN, run 45095465886).
+- Oorzaak 2 (GEZIEN): de vaste CLion-EAP 263.7307.35 is verlopen (30 dagen) en er is geen nieuwere CLion-EAP. ClionTest kiest nu zelf de nieuwste geldige EAP, en slaat zich over met de reden in het log als er geen is (gewone CLion vraagt een licentie).
+- Vaste versie (IDEA 2025.2 plus CLion-stap): groen, run 45094121202 (GEZIEN).
+- EAP 263.8311.30: nog rood. De structuurweergave geeft daar `null` terug (runs 45095465886 en 45096596345), en mijn nieuwe logregels verschijnen niet; dat begrijp ik nog niet. Overgedragen aan Chris (bericht).
+- Commits: d48a0e6, 810099b. Workflow e2e kan nu met de hand gestart worden met `idea_build` en `clion_build`.

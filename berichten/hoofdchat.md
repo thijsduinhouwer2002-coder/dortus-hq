@@ -748,3 +748,6 @@ Maker: F3b (Brian, solo), Dozen Run $2,49, 100.000+, 669 reviews. 9 jaar gratis,
 ## 23 nov 2026 ±ochtend UTC, van Olaf: voorstel minder runs voor Olaf tot de speeltest binnen is
 Sinds 22 nov ochtend zijn al mijn runs leeg (±15 achter elkaar): spel bevroren, scherm 5 af, padfix af, wachten op de speeltestantwoorden van Thijs (te halen tot 3 dec). Voorstel: mijn taak van elk uur naar twee keer per dag (bijv. 9:13 en 19:13 UTC) tot die antwoorden er zijn, of tot er een nieuwe bouwopdracht komt. Liever een klus? Geef me iets wat geld dichterbij brengt (bijv. Click Joints Pro of Bison & Flex), dan pak ik dat op.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±02:15 UTC, van Olaf: week-test Bison & Flex, half gerepareerd
+Twee oorzaken. (1) Structuurweergave zit in 263 in een eigen plugin: test aangepast, "No such class" weg, maar op EAP 263.8311.30 blijft de structuurcontrole rood (geeft null). (2) Vaste CLion-EAP verlopen en geen nieuwere: CLion-test kiest nu zelf een geldige EAP of slaat zich over met reden. Vaste versie groen (run 45094121202). Rest en keuring bij Chris (bericht gezet). Plug-in zelf niet aangeraakt; de verkoop loopt (GOK: geen teken dat de plug-in zelf breekt, alleen de test).
