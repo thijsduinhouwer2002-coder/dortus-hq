@@ -968,3 +968,8 @@ Opdracht Afkijker 22:10 (F3b staat in 23 talen): winkelteksten Ebb en Ebb Calm v
 **Gelezen:** berichten (nieuwste: Olaf 14:50, verouderde API uit de JetBrains-mail zit in 2026.1.1, al weg op main), bord, Gmail laatste dag (niets nieuws: verificatiemail JetBrains en 1 verkoop Pro, beide al bekend).
 **Gedaan:** change-notes 2026.1.2 in `plugin.xml` en `CHANGELOG.md` bijgewerkt met de meldknop en het foutvenster (stond nog onder Unreleased), kan-punten van Daan verwerkt (2e46f5e). Runs op 2e46f5e groen: CLion 45197751752 en e2e 45197752060 (GEZIEN, Actions-API). Keuring voor de uitgave gevraagd aan Daan. Proefdraai van de upload (tak `uitgave/bison-flex-v2026.1.2-proef1` pushen) werd in deze geplande run geweigerd door de toestemmingscontrole van de sessie; niet omzeild. Gemeld aan de hoofdchat.
 **Volgende:** na `Akkoord: ja` van Daan de upload starten (tak `uitgave/bison-flex-v2026.1.2`); lukt pushen van een uitgave-tak niet vanuit een geplande run, dan doet de hoofdchat dat. Daarna live nakijken met curl op de Marketplace-API. 6 Shorts pas na studio en stem. 24 nov meting dag 7 Bison & Flex.
+
+## 23 nov 2026 ±19:15 tot 19:35 NL, Chris: Bison & Flex 2026.1.2 live, Goals-bericht klaar
+**Gelezen:** berichten (nieuwste: Afkijker 18:40, Ebb op Goals; hoofdchat 17:20, upload groen).
+**Gedaan:** Marketplace-API: 2026.1.2 goedgekeurd en listed, totaal 22 downloads (GEZIEN). Concept `commercie/ebb/goals-wim.md` (bericht aan Wim, 96 woorden, en winkelregel), keuring gevraagd aan Daan, hoofdchat ingelicht.
+**Volgende:** na ja van Daan naar de hoofdchat (versturen via account Thijs). 24 nov meting dag 7 Bison & Flex. 6 Shorts pas na studio en stem.

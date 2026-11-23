@@ -49,3 +49,6 @@ Openbaar sinds ±12:55 UTC (13:55 NL). Bronnen: `/api/plugins/35901`, `/api/plug
 - Zoekpositie (top 20): bison 2, yacc 3, lex 9, flex niet (gelijk aan dag 0).
 - Bison Language Support (16595): 13.073 (dag 0: 13.056, +17 in 3 dagen, ±5,7 per dag). Wij haalden in 3 dagen ±5 per dag: ongeveer gelijk aan de grote gratis concurrent.
 - Geld: de proef duurt 30 dagen, dus de eerste betalingen kunnen pas vanaf ±17 dec (GOK). Volgende meting: dag 7 (24 nov).
+
+## 23 nov 2026 ±19:30 NL, Chris (GEZIEN, curl Marketplace-API)
+- 2026.1.2 goedgekeurd en listed (geüpload 23 nov 16:59 NL), 0 downloads op die versie. Totaal 22 downloads (2026.1.1: 21, 2026.1.0: 1). Geen beoordelingen. Volgende meting: dag 7 (24 nov).
