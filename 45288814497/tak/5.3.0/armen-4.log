@@ -1,0 +1,26 @@
+[meet] figuur armen: held, {'bron_punten': 76836, 'bron_zelf_overlap': 0}
+[meet] Blender 5.3.0 figuur armen: 8 gewrichten ['Left knee', 'Left elbow', 'Right knee', 'Right elbow', 'Left hip', 'Left shoulder', 'Right hip', 'Right shoulder']
+[meet] ontbreekt: ['Neck']; overgeslagen: 
+[meet] pogingen 10, sneden 8, slechte sneden 0
+MEET armen gewrichten=8 overgeslagen=1 slechte_sneden=0
+STATUS Installed "click_joints"
+[meet] figuur armen: held, {'bron_punten': 76836, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 135°. 2.228 s.
+Info: Hinge placed. Bends 0° to 140°. 1.332 s.
+Info: Hinge placed. Bends 0° to 135°. 2.181 s.
+Info: Hinge placed. Bends 0° to 140°. 1.174 s.
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 2.4 s. Auto found no width at the cut, kept 9.5 mm.
+Info: Joint placed. Good fit. 1.725 s.
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 2.211 s. Auto found no width at the cut, kept 9.5 mm.
+Info: Joint placed. Good fit. 1.558 s.
+Info: 8 joints · 1 rig · 1 mirror · 6 preset.
+[meet] Blender 5.3.0 figuur armen: 8 gewrichten ['Left knee', 'Left elbow', 'Right knee', 'Right elbow', 'Left hip', 'Left shoulder', 'Right hip', 'Right shoulder']
+[meet] ontbreekt: ['Neck']; overgeslagen: 
+[meet] pogingen 10, sneden 8, slechte sneden 0
+MEET armen gewrichten=8 overgeslagen=1 slechte_sneden=0
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+model name	: AMD EPYC 9V74 80-Core Processor
