@@ -1,0 +1,133 @@
+"""Check per piece: fits the bed, watertight, wall around the pin holes. Colors the piece.
+
+green: fits, watertight and every hole has at least the minimum wall.
+orange: fits and watertight, but a hole has less wall than asked (still 0.8 mm or more).
+red: does not fit the bed, is not watertight, or a hole has less than 0.8 mm wall."""
+import json
+import math
+
+import bmesh
+import bpy
+import numpy as np
+from mathutils import Matrix, Vector
+from mathutils.bvhtree import BVHTree
+
+from . import printers
+from .gesloten import foute_randen, volume
+from .verbind_3d import as_vec, segment_afstand
+
+KLEUREN = {"groen": (0.0, 0.84, 0.59, 1.0), "oranje": (1.0, 0.92, 0.0, 1.0), "rood": (1.0, 0.30, 0.30, 1.0)}
+NAMEN = {"groen": "green", "oranje": "orange", "rood": "red"}
+ROOD_WAND_MM = 0.8
+
+
+def materiaal(status):
+    naam = f"Split Joints {NAMEN[status]}"
+    mat = bpy.data.materials.get(naam)
+    if mat is None:
+        mat = bpy.data.materials.new(naam)
+        mat.diffuse_color = KLEUREN[status]
+        mat.use_nodes = True
+        bsdf = mat.node_tree.nodes.get("Principled BSDF")
+        if bsdf is not None:
+            bsdf.inputs["Base Color"].default_value = KLEUREN[status]
+    return mat
+
+
+def kleur(ob, status):
+    ob.data.materials.clear()
+    ob.data.materials.append(materiaal(status))
+    for p in ob.data.polygons:
+        p.material_index = 0
+    ob.color = KLEUREN[status]
+    ob["sj_status"] = status
+
+
+def maat_mm(ob, u):
+    co = np.empty(len(ob.data.vertices) * 3)
+    ob.data.vertices.foreach_get("co", co)
+    p = co.reshape(-1, 3) / u
+    if len(p) == 0:
+        return (0.0, 0.0, 0.0)
+    return tuple(float(v) for v in (p.max(axis=0) - p.min(axis=0)))
+
+
+def volume_mm3(ob, u):
+    return float(volume(ob.data) / (u ** 3))
+
+
+def bvh_mm(ob, u):
+    bm = bmesh.new()
+    bm.from_mesh(ob.data)
+    bm.transform(Matrix.Scale(1.0 / u, 4))
+    boom = BVHTree.FromBMesh(bm)
+    bm.free()
+    return boom
+
+
+def wand_rond_gaten(ruw, gaten, u):
+    """Smallest wall (mm) around the holes of one piece: from the hole wall and the hole bottom to the
+    outside of the piece before the holes were cut, and between the holes themselves. None without holes."""
+    if not gaten:
+        return None
+    boom = bvh_mm(ruw, u)
+    kleinste = math.inf
+    for g in gaten:
+        n = as_vec(g["as"])
+        richting = -n * g["teken"]  # into this piece
+        p = Vector(g["p"])
+        e1, e2 = as_vec((g["as"] + 1) % 3), as_vec((g["as"] + 2) % 3)
+        for z in np.linspace(0.5, g["diepte"], 6):
+            for k in range(16):
+                hoek = 2 * math.pi * k / 16
+                q = p + richting * float(z) + (e1 * math.cos(hoek) + e2 * math.sin(hoek)) * g["r_gat"]
+                co, _n, _i, afstand = boom.find_nearest(q)
+                if co is not None:
+                    kleinste = min(kleinste, afstand)
+        bodem = p + richting * g["diepte"]
+        co, _n, _i, afstand = boom.find_nearest(bodem)
+        if co is not None:
+            kleinste = min(kleinste, afstand)
+    for i, g in enumerate(gaten):
+        for h in gaten[i + 1:]:
+            a1 = Vector(g["p"]) - as_vec(g["as"]) * g["diepte"]
+            b1 = Vector(g["p"]) + as_vec(g["as"]) * g["diepte"]
+            a2 = Vector(h["p"]) - as_vec(h["as"]) * h["diepte"]
+            b2 = Vector(h["p"]) + as_vec(h["as"]) * h["diepte"]
+            kleinste = min(kleinste, segment_afstand(a1, b1, a2, b2) - g["r_gat"] - h["r_gat"])
+    return float(kleinste)
+
+
+def keur(af, ruw, bed, u, wand_min):
+    """Fills sj_maat_mm, sj_past, sj_gesloten, sj_foute_randen, sj_wand_mm, sj_status and the color."""
+    maat = maat_mm(af, u)
+    past = printers.past(maat, bed)
+    fout = foute_randen(af.data)
+    dicht = fout == 0 and len(af.data.polygons) > 0 and volume(af.data) > 0
+    wand = wand_rond_gaten(ruw, json.loads(af.get("sj_gaten", "[]")), u)
+    af["sj_maat_mm"] = [round(v, 2) for v in maat]
+    af["sj_past"] = past
+    af["sj_gesloten"] = dicht
+    af["sj_foute_randen"] = fout
+    af["sj_wand_mm"] = round(wand, 3) if wand is not None else -1.0
+    af["sj_volume_mm3"] = volume_mm3(af, u)
+    if not past or not dicht or (wand is not None and wand < ROOD_WAND_MM):
+        status = "rood"
+    elif wand is not None and wand < wand_min - 0.05:
+        status = "oranje"
+    else:
+        status = "groen"
+    kleur(af, status)
+    return status
+
+
+def tekst(ob):
+    """Short line for the panel: size, fits or not, watertight, wall."""
+    m = ob.get("sj_maat_mm", [0, 0, 0])
+    delen = [f"{m[0]:.0f} x {m[1]:.0f} x {m[2]:.0f} mm", "fits" if ob.get("sj_past") else "too big"]
+    if not ob.get("sj_gesloten"):
+        delen.append("not watertight")
+    w = ob.get("sj_wand_mm", -1.0)
+    if w is not None and w >= 0:
+        delen.append(f"wall {w:.1f} mm")
+    return ", ".join(delen)

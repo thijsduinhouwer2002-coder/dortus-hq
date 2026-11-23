@@ -1,0 +1,128 @@
+"""3MF schrijven zonder extra add-on (Blender heeft geen eigen 3MF-export).
+
+Een 3MF is een zip met drie vaste delen: [Content_Types].xml, _rels/.rels en 3D/3dmodel.model.
+Het model bevat één object met de hoekpunten en driehoeken in millimeter (unit="millimeter"), zoals
+Bambu Studio, PrusaSlicer en Cura het verwachten. Naam, vorm en plek zijn gelijk aan de STL-export:
+de geëvalueerde mesh (modifiers toegepast) in wereldcoördinaten, keer `schaal` naar mm."""
+import zipfile
+from xml.sax.saxutils import escape
+
+import bpy
+from mathutils import Matrix, Vector
+from mathutils.geometry import tessellate_polygon
+
+TYPES = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+         '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+         '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+         '<Default Extension="model" ContentType="application/vnd.ms-package.3dmanufacturing-3dmodel+xml"/>'
+         '</Types>')
+RELS = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+        '<Relationship Target="/3D/3dmodel.model" Id="rel0" '
+        'Type="http://schemas.microsoft.com/3dmanufacturing/2013/01/3dmodel"/>'
+        '</Relationships>')
+
+
+def _diagonalen(vs, stel):
+    n = len(vs)
+    return {tuple(sorted((vs[t[i]], vs[t[j]]))) for t in stel for i, j in ((0, 1), (1, 2), (0, 2))
+            if (t[j] - t[i]) % n not in (1, n - 1)}
+
+
+def _eerste(vs, co):
+    """Gewone opdeling van één vlak (indexen in vs, elke driehoek oplopend: zelfde draairichting als het vlak)."""
+    n = len(vs)
+    if n == 3:
+        return [(0, 1, 2)]
+    if n > 4:
+        try:
+            stel = [tuple(sorted(t)) for t in tessellate_polygon([[co[v] for v in vs]])]
+        except Exception:
+            stel = []
+        if len(stel) == n - 2 and len(_diagonalen(vs, stel)) == n - 3:
+            return stel
+    return _waaier(n, 0)
+
+
+def _waaier(n, k):
+    return [tuple(sorted((k, (k + i) % n, (k + i + 1) % n))) for i in range(1, n - 1)]
+
+
+def _opdeling(polys, co, randen):
+    """Driehoeken per vlak. Eerst de gewone opdeling; valt een nieuwe diagonaal samen met een rand of met een
+    diagonaal van een ander vlak (ronde j, meterscene: een vijfhoek en een 23-hoek met dezelfde diagonaal, vier
+    vlakken op een rand), dan krijgt het kleinste van die vlakken een waaier vanuit een ander punt."""
+    stellen = [_eerste(vs, co) for vs in polys]
+    diags = [_diagonalen(vs, st) for vs, st in zip(polys, stellen)]
+    telling = {}
+    for ds in diags:
+        for d in ds:
+            telling[d] = telling.get(d, 0) + 1
+
+    def botst(ds, eigen):
+        return any(d in randen or telling.get(d, 0) - (1 if d in eigen else 0) > 0 for d in ds)
+
+    fout = [i for i, ds in enumerate(diags) if any(d in randen or telling[d] > 1 for d in ds)]
+    for i in sorted(fout, key=lambda i: len(polys[i])):
+        vs, ds = polys[i], diags[i]
+        if not any(d in randen or telling[d] > 1 for d in ds):
+            continue
+        for k in range(len(vs)):
+            st = _waaier(len(vs), k)
+            nieuw = _diagonalen(vs, st)
+            if not botst(nieuw, ds):
+                for d in ds:
+                    telling[d] -= 1
+                for d in nieuw:
+                    telling[d] = telling.get(d, 0) + 1
+                stellen[i], diags[i] = st, nieuw
+                break
+    return stellen
+
+
+def driehoeken(ob, schaal):
+    """(hoekpunten in mm, driehoeken als drietallen indexen) van de geëvalueerde mesh in wereldcoördinaten.
+    Eigen opdeling per vlak (`_opdeling`): de loop_triangles van Blender en bmesh.ops.triangulate (BEAUTY en
+    EAR_CLIP) gaven bij de holle n-hoeken uit de Boolean randen die dubbel liepen (ronde h en j).
+    Bij een gespiegeld object (negatieve schaal) draait de volgorde om, zodat de normalen naar buiten wijzen."""
+    graaf = bpy.context.evaluated_depsgraph_get()
+    ev = ob.evaluated_get(graaf)
+    me = ev.to_mesh()
+    try:
+        m = Matrix.Scale(schaal, 4) @ ob.matrix_world
+        punten = [tuple(m @ v.co) for v in me.vertices]
+        co = [Vector(p) for p in punten]
+        randen = {tuple(sorted(e.vertices)) for e in me.edges}
+        polys = [list(p.vertices) for p in me.polygons]
+        om = ob.matrix_world.determinant() < 0
+        lijst = []
+        for vs, stel in zip(polys, _opdeling(polys, co, randen)):
+            for t in stel:
+                d = (vs[t[0]], vs[t[1]], vs[t[2]])
+                lijst.append(d[::-1] if om else d)
+    finally:
+        ev.to_mesh_clear()
+    return punten, lijst
+
+
+def model_xml(naam, punten, lijst):
+    stukken = ['<?xml version="1.0" encoding="UTF-8"?>\n'
+               '<model unit="millimeter" xml:lang="en-US" '
+               'xmlns="http://schemas.microsoft.com/3dmanufacturing/core/2015/02">'
+               f'<metadata name="Application">Split Joints</metadata>'
+               f'<resources><object id="1" type="model" name="{escape(naam, {chr(34): "&quot;"})}"><mesh><vertices>']
+    stukken += [f'<vertex x="{x:.6f}" y="{y:.6f}" z="{z:.6f}"/>' for x, y, z in punten]
+    stukken.append('</vertices><triangles>')
+    stukken += [f'<triangle v1="{a}" v2="{b}" v3="{c}"/>' for a, b, c in lijst]
+    stukken.append('</triangles></mesh></object></resources><build><item objectid="1"/></build></model>')
+    return "".join(stukken)
+
+
+def schrijf(ob, pad, schaal):
+    """Schrijft één deel als 3MF naar `pad`. Geeft het aantal driehoeken terug."""
+    punten, lijst = driehoeken(ob, schaal)
+    with zipfile.ZipFile(pad, "w", zipfile.ZIP_DEFLATED) as z:
+        z.writestr("[Content_Types].xml", TYPES)
+        z.writestr("_rels/.rels", RELS)
+        z.writestr("3D/3dmodel.model", model_xml(ob.name, punten, lijst))
+    return len(lijst)
