@@ -1,14 +1,16 @@
-## Beeldvergelijking Click Joints, Blender 5.2.3 (claude-betrouwbaar-rig) (terugval: laatste run, geslaagd of niet)
-GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 33 plaatjes vergeleken)
-Referentie: run 45256924275, commit fc5b58f6d9b8ac20d3155761bd65887af5487d07, 2026-11-23T20:25:25Z
+## Beeldvergelijking Click Joints, Blender 5.2.3 (claude-betrouwbaar-rig)
+GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
+Referentie: referentie uit run 45258116805, commit 3ac8b893b13e25d0719d57f85cbd440fd129f925, commitdatum 1795465139, 2026-11-23T20:41:05Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
 | 1-paneel-x.png | gelijk | |
 | 10-winkel-paneel-x.png | gelijk | |
+| 11-scharnier-x.png | gelijk | |
+| 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | gelijk | |
 | 13-pro-knie-x.png | gelijk | |
-| 13d-pro-knie-dicht-x.png | 146 px (0.007%), ruis | |
+| 13d-pro-knie-dicht-x.png | 52 px (0.003%), ruis | |
 | 14-pro-knie-rood-x.png | 13 px (0.001%), ruis | |
 | 14b-pro-knie-rood-los-x.png | 7 px (0.000%), ruis | |
 | 15-figuur-paneel.png | gelijk | |
@@ -19,15 +21,15 @@ Referentie: run 45256924275, commit fc5b58f6d9b8ac20d3155761bd65887af5487d07, 20
 | 17-figuur-heel-x.png | gelijk | |
 | 19-mens-paneel.png | gelijk | |
 | 19-mens-x.png | gelijk | |
-| 2-gewricht-x.png | 60 px (0.003%), ruis | |
+| 2-gewricht-x.png | 4 px (0.000%), ruis | |
 | 20-testkaart.png | gelijk | |
 | 20d-testkaart-getal.png | gelijk | |
 | 20h-testkaart-scharnier.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 55 px (0.003%), ruis | |
+| 5-waaier-x.png | 17 px (0.001%), ruis | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | 115 px (0.006%), ruis | |
+| 7-plat-x.png | 24 px (0.001%), ruis | |
 | 8-winkel-x.png | 72 px (0.003%), ruis | |
 | 9-winkel-rood-x.png | 64 px (0.003%), ruis | |
 | d1-slot-paneel.png | gelijk | |
@@ -37,5 +39,3 @@ Referentie: run 45256924275, commit fc5b58f6d9b8ac20d3155761bd65887af5487d07, 20
 | p13-d-x.png | 57 px (0.003%), ruis | |
 | p13-e-x.png | 8 px (0.000%), ruis | |
 | p14b-e-x.png | 9 px (0.000%), ruis | |
-| 11-scharnier-x.png | nieuw (niet in de referentie) | |
-| 12-scharnier-rood-x.png | nieuw (niet in de referentie) | |
