@@ -242,9 +242,18 @@ def verloop():
     herteken()
     bpy.context.view_layer.update()
     yield 0.5
+    # uit elkaar schuiven de onderbenen omlaag, onder z=0: podium, rand en wand gaan even mee omlaag
+    lo, _hi = S.kader(delen_van(fignaam))
+    zak = min(0.0, lo.z - 0.5)
+    studio_obs = [o for o in bpy.context.scene.objects if o.name in ("studio_wand", "studio_podium", "studio_rand")]
+    for o in studio_obs:
+        o.location.z += zak
+    meting["podium_omlaag_mm"] = round(-zak, 1)
     S.richt(cam, delen_van(fignaam), "staand", draai=-24, kantel=6, vul=0.80, midden_y=0.55)
     yield 0.3
     S.render(os.path.join(UIT, f"{NAAM}-2-staand-uit-elkaar.png"))
+    for o in studio_obs:
+        o.location.z -= zak
     log("STUDIO OK render2")
     inst.uit_elkaar = False
     herteken()

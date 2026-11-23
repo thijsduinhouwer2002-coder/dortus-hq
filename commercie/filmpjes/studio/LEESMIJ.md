@@ -29,7 +29,22 @@ Kleurstellingen (sRGB): **a** oranje shirt FF6B3D, blauwe broek 2F6BFF, gele sch
 (`STIJLEN` in `bewijs.py`, `stijl=` in `laad_mens_kleding`).
 
 ## Kandidaten (Figure from rig, Pro 1.2.0, Blender 5.3.0)
-KANDIDATEN_TABEL
+Uitslag uit CI, job `kandidaten` van `studio.yml`, bestanden `<naam>-<hoogte>.json` en `proef-<naam>.log` in release
+`studio-1` (GEZIEN). Eis: minstens 7 gewrichten, elk deel één stuk (geen losse snippers). Alle kandidaten CC0.
+
+| Kandidaat | Bron | Hoogte | Gewrichten | Wat de add-on meldt |
+|---|---|---|---|---|
+| **MakeHuman met kleding (gekozen)** | [makehuman base.obj](https://github.com/makehumancommunity/makehuman/blob/master/makehuman/data/3dobjs/base.obj), CC0 1.0, aangekleed door ons | 220 mm | MH_UITSLAG | MH_MELDING |
+| Knight (Animated Knight Pack) | [Quaternius](https://quaternius.com/packs/knightcharacter.html) via [quaternius-showcase](https://github.com/trebeljahr/quaternius-showcase), CC0 | 240 mm | 3 (2 ellebogen, rechterknie) | schouders, heupen en nek: geen ruimte (bovenarm 40 tot 44 mm, dij 41 mm, korte stripverhoudingen); linkerknie te stijf |
+| Adventurer (Ultimate Modular Men), zonder rugzak, armen 40° omlaag | idem, CC0 | 260 mm | 4 (ellebogen, knieën) | schouders: bovenarm 25 mm te kort; heupen: geen ruimte naast de knie; nek niet geplaatst |
+| Medieval (Ultimate Modular Women), armen 40° omlaag | idem, CC0 | 260 mm | 4 (ellebogen, knieën) | schouders: alleen een heel kleine kogel past; heupen te dicht bij de knie (46 mm nodig) |
+| King (Ultimate Modular Men), armen 40° omlaag | idem, CC0 | 260 mm | 4 (ellebogen, heupen) | knieën: de mantel verbindt de benen; schouders: bovenarm 25 mm |
+| RobotExpressive | [three.js](https://github.com/mrdoob/three.js/tree/r170/examples/models/gltf/RobotExpressive), model van Tomás Laulhé (Quaternius), CC0 | 240 mm | 0 | scharnieren te stijf, schouders en heupen geen plek (losse onderdelen aan botten, dunne ledematen) |
+| CesiumMan (KhronosGroup) | glTF-Sample-Assets, CC-BY 4.0 | | niet getest | het Cesium-logo staat op het figuur: een merk |
+
+Waarom de Quaternius-figuren afvallen: korte bovenarmen en dijen naast dikke kleding (of een mantel); de kogel van
+schouder of heup past dan niet naast de elleboog of knie. Dat ligt aan de verhoudingen, niet aan de grootte
+(op 225 tot 260 mm hetzelfde beeld, ook bij Chris op 22 nov). De MakeHuman-figuur heeft echte verhoudingen.
 
 ## Zo laad je de studio in een opname-workflow
 In de workflow (zie `studio.yml`): Blender 5.3.0, de Pro-zip 1.2.0 (`PRO_COMMIT` f8dfbd3, `PRO_VERSIE=1.2.0 bash
