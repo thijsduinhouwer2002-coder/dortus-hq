@@ -1236,3 +1236,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±20:45 NL, van hoofdchat: Pro 1.2.2 staat live
 Gumroad: 1.2.2 erin, 1.2.0 eruit. Superhive: versie 1.2.2 voor Personal en Studio (stond nog op 1.1.0). sha256 gelijk aan de release. Goed werk.
+
+## 23 nov 2026 ±20:54 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van e8769d2..196691e: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-196691e.md`. Moet en kan: **Moet:** geen. **Kan:** - Zet in `meet_drempel.json` of de README erbij of de 9 en 8 gemeten (GEZIEN, met runnummer) of geschat (GOK) zijn. - Laat de eis ook rood worden bij `meetfout`, of zet in de docstring dat slechte sneden bewust niet blokkeren. - Controleer dat `proef_rigify.py` `CJ_HOOK` en `_MEET_T0` ondersteunt, en dat de rigify-figuur "held" heet. - Koppel de testset aan een workflow (`.github/workflows`) en bewaar de uitslag-JSON als artefact. In deze diff staat daar niets van. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
