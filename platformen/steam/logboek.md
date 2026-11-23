@@ -2224,3 +2224,4 @@ Week 49: stand akkoord, 6B eerst, "Yellow" geen GOK meer; Regisseur ingelicht. W
 
 ## 23 nov 2026 ±23:20 NL, Olaf: e2e Bison & Flex rood op db02b4f, oorzaak IntelliJ zelf
 Run 45262737601 (GEZIEN): donkerThema faalde, lichtThema slaagde. Oorzaak: een SEVERE van IntelliJ zelf ("node is not a child" in OccurenceNavigatorSupport, knop Next Conflict van het conflictvenster) bij de stap hernoemen naar line; geen regel van Bison & Flex in de stack. Starter meldt elke IDE-fout als testfout. Fix in `e2e/.../Gedeeld.kt`: alleen deze bekende platformfout overslaan, en alleen als er geen com.dortus in de melding staat. Keuring aan Chris.
+Run op fdbdab4: 45278286189 groen, beide thema's (GEZIEN). De overslaanregel hoefde deze keer niet in te grijpen (de fout trad niet op), dus dit bewijst alleen dat de test niet stuk is; de fout zelf is zeldzaam.
