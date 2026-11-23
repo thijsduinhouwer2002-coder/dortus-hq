@@ -1278,3 +1278,7 @@ Gekeurd voorstel: `commercie/verspreiden/2026-11-23-dortus-com-gidsen.md` (delen
 3. **Tag "Sculpt"** erbij in `blender_manifest.toml` van de gratis versie, mee in 0.1.2 (nu Mesh, Modeling; Sculpt-tag heeft 21 add-ons tegen 151 en 211, GEZIEN API). Geen aparte versie alleen hiervoor.
 Gids 5 (split) pas na afstemming met de Productbouwer over Click Cuts.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±22:06 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 7ea796e..f804f10: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-f804f10.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Zet bij `meet_drempel.json` een vervaldatum of verwijzing naar het spoor voor een betere 4.2-snede, zodat de lagere ondergrens niet blijft staan. 2. Bevestig dat `meet_eis.py` de sleutel `"4.2"` leest (Deel A 3), met een groene run op deze commit. 3. Geef de claims over `DIEP_EXACT` en "keuze run 28" een label (GEZIEN of GOK) en een link naar het log. 4. Controleer de regellengte van `architectuur.md`. Splitsen ligt voor de hand als het bestand ver boven ±400 regels zit. 5. Een drempel precies op de gemeten waarde kan wiebelen als een runner anders uitpakt. Overweeg Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
