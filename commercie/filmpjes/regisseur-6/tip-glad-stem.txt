@@ -1,0 +1,14 @@
+# tip-glad: voorleestekst voor ElevenLabs (Max - Witty Commercial Actor, Eleven v4), zinnen in volgorde.
+# Lees precies deze zinnen voor, in deze volgorde. Zet de mp3 als commercie/filmpjes/regisseur-6/tip-glad-elevenlabs.mp3.
+1. Does your model look smooth in Blender, but blocky when you print it?
+2. Shade Smooth only changes how Blender draws it. Your slicer gets the flat faces.
+3. Right click and pick Shade Flat to see what you will really print.
+4. Those flat faces are what ends up in your print.
+5. Open the Modifier properties and click Add Modifier.
+6. Choose Generate, then Subdivision Surface.
+7. Set Levels Viewport to two.
+8. Hover over the modifier, and press Control A to apply it.
+9. Now it looks round, even with flat shading. Ninety six faces became one thousand four hundred forty real faces.
+10. It gets a little smaller, so check the size before you export.
+11. Measured in Blender, not print tested by us yet. Save this for your next print.
+12. More Blender tips for three D printing, at dortus dot com slash Y T.

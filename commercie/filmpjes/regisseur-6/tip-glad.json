@@ -1,0 +1,242 @@
+{
+ "naam": "tip-glad",
+ "titel": "Make blocky prints smooth in Blender ✨ #blender #3dprinting",
+ "eind": {
+  "titel": "Blender for 3D printing",
+  "zin": "A new Blender tip for 3D printing every week.",
+  "adres": "dortus.com/yt",
+  "render": "render-bal.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "venster": "Blender 5.3",
+ "scenes": [
+  {
+   "tekst": "Does your model look smooth in Blender, but blocky when you print it?",
+   "label": "QUICK CHECK",
+   "kleur": "oranje",
+   "kop": "Blocky print?",
+   "beeld": {
+    "deel": "e_heel",
+    "van": 0,
+    "tot": 96,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      800
+     ],
+     [
+      1080,
+      1000,
+      620
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Shade Smooth only changes how Blender draws it. Your slicer gets the flat faces.",
+   "label": "WHY",
+   "kleur": "blauw",
+   "kop": "Smooth is only a look",
+   "beeld": {
+    "deel": "e_heel",
+    "van": 30,
+    "tot": 96,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1100
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Right click and pick Shade Flat to see what you will really print.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Right click, Shade Flat",
+   "beeld": {
+    "deel": "e_vlak",
+    "van": 0,
+    "tot": 40,
+    "uitsnede": [
+     [
+      1080,
+      1100,
+      1600
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Those flat faces are what ends up in your print.",
+   "label": "THE TRUTH",
+   "kleur": "oranje",
+   "kop": "96 flat faces",
+   "beeld": {
+    "deel": "e_vlak",
+    "van": 30,
+    "tot": 90,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1000
+     ],
+     [
+      1080,
+      1000,
+      800
+     ]
+    ]
+   },
+   "uitspraak": "Those flat faces are what ends up in your print."
+  },
+  {
+   "tekst": "Open the Modifier properties and click Add Modifier.",
+   "label": "STEP 2",
+   "kleur": "blauw",
+   "kop": "Add Modifier",
+   "beeld": {
+    "deel": "e_mod",
+    "van": 0,
+    "tot": 40,
+    "uitsnede": [
+     [
+      1128,
+      520,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Choose Generate, then Subdivision Surface.",
+   "label": "STEP 3",
+   "kleur": "groen",
+   "kop": "Subdivision Surface",
+   "beeld": {
+    "deel": "e_mod",
+    "van": 36,
+    "tot": 97,
+    "uitsnede": [
+     [
+      1120,
+      640,
+      1500
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Set Levels Viewport to 2.",
+   "label": "STEP 4",
+   "kleur": "oranje",
+   "kop": "Levels Viewport: 2",
+   "beeld": {
+    "deel": "e_lvl",
+    "van": 0,
+    "tot": 70,
+    "uitsnede": [
+     [
+      1250,
+      480,
+      1300
+     ]
+    ]
+   },
+   "uitspraak": "Set Levels Viewport to two."
+  },
+  {
+   "tekst": "Hover over the modifier and press Ctrl A to apply it.",
+   "label": "STEP 5",
+   "kleur": "blauw",
+   "kop": "Ctrl A = apply",
+   "beeld": {
+    "deel": "e_toe",
+    "van": 0,
+    "tot": 60,
+    "uitsnede": [
+     [
+      1250,
+      520,
+      1400
+     ]
+    ]
+   },
+   "uitspraak": "Hover over the modifier, and press Control A to apply it."
+  },
+  {
+   "tekst": "Now it looks round even with flat shading: 96 faces became 1,440 real faces.",
+   "label": "ROUND",
+   "kleur": "groen",
+   "kop": "96 to 1,440 faces",
+   "beeld": {
+    "deel": "e_klaar",
+    "van": 0,
+    "tot": 100,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1300
+     ],
+     [
+      1080,
+      1000,
+      900
+     ]
+    ]
+   },
+   "uitspraak": "Now it looks round, even with flat shading. Ninety six faces became one thousand four hundred forty real faces."
+  },
+  {
+   "tekst": "It gets a little smaller, so check the size before you export.",
+   "label": "TIP",
+   "kleur": "blauw",
+   "kop": "Check the size",
+   "beeld": {
+    "deel": "e_klaar",
+    "van": 60,
+    "tot": 130,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      900
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Save this for your next print.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Save this tip",
+   "beeld": {
+    "deel": "e_klaar",
+    "van": 90,
+    "tot": 150,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1000
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "More Blender tips for 3D printing at dortus.com/yt.",
+   "label": "MORE TIPS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   },
+   "uitspraak": "More Blender tips for three D printing, at dortus dot com slash Y T."
+  }
+ ]
+}
