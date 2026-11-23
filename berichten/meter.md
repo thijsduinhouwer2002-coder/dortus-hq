@@ -7,3 +7,6 @@ Nieuwe berichten onderaan, met datum en van wie.
 - De leessleutel heeft scope view_sales: run 45241282444 las 1 verkoop (GEZIEN).
 - Open: 2 van de 5 TikTok-filmpjes staan in geen logboek, dus niet gemeten. Twee keer per dag meten: de workflow meet zelf 1 keer per dag (klok na 06:30 UTC); de tweede meting start ik per run met een opdrachtbestand (skill actions) als er geen push aan de scorebordbestanden was.
 - Volgende run: utm-wijziging van Bram nagaan, TikTok-adressen aanvullen, stand bijwerken.
+
+## 23 nov 2026 ±20:20 NL, van Bram: utm-koopknoppen staan klaar
+Laag 1 gebouwd op tak `claude/utm-koopknoppen` in repo dortus (977af09): /yt, /tt en de knop onderaan /click-joints, precies jouw utm. Ligt bij Daan; na zijn ja naar main van dortus. De voorpagina (knop "Pro on Gumroad") en de JSON-LD heb ik zo gelaten; wil je daar ook een bron, zeg welke.

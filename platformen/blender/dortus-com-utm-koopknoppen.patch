@@ -1,0 +1,74 @@
+From 977af09077c0d4072caf5de86e304d98c78bf2a8 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Mon, 23 Nov 2026 20:11:21 +0100
+Subject: [PATCH] utm achter de koopknoppen op /yt, /tt en /click-joints
+ (voorstel Meter, ter keuring Daan)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RMWUygUMHCRH6PZnAkv4G2
+---
+ click-joints/index.html | 2 +-
+ tt/index.html           | 4 ++--
+ yt/index.html           | 4 ++--
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/click-joints/index.html b/click-joints/index.html
+index 4e2ea55..8ec4ebe 100644
+--- a/click-joints/index.html
++++ b/click-joints/index.html
+@@ -205,7 +205,7 @@
+           </p>
+         </div>
+         <div class="btns" style="margin-top: 1.6rem">
+-          <a class="btn btn-primary" href="https://duinhouwer8.gumroad.com/l/click-joints-pro">Get Click Joints Pro on Gumroad <span class="arrow" aria-hidden="true">&rarr;</span></a>
++          <a class="btn btn-primary" href="https://duinhouwer8.gumroad.com/l/click-joints-pro?utm_source=site&amp;utm_medium=pagina">Get Click Joints Pro on Gumroad <span class="arrow" aria-hidden="true">&rarr;</span></a>
+         </div>
+       </div>
+     </section>
+diff --git a/tt/index.html b/tt/index.html
+index 3300ce3..f445d8f 100644
+--- a/tt/index.html
++++ b/tt/index.html
+@@ -34,7 +34,7 @@
+           Pick your rigged figure, press one button, and Click Joints Pro cuts it into printable parts with a joint at every shoulder, elbow, hip, knee and neck. Elbows and knees get a hinge with an end stop; shoulders, hips and neck get a ball joint. Next to each joint you see how far it bends, in degrees, before you print.
+         </p>
+         <div class="btns enter enter-2">
+-          <a class="btn btn-light" href="https://duinhouwer8.gumroad.com/l/click-joints-pro">Get Click Joints Pro, $19 <span class="arrow" aria-hidden="true">&rarr;</span></a>
++          <a class="btn btn-light" href="https://duinhouwer8.gumroad.com/l/click-joints-pro?utm_source=tt&amp;utm_medium=video">Get Click Joints Pro, $19 <span class="arrow" aria-hidden="true">&rarr;</span></a>
+           <a class="btn btn-line" href="https://extensions.blender.org/add-ons/click-joints/">Try the free version first</a>
+         </div>
+         <figure class="frame enter enter-3" style="margin: 2.4rem 0 0">
+@@ -60,7 +60,7 @@
+           <p>Measured in Blender, not print tested by us yet: print a test joint first. Works best on figures of about 200 mm or taller with separate arms and legs. Personal license $19 once, all Pro 1.x updates included.</p>
+         </div>
+         <div class="btns" style="margin-top: 1.6rem">
+-          <a class="btn btn-primary" href="https://duinhouwer8.gumroad.com/l/click-joints-pro">Get Click Joints Pro on Gumroad <span class="arrow" aria-hidden="true">&rarr;</span></a>
++          <a class="btn btn-primary" href="https://duinhouwer8.gumroad.com/l/click-joints-pro?utm_source=tt&amp;utm_medium=video">Get Click Joints Pro on Gumroad <span class="arrow" aria-hidden="true">&rarr;</span></a>
+           <a class="btn btn-line" href="/click-joints/">More about Click Joints</a>
+         </div>
+       </div>
+diff --git a/yt/index.html b/yt/index.html
+index 3300ce3..8e212b7 100644
+--- a/yt/index.html
++++ b/yt/index.html
+@@ -34,7 +34,7 @@
+           Pick your rigged figure, press one button, and Click Joints Pro cuts it into printable parts with a joint at every shoulder, elbow, hip, knee and neck. Elbows and knees get a hinge with an end stop; shoulders, hips and neck get a ball joint. Next to each joint you see how far it bends, in degrees, before you print.
+         </p>
+         <div class="btns enter enter-2">
+-          <a class="btn btn-light" href="https://duinhouwer8.gumroad.com/l/click-joints-pro">Get Click Joints Pro, $19 <span class="arrow" aria-hidden="true">&rarr;</span></a>
++          <a class="btn btn-light" href="https://duinhouwer8.gumroad.com/l/click-joints-pro?utm_source=yt&amp;utm_medium=video">Get Click Joints Pro, $19 <span class="arrow" aria-hidden="true">&rarr;</span></a>
+           <a class="btn btn-line" href="https://extensions.blender.org/add-ons/click-joints/">Try the free version first</a>
+         </div>
+         <figure class="frame enter enter-3" style="margin: 2.4rem 0 0">
+@@ -60,7 +60,7 @@
+           <p>Measured in Blender, not print tested by us yet: print a test joint first. Works best on figures of about 200 mm or taller with separate arms and legs. Personal license $19 once, all Pro 1.x updates included.</p>
+         </div>
+         <div class="btns" style="margin-top: 1.6rem">
+-          <a class="btn btn-primary" href="https://duinhouwer8.gumroad.com/l/click-joints-pro">Get Click Joints Pro on Gumroad <span class="arrow" aria-hidden="true">&rarr;</span></a>
++          <a class="btn btn-primary" href="https://duinhouwer8.gumroad.com/l/click-joints-pro?utm_source=yt&amp;utm_medium=video">Get Click Joints Pro on Gumroad <span class="arrow" aria-hidden="true">&rarr;</span></a>
+           <a class="btn btn-line" href="/click-joints/">More about Click Joints</a>
+         </div>
+       </div>
+-- 
+2.43.0
+
