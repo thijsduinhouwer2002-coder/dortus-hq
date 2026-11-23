@@ -12,12 +12,14 @@ niet (zelfde meting, alle varianten slecht).
 Oplossing: de twee schillen samen door een voxel-remesh (OpenVDB maakt van overlappende of zichzelf snijdende
 schillen één gesloten huid zonder zelfdoorsnijding). Daarna controleren dat H het lid en het omhulsel nog bevat
 (punten van de huid, `m` naar binnen, moeten binnen H liggen). Lukt dat niet, dan de oude weg (`een_lid._samen`).
+Wanneer: met Exact (4.2) altijd, met Manifold alleen als de oude vereniging "los" gaf (zie `samen_schoon`).
 Het gratis deel blijft gelijk (toets_zips.py): Pro zet `een_lid._samen` bij het registreren op deze functie.
 """
 import math
 
 import bmesh
 import bpy
+from mathutils import Matrix
 from mathutils.bvhtree import BVHTree
 
 from .. import een_lid as _l
@@ -102,15 +104,39 @@ def voxel_h(hb, lb, frame, hulp, m):
 
 
 def samen_schoon(hb, lb, frame, hulp, lid_dicht):
-    """Vervangt `een_lid._samen`: eerst H als voxelvorm, anders de oude weg."""
-    if AAN[0]:
-        m = float(_l.LAATSTE.get("marge") or 0.0)
+    """Vervangt `een_lid._samen`.
+
+    Exact (Blender voor 4.5): altijd eerst H als voxelvorm. Exact zonder Self Intersection kan niets met een H die
+    zichzelf snijdt (lege of open delen), en de Exact-vereniging laat die zelfdoorsnijding staan.
+    Manifold (4.5+): eerst de oude weg. Alleen als de vereniging mislukt ("los", twee schillen door elkaar) de
+    voxelvorm. Reden (run 45264302449, GEZIEN): met voxel-H altijd verloor de rechterknie van de Meshy-knight 8 tot 9%
+    van de punten in plaats van 5,6% (de voxelvorm vult holtes en neemt dan wat stof naast het lid mee), en op lichte
+    figuren kostte het tijd; met Manifold gaf een "samen"-H in de hele nulmeting geen enkele slechte snede.
+    """
+    if not AAN[0]:
+        return _oud[0](hb, lb, frame, hulp, lid_dicht)
+    m = float(_l.LAATSTE.get("marge") or 0.0)
+    from ..gewricht import solver_naam
+    if solver_naam() == "EXACT":
         h, gegevens = voxel_h(hb, lb, frame, hulp, m) if m > 0 else (None, {})
         _l.LAATSTE.update(gegevens)
         if h is not None:
             _l.LAATSTE["h_soort"] = "voxel"
             return h
-    return _oud[0](hb, lb, frame, hulp, lid_dicht)
+        return _oud[0](hb, lb, frame, hulp, lid_dicht)
+    h = _oud[0](hb, lb, frame, hulp, lid_dicht)  # zet hb en lb om naar wereldcoordinaten
+    if _l.LAATSTE.get("h_soort") != "los" or m <= 0:
+        return h
+    nieuw, gegevens = voxel_h(hb, lb, Matrix.Identity(4), hulp, m)
+    _l.LAATSTE.update(gegevens)
+    if nieuw is None:
+        return h
+    me = h.data
+    bpy.data.objects.remove(h)
+    if me.users == 0:
+        bpy.data.meshes.remove(me)
+    _l.LAATSTE["h_soort"] = "voxel"
+    return nieuw
 
 
 def register():

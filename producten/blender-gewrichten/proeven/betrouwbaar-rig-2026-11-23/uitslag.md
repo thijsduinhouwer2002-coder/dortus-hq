@@ -70,6 +70,9 @@ zelf, elk punt `m` (0,2 tot 0,6 mm) langs zijn normaal naar buiten, samengevoegd
 - `betaald/omhulsel.py`: H wordt één schone, gesloten vorm door een voxel-remesh van omhulsel en lid samen, met een
   controle dat het lid erin ligt; lukt dat niet, dan de oude weg. Dit is de echte oplossing: elke H in de eindmeting is
   "voxel", nul slechte sneden in 5.x, zonder geluk (zelfde uitkomst op AMD en Intel in CI).
+  Bijstelling na run 45264302449 (GEZIEN): met Manifold alleen nog bij een mislukte vereniging ("los"); met voxel-H
+  altijd verloor de rechterknie van de Meshy-knight 8,2 tot 9,2% van de punten (vangnet 6%) in plaats van 5,3 tot 5,6%,
+  want de voxelvorm vult holtes en neemt wat stof naast het lid mee. In 4.2 (Exact) altijd voxel.
 - `betaald/herstel.py`: in 4.2 een paar randen met 4 vlakken splitsen als het deel daarna gesloten is (geen punt verschuift).
 - `rig.py`: na "overlap before they move" (scharnier in 4.2) de volgende plek, zoals al bij "no watertight parts".
 - `betaald/redenen.py`: bij een overgeslagen gewricht door een mislukte snede zegt de lijst wat de koper kan doen
