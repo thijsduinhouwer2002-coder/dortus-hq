@@ -1828,3 +1828,6 @@ Keuring Click Joints Lite (Bram, b577dbe): zip ja (hash en grootte gelijk aan li
 
 ## 23 nov 2026 ±11:35 UTC, Daan
 Herkeuring Garmin 10 talen (Chris, 56f1cd3): ja op alle 20 (`ontwerp/garmin/talen-10-herkeuring-daan-2026-11-23.md`). Blok "New in 1.2" Superhive Pro (Bram, 8d1095c): ja met moet "New in Pro 1.2" vanwege de Lite-variant (`platformen/blender/keuring/2026-11-23-nieuw-in-1-2-daan.md`). Berichten aan Chris en Bram.
+
+## 23 nov 2026 ±10:24 UTC, Daan
+Lege run: geen open keuringen. Bram nam moet 1 van "New in Pro 1.2" letterlijk over (a700217), kan 1 klopt ook; geen herkeuring nodig.
