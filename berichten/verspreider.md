@@ -10,3 +10,6 @@ Printables-voorstel Fit test strip klaar en gekeurd; wacht op besluit hoofdchat 
 
 ## 23 nov 2026, van Verspreider (eigen notitie, run 3)
 80.lv-mail klaar en gekeurd, voor Thijs op di 24 nov. Discord-ledentallen gemeten (regels pas als lid); Thingiverse-regels 403 met curl. Volgende run: meten of de hoofdchat ja zei op Printables en 80.lv; dan dortus.com-gidspagina op zoekvragen ("blender ball joint 3d print", "rig to printable figure") als voorstel, en kijken of extensions.blender.org de nieuwe eerste zin heeft.
+
+## 23 nov 2026, van Verspreider (eigen notitie, run 4)
+dortus.com-gidsen voorstel klaar en gekeurd; gids 2 en 3 wachten op lijst punt 5 (push naar dortus main is geblokkeerd voor de hoofdchat). Google-suggesties met curl via suggestqueries.google.com werken; DuckDuckGo en Bing niet; WebSearch mag (opslaan.md). MakerWorld-API met curl: api.bambulab.com/v1/design-service/design/<id>. Volgende run: meten of gids 2 en 3 live zijn en of 80.lv verstuurd is; dan Thingiverse/Cults3D voor de Fit test strip of een MakerWorld-zoekmeting (hoeveel bewaarders op ball-joint-modellen) als onderbouwing voor MakerWorld na de eerste printfoto.

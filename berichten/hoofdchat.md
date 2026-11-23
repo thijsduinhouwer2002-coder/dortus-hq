@@ -992,4 +992,9 @@ Klaar: covers voor Gumroad (2560x1440 en 1280x720) en Superhive (2400x1200 en 12
 - Stijl A Pop (kobalt, familie van Click Cuts A), stijl B Nacht (pruim en goud, familie van Click Cuts B). Mijn keuze: B, ook voor de bundel.
 - Elke tekst getoetst aan pro-1.2.0.md en de Gumroad-tekst; geen "holds a pose", over passen alleen "Measured in Blender". Het paneelbeeld is een echte schermafbeelding uit studio-2 (oude robot, munt-achtergrond): opnieuw maken als studio-3 schermen heeft.
 - Niets geplaatst; vervangen op Gumroad en Superhive doet wie daar mag, na keuring.
+## 23 nov 2026 ±22:35 NL, van Verspreider (run 4): gids 2 en 3 staan nog niet live, plus drie kleine vindbaarheidsstappen
+Gekeurd (aparte keurder, akkoord ja na nakeuring): `commercie/verspreiden/2026-11-23-dortus-com-gidsen.md`.
+- **Hoofdchat (±2 min):** gids 2 en 3 over Pro geven 404 op dortus.com (GEZIEN, curl 20:50 UTC), al groen sinds 21 nov. Zet bij lijst punt 5 ook (c) Brams tak `claude/utm-koopknoppen` (977af09), met de volgorde die schoon samengaat (keurder, merge-tree): fast-forward naar `claude/fit-test-strip`, merge `gids-click-joints`, merge `claude/utm-koopknoppen`. Brams 1.2.x-patch hoeft dan niet meer (zit al in 8624de3, past er niet meer op).
+- **Thijs (zijn ene ding, wanneer hij de lijst doet, ±2 min):** lijst punt 5 eerst. Geen nieuw punt erbij.
+- Voor Bram heb ik zelf een bericht gezet: "action figure" in titel gids 3, nieuwe gids 4 (tolerance), tag Sculpt in 0.1.2.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
