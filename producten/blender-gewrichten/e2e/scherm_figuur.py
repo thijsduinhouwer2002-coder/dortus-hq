@@ -64,6 +64,13 @@ def uitsnede():
     return r.returncode == 0 and os.path.exists(doel)
 
 
+def alle_labels():
+    """Mooier overlay (23 nov): Pro toont bij een figuur standaard alleen het gekozen gewricht (Labels: Selected).
+    Dit plaatje toetst de plek van alle getallen, dus hier de stand All. Oude code zonder schakelaar: niets doen."""
+    wm = bpy.context.window_manager
+    if hasattr(wm, "cj_labels"):
+        wm.cj_labels = "ALL"
+
 def stap():
     toestand["n"] += 1
     n = toestand["n"]
@@ -72,6 +79,7 @@ def stap():
         bpy.ops.extensions.package_install_files(filepath=zip_pad, repo="user_default", enable_on_install=True)
         return 1.0
     if n == 2:
+        alle_labels()
         bouw()
         open_paneel()
         weergave()

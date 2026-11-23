@@ -74,10 +74,10 @@ def kijk_knie():
     _v, gebied, _r = zijbalk()
     rv = gebied.spaces.active.region_3d
     p = Vector(b["cj_scharnier_punt"]) if b is not None else Vector((0, 0, 60))
-    # Van opzij (de knieas ligt langs X), iets van voren, zodat boog en getal plat in beeld staan.
-    rv.view_rotation = Euler((math.radians(88), 0.0, math.radians(70)), "XYZ").to_quaternion()
+    # Van rechts (de knieas ligt langs X, de rechterknie aan de kant -X), iets van voren.
+    rv.view_rotation = Euler((math.radians(84), 0.0, math.radians(-65)), "XYZ").to_quaternion()
     rv.view_location = (p.x, p.y, p.z)
-    rv.view_distance = float(os.environ.get("CJ_MOOI_KNIE_AFSTAND", "120"))
+    rv.view_distance = float(os.environ.get("CJ_MOOI_KNIE_AFSTAND", "150"))
 
 
 def getallen():

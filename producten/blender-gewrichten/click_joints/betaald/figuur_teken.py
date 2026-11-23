@@ -55,10 +55,16 @@ def tekst_rand(punt, tekst, kleur_, px):
 
 
 def vak(punt, tekst, px):
-    import blf
-    blf.size(0, px)
-    breed, hoog = blf.dimensions(0, tekst)
+    """Vak van een label (mooier overlay: de pil met bolletje, dus iets groter dan de tekst zelf)."""
+    from .labels import maat
+    breed, hoog = maat(tekst, px, bpy.context.preferences.system.ui_scale)
     return (punt.x - breed / 2.0, punt.y - hoog / 2.0, punt.x + breed / 2.0, punt.y + hoog / 2.0)
+
+
+def kogel_tekst(context, b, v):
+    """Tekst van een kogellabel: "±20°", of met naam "Neck  ±20°" in de stand Selected."""
+    from .labels import met_naam
+    return f"{b['cj_naam']}  {v['tekst']}" if met_naam(context, b) else v["tekst"]
 
 
 def gat(v1, v2):
@@ -113,6 +119,7 @@ def scharnier_getallen(context, regio, rv3d):
     from bpy_extras.view3d_utils import location_3d_to_region_2d as naar2d
     from . import scharnier_boog as sb
     from .. import waaier
+    from .labels import toon
     schaal = context.preferences.system.ui_scale
     if not getattr(context.window_manager, "cj_scharnier_boog", False):
         return []
@@ -123,12 +130,15 @@ def scharnier_getallen(context, regio, rv3d):
         a, _ = sb.paar(context.scene, b)
         if a is None or "cj_bereik_graden" not in a or sb.beweeg.geen_stop(float(a["cj_bereik_graden"])):
             continue
+        if not toon(context, a, b):  # mooier overlay: een verborgen scharnierlabel houdt geen plek bezet
+            continue
         v = sb._klein(sb.vorm(a, b, float(b.get("cj_pose_graden", 0.0))), sb.FIGUUR_X)
         if waaier.kijkhoek(rv3d, v) < waaier.SCHUIN_MIN:
             continue
         p = naar2d(regio, rv3d, v["label"])
         if p is not None:
-            uit.append(vak(p, f"{v['getal']}°", int(sb.FIGUUR_PX * schaal)))
+            from .labels import met_naam
+            uit.append(vak(p, sb.label_tekst(b, v["getal"], met_naam(context, b)), int(sb.FIGUUR_PX * schaal)))
     return uit
 
 
@@ -155,6 +165,7 @@ def kogel_plekken(context, regio, rv3d):
     zoek dan rondom en verder weg tot het vak minstens AFSTAND_PX van elk ander getal ligt en binnen het beeld valt."""
     from bpy_extras.view3d_utils import location_3d_to_region_2d as naar2d
     from .. import beweeg
+    from .labels import toon
     schaal = context.preferences.system.ui_scale
     px = int(PX * schaal)
     bezet = scharnier_getallen(context, regio, rv3d)
@@ -165,7 +176,7 @@ def kogel_plekken(context, regio, rv3d):
         if not (b.get("cj_deel") == "B" and b.get("cj_figuur") and "cj_buig_graden" in b and b.visible_get()):
             continue
         a = beweeg.paar(context.scene, b)
-        if a is None:
+        if a is None or not toon(context, a, b):  # mooier overlay: alleen de getoonde kogels
             continue
         sleutel = tuple(round(x, 3) for x in a["cj_centrum"])
         if sleutel in gezien:  # één getal per kogel
@@ -176,6 +187,7 @@ def kogel_plekken(context, regio, rv3d):
         gezien.add(sleutel)
         kogels.append((b, v))
     for b, v in sorted(kogels, key=lambda t: t[0].name):
+        v = dict(v, label_tekst=kogel_tekst(context, b, v))  # mooier overlay: met naam in de stand Selected
         c2 = naar2d(regio, rv3d, v["centrum"])
         if c2 is None:
             continue
@@ -197,7 +209,7 @@ def kogel_plekken(context, regio, rv3d):
                     h = math.radians(g)
                     d = Vector((uit.x * math.cos(h) - uit.y * math.sin(h), uit.x * math.sin(h) + uit.y * math.cos(h)))
                     p = c2 + d * t
-                    vk = vak(p, v["tekst"], px)
+                    vk = vak(p, v["label_tekst"], px)
                     if vk[0] < 0 or vk[1] < 0 or vk[2] > regio.width or vk[3] > regio.height - 100.0 * schaal:
                         continue
                     if not all(gat(vk, o) >= AFSTAND_PX * schaal for o in bezet):
@@ -212,7 +224,7 @@ def kogel_plekken(context, regio, rv3d):
                 break
         if gekozen is None:
             p = c2 + uit * (r_px + 22.0 * schaal)
-            gekozen = (p, vak(p, v["tekst"], px))
+            gekozen = (p, vak(p, v["label_tekst"], px))
         bezet.append(gekozen[1])
         plekken[b.name] = (gekozen[0], gekozen[1], v)
     return plekken
@@ -224,8 +236,10 @@ def teken_kogel(regio, rv3d, a, b, schaal):
     from bpy_extras.view3d_utils import location_3d_to_region_2d as naar2d
     from .. import waaier
     context = bpy.context
+    from . import labels
     sleutel = (tuple(rv3d.view_matrix.col[3]), tuple(rv3d.view_matrix.col[2]), regio.width, regio.height,
-               len(context.scene.objects))
+               len(context.scene.objects), labels.stand(context),
+               tuple(o.name for o in context.view_layer.objects if o.select_get()), getattr(context.view_layer.objects.active, "name", None))
     if laatst.get("sleutel") != sleutel or b.name not in laatst.get("plekken", {}):
         laatst["sleutel"] = sleutel
         laatst["plekken"] = kogel_plekken(context, regio, rv3d)
@@ -240,13 +254,16 @@ def teken_kogel(regio, rv3d, a, b, schaal):
     c2 = naar2d(regio, rv3d, v["centrum"])
     boog = [naar2d(regio, rv3d, x) for x in v["boog"]]
     waaier._waaiervlak(vlak, c2, boog, (*KL, 0.22))
+    for x in ("links", "rechts"):  # mooier overlay: donkere onderlijn onder de randen van de wig
+        labels.onderlijn(regio, [c2, naar2d(regio, rv3d, v[x])], 7.0 * schaal)
+    labels.onderlijn(regio, boog, 7.0 * schaal)
     waaier._lijn(dik, regio, [c2, naar2d(regio, rv3d, v["as_eind"])], (*KL, 0.55), 2.0 * schaal)
     for x in ("links", "rechts"):
         waaier._lijn(dik, regio, [c2, naar2d(regio, rv3d, v[x])], (*KL, 0.9), 3.0 * schaal)
     waaier._lijn(dik, regio, boog, (*KL, 0.9), 3.0 * schaal)
-    getal = tekst_rand(p_tekst, v["tekst"], WIT, int(PX * schaal))
+    getal = labels.pil(p_tekst, v.get("label_tekst", v["tekst"]), int(PX * schaal), schaal, accent=KL) is not None
     uit = {"pose": round(float(b.get("cj_pose_graden", 0.0)), 3), "richting": int(b.get("cj_pose_richting", 0)),
-           "getal": v["tekst"], "getal_getekend": getal, "streepjes": 0, "kijkhoek": 90.0, "omtrek": 0,
+           "getal": v["tekst"], "label_tekst": v.get("label_tekst", v["tekst"]), "getal_getekend": getal, "streepjes": 0, "kijkhoek": 90.0, "omtrek": 0,
            "voorbij": False, "voorbij_tekst": None, "label_px": tuple(p_tekst), "figuur": True, "kleur": KL,
            "naam": b.get("cj_naam", ""), "vak": tuple(round(x, 1) for x in vk), "centrum_px": tuple(c2) if c2 else None}
     laatst["getekend"][b.name] = uit
@@ -254,6 +271,9 @@ def teken_kogel(regio, rv3d, a, b, schaal):
 
 
 def _teken_een(regio, rv3d, a, b, schaal):
+    from .labels import toon
+    if b.get("cj_figuur") and not toon(bpy.context, a, b):  # mooier overlay: schakelaar Labels
+        return None
     if b.get("cj_figuur") and float(b.get("cj_pose_graden", 0.0)) <= 0.0:
         try:
             return teken_kogel(regio, rv3d, a, b, schaal)

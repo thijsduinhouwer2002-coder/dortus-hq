@@ -8,7 +8,7 @@ import addon_utils
 import bpy
 
 from .. import gewricht, uit_elkaar
-from . import afstand, figuur, figuur_teken, scharnier, scharnier_beweeg, scharnier_boog, snippers, een_lid_diep, testkaart
+from . import afstand, figuur, figuur_teken, labels, scharnier, scharnier_beweeg, scharnier_boog, snippers, een_lid_diep, testkaart
 
 ACTIEF = True
 KLASSEN = scharnier.KLASSEN + testkaart.KLASSEN
@@ -122,6 +122,7 @@ def register(eigen=None):
         paneel.append(testkaart.teken_knop)  # "Print this first": bovenaan het Pro-deel
         paneel.append(scharnier.teken_knop)
     scharnier_boog.register()  # eis 8: gradenboog en pose-schuif van het scharnier
+    labels.register()  # mooier overlay 23 nov: schakelaar Labels (Selected / All / None) bij een figuur
     figuur_teken.register()  # 1.1: figuurkogel klein en groen, één getal buiten het lid (gratis deel onveranderd)
     figuur.register()  # 1.1 stap 1: figuurpresets en de lijst met gewrichten (na teken_knop, dus eronder)
     # Omhullen pas als alles staat (kan-punt controleur eis 7), zodat een fout hierboven geen omhulsel achterlaat.
@@ -143,6 +144,7 @@ def register(eigen=None):
 def unregister():
     figuur.unregister()
     figuur_teken.unregister()
+    labels.unregister()
     scharnier_boog.unregister()
     paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
     if paneel is not None:

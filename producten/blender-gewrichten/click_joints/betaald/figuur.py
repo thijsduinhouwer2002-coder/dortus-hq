@@ -238,6 +238,11 @@ class CLICK_JOINTS_PT_figuur(bpy.types.Panel):
         if lijst:
             vak = layout.box()
             vak.label(text=samenvatting(lijst))
+            wm = context.window_manager
+            if hasattr(wm, "cj_labels"):  # mooier overlay 23 nov: welke gewrichten een boog met label tonen
+                rij = vak.row(align=True)
+                rij.label(text="Labels")
+                rij.prop(wm, "cj_labels", expand=True)
             kol = vak.column(align=True)
             for rec in lijst:
                 # Daan (16 nov, kan): `from rig` valt op met een groen bolletje (groen zoals de bogen) in plaats van

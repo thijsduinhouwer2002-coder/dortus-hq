@@ -128,8 +128,14 @@ VLAK_TOL_MM = 0.02  # 1.0.1 (Daan moet 1): hele vlakken rood, alle vlakken op he
 
 
 def _terug(ob):
-    """Vorige rode vlakken van ob terug naar hun eigen materiaalvak."""
+    """Vorige rode vlakken van ob terug naar hun eigen materiaalvak. Eerst het hele deel (cj_rood_deel, mooier
+    overlay), dan de rakende vlakken: die zijn als eerste rood gemaakt, dus hun eigen vak staat in cj_rood_vlakken."""
     me = ob.data
+    deel = ob.get("cj_rood_deel")
+    if deel is not None:
+        if len(deel) == len(me.polygons):
+            me.polygons.foreach_set("material_index", np.array(list(deel), dtype=np.int32))
+        del ob["cj_rood_deel"]
     oud = list(ob.get("cj_rood_vlakken", []))
     for i in range(0, len(oud), 2):
         if oud[i] < len(me.polygons):
@@ -208,18 +214,37 @@ def _zonder_huid(ob, vlakken):
     return uit if uit else set(vlakken)
 
 
-def _kleur(ob, vlakken, kleur_rood):
-    me = ob.data
-    if not vlakken:
-        return
+def _rood_vak(me, kleur_rood):
     if len(me.materials) == 0:
         me.materials.append(None)  # eerst een leeg vak 0, anders wordt rood vak 0 en is het hele deel rood
     namen = [m.name if m else None for m in me.materials]
     if kleur_rood.name in namen:
-        vak = namen.index(kleur_rood.name)
-    else:
-        me.materials.append(kleur_rood)
-        vak = len(me.materials) - 1
+        return namen.index(kleur_rood.name)
+    me.materials.append(kleur_rood)
+    return len(me.materials) - 1
+
+
+def kleur_deel(ob, kleur_rood):
+    """Mooier overlay (23 nov): voorbij de stop wordt bij een figuur het hele deel B rood, niet alleen een dunne
+    strook rakende vlakken (keuring Shorts 3, A9: "de delen worden niet rood"). Alleen weergave: het eigen vak van elk
+    vlak staat in cj_rood_deel en gaat terug bij een pose binnen de stop (_terug). Vorm en export blijven gelijk."""
+    me = ob.data
+    n = len(me.polygons)
+    if n == 0:
+        return 0
+    idx = np.empty(n, dtype=np.int32)
+    me.polygons.foreach_get("material_index", idx)
+    vak = _rood_vak(me, kleur_rood)
+    ob["cj_rood_deel"] = idx.tolist()
+    me.polygons.foreach_set("material_index", np.full(n, vak, dtype=np.int32))
+    return n
+
+
+def _kleur(ob, vlakken, kleur_rood):
+    me = ob.data
+    if not vlakken:
+        return
+    vak = _rood_vak(me, kleur_rood)
     lijst = []
     for v in sorted(vlakken):
         lijst += [v, me.polygons[v].material_index]
@@ -279,6 +304,8 @@ def pose(a, b, graden, kleur_rood=None):
     vlakken_b = groei(b, raak_b, echte_matrix(b))
     _kleur(a, vlakken_a, kleur_rood)
     _kleur(b, vlakken_b, kleur_rood)
+    if b.get("cj_figuur"):  # mooier overlay: bij een figuur het hele deel B rood
+        kleur_deel(b, kleur_rood)
     me.update()
     b.data.update()
     return len(vlakken_a)

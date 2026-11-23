@@ -236,11 +236,19 @@ def _klein(v, f):
     return w
 
 
+def label_tekst(b, n, naam=False):
+    """Tekst van het label bij een figuur: "120°", of met naam "Right knee  0–120°" (stand Selected)."""
+    if naam and b.get("cj_naam"):
+        return f"{b['cj_naam']}  0\u2013{n}°"
+    return f"{n}°"
+
+
 def _teken_een(regio, rv3d, a, b, schaal, actief=True):
     import gpu
     from bpy_extras.view3d_utils import location_3d_to_region_2d as naar2d
 
     from .. import waaier  # alleen de tekenhulpjes lezen, het gratis deel verandert niet
+    from . import labels
     pose = float(b.get("cj_pose_graden", 0.0))
     v = vorm(a, b, pose)
     fig = bool(b.get("cj_figuur"))
@@ -256,9 +264,13 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
     dik = gpu.shader.from_builtin("POLYLINE_UNIFORM_COLOR")
     waaier._waaiervlak(vlak, q["centrum"], boog, (*KL, 0.22 if fig else 0.15))
     waaier._lijn(dik, regio, [q["centrum"], q["as_eind"]], (*KL, 0.55), 2.0 * schaal)
+    if fig:  # mooier overlay: donkere onderlijn, zodat de groene boog ook op een licht model los staat
+        labels.onderlijn(regio, [q["centrum"], q["grens_eind"]], 7.0 * schaal)
+        labels.onderlijn(regio, boog, 7.0 * schaal)
     waaier._lijn(dik, regio, [q["centrum"], q["grens_eind"]], (*KL, 0.9), 3.0 * schaal)
     waaier._lijn(dik, regio, boog, (*KL, 0.9), 3.0 * schaal)
     hoek = waaier.kijkhoek(rv3d, v)
+    naam = fig and labels.met_naam(bpy.context, b)
     streep, getal, nul = [], False, False
     if hoek >= waaier.SCHUIN_MIN:
         if not fig:  # bij een figuur geen streepjes en geen 0°: klein houden, alleen het getal
@@ -267,9 +279,9 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
                 waaier._lijn(dik, regio, [s0, s1], (*WIT, 0.9), 2.0 * schaal)
             # Ook 0° aan het begin (Daan, Pro punt 6): dan lees je de boog als "van 0° tot 115°".
             nul = waaier._tekst(0, p(v["label_0"]), "0°", WIT, int(20 * schaal))
-        if fig:  # donkere rand van 1 px, zodat het getal los van het model staat (Daan, 16 nov, kan)
-            from .figuur_teken import tekst_rand
-            getal = tekst_rand(q["label"], f"{v['getal']}°", WIT, int(FIGUUR_PX * schaal))
+        if fig:  # mooier overlay: label als donkere pil met een groen bolletje (was witte tekst met donkere rand)
+            getal = labels.pil(q["label"], label_tekst(b, v["getal"], naam), int(FIGUUR_PX * schaal), schaal,
+                               accent=KL) is not None
         else:
             getal = waaier._tekst(0, q["label"], f"{v['getal']}°", KL, int(20 * schaal))
     rood_tekst, vrij = False, None
@@ -287,12 +299,14 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
             if vrij:  # dun rood lijntje van het eind van de pose-lijn naar de tekst op de vrije plek
                 waaier._lijn(dik, regio, [q["pose_eind"], _tot_vak(q["pose_eind"], plek, breed, hoog, 6.0 * schaal)],
                              (*ROOD, 0.9), 2.0 * schaal)
-            rood_tekst = waaier._tekst(0, plek, v["voorbij_tekst"], ROOD, groot)
+            rood_tekst = labels.pil(plek, v["voorbij_tekst"], groot, schaal, achter=labels.ROOD_ACHTER) is not None
     # De regel van het paneel ook in beeld (winkelschermen 11 en 12), bovenaan in het midden.
     # Bij een figuur alleen voor het actieve gewricht, anders staan zes regels over elkaar.
     kop = tekst(a)
     if fig and b.get("cj_naam"):  # bij een figuur met de naam erbij: "Left knee: bends 0° to 120°"
         kop = f"{b['cj_naam']}: {kop[:1].lower()}{kop[1:]}"
+    if naam:  # stand Selected: de naam staat al in het label, geen kopregel dwars over het beeld
+        actief = False
     kop_getekend = actief and waaier._tekst(0, Vector((regio.width / 2.0, regio.height - 60.0 * schaal)), kop,
                                             WIT, int(28 * schaal))
     return {"pose": round(pose, 3), "getal": f"{v['getal']}°", "getal_getekend": getal, "nul_getekend": nul,
@@ -300,7 +314,8 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
             "streepjes": len(streep), "kijkhoek": round(hoek, 1), "voorbij": v["voorbij"],
             "voorbij_tekst": v["voorbij_tekst"] if rood_tekst else None,
             "kop": kop if kop_getekend else None, "rood_vrij": vrij, "figuur": fig, "kleur": KL,
-            "naam": b.get("cj_naam", ""), "centrum_px": tuple(q["centrum"]) if q["centrum"] is not None else None,
+            "naam": b.get("cj_naam", ""), "label_tekst": label_tekst(b, v["getal"], naam) if fig else None,
+            "centrum_px": tuple(q["centrum"]) if q["centrum"] is not None else None,
             "label_px": tuple(q["label"]) if getal and q["label"] is not None else None}
 
 
@@ -322,9 +337,12 @@ def teken():
     bs = [o for o in context.scene.objects
           if o.get("cj_soort") == "SCHARNIER" and o.get("cj_deel") == "B" and o.visible_get()]
     act = context.view_layer.objects.active
+    from . import labels
     for b in bs:
         a, _ = paar(context.scene, b)
         if a is None or "cj_bereik_graden" not in a or beweeg.geen_stop(float(a["cj_bereik_graden"])):
+            continue
+        if not labels.toon(context, a, b):  # mooier overlay: bij een figuur alleen het gekozen gewricht
             continue
         # Kopregel: altijd bij een los scharnier (1.0), bij een figuur alleen voor het actieve deel.
         actief = not b.get("cj_figuur") or act is b  # bij een figuur: alleen als je het lid voorbij het gewricht kiest
