@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (main)
-GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 45042694485, commit 2a8927e69608423a52bf524642b7ac139b24450e, commitdatum 1795364060, 2026-11-22T16:29:50Z
+GROOT: 1 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
+Referentie: referentie uit run 45093224282, commit fda8d1844f394c10fdcb46a3b035491a2532c4df, commitdatum 1795396213, 2026-11-23T01:29:38Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -26,8 +26,8 @@ Referentie: referentie uit run 45042694485, commit 2a8927e69608423a52bf524642b7a
 | 20d-testkaart-getal.png | gelijk | |
 | 20h-testkaart-scharnier.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
-| 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 11 px (0.001%), ruis | |
+| 4-material-preview-x.png | 117994 px (5.690%), x 67 tot 825, y 130 tot 741 | GROOT |
+| 5-waaier-x.png | 10 px (0.000%), ruis | |
 | 6-rood-x.png | gelijk | |
 | 7-plat-x.png | 53 px (0.003%), ruis | |
 | 8-winkel-x.png | gelijk | |
