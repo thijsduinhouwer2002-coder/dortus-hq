@@ -1,4 +1,4 @@
-# gemaakt: 2026-11-23T23:39:23Z
+# gemaakt: 2026-11-23T23:42:34Z
 # workflow: Betrouwbaarheid Figure from rig (testset, echte Blender) (.github/workflows/betrouwbaar-rig.yml)
 # run: 45282711505 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45282711505
 # commit: 1945f46c tak claude/betrouwbaar-rig gestart door push
