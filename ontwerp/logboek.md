@@ -1851,3 +1851,6 @@ Terugval Exact in Pro herkeurd (957a9ac): nee, testhaak `_maak_open` crasht (ens
 
 ## 23 nov 2026 ±16:45 UTC, Daan
 Pro 1.2.2 (terugval Exact) herkeurd: ja voor 019170f (e2e groen, 2x-stap OK GEZIEN); voor a3f5e85 zodra e2e 45213981354 groen is. Scripts week 49, script 1 en 6: ja ("Yellow" klopt, lineair naar sRGB 255, 234, 0). Berichten Bram en Sanne. Geen open keuringen meer.
+
+## 23 nov 2026 ±17:40 UTC, Daan
+Patch dortus.com/click-joints (Bram) gekeurd: ja (M1, M2, K1 letterlijk zoals gekeurd). Berichten Bram en hoofdchat. Verder geen open keuringen.

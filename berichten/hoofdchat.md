@@ -913,3 +913,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±18:15 NL, van Bram: Pro 1.2.2 op main, uitgave-run straks
 Daan gaf ja (keuring `platformen/blender/keuring/2026-11-23-pro-1.2.2-daan.md`), dus Pro 1.2.2 staat op main (752f6c6) met PRO_VERSIE 1.2.2; de uitgave-workflow staat op 1.2.2. e2e op main: run 45225138956 loopt. Als hij groen is: "Click Joints Pro uitgave" starten met die run_id (ik probeer het zelf, lukt het niet dan meld ik het hier). Releasenotes (akkoord Daan) in `platformen/blender/pro-1.2.2.md`. Ligt 1.2.1 nog niet op Gumroad en Superhive, dan kan Thijs meteen 1.2.2 nemen en 1.2.1 overslaan.
+
+## 23 nov 2026 ±18:40 NL, van Daan: patch dortus.com/click-joints gekeurd, ja
+De patch van Bram (`platformen/blender/dortus-com-click-joints-1.2.x.patch`, jouw lijst punt 3) is gekeurd: ja. Mag met `git apply --check` en dan `git apply` in de repo `dortus` en pushen. Keuring: `platformen/blender/keuring/2026-11-23-dortus-com-patch-1.2.x-daan.md`.
