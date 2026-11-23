@@ -8,6 +8,7 @@ Vijf beelden, hele venster 1920x1080, alleen echte uitkomst van de add-on:
   m4-rood        rechterknie dichtbij, 12 graden voorbij de stop
   m5-uitelkaar   hele figuur in Exploded view, knie gekozen
   m6-paneel      uitsnede van de zijbalk bij m4
+  m7-paneel      uitsnede van de zijbalk met het hoofdpaneel ingeklapt (Figure joints met de lijst)
 Per beeld een regel "MOOI beeld <naam> getallen=<n> ..." (hoeveel getallen er getekend zijn) en aan het eind
 "MOOI OK" als alle beelden er zijn. Werkt op de oude en de nieuwe code (voor/na in pro-mooier.yml).
     CJ_MENS_OBJ=<base.obj> blender --python e2e/scherm_mooi.py -- <map> <betaalde zip>
@@ -24,13 +25,15 @@ from mathutils import Euler, Vector
 HIER = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HIER)
 _src = open(os.path.join(HIER, "scherm_mens.py"), encoding="utf-8").read()
-_src = _src.replace("\nbpy.app.timers.register(stap, first_interval=3.0)\n", "\n")
+_START = "\nbpy.app.timers.register(stap, first_interval=3.0)\n"
+assert _src.count(_START) == 1, "scherm_mens.py: de regel die de eigen volgorde start is veranderd"
+_src = _src.replace(_START, "\n")
 S = {"__name__": "scherm_mens_lib", "__file__": os.path.join(HIER, "scherm_mens.py")}
 exec(compile(_src, "scherm_mens.py", "exec"), S)
-from scherm_basis import log, open_paneel, toestand, uitmap, wiel_naar_tabblad, zijbalk, zip_pad  # noqa: E402
+from scherm_basis import klap_hoofdpaneel, log, open_paneel, toestand, uitmap, wiel_naar_tabblad, zijbalk, zip_pad  # noqa: E402
 
 KNIE = os.environ.get("CJ_MOOI_KNIE", "Right knee")
-staat = {"beelden": []}
+staat = {"beelden": [], "getallen": []}
 
 
 def _mod(naam):
@@ -107,6 +110,7 @@ def schiet(naam):
         f"rode_vlakken={rood_vlakken()} bestand={os.path.exists(pad)} {r.stderr.strip()}")
     if os.path.exists(pad):
         staat["beelden"].append(naam)
+    staat["getallen"].append(n)
     return pad
 
 
@@ -169,9 +173,20 @@ def stap():
         staat["fase"] = "zet"
         return 0.5
     i = staat["i"]
-    if i >= len(PLAN):
+    if i == len(PLAN) and staat["fase"] == "zet":  # hoofdpaneel inklappen, zodat Figure joints in beeld staat
+        log(f"MOOI hoofdpaneel ingeklapt: {klap_hoofdpaneel()}")
+        staat["fase"] = "paneel"
+        return 1.5
+    if i == len(PLAN) and staat["fase"] == "paneel":
+        pad = schiet("m7-heel-paneel")
+        staat["ok_p7"] = uitsnede(pad, os.path.join(uitmap, "m7-paneel.png"))
+        staat["i"] = i + 1
+        return 0.3
+    if i > len(PLAN):
         ok_p = uitsnede(os.path.join(uitmap, "m4-rood.png"), os.path.join(uitmap, "m6-paneel.png"))
-        alles = all(os.path.exists(os.path.join(uitmap, f"{p[0]}.png")) for p in PLAN) and ok_p
+        # Kan-punt auto-keurder: ergens moet een getal staan, anders bewijzen de beelden niets.
+        alles = (all(os.path.exists(os.path.join(uitmap, f"{p[0]}.png")) for p in PLAN) and ok_p
+                 and staat.get("ok_p7") and sum(staat["getallen"]) > 0)
         log(f"MOOI {'OK' if alles else 'FOUT'} beelden={staat['beelden']} fout_boog={_mod('betaald.scharnier_boog').laatst.get('fout')} "
             f"fout_kogel={_mod('betaald.figuur_teken').laatst.get('fout')}")
         bpy.ops.wm.quit_blender()

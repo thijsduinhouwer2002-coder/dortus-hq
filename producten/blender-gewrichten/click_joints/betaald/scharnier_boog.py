@@ -213,6 +213,13 @@ def _tot_vak(van, m, breed, hoog, rand):
     return m - d * min(1.0, sx, sy)
 
 
+def figuur_x(context=None):
+    """Verkleining van de boog bij een figuur: 0,7 als er meer bogen tegelijk staan (stand All, zes waaiers naast
+    elkaar mogen niet overlappen), heel (1,0) in de stand Selected, want dan staat er maar één."""
+    from . import labels
+    return 1.0 if labels.stand(context) == "SELECTED" else FIGUUR_X
+
+
 def figuur_kleur(a):
     """Kleur van de boog bij een figuur: de passingkleur van het gewricht. Een scharnier bestaat alleen bij
     Good fit (Tight geeft geen scharnier, eis 3), dus groen, zoals de ring rond de snede in de weergave."""
@@ -254,7 +261,7 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
     fig = bool(b.get("cj_figuur"))
     KL = figuur_kleur(a) if fig else WIT
     if fig:
-        v = _klein(v, FIGUUR_X)
+        v = _klein(v, figuur_x(bpy.context))
 
     def p(x):
         return naar2d(regio, rv3d, x) if x is not None else None
@@ -279,9 +286,8 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
                 waaier._lijn(dik, regio, [s0, s1], (*WIT, 0.9), 2.0 * schaal)
             # Ook 0° aan het begin (Daan, Pro punt 6): dan lees je de boog als "van 0° tot 115°".
             nul = waaier._tekst(0, p(v["label_0"]), "0°", WIT, int(20 * schaal))
-        if fig:  # mooier overlay: label als donkere pil met een groen bolletje (was witte tekst met donkere rand)
-            getal = labels.pil(q["label"], label_tekst(b, v["getal"], naam), int(FIGUUR_PX * schaal), schaal,
-                               accent=KL) is not None
+        if fig:  # mooier overlay: label als donkere pil met een groen bolletje (was witte tekst met donkere rand);
+            getal = q["label"] is not None  # getekend na de pose-lijn, zodat die er niet dwars doorheen loopt
         else:
             getal = waaier._tekst(0, q["label"], f"{v['getal']}°", KL, int(20 * schaal))
     rood_tekst, vrij = False, None
@@ -300,6 +306,9 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
                 waaier._lijn(dik, regio, [q["pose_eind"], _tot_vak(q["pose_eind"], plek, breed, hoog, 6.0 * schaal)],
                              (*ROOD, 0.9), 2.0 * schaal)
             rood_tekst = labels.pil(plek, v["voorbij_tekst"], groot, schaal, achter=labels.ROOD_ACHTER) is not None
+    if fig and getal:
+        getal = labels.pil(q["label"], label_tekst(b, v["getal"], naam), int(FIGUUR_PX * schaal), schaal,
+                           accent=KL) is not None
     # De regel van het paneel ook in beeld (winkelschermen 11 en 12), bovenaan in het midden.
     # Bij een figuur alleen voor het actieve gewricht, anders staan zes regels over elkaar.
     kop = tekst(a)

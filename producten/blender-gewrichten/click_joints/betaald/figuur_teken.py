@@ -98,7 +98,7 @@ def kogel_vorm(a, b, rv3d):
         as_ = -as_
     kijk = _kijk(rv3d, c)
     r_k = max(richtingen(as_), key=lambda r: abs(kijk.dot(as_.cross(r))))  # vlak zo veel mogelijk naar de kijker
-    R = FIGUUR_X * _mod("gradenboog").STRAAL * float(a["cj_kogel_r"])
+    R = _mod("betaald.scharnier_boog").figuur_x() * _mod("gradenboog").STRAAL * float(a["cj_kogel_r"])
 
     def punt(g, r=R):
         t = math.radians(g)
@@ -132,7 +132,7 @@ def scharnier_getallen(context, regio, rv3d):
             continue
         if not toon(context, a, b):  # mooier overlay: een verborgen scharnierlabel houdt geen plek bezet
             continue
-        v = sb._klein(sb.vorm(a, b, float(b.get("cj_pose_graden", 0.0))), sb.FIGUUR_X)
+        v = sb._klein(sb.vorm(a, b, float(b.get("cj_pose_graden", 0.0))), sb.figuur_x(context))
         if waaier.kijkhoek(rv3d, v) < waaier.SCHUIN_MIN:
             continue
         p = naar2d(regio, rv3d, v["label"])
