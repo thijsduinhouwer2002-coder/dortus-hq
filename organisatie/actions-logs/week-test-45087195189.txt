@@ -1,0 +1,613 @@
+# gemaakt: 2026-11-23T00:26:55Z
+# workflow: Week-test (volgende Blender, IDE en Obsidian) (.github/workflows/week-test.yml)
+# run: 45087195189 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45087195189
+# commit: 900182c5 tak main gestart door push
+# mislukte stappen: Click Joints / e2e (5.2.5-rc): Blender 5.2.5-rc ophalen; Click Joints / e2e (5.2.5-rc): Schermafbeeldingen met de echte interface; Click Joints / e2e (5.2.5-rc): Direct-zip (gratis met Pro-knoppen op slot, niet voor extensions.blender.org); Click Joints / e2e (5.2.5-rc): Schermafbeelding figuurpresets (Pro 1.1, plaatje 15 voor Daan); Click Joints / e2e (5.2.5-rc): Schermafbeelding Figure from rig (Pro 1.1, plaatje 16 voor Daan, bogen per gewricht en from rig); Click Joints / e2e (5.2.5-rc): Schermafbeelding hele figuur (Pro 1.1, plaatje 17 voor Daan, acht gewrichten met bereik); Click Joints / e2e (5.2.5-rc): Schermafbeelding echte mensfiguur (Pro 1.1, plaatje 19, eindbeeld voor Daan); Click Joints / e2e (5.2.5-rc): Plaatje 20 Fit test strip (betaalde zip, Workbench-render, eindbeeld voor Daan); Click Joints / e2e (5.2.5-rc): Winkelplaatjes Pro (betaalde zip, houten knie, plaatjes 13 en 14); Bison & Flex / e2e: Test in de echte IDE (IntelliJ IDEA EAP 263.8311.30); Bison & Flex / e2e: Test in de echte CLion (EAP 2026.3, vaste build); Click Joints / e2e (4.5.17-rc): Blender 4.5.17-rc ophalen; Click Joints / e2e (4.5.17-rc): Schermafbeeldingen met de echte interface; Click Joints / e2e (4.5.17-rc): Direct-zip (gratis met Pro-knoppen op slot, niet voor extensions.blender.org); Click Joints / e2e (4.5.17-rc): Schermafbeelding figuurpresets (Pro 1.1, plaatje 15 voor Daan); Click Joints / e2e (4.5.17-rc): Schermafbeelding Figure from rig (Pro 1.1, plaatje 16 voor Daan, bogen per gewricht en from rig); Click Joints / e2e (4.5.17-rc): Schermafbeelding hele figuur (Pro 1.1, plaatje 17 voor Daan, acht gewrichten met bereik); Click Joints / e2e (4.5.17-rc): Schermafbeelding echte mensfiguur (Pro 1.1, plaatje 19, eindbeeld voor Daan); Click Joints / e2e (4.5.17-rc): Plaatje 20 Fit test strip (betaalde zip, Workbench-render, eindbeeld voor Daan); Click Joints / e2e (4.5.17-rc): Winkelplaatjes Pro (betaalde zip, houten knie, plaatjes 13 en 14)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== Click Joints / e2e (5.2.5-rc) / UNKNOWN STEP (laatste 200 van 700 regels) =====
+mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+/tmp/blender/blender --version | head -1
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+##[endgroup]
+FOUT: daily 5.2.5-rc niet in de lijst van builder.blender.org
+##[error]Process completed with exit code 1.
+##[group]Run # Quick Setup verschijnt alleen als er nog geen voorkeuren zijn. Sla ze daarom eerst op,
+# Quick Setup verschijnt alleen als er nog geen voorkeuren zijn. Sla ze daarom eerst op,
+# met het opstartscherm uit, en start de interface zonder --factory-startup.
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
+ls -la /tmp/bu/config || true
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start.blend --python e2e/schermen.py -- "$PWD/e2e/screenshots/5.2.5-rc" /tmp/click_joints.zip 2>&1 | tee /tmp/schermen.log || true
+ls -la e2e/screenshots/5.2.5-rc || true
+# Rood als het tabblad niet lukte of de plaatjes ontbreken, zodat Daan nooit verkeerde plaatjes krijgt.
+grep -q "TABBLAD OK" /tmp/schermen.log || { echo "FOUT: tabblad Click Joints niet actief"; exit 1; }
+# As langs de kijkrichting vanuit de zijbalk: gewricht geplaatst, as gelijk aan de kijkrichting, delen gesloten.
+grep -q "KIJK OK" /tmp/schermen.log || { echo "FOUT: as langs de kijkrichting niet goed"; exit 1; }
+# Plaatje 7 moet echt een gewricht op het platte lid tonen (controleur ronde l).
+grep -q "PLAT plaats: .*, 2 delen" /tmp/schermen.log || { echo "FOUT: geen gewricht op het platte lid"; exit 1; }
+# Gradenboog (Daan, beoordeling 3): getal gelijk aan het paneel, streepjes, rood voorbij de grens.
+grep -q "BOOG OK waaier" /tmp/schermen.log || { echo "FOUT: gradenboog binnen de grens niet goed"; exit 1; }
+grep -q "BOOG OK rood" /tmp/schermen.log || { echo "FOUT: gradenboog voorbij de grens niet goed"; exit 1; }
+# Winkelschermen (lanceerlijst Daan): gradenboog binnen en voorbij de grens, hele venster.
+grep -q "BOOG OK winkel " /tmp/schermen.log || { echo "FOUT: winkelscherm 8 niet goed"; exit 1; }
+grep -q "BOOG OK winkel-rood" /tmp/schermen.log || { echo "FOUT: winkelscherm 9 niet goed"; exit 1; }
+grep -q "BOOG OK winkel-paneel" /tmp/schermen.log || { echo "FOUT: winkelscherm 10 boog niet goed"; exit 1; }
+grep -q "PANEEL OK winkel" /tmp/schermen.log || { echo "FOUT: winkelscherm 10 paneel niet goed"; exit 1; }
+for f in 1-paneel-x.png 2-gewricht-x.png 5-waaier-x.png 6-rood-x.png 7-plat-x.png 8-winkel-x.png 9-winkel-rood-x.png 10-winkel-paneel-x.png; do [ -s "e2e/screenshots/5.2.5-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/bu
+  BLENDER_USER_CONFIG: /tmp/bu/config
+##[endgroup]
+/home/runner/work/_temp/4a62c7dd-d624-46a5-8b9f-4a45fd61da93.sh: line 3: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run bash e2e/maak_zip.sh gratis
+bash e2e/maak_zip.sh gratis
+bash e2e/maak_zip.sh direct
+python3 -I e2e/toets_direct_zip.py /tmp/click_joints.zip /tmp/click_joints_direct.zip
+! unzip -p /tmp/click_joints.zip '*.py' | grep -qiw "pro" || { echo "FOUT: Pro in de extensions-zip"; exit 1; }
+/tmp/blender/blender --command extension validate /tmp/click_joints_direct.zip
+/tmp/blender/blender -b --factory-startup --python e2e/test_direct.py -- /tmp/click_joints_direct.zip
+rm -rf /tmp/cj_direct
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_d.blend')"
+mkdir -p "e2e/screenshots/5.2.5-rc"
+timeout 240 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_d.blend --python e2e/scherm_direct.py -- "$PWD/e2e/screenshots/5.2.5-rc" /tmp/click_joints_direct.zip 2>&1 | tee /tmp/direct.log || true
+grep "\[cj-scherm\] DIRECT" /tmp/direct.log || true
+grep -q "DIRECT OK d1-slot" /tmp/direct.log || { echo "FOUT: scherm d1-slot niet goed"; exit 1; }
+V=$(grep '^version' click_joints/blender_manifest.toml | cut -d'"' -f2)
+mkdir -p "/tmp/direct-zip/5.2.5-rc"
+cp /tmp/click_joints_direct.zip "/tmp/direct-zip/5.2.5-rc/click_joints-${V}-direct.zip"
+sha256sum /tmp/click_joints_direct.zip | tee "/tmp/direct-zip/5.2.5-rc/click_joints-${V}-direct.sha256"
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_direct
+  BLENDER_USER_CONFIG: /tmp/cj_direct/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_direct/extensions
+##[endgroup]
+/tmp/click_joints.zip
+/tmp/click_joints_direct.zip
+[cj-direct-zip] OK extensions-zip noemt Pro nergens
+[cj-direct-zip] OK extensions-zip heeft geen direct.py
+[cj-direct-zip] OK direct-zip = gratis zip plus direct.py 20 bestanden
+[cj-direct-zip] OK direct-zip zonder betaald/
+[cj-direct-zip] OK direct.py is e2e/direct/direct.py
+[cj-direct-zip] OK __init__.py = gratis plus fragment
+[cj-direct-zip] OK direct.py bevat 'Figure from rig'
+[cj-direct-zip] OK direct.py bevat 'Hinge with end stop'
+[cj-direct-zip] OK direct.py bevat 'Body-part presets'
+[cj-direct-zip] OK direct.py bevat 'This is in Click Joints Pro'
+[cj-direct-zip] OK direct.py bevat 'See Click Joints Pro'
+[cj-direct-zip] OK direct.py bevat 'Upgrade to Pro'
+[cj-direct-zip] OK direct.py bevat 'https://dortus.com/click-joints/'
+[cj-direct-zip] OK direct.py bevat 'LOCKED'
+[cj-direct-zip] OK geen prijs in de add-on
+[cj-direct-zip] KLAAR 0 FOUT
+/home/runner/work/_temp/a88dcc72-d328-4301-a8d6-59574a14e5ea.sh: line 5: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_f.blend')"
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_f.blend --python e2e/scherm_figuur.py -- "$PWD/e2e/screenshots/5.2.5-rc" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/figuur_s.log || true
+grep -q "FIGUUR OK" /tmp/figuur_s.log || { echo "FOUT: plaatje 15 figuurpresets"; exit 1; }
+for f in 15-figuur-x.png 15-figuur-paneel.png; do [ -s "e2e/screenshots/5.2.5-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_fig_s
+  BLENDER_USER_CONFIG: /tmp/cj_fig_s/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_fig_s/extensions
+##[endgroup]
+/tmp/click_joints_betaald.zip
+/home/runner/work/_temp/c38f2608-52aa-4361-810f-5493ca64459e.sh: line 2: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+mkdir -p "e2e/screenshots/5.2.5-rc"
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_r.blend')"
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_r.blend --python e2e/scherm_rig.py -- "$PWD/e2e/screenshots/5.2.5-rc" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/rig_s.log || true
+grep -q "RIG BEELD OK" /tmp/rig_s.log || { echo "FOUT: plaatje 16 Figure from rig"; exit 1; }
+for f in 16-figuur-rig-x.png 16-figuur-rig-paneel.png; do [ -s "e2e/screenshots/5.2.5-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_rig_s
+  BLENDER_USER_CONFIG: /tmp/cj_rig_s/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_rig_s/extensions
+##[endgroup]
+/home/runner/work/_temp/1567b546-b78e-476f-83f8-60e6dc799d4d.sh: line 3: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+mkdir -p "e2e/screenshots/5.2.5-rc"
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_a.blend')"
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_a.blend --python e2e/scherm_rig_armen.py -- "$PWD/e2e/screenshots/5.2.5-rc" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/armen_s.log || true
+grep -q "ARMEN BEELD OK" /tmp/armen_s.log || { echo "FOUT: plaatje 17 hele figuur"; exit 1; }
+for f in 17-figuur-heel-x.png 17-figuur-heel-paneel.png; do [ -s "e2e/screenshots/5.2.5-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_armen_s
+  BLENDER_USER_CONFIG: /tmp/cj_armen_s/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_armen_s/extensions
+##[endgroup]
+/home/runner/work/_temp/efe1f3b5-def8-43de-9c5c-1fdbc35d4e8e.sh: line 3: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/mh_base.obj ] || curl -fsSL --retry 3 -o /tmp/mh_base.obj https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj
+mkdir -p "e2e/screenshots/5.2.5-rc"
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_m.blend')"
+CJ_MENS_OBJ=/tmp/mh_base.obj timeout 400 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_m.blend --python e2e/scherm_mens.py -- "$PWD/e2e/screenshots/5.2.5-rc" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/mens_s.log || true
+grep -q "MENS BEELD OK" /tmp/mens_s.log || { echo "FOUT: plaatje 19 mensfiguur"; exit 1; }
+for f in 19-mens-x.png 19-mens-paneel.png; do [ -s "e2e/screenshots/5.2.5-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_mens_s
+  BLENDER_USER_CONFIG: /tmp/cj_mens_s/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_mens_s/extensions
+##[endgroup]
+/home/runner/work/_temp/7cbba07e-3a4f-43d2-b278-b3365e1a3574.sh: line 4: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+mkdir -p "e2e/screenshots/5.2.5-rc"
+timeout 400 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender -b --factory-startup --python e2e/scherm_testkaart.py -- "$PWD/e2e/screenshots/5.2.5-rc" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/kaart_s.log || true
+grep -q "KAART BEELD OK" /tmp/kaart_s.log || { echo "FOUT: plaatje 20 fit test strip"; exit 1; }
+for f in 20-testkaart.png 20d-testkaart-getal.png 20h-testkaart-scharnier.png; do [ -s "e2e/screenshots/5.2.5-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_kaart_s
+  BLENDER_USER_CONFIG: /tmp/cj_kaart_s/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_kaart_s/extensions
+##[endgroup]
+/usr/bin/xvfb-run: 200: /tmp/blender/blender: not found
+FOUT: plaatje 20 fit test strip
+##[error]Process completed with exit code 1.
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_p.blend')"
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_p.blend --python e2e/scherm_pro.py -- "$PWD/e2e/screenshots/5.2.5-rc" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/pro.log || true
+grep "\[cj-scherm\] PRO" /tmp/pro.log || true
+grep -q "PRO OK schoon" /tmp/pro.log || { echo "FOUT: plaatje 13 schoon niet goed"; exit 1; }
+grep -q "PRO OK dicht" /tmp/pro.log || { echo "FOUT: plaatje 13d dichtbij niet goed"; exit 1; }
+grep -q "PRO OK pose" /tmp/pro.log || { echo "FOUT: plaatje 13 niet goed"; exit 1; }
+grep -q "PRO OK rood" /tmp/pro.log || { echo "FOUT: plaatje 14 niet goed"; exit 1; }
+for f in 13-pro-knie-schoon-x.png 13-pro-knie-x.png 14-pro-knie-rood-x.png pro-knie.json; do [ -s "e2e/screenshots/5.2.5-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_pro
+  BLENDER_USER_CONFIG: /tmp/cj_pro/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_pro/extensions
+##[endgroup]
+/home/runner/work/_temp/6c7d42a8-0d50-416e-8b1a-597af291b635.sh: line 2: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run B=organisatie/controle/beelden.sh
+B=organisatie/controle/beelden.sh
+
+===== Bison & Flex / e2e / UNKNOWN STEP (laatste 200 van 3697 regels) =====
+    DORTUS-E2E schermafbeelding licht-calc-y-structuur.png: code 0, 76072 bytes, 1720x1134 pixels
+    Step 'Open file calc.l' is started
+    Step 'Open file calc.l' is finished
+    DORTUS-E2E cursor op regel 17 (einde bestand)
+    DORTUS-E2E [licht] structuur na wissel naar calc.l: fout DriverIllegalStateException: No such class 'com.intellij.ide.impl.StructureViewWrapperImpl' in plugin null
+    DORTUS-E2E [licht] focus naar editor gevraagd: false
+    DORTUS-E2E [licht] structuur na focus: fout DriverIllegalStateException: No such class 'com.intellij.ide.impl.StructureViewWrapperImpl' in plugin null
+    [12:23:55]:   ... successfully finished external process for `run-ide-bisonflex-licht` with exit code 0
+    [12:23:55]: IDE run bisonflex-licht completed in 55.158844617s
+    [12:23:55]: Run VM options validation
+    [12:23:55]: Finished VM options validation
+    ##teamcity[testMetadata  type='link' name='Link to Logs and artifacts' value='null' ]
+
+IdeTest > lichtThema() STANDARD_ERROR
+    [12:23:55]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    [12:23:55]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    [12:23:55]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    [12:23:55]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    Nov 23, 2026 12:23:55 AM io.qameta.allure.AllureLifecycle updateTestCase
+    SEVERE: Could not update test case: no test case running
+    Nov 23, 2026 12:23:55 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 12:23:55 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 12:23:55 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+
+IdeTest > lichtThema() STANDARD_OUT
+    [12:23:55]: Successfully finished publishArtifacts run for bisonflex-licht
+    [12:23:55]: IDEStartResult(runContext=IDERunContext(testContext=com.intellij.ide.starter.ide.IDETestContext@27bc2650, commandLine=fun openTestCaseProject(com.intellij.ide.starter.runner.IDERunContext): com.intellij.ide.starter.runner.IDECommandLine, commands=com.intellij.tools.ide.performanceTesting.commands.CommandChain@6f31321a, runTimeout=10m, useStartupScript=true, verboseOutput=false, launchName=, expectedKill=false, expectedExitCode=0, collectNativeThreads=false, stdOut=null), executionTime=55.158844617s, vmOptionsDiff=VMOptionsDiff(newLines=[], missingLines=[]), failureError=null, frontendStartResult=null)
+    [12:23:55]: IDERunContext(testContext=com.intellij.ide.starter.ide.IDETestContext@27bc2650, commandLine=fun openTestCaseProject(com.intellij.ide.starter.runner.IDERunContext): com.intellij.ide.starter.runner.IDECommandLine, commands=com.intellij.tools.ide.performanceTesting.commands.CommandChain@6f31321a, runTimeout=10m, useStartupScript=true, verboseOutput=false, launchName=, expectedKill=false, expectedExitCode=0, collectNativeThreads=false, stdOut=null)
+
+IdeTest > lichtThema() FAILED
+    com.intellij.ide.starter.driver.engine.DriverWithContextError at IdeTest.kt:96
+        Caused by: org.opentest4j.AssertionFailedError at IdeTest.kt:125
+
+IdeTest STANDARD_OUT
+    [12:23:55]: Canceling children of 'Test's supervisor scope': Test `lichtThema()` execution is finished
+    [00:23:59]: INFO - com.intellij.tools.ide.starter.bus.EventsBus - Ignored: java.lang.IllegalArgumentException: Exceptions occurred while processing subscribers. 1) No such class 'org.jetbrains.builtInWebServer.BuiltInServerOptions' in plugin null
+    [12:23:59]: Guessing java process ID on Linux (pid of the java process wrapper - 7695)
+    [12:23:59]: Starting external process for `jcmd-run`
+      Working directory: [weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30
+      Arguments: [[weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30/jbr/bin/jcmd]
+      STDOUT will be redirected to: string. STDERR will be redirected to: string. STDIN is empty: true
+
+    [12:23:59]:   ... started external process `jcmd-run` with process ID = 7962
+    [12:24:00]:   ... successfully finished external process for `jcmd-run` with exit code 0
+    [12:24:00]: List all java processes IDs:
+    [12:24:00]: 4649 /home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/gradle/wrapper/gradle-wrapper.jar --no-daemon integrationTest -PideBuild=263.8311.30
+    [12:24:00]: 7962 jdk.jcmd/sun.tools.jcmd.JCmd
+    [12:24:00]: 4827 org.jetbrains.kotlin.daemon.KotlinCompileDaemon --daemon-logsPath /tmp --daemon-logsFileSizeLimit=1048576 --daemon-logsFileCountLimit=3 --daemon-runFilesPath /home/runner/.kotlin/daemon --daemon-autoshutdownIdleSeconds=7200 --daemon-compilerClasspath /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-compat/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-compat-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-tooling-core/2.4.21/[weggehaald: lange hex-reeks]/kotlin-tooling-core-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-cri-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-cri-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kot
+    [12:24:00]: 4683 org.gradle.launcher.daemon.bootstrap.GradleDaemon 9.8.2
+    [12:24:00]: 4877 worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+
+IdeTest STANDARD_ERROR
+    [12:24:00]: Couldn't find appropriate java process id for pid 7695
+    [12:24:00]: Retrying in 3s ...
+
+Gradle Test Executor 1 STANDARD_OUT
+    [12:24:00]: Canceling children of 'Test class's supervisor scope': Test class `IdeTest` execution is finished
+    [12:24:00]: Canceling children of 'Test class's supervisor scope': Test class `JUnit Jupiter` execution is finished
+    [00:24:00]: INFO - com.intellij.tools.ide.starter.bus.shared.server.LocalEventBusServer - Server stopped
+    [12:24:00]: Canceling children of 'Test suite's supervisor scope': Test plan execution is finished
+
+[12:24:00]: Canceling children of 'Test's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+[12:24:00]: Canceling children of 'Test class's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+[12:24:00]: Canceling children of 'Test suite's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+
+2 tests completed, 2 failed
+
+> Task :integrationTest FAILED
+
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_4-1795392989614.json
+FAILURE: Build failed with an exception.
+15 actionable tasks: 7 executed, 8 up-to-date
+
+* What went wrong:
+Execution failed for task ':integrationTest'.
+> There were failing tests. See the report at: file:///home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/build/reports/tests/integrationTest/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 7m 34s
+##[error]Process completed with exit code 1.
+##[group]Run ./gradlew --no-daemon clionTest ${CLION_BUILD:+"-PclionBuild=$CLION_BUILD"}
+./gradlew --no-daemon clionTest ${CLION_BUILD:+"-PclionBuild=$CLION_BUILD"}
+shell: /usr/bin/bash -e {0}
+env:
+  JAVA_HOME: [weggehaald: lange base64-reeks].0.13-9/x64
+  JAVA_HOME_21_X64: [weggehaald: lange base64-reeks].0.13-9/x64
+  GRADLE_ACTION_ID: gradle/actions/setup-gradle
+  GRADLE_USER_HOME: /home/runner/.gradle
+  GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+  GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+  DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+  DEVELOCITY_INJECTION_CUSTOM_VALUE: gradle-actions
+  GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+  DISPLAY: :99
+  CLION_BUILD: 
+##[endgroup]
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :compileKotlin UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :initializeIntellijPlatformPlugin
+> Task :patchPluginXml UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :generateManifest UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :instrumentCode UP-TO-DATE
+> Task :instrumentedJar UP-TO-DATE
+> Task :composedJar UP-TO-DATE
+> Task :prepareSandbox UP-TO-DATE
+> Task :buildSearchableOptions SKIPPED
+> Task :prepareJarSearchableOptions SKIPPED
+> Task :jarSearchableOptions SKIPPED
+> Task :buildPlugin UP-TO-DATE
+> Task :processIntegrationTestResources UP-TO-DATE
+> Task :prepareSandbox_clionTest
+> Task :compileIntegrationTestKotlin
+> Task :compileIntegrationTestJava NO-SOURCE
+> Task :integrationTestClasses UP-TO-DATE
+
+> Task :clionTest
+
+Gradle Test Executor 1 STANDARD_OUT
+    [00:24:17]: INFO - com.intellij.tools.ide.starter.bus.shared.server.LocalEventBusServer - Server started on port 45654
+
+ClionTest STANDARD_OUT
+    [12:24:17]: Starter DI was initialized
+
+ClionTest > donkerThema() STANDARD_OUT
+    [12:24:18]: Resolving IDE build for clion-donker...
+    [12:24:18]: Starting external process for `git-repo-root-get`
+      Working directory: null
+      Arguments: [git rev-parse --show-toplevel HEAD]
+      STDOUT will be redirected to: string. STDERR will be redirected to: ignored. STDIN is empty: true
+
+    [12:24:18]:   ... started external process `git-repo-root-get` with process ID = 8248
+    [12:24:18]:   ... successfully finished external process for `git-repo-root-get` with exit code 0
+    [12:24:18]: Requesting JetBrains products by URL: https://data.services.jetbrains.com/products/releases?code=CL&type=eap
+
+ClionTest > donkerThema() STANDARD_ERROR
+    [12:24:18]: Failed to find specific release by parameters ProductInfoRequestParameters(type=CL, snapshot=eap, majorVersion=, buildNumber=263.7307.35, versionNumber=)
+
+ClionTest > donkerThema() FAILED
+    com.intellij.ide.starter.runner.SetupException at PublicIdeDownloader.kt:46
+
+ClionTest STANDARD_OUT
+    [12:24:18]: Canceling children of 'Test's supervisor scope': Test `donkerThema()` execution is finished
+
+ClionTest > lichtThema() STANDARD_OUT
+    [12:24:19]: Resolving IDE build for clion-licht...
+    [12:24:19]: Requesting JetBrains products by URL: https://data.services.jetbrains.com/products/releases?code=CL&type=eap
+
+ClionTest > lichtThema() STANDARD_ERROR
+    [12:24:19]: Failed to find specific release by parameters ProductInfoRequestParameters(type=CL, snapshot=eap, majorVersion=, buildNumber=263.7307.35, versionNumber=)
+
+ClionTest > lichtThema() FAILED
+    com.intellij.ide.starter.runner.SetupException at PublicIdeDownloader.kt:46
+
+ClionTest STANDARD_OUT
+    [12:24:19]: Canceling children of 'Test's supervisor scope': Test `lichtThema()` execution is finished
+
+Gradle Test Executor 1 STANDARD_OUT
+    [12:24:19]: Canceling children of 'Test class's supervisor scope': Test class `ClionTest` execution is finished
+    [12:24:19]: Canceling children of 'Test class's supervisor scope': Test class `JUnit Jupiter` execution is finished
+    [00:24:19]: INFO - com.intellij.tools.ide.starter.bus.shared.server.LocalEventBusServer - Server stopped
+    [12:24:19]: Canceling children of 'Test suite's supervisor scope': Test plan execution is finished
+
+[12:24:19]: Canceling children of 'Test's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+[12:24:19]: Canceling children of 'Test class's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+[12:24:19]: Canceling children of 'Test suite's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+
+2 tests completed, 2 failed
+
+> Task :clionTest FAILED
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_5-1795393445281.json
+
+15 actionable tasks: 4 executed, 11 up-to-date
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':clionTest'.
+> There were failing tests. See the report at: file:///home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/build/reports/tests/clionTest/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 18s
+##[error]Process completed with exit code 1.
+##[group]Run B=organisatie/controle/beelden.sh
+B=organisatie/controle/beelden.sh
+
+===== Click Joints / e2e (4.5.17-rc) / UNKNOWN STEP (laatste 200 van 687 regels) =====
+mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+/tmp/blender/blender --version | head -1
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+##[endgroup]
+FOUT: daily 4.5.17-rc niet in de lijst van builder.blender.org
+##[error]Process completed with exit code 1.
+##[group]Run # Quick Setup verschijnt alleen als er nog geen voorkeuren zijn. Sla ze daarom eerst op,
+# Quick Setup verschijnt alleen als er nog geen voorkeuren zijn. Sla ze daarom eerst op,
+# met het opstartscherm uit, en start de interface zonder --factory-startup.
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
+ls -la /tmp/bu/config || true
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start.blend --python e2e/schermen.py -- "$PWD/e2e/screenshots/4.5.17-rc" /tmp/click_joints.zip 2>&1 | tee /tmp/schermen.log || true
+ls -la e2e/screenshots/4.5.17-rc || true
+# Rood als het tabblad niet lukte of de plaatjes ontbreken, zodat Daan nooit verkeerde plaatjes krijgt.
+grep -q "TABBLAD OK" /tmp/schermen.log || { echo "FOUT: tabblad Click Joints niet actief"; exit 1; }
+# As langs de kijkrichting vanuit de zijbalk: gewricht geplaatst, as gelijk aan de kijkrichting, delen gesloten.
+grep -q "KIJK OK" /tmp/schermen.log || { echo "FOUT: as langs de kijkrichting niet goed"; exit 1; }
+# Plaatje 7 moet echt een gewricht op het platte lid tonen (controleur ronde l).
+grep -q "PLAT plaats: .*, 2 delen" /tmp/schermen.log || { echo "FOUT: geen gewricht op het platte lid"; exit 1; }
+# Gradenboog (Daan, beoordeling 3): getal gelijk aan het paneel, streepjes, rood voorbij de grens.
+grep -q "BOOG OK waaier" /tmp/schermen.log || { echo "FOUT: gradenboog binnen de grens niet goed"; exit 1; }
+grep -q "BOOG OK rood" /tmp/schermen.log || { echo "FOUT: gradenboog voorbij de grens niet goed"; exit 1; }
+# Winkelschermen (lanceerlijst Daan): gradenboog binnen en voorbij de grens, hele venster.
+grep -q "BOOG OK winkel " /tmp/schermen.log || { echo "FOUT: winkelscherm 8 niet goed"; exit 1; }
+grep -q "BOOG OK winkel-rood" /tmp/schermen.log || { echo "FOUT: winkelscherm 9 niet goed"; exit 1; }
+grep -q "BOOG OK winkel-paneel" /tmp/schermen.log || { echo "FOUT: winkelscherm 10 boog niet goed"; exit 1; }
+grep -q "PANEEL OK winkel" /tmp/schermen.log || { echo "FOUT: winkelscherm 10 paneel niet goed"; exit 1; }
+for f in 1-paneel-x.png 2-gewricht-x.png 5-waaier-x.png 6-rood-x.png 7-plat-x.png 8-winkel-x.png 9-winkel-rood-x.png 10-winkel-paneel-x.png; do [ -s "e2e/screenshots/4.5.17-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/bu
+  BLENDER_USER_CONFIG: /tmp/bu/config
+##[endgroup]
+/home/runner/work/_temp/a6b823b5-7a9c-4fb8-877c-b9c619c13607.sh: line 3: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run bash e2e/maak_zip.sh gratis
+bash e2e/maak_zip.sh gratis
+bash e2e/maak_zip.sh direct
+python3 -I e2e/toets_direct_zip.py /tmp/click_joints.zip /tmp/click_joints_direct.zip
+! unzip -p /tmp/click_joints.zip '*.py' | grep -qiw "pro" || { echo "FOUT: Pro in de extensions-zip"; exit 1; }
+/tmp/blender/blender --command extension validate /tmp/click_joints_direct.zip
+/tmp/blender/blender -b --factory-startup --python e2e/test_direct.py -- /tmp/click_joints_direct.zip
+rm -rf /tmp/cj_direct
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_d.blend')"
+mkdir -p "e2e/screenshots/4.5.17-rc"
+timeout 240 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_d.blend --python e2e/scherm_direct.py -- "$PWD/e2e/screenshots/4.5.17-rc" /tmp/click_joints_direct.zip 2>&1 | tee /tmp/direct.log || true
+grep "\[cj-scherm\] DIRECT" /tmp/direct.log || true
+grep -q "DIRECT OK d1-slot" /tmp/direct.log || { echo "FOUT: scherm d1-slot niet goed"; exit 1; }
+V=$(grep '^version' click_joints/blender_manifest.toml | cut -d'"' -f2)
+mkdir -p "/tmp/direct-zip/4.5.17-rc"
+cp /tmp/click_joints_direct.zip "/tmp/direct-zip/4.5.17-rc/click_joints-${V}-direct.zip"
+sha256sum /tmp/click_joints_direct.zip | tee "/tmp/direct-zip/4.5.17-rc/click_joints-${V}-direct.sha256"
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_direct
+  BLENDER_USER_CONFIG: /tmp/cj_direct/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_direct/extensions
+##[endgroup]
+/tmp/click_joints.zip
+/tmp/click_joints_direct.zip
+[cj-direct-zip] OK extensions-zip noemt Pro nergens
+[cj-direct-zip] OK extensions-zip heeft geen direct.py
+[cj-direct-zip] OK direct-zip = gratis zip plus direct.py 20 bestanden
+[cj-direct-zip] OK direct-zip zonder betaald/
+[cj-direct-zip] OK direct.py is e2e/direct/direct.py
+[cj-direct-zip] OK __init__.py = gratis plus fragment
+[cj-direct-zip] OK direct.py bevat 'Figure from rig'
+[cj-direct-zip] OK direct.py bevat 'Hinge with end stop'
+[cj-direct-zip] OK direct.py bevat 'Body-part presets'
+[cj-direct-zip] OK direct.py bevat 'This is in Click Joints Pro'
+[cj-direct-zip] OK direct.py bevat 'See Click Joints Pro'
+[cj-direct-zip] OK direct.py bevat 'Upgrade to Pro'
+[cj-direct-zip] OK direct.py bevat 'https://dortus.com/click-joints/'
+[cj-direct-zip] OK direct.py bevat 'LOCKED'
+[cj-direct-zip] OK geen prijs in de add-on
+[cj-direct-zip] KLAAR 0 FOUT
+/home/runner/work/_temp/df3ccfe0-4be3-4d08-8e4d-6fd50f9a9945.sh: line 5: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_f.blend')"
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_f.blend --python e2e/scherm_figuur.py -- "$PWD/e2e/screenshots/4.5.17-rc" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/figuur_s.log || true
+grep -q "FIGUUR OK" /tmp/figuur_s.log || { echo "FOUT: plaatje 15 figuurpresets"; exit 1; }
+for f in 15-figuur-x.png 15-figuur-paneel.png; do [ -s "e2e/screenshots/4.5.17-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_fig_s
+  BLENDER_USER_CONFIG: /tmp/cj_fig_s/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_fig_s/extensions
+##[endgroup]
+/tmp/click_joints_betaald.zip
+/home/runner/work/_temp/059204b6-fe7e-4c3e-af8d-525430594d37.sh: line 2: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+mkdir -p "e2e/screenshots/4.5.17-rc"
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_r.blend')"
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_r.blend --python e2e/scherm_rig.py -- "$PWD/e2e/screenshots/4.5.17-rc" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/rig_s.log || true
+grep -q "RIG BEELD OK" /tmp/rig_s.log || { echo "FOUT: plaatje 16 Figure from rig"; exit 1; }
+for f in 16-figuur-rig-x.png 16-figuur-rig-paneel.png; do [ -s "e2e/screenshots/4.5.17-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_rig_s
+  BLENDER_USER_CONFIG: /tmp/cj_rig_s/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_rig_s/extensions
+##[endgroup]
+/home/runner/work/_temp/e998690b-df70-4bcc-94e8-45242ca838dc.sh: line 3: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+mkdir -p "e2e/screenshots/4.5.17-rc"
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_a.blend')"
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_a.blend --python e2e/scherm_rig_armen.py -- "$PWD/e2e/screenshots/4.5.17-rc" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/armen_s.log || true
+grep -q "ARMEN BEELD OK" /tmp/armen_s.log || { echo "FOUT: plaatje 17 hele figuur"; exit 1; }
+for f in 17-figuur-heel-x.png 17-figuur-heel-paneel.png; do [ -s "e2e/screenshots/4.5.17-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_armen_s
+  BLENDER_USER_CONFIG: /tmp/cj_armen_s/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_armen_s/extensions
+##[endgroup]
+/home/runner/work/_temp/293bc18e-fcff-4cfa-b982-ccfa7e71c70e.sh: line 3: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/mh_base.obj ] || curl -fsSL --retry 3 -o /tmp/mh_base.obj https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj
+mkdir -p "e2e/screenshots/4.5.17-rc"
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_m.blend')"
+CJ_MENS_OBJ=/tmp/mh_base.obj timeout 400 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_m.blend --python e2e/scherm_mens.py -- "$PWD/e2e/screenshots/4.5.17-rc" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/mens_s.log || true
+grep -q "MENS BEELD OK" /tmp/mens_s.log || { echo "FOUT: plaatje 19 mensfiguur"; exit 1; }
+for f in 19-mens-x.png 19-mens-paneel.png; do [ -s "e2e/screenshots/4.5.17-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_mens_s
+  BLENDER_USER_CONFIG: /tmp/cj_mens_s/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_mens_s/extensions
+##[endgroup]
+/home/runner/work/_temp/0662d2a3-7b05-47dc-83a5-9af7732121bf.sh: line 4: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+mkdir -p "e2e/screenshots/4.5.17-rc"
+timeout 400 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender -b --factory-startup --python e2e/scherm_testkaart.py -- "$PWD/e2e/screenshots/4.5.17-rc" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/kaart_s.log || true
+grep -q "KAART BEELD OK" /tmp/kaart_s.log || { echo "FOUT: plaatje 20 fit test strip"; exit 1; }
+for f in 20-testkaart.png 20d-testkaart-getal.png 20h-testkaart-scharnier.png; do [ -s "e2e/screenshots/4.5.17-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_kaart_s
+  BLENDER_USER_CONFIG: /tmp/cj_kaart_s/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_kaart_s/extensions
+##[endgroup]
+/usr/bin/xvfb-run: 200: /tmp/blender/blender: not found
+FOUT: plaatje 20 fit test strip
+##[error]Process completed with exit code 1.
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_p.blend')"
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_p.blend --python e2e/scherm_pro.py -- "$PWD/e2e/screenshots/4.5.17-rc" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/pro.log || true
+grep "\[cj-scherm\] PRO" /tmp/pro.log || true
+grep -q "PRO OK schoon" /tmp/pro.log || { echo "FOUT: plaatje 13 schoon niet goed"; exit 1; }
+grep -q "PRO OK dicht" /tmp/pro.log || { echo "FOUT: plaatje 13d dichtbij niet goed"; exit 1; }
+grep -q "PRO OK pose" /tmp/pro.log || { echo "FOUT: plaatje 13 niet goed"; exit 1; }
+grep -q "PRO OK rood" /tmp/pro.log || { echo "FOUT: plaatje 14 niet goed"; exit 1; }
+for f in 13-pro-knie-schoon-x.png 13-pro-knie-x.png 14-pro-knie-rood-x.png pro-knie.json; do [ -s "e2e/screenshots/4.5.17-rc/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_pro
+  BLENDER_USER_CONFIG: /tmp/cj_pro/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_pro/extensions
+##[endgroup]
+/home/runner/work/_temp/fe95fc9d-7cb2-411f-9263-d00e52208615.sh: line 2: /tmp/blender/blender: No such file or directory
+##[error]Process completed with exit code 127.
+##[group]Run B=organisatie/controle/beelden.sh
+B=organisatie/controle/beelden.sh
