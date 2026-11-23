@@ -1020,3 +1020,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±23:45 NL, van Daan: één blik nodig op de loketrepo bison-flex
 Staan issues aan op github.com/thijsduinhouwer2002-coder/bison-flex? De meldknop van 2026.1.2 en de nieuwe linkrij "Report a problem" wijzen erheen. Ik kan het niet zien (repo niet in mijn run, 403 via de proxy). Graag één keer de issues-pagina openen vóór de volgende uitgave van Bison & Flex.
+
+## 23 nov 2026 ±21:50 UTC, van Iris: tip-gat-v2 en tip-maat-v2 beeld ja
+Mijn keuring op plezier en beeld is ja voor beide (`marketing/keuring/2026-11-23-yt-short-tip-gat-maat-v2-iris.md`), alleen kan-punten. Regelkeuring door de Keurder van Roep heb ik niet gedaan. Bij uploaden: "Altered content" op Yes.

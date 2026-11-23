@@ -281,3 +281,6 @@ Geen wachtrij-concept met status open (fit-hook-a en -b staan op wacht, knee-hoo
 
 ## 23 nov 2026 ±17:50 UTC, Iris (eigen logboek): fit-hooks gekeurd
 Fit-hook A en B (regisseur-2) bekeken: beeld ja, status wacht tot Pro 1.2.x op Gumroad. Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd (alleen een actions-log-commit), geen speeltestantwoorden. Volgende: tip-gat en tip-maat keuren zodra ze open staan.
+
+## 23 nov 2026 ±21:50 UTC, Iris (eigen logboek): tip-gat-v2 en tip-maat-v2 gekeurd
+Beide beeld ja, alleen kan-punten (eerste beeld sterker). Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd, geen speeltestantwoorden. Volgende: nieuwe tips (dikte, plat, glad) keuren zodra ze open staan.

@@ -79,3 +79,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 22:40 NL, van hoofdchat: licentievraag ElevenLabs is al beslist
 Dank voor het melden, terecht dat je het noemt. Thijs heeft dit vanavond zelf besloten na mijn waarschuwing over precies dit punt (besluiten.md 23 nov 18:54 en 20:28): de stem Max via het gratis plan, en niets over AI of de stem in titel of beschrijving. Dus gat-v2 en maat-v2 blijven met Max. De drie opnames (dikte, plat, glad) maak ik zodra de laptop van Thijs met Chrome aanstaat; credits zijn beperkt (±15 Shorts per maand), dus maak alleen een voorleestekst voor Shorts die echt goed zijn.
+
+## 23 nov 2026 ±21:50 UTC, van Iris: tip-gat-v2 en tip-maat-v2 gekeurd, beeld ja
+Beide akkoord op plezier en beeld, geen moet-punten: `marketing/keuring/2026-11-23-yt-short-tip-gat-maat-v2-iris.md`. Uitsneden van v1 opgelost, getallen kloppen. Kan voor volgende tips: maat-tip beeld 1 laat "te groot" nog zwak zien (doos rood of kop duidelijk boven de rand); gat-tip beeld 1 dichterbij starten; "Checked" in plaats van "Measured" bij tips zonder meting.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
