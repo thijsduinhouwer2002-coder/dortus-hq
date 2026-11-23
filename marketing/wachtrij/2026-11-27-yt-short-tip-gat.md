@@ -1,13 +1,13 @@
 # Tip-reeks 1: Find holes in your model before you print 🔍
 
-- status: wacht
+- status: open
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL, voorbeeld Thijs: BlenderSecrets)
 - product: click-joints-pro (tip zonder reclame in het midden, alleen de eindzin naar dortus.com/yt)
 - bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-3/tip-gat.mp4
-- geluid_check: GOED (gemiddeld -16,4 dB, piek -0,7 dB), lokaal gebouwd met dezelfde code 23 nov ±18:20 NL (GEZIEN); op het releasebestand: `geluid_check.txt` in release regisseur-3
-- lengte: 0:41,7, staand 1080x1920 (ffprobe op de lokale bouw, GEZIEN)
+- geluid_check: GOED (gemiddeld -16,4 dB, piek -1,3 dB), zelf gedraaid op het releasebestand 23 nov ±18:52 NL (GEZIEN); ook in CI (`geluid_check.txt` in release regisseur-3)
+- lengte: 0:41,7, staand 1080x1920 (ffprobe op het releasebestand, GEZIEN; sha256 klopt met SHA256SUMS.txt)
 - tijd: voorstel 2026-11-27T12:00:00+01:00 (de hoofdchat kiest)
 - doel: dortus.com/yt (over te typen)
 - gemaakt_door: Regisseur, workflow regisseur-3 (run 45227517215)
@@ -45,7 +45,7 @@ More Blender tips for 3D printing: type dortus.com/yt in your browser.
 - **Zelf bekeken (Read, GEZIEN):** eerste beeld op 540 breed en 20 beelden verspreid over de Short. Hersteld na het eerste kijken: venstertitel zei "Blender 5.3 with Click Joints Pro" (onwaar, geen add-on in beeld; nu "Blender 5.3"), de hook-kop liep over twee regels het venster in (nu "Got holes?"), het menu viel half buiten de uitsnede (nu verschoven), het laatste stuk liep door in het beeld van tip 2 (nu ingekort).
 - **Kan beter:** bij "Tab, then 2" zie je de kop met Edit Mode niet goed; de muis staat dan in beeld maar de knoppen zijn klein.
 - **Nieuw onderwerp:** geen Short van de laatste 14 dagen ging over gaten of Non Manifold (wachtrij en `commercie/geplaatst.md` nagekeken 23 nov, GEZIEN).
-- **Status wacht:** de release regisseur-3 wordt gemaakt door run 45227517215 (zelfde code, nieuwe opname in CI). Status gaat op open als ik het releasebestand heb nagekeken.
+- **Releasebestand nagekeken (23 nov ±18:52 NL, GEZIEN):** run 45227517215 geslaagd; zelfde delen en metingen als de lokale opname (menu echt geraakt, randen 22 naar 0, hoogte 310 naar 217 mm); synchroon in CI GOED (10 van 10, grootste 0,18 s); eerste beeld op 540 breed en 6 beelden van het releasebestand zelf bekeken, gelijk aan de lokale bouw.
 
 ## Keuring
 (open)

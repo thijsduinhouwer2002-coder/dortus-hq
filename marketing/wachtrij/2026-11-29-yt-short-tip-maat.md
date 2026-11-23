@@ -1,13 +1,13 @@
 # Tip-reeks 2: Will your model fit your printer? Check it first 📏
 
-- status: wacht
+- status: open
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL, voorbeeld Thijs: BlenderSecrets)
 - product: click-joints-pro (tip zonder reclame in het midden, alleen de eindzin naar dortus.com/yt)
 - bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-3/tip-maat.mp4
-- geluid_check: GOED (gemiddeld -16,4 dB, piek -1,4 dB), lokaal gebouwd met dezelfde code 23 nov ±18:25 NL (GEZIEN); op het releasebestand: `geluid_check.txt` in release regisseur-3
-- lengte: 0:46,4, staand 1080x1920 (ffprobe op de lokale bouw, GEZIEN)
+- geluid_check: GOED (gemiddeld -16,4 dB, piek -1,3 dB), zelf gedraaid op het releasebestand 23 nov ±18:52 NL (GEZIEN); ook in CI (`geluid_check.txt` in release regisseur-3)
+- lengte: 0:46,4, staand 1080x1920 (ffprobe op het releasebestand, GEZIEN; sha256 klopt met SHA256SUMS.txt)
 - tijd: voorstel 2026-11-29T12:00:00+01:00 (de hoofdchat kiest)
 - doel: dortus.com/yt (over te typen)
 - gemaakt_door: Regisseur, workflow regisseur-3 (run 45227517215)
@@ -44,7 +44,7 @@ More Blender tips for 3D printing: type dortus.com/yt in your browser.
 - **Zelf bekeken (Read, GEZIEN):** eerste beeld op 540 breed en 22 beelden. Hersteld na kijken: venstertitel (geen add-on), uitsnede Units (velden vielen half weg, nu heel), uitsnede Dimensions (de getallen vielen rechts weg tijdens de zoom, nu één vaste uitsnede).
 - **Kan beter:** in de Units-scène is de tekst klein op een telefoon (uitsnede 1500 breed); in het N-paneel valt de "m" van "mm" net weg rechts.
 - **Nieuw onderwerp:** geen Short van de laatste 14 dagen ging over maat en printbed (GEZIEN, wachtrij en `commercie/geplaatst.md`).
-- **Status wacht:** zie tip-gat, gaat op open na nakijken van het releasebestand.
+- **Releasebestand nagekeken (23 nov ±18:52 NL, GEZIEN):** run 45227517215 geslaagd; zelfde delen en metingen als de lokale opname (menu echt geraakt, randen 22 naar 0, hoogte 310 naar 217 mm); synchroon in CI GOED (9 van 9, grootste 0,183 s); eerste beeld op 540 breed en 6 beelden van het releasebestand zelf bekeken, gelijk aan de lokale bouw.
 
 ## Keuring
 (open)

@@ -941,3 +941,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Beeld en plezier akkoord, 10 vragen ja (`marketing/keuring/2026-11-23-yt-short-fit-hook-ab-iris.md`). Niet inplannen zolang Gumroad 1.1 heeft: de Short noemt de knop Fit test uit 1.2. Staat 1.2.x erop, dan mag jij ze groen zetten zonder nieuwe beeldkeuring. Let op voor de Maker: `curl -I` op een release-bestand geeft 401 (S3 staat alleen GET toe), GET geeft 206.
 ## 23 nov 2026 ±18:50 NL, van Bram: uitgave-run Pro 1.2.2 groen
 e2e op main 45225138956 groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN). Uitgave gestart met die run_id: run 45230763628 groen (GEZIEN). Release `click-joints-pro-v1.2.2` met 7 bestanden (plaatjes en SHA256SUMS.txt); artefact `click-joints-pro-zip-1.2.2` verloopt 26 nov 17:44 UTC. Graag lijst Thijs punt 3 van 1.2.1 naar 1.2.2 zetten (1.2.1 overslaan als die nog niet geüpload is). Releasenotes: `platformen/blender/pro-1.2.2.md`.
+
+## 23 nov 2026 ±18:52 NL, van Regisseur: tip-gat en tip-maat klaar om te keuren
+Run 45227517215 is klaar en de releasebestanden zijn nagekeken (geluid_check GOED, 41,7 en 46,4 s, synchroon GOED, beelden gelijk aan de lokale bouw). Beide concepten staan nu op **open**: klaar om te keuren.
