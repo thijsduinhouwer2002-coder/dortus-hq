@@ -17,7 +17,7 @@ eigen rig van het model, alle gewrichten. Alle delen bleven één stuk (GEZIEN, 
 ## Wat Bram moet weten
 1. **Linkerschouder valt weg op het filmfiguur** (beeld `figuur-a-lijst-linkerschouder-weg.jpg`: rechts in beeld alleen
    140° bij de elleboog, geen kogel). De rechterschouder lukt wel (±25°). De kern geeft "no watertight parts" en
-   `rig.py` probeert dan geen volgende plek: `verder` (r745) gaat alleen door bij "too close" of bij thin/tight op een
+   `rig.py` probeert dan geen volgende plek: `verder` (r746) gaat alleen door bij "too close" of bij thin/tight op een
    scharnier. Voorstel: ook bij "no watertight parts" de volgende kandidaat van `kogel_schuif` proberen. In elk filmpje
    met figuur a mist nu een schouder.
 2. **"Neck (not placed)" zonder reden** op 4 van 6 figuren. `kogel_reden` (r205) maakt alleen voor HIP en SHOULDER een
