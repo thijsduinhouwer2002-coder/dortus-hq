@@ -268,10 +268,11 @@ def naadloos(delen):
         me.update()
 
 
-def plastic(delen, gewricht="naadloos"):
+def plastic(delen, gewricht="naadloos", gewricht_kleur=None):
     """Materialen van het figuur als geprint plastic: glans, een dunne laklaag en fijne laaglijnen (0,4 mm) als reliëf.
     De kleuren blijven die van het figuur. gewricht="naadloos": passingkleuren weg (zie naadloos); "contrast": één
-    roomwitte kleur voor kogel, kom en scharnier, zoals een print met de gewrichten in een andere kleur."""
+    roomwitte kleur voor kogel, kom en scharnier, zoals een print met de gewrichten in een andere kleur.
+    gewricht_kleur (hex): een andere kleur dan roomwit (robot, studio-2: antraciet, zoals de buizen bij de gewrichten)."""
     if gewricht == "naadloos":
         naadloos(delen)
     gezien = set()
@@ -281,7 +282,7 @@ def plastic(delen, gewricht="naadloos"):
                 continue
             if gewricht == "contrast" and (m.name.startswith("Click Joints") or m.name.startswith("pla_grijs")):
                 nieuw = bpy.data.materials.get("studio_gewricht") or bpy.data.materials.new("studio_gewricht")
-                nieuw.diffuse_color = srgb(KLEUR["gewricht"])
+                nieuw.diffuse_color = srgb(gewricht_kleur or KLEUR["gewricht"])
                 o.data.materials[i] = nieuw
                 m = nieuw
             if m.name in gezien:
@@ -311,8 +312,8 @@ def _plastic_nodes(m, kleur, metaal=False, licht=False):
     _zet(b, "Specular IOR Level", 0.5)
     _zet(b, "Subsurface Weight", 0.04)
     if metaal:
-        _zet(b, "Metallic", 0.7)
-        _zet(b, "Roughness", 0.32)
+        _zet(b, "Metallic", 0.45)
+        _zet(b, "Roughness", 0.4)
         _zet(b, "Coat Weight", 0.1)
         _zet(b, "Subsurface Weight", 0.0)
     if licht:
