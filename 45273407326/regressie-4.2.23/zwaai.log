@@ -1,0 +1,15 @@
+[cj-zwaai-toets] OK   stop 115: lijst zegt 0–115 (lijst: Left elbow · Hinge · 0–115° · from rig)
+[cj-zwaai-toets] OK   stop 115: zwaairuimte uitgesneden (zwaai: van=81.88 gesloten=True stukken=1,1 wees=172)
+[cj-zwaai-toets] OK   stop 115: delen gesloten, elk één stuk (zwaai: van=81.88 gesloten=True stukken=1,1 wees=172)
+[cj-zwaai-toets] OK   stop 115: niets steekt uit (huid erbij (uitstekend > 0,3 mm): 0 punten)
+[cj-zwaai-toets] OK   stop 115: diepste weggesneden punt 7.0 mm van de elleboog
+[cj-zwaai-toets] 4.2: stop 90 overgeslagen door de snede zelf, niet door de zwaairuimte
+[cj-zwaai-toets] OK   minstens één stop echt getoetst (1)
+[cj-zwaai-toets] OK   terugzetten: bereik zonder uitsnede (lijst: Left elbow · Hinge · 0–82° · from rig)
+[cj-zwaai-toets] OK   terugzetten: geen cj_zwaai_van (zwaai: van=None gesloten=True stukken=2,1 wees=172)
+[cj-zwaai-toets] OK   terugzetten: delen gesloten (zwaai: van=None gesloten=True stukken=2,1 wees=172)
+[cj-zwaai-toets] OK   terugzetten: losse meshes 172, normaal 172
+[cj-zwaai-toets] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
