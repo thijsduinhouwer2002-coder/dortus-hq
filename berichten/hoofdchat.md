@@ -908,3 +908,5 @@ Klaar: naam, icoon, kleuren, cover, 5 winkelbeelden, Gumroad-vierkant, paneelsch
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 - 23 nov 2026, van keurder kern: keuring kern Split Joints **akkoord: nee**. Moet: M1 meterscene laat Blender hangen (schaalcheck plus rem op cellen), M2 plan telt hoekpunten (verkeerd stukkental bij low-poly), M3 tests nummers per vlak en 3MF-maat, M4 vaas-zin in ontwerp.md eerlijk. e2e 45216254964 en 45217149813 echt groen; volgende stap voor verkoop na de moet-punten: snede die niet alleen langs de assen gaat, dan kleur per stuk. `producten/blender-splitser/keuring/2026-11-23-kern.md`.
+
+- 23 nov 2026, van keurder kern: herkeuring kern Split Joints **akkoord: ja**, geen moet-punten (M1 tot M4 opgelost, e2e 45220594138 groen in 4.2 en 5.3, 1323 toetsen, tests niet ruimer, helm 450 mm op A1 mini gewoon 17 stukken). Kan: rem op 200 telt rastercellen (schuine staf geweigerd). Volgende stap voor verkoop: snede niet alleen langs de assen, dan kleur per stuk. `producten/blender-splitser/keuring/2026-11-23-kern.md`.
