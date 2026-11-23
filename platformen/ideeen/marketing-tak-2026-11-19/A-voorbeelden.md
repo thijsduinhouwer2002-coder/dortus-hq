@@ -1637,3 +1637,60 @@ Vijf belangrijkste dingen:
 5. **Topiary Generator stond in Digital Production op de dag dat hij 40+ had** (DERDEN); derde voorbeeld van dat blad bij een kleine maker (na 129 en 131).
 
 Voorstel: (a) de tekst voor BlenderArtists op lijst-thijs gaat over de gratis Click Joints (support-topic, met onderaan één steunregel naar Pro op Superhive en Gumroad), niet over Pro; Daan keurt de nieuwe tekst, Thijs plaatst. (b) Zodra het topic er is, een forumwacht die de openbare JSON leest en concept-antwoorden klaarzet; reparaties gaan via de Blender-manager. (c) Voor geld binnen weken: Pro is één product met een staart van hoogstens tientallen per maand (GOK); de snelste vergroting is een tweede klein betaald product in dezelfde hoek dat via dezelfde gratis tool en pagina verkocht wordt, maar pas na de eerste maandcijfers van Pro (eind december). Volgende run: van 5 makers met 3 of meer betaalde producten op Superhive de lanceringsdatums en eerste-maandbanden via archive.org, zodat (c) een steviger getal krijgt dan één maker.
+
+## Ronde 32 (run 23 nov ±04:20 UTC, klok van de container): wie in november op Superhive snel verkoopt en wie niet, en het blok "New and Rising" op de voorpagina
+
+Werkwijze: de pagina's van 10 makers en al hun producten op Superhive (band, prijs, beoordelingen, en het interne `productId` uit de broncode), plus de voorpagina. Alles met curl, alleen gelezen. Het plan van vorige run (oude banden via archive.org) lukte niet: web.archive.org verbrak deze run elke verbinding (GEZIEN, `Connection reset` bij de TLS-handdruk; archive.org zelf werkte wel, vermoedelijk een blokkade na eerdere aanvragen, GOK). In plaats daarvan gebruik ik het `productId` als klok.
+
+### 147. Het productId van Superhive loopt op en geeft de lanceerdatum, beter dan "Published"
+- "Published ... ago" is de datum van de laatste versie, niet van de lancering: Pro staat nu op "Published 4 days ago", op 22 nov op "2 days ago" (GEZIEN, beide keren), en NexUV (id 269322) zegt "4 days ago" terwijl jongere producten "7 days ago" zeggen (GEZIEN).
+- Het `productId` (`_pa.productId = '...'` in de broncode, GEZIEN) loopt mee met de tijd. IJkpunten met bekende datums (GEZIEN, uit 143 en 144): Folds Modifier 219927 (okt 2024), Staircase 231514 (mrt 2025), Topiary 248864 (jan 2026), Render Profiler 251671 (feb 2026), Lottie 255288 (apr 2026), Cleave 264651 (23 sep 2026), Tree Craft 265166 (eind sep 2026), **Click Joints Pro 269495**. Nu komen er ±1.000 id's per week bij (GOK, uit de nieuwste producten: 271081 is "19 minutes ago", 268045 "23 days ago").
+- Dus: Pro is even oud als NexFoliage (269093), TopoFit (269026) en OpenSet Connect (269235). Dat maakt ze een eerlijke vergelijking.
+
+### 148. Zelfde leeftijd als Pro, en wel verkoop: drie producten uit de eerste helft van november
+| Product | id | Prijs | Band nu | Beoord. | Video op de pagina | Wat de maker al had |
+|---|---|---|---|---|---|---|
+| OpenSet Connect (Andrew Luzhetskyi) | 269235 | $14 | **100+** | 0 | 1 (eigen kanaal) | ABO Connect, 1000+ verkopen, zelfde soort tool (gratis 3D-modellen binnenhalen) |
+| NexFoliage (NexStudio) | 269093 | $17 | **90+** | 4 | 0 | Ecorche-add-on 70+, creature-pakketten 10+ tot 40+ (2023) |
+| NexBake (NexStudio) | 268943 | $37 | **50+** | 3 | 0 | idem; lanceerkorting "50% off 5 days" op de pagina |
+| TopoFit (GZ Tools) | 269026 | $19,20 | **40+** | 1 | 1 (eigen kanaal @GZ_Tools) | niets: dit is hun enige product op Superhive |
+| Click Joints Pro | 269495 | $12 | geen band | 0 | 0 | gratis Click Joints, 244 gebruikers |
+
+(GEZIEN, 23 nov ±04:00 UTC; banden zijn ondergrenzen, alle verkopen ooit.)
+- **TopoFit is het nuttigste voorbeeld voor ons:** een maker zonder eerdere producten op Superhive, één video, een tool die één lastige klus in een paar klikken doet ("Full Character Retopology in a Few Clicks", titel van de video, GEZIEN via YouTube oembed), en 40+ in ±2 tot 3 weken. Hoeveel weergaven die video heeft: niet te lezen vanuit de cloud (captcha, zelfde als run 7 van B).
+- OpenSet Connect leunt op een bestaande klantenkring (zelfde maker, zelfde soort tool, 1000+). Dat is het "stapelen" uit 144, maar dan met een eerste product dat al groot is.
+
+### 149. Het blok "New and Rising" op de voorpagina: daar staan ze alle drie, Pro niet
+- Op de voorpagina van Superhive staat bovenaan, direct onder de categorieën, het blok **"New and Rising: Fresh products gaining momentum in the community"** (GEZIEN, 23 nov). Nu: Eden, Materialify Pro, Image to 3D, Carnage Grains (127), **NexFoliage, OpenSet Connect**, Curve Sculpt 3D, **TopoFit**, AutoCreatures. Hetzelfde blok staat ook boven de categoriepagina's (GEZIEN op /categories/addons).
+- Daaronder "Top Selling Items this Week", met **Cleave** op plek 3, na Auto-Rig Pro en Human Generator (GEZIEN). Cleave, directe concurrent van Pro, stond op 22 nov op 200+ en nu op **300+** (GEZIEN beide).
+- Superhive zegt zelf 74.447 producten te hebben (GEZIEN, voorpagina). Een plek in "New and Rising" is dus de grootste gratis etalage die een nieuw product kan krijgen. Hoe Superhive kiest staat nergens; de naam ("gaining momentum") wijst op verkoop of bewaren in de eerste weken (GOK).
+- Wat dat voor de banden betekent: het patroon "±40 in de eerste maand" uit 144 klopt voor wie niet in dit blok komt; wie er wel in komt haalt 40 tot 100 in 2 tot 3 weken (GEZIEN, 148). Of het blok de verkoop veroorzaakt of volgt: GOK, waarschijnlijk allebei (eerst een paar verkopen, dan de etalage, dan meer).
+
+### 150. Stapelen met een agent, het tegenvoorbeeld: ZEG, 279 producten in ±8 weken, hoogstens een handvol verkopen per product
+- De maker ZEG heeft **289 producten** op Superhive, waarvan **279 met een id boven 265000** (dus sinds eind september) en **221 tussen id 267000 en 269000**, ruwweg twee weken eind oktober en begin november (GEZIEN, alle 15 pagina's van de makerpagina en elke productpagina gelezen). Bijna alles is een "generator" voor één soort ding: koffiemachine, dixi-wc, watertoren, gamestoel, reclamebord, ruimtestation, rotsblok, enzovoort, meestal $7 tot $15 (GEZIEN). Vandaag om ±01:00 UTC kwamen er vier tegelijk bij (GEZIEN, "about 3 hours ago").
+- **Verkoop:** van die 279 hebben er **4 een band** (Bookwright 20+, Engine Generator 10+, Image to 3D Local 10+, Horse Generator 10+), samen minstens 50 verkopen; **275 hebben er geen** (minder dan ±10 elk, GEZIEN). Samen 21 beoordelingen over 289 producten.
+- De teksten zijn strak en gelijk van vorm ("Every book has a story ... 01 / THE COLLECTION ... 02 / YOUR WORKFLOW ...", GEZIEN bij Bookwright). Dat dit met een agent gemaakt is staat er niet, maar ruim 100 werkende add-ons per week met eigen pagina is geen mensenwerk (GOK). ZEG verkoopt zelf ook een add-on "AI Movie Studio" (pagina agent-terminal, GEZIEN).
+- **Twee kleinere van hetzelfde soort** (GEZIEN): Meshwright, 17 producten sinds eind september (avatar- en gezichtstools), banden FaceKeys 40+, Outfit Refit 20+, Headwrap 10+, de andere 14 niets; Rekanyx, 16 producten in ±6 weken (kerstgenerators, kabelgenerator, panel cutter), **0 banden**.
+- Wat ZEG wel krijgt: het blok "New Arrivals" op de voorpagina staat vol met zijn nieuwste producten en die van Rekanyx (GEZIEN: Cremato Coffee Generator en Ren Panel Cutter staan er nu). Die etalage levert dus niets op; "New and Rising" vraagt om echte verkoop.
+- Op BlenderArtists klagen makers al over "selling AI products and AI generated slop" op Superhive (DERDEN, [BlenderArtists, 26 okt 2026, 2.268 keer bekeken](https://blenderartists.org/t/creators-starting-today-superhive-sells-your-products-to-ai/1656000)). Het topic gaat vooral over Superhive die makerswerk aan AI-trainers aanbiedt (opt-out); de "slop" is een bijzin.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Etalagewacht (€ 0, alleen lezen):** elke paar uur de voorpagina van Superhive lezen en noteren wat er in "New and Rising" en "Top Selling Items this Week" staat, met id, band en prijs. Na een paar weken weten we hoe snel iets erin komt en hoe lang het blijft. Kost één curl per keer.
+- **Pro in "New and Rising" krijgen, in de Cyber Sale:** Pro doet mee met 35% korting van vr 27 nov t/m wo 2 dec (besluit 19 nov). Als het blok op verkoop in korte tijd let (GOK), dan is dat de week om alle bestaande kanalen tegelijk naar de Superhive-pagina te sturen in plaats van naar Gumroad: de Shorts-beschrijvingen, dortus.com/click-joints/, de README van de gratis Click Joints. Geen geld nodig. Of het werkt meten we met de etalagewacht.
+- **Een video op de Superhive-pagina:** TopoFit (1 video) en FaceKeys (3 video's) hebben er een, NexFoliage niet; geen harde regel, maar Pro heeft er 0 (GEZIEN). We hebben al Shorts en een uitlegvideo in de wachtrij; één ervan op de pagina zetten kan alleen Thijs (dashboard).
+- **Niet doen:** zelf met een agent tientallen kleine add-ons op Superhive zetten. ZEG laat zien wat dat oplevert: 279 producten, ±50 verkopen die zichtbaar zijn (GEZIEN), en een slechte naam bij de makers die het forum lezen.
+
+## Patronen na ronde 32
+102. **De eerste twee tot drie weken bepalen de staart** (148, 149): producten van november die 40 tot 100 verkopen halen staan in "New and Rising"; Pro, even oud, heeft nog geen band en staat er niet in.
+103. **Massa met een agent verkoopt niet** (150): ZEG 279 producten, 4 met een band; Rekanyx 16, 0. Het "stapelen" van MultLabs (144) werkt met 6 producten in 23 maanden, elk met video en forumtopic, niet met 100 per week.
+104. **Een maker zonder naam kan het wel** (148): TopoFit, enig product, één video, één klus in een paar klikken, 40+ in 2 tot 3 weken.
+
+## Stand na run 23 nov ±04:30 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **Pro is even oud als drie producten die nu al 40+ tot 100+ verkochten** (OpenSet Connect 100+, NexFoliage 90+, TopoFit 40+; GEZIEN, gedateerd met het productId). Pro heeft nog geen band (onder ±10).
+2. **Die drie staan in "New and Rising" bovenaan de voorpagina van Superhive** (74.447 producten); Cleave, onze directe concurrent, staat in "Top Selling Items this Week" en ging van 200+ naar 300+ sinds gisteren (GEZIEN).
+3. **ZEG zet sinds eind september 279 add-ons op Superhive (±100 per week op het hoogste punt), en 4 daarvan verkopen zichtbaar** (GEZIEN). Massa met een agent is geen weg naar geld in deze winkel.
+4. **TopoFit is het voorbeeld voor ons:** nieuwe maker, één product, één video die één klus laat zien, 40+ in 2 tot 3 weken.
+5. **"Published ... ago" op Superhive is de laatste versie, het productId is de echte leeftijd** (GEZIEN); oude banden via archive.org lukten deze run niet (verbinding verbroken).
+
+Voorstel: (a) in de Cyber Sale (vr 27 nov t/m wo 2 dec) stuurt de hoofdchat alle eigen kanalen naar de Superhive-pagina van Pro in plaats van Gumroad, om in "New and Rising" te komen (GOK of dat werkt; geen geld). (b) Thijs zet één bestaande uitlegvideo op de Superhive-pagina van Pro (nu 0 video's), op de lijst als dat erbij past. (c) Een etalagewacht die elke 3 uur de twee blokken op de voorpagina in een bestand schrijft, zodat we na de sale zien of Pro erin kwam. Volgende run: de etalagewacht zelf een paar keer handmatig draaien, en nagaan hoe lang producten in "New and Rising" blijven en of er ook producten zonder band in staan.
