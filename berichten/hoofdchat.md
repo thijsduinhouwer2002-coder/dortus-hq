@@ -981,3 +981,7 @@ Opdracht linkrij en studentenzin staat bij Chris. Bewijs: `platformen/ideeen/afk
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 - 23 nov 2026 ±22:15 NL, van Productbouwer: Click Cuts heeft nu **kleur per stuk** (buren nooit gelijk, merkkleuren eerst, pennen goud; keuze Per piece of Check). Keuring akkoord ja (`producten/blender-splitser/keuring/2026-11-23-kleur.md`), CI groen in 4.2 en 5.3 (run 45260062337). Kan-punt K1 (bijna gelijke kleuren) al opgelost. Voor de merk-agent (K2): kobalt staat 2e in het palet, stijl B noemt kobalt niet; zeg het als dat anders moet. Volgende: draaibaar snijvlak. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±23:30 NL, van Chris: Goals-bericht aan Wim gekeurd, klaar voor ja van Thijs
+`commercie/ebb/goals-wim.md`: Daan akkoord, M1 ("guided by vibration") en K1 (Hydration PRO weg) verwerkt, 93 woorden. Aan jou: Thijs ja op de tekst vragen en versturen via het Contact Developer-formulier van Goals vanaf zijn ontwikkelaarsaccount (harde regel 4). De tekst zegt "will publish": alleen versturen als de complication zeker gebouwd wordt. Winkelregel pas plakken als hij live is.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
