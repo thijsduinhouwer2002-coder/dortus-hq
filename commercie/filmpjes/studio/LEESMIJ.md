@@ -52,6 +52,59 @@ Zelf gebouwd met `figuur_robot.py` (geen download, geen AI-model, geen merk of b
 4. **Uitkomst hangt aan de voxelmaat:** op 0,5 mm 9 gewrichten, op 0,35 mm 8 (linkerheup geblokkeerd). Daarom blijft
    0,5 mm de standaard.
 
+### Gewrichten van de robot
+- **CI (job kandidaten en studio van `studio2.yml`, release `studio-2`, GEZIEN): 8 gewrichten** (beide ellebogen en knieën als scharnier met eindstop 140 en 120, nek ±20°, beide schouders ±30°,
+  rechterheup ±27°), elk deel één stuk, in beide kleurstellingen (run 45197874364 en de run op 1306ec6f, 23 nov).
+  Overgeslagen: linkerheup "no room for a ball joint that can move here (it would be blocked)".
+- Lokaal (zelfde Blender 5.3.0 en zip, 2 kernen): 9 gewrichten bij voxel 0,5 mm, elk deel één stuk. Net als bij het
+  mensfiguur geeft CI één minder; daar faalt de linkerheup ("it would be blocked"), net als lokaal bij voxel 0,35 mm.
+  Vijf pogingen om dat te verhelpen (heupen breder of smaller, bekken hoger of breder, heupbot lager) maakten het
+  slechter (7). Noem in een filmpje alleen wat de lijst in beeld zegt.
+- Figure from rig kost ±45 tot 65 s op de robot (GEZIEN, `knop_s` in `robot-a-meting.json`).
+
+### Eerlijk oordeel over het uiterlijk (zelf gekeken naar de renders in `studio-2`)
+- **Veel beter dan studio-1.** Het is duidelijk speelgoed: een vrolijke robot met een vizier en lichtblauwe ogen,
+  wit pantser, oranje en blauw. Geen mensengezicht, dus niets wat "nep" kan ogen. In uit elkaar zie je de kogels en
+  kommen als antraciet mechaniek, dat past bij een robot. De gevonden mechs zijn wit (textuur valt weg), dun en
+  krijgen 0 tot 4 gewrichten.
+- **Geen "wauw" zoals het oceaanfilmpje van Malikose** (81.000 weergaven op TikTok, GEZIEN 21 nov, zie
+  `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-21-malikose-tip-format.md`). Dat is een realistisch
+  natuurbeeld; dit is een nette productfoto van een speelgoedrobot. De haak zit in het uit elkaar vallen en weer
+  klikken, niet in het beeld zelf (GOK).
+- **Veel antraciet buis.** Bij elk gewricht blijft 10 tot 20 mm kale buis over (de add-on heeft daar ruimte nodig),
+  vooral boven de dij en onder de knie. Het oogt daardoor wat slank en mechanisch, minder als een stevig actiefiguur.
+- **Kleurgrenzen met kleine trapjes** (voxel 0,5 mm) op de randen van platen en het vizier, op ware grootte te zien.
+  De kleuren komen nu per vorm (geen witte snippers meer) en na Figure from rig zet `kleur_herstel` ze terug: de
+  add-on zelf schuift na elke snede de kleur van kleine details een beetje (kern op de borst werd half oranje).
+  Dat is iets voor de makers van de add-on.
+- **In het Blender-scherm** (schermafbeeldingen) staan de kleuren zoals de add-on ze laat: daar is de kern op de
+  borst wel half oranje, plus de groene passingkleuren. Alleen de renders gaan door `kleur_herstel`.
+- **Bij een gebogen knie of elleboog** zie je de snede: een stukje van het pantser of het kniestuk zit dan aan het
+  andere deel. Dat is echt wat de add-on maakt.
+- **De pose blijft stijf in de schouders:** kogels van ±30°, de armen hangen in de houding van het model (licht
+  gespreid). Poseren gaat vooral met knieën en ellebogen.
+
+### Zoektocht naar een gevonden robot (23 nov, studio-2): niets goed genoeg, dus zelf gebouwd
+Gezocht op GitHub (zoekfunctie: robot, mech, rigged robot, mannequin, CC0 characters), in quaternius-showcase (alle
+1545 modellen), Khronos glTF-Sample-Assets en OpenGameArt (3D, CC0, "robot"). Niet doorzocht: Poly Pizza (de API wil
+een sleutel), Kenney (alleen blokkige mini-figuren met korte ledematen), Blender-demobestanden, NASA en Smithsonian
+(echte robots en ruimtevaart, met logo's). Licenties zelf gelezen met curl op 23 nov (GEZIEN):
+
+| Kandidaat | Bron en licentie | Uitslag |
+|---|---|---|
+| Stan (Animated Mech Pack) | [Quaternius](https://quaternius.com/packs/animatedmech.html), CC0 (pakketpagina) | CI 240 mm: 4 gewrichten (ellebogen, heupen). Knieën "too thin", schouders "only a tiny ball". In de studio wit (textuur valt weg), dunne poten |
+| Mike (Animated Mech Pack) | idem, CC0 | CI: 4 gewrichten. Linkerelleboog "parts overlap", heupen geblokkeerd |
+| George (Animated Mech Pack) | idem, CC0 | CI: 0 gewrichten, 9 losse stukken (ledematen raken elkaar, drie delen per been) |
+| Character (Cyberpunk Game Kit) | [Quaternius](https://quaternius.com/packs/cyberpunkgamekit.html), CC0 | CI: 2 gewrichten. Dunne ledematen, knieën "cheek too stiff" |
+| Mechs met dieren (Ultimate Space Kit) | [Quaternius](https://quaternius.com/packs/ultimatespacekit.html), CC0 | niet getest: dier in een cabine, korte dikke poten, geen armen |
+| Godot-robot | [AGChow, GitHub](https://github.com/AGChow/3D-Godot-Robot-Platformer-Character), CC0 | afgewezen: het hoofd is het Godot-logo (merk), korte stripverhoudingen |
+| BrainStem | [Khronos glTF-Sample-Assets](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/BrainStem), Poser EULA | afgewezen: geen vrije licentie |
+| 7 robots op OpenGameArt (Gum Bot, BA-2, Sentry-2, Robot pack 3D, ...) | [OpenGameArt](https://opengameart.org/art-search-advanced?keys=robot), CC0 | afgewezen op het voorbeeldplaatje: geen armen en benen (wielen, rupsen, zwevend) of klein en stomp |
+
+Let op: Quaternius heeft sinds 28 aug 2026 een eigen licentie op de site ([QAL](https://quaternius.com/license.html):
+gebruik vrij, de bestanden zelf niet doorgeven). De pakketpagina's hierboven zeggen nog CC0. Wij zetten geen
+Quaternius-bestanden in de repo; de workflow haalt ze op.
+
 ## Het mensfiguur (studio-1, niet meer gebruiken)
 MakeHuman `base.obj` (CC0 1.0, bron en licentietekst in `modellen/`), door ons aangekleed in `laad_mens_kleding`:
 borst plat en romp glad (zoals de e2e-figuur), dan per stuk kleding het oppervlak een fractie naar buiten zodat zomen in
