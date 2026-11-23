@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (claude-blender-solver-terugval)
-GROOT: 2 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 45194995297, commit 542c4befa3e22ec56861ff8e2aa1c1a868b33404, commitdatum 1795444242, 2026-11-23T14:49:18Z
+GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
+Referentie: referentie uit run 45202556640, commit 957a9ac875957d073dceb6e0ee2f166404ff33be, commitdatum 1795446724, 2026-11-23T15:39:24Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -19,17 +19,17 @@ Referentie: referentie uit run 45194995297, commit 542c4befa3e22ec56861ff8e2aa1c
 | 16-figuur-rig-x.png | gelijk | |
 | 17-figuur-heel-paneel.png | gelijk | |
 | 17-figuur-heel-x.png | gelijk | |
-| 19-mens-paneel.png | 866 px (0.304%), x 23 tot 234, y 174 tot 347 | GROOT |
-| 19-mens-x.png | 10025 px (0.483%), x 768 tot 1863, y 181 tot 428 | GROOT |
-| 2-gewricht-x.png | gelijk | |
+| 19-mens-paneel.png | gelijk | |
+| 19-mens-x.png | gelijk | |
+| 2-gewricht-x.png | 61 px (0.003%), ruis | |
 | 20-testkaart.png | gelijk | |
 | 20d-testkaart-getal.png | gelijk | |
 | 20h-testkaart-scharnier.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 53 px (0.003%), ruis | |
+| 5-waaier-x.png | 33 px (0.002%), ruis | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | 110 px (0.005%), ruis | |
+| 7-plat-x.png | 116 px (0.006%), ruis | |
 | 8-winkel-x.png | 58 px (0.003%), ruis | |
 | 9-winkel-rood-x.png | 36 px (0.002%), ruis | |
 | d1-slot-paneel.png | gelijk | |
