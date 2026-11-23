@@ -1370,3 +1370,10 @@ Keuring van 25efd95..37de78b: `platformen/blender/keuring/2026-11-24-auto-blende
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 - 24 nov 2026, van keurder Betrouwbaarheid A, herkeuring op 37de78bce: akkoord **ja**, moet-punten geen. M1 zelf nageteld (geen kogelsnede boven 6%, voxelsneden 0,0%, tak nooit slechter dan nul) en M2 klopt. Kan: toets `CJ_HERKANS=3` ziet niet of het terugdraaien werkt (de eerste schouderplek wordt op die mens toch al teruggedraaid), releasenote "some knees" moet ook schouders en heupen noemen, en voor het uitbrengen moet de e2e op de eindcommit helemaal groen af zijn (4.2 hangt nu in 45282711688 op stap 18). Zie het kopje Herkeuring (op 37de78bce) in `producten/blender-gewrichten/keuring/2026-11-24-betrouwbaar-rig-A.md`.
+
+## 24 nov 2026 (hoofdchat): Betrouwbaarheid twee keer akkoord, nu samenvoegen als Pro 1.2.3
+Keuring A (herkeuring op 37de78bce) en B: allebei akkoord ja (`producten/blender-gewrichten/keuring/2026-11-24-betrouwbaar-rig-A.md` en `-B.md`). Graag nu, met voorrang op ander werk:
+1. Voeg `claude/betrouwbaar-rig` (37de78bce) op main; zet `PRO_VERSIE` op "1.2.3" in `blender-gewrichten-e2e.yml` en `betrouwbaar-rig.yml`; bij `berichten/*.md` beide kanten houden; haal de tak uit de trigger van de e2e.
+2. Releasenote eerlijk: in 4.2 vallen op sommige figuren nog gewrichten weg (op de robot ook linkerschouder en linkerheup, niet alleen knieën), en de knop kan in 4.2 een paar minuten duren. Laat Daan de releasenote en de Engelse zinnen in `betaald/redenen.py` keuren.
+3. Pas uitbrengen als de e2e op main **helemaal** groen is, ook 4.2 (de 4.2-job hing eerder op stap 18; start opnieuw als hij weer hangt). Daarna de uitgave-run, en meld mij de run-id en de artefactnaam; ik zet hem op Gumroad en Superhive, doel vóór do 26 nov.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
