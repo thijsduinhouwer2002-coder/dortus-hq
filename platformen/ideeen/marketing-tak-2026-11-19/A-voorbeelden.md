@@ -1754,3 +1754,64 @@ Vijf belangrijkste dingen:
 5. **Geen product zonder band in "New and Rising", en een review van 2 sterren houdt je er niet uit** (GEZIEN). Het gaat om aantal verkopen.
 
 Voorstel: (a) de hoofdchat stuurt in de Cyber Sale (vr 27 nov t/m wo 2 dec) alle eigen kanalen naar de Superhive-pagina van Pro (blijft staan uit ronde 32). (b) Nieuw: de hoofdchat overweegt vóór vrijdag een goedkope vierde variant van Pro op Superhive (één extra functie, $3 tot $5) om in de sale de 30 verkopen te halen; Thijs moet die in het dashboard zetten, dus alleen als het op de lijst past. (c) Een geplande etalagewacht elke 3 uur (curl, € 0). Volgende run: de banden van de negen plus Pro en Cleave opnieuw lezen voor een nulmeting vóór de sale, en kijken of Superhive al een Cyber Sale-pagina voor 2026 heeft (deelname, data, eigen blok).
+
+## Ronde 34 (run 23 nov ±06:20 UTC, klok van de container): nulmeting vóór de sale, de nieuwe "For You"-pagina van Superhive en wat die met een gratis instapvariant doet, en de cijfers van Glitch
+
+Werkwijze: voorpagina en de elf producten uit 151 plus Cleave opnieuw met curl gelezen (band, prijs, `on_sale`, `productId`). De blog van Superhive doorgelezen op iets over de Cyber Sale 2026 en over hoe kopers producten vinden. Eén help-artikel over upgrades tussen varianten, en het persbericht van Glitch. Alles alleen gelezen.
+
+### 155. Nulmeting vóór de Cyber Sale (23 nov ±06:15 UTC)
+| Product | id | Band | Prijs (min tot max) | in aanbieding |
+|---|---|---|---|---|
+| Eden | 268996 | 300+ | $15 tot $120 | ja |
+| Materialify Pro | 269780 | 100+ | $1 tot $7 | nee |
+| Image to 3D | 268012 | 1500+ | $18 | nee |
+| Carnage Grains | 269441 | 50+ | $49,99 | nee |
+| NexFoliage | 269093 | 90+ | $17 tot $49 | nee |
+| Curve Sculpt 3D | 268865 | 30+ | $25 | nee |
+| OpenSet Connect | 269235 | 100+ | $14 | ja |
+| TopoFit | 269026 | 40+ | $24 tot $68 | **ja (nieuw sinds 05:15)** |
+| AutoCreatures | 269172 | 60+ | $59,96 tot $319,96 | ja |
+| **Click Joints Pro** | 269495 | **geen** | $12 tot $45 | nee |
+| Cleave | 264651 | 300+ | $23 tot $28 | nee |
+
+(GEZIEN; prijzen zijn `min_price`/`max_price` uit `productData`, de lijstprijs vóór korting.) "New and Rising" bevat dezelfde negen als om 04:00 en 05:15 (GEZIEN, drie metingen). Geen band veranderd in ±1 uur. Deze tabel is de nulmeting: op vr 27 nov en wo 2 dec opnieuw lezen.
+- Over de Cyber Sale 2026 zelf staat nog niets op de blog of op `/tags/cyber-sale` (GEZIEN; alleen oude recaps en vijf losse producten met die tag). Op de voorpagina staat alleen "Cyber Sale: 50% off Signage until 26 November" (GEZIEN). Data en blok van de grote sale: nog onbekend.
+
+### 156. Superhive heeft sinds 16 nov een "For You"-pagina, en die zet een **Pro-upgrade** voor bezitters van een goedkopere variant
+- Blogstuk "Meet Your New For You Page" (GEZIEN, [Superhive, 16 nov 2026](https://superhivemarket.com/posts/meet-your-new-for-you-page-deals-upgrades-and-new-releases-picked-just-for-you)). Elke ingelogde koper krijgt een pagina met vijf blokken: Items on Sale, Bundles, Coupons, New, Picked for You. Volgorde van wat erop komt, letterlijk: (1) "Your wishlist. Products you've saved get top priority." (2) "Upgrades for tools you own. If you own the Lite version of an add-on and a Pro version is available, it can show up for you with an **Upgrade Variant: Pro** label that links straight to the upgrade." (3) "Creators you've bought from. New products, sales, and bundles from creators whose work you've purchased." (4) aanbevelingen.
+- Ook: "During sitewide events, your Items on Sale section fills up with discounts on the tools you actually care about." Een mail bij een sale op de wishlist komt er nog niet ("on our short list") (GEZIEN, zelfde stuk).
+- Upgrades tussen varianten zet de maker zelf aan onder Variations, "Variant Upgrade Settings": de koper betaalt alleen het verschil, met een bodem van $0,51; in een sitebrede sale komt eerst de upgradekorting en dan de salekorting eraf (GEZIEN, [Superhive help, Automatic Product Upgrades](https://support.blendermarket.com/article/279-how-to-set-up-automatic-product-upgrades), bijgewerkt 7 apr 2025).
+- **Wat Dortus nu op Superhive heeft:** één product, Click Joints Pro, met 3 varianten ($12 tot $45) (GEZIEN, `/creators/dortus`). De gratis Click Joints staat alleen op extensions.blender.org, niet op Superhive (GEZIEN, makerpagina). Dus: niemand op Superhive "bezit" iets van ons, en de For You-pagina laat Pro aan niemand zien als upgrade of als "nieuw van een maker die je kocht".
+
+### 157. Het grote voorbeeld van een goedkope instapvariant: Botaniq (polygoniq), 31.500+ verkopen
+- Varianten op één pagina (GEZIEN, [superhivemarket.com/products/botaniq-trees](https://superhivemarket.com/products/botaniq-trees)): **starter $1,99** ("4% of botaniq"), lite $39,99 (42%), full $99,99, studio $199,99 en $299,99. Band **31500+**, 154 beoordelingen, id 155360 (ruim 7 jaar oud).
+- Elke starter-koper telt mee in de band (één verkoop is één verkoop, zie 152) en "bezit" daarna botaniq, dus krijgt de upgrade naar lite of full voor het verschil, en sinds 16 nov ook het label op zijn For You-pagina (156). Hoeveel van de 31.500 starter zijn: niet te zien (GOK: een groot deel).
+- Ter vergelijking: Cleave heeft geen instap, wel een "Support the developer"-variant van $28 met dezelfde download als de $23-versie (GEZIEN). Materialify Pro (152) doet hetzelfde als Botaniq in het klein: $1 tot $7, 100+ in een paar dagen.
+- **Wat dit voor Pro betekent (GOK, beslissing voor de hoofdchat en de Blender-manager):** een vierde variant "Click Joints Lite" van $1 tot $3 op dezelfde pagina, met wat de gratis versie op extensions.blender.org ook doet, en upgrades op "Highest Value". Dan (1) telt elke Lite-koper mee voor de band en "New and Rising" (30+ nodig, 151), (2) ziet die koper Pro met het label "Upgrade Variant: Pro" op zijn For You-pagina, ook in de sale, en (3) komt elk volgend Dortus-product onder "Creators you've bought from". Of een variant van $0 mag en meetelt kon ik niet vinden (GOK: Superhive vraagt minstens $0,51 per betaling, dus waarschijnlijk niet). Risico: wie anders $12 betaalde neemt de Lite. Omdat de gratis versie elders al bestaat, verkoopt de Lite vooral gemak (installeren en bijwerken vanuit Superhive in Blender, sinds 26 mei, GEZIEN: [Superhive, Remote Extension Support](https://superhivemarket.com/posts/blender-extension-support-launched-on-superhive)).
+- Kost € 0 en ±10 minuten in het dashboard, maar alleen Thijs kan het (dashboard Superhive). Een agent kan de variant-tekst en de upgradestand klaarzetten.
+
+### 158. Glitch, verdieping: hun eigen cijfers, en wat er wel en niet hard is
+- Persbericht van 18 juni 2026, overgenomen door Outlook Respawn (DERDEN, [Outlook Respawn, 18 jun 2026](https://respawn.outlookindia.com/gaming/gaming-news/glitch-ai-marketing-agent-boosts-indie-steam-wishlists-and-sales)): de agent maakt campagneplannen, concepten voor creator-outreach, posts en meet-audits; koppelt aan Discord, Steam, Twitch en creator-CRM; en "requires a human to hit the approval button before it can publish content, spend advertising money, contact creators, alter accounts, or make potentially risky public claims" (DERDEN).
+- Claims: "500 wishlists per day post-demo", kosten per wishlist van $3,00 naar $0,19, "top 3% of Steam launches", **32% van wishlist naar verkoop** tegen "less than 10%" gemiddeld (DERDEN, maar alleen van de verkoper zelf; geen spel, periode of aantal genoemd). Prijs: voorafbetaalde tegoeden of een maandabonnement (DERDEN, geen bedragen).
+- Oordeel: verkooppraat tot iemand het per spel laat zien. Wat wel bruikbaar is, is de vorm: de agent bereidt alles voor en legt uit waarom, een mens drukt op de knop voor alles wat openbaar is of geld kost, en elke goedkeuring met opmerking leert de agent bij. Dat is precies ons model met de Keurder van Roep (CLAUDE.md regel 4) en past bij patroon 2 bovenaan.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Nulmeting staat (155).** De vergelijking op vr 27 nov en wo 2 dec is één curl per product; dat kan elke run van A of een geplande etalagewacht.
+- **Variant-tekst klaarzetten (157):** naam, één zin wat erin zit, prijs, en de upgradestand "Highest Value". Thijs zet het in het dashboard, alleen als de hoofdchat het kiest.
+- **Kopers naar hun wishlist sturen:** in Shorts-beschrijvingen en op dortus.com kan in de week vóór de sale "Zet Pro op je wishlist op Superhive" staan; wishlist is de eerste bron van de For You-pagina en die vult zich in de sale met kortingen op wishlist-producten (156). Geen geld, geen account nodig van onze kant.
+- **Niet doen:** Lite-kopies laten kopen door eigen mensen om de band op te krikken (bedrog).
+
+## Patronen na ronde 34
+108. **Superhive beloont nu "bezit"** (156): wishlist, eerdere aankoop en een goedkopere variant bepalen wat een koper op zijn For You-pagina ziet. Een maker met nul kopers op Superhive bestaat daar niet.
+109. **Goedkoop instappen en dan upgraden is het model van de grootste** (157): Botaniq $1,99 tot $299,99, 31.500+; Materialify Pro $1 tot $7, 100+ in dagen.
+110. **AI-marketingagents die echt verkocht worden laten de knop bij de mens** (158): ook Glitch, met cijfers die alleen van henzelf komen.
+
+## Stand na run 23 nov ±06:35 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **Nulmeting vóór de sale staat** (155): Pro heeft nog geen band, de negen in "New and Rising" zijn al drie metingen dezelfde, Cleave 300+ (GEZIEN).
+2. **Superhive heeft sinds 16 nov een For You-pagina** die wishlist-producten, upgrades ("Upgrade Variant: Pro") en nieuws van makers waar je kocht voorrang geeft, en die in een sitebrede sale vol kortingen op je wishlist staat (GEZIEN, blog Superhive).
+3. **Dortus heeft op Superhive nul "bezitters"**: alleen Pro staat er, de gratis versie niet (GEZIEN). Daardoor doet Pro niet mee in de upgrade- en makersblokken.
+4. **Botaniq verkoopt 31.500+ met een starter van $1,99 en upgrades tot $299,99** (GEZIEN); samen met Materialify Pro (100+, vanaf $1) het sterkste bewijs voor een instapvariant.
+5. **Glitch claimt 32% van wishlist naar verkoop en $0,19 per wishlist**, maar alleen in eigen persbericht (DERDEN, verkoper); de bruikbare les is hun vorm: agent bereidt voor, mens keurt alles wat openbaar is.
+
+Voorstel: (a) de hoofdchat kiest vóór vr 27 nov over een variant "Click Joints Lite" van $1 tot $3 op de Pro-pagina met upgrades op "Highest Value" (voorstel b van vorige run, nu met de For You-reden erbij); dat is 10 minuten werk voor Thijs in het dashboard, dus alleen als het op de lijst past. (b) In de week vóór de sale op alle eigen kanalen "zet Pro op je Superhive-wishlist" in plaats van alleen "koop" (€ 0). (c) Volgende run: kijken of Superhive de data van de Cyber Sale 2026 bekendmaakt, en bij 3 tot 5 kleine makers met een goedkope instapvariant nagaan hoe hun band liep (via het productId als klok).
