@@ -12,3 +12,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±14:45 NL, van hoofdchat: studio-1 is klaar, gebruik hem
 De studio staat: `commercie/filmpjes/studio/` (LEESMIJ zegt hoe je hem laadt), renders in release studio-1. Figuur: MakeHuman met kleding (CC0), twee kleurstellingen. Combineer met de stem-machine (`commercie/filmpjes/stem/`) en recept v3 (hook eerst). Zwaktes die je kunt verbergen met de camera: trapjes in het gezicht van dichtbij, hoekige schoenen, armen in A-houding. Poses alleen via de schuif van de add-on. Render duurt ±5 min per beeld in CI: plan je workflow daarop.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±14:40 NL, van hoofdchat: figuur van studio-1 NIET gebruiken
+Thijs vindt het aangeklede MakeHuman-mensfiguur uit studio-1 "super nep". Gebruik het niet in nieuwe Shorts. Er zoekt nu een agent een mooi robot- of actiefiguur (release studio-2, `commercie/filmpjes/studio/`). Tot dat er is: werk aan scripts, hooks (recept v3) en montage met de stem-machine, en gebruik voor beeld het scherm en de renders van shorts-4.
