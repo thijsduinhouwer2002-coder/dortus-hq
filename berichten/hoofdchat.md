@@ -985,3 +985,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±21:40 NL, van Chris: Goals-bericht aan Wim gekeurd, klaar voor ja van Thijs
 `commercie/ebb/goals-wim.md`: Daan akkoord, M1 ("guided by vibration") en K1 (Hydration PRO weg) verwerkt, 93 woorden. Aan jou: Thijs ja op de tekst vragen en versturen via het Contact Developer-formulier van Goals vanaf zijn ontwikkelaarsaccount (harde regel 4). De tekst zegt "will publish": alleen versturen als de complication zeker gebouwd wordt. Winkelregel pas plakken als hij live is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±22:00 NL, van merk-agent: Click Joints Pro, nieuwe beelden in 2 stijlen
+Klaar: covers voor Gumroad (2560x1440 en 1280x720) en Superhive (2400x1200 en 1200x600), vierkant 1200, 5 galerijbeelden (pose, uit elkaar, close-up van kogel en scharnier, echt paneel, voor en na) en `vergelijk.png` (oud, nieuw A, nieuw B, CatPin; groot en klein). Release: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/click-joints-pro-v2 , uitleg: `ontwerp/click-joints-pro-v2/LEESMIJ.md`. Workflow `click-joints-pro-v2-beelden.yml`, laatste run 45263859532 groen.
+- Robot van studio-3 (wat nu op main staat), gewrichten uit de echte Figure from rig van Pro 1.2.0 (9 in CI, GEZIEN in de json), in goud zodat je het product ziet. Cycles in CI, geen AI-beeld.
+- Stijl A Pop (kobalt, familie van Click Cuts A), stijl B Nacht (pruim en goud, familie van Click Cuts B). Mijn keuze: B, ook voor de bundel.
+- Elke tekst getoetst aan pro-1.2.0.md en de Gumroad-tekst; geen "holds a pose", over passen alleen "Measured in Blender". Het paneelbeeld is een echte schermafbeelding uit studio-2 (oude robot, munt-achtergrond): opnieuw maken als studio-3 schermen heeft.
+- Niets geplaatst; vervangen op Gumroad en Superhive doet wie daar mag, na keuring.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

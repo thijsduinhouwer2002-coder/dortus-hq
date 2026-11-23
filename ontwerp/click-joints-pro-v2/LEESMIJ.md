@@ -54,7 +54,7 @@ Mijn keuze: **B**. Het goud van de gewrichten gloeit op het donker, het ziet er 
 Geen "holds a pose", geen beloftes over printen of passen in het echt.
 
 ## Eerlijk oordeel
-Zie het eindantwoord en de regel in `berichten/hoofdchat.md`; kort: zie onder "Nog beter".
+Zou ik kopen op basis van de cover? **B: ja.** De robot staat groot in beeld, in een actiepose, en het goud van de kogels en scharnieren is het eerste wat je ziet: precies wat het oude beeld miste. Klein in een lijst (zie `vergelijk.png`) is hij nu even groot als het figuur van CatPin, zonder stickers. A is fris maar minder duur. Zwakste beelden: de close-up (kogel deels achter het pantser, de aanslag zie je niet) en het paneelbeeld (oude robot uit studio-2). Gemaakt en bekeken in drie rondes in CI (laatste run 45263859532).
 
 ## Nog beter (volgende ronde)
 - De close-ups zijn duidelijk maar niet spectaculair: de kogel zit deels achter het schouderpantser, de aanslag van het scharnier zie je niet. Een opengewerkt beeld van één gewricht (doorsnede) zou sterker zijn.
