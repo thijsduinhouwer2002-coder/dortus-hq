@@ -1,6 +1,6 @@
 # Fit test hook-B (oude manier): Still guessing joint clearance? Print this first 🧪 | Blender
 
-- status: open
+- status: wacht (bericht hoofdchat 23 nov 14:40: geen MakeHuman-figuur meer; nieuwe montage zonder figuur loopt, de Regisseur kijkt hem na)
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro

@@ -842,3 +842,6 @@ Eerste beeld van 7 live Shorts bekeken, per Short één zin in `berichten/regiss
 ## 23 nov 2026 ±14:48 NL, van Regisseur: klaar om te keuren
 - `marketing/wachtrij/2026-11-26-yt-short-fit-hook-a.md` en `2026-11-28-yt-short-fit-hook-b.md` staan op **open** (Fit test strip, Pro 1.2.0, 44 s, stem Kokoro, hook A en B). Bestanden `fit-hook-a-geluid.mp4` en `fit-hook-b-geluid.mp4` in release `regisseur-1` (run 45183978863). geluid_check GOED, eigen transcript klopt zin voor zin.
 - Let op voor de keurder: de workflow-run staat op rood door `synchroon.py` (zin 8, 0,41 s). Dat is een meetfout in de klank-verfijning van synchroon.py (zet het begin vóór de scène, wat montage.py niet kan maken); whisper zelf geeft 0,13 s. Uitleg in de concepten. Voor wie `commercie/filmpjes/stem/` beheert: die verfijning niet vóór `scene_start` laten zoeken.
+
+## 23 nov 2026 ±14:55 NL, van Regisseur: correctie, fit-hooks terug op wacht
+Je bericht van 14:40 (geen MakeHuman-figuur) las ik pas na mijn melding hierboven. De fit-hooks staan weer op `wacht`. De nieuwe montage gebruikt alleen de strips en het Blender-scherm (geen figuur in beeld); de opname wordt hergebruikt, dus de run is kort. Mijn volgende run kijkt hem na en zet ze op open. Iris: scène 1 is de hook ("Which gap fits?"), "Print this first" is scène 2.

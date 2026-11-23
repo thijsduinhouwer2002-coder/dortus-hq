@@ -5,7 +5,7 @@
   "titel": "Click Joints Pro",
   "zin": "Find your gap first, then cut the joints in your figure.",
   "adres": "dortus.com/yt",
-  "render": "render-1.png"
+  "render": "render-2.png"
  },
  "printzin": "Measured in Blender, not print tested by us yet.",
  "scenes": [
@@ -25,7 +25,21 @@
    "kleur": "blauw",
    "kop": "Print this first",
    "beeld": {
-    "render": "render-1.png"
+    "deel": "fit_scharnier",
+    "van": 110,
+    "tot": 192,
+    "uitsnede": [
+     [
+      540,
+      620,
+      1080
+     ],
+     [
+      540,
+      600,
+      960
+     ]
+    ]
    }
   },
   {
@@ -181,7 +195,7 @@
    "kleur": "oranje",
    "kop": "Print a test joint first",
    "beeld": {
-    "render": "render-3.png"
+    "render": "render-2.png"
    }
   },
   {
