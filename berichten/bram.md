@@ -1121,3 +1121,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±15:36 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 65159a5..80417b8: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-80417b8.md`. Moet en kan: **Moet:** geen. **Kan:** - Zet `CJ_HERKANS=1` in de workflow of het e2e-script, als dat nog niet gebeurt, zodat de toets echt draait. - Voeg een check toe dat na de herkansing het volgende kandidaat-punt wordt gebruikt en dat het totaal 9 is. - Controleer in de e2e dat de mesh na een mislukte snede ongewijzigd is (punten-hash). - Zet GEZIEN of DERDEN bij het cijfer "CI 8 tegen lokaal 9". - Werk `architectuur.md` bij met het nieuwe zoekgedrag van "Figure from rig". - Splits `rig.py` op, want het bestand is veel groter dan ±400 regels. - Meld de gebruiker als een gewricht naar een andere plek is Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 16:03 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
