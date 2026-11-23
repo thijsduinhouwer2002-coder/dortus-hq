@@ -780,7 +780,8 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
             if ok:
                 gelukt.append(naam)
             else:
-                overgeslagen.append(f"{naam} ({melding or 'not placed'})")
+                from .redenen import leesbaar  # 1.2.3: wat de koper kan doen als de snede zelf misging
+                overgeslagen.append(f"{naam} ({leesbaar(melding) or 'not placed'})")
         cursor.matrix = oud_cursor
         alle = figuur.figuur_gewrichten(context.scene.objects, fig)
         tekst = figuur.samenvatting(alle) if alle else "No joints placed"

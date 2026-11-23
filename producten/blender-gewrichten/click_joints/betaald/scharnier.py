@@ -26,6 +26,7 @@ from ..uit_elkaar import echte_matrix
 from .. import een_lid, uit_elkaar
 from . import afstand
 from . import snippers
+from . import herstel
 from . import een_lid_diep
 from . import scharnier_beweeg as beweeg
 from . import scharnier_kleur
@@ -177,6 +178,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                 if snippers.actief():  # 1.1: dunne losse snippers van de snede met H weg
                     for d in (deel_a, deel_b):
                         d["cj_snippers"] = snippers.ruim_snippers(d, u)
+                herstel.herstel((deel_a, deel_b))  # 1.2.3: een paar randen met 4 vlakken (Exact, 4.2) splitsen
             except RuntimeError as e:  # controleur (d), punt 4: geen hulpobjecten achterlaten
                 ruim_op(hulp)
                 if i < laatste:
