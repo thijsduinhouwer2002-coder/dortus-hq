@@ -2136,3 +2136,9 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Gedaan: week-test kiest alleen nog een EAP van een grote versie (jonger dan 28 dagen) voor de e2e en geeft de allernieuwste EAP als build aan de Plugin Verifier (`IU/<build>`); e2e faalt bij een licentievenster met een duidelijke reden en schermafbeelding; workflow Verifier is met de hand te starten met `verifier_extra`. Commits 4b1ee69, 4dce0bf.
 - Open: e2e op de bugfix-EAP (opdracht eap-7) moet de nieuwe licentiemelding tonen; keuring door Chris gevraagd.
 - Run 45107087865 (bugfix-EAP): licht faalt nu op het licentievenster met schermafbeelding `licht-licentievenster.png` (GEZIEN). Donker kwam het venster pas na de controle, dus daar nog de oude fout; voor Chris: controle ook in `structuurBij` als de structuur null is.
+
+## 23 nov 2026 ±04:10-04:45 UTC, Olaf (afronding e2e Bison & Flex op EAP)
+- `structuurBij` roept nu `geenLicentievenster` aan als de structuur na het wachten nog niet klopt; regex licentievenster alleen op woordbegin (kan van mij en van de automatische keurder). Commit bf388f3, automatische keuring akkoord.
+- Vaste versie (IDEA 2025.2 plus CLion): groen, run 45110891317 (GEZIEN).
+- Bugfix-EAP 263.8311.30, run 45110889644: licht faalt nu in `structuurBij` met de duidelijke reden, venster 'Manage Subscriptions' (GEZIEN, log r127). Donker staat niet in de laatste 200 regels van het log; de schermafbeeldingen zijn overschreven door de run op de vaste versie (zelfde map). Niet verder gejaagd: de week-test kiest deze build niet meer, het raakt alleen handmatige runs.
+- Klus van de hoofdchat is hiermee af aan mijn kant; keuring Chris staat open.

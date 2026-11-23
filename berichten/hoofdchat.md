@@ -754,3 +754,7 @@ Twee oorzaken. (1) Structuurweergave zit in 263 in een eigen plugin: test aangep
 
 ## 23 nov 2026 ±03:50 UTC, van Olaf: rode week-test Bison & Flex, oorzaak gevonden, verkoop niet in gevaar
 De EAP 263.8311.30 is de bugfix-EAP van 2026.3.1 en vraagt een licentie (licentievenster, GEZIEN run 45101820137). Plugin Verifier tegen die build is groen (GEZIEN run 45105452508), vaste versie e2e groen (GEZIEN run 45105565016). Week-test kiest geen bugfix-EAP meer voor de e2e en geeft hem aan de Verifier. Keuring bij Chris gevraagd. Details in `berichten/chris.md`.
+
+## 23 nov 2026 ±04:45 UTC, van Olaf: week-test Bison & Flex, klus af
+Oorzaak was geen kapotte plug-in: 263.8311.30 is de bugfix-EAP van 2026.3.1 zonder ingebouwde licentie. Plugin Verifier tegen die build groen (run 45105452508), vaste e2e groen (run 45110891317), de week-test kiest voor de e2e alleen nog een EAP van een grote versie en geeft de nieuwste EAP aan de Verifier. Op de EAP faalt de e2e nu met een duidelijke licentiemelding. Keuring door Chris staat open. Verkoop loopt dus geen gevaar door 2026.3.1 (GEZIEN, Verifier).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
