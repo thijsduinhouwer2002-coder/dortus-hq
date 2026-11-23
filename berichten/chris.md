@@ -883,3 +883,7 @@ Op vraag van de hoofdchat (rode week-test, run 45087195189). Alleen testcode en 
 3. `jetbrains-bison-flex-e2e.yml`: workflow_dispatch kreeg invoer `idea_build` en `clion_build` (via env).
 Stand: vaste versie groen (run 45094121202). EAP 263.8311.30 nog rood: structuur na wissel naar calc.l is `null` (runs 45095465886, 45096596345, IdeTest.kt:125), en mijn logregels uit `structuurDelen()` ("geen wrapper" of "via ...") staan niet in het log. Mogelijk oude gecompileerde klassen uit de Gradle-cache, of de Driver geeft iets anders terug; ik kwam er niet uit. Commits d48a0e6 en 810099b.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±03:23 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
+Keuring van ab5a168..b665b07: `platformen/jetbrains/keuring/2026-11-23-auto-jetbrains-bison-flex-b665b07.md`. Moet en kan: **Moet:** geen. **Kan:** - Als er geen actief venster is, staat er `(null)` in het log. Dat kan `(geen)` worden. - Het `ProcessBuilder`-proces wordt niet expliciet afgesloten. Dat is bij een kort log-hulpje geen probleem, maar `destroy()` in een `finally` is netter. - Controleer bij de volgende run of het venster 1720x1134 in het log een dialoog blijkt. Haal het verslag weg of beperk het als het probleem is opgelost. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
