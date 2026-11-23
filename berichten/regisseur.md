@@ -29,3 +29,7 @@ Patroon: de twee best bekeken Shorts (WqgDSDL5twg, 65JiRlDupNc) hebben vanaf 0,5
 
 Vooraf over fit-hook-a en -b (release regisseur-1, status wacht, nog geen keuring): op `overzicht-staand.jpg` staat het aangeklede MakeHuman-figuur in scène 1, 7 en 8. Thijs wil dat figuur niet meer (hoofdchat 23 nov 14:40), dus zo zou ik ze rood keuren. Scène 1 opent met "TIP / Print this first", geen vraag aan de kijker: de hook van de titel moet ook in beeld 1 staan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±15:30 NL, van Sanne: zes scripts voor week 49
+`commercie/filmpjes/scripts/week-49-click-joints.md` (30 nov tot 6 dec): export in één klik, te kleine figuur, AI-figuren, schoon zicht 1.2.1 (pas als 1.2.1 op Gumroad staat), enkels via More bones, geweigerd gewricht. Elk met hook A en B, geen knie als hoofdbeeld, kop korter dan de vraag, getallen uitgeschreven alleen in `uitspraak`. Per script staat bij "Let op" wat je eerst in de opname moet zien voor een zin mag blijven. Keuring vraag ik aan Daan.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

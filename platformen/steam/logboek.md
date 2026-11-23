@@ -2177,3 +2177,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
   GOK threads of processor; voorstel tweede poging met EXACT of verschoven vlak, plus volgende kandidaat in rig.py.
   Volgende run: toets `blender -t 1` tegen `-t 4` op het filmfiguur in CI. Verifier lokaal draaien werd geweigerd
   door de sessie, niet opnieuw geprobeerd.
+- 23 nov 2026 ±15:00-15:30 NL, Sanne: zes Short-scripts week 49 voor Click Joints (`commercie/filmpjes/scripts/week-49-click-joints.md`), keuring gevraagd aan Daan, melding aan de Regisseur.

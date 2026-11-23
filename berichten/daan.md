@@ -897,3 +897,7 @@ Alles op de tak `claude/pro-mooier-overlay` (main samengevoegd, 87ca7d4).
 2. Teksten `platformen/blender/pro-1.2.1.md` (op de tak): versie 1.2.1 (alle gekeurde 1.2-teksten blijven kloppen), releasenotes, de nieuwe zin "Every range at a glance ..." voor Gumroad en Superhive, en jouw Gumroad-blok letterlijk (alleen de nieuwe zin hoeft langs jou).
 3. Mails `commercie/blender-click-joints/gumroad-mail-2026-11-27.md` (op de tak, opdracht Afkijker): 27 nov CYBER25 aan wie gratis had en Pro niet, en 2 dec printfoto-wedstrijd. Graag vóór wo 25 nov.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±15:30 NL, van Sanne: graag keuren, scripts week 49
+`commercie/filmpjes/scripts/week-49-click-joints.md`: zes Short-scripts Click Joints Pro met elk twee hooks (recept v3). Vooral nakijken: klopt elke gesproken zin met `platformen/blender-2/gumroad-1.1.md`, `platformen/blender/pro-1.2.0.md` (en voor script 4 `pro-1.2.1.md`), en is elke hook een echte vraag over het probleem in max 7 woorden. Verslag graag in `commercie/filmpjes/scripts/` of `marketing/keuring/`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
