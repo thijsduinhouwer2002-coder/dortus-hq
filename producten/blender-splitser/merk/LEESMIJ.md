@@ -92,6 +92,8 @@ Een schets, geen echt scherm. Van boven naar onder: printer kiezen (één keuzel
 
 - Zou ik dit kopen op basis van het beeld? **Stijl B: ja**, het ziet eruit als een product dat af is, en de leeuw in kleuren met gouden pennen zegt in één tel "in stukken, en het past weer". Stijl A: bijna; de blauwe vloer is wat vlak.
 - **De beelden zijn gemaakt met Blender-booleans, niet met de add-on** (die bestaat nog niet). Ze laten zien wat de add-on moet doen: vlakke sneden, pennen, elk stuk past op 256 mm. Zodra de add-on werkt: dezelfde scène opnieuw renderen met de echte uitkomst, zodat beeld en product gelijk zijn. Het paneel in winkelbeeld 4 is een schets en moet dan een echte schermafbeelding worden. Tot dan niets hiervan plaatsen als bewijs van wat het doet.
+- Het pen-beeld (winkelbeeld 3) laat nu het hele uiteengevallen beeld schuin van opzij zien, nog geen echte close-up van één pen in één gat; dat kan scherper.
+- Gemaakt en bekeken in vier rondes in CI (laatste: run 45214085892, GEZIEN: tekst valt nergens meer over het model, geen gat dat door de buitenkant breekt na een strengere wandcontrole).
 - Nog beter (volgende ronde): een echte print van de leeuw in kleuren naast een printer (de concurrentie-analist zag dat niemand dat toont); de naad tussen de stukken iets duidelijker in "samen"; de vloer van stijl A meer diepte geven.
 
 ## Bron
