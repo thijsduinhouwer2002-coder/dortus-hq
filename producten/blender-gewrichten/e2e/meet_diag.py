@@ -21,6 +21,7 @@ from mathutils import Matrix, Vector
 from mathutils.bvhtree import BVHTree
 
 POGINGEN, SNEDEN = [], []
+KEUS = ("lussen", "lid", "h_soort", "lid_open", "vreemd", "marge", "h_voxel", "h_vlakken", "h_buiten", "h_pogingen")
 _HUIDIG = {}
 
 
@@ -153,7 +154,7 @@ def instrumenteer():
         rec = {"poging": len(POGINGEN), "gewricht": _HUIDIG.get("naam"), "soort": soort, "solver": solver,
                "terugval": bool(a.get("cj_solver_terugval")), "s": round(time.perf_counter() - t0, 2),
                "r_mm": round(maat["r"], 3), "naad_r": round(maat.get("naad_r", -1.0), 3),
-               "een_lid": {k: een_lid.LAATSTE.get(k) for k in ("lussen", "lid", "h_soort", "lid_open", "vreemd")}}
+               "een_lid": {k: een_lid.LAATSTE.get(k) for k in KEUS}}
         try:
             rec.update(staat(a, b, frame, maat))
             if een_lid.STAND.get("h") is not None:
@@ -189,7 +190,7 @@ def instrumenteer():
         a, b = oud_scharnier(hulp, werk, frame, m, solver)
         ges = mod("gesloten")
         rec = {"poging": len(POGINGEN), "gewricht": _HUIDIG.get("naam"), "soort": "SCHARNIER", "solver": solver,
-               "een_lid": {k: een_lid.LAATSTE.get(k) for k in ("lussen", "lid", "h_soort", "lid_open", "vreemd")}}
+               "een_lid": {k: een_lid.LAATSTE.get(k) for k in KEUS}}
         for letter, d in (("A", a), ("B", b)):
             ok, fout = ges.is_gesloten(d.data)
             rec[letter] = {"gesloten": ok, "fout": fout, "punten": len(d.data.vertices)}
