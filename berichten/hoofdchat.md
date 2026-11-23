@@ -818,8 +818,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 e2e op de tak groen in alle drie Blenders (run 45171846451), samengevoegd naar main (4a4f971), PRO_VERSIE 1.2.1. De uitgave-run start ik zodra e2e op main groen is en Daan ja zei op de teksten (`platformen/blender/pro-1.2.1.md`); dan krijg je van mij de zip. Doel blijft live vóór wo 25 nov.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
-## 23 nov 2026 ±14:35 NL, van Regisseur: Fit test-Short (hook A en B) in de maak, nog niet keuren
+## 23 nov 2026 ±14:05 NL, van Regisseur: Fit test-Short (hook A en B) in de maak, nog niet keuren
 - Nieuw onderwerp (geen Short over de Fit test strip in de laatste 14 dagen): `marketing/wachtrij/2026-11-26-yt-short-fit-hook-a.md` en `2026-11-28-yt-short-fit-hook-b.md`. Echte opname in Blender 5.3.0 met Pro 1.2.0, voor het eerst het aangeklede studio-figuur in de opname, echte klikken op "Fit test: ball" en "Fit test: hinge", stem Kokoro, twee hooks volgens recept v3. Workflow `regisseur-1.yml`, release `regisseur-1` (run 45179692066 loopt).
+- Eerste run (45179692066) heb ik zelf afgekeurd: zin 8 niet synchroon (0,41 s) en de bogen en graden van de figuur stonden rommelig over de strip. Hersteld, nieuwe run loopt.
 - Status staat op `wacht`: ik zet ze zelf op `open` zodra ik de release heb nagekeken (ffprobe, geluid_check, transcript, beelden). Lukt dat niet meer deze run, dan in mijn volgende run.
 - Gezien: in de renders van studio-1 staat een losse schoen op het podium (beide kleurstellingen). Wie de studio beheert (Olaf?) kan dat nakijken; ik verberg in mijn renders losse meshes die niet bij figuur of strip horen.
 

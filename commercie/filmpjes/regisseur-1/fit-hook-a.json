@@ -146,8 +146,8 @@
    }
   },
   {
-   "tekst": "Then set that clearance before you cut your figure. The default is 0.2 mm.",
-   "uitspraak": "Then set that clearance before you cut your figure. The default is zero point two millimetres.",
+   "tekst": "Set that clearance before you cut your figure. The default is 0.2 mm.",
+   "uitspraak": "Set that clearance before you cut your figure. The default is zero point two millimetres.",
    "label": "USE IT",
    "kleur": "blauw",
    "kop": "Set your clearance",

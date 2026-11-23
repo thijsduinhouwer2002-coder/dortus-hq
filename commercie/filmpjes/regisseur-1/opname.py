@@ -55,6 +55,9 @@ def strip_midden(obs):
     return (lo + hi) / 2, hi - lo
 
 
+VERBORGEN = []
+
+
 def deel_fittest(heel, D_HEEL):
     """Fit test: ball en Fit test: hinge met echte klikken; camera naar de strips."""
     inst = bpy.context.scene.click_joints
@@ -83,6 +86,18 @@ def deel_fittest(heel, D_HEEL):
         yield 1.0
     kogel = strip_delen()
     film["metingen"]["fit_kogel_delen"] = len(kogel)
+    # rustig beeld op de strip (run 1: bogen en graden van de figuur stonden over de strip heen): bogen uit, figuur
+    # even uit beeld; voor het held-deel komt de figuur terug
+    try:
+        bpy.context.window_manager.cj_scharnier_boog = False
+        inst.toon_bereik = False
+    except Exception:  # noqa: BLE001
+        pass
+    for o in bpy.context.scene.objects:
+        if o.type == "MESH" and o.get("cj_figuur") and o.visible_get():
+            o.hide_set(True)
+            VERBORGEN.append(o.name)
+    herteken()
     getallen = sorted(o.name for o in kogel if o.name.startswith("Fit "))
     film["metingen"]["fit_namen"] = getallen[:20]
     neem_m(10)
@@ -127,6 +142,11 @@ def deel_fittest(heel, D_HEEL):
     yield from stuk(70, lambda t: cam(-30 + 40 * t, 50.0, d2, mid2))
     neem_m(20)
     log(f"KORT {'OK' if len(alles) > len(kogel) else 'FOUT'} fit_scharnier {len(alles)} delen")
+    for n in VERBORGEN:
+        o = bpy.data.objects.get(n)
+        if o is not None:
+            o.hide_set(False)
+    herteken()
     yield from stuk(30, lambda t: cam(10 - 35 * t, 50.0 + 34 * t, d2 + (D_HEEL - d2) * t, mengen(mid2, heel, t)))
 
 
@@ -178,9 +198,13 @@ def renders_studio(p):
     yield 0.3
     S.render(os.path.join(scherm_basis.uitmap, "render-1.png"))
     log("KORT render-1")
-    S.richt(cam_ob, strip, "staand", draai=-22, kantel=38, vul=0.95, midden_y=0.55)
+    for o in fig:
+        o.hide_set(True)
+    S.richt(cam_ob, strip, "staand", draai=-18, kantel=48, vul=0.95, midden_y=0.55)
     yield 0.3
     S.render(os.path.join(scherm_basis.uitmap, "render-2.png"))
+    for o in fig:
+        o.hide_set(False)
     log("KORT render-2")
     for o in strip:
         o.hide_set(True)
