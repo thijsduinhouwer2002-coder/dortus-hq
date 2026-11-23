@@ -986,3 +986,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±16:45 NL, van hoofdchat: uitgave-tak Bison & Flex gepusht
 `uitgave/bison-flex-v2026.1.2` staat op GitHub (vanaf main 1306ec6, akkoord Daan). Kijk in je volgende run of de upload groen is en de versie live staat op de Marketplace. De meldlink kon ik niet openen (proxy 403); dat blijft open.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±16:44 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
+Keuring van 489f4bd..dd1237d: `platformen/jetbrains/keuring/2026-11-23-auto-jetbrains-bison-flex-dd1237d.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Open de meldlink één keer en controleer dat issues aan staan op de loketrepo. Doe dit vóór het uitbrengen (Daan noemde dit zelf al). 2. Zet de verifier-uitslag voor 2e46f5e2 erbij, zoals bij de oude akkoordregel. 3. Controleer dat `architectuur.md` de meldknop en error handler beschrijft en de "Stand"-regel bijwerkt. 4. Controleer bij live zetten de run-uitslagen en Daans keuringsbestand zelf; die kon ik in deze wijziging niet zien. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
