@@ -1,0 +1,209 @@
+# gemaakt: 2026-11-23T01:46:39Z
+# workflow: Bison & Flex e2e (echte IDE) (.github/workflows/jetbrains-bison-flex-e2e.yml)
+# run: 45095465886 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45095465886
+# commit: dff04a69 tak main gestart door workflow_dispatch
+# mislukte stappen: e2e: Test in de echte IDE (IntelliJ IDEA EAP 263.8311.30)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e / Test in de echte IDE (IntelliJ IDEA EAP 263.8311.30) (laatste 200 van 786 regels) =====
+          <map>
+            <entry key="/tmp/bisonflex-licht/calculator" value="true"/>
+          </map>
+          
+        </option>
+      
+      </component>
+    
+      <component name="Trusted.Paths.Settings">
+        
+        <option name="TRUSTED_PATHS">
+            
+          <list/>
+          
+        </option>
+      
+      </component>
+  
+    </application>
+
+    [01:43:27]: Setting IDE system property: [idea.local.statistics.without.report=true]
+    [01:43:27]: Setting IDE system property: [idea.updates.url=http://127.0.0.1]
+    [01:43:27]: Setting IDE system property: [kotest.assertions.collection.enumerate.size=2147483647]
+    [01:43:27]: Starter configuration storage: {INSTALLER_INCLUDE_RUNTIME_MODULE_REPOSITORY=false, LOG_ENVIRONMENT_VARIABLES=false, SPLIT_MODE_ENABLED=false}
+    [01:43:27]: Extracting /home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/build/distributions/bison-flex-2026.1.2.zip to [weggehaald: lange base64-reeks].8311.30/bisonflex-licht/plugins
+    [01:43:27]: Setting IDE system property: [idea.trust.all.projects=true]
+    [01:43:27]: Setting IDE system property: [ide.show.tips.on.startup.default.value=false]
+    [01:43:27]: Setting IDE system property: [sun.java2d.uiScale.enabled=true]
+    [01:43:27]: Setting IDE system property: [sun.java2d.uiScale=2]
+    [01:43:27]: Setting IDE system property: [bisonflex.internal.e2e.forceNoLicense=true]
+    [01:43:27]: Creating reports dir 'reports'
+    [01:43:27]: Creating reports dir 'snapshots'
+    [01:43:27]: Reports dir 'bisonflex-licht' is already created
+    [01:43:27]: Creating reports dir 'log'
+    [01:43:27]: Starting external process for `exec-java-cmd`
+      Working directory: [weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30/jbr
+      Arguments: [[weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30/jbr/bin/java -version]
+      STDOUT will be redirected to: string. STDERR will be redirected to: string. STDIN is empty: true
+
+    [01:43:27]:   ... started external process `exec-java-cmd` with process ID = 4897
+    [01:43:27]:   ... successfully finished external process for `exec-java-cmd` with exit code 0
+    [01:43:27]: 
+        Result of calling [[weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30/jbr/bin/java, -version]:
+        openjdk version "25.0.4.1" 2026-08-18
+    OpenJDK Runtime Environment JBR-25.0.4.1+1-635.79-nomod (build 25.0.4.1+1-b635.79)
+    OpenJDK 64-Bit Server VM JBR-25.0.4.1+1-635.79-nomod (build 25.0.4.1+1-b635.79, mixed mode, sharing)
+    
+    [01:43:27]: Found following 25.0.4.1+1-b635.79 in the product: IU 263.8311.30
+    [01:43:27]: Setting IDE system property: [jb.consents.confirmation.enabled=false]
+    [01:43:27]: Setting IDE system property: [jb.privacy.policy.text=<!--999.999-->]
+    [01:43:27]: Setting IDE system property: [jb.privacy.policy.ai.assistant.text=<!--999.999-->]
+    [01:43:27]: Setting IDE system property: [marketplace.eula.reviewed.and.accepted=true]
+    [01:43:27]: Setting IDE system property: [writerside.eula.reviewed.and.accepted=true]
+    [01:43:27]: Setting IDE system property: [ide.newUsersOnboarding=false]
+    [01:43:27]: Setting IDE system property: [ide.do.not.disable.paid.plugins.on.startup=true]
+    [01:43:27]: Setting IDE system property: [freeze.reporter.profiling=false]
+    [01:43:27]: Setting IDE system property: [idea.fatal.error.notification=true]
+    [01:43:27]: Setting IDE system property: [idea.is.integration.test=true]
+    [01:43:27]: Setting IDE system property: [ide.browser.jcef.jsQueryPoolSize=10000]
+    [01:43:27]: Setting IDE system property: [ide.performance.screenshot=heartbeat]
+    [01:43:27]: Setting IDE system property: [idea.diagnostic.opentelemetry.metrics.max-files-to-keep=120]
+    [01:43:27]: Setting IDE system property: [full.scanning.on.startup.can.be.skipped=false]
+    [01:43:27]: No profiler is specified.
+    [01:43:27]: Setting IDE system property: [snapshots.path=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/snapshots]
+    [01:43:27]: Setting IDE system property: [java.rmi.server.hostname=127.0.0.1]
+    [01:43:27]: Setting IDE system property: [com.sun.management.jmxremote.host=127.0.0.1]
+    [01:43:27]: Setting IDE system property: [com.sun.management.jmxremote=true]
+    [01:43:27]: Setting IDE system property: [com.sun.management.jmxremote.port=7777]
+    [01:43:27]: Setting IDE system property: [com.sun.management.jmxremote.authenticate=false]
+    [01:43:27]: Setting IDE system property: [com.sun.management.jmxremote.ssl=false]
+    [01:43:27]: Setting IDE system property: [com.sun.management.jmxremote.serial.filter.pattern='java.**;javax.**;com.intellij.driver.model.**']
+    [01:43:27]: Setting IDE system property: [expose.ui.hierarchy.url=true]
+    [01:43:27]: Setting IDE system property: [platform.experiment.ab.manual.option=control.option]
+    [01:43:27]: Setting IDE system property: [memory.snapshots.path=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/log]
+    [01:43:27]: Setting IDE system property: [idea.diagnostic.opentelemetry.file=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/log/opentelemetry.json]
+    [01:43:27]: Setting IDE system property: [idea.log.path=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/log]
+    [01:43:27]: Setting IDE system property: [testscript.filename=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/system/bisonflex-licht.text]
+    [01:43:27]: Setting IDE system property: [testscript.must.exist.process.with.non.success.code.on.ide.error=true]
+    [01:43:27]: Write vmoptions patch to [weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30.vmoptions
+    [01:43:27]: Starting IDE for bisonflex-licht with timeout 10m
+      VM Options: [VMOptions{ env={} -Dij.load.shell.env=false -Dide.instant.shutdown=false -Dfeature.usage.event.log.send.on.ide.close=false -Dlinux.native.menu.force.disable=true -Djdk.gtk.verbose=true -Djdk.gtk.version=2 -Dvcs.log.index.enable=false -Dide.slow.operations.assertion=false -DintegrationTests.profiler=async -Didea.config.path=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/config -Didea.system.path=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/system -Didea.plugins.path=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/plugins -Didea.local.statistics.without.report=true -Didea.updates.url=http://127.0.0.1 -Dkotest.assertions.collection.enumerate.size=2147483647 -Didea.trust.all.projects=true -Dide.show.tips.on.startup.default.value=false -Dsun.java2d.uiScale.enabled=true -Dsun.java2d.uiScale=2 -Dbisonflex.internal.e2e.forceNoLicense=true -Djb.consents.confirmation.enabled=false -Djb.privacy.policy.text=<!--999.999--> -Djb.privacy.policy.ai.assistant.text=<!--999.999--> -Dmarketplace.eula.reviewed.and.accepted=true -Dwriterside.eula.reviewed.and.accepted=true -Dide.newUsersOnboarding=false -Dide.do.not.disable.paid.plugins.on.startup=true -Dfreeze.reporter.profiling=false -Didea.fatal.error.notification=true -Didea.is.integration.test=true -Dide.browser.jcef.jsQueryPoolSize=10000 -Dide.performance.screenshot=heartbeat -XX:ErrorFile=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/log/jvm-crash/java_error_in_idea_%p.log -XX:HeapDumpPath=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/log/heap-dump/heap-dump.hprof -Xlog:gc*:file=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.[weggehaald: lange base64-reeks].log -Didea.diagnostic.opentelemetry.metrics.max-files-to-keep=120 -Dfull.scanning.on.startup.can.be.skipped=false -Dsnapshots.path=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/snapshots -Djava.rmi.server.hostname=127.0.0.1 -Dcom.sun.management.jmxremote.host=127.0.0.1 -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=7777 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.serial.filter.pattern='java.**;javax.**;com.intellij.driver.model.**' -Dexpose.ui.hierarchy.url=true -Dplatform.experiment.ab.manual.option=control.option -Dmemory.snapshots.path=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/log -Didea.diagnostic.opentelemetry.file=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/log/opentelemetry.json -Didea.log.path=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/log -Dtestscript.filename=/home/runner/work/dortus-hq/dortus-hq/out/ide-tests/tests/IU-263.8311.30/bisonflex-licht/system/bisonflex-licht.text -Dtestscript.must.exist.process.with.non.success.code.on.ide.error=true } // VMOptions ]
+      On Java : [/usr/lib/jvm/temurin-21-jdk-amd64]
+
+    [01:43:27]: Starting external process for `run-ide-bisonflex-licht`
+      Working directory: [weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30
+      Arguments: [[weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30/bin/idea /tmp/bisonflex-licht/calculator]
+      STDOUT will be redirected to: string. STDERR will be redirected to: stdout. STDIN is empty: true
+
+    [01:43:27]:   ... started external process `run-ide-bisonflex-licht` with process ID = 4919
+    [01:43:27]: INFO - com.intellij.tools.ide.starter.bus.shared.client.LocalEventBusServerClient - New subscriber IdeExceptionEvent
+    [01:43:27]: INFO - com.intellij.tools.ide.starter.bus.shared.server.services.EventsFlowService - New subscriber SubscriberDto(subscriberName=Process[pid=4919, exitValue="not exited"], eventName=IdeExceptionEvent, processId=15802cae-1907-4dc3-89ff-a89986d53d8b, timeoutMs=120000)
+    [01:43:28]:   [ide-bisonflex-licht-err] Looking for GTK3 library...
+    [01:43:28]:   [ide-bisonflex-licht-err] 
+    [01:43:28]:   [ide-bisonflex-licht-err] (idea:4919): dbind-WARNING **: 01:43:28.112: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+    [01:43:28]:   [ide-bisonflex-licht-err] GTK3 library loaded.
+    [01:43:33]: INFO - com.intellij.tools.ide.starter.bus.shared.server.services.EventsFlowService - New subscriber SubscriberDto(subscriberName=ProfileStopSubscriber, eventName=StopProfilerEvent, processId=e910971a-cbbb-4d2e-a0d2-b6fee167202a, timeoutMs=120000)
+    DORTUS-E2E [licht] calc.y -> soort Bison, icoon 16 px
+    DORTUS-E2E [licht] calc.yy -> soort Bison, icoon 16 px
+    DORTUS-E2E [licht] calc.l -> soort Flex, icoon 16 px
+    DORTUS-E2E [licht] calc.ll -> soort Flex, icoon 16 px
+    Step 'Open file calc.y' is started
+    Step 'Open file calc.y' is finished
+    DORTUS-E2E licht-calc-y.png: venster 4194566
+    DORTUS-E2E schermafbeelding licht-calc-y.png: code 0, 76072 bytes, 1720x1134 pixels
+    Step 'Close Project tool window' is started
+    Step 'Close Project tool window' is finished
+    Step 'Open Structure tool window' is started
+    Step 'Open Structure tool window' is finished
+    DORTUS-E2E cursor op regel 37 (einde bestand)
+    DORTUS-E2E [licht] Project-venster zichtbaar: false, Structure-venster zichtbaar: true
+    DORTUS-E2E licht-calc-y-structuur.png: venster 4194566
+    DORTUS-E2E schermafbeelding licht-calc-y-structuur.png: code 0, 76072 bytes, 1720x1134 pixels
+    Step 'Open file calc.l' is started
+    Step 'Open file calc.l' is finished
+    DORTUS-E2E cursor op regel 17 (einde bestand)
+    DORTUS-E2E [licht] structuur na wissel naar calc.l: null
+    DORTUS-E2E [licht] focus naar editor gevraagd: false
+    DORTUS-E2E [licht] structuur na focus: null
+    [01:44:11]:   ... successfully finished external process for `run-ide-bisonflex-licht` with exit code 0
+    [01:44:11]: IDE run bisonflex-licht completed in 44.168023951s
+    [01:44:11]: Run VM options validation
+    [01:44:11]: Finished VM options validation
+    ##teamcity[testMetadata  type='link' name='Link to Logs and artifacts' value='null' ]
+
+IdeTest > lichtThema() STANDARD_ERROR
+    [01:44:11]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    [01:44:11]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    [01:44:11]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    [01:44:11]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    Nov 23, 2026 1:44:11 AM io.qameta.allure.AllureLifecycle updateTestCase
+    SEVERE: Could not update test case: no test case running
+    Nov 23, 2026 1:44:11 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 1:44:11 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 1:44:11 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+
+IdeTest > lichtThema() STANDARD_OUT
+    [01:44:11]: Successfully finished publishArtifacts run for bisonflex-licht
+    [01:44:11]: IDEStartResult(runContext=IDERunContext(testContext=com.intellij.ide.starter.ide.IDETestContext@9fe720a, commandLine=fun openTestCaseProject(com.intellij.ide.starter.runner.IDERunContext): com.intellij.ide.starter.runner.IDECommandLine, commands=com.intellij.tools.ide.performanceTesting.commands.CommandChain@70237b0, runTimeout=10m, useStartupScript=true, verboseOutput=false, launchName=, expectedKill=false, expectedExitCode=0, collectNativeThreads=false, stdOut=null), executionTime=44.168023951s, vmOptionsDiff=VMOptionsDiff(newLines=[], missingLines=[]), failureError=null, frontendStartResult=null)
+    [01:44:11]: IDERunContext(testContext=com.intellij.ide.starter.ide.IDETestContext@9fe720a, commandLine=fun openTestCaseProject(com.intellij.ide.starter.runner.IDERunContext): com.intellij.ide.starter.runner.IDECommandLine, commands=com.intellij.tools.ide.performanceTesting.commands.CommandChain@70237b0, runTimeout=10m, useStartupScript=true, verboseOutput=false, launchName=, expectedKill=false, expectedExitCode=0, collectNativeThreads=false, stdOut=null)
+
+IdeTest > lichtThema() FAILED
+    com.intellij.ide.starter.driver.engine.DriverWithContextError at IdeTest.kt:96
+        Caused by: org.opentest4j.AssertionFailedError at IdeTest.kt:125
+
+IdeTest STANDARD_OUT
+    [01:44:13]: Canceling children of 'Test's supervisor scope': Test `lichtThema()` execution is finished
+    [01:44:27]: INFO - com.intellij.tools.ide.starter.bus.EventsBus - Ignored: java.lang.IllegalArgumentException: Exceptions occurred while processing subscribers. 1) No such class 'org.jetbrains.builtInWebServer.BuiltInServerOptions' in plugin null
+    [01:44:27]: Guessing java process ID on Linux (pid of the java process wrapper - 4919)
+    [01:44:27]: Starting external process for `jcmd-run`
+      Working directory: [weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30
+      Arguments: [[weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30/jbr/bin/jcmd]
+      STDOUT will be redirected to: string. STDERR will be redirected to: string. STDIN is empty: true
+
+    [01:44:27]:   ... started external process `jcmd-run` with process ID = 5170
+    [01:44:27]:   ... successfully finished external process for `jcmd-run` with exit code 0
+    [01:44:27]: List all java processes IDs:
+    [01:44:27]: 3984 org.gradle.launcher.daemon.bootstrap.GradleDaemon 9.8.2
+    [01:44:27]: 5170 jdk.jcmd/sun.tools.jcmd.JCmd
+    [01:44:27]: 4162 worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+    [01:44:27]: 4117 org.jetbrains.kotlin.daemon.KotlinCompileDaemon --daemon-logsPath /tmp --daemon-logsFileSizeLimit=1048576 --daemon-logsFileCountLimit=3 --daemon-runFilesPath /home/runner/.kotlin/daemon --daemon-autoshutdownIdleSeconds=7200 --daemon-compilerClasspath /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-compat/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-compat-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-tooling-core/2.4.21/[weggehaald: lange hex-reeks]/kotlin-tooling-core-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-cri-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-cri-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kot
+    [01:44:27]: 3950 /home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/gradle/wrapper/gradle-wrapper.jar --no-daemon integrationTest -PideBuild=263.8311.30
+
+IdeTest STANDARD_ERROR
+    [01:44:27]: Couldn't find appropriate java process id for pid 4919
+    [01:44:27]: Retrying in 3s ...
+
+Gradle Test Executor 1 STANDARD_OUT
+    [01:44:27]: Canceling children of 'Test class's supervisor scope': Test class `IdeTest` execution is finished
+    [01:44:27]: Canceling children of 'Test class's supervisor scope': Test class `JUnit Jupiter` execution is finished
+    [01:44:27]: INFO - com.intellij.tools.ide.starter.bus.shared.server.LocalEventBusServer - Server stopped
+    [01:44:27]: Canceling children of 'Test suite's supervisor scope': Test plan execution is finished
+
+[01:44:27]: Canceling children of 'Test's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+[01:44:27]: Canceling children of 'Test class's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+[01:44:27]: Canceling children of 'Test suite's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+
+
+> Task :integrationTest FAILED
+2 tests completed, 2 failed
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_4-1795398100380.json
+
+15 actionable tasks: 7 executed, 8 up-to-date
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':integrationTest'.
+> There were failing tests. See the report at: file:///home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/build/reports/tests/integrationTest/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 2m 50s
+##[error]Process completed with exit code 1.
