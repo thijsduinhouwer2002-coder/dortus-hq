@@ -1,0 +1,67 @@
+# gemaakt: 2026-11-23T15:46:51Z
+# workflow: Blender splitser e2e (Split Joints, echte Blender) (.github/workflows/blender-splitser-e2e.yml)
+# run: 45208901390 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45208901390
+# commit: a0805270 tak main gestart door push
+# mislukte stappen: e2e (4.2.23): Logica zonder Blender (plan, doorsnede, pennen); e2e (4.2.23): Schermafbeeldingen (Workbench-render van de stukken en een snijvlak); e2e (5.3.0): Logica zonder Blender (plan, doorsnede, pennen); e2e (5.3.0): Schermafbeeldingen (Workbench-render van de stukken en een snijvlak)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (4.2.23) / Logica zonder Blender (plan, doorsnede, pennen) (laatste 11 van 11 regels) =====
+##[group]Run python3 -I e2e/test_logica.py
+python3 -I e2e/test_logica.py
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: splitser-kern-1
+##[endgroup]
+Traceback (most recent call last):
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_logica.py", line 9, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+##[error]Process completed with exit code 1.
+
+===== e2e (4.2.23) / Schermafbeeldingen (Workbench-render van de stukken en een snijvlak) (laatste 15 van 15 regels) =====
+##[group]Run mkdir -p "e2e/screenshots/4.2.23"
+mkdir -p "e2e/screenshots/4.2.23"
+timeout 600 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender -b --factory-startup --python e2e/scherm_kern.py -- /tmp/sj_uit "$PWD/e2e/screenshots/4.2.23" 2>&1 | tee /tmp/scherm.log || true
+grep "\[sj-scherm\]" /tmp/scherm.log || true
+! grep -q "SCHERM FOUT" /tmp/scherm.log || { echo "FOUT: schermafbeelding"; exit 1; }
+grep -q "SCHERM OK suzanne-1" /tmp/scherm.log || { echo "FOUT: geen beeld van Suzanne"; exit 1; }
+grep "\[sj-e2e\]" /tmp/kern.log > "e2e/screenshots/4.2.23/uitslag.txt" || true
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: splitser-kern-1
+##[endgroup]
+/usr/bin/xvfb-run: 200: /tmp/blender/blender: not found
+FOUT: geen beeld van Suzanne
+##[error]Process completed with exit code 1.
+
+===== e2e (5.3.0) / Logica zonder Blender (plan, doorsnede, pennen) (laatste 11 van 11 regels) =====
+##[group]Run python3 -I e2e/test_logica.py
+python3 -I e2e/test_logica.py
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: splitser-kern-1
+##[endgroup]
+Traceback (most recent call last):
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_logica.py", line 9, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+##[error]Process completed with exit code 1.
+
+===== e2e (5.3.0) / Schermafbeeldingen (Workbench-render van de stukken en een snijvlak) (laatste 15 van 15 regels) =====
+##[group]Run mkdir -p "e2e/screenshots/5.3.0"
+mkdir -p "e2e/screenshots/5.3.0"
+timeout 600 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender -b --factory-startup --python e2e/scherm_kern.py -- /tmp/sj_uit "$PWD/e2e/screenshots/5.3.0" 2>&1 | tee /tmp/scherm.log || true
+grep "\[sj-scherm\]" /tmp/scherm.log || true
+! grep -q "SCHERM FOUT" /tmp/scherm.log || { echo "FOUT: schermafbeelding"; exit 1; }
+grep -q "SCHERM OK suzanne-1" /tmp/scherm.log || { echo "FOUT: geen beeld van Suzanne"; exit 1; }
+grep "\[sj-e2e\]" /tmp/kern.log > "e2e/screenshots/5.3.0/uitslag.txt" || true
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: splitser-kern-1
+##[endgroup]
+/usr/bin/xvfb-run: 200: /tmp/blender/blender: not found
+FOUT: geen beeld van Suzanne
+##[error]Process completed with exit code 1.
