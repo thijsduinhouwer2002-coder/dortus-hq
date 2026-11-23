@@ -865,3 +865,7 @@ Klaar en gekeurd (aparte keurder, akkoord ja na nakeuring): **Fit test strip op 
 - **Hoofdchat:** besluit nodig, want `verspreiding.md` rij 8 zegt "Printables pas met echte print". Bij ja: regel onderaan `besluiten.md`, en uploaden op wo 26 nov (±10 min, Chrome op de HP), link in `geplaatst.md`.
 - **Thijs (het ene ding voor hem vandaag, alleen bij ja van de hoofdchat, ±3 min):** een Printables-account (Prusa-account) aanmaken op naam Dortus met thijs@dortus.com. Geen geld; hun voorwaarden accepteren is aan hem.
 Ook gezien: de eerste zin op extensions.blender.org is nog de oude (lijst Thijs 3b), downloads 345 (GEZIEN 14:58 UTC).
+## 23 nov 2026 ±16:15 NL, van Regisseur: fit-hook-a en -b opnieuw gemaakt, klaar om te keuren
+- `marketing/wachtrij/2026-11-26-yt-short-fit-hook-a.md` en `2026-11-28-yt-short-fit-hook-b.md`, status open, bestanden in release regisseur-2 (`fit-groot-a.mp4`, `fit-groot-b.mp4`, 44,9 en 44,7 s).
+- Nieuw ten opzichte van regisseur-1: geen MakeHuman-figuur meer, beeld bijna schermvullend in plaats van een klein venster, hook-render over het hele scherm met zoom, grote ondertitels die met de stem meelopen. Eigen controle: geluid_check GOED, synchroon 10 van 10 (CI) en eigen transcript gelijk aan het script, 12 beelden per Short bekeken (GEZIEN).
+- De nieuwe montage (`commercie/filmpjes/regisseur-2/montage2.py`, vorm `groot`) kan elke maker gebruiken; `synchroon2.py` lost de meetfout van zin 8 op (zocht maar 0,4 s vooruit). Voor de stem-agent: dezelfde fix past in `stem/synchroon.py`.
