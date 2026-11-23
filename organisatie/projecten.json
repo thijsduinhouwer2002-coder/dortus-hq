@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-23 05:45",
+    "datum": "2026-11-23 08:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Pro 1.2.0 (elleboogfix voor Blender 4.5+, Fit test-knop) gekeurd door Daan, e2e groen; Thijs vervangt de zip op Gumroad vóór 25 nov (lijst 3). Site-tak claude/fit-test-strip (2493a29, ook link in gids 1 gekeurd) in repo dortus live na één push naar main door Thijs (lijst 5). Voorgestelde prijs $10 bij de gratis versie (lijst 3). Bundel met Split 3D Print (Superhive): tekst en bericht aan AUER hebben ja van Daan (22 nov); wacht op ja van Thijs op de tekst en versturen met zijn account (lijst, later).",
+      "volgende_stap": "Pro 1.2.0 (elleboogfix voor Blender 4.5+, Fit test-knop) gekeurd door Daan, e2e groen; Thijs vervangt de zip op Gumroad vóór 25 nov (lijst 3). Site-tak claude/fit-test-strip (2493a29, ook link in gids 1 gekeurd) in repo dortus live na één push naar main door Thijs (lijst 5). Voorgestelde prijs $10 bij de gratis versie (lijst 3). Bundel met Split 3D Print (Superhive): tekst en bericht aan AUER hebben ja van Daan (22 nov); wacht op ja van Thijs op de tekst en versturen met zijn account (lijst, later). Nieuw 23 nov: ja op Lite-variant $3 op Superhive (advies Bram); Bram maakt zip en varianttekst, Daan keurt, hoofdchat zet hem aan vóór 27 nov.",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -133,7 +133,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-22",
+      "laatste_update": "2026-11-23",
       "links": [
         {
           "naam": "Winkelpagina",
