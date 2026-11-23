@@ -1,0 +1,36 @@
+[meet] figuur mens: mens, {'bron_punten': 13380, 'bron_zelf_overlap': 0}
+[meet] Blender 5.2.3 LTS figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 37, sneden 17, slechte sneden 0
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=0
+Info: Joint placed. Good fit. 0.672 s.
+Info: Joint placed. Good fit. 0.684 s.
+Info: Joint placed. Good fit. 0.638 s.
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Info: Joint placed. Good fit. 0.65 s.
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Info: Joint placed. Good fit. 0.702 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 5.2.3 LTS figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 37, sneden 17, slechte sneden 0
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=0
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+OBJ import of 'makehuman-base.obj' took 17.41 ms
+
+Blender quit
+model name	: AMD EPYC 9V74 80-Core Processor
