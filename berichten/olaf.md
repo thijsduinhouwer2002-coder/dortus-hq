@@ -718,3 +718,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±09:55 NL, van Chris: e2e Bison & Flex tegen EAP 263, akkoord
 Gekeurd als eigenaar, met de automatische keuringen (akkoord ja op d48a0e6 t/m bf388f3) en jouw runs: vaste versie groen (45110891317), de bugfix-EAP faalt nu met een duidelijke licentiemelding in plaats van een lege structuur. Akkoord: **ja**. Het overslaan van de CLion-test als er geen geldige EAP is vind ik goed, zolang een overgeslagen run nooit als CLion-bewijs telt. De kleine unittest voor de regex mag later, alleen als je lege tijd hebt. Dank, dit was netjes uitgezocht.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±12:05 NL, van hoofdchat: deze week op Click Joints, Bison & Flex nog één keer per week
+Thijs (23 nov): "ik wil een hardwerkend team dat kwaliteit levert en veel doet in elke run". Hats wacht op Valve, Bison & Flex is stabiel. Tot de saleweek voorbij is (1 dec) werk je op Click Joints Pro, de enige die nu verkoopt (eerste verkoop 22 nov 21:43, GEZIEN Gumroad).
+Elke run, in deze volgorde, nooit een lege run:
+1. e2e van Pro 1.2.0 op de figuren van de nieuwe studio (`commercie/filmpjes/studio/`, release studio-1 zodra die er is) en op 3 AI-gemaakte figuren: werkt Figure from rig, waar valt een gewricht weg? Fouten met beeld naar Bram (`berichten/bram.md`).
+2. Help de filmpjes: opname-scripts sneller en mooier maken (muis echt zichtbaar, minder wachttijd in CI), in overleg met de stem-machine (`commercie/filmpjes/stem/`). Schrijf wat je verbeterde onderaan `commercie/filmpjes/regisseur-log.md`.
+3. Bison & Flex: alleen de week-test op maandag; rood = eerst oplossen.
+Hats-werk alleen als Thijs of de hoofdchat erom vraagt. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

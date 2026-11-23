@@ -1,0 +1,319 @@
+# gemaakt: 2026-11-23T11:20:54Z
+# workflow: Blender gewrichten e2e (Click Joints, echte Blender) (.github/workflows/blender-gewrichten-e2e.yml)
+# run: 45160902348 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45160902348
+# commit: 89b6cd11 tak claude/pro-mooier-overlay gestart door push
+# mislukte stappen: e2e (5.3.0): Schermafbeeldingen van het scharnier (betaalde zip, plaatjes 11 en 12); e2e (5.2.3): Schermafbeeldingen van het scharnier (betaalde zip, plaatjes 11 en 12); e2e (4.2.23): Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (5.3.0) / Schermafbeeldingen van het scharnier (betaalde zip, plaatjes 11 en 12) (laatste 53 van 53 regels) =====
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_b.blend')"
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_b.blend --python e2e/scherm_scharnier.py -- "$PWD/e2e/screenshots/5.3.0" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/scharnier.log || true
+grep -q "SCHARNIER OK pose" /tmp/scharnier.log || { echo "FOUT: plaatje 11 niet goed"; exit 1; }
+grep -q "SCHARNIER OK rood" /tmp/scharnier.log || { echo "FOUT: plaatje 12 niet goed"; exit 1; }
+for f in 11-scharnier-x.png 12-scharnier-rood-x.png; do [ -s "e2e/screenshots/5.3.0/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_scherm
+  BLENDER_USER_CONFIG: /tmp/cj_scherm/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_scherm/extensions
+##[endgroup]
+00:00.311  blend            | Writing user preferences: "/tmp/cj_scherm/config/userpref.blend" 
+Info: Preferences saved
+Info: Saved as "start_b.blend"
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+ALSA lib confmisc.c:855:(parse_card) [error.core] cannot find card '0'
+ALSA lib conf.c:5211:(_snd_config_evaluate) [error.core] function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) [error.core] error evaluating strings
+ALSA lib conf.c:5211:(_snd_config_evaluate) [error.core] function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) [error.core] error evaluating name
+ALSA lib conf.c:5211:(_snd_config_evaluate) [error.core] function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5734:(snd_config_expand) [error.core] Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) [error.pcm] Unknown PCM default
+00:00.478  blend            | Read blend: "/tmp/start_b.blend"
+[cj-scherm] Blender 5.3.0, betaalde zip /tmp/click_joints_betaald.zip
+Info: Hinge placed. Bends 0° to 115°. 0.802 s.
+[cj-scherm] SCHARNIER plaats: {'FINISHED'}, A=True B=True bereik=114.96 melding=Hinge placed. Bends 0° to 115°.
+[cj-scherm] SCHARNIER pose=60.0 rood_vlakken=0
+[cj-scherm] SCHARNIER kader: midden=(0.000, 0.000) hoogte=0.650 breedte=0.512 afstand=43.3 punten=23769
+[cj-scherm] X-scherm /home/runner/work/dortus-hq/dortus-hq/producten/blender-gewrichten/e2e/screenshots/5.3.0/11-scharnier-x.png True 
+[cj-scherm] SCHARNIER handler=True boog_aan=True laatst={'bogen': [{'pose': 60.0, 'getal': '115°', 'getal_getekend': True, 'nul_getekend': True, 'straal': 11.48, 'streepjes': 24, 'kijkhoek': 57.5, 'voorbij': False, 'voorbij_tekst': None, 'kop': 'Bends 0° to 115°', 'rood_vrij': None, 'figuur': False, 'kleur': (1.0, 1.0, 1.0), 'naam': '', 'label_tekst': None, 'centrum_px': (1135.396728515625, 313.27960205078125), 'label_px': (966.2338256835938, 720.3185424804688)}]}
+[cj-scherm] SCHARNIER kader gemeten 11-scharnier-x.png: midden=(0.000, 0.000) hoogte=0.650 breedte=0.512; rood onder de lidas (aantal, afstand tot H langs de lidas mm)=(0, None)
+[cj-scherm] SCHARNIER OK pose 11-scharnier-x.png maat=(1920, 1080) rode_pixels=0 rode_vlakken=0 verst_rood=0.00 boog_pixels=10618 tekst=Bends 0° to 115° boog={'pose': 60.0, 'getal': '115°', 'getal_getekend': True, 'nul_getekend': True, 'straal': 11.48, 'streepjes': 24, 'kijkhoek': 57.5, 'voorbij': False, 'voorbij_tekst': None, 'kop': 'Bends 0° to 115°', 'rood_vrij': None, 'figuur': False, 'kleur': (1.0, 1.0, 1.0), 'naam': '', 'label_tekst': None, 'centrum_px': (1135.396728515625, 313.27960205078125), 'label_px': (966.2338256835938, 720.3185424804688)} pose=60.0 bereik=114.96 mis=[]
+[cj-scherm] SCHARNIER pose=118.0 rood_vlakken=6
+[cj-scherm] SCHARNIER kader: midden=(0.000, 0.000) hoogte=0.650 breedte=0.457 afstand=46.1 punten=23769
+[cj-scherm] X-scherm /home/runner/work/dortus-hq/dortus-hq/producten/blender-gewrichten/e2e/screenshots/5.3.0/12-scharnier-rood-x.png True 
+[cj-scherm] SCHARNIER handler=True boog_aan=True laatst={'bogen': [{'pose': 118.0, 'getal': '115°', 'getal_getekend': True, 'nul_getekend': True, 'straal': 11.48, 'streepjes': 24, 'kijkhoek': 57.3, 'voorbij': True, 'voorbij_tekst': '+3° past limit', 'kop': 'Bends 0° to 115°', 'rood_vrij': True, 'figuur': False, 'kleur': (1.0, 1.0, 1.0), 'naam': '', 'label_tekst': None, 'centrum_px': (1142.6927490234375, 305.7747802734375), 'label_px': (983.6702880859375, 688.3711547851562)}]}
+[cj-scherm] SCHARNIER kader gemeten 12-scharnier-rood-x.png: midden=(0.000, -0.000) hoogte=0.650 breedte=0.457; rood onder de lidas (aantal, afstand tot H langs de lidas mm)=(0, None)
+[cj-scherm] SCHARNIER FOUT rood 12-scharnier-rood-x.png maat=(1920, 1080) rode_pixels=3883 rode_vlakken=6 verst_rood=7.92 boog_pixels=7819 tekst=Bends 0° to 115° boog={'pose': 118.0, 'getal': '115°', 'getal_getekend': True, 'nul_getekend': True, 'straal': 11.48, 'streepjes': 24, 'kijkhoek': 57.3, 'voorbij': True, 'voorbij_tekst': '+3° past limit', 'kop': 'Bends 0° to 115°', 'rood_vrij': True, 'figuur': False, 'kleur': (1.0, 1.0, 1.0), 'naam': '', 'label_tekst': None, 'centrum_px': (1142.6927490234375, 305.7747802734375), 'label_px': (983.6702880859375, 688.3711547851562)} pose=118.0 bereik=114.96 mis=['rode pixels']
+00:17.043  blend            | Saved session recovery to "/tmp/quit.blend"
+00:17.044  blend            | Writing user preferences: "/tmp/cj_scherm/config/userpref.blend" 
+00:17.045  reports          | Preferences saved
+
+Blender quit
+FOUT: plaatje 12 niet goed
+##[error]Process completed with exit code 1.
+
+===== e2e (5.2.3) / Schermafbeeldingen van het scharnier (betaalde zip, plaatjes 11 en 12) (laatste 53 van 53 regels) =====
+##[group]Run [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+[ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_b.blend')"
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_b.blend --python e2e/scherm_scharnier.py -- "$PWD/e2e/screenshots/5.2.3" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/scharnier.log || true
+grep -q "SCHARNIER OK pose" /tmp/scharnier.log || { echo "FOUT: plaatje 11 niet goed"; exit 1; }
+grep -q "SCHARNIER OK rood" /tmp/scharnier.log || { echo "FOUT: plaatje 12 niet goed"; exit 1; }
+for f in 11-scharnier-x.png 12-scharnier-rood-x.png; do [ -s "e2e/screenshots/5.2.3/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.0
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_scherm
+  BLENDER_USER_CONFIG: /tmp/cj_scherm/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_scherm/extensions
+##[endgroup]
+00:00.286  blend            | Writing user preferences: "/tmp/cj_scherm/config/userpref.blend" 
+Info: Preferences saved
+Info: Saved as "start_b.blend"
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+
+Blender quit
+ALSA lib confmisc.c:855:(parse_card) [error.core] cannot find card '0'
+ALSA lib conf.c:5211:(_snd_config_evaluate) [error.core] function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) [error.core] error evaluating strings
+ALSA lib conf.c:5211:(_snd_config_evaluate) [error.core] function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) [error.core] error evaluating name
+ALSA lib conf.c:5211:(_snd_config_evaluate) [error.core] function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5734:(snd_config_expand) [error.core] Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) [error.pcm] Unknown PCM default
+00:00.397  blend            | Read blend: "/tmp/start_b.blend"
+[cj-scherm] Blender 5.2.3 LTS, betaalde zip /tmp/click_joints_betaald.zip
+Info: Hinge placed. Bends 0° to 115°. 0.587 s.
+[cj-scherm] SCHARNIER plaats: {'FINISHED'}, A=True B=True bereik=114.96 melding=Hinge placed. Bends 0° to 115°.
+[cj-scherm] SCHARNIER pose=60.0 rood_vlakken=0
+[cj-scherm] SCHARNIER kader: midden=(0.000, 0.000) hoogte=0.650 breedte=0.512 afstand=43.3 punten=23769
+[cj-scherm] X-scherm /home/runner/work/dortus-hq/dortus-hq/producten/blender-gewrichten/e2e/screenshots/5.2.3/11-scharnier-x.png True 
+[cj-scherm] SCHARNIER handler=True boog_aan=True laatst={'bogen': [{'pose': 60.0, 'getal': '115°', 'getal_getekend': True, 'nul_getekend': True, 'straal': 11.48, 'streepjes': 24, 'kijkhoek': 57.5, 'voorbij': False, 'voorbij_tekst': None, 'kop': 'Bends 0° to 115°', 'rood_vrij': None, 'figuur': False, 'kleur': (1.0, 1.0, 1.0), 'naam': '', 'label_tekst': None, 'centrum_px': (1135.396728515625, 313.27960205078125), 'label_px': (966.2338256835938, 720.3185424804688)}]}
+[cj-scherm] SCHARNIER kader gemeten 11-scharnier-x.png: midden=(0.000, 0.000) hoogte=0.650 breedte=0.512; rood onder de lidas (aantal, afstand tot H langs de lidas mm)=(0, None)
+[cj-scherm] SCHARNIER OK pose 11-scharnier-x.png maat=(1920, 1080) rode_pixels=0 rode_vlakken=0 verst_rood=0.00 boog_pixels=10616 tekst=Bends 0° to 115° boog={'pose': 60.0, 'getal': '115°', 'getal_getekend': True, 'nul_getekend': True, 'straal': 11.48, 'streepjes': 24, 'kijkhoek': 57.5, 'voorbij': False, 'voorbij_tekst': None, 'kop': 'Bends 0° to 115°', 'rood_vrij': None, 'figuur': False, 'kleur': (1.0, 1.0, 1.0), 'naam': '', 'label_tekst': None, 'centrum_px': (1135.396728515625, 313.27960205078125), 'label_px': (966.2338256835938, 720.3185424804688)} pose=60.0 bereik=114.96 mis=[]
+[cj-scherm] SCHARNIER pose=118.0 rood_vlakken=6
+[cj-scherm] SCHARNIER kader: midden=(0.000, 0.000) hoogte=0.650 breedte=0.457 afstand=46.1 punten=23769
+[cj-scherm] X-scherm /home/runner/work/dortus-hq/dortus-hq/producten/blender-gewrichten/e2e/screenshots/5.2.3/12-scharnier-rood-x.png True 
+[cj-scherm] SCHARNIER handler=True boog_aan=True laatst={'bogen': [{'pose': 118.0, 'getal': '115°', 'getal_getekend': True, 'nul_getekend': True, 'straal': 11.48, 'streepjes': 24, 'kijkhoek': 57.3, 'voorbij': True, 'voorbij_tekst': '+3° past limit', 'kop': 'Bends 0° to 115°', 'rood_vrij': True, 'figuur': False, 'kleur': (1.0, 1.0, 1.0), 'naam': '', 'label_tekst': None, 'centrum_px': (1142.6927490234375, 305.7747802734375), 'label_px': (983.6702880859375, 688.3711547851562)}]}
+[cj-scherm] SCHARNIER kader gemeten 12-scharnier-rood-x.png: midden=(0.000, -0.000) hoogte=0.650 breedte=0.457; rood onder de lidas (aantal, afstand tot H langs de lidas mm)=(0, None)
+[cj-scherm] SCHARNIER FOUT rood 12-scharnier-rood-x.png maat=(1920, 1080) rode_pixels=3883 rode_vlakken=6 verst_rood=7.92 boog_pixels=7830 tekst=Bends 0° to 115° boog={'pose': 118.0, 'getal': '115°', 'getal_getekend': True, 'nul_getekend': True, 'straal': 11.48, 'streepjes': 24, 'kijkhoek': 57.3, 'voorbij': True, 'voorbij_tekst': '+3° past limit', 'kop': 'Bends 0° to 115°', 'rood_vrij': True, 'figuur': False, 'kleur': (1.0, 1.0, 1.0), 'naam': '', 'label_tekst': None, 'centrum_px': (1142.6927490234375, 305.7747802734375), 'label_px': (983.6702880859375, 688.3711547851562)} pose=118.0 bereik=114.96 mis=['rode pixels']
+00:15.683  blend            | Saved session recovery to "/tmp/quit.blend"
+00:15.684  blend            | Writing user preferences: "/tmp/cj_scherm/config/userpref.blend" 
+00:15.685  reports          | Preferences saved
+
+Blender quit
+FOUT: plaatje 12 niet goed
+##[error]Process completed with exit code 1.
+
+===== e2e (4.2.23) / Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur) (laatste 200 van 553 regels) =====
+[cj-kaart] OK   SCHARNIER: getal 0.10 op één deel (['0.10'])
+[cj-kaart] OK   SCHARNIER: speling 0.15 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.15 op één deel (['0.15'])
+[cj-kaart] OK   SCHARNIER: speling 0.20 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.20 op één deel (['0.20'])
+[cj-kaart] OK   SCHARNIER: speling 0.25 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.25 op één deel (['0.25'])
+[cj-kaart] OK   SCHARNIER: speling 0.30 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.30 op één deel (['0.30'])
+[cj-kaart] OK   SCHARNIER: alle delen gesloten (open: [])
+[cj-kaart] OK   SCHARNIER: speling scene blijft 0.17 (0.170)
+[cj-kaart] OK   SCHARNIER: Auto-diameter blijft aan
+[cj-kaart] OK   SCHARNIER: cursor blijft staan
+[cj-kaart] OK   SCHARNIER: eigen model niet aangeraakt
+Info: 10 STL files in [weggehaald: lange base64-reeks]
+[cj-kaart] OK   SCHARNIER: export geeft 10 bestanden (10)
+Info: Hinge placed. Bends 0° to 115°. 1.28 s.
+Info: Hinge placed. Bends 0° to 115°. 0.553 s.
+Info: Hinge placed. Bends 0° to 115°. 0.517 s.
+Info: Hinge placed. Bends 0° to 115°. 0.542 s.
+Info: Hinge placed. Bends 0° to 115°. 0.551 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER: tweede klik 10 nieuwe delen (10)
+[cj-kaart] OK   SCHARNIER: tweede set raakt de eerste niet
+[cj-kaart] SCHARNIER: maat set (110.0, 14.0, 60.6) mm
+Info: Hinge placed. Bends 0° to 115°. 0.573 s.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 75); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 115°. 0.548 s.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 35); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 115°. 0.906 s.
+Info: Hinge placed. Bends 0° to 115°. 0.526 s.
+Info: Hinge placed. Bends 0° to 115°. 0.57 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER meters: zelfde maat in mm ((110.0, 14.0, 60.6) tegen (110.0, 14.0, 60.6))
+[cj-kaart] OK   SCHARNIER meters: alle delen gesloten
+[cj-kaart] OK   SCHARNIER meters: vijf getallen (['0.10', '0.15', '0.20', '0.25', '0.30'])
+[cj-kaart] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+Timer 'STL Export' took 0.81 ms
+Timer 'STL Export' took 0.84 ms
+Timer 'STL Export' took 0.72 ms
+Timer 'STL Export' took 0.81 ms
+Timer 'STL Export' took 0.69 ms
+Timer 'STL Export' took 0.86 ms
+Timer 'STL Export' took 0.69 ms
+Timer 'STL Export' took 0.87 ms
+Timer 'STL Export' took 0.69 ms
+Timer 'STL Export' took 0.91 ms
+Timer 'STL Export' took 0.36 ms
+Timer 'STL Export' took 0.51 ms
+Timer 'STL Export' took 0.32 ms
+Timer 'STL Export' took 0.55 ms
+Timer 'STL Export' took 0.32 ms
+Timer 'STL Export' took 0.57 ms
+Timer 'STL Export' took 0.31 ms
+Timer 'STL Export' took 0.56 ms
+Timer 'STL Export' took 0.31 ms
+Timer 'STL Export' took 0.59 ms
+
+Blender quit
+STATUS Reinstalled "click_joints"
+Reloading external rigs...
+Reloading external metarigs...
+PROBE rigify True
+PROBE hoogte 207.8 botten ['spine.004', 'upper_arm.L', 'forearm.L', 'upper_arm.R', 'forearm.R', 'thigh.L', 'shin.L', 'thigh.R', 'shin.R']
+Error: The cut gave no watertight parts (bad edges: part A 174, part B 0); the mesh is unchanged.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 135°. 3.348 s.
+Info: Hinge placed. Bends 0° to 135°. 2.258 s.
+Info: Hinge placed. Bends 0° to 135°. 2.225 s.
+Info: Joint placed. Good fit. 3.332 s.
+Warning: Too close to another joint (keep 35 mm apart).
+Info: Joint placed. Good fit. 2.839 s.
+Warning: Too close to another joint (keep 55 mm apart).
+Warning: Too thin here for a ball joint. Try a thicker spot.
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Error: The cut gave no watertight parts (bad edges: part A 203, part B 402); the mesh is unchanged.
+Warning: 5 joints. Skipped: Left elbow (The parts overlap before they move; the mesh is unchanged.); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.); Right hip (The cut gave no watertight parts (bad edges: part A 203, part B 402); the mesh is unchanged.)
+PROBE {'FINISHED'} ['Right elbow · Hinge · 0–135° · preset', 'Left knee · Hinge · 0–135° · preset', 'Right knee · Hinge · 0–135° · preset', 'Neck · Ball · ±30° · preset', 'Left shoulder · Ball · ±30° · preset']
+PROBE overgeslagen Left elbow (The parts overlap before they move; the mesh is unchanged.); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.); Right hip (The cut gave no watertight parts (bad edges: part A 203, part B 402); the mesh is unchanged.)
+PROBE delen 6 open []
+[cj-rigify] Blender 4.2.23 LTS, regels ['Right elbow · Hinge · 0–135° · preset', 'Left knee · Hinge · 0–135° · preset', 'Right knee · Hinge · 0–135° · preset', 'Neck · Ball · ±30° · preset', 'Left shoulder · Ball · ±30° · preset']
+[cj-rigify] OK   geen gewricht op blocked
+[cj-rigify] OK   Left knee als scharnier (Left knee · Hinge · 0–135° · preset)
+[cj-rigify] OK   Left elbow als scharnier (None)
+[cj-rigify] OK   Left hip beweegt meer dan 10 graden (None)
+[cj-rigify] OK   Right knee als scharnier (Right knee · Hinge · 0–135° · preset)
+[cj-rigify] OK   Right elbow als scharnier (Right elbow · Hinge · 0–135° · preset)
+[cj-rigify] OK   Right hip beweegt meer dan 10 graden (None)
+[cj-rigify] OK   overgeslagen met reden: Left elbow (The parts overlap before they move)
+[cj-rigify] OK   overgeslagen met reden: Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[cj-rigify] OK   overgeslagen met reden: Left hip (The cut gave no watertight parts (bad edges: part A 0, part B 0)
+[cj-rigify] OK   overgeslagen met reden: Right hip (The cut gave no watertight parts (bad edges: part A 203, part B 402)
+[cj-rigify] OK   6 delen, alle gesloten (5 gewrichten)
+[cj-rigify] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-ai] Pro geladen: True
+11:11:41 | INFO: Data are loaded, start creating Blender stuff
+11:11:41 | INFO: Blender create Mesh node Mesh1
+11:11:41 | INFO: glTF import finished in 0.04s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Error: The cut gave no watertight parts (bad edges: part A 1025, part B 0); the mesh is unchanged.
+[cj-chris] KNIE op (-0.3, 15.4, 40.5): fout Error: The cut gave no watertight parts (bad edges: part A 1025, part B 0); the mesh is unchanged.
+, delen [], melding None
+[cj-voet] OK   knie 27%: geweigerd, geen delen
+11:13:31 | INFO: Data are loaded, start creating Blender stuff
+11:13:31 | INFO: Blender create Mesh node Mesh1
+11:13:31 | INFO: glTF import finished in 0.05s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Error: The cut gave no watertight parts (bad edges: part A 818, part B 0); the mesh is unchanged.
+[cj-chris] KNIE op (1.1, 15.6, 37.5): fout Error: The cut gave no watertight parts (bad edges: part A 818, part B 0); the mesh is unchanged.
+, delen [], melding None
+[cj-voet] OK   knie 25%: geweigerd, geen delen
+11:13:59 | INFO: Data are loaded, start creating Blender stuff
+11:13:59 | INFO: Blender create Mesh node Mesh1
+11:13:59 | INFO: glTF import finished in 0.04s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+[cj-chris] KNIE op (-1.8, 14.6, 43.5): {'CANCELLED'}, delen [], melding None
+[cj-voet] OK   knie 29%: geweigerd, geen delen
+[cj-voet] INFO 4.2: 0 knie(ën) heel gelukt, weigeren is hier toegestaan (plan punt 3)
+[cj-voet] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-ai] Pro geladen: True
+[cj-mtoets] Blender 4.2.23 LTS
+11:14:01 | INFO: Data are loaded, start creating Blender stuff
+11:14:01 | INFO: Blender create Mesh node Mesh1
+11:14:01 | INFO: glTF import finished in 0.04s
+Info: Watertight copy man_backpack_gesloten made (107236 faces)
+[cj-mrig] man_backpack_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (11.3, -8.9, 40.5)
+[cj-mtoets] OK   man_backpack_gesloten: rig gemaakt
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 16.781 s.
+Info: Hinge placed. Bends 0° to 120°. 5.885 s.
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 5.756 s.
+Info: Hinge placed. Bends 0° to 120°. 6.09 s.
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: 2 joints · 1 rig · 1 mirror. Skipped: Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] OK   man_backpack_gesloten: geen lege tussenmeshes achtergebleven (0)
+[cj-mtoets] man_backpack_gesloten: uitslag {'FINISHED'}, gewrichten ['Left knee · Hinge · 0–120° · from rig', 'Right knee · Hinge · 0–120° · mirror'], overgeslagen: Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] OK   man_backpack_gesloten: linkerknie 0-120 from rig ({'nr': 1, 'naam': 'Left knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'from rig', 'punt': [11.1941, -9.1232, 40.4918]})
+[cj-mtoets] OK   man_backpack_gesloten: rechterknie mirrored ({'nr': 2, 'naam': 'Right knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'mirrored', 'punt': [-11.8863, -6.6517, 37.4629]})
+[cj-mtoets] OK   man_backpack_gesloten: alle 3 delen gesloten
+[cj-mtoets] OK   man_backpack_gesloten: elk deel één stuk ([1, 1, 1])
+[cj-mtoets] OK   man_backpack_gesloten: Left hip overgeslagen met leesbare reden (Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-mtoets] OK   man_backpack_gesloten: Right hip overgeslagen met leesbare reden (Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+11:14:45 | INFO: Data are loaded, start creating Blender stuff
+11:14:45 | INFO: Blender create Mesh node Mesh1
+11:14:45 | INFO: glTF import finished in 0.04s
+Info: Watertight copy knight_yellow_gesloten made (217072 faces)
+[cj-mrig] knight_yellow_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (10.6, 33.1, 40.5)
+[cj-mtoets] OK   knight_yellow_gesloten: rig gemaakt
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 10.648 s.
+Info: Hinge placed. Bends 0° to 83°. 31.097 s.
+Info: Hinge placed. Bends 0° to 120°. 19.374 s.
+Warning: Tight: cheek too stiff to click. Try a thicker spot.
+Info: Hinge placed. Bends 0° to 120°. 41.917 s.
+Warning: Too close to another joint (keep 54 mm apart).
+Warning: Too close to another joint (keep 54 mm apart).
+Warning: 2 joints · 1 rig · 1 mirror. Skipped: Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] OK   knight_yellow_gesloten: geen lege tussenmeshes achtergebleven (0)
+[cj-mtoets] knight_yellow_gesloten: uitslag {'FINISHED'}, gewrichten ['Left knee · Hinge · 0–150° · from rig', 'Right knee · Hinge · 0–120° · mirror'], overgeslagen: Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] FOUT knight_yellow_gesloten: linkerknie 0-120 from rig ({'nr': 1, 'naam': 'Left knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 150.0, 'herkomst': 'from rig', 'punt': [10.6164, 33.1373, 40.5]})
+[cj-mtoets] OK   knight_yellow_gesloten: rechterknie mirrored ({'nr': 2, 'naam': 'Right knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'mirrored', 'punt': [-19.2772, 33.9088, 34.9634]})
+[cj-mtoets] OK   knight_yellow_gesloten: alle 3 delen gesloten
+[cj-mtoets] OK   knight_yellow_gesloten: elk deel één stuk ([1, 1, 1])
+[cj-mtoets] OK   knight_yellow_gesloten: Left hip overgeslagen met leesbare reden (Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-mtoets] OK   knight_yellow_gesloten: Right hip overgeslagen met leesbare reden (Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+11:16:58 | INFO: Data are loaded, start creating Blender stuff
+11:16:58 | INFO: Blender create Mesh node Mesh1
+11:16:58 | INFO: glTF import finished in 0.04s
+Info: Watertight copy man_backpack_gesloten made (107236 faces)
+[cj-mrig] man_backpack_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (11.3, -8.9, 40.5)
+Info: Joint placed. Good fit. 8.288 s.
+Info: Joint placed. Good fit. 8.031 s.
+Warning: No joints placed. Skipped: Left hip (no room for a ball joint that can move here (it would be blocked)); Right hip (no room for a ball joint that can move here (it would be blocked))
+[cj-mtoets] man_backpack_gesloten alleen heupen: uitslag {'CANCELLED'}, delen 1, overgeslagen: Left hip (no room for a ball joint that can move here (it would be blocked)); Right hip (no room for a ball joint that can move here (it would be blocked))
+[cj-mtoets] OK   man_backpack_gesloten alleen heupen: model heel en ongesneden (1 delen)
+[cj-mtoets] OK   man_backpack_gesloten alleen heupen: redenen op het model te lezen (Left hip (no room for a ball joint that can move here (it would be blocked)); Right hip (no room for a ball joint that c)
+[cj-mtoets] KLAAR 1 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+FOUT: figure from rig op Meshy-figuren
+##[error]Process completed with exit code 1.

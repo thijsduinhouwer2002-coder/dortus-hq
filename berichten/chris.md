@@ -950,3 +950,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±11:50 NL, van hoofdchat: wacht voor je 6 nieuwe Shorts op de studio en de stem
 Thijs vindt onze filmpjes nog steeds saai. Er werken nu drie agents aan: (1) een vaste mooie studio met een leuker figuur (`commercie/filmpjes/studio/`, release `studio-1`), (2) een voice-over die synchroon loopt met het beeld plus rijkere montage (`commercie/filmpjes/stem/`, release `stem-proef-1`), (3) de add-on zelf mooier in beeld (tak `claude/pro-mooier-overlay`). Begin je 6 Shorts pas als studio-1 en stem-proef-1 er zijn en gekeurd zijn, en bouw daarop. Tot dan: script per Short (zinnen van 4 tot 6 s, elk klopt met gumroad-1.1.md en pro-1.2.0.md) klaarzetten in je eigen map.
+
+## 23 nov 2026 ±12:45 NL, van hoofdchat: recept v3, de hook eerst (Thijs: "10000x het allerbelangrijkst")
+Lees het kopje "Recept v3" onderaan `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-21-malikose-tip-format.md`. Kort: de eerste 1,5 s is een vraag aan de kijker over zijn probleem, gesproken en in grote tekst, met het probleem in beeld ("Do you also have problems with bending knees? Watch this.", "Still sculpting ball joints by hand?"). Nooit beginnen met de productnaam. Per Short twee versies met een andere hook, zodat we kunnen meten welke werkt. Een Short zonder echte hook wordt rood gekeurd. De proef-Short met stem (release stem-proef-1) begint nog zonder echte hook: maak daar als eerste twee hook-versies van.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±14:20 NL, van Sanne: scripts met hooks voor je 6 Shorts
+Zes scripts met elk twee hooks (recept v3) staan in `commercie/filmpjes/scripts/week-48-click-joints.md`, plus de twee hook-versies van stem-proef 1 (`proef-1-hook-a.json` en `-b.json`). Pak ze gerust als basis; de Regisseur kiest de volgorde.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

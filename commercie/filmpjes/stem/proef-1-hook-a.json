@@ -1,0 +1,350 @@
+{
+ "naam": "knee-hook-a",
+ "titel": "Your figure's knees bend too far? Check it before you print 🦵 | Blender",
+ "eind": {
+  "titel": "Click Joints Pro",
+  "zin": "Rig to printable figure: elbows and knees stop where your rig stops.",
+  "adres": "dortus.com/yt",
+  "render": "render-1.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "scenes": [
+  {
+   "tekst": "Your figure's knees bend too far?",
+   "label": "PROBLEM",
+   "kleur": "rood",
+   "kop": "Knees bending too far?",
+   "groot": true,
+   "beeld": {
+    "deel": "knie_rood",
+    "van": 40,
+    "tot": 97,
+    "uitsnede": [
+     [
+      680,
+      600,
+      1000
+     ]
+    ],
+    "inzet": [
+     1480,
+     1574,
+     2080,
+     1622
+    ]
+   }
+  },
+  {
+   "tekst": "Here's a rigged character in Blender, with Click Joints Pro open.",
+   "label": "START",
+   "kleur": "blauw",
+   "kop": "A rigged character",
+   "beeld": {
+    "deel": "heel",
+    "van": 0,
+    "tot": 40,
+    "uitsnede": [
+     [
+      1080,
+      960,
+      2160
+     ],
+     [
+      820,
+      640,
+      1640
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Select the character, then press Figure from rig.",
+   "label": "ONE BUTTON",
+   "kleur": "groen",
+   "kop": "Press Figure from rig",
+   "beeld": {
+    "deel": "kies",
+    "van": 10,
+    "tot": 92,
+    "uitsnede": [
+     [
+      900,
+      600,
+      1500
+     ],
+     [
+      1500,
+      420,
+      1250
+     ]
+    ],
+    "nadruk": [
+     [
+      1102,
+      243,
+      2098,
+      289
+     ]
+    ],
+    "nadruk_bron": [
+     95,
+     117
+    ]
+   }
+  },
+  {
+   "tekst": "It puts a joint at every shoulder, elbow, hip, knee and neck.",
+   "label": "WHAT YOU GET",
+   "kleur": "groen",
+   "kop": "A joint at every limb",
+   "beeld": {
+    "deel": "lijst",
+    "van": 0,
+    "tot": 110,
+    "uitsnede": [
+     [
+      520,
+      640,
+      1000
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "The panel lists all nine joints, each with its range in degrees.",
+   "label": "THE LIST",
+   "kleur": "blauw",
+   "kop": "Nine joints, one list",
+   "beeld": {
+    "deel": "lijst",
+    "van": 110,
+    "tot": 160,
+    "uitsnede": [
+     [
+      1560,
+      660,
+      1120
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "The left knee is a hinge, from zero to one hundred and twenty degrees.",
+   "label": "LEFT KNEE",
+   "kleur": "oranje",
+   "kop": "A hinge, 0 to 120°",
+   "beeld": {
+    "deel": "lijst",
+    "van": 160,
+    "tot": 175,
+    "uitsnede": [
+     [
+      1360,
+      620,
+      680
+     ]
+    ],
+    "nadruk": [
+     [
+      1112,
+      590,
+      1580,
+      618
+     ]
+    ],
+    "nadruk_bron": [
+     0,
+     99999
+    ]
+   }
+  },
+  {
+   "tekst": "That limit comes from our rig. The right knee mirrors it.",
+   "label": "WHERE FROM",
+   "kleur": "oranje",
+   "kop": "The limit comes from the rig",
+   "beeld": {
+    "deel": "lijst",
+    "van": 175,
+    "tot": 189,
+    "uitsnede": [
+     [
+      1380,
+      630,
+      700
+     ]
+    ],
+    "nadruk": [
+     [
+      1112,
+      590,
+      1580,
+      660
+     ]
+    ],
+    "nadruk_bron": [
+     0,
+     99999
+    ]
+   }
+  },
+  {
+   "tekst": "Now drag the Bend slider, and watch the knee.",
+   "label": "TRY IT",
+   "kleur": "groen",
+   "kop": "Bend the knee",
+   "beeld": {
+    "deel": "knie",
+    "van": 50,
+    "tot": 174,
+    "uitsnede": [
+     [
+      640,
+      620,
+      1000
+     ]
+    ],
+    "inzet": [
+     1480,
+     1574,
+     2080,
+     1622
+    ]
+   }
+  },
+  {
+   "tekst": "At one hundred and twenty degrees, it reaches the end stop.",
+   "label": "AT THE TOP",
+   "kleur": "oranje",
+   "kop": "120° is the end stop",
+   "beeld": {
+    "deel": "knie_stop",
+    "van": 0,
+    "tot": 40,
+    "uitsnede": [
+     [
+      620,
+      560,
+      880
+     ]
+    ],
+    "inzet": [
+     1480,
+     1574,
+     2080,
+     1622
+    ]
+   }
+  },
+  {
+   "tekst": "Go further, and a red arc shows how far past the limit you are.",
+   "label": "TOO FAR",
+   "kleur": "rood",
+   "kop": "Past the stop: red",
+   "beeld": {
+    "deel": "knie_rood",
+    "van": 6,
+    "tot": 97,
+    "uitsnede": [
+     [
+      680,
+      600,
+      1000
+     ]
+    ],
+    "inzet": [
+     1480,
+     1574,
+     2080,
+     1622
+    ]
+   }
+  },
+  {
+   "tekst": "So you find the problem in Blender, before you print.",
+   "label": "WHY IT MATTERS",
+   "kleur": "blauw",
+   "kop": "Find it before you print",
+   "beeld": {
+    "deel": "pose",
+    "van": 0,
+    "tot": 90,
+    "uitsnede": [
+     [
+      560,
+      620,
+      1100
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Exploded view pulls the parts apart, so you can see the ball joints.",
+   "label": "EXPLODED VIEW",
+   "kleur": "groen",
+   "kop": "See every part",
+   "beeld": {
+    "deel": "uitelkaar",
+    "van": 150,
+    "tot": 287,
+    "uitsnede": [
+     [
+      540,
+      640,
+      1080
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Then export every part as a 3MF file for your slicer.",
+   "uitspraak": "Then export every part as a three M F file, for your slicer.",
+   "label": "EXPORT",
+   "kleur": "blauw",
+   "kop": "Export as 3MF",
+   "beeld": {
+    "deel": "export",
+    "van": 0,
+    "tot": 129,
+    "uitsnede": [
+     [
+      1600,
+      1120,
+      1100
+     ]
+    ],
+    "nadruk": [
+     [
+      1112,
+      1082,
+      2098,
+      1192
+     ]
+    ],
+    "nadruk_bron": [
+     1056,
+     1110
+    ]
+   }
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Print a test joint first.",
+   "label": "GOOD TO KNOW",
+   "kleur": "oranje",
+   "kop": "Print a test joint first",
+   "beeld": {
+    "render": "render-4.png"
+   }
+  },
+  {
+   "tekst": "Click Joints Pro. Elbows and knees stop where your rig stops.",
+   "label": "",
+   "kleur": "blauw",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   }
+  }
+ ],
+ "hook_soort": "probleem"
+}

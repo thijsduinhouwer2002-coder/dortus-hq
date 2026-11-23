@@ -18,3 +18,11 @@
 - Omslag zelf bekeken: het mooie eindresultaat (blauwe oceaan met schuim) in het echte Blender-scherm, muis in beeld.
 - **Recept v2 voor onze Shorts:** (1) eerste beeld = het mooie eindresultaat, een gekleurd figuur in een leuke pose, geen grijze mannequin; (2) echt Blender-scherm met bewegende muis, stap voor stap, 40 tot 60 s; (3) een les die je zelf kunt nadoen, Click Joints als gereedschap; (4) grote ondertitels, rustig eigen geluid (geen AI-stem; een stem van Thijs zou het beste zijn); (5) titel als belofte met emoji: "Make any character poseable for 3D printing 🔥 | Blender".
 - Besluit hoofdchat: van de 11 groene Shorts van reeks 1 alleen de 3 beste als vergelijking (rig-naar-10-delen, knie-te-ver, rig-naar-poseerbaar); de rest blijft liggen tot reeks 2 er is.
+
+## Recept v3: de hook eerst (Thijs 23 nov 12:37: "de hook is echt 10000x het allerbelangrijkst")
+Thijs: begin met een vraag aan de kijker, bijvoorbeeld "Do you also have problems with bending knees? Watch this." of "Are you still doing this the old-fashioned way?". Dit gaat voor alles in v2.
+1. **Eerste 1,5 seconde = de hook, gesproken én in grote tekst in beeld.** Een vraag over het probleem van de kijker, niet over ons product. Nooit beginnen met de productnaam of "In this video".
+2. **Het beeld laat in die 1,5 s het probleem zien**, niet de oplossing: een knie die te ver doorbuigt (rood), een kogel die klem zit, een figuur die in elkaar zakt, iemand die een kogelgewricht met de hand boetseert. Daarna pas het mooie eindresultaat en de stappen.
+3. **Soorten hook (wissel ze af):** probleem ("Your 3D printed figure's knees bend backwards?"), oude manier ("Still sculpting ball joints by hand?"), uitdaging ("Can you make this figure poseable in 30 seconds?"), verrassing ("This knee stops at exactly 120°. Here's how."), fout ("Most printed joints fail for one reason.") Alleen als het klopt: geen beloftes over printen die we niet getest hebben.
+4. **Per Short twee versies met een andere hook**, zelfde rest. Na 48 uur kijken welke langer bekeken wordt (YouTube Studio: weergaven en "bleef kijken"); de winnende soort vaker gebruiken. Schrijf de uitslag in `commercie/filmpjes/regisseur-log.md`.
+5. Keurders: een Short zonder echte hook in de eerste 1,5 s is rood.

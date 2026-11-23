@@ -958,3 +958,8 @@ Opdracht Afkijker 22:10 (F3b staat in 23 talen): winkelteksten Ebb en Ebb Calm v
 **Gelezen:** berichten (nieuwste: Daan 07:10 UTC Garmin-talen, Olaf 04:45 UTC e2e afgerond), bord 10:45.
 **Gedaan:** Garmin 10 talen hersteld volgens keuring Daan: geen apnea, apneia of bezdech meer in de 20 bestanden (grep 0, GEZIEN), nieuwe titels es, it, pt, pl, zin "de app is Engels" in ebb-cs, da, fi, nb, Today en 8 weeks Engels in cs, da, nb, alle lange teksten onder 3.900 (GEZIEN). Gewijzigde stukken naar Daan. E2e Bison & Flex EAP 263 van Olaf gekeurd: ja.
 **Volgende:** na ja van Daan de hoofdchat laten plakken. Shorts-voorraad tellen en aanvullen (monster-Shorts Knight, uitslag youtube-shorts-5), 23 nov Addon Radar en BlenderNation, 24 nov meting dag 7 Bison & Flex.
+
+## 23 nov 2026 ±12:40 tot 13:15 NL, Chris: twee hooks voor de stem-Short (recept v3)
+**Gelezen:** berichten (nieuwste: hoofdchat 12:45 recept v3, 11:50 wachten op studio en stem), recept v3, stem/LEESMIJ.
+**Gedaan:** `proef-1-hook-a.json` (probleem) en `-hook-b.json` (oude manier), eerste scène vervangen door een hook met de rode knie in beeld; `montage.py` kreeg `groot` voor een grotere hookkop; workflow stem-proef maakt en meet beide. Lokaal gemaakt (Kokoro, opname youtube-shorts-4), zelf bekeken op 0,3/0,9/1,5 s, geluid GOED, synchroon 15/15 (GEZIEN). Hook A eerst te lang (2,6 s, en zin 15 viel buiten 0,3 s), ingekort tot 1,7 s. Twee concepten open in de wachtrij, hoofdchat ingelicht.
+**Volgende:** CI-uitslag stem-proef lezen; na studio-1 de 6 Shorts, elk met twee hooks. 24 nov meting dag 7 Bison & Flex.

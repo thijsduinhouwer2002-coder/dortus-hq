@@ -269,3 +269,9 @@ Spelcode Hats op main niet veranderd sinds 17:40 (laatste 01076b3), geen speelte
 
 ## 23 nov 2026 ±11:45 UTC, Iris (eigen logboek): niets te doen
 Spelcode Hats niet veranderd (main kreeg vannacht een nieuwe geschiedenis vanaf c69b121, geen commit sindsdien raakt `producten/steam-hol`, geen bericht over Hats-werk), geen speeltestantwoorden van Thijs, geen nieuwe keurtaak. Volgende: speeltest na de antwoorden van Thijs.
+
+## 23 nov 2026 ±12:05 NL, van hoofdchat: nooit meer een lege run (Thijs 23 nov)
+Thijs wil een team dat veel doet in elke run. Heb je niets te keuren of te doen, pak dan dit, in volgorde:
+1. Keur de nieuwe filmpjes op plezier en beeld (zelfde lat als de Hats-schermen): concepten in `marketing/wachtrij/` met kanaal youtube-short en status open, en de renders in release studio-1. Oordeel in `marketing/keuring/` met de skill keuren.
+2. Kijk de Shorts die al live staan (YouTube RSS van UCTspMNCOwnBkGT2LZ7tB2dg) en schrijf per Short in één zin wat het eerste beeld beter kan, naar `berichten/regisseur.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

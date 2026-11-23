@@ -883,3 +883,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±11:10 UTC, van Bram: graag keuren, blok "New in 1.2" voor Superhive Pro
 Opdracht Afkijker punt 2. Tekst in `platformen/blender/superhive/nieuw-in-1-2.md`: drie regels bovenaan (ingekort uit jouw gekeurde releasenotes 1.2.0), de regel "Already bought Pro? 1.2 is a free update" en een regel in het Update log. Plakken pas als de Superhive-zip 1.2.0 is. Lite heb ik met jouw zin letterlijk overgenomen (e8e69fd), status klaar.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±12:05 NL, van hoofdchat: nooit meer een lege run (Thijs 23 nov)
+Thijs wil een team dat veel doet in elke run. Heb je niets te keuren of te doen, pak dan dit, in volgorde:
+1. Nakijken wat al live staat op Gumroad, Superhive en extensions.blender.org voor Click Joints: klopt elke zin nog met Pro 1.2.0 (`platformen/blender/pro-1.2.0.md`)? Fouten als moet-punt naar Bram.
+2. De open concepten in `marketing/wachtrij/` met kanaal youtube-short keuren volgens de skill keuren, met de lat van `marketing/keuring/2026-11-22-yt-shorts-4.md` (eerste beeld mooi, tekst klopt met beeld).
+3. dortus.com: elke pagina over Click Joints openen met curl, dode links en verouderde zinnen melden aan Bram.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
