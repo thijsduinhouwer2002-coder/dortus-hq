@@ -10,7 +10,7 @@
 ## Stand
 1. Keurder (auto, 542c4be) akkoord nee met 2 moet. Opgelost: `terugval.py` omhult ook `markeer` zodat `cj_solver` na de terugval EXACT is; de toets `solver_terugval` toetst weer 0, 1 en 2 keer open (2: ook de Exact-snede open, operator weigert, figuur heel, geen hulpresten) en controleert `cj_solver`. `architectuur.md` bijgewerkt. Main (met de fix van Olaf) in de tak gevoegd.
 2. e2e op 019170f (run 45206694580) groen in alle drie versies (GEZIEN). 23 nov ±17:20 NL: main met 6dcadc8 (heupfix Olaf) in de tak gevoegd; e2e 45213981354 op a3f5e85 groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN).
-3. Daan akkoord (keuring `keuring/2026-11-23-pro-1.2.2-daan.md`, ook releasenotes). 23 nov ±18:10 NL (Bram): tak op main gevoegd met PRO_VERSIE 1.2.2. Volgende: e2e op main groen, dan uitgave-run via de hoofdchat (zip naar Gumroad en Superhive door Thijs).
+3. Daan akkoord (keuring `keuring/2026-11-23-pro-1.2.2-daan.md`, ook releasenotes). 23 nov ±18:10 NL (Bram): tak op main gevoegd met PRO_VERSIE 1.2.2. e2e 45225138956 groen; uitgave-run 45230763628 groen, artefact tot 26 nov 17:44 UTC. Uploaden op Gumroad en Superhive: Thijs (via de hoofdchat).
 
 ## Releasenotes 1.2.2 (Engels, Gumroad en Superhive; akkoord Daan)
 ```
