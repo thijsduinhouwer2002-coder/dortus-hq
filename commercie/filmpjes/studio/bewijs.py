@@ -6,7 +6,10 @@ Exploded view, liggend in pose). Draait in een echte Blender met beeldscherm (xv
     xvfb-run -s "-screen 0 1920x1080x24" blender --gpu-backend opengl -p 0 0 1920 1080 \
         --python bewijs.py -- <uitmap> <pro-zip> <base.obj> [naam]
 Knoppen (env): CJ_SNEL=<.blend met al gesneden delen> slaat de knop over (alleen om de studio snel te testen);
-CJ_STIJL=b geeft de tweede kleurstelling. Regels "STUDIO OK <stap>" in het log; de workflow eist ze.
+CJ_STIJL=b geeft de tweede kleurstelling. CJ_FIGUUR=robot (studio-2) laadt de zelfgebouwde robot in plaats van het
+mensfiguur; CJ_FIGUUR=<pad.glb> een ander figuur met eigen rig (CJ_HOOGTE, CJ_WEG, CJ_ARMEN zoals bij proef_figuur).
+CJ_ALLEEN_STAAND=1: alleen de eerste render (snelle kijk naar een kandidaat). Regels "STUDIO OK <stap>" in het log;
+de workflow eist ze.
 """
 import importlib
 import json
@@ -32,6 +35,11 @@ STIJLEN = {
     "a": {},   # oranje shirt, blauwe broek, gele schoenen, bruin haar (FL.STIJL)
     "b": {"shirt": "7B5CFF", "broek": "2B2D42", "schoen": "FF4F79", "haar": "F4B942", "riem": "FF4F79"},
 }
+FIGUUR = os.environ.get("CJ_FIGUUR", "mens")
+HOOGTE = float(os.environ.get("CJ_HOOGTE", "220"))
+if FIGUUR == "robot":
+    import figuur_robot as R  # noqa: E402
+    STIJLEN = {"a": {}, "b": R.STIJL_B}
 STIJL = STIJLEN[os.environ.get("CJ_STIJL", "a")]
 UI = float(os.environ.get("CJ_UI", "1.35"))
 meting = {"naam": NAAM, "stijl": os.environ.get("CJ_STIJL", "a")}
@@ -152,18 +160,24 @@ def verloop():
         fignaam = next(o.get("cj_figuur") for o in bpy.context.scene.objects if o.get("cj_figuur"))
         ob = None
     else:
-        arm, ob, _p = FL.laad_mens_kleding(OBJ, 220.0, stijl=STIJL)
+        if FIGUUR == "mens":
+            arm, ob, _p = FL.laad_mens_kleding(OBJ, HOOGTE, stijl=STIJL)
+        else:
+            weg = tuple(w for w in os.environ.get("CJ_WEG", "").split(",") if w)
+            arm, ob, _p = FL.laad_figuur(FIGUUR, HOOGTE, stijl=STIJL, weg=weg,
+                                         armen=float(os.environ.get("CJ_ARMEN", "0")))
         fignaam = ob.name
+        meting["figuur"] = FIGUUR
     arm.hide_set(True)
     inst.speling_mm, inst.as_bron, inst.uit_elkaar, inst.kogel_auto = 0.2, "CURSOR", False, True
-    S.bouw(220.0)
+    S.bouw(HOOGTE)
     log("STUDIO OK bouw")
     venster, gebied = S.rustig_scherm(ui=UI)
     yield 1.0
     S.view3d()[1].spaces.active.show_region_ui = True
     yield from naar_tabblad()
     yield 0.5
-    S.kijk_naar((0, 0, 108), 400, draai=-28, kantel=84)
+    S.kijk_naar((0, 0, 0.49 * HOOGTE), 400 * HOOGTE / 220, draai=-28, kantel=84)
     yield 1.0
     yield from wiel(60)   # zijbalk helemaal omlaag: daar staat Figure joints met de knop en later de lijst
     yield 1.0
@@ -238,6 +252,10 @@ def verloop():
     yield 0.3
     S.render(os.path.join(UIT, f"{NAAM}-1-staand-pose.png"))
     log("STUDIO OK render1")
+    if os.environ.get("CJ_ALLEEN_STAAND"):
+        json.dump(meting, open(os.path.join(UIT, f"{NAAM}-meting.json"), "w"), indent=1, ensure_ascii=False)
+        log("STUDIO OK klaar")
+        return
     inst.uit_elkaar = True
     herteken()
     bpy.context.view_layer.update()

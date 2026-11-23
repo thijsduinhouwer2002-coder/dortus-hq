@@ -4,7 +4,10 @@ inladen als één mesh die Figure from rig kan lezen, met de kleuren van het mod
 Gebruik in Blender (na het installeren van de Pro-zip):
     import figuur_laden as FL
     arm, body = FL.laad("/pad/model.glb", hoogte_mm=240, weg=("Backpack",))
-Stappen: glb inladen, animatie en pose weg (rusthouding), alle meshes van de rig samen tot één object (ook delen die
+Keuze per figuur (studio-2, 23 nov): `laad_figuur("robot")` (zelfgebouwde robot, figuur_robot.py, de standaard
+voor filmpjes), `laad_figuur("mens")` (MakeHuman met kleding, studio-1) of `laad_figuur("/pad/model.glb")`.
+
+Stappen van laad(): glb inladen, animatie en pose weg (rusthouding), alle meshes van de rig samen tot één object (ook delen die
 aan een bot hangen, zoals bij de robot), schaal naar `hoogte_mm` met de voeten op z=0, Make watertight van de add-on
 als de mesh open is of uit losse stukken bestaat, en daarna de kleuren per vlak terug van het origineel (de
 voxel-remesh gooit de materialen weg). Alleen invoer: de knop Figure from rig doet daarna alles zelf.
@@ -526,3 +529,20 @@ def voorproef(pad, samples=16):
     sc.render.filepath = pad
     bpy.ops.render.render(write_still=True)
     bpy.data.objects.remove(cam)
+
+
+# ---------- keuze per figuur (studio-2) ----------
+HIER = os.path.dirname(os.path.abspath(__file__))
+MENS_OBJ = os.path.join(HIER, "modellen", "makehuman-base.obj")
+
+
+def laad_figuur(keuze="robot", hoogte_mm=220.0, stijl=None, weg=(), armen=0.0):
+    """Eén ingang voor elk figuur. keuze: "robot" (figuur_robot.py, standaard), "mens" (MakeHuman met kleding) of
+    een pad naar een .glb/.blend met eigen rig. Geeft (rig, figuur, punten); punten is None bij een eigen glb."""
+    if keuze == "robot":
+        import figuur_robot as R
+        return R.laad_robot(hoogte_mm, stijl=stijl)
+    if keuze == "mens" or keuze.endswith(".obj"):
+        return laad_mens_kleding(MENS_OBJ if keuze == "mens" else keuze, hoogte_mm, stijl=stijl)
+    arm, body = laad(keuze, hoogte_mm, weg, armen=armen)
+    return arm, body, None

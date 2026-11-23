@@ -5,10 +5,12 @@ name: Studio filmpjes (bewijs studio-1)
 # Job kandidaten: per kandidaat-figuur Figure from rig (Pro 1.2.0) in Blender 5.3.0 zonder beeldscherm, telt de
 # gewrichten. Job studio: het gekozen figuur in de studio, 3 schermafbeeldingen van het Blender-scherm met het paneel
 # en 3 renders per kleurstelling. Job release: alles in release studio-1. Niets wordt geplaatst.
+# 23 nov ±15:30: niet meer bij elke wijziging in commercie/filmpjes/studio/ (studio-2 werkt daar verder, zie
+# studio2.yml); anders overschrijft elke push de bewijzen in release studio-1. Alleen nog als dit bestand verandert.
 on:
   push:
     branches: [main]
-    paths: ["commercie/filmpjes/studio/**", ".github/workflows/studio.yml"]
+    paths: [".github/workflows/studio.yml"]
   workflow_dispatch:
     inputs:
       samples:

@@ -292,10 +292,11 @@ def plastic(delen, gewricht="naadloos"):
                 b0 = next((n for n in m.node_tree.nodes if n.type == "BSDF_PRINCIPLED"), None)
                 if b0 is not None:
                     kleur = tuple(b0.inputs["Base Color"].default_value)
-            _plastic_nodes(_mat(m.name), kleur)
+            _plastic_nodes(_mat(m.name), kleur, metaal=bool(m.get("cj_metaal")), licht=bool(m.get("cj_licht")))
 
 
-def _plastic_nodes(m, kleur):
+def _plastic_nodes(m, kleur, metaal=False, licht=False):
+    """metaal: zijdeglans zoals zilvergrijs filament (robot, studio-2). licht: de kleur gloeit zacht (oog-leds)."""
     nt = m.node_tree
     for n in list(nt.nodes):
         if n.type not in ("OUTPUT_MATERIAL",):
@@ -309,6 +310,14 @@ def _plastic_nodes(m, kleur):
     _zet(b, "Coat Roughness", 0.12)
     _zet(b, "Specular IOR Level", 0.5)
     _zet(b, "Subsurface Weight", 0.04)
+    if metaal:
+        _zet(b, "Metallic", 0.7)
+        _zet(b, "Roughness", 0.32)
+        _zet(b, "Coat Weight", 0.1)
+        _zet(b, "Subsurface Weight", 0.0)
+    if licht:
+        _zet(b, "Emission Color", kleur)
+        _zet(b, "Emission Strength", 1.2)
     # laaglijnen: golf langs z in wereldmaat, 0,4 mm per laag, heel licht reliëf
     tc = nt.nodes.new("ShaderNodeTexCoord")
     sep = nt.nodes.new("ShaderNodeSeparateXYZ")

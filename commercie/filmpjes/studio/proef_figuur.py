@@ -1,5 +1,6 @@
 """Proef per kandidaat (studio, 23 nov 2026): maakt Figure from rig (Pro 1.2.0) genoeg gewrichten zonder rare snedes?
-Gebruik: blender -b --factory-startup --python proef_figuur.py -- <pro-zip> <model.glb|.blend> <hoogte_mm> [weg,weg] [uitmap]
+Gebruik: blender -b --factory-startup --python proef_figuur.py -- <pro-zip> <model.glb|.blend|robot> <hoogte_mm> [weg,weg] [uitmap]
+Met "robot" als model: de zelfgebouwde robot uit figuur_robot.py (studio-2, 23 nov).
 Laatste regel: "PROEF <naam> hoogte=<mm> gewrichten=<n> delen=<n> stukken=<lijst>".
 """
 import importlib
@@ -16,11 +17,14 @@ args = sys.argv[sys.argv.index("--") + 1:]
 zip_pad, pad, hoogte = args[0], args[1], float(args[2])
 weg = tuple(w for w in (args[3] if len(args) > 3 else "").split(",") if w)
 uit = args[4] if len(args) > 4 else None
-naam_m = os.path.splitext(os.path.basename(pad))[0]
+naam_m = os.environ.get("CJ_NAAM") or os.path.splitext(os.path.basename(pad))[0]
 if "figuur_uit_rig" not in dir(bpy.ops.click_joints):
     bpy.ops.extensions.package_install_files(filepath=zip_pad, repo="user_default", enable_on_install=True)
 ARMEN = float(os.environ.get("CJ_ARMEN", "0"))
-if pad.endswith(".obj"):
+if pad == "robot":
+    import figuur_robot as R
+    arm, ob, _punten = R.laad_robot(hoogte)
+elif pad.endswith(".obj"):
     arm, ob, _punten = FL.laad_mens_kleding(pad, hoogte)
 else:
     arm, ob = FL.laad(pad, hoogte, weg, armen=ARMEN)
