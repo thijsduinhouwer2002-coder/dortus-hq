@@ -12,8 +12,17 @@ from mathutils import Matrix, Vector
 
 
 def mm_scene():
-    bpy.ops.wm.read_factory_settings(use_empty=True)
+    """Empties the current scene (read_factory_settings would switch the add-on off) and sets 1 unit = 1 mm."""
     s = bpy.context.scene
+    for ob in list(bpy.data.objects):
+        bpy.data.objects.remove(ob)
+    for col in list(bpy.data.collections):
+        bpy.data.collections.remove(col)
+    for me in list(bpy.data.meshes):
+        if me.users == 0:
+            bpy.data.meshes.remove(me)
+    s.split_joints.bron = ""
+    s.split_joints.meldingen = ""
     s.unit_settings.system = "METRIC"
     s.unit_settings.scale_length = 0.001
     s.unit_settings.length_unit = "MILLIMETERS"
@@ -46,8 +55,10 @@ def schaal_naar(ob, as_, mm):
 
 
 def actief(ob):
+    bpy.context.view_layer.update()
     for o in bpy.context.view_layer.objects:
-        o.select_set(False)
+        if o is not None:
+            o.select_set(False)
     ob.select_set(True)
     bpy.context.view_layer.objects.active = ob
 

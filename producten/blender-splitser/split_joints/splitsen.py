@@ -214,7 +214,8 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
         inst.meldingen = "\n".join(meldingen)
         context.view_layer.update()
         for o in context.view_layer.objects:
-            o.select_set(False)
+            if o is not None:
+                o.select_set(False)
         if stukken:
             context.view_layer.objects.active = stukken[0]
         rood = sum(1 for s in stukken if s.get("sj_status") == "rood")

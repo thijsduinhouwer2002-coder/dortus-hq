@@ -78,7 +78,8 @@ class SPLIT_JOINTS_OT_maak_gesloten(bpy.types.Operator):
         bron.hide_set(True)
         context.view_layer.update()
         for o in context.view_layer.objects:
-            o.select_set(False)
+            if o is not None:
+                o.select_set(False)
         kopie.select_set(True)
         context.view_layer.objects.active = kopie
         self.report({"INFO"}, f"Watertight copy {kopie.name} made ({len(me.polygons)} faces)")

@@ -145,7 +145,8 @@ class SPLIT_JOINTS_OT_plan(bpy.types.Operator):
         scene.split_joints.bron = ob.name
         scene["sj_plan"] = {"stukken": uit["stukken"], "n": list(uit["n"]), "cel": list(uit["cel"])}
         for o in context.view_layer.objects:
-            o.select_set(False)
+            if o is not None:
+                o.select_set(False)
         ob.select_set(True)
         context.view_layer.objects.active = ob
         self.report({"INFO"}, f"{uit['stukken']} pieces, {len(uit['snedes'])} cuts. Move a cut with G if you like.")
