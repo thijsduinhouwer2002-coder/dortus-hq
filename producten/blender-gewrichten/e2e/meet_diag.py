@@ -170,6 +170,7 @@ def instrumenteer():
     rig = mod("betaald.rig")
     een_lid = mod("een_lid")
     oud_snij, oud_plaats, oud_vast = gw.snij, fig.plaats_gewricht, rig.kogel_vast
+    oud_verloren = rig.verloren_stuk
 
     def snij(hulp, werk, frame, maat, soort, solver):
         t0 = time.perf_counter()
@@ -192,10 +193,21 @@ def instrumenteer():
 
     def plaats(context, sleutel, naam=None, graden_vrij=0, herkomst="preset"):
         _HUIDIG["naam"] = naam
+        bron = context.active_object
         t0 = time.perf_counter()
         ok, melding, nieuw = oud_plaats(context, sleutel, naam, graden_vrij, herkomst)
-        POGINGEN.append({"gewricht": naam, "ok": ok, "melding": melding, "s": round(time.perf_counter() - t0, 2),
-                         "plek": [round(c, 3) for c in context.scene.cursor.location]})
+        rec = {"gewricht": naam, "ok": ok, "melding": melding, "s": round(time.perf_counter() - t0, 2),
+               "plek": [round(c, 3) for c in context.scene.cursor.location]}
+        if ok and nieuw and sleutel in ("SHOULDER", "HIP", "NECK"):
+            # Keuring A, M1: verlies ook bij elke kogelsnede, in nulstand en tak op dezelfde manier gemeten
+            # (rig.verloren_stuk, bol van 15 mm rond de cursor overgeslagen).
+            try:
+                u = mod("eigenschappen").eenheid_per_mm(context.scene)
+                rec["verloren_diag"] = round(oud_verloren(context, bron, nieuw, context.scene.cursor.location.copy(),
+                                                          15 * u), 4)
+            except Exception as e:
+                rec["verloren_diag"] = f"fout {e}"[:120]
+        POGINGEN.append(rec)
         return ok, melding, nieuw
 
     def vast(nieuw):
@@ -205,8 +217,6 @@ def instrumenteer():
             g = [list(d.get("cj_buig_graden", [])) for d in nieuw or [] if d.get("cj_deel") == "B"]
             POGINGEN[-1]["buig"] = [round(x, 1) for x in g[0]] if g else None
         return uit
-
-    oud_verloren = rig.verloren_stuk
 
     def verloren(context, bron, nieuw, centrum, straal, n=400):
         uit = oud_verloren(context, bron, nieuw, centrum, straal, n)

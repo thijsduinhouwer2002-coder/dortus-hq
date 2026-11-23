@@ -125,10 +125,39 @@ def main():
                 return vast
             return echt_vast(nieuw)
         rigm2.kogel_schuif, rigm2.kogel_vast, figm2.plaats_gewricht = schuif_nep, vast_nep, plaats_tel
+    herkans3 = os.environ.get("CJ_HERKANS") == "3"
+    verlies = {"nu": None, "kogels": [], "nep": 0}
+    if herkans3:
+        # 24 nov (keuring Betrouwbaarheid A, M1): het vangnet "lost part of the model" (rig.verloren_stuk, grens 6%)
+        # geldt nu ook voor kogels. Hier verliest de eerste snede van de linkerschouder zogenaamd 50%: de knop moet die
+        # snede terugdraaien en een volgende plek nemen, en de schouder toch plaatsen (in 5.x).
+        rigm3 = mod("betaald.rig")
+        figm3 = mod("betaald.figuur")
+        echt_verloren, echt_plaats3 = rigm3.verloren_stuk, figm3.plaats_gewricht
+
+        def plaats_tel3(context, sleutel, naam=None, *a, **k):
+            verlies["nu"] = (naam, sleutel)
+            return echt_plaats3(context, sleutel, naam, *a, **k)
+
+        def verloren_nep(*a, **k):
+            naam, sleutel = verlies["nu"] or (None, None)
+            if sleutel in ("SHOULDER", "HIP", "NECK"):
+                verlies["kogels"].append(naam)
+            if naam == "Left shoulder" and not verlies["nep"]:
+                verlies["nep"] += 1
+                return 0.5
+            return echt_verloren(*a, **k)
+        rigm3.verloren_stuk, figm3.plaats_gewricht = verloren_nep, plaats_tel3
     try:
         r = bpy.ops.click_joints.figuur_uit_rig()
     except RuntimeError as e:
         r = f"fout {str(e).strip()[:300]}"
+    if herkans3:
+        rigm3.verloren_stuk, figm3.plaats_gewricht = echt_verloren, echt_plaats3
+        log(f"verlies gemeten bij kogels: {verlies['kogels']}")
+        check(len(verlies["kogels"]) >= 1, "het vangnet 'lost part of the model' meet ook bij kogelsneden")
+        check(verlies["nep"] == 1 and verlies["kogels"].count("Left shoulder") >= 2,
+              "na een kogelsnede die te veel verliest neemt de knop een volgende plek (linkerschouder)")
     if herkans:
         figm.plaats_gewricht = echt
         check(nep == ["Left shoulder"], f"mislukte snede nagedaan op de linkerschouder ({nep})")
@@ -178,6 +207,8 @@ def main():
     for n, g, h in (("Left elbow", 140, "from rig"), ("Right elbow", 140, "mirrored")):
         ok, t = bereik(n, g, h)
         check(ok, f"{n}: 0–{g} {h} ({t})")
+    if herkans3 and not oud:
+        check("Left shoulder" in per, f"linkerschouder toch geplaatst na de geweigerde snede ({over[:200]})")
     standaard = [f"{k} {w}" for k in ("Left", "Right") for w in ("knee", "elbow", "hip", "shoulder")] + ["Neck"]
     mis = [n for n in standaard if n not in per]
     check(all(f"{n} (" in over for n in mis), f"elk overgeslagen gewricht met reden ({mis})")

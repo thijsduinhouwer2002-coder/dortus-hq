@@ -24,15 +24,17 @@ jobs:
       matrix:
         # Hoofdchat 23 nov: dezelfde mesh gaf wisselend 8 of 9. Daarom elke meting 5 keer (herhaal), voor de code van
         # deze tak en voor de nulstand (NUL_COMMIT, Pro 1.2.2 op main), met dezelfde figuren uit deze checkout.
-        # 23 nov ±23:40: alleen 4.2 opnieuw (de laatste wijziging, herstel.opschonen, raakt alleen Exact); 5.2.3 en 5.3.0
-        # staan 5 keer gemeten in run 45273407326. Zet de andere versies terug in de lijst voor een volle meting.
-        blender: ["4.2.23"]
+        # 24 nov (keuring A, M1): verlies bij elke kogelsnede, tak (5 keer) tegen nulstand (2 keer: de nulstand is per
+        # versie gelijk of wisselt alleen op de robot, zie run 45273407326), in alle drie versies.
+        blender: ["4.2.23", "5.2.3", "5.3.0"]
         figuur: [robot-a, robot-b, robot-fijn, kleding, mens, rigify, armen]
-        # De nulstand staat vast (NUL_COMMIT) en is 5 keer gemeten in run 45273407326; zet "nul" terug in de lijst om
-        # hem opnieuw te meten.
-        code: [tak]
+        code: [tak, nul]
         herhaal: [1, 2, 3, 4, 5]
         threads: [""]
+        exclude:
+          - { code: nul, herhaal: 3 }
+          - { code: nul, herhaal: 4 }
+          - { code: nul, herhaal: 5 }
         # Proef met één thread (-t 1): include-regels met threads: "1" (gedaan in run 45273407326 op de nulstand).
     env:
       PRO_VERSIE: "1.2.2"
@@ -159,6 +161,7 @@ jobs:
           SCRIPT=toetsen_meshy_rig.py ARGS="$M/man_backpack.glb $M/knight_yellow.glb" draai meshy_rig
           SCRIPT=toetsen_mens.py ARGS="$OBJ" draai mens
           SCRIPT=toetsen_mens.py ARGS="$OBJ" draai mens_herkans CJ_HERKANS=1
+          SCRIPT=toetsen_mens.py ARGS="$OBJ" draai mens_verlies CJ_HERKANS=3
           SCRIPT=toetsen_mens.py ARGS="$OBJ" draai mens_arp CJ_RIG_NAMEN=arp
           SCRIPT=toetsen_zwaai.py ARGS="$OBJ" draai zwaai
           echo $fout > /tmp/uit/FOUT.txt
