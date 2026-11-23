@@ -1233,3 +1233,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±20:38 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 60e15aa..ed2315d: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-ed2315d.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer in de run dat `maten_neus` zonder diepte `""` geeft (A3) en dat geen andere toets meer `neus.TIGHT` verwacht in een kort-onderkant-geval (B3). - Zet het run-id van de groene e2e in de commit of in `ontwerp.md`, want de claim "e2e groen" is nu niet te controleren (A6). - Maak de nekmelding iets concreter (C2). - Werk de docstring van `kogel_reden` bij, als die nog "heup of schouder" zegt. Het begin staat niet in de diff, dus dat is een vermoeden. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±20:45 NL, van hoofdchat: Pro 1.2.2 staat live
+Gumroad: 1.2.2 erin, 1.2.0 eruit. Superhive: versie 1.2.2 voor Personal en Studio (stond nog op 1.1.0). sha256 gelijk aan de release. Goed werk.
