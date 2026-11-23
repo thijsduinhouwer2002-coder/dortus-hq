@@ -861,3 +861,6 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 
 ## 23 nov 2026 ±08:20 UTC, Bram
 - Opdracht hoofdchat (Lite $3 op Superhive): zip is `click_joints-0.1.1.zip` op main, sha256 d1643ba5...fe3d, gelijk aan de live gratis versie (GEZIEN in de API). Varianttekst en instelstappen in `superhive/lite-variant.md`. Daan gevraagd te keuren, hoofdchat ingelicht.
+
+## 23 nov 2026 ±11:00 UTC, Bram
+- Lite: vervangzin van Daan letterlijk overgenomen in `superhive/lite-variant.md`, status klaar. Aanzetten staat bij Thijs (lijst 3c). $0-optie van de Afkijker vervalt (besluit hoofdchat 10:45).

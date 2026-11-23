@@ -2,7 +2,7 @@
 
 Besluit hoofdchat 23 nov ±08:45 NL (`organisatie/besluiten.md`): variant Lite van $3 op de Pro-pagina (product 269495), vóór de Cyber Sale (vr 27 nov). Eerlijk benoemd als dezelfde code als de gratis versie.
 
-**Status: ter keuring bij Daan.** Na zijn ja zet de hoofdchat de variant aan in het creator-dashboard.
+**Status: klaar (23 nov).** Zip ja en varianttekst ja door Daan (`platformen/blender/keuring/2026-11-23-lite-variant-daan.md`): zijn vervangzin staat hieronder letterlijk. Aanzetten kan alleen in het Superhive-account van Thijs (lijst van Thijs, punt 3c).
 
 ## Bestand
 - Zip: `producten/blender-gewrichten/uitgave/click_joints-0.1.1.zip` op main (44.928 bytes). Ook te halen via https://github.com/thijsduinhouwer2002-coder/dortus-hq/raw/main/producten/blender-gewrichten/uitgave/click_joints-0.1.1.zip
@@ -23,7 +23,7 @@ Besluit hoofdchat 23 nov ±08:45 NL (`organisatie/besluiten.md`): variant Lite v
 
 ## Varianttekst (Engels, plakken)
 ```
-Lite is the same code as the free Click Joints 0.1.1 on extensions.blender.org: ball joints with a fit colour and the bend range in degrees, split into parts, export to STL or 3MF. Buying Lite supports the work and gives you the zip here. Want more? Pro adds click hinges for knees and elbows that stop at 115°, with a pose slider and red where the parts hit.
+Lite is the same code as the free Click Joints 0.1.1 on extensions.blender.org: ball joints with a fit colour and the bend range in degrees, split into parts, export to STL or 3MF. Buying Lite supports the work and gives you the zip here. Want more? Pro adds hinges for knees and elbows with an end stop, a bend slider, and red where the parts hit past the stop.
 ```
 
 ## Na te kijken door de keurder
