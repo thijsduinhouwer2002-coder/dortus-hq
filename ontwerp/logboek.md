@@ -1844,3 +1844,6 @@ Geen open vragen meer (Pro 1.2.1 al gekeurd, Bram nam de moet's over). Lijst hoo
 
 ## 23 nov 2026 ±14:45 UTC, Daan
 terugval naar Exact gekeurd, nee: code werkt (5.3.0 groen op de toetsen) maar toets_zips rood, gratis gewricht.py wijkt af van 014172e; moet: naar Pro. Scripts week 49 gekeurd, nee: 3 kleine moet (export is ook gratis, Tight wordt wel gesneden, geen studio-1). Berichten Bram en Sanne.
+
+## 23 nov 2026 ±15:35 UTC, Daan
+Terugval Exact in Pro herkeurd (957a9ac): nee, testhaak `_maak_open` crasht (ensure_lookup_table), e2e 5.2.3 rood; rest goed, toets draait echt met Pro. Bison & Flex 2026.1.2 uitgave: akkoord ja in ontwerp.md. Gumroad Pro als tweede versie op de gratis pagina: ja met drie kan's. Berichten Bram, Chris, hoofdchat. Volgende run: herkeuring terugval, dan dortus.com (punt 3 lijst hoofdchat).
