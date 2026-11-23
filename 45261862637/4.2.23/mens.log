@@ -1,0 +1,50 @@
+[meet] figuur mens: mens, {'bron_punten': 13380, 'bron_zelf_overlap': 0}
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 33, sneden 19, slechte sneden 2
+[meet]   SLECHT {"poging": 6, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.3623355166086667, "h_voxel": 0.1812, "h_vlakken": 207814, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": false, "fout": 1, "punten": 35086, "zelf": 7, "herstel": {"vier": 1, "fout_na": 0}}, "B": {"gesloten": true, "fout": 0, "punten": 2135, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 7, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.3254307272425924, "h_voxel": 0.1627, "h_vlakken": 254992, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": false, "fout": 1, "punten": 34302, "zelf": 4, "herstel": {"vier": 1, "fout_na": 0}}, "B": {"gesloten": true, "fout": 0, "punten": 2158, "zelf": 0}, "goed": false}
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=2
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 18.38 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 16.228 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 1.725 s.
+Info: Joint placed. Good fit. 2.69 s.
+Info: Joint placed. Good fit. 8.973 s.
+Info: Joint placed. Good fit. 8.842 s.
+Info: Joint placed. Good fit. 8.778 s.
+Info: Joint placed. Good fit. 8.745 s.
+Info: Joint placed. Good fit. 8.8 s.
+Info: Joint placed. Good fit. 8.52 s.
+Info: Joint placed. Good fit. 8.287 s.
+Info: Joint placed. Good fit. 8.442 s.
+Info: Joint placed. Good fit. 8.42 s.
+Info: Joint placed. Good fit. 8.414 s.
+Info: Joint placed. Good fit. 5.772 s.
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Info: Joint placed. Good fit. 5.658 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 4.2.23 LTS figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 33, sneden 19, slechte sneden 2
+[meet]   SLECHT {"poging": 6, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.3623355166086667, "h_voxel": 0.1812, "h_vlakken": 207814, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": false, "fout": 1, "punten": 35086, "zelf": 7, "herstel": {"vier": 1, "fout
+[meet]   SLECHT {"poging": 7, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.3254307272425924, "h_voxel": 0.1627, "h_vlakken": 254992, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": false, "fout": 1, "punten": 34302, "zelf": 4, "herstel": {"vier": 1, "fout
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=2
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+OBJ import of 'makehuman-base.obj' took 15.04 ms
+
+Blender quit
+model name	: Intel(R) Xeon(R) 6973P-C
