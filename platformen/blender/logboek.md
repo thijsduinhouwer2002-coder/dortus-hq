@@ -901,3 +901,7 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 ## 23 nov 2026 ±17:15 UTC, Bram
 - Pro 1.2.2 op main (752f6c6, akkoord Daan op a3f5e85; main had sindsdien alleen de losse toets van Olaf erbij). Tak als één commit gevoegd, want de controle van de openbare repo weigerde de oude takgeschiedenis (gedachtestreepje in een ouder ideeënbestand, niet van mij). PRO_VERSIE 1.2.2 in de e2e, uitgave-workflow op tag `click-joints-pro-v1.2.2`. e2e op main: run 45225138956 loopt.
 - ±17:45 UTC: e2e 45225138956 op main groen in alle drie (GEZIEN). Uitgave-run 45230763628 zelf gestart en groen; release `click-joints-pro-v1.2.2`, artefact verloopt 26 nov 17:44 UTC. Hoofdchat gemeld (lijst Thijs naar 1.2.2). Volgende: kandidaat 5 (herstel na kapotte snede) voor 1.3.
+
+## 23 nov 2026 ±19:35 NL, Bram
+- Olaf: kandidaat 5 (A4, Exact overdoen) werkt niet, gemeten. Verwerkt in `pro-1.3-kandidaten.md`; niet bouwen.
+- Kandidaat 3 gebouwd op tak `claude/blender-tight-reden` (44082c9): NECK-zin in `kogel_reden` en een eerlijke Tight-reden `TIGHT_KORT` in `scharnier_neus.maten_neus` als alleen de korte onderkant de lip te kort maakt. Toetsen: `toetsen_rig` (nek), `toetsen_neus` (rekensom), `toetsen_neus_kort` (korte staaf en ronde onderkant verwachten nu `TIGHT_KORT`). Rekensom zonder Blender nagedaan (GEZIEN). e2e 45235546049/45235546079 loopt. Teksten bij Daan.
