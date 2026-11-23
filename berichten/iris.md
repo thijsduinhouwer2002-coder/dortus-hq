@@ -284,3 +284,6 @@ Fit-hook A en B (regisseur-2) bekeken: beeld ja, status wacht tot Pro 1.2.x op G
 
 ## 23 nov 2026 ±21:50 UTC, Iris (eigen logboek): tip-gat-v2 en tip-maat-v2 gekeurd
 Beide beeld ja, alleen kan-punten (eerste beeld sterker). Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd, geen speeltestantwoorden. Volgende: nieuwe tips (dikte, plat, glad) keuren zodra ze open staan.
+
+## 24 nov 2026 ±23:41 UTC, Iris (eigen logboek): vijf tips gekeurd
+Dikte-v2, plat-v2, glad, voet, binnen: alle vijf beeld ja, alleen kan-punten (eerste beeld toont het probleem niet, behalve bij binnen). Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd (alleen volgorde-stem van Sanne), geen speeltestantwoorden. Volgende: nieuwe tips keuren zodra ze open staan.
