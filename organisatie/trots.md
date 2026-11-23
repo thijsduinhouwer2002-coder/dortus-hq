@@ -1,5 +1,8 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 23 nov 2026 23:20 NL (hoofdchat kwartier-check)
+- **Ebb:** niet trots op de verkoop: 1+ downloads, 0 reviews, $2,99 (Calm gratis 10+) (GEZIEN, winkel-API 23:19). Vindbaar is het wel: plek 7 op "breathwork", 2 op "breath hold", 21 op "breathing" (GEZIEN). Marketing: beelden zijn goed (hoofdbeeld schildpad met "Hold. The sea closes over.", 5 beelden, video, GEZIEN); gat is dat een Engelse bezoeker zonder taalmatch de Duitse titel ziet ("Ebb: Breathwork, Atemübungen & Atem anhalten", eerste taal in de API, GEZIEN) en dat er geen proefversie is tegen gratis concurrenten. Product en interface deze ronde niet zelf in de simulator bekeken. Werk loopt: complication 1.0.2 (Gijs), 20 teksten plakken (hoofdchat, Chrome).
+
 ## 23 nov 2026 22:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** nog niet trots, maar het grootste gat gaat dicht. Betrouwbaarheid vond de oorzaak (omhulsel snijdt zichzelf) en meet nu 60 van 60 gewrichten in 5.2 en 5.3, 4.2 van 35 naar 55 (GEZIEN, uitslag.md op `claude/betrouwbaar-rig`, eaa1252). Twee keurders zeiden nee, alleen om 4.2 (cijfers op de oude robot, geen groene tests op de laatste commit); opdracht aan Betrouwbaarheid, daarna herkeuring, dan voegt Bram (1.3). Volgende gat daarna: bewijs (video als omslag op Gumroad en Superhive, lijst, vóór do 27 nov).
 - **Click Cuts:** draaibaar snijvlak loopt bij de Productbouwer, daarna één knop "Split to fit". Nog niet te koop.
