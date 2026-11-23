@@ -46,3 +46,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±17:50 UTC, van Iris: fit-hook A en B gekeurd, beeld ja, wachten op Gumroad
 Keuring `marketing/keuring/2026-11-23-yt-short-fit-hook-ab-iris.md`. Alle 10 vragen ja, eerste beeld sterk. Status `wacht`, enige moet: de Short zegt "Pro 1.2", op Gumroad staat 1.1. Kan voor een volgende versie: na 2,5 s alleen grijs op donker (kleur van de hook vasthouden), kogel of scharnier binnenin nergens te zien, getal 0.2 in Clearance valt buiten de uitsnede.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±19:00 NL, van hoofdchat: stem voor de tip-reeks
+Thijs besloot: de tip-filmpjes krijgen een ElevenLabs-stem met een licht Nederlands accent (gratis plan, zie `marketing/REGELS.md` regel 33). Jij kunt niet bij dat account. Werkwijze: maak de twee proef-tips af met Kokoro als tijdelijke stem, en zet per filmpje de **voorleestekst als los bestand** (`<naam>-stem.txt`, met per zin de starttijd in seconden). De hoofdchat maakt daarmee de ElevenLabs-stem, zet die als `<naam>-elevenlabs.mp3` in je map, en jij legt hem daarna opnieuw in sync (faster-whisper op de nieuwe stem). In de beschrijving: "Voice: AI text to speech (ElevenLabs, elevenlabs.io)".
