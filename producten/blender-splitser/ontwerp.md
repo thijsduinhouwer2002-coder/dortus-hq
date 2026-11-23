@@ -29,7 +29,7 @@ Af voor deze kern (toetsbaar, in echte Blender 4.2 en 5.3 in CI):
 - **Hoeveel stukken?** We proberen alle roosters (nx, ny, nz) waarin elke cel past, en nemen het rooster met de minste cellen waar echt iets van het model in zit (een L-vorm spaart zo de lege hoek). Bij gelijkspel: de kleinste snijvlakken samen, dan liggende sneden.
 - **Speling: per kant of in totaal?** Per kant, net als Click Joints: gat = pen + 2 x speling in doorsnede. De gatwand bestaat uit platte vlakken op precies de gatstraal (de punten liggen iets verder), de pen heeft zijn punten op de penstraal. De kleinste opening is dus precies de speling.
 - **Pen te groot voor een vlak?** Eerst kleiner (5, 4, 3 mm). Past ook 3 mm niet, dan geen pen en een melding met de breedte van het vlak en wat een pen nodig heeft: "Glue this joint".
-- **Nummer?** "3-5" op stuk 3 waar het aan stuk 5 vastzit, en "5-3" op stuk 5. Het eerste getal is altijd het stuk zelf. 0,6 mm diep, 3 tot 8 mm hoog, waar het vlak de meeste ruimte heeft, weg van de gaten.
+- **Nummer?** "3-5" op stuk 3 waar het aan stuk 5 vastzit, en "5-3" op stuk 5. Het eerste getal is altijd het stuk zelf. 0,6 mm diep, 2,5 tot 8 mm hoog, waar het vlak de meeste ruimte heeft, weg van de gaten.
 - **Model niet waterdicht?** Splitsen weigert met een melding en de knop Make watertight (voxel) staat ernaast.
 - **Wat bij rood?** Het stuk wordt wel gemaakt, maar rood gekleurd met de reden in het paneel (te groot, niet waterdicht, wand onder 0,8 mm).
 
@@ -59,7 +59,15 @@ Zie `architectuur.md`, deel Testen.
 
 ## 8. Stand ma 23 nov 2026 ±17:45 NL (bouwer van de kern)
 - e2e groen in echte Blender 4.2.23 (Exact) en 5.3.0 (Manifold): run [45216254964](https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45216254964), 913 toetsen per versie, 0 fout (GEZIEN).
-- Suzanne 330 mm: 8 stukken, 40 pennen; vaas 600 mm: 16 stukken, 32 pennen, een paar dunne vlakken krijgen terecht "too small for a pin ... Glue this joint"; schedel 300 mm: 8 stukken, 44 pennen. Alle 232 gaten gemeten: speling 0,203 mm bij 0,2 ingesteld (de 0,003 komt van de meetstralen naast het midden van een plat vlak; de kleinste opening is door de bouw precies 0,2). Duur van Split: 2,6 / 19,2 / 5,0 s op 5.3 en 5,8 / 46,4 / 11,1 s op 4.2 (GEZIEN, runners van GitHub).
+- Suzanne 330 mm: 8 stukken, 40 pennen; vaas 600 mm: 16 stukken, 32 pennen, maar **op 16 van de 28 naden past geen pen** (op minstens een deel van het vlak; de glaswand is daar 5 tot 6 mm, een pen van 3 mm vraagt 5,8 mm) en krijgt de koper de melding "too small for a pin ... Glue this joint". Op 320 mm hoogte (de eerste testmaat) paste op geen enkele naad een pen. Holle beelden en vazen krijgen dus bijna geen pennen: een kleinere verbinder of een blokje binnenin is werk voor later. Schedel 300 mm: 8 stukken, 44 pennen.
 - Schermafbeeldingen (Workbench en het echte paneel): release [splitser-kern-1](https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/splitser-kern-1). Zelf bekeken: stukken groen, gaten en "1-2" zichtbaar in het snijvlak, paneel leesbaar in de standaardbreedte van de zijbalk.
 - Lessen: de "4" van het ingebouwde lettertype gaf in 4.2 (Exact) steeds 4 open randen, daarom een eigen pixelletter; tekst nooit van een al gesneden stuk aftrekken maar eerst van de doos; de wandmeting moet het eigen snijvlak overslaan.
 - Nog niet gekeurd door een aparte keurder (skill `keuren`): dat is de eerste stap voor de Productbouwer.
+
+## 9. Herstel na de keuring (ma 23 nov ±18:30 NL, `keuring/2026-11-23-kern.md`, akkoord nee)
+- **M1, model in mm in een scene in meters:** schaalcheck uit Click Joints (`schaal.py`, onder 10 of boven 3000 mm) met de knop Convert to mm in het paneel; Plan cuts en Split weigeren dan met een melding, Make watertight weigert boven 3000 voxels. Rem op 200 cellen in het plan (`plan.MAX_CELLEN`, zoekt niet verder dan dat) en in Split. De telling in het paneel wordt bewaard tot sneden, bed of model veranderen en maakt boven 200 geen cellen meer; het paneel toont hooguit 20 sneden.
+- **M2, plan telde hoekpunten:** het plan bemonstert nu de huid (elke driehoek, punten dichter dan 1/8 van de kleinste bedmaat) en telt ook een cel waarvan het midden binnen het model ligt. Kale doos 500 x 150 x 120: 3 stukken (was 2), plaat 600 x 600 x 30: 16 (was 4), volle kubus 500: 27. De 2.000 aangevulde punten in `test_logica.py` zijn weg.
+- **M3:** de test eist op elk snijvlak met een buur een nummer (buren gemeten op de meshes) en leest de 3MF terug met de maat binnen 0,01 mm.
+- **M4:** zin over de vaas hierboven eerlijk gemaakt (16 van de 28 naden zonder pen).
+- Erbij (kan-punten): melding bij meer gekozen objecten, e2e met een kale doos zonder voxel (3 stukken, alle toetsen) en een open Suzanne zonder voxel (Split weigert), e2e in een scene in meters (zelfde doos als STL in mm: weigeren, omzetten, splitsen; Suzanne van 0,33 m: alle toetsen in mm).
+- e2e groen in 4.2.23 en 5.3.0: run [45220594138](https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45220594138), 1323 toetsen per versie, 0 fout (GEZIEN).
