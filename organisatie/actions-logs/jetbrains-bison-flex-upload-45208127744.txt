@@ -1,0 +1,11 @@
+# gemaakt: 2026-11-23T15:42:36Z
+# workflow: Bison & Flex update uploaden (Marketplace) (.github/workflows/jetbrains-bison-flex-upload.yml)
+# run: 45208127744 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45208127744
+# commit: 1306ec6f tak uitgave/bison-flex-v2026.1.2 gestart door push
+# mislukte stappen: upload: IDE-runs groen op deze plugincode
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+# workflow met secrets of klantgegevens: alleen de foutregels, niet het hele log.
+
+===== upload / IDE-runs groen op deze plugincode (alleen foutregels: 1) =====
+##[error]Process completed with exit code 1.
