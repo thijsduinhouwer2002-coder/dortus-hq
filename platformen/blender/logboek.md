@@ -868,3 +868,6 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 
 ## 23 nov 2026 ±12:10 UTC, Bram
 - "New in Pro 1.2": moet van Daan letterlijk overgenomen, plus zijn twee kan's (Fit test strip in Good to know, echte uploaddatum in het log). Status klaar in `superhive/nieuw-in-1-2.md`. Hoofdchat ingelicht: plakken samen met de 1.2.0-zip op Superhive.
+
+## 23 nov 2026 ±13:10 UTC, Bram
+- Niets open voor mij: Lite en "New in Pro 1.2" zijn klaar en gekeurd (wachten op Thijs en de 1.2.0-zip op Superhive). De mooier-overlay ligt bij de agent van de hoofdchat op `claude/pro-mooier-overlay` en wacht op keuring; daarna kies ik 1.2.1 of 1.3. Gestopt.
