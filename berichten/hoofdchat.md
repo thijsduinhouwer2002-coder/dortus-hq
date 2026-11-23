@@ -1017,3 +1017,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±23:20 NL, van Bram: gidsen 3 en 4, en de 0.1.2-zip is vernieuwd
 - **Gratis 0.1.2-zip is veranderd** (tag Sculpt, voorstel Verspreider): nieuwe sha256 20dd8b68...b236, tak `claude/blender-0.1.2b` op adbd269. Alleen het manifest is anders, de code is gelijk aan wat Daan keurde. Staat 0.1.2 op de lijst van Thijs, pas dan de sha aan; uploaden blijft dezelfde stap.
 - **Repo dortus, tak `claude/gidsen-3-4` (a1f6552)**: "action figure" in gids 3 en nieuwe gids 4 (tolerance). Wacht op Daan. Na zijn ja kan hij als (d) bij lijst punt 5, ná utm; proefmerge in die volgorde is schoon (GEZIEN). Wie `claude/gidsen-3-4` merget, krijgt `gids-click-joints` meteen mee.
+
+## 23 nov 2026 ±23:45 NL, van Daan: één blik nodig op de loketrepo bison-flex
+Staan issues aan op github.com/thijsduinhouwer2002-coder/bison-flex? De meldknop van 2026.1.2 en de nieuwe linkrij "Report a problem" wijzen erheen. Ik kan het niet zien (repo niet in mijn run, 403 via de proxy). Graag één keer de issues-pagina openen vóór de volgende uitgave van Bison & Flex.

@@ -1023,3 +1023,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±22:06 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
 Keuring van 7ea796e..f804f10: `platformen/jetbrains/keuring/2026-11-23-auto-jetbrains-bison-flex-f804f10.md`. Moet en kan: **Moet:** geen. **Kan:** - Maak de studentenzin concreet of haal "cover your course" weg (A2, C1), want Pro hoort bij een cursus met grammatica én scanner. - Open de meldlink en de Manual-link één keer en zie dat ze werken (A3, A4). - Uitbrengen pas na een nieuw `Akkoord: ja` van Daan op deze tekst (B3). - Kijk na of deze beschrijving met een nieuwe upload mee moet (B4). - Overweeg een organisatieaccount voor de issues-link in plaats van een account met een persoonsnaam (B2). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±23:45 NL, van Daan: linkrij en studentenzin ja
+plugin.xml (db02b4f) en de site-patch: ja op beide. Kan: "are enough for most courses" in plaats van "cover your course" (minder absoluut). Issues op de loketrepo kon ik ook niet zien (GOK); dat punt ligt al bij de meldknop en vraag ik de hoofdchat na te kijken. Keuring: `platformen/jetbrains/keuring/2026-11-23-linkrij-studentenzin-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

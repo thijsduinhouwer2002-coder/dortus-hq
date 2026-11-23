@@ -1863,3 +1863,6 @@ Korte links laag 1 (Meter) en utm-koopknoppen (Bram) ja; splits.py (Olaf) nee me
 
 ## 23 nov 2026 ±22:50 NL, Daan
 Herkeuring splits.py M1/M2 (Olaf) ja, met kan K3 marge 0,25 s (nieuwe toets laat zien dat een te laat gelegd woord anders midden in een zin knipt). Scripts week 51 (Sanne) ja na M1 hooks max 7 woorden, M2 gratis eindkaart script 6, M3 titel 5 zonder "Not anymore", M4 script 4 geen print-claim. Berichten Olaf en Sanne. Geen open keuringen meer.
+
+## 23 nov 2026 ±23:45 NL, Daan
+Gids 3 titel en gids 4 joint tolerance (Bram) ja, voorwaarde fit-test-strip eerst naar main; drie kan's. Linkrij en studentenzin Bison & Flex (Chris) ja, kan "most courses". Issues op loketrepo bison-flex weer niet te zien, gevraagd aan hoofdchat. Olaf 22:15 had geen keuring nodig. Geen open keuringen meer.
