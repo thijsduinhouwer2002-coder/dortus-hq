@@ -64,6 +64,8 @@ jobs:
           mkdir -p /tmp/klaar
           python commercie/filmpjes/stem/montage.py commercie/filmpjes/stem/proef-1.json /tmp/bron /tmp/klaar staand
           python commercie/filmpjes/stem/montage.py commercie/filmpjes/stem/proef-1.json /tmp/bron /tmp/klaar liggend
+          # recept v3 (hook eerst): twee versies met een andere hook, alleen staand
+          for k in a b; do python commercie/filmpjes/stem/montage.py commercie/filmpjes/stem/proef-1-hook-$k.json /tmp/bron /tmp/klaar staand; done
       - name: Controle (synchroon, geluid, lengte)
         env:
           WHISPER_MODEL: small.en
@@ -74,11 +76,13 @@ jobs:
           python $GITHUB_WORKSPACE/commercie/filmpjes/stem/synchroon.py knee-bend-stem-staand.mp4 knee-bend-stem-staand-script.json meting-staand || ok=1
           python $GITHUB_WORKSPACE/commercie/filmpjes/stem/synchroon.py knee-bend-stem-liggend.mp4 knee-bend-stem-liggend-script.json meting-liggend || ok=1
           for v in staand liggend; do for f in meting-$v/*; do mv "$f" "$(basename ${f%.*})-$v.${f##*.}"; done; done
-          python $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py knee-bend-stem-*.mp4 | tee geluid_check.txt
+          for k in a b; do mkdir -p meting-hook-$k; python $GITHUB_WORKSPACE/commercie/filmpjes/stem/synchroon.py knee-hook-$k-staand.mp4 knee-hook-$k-staand-script.json meting-hook-$k || ok=1; for f in meting-hook-$k/*; do mv "$f" "$(basename ${f%.*})-hook-$k.${f##*.}"; done; done
+          python $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py knee-bend-stem-*.mp4 knee-hook-*.mp4 | tee geluid_check.txt
           grep -q "FOUT" geluid_check.txt && ok=1
           d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 knee-bend-stem-staand.mp4)
           echo "staand $d s" | tee lengtes.txt
           python -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: Short is $d s, niet 40 tot 60"; ok=1; }
+          for k in a b; do dk=$(ffprobe -v error -show_entries format=duration -of csv=p=0 knee-hook-$k-staand.mp4); echo "hook-$k $dk s" | tee -a lengtes.txt; python -c "import sys; d=float('$dk'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: hook-$k is $dk s"; ok=1; }; done
           sha256sum *.mp4 | tee SHA256SUMS.txt
           exit $ok
       - name: In de release zetten

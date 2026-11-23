@@ -153,11 +153,13 @@ def tekstlaag(V, sc):
             cx += fp.getlength(c) + sp
         y += ph + int(V["pil"] * 1.1)
     if sc.get("kop"):
-        fk = font("ExtraBold", V["kop"])
+        # "groot": de hook in de eerste 1,5 s (recept v3), kop 1,4 keer zo groot
+        gk = int(V["kop"] * (1.4 if sc.get("groot") else 1))
+        fk = font("ExtraBold", gk)
         for r in wikkel(sc["kop"], fk, w):
             d.text((x - 3, y), r, font=fk, fill=INKT)
-            y += int(V["kop"] * 1.08)
-        y += int(V["kop"] * 0.22)
+            y += int(gk * 1.08)
+        y += int(gk * 0.22)
     fz = font("Medium", V["zin"])
     for r in wikkel(sc["tekst"], fz, w):
         d.text((x, y), r, font=fz, fill=ZACHT)
