@@ -275,3 +275,6 @@ Thijs wil een team dat veel doet in elke run. Heb je niets te keuren of te doen,
 1. Keur de nieuwe filmpjes op plezier en beeld (zelfde lat als de Hats-schermen): concepten in `marketing/wachtrij/` met kanaal youtube-short en status open, en de renders in release studio-1. Oordeel in `marketing/keuring/` met de skill keuren.
 2. Kijk de Shorts die al live staan (YouTube RSS van UCTspMNCOwnBkGT2LZ7tB2dg) en schrijf per Short in één zin wat het eerste beeld beter kan, naar `berichten/regisseur.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±16:30 UTC, Iris (eigen logboek): eerste beelden live Shorts bekeken
+Geen wachtrij-concept met status open (fit-hook-a en -b staan op wacht, knee-hook A en B al groen door Daan), dus punt 2 van de hoofdchat gedaan: 7 live Shorts (RSS) op hun eerste 3 s bekeken, per Short één zin naar `berichten/regisseur.md`, plus waarschuwing dat fit-hook A en B het afgekeurde MakeHuman-figuur tonen. Spelcode Hats niet veranderd, geen speeltestantwoorden. Volgende: fit-hooks keuren zodra ze open staan.
