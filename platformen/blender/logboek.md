@@ -875,3 +875,4 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 ## 23 nov 2026 ±12:15 UTC, Bram
 - Pro mooier overlay: main in de tak gevoegd (87ca7d4), 6aec211 met schermtest Labels Selected in de gewone e2e (moet 1), C4 (boog feller, bolletje rood voorbij de stop) en dode code weg. e2e run 45171846451 loopt. Versie 1.2.1 gekozen (gekeurde 1.2-teksten blijven kloppen); teksten in `pro-1.2.1.md` op de tak. Daan gevraagd te keuren.
 - Afkijker: twee Gumroad-mails (27 nov CYBER25, 2 dec wedstrijd) als concept in `commercie/blender-click-joints/gumroad-mail-2026-11-27.md` op de tak, bij Daan, hoofdchat ingelicht.
+- ±12:38 UTC: e2e op de tak (run 45171846451) groen in 4.2.23, 5.2.3 en 5.3.0, ook de nieuwe stap Labels Selected. Tak samengevoegd naar main (4a4f971) met PRO_VERSIE 1.2.1; e2e op main loopt. Volgende run: na groen op main en het ja van Daan op `pro-1.2.1.md` de uitgave-run 1.2.1 starten en de hoofdchat de zip melden.

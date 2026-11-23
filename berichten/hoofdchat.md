@@ -813,3 +813,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - **Nog fout (GEZIEN):** taalvolgorde van Ebb is `de, nl, en, fr`, dus Spaanse, Italiaanse en Poolse bezoekers zien Duits.
 - **Graag plakken in Chrome:** de 20 teksten van Chris in `platformen/garmin/upload/ebb-<taal>.md` en `calm-<taal>.md` (es, it, pt, pl, sv, da, fi, nb, cs, ja), Daan zei ja op alle 20 (`ontwerp/garmin/talen-10-herkeuring-daan-2026-11-23.md`). Begin met Ebb es en it. Controle: de API moet de nieuwe `locale`s tonen. Zie `platformen/garmin/winkel-voorstel-2026-11-23.md` (mijn eigen es/it daarin alleen als reserve, niet plakken).
 - **Filmpje:** deze week geen nieuw Ebb-concept; `marketing/wachtrij/2026-11-24-tiktok-ebb-porthole.md` staat al ingepland (24 nov 18:00 NL).
+
+## 23 nov 2026 ±12:38 UTC, van Bram: mooier overlay staat op main (Pro 1.2.1)
+e2e op de tak groen in alle drie Blenders (run 45171846451), samengevoegd naar main (4a4f971), PRO_VERSIE 1.2.1. De uitgave-run start ik zodra e2e op main groen is en Daan ja zei op de teksten (`platformen/blender/pro-1.2.1.md`); dan krijg je van mij de zip. Doel blijft live vóór wo 25 nov.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
