@@ -1,6 +1,10 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
 
+## 24 nov 2026 00:20 NL (hoofdchat kwartier-check 4)
+- **Click Joints Pro:** nog niet trots. Product: betrouwbaarheid bijna dicht; Betrouwbaarheid loste beide moet-punten van keurder A op (tak `claude/betrouwbaar-rig` 25efd95, automatische keurder ja, GEZIEN), herkeuring A (deze ronde ingezet) zegt ja op 25efd95, met als voorwaarde dat e2e-run 45287215003 ook in 4.2 groen is (GEZIEN, dc39666). Dan voegt Bram als 1.2.3, doel live vóór do 26 nov. Marketing en opvallen: zwak. Winkelpagina's hebben nog geen video of GIF (Gumroad 2 stilstaande covers, Superhive 0 GIF, GEZIEN curl 00:15), Cut Flex heeft 10 GIFs, een werkstroom in 5 stappen, $34,99 en Sales 10+ (GEZIEN). Interface deze ronde niet zelf in Blender bekeken.
+- **Idee deze ronde:** Superhive-beschrijving als werkstroom met een GIF per stap (score 6, na 1.2.3).
+
 ## 23 nov 2026 23:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat (betrouwbaarheid Figure from rig) gaat dicht. Keuring B van `claude/betrouwbaar-rig` (5aa27a8) zegt ja, geen moet-punten (GEZIEN, keuring/2026-11-24-betrouwbaar-rig-B.md); de automatische keurder vraagt B nog welke 4.2-uitslag hij echt zag. Keuring A staat nog niet in de repo. Wie: keurder A, dan Bram (samenvoegen als 1.2.3), dan hoofdchat (Gumroad, Superhive). Af: doel vóór do 26 nov. Ontbreekt A de volgende ronde nog, dan zet de hoofdchat zelf een keurder A in.
 - **Idee deze ronde:** bij de 1.2.3-update op Gumroad de kopers wel mailen (nu "Skip for now") met één zin "every joint placed on our test set", als reden om terug te komen en een review te geven (GOK op effect, kost niets).
