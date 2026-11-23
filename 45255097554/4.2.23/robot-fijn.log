@@ -1,0 +1,44 @@
+[meet] figuur robot-fijn: Figuur, {'bron_punten': 489604, 'bron_zelf_overlap': 0}
+[meet] Blender 4.2.23 LTS figuur robot-fijn: 7 gewrichten ['Left elbow', 'Right elbow', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Left knee', 'Right knee']; overgeslagen: Left knee (the cut left a loose piece here, place it by hand); Right knee (the cut left a loose piece here, place it by hand)
+[meet] pogingen 15, sneden 13, slechte sneden 4
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4154486028600255, "h_voxel": 0.2077, "h_vlakken": 132678, "h_buiten": 0.0015, "h_pogingen": null}, "A": {"gesloten": false, "fout": 396, "punten": 457629}, "B": {"gesloten": true, "fout": 0, "punten": 28272}, "goed": false}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4154182523329204, "h_voxel": 0.2077, "h_vlakken": 132714, "h_buiten": 0.001, "h_pogingen": null}, "A": {"gesloten": false, "fout": 387, "punten": 458898}, "B": {"gesloten": true, "fout": 0, "punten": 28267}, "goed": false}
+[meet]   SLECHT {"poging": 5, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.48984355686798425, "h_voxel": 0.2637, "h_vlakken": 147052, "h_buiten": 0.0122, "h_pogingen": [[false, 42959.6, 29382.0, true]]}, "A": {"gesloten": false, "fout": 58, "punten": 364575}, "B": {"gesloten": true, "fout": 0, "punten": 46262}, "goed": false}
+[meet]   SLECHT {"poging": 5, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.4897330354845606, "h_voxel": 0.2637, "h_vlakken": 147048, "h_buiten": 0.0159, "h_pogingen": [[false, 42942.4, 29375.3, true]]}, "A": {"gesloten": false, "fout": 132, "punten": 364620}, "B": {"gesloten": true, "fout": 0, "punten": 708}, "goed": false}
+MEET robot-fijn gewrichten=7 overgeslagen=2 slechte_sneden=4
+STATUS Installed "click_joints"
+[studio] robot: 18564 punten voor de remesh, maat (140.6, 41.2, 220.4)
+Info: Watertight copy Figuur_gesloten made (489602 faces)
+[studio] kleuren per vorm: 489602 vlakken, 1478 buiten elke vorm
+[studio] robot na voxel: 489604 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.5, 2.0, 57.0), elleboog L (48.0, -4.0, 136.0)
+[meet] figuur robot-fijn: Figuur, {'bron_punten': 489604, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 140°. 46.896 s.
+Info: Hinge placed. Bends 0° to 140°. 11.84 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 27.828 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 9.004 s.
+Info: Joint placed. Good fit. 9.339 s.
+Info: Joint placed. Good fit. 16.167 s.
+Info: Joint placed. Good fit. 15.535 s.
+Info: Joint placed. Good fit. 13.085 s.
+Info: Joint placed. Good fit. 10.652 s.
+Warning: 7 joints · 1 rig · 1 mirror · 5 preset. Skipped: Left knee (the cut left a loose piece here, place it by hand); Right knee (the cut left a loose piece here, place it by hand)
+[meet] Blender 4.2.23 LTS figuur robot-fijn: 7 gewrichten ['Left elbow', 'Right elbow', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Left knee', 'Right knee']; overgeslagen: Left knee (the cut left a loose piece here, place it by hand); Right knee (the cut left a loose piece here, place it by hand)
+[meet] pogingen 15, sneden 13, slechte sneden 4
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4154486028600255, "h_voxel": 0.2077, "h_vlakken": 132678, "h_buiten": 0.0015, "h_pogingen": null}, "A": {"gesloten": false, "fout": 396, "punten": 457629}, "B": {"gesloten": true, "fout": 0, "punten": 28272}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4154182523329204, "h_voxel": 0.2077, "h_vlakken": 132714, "h_buiten": 0.001, "h_pogingen": null}, "A": {"gesloten": false, "fout": 387, "punten": 458898}, "B": {"gesloten": true, "fout": 0, "punten": 28267},
+[meet]   SLECHT {"poging": 5, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.48984355686798425, "h_voxel": 0.2637, "h_vlakken": 147052, "h_buiten": 0.0122, "h_pogingen": [[false, 42959.6, 29382.0, true]]}, "A": {"gesloten": false, "fout": 58, "punten": 364575}, "B": {"gesloten": true,
+[meet]   SLECHT {"poging": 5, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.4897330354845606, "h_voxel": 0.2637, "h_vlakken": 147048, "h_buiten": 0.0159, "h_pogingen": [[false, 42942.4, 29375.3, true]]}, "A": {"gesloten": false, "fout": 132, "punten": 364620}, "B": {"gesloten": true,
+MEET robot-fijn gewrichten=7 overgeslagen=2 slechte_sneden=4
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+model name	: Intel(R) Xeon(R) 6975P-C
