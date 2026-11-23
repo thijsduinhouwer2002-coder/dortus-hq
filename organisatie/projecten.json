@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-23 17:45",
+    "datum": "2026-11-23 18:50",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -137,7 +137,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-23 17:45",
+      "laatste_update": "2026-11-23 18:50",
       "links": [
         {
           "naam": "Winkelpagina",
@@ -186,7 +186,7 @@
       "status": {
         "woord": "bouwen",
         "kleur": "op-koers",
-        "zin": "Concurrentie akkoord (herkeuring 23 nov). Merk klaar: naam Click Cuts gekozen door de hoofdchat, stijl B voor de cover. Kern (werknaam Split Joints): keuring nee, 4 moet-punten (meterscene, stukkental, tests, vaas-zin)."
+        "zin": "Concurrentie akkoord. Naam Click Cuts, stijl B voor de cover. Kern akkoord (herkeuring 23 nov). Passingproef (blok met pen op 4 spelingen, onthouden per printer en materiaal) akkoord na herkeuring 23 nov. Volgende: kleur per stuk, dan draaibaar snijvlak."
       },
       "eigenaar": "Productbouwer",
       "agents": [
@@ -203,7 +203,7 @@
       },
       "volgende_stap": "Productbouwer lost moet-punten M1 tot M4 van de kernkeuring op, dan snede die niet alleen langs de assen gaat en kleur per stuk; interne naam naar click_cuts.",
       "thijs": [],
-      "laatste_update": "2026-11-23 17:45"
+      "laatste_update": "2026-11-23 18:50"
     },
     {
       "id": "roep",
