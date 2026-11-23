@@ -193,3 +193,116 @@ def youtube(meet, noten):
         n += 1
     meet(YOUTUBE_NAAM, "YouTube", "weergaven (RSS)", totaal if n else 0,
          f"{n} filmpjes in de RSS (alleen de nieuwste openbare, max 15)")
+
+
+# ---------------------------------------------------------------- Herkomst per Gumroad-verkoop
+# Meter, 23 nov 2026 (opdracht Thijs: "waar ze vandaan komen en wat werkt en wat niet").
+# Gumroad API v2 GET /sales (scope view_sales) geeft per verkoop o.a. referrer, utm_source/medium/campaign,
+# offer_code {name} en affiliate. Bron: github.com/antiwork/gumroad, app/javascript/components/
+# ApiDocumentation/Endpoints/Sales.tsx. We bewaren ALLEEN: datum, product, bedrag, munt, bron (host van de
+# referrer), utm, kortingscode, wel of geen affiliate, terugbetaald. Nooit mail, naam, land, postcode,
+# licentiesleutel, koper- of order-id.
+
+_VEILIG = re.compile(r"[^A-Za-z0-9 _.\-]")
+
+
+def _schoon(s, n=40):
+    return _VEILIG.sub("", str(s or "")).strip()[:n]
+
+
+def bron_van(referrer):
+    """Maak van een referrer alleen een korte bron: host zonder pad of query, of een vaste Gumroad-term."""
+    r = str(referrer or "").strip()
+    if not r:
+        return "onbekend"
+    if "://" in r:
+        host = urllib.parse.urlsplit(r).hostname or "onbekend"
+        return _schoon(host[4:] if host.startswith("www.") else host, 60) or "onbekend"
+    return _schoon(r, 40) or "onbekend"
+
+
+def verkoop_rij(s):
+    """Eén verkoop uit /v2/sales naar een rij zonder persoonsgegevens."""
+    code = s.get("offer_code") if isinstance(s.get("offer_code"), dict) else {}
+    prijs = s.get("price")
+    return {
+        "datum": str(s.get("created_at") or "")[:10],
+        "product": _schoon(s.get("product_name"), 60),
+        "bedrag": "" if prijs is None else f"{int(prijs) / 100:.2f}",
+        "munt": _schoon(s.get("currency"), 5).lower(),
+        "bron": bron_van(s.get("referrer")),
+        "utm_source": _schoon(s.get("utm_source")),
+        "utm_medium": _schoon(s.get("utm_medium")),
+        "utm_campaign": _schoon(s.get("utm_campaign")),
+        "kortingscode": _schoon(code.get("name")),
+        "affiliate": "ja" if s.get("affiliate") else "nee",
+        "terug": "ja" if (s.get("refunded") or s.get("chargedback") or s.get("partially_refunded")) else "nee",
+    }
+
+
+VERKOOP_KOLOMMEN = ["datum", "product", "bedrag", "munt", "bron", "utm_source", "utm_medium",
+                    "utm_campaign", "kortingscode", "affiliate", "terug"]
+
+
+def gumroad_verkopen(noten, max_paginas=30):
+    """Alle verkopen (oud naar nieuw) als schone rijen, of None als het niet kan."""
+    sleutel = os.environ.get("GUMROAD_ACCESS_TOKEN", "").strip()
+    if not sleutel:
+        noten.append("Herkomst: geen GUMROAD_ACCESS_TOKEN, verkopen per bron overgeslagen.")
+        return None
+    rijen, sleutel_pagina = [], None
+    for _ in range(max_paginas):
+        q = {"page_key": sleutel_pagina} if sleutel_pagina else {}
+        url = "https://api.gumroad.com/v2/sales" + ("?" + urllib.parse.urlencode(q) if q else "")
+        d, code = _get(url, {"Authorization": f"Bearer {sleutel}"})
+        if code == 401:
+            q["access_token"] = sleutel
+            d, code = _get("https://api.gumroad.com/v2/sales?" + urllib.parse.urlencode(q))
+        if not isinstance(d, dict) or not d.get("success"):
+            noten.append(f"Herkomst: Gumroad /v2/sales niet leesbaar ({code}); de sleutel heeft misschien "
+                         "geen scope view_sales.")
+            return None
+        rijen += [verkoop_rij(s) for s in d.get("sales") or [] if isinstance(s, dict)]
+        sleutel_pagina = d.get("next_page_key")
+        if not sleutel_pagina:
+            break
+    return sorted(rijen, key=lambda r: (r["datum"], r["product"]))
+
+
+# ---------------------------------------------------------------- TikTok
+# De profielpagina laadt filmpjes pas met JavaScript; de videopagina zelf bevat "playCount" (GEZIEN 23 nov
+# met curl). De lijst filmpjes komt uit de plaatslogboeken: elk tiktok.com/@.../video/<id> adres daarin.
+
+TIKTOK_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
+
+
+def tiktok_adressen(teksten):
+    gezien, uit = set(), []
+    for t in teksten:
+        for m in re.finditer(r"tiktok\.com/@([A-Za-z0-9_.]+)/video/(\d{15,22})", t):
+            if m.group(2) not in gezien:
+                gezien.add(m.group(2))
+                uit.append((m.group(1), m.group(2)))
+    return uit
+
+
+def tiktok_cijfers(html):
+    """playCount van het filmpje zelf (het eerste getal na het video-id-blok), of None."""
+    m = re.search(r'"playCount":(\d+)', html or "")
+    return int(m.group(1)) if m else None
+
+
+def tiktok(meet, noten, teksten):
+    adressen = tiktok_adressen(teksten)
+    totaal, n = 0, 0
+    for account, vid in adressen:
+        html, code = _get(f"https://www.tiktok.com/@{account}/video/{vid}", {"User-Agent": TIKTOK_UA}, json_=False)
+        w = tiktok_cijfers(html)
+        if w is None:
+            noten.append(f"TikTok {vid}: weergaven niet leesbaar ({code or 'geen playCount'}).")
+        meet(f"TikTok @{account}", "TikTok", f"weergaven {vid}", w, "videopagina")
+        if w is not None:
+            totaal, n = totaal + w, n + 1
+        time.sleep(2)
+    if adressen:
+        meet("TikTok (alle)", "TikTok", "weergaven", totaal if n else None, f"{n} van {len(adressen)} filmpjes leesbaar")
