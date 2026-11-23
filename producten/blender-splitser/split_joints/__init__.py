@@ -1,7 +1,7 @@
 """Split Joints: cuts a model that is too big for the printer into pieces with pins that fit."""
-from . import eigenschappen, exporteer, gesloten, paneel, passingproef, schaal, snedes, splitsen
+from . import eigenschappen, exporteer, gesloten, paneel, passingproef, schaal, snedes, splitsen, vrije_snede
 
-MODULES = (eigenschappen, gesloten, schaal, snedes, splitsen, exporteer, passingproef, paneel)
+MODULES = (eigenschappen, gesloten, schaal, snedes, splitsen, vrije_snede, exporteer, passingproef, paneel)
 
 
 def register():

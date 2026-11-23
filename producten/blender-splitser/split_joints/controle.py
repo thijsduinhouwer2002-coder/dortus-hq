@@ -64,11 +64,30 @@ def bvh_mm(ob, u, zonder_vlak=None):
     bm.transform(Matrix.Scale(1.0 / u, 4))
     if zonder_vlak is not None:
         a, c = zonder_vlak
-        weg = [f for f in bm.faces if all(abs(v.co[a] - c) < 1e-3 for v in f.verts)]
+        n = as_vec(a) if isinstance(a, int) else Vector(a)  # a world axis, or the normal of a free cut
+        weg = [f for f in bm.faces if all(abs(v.co.dot(n) - c) < 1e-3 for v in f.verts)]
         bmesh.ops.delete(bm, geom=weg, context="FACES_ONLY")
     boom = BVHTree.FromBMesh(bm)
     bm.free()
     return boom
+
+
+def gat_assen(g):
+    """(axis, e1, e2) of a hole: along a world axis ("as"), or along the normal "n" of a free cut."""
+    if "n" in g:
+        n = Vector(g["n"]).normalized()
+        e1 = n.orthogonal().normalized()
+        return n, e1, n.cross(e1)
+    return as_vec(g["as"]), as_vec((g["as"] + 1) % 3), as_vec((g["as"] + 2) % 3)
+
+
+def status_uit(past, dicht, wand, wand_min):
+    """green, orange or red from the measurements (same rule as keur)."""
+    if not past or not dicht or (wand is not None and wand < ROOD_WAND_MM):
+        return "rood"
+    if wand is not None and wand < wand_min - 0.05:
+        return "oranje"
+    return "groen"
 
 
 def wand_rond_gaten(ruw, gaten, u):
@@ -80,14 +99,14 @@ def wand_rond_gaten(ruw, gaten, u):
     bomen = {}
     kleinste = math.inf
     for g in gaten:
-        sleutel = (g["as"], round(g["snede"], 4))
+        n, e1, e2 = gat_assen(g)
+        vlak = (g["as"], g["snede"]) if "n" not in g else (tuple(g["n"]), float(n.dot(Vector(g["p"]))))
+        sleutel = (tuple(round(x, 4) for x in n), round(vlak[1], 4))
         if sleutel not in bomen:
-            bomen[sleutel] = bvh_mm(ruw, u, (g["as"], g["snede"]))
+            bomen[sleutel] = bvh_mm(ruw, u, vlak)
         boom = bomen[sleutel]
-        n = as_vec(g["as"])
         richting = -n * g["teken"]  # into this piece
         p = Vector(g["p"])
-        e1, e2 = as_vec((g["as"] + 1) % 3), as_vec((g["as"] + 2) % 3)
         for z in np.linspace(0.0, g["diepte"], 6):
             for k in range(16):
                 hoek = 2 * math.pi * k / 16
@@ -101,10 +120,10 @@ def wand_rond_gaten(ruw, gaten, u):
             kleinste = min(kleinste, afstand)
     for i, g in enumerate(gaten):
         for h in gaten[i + 1:]:
-            a1 = Vector(g["p"]) - as_vec(g["as"]) * g["diepte"]
-            b1 = Vector(g["p"]) + as_vec(g["as"]) * g["diepte"]
-            a2 = Vector(h["p"]) - as_vec(h["as"]) * h["diepte"]
-            b2 = Vector(h["p"]) + as_vec(h["as"]) * h["diepte"]
+            a1 = Vector(g["p"]) - gat_assen(g)[0] * g["diepte"]
+            b1 = Vector(g["p"]) + gat_assen(g)[0] * g["diepte"]
+            a2 = Vector(h["p"]) - gat_assen(h)[0] * h["diepte"]
+            b2 = Vector(h["p"]) + gat_assen(h)[0] * h["diepte"]
             kleinste = min(kleinste, segment_afstand(a1, b1, a2, b2) - g["r_gat"] - h["r_gat"])
     return float(kleinste)
 
@@ -122,12 +141,7 @@ def keur(af, ruw, bed, u, wand_min):
     af["sj_foute_randen"] = fout
     af["sj_wand_mm"] = round(wand, 3) if wand is not None else -1.0
     af["sj_volume_mm3"] = volume_mm3(af, u)
-    if not past or not dicht or (wand is not None and wand < ROOD_WAND_MM):
-        status = "rood"
-    elif wand is not None and wand < wand_min - 0.05:
-        status = "oranje"
-    else:
-        status = "groen"
+    status = status_uit(past, dicht, wand, wand_min)
     kleur(af, status)
     return status
 

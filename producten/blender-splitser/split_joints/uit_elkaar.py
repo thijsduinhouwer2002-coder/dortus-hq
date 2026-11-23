@@ -35,5 +35,8 @@ def echte_plek(lijst):
         yield
     finally:
         for o, d in zip(lijst, oud):
-            o.delta_location = d
+            try:
+                o.delta_location = d
+            except ReferenceError:  # a piece that was replaced in the meantime (free cut)
+                pass
         bpy.context.view_layer.update()

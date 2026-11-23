@@ -43,7 +43,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         stap.label(text="2  Cuts", icon="MOD_BOOLEAN")
         ob = context.active_object
         if ob is not None and ob.type == "MESH" and not ob.get("sj_stuk") and "sj_as" not in ob \
-                and not ob.get("sj_pennen") and not ob.get("sj_passing"):
+                and not ob.get("sj_pennen") and not ob.get("sj_passing") and not ob.get("sj_vrij"):
             if schaal.buiten_bereik(ob, scene):
                 let = stap.column(align=True)
                 let.alert = True
@@ -102,6 +102,12 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             for p in pennen:
                 kol.label(text=f"{int(p['sj_pennen'])} pins of {p['sj_pen_d']:g} mm, {p['sj_pen_lengte']:g} mm long",
                           icon="DOT")
+        if stukken:
+            vrij = stap.box()
+            vrij.label(text="Free cut (one piece, any angle)", icon="MOD_LINEART")
+            rij = vrij.row(align=True)
+            rij.operator("split_joints.vrije_snede_erbij", text="Add free cut", icon="ADD")
+            rij.operator("split_joints.vrije_snede", text="Cut piece", icon="MOD_BOOLEAN")
         if inst.meldingen:
             vak = stap.column(align=True)
             for regel in inst.meldingen.split("\n")[:8]:

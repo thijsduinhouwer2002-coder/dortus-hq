@@ -31,7 +31,7 @@ def buren(a, b):
     return sorted(verschil) == [0, 0, 1]
 
 
-def verdeel(cellen, n_kleuren=len(PALET)):
+def verdeel(cellen, n_kleuren=len(PALET), extra=()):
     """cellen: list of (i, j, k) in piece order. Gives a color index per piece.
     Greedy: each piece takes the color that no neighbor has and that is used least so far (ties: lowest
     index), so a few pieces get the brand colors and many pieces spread over the whole palette.
@@ -39,7 +39,7 @@ def verdeel(cellen, n_kleuren=len(PALET)):
     keuze = []
     gebruikt = [0] * n_kleuren
     for i, c in enumerate(cellen):
-        bezet = {keuze[j] for j in range(i) if buren(c, cellen[j])}
+        bezet = {keuze[j] for j in range(i) if buren(c, cellen[j]) or (i, j) in extra or (j, i) in extra}
         vrij = [k for k in range(n_kleuren) if k not in bezet] or list(range(n_kleuren))
         k = min(vrij, key=lambda x: (gebruikt[x], x))
         keuze.append(k)
@@ -82,7 +82,18 @@ def zet(scene):
             _geef(o, controle.materiaal("groen"), controle.KLEUREN["groen"])
         return
     cellen = [tuple(o.get("sj_cel", (o["sj_stuk"], 0, 0))) for o in stukken]
-    for o, k in zip(stukken, verdeel(cellen)):
+    # pieces from a free cut share their cell: they are neighbors of each other (sj_vrij_buren) and of the
+    # neighbors of the cell; the two halves of one cell never get the same color
+    nr = {int(o["sj_stuk"]): i for i, o in enumerate(stukken)}
+    extra = set()
+    for i, o in enumerate(stukken):
+        for b in o.get("sj_vrij_buren", ()):
+            if int(b) in nr:
+                extra.add((i, nr[int(b)]))
+        for j in range(i):
+            if tuple(stukken[j].get("sj_cel", ())) == cellen[i] and "sj_cel" in o:
+                extra.add((i, j))
+    for o, k in zip(stukken, verdeel(cellen, extra=extra)):
         kleur = lineair(PALET[k])
         _geef(o, _materiaal(NAAM.format(int(o["sj_stuk"])), kleur), kleur)
         o["sj_kleur"] = k

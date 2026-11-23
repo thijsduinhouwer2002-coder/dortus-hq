@@ -95,13 +95,18 @@ def model(naam):
     # close-up: the first piece with a number, looking straight at that cut face
     for o in stukken:
         lbs = json.loads(o.get("sj_labels", "[]"))
+        if naam == "vrij":  # the free cut face, not a grid face
+            lbs = [lb for lb in lbs if lb.get("vrij")]
         if not lbs:
             continue
         lb = lbs[0]
         for p in s.objects:
             p.hide_render = p is not o
-        n = Vector((0.0, 0.0, 0.0))
-        n[lb["as"]] = float(lb["teken"])
+        if "n" in lb:  # free cut: the normal of the plane
+            n = Vector(lb["n"]) * float(lb["teken"])
+        else:
+            n = Vector((0.0, 0.0, 0.0))
+            n[lb["as"]] = float(lb["teken"])
         midden = o.matrix_world @ Vector(lb["p"])
         gaten = [g for g in json.loads(o.get("sj_gaten", "[]")) if g["as"] == lb["as"]]
         straal = max([lb["h"] * len(lb["tekst"])] + [(Vector(g["p"]) - Vector(lb["p"])).length + 8 for g in gaten])
@@ -111,7 +116,7 @@ def model(naam):
         break
 
 
-for m in ("suzanne", "vaas", "schedel"):
+for m in ("suzanne", "vaas", "schedel", "vrij"):
     try:
         model(m)
     except Exception as e:

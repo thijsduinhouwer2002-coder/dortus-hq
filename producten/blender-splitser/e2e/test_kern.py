@@ -15,6 +15,7 @@ import modellen  # noqa: E402
 import toetsen_extra  # noqa: E402
 import toetsen_kleur  # noqa: E402
 import toetsen_passing  # noqa: E402
+import toetsen_vrij  # noqa: E402
 from hulp import (SCHAAL, bestaat, dicht, fouten, gat_maten, gaten, label_punten, labels, lees_3mf,  # noqa: E402
                   lees_stl, log, maat, past, pen_objecten, pennen, raakvlak, stap, stukken)
 
@@ -152,7 +153,8 @@ def model(naam, ob):
 def main():
     log(f"Blender {bpy.app.version_string}")
     bpy.ops.extensions.package_install_files(filepath=zip_pad, repo="user_default", enable_on_install=True)
-    for op in ("plan", "split", "exporteer", "maak_gesloten", "snede_erbij", "snede_weg"):
+    for op in ("plan", "split", "exporteer", "maak_gesloten", "snede_erbij", "snede_weg", "vrije_snede_erbij",
+               "vrije_snede"):
         stap(f"operator split_joints.{op} bestaat", op in dir(bpy.ops.split_joints))
     for naam, maak in (("suzanne", modellen.suzanne), ("vaas", lambda: modellen.vaas(vaas_pad)),
                        ("schedel", lambda: modellen.schedel(schedel_pad))):
@@ -167,7 +169,7 @@ def main():
             traceback.print_exc()
             stap(f"{naam}: geen fout", False)
     for naam, f in (("buis", te_klein), ("extra", lambda: toetsen_extra.alles(model, uitmap)),
-                    ("passing", lambda: toetsen_passing.alles(uitmap))):
+                    ("passing", lambda: toetsen_passing.alles(uitmap)), ("vrij", lambda: toetsen_vrij.alles(uitmap))):
         try:
             f()
         except Exception:
