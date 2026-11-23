@@ -135,8 +135,8 @@ def register(eigen=None):
         uit_elkaar.zet = _zet
     een_lid_diep.register()  # 1.1 run 27: omhulsel H haalt de hele diepte (gratis deel onveranderd)
     snippers.register(gewricht)  # 1.1: losse snippers na een snede met één lid weg (gratis deel onveranderd)
-    terugval.register(gewricht)  # 1.2.2: open deel na Manifold, één keer opnieuw met Exact (na snippers: buitenom)
     afstand.register(gewricht)  # kogel naast scharnier: gewricht.te_dicht en gewricht.markeer (zie afstand.py)
+    terugval.register(gewricht)  # 1.2.2: open deel na Manifold, één keer opnieuw met Exact (na snippers en afstand: buitenom)
     if _oude_enable[0] is None and eigen:
         _oude_enable[0] = addon_utils.enable
         addon_utils.enable = _enable_met_wacht(eigen)

@@ -1,0 +1,20 @@
+# Click Joints Pro 1.2.2: minder mislukte sneden (Bram, 23 nov 2026)
+
+**Waarom (geld):** een Pro-koper die "no watertight parts" krijgt, of bij Figure from rig een gewricht minder dan een ander, denkt dat de add-on kapot is. Dat kost reviews en terugbetalingen in de saleweek. Effect op verkoop: GOK, klein, vooral minder klachten.
+
+**Wat erin zit (allemaal Pro, het gratis deel blijft gelijk aan 014172e):**
+1. Terugval naar Exact (`betaald/terugval.py`, deze tak `claude/blender-solver-terugval`): geeft de Manifold-snede een open deel, dan één keer opnieuw met Exact.
+2. Figure from rig zoekt verder na "no watertight parts" (Olaf, `rig.py`, op main sinds 80417b8, toets `CJ_HERKANS`; automatische keurder akkoord ja).
+
+## Stand
+1. Keurder (auto, 542c4be) akkoord nee met 2 moet. Opgelost: `terugval.py` omhult ook `markeer` zodat `cj_solver` na de terugval EXACT is; de toets `solver_terugval` toetst weer 0, 1 en 2 keer open (2: ook de Exact-snede open, operator weigert, figuur heel, geen hulpresten) en controleert `cj_solver`. `architectuur.md` bijgewerkt. Main (met de fix van Olaf) in de tak gevoegd.
+2. e2e op de tak: zie logboek voor run en uitslag.
+3. Daarna: keuring Daan, tak naar main, PRO_VERSIE 1.2.2, uitgave-run via de hoofdchat.
+
+## Releasenotes 1.2.2 (Engels, Gumroad en Superhive; concept, nog keuren)
+```
+Click Joints Pro 1.2.2
+- Fewer failed cuts: if a cut with the fast solver leaves a part that is not watertight, Click Joints Pro cuts once more with the Exact solver before giving up.
+- Figure from rig: when a cut fails at one spot, it now tries the next spot on that bone instead of skipping the joint.
+- Tested on Blender 4.2 LTS, 5.2 LTS and 5.3.
+```
