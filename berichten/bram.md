@@ -939,3 +939,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 03:28 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 23 nov 2026 ±03:29 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 5107d96..440a52d: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-440a52d.md`. Moet en kan: **Moet:** geen. **Kan:** - Log na de time-out een aparte regel zoals "SHADERS nog niet klaar na 40 s", zodat een mislukte wacht niet als gelukt in het log staat. - Voeg het runnummer van een groene run toe aan de commit of aan `ontwerp.md`, zodat vaststaat dat plaatje 4 nu kleur heeft. - Maak de verzadigingsdrempel van 40 afhankelijk van de verwachte kleur per cilinder, als er een neutrale cilinder in de strook zit. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
