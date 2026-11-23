@@ -55,3 +55,26 @@ Belofte (opdracht hoofdchat 23 nov): Figure from rig haalt op een vaste testset 
 3. Meshy-figuren (knight, man_backpack, army_man) en "More bones" (enkels) meetellen in de testset; die lijken het meest op wat een koper laadt (A5).
 4. Verslag bijwerken met run 45279729768 en de kleine verschillen uit A12 en A17.
 5. Knight-rechterknie in 5.x zit op 5,3 tot 5,6% bij een grens van 6%: een eigen spoor, al op main zo (A10).
+
+## Herkeuring M1 en M2, 24 nov 2026, keurder A
+Wat ik keurde: tak `claude/betrouwbaar-rig` op 25efd95 (en 1945f46), `git diff 5aa27a8 25efd95`, de uitslag en berichten op de tak,
+en de JSON-bestanden en logs van run 45282711505 op tak `betrouwbaar-uitslag` (map `45282711505/`, zelf in Python nageteld).
+Akkoord: ja
+
+Voorwaarde bij het voegen: de e2e op 25efd95 (run 45287215003) moet groen zijn, ook in 4.2.23. Die liep nog toen ik keurde,
+en de nieuwe toets `CJ_HERKANS=3` heb ik alleen in 5.2.3 en 5.3.0 groen gezien.
+
+| # | Punt | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|---|
+| M1a | Vangnet 6% ook bij kogels | `rig.py`: de voorwaarde `soort == "HINGE"` is weg, de grens staat in `VERLOREN_MAX = 0.06`. Elke geslaagde snede gaat nu langs `verloren_stuk`. | feit | hoog |
+| M1b | Toets `CJ_HERKANS=3` | Nieuwe toets in `toetsen_mens.py`: de eerste linkerschoudersnede krijgt zogenaamd 50% verlies. In de logs `regressie-5.2.3/mens_verlies.log` en `regressie-5.3.0/mens_verlies.log` (GEZIEN): "OK na een kogelsnede die te veel verliest neemt de knop een volgende plek", "OK linkerschouder toch geplaatst", "KLAAR 0 FOUT", 9 gewrichten. De toets meet echt kogelsneden: in de diag-JSON van dezelfde figuur doet de knop ook 5 geslaagde sneden per schouder, dus de 5 meldingen "Left shoulder" in de toets zijn echte kogelsneden. In 4.2 niet gezien (de regressie-job draait daar niet, e2e nog bezig). | feit (5.x), vermoeden (4.2 ook groen) | hoog / midden |
+| M1c | Verlies gemeten, nul tegen tak | Zelf geteld uit 45282711505 (GEZIEN): 884 geslaagde kogelsneden met `verloren_diag` (tak 173 / 220 / 220, nul 48 / 111 / 112 in 4.2.23 / 5.2.3 / 5.3.0). Geen enkele boven 6%. Grootste verlies tak 0,9% (armen, 5.x, gelijk aan nul), nul 5,0% (robot in 4.2). Mijn tabel per figuur is gelijk aan de tabel in de uitslag. De meting gebruikt een bol van 15 mm, kleiner dan die van het vangnet zelf, dus eerder te streng dan te mild. | feit | hoog |
+| M1d | Gewrichten niet slechter | Tak in 45282711505 (GEZIEN): 4.2 robot-a/b 6, robot-fijn 7, kleding 8, mens 9, rigify 7, armen 8 (51 van 60); 5.x elke herhaling 60 van 60. Gelijk aan de vorige runs: het vangnet heeft op de testset niets geweigerd. | feit | hoog |
+| M2a | 4.2 "28 naar 44 van 51" | Staat zo in de uitslag (regel 84 en bij "Wat nog niet lukt"), in het bericht aan Bram en de hoofdchat, en in het releasenote-voorstel ("44 instead of 28 of 51"). Klopt met mijn telling: 6+6+8+9+7+8 = 44 (GEZIEN). "28 naar 51 van 60" komt op de tak nergens meer voor; de oudere regels in de berichten zijn niet weggehaald maar rechtgezet in een nieuwe regel, zoals het hoort. | feit | hoog |
+| M2b | 4.2 trager | "2 tot 3,6 keer trager" met de seconden uit mijn eerste keuring staat in uitslag en bericht; "was ook 3 tot 30" is weg. Het releasenote-voorstel zegt "In 4.2, Figure from rig can take a few minutes". | feit | hoog |
+| M3 | Toets versoepeld? | In de diff veranderen geen bestaande `check(...)`-regels en `meet_drempel.json` niet; er komen alleen toetsen bij. De verlaagde 4.2-drempel uit mijn eerste keuring (B1) bestond al op 5aa27a8. | feit | hoog |
+
+Kleine dingen (kan, blokkeren niet):
+- De uitslag zegt "4.2 rigify tak 1 van 5" afgebroken; in 45282711505 staan maar 3 van de 5 (herhaling 2, 3 en 4, GEZIEN).
+- De uitslag zegt bij de toets "4.2 zie het bericht", maar het bericht zegt niets over 4.2. Na run 45287215003 bijwerken.
+- De aantallen voxelsneden (125, 37, 35) heb ik niet nageteld.
