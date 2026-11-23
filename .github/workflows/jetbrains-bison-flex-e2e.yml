@@ -5,6 +5,15 @@ on:
     branches: [main, "claude/jetbrains-*"]
     paths: ["producten/jetbrains-bison-flex/**", ".github/workflows/jetbrains-bison-flex-e2e.yml"]
   workflow_dispatch:
+    inputs:
+      idea_build:
+        description: 'build van een IntelliJ IDEA EAP (leeg: IDEA Community 2025.2)'
+        type: string
+        default: ''
+      clion_build:
+        description: 'build van een CLion EAP (leeg: de vaste build uit ClionTest.kt)'
+        type: string
+        default: ''
   # Week-test (roestronde R4): week-test.yml roept deze workflow aan met de nieuwste IntelliJ- en CLion-EAP.
   workflow_call:
     inputs:

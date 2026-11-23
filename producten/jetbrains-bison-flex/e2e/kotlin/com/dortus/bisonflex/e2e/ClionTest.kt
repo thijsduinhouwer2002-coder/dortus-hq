@@ -27,6 +27,7 @@ import com.intellij.ide.starter.models.TestCase
 import com.intellij.ide.starter.project.LocalProjectInfo
 import com.intellij.ide.starter.runner.Starter
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assumptions
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail
@@ -124,7 +125,42 @@ class ClionTest {
         private const val CLION_BUILD_VAST = "263.7307.35"
 
         /** Week-test (roestronde R4): -PclionBuild=<build> kiest de nieuwste CLion EAP, anders [CLION_BUILD_VAST]. */
-        val CLION_BUILD: String = System.getProperty("dortus.e2e.clionBuild")?.takeIf { it.isNotBlank() } ?: CLION_BUILD_VAST
+        val CLION_BUILD_GEVRAAGD: String = System.getProperty("dortus.e2e.clionBuild")?.takeIf { it.isNotBlank() } ?: CLION_BUILD_VAST
+
+        /**
+         * De build die echt draait. Een EAP geldt 30 dagen na de builddatum (daarna weigert Starter hem:
+         * "Failed to find specific release", week-test run 45087195189). Is de gevraagde build verlopen, dan de nieuwste
+         * CLion EAP die nog geldt. Is er geen (tussen een release en de volgende EAP), dan null: de test slaat zich
+         * over met de reden in het log, want een gewone CLion vraagt een licentie en die klikken we niet weg.
+         */
+        val CLION_BUILD: String? by lazy { kiesClionBuild(CLION_BUILD_GEVRAAGD) }
+
+        /** Laatste uitleg van [kiesClionBuild], voor het log en de reden bij overslaan. */
+        var clionKeuze = ""
+
+        private fun kiesClionBuild(gevraagd: String): String? {
+            val json = try {
+                java.net.URI("https://data.services.jetbrains.com/products/releases?code=CL&type=eap").toURL().readText()
+            } catch (e: Exception) {
+                clionKeuze = "lijst met CLion-EAP's niet te lezen (${e.message?.take(100)}), gevraagde build $gevraagd"
+                println("DORTUS-E2E CLion-build: $clionKeuze")
+                return gevraagd
+            }
+            val vandaag = java.time.LocalDate.now(java.time.ZoneOffset.UTC)
+            val eaps = Regex("\"date\":\"(\\d{4}-\\d{2}-\\d{2})\".*?\"build\":\"([0-9.]+)\"", RegexOption.DOT_MATCHES_ALL)
+                .findAll(json).map { it.groupValues[2] to java.time.LocalDate.parse(it.groupValues[1]) }.toList()
+            fun geldig(datum: java.time.LocalDate) = datum.plusDays(29).isAfter(vandaag)
+            val eigen = eaps.firstOrNull { it.first == gevraagd }
+            val nieuwste = eaps.filter { geldig(it.second) }.maxByOrNull { it.second }
+            val keuze = when {
+                eigen == null -> gevraagd.also { clionKeuze = "build $gevraagd niet in de EAP-lijst, toch proberen" }
+                geldig(eigen.second) -> gevraagd.also { clionKeuze = "build $gevraagd (EAP van ${eigen.second}, geldig)" }
+                nieuwste != null -> nieuwste.first.also { clionKeuze = "build $gevraagd verlopen (EAP van ${eigen.second}), nieuwste geldige EAP ${nieuwste.first} van ${nieuwste.second}" }
+                else -> null.also { clionKeuze = "build $gevraagd verlopen (EAP van ${eigen.second}) en er is geen nieuwere CLion EAP; gewone CLion vraagt een licentie" }
+            }
+            println("DORTUS-E2E CLion-build: $clionKeuze")
+            return keuze
+        }
         private const val PLUGIN_ID = "com.dortus.bisonflex"
         private val VERDACHT = Regex("licen|activat|agreement|terms|eula|register|subscription|trial|log ?in|sign ?in|evaluat|privacy|data sharing|expired", RegexOption.IGNORE_CASE)
     }
@@ -145,10 +181,12 @@ class ClionTest {
     fun donkerThema() = draai("donker", "Islands Dark", "Islands Dark", donker = true)
 
     private fun draai(naam: String, themaId: String, kleurenschema: String, donker: Boolean) {
+        val build = CLION_BUILD
+        Assumptions.assumeTrue(build != null, "CLion-test overgeslagen: $clionKeuze")
         val project = winkelproject("clion-$naam")
         val wachter = Vensterwachter(naam).also { it.start() }
         try {
-            Starter.newContext("clion-$naam", TestCase(IdeProductProvider.CL, LocalProjectInfo(project)).useEAP(CLION_BUILD))
+            Starter.newContext("clion-$naam", TestCase(IdeProductProvider.CL, LocalProjectInfo(project)).useEAP(build!!))
                 .apply {
                     richIn(themaId, kleurenschema) {
                         // "Cannot update plugin: Unable to identify where ... was installed from" komt van

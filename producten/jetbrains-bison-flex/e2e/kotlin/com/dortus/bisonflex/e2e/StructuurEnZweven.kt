@@ -25,7 +25,30 @@ import java.awt.Point
 @Remote("com.intellij.ide.structureView.StructureViewFactoryEx")
 interface StructuurFabriekOpAfstand {
     fun getInstanceEx(project: Project): StructuurFabriekOpAfstand
-    fun getStructureViewWrapper(): StructuurWrapperOpAfstand?
+    fun getStructureViewWrapper(): StructuurWrapperAlgemeen?
+}
+
+/** Het algemene type (lang-impl, kern van het platform): bestaat in elke versie, alleen om de verwijzing vast te houden. */
+@Remote("com.intellij.ide.structureView.StructureViewWrapper")
+interface StructuurWrapperAlgemeen
+
+/*
+ * Vanaf 263 zit de structuurweergave in een eigen plugin (com.intellij.structureView, inhoudsmodule
+ * intellij.platform.structureView) met een eigen classloader. Zonder die plek geeft de Driver
+ * "No such class ... in plugin null" (week-test, run 45087195189). Tot en met 262 zit hij in de kern.
+ * Daarom twee stel interfaces; structuurDelen() probeert eerst de nieuwe plek, dan de oude.
+ */
+private const val STRUCTUUR_MODULE = "com.intellij.structureView/intellij.platform.structureView"
+
+@Remote("com.intellij.ide.impl.StructureViewWrapperImpl", plugin = STRUCTUUR_MODULE)
+interface StructuurWrapperNieuw {
+    fun getStructureView(): StructuurComponentNieuw?
+}
+
+@Remote("com.intellij.ide.structureView.newStructureView.StructureViewComponent", plugin = STRUCTUUR_MODULE)
+interface StructuurComponentNieuw {
+    fun getFileEditor(): BestandEditorOpAfstand?
+    fun getTree(): OnderdeelOpAfstand?
 }
 
 @Remote("com.intellij.ide.impl.StructureViewWrapperImpl")
@@ -86,22 +109,51 @@ interface MarkeringOpAfstand {
 /** `HighlighterLayer.HYPERLINK`: de laag van de navigatie-onderstreping bij Ctrl+zweven (CtrlMouseHandler2). */
 private const val LAAG_ONDERSTREPING = 5900
 
+/** Welke plek werkte (true: eigen plugin van 263+, false: kern), zodat de lus in structuurBij niet steeds faalt. */
+private var structuurNieuwePlek: Boolean? = null
+
+/**
+ * Bestandsnaam en boom van de structuurweergave, of null als er geen weergave is. Probeert de plek die eerder
+ * werkte, anders eerst de eigen plugin (263+) en dan de kern (tot en met 262). Werkt geen van beide, dan een fout
+ * met beide redenen.
+ */
+private fun Driver.structuurDelen(): Pair<String?, OnderdeelOpAfstand?>? {
+    val wrapper = utility<StructuurFabriekOpAfstand>().getInstanceEx(singleProject()).getStructureViewWrapper() ?: return null
+    val volgorde = structuurNieuwePlek?.let { listOf(it) } ?: listOf(true, false)
+    val fouten = mutableListOf<String>()
+    for (nieuw in volgorde) {
+        try {
+            val delen: Pair<String?, OnderdeelOpAfstand?>? = if (nieuw) {
+                cast(wrapper, StructuurWrapperNieuw::class).getStructureView()?.let { v ->
+                    withContext(OnDispatcher.EDT) { cast(v, StructuurComponentNieuw::class).let { c -> c.getFileEditor()?.getFile()?.getName() to c.getTree() } }
+                }
+            } else {
+                cast(wrapper, StructuurWrapperOpAfstand::class).getStructureView()?.let { v ->
+                    withContext(OnDispatcher.EDT) { cast(v, StructuurComponentOpAfstand::class).let { c -> c.getFileEditor()?.getFile()?.getName() to c.getTree() } }
+                }
+            }
+            if (structuurNieuwePlek == null) println("DORTUS-E2E structuurweergave via ${if (nieuw) "eigen plugin (263+)" else "kern (tot 262)"}")
+            structuurNieuwePlek = nieuw
+            return delen
+        } catch (e: Throwable) {
+            fouten += "${if (nieuw) "plugin" else "kern"}: ${e.javaClass.simpleName}: ${e.message?.take(150)}"
+        }
+    }
+    throw IllegalStateException(fouten.joinToString(" | "))
+}
+
 /** Naam van het bestand dat de structuurweergave nu toont, of een korte foutomschrijving. */
 fun Driver.structuurBestand(): String? = try {
-    val wrapper = utility<StructuurFabriekOpAfstand>().getInstanceEx(singleProject()).getStructureViewWrapper()
-    val view = wrapper?.let { cast(it, StructuurWrapperOpAfstand::class).getStructureView() }
-    view?.let { v -> withContext(OnDispatcher.EDT) { cast(v, StructuurComponentOpAfstand::class).getFileEditor()?.getFile()?.getName() } }
+    structuurDelen()?.first
 } catch (e: Throwable) {
-    "fout ${e.javaClass.simpleName}: ${e.message?.take(150)}"
+    "fout ${e.javaClass.simpleName}: ${e.message?.take(300)}"
 }
 
 /** De boom (JTree) van de structuurweergave, of null (dan staat de reden in het log). */
 fun Driver.structuurBoom(): OnderdeelOpAfstand? = try {
-    val wrapper = utility<StructuurFabriekOpAfstand>().getInstanceEx(singleProject()).getStructureViewWrapper()
-    val view = wrapper?.let { cast(it, StructuurWrapperOpAfstand::class).getStructureView() }
-    view?.let { v -> withContext(OnDispatcher.EDT) { cast(v, StructuurComponentOpAfstand::class).getTree() } }
+    structuurDelen()?.second
 } catch (e: Throwable) {
-    println("DORTUS-E2E structuurboom niet gevonden: ${e.javaClass.simpleName}: ${e.message?.take(150)}")
+    println("DORTUS-E2E structuurboom niet gevonden: ${e.javaClass.simpleName}: ${e.message?.take(300)}")
     null
 }
 
