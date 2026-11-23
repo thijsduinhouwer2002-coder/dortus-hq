@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: ma 23 nov 2026, 16:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Bison & Flex 2026.1.2: uitgave-tak gepusht (akkoord Daan), upload loopt. Pro 1.2.1 wacht op Thijs voor Gumroad en Superhive (lijst 3); 1.2.2 bij Bram (fix 8 tegen 9 op main, terugval nog rood op 5.2.3). Tweede product: splitser met verbinders (besluit Thijs), Flexi stopt. Printables ja voor de teststrip, wacht op account Thijs. Verkopen Pro: 1 (GEZIEN 23 nov 11:05).
+**Stand: ma 23 nov 2026, 16:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Bison & Flex 2026.1.2: geüpload naar de Marketplace (run 45208127744 groen, GEZIEN; JetBrains keurt nog). Pro 1.2.1 wacht op Thijs voor Gumroad en Superhive (lijst 3); 1.2.2 bij Bram (fix 8 tegen 9 op main, terugval nog rood op 5.2.3). Tweede product: splitser met verbinders (besluit Thijs), Flexi stopt. Printables ja voor de teststrip, wacht op account Thijs. Verkopen Pro: 1 (GEZIEN 23 nov 11:05).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
