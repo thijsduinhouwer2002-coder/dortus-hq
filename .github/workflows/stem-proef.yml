@@ -10,7 +10,7 @@ name: Stem-proef (voice-over synchroon met het beeld)
 on:
   push:
     branches: [main]
-    paths: ["commercie/filmpjes/stem/**", ".github/workflows/stem-proef.yml"]
+    paths: ["commercie/filmpjes/stem/**", "!commercie/filmpjes/stem/*.md", ".github/workflows/stem-proef.yml"]
   workflow_dispatch:
 
 permissions:

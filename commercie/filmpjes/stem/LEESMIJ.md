@@ -30,6 +30,17 @@ Draaien: workflow `.github/workflows/stem-proef.yml` (bij een push in deze map),
 
 YouTube: in de beschrijving zetten we eerlijk "Voice: AI text to speech (Kokoro)".
 
+## Uitkomst proef 1 (23 nov 2026, run 45164459011, release stem-proef-1)
+- Short 58,4 s staand, plus een liggende versie van 58,4 s; geluid_check GOED (-16,3 dB gemiddeld, piek -1,4 dB). GEZIEN.
+- Synchroon: 15 van 15 zinnen binnen 0,3 s, grootste verschil 0,18 s, gemiddeld 0,12 s (beide vormen). Whisper small.en vond alle woorden van alle zinnen terug. Alleen de ruwe woordtijden van whisper: zin 9 wijkt 0,33 s af; daarom de verfijning tot het begin van de klank. GEZIEN, `synchroon-staand.md`.
+
+## Oordeel over de stem (eerlijk)
+- Ik kan geluid niet zelf horen; mijn oordeel rust op metingen en op blinde luistertesten van derden.
+- Verstaanbaar: ja. Whisper vond 100% van de woorden terug (GEZIEN). Uitspraak van "3MF" via "three M F" opgelost.
+- Natuurlijk: redelijk, niet top. In de blinde Speech Arena van Artificial Analysis staat Kokoro 82M v1.0 op Elo 1060 (plek ±68). ElevenLabs Eleven v4 staat op 1340 (plek 1), het oudere ElevenLabs Multilingual v2 op 1092 (DERDEN: https://artificialanalysis.ai/text-to-speech/leaderboard, 23 nov 2026). Een verschil van 280 Elo betekent dat luisteraars Eleven v4 in ±83% van de paren kiezen (GOK, uitgerekend met de Elo-formule). Multilingual v2 tegen Kokoro: ±55%, dus bijna gelijk.
+- Dus: ElevenLabs is alleen echt beter met het nieuwste model (v4). Het Starter-plan met commerciële licentie kost $1 de eerste maand en daarna $6 per maand, 30k credits per maand (DERDEN: https://elevenlabs.io/pricing, 23 nov 2026). Ons script is ±800 tekens; hoeveel credits v4 per teken rekent heb ik niet gezien (GOK: ±30 Shorts per maand). Dat is een besluit voor Thijs (geld).
+- Beter meten dan gokken: plaats de stem-Short en de stille knee-bend-Short (Ij-jc6t4WNo) en vergelijk kijkduur en weergaven. Helpt de stem, dan is ElevenLabs v4 de volgende stap.
+
 ## Bestanden
 - `stem.py`: stem per zin, Kokoro of ElevenLabs.
 - `montage.py`: tijdlijn, beeld, geluid, script met tijden (`*-script.json`, `*.srt`).
