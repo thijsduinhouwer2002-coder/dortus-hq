@@ -216,8 +216,9 @@ def knip(x, zinnen, woorden=None):
         # wat whisper van de zinnen aan weerszijden wel hoorde, perkt het stuk verder in: de pauze moet nog lopen na
         # het laatst gehoorde woord van zin i, en al begonnen zijn voor het eerst gehoorde woord van zin j+1
         na = max([t for z, t in tijden["laatste"].items() if z <= i], default=None)
-        voor = min([t for z, t in tijden["eerste"].items() if z >= j + 1], default=None)
-        runs = [r for r in runs if (na is None or r[1] > na) and (voor is None or r[0] < voor)]
+        voor = min([t for z, t in tijden["eerste"].items() if z >= j], default=None)
+        # marge 0,25 s: whisper legt woordgrenzen soms een kwart seconde te laat of te vroeg (keuring Daan, kan)
+        runs = [r for r in runs if (na is None or r[1] > na - 0.25) and (voor is None or r[0] < voor + 0.25)]
         if len(runs) < k:
             raise RuntimeError(f"splits: grens na zin {[g + 1 for g in range(i, j)]}: {len(runs)} stiltes tussen "
                                f"{links / SR:.2f} en {rechts / SR:.2f} s, nodig {k}")

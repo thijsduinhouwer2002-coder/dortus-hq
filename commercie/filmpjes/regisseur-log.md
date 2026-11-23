@@ -51,3 +51,7 @@
   Dus veilig om te gebruiken, maar het haalt niet alle uitschieters weg: de trage runner was traag in het downloaden,
   niet in de update. Wil de Regisseur de uitschieters echt kwijt, dan is de volgende stap de .deb-bestanden bewaren met
   actions/cache (gratis binnen GitHub); dat bouw ik als hij het wil.
+- 23 nov 2026 ±22:15 NL, Olaf: `stem/splits.py` kan van Daan verwerkt: filter met marge 0,25 s (whisper legt een
+  woordeinde soms te laat) en rechts `z >= j`. Toetsen van Daan (laat woord, terugval) en `toets_splits.py
+  --zonder-whisper` alle drie goed, 0 FOUT (GEZIEN, lokaal). De Kokoro-toets met whisper niet opnieuw gedraaid (whisper
+  staat niet in deze run).
