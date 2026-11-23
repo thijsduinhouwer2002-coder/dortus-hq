@@ -84,6 +84,9 @@ class ElevenLabs:
         self.sleutel = os.environ["ELEVENLABS_API_KEY"]
         # standaard een rustige Engelse stem uit de eigen bibliotheek van ElevenLabs; te wisselen met het geheim/var
         self.stem = os.environ.get("ELEVENLABS_VOICE_ID") or "JBFqnCBsd6RMkjVDRZzb"
+        # let op: in de blinde Speech Arena scoort Multilingual v2 maar iets boven Kokoro (Elo 1092 tegen 1060), Eleven v4
+        # veel hoger (1340), DERDEN https://artificialanalysis.ai/text-to-speech/leaderboard (23 nov 2026). Kies dus het
+        # nieuwste model via de repo-variabele ELEVENLABS_MODEL zodra er een betaald plan is.
         self.model = os.environ.get("ELEVENLABS_MODEL") or "eleven_multilingual_v2"
 
     def info(self):

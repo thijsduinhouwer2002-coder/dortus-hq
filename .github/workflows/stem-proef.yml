@@ -29,11 +29,14 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
       - name: Pakketten
         run: |
           timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
           timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 ffmpeg fonts-inter
-          python3 -m pip install -q --break-system-packages kokoro-onnx==0.6.1 soundfile faster-whisper==1.2.1 numpy pillow
+          python -m pip install -q kokoro-onnx==0.6.1 soundfile faster-whisper==1.2.1 numpy pillow
       - name: Kokoro-model en stemmen (sha256 vast)
         run: |
           mkdir -p /tmp/kokoro
@@ -56,10 +59,11 @@ jobs:
           KOKORO_VOICES: /tmp/kokoro/voices-v1.0.bin
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_ID: ${{ vars.ELEVENLABS_VOICE_ID }}
+          ELEVENLABS_MODEL: ${{ vars.ELEVENLABS_MODEL }}
         run: |
           mkdir -p /tmp/klaar
-          python3 commercie/filmpjes/stem/montage.py commercie/filmpjes/stem/proef-1.json /tmp/bron /tmp/klaar staand
-          python3 commercie/filmpjes/stem/montage.py commercie/filmpjes/stem/proef-1.json /tmp/bron /tmp/klaar liggend
+          python commercie/filmpjes/stem/montage.py commercie/filmpjes/stem/proef-1.json /tmp/bron /tmp/klaar staand
+          python commercie/filmpjes/stem/montage.py commercie/filmpjes/stem/proef-1.json /tmp/bron /tmp/klaar liggend
       - name: Controle (synchroon, geluid, lengte)
         env:
           WHISPER_MODEL: small.en
@@ -67,14 +71,14 @@ jobs:
           cd /tmp/klaar
           mkdir -p meting-staand meting-liggend
           ok=0
-          python3 $GITHUB_WORKSPACE/commercie/filmpjes/stem/synchroon.py knee-bend-stem-staand.mp4 knee-bend-stem-staand-script.json meting-staand || ok=1
-          python3 $GITHUB_WORKSPACE/commercie/filmpjes/stem/synchroon.py knee-bend-stem-liggend.mp4 knee-bend-stem-liggend-script.json meting-liggend || ok=1
+          python $GITHUB_WORKSPACE/commercie/filmpjes/stem/synchroon.py knee-bend-stem-staand.mp4 knee-bend-stem-staand-script.json meting-staand || ok=1
+          python $GITHUB_WORKSPACE/commercie/filmpjes/stem/synchroon.py knee-bend-stem-liggend.mp4 knee-bend-stem-liggend-script.json meting-liggend || ok=1
           for v in staand liggend; do for f in meting-$v/*; do mv "$f" "$(basename ${f%.*})-$v.${f##*.}"; done; done
-          python3 $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py knee-bend-stem-*.mp4 | tee geluid_check.txt
+          python $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py knee-bend-stem-*.mp4 | tee geluid_check.txt
           grep -q "FOUT" geluid_check.txt && ok=1
           d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 knee-bend-stem-staand.mp4)
           echo "staand $d s" | tee lengtes.txt
-          python3 -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: Short is $d s, niet 40 tot 60"; ok=1; }
+          python -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: Short is $d s, niet 40 tot 60"; ok=1; }
           sha256sum *.mp4 | tee SHA256SUMS.txt
           exit $ok
       - name: In de release zetten
@@ -82,6 +86,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          [ -d /tmp/klaar ] && ls /tmp/klaar/*.mp4 >/dev/null 2>&1 || { echo "geen film gemaakt, niets in de release"; exit 1; }
           cd /tmp/klaar
           echo "Stem-proef 1: Short (9:16) en liggende versie (16:9) met voice-over die op het beeld valt. Stem: zie *-script.json (veld stem). Synchroon-meting: synchroon-*.md. Concept: marketing/wachtrij/. Niets geplaatst." > /tmp/notes.md
           gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Stem-proef 1 (voice-over synchroon)" --notes-file /tmp/notes.md
