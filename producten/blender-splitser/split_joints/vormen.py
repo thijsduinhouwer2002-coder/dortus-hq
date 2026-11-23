@@ -97,41 +97,56 @@ def label_frame(as_, teken, richting=None):
     return Matrix((rechts, op, n)).transposed()
 
 
+# Pixel font, 3 x 5 cells per character (rows from the top). Straight edges only: prints clean at 0.4 mm and
+# gives the Booleans no tiny curves (the built-in font's "4" left open edges with Exact in 4.2, runs
+# 45212458120 and 45214379786). No two cells touch only at a corner, so the mesh stays manifold.
+PIXELS = {
+    "0": ("111", "101", "101", "101", "111"), "1": ("010", "110", "010", "010", "111"),
+    "2": ("111", "001", "111", "100", "111"), "3": ("111", "001", "111", "001", "111"),
+    "4": ("101", "101", "111", "001", "001"), "5": ("111", "100", "111", "001", "111"),
+    "6": ("111", "100", "111", "101", "111"), "7": ("111", "001", "001", "001", "001"),
+    "8": ("111", "101", "111", "101", "111"), "9": ("111", "101", "111", "001", "111"),
+    "-": ("000", "000", "111", "000", "000"),
+}
+
+
+def label_cellen(tekst):
+    """Filled cells (column, row from the bottom) of the text, 4 columns per character (one empty)."""
+    cellen = set()
+    for i, teken in enumerate(tekst):
+        for r, rij in enumerate(PIXELS.get(teken, PIXELS["-"])):
+            for c, vol in enumerate(rij):
+                if vol == "1":
+                    cellen.add((4 * i + c, 4 - r))
+    return cellen
+
+
 def label_mesh(tekst, h, diepte, punt, as_, teken, u, max_breedte=None, richting=None):
-    """Closed mesh of the label text, h mm high, from 0.2 mm outside the face to diepte mm inside, centered
-    on punt (mm). Returns (mesh, width mm) or (None, 0) if Blender could not make a closed text mesh."""
-    cu = bpy.data.curves.new("sj_label", "FONT")
-    cu.body = tekst
-    if cu.font is None:
-        cu.font = bpy.data.fonts.load("<builtin>")
-    cu.size = h
-    cu.extrude = (diepte + 0.2) / 2.0
-    cu.align_x, cu.align_y = "CENTER", "CENTER"
-    ob = bpy.data.objects.new("sj_label", cu)
-    bpy.context.scene.collection.objects.link(ob)
-    dg = bpy.context.evaluated_depsgraph_get()
-    me = bpy.data.meshes.new_from_object(ob.evaluated_get(dg))
-    bpy.data.objects.remove(ob)
-    bpy.data.curves.remove(cu)
-    bm = bmesh.new()
-    bm.from_mesh(me)
-    bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-4)
-    if not bm.verts:
-        bm.free()
-        bpy.data.meshes.remove(me)
+    """Closed mesh of the label text (pixel font), h mm high, from 0.2 mm outside the face to diepte mm
+    inside, centered on punt (mm). Returns (mesh, width mm) or (None, 0) for an empty text."""
+    cellen = label_cellen(tekst)
+    if not cellen:
         return None, 0.0
-    xs = [v.co.x for v in bm.verts]
-    ys = [v.co.y for v in bm.verts]
-    breedte = max(xs) - min(xs)
-    schaal = 1.0
-    if max_breedte and breedte > max_breedte:
-        schaal = max_breedte / breedte
-    midden = Vector(((max(xs) + min(xs)) / 2, (max(ys) + min(ys)) / 2, (diepte - 0.2) / 2.0))  # z: -diepte..0.2
-    bm.transform(Matrix.Translation(-midden))
-    bm.transform(Matrix.Diagonal((schaal, schaal, 1.0, 1.0)))
+    px = h / 5.0
+    kolommen = 4 * len(tekst) - 1
+    if max_breedte and kolommen * px > max_breedte:
+        px = max_breedte / kolommen
+    bm = bmesh.new()
+    punten = {}
+
+    def p(c, r):
+        if (c, r) not in punten:
+            punten[(c, r)] = bm.verts.new(((c - kolommen / 2.0) * px, (r - 2.5) * px, 0.2))
+        return punten[(c, r)]
+
+    vlakken = [bm.faces.new((p(c, r), p(c + 1, r), p(c + 1, r + 1), p(c, r + 1))) for c, r in sorted(cellen)]
+    uit = bmesh.ops.extrude_face_region(bm, geom=vlakken, use_keep_orig=True)  # keep the top: closed slab
+    nieuw = [g for g in uit["geom"] if isinstance(g, bmesh.types.BMVert)]
+    bmesh.ops.translate(bm, verts=nieuw, vec=(0.0, 0.0, -(diepte + 0.2)))
     bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
     frame = label_frame(as_, teken, richting).to_4x4()
     bm.transform(Matrix.Scale(u, 4) @ Matrix.Translation(Vector(punt)) @ frame)
+    me = bpy.data.meshes.new("sj_label")
     bm.to_mesh(me)
     bm.free()
-    return me, breedte * schaal
+    return me, kolommen * px

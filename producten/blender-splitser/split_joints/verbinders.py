@@ -10,7 +10,6 @@ import math
 import numpy as np
 
 LABEL_HOOGTES = (8.0, 6.0, 5.0, 4.0, 3.0, 2.5)  # text height in mm, largest that fits
-LABEL_BREEDTE = 0.62  # width of one character in text heights (Blender's built-in font, digits and "-")
 MAX_PENNEN = 4
 
 
@@ -22,8 +21,9 @@ def doel_aantal(oppervlak, d):
 
 
 def label_maat(tekst, h):
-    """(width, height) in mm of the label text at height h."""
-    return LABEL_BREEDTE * h * max(1, len(tekst)), h
+    """(width, height) in mm of the label text at height h: pixel font of 3 x 5 cells, one empty column
+    between characters (vormen.label_cellen)."""
+    return (4 * max(1, len(tekst)) - 1) * h / 5.0, h
 
 
 def kies_pennen(pu, pv, kl, nodig, n, toets):
