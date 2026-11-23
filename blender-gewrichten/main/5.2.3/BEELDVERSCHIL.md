@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 5.2.3 (main)
 GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 45100503130, commit 440a52df578fa2e168fa847fbaa9c0ae3b9ba10a, commitdatum 1795400969, 2026-11-23T02:41:15Z
+Referentie: referentie uit run 45104427212, commit 9df13fad6e7da0434ee42ea3181c03222f23e112, commitdatum 1795403303, 2026-11-23T03:23:40Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -8,11 +8,11 @@ Referentie: referentie uit run 45100503130, commit 440a52df578fa2e168fa847fbaa9c
 | 10-winkel-paneel-x.png | gelijk | |
 | 11-scharnier-x.png | gelijk | |
 | 12-scharnier-rood-x.png | gelijk | |
-| 13-pro-knie-schoon-x.png | gelijk | |
-| 13-pro-knie-x.png | gelijk | |
-| 13d-pro-knie-dicht-x.png | 98 px (0.005%), ruis | |
-| 14-pro-knie-rood-x.png | gelijk | |
-| 14b-pro-knie-rood-los-x.png | gelijk | |
+| 13-pro-knie-schoon-x.png | 31 px (0.001%), ruis | |
+| 13-pro-knie-x.png | 8 px (0.000%), ruis | |
+| 13d-pro-knie-dicht-x.png | 52 px (0.003%), ruis | |
+| 14-pro-knie-rood-x.png | 13 px (0.001%), ruis | |
+| 14b-pro-knie-rood-los-x.png | 7 px (0.000%), ruis | |
 | 15-figuur-paneel.png | gelijk | |
 | 15-figuur-x.png | gelijk | |
 | 16-figuur-rig-paneel.png | gelijk | |
@@ -27,15 +27,15 @@ Referentie: referentie uit run 45100503130, commit 440a52df578fa2e168fa847fbaa9c
 | 20h-testkaart-scharnier.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 28 px (0.001%), ruis | |
+| 5-waaier-x.png | 17 px (0.001%), ruis | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | 116 px (0.006%), ruis | |
-| 8-winkel-x.png | gelijk | |
-| 9-winkel-rood-x.png | 47 px (0.002%), ruis | |
+| 7-plat-x.png | 24 px (0.001%), ruis | |
+| 8-winkel-x.png | 72 px (0.003%), ruis | |
+| 9-winkel-rood-x.png | 41 px (0.002%), ruis | |
 | d1-slot-paneel.png | gelijk | |
 | d1-slot.png | gelijk | |
 | d2-venster-paneel.png | gelijk | |
 | d2-venster.png | gelijk | |
-| p13-d-x.png | gelijk | |
-| p13-e-x.png | gelijk | |
-| p14b-e-x.png | gelijk | |
+| p13-d-x.png | 57 px (0.003%), ruis | |
+| p13-e-x.png | 8 px (0.000%), ruis | |
+| p14b-e-x.png | 9 px (0.000%), ruis | |
