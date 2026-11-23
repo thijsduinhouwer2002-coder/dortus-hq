@@ -1,0 +1,40 @@
+[meet] figuur mens: mens, {'bron_punten': 13380, 'bron_zelf_overlap': 0}
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 51, part B 0); the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 33, sneden 19, slechte sneden 1
+[meet]   SLECHT {"poging": 11, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "EXACT", "terugval": false, "s": 9.41, "r_mm": 1.25, "naad_r": 7.684, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.26874207382933873, "h_voxel": 0.1344, "h_vlakken": 103398, "h_buiten": 0.0, "h_buiten_om": 0.0294, "h_pogingen": null}, "A": {"gesloten": false, "fout": 51, "punten": 22269, "zelf": 5, "open": {"aantal": 51, "vlakken_per_rand": [4], "plekken": [{"vlakken": 4, "z_vlak": -32.8281, "rho": 17.566, "d_mid": 37.22, "d_naad": 29.5362, "d_kogel": 35.9703, "lengte": 0.61056}, {"vlakken": 4, "z_vlak": -40.0424, "rho": 51.94, "d_mid": 65.575, "d_naad": 57.8909, "d_kogel": 64.325, "lengte": 0.09364}, {"vlakken": 4, "z_vlak": -39.2835, "rho": 51.764, "d_mid": 64.974, "d_naad": 57.2898, "d_kogel": 63.7238, "lengte": 0.10452}, {"vlakken": 4, "z_vlak": -39.0434, "rho": 51.707, "d_mid": 64.784, "d_naad": 57.1001, "d_kogel": 63.5341, "lengte": 0.07074}, {"vlakken": 4, "z_vlak": -39.0942, "rho": 51.719, "d_mid": 64.824, "d_naad": 57.1401, "d_kogel": 63.5741, "lengte": 0.04042}, {"vlakken": 4, "z_vlak": -40.7233, "rho": 52.564, "d_mid": 66.485, "d_naad": 58.8007, "d_kogel": 65.2347, "lengte": 0.08793}, {"vlakken": 4, "z_vlak": -41.4079, "rho": 52.46, "d_mid": 66.825, "d_naad": 59.1405, "d_kogel": 65.5746, "lengte": 0.03535}, {"vlakken": 4, "z_vlak": -40.9243, "rho": 52.268, "d_mid": 66.375, "d_naad": 58.6911, "d_kogel": 65.1251, "lengte": 0.09344}]}, "herstel": 
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=1
+Info: Joint placed. Good fit. 10.838 s.
+Info: Joint placed. Good fit. 10.738 s.
+Info: Joint placed. Good fit. 10.795 s.
+Info: Joint placed. Good fit. 10.283 s.
+Info: Joint placed. Good fit. 10.595 s.
+Info: Joint placed. Good fit. 10.366 s.
+Info: Joint placed. Good fit. 10.308 s.
+Info: Joint placed. Good fit. 10.416 s.
+Info: Joint placed. Good fit. 7.193 s.
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Info: Joint placed. Good fit. 7.081 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 4.2.23 LTS figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 33, sneden 19, slechte sneden 1
+[meet]   SLECHT {"poging": 11, "gewricht": "Left shoulder", "soort": "KOGEL", "solver": "EXACT", "terugval": false, "s": 9.41, "r_mm": 1.25, "naad_r": 7.684, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.26874207382933873, "h_voxel": 0.1344, "h_vlakken": 103398, "h_buiten": 0.0, "h_buiten_om": 0.0294, "h_pogingen": null}, "A": {"gesloten": false, "
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=1
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+OBJ import of 'makehuman-base.obj' took 17.42 ms
+
+Blender quit
+model name	: AMD EPYC 7763 64-Core Processor
