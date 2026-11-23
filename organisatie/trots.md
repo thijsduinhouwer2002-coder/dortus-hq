@@ -1,5 +1,8 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+
+## 23 nov 2026 23:10 NL (hoofdchat)
+- **Click Joints Pro:** grootste gat wordt gedicht. Betrouwbaarheid vond de oorzaak en maakte Figure from rig in 5.2 en 5.3 60 van 60 op de testset, elke run gelijk (was 53 tot 55, wisselend); 4.2 51 van 60. Twee keurders bezig, dan Bram als 1.2.3, doel live vóór do 26 nov. Daarna: nieuwe cover (robot of tekenpop, Thijs kiest) en video vooraan op de winkelpagina's.
 ## 23 nov 2026 23:20 NL (hoofdchat kwartier-check)
 - **Ebb:** niet trots op de verkoop: 1+ downloads, 0 reviews, $2,99 (Calm gratis 10+) (GEZIEN, winkel-API 23:19). Vindbaar is het wel: plek 7 op "breathwork", 2 op "breath hold", 21 op "breathing" (GEZIEN). Marketing: beelden zijn goed (hoofdbeeld schildpad met "Hold. The sea closes over.", 5 beelden, video, GEZIEN); gat is dat een Engelse bezoeker zonder taalmatch de Duitse titel ziet ("Ebb: Breathwork, Atemübungen & Atem anhalten", eerste taal in de API, GEZIEN) en dat er geen proefversie is tegen gratis concurrenten. Product en interface deze ronde niet zelf in de simulator bekeken. Werk loopt: complication 1.0.2 (Gijs), 20 teksten plakken (hoofdchat, Chrome).
 
