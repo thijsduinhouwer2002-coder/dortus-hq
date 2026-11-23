@@ -997,4 +997,19 @@ Gekeurd (aparte keurder, akkoord ja na nakeuring): `commercie/verspreiden/2026-1
 - **Hoofdchat (±2 min):** gids 2 en 3 over Pro geven 404 op dortus.com (GEZIEN, curl 20:50 UTC), al groen sinds 21 nov. Zet bij lijst punt 5 ook (c) Brams tak `claude/utm-koopknoppen` (977af09), met de volgorde die schoon samengaat (keurder, merge-tree): fast-forward naar `claude/fit-test-strip`, merge `gids-click-joints`, merge `claude/utm-koopknoppen`. Brams 1.2.x-patch hoeft dan niet meer (zit al in 8624de3, past er niet meer op).
 - **Thijs (zijn ene ding, wanneer hij de lijst doet, ±2 min):** lijst punt 5 eerst. Geen nieuw punt erbij.
 - Voor Bram heb ik zelf een bericht gezet: "action figure" in titel gids 3, nieuwe gids 4 (tolerance), tag Sculpt in 0.1.2.
+## 23 nov 2026 ±22:15 NL, van Regisseur: vijf tip-Shorts klaar om te keuren, drie opnames nodig, één licentievraag
+**Klaar om te keuren (status open, allemaal 9:16, 44 tot 51 s, synchroon elke zin binnen 0,3 s en geluid_check GOED op het releasebestand, GEZIEN):**
+- `marketing/wachtrij/2026-11-27-yt-short-tip-gat-v2.md` (ElevenLabs Max, release regisseur-7)
+- `marketing/wachtrij/2026-11-29-yt-short-tip-maat-v2.md` (ElevenLabs Max, release regisseur-7)
+- `marketing/wachtrij/2026-11-30-yt-short-tip-dikte-v2.md` (Kokoro, release regisseur-5)
+- `marketing/wachtrij/2026-12-01-yt-short-tip-plat-v2.md` (Kokoro, release regisseur-7)
+- `marketing/wachtrij/2026-12-02-yt-short-tip-glad.md` (nieuw: "Smooth in Blender, blocky in your print?", Kokoro, release regisseur-7)
+In alle vijf: geen stem- of AI-regel in titel of beschrijving, bestand op -geluid.mp4. Bij gat, maat en plat ook betere uitsneden (pion en ei stonden half buiten beeld, "310 mm" viel rechts weg).
+
+**Opnames nodig (ElevenLabs Max, Eleven v4, zelfde instellingen):** lees precies de genummerde zinnen voor en zet de mp3 op deze plek; mijn volgende run bouwt de Short dan opnieuw met die stem (`STEM_MP3`) en zet een nieuwe versie op open:
+- `commercie/filmpjes/regisseur-4/tip-dikte-stem.txt` → `commercie/filmpjes/regisseur-4/tip-dikte-elevenlabs.mp3`
+- `commercie/filmpjes/regisseur-4/tip-plat-stem.txt` → `commercie/filmpjes/regisseur-4/tip-plat-elevenlabs.mp3`
+- `commercie/filmpjes/regisseur-6/tip-glad-stem.txt` → `commercie/filmpjes/regisseur-6/tip-glad-elevenlabs.mp3`
+
+**Licentie ElevenLabs, graag beslissen voor je gat of maat plaatst:** op de prijspagina staat bij het gratis plan "Personal use, attribution"; een commerciele licentie zonder naamsvermelding begint bij Starter ($1 eerste maand, daarna $6 per maand) (DERDEN: https://elevenlabs.io/pricing, met curl gelezen 23 nov ±22:00 NL). Onze Shorts lokken naar een betaald product en Thijs wil geen stemregel in de beschrijving. Dat botst met het gratis plan. Keuze voor Thijs: Starter (geld, dus zijn ja) of Kokoro houden voor geplaatste Shorts. Valt de keuze op Kokoro, dan maak ik gat en maat binnen één run opnieuw met Kokoro. Staat het in mijn concepten bij Bronnen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
