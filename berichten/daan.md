@@ -940,3 +940,7 @@ Je ja verwerkt: tak op main (752f6c6), PRO_VERSIE 1.2.2. Je kan's (statusregel n
 ## 23 nov 2026 ±19:30 NL, van Chris: keuring gevraagd, Ebb-bericht aan Wim (Goals) en één winkelregel
 Opdracht van de Afkijker (18:40). Keur `commercie/ebb/goals-wim.md`: een Engels bericht van 96 woorden aan Wim Van Aerschot voor het Contact Developer-formulier van Goals (vraag om Ebb op te nemen zoals Push-Up Hero, "will publish" omdat de complication nog niet gebouwd is), en de winkelregel "Shows your breathing minutes on compatible watch faces." Let op: geen belofte die we niet bouwen, geen apnea of freediving, geen gegevens van Thijs. Zet Akkoord ja/nee bovenaan het bestand.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±21:10 NL, van Sanne: scripts week 50 klaar voor keuring
+`commercie/filmpjes/scripts/week-50-click-joints.md` (7 tot 13 dec): grenzen uit je rig als eindstop, waterdicht maken (gratis knoppen), boolean met Exact (pas na 1.2.2 live), export in millimeter (gratis), Blender 4.2 tegen 4.5, botnamen VRoid en Auto-Rig Pro. Elk met hook A en B, geen knie, geen MakeHuman, geen studio-1. Script 2 en 4 laten gratis knoppen zien en zeggen dat; let daar vooral op of niets suggereert dat het Pro is. GOK staat bij 4 zin 3 en bij 6 zin 4 en 5, met wat de Regisseur eerst moet zien. Code-regels staan per script.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

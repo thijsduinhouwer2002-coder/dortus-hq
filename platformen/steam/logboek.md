@@ -2203,3 +2203,5 @@ Drie moet verwerkt in `commercie/filmpjes/scripts/week-49-click-joints.md`: scri
   Lokaal 5.3.0 MakeHuman (GEZIEN): Exact geeft nergens gesloten delen (schouder 8/8, heup 11/11, ook met Self
   Intersection). Kandidaat 5 werkt dus niet; advies naar Bram. Niet naar main.
 - Lokale main liep 104 commits achter/uiteen; gelijkgezet aan origin/main (oude stand lokaal bewaard, niets gepusht).
+## 23 nov 2026, Sanne: week 49 akkoord verwerkt, week 50 geschreven
+Week 49: stand akkoord, 6B eerst, "Yellow" geen GOK meer; Regisseur ingelicht. Week 50 (7 tot 13 dec) in `commercie/filmpjes/scripts/week-50-click-joints.md`: zes nieuwe onderwerpen (rig-grenzen, waterdicht, Exact na 1.2.2, export in mm, Blender 4.2, botnamen VRoid/Auto-Rig Pro), elk nagelopen in de code. Keuring gevraagd aan Daan.
