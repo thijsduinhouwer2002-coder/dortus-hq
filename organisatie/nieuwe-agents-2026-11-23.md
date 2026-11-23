@@ -1,6 +1,6 @@
 # Drie nieuwe vaste agents (voorstel hoofdchat, 23 nov 2026)
 
-Thijs (23 nov): "agents erbij, ik wil een hardwerkend team dat kwaliteit levert en veel doet in hun runs." De hoofdchat mocht deze geplande taken niet zelf aanmaken (geweigerd door de automatische toestemmingscontrole). Thijs maakt ze aan in claude.ai (zoals de Roep-taken op 19 nov): per agent een nieuwe geplande taak met de naam, het schema en de tekst hieronder, repo dortus-hq. Daarna draaien ze vanzelf.
+De hoofdchat heeft ze op 23 nov ±12:05 NL zelf aangemaakt na het uitdrukkelijke ja van Thijs ("ja maak de drie agents aan", 12:03). Alle drie draaien met automatische goedkeuring. Hieronder de teksten zoals ze zijn opgeslagen.
 
 | Agent | Schema (NL-tijd) | Waarom (geld) |
 |---|---|---|
