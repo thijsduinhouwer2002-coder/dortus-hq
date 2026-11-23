@@ -1,0 +1,1780 @@
+{
+ "figuur": "kleding",
+ "blender": "5.2.3 LTS",
+ "gewrichten": 8,
+ "namen": [
+  "Left elbow",
+  "Right elbow",
+  "Left knee",
+  "Right knee",
+  "Neck",
+  "Right shoulder",
+  "Left hip",
+  "Right hip"
+ ],
+ "regels": [
+  "Left elbow \u00b7 Hinge \u00b7 0\u2013140\u00b0 \u00b7 from rig",
+  "Right elbow \u00b7 Hinge \u00b7 0\u2013140\u00b0 \u00b7 mirror",
+  "Left knee \u00b7 Hinge \u00b7 0\u2013120\u00b0 \u00b7 from rig",
+  "Right knee \u00b7 Hinge \u00b7 0\u2013120\u00b0 \u00b7 mirror",
+  "Neck \u00b7 Ball \u00b7 \u00b120\u00b0 \u00b7 preset",
+  "Right shoulder \u00b7 Ball \u00b7 \u00b125\u00b0 \u00b7 preset",
+  "Left hip \u00b7 Ball \u00b7 \u00b120\u00b0 \u00b7 preset",
+  "Right hip \u00b7 Ball \u00b7 \u00b120\u00b0 \u00b7 preset"
+ ],
+ "overgeslagen": "Left shoulder (no room for a ball joint that can move here (it would be blocked))",
+ "ontbreekt": [
+  "Left shoulder"
+ ],
+ "delen": 9,
+ "open_delen": [],
+ "knop_s": 611.3,
+ "pogingen": [
+  {
+   "gewricht": "Left elbow",
+   "ok": false,
+   "melding": "Too thin here for a hinge. Try a thicker spot",
+   "s": 0.25,
+   "plek": [
+    41.327,
+    12.779,
+    153.994
+   ]
+  },
+  {
+   "gewricht": "Left elbow",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.24,
+   "plek": [
+    40.081,
+    11.14,
+    155.136
+   ]
+  },
+  {
+   "gewricht": "Left elbow",
+   "ok": true,
+   "melding": "Left elbow: hinge, 0\u2013140\u00b0.",
+   "s": 5.24,
+   "plek": [
+    42.347,
+    10.069,
+    152.885
+   ]
+  },
+  {
+   "gewricht": "Right elbow",
+   "ok": false,
+   "melding": "Too thin here for a hinge. Try a thicker spot",
+   "s": 0.27,
+   "plek": [
+    -41.327,
+    12.779,
+    153.994
+   ]
+  },
+  {
+   "gewricht": "Right elbow",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.27,
+   "plek": [
+    -40.081,
+    11.142,
+    155.133
+   ]
+  },
+  {
+   "gewricht": "Right elbow",
+   "ok": true,
+   "melding": "Right elbow: hinge, 0\u2013140\u00b0.",
+   "s": 5.13,
+   "plek": [
+    -42.346,
+    10.069,
+    152.882
+   ]
+  },
+  {
+   "gewricht": "Left knee",
+   "ok": true,
+   "melding": "Left knee: hinge, 0\u2013120\u00b0.",
+   "s": 6.11,
+   "plek": [
+    20.881,
+    10.293,
+    59.068
+   ]
+  },
+  {
+   "gewricht": "Right knee",
+   "ok": true,
+   "melding": "Right knee: hinge, 0\u2013120\u00b0.",
+   "s": 3.07,
+   "plek": [
+    -20.881,
+    10.293,
+    59.068
+   ]
+  },
+  {
+   "gewricht": "Neck",
+   "ok": true,
+   "melding": "Neck: ball, \u00b120\u00b0.",
+   "s": 3.53,
+   "plek": [
+    0.006,
+    11.526,
+    185.471
+   ],
+   "blocked": false,
+   "buig": [
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4
+   ]
+  },
+  {
+   "gewricht": "Left shoulder",
+   "ok": true,
+   "melding": "Left shoulder: ball, \u00b10\u00b0 (blocked).",
+   "s": 38.38,
+   "plek": [
+    28.654,
+    12.816,
+    169.544
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Left shoulder",
+   "ok": true,
+   "melding": "Left shoulder: ball, \u00b10\u00b0 (blocked).",
+   "s": 38.09,
+   "plek": [
+    28.286,
+    12.832,
+    169.889
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Left shoulder",
+   "ok": true,
+   "melding": "Left shoulder: ball, \u00b10\u00b0 (blocked).",
+   "s": 37.77,
+   "plek": [
+    27.902,
+    12.868,
+    170.221
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Left shoulder",
+   "ok": true,
+   "melding": "Left shoulder: ball, \u00b10\u00b0 (blocked).",
+   "s": 37.77,
+   "plek": [
+    27.501,
+    12.921,
+    170.538
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Left shoulder",
+   "ok": true,
+   "melding": "Left shoulder: ball, \u00b10\u00b0 (blocked).",
+   "s": 37.78,
+   "plek": [
+    27.038,
+    12.987,
+    170.804
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Left shoulder",
+   "ok": false,
+   "melding": "The cut gave no watertight parts (bad edges: part A 534, part B 441); the mesh is unchanged.",
+   "s": 64.18,
+   "plek": [
+    26.545,
+    13.051,
+    171.046
+   ]
+  },
+  {
+   "gewricht": "Left shoulder",
+   "ok": true,
+   "melding": "Left shoulder: ball, \u00b10\u00b0 (blocked).",
+   "s": 39.22,
+   "plek": [
+    25.844,
+    13.176,
+    171.116
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Left shoulder",
+   "ok": true,
+   "melding": "Left shoulder: ball, \u00b10\u00b0 (blocked).",
+   "s": 35.38,
+   "plek": [
+    28.853,
+    12.809,
+    169.32
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Right shoulder",
+   "ok": true,
+   "melding": "Right shoulder: ball, \u00b10\u00b0 (blocked).",
+   "s": 37.87,
+   "plek": [
+    -28.653,
+    12.82,
+    169.544
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Right shoulder",
+   "ok": true,
+   "melding": "Right shoulder: ball, \u00b10\u00b0 (blocked).",
+   "s": 37.35,
+   "plek": [
+    -28.286,
+    12.833,
+    169.889
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Right shoulder",
+   "ok": true,
+   "melding": "Right shoulder: ball, \u00b10\u00b0 (blocked).",
+   "s": 38.11,
+   "plek": [
+    -27.902,
+    12.868,
+    170.221
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Right shoulder",
+   "ok": true,
+   "melding": "Right shoulder: ball, \u00b10\u00b0 (blocked).",
+   "s": 37.59,
+   "plek": [
+    -27.5,
+    12.928,
+    170.537
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Right shoulder",
+   "ok": true,
+   "melding": "Right shoulder: ball, \u00b10\u00b0 (blocked).",
+   "s": 35.37,
+   "plek": [
+    -27.042,
+    12.99,
+    170.808
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Right shoulder",
+   "ok": true,
+   "melding": "Right shoulder: ball, \u00b125\u00b0.",
+   "s": 3.65,
+   "plek": [
+    -26.543,
+    13.078,
+    171.044
+   ],
+   "blocked": false,
+   "buig": [
+    25.4,
+    25.4,
+    25.4,
+    25.4,
+    25.4,
+    25.4,
+    25.4,
+    25.4
+   ]
+  },
+  {
+   "gewricht": "Left hip",
+   "ok": true,
+   "melding": "Left hip: ball, \u00b10\u00b0 (blocked).",
+   "s": 47.62,
+   "plek": [
+    14.254,
+    11.258,
+    98.202
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Left hip",
+   "ok": true,
+   "melding": "Left hip: ball, \u00b120\u00b0.",
+   "s": 4.49,
+   "plek": [
+    14.119,
+    11.27,
+    98.69
+   ],
+   "blocked": false,
+   "buig": [
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4
+   ]
+  },
+  {
+   "gewricht": "Right hip",
+   "ok": true,
+   "melding": "Right hip: ball, \u00b120\u00b0.",
+   "s": 2.65,
+   "plek": [
+    -14.253,
+    11.258,
+    98.202
+   ],
+   "blocked": false,
+   "buig": [
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4
+   ]
+  },
+  {
+   "gewricht": "Right hip",
+   "ok": true,
+   "melding": "Right hip: ball, \u00b120\u00b0.",
+   "s": 2.6,
+   "plek": [
+    -14.119,
+    11.27,
+    98.69
+   ],
+   "blocked": false,
+   "buig": [
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4
+   ]
+  }
+ ],
+ "sneden": [
+  {
+   "poging": 2,
+   "gewricht": "Left elbow",
+   "soort": "SCHARNIER",
+   "solver": "MANIFOLD",
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 148917
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 7508
+   },
+   "goed": true
+  },
+  {
+   "poging": 5,
+   "gewricht": "Right elbow",
+   "soort": "SCHARNIER",
+   "solver": "MANIFOLD",
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 141194
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 7536
+   },
+   "goed": true
+  },
+  {
+   "poging": 6,
+   "gewricht": "Left knee",
+   "soort": "SCHARNIER",
+   "solver": "MANIFOLD",
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 122480
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 16107
+   },
+   "goed": true
+  },
+  {
+   "poging": 7,
+   "gewricht": "Right knee",
+   "soort": "SCHARNIER",
+   "solver": "MANIFOLD",
+   "een_lid": {
+    "lussen": 1,
+    "lid": null,
+    "h_soort": null,
+    "lid_open": null,
+    "vreemd": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 103637
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 16123
+   },
+   "goed": true
+  },
+  {
+   "poging": 8,
+   "gewricht": "Neck",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.57,
+   "r_mm": 3.0,
+   "naad_r": 9.756,
+   "een_lid": {
+    "lussen": 1,
+    "lid": null,
+    "h_soort": null,
+    "lid_open": null,
+    "vreemd": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 88493
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 20241
+   },
+   "overlap_ab": 0,
+   "goed": true
+  },
+  {
+   "poging": 9,
+   "gewricht": "Left shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.68,
+   "r_mm": 1.75,
+   "naad_r": 6.952,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 88053
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 9304
+   },
+   "overlap_ab": 2831,
+   "goed": false,
+   "h_zelf_overlap": 648,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 0,
+     "B": 347,
+     "overlap": 0,
+     "s": 26.52
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2844,
+     "s": 2.23
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2953,
+     "s": 2.19
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2876,
+     "s": 2.16
+    }
+   }
+  },
+  {
+   "poging": 10,
+   "gewricht": "Left shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.72,
+   "r_mm": 2.0,
+   "naad_r": 6.983,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 87927
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 9405
+   },
+   "overlap_ab": 2776,
+   "goed": false,
+   "h_zelf_overlap": 587,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 76,
+     "B": 344,
+     "overlap": 0,
+     "s": 26.58
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2783,
+     "s": 2.14
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2816,
+     "s": 2.14
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2736,
+     "s": 2.12
+    }
+   }
+  },
+  {
+   "poging": 11,
+   "gewricht": "Left shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.68,
+   "r_mm": 2.25,
+   "naad_r": 7.011,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 88068
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 9548
+   },
+   "overlap_ab": 2960,
+   "goed": false,
+   "h_zelf_overlap": 537,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 198,
+     "B": 370,
+     "overlap": 223,
+     "s": 26.21
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3042,
+     "s": 2.17
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2919,
+     "s": 2.15
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3007,
+     "s": 2.15
+    }
+   }
+  },
+  {
+   "poging": 12,
+   "gewricht": "Left shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.69,
+   "r_mm": 2.5,
+   "naad_r": 7.047,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 88073
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 9588
+   },
+   "overlap_ab": 2966,
+   "goed": false,
+   "h_zelf_overlap": 533,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 131,
+     "B": 366,
+     "overlap": 211,
+     "s": 26.35
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2935,
+     "s": 2.14
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3005,
+     "s": 2.11
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2962,
+     "s": 2.13
+    }
+   }
+  },
+  {
+   "poging": 13,
+   "gewricht": "Left shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.67,
+   "r_mm": 2.5,
+   "naad_r": 7.019,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 88256
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 9740
+   },
+   "overlap_ab": 3394,
+   "goed": false,
+   "h_zelf_overlap": 473,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 214,
+     "B": 353,
+     "overlap": 211,
+     "s": 26.22
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3268,
+     "s": 2.15
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3391,
+     "s": 2.17
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3421,
+     "s": 2.12
+    }
+   }
+  },
+  {
+   "poging": 14,
+   "gewricht": "Left shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": true,
+   "s": 27.94,
+   "r_mm": 2.25,
+   "naad_r": 7.239,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": false,
+    "fout": 534,
+    "punten": 88723,
+    "open": {
+     "aantal": 534,
+     "vlakken_per_rand": [
+      1,
+      3,
+      4
+     ],
+     "plekken": [
+      {
+       "vlakken": 1,
+       "z_vlak": 6.4418,
+       "rho": 5.676,
+       "d_mid": 8.596,
+       "d_naad": 1.3571,
+       "d_kogel": 6.3462,
+       "lengte": 0.19241
+      },
+      {
+       "vlakken": 1,
+       "z_vlak": 6.3864,
+       "rho": 5.712,
+       "d_mid": 8.579,
+       "d_naad": 1.3394,
+       "d_kogel": 6.3285,
+       "lengte": 0.10268
+      },
+      {
+       "vlakken": 1,
+       "z_vlak": 6.4356,
+       "rho": 5.732,
+       "d_mid": 8.628,
+       "d_naad": 1.3893,
+       "d_kogel": 6.3784,
+       "lengte": 0.15501
+      },
+      {
+       "vlakken": 1,
+       "z_vlak": 8.1281,
+       "rho": 5.677,
+       "d_mid": 9.926,
+       "d_naad": 2.6866,
+       "d_kogel": 7.6757,
+       "lengte": 2e-05
+      },
+      {
+       "vlakken": 1,
+       "z_vlak": 7.7999,
+       "rho": 5.719,
+       "d_mid": 9.683,
+       "d_naad": 2.4437,
+       "d_kogel": 7.4327,
+       "lengte": 0.03759
+      },
+      {
+       "vlakken": 1,
+       "z_vlak": 7.9433,
+       "rho": 5.654,
+       "d_mid": 9.761,
+       "d_naad": 2.5219,
+       "d_kogel": 7.511,
+       "lengte": 0.24911
+      },
+      {
+       "vlakken": 1,
+       "z_vlak": 8.0819,
+       "rho": 5.649,
+       "d_mid": 9.872,
+       "d_naad": 2.6327,
+       "d_kogel": 7.6218,
+       "lengte": 0.03436
+      },
+      {
+       "vlakken": 1,
+       "z_vlak": 8.128,
+       "rho": 5.677,
+       "d_mid": 9.926,
+       "d_naad": 2.6865,
+       "d_kogel": 7.6756,
+       "lengte": 0.00052
+      }
+     ]
+    }
+   },
+   "B": {
+    "gesloten": false,
+    "fout": 441,
+    "punten": 7654,
+    "open": {
+     "aantal": 441,
+     "vlakken_per_rand": [
+      3,
+      4
+     ],
+     "plekken": [
+      {
+       "vlakken": 3,
+       "z_vlak": -0.1616,
+       "rho": 4.253,
+       "d_mid": 4.256,
+       "d_naad": -2.9836,
+       "d_kogel": 2.0055,
+       "lengte": 0.32111
+      },
+      {
+       "vlakken": 3,
+       "z_vlak": -0.1669,
+       "rho": 4.369,
+       "d_mid": 4.372,
+       "d_naad": -2.8674,
+       "d_kogel": 2.1217,
+       "lengte": 0.17839
+      },
+      {
+       "vlakken": 3,
+       "z_vlak": -0.1703,
+       "rho": 4.582,
+       "d_mid": 4.584,
+       "d_naad": -2.6546,
+       "d_kogel": 2.3345,
+       "lengte": 0.38511
+      },
+      {
+       "vlakken": 3,
+       "z_vlak": -0.1678,
+       "rho": 4.398,
+       "d_mid": 4.4,
+       "d_naad": -2.8388,
+       "d_kogel": 2.1503,
+       "lengte": 0.30725
+      },
+      {
+       "vlakken": 3,
+       "z_vlak": -0.172,
+       "rho": 4.824,
+       "d_mid": 4.827,
+       "d_naad": -2.4122,
+       "d_kogel": 2.5769,
+       "lengte": 0.00448
+      },
+      {
+       "vlakken": 3,
+       "z_vlak": -0.172,
+       "rho": 4.878,
+       "d_mid": 4.881,
+       "d_naad": -2.3584,
+       "d_kogel": 2.6307,
+       "lengte": 0.28956
+      },
+      {
+       "vlakken": 3,
+       "z_vlak": -0.1714,
+       "rho": 4.731,
+       "d_mid": 4.734,
+       "d_naad": -2.5056,
+       "d_kogel": 2.4835,
+       "lengte": 0.44534
+      },
+      {
+       "vlakken": 3,
+       "z_vlak": -0.1733,
+       "rho": 5.2,
+       "d_mid": 5.202,
+       "d_naad": -2.0368,
+       "d_kogel": 2.9523,
+       "lengte": 0.29249
+      }
+     ]
+    }
+   },
+   "overlap_ab": 273,
+   "goed": false,
+   "h_zelf_overlap": 548,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 534,
+     "B": 441,
+     "overlap": 273,
+     "s": 27.17
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3715,
+     "s": 2.2
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3852,
+     "s": 2.19
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3775,
+     "s": 2.18
+    }
+   }
+  },
+  {
+   "poging": 15,
+   "gewricht": "Left shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.76,
+   "r_mm": 2.0,
+   "naad_r": 7.821,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 88551
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 10633
+   },
+   "overlap_ab": 3960,
+   "goed": false,
+   "h_zelf_overlap": 549,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 68,
+     "B": 466,
+     "overlap": 0,
+     "s": 27.14
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3875,
+     "s": 2.23
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3975,
+     "s": 2.21
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3874,
+     "s": 2.21
+    }
+   }
+  },
+  {
+   "poging": 16,
+   "gewricht": "Left shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.69,
+   "r_mm": 1.5,
+   "naad_r": 6.916,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 88107
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 9251
+   },
+   "overlap_ab": 2745,
+   "goed": false,
+   "h_zelf_overlap": 637,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 0,
+     "B": 349,
+     "overlap": 0,
+     "s": 23.91
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2786,
+     "s": 2.16
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2717,
+     "s": 2.17
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2821,
+     "s": 2.09
+    }
+   }
+  },
+  {
+   "poging": 17,
+   "gewricht": "Right shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.67,
+   "r_mm": 1.75,
+   "naad_r": 6.944,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 88073
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 9281
+   },
+   "overlap_ab": 2900,
+   "goed": false,
+   "h_zelf_overlap": 609,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 76,
+     "B": 342,
+     "overlap": 0,
+     "s": 26.23
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2823,
+     "s": 2.41
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2932,
+     "s": 2.12
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2964,
+     "s": 2.1
+    }
+   }
+  },
+  {
+   "poging": 18,
+   "gewricht": "Right shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.66,
+   "r_mm": 2.0,
+   "naad_r": 6.982,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 87974
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 9392
+   },
+   "overlap_ab": 2930,
+   "goed": false,
+   "h_zelf_overlap": 609,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 76,
+     "B": 339,
+     "overlap": 0,
+     "s": 26.08
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2766,
+     "s": 2.09
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2916,
+     "s": 2.08
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2979,
+     "s": 2.07
+    }
+   }
+  },
+  {
+   "poging": 19,
+   "gewricht": "Right shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.68,
+   "r_mm": 2.25,
+   "naad_r": 7.014,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 88043
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 9549
+   },
+   "overlap_ab": 3123,
+   "goed": false,
+   "h_zelf_overlap": 544,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 206,
+     "B": 391,
+     "overlap": 231,
+     "s": 26.73
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3040,
+     "s": 2.1
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3046,
+     "s": 2.1
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3122,
+     "s": 2.12
+    }
+   }
+  },
+  {
+   "poging": 20,
+   "gewricht": "Right shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.63,
+   "r_mm": 2.5,
+   "naad_r": 7.04,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 88042
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 9574
+   },
+   "overlap_ab": 3199,
+   "goed": false,
+   "h_zelf_overlap": 520,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 221,
+     "B": 383,
+     "overlap": 204,
+     "s": 26.31
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3138,
+     "s": 2.12
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3105,
+     "s": 2.09
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 2996,
+     "s": 2.1
+    }
+   }
+  },
+  {
+   "poging": 21,
+   "gewricht": "Right shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.67,
+   "r_mm": 2.5,
+   "naad_r": 7.02,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 88279
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 9740
+   },
+   "overlap_ab": 3510,
+   "goed": false,
+   "h_zelf_overlap": 485,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 0,
+     "B": 372,
+     "overlap": 0,
+     "s": 23.75
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3395,
+     "s": 2.11
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3326,
+     "s": 2.15
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 3423,
+     "s": 2.12
+    }
+   }
+  },
+  {
+   "poging": 22,
+   "gewricht": "Right shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.54,
+   "r_mm": 2.25,
+   "naad_r": 7.261,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 86374
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 7261
+   },
+   "overlap_ab": 0,
+   "goed": true,
+   "h_zelf_overlap": 188
+  },
+  {
+   "poging": 23,
+   "gewricht": "Left hip",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.81,
+   "r_mm": 3.0,
+   "naad_r": 10.565,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 82963
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 21446
+   },
+   "overlap_ab": 8326,
+   "goed": false,
+   "h_zelf_overlap": 2399,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 76,
+     "B": 978,
+     "overlap": 0,
+     "s": 32.14
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 8373,
+     "s": 2.43
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 8458,
+     "s": 2.44
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 8293,
+     "s": 2.36
+    }
+   }
+  },
+  {
+   "poging": 24,
+   "gewricht": "Left hip",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.65,
+   "r_mm": 3.25,
+   "naad_r": 10.471,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 76218
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 15526
+   },
+   "overlap_ab": 0,
+   "goed": true,
+   "h_zelf_overlap": 230
+  },
+  {
+   "poging": 25,
+   "gewricht": "Right hip",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.1,
+   "r_mm": 3.0,
+   "naad_r": 10.566,
+   "een_lid": {
+    "lussen": 1,
+    "lid": null,
+    "h_soort": null,
+    "lid_open": null,
+    "vreemd": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 65990
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 15112
+   },
+   "overlap_ab": 0,
+   "goed": true
+  },
+  {
+   "poging": 26,
+   "gewricht": "Right hip",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.1,
+   "r_mm": 3.25,
+   "naad_r": 10.469,
+   "een_lid": {
+    "lussen": 1,
+    "lid": null,
+    "h_soort": null,
+    "lid_open": null,
+    "vreemd": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 66005
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 15112
+   },
+   "overlap_ab": 0,
+   "goed": true
+  }
+ ],
+ "bron_punten": 156684,
+ "bron_zelf_overlap": 0,
+ "uitslag": "{'FINISHED'}"
+}
