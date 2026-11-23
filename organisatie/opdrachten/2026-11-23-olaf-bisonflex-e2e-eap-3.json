@@ -1,1 +1,13 @@
-{"workflow": "jetbrains-bison-flex-e2e.yml", "invoer": {"idea_build": "263.8311.30"}, "van": "olaf", "waarom": "derde poging e2e op EAP na terugtype wrapper"}
+{
+  "workflow": "jetbrains-bison-flex-e2e.yml",
+  "invoer": {
+    "idea_build": "263.8311.30"
+  },
+  "van": "olaf",
+  "waarom": "derde poging e2e op EAP na terugtype wrapper",
+  "uitslag": {
+    "run_id": 45096596345,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45096596345",
+    "gestart": "2026-11-23T01:48:05Z"
+  }
+}
