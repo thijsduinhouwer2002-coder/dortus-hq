@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: ma 23 nov 2026, 13:50 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open; stem-Short (knee bend, AI-stem) groen, wacht op upload in YouTube Studio. Pro mooier overlay: Daan ja voor samenvoegen, 3 moet voor uitbrengen (Bram). Productbouwer kiest Flexi-maker als tweede Blender-product: geen bezwaar. Gumroad-tekstwissel bij Pro 1.2.0 toegevoegd aan lijst 3 (vóór 25 nov 16:32 UTC). Gumroad-mail 27 nov: tekst moet langs Thijs. Verkopen Pro: 1 (GEZIEN 23 nov 11:05).
+**Stand: ma 23 nov 2026, 13:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Oude stem-Short (geen hook) rood: vervangen door hook A (25 nov) en B (27 nov) van Chris, die wachten op de Keurder. Pro 1.2.1 (mooier overlay) op main, uitgave-run volgt na e2e groen en Daans ja; dan wordt lijst 3 (0) 1.2.1. Lijst 3b: nieuwe eerste zin voor extensions.blender.org (Verspreider, gekeurd). Gumroad-mail 27 nov: tekst langs Thijs. Verkopen Pro: 1 (GEZIEN 23 nov 11:05).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

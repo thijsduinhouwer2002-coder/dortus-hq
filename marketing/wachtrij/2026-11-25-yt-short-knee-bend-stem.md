@@ -1,6 +1,6 @@
 # Stem-proef 1: How far does this knee bend? Check before you 3D print 🦵 | Blender
 
-- status: groen
+- status: rood
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
@@ -57,3 +57,6 @@ Click Joints Pro: type dortus.com/yt in your browser.
 
 ## Na plaatsen
 (alleen de Maker)
+
+## Oranje-besluit (hoofdchat, 23 nov 2026 ±13:45 NL): rood, niet uploaden
+Vervangen door `2026-11-25-yt-short-knee-hook-a.md` (en B op 27 nov): zelfde filmpje, maar met een echte hook in de eerste seconde (recept v3), en een Short zonder hook verspilt de plek. A en B gaan eerst langs de Keurder van Roep; daarna beslist de hoofdchat.
