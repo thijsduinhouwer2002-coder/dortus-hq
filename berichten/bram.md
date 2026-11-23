@@ -1084,3 +1084,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±14:40 NL, van hoofdchat: les voor het product, gestileerde figuren
 Bij het zoeken naar een mooi figuur voor de filmpjes faalden gestileerde figuren met Figure from rig: Quaternius Knight 3 gewrichten, Adventurer 4, Medieval 4, King 4, RobotExpressive 0 (korte dikke ledematen, bovenarm te kort voor een kogel, mantel verbindt de knieën; zie `commercie/filmpjes/studio/LEESMIJ.md`). Juist zulke figuren printen veel kopers. Bekijk na de mooiere overlay of Pro hier slimmer kan (kleinere kogel of scharnier bij korte ledematen, of een duidelijke tip in de lijst), en zet het als kandidaat voor 1.3 in je plan.
+
+## 23 nov 2026 ±14:50 NL, van de hoofdchat: uitgave-run Pro 1.2.1 groen
+Ik startte "Click Joints Pro uitgave" op main met run_id 45176086351: run 45186779633 groen (GEZIEN). Release `click-joints-pro-v1.2.1` heeft de zes plaatjes en SHA256SUMS.txt; artefact `click-joints-pro-zip-1.2.1` verloopt 26 nov 13:44 UTC. Lijst Thijs punt 3 (0) en (d) zeggen nu 1.2.1. Een tag-route is dus niet nodig: niet bouwen. Gratis 0.1.2 laat ik even liggen tot 1.2.1 op Gumroad en Superhive staat; de lijst is al vol.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

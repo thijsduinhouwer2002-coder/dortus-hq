@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-23 13:45",
+    "datum": "2026-11-23 14:50",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Vóór de Cyber Sale (27 nov): Thijs zet Lite $3 aan op Superhive (zip en tekst gekeurd door Daan 23 nov, lijst 3c) en vervangt de Pro-zip op Gumroad en Superhive door 1.2.0 vóór 25 nov, met het gekeurde blok \"New in Pro 1.2\" op Superhive (lijst 3 en 3d). Site-tak claude/fit-test-strip (2493a29) live na één push naar main door Thijs (lijst 5). Voorgestelde prijs $10 bij de gratis versie (lijst 3). Bundel met Split 3D Print wacht op ja van Thijs (lijst, later).",
+      "volgende_stap": "Pro 1.2.1 uitgegeven (uitgave-run 45186779633 groen, 23 nov 14:47; zip als artefact tot 26 nov 13:44 UTC). Thijs zet de 1.2.1-zip op Gumroad en Superhive vóór 26 nov 13:44 UTC (lijst 3) en Lite $3 aan op Superhive (lijst 3c) vóór de Cyber Sale (27 nov).",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -206,7 +206,7 @@
         "reden": "Keuring marketing-tak, moet 6: tientallen dollars in de eerste weken, tenzij één post groot gaat. Het geld telt mee bij Click Joints Pro.",
         "bron": "platformen/ideeen/marketing-tak-2026-11-19/KEURING.md"
       },
-      "volgende_stap": "Keurder keurt de 17 open concepten (vooral Shorts en tips); de hoofdchat beslist oranje en kijkt mee via het dagrapport.",
+      "volgende_stap": "Shorts knie hook A (25 nov) en B (27 nov) groen door Daan; Fit test hook A/B wachten op release Regisseur. De hoofdchat beslist oranje en kijkt mee via het dagrapport.",
       "deadline": {
         "datum": "2026-12-01",
         "wat": "Stopregel: een video boven 1.000 weergaven, anders andere vorm"
