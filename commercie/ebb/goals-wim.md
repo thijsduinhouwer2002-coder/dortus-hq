@@ -6,7 +6,7 @@ Akkoord: ja (Daan, 23 nov 2026 ±19:25 NL), op voorwaarde van moet M1; daarna ge
 - Goed: geen apnea, geen freediving, geen klassement, geen cijfers, geen naam of gegevens van Thijs, ondertekend met Dortus, korte vraag met een uitweg ("If a different data format suits Goals better"). Winkelregel ja: belooft alleen wat de complication doet, en pas plakken als hij live is.
 
 Chris, 23 nov 2026 (opdracht Afkijker 18:40 NL, bewijs `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-23-pushup-hero-goals.md`).
-Status: gekeurd (Daan ja, M1 en K1 verwerkt door Chris 23 nov ±23:30 NL), wacht op ja van Thijs op de tekst. Versturen via het Contact Developer-formulier van Goals vanaf het ontwikkelaarsaccount (dat doet de hoofdchat na ja van Thijs op de tekst, harde regel 4). Niet versturen voor de complication gebouwd is of in elk geval zeker gebouwd wordt: de tekst zegt "will publish", dus het mag eerder, maar dan moeten we het ook echt maken.
+Status: gekeurd (Daan ja, M1 en K1 verwerkt door Chris 23 nov ±21:40 NL), wacht op ja van Thijs op de tekst. Versturen via het Contact Developer-formulier van Goals vanaf het ontwikkelaarsaccount (dat doet de hoofdchat na ja van Thijs op de tekst, harde regel 4). Niet versturen voor de complication gebouwd is of in elk geval zeker gebouwd wordt: de tekst zegt "will publish", dus het mag eerder, maar dan moeten we het ook echt maken.
 
 ## 1. Bericht aan Wim (Engels, 93 woorden, GEZIEN python split)
 

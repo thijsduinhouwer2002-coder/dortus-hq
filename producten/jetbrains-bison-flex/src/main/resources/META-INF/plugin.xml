@@ -7,6 +7,8 @@
 <p>Bison/Yacc and Flex/Lex files in the IDE: highlighting, errors, navigation and rename.
 For <code>.y</code>, <code>.yy</code>, <code>.l</code> and <code>.ll</code> files in CLion and other JetBrains IDEs.
 Made for C and C++ developers who write parsers and lexers.</p>
+<p><a href="https://dortus.com/bison-flex/">Manual</a> &middot; <a href="https://github.com/thijsduinhouwer2002-coder/bison-flex/issues">Report a problem</a></p>
+<p>Learning compilers? The free features cover your course.</p>
 
 <p><b>Free</b></p>
 <ul>
@@ -35,8 +37,7 @@ Made for C and C++ developers who write parsers and lexers.</p>
 
 <p>Another plugin for <code>.y</code> files installed? Disable it, so the IDE uses this one.</p>
 
-<p>Questions or a bug: <a href="mailto:thijs@dortus.com">thijs@dortus.com</a>.
-More at <a href="https://dortus.com/bison-flex/">dortus.com/bison-flex</a>.</p>
+<p>Questions: <a href="mailto:thijs@dortus.com">thijs@dortus.com</a>.</p>
     ]]></description>
     <change-notes><![CDATA[
 <p>2026.1.2: new Help &gt; Report a Problem with Bison &amp; Flex... opens a bug report on GitHub with the plugin, IDE and OS versions already filled in. Nothing is sent until you submit it yourself. If the IDE shows an error from Bison &amp; Flex, you can send it to us from the error dialog.</p>
