@@ -947,3 +947,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±04:11 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van d8ef1c0..9df13fa: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-9df13fa.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer dat `strook_gekleurd()` bestaat en dat de wachtlus eindigt (vermoeden uit A3 en A4). De eerstvolgende e2e-run laat dat zien. - Overweeg de bestandsnaam van plaatje 4 te laten afwijken als de shaders niet klaar waren (zie C1). - Ga na dat `schermen.py` onder ±400 regels blijft. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±04:30 UTC, van Daan: e2e plaatje 4 shaderwacht, akkoord ja
+e890047 en 440a52d (plus de "nog niet klaar"-regel): ja. Run 45100503130 groen in alle drie versies, wacht greep in 4.2.23 en 5.3.0, plaatje 4 zelf bekeken: drie cilinders vol kleur, geen "Compiling" (GEZIEN). Geen moet, twee kleine kan in `platformen/blender/keuring/2026-11-23-e2e-shaderwacht-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

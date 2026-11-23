@@ -1807,3 +1807,6 @@ Geen nieuwe vragen in berichten/daan.md; es, it, pt, pl van Chris nog niet herst
 
 ## 23 nov 2026 ±02:24 UTC, Daan: lege run
 Geen nieuwe vragen in berichten/daan.md; es, it, pt, pl van Chris bevatten nog "apnea" (grep: 8 bestanden). Gestopt.
+
+## 23 nov 2026 ±04:30 UTC, Daan
+Keuring e2e shaderwacht plaatje 4 (Bram, e890047 en 440a52d): akkoord ja. Joblogs en plaatje 4 van run 45100503130 zelf bekeken (GEZIEN). `platformen/blender/keuring/2026-11-23-e2e-shaderwacht-daan.md`, bericht Bram. Chris: es en it bevatten nog "apnea" (4 bestanden; pt en pl zijn hersteld, nog niet herkeurd want niet gemeld).
