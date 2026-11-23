@@ -1,0 +1,74 @@
+STATUS Installed "click_joints"
+[cj-ai] Pro geladen: True
+[cj-mtoets] Blender 4.2.23 LTS
+23:23:14 | INFO: Data are loaded, start creating Blender stuff
+23:23:14 | INFO: Blender create Mesh node Mesh1
+23:23:14 | INFO: glTF import finished in 0.04s
+Info: Watertight copy man_backpack_gesloten made (107236 faces)
+[cj-mrig] man_backpack_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (11.3, -8.9, 40.5)
+[cj-mtoets] OK   man_backpack_gesloten: rig gemaakt
+Info: Hinge placed. Bends 0° to 120°. 9.195 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 8.254 s.
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: 2 joints · 1 rig · 1 mirror. Skipped: Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] OK   man_backpack_gesloten: geen lege tussenmeshes achtergebleven (0)
+[cj-mtoets] man_backpack_gesloten: uitslag {'FINISHED'}, gewrichten ['Left knee · Hinge · 0–120° · from rig', 'Right knee · Hinge · 0–120° · mirror'], overgeslagen: Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] OK   man_backpack_gesloten: linkerknie 0-120 from rig ({'nr': 1, 'naam': 'Left knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'from rig', 'punt': [11.3337, -8.9328, 40.5]})
+[cj-mtoets] OK   man_backpack_gesloten: rechterknie mirrored ({'nr': 2, 'naam': 'Right knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'mirrored', 'punt': [-11.8863, -6.6517, 37.4629]})
+[cj-mtoets] OK   man_backpack_gesloten: alle 3 delen gesloten
+[cj-mtoets] OK   man_backpack_gesloten: elk deel één stuk ([1, 1, 1])
+[cj-mtoets] OK   man_backpack_gesloten: Left hip overgeslagen met leesbare reden (Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-mtoets] OK   man_backpack_gesloten: Right hip overgeslagen met leesbare reden (Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+23:24:11 | INFO: Data are loaded, start creating Blender stuff
+23:24:11 | INFO: Blender create Mesh node Mesh1
+23:24:12 | INFO: glTF import finished in 0.04s
+Info: Watertight copy knight_yellow_gesloten made (217072 faces)
+[cj-mrig] knight_yellow_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (10.6, 33.1, 40.5)
+[cj-mtoets] OK   knight_yellow_gesloten: rig gemaakt
+Info: Hinge placed. Bends 0° to 120°. 33.299 s.
+Info: Hinge placed. Bends 0° to 120°. 14.535 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Too close to another joint (keep 53 mm apart).
+Warning: Too close to another joint (keep 53 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 48 mm apart).
+Warning: Too close to another joint (keep 49 mm apart).
+Warning: Too close to another joint (keep 50 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: 1 joint · 1 rig. Skipped: Right knee (the cut lost part of the model here, place it by hand); Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] OK   knight_yellow_gesloten: geen lege tussenmeshes achtergebleven (0)
+[cj-mtoets] knight_yellow_gesloten: uitslag {'FINISHED'}, gewrichten ['Left knee · Hinge · 0–120° · from rig'], overgeslagen: Right knee (the cut lost part of the model here, place it by hand); Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] OK   knight_yellow_gesloten: linkerknie 0-120 from rig ({'nr': 1, 'naam': 'Left knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'from rig', 'punt': [10.6189, 33.1366, 40.4873]})
+[cj-mtoets] OK   knight_yellow_gesloten: rechterknie mirrored (None)
+[cj-mtoets] OK   knight_yellow_gesloten: alle 2 delen gesloten
+[cj-mtoets] OK   knight_yellow_gesloten: elk deel één stuk ([1, 1])
+[cj-mtoets] OK   knight_yellow_gesloten: Left hip overgeslagen met leesbare reden (Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-mtoets] OK   knight_yellow_gesloten: Right hip overgeslagen met leesbare reden (Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+23:26:25 | INFO: Data are loaded, start creating Blender stuff
+23:26:25 | INFO: Blender create Mesh node Mesh1
+23:26:25 | INFO: glTF import finished in 0.04s
+Info: Watertight copy man_backpack_gesloten made (107236 faces)
+[cj-mrig] man_backpack_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (11.3, -8.9, 40.5)
+Info: Joint placed. Good fit. 6.562 s.
+Info: Joint placed. Good fit. 6.611 s.
+Info: Joint placed. Good fit. 6.457 s.
+Info: Joint placed. Good fit. 6.931 s.
+Warning: No joints placed. Skipped: Left hip (no room for a ball joint that can move here (it would be blocked), place it by hand); Right hip (no room for a ball joint that can move here (it would be blocked), place it by hand)
+[cj-mtoets] man_backpack_gesloten alleen heupen: uitslag {'CANCELLED'}, delen 1, overgeslagen: Left hip (no room for a ball joint that can move here (it would be blocked), place it by hand); Right hip (no room for a ball joint that can move here (it would be blocked), place it by hand)
+[cj-mtoets] OK   man_backpack_gesloten alleen heupen: model heel en ongesneden (1 delen)
+[cj-mtoets] OK   man_backpack_gesloten alleen heupen: redenen op het model te lezen (Left hip (no room for a ball joint that can move here (it would be blocked), place it by hand); Right hip (no room for a)
+[cj-mtoets] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit

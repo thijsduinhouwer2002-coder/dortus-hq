@@ -1,0 +1,30 @@
+STATUS Installed "click_joints"
+[cj-ai] Pro geladen: True
+23:22:25 | INFO: Data are loaded, start creating Blender stuff
+23:22:25 | INFO: Blender create Mesh node Mesh1
+23:22:25 | INFO: glTF import finished in 0.05s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Error: The cut gave no watertight parts (bad edges: part A 1012, part B 0); the mesh is unchanged.
+[cj-chris] KNIE op (-0.3, 15.4, 40.5): fout Error: The cut gave no watertight parts (bad edges: part A 1012, part B 0); the mesh is unchanged.
+, delen [], melding None
+[cj-voet] OK   knie 27%: geweigerd, geen delen
+23:22:51 | INFO: Data are loaded, start creating Blender stuff
+23:22:51 | INFO: Blender create Mesh node Mesh1
+23:22:51 | INFO: glTF import finished in 0.05s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Error: The cut gave no watertight parts (bad edges: part A 818, part B 0); the mesh is unchanged.
+[cj-chris] KNIE op (1.1, 15.6, 37.5): fout Error: The cut gave no watertight parts (bad edges: part A 818, part B 0); the mesh is unchanged.
+, delen [], melding None
+[cj-voet] OK   knie 25%: geweigerd, geen delen
+23:23:12 | INFO: Data are loaded, start creating Blender stuff
+23:23:12 | INFO: Blender create Mesh node Mesh1
+23:23:12 | INFO: glTF import finished in 0.04s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+[cj-chris] KNIE op (-1.8, 14.6, 43.5): {'CANCELLED'}, delen [], melding None
+[cj-voet] OK   knie 29%: geweigerd, geen delen
+[cj-voet] INFO 4.2: 0 knie(ën) heel gelukt, weigeren is hier toegestaan (plan punt 3)
+[cj-voet] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit

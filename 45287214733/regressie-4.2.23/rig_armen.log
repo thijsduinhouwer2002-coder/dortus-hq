@@ -1,0 +1,64 @@
+STATUS Installed "click_joints"
+[cj-armen] OK   komkant r + s + 0,5 = 3.70
+[cj-armen] OK   snijvlakkant naad_r + 0,4 r = 9.20
+[cj-armen] OK   pen overal 1,5 r + s = 4.70
+[cj-armen] OK   schuif uit romp 6.0
+[cj-armen] OK   schuif uit romp met naad vrij 9.0
+[cj-armen] OK   geen romp: niet schuiven
+Info: Hinge placed. Bends 0° to 135°. 5.945 s.
+Info: Hinge placed. Bends 0° to 140°. 1.9 s.
+Info: Hinge placed. Bends 0° to 135°. 6.009 s.
+Info: Hinge placed. Bends 0° to 140°. 1.523 s.
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 4.654 s. Auto found no width at the cut, kept 9.5 mm.
+Info: Joint placed. Good fit. 1.445 s.
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 4.571 s. Auto found no width at the cut, kept 9.5 mm.
+Info: Joint placed. Good fit. 1.315 s.
+Info: 8 joints · 1 rig · 1 mirror · 6 preset.
+[cj-armen] uitslag {'FINISHED'}; ['Left knee · Hinge · 0–135° · preset', 'Left elbow · Hinge · 0–140° · from rig', 'Right knee · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–140° · mirror', 'Left hip · Ball · ±8° · preset', 'Left shoulder · Ball · ±30° · preset', 'Right hip · Ball · ±30° · preset', 'Right shoulder · Ball · ±30° · preset']; overgeslagen: 
+[cj-armen] BEKEND 4.2: niet geplaatst []
+[cj-armen] OK   4.2: minstens 4 van 8, elk met reden ()
+[cj-armen] OK   4.2: punt (10, 0, 3) nog in een deel
+[cj-armen] OK   4.2: punt (-10, 0, 3) nog in een deel
+[cj-armen] OK   4.2: punt (88, 0, 145) nog in een deel
+[cj-armen] OK   4.2: punt (-88, 0, 145) nog in een deel
+[cj-armen] OK   4.2: alle delen gesloten
+[cj-armen] OK   4.2: Left elbow from rig
+[cj-armen] OK   scharnieren bij het juiste deel ([])
+Info: Hinge placed. Bends 0° to 135°. 5.473 s.
+Info: Hinge placed. Bends 0° to 140°. 1.668 s.
+Info: Hinge placed. Bends 0° to 135°. 5.356 s.
+Info: Hinge placed. Bends 0° to 140°. 1.406 s.
+Warning: Too close to another joint (keep 30 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 32 mm apart).
+Info: Joint placed. Good fit. 1.441 s.
+Warning: Too close to another joint (keep 30 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 32 mm apart).
+Warning: Too close to another joint (keep 30 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 31 mm apart).
+Warning: Too close to another joint (keep 32 mm apart).
+Info: Joint placed. Good fit. 1.358 s.
+Warning: 6 joints · 1 rig · 1 mirror · 4 preset. Skipped: Left hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-armen] uitslag {'FINISHED'}; ['Left knee · Hinge · 0–135° · preset', 'Left elbow · Hinge · 0–140° · from rig', 'Right knee · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–140° · mirror', 'Left shoulder · Ball · ±30° · preset', 'Right shoulder · Ball · ±30° · preset']; overgeslagen: Left hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-armen] OK   korte figuur: schouders lukken
+[cj-armen] OK   korte figuur: heup eerlijk overgeslagen (Left hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 33 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-armen] OK   korte figuur: alle 7 delen gesloten
+[cj-armen] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit

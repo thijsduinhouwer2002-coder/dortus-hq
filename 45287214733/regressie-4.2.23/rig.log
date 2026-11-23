@@ -1,0 +1,76 @@
+STATUS Installed "click_joints"
+[cj-rig] Blender 4.2.23 LTS
+[cj-rig] OK   naam mixamorig:LeftForeArm -> ('ELBOW', 'Left elbow')
+[cj-rig] OK   naam mixamorig:RightUpLeg -> ('HIP', 'Right hip')
+[cj-rig] OK   naam mixamorig:RightLeg -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam mixamorig:Neck -> ('NECK', 'Neck')
+[cj-rig] OK   naam upper_arm.L -> ('SHOULDER', 'Left shoulder')
+[cj-rig] OK   naam DEF-shin.R -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam spine.004 -> ('NECK', 'Neck')
+[cj-rig] OK   naam Calf_L -> ('KNEE', 'Left knee')
+[cj-rig] OK   naam Hips -> None
+[cj-rig] OK   naam Spine -> None
+[cj-rig] OK   naam mixamorig:LeftHand -> None
+[cj-rig] OK   naam Leg -> None
+[cj-rig] OK   naam upperarm_l -> ('SHOULDER', 'Left shoulder')
+[cj-rig] OK   naam neck_01 -> ('NECK', 'Neck')
+[cj-rig] OK   naam CC_Base_L_Forearm -> ('ELBOW', 'Left elbow')
+[cj-rig] OK   naam CC_Base_R_Calf -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam J_Bip_L_UpperLeg -> ('HIP', 'Left hip')
+[cj-rig] OK   naam J_Bip_C_Neck -> ('NECK', 'Neck')
+[cj-rig] OK   naam Bip01 L Thigh -> ('HIP', 'Left hip')
+[cj-rig] OK   naam Bip01 R Calf -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam lShldrBend -> ('SHOULDER', 'Left shoulder')
+[cj-rig] OK   naam rForearmBend -> ('ELBOW', 'Right elbow')
+[cj-rig] OK   naam lShin -> ('KNEE', 'Left knee')
+[cj-rig] OK   naam lHand -> None
+[cj-rig] OK   naam clavicle_l -> None
+[cj-rig] OK   naam CC_Base_L_Hand -> None
+[cj-rig] OK   naam forearm_stretch.l -> ('ELBOW', 'Left elbow')
+[cj-rig] OK   naam arm_stretch.r -> ('SHOULDER', 'Right shoulder')
+[cj-rig] OK   naam thigh_stretch.l -> ('HIP', 'Left hip')
+[cj-rig] OK   naam leg_stretch.r -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam c_forearm_fk.l -> ('ELBOW', 'Left elbow')
+[cj-rig] OK   naam c_leg_fk.r -> ('KNEE', 'Right knee')
+[cj-rig] OK   naam thigh_ref.l -> ('HIP', 'Left hip')
+[cj-rig] OK   naam neck.x -> ('NECK', 'Neck')
+[cj-rig] OK   naam c_neck.x -> ('NECK', 'Neck')
+[cj-rig] OK   naam forearm_twist.l -> None
+[cj-rig] OK   naam leg_twist.r -> None
+[cj-rig] OK   naam c_hand_fk.l -> None
+[cj-rig] OK   naam c_thigh_b.l -> None
+[cj-rig] OK   spiegelen knie ((120, 1), 'mirrored')
+[cj-rig] OK   zonder grens aan beide kanten blijft het preset
+[cj-rig] OK   eigen grens gaat voor spiegelen {'Left knee': ((120, 1), 'from rig'), 'Right knee': ((100, 1), 'from rig')}
+[cj-rig] OK   heup: leesbare reden
+[cj-rig] OK   andere gewrichten en meldingen ongewijzigd
+[cj-rig] OK   nek: leesbare reden in plaats van 'not placed'
+[cj-rig] OK   36 mm op een dij van 38: geen ruimte (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-rig] OK   20 mm op een dij van 38: oude melding blijft
+Warning: No rig found: this mesh has no Armature modifier or armature parent.
+[cj-rig] OK   zonder rig geweigerd ({'CANCELLED'})
+[cj-rig] gewrichten in de rig: [('thigh.L', 'HIP', 'Left hip'), ('shin.L', 'KNEE', 'Left knee'), ('thigh.R', 'HIP', 'Right hip'), ('shin.R', 'KNEE', 'Right knee')]
+[cj-rig] OK   vier gewrichten herkend
+Info: Hinge placed. Bends 0° to 120°. 5.185 s.
+Info: Hinge placed. Bends 0° to 120°. 4.26 s.
+Warning: Too close to another joint (keep 23 mm apart).
+Warning: Too close to another joint (keep 23 mm apart).
+Warning: Too close to another joint (keep 23 mm apart).
+Warning: Too close to another joint (keep 23 mm apart).
+Warning: 2 joints · 1 rig · 1 mirror. Skipped: Left hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-rig] OK   Figure from rig ({'FINISHED'})
+[cj-rig] regel: Left knee · Hinge · 0–120° · from rig
+[cj-rig] regel: Right knee · Hinge · 0–120° · mirror
+[cj-rig] OK   Left knee uit de rig: {'nr': 1, 'naam': 'Left knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'from rig', 'punt': [-8.969, 0.137, 30.071]}
+[cj-rig] OK   Right knee gespiegeld: {'nr': 2, 'naam': 'Right knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'mirrored', 'punt': [9.031, 0.137, 30.071]} (Left hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-rig] OK   alle 3 delen gesloten
+[cj-rig] OK   Left knee stand 120
+[cj-rig] OK   buigkant langs +Z van het bot ((0.0, 1.0, 0.0))
+[cj-rig] OK   linkeronderbeen alleen links (max x -2.00)
+[cj-rig] OK   rechteronderbeen alleen rechts (min x 2.00)
+[cj-rig] samenvatting: 2 joints · 1 rig · 1 mirror; overgeslagen: Left hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 28 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-rig] OK   samenvatting '2 joints · 1 rig · 1 mirror'
+[cj-rig] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit

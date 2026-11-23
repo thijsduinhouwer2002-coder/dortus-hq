@@ -1,0 +1,55 @@
+STATUS Installed "click_joints"
+[cj-vrij] Blender 4.2.23 LTS
+Info: Hinge placed. Bends 0° to 30°. 0.367 s.
+[cj-vrij] 30: stand 30 stop 30.000 gemeten 29.96 achter 2.69 duur 0.367 s
+[cj-vrij] OK   30: twee gesloten delen
+[cj-vrij] OK   30: stop uit de wig 30.000
+[cj-vrij] OK   30: gemeten bereik 29.96
+Info: Hinge placed. Bends 0° to 45°. 0.373 s.
+[cj-vrij] 45: stand 45 stop 45.000 gemeten 44.96 achter 2.69 duur 0.373 s
+[cj-vrij] OK   45: twee gesloten delen
+[cj-vrij] OK   45: stop uit de wig 45.000
+[cj-vrij] OK   45: gemeten bereik 44.96
+Info: Hinge placed. Bends 0° to 60°. 0.409 s.
+[cj-vrij] 60: stand 60 stop 60.001 gemeten 59.96 achter 2.69 duur 0.409 s
+[cj-vrij] OK   60: twee gesloten delen
+[cj-vrij] OK   60: stop uit de wig 60.001
+[cj-vrij] OK   60: gemeten bereik 59.96
+Info: Hinge placed. Bends 0° to 75°. 0.409 s.
+[cj-vrij] 75: stand 75 stop 75.000 gemeten 74.96 achter 2.69 duur 0.409 s
+[cj-vrij] OK   75: twee gesloten delen
+[cj-vrij] OK   75: stop uit de wig 75.000
+[cj-vrij] OK   75: gemeten bereik 74.96
+Info: Hinge placed. Bends 0° to 90°. 0.524 s.
+[cj-vrij] 90: stand 90 stop 90.001 gemeten 89.96 achter 2.69 duur 0.524 s
+[cj-vrij] OK   90: twee gesloten delen
+[cj-vrij] OK   90: stop uit de wig 90.001
+[cj-vrij] OK   90: gemeten bereik 89.96
+Info: Hinge placed. Bends 0° to 100°. 0.498 s.
+[cj-vrij] 100: stand 100 stop 100.000 gemeten 99.96 achter 2.69 duur 0.498 s
+[cj-vrij] OK   100: twee gesloten delen
+[cj-vrij] OK   100: stop uit de wig 100.000
+[cj-vrij] OK   100: gemeten bereik 99.96
+Info: Hinge placed. Bends 0° to 120°. 0.522 s.
+[cj-vrij] 120: stand 120 stop 119.999 gemeten 119.96 achter 2.69 duur 0.522 s
+[cj-vrij] OK   120: twee gesloten delen
+[cj-vrij] OK   120: stop uit de wig 119.999
+[cj-vrij] OK   120: gemeten bereik 119.96
+Info: Hinge placed. Bends 0° to 135°. 0.518 s.
+[cj-vrij] 135: stand 135 stop 135.000 gemeten 135.00 achter 2.69 duur 0.518 s
+[cj-vrij] OK   135: twee gesloten delen
+[cj-vrij] OK   135: stop uit de wig 135.000
+[cj-vrij] OK   135: gemeten bereik 135.00
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 0.572 s.
+[cj-vrij] 150: stand 150 stop 150.000 gemeten 150.00 achter 2.69 duur 0.572 s
+[cj-vrij] OK   150: twee gesloten delen
+[cj-vrij] OK   150: stop uit de wig 150.000
+[cj-vrij] OK   150: gemeten bereik 150.00
+Warning: End stop 20°: pick 30° to 150°.
+[cj-vrij] OK   20: geweigerd ({'CANCELLED'})
+Warning: End stop 170°: pick 30° to 150°.
+[cj-vrij] OK   170: geweigerd ({'CANCELLED'})
+[cj-vrij] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit

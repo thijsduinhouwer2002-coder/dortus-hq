@@ -1,0 +1,49 @@
+STATUS Installed "click_joints"
+[cj-figuur] Blender 4.2.23 LTS
+[cj-figuur] OK   zes vaste namen
+[cj-figuur] iconen [0, 0, 0, 0, 0, 0]
+[cj-figuur] OK   zes iconen geladen
+Info: Hinge placed. Bends 0° to 135°. 0.522 s.
+Info: Knee: hinge, 0–135°.
+[cj-figuur] OK   Knee geplaatst ({'FINISHED'})
+[cj-figuur] OK   twee delen pop_A en pop_B
+[cj-figuur] OK   Knee: twee gesloten delen
+[cj-figuur] OK   Knee: scharnier stand 135
+[cj-figuur] OK   Knee: record [{'nr': 1, 'naam': 'Knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 135.0, 'herkomst': 'preset', 'punt': [-20.0, 0.013, 0.021]}]
+[cj-figuur] OK   Knee: gemeten bereik 135.0 tussen 120 en 136
+[cj-figuur] OK   Knee: getal gelijk aan de beweegproef
+[cj-figuur] regel: Knee · Hinge · 0–135° · preset
+[cj-figuur] OK   Knee: regel in het paneel
+[cj-figuur] OK   Knee: figuurnaam op beide delen
+[cj-figuur] OK   Labels staat standaard op Selected (SELECTED)
+[cj-figuur] OK   Selected, niets gekozen: geen boog en label
+[cj-figuur] OK   Selected, deel A gekozen: boog en label met naam
+[cj-figuur] OK   None: geen boog en label, ook als het gewricht gekozen is
+[cj-figuur] OK   All: boog en label zonder naam, ook zonder keuze
+[cj-figuur] OK   Los gewricht (geen figuur): altijd, ook bij None
+[cj-figuur] OK   voorbij de stop: hele deel B rood (871 vlakken)
+[cj-figuur] OK   binnen de stop: alle vakken van A en B weer zoals eerst
+[cj-figuur] OK   deel rechts gevonden (pop_B)
+Info: Joint placed. Good fit. 0.515 s.
+Info: Shoulder: ball, ±30°.
+[cj-figuur] OK   Shoulder geplaatst ({'FINISHED'})
+[cj-figuur] OK   Shoulder: twee gesloten delen (2)
+[cj-figuur] OK   Shoulder: kogel (KOGEL)
+[cj-figuur] OK   Shoulder: deel kent beide ([{'nr': 1, 'naam': 'Knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 135.0, 'herkomst': 'preset', 'punt': [-20.0, 0.013, 0.021]}, {'nr': 2, 'naam': 'Shoulder', 'preset': 'SHOULDER', 'soort': 'BALL', 'graden': 30.0, 'herkomst': 'preset', 'punt': [20.0137, 0.013, 0.021]}])
+[cj-figuur] OK   Shoulder: ±graden gelijk aan het paneel (Bends ±N°, met beweegproef; sinds 16 nov run 6)
+[cj-figuur] OK   lijst van de figuur (['Knee', 'Shoulder'])
+[cj-figuur] OK   samenvatting '2 joints'
+[cj-figuur] OK   samenvatting met rig
+[cj-figuur] OK   samenvatting 9 ('9 joints · 2 rig · 2 mirror · 5 preset')
+Warning: There is already a hinge here. Undo first, or use Flip bend in the Redo panel right after placing.
+[cj-figuur] OK   Elbow op de knie geweigerd ({'CANCELLED'})
+[cj-figuur] OK   lijst blijft 2 (2)
+Error: The mesh vlak is not watertight (16 edges without exactly 2 faces). Click Make watertight first.
+Error: The mesh vlak is not watertight (16 edges without exactly 2 faces). Click Make watertight first.
+[cj-figuur] OK   open mesh geweigerd, geen Hip (fout Error: The mesh vlak is not watertight (16 edges without exactly 2 faces). Click Make watertight first.
+)
+[cj-figuur] {"lijst": [{"nr": 1, "naam": "Knee", "preset": "KNEE", "soort": "HINGE", "graden": 135.0, "herkomst": "preset", "punt": [-20.0, 0.013, 0.021]}, {"nr": 2, "naam": "Shoulder", "preset": "SHOULDER", "soort": "BALL", "graden": 30.0, "herkomst": "preset", "punt": [20.0137, 0.013, 0.021]}]}
+[cj-figuur] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit

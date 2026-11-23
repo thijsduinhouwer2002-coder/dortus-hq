@@ -1,0 +1,50 @@
+STATUS Installed "click_joints"
+Reloading external rigs...
+Reloading external metarigs...
+PROBE rigify True
+PROBE hoogte 207.8 botten ['spine.004', 'upper_arm.L', 'forearm.L', 'upper_arm.R', 'forearm.R', 'thigh.L', 'shin.L', 'thigh.R', 'shin.R']
+Error: The cut gave no watertight parts (bad edges: part A 1123, part B 0); the mesh is unchanged.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 135°. 36.614 s.
+Info: Hinge placed. Bends 0° to 135°. 12.288 s.
+Info: Hinge placed. Bends 0° to 135°. 8.041 s.
+Info: Hinge placed. Bends 0° to 135°. 7.947 s.
+Info: Joint placed. Good fit. 3.375 s.
+Warning: Too close to another joint (keep 35 mm apart).
+Warning: Too close to another joint (keep 35 mm apart).
+Warning: Too close to another joint (keep 24 mm apart).
+Warning: Too close to another joint (keep 24 mm apart).
+Warning: Too close to another joint (keep 72 mm apart).
+Warning: Too close to another joint (keep 72 mm apart).
+Warning: Too close to another joint (keep 65 mm apart).
+Warning: Too close to another joint (keep 66 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Info: Joint placed. Good fit. 8.659 s.
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Info: Joint placed. Good fit. 8.309 s.
+Warning: 7 joints. Skipped: Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+PROBE {'FINISHED'} ['Left elbow · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–135° · preset', 'Left knee · Hinge · 0–135° · preset', 'Right knee · Hinge · 0–135° · preset', 'Neck · Ball · ±30° · preset', 'Left hip · Ball · ±14° · preset', 'Right hip · Ball · ±30° · preset']
+PROBE overgeslagen Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+PROBE delen 8 open []
+[cj-rigify] Blender 4.2.23 LTS, regels ['Left elbow · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–135° · preset', 'Left knee · Hinge · 0–135° · preset', 'Right knee · Hinge · 0–135° · preset', 'Neck · Ball · ±30° · preset', 'Left hip · Ball · ±14° · preset', 'Right hip · Ball · ±30° · preset']
+[cj-rigify] OK   geen gewricht op blocked
+[cj-rigify] OK   Left knee als scharnier (Left knee · Hinge · 0–135° · preset)
+[cj-rigify] OK   Left elbow als scharnier (Left elbow · Hinge · 0–135° · preset)
+[cj-rigify] OK   Left hip beweegt meer dan 10 graden (Left hip · Ball · ±14° · preset)
+[cj-rigify] OK   Right knee als scharnier (Right knee · Hinge · 0–135° · preset)
+[cj-rigify] OK   Right elbow als scharnier (Right elbow · Hinge · 0–135° · preset)
+[cj-rigify] OK   Right hip beweegt meer dan 10 graden (Right hip · Ball · ±30° · preset)
+[cj-rigify] OK   overgeslagen met reden: Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[cj-rigify] OK   overgeslagen met reden: Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[cj-rigify] OK   8 delen, alle gesloten (7 gewrichten)
+[cj-rigify] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit

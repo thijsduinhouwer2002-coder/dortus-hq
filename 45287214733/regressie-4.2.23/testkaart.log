@@ -1,0 +1,116 @@
+STATUS Installed "click_joints"
+[cj-kaart] Blender 4.2.23 LTS
+Info: Joint placed. Good fit. 0.441 s.
+Info: Joint placed. Good fit. 0.423 s.
+Info: Joint placed. Good fit. 0.421 s.
+Info: Joint placed. Good fit. 0.42 s.
+Info: Joint placed. Good fit. 0.416 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   KOGEL: knop geeft FINISHED ({'FINISHED'})
+[cj-kaart] OK   KOGEL: 10 delen (10)
+[cj-kaart] OK   KOGEL: alle delen in collectie Fit test
+[cj-kaart] OK   KOGEL: speling 0.10 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.10 op één deel (['0.10'])
+[cj-kaart] OK   KOGEL: speling 0.15 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.15 op één deel (['0.15'])
+[cj-kaart] OK   KOGEL: speling 0.20 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.20 op één deel (['0.20'])
+[cj-kaart] OK   KOGEL: speling 0.25 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.25 op één deel (['0.25'])
+[cj-kaart] OK   KOGEL: speling 0.30 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.30 op één deel (['0.30'])
+[cj-kaart] OK   KOGEL: alle delen gesloten (open: [])
+[cj-kaart] OK   KOGEL: speling scene blijft 0.17 (0.170)
+[cj-kaart] OK   KOGEL: Auto-diameter blijft aan
+[cj-kaart] OK   KOGEL: cursor blijft staan
+[cj-kaart] OK   KOGEL: eigen model niet aangeraakt
+Info: 10 STL files in /tmp/blender_ucdotb/cj_kaart_KOGEL/
+[cj-kaart] OK   KOGEL: export geeft 10 bestanden (10)
+Info: Joint placed. Good fit. 0.429 s.
+Info: Joint placed. Good fit. 0.426 s.
+Info: Joint placed. Good fit. 0.436 s.
+Info: Joint placed. Good fit. 0.424 s.
+Info: Joint placed. Good fit. 0.431 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   KOGEL: tweede klik 10 nieuwe delen (10)
+[cj-kaart] OK   KOGEL: tweede set raakt de eerste niet
+[cj-kaart] KOGEL: maat set (140.0, 20.0, 60.6) mm
+Info: Joint placed. Good fit. 0.465 s.
+Info: Joint placed. Good fit. 0.457 s.
+Info: Joint placed. Good fit. 0.44 s.
+Info: Joint placed. Good fit. 0.425 s.
+Info: Joint placed. Good fit. 0.466 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   KOGEL meters: zelfde maat in mm ((140.0, 20.0, 60.6) tegen (140.0, 20.0, 60.6))
+[cj-kaart] OK   KOGEL meters: alle delen gesloten
+[cj-kaart] OK   KOGEL meters: vijf getallen (['0.10', '0.15', '0.20', '0.25', '0.30'])
+Info: Hinge placed. Bends 0° to 115°. 0.501 s.
+Info: Hinge placed. Bends 0° to 115°. 0.467 s.
+Info: Hinge placed. Bends 0° to 115°. 0.454 s.
+Info: Hinge placed. Bends 0° to 115°. 0.461 s.
+Info: Hinge placed. Bends 0° to 115°. 0.482 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER: knop geeft FINISHED ({'FINISHED'})
+[cj-kaart] OK   SCHARNIER: 10 delen (10)
+[cj-kaart] OK   SCHARNIER: alle delen in collectie Fit test
+[cj-kaart] OK   SCHARNIER: speling 0.10 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.10 op één deel (['0.10'])
+[cj-kaart] OK   SCHARNIER: speling 0.15 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.15 op één deel (['0.15'])
+[cj-kaart] OK   SCHARNIER: speling 0.20 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.20 op één deel (['0.20'])
+[cj-kaart] OK   SCHARNIER: speling 0.25 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.25 op één deel (['0.25'])
+[cj-kaart] OK   SCHARNIER: speling 0.30 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.30 op één deel (['0.30'])
+[cj-kaart] OK   SCHARNIER: alle delen gesloten (open: [])
+[cj-kaart] OK   SCHARNIER: speling scene blijft 0.17 (0.170)
+[cj-kaart] OK   SCHARNIER: Auto-diameter blijft aan
+[cj-kaart] OK   SCHARNIER: cursor blijft staan
+[cj-kaart] OK   SCHARNIER: eigen model niet aangeraakt
+Info: 10 STL files in /tmp/blender_ucdotb/cj_kaart_SCHARNIER/
+[cj-kaart] OK   SCHARNIER: export geeft 10 bestanden (10)
+Info: Hinge placed. Bends 0° to 115°. 1.101 s.
+Info: Hinge placed. Bends 0° to 115°. 0.485 s.
+Info: Hinge placed. Bends 0° to 115°. 0.474 s.
+Info: Hinge placed. Bends 0° to 115°. 0.479 s.
+Info: Hinge placed. Bends 0° to 115°. 0.485 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER: tweede klik 10 nieuwe delen (10)
+[cj-kaart] OK   SCHARNIER: tweede set raakt de eerste niet
+[cj-kaart] SCHARNIER: maat set (110.0, 14.0, 60.6) mm
+Info: Hinge placed. Bends 0° to 115°. 0.51 s.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 75); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 115°. 0.465 s.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 35); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 115°. 0.788 s.
+Info: Hinge placed. Bends 0° to 115°. 0.477 s.
+Info: Hinge placed. Bends 0° to 115°. 0.49 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER meters: zelfde maat in mm ((110.0, 14.0, 60.6) tegen (110.0, 14.0, 60.6))
+[cj-kaart] OK   SCHARNIER meters: alle delen gesloten
+[cj-kaart] OK   SCHARNIER meters: vijf getallen (['0.10', '0.15', '0.20', '0.25', '0.30'])
+[cj-kaart] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+Timer 'STL Export' took 0.68 ms
+Timer 'STL Export' took 0.71 ms
+Timer 'STL Export' took 0.63 ms
+Timer 'STL Export' took 0.71 ms
+Timer 'STL Export' took 0.60 ms
+Timer 'STL Export' took 0.72 ms
+Timer 'STL Export' took 0.58 ms
+Timer 'STL Export' took 0.74 ms
+Timer 'STL Export' took 0.61 ms
+Timer 'STL Export' took 0.84 ms
+Timer 'STL Export' took 0.30 ms
+Timer 'STL Export' took 0.48 ms
+Timer 'STL Export' took 0.25 ms
+Timer 'STL Export' took 0.43 ms
+Timer 'STL Export' took 0.25 ms
+Timer 'STL Export' took 0.48 ms
+Timer 'STL Export' took 0.25 ms
+Timer 'STL Export' took 0.48 ms
+Timer 'STL Export' took 0.26 ms
+Timer 'STL Export' took 0.54 ms
+
+Blender quit

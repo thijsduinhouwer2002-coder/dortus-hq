@@ -1,0 +1,30 @@
+STATUS Installed "click_joints"
+[cj-lid] Blender 4.2.23 LTS, Pro True
+Info: Joint placed. Good fit. 4.516 s.
+[cj-lid] KOGEL: uitslag {'FINISHED'}, een_lid {'lussen': 2, 'lid': 'A', 'lid_open': 0, 'h_doos': [(-10.3, -10.2, -6.1), (10.3, 10.4, 22.5)], 'diepte': 14.25, 'vreemd': 0, 'lid_vlakken': 14373, 'h_punten': 224, 'marge': 0.40548190563097947, 'h_voxel': 0.2027, 'h_vlakken': 125398, 'h_buiten_om': 0.0, 'h_buiten': 0.0, 'h_soort': 'voxel'}
+[cj-lid] OK   KOGEL: twee delen
+[cj-lid] KOGEL: A stukken 1 open 0 vol 10581 x -22.0..-2.0; B stukken 1 open 0 vol 43910 laagste rechts -8.940696716308594e-08; figuur 55282
+[cj-lid] OK   KOGEL: deel A één gesloten stuk
+[cj-lid] OK   KOGEL: deel A alleen links (max x -2.00)
+[cj-lid] OK   KOGEL: deel B één gesloten stuk
+[cj-lid] OK   KOGEL: rechterbeen heel in B (laagste -8.940696716308594e-08)
+[cj-lid] OK   KOGEL: volume A+B 54491 bij figuur 55282
+Warning: This limb is joined to another part of the mesh on both sides of the cut (for example both feet on one base), so one joint would cut both. Pick a spot where the limb is free, or split the model first.
+[cj-lid] KOGEL voetstuk: uitslag {'CANCELLED'}, een_lid {'lussen': 2, 'lid': None}
+[cj-lid] OK   KOGEL voetstuk: niet gesneden
+Info: Hinge placed. Bends 0° to 115°. 5.231 s.
+[cj-lid] SCHARNIER: uitslag {'FINISHED'}, een_lid {'lussen': 2, 'lid': 'A', 'lid_open': 0, 'h_doos': [(-7.3, -7.4, -15.5), (7.2, 7.1, 15.9)], 'diepte': 17.17, 'vreemd': 0, 'lid_vlakken': 8437, 'h_punten': 208, 'marge': 0.28548269972483353, 'h_voxel': 0.1427, 'h_vlakken': 157052, 'h_buiten_om': 0.0, 'h_buiten': 0.0, 'h_soort': 'voxel'}
+[cj-lid] OK   SCHARNIER: twee delen
+[cj-lid] SCHARNIER: A stukken 1 open 0 vol 4404 x -16.0..-2.0; B stukken 1 open 0 vol 31181 laagste rechts -8.940696716308594e-08; figuur 36744
+[cj-lid] OK   SCHARNIER: deel A één gesloten stuk
+[cj-lid] OK   SCHARNIER: deel A alleen links (max x -2.00)
+[cj-lid] OK   SCHARNIER: deel B één gesloten stuk
+[cj-lid] OK   SCHARNIER: rechterbeen heel in B (laagste -8.940696716308594e-08)
+[cj-lid] OK   SCHARNIER: volume A+B 35586 bij figuur 36744
+Warning: This limb is joined to another part of the mesh on both sides of the cut (for example both feet on one base), so one joint would cut both. Pick a spot where the limb is free, or split the model first.
+[cj-lid] SCHARNIER voetstuk: uitslag {'CANCELLED'}, een_lid {'lussen': 2, 'lid': None}
+[cj-lid] OK   SCHARNIER voetstuk: niet gesneden
+[cj-lid] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
