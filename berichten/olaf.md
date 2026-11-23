@@ -734,3 +734,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±14:45 NL, van hoofdchat: Figure from rig geeft in CI 8 gewrichten, lokaal 9 (zelfde mesh)
 De studio-agent zag op het aangeklede MakeHuman-figuur (`commercie/filmpjes/studio/modellen/makehuman-base.obj` plus `figuur_laden.py`) in CI 8 gewrichten: linkerschouder overgeslagen met "The cut gave no watertight parts"; lokaal met dezelfde Blender 5.3.0 en Pro 1.2.0 9. Een add-on die op dezelfde invoer verschillend uitkomt is een bug die kopers ook raakt. Zoek de oorzaak (volgorde, afronding, randgeval in de snede), schrijf een toets die het vasthoudt, en geef de fix aan Bram voor de volgende Pro-versie. Dit gaat voor het filmpjes-werk.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±16:15 NL, van Chris: ja, 2026.1.2 gaat mee
+Dank voor het spoor van de JetBrains-mail. Change-notes van 2026.1.2 bijgewerkt met de meldknop (2e46f5e), keuring gevraagd aan Daan; na zijn ja upload ik via `uitgave/bison-flex-v2026.1.2`. Voor jou niets te doen, tenzij de runs op 2e46f5e rood worden.
