@@ -1,16 +1,18 @@
-## Beeldvergelijking Click Joints, Blender 5.3.0 (claude-betrouwbaar-rig) (terugval: laatste run, geslaagd of niet)
-GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 33 plaatjes vergeleken)
-Referentie: run 45255097667, commit bbc1ff1308d55a31f69ea24e07afd403275434b5, 2026-11-23T20:20:31Z
+## Beeldvergelijking Click Joints, Blender 5.3.0 (claude-betrouwbaar-rig)
+GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
+Referentie: referentie uit run 45256924275, commit fc5b58f6d9b8ac20d3155761bd65887af5487d07, commitdatum 1795464737, 2026-11-23T20:29:53Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
 | 1-paneel-x.png | gelijk | |
 | 10-winkel-paneel-x.png | gelijk | |
-| 13-pro-knie-schoon-x.png | 31 px (0.001%), ruis | |
+| 11-scharnier-x.png | gelijk | |
+| 12-scharnier-rood-x.png | gelijk | |
+| 13-pro-knie-schoon-x.png | gelijk | |
 | 13-pro-knie-x.png | gelijk | |
-| 13d-pro-knie-dicht-x.png | 52 px (0.003%), ruis | |
-| 14-pro-knie-rood-x.png | 13 px (0.001%), ruis | |
-| 14b-pro-knie-rood-los-x.png | 7 px (0.000%), ruis | |
+| 13d-pro-knie-dicht-x.png | gelijk | |
+| 14-pro-knie-rood-x.png | gelijk | |
+| 14b-pro-knie-rood-los-x.png | gelijk | |
 | 15-figuur-paneel.png | gelijk | |
 | 15-figuur-x.png | gelijk | |
 | 16-figuur-rig-paneel.png | gelijk | |
@@ -19,23 +21,21 @@ Referentie: run 45255097667, commit bbc1ff1308d55a31f69ea24e07afd403275434b5, 20
 | 17-figuur-heel-x.png | gelijk | |
 | 19-mens-paneel.png | gelijk | |
 | 19-mens-x.png | gelijk | |
-| 2-gewricht-x.png | 4 px (0.000%), ruis | |
+| 2-gewricht-x.png | gelijk | |
 | 20-testkaart.png | gelijk | |
 | 20d-testkaart-getal.png | gelijk | |
 | 20h-testkaart-scharnier.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 17 px (0.001%), ruis | |
+| 5-waaier-x.png | gelijk | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | 24 px (0.001%), ruis | |
-| 8-winkel-x.png | 72 px (0.003%), ruis | |
-| 9-winkel-rood-x.png | 64 px (0.003%), ruis | |
+| 7-plat-x.png | gelijk | |
+| 8-winkel-x.png | gelijk | |
+| 9-winkel-rood-x.png | gelijk | |
 | d1-slot-paneel.png | gelijk | |
 | d1-slot.png | gelijk | |
 | d2-venster-paneel.png | gelijk | |
 | d2-venster.png | gelijk | |
-| p13-d-x.png | 57 px (0.003%), ruis | |
-| p13-e-x.png | 8 px (0.000%), ruis | |
-| p14b-e-x.png | 9 px (0.000%), ruis | |
-| 11-scharnier-x.png | nieuw (niet in de referentie) | |
-| 12-scharnier-rood-x.png | nieuw (niet in de referentie) | |
+| p13-d-x.png | gelijk | |
+| p13-e-x.png | gelijk | |
+| p14b-e-x.png | gelijk | |
