@@ -1,0 +1,19 @@
+# gemaakt: 2026-11-23T20:58:46Z
+# workflow: Betrouwbaarheid Figure from rig (testset, echte Blender) (.github/workflows/betrouwbaar-rig.yml)
+# run: 45260223259 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45260223259
+# commit: da1c1346 tak claude/betrouwbaar-rig gestart door push
+# mislukte stappen: meet (4.2.23, kleding): Eis van de testset; meet (4.2.23, robot-a): Eis van de testset; meet (5.3.0, rigify): Eis van de testset; meet (5.2.3, rigify): Eis van de testset; meet (4.2.23, rigify): Eis van de testset; meet (4.2.23, robot-b): Eis van de testset
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== meet (4.2.23, kleding) / Eis van de testset (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
+
+===== meet (4.2.23, robot-a) / Eis van de testset (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
+
+===== meet (5.3.0, rigify) / Eis van de testset (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
+
+===== meet (5.2.3, rigify) / Eis van de testset (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
