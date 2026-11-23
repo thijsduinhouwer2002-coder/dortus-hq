@@ -125,6 +125,39 @@ def main():
                 return vast
             return echt_vast(nieuw)
         rigm2.kogel_schuif, rigm2.kogel_vast, figm2.plaats_gewricht = schuif_nep, vast_nep, plaats_tel
+    herkans4 = os.environ.get("CJ_HERKANS") == "4"
+    kant = {"mats": [], "geweigerd": 0, "gekanteld_ok": 0, "nu": None}
+    if herkans4:
+        # 23 nov (Olaf, tak claude/olaf-kantel): proef met de tweede kans op dezelfde plek met een halve graad
+        # gekantelde as (rig.KANTEL_GRADEN). Op DOEL2 weigert de beweegproef elke ongekantelde snede (doet na wat
+        # de AMD-processor in CI deed); een gekantelde snede wordt echt beoordeeld. De knop moet het gewricht dan
+        # op een gekantelde plek plaatsen, met dezelfde eisen als altijd (beweegt minstens 15 graden, delen gesloten).
+        rigm4 = mod("betaald.rig")
+        figm4 = mod("betaald.figuur")
+        echt_kantel, echt_vast4, echt_plaats4 = rigm4.gekanteld, rigm4.kogel_vast, figm4.plaats_gewricht
+
+        def kantel_tel(m, *a, **k):
+            uit = echt_kantel(m, *a, **k)
+            kant["mats"].append(uit.copy())
+            return uit
+
+        def plaats4(context, sleutel, naam=None, *a, **k):
+            kant["nu"] = naam
+            c = context.scene.cursor.matrix
+            kant["op_kantel"] = any(all(abs(c[r][q] - x[r][q]) < 1e-5 for r in range(4) for q in range(4))
+                                    for x in kant["mats"])
+            return echt_plaats4(context, sleutel, naam, *a, **k)
+
+        def vast4(nieuw):
+            if kant["nu"] == DOEL2:
+                if not kant["op_kantel"]:
+                    kant["geweigerd"] += 1
+                    return True
+                vast = echt_vast4(nieuw)
+                kant["gekanteld_ok"] += 0 if vast else 1
+                return vast
+            return echt_vast4(nieuw)
+        rigm4.gekanteld, rigm4.kogel_vast, figm4.plaats_gewricht = kantel_tel, vast4, plaats4
     try:
         r = bpy.ops.click_joints.figuur_uit_rig()
     except RuntimeError as e:
@@ -140,6 +173,12 @@ def main():
               "laatste heupkandidaat ligt 0,3 mm verder dan de eerste")
         check(heup["geweigerd"] >= 1 and heup["laatste_ok"],
               "na geweigerde heupplekken plaatst de knop de heup op de laatste plek (0,3 mm verder)")
+    if herkans4:
+        rigm4.gekanteld, rigm4.kogel_vast, figm4.plaats_gewricht = echt_kantel, echt_vast4, echt_plaats4
+        log(f"{DOEL2}: geweigerd {kant['geweigerd']}, gekantelde plekken {len(kant['mats'])}, "
+            f"gekanteld beweegt {kant['gekanteld_ok']}")
+        check(kant["geweigerd"] >= 1 and kant["gekanteld_ok"] >= 1,
+              f"na een geweigerde snede op {DOEL2} plaatst de knop het gewricht op dezelfde plek gekanteld")
     # 17 nov run 26: eerder bleven hier 172 lege tussenmeshes in het bestand.
     wees = [m.name for m in bpy.data.meshes if m.name not in voor and m.users == 0]
     check(not wees, f"geen lege tussenmeshes achtergebleven ({len(wees)})")

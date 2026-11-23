@@ -378,6 +378,21 @@ def scharnier_plekken(context, doel, m, lengte):
     return uit
 
 
+# Proef Olaf (23 nov, tak claude/olaf-kantel): de booleaanse snede valt per processor net anders uit (CI AMD, lokaal
+# Intel). Een kogelplek die "blocked" of "no watertight parts" geeft, krijgt daarom één tweede kans op dezelfde plek
+# met de as een halve graad gekanteld: een andere snede door hetzelfde punt, zonder de plek te verschuiven (de
+# omweg van 0,3 mm verder werd op MakeHuman "too close" of "blocked", toets CJ_HERKANS=2). 0 = uit.
+KANTEL_GRADEN = 0.5
+
+
+def gekanteld(m, graden=None):
+    """Dezelfde cursor-matrix m, de assen `graden` gekanteld om de eigen x-as; de plek blijft gelijk."""
+    g = KANTEL_GRADEN if graden is None else graden
+    k = (m.to_3x3().normalized() @ Matrix.Rotation(math.radians(g), 3, "X")).to_4x4()
+    k.translation = m.to_translation()
+    return k
+
+
 def gedraaid(m, voor=Vector((0, -1, 0))):
     """Pro 1.1 (22 nov, Chris: Quaternius-monsters): dezelfde plek met het scharnier 90 graden om de lidas gedraaid.
     Game-rigs in T-houding zetten de X-as van de onderarm vaak voor-achter, dan buigt de elleboog omhoog en haalt de
@@ -691,6 +706,17 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 eigen_n = len(kandidaten)
             from . import afstand, een_lid_diep
             andere, eerste = [], None
+            gekantelde = set()
+
+            def kantel_in(i, m, mm):
+                # Tweede kans op dezelfde plek met een gekantelde as, direct na deze plek (alleen kogels, één keer).
+                nonlocal eigen_n
+                if soort == "HINGE" or not KANTEL_GRADEN or id(m) in gekantelde:
+                    return
+                k = gekanteld(m)
+                gekantelde.add(id(k))
+                kandidaten.insert(i + 1, (k, mm))
+                eigen_n += 1
             for poging_kk in ((0, 1) if soort != "HINGE" else (0,)):
                 if poging_kk == 1:
                     # Run 21: tweede poging zonder de kernregel kogel naast kogel. Die regel rekent met bollen en ziet
@@ -732,6 +758,7 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                         # gewricht (gezien: Rigify-heup naast de knie). Snede terugdraaien, volgende plek proberen.
                         draai_terug(context, doel, voor)
                         ok, melding, geblokkeerd = False, None, True
+                        kantel_in(i, m, _mm)
                         continue
                     if ok and soort == "HINGE" and any(stukken(d) > 1 for d in nieuw or []
                                                        if d.get("cj_deel") in ("A", "B") and d.type == "MESH"):
@@ -754,6 +781,8 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                     # slechte rand uit de booleaanse snede op een bijna platte driehoek, en die valt per machine net
                     # anders uit. Stoppen bij zo'n snede maakte de uitslag toeval; dus net als bij "too close" de
                     # volgende plek proberen. De mesh is dan nog onveranderd (gewricht.py zegt dat zelf).
+                    if "no watertight parts" in laag:
+                        kantel_in(i, m, _mm)
                     verder = ("too close" in laag or "no watertight parts" in laag
                               or (soort == "HINGE" and ("too thin" in laag or "tight" in laag)))
                     if ok or i == len(kandidaten) - 1 or not verder:
