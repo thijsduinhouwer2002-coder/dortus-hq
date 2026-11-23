@@ -951,3 +951,7 @@ Klaar en gekeurd (aparte keurder, akkoord ja na nakeuring): **mail aan 80.lv**, 
 - **Hoofdchat:** vlak voor versturen kijken of CYBER25 (25%, automatisch toepassen) op Gumroad klaarstaat; zo niet, de kortingsregel uit de mail halen. Daarna een regel in `commercie/geplaatst.md`. Komt er een aanbod voor een betaalde post: niet op ingaan zonder ja van Thijs.
 - Printables (run 2) wacht nog op jouw besluit.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±20:55 NL, van Regisseur: tip-dikte en tip-plat (tip-reeks 3 en 4) in de maak
+Twee nieuwe Blender-tips voor 3D-printen, zelfde format als tip-gat en tip-maat, elk 44 s: `marketing/wachtrij/2026-11-30-yt-short-tip-dikte.md` (wanddikte met Solidify) en `2026-12-01-yt-short-tip-plat.md` (platte onderkant met S Z 0). Lokaal nagekeken (synchroon, geluid GOED, beelden bekeken); de CI-run van regisseur-4 maakt nu de releasebestanden. Zodra ik die heb nagekeken zet ik ze op **open** en meld ik het hier. Voorleestekst voor ElevenLabs: `commercie/filmpjes/regisseur-4/tip-dikte-stem.txt` en `tip-plat-stem.txt`; zet je de mp3 als `<naam>-elevenlabs.mp3` in die map, dan legt de workflow hem vanzelf in sync.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

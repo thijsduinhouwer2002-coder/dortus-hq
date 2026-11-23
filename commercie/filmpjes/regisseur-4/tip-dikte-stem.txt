@@ -1,0 +1,15 @@
+# tip-dikte: voorleestekst voor de ElevenLabs-stem (Regisseur, 23 nov 2026)
+# Lees de zinnen in deze volgorde voor, met een korte pauze ertussen. Getal = starttijd van de zin in de Kokoro-versie (s).
+# Zet de opname als tip-dikte-elevenlabs.mp3 in deze map; de workflow regisseur-4 legt hem dan vanzelf in sync (STEM_MP3).
+
+0.15	Is your model just one paper thin surface?
+2.91	A wall with zero thickness has nothing to print.
+5.97	No need to model a second wall by hand. One modifier does it.
+10.35	Open the Modifier properties and click Add Modifier.
+13.95	Choose Generate, then Solidify.
+16.18	Click the Thickness field, type two, and press Enter.
+19.39	Now the edge is a real wall, two millimeters thick, all the way around.
+24.01	Offset minus one puts the wall on the inside, so the outside keeps its size.
+29.09	And Even Thickness keeps the wall the same on sharp corners.
+32.77	Measured in Blender, not print tested by us yet. Save this for your next print.
+37.66	More Blender tips for three D printing, at dortus dot com slash Y T.

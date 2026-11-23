@@ -1,0 +1,14 @@
+# tip-plat: voorleestekst voor de ElevenLabs-stem (Regisseur, 23 nov 2026)
+# Lees de zinnen in deze volgorde voor, met een korte pauze ertussen. Getal = starttijd van de zin in de Kokoro-versie (s).
+# Zet de opname als tip-plat-elevenlabs.mp3 in deze map; de workflow regisseur-4 legt hem dan vanzelf in sync (STEM_MP3).
+
+0.15	Does your round model touch the bed in just one tiny point?
+3.87	Give it a flat bottom in Blender, with a few keys, before you slice.
+8.03	Press Tab for Edit Mode, then one for vertex select.
+11.46	Press one on the numpad for the front view, then Alt Z to see through.
+15.66	Drag a box around the bottom rows of points.
+18.33	Press S, then Z, then zero, and Enter. The points line up flat.
+22.75	Select more rows for a wider base, or fewer rows to keep more of the round shape.
+27.79	Now it stands on a flat circle, about twenty nine millimeters wide, instead of one point.
+33.31	Measured in Blender, not print tested by us yet. Save this for your next print.
+38.21	More Blender tips for three D printing, at dortus dot com slash Y T.

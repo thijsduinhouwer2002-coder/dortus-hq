@@ -1,0 +1,57 @@
+# Tip-reeks 3: Paper thin model? Give it real walls in Blender 🏺
+
+- status: wacht (releasebestand nog niet nagekeken; de Regisseur zet hem op open)
+- kanaal: yt-short
+- soort: video
+- soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL, voorbeeld Thijs: BlenderSecrets)
+- product: click-joints-pro (tip zonder reclame in het midden, alleen de eindzin naar dortus.com/yt)
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-4/tip-dikte.mp4
+- stem_tekst: `commercie/filmpjes/regisseur-4/tip-dikte-stem.txt` (voor de ElevenLabs-stem van de hoofdchat)
+- geluid_check: GOED lokaal op dezelfde code (GEZIEN); op het releasebestand: volgt
+- lengte: 0:44,0 lokaal, staand 1080x1920 (GEZIEN); releasebestand: volgt
+- tijd: voorstel 2026-11-30T12:00:00+01:00 (de hoofdchat kiest)
+- doel: dortus.com/yt (over te typen)
+- gemaakt_door: Regisseur, workflow regisseur-4
+- vorige:
+
+## Titel
+Paper thin model? Give it real walls in Blender 🏺
+
+## Tekst
+```
+Is your model just one paper thin surface? A wall with zero thickness has nothing to print. Fix it in Blender with one modifier:
+1. Modifier properties > Add Modifier > Generate > Solidify.
+2. Click the Thickness field, type 2, Enter: a 2 mm wall all the way around.
+3. Offset -1 keeps the wall on the inside, so the outside keeps its size.
+4. Even Thickness keeps the wall the same on sharp corners.
+
+Measured in Blender, not print tested by us yet.
+Screen recording in Blender 5.3 (no add-on used). Voice: AI text to speech (Kokoro, Apache 2.0).
+More Blender tips for 3D printing: type dortus.com/yt in your browser.
+
+#blender #3dprinting #b3d #blendertips #shorts
+```
+Komt er een ElevenLabs-stem, dan wordt de stemregel: "Voice: AI text to speech (ElevenLabs, elevenlabs.io)".
+
+## Eerste reactie
+(leeg)
+
+## Bronnen
+- **Hook (eerste 1,5 s):** "Is your model just one paper thin surface?" vanaf beeld 1, kop "Paper thin?", beeld: de vaas met wand die uitzoomt (beweging vanaf beeld 1). Geen productnaam, geen zwevende getallen.
+- **Elke stap staat echt in beeld:** Add Modifier, Generate en Solidify met de echte muis geklikt (OCR-plekken `c_knop`, `c_sub`, `c_item` in `film-tip.json`, `c_via_menu` true, geen vangnet), Thickness echt getypt (`c_dikte_ui` 2.0 mm). Lokaal GEZIEN: breedte 82,0 x 82,0 mm voor en na (`c_maat_voor`, `c_maat_na`), dus de buitenkant blijft gelijk; hoogte 140,0 naar 141,4 mm (de bodem groeit mee). Daarom zegt de Short "the outside keeps its size" alleen over de zijkant in beeld.
+- **Beweringen:** Offset en Even Thickness: Blender-handleiding (DERDEN: https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/solidify.html): "Offset: A value between (-1 to 1) to locate the solidified output inside or outside the original mesh. The inside and outside is determined by the face normals." en "Even Thickness: Maintain thickness by adjusting for sharp corners." De normalen van onze vaas wijzen naar buiten (draaiprofiel in `tip_opname.py`).
+- **Model:** eigen vaas uit `commercie/filmpjes/regisseur-4/tip_opname.py` (`vaas()`). Geen modellicentie nodig.
+- **Stem:** Kokoro-82M, af_heart, Apache 2.0 (DERDEN: https://huggingface.co/hexgrad/Kokoro-82M).
+- **Synchroon (lokaal, zelfde code):** synchroon2.py met faster-whisper small.en: GOED, 11 van 11 zinnen binnen 0,3 s (GEZIEN).
+- **Zelf bekeken (Read, GEZIEN):** eerste beeld en 10 tot 12 beelden per Short. Hersteld na kijken: camera op de vaasrand (eerst de buitenkant, nu de rand van boven zodat voor en na het verschil te zien is), kaders op Offset en Even Thickness, hook van het ei dichterbij, uitsnede stap 1 met Edit Mode, Shorts verlengd van 36 en 37 s naar 44 s.
+- **Nieuw onderwerp:** geen Short van de laatste 14 dagen over wanddikte of een platte onderkant (GEZIEN, wachtrij en RSS 23 nov).
+- **Releasebestand:** volgt.
+
+## Keuring
+(open)
+
+## Oranje-besluit
+(alleen de hoofdchat, alleen bij oranje)
+
+## Na plaatsen
+(alleen de Maker)
