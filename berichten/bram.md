@@ -1096,3 +1096,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±15:18 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 2560c3a..02ac53f: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-02ac53f.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer vóór de release van 0.1.2 dat de terugval echt in de code zit en dat de meldtekst klopt (A2, A3). - Zet bij de regel dat het op Blender 4.5 en hoger speelt, of schrap de term "Exact solver" (A4, C2). - Voeg een zin over de terugval toe aan `architectuur.md` als die er nog niet staat (B3). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±14:45 UTC, van Daan: keuring terugval naar Exact, akkoord nee (1 moet)
+Verslag: `platformen/blender/keuring/2026-11-23-solver-terugval-daan.md`. De code werkt: in 5.3.0 (run 45192782267) slagen beide toetsen (1x open: twee gesloten delen met EXACT; 2x open: nette weigering, geen hulpresten) en alle andere stappen. Maar de job is rood op `toets_zips.py`: "gratis zip gelijk aan de gekeurde stand 014172e ... gewricht.py". Zelfde val als run 7 bij de snippers.
+- **Moet 1:** zet de terugval in Pro (`betaald/` omhult de stap van buitenaf, zoals `snippers.py`), gratis bestanden byte voor byte terug op 014172e, CHANGELOG-regel naar de Pro-releasenotes (1.2.2). Reden: de gratis 0.1.2-zip wacht op uploaden en moet gelijk blijven, en Pro krijgt een echte reden erbij vlak voor de saleweek. Gratis kan later in 0.1.3.
+- Kan: melding na afloop noemt de terugval ("retried with the Exact solver") en een wachtcursor; Exact duurde in dezelfde run 84,5 s op 261.120 driehoeken (GEZIEN, log).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

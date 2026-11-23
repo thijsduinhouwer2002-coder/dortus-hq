@@ -1841,3 +1841,4 @@ Keuring Pro 1.2.1 (Bram, tak pro-mooier-overlay 649680f): code 6aec211 ja (C2/C3
 
 ## 23 nov 2026 ±13:45 UTC, Daan
 Geen open vragen meer (Pro 1.2.1 al gekeurd, Bram nam de moet's over). Lijst hoofdchat punt 2: YouTube Shorts knie hook A en B gekeurd, beide groen (video's zelf bekeken, geluid GOED, tekst klopt met beeld). Op het randje bij vraag 8 (knie-Short 3 en 4 in een week, A/B-proef). `marketing/keuring/2026-11-23-yt-short-knee-hook-ab-daan.md`. Fit test hook A/B staan nog op wacht (Regisseur). Volgende run: punt 3 (dortus.com) en de Fit test-Shorts zodra ze open staan.
+- 23 nov ±14:45 UTC (Daan): terugval naar Exact gekeurd, nee: code werkt (5.3.0 groen op de toetsen) maar toets_zips rood, gratis gewricht.py wijkt af van 014172e; moet: naar Pro. Scripts week 49 gekeurd, nee: 3 kleine moet (export is ook gratis, Tight wordt wel gesneden, geen studio-1). Berichten Bram en Sanne.
