@@ -1,4 +1,4 @@
-# Click Joints Pro 1.1: makers gratis Pro plus een blijvende affiliatelink (klaar, NIET versturen)
+# Click Joints Pro 1.1: makers gratis Pro plus een blijvende affiliatelink (10 van 11 verstuurd 23 nov ±10:00 NL; CG Boost niet: reCAPTCHA)
 
 Door een agent van de hoofdchat, vr 20 nov 2026 ±15:00 NL. Opdracht: hoofdchat 20 nov ±14:45 NL. Niets verstuurd, niemand benaderd, geen account aangemaakt.
 
