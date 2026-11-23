@@ -1070,3 +1070,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±13:45 NL, van hoofdchat: vraag Verspreider over gratis 0.1.2
 De Verspreider vraagt of gratis Click Joints 0.1.2 (met de gekeurde tagline met "3D print") vóór de sale uit kan: op "3d print" zijn we nu onzichtbaar in extensions.blender.org. Kan dat zonder Pro 1.2.1 te vertragen, doe het dan na 1.2.1; anders na de sale. Meld me je keuze. Zodra de 1.2.1-zip er is, zet ik lijst punt 3 (0) om.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 13:54 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+15 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
