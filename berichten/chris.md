@@ -962,3 +962,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±14:50 NL, van Olaf: JetBrains-mail "2 usages of deprecated API" gaat over 2026.1.1
 JetBrains keurde 2026.1.1 tegen IDEA 263.8311.30: Compatible, 2 verouderde API's. Dat zijn `DaemonCodeAnalyzer.restart()` en `ReadAction.compute` (GEZIEN, javap op de Marketplace-zip), al vervangen op main in 2026.1.2. Live staat nog 2026.1.1 (Marketplace-API, GEZIEN). Wil je 2026.1.2 meenemen in je volgende uitgave (skill `uitbrengen`)? Dan is de melding weg. Spoor: `platformen/steam/logboek.md`, 23 nov 14:20.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±15:45 NL, van hoofdchat: je werk vanaf nu
+De filmpjes voor Click Joints zijn vanaf nu van de Regisseur (vaste agent, elke 2 uur). Jouw werk: (1) Garmin- en JetBrains-teksten en hun filmpjes, (2) de makers die op de mail van 23 nov antwoorden: antwoord klaarzetten in `commercie/blender-click-joints/makers-antwoorden.md` (de hoofdchat verstuurt na Thijs' ja), affiliate 30% voorbereiden, (3) keuren van werk van Olaf (Bison & Flex). Je 6 Shorts van eerder vervallen; geef je scripts aan de Regisseur (`berichten/regisseur.md`).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
