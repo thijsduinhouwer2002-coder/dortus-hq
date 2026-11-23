@@ -1525,3 +1525,59 @@ Vijf belangrijkste dingen:
 5. **Een em dash in een script legde bij Whoff vijf dagen alle geplande sessies stil** (DERDEN). Onze regel zonder gedachtestreepjes beschermt dus ook de scripts.
 
 Voorstel: (a) de hoofdchat kijkt bij de volgende YouTube Studio-sessie of "advanced features" aan staat en of elke Short een Related video heeft; dat is de enige klikbare weg van ±1.000 Shorts-weergaven per dag naar de winkel. (b) Een absentie-alarm bij het scorebord (Shorts-weergaven omhoog, `ref=yt` op 0). (c) De sale-energie gaat naar plekken met mensen: de Blender Extensions-pagina (28 downloads per dag) en de CG Channel-lijst die al loopt, niet naar mail. Volgende run: wat andere kleine Blender-makers met een gratis extensie en een betaalde versie in hun extensions-beschrijving zetten (zonder de regels van Blender te breken), met verkoopklassen op Superhive als uitkomst.
+
+## Ronde 30 (run 23 nov ±02:20 UTC, klok van de container): wat kleine Blender-makers met een gratis extensie en een betaalde versie op hun extensions-pagina zetten, en hoeveel dat op Superhive verkoopt
+
+Werkwijze: alle 1.231 add-on-pagina's van extensions.blender.org met curl gelezen (lijst uit `api/v1/extensions/`, 23 nov ±02:10 UTC), daarin de links naar Superhive, Blender Market, Gumroad en donatiesites gezocht, en voor de belangrijkste de verkoopband op Superhive gelezen. Alleen gelezen, niets geplaatst.
+
+### 139. Wat Blender zelf toestaat (voorwaarden, bijgewerkt 10 aug 2026)
+- Regel 6.1: links naar betaal- en steunsites mogen "in the extension's description", niet in de Blender-UI. Regel 6.2: de beschrijving en beelden mogen alleen tonen wat in de gratis versie zit; "Showcasing features from commercial versions will be considered an advertisement and is not allowed." Regel 6.3: geen promotie van betaalde versies via de UI van Blender (GEZIEN, [extensions.blender.org/terms-of-service](https://extensions.blender.org/terms-of-service/)).
+- Dus mag: "steun de ontwikkeling op Superhive/Gumroad" met een link, en een websiteveld dat naar je eigen site wijst. Mag niet: opsommen wat Pro extra kan.
+
+### 140. Telling over alle 1.231 add-ons
+- 114 pagina's (9%) hebben een link naar een betaal- of steunsite: Gumroad 44, Ko-fi 32, Buy Me a Coffee 15, Superhive 12, Patreon 9, Blender Market (oude naam) 8, PayPal 6, itch.io 4 (GEZIEN; een pagina kan er meer hebben).
+- Mediaan downloads: alle add-ons 5.603, met een betaal- of steunlink 8.003 (GEZIEN). Dat zegt niet dat zo'n link helpt; grotere makers hebben vaker een winkel (GOK).
+- Maar 9 pagina's noemen letterlijk een "pro/full/paid/lite version" (GEZIEN, zoekterm op de tekst). Expliciete Pro-reclame is dus zeldzaam, past bij regel 6.2.
+- Click Joints: 332 downloads sinds 8 nov, plaats 1.149 van 1.231 (GEZIEN). Onze beschrijving noemt Pro niet; het websiteveld wijst naar `dortus.com/click-joints`, en die pagina linkt naar Pro op Gumroad en Superhive (GEZIEN). Dat valt binnen de regels.
+
+### 141. Vier patronen, met wat ze op Superhive zichtbaar verkopen
+Band = verkoopband op de Superhive-pagina, ondergrens, alle verkopen ooit uit alle bronnen (GEZIEN, 23 nov ±02:15 UTC). Downloads = extensions.blender.org (GEZIEN).
+
+| Patroon | Gratis extensie (downloads, sinds) | Betaald product op Superhive (prijs, band) |
+|---|---|---|
+| A. "Steun de ontwikkeling", zelfde add-on te koop | Texel Density Checker (114.183, juli 2024) | zelfde add-on, $10, **300+** |
+| A. idem | UniV (114.856, aug 2024): "The addon is free, but you can support the author and purchase this addon" | UniV Pro, $40, **100+** |
+| B. "Mijn andere spullen" onder drie gratis tools | Quick Groups 40.677, Synchronize Workspaces 32.468, Parallax Node 35.842 (MultLabs) | Folds Modifier, $12, **800+** (staat zelf niet op extensions) |
+| C. Link naar een ander betaald product | Wiggle 2 (32.551, apr 2026) | GroomForge Pro, $25, **30+** |
+| D. Pro-functies opsommen (breekt 6.2) | GrimTopo (360, 11 nov 2026): "Want the Pen Tool, Tube, Loop Extrude...? Get GrimTopo Pro" | GrimTopo, $15, geen band, 6 dagen oud |
+| D. idem | OptiPloy (20.129, aug 2024): "Get OptiPloy Pro for $5" | op Gumroad, 5 beoordelingen, gem. 5,0; verkoop verborgen |
+| D. idem | MatColeX (5.172, okt 2025): "want to upgrade pro version? here" | link geeft de voorpagina van Superhive: product weg (GEZIEN) |
+
+- Omzetting gratis naar betaald (ruwe deling band/downloads, GOK want de band telt ook verkoop van buiten): Texel 0,26%, UniV 0,09%, Wiggle 2 naar GroomForge 0,09%, MultLabs naar Folds Modifier hoogstens 0,73% (800 op 109.000 samen).
+- Surface Diagnostics (11.243 downloads, 600+ voor $15) laat ik buiten de deling: op Superhive al ruim 3 jaar, op extensions pas sinds nov 2025 (GEZIEN, data op beide pagina's).
+- Patroon D levert in deze steekproef niets zichtbaars op dat A of B niet ook haalt, en het breekt 6.2. Of Blender daar echt op ingrijpt heb ik niet kunnen vinden; de pagina's staan er nog (GEZIEN). Het risico is wel dat de gratis versie, onze enige bron van ±22 downloads per dag, offline gaat (GOK).
+
+### 142. Wat dat voor Pro betekent (sommetje, geen belofte)
+- Click Joints: 332 downloads in 15 dagen, ±22 per dag, ±660 per maand (GEZIEN, doorgerekend).
+- Met 0,1% tot 0,7% omzetting: **0,7 tot 4,6 verkopen per maand**, bij $12 op Superhive ±$8 tot $55 bruto (GOK, gebaseerd op 141). De extensions-pagina alleen maakt dus geen snel veel geld; de makers met 300+ en 800+ hadden 100.000+ downloads en twee jaar.
+- Wat wel schaalt in de tabel: meer gratis tools die naar één betaald product wijzen (MultLabs, drie tools, 800+). Dat past bij wat we al doen (Click Joints, Hats), maar kost bouwtijd.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Eén zin in de beschrijving van Click Joints, patroon A** (mag volgens 6.1): onderaan een kopje "Support development" met "If Click Joints saves you time, you can support development on Superhive or Gumroad" en de twee links naar Pro. Geen Pro-functies noemen (6.2). De agent schrijft de tekst; aanpassen op extensions.blender.org vraagt inloggen, dus de Blender-manager of de hoofdchat zet hem erop. Kost € 0.
+- **Meten:** de Superhive-band van Pro en de Gumroad-verkoop staan al op het scorebord; zet er per week de downloads naast, dan zien we na een maand of de omzetting rond 0,1% of hoger zit.
+- **Niet doen:** Pro-functies in de gratis beschrijving zetten (GrimTopo, OptiPloy), en geen link laten staan naar een product dat weg is (MatColeX).
+
+## Patronen na ronde 30
+96. **Op extensions.blender.org werkt "steun mij op Superhive", niet "koop Pro"** (139, 141): de grootste verkopers (Texel 300+, Folds Modifier 800+) noemen geen Pro-functies; wie dat wel doet breekt regel 6.2 en verkoopt zichtbaar niet meer.
+97. **Gratis naar betaald zit rond 0,1% tot 0,7%** (141, GOK): met ±660 downloads per maand is dat een paar verkopen. Bereik op de extensions-pagina moet tien keer groter, of er moeten meer gratis tools naar Pro wijzen.
+98. **Meerdere gratis tools, één betaald product** (MultLabs): het sterkste patroon in de telling.
+
+## Stand na run 23 nov ±02:25 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **Blender staat links naar betaalde versies toe in de beschrijving, maar verbiedt Pro-functies te tonen** (regel 6.1 en 6.2, GEZIEN, voorwaarden 10 aug 2026). Onze pagina noemt Pro nu nergens; alleen het websiteveld leidt naar dortus.com.
+2. **Telling van 1.231 add-ons:** 9% heeft een betaal- of steunlink, maar 9 pagina's noemen letterlijk een Pro-versie (GEZIEN).
+3. **Zichtbare uitkomsten op Superhive:** Texel Density Checker 300+ ($10, 114.000 gratis downloads), UniV Pro 100+ ($40, 115.000), Folds Modifier 800+ ($12, via drie gratis tools met samen 109.000), GroomForge 30+ ($25, 32.500) (GEZIEN).
+4. **Omzetting ruwweg 0,1% tot 0,7%** (GOK). Voor Click Joints (±660 downloads per maand) is dat 1 tot 5 verkopen per maand, ±$8 tot $55. Geen snel veel geld uit deze weg alleen.
+5. **Pro-reclame in de gratis beschrijving (GrimTopo, OptiPloy, MatColeX) levert zichtbaar niets extra's** en zet de gratis versie op het spel.
+
+Voorstel: (a) de Blender-manager zet onderaan de beschrijving van Click Joints één steunregel met links naar Pro op Superhive en Gumroad, zonder Pro-functies (kost € 0, valt binnen 6.1). (b) Het scorebord zet per week downloads naast verkoop, zodat we de echte omzetting kennen. (c) Omdat deze weg hoogstens tientallen dollars per maand geeft, gaat de grote energie naar meer bereik op de pagina (de CG Channel-lijst, de Shorts met Related video uit run 29) of naar een tweede gratis tool die naar Pro wijst. Volgende run: hoe MultLabs en Mrven (Texel, ACT) hun gratis tools onderling naar elkaar laten verwijzen, en of hun Superhive-band in de tijd sprongen maakt bij een nieuwe gratis release (via archive.org-kopieën van de Superhive-pagina).
