@@ -57,6 +57,41 @@ def exact_zelf(arm):
     arm.hide_set(True)
 
 
+def solver_terugval(arm):
+    """5b (1.2.2). Geeft Manifold open delen, dan snijdt de operator één keer opnieuw met Exact.
+    Nagespeeld met FORCEER_OPEN: 1 keer open moet twee gesloten delen geven met solver EXACT en
+    cj_solver_terugval aan; 2 keer open moet netjes weigeren met het figuur heel en geen hulpresten."""
+    gw = addon("gewricht")
+    if gw.solver_naam() != "MANIFOLD":
+        log("TERUGVAL: geen Manifold in deze Blender, toets overgeslagen")
+        return
+    arm.hide_set(False)
+    try:
+        for keer in (1, 2):
+            gw.FORCEER_OPEN = keer
+            figuren.zet_cursor((0, 0, 0), (1, 0, 0))
+            bpy.context.scene.click_joints.as_bron = "CURSOR"
+            uitslag, melding = probeer_plaats(arm)
+            lijst = delen()
+            rest = [c.name for c in bpy.data.collections if c.name.startswith("cj_hulp")]
+            log(f"TERUGVAL {keer}x open: uitslag={uitslag} delen={len(lijst)} melding={melding} hulp={rest}")
+            if keer == 1:
+                gesloten_delen("terugval 1x open", lijst)
+                stap("terugval 1x open: twee delen met solver EXACT en cj_solver_terugval",
+                     len(lijst) == 2 and all(d.get("cj_solver") == "EXACT" and d.get("cj_solver_terugval")
+                                             for d in lijst) and not rest)
+                weg(lijst)
+                arm.hide_set(False)
+            else:
+                fout, vol = meting(arm)
+                stap("terugval 2x open: geweigerd, figuur heel en zichtbaar, geen hulpresten",
+                     not lijst and bool(melding) and fout == 0 and vol > 0 and arm.visible_get() and not rest)
+                weg(lijst)
+    finally:
+        gw.FORCEER_OPEN = 0
+        arm.hide_set(True)
+
+
 def probeer_plaats(ob):
     """Roept de operator aan en geeft (uitslag, foutmelding)."""
     figuren.maak_actief(ob)
@@ -308,6 +343,7 @@ def verwachte_wand(ob, a):
 
 def alles(arm):
     exact_zelf(arm)
+    solver_terugval(arm)
     modifiers()
     gespiegeld()
     kijk_zonder_venster()

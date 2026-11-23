@@ -24,6 +24,8 @@ from .maat import TE_DUN, beste_maat, kies_auto, te_dicht  # maten en hoeken: ma
 EXACT_ZELF = False
 # Alleen voor de test: een vaste solver ("EXACT" of "MANIFOLD") in plaats van de keuze per versie.
 FORCEER_SOLVER = None
+# Alleen voor de test: zoveel keer doen alsof de snede open delen gaf, om de terugval naar Exact te toetsen.
+FORCEER_OPEN = 0
 
 
 def solver_naam():
@@ -89,6 +91,15 @@ def ruim_op(collectie):
         if me is not None and me.users == 0:
             bpy.data.meshes.remove(me)
     bpy.data.collections.remove(collectie)
+
+
+def ruim_extra(collectie, houd):
+    """Haalt alles uit de hulpcollectie wat er na de namen in houd bij kwam (voor een tweede snede)."""
+    for ob in [o for o in collectie.objects if o.name not in houd]:
+        me = ob.data
+        bpy.data.objects.remove(ob)
+        if me is not None and me.users == 0:
+            bpy.data.meshes.remove(me)
 
 
 def snij(hulp, werk, frame, maat, soort, solver):
@@ -282,16 +293,31 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
             diepte = maat["naad_r"] + 0.5 * maat["r"] + 2 * maat["s"] + abs(maat["schuif"])
         else:  # vlak bij de cursor; kogel of pen steekt tot midden_z + r of top_z uit
             diepte = max(abs(maat["midden_z"]) + maat["r"], abs(maat.get("top_z", 0.0))) + 2 * maat["s"]
-        ok_lid, melding = een_lid.bereid(werk, frame, vlak_z, diepte, maat["s"], solver, hulp)
-        if not ok_lid:
-            ruim_op(hulp)
-            self.report({"WARNING"}, melding)
-            return {"CANCELLED"}
-        try:
-            deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
-        finally:
-            een_lid.reset()
-        uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]
+        # 1.2.2 (spoor Olaf 23 nov): Manifold rekent parallel; een bijna-platte driehoek op de snede kan dan
+        # één open rand geven. Eén keer opnieuw snijden met Exact voordat we weigeren.
+        pogingen = [solver] + (["EXACT"] if solver == "MANIFOLD" else [])
+        voor = {o.name for o in hulp.objects}
+        global FORCEER_OPEN
+        for nr, solver_nu in enumerate(pogingen):
+            if nr:
+                ruim_extra(hulp, voor)
+            ok_lid, melding = een_lid.bereid(werk, frame, vlak_z, diepte, maat["s"], solver_nu, hulp)
+            if not ok_lid:
+                ruim_op(hulp)
+                self.report({"WARNING"}, melding)
+                return {"CANCELLED"}
+            try:
+                deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver_nu)
+            finally:
+                een_lid.reset()
+            uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]
+            if FORCEER_OPEN > 0:
+                FORCEER_OPEN -= 1
+                uitslag = [(False, 1), uitslag[1]]
+            if all(ok for ok, _ in uitslag):
+                gegevens["cj_solver"] = solver_nu
+                gegevens["cj_solver_terugval"] = nr > 0
+                break
         if not all(ok for ok, _ in uitslag):
             ruim_op(hulp)
             self.report({"ERROR"}, "The cut gave no watertight parts (bad edges: part A "
