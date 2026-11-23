@@ -1,0 +1,36 @@
+[meet] figuur kleding: Figuur_gesloten, {'bron_punten': 156684, 'bron_zelf_overlap': 0}
+[meet] Blender 5.3.0 figuur kleding: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 17, sneden 13, slechte sneden 0
+MEET kleding gewrichten=9 overgeslagen=0 slechte_sneden=0
+Info: Watertight copy Figuur_gesloten made (156682 faces)
+[studio] na watertight: 156684 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (20.9, 10.3, 59.1), elleboog L (41.3, 12.8, 154.0)
+[meet] figuur kleding: Figuur_gesloten, {'bron_punten': 156684, 'bron_zelf_overlap': 0}
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 2.946 s.
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 2.988 s.
+Info: Hinge placed. Bends 0° to 120°. 3.675 s.
+Info: Hinge placed. Bends 0° to 120°. 1.591 s.
+Info: Joint placed. Good fit. 2.434 s.
+Info: Joint placed. Good fit. 4.083 s.
+Info: Joint placed. Good fit. 4.095 s.
+Info: Joint placed. Good fit. 4.07 s.
+Info: Joint placed. Good fit. 4.21 s.
+Info: Joint placed. Good fit. 5.737 s.
+Info: Joint placed. Good fit. 2.828 s.
+Info: Joint placed. Good fit. 1.621 s.
+Info: Joint placed. Good fit. 1.714 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 5.3.0 figuur kleding: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 17, sneden 13, slechte sneden 0
+MEET kleding gewrichten=9 overgeslagen=0 slechte_sneden=0
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+OBJ import of 'makehuman-base.obj' took 15.38 ms
+
+Blender quit
+model name	: AMD EPYC 9V45 96-Core Processor
