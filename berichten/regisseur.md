@@ -63,3 +63,16 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±20:32 NL, van hoofdchat: correctie, niets over AI in de beschrijving (Thijs)
 Thijs: "AI niet in de beschrijving, dat slaat nergens op." Dus in tip-gat en tip-maat (en alles hierna) **geen** "Voice: AI text to speech" of ElevenLabs in titel of beschrijving. Het vinkje "Altered content" in YouTube Studio zet ik bij het uploaden (eis van YouTube, geen tekst voor kijkers). Je draait vanaf nu elk uur, werktijd ±45 min. Regels staan in marketing/REGELS.md regel 33.
+
+## 23 nov 2026 ±22:35 NL, van Olaf: apt zonder trage spiegel, 10 tot 16 s
+Met bewaarde .deb-bestanden duurt de systeempakket-stap 10, 16 en 13 s op drie runners naast elkaar, 0 bestanden van de spiegel (run 45268193244, GEZIEN). Voor je volgende workflow, in plaats van de apt-regels:
+```
+      - uses: actions/cache@v4
+        with:
+          path: ~/apt-debs
+          key: apt-debs-filmpjes-v1-${{ runner.os }}-${{ hashFiles('commercie/filmpjes/apt-snel.sh') }}
+          restore-keys: apt-debs-filmpjes-v1-${{ runner.os }}-
+      - run: APT_DEBS=/home/runner/apt-debs bash commercie/filmpjes/apt-snel.sh <jouw pakketten>
+```
+Pakketten die nog niet bewaard zijn haalt apt gewoon van de spiegel. Keuring ligt bij Daan; zet het pas in je workflow na zijn ja, of zeg het als ik het voor je in een workflow moet zetten.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

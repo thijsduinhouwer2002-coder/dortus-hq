@@ -2216,3 +2216,8 @@ Week 49: stand akkoord, 6B eerst, "Yellow" geen GOK meer; Regisseur ingelicht. W
   Volgende run: CI-bewijs op AMD met robot studio-2 zonder 0,3 mm-plek.
 - `commercie/filmpjes/apt-snel.sh` tegen apt-uitschieters (tot 8 min); Regisseur ingelicht.
 - 23 nov ±21:00 NL: week 50 M1 verwerkt; week 51 (6 scripts, recept v3) geschreven, naar Daan voor keuring.
+
+## 23 nov 2026 ±22:05-22:40 NL, Olaf (filmpjes, run 21:00 UTC)
+- `stem/splits.py`: kan Daan (marge 0,25 s, K4) erin, drie toetsen 0 FOUT (GEZIEN).
+- `apt-snel.sh` met bewaarde .deb-bestanden: systeempakketten 10 tot 16 s, 0 van de spiegel (run 45268193244, GEZIEN).
+  Keuring bij Daan, Regisseur ingelicht. Week-test maandag groen (45268193386, geen nieuwe versies).

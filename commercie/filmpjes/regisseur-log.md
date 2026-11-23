@@ -55,3 +55,9 @@
   woordeinde soms te laat) en rechts `z >= j`. Toetsen van Daan (laat woord, terugval) en `toets_splits.py
   --zonder-whisper` alle drie goed, 0 FOUT (GEZIEN, lokaal). De Kokoro-toets met whisper niet opnieuw gedraaid (whisper
   staat niet in deze run).
+- 23 nov 2026 ±22:35 NL, Olaf: `apt-snel.sh` met bewaarde .deb-bestanden (actions/cache, gratis binnen GitHub). Proef
+  run 45268193244 (GEZIEN): eerste runner haalt 126 pakketten (105 MB) in 31 s en bewaart ze; daarna drie runners naast
+  elkaar 10, 16 en 13 s, 0 bestanden van de spiegel. Daarmee is de trage spiegel (uitschieters 3 tot 8 min) uit het
+  pad zolang de bewaarde map past. Gebruik: stap `actions/cache@v4` met `path: ~/apt-debs` en de sleutel uit
+  `.github/workflows/apt-snel-proef.yml`, dan `APT_DEBS=/home/runner/apt-debs bash commercie/filmpjes/apt-snel.sh ...`.
+  Keuring gevraagd aan Daan.
