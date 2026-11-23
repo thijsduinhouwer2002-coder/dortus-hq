@@ -1,0 +1,197 @@
+{
+ "naam": "fit-hook-b",
+ "titel": "Still guessing joint clearance? Print this first 🧪 | Blender",
+ "eind": {
+  "titel": "Click Joints Pro",
+  "zin": "Find your gap first, then cut the joints in your figure.",
+  "adres": "dortus.com/yt",
+  "render": "render-1.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "scenes": [
+  {
+   "tekst": "Still guessing your joint clearance?",
+   "label": "QUICK QUESTION",
+   "kleur": "oranje",
+   "kop": "Guessing the gap?",
+   "beeld": {
+    "render": "render-2.png"
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Before you print a whole figure, print this small fit test strip first.",
+   "label": "TIP",
+   "kleur": "blauw",
+   "kop": "Print this first",
+   "beeld": {
+    "render": "render-1.png"
+   }
+  },
+  {
+   "tekst": "In Click Joints Pro, press Fit test: ball, or Fit test: hinge.",
+   "label": "ONE BUTTON",
+   "kleur": "groen",
+   "kop": "Fit test: ball",
+   "beeld": {
+    "deel": "fittest",
+    "van": 0,
+    "tot": 56,
+    "uitsnede": [
+     [
+      "@fit_ocr",
+      1100,
+      120,
+      0
+     ]
+    ],
+    "nadruk_ocr": [
+     "fit_ocr",
+     250,
+     30
+    ],
+    "nadruk_rel": [
+     20,
+     56
+    ]
+   }
+  },
+  {
+   "tekst": "You get five ball joints, from 0.10 to 0.30 mm clearance.",
+   "uitspraak": "You get five ball joints, from zero point one to zero point three millimetres clearance.",
+   "label": "FIVE JOINTS",
+   "kleur": "oranje",
+   "kop": "0.10 to 0.30 mm",
+   "beeld": {
+    "deel": "fittest",
+    "van": 58,
+    "tot": 168,
+    "uitsnede": [
+     [
+      540,
+      640,
+      1080
+     ],
+     [
+      540,
+      600,
+      960
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Each joint has its clearance number on top, so you know which one is which.",
+   "label": "NUMBERED",
+   "kleur": "blauw",
+   "kop": "Every joint numbered",
+   "beeld": {
+    "deel": "fittest",
+    "van": 168,
+    "tot": 238,
+    "uitsnede": [
+     [
+      540,
+      580,
+      900
+     ],
+     [
+      540,
+      570,
+      780
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "The hinge strip works the same way, for knees and elbows.",
+   "label": "HINGES TOO",
+   "kleur": "groen",
+   "kop": "Fit test: hinge",
+   "beeld": {
+    "deel": "fit_scharnier",
+    "van": 0,
+    "tot": 102,
+    "uitsnede": [
+     [
+      "@fit_hinge_ocr",
+      1100,
+      -120,
+      0
+     ],
+     [
+      540,
+      640,
+      1080
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Print both strips, try each joint, and pick the gap that fits your printer.",
+   "label": "PICK YOUR GAP",
+   "kleur": "oranje",
+   "kop": "Pick your gap",
+   "beeld": {
+    "deel": "fit_scharnier",
+    "van": 102,
+    "tot": 192,
+    "uitsnede": [
+     [
+      540,
+      620,
+      1080
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Then set that clearance before you cut your figure. The default is 0.2 mm.",
+   "uitspraak": "Then set that clearance before you cut your figure. The default is zero point two millimetres.",
+   "label": "USE IT",
+   "kleur": "blauw",
+   "kop": "Set your clearance",
+   "beeld": {
+    "deel": "fittest",
+    "van": 0,
+    "tot": 20,
+    "uitsnede": [
+     [
+      "@clearance_ocr",
+      820,
+      260,
+      0
+     ]
+    ],
+    "nadruk_ocr": [
+     "clearance_ocr",
+     490,
+     24,
+     420
+    ],
+    "nadruk_rel": [
+     0,
+     99999
+    ]
+   }
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Every printer is different.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Print a test joint first",
+   "beeld": {
+    "render": "render-3.png"
+   }
+  },
+  {
+   "tekst": "Click Joints Pro. Find your gap first, then print the figure.",
+   "label": "CLICK JOINTS PRO",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   }
+  }
+ ]
+}
