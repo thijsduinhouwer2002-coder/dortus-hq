@@ -2,5 +2,10 @@
   "workflow": "jetbrains-bison-flex-e2e.yml",
   "invoer": {},
   "van": "olaf",
-  "waarom": "licentiecontrole ook in structuurBij en strakkere regex: vaste versie moet groen blijven"
+  "waarom": "licentiecontrole ook in structuurBij en strakkere regex: vaste versie moet groen blijven",
+  "uitslag": {
+    "run_id": 45110891317,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45110891317",
+    "gestart": "2026-11-23T04:16:59Z"
+  }
 }

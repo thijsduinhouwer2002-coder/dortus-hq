@@ -4,5 +4,10 @@
     "idea_build": "263.8311.30"
   },
   "van": "olaf",
-  "waarom": "bugfix-EAP: licht en donker moeten nu allebei de licentiemelding geven"
+  "waarom": "bugfix-EAP: licht en donker moeten nu allebei de licentiemelding geven",
+  "uitslag": {
+    "run_id": 45110889644,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45110889644",
+    "gestart": "2026-11-23T04:16:58Z"
+  }
 }
