@@ -177,13 +177,13 @@ def pen_plekken(ob, punt, normaal, n=2, filt=None):
                     break
             if not ok:
                 continue
-            for k in range(8):
-                a = 2 * math.pi * k / 8
+            for k in range(12):
+                a = 2 * math.pi * k / 12
                 d = u * math.cos(a) + v * math.sin(a)
-                for dz in (-PEN_L / 2, 0.0, PEN_L / 2):
+                for dz in (-PEN_L / 2 - 1, -PEN_L / 4, 0.0, PEN_L / 4, PEN_L / 2 + 1):
                     q = p + normaal * dz
                     hit = bvh.ray_cast(q, d)
-                    if hit[0] is None or hit[3] < PEN_R + 9.0:
+                    if hit[0] is None or hit[3] < PEN_R + 12.0:
                         ok = False
                         break
                 if not ok:
@@ -653,7 +653,7 @@ def main():
         render_instellingen(1600, 1600)
         nb = [o for o in delen if o.name in ("d_gezicht", "d_manen_ro", "d_manen_rb")]
         nb += [p for p in pennen if p["a"] in ("d_gezicht",) and p["b"] in ("d_manen_ro", "d_manen_rb")]
-        kader(nb, c, straal, 62, 6, (0.06, 0.94), 0.38, lens=85, ymid=0.41)
+        kader(nb, c, straal, 62, 6, (0.04, 0.96), 0.41, lens=110, ymid=0.40)
     elif SHOT in ("heel", "samen"):
         render_instellingen(1600, 1600)
         objs = objs + ([vol] if SHOT == "heel" else [])

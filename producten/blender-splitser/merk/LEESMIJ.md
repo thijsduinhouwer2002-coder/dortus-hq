@@ -62,7 +62,7 @@ Letters: **Bricolage Grotesque ExtraBold** voor de naam en koppen (eigenwijs, me
 
 Alles gemaakt in Blender 5.3.0 (Cycles) in de workflow `.github/workflows/splitser-merk.yml`, geen AI-beeld. Model: **Lion Head van Poly Haven**, [polyhaven.com/a/lion_head](https://polyhaven.com/a/lion_head), licentie CC0 (zelf gelezen op [polyhaven.com/license](https://polyhaven.com/license): "Our assets are all licensed as CC0"). Geen naamsvermelding nodig; we zetten "Lion Head by Poly Haven (CC0)" er toch bij in de winkeltekst. De achterwand komt uit `commercie/filmpjes/studio/studio.py` (`achterwand`), in eigen kleuren.
 
-Het model is 436 mm hoog (zoals het geleverd wordt) en wordt in 7 stukken gesneden die elk op een bed van 256 mm passen (gemeten in het script, GEZIEN in het log: grootste stuk 188 x 179 x 228 mm), met 20 pennen van 10 mm dik en 28 mm lang, gat 0,2 mm ruimer. Het gezicht blijft heel.
+Het model is 436 mm hoog (zoals het geleverd wordt) en wordt in 7 stukken gesneden die elk op een bed van 256 mm passen (gemeten in het script, GEZIEN in het log: grootste stuk 188 x 179 x 228 mm), met 19 pennen van 10 mm dik en 28 mm lang, gat 0,2 mm ruimer. Het gezicht blijft heel.
 
 | Bestand | Wat |
 |---|---|

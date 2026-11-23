@@ -176,7 +176,7 @@ def paneel():
     d.ellipse([28 * S, y + 14 * S, 48 * S, y + 34 * S], fill=(46, 211, 168))
     d.line([(33 * S, y + 24 * S), (37 * S, y + 29 * S), (44 * S, y + 19 * S)], fill=(20, 40, 30), width=2 * S)
     d.text((58 * S, y + 14 * S), "7 parts, all fit the bed", font=f(14, "SemiBold"), fill=(235, 235, 235))
-    d.text((58 * S, y + 38 * S), "20 pins, 0.2 mm clearance", font=f(12), fill=(170, 170, 170))
+    d.text((58 * S, y + 38 * S), "19 pins, 0.2 mm clearance", font=f(12), fill=(170, 170, 170))
     d.text((58 * S, y + 60 * S), "Drag a cut to move it", font=f(12), fill=(170, 170, 170))
     y += 110 * S
     d.rounded_rectangle([16 * S, y, W - 16 * S, y + 40 * S], 8 * S, fill=(70, 70, 70))
