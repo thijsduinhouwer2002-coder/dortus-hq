@@ -1,0 +1,308 @@
+{
+ "figuur": "meshy",
+ "blender": "4.2.23 LTS",
+ "gewrichten": 2,
+ "namen": [
+  "Left knee",
+  "Right knee"
+ ],
+ "regels": [
+  "Left knee \u00b7 Hinge \u00b7 0\u2013120\u00b0 \u00b7 from rig",
+  "Right knee \u00b7 Hinge \u00b7 0\u2013120\u00b0 \u00b7 mirror"
+ ],
+ "overgeslagen": "Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)",
+ "ontbreekt": [
+  "Left shoulder",
+  "Right shoulder",
+  "Left elbow",
+  "Right elbow",
+  "Left hip",
+  "Right hip",
+  "Neck"
+ ],
+ "delen": 3,
+ "open_delen": [],
+ "knop_s": 71.7,
+ "pogingen": [
+  {
+   "gewricht": "Left knee",
+   "ok": true,
+   "melding": "Left knee: hinge, 0\u2013120\u00b0.",
+   "s": 23.32,
+   "plek": [
+    11.334,
+    -8.933,
+    40.5
+   ]
+  },
+  {
+   "gewricht": "Right knee",
+   "ok": false,
+   "melding": "The parts overlap before they move; the mesh is unchanged.",
+   "s": 36.16,
+   "plek": [
+    -11.896,
+    -6.911,
+    40.5
+   ]
+  },
+  {
+   "gewricht": "Right knee",
+   "ok": true,
+   "melding": "Right knee: hinge, 0\u2013120\u00b0.",
+   "s": 9.78,
+   "plek": [
+    -11.886,
+    -6.652,
+    37.463
+   ]
+  },
+  {
+   "gewricht": "Left hip",
+   "ok": false,
+   "melding": "too close to another joint, keep 37 mm apart",
+   "s": 0.17,
+   "plek": [
+    -0.214,
+    -6.669,
+    78.0
+   ]
+  },
+  {
+   "gewricht": "Left hip",
+   "ok": false,
+   "melding": "too close to another joint, keep 37 mm apart",
+   "s": 0.16,
+   "plek": [
+    -0.266,
+    -6.695,
+    77.7
+   ]
+  },
+  {
+   "gewricht": "Right hip",
+   "ok": false,
+   "melding": "too close to another joint, keep 37 mm apart",
+   "s": 0.16,
+   "plek": [
+    -0.256,
+    -6.661,
+    78.0
+   ]
+  },
+  {
+   "gewricht": "Right hip",
+   "ok": false,
+   "melding": "too close to another joint, keep 37 mm apart",
+   "s": 0.16,
+   "plek": [
+    -0.293,
+    -6.69,
+    77.7
+   ]
+  }
+ ],
+ "sneden": [
+  {
+   "poging": 0,
+   "gewricht": "Left knee",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.38042441182993225,
+    "h_voxel": 0.1902,
+    "h_vlakken": 192956,
+    "h_buiten": 0.0,
+    "h_buiten_om": 0.0064,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": false,
+    "fout": 748,
+    "punten": 110832,
+    "zelf": 0,
+    "herstel": null
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 10736,
+    "zelf": 0
+   },
+   "goed": false
+  },
+  {
+   "poging": 0,
+   "gewricht": "Left knee",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.3802892612952274,
+    "h_voxel": 0.1901,
+    "h_vlakken": 192924,
+    "h_buiten": 0.0,
+    "h_buiten_om": 0.0086,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 94336,
+    "zelf": 0
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 10729,
+    "zelf": 0
+   },
+   "goed": true
+  },
+  {
+   "poging": 1,
+   "gewricht": "Right knee",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 3,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.36779324619715653,
+    "h_voxel": 0.1839,
+    "h_vlakken": 191712,
+    "h_buiten": 0.0,
+    "h_buiten_om": 0.0133,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": false,
+    "fout": 554,
+    "punten": 93000,
+    "zelf": 14,
+    "herstel": {
+     "vier": 51,
+     "fout_na": 707
+    }
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 11250,
+    "zelf": 0
+   },
+   "goed": false
+  },
+  {
+   "poging": 1,
+   "gewricht": "Right knee",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 3,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.36767285907288305,
+    "h_voxel": 0.1838,
+    "h_vlakken": 191760,
+    "h_buiten": 0.0,
+    "h_buiten_om": 0.0117,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": false,
+    "fout": 507,
+    "punten": 92977,
+    "zelf": 1,
+    "herstel": null
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 11240,
+    "zelf": 0
+   },
+   "goed": false
+  },
+  {
+   "poging": 1,
+   "gewricht": "Right knee",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 3,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.36795066137864785,
+    "h_voxel": 0.184,
+    "h_vlakken": 191804,
+    "h_buiten": 0.0,
+    "h_buiten_om": 0.01,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 94427,
+    "zelf": 0
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 11278,
+    "zelf": 0
+   },
+   "goed": true
+  },
+  {
+   "poging": 2,
+   "gewricht": "Right knee",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.35896656265316323,
+    "h_voxel": 0.1795,
+    "h_vlakken": 180670,
+    "h_buiten": 0.0,
+    "h_buiten_om": 0.0096,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 81982,
+    "zelf": 0
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 10379,
+    "zelf": 0
+   },
+   "goed": true
+  }
+ ],
+ "bron_punten": 107238,
+ "bron_zelf_overlap": 0,
+ "uitslag": "{'FINISHED'}"
+}
