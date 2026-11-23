@@ -1,0 +1,50 @@
+[meet] figuur robot-fijn: Figuur, {'bron_punten': 561428, 'bron_zelf_overlap': 0}
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur robot-fijn: 7 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Right shoulder', 'Right hip']
+[meet] ontbreekt: ['Left shoulder', 'Left hip']; overgeslagen: Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (no room on this 59 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[meet] pogingen 23, sneden 11, slechte sneden 2
+[meet]   SLECHT {"poging": 1, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 7, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.3616589532782621, "h_voxel": 0.2005, "h_vlakken": 245752, "h_buiten": 0.0, "h_buiten_om": 0.0022, "h_pogingen": null}, "A": {"gesloten": true, "fout": 0, "punten": 510715, "zelf": 0}, "B": {"gesloten": false, "fout": 3, "punten": 30672, "zelf": 0, "herstel": null}, "goed": false}
+[meet]   SLECHT {"poging": 3, "gewricht": "Right elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.543754112885804, "h_voxel": 0.2719, "h_vlakken": 105920, "h_buiten": 0.0013, "h_buiten_om": 0.0037, "h_pogingen": null}, "A": {"gesloten": false, "fout": 68, "punten": 467010, "zelf": 4, "herstel": {"vier": 44, "fout_na": 198}}, "B": {"gesloten": true, "fout": 0, "punten": 39889, "zelf": 0}, "goed": false}
+MEET robot-fijn gewrichten=7 overgeslagen=2 slechte_sneden=2
+STATUS Installed "click_joints"
+[studio] robot: 20100 punten voor de remesh, maat (148.5, 42.2, 220.4)
+Info: Watertight copy Figuur_gesloten made (561438 faces)
+[studio] kleuren per vorm: 561438 vlakken, 2940 buiten elke vorm
+[studio] robot na voxel: 561428 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.5, 4.0, 57.0), elleboog L (50.0, -3.6, 132.0)
+[meet] figuur robot-fijn: Figuur, {'bron_punten': 561428, 'bron_zelf_overlap': 0}
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 140°. 31.793 s.
+Info: Hinge placed. Bends 0° to 140°. 41.489 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 120°. 18.413 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 120°. 17.501 s.
+Info: Joint placed. Good fit. 12.732 s.
+Warning: Too close to another joint (keep 43 mm apart).
+Warning: Too close to another joint (keep 43 mm apart).
+Warning: Too close to another joint (keep 43 mm apart).
+Warning: Too close to another joint (keep 43 mm apart).
+Info: Joint placed. Good fit. 21.734 s.
+Warning: Too close to another joint (keep 51 mm apart).
+Warning: Too close to another joint (keep 51 mm apart).
+Warning: Too close to another joint (keep 51 mm apart).
+Warning: Too close to another joint (keep 51 mm apart).
+Info: Joint placed. Good fit. 20.099 s.
+Warning: 7 joints · 2 rig · 2 mirror · 3 preset. Skipped: Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (no room on this 59 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[meet] Blender 4.2.23 LTS figuur robot-fijn: 7 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Right shoulder', 'Right hip']
+[meet] ontbreekt: ['Left shoulder', 'Left hip']; overgeslagen: Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (no room on this 59 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[meet] pogingen 23, sneden 11, slechte sneden 2
+[meet]   SLECHT {"poging": 1, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 7, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.3616589532782621, "h_voxel": 0.2005, "h_vlakken": 245752, "h_buiten": 0.0, "h_buiten_om": 0.0022, "h_pogingen": null}, "A": {"gesloten": true, "fout": 0, "punten": 510715, "zelf": 0}, "B": {"gesloten": false
+[meet]   SLECHT {"poging": 3, "gewricht": "Right elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.543754112885804, "h_voxel": 0.2719, "h_vlakken": 105920, "h_buiten": 0.0013, "h_buiten_om": 0.0037, "h_pogingen": null}, "A": {"gesloten": false, "fout": 68, "punten": 467010, "zelf": 4, "herstel": {"vier":
+MEET robot-fijn gewrichten=7 overgeslagen=2 slechte_sneden=2
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+model name	: AMD EPYC 7763 64-Core Processor
