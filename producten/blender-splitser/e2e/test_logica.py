@@ -221,5 +221,19 @@ afstand = min(sum((a - b) ** 2 for a, b in zip(kleuren.lineair(p)[:3], kleuren.l
               for p in kleuren.PALET)
 stap("kleur: geen stuk lijkt op het goud van de pennen", afstand > 0.25, f"{afstand:.2f}")
 
+
+def lab(hex_):
+    r, g, b = kleuren.lineair(hex_)[:3]
+    x = (0.4124 * r + 0.3576 * g + 0.1805 * b) / 0.95047
+    y = 0.2126 * r + 0.7152 * g + 0.0722 * b
+    z = (0.0193 * r + 0.1192 * g + 0.9505 * b) / 1.08883
+    t = [v ** (1 / 3) if v > 0.008856 else 7.787 * v + 16 / 116 for v in (x, y, z)]
+    return (116 * t[1] - 16, 500 * (t[0] - t[1]), 200 * (t[1] - t[2]))
+
+
+alle = list(kleuren.PALET) + [kleuren.GOUD]
+dlab = min(math.dist(lab(a), lab(b)) for i, a in enumerate(alle) for b in alle[i + 1:])
+stap("kleur: elk paar kleuren (ook het goud) minstens 25 uit elkaar in Lab", dlab >= 25.0, f"{dlab:.1f}")
+
 print(f"[sj-logica] KLAAR {len(fouten)} FOUT {fouten}")
 sys.exit(1 if fouten else 0)

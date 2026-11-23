@@ -8,9 +8,10 @@ Material and with Object color. The status (sj_status) and the export do not cha
 The pure logic (verdeel, lineair) does not need bpy, so test_logica.py can test it."""
 
 # Brand colors of Click Cuts first (merk/LEESMIJ.md: coral, cobalt, lilac), then bright colors that differ
-# clearly from each other and from the gold of the pins. sRGB hex.
+# clearly from each other and from the gold of the pins: every pair at least 29 apart in CIELAB (keuring
+# 23 nov K1: the old red, green and purple were 14 to 17 from coral, teal and lilac). sRGB hex.
 PALET = ("FF5B3A", "3D5BFF", "A58CFF", "2EC4B6", "FF7AB8", "8BD346",
-         "FF9F1C", "4CC9F0", "C77DFF", "F94144", "43AA8B", "F4A6A6")
+         "FF9F1C", "4CC9F0", "F2EBD9", "B5651D", "E040FB", "6A4C93")
 GOUD = "FFD25C"
 NAAM = "Click Cuts piece {:02d}"
 

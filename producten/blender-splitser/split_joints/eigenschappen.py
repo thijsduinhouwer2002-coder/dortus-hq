@@ -71,7 +71,8 @@ class SplitJointsInstellingen(bpy.types.PropertyGroup):
         name="Exploded view", description="Show the pieces a little apart, only in the viewport. "
         "The export uses the real position", default=True, update=_uit_elkaar)
     kleur: EnumProperty(
-        name="Colors", items=(("PIECE", "Per piece", "Every piece its own color, neighbors never the same. Pins in gold"),
+        name="Colors", items=(("PIECE", "Per piece", "Every piece its own color, neighbors never the same. Pins in gold. "
+                               "Replaces materials on the pieces"),
                               ("CHECK", "Check", "Green fits, orange thin wall, red needs attention")),
         default="PIECE", update=_kleur)
     bron: StringProperty(name="Model", description="The model the cuts belong to", default="")
