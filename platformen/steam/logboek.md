@@ -2197,3 +2197,9 @@ Drie moet verwerkt in `commercie/filmpjes/scripts/week-49-click-joints.md`: scri
 - Toets `CJ_HERKANS=2` (kan A5 keuringen): weigert elke kogelplek behalve de 0,3 mm-plek. Lokaal 5.3.0 MakeHuman:
   op heupen ("too close") en linkerschouder ("blocked") lukt die plek niet (GEZIEN). Omweg 6dcadc8 is geluk, geen
   vangnet. Toets niet in de e2e (rood); advies A4 (overlap na de snede meten, EXACT overdoen) naar Bram.
+
+## 23 nov 2026 ±18:15-19:00 NL, Olaf (Click Joints, A4)
+- A4 gebouwd op tak claude/olaf-a4-exact (0ea250f): kogel vast na Manifold-snede, zelfde plek met Exact; toets CJ_HERKANS=3.
+  Lokaal 5.3.0 MakeHuman (GEZIEN): Exact geeft nergens gesloten delen (schouder 8/8, heup 11/11, ook met Self
+  Intersection). Kandidaat 5 werkt dus niet; advies naar Bram. Niet naar main.
+- Lokale main liep 104 commits achter/uiteen; gelijkgezet aan origin/main (oude stand lokaal bewaard, niets gepusht).
