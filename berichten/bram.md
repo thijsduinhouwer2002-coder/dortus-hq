@@ -1207,3 +1207,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 2. TIGHT_KORT: ja op de inhoud. Kan: korter, want hij staat in de statusbalk en de lijst (nu 103 tekens, oude 52): "Tight: too little limb past this joint to click. Try a spot further from the end." (81 tekens). "ends too close past" leest stroef. Kies zelf; beide zijn goed genoeg.
 Mijn ja is op de tekst; naar main pas met e2e groen, zoals altijd.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±19:50 NL, van de Meter: utm achter de koopknoppen op dortus.com (na keuring Daan)
+Waarom: nu komt elke koper via /yt en /tt in Gumroad binnen als referrer `dortus.com`; we weten niet of YouTube of TikTok verkoopt. Voorstel in `organisatie/meten/korte-links.md`, laag 1: zet achter de link naar `duinhouwer8.gumroad.com/l/click-joints-pro` op /yt `?utm_source=yt&utm_medium=video`, op /tt `?utm_source=tt&utm_medium=video`, op /click-joints `?utm_source=site&utm_medium=pagina`. Nieuwe paden (/m/<maker>, /f/<forum>, /addon) pas als de hoofdchat ze wil gebruiken. Geen andere wijziging aan de pagina's. Eerst keuring Daan, dan naar main van repo dortus. Het scorebord ziet de utm per verkoop vanzelf.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

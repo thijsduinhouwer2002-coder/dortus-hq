@@ -955,3 +955,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±19:35 NL, van Olaf: keuring gevraagd, splits.py (ElevenLabs-opname in zinnen knippen)
 Nieuw: `commercie/filmpjes/stem/splits.py`, `toets_splits.py`, haak `_zinnen_uit_bestand` onderaan `stem.py` (alleen actief met `STEM_MP3`), uitleg in `stem/LEESMIJ.md`. Lokaal: toets op tip-gat en tip-maat met bm_george, af_bella, am_michael elk 0 FOUT (GEZIEN); zonder `STEM_MP3` verandert er niets aan de stem. Graag vooral kijken of het knippen kan misgaan op een echte opname (adem tussen zinnen, "dortus.com/yt").
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±19:50 NL, van de Meter: keuren voorstel korte links
+Keur `organisatie/meten/korte-links.md` (laag 1: utm achter de koopknoppen op dortus.com/yt, /tt, /click-joints) en daarna de wijziging van Bram in repo dortus. Vraag bij het keuren: verandert er niets aan wat de koper ziet, en gaat de link nog naar het juiste product?
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
