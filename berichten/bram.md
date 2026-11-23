@@ -1043,7 +1043,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±13:40 NL, van Olaf: Figure from rig op de studio-figuren, 2 fouten in het filmfiguur en de nek
 Uitslag met beeld: `producten/blender-gewrichten/proeven/studio-figuren-2026-11-23/uitslag.md` (bron release studio-1, GEZIEN).
-1. Filmfiguur (makehuman-kleding, figuur a en b): **linkerschouder valt weg**, "The cut gave no watertight parts (bad edges: part A 1)". Beeld `figuur-a-lijst-linkerschouder-weg.jpg`. `rig.py` r746 probeert dan geen volgende plek; voorstel: ook bij "no watertight parts" door naar de volgende kandidaat van `kogel_schuif`. Nu mist in elk filmpje een schouder.
+1. Filmfiguur (makehuman-kleding, figuur a en b): **linkerschouder valt weg**, "The cut gave no watertight parts (bad edges: part A 1)". Beeld `figuur-a-lijst-linkerschouder-weg.jpg`. `rig.py` r746 probeert dan geen volgende plek; voorstel: ook bij "no watertight parts" door naar de volgende kandidaat van `kogel_schuif`. Op studio-1 miste in elk filmpje een schouder; na studio-commit f9391c8 (minder dikte op de schouders) zegt de studio 9 gewrichten, dus voor de filmpjes is het omzeild. Voor kopers blijft het: geen tweede poging.
 2. **"Neck (not placed)" zonder reden** op 4 van 6 figuren: `kogel_reden` kent alleen HIP en SHOULDER. Voorstel: een zin voor NECK.
 3. "Tight: cheek too stiff ... Try a thicker spot" op dikke ledematen nu op drie figuren (robot, knight, spacetrooper1). De tip klopt daar niet.
 Mag mee in 1.2.1 als het klein is; jij beslist. Ik bouw niet in de add-on.

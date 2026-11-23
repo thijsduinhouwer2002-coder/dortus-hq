@@ -19,7 +19,9 @@ eigen rig van het model, alle gewrichten. Alle delen bleven één stuk (GEZIEN, 
    140° bij de elleboog, geen kogel). De rechterschouder lukt wel (±25°). De kern geeft "no watertight parts" en
    `rig.py` probeert dan geen volgende plek: `verder` (r746) gaat alleen door bij "too close" of bij thin/tight op een
    scharnier. Voorstel: ook bij "no watertight parts" de volgende kandidaat van `kogel_schuif` proberen. In elk filmpje
-   met figuur a mist nu een schouder.
+   met figuur a mist nu een schouder. **Na studio-commit f9391c8 (13:20 NL, geen dikte meer op schouders en mouwen) krijgt
+   het filmfiguur volgens de studio 9 gewrichten** (LEESMIJ r24, nog niet zelf gezien). De add-on-kant blijft: een koper
+   met zo'n mesh krijgt geen tweede poging.
 2. **"Neck (not placed)" zonder reden** op 4 van 6 figuren. `kogel_reden` (r205) maakt alleen voor HIP en SHOULDER een
    leesbare zin van "nothing was cut"; de nek valt erdoorheen en dan zet r767 "not placed". Voorstel: een NECK-zin,
    bijvoorbeeld "no clean spot for a neck ball (neck too short or thin), place it by hand".
