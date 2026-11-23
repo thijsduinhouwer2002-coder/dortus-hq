@@ -78,3 +78,29 @@ Kleine dingen (kan, blokkeren niet):
 - De uitslag zegt "4.2 rigify tak 1 van 5" afgebroken; in 45282711505 staan maar 3 van de 5 (herhaling 2, 3 en 4, GEZIEN).
 - De uitslag zegt bij de toets "4.2 zie het bericht", maar het bericht zegt niets over 4.2. Na run 45287215003 bijwerken.
 - De aantallen voxelsneden (125, 37, 35) heb ik niet nageteld.
+
+## Herkeuring (op 37de78bce), 24 nov 2026, keurder Betrouwbaarheid A
+Opdracht hoofdchat 24 nov: alleen M1 en M2 opnieuw, en kijken of er niets nieuws fout ging. Hierboven staat al een herkeuring
+op 25efd95 (akkoord ja). Dit is een eigen, verse controle op de laatste commit. Tussen 1945f46 en 37de78bce verandert in
+`click_joints/` niets meer (git diff), dus de meting en de e2e op 1945f46 gelden voor de eindstand.
+Wat ik las: `git diff 5aa27a8 37de78bce`, JSON van run 45282711505 (zelf in Python nageteld), jobstatus van 45282711505 en
+45282711688 en de joblogs van de e2e in 5.2.3 en 5.3.0 (via de GitHub-API, zonder sleutel).
+Akkoord: ja
+
+| # | Punt | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|---|
+| H1 | M1 meting | Zelf geteld: elke geslaagde kogelsnede heeft `verloren_diag`. Grootste verlies tak 0,86% (armen, 5.x, gelijk aan nul), nul 5,0% (robot, 4.2). Geen kogelsnede boven 6%, in geen enkele versie. Ik heb elke kogelsnede aan zijn poging gekoppeld (0 niet te koppelen): de **voxelsneden** verloren allemaal 0,0% (4.2: 125 van 126 gemeten, één snede was slecht en telt niet; 5.2.3: 37; 5.3.0: 35). De tabel in de uitslag klopt cel voor cel met mijn telling. | feit | hoog |
+| H2 | Niets slechter | Tak in 45282711505: 5.2.3 en 5.3.0 in elke herhaling 60 van 60, 0 slechte sneden, per figuur één set regels; 4.2 51 van 60 (rigify 3 herhalingen). Knight in de regressie van 5.x: 2 gewrichten in 10 metingen, rechterknie 5,31 tot 5,59%, gelijk aan eerst. Regressie 5.2.3 en 5.3.0 `FOUT.txt` 0. | feit | hoog |
+| H3 | Toets `CJ_HERKANS=3`: faalt hij als de controle weg is? | **Ja, als de controle bij kogels weg is:** dan roept de knop `verloren_stuk` bij geen enkele kogel aan, de lijst blijft leeg en de eerste check faalt. **Nee, als alleen het terugdraaien kapot is:** op deze mens doet de knop zonder nep ook al 5 geslaagde sneden per schouder (diag-JSON mens-1 5.2.3: vijf keer "ok" op vijf plekken; log: rechterschouder ook 5 keer zonder nep). De eerste linkerschouderplek wordt dus toch al teruggedraaid. De checks "Left shoulder minstens 2 keer" en "linkerschouder toch geplaatst" slagen daarom ook als de 50% genegeerd wordt. De code zelf is wel goed: hetzelfde `elif` met `fout` en `draai_terug` als bij scharnieren, alleen zonder `soort == "HINGE"`. | feit | hoog |
+| H4 | Groen | E2e 45282711688 (1945f46): 5.2.3 en 5.3.0 helemaal groen; in hun log "OK het vangnet meet ook bij kogelsneden", "OK na een kogelsnede die te veel verliest neemt de knop een volgende plek", 9 gewrichten. 4.2.23: stap 13 Figuurpresets (met `CJ_HERKANS=3`) groen als stapstatus, maar de job hangt sinds 23 nov 22:45 UTC op stap 18 (schermbeeld), log nog niet te lezen. E2e op 25efd95 en 37de78bce loopt nog. | feit | hoog |
+| H5 | Afgebroken jobs | 45282711505: 3 jobs rood en 2 nooit klaar. 4.2 robot-fijn nul (2 keer) en 4.2 rigify tak herhaling 5: "exit code 143" plus "The runner has received a shutdown signal", binnen ±2 minuten na de start, dus de runner en niet de figuur. 4.2 rigify tak 1 en `regressie (4.2.23)` nooit klaar. Raakt de conclusie niet: rigify 4.2 gaf 7 in elke herhaling die wel afliep (hier 3, eerder 4 plus 5), robot-fijn nul in 4.2 liep nooit af en staat zo ook in de uitslag. | feit | hoog |
+| H6 | M2 cijfers | "28 naar 44 van 51" (6+6+8+9+7+8 = 44), "2 tot 3,6 keer trager", 194 van 567, 0 van 440 en 93 voxel, robot-fijn 5 herhalingen: staat zo in uitslag en berichten en klopt met mijn telling. | feit | hoog |
+| H7 | `redenen.py` | Geen belofte over 4.5 meer ("a newer Blender such as 5.2", en 5.2 is gemeten), geen versietip bij "blocked", een eigen zin voor "the cut failed". Waar en behulpzaam. Daan moet de Engelse zinnen nog zien. | feit | hoog |
+| H8 | Releasenote-voorstel (bij Bram) | "Blender 4.2: ... but some knees are still skipped" klopt niet helemaal: in 4.2 vallen op de robot ook de linkerschouder en de linkerheup weg (uitslag, "Wat nog niet lukt"). | feit | hoog |
+
+**Moet:** geen.
+
+**Kan**
+1. Toets `CJ_HERKANS=3` scherper maken (H3): geef de nep van 50% aan een snede die anders blijft staan (de nek of een heup, die maar één poging nodig hebben, of de vijfde schouderplek), en kijk dan of dat gewricht op een andere plek komt of wordt overgeslagen met "lost part of the model".
+2. Releasenote: "some knees" wordt "some knees, shoulders and hips" (H8), voordat Daan hem keurt.
+3. Voor het uitbrengen moet de e2e op de eindcommit (45288814521) echt helemaal groen af zijn, ook in 4.2.23 (H4); de skill `uitbrengen` vraagt dat al.
