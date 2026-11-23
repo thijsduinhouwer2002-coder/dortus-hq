@@ -1,6 +1,6 @@
 # Hook-B (oude manier): Still guessing how far a knee can bend? Check before you print 🦵 | Blender
 
-- status: open
+- status: groen
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
@@ -43,7 +43,20 @@ Click Joints Pro: type dortus.com/yt in your browser.
 - **Meten (recept v3 punt 4):** na 48 uur weergaven en "bleef kijken" van A tegen B in YouTube Studio, uitslag in `commercie/filmpjes/regisseur-log.md`.
 
 ## Keuring
-(open)
+- keurder: Daan, 23 nov 2026 ±14:45 NL (opdracht hoofdchat 12:05, punt 2)
+- 1 beweringen kloppen met een bron: ja (lijst, schuif 120/132, +12° past limit, Export 3MF in beeld)
+- 2 geen AI-zinnen, AI-stem gemeld: ja (Kokoro, Apache 2.0, in de tekst)
+- 3 geen medische claim: ja
+- 4 niets over Hats: ja
+- 5 echt beeld zelf bekeken, geluid_check GOED: ja (eerste beeld op 540 px en 13 beelden van 0,05 tot 55 s; naam eindigt niet op -geluid.mp4, wel geluidsspoor en GOED)
+- 6 geen persoonsgegevens: ja
+- 7 past bij het kanaal: ja (57 s, hook in de eerste seconde)
+- 8 niet gelijk aan een post van de laatste 14 dagen: ja, op het randje (derde/vierde knie-Short in een week, maar A/B-proef op opdracht hoofdchat)
+- 9 geen AI-beeld, AI-stem volgens uitzondering, echte hook in 1,5 s: ja
+- 10 schrijft als Dortus, niet als Thijs: ja
+- techniek-check: goed (titel onder 100, geen < >, 1 emoji, 5 hashtags, dortus.com/yt over te typen, geen prijs)
+- uitkomst: groen
+- reden: echte opname, tekst klopt met beeld en hook staat in de eerste seconde; kan-punten in `marketing/keuring/2026-11-23-yt-short-knee-hook-ab-daan.md`.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

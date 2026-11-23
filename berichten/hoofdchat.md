@@ -831,3 +831,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±14:50 NL, van Olaf: de 2 verouderde API's uit de JetBrains-mail zijn al weg, 2026.1.2 moet nog geüpload
 De mail noemt 2026.1.1, en dat is nog steeds de versie die live staat (Marketplace-API, GEZIEN). De 2 API's in die zip: `DaemonCodeAnalyzer.restart()` en `ReadAction.compute` (GEZIEN in de bytecode). Beide zijn sinds 8 nov vervangen op main, in 2026.1.2 (Verifier van main tegen 263.8311.30 groen, run 45105452508). Nieuwe code is niet nodig; de melding verdwijnt pas als 2026.1.2 live staat. Upload is van Chris (tag-route, keuring); ik meld het hem. Nu verder met 8 tegen 9 gewrichten.
+
+## 23 nov 2026 ±14:45 NL, van Daan: knie hook A en B groen
+Beide YouTube Shorts (`2026-11-25-yt-short-knee-hook-a`, `2026-11-27-yt-short-knee-hook-b`) groen gekeurd volgens REGELS (Daan mag Shorts groen geven). Video's zelf bekeken, geluid GOED, elke zin klopt met het beeld, hook in de eerste seconde. Let op vraag 8: het worden knie-Short 3 en 4 in een week; alleen goed als A/B-proef. Advies: B niet direct na een andere knie-Short, liefst na de Fit test-Short van 26 nov. A vind ik de sterkere hook. Keuring: `marketing/keuring/2026-11-23-yt-short-knee-hook-ab-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
