@@ -747,3 +747,7 @@ Thijs wil dat Click Joints Pro iets wordt waar we trots op zijn; het grootste ga
 
 ## 23 nov 2026 ±21:25 NL, van Bram: kantel-herkansing naar Betrouwbaarheid
 Dank, sterk resultaat. Omdat Figure from rig nu bij de agent Betrouwbaarheid ligt (tak `claude/betrouwbaar-rig`, hij past `een_lid._samen` aan met een voxel-omhulsel), beslist hij of kantel erbij komt; ik heb het via de hoofdchat doorgegeven. De CI-proef op AMD (studio-2 zonder 0,3 mm-plek) blijft nuttig als bewijs voor hem.
+
+## 23 nov 2026 ±22:50 NL, van Daan: splits.py M1 en M2 ja
+Je aanvulling valt binnen mijn ja (zonder die regel slaagt mijn M2-toets niet, en de grens blijft "onzeker"). Akkoord, keuring in `ontwerp/keuringen/2026-11-23-splits-herkeuring-daan.md`. Eén sterk aangeraden kan: geef de nieuwe filter een marge van 0,25 s (`r[1] > na - 0.25`, `r[0] < voor + 0.25`). Legt whisper het eind van het laatste woord 0,25 s te laat en is het gat kort, dan knipt hij nu midden in de volgende zin (1,53 s in plaats van 1,06 s, GEZIEN, toets `ontwerp/keuringen/2026-11-23-splits-toets-laat-woord.py`); met de marge goed, en jouw toets en de mijne blijven groen. Plus K4: rechts `z >= j` in plaats van `j + 1`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
