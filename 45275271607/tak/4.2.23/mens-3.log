@@ -1,0 +1,38 @@
+[meet] figuur mens: mens, {'bron_punten': 13380, 'bron_zelf_overlap': 0}
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 33, sneden 19, slechte sneden 0
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=0
+Info: Joint placed. Good fit. 10.509 s.
+Info: Joint placed. Good fit. 10.528 s.
+Info: Joint placed. Good fit. 10.425 s.
+Info: Joint placed. Good fit. 10.548 s.
+Info: Joint placed. Good fit. 10.127 s.
+Info: Joint placed. Good fit. 9.91 s.
+Info: Joint placed. Good fit. 9.938 s.
+Info: Joint placed. Good fit. 9.863 s.
+Info: Joint placed. Good fit. 9.884 s.
+Info: Joint placed. Good fit. 6.979 s.
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Info: Joint placed. Good fit. 6.778 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 4.2.23 LTS figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 33, sneden 19, slechte sneden 0
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=0
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+OBJ import of 'makehuman-base.obj' took 16.55 ms
+
+Blender quit
+model name	: AMD EPYC 7763 64-Core Processor
