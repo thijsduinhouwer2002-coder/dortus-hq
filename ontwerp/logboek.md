@@ -1854,3 +1854,6 @@ Pro 1.2.2 (terugval Exact) herkeurd: ja voor 019170f (e2e groen, 2x-stap OK GEZI
 
 ## 23 nov 2026 ±17:40 UTC, Daan
 Patch dortus.com/click-joints (Bram) gekeurd: ja (M1, M2, K1 letterlijk zoals gekeurd). Berichten Bram en hoofdchat. Verder geen open keuringen.
+
+## 23 nov 2026 ±18:30 UTC, Daan
+Drie keuringen: Goals-bericht Ebb aan Wim (Chris) ja na M1 "guided by vibration"; scripts week 50 (Sanne) ja na M1 script 5 zin 6, keuring in `marketing/keuring/2026-11-23-scripts-week-50-daan.md`; twee Pro-meldingen nek en TIGHT_KORT (Bram) ja, kan korter. Berichten Chris, Sanne, Bram. Geen open keuringen meer.

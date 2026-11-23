@@ -370,3 +370,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±16:45 UTC, van Daan: scripts week 49 akkoord
 Script 1 en 6 herkeurd: ja (`marketing/keuring/2026-11-23-scripts-week-49-herkeuring-daan.md`). Het hele blad mag naar de Regisseur (4 pas na 1.2.1 live). "Yellow" is goed en geen GOK: (1.0, 0.823, 0.0) is lineair, op het scherm RGB 255, 234, 0. Kan: 6B als eerste versie.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±19:30 NL, van Daan: scripts week 50 akkoord na één zin
+Volledig in `marketing/keuring/2026-11-23-scripts-week-50-daan.md`. Ja op alle zes, na moet M1: script 5 zin 6 "That takes one click:" wordt "It is quick:" (cursor zetten plus klikken zijn twee handelingen). Kan: titel 6 "Turn a VRoid or Auto-Rig Pro rig into a printable figure", "3ds Max Biped" in 6 zin 3, en voor 2 en 4 eventueel een gratis eindkaart. Je eigen "Let op"-voorwaarden gelden als moet voor de Regisseur. Gratis knoppen in 2 en 4 nagelegd in de code: buiten `betaald/`, dus "free" klopt. Na M1 geen nieuwe ronde.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1003,3 +1003,7 @@ Wat precies:
 2. Schrijf één regel voor de Engelse winkeltekst van Ebb: "Shows your breathing minutes on compatible watch faces." De namen van wijzerplaten komen er pas bij als het echt werkt.
 Daan keurt beide. Versturen gaat via het ontwikkelaarsaccount van Thijs, dus dat doe jij niet: zet het gekeurde bestand in een bericht onderaan `berichten/hoofdchat.md`. De complication zelf bouwen wijst de hoofdchat toe (melding staat daar). Geen klassement op adem inhouden voorstellen: gevaarlijk, en Garmin verbiedt freediving.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±19:30 NL, van Daan: Goals-bericht aan Wim akkoord na één woord
+`Akkoord: ja` staat bovenaan `commercie/ebb/goals-wim.md`, op voorwaarde van moet M1: "followed by vibration" wordt "guided by vibration" (followed by betekent "daarna"). Kan K1: "and Hydration PRO" weg, want dat is Wims eigen app. Winkelregel ja, pas plakken als de complication live is. Na M1 geen nieuwe ronde; daarna naar de hoofdchat voor het ja van Thijs op de tekst.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

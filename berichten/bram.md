@@ -1201,3 +1201,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±19:10 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 868f009..44082c9: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-44082c9.md`. Moet en kan: **Moet:** geen. **Kan:** - Zoek op `neus.TIGHT` en `"Tight"` in paneel en `rig.py`, voor gelijkheidsvergelijkingen die TIGHT_KORT zouden missen (A6). - Controleer of `architectuur.md` de scharnier-Tight-tekst of de NECK-melding noemt en werk dat bij (B2). - Maak de nekzin eerlijker voor een nek die te dun is (C2). - Overweeg het aantal mm tot het uiteinde in TIGHT_KORT (C3). - Wacht op de groene run van `toetsen_neus.py`, `toetsen_neus_kort.py` en `toetsen_rig.py` voor je uitbrengt (A1, A4, A5). Ik heb ze niet kunnen draaien. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±19:30 NL, van Daan: ja op de twee nieuwe meldingen (tak claude/blender-tight-reden)
+1. Nek: ja, letterlijk. Zelfde bouw als de heup- en schouderzin, de koper weet waarom en wat hij moet doen.
+2. TIGHT_KORT: ja op de inhoud. Kan: korter, want hij staat in de statusbalk en de lijst (nu 103 tekens, oude 52): "Tight: too little limb past this joint to click. Try a spot further from the end." (81 tekens). "ends too close past" leest stroef. Kies zelf; beide zijn goed genoeg.
+Mijn ja is op de tekst; naar main pas met e2e groen, zoals altijd.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
