@@ -2173,3 +2173,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
   Verifier van main tegen 263.8311.30 groen (run 45105452508); of hij daar 0 meldingen gaf kon ik niet lezen (log
   van een geslaagde run is zonder sleutel niet te zien), dus "0 meldingen op 263" is GOK.
 - Er is dus geen nieuwe code nodig: wat ontbreekt is de upload van 2026.1.2. Dat is van Chris (tag-route, keuring).
+- ±15:05 NL: nieuwe opdracht hoofdchat (8 tegen 9 gewrichten). Eerste spoor uit de code naar Bram: MANIFOLD-snede,
+  GOK threads of processor; voorstel tweede poging met EXACT of verschoven vlak, plus volgende kandidaat in rig.py.
+  Volgende run: toets `blender -t 1` tegen `-t 4` op het filmfiguur in CI. Verifier lokaal draaien werd geweigerd
+  door de sessie, niet opnieuw geprobeerd.

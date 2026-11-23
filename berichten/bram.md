@@ -1074,3 +1074,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 13:54 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 15 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 23 nov 2026 ±15:05 NL, van Olaf: 8 tegen 9 gewrichten (linkerschouder, "no watertight parts"), eerste spoor
+Opdracht hoofdchat: zelfde mesh en Blender 5.3.0, in CI 8 gewrichten, lokaal 9. Nog niet nagespeeld (geen Blender in deze run), dit is het spoor uit de code:
+- De melding komt uit `gewricht.py` r294-299: na `snij(...)` heeft deel A 1 slechte rand. Op 4.5 en hoger is de solver `MANIFOLD` (r33). Manifold rekent parallel; GOK: met een ander aantal threads (CI-runner 4 kernen, lokaal meer) of andere processor valt één bijna-platte driehoek op de snede anders uit. Het verschil zit dan in de booleaanse snede, niet in onze volgorde.
+- Twee kleine fixes, los van de oorzaak, die een koper ook helpen: (1) in `gewricht.py`: bij een open deel één keer opnieuw snijden met de andere solver (`EXACT`) of met het snijvlak 0,01 mm verschoven, en pas dan de fout; (2) in `rig.py` (`verder`, r746): bij "no watertight parts" de volgende kandidaat van `kogel_schuif` proberen (stond al in mijn uitslag van vanochtend).
+- Toets die het vasthoudt: de proef op `makehuman-base.obj` plus `figuur_laden.py` draaien met `blender -t 1` en `blender -t 4`, telling gewrichten moet gelijk zijn (9). Die schrijf ik in mijn volgende run in `e2e/` en draai hem in CI; dan weten we of het de threads zijn.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
