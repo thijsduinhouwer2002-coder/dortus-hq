@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-23 10:45",
+    "datum": "2026-11-23 11:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Vóór de Cyber Sale (27 nov): Thijs zet Lite $3 aan op Superhive (zip en tekst gekeurd door Daan 23 nov, lijst 3c) en vervangt de Pro-zip op Gumroad door 1.2.0 vóór 25 nov (lijst 3). Site-tak claude/fit-test-strip (2493a29) live na één push naar main door Thijs (lijst 5). Voorgestelde prijs $10 bij de gratis versie (lijst 3). Bundel met Split 3D Print wacht op ja van Thijs (lijst, later).",
+      "volgende_stap": "Vóór de Cyber Sale (27 nov): Thijs zet Lite $3 aan op Superhive (zip en tekst gekeurd door Daan 23 nov, lijst 3c) en vervangt de Pro-zip op Gumroad en Superhive door 1.2.0 vóór 25 nov, met het gekeurde blok \"New in Pro 1.2\" op Superhive (lijst 3 en 3d). Site-tak claude/fit-test-strip (2493a29) live na één push naar main door Thijs (lijst 5). Voorgestelde prijs $10 bij de gratis versie (lijst 3). Bundel met Split 3D Print wacht op ja van Thijs (lijst, later).",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
