@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: ma 23 nov 2026, 19:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro 1.2.2 uitgegeven (uitgave-run 45230763628 groen, artefact tot 26 nov 17:44 UTC); Thijs zet die zip op Gumroad en Superhive (lijst 3, 1.2.1 overgeslagen). Mail aan 80.lv gekeurd, wacht op ja Thijs di 24 nov (lijst 1). Bison & Flex 2026.1.2 live. Click Cuts: passingproef akkoord, CI groen. Verkopen Pro: 1, $19 op 22 nov, herkomst "direct" zonder code of utm (GEZIEN Gumroad /v2/sales, Meter 23 nov 19:55; `organisatie/meten/stand.md`).
+**Stand: ma 23 nov 2026, 21:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Betrouwbaarheid werkt aan Figure from rig (doel wo 25 nov). Video als eerste omslag op Gumroad en Superhive vóór do 27 nov (ronde met Chrome, lijst). 4 hook-Shorts ingepland 25 tot 28 nov. Click Cuts: kleur per stuk gekeurd, nu draaibaar snijvlak. Open voor een sessie met de repo `dortus`: Brams utm-tak en patch 1.2.x mergen.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
