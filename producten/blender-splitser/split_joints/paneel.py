@@ -70,11 +70,10 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         stap.prop(inst, "pen_lengte_mm")
         stap.prop(inst, "speling_mm")
         stap.prop(inst, "wand_mm")
-        rij = stap.row(align=True)
-        rij.prop(inst, "labels")
-        sub = rij.row()
+        stap.prop(inst, "labels")
+        sub = stap.row()
         sub.enabled = inst.labels
-        sub.prop(inst, "label_diepte_mm")
+        sub.prop(inst, "label_diepte_mm", text="Number depth (mm)")
         grote_knop(stap, "split_joints.split", "Split", "MOD_EXPLODE")
 
         stap = layout.box()

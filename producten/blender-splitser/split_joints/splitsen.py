@@ -70,8 +70,8 @@ def herstel(ob, u):
 POGINGEN = ("gewoon", "driehoeken", "zelf", "gaten", "schuif")
 
 
-def verschil(doel, gereedschap, solver, naam, collectie, u, voxel_mm=None):
-    """Boolean Difference, baked. Exact (4.2) sometimes leaves a few open edges around small shapes such as
+def verschil(doel, gereedschap, solver, naam, collectie, u, voxel_mm=None, actie="DIFFERENCE"):
+    """Boolean (Difference unless told otherwise), baked. Exact (4.2) sometimes leaves a few open edges around small shapes such as
     the numbers (every "4" of the built-in font gave 4 open edges, run 45212458120); then we try again: the
     tool as a fine voxel copy (voxel_mm, only for the numbers), target in triangles, Self Intersection on,
     Hole Tolerant on, and the tool shifted 0.002 mm. Returns (new object, bad edges per try); the first try
@@ -96,7 +96,7 @@ def verschil(doel, gereedschap, solver, naam, collectie, u, voxel_mm=None):
         oud = gereedschap.location.copy()
         if poging == "schuif":
             gereedschap.location = oud + Vector((0.0013, 0.0017, 0.0011)) * u
-        boolean(werk, gereedschap, "DIFFERENCE", solver)
+        boolean(werk, gereedschap, actie, solver)
         m = werk.modifiers[-1]
         if poging == "zelf":
             m.use_self = True
@@ -133,6 +133,14 @@ def ruim_oud_op(scene):
         for ob in list(col.objects):
             weg(ob)
         bpy.data.collections.remove(col)
+
+
+def cel_doos(ijk, cel, n_ijk, u, collectie):
+    """Box of one cell; at the outside of the grid it reaches BUITEN_MM past the model."""
+    mn, mx = cel
+    bmn = [mn[a] - (BUITEN_MM if ijk[a] == 0 else 0.0) for a in range(3)]
+    bmx = [mx[a] + (BUITEN_MM if ijk[a] == n_ijk[a] - 1 else 0.0) for a in range(3)]
+    return vormen.doos("sj_doos", bmn, bmx, u, collectie)
 
 
 def nieuwe_collectie(naam, scene):
@@ -225,9 +233,7 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
         ruw, cellen = {}, {}
         n_ijk = [len(g) - 1 for g in grenzen]
         for ijk, mn, mx in lijst:
-            bmn = [mn[a] - (BUITEN_MM if ijk[a] == 0 else 0.0) for a in range(3)]
-            bmx = [mx[a] + (BUITEN_MM if ijk[a] == n_ijk[a] - 1 else 0.0) for a in range(3)]
-            doos = vormen.doos("sj_doos", bmn, bmx, u, hulp)
+            doos = cel_doos(ijk, (mn, mx), n_ijk, u, hulp)
             kopie = bak(ob, "sj_kopie", hulp)
             boolean(kopie, doos, "INTERSECT", solver)
             stuk = bak(kopie, "sj_ruw", hulp)
@@ -249,19 +255,23 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
         for ijk in volgorde:
             nr = nummers[ijk]
             stuk = ruw[ijk]
-            werk = bak(stuk, "sj_werk", hulp)
             fout = list(stuk["sj_fout"])
-            if gaten.get(ijk):  # holes and numbers one after the other, baked in between (Click Joints, 4.2)
-                vorig = werk
-                werk, f = verschil(werk, gat_object("sj_gaten", gaten[ijk], u, hulp), solver, "sj_werk2", hulp, u)
-                weg(vorig)
-                fout += f
             lbo = label_object("sj_labels", labels.get(ijk, []), inst.label_diepte_mm, u, hulp, meldingen) \
                 if labels.get(ijk) else None
             if lbo is not None:
-                vorig = werk
+                # Numbers first, in the box: box minus the numbers (simple shapes), then model times that box.
+                # Subtracting the numbers from the finished piece left open edges with Exact in 4.2
+                # (run 45213448129), even with a voxel copy of the text.
                 kleinste = min(lb["h"] for lb in labels[ijk])
-                werk, f = verschil(werk, lbo, solver, "sj_werk3", hulp, u, voxel_mm=max(0.05, kleinste / 40.0))
+                doos = cel_doos(ijk, cellen[ijk], n_ijk, u, hulp)
+                gesneden, f1 = verschil(doos, lbo, solver, "sj_doos_nummers", hulp, u, voxel_mm=max(0.05, kleinste / 40.0))
+                werk, f2 = verschil(bak(ob, "sj_kopie", hulp), gesneden, solver, "sj_werk", hulp, u, actie="INTERSECT")
+                fout += f1 + f2
+            else:
+                werk = bak(stuk, "sj_werk", hulp)
+            if gaten.get(ijk):
+                vorig = werk
+                werk, f = verschil(werk, gat_object("sj_gaten", gaten[ijk], u, hulp), solver, "sj_werk2", hulp, u)
                 weg(vorig)
                 fout += f
             af = bak(werk, f"Piece {nr:02d}", col)

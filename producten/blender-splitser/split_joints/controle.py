@@ -133,12 +133,14 @@ def keur(af, ruw, bed, u, wand_min):
 
 
 def tekst(ob):
-    """Short line for the panel: size, fits or not, watertight, wall."""
+    """Short line for the panel (the icon in front says green, orange or red): size, and what is wrong."""
     m = ob.get("sj_maat_mm", [0, 0, 0])
-    delen = [f"{m[0]:.0f} x {m[1]:.0f} x {m[2]:.0f} mm", "fits" if ob.get("sj_past") else "too big"]
+    delen = [f"{m[0]:.0f}x{m[1]:.0f}x{m[2]:.0f} mm"]
+    if not ob.get("sj_past"):
+        delen.append("too big")
     if not ob.get("sj_gesloten"):
         delen.append("not watertight")
     w = ob.get("sj_wand_mm", -1.0)
     if w is not None and w >= 0:
-        delen.append(f"wall {w:.1f} mm")
+        delen.append(f"wall {w:.1f}")
     return ", ".join(delen)

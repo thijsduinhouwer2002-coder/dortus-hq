@@ -101,6 +101,8 @@ def model(context):
     ob = bpy.data.objects.get(naam) if naam else None
     if ob is None or ob.type != "MESH":
         ob = context.active_object if context.active_object and context.active_object.type == "MESH" else None
+    if ob is not None and (ob.get("sj_stuk") or ob.get("sj_pennen") or "sj_as" in ob):
+        return None  # a piece, a pin plate or a cut plane is never the model
     return ob
 
 
@@ -126,8 +128,9 @@ class SPLIT_JOINTS_OT_plan(bpy.types.Operator):
 
     @classmethod
     def poll(cls, context):
-        return context.active_object is not None and context.active_object.type == "MESH" \
-            and "sj_as" not in context.active_object
+        ob = context.active_object
+        return ob is not None and ob.type == "MESH" and "sj_as" not in ob and not ob.get("sj_stuk") \
+            and not ob.get("sj_pennen")
 
     def execute(self, context):
         ob = context.active_object

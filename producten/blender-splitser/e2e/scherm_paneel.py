@@ -39,13 +39,17 @@ def klaarzetten():
     for ob in list(bpy.data.objects):
         bpy.data.objects.remove(ob)
     with bpy.data.libraries.load(blend, link=False) as (bron, doel):
-        doel.objects = [n for n in bron.objects if n.startswith(("Piece", "Pins", "Cut"))]
+        doel.objects = [n for n in bron.objects if n.startswith(("Piece", "Pins", "Cut")) or n.endswith("_watertight")]
     s = bpy.context.scene
     s.unit_settings.system, s.unit_settings.scale_length, s.unit_settings.length_unit = "METRIC", 0.001, "MILLIMETERS"
+    sneden = bpy.data.collections.new("Split Joints cuts")
+    s.collection.children.link(sneden)
     for ob in doel.objects:
-        s.collection.objects.link(ob)
-        if "sj_as" in ob:
+        (sneden if "sj_as" in ob else s.collection).objects.link(ob)
+        if "sj_as" in ob or ob.name.endswith("_watertight"):
             ob.hide_set(True)
+        if ob.name.endswith("_watertight"):
+            s.split_joints.bron = ob.name
     s["sj_midden_mm"] = [0.0, 0.0, 0.0]
     s.split_joints.printer = "A1MINI"
     venster, gebied, ui, hoofd = gebied_3d()
