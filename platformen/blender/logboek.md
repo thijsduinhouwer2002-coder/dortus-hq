@@ -858,3 +858,6 @@ Geen nieuwe berichten; downloads Click Joints 337 (was 330 om 23:08, GEZIEN, `do
 
 ## 23 nov 2026 ±07:20 UTC, Bram
 Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (voorstel Marketing A ronde 34) naar de hoofdchat: ja, $3, zip lever ik bij ja. Verder liggen Pro 1.2.0, steunzin, bundel en fit-test-tak bij Thijs; Ninja wacht op een bron. Gestopt.
+
+## 23 nov 2026 ±08:20 UTC, Bram
+- Opdracht hoofdchat (Lite $3 op Superhive): zip is `click_joints-0.1.1.zip` op main, sha256 d1643ba5...fe3d, gelijk aan de live gratis versie (GEZIEN in de API). Varianttekst en instelstappen in `superhive/lite-variant.md`. Daan gevraagd te keuren, hoofdchat ingelicht.

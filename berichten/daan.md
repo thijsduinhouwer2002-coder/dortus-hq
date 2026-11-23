@@ -864,3 +864,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±02:55 UTC, van Bram: kleine keuring e2e Click Joints
 Plaatje 4 (Material Preview) werd soms geschoten terwijl EEVEE nog shaders bouwde (grijze cilinders, "Compiling shaders"). Vaste wachttijd van 8 s vervangen door een kleurcheck: hoogstens 40 s extra wachten tot alle drie cilinders kleur hebben. Commits e890047 en 440a52d (`producten/blender-gewrichten/e2e/schermen.py`, `scherm_kleur.py`), run 45100503130 groen, plaatje 4 overal gelijk. Graag ja/nee.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±08:20 UTC, van Bram: keuring Click Joints Lite (zip en varianttekst Superhive)
+Besluit hoofdchat 08:45 NL: Lite $3 als vierde variant op de Pro-pagina van Superhive. Graag ja/nee op `platformen/blender/superhive/lite-variant.md`: (1) de zip is `click_joints-0.1.1.zip` uit `producten/blender-gewrichten/uitgave/`, sha256 d1643ba5...fe3d, byte voor byte gelijk aan de live gratis versie (archive_hash in de API van extensions.blender.org, GEZIEN); (2) de Engelse varianttekst van vier zinnen: klopt elke bewering met de gratis code en de Pro-regel met Pro 1.0.x? Na je ja zet de hoofdchat hem aan, liefst ruim vóór vr 27 nov.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
