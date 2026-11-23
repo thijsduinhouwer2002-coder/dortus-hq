@@ -1,0 +1,50 @@
+Error: The cut gave no watertight parts (bad edges: part A 1123, part B 0); the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur rigify: 7 gewrichten ['Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Right shoulder', 'Left elbow']; overgeslagen: Left elbow (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[meet] pogingen 23, sneden 11, slechte sneden 3
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.277337539818236, "h_voxel": 0.1387, "h_vlakken": 214150, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": true, "fout": 0, "punten": 54731, "zelf": 2}, "B": {"gesloten": false, "fout": 39, "punten": 3642, "zelf": 0, "herstel": null}, "goed": false}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.27724496480154964, "h_voxel": 0.1386, "h_vlakken": 214274, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": true, "fout": 0, "punten": 57983, "zelf": 0}, "B": {"gesloten": false, "fout": 38, "punten": 3633, "zelf": 0, "herstel": null}, "goed": false}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.27762287890342363, "h_voxel": 0.1388, "h_vlakken": 213724, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": false, "fout": 1123, "punten": 14448, "zelf": 8, "herstel": {"vier": 151, "fout_na": 1576}}, "B": {"gesloten": true, "fout": 0, "punten": 3590, "zelf": 0}, "goed": false}
+MEET rigify gewrichten=7 overgeslagen=2 slechte_sneden=3
+Reloading external metarigs...
+PROBE rigify True
+PROBE hoogte 207.8 botten ['spine.004', 'upper_arm.L', 'forearm.L', 'upper_arm.R', 'forearm.R', 'thigh.L', 'shin.L', 'thigh.R', 'shin.R']
+Error: The cut gave no watertight parts (bad edges: part A 1123, part B 0); the mesh is unchanged.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 135°. 17.858 s.
+Info: Hinge placed. Bends 0° to 135°. 12.467 s.
+Info: Hinge placed. Bends 0° to 135°. 12.567 s.
+Info: Joint placed. Good fit. 6.731 s.
+Warning: Too close to another joint (keep 35 mm apart).
+Warning: Too close to another joint (keep 35 mm apart).
+Info: Joint placed. Good fit. 28.174 s.
+Warning: Too close to another joint (keep 55 mm apart).
+Warning: Too close to another joint (keep 56 mm apart).
+Warning: Too thin here for a ball joint. Try a thicker spot.
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Info: Joint placed. Good fit. 14.906 s.
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Info: Joint placed. Good fit. 14.379 s.
+Warning: 7 joints. Skipped: Left elbow (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+PROBE {'FINISHED'} ['Right elbow · Hinge · 0–135° · preset', 'Left knee · Hinge · 0–135° · preset', 'Right knee · Hinge · 0–135° · preset', 'Neck · Ball · ±30° · preset', 'Left shoulder · Ball · ±30° · preset', 'Left hip · Ball · ±14° · preset', 'Right hip · Ball · ±30° · preset']
+PROBE overgeslagen Left elbow (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+PROBE delen 8 open []
+[meet] Blender 4.2.23 LTS figuur rigify: 7 gewrichten ['Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Right shoulder', 'Left elbow']; overgeslagen: Left elbow (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[meet] pogingen 23, sneden 11, slechte sneden 3
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.277337539818236, "h_voxel": 0.1387, "h_vlakken": 214150, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": true, "fout": 0, "punten": 54731, "zelf": 2}, "B": {"gesloten": false, "fo
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.27724496480154964, "h_voxel": 0.1386, "h_vlakken": 214274, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": true, "fout": 0, "punten": 57983, "zelf": 0}, "B": {"gesloten": false, "
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.27762287890342363, "h_voxel": 0.1388, "h_vlakken": 213724, "h_buiten": 0.0, "h_buiten_om": 0.0, "h_pogingen": null}, "A": {"gesloten": false, "fout": 1123, "punten": 14448, "zelf": 8, "herstel": {"vier": 151
+MEET rigify gewrichten=7 overgeslagen=2 slechte_sneden=3
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+model name	: AMD EPYC 7763 64-Core Processor
