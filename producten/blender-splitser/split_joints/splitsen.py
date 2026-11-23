@@ -70,12 +70,22 @@ def herstel(ob, u):
 POGINGEN = ("gewoon", "driehoeken", "zelf", "gaten", "schuif")
 
 
-def verschil(doel, gereedschap, solver, naam, collectie, u):
+def verschil(doel, gereedschap, solver, naam, collectie, u, voxel_mm=None):
     """Boolean Difference, baked. Exact (4.2) sometimes leaves a few open edges around small shapes such as
-    the numbers; then we try again: target in triangles, Self Intersection on, Hole Tolerant on, and the
-    tool shifted 0.002 mm. Returns (new object, bad edges per try); the first try without bad edges wins."""
+    the numbers (every "4" of the built-in font gave 4 open edges, run 45212458120); then we try again: the
+    tool as a fine voxel copy (voxel_mm, only for the numbers), target in triangles, Self Intersection on,
+    Hole Tolerant on, and the tool shifted 0.002 mm. Returns (new object, bad edges per try); the first try
+    without bad edges wins."""
     telling, beste = [], None
-    for poging in POGINGEN if solver == "EXACT" else POGINGEN[:1]:
+    pogingen = POGINGEN if solver == "EXACT" else POGINGEN[:1]
+    if solver == "EXACT" and voxel_mm:
+        pogingen = ("gewoon", "voxel") + POGINGEN[1:]
+    for poging in pogingen:
+        remesh = None
+        if poging == "voxel":
+            remesh = gereedschap.modifiers.new("sj_voxel", "REMESH")
+            remesh.mode = "VOXEL"
+            remesh.voxel_size = voxel_mm * u
         werk = bak(doel, naam, collectie)
         if poging == "driehoeken":
             bm = bmesh.new()
@@ -94,6 +104,8 @@ def verschil(doel, gereedschap, solver, naam, collectie, u):
             m.use_hole_tolerant = True
         uit = bak(werk, naam, collectie)
         gereedschap.location = oud
+        if remesh is not None:
+            gereedschap.modifiers.remove(remesh)
         weg(werk)
         fout = herstel(uit, u)
         telling.append(fout)
@@ -248,7 +260,8 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
                 if labels.get(ijk) else None
             if lbo is not None:
                 vorig = werk
-                werk, f = verschil(werk, lbo, solver, "sj_werk3", hulp, u)
+                kleinste = min(lb["h"] for lb in labels[ijk])
+                werk, f = verschil(werk, lbo, solver, "sj_werk3", hulp, u, voxel_mm=max(0.05, kleinste / 40.0))
                 weg(vorig)
                 fout += f
             af = bak(werk, f"Piece {nr:02d}", col)
