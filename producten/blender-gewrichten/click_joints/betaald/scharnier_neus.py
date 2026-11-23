@@ -46,7 +46,7 @@ SEGMENTEN = 32
 TIGHT = "Tight: cheek too stiff to click. Try a thicker spot."
 # 23 nov (Bram, studio-figuren van Olaf: Tight op knight en robot-expressive): eindigt het lid vlak onder H, dan is
 # niet de dikte het probleem maar de korte lip. Een dikkere plek helpt dan niet; verder van het uiteinde wel.
-TIGHT_KORT = "Tight: the limb ends too close past this joint for the hinge to click. Try a spot further from the end."
+TIGHT_KORT = "Tight: too little limb past this joint to click. Try a spot further from the end."
 
 
 def rek(t, h, lip):
