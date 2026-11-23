@@ -1252,3 +1252,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 21:09 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 23 nov 2026 ±21:12 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van bbc1ff1..fc5b58f: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-fc5b58f.md`. Moet en kan: **Moet:** geen. **Kan:** - Draai een run na deze commit en leg `h_buiten`, `h_buiten_om` en de snedetijden vast, voordat de ruimere drempel in een Pro-uitgave komt. Dat is een vermoeden dat een run moet bevestigen, geen blokkade. - Controleer of `architectuur.md` de nieuwe waarden noemt en werk hem zo nodig bij. - Zet een GEZIEN-label bij de cijfers in het comment. - Dit akkoord geldt voor de tekst van deze wijziging, niet voor uitgebrachte versies. Het ja op 1.0.2 uit het ontwerp blijft apart staan. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
