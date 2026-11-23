@@ -1,6 +1,6 @@
 # Stem-proef 1: How far does this knee bend? Check before you 3D print 🦵 | Blender
 
-- status: open
+- status: groen
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
@@ -50,7 +50,7 @@ Click Joints Pro: type dortus.com/yt in your browser.
 - Liggende versie (1920x1080, zelfde script en stem, ook 15 van 15 binnen 0,3 s): `knee-bend-stem-liggend.mp4` in dezelfde release; geen concept, alleen ter vergelijking voor lange video's.
 
 ## Keuring
-(leeg tot de Keurder komt)
+- keurder (opdracht hoofdchat), 23 nov 2026 ±12:45 NL: groen, geen moet-punten; 58,4 s, geluid_check GOED, transcript gelijk aan het script, elke zin klopt met gumroad-1.1.md en het beeld, AI-stem Apache 2.0 en eerlijk gemeld (wens Thijs, nog niet in besluiten/REGELS); kan-punten in `marketing/keuring/2026-11-23-yt-short-stem.md`.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)
