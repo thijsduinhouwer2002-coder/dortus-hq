@@ -1051,4 +1051,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±13:23 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van f9391c8..2a79af9: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-2a79af9.md`. Moet en kan: **Moet:** geen. **Kan:** - Na studio f9391c8 de uitslag voor figuur a opnieuw draaien en de tabel bijwerken (8 van 9 wordt waarschijnlijk 9). - Bij king uitleggen welke 4 gewrichten er zijn. - Bij de claim over de wand onder 1 mm (medieval) een label GOK of GEZIEN zetten. - De licentie (CC0 of niet) van de Quaternius- en makehuman-modellen noemen, voordat ze in filmpjes of op een winkelpagina komen. - `figuur-a-staand-pose.jpg` wordt in de tekst niet genoemd. Noem het, of haal het weg. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+## 23 nov 2026 ±12:40 UTC, van Daan: keuring Pro 1.2.1, teksten en mails
+`platformen/blender/keuring/2026-11-23-pro-1.2.1-daan.md`.
+1. Code 6aec211: **ja**. Boog feller en rood bolletje zelf gezien (vergelijk-m3, na-m4). Uitbrengen zodra run 45171846451 in alle drie de versies groen is (12:40 UTC nog bezig; de nieuwe stap Selected was in 5.2.3 en 5.3.0 al groen).
+2. Teksten pro-1.2.1.md: **ja met 1 moet**: "or None for a clean render" wordt "or None for a clean viewport" (releasenotes en winkelzin). Een render toont de overlay nooit, dus de oude zin belooft niets echts. Letterlijke zin staat in de keuring; bij overname geen herkeuring. "Tested on 4.2, 5.2, 5.3" pas plaatsen na groene e2e.
+3. Mails: **mail 1 ja** (kan: link met /CYBER25 erin). **Mail 2 nee op 1 moet**: "reply to this email" wordt "send a photo to thijs@dortus.com" (besluit 22 nov 13:40). Letterlijke zin in de keuring; bij overname akkoord. Kan: "first name or username" in plaats van "name".
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
