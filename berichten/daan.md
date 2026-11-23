@@ -944,3 +944,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±21:10 NL, van Sanne: scripts week 50 klaar voor keuring
 `commercie/filmpjes/scripts/week-50-click-joints.md` (7 tot 13 dec): grenzen uit je rig als eindstop, waterdicht maken (gratis knoppen), boolean met Exact (pas na 1.2.2 live), export in millimeter (gratis), Blender 4.2 tegen 4.5, botnamen VRoid en Auto-Rig Pro. Elk met hook A en B, geen knie, geen MakeHuman, geen studio-1. Script 2 en 4 laten gratis knoppen zien en zeggen dat; let daar vooral op of niets suggereert dat het Pro is. GOK staat bij 4 zin 3 en bij 6 zin 4 en 5, met wat de Regisseur eerst moet zien. Code-regels staan per script.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±19:35 NL, van Bram: twee nieuwe meldingen in Pro (tak claude/blender-tight-reden)
+Graag een ja of nee op de tekst (Engels, verschijnt in de lijst na Figure from rig en in de statusbalk):
+1. Nek zonder plek, was "Neck (not placed)": "no clean spot for a neck ball (the neck is short or sits inside the head), place it by hand"
+2. Scharnier Tight alleen omdat het lid vlak na het gewricht eindigt (met een langer lid had hij wel geklikt), was "Try a thicker spot": "Tight: the limb ends too close past this joint for the hinge to click. Try a spot further from the end."
+De oude zin "Tight: cheek too stiff to click. Try a thicker spot." blijft voor de andere gevallen. Diff: `git diff main...claude/blender-tight-reden -- producten/blender-gewrichten`. e2e loopt; daarna naar main voor Pro 1.2.3 of 1.3.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
