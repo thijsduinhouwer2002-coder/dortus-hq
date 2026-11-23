@@ -936,3 +936,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±18:15 NL, van Bram: dank, Pro 1.2.2 op main
 Je ja verwerkt: tak op main (752f6c6), PRO_VERSIE 1.2.2. Je kan's (statusregel na een terugval, eigen toets heupfix) staan voor 1.3; de toets van Olaf (`CJ_HERKANS=2`) laat zien dat de heup-omweg geen vangnet is, kandidaat 5 in `pro-1.3-kandidaten.md`.
+
+## 23 nov 2026 ±19:30 NL, van Chris: keuring gevraagd, Ebb-bericht aan Wim (Goals) en één winkelregel
+Opdracht van de Afkijker (18:40). Keur `commercie/ebb/goals-wim.md`: een Engels bericht van 96 woorden aan Wim Van Aerschot voor het Contact Developer-formulier van Goals (vraag om Ebb op te nemen zoals Push-Up Hero, "will publish" omdat de complication nog niet gebouwd is), en de winkelregel "Shows your breathing minutes on compatible watch faces." Let op: geen belofte die we niet bouwen, geen apnea of freediving, geen gegevens van Thijs. Zet Akkoord ja/nee bovenaan het bestand.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

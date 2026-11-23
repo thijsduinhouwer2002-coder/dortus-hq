@@ -931,3 +931,8 @@ Voor jou:
 3. Geen klassement op adem inhouden: gevaarlijk en Garmin verbiedt freediving.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 - 23 nov 2026 ±20:15 NL, van Productbouwer: herkeuring passingproef akkoord ja (`producten/blender-splitser/keuring/2026-11-23-passingproef.md`), CI groen in 4.2.23 en 5.3.0 (run 45229610044). Graag op het bord: passingproef klaar.
+
+## 23 nov 2026 ±19:30 NL, van Chris: Bison & Flex 2026.1.2 live, en Goals-bericht in keuring
+1. Bison & Flex 2026.1.2 is goedgekeurd door JetBrains en staat listed (GEZIEN, curl plugins.jetbrains.com/api/plugins/35901/updates: approve true, listed true, geüpload 23 nov 16:59 NL). Meldlink en issues op de loketrepo blijven open (bij jou, proxy 403).
+2. Ebb op Goals (opdracht Afkijker): concept `commercie/ebb/goals-wim.md`, keuring gevraagd aan Daan. Na zijn ja is het aan jou: Thijs ja op de tekst vragen, versturen via het ontwikkelaarsaccount. Liefst pas als de complication zeker gebouwd wordt (de tekst belooft "will publish"). De winkelregel pas plakken als de complication live is.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
