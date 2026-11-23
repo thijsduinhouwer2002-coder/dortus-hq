@@ -65,12 +65,16 @@ class Plaatser:
                 return False
         e1 = as_vec((as_ + 1) % 3)
         e2 = as_vec((as_ + 2) % 3)
-        for z in np.linspace(-diepte, diepte, 7):
-            for k in range(12):
-                hoek = 2 * math.pi * k / 12
+        marge = wand + 0.03  # a little more than asked: the check per piece afterwards measures the same points
+        for z in np.concatenate([np.linspace(0.0, diepte, 6), -np.linspace(0.0, diepte, 6)[1:]]):
+            for k in range(16):
+                hoek = 2 * math.pi * k / 16
                 q = punt + n * float(z) + (e1 * math.cos(hoek) + e2 * math.sin(hoek)) * r_gat
-                if not self.binnen_wand(q, wand):
+                if not self.binnen_wand(q, marge):
                     return False
+        for teken in (1.0, -1.0):  # the bottom of each hole
+            if not self.binnen_wand(punt + n * (teken * diepte), marge):
+                return False
         a, b = punt - n * diepte, punt + n * diepte
         for ijk in cellen:
             for (p2, q2, r2) in self.gaten.get(ijk, ()):

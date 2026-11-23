@@ -9,6 +9,7 @@ import time
 
 import bmesh
 import bpy
+from mathutils import Vector
 
 from . import controle, plan, snedes, uit_elkaar, verbind_3d, vormen
 from .eigenschappen import bed, eenheid_per_mm
@@ -64,6 +65,47 @@ def herstel(ob, u):
     bm.free()
     ob.data.update()
     return foute_randen(ob.data)
+
+
+POGINGEN = ("gewoon", "driehoeken", "zelf", "gaten", "schuif")
+
+
+def verschil(doel, gereedschap, solver, naam, collectie, u):
+    """Boolean Difference, baked. Exact (4.2) sometimes leaves a few open edges around small shapes such as
+    the numbers; then we try again: target in triangles, Self Intersection on, Hole Tolerant on, and the
+    tool shifted 0.002 mm. Returns (new object, bad edges per try); the first try without bad edges wins."""
+    telling, beste = [], None
+    for poging in POGINGEN if solver == "EXACT" else POGINGEN[:1]:
+        werk = bak(doel, naam, collectie)
+        if poging == "driehoeken":
+            bm = bmesh.new()
+            bm.from_mesh(werk.data)
+            bmesh.ops.triangulate(bm, faces=bm.faces)
+            bm.to_mesh(werk.data)
+            bm.free()
+        oud = gereedschap.location.copy()
+        if poging == "schuif":
+            gereedschap.location = oud + Vector((0.0013, 0.0017, 0.0011)) * u
+        boolean(werk, gereedschap, "DIFFERENCE", solver)
+        m = werk.modifiers[-1]
+        if poging == "zelf":
+            m.use_self = True
+        if poging == "gaten":
+            m.use_hole_tolerant = True
+        uit = bak(werk, naam, collectie)
+        gereedschap.location = oud
+        weg(werk)
+        fout = herstel(uit, u)
+        telling.append(fout)
+        if beste is None or fout < beste[0]:
+            if beste is not None:
+                weg(beste[1])
+            beste = (fout, uit)
+        else:
+            weg(uit)
+        if fout == 0:
+            break
+    return beste[1], telling
 
 
 def weg(ob):
@@ -198,18 +240,19 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
             werk = bak(stuk, "sj_werk", hulp)
             fout = list(stuk["sj_fout"])
             if gaten.get(ijk):  # holes and numbers one after the other, baked in between (Click Joints, 4.2)
-                boolean(werk, gat_object("sj_gaten", gaten[ijk], u, hulp), "DIFFERENCE", solver)
-                vorig, werk = werk, bak(werk, "sj_werk2", hulp)
+                vorig = werk
+                werk, f = verschil(werk, gat_object("sj_gaten", gaten[ijk], u, hulp), solver, "sj_werk2", hulp, u)
                 weg(vorig)
-                fout += [foute_randen(werk.data), herstel(werk, u)]
+                fout += f
             lbo = label_object("sj_labels", labels.get(ijk, []), inst.label_diepte_mm, u, hulp, meldingen) \
                 if labels.get(ijk) else None
             if lbo is not None:
-                boolean(werk, lbo, "DIFFERENCE", solver)
+                vorig = werk
+                werk, f = verschil(werk, lbo, solver, "sj_werk3", hulp, u)
+                weg(vorig)
+                fout += f
             af = bak(werk, f"Piece {nr:02d}", col)
-            if lbo is not None:
-                fout += [foute_randen(af.data), herstel(af, u)]
-            af["sj_fout_stappen"] = fout  # bad edges per step: cut, repaired, holes, repaired, numbers, repaired
+            af["sj_fout_stappen"] = fout  # bad edges per step and per try (cut, holes, numbers)
             af["sj_stuk"] = nr
             af["sj_cel"] = list(ijk)
             mn, mx = cellen[ijk]
