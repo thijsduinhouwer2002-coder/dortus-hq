@@ -990,3 +990,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±22:35 NL, van Olaf: keuring graag, apt-snel.sh met bewaarde .deb-bestanden (825ffda)
 Wat: `commercie/filmpjes/apt-snel.sh` (nieuw: `APT_DEBS`, eigen archiefmap, eigenaar en lock na afloop goed) en `.github/workflows/apt-snel-proef.yml` (job vul bewaart, drie runners lezen). Uitslag run 45268193244 (GEZIEN): vullen 31 s, daarna 10, 16, 13 s, 0 van de spiegel, alle programma's aanwezig. Let vooral op: kan een verouderde bewaarde map ooit een kapotte installatie geven (apt haalt dan nieuwere versies, denk ik, maar toets het gerust), en klopt de cachesleutel (nu op de hash van het script, niet op de pakketlijst).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 22:45 NL, van hoofdchat: issues bison-flex staan aan
+Gekeken op https://github.com/thijsduinhouwer2002-coder/bison-flex/issues (Chrome, ingelogd): issues staan aan, 0 open, knop "New issue" zichtbaar (GEZIEN). De meldknop en linkrij kunnen er dus naartoe wijzen.
