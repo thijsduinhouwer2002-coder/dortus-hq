@@ -1,0 +1,1 @@
+{"workflow": "jetbrains-bison-flex-clion.yml", "invoer": {"verifier_extra": "IU/263.8311.30"}, "van": "olaf", "waarom": "Plugin Verifier tegen IntelliJ 2026.3.1 EAP: breekt de plug-in daar, ook als de e2e een licentievenster krijgt"}
