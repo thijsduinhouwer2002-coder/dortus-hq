@@ -2,7 +2,7 @@
 
 Door Sanne, 23 nov 2026. Opdracht hoofdchat 23 nov ±12:05 en ±12:45 NL (recept v3: hook eerst). Zelfde bouw als week 48 en 49: zin 1 = hook A of B, max 7 woorden, een vraag over het probleem van de kijker, nooit de productnaam; daarna zinnen van 10 tot 16 woorden (4 tot 6 s); printzin altijd; geen AI of stem in titel of beschrijving, alleen het vinkje "Altered content" in YouTube Studio (besluit Thijs 23 nov 20:28 NL); kop korter dan de gesproken vraag; getallen als cijfer in de kop en uitgeschreven alleen in het json-veld `uitspraak`. Bronnen: `platformen/blender-2/gumroad-1.1.md`, `platformen/blender/pro-1.2.0.md`, `platformen/blender/pro-1.2.2.md` en de code in `producten/blender-gewrichten/click_joints/` (regels genoemd per script).
 
-**Stand: akkoord, Daan 23 nov, na moet M1 (script 5 zin 6)** (`marketing/keuring/2026-11-23-scripts-week-50-daan.md`). Script 3 pas als 1.2.2 op Gumroad staat.
+**Stand: akkoord, Daan 23 nov, na moet M1 (script 5 zin 6)** (`marketing/keuring/2026-11-23-scripts-week-50-daan.md`). Script 2 en 4 eindigen sinds 24 nov op de gratis eindkaart (moet M1 bij `volgorde-stem.md`, Daan 23 nov 23:30), omdat ze met de gratis stem worden ingesproken. Script 3 pas als 1.2.2 op Gumroad staat.
 
 ## Wat anders is dan week 49
 - **Drie tips die ook zonder Pro waarde hebben** (script 2, 4 en 5), zoals de tip-reeks van Thijs vraagt: wie de tip bewaart, kent ons daarna. Script 2 en 4 laten knoppen uit de gratis Click Joints zien; dat zeggen ze eerlijk.
@@ -48,7 +48,7 @@ Titel: Make your mesh watertight before you cut a joint 🔥 | Blender
 | 7 | Smaller voxels keep more detail. If it fails, try a larger voxel size. | Voxel size | veld "Voxel (mm)" in het paneel |
 | 8 | Both buttons are in the free Click Joints, so you can try this today. | Free | paneel |
 | 9 | Measured in Blender, not print tested by us yet. Print a test joint first. | Print a test joint first | render |
-| 10 | Click Joints Pro. Elbows and knees stop where your rig stops. | (eindkaart) | eindkaart |
+| 10 | Click Joints. Free on Blender Extensions. | (gratis eindkaart) | eindkaart gratis |
 
 Bron (code, gratis deel, GEZIEN): `gesloten.py` r. 55 tot 69 (Check mesh: "every edge has exactly 2 faces", melding met het aantal randen), r. 75 tot 76 ("Make a watertight copy with a voxel remesh. The original is kept, hidden"), r. 107 ("Try a larger voxel size"); `gewricht.py` r. 209 (snijden weigert op een open mesh); `paneel.py` r. 71 tot 76 (knoppen en "Mesh is not watertight"); `eigenschappen.py` r. 44 tot 46 (Voxel (mm), standaard 0,5). Zin 7 eerste helft is algemene Blender-kennis (voxel remesh gooit detail kleiner dan een voxel weg). **Let op:** de knoppen staan alleen in beeld als de add-on het model al als open heeft gemarkeerd (r. 71); neem op wat het paneel echt laat zien. Geen getal randen uitspreken, alleen in beeld. Niet laten denken dat Make watertight in Pro zit.
 
@@ -88,7 +88,7 @@ Titel: 3D print tiny in your slicer? Fix the export scale 🔥 | Blender
 | 6 | Check one part's size before you slice and print the whole figure. | Check one part | maat van één deel in beeld (N-paneel, Dimensions) |
 | 7 | This export is part of the free Click Joints, so you can try it today. | Free | paneel |
 | 8 | Measured in Blender, not print tested by us yet. Print a test joint first. | Print a test joint first | render |
-| 9 | Click Joints Pro. Elbows and knees stop where your rig stops. | (eindkaart) | eindkaart |
+| 9 | Click Joints. Free on Blender Extensions. | (gratis eindkaart) | eindkaart gratis |
 
 `uitspraak` zin 3: "zero point two metres can arrive as zero point two millimetres".
 Bron: zin 4 en 5 uit de code (gratis deel, GEZIEN): `exporteer.py` r. 1 en 38 ("Write every visible joint part as an STL or 3MF file in millimeters"), r. 51 (schaal uit de scène-eenheid naar mm), r. 79 tot 80 (STL zonder scene unit, met eigen schaal); gumroad-1.1.md "export to STL or 3MF". Zin 2 en 3 zijn algemene kennis: STL bewaart geen eenheid, en de standaard STL-export van Blender schrijft Blender-eenheden. **Let op:** zin 3 is GOK tot de Regisseur hem echt ziet: exporteer een deel van 0,2 m met de gewone Blender-export (File, Export, STL, standaard) en meet het bestand na (een python-regel die de grootste maat in het STL leest is genoeg). Is het niet 0,2, dan zin 3 weg. Geen slicer-naam noemen of tonen; 4A als tekening.

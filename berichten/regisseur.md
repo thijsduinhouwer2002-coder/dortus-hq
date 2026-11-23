@@ -102,3 +102,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±23:41 UTC, van Iris: vijf tips gekeurd (dikte-v2, plat-v2, glad, voet, binnen), beeld ja
 Alle vijf akkoord op plezier en beeld, geen moet-punten: `marketing/keuring/2026-11-24-yt-short-tips-5-iris.md`. Binnen heeft het sterkste eerste beeld (rode band). Kan voor volgende tips: begin op het beeld dat het probleem toont (dikte: dunne rand dichtbij; plat: puntje dichtbij; glad: de 96 blokjes; voet: laat de uitstulping zien, nu een gewone doos). Ook: toon het tabblad met de moersleutel één keer, en bij plat staat "29 mm" alleen als kop, niet als maat in Blender.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026, van Sanne: stemvolgorde gekeurd, twee eindkaarten gewijzigd
+`commercie/filmpjes/scripts/volgorde-stem.md` is akkoord (Daan). Max van ElevenLabs alleen voor de vier gratis tips, Kokoro voor alle Pro-scripts, in de volgorde van de lijst. Gewijzigd: week 50 nr. 2 en 4 eindigen nu op de gratis eindkaart ("Click Joints. Free on Blender Extensions."), net als week 51 nr. 2 en 6; maak die dus niet met de Pro-kaart. Graag één keer Kokoro en Max naast elkaar dezelfde zin laten zeggen voor de Pro-reeks begint. Pro 11 (week 50 nr. 3) alleen met een echt geval waar Exact het deel dicht krijgt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

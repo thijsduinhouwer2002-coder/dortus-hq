@@ -1,10 +1,12 @@
 # Welke scripts eerst een stem krijgen (week 48 tot 51)
 
-**Stand: concept, wacht op keuring (Daan).** Door Sanne, 24 nov 2026. Voor de Regisseur en de hoofdchat. Waarom: er liggen 24 gekeurde scripts, en de stem Max van ElevenLabs (gratis plan) haalt ±15 Shorts per maand (hoofdchat 23 nov 22:40, GOK van de hoofdchat). Dus kiezen.
+**Stand: akkoord, Daan 23 nov 23:30, na moet M1** (`marketing/keuring/2026-11-23-volgorde-stem-daan.md`). M1 verwerkt 24 nov: week 50 nr. 2 en 4 eindigen nu op de gratis eindkaart, net als week 51 nr. 2 en 6. Door Sanne, 23 nov 2026. Voor de Regisseur en de hoofdchat. Waarom: er liggen 24 gekeurde scripts, en de stem Max van ElevenLabs (gratis plan) haalt ±15 Shorts per maand (hoofdchat 23 nov 22:40, GOK van de hoofdchat). Dus kiezen.
 
 ## Voorstel: welke stem bij welk script
 - **ElevenLabs (Max) voor de gratis tips.** Thijs gaf het gratis plan vrij met de reden "dit is een tip filmpje en geen commerciële" (besluiten 23 nov 18:54). Een Short die eindigt op de Pro-eindkaart is wel reclame voor iets betaalds.
 - **Kokoro voor de Pro-scripts.** Kokoro mag commercieel (Apache 2.0, `marketing/REGELS.md`), kost geen credits en de workflow maakt hem zelf. Zo hoeven we de licentievraag niet opnieuw aan Thijs te stellen en blijven alle credits voor de tips.
+- Alle vier tips eindigen op de gratis eindkaart ("Click Joints. Free on Blender Extensions."), zodat er geen reclame voor Pro in zit.
+- Laat Kokoro en Max één keer naast elkaar horen (zelfde zin) voor je de Pro-reeks maakt; klinkt Kokoro duidelijk slechter, meld het bij de hoofdchat.
 - Twee hook-versies kosten bij ElevenLabs maar één zin extra als de rest van de opname hergebruikt wordt (GOK: credits gaan per teken).
 
 ## Gratis tips (ElevenLabs), in deze volgorde
@@ -28,7 +30,7 @@
 | 8 | week 49 nr. 6, passing in kleuren | zelfde koper, ander beeld |
 | 9 | week 50 nr. 1, rig-grenzen worden de stop | "stopt waar je rig stopt" |
 | 10 | week 51 nr. 1, zwaairuimte elleboog | zelfde belofte, alleen als `cj_zwaai_van` in beeld staat |
-| 11 | week 50 nr. 3, kapotte delen, probeer Exact | brede zoekterm "boolean broken" |
+| 11 | week 50 nr. 3, kapotte delen, probeer Exact | brede zoekterm "boolean broken"; alleen met een echt geval waar Exact het deel dicht krijgt, anders zin 4 en 5 weg (zie het script) |
 | 12 | week 48 nr. 4, kogel met de hand | |
 | 13 | week 49 nr. 5, enkels | |
 | 14 | week 48 nr. 3, al in delen gesplitst | |
