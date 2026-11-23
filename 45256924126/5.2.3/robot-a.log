@@ -1,0 +1,36 @@
+[meet] figuur robot-a: Figuur, {'bron_punten': 240130, 'bron_zelf_overlap': 0}
+[meet] Blender 5.2.3 LTS figuur robot-a: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 15, sneden 9, slechte sneden 0
+MEET robot-a gewrichten=9 overgeslagen=0 slechte_sneden=0
+STATUS Installed "click_joints"
+[studio] robot: 18564 punten voor de remesh, maat (140.6, 41.2, 220.4)
+Info: Watertight copy Figuur_gesloten made (240128 faces)
+[studio] kleuren per vorm: 240128 vlakken, 2750 buiten elke vorm
+[studio] robot na voxel: 240130 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.5, 2.0, 57.0), elleboog L (48.0, -4.0, 136.0)
+[meet] figuur robot-a: Figuur, {'bron_punten': 240130, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 140°. 5.782 s.
+Info: Hinge placed. Bends 0° to 140°. 5.047 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 120°. 5.466 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 120°. 4.803 s.
+Info: Joint placed. Good fit. 3.889 s.
+Info: Joint placed. Good fit. 5.783 s.
+Info: Joint placed. Good fit. 5.472 s.
+Info: Joint placed. Good fit. 5.407 s.
+Info: Joint placed. Good fit. 5.017 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 5.2.3 LTS figuur robot-a: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 15, sneden 9, slechte sneden 0
+MEET robot-a gewrichten=9 overgeslagen=0 slechte_sneden=0
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+
+Blender quit
+model name	: Intel(R) Xeon(R) 6973P-C
