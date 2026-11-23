@@ -61,16 +61,23 @@ def klankbegin(a, sr=16000):
 
 
 def verfijn(aan, t):
-    """Begin van de klank het dichtst bij whisper-tijd t: na minstens 150 ms stil, minstens 50 ms klank."""
+    """Begin van de klank het dichtst bij whisper-tijd t, binnen 0,6 s ervoor of erna.
+    Regisseur 2: eerst gezocht na minstens 300 ms stil (tussen twee zinnen zit 350 ms stilte, binnen een zin
+    zijn de pauzes korter), pas daarna na 150 ms stil zoals in het origineel. Reden: whisper legt het eerste woord
+    van een nieuw stuk soms 0,4 tot 0,5 s te vroeg, midden in de vorige zin (run 45187577798, zin 8), en het
+    origineel zocht maar 0,4 s vooruit."""
     if t is None:
         return None
     i = int(round(t * 100))
-    beste = None
-    for j in range(max(15, i - 60), min(len(aan) - 5, i + 40)):
-        if aan[j] and aan[j:j + 5].all() and not aan[j - 15:j].any():
-            if beste is None or abs(j - i) < abs(beste - i):
-                beste = j
-    return None if beste is None else round(beste / 100, 3)
+    for stil in (30, 15):
+        beste = None
+        for j in range(max(stil, i - 60), min(len(aan) - 5, i + 61)):
+            if aan[j] and aan[j:j + 5].all() and not aan[j - stil:j].any():
+                if beste is None or abs(j - i) < abs(beste - i):
+                    beste = j
+        if beste is not None:
+            return round(beste / 100, 3)
+    return None
 
 
 def scenewissels(mp4, vak, breed, hoog):
