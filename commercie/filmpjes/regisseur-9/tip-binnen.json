@@ -1,0 +1,210 @@
+{
+ "naam": "tip-binnen",
+ "titel": "Is your model inside out? Find it in 2 clicks 🔴 #blender #3dprinting",
+ "eind": {
+  "titel": "Blender for 3D printing",
+  "zin": "A new Blender tip for 3D printing every week.",
+  "adres": "dortus.com/yt",
+  "render": "render-fles.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "venster": "Blender 5.3",
+ "scenes": [
+  {
+   "tekst": "Is your 3D model secretly inside out? You can check it in two clicks.",
+   "uitspraak": "Is your three D model secretly inside out? You can check it in two clicks.",
+   "label": "QUICK CHECK",
+   "kleur": "oranje",
+   "kop": "Inside out?",
+   "beeld": {
+    "deel": "g_rood",
+    "van": 50,
+    "tot": 116,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1050
+     ],
+     [
+      1080,
+      1000,
+      950
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Open the Overlays menu and tick Face Orientation.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Overlays, Face Orientation",
+   "beeld": {
+    "deel": "g_overlay",
+    "van": 0,
+    "tot": 92,
+    "uitsnede": [
+     [
+      1300,
+      900,
+      1650
+     ],
+     [
+      1250,
+      860,
+      1500
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Red means you see the back of a face. It points the wrong way.",
+   "label": "WHY",
+   "kleur": "blauw",
+   "kop": "Red = wrong way",
+   "beeld": {
+    "deel": "g_overlay",
+    "van": 88,
+    "tot": 118,
+    "uitsnede": [
+     [
+      1080,
+      960,
+      1150
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "The Blender manual says red on the outside most likely needs a flip.",
+   "label": "WHY",
+   "kleur": "blauw",
+   "kop": "Red outside? Flip it",
+   "beeld": {
+    "deel": "g_rood",
+    "van": 0,
+    "tot": 116,
+    "uitsnede": [
+     [
+      1080,
+      960,
+      1150
+     ],
+     [
+      1080,
+      1000,
+      1000
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "To fix it, press Tab for Edit Mode, then A to select everything.",
+   "label": "STEP 2",
+   "kleur": "groen",
+   "kop": "Tab, then A",
+   "beeld": {
+    "deel": "g_edit",
+    "van": 0,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      1400
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Now press Shift N. Blender turns every face to the outside.",
+   "label": "STEP 3",
+   "kleur": "oranje",
+   "kop": "Shift N",
+   "beeld": {
+    "deel": "g_fix",
+    "van": 0,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      1400
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "No red left. All 96 inward faces now point out.",
+   "uitspraak": "No red left. All ninety six inward faces now point out.",
+   "label": "RESULT",
+   "kleur": "groen",
+   "kop": "96 to 0",
+   "beeld": {
+    "deel": "g_klaar",
+    "van": 0,
+    "tot": 110,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      1400
+     ],
+     [
+      1080,
+      930,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Do this check before every export to your slicer.",
+   "label": "TIP",
+   "kleur": "groen",
+   "kop": "Check before export",
+   "beeld": {
+    "deel": "g_klaar",
+    "van": 100,
+    "uitsnede": [
+     [
+      1080,
+      930,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Save this for your next print.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Save this tip",
+   "beeld": {
+    "deel": "g_slot",
+    "van": 0,
+    "uitsnede": [
+     [
+      1080,
+      930,
+      1300
+     ],
+     [
+      1080,
+      930,
+      1150
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "More Blender tips for 3D printing at dortus.com/yt.",
+   "label": "MORE TIPS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   },
+   "uitspraak": "More Blender tips for three D printing, at dortus dot com slash Y T."
+  }
+ ]
+}
