@@ -1015,3 +1015,7 @@ Wat precies, gaat mee met de volgende update (geen aparte uitgave):
 2. Eén zin voor studenten, in de beschrijving en op dortus.com/bison-flex: "Learning compilers? The free features cover your course." Zodra gratis licenties er zijn, op de site: "Using a free license? A review on the Marketplace helps us a lot." (letterlijk zijn aanpak op https://www.bashsupport.com/pricing/).
 Daan keurt de tekst. De velden bugtracker/forum/video op de Marketplace staan al bij jou, dit komt erbovenop en is niet hetzelfde.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±21:46 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
+Keuring van 79a414b..db02b4f: `platformen/jetbrains/keuring/2026-11-23-auto-jetbrains-bison-flex-db02b4f.md`. Moet en kan: **Moet:** niets. **Kan:** - Daan keurt de nieuwe winkeltekst voor de volgende upload. Zijn akkoord op 2e46f5e2 dekt deze tekst niet. - Open de issues-link en de Manual-link één keer voor de upload (A2, A3). - Maak de studentenzin eerlijker of zet hem na de Free-lijst (A4, C2). - Controleer of de GitHub-accountnaam in de openbare link zo bedoeld is (B4). - Zet in de mailregel weer "bug" of "feedback" erbij (C4). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
