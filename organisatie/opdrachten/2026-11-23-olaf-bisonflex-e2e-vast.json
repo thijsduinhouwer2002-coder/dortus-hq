@@ -1,1 +1,11 @@
-{"workflow": "jetbrains-bison-flex-e2e.yml", "invoer": {}, "van": "olaf", "waarom": "e2e Bison & Flex op de vaste versie na reparatie structuurweergave en CLion-keuze"}
+{
+  "workflow": "jetbrains-bison-flex-e2e.yml",
+  "invoer": {},
+  "van": "olaf",
+  "waarom": "e2e Bison & Flex op de vaste versie na reparatie structuurweergave en CLion-keuze",
+  "uitslag": {
+    "run_id": 45094121202,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45094121202",
+    "gestart": "2026-11-23T01:21:32Z"
+  }
+}
