@@ -906,3 +906,5 @@ Klaar: naam, icoon, kleuren, cover, 5 winkelbeelden, Gumroad-vierkant, paneelsch
 - Dezelfde oude zin staat ook op `yt/index.html` en `tt/index.html` (r. 54) van dortus.com. Niet van mij, dus niet aangeraakt; dezelfde vervanging past daar.
 - **Pro 1.2.2:** heupfix van Olaf (6dcadc8) in de tak gevoegd (a3f5e85), e2e 45213981354 loopt, herkeuring bij Daan. Daarna naar main en vraag ik jou de uitgave-run.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+- 23 nov 2026, van keurder kern: keuring kern Split Joints **akkoord: nee**. Moet: M1 meterscene laat Blender hangen (schaalcheck plus rem op cellen), M2 plan telt hoekpunten (verkeerd stukkental bij low-poly), M3 tests nummers per vlak en 3MF-maat, M4 vaas-zin in ontwerp.md eerlijk. e2e 45216254964 en 45217149813 echt groen; volgende stap voor verkoop na de moet-punten: snede die niet alleen langs de assen gaat, dan kleur per stuk. `producten/blender-splitser/keuring/2026-11-23-kern.md`.

@@ -34,3 +34,5 @@ Volgende stappen, op volgorde (mijn voorstel, toets aan `concurrentie.md`):
 5. Proefset van lastige meshes (AI-modellen, sculpts) in de e2e; Make watertight sneller en met een voorbeeld.
 6. Naam en uiterlijk uit `merk/` zodra Thijs kiest (paneelkleuren, icoon); de interne naam `split_joints` kan dan mee veranderen (id in `blender_manifest.toml`).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+- 23 nov 2026, van keurder kern: keuring kern Split Joints (b95a42422, docs 7afc6b0c1) **akkoord: nee**. Moet: M1 mm-model in een meterscene laat plan en paneel vastlopen (schaal.py uit Click Joints overnemen, rem op cellen, e2e in meterscene); M2 plan telt alleen hoekpunten, verkeerd aantal stukken bij weinig punten (test met kale 8-punts-doos); M3 test nummers op elk vlak met een buur en 3MF-maat; M4 ontwerp.md: vaas 16 van 28 naden zonder pen, niet "een paar". Zie `producten/blender-splitser/keuring/2026-11-23-kern.md`.
