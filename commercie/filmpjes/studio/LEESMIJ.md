@@ -27,11 +27,25 @@ Het mensfiguur (studio-1, `studio.yml`) blijft laadbaar met `FL.laad_figuur("men
    zonder materiaal (naad van de add-on) en binnenvlakken worden antraciet. Alleen voor renders.
 6. **Winkelbeelden:** met `CJ_WINKEL=1` maakt `bewijs.py` ook `winkel-<naam>-held-2400.png` en
    `winkel-<naam>-uit-elkaar-2400.png`: 1350 x 2400 px, geen studio, transparante achtergrond, geen tekst.
-7. **Gewrichten: 9 in CI** (job kandidaten en job studio van `studio3.yml`, run op 42376c66, GEZIEN): ellebogen
-   0 tot 140, knieën 0 tot 120, nek ±20, schouders ±30, linkerheup ±22, rechterheup ±30, elk deel één stuk.
+7. **Gewrichten: 9 in CI** (GEZIEN, release `studio-3`, `kandidaten.txt` en `robot-a-meting.json`): ellebogen 0 tot
+   140, knieën 0 tot 120, nek ±20, schouders ±30, linkerheup ±22, rechterheup ±30, elk deel één stuk. Gemeten in
+   6 CI-jobs op dezelfde mesh (runs op 42376c66, a28d0116 en a67de4fd): 5 keer 9, 1 keer 8 (rechterschouder "it would
+   be blocked"). Lokaal op dezelfde mesh en dezelfde machine: 8, 9, 9. **De add-on geeft dus niet altijd dezelfde
+   uitkomst op dezelfde mesh** (iets voor de makers van de add-on). Beide heupen lukten in alle 6 CI-jobs.
    De linkerheup lukte in studio-2 niet: met alleen heupen en knieën (of plus ellebogen, of plus schouders, of plus
    nek) lukte hij wel, alleen in de volledige reeks niet. Met de dikkere ledematen lukt hij nu ook in de volledige
-   reeks; waarom precies weet ik niet (GOK: de dikkere dij geeft een grotere kogel en meer ruimte in de beweegproef).
+   reeks (GOK waarom: grotere kogel, meer ruimte in de beweegproef).
+8. **Schermafbeeldingen met het paneel** (`robot-a-scherm-1/2/3`, 1920 x 1080) tonen de nieuwe robot; op scherm 2 de
+   lijst "9 joints". In het Blender-scherm staan de kleuren zoals de add-on ze laat (kern op de borst half oranje,
+   groene passingkleuren); alleen de renders gaan door `kleur_herstel`.
+
+**Eerlijk oordeel ronde 2 (zelf gekeken, ook op ware grootte):** stevig en stoer in plaats van schriel, vuisten
+met vingers lezen als handen, de pose (breed staan, vuist omhoog) is leesbaar, uit elkaar zie je in één tel de
+kogels en de opbouw, kleurgrenzen zijn glad op 2400 px. Wat nog minder is: de schouderkogels blijven grote donkere
+bollen; bij knie en elleboog zie je de snede van het scharnier (in uit elkaar een groot plat donker vlak aan de
+binnenkant van de onderarm, dat is de stopvlakte van het scharnier); de helm heeft lichte facetten op de grote
+rondingen; de vuist omhoog komt niet hoger dan schouderhoogte (kogel ±30). Zou een koper op Gumroad stoppen met
+scrollen? Op het beeld uit elkaar waarschijnlijk wel, op de pose alleen minder (GOK).
 
 ## Wat erin zit
 | Bestand | Wat |
