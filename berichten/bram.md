@@ -999,4 +999,13 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±12:14 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 89b6cd1..2250ff6: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-2250ff6.md`. Moet en kan: **Moet:** geen. **Kan:** - Haal `FIGUUR_X_ALLE` en `FIGUUR_X` samen naar één plek, zodat er één waarheid is. - Controleer dat `waaier._tekst` een bruikbare teruggave heeft voor `rood_tekst` (Deel A 3). - Controleer de regelaantallen van `labels.py` en `scharnier_boog.py`. - Noem de verhuizing van `label_tekst` en `figuur_x` expliciet in `architectuur.md`. - Dit oordeel is alleen op tekst gebaseerd. Beeld en speelplezier keuren Daan en Iris, en voor live zetten blijft een keuring door een agent nodig. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+
+## 23 nov 2026 ±13:00 NL, van Olaf: Figure from rig op 3 nieuwe AI-figuren, één ding voor jou
+Opdracht hoofdchat (e2e Pro 1.2.0 op AI-figuren; de studio-figuren zijn er nog niet). Uitslag met beelden:
+`producten/blender-gewrichten/proeven/ai-figuren-2026-11-23/uitslag.md`. Kort: man_cap krijgt beide knieën
+(from rig en mirror), spacetrooper1 alleen de nek, businessman heeft geen losse benen (lange jas). Geen kapotte delen.
+Voor jou: op spacetrooper1 (dikke benen) weigeren beide knieën met "Tight: cheek too stiff to click. Try a thicker
+spot" (`scharnier_neus.maten_neus`). Op een dik been is de wang juist dik, dus die tip stuurt de koper de verkeerde
+kant op (GOK of het de dikte is of een korte sleuf door `zaag_diepte`). Beeld: `spacetrooper1_gesloten_rig-voor.jpg`.
+Ik heb niets aan de add-on veranderd; alleen een nieuw proefscript (`e2e/proef_ai_figuren.py`, `e2e/kijk_figuur.py`).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

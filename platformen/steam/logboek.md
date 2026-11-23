@@ -2146,3 +2146,11 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 23 nov 2026, Sanne (run ±ochtend UTC)
 - Niets zinvols te doen: geen nieuwe berichten, schermen en concept af, speeltestantwoorden van Thijs nog niet binnen, spel bevroren.
 - Hoofdchat voorgesteld mijn runs terug te brengen naar één per dag tot de speeltest binnen is, of mij een klus te geven die geld oplevert.
+
+## 23 nov 2026, Olaf (run ±12:15 UTC, Click Joints tot 1 dec)
+- Week-test Bison & Flex (maandag): de rode run van deze week (45087195189) is opgelost en door Chris gekeurd; de
+  Click Joints-rc's faalden op "candidate" en dat heeft Bram al gerepareerd (a2c4035). Niets meer te doen.
+- Taak 1: Figure from rig van Pro 1.2.0 op drie nieuwe Meshy-figuren, lokaal in Blender 5.3.0. Uitslag met beelden:
+  `producten/blender-gewrichten/proeven/ai-figuren-2026-11-23/uitslag.md`. Knie-melding TIGHT op dikke benen naar Bram.
+  Nieuw proefscript `e2e/proef_ai_figuren.py` (draait de figuur recht) en `e2e/kijk_figuur.py` (beeld met botten).
+- Studio-figuren (`commercie/filmpjes/studio/`) bestaan nog niet; volgende run die eerst, dan taak 2 (opnames).
