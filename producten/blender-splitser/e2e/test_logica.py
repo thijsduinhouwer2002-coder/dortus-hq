@@ -173,6 +173,7 @@ stap("3D-toets weigert: geen pen, wel melding", not res["pennen"] and res["meldi
 # 8. fit test: clearances, saved values per printer and material, block layout
 stap("passing: 0,20 geeft 0,15 tot 0,30", passing.spelingen(0.2) == [0.15, 0.2, 0.25, 0.3], str(passing.spelingen(0.2)))
 stap("passing: nooit onder 0", passing.spelingen(0.02) == [0.0, 0.05, 0.1, 0.15], str(passing.spelingen(0.02)))
+stap("passing: nooit boven 1,0", passing.spelingen(1.0) == [0.85, 0.9, 0.95, 1.0], str(passing.spelingen(1.0)))
 stap("passing: tekst met punt", passing.tekst(0.2) == "0.20" and passing.tekst(0.0) == "0.00")
 j = passing.bewaar("", "A1MINI", "PLA", 0.25)
 j = passing.bewaar(j, "A1MINI", "PETG", 0.3)

@@ -60,12 +60,51 @@ def materiaal_naam(sleutel):
     return {k: n for k, n, _o in passing.MATERIALEN}.get(sleutel, sleutel)
 
 
-def pas_toe(context):
-    """Printer or material changed: use the saved clearance for that pair, if there is one."""
-    inst = context.scene.split_joints
+_BEZIG = [False]  # True while the add-on itself sets the clearance (not the user)
+
+
+def zet_speling(scene, s):
+    _BEZIG[0] = True
+    try:
+        scene.split_joints.speling_mm = s
+    finally:
+        _BEZIG[0] = False
+    if "sj_speling_eigen" in scene:
+        del scene["sj_speling_eigen"]
+
+
+def speling_gezet(scene):
+    """Update of speling_mm: typed by the user means: do not replace it on opening the file."""
+    if not _BEZIG[0]:
+        scene["sj_speling_eigen"] = True
+
+
+def pas_toe(context, scene=None):
+    """Printer or material changed (or a file opened): use the saved clearance for that pair, if there is one."""
+    scene = scene or context.scene
+    inst = scene.split_joints
     s = passing.opgeslagen(lees_json(context), inst.printer, inst.materiaal)
     if s is not None and abs(inst.speling_mm - s) > 1e-6:
-        inst.speling_mm = s
+        zet_speling(scene, s)
+
+
+@bpy.app.handlers.persistent
+def sj_laden(_bestand=None):
+    """New or opened file: every scene without a clearance typed by the user gets the saved one (keurder M2)."""
+    for scene in bpy.data.scenes:
+        if hasattr(scene, "split_joints") and not scene.get("sj_speling_eigen"):
+            pas_toe(bpy.context, scene)
+
+
+def koppel():
+    if sj_laden not in bpy.app.handlers.load_post:
+        bpy.app.handlers.load_post.append(sj_laden)
+    bpy.app.timers.register(lambda: sj_laden() and None, first_interval=0.1)
+
+
+def ontkoppel():
+    if sj_laden in bpy.app.handlers.load_post:
+        bpy.app.handlers.load_post.remove(sj_laden)
 
 
 def _plek_mm(context, u):
@@ -107,6 +146,9 @@ class SPLIT_JOINTS_OT_passing_maak(bpy.types.Operator):
         scene = context.scene
         inst = scene.split_joints
         u = eenheid_per_mm(scene)
+        actief = context.view_layer.objects.active
+        if actief is not None and actief.get("sj_passing"):
+            actief = None
         ruim_op(context)
         m = passing.maten(inst.pen_mm, inst.pen_lengte_mm, inst.wand_mm, inst.speling_mm, EXTRA_DIEPTE_MM)
         x0, y0 = _plek_mm(context, u)
@@ -158,11 +200,11 @@ class SPLIT_JOINTS_OT_passing_maak(bpy.types.Operator):
         blok["sj_materiaal"] = inst.materiaal
         blok["sj_gesloten"] = bool(dicht)
         pennen["sj_aantal"] = passing.AANTAL
-        for o in context.view_layer.objects:
-            if o is not None:
-                o.select_set(False)
-        blok.select_set(True)
-        context.view_layer.objects.active = blok
+        # the model stays active and selected (keurder M1): Plan cuts and Split keep working on the model
+        blok.select_set(False)
+        pennen.select_set(False)
+        if actief is not None and actief.name in context.view_layer.objects:
+            context.view_layer.objects.active = actief
         if meldingen or not dicht:
             self.report({"WARNING"}, "The fit test block is not watertight" if not dicht else meldingen[0])
         else:
@@ -181,7 +223,7 @@ class SPLIT_JOINTS_OT_passing_kies(bpy.types.Operator):
 
     def execute(self, context):
         inst = context.scene.split_joints
-        inst.speling_mm = self.waarde
+        zet_speling(context.scene, self.waarde)
         schrijf_json(context, passing.bewaar(lees_json(context), inst.printer, inst.materiaal, self.waarde))
         self.report({"INFO"}, f"Clearance {self.waarde:.2f} mm saved for {printer_naam(inst.printer)} + "
                               f"{materiaal_naam(inst.materiaal)}")
@@ -235,7 +277,11 @@ def teken(layout, context):
     vak.prop(inst, "materiaal")
     opgeslagen = passing.opgeslagen(lees_json(context), inst.printer, inst.materiaal)
     if opgeslagen is not None:
-        vak.label(text=f"Saved for this printer: {opgeslagen:.2f} mm", icon="CHECKMARK")
+        if abs(opgeslagen - inst.speling_mm) < 1e-6:
+            vak.label(text=f"Saved for this printer: {opgeslagen:.2f} mm", icon="CHECKMARK")
+        else:
+            vak.operator(SPLIT_JOINTS_OT_passing_kies.bl_idname, text=f"Use saved {opgeslagen:.2f} mm",
+                         icon="LOOP_BACK").waarde = opgeslagen
     lijst = passing.spelingen(inst.speling_mm)
     vak.operator(SPLIT_JOINTS_OT_passing_maak.bl_idname,
                  text=f"Make fit test ({passing.tekst(lijst[0])} to {passing.tekst(lijst[-1])} mm)", icon="MESH_CUBE")

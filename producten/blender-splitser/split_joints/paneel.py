@@ -43,7 +43,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         stap.label(text="2  Cuts", icon="MOD_BOOLEAN")
         ob = context.active_object
         if ob is not None and ob.type == "MESH" and not ob.get("sj_stuk") and "sj_as" not in ob \
-                and not ob.get("sj_pennen"):
+                and not ob.get("sj_pennen") and not ob.get("sj_passing"):
             if schaal.buiten_bereik(ob, scene):
                 let = stap.column(align=True)
                 let.alert = True

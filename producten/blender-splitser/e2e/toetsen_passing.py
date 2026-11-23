@@ -120,13 +120,45 @@ def alles(uitmap):
     inst.speling_mm = 0.2
     inst.printer = "A1MINI"
     stap("lege scene: bewaarde speling komt terug", abs(inst.speling_mm - 0.25) < 1e-6, f"{inst.speling_mm}")
+    # new file (keurder M2): the load handler gives every scene without a typed clearance the saved one
+    laden = next((h for h in bpy.app.handlers.load_post if getattr(h, "__name__", "") == "sj_laden"), None)
+    stap("handler bij openen bestaat", laden is not None)
+    if laden is not None:
+        sc = bpy.context.scene
+        inst.speling_mm = 0.2
+        del sc["sj_speling_eigen"]  # like a fresh file on A1 mini + PLA
+        laden(None)
+        stap("nieuw bestand: bewaarde 0,25 zonder printer te wisselen", abs(inst.speling_mm - 0.25) < 1e-6, f"{inst.speling_mm}")
+        inst.speling_mm = 0.18  # typed by the user
+        laden(None)
+        stap("zelf getypte speling blijft bij openen", abs(inst.speling_mm - 0.18) < 1e-6, f"{inst.speling_mm}")
+    # highest clearance (keurder M3): every button can be saved as shown
+    inst.speling_mm = 1.0
+    bpy.ops.split_joints.passing_maak()
+    blok_, _p = proef()
+    hoog = list(blok_["sj_spelingen"]) if blok_ else []
+    stap("speling 1,0: knoppen niet boven 1,0", bool(hoog) and max(hoog) <= 1.0 + 1e-9, f"{hoog}")
+    bpy.ops.split_joints.passing_kies(waarde=hoog[-1] if hoog else 1.0)
+    stap("speling 1,0: bewaard wat de knop zegt", abs((voorkeur() or {}).get("A1MINI|PLA", -1) - (hoog[-1] if hoog else -9)) < 1e-6,
+         f"{voorkeur()}")
+    bpy.ops.split_joints.passing_kies(waarde=0.25)
 
     # 4. Split after a fit test: the fit test stays, the piece export does not take it
     ob = modellen.suzanne()
     inst.speling_mm = 0.2
-    bpy.ops.split_joints.passing_maak()
     modellen.actief(ob)
+    bpy.ops.split_joints.passing_maak()
+    stap("na de proef: het model blijft actief (keuring M1)", bpy.context.view_layer.objects.active == ob,
+         f"{bpy.context.view_layer.objects.active.name if bpy.context.view_layer.objects.active else None}")
     bpy.ops.split_joints.plan()
+    stap("na de proef: Plan cuts werkt op het model", bpy.context.scene.split_joints.bron == ob.name and
+         dict(bpy.context.scene.get("sj_plan", {})).get("stukken", 0) > 1, bpy.context.scene.split_joints.bron)
+    blok_, _p = proef()
+    if blok_ is not None:
+        modellen.actief(blok_)
+        r = bpy.ops.split_joints.plan.poll()
+        stap("proefblok actief: Plan cuts kiest het blok niet", bpy.context.scene.split_joints.bron == ob.name, f"poll {r}")
+        modellen.actief(ob)
     bpy.ops.split_joints.split()
     blok, pen = proef()
     stap("na Split: proef staat er nog", blok is not None and pen is not None)

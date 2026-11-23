@@ -5,6 +5,11 @@ from bpy.props import BoolProperty, EnumProperty, FloatProperty, PointerProperty
 from . import passing, printers
 
 
+def _speling(inst, context):
+    from . import passingproef
+    passingproef.speling_gezet(inst.id_data)
+
+
 def _onthouden(inst, context):
     from . import passingproef
     passingproef.pas_toe(context)
@@ -37,7 +42,7 @@ class SplitJointsInstellingen(bpy.types.PropertyGroup):
         default=12.0, min=4.0, max=60.0, step=50, precision=1)
     speling_mm: FloatProperty(
         name="Clearance (mm)", description="Gap between pin and hole on every side, in millimeters",
-        default=0.2, min=0.0, max=1.0, step=1, precision=2)
+        default=0.2, min=0.0, max=1.0, step=1, precision=2, update=_speling)
     wand_mm: FloatProperty(
         name="Min. wall (mm)", description="Keep at least this much material around every hole",
         default=1.2, min=0.4, max=10.0, step=10, precision=1)

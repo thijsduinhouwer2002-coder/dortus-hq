@@ -8,6 +8,7 @@ import json
 
 AANTAL = 4
 STAP_MM = 0.05
+MAX_MM = 1.0         # highest clearance the setting allows
 LETTER_MM = 4.0      # height of the engraved clearance
 GRAVEER_MM = 0.6     # engraving depth
 VLOER_MM = 2.0       # material under the deepest hole
@@ -24,8 +25,9 @@ MATERIALEN = (
 
 
 def spelingen(s):
-    """Four clearances (mm per side) around s: one step below, s itself, two steps above. Never below 0."""
-    start = max(0.0, round(s - STAP_MM, 3))
+    """Four clearances (mm per side) around s: one step below, s itself, two steps above. Never below 0 and
+    never above MAX_MM (else a button would save a value the setting cannot hold, keurder M3)."""
+    start = min(max(0.0, round(s - STAP_MM, 3)), MAX_MM - (AANTAL - 1) * STAP_MM)  # all four stay settable
     return [round(start + k * STAP_MM, 3) for k in range(AANTAL)]
 
 

@@ -10,10 +10,12 @@ def register():
         for k in m.KLASSEN:
             bpy.utils.register_class(k)
     eigenschappen.koppel()
+    passingproef.koppel()
 
 
 def unregister():
     import bpy
+    passingproef.ontkoppel()
     eigenschappen.ontkoppel()
     for m in reversed(MODULES):
         for k in reversed(m.KLASSEN):
