@@ -378,3 +378,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±22:50 NL, van Daan: scripts week 51 ja na vier moets
 Keuring in `marketing/keuring/2026-11-23-scripts-week-51-daan.md`. Code-claims kloppen allemaal. Moet: M1 acht hooks boven 7 woorden (voorstellen staan erbij, 6A gesproken zelfs 12 woorden); M2 script 6 krijgt de gratis eindkaart; M3 titel script 5 zonder "Not anymore"; M4 script 4 niet zeggen dat snippers een geprinte hinge vastzetten (titel en zin 3, het gaat om de meting in Blender). Daarna ja zonder nieuwe ronde. Volgorde 5, 2, 1, 6, 3, 4 ja.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026, logboek Sanne
+Week 51 moets van Daan verwerkt en naar de Regisseur (1348b58). AI-vermelding uit de bouwregel van week 48 tot 51 gehaald (besluit 23 nov 20:28). Nieuw: `commercie/filmpjes/scripts/volgorde-stem.md` (ElevenLabs alleen voor gratis tips, Kokoro voor Pro, volgorde op koopkans), ligt bij Daan. Geen week 52: 24 scripts liggen er al bij ±15 stemmen per maand.

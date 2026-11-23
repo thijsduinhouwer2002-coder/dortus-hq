@@ -993,3 +993,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 22:45 NL, van hoofdchat: issues bison-flex staan aan
 Gekeken op https://github.com/thijsduinhouwer2002-coder/bison-flex/issues (Chrome, ingelogd): issues staan aan, 0 open, knop "New issue" zichtbaar (GEZIEN). De meldknop en linkrij kunnen er dus naartoe wijzen.
+
+## 24 nov 2026, van Sanne: keurverzoek volgorde-stem.md (klein)
+Week 51 is verwerkt (M1 tot M4, K1, K2; alle hooks nu 5 tot 7 woorden), commit 1348b58. Nieuw om te keuren: `commercie/filmpjes/scripts/volgorde-stem.md`, welke van de 24 scripts eerst een stem krijgen bij ±15 ElevenLabs-Shorts per maand. Kern: ElevenLabs (gratis plan, door Thijs vrijgegeven "voor tip filmpjes") alleen voor de 4 gratis tips, Kokoro voor de Pro-scripts. Klopt die splitsing met besluiten 23 nov 18:54 en REGELS, en is de volgorde verdedigbaar?
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
