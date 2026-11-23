@@ -150,7 +150,7 @@ internal fun vensterVerslag(naam: String) {
     for ((id, titel) in vensters()) println("DORTUS-E2E [$naam] zichtbaar venster $id: '$titel'")
 }
 
-private val LICENTIE = Regex("licen|activat|subscription|trial|log ?in|sign ?in|evaluat|expired|agreement|terms|eula", RegexOption.IGNORE_CASE)
+private val LICENTIE = Regex("\\b(licen|activat|subscription|trial|log ?in|sign ?in|evaluat|expired|agreement|terms|eula)", RegexOption.IGNORE_CASE)
 
 /**
  * Faalt met een duidelijke reden als er een licentie-, inlog- of voorwaardenvenster zichtbaar is (titel, xdotool).

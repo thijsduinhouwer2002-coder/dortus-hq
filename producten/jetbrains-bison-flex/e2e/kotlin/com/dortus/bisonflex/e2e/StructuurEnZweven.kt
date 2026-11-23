@@ -182,6 +182,8 @@ fun Driver.structuurBij(naam: String, bestand: String) {
             nu = structuurBestand()
         }
         println("DORTUS-E2E [$naam] structuur na focus: $nu")
+        // Een licentievenster kan pas na de controle in IdeTest verschijnen (donker, run 45107087865): dan die reden.
+        if (nu != bestand) geenLicentievenster(naam)
     }
     assertEquals(bestand, structuurBestand(), "structuurweergave hoort bij $bestand ($naam)")
 }

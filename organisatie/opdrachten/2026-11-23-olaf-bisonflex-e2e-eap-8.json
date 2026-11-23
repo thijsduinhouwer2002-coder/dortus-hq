@@ -1,0 +1,8 @@
+{
+  "workflow": "jetbrains-bison-flex-e2e.yml",
+  "invoer": {
+    "idea_build": "263.8311.30"
+  },
+  "van": "olaf",
+  "waarom": "bugfix-EAP: licht en donker moeten nu allebei de licentiemelding geven"
+}

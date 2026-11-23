@@ -1,0 +1,6 @@
+{
+  "workflow": "jetbrains-bison-flex-e2e.yml",
+  "invoer": {},
+  "van": "olaf",
+  "waarom": "licentiecontrole ook in structuurBij en strakkere regex: vaste versie moet groen blijven"
+}
