@@ -1,39 +1,40 @@
 ## Beeldvergelijking Bison & Flex (main)
-GROOT: 0 (grens 0.3% van de pixels, drempel 24/255 per kanaal; 33 plaatjes vergeleken; niet meegeteld: *@2880x1800 [0, 0, 1000, 80]; *-calc-y.png@2880x1800 [80, 1700, 1040, 1760]; *-hernoem-conflict.png [0, 60, 1600, 330]; winkel-alleplekken.png [180, 1225, 2800, 1745])
-Referentie: referentie uit run 45105441834, commit 7029107692fc8189ee35c0f0eb460d4ffebfb123, commitdatum 1795403903, 2026-11-23T03:34:46Z
+GROOT: 2 (grens 0.3% van de pixels, drempel 24/255 per kanaal; 2 plaatjes vergeleken; niet meegeteld: *@2880x1800 [0, 0, 1000, 80]; *-calc-y.png@2880x1800 [80, 1700, 1040, 1760]; *-hernoem-conflict.png [0, 60, 1600, 330]; winkel-alleplekken.png [180, 1225, 2800, 1745])
+Referentie: referentie uit run 45105565016, commit 240c950776c1ce05e7d8a7d922b709392b7eabd4, commitdatum 1795404125, 2026-11-23T03:36:01Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
-| donker-calc-l.png | gelijk | |
-| donker-calc-y-structuur.png | gelijk | |
-| donker-calc-y.png | 144 px (0.003%), ruis | |
-| donker-hernoem-conflict.png | 184 px (0.010%), ruis | |
-| donker-hernoem-hint.png | gelijk | |
-| donker-hernoem-melding.png | gelijk | |
-| donker-hernoem-scanner.png | gelijk | |
-| donker-hernoem-structuur.png | gelijk | |
-| donker-hernoem-venster.png | gelijk | |
-| donker-kleurenpagina.png | gelijk | |
-| donker-meldingen-oplossing.png | gelijk | |
-| donker-meldingen.png | gelijk | |
-| donker-pro-hint.png | gelijk | |
-| donker-pro-melding.png | 144 px (0.003%), ruis | |
-| licht-calc-l.png | gelijk | |
-| licht-calc-y-structuur.png | gelijk | |
-| licht-calc-y.png | gelijk | |
-| licht-hernoem-conflict.png | gelijk | |
-| licht-hernoem-hint.png | gelijk | |
-| licht-hernoem-melding.png | gelijk | |
-| licht-hernoem-scanner.png | 144 px (0.003%), ruis | |
-| licht-hernoem-structuur.png | gelijk | |
-| licht-hernoem-venster.png | 68 px (0.021%), ruis | |
-| licht-kleurenpagina.png | gelijk | |
-| licht-meldingen-oplossing.png | gelijk | |
-| licht-meldingen.png | 144 px (0.003%), ruis | |
-| licht-pro-hint.png | gelijk | |
-| licht-pro-melding.png | 144 px (0.003%), ruis | |
-| winkel-alleplekken.png | gelijk | |
-| winkel-hernoemd.png | 144 px (0.003%), ruis | |
-| winkel-melding-menu.png | gelijk | |
-| winkel-melding-na.png | gelijk | |
-| winkel-melding-zweef.png | 144 px (0.003%), ruis | |
+| donker-calc-y-structuur.png | andere maat: 2880x1800 werd 1720x1134 | GROOT |
+| donker-calc-y.png | andere maat: 2880x1800 werd 1720x1134 | GROOT |
+| licht-licentievenster.png | nieuw (niet in de referentie) | |
+| donker-calc-l.png | verdwenen (wel in de referentie) | |
+| donker-hernoem-conflict.png | verdwenen (wel in de referentie) | |
+| donker-hernoem-hint.png | verdwenen (wel in de referentie) | |
+| donker-hernoem-melding.png | verdwenen (wel in de referentie) | |
+| donker-hernoem-scanner.png | verdwenen (wel in de referentie) | |
+| donker-hernoem-structuur.png | verdwenen (wel in de referentie) | |
+| donker-hernoem-venster.png | verdwenen (wel in de referentie) | |
+| donker-kleurenpagina.png | verdwenen (wel in de referentie) | |
+| donker-meldingen-oplossing.png | verdwenen (wel in de referentie) | |
+| donker-meldingen.png | verdwenen (wel in de referentie) | |
+| donker-pro-hint.png | verdwenen (wel in de referentie) | |
+| donker-pro-melding.png | verdwenen (wel in de referentie) | |
+| licht-calc-l.png | verdwenen (wel in de referentie) | |
+| licht-calc-y-structuur.png | verdwenen (wel in de referentie) | |
+| licht-calc-y.png | verdwenen (wel in de referentie) | |
+| licht-hernoem-conflict.png | verdwenen (wel in de referentie) | |
+| licht-hernoem-hint.png | verdwenen (wel in de referentie) | |
+| licht-hernoem-melding.png | verdwenen (wel in de referentie) | |
+| licht-hernoem-scanner.png | verdwenen (wel in de referentie) | |
+| licht-hernoem-structuur.png | verdwenen (wel in de referentie) | |
+| licht-hernoem-venster.png | verdwenen (wel in de referentie) | |
+| licht-kleurenpagina.png | verdwenen (wel in de referentie) | |
+| licht-meldingen-oplossing.png | verdwenen (wel in de referentie) | |
+| licht-meldingen.png | verdwenen (wel in de referentie) | |
+| licht-pro-hint.png | verdwenen (wel in de referentie) | |
+| licht-pro-melding.png | verdwenen (wel in de referentie) | |
+| winkel-alleplekken.png | verdwenen (wel in de referentie) | |
+| winkel-hernoemd.png | verdwenen (wel in de referentie) | |
+| winkel-melding-menu.png | verdwenen (wel in de referentie) | |
+| winkel-melding-na.png | verdwenen (wel in de referentie) | |
+| winkel-melding-zweef.png | verdwenen (wel in de referentie) | |
