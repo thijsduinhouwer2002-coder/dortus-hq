@@ -271,6 +271,22 @@ def srgb(h):
     return tuple((x / 12.92) if x <= 0.04045 else ((x + 0.055) / 1.055) ** 2.4 for x in c) + (1.0,)
 
 
+def toy_mat(naam, hexkleur):
+    """Materiaal met de kleur in zowel de weergave (Solid) als de nodes (Material Preview en renders)."""
+    m = bpy.data.materials.new("toy_" + naam)
+    m.diffuse_color = srgb(hexkleur)
+    m.roughness = 0.45
+    try:
+        m.use_nodes = True
+    except Exception:  # noqa: BLE001
+        pass
+    b = next((n for n in m.node_tree.nodes if n.type == "BSDF_PRINCIPLED"), None) if m.node_tree else None
+    if b is not None:
+        b.inputs["Base Color"].default_value = srgb(hexkleur)
+        b.inputs["Roughness"].default_value = 0.45
+    return m
+
+
 def _seg_afstand(p, a, b):
     ab = b - a
     t = max(0.0, min(1.0, (p - a).dot(ab) / max(ab.length_squared, 1e-9)))
@@ -285,7 +301,7 @@ def laad_mens_kleding(obj_pad, hoogte_mm=220.0, stijl=None, voxel_mm=0.5, dikte=
     e2e/proef_mens.py (Mixamo-namen, linkerknie 120 en linkerelleboog 140 in Limit Rotation). Geeft (rig, figuur, punten)."""
     import bmesh
     stijl = dict(STIJL, **(stijl or {}))
-    dikte = dict({"shirt": 0.45, "broek": 0.45, "riem": 0.9, "schoen": 1.2, "haar": 2.2}, **(dikte or {}))
+    dikte = dict({"shirt": 0.45, "broek": 0.45, "riem": 0.9, "schoen": 1.8, "haar": 2.2}, **(dikte or {}))
     M = _mens_module(hoogte_mm)
     for o in list(bpy.data.objects):
         bpy.data.objects.remove(o)
@@ -376,7 +392,7 @@ def laad_mens_kleding(obj_pad, hoogte_mm=220.0, stijl=None, voxel_mm=0.5, dikte=
         buren[a].append(b)
         buren[b].append(a)
     # schoenen glad (geen tenen), borst nog wat gladder onder het shirt
-    for ronde in range(40):
+    for ronde in range(15):
         nieuw_co = {}
         for i, v in enumerate(me.vertices):
             if (rol[i] == "schoen" and v.co.z < p["l-ankle"].z - 1.5 * f) or (
@@ -402,16 +418,15 @@ def laad_mens_kleding(obj_pad, hoogte_mm=220.0, stijl=None, voxel_mm=0.5, dikte=
                for i in range(len(off))]
     for v, d in zip(me.vertices, off):
         v.co = v.co + v.normal * d
+        if v.co.z < 0.0:
+            v.co.z = 0.0   # platte zool op de grond
     me.update()
     # kleuren: eerst grof per vlak, na de remesh nog eens fijn per nieuw vlak (strakke zomen, ronde ogen)
     volgorde = list(stijl) + ["mond"]
     stijl = dict(stijl, mond=stijl.get("mond", "B5384B"))
     me.materials.clear()
     for k in volgorde:
-        m = bpy.data.materials.new("toy_" + k)
-        m.diffuse_color = srgb(stijl[k])
-        m.roughness = 0.45
-        me.materials.append(m)
+        me.materials.append(toy_mat(k, stijl[k]))
     import collections
     for poly in me.polygons:
         poly.material_index = volgorde.index(collections.Counter(rol[i] for i in poly.vertices).most_common(1)[0][0])

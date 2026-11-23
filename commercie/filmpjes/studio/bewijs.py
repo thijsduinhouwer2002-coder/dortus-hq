@@ -77,14 +77,13 @@ def naar_tabblad(doel="Click Joints"):
     return False
 
 
-def klik_kop():
-    """Klik op de kop van het bovenste paneel (Click Joints): in- of uitklappen."""
+def wiel(keer, knop="5"):
+    """Zijbalk scrollen met het muiswiel (zoals een gebruiker): knop 5 omlaag, 4 omhoog."""
     venster, gebied, regio = zijbalk()
-    x = venster.x + regio.x + int(70 * UI)
-    y = venster.y + venster.height - (regio.y + regio.height) + int(13 * UI)
-    xdo("mousemove", str(x), str(y))
-    time.sleep(0.2)
-    xdo("click", "1")
+    xdo("mousemove", str(venster.x + regio.x + regio.width // 2), str(venster.y + venster.height // 2))
+    for _ in range(keer):
+        xdo("click", knop)
+        time.sleep(0.04)
     xdo("mousemove", "300", "900")
 
 
@@ -128,7 +127,7 @@ def geen_selectie():
         o.select_set(False)
 
 
-POSE = {"Left knee": 100.0, "Right knee": 20.0, "Left elbow": 115.0, "Right elbow": 55.0}   # rennen, binnen het bereik
+POSE = {"Left knee": 85.0, "Right knee": 15.0, "Left elbow": 45.0, "Right elbow": 80.0}   # stap, binnen het bereik
 
 
 def verloop():
@@ -164,7 +163,7 @@ def verloop():
     yield 0.5
     S.kijk_naar((0, 0, 108), 400, draai=-28, kantel=84)
     yield 1.0
-    klik_kop()   # hoofdpaneel in: Figure joints (knop en lijst) komt bovenaan
+    wiel(40)   # zijbalk helemaal omlaag: daar staat Figure joints met de knop en later de lijst
     yield 1.0
     # scherm 1: figuur gekozen, knop Figure from rig in het paneel
     if ob is not None:
@@ -193,7 +192,9 @@ def verloop():
     bpy.context.view_layer.objects.active = groot
     groot.select_set(True)
     herteken()
-    yield 1.5
+    yield 0.8
+    wiel(120)
+    yield 1.0
     schiet("scherm-2-lijst.png")
     log("STUDIO OK scherm2")
     # scherm 3: linkerknie gekozen, hoofdpaneel open met de Bend-schuif, boog van de add-on in beeld
@@ -207,17 +208,13 @@ def verloop():
             bpy.context.window_manager.cj_scharnier_boog = True
         except Exception:  # noqa: BLE001
             pass
-        klik_kop()   # hoofdpaneel weer open
-        yield 1.0
-        venster, gebied, regio = zijbalk()   # zijbalk omlaag tot het blok Hinge met de Bend-schuif
-        xdo("mousemove", str(venster.x + regio.x + regio.width // 2), str(venster.y + venster.height // 2))
-        for _ in range(int(os.environ.get("CJ_WIEL", "14"))):
-            xdo("click", "5")
-            yield 0.05
-        xdo("mousemove", "300", "900")
+        yield 0.8
+        wiel(60, "4")   # eerst helemaal omhoog, dan omlaag tot het blok Hinge met de Bend-schuif
         yield 0.5
+        wiel(int(os.environ.get("CJ_WIEL", "14")))
+        yield 0.8
         k = a.get("cj_snijpunt") if a is not None else None
-        S.kijk_naar(k if k else (0, 0, 60), 260, draai=60, kantel=82)
+        S.kijk_naar(k if k else (0, 0, 60), 280, draai=38, kantel=80)
         herteken()
         yield 1.5
         schiet("scherm-3-knie.png")

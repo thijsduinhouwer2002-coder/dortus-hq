@@ -24,8 +24,8 @@ from mathutils import Vector
 
 # Kleuren (sRGB hex). Munt achter oranje, blauw en geel: rustig, vrolijk en met genoeg contrast.
 KLEUR = {
-    "vloer": "DDF3EA",      # licht munt, onder het figuur
-    "wand": "8FD9C4",       # muntgroen bovenaan de wand
+    "vloer": "E4F6EF",      # licht munt, onder het figuur
+    "wand": "9EE0CC",       # muntgroen bovenaan de wand
     "podium": "FFFFFF",
     "podium_rand": "FFD23F",
     "gewricht": "FFF6E6",   # roomwit voor de delen die de add-on in het gewricht maakt (kogel, kom, scharnier)
@@ -67,7 +67,7 @@ def _zet(b, naam, waarde):
         b.inputs[naam].default_value = waarde
 
 
-def achterwand(h):
+def achterwand(h, z0=0.0):
     """Gebogen achterwand: vloer tot y=0, kwartcirkel met straal 1,6h omhoog, wand tot 4h. Breed 10h."""
     _weg("studio_wand")
     r, diep, hoog, breed = 1.6 * h, 6.0 * h, 14.0 * h, 40.0 * h
@@ -80,7 +80,7 @@ def achterwand(h):
     verts, faces = [], []
     for x in (-breed / 2, breed / 2):
         for (y, z) in prof:
-            verts.append((x, y + 1.2 * h, z))
+            verts.append((x, y + 1.2 * h, z + z0))
     n = len(prof)
     for i in range(n - 1):
         faces.append((i, i + 1, n + i + 1, n + i))
@@ -100,11 +100,11 @@ def achterwand(h):
     sep = nt.nodes.new("ShaderNodeSeparateXYZ")
     mr = nt.nodes.new("ShaderNodeMapRange")
     mr.inputs["From Min"].default_value = 0.0
-    mr.inputs["From Max"].default_value = 2.2 * h
+    mr.inputs["From Max"].default_value = 1.5 * h
     ramp = nt.nodes.new("ShaderNodeValToRGB")
     ramp.color_ramp.elements[0].color = srgb(KLEUR["vloer"])
     ramp.color_ramp.elements[1].color = srgb(KLEUR["wand"])
-    ramp.color_ramp.elements[0].position = 0.08
+    ramp.color_ramp.elements[0].position = 0.0
     ramp.color_ramp.interpolation = "EASE"
     nt.links.new(tc.outputs["Object"], sep.inputs[0])
     nt.links.new(sep.outputs["Z"], mr.inputs["Value"])
@@ -150,11 +150,11 @@ def podium(h, z0=0.0):
     return ob
 
 
-KRACHT = {"sleutel": 3.0e6, "vul": 1.0e6, "rand": 2.5e6, "wand": 2.0e6}   # W, op het oog gezet (zie lampen)
+KRACHT = {"sleutel": 3.0e6, "vul": 1.0e6, "rand": 2.5e6, "zon": 1.6}   # W, op het oog gezet (zie lampen)
 
 
 def lampen(h, mid):
-    """Drie vlakke lampen (zacht, groot) en een zachte vlek op de wand achter het figuur. Kracht in W op mm-schaal:
+    """Drie vlakke lampen (zacht, groot) en een zon zonder schaduw die wand en vloer gelijkmatig licht geeft. Kracht in W op mm-schaal:
     de scene staat in millimeters (1 eenheid = 1 mm), dus de afstanden zijn groot; de getallen zijn op het oog gezet."""
     for n in ("studio_sleutel", "studio_vul", "studio_rand_licht", "studio_wandlicht"):
         _weg(n)
@@ -163,7 +163,7 @@ def lampen(h, mid):
         ("studio_sleutel", "AREA", (-1.6 * h, -1.9 * h, 2.0 * h), 1.1 * h, KRACHT["sleutel"] * s, "FFF4E8"),
         ("studio_vul", "AREA", (2.2 * h, -1.6 * h, 0.9 * h), 1.6 * h, KRACHT["vul"] * s, "EAF2FF"),
         ("studio_rand_licht", "AREA", (1.2 * h, 1.4 * h, 2.2 * h), 0.7 * h, KRACHT["rand"] * s, "FFFFFF"),
-        ("studio_wandlicht", "SPOT", (0.0, -0.4 * h, 1.4 * h), 0.6 * h, KRACHT["wand"] * s, "FFFFFF"),
+        ("studio_wandlicht", "SUN", (0.0, -3.0 * h, 3.0 * h), 0.0, KRACHT["zon"], "FFFFFF"),
     )
     obs = []
     for naam, soort, plek, maat, kracht, kleur in lijst:
@@ -173,10 +173,8 @@ def lampen(h, mid):
         if soort == "AREA":
             ld.shape = "DISK"
             ld.size = maat
-        else:
-            ld.spot_size = math.radians(55)
-            ld.spot_blend = 1.0
-            ld.shadow_soft_size = maat
+        else:   # zon zonder schaduw: gelijkmatig licht op wand en vloer, ook achter de vlakke lampen
+            ld.angle = math.radians(30)
         try:
             ld.use_shadow = naam != "studio_wandlicht"
         except Exception:  # noqa: BLE001
@@ -184,7 +182,7 @@ def lampen(h, mid):
         ob = bpy.data.objects.new(naam, ld)
         bpy.context.scene.collection.objects.link(ob)
         ob.location = Vector(plek) + Vector((mid.x, mid.y, 0))
-        doel = mid if naam != "studio_wandlicht" else Vector((mid.x, 1.8 * h, 1.1 * h))
+        doel = mid if naam != "studio_wandlicht" else Vector((mid.x, 1.5 * h, 0.0))
         ob.rotation_euler = (doel - ob.location).to_track_quat("-Z", "Y").to_euler()
         ob.hide_select = True
         obs.append(ob)
@@ -202,9 +200,9 @@ def wereld():
         pass
     bg = next((n for n in w.node_tree.nodes if n.type == "BACKGROUND"), None)
     if bg is not None:
-        bg.inputs[0].default_value = srgb("DDEFEA")
-        bg.inputs[1].default_value = 0.35
-    w.color = srgb("DDEFEA")[:3]
+        bg.inputs[0].default_value = srgb(KLEUR["wand"])
+        bg.inputs[1].default_value = 0.6
+    w.color = srgb(KLEUR["wand"])[:3]
 
 
 def eevee():
@@ -234,39 +232,61 @@ def eevee():
 def bouw(h=220.0, mid=None):
     """Hele studio rond een figuur van h mm hoog met de voeten op z=0."""
     mid = mid or Vector((0, 0, h / 2))
-    achterwand(h)
+    achterwand(h, z0=-0.06 * h)   # vloer onder het podium, niet in hetzelfde vlak (geen geflikker)
     podium(h)
     lampen(h, mid)
     wereld()
     eevee()
 
 
-def plastic(delen, gewricht=True):
-    """Materialen van het figuur als geprint plastic: glans, een dunne laklaag en fijne laaglijnen (0,4 mm) als
-    reliëf. De kleuren blijven die van het figuur. Met gewricht=True krijgen de passingkleuren van de add-on
-    (groen 'Good fit', donker 'Flex slot', grijs restmateriaal) in de renders één roomwitte kleur, zoals een print
-    waarbij kogel en kom in een andere kleur zijn geprint. In het Blender-scherm blijven de echte kleuren van de add-on."""
+def naadloos(delen):
+    """De passingkleuren van de add-on (groen 'Good fit', donker 'Flex slot', grijs restmateriaal) per deel terug naar
+    de kleur van het dichtstbijzijnde gewone vlak van dat deel, zoals een print in de kleur van het lichaamsdeel. Alleen
+    voor de renders; in het Blender-scherm blijven de echte kleuren van de add-on. Kogel, kom en spleet blijven zichtbaar
+    als vorm."""
+    from mathutils.kdtree import KDTree
+    for o in delen:
+        me = o.data
+        mats = list(me.materials)
+        cj = {i for i, m in enumerate(mats) if m is not None and (m.name.startswith("Click Joints") or m.name.startswith("pla_grijs"))}
+        if not cj:
+            continue
+        gewoon = [p for p in me.polygons if p.material_index not in cj]
+        if not gewoon:
+            continue
+        kd = KDTree(len(gewoon))
+        for i, p in enumerate(gewoon):
+            kd.insert(p.center, i)
+        kd.balance()
+        for p in me.polygons:
+            if p.material_index in cj:
+                _c, i, _d = kd.find(p.center)
+                p.material_index = gewoon[i].material_index
+        me.update()
+
+
+def plastic(delen, gewricht="naadloos"):
+    """Materialen van het figuur als geprint plastic: glans, een dunne laklaag en fijne laaglijnen (0,4 mm) als reliëf.
+    De kleuren blijven die van het figuur. gewricht="naadloos": passingkleuren weg (zie naadloos); "contrast": één
+    roomwitte kleur voor kogel, kom en scharnier, zoals een print met de gewrichten in een andere kleur."""
+    if gewricht == "naadloos":
+        naadloos(delen)
     gezien = set()
     for o in delen:
         for i, m in enumerate(o.data.materials):
-            if m is None or m.name in gezien:
+            if m is None:
                 continue
-            gezien.add(m.name)
-            if gewricht and (m.name.startswith("Click Joints") or m.name.startswith("pla_grijs")):
+            if gewricht == "contrast" and (m.name.startswith("Click Joints") or m.name.startswith("pla_grijs")):
                 nieuw = bpy.data.materials.get("studio_gewricht") or bpy.data.materials.new("studio_gewricht")
                 nieuw.diffuse_color = srgb(KLEUR["gewricht"])
                 o.data.materials[i] = nieuw
-                for o2 in delen:   # zelfde materiaal op de andere delen ook vervangen
-                    for j, m2 in enumerate(o2.data.materials):
-                        if m2 is not None and m2.name == m.name:
-                            o2.data.materials[j] = nieuw
                 m = nieuw
-                if m.name in gezien:
-                    continue
-                gezien.add(m.name)
+            if m.name in gezien:
+                continue
+            gezien.add(m.name)
             kleur = tuple(m.diffuse_color)
-            if not m.name.startswith("toy_") and not m.name.startswith("studio_"):
-                b0 = next((n for n in (m.node_tree.nodes if m.node_tree else []) if n.type == "BSDF_PRINCIPLED"), None)
+            if not m.name.startswith(("toy_", "studio_", "Click Joints")) and m.node_tree:
+                b0 = next((n for n in m.node_tree.nodes if n.type == "BSDF_PRINCIPLED"), None)
                 if b0 is not None:
                     kleur = tuple(b0.inputs["Base Color"].default_value)
             _plastic_nodes(_mat(m.name), kleur)
