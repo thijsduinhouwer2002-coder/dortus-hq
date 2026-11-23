@@ -1,0 +1,74 @@
+STATUS Installed "click_joints"
+[cj-ai] Pro geladen: True
+[cj-mens] RIG: 20 botten, knie L (20.9, 10.3, 59.1), elleboog L (41.3, 12.8, 154.0)
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 0.387 s.
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 0.392 s.
+Info: Hinge placed. Bends 0° to 120°. 0.355 s.
+Info: Hinge placed. Bends 0° to 120°. 0.259 s.
+Info: Joint placed. Good fit. 0.362 s.
+Info: Joint placed. Good fit. 0.493 s.
+Info: Joint placed. Good fit. 0.473 s.
+Info: Joint placed. Good fit. 0.459 s.
+Info: Joint placed. Good fit. 0.443 s.
+Info: Joint placed. Good fit. 0.431 s.
+Info: Joint placed. Good fit. 0.514 s.
+Info: Joint placed. Good fit. 0.488 s.
+Info: Joint placed. Good fit. 0.473 s.
+Info: Joint placed. Good fit. 0.457 s.
+Info: Joint placed. Good fit. 0.449 s.
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Info: Joint placed. Good fit. 0.444 s.
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Info: Joint placed. Good fit. 0.475 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[cj-mens-toets] verlies gemeten bij kogels: ['Neck', 'Left shoulder', 'Left shoulder', 'Left shoulder', 'Left shoulder', 'Left shoulder', 'Right shoulder', 'Right shoulder', 'Right shoulder', 'Right shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[cj-mens-toets] OK   het vangnet 'lost part of the model' meet ook bij kogelsneden
+[cj-mens-toets] OK   na een kogelsnede die te veel verliest neemt de knop een volgende plek (linkerschouder)
+[cj-mens-toets] OK   geen lege tussenmeshes achtergebleven (0)
+[cj-mens-toets] uitslag={'FINISHED'} gewrichten=9: ['Left elbow · Hinge · 0–140° · from rig', 'Right elbow · Hinge · 0–140° · mirror', 'Left knee · Hinge · 0–120° · from rig', 'Right knee · Hinge · 0–120° · mirror', 'Neck · Ball · ±20° · preset', 'Left shoulder · Ball · ±20° · preset', 'Right shoulder · Ball · ±20° · preset', 'Left hip · Ball · ±25° · preset', 'Right hip · Ball · ±25° · preset']
+[cj-mens-toets] overgeslagen: 
+[cj-mens-toets] OK   minstens 6 gewrichten (9)
+[cj-mens-toets] OK   Left shoulder geplaatst en beweegt minstens ±15 (Left shoulder · Ball · ±20° · preset)
+[cj-mens-toets] OK   Right shoulder geplaatst en beweegt minstens ±15 (Right shoulder · Ball · ±20° · preset)
+[cj-mens-toets] OK   Left hip geplaatst en beweegt minstens ±15 (Left hip · Ball · ±25° · preset)
+[cj-mens-toets] OK   Right hip geplaatst en beweegt minstens ±15 (Right hip · Ball · ±25° · preset)
+[cj-mens-toets] OK   Left knee: 0–120 from rig (Left knee · Hinge · 0–120° · from rig)
+[cj-mens-toets] OK   Right knee: 0–120 mirrored (Right knee · Hinge · 0–120° · mirror)
+[cj-mens-toets] OK   Left elbow: 0–140 from rig (Left elbow · Hinge · 0–140° · from rig)
+[cj-mens-toets] OK   Right elbow: 0–140 mirrored (Right elbow · Hinge · 0–140° · mirror)
+[cj-mens-toets] OK   linkerschouder toch geplaatst na de geweigerde snede ()
+[cj-mens-toets] OK   elk overgeslagen gewricht met reden ([])
+[cj-mens-toets] OK   alle 10 delen gesloten
+[cj-mens-toets] OK   elk deel één stuk ([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+[cj-mens-toets] kogels (diameter, breedte lid): [(4.499999786261479, 10.365), (4.499999786261479, 10.365), (5.9999997150153055, 12.449), (12.499999406281887, 21.172), (12.499999406281887, 21.172)]
+[cj-mens-toets] OK   elke kogel minstens 0.4 keer de breedte van het lid ([(4.499999786261479, 10.365), (4.499999786261479, 10.365), (5.9999997150153055, 12.449), (12.499999406281887, 21.172), (12.499999406281887, 21.172)])
+[cj-mens-toets] OK   beide heupkogels minstens 8 mm in de dij ([12.499999406281887, 12.499999406281887])
+[cj-mens-toets] OK   elke kogel beweegt na alle sneden nog even ver ([('mens_A_A_A_A_B', True), ('mens_A_A_A_A_A_B', True), ('mens_A_A_A_A_A_A_B', True), ('mens_A_A_A_A_A_A_A_B', True), ('mens_A_A_A_A_A_A_A_A_B', True)])
+[cj-mens-toets] OK   l-hand (56.9, -8.7, 140.2) ligt nog in een deel
+[cj-mens-toets] OK   r-hand (-56.9, -8.7, 140.2) ligt nog in een deel
+[cj-mens-toets] OK   l-ankle (29.0, 14.6, 9.5) ligt nog in een deel
+[cj-mens-toets] OK   r-ankle (-29.0, 14.6, 9.5) ligt nog in een deel
+[cj-mens-toets] OK   head (0.0, 12.4, 200.0) ligt nog in een deel
+[cj-mens-toets] KLAAR 0 FOUT
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+OBJ import of 'makehuman-base.obj' took 19.58 ms
+
+Blender quit
