@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (claude-betrouwbaar-rig)
-GROOT: 2 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 45258116805, commit 3ac8b893b13e25d0719d57f85cbd440fd129f925, commitdatum 1795465139, 2026-11-23T20:57:45Z
+GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
+Referentie: referentie uit run 45266243549, commit 78ac6d9ee15e91e9c6914b1dd280fe096f95736d, commitdatum 1795467989, 2026-11-23T21:32:50Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -19,8 +19,8 @@ Referentie: referentie uit run 45258116805, commit 3ac8b893b13e25d0719d57f85cbd4
 | 16-figuur-rig-x.png | gelijk | |
 | 17-figuur-heel-paneel.png | gelijk | |
 | 17-figuur-heel-x.png | gelijk | |
-| 19-mens-paneel.png | 5779 px (2.031%), x 22 tot 239, y 174 tot 410 | GROOT |
-| 19-mens-x.png | 19301 px (0.931%), x 767 tot 1868, y 153 tot 792 | GROOT |
+| 19-mens-paneel.png | gelijk | |
+| 19-mens-x.png | gelijk | |
 | 2-gewricht-x.png | 61 px (0.003%), ruis | |
 | 20-testkaart.png | gelijk | |
 | 20d-testkaart-getal.png | gelijk | |
