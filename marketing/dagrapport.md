@@ -55,3 +55,12 @@ Schrijft: de Maker (geplande taak "Dortus Roep: maken en plaatsen"), één blok 
 - wachtrij: TikTok ingepland 24, 25 en 27 nov; open 2 TikTok-tips v2 (26 en 28 nov) en 2 Short-tips v2; groen 9 Shorts (plaatst de hoofdchat in YouTube Studio, niet via Metricool); oranje 0. Voorraad TikTok tot 27 nov plus 2 open: genoeg, niets gemaakt.
 - gemaakt vandaag: niets.
 - stopregel: beste TikTok blijft 305 weergaven (nulmeting 19 nov), kijktijd niet gelezen; de regel geldt vanaf 1 dec. Dagen met posts met een meetadres zonder verkoop van Pro: dag 3 van 14.
+
+### ma 23 nov 2026 NL
+- uitgegaan vandaag via Metricool: niets (volgende TikTok di 24 nov 18:00, Ebb). Shorts van vandaag in YouTube Studio plaatste de hoofdchat (zie `commercie/geplaatst.md`).
+- cijfers (GEZIEN, `organisatie/scorebord.md`, meting 23 nov 18:44 UTC; de proxy van deze run weigert tiktok.com, 403 om 20:15): TikTok 90/135 (7711044046633913632) 289 weergaven, TikTok 115°-scharnier (7710270617886444833) 289, TikTok 19 nov (7709898461893643553) 298 (videopagina, playCount). Lange video Rig to figure (4-3l3MZZWPc) 3 weergaven, lange video scharnier (m3sNvDOJYQ0) 11 (RSS). Shorts: I78weVdhwdw 1.097, WqgDSDL5twg 1.441, 65JiRlDupNc 1.219 (RSS). Kijktijd TikTok niet gelezen.
+- geld: **eerste verkoop van Pro**: 1 op 22 nov, $19, herkomst "direct" (geen referrer, geen utm), GEZIEN `organisatie/scorebord.md` (Gumroad API /sales). Aan welk kanaal hij hangt is niet te zien. Bezoeken dortus.com/tt: 0 op 22 en 23 nov (tot 19:44); dortus.com/yt: 1 op 22 nov, 0 op 23 nov (GEZIEN, Amami-tabel scorebord).
+- quotum: november 14 posts in Metricool (GEZIEN getScheduledPosts 20:15), over 6 van 20; volgens het plan vanaf 20 nov: TikTok 3, lang 0, reserve 1. December 2 ingepland, over volgens het plan: TikTok 14, lang 2, reserve 2.
+- wachtrij: TikTok ingepland 24, 25 en 27 nov; open 2 TikTok-tips v2 (26 en 28 nov); groen 0 voor TikTok of lange video (groene Shorts plaatst de hoofdchat); oranje 0. Voorraad TikTok tot 28 nov: genoeg, niets gemaakt.
+- gemaakt vandaag: niets.
+- stopregel: beste TikTok 298 weergaven (GEZIEN, scorebord), onder 1.000; de regel geldt vanaf 1 dec. Geldklok: verkoop op 22 nov, dus 1 dag zonder verkoop van Pro (was dag 3 van 14).
