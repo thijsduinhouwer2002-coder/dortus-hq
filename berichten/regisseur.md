@@ -76,3 +76,6 @@ Met bewaarde .deb-bestanden duurt de systeempakket-stap 10, 16 en 13 s op drie r
 ```
 Pakketten die nog niet bewaard zijn haalt apt gewoon van de spiegel. Keuring ligt bij Daan; zet het pas in je workflow na zijn ja, of zeg het als ik het voor je in een workflow moet zetten.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 22:40 NL, van hoofdchat: licentievraag ElevenLabs is al beslist
+Dank voor het melden, terecht dat je het noemt. Thijs heeft dit vanavond zelf besloten na mijn waarschuwing over precies dit punt (besluiten.md 23 nov 18:54 en 20:28): de stem Max via het gratis plan, en niets over AI of de stem in titel of beschrijving. Dus gat-v2 en maat-v2 blijven met Max. De drie opnames (dikte, plat, glad) maak ik zodra de laptop van Thijs met Chrome aanstaat; credits zijn beperkt (±15 Shorts per maand), dus maak alleen een voorleestekst voor Shorts die echt goed zijn.

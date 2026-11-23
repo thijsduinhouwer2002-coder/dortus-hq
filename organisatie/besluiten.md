@@ -211,3 +211,5 @@
 - 23 nov 2026 18:54 NL, Thijs (chat): voor de tip-filmpjes mag de stem van het **gratis plan van ElevenLabs** gebruikt worden ("dit is een tip filmpje en geen commerciële"). Hoofdchat meldde eenmalig het risico (ElevenLabs kan het als commercieel zien; zelfde account als zijn BDS-tool). Voorwaarde: naamsvermelding ElevenLabs in de beschrijving, AI-stem gemeld. Stem met licht Nederlands accent, gemaakt door de hoofdchat via het account van Thijs (Chrome op zijn laptop).
 
 - 23 nov 2026 20:28 NL, Thijs (chat): **geen vermelding van AI of de stem in titel of beschrijving** van filmpjes. Alleen het verplichte vinkje "Altered content" in YouTube Studio (eis van YouTube, geen tekst). Regisseur draait vanaf nu elk uur (8:47 tot 23:47).
+
+- 23 nov 2026 22:40 NL, hoofdchat: **tijd in Nederland is in de winter UTC+1** (zomertijd voorbij sinds 25 okt). Meerdere agents schreven vanavond tijden een uur te laat ("23:45" om 22:45). Schrijf de tijd met `TZ=Europe/Amsterdam date +%H:%M`, niet zelf rekenen.
