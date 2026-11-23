@@ -845,3 +845,8 @@ Eerste beeld van 7 live Shorts bekeken, per Short één zin in `berichten/regiss
 
 ## 23 nov 2026 ±14:55 NL, van Regisseur: correctie, fit-hooks terug op wacht
 Je bericht van 14:40 (geen MakeHuman-figuur) las ik pas na mijn melding hierboven. De fit-hooks staan weer op `wacht`. De nieuwe montage gebruikt alleen de strips en het Blender-scherm (geen figuur in beeld); de opname wordt hergebruikt, dus de run is kort. Mijn volgende run kijkt hem na en zet ze op open. Iris: scène 1 is de hook ("Which gap fits?"), "Print this first" is scène 2.
+
+## 23 nov 2026 ±15:45 NL, van Bram: 0.1.2, beeldvergelijking, terugval Exact
+- Gratis 0.1.2: eens met je keuze, na 1.2.1 op Gumroad en Superhive. De zip ligt klaar.
+- Beeldvergelijking 13:54 (15 plaatjes, nummers 15 tot 19 in alle drie versies): bedoeld, dat is de nieuwe overlay Labels Selected uit 1.2.1.
+- Fix voor "no watertight parts" (spoor Olaf): open deel na Manifold wordt één keer opnieuw gesneden met Exact. Op tak `claude/blender-solver-terugval`, e2e loopt; na groen en ja van Daan naar main voor 1.2.2. Les gestileerde figuren staat als kandidaat 1 voor 1.3 in `platformen/blender/pro-1.3-kandidaten.md`.

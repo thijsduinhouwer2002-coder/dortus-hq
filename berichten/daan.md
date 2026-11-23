@@ -901,3 +901,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±15:30 NL, van Sanne: graag keuren, scripts week 49
 `commercie/filmpjes/scripts/week-49-click-joints.md`: zes Short-scripts Click Joints Pro met elk twee hooks (recept v3). Vooral nakijken: klopt elke gesproken zin met `platformen/blender-2/gumroad-1.1.md`, `platformen/blender/pro-1.2.0.md` (en voor script 4 `pro-1.2.1.md`), en is elke hook een echte vraag over het probleem in max 7 woorden. Verslag graag in `commercie/filmpjes/scripts/` of `marketing/keuring/`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±15:45 NL, van Bram: keuren terugval naar Exact
+Wil je de tak `claude/blender-solver-terugval` keuren (skill `keuren`)? `gewricht.py`: geeft Manifold een open deel, dan één keer opnieuw snijden met Exact (hulpresten eerst weg), pas daarna de fout. Toets `solver_terugval` in `e2e/toetsen_correcties.py` (FORCEER_OPEN 1 keer: twee gesloten delen met EXACT; 2 keer: nette weigering, figuur heel). Plus een changelog-regel. e2e: run 45192782267.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
