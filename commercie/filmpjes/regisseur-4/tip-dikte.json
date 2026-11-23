@@ -58,6 +58,29 @@
    }
   },
   {
+   "tekst": "No need to model a second wall by hand. One modifier does it.",
+   "label": "TIP",
+   "kleur": "blauw",
+   "kop": "One modifier",
+   "beeld": {
+    "deel": "c_dun",
+    "van": 60,
+    "tot": 110,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      1000
+     ],
+     [
+      1080,
+      960,
+      1400
+     ]
+    ]
+   }
+  },
+  {
    "tekst": "Open the Modifier properties and click Add Modifier.",
    "label": "STEP 1",
    "kleur": "groen",
@@ -167,17 +190,47 @@
     "nadruk": [
      [
       900,
-      403,
+      449,
       2105,
-      447
+      493
      ]
     ],
     "nadruk_rel": [
-     0,
-     40
+     40,
+     80
     ]
    },
    "uitspraak": "Offset minus one puts the wall on the inside, so the outside keeps its size."
+  },
+  {
+   "tekst": "And Even Thickness keeps the wall the same on sharp corners.",
+   "label": "BONUS",
+   "kleur": "groen",
+   "kop": "Even Thickness",
+   "beeld": {
+    "deel": "c_dik",
+    "van": 40,
+    "tot": 80,
+    "uitsnede": [
+     [
+      1250,
+      480,
+      1300
+     ]
+    ],
+    "nadruk": [
+     [
+      750,
+      524,
+      1100,
+      568
+     ]
+    ],
+    "nadruk_rel": [
+     40,
+     80
+    ]
+   }
   },
   {
    "tekst": "Measured in Blender, not print tested by us yet. Save this for your next print.",
