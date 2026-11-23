@@ -5,6 +5,11 @@ on:
     branches: [main, "claude/jetbrains-*"]
     paths: ["producten/jetbrains-bison-flex/**", ".github/workflows/jetbrains-bison-flex-clion.yml"]
   workflow_dispatch:
+    inputs:
+      verifier_extra:
+        description: 'extra IDEs voor de Plugin Verifier, bijvoorbeeld IU/263.8311.30 (EAP-build) of IU:2026.3'
+        type: string
+        default: ''
   # Week-test (roestronde R4): week-test.yml voegt de nieuwste IntelliJ- en CLion-release toe aan de Plugin Verifier.
   workflow_call:
     inputs:

@@ -77,8 +77,10 @@ intellijPlatform {
             create(IntelliJPlatformType.IntellijIdea, "2026.2")
             create(IntelliJPlatformType.CLion, "2026.2")
             // Week-test (roestronde R4): -PverifierExtra=IU:2026.3,CL:2026.3 voegt de nieuwste releases toe.
-            (findProperty("verifierExtra") as String?)?.split(",")?.map { it.trim() }?.filter { ":" in it }?.forEach {
-                val (soort, versie) = it.split(":", limit = 2)
+            // Ook met / in plaats van : (IU/263.8311.30), want een opdrachtbestand laat geen : toe (skill actions).
+            // Een EAP-build mag ook: de Verifier keurt dan alleen de API, er is geen licentie nodig.
+            (findProperty("verifierExtra") as String?)?.split(",")?.map { it.trim() }?.filter { ":" in it || "/" in it }?.forEach {
+                val (soort, versie) = it.split(Regex("[:/]"), limit = 2)
                 val type = when (soort.uppercase()) {
                     "IU" -> IntelliJPlatformType.IntellijIdea
                     "CL" -> IntelliJPlatformType.CLion
