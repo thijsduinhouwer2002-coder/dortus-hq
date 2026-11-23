@@ -1,1 +1,10 @@
-{"workflow": "jetbrains-bison-flex-e2e.yml", "invoer": {"idea_build": "263.8311.30"}, "van": "olaf", "waarom": "zesde e2e op bugfix-EAP: komt nu de duidelijke melding over het licentievenster"}
+{
+  "workflow": "jetbrains-bison-flex-e2e.yml",
+  "invoer": {
+    "idea_build": "263.8311.30"
+  },
+  "van": "olaf",
+  "waarom": "zesde e2e op bugfix-EAP: komt nu de duidelijke melding over het licentievenster",
+  "fout": "GitHub zei 500: {\"message\":\"Failed to run workflow dispatch\",\"documentation_url\":\"https://docs.github.com/rest/actions/workflows#create-a-workflow-dispatch-event\",\"status\":\"500\"}",
+  "fout_tijd": "2026-11-23T03:22:14Z"
+}
