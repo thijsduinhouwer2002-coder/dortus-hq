@@ -1,0 +1,39 @@
+[meet] figuur robot-a: Figuur, {'bron_punten': 240130, 'bron_zelf_overlap': 0}
+[meet] Blender 5.3.0 figuur robot-a: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 16, sneden 10, slechte sneden 1
+[meet]   SLECHT {"poging": 13, "gewricht": "Left hip", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 2.34, "r_mm": 6.25, "naad_r": 11.378, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": true, "fout": 0, "punten": 99144}, "B": {"gesloten": true, "fout": 0, "punten": 32514}, "overlap_ab": 9271, "goed": false, "h_zelf_overlap": 4263, "proeven": {"exact": {"goed": false, "A": 397, "B": 811, "overlap": 225, "s": 46.01}, "schuif_0.05": {"goed": false, "A": 0, "B": 0, "overlap": 9171, "s": 2.87}, "draai_0.3": {"goed": false, "A": 0, "B": 0, "overlap": 9304, "s": 2.87}, "draai_1.0": {"goed": false, "A": 0, "B": 0, "overlap": 9326, "s": 2.87}}}
+MEET robot-a gewrichten=9 overgeslagen=0 slechte_sneden=1
+STATUS Installed "click_joints"
+[studio] robot: 18564 punten voor de remesh, maat (140.6, 41.2, 220.4)
+Info: Watertight copy Figuur_gesloten made (240128 faces)
+[studio] kleuren per vorm: 240128 vlakken, 2750 buiten elke vorm
+[studio] robot na voxel: 240130 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.5, 2.0, 57.0), elleboog L (48.0, -4.0, 136.0)
+[meet] figuur robot-a: Figuur, {'bron_punten': 240130, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 140°. 4.589 s.
+Info: Hinge placed. Bends 0° to 140°. 4.436 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 120°. 5.491 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 120°. 4.769 s.
+Info: Joint placed. Good fit. 3.526 s.
+Info: Joint placed. Good fit. 4.218 s.
+Info: Joint placed. Good fit. 4.014 s.
+Info: Joint placed. Good fit. 65.576 s.
+Info: Joint placed. Good fit. 4.987 s.
+Info: Joint placed. Good fit. 4.499 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 5.3.0 figuur robot-a: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 16, sneden 10, slechte sneden 1
+[meet]   SLECHT {"poging": 13, "gewricht": "Left hip", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 2.34, "r_mm": 6.25, "naad_r": 11.378, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0}, "A": {"gesloten": true, "fout": 0, "punten": 99144}, "B": {"gesloten": true, "fout": 0, "punten": 32514}, "overlap_ab": 9271, "goed": false, "h_zelf_overlap": 
+MEET robot-a gewrichten=9 overgeslagen=0 slechte_sneden=1
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+model name	: AMD EPYC 7763 64-Core Processor
