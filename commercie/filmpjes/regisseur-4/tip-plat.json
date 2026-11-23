@@ -23,19 +23,19 @@
      [
       1080,
       1000,
-      1100
+      1000
      ],
      [
       1080,
-      1120,
-      750
+      1080,
+      700
      ]
     ]
    },
    "groot": true
   },
   {
-   "tekst": "Give it a flat bottom in Blender, with a few keys.",
+   "tekst": "Give it a flat bottom in Blender, with a few keys, before you slice.",
    "label": "TIP",
    "kleur": "blauw",
    "kop": "Make it flat",
@@ -63,9 +63,9 @@
     "tot": 30,
     "uitsnede": [
      [
-      900,
-      620,
-      1600
+      1080,
+      880,
+      2100
      ]
     ]
    },
@@ -128,28 +128,46 @@
    "uitspraak": "Press S, then Z, then zero, and Enter. The points line up flat."
   },
   {
-   "tekst": "Now it stands on a flat circle about 29 mm wide.",
+   "tekst": "Select more rows for a wider base, or fewer rows to keep more of the round shape.",
+   "label": "TIP",
+   "kleur": "blauw",
+   "kop": "More rows, wider base",
+   "beeld": {
+    "deel": "d_kies",
+    "van": 30,
+    "tot": 86,
+    "uitsnede": [
+     [
+      1080,
+      1250,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Now it stands on a flat circle about 29 mm wide, instead of one point.",
    "label": "FLAT",
    "kleur": "groen",
    "kop": "29 mm flat base",
    "beeld": {
     "deel": "d_klaar",
-    "van": 0,
-    "tot": 90,
+    "van": 30,
+    "tot": 126,
     "uitsnede": [
      [
       1080,
-      1250,
-      1200
+      1000,
+      1500
      ],
      [
       1080,
-      1100,
-      1500
+      1050,
+      1300
      ]
     ]
    },
-   "uitspraak": "Now it stands on a flat circle, about twenty nine millimeters wide."
+   "uitspraak": "Now it stands on a flat circle, about twenty nine millimeters wide, instead of one point."
   },
   {
    "tekst": "Measured in Blender, not print tested by us yet. Save this for your next print.",
@@ -158,12 +176,12 @@
    "kop": "Save this tip",
    "beeld": {
     "deel": "d_klaar",
-    "van": 60,
+    "van": 80,
     "tot": 126,
     "uitsnede": [
      [
       1080,
-      1050,
+      1000,
       1500
      ]
     ]

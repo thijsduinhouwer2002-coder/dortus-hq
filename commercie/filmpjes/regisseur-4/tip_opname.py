@@ -267,7 +267,7 @@ def ei():
         r = 29 * math.sin(t) * (1 - 0.12 * (z / 80))
         prof.append((r, z))
     prof.append((0, 80))
-    ob = draai_model("Egg", prof, (0.98, 0.72, 0.16, 1), seg=48)
+    ob = draai_model("Egg", prof, (1.0, 0.58, 0.22, 1), seg=48)
     return ob
 
 
@@ -332,7 +332,7 @@ def verloop():
     yield 0.8
     film["metingen"]["c_maat_voor"] = eval_maat(ob)
     mid = Vector((0, 0, 70))
-    rand = Vector((0, -29, 139))
+    rand = Vector((0, 29, 139))   # verre rand: daar zie je de wand van boven
     deel("c_heel")
     yield from stuk(70, lambda t: cam(160 + 70 * t, 62, 420, mid))
     log("KORT OK c_heel")
