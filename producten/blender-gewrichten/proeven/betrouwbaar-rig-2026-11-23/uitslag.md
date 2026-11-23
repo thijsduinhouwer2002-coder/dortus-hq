@@ -28,21 +28,21 @@ Nulmeting, main zoals uitgebracht als Pro 1.2.2 (run 45253697551):
 | armen | 6 / 7 / 40 s | 8 / 0 / 12 s | 8 / 0 / 13 s |
 | **samen** | **35 van 60** | **59 van 60** | **59 van 60** |
 
-Eindmeting (run 45260223259, commit da1c134; zelfde code als de eindstand van de tak, zie het bericht voor de laatste run):
+Eindmeting (run 45264302449, commit 7ea796e, de eindstand van de add-on op de tak; run 45260223259 op da1c134 gaf hetzelfde aantal gewrichten):
 
 | Figuur | 4.2.23 | 5.2.3 | 5.3.0 |
 |---|---|---|---|
-| robot-a | 7 / 1 / 166 s | 9 / 0 / 56 s | 9 / 0 / 60 s |
-| robot-b | 7 / 1 / 168 s | 9 / 0 / 56 s | 9 / 0 / 71 s |
-| robot-fijn | 9 / 4 / 193 s | 9 / 0 / 171 s | 9 / 0 / 157 s |
-| kleding | 8 / 6 / 198 s | 9 / 0 / 91 s | 9 / 0 / 75 s |
-| mens | 9 / 0 / 214 s | 9 / 0 / 57 s | 9 / 0 / 56 s |
-| rigify | 7 / 4 / 282 s | 7 / 0 / 34 s | 7 / 0 / 36 s |
-| armen | 8 / 0 / 42 s | 8 / 0 / 19 s | 8 / 0 / 21 s |
+| robot-a | 7 / 1 / 136 s | 9 / 0 / 62 s | 9 / 0 / 91 s |
+| robot-b | 7 / 1 / 171 s | 9 / 0 / 89 s | 9 / 0 / 87 s |
+| robot-fijn | 9 / 4 / 239 s | 9 / 0 / 171 s | 9 / 0 / 163 s |
+| kleding | 8 / 6 / 205 s | 9 / 0 / 92 s | 9 / 0 / 89 s |
+| mens | 9 / 0 / 153 s | 9 / 0 / 54 s | 9 / 0 / 47 s |
+| rigify | 7 / 4 / 291 s | 7 / 0 / 47 s | 7 / 0 / 29 s |
+| armen | 8 / 0 / 43 s | 8 / 0 / 30 s | 8 / 0 / 23 s |
 | **samen** | **55 van 60** | **60 van 60** | **60 van 60** |
 
 In 5.2 en 5.3 nu elk haalbaar gewricht en geen enkele slechte snede meer onderweg (was 16 per versie). Het aangeklede
-figuur (de filmpjes) ging van 8 naar 9 en van ±8 naar ±1,5 minuut. De kale mens is trager (14 naar 57 s), zie "Wat nog niet".
+figuur (de filmpjes) ging van 8 naar 9 en van ±8 naar ±1,5 minuut. De kale mens is trager (14 naar ±50 s), zie "Wat nog niet".
 
 ## Oorzaak (met bewijs)
 Figure from rig snijdt een lid los met een omhulsel H (`een_lid`): een convex omhulsel rond het snijvlak plus het lid
@@ -81,7 +81,7 @@ zelf, elk punt `m` (0,2 tot 0,6 mm) langs zijn normaal naar buiten, samengevoegd
   van 717 punten of overlappende delen). Aangekleed figuur: rechterknie (eerste plek overlap, verdere plekken Tight). De
   koper krijgt daar nu een zin met wat hij kan doen. Een betere 4.2-snede vraagt een eigen spoor (bijvoorbeeld de
   scharniersnede lokaal rond het gewricht), niet vóór woensdag.
-- **Tijd:** op een licht figuur kost H nu meer (kale mens 14 naar 57 s voor 9 gewrichten). Op de zware figuren werd het
+- **Tijd:** op een licht figuur kost H nu meer (kale mens 14 naar 47 tot 57 s voor 9 gewrichten). Op de zware figuren werd het
   sneller (aangekleed 611 naar 91 s). Kan sneller met een grovere voxel op kleine figuren; niet gedaan om de uitkomst
   niet te raken.
 - **Meshy knight (alleen in de gewone e2e, licentie niet nagelezen, niet in de testset):** de rechterknie zit op de grens
