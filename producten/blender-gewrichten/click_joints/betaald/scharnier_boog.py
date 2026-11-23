@@ -24,7 +24,6 @@ _dikte = {}         # (naam A, naam B, aantal hoekpunten) -> halve dikte; in de 
 STREEP = 5          # graden tussen twee streepjes
 POSE_LANG = 1.15
 ROOD_PX = 24        # "+N° past limit": groot genoeg voor een winkelplaatje (16 was te klein)
-FIGUUR_X = 0.7      # Pro 1.1 (Daan punt 1): bij een figuur een kleinere boog, in de passingkleur, met alleen het getal
 FIGUUR_PX = 22  # Daan 17 nov moet 4 (was 16)
 _handler = [None]
 laatst = {}  # wat de laatste tekenbeurt tekende, voor het bewijs in de schermtest
@@ -256,13 +255,15 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
     boog = [p(x) for x in v["boog"]]
     vlak = gpu.shader.from_builtin("UNIFORM_COLOR")
     dik = gpu.shader.from_builtin("POLYLINE_UNIFORM_COLOR")
-    waaier._waaiervlak(vlak, q["centrum"], boog, (*KL, 0.22 if fig else 0.15))
+    # Keuring 23 nov C4: in de stand Selected staat er maar één boog, dus die mag feller (was even bleek als bij All).
+    sel = fig and labels.stand(bpy.context) == "SELECTED"
+    waaier._waaiervlak(vlak, q["centrum"], boog, (*KL, 0.38 if sel else (0.22 if fig else 0.15)))
     waaier._lijn(dik, regio, [q["centrum"], q["as_eind"]], (*KL, 0.55), 2.0 * schaal)
     if fig:  # mooier overlay: donkere onderlijn, zodat de groene boog ook op een licht model los staat
         labels.onderlijn(regio, [q["centrum"], q["grens_eind"]], 7.0 * schaal)
         labels.onderlijn(regio, boog, 7.0 * schaal)
-    waaier._lijn(dik, regio, [q["centrum"], q["grens_eind"]], (*KL, 0.9), 3.0 * schaal)
-    waaier._lijn(dik, regio, boog, (*KL, 0.9), 3.0 * schaal)
+    waaier._lijn(dik, regio, [q["centrum"], q["grens_eind"]], (*KL, 1.0 if sel else 0.9), (4.0 if sel else 3.0) * schaal)
+    waaier._lijn(dik, regio, boog, (*KL, 1.0 if sel else 0.9), (4.0 if sel else 3.0) * schaal)
     hoek = waaier.kijkhoek(rv3d, v)
     naam = fig and labels.met_naam(bpy.context, b)
     streep, getal, nul = [], False, False
@@ -298,7 +299,7 @@ def _teken_een(regio, rv3d, a, b, schaal, actief=True):
                 rood_tekst = waaier._tekst(0, plek, v["voorbij_tekst"], ROOD, groot)
     if fig and getal:
         getal = labels.pil(q["label"], label_tekst(b, v["getal"], naam), int(FIGUUR_PX * schaal), schaal,
-                           accent=KL) is not None
+                           accent=ROOD if v["voorbij"] else KL) is not None  # C4: bolletje rood voorbij de stop
     # De regel van het paneel ook in beeld (winkelschermen 11 en 12), bovenaan in het midden.
     # Bij een figuur alleen voor het actieve gewricht, anders staan zes regels over elkaar.
     kop = tekst(a)

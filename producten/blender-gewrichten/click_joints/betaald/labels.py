@@ -22,7 +22,7 @@ STANDEN = (
 ACHTER = (0.067, 0.071, 0.082, 0.86)  # #111215, 86 procent: donkerder dan Blender (50 procent), leest op elk model
 ROOD_ACHTER = (0.86, 0.20, 0.20, 0.95)  # pil voorbij de stop: rood vlak met witte tekst
 WIT = (1.0, 1.0, 1.0)
-FIGUUR_X_ALLE = 0.7  # zelfde als scharnier_boog.FIGUUR_X en figuur_teken.FIGUUR_X (stand All)
+FIGUUR_X_ALLE = 0.7  # verkleining van de boog bij een figuur in de stand All (zes bogen naast elkaar)
 
 
 def stand(context=None):

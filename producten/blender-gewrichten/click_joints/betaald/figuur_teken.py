@@ -15,7 +15,6 @@ import math
 import bpy
 from mathutils import Vector
 
-FIGUUR_X = 0.7      # zelfde verkleining als de scharnierboog bij een figuur
 AFSTAND_PX = 40.0   # Daan: geen twee getallen binnen 40 px op 1920 van elkaar (gat tussen de tekstvakken)
 WIT = (1.0, 1.0, 1.0)  # getal van een figuur: wit met donkere rand
 PX = 22             # zelfde maat als het scharniergetal bij een figuur (Daan 17 nov moet 4: ±22 px op 1920, was 16)
@@ -31,27 +30,6 @@ def _mod(naam):
 def kleur(ob):
     rgba = _mod("passing").KLEUREN.get(ob.get("cj_passing", "groen"), _mod("passing").KLEUREN["groen"])
     return tuple(rgba[:3])
-
-
-def tekst_rand(punt, tekst, kleur_, px):
-    """Tekst met een donkere rand van 2 px: donker verschoven in een ring tot 2 px, dan de tekst zelf.
-    Daan 17 nov moet 4: wit met een donkere rand leest op elke ondergrond, groen op groen niet."""
-    import blf
-    if punt is None:
-        return False
-    blf.size(0, px)
-    breed, hoog = blf.dimensions(0, tekst)
-    x0, y0 = punt.x - breed / 2.0, punt.y - hoog / 2.0
-    for dx in (-2, -1, 0, 1, 2):
-        for dy in (-2, -1, 0, 1, 2):
-            if (dx or dy) and abs(dx) + abs(dy) < 4:
-                blf.color(0, 0.05, 0.05, 0.05, 1.0)
-                blf.position(0, x0 + dx, y0 + dy, 0)
-                blf.draw(0, tekst)
-    blf.color(0, kleur_[0], kleur_[1], kleur_[2], 1.0)
-    blf.position(0, x0, y0, 0)
-    blf.draw(0, tekst)
-    return True
 
 
 def vak(punt, tekst, px):

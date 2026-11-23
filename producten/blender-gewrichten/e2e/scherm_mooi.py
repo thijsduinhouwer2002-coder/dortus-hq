@@ -111,7 +111,27 @@ def schiet(naam):
     if os.path.exists(pad):
         staat["beelden"].append(naam)
     staat["getallen"].append(n)
+    teksten = [b.get("label_tekst") for b in _mod("betaald.scharnier_boog").laatst.get("bogen", [])
+               if b.get("getal_getekend") and b.get("label_tekst")]
+    staat.setdefault("per_beeld", {})[naam] = {"n": n, "koppen": koppen, "teksten": teksten, "rood": rood_vlakken()}
     return pad
+
+
+def selected_ok():
+    """Moet 1 keuring 23 nov: de standaardstand Labels: Selected, zoals een koper hem als eerste ziet.
+    m1 en m3: precies 1 label, met de naam van het gekozen gewricht, geen kopregel. m2 (niets gekozen): 0 labels.
+    m4 (voorbij de stop): het hele deel rood, dus veel meer dan een strook (voor: 17 vlakken)."""
+    pb = staat.get("per_beeld", {})
+    fout = []
+    for nm in ("m1-heel", "m3-knie"):
+        b = pb.get(nm, {})
+        if b.get("n") != 1 or b.get("koppen") or not any(KNIE in t for t in b.get("teksten", [])):
+            fout.append(f"{nm}={b}")
+    if pb.get("m2-schoon", {}).get("n") != 0:
+        fout.append(f"m2-schoon={pb.get('m2-schoon')}")
+    if pb.get("m4-rood", {}).get("rood", 0) < 200:
+        fout.append(f"m4-rood={pb.get('m4-rood')}")
+    return not fout, fout
 
 
 def uitsnede(bron, doel):
@@ -189,6 +209,8 @@ def stap():
                  and staat.get("ok_p7") and sum(staat["getallen"]) > 0)
         log(f"MOOI {'OK' if alles else 'FOUT'} beelden={staat['beelden']} fout_boog={_mod('betaald.scharnier_boog').laatst.get('fout')} "
             f"fout_kogel={_mod('betaald.figuur_teken').laatst.get('fout')}")
+        sok, sfout = selected_ok()
+        log(f"MOOI SELECTED {'OK' if sok else 'FOUT'} stand={getattr(bpy.context.window_manager, 'cj_labels', None)} {sfout}")
         bpy.ops.wm.quit_blender()
         return None
     naam, zet = PLAN[i]

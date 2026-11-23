@@ -281,6 +281,24 @@ jobs:
             /tmp/blender/blender --gpu-backend opengl /tmp/start_m.blend --python e2e/scherm_mens.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/mens_s.log || true
           grep -q "MENS BEELD OK" /tmp/mens_s.log || { echo "FOUT: plaatje 19 mensfiguur"; exit 1; }
           for f in 19-mens-x.png 19-mens-paneel.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+      - name: Standaardbeeld Labels Selected (mooier overlay, moet 1 keuring 23 nov)
+        # Het beeld dat elke koper als eerste ziet: 1 label met naam bij het gekozen gewricht, geen kopregel,
+        # niets als niets gekozen is, het hele deel rood voorbij de stop. Beelden niet openbaar (eigen map in /tmp).
+        if: always()
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_mooi_s
+          BLENDER_USER_CONFIG: /tmp/cj_mooi_s/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_mooi_s/extensions
+        run: |
+          [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+          [ -s /tmp/mh_base.obj ] || curl -fsSL --retry 3 -o /tmp/mh_base.obj https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_mooi.blend')"
+          CJ_MENS_OBJ=/tmp/mh_base.obj timeout 500 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_mooi.blend --python e2e/scherm_mooi.py -- /tmp/mooi_s /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/mooi_s.log || true
+          grep "MOOI\|Traceback" /tmp/mooi_s.log | cut -c1-600 || true
+          grep -q "MOOI OK" /tmp/mooi_s.log || { echo "FOUT: beelden Labels Selected"; exit 1; }
+          grep -q "MOOI SELECTED OK" /tmp/mooi_s.log || { echo "FOUT: standaardbeeld Labels Selected klopt niet"; exit 1; }
       - name: Plaatje 20 Fit test strip (betaalde zip, Workbench-render, eindbeeld voor Daan)
         if: always()
         env:
