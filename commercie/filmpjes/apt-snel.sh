@@ -9,12 +9,21 @@
 # (ook) in het downloaden van een trage spiegel; dit script haalt alleen de update-wachttijd weg. Volgende stap: de
 # .deb-bestanden bewaren met actions/cache, dan hoeft er niets van de spiegel.
 # Gebruik in een workflow:  bash commercie/filmpjes/apt-snel.sh xvfb ffmpeg fonts-inter ...
+# Met bewaarde .deb-bestanden (Olaf, 23 nov ±22:30): zet APT_DEBS=$HOME/apt-debs en bewaar die map met actions/cache
+# (voorbeeld in .github/workflows/apt-snel-proef.yml). apt haalt dan alleen wat nog niet in de map staat van de spiegel.
 set -u
 [ "$#" -gt 0 ] || { echo "gebruik: apt-snel.sh pakket..."; exit 2; }
 OPT=(-y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3)
 export DEBIAN_FRONTEND=noninteractive
+if [ -n "${APT_DEBS:-}" ]; then
+  mkdir -p "$APT_DEBS/partial"
+  echo "apt-snel: $(ls "$APT_DEBS"/*.deb 2>/dev/null | wc -l) bewaarde .deb-bestanden in $APT_DEBS"
+  OPT+=(-o "Dir::Cache::Archives=$APT_DEBS" -o APT::Sandbox::User=root -o APT::Keep-Downloaded-Packages=true)
+  trap 'sudo chown -R "$(id -u):$(id -g)" "$APT_DEBS"; sudo rm -f "$APT_DEBS/lock"' EXIT
+fi
 if timeout 600 sudo apt-get install "${OPT[@]}" "$@" >/tmp/apt-snel.log 2>&1; then
   echo "apt-snel: geïnstalleerd zonder update"
+  grep -c '^Get:' /tmp/apt-snel.log | sed 's/^/apt-snel: van de spiegel gehaald: /'
   exit 0
 fi
 echo "apt-snel: eerste poging mislukt, nu update en opnieuw"

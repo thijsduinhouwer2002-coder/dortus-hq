@@ -1,13 +1,37 @@
 name: apt-snel proef (Olaf)
-# Toetst commercie/filmpjes/apt-snel.sh op een schone runner met de pakketlijst van regisseur-3/4, drie keer naast
-# elkaar, en meet de tijd. Doel: weten of installeren zonder `apt-get update` werkt voor de filmpjes-workflows.
+# Toetst commercie/filmpjes/apt-snel.sh met bewaarde .deb-bestanden (actions/cache, gratis binnen GitHub).
+# Job "vul" haalt de pakketten één keer en bewaart ze; daarna installeren drie runners naast elkaar uit de bewaarde
+# map. Doel: de uitschieters van 3 tot 8 min (trage spiegel bij het downloaden) weg. Pakketlijst van regisseur-3/4.
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths: [.github/workflows/apt-snel-proef.yml, commercie/filmpjes/apt-snel.sh]
+env:
+  PAKKETTEN: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 imagemagick xdotool ffmpeg fonts-inter tesseract-ocr
 jobs:
+  vul:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: commercie/filmpjes/apt-snel.sh
+      - uses: actions/cache@v4
+        with:
+          path: ~/apt-debs
+          key: apt-debs-filmpjes-v1-${{ runner.os }}-${{ hashFiles('commercie/filmpjes/apt-snel.sh') }}
+          restore-keys: apt-debs-filmpjes-v1-${{ runner.os }}-
+      - name: apt-snel (vullen)
+        env:
+          APT_DEBS: /home/runner/apt-debs
+        run: |
+          start=$(date +%s)
+          bash commercie/filmpjes/apt-snel.sh $PAKKETTEN
+          echo "TIJD apt-snel vullen: $(( $(date +%s) - start )) s"
+          echo "bewaard: $(ls ~/apt-debs/*.deb | wc -l) bestanden, $(du -sh ~/apt-debs | cut -f1)"
   proef:
+    needs: vul
     runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
@@ -18,10 +42,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           sparse-checkout: commercie/filmpjes/apt-snel.sh
-      - name: apt-snel
+      - uses: actions/cache/restore@v4
+        with:
+          path: ~/apt-debs
+          key: apt-debs-filmpjes-v1-${{ runner.os }}-${{ hashFiles('commercie/filmpjes/apt-snel.sh') }}
+          restore-keys: apt-debs-filmpjes-v1-${{ runner.os }}-
+      - name: apt-snel (uit bewaarde map)
+        env:
+          APT_DEBS: /home/runner/apt-debs
         run: |
           start=$(date +%s)
-          bash commercie/filmpjes/apt-snel.sh xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 imagemagick xdotool ffmpeg fonts-inter tesseract-ocr
+          bash commercie/filmpjes/apt-snel.sh $PAKKETTEN
           echo "TIJD apt-snel: $(( $(date +%s) - start )) s"
           for p in xvfb-run convert xdotool ffmpeg tesseract; do command -v $p >/dev/null || { echo "MIST $p"; exit 1; }; done
           fc-list | grep -qi inter || { echo "MIST fonts-inter"; exit 1; }
