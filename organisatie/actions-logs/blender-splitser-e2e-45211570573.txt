@@ -1,4 +1,4 @@
-# gemaakt: 2026-11-23T16:02:57Z
+# gemaakt: 2026-11-23T16:03:03Z
 # workflow: Blender splitser e2e (Split Joints, echte Blender) (.github/workflows/blender-splitser-e2e.yml)
 # run: 45211570573 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45211570573
 # commit: 912337b4 tak main gestart door push
