@@ -137,6 +137,7 @@ def geen_selectie():
         o.select_set(False)
 
 
+UIT_MM = 26.0   # robot, uit elkaar: mm per gewricht langs de as
 POSE = {"Left knee": 85.0, "Right knee": 15.0, "Left elbow": 45.0, "Right elbow": 80.0}   # stap, binnen het bereik
 
 
@@ -248,7 +249,10 @@ def verloop():
     else:
         S.plastic(delen)
     cam = S.camera()
-    meting["pose"] = {n: buig(n, g) for n, g in POSE.items()}
+    if FIGUUR == "robot":   # ronde 2: heldenpose als keten (kogels en scharnieren), zie figuur_robot.poseer
+        meting["pose"] = R.poseer(delen, R.HELD, scharnier=lambda n, g: buig(n, g))
+    else:
+        meting["pose"] = {n: buig(n, g) for n, g in POSE.items()}
     geen_selectie()
     bpy.context.view_layer.update()
     yield 0.5
@@ -260,7 +264,10 @@ def verloop():
         json.dump(meting, open(os.path.join(UIT, f"{NAAM}-meting.json"), "w"), indent=1, ensure_ascii=False)
         log("STUDIO OK klaar")
         return
-    inst.uit_elkaar = True
+    if FIGUUR == "robot":   # ronde 2: flink verder uit elkaar dan de knop (26 mm per gewricht, in rusthouding)
+        R.poseer(delen, {}, uit=UIT_MM)
+    else:
+        inst.uit_elkaar = True
     herteken()
     bpy.context.view_layer.update()
     yield 0.5
@@ -278,6 +285,8 @@ def verloop():
         o.location.z -= zak
     log("STUDIO OK render2")
     inst.uit_elkaar = False
+    if FIGUUR == "robot":
+        R.poseer(delen, R.HELD, scharnier=lambda n, g: buig(n, g))
     herteken()
     bpy.context.view_layer.update()
     yield 0.5
@@ -285,6 +294,28 @@ def verloop():
     yield 0.3
     S.render(os.path.join(UIT, f"{NAAM}-3-liggend-pose.png"))
     log("STUDIO OK render3")
+    if os.environ.get("CJ_WINKEL") and FIGUUR == "robot":
+        # Losse beelden voor de winkelbeelden: geen studio, transparante achtergrond, 2400 px hoog, geen tekst
+        sc = bpy.context.scene
+        studio_obs = [o for o in sc.objects if o.name in ("studio_wand", "studio_podium", "studio_rand")]
+        for o in studio_obs:
+            o.hide_set(True)
+            o.hide_render = True
+        sc.render.film_transparent = True
+        sc.render.image_settings.color_mode = "RGBA"
+        for naam, kw in (("held", {"pose": R.HELD}), ("uit-elkaar", {"uit": UIT_MM})):
+            if "pose" in kw:
+                R.poseer(delen, kw["pose"], scharnier=lambda n, g: buig(n, g))
+            else:
+                R.poseer(delen, {}, uit=kw["uit"])
+            herteken()
+            yield 0.5
+            S.richt(cam, delen, "staand", draai=-30, kantel=6, vul=0.90, midden_y=0.5)
+            sc.render.resolution_x, sc.render.resolution_y = 1350, 2400
+            sc.render.resolution_percentage = 40 if os.environ.get("CJ_TEST") else 100
+            yield 0.3
+            S.render(os.path.join(UIT, f"winkel-{NAAM}-{naam}-2400.png"))
+            log(f"STUDIO OK winkel {naam}")
     json.dump(meting, open(os.path.join(UIT, f"{NAAM}-meting.json"), "w"), indent=1, ensure_ascii=False)
     if not SNEL and os.environ.get("CJ_BEWAAR"):
         bpy.ops.wm.save_as_mainfile(filepath=os.path.join(UIT, f"{NAAM}-studio.blend"))

@@ -281,9 +281,17 @@ def kleur_vormen(bron_me, doel, diep=0.25, herstel=False):
         toy = None
     mw = doel.matrix_world
     buiten = 0
+    binnen_i = None
+    if herstel:   # vlakken die niet op de buitenkant liggen (binnenkant van kom of snede) worden antraciet
+        binnen_i = next((i for i, m in enumerate(doel.data.materials) if m is not None and m.name == "toy_donker"), None)
     for f in doel.data.polygons:
         if toy is not None and f.material_index not in toy:
             continue
+        if binnen_i is not None:
+            _l, _n, _i, d = alles.find_nearest(mw @ f.center)
+            if d is None or d > 1.0:
+                f.material_index = binnen_i
+                continue
         q = mw @ (f.center - f.normal * diep)
         beste = None
         for v in rooster.get((int(math.floor(q.x / cel)), int(math.floor(q.y / cel)), int(math.floor(q.z / cel))), ()):
@@ -311,16 +319,141 @@ def kleur_vormen(bron_me, doel, diep=0.25, herstel=False):
 VORMEN = "cj_robot_vormen"
 
 
-def kleur_herstel(delen):
+def _grensvlakken(bm, toy):
+    """Vlakken met een toy-kleur die aan een vlak met een andere toy-kleur grenzen."""
+    uit = set()
+    for e in bm.edges:
+        fs = e.link_faces
+        if len(fs) == 2 and fs[0].material_index != fs[1].material_index and \
+                fs[0].material_index in toy and fs[1].material_index in toy:
+            uit.update(fs)
+    return uit
+
+
+def kleur_herstel(delen, fijn=2):
     """Na Figure from rig, alleen voor renders: de add-on zet de kleuren van de delen na elke snede terug per
     dichtstbijzijnd vlak, en dan schuiven kleine details (kern op de borst, randen van platen) een beetje (GEZIEN 23 nov:
     na de schouders werd een deel van de antraciet ring rond de kern oranje en lichtblauw). Hier krijgt elk gewoon vlak
-    weer de kleur van zijn vorm. Doe dit in rusthouding (voor het poseren), zoals S.plastic."""
+    weer de kleur van zijn vorm. Doe dit in rusthouding (voor het poseren), zoals S.plastic.
+    fijn: zo vaak worden de vlakken langs een kleurgrens in vieren gedeeld en opnieuw gekleurd (ronde 2): de grens
+    volgt dan de vorm op 0,5 / 2^fijn mm in plaats van de trapjes van de voxels (0,5 mm). De vorm verandert niet,
+    de nieuwe punten liggen in de oude vlakken."""
     bron = bpy.data.meshes.get(VORMEN)
     if bron is None:
         return
     for o in delen:
+        mats = list(o.data.materials)
+        leeg = {i for i, m in enumerate(mats) if m is None}
+        donker = next((i for i, m in enumerate(mats) if m is not None and m.name == "toy_donker"), None)
+        if leeg and donker is not None:   # vlakken zonder materiaal (naad van de add-on) renderen anders wit
+            for f in o.data.polygons:
+                if f.material_index in leeg:
+                    f.material_index = donker
         kleur_vormen(bron, o, herstel=True)
+        toy = {i for i, m in enumerate(o.data.materials) if m is not None and m.name.startswith("toy_")}
+        for _ in range(fijn):
+            bm = bmesh.new()
+            bm.from_mesh(o.data)
+            grens = _grensvlakken(bm, toy)
+            if not grens:
+                bm.free()
+                break
+            randen = list({e for f in grens for e in f.edges})
+            bmesh.ops.subdivide_edges(bm, edges=randen, cuts=1, use_grid_fill=True)
+            bm.to_mesh(o.data)
+            bm.free()
+            kleur_vormen(bron, o, herstel=True)
+
+
+# ---------- pose en uit elkaar, voor renders (ronde 2) ----------
+# Heldenpose: breed staan, linkervuist omhoog, rechtervuist klaar op heuphoogte, kin omhoog. Kogels: (as in wereld, graden), binnen het bereik dat de
+# add-on meldt (schouders en heupen ±30, nek ±20; draaien om de lengteas mag altijd). Scharnieren: graden buigen.
+HELD = {
+    "Left hip": [((0, 1, 0), -9.0)], "Right hip": [((0, 1, 0), 9.0)],
+    "Left knee": 6.0, "Right knee": 6.0,
+    "Left shoulder": [((1, 0, 0), -28.0), ((0, 1, 0), 6.0)],
+    "Left elbow": 125.0,
+    "Right shoulder": [((1, 0, 0), 14.0), ((0, 1, 0), -6.0)],
+    "Right elbow": 95.0,
+    "Neck": [((0, 0, 1), -14.0), ((1, 0, 0), -6.0)],
+}
+KETEN = {"Neck": None, "Left shoulder": None, "Right shoulder": None, "Left hip": None, "Right hip": None,
+         "Left elbow": "Left shoulder", "Right elbow": "Right shoulder", "Left knee": "Left hip", "Right knee": "Right hip"}
+
+
+def _deel_b(naam):
+    for o in bpy.context.scene.objects:
+        if o.type == "MESH" and o.get("cj_naam") == naam and o.get("cj_deel") == "B":
+            return o
+    return None
+
+
+def poseer(delen, pose=None, uit=0.0, scharnier=None):
+    """Zet de delen in een pose en/of uit elkaar, als vaste lichamen in een keten (romp, dan schouder en elleboog,
+    heup en knie, nek). Kogels draaien om hun kogelmidden (cj_centrum). Scharnieren: `scharnier(naam, graden)` buigt
+    met de schuif van de add-on en hier wordt die draaiing overgenomen (wereldmatrix van deel B voor en na), daarna
+    staat de schuif weer op 0. uit: elk deel B schuift zo veel mm langs de as van zijn gewricht (cj_as), bovenop het
+    deel waar het aan zit; zo zie je in één tel hoe hij in elkaar zit (de knop van de add-on schuift 1,5 keer de
+    kogel, ±12 mm). Alle delta's van de add-on gaan eerst op 0. Daarna staat het laagste punt op z = 0.
+    Geeft de gebruikte graden per gewricht."""
+    from mathutils import Matrix, Quaternion
+    pose = pose or {}
+    for o in delen:
+        o.delta_location = (0, 0, 0)
+        o.delta_rotation_euler = (0, 0, 0)
+        o.delta_rotation_quaternion = (1, 0, 0, 0)
+    bpy.context.view_layer.update()
+    rust = {}
+    for o in delen:   # rusthouding één keer onthouden (anders stapelen pose en uit elkaar op elkaar)
+        if "cj_rust" not in o:
+            o["cj_rust"] = [x for rij in o.matrix_world for x in rij]
+        v = list(o["cj_rust"])
+        rust[o.name] = Matrix([v[0:4], v[4:8], v[8:12], v[12:16]])
+        o.matrix_world = rust[o.name]
+    bpy.context.view_layer.update()
+    lokaal, gebruikt = {}, {}
+    for naam, ouder in KETEN.items():
+        b = _deel_b(naam)
+        if b is None:
+            continue
+        m = Matrix.Identity(4)
+        waarde = pose.get(naam)
+        if b.get("cj_soort") == "KOGEL" and waarde:
+            c = Vector(b["cj_centrum"])
+            q = Quaternion()
+            for as_, g in waarde:
+                q = Quaternion(Vector(as_).normalized(), math.radians(g)) @ q
+            m = Matrix.Translation(c) @ q.to_matrix().to_4x4() @ Matrix.Translation(-c)
+            gebruikt[naam] = round(math.degrees(q.angle), 1)
+        elif b.get("cj_soort") == "SCHARNIER" and waarde and scharnier is not None:
+            voor = b.matrix_world.copy()
+            scharnier(naam, waarde)
+            bpy.context.view_layer.update()
+            m = b.matrix_world @ voor.inverted()
+            gebruikt[naam] = round(float(b.get("cj_pose_graden", waarde)), 1)
+            scharnier(naam, 0.0)
+            b.delta_location = (0, 0, 0)
+            b.delta_rotation_euler = (0, 0, 0)
+            b.delta_rotation_quaternion = (1, 0, 0, 0)
+            bpy.context.view_layer.update()
+        if uit and "cj_as" in b:
+            m = Matrix.Translation(Vector(b["cj_as"]).normalized() * uit) @ m
+        lokaal[naam] = (b, ouder, m)
+    wereld = {}
+
+    def w(naam):
+        if naam not in wereld:
+            b, ouder, m = lokaal[naam]
+            wereld[naam] = (w(ouder) if ouder in lokaal else Matrix.Identity(4)) @ m
+        return wereld[naam]
+    for naam, (b, _o, _m) in lokaal.items():
+        b.matrix_world = w(naam) @ rust[b.name]
+    bpy.context.view_layer.update()
+    laag = min((o.matrix_world @ v.co).z for o in delen for v in o.data.vertices)
+    for o in delen:
+        o.matrix_world = Matrix.Translation((0, 0, -laag)) @ o.matrix_world
+    bpy.context.view_layer.update()
+    return gebruikt
 
 
 def laad_robot(hoogte_mm=220.0, stijl=None, methode=None, voxel_mm=0.5):
