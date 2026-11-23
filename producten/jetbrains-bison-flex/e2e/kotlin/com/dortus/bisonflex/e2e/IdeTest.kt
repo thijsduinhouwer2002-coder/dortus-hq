@@ -94,6 +94,9 @@ class IdeTest {
             }
             .runIdeWithDriver()
             .useDriverAndCloseIde {
+                // Vensterverslag ook vóór het wachten: op EAP 263 liep waitForIndicators twee keer af (runs 45093981465,
+                // 45099923752), mogelijk door een dialoog boven het IDE-venster.
+                vensterVerslag("$naam-voor-wachten")
                 waitForIndicators(5.minutes)
                 vensterVerslag("$naam-start")
                 val ftm = service<FileTypeManagerOpAfstand>()
