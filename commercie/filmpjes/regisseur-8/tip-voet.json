@@ -1,0 +1,211 @@
+{
+ "naam": "tip-voet",
+ "titel": "Stop the bulging first layer before you slice 🐘 #blender #3dprinting",
+ "eind": {
+  "titel": "Blender for 3D printing",
+  "zin": "A new Blender tip for 3D printing every week.",
+  "adres": "dortus.com/yt",
+  "render": "render-bakje.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "venster": "Blender 5.3",
+ "scenes": [
+  {
+   "tekst": "Does the bottom edge of your print bulge out, like a little lip?",
+   "label": "QUICK CHECK",
+   "kleur": "oranje",
+   "kop": "Bulging edge?",
+   "beeld": {
+    "deel": "f_heel",
+    "van": 0,
+    "tot": 96,
+    "uitsnede": [
+     [
+      1110,
+      920,
+      1150
+     ],
+     [
+      1130,
+      930,
+      950
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "That is elephant foot. The first layer gets squished wider than the rest.",
+   "label": "WHY",
+   "kleur": "blauw",
+   "kop": "Elephant foot",
+   "beeld": {
+    "deel": "f_rand",
+    "van": 0,
+    "tot": 84,
+    "uitsnede": [
+     [
+      1120,
+      870,
+      1430
+     ],
+     [
+      1120,
+      880,
+      1235
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Give the bottom edge a small slope in Blender, before you slice.",
+   "label": "TIP",
+   "kleur": "groen",
+   "kop": "Add a small slope",
+   "beeld": {
+    "deel": "f_heel",
+    "van": 40,
+    "tot": 96,
+    "uitsnede": [
+     [
+      1120,
+      920,
+      1235
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Press Tab for Edit Mode, then 3 for face select.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Tab, then 3",
+   "uitspraak": "Press Tab for Edit Mode, then three for face select.",
+   "beeld": {
+    "deel": "f_edit",
+    "van": 0,
+    "tot": 60,
+    "uitsnede": [
+     [
+      1115,
+      905,
+      1495
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Open View, Viewpoint, Bottom. Then click the bottom face.",
+   "label": "STEP 2",
+   "kleur": "blauw",
+   "kop": "View, Viewpoint, Bottom",
+   "beeld": {
+    "deel": "f_onder",
+    "van": 0,
+    "uitsnede": [
+     [
+      900,
+      800,
+      1900
+     ],
+     [
+      1080,
+      905,
+      1900
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Press Control B, type 0.5, and press Enter.",
+   "label": "STEP 3",
+   "kleur": "oranje",
+   "kop": "Ctrl B, 0.5, Enter",
+   "uitspraak": "Press Control B, type zero point five, and press Enter.",
+   "beeld": {
+    "deel": "f_bevel",
+    "van": 0,
+    "uitsnede": [
+     [
+      1085,
+      905,
+      1950
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Now the bottom edge has a slope of half a millimeter, all the way around.",
+   "label": "RESULT",
+   "kleur": "groen",
+   "kop": "0.5 mm slope",
+   "beeld": {
+    "deel": "f_bevel",
+    "van": 60,
+    "uitsnede": [
+     [
+      1080,
+      905,
+      1900
+     ],
+     [
+      1420,
+      1170,
+      700
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Print guides suggest 0.2 to 0.5 mm. The wider first layer fills that slope.",
+   "label": "WHY IT WORKS",
+   "kleur": "blauw",
+   "kop": "0.2 to 0.5 mm",
+   "uitspraak": "Print guides suggest zero point two to zero point five millimeters. The wider first layer fills that slope.",
+   "beeld": {
+    "deel": "f_klaar",
+    "van": 0,
+    "tot": 120,
+    "uitsnede": [
+     [
+      1025,
+      925,
+      1885
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Save this for your next print.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Save this tip",
+   "beeld": {
+    "deel": "f_klaar",
+    "van": 170,
+    "uitsnede": [
+     [
+      1120,
+      910,
+      1430
+     ],
+     [
+      1120,
+      910,
+      1235
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "More Blender tips for 3D printing at dortus.com/yt.",
+   "label": "MORE TIPS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   },
+   "uitspraak": "More Blender tips for three D printing, at dortus dot com slash Y T."
+  }
+ ]
+}
