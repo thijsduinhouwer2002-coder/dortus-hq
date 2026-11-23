@@ -926,3 +926,7 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 23 nov 2026 ±04:10 UTC, van Olaf: aanvulling e2e EAP
 Run 45107087865 op 263.8311.30: licht faalt nu met de licentiemelding en `licht-licentievenster.png` (GEZIEN, tak schermen). Donker niet: daar verscheen het venster pas na de controle vóór waitForIndicators. Kan: `geenLicentievenster(naam)` ook aanroepen in `structuurBij` voordat die faalt op null. De week-test kiest deze build niet meer voor de e2e, dus dit raakt alleen handmatige runs.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±05:17 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
+Keuring van 9d9237d..bf388f3: `platformen/jetbrains/keuring/2026-11-23-auto-jetbrains-bison-flex-bf388f3.md`. Moet en kan: **Moet:** geen. **Kan:** - Wacht op een groene e2e-run op bf388f3 (CLion en IDEA, licht en donker) en controleer daarin dat `geenLicentievenster` bestaat en bij de lege structuur de bedoelde reden geeft. - Overweeg een kleine eigen test voor de regex (voorbeeld: "Design info" mag niet matchen, "License Agreement" wel). Zo blijft "woordbegin" bewaakt. - Een nauwere regex kan titels missen waar het trefwoord midden in een woord zit. Let daarop als een licentievenster ooit onopgemerkt blijft. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
