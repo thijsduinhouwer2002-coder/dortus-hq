@@ -1,6 +1,11 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
 
+## 24 nov 2026 00:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat (betrouwbaarheid) is gekeurd dicht: herkeuring A zegt ja op 37de78b, geen moet-punten (GEZIEN, 6aeac49); Bram heeft de opdracht samen te voegen als 1.2.3 zodra de e2e ook in 4.2.23 groen is (kan-punten: toets CJ_HERKANS scherper, releasenote "knees, shoulders and hips"). Af: doel live vóór do 26 nov. Daarna gat uiterlijk en bewijs: nieuwe houten tekenpop-cover (release tekenpop-1) gaat nu naar Daan om te keuren, video vooraan op de winkelpagina's staat op de lijst (vóór do 27 nov).
+- **Idee deze ronde (van Afkijker, overgenomen):** gratis spiekbrief "3D print check" als $0-product naast Pro, zodat kijkers van de tip-Shorts eerst in de winkel komen (GOK op effect, kost niets); Bram en Chris maken hem, Daan keurt. Prijs Pro als "betaal wat je wilt" vanaf $19 (voorstel $25): besluit pas na 1.2.3, samen met de nieuwe cover.
+
+
 ## 24 nov 2026 00:20 NL (hoofdchat kwartier-check 4)
 - **Click Joints Pro:** nog niet trots. Product: betrouwbaarheid bijna dicht; Betrouwbaarheid loste beide moet-punten van keurder A op (tak `claude/betrouwbaar-rig` 25efd95, automatische keurder ja, GEZIEN), herkeuring A (deze ronde ingezet) zegt ja op 25efd95, met als voorwaarde dat e2e-run 45287215003 ook in 4.2 groen is (GEZIEN, dc39666). Dan voegt Bram als 1.2.3, doel live vóór do 26 nov. Marketing en opvallen: zwak. Winkelpagina's hebben nog geen video of GIF (Gumroad 2 stilstaande covers, Superhive 0 GIF, GEZIEN curl 00:15), Cut Flex heeft 10 GIFs, een werkstroom in 5 stappen, $34,99 en Sales 10+ (GEZIEN). Interface deze ronde niet zelf in Blender bekeken.
 - **Idee deze ronde:** Superhive-beschrijving als werkstroom met een GIF per stap (score 6, na 1.2.3).
