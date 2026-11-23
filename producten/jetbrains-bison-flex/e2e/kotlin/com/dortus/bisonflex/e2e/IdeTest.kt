@@ -95,6 +95,7 @@ class IdeTest {
             .runIdeWithDriver()
             .useDriverAndCloseIde {
                 waitForIndicators(5.minutes)
+                vensterVerslag("$naam-start")
                 val ftm = service<FileTypeManagerOpAfstand>()
                 for ((bestand, soort) in listOf("calc.y" to "Bison", "calc.yy" to "Bison", "calc.l" to "Flex", "calc.ll" to "Flex")) {
                     val ft = ftm.getFileTypeByFileName(bestand)

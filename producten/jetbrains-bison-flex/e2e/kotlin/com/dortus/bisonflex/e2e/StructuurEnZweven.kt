@@ -168,6 +168,7 @@ fun Driver.structuurBij(naam: String, bestand: String) {
     val voor = structuurBestand()
     println("DORTUS-E2E [$naam] structuur na wissel naar $bestand: $voor")
     if (voor != bestand) {
+        vensterVerslag(naam)
         val editor = service<FileEditorManager>(singleProject()).getSelectedTextEditor()
         withContext(OnDispatcher.EDT) {
             val gelukt = editor?.let { cast(it, EditorMetOnderdeel::class).getContentComponent().requestFocusInWindow() }

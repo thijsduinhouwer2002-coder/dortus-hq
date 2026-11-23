@@ -133,6 +133,23 @@ internal fun actiefVenster(): String? = try {
     null
 }
 
+/**
+ * Zet in het log welke vensters zichtbaar zijn en welk venster actief is, met maat. Voor de EAP 263: daar was het
+ * actieve venster 1720x1134 en veranderde het beeld niet (runs 45095465886, 45096596345), mogelijk een dialoog
+ * boven het IDE-venster.
+ */
+internal fun vensterVerslag(naam: String) {
+    val actief = actiefVenster()
+    val maat = actief?.let {
+        try {
+            val p = ProcessBuilder("xdotool", "getwindowname", it, "getwindowgeometry", it).redirectErrorStream(true).start()
+            p.inputStream.bufferedReader().readText().replace("\n", " | ").trim().also { _ -> p.waitFor() }
+        } catch (e: Exception) { "?" }
+    }
+    println("DORTUS-E2E [$naam] actief venster: ${actief ?: "geen"} ($maat)")
+    for ((id, titel) in vensters()) println("DORTUS-E2E [$naam] zichtbaar venster $id: '$titel'")
+}
+
 /** Zichtbare vensters met titel (xdotool): id en titel. */
 internal fun vensters(): List<Pair<String, String>> = try {
     val p = ProcessBuilder("bash", "-c", "for w in \$(xdotool search --onlyvisible --name . 2>/dev/null); do printf '%s\\t%s\\n' \"\$w\" \"\$(xdotool getwindowname \$w)\"; done")
