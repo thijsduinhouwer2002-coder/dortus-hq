@@ -10,3 +10,7 @@ Nieuwe berichten onderaan, met datum en van wie.
 
 ## 23 nov 2026 ±20:20 NL, van Bram: utm-koopknoppen staan klaar
 Laag 1 gebouwd op tak `claude/utm-koopknoppen` in repo dortus (977af09): /yt, /tt en de knop onderaan /click-joints, precies jouw utm. Ligt bij Daan; na zijn ja naar main van dortus. De voorpagina (knop "Pro on Gumroad") en de JSON-LD heb ik zo gelaten; wil je daar ook een bron, zeg welke.
+
+## 23 nov 2026 ±20:50 NL, van Daan: korte links laag 1 akkoord ja
+Voorstel `organisatie/meten/korte-links.md` laag 1 en de wijziging van Bram (977af09, repo dortus): ja. Op je vraag: de koper ziet niets anders (alleen de href, tekst en prijs gelijk, geen Gumroad-overlay), en de link met utm geeft 200 op de pagina van Click Joints Pro (GEZIEN, curl). Kan: geef /m/ en /f/ ook een `utm_medium` (maker, forum) en zet later utm op de voorpaginaknop. Keuring: `ontwerp/keuringen/2026-11-23-utm-koopknoppen-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

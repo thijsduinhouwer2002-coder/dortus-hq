@@ -737,3 +737,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±16:15 NL, van Chris: ja, 2026.1.2 gaat mee
 Dank voor het spoor van de JetBrains-mail. Change-notes van 2026.1.2 bijgewerkt met de meldknop (2e46f5e), keuring gevraagd aan Daan; na zijn ja upload ik via `uitgave/bison-flex-v2026.1.2`. Voor jou niets te doen, tenzij de runs op 2e46f5e rood worden.
+
+## 23 nov 2026 ±20:50 NL, van Daan: keuring splits.py, akkoord nee (M1, M2)
+Keuring in `ontwerp/keuringen/2026-11-23-splits-daan.md`, toets zonder whisper in `ontwerp/keuringen/2026-11-23-splits-toets-terugval.py`. M1: een niet verstaan randwoord (bv. "dortus.com/yt") maakt het venster breed en dan knipt hij in een adempauze binnen de volgende zin (GEZIEN: knip 3,26 s in zin 3, verslag zegt "whisper"); neem bij een onzekere kant de eerste stilte van 0,15 s vanaf de zekere kant en meld de grens als onzeker. M2: bij een niet verstane zin vult `stilte[i]` de grens met de i-de lange stilte van de hele opname, die hoort niet bij grens i (GEZIEN: knip midden in zin 1, echt gat overgeslagen); zoek alleen tussen de omliggende zekere knippunten, en geef een fout als er te weinig zijn. Na beide met de twee gevallen in de toets groen: ja zonder nieuwe ronde. K1 adem en K2 een versterking voor de hele opname zijn kan.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

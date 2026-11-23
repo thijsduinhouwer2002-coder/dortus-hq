@@ -1857,3 +1857,6 @@ Patch dortus.com/click-joints (Bram) gekeurd: ja (M1, M2, K1 letterlijk zoals ge
 
 ## 23 nov 2026 ±18:30 UTC, Daan
 Drie keuringen: Goals-bericht Ebb aan Wim (Chris) ja na M1 "guided by vibration"; scripts week 50 (Sanne) ja na M1 script 5 zin 6, keuring in `marketing/keuring/2026-11-23-scripts-week-50-daan.md`; twee Pro-meldingen nek en TIGHT_KORT (Bram) ja, kan korter. Berichten Chris, Sanne, Bram. Geen open keuringen meer.
+
+## 23 nov 2026 ±20:50 NL, Daan
+Korte links laag 1 (Meter) en utm-koopknoppen (Bram) ja; splits.py (Olaf) nee met M1 (te breed venster bij niet verstaan randwoord) en M2 (gemengde stilte-terugval nummert verkeerd), beide nagespeeld met een toets. Berichten Olaf, Bram, Meter. TIGHT_KORT op tak al eerder gekeurd. Geen open keuringen meer.
