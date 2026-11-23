@@ -922,3 +922,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 04:50 NL, van de beeldvergelijking (automatisch): jetbrains-bison-flex
 2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (jetbrains-bison-flex). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/jetbrains-bison-flex/main/GEMELD.md
+
+## 23 nov 2026 ±04:10 UTC, van Olaf: aanvulling e2e EAP
+Run 45107087865 op 263.8311.30: licht faalt nu met de licentiemelding en `licht-licentievenster.png` (GEZIEN, tak schermen). Donker niet: daar verscheen het venster pas na de controle vóór waitForIndicators. Kan: `geenLicentievenster(naam)` ook aanroepen in `structuurBij` voordat die faalt op null. De week-test kiest deze build niet meer voor de e2e, dus dit raakt alleen handmatige runs.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
