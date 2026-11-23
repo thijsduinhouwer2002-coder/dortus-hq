@@ -54,3 +54,23 @@ Kort: de cijfers en citaten kloppen bijna allemaal en zijn netjes gelabeld. Maar
 - MeshyAI-filmpje noemen als bedrijfskanaal; vraag beter onderbouwen met de onafhankelijke tutorials (564K, 483K, 258K).
 - Klacht 1 eerlijk maken: de "six hour print"-zin is Cleave-reclame; vraag naar een proef is een GOK zoals bij punt 12.
 - Gumroad-tiers van CatPin ($31,50, $70) apart van de Superhive-tiers noemen.
+
+## Herkeuring, 23 nov 2026 ±20:15 NL, keurder concurrentie
+Wat ik keurde: `producten/blender-splitser/concurrentie.md` op commit d51daa6c9, alleen de 5 moet-punten plus een blik op nieuwe fouten. Bronnen opnieuw met curl.
+Akkoord: **ja**
+
+| # | Moet-punt | Verwerkt? | Feit of vermoeden | Zekerheid |
+|---|---|---|---|---|
+| 1 | Passingproef niet "niemand" | ja. Punt 1, tabel 2a (met CatPin-FAQ), klacht 1 en must have 4 zeggen nu: geen van de grote vier, wel losse proeftools; ons verschil is de eigen verbinder op 4 spelingen, onthouden per printer. Vraag staat eerlijk als GOK, Cleave-zin als reclame. | feit | hoog |
+| 2 | Nummers niet "niemand" | ja. Punt 6 (zakt van 4 naar 6), klacht 12, must have 8 en tabel 2a: Split3MF graveert, PrintForge nummert zonder gravure, uniek alleen gegraveerd in Blender. Bouwplaatje niet meer als voorsprong. Citaat "Every cut face is numbered" staat zo op [split3mf.com](https://split3mf.com/fit-to-printer). | feit | hoog |
+| 3 | PrintForge en testgenerator in 2c, wandcheck ertegen | ja. Beide rijen kloppen met de pagina's ($8,99; $7 nu $5,25; 29 dagen; geen teller; "engraved labels" niet in 1.0). Punt 3 zet de wandcheck af tegen PrintForge en Cleave. | feit | hoog |
+| 4 | Laag scenario en netto | ja. Laag 5 tot 15, hoog 30 tot 60, beide GOK. Netto narekend: Superhive (24 min 5,5% min $0,49) x 70% = $15,53; Gumroad eigen link ±$19,60; Discover $16,80. Laag ±$80 tot $300, hoog ±$500 tot $1.200: klopt. CatPin-omzet nu ±$35K tot $70K. | feit | hoog |
+| 5 | Vier citaten onder 15 woorden | ja. SideSplitter, CadSplit, Dovetail Key en Meshy zijn ingekort en kloppen nog met de bron. | feit | hoog |
+
+Ook verwerkt uit de kan-lijst: Split-teller als GOK, gratis variant pas na 2 weken, MeshyAI als bedrijfskanaal, Dovetail "solvers", CatPin Gumroad-tiers, Cleave-versies. Mijn eigen kan-punt over Cleave 1.0 was half fout: de Cleave-pagina zelf zegt "1.0 17 Sep", de versiepagina 23 sep; de analist noemt nu beide, dat is juist.
+
+Nieuw ingeslopen, niets dat blokkeert:
+- Kan: de Split3MF-rij zegt "downloaden vraagt Pro". Dat zag ik niet bevestigd: de eigen Reddit-post van Split3MF (1xsdh9i) noemt alleen tools met een kroon als Pro, en "Fit to printer" staat daar niet bij. Label als GOK of naar "gratis web" terugzetten. Ons verhaal verandert er niet door.
+- Kan: de Cleave-titel in tabel 2b is 17 woorden, maar het is een producttitel, geen citaat van een persoon. Mag blijven.
+- Geen nieuwe gedachtestreepjes, `check.py` OK, nieuwe cijfers hebben allemaal een label.
+- Onderaan concurrentie.md staat nu "wacht op herkeuring": de analist kan dat bijwerken naar akkoord ja.
