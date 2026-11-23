@@ -6,9 +6,9 @@ Referentie: referentie uit run 45275271494, commit 183fae213b7f9c5125e7926fba2b2
 |---|---|---|
 | 1-paneel-x.png | gelijk | |
 | 10-winkel-paneel-x.png | gelijk | |
-| 13-pro-knie-schoon-x.png | gelijk | |
+| 13-pro-knie-schoon-x.png | 19 px (0.001%), ruis | |
 | 13-pro-knie-x.png | gelijk | |
-| 13d-pro-knie-dicht-x.png | 55 px (0.003%), ruis | |
+| 13d-pro-knie-dicht-x.png | 130 px (0.006%), ruis | |
 | 14-pro-knie-rood-x.png | 12 px (0.001%), ruis | |
 | 14b-pro-knie-rood-los-x.png | gelijk | |
 | 15-figuur-paneel.png | gelijk | |
@@ -28,7 +28,7 @@ Referentie: referentie uit run 45275271494, commit 183fae213b7f9c5125e7926fba2b2
 | 5-waaier-x.png | 31 px (0.001%), ruis | |
 | 6-rood-x.png | gelijk | |
 | 7-plat-x.png | 116 px (0.006%), ruis | |
-| 8-winkel-x.png | 58 px (0.003%), ruis | |
+| 8-winkel-x.png | 28 px (0.001%), ruis | |
 | 9-winkel-rood-x.png | 36 px (0.002%), ruis | |
 | d1-slot-paneel.png | gelijk | |
 | d1-slot.png | gelijk | |
