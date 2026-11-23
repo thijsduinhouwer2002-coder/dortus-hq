@@ -1,0 +1,44 @@
+[meet] figuur armen: held, {'bron_punten': 76836, 'bron_zelf_overlap': 0}
+Error: The cut gave no watertight parts (bad edges: part A 360, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 364, part B 0); the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur armen: 6 gewrichten ['Left elbow', 'Right elbow', 'Left hip', 'Left shoulder', 'Right hip', 'Right shoulder']
+[meet] ontbreekt: ['Left knee', 'Right knee', 'Neck']; overgeslagen: Left knee (the cut lost part of the model here, place it by hand); Right knee (the cut lost part of the model here, place it by hand)
+[meet] pogingen 12, sneden 17, slechte sneden 7
+[meet]   SLECHT {"poging": 0, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197332104531827, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 15950.6, 12371.8, true]]}, "A": {"gesloten": false, "fout": 360, "punten": 1214, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 7730, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197332104531827, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 15950.5, 12371.8, true]]}, "A": {"gesloten": false, "fout": 360, "punten": 1214, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 7729, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197332104531827, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 15950.6, 12371.8, true]]}, "A": {"gesloten": false, "fout": 360, "punten": 1214, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 7732, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 1, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197271972351671, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 15044.9, 12371.8, true]]}, "A": {"gesloten": false, "fout": 362, "punten": 1216, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 6998, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 2, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197272354146859, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 14139.2, 12371.8, true]]}, "A": {"gesloten": false, "fout": 364, "punten": 1218, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 6266, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 2, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197272354146859, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 14139.2, 12371.8, true]]}, "A": {"gesloten": false, "fout": 364, "punten": 1218, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 6266, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 2, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197272354146859, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 14139.2, 12371.8, true]]}, "A": {"gesloten": false, "fout": 364, "punten": 1218, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 6269, "zelf": 0}, "goed": false}
+MEET armen gewrichten=6 overgeslagen=3 slechte_sneden=7
+STATUS Installed "click_joints"
+[meet] figuur armen: held, {'bron_punten': 76836, 'bron_zelf_overlap': 0}
+Error: The cut gave no watertight parts (bad edges: part A 360, part B 0); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 135°. 5.619 s.
+Error: The cut gave no watertight parts (bad edges: part A 364, part B 0); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 140°. 1.689 s.
+Info: Hinge placed. Bends 0° to 135°. 3.115 s.
+Info: Hinge placed. Bends 0° to 135°. 3.039 s.
+Info: Hinge placed. Bends 0° to 135°. 3.018 s.
+Info: Hinge placed. Bends 0° to 140°. 1.599 s.
+Info: Joint placed. Good fit. 2.957 s.
+Info: Joint placed. Good fit. 1.802 s.
+Info: Joint placed. Good fit. 2.57 s.
+Info: Joint placed. Good fit. 1.444 s.
+Warning: 6 joints · 1 rig · 1 mirror · 4 preset. Skipped: Left knee (the cut lost part of the model here, place it by hand); Right knee (the cut lost part of the model here, place it by hand)
+[meet] Blender 4.2.23 LTS figuur armen: 6 gewrichten ['Left elbow', 'Right elbow', 'Left hip', 'Left shoulder', 'Right hip', 'Right shoulder']
+[meet] ontbreekt: ['Left knee', 'Right knee', 'Neck']; overgeslagen: Left knee (the cut lost part of the model here, place it by hand); Right knee (the cut lost part of the model here, place it by hand)
+[meet] pogingen 12, sneden 17, slechte sneden 7
+[meet]   SLECHT {"poging": 0, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197332104531827, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 15950.6, 12371.8, true]]}, "A": {"gesloten": false, "fout": 360, "punten": 1214, "zelf": 0, 
+[meet]   SLECHT {"poging": 0, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197332104531827, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 15950.5, 12371.8, true]]}, "A": {"gesloten": false, "fout": 360, "punten": 1214, "zelf": 0, 
+[meet]   SLECHT {"poging": 0, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197332104531827, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 15950.6, 12371.8, true]]}, "A": {"gesloten": false, "fout": 360, "punten": 1214, "zelf": 0, 
+[meet]   SLECHT {"poging": 1, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197271972351671, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 15044.9, 12371.8, true]]}, "A": {"gesloten": false, "fout": 362, "punten": 1216, "zelf": 0, 
+[meet]   SLECHT {"poging": 2, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197272354146859, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 14139.2, 12371.8, true]]}, "A": {"gesloten": false, "fout": 364, "punten": 1218, "zelf": 0, 
+[meet]   SLECHT {"poging": 2, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197272354146859, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 14139.2, 12371.8, true]]}, "A": {"gesloten": false, "fout": 364, "punten": 1218, "zelf": 0, 
+[meet]   SLECHT {"poging": 2, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "samen", "lid_open": 0, "vreemd": 0, "marge": 0.3197272354146859, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 14139.2, 12371.8, true]]}, "A": {"gesloten": false, "fout": 364, "punten": 1218, "zelf": 0, 
+MEET armen gewrichten=6 overgeslagen=3 slechte_sneden=7
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+model name	: Intel(R) Xeon(R) 6975P-C
