@@ -1,5 +1,8 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 23 nov 2026 ±23:35 NL (hoofdchat kwartier-check)
+- **Click Cuts:** niet trots, nog niet te koop. Product: kern, passingproef en kleur per stuk gekeurd (GEZIEN, keuring/), draaibaar snijvlak loopt. Interface: het echte paneel is vier technische vakken onder de werknaam "Split Joints", niet de ene knop "Split to fit" uit de schets van Merk (GEZIEN, paneel.py tegen paneel-schets.png; paneel zelf niet in Blender bekeken deze ronde). Marketing: nog niets (geen winkelpagina, naam wacht op Thijs), terwijl Cleave al bij v1.7.0 is (GEZIEN, curl versiepagina). Opdracht één knop aan de Productbouwer, na het snijvlak.
+
 ## 23 nov 2026 21:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** nog niet trots. Grootste gat blijft betrouwbaarheid (Figure from rig slaat soms een gewricht over). Betrouwbaarheid werkt er echt aan: commit 63f4c6e op `claude/betrouwbaar-rig` een minuut voor deze ronde (diep omhulsel, scharnier in 4.2, architectuur bijgewerkt; GEZIEN git log), doel wo 25 nov. Daarna bewijs: video als eerste omslag op Gumroad en Superhive (staat klaar voor de ronde met Chrome en op de lijst, vóór do 27 nov).
 - **Click Cuts:** kleur per stuk gekeurd en CI groen (Productbouwer); volgende gat is het draaibare snijvlak, Productbouwer is begonnen. Nog niet verkoopbaar.
