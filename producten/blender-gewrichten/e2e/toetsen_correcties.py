@@ -57,6 +57,53 @@ def exact_zelf(arm):
     arm.hide_set(True)
 
 
+def solver_terugval(arm):
+    """5b (Pro 1.2.2). Geeft Manifold open delen, dan snijdt Pro één keer opnieuw met Exact (betaald/terugval.py).
+    Nagespeeld met FORCEER_OPEN: 0 geeft twee gesloten delen met solver MANIFOLD zonder terugval; 1 geeft twee
+    gesloten delen met solver EXACT en cj_solver_terugval; 2 (ook de tweede snede open) moet netjes weigeren,
+    figuur heel en zichtbaar. Steeds zonder hulpresten. Alleen met de Pro-zip en Manifold."""
+    gw = addon("gewricht")
+    try:
+        tv = addon("betaald.terugval")
+    except ImportError:
+        log("TERUGVAL: gratis zip, toets overgeslagen")
+        return
+    if gw.solver_naam() != "MANIFOLD":
+        log("TERUGVAL: geen Manifold in deze Blender, toets overgeslagen")
+        return
+    arm.hide_set(False)
+    try:
+        for keer in (0, 1, 2):
+            tv.FORCEER_OPEN = keer
+            figuren.zet_cursor((0, 0, 0), (1, 0, 0))
+            bpy.context.scene.click_joints.as_bron = "CURSOR"
+            uitslag, melding = probeer_plaats(arm)
+            lijst = delen()
+            rest = [c.name for c in bpy.data.collections if c.name.startswith("cj_hulp")]
+            solvers = [d.get("cj_solver") for d in lijst]
+            log(f"TERUGVAL {keer}x open: uitslag={uitslag} delen={len(lijst)} solver={solvers} "
+                f"melding={melding} hulp={rest}")
+            if keer < 2:
+                gesloten_delen(f"terugval {keer}x open", lijst)
+                verwacht = "EXACT" if keer else "MANIFOLD"
+                terug = [bool(d.get("cj_solver_terugval")) for d in lijst]
+                stap(f"terugval {keer}x open: twee delen, solver {verwacht}, terugval {'aan' if keer else 'uit'}, "
+                     "geen hulpresten",
+                     len(lijst) == 2 and all(t == bool(keer) for t in terug) and solvers == [verwacht] * 2
+                     and not rest and tv.FORCEER_OPEN == 0)
+                weg(lijst)
+                arm.hide_set(False)
+            else:
+                fout, vol = meting(arm)
+                stap("terugval 2x open: geweigerd, figuur heel en zichtbaar, geen hulpresten",
+                     not lijst and bool(melding) and fout == 0 and vol > 0 and arm.visible_get() and not rest
+                     and tv.FORCEER_OPEN == 0)
+                weg(lijst)
+    finally:
+        tv.FORCEER_OPEN = 0
+        arm.hide_set(True)
+
+
 def probeer_plaats(ob):
     """Roept de operator aan en geeft (uitslag, foutmelding)."""
     figuren.maak_actief(ob)
@@ -308,6 +355,7 @@ def verwachte_wand(ob, a):
 
 def alles(arm):
     exact_zelf(arm)
+    solver_terugval(arm)
     modifiers()
     gespiegeld()
     kijk_zonder_venster()

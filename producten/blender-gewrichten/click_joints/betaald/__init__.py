@@ -8,7 +8,7 @@ import addon_utils
 import bpy
 
 from .. import gewricht, uit_elkaar
-from . import afstand, figuur, figuur_teken, labels, scharnier, scharnier_beweeg, scharnier_boog, snippers, een_lid_diep, testkaart
+from . import afstand, figuur, figuur_teken, labels, scharnier, scharnier_beweeg, scharnier_boog, snippers, een_lid_diep, terugval, testkaart
 
 ACTIEF = True
 KLASSEN = scharnier.KLASSEN + testkaart.KLASSEN
@@ -136,6 +136,7 @@ def register(eigen=None):
     een_lid_diep.register()  # 1.1 run 27: omhulsel H haalt de hele diepte (gratis deel onveranderd)
     snippers.register(gewricht)  # 1.1: losse snippers na een snede met één lid weg (gratis deel onveranderd)
     afstand.register(gewricht)  # kogel naast scharnier: gewricht.te_dicht en gewricht.markeer (zie afstand.py)
+    terugval.register(gewricht)  # 1.2.2: open deel na Manifold, één keer opnieuw met Exact (na snippers en afstand: buitenom)
     if _oude_enable[0] is None and eigen:
         _oude_enable[0] = addon_utils.enable
         addon_utils.enable = _enable_met_wacht(eigen)
@@ -163,6 +164,7 @@ def unregister():
         if uit_elkaar.zet is _zet:
             uit_elkaar.zet = _oude_zet[0]
         _oude_zet[0] = None
+    terugval.unregister(gewricht)
     snippers.unregister(gewricht)
     een_lid_diep.unregister()
     afstand.unregister(gewricht)
