@@ -1,0 +1,36 @@
+[meet] figuur mens: mens, {'bron_punten': 13380, 'bron_zelf_overlap': 0}
+[meet] Blender 5.3.0 figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 37, sneden 17, slechte sneden 0
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=0
+Info: Joint placed. Good fit. 0.897 s.
+Info: Joint placed. Good fit. 0.834 s.
+Info: Joint placed. Good fit. 0.83 s.
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Info: Joint placed. Good fit. 0.856 s.
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Info: Joint placed. Good fit. 0.893 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 5.3.0 figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 37, sneden 17, slechte sneden 0
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=0
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+OBJ import of 'makehuman-base.obj' took 26.84 ms
+
+Blender quit
+model name	: AMD EPYC 7763 64-Core Processor
