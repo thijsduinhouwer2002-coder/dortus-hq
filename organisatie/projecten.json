@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-23 03:45",
+    "datum": "2026-11-23 04:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -336,7 +336,7 @@
       "status": {
         "woord": "live",
         "kleur": "op-koers",
-        "zin": "Openbaar sinds 17 nov met prijs. Week-test half gerepareerd door Olaf (23 nov): vaste versie groen, EAP 263 structuurcontrole nog rood; Chris keurt. Plug-in zelf niet geraakt."
+        "zin": "Openbaar sinds 17 nov met prijs. Rode week-test verklaard door Olaf (23 nov): de EAP 263.8311.30 is een bugfix-EAP die een licentie vraagt; Plugin Verifier ertegen groen, vaste versie e2e groen (GEZIEN runs 45105452508, 45105565016). Chris keurt. Plug-in zelf niet geraakt, verkoop niet in gevaar."
       },
       "eigenaar": "Chris",
       "agents": [
