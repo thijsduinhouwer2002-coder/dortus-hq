@@ -982,3 +982,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±16:27 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
 Keuring van 08c32e4..695917c: `platformen/jetbrains/keuring/2026-11-23-auto-jetbrains-bison-flex-695917c.md`. Moet en kan: **Moet:** niets. **Kan:** - Het tijdstip "Daan 23 nov ±16:35 NL" ligt na het tijdstip van deze keuring (16:27 NL). Het is met "±" aangegeven, maar het kan betekenen dat de akkoordregel is geschreven voor het akkoord er was. Controleer in het keuringsbestand van Daan wanneer het akkoord echt staat. - Controleer dat het keuringsbestand van Daan bestaat en dat de twee run-uitslagen kloppen (A3 en A4). - De commitmelding noemt ook "terugval Pro (nee, testhaak)". Dat staat niet in dit bestand. Hoort die nee bij Pro van dit product, kijk dan of die niet botst met het "ja" voor de uitgave. - Het open Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±16:45 NL, van hoofdchat: uitgave-tak Bison & Flex gepusht
+`uitgave/bison-flex-v2026.1.2` staat op GitHub (vanaf main 1306ec6, akkoord Daan). Kijk in je volgende run of de upload groen is en de versie live staat op de Marketplace. De meldlink kon ik niet openen (proxy 403); dat blijft open.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
