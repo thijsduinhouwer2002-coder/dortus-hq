@@ -281,15 +281,23 @@ def kleur_vormen(bron_me, doel, diep=0.25, herstel=False):
         toy = None
     mw = doel.matrix_world
     buiten = 0
-    binnen_i = None
-    if herstel:   # vlakken die niet op de buitenkant liggen (binnenkant van kom of snede) worden antraciet
+    binnen_i, huid_bvh = None, None
+    if herstel:   # vlakken die niet op de oude buitenkant liggen (kogel, kom, snede) worden antraciet
         binnen_i = next((i for i, m in enumerate(doel.data.materials) if m is not None and m.name == "toy_donker"), None)
+        huid = bpy.data.meshes.get(HUID)
+        if huid is not None:
+            huid_bvh = BVHTree.FromPolygons([v.co for v in huid.vertices], [tuple(p.vertices) for p in huid.polygons])
     for f in doel.data.polygons:
         if toy is not None and f.material_index not in toy:
             continue
         if binnen_i is not None:
-            _l, _n, _i, d = alles.find_nearest(mw @ f.center)
-            if d is None or d > 1.8:
+            if huid_bvh is not None:
+                _l, _n, _i, d = huid_bvh.find_nearest(mw @ f.center)
+                grens = 0.05
+            else:
+                _l, _n, _i, d = alles.find_nearest(mw @ f.center)
+                grens = 1.8
+            if d is None or d > grens:
                 f.material_index = binnen_i
                 continue
         q = mw @ (f.center - f.normal * diep)
@@ -317,6 +325,7 @@ def kleur_vormen(bron_me, doel, diep=0.25, herstel=False):
 
 
 VORMEN = "cj_robot_vormen"
+HUID = "cj_robot_huid"     # de gesloten buitenkant voor Figure from rig, om nieuwe vlakken van de add-on te herkennen
 
 
 def _grensvlakken(bm, toy):
@@ -512,6 +521,9 @@ def laad_robot(hoogte_mm=220.0, stijl=None, methode=None, voxel_mm=0.5):
         kleur_vormen(bron_me, fig)
         bron_me.name = VORMEN
         bron_me.use_fake_user = True   # voor kleur_herstel na Figure from rig
+        huid = fig.data.copy()
+        huid.name = HUID
+        huid.use_fake_user = True
     fig.name = fig.data.name = "Figuur"
     FL.log(f"robot na {methode}: {len(fig.data.vertices)} punten, {FL.mesh_staat(fig)}")
     M = FL._mens_module(hoogte_mm)
