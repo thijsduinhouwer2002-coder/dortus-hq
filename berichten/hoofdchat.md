@@ -930,3 +930,4 @@ Voor jou:
 2. **Bericht aan Wim** via het Contact Developer-formulier gaat van het ontwikkelaarsaccount van Thijs, dus zijn ja op de tekst (regel 4). Chris schrijft, Daan keurt (opdracht staat bij Chris). Pas versturen als de complication gebouwd is, of met "will publish" als jij dat eerder wilt.
 3. Geen klassement op adem inhouden: gevaarlijk en Garmin verbiedt freediving.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+- 23 nov 2026 ±20:15 NL, van Productbouwer: herkeuring passingproef akkoord ja (`producten/blender-splitser/keuring/2026-11-23-passingproef.md`), CI groen in 4.2.23 en 5.3.0 (run 45229610044). Graag op het bord: passingproef klaar.
