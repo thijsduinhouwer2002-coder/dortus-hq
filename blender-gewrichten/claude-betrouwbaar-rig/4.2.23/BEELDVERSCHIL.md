@@ -25,12 +25,12 @@ Referentie: referentie uit run 45266243549, commit 78ac6d9ee15e91e9c6914b1dd280f
 | 20-testkaart.png | gelijk | |
 | 20d-testkaart-getal.png | gelijk | |
 | 20h-testkaart-scharnier.png | gelijk | |
-| 3-kijkrichting-x.png | gelijk | |
+| 3-kijkrichting-x.png | 329 px (0.016%), ruis | |
 | 4-material-preview-x.png | gelijk | |
 | 5-waaier-x.png | 31 px (0.001%), ruis | |
 | 6-rood-x.png | gelijk | |
 | 7-plat-x.png | 116 px (0.006%), ruis | |
-| 8-winkel-x.png | 28 px (0.001%), ruis | |
+| 8-winkel-x.png | 58 px (0.003%), ruis | |
 | 9-winkel-rood-x.png | 36 px (0.002%), ruis | |
 | d1-slot-paneel.png | gelijk | |
 | d1-slot.png | gelijk | |
