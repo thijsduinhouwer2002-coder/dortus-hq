@@ -1,0 +1,26 @@
+[meet] figuur armen: held, {'bron_punten': 76836, 'bron_zelf_overlap': 0}
+[meet] Blender 5.2.3 LTS figuur armen: 8 gewrichten ['Left knee', 'Left elbow', 'Right knee', 'Right elbow', 'Left hip', 'Left shoulder', 'Right hip', 'Right shoulder']
+[meet] ontbreekt: ['Neck']; overgeslagen: 
+[meet] pogingen 10, sneden 8, slechte sneden 0
+MEET armen gewrichten=8 overgeslagen=1 slechte_sneden=0
+STATUS Installed "click_joints"
+[meet] figuur armen: held, {'bron_punten': 76836, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 135°. 1.622 s.
+Info: Hinge placed. Bends 0° to 140°. 0.943 s.
+Info: Hinge placed. Bends 0° to 135°. 1.451 s.
+Info: Hinge placed. Bends 0° to 140°. 0.848 s.
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 1.823 s. Auto found no width at the cut, kept 9.5 mm.
+Info: Joint placed. Good fit. 1.254 s.
+Warning: Too close to another joint (keep 31 mm apart).
+Info: Joint placed. Good fit. 1.601 s. Auto found no width at the cut, kept 9.5 mm.
+Info: Joint placed. Good fit. 1.13 s.
+Info: 8 joints · 1 rig · 1 mirror · 6 preset.
+[meet] Blender 5.2.3 LTS figuur armen: 8 gewrichten ['Left knee', 'Left elbow', 'Right knee', 'Right elbow', 'Left hip', 'Left shoulder', 'Right hip', 'Right shoulder']
+[meet] ontbreekt: ['Neck']; overgeslagen: 
+[meet] pogingen 10, sneden 8, slechte sneden 0
+MEET armen gewrichten=8 overgeslagen=1 slechte_sneden=0
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+
+Blender quit
+model name	: Intel(R) Xeon(R) 6975P-C
