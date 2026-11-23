@@ -79,7 +79,7 @@ Titel: 3D print tiny in your slicer? Fix the export scale 🔥 | Blender
 
 | # | gesproken | kop (groot) | beeld |
 |---|---|---|---|
-| 4A | Is your part tiny in the slicer? | Tiny in the slicer? | piepklein deel op een leeg printbed (nieuw, tekening, geen merk) |
+| 4A | Is your part tiny in the slicer? | Tiny print? | piepklein deel op een leeg printbed (nieuw, tekening, geen merk) |
 | 4B | Exported parts at the wrong size? | Wrong size? | twee keer hetzelfde deel, een veel kleiner (nieuw) |
 | 2 | An STL file has no unit. Most slicers read every number as millimetres. | STL has no unit | tekst in beeld |
 | 3 | Blender works in metres by default, so 0.2 metres can arrive as 0.2 millimetres. | 0.2 m → 0.2 mm | Scene Properties, Units, Unit Scale 1 |
