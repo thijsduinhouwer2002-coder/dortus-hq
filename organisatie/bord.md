@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: ma 23 nov 2026, 18:50 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro 1.2.1 wacht op Thijs voor Gumroad en Superhive (lijst 3); Pro 1.2.2 op main, e2e loopt, daarna uitgave-run (Bram). Pagina dortus.com/click-joints 1.2.x klaar op tak fit-test-strip 8624de3 (lijst 5, push naar main geweigerd). Click Cuts: passingproef akkoord. Ebb krijgt een complication voor Goals-wijzerplaten (Gijs, Daan keurt). Verkopen Pro: 1 (GEZIEN 23 nov 11:05).
+**Stand: ma 23 nov 2026, 19:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro 1.2.2 uitgegeven (uitgave-run 45230763628 groen, artefact tot 26 nov 17:44 UTC); Thijs zet die zip op Gumroad en Superhive (lijst 3, 1.2.1 overgeslagen). Mail aan 80.lv gekeurd, wacht op ja Thijs di 24 nov (lijst 1). Bison & Flex 2026.1.2 live. Click Cuts: passingproef akkoord, CI groen. Verkopen Pro: 1 (GEZIEN 23 nov 11:05).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
