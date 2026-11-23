@@ -30,7 +30,7 @@ Gemaakt 19 nov 2026 door een bouwer, volgens de keuring van 19 nov (`platformen/
 - **Kanalen:** TikTok @dortusstudio en YouTube @Dortusapps, allebei via Metricool. Verder niets in deze fase (geen Bluesky, Mastodon, X, Reddit, Hacker News, fora, Steam, mail).
 - **Schrijf als Dortus:** "we", "Click Joints", "our add-on". Nooit in de ik-vorm, nooit als Thijs ("I made" is fout, "We made" is goed). Nooit de naam van Thijs in een post.
 - **Beeld en geluid:** alleen echte schermbeelden of opnames uit het product. Video alleen uit bestanden die eindigen op `-geluid.mp4` en waarvoor `python3 organisatie/controle/geluid_check.py <bestand>` GOED zegt. Een TikTok-diashow mag alleen uit echte schermbeelden, met `autoAddMusic: true`.
-- **Geen AI-beeld, geen AI-stem, geen AI-persoon, nergens een AI-melding** (besluit Thijs 19 nov 01:30). De velden `isAigc` (TikTok) en `isAiGeneratedContent` (YouTube) blijven op de standaard `false`; dat klopt omdat beeld en geluid echt zijn (het geluid van de filmpjes is met code gemaakt, GEZIEN in `marketing/KEURING.md`). Zou een concept ooit AI-beeld of AI-geluid nodig hebben: rood.
+- **Geen AI-beeld en geen AI-persoon** (besluit Thijs 19 nov 01:30). **Uitzondering sinds 23 nov (wens Thijs): een voice-over met een AI-stem mag**, alleen een open stem met commerciële licentie (nu Kokoro, Apache 2.0) of ElevenLabs op een betaald plan, nooit het gratis plan van ElevenLabs, nooit een stemkloon van een echt persoon. Bij zo'n post: in de beschrijving "Voice: AI text to speech", en in YouTube Studio bij AI-gebruik "Yes" (`isAiGeneratedContent` true, TikTok `isAigc` true). Zonder AI-stem blijven die velden `false`. De velden `isAigc` (TikTok) en `isAiGeneratedContent` (YouTube) blijven op de standaard `false`; dat klopt omdat beeld en geluid echt zijn (het geluid van de filmpjes is met code gemaakt, GEZIEN in `marketing/KEURING.md`). Zou een concept ooit AI-beeld of AI-geluid nodig hebben: rood.
 - **Nooit:** iets onder de naam van Thijs, geld uitgeven, reageren op mensen, persoonsgegevens (Metricool `getBrandSettings` geeft een mailadres van Thijs terug: dat komt nooit in een bestand), andermans posts of spullen weghalen.
 
 ## Materiaal (waar de Maker echte beelden vindt)
@@ -45,14 +45,14 @@ Gemaakt 19 nov 2026 door een bouwer, volgens de keuring van 19 nov (`platformen/
 
 ## Keurformulier (10 vragen; alle 10 ja en de techniek-check groen = groen)
 1. Klopt elke bewering met een bron die in het concept staat (changelog, winkelpagina, meting)?
-2. Geen AI-zinnen ("Great question", "game-changer", "unlock", "dive in", "elevate") en nergens een AI-melding?
+2. Geen AI-zinnen ("Great question", "game-changer", "unlock", "dive in", "elevate"), en alleen een AI-melding als er een AI-stem in zit (dan verplicht)?
 3. Geen medische claim (geldt voor Ebb: "rustiger", nooit "tegen stress" of "genezen")?
 4. Niets over Hats in spelersstem (die tekst schrijft Thijs)?
 5. Beeld uit het echte product, door de Keurder zelf bekeken (losse beelden uit de video gehaald en geopend); video eindigt op `-geluid.mp4` en `geluid_check.py` zegt GOED?
 6. Geen persoonsgegevens, geen adres, mail of naam van Thijs, geen Gumroad-link (alleen de meetadressen)?
 7. Past bij het kanaal: lengte, haak in de eerste seconde, één idee per post, titel begint met waar het over gaat ("Blender hinge ...")?
 8. Niet bijna gelijk aan een post van de laatste 14 dagen op hetzelfde kanaal (`commercie/geplaatst.md`)?
-9. **Geen AI-beeld, geen AI-stem, geen AI-persoon** in beeld of geluid?
+9. **Geen AI-beeld en geen AI-persoon**, en een eventuele AI-stem alleen volgens de uitzondering van 23 nov (open stem met commerciële licentie of ElevenLabs betaald, gemeld in de beschrijving)? Heeft de Short een echte hook in de eerste 1,5 s (recept v3)?
 10. **Schrijft als Dortus** ("we"), nergens in de ik-vorm als Thijs?
 
 ## Uitkomst
