@@ -1,0 +1,209 @@
+# gemaakt: 2026-11-23T21:01:28Z
+# workflow: Bison & Flex e2e (echte IDE) (.github/workflows/jetbrains-bison-flex-e2e.yml)
+# run: 45262737601 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45262737601
+# commit: db02b4f9 tak main gestart door push
+# mislukte stappen: e2e: Test in de echte IDE (IDEA Community 2025.2)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e / Test in de echte IDE (IDEA Community 2025.2) (laatste 200 van 3554 regels) =====
+    [08:59:30]:   ... started external process `jcmd-run` with process ID = 7211
+    [08:59:30]:   ... successfully finished external process for `jcmd-run` with exit code 0
+    [08:59:30]: List all java processes IDs:
+    [08:59:30]: 5781 com.intellij.idea.Main /tmp/bisonflex-licht/calculator
+    [08:59:30]: 7211 jdk.jcmd/sun.tools.jcmd.JCmd
+    [08:59:30]: 4076 /home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/gradle/wrapper/gradle-wrapper.jar --no-daemon integrationTest
+    [08:59:30]: 4300 worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+    [08:59:30]: 4253 org.jetbrains.kotlin.daemon.KotlinCompileDaemon --daemon-logsPath /tmp --daemon-logsFileSizeLimit=1048576 --daemon-logsFileCountLimit=3 --daemon-runFilesPath /home/runner/.kotlin/daemon --daemon-autoshutdownIdleSeconds=7200 --daemon-compilerClasspath /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-compat/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-compat-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-tooling-core/2.4.21/[weggehaald: lange hex-reeks]/kotlin-tooling-core-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-cri-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-cri-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kot
+    [08:59:30]: 4110 org.gradle.launcher.daemon.bootstrap.GradleDaemon 9.8.2
+
+IdeTest > lichtThema() STANDARD_ERROR
+    [08:59:30]: Couldn't find appropriate java process id for pid 5781
+    [08:59:30]: Retrying in 3s ...
+
+IdeTest > lichtThema() STANDARD_OUT
+    DORTUS-E2E [licht] winkel: na Alt+F7 en Enter Find-paneel open true, actief venster 4194376 'calculator – calc.l' (IDE 4194376)
+    DORTUS-E2E [licht] winkel: Find-paneel toont tabblad 'NUM in Project Files', beschrijving 'null'
+    DORTUS-E2E winkel-alleplekken.png: beeld stil na 2 opnamen
+    DORTUS-E2E schermafbeelding winkel-alleplekken.png (heel scherm): code 0, 212862 bytes
+    Step 'Close Find tool window' is started
+    Step 'Close Find tool window' is finished
+    Step 'Open file calc.ll' is started
+    Step 'Open file calc.ll' is finished
+    [08:59:33]: Guessing java process ID on Linux (pid of the java process wrapper - 5781)
+    [08:59:33]: Starting external process for `jcmd-run`
+      Working directory: [weggehaald: lange base64-reeks].28539.149/idea-IC-252.28539.149
+      Arguments: [[weggehaald: lange base64-reeks].28539.149/idea-IC-252.28539.149/jbr/bin/jcmd]
+      STDOUT will be redirected to: string. STDERR will be redirected to: string. STDIN is empty: true
+
+    [08:59:33]:   ... started external process `jcmd-run` with process ID = 7239
+    [08:59:34]:   ... successfully finished external process for `jcmd-run` with exit code 0
+    [08:59:34]: List all java processes IDs:
+    [08:59:34]: 5781 com.intellij.idea.Main /tmp/bisonflex-licht/calculator
+    [08:59:34]: 7239 jdk.jcmd/sun.tools.jcmd.JCmd
+    [08:59:34]: 4076 /home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/gradle/wrapper/gradle-wrapper.jar --no-daemon integrationTest
+    [08:59:34]: 4300 worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+    [08:59:34]: 4253 org.jetbrains.kotlin.daemon.KotlinCompileDaemon --daemon-logsPath /tmp --daemon-logsFileSizeLimit=1048576 --daemon-logsFileCountLimit=3 --daemon-runFilesPath /home/runner/.kotlin/daemon --daemon-autoshutdownIdleSeconds=7200 --daemon-compilerClasspath /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-compat/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-compat-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-tooling-core/2.4.21/[weggehaald: lange hex-reeks]/kotlin-tooling-core-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-cri-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-cri-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kot
+    [08:59:34]: 4110 org.gradle.launcher.daemon.bootstrap.GradleDaemon 9.8.2
+
+IdeTest > lichtThema() STANDARD_ERROR
+    [08:59:34]: Couldn't find appropriate java process id for pid 5781
+    [08:59:34]: Retrying in 3s ...
+
+IdeTest > lichtThema() STANDARD_OUT
+    DORTUS-E2E [licht] winkel: calc.ll terug naar NUM (0 keer vervangen), NUMBER nog false
+    Step 'Open file calc.yy' is started
+    Step 'Open file calc.yy' is finished
+    DORTUS-E2E [licht] winkel: calc.yy terug naar NUM (0 keer vervangen), NUMBER nog false
+    Step 'Open file calc.l' is started
+    Step 'Open file calc.l' is finished
+    [08:59:37]: Guessing java process ID on Linux (pid of the java process wrapper - 5781)
+    [08:59:37]: Starting external process for `jcmd-run`
+      Working directory: [weggehaald: lange base64-reeks].28539.149/idea-IC-252.28539.149
+      Arguments: [[weggehaald: lange base64-reeks].28539.149/idea-IC-252.28539.149/jbr/bin/jcmd]
+      STDOUT will be redirected to: string. STDERR will be redirected to: string. STDIN is empty: true
+
+    [08:59:37]:   ... started external process `jcmd-run` with process ID = 7260
+    [08:59:37]:   ... successfully finished external process for `jcmd-run` with exit code 0
+    [08:59:37]: List all java processes IDs:
+    [08:59:37]: 5781 com.intellij.idea.Main /tmp/bisonflex-licht/calculator
+    [08:59:37]: 4076 /home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/gradle/wrapper/gradle-wrapper.jar --no-daemon integrationTest
+    [08:59:37]: 7260 jdk.jcmd/sun.tools.jcmd.JCmd
+    [08:59:37]: 4300 worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+    [08:59:37]: 4253 org.jetbrains.kotlin.daemon.KotlinCompileDaemon --daemon-logsPath /tmp --daemon-logsFileSizeLimit=1048576 --daemon-logsFileCountLimit=3 --daemon-runFilesPath /home/runner/.kotlin/daemon --daemon-autoshutdownIdleSeconds=7200 --daemon-compilerClasspath /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-compat/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-compat-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-tooling-core/2.4.21/[weggehaald: lange hex-reeks]/kotlin-tooling-core-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-cri-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-cri-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kot
+    [08:59:37]: 4110 org.gradle.launcher.daemon.bootstrap.GradleDaemon 9.8.2
+
+IdeTest > lichtThema() STANDARD_ERROR
+    [08:59:37]: Couldn't find appropriate java process id for pid 5781
+    [08:59:37]: Retrying in 3s ...
+
+IdeTest > lichtThema() STANDARD_OUT
+    DORTUS-E2E [licht] winkel: calc.l terug naar NUM (0 keer vervangen), NUMBER nog false
+    Step 'Open file calc.y' is started
+    Step 'Open file calc.y' is finished
+    DORTUS-E2E [licht] winkel: calc.y terug naar NUM (0 keer vervangen), NUMBER nog false
+    [08:59:40]: Guessing java process ID on Linux (pid of the java process wrapper - 5781)
+    [08:59:40]: Starting external process for `jcmd-run`
+      Working directory: [weggehaald: lange base64-reeks].28539.149/idea-IC-252.28539.149
+      Arguments: [[weggehaald: lange base64-reeks].28539.149/idea-IC-252.28539.149/jbr/bin/jcmd]
+      STDOUT will be redirected to: string. STDERR will be redirected to: string. STDIN is empty: true
+
+    [08:59:40]:   ... started external process `jcmd-run` with process ID = 7289
+    [08:59:40]:   ... successfully finished external process for `jcmd-run` with exit code 0
+    [08:59:40]: List all java processes IDs:
+    [08:59:40]: 5781 com.intellij.idea.Main /tmp/bisonflex-licht/calculator
+    [08:59:40]: 7289 jdk.jcmd/sun.tools.jcmd.JCmd
+    [08:59:40]: 4076 /home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/gradle/wrapper/gradle-wrapper.jar --no-daemon integrationTest
+    [08:59:40]: 4300 worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+    [08:59:40]: 4253 org.jetbrains.kotlin.daemon.KotlinCompileDaemon --daemon-logsPath /tmp --daemon-logsFileSizeLimit=1048576 --daemon-logsFileCountLimit=3 --daemon-runFilesPath /home/runner/.kotlin/daemon --daemon-autoshutdownIdleSeconds=7200 --daemon-compilerClasspath /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-compat/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-compat-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-tooling-core/2.4.21/[weggehaald: lange hex-reeks]/kotlin-tooling-core-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-cri-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-cri-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kot
+    [08:59:40]: 4110 org.gradle.launcher.daemon.bootstrap.GradleDaemon 9.8.2
+
+IdeTest > lichtThema() STANDARD_ERROR
+    [08:59:40]: Couldn't find appropriate java process id for pid 5781
+    [08:59:40]: Retrying in 3s ...
+
+IdeTest > lichtThema() STANDARD_OUT
+    [08:59:41]:   [ide-bisonflex-licht-err] 2026-11-23 20:59:41,284 [ 220897]   WARN - #c.i.u.n.AppShutdownProxySelector - network access during/after app shutdown
+    [08:59:41]:   [ide-bisonflex-licht-err] java.lang.Throwable
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at com.intellij.util.net.AppShutdownProxySelector.select(JdkProxyProvider.kt:114)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1247)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1143)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1072)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1474)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1437)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at com.intellij.tools.ide.starter.bus.shared.client.LocalEventBusServerClient.sendRequest(LocalEventBusServerClient.kt:45)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at com.intellij.tools.ide.starter.bus.shared.client.LocalEventBusServerClient.sendRequest$default(LocalEventBusServerClient.kt:36)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at com.intellij.tools.ide.starter.bus.shared.client.LocalEventBusServerClient.get(LocalEventBusServerClient.kt:33)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at com.intellij.tools.ide.starter.bus.shared.client.LocalEventBusServerClient.getEvents(LocalEventBusServerClient.kt:96)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at com.intellij.tools.ide.starter.bus.shared.SharedEventsFlow$startServerPolling$1.invokeSuspend$lambda$2(SharedEventsFlow.kt:66)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at com.intellij.tools.ide.starter.bus.EventsBus.executeWithExceptionHandling(EventsBus.kt:20)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at com.intellij.tools.ide.starter.bus.shared.SharedEventsFlow$startServerPolling$1.invokeSuspend(SharedEventsFlow.kt:65)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at kotlinx.coroutines.internal.SoftLimitedDispatcher$Worker.run(SoftLimitedDispatcher.kt:130)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:613)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:1183)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:778)
+    [08:59:41]:   [ide-bisonflex-licht-err] 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:765)
+    [08:59:41]:   ... successfully finished external process for `run-ide-bisonflex-licht` with exit code 0
+    [08:59:41]: IDE run bisonflex-licht completed in 3m 41.920353210s
+    [08:59:41]: Run VM options validation
+    [08:59:41]: Finished VM options validation
+    ##teamcity[testMetadata  type='link' name='Link to Logs and artifacts' value='null' ]
+
+IdeTest > lichtThema() STANDARD_ERROR
+    [08:59:41]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    [08:59:41]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    [08:59:41]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    [08:59:41]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle updateTestCase
+    SEVERE: Could not update test case: no test case running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 8:59:41 PM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+
+IdeTest > lichtThema() STANDARD_OUT
+    [08:59:41]: Successfully finished publishArtifacts run for bisonflex-licht
+    [08:59:41]: IDEStartResult(runContext=IDERunContext(testContext=com.intellij.ide.starter.ide.IDETestContext@59f7c106, commandLine=fun openTestCaseProject(com.intellij.ide.starter.runner.IDERunContext): com.intellij.ide.starter.runner.IDECommandLine, commands=com.intellij.tools.ide.performanceTesting.commands.CommandChain@1381fe21, runTimeout=10m, useStartupScript=true, verboseOutput=false, launchName=, expectedKill=false, expectedExitCode=0, collectNativeThreads=false, stdOut=null), executionTime=3m 41.920353210s, vmOptionsDiff=VMOptionsDiff(newLines=[], missingLines=[]), failureError=null, frontendStartResult=null)
+    [08:59:41]: IDERunContext(testContext=com.intellij.ide.starter.ide.IDETestContext@59f7c106, commandLine=fun openTestCaseProject(com.intellij.ide.starter.runner.IDERunContext): com.intellij.ide.starter.runner.IDECommandLine, commands=com.intellij.tools.ide.performanceTesting.commands.CommandChain@1381fe21, runTimeout=10m, useStartupScript=true, verboseOutput=false, launchName=, expectedKill=false, expectedExitCode=0, collectNativeThreads=false, stdOut=null)
+
+IdeTest > lichtThema() PASSED
+
+IdeTest STANDARD_OUT
+    [08:59:41]: Canceling children of 'Test's supervisor scope': Test `lichtThema()` execution is finished
+
+Gradle Test Executor 1 STANDARD_OUT
+    [08:59:41]: Canceling children of 'Test class's supervisor scope': Test class `IdeTest` execution is finished
+    [08:59:41]: Canceling children of 'Test class's supervisor scope': Test class `JUnit Jupiter` execution is finished
+    [20:59:41]: INFO - com.intellij.tools.ide.starter.bus.shared.server.LocalEventBusServer - Server stopped
+    [08:59:41]: Canceling children of 'Test suite's supervisor scope': Test plan execution is finished
+
+[08:59:41]: Canceling children of 'Test's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+[08:59:41]: Canceling children of 'Test class's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+[08:59:41]: Canceling children of 'Test suite's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+
+
+> Task :integrationTest FAILED
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_4-1795467135705.json
+2 tests completed, 1 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':integrationTest'.
+> There were failing tests. See the report at: file:///home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/build/reports/tests/integrationTest/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 7m 29s
+15 actionable tasks: 7 executed, 8 up-to-date
+##[error]Process completed with exit code 1.
