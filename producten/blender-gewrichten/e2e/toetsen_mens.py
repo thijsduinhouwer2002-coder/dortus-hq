@@ -125,15 +125,51 @@ def main():
                 return vast
             return echt_vast(nieuw)
         rigm2.kogel_schuif, rigm2.kogel_vast, figm2.plaats_gewricht = schuif_nep, vast_nep, plaats_tel
+    herkans3 = os.environ.get("CJ_HERKANS") == "3"
+    h3 = {"nu": None, "manifold_vast": 0, "solvers": []}
+    if herkans3:
+        # 23 nov (Olaf, Pro 1.3 kandidaat 5, A4): de echte herkansing. Op DOEL2 doen we na dat elke Manifold-snede
+        # in rust vastzit (zoals de heup van de robot op de AMD-runner); een Exact-snede beslist eerlijk zelf. De
+        # knop moet dan dezelfde plek met Exact overdoen (kogel_exact.py) en het gewricht toch plaatsen.
+        # Zet CJ_HERKANS_LID="Left hip" om de heup te toetsen in plaats van de linkerschouder.
+        rigm3 = mod("betaald.rig")
+        figm3 = mod("betaald.figuur")
+        kex = mod("betaald.kogel_exact")
+        kex.TELLER["exact"] = 0
+        echt_vast3, echt_plaats3 = rigm3.kogel_vast, figm3.plaats_gewricht
+
+        def plaats_tel3(context, sleutel, naam=None, *a, **k):
+            h3["nu"] = naam
+            return echt_plaats3(context, sleutel, naam, *a, **k)
+
+        def vast_nep3(nieuw):
+            if h3["nu"] == DOEL2:
+                sol = sorted({d.get("cj_solver") for d in nieuw or [] if d.get("cj_deel") in ("A", "B")} - {None})
+                h3["solvers"].append(sol)
+                if "MANIFOLD" in sol:
+                    h3["manifold_vast"] += 1
+                    return True
+            return echt_vast3(nieuw)
+        rigm3.kogel_vast, figm3.plaats_gewricht = vast_nep3, plaats_tel3
     try:
         r = bpy.ops.click_joints.figuur_uit_rig()
     except RuntimeError as e:
         r = f"fout {str(e).strip()[:300]}"
+    finally:
+        if herkans:
+            figm.plaats_gewricht = echt
+        if herkans2:
+            rigm2.kogel_schuif, rigm2.kogel_vast, figm2.plaats_gewricht = echt_schuif, echt_vast, echt_plaats
+        if herkans3:
+            rigm3.kogel_vast, figm3.plaats_gewricht = echt_vast3, echt_plaats3
     if herkans:
-        figm.plaats_gewricht = echt
         check(nep == ["Left shoulder"], f"mislukte snede nagedaan op de linkerschouder ({nep})")
+    if herkans3:
+        log(f"{DOEL2}: solvers per beweegproef {h3['solvers']}, exact-herstel {kex.TELLER['exact']} keer")
+        check(h3["manifold_vast"] >= 1 and kex.TELLER["exact"] >= 1,
+              f"Manifold-snede op {DOEL2} vast nagedaan en met Exact overgedaan")
+        check(any(s == ["EXACT"] for s in h3["solvers"]), f"{DOEL2} geplaatst met de Exact-snede ({h3['solvers']})")
     if herkans2:
-        rigm2.kogel_schuif, rigm2.kogel_vast, figm2.plaats_gewricht = echt_schuif, echt_vast, echt_plaats
         lijst = heup["lijst"]
         log(f"{DOEL2}: kandidaten (mm) {[round(x, 2) for x in lijst]}, geweigerd {heup['geweigerd']}")
         check(len(lijst) >= 2 and abs(lijst[-1] - lijst[0] - 0.3) < 1e-6,

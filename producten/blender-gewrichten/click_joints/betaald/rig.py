@@ -728,6 +728,26 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                             if d.type == "MESH" and d.get("cj_deel") in ("A", "B") and stukken(d) > 1:
                                 d["cj_snippers"] = d.get("cj_snippers", 0) + ruim_snippers(d, eenheid_per_mm(context.scene))
                     if ok and soort != "HINGE" and kogel_vast(nieuw):
+                        # Pro 1.3 (A4, kogel_exact.py): vast na een Manifold-snede is vaak een rekenfout per
+                        # processor; eerst dezelfde plek met Exact, pas daarna de volgende plek.
+                        from .kogel_exact import opnieuw_exact
+                        from .snippers import ruim_snippers
+                        een_lid_diep.ALTIJD_H[0] = i >= eigen_n
+                        try:
+                            tweede = opnieuw_exact(context, doel, voor, m, lambda: figuur.plaats_gewricht(
+                                context, sleutel, naam, stop[0] if stop else 0, herkomst))
+                        finally:
+                            een_lid_diep.ALTIJD_H[0] = False
+                        if tweede is not None:
+                            ok, melding, nieuw = tweede
+                            if not ok:
+                                draai_terug(context, doel, voor)
+                                ok, melding, geblokkeerd = False, None, True
+                                continue
+                            for d in nieuw or []:
+                                if d.type == "MESH" and d.get("cj_deel") in ("A", "B") and stukken(d) > 1:
+                                    d["cj_snippers"] = d.get("cj_snippers", 0) + ruim_snippers(d, eenheid_per_mm(context.scene))
+                    if ok and soort != "HINGE" and kogel_vast(nieuw):
                         # Vangnet (16 nov run 11): een kogel die volgens de beweegproef niet beweegt is een kapot
                         # gewricht (gezien: Rigify-heup naast de knie). Snede terugdraaien, volgende plek proberen.
                         draai_terug(context, doel, voor)
