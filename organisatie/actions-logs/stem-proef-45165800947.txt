@@ -1,0 +1,93 @@
+# gemaakt: 2026-11-23T11:37:32Z
+# workflow: Stem-proef (voice-over synchroon met het beeld) (.github/workflows/stem-proef.yml)
+# run: 45165800947 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45165800947
+# commit: 60ced399 tak main gestart door push
+# mislukte stappen: proef: Controle (synchroon, geluid, lengte)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== proef / Controle (synchroon, geluid, lengte) (laatste 84 van 84 regels) =====
+##[group]Run cd /tmp/klaar
+cd /tmp/klaar
+mkdir -p meting-staand meting-liggend
+ok=0
+python $GITHUB_WORKSPACE/commercie/filmpjes/stem/synchroon.py knee-bend-stem-staand.mp4 knee-bend-stem-staand-script.json meting-staand || ok=1
+python $GITHUB_WORKSPACE/commercie/filmpjes/stem/synchroon.py knee-bend-stem-liggend.mp4 knee-bend-stem-liggend-script.json meting-liggend || ok=1
+for v in staand liggend; do for f in meting-$v/*; do mv "$f" "$(basename ${f%.*})-$v.${f##*.}"; done; done
+python $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py knee-bend-stem-*.mp4 | tee geluid_check.txt
+grep -q "FOUT" geluid_check.txt && ok=1
+d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 knee-bend-stem-staand.mp4)
+echo "staand $d s" | tee lengtes.txt
+python -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: Short is $d s, niet 40 tot 60"; ok=1; }
+sha256sum *.mp4 | tee SHA256SUMS.txt
+exit $ok
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: stem-proef-1
+  BRON_TAG: youtube-shorts-4
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+  PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+  Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+  WHISPER_MODEL: small.en
+##[endgroup]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+# Synchroon-meting knee-bend-stem-staand.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **FOUT**, 14 van 15 zinnen binnen 0.3 s; grootste verschil 0.38 s, gemiddeld 0.151 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.15 | 0.15 | 12/12 | ja | How far can this knee bend? Let's check it before we print. |
+| 2 | 3.57 | 3.74 | 3.67 | 0.103 | 11/11 | ja | Here's a rigged character in Blender, with Click Joints Pro open. |
+| 3 | 7.53 | 7.72 | 7.64 | 0.107 | 8/8 | ja | Select the character, then press Figure from rig. |
+| 4 | 10.57 | 10.62 | 10.69 | 0.123 | 12/12 | ja | It puts a joint at every shoulder, elbow, hip, knee and neck. |
+| 5 | 14.53 | 14.64 | 14.66 | 0.127 | 12/12 | ja | The panel lists all nine joints, each with its range in degrees. |
+| 6 | 18.67 | 18.72 | 18.78 | 0.113 | 14/14 | ja | The left knee is a hinge, from zero to one hundred and twenty degrees. |
+| 7 | 23.07 | 23.06 | 23.19 | 0.123 | 11/11 | ja | That limit comes from our rig. The right knee mirrors it. |
+| 8 | 26.3 | 26.0 | 26.0 | -0.3 | 9/9 | ja | Now drag the Bend slider, and watch the knee. |
+| 9 | 29.07 | 29.2 | 29.09 | 0.023 | 11/11 | ja | At one hundred and twenty degrees, it reaches the end stop. |
+| 10 | 32.83 | 32.98 | 32.97 | 0.137 | 14/14 | ja | Go further, and a red arc shows how far past the limit you are. |
+| 11 | 36.67 | 36.7 | 36.8 | 0.133 | 10/10 | ja | So you find the problem in Blender, before you print. |
+| 12 | 39.77 | 39.9 | 39.88 | 0.113 | 13/13 | ja | Exploded view pulls the parts apart, so you can see the ball joints. |
+| 13 | 44.1 | 44.14 | 44.26 | 0.16 | 13/13 | ja | Then export every part as a 3MF file for your slicer. |
+| 14 | 48.2 | 48.4 | 48.38 | 0.18 | 14/14 | ja | Measured in Blender, not print tested by us yet. Print a test joint first. |
+| 15 | 52.9 | 52.52 | 52.52 | -0.38 | 11/11 | NEE | Click Joints Pro. Elbows and knees stop where your rig stops. |
+# Synchroon-meting knee-bend-stem-liggend.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **FOUT**, 14 van 15 zinnen binnen 0.3 s; grootste verschil 0.38 s, gemiddeld 0.151 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.15 | 0.15 | 12/12 | ja | How far can this knee bend? Let's check it before we print. |
+| 2 | 3.57 | 3.74 | 3.67 | 0.103 | 11/11 | ja | Here's a rigged character in Blender, with Click Joints Pro open. |
+| 3 | 7.53 | 7.72 | 7.64 | 0.107 | 8/8 | ja | Select the character, then press Figure from rig. |
+| 4 | 10.57 | 10.62 | 10.69 | 0.123 | 12/12 | ja | It puts a joint at every shoulder, elbow, hip, knee and neck. |
+| 5 | 14.53 | 14.64 | 14.66 | 0.127 | 12/12 | ja | The panel lists all nine joints, each with its range in degrees. |
+| 6 | 18.67 | 18.72 | 18.78 | 0.113 | 14/14 | ja | The left knee is a hinge, from zero to one hundred and twenty degrees. |
+| 7 | 23.07 | 23.06 | 23.19 | 0.123 | 11/11 | ja | That limit comes from our rig. The right knee mirrors it. |
+| 8 | 26.3 | 26.0 | 26.0 | -0.3 | 9/9 | ja | Now drag the Bend slider, and watch the knee. |
+| 9 | 29.07 | 29.2 | 29.09 | 0.023 | 11/11 | ja | At one hundred and twenty degrees, it reaches the end stop. |
+| 10 | 32.83 | 32.98 | 32.97 | 0.137 | 14/14 | ja | Go further, and a red arc shows how far past the limit you are. |
+| 11 | 36.67 | 36.7 | 36.8 | 0.133 | 10/10 | ja | So you find the problem in Blender, before you print. |
+| 12 | 39.77 | 39.9 | 39.88 | 0.113 | 13/13 | ja | Exploded view pulls the parts apart, so you can see the ball joints. |
+| 13 | 44.1 | 44.14 | 44.26 | 0.16 | 13/13 | ja | Then export every part as a 3MF file for your slicer. |
+| 14 | 48.2 | 48.4 | 48.38 | 0.18 | 14/14 | ja | Measured in Blender, not print tested by us yet. Print a test joint first. |
+| 15 | 52.9 | 52.52 | 52.52 | -0.38 | 11/11 | NEE | Click Joints Pro. Elbows and knees stop where your rig stops. |
+GOED: knee-bend-stem-liggend.mp4: gemiddeld -16.3 dB, piek -1.4 dB
+GOED: knee-bend-stem-staand.mp4: gemiddeld -16.3 dB, piek -1.4 dB
+staand 58.415000 s
+[weggehaald: lange hex-reeks]  knee-bend-stem-liggend.mp4
+[weggehaald: lange hex-reeks]  knee-bend-stem-staand.mp4
+##[error]Process completed with exit code 1.
