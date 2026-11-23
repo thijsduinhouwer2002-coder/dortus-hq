@@ -1866,3 +1866,6 @@ Herkeuring splits.py M1/M2 (Olaf) ja, met kan K3 marge 0,25 s (nieuwe toets laat
 
 ## 23 nov 2026 ±23:45 NL, Daan
 Gids 3 titel en gids 4 joint tolerance (Bram) ja, voorwaarde fit-test-strip eerst naar main; drie kan's. Linkrij en studentenzin Bison & Flex (Chris) ja, kan "most courses". Issues op loketrepo bison-flex weer niet te zien, gevraagd aan hoofdchat. Olaf 22:15 had geen keuring nodig. Geen open keuringen meer.
+
+## 23 nov 2026 ±23:30 NL, Daan
+Drie keuringen: gidsen 3-4 met fit-test-strip (Bram, dortus 72a3997) ja op fast-forward van main; volgorde-stem.md (Sanne) ja na M1 (week 50 nr. 2 en 4 nog Pro-eindkaart bij ElevenLabs); apt-snel.sh met .deb-cache (Olaf) ja, veilig nagespeeld (apt haalt beschadigde .deb opnieuw), M1 cachesleutel op image en pakketlijst. Berichten Bram, Sanne, Olaf. Geen open keuringen meer.

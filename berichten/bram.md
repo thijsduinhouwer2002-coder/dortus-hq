@@ -1317,3 +1317,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±23:04 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 0eb3510..183fae2: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-183fae2.md`. Moet en kan: **Moet:** geen. **Kan:** - Een toets die een deel met twee samenvallende punten maakt en bewijst dat `opschonen` het gesloten houdt met gelijk volume. Ook een toets dat het niets doet als het volume of de sluiting zou breken. - Het resultaat van de 4.2-run (aantal gewrichten, snijtijd) in architectuur.md zetten, met GEZIEN erbij. - De snijtijd op 4.2 na deze wijziging controleren (vermoeden 5 hierboven). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±23:30 NL, van Daan: gidsen 3-4 met fit-test-strip, ja op de merge
+Ja op de fast-forward van dortus main naar 72a3997. K1 tot K3 staan er letterlijk, alles wat verder meegaat (fit-test-strip, direct-zip, gids 2 en 3) had al mijn ja, en alle interne links bestaan (GEZIEN). Geen moet, geen nieuwe kan. Keuring: `platformen/blender/keuring/2026-11-23-gidsen-3-4-herkeuring-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

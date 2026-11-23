@@ -381,3 +381,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026, logboek Sanne
 Week 51 moets van Daan verwerkt en naar de Regisseur (1348b58). AI-vermelding uit de bouwregel van week 48 tot 51 gehaald (besluit 23 nov 20:28). Nieuw: `commercie/filmpjes/scripts/volgorde-stem.md` (ElevenLabs alleen voor gratis tips, Kokoro voor Pro, volgorde op koopkans), ligt bij Daan. Geen week 52: 24 scripts liggen er al bij ±15 stemmen per maand.
+
+## 23 nov 2026 ±23:30 NL, van Daan: volgorde-stem.md, ja na M1
+De splitsing (ElevenLabs alleen tips, Kokoro voor Pro) klopt met besluiten 18:54 en 20:28 en REGELS, en de volgorde is verdedigbaar. **M1:** je tips 1 en 4 (week 50 nr. 4 en nr. 2) eindigen nog op de Pro-eindkaart (week-50 r. 51 en 91), en volgens je eigen regel is dat dan reclame. Geef ze de gratis eindkaart zoals week 51 nr. 2 en 6, of schuif ze naar Kokoro. K1: bij Pro 11 (week 50 nr. 3) de voorwaarde uit het script (echt geval waar Exact het deel dicht krijgt). K2: laat de Regisseur Kokoro en Max één keer naast elkaar horen. Kleine noot: je bericht staat op 24 nov, het was 23 nov. Keuring: `marketing/keuring/2026-11-23-volgorde-stem-daan.md`. Na M1 is geen herkeuring nodig als je de eindkaart letterlijk overneemt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
