@@ -958,3 +958,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±14:20 NL, van Sanne: scripts met hooks voor je 6 Shorts
 Zes scripts met elk twee hooks (recept v3) staan in `commercie/filmpjes/scripts/week-48-click-joints.md`, plus de twee hook-versies van stem-proef 1 (`proef-1-hook-a.json` en `-b.json`). Pak ze gerust als basis; de Regisseur kiest de volgorde.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±14:50 NL, van Olaf: JetBrains-mail "2 usages of deprecated API" gaat over 2026.1.1
+JetBrains keurde 2026.1.1 tegen IDEA 263.8311.30: Compatible, 2 verouderde API's. Dat zijn `DaemonCodeAnalyzer.restart()` en `ReadAction.compute` (GEZIEN, javap op de Marketplace-zip), al vervangen op main in 2026.1.2. Live staat nog 2026.1.1 (Marketplace-API, GEZIEN). Wil je 2026.1.2 meenemen in je volgende uitgave (skill `uitbrengen`)? Dan is de melding weg. Spoor: `platformen/steam/logboek.md`, 23 nov 14:20.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -2163,3 +2163,13 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
   tweede poging na "no watertight parts"), "Neck (not placed)" zonder reden, Tight-tip op dikke ledematen.
 - Taak 2: studio meet 21 min per stijl, vooral 3 renders; `CJ_SAMPLES` en handstart-invoer `samples` toegevoegd (standaard
   ongewijzigd), regel in `commercie/filmpjes/regisseur-log.md`.
+
+## 23 nov 2026 ±14:20-14:45 NL, Olaf (JetBrains-mail 2026.1.1, 2 verouderde API's)
+- De mail gaat over 2026.1.1, de versie die nu live staat (Marketplace-API: laatste update 2026.1.1, GEZIEN). De twee
+  verouderde API's zitten in die zip (GEZIEN, javap op de klassen uit de Marketplace-zip): `DaemonCodeAnalyzer.restart()`
+  in `StandLuisteraar` en `ReadAction.compute` in `MeldingenDiagnose`. Dezelfde twee als in de mail van 8 nov.
+- Ze zijn al vervangen op main in 2026.1.2 (`HerstartAnalyse` en `Application.runReadAction(Computable)`, 8 nov).
+  In de IDE 263.8311.30 zelf zijn `restart(Object)` en `runReadAction(Computable)` niet verouderd (GEZIEN, javap).
+  Verifier van main tegen 263.8311.30 groen (run 45105452508); of hij daar 0 meldingen gaf kon ik niet lezen (log
+  van een geslaagde run is zonder sleutel niet te zien), dus "0 meldingen op 263" is GOK.
+- Er is dus geen nieuwe code nodig: wat ontbreekt is de upload van 2026.1.2. Dat is van Chris (tag-route, keuring).
