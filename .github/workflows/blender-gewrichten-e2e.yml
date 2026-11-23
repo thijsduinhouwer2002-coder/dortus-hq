@@ -45,6 +45,8 @@ jobs:
           # Week-test: versie met -alpha, -beta, -rc of -stable komt als daily van builder.blender.org.
           case "$V" in *-alpha|*-beta|*-rc|*-stable)
             NUM="${V%-*}"; CYC="${V##*-}"
+            # weektest.py schrijft -rc, builder.blender.org noemt dat "candidate" (week-test 23 nov rood).
+            [ "$CYC" = "rc" ] && CYC="candidate"
             U=$(curl -fsSL --retry 3 "https://builder.blender.org/download/daily/?format=json&v=1" | python3 -c "
           import json, sys
           r = [b for b in json.load(sys.stdin) if b['version'] == '$NUM' and b['release_cycle'] == '$CYC' and b['platform'] == 'linux'

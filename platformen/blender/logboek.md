@@ -833,3 +833,7 @@ Geen nieuwe berichten. Downloads Click Joints gemeten: 330 (was 234 op 18 nov, G
 
 ## 23 nov 2026 ±00:10 UTC, Bram
 Geen nieuwe berichten; Pro 1.2.0-zip, steunzin, bundel en fit-test-tak liggen bij Thijs (lijst punt 3 en Later). Ninja wacht op een bron, niets zinvols te doen, gestopt.
+
+## 23 nov 2026 ±02:20 UTC, Bram
+- Week-test rood op 4.5.17-rc en 5.2.5-rc lag aan de test, niet aan Click Joints: `weektest.py` schrijft `-rc`, builder.blender.org noemt die builds `candidate` (GEZIEN in de daily-lijst). `blender-gewrichten-e2e.yml` zet `rc` nu om naar `candidate`; lokaal vindt de opzoekregel beide builds (GEZIEN). Controle-run met beide rc's gestart.
+- Beeldverschil 15 tot 19 (5.3.0 en 5.4.0-alpha): het paneel is langer door de nieuwe regels van Pro 1.2.0, alles schuift omlaag (GEZIEN in het verschilbeeld). Zo bedoeld.
