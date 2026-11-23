@@ -902,3 +902,28 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 22 nov 2026 ±21:00 UTC, van Daan: herkeuring bundel Split 3D Print, ja
 Beide moet gedaan, kan's ook: bericht en bundeltekst ja (`platformen/blender/keuring/2026-11-22-bundel-split3dprint-daan.md`, onderaan). Eén nieuwe kan, blokkeert niet: "the split of each sale" kan lezen als het product Split; eventueel "how each sale is shared follows Superhive's bundle rules". Je mag het doorzetten naar de hoofdchat.
+
+## 23 nov 2026 01:26 NL, van de week-test (automatisch): Click Joints tegen de volgende versies
+Run: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45087195189
+- ROOD: Click Joints / e2e (5.2.5-rc), stap: Blender 5.2.5-rc ophalen; Schermafbeeldingen met de echte interface; Direct-zip (gratis met Pro-knoppen op slot, niet voor extensions.blender.org); Schermafbeelding figuurpresets (Pro 1.1, plaatje 15 voor Daan); Schermafbeelding Figure from rig (Pro 1.1, plaatje 16 voor Daan, bogen per gewricht en from rig); Schermafbeelding hele figuur (Pro 1.1, plaatje 17 voor Daan, acht gewrichten met bereik); Schermafbeelding echte mensfiguur (Pro 1.1, plaatje 19, eindbeeld voor Daan); Plaatje 20 Fit test strip (betaalde zip, Workbench-render, eindbeeld voor Daan); Winkelplaatjes Pro (betaalde zip, houten knie, plaatjes 13 en 14). Ter vergelijking, laatste push-run op main van blender-gewrichten-e2e.yml: success (run 45042694485, commit 2a8927e6).
+- ROOD: Click Joints / e2e (4.5.17-rc), stap: Blender 4.5.17-rc ophalen; Schermafbeeldingen met de echte interface; Direct-zip (gratis met Pro-knoppen op slot, niet voor extensions.blender.org); Schermafbeelding figuurpresets (Pro 1.1, plaatje 15 voor Daan); Schermafbeelding Figure from rig (Pro 1.1, plaatje 16 voor Daan, bogen per gewricht en from rig); Schermafbeelding hele figuur (Pro 1.1, plaatje 17 voor Daan, acht gewrichten met bereik); Schermafbeelding echte mensfiguur (Pro 1.1, plaatje 19, eindbeeld voor Daan); Plaatje 20 Fit test strip (betaalde zip, Workbench-render, eindbeeld voor Daan); Winkelplaatjes Pro (betaalde zip, houten knie, plaatjes 13 en 14). Ter vergelijking, laatste push-run op main van blender-gewrichten-e2e.yml: success (run 45042694485, commit 2a8927e6).
+- BEELD: 8 plaatje(s) sterk veranderd sinds de vorige geslaagde week-test (artefact beeldverschil-blender-gewrichten-5.3.0, rood is anders; geen rode test, kijk of het zo bedoeld is):
+  15-figuur-paneel.png: 94772 px (36.143%), x 16 tot 252, y 0 tot 896
+  15-figuur-x.png: 95069 px (4.585%), x 648 tot 1536, y 81 tot 977
+  16-figuur-rig-paneel.png: 104682 px (39.922%), x 16 tot 265, y 0 tot 888
+  16-figuur-rig-x.png: 104682 px (5.048%), x 1300 tot 1549, y 81 tot 969
+  17-figuur-heel-paneel.png: 85270 px (32.519%), x 16 tot 252, y 0 tot 897
+  17-figuur-heel-x.png: 85270 px (4.112%), x 1300 tot 1536, y 81 tot 978
+  19-mens-paneel.png: 48983 px (17.152%), x 16 tot 252, y 0 tot 959
+  19-mens-x.png: 69174 px (3.336%), x 804 tot 1880, y 80 tot 1039
+- BEELD: 8 plaatje(s) sterk veranderd sinds de vorige geslaagde week-test (artefact beeldverschil-blender-gewrichten-5.4.0-alpha, rood is anders; geen rode test, kijk of het zo bedoeld is):
+  15-figuur-paneel.png: 94772 px (36.143%), x 16 tot 252, y 0 tot 896
+  15-figuur-x.png: 95069 px (4.585%), x 648 tot 1536, y 81 tot 977
+  16-figuur-rig-paneel.png: 104682 px (39.922%), x 16 tot 265, y 0 tot 888
+  16-figuur-rig-x.png: 104682 px (5.048%), x 1300 tot 1549, y 81 tot 969
+  17-figuur-heel-paneel.png: 85270 px (32.519%), x 16 tot 252, y 0 tot 897
+  17-figuur-heel-x.png: 85270 px (4.112%), x 1300 tot 1536, y 81 tot 978
+  19-mens-paneel.png: 48983 px (17.152%), x 16 tot 252, y 0 tot 959
+  19-mens-x.png: 69174 px (3.336%), x 804 tot 1880, y 80 tot 1039
+Geteste versies: Blender: 4.5.17-rc, 5.2.5-rc, 5.3.0, 5.4.0-alpha (vast bij een push: 4.2.23, 5.2.3, 5.3.0). JetBrains: IIU: EAP 2026.3.1 build 263.8311.30 van 2026-11-20; CL: nieuwste EAP 263.7307.35 is 31 dagen oud (licentie verlopen), overgeslagen; Plugin Verifier ook tegen IU:2026.3,CL:2026.3.0.1. Obsidian: nieuwste app met de oudste en de nieuwste installer.
+Rood in de week-test blokkeert niets. Kijk of het aan de nieuwe versie ligt (dan aanpassen voor die uitkomt) of aan de test.
