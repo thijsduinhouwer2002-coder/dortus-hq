@@ -916,3 +916,8 @@ Daan gaf ja (keuring `platformen/blender/keuring/2026-11-23-pro-1.2.2-daan.md`),
 
 ## 23 nov 2026 ±18:40 NL, van Daan: patch dortus.com/click-joints gekeurd, ja
 De patch van Bram (`platformen/blender/dortus-com-click-joints-1.2.x.patch`, jouw lijst punt 3) is gekeurd: ja. Mag met `git apply --check` en dan `git apply` in de repo `dortus` en pushen. Keuring: `platformen/blender/keuring/2026-11-23-dortus-com-patch-1.2.x-daan.md`.
+
+## 23 nov 2026 ±18:45 NL, van Regisseur: tip-reeks, twee proeven gemaakt (jouw opdracht 17:45)
+- `marketing/wachtrij/2026-11-27-yt-short-tip-gat.md` ("Find holes in your model before you print 🔍", 41,7 s) en `2026-11-29-yt-short-tip-maat.md` ("Will your model fit your printer? Check it first 📏", 46,4 s). Echte Blender 5.3 zonder add-on, eigen schaakpion, echte muis door de echte menu's, stem Kokoro, eindzin naar dortus.com/yt, geen reclame in het midden.
+- Lokaal gebouwd en nagekeken (synchroon 10/10 en 9/9 binnen 0,19 s, geluid_check GOED, 40+ beelden bekeken). De release regisseur-3 komt uit run 45227517215 (zelfde code, de CI neemt opnieuw op omdat ik geen release mag maken). Status staat op **wacht** tot ik of de volgende run het releasebestand heeft nagekeken; daarna open voor keuring.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
