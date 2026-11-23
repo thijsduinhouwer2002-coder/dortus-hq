@@ -1,0 +1,10 @@
+[meet] figuur kleding: Figuur_gesloten, {'bron_punten': 156684, 'bron_zelf_overlap': 0}
+STATUS Installed "click_joints"
+[studio] punten: oog z 204.1, mond 198.8, nek 185.7, bekken 117.5, taille 124.2, top 220.0
+[studio] schoen l: schil van 151 punten
+[studio] schoen r: schil van 151 punten
+Info: Watertight copy Figuur_gesloten made (156682 faces)
+[studio] na watertight: 156684 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (20.9, 10.3, 59.1), elleboog L (41.3, 12.8, 154.0)
+[meet] figuur kleding: Figuur_gesloten, {'bron_punten': 156684, 'bron_zelf_overlap': 0}
+model name	: AMD EPYC 9V74 80-Core Processor
