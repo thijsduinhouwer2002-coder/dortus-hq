@@ -273,11 +273,11 @@ def goud(hexkleur=MESSING):
     return m
 
 
-def materialen(delen):
+def materialen(delen, rand_mm=0.35):
     """Na Figure from rig, alleen voor renders: alles wat de add-on aan een gewricht maakt (materialen 'Click Joints'
     en 'pla_grijs') wordt messing; vlakken zonder materiaal en het figuur zelf worden hout. Vlakken die niet op de
-    oude buitenkant liggen (kogel, kom, scharnier) maar nog hout zijn, worden ook messing: dan zie je het hele
-    gewricht in één tel."""
+    oude buitenkant liggen (verder dan rand_mm; kogel, kom, scharnier) worden ook messing: de add-on kleurt alleen
+    een deel van de kogel, en zo zie je het hele gewricht in één tel. rand_mm=None: alleen de kleuren van de add-on."""
     from mathutils.bvhtree import BVHTree
     h, g = hout(), goud()
     huid = bpy.data.meshes.get(HUID)
@@ -285,6 +285,7 @@ def materialen(delen):
     for o in delen:
         me = o.data
         oud = list(me.materials)
+        idx = [pl.material_index for pl in me.polygons]   # clear() zet alle indexen op 0, dus eerst onthouden
         me.materials.clear()
         me.materials.append(h)
         me.materials.append(g)
@@ -292,10 +293,10 @@ def materialen(delen):
                                                                  m.name.startswith("pla_grijs"))}
         mw = o.matrix_world
         for f in me.polygons:
-            gewricht = f.material_index in cj
-            if not gewricht and bvh is not None:
+            gewricht = idx[f.index] in cj
+            if not gewricht and bvh is not None and rand_mm is not None:
                 _l, _n, _i, d = bvh.find_nearest(mw @ f.center)
-                gewricht = d is None or d > 0.35
+                gewricht = d is None or d > rand_mm
             f.material_index = 1 if gewricht else 0
             f.use_smooth = True
         me.update()

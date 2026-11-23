@@ -227,3 +227,27 @@ Eerlijk, na zelf kijken naar de renders en schermen in release `studio-1` (GEZIE
   linkerschouder geeft soms "The cut gave no watertight parts"). Noem in een filmpje alleen wat de lijst in beeld zegt.
 - **Traag**: een render kost in CI ±5 minuten (EEVEE in software-OpenGL), de hele bewijs-run ±25 minuten per kleurstelling.
 - In het scherm staan de groene passingkleuren van de add-on met wat korrel op de heupbanden; zo ziet de add-on eruit.
+
+## De houten tekenpop (tekenpop-1, 23 nov ±22:35, tekenpop-agent)
+Thijs vond dat een mooie "ragdoll" beter zou werken dan de robot; wij lezen dat als de klassieke houten tekenpop.
+Laden: `FL.laad_figuur("tekenpop")` (`figuur_tekenpop.py`, eigen werk, herkomst in `modellen/tekenpop-dortus-LICENTIE.md`).
+Bewijs: workflow `.github/workflows/tekenpop.yml`, release `tekenpop-1`.
+- **Vormen:** eivormig hoofd zonder gezicht (iets naar voren gekanteld), hals, borstkas als afgeronde superellipsoïde
+  (breed bij de schouders), bal in de taille, bekken, ovale ledematen die bij elk gewricht smal worden (`lid()`),
+  peddelhanden met een duimpje en peddelvoeten met een platte zool. Eén gesloten mesh met Make watertight (voxel 0,5 mm).
+- **Wat de add-on nodig had:** de eerste versie gaf 3 losse stukken (armen raakten de borst niet): borstkas breder
+  (21,5 mm) en de schouder op x = 27,5, zodat de bol van de bovenarm de zijkant van de borst net raakt. Verder de lessen
+  van de robot: elleboog 4,4 mm en knie 6 mm van de huid aan de buigkant (`rig_punten`), heupen op x = +-17.
+- **Gewrichten: 9 in CI** (alle vier de render-jobs van `tekenpop.yml`, run 45275349089 op 585d32cf, GEZIEN in
+  `b-*.json`): ellebogen 0 tot 140, knieën 0 tot 120, nek +-20, schouders +-30, linkerheup +-25, rechterheup +-30,
+  10 delen, elk één stuk. Lokaal (Blender 5.3.0, 2 kernen) ook 9.
+- **Materiaal (alleen renders, `T.materialen(delen)`):** hout met nodes (ringen om de lengteas van elk deel, vervormd
+  met ruis, poriën, vlekken, laklaag 0,35); messing (FFC24A, metaal 0,85) voor alles wat de add-on aan een gewricht
+  kleurt plus elk vlak dat verder dan 0,35 mm van de oude buitenkant ligt (kogels, binnenkant van de kom). Let op:
+  `materials.clear()` zet alle materiaalindexen op 0, dus eerst onthouden.
+- **Renders:** `tekenpop_beelden.py` leest `ontwerp/click-joints-pro-v2/bron/pro_beelden.py` in zonder zijn main()
+  (camera, studio B, buigen, kogels, uit elkaar). Shots `staand` (loophouding, 0,45 keer de Exploded view zodat je het
+  messing ziet), `uit`, `pop169` (cover B), `dyn169` (delen schuin uit elkaar, alleen voor het beeld). Tekst:
+  `tekenpop_cover.py` (hergebruikt `maak_beelden.py`; label -25% alleen in de saleweek, CYBER25 op Gumroad).
+- Lokaal sneller proberen: `TP_BEWAAR=/tmp/fig.blend` bewaart het figuur na Figure from rig, `TP_LAAD=/tmp/fig.blend`
+  slaat de knop over (20 s per render in plaats van 2,5 minuut).

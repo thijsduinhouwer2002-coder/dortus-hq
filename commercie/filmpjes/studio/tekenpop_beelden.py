@@ -117,7 +117,7 @@ def main():
         json.dump(meting, open(os.path.join(UIT, f"{STIJL}-proef.json"), "w"), indent=1, ensure_ascii=False)
         print(f"PROEF tekenpop gewrichten={meting['aantal_gewrichten']} delen={meting['delen']}", flush=True)
         return
-    T.materialen(delen)
+    T.materialen(delen, rand_mm=float(os.environ.get("TP_RAND", "0.35")))
     inst = bpy.context.scene.click_joints
     try:
         bpy.context.window_manager.cj_scharnier_boog = False
@@ -145,7 +145,7 @@ def main():
         kader(objs, float(os.environ.get("TP_HOEK", "50")), 4, (0.16, 0.84), 0.41, lens=60, ymid=0.46)
     elif SHOT == "uit":
         M["render_instellingen"](1600, 1600)
-        kader(objs, 26, 8, (0.1, 0.9), 0.40, lens=60, ymid=0.46)
+        kader(objs, 26, 8, (0.12, 0.88), 0.44, lens=60, ymid=0.48)
     elif SHOT == "pop169":
         M["render_instellingen"](2560, 1440)
         kader(objs, 50, 6, (0.55, 0.97), 0.53, lens=70, ymid=0.43)
