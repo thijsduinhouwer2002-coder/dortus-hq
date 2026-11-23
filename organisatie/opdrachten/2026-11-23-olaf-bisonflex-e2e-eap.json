@@ -1,1 +1,13 @@
-{"workflow": "jetbrains-bison-flex-e2e.yml", "invoer": {"idea_build": "263.8311.30"}, "van": "olaf", "waarom": "e2e Bison & Flex op IntelliJ EAP 263.8311.30 na reparatie structuurweergave"}
+{
+  "workflow": "jetbrains-bison-flex-e2e.yml",
+  "invoer": {
+    "idea_build": "263.8311.30"
+  },
+  "van": "olaf",
+  "waarom": "e2e Bison & Flex op IntelliJ EAP 263.8311.30 na reparatie structuurweergave",
+  "uitslag": {
+    "run_id": 45093981465,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45093981465",
+    "gestart": "2026-11-23T01:20:08Z"
+  }
+}
