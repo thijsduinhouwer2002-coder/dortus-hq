@@ -1,0 +1,107 @@
+name: Splitser merk (cover en winkelbeelden)
+
+# 23 nov 2026, merk-agent (opdracht hoofdchat ±16:30 NL): cover en winkelbeelden voor de splitser, in Blender 5.3.0
+# (Cycles, CPU) met de leeuwenkop van Poly Haven (CC0). Script: producten/blender-splitser/merk/bron/splits_scene.py
+# (snijden met Blender-booleans, nog niet met de add-on zelf), tekst erop met maak_beelden.py (PIL).
+# Twee stijlen: a = Pop (kobaltblauwe studio), b = Nacht (Dortus: pruim en goud). Alles in release splitser-merk-1.
+# Niets wordt geplaatst, niets kost geld.
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/splitser-merk.yml", "producten/blender-splitser/merk/bron/**"]
+  workflow_dispatch:
+    inputs:
+      samples:
+        description: "Samples per render (standaard 48)"
+        default: "48"
+      naam:
+        description: "Productnaam op de beelden"
+        default: "Click Cuts"
+
+permissions:
+  contents: write
+
+env:
+  TAG: splitser-merk-1
+  PH: https://dl.polyhaven.org/file/ph-assets/Models
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        stijl: [a, b]
+        shot: [cover, heel, delen, bed, pen]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Blender 5.3.0 en het model (Poly Haven lion_head, CC0)
+        run: |
+          B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          sudo apt-get install -y -q libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 >/dev/null || true
+          M=/tmp/mod/lion_head && mkdir -p $M/textures
+          curl -fsSL --retry 3 -o $M/lion_head_1k.gltf "$PH/gltf/1k/lion_head/lion_head_1k.gltf"
+          curl -fsSL --retry 3 -o $M/lion_head.bin "$PH/gltf/8k/lion_head/lion_head.bin"
+          curl -fsSL --retry 3 -o $M/textures/lion_head_nor_gl_2k.jpg "$PH/jpg/2k/lion_head/lion_head_nor_gl_2k.jpg"
+          echo "b6e09d69c51220b0b0305ac5f29ca030  $M/lion_head.bin" | md5sum -c
+      - name: Render ${{ matrix.stijl }} ${{ matrix.shot }}
+        env:
+          STIJL: ${{ matrix.stijl }}
+          SHOT: ${{ matrix.shot }}
+          SAMPLES: ${{ github.event.inputs.samples || '48' }}
+          STUDIO_DIR: ${{ github.workspace }}/commercie/filmpjes/studio
+        run: |
+          mkdir -p /tmp/uit
+          case "$SAMPLES" in ''|*[!0-9]*) SAMPLES=48 ;; esac
+          timeout 3000 /tmp/blender/blender -b --factory-startup --python producten/blender-splitser/merk/bron/splits_scene.py -- /tmp/mod/lion_head /tmp/uit "$STIJL" "$SHOT" "$SAMPLES" 75 2>&1 | tee /tmp/uit/$STIJL-$SHOT.log | grep -E "\[merk\]|Traceback|Error" | cut -c1-400
+          ls -la /tmp/uit
+          [ -s "/tmp/uit/$STIJL-$SHOT.png" ] || { echo "FOUT: geen render"; exit 1; }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: render-${{ matrix.stijl }}-${{ matrix.shot }}
+          path: /tmp/uit/
+          retention-days: 7
+
+  beelden:
+    needs: render
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: /tmp/a
+      - name: Tekst erop, paneel, vergelijkingsblad
+        env:
+          NAAM: ${{ github.event.inputs.naam || 'Click Cuts' }}
+        run: |
+          sudo apt-get install -y -q librsvg2-bin >/dev/null
+          pip install -q pillow
+          mkdir -p /tmp/r /tmp/f /tmp/c /tmp/b
+          find /tmp/a -type f \( -name '*.png' -o -name '*.log' \) -exec cp {} /tmp/r/ \;
+          G=https://raw.githubusercontent.com/google/fonts/main/ofl
+          curl -fsSL -o /tmp/f/Bricolage.ttf "$G/bricolagegrotesque/BricolageGrotesque%5Bopsz%2Cwdth%2Cwght%5D.ttf"
+          curl -fsSL -o /tmp/f/Inter.ttf "$G/inter/Inter%5Bopsz%2Cwght%5D.ttf"
+          # coverbeelden van CatPin en Cleave alleen voor het vergelijkingsblad (Superhive, 23 nov 2026)
+          curl -fsSL -o /tmp/c/catpin.png "https://assets.superhivemarket.com/store/product/261693/image/xlarge-93696e06c29a0ec3efe81b285cb8f995.png" || true
+          curl -fsSL -o /tmp/c/cleave.jpeg "https://assets.superhivemarket.com/store/product/264651/image/xlarge-40fa5c2d6ae39125cd932fe28b2ddab2.jpeg" || true
+          case "$NAAM" in *[!A-Za-z0-9\ ]*) NAAM="Click Cuts" ;; esac
+          python3 producten/blender-splitser/merk/bron/maak_beelden.py /tmp/r /tmp/b /tmp/f "$NAAM" /tmp/c
+          cp /tmp/r/*.png /tmp/b/ 2>/dev/null || true
+          for f in /tmp/r/*.png; do mv "/tmp/b/$(basename $f)" "/tmp/b/render-$(basename $f)"; done
+          cp /tmp/r/*.log /tmp/b/ 2>/dev/null || true
+          ls -la /tmp/b
+      - name: In release splitser-merk-1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          printf '%s\n' "Merkbeelden voor de splitser (werknaam), 23 nov 2026, merk-agent Dortus. Gemaakt in Blender 5.3.0 (Cycles) in deze workflow, geen AI-beeld." "Model: Lion Head van Poly Haven (CC0, https://polyhaven.com/a/lion_head). Gesneden met Blender-booleans, nog niet met de add-on zelf." "cover-a / cover-b: coverbeeld in twee stijlen (a Pop, b Nacht). winkel-*-1 tot 4: winkelbeelden. gumroad-*: vierkant voor Gumroad. paneel-schets.png: schets van het paneel. vergelijk.png: onze cover naast CatPin en Cleave (hun beelden van Superhive, alleen ter vergelijking). render-*: de kale renders. Werkmateriaal, niets geplaatst." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Splitser merk 1 (cover, winkelbeelden, paneel)" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/b/* --clobber -R "$GITHUB_REPOSITORY"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
