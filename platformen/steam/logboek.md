@@ -2192,3 +2192,8 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
   0,3 mm (6dcadc8), CI en lokaal 9 (GEZIEN). Naar Bram en hoofdchat. Uitslag in proeven/studio2-figuren-2026-11-23.
 ## 23 nov 2026, Sanne: scripts week 49 herzien na keuring Daan
 Drie moet verwerkt in `commercie/filmpjes/scripts/week-49-click-joints.md`: script 1 verkoopt nu Figure from rig (export is het gevolg en zit ook gratis, dat zegt zin 6 eerlijk), beeld de robot van studio-2, geen getal delen (robot gaf 8 of 9 gewrichten). Script 6 zegt nu wat de code doet: groen goed, krap wel gesneden, rood niet (`passing.py`). Ook de kan: hook 2B "Arms too thin for a hinge?" en volgorde 6, 1, 3, 5, 2, 4. Terug naar Daan voor script 1 en 6.
+
+## 23 nov 2026 ±17:15-17:50 NL, Olaf (Click Joints, run 16:15 UTC)
+- Toets `CJ_HERKANS=2` (kan A5 keuringen): weigert elke kogelplek behalve de 0,3 mm-plek. Lokaal 5.3.0 MakeHuman:
+  op heupen ("too close") en linkerschouder ("blocked") lukt die plek niet (GEZIEN). Omweg 6dcadc8 is geluk, geen
+  vangnet. Toets niet in de e2e (rood); advies A4 (overlap na de snede meten, EXACT overdoen) naar Bram.

@@ -30,6 +30,7 @@ exec(compile(_src, "proef_mens.py", "exec"), M)
 A = M["A"]
 
 FOUT = []
+DOEL2 = os.environ.get("CJ_HERKANS_LID", "Left shoulder")  # gewricht voor CJ_HERKANS=2
 
 
 def log(t):
@@ -83,6 +84,47 @@ def main():
                                "the mesh is unchanged."), []
             return echt(context, sleutel, naam, *a, **k)
         figm.plaats_gewricht = plaats_nep
+    herkans2 = os.environ.get("CJ_HERKANS") == "2"
+    heup = {"lijst": [], "laatste": None, "nu": None, "op_laatste": False, "geweigerd": 0, "laatste_ok": False}
+    if herkans2:
+        # 23 nov (Olaf, keuring a3f5e85 kan A5): op de robot van studio-2 gaf de heupsnede in CI (AMD) delen die in
+        # rust al vastzaten ("blocked"), lokaal (Intel) niet. De fix is een laatste kandidaat 0,3 mm verder het lid
+        # in. Hier doen we die kapotte snede na: op DOEL2 weigert de beweegproef elke plek behalve de
+        # laatste. De knop moet dan bij die laatste plek uitkomen en het gewricht toch plaatsen.
+        # Gemeten 23 nov 17:40 (lokaal 5.3.0, MakeHuman 220 mm): FAALT op elk lid. Heupen: de plek 0,3 mm verder is
+        # "too close" (net als de eerste plek); 400 mm idem; linkerschouder: de plek 0,3 mm verder is "blocked",
+        # de eerste plek gaf ±20. De omweg hielp op de robot, maar is geen algemene herkansing. Daarom nog NIET in
+        # de e2e; proef voor Bram (keuring a3f5e85, A4: overlap meten direct na de snede).
+        rigm2 = mod("betaald.rig")
+        figm2 = mod("betaald.figuur")
+        echt_schuif, echt_vast, echt_plaats = rigm2.kogel_schuif, rigm2.kogel_vast, figm2.plaats_gewricht
+
+        def schuif_nep(*a, **k):
+            uit = echt_schuif(*a, **k)
+            heup["kand"] = ([mm for _m, mm in uit], uit[-1][0].to_translation().copy() if uit else None)
+            return uit
+
+        def plaats_tel(context, sleutel, naam=None, *a, **k):
+            heup["nu"] = naam
+            if naam == DOEL2:
+                heup["lijst"], heup["laatste"] = heup.get("kand", ([], None))
+                c = context.scene.cursor.matrix.to_translation()
+                heup["op_laatste"] = heup["laatste"] is not None and (c - heup["laatste"]).length < 1e-5
+            r = echt_plaats(context, sleutel, naam, *a, **k)
+            if naam == DOEL2:
+                log(f"{DOEL2}: laatste plek={heup['op_laatste']} ok={r[0]} melding={r[1]}")
+            return r
+
+        def vast_nep(nieuw):
+            if heup["nu"] == DOEL2:
+                if not heup["op_laatste"]:
+                    heup["geweigerd"] += 1
+                    return True
+                vast = echt_vast(nieuw)
+                heup["laatste_ok"] = heup["laatste_ok"] or not vast
+                return vast
+            return echt_vast(nieuw)
+        rigm2.kogel_schuif, rigm2.kogel_vast, figm2.plaats_gewricht = schuif_nep, vast_nep, plaats_tel
     try:
         r = bpy.ops.click_joints.figuur_uit_rig()
     except RuntimeError as e:
@@ -90,6 +132,14 @@ def main():
     if herkans:
         figm.plaats_gewricht = echt
         check(nep == ["Left shoulder"], f"mislukte snede nagedaan op de linkerschouder ({nep})")
+    if herkans2:
+        rigm2.kogel_schuif, rigm2.kogel_vast, figm2.plaats_gewricht = echt_schuif, echt_vast, echt_plaats
+        lijst = heup["lijst"]
+        log(f"{DOEL2}: kandidaten (mm) {[round(x, 2) for x in lijst]}, geweigerd {heup['geweigerd']}")
+        check(len(lijst) >= 2 and abs(lijst[-1] - lijst[0] - 0.3) < 1e-6,
+              "laatste heupkandidaat ligt 0,3 mm verder dan de eerste")
+        check(heup["geweigerd"] >= 1 and heup["laatste_ok"],
+              "na geweigerde heupplekken plaatst de knop de heup op de laatste plek (0,3 mm verder)")
     # 17 nov run 26: eerder bleven hier 172 lege tussenmeshes in het bestand.
     wees = [m.name for m in bpy.data.meshes if m.name not in voor and m.users == 0]
     check(not wees, f"geen lege tussenmeshes achtergebleven ({len(wees)})")
