@@ -1,0 +1,209 @@
+# gemaakt: 2026-11-23T03:10:58Z
+# workflow: Bison & Flex e2e (echte IDE) (.github/workflows/jetbrains-bison-flex-e2e.yml)
+# run: 45101820137 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45101820137
+# commit: e7a2cefc tak main gestart door workflow_dispatch
+# mislukte stappen: e2e: Test in de echte IDE (IntelliJ IDEA EAP 263.8311.30)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e / Test in de echte IDE (IntelliJ IDEA EAP 263.8311.30) (laatste 200 van 2607 regels) =====
+    	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:152)
+    	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:91)
+    	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:112)
+    	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:94)
+    	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+    	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+    	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+    	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+    	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:93)
+    	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:87)
+    	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:216)
+    	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+    	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:212)
+    	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)
+    	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+    	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+    	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+    	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+    	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+    	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+    	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+    	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+    	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+    	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+    	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+    	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+    	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+    	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+    	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+    	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+    	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+    	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+    	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201)
+    	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170)
+    	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94)
+    	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59)
+    	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142)
+    	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58)
+    	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+    	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+    	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+    	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+    	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+    	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+    	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+    	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor$CollectThenExecuteTestDefinitionConsumer.processAllTestDefinitions(JUnitPlatformTestDefinitionProcessor.java:206)
+    	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor$CollectThenExecuteTestDefinitionConsumer.access$000(JUnitPlatformTestDefinitionProcessor.java:123)
+    	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor.stop(JUnitPlatformTestDefinitionProcessor.java:117)
+    	at org.gradle.api.internal.tasks.testing.SuiteTestDefinitionProcessor.stop(SuiteTestDefinitionProcessor.java:63)
+    	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+    	at org.gradle.internal.dispatch.MethodInvocation.invokeOn(MethodInvocation.java:77)
+    	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:28)
+    	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:19)
+    	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+    	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88)
+    	at jdk.proxy1/jdk.proxy1.$Proxy4.stop(Unknown Source)
+    	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:195)
+    	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:126)
+    	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
+    	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
+    	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+    	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:122)
+    	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:72)
+    	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+    	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+
+IdeTest > lichtThema() STANDARD_OUT
+    [02:55:58]: Guessing java process ID on Linux (pid of the java process wrapper - 5086)
+    [02:55:58]: Starting external process for `jcmd-run`
+      Working directory: [weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30
+      Arguments: [[weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30/jbr/bin/jcmd]
+      STDOUT will be redirected to: string. STDERR will be redirected to: string. STDIN is empty: true
+
+    [02:55:58]:   ... started external process `jcmd-run` with process ID = 7311
+    [02:55:58]:   ... successfully finished external process for `jcmd-run` with exit code 0
+    [02:55:58]: List all java processes IDs:
+    [02:55:58]: 4272 worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+    [02:55:58]: 4097 org.gradle.launcher.daemon.bootstrap.GradleDaemon 9.8.2
+    [02:55:58]: 4227 org.jetbrains.kotlin.daemon.KotlinCompileDaemon --daemon-logsPath /tmp --daemon-logsFileSizeLimit=1048576 --daemon-logsFileCountLimit=3 --daemon-runFilesPath /home/runner/.kotlin/daemon --daemon-autoshutdownIdleSeconds=7200 --daemon-compilerClasspath /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-compat/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-compat-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-tooling-core/2.4.21/[weggehaald: lange hex-reeks]/kotlin-tooling-core-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-cri-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-cri-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kot
+    [02:55:58]: 5086 com.intellij.idea.Main /tmp/bisonflex-licht/calculator
+    [02:55:58]: 7311 jdk.jcmd/sun.tools.jcmd.JCmd
+    [02:55:58]: 4063 /home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/gradle/wrapper/gradle-wrapper.jar --no-daemon integrationTest -PideBuild=263.8311.30
+
+IdeTest > lichtThema() STANDARD_ERROR
+    [02:55:58]: Couldn't find appropriate java process id for pid 5086
+    [02:55:58]: Retrying in 3s ...
+
+IdeTest > lichtThema() STANDARD_OUT
+    [02:55:59]:   ... successfully finished external process for `run-ide-bisonflex-licht` with exit code 0
+    [02:55:59]: IDE run bisonflex-licht completed in 5m 13.087063832s
+    [02:55:59]: Run VM options validation
+    [02:55:59]: Finished VM options validation
+    ##teamcity[testMetadata  type='link' name='Link to Logs and artifacts' value='null' ]
+
+IdeTest > lichtThema() STANDARD_ERROR
+    [02:55:59]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    [02:55:59]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    [02:55:59]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    [02:55:59]: No logic for publishing artifacts has been implemented.
+    If you want to publish artifacts somewhere (e.g. in CI build) - implement [CIServer] interface and register it via KodeinDI as specified in Readme.
+    Nov 23, 2026 2:55:59 AM io.qameta.allure.AllureLifecycle updateTestCase
+    SEVERE: Could not update test case: no test case running
+    Nov 23, 2026 2:55:59 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 2:56:00 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 2:56:00 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 2:56:00 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 2:56:00 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 2:56:00 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 2:56:00 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 2:56:00 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 2:56:00 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 2:56:00 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 23, 2026 2:56:00 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+
+IdeTest > lichtThema() STANDARD_OUT
+    [02:56:00]: Successfully finished publishArtifacts run for bisonflex-licht
+    [02:56:00]: IDEStartResult(runContext=IDERunContext(testContext=com.intellij.ide.starter.ide.IDETestContext@36224f93, commandLine=fun openTestCaseProject(com.intellij.ide.starter.runner.IDERunContext): com.intellij.ide.starter.runner.IDECommandLine, commands=com.intellij.tools.ide.performanceTesting.commands.CommandChain@187fc0c4, runTimeout=10m, useStartupScript=true, verboseOutput=false, launchName=, expectedKill=false, expectedExitCode=0, collectNativeThreads=false, stdOut=null), executionTime=5m 13.087063832s, vmOptionsDiff=VMOptionsDiff(newLines=[], missingLines=[]), failureError=null, frontendStartResult=null)
+    [02:56:00]: IDERunContext(testContext=com.intellij.ide.starter.ide.IDETestContext@36224f93, commandLine=fun openTestCaseProject(com.intellij.ide.starter.runner.IDERunContext): com.intellij.ide.starter.runner.IDECommandLine, commands=com.intellij.tools.ide.performanceTesting.commands.CommandChain@187fc0c4, runTimeout=10m, useStartupScript=true, verboseOutput=false, launchName=, expectedKill=false, expectedExitCode=0, collectNativeThreads=false, stdOut=null)
+    [02:56:01]: Guessing java process ID on Linux (pid of the java process wrapper - 5086)
+    [02:56:01]: Starting external process for `jcmd-run`
+      Working directory: [weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30
+      Arguments: [[weggehaald: lange base64-reeks].8311.30/idea-IU-263.8311.30/jbr/bin/jcmd]
+      STDOUT will be redirected to: string. STDERR will be redirected to: string. STDIN is empty: true
+
+    [02:56:01]:   ... started external process `jcmd-run` with process ID = 7342
+    [02:56:01]:   ... successfully finished external process for `jcmd-run` with exit code 0
+    [02:56:01]: List all java processes IDs:
+    [02:56:01]: 4272 worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+    [02:56:01]: 4097 org.gradle.launcher.daemon.bootstrap.GradleDaemon 9.8.2
+    [02:56:01]: 4227 org.jetbrains.kotlin.daemon.KotlinCompileDaemon --daemon-logsPath /tmp --daemon-logsFileSizeLimit=1048576 --daemon-logsFileCountLimit=3 --daemon-runFilesPath /home/runner/.kotlin/daemon --daemon-autoshutdownIdleSeconds=7200 --daemon-compilerClasspath /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-compat/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-compat-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-tooling-core/2.4.21/[weggehaald: lange hex-reeks]/kotlin-tooling-core-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-tools-cri-impl/2.4.21/[weggehaald: lange hex-reeks]/kotlin-build-tools-cri-impl-2.4.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kot
+    [02:56:01]: 7342 jdk.jcmd/sun.tools.jcmd.JCmd
+    [02:56:01]: 4063 /home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/gradle/wrapper/gradle-wrapper.jar --no-daemon integrationTest -PideBuild=263.8311.30
+
+IdeTest > lichtThema() STANDARD_ERROR
+    [02:56:01]: Couldn't find appropriate java process id for pid 5086
+    [02:56:01]: Retrying in 3s ...
+
+IdeTest > lichtThema() FAILED
+    com.intellij.ide.starter.driver.engine.DriverWithContextError at IdeTest.kt:96
+        Caused by: com.intellij.driver.sdk.WaitForException at IdeTest.kt:100
+
+IdeTest STANDARD_OUT
+    [02:56:01]: Canceling children of 'Test's supervisor scope': Test `lichtThema()` execution is finished
+
+Gradle Test Executor 1 STANDARD_OUT
+    [02:56:01]: Canceling children of 'Test class's supervisor scope': Test class `IdeTest` execution is finished
+    [02:56:01]: Canceling children of 'Test class's supervisor scope': Test class `JUnit Jupiter` execution is finished
+    [02:56:01]: INFO - com.intellij.tools.ide.starter.bus.shared.server.LocalEventBusServer - Server stopped
+    [02:56:01]: Canceling children of 'Test suite's supervisor scope': Test plan execution is finished
+
+[02:56:01]: Canceling children of 'Test's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+[02:56:01]: Canceling children of 'Test class's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+[02:56:01]: Canceling children of 'Test suite's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+
+> Task :integrationTest FAILED
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_4-1795402139249.json
+15 actionable tasks: 7 executed, 8 up-to-date
+
+2 tests completed, 2 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':integrationTest'.
+> There were failing tests. See the report at: file:///home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/build/reports/tests/integrationTest/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 7m 6s
+##[error]Process completed with exit code 1.
