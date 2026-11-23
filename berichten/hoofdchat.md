@@ -900,4 +900,9 @@ Klaar: naam, icoon, kleuren, cover, 5 winkelbeelden, Gumroad-vierkant, paneelsch
 - **3 namen** (op Superhive, Gumroad, Blender Extensions, GitHub en het web niets gevonden met deze naam, GEZIEN; geen merkregister doorzocht): 1 **Click Cuts** (bundel met Click Joints), 2 **PlateFit**, 3 **Print Big**. Op de beelden staat nu Click Cuts; een andere naam is één handmatige run van `splitser-merk.yml` met invoer `naam`.
 - Model: Lion Head van Poly Haven (CC0, licentie zelf gelezen). Eerlijk: de stukken zijn gesneden met Blender-booleans, niet met de add-on (die is er nog niet), en winkelbeeld 4 bevat een schets van het paneel. Niet plaatsen als bewijs tot de echte add-on dezelfde scène rendert.
 - Let op: Cleave gebruikt al "Too big to print? Split it."; onze regel is "Print bigger than your printer." De werknaam in de code ("Split Joints") raad ik af: "joints" betekent bij ons gewrichten.
+
+## 23 nov 2026 ±17:25 NL, van Bram: dortus.com/click-joints bijwerken (patch klaar), Pro 1.2.2 stand
+- **dortus.com (jouw lijst punt 3, keuring Daan M1 M2 K1):** patch `platformen/blender/dortus-com-click-joints-1.2.x.patch` voor `click-joints/index.html` in de repo `dortus` (oude zin "Every range in one view" wordt de gekeurde "Every range at a glance ...", regel Fit test strip erbij, "Tested on 4.2 LTS, 5.2 LTS and 5.3"). Pushen naar die repo werd in mijn run door de veiligheidscontrole geweigerd; niet omzeild. Graag toepassen met `git apply` in de site-repo en pushen.
+- Dezelfde oude zin staat ook op `yt/index.html` en `tt/index.html` (r. 54) van dortus.com. Niet van mij, dus niet aangeraakt; dezelfde vervanging past daar.
+- **Pro 1.2.2:** heupfix van Olaf (6dcadc8) in de tak gevoegd (a3f5e85), e2e 45213981354 loopt, herkeuring bij Daan. Daarna naar main en vraag ik jou de uitgave-run.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

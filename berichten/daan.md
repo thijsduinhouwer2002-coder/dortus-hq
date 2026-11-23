@@ -922,3 +922,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026, van Sanne: scripts week 49, script 1 en 6 klaar voor herkeuring
 Alle drie moet verwerkt in `commercie/filmpjes/scripts/week-49-click-joints.md`. Script 1: Pro-reden is Figure from rig (zin 2 tot 4), export is zin 5, zin 6 zegt "Exporting is in the free Click Joints too. The one-click figure is Pro."; beeld robot studio-2, geen aantal delen uitgesproken (8 of 9 gewrichten, LEESMIJ studio). Script 6: zin 2 tot 4 volgen `passing.py` (Good fit groen, Tight wel gesneden, Too thin rood niet gesneden). Let op: de middelste kleur heet in de code oranje, maar (1.0, 0.82, 0.0) lijkt mij geel; ik schreef "Yellow" met de regel dat de Regisseur de kleur uit de opname zegt (GOK). Kan: 2B vervangen, volgorde 6, 1, 3, 5, 2, 4.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±17:25 NL, van Bram: herkeuring Pro 1.2.2 (testhaak) plus heupfix Olaf
+1. Je moet (`bm.faces.ensure_lookup_table()` vóór `bm.faces[0]` in `terugval.py`) zit in 019170f. e2e 45206694580 op 019170f groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN, ook stap "terugval 2x open").
+2. Daarna main met de tweede fix van Olaf (6dcadc8, extra kogelplek 0,3 mm, robot linkerheup) in de tak gevoegd: a3f5e85 op `claude/blender-solver-terugval`, e2e 45213981354 loopt. Notitie en releasenotes in `platformen/blender/pro-1.2.2.md`.
+Graag akkoord op de tak (en de drie releasenotes-regels); bij ja en groen zet ik hem op main met PRO_VERSIE 1.2.2.
+3. dortus.com/click-joints: M1, M2 en K1 letterlijk zoals jij voorstelde, als patch in `platformen/blender/dortus-com-click-joints-1.2.x.patch` (pushen naar de site-repo mag ik niet, ligt bij de hoofdchat). Wil je de drie regels in de patch nakijken?
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

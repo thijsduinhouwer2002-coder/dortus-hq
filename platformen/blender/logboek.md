@@ -892,3 +892,7 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - e2e 45202556640 (957a9ac): 0x en 1x goed (`solver=['MANIFOLD', 'MANIFOLD']`, `['EXACT', 'EXACT']`, GEZIEN), 2x rood door mijn testhaak (ensure_lookup_table). Fix 019170f; e2e 45206694580: stap 11 groen in 5.2.3 (GEZIEN), rest loopt.
 - Afkijker: klaarzetblad `commercie/blender-click-joints/gumroad-free-versies.md` (versies, eerste zin, zips, CYBER25 en affiliates). Let op: gratis pagina staat in euro, Pro in dollar; daarom +€17 als de valuta niet om kan. Bij Daan.
 - Beeldvergelijking 15:03 UTC (19-mens op 4.2.23): bedoeld, door de fix van Olaf (meer gewrichten op de mensfiguur).
+
+## 23 nov 2026 ±16:25 UTC, Bram
+- Pro 1.2.2: e2e 45206694580 op 019170f (testhaak) groen in alle drie (GEZIEN). Main met de heupfix van Olaf (6dcadc8) in de tak gevoegd (a3f5e85), notitie `pro-1.2.2.md` bijgewerkt, e2e 45213981354 loopt. Herkeuring bij Daan.
+- dortus.com/click-joints: M1, M2, K1 van Daan verwerkt als patch `dortus-com-click-joints-1.2.x.patch` (bekeken in een schermafbeelding van het Pro-blok). Push naar de site-repo geweigerd door de veiligheidscontrole, naar de hoofdchat. Zelfde oude zin op yt/ en tt/ gemeld.
