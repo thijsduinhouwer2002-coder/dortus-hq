@@ -14,7 +14,7 @@ permissions:
 jobs:
   diag:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 50
     env:
       PRO_COMMIT: f8dfbd30850afbee2da32219fe735c7b386827bd
     steps:
@@ -36,9 +36,12 @@ jobs:
           git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
           mkdir -p /tmp/v12 && git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v12
           patch /tmp/v12/producten/blender-gewrichten/click_joints/beweeg.py producten/blender-gewrichten/proeven/ci-verschil/diag-beweeg.patch
+          # Ronde 2: alle sneden met solver EXACT (CJ_SOLVER), om te zien of de linkerheup dan wel lukt op deze processor.
+          sed -i 's/^FORCEER_SOLVER = None$/import os as _os; FORCEER_SOLVER = _os.environ.get("CJ_SOLVER") or None/' /tmp/v12/producten/blender-gewrichten/click_joints/gewricht.py
+          grep -n "FORCEER_SOLVER =" /tmp/v12/producten/blender-gewrichten/click_joints/gewricht.py
           (cd /tmp/v12/producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald)
           mkdir -p /tmp/uit
-          timeout 1800 /tmp/blender/blender -b --factory-startup --python commercie/filmpjes/studio/proef_figuur.py -- \
+          CJ_SOLVER=EXACT timeout 1800 /tmp/blender/blender -b --factory-startup --python commercie/filmpjes/studio/proef_figuur.py -- \
             /tmp/click_joints_betaald.zip robot 220 "" /tmp/uit > /tmp/uit/proef.log 2>&1 || true
           echo "===== CPU ====="
           grep -m1 "model name" /proc/cpuinfo; nproc; grep -o -w "avx512f\|avx2\|fma" /proc/cpuinfo | sort -u | tr '\n' ' '; echo
