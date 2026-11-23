@@ -25,7 +25,7 @@ from mathutils import Vector
 # Kleuren (sRGB hex). Munt achter oranje, blauw en geel: rustig, vrolijk en met genoeg contrast.
 KLEUR = {
     "vloer": "E4F6EF",      # licht munt, onder het figuur
-    "wand": "9EE0CC",       # muntgroen bovenaan de wand
+    "wand": "86D9C2",       # muntgroen bovenaan de wand
     "podium": "FFFFFF",
     "podium_rand": "FFD23F",
     "gewricht": "FFF6E6",   # roomwit voor de delen die de add-on in het gewricht maakt (kogel, kom, scharnier)
@@ -223,7 +223,7 @@ def eevee():
                 pass
     try:
         sc.view_settings.view_transform = "AgX"
-        sc.view_settings.look = "AgX - Medium High Contrast"
+        sc.view_settings.look = "AgX - Punchy"
     except Exception:  # noqa: BLE001
         pass
     sc.render.film_transparent = False

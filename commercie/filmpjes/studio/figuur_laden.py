@@ -301,7 +301,8 @@ def laad_mens_kleding(obj_pad, hoogte_mm=220.0, stijl=None, voxel_mm=0.5, dikte=
     e2e/proef_mens.py (Mixamo-namen, linkerknie 120 en linkerelleboog 140 in Limit Rotation). Geeft (rig, figuur, punten)."""
     import bmesh
     stijl = dict(STIJL, **(stijl or {}))
-    dikte = dict({"shirt": 0.45, "broek": 0.45, "riem": 0.9, "schoen": 1.8, "haar": 2.2}, **(dikte or {}))
+    voxel_mm = float(os.environ.get("CJ_VOXEL", voxel_mm))
+    dikte = dict({"shirt": 0.45, "broek": 0.45, "riem": 0.9, "schoen": 0.6, "haar": 2.2}, **(dikte or {}))
     M = _mens_module(hoogte_mm)
     for o in list(bpy.data.objects):
         bpy.data.objects.remove(o)
@@ -395,8 +396,7 @@ def laad_mens_kleding(obj_pad, hoogte_mm=220.0, stijl=None, voxel_mm=0.5, dikte=
     for ronde in range(15):
         nieuw_co = {}
         for i, v in enumerate(me.vertices):
-            if (rol[i] == "schoen" and v.co.z < p["l-ankle"].z - 1.5 * f) or (
-                    rol[i] == "shirt" and ronde < 10 and 145 * f < v.co.z < 170 * f and abs(v.co.x) < 15 * f):
+            if rol[i] == "shirt" and ronde < 10 and 145 * f < v.co.z < 170 * f and abs(v.co.x) < 15 * f:
                 if buren[i]:
                     nieuw_co[i] = v.co * 0.2 + sum((me.vertices[j].co for j in buren[i]), Vector()) * (0.8 / len(buren[i]))
         for i, c in nieuw_co.items():
@@ -432,6 +432,38 @@ def laad_mens_kleding(obj_pad, hoogte_mm=220.0, stijl=None, voxel_mm=0.5, dikte=
         poly.material_index = volgorde.index(collections.Counter(rol[i] for i in poly.vertices).most_common(1)[0][0])
         poly.use_smooth = True
     me.update()
+    # schoenen: per voet de bolle schil (convex hull) van de voet onder de enkel, iets ruimer, samen met het lichaam
+    # in de remesh. Zo verdwijnen de tenen in een gladde schoen met een platte zool.
+    schoen_i = volgorde.index("schoen")
+    schillen = []
+    for k in "lr":
+        enk = p[f"{k}-ankle"]
+        vs = [v.co.copy() for v in me.vertices if v.co.z < enk.z + 1.0 * f and (v.co.x > 0) == (enk.x > 0)
+              and (v.co - Vector((enk.x, enk.y, v.co.z))).length < 40 * f]
+        if len(vs) < 8:
+            continue
+        bm = bmesh.new()
+        for c in vs:
+            bm.verts.new(c)
+        bmesh.ops.convex_hull(bm, input=bm.verts[:])
+        midden = sum(vs, Vector()) / len(vs)
+        for v in bm.verts:
+            d = v.co - midden
+            v.co = midden + Vector((d.x * 1.08, d.y * 1.04, d.z * 1.06))
+            v.co.z = max(v.co.z, 0.0)
+        smesh = bpy.data.meshes.new(f"schoen_{k}")
+        bm.to_mesh(smesh)
+        bm.free()
+        smesh.materials.append(me.materials[schoen_i])
+        so = bpy.data.objects.new(f"schoen_{k}", smesh)
+        bpy.context.scene.collection.objects.link(so)
+        schillen.append(so)
+    if schillen:
+        for o in bpy.context.view_layer.objects:
+            o.select_set(o in schillen or o is body)
+        bpy.context.view_layer.objects.active = body
+        bpy.ops.object.join()
+        body = bpy.context.view_layer.objects.active
     fig = body
     fig.name = fig.data.name = "Figuur"
     bron_me = fig.data.copy()
