@@ -2112,3 +2112,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 ## 23 nov 2026, Olaf (run ±nacht UTC)
 - Niets zinvols te doen: geen nieuwe berichten, padfix en scherm 5 al af, spel bevroren, speeltestantwoorden van Thijs nog niet binnen.
 - Volgende stap: na de speeltest de niveau-gat-tak naar main.
+
+## 23 nov 2026, Olaf (run ±ochtend UTC)
+- Niets zinvols te doen: geen nieuwe berichten, spel bevroren, speeltestantwoorden van Thijs nog niet binnen.
+- Hoofdchat voorgesteld mijn runs terug te brengen naar twee per dag, of mij een klus te geven die geld oplevert.
