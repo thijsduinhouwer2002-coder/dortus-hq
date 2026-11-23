@@ -45,10 +45,14 @@ def punten(h=220.0):
         p.update({
             f"{k}-upper-leg": (17 * s, 0, 116), f"{k}-knee": (18.5 * s, -1, 57), f"{k}-ankle": (19.5 * s, 1, 14),
             f"{k}-foot-1": (19.5 * s, -17, 3),
-            f"{k}-clavicle": (4 * s, 0, 174), f"{k}-shoulder": (29 * s, 0, 174), f"{k}-elbow": (48 * s, -1, 136),
-            f"{k}-hand": (59 * s, -3, 108), f"{k}-hand-2": (62 * s, -4, 100),
+            f"{k}-clavicle": (4 * s, 0, 175), f"{k}-shoulder": (30 * s, 0, 175), f"{k}-elbow": (50 * s, 1, 132),
+            f"{k}-hand": (61 * s, -1, 103), f"{k}-hand-2": (64 * s, -2, 95),
         })
     return {n: Vector(c) * f for n, c in p.items()}
+
+
+ELLEBOOG_R = 9.0   # straal van de buis bij de elleboog (mm bij 220 mm)
+KNIE_R = 11.0      # straal van de buis bij de knie
 
 
 def rig_punten(p, f=1.0):
@@ -58,8 +62,8 @@ def rig_punten(p, f=1.0):
     meer voor de kogel van schouder of heup. Elleboog buigt naar voren (-y), knie naar achteren (+y)."""
     q = dict(p)
     for k in "lr":
-        q[f"{k}-elbow"] = p[f"{k}-elbow"] + Vector((0, -3.0, 0)) * f
-        q[f"{k}-knee"] = p[f"{k}-knee"] + Vector((0, 3.0, 0)) * f
+        q[f"{k}-elbow"] = p[f"{k}-elbow"] + Vector((0, -ELLEBOOG_R + 4.4, 0)) * f
+        q[f"{k}-knee"] = p[f"{k}-knee"] + Vector((0, KNIE_R - 6.0, 0)) * f
     return q
 
 
@@ -153,6 +157,25 @@ def _richting(a, b, op=Vector((0, -1, 0))):
     return Matrix((x, y, z)).transposed()
 
 
+def hand(B, ha, h2, sx, s):
+    """Vuist in speelgoedstijl: handpalm, vier vingers als blokjes met een groefje ertussen (de knokkels naar buiten)
+    en een duim die over de vingers ligt. Lokaal: z langs de onderarm naar de vingers, x naar buiten, y naar voren."""
+    def P(*c):
+        return Vector(c) * s
+    dr = _richting(ha, h2)
+    z = (h2 - ha).normalized()
+    m0 = ha + z * 2.0 * s
+    def L(x, y, zz):   # lokaal punt naar wereld (x naar buiten: spiegel voor rechts)
+        return m0 + dr @ P(x * sx, y, zz)
+    B.doos(L(0, 0, -1.5), P(16.5, 17.5, 4.0), "blauw", rond=1.6 * s, draai=dr)      # pols
+    B.doos(L(-0.5, 0, 7.0), P(13.5, 15.5, 12.0), "metaal", rond=3.6 * s, draai=dr)   # handpalm
+    for i, y in enumerate((-5.7, -1.9, 1.9, 5.7)):
+        lang = (6.8, 7.4, 7.2, 6.4)[i]
+        B.doos(L(1.0, y, 13.0 + lang / 2 - 1.0), P(11.0, 3.0, lang), "metaal", rond=1.3 * s, draai=dr)  # vinger
+        B.doos(L(-4.2, y, 15.0 + lang / 2 - 2.5), P(5.0, 3.0, 5.0), "metaal", rond=1.3 * s, draai=dr)   # vingertop
+    B.doos(L(-6.8, -5.0, 9.5), P(5.0, 5.4, 10.0), "metaal", rond=2.0 * s, draai=dr)    # duim
+
+
 def bouw_vormen(p, f=1.0):
     """Alle vormen van de robot (maten in mm bij 220 mm, f schaalt mee). Geeft (bmesh, namen)."""
     namen = ["wit", "oranje", "blauw", "metaal", "donker", "vizier", "led"]
@@ -188,36 +211,33 @@ def bouw_vormen(p, f=1.0):
     B.doos(P(0, -14.6, 211.2), P(9, 3, 2.4), "blauw", rond=1.0 * s)          # voorhoofd
     B.doos(P(0, -12.9, 193.6), P(14, 4, 3.2), "donker", rond=1.2 * s)        # mondrooster
     # ---- armen ----
+    # Elk lid: een dikke antraciet buis (bij de gewrichten blijft alleen een smalle ring zichtbaar) met pantser dat
+    # bijna tot het gewricht loopt. Ronde 2 (hoofdchat 23 nov ±20:35): stoer en stevig, geen schriele buis.
     for k in "lr":
         sx = 1 if k == "l" else -1
         sh, el, ha, h2 = p[f"{k}-shoulder"], p[f"{k}-elbow"], p[f"{k}-hand"], p[f"{k}-hand-2"]
-        B.buis(sh, el, 7.6 * s, 7.4 * s, "donker")
-        B.schaal_langs(sh, el, 0.40, 0.66, 9.4 * s, 9.0 * s, "wit", rond=2.2 * s, ovaal=(1.0, 0.92))
-        B.schaal_langs(sh, el, 0.36, 0.42, 9.0 * s, 9.0 * s, "blauw", rond=0.6 * s, ovaal=(1.0, 0.92))
-        B.buis(el, ha, 7.4 * s, 7.0 * s, "donker")
-        B.schaal_langs(el, ha, 0.44, 0.96, 9.6 * s, 11.2 * s, "oranje", rond=2.6 * s, ovaal=(0.92, 1.0))
-        B.schaal_langs(el, ha, 0.54, 0.61, 10.4 * s, 10.6 * s, "blauw", rond=0.5 * s, ovaal=(0.92, 1.0))
-        # vuist: afgeronde doos langs de onderarm, duim als kleine doos naar voren
-        dr = _richting(ha, h2)
-        mid = ha + (h2 - ha).normalized() * 7.5 * s
-        B.doos(mid, P(14, 15, 15), "donker", rond=5.0 * s, draai=dr)
-        B.doos(mid + dr @ P(0, -7.0, -2.0), P(5.5, 5, 8), "donker", rond=2.4 * s, draai=dr)
-        B.doos(mid + dr @ P(0, 0, 3.5), P(15, 16, 3.0), "blauw", rond=1.2 * s, draai=dr)   # pols
+        B.buis(sh, el, 9.0 * s, ELLEBOOG_R * s, "donker")
+        B.schaal_langs(sh, el, 0.24, 0.80, 11.0 * s, 10.6 * s, "wit", rond=2.6 * s, ovaal=(1.0, 0.94))
+        B.schaal_langs(sh, el, 0.30, 0.36, 11.3 * s, 11.3 * s, "blauw", rond=0.6 * s, ovaal=(1.0, 0.94))
+        B.buis(el, ha, ELLEBOOG_R * s, 8.0 * s, "donker")
+        B.schaal_langs(el, ha, 0.28, 1.0, 10.8 * s, 12.0 * s, "oranje", rond=2.8 * s, ovaal=(0.94, 1.0))
+        B.schaal_langs(el, ha, 0.50, 0.58, 11.6 * s, 11.8 * s, "blauw", rond=0.6 * s, ovaal=(0.94, 1.0))
+        hand(B, ha, h2, sx, s)
         # ---- benen ----
         hp, kn, an = p[f"{k}-upper-leg"], p[f"{k}-knee"], p[f"{k}-ankle"]
-        B.buis(hp, kn, 10.4 * s, 9.6 * s, "donker")
-        B.schaal_langs(hp, kn, 0.28, 0.64, 13.0 * s, 11.6 * s, "wit", rond=2.6 * s, ovaal=(0.88, 1.0))
-        B.schaal_langs(hp, kn, 0.56, 0.62, 12.2 * s, 12.0 * s, "blauw", rond=0.6 * s, ovaal=(0.88, 1.0))
+        B.buis(hp, kn, 11.0 * s, KNIE_R * s, "donker")
+        B.schaal_langs(hp, kn, 0.24, 0.84, 13.8 * s, 12.8 * s, "wit", rond=3.0 * s, ovaal=(0.88, 1.0))
+        B.schaal_langs(hp, kn, 0.70, 0.76, 13.1 * s, 13.0 * s, "blauw", rond=0.6 * s, ovaal=(0.88, 1.0))
         # kniestuk aan de voorkant (-y): de knie buigt naar achteren
-        B.doos(kn + P(0, -8.8, -3.0), P(16, 6, 16), "oranje", rond=2.8 * s, draai=_richting(hp, an))
-        B.buis(kn, an, 9.6 * s, 8.2 * s, "donker")
-        # scheen: pantser dat overloopt in een stevige laars
-        B.schaal_langs(kn, an, 0.40, 0.62, 11.6 * s, 12.2 * s, "wit", rond=2.6 * s, ovaal=(0.95, 1.0))
-        B.schaal_langs(kn, an, 0.58, 1.04, 12.5 * s, 13.0 * s, "blauw", rond=2.6 * s, ovaal=(0.95, 1.0))
-        B.schaal_langs(kn, an, 0.56, 0.62, 12.8 * s, 12.8 * s, "oranje", rond=0.6 * s, ovaal=(0.95, 1.0))
-        B.doos(P(19.5 * sx, -5, 8.5), P(23, 38, 15), "blauw", rond=5.5 * s)          # voet
-        B.doos(P(19.5 * sx, -5.5, 2.0), P(24.4, 39.5, 4.0), "donker", rond=1.6 * s)   # zool
-        B.doos(P(19.5 * sx, -20, 8.5), P(20, 9, 9.5), "oranje", rond=3.8 * s)         # neus
+        B.doos(kn + P(0, -10.6, -2.5), P(17, 6, 17), "oranje", rond=3.0 * s, draai=_richting(hp, an))
+        B.buis(kn, an, KNIE_R * s, 9.6 * s, "donker")
+        # scheen: pantser vanaf vlak onder de knie, overloopt in een stevige laars
+        B.schaal_langs(kn, an, 0.20, 0.60, 12.8 * s, 13.4 * s, "wit", rond=2.8 * s, ovaal=(0.95, 1.0))
+        B.schaal_langs(kn, an, 0.56, 1.04, 13.6 * s, 14.0 * s, "blauw", rond=2.8 * s, ovaal=(0.95, 1.0))
+        B.schaal_langs(kn, an, 0.54, 0.60, 13.9 * s, 13.9 * s, "oranje", rond=0.6 * s, ovaal=(0.95, 1.0))
+        B.doos(P(19.5 * sx, -5, 8.5), P(25, 40, 15), "blauw", rond=5.5 * s)          # voet
+        B.doos(P(19.5 * sx, -5.5, 2.0), P(26.4, 41.5, 4.0), "donker", rond=1.6 * s)   # zool
+        B.doos(P(19.5 * sx, -21, 8.5), P(22, 9, 9.5), "oranje", rond=3.8 * s)         # neus
     return B.bm, namen
 
 

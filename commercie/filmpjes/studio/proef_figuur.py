@@ -34,6 +34,10 @@ inst = bpy.context.scene.click_joints
 inst.speling_mm, inst.as_bron, inst.uit_elkaar, inst.kogel_auto = 0.2, "CURSOR", False, True
 naam = ob.name
 FL.actief(ob)
+if os.environ.get("CJ_ALLEEN"):   # alleen gewrichten met deze stukjes in de naam (zoals e2e/proef_mens.py), om te zoeken
+    _rigm = importlib.import_module("bl_ext.user_default.click_joints.betaald.rig")
+    _g, _w = _rigm.gewrichten, os.environ["CJ_ALLEEN"].split(",")
+    _rigm.gewrichten = lambda a, meer=False: [x for x in _g(a, meer) if any(w in x[2].lower() for w in _w)]
 try:
     r = bpy.ops.click_joints.figuur_uit_rig()
 except RuntimeError as e:

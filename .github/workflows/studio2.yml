@@ -6,10 +6,11 @@ name: Studio filmpjes (bewijs studio-2, robot)
 # figuren, telt gewrichten. Job studio: per figuur in de studio (xvfb): schermafbeeldingen met het paneel en renders
 # (robot: staand in pose, uit elkaar, liggend, in twee kleurstellingen; gevonden figuren: alleen staand).
 # Job release: alles in release studio-2. Niets wordt geplaatst.
+# 23 nov ±20:50: niet meer bij een wijziging van figuur_robot.py (dat doet studio3.yml), zodat studio-2 blijft staan.
 on:
   push:
     branches: [main]
-    paths: [".github/workflows/studio2.yml", "commercie/filmpjes/studio/figuur_robot.py"]
+    paths: [".github/workflows/studio2.yml"]   # studio-2 is af; de robot werkt verder in studio3.yml
   workflow_dispatch:
     inputs:
       samples:
