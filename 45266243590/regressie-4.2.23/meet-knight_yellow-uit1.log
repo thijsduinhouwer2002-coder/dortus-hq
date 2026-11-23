@@ -1,0 +1,5 @@
+[meet] figuur meshy: knight_yellow_gesloten, {'bron_punten': 217074, 'bron_zelf_overlap': 0}
+[meet] Blender 4.2.23 LTS figuur meshy: 2 gewrichten ['Left knee', 'Right knee']
+[meet] ontbreekt: ['Left shoulder', 'Right shoulder', 'Left elbow', 'Right elbow', 'Left hip', 'Right hip', 'Neck']; overgeslagen: Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[meet] pogingen 6, sneden 2, slechte sneden 0
+MEET meshy gewrichten=2 overgeslagen=7 slechte_sneden=0
