@@ -25,12 +25,10 @@ import java.awt.Point
 @Remote("com.intellij.ide.structureView.StructureViewFactoryEx")
 interface StructuurFabriekOpAfstand {
     fun getInstanceEx(project: Project): StructuurFabriekOpAfstand
-    fun getStructureViewWrapper(): StructuurWrapperAlgemeen?
+    // Terugtype het oude interface: de Driver zoekt de klasse pas bij een aanroep, dus ook in 263 komt de verwijzing
+    // goed terug (run 45087195189). Met een leeg interface op StructureViewWrapper kwam er null (run 45095465886).
+    fun getStructureViewWrapper(): StructuurWrapperOpAfstand?
 }
-
-/** Het algemene type (lang-impl, kern van het platform): bestaat in elke versie, alleen om de verwijzing vast te houden. */
-@Remote("com.intellij.ide.structureView.StructureViewWrapper")
-interface StructuurWrapperAlgemeen
 
 /*
  * Vanaf 263 zit de structuurweergave in een eigen plugin (com.intellij.structureView, inhoudsmodule
@@ -118,7 +116,11 @@ private var structuurNieuwePlek: Boolean? = null
  * met beide redenen.
  */
 private fun Driver.structuurDelen(): Pair<String?, OnderdeelOpAfstand?>? {
-    val wrapper = utility<StructuurFabriekOpAfstand>().getInstanceEx(singleProject()).getStructureViewWrapper() ?: return null
+    val wrapper = utility<StructuurFabriekOpAfstand>().getInstanceEx(singleProject()).getStructureViewWrapper()
+    if (wrapper == null) {
+        println("DORTUS-E2E structuurweergave: geen wrapper (venster nog niet gemaakt?)")
+        return null
+    }
     val volgorde = structuurNieuwePlek?.let { listOf(it) } ?: listOf(true, false)
     val fouten = mutableListOf<String>()
     for (nieuw in volgorde) {
