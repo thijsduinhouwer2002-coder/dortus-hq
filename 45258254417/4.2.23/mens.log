@@ -1,0 +1,47 @@
+[meet] figuur mens: mens, {'bron_punten': 13380, 'bron_zelf_overlap': 0}
+Error: The parts overlap before they move; the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur mens: 8 gewrichten ['Left elbow', 'Right elbow', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Left knee']; overgeslagen: Left knee (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably)
+[meet] pogingen 32, sneden 18, slechte sneden 0
+MEET mens gewrichten=8 overgeslagen=1 slechte_sneden=0
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 23.038 s.
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 22.011 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 12.091 s.
+Info: Hinge placed. Bends 0° to 120°. 16.358 s.
+Info: Joint placed. Good fit. 3.319 s.
+Info: Joint placed. Good fit. 10.471 s.
+Info: Joint placed. Good fit. 10.426 s.
+Info: Joint placed. Good fit. 10.489 s.
+Info: Joint placed. Good fit. 10.319 s.
+Info: Joint placed. Good fit. 10.42 s.
+Info: Joint placed. Good fit. 10.0 s.
+Info: Joint placed. Good fit. 10.208 s.
+Info: Joint placed. Good fit. 10.01 s.
+Info: Joint placed. Good fit. 9.992 s.
+Info: Joint placed. Good fit. 10.005 s.
+Info: Joint placed. Good fit. 10.532 s.
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Info: Joint placed. Good fit. 6.844 s.
+Warning: 8 joints · 1 rig · 2 mirror · 5 preset. Skipped: Left knee (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably)
+[meet] Blender 4.2.23 LTS figuur mens: 8 gewrichten ['Left elbow', 'Right elbow', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Left knee']; overgeslagen: Left knee (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably)
+[meet] pogingen 32, sneden 18, slechte sneden 0
+MEET mens gewrichten=8 overgeslagen=1 slechte_sneden=0
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+OBJ import of 'makehuman-base.obj' took 16.39 ms
+
+Blender quit
+model name	: AMD EPYC 7763 64-Core Processor
