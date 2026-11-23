@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: ma 23 nov 2026, 21:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Betrouwbaarheid werkt aan Figure from rig (doel wo 25 nov). Video als eerste omslag op Gumroad en Superhive vóór do 27 nov (ronde met Chrome, lijst). 4 hook-Shorts ingepland 25 tot 28 nov. Click Cuts: kleur per stuk gekeurd, nu draaibaar snijvlak. Open voor een sessie met de repo `dortus`: Brams utm-tak en patch 1.2.x mergen.
+**Stand: ma 23 nov 2026, 22:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Figure from rig: tak `claude/betrouwbaar-rig` pakt in 5.2 en 5.3 elk gewricht (60/60), 4.2 55/60; twee keurders lopen, daarna voegt Bram (1.3). Video als eerste omslag op Gumroad en Superhive vóór do 27 nov (lijst). Regisseur: vijf tip-Shorts wachten op de Keurder. Click Cuts: draaibaar snijvlak loopt.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

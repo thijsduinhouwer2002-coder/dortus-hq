@@ -1,5 +1,10 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 23 nov 2026 22:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** nog niet trots, maar het grootste gat gaat dicht. Betrouwbaarheid vond de oorzaak (omhulsel snijdt zichzelf) en meet nu 60 van 60 gewrichten in 5.2 en 5.3, 4.2 van 35 naar 55 (GEZIEN, uitslag.md op `claude/betrouwbaar-rig`, eaa1252). Twee keurders (deel A en B) zijn ingezet om 22:45; na hun ja voegt Bram en wordt het 1.3. Volgende gat daarna: bewijs (video als omslag op Gumroad en Superhive, lijst, vóór do 27 nov).
+- **Click Cuts:** draaibaar snijvlak loopt bij de Productbouwer, daarna één knop "Split to fit". Nog niet te koop.
+- **Idee deze ronde:** in de 1.3-tekst op de winkelpagina's een harde belofte zetten ("every joint placed on our 7-figure test set in Blender 4.5+"), want dat is precies waar kopers bij Cleave over klagen (GOK). Pas na de keuring.
+
 ## 23 nov 2026 ±23:35 NL (hoofdchat kwartier-check)
 - **Click Cuts:** niet trots, nog niet te koop. Product: kern, passingproef en kleur per stuk gekeurd (GEZIEN, keuring/), draaibaar snijvlak loopt. Interface: het echte paneel is vier technische vakken onder de werknaam "Split Joints", niet de ene knop "Split to fit" uit de schets van Merk (GEZIEN, paneel.py tegen paneel-schets.png; paneel zelf niet in Blender bekeken deze ronde). Marketing: nog niets (geen winkelpagina, naam wacht op Thijs), terwijl Cleave al bij v1.7.0 is (GEZIEN, curl versiepagina). Opdracht één knop aan de Productbouwer, na het snijvlak.
 

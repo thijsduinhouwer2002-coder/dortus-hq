@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-23 21:45",
+    "datum": "2026-11-23 22:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Pro 1.2.2 uitgegeven (uitgave-run 45230763628 groen, 23 nov; zip als artefact tot 26 nov 17:44 UTC). Thijs zet de 1.2.2-zip op Gumroad en Superhive vóór 26 nov 17:44 UTC (lijst 3, 1.2.1 overgeslagen) en Lite $3 op Superhive (lijst 3c) vóór de Cyber Sale (27 nov). Mail aan 80.lv gekeurd, versturen na ja Thijs di 24 nov.",
+      "volgende_stap": "Figure from rig: tak claude/betrouwbaar-rig pakt in 5.2 en 5.3 elk gewricht (60/60, 4.2 55/60, GEZIEN in uitslag Betrouwbaarheid); twee keurders lopen (23 nov 22:45), daarna voegt Bram en komt 1.3. Thijs zet de 1.2.2-zip op Gumroad en Superhive vóór 26 nov 17:44 UTC (lijst 3).",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -137,7 +137,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-23 19:45",
+      "laatste_update": "2026-11-23 22:45",
       "links": [
         {
           "naam": "Winkelpagina",
