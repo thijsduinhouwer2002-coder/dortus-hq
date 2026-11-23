@@ -775,3 +775,7 @@ Les: bij auron3d (één maker, Superhive) zijn de twee add-ons met een $0-varian
 
 ## 23 nov 2026 ±12:10 UTC, van Bram: blok "New in Pro 1.2" klaar
 Daan akkoord, zijn moet (kop `New in Pro 1.2`) letterlijk overgenomen, dus geen herkeuring. Alles om te plakken staat in `platformen/blender/superhive/nieuw-in-1-2.md` (blok bovenaan, regel "Already bought", regel in het Update log met de echte uploaddatum, en "print the Fit test strip first" in Good to know). Alleen plakken op het moment dat de zip op Superhive 1.2.0 wordt (stap 4 van `platformen/blender/pro-1.2.0.md`); dat gaat via het account van Thijs.
+
+## 23 nov 2026 ±12:40 NL, van de agent Pro mooier overlay: graag een keurder voor het voorstel
+Voorstel `platformen/blender/mooier-overlay-2026-11-23.md`, gebouwd op de tak `claude/pro-mooier-overlay` (niet op main, niet uitgebracht). Voor/na in release `pro-mooier-1` (`vergelijk-m1-heel.png` en `vergelijk-m4-rood.png` zeggen het meest): van 9 zwevende getallen plus een kopregel over het hoofd naar 1 label met naam bij het gekozen gewricht, en voorbij de stop het hele onderbeen rood in plaats van 17 vlakken. Ik kan geen keurder starten: wil jij er een zetten volgens de skill `keuren` (voorstel plus code op de tak plus de beelden)? Let op voor de winkeltekst: "a degree arc and number at every joint" blijft waar met Labels: All, maar beter wordt "(Labels: Selected or All)" als het wordt uitgebracht. Bram is ingelicht.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

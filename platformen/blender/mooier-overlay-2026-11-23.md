@@ -1,0 +1,52 @@
+# Voorstel: Click Joints Pro mooier in beeld (23 nov 2026)
+
+Opdracht hoofdchat, ma 23 nov ±11:45 NL. Thijs: "we moeten een product verkopen wat handig is, maar ook wat er mooi uitziet." Dit gaat over hoe **Pro zelf** eruitziet in Blender (bogen, getallen, kleuren, paneel), want dat is wat kijkers zien in elk filmpje en elke winkelfoto.
+
+**Waarom (geld):** onze verkoop loopt via Shorts en winkelbeelden. Keurders schreven over die beelden: "negen gradengetallen zweven rond het figuur, een label staat dwars over het hoofd" en "het leest als een meetblad; de meeste mensen scrollen door" (`marketing/keuring/2026-11-22-yt-shorts-3.md`, A1 en C1), en "parts turn red" klopte niet met het beeld (A9). Een rustiger beeld maakt elke volgende opname en winkelfoto beter, zonder geld uit te geven. Hoeveel verkopen dat oplevert weet niemand (GOK: klein maar blijvend, elk filmpje profiteert).
+
+**Stand:** gebouwd op de tak `claude/pro-mooier-overlay` (niet op main, niet uitgebracht). Voor- en na-beelden: release https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/pro-mooier-1 (bestanden `voor-*`, `na-*`, `vergelijk-*`). Keuring van dit voorstel: gevraagd in `berichten/hoofdchat.md` (ik kan geen keurder starten).
+
+## 1. Wat lelijk was (GEZIEN, Pro 1.2.0 op de MakeHuman-figuur na Figure from rig, Blender 5.3.0)
+Beelden: `voor-m1-heel.png` tot `voor-m6-paneel.png` in de release, gemaakt met `e2e/scherm_mooi.py` (workflow `pro-mooier.yml`, run 45158599495).
+1. **Negen getallen tegelijk** (log: `getallen=9 scharnier=4 kogel=5`) in elk beeld, ook als je niets kiest (`m2-schoon`). Vijf keer "±20°", twee keer "140°", twee keer "120°".
+2. **Kopregel dwars over het hoofd**: "Right knee: bends 0° to 120°" staat bovenin het midden van het beeld, en bij een staande figuur valt dat precies over het hoofd (`m1`, `m5`).
+3. **Kogels als groene puntmutsen**: de wig van een kogel (heup, schouder, nek) staat schuin naar de kijker en leest als een groene kegel op het been; die van de nek staat op de kin.
+4. **Getallen als losse witte tekst met een donkere rand**: op het grijze model valt dat weg, en het ziet eruit als debugtekst.
+5. **Voorbij de stop een dunne rode strook**: bij 132° op een stop van 120° werden 17 vlakken rood (log `rode_vlakken=17`), plus een smalle rode wig in de boog. Het been zelf blijft grijs (`m4-rood`). Daarom klopte "parts turn red" niet.
+6. **Paneel**: lang (Place, Joint, Fit and export, Print this first, hinge-knoppen, Hinge, Figure joints), en bovenaan "Mesh: mens_A_A_A_B", een interne naam (`m6-paneel`).
+
+## 2. Afkijken: hoe andere tools hun overlays tonen
+| # | Wat | Bron | Les voor ons |
+|---|---|---|---|
+| 1 | De liniaal (Measure) van Blender zet het getal op een **zwart vlak van 50% doorzichtig met 4 px rand**, lettergrootte 14 px, lijnen 1 px met anti-aliasing. | DERDEN: broncode `view3d_gizmo_ruler.cc` (https://raw.githubusercontent.com/blender/blender/main/source/blender/editors/space_view3d/view3d_gizmo_ruler.cc, regels met `color_back = {..., 0.5f}` en `bg_margin = 4.0f`) | Getal op een donkere achtergrond, niet als losse tekst met rand. |
+| 2 | Het mes (Knife) van Blender doet hetzelfde (zwart 50%) en toont de hoek **alleen bij het stuk waar je nu bent**, met een boog van 64 px. Met **"Measurements"** kies je wat je ziet: afstanden, hoeken of beide. | DERDEN: `editmesh_knife.cc` (https://raw.githubusercontent.com/blender/blender/main/source/blender/editors/mesh/editmesh_knife.cc) en de handleiding https://docs.blender.org/manual/en/latest/modeling/meshes/editing/mesh/knife_topology_tool.html ("The measurements to show along the cutting path: distances, angles, or both") | Alleen het gewricht waar je mee bezig bent, en een schakelaar voor wat er in beeld staat. |
+| 3 | Hard Ops had eerst tekst in beeld om de staat van een object te tonen, en verstopte die later achter **een klein logo**: "Previously we had text doing this however the nature of this added additional text so now it is hidden behind a discreet logo." Kleuren zijn in te stellen, en tekenen in beeld kan uit ("Enable Tool Overlays"). | DERDEN: https://hardops-manual.readthedocs.io/en/latest/hud/ en .../preferences/ | Minder tekst in beeld; overlay uit te zetten. |
+| 4 | BoxCutter laat vormen **zacht in- en uitfaden** ("a much more graceful experience"). | DERDEN: https://boxcutter-manual.readthedocs.io/en/latest/fade/ | Rustige overgangen. Nu niet bouwen (POST_PIXEL zonder timer), wel onthouden. |
+| 5 | De armature van Blender heeft **"Names" als losse schakelaar** ("Displays the name of each bone"): namen staan er alleen als je erom vraagt. | DERDEN: https://docs.blender.org/manual/en/latest/animation/armatures/properties/display.html. Dat hij standaard uit staat: eigen kennis, niet nagekeken (GOK) | Namen en getallen op aanvraag, niet allemaal tegelijk. |
+Niet gelukt: de documentatie van Machin3tools gaf 403, de winkelpagina's van Superhive (Machin3tools, Hard Ops, MESHmachine) en Quad Remesher laden hun tekst met JavaScript, dus daar las ik niets bruikbaars (GEZIEN met curl).
+
+## 3. Wat verandert er (voorstel)
+| # | Wijziging | Voordeel | Nadeel / risico | Kosten | Gebouwd? |
+|---|---|---|---|---|---|
+| A | **Schakelaar "Labels: Selected / All / None"** in het paneel Figure joints, standaard **Selected**: alleen het gekozen gewricht (deel A of B geselecteerd of actief) krijgt boog en label. None geeft een schoon beeld voor renders. Alleen voor gewrichten van een figuur; een los scharnier of kogel tekent zoals altijd. | Van 9 getallen naar 1 (of 0). Grootste winst voor het oog. Zelfde idee als het mes van Blender. | Bestaande kopers zien na de update eerst minder; "All" geeft het oude beeld terug. De winkeltekst zegt "a degree arc and number at every joint" (`platformen/blender-2/gumroad-1.1.md`): blijft waar met "All", maar beter wordt "... at every joint (Labels: Selected or All)". | ±1 uur bouwen (GOK), geen geld | ja |
+| B | **Naam in het label, geen kopregel**: in de stand Selected staat "Right knee  0–120°" bij de boog, en de regel bovenin het beeld valt weg (stand All houdt het oude gedrag). | Niets meer over het hoofd; je ziet welk gewricht het is. | Het label is breder en kan over het been vallen (de pil houdt het leesbaar). | in A | ja |
+| C | **Label als pil**: donkere achtergrond (#111215, 86%), ronde hoeken, een bolletje in de passingkleur, witte tekst. Voorbij de stop een **rode pil** (#DB3333) met witte tekst "+12° past limit". | Leest op grijs, oranje en turquoise; oogt als een echt product in plaats van debugtekst. Zelfde idee als liniaal en mes, iets donkerder. | Groter vak, dus de getallen in stand All liggen iets verder uit elkaar (regel 40 px tussen vakken blijft). | ±0,5 uur (GOK) | ja |
+| D | **Voorbij de stop wordt het hele deel B rood** (bij een figuur): het onderbeen, niet alleen een strook. Rakende vlakken blijven ook rood zoals eerst. Alleen weergave; terug bij een stand binnen de stop. | Meteen te zien, ook op een telefoon. Maakt "the part turns red" waar. | Wie de botsplek zoekt ziet die minder scherp (de rode wig in de boog en de rakende vlakken van A wijzen hem nog aan). Losse scharnieren blijven zoals ze waren (hun winkelbeelden 12 en 14 zijn al gekeurd). | ±0,5 uur (GOK) | ja |
+| E | **Hele boog in de stand Selected** (was 0,7 keer, om zes bogen naast elkaar te laten passen) en een **donkere onderlijn** (7 px, 35% zwart) onder bogen en wiggen. | Boog groter en los van het model. | Geen. | in A | ja |
+| F | Kogelwig niet als gevulde kegel maar als dunne boog met twee streepjes. | Geen "puntmutsen" meer bij stand All. | Nieuwe vorm, meer toetswerk; in stand Selected zie je hem minder vaak. | ±1 uur (GOK) | nee, later |
+| G | Paneel: "Mesh: mens_A_A_A_B" vervangen door de naam van de figuur; Fit test en hinge-knoppen in een inklapbaar blok. | Rustiger paneel in schermopnames. | Raakt het gratis deel (paneel.py, Mesh-regel), dus ook de gratis extensie en de vaste sha-lijst in `toets_zips.py`. | ±1 uur plus keuring gratis deel (GOK) | nee, later |
+| H | Kleurset vastleggen: groen #00D696 (passing), geel #FFEA00, rood #FF4D4D (vlakken) en #DB3333 (pil), donker #111215 (pil), wit (tekst). | Eén herkenbare set in add-on, filmpjes en site. | Geen. | ±0,2 uur | deels (de pil-kleuren) |
+
+**Geen nieuwe beloftes.** Wat de add-on meet en toont blijft gelijk; alleen wat er tegelijk in beeld staat en hoe het eruitziet verandert. De export (STL en 3MF) verandert niet: het rode deel is alleen een materiaalvak in de weergave, zoals de rakende vlakken al waren.
+
+## 4. Wat er na de keuring nog moet
+1. Keuring van dit voorstel en van de code (skill `keuren`, aparte keurder); de auto-keurder keurt de commits op de tak al.
+2. e2e op de tak groen in 4.2, 5.2 en 5.3 (stand: zie het eindverslag hieronder).
+3. Bram (eigenaar Pro) beslist of het in 1.2.1 of 1.3 komt; bij uitbrengen de winkelzin uit A aanpassen en de filmpjes daarna opnieuw opnemen met Labels: Selected (of None voor de eerste seconden).
+
+## 5. Verslag bouwen (tak `claude/pro-mooier-overlay`)
+Gebouwd: A, B, C, D, E (en de pil-kleuren van H). Niet gebouwd: F, G (G raakt het gratis deel).
+- Code: nieuw `click_joints/betaald/labels.py` (schakelaar, pil, onderlijn); `figuur_teken.py` en `scharnier_boog.py` tekenen alleen wat de schakelaar toont, met pil; `scharnier_beweeg.py` kleurt bij een figuur het hele deel B rood en zet het terug (`cj_rood_deel`); `figuur.py` toont de schakelaar onder de samenvatting. Het gratis deel is niet veranderd.
+- Toetsen: `e2e/toetsen_figuur.py` toetst zonder scherm de drie standen, een los gewricht, en het rode deel heen en terug. De schermtests van de figuur (plaatjes 15, 16, 17, 19) zetten zelf Labels op All, want die toetsen de plek van alle getallen.
+- Beelden (GEZIEN, run 45160301075, Blender 5.3.0, zelfde script op beide): voor 9 getallen in elk beeld plus de kopregel; na 1 getal (het gekozen gewricht, met naam), 0 als niets gekozen is, geen kopregel. Voorbij de stop: voor 17 rode vlakken, na 1025 (het hele onderbeen plus de rakende vlakken). Het paneel Figure joints toont "Labels  Selected | All | None" (`na-m7-paneel.png`).
+- Mijn oordeel na kijken (`na-m1-heel`, `na-m4-rood`): het hele figuur leest nu als een mens met groene banden in plaats van een meetblad; het rode onderbeen springt eruit. Nog zwak: bij een hele figuur van voren staat de knieboog bijna op zijn kant (dun streepje), en de lichte heupband op het beeld komt uit het testscript (`heup_zonder_band`), niet uit de add-on.
