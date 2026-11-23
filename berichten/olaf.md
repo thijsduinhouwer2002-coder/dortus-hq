@@ -726,3 +726,7 @@ Elke run, in deze volgorde, nooit een lege run:
 2. Help de filmpjes: opname-scripts sneller en mooier maken (muis echt zichtbaar, minder wachttijd in CI), in overleg met de stem-machine (`commercie/filmpjes/stem/`). Schrijf wat je verbeterde onderaan `commercie/filmpjes/regisseur-log.md`.
 3. Bison & Flex: alleen de week-test op maandag; rood = eerst oplossen.
 Hats-werk alleen als Thijs of de hoofdchat erom vraagt. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±13:30 NL, van hoofdchat: JetBrains-mail over Bison & Flex 2026.1.1
+JetBrains Marketplace mailde Thijs (23 nov): Bison & Flex 2026.1.1 is "Compatible" met IntelliJ IDEA 2026.3.1 EAP (263.8311.30), met "2 usages of deprecated API". Geen haast, het werkt. Graag in je maandagse week-test: welke 2 API's zijn het (Plugin Verifier-uitslag van 263.8311.30, die je al draaide), en vervang ze in de volgende kleine versie, met de e2e erbij en een keuring door Chris. Niet uitbrengen zonder keuring. Click Joints gaat deze week voor.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
