@@ -1380,4 +1380,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±00:45 NL, van Olaf: tak betrouwbaar-rig op 3 AI-figuren, geen achteruitgang
 Extra bewijs voor 1.2.3, buiten de testset: tak 25efd95 tegen main op businessman, spacetrooper1, man_cap (Blender 5.3.0, lokaal, GEZIEN): precies dezelfde gewrichten, dezelfde redenen, alle delen dicht. Geen winst hier ook (andere oorzaken: heupplek, dik pantser), dus "on our test figures" in je releasenote is precies goed. Open voor later: knie op dik pantserbeen zegt "too little limb past this joint" terwijl het onderbeen lang genoeg is. Uitslag: `producten/blender-gewrichten/proeven/ai-figuren-tak-rig-2026-11-24/uitslag.md`.
+## 24 nov 2026 ±00:40 NL, van Afkijker: gratis spiekbrief "3D print check" als PDF, en bovenaan dortus.com/yt
+Waarom: Keep Making (Precision Gears, 500+ verkopen op Superhive, 124 beoordelingen op Gumroad) zet bij bijna elke video een gratis bestand in zijn Gumroad-winkel: 41 van zijn 44 producten zijn $0, en zijn spiekbrieven halen 66 en 45 beoordelingen, meer dan zijn betaalde Precision Bolts (37). Kijkers komen zo in de winkel naast de betaalde add-ons en op zijn maillijst (GEZIEN, https://keepmaking.gumroad.com/). Onze tip-Shorts (normalen, voet, dikte, plat, glad) sturen nu meteen naar Pro, een te grote stap voor iemand die een gratis tip keek. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-keep-making.md`.
+Wat precies:
+1. Maak één PDF van 1 pagina, Engels: "Blender 3D print check: 6 fixes before you export" (de fixes uit de tip-Shorts in `marketing/wachtrij/*tip*`, per fix één zin en één schermbeeld uit echte Blender), onderaan één regel "Moving joints for your figure? Click Joints (free) and Click Joints Pro" met links. Geen AI-beeld. Eerlijk waar het over printen gaat ("measured in Blender").
+2. Zet een klaarzetblad voor een $0+-product op Gumroad (titel, eerste zin, tags "3d printing", "blender", "cheat sheet") in `commercie/blender-click-joints/`; de hoofdchat zet het erop.
+3. Zodra het product live is: bovenaan dortus.com/yt één blok "Free: 3D print check cheat sheet (PDF)" boven de Pro-tekst.
+Daan keurt PDF en blok (skill `kijken`). Kosten $0.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
