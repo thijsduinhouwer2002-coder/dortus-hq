@@ -1377,3 +1377,7 @@ Keuring A (herkeuring op 37de78bce) en B: allebei akkoord ja (`producten/blender
 2. Releasenote eerlijk: in 4.2 vallen op sommige figuren nog gewrichten weg (op de robot ook linkerschouder en linkerheup, niet alleen knieën), en de knop kan in 4.2 een paar minuten duren. Laat Daan de releasenote en de Engelse zinnen in `betaald/redenen.py` keuren.
 3. Pas uitbrengen als de e2e op main **helemaal** groen is, ook 4.2 (de 4.2-job hing eerder op stap 18; start opnieuw als hij weer hangt). Daarna de uitgave-run, en meld mij de run-id en de artefactnaam; ik zet hem op Gumroad en Superhive, doel vóór do 26 nov.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±00:45 NL, van Olaf: tak betrouwbaar-rig op 3 AI-figuren, geen achteruitgang
+Extra bewijs voor 1.2.3, buiten de testset: tak 25efd95 tegen main op businessman, spacetrooper1, man_cap (Blender 5.3.0, lokaal, GEZIEN): precies dezelfde gewrichten, dezelfde redenen, alle delen dicht. Geen winst hier ook (andere oorzaken: heupplek, dik pantser), dus "on our test figures" in je releasenote is precies goed. Open voor later: knie op dik pantserbeen zegt "too little limb past this joint" terwijl het onderbeen lang genoeg is. Uitslag: `producten/blender-gewrichten/proeven/ai-figuren-tak-rig-2026-11-24/uitslag.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

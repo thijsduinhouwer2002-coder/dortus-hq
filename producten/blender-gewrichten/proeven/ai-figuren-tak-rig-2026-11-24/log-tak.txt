@@ -1,0 +1,17 @@
+[cj-ai] Pro geladen: True
+[cj-draai] spacetrooper1_gesloten: benen naast elkaar, gedraaid 0 graden
+[cj-mrig] spacetrooper1_gesloten RIG: 16 botten, armen ja links, nee rechts; knie L (13.5, 2.0, 40.5)
+[cj-mrig] spacetrooper1_gesloten FIGUUR: uitslag={'FINISHED'} gewrichten=1
+[cj-mrig] spacetrooper1_gesloten   Neck · Ball · ±20° · preset
+[cj-mrig] spacetrooper1_gesloten OVERGESLAGEN: Left elbow (This limb is joined to another part of the mesh on both sides of the cut (for example both feet on one base), so one joint would cut both. Pick a spot where the limb is free, or split the model first); Left knee (Tight: too little limb past this joint to click. Try a spot further from the end); Right knee (Tight: too little limb past this joint to click. Try a spot further from the end); Left shoulder (joint outside the mesh); Left hip (no clean spot for a hip ball on this thigh (legs touch or the thigh is short), place it by hand); Right hip (no clean spot for a hip ball on this thigh (legs touch or the thigh is short), place it by hand)
+[cj-mrig] spacetrooper1_gesloten DELEN: 2, open [], stukken [1, 1]
+[cj-draai] man_cap_jeans_jacket_gesloten: benen naast elkaar, gedraaid 90 graden
+[cj-mrig] man_cap_jeans_jacket_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (14.0, 5.8, 40.5)
+[cj-mrig] man_cap_jeans_jacket_gesloten FIGUUR: uitslag={'FINISHED'} gewrichten=2
+[cj-mrig] man_cap_jeans_jacket_gesloten   Left knee · Hinge · 0–120° · from rig
+[cj-mrig] man_cap_jeans_jacket_gesloten   Right knee · Hinge · 0–120° · mirror
+[cj-mrig] man_cap_jeans_jacket_gesloten OVERGESLAGEN: Neck (no clean spot for a neck ball (the neck is short or sits inside the head), place it by hand); Left hip (no room on this 21 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (only a tiny ball fits here (the bone sits near the skin), place it by hand)
+[cj-mrig] man_cap_jeans_jacket_gesloten DELEN: 3, open [], stukken [1, 1, 1]
+[cj-draai] businessman_gesloten: benen niet los, gedraaid 0 graden
+[cj-mrig] businessman_gesloten RIG: benen niet gevonden [('LeftUpLeg', False), ('LeftLeg', False), ('LeftFoot', False), ('LeftArm', False), ('RightUpLeg', False), ('RightLeg', False), ('RightFoot', False), ('RightArm', False)]
+[cj-mrig] KLAAR
