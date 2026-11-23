@@ -644,7 +644,7 @@ def main():
     log("bereik", tuple(round(v) for v in mn), tuple(round(v) for v in mx))
     if SHOT == "cover":
         render_instellingen(2400, 1200)
-        kader(objs, c, straal, 30, 8, (0.53, 0.975), 0.465)
+        kader(objs, c, straal, 30, 8, (0.53, 0.975), 0.445)
     elif SHOT == "bed":
         render_instellingen(1600, 1600)
         objs = objs + [o for o in bpy.data.objects if o.name.startswith("plaat")]
@@ -653,7 +653,7 @@ def main():
         render_instellingen(1600, 1600)
         nb = [o for o in delen if o.name in ("d_gezicht", "d_manen_ro", "d_manen_rb")]
         nb += [p for p in pennen if p["a"] in ("d_gezicht",) and p["b"] in ("d_manen_ro", "d_manen_rb")]
-        kader(nb, c, straal, 62, 6, (0.04, 0.96), 0.41, lens=110, ymid=0.40)
+        kader(nb, c, straal, 62, 6, (0.04, 0.96), 0.365, lens=110, ymid=0.375)
     elif SHOT in ("heel", "samen"):
         render_instellingen(1600, 1600)
         objs = objs + ([vol] if SHOT == "heel" else [])
