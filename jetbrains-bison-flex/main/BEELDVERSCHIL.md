@@ -7,33 +7,33 @@ Referentie: referentie uit run 45205474531, commit 695917c9cf516b2306d68e7877a20
 | donker-calc-l.png | gelijk | |
 | donker-calc-y-structuur.png | gelijk | |
 | donker-calc-y.png | 144 px (0.003%), ruis | |
-| donker-hernoem-conflict.png | 1136 px (0.060%), ruis | |
+| donker-hernoem-conflict.png | gelijk | |
 | donker-hernoem-hint.png | 144 px (0.003%), ruis | |
 | donker-hernoem-melding.png | gelijk | |
 | donker-hernoem-scanner.png | 144 px (0.003%), ruis | |
 | donker-hernoem-structuur.png | gelijk | |
 | donker-hernoem-venster.png | gelijk | |
 | donker-kleurenpagina.png | gelijk | |
-| donker-meldingen-oplossing.png | 4336 px (0.084%), ruis | |
-| donker-meldingen.png | 4399 px (0.085%), ruis | |
+| donker-meldingen-oplossing.png | gelijk | |
+| donker-meldingen.png | gelijk | |
 | donker-pro-hint.png | gelijk | |
 | donker-pro-melding.png | 144 px (0.003%), ruis | |
 | licht-calc-l.png | gelijk | |
 | licht-calc-y-structuur.png | gelijk | |
-| licht-calc-y.png | 904 px (0.017%), ruis | |
-| licht-hernoem-conflict.png | gelijk | |
+| licht-calc-y.png | 144 px (0.003%), ruis | |
+| licht-hernoem-conflict.png | 184 px (0.010%), ruis | |
 | licht-hernoem-hint.png | 144 px (0.003%), ruis | |
 | licht-hernoem-melding.png | gelijk | |
-| licht-hernoem-scanner.png | gelijk | |
+| licht-hernoem-scanner.png | 144 px (0.003%), ruis | |
 | licht-hernoem-structuur.png | gelijk | |
 | licht-hernoem-venster.png | gelijk | |
 | licht-kleurenpagina.png | gelijk | |
 | licht-meldingen-oplossing.png | gelijk | |
 | licht-meldingen.png | gelijk | |
-| licht-pro-hint.png | 144 px (0.003%), ruis | |
+| licht-pro-hint.png | gelijk | |
 | licht-pro-melding.png | 144 px (0.003%), ruis | |
 | winkel-alleplekken.png | gelijk | |
-| winkel-hernoemd.png | 144 px (0.003%), ruis | |
+| winkel-hernoemd.png | gelijk | |
 | winkel-melding-menu.png | gelijk | |
-| winkel-melding-na.png | gelijk | |
+| winkel-melding-na.png | 144 px (0.003%), ruis | |
 | winkel-melding-zweef.png | gelijk | |
