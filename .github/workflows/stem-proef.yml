@@ -1,0 +1,90 @@
+name: Stem-proef (voice-over synchroon met het beeld)
+
+# 23 nov 2026, opdracht hoofdchat ±11:45 NL: Blender-filmpjes met een voice-over die precies op het beeld valt, in de
+# stijl van het uitlegfilmpje van Thijs (net venster, zachte schaduw, label in een pil, grote kop, zoom per zin).
+# Stem: open Kokoro-82M (Apache 2.0) via kokoro-onnx (MIT). Staat het geheim ELEVENLABS_API_KEY in de repo, dan
+# gebruikt stem.py ElevenLabs met dezelfde timing (betaald plan nodig, Thijs beslist). Beeld: de ruwe opname van
+# youtube-shorts-4 (Blender 5.3.0, Click Joints Pro 1.1.0, echte muis), niets opnieuw opgenomen.
+# Controle: faster-whisper transcript met woordtijden plus scènewissels uit het beeld (synchroon.py, grens 0,3 s)
+# en organisatie/controle/geluid_check.py. Alles komt in release stem-proef-1. Er wordt niets geplaatst.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/stem/**", ".github/workflows/stem-proef.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: stem-proef-1
+  BRON_TAG: youtube-shorts-4
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a
+  KOKORO_VOICES_SHA: bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d
+
+jobs:
+  proef:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pakketten
+        run: |
+          timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 ffmpeg fonts-inter
+          python3 -m pip install -q --break-system-packages kokoro-onnx==0.6.1 soundfile faster-whisper==1.2.1 numpy pillow
+      - name: Kokoro-model en stemmen (sha256 vast)
+        run: |
+          mkdir -p /tmp/kokoro
+          curl -fsSL --retry 3 -o /tmp/kokoro/kokoro-v1.0.onnx "$KOKORO_URL/kokoro-v1.0.onnx"
+          curl -fsSL --retry 3 -o /tmp/kokoro/voices-v1.0.bin "$KOKORO_URL/voices-v1.0.bin"
+          echo "$KOKORO_ONNX_SHA  /tmp/kokoro/kokoro-v1.0.onnx" | sha256sum -c
+          echo "$KOKORO_VOICES_SHA  /tmp/kokoro/voices-v1.0.bin" | sha256sum -c
+      - name: Bron (ruwe opname en renders van youtube-shorts-4)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/bron
+          gh release download "$BRON_TAG" -R "$GITHUB_REPOSITORY" -p opname-pro.mkv -p film-pro.json -p 'render-*.png' -D /tmp/bron
+          mv /tmp/bron/opname-pro.mkv /tmp/bron/opname-ruw.mkv
+          mv /tmp/bron/film-pro.json /tmp/bron/film.json
+          ls -la /tmp/bron
+      - name: Montage staand (Short) en liggend
+        env:
+          KOKORO_MODEL: /tmp/kokoro/kokoro-v1.0.onnx
+          KOKORO_VOICES: /tmp/kokoro/voices-v1.0.bin
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ELEVENLABS_VOICE_ID: ${{ vars.ELEVENLABS_VOICE_ID }}
+        run: |
+          mkdir -p /tmp/klaar
+          python3 commercie/filmpjes/stem/montage.py commercie/filmpjes/stem/proef-1.json /tmp/bron /tmp/klaar staand
+          python3 commercie/filmpjes/stem/montage.py commercie/filmpjes/stem/proef-1.json /tmp/bron /tmp/klaar liggend
+      - name: Controle (synchroon, geluid, lengte)
+        env:
+          WHISPER_MODEL: small.en
+        run: |
+          cd /tmp/klaar
+          mkdir -p meting-staand meting-liggend
+          ok=0
+          python3 $GITHUB_WORKSPACE/commercie/filmpjes/stem/synchroon.py knee-bend-stem-staand.mp4 knee-bend-stem-staand-script.json meting-staand || ok=1
+          python3 $GITHUB_WORKSPACE/commercie/filmpjes/stem/synchroon.py knee-bend-stem-liggend.mp4 knee-bend-stem-liggend-script.json meting-liggend || ok=1
+          for v in staand liggend; do for f in meting-$v/*; do mv "$f" "$(basename ${f%.*})-$v.${f##*.}"; done; done
+          python3 $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py knee-bend-stem-*.mp4 | tee geluid_check.txt
+          grep -q "FOUT" geluid_check.txt && ok=1
+          d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 knee-bend-stem-staand.mp4)
+          echo "staand $d s" | tee lengtes.txt
+          python3 -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: Short is $d s, niet 40 tot 60"; ok=1; }
+          sha256sum *.mp4 | tee SHA256SUMS.txt
+          exit $ok
+      - name: In de release zetten
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd /tmp/klaar
+          echo "Stem-proef 1: Short (9:16) en liggende versie (16:9) met voice-over die op het beeld valt. Stem: zie *-script.json (veld stem). Synchroon-meting: synchroon-*.md. Concept: marketing/wachtrij/. Niets geplaatst." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Stem-proef 1 (voice-over synchroon)" --notes-file /tmp/notes.md
+          ls -la
+          gh release upload "$TAG" *.mp4 *.json *.srt *.md *.txt *.jpg --clobber -R "$GITHUB_REPOSITORY"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
