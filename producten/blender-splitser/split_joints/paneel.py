@@ -93,6 +93,8 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         stukken = sorted((o for o in scene.objects if o.get("sj_stuk")), key=lambda o: o["sj_stuk"])
         if stukken:
             stap.prop(inst, "uit_elkaar")
+            rij = stap.row(align=True)
+            rij.prop(inst, "kleur", expand=True)
             kol = stap.column(align=True)
             for o in stukken:
                 kol.label(text=f"{int(o['sj_stuk'])}: {controle.tekst(o)}", icon=ICOON.get(o.get("sj_status"), "DOT"))

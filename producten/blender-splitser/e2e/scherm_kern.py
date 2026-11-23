@@ -1,6 +1,6 @@
 """Renders of the split models (Workbench, needs a display: run under xvfb-run).
 blender -b --factory-startup --python e2e/scherm_kern.py -- <dir with suzanne.blend, vaas.blend, schedel.blend> <out dir>
-Per model: the pieces in exploded view with the pins (color = check: green fits, red does not), and a
+Per model: the pieces in exploded view with the pins (color per piece, pins gold: kleuren.py), and a
 close-up of one cut face with its pin holes and engraved number. Logs SCHERM OK per picture."""
 import json
 import os
