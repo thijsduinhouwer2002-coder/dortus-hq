@@ -242,7 +242,11 @@ def verloop():
         inst.toon_bereik = False
     except Exception:  # noqa: BLE001
         pass
-    S.plastic(delen)
+    if FIGUUR == "robot":
+        R.kleur_herstel(delen)
+        S.plastic(delen, gewricht="contrast", gewricht_kleur=R.GEWRICHT)   # gewrichten antraciet, als mechaniek
+    else:
+        S.plastic(delen)
     cam = S.camera()
     meting["pose"] = {n: buig(n, g) for n, g in POSE.items()}
     geen_selectie()

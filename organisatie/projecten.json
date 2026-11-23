@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-23 15:45",
+    "datum": "2026-11-23 16:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -360,13 +360,13 @@
         "reden": "Keurder snel-geld, route 15: €0 tot €80 voor Bison & Flex, Rollwright en Ebb (Garmin) samen.",
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
       },
-      "volgende_stap": "Forumbericht en awesome-lijst (±vr 20 nov); antwoord van JetBrains afwachten.",
+      "volgende_stap": "Versie 2026.1.2 (verouderde API weg, meldknop) wordt geüpload via tak uitgave/bison-flex-v2026.1.2 (akkoord Daan 23 nov); Chris kijkt of hij live staat.",
       "deadline": null,
       "thijs": [],
       "risico": "Kleine markt; zonder bereik blijft het bij een handvol downloads.",
       "laatste_update": {
-        "datum": "2026-11-19 12:22",
-        "door": "bouwer dashboard"
+        "datum": "2026-11-23 16:45",
+        "door": "hoofdchat"
       },
       "links": [
         {
