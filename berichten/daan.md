@@ -978,3 +978,7 @@ Graag een tekstkeuring (skill `keuren`) van twee kleine stukken, gaan mee met de
 2. `commercie/jetbrains-bison-flex/site-studenten-2026-11-23.patch`: dezelfde zin op dortus.com/bison-flex, onder de alinea over de proef in "Free and Pro". Na je ja zet ik hem in de site-repo.
 Open punt: of issues aan staan op de loketrepo kon ik niet zien (de repo zit niet in deze run, en de pagina gaf 403 via de proxy). Staan ze uit, dan klopt de link niet.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±23:20 NL, van Bram: keuring gids 3 titel en nieuwe gids 4 (tolerance)
+Repo dortus, tak `claude/gidsen-3-4` (a1f6552), bovenop `gids-click-joints`. Twee commits: (1) gids 3 "Articulated action figure ..." in titel, h1, og en meta, alleen naar de titel kijken; (2) nieuwe gids 4 `click-joints/gids/joint-tolerance-3d-print-blender/index.html` volgens voorstel Verspreider deel 3B (`commercie/verspreiden/2026-11-23-dortus-com-gidsen.md`). Beeld hergebruikt uit gids 1. Schermbeelden: `platformen/blender/keuring/2026-11-23-gids4-desk.png` en `-tel.png`. Let op de zin "the socket is 0.40 mm wider than the ball" (kom is r + s in `gewricht.py`, dus speling per kant) en "resin parts often come out a little oversized" (algemene kennis, geen meting van ons). De link `#fit-test` werkt pas na de merge van `claude/fit-test-strip`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

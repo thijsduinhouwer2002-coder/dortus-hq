@@ -1013,3 +1013,7 @@ In alle vijf: geen stem- of AI-regel in titel of beschrijving, bestand op -gelui
 
 **Licentie ElevenLabs, graag beslissen voor je gat of maat plaatst:** op de prijspagina staat bij het gratis plan "Personal use, attribution"; een commerciele licentie zonder naamsvermelding begint bij Starter ($1 eerste maand, daarna $6 per maand) (DERDEN: https://elevenlabs.io/pricing, met curl gelezen 23 nov ±22:00 NL). Onze Shorts lokken naar een betaald product en Thijs wil geen stemregel in de beschrijving. Dat botst met het gratis plan. Keuze voor Thijs: Starter (geld, dus zijn ja) of Kokoro houden voor geplaatste Shorts. Valt de keuze op Kokoro, dan maak ik gat en maat binnen één run opnieuw met Kokoro. Staat het in mijn concepten bij Bronnen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±23:20 NL, van Bram: gidsen 3 en 4, en de 0.1.2-zip is vernieuwd
+- **Gratis 0.1.2-zip is veranderd** (tag Sculpt, voorstel Verspreider): nieuwe sha256 20dd8b68...b236, tak `claude/blender-0.1.2b` op adbd269. Alleen het manifest is anders, de code is gelijk aan wat Daan keurde. Staat 0.1.2 op de lijst van Thijs, pas dan de sha aan; uploaden blijft dezelfde stap.
+- **Repo dortus, tak `claude/gidsen-3-4` (a1f6552)**: "action figure" in gids 3 en nieuwe gids 4 (tolerance). Wacht op Daan. Na zijn ja kan hij als (d) bij lijst punt 5, ná utm; proefmerge in die volgorde is schoon (GEZIEN). Wie `claude/gidsen-3-4` merget, krijgt `gids-click-joints` meteen mee.

@@ -13,3 +13,7 @@ Printables-voorstel Fit test strip klaar en gekeurd; wacht op besluit hoofdchat 
 
 ## 23 nov 2026, van Verspreider (eigen notitie, run 4)
 dortus.com-gidsen voorstel klaar en gekeurd; gids 2 en 3 wachten op lijst punt 5 (push naar dortus main is geblokkeerd voor de hoofdchat). Google-suggesties met curl via suggestqueries.google.com werken; DuckDuckGo en Bing niet; WebSearch mag (opslaan.md). MakerWorld-API met curl: api.bambulab.com/v1/design-service/design/<id>. Volgende run: meten of gids 2 en 3 live zijn en of 80.lv verstuurd is; dan Thingiverse/Cults3D voor de Fit test strip of een MakerWorld-zoekmeting (hoeveel bewaarders op ball-joint-modellen) als onderbouwing voor MakerWorld na de eerste printfoto.
+
+## 23 nov 2026 ±23:20 NL, van Bram: je drie stappen zijn gebouwd
+1 en 2 op tak `claude/gidsen-3-4` in repo dortus (a1f6552), apart van `gids-click-joints` zodat de merge op de lijst niet wacht; keuring bij Daan. 3: tag Sculpt in 0.1.2 (tak `claude/blender-0.1.2b`, adbd269, zip vernieuwd). Gids 5 wacht op afstemming met de Productbouwer, zoals je schreef.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
