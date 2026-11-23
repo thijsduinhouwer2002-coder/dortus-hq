@@ -1,0 +1,659 @@
+{
+ "figuur": "robot-b",
+ "blender": "4.2.23 LTS",
+ "gewrichten": 6,
+ "namen": [
+  "Left elbow",
+  "Neck",
+  "Left shoulder",
+  "Right shoulder",
+  "Left hip",
+  "Right hip"
+ ],
+ "regels": [
+  "Left elbow \u00b7 Hinge \u00b7 0\u2013140\u00b0 \u00b7 from rig",
+  "Neck \u00b7 Ball \u00b7 \u00b120\u00b0 \u00b7 preset",
+  "Left shoulder \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset",
+  "Right shoulder \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset",
+  "Left hip \u00b7 Ball \u00b7 \u00b127\u00b0 \u00b7 preset",
+  "Right hip \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset"
+ ],
+ "overgeslagen": "Right elbow (The parts overlap before they move; the mesh is unchanged.); Left knee (the cut left a loose piece here, place it by hand); Right knee (The parts overlap before they move; the mesh is unchanged.)",
+ "ontbreekt": [
+  "Right elbow",
+  "Left knee",
+  "Right knee"
+ ],
+ "delen": 7,
+ "open_delen": [],
+ "knop_s": 146.1,
+ "pogingen": [
+  {
+   "gewricht": "Left elbow",
+   "ok": true,
+   "melding": "Left elbow: hinge, 0\u2013140\u00b0.",
+   "s": 11.45,
+   "plek": [
+    48.0,
+    -4.0,
+    136.0
+   ]
+  },
+  {
+   "gewricht": "Right elbow",
+   "ok": false,
+   "melding": "The cut gave no watertight parts (bad edges: part A 2118, part B 0); the mesh is unchanged.",
+   "s": 36.1,
+   "plek": [
+    -48.0,
+    -4.0,
+    136.0
+   ]
+  },
+  {
+   "gewricht": "Right elbow",
+   "ok": false,
+   "melding": "The parts overlap before they move; the mesh is unchanged.",
+   "s": 10.64,
+   "plek": [
+    -47.941,
+    -1.0,
+    136.084
+   ]
+  },
+  {
+   "gewricht": "Left knee",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.31,
+   "plek": [
+    18.5,
+    2.0,
+    57.0
+   ]
+  },
+  {
+   "gewricht": "Left knee",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.3,
+   "plek": [
+    18.497,
+    -2.135,
+    57.096
+   ]
+  },
+  {
+   "gewricht": "Left knee",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.3,
+   "plek": [
+    18.589,
+    -2.087,
+    52.792
+   ]
+  },
+  {
+   "gewricht": "Left knee",
+   "ok": true,
+   "melding": "Left knee: hinge, 0\u2013150\u00b0.",
+   "s": 8.55,
+   "plek": [
+    18.688,
+    -2.016,
+    48.488
+   ]
+  },
+  {
+   "gewricht": "Right knee",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.29,
+   "plek": [
+    -18.5,
+    2.0,
+    57.0
+   ]
+  },
+  {
+   "gewricht": "Right knee",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.28,
+   "plek": [
+    -18.496,
+    -2.134,
+    57.096
+   ]
+  },
+  {
+   "gewricht": "Right knee",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.29,
+   "plek": [
+    -18.589,
+    -2.087,
+    52.792
+   ]
+  },
+  {
+   "gewricht": "Right knee",
+   "ok": false,
+   "melding": "The parts overlap before they move; the mesh is unchanged.",
+   "s": 6.97,
+   "plek": [
+    -18.692,
+    -2.016,
+    48.489
+   ]
+  },
+  {
+   "gewricht": "Neck",
+   "ok": true,
+   "melding": "Neck: ball, \u00b120\u00b0.",
+   "s": 7.22,
+   "plek": [
+    0.0,
+    0.146,
+    181.5
+   ],
+   "blocked": false,
+   "buig": [
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4
+   ]
+  },
+  {
+   "gewricht": "Left shoulder",
+   "ok": true,
+   "melding": "Left shoulder: ball, \u00b130\u00b0.",
+   "s": 16.0,
+   "plek": [
+    29.867,
+    -0.044,
+    172.192
+   ],
+   "blocked": false,
+   "buig": [
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4
+   ]
+  },
+  {
+   "gewricht": "Right shoulder",
+   "ok": true,
+   "melding": "Right shoulder: ball, \u00b130\u00b0.",
+   "s": 16.81,
+   "plek": [
+    -29.868,
+    -0.044,
+    172.192
+   ],
+   "blocked": false,
+   "buig": [
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4
+   ]
+  },
+  {
+   "gewricht": "Left hip",
+   "ok": true,
+   "melding": "Left hip: ball, \u00b127\u00b0.",
+   "s": 11.85,
+   "plek": [
+    16.991,
+    -0.015,
+    115.999
+   ],
+   "blocked": false,
+   "buig": [
+    30.4,
+    27.8,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4
+   ]
+  },
+  {
+   "gewricht": "Right hip",
+   "ok": true,
+   "melding": "Right hip: ball, \u00b130\u00b0.",
+   "s": 10.19,
+   "plek": [
+    -16.991,
+    -0.015,
+    115.999
+   ],
+   "blocked": false,
+   "buig": [
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4
+   ]
+  }
+ ],
+ "sneden": [
+  {
+   "poging": 0,
+   "gewricht": "Left elbow",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 4,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.4153768317454562,
+    "h_voxel": 0.2077,
+    "h_vlakken": 131856,
+    "h_buiten": 0.0,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 224580
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 14398
+   },
+   "goed": true
+  },
+  {
+   "poging": 1,
+   "gewricht": "Right elbow",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 3,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.4153768279033681,
+    "h_voxel": 0.2077,
+    "h_vlakken": 131872,
+    "h_buiten": 0.0,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 224681
+   },
+   "B": {
+    "gesloten": false,
+    "fout": 1,
+    "punten": 14368
+   },
+   "goed": false
+  },
+  {
+   "poging": 1,
+   "gewricht": "Right elbow",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 3,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.41534261557705604,
+    "h_voxel": 0.2077,
+    "h_vlakken": 131948,
+    "h_buiten": 0.0,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 224681
+   },
+   "B": {
+    "gesloten": false,
+    "fout": 1,
+    "punten": 14363
+   },
+   "goed": false
+  },
+  {
+   "poging": 1,
+   "gewricht": "Right elbow",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 3,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.4154216599040774,
+    "h_voxel": 0.2077,
+    "h_vlakken": 131950,
+    "h_buiten": 0.0,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": false,
+    "fout": 2118,
+    "punten": 10536
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 14376
+   },
+   "goed": false
+  },
+  {
+   "poging": 2,
+   "gewricht": "Right elbow",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 3,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.2968251962747683,
+    "h_voxel": 0.2112,
+    "h_vlakken": 162346,
+    "h_buiten": 0.001,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 225676
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 11973
+   },
+   "goed": true
+  },
+  {
+   "poging": 6,
+   "gewricht": "Left knee",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.48837532218803364,
+    "h_voxel": 0.2628,
+    "h_vlakken": 147340,
+    "h_buiten": 0.0067,
+    "h_pogingen": [
+     [
+      false,
+      42873.4,
+      29359.1,
+      true
+     ]
+    ]
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 196074
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 717
+   },
+   "goed": true
+  },
+  {
+   "poging": 10,
+   "gewricht": "Right knee",
+   "soort": "SCHARNIER",
+   "solver": "EXACT",
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.4884619853007851,
+    "h_voxel": 0.2627,
+    "h_vlakken": 147362,
+    "h_buiten": 0.0062,
+    "h_pogingen": [
+     [
+      false,
+      42874.7,
+      29359.7,
+      true
+     ]
+    ]
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 225517
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 23360
+   },
+   "goed": true
+  },
+  {
+   "poging": 11,
+   "gewricht": "Neck",
+   "soort": "KOGEL",
+   "solver": "EXACT",
+   "terugval": false,
+   "s": 4.41,
+   "r_mm": 3.25,
+   "naad_r": 6.9,
+   "een_lid": {
+    "lussen": 1,
+    "lid": null,
+    "h_soort": null,
+    "lid_open": null,
+    "vreemd": null,
+    "marge": null,
+    "h_voxel": null,
+    "h_vlakken": null,
+    "h_buiten": null,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 203079
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 26484
+   },
+   "overlap_ab": 0,
+   "goed": true
+  },
+  {
+   "poging": 12,
+   "gewricht": "Left shoulder",
+   "soort": "KOGEL",
+   "solver": "EXACT",
+   "terugval": false,
+   "s": 12.09,
+   "r_mm": 4.5,
+   "naad_r": 8.691,
+   "een_lid": {
+    "lussen": 3,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.3198282266566621,
+    "h_voxel": 0.1626,
+    "h_vlakken": 162610,
+    "h_buiten": 0.0,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 193657
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 14492
+   },
+   "overlap_ab": 0,
+   "goed": true,
+   "h_zelf_overlap": 0
+  },
+  {
+   "poging": 13,
+   "gewricht": "Right shoulder",
+   "soort": "KOGEL",
+   "solver": "EXACT",
+   "terugval": false,
+   "s": 12.53,
+   "r_mm": 4.5,
+   "naad_r": 8.685,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.31980385908478726,
+    "h_voxel": 0.2031,
+    "h_vlakken": 196754,
+    "h_buiten": 0.0,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 166857
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 29912
+   },
+   "overlap_ab": 0,
+   "goed": true,
+   "h_zelf_overlap": 0
+  },
+  {
+   "poging": 14,
+   "gewricht": "Left hip",
+   "soort": "KOGEL",
+   "solver": "EXACT",
+   "terugval": false,
+   "s": 7.4,
+   "r_mm": 6.25,
+   "naad_r": 11.378,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.4277306792077778,
+    "h_voxel": 0.2863,
+    "h_vlakken": 177756,
+    "h_buiten": 0.0009,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 118353
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 53667
+   },
+   "overlap_ab": 0,
+   "goed": true,
+   "h_zelf_overlap": 0
+  },
+  {
+   "poging": 15,
+   "gewricht": "Right hip",
+   "soort": "KOGEL",
+   "solver": "EXACT",
+   "terugval": false,
+   "s": 6.52,
+   "r_mm": 6.25,
+   "naad_r": 11.378,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "voxel",
+    "lid_open": 0,
+    "vreemd": 0,
+    "marge": 0.42773599457455935,
+    "h_voxel": 0.2863,
+    "h_vlakken": 177752,
+    "h_buiten": 0.0006,
+    "h_pogingen": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 69854
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 53668
+   },
+   "overlap_ab": 0,
+   "goed": true,
+   "h_zelf_overlap": 0
+  }
+ ],
+ "bron_punten": 240112,
+ "bron_zelf_overlap": 0,
+ "uitslag": "{'FINISHED'}"
+}
