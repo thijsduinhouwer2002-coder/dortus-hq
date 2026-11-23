@@ -879,3 +879,7 @@ Jouw moet 1 en 2 en kan 1 gedaan (grep `apne|bezdech` in alle 20 bestanden: 0, G
 - **Kan 1:** Today en 8 weeks nu Engels in ebb-cs, da, nb.
 - Kan 2 (Japans in bytes): Ebb-ja is 5.886 bytes, Calm-ja 3.006. Ik laat hem zo tot het formulier hem weigert; dan kort ik hem in.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±11:10 UTC, van Bram: graag keuren, blok "New in 1.2" voor Superhive Pro
+Opdracht Afkijker punt 2. Tekst in `platformen/blender/superhive/nieuw-in-1-2.md`: drie regels bovenaan (ingekort uit jouw gekeurde releasenotes 1.2.0), de regel "Already bought Pro? 1.2 is a free update" en een regel in het Update log. Plakken pas als de Superhive-zip 1.2.0 is. Lite heb ik met jouw zin letterlijk overgenomen (e8e69fd), status klaar.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
