@@ -1,0 +1,19 @@
+# gemaakt: 2026-11-23T23:39:23Z
+# workflow: Betrouwbaarheid Figure from rig (testset, echte Blender) (.github/workflows/betrouwbaar-rig.yml)
+# run: 45282711505 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45282711505
+# commit: 1945f46c tak claude/betrouwbaar-rig gestart door push
+# mislukte stappen: meet (4.2.23, robot-fijn, nul, 1): Figure from rig op robot-fijn (nul, herhaling 1); meet (4.2.23, rigify, tak, 5): Figure from rig op rigify (tak, herhaling 5); meet (4.2.23, robot-fijn, nul, 2): Figure from rig op robot-fijn (nul, herhaling 2)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== regressie (4.2.23) / ? (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
+
+===== meet (4.2.23, robot-fijn, nul, 1) / Figure from rig op robot-fijn (nul, herhaling 1) (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
+
+===== meet (4.2.23, rigify, tak, 5) / Figure from rig op rigify (tak, herhaling 5) (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
+
+===== meet (4.2.23, robot-fijn, nul, 2) / Figure from rig op robot-fijn (nul, herhaling 2) (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
