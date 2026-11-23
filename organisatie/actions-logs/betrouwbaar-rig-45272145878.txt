@@ -1,0 +1,87 @@
+# gemaakt: 2026-11-23T22:17:30Z
+# workflow: Betrouwbaarheid Figure from rig (testset, echte Blender) (.github/workflows/betrouwbaar-rig.yml)
+# run: 45272145878 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45272145878
+# commit: eaa12520 tak claude/betrouwbaar-rig gestart door push
+# mislukte stappen: meet (4.2.23, robot-a): Figure from rig op robot-a; meet (4.2.23, robot-b): Figure from rig op robot-b; meet (4.2.23, rigify): Figure from rig op rigify; meet (4.2.23, robot-fijn): Figure from rig op robot-fijn
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== meet (4.2.23, robot-a) / Figure from rig op robot-a (laatste 18 van 18 regels) =====
+##[group]Run mkdir -p /tmp/uit
+mkdir -p /tmp/uit
+timeout 2700 /tmp/blender/blender -b --factory-startup --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip "$FIG" "/tmp/uit/$FIG.json" > /tmp/uit/$FIG-vol.log 2>&1 || true
+grep -E "\[meet\]|^MEET|Traceback|Error" /tmp/uit/$FIG-vol.log | cut -c1-2000 | tee /tmp/uit/$FIG.log
+tail -40 /tmp/uit/$FIG-vol.log | cut -c1-400 >> /tmp/uit/$FIG.log
+grep -m1 "model name" /proc/cpuinfo >> /tmp/uit/$FIG.log
+rm -f /tmp/uit/$FIG-vol.log
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: robot-a
+  V: 4.2.23
+##[endgroup]
+##[error]Process completed with exit code 143.
+
+===== meet (4.2.23, robot-b) / Figure from rig op robot-b (laatste 18 van 18 regels) =====
+##[group]Run mkdir -p /tmp/uit
+mkdir -p /tmp/uit
+timeout 2700 /tmp/blender/blender -b --factory-startup --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip "$FIG" "/tmp/uit/$FIG.json" > /tmp/uit/$FIG-vol.log 2>&1 || true
+grep -E "\[meet\]|^MEET|Traceback|Error" /tmp/uit/$FIG-vol.log | cut -c1-2000 | tee /tmp/uit/$FIG.log
+tail -40 /tmp/uit/$FIG-vol.log | cut -c1-400 >> /tmp/uit/$FIG.log
+grep -m1 "model name" /proc/cpuinfo >> /tmp/uit/$FIG.log
+rm -f /tmp/uit/$FIG-vol.log
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: robot-b
+  V: 4.2.23
+##[endgroup]
+##[error]Process completed with exit code 143.
+
+===== meet (4.2.23, rigify) / Figure from rig op rigify (laatste 18 van 18 regels) =====
+##[group]Run mkdir -p /tmp/uit
+mkdir -p /tmp/uit
+timeout 2700 /tmp/blender/blender -b --factory-startup --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip "$FIG" "/tmp/uit/$FIG.json" > /tmp/uit/$FIG-vol.log 2>&1 || true
+grep -E "\[meet\]|^MEET|Traceback|Error" /tmp/uit/$FIG-vol.log | cut -c1-2000 | tee /tmp/uit/$FIG.log
+tail -40 /tmp/uit/$FIG-vol.log | cut -c1-400 >> /tmp/uit/$FIG.log
+grep -m1 "model name" /proc/cpuinfo >> /tmp/uit/$FIG.log
+rm -f /tmp/uit/$FIG-vol.log
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: rigify
+  V: 4.2.23
+##[endgroup]
+##[error]Process completed with exit code 143.
+
+===== meet (4.2.23, robot-fijn) / Figure from rig op robot-fijn (laatste 18 van 18 regels) =====
+##[group]Run mkdir -p /tmp/uit
+mkdir -p /tmp/uit
+timeout 2700 /tmp/blender/blender -b --factory-startup --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip "$FIG" "/tmp/uit/$FIG.json" > /tmp/uit/$FIG-vol.log 2>&1 || true
+grep -E "\[meet\]|^MEET|Traceback|Error" /tmp/uit/$FIG-vol.log | cut -c1-2000 | tee /tmp/uit/$FIG.log
+tail -40 /tmp/uit/$FIG-vol.log | cut -c1-400 >> /tmp/uit/$FIG.log
+grep -m1 "model name" /proc/cpuinfo >> /tmp/uit/$FIG.log
+rm -f /tmp/uit/$FIG-vol.log
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: robot-fijn
+  V: 4.2.23
+##[endgroup]
+##[error]Process completed with exit code 143.
