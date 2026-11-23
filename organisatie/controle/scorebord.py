@@ -208,6 +208,100 @@ def youtube():
     bronnen.youtube(meet, NOTEN)
 
 
+def tiktok():
+    teksten = []
+    for pad in TIKTOK_LOGBOEKEN:
+        try:
+            with open(os.path.join(os.path.dirname(ORG), pad), encoding="utf-8") as f:
+                teksten.append(f.read())
+        except OSError:
+            pass
+    bronnen.tiktok(meet, NOTEN, teksten)
+
+
+# Herkomst (Meter, 23 nov 2026): verkopen per bron en één regel per bron per dag
+METEN = os.path.join(ORG, "meten")
+VERKOPEN = os.path.join(METEN, "verkopen.csv")
+DAG = os.path.join(METEN, "dag.csv")
+TIKTOK_LOGBOEKEN = ["commercie/geplaatst.md", "marketing/dagrapport.md"]
+PRO = "Click Joints Pro"
+
+
+def soort_bron(r):
+    """Waar kwam deze verkoop vandaan, in één woord of twee."""
+    code = r.get("kortingscode", "")
+    if code.upper().startswith("CJP"):
+        return f"maker ({code})"
+    if code:
+        return f"code {code}"
+    if r.get("utm_source"):
+        return f"utm {r['utm_source']}"
+    if r.get("affiliate") == "ja":
+        return "affiliate"
+    return r.get("bron") or "onbekend"
+
+
+def herkomst_tabel(rijen):
+    if rijen is None:
+        return ["", "## Herkomst Gumroad-verkopen", "", "Niet gemeten deze run (zie meldingen)."]
+    uit = ["", "## Herkomst Gumroad-verkopen", "",
+           f"Per verkoop, zonder persoonsgegevens, uit Gumroad API v2 /sales (GEZIEN, leessleutel). Volledige lijst in `organisatie/meten/verkopen.csv`.", "",
+           "| Datum | Product | Bedrag | Bron (referrer) | utm | Kortingscode | Herkomst |", "|---|---|---|---|---|---|---|"]
+    for r in rijen:
+        utm = "/".join(x for x in (r["utm_source"], r["utm_medium"], r["utm_campaign"]) if x)
+        uit.append(f"| {r['datum']} | {r['product']} | {r['bedrag']} {r['munt']} | {r['bron']} | {utm} | {r['kortingscode']} | {soort_bron(r)} |")
+    if not rijen:
+        uit.append("| | geen verkopen | | | | | |")
+    return uit
+
+
+def schrijf_verkopen(rijen):
+    os.makedirs(METEN, exist_ok=True)
+    with open(VERKOPEN, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=bronnen.VERKOOP_KOLOMMEN + ["herkomst"])
+        w.writeheader()
+        for r in rijen:
+            w.writerow({**r, "herkomst": soort_bron(r)})
+
+
+def dag_rijen(dag, metingen, bezoek, verkopen):
+    """Eén regel per bron per maat voor deze dag (kolommen datum, bron, maat, waarde, gezien_bron)."""
+    uit = []
+    for p, pl, m, w, _ in metingen:
+        if w in (None, ""):
+            continue
+        uit.append({"datum": dag, "bron": f"{pl} {p}", "maat": m, "waarde": w, "gezien_bron": BRON.get(pl, "GEZIEN")})
+    for d, p, m, w in bezoek:
+        uit.append({"datum": d, "bron": f"dortus.com {p}", "maat": m, "waarde": w,
+                    "gezien_bron": "GEZIEN, Amami (Umami-API, leessleutel)"})
+    if verkopen is not None:
+        tel = {}
+        for r in verkopen:
+            if r["datum"] == dag and r["terug"] == "nee":
+                k = (r["product"], soort_bron(r))
+                tel[k] = tel.get(k, 0) + 1
+        for (prod, herk), n in sorted(tel.items()):
+            uit.append({"datum": dag, "bron": f"Gumroad {prod} via {herk}", "maat": "verkopen", "waarde": n,
+                        "gezien_bron": "GEZIEN, Gumroad API v2 /sales (leessleutel)"})
+    return uit
+
+
+def schrijf_dag(nieuw):
+    os.makedirs(METEN, exist_ok=True)
+    kol = ["datum", "bron", "maat", "waarde", "gezien_bron"]
+    oud = []
+    if os.path.exists(DAG):
+        with open(DAG, newline="", encoding="utf-8") as f:
+            oud = list(csv.DictReader(f))
+    sleutels = {(r["datum"], r["bron"], r["maat"]) for r in nieuw}
+    alles = [r for r in oud if (r["datum"], r["bron"], r["maat"]) not in sleutels] + nieuw
+    with open(DAG, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=kol)
+        w.writeheader()
+        for r in sorted(alles, key=lambda r: (r["datum"], r["bron"], r["maat"])):
+            w.writerow({k: r.get(k, "") for k in kol})
+
+
 # Waar elk cijfer vandaan komt (alles GEZIEN: het script leest het zelf, elke run)
 BRON = {
     "Blender": "GEZIEN, extensions.blender.org (API en productpagina)",
@@ -219,6 +313,7 @@ BRON = {
     "Kit": "GEZIEN, Kit API (leessleutel), alleen aantallen",
     "Discord": "GEZIEN, discord.com invite-API (with_counts)",
     "YouTube": "GEZIEN, youtube.com/feeds/videos.xml (RSS)",
+    "TikTok": "GEZIEN, tiktok.com videopagina (playCount)",
 }
 
 
@@ -254,11 +349,17 @@ def verschil(nu, oud):
 def main():
     droog = "--droog" in sys.argv
     vandaag = dt.datetime.now(dt.timezone.utc).date()
-    for stap in (blender, superhive, garmin, obsidian, jetbrains, gumroad, kit, discord, youtube):
+    for stap in (blender, superhive, garmin, obsidian, jetbrains, gumroad, kit, discord, youtube, tiktok):
         try:
             stap()
         except Exception as e:  # noqa: BLE001
             NOTEN.append(f"{stap.__name__}: fout tijdens meten ({type(e).__name__}).")
+
+    try:
+        verkopen = bronnen.gumroad_verkopen(NOTEN)
+    except Exception as e:  # noqa: BLE001
+        verkopen = None
+        NOTEN.append(f"herkomst: fout tijdens meten ({type(e).__name__}).")
 
     geschiedenis = lees_geschiedenis()
     al = {r["datum"] for r in geschiedenis if r["platform"] == "dortus.com" and r["product"] == "dortus.com"}
@@ -294,9 +395,10 @@ def main():
         gt = tekst(g) + (f" ({gd})" if gd and gd != gister else "") if g is not None else "geen meting"
         kt = tekst(k) + (f" ({kd})" if kd and kd != week else "") if k is not None else "geen meting"
         regels.append(f"| {p} | {pl} | {m} | {tekst(w)} | {gt} | {kt} | {verschil(w, k)} | {toel} | {BRON.get(pl, 'GEZIEN')} |")
+    regels += herkomst_tabel(verkopen)
     regels += amami.bezoek_tabel(alles)
     regels += ["", "## Wat niet te zien is", "",
-               "- Gumroad-bezoekers staan niet in de Gumroad API v2 (alleen verkopen en omzet per product); bezoekers van de productpagina's op dortus.com staan hierboven (Amami).",
+               "- Gumroad-bezoekers staan niet in de Gumroad API v2 (verkopen per product, en sinds 23 nov per verkoop de bron via /sales); bezoekers van de productpagina's op dortus.com staan hierboven (Amami).",
                "- YouTube: de RSS toont alleen de nieuwste openbare filmpjes (max 15); oudere filmpjes en abonnees vragen de YouTube Data API (sleutel ontbreekt nog, zie toegang.md).",
                "- Kit en Gumroad: alleen aantallen, nooit namen of mailadressen van kopers of abonnees.",
                "- Superhive toont alleen een verkoopklasse (0, 10+, 100+ ...), geen precies aantal.",
@@ -320,6 +422,9 @@ def main():
             w.writerow({k: r.get(k, "") for k in ["datum", "product", "platform", "maat", "waarde"]})
     with open(UIT, "w", encoding="utf-8") as f:
         f.write(md)
+    if verkopen is not None:
+        schrijf_verkopen(verkopen)
+    schrijf_dag(dag_rijen(vandaag.isoformat(), METINGEN, amami.BEZOEK, verkopen))
     return 0
 
 
