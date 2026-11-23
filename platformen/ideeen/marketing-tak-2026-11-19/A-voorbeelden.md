@@ -1431,3 +1431,53 @@ Vijf belangrijkste dingen:
 5. **Digital Production leest release notes en linkt soms niet eens naar de winkel** (GEZIEN). De waarde is het filmpje en het stuk, niet direct verkeer; verwachte verkoop eruit klein, 0 tot 3 (GOK).
 
 Voorstel: (a) vóór do 26 nov één openbare pagina "Click Joints Pro 1.1: what's new" op dortus.com met het filmpje van Roep bovenaan; die pagina is de basis voor alle drie de vakbladen (80 Level, Digital Production, CG Channel heeft Pro al). (b) Chris zet één korte mail klaar voor info@digitalproduction.com en editor@80.lv met de link naar die pagina en de sale (27 nov tot 1 dec); Thijs zegt ja op de tekst. (c) Geen € 25 voor een commercieel BlenderNation-bericht: het gratis bericht bewoog niets zichtbaar. (d) Een tweede Reddit-post rond de sale (r/3Dprinting, met een geprint figuur) weegt zwaarder dan pers; dat is aan Thijs (zijn account). Volgende run: verkopen van Nitro Retopo en CatPin rond hun Digital Production-stuk (reviews per datum via Gumroad/Superhive), om te zien of zo'n stuk wél verkoop gaf.
+
+## Ronde 28 (run 23 nov ±00:20 UTC, klok van de container): het tweede pers-voorbeeld (Nitro Retopo), wat een agent met onze maillijst bij Kit mag, en twee agents die alles zelf plaatsten en overal werden geweerd
+
+Vervolg op ronde 27. De vraag van vorige run (verkoop van CatPin rond het stuk in Digital Production) is al beantwoord in 122: dezelfde 51 reviews met tekst, opnieuw opgehaald via `gumroad.com/product_reviews` (GEZIEN, zelfde telling: week van 5 okt 5, week van 12 okt 2). Nitro Retopo staat niet op Gumroad (GEZIEN, zoek-JSON) en de reviews op Superhive tonen alleen "2 months ago" (GEZIEN), dus per week tellen kan daar niet. Daarom deze run drie andere dingen.
+
+### 131. Nitro Retopo: zelfde patroon als CatPin, pers binnen een week bij twee bladen
+- 80 Level schreef op **7 okt 2026** (News en Marketplace), Digital Production op **13 okt** (GEZIEN, [80 Level](https://80.lv/articles/blender-retopology-tool-for-dense-meshes-scans-sculpts/), [Digital Production](https://digitalproduction.com/2026/10/13/nitro-retopo-dense-blender-meshes/)). Bij CatPin was het 5 en 9 okt (GEZIEN, ronde 24).
+- De link in 80 Level is een gewone link zonder `ref` (GEZIEN, broncode: `superhivemarket.com/products/nitro-retopo`). Affiliate is dus geen voorwaarde om erin te komen.
+- Het stuk in 80 Level is opgebouwd uit wat de maker zelf laat zien: wie hij is (character artist), welk probleem, één cijfer uit de demo ("1.5-million-triangle model was reduced to a 91,000-triangle working mesh"), "actively maintained", en de video bovenaan (GEZIEN). Geen persbericht nodig; wel een demo met een concreet getal.
+- Superhive nu: $25, **Sales 400+**, 4 beoordelingen, "Published 2 months ago" (GEZIEN, productpagina 23 nov). Kanaal 326 abonnees (GEZIEN ronde 27). Dus beide makers in onze buurt met 400+ en een klein kanaal kregen in de eerste weken na de start twee vakbladen tegelijk.
+- Wat het niet bewijst: of die verkoop van de pers kwam. Bij CatPin gaf pers een bultje, geen sprong (122). Samen met 128 (ons BlenderNation-bericht: niets zichtbaar) blijft de lezing: pers is goedkoop en hoort erbij, de video en het nut doen het werk (GOK).
+
+### 132. Kit (onze maillijst) heeft sinds kort een eigen MCP voor agents, maar die verstuurt nooit zelf
+- Kit beschrijft een **Kit MCP** (`https://app.kit.com/mcp`) waarmee een AI-client abonnees, tags, segmenten en broadcasts leest en schrijft (GEZIEN, [developers.kit.com/mcp/kit-mcp.md](https://developers.kit.com/mcp/kit-mcp.md)).
+- Twee grenzen, letterlijk: "available on all paid Kit plans (Creator and Creator Pro)" en "The Kit MCP does not schedule or send broadcasts ... the MCP broadcast tools always save a draft. Each response includes a `confirm_url`" (GEZIEN, zelfde pagina). Kit bouwt dus zelf het patroon "agent schrijft, mens drukt op verzenden" in.
+- Dortus zit op het gratis plan met een gewone sleutel `KIT_API_KEY` (GEZIEN, `organisatie/toegang.md`). Met een API-sleutel werkt de v4 API wel, 120 verzoeken per minuut, behalve de bulk- en aankoop-eindpunten (GEZIEN, [authenticatie](https://developers.kit.com/api-reference/authentication.md)). Via `POST /v4/broadcasts` met `send_at: null` maakt een agent een concept; met een tijd erin wordt hij gepland (GEZIEN, beschrijving in [llms.txt](https://developers.kit.com/llms.txt)). Of het gratis plan broadcasts via de API toelaat, heb ik niet getest (GOK: ja, want broadcasts zitten in het gratis plan).
+- Ook nuttig voor de meetlat: "Get link clicks for a broadcast" geeft per link de unieke klikken (GEZIEN, llms.txt). Een agent ziet dus na een mail hoeveel mensen op de Pro-link klikten, zonder dashboard.
+- De pagina's op kit.com zelf (blog, help) geven aan curl een robotmuur (GEZIEN, "Are you a robot?"); de ontwikkelaarsdocs op developers.kit.com niet.
+
+### 133. "Dead by April": een agent die vanaf januari elke twee uur zelf alles deed, met $9 productverkoop
+- Een AI-agent (schrijfnaam Survivor Forge) draaide "on a cron job since January, every two hours, a new session", met als doel $200 per maand vóór 1 april (DERDEN, [300 Sessions In, dev.to](https://dev.to/deadbyapril/300-sessions-in-what-building-a-business-actually-looks-like-4pg)).
+- Na 209 sessies: **8 producten op Gumroad, 62 video's, 108 artikelen, veel koude mails, omzet $9** (één verkoop, via Bluesky) (DERDEN, [Someone Paid Me $191](https://dev.to/deadbyapril/someone-paid-me-191-and-i-built-it-in-one-session-388)). Daarna $191 voor een klusje van iemand die het verhaal volgde, en rond sessie 300 "$100 total earned" door 11 pull requests voor die klant (DERDEN, zelfde bronnen; de twee bedragen sluiten niet op elkaar aan, dus zelf onzeker).
+- Op dag 8 al geweerd: X "Error 226, automation detected", Reddit-account weg, Hacker News "spam-filtered", Write.as na 30 artikelen geblokkeerd, captcha bij Medium en GitHub (DERDEN, [Day 8: The Platform Problem](https://dev.to/deadbyapril/day-8-the-platform-problem-1dbe)).
+- Eigen les van de agent: "publishing is not distribution. Writing is not marketing" (DERDEN). De enige verkoop en de enige klant kwamen van mensen die het verhaal volgden, niet van de producten of de stukken.
+- Wat wij hiervan nemen: veel plaatsen op veel kanalen levert bij een agent zonder publiek niets op en sluit kanalen af. Dit is het derde voorbeeld met dezelfde uitkomst (Matt Busel in 116: 1.383 posts, 0 verkopen).
+
+### 134. Een agent-maker over welke kanalen je wel en niet volledig automatiseert
+- Atlas Whoff (die eerder zijn bedrijf door een agent liet runnen, zie whoffagents eerder in dit bestand) schrijft over een post op r/ClaudeAI: "Claude Code got my Meta Ads account permanently banned", 78 upvotes en 60 reacties van mensen met hetzelfde (DERDEN, [dev.to, 9 apr 2026](https://dev.to/whoffagents/claude-code-got-someones-meta-ads-account-banned-heres-how-to-automate-without-getting-flagged-513h); de Reddit-post zelf niet gelezen).
+- Zijn eigen ervaring: "Atlas's Twitter got suspended for posting too fast. Now: 1-2 posts/day MAX, with random delays" (DERDEN). Hij deelt in: hoog risico (advertenties, X, LinkedIn-benaderen, alles met betalingen), middel (LinkedIn-posts, YouTube-uploads, Reddit), laag (dev.to, Hashnode, Medium via hun API, GitHub).
+- Zijn toets: "would a human doing this at 3AM at machine speed get flagged? If yes, don't automate it blindly" (DERDEN). Dat sluit aan op onze regel: Metricool met een vast ritme en keuring, geen eigen bots op X of Reddit.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Maillijst:** voor de sale (27 nov tot 1 dec) een concept-broadcast in Kit zetten via de API met `send_at: null`, met de link `dortus.com/click-joints/?ref=mail`. Versturen is iets onder de naam Dortus, niet van Thijs; wie mag drukken en na welke keuring is aan de hoofdchat (regel 4). Na verzenden leest een agent de klikken per link uit. Kost € 0.
+- **Pers:** het pakket uit ronde 27 aanvullen met één concreet getal uit de demo van Pro (zoals "in X klikken een knie die buigt en vastklikt"), want dat is wat 80 Level overneemt.
+- **Niet doen:** meer kanalen erbij of hoger tempo. Drie voorbeelden laten zien dat dat bij nul publiek nul verkoop geeft en accounts kost.
+
+## Patronen na ronde 28
+90. **Twee vakbladen binnen een week, bij beide verkopers met 400+** (131): CatPin en Nitro Retopo, allebei met een klein kanaal en een gewone link. Het stuk leunt op een demo met een getal.
+91. **Ook de mailtool zelf bouwt "agent maakt concept, mens verstuurt"** (132): de Kit MCP verstuurt nooit; de API kan het wel. Voor ons: concept via API, verzenden na keuring.
+92. **Volledig zelf plaatsende agents zonder publiek verdienen niets en raken kanalen kwijt** (133, 134): $9 na 209 sessies; bans op X, Reddit, HN, Meta Ads. Wat wel geld gaf, was een mens die het verhaal volgde.
+
+## Stand na run 23 nov ±00:35 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **Nitro Retopo herhaalt het patroon van CatPin:** 80 Level (7 okt) en Digital Production (13 okt) binnen een week, gewone link, nu 400+ verkopen voor $25 met 326 abonnees (GEZIEN). Effect van de pers op de verkoop blijft onbekend (GOK).
+2. **Onze maillijst kan door een agent als concept gevuld worden:** de Kit API met onze bestaande sleutel maakt een broadcast met `send_at: null` en leest daarna klikken per link (GEZIEN in de docs, niet getest). De nieuwe Kit MCP is alleen voor betaalde plannen en verstuurt nooit zelf (GEZIEN).
+3. **"Dead by April": 209 sessies, 8 producten, 108 artikelen, $9 productverkoop** (DERDEN), en binnen 8 dagen geweerd op X, Reddit, HN en Write.as.
+4. **Een Meta Ads-account permanent dicht na een week Claude Code met volle rechten, en X geschorst wegens te snel plaatsen** (DERDEN). Regel van die maker: 1 tot 2 posts per dag op X, met willekeurige pauzes.
+5. **De vraag uit ronde 27 (verkoop rond Digital Production) is niet beter te beantwoorden dan in 122:** Superhive toont geen datums per review, Gumroad wel maar die telling bestaat al (GEZIEN).
+
+Voorstel: (a) de hoofdchat laat vóór wo 25 nov een agent één concept-mail voor de sale in Kit zetten via de API (`send_at: null`, link met `?ref=mail`), Daan keurt, de hoofdchat beslist wie verstuurt op 27 nov; dat is de enige plek waar we kopers bereiken die al ja zeiden. (b) Het perspakket voor 80 Level en Digital Production krijgt één getal uit de demo van Pro en de video bovenaan, zoals bij Nitro Retopo. (c) Geen extra kanalen of hoger tempo in de saleweek; de tak blijft bij Metricool met keuring. Volgende run: hoeveel abonnees de maillijst nu heeft en wat makers in onze hoek per saleweek-mail aan klikken en verkoop melden (DERDEN), zodat (a) een verwachte opbrengst krijgt.
