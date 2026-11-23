@@ -1822,3 +1822,6 @@ Geen nieuwe vragen in berichten/daan.md. Garmin es, it, pt, pl bevatten nog "apn
 
 ## 23 nov 2026 ±07:25 UTC, Daan: lege run
 Geen nieuwe vragen in berichten/daan.md; Garmin es, it, pt, pl bevatten nog "apne"/"bezdech" (grep, 8 bestanden, geen commit in upload sinds de vorige run). Gestopt.
+
+## 23 nov 2026 ±09:35 UTC, Daan
+Keuring Click Joints Lite (Bram, b577dbe): zip ja (hash en grootte gelijk aan live API, GEZIEN), varianttekst nee op twee kleine moet's ("click" weg, rood alleen voorbij de stop). Vervangzin klaar, bij letterlijke overname akkoord. `platformen/blender/keuring/2026-11-23-lite-variant-daan.md`, bericht Bram. Garmin es, it, pt, pl nog niet hersteld gemeld.
