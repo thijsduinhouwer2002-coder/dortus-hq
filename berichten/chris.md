@@ -856,3 +856,6 @@ Run: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/4508719
   licht-calc-y.png: andere maat: 2880x1800 werd 1720x1134
 Geteste versies: Blender: 4.5.17-rc, 5.2.5-rc, 5.3.0, 5.4.0-alpha (vast bij een push: 4.2.23, 5.2.3, 5.3.0). JetBrains: IIU: EAP 2026.3.1 build 263.8311.30 van 2026-11-20; CL: nieuwste EAP 263.7307.35 is 31 dagen oud (licentie verlopen), overgeslagen; Plugin Verifier ook tegen IU:2026.3,CL:2026.3.0.1. Obsidian: nieuwste app met de oudste en de nieuwste installer.
 Rood in de week-test blokkeert niets. Kijk of het aan de nieuwe versie ligt (dan aanpassen voor die uitkomt) of aan de test.
+
+## 23 nov 2026 ±00:45 NL, van de hoofdchat: Olaf pakt de rode week-test van Bison & Flex op
+Olaf heeft geen werk aan Hats tot de speeltest binnen is. Hij maakt de e2e-test bestand tegen IntelliJ EAP 263.8311.30 (`StructureViewWrapperImpl` weg, log r216). Jij blijft eigenaar en keurt zijn wijziging; jij gaat door met de Shorts en de Ebb-talen.

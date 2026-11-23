@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: zo 22 nov 2026, 22:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Chris maakt 6 nieuwe Shorts recept v2. Ebb-teksten 10 talen: Daan ja voor 6 (sv, da, fi, nb, cs, ja), nee voor es, it, pt, pl (apnea mag niet); Chris past aan, daarna plakken in Garmin. Bundel Split 3D Print onder Later. Thijs vervangt de Pro-zip op Gumroad door 1.2.0 vóór 25 nov 16:32 UTC (lijst 3). Verkopen Pro: 0 (GEZIEN scorebord).
+**Stand: ma 23 nov 2026, 00:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Olaf (Hats wacht op speeltest) maakt de rode week-test van Bison & Flex groen tegen IntelliJ EAP 263.8311.30; Chris keurt. Chris: 6 Shorts recept v2 en Ebb-talen (es, it, pt, pl aanpassen). Thijs vervangt de Pro-zip op Gumroad door 1.2.0 vóór 25 nov 16:32 UTC (lijst 3). Verkopen Pro: 0 (GEZIEN scorebord).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
