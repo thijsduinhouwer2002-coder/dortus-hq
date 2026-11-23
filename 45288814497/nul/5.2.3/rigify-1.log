@@ -1,0 +1,35 @@
+[meet] Blender 5.2.3 LTS figuur rigify: 7 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Left shoulder', 'Right shoulder']; overgeslagen: Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[meet] pogingen 15, sneden 7, slechte sneden 0
+MEET rigify gewrichten=7 overgeslagen=2 slechte_sneden=0
+Reloading external rigs...
+Reloading external metarigs...
+PROBE rigify True
+PROBE hoogte 207.8 botten ['spine.004', 'upper_arm.L', 'forearm.L', 'upper_arm.R', 'forearm.R', 'thigh.L', 'shin.L', 'thigh.R', 'shin.R']
+Info: Hinge placed. Bends 0° to 135°. 1.667 s.
+Info: Hinge placed. Bends 0° to 135°. 1.789 s.
+Info: Hinge placed. Bends 0° to 135°. 1.511 s.
+Info: Hinge placed. Bends 0° to 135°. 1.329 s.
+Info: Joint placed. Good fit. 1.604 s.
+Warning: Too close to another joint (keep 72 mm apart).
+Warning: Too close to another joint (keep 72 mm apart).
+Warning: Too close to another joint (keep 70 mm apart).
+Warning: Too close to another joint (keep 70 mm apart).
+Warning: Too close to another joint (keep 72 mm apart).
+Warning: Too close to another joint (keep 72 mm apart).
+Warning: Too close to another joint (keep 70 mm apart).
+Warning: Too close to another joint (keep 70 mm apart).
+Info: Joint placed. Good fit. 1.798 s.
+Info: Joint placed. Good fit. 1.798 s.
+Warning: 7 joints. Skipped: Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+PROBE {'FINISHED'} ['Left elbow · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–135° · preset', 'Left knee · Hinge · 0–135° · preset', 'Right knee · Hinge · 0–135° · preset', 'Neck · Ball · ±30° · preset', 'Left hip · Ball · ±19° · preset', 'Right hip · Ball · ±30° · preset']
+PROBE overgeslagen Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+PROBE delen 8 open []
+[meet] Blender 5.2.3 LTS figuur rigify: 7 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left hip', 'Right hip']
+[meet] ontbreekt: ['Left shoulder', 'Right shoulder']; overgeslagen: Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[meet] pogingen 15, sneden 7, slechte sneden 0
+MEET rigify gewrichten=7 overgeslagen=2 slechte_sneden=0
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+
+Blender quit
+model name	: INTEL(R) XEON(R) PLATINUM 8573C
