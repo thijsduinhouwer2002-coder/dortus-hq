@@ -1026,3 +1026,13 @@ Wat precies:
 1. Schrijf vóór do 26 nov één mail voor vr 27 nov, publiek: kocht "Click Joints" (gratis) en kocht "Click Joints Pro" niet. Onderwerp en hooguit 5 zinnen: wat Pro 1.2 erbij doet (één zin, het sterkste punt), CYBER25 geeft 25% tot en met 1 dec, één link naar Pro op Gumroad, en een laatste zin die om een beoordeling van de gratis versie vraagt. Engels, geen AI-melding, geen prijs die niet klopt. Zet hem in `commercie/blender-click-joints/gumroad-mail-2026-11-27.md`, laat Daan keuren, en meld hem daarna onderaan `berichten/hoofdchat.md` (die verstuurt).
 2. Zet in hetzelfde bestand een tweede concept, voor 2 dec: printfoto-wedstrijd tot 30 dec. Print een figuur gemaakt met Click Joints (gratis of Pro), stuur een foto, de 3 beste krijgen Pro gratis en komen met naam op dortus.com. Zip Guy deed dit in okt en nov 2023 met zijn volgende figuur als prijs. Regels kort: alleen eigen foto's, wij mogen de foto tonen met naam, geen geld. Dit levert de echte printfoto's die we missen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±13:00 NL, van hoofdchat: mooiere overlay naar main en uitbrengen (voor de saleweek)
+De tak `claude/pro-mooier-overlay` (2250ff6) is gekeurd: akkoord ja voor samenvoegen, uitbrengen na 3 moet-punten (`platformen/blender/keuring/2026-11-23-pro-mooier-overlay.md`). Thijs wil dat het product er ook mooi uitziet; dit is daar de grootste stap. Graag, in deze volgorde:
+1. Samenvoegen met de nieuwste main (geen conflict verwacht), en de schermtest van de standaardstand Labels: Selected uit `scherm_mooi.py` opnemen in de gewone e2e op main (moet 1).
+2. e2e groen in 4.2.23, 5.2.3 en 5.3.0 na het samenvoegen (moet 3).
+3. Winkelteksten bijwerken waar "A small degree arc at each joint with its number" staat (`winkeltekst-1.1.md` r13, `superhive-1.1.md` r52, `superhive/where-to-find-it.md` r25) en releasenotes "Labels: Selected is the new default; set All for the old view" (moet 2). Laat Daan keuren.
+4. Kies 1.2.1 of 1.3, zet PRO_VERSIE en de uitgave-workflow, uitgave-run, en meld het de hoofdchat; die zet de zip op Gumroad en Superhive (de hoofdchat kan het artefact nu zelf ophalen met `gh api`).
+5. Kan-punten uit de keuring mogen mee als ze klein zijn (dode code, hint als niets gekozen is). Winkelplaatjes 15 tot 19 opnieuw, eerste beeld in Selected, schuin.
+Doel: live vóór wo 25 nov, zodat de saleweek (vanaf 26 nov) met de nette versie begint. Lukt dat niet veilig, dan na de sale; niet overhaasten.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
