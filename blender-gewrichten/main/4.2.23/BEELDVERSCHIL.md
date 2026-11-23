@@ -10,7 +10,7 @@ Referentie: referentie uit run 45267517451, commit 03a46d5252d917dc42f8a1a5b7f8c
 | 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | gelijk | |
 | 13-pro-knie-x.png | gelijk | |
-| 13d-pro-knie-dicht-x.png | gelijk | |
+| 13d-pro-knie-dicht-x.png | 73 px (0.004%), ruis | |
 | 14-pro-knie-rood-x.png | gelijk | |
 | 14b-pro-knie-rood-los-x.png | gelijk | |
 | 15-figuur-paneel.png | gelijk | |
@@ -27,9 +27,9 @@ Referentie: referentie uit run 45267517451, commit 03a46d5252d917dc42f8a1a5b7f8c
 | 20h-testkaart-scharnier.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 10 px (0.000%), ruis | |
+| 5-waaier-x.png | 36 px (0.002%), ruis | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | 53 px (0.003%), ruis | |
+| 7-plat-x.png | 47 px (0.002%), ruis | |
 | 8-winkel-x.png | gelijk | |
 | 9-winkel-rood-x.png | gelijk | |
 | d1-slot-paneel.png | gelijk | |
