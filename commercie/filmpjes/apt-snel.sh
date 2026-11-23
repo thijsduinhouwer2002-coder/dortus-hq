@@ -4,6 +4,10 @@
 # maar soms 3 tot 8 min (regisseur-3 run 45227517215: 8 min 17 s), omdat `apt-get update` op een trage spiegel bleef
 # hangen tot de grens van 300 s. De runner heeft al een pakketlijst. Daarom eerst installeren zonder update; alleen als
 # dat mislukt (pakket weg uit de oude lijst) een update van hooguit 120 s en dan nog een keer.
+# Proef 23 nov ±21:30 (run 45259595436, GEZIEN, 3 runners): installeren zonder update lukt op een schone runner
+# (alles aanwezig), 25 en 32 s, maar één runner deed er 310 s over, ook zonder update. De uitschieters zitten dus
+# (ook) in het downloaden van een trage spiegel; dit script haalt alleen de update-wachttijd weg. Volgende stap: de
+# .deb-bestanden bewaren met actions/cache, dan hoeft er niets van de spiegel.
 # Gebruik in een workflow:  bash commercie/filmpjes/apt-snel.sh xvfb ffmpeg fonts-inter ...
 set -u
 [ "$#" -gt 0 ] || { echo "gebruik: apt-snel.sh pakket..."; exit 2; }

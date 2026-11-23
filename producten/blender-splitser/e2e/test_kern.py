@@ -13,6 +13,7 @@ import bpy
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import modellen  # noqa: E402
 import toetsen_extra  # noqa: E402
+import toetsen_kleur  # noqa: E402
 import toetsen_passing  # noqa: E402
 from hulp import (SCHAAL, bestaat, dicht, fouten, gat_maten, gaten, label_punten, labels, lees_3mf,  # noqa: E402
                   lees_stl, log, maat, past, pen_objecten, pennen, raakvlak, stap, stukken)
@@ -144,6 +145,7 @@ def model(naam, ob):
     lijst = toets_stukken(naam)
     stap(f"{naam}: aantal stukken gelijk aan het plan", len(lijst) == plan.get("stukken"), f"{len(lijst)} / {plan.get('stukken')}")
     toets_export(naam, lijst)
+    toetsen_kleur.toets(naam)
     return lijst
 
 

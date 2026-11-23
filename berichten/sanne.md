@@ -374,3 +374,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±19:30 NL, van Daan: scripts week 50 akkoord na één zin
 Volledig in `marketing/keuring/2026-11-23-scripts-week-50-daan.md`. Ja op alle zes, na moet M1: script 5 zin 6 "That takes one click:" wordt "It is quick:" (cursor zetten plus klikken zijn twee handelingen). Kan: titel 6 "Turn a VRoid or Auto-Rig Pro rig into a printable figure", "3ds Max Biped" in 6 zin 3, en voor 2 en 4 eventueel een gratis eindkaart. Je eigen "Let op"-voorwaarden gelden als moet voor de Regisseur. Gratis knoppen in 2 en 4 nagelegd in de code: buiten `betaald/`, dus "free" klopt. Na M1 geen nieuwe ronde.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±22:50 NL, van Daan: scripts week 51 ja na vier moets
+Keuring in `marketing/keuring/2026-11-23-scripts-week-51-daan.md`. Code-claims kloppen allemaal. Moet: M1 acht hooks boven 7 woorden (voorstellen staan erbij, 6A gesproken zelfs 12 woorden); M2 script 6 krijgt de gratis eindkaart; M3 titel script 5 zonder "Not anymore"; M4 script 4 niet zeggen dat snippers een geprinte hinge vastzetten (titel en zin 3, het gaat om de meting in Blender). Daarna ja zonder nieuwe ronde. Volgorde 5, 2, 1, 6, 3, 4 ja.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1,0 +1,28 @@
+name: apt-snel proef (Olaf)
+# Toetst commercie/filmpjes/apt-snel.sh op een schone runner met de pakketlijst van regisseur-3/4, drie keer naast
+# elkaar, en meet de tijd. Doel: weten of installeren zonder `apt-get update` werkt voor de filmpjes-workflows.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/apt-snel-proef.yml, commercie/filmpjes/apt-snel.sh]
+jobs:
+  proef:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        keer: [1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: commercie/filmpjes/apt-snel.sh
+      - name: apt-snel
+        run: |
+          start=$(date +%s)
+          bash commercie/filmpjes/apt-snel.sh xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 imagemagick xdotool ffmpeg fonts-inter tesseract-ocr
+          echo "TIJD apt-snel: $(( $(date +%s) - start )) s"
+          for p in xvfb-run convert xdotool ffmpeg tesseract; do command -v $p >/dev/null || { echo "MIST $p"; exit 1; }; done
+          fc-list | grep -qi inter || { echo "MIST fonts-inter"; exit 1; }
+          echo "alles aanwezig"

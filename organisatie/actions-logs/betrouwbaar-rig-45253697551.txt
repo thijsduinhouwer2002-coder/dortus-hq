@@ -1,0 +1,75 @@
+# gemaakt: 2026-11-23T20:26:49Z
+# workflow: Betrouwbaarheid Figure from rig (testset, echte Blender) (.github/workflows/betrouwbaar-rig.yml)
+# run: 45253697551 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45253697551
+# commit: 196691ee tak claude/betrouwbaar-rig gestart door push
+# mislukte stappen: meet (4.2.23, robot-fijn): Eis van de testset; meet (4.2.23, mens): Eis van de testset; meet (4.2.23, robot-a): Eis van de testset; meet (4.2.23, robot-b): Eis van de testset; meet (5.2.3, rigify): Eis van de testset; meet (4.2.23, armen): Eis van de testset; meet (4.2.23, kleding): Eis van de testset; meet (4.2.23, rigify): Eis van de testset; meet (5.3.0, rigify): Eis van de testset; meet (5.2.3, kleding): Eis van de testset; meet (5.3.0, kleding): Eis van de testset
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== meet (4.2.23, robot-fijn) / Eis van de testset (laatste 15 van 15 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: robot-fijn
+  V: 4.2.23
+##[endgroup]
+EIS robot-fijn Blender 4.2.23: 5 gewrichten (nodig 9), slechte sneden onderweg 8, knop 315.2 s
+EIS FOUT: 5 gewrichten, nodig 9; ontbreekt ['Left shoulder', 'Right shoulder', 'Left knee', 'Right knee']: Left knee (the cut left a loose piece here, place it by hand); Right knee (the cut left a loose piece here, place it by hand); Left shoulder (The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.); Right shoulder (The cut gave no watertight parts (bad edges: part A 0, part B 3); the mesh is unchanged.)
+##[error]Process completed with exit code 1.
+
+===== meet (4.2.23, mens) / Eis van de testset (laatste 15 van 15 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: mens
+  V: 4.2.23
+##[endgroup]
+EIS mens Blender 4.2.23: 3 gewrichten (nodig 9), slechte sneden onderweg 36, knop 339.8 s
+EIS FOUT: 3 gewrichten, nodig 9; ontbreekt ['Left shoulder', 'Right shoulder', 'Left hip', 'Right hip', 'Left knee', 'Right knee']: Left knee (The parts overlap before they move; the mesh is unchanged.); Right knee (the cut left a loose piece here, place it by hand); Left shoulder (The cut gave no watertight parts (bad edges: part A 270, part B 284); the mesh is unchanged.); Right shoulder (The cut gave no watertight parts (bad edges: part A 108, part B 236); the mesh is unchanged.); Left hip (the cut left a loose piece here, place it by hand); Right hip (the cut left a loose piece here, place it by hand)
+##[error]Process completed with exit code 1.
+
+===== meet (4.2.23, robot-a) / Eis van de testset (laatste 15 van 15 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: robot-a
+  V: 4.2.23
+##[endgroup]
+EIS robot-a Blender 4.2.23: 5 gewrichten (nodig 9), slechte sneden onderweg 5, knop 156.5 s
+EIS FOUT: 5 gewrichten, nodig 9; ontbreekt ['Left shoulder', 'Right elbow', 'Left knee', 'Right knee']: Right elbow (The parts overlap before they move; the mesh is unchanged.); Left knee (the cut left a loose piece here, place it by hand); Right knee (The parts overlap before they move; the mesh is unchanged.); Left shoulder (The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.)
+##[error]Process completed with exit code 1.
+
+===== meet (4.2.23, robot-b) / Eis van de testset (laatste 15 van 15 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: robot-b
+  V: 4.2.23
+##[endgroup]
+EIS robot-b Blender 4.2.23: 5 gewrichten (nodig 9), slechte sneden onderweg 5, knop 171.2 s
+EIS FOUT: 5 gewrichten, nodig 9; ontbreekt ['Left shoulder', 'Right elbow', 'Left knee', 'Right knee']: Right elbow (The parts overlap before they move; the mesh is unchanged.); Left knee (the cut left a loose piece here, place it by hand); Right knee (The parts overlap before they move; the mesh is unchanged.); Left shoulder (The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.)
+##[error]Process completed with exit code 1.

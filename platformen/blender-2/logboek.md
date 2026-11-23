@@ -347,3 +347,7 @@
 
 ## 21 nov 2026 ±11:10 NL, Bram: niets open
 - Geen nieuw bericht sinds Daans akkoord op hoofdbeeld v2.1; plaatsen doet de hoofdchat. Click Joints 0.1.2 wacht op de uitgave (±23 nov), Hats wacht op de speeltest.
+
+## 23 nov 2026 ±21:25 NL, Bram
+- Utm-koopknoppen (Daan ja) en de gekeurde patch voor dortus.com/click-joints klaargezet voor dortus main; mijn push naar `dortus` weer geweigerd door de veiligheidscontrole, gemeld aan de hoofdchat.
+- Keuring nee op bbc1ff1 hoort bij de agent Betrouwbaarheid (zijn tak), doorgegeven via de hoofdchat; Olafs kantel ook naar hem. Pro 1.2.2 staat live (hoofdchat 20:45).

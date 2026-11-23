@@ -11,7 +11,7 @@ import bmesh
 import bpy
 from mathutils import Vector
 
-from . import controle, plan, snedes, uit_elkaar, verbind_3d, vormen
+from . import controle, kleuren, plan, snedes, uit_elkaar, verbind_3d, vormen
 from .eigenschappen import bed, eenheid_per_mm
 from .gesloten import foute_randen, is_gesloten
 
@@ -317,6 +317,7 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
             s.hide_set(True)
         scene["sj_midden_mm"] = [(lo[a] + hi[a]) / 2.0 for a in range(3)]
         uit_elkaar.zet(scene)
+        kleuren.zet(scene)
         inst.meldingen = "\n".join(meldingen)
         context.view_layer.update()
         for o in context.view_layer.objects:

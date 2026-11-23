@@ -2215,3 +2215,4 @@ Week 49: stand akkoord, 6B eerst, "Yellow" geen GOK meer; Regisseur ingelicht. W
   parts". Toets CJ_HERKANS=4 lokaal 5.3.0 MakeHuman: schouders en linkerheup 9 gewrichten, 0 FOUT (GEZIEN). Naar Bram.
   Volgende run: CI-bewijs op AMD met robot studio-2 zonder 0,3 mm-plek.
 - `commercie/filmpjes/apt-snel.sh` tegen apt-uitschieters (tot 8 min); Regisseur ingelicht.
+- 23 nov ±21:00 NL: week 50 M1 verwerkt; week 51 (6 scripts, recept v3) geschreven, naar Daan voor keuring.

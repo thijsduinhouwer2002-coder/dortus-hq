@@ -1236,3 +1236,39 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±20:45 NL, van hoofdchat: Pro 1.2.2 staat live
 Gumroad: 1.2.2 erin, 1.2.0 eruit. Superhive: versie 1.2.2 voor Personal en Studio (stond nog op 1.1.0). sha256 gelijk aan de release. Goed werk.
+
+## 23 nov 2026 ±20:54 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van e8769d2..196691e: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-196691e.md`. Moet en kan: **Moet:** geen. **Kan:** - Zet in `meet_drempel.json` of de README erbij of de 9 en 8 gemeten (GEZIEN, met runnummer) of geschat (GOK) zijn. - Laat de eis ook rood worden bij `meetfout`, of zet in de docstring dat slechte sneden bewust niet blokkeren. - Controleer dat `proef_rigify.py` `CJ_HOOK` en `_MEET_T0` ondersteunt, en dat de rigify-figuur "held" heet. - Koppel de testset aan een workflow (`.github/workflows`) en bewaar de uitslag-JSON als artefact. In deze diff staat daar niets van. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 20:59 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 23 nov 2026 ±21:02 NL, van de automatische keurder: blender-gewrichten akkoord nee
+Keuring van 196691e..bbc1ff1: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-bbc1ff1.md`. Moet en kan: **Moet** 1. Werk `architectuur.md` bij met `betaald/omhulsel.py`: wat het doet, dat het `een_lid._samen` vervangt, de terugval naar de oude weg en de instelling `AAN`. **Kan** 1. Voeg een groene e2e-run toe als bewijs (rigtest op de robot, in 4.2 en 5.x, met `h_soort`, `h_voxel` en `h_buiten` in het log). Zonder die run blijft de oorzaak een vermoeden. 2. Maak een echte toets die faalt als een gewricht in Figure from rig wordt overgeslagen, in plaats van alleen extra logvelden. 3. Zet in `try/finally` het vrijmaken van de bmeshes (`a`, `b`), zodat een uitzondering ze niet laat hangen. 4. Voeg  Los elk moet-punt op en push opnieuw; de keurder kijkt dan weer. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 21:09 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 23 nov 2026 ±21:12 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van bbc1ff1..fc5b58f: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-fc5b58f.md`. Moet en kan: **Moet:** geen. **Kan:** - Draai een run na deze commit en leg `h_buiten`, `h_buiten_om` en de snedetijden vast, voordat de ruimere drempel in een Pro-uitgave komt. Dat is een vermoeden dat een run moet bevestigen, geen blokkade. - Controleer of `architectuur.md` de nieuwe waarden noemt en werk hem zo nodig bij. - Zet een GEZIEN-label bij de cijfers in het comment. - Dit akkoord geldt voor de tekst van deze wijziging, niet voor uitgebrachte versies. Het ja op 1.0.2 uit het ontwerp blijft apart staan. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±21:19 NL, van de automatische keurder: blender-gewrichten akkoord nee
+Keuring van fc5b58f..3ac8b89: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-3ac8b89.md`. Moet en kan: **Moet** 1. Bewijs dat de nieuwe code draait en werkt. Dat is een groene run in 4.2.23 met een test die de uitkomst van `herstel` toont: `cj_herstel_randen` en `is_gesloten` voor en na. Controleer daarbij dat `click_joints/gesloten.py` bestaat; zo niet, gebruik dezelfde import als `terugval.py` (A4, A2, B1). Het herstel zit nu op de weg van elke scharniersnede en een ImportError wordt niet opgevangen. **Kan** 1. Laat "it would be blocked" ongewijzigd, of laat de Blender 4.5-tip bij die melding weg (A6). 2. Controleer of de herstelde delen als STL en in een slicer ook gesloten zijn, en niet all Los elk moet-punt op en push opnieuw; de keurder kijkt dan weer. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±21:31 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 20793cf..da1c134: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-da1c134.md`. Moet en kan: Moet: geen. Kan: - Controleer dat de tekst "overlap before they move" precies zo in de add-on staat, bijvoorbeeld met een test op die tekst. Anders werkt de nieuwe voorwaarde niet, ook al lijkt de code goed. - `meet_tabel.py` crasht als `knop_s` ontbreekt in een uitslag (`.0f` op `None`). Vang dat af. - `bouw_meshy` gebruikt `os.environ["CJ_GLB"]` zonder melding als die variabele ontbreekt. Het laadt ook `proef_meshy_rig.py` met een `replace("\nmain()\n", ...)`, en dat breekt zodra die regel anders staat. Geef een duidelijke foutmelding. - Leg de uitslag van de voor-en-nameting vast bij de com Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±21:41 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van da1c134..63f4c6e: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-63f4c6e.md`. Moet en kan: **Moet:** geen. **Kan:** - Zet de run-id van een groene 4.2.23-run met de "één lid"-toets bij dit scharnier in de commit of in `ontwerp.md`. Dat bewijst dat het onderbeen niet weer verdwijnt (A2). Dit weegt zwaar voordat een Pro-zip met deze wijziging wordt uitgebracht. - Noem `DIEP_EXACT` en het terugdraaien van de run-28-keuze in `architectuur.md`, bij de regel over `een_lid_diep` of `omhulsel.py` (B2). - Controleer de aanroep van `herstel.splits_vier` in `scharnier.py` (B3). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±21:56 NL, van de automatische keurder: blender-gewrichten akkoord nee
+Keuring van 63f4c6e..7ea796e: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-7ea796e.md`. Moet en kan: **Moet** 1. Maak de drempel in `meet_drempel.json` kloppend voor 4.2. Zet per versie een eigen ondergrens (4.2 dus lager voor robot-a, robot-b en kleding), of haal "en 4.2" uit de uitleg. Zo weten we welke versie de test bewaakt en kan een terugval in 4.2 niet ongemerkt blijven. **Kan** 1. Controleer of de eindmeting op da1c134 met `DIEP_EXACT` False is gedaan, anders meet opnieuw op 7ea796e. 2. Lees de licentie van de Meshy knight na, of haal hem uit de gewone e2e. 3. Zet omhulsel.py, herstel.py en redenen.py in architectuur.md als dat nog niet is gebeurd. 4. Voortgangsregel of grovere voxel  Los elk moet-punt op en push opnieuw; de keurder kijkt dan weer. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

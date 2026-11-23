@@ -1,0 +1,75 @@
+# gemaakt: 2026-11-23T20:48:00Z
+# workflow: Betrouwbaarheid Figure from rig (testset, echte Blender) (.github/workflows/betrouwbaar-rig.yml)
+# run: 45255097554 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45255097554
+# commit: bbc1ff13 tak claude/betrouwbaar-rig gestart door push
+# mislukte stappen: meet (4.2.23, rigify): Eis van de testset; meet (4.2.23, robot-a): Eis van de testset; meet (4.2.23, robot-fijn): Eis van de testset; meet (5.3.0, rigify): Eis van de testset; meet (4.2.23, robot-b): Eis van de testset; meet (4.2.23, mens): Eis van de testset; meet (5.2.3, rigify): Eis van de testset; meet (4.2.23, kleding): Eis van de testset
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== meet (4.2.23, rigify) / Eis van de testset (laatste 15 van 15 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: rigify
+  V: 4.2.23
+##[endgroup]
+EIS rigify Blender 4.2.23: 4 gewrichten (nodig 9), slechte sneden onderweg 23, knop 279.6 s
+EIS FOUT: 4 gewrichten, nodig 9; ontbreekt ['Right shoulder', 'Left elbow', 'Left knee', 'Right knee', 'Neck']: Left elbow (The parts overlap before they move; the mesh is unchanged.); Left knee (The cut gave no watertight parts (bad edges: part A 1, part B 0); the mesh is unchanged.); Right knee (The cut gave no watertight parts (bad edges: part A 1, part B 0); the mesh is unchanged.); Neck (The cut gave no watertight parts (bad edges: part A 1, part B 0); the mesh is unchanged.); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+##[error]Process completed with exit code 1.
+
+===== meet (4.2.23, robot-a) / Eis van de testset (laatste 15 van 15 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: robot-a
+  V: 4.2.23
+##[endgroup]
+EIS robot-a Blender 4.2.23: 6 gewrichten (nodig 9), slechte sneden onderweg 3, knop 131.9 s
+EIS FOUT: 6 gewrichten, nodig 9; ontbreekt ['Right elbow', 'Left knee', 'Right knee']: Right elbow (The parts overlap before they move; the mesh is unchanged.); Left knee (the cut left a loose piece here, place it by hand); Right knee (The parts overlap before they move; the mesh is unchanged.)
+##[error]Process completed with exit code 1.
+
+===== meet (4.2.23, robot-fijn) / Eis van de testset (laatste 15 van 15 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: robot-fijn
+  V: 4.2.23
+##[endgroup]
+EIS robot-fijn Blender 4.2.23: 7 gewrichten (nodig 9), slechte sneden onderweg 4, knop 195.4 s
+EIS FOUT: 7 gewrichten, nodig 9; ontbreekt ['Left knee', 'Right knee']: Left knee (the cut left a loose piece here, place it by hand); Right knee (the cut left a loose piece here, place it by hand)
+##[error]Process completed with exit code 1.
+
+===== meet (5.3.0, rigify) / Eis van de testset (laatste 15 van 15 regels) =====
+##[group]Run python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.2
+  CJ_PROEVEN: 1
+  BLENDER_USER_RESOURCES: /tmp/cj
+  BLENDER_USER_CONFIG: /tmp/cj/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+  FIG: rigify
+  V: 5.3.0
+##[endgroup]
+EIS rigify Blender 5.3.0: 7 gewrichten (nodig 9), slechte sneden onderweg 0, knop 38.8 s
+EIS FOUT: 7 gewrichten, nodig 9; ontbreekt ['Left shoulder', 'Right shoulder']: Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+##[error]Process completed with exit code 1.

@@ -45,10 +45,14 @@ def punten(h=220.0):
         p.update({
             f"{k}-upper-leg": (17 * s, 0, 116), f"{k}-knee": (18.5 * s, -1, 57), f"{k}-ankle": (19.5 * s, 1, 14),
             f"{k}-foot-1": (19.5 * s, -17, 3),
-            f"{k}-clavicle": (4 * s, 0, 174), f"{k}-shoulder": (29 * s, 0, 174), f"{k}-elbow": (48 * s, -1, 136),
-            f"{k}-hand": (59 * s, -3, 108), f"{k}-hand-2": (62 * s, -4, 100),
+            f"{k}-clavicle": (4 * s, 0, 175), f"{k}-shoulder": (30 * s, 0, 175), f"{k}-elbow": (50 * s, 1, 132),
+            f"{k}-hand": (61 * s, -1, 103), f"{k}-hand-2": (64 * s, -2, 95),
         })
     return {n: Vector(c) * f for n, c in p.items()}
+
+
+ELLEBOOG_R = 9.0   # straal van de buis bij de elleboog (mm bij 220 mm)
+KNIE_R = 11.0      # straal van de buis bij de knie
 
 
 def rig_punten(p, f=1.0):
@@ -58,8 +62,8 @@ def rig_punten(p, f=1.0):
     meer voor de kogel van schouder of heup. Elleboog buigt naar voren (-y), knie naar achteren (+y)."""
     q = dict(p)
     for k in "lr":
-        q[f"{k}-elbow"] = p[f"{k}-elbow"] + Vector((0, -3.0, 0)) * f
-        q[f"{k}-knee"] = p[f"{k}-knee"] + Vector((0, 3.0, 0)) * f
+        q[f"{k}-elbow"] = p[f"{k}-elbow"] + Vector((0, -ELLEBOOG_R + 4.4, 0)) * f
+        q[f"{k}-knee"] = p[f"{k}-knee"] + Vector((0, KNIE_R - 6.0, 0)) * f
     return q
 
 
@@ -153,6 +157,25 @@ def _richting(a, b, op=Vector((0, -1, 0))):
     return Matrix((x, y, z)).transposed()
 
 
+def hand(B, ha, h2, sx, s):
+    """Vuist in speelgoedstijl: handpalm, vier vingers als blokjes met een groefje ertussen (de knokkels naar buiten)
+    en een duim die over de vingers ligt. Lokaal: z langs de onderarm naar de vingers, x naar buiten, y naar voren."""
+    def P(*c):
+        return Vector(c) * s
+    dr = _richting(ha, h2)
+    z = (h2 - ha).normalized()
+    m0 = ha + z * 2.0 * s
+    def L(x, y, zz):   # lokaal punt naar wereld (x naar buiten: spiegel voor rechts)
+        return m0 + dr @ P(x * sx, y, zz)
+    B.doos(L(0, 0, -1.5), P(16.5, 17.5, 4.0), "blauw", rond=1.6 * s, draai=dr)      # pols
+    B.doos(L(-0.5, 0, 7.0), P(13.5, 15.5, 12.0), "metaal", rond=3.6 * s, draai=dr)   # handpalm
+    for i, y in enumerate((-5.7, -1.9, 1.9, 5.7)):
+        lang = (6.8, 7.4, 7.2, 6.4)[i]
+        B.doos(L(1.0, y, 13.0 + lang / 2 - 1.0), P(11.0, 3.0, lang), "metaal", rond=1.3 * s, draai=dr)  # vinger
+        B.doos(L(-4.2, y, 15.0 + lang / 2 - 2.5), P(5.0, 3.0, 5.0), "metaal", rond=1.3 * s, draai=dr)   # vingertop
+    B.doos(L(-6.8, -5.0, 9.5), P(5.0, 5.4, 10.0), "metaal", rond=2.0 * s, draai=dr)    # duim
+
+
 def bouw_vormen(p, f=1.0):
     """Alle vormen van de robot (maten in mm bij 220 mm, f schaalt mee). Geeft (bmesh, namen)."""
     namen = ["wit", "oranje", "blauw", "metaal", "donker", "vizier", "led"]
@@ -188,36 +211,33 @@ def bouw_vormen(p, f=1.0):
     B.doos(P(0, -14.6, 211.2), P(9, 3, 2.4), "blauw", rond=1.0 * s)          # voorhoofd
     B.doos(P(0, -12.9, 193.6), P(14, 4, 3.2), "donker", rond=1.2 * s)        # mondrooster
     # ---- armen ----
+    # Elk lid: een dikke antraciet buis (bij de gewrichten blijft alleen een smalle ring zichtbaar) met pantser dat
+    # bijna tot het gewricht loopt. Ronde 2 (hoofdchat 23 nov ±20:35): stoer en stevig, geen schriele buis.
     for k in "lr":
         sx = 1 if k == "l" else -1
         sh, el, ha, h2 = p[f"{k}-shoulder"], p[f"{k}-elbow"], p[f"{k}-hand"], p[f"{k}-hand-2"]
-        B.buis(sh, el, 7.6 * s, 7.4 * s, "donker")
-        B.schaal_langs(sh, el, 0.40, 0.66, 9.4 * s, 9.0 * s, "wit", rond=2.2 * s, ovaal=(1.0, 0.92))
-        B.schaal_langs(sh, el, 0.36, 0.42, 9.0 * s, 9.0 * s, "blauw", rond=0.6 * s, ovaal=(1.0, 0.92))
-        B.buis(el, ha, 7.4 * s, 7.0 * s, "donker")
-        B.schaal_langs(el, ha, 0.44, 0.96, 9.6 * s, 11.2 * s, "oranje", rond=2.6 * s, ovaal=(0.92, 1.0))
-        B.schaal_langs(el, ha, 0.54, 0.61, 10.4 * s, 10.6 * s, "blauw", rond=0.5 * s, ovaal=(0.92, 1.0))
-        # vuist: afgeronde doos langs de onderarm, duim als kleine doos naar voren
-        dr = _richting(ha, h2)
-        mid = ha + (h2 - ha).normalized() * 7.5 * s
-        B.doos(mid, P(14, 15, 15), "donker", rond=5.0 * s, draai=dr)
-        B.doos(mid + dr @ P(0, -7.0, -2.0), P(5.5, 5, 8), "donker", rond=2.4 * s, draai=dr)
-        B.doos(mid + dr @ P(0, 0, 3.5), P(15, 16, 3.0), "blauw", rond=1.2 * s, draai=dr)   # pols
+        B.buis(sh, el, 9.0 * s, ELLEBOOG_R * s, "donker")
+        B.schaal_langs(sh, el, 0.24, 0.80, 11.0 * s, 10.6 * s, "wit", rond=2.6 * s, ovaal=(1.0, 0.94))
+        B.schaal_langs(sh, el, 0.30, 0.36, 11.3 * s, 11.3 * s, "blauw", rond=0.6 * s, ovaal=(1.0, 0.94))
+        B.buis(el, ha, ELLEBOOG_R * s, 8.0 * s, "donker")
+        B.schaal_langs(el, ha, 0.28, 1.0, 10.8 * s, 12.0 * s, "oranje", rond=2.8 * s, ovaal=(0.94, 1.0))
+        B.schaal_langs(el, ha, 0.50, 0.58, 11.6 * s, 11.8 * s, "blauw", rond=0.6 * s, ovaal=(0.94, 1.0))
+        hand(B, ha, h2, sx, s)
         # ---- benen ----
         hp, kn, an = p[f"{k}-upper-leg"], p[f"{k}-knee"], p[f"{k}-ankle"]
-        B.buis(hp, kn, 10.4 * s, 9.6 * s, "donker")
-        B.schaal_langs(hp, kn, 0.28, 0.64, 13.0 * s, 11.6 * s, "wit", rond=2.6 * s, ovaal=(0.88, 1.0))
-        B.schaal_langs(hp, kn, 0.56, 0.62, 12.2 * s, 12.0 * s, "blauw", rond=0.6 * s, ovaal=(0.88, 1.0))
+        B.buis(hp, kn, 11.0 * s, KNIE_R * s, "donker")
+        B.schaal_langs(hp, kn, 0.24, 0.84, 13.8 * s, 12.8 * s, "wit", rond=3.0 * s, ovaal=(0.88, 1.0))
+        B.schaal_langs(hp, kn, 0.70, 0.76, 13.1 * s, 13.0 * s, "blauw", rond=0.6 * s, ovaal=(0.88, 1.0))
         # kniestuk aan de voorkant (-y): de knie buigt naar achteren
-        B.doos(kn + P(0, -8.8, -3.0), P(16, 6, 16), "oranje", rond=2.8 * s, draai=_richting(hp, an))
-        B.buis(kn, an, 9.6 * s, 8.2 * s, "donker")
-        # scheen: pantser dat overloopt in een stevige laars
-        B.schaal_langs(kn, an, 0.40, 0.62, 11.6 * s, 12.2 * s, "wit", rond=2.6 * s, ovaal=(0.95, 1.0))
-        B.schaal_langs(kn, an, 0.58, 1.04, 12.5 * s, 13.0 * s, "blauw", rond=2.6 * s, ovaal=(0.95, 1.0))
-        B.schaal_langs(kn, an, 0.56, 0.62, 12.8 * s, 12.8 * s, "oranje", rond=0.6 * s, ovaal=(0.95, 1.0))
-        B.doos(P(19.5 * sx, -5, 8.5), P(23, 38, 15), "blauw", rond=5.5 * s)          # voet
-        B.doos(P(19.5 * sx, -5.5, 2.0), P(24.4, 39.5, 4.0), "donker", rond=1.6 * s)   # zool
-        B.doos(P(19.5 * sx, -20, 8.5), P(20, 9, 9.5), "oranje", rond=3.8 * s)         # neus
+        B.doos(kn + P(0, -10.6, -2.5), P(17, 6, 17), "oranje", rond=3.0 * s, draai=_richting(hp, an))
+        B.buis(kn, an, KNIE_R * s, 9.6 * s, "donker")
+        # scheen: pantser vanaf vlak onder de knie, overloopt in een stevige laars
+        B.schaal_langs(kn, an, 0.20, 0.60, 12.8 * s, 13.4 * s, "wit", rond=2.8 * s, ovaal=(0.95, 1.0))
+        B.schaal_langs(kn, an, 0.56, 1.04, 13.6 * s, 14.0 * s, "blauw", rond=2.8 * s, ovaal=(0.95, 1.0))
+        B.schaal_langs(kn, an, 0.54, 0.60, 13.9 * s, 13.9 * s, "oranje", rond=0.6 * s, ovaal=(0.95, 1.0))
+        B.doos(P(19.5 * sx, -5, 8.5), P(25, 40, 15), "blauw", rond=5.5 * s)          # voet
+        B.doos(P(19.5 * sx, -5.5, 2.0), P(26.4, 41.5, 4.0), "donker", rond=1.6 * s)   # zool
+        B.doos(P(19.5 * sx, -21, 8.5), P(22, 9, 9.5), "oranje", rond=3.8 * s)         # neus
     return B.bm, namen
 
 
@@ -261,9 +281,25 @@ def kleur_vormen(bron_me, doel, diep=0.25, herstel=False):
         toy = None
     mw = doel.matrix_world
     buiten = 0
+    binnen_i, huid_bvh = None, None
+    if herstel:   # vlakken die niet op de oude buitenkant liggen (kogel, kom, snede) worden antraciet
+        binnen_i = next((i for i, m in enumerate(doel.data.materials) if m is not None and m.name == "toy_donker"), None)
+        huid = bpy.data.meshes.get(HUID)
+        if huid is not None:
+            huid_bvh = BVHTree.FromPolygons([v.co for v in huid.vertices], [tuple(p.vertices) for p in huid.polygons])
     for f in doel.data.polygons:
         if toy is not None and f.material_index not in toy:
             continue
+        if binnen_i is not None:
+            if huid_bvh is not None:
+                _l, _n, _i, d = huid_bvh.find_nearest(mw @ f.center)
+                grens = 0.05
+            else:
+                _l, _n, _i, d = alles.find_nearest(mw @ f.center)
+                grens = 1.8
+            if d is None or d > grens:
+                f.material_index = binnen_i
+                continue
         q = mw @ (f.center - f.normal * diep)
         beste = None
         for v in rooster.get((int(math.floor(q.x / cel)), int(math.floor(q.y / cel)), int(math.floor(q.z / cel))), ()):
@@ -289,18 +325,144 @@ def kleur_vormen(bron_me, doel, diep=0.25, herstel=False):
 
 
 VORMEN = "cj_robot_vormen"
+HUID = "cj_robot_huid"     # de gesloten buitenkant voor Figure from rig, om nieuwe vlakken van de add-on te herkennen
 
 
-def kleur_herstel(delen):
+def _grensvlakken(bm, toy):
+    """Vlakken met een toy-kleur die aan een vlak met een andere toy-kleur grenzen."""
+    uit = set()
+    for e in bm.edges:
+        fs = e.link_faces
+        if len(fs) == 2 and fs[0].material_index != fs[1].material_index and \
+                fs[0].material_index in toy and fs[1].material_index in toy:
+            uit.update(fs)
+    return uit
+
+
+def kleur_herstel(delen, fijn=2):
     """Na Figure from rig, alleen voor renders: de add-on zet de kleuren van de delen na elke snede terug per
     dichtstbijzijnd vlak, en dan schuiven kleine details (kern op de borst, randen van platen) een beetje (GEZIEN 23 nov:
     na de schouders werd een deel van de antraciet ring rond de kern oranje en lichtblauw). Hier krijgt elk gewoon vlak
-    weer de kleur van zijn vorm. Doe dit in rusthouding (voor het poseren), zoals S.plastic."""
+    weer de kleur van zijn vorm. Doe dit in rusthouding (voor het poseren), zoals S.plastic.
+    fijn: zo vaak worden de vlakken langs een kleurgrens in vieren gedeeld en opnieuw gekleurd (ronde 2): de grens
+    volgt dan de vorm op 0,5 / 2^fijn mm in plaats van de trapjes van de voxels (0,5 mm). De vorm verandert niet,
+    de nieuwe punten liggen in de oude vlakken."""
     bron = bpy.data.meshes.get(VORMEN)
     if bron is None:
         return
     for o in delen:
+        mats = list(o.data.materials)
+        leeg = {i for i, m in enumerate(mats) if m is None}
+        donker = next((i for i, m in enumerate(mats) if m is not None and m.name == "toy_donker"), None)
+        if leeg and donker is not None:   # vlakken zonder materiaal (naad van de add-on) renderen anders wit
+            for f in o.data.polygons:
+                if f.material_index in leeg:
+                    f.material_index = donker
         kleur_vormen(bron, o, herstel=True)
+        toy = {i for i, m in enumerate(o.data.materials) if m is not None and m.name.startswith("toy_")}
+        for _ in range(fijn):
+            bm = bmesh.new()
+            bm.from_mesh(o.data)
+            grens = _grensvlakken(bm, toy)
+            if not grens:
+                bm.free()
+                break
+            randen = list({e for f in grens for e in f.edges})
+            bmesh.ops.subdivide_edges(bm, edges=randen, cuts=1, use_grid_fill=True)
+            bm.to_mesh(o.data)
+            bm.free()
+            kleur_vormen(bron, o, herstel=True)
+
+
+# ---------- pose en uit elkaar, voor renders (ronde 2) ----------
+# Heldenpose: breed staan, linkervuist omhoog, rechtervuist klaar op heuphoogte, kin omhoog. Kogels: (as in wereld, graden), binnen het bereik dat de
+# add-on meldt (schouders en heupen ±30, nek ±20; draaien om de lengteas mag altijd). Scharnieren: graden buigen.
+HELD = {
+    "Left hip": [((0, 1, 0), -9.0)], "Right hip": [((0, 1, 0), 9.0)],
+    "Left knee": 6.0, "Right knee": 6.0,
+    "Left shoulder": [((1, 0, 0), -28.0), ((0, 1, 0), 6.0)],
+    "Left elbow": 125.0,
+    "Right shoulder": [((1, 0, 0), 14.0), ((0, 1, 0), -6.0)],
+    "Right elbow": 95.0,
+    "Neck": [((0, 0, 1), -14.0), ((1, 0, 0), -6.0)],
+}
+KETEN = {"Neck": None, "Left shoulder": None, "Right shoulder": None, "Left hip": None, "Right hip": None,
+         "Left elbow": "Left shoulder", "Right elbow": "Right shoulder", "Left knee": "Left hip", "Right knee": "Right hip"}
+
+
+def _deel_b(naam):
+    for o in bpy.context.scene.objects:
+        if o.type == "MESH" and o.get("cj_naam") == naam and o.get("cj_deel") == "B":
+            return o
+    return None
+
+
+def poseer(delen, pose=None, uit=0.0, scharnier=None):
+    """Zet de delen in een pose en/of uit elkaar, als vaste lichamen in een keten (romp, dan schouder en elleboog,
+    heup en knie, nek). Kogels draaien om hun kogelmidden (cj_centrum). Scharnieren: `scharnier(naam, graden)` buigt
+    met de schuif van de add-on en hier wordt die draaiing overgenomen (wereldmatrix van deel B voor en na), daarna
+    staat de schuif weer op 0. uit: elk deel B schuift zo veel mm langs de as van zijn gewricht (cj_as), bovenop het
+    deel waar het aan zit; zo zie je in één tel hoe hij in elkaar zit (de knop van de add-on schuift 1,5 keer de
+    kogel, ±12 mm). Alle delta's van de add-on gaan eerst op 0. Daarna staat het laagste punt op z = 0.
+    Geeft de gebruikte graden per gewricht."""
+    from mathutils import Matrix, Quaternion
+    pose = pose or {}
+    for o in delen:
+        o.delta_location = (0, 0, 0)
+        o.delta_rotation_euler = (0, 0, 0)
+        o.delta_rotation_quaternion = (1, 0, 0, 0)
+    bpy.context.view_layer.update()
+    rust = {}
+    for o in delen:   # rusthouding één keer onthouden (anders stapelen pose en uit elkaar op elkaar)
+        if "cj_rust" not in o:
+            o["cj_rust"] = [x for rij in o.matrix_world for x in rij]
+        v = list(o["cj_rust"])
+        rust[o.name] = Matrix([v[0:4], v[4:8], v[8:12], v[12:16]])
+        o.matrix_world = rust[o.name]
+    bpy.context.view_layer.update()
+    lokaal, gebruikt = {}, {}
+    for naam, ouder in KETEN.items():
+        b = _deel_b(naam)
+        if b is None:
+            continue
+        m = Matrix.Identity(4)
+        waarde = pose.get(naam)
+        if b.get("cj_soort") == "KOGEL" and waarde:
+            c = Vector(b["cj_centrum"])
+            q = Quaternion()
+            for as_, g in waarde:
+                q = Quaternion(Vector(as_).normalized(), math.radians(g)) @ q
+            m = Matrix.Translation(c) @ q.to_matrix().to_4x4() @ Matrix.Translation(-c)
+            gebruikt[naam] = round(math.degrees(q.angle), 1)
+        elif b.get("cj_soort") == "SCHARNIER" and waarde and scharnier is not None:
+            voor = b.matrix_world.copy()
+            scharnier(naam, waarde)
+            bpy.context.view_layer.update()
+            m = b.matrix_world @ voor.inverted()
+            gebruikt[naam] = round(float(b.get("cj_pose_graden", waarde)), 1)
+            scharnier(naam, 0.0)
+            b.delta_location = (0, 0, 0)
+            b.delta_rotation_euler = (0, 0, 0)
+            b.delta_rotation_quaternion = (1, 0, 0, 0)
+            bpy.context.view_layer.update()
+        if uit and "cj_as" in b:
+            m = Matrix.Translation(Vector(b["cj_as"]).normalized() * uit) @ m
+        lokaal[naam] = (b, ouder, m)
+    wereld = {}
+
+    def w(naam):
+        if naam not in wereld:
+            b, ouder, m = lokaal[naam]
+            wereld[naam] = (w(ouder) if ouder in lokaal else Matrix.Identity(4)) @ m
+        return wereld[naam]
+    for naam, (b, _o, _m) in lokaal.items():
+        b.matrix_world = w(naam) @ rust[b.name]
+    bpy.context.view_layer.update()
+    laag = min((o.matrix_world @ v.co).z for o in delen for v in o.data.vertices)
+    for o in delen:
+        o.matrix_world = Matrix.Translation((0, 0, -laag)) @ o.matrix_world
+    bpy.context.view_layer.update()
+    return gebruikt
 
 
 def laad_robot(hoogte_mm=220.0, stijl=None, methode=None, voxel_mm=0.5):
@@ -359,6 +521,9 @@ def laad_robot(hoogte_mm=220.0, stijl=None, methode=None, voxel_mm=0.5):
         kleur_vormen(bron_me, fig)
         bron_me.name = VORMEN
         bron_me.use_fake_user = True   # voor kleur_herstel na Figure from rig
+        huid = fig.data.copy()
+        huid.name = HUID
+        huid.use_fake_user = True
     fig.name = fig.data.name = "Figuur"
     FL.log(f"robot na {methode}: {len(fig.data.vertices)} punten, {FL.mesh_staat(fig)}")
     M = FL._mens_module(hoogte_mm)

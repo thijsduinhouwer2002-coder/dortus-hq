@@ -1,0 +1,201 @@
+{
+ "naam": "tip-plat",
+ "titel": "Round model on one tiny point? Give it a flat bottom 🥚 #blender #3dprinting",
+ "eind": {
+  "titel": "Blender for 3D printing",
+  "zin": "A new Blender tip for 3D printing every week.",
+  "adres": "dortus.com/yt",
+  "render": "render-ei.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "venster": "Blender 5.3",
+ "scenes": [
+  {
+   "tekst": "Does your round model touch the bed in just one tiny point?",
+   "label": "QUICK CHECK",
+   "kleur": "oranje",
+   "kop": "One tiny point?",
+   "beeld": {
+    "deel": "d_heel",
+    "van": 0,
+    "tot": 86,
+    "uitsnede": [
+     [
+      1080,
+      1060,
+      700
+     ],
+     [
+      1080,
+      1120,
+      520
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Give it a flat bottom in Blender, with a few keys, before you slice.",
+   "label": "TIP",
+   "kleur": "blauw",
+   "kop": "Make it flat",
+   "beeld": {
+    "deel": "d_heel",
+    "van": 30,
+    "tot": 86,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1400
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Press Tab for Edit Mode, then 1 for vertex select.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Tab, then 1",
+   "beeld": {
+    "deel": "d_edit",
+    "van": 0,
+    "tot": 30,
+    "uitsnede": [
+     [
+      1050,
+      900,
+      1400
+     ]
+    ]
+   },
+   "uitspraak": "Press Tab for Edit Mode, then one for vertex select."
+  },
+  {
+   "tekst": "Press 1 on the numpad for the front view, then Alt Z to see through.",
+   "label": "STEP 2",
+   "kleur": "blauw",
+   "kop": "Numpad 1, Alt Z",
+   "beeld": {
+    "deel": "d_edit",
+    "van": 26,
+    "tot": 66,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1500
+     ]
+    ]
+   },
+   "uitspraak": "Press one on the numpad for the front view, then Alt Z to see through."
+  },
+  {
+   "tekst": "Drag a box around the bottom rows of points.",
+   "label": "STEP 3",
+   "kleur": "oranje",
+   "kop": "Box the bottom",
+   "beeld": {
+    "deel": "d_kies",
+    "van": 0,
+    "tot": 86,
+    "uitsnede": [
+     [
+      1080,
+      1250,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Press S, then Z, then 0, and Enter. The points line up flat.",
+   "label": "STEP 4",
+   "kleur": "groen",
+   "kop": "S, Z, 0, Enter",
+   "beeld": {
+    "deel": "d_plat",
+    "van": 0,
+    "tot": 74,
+    "uitsnede": [
+     [
+      1080,
+      1200,
+      1300
+     ]
+    ]
+   },
+   "uitspraak": "Press S, then Z, then zero, and Enter. The points line up flat."
+  },
+  {
+   "tekst": "Select more rows for a wider base, or fewer rows to keep more of the round shape.",
+   "label": "TIP",
+   "kleur": "blauw",
+   "kop": "More rows, wider base",
+   "beeld": {
+    "deel": "d_kies",
+    "van": 30,
+    "tot": 86,
+    "uitsnede": [
+     [
+      1080,
+      1250,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Now it stands on a flat circle about 29 mm wide, instead of one point.",
+   "label": "FLAT",
+   "kleur": "groen",
+   "kop": "29 mm flat base",
+   "beeld": {
+    "deel": "d_klaar",
+    "van": 30,
+    "tot": 126,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1500
+     ],
+     [
+      1080,
+      1050,
+      1300
+     ]
+    ]
+   },
+   "uitspraak": "Now it stands on a flat circle, about twenty nine millimeters wide, instead of one point."
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Save this for your next print.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Save this tip",
+   "beeld": {
+    "deel": "d_klaar",
+    "van": 80,
+    "tot": 126,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1500
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "More Blender tips for 3D printing at dortus.com/yt.",
+   "label": "MORE TIPS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   },
+   "uitspraak": "More Blender tips for three D printing, at dortus dot com slash Y T."
+  }
+ ]
+}

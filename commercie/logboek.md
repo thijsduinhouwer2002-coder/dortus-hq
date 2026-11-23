@@ -973,3 +973,8 @@ Opdracht Afkijker 22:10 (F3b staat in 23 talen): winkelteksten Ebb en Ebb Calm v
 **Gelezen:** berichten (nieuwste: Afkijker 18:40, Ebb op Goals; hoofdchat 17:20, upload groen).
 **Gedaan:** Marketplace-API: 2026.1.2 goedgekeurd en listed, totaal 22 downloads (GEZIEN). Concept `commercie/ebb/goals-wim.md` (bericht aan Wim, 96 woorden, en winkelregel), keuring gevraagd aan Daan, hoofdchat ingelicht.
 **Volgende:** na ja van Daan naar de hoofdchat (versturen via account Thijs). 24 nov meting dag 7 Bison & Flex. 6 Shorts pas na studio en stem.
+
+## 23 nov 2026 ±21:35 tot 21:55 NL, Chris: Goals-bericht naar hoofdchat, linkrij Bison & Flex
+**Gelezen:** berichten (nieuwste: Afkijker 23:00 linkrij en studenten, Daan 19:30 Goals akkoord), stand B&F 2026.1.2 al live (vorige run).
+**Gedaan:** `commercie/ebb/goals-wim.md` M1 en K1 verwerkt (93 woorden), naar de hoofdchat voor ja van Thijs. Bison & Flex: in `plugin.xml` linkrij "Manual · Report a problem" en zin "Learning compilers? The free features cover your course."; dezelfde zin als patch voor dortus.com (`commercie/jetbrains-bison-flex/site-studenten-2026-11-23.patch`, nog niet in de site). Keuring gevraagd aan Daan. "Free licenses" weggelaten: geen gratis licenties aangezet. Issues aan op de loketrepo niet kunnen nakijken (repo niet in deze run, pagina 403).
+**Volgende:** na ja van Daan de site-patch in repo dortus zetten. 24 nov meting dag 7 Bison & Flex. 6 Shorts pas na studio en stem.

@@ -1,0 +1,12 @@
+diff --git a/bison-flex/index.html b/bison-flex/index.html
+index d1a8787..cb90f44 100644
+--- a/bison-flex/index.html
++++ b/bison-flex/index.html
+@@ -124,6 +124,7 @@
+             and unused names. It comes with a 30-day free trial through your JetBrains account:
+             start it from the Pro notice in the IDE, or under Help, Register. No sign-up with us.
+           </p>
++          <p class="lede">Learning compilers? The free features cover your course.</p>
+           <p class="lede">
+             Pro costs $19 (€19) a year for individuals and $49 (€49) a year for companies, plus VAT where it
+             applies. You buy it from JetBrains, the same way as an IDE license; JetBrains handles

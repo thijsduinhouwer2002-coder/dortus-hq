@@ -1,0 +1,108 @@
+name: Click Joints Pro v2 beelden (cover en galerij)
+
+# 23 nov 2026, merk-agent (opdracht hoofdchat ±20:35): nieuwe winkelbeelden voor Click Joints Pro. De robot uit
+# commercie/filmpjes/studio/figuur_robot.py, de echte knop Figure from rig van Pro 1.2.0 (tag click-joints-pro-v1.2.0),
+# gewrichten goud, Cycles in Blender 5.3.0. Twee stijlen: a = Pop (kobalt, familie Click Cuts A), b = Nacht (pruim en
+# goud, familie Click Cuts B). Script: ontwerp/click-joints-pro-v2/bron/. Alles in release click-joints-pro-v2.
+# Niets wordt geplaatst, niets kost geld.
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/click-joints-pro-v2-beelden.yml", "ontwerp/click-joints-pro-v2/bron/**"]
+  workflow_dispatch:
+    inputs:
+      samples:
+        description: "Samples per render (standaard 48)"
+        default: "48"
+
+permissions:
+  contents: write
+
+env:
+  TAG: click-joints-pro-v2
+  PRO_COMMIT: f8dfbd30850afbee2da32219fe735c7b386827bd   # tag click-joints-pro-v1.2.0
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        stijl: [a, b]
+        shot: [cover169, cover21, pose, uit, uitp, knie, kogel, voor]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Blender 5.3.0 en de Pro-zip 1.2.0
+        run: |
+          B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          sudo apt-get install -y -q libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 >/dev/null || true
+          git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
+          mkdir -p /tmp/v12 && git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v12
+          (cd /tmp/v12/producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald)
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Render ${{ matrix.stijl }} ${{ matrix.shot }}
+        env:
+          STIJL: ${{ matrix.stijl }}
+          SHOT: ${{ matrix.shot }}
+          SAMPLES: ${{ github.event.inputs.samples || '48' }}
+          STUDIO_DIR: ${{ github.workspace }}/commercie/filmpjes/studio
+          BLENDER_USER_RESOURCES: /tmp/cj
+          BLENDER_USER_CONFIG: /tmp/cj/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+        run: |
+          mkdir -p /tmp/uit
+          case "$SAMPLES" in ''|*[!0-9]*) SAMPLES=48 ;; esac
+          timeout 3000 /tmp/blender/blender -b --factory-startup --python ontwerp/click-joints-pro-v2/bron/pro_beelden.py -- /tmp/click_joints_betaald.zip /tmp/uit "$STIJL" "$SHOT" "$SAMPLES" 75 2>&1 | tee /tmp/uit/$STIJL-$SHOT.log | grep -E "\[pro\]|Traceback|Error" | cut -c1-400
+          [ -s "/tmp/uit/$STIJL-$SHOT.png" ] || { echo "FOUT: geen render"; exit 1; }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: render-${{ matrix.stijl }}-${{ matrix.shot }}
+          path: /tmp/uit/
+          retention-days: 7
+
+  beelden:
+    needs: render
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: /tmp/a
+      - name: Tekst erop, close-up, paneel, voor en na, vergelijkingsblad
+        run: |
+          sudo apt-get install -y -q librsvg2-bin >/dev/null
+          pip install -q pillow
+          mkdir -p /tmp/r /tmp/f /tmp/v /tmp/b
+          find /tmp/a -type f \( -name '*.png' -o -name '*.log' -o -name '*.json' \) -exec cp {} /tmp/r/ \;
+          G=https://raw.githubusercontent.com/google/fonts/main/ofl
+          curl -fsSL -o /tmp/f/Bricolage.ttf "$G/bricolagegrotesque/BricolageGrotesque%5Bopsz%2Cwdth%2Cwght%5D.ttf"
+          curl -fsSL -o /tmp/f/Inter.ttf "$G/inter/Inter%5Bopsz%2Cwght%5D.ttf"
+          # echt scherm van Pro 1.2.0 (studio-2, Blender 5.3.0), oude cover (Gumroad) en CatPin (Superhive), alleen ter vergelijking
+          curl -fsSL -o /tmp/v/scherm.png "https://github.com/${GITHUB_REPOSITORY}/releases/download/studio-2/robot-a-scherm-2-lijst.png" || true
+          curl -fsSL -o /tmp/v/oud.png "https://public-files.gumroad.com/qcf53ar35dv6ejrvzslfkf2veubb" || true
+          curl -fsSL -o /tmp/v/catpin.png "https://assets.superhivemarket.com/store/product/261693/image/xlarge-93696e06c29a0ec3efe81b285cb8f995.png" || true
+          python3 ontwerp/click-joints-pro-v2/bron/maak_beelden.py /tmp/r /tmp/b /tmp/f ontwerp/click-joints/bron/icoon.svg /tmp/v/scherm.png /tmp/v
+          for f in /tmp/r/*.png; do cp "$f" "/tmp/b/render-$(basename $f)"; done
+          cp /tmp/r/*.json /tmp/b/ 2>/dev/null || true
+          ls -la /tmp/b
+      - name: In release click-joints-pro-v2
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          printf '%s\n' "Nieuwe winkelbeelden voor Click Joints Pro, 23 nov 2026, merk-agent Dortus. Gemaakt in Blender 5.3.0 (Cycles) in deze workflow, geen AI-beeld." "Figuur: de robot-actiefiguur van Dortus (commercie/filmpjes/studio/figuur_robot.py, eigen werk). De gewrichten komen uit de echte knop Figure from rig van Click Joints Pro 1.2.0; ellebogen en knieen gebogen met de schuif van de add-on, kogels gedraaid zoals de add-on dat doet, binnen het gemeten bereik." "cover-*: Gumroad 2560x1440 (en 1280x720) en Superhive 2400x1200 (en 1200x600). vierkant-*: 1200x1200. galerij-*-1 tot 5: pose, uit elkaar, close-up, echt paneel, voor en na. vergelijk.png: oud naast nieuw naast CatPin (hun beeld alleen ter vergelijking). render-*: kale renders. *.json: wat de add-on meldde. Werkmateriaal, niets geplaatst." > /tmp/notes.md
+          for i in 1 2 3; do
+            if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              gh release upload "$TAG" /tmp/b/* --clobber -R "$GITHUB_REPOSITORY" && break
+            else
+              gh release create "$TAG" /tmp/b/* -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Click Joints Pro v2 (cover en galerij)" --notes-file /tmp/notes.md && break
+            fi
+            sleep 20
+          done
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'

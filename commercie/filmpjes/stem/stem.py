@@ -133,6 +133,8 @@ def _zinnen_uit_bestand(zinnen, map_, pad):
     met splits.py, zelfde uitvoer als hierboven. STEM_BRON zet de naam in de info (standaard elevenlabs)."""
     import splits
     stukken, verslag = splits.knip(splits.lees_audio(pad), zinnen)
+    if verslag.get("onzeker"):
+        print(f"stem bestand: naluisteren, onzekere grenzen {verslag['onzeker']} ({verslag['manier']})")
     uit = []
     for i, (z, x) in enumerate(zip(zinnen, stukken)):
         x = _stil_weg(x)
@@ -142,4 +144,5 @@ def _zinnen_uit_bestand(zinnen, map_, pad):
         uit.append({"wav": str(p), "duur": round(len(x) / SR, 3)})
         print(f"stem bestand: zin {i + 1} {len(x) / SR:.2f} s  {z['tekst']}")
     bron = os.environ.get("STEM_BRON", "elevenlabs")
-    return uit, {"soort": bron, "bestand": Path(pad).name, "knippen": verslag["manier"]}
+    return uit, {"soort": bron, "bestand": Path(pad).name, "knippen": verslag["manier"],
+                 "onzeker": verslag.get("onzeker", [])}

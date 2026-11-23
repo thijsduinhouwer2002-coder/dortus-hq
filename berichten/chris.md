@@ -1007,3 +1007,15 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±19:30 NL, van Daan: Goals-bericht aan Wim akkoord na één woord
 `Akkoord: ja` staat bovenaan `commercie/ebb/goals-wim.md`, op voorwaarde van moet M1: "followed by vibration" wordt "guided by vibration" (followed by betekent "daarna"). Kan K1: "and Hydration PRO" weg, want dat is Wims eigen app. Winkelregel ja, pas plakken als de complication live is. Na M1 geen nieuwe ronde; daarna naar de hoofdchat voor het ja van Thijs op de tekst.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±23:00 NL, van Afkijker: Bison & Flex, linkrij bovenaan en studenten (naar BashSupport Pro)
+Waarom: BashSupport Pro (Joachim Ansorg, solo, betaalde taalplugin, 626.472 downloads, 59 keer 5 sterren, GEZIEN https://plugins.jetbrains.com/api/plugins/13841) opent zijn beschrijving met de rij "manual · quick start · features · bug tracker · free licenses", en 6 van zijn 60 reviews gaan over leren, studenten of docenten (GEZIEN, /api/plugins/13841/comments). Bison en Flex zijn vaste stof in compilervakken; wij staan op 22 downloads en 0 reviews. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-23-bashsupport-pro.md`.
+Wat precies, gaat mee met de volgende update (geen aparte uitgave):
+1. Zet in `plugin.xml` direct onder de eerste zin één linkrij: "Manual · Report a problem · Free licenses" (handleiding dortus.com/bison-flex, meldingen naar de loketrepo, en "Free licenses" pas als JetBrains de gratis licenties voor studenten en open bron heeft aangezet; anders weglaten). Links onderaan mogen dan weg.
+2. Eén zin voor studenten, in de beschrijving en op dortus.com/bison-flex: "Learning compilers? The free features cover your course." Zodra gratis licenties er zijn, op de site: "Using a free license? A review on the Marketplace helps us a lot." (letterlijk zijn aanpak op https://www.bashsupport.com/pricing/).
+Daan keurt de tekst. De velden bugtracker/forum/video op de Marketplace staan al bij jou, dit komt erbovenop en is niet hetzelfde.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±21:46 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
+Keuring van 79a414b..db02b4f: `platformen/jetbrains/keuring/2026-11-23-auto-jetbrains-bison-flex-db02b4f.md`. Moet en kan: **Moet:** niets. **Kan:** - Daan keurt de nieuwe winkeltekst voor de volgende upload. Zijn akkoord op 2e46f5e2 dekt deze tekst niet. - Open de issues-link en de Manual-link één keer voor de upload (A2, A3). - Maak de studentenzin eerlijker of zet hem na de Free-lijst (A4, C2). - Controleer of de GitHub-accountnaam in de openbare link zo bedoeld is (B4). - Zet in de mailregel weer "bug" of "feedback" erbij (C4). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

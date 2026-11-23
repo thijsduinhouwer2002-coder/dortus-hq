@@ -20,6 +20,11 @@ def _uit_elkaar(inst, context):
     uit_elkaar.zet(context.scene)
 
 
+def _kleur(inst, context):
+    from . import kleuren
+    kleuren.zet(inst.id_data)
+
+
 class SplitJointsInstellingen(bpy.types.PropertyGroup):
     printer: EnumProperty(name="Printer", items=printers.items(), default="A1", update=_onthouden)
     materiaal: EnumProperty(
@@ -65,6 +70,11 @@ class SplitJointsInstellingen(bpy.types.PropertyGroup):
     uit_elkaar: BoolProperty(
         name="Exploded view", description="Show the pieces a little apart, only in the viewport. "
         "The export uses the real position", default=True, update=_uit_elkaar)
+    kleur: EnumProperty(
+        name="Colors", items=(("PIECE", "Per piece", "Every piece its own color, neighbors never the same. Pins in gold. "
+                               "Replaces materials on the pieces"),
+                              ("CHECK", "Check", "Green fits, orange thin wall, red needs attention")),
+        default="PIECE", update=_kleur)
     bron: StringProperty(name="Model", description="The model the cuts belong to", default="")
     meldingen: StringProperty(default="")  # one message per line, from the last split
 

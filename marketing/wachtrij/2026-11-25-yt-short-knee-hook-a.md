@@ -1,6 +1,6 @@
 # Hook-A (probleem): Your figure's knees bend too far? Check before you print 🦵 | Blender
 
-- status: groen
+- status: ingepland
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
@@ -63,3 +63,8 @@ Click Joints Pro: type dortus.com/yt in your browser.
 
 ## Na plaatsen
 (alleen de Maker)
+
+## Na plaatsen
+- ingepland in YouTube Studio door de hoofdchat, 23 nov 2026 ±21:30 NL, als Short, openbaar op 2026-11-25 17:00 NL: https://youtube.com/shorts/I_rLY2kwKus
+- bestand verkleind naar 720x1280 (2-pass, onder 3,8 MB), geluid_check GOED (-16,4 dB)
+- beschrijving zonder de zin over de AI-stem (besluit Thijs 23 nov 20:28); in YouTube Studio 'Altered content' op Yes; niet voor kinderen; gerelateerde video 4-3l3MZZWPc

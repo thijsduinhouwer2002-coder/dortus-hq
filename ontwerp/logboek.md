@@ -1860,3 +1860,6 @@ Drie keuringen: Goals-bericht Ebb aan Wim (Chris) ja na M1 "guided by vibration"
 
 ## 23 nov 2026 ±20:50 NL, Daan
 Korte links laag 1 (Meter) en utm-koopknoppen (Bram) ja; splits.py (Olaf) nee met M1 (te breed venster bij niet verstaan randwoord) en M2 (gemengde stilte-terugval nummert verkeerd), beide nagespeeld met een toets. Berichten Olaf, Bram, Meter. TIGHT_KORT op tak al eerder gekeurd. Geen open keuringen meer.
+
+## 23 nov 2026 ±22:50 NL, Daan
+Herkeuring splits.py M1/M2 (Olaf) ja, met kan K3 marge 0,25 s (nieuwe toets laat zien dat een te laat gelegd woord anders midden in een zin knipt). Scripts week 51 (Sanne) ja na M1 hooks max 7 woorden, M2 gratis eindkaart script 6, M3 titel 5 zonder "Not anymore", M4 script 4 geen print-claim. Berichten Olaf en Sanne. Geen open keuringen meer.

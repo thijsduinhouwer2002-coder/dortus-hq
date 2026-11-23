@@ -17,6 +17,7 @@ plan = importlib.import_module("split_joints.plan")
 doorsnede = importlib.import_module("split_joints.doorsnede")
 verbinders = importlib.import_module("split_joints.verbinders")
 passing = importlib.import_module("split_joints.passing")
+kleuren = importlib.import_module("split_joints.kleuren")
 
 fouten = []
 
@@ -195,6 +196,44 @@ gat_nr = min(b["p"][0] - a["p"][0] for a, b in zip(m["nummers"], m["nummers"][1:
 stap("passing: ruimte tussen twee nummers minstens 4 mm", gat_nr >= 4.0, f"{gat_nr:.2f}")
 stap("passing: nummer binnen het blok en niet op het gat", voor >= 1.0 and
      all(g["p"][1] - (nr["p"][1] + nr["h"] / 2) >= g["r_gat"] + 1.0 for g, nr in zip(m["gaten"], m["nummers"])), f"{voor:.2f}")
+
+# 9. color per piece: neighbors never share a color, colors spread, brand colors first
+def rooster(n):
+    return [(i, j, k) for k in range(n[2]) for j in range(n[1]) for i in range(n[0])]
+
+
+for n in ((1, 1, 1), (3, 1, 1), (4, 4, 1), (3, 3, 3), (5, 4, 6)):
+    cel = rooster(n)
+    k = kleuren.verdeel(cel)
+    botsing = [(a, b) for a in range(len(cel)) for b in range(a) if kleuren.buren(cel[a], cel[b]) and k[a] == k[b]]
+    stap(f"kleur {n}: buren nooit gelijk", not botsing, f"{botsing[:3]}")
+    stap(f"kleur {n}: zoveel kleuren als kan", len(set(k)) == min(len(cel), len(kleuren.PALET)), f"{len(set(k))}")
+# gaps: empty cells drop out, the order stays the piece order
+cel = [(0, 0, 0), (2, 0, 0), (1, 1, 0), (1, 0, 0)]
+k = kleuren.verdeel(cel)
+stap("kleur met lege cellen: buren verschillen", k[3] not in (k[0], k[1]) and k[2] != k[3], str(k))
+stap("kleur: eerste drie stukken in de merkkleuren", kleuren.verdeel(rooster((3, 1, 1))) == [0, 1, 2])
+stap("kleur: buren alleen via een vlak", kleuren.buren((0, 0, 0), (1, 0, 0)) and not kleuren.buren((0, 0, 0), (1, 1, 0))
+     and not kleuren.buren((0, 0, 0), (0, 0, 0)))
+lin = kleuren.lineair("FFFFFF")
+stap("kleur: sRGB naar lineair", lin == (1.0, 1.0, 1.0, 1.0) and abs(kleuren.lineair("808080")[0] - 0.2159) < 1e-3)
+afstand = min(sum((a - b) ** 2 for a, b in zip(kleuren.lineair(p)[:3], kleuren.lineair(kleuren.GOUD)[:3])) ** 0.5
+              for p in kleuren.PALET)
+stap("kleur: geen stuk lijkt op het goud van de pennen", afstand > 0.25, f"{afstand:.2f}")
+
+
+def lab(hex_):
+    r, g, b = kleuren.lineair(hex_)[:3]
+    x = (0.4124 * r + 0.3576 * g + 0.1805 * b) / 0.95047
+    y = 0.2126 * r + 0.7152 * g + 0.0722 * b
+    z = (0.0193 * r + 0.1192 * g + 0.9505 * b) / 1.08883
+    t = [v ** (1 / 3) if v > 0.008856 else 7.787 * v + 16 / 116 for v in (x, y, z)]
+    return (116 * t[1] - 16, 500 * (t[0] - t[1]), 200 * (t[1] - t[2]))
+
+
+alle = list(kleuren.PALET) + [kleuren.GOUD]
+dlab = min(math.dist(lab(a), lab(b)) for i, a in enumerate(alle) for b in alle[i + 1:])
+stap("kleur: elk paar kleuren (ook het goud) minstens 25 uit elkaar in Lab", dlab >= 25.0, f"{dlab:.1f}")
 
 print(f"[sj-logica] KLAAR {len(fouten)} FOUT {fouten}")
 sys.exit(1 if fouten else 0)

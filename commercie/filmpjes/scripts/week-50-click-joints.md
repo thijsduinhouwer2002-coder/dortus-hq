@@ -106,7 +106,7 @@ Titel: Which Blender version for printable figure joints? 🔥 | Blender
 | 3 | But on some rigs the elbow would bend upward, like on Quaternius characters. | Bends upward | Orc, elleboog omhoog gebogen (render) |
 | 4 | In Blender 4.5 and newer, Figure from rig turns that elbow to bend forward. | 4.5+: forward | Orc in 5.3, elleboog buigt naar voren |
 | 5 | In 4.2 to 4.4, the list asks you to place that elbow by hand. | 4.2: by hand | lijst in 4.2 met de vraag |
-| 6 | That takes one click: put the 3D cursor on the elbow, then click Elbow. | Cursor, then Elbow | cursor op de elleboog, preset Elbow |
+| 6 | It is quick: put the 3D cursor on the elbow, then click Elbow. | Cursor, then Elbow | cursor op de elleboog, preset Elbow |
 | 7 | So 4.2 works fine, but 4.5 or newer saves you that step. | 4.5 saves a step | Orc in delen |
 | 8 | Measured in Blender, not print tested by us yet. Print a test joint first. | Print a test joint first | render Orc in delen |
 | 9 | Click Joints Pro. Elbows and knees stop where your rig stops. | (eindkaart) | eindkaart |

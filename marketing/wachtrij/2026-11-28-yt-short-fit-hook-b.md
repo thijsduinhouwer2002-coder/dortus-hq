@@ -1,6 +1,6 @@
 # Fit test hook-B (oude manier): Still guessing joint clearance? Print this first 🧪 | Blender
 
-- status: wacht
+- status: ingepland
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
@@ -59,3 +59,11 @@ Click Joints Pro: type dortus.com/yt in your browser.
 
 ## Na plaatsen
 (alleen de Maker)
+
+## Oranje-besluit
+- hoofdchat, 23 nov 2026 ±21:30 NL: groen. Iris keurde beeld ja en wachtte alleen tot Gumroad 1.2.x had; Pro 1.2.2 staat sinds 23 nov 20:45 op Gumroad en Superhive (commercie/geplaatst.md).
+
+## Na plaatsen
+- ingepland in YouTube Studio door de hoofdchat, 23 nov 2026 ±21:30 NL, als Short, openbaar op 2026-11-28 17:00 NL: https://youtube.com/shorts/GlHu9O-VVag
+- bestand verkleind naar 720x1280 (2-pass, onder 3,8 MB), geluid_check GOED (-16,4 dB)
+- beschrijving zonder de zin over de AI-stem (besluit Thijs 23 nov 20:28); in YouTube Studio 'Altered content' op Yes; niet voor kinderen; gerelateerde video 4-3l3MZZWPc
