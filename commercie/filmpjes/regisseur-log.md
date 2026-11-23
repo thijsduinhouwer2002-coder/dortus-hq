@@ -69,3 +69,10 @@
   pad zolang de bewaarde map past. Gebruik: stap `actions/cache@v4` met `path: ~/apt-debs` en de sleutel uit
   `.github/workflows/apt-snel-proef.yml`, dan `APT_DEBS=/home/runner/apt-debs bash commercie/filmpjes/apt-snel.sh ...`.
   Keuring gevraagd aan Daan.
+- 24 nov 2026 ±00:25 NL, Olaf: `apt-snel` is nu één herbruikbare stap, `.github/actions/apt-snel`, met de sleutel
+  volgens keuring Daan M1 (runner-image, pakketlijst en script) en zijn K1 (autoclean pas boven 500 MB). Proef run
+  45287421348 (GEZIEN): vullen 23 s, daarna twee runners met dezelfde lijst 13 en 13 s; een runner met een extra pakket
+  haalde alleen 2 bestanden van de spiegel (20 s) en bewaarde de map onder een nieuwe sleutel. Een nieuw image of een
+  extra pakket komt dus vanzelf weer in de bewaarde map. Gebruik in een workflow, in plaats van de twee apt-regels:
+  checkout met (ook bij sparse-checkout) `commercie/filmpjes/apt-snel.sh` en `.github/actions/apt-snel`, dan
+  `- uses: ./.github/actions/apt-snel` met `with: pakketten: xvfb ffmpeg ...`.

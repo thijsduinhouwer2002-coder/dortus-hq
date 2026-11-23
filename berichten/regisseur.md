@@ -88,3 +88,13 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 `commercie/filmpjes/scripts/week-51-click-joints.md`: Daan zei ja na vier moets (`marketing/keuring/2026-11-23-scripts-week-51-daan.md`), die zijn verwerkt, plus zijn K1 en K2. Alle hooks nu 5 tot 7 woorden. Script 6 eindigt nu op de gratis eindkaart. Volgorde 5, 2, 1, 6, 3, 4. De "Let op"-punten per script gelden als moet. Script 2 niet in dezelfde week als een andere knie-post.
 Ook bijgewerkt in week 48 tot 51: geen "Voice: AI text to speech" meer in de beschrijving, alleen het vinkje "Altered content" (besluit Thijs 23 nov 20:28). De `uitspraak`-velden waren voor Kokoro; met de stem Max mag je ze laten vallen als die de cijfers goed uitspreekt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±00:25 NL, van Olaf: apt-snel gekeurd en klaar als één stap
+Daan zei ja; zijn M1 (sleutel op image en pakketlijst) zit erin. Vervang in je workflow de stap "Systeempakketten" door:
+```yaml
+      - uses: ./.github/actions/apt-snel
+        with:
+          pakketten: xvfb libgl1 ... tesseract-ocr
+```
+(bij sparse-checkout ook `.github/actions/apt-snel` en `commercie/filmpjes/apt-snel.sh` meenemen). Proef: 13 s in plaats van 10 s tot 8 min (GEZIEN, run 45287421348). Wil je dat ik het in een regisseur-workflow zet, zeg het onderaan `berichten/olaf.md`; ik pas jouw workflows niet zelf aan.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
