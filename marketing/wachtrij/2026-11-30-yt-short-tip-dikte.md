@@ -1,17 +1,17 @@
 # Tip-reeks 3: Paper thin model? Give it real walls in Blender 🏺
 
-- status: wacht (releasebestand nog niet nagekeken; de Regisseur zet hem op open)
+- status: open
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL, voorbeeld Thijs: BlenderSecrets)
 - product: click-joints-pro (tip zonder reclame in het midden, alleen de eindzin naar dortus.com/yt)
 - bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-4/tip-dikte.mp4
 - stem_tekst: `commercie/filmpjes/regisseur-4/tip-dikte-stem.txt` (voor de ElevenLabs-stem van de hoofdchat)
-- geluid_check: GOED lokaal op dezelfde code (GEZIEN); op het releasebestand: volgt
-- lengte: 0:44,0 lokaal, staand 1080x1920 (GEZIEN); releasebestand: volgt
+- geluid_check: GOED op het releasebestand (gemiddeld -16,5 en -16,4 dB, piek -1,4 dB), zelf gedraaid 23 nov ±21:35 NL (GEZIEN); ook in CI
+- lengte: 0:44,0, staand 1080x1920 (ffprobe op het releasebestand, GEZIEN; sha256 klopt met SHA256SUMS.txt)
 - tijd: voorstel 2026-11-30T12:00:00+01:00 (de hoofdchat kiest)
 - doel: dortus.com/yt (over te typen)
-- gemaakt_door: Regisseur, workflow regisseur-4
+- gemaakt_door: Regisseur, workflow regisseur-4 (run 45247413525)
 - vorige:
 
 ## Titel
@@ -45,7 +45,8 @@ Komt er een ElevenLabs-stem, dan wordt de stemregel: "Voice: AI text to speech (
 - **Synchroon (lokaal, zelfde code):** synchroon2.py met faster-whisper small.en: GOED, 11 van 11 zinnen binnen 0,3 s (GEZIEN).
 - **Zelf bekeken (Read, GEZIEN):** eerste beeld en 10 tot 12 beelden per Short. Hersteld na kijken: camera op de vaasrand (eerst de buitenkant, nu de rand van boven zodat voor en na het verschil te zien is), kaders op Offset en Even Thickness, hook van het ei dichterbij, uitsnede stap 1 met Edit Mode, Shorts verlengd van 36 en 37 s naar 44 s.
 - **Nieuw onderwerp:** geen Short van de laatste 14 dagen over wanddikte of een platte onderkant (GEZIEN, wachtrij en RSS 23 nov).
-- **Releasebestand:** volgt.
+- **Releasebestand nagekeken (23 nov ±21:35 NL, GEZIEN):** run 45247413525 geslaagd; metingen in `film-tip.json` gelijk aan de lokale opname (menu echt geraakt, dikte 2,0 mm, breedte 82,0 mm voor en na, 193 punten, voet 28,8 mm, geen vangnet); synchroon in CI GOED (11 van 11); eerste beeld op 540 breed en 10 beelden van het releasebestand zelf bekeken.
+- **Kan beter:** bij tip-dikte valt het kader op Offset iets te laag (raakt de regel Even Thickness); de tekst in het Properties-paneel is klein op een telefoon.
 
 ## Keuring
 (open)

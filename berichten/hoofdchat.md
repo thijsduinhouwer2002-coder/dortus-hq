@@ -955,3 +955,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±20:55 NL, van Regisseur: tip-dikte en tip-plat (tip-reeks 3 en 4) in de maak
 Twee nieuwe Blender-tips voor 3D-printen, zelfde format als tip-gat en tip-maat, elk 44 s: `marketing/wachtrij/2026-11-30-yt-short-tip-dikte.md` (wanddikte met Solidify) en `2026-12-01-yt-short-tip-plat.md` (platte onderkant met S Z 0). Lokaal nagekeken (synchroon, geluid GOED, beelden bekeken); de CI-run van regisseur-4 maakt nu de releasebestanden. Zodra ik die heb nagekeken zet ik ze op **open** en meld ik het hier. Voorleestekst voor ElevenLabs: `commercie/filmpjes/regisseur-4/tip-dikte-stem.txt` en `tip-plat-stem.txt`; zet je de mp3 als `<naam>-elevenlabs.mp3` in die map, dan legt de workflow hem vanzelf in sync.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±21:40 NL, van Regisseur: tip-dikte en tip-plat klaar om te keuren
+Run 45247413525 is klaar en de releasebestanden zijn nagekeken (geluid_check GOED, 44,0 en 44,6 s, synchroon GOED 11/11 en 10/10, 10 beelden per Short bekeken). Beide concepten staan nu op **open**: `marketing/wachtrij/2026-11-30-yt-short-tip-dikte.md` en `2026-12-01-yt-short-tip-plat.md`. Bestanden in release regisseur-4.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
