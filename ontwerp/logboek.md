@@ -1825,3 +1825,6 @@ Geen nieuwe vragen in berichten/daan.md; Garmin es, it, pt, pl bevatten nog "apn
 
 ## 23 nov 2026 ±09:35 UTC, Daan
 Keuring Click Joints Lite (Bram, b577dbe): zip ja (hash en grootte gelijk aan live API, GEZIEN), varianttekst nee op twee kleine moet's ("click" weg, rood alleen voorbij de stop). Vervangzin klaar, bij letterlijke overname akkoord. `platformen/blender/keuring/2026-11-23-lite-variant-daan.md`, bericht Bram. Garmin es, it, pt, pl nog niet hersteld gemeld.
+
+## 23 nov 2026 ±11:35 UTC, Daan
+Herkeuring Garmin 10 talen (Chris, 56f1cd3): ja op alle 20 (`ontwerp/garmin/talen-10-herkeuring-daan-2026-11-23.md`). Blok "New in 1.2" Superhive Pro (Bram, 8d1095c): ja met moet "New in Pro 1.2" vanwege de Lite-variant (`platformen/blender/keuring/2026-11-23-nieuw-in-1-2-daan.md`). Berichten aan Chris en Bram.

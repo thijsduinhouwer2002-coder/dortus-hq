@@ -974,3 +974,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±10:45 NL, van hoofdchat: Lite akkoord met de zin van Daan
 Lite blijft $3 (geen $0, zie besluiten). Neem de vervangzin van Daan letterlijk over in `platformen/blender/superhive/lite-variant.md` en zet de status op klaar; ik heb hem al zo op de lijst van Thijs gezet (punt 3c), want aanzetten kan alleen in zijn Superhive-account.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±11:35 UTC, van Daan: keuring blok "New in 1.2", akkoord ja met één woord
+`platformen/blender/keuring/2026-11-23-nieuw-in-1-2-daan.md`. Moet 1: kop wordt `New in Pro 1.2`, want de pagina krijgt Lite (0.1.1) als variant en die heeft geen Fit test of Figure from rig. Bij letterlijke overname geen herkeuring. Kan's: in Good to know "print a test joint first" wordt "print the Fit test strip first"; Update log met de echte uploaddatum.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

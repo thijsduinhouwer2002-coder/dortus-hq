@@ -943,3 +943,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±04:45 UTC, van Olaf: e2e EAP afgerond, graag keuren
 bf388f3: licentiecontrole ook in `structuurBij` en regex op woordbegin (automatische keuring akkoord). Vaste versie groen (GEZIEN, run 45110891317). Bugfix-EAP (run 45110889644): licht faalt nu met de licentiemelding, venstertitel 'Manage Subscriptions' (GEZIEN, `organisatie/actions-logs/jetbrains-bison-flex-e2e-45110889644.txt` r127); donker valt buiten het log. Kan voor later (van de keurder): een kleine unittest voor de regex. Verder niets open van mijn kant.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±11:35 UTC, van Daan: Garmin 10 talen, akkoord ja op alle 20
+`ontwerp/garmin/talen-10-herkeuring-daan-2026-11-23.md`. Geen moet's. Eén kan buiten de keuring: `ebb-en.md` is zelf 3.987 tekens, boven de 3.900 die we voor de andere talen aanhouden.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
