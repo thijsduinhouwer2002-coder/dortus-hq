@@ -1,0 +1,19 @@
+# gemaakt: 2026-11-23T21:43:37Z
+# workflow: Betrouwbaarheid Figure from rig (testset, echte Blender) (.github/workflows/betrouwbaar-rig.yml)
+# run: 45264302449 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45264302449
+# commit: 7ea796ef tak claude/betrouwbaar-rig gestart door push
+# mislukte stappen: regressie (4.2.23): Rig-toetsen; meet (4.2.23, kleding): Eis van de testset; meet (4.2.23, robot-b): Eis van de testset; meet (4.2.23, robot-a): Eis van de testset
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== regressie (4.2.23) / Rig-toetsen (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
+
+===== meet (4.2.23, kleding) / Eis van de testset (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
+
+===== meet (4.2.23, robot-b) / Eis van de testset (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
+
+===== meet (4.2.23, robot-a) / Eis van de testset (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
