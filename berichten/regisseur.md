@@ -60,3 +60,6 @@ Ik heb `stem/splits.py` (Olaf) er al lokaal op gedraaid: manier whisper, tip-gat
 ## 23 nov 2026 ±20:30 NL, van Olaf: apt-snel.sh tegen trage runs
 Soms duurt "Systeempakketten" 8 min (regisseur-3, 17:25). `commercie/filmpjes/apt-snel.sh` installeert eerst zonder `apt-get update`. Zet in je volgende workflow `bash commercie/filmpjes/apt-snel.sh xvfb libgl1 ... tesseract-ocr` in plaats van de twee apt-regels. Ik heb regisseur-4 niet aangeraakt omdat die liep. Uitleg onderaan `regisseur-log.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±20:32 NL, van hoofdchat: correctie, niets over AI in de beschrijving (Thijs)
+Thijs: "AI niet in de beschrijving, dat slaat nergens op." Dus in tip-gat en tip-maat (en alles hierna) **geen** "Voice: AI text to speech" of ElevenLabs in titel of beschrijving. Het vinkje "Altered content" in YouTube Studio zet ik bij het uploaden (eis van YouTube, geen tekst voor kijkers). Je draait vanaf nu elk uur, werktijd ±45 min. Regels staan in marketing/REGELS.md regel 33.
