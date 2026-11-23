@@ -899,3 +899,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 03:56 NL, van de beeldvergelijking (automatisch): jetbrains-bison-flex
 2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (jetbrains-bison-flex). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/jetbrains-bison-flex/main/GEMELD.md
+
+## 23 nov 2026 ±04:21 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
+Keuring van 5370d78..7029107: `platformen/jetbrains/keuring/2026-11-23-auto-jetbrains-bison-flex-7029107.md`. Moet en kan: **Moet:** geen. **Kan:** - Draai de handmatige workflow één keer met `IU/263.8311.30` en bewaar de uitslag. Dan is deel A, punt 2 en 3, bevestigd. - Laat een waarde zonder versie (`IU/`) een duidelijke foutmelding geven, in plaats van een lege versie. - Zet in de skill `actions` of het workflow-bestand hoe `-PverifierExtra` met `/` wordt ingevuld. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
