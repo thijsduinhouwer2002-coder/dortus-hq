@@ -1,0 +1,217 @@
+{
+ "naam": "tip-gat",
+ "titel": "Find holes in your model before you print 🔍 #blender #3dprinting",
+ "eind": {
+  "titel": "Blender for 3D printing",
+  "zin": "A new Blender tip for 3D printing every week.",
+  "adres": "dortus.com/yt",
+  "render": "render-eind.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "scenes": [
+  {
+   "tekst": "Does your slicer say your model has holes?",
+   "label": "QUICK CHECK",
+   "kleur": "oranje",
+   "kop": "Got holes?",
+   "beeld": {
+    "deel": "a_licht",
+    "van": 40,
+    "tot": 108,
+    "uitsnede": [
+     [
+      1080,
+      980,
+      1150
+     ],
+     [
+      1080,
+      980,
+      900
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Blender can find them for you in a few seconds, before you print.",
+   "label": "TIP",
+   "kleur": "blauw",
+   "kop": "Find them in Blender",
+   "beeld": {
+    "deel": "a_heel",
+    "van": 0,
+    "tot": 70,
+    "uitsnede": [
+     [
+      1080,
+      980,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Select your model, press Tab for Edit Mode, then 2 for edge select.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Tab, then 2",
+   "beeld": {
+    "deel": "a_edit",
+    "van": 0,
+    "tot": 28,
+    "uitsnede": [
+     [
+      1050,
+      900,
+      1400
+     ]
+    ]
+   },
+   "uitspraak": "Select your model, press Tab for Edit Mode, then two for edge select."
+  },
+  {
+   "tekst": "Press Alt A, so nothing is selected.",
+   "label": "STEP 2",
+   "kleur": "blauw",
+   "kop": "Alt A: select none",
+   "beeld": {
+    "deel": "a_edit",
+    "van": 26,
+    "tot": 42,
+    "uitsnede": [
+     [
+      1080,
+      980,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Open Select, Select All by Trait, Non Manifold.",
+   "label": "STEP 3",
+   "kleur": "oranje",
+   "kop": "Non Manifold",
+   "beeld": {
+    "deel": "a_menu",
+    "van": 0,
+    "tot": 70,
+    "uitsnede": [
+     [
+      1000,
+      560,
+      1300
+     ]
+    ],
+    "nadruk": [
+     [
+      950,
+      624,
+      1250,
+      668
+     ]
+    ],
+    "nadruk_rel": [
+     45,
+     75
+    ]
+   },
+   "uitspraak": "Open Select. Select All by Trait. Non-manifold."
+  },
+  {
+   "tekst": "Every edge that is not closed lights up. Here, a hole in the head of the pawn.",
+   "label": "FOUND IT",
+   "kleur": "rood",
+   "kop": "Open edges light up",
+   "beeld": {
+    "deel": "a_licht",
+    "van": 0,
+    "tot": 108,
+    "uitsnede": [
+     [
+      1080,
+      980,
+      1300
+     ],
+     [
+      1080,
+      980,
+      950
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Press F to fill the hole with a new face.",
+   "label": "STEP 4",
+   "kleur": "groen",
+   "kop": "F: fill the hole",
+   "beeld": {
+    "deel": "a_vul",
+    "van": 0,
+    "tot": 46,
+    "uitsnede": [
+     [
+      1080,
+      980,
+      900
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Run the check again with Shift Ctrl Alt M. Nothing lights up, so the mesh is closed.",
+   "label": "CHECK AGAIN",
+   "kleur": "blauw",
+   "kop": "Check again: closed",
+   "beeld": {
+    "deel": "a_weer",
+    "van": 0,
+    "tot": 70,
+    "uitsnede": [
+     [
+      1080,
+      980,
+      900
+     ],
+     [
+      1080,
+      980,
+      1300
+     ]
+    ]
+   },
+   "uitspraak": "Run the check again with Shift, Control, Alt, M. Nothing lights up, so the mesh is closed."
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Save this for your next print.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Save this tip",
+   "beeld": {
+    "deel": "a_weer",
+    "van": 60,
+    "tot": 90,
+    "uitsnede": [
+     [
+      1080,
+      980,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "More Blender tips for 3D printing at dortus.com/yt.",
+   "label": "MORE TIPS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   },
+   "uitspraak": "More Blender tips for three D printing, at dortus dot com slash Y T."
+  }
+ ],
+ "venster": "Blender 5.3"
+}
