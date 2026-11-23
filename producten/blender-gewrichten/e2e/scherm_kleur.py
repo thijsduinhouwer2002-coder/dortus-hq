@@ -68,18 +68,13 @@ def proefstrook():
     log(f"proefstrook: Material Preview met {[n for n, _ in staat['strook']]}, weergave {ruimte.shading.type}")
 
 
-def meet_strook(naam="4-material-preview-x.png"):
-    """Leest per cilinder de kleur op het X-scherm langs een horizontale lijn door het midden:
-    de lichtste plek (belichte kant) en de donkerste."""
+def _monsters(pad):
+    """Per cilinder de kleuren (hex) op het X-scherm langs een horizontale lijn door het midden."""
     from bpy_extras.view3d_utils import location_3d_to_region_2d
     venster, gebied, _ = zijbalk()
     regio = next(r for r in gebied.regions if r.type == "WINDOW")
     rv3d = gebied.spaces.active.region_3d
-    pad = os.path.join(scherm_basis.uitmap, naam)
-    log(f"KLEUR meting op {naam}, weergave {bpy.context.scene.view_settings.view_transform}")
-    if not os.path.exists(pad):
-        log("KLEUR: geen X-scherm")
-        return
+    uit = []
     for hx, ob in staat["strook"]:
         punten = []
         for f in [x / 10.0 for x in range(-8, 9)]:
@@ -94,6 +89,32 @@ def meet_strook(naam="4-material-preview-x.png"):
             h = r.stdout.strip()[:6]
             if len(h) == 6:
                 punten.append(h)
+        uit.append((hx, punten))
+    return uit
+
+
+def strook_gekleurd():
+    """True als alle drie cilinders op het X-scherm kleur hebben (EEVEE klaar met shaders bouwen).
+    Grijze cilinders betekenen dat de shader nog niet klaar is (gezien in run 45093224282 en 45098723127)."""
+    pad = os.path.join(scherm_basis.uitmap, "_wacht-x.png")
+    subprocess.run(["import", "-window", "root", pad], capture_output=True, text=True)
+    if not os.path.exists(pad):
+        return True  # kan niet meten, dan niet eindeloos wachten
+    verzadiging = lambda h: max(int(h[i:i + 2], 16) for i in (0, 2, 4)) - min(int(h[i:i + 2], 16) for i in (0, 2, 4))
+    klaar = all(punten and max(verzadiging(h) for h in punten) > 40 for _, punten in _monsters(pad))
+    os.remove(pad)
+    return klaar
+
+
+def meet_strook(naam="4-material-preview-x.png"):
+    """Leest per cilinder de kleur op het X-scherm langs een horizontale lijn door het midden:
+    de lichtste plek (belichte kant) en de donkerste."""
+    pad = os.path.join(scherm_basis.uitmap, naam)
+    log(f"KLEUR meting op {naam}, weergave {bpy.context.scene.view_settings.view_transform}")
+    if not os.path.exists(pad):
+        log("KLEUR: geen X-scherm")
+        return
+    for hx, punten in _monsters(pad):
         if not punten:
             log(f"KLEUR {hx}: niets gemeten")
             continue

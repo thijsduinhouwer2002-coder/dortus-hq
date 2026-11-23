@@ -15,7 +15,7 @@ import bpy
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from scherm_basis import (DOEL, close_up, kijk, log, maak_pop, open_paneel, plaats, schiet,  # noqa: E402
                           toestand, weergave, wiel_naar_tabblad, zijbalk, zip_pad)
-from scherm_kleur import meet_strook, proefstrook  # noqa: E402
+from scherm_kleur import meet_strook, proefstrook, strook_gekleurd  # noqa: E402
 from scherm_beweeg import (boog_verslag, paneel_verslag, plat_lid, voorbij_grens, waaier, winkel,  # noqa: E402
                            winkel_paneel)
 
@@ -58,18 +58,14 @@ def stap():
         proefstrook()
         return 8.0  # Material Preview (EEVEE) moet eerst de shaders bouwen, met software-OpenGL duurt dat
     if n == 9:
-        # 8 s was soms te kort (run 45093224282: referentie had "Compiling EEVEE engine shaders").
-        # Wacht tot Blender klaar is met shaders bouwen, hoogstens 30 s extra, dan nog 2 s voor het tekenen.
-        bouwt = getattr(bpy.app, "is_job_running", lambda _t: False)("SHADER_COMPILATION")
-        if bouwt and toestand.get("shaderwacht", 0) < 30:
+        # 8 s was soms te kort (runs 45093224282 en 45098723127: grijze cilinders, "Compiling shaders").
+        # Wacht tot alle cilinders kleur hebben, hoogstens 40 s extra. bpy.app.is_job_running zag het niet.
+        if not strook_gekleurd() and toestand.get("shaderwacht", 0) < 40:
             toestand["shaderwacht"] = toestand.get("shaderwacht", 0) + 1
             toestand["n"] = 8  # deze stap nog eens
             return 1.0
-        if toestand.get("shaderwacht", 0) and not toestand.get("shaderklaar"):
-            toestand["shaderklaar"] = True
+        if toestand.get("shaderwacht", 0):
             log(f"SHADERS klaar na {toestand['shaderwacht']} s extra wachten")
-            toestand["n"] = 8
-            return 2.0
         schiet("4-material-preview.png")
         meet_strook()
         return 0.5
