@@ -1,0 +1,61 @@
+STATUS Installed "click_joints"
+Reloading external rigs...
+Reloading external metarigs...
+PROBE rigify True
+PROBE hoogte 207.8 botten ['spine.004', 'upper_arm.L', 'forearm.L', 'upper_arm.R', 'forearm.R', 'thigh.L', 'shin.L', 'thigh.R', 'shin.R']
+Error: The cut gave no watertight parts (bad edges: part A 1108, part B 0); the mesh is unchanged.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 135°. 34.766 s.
+Info: Hinge placed. Bends 0° to 135°. 11.272 s.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 4, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Warning: Too close to another joint (keep 24 mm apart).
+Warning: Too close to another joint (keep 24 mm apart).
+Warning: Too close to another joint (keep 65 mm apart).
+Warning: Too close to another joint (keep 66 mm apart).
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 3, part B 0); the mesh is unchanged.
+Warning: 2 joints. Skipped: Left knee (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Right knee (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Neck (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Right hip (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, w... truncatedPROBE {'FINISHED'} ['Left elbow · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–135° · preset']
+PROBE overgeslagen Left knee (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Right knee (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Neck (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably); Right hip (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably)
+PROBE delen 3 open []
+[cj-rigify] Blender 4.2.23 LTS, regels ['Left elbow · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–135° · preset']
+[cj-rigify] OK   geen gewricht op blocked
+[cj-rigify] OK   Left knee als scharnier (None)
+[cj-rigify] OK   Left elbow als scharnier (Left elbow · Hinge · 0–135° · preset)
+[cj-rigify] OK   Left hip beweegt meer dan 10 graden (None)
+[cj-rigify] OK   Right knee als scharnier (None)
+[cj-rigify] OK   Right elbow als scharnier (Right elbow · Hinge · 0–135° · preset)
+[cj-rigify] OK   Right hip beweegt meer dan 10 graden (None)
+[cj-rigify] OK   overgeslagen met reden: Left knee (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably)
+[cj-rigify] OK   overgeslagen met reden: Right knee (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably)
+[cj-rigify] OK   overgeslagen met reden: Neck (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably)
+[cj-rigify] OK   overgeslagen met reden: Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[cj-rigify] OK   overgeslagen met reden: Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[cj-rigify] OK   overgeslagen met reden: Left hip (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably)
+[cj-rigify] OK   overgeslagen met reden: Right hip (the cut gave no watertight parts here, place it by hand a few mm along the bone, or use Blender 4.5 or newer, which cuts more reliably)
+[cj-rigify] OK   3 delen, alle gesloten (2 gewrichten)
+[cj-rigify] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
