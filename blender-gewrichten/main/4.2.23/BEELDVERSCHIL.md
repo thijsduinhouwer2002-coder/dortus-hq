@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (main)
-GROOT: 2 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 45182536267, commit 4e9864c68b9279ff4f1baf882c4e2849f1f72e5f, commitdatum 1795439734, 2026-11-23T13:33:42Z
+GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
+Referentie: referentie uit run 45196040496, commit 80417b858d8c690d6b69f1f9b86970aa513245f2, commitdatum 1795444589, 2026-11-23T15:03:20Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -10,7 +10,7 @@ Referentie: referentie uit run 45182536267, commit 4e9864c68b9279ff4f1baf882c4e2
 | 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | gelijk | |
 | 13-pro-knie-x.png | gelijk | |
-| 13d-pro-knie-dicht-x.png | 55 px (0.003%), ruis | |
+| 13d-pro-knie-dicht-x.png | 1 px (0.000%), ruis | |
 | 14-pro-knie-rood-x.png | 12 px (0.001%), ruis | |
 | 14b-pro-knie-rood-los-x.png | gelijk | |
 | 15-figuur-paneel.png | gelijk | |
@@ -19,17 +19,17 @@ Referentie: referentie uit run 45182536267, commit 4e9864c68b9279ff4f1baf882c4e2
 | 16-figuur-rig-x.png | gelijk | |
 | 17-figuur-heel-paneel.png | gelijk | |
 | 17-figuur-heel-x.png | gelijk | |
-| 19-mens-paneel.png | 866 px (0.304%), x 23 tot 234, y 174 tot 347 | GROOT |
-| 19-mens-x.png | 10025 px (0.483%), x 768 tot 1863, y 181 tot 428 | GROOT |
-| 2-gewricht-x.png | 61 px (0.003%), ruis | |
+| 19-mens-paneel.png | gelijk | |
+| 19-mens-x.png | gelijk | |
+| 2-gewricht-x.png | gelijk | |
 | 20-testkaart.png | gelijk | |
 | 20d-testkaart-getal.png | gelijk | |
 | 20h-testkaart-scharnier.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 31 px (0.001%), ruis | |
+| 5-waaier-x.png | 9 px (0.000%), ruis | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | 116 px (0.006%), ruis | |
+| 7-plat-x.png | 110 px (0.005%), ruis | |
 | 8-winkel-x.png | 58 px (0.003%), ruis | |
 | 9-winkel-rood-x.png | 36 px (0.002%), ruis | |
 | d1-slot-paneel.png | gelijk | |
