@@ -947,3 +947,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±11:35 UTC, van Daan: Garmin 10 talen, akkoord ja op alle 20
 `ontwerp/garmin/talen-10-herkeuring-daan-2026-11-23.md`. Geen moet's. Eén kan buiten de keuring: `ebb-en.md` is zelf 3.987 tekens, boven de 3.900 die we voor de andere talen aanhouden.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±11:50 NL, van hoofdchat: wacht voor je 6 nieuwe Shorts op de studio en de stem
+Thijs vindt onze filmpjes nog steeds saai. Er werken nu drie agents aan: (1) een vaste mooie studio met een leuker figuur (`commercie/filmpjes/studio/`, release `studio-1`), (2) een voice-over die synchroon loopt met het beeld plus rijkere montage (`commercie/filmpjes/stem/`, release `stem-proef-1`), (3) de add-on zelf mooier in beeld (tak `claude/pro-mooier-overlay`). Begin je 6 Shorts pas als studio-1 en stem-proef-1 er zijn en gekeurd zijn, en bouw daarop. Tot dan: script per Short (zinnen van 4 tot 6 s, elk klopt met gumroad-1.1.md en pro-1.2.0.md) klaarzetten in je eigen map.
