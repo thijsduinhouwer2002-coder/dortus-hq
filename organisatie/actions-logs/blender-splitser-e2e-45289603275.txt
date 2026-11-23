@@ -1,0 +1,260 @@
+# gemaakt: 2026-11-23T23:45:07Z
+# workflow: Blender splitser e2e (Split Joints, echte Blender) (.github/workflows/blender-splitser-e2e.yml)
+# run: 45289603275 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45289603275
+# commit: 27951bb1 tak main gestart door push
+# mislukte stappen: e2e (5.3.0): Test zonder scherm (passen, waterdicht, pen in gat, nummers, export); e2e (5.3.0): Schermafbeeldingen (Workbench-render van de stukken en een snijvlak)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (5.3.0) / Test zonder scherm (passen, waterdicht, pen in gat, nummers, export) (laatste 200 van 1817 regels) =====
+[sj-e2e] OK   passing 3 mm gat 0.10: diep genoeg voor een halve pen diepte 4.299999961853027
+[sj-e2e] OK   passing 3 mm gat 0.10: speling gegraveerd 70 punten op 0,6 mm diepte
+[sj-e2e] OK   passing 3 mm gat 0.15: gevonden 
+[sj-e2e] OK   passing 3 mm gat 0.15: straal klopt gemeten 1.652, doel 1.650
+[sj-e2e] OK   passing 3 mm gat 0.15: speling gemeten 0.152
+[sj-e2e] OK   passing 3 mm gat 0.15: diep genoeg voor een halve pen diepte 4.299999961853027
+[sj-e2e] OK   passing 3 mm gat 0.15: speling gegraveerd 70 punten op 0,6 mm diepte
+[sj-e2e] OK   passing 3 mm: vier pennen van de eigen maat [(1.5, 8.0), (1.5, 8.0), (1.5, 8.0), (1.5, 8.0)]
+Info: Fit test made: 5 mm pin, clearances 0.15, 0.20, 0.25, 0.30 mm
+[sj-e2e] OK   passing meters: blok en pennen gemaakt 
+[sj-e2e] OK   passing meters: blok waterdicht slechte randen 0, volume 0 mm3
+[sj-e2e] OK   passing meters: blok past op een A1 mini [68.0, 17.1, 8.3]
+[sj-e2e] OK   passing meters: vier spelingen rond de ingestelde [0.15, 0.2, 0.25, 0.3] verwacht [0.15, 0.2, 0.25, 0.3]
+[sj-e2e] OK   passing meters: vier gaten 
+[sj-e2e] OK   passing meters gat 0.15: gevonden 
+[sj-e2e] OK   passing meters gat 0.15: straal klopt gemeten 2.653, doel 2.650
+[sj-e2e] OK   passing meters gat 0.15: speling gemeten 0.153
+[sj-e2e] OK   passing meters gat 0.15: diep genoeg voor een halve pen diepte 6.300000397711992
+[sj-e2e] OK   passing meters gat 0.15: speling gegraveerd 70 punten op 0,6 mm diepte
+[sj-e2e] OK   passing meters gat 0.20: gevonden 
+[sj-e2e] OK   passing meters gat 0.20: straal klopt gemeten 2.703, doel 2.700
+[sj-e2e] OK   passing meters gat 0.20: speling gemeten 0.203
+[sj-e2e] OK   passing meters gat 0.20: diep genoeg voor een halve pen diepte 6.300000863373279
+[sj-e2e] OK   passing meters gat 0.20: speling gegraveerd 76 punten op 0,6 mm diepte
+[sj-e2e] OK   passing meters gat 0.25: gevonden 
+[sj-e2e] OK   passing meters gat 0.25: straal klopt gemeten 2.753, doel 2.750
+[sj-e2e] OK   passing meters gat 0.25: speling gemeten 0.253
+[sj-e2e] OK   passing meters gat 0.25: diep genoeg voor een halve pen diepte 6.300000863373279
+[sj-e2e] OK   passing meters gat 0.25: speling gegraveerd 76 punten op 0,6 mm diepte
+[sj-e2e] OK   passing meters gat 0.30: gevonden 
+[sj-e2e] OK   passing meters gat 0.30: straal klopt gemeten 2.803, doel 2.800
+[sj-e2e] OK   passing meters gat 0.30: speling gemeten 0.303
+[sj-e2e] OK   passing meters gat 0.30: diep genoeg voor een halve pen diepte 6.300000863373279
+[sj-e2e] OK   passing meters gat 0.30: speling gegraveerd 76 punten op 0,6 mm diepte
+[sj-e2e] OK   passing meters: vier pennen van de eigen maat [(2.5, 12.0), (2.5, 12.0), (2.5, 12.0), (2.5, 12.0)]
+[sj-e2e] passing: klaar
+Info: Watertight copy Figure_watertight made (54996 faces)
+[sj-e2e] waterdicht Figure: {'FINISHED'} -> Figure_watertight 54996 vlakken
+Info: 1 pieces, 0 cuts. Move a cut with G if you like.
+Info: 1 pieces, 0 pins, all fit
+[sj-e2e] OK   vrij: split geeft 1 stuk 1 stukken
+Info: Move (G), turn (R) and scale (S) the free cut, then Cut piece
+Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+[sj-e2e] vrij: melding Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+[sj-e2e] OK   vrij: te kleine rechthoek geweigerd {'CANCELLED'}
+Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+[sj-e2e] vrij: melding Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+[sj-e2e] OK   vrij: snede naast het stuk geweigerd {'CANCELLED'}
+Traceback (most recent call last):
+  File "/tmp/sj/extensions/user_default/split_joints/vrije_snede.py", line 336, in execute
+    uitslag = snijd(context, stuk, snede, self.report)
+  File "/tmp/sj/extensions/user_default/split_joints/vrije_snede.py", line 148, in snijd
+    return _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report)
+  File "/tmp/sj/extensions/user_default/split_joints/vrije_snede.py", line 251, in _snijd
+    af["sj_labels"] = json.dumps([lb for lb in oude_labels if op_kant(lb["p"])] +
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                 [naar_wereld(lb, R, o) for lb in labels.get(ijk, []) if not lb.get("weg")])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/blender/5.3/python/lib/python3.13/json/__init__.py", line 235, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/tmp/blender/5.3/python/lib/python3.13/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/tmp/blender/5.3/python/lib/python3.13/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/tmp/blender/5.3/python/lib/python3.13/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type float32 is not JSON serializable
+01:13.627  bpy.rna          | ERROR Python script error in SPLIT_JOINTS_OT_vrije_snede.execute
+Error: Python: Traceback (most recent call last):
+  File "/tmp/sj/extensions/user_default/split_joints/vrije_snede.py", line 336, in execute
+    uitslag = snijd(context, stuk, snede, self.report)
+  File "/tmp/sj/extensions/user_default/split_joints/vrije_snede.py", line 148, in snijd
+    return _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report)
+  File "/tmp/sj/extensions/user_default/split_joints/vrije_snede.py", line 251, in _snijd
+    af["sj_labels"] = json.dumps([lb for lb in oude_labels if op_kant(lb["p"])] +
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                 [naar_wereld(lb, R, o) for lb in labels.get(ijk, []) if not lb.get("weg")])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/blender/5.3/python/lib/python3.13/json/__init__.py", line 235, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^... truncated[sj-e2e] vrij: melding Error: Python: Traceback (most recent call last):
+  File "/tmp/sj/extensions/user_default/split_joints/vrije_snede.py", line 336, in execute
+    uitslag = snijd
+[sj-e2e] FOUT vrij: snijden lukt {'CANCELLED'}
+[sj-e2e] OK   vrij: 2 stukken 2
+[sj-e2e] FOUT vrij: snedevlak weg 
+[sj-e2e] OK   vrij stuk 1: waterdicht slecht 0, volume 79357, stappen [0, 0]
+[sj-e2e] OK   vrij stuk 1: groen groen wand -1.0
+[sj-e2e] OK   vrij stuk 1: waterdicht slecht 0, volume 71539, stappen [0, 0, 0]
+[sj-e2e] FOUT vrij stuk 1: groen None wand None
+[sj-e2e] FOUT vrij: nieuw stuk is alleen het armeinde x -20.0 tot 52.2
+[sj-e2e] OK   vrij: torso blijft heel 
+Traceback (most recent call last):
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 174, in main
+    f()
+    ~^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 172, in <lambda>
+    ("passing", lambda: toetsen_passing.alles(uitmap)), ("vrij", lambda: toetsen_vrij.alles(uitmap))):
+                                                                         ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/toetsen_vrij.py", line 119, in alles
+    nieuw_b = [g for g in json.loads(b["sj_gaten"]) if g.get("vrij")]
+                                     ~^^^^^^^^^^^^
+KeyError: 'bpy_struct[key]: key "sj_gaten" not found'
+[sj-e2e] FOUT vrij: geen fout 
+[sj-e2e] KLAAR 5 FOUT ['vrij: snijden lukt', 'vrij: snedevlak weg', 'vrij stuk 1: groen', 'vrij: nieuw stuk is alleen het armeinde', 'vrij: geen fout']
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+Timer 'STL Export' took 3.02 ms
+Timer 'STL Export' took 2.62 ms
+Timer 'STL Export' took 2.36 ms
+Timer 'STL Export' took 2.33 ms
+Timer 'STL Export' took 2.96 ms
+Timer 'STL Export' took 2.96 ms
+Timer 'STL Export' took 3.39 ms
+Timer 'STL Export' took 3.32 ms
+Timer 'STL Export' took 2.42 ms
+Timer 'STL Export' took 6.63 ms
+Timer 'STL Export' took 6.41 ms
+Timer 'STL Export' took 6.10 ms
+Timer 'STL Export' took 6.20 ms
+Timer 'STL Export' took 7.63 ms
+Timer 'STL Export' took 7.59 ms
+Timer 'STL Export' took 7.58 ms
+Timer 'STL Export' took 7.50 ms
+Timer 'STL Export' took 7.30 ms
+Timer 'STL Export' took 7.24 ms
+Timer 'STL Export' took 7.36 ms
+Timer 'STL Export' took 7.46 ms
+Timer 'STL Export' took 7.50 ms
+Timer 'STL Export' took 7.42 ms
+Timer 'STL Export' took 7.46 ms
+Timer 'STL Export' took 7.50 ms
+Timer 'STL Export' took 3.01 ms
+Timer 'STL Export' took 5.65 ms
+Timer 'STL Export' took 5.33 ms
+Timer 'STL Export' took 4.35 ms
+Timer 'STL Export' took 4.23 ms
+Timer 'STL Export' took 3.53 ms
+Timer 'STL Export' took 3.50 ms
+Timer 'STL Export' took 3.66 ms
+Timer 'STL Export' took 3.62 ms
+Timer 'STL Export' took 2.62 ms
+Timer 'STL Export' took 1.10 ms
+Timer 'STL Export' took 1.09 ms
+Timer 'STL Export' took 0.91 ms
+Timer 'STL Export' took 1.01 ms
+Timer 'STL Export' took 1.11 ms
+Timer 'STL Export' took 1.11 ms
+Timer 'STL Export' took 0.92 ms
+Timer 'STL Export' took 0.96 ms
+Timer 'STL Export' took 3.06 ms
+Timer 'STL Export' took 2.95 ms
+Timer 'STL Export' took 2.47 ms
+Timer 'STL Export' took 2.51 ms
+Timer 'STL Export' took 3.05 ms
+Timer 'STL Export' took 3.15 ms
+Timer 'STL Export' took 3.38 ms
+Timer 'STL Export' took 3.35 ms
+Timer 'STL Export' took 2.48 ms
+Timer 'STL Export' took 1.05 ms
+Timer 'STL Export' took 0.64 ms
+Timer 'STL Export' took 3.26 ms
+Timer 'STL Export' took 3.10 ms
+Timer 'STL Export' took 2.63 ms
+Timer 'STL Export' took 2.63 ms
+Timer 'STL Export' took 2.67 ms
+Timer 'STL Export' took 3.13 ms
+Timer 'STL Export' took 3.40 ms
+Timer 'STL Export' took 3.39 ms
+Timer 'STL Export' took 2.57 ms
+FOUT: kerntest
+Error: Suzanne open is not watertight (42 bad edges). Use Make watertight first.
+[sj-e2e] open: melding 'Error: Suzanne open is not watertight (42 bad edges). Use Make watertight first.\n'
+Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] melding: 'Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n'
+Error: Box would need 250000 voxels across (limit 3000). Check the unit of the scene (Convert to mm) or use a bigger voxel size
+[sj-e2e] melding: 'Error: Box would need 250000 voxels across (limit 3000). Check the unit of the scene (Convert to mm) or use a bigger voxel size\n'
+Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] melding: 'Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n'
+Error: These cuts make 301 cells (limit 200). Remove cuts or plan again
+[sj-e2e] melding: 'Error: These cuts make 301 cells (limit 200). Remove cuts or plan again\n'
+Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+[sj-e2e] vrij: melding Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+[sj-e2e] vrij: melding Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+Traceback (most recent call last):
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type float32 is not JSON serializable
+Error: Python: Traceback (most recent call last):
+           ~~~~~~~~~~~~~~~~~~~~~~~^^... truncated[sj-e2e] vrij: melding Error: Python: Traceback (most recent call last):
+[sj-e2e] FOUT vrij: snijden lukt {'CANCELLED'}
+[sj-e2e] FOUT vrij: snedevlak weg 
+[sj-e2e] FOUT vrij stuk 1: groen None wand None
+[sj-e2e] FOUT vrij: nieuw stuk is alleen het armeinde x -20.0 tot 52.2
+Traceback (most recent call last):
+KeyError: 'bpy_struct[key]: key "sj_gaten" not found'
+[sj-e2e] FOUT vrij: geen fout 
+[sj-e2e] KLAAR 5 FOUT ['vrij: snijden lukt', 'vrij: snedevlak weg', 'vrij stuk 1: groen', 'vrij: nieuw stuk is alleen het armeinde', 'vrij: geen fout']
+##[error]Process completed with exit code 1.
+
+===== e2e (5.3.0) / Schermafbeeldingen (Workbench-render van de stukken en een snijvlak) (laatste 49 van 49 regels) =====
+##[group]Run mkdir -p "e2e/screenshots/5.3.0"
+mkdir -p "e2e/screenshots/5.3.0"
+timeout 600 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender -b --factory-startup --python e2e/scherm_kern.py -- /tmp/sj_uit "$PWD/e2e/screenshots/5.3.0" 2>&1 | tee /tmp/scherm.log || true
+grep "\[sj-scherm\]" /tmp/scherm.log || true
+! grep -q "SCHERM FOUT" /tmp/scherm.log || { echo "FOUT: schermafbeelding"; exit 1; }
+grep -q "SCHERM OK suzanne-1" /tmp/scherm.log || { echo "FOUT: geen beeld van Suzanne"; exit 1; }
+grep "\[sj-e2e\]" /tmp/kern.log > "e2e/screenshots/5.3.0/uitslag.txt" || true
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: splitser-kern-1
+##[endgroup]
+00:00.301  blend            | Read blend: "/tmp/sj_uit/suzanne.blend"
+[sj-scherm] suzanne: 8 stukken, ['groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen'], pennen ['Pins 5 mm x40']
+00:00.349  gpu.vulkan       | WARNING Unable to initialize a Vulkan 1.1 instance.
+00:03.609  render           | Saved: '/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/suzanne-1-stukken.png'
+[sj-scherm] SCHERM OK suzanne-1-stukken.png 1537032 bytes
+00:04.717  render           | Saved: '/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/suzanne-2-snijvlak-1-2.png'
+[sj-scherm] SCHERM OK suzanne-2-snijvlak-1-2.png 1711968 bytes
+00:04.717  blend            | Read blend: "/tmp/sj_uit/vaas.blend"
+[sj-scherm] vaas: 16 stukken, ['groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen'], pennen ['Pins 5 mm x32']
+00:06.919  render           | Saved: '/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/vaas-1-stukken.png'
+[sj-scherm] SCHERM OK vaas-1-stukken.png 1519881 bytes
+00:07.941  render           | Saved: '/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/vaas-2-snijvlak-1-2.png'
+[sj-scherm] SCHERM OK vaas-2-snijvlak-1-2.png 1624864 bytes
+00:07.942  blend            | Read blend: "/tmp/sj_uit/schedel.blend"
+[sj-scherm] schedel: 8 stukken, ['groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen'], pennen ['Pins 5 mm x44']
+00:09.229  render           | Saved: '/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/schedel-1-stukken.png'
+[sj-scherm] SCHERM OK schedel-1-stukken.png 1563707 bytes
+00:10.254  render           | Saved: '/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/schedel-2-snijvlak-1-2.png'
+[sj-scherm] SCHERM OK schedel-2-snijvlak-1-2.png 1662640 bytes
+[sj-scherm] SCHERM FOUT vrij: geen /tmp/sj_uit/vrij.blend
+[sj-scherm] SCHERM KLAAR
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+[sj-scherm] suzanne: 8 stukken, ['groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen'], pennen ['Pins 5 mm x40']
+[sj-scherm] SCHERM OK suzanne-1-stukken.png 1537032 bytes
+[sj-scherm] SCHERM OK suzanne-2-snijvlak-1-2.png 1711968 bytes
+[sj-scherm] vaas: 16 stukken, ['groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen'], pennen ['Pins 5 mm x32']
+[sj-scherm] SCHERM OK vaas-1-stukken.png 1519881 bytes
+[sj-scherm] SCHERM OK vaas-2-snijvlak-1-2.png 1624864 bytes
+[sj-scherm] schedel: 8 stukken, ['groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen'], pennen ['Pins 5 mm x44']
+[sj-scherm] SCHERM OK schedel-1-stukken.png 1563707 bytes
+[sj-scherm] SCHERM OK schedel-2-snijvlak-1-2.png 1662640 bytes
+[sj-scherm] SCHERM FOUT vrij: geen /tmp/sj_uit/vrij.blend
+[sj-scherm] SCHERM KLAAR
+FOUT: schermafbeelding
+##[error]Process completed with exit code 1.
