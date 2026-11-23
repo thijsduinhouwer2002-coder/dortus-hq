@@ -1,0 +1,209 @@
+# gemaakt: 2026-11-23T23:45:42Z
+# workflow: Blender gewrichten e2e (Click Joints, echte Blender) (.github/workflows/blender-gewrichten-e2e.yml)
+# run: 45287215003 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45287215003
+# commit: 25efd957 tak claude/betrouwbaar-rig gestart door push
+# mislukte stappen: e2e (4.2.23): Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (4.2.23) / Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur) (laatste 200 van 582 regels) =====
+Info: Hinge placed. Bends 0° to 115°. 1.24 s.
+Info: Hinge placed. Bends 0° to 115°. 0.536 s.
+Info: Hinge placed. Bends 0° to 115°. 0.507 s.
+Info: Hinge placed. Bends 0° to 115°. 0.528 s.
+Info: Hinge placed. Bends 0° to 115°. 0.529 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER: tweede klik 10 nieuwe delen (10)
+[cj-kaart] OK   SCHARNIER: tweede set raakt de eerste niet
+[cj-kaart] SCHARNIER: maat set (110.0, 14.0, 60.6) mm
+Info: Hinge placed. Bends 0° to 115°. 0.562 s.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 75); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 115°. 0.514 s.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 35); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 115°. 0.892 s.
+Info: Hinge placed. Bends 0° to 115°. 0.522 s.
+Info: Hinge placed. Bends 0° to 115°. 0.555 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER meters: zelfde maat in mm ((110.0, 14.0, 60.6) tegen (110.0, 14.0, 60.6))
+[cj-kaart] OK   SCHARNIER meters: alle delen gesloten
+[cj-kaart] OK   SCHARNIER meters: vijf getallen (['0.10', '0.15', '0.20', '0.25', '0.30'])
+[cj-kaart] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+Timer 'STL Export' took 0.76 ms
+Timer 'STL Export' took 0.80 ms
+Timer 'STL Export' took 0.67 ms
+Timer 'STL Export' took 0.78 ms
+Timer 'STL Export' took 0.68 ms
+Timer 'STL Export' took 0.83 ms
+Timer 'STL Export' took 0.69 ms
+Timer 'STL Export' took 0.84 ms
+Timer 'STL Export' took 0.68 ms
+Timer 'STL Export' took 0.87 ms
+Timer 'STL Export' took 0.32 ms
+Timer 'STL Export' took 0.53 ms
+Timer 'STL Export' took 0.27 ms
+Timer 'STL Export' took 0.50 ms
+Timer 'STL Export' took 0.26 ms
+Timer 'STL Export' took 0.55 ms
+Timer 'STL Export' took 0.27 ms
+Timer 'STL Export' took 0.53 ms
+Timer 'STL Export' took 0.27 ms
+Timer 'STL Export' took 0.57 ms
+
+Blender quit
+STATUS Reinstalled "click_joints"
+Reloading external rigs...
+Reloading external metarigs...
+PROBE rigify True
+PROBE hoogte 207.8 botten ['spine.004', 'upper_arm.L', 'forearm.L', 'upper_arm.R', 'forearm.R', 'thigh.L', 'shin.L', 'thigh.R', 'shin.R']
+Error: The cut gave no watertight parts (bad edges: part A 1123, part B 0); the mesh is unchanged.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 135°. 41.15 s.
+Info: Hinge placed. Bends 0° to 135°. 13.381 s.
+Info: Hinge placed. Bends 0° to 135°. 8.808 s.
+Info: Hinge placed. Bends 0° to 135°. 8.889 s.
+Info: Joint placed. Good fit. 3.859 s.
+Warning: Too close to another joint (keep 35 mm apart).
+Warning: Too close to another joint (keep 35 mm apart).
+Warning: Too close to another joint (keep 24 mm apart).
+Warning: Too close to another joint (keep 24 mm apart).
+Warning: Too close to another joint (keep 72 mm apart).
+Warning: Too close to another joint (keep 72 mm apart).
+Warning: Too close to another joint (keep 65 mm apart).
+Warning: Too close to another joint (keep 66 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Info: Joint placed. Good fit. 9.545 s.
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Warning: Too close to another joint (keep 29 mm apart).
+Info: Joint placed. Good fit. 9.369 s.
+Warning: 7 joints. Skipped: Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+PROBE {'FINISHED'} ['Left elbow · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–135° · preset', 'Left knee · Hinge · 0–135° · preset', 'Right knee · Hinge · 0–135° · preset', 'Neck · Ball · ±30° · preset', 'Left hip · Ball · ±14° · preset', 'Right hip · Ball · ±30° · preset']
+PROBE overgeslagen Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+PROBE delen 8 open []
+[cj-rigify] Blender 4.2.23 LTS, regels ['Left elbow · Hinge · 0–135° · preset', 'Right elbow · Hinge · 0–135° · preset', 'Left knee · Hinge · 0–135° · preset', 'Right knee · Hinge · 0–135° · preset', 'Neck · Ball · ±30° · preset', 'Left hip · Ball · ±14° · preset', 'Right hip · Ball · ±30° · preset']
+[cj-rigify] OK   geen gewricht op blocked
+[cj-rigify] OK   Left knee als scharnier (Left knee · Hinge · 0–135° · preset)
+[cj-rigify] OK   Left elbow als scharnier (Left elbow · Hinge · 0–135° · preset)
+[cj-rigify] OK   Left hip beweegt meer dan 10 graden (Left hip · Ball · ±14° · preset)
+[cj-rigify] OK   Right knee als scharnier (Right knee · Hinge · 0–135° · preset)
+[cj-rigify] OK   Right elbow als scharnier (Right elbow · Hinge · 0–135° · preset)
+[cj-rigify] OK   Right hip beweegt meer dan 10 graden (Right hip · Ball · ±30° · preset)
+[cj-rigify] OK   overgeslagen met reden: Left shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[cj-rigify] OK   overgeslagen met reden: Right shoulder (no room on this 29 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range)
+[cj-rigify] OK   8 delen, alle gesloten (7 gewrichten)
+[cj-rigify] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-ai] Pro geladen: True
+23:33:11 | INFO: Data are loaded, start creating Blender stuff
+23:33:11 | INFO: Blender create Mesh node Mesh1
+23:33:11 | INFO: glTF import finished in 0.05s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Error: The cut gave no watertight parts (bad edges: part A 1012, part B 0); the mesh is unchanged.
+[cj-chris] KNIE op (-0.3, 15.4, 40.5): fout Error: The cut gave no watertight parts (bad edges: part A 1012, part B 0); the mesh is unchanged.
+, delen [], melding None
+[cj-voet] OK   knie 27%: geweigerd, geen delen
+23:33:41 | INFO: Data are loaded, start creating Blender stuff
+23:33:41 | INFO: Blender create Mesh node Mesh1
+23:33:41 | INFO: glTF import finished in 0.05s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Error: The cut gave no watertight parts (bad edges: part A 818, part B 0); the mesh is unchanged.
+[cj-chris] KNIE op (1.1, 15.6, 37.5): fout Error: The cut gave no watertight parts (bad edges: part A 818, part B 0); the mesh is unchanged.
+, delen [], melding None
+[cj-voet] OK   knie 25%: geweigerd, geen delen
+23:34:07 | INFO: Data are loaded, start creating Blender stuff
+23:34:07 | INFO: Blender create Mesh node Mesh1
+23:34:07 | INFO: glTF import finished in 0.05s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+[cj-chris] KNIE op (-1.8, 14.6, 43.5): {'CANCELLED'}, delen [], melding None
+[cj-voet] OK   knie 29%: geweigerd, geen delen
+[cj-voet] INFO 4.2: 0 knie(ën) heel gelukt, weigeren is hier toegestaan (plan punt 3)
+[cj-voet] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-ai] Pro geladen: True
+[cj-mtoets] Blender 4.2.23 LTS
+23:34:10 | INFO: Data are loaded, start creating Blender stuff
+23:34:10 | INFO: Blender create Mesh node Mesh1
+23:34:10 | INFO: glTF import finished in 0.04s
+Info: Watertight copy man_backpack_gesloten made (107236 faces)
+[cj-mrig] man_backpack_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (11.3, -8.9, 40.5)
+[cj-mtoets] OK   man_backpack_gesloten: rig gemaakt
+Info: Hinge placed. Bends 0° to 120°. 10.343 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 9.267 s.
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: 2 joints · 1 rig · 1 mirror. Skipped: Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] OK   man_backpack_gesloten: geen lege tussenmeshes achtergebleven (0)
+[cj-mtoets] man_backpack_gesloten: uitslag {'FINISHED'}, gewrichten ['Left knee · Hinge · 0–120° · from rig', 'Right knee · Hinge · 0–120° · mirror'], overgeslagen: Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] OK   man_backpack_gesloten: linkerknie 0-120 from rig ({'nr': 1, 'naam': 'Left knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'from rig', 'punt': [11.3337, -8.9328, 40.5]})
+[cj-mtoets] OK   man_backpack_gesloten: rechterknie mirrored ({'nr': 2, 'naam': 'Right knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'mirrored', 'punt': [-11.8863, -6.6517, 37.4629]})
+[cj-mtoets] OK   man_backpack_gesloten: alle 3 delen gesloten
+[cj-mtoets] OK   man_backpack_gesloten: elk deel één stuk ([1, 1, 1])
+[cj-mtoets] OK   man_backpack_gesloten: Left hip overgeslagen met leesbare reden (Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-mtoets] OK   man_backpack_gesloten: Right hip overgeslagen met leesbare reden (Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+23:34:58 | INFO: Data are loaded, start creating Blender stuff
+23:34:58 | INFO: Blender create Mesh node Mesh1
+23:34:58 | INFO: glTF import finished in 0.05s
+Info: Watertight copy knight_yellow_gesloten made (217072 faces)
+[cj-mrig] knight_yellow_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (10.6, 33.1, 40.5)
+[cj-mtoets] OK   knight_yellow_gesloten: rig gemaakt
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 11.031 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Too close to another joint (keep 53 mm apart).
+Warning: Too close to another joint (keep 53 mm apart).
+Warning: Too close to another joint (keep 42 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 52 mm apart).
+Warning: Too close to another joint (keep 41 mm apart).
+Warning: Too close to another joint (keep 40 mm apart).
+Warning: 1 joint · 1 rig. Skipped: Right knee (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use a newer Blender such as 5.2, which cuts more reliably); Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] OK   knight_yellow_gesloten: geen lege tussenmeshes achtergebleven (0)
+[cj-mtoets] knight_yellow_gesloten: uitslag {'FINISHED'}, gewrichten ['Left knee · Hinge · 0–150° · from rig'], overgeslagen: Right knee (the cut parts overlap before they move here, place it by hand a few mm along the bone, or use a newer Blender such as 5.2, which cuts more reliably); Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] FOUT knight_yellow_gesloten: linkerknie 0-120 from rig ({'nr': 1, 'naam': 'Left knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 150.0, 'herkomst': 'from rig', 'punt': [10.6164, 33.1373, 40.5]})
+[cj-mtoets] OK   knight_yellow_gesloten: rechterknie mirrored (None)
+[cj-mtoets] OK   knight_yellow_gesloten: alle 2 delen gesloten
+[cj-mtoets] OK   knight_yellow_gesloten: elk deel één stuk ([1, 1])
+[cj-mtoets] OK   knight_yellow_gesloten: Left hip overgeslagen met leesbare reden (Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-mtoets] OK   knight_yellow_gesloten: Right hip overgeslagen met leesbare reden (Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+23:37:18 | INFO: Data are loaded, start creating Blender stuff
+23:37:18 | INFO: Blender create Mesh node Mesh1
+23:37:18 | INFO: glTF import finished in 0.04s
+Info: Watertight copy man_backpack_gesloten made (107236 faces)
+[cj-mrig] man_backpack_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (11.3, -8.9, 40.5)
+Info: Joint placed. Good fit. 7.663 s.
+Info: Joint placed. Good fit. 7.842 s.
+Info: Joint placed. Good fit. 7.594 s.
+Info: Joint placed. Good fit. 7.895 s.
+Warning: No joints placed. Skipped: Left hip (no room for a ball joint that can move here (it would be blocked), place it by hand); Right hip (no room for a ball joint that can move here (it would be blocked), place it by hand)
+[cj-mtoets] man_backpack_gesloten alleen heupen: uitslag {'CANCELLED'}, delen 1, overgeslagen: Left hip (no room for a ball joint that can move here (it would be blocked), place it by hand); Right hip (no room for a ball joint that can move here (it would be blocked), place it by hand)
+[cj-mtoets] OK   man_backpack_gesloten alleen heupen: model heel en ongesneden (1 delen)
+[cj-mtoets] OK   man_backpack_gesloten alleen heupen: redenen op het model te lezen (Left hip (no room for a ball joint that can move here (it would be blocked), place it by hand); Right hip (no room for a)
+[cj-mtoets] KLAAR 1 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+FOUT: figure from rig op Meshy-figuren
+##[error]Process completed with exit code 1.
