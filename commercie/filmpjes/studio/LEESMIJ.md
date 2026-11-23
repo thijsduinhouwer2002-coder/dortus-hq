@@ -8,6 +8,31 @@ mensfiguur van studio-1 "super nep" (plastic paspop, stijf gezicht) en koos "een
 gedaan". Laden: `FL.laad_figuur("robot")`. Bewijs: workflow `.github/workflows/studio2.yml`, release `studio-2`.
 Het mensfiguur (studio-1, `studio.yml`) blijft laadbaar met `FL.laad_figuur("mens")`, maar gebruik het niet meer.
 
+**Ronde 2 van de robot (studio-3, 23 nov ±21:00, opdracht hoofdchat ±20:35; workflow `studio3.yml`, release
+`studio-3`).** Wat er veranderde:
+1. **Stoer in plaats van schriel:** dikke antraciet buizen (bovenarm 9, dij 11 mm straal) en pantser dat bijna tot
+   het gewricht loopt (bovenarm 24 tot 80 procent van het bot, onderarm 28 procent tot de pols, dij 24 tot 84, scheen
+   vanaf 20 procent tot in de laars). Bij de gewrichten blijft alleen een smalle donkere ring. De regel die dat mag:
+   pantser hoogstens 1,3 keer de buis (anders schuift de kogel te ver uit de romp), en het bot van elleboog en knie
+   blijft 4,4 en 6 mm van de huid aan de buigkant (`ELLEBOOG_R`, `KNIE_R`, `rig_punten`).
+2. **Vuisten met vingers:** handpalm, vier vingerblokjes met een groefje en vingertoppen, een duim, blauwe pols
+   (`hand()`).
+3. **Heldenpose:** breed staan, linkervuist omhoog, rechtervuist klaar, kin omhoog (`HELD`). `poseer()` zet de delen
+   als keten: kogels draaien om hun kogelmidden binnen het bereik dat de add-on meldt (schouders en heupen ±30,
+   nek ±20), scharnieren buigen met de schuif van de add-on en die draaiing wordt overgenomen.
+4. **Uit elkaar:** `poseer(delen, {}, uit=26)`: elk deel 26 mm langs de as van zijn gewricht, bovenop het deel waar
+   het aan zit (de knop Exploded view van de add-on schuift 1,5 keer de kogel, ±12 mm, en per deel los).
+5. **Kleurgrenzen:** `kleur_herstel()` deelt na Figure from rig de vlakken langs een kleurgrens twee keer in vieren
+   en kleurt ze opnieuw per vorm: de grens volgt de vorm op ±0,13 mm in plaats van trapjes van 0,5 mm. Vlakken
+   zonder materiaal (naad van de add-on) en binnenvlakken worden antraciet. Alleen voor renders.
+6. **Winkelbeelden:** met `CJ_WINKEL=1` maakt `bewijs.py` ook `winkel-<naam>-held-2400.png` en
+   `winkel-<naam>-uit-elkaar-2400.png`: 1350 x 2400 px, geen studio, transparante achtergrond, geen tekst.
+7. **Gewrichten: 9 in CI** (job kandidaten en job studio van `studio3.yml`, run op 42376c66, GEZIEN): ellebogen
+   0 tot 140, knieën 0 tot 120, nek ±20, schouders ±30, linkerheup ±22, rechterheup ±30, elk deel één stuk.
+   De linkerheup lukte in studio-2 niet: met alleen heupen en knieën (of plus ellebogen, of plus schouders, of plus
+   nek) lukte hij wel, alleen in de volledige reeks niet. Met de dikkere ledematen lukt hij nu ook in de volledige
+   reeks; waarom precies weet ik niet (GOK: de dikkere dij geeft een grotere kogel en meer ruimte in de beweegproef).
+
 ## Wat erin zit
 | Bestand | Wat |
 |---|---|

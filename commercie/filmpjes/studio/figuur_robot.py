@@ -289,7 +289,7 @@ def kleur_vormen(bron_me, doel, diep=0.25, herstel=False):
             continue
         if binnen_i is not None:
             _l, _n, _i, d = alles.find_nearest(mw @ f.center)
-            if d is None or d > 1.0:
+            if d is None or d > 1.8:
                 f.material_index = binnen_i
                 continue
         q = mw @ (f.center - f.normal * diep)
