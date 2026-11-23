@@ -1,0 +1,44 @@
+[meet] figuur robot-fijn: Figuur, {'bron_punten': 489604, 'bron_zelf_overlap': 0}
+[meet] Blender 4.2.23 LTS figuur robot-fijn: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 15, sneden 13, slechte sneden 4
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4154486028600255, "h_voxel": 0.2077, "h_vlakken": 132678, "h_buiten": 0.0, "h_buiten_om": 0.0066, "h_pogingen": null}, "A": {"gesloten": false, "fout": 396, "punten": 457629, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 28272, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4154182523329204, "h_voxel": 0.2077, "h_vlakken": 132714, "h_buiten": 0.0, "h_buiten_om": 0.0044, "h_pogingen": null}, "A": {"gesloten": false, "fout": 387, "punten": 458898, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 28267, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 5, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.48984355686798425, "h_voxel": 0.2449, "h_vlakken": 171354, "h_buiten": 0.0007, "h_buiten_om": 0.0306, "h_pogingen": null}, "A": {"gesloten": false, "fout": 58, "punten": 364575, "zelf": 0, "herstel": {"vier": 49, "fout_na": 205}}, "B": {"gesloten": true, "fout": 0, "punten": 46262, "zelf": 0}, "goed": false}
+[meet]   SLECHT {"poging": 5, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4897330354845606, "h_voxel": 0.2449, "h_vlakken": 172244, "h_buiten": 0.0, "h_buiten_om": 0.0394, "h_pogingen": null}, "A": {"gesloten": false, "fout": 132, "punten": 364620, "zelf": 27, "herstel": {"vier": 109, "fout_na": 453}}, "B": {"gesloten": true, "fout": 0, "punten": 46242, "zelf": 0}, "goed": false}
+MEET robot-fijn gewrichten=9 overgeslagen=0 slechte_sneden=4
+STATUS Installed "click_joints"
+[studio] robot: 18564 punten voor de remesh, maat (140.6, 41.2, 220.4)
+Info: Watertight copy Figuur_gesloten made (489602 faces)
+[studio] kleuren per vorm: 489602 vlakken, 1478 buiten elke vorm
+[studio] robot na voxel: 489604 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.5, 2.0, 57.0), elleboog L (48.0, -4.0, 136.0)
+[meet] figuur robot-fijn: Figuur, {'bron_punten': 489604, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 140°. 60.625 s.
+Info: Hinge placed. Bends 0° to 140°. 14.631 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 120°. 42.928 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 120°. 13.588 s.
+Info: Joint placed. Good fit. 9.74 s.
+Info: Joint placed. Good fit. 17.239 s.
+Info: Joint placed. Good fit. 16.502 s.
+Info: Joint placed. Good fit. 14.409 s.
+Info: Joint placed. Good fit. 12.955 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 4.2.23 LTS figuur robot-fijn: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 15, sneden 13, slechte sneden 4
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4154486028600255, "h_voxel": 0.2077, "h_vlakken": 132678, "h_buiten": 0.0, "h_buiten_om": 0.0066, "h_pogingen": null}, "A": {"gesloten": false, "fout": 396, "punten": 457629, "zelf": 0, "herstel": null}, "B"
+[meet]   SLECHT {"poging": 0, "gewricht": "Left elbow", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 4, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4154182523329204, "h_voxel": 0.2077, "h_vlakken": 132714, "h_buiten": 0.0, "h_buiten_om": 0.0044, "h_pogingen": null}, "A": {"gesloten": false, "fout": 387, "punten": 458898, "zelf": 0, "herstel": null}, "B"
+[meet]   SLECHT {"poging": 5, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.48984355686798425, "h_voxel": 0.2449, "h_vlakken": 171354, "h_buiten": 0.0007, "h_buiten_om": 0.0306, "h_pogingen": null}, "A": {"gesloten": false, "fout": 58, "punten": 364575, "zelf": 0, "herstel": {"vier":
+[meet]   SLECHT {"poging": 5, "gewricht": "Left knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 2, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4897330354845606, "h_voxel": 0.2449, "h_vlakken": 172244, "h_buiten": 0.0, "h_buiten_om": 0.0394, "h_pogingen": null}, "A": {"gesloten": false, "fout": 132, "punten": 364620, "zelf": 27, "herstel": {"vier": 1
+MEET robot-fijn gewrichten=9 overgeslagen=0 slechte_sneden=4
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+model name	: AMD EPYC 9V74 80-Core Processor
