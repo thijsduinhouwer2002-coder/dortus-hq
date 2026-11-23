@@ -6,9 +6,9 @@
 
 ## Stand (bijwerken per stap)
 1. Tak `claude/pro-mooier-overlay` samengevoegd met main (87ca7d4), plus 6aec211: schermtest van de standaard Labels Selected in de gewone e2e (moet 1: stap "Standaardbeeld Labels Selected", eis `MOOI SELECTED OK`), boog feller in Selected en bolletje rood voorbij de stop (C4 keuring, sterk aangeraden door Daan), dode code weg (kan 1).
-2. e2e op de tak in 4.2.23, 5.2.3 en 5.3.0: loopt (moet 3).
+2. e2e op de tak (6aec211, run 45171846451) groen in 4.2.23, 5.2.3 en 5.3.0, ook de nieuwe stap Standaardbeeld Labels Selected (GEZIEN, moet 3).
 3. Winkelteksten hieronder: naar Daan (moet 2).
-4. Daarna: tak naar main, PRO_VERSIE en uitgave-workflow op 1.2.1, uitgave-run, melden aan de hoofdchat.
+4. Tak naar main met PRO_VERSIE en uitgave-workflow op 1.2.1 (code was akkoord ja voor samenvoegen). Uitgave-run pas na het ja van Daan op de teksten; dan melden aan de hoofdchat.
 
 ## Releasenotes 1.2.1 (Engels, Gumroad en Superhive)
 ```
