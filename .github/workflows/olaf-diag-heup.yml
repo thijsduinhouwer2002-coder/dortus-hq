@@ -1,0 +1,48 @@
+name: Olaf diag CI-verschil (robot linkerheup)
+
+# Eenmalige meting (23 nov, Olaf): lokaal geeft Figure from rig op de robot 9 gewrichten, in CI 8 (linkerheup
+# "blocked"). Deze run doet de kandidaten-proef van studio2.yml na met een Pro 1.2.0 die meetregels print
+# (DIAGMESH, DIAGBEWEEG, DIAGGROOT) en faalt daarna expres, zodat actions-log het einde in de repo zet.
+# Alleen op tak claude/olaf-diag-*; zet niets naar buiten.
+on:
+  push:
+    branches: ["claude/olaf-diag-*"]
+
+permissions:
+  contents: read
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      PRO_COMMIT: f8dfbd30850afbee2da32219fe735c7b386827bd
+    steps:
+      - uses: actions/checkout@v4
+      - name: Meten
+        env:
+          CJ_NAAM: robot
+          CJ_ARMEN: "0"
+          BLENDER_USER_RESOURCES: /tmp/cj
+          BLENDER_USER_CONFIG: /tmp/cj/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+        run: |
+          B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break; rm -f /tmp/blender.tar.xz
+          done
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          sudo apt-get install -y -q libgl1 libegl1 libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 >/dev/null 2>&1 || true
+          git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
+          mkdir -p /tmp/v12 && git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v12
+          patch /tmp/v12/producten/blender-gewrichten/click_joints/beweeg.py producten/blender-gewrichten/proeven/ci-verschil/diag-beweeg.patch
+          (cd /tmp/v12/producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald)
+          mkdir -p /tmp/uit
+          timeout 1800 /tmp/blender/blender -b --factory-startup --python commercie/filmpjes/studio/proef_figuur.py -- \
+            /tmp/click_joints_betaald.zip robot 220 "" /tmp/uit > /tmp/uit/proef.log 2>&1 || true
+          echo "===== CPU ====="
+          grep -m1 "model name" /proc/cpuinfo; nproc; grep -o -w "avx512f\|avx2\|fma" /proc/cpuinfo | sort -u | tr '\n' ' '; echo
+          echo "===== UITSLAG ====="
+          grep -E "na voxel|DIAG|Joint placed|Hinge placed|Skipped|Warning|PROEF|Traceback|Error" /tmp/uit/proef.log | cut -c1-600
+          echo "Expres rood: zo zet actions-log dit einde in de repo."
+          exit 1

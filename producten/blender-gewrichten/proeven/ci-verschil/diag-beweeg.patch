@@ -1,0 +1,27 @@
+149a150,152
+> DIAG = []
+> 
+> 
+221,222c224,229
+<             if hit[0] is not None and (Vector(p) - hit[0]).dot(hit[1]) < -1e-9:
+<                 return True
+---
+>             if hit[0] is not None:
+>                 dd = (Vector(p) - hit[0]).dot(hit[1])
+>                 if abs(dd) < 1e-3:
+>                     DIAG.append(dd)
+>                 if dd < -1e-9:
+>                     return True
+262a270
+>     print("DIAGMESH", a.name, b.name, len(meshes[0][0]), len(meshes[1][0]), round(float(np.abs(meshes[0][0]).sum()), 2), round(float(np.abs(meshes[1][0]).sum()), 2))
+263a272
+>     DIAG.clear()
+264a274,275
+>     _ov0 = [len(meter.bvh_a.overlap(BVHTree.FromPolygons(meter.draai(k, 0.0).tolist(), meter.b[1]))) if meter.bvh_a and meter.b[1] else -1 for k in range(len(meter.richtingen))]
+>     print("DIAGBEWEEG", a.name, "klein", [round(x,2) for x in klein], "ov0", _ov0, "bijna", len(DIAG), "min", (min(DIAG, key=abs) if DIAG else None), "neg", sum(1 for x in DIAG if x < -1e-9))
+275a287,291
+>     _vm = groot._vol if groot._vol is not None else groot
+>     DIAG.clear()
+>     _r0 = [groot.raakt(k, 0.0) for k in range(len(groot.richtingen))]
+>     _o0 = [len(_vm.bvh_a.overlap(BVHTree.FromPolygons(_vm.draai(k, 0.0).tolist(), _vm.b[1]))) if _vm.bvh_a and _vm.b[1] else -1 for k in range(len(groot.richtingen))]
+>     print("DIAGGROOT", a.name, "grenzen", grenzen, "raakt0", _r0, "ov0", _o0, "bijna", len(DIAG), "min", (min(DIAG, key=abs) if DIAG else None), "vlakken", len(groot.a[1]), len(groot.b[1]), "gesnoeid", groot.gesnoeid)
