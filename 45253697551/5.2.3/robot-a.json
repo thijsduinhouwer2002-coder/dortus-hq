@@ -1,0 +1,586 @@
+{
+ "figuur": "robot-a",
+ "blender": "5.2.3 LTS",
+ "gewrichten": 9,
+ "namen": [
+  "Left elbow",
+  "Right elbow",
+  "Left knee",
+  "Right knee",
+  "Neck",
+  "Left shoulder",
+  "Right shoulder",
+  "Left hip",
+  "Right hip"
+ ],
+ "regels": [
+  "Left elbow \u00b7 Hinge \u00b7 0\u2013140\u00b0 \u00b7 from rig",
+  "Right elbow \u00b7 Hinge \u00b7 0\u2013140\u00b0 \u00b7 mirror",
+  "Left knee \u00b7 Hinge \u00b7 0\u2013120\u00b0 \u00b7 from rig",
+  "Right knee \u00b7 Hinge \u00b7 0\u2013120\u00b0 \u00b7 mirror",
+  "Neck \u00b7 Ball \u00b7 \u00b120\u00b0 \u00b7 preset",
+  "Left shoulder \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset",
+  "Right shoulder \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset",
+  "Left hip \u00b7 Ball \u00b7 \u00b128\u00b0 \u00b7 preset",
+  "Right hip \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset"
+ ],
+ "overgeslagen": "",
+ "ontbreekt": [],
+ "delen": 10,
+ "open_delen": [],
+ "knop_s": 139.2,
+ "pogingen": [
+  {
+   "gewricht": "Left elbow",
+   "ok": true,
+   "melding": "Left elbow: hinge, 0\u2013140\u00b0.",
+   "s": 7.1,
+   "plek": [
+    48.0,
+    -4.0,
+    136.0
+   ]
+  },
+  {
+   "gewricht": "Right elbow",
+   "ok": true,
+   "melding": "Right elbow: hinge, 0\u2013140\u00b0.",
+   "s": 6.69,
+   "plek": [
+    -48.0,
+    -4.0,
+    136.0
+   ]
+  },
+  {
+   "gewricht": "Left knee",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.38,
+   "plek": [
+    18.5,
+    2.0,
+    57.0
+   ]
+  },
+  {
+   "gewricht": "Left knee",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.37,
+   "plek": [
+    18.497,
+    -2.135,
+    57.096
+   ]
+  },
+  {
+   "gewricht": "Left knee",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.38,
+   "plek": [
+    18.589,
+    -2.087,
+    52.792
+   ]
+  },
+  {
+   "gewricht": "Left knee",
+   "ok": true,
+   "melding": "Left knee: hinge, 0\u2013120\u00b0.",
+   "s": 7.16,
+   "plek": [
+    18.688,
+    -2.016,
+    48.488
+   ]
+  },
+  {
+   "gewricht": "Right knee",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.32,
+   "plek": [
+    -18.5,
+    2.0,
+    57.0
+   ]
+  },
+  {
+   "gewricht": "Right knee",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.31,
+   "plek": [
+    -18.496,
+    -2.134,
+    57.096
+   ]
+  },
+  {
+   "gewricht": "Right knee",
+   "ok": false,
+   "melding": "Tight: too little limb past this joint to click. Try a spot further from the end",
+   "s": 0.31,
+   "plek": [
+    -18.589,
+    -2.087,
+    52.792
+   ]
+  },
+  {
+   "gewricht": "Right knee",
+   "ok": true,
+   "melding": "Right knee: hinge, 0\u2013120\u00b0.",
+   "s": 6.44,
+   "plek": [
+    -18.692,
+    -2.016,
+    48.489
+   ]
+  },
+  {
+   "gewricht": "Neck",
+   "ok": true,
+   "melding": "Neck: ball, \u00b120\u00b0.",
+   "s": 4.77,
+   "plek": [
+    0.0,
+    0.146,
+    181.5
+   ],
+   "blocked": false,
+   "buig": [
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4,
+    20.4
+   ]
+  },
+  {
+   "gewricht": "Left shoulder",
+   "ok": true,
+   "melding": "Left shoulder: ball, \u00b130\u00b0.",
+   "s": 5.56,
+   "plek": [
+    29.867,
+    -0.044,
+    172.192
+   ],
+   "blocked": false,
+   "buig": [
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4
+   ]
+  },
+  {
+   "gewricht": "Right shoulder",
+   "ok": true,
+   "melding": "Right shoulder: ball, \u00b130\u00b0.",
+   "s": 5.18,
+   "plek": [
+    -29.868,
+    -0.044,
+    172.192
+   ],
+   "blocked": false,
+   "buig": [
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4
+   ]
+  },
+  {
+   "gewricht": "Left hip",
+   "ok": true,
+   "melding": "Left hip: ball, \u00b10\u00b0 (blocked).",
+   "s": 67.72,
+   "plek": [
+    16.991,
+    -0.015,
+    115.999
+   ],
+   "blocked": true,
+   "buig": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "gewricht": "Left hip",
+   "ok": true,
+   "melding": "Left hip: ball, \u00b128\u00b0.",
+   "s": 6.3,
+   "plek": [
+    17.004,
+    -0.008,
+    115.7
+   ],
+   "blocked": false,
+   "buig": [
+    30.4,
+    28.0,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4
+   ]
+  },
+  {
+   "gewricht": "Right hip",
+   "ok": true,
+   "melding": "Right hip: ball, \u00b130\u00b0.",
+   "s": 5.32,
+   "plek": [
+    -16.991,
+    -0.015,
+    115.999
+   ],
+   "blocked": false,
+   "buig": [
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4,
+    30.4
+   ]
+  }
+ ],
+ "sneden": [
+  {
+   "poging": 0,
+   "gewricht": "Left elbow",
+   "soort": "SCHARNIER",
+   "solver": "MANIFOLD",
+   "een_lid": {
+    "lussen": 4,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 224611
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 14393
+   },
+   "goed": true
+  },
+  {
+   "poging": 1,
+   "gewricht": "Right elbow",
+   "soort": "SCHARNIER",
+   "solver": "MANIFOLD",
+   "een_lid": {
+    "lussen": 3,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 209206
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 14365
+   },
+   "goed": true
+  },
+  {
+   "poging": 5,
+   "gewricht": "Left knee",
+   "soort": "SCHARNIER",
+   "solver": "MANIFOLD",
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 180696
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 23365
+   },
+   "goed": true
+  },
+  {
+   "poging": 9,
+   "gewricht": "Right knee",
+   "soort": "SCHARNIER",
+   "solver": "MANIFOLD",
+   "een_lid": {
+    "lussen": 3,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 152189
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 23357
+   },
+   "goed": true
+  },
+  {
+   "poging": 10,
+   "gewricht": "Neck",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.98,
+   "r_mm": 3.25,
+   "naad_r": 6.9,
+   "een_lid": {
+    "lussen": 1,
+    "lid": null,
+    "h_soort": null,
+    "lid_open": null,
+    "vreemd": null
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 130655
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 26491
+   },
+   "overlap_ab": 0,
+   "goed": true
+  },
+  {
+   "poging": 11,
+   "gewricht": "Left shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 2.25,
+   "r_mm": 4.5,
+   "naad_r": 8.691,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 121203
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 14813
+   },
+   "overlap_ab": 0,
+   "goed": true,
+   "h_zelf_overlap": 166
+  },
+  {
+   "poging": 12,
+   "gewricht": "Right shoulder",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 2.14,
+   "r_mm": 4.5,
+   "naad_r": 8.685,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 111737
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 14847
+   },
+   "overlap_ab": 0,
+   "goed": true,
+   "h_zelf_overlap": 208
+  },
+  {
+   "poging": 13,
+   "gewricht": "Left hip",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 2.25,
+   "r_mm": 6.25,
+   "naad_r": 11.378,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "los",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 99144
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 32514
+   },
+   "overlap_ab": 9271,
+   "goed": false,
+   "h_zelf_overlap": 4263,
+   "proeven": {
+    "exact": {
+     "goed": false,
+     "A": 397,
+     "B": 811,
+     "overlap": 225,
+     "s": 46.6
+    },
+    "schuif_0.05": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 9171,
+     "s": 2.97
+    },
+    "draai_0.3": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 9304,
+     "s": 2.91
+    },
+    "draai_1.0": {
+     "goed": false,
+     "A": 0,
+     "B": 0,
+     "overlap": 9326,
+     "s": 2.87
+    }
+   }
+  },
+  {
+   "poging": 14,
+   "gewricht": "Left hip",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 2.04,
+   "r_mm": 6.25,
+   "naad_r": 11.385,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 91823
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 25055
+   },
+   "overlap_ab": 0,
+   "goed": true,
+   "h_zelf_overlap": 198
+  },
+  {
+   "poging": 15,
+   "gewricht": "Right hip",
+   "soort": "KOGEL",
+   "solver": "MANIFOLD",
+   "terugval": false,
+   "s": 1.77,
+   "r_mm": 6.25,
+   "naad_r": 11.378,
+   "een_lid": {
+    "lussen": 2,
+    "lid": "B",
+    "h_soort": "samen",
+    "lid_open": 0,
+    "vreemd": 0
+   },
+   "A": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 71812
+   },
+   "B": {
+    "gesloten": true,
+    "fout": 0,
+    "punten": 25169
+   },
+   "overlap_ab": 0,
+   "goed": true,
+   "h_zelf_overlap": 211
+  }
+ ],
+ "bron_punten": 240130,
+ "bron_zelf_overlap": 0,
+ "uitslag": "{'FINISHED'}"
+}
