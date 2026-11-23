@@ -1604,7 +1604,7 @@ Kopieën van archive.org (GEZIEN; "Published ..." is de leeftijd die Superhive o
 | Folds Modifier ($12) | 600+ (mei 2025), 700+ (nov 2025), 800+ (mei 2026), 800+ nu |
 | Texel Density Checker ($10, Mrven) | 80+ (sep 2020), 200+ (sep 2021), 200+ (mei en sep 2024), 300+ (apr 2025), 300+ nu |
 
-- **Eerste maand ±40 verkopen, daarna ±10 tot 20 per maand per product** (GOK, uit de banden afgeleid). Wie elke paar maanden een nieuw product uitbrengt, stapelt die staarten: MultLabs bracht in 13 maanden Book (nov 2024), Staircase (mrt 2025), Smart Simplify (dec 2025), Topiary (jan 2026), Render Profiler (mrt 2026), Lottie (apr/mei 2026) en Tree Craft (sep 2026) uit (GEZIEN, data van de forumtopics hieronder).
+- **Eerste maand ±40 verkopen, daarna ±10 tot 20 per maand per product** (GOK, uit de banden afgeleid). Wie elke paar maanden een nieuw product uitbrengt, stapelt die staarten: MultLabs bracht in 23 maanden 6 betaalde producten uit, Folds Modifier (okt 2024), Book (nov 2024), Staircase (mrt 2025), Smart Simplify (dec 2025), Topiary (jan 2026) en Tree Craft (sep 2026), plus 2 gratis tools met steunpagina, Render Profiler (feb 2026) en Lottie (apr 2026) (GEZIEN, data van de forumtopics hieronder).
 - Topiary Generator kreeg op 9 feb 2026 een stukje in Digital Production, op de dag van de eerste kopie (40+) (DERDEN, [digitalproduction.com, 9 feb 2026](https://digitalproduction.com/2026/02/09/topiary-generator-grows-procedural-foliage-in-blender/)). Daarna 100+ binnen 3 maanden. Hoeveel van die 60 door het stukje kwamen: onbekend (GOK).
 - Texel: de band ging van 200+ naar 300+ tussen sep 2024 en apr 2025, de eerste maanden dat de gratis versie op extensions.blender.org stond (GEZIEN, juli 2024 op extensions). Of dat door extensions kwam: GOK, maar het is de enige sprong in vier jaar.
 
@@ -1624,14 +1624,14 @@ Kopieën van archive.org (GEZIEN; "Published ..." is de leeftijd die Superhive o
 - **Niet doen:** zonder eigen gebruikers een topic per betaald product openen (Tree Craft 112 kijkers, SlicerJoint 312); en geen tweede product bouwen alleen voor de staart zonder dat de eerste maand van Pro iets laat zien.
 
 ## Patronen na ronde 31
-99. **Eén product geeft een korte piek en een dunne staart; de verkoop komt van stapelen** (144): ±40 in de eerste maand, daarna ±10 tot 20 per maand (GOK). MultLabs bracht er 7 uit in 13 maanden.
+99. **Eén product geeft een korte piek en een dunne staart; de verkoop komt van stapelen** (144): ±40 in de eerste maand, daarna ±10 tot 20 per maand (GOK). MultLabs bracht er 6 betaalde uit in 23 maanden.
 100. **Het forumtopic van een gratis tool is het langst lopende kanaal** (145): 16.000 tot 30.000 kijkers over jaren, levend gehouden door snelle reparaties, met de "tip"-links in het eerste bericht.
 101. **Steunknoppen bij gratis tools halen rond 0,1%** (143), net als in 141. Ze helpen, maar het geld zit in de betaalde producten waar de gratis tools naar wijzen.
 
 ## Stand na run 23 nov ±03:25 UTC (klok van de container)
 Vijf belangrijkste dingen:
 1. **Verkoopband in de tijd (archive.org, GEZIEN):** Topiary Generator 40+ na 26 dagen en 100+ na 4 maanden; Tree Craft 10+ na 3 dagen en 50+ na 2 maanden; Staircase 40+, 100+, 200+, 300+ na 2, 6, 11 en 19 maanden. Dus ±40 in de eerste maand, daarna ±10 tot 20 per maand (GOK).
-2. **MultLabs stapelt:** 7 betaalde producten in 13 maanden, samen 800+ / 300+ / 100+ / 100+ / 100+ / 60+ / 50+ (GEZIEN). Dat is de weg naar geld in deze winkel, niet één product groter maken.
+2. **MultLabs stapelt:** 6 betaalde producten in 23 maanden (okt 2024 tot sep 2026), met nu 800+, 300+, 100+, 100+, 50+ en nog geen band; met de oudere Vox (100+) en Building Generator (60+) samen minstens 1.500 verkopen (GEZIEN, ondergrenzen). Dat is de weg naar geld in deze winkel, niet één product groter maken.
 3. **Steunpagina's voor gratis tools halen ±0,06% tot 0,25%** (GOK, band/downloads); zelfde orde als 141.
 4. **De BlenderArtists-topics van de gratis tools leven jaren** (30.134 en 16.037 keer bekeken, laatste bericht gisteren), dankzij reparaties op de dag zelf. Topics over betaalde producten halen 112 tot 7.447; die van onze directe concurrenten 98 tot 699 (GEZIEN).
 5. **Topiary Generator stond in Digital Production op de dag dat hij 40+ had** (DERDEN); derde voorbeeld van dat blad bij een kleine maker (na 129 en 131).
