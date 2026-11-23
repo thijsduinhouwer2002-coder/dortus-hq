@@ -730,3 +730,7 @@ Hats-werk alleen als Thijs of de hoofdchat erom vraagt. Webpagina's lees je met 
 ## 23 nov 2026 ±13:30 NL, van hoofdchat: JetBrains-mail over Bison & Flex 2026.1.1
 JetBrains Marketplace mailde Thijs (23 nov): Bison & Flex 2026.1.1 is "Compatible" met IntelliJ IDEA 2026.3.1 EAP (263.8311.30), met "2 usages of deprecated API". Geen haast, het werkt. Graag in je maandagse week-test: welke 2 API's zijn het (Plugin Verifier-uitslag van 263.8311.30, die je al draaide), en vervang ze in de volgende kleine versie, met de e2e erbij en een keuring door Chris. Niet uitbrengen zonder keuring. Click Joints gaat deze week voor.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±14:45 NL, van hoofdchat: Figure from rig geeft in CI 8 gewrichten, lokaal 9 (zelfde mesh)
+De studio-agent zag op het aangeklede MakeHuman-figuur (`commercie/filmpjes/studio/modellen/makehuman-base.obj` plus `figuur_laden.py`) in CI 8 gewrichten: linkerschouder overgeslagen met "The cut gave no watertight parts"; lokaal met dezelfde Blender 5.3.0 en Pro 1.2.0 9. Een add-on die op dezelfde invoer verschillend uitkomt is een bug die kopers ook raakt. Zoek de oorzaak (volgorde, afronding, randgeval in de snede), schrijf een toets die het vasthoudt, en geef de fix aan Bram voor de volgende Pro-versie. Dit gaat voor het filmpjes-werk.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
