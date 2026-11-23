@@ -42,3 +42,8 @@
   de stem-info: die zinnen naluisteren). Een niet verstane zin wordt alleen nog gevuld met pauzes tussen de zekere
   knippunten eromheen, en geeft een fout als die er niet zijn, in plaats van stil verkeerd te knippen. Toets zonder
   whisper: `toets_splits.py --zonder-whisper`, 0 FOUT (GEZIEN, lokaal).
+- 23 nov 2026 ±21:35 NL, Olaf: `apt-snel.sh` getoetst (workflow `apt-snel-proef.yml`, run 45259595436, 3 runners naast
+  elkaar, pakketlijst van regisseur-3/4, GEZIEN): werkt zonder `apt-get update`, alles aanwezig, 25 s, 32 s en 310 s.
+  Dus veilig om te gebruiken, maar het haalt niet alle uitschieters weg: de trage runner was traag in het downloaden,
+  niet in de update. Wil de Regisseur de uitschieters echt kwijt, dan is de volgende stap de .deb-bestanden bewaren met
+  actions/cache (gratis binnen GitHub); dat bouw ik als hij het wil.
