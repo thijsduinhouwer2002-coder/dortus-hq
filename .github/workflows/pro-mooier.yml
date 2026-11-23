@@ -1,0 +1,91 @@
+name: Pro mooier overlay (voor en na, MakeHuman-figuur)
+
+# 23 nov 2026, opdracht hoofdchat: hoe Click Joints Pro er zelf uitziet in Blender, voor en na de wijziging op de
+# tak claude/pro-mooier-overlay. Zelfde script (e2e/scherm_mooi.py) op de Pro-code van main (VOOR_COMMIT) en op de
+# code van deze tak. Beelden in de release pro-mooier-1 (alleen schermafbeeldingen en logs, nooit een zip).
+on:
+  push:
+    branches: ["claude/pro-mooier-overlay"]
+    paths: ["producten/blender-gewrichten/**", ".github/workflows/pro-mooier.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: pro-mooier-1
+  VOOR_COMMIT: 6aa52dcbf394a6b5d6d89e5714dab5b44b0edad7  # main 23 nov 11:45, Pro-code gelijk aan 1.2.0
+
+jobs:
+  beelden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool
+      - name: Blender 5.3.0 en MakeHuman-figuur
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          curl -fsSL --retry 3 -o /tmp/mh_base.obj https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj
+      - name: Twee Pro-zips (voor = main, na = deze tak)
+        run: |
+          git fetch -q --no-tags --depth=1 origin "$VOOR_COMMIT"
+          mkdir -p /tmp/voor
+          git archive "$VOOR_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/voor
+          (cd /tmp/voor/producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald) && mv /tmp/click_joints_betaald.zip /tmp/voor.zip
+          (cd producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald) && mv /tmp/click_joints_betaald.zip /tmp/na.zip
+          sha256sum /tmp/voor.zip /tmp/na.zip
+      - name: Beelden maken (voor en na, zelfde script)
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          CJ_MENS_OBJ: /tmp/mh_base.obj
+        run: |
+          cd producten/blender-gewrichten
+          for soort in voor na; do
+            export BLENDER_USER_RESOURCES=/tmp/cj_$soort BLENDER_USER_CONFIG=/tmp/cj_$soort/config BLENDER_USER_EXTENSIONS=/tmp/cj_$soort/extensions
+            /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_$soort.blend')"
+            timeout 500 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+              /tmp/blender/blender --gpu-backend opengl /tmp/start_$soort.blend --python e2e/scherm_mooi.py -- /tmp/uit/$soort /tmp/$soort.zip 2>&1 | tee /tmp/mooi-$soort.log || true
+            grep "MOOI\|Traceback\|Error" /tmp/mooi-$soort.log | cut -c1-600 || true
+          done
+          grep -q "MOOI OK" /tmp/mooi-voor.log || { echo "FOUT: voor-beelden"; exit 1; }
+          grep -q "MOOI OK" /tmp/mooi-na.log || { echo "FOUT: na-beelden"; exit 1; }
+      - name: Naast elkaar zetten
+        run: |
+          mkdir -p /tmp/klaar
+          for f in /tmp/uit/voor/*.png; do
+            n=$(basename "$f" .png)
+            cp "$f" "/tmp/klaar/voor-$n.png"
+            [ -s "/tmp/uit/na/$n.png" ] || continue
+            cp "/tmp/uit/na/$n.png" "/tmp/klaar/na-$n.png"
+            case "$n" in *paneel) continue;; esac
+            convert \( "$f" -resize 50% -gravity north -background '#16181d' -splice 0x40 -fill white -pointsize 26 -annotate +0+6 "voor (Pro 1.2.0)" \) \
+                    \( "/tmp/uit/na/$n.png" -resize 50% -gravity north -background '#16181d' -splice 0x40 -fill white -pointsize 26 -annotate +0+6 "na (tak pro-mooier)" \) \
+                    +append "/tmp/klaar/vergelijk-$n.png"
+          done
+          cp /tmp/mooi-voor.log /tmp/mooi-na.log /tmp/klaar/
+          echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, voor ${VOOR_COMMIT}" > /tmp/klaar/RUN.txt
+          ls -la /tmp/klaar
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pro-mooier-beelden
+          path: /tmp/klaar
+          if-no-files-found: warn
+      - name: In de release pro-mooier-1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Click Joints Pro mooier overlay: voor (Pro 1.2.0, main) en na (tak claude/pro-mooier-overlay), op de MakeHuman-figuur (CC0) na Figure from rig, echte Blender 5.3.0. Alleen werkbeelden, niets uitgebracht. Voorstel: platformen/blender/mooier-overlay-2026-11-23.md" > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease --title "Pro mooier overlay 1 (voor en na)" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/klaar/* --clobber -R "$GITHUB_REPOSITORY"
