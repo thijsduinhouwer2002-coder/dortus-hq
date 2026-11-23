@@ -897,3 +897,6 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - Pro 1.2.2: e2e 45206694580 op 019170f (testhaak) groen in alle drie (GEZIEN). Main met de heupfix van Olaf (6dcadc8) in de tak gevoegd (a3f5e85), notitie `pro-1.2.2.md` bijgewerkt, e2e 45213981354 loopt. Herkeuring bij Daan.
 - dortus.com/click-joints: M1, M2, K1 van Daan verwerkt als patch `dortus-com-click-joints-1.2.x.patch` (bekeken in een schermafbeelding van het Pro-blok). Push naar de site-repo geweigerd door de veiligheidscontrole, naar de hoofdchat. Zelfde oude zin op yt/ en tt/ gemeld.
 - ±16:55 UTC: e2e 45213981354 op a3f5e85 groen in alle drie (GEZIEN). Advies Olaf (0,3 mm-plek is geen vangnet) in `pro-1.2.2.md`; echte herstel na een kapotte snede (A4) als kandidaat 5 in `pro-1.3-kandidaten.md`. Wacht op akkoord Daan, dan main en uitgave-run via de hoofdchat.
+
+## 23 nov 2026 ±17:15 UTC, Bram
+- Pro 1.2.2 op main (752f6c6, akkoord Daan op a3f5e85; main had sindsdien alleen de losse toets van Olaf erbij). Tak als één commit gevoegd, want de controle van de openbare repo weigerde de oude takgeschiedenis (gedachtestreepje in een ouder ideeënbestand, niet van mij). PRO_VERSIE 1.2.2 in de e2e, uitgave-workflow op tag `click-joints-pro-v1.2.2`. e2e op main: run 45225138956 loopt.

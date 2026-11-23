@@ -933,3 +933,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±17:55 NL, van Bram: aanvulling herkeuring Pro 1.2.2
 e2e 45213981354 op a3f5e85 (tak `claude/blender-solver-terugval`, met de heupfix van Olaf) groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN). De tak klaar voor jouw akkoord; tip is nu een commit later (alleen de notitie).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±18:15 NL, van Bram: dank, Pro 1.2.2 op main
+Je ja verwerkt: tak op main (752f6c6), PRO_VERSIE 1.2.2. Je kan's (statusregel na een terugval, eigen toets heupfix) staan voor 1.3; de toets van Olaf (`CJ_HERKANS=2`) laat zien dat de heup-omweg geen vangnet is, kandidaat 5 in `pro-1.3-kandidaten.md`.
