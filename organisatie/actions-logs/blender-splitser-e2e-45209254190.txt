@@ -1,0 +1,258 @@
+# gemaakt: 2026-11-23T15:49:22Z
+# workflow: Blender splitser e2e (Split Joints, echte Blender) (.github/workflows/blender-splitser-e2e.yml)
+# run: 45209254190 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45209254190
+# commit: 8d72a22a tak main gestart door push
+# mislukte stappen: e2e (4.2.23): Test zonder scherm (passen, waterdicht, pen in gat, nummers, export); e2e (4.2.23): Schermafbeeldingen (Workbench-render van de stukken en een snijvlak); e2e (5.3.0): Test zonder scherm (passen, waterdicht, pen in gat, nummers, export); e2e (5.3.0): Schermafbeeldingen (Workbench-render van de stukken en een snijvlak)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (4.2.23) / Test zonder scherm (passen, waterdicht, pen in gat, nummers, export) (laatste 98 van 98 regels) =====
+##[group]Run mkdir -p /tmp/sj_uit
+mkdir -p /tmp/sj_uit
+/tmp/blender/blender -b --factory-startup --python e2e/test_kern.py -- /tmp/split_joints.zip /tmp/modellen/vaas.glb /tmp/modellen/schedel.glb /tmp/sj_uit 2>&1 | tee /tmp/kern.log
+grep -q "KLAAR 0 FOUT" /tmp/kern.log || { echo "FOUT: kerntest"; grep "FOUT\|Traceback\|Error" /tmp/kern.log | head -60; exit 1; }
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: splitser-kern-1
+  BLENDER_USER_RESOURCES: /tmp/sj
+  BLENDER_USER_CONFIG: /tmp/sj/config
+  BLENDER_USER_EXTENSIONS: /tmp/sj/extensions
+##[endgroup]
+[sj-e2e] Blender 4.2.23 LTS
+STATUS Installed "split_joints"
+[sj-e2e] OK   operator split_joints.plan bestaat 
+[sj-e2e] OK   operator split_joints.split bestaat 
+[sj-e2e] OK   operator split_joints.exporteer bestaat 
+[sj-e2e] OK   operator split_joints.maak_gesloten bestaat 
+[sj-e2e] OK   operator split_joints.snede_erbij bestaat 
+[sj-e2e] OK   operator split_joints.snede_weg bestaat 
+Traceback (most recent call last):
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 134, in main
+    ob = maak()
+         ^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 72, in suzanne
+    return waterdicht(ob, 2.5)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 58, in waterdicht
+    bpy.context.scene.split_joints.voxel_mm = voxel
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Scene' object has no attribute 'split_joints'
+[sj-e2e] FOUT suzanne: geen fout 
+15:49:00 | INFO: Data are loaded, start creating Blender stuff
+15:49:00 | INFO: Blender create Mesh node Flowers
+15:49:00 | INFO: Blender create Mesh node GlassAlpha
+15:49:00 | INFO: Blender create Mesh node GlassTransmission
+15:49:00 | INFO: glTF import finished in 0.02s
+Traceback (most recent call last):
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 134, in main
+    ob = maak()
+         ^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 130, in <lambda>
+    for naam, maak in (("suzanne", modellen.suzanne), ("vaas", lambda: modellen.vaas(vaas_pad)),
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 93, in vaas
+    return waterdicht(ob, 2.0)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 57, in waterdicht
+    actief(ob)
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 50, in actief
+    o.select_set(False)
+    ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'select_set'
+[sj-e2e] FOUT vaas: geen fout 
+15:49:00 | INFO: Data are loaded, start creating Blender stuff
+15:49:00 | INFO: Blender create Mesh node Group54598_n3d2
+15:49:00 | INFO: glTF import finished in 0.18s
+Traceback (most recent call last):
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 134, in main
+    ob = maak()
+         ^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 131, in <lambda>
+    ("schedel", lambda: modellen.schedel(schedel_pad))):
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 99, in schedel
+    return waterdicht(ob, 2.0)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 58, in waterdicht
+    bpy.context.scene.split_joints.voxel_mm = voxel
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Scene' object has no attribute 'split_joints'
+[sj-e2e] FOUT schedel: geen fout 
+Traceback (most recent call last):
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 143, in main
+    te_klein()
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 172, in te_klein
+    splits("buis", ob)
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 24, in splits
+    inst = bpy.context.scene.split_joints
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Scene' object has no attribute 'split_joints'
+[sj-e2e] FOUT buis: geen fout 
+[sj-e2e] KLAAR 4 FOUT ['suzanne: geen fout', 'vaas: geen fout', 'schedel: geen fout', 'buis: geen fout']
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+FOUT: kerntest
+Traceback (most recent call last):
+AttributeError: 'Scene' object has no attribute 'split_joints'
+[sj-e2e] FOUT suzanne: geen fout 
+Traceback (most recent call last):
+AttributeError: 'NoneType' object has no attribute 'select_set'
+[sj-e2e] FOUT vaas: geen fout 
+Traceback (most recent call last):
+AttributeError: 'Scene' object has no attribute 'split_joints'
+[sj-e2e] FOUT schedel: geen fout 
+Traceback (most recent call last):
+AttributeError: 'Scene' object has no attribute 'split_joints'
+[sj-e2e] FOUT buis: geen fout 
+[sj-e2e] KLAAR 4 FOUT ['suzanne: geen fout', 'vaas: geen fout', 'schedel: geen fout', 'buis: geen fout']
+##[error]Process completed with exit code 1.
+
+===== e2e (4.2.23) / Schermafbeeldingen (Workbench-render van de stukken en een snijvlak) (laatste 25 van 25 regels) =====
+##[group]Run mkdir -p "e2e/screenshots/4.2.23"
+mkdir -p "e2e/screenshots/4.2.23"
+timeout 600 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender -b --factory-startup --python e2e/scherm_kern.py -- /tmp/sj_uit "$PWD/e2e/screenshots/4.2.23" 2>&1 | tee /tmp/scherm.log || true
+grep "\[sj-scherm\]" /tmp/scherm.log || true
+! grep -q "SCHERM FOUT" /tmp/scherm.log || { echo "FOUT: schermafbeelding"; exit 1; }
+grep -q "SCHERM OK suzanne-1" /tmp/scherm.log || { echo "FOUT: geen beeld van Suzanne"; exit 1; }
+grep "\[sj-e2e\]" /tmp/kern.log > "e2e/screenshots/4.2.23/uitslag.txt" || true
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: splitser-kern-1
+##[endgroup]
+[sj-scherm] SCHERM FOUT suzanne: geen /tmp/sj_uit/suzanne.blend
+[sj-scherm] SCHERM FOUT vaas: geen /tmp/sj_uit/vaas.blend
+[sj-scherm] SCHERM FOUT schedel: geen /tmp/sj_uit/schedel.blend
+[sj-scherm] SCHERM KLAAR
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+[sj-scherm] SCHERM FOUT suzanne: geen /tmp/sj_uit/suzanne.blend
+[sj-scherm] SCHERM FOUT vaas: geen /tmp/sj_uit/vaas.blend
+[sj-scherm] SCHERM FOUT schedel: geen /tmp/sj_uit/schedel.blend
+[sj-scherm] SCHERM KLAAR
+FOUT: schermafbeelding
+##[error]Process completed with exit code 1.
+
+===== e2e (5.3.0) / Test zonder scherm (passen, waterdicht, pen in gat, nummers, export) (laatste 95 van 95 regels) =====
+##[group]Run mkdir -p /tmp/sj_uit
+mkdir -p /tmp/sj_uit
+/tmp/blender/blender -b --factory-startup --python e2e/test_kern.py -- /tmp/split_joints.zip /tmp/modellen/vaas.glb /tmp/modellen/schedel.glb /tmp/sj_uit 2>&1 | tee /tmp/kern.log
+grep -q "KLAAR 0 FOUT" /tmp/kern.log || { echo "FOUT: kerntest"; grep "FOUT\|Traceback\|Error" /tmp/kern.log | head -60; exit 1; }
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: splitser-kern-1
+  BLENDER_USER_RESOURCES: /tmp/sj
+  BLENDER_USER_CONFIG: /tmp/sj/config
+  BLENDER_USER_EXTENSIONS: /tmp/sj/extensions
+##[endgroup]
+[sj-e2e] Blender 5.3.0
+STATUS Installed "split_joints"
+[sj-e2e] OK   operator split_joints.plan bestaat 
+[sj-e2e] OK   operator split_joints.split bestaat 
+[sj-e2e] OK   operator split_joints.exporteer bestaat 
+[sj-e2e] OK   operator split_joints.maak_gesloten bestaat 
+[sj-e2e] OK   operator split_joints.snede_erbij bestaat 
+[sj-e2e] OK   operator split_joints.snede_weg bestaat 
+Traceback (most recent call last):
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 134, in main
+    ob = maak()
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 72, in suzanne
+    return waterdicht(ob, 2.5)
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 58, in waterdicht
+    bpy.context.scene.split_joints.voxel_mm = voxel
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Scene' object has no attribute 'split_joints'
+[sj-e2e] FOUT suzanne: geen fout 
+15:48:40 | INFO: Data are loaded, start creating Blender stuff
+15:48:40 | INFO: Blender create Mesh node Flowers
+15:48:40 | INFO: Blender create Mesh node GlassAlpha
+15:48:40 | INFO: Blender create Mesh node GlassTransmission
+15:48:40 | INFO: glTF import finished in 0.04s
+Traceback (most recent call last):
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 134, in main
+    ob = maak()
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 130, in <lambda>
+    for naam, maak in (("suzanne", modellen.suzanne), ("vaas", lambda: modellen.vaas(vaas_pad)),
+                                                                       ~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 93, in vaas
+    return waterdicht(ob, 2.0)
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 57, in waterdicht
+    actief(ob)
+    ~~~~~~^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 50, in actief
+    o.select_set(False)
+    ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'select_set'
+[sj-e2e] FOUT vaas: geen fout 
+15:48:40 | INFO: Data are loaded, start creating Blender stuff
+15:48:40 | INFO: Blender create Mesh node Group54598_n3d2
+15:48:40 | INFO: glTF import finished in 0.36s
+Traceback (most recent call last):
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 134, in main
+    ob = maak()
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 131, in <lambda>
+    ("schedel", lambda: modellen.schedel(schedel_pad))):
+                        ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 99, in schedel
+    return waterdicht(ob, 2.0)
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/modellen.py", line 58, in waterdicht
+    bpy.context.scene.split_joints.voxel_mm = voxel
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Scene' object has no attribute 'split_joints'
+[sj-e2e] FOUT schedel: geen fout 
+Traceback (most recent call last):
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 143, in main
+    te_klein()
+    ~~~~~~~~^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 172, in te_klein
+    splits("buis", ob)
+    ~~~~~~^^^^^^^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/test_kern.py", line 24, in splits
+    inst = bpy.context.scene.split_joints
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Scene' object has no attribute 'split_joints'
+[sj-e2e] FOUT buis: geen fout 
+[sj-e2e] KLAAR 4 FOUT ['suzanne: geen fout', 'vaas: geen fout', 'schedel: geen fout', 'buis: geen fout']
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+FOUT: kerntest
+Traceback (most recent call last):
+AttributeError: 'Scene' object has no attribute 'split_joints'
+[sj-e2e] FOUT suzanne: geen fout 
+Traceback (most recent call last):
+AttributeError: 'NoneType' object has no attribute 'select_set'
+[sj-e2e] FOUT vaas: geen fout 
+Traceback (most recent call last):
+AttributeError: 'Scene' object has no attribute 'split_joints'
+[sj-e2e] FOUT schedel: geen fout 
+Traceback (most recent call last):
+AttributeError: 'Scene' object has no attribute 'split_joints'
+[sj-e2e] FOUT buis: geen fout 
+[sj-e2e] KLAAR 4 FOUT ['suzanne: geen fout', 'vaas: geen fout', 'schedel: geen fout', 'buis: geen fout']
+##[error]Process completed with exit code 1.
+
+===== e2e (5.3.0) / Schermafbeeldingen (Workbench-render van de stukken en een snijvlak) (laatste 25 van 25 regels) =====
+##[group]Run mkdir -p "e2e/screenshots/5.3.0"
+mkdir -p "e2e/screenshots/5.3.0"
+timeout 600 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender -b --factory-startup --python e2e/scherm_kern.py -- /tmp/sj_uit "$PWD/e2e/screenshots/5.3.0" 2>&1 | tee /tmp/scherm.log || true
+grep "\[sj-scherm\]" /tmp/scherm.log || true
+! grep -q "SCHERM FOUT" /tmp/scherm.log || { echo "FOUT: schermafbeelding"; exit 1; }
+grep -q "SCHERM OK suzanne-1" /tmp/scherm.log || { echo "FOUT: geen beeld van Suzanne"; exit 1; }
+grep "\[sj-e2e\]" /tmp/kern.log > "e2e/screenshots/5.3.0/uitslag.txt" || true
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: splitser-kern-1
+##[endgroup]
+[sj-scherm] SCHERM FOUT suzanne: geen /tmp/sj_uit/suzanne.blend
+[sj-scherm] SCHERM FOUT vaas: geen /tmp/sj_uit/vaas.blend
+[sj-scherm] SCHERM FOUT schedel: geen /tmp/sj_uit/schedel.blend
+[sj-scherm] SCHERM KLAAR
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+[sj-scherm] SCHERM FOUT suzanne: geen /tmp/sj_uit/suzanne.blend
+[sj-scherm] SCHERM FOUT vaas: geen /tmp/sj_uit/vaas.blend
+[sj-scherm] SCHERM FOUT schedel: geen /tmp/sj_uit/schedel.blend
+[sj-scherm] SCHERM KLAAR
+FOUT: schermafbeelding
+##[error]Process completed with exit code 1.
