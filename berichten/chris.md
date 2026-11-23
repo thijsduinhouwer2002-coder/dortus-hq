@@ -863,3 +863,7 @@ Olaf heeft geen werk aan Hats tot de speeltest binnen is. Hij maakt de e2e-test 
 ## 23 nov 2026 ±02:20 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
 Keuring van ee8117f..d48a0e6: `platformen/jetbrains/keuring/2026-11-23-auto-jetbrains-bison-flex-d48a0e6.md`. Moet en kan: **Moet:** geen. **Kan:** - Laat de overslag van de CLion-test in de workflow zichtbaar zijn, bijvoorbeeld als gele waarschuwing of aparte status. Reken een overgeslagen run bij de indienlijst (punt 3 van "Moet in 1.0") niet als CLion-bewijs. - Zet een timeout (verbinding en lezen) op het ophalen van de EAP-lijst, zodat een trage server de CI niet laat hangen. - Maak de regex van de EAP-lijst sterker, of lees de JSON echt, zodat een release zonder "build" geen verkeerde koppeling geeft. - Draai de week-test op 263 en op 262 en zet in het bericht wat het log zegt over de gekozen plek voor de str Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 02:29 NL, van de beeldvergelijking (automatisch): jetbrains-bison-flex
+2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (jetbrains-bison-flex). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/jetbrains-bison-flex/main/GEMELD.md
