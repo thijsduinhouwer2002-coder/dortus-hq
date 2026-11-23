@@ -103,7 +103,7 @@ voxelvorm juist bij kogelsneden zit. Nu:
   terugdraaien en de volgende plek. Toets in de e2e: `CJ_HERKANS=3` in `e2e/toetsen_mens.py` (eerste
   linkerschoudersnede verliest zogenaamd 50%; de knop moet een volgende plek nemen en de schouder toch plaatsen). Groen in
   de rig-toetsen van run 45282711505 voor 5.2.3 en 5.3.0 (GEZIEN: "na een kogelsnede die te veel verliest neemt de knop
-  een volgende plek"); 4.2 zie het bericht.
+  een volgende plek"), en in de gewone e2e (run 45282711688, stap Figuurpresets met `CJ_HERKANS=3`) groen in 4.2.23, 5.2.3 en 5.3.0.
 - **Gemeten:** bij elke geslaagde kogelsnede hetzelfde `verloren_stuk` (bol van 15 mm rond de cursor overgeslagen), in
   nulstand (2 herhalingen) en tak (5 herhalingen), drie versies. Cel: grootste verlies / kogelsneden boven 6%.
 
@@ -122,7 +122,7 @@ voxelvorm juist bij kogelsneden zit. Nu:
   aantal gewrichten is gelijk aan run 45273407326 en 45275271607, en per figuur in elke herhaling dezelfde gewrichten met
   hetzelfde bereik (21 van 21 groepen). De 7 tot 11% van de knight in 4.2 was een scharniersnede (rechterknie), waar het
   vangnet al gold en doorschoof.
-- Afgebroken door GitHub (exit 143, SIGTERM van de runner): 4.2 robot-fijn nulstand (beide), 4.2 rigify tak 1 van 5.
+- Afgebroken door GitHub (exit 143, SIGTERM van de runner): 4.2 robot-fijn nulstand (beide) en 4.2 rigify tak (2 van 5).
 
 ## Oorzaak (met bewijs)
 Figure from rig snijdt een lid los met een omhulsel H (`een_lid`): een convex omhulsel rond het snijvlak plus het lid
