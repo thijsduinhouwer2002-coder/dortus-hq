@@ -34,7 +34,7 @@ Uitslag uit CI, job `kandidaten` van `studio.yml`, bestanden `<naam>-<hoogte>.js
 
 | Kandidaat | Bron | Hoogte | Gewrichten | Wat de add-on meldt |
 |---|---|---|---|---|
-| **MakeHuman met kleding (gekozen)** | [makehuman base.obj](https://github.com/makehumancommunity/makehuman/blob/master/makehuman/data/3dobjs/base.obj), CC0 1.0, aangekleed door ons | 220 mm | MH_UITSLAG | MH_MELDING |
+| **MakeHuman met kleding (gekozen)** | [makehuman base.obj](https://github.com/makehumancommunity/makehuman/blob/master/makehuman/data/3dobjs/base.obj), CC0 1.0, aangekleed door ons | 220 mm | **8** in CI (ellebogen en knieën als scharnier met eindstop, nek, rechterschouder en beide heupen als kogel); lokaal 9 | in CI: linkerschouder "The cut gave no watertight parts", mesh daar onveranderd; lokaal (zelfde Blender en zip) geen meldingen. Elk deel één stuk |
 | Knight (Animated Knight Pack) | [Quaternius](https://quaternius.com/packs/knightcharacter.html) via [quaternius-showcase](https://github.com/trebeljahr/quaternius-showcase), CC0 | 240 mm | 3 (2 ellebogen, rechterknie) | schouders, heupen en nek: geen ruimte (bovenarm 40 tot 44 mm, dij 41 mm, korte stripverhoudingen); linkerknie te stijf |
 | Adventurer (Ultimate Modular Men), zonder rugzak, armen 40° omlaag | idem, CC0 | 260 mm | 4 (ellebogen, knieën) | schouders: bovenarm 25 mm te kort; heupen: geen ruimte naast de knie; nek niet geplaatst |
 | Medieval (Ultimate Modular Women), armen 40° omlaag | idem, CC0 | 260 mm | 4 (ellebogen, knieën) | schouders: alleen een heel kleine kogel past; heupen te dicht bij de knie (46 mm nodig) |
@@ -80,4 +80,19 @@ rand achter, plus een zon zonder schaduw voor de wand. AgX, look Punchy. Plastic
 laklaag 0,25, laaglijnen 0,4 mm als licht reliëf.
 
 ## Wat nog niet mooi is
-ZWAKTES
+Eerlijk, na zelf kijken naar de renders en schermen in release `studio-1` (GEZIEN):
+- **Geen "wauw" zoals het oceaanfilmpje van Malikose.** Het is een nette productfoto: aangekleed figuur met gezicht,
+  zacht licht, rustige muntgroene achtergrond, podium. Veel beter dan de kale oranje pop van shorts-4 (geen gezicht,
+  geen kleding, bleke effen achtergrond), maar een scroller stopt hier vooral als hij 3D print of figuren maakt (GOK).
+- **Haarlijn, wenkbrauwen en mond hebben trapjes**: de kleur gaat per vlakje van de remesh (0,5 mm). Op een telefoon
+  klein, op volle grootte goed te zien. Beter: kleur als vloeiende overgang (kleurlaag per punt) of fijnere voxels.
+- **Schoenen zijn hoekig** (bolle schil om de voet) en **handen hebben losse vingers** (MakeHuman), wat bij een
+  speelgoedfiguur wat vreemd oogt.
+- **Armen staan altijd half wijd**: de schouders zijn kogels van ±20°, dus de A-houding van het model blijft. Poses
+  gaan alleen met knieën (0 tot 120°) en ellebogen (0 tot 140°); de pose in de renders is een looppas.
+- **Naden bij de gewrichten**: lichte ringen bij hals, schouders en heupen (randen van kogel en kom) en een blokje bij
+  de elleboog. Dat is echt wat de add-on maakt; in de renders zijn alleen de passingkleuren weggehaald.
+- **Gewrichten wisselen per machine**: met precies dezelfde mesh gaf CI 8 en lokaal 9 (de snede van de
+  linkerschouder geeft soms "The cut gave no watertight parts"). Noem in een filmpje alleen wat de lijst in beeld zegt.
+- **Traag**: een render kost in CI ±5 minuten (EEVEE in software-OpenGL), de hele bewijs-run ±25 minuten per kleurstelling.
+- In het scherm staan de groene passingkleuren van de add-on met wat korrel op de heupbanden; zo ziet de add-on eruit.
