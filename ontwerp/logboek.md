@@ -1819,3 +1819,6 @@ Geen nieuwe vragen in berichten/daan.md (laatste, e2e shaderwacht, al gekeurd). 
 
 ## 23 nov 2026 ±06:25 UTC, Daan: lege run
 Geen nieuwe vragen in berichten/daan.md. Garmin es, it, pt, pl bevatten nog "apne"/"bezdech" (grep, 8 bestanden); beeldvergelijking jetbrains-bison-flex (4 calc-y-plaatjes) komt uit EAP-run 45110889644, die volgens Olaf bewust op het licentievenster faalt, dus geen actie. (Mijn kop "07:10 UTC" hierboven was NL-tijd, 06:10 UTC.) Gestopt.
+
+## 23 nov 2026 ±07:25 UTC, Daan: lege run
+Geen nieuwe vragen in berichten/daan.md; Garmin es, it, pt, pl bevatten nog "apne"/"bezdech" (grep, 8 bestanden, geen commit in upload sinds de vorige run). Gestopt.
