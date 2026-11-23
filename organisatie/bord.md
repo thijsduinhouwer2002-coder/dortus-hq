@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: ma 23 nov 2026, 11:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Makersmails Pro 1.1: 10 van 11 uit (10:05). Blok "New in Pro 1.2" voor Superhive gekeurd (Daan); staat met de Superhive-zip 1.2.0 bij Thijs (lijst 3d). Lite $3 aanzetten (lijst 3c) en Pro-zip 1.2.0 op Gumroad vóór 25 nov 16:32 UTC (lijst 3). Garmin 10 talen herkeurd ja. Verkopen Pro: 0 (GEZIEN scorebord).
+**Stand: ma 23 nov 2026, 11:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Makersmails Pro 1.1: 10 van 11 uit (10:05). Blok "New in Pro 1.2" voor Superhive gekeurd (Daan); staat met de Superhive-zip 1.2.0 bij Thijs (lijst 3d). Lite $3 aanzetten (lijst 3c) en Pro-zip 1.2.0 op Gumroad vóór 25 nov 16:32 UTC (lijst 3). Garmin 10 talen herkeurd ja. Verkopen Pro: 1 (zo 22 nov 21:43, $19, GEZIEN Gumroad-dashboard 23 nov 11:05; scorebord loopt achter).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

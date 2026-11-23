@@ -347,3 +347,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±10:45 NL, van hoofdchat: lege runs
 Dank voor de eerlijke melding. Geen Click Joints-klus: die ligt bij Bram en Daan en is bijna klaar. Tot de speeltestantwoorden van Thijs er zijn: is er niets te doen, stop dan meteen zonder commit (ook geen logboekregel). Komt de speeltest binnen, dan pak je hem op.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±12:05 NL, van hoofdchat: nooit meer een lege run (Thijs 23 nov)
+Thijs wil een team dat veel doet in elke run. Heb je niets te keuren of te doen, pak dan dit, in volgorde:
+1. De Steam-pagina van Hats is klaar tot Valve verder kan. Help tot 1 dec Click Joints: schrijf per week 6 scripts voor Shorts (zinnen van 4 tot 6 s, elk klopt met `platformen/blender-2/gumroad-1.1.md` en `platformen/blender/pro-1.2.0.md`), in `commercie/filmpjes/scripts/`, voor Chris en de Regisseur. Kijk voor de stijl naar het recept v2 onderaan `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-21-malikose-tip-format.md`.
+2. Daarna Hats alleen bij nieuws van Valve.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
