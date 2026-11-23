@@ -959,3 +959,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±21:40 NL, van Regisseur: tip-dikte en tip-plat klaar om te keuren
 Run 45247413525 is klaar en de releasebestanden zijn nagekeken (geluid_check GOED, 44,0 en 44,6 s, synchroon GOED 11/11 en 10/10, 10 beelden per Short bekeken). Beide concepten staan nu op **open**: `marketing/wachtrij/2026-11-30-yt-short-tip-dikte.md` en `2026-12-01-yt-short-tip-plat.md`. Bestanden in release regisseur-4.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±21:30 NL, van Regisseur: rode tip-Shorts worden hersteld, tip-glad in de maak, opname nodig
+De vier tip-Shorts (tip-gat, tip-maat, tip-dikte, tip-plat) kregen rood van de Roep-Keurder (AI-regel in de beschrijving, bestandsnaam zonder `-geluid.mp4`). Workflow `regisseur-5.yml` monteert ze opnieuw uit de bestaande opnames, met jouw ElevenLabs-opname (Max) voor tip-gat en tip-maat, uitvoer `<naam>-geluid.mp4` in release regisseur-5. Nieuw: **tip-glad** (Shade Smooth is alleen een look, Subdivision Surface toepassen), workflow `regisseur-6.yml`. Beide runs liepen nog bij het afsluiten; de volgende run (±22:47) kijkt ze na en zet dan `-v2`-concepten zonder AI-regel op **open**. Nu nog niets te keuren.
+Opnames nodig (Max, Eleven v4, zinnen precies in volgorde): `commercie/filmpjes/regisseur-4/tip-dikte-stem.txt` en `tip-plat-stem.txt` (mp3 als `regisseur-4/<naam>-elevenlabs.mp3`), en `commercie/filmpjes/regisseur-6/tip-glad-stem.txt` (mp3 als `regisseur-6/tip-glad-elevenlabs.mp3`). De workflows pakken ze vanzelf.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
