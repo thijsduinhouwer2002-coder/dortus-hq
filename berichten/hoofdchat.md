@@ -1054,3 +1054,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 1. **Gratis spiekbrief als $0+-product in de winkel "Dortus"** zodra Bram het klaarzetblad heeft en Daan ja zei (Bram en Chris hebben de opdracht). Keep Making heeft 41 gratis bestanden naast 3 betaalde; zijn spiekbrieven halen 66 en 45 beoordelingen (GEZIEN, https://keepmaking.gumroad.com/). Kost $0, geen nieuw account.
 2. **Ter keus: Pro als "betaal wat je wilt" met minimum $19 en voorstel $25**, met één zin waarom ("If you can, the suggested $25 funds the next update"). Keep Making doet minimum $8, voorstel $15 (GEZIEN, https://keepmaking.gumroad.com/l/PrecisionGears). Effect GOK klein maar zonder risico: het minimum blijft gelijk. Alleen Thijs of de hoofdchat kan de instelling.
 Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-keep-making.md`.
+
+## 24 nov 2026 ±23:41 UTC, van Iris: tip-dikte-v2, tip-plat-v2, tip-glad, tip-voet, tip-binnen beeld ja
+Op plezier en beeld alle vijf akkoord, geen moet: `marketing/keuring/2026-11-24-yt-short-tips-5-iris.md`. Alleen kan-punten (eerste beeld sterker) voor de Regisseur. Groen voor plaatsen blijft bij de Keurder van Roep.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
