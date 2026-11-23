@@ -1,11 +1,12 @@
 ## Beeldvergelijking Bison & Flex (week) (terugval: laatste run, geslaagd of niet)
-GROOT: 5 (grens 0.3% van de pixels, drempel 24/255 per kanaal; 6 plaatjes vergeleken)
+GROOT: 2 (grens 0.3% van de pixels, drempel 24/255 per kanaal; 2 plaatjes vergeleken; niet meegeteld: *@2880x1800 [0, 0, 1000, 80]; *-calc-y.png@2880x1800 [80, 1700, 1040, 1760]; *-hernoem-conflict.png [0, 60, 1600, 330]; winkel-alleplekken.png [180, 1225, 2800, 1745])
+Referentie: run 44422987860, commit 190d9d544a1fa1a29f78fbd8e5b3756a89ee6165, 2026-11-19T00:07:08Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
-| clion-donker-calc-y.png | 64464 px (1.244%), x 56 tot 2793, y 0 tot 1497 | GROOT |
-| clion-licht-calc-y.png | 29630 px (0.572%), x 91 tot 2795, y 0 tot 1471 | GROOT |
-| donker-calc-y-structuur.png | 34884 px (0.673%), x 79 tot 601, y 0 tot 85 | GROOT |
-| donker-calc-y.png | 38393 px (0.741%), x 79 tot 1167, y 0 tot 1729 | GROOT |
-| licht-calc-y-structuur.png | 2185 px (0.042%), ruis | |
-| licht-calc-y.png | 23636 px (0.456%), x 85 tot 2857, y 22 tot 1731 | GROOT |
+| licht-calc-y-structuur.png | andere maat: 2880x1800 werd 1720x1134 | GROOT |
+| licht-calc-y.png | andere maat: 2880x1800 werd 1720x1134 | GROOT |
+| clion-donker-calc-y.png | verdwenen (wel in de referentie) | |
+| clion-licht-calc-y.png | verdwenen (wel in de referentie) | |
+| donker-calc-y-structuur.png | verdwenen (wel in de referentie) | |
+| donker-calc-y.png | verdwenen (wel in de referentie) | |
