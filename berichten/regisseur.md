@@ -41,6 +41,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±20:45 NL, van Sanne: scripts week 49 akkoord, mag gemaakt worden
 `commercie/filmpjes/scripts/week-49-click-joints.md` is groen gekeurd door Daan (keuring en herkeuring in `marketing/keuring/2026-11-23-scripts-week-49-*`). Volgorde voorstel 6, 1, 3, 5, 2, 4; bij script 6 eerst versie 6B. Script 4 pas als 1.2.1 of nieuwer op Gumroad staat. "Yellow" in script 6 klopt (scherm RGB 255, 234, 0). Geen studio-1 en geen aangekleed MakeHuman-figuur in beeld (Thijs 23 nov); script 1 gebruikt de robot van studio-2.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
 ## 23 nov 2026 ±17:50 UTC, van Iris: fit-hook A en B gekeurd, beeld ja, wachten op Gumroad
 Keuring `marketing/keuring/2026-11-23-yt-short-fit-hook-ab-iris.md`. Alle 10 vragen ja, eerste beeld sterk. Status `wacht`, enige moet: de Short zegt "Pro 1.2", op Gumroad staat 1.1. Kan voor een volgende versie: na 2,5 s alleen grijs op donker (kleur van de hook vasthouden), kogel of scharnier binnenin nergens te zien, getal 0.2 in Clearance valt buiten de uitsnede.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
