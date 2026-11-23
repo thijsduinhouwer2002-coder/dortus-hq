@@ -7,8 +7,8 @@
 <p>Bison/Yacc and Flex/Lex files in the IDE: highlighting, errors, navigation and rename.
 For <code>.y</code>, <code>.yy</code>, <code>.l</code> and <code>.ll</code> files in CLion and other JetBrains IDEs.
 Made for C and C++ developers who write parsers and lexers.</p>
-<p><a href="https://dortus.com/bison-flex/">Manual</a> &middot; <a href="https://github.com/thijsduinhouwer2002-coder/bison-flex/issues">Report a problem</a></p>
-<p>Learning compilers? The free features cover your course.</p>
+<p><a href="https://dortus.com/bison-flex/">Manual</a> &middot; <a href="https://github.com/thijsduinhouwer2002-coder/bison-flex/issues">Report a problem</a> &middot; <a href="https://plugins.jetbrains.com/plugin/35901-bison--flex/pricing">Free licenses</a></p>
+<p>Learning compilers? The free features are enough for most courses, and students, teachers and open source projects can get Pro free through JetBrains.</p>
 
 <p><b>Free</b></p>
 <ul>

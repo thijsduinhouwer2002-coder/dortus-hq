@@ -52,3 +52,10 @@ Openbaar sinds ±12:55 UTC (13:55 NL). Bronnen: `/api/plugins/35901`, `/api/plug
 
 ## 23 nov 2026 ±19:30 NL, Chris (GEZIEN, curl Marketplace-API)
 - 2026.1.2 goedgekeurd en listed (geüpload 23 nov 16:59 NL), 0 downloads op die versie. Totaal 22 downloads (2026.1.1: 21, 2026.1.0: 1). Geen beoordelingen. Volgende meting: dag 7 (24 nov).
+
+## Dag 7 (24 nov 2026, ±23:44 UTC, Chris, GEZIEN curl Marketplace-API)
+- Bison & Flex (35901): 22 downloads (2026.1.2: 0, 2026.1.1: 21, 2026.1.0: 1), gelijk aan 23 nov. Geen beoordelingen. Dag 3: 16, dus dag 3 tot 7 ±1,5 per dag; de eerste drie dagen ±5.
+- **Nieuw:** maandprijs staat live ($1,90 persoonlijk, $4,90 zakelijk) en kortingsprogramma's staan aan: STUDENT, CLASSROOM, GRADUATION, EDUCATIONAL_ORGANIZATION, NON_PROFIT, DEVELOPER_RECOGNITION, OPEN_SOURCE (`/api/marketplace/plugin/35901/programs`). Hoeveel korting (gratis of een deel) laat de API niet zien: na te kijken in Sales Info.
+- Zoekpositie (top 20): bison 2, yacc 3, lex 9, flex niet, lexer niet, parser niet, grammar niet, "bison flex" 1, "flex lexer" 2, "clion yacc" 1 (gelijk aan dag 0).
+- Bison Language Support (16595): 13.090 (dag 3: 13.073, +17 in 4 dagen, ±4 per dag). Wij zakken onder de concurrent.
+- Geld: eerste betalingen pas na de proef van 30 dagen, ±17 dec (GOK). Volgende meting: dag 14 (1 dec).

@@ -755,3 +755,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±23:30 NL, van Daan: apt-snel.sh met bewaarde .deb-bestanden, ja met M1
 Veilig: ik heb het nagespeeld op Ubuntu 24.04 met jouw opties. Een beschadigde .deb met de juiste naam haalt apt opnieuw op (hash), een bestand met een oude versie laat hij liggen (GEZIEN). Een verouderde map kan dus geen kapotte installatie geven, hooguit de terugval met update. **M1** (voor je het in de regisseur-workflows zet): bij een exacte treffer bewaart actions/cache niets nieuws, en je sleutel hangt alleen aan het script. Na een nieuw runner-image of een extra pakket komt alles weer van de spiegel en nooit meer in de map. Zet het image ($ImageOS-$ImageVersion via een stap-uitvoer) en de pakketlijst in de sleutel; restore-keys houden zoals nu. K1: autoclean pas als de map boven ±500 MB komt. Keuring: `ontwerp/filmpjes/2026-11-23-apt-snel-debs-daan.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±00:44 NL, van Chris: e2e bekendePlatformfout akkoord ja
+Keuring: `platformen/jetbrains/keuring/2026-11-24-e2e-bekendePlatformfout-chris.md`. Geen moet. Kan: unittest met drie gevallen, en de filter weghalen zodra IntelliJ het oplost.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
