@@ -1,12 +1,12 @@
 name: apt-snel proef (Olaf)
-# Toetst commercie/filmpjes/apt-snel.sh met bewaarde .deb-bestanden (actions/cache, gratis binnen GitHub).
-# Job "vul" haalt de pakketten één keer en bewaart ze; daarna installeren drie runners naast elkaar uit de bewaarde
-# map. Doel: de uitschieters van 3 tot 8 min (trage spiegel bij het downloaden) weg. Pakketlijst van regisseur-3/4.
+# Toetst de stap .github/actions/apt-snel (bewaarde .deb-bestanden, sleutel op image, pakketlijst en script, keuring
+# Daan M1). Job "vul" haalt de pakketten en bewaart ze; daarna installeren drie runners naast elkaar uit de bewaarde
+# map, één ervan met een extra pakket (moet onder een nieuwe sleutel bewaard worden). Pakketlijst van regisseur-3/4.
 on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [.github/workflows/apt-snel-proef.yml, commercie/filmpjes/apt-snel.sh]
+    paths: [.github/workflows/apt-snel-proef.yml, commercie/filmpjes/apt-snel.sh, .github/actions/apt-snel/action.yml]
 env:
   PAKKETTEN: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 imagemagick xdotool ffmpeg fonts-inter tesseract-ocr
 jobs:
@@ -16,19 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          sparse-checkout: commercie/filmpjes/apt-snel.sh
-      - uses: actions/cache@v4
+          sparse-checkout: |
+            commercie/filmpjes/apt-snel.sh
+            .github/actions/apt-snel
+      - uses: ./.github/actions/apt-snel
         with:
-          path: ~/apt-debs
-          key: apt-debs-filmpjes-v1-${{ runner.os }}-${{ hashFiles('commercie/filmpjes/apt-snel.sh') }}
-          restore-keys: apt-debs-filmpjes-v1-${{ runner.os }}-
-      - name: apt-snel (vullen)
-        env:
-          APT_DEBS: /home/runner/apt-debs
-        run: |
-          start=$(date +%s)
-          bash commercie/filmpjes/apt-snel.sh $PAKKETTEN
-          echo "TIJD apt-snel vullen: $(( $(date +%s) - start )) s"
+          pakketten: ${{ env.PAKKETTEN }}
+      - run: |
           echo "bewaard: $(ls ~/apt-debs/*.deb | wc -l) bestanden, $(du -sh ~/apt-debs | cut -f1)"
   proef:
     needs: vul
@@ -37,23 +31,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        keer: [1, 2, 3]
+        extra: ['', '', 'cowsay']
     steps:
       - uses: actions/checkout@v4
         with:
-          sparse-checkout: commercie/filmpjes/apt-snel.sh
-      - uses: actions/cache/restore@v4
+          sparse-checkout: |
+            commercie/filmpjes/apt-snel.sh
+            .github/actions/apt-snel
+      - uses: ./.github/actions/apt-snel
         with:
-          path: ~/apt-debs
-          key: apt-debs-filmpjes-v1-${{ runner.os }}-${{ hashFiles('commercie/filmpjes/apt-snel.sh') }}
-          restore-keys: apt-debs-filmpjes-v1-${{ runner.os }}-
-      - name: apt-snel (uit bewaarde map)
-        env:
-          APT_DEBS: /home/runner/apt-debs
-        run: |
-          start=$(date +%s)
-          bash commercie/filmpjes/apt-snel.sh $PAKKETTEN
-          echo "TIJD apt-snel: $(( $(date +%s) - start )) s"
+          pakketten: ${{ env.PAKKETTEN }} ${{ matrix.extra }}
+      - run: |
           for p in xvfb-run convert xdotool ffmpeg tesseract; do command -v $p >/dev/null || { echo "MIST $p"; exit 1; }; done
           fc-list | grep -qi inter || { echo "MIST fonts-inter"; exit 1; }
           echo "alles aanwezig"

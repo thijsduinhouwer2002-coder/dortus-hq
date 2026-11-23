@@ -1,0 +1,49 @@
+name: apt-snel
+description: >
+  Systeempakketten voor de filmpjes-workflows met bewaarde .deb-bestanden (actions/cache, gratis binnen GitHub).
+  Olaf, 24 nov 2026. Sleutel volgens keuring Daan M1 (ontwerp/filmpjes/2026-11-23-apt-snel-debs-daan.md): runner-image,
+  pakketlijst en script, zodat een nieuw image of een extra pakket weer in de bewaarde map komt. restore-keys pakt de
+  vorige map, dan komt alleen het verschil van de spiegel. K1: autoclean pas boven 500 MB.
+  Vereist een checkout met commercie/filmpjes/apt-snel.sh en .github/actions/apt-snel.
+inputs:
+  pakketten:
+    description: pakketten, gescheiden door spaties
+    required: true
+runs:
+  using: composite
+  steps:
+    - id: sleutel
+      shell: bash
+      env:
+        PAKKETTEN: ${{ inputs.pakketten }}
+        SCRIPT: ${{ github.action_path }}/../../../commercie/filmpjes/apt-snel.sh
+      run: |
+        lijst=$(echo $PAKKETTEN | tr ' ' '\n' | sort -u | sha256sum | cut -c1-12)
+        script=$(sha256sum "$SCRIPT" | cut -c1-12)
+        echo "img=${ImageOS:-onbekend}-${ImageVersion:-onbekend}" >> "$GITHUB_OUTPUT"
+        echo "lijst=$lijst" >> "$GITHUB_OUTPUT"
+        echo "script=$script" >> "$GITHUB_OUTPUT"
+        echo "apt-snel sleutel: ${ImageOS:-onbekend}-${ImageVersion:-onbekend} lijst $lijst script $script"
+    - uses: actions/cache@v4
+      with:
+        path: ~/apt-debs
+        key: apt-debs-v2-${{ steps.sleutel.outputs.img }}-${{ steps.sleutel.outputs.lijst }}-${{ steps.sleutel.outputs.script }}
+        restore-keys: |
+          apt-debs-v2-${{ steps.sleutel.outputs.img }}-
+          apt-debs-v2-
+    - shell: bash
+      env:
+        PAKKETTEN: ${{ inputs.pakketten }}
+        APT_DEBS: /home/runner/apt-debs
+        SCRIPT: ${{ github.action_path }}/../../../commercie/filmpjes/apt-snel.sh
+      run: |
+        start=$(date +%s)
+        bash "$SCRIPT" $PAKKETTEN
+        echo "TIJD apt-snel: $(( $(date +%s) - start )) s"
+        mb=$(du -sm "$APT_DEBS" | cut -f1)
+        if [ "$mb" -gt 500 ]; then
+          echo "apt-snel: map $mb MB, autoclean"
+          sudo apt-get autoclean -q -o "Dir::Cache::Archives=$APT_DEBS" -o APT::Sandbox::User=root >/dev/null || true
+          sudo chown -R "$(id -u):$(id -g)" "$APT_DEBS"; sudo rm -f "$APT_DEBS/lock"
+          echo "apt-snel: na autoclean $(du -sm "$APT_DEBS" | cut -f1) MB"
+        fi
