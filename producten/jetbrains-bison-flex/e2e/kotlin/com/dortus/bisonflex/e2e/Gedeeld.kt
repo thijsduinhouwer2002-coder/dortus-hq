@@ -26,6 +26,22 @@ import kotlin.io.path.writeText
 /** Map voor de schermafbeeldingen (systeemeigenschap uit build.gradle.kts). */
 internal val schermen: Path by lazy { Path.of(System.getProperty("dortus.e2e.screenshots")).also { it.createDirectories() } }
 
+/**
+ * Fouten van IntelliJ zelf die niets met de plug-in te maken hebben en soms optreden. Alleen overslaan als er geen
+ * enkele regel van Bison & Flex (com.dortus) in de melding staat; elke andere fout laat de test nog steeds falen.
+ * - "node is not a child" in OccurenceNavigatorSupport: de knop "Next Conflict" van het conflictvenster wordt
+ *   bijgewerkt terwijl de boom net verandert (run 45262737601, donker thema, stap hernoemen naar line; licht slaagde).
+ */
+private val bekendePlatformfouten = listOf(
+    listOf("node is not a child", "OccurenceNavigatorSupport"),
+)
+
+internal fun bekendePlatformfout(message: String, details: String): Boolean {
+    val tekst = "$message\n$details"
+    if (tekst.contains("com.dortus")) return false
+    return bekendePlatformfouten.any { delen -> delen.all { tekst.contains(it) } }
+}
+
 /** Een fout van Starter laat de JUnit-test falen in plaats van alleen een melding voor een CI-server. */
 internal fun zetCiServer() {
     di = DI {
@@ -33,6 +49,10 @@ internal fun zetCiServer() {
         bindSingleton<CIServer>(overrides = true) {
             object : CIServer by NoCIServer {
                 override fun reportTestFailure(testName: String, message: String, details: String, linkToLogs: String?) {
+                    if (bekendePlatformfout(message, details)) {
+                        println("DORTUS-E2E bekende fout van het platform zelf overgeslagen (geen Bison & Flex in de stack): ${message.lineSequence().firstOrNull()}")
+                        return
+                    }
                     fail { "$testName faalt: $message\n$details" }
                 }
             }

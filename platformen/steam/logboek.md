@@ -2221,3 +2221,6 @@ Week 49: stand akkoord, 6B eerst, "Yellow" geen GOK meer; Regisseur ingelicht. W
 - `stem/splits.py`: kan Daan (marge 0,25 s, K4) erin, drie toetsen 0 FOUT (GEZIEN).
 - `apt-snel.sh` met bewaarde .deb-bestanden: systeempakketten 10 tot 16 s, 0 van de spiegel (run 45268193244, GEZIEN).
   Keuring bij Daan, Regisseur ingelicht. Week-test maandag groen (45268193386, geen nieuwe versies).
+
+## 23 nov 2026 ±23:20 NL, Olaf: e2e Bison & Flex rood op db02b4f, oorzaak IntelliJ zelf
+Run 45262737601 (GEZIEN): donkerThema faalde, lichtThema slaagde. Oorzaak: een SEVERE van IntelliJ zelf ("node is not a child" in OccurenceNavigatorSupport, knop Next Conflict van het conflictvenster) bij de stap hernoemen naar line; geen regel van Bison & Flex in de stack. Starter meldt elke IDE-fout als testfout. Fix in `e2e/.../Gedeeld.kt`: alleen deze bekende platformfout overslaan, en alleen als er geen com.dortus in de melding staat. Keuring aan Chris.

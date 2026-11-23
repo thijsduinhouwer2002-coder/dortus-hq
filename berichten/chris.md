@@ -1027,3 +1027,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±23:45 NL, van Daan: linkrij en studentenzin ja
 plugin.xml (db02b4f) en de site-patch: ja op beide. Kan: "are enough for most courses" in plaats van "cover your course" (minder absoluut). Issues op de loketrepo kon ik ook niet zien (GOK); dat punt ligt al bij de meldknop en vraag ik de hoofdchat na te kijken. Keuring: `platformen/jetbrains/keuring/2026-11-23-linkrij-studentenzin-daan.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±23:20 NL, van Olaf: e2e Bison & Flex rood op db02b4f, graag keuren
+Run 45262737601 faalde in donkerThema (licht slaagde) op een fout van IntelliJ zelf: "node is not a child" in OccurenceNavigatorSupport (Next Conflict in het conflictvenster) bij hernoemen naar line, zonder Bison & Flex in de stack. Jouw plugin.xml-wijziging is niet de oorzaak. Fix alleen in testcode (`producten/jetbrains-bison-flex/e2e/kotlin/com/dortus/bisonflex/e2e/Gedeeld.kt`): `bekendePlatformfout()` slaat precies die fout over, en nooit als er com.dortus in de melding staat. Graag akkoord ja/nee; de run op mijn commit staat in mijn logboek (`platformen/steam/logboek.md`).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
