@@ -1,5 +1,7 @@
 # Zes Short-scripts Click Joints Pro, week 49 (30 nov tot 6 dec 2026)
 
+**Stand: akkoord, Daan 23 nov** (`marketing/keuring/2026-11-23-scripts-week-49-daan.md` en `-herkeuring-daan.md`). Script 4 pas als 1.2.1 of nieuwer op Gumroad staat.
+
 Door Sanne, 23 nov 2026. Opdracht hoofdchat 23 nov ±12:05 en ±12:45 NL. Zelfde bouw als `week-48-click-joints.md` (zin 1 = hook A of B, max 7 woorden, vraag over het probleem van de kijker; daarna zinnen van 11 tot 16 woorden, 4 tot 6 s; printzin altijd; "Voice: AI text to speech (Kokoro)" in de beschrijving). Bronnen: `platformen/blender-2/gumroad-1.1.md` en `platformen/blender/pro-1.2.0.md`; script 4 rust ook op `platformen/blender/pro-1.2.1.md` (zie daar).
 
 ## Wat ik meenam uit de keuringen van 23 nov
@@ -113,7 +115,7 @@ Bron: zin 2 en 3: "a joint at every shoulder, elbow, hip, knee and neck" en "Ank
 ## 6. Goed, krap of te dun? Zo lees je de passing
 Titel: Check every joint's fit before you 3D print 🔥 | Blender
 
-*Herzien 23 nov na keuring Daan (moet 2): een krap gewricht wordt wel gesneden, alleen te dun niet.*
+*Herzien 23 nov na keuring Daan (moet 2): een krap gewricht wordt wel gesneden, alleen te dun niet.* *Neem 6B als eerste versie (kan Daan bij de herkeuring), 6A als tweede.*
 
 | # | gesproken | kop (groot) | beeld |
 |---|---|---|---|
@@ -128,7 +130,7 @@ Titel: Check every joint's fit before you 3D print 🔥 | Blender
 | 8 | Measured in Blender, not print tested by us yet. Print a test joint first. | Print a test joint first | render |
 | 9 | Click Joints Pro. Elbows and knees stop where your rig stops. | (eindkaart) | eindkaart |
 
-Bron: zin 2, 3 en 4 uit de code: `passing.py` r. 137 tot 141 (wand onder 0,8 mm = rood, onder 1,5 mm = krap, anders groen) en r. 182 tot 189 (paneeltekst "Good fit", "Tight: wall ... mm", "Too thin: ..."); keuring Daan A2: Tight wordt gesneden, alleen rood niet. Zin 5: "spacing checks" (gumroad-1.1.md) en de Pro 1.0-tekst "too close together are refused with a clear message". Zin 6: "Honest when it can not ... the list tells you why and what to try". **Let op:** de code noemt de middelste kleur "oranje", maar de waarde (1.0, 0.82, 0.0) ziet er op het scherm geel uit (GOK; `passing.py` r. 8 noemt de tint mosterd). De Regisseur zegt de kleur die je in de opname echt ziet: yellow of orange. De opname moet een groen en een krap gewricht tonen; lukt dat niet, dan wordt zin 3 "Green is a good fit, and the panel says so in words." Zin 7 belooft niet dat de print dan lukt, alleen dat je de fout eerder ziet. De echte meldtekst van de spacing check in beeld opnemen en niet uitspreken.
+Bron: zin 2, 3 en 4 uit de code: `passing.py` r. 137 tot 141 (wand onder 0,8 mm = rood, onder 1,5 mm = krap, anders groen) en r. 182 tot 189 (paneeltekst "Good fit", "Tight: wall ... mm", "Too thin: ..."); keuring Daan A2: Tight wordt gesneden, alleen rood niet. Zin 5: "spacing checks" (gumroad-1.1.md) en de Pro 1.0-tekst "too close together are refused with a clear message". Zin 6: "Honest when it can not ... the list tells you why and what to try". **Kleur:** "Yellow" klopt (herkeuring Daan 23 nov): (1.0, 0.823, 0.0) is lineair, op het scherm RGB 255, 234, 0. Geen GOK meer. De opname moet een groen en een krap gewricht tonen; lukt dat niet, dan wordt zin 3 "Green is a good fit, and the panel says so in words." Zin 7 belooft niet dat de print dan lukt, alleen dat je de fout eerder ziet. De echte meldtekst van de spacing check in beeld opnemen en niet uitspreken.
 
 ---
 
