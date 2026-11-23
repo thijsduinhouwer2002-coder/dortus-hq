@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-23 08:45",
+    "datum": "2026-11-23 10:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Pro 1.2.0 (elleboogfix voor Blender 4.5+, Fit test-knop) gekeurd door Daan, e2e groen; Thijs vervangt de zip op Gumroad vóór 25 nov (lijst 3). Site-tak claude/fit-test-strip (2493a29, ook link in gids 1 gekeurd) in repo dortus live na één push naar main door Thijs (lijst 5). Voorgestelde prijs $10 bij de gratis versie (lijst 3). Bundel met Split 3D Print (Superhive): tekst en bericht aan AUER hebben ja van Daan (22 nov); wacht op ja van Thijs op de tekst en versturen met zijn account (lijst, later). Nieuw 23 nov: ja op Lite-variant $3 op Superhive (advies Bram); Bram maakt zip en varianttekst, Daan keurt, hoofdchat zet hem aan vóór 27 nov.",
+      "volgende_stap": "Vóór de Cyber Sale (27 nov): Thijs zet Lite $3 aan op Superhive (zip en tekst gekeurd door Daan 23 nov, lijst 3c) en vervangt de Pro-zip op Gumroad door 1.2.0 vóór 25 nov (lijst 3). Site-tak claude/fit-test-strip (2493a29) live na één push naar main door Thijs (lijst 5). Voorgestelde prijs $10 bij de gratis versie (lijst 3). Bundel met Split 3D Print wacht op ja van Thijs (lijst, later).",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -129,6 +129,10 @@
       "thijs": [
         {
           "doen": "BlenderArtists: account aanmaken en ja op de gekeurde tekst (lijst-thijs punt 5), plaatsen op of na 27 nov.",
+          "voor": "2026-11-27"
+        },
+        {
+          "doen": "Superhive: variant Lite $3 aanzetten met de gekeurde tekst (lijst 3c).",
           "voor": "2026-11-27"
         }
       ],

@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: ma 23 nov 2026, 08:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Nieuw: ja op Click Joints Lite $3 als vierde variant op Superhive (advies Bram); Bram maakt zip en tekst, Daan keurt, aanzetten vóór de Cyber Sale (27 nov). Olaf wacht op speeltest, geen lege commits. Thijs vervangt de Pro-zip op Gumroad door 1.2.0 vóór 25 nov 16:32 UTC (lijst 3). Verkopen Pro: 0 (GEZIEN scorebord).
+**Stand: ma 23 nov 2026, 10:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Geen oranje open. Click Joints Lite $3: zip en tekst gekeurd (Daan), blijft $3 (geen $0, besluit 10:45); aanzetten op Superhive staat bij Thijs (lijst 3c), vóór de Cyber Sale (27 nov). Thijs vervangt de Pro-zip op Gumroad door 1.2.0 vóór 25 nov 16:32 UTC (lijst 3). Sanne: lege runs zonder commit tot de speeltest. Verkopen Pro: 0 (GEZIEN scorebord).
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

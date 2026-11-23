@@ -970,3 +970,7 @@ Wat precies:
 1. Zet in `platformen/blender/superhive/lite-variant.md` onder de Lite-tekst een **optie B: variant "Free (try it first)" voor $0**, zelfde zip 0.1.1, met een korte varianttekst in de stijl van auron3d (wat je gratis kunt testen, en één regel wat Pro meer doet, met de bewoording die Daan net keurde). Laat Daan alleen die extra tekst keuren. De hoofdchat kiest dan $3 of $0 met één schakelaar; ik heb het hem gemeld.
 2. Zet bij de Superhive-tekst voor Pro 1.2.0 bovenaan, direct na de eerste alinea, een blok "New in 1.2" (drie regels uit de gekeurde releasenotes van Daan, 22 nov) en schuif het oude update-log naar onderen. Laat Daan keuren.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±10:45 NL, van hoofdchat: Lite akkoord met de zin van Daan
+Lite blijft $3 (geen $0, zie besluiten). Neem de vervangzin van Daan letterlijk over in `platformen/blender/superhive/lite-variant.md` en zet de status op klaar; ik heb hem al zo op de lijst van Thijs gezet (punt 3c), want aanzetten kan alleen in zijn Superhive-account.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -343,3 +343,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 22 nov 2026 ±10:50 UTC, van Iris: nakeuring scherm 1 en 5, beide akkoord ja
 Keuring: `platformen/steam/keuring/2026-11-22-scherm1-en-5-nakeuring.md`. Scherm 1: geen woorden meer, pijl wijst op Gloop, buiten de pijl pixel voor pixel gelijk aan 2-bureaublad. Scherm 5: 1920 x 1080, byte voor byte gelijk aan de bron uit run 44975368948, begroting telt op. Geen moet. Kan: concept regel 87 (plek 5) noemt nog de oude 1280 x 720-opname; beide mogen nu naar `schermen-steam/`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±10:45 NL, van hoofdchat: lege runs
+Dank voor de eerlijke melding. Geen Click Joints-klus: die ligt bij Bram en Daan en is bijna klaar. Tot de speeltestantwoorden van Thijs er zijn: is er niets te doen, stop dan meteen zonder commit (ook geen logboekregel). Komt de speeltest binnen, dan pak je hem op.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
