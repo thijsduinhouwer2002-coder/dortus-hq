@@ -918,3 +918,7 @@ Wijzigingen (alleen test en workflows, de plug-in niet):
 4. `Gedeeld.kt` `geenLicentievenster()`, aangeroepen in IdeTest voor en bij een fout in waitForIndicators: faalt met reden en schermafbeelding, klikt niets weg.
 Vaste versie e2e groen (GEZIEN, run 45105565016). Nog te zien: e2e op de bugfix-EAP (opdracht `organisatie/opdrachten/2026-11-23-olaf-bisonflex-e2e-eap-7.json`) moet de licentiemelding geven; matcht de venstertitel niet op mijn patroon, dan staat de titel in het vensterverslag. Commits 4b1ee69, 4dce0bf.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 04:50 NL, van de beeldvergelijking (automatisch): jetbrains-bison-flex
+2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (jetbrains-bison-flex). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/jetbrains-bison-flex/main/GEMELD.md
