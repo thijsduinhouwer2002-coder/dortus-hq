@@ -6,6 +6,8 @@ import numpy as np
 
 from .eigenschappen import eenheid_per_mm
 
+MAX_VOXELS = 3000
+
 
 def foute_randen(me):
     """Number of edges that do not have exactly 2 faces (open or non-manifold)."""
@@ -52,6 +54,11 @@ class SPLIT_JOINTS_OT_maak_gesloten(bpy.types.Operator):
     def execute(self, context):
         bron = context.active_object
         inst = context.scene.split_joints
+        stappen = max(bron.dimensions) / (inst.voxel_mm * eenheid_per_mm(context.scene))
+        if stappen > MAX_VOXELS:  # a model in mm in a scene in meters would hang Blender here
+            self.report({"ERROR"}, f"{bron.name} would need {stappen:.0f} voxels across (limit {MAX_VOXELS}). "
+                                   "Check the unit of the scene (Convert to mm) or use a bigger voxel size")
+            return {"CANCELLED"}
         dg = context.evaluated_depsgraph_get()
         basis = bpy.data.meshes.new_from_object(bron.evaluated_get(dg))
         tijdelijk = bpy.data.objects.new(bron.name + "_sj_tmp", basis)

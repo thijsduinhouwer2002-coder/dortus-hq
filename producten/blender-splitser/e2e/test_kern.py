@@ -2,7 +2,8 @@
 Installs Split Joints as an extension and splits three free models for a Bambu Lab A1 mini (180 mm).
 Checks per model: every piece fits the bed, every piece is watertight, every pin fits its holes with the
 set clearance and is not longer than both holes, every piece has its engraved numbers, export to STL and
-3MF works. Plus: a moved cut, and a thin tube that gives a clear "too small" message. Exit 1 on any error."""
+3MF works (both read back and measured). Plus: a moved cut, a thin tube that gives a clear "too small" message,
+and toetsen_extra.py (bare box without voxel, open model, two selected objects, scenes in meters). Exit 1 on any error."""
 import os
 import sys
 import traceback
@@ -11,8 +12,9 @@ import bpy
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import modellen  # noqa: E402
-from hulp import (bestaat, dicht, fouten, gat_maten, gaten, label_punten, labels, lees_3mf, lees_stl, log,  # noqa: E402
-                  maat, past, pen_objecten, pennen, stap, stukken)
+import toetsen_extra  # noqa: E402
+from hulp import (SCHAAL, bestaat, dicht, fouten, gat_maten, gaten, label_punten, labels, lees_3mf,  # noqa: E402
+                  lees_stl, log, maat, past, pen_objecten, pennen, raakvlak, stap, stukken)
 
 args = sys.argv[sys.argv.index("--") + 1:]
 zip_pad, vaas_pad, schedel_pad, uitmap = args[0], args[1], args[2], args[3]
@@ -74,16 +76,37 @@ def toets_stukken(naam, verwacht_pennen=True):
     for (r, ln) in pen_lijst:
         if not any(abs(r - g["pen_d"] / 2) < 0.01 for _o, g in alle_gaten):
             stap(f"{naam}: pen r {r:.3f} hoort bij een gat", False)
-    # numbers
+    # numbers: one on every cut face the piece shares with a neighbor (keuring M3), each really engraved
     for ob in lijst:
         lbs = labels(ob)
-        stap(f"{naam} stuk {ob['sj_stuk']}: heeft een nummer", len(lbs) >= 1, str([lb["tekst"] for lb in lbs]))
+        buren = verwachte_buren(ob, lijst)
+        kreeg = {int(lb["tekst"].split("-")[1]) for lb in lbs}
+        stap(f"{naam} stuk {ob['sj_stuk']}: een nummer op elk snijvlak met een buur", kreeg == buren and len(buren) > 0,
+             f"buren {sorted(buren)}, nummers {[lb['tekst'] for lb in lbs]}")
         for lb in lbs:
             stap(f"{naam} stuk {ob['sj_stuk']}: nummer {lb['tekst']} begint met het eigen nummer",
                  lb["tekst"].split("-")[0] == str(ob["sj_stuk"]))
             n = label_punten(ob, lb, ob["sj_label_diepte_mm"])
             stap(f"{naam} stuk {ob['sj_stuk']}: nummer {lb['tekst']} verdiept in het vlak", n >= 8, f"{n} punten op de bodem")
     return lijst
+
+
+def verwachte_buren(ob, lijst):
+    """Numbers of the pieces next to ob (cell one step away along one axis) that really touch it: both
+    have faces in the shared plane. Measured on the meshes, not from the add-on's labels."""
+    uit = set()
+    cel = list(ob["sj_cel"])
+    for o in lijst:
+        c2 = list(o["sj_cel"])
+        verschil = [c2[i] - cel[i] for i in range(3)]
+        if sorted(abs(d) for d in verschil) != [0, 0, 1]:
+            continue
+        a = next(i for i in range(3) if verschil[i])
+        laag = ob if verschil[a] > 0 else o
+        c = max(v.co[a] for v in laag.data.vertices) * SCHAAL[0]
+        if raakvlak(ob, a, c) and raakvlak(o, a, c):
+            uit.add(int(o["sj_stuk"]))
+    return uit
 
 
 def toets_export(naam, lijst):
@@ -107,8 +130,9 @@ def toets_export(naam, lijst):
                      f"{n} driehoeken, {[round(v, 2) for v in mm]}")
             else:
                 d = lees_3mf(pad)
-                stap(f"{naam}: 3MF {os.path.basename(pad)}", d["delen"] and d["mm"] and d["driehoeken"] > 0,
-                     f"{d['driehoeken']} driehoeken")
+                stap(f"{naam}: 3MF {os.path.basename(pad)} in mm, maat gelijk",
+                     d["delen"] and d["mm"] and d["driehoeken"] > 0 and all(abs(a - b) < 0.01 for a, b in zip(m, d["maat"])),
+                     f"{d['driehoeken']} driehoeken, {[round(v, 2) for v in d['maat']]}")
 
 
 def model(naam, ob):
@@ -139,11 +163,12 @@ def main():
         except Exception:
             traceback.print_exc()
             stap(f"{naam}: geen fout", False)
-    try:
-        te_klein()
-    except Exception:
-        traceback.print_exc()
-        stap("buis: geen fout", False)
+    for naam, f in (("buis", te_klein), ("extra", lambda: toetsen_extra.alles(model, uitmap))):
+        try:
+            f()
+        except Exception:
+            traceback.print_exc()
+            stap(f"{naam}: geen fout", False)
 
 
 def verschuif(ob):

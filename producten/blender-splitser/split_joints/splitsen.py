@@ -217,14 +217,26 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
         if ob is None:
             self.report({"ERROR"}, "Select the model first")
             return {"CANCELLED"}
+        melding = snedes.te_groot_tekst(ob, scene)
+        if melding:
+            self.report({"ERROR"}, melding)
+            return {"CANCELLED"}
         ok, fout = is_gesloten(ob)
         if not ok:
+            scene["sj_geweigerd"] = f"open:{fout}"
             self.report({"ERROR"}, f"{ob.name} is not watertight ({fout} bad edges). Use Make watertight first.")
             return {"CANCELLED"}
         u = eenheid_per_mm(scene)
         punten, tri = snedes.mesh_mm(ob, scene)
         lo, hi = tuple(punten.min(axis=0)), tuple(punten.max(axis=0))
-        lijst, grenzen = plan.cellen(lo, hi, [(a, pos + SCHUIF_MM) for a, pos in snedes.lees(scene)])
+        sn = [(a, pos + SCHUIF_MM) for a, pos in snedes.lees(scene)]
+        n_cellen = plan.aantal_cellen(lo, hi, sn)
+        if n_cellen > plan.MAX_CELLEN:
+            scene["sj_geweigerd"] = f"cellen:{n_cellen}"
+            self.report({"ERROR"}, f"These cuts make {n_cellen} cells (limit {plan.MAX_CELLEN}). Remove cuts or plan again")
+            return {"CANCELLED"}
+        scene["sj_geweigerd"] = ""
+        lijst, grenzen = plan.cellen(lo, hi, sn)
         ruim_oud_op(scene)
         col = nieuwe_collectie(STUKKEN, scene)
         hulp = nieuwe_collectie("sj_hulp", scene)

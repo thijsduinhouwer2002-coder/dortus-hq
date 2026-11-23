@@ -1,7 +1,7 @@
 """Sidebar (N), tab Split Joints: four numbered steps, each with one big button."""
 import bpy
 
-from . import controle, exporteer, printers, snedes
+from . import controle, exporteer, printers, schaal, snedes
 from .eigenschappen import bed
 
 
@@ -11,6 +11,7 @@ def grote_knop(layout, idname, tekst, icoon):
     return rij.operator(idname, text=tekst, icon=icoon)
 
 
+MAX_RIJEN = 20  # cut rows shown in the panel; more is drawn as one line
 ICOON = {"groen": "CHECKMARK", "oranje": "ERROR", "rood": "CANCEL"}
 
 
@@ -43,21 +44,31 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         ob = context.active_object
         if ob is not None and ob.type == "MESH" and not ob.get("sj_stuk") and "sj_as" not in ob \
                 and not ob.get("sj_pennen"):
+            if schaal.buiten_bereik(ob, scene):
+                let = stap.column(align=True)
+                let.alert = True
+                let.label(text=f"Model is {schaal.maat_mm(ob, scene):.4g} mm in size", icon="ERROR")
+                let.label(text="Wrong unit? (mm model in a meter scene)")
+                let.operator("split_joints.zet_om_mm", icon="SETTINGS")
             stap.operator("split_joints.maak_gesloten", icon="MOD_REMESH")
             stap.prop(inst, "voxel_mm")
         grote_knop(stap, "split_joints.plan", "Plan cuts", "GRID")
         lijst = snedes.snede_objecten(scene)
         if lijst:
             kol = stap.column(align=True)
-            for s in lijst:
+            for s in lijst[:MAX_RIJEN]:
                 rij = kol.row(align=True)
                 rij.prop(s, "location", index=int(s["sj_as"]), text=f"Cut {snedes.ASNAAM[int(s['sj_as'])]}")
                 rij.operator("split_joints.snede_weg", text="", icon="X").naam = s.name
+            if len(lijst) > MAX_RIJEN:
+                kol.label(text=f"and {len(lijst) - MAX_RIJEN} more cuts")
             st = snedes.stand(context)
             if st:
                 n, goed, groot = st
-                icoon = "CHECKMARK" if goed == n else "ERROR"
-                stap.label(text=f"{n} cells, {goed} fit the bed", icon=icoon)
+                if goed is None:
+                    stap.label(text=f"{n} cells: too many, remove cuts", icon="ERROR")
+                else:
+                    stap.label(text=f"{n} cells, {goed} fit the bed", icon="CHECKMARK" if goed == n else "ERROR")
         rij = stap.row(align=True)
         rij.label(text="Add cut:")
         for i, letter in enumerate("XYZ"):

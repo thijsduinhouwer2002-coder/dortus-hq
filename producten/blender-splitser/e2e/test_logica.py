@@ -61,21 +61,36 @@ stap("past gedraaid", printers.past((250, 100, 50), (100, 256, 256)))
 stap("past niet", not printers.past((300, 10, 10), (256, 256, 256)))
 stap("marge", printers.bruikbaar((180, 180, 180), 3) == (174.0, 174.0, 177.0))
 
-# 2. plan: a 500 x 150 x 120 box on a 180 bed: 3 pieces along X
+# 2. plan on bare meshes (only their own vertices: keuring A8, a box of 8 vertices gave 2 pieces)
+BED = (174, 174, 177)
 v, f = doos((0, 0, 0), (500, 150, 120))
-dicht = np.concatenate([v, np.random.default_rng(1).uniform((0, 0, 0), (500, 150, 120), (2000, 3))])
-p = plan.maak(dicht, (174, 174, 177))
-stap("plan doos 3 stukken", p is not None and p["stukken"] == 3, str(p and (p["n"], p["stukken"])))
-stap("plan doos snedes langs X", p is not None and all(a == 0 for a, _ in p["snedes"]), str(p and p["snedes"]))
-stap("plan elke cel past", p is not None and printers.past(p["cel"], (174, 174, 177)), str(p and p["cel"]))
-# a box that fits needs no cut
-p = plan.maak(dicht * 0.3, (174, 174, 177))
-stap("plan klein: 1 stuk", p is not None and p["stukken"] == 1 and not p["snedes"])
-# L-shape: empty cells do not count
-l_pts = np.concatenate([np.random.default_rng(2).uniform((0, 0, 0), (340, 60, 60), (3000, 3)),
-                        np.random.default_rng(3).uniform((0, 0, 0), (60, 340, 60), (3000, 3))])
-p = plan.maak(l_pts, (174, 174, 177))
-stap("plan L-vorm 3 stukken (lege cel telt niet)", p is not None and p["stukken"] == 3, str(p and (p["n"], p["stukken"])))
+p = plan.maak(v, BED, f)
+stap("plan kale doos 500 x 150 x 120: 3 stukken", p is not None and p.get("stukken") == 3, str(p and (p.get("n"), p.get("stukken"))))
+stap("plan doos snedes langs X", p is not None and all(a == 0 for a, _ in p.get("snedes", [(1, 0)])), str(p and p.get("snedes")))
+stap("plan elke cel past", p is not None and "cel" in p and printers.past(p["cel"], BED), str(p and p.get("cel")))
+vp, fp = doos((0, 0, 0), (600, 600, 30))
+p = plan.maak(vp, BED, fp)
+stap("plan kale plaat 600 x 600 x 30: 16 stukken", p is not None and p.get("stukken") == 16, str(p and (p.get("n"), p.get("stukken"))))
+vk, fk = doos((0, 0, 0), (500, 500, 500))
+p = plan.maak(vk, BED, fk)
+stap("plan volle kubus 500: 27 stukken (ook de cel middenin zonder huid)", p is not None and p.get("stukken") == 27,
+     str(p and (p.get("n"), p.get("stukken"))))
+p = plan.maak(v * 0.3, BED, f)
+stap("plan klein: 1 stuk", p is not None and p.get("stukken") == 1 and not p.get("snedes"))
+# L-shape of two boxes: the empty corner cell does not count
+va, fa = doos((0, 0, 0), (340, 60, 60))
+vb, fb = doos((0, 60, 0), (60, 340, 60))
+p = plan.maak(np.concatenate([va, vb]), BED, np.concatenate([fa, fb + len(va)]))
+stap("plan L-vorm 3 stukken (lege cel telt niet)", p is not None and p.get("stukken") == 3, str(p and (p.get("n"), p.get("stukken"))))
+# a model in mm read as meters (x1000): a clear refusal, fast, never thousands of cuts
+import time  # noqa: E402
+t0 = time.time()
+p = plan.maak(v * 1000.0, BED, f)
+duur = time.time() - t0
+stap("plan 1000 keer te groot: weigert met te_veel", p is not None and p.get("fout") == "te_veel" and p["minimaal"] > plan.MAX_CELLEN,
+     str(p and {k: p.get(k) for k in ("fout", "minimaal")}))
+stap("plan 1000 keer te groot: binnen 2 s", duur < 2.0, f"{duur:.2f} s")
+stap("aantal cellen zonder ze te maken", plan.aantal_cellen((0, 0, 0), (10, 10, 10), [(0, 3.0), (0, 6.0), (2, 5.0), (1, 20.0)]) == 6)
 
 # 3. cross-section of a box at x = 100: a 150 x 120 rectangle
 segs = doorsnede.snijlijnen(v, f, 0, 100.0)

@@ -11,6 +11,7 @@ from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
 fouten = []
+SCHAAL = [1.0]  # mm per Blender unit of the scene under test (1 in a mm scene, 1000 in a meter scene)
 
 
 def log(t):
@@ -33,7 +34,7 @@ def as_vec(a):
 def maat(ob):
     """Size in mm of the mesh in world coordinates without the exploded view (scene in mm)."""
     ps = [v.co for v in ob.data.vertices]
-    return [max(p[i] for p in ps) - min(p[i] for p in ps) for i in range(3)]
+    return [(max(p[i] for p in ps) - min(p[i] for p in ps)) * SCHAAL[0] for i in range(3)]
 
 
 def past(m, bed):
@@ -61,22 +62,23 @@ def boom(ob):
 def gat_maten(ob, g):
     """(smallest radius, depth) of one hole, measured with rays in the finished piece."""
     b = boom(ob)
+    k = SCHAAL[0]
     n = as_vec(g["as"])
     richting = -n * g["teken"]
-    p = Vector(g["p"])
+    p = Vector(g["p"]) / k
     e1, e2 = as_vec((g["as"] + 1) % 3), as_vec((g["as"] + 2) % 3)
     straal = math.inf
     for z in (0.25, 0.5, 0.75):
-        midden = p + richting * (g["diepte"] * z)
-        for k in range(64):
-            hoek = 2 * math.pi * (k + 0.5) / 64
+        midden = p + richting * (g["diepte"] * z / k)
+        for j in range(64):
+            hoek = 2 * math.pi * (j + 0.5) / 64
             d = e1 * math.cos(hoek) + e2 * math.sin(hoek)
-            hit = b.ray_cast(midden, d, 50.0)
+            hit = b.ray_cast(midden, d, 50.0 / k)
             if hit[0] is None:
                 return None, None
-            straal = min(straal, hit[3])
-    hit = b.ray_cast(p + richting * 0.01, richting, 200.0)
-    diepte = hit[3] + 0.01 if hit[0] is not None else None
+            straal = min(straal, hit[3] * k)
+    hit = b.ray_cast(p + richting * (0.01 / k), richting, 200.0 / k)
+    diepte = hit[3] * k + 0.01 if hit[0] is not None else None
     return straal, diepte
 
 
@@ -101,27 +103,50 @@ def pennen(ob):
                     rij.append(w)
         cx = (max(p.x for p in groep) + min(p.x for p in groep)) / 2
         cy = (max(p.y for p in groep) + min(p.y for p in groep)) / 2
-        r = max(math.hypot(p.x - cx, p.y - cy) for p in groep)
-        lengte = max(p.z for p in groep) - min(p.z for p in groep)
+        r = max(math.hypot(p.x - cx, p.y - cy) for p in groep) * SCHAAL[0]
+        lengte = (max(p.z for p in groep) - min(p.z for p in groep)) * SCHAAL[0]
         uit.append((r, lengte))
     bm.free()
     return uit
 
 
 def label_punten(ob, lb, diepte):
-    """Number of vertices of the piece at the bottom of the engraved number (depth +-0.02 mm) near its spot."""
+    """Number of vertices of the piece at the bottom of the engraved number (depth +-0.02 mm) inside the
+    circle around the text box (pixel font: (4n - 1) / 5 x h wide, h high)."""
+    k = SCHAAL[0]
     n = as_vec(lb["as"])
-    p = Vector(lb["p"])
+    p = Vector(lb["p"]) / k
     binnen = -n * lb["teken"]
-    straal = lb["h"] * max(1, len(lb["tekst"]))
+    breed = (4 * len(lb["tekst"]) - 1) * lb["h"] / 5.0
+    straal = math.hypot(breed / 2.0, lb["h"] / 2.0) + 0.3
     teller = 0
     for v in ob.data.vertices:
-        d = v.co - p
+        d = (v.co - p) * k
         z = d.dot(binnen)
         vlak = (d - binnen * z).length
         if abs(z - diepte) < 0.02 and vlak < straal:
             teller += 1
     return teller
+
+
+def raakvlak(ob, as_, c):
+    """True if the piece has faces (over 0.01 mm2) lying in the plane coordinate[as_] == c (mm)."""
+    import numpy as np
+    k = SCHAAL[0]
+    me = ob.data
+    co = np.empty(len(me.vertices) * 3)
+    me.vertices.foreach_get("co", co)
+    op = np.abs(co.reshape(-1, 3)[:, as_] * k - c) < 0.003
+    lv = np.empty(len(me.loops), dtype=np.int64)
+    me.loops.foreach_get("vertex_index", lv)
+    start = np.empty(len(me.polygons), dtype=np.int64)
+    me.polygons.foreach_get("loop_start", start)
+    opp = np.empty(len(me.polygons))
+    me.polygons.foreach_get("area", opp)
+    if len(start) == 0:
+        return False
+    alle = np.minimum.reduceat(op[lv].astype(np.int8), start) == 1
+    return bool(np.any(alle & (opp * k * k > 0.01)))
 
 
 def lees_stl(pad):
@@ -140,8 +165,11 @@ def lees_3mf(pad):
     with zipfile.ZipFile(pad) as z:
         namen = set(z.namelist())
         model = z.read("3D/3dmodel.model").decode()
+    import re
+    xyz = [tuple(float(x) for x in m) for m in re.findall(r'<vertex x="([^"]+)" y="([^"]+)" z="([^"]+)"', model)]
+    maat_ = [max(p[i] for p in xyz) - min(p[i] for p in xyz) for i in range(3)] if xyz else [0, 0, 0]
     return {"delen": {"[Content_Types].xml", "_rels/.rels", "3D/3dmodel.model"} <= namen,
-            "mm": 'unit="millimeter"' in model, "driehoeken": model.count("<triangle ")}
+            "mm": 'unit="millimeter"' in model, "driehoeken": model.count("<triangle "), "maat": maat_}
 
 
 def gaten(ob):

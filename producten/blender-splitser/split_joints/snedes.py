@@ -106,18 +106,42 @@ def model(context):
     return ob
 
 
+_stand = {"sleutel": None, "uitslag": None}
+
+
 def stand(context):
-    """Live check for the panel: (cells, cells that fit, largest cell mm) with the current cuts, or None."""
+    """Live check for the panel: (cells, cells that fit, largest cell mm) with the current cuts, or None.
+    Kept until the cuts, the bed or the model change, so drawing the panel never recounts; above
+    plan.MAX_CELLEN cells only the count (cells that fit: None), never the cells themselves."""
     ob = model(context)
     if ob is None:
         return None
     lo, hi = wereld_kader_mm(ob, context.scene)
-    lijst, _ = plan.cellen(lo, hi, lees(context.scene))
+    sn = lees(context.scene)
     b = bed(context.scene)
-    from .printers import past
-    maten = [tuple(y - x for x, y in zip(mn, mx)) for _ijk, mn, mx in lijst]
-    goed = sum(1 for m in maten if past(m, b))
-    return len(maten), goed, max(maten, key=lambda m: sorted(m, reverse=True)) if maten else (0, 0, 0)
+    sleutel = (ob.name, tuple(round(x, 3) for x in lo + hi), tuple((a, round(p, 3)) for a, p in sn), b)
+    if sleutel == _stand["sleutel"]:
+        return _stand["uitslag"]
+    n = plan.aantal_cellen(lo, hi, sn)
+    if n > plan.MAX_CELLEN:
+        uit = (n, None, (0.0, 0.0, 0.0))
+    else:
+        lijst, _ = plan.cellen(lo, hi, sn)
+        from .printers import past
+        maten = [tuple(y - x for x, y in zip(mn, mx)) for _ijk, mn, mx in lijst]
+        goed = sum(1 for m in maten if past(m, b))
+        uit = (len(maten), goed, max(maten, key=lambda m: sorted(m, reverse=True)) if maten else (0, 0, 0))
+    _stand["sleutel"], _stand["uitslag"] = sleutel, uit
+    return uit
+
+
+def te_groot_tekst(ob, scene):
+    """Message when the model is far outside a printable size (wrong unit), or None."""
+    from . import schaal
+    if schaal.buiten_bereik(ob, scene):
+        return (f"{ob.name} is {schaal.maat_mm(ob, scene):.4g} mm: the unit of the scene is probably wrong. "
+                "Use Convert to mm first")
+    return None
 
 
 class SPLIT_JOINTS_OT_plan(bpy.types.Operator):
@@ -135,11 +159,20 @@ class SPLIT_JOINTS_OT_plan(bpy.types.Operator):
     def execute(self, context):
         ob = context.active_object
         scene = context.scene
-        punten, _tri = mesh_mm(ob, scene)
+        melding = te_groot_tekst(ob, scene)
+        if melding:
+            self.report({"ERROR"}, melding)
+            return {"CANCELLED"}
+        andere = [o for o in context.selected_objects if o is not ob and o.type == "MESH"]
+        punten, tri = mesh_mm(ob, scene)
         b = bed(scene)
-        uit = plan.maak(punten, b)
+        uit = plan.maak(punten, b, tri)
         if uit is None:
-            self.report({"ERROR"}, "No plan found: the model has no points or is far too large")
+            self.report({"ERROR"}, "No plan found: the model has no points")
+            return {"CANCELLED"}
+        if uit.get("fout") == "te_veel":
+            self.report({"ERROR"}, f"This needs at least {uit['minimaal']} pieces (limit {plan.MAX_CELLEN}). "
+                                   "Check the unit of the scene or pick a bigger printer")
             return {"CANCELLED"}
         wis(scene)
         lo, hi = uit["lo"], uit["hi"]
@@ -152,7 +185,14 @@ class SPLIT_JOINTS_OT_plan(bpy.types.Operator):
                 o.select_set(False)
         ob.select_set(True)
         context.view_layer.objects.active = ob
-        self.report({"INFO"}, f"{uit['stukken']} pieces, {len(uit['snedes'])} cuts. Move a cut with G if you like.")
+        tekst = f"{uit['stukken']} pieces, {len(uit['snedes'])} cuts. Move a cut with G if you like."
+        if andere:  # keuring A10b: the other selected objects are not silently ignored
+            tekst += f" Only {ob.name} is planned: {len(andere)} other selected objects are not part of it"
+            scene["sj_andere_gekozen"] = len(andere)
+            self.report({"WARNING"}, tekst)
+        else:
+            scene["sj_andere_gekozen"] = 0
+            self.report({"INFO"}, tekst)
         return {"FINISHED"}
 
 

@@ -30,6 +30,31 @@ def mm_scene():
     return s
 
 
+def meter_scene():
+    """Empty scene in Blender's default unit: 1 unit = 1 m (where a model in mm lands after an STL import)."""
+    s = mm_scene()
+    s.unit_settings.scale_length = 1.0
+    s.unit_settings.length_unit = "METERS"
+    return s
+
+
+def doos(dx, dy, dz, naam="Box"):
+    """Bare closed box (8 vertices, 6 faces) standing on z = 0, in scene units. No voxel."""
+    bm = bmesh.new()
+    bmesh.ops.create_cube(bm, size=1.0)
+    bm.transform(Matrix.Translation((0, 0, dz / 2)) @ Matrix.Diagonal((dx, dy, dz, 1.0)))
+    return _object(naam, bm)
+
+
+def suzanne_open(breedte):
+    """Suzanne as Blender makes her: not watertight (open eyes and edges with more than 2 faces). No voxel."""
+    bm = bmesh.new()
+    bmesh.ops.create_monkey(bm)
+    ob = _object("Suzanne open", bm)
+    schaal_naar(ob, 0, breedte)
+    return ob
+
+
 def _object(naam, bm):
     me = bpy.data.meshes.new(naam)
     bm.to_mesh(me)
@@ -74,13 +99,14 @@ def waterdicht(ob, voxel):
     return nieuw
 
 
-def suzanne():
+def suzanne(breedte=330.0):
+    """Suzanne 330 mm wide; breedte in scene units (0.33 in a meter scene gives the same 330 mm)."""
     bm = bmesh.new()
     bmesh.ops.create_monkey(bm)
     ob = _object("Suzanne", bm)
     sub = ob.modifiers.new("sub", "SUBSURF")
     sub.levels = 1
-    schaal_naar(ob, 0, 330.0)
+    schaal_naar(ob, 0, breedte)
     return waterdicht(ob, 2.5)
 
 
