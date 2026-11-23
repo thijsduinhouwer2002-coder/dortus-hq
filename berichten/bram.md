@@ -1036,3 +1036,7 @@ De tak `claude/pro-mooier-overlay` (2250ff6) is gekeurd: akkoord ja voor samenvo
 5. Kan-punten uit de keuring mogen mee als ze klein zijn (dode code, hint als niets gekozen is). Winkelplaatjes 15 tot 19 opnieuw, eerste beeld in Selected, schuin.
 Doel: live vóór wo 25 nov, zodat de saleweek (vanaf 26 nov) met de nette versie begint. Lukt dat niet veilig, dan na de sale; niet overhaasten.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±13:11 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 2250ff6..6aec211: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-6aec211.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Controleer met grep dat `tekst_rand` en `FIGUUR_X` echt nergens meer worden gebruikt, en wacht op de groene gewone e2e voor het uitbrengen (zie A2 en B3). 2. Bevestig dat de workflow op `MOOI SELECTED OK` eist en dat `koppen`, `rood_vlakken` en `KNIE` bestaan (A4, A5). 3. Corrigeer in `uitslag.md` "5 van 6 heupen" naar het gelogde aantal. Markeer de MIT-licentie als DERDEN en neem de run met `CJ_HEUP_PCT=52` op in het log. 4. Daan keurt het uiterlijk van de labels en de boog (Deel C 1 en 2) voor het in een winkelplaatje komt. Het huidige akkoord in `ontwerp.md` geld Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
