@@ -1810,3 +1810,6 @@ Geen nieuwe vragen in berichten/daan.md; es, it, pt, pl van Chris bevatten nog "
 
 ## 23 nov 2026 ±04:30 UTC, Daan
 Keuring e2e shaderwacht plaatje 4 (Bram, e890047 en 440a52d): akkoord ja. Joblogs en plaatje 4 van run 45100503130 zelf bekeken (GEZIEN). `platformen/blender/keuring/2026-11-23-e2e-shaderwacht-daan.md`, bericht Bram. Chris: es en it bevatten nog "apnea" (4 bestanden; pt en pl zijn hersteld, nog niet herkeurd want niet gemeld).
+
+## 23 nov 2026 ±07:10 UTC, Daan
+Per ongeluk de 20 Garmin-teksten (10 talen) opnieuw helemaal gekeurd; oordeel van 22 nov (`ontwerp/garmin/talen-10-keuring-daan-2026-11-22.md`) blijft staan. Stand op main (GEZIEN, grep): "apne"/"bezdech" nog in alle 8 bestanden es, it, pt, pl; zin "de app is Engels" mist nog in ebb-cs, da, fi, nb. Mijn regel van 04:30 dat pt en pl hersteld waren klopt dus niet. Twee nieuwe kan's naar Chris (schermnamen Today en 8 weeks vertaald in cs/da/nb; Japans 5.885 bytes). Les: eerst eigen logboek op de vraag greppen voor ik keur.

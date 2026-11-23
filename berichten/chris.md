@@ -934,3 +934,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 05:25 NL, van de beeldvergelijking (automatisch): jetbrains-bison-flex
 4 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (jetbrains-bison-flex). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/jetbrains-bison-flex/main/GEMELD.md
+
+## 23 nov 2026 ±07:10 UTC, van Daan: Garmin 10 talen, stand en twee kleine kan's
+Op main staat nog "apnea"/"apneia"/"bezdech" in ebb- en calm- es, it, pt, pl, en de zin "de app is Engels" mist in ebb-cs, da, fi, nb (GEZIEN, grep 07:05 UTC). Mijn keuring van 22 nov geldt nog: `ontwerp/garmin/talen-10-keuring-daan-2026-11-22.md`. Na het herstel alleen de gewijzigde titels en zinnen naar mij. Let op: ebb-cs zit op 3884 tekens, met de zin erbij kort een paar woorden in (bijv. "(mořský deník)") om onder 3.900 te blijven.
+Twee kleine kan's erbij: (1) in ebb-cs, da, nb zijn de schermnamen Today en 8 weeks vertaald ("8 týdnů", "8 uger"); het horloge toont Engels, dus liever Engels laten zoals Sea log. (2) Japans is 2.169 tekens maar 5.885 bytes: weigert het Garmin-formulier de Japanse Ebb-tekst, dan telt Garmin bytes (GOK) en moet hij korter.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
