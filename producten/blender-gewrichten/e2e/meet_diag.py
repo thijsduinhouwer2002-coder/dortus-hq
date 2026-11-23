@@ -206,6 +206,18 @@ def instrumenteer():
             POGINGEN[-1]["buig"] = [round(x, 1) for x in g[0]] if g else None
         return uit
 
+    oud_verloren = rig.verloren_stuk
+
+    def verloren(context, bron, nieuw, centrum, straal, n=400):
+        uit = oud_verloren(context, bron, nieuw, centrum, straal, n)
+        if POGINGEN is not None:
+            _HUIDIG["verloren"] = round(uit, 4)
+            SNEDEN[-1]["verloren"] = round(uit, 4) if SNEDEN else None
+        return uit
+
+    rig.verloren_stuk = verloren
+    if os.environ.get("CJ_OMHULSEL_UIT"):
+        mod("betaald.omhulsel").AAN[0] = False
     gw.snij, fig.plaats_gewricht, rig.kogel_vast = snij, plaats, vast
     sv = mod("betaald.scharnier_vorm")
     oud_scharnier = sv.snij

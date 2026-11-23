@@ -144,10 +144,12 @@ jobs:
           SCRIPT=toetsen_zwaai.py ARGS="$OBJ" draai zwaai
           echo $fout > /tmp/uit/FOUT.txt
           # Onderzoek (geen eis): meetregels per snede op de Meshy-figuren van toetsen_meshy_rig.
-          for n in knight_yellow man_backpack; do
-            d="/tmp/cj_meet_$n"
-            CJ_GLB="$M/$n.glb" BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
-              timeout 1200 /tmp/blender/blender -b --factory-startup --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip meshy "/tmp/uit/meet-$n.json" 2>&1 | grep -E "^\[meet\]|^MEET" | cut -c1-1500 > "/tmp/uit/meet-$n.log" || true
+          # Knight drie keer met het schone omhulsel en twee keer zonder (CJ_OMHULSEL_UIT): is de rechterknie een grensgeval?
+          for k in 1 2 3 uit1 uit2; do
+            n=knight_yellow; d="/tmp/cj_meet_$k"
+            UIT=""; case $k in uit*) UIT=1;; esac
+            CJ_OMHULSEL_UIT=$UIT CJ_GLB="$M/$n.glb" BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+              timeout 1200 /tmp/blender/blender -b --factory-startup --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip meshy "/tmp/uit/meet-$n-$k.json" 2>&1 | grep -E "^\[meet\]|^MEET" | cut -c1-1500 > "/tmp/uit/meet-$n-$k.log" || true
           done
       - name: Logs op tak betrouwbaar-uitslag
         if: always()

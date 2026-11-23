@@ -35,8 +35,9 @@ from . import scharnier_vorm as vorm
 from . import scharnier_zwaai as zwaai
 
 # Run 28 koos voor Exact (4.2) de gratis bereid, omdat het diepe omhulsel daar het andere onderbeen kwijtraakte. Dat
-# omhulsel sneed zichzelf (zie omhulsel.py); met de schone voxelvorm proberen we het diepe omhulsel ook in 4.2.
-DIEP_EXACT = [True]
+# omhulsel sneed zichzelf (zie omhulsel.py). Proef 23 nov met de schone voxelvorm en het diepe omhulsel in 4.2 (run
+# 45261862637, GEZIEN): geen gewricht erbij op de testset, dus de oude keuze blijft. True zet de proef aan.
+DIEP_EXACT = [False]
 
 GRADEN_MIN, GRADEN_MAX = 30, 150  # vrije eindstop (Pro 1.1); buiten dit bereik geen getoetste vorm
 STAND_KEUZES = [(str(n), f"{n}°", f"Bends up to {n}°") for n in vorm.STANDEN]
@@ -169,7 +170,6 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             hulp.objects.link(werk)
             # 1.0.2: alleen het lid onder de cursor snijden, niet ook het andere been (proef Meshy-figuren 15 nov).
             # Run 28: met alleen Exact (4.2) de gratis bereid, het diepe omhulsel kostte daar het andere onderbeen.
-            # 1.2.3: met het schone omhulsel (omhulsel.py) ook in 4.2 het diepe omhulsel; DIEP_EXACT False is de oude weg.
             bereid = een_lid_diep.origineel() if solver == "EXACT" and not DIEP_EXACT[0] else een_lid.bereid
             ok_lid, melding = bereid(werk, frame_i, 0.0, 1.2 * vorm.reik(maat) + maat["s"], maat["s"], solver, hulp)
             if not ok_lid:
