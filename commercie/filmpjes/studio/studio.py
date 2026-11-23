@@ -213,7 +213,10 @@ def eevee():
     snel = bool(os.environ.get("CJ_TEST"))
     if snel:
         sc.render.resolution_percentage = 40
-    for k, v in (("taa_samples", 8 if snel else 64), ("taa_render_samples", 8 if snel else 64), ("use_shadows", True), ("shadow_ray_count", 1 if snel else 3),
+    # Olaf 23 nov: CJ_SAMPLES zet het aantal samples (standaard 64, ongewijzigd). Op de CI-runner (llvmpipe) kost elke
+    # render met 64 samples 5 tot 6 minuten (run 45169075703, GEZIEN); met minder samples is een snellere proef te meten.
+    n = 8 if snel else int(os.environ.get("CJ_SAMPLES") or 64)
+    for k, v in (("taa_samples", n), ("taa_render_samples", n), ("use_shadows", True), ("shadow_ray_count", 1 if snel else 3),
                  ("shadow_step_count", 8), ("use_raytracing", not snel), ("use_gtao", True), ("gtao_distance", 6.0),
                  ("fast_gi_distance", 6.0), ("use_soft_shadows", True)):
         if hasattr(e, k):
