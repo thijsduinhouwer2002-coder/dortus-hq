@@ -58,37 +58,36 @@ def exact_zelf(arm):
 
 
 def solver_terugval(arm):
-    """5b (1.2.2). Geeft Manifold open delen, dan snijdt de operator één keer opnieuw met Exact.
-    Nagespeeld met FORCEER_OPEN: 1 keer open moet twee gesloten delen geven met solver EXACT en
-    cj_solver_terugval aan; 2 keer open moet netjes weigeren met het figuur heel en geen hulpresten."""
+    """5b (Pro 1.2.2). Geeft Manifold open delen, dan snijdt Pro één keer opnieuw met Exact (betaald/terugval.py).
+    Nagespeeld met FORCEER_OPEN: 0 geeft twee gesloten delen zonder terugval, 1 geeft twee gesloten delen met
+    cj_solver_terugval (tweede snede met Exact), steeds zonder hulpresten. Alleen met de Pro-zip en Manifold."""
     gw = addon("gewricht")
+    try:
+        tv = addon("betaald.terugval")
+    except ImportError:
+        log("TERUGVAL: gratis zip, toets overgeslagen")
+        return
     if gw.solver_naam() != "MANIFOLD":
         log("TERUGVAL: geen Manifold in deze Blender, toets overgeslagen")
         return
     arm.hide_set(False)
     try:
-        for keer in (1, 2):
-            gw.FORCEER_OPEN = keer
+        for keer in (0, 1):
+            tv.FORCEER_OPEN = keer
             figuren.zet_cursor((0, 0, 0), (1, 0, 0))
             bpy.context.scene.click_joints.as_bron = "CURSOR"
             uitslag, melding = probeer_plaats(arm)
             lijst = delen()
             rest = [c.name for c in bpy.data.collections if c.name.startswith("cj_hulp")]
             log(f"TERUGVAL {keer}x open: uitslag={uitslag} delen={len(lijst)} melding={melding} hulp={rest}")
-            if keer == 1:
-                gesloten_delen("terugval 1x open", lijst)
-                stap("terugval 1x open: twee delen met solver EXACT en cj_solver_terugval",
-                     len(lijst) == 2 and all(d.get("cj_solver") == "EXACT" and d.get("cj_solver_terugval")
-                                             for d in lijst) and not rest)
-                weg(lijst)
-                arm.hide_set(False)
-            else:
-                fout, vol = meting(arm)
-                stap("terugval 2x open: geweigerd, figuur heel en zichtbaar, geen hulpresten",
-                     not lijst and bool(melding) and fout == 0 and vol > 0 and arm.visible_get() and not rest)
-                weg(lijst)
+            gesloten_delen(f"terugval {keer}x open", lijst)
+            terug = [bool(d.get("cj_solver_terugval")) for d in lijst]
+            stap(f"terugval {keer}x open: twee delen, terugval {'aan' if keer else 'uit'}, geen hulpresten",
+                 len(lijst) == 2 and all(t == bool(keer) for t in terug) and not rest and tv.FORCEER_OPEN == 0)
+            weg(lijst)
+            arm.hide_set(False)
     finally:
-        gw.FORCEER_OPEN = 0
+        tv.FORCEER_OPEN = 0
         arm.hide_set(True)
 
 

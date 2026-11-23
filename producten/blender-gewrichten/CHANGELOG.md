@@ -10,9 +10,6 @@ Write each line from the user's side, at most 5 lines per version.
 ### Added
 - "Report a problem" at the bottom of the Click Joints tab opens a bug report on GitHub with your Click Joints, Blender and system versions already filled in. Nothing is sent until you submit it yourself.
 
-### Fixed
-- A cut that left a part not watertight is now tried once more with the Exact solver before Click Joints gives up, so fewer spots end in "no watertight parts".
-
 ## 0.1.1 (2026-11-16)
 
 ### Fixed
