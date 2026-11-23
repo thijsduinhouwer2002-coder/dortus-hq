@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 5.2.3 (main)
 GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 45110022105, commit a2c4035daaa798c27b9635f959c5167e7cbca403, commitdatum 1795406904, 2026-11-23T04:24:44Z
+Referentie: referentie uit run 45165542202, commit de4d115faf3d7775ce127dd051c968cb06043d7e, commitdatum 1795433309, 2026-11-23T11:44:51Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -9,7 +9,7 @@ Referentie: referentie uit run 45110022105, commit a2c4035daaa798c27b9635f959c51
 | 11-scharnier-x.png | gelijk | |
 | 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | 31 px (0.001%), ruis | |
-| 13-pro-knie-x.png | 8 px (0.000%), ruis | |
+| 13-pro-knie-x.png | gelijk | |
 | 13d-pro-knie-dicht-x.png | gelijk | |
 | 14-pro-knie-rood-x.png | gelijk | |
 | 14b-pro-knie-rood-los-x.png | 7 px (0.000%), ruis | |
@@ -21,7 +21,7 @@ Referentie: referentie uit run 45110022105, commit a2c4035daaa798c27b9635f959c51
 | 17-figuur-heel-x.png | gelijk | |
 | 19-mens-paneel.png | gelijk | |
 | 19-mens-x.png | gelijk | |
-| 2-gewricht-x.png | 32 px (0.002%), ruis | |
+| 2-gewricht-x.png | gelijk | |
 | 20-testkaart.png | gelijk | |
 | 20d-testkaart-getal.png | gelijk | |
 | 20h-testkaart-scharnier.png | gelijk | |
