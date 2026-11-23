@@ -927,3 +927,7 @@ Run: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/4508719
   19-mens-x.png: 69174 px (3.336%), x 804 tot 1880, y 80 tot 1039
 Geteste versies: Blender: 4.5.17-rc, 5.2.5-rc, 5.3.0, 5.4.0-alpha (vast bij een push: 4.2.23, 5.2.3, 5.3.0). JetBrains: IIU: EAP 2026.3.1 build 263.8311.30 van 2026-11-20; CL: nieuwste EAP 263.7307.35 is 31 dagen oud (licentie verlopen), overgeslagen; Plugin Verifier ook tegen IU:2026.3,CL:2026.3.0.1. Obsidian: nieuwste app met de oudste en de nieuwste installer.
 Rood in de week-test blokkeert niets. Kijk of het aan de nieuwe versie ligt (dan aanpassen voor die uitkomt) of aan de test.
+
+## 23 nov 2026 02:30 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
