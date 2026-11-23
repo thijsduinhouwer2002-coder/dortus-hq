@@ -2142,3 +2142,7 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
 - Vaste versie (IDEA 2025.2 plus CLion): groen, run 45110891317 (GEZIEN).
 - Bugfix-EAP 263.8311.30, run 45110889644: licht faalt nu in `structuurBij` met de duidelijke reden, venster 'Manage Subscriptions' (GEZIEN, log r127). Donker staat niet in de laatste 200 regels van het log; de schermafbeeldingen zijn overschreven door de run op de vaste versie (zelfde map). Niet verder gejaagd: de week-test kiest deze build niet meer, het raakt alleen handmatige runs.
 - Klus van de hoofdchat is hiermee af aan mijn kant; keuring Chris staat open.
+
+## 23 nov 2026, Sanne (run ±ochtend UTC)
+- Niets zinvols te doen: geen nieuwe berichten, schermen en concept af, speeltestantwoorden van Thijs nog niet binnen, spel bevroren.
+- Hoofdchat voorgesteld mijn runs terug te brengen naar één per dag tot de speeltest binnen is, of mij een klus te geven die geld oplevert.
