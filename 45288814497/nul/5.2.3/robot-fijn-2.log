@@ -1,0 +1,42 @@
+[meet] figuur robot-fijn: Figuur, {'bron_punten': 561426, 'bron_zelf_overlap': 0}
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+[meet] Blender 5.2.3 LTS figuur robot-fijn: 5 gewrichten ['Left elbow', 'Right elbow', 'Neck', 'Left shoulder', 'Right shoulder']
+[meet] ontbreekt: ['Left hip', 'Right hip', 'Left knee', 'Right knee']; overgeslagen: Left knee (The parts overlap before they move; the mesh is unchanged.); Right knee (The parts overlap before they move; the mesh is unchanged.); Left hip (no room for a ball joint that can move here (it would be blocked)); Right hip (no room for a ball joint that can move here (it would be blocked))
+[meet] pogingen 17, sneden 11, slechte sneden 4
+[meet]   SLECHT {"poging": 13, "gewricht": "Left hip", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 6.74, "r_mm": 6.5, "naad_r": 12.451, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.47033959963972605, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 0.0, 64327.0, false], [true, 0.0, 64327.0, false]]}, "A": {"gesloten": true, "fout": 0, "punten": 266703, "zelf": 765}, "B": {"gesloten": true, "fout": 0, "punten": 134085, "zelf": 9401}, "overlap_ab": 17596, "goed": false, "werk_zelf": 0, "h_zelf_overlap": 9220}
+[meet]   SLECHT {"poging": 14, "gewricht": "Left hip", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 6.36, "r_mm": 6.5, "naad_r": 12.47, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.47106556326330856, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 0.0, 64211.0, false], [true, 0.0, 64211.0, false]]}, "A": {"gesloten": true, "fout": 0, "punten": 267052, "zelf": 669}, "B": {"gesloten": true, "fout": 0, "punten": 133992, "zelf": 9499}, "overlap_ab": 17656, "goed": false, "werk_zelf": 0, "h_zelf_overlap": 9873}
+[meet]   SLECHT {"poging": 15, "gewricht": "Right hip", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 6.52, "r_mm": 6.5, "naad_r": 12.452, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.47034305146304684, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 0.0, 64326.5, false], [true, 0.0, 64326.5, false]]}, "A": {"gesloten": true, "fout": 0, "punten": 266693, "zelf": 718}, "B": {"gesloten": true, "fout": 0, "punten": 134115, "zelf": 9362}, "overlap_ab": 17443, "goed": false, "werk_zelf": 0, "h_zelf_overlap": 9191}
+[meet]   SLECHT {"poging": 16, "gewricht": "Right hip", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 6.9, "r_mm": 6.5, "naad_r": 12.47, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.4710669528810949, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 0.0, 64211.0, false], [true, 0.0, 64211.0, false]]}, "A": {"gesloten": true, "fout": 0, "punten": 267043, "zelf": 809}, "B": {"gesloten": true, "fout": 0, "punten": 133986, "zelf": 9301}, "overlap_ab": 17600, "goed": false, "werk_zelf": 0, "h_zelf_overlap": 9972}
+MEET robot-fijn gewrichten=5 overgeslagen=4 slechte_sneden=4
+[meet] figuur robot-fijn: Figuur, {'bron_punten': 561426, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 140°. 14.624 s.
+Info: Hinge placed. Bends 0° to 140°. 13.838 s.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Joint placed. Good fit. 15.114 s.
+Info: Joint placed. Good fit. 17.56 s.
+Info: Joint placed. Good fit. 16.462 s.
+Info: Joint placed. Good fit. 45.454 s.
+Info: Joint placed. Good fit. 45.396 s.
+Info: Joint placed. Good fit. 44.609 s.
+Info: Joint placed. Good fit. 45.545 s.
+Warning: 5 joints · 1 rig · 1 mirror · 3 preset. Skipped: Left knee (The parts overlap before they move; the mesh is unchanged.); Right knee (The parts overlap before they move; the mesh is unchanged.); Left hip (no room for a ball joint that can move here (it would be blocked)); Right hip (no room for a ball joint that can move here (it would be blocked))
+[meet] Blender 5.2.3 LTS figuur robot-fijn: 5 gewrichten ['Left elbow', 'Right elbow', 'Neck', 'Left shoulder', 'Right shoulder']
+[meet] ontbreekt: ['Left hip', 'Right hip', 'Left knee', 'Right knee']; overgeslagen: Left knee (The parts overlap before they move; the mesh is unchanged.); Right knee (The parts overlap before they move; the mesh is unchanged.); Left hip (no room for a ball joint that can move here (it would be blocked)); Right hip (no room for a ball joint that can move here (it would be blocked))
+[meet] pogingen 17, sneden 11, slechte sneden 4
+[meet]   SLECHT {"poging": 13, "gewricht": "Left hip", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 6.74, "r_mm": 6.5, "naad_r": 12.451, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.47033959963972605, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 0.0, 64327.0, false], [true, 0.0,
+[meet]   SLECHT {"poging": 14, "gewricht": "Left hip", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 6.36, "r_mm": 6.5, "naad_r": 12.47, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.47106556326330856, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 0.0, 64211.0, false], [true, 0.0, 
+[meet]   SLECHT {"poging": 15, "gewricht": "Right hip", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 6.52, "r_mm": 6.5, "naad_r": 12.452, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.47034305146304684, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 0.0, 64326.5, false], [true, 0.0
+[meet]   SLECHT {"poging": 16, "gewricht": "Right hip", "soort": "KOGEL", "solver": "MANIFOLD", "terugval": false, "s": 6.9, "r_mm": 6.5, "naad_r": 12.47, "een_lid": {"lussen": 2, "lid": "B", "h_soort": "los", "lid_open": 0, "vreemd": 0, "marge": 0.4710669528810949, "h_voxel": null, "h_vlakken": null, "h_buiten": null, "h_buiten_om": null, "h_pogingen": [[false, 0.0, 64211.0, false], [true, 0.0, 6
+MEET robot-fijn gewrichten=5 overgeslagen=4 slechte_sneden=4
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+
+Blender quit
+model name	: AMD EPYC 7763 64-Core Processor
