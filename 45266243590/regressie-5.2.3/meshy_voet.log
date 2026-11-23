@@ -1,0 +1,32 @@
+STATUS Installed "click_joints"
+[cj-ai] Pro geladen: True
+21:10:26 | INFO: Data are loaded, start creating Blender stuff
+21:10:26 | INFO: Blender create Mesh node Mesh1
+21:10:26 | INFO: glTF import finished in 0.04s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Info: Hinge placed. Bends 0° to 115°. 3.975 s.
+[cj-chris] KNIE op (-0.3, 15.4, 40.5): {'FINISHED'}, delen [('army_man_gesloten_A', 115.0), ('army_man_gesloten_B', 115.0)], melding Hinge placed. Bends 0° to 115°.
+[cj-voet] OK   knie 27%: A en B elk één stuk ({'A': 1, 'B': 1})
+[cj-voet] OK   knie 27%: deel A reikt tot de vloer (laagste 0.19 mm)
+[cj-voet] OK   knie 27%: tenen naar -x zoals op het beeld van Chris ((-1.0, -0.0, -0.0))
+21:10:32 | INFO: Data are loaded, start creating Blender stuff
+21:10:32 | INFO: Blender create Mesh node Mesh1
+21:10:32 | INFO: glTF import finished in 0.04s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Info: Hinge placed. Bends 0° to 115°. 3.648 s.
+[cj-chris] KNIE op (1.1, 15.6, 37.5): {'FINISHED'}, delen [('army_man_gesloten_A', 114.96), ('army_man_gesloten_B', 114.96)], melding Hinge placed. Bends 0° to 115°.
+[cj-voet] OK   knie 25%: A en B elk één stuk ({'A': 1, 'B': 1})
+[cj-voet] OK   knie 25%: deel A reikt tot de vloer (laagste 0.19 mm)
+[cj-voet] OK   knie 25%: tenen naar -x zoals op het beeld van Chris ((-1.0, -0.0, -0.0))
+21:10:37 | INFO: Data are loaded, start creating Blender stuff
+21:10:37 | INFO: Blender create Mesh node Mesh1
+21:10:37 | INFO: glTF import finished in 0.04s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+[cj-chris] KNIE op (-1.8, 14.6, 43.5): {'CANCELLED'}, delen [], melding None
+[cj-voet] OK   knie 29%: geweigerd, geen delen
+[cj-voet] OK   minstens één knie heel gelukt (2)
+[cj-voet] KLAAR 0 FOUT
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+
+Blender quit
