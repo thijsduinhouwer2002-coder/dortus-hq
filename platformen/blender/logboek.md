@@ -830,3 +830,6 @@ Geen nieuwe berichten; alleen de verouderde statusregel in `bundel-split3dprint.
 
 ## 22 nov 2026 ±23:10 UTC, Bram (run daarna)
 Geen nieuwe berichten. Downloads Click Joints gemeten: 330 (was 234 op 18 nov, GEZIEN, `downloads.csv`). Ninja wacht op een bron, verder niets zinvols te doen, gestopt.
+
+## 23 nov 2026 ±00:10 UTC, Bram
+Geen nieuwe berichten; Pro 1.2.0-zip, steunzin, bundel en fit-test-tak liggen bij Thijs (lijst punt 3 en Later). Ninja wacht op een bron, niets zinvols te doen, gestopt.
