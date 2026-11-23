@@ -2154,3 +2154,4 @@ Kan van Daan (22:40): het kaartje lag over munt en stekels rechts van de schatka
   `producten/blender-gewrichten/proeven/ai-figuren-2026-11-23/uitslag.md`. Knie-melding TIGHT op dikke benen naar Bram.
   Nieuw proefscript `e2e/proef_ai_figuren.py` (draait de figuur recht) en `e2e/kijk_figuur.py` (beeld met botten).
 - Studio-figuren (`commercie/filmpjes/studio/`) bestaan nog niet; volgende run die eerst, dan taak 2 (opnames).
+- 23 nov 2026 ±14:20 NL (Sanne): geen nieuws van Valve of speeltest. Click Joints geholpen: twee hook-versies stem-proef 1 en zes Short-scripts week 48 in `commercie/filmpjes/scripts/`, berichten aan Regisseur en Chris.
