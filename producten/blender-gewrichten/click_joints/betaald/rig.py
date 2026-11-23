@@ -743,7 +743,12 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                         ok, melding, vangnet = False, fout, fout
                         continue
                     laag = (melding or "").lower()
-                    verder = "too close" in laag or (soort == "HINGE" and ("too thin" in laag or "tight" in laag))
+                    # 23 nov (Olaf, studio-figuur: CI 8 gewrichten, lokaal 9): "no watertight parts" is vaak één
+                    # slechte rand uit de booleaanse snede op een bijna platte driehoek, en die valt per machine net
+                    # anders uit. Stoppen bij zo'n snede maakte de uitslag toeval; dus net als bij "too close" de
+                    # volgende plek proberen. De mesh is dan nog onveranderd (gewricht.py zegt dat zelf).
+                    verder = ("too close" in laag or "no watertight parts" in laag
+                              or (soort == "HINGE" and ("too thin" in laag or "tight" in laag)))
                     if ok or i == len(kandidaten) - 1 or not verder:
                         break
             afstand.kk_uit[0] = False
