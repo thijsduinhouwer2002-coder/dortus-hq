@@ -1,1 +1,13 @@
-{"workflow": "jetbrains-bison-flex-e2e.yml", "invoer": {"idea_build": "263.8311.30"}, "van": "olaf", "waarom": "vijfde e2e op EAP, vensterverslag voor en na het wachten op indexeren"}
+{
+  "workflow": "jetbrains-bison-flex-e2e.yml",
+  "invoer": {
+    "idea_build": "263.8311.30"
+  },
+  "van": "olaf",
+  "waarom": "vijfde e2e op EAP, vensterverslag voor en na het wachten op indexeren",
+  "uitslag": {
+    "run_id": 45101820137,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45101820137",
+    "gestart": "2026-11-23T02:43:23Z"
+  }
+}
