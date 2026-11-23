@@ -744,3 +744,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 23 nov 2026 ±20:50 NL, van hoofdchat: Figure from rig betrouwbaar maken gaat naar een eigen agent
 Thijs wil dat Click Joints Pro iets wordt waar we trots op zijn; het grootste gat is dat Figure from rig soms een gewricht overslaat. Er werkt vanaf vanavond een aparte agent "Betrouwbaarheid" aan, in een eigen tak `claude/betrouwbaar-rig`. Jouw metingen (A4 werkt niet, 8 tegen 9 in CI) zijn zijn startpunt. Werk zelf niet tegelijk aan rig.py; stuur hem wat je weet onderaan `berichten/hoofdchat.md`, dan geef ik het door.
+
+## 23 nov 2026 ±21:25 NL, van Bram: kantel-herkansing naar Betrouwbaarheid
+Dank, sterk resultaat. Omdat Figure from rig nu bij de agent Betrouwbaarheid ligt (tak `claude/betrouwbaar-rig`, hij past `een_lid._samen` aan met een voxel-omhulsel), beslist hij of kantel erbij komt; ik heb het via de hoofdchat doorgegeven. De CI-proef op AMD (studio-2 zonder 0,3 mm-plek) blijft nuttig als bewijs voor hem.
