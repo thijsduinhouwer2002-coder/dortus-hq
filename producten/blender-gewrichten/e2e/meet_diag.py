@@ -237,7 +237,36 @@ def instrumenteer():
             except Exception as e:
                 rec["meetfout"] = str(e)[:200]
         rec["goed"] = rec["A"]["gesloten"] and rec["B"]["gesloten"]
+        if not rec["goed"] and solver == "EXACT" and os.environ.get("CJ_PROEVEN"):
+            rec["proeven"] = proeven_scharnier(oud_scharnier, hulp, werk, frame, m, solver)
         SNEDEN.append(rec)
         return a, b
 
     sv.snij = snij_scharnier
+
+
+def proeven_scharnier(oud, hulp, werk, frame, m, solver):
+    """Alleen meten: dezelfde scharniersnede met Exact en Self Intersection aan, en een fractie verschoven."""
+    een_lid = mod("een_lid")
+    gw = mod("gewricht")
+    ges = mod("gesloten")
+    bewaar = {k: (dict(v) if isinstance(v, dict) else v) for k, v in een_lid.STAND.items()}
+    uit = {}
+    for naam, f, zelf in (("exact_zelf", frame, True), ("schuif_0.05", frame @ Matrix.Translation((0, 0, 0.05)), False)):
+        voor = {o.name for o in hulp.objects}
+        een_lid.STAND.update({k: (dict(v) if isinstance(v, dict) else v) for k, v in bewaar.items()})
+        if een_lid.STAND.get("h") is not None:
+            een_lid.STAND["bronnen"] = {}
+        zelf_oud = gw.EXACT_ZELF
+        gw.EXACT_ZELF = zelf
+        try:
+            a, b = oud(hulp, werk, f, m, solver)
+            uit[naam] = {"A": ges.is_gesloten(a.data)[1], "B": ges.is_gesloten(b.data)[1],
+                         "goed": ges.is_gesloten(a.data)[0] and ges.is_gesloten(b.data)[0],
+                         "punten": [len(a.data.vertices), len(b.data.vertices)]}
+        except Exception as e:
+            uit[naam] = {"fout": str(e)[:200]}
+        gw.EXACT_ZELF = zelf_oud
+        _ruim(hulp, voor)
+    een_lid.STAND.update(bewaar)
+    return uit
