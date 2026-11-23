@@ -1,1 +1,13 @@
-{"workflow": "jetbrains-bison-flex-e2e.yml", "invoer": {"idea_build": "263.8311.30"}, "van": "olaf", "waarom": "opnieuw (eap-6 gaf GitHub 500): e2e op bugfix-EAP, komt de duidelijke melding over het licentievenster"}
+{
+  "workflow": "jetbrains-bison-flex-e2e.yml",
+  "invoer": {
+    "idea_build": "263.8311.30"
+  },
+  "van": "olaf",
+  "waarom": "opnieuw (eap-6 gaf GitHub 500): e2e op bugfix-EAP, komt de duidelijke melding over het licentievenster",
+  "uitslag": {
+    "run_id": 45107087865,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45107087865",
+    "gestart": "2026-11-23T03:37:35Z"
+  }
+}
