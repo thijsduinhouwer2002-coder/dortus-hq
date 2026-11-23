@@ -837,3 +837,6 @@ Geen nieuwe berichten; Pro 1.2.0-zip, steunzin, bundel en fit-test-tak liggen bi
 ## 23 nov 2026 ±02:20 UTC, Bram
 - Week-test rood op 4.5.17-rc en 5.2.5-rc lag aan de test, niet aan Click Joints: `weektest.py` schrijft `-rc`, builder.blender.org noemt die builds `candidate` (GEZIEN in de daily-lijst). `blender-gewrichten-e2e.yml` zet `rc` nu om naar `candidate`; lokaal vindt de opzoekregel beide builds (GEZIEN). De e2e heeft bij workflow_dispatch geen versie-invoer, dus de rc-weg zelf blijkt pas bij de volgende week-test; de push-run 45093224282 haalt 4.2.23, 5.2.3 en 5.3.0 gewoon op (GEZIEN, script dus heel).
 - Beeldverschil 15 tot 19 (5.3.0 en 5.4.0-alpha): het paneel is langer door de nieuwe regels van Pro 1.2.0, alles schuift omlaag (GEZIEN in het verschilbeeld). Zo bedoeld.
+
+## 23 nov 2026 ±02:20 UTC, Bram
+- Beeldvergelijking 5.3.0 (run 45093224282): plaatje 4 (Material Preview) anders omdat de referentie werd geschoten terwijl EEVEE nog shaders bouwde ("Compiling EEVEE engine shaders" in het verschilbeeld, nieuwe run toont de kleuren goed, GEZIEN). Lag aan de test, niet aan Click Joints. `schermen.py` wacht nu tot `bpy.app.is_job_running("SHADER_COMPILATION")` klaar is (hoogstens 30 s extra) in plaats van vast 8 s. e2e na deze push moet het bevestigen.

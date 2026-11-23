@@ -58,6 +58,18 @@ def stap():
         proefstrook()
         return 8.0  # Material Preview (EEVEE) moet eerst de shaders bouwen, met software-OpenGL duurt dat
     if n == 9:
+        # 8 s was soms te kort (run 45093224282: referentie had "Compiling EEVEE engine shaders").
+        # Wacht tot Blender klaar is met shaders bouwen, hoogstens 30 s extra, dan nog 2 s voor het tekenen.
+        bouwt = getattr(bpy.app, "is_job_running", lambda _t: False)("SHADER_COMPILATION")
+        if bouwt and toestand.get("shaderwacht", 0) < 30:
+            toestand["shaderwacht"] = toestand.get("shaderwacht", 0) + 1
+            toestand["n"] = 8  # deze stap nog eens
+            return 1.0
+        if toestand.get("shaderwacht", 0) and not toestand.get("shaderklaar"):
+            toestand["shaderklaar"] = True
+            log(f"SHADERS klaar na {toestand['shaderwacht']} s extra wachten")
+            toestand["n"] = 8
+            return 2.0
         schiet("4-material-preview.png")
         meet_strook()
         return 0.5
