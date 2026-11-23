@@ -1,0 +1,12 @@
+{
+ "uitleg": "Ondergrens gewrichten per figuur in de testset Figure from rig (e2e/meet_rig.py). Betrouwbaarheid 23 nov 2026.",
+ "figuren": {
+  "robot-a": {"alle": 9},
+  "robot-b": {"alle": 9},
+  "robot-fijn": {"alle": 9},
+  "kleding": {"alle": 9},
+  "mens": {"alle": 9},
+  "rigify": {"alle": 9},
+  "armen": {"alle": 8}
+ }
+}

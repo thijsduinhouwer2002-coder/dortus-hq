@@ -1,0 +1,90 @@
+name: Betrouwbaarheid Figure from rig (testset, echte Blender)
+
+# Agent Betrouwbaarheid (23 nov 2026): Figure from rig op een vaste testset van figuren in Blender 4.2.23, 5.2.3 en
+# 5.3.0. Per figuur en versie: hoeveel gewrichten, welke overgeslagen en waarom, en per snede wat er misging
+# (e2e/meet_rig.py en e2e/meet_diag.py). Uitslag als JSON op de tak betrouwbaar-uitslag (map <run>/<versie>/),
+# zodat een agent zonder sleutel hem met git kan lezen. De job is rood als een figuur minder gewrichten haalt dan
+# zijn ondergrens in e2e/meet_drempel.json (de eis van de testset).
+
+on:
+  push:
+    branches: ["claude/betrouwbaar-rig"]
+    paths: ["producten/blender-gewrichten/**", "commercie/filmpjes/studio/**", ".github/workflows/betrouwbaar-rig.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  meet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        blender: ["4.2.23", "5.2.3", "5.3.0"]
+        figuur: [robot-a, robot-b, robot-fijn, kleding, mens, rigify, armen]
+    env:
+      PRO_VERSIE: "1.2.2"
+      CJ_PROEVEN: "1"
+      BLENDER_USER_RESOURCES: /tmp/cj
+      BLENDER_USER_CONFIG: /tmp/cj/config
+      BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+    steps:
+      - uses: actions/checkout@v4
+      - name: Blender ${{ matrix.blender }} ophalen
+        run: |
+          sudo apt-get install -y -q libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 zip >/dev/null || true
+          V="${{ matrix.blender }}"; KORT="${V%.*}"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          /tmp/blender/blender --version | head -1
+          grep -m1 "model name" /proc/cpuinfo
+      - name: Pro-zip
+        working-directory: producten/blender-gewrichten
+        run: bash e2e/maak_zip.sh betaald
+      - name: Figure from rig op ${{ matrix.figuur }}
+        working-directory: producten/blender-gewrichten
+        env:
+          FIG: ${{ matrix.figuur }}
+          V: ${{ matrix.blender }}
+        run: |
+          mkdir -p /tmp/uit
+          timeout 2700 /tmp/blender/blender -b --factory-startup --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip "$FIG" "/tmp/uit/$FIG.json" > /tmp/uit/$FIG-vol.log 2>&1 || true
+          grep -E "\[meet\]|^MEET|Traceback|Error" /tmp/uit/$FIG-vol.log | cut -c1-2000 | tee /tmp/uit/$FIG.log
+          tail -40 /tmp/uit/$FIG-vol.log | cut -c1-400 >> /tmp/uit/$FIG.log
+          grep -m1 "model name" /proc/cpuinfo >> /tmp/uit/$FIG.log
+          rm -f /tmp/uit/$FIG-vol.log
+      - name: Uitslag op tak betrouwbaar-uitslag
+        if: always()
+        env:
+          TOKEN: ${{ github.token }}
+          FIG: ${{ matrix.figuur }}
+          V: ${{ matrix.blender }}
+        run: |
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5 6 7 8; do
+            rm -rf /tmp/s
+            if git clone -q --depth 1 --branch betrouwbaar-uitslag "$URL" /tmp/s 2>/dev/null; then :; else
+              mkdir /tmp/s && cd /tmp/s && git init -q -b betrouwbaar-uitslag && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="/tmp/s/${GITHUB_RUN_ID}/$V"
+            mkdir -p "$D" && cp /tmp/uit/* "$D"/ 2>/dev/null || true
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}" > "/tmp/s/${GITHUB_RUN_ID}/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Meting $FIG $V run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin betrouwbaar-uitslag; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 4 + RANDOM % 5))
+          done
+      - name: Eis van de testset
+        working-directory: producten/blender-gewrichten
+        env:
+          FIG: ${{ matrix.figuur }}
+          V: ${{ matrix.blender }}
+        run: python3 e2e/meet_eis.py "/tmp/uit/$FIG.json" "$V" e2e/meet_drempel.json
