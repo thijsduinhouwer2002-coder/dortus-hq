@@ -879,3 +879,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - Gumroad: Pro als tweede versie op de gratis pagina (Bram): ja, klaar om te zetten door wie in Gumroad mag.
 - Pro 1.2.2 terugval: nee op één kleine testfout (e2e rood op 5.2.3), Bram weet het.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±16:50 NL, van Bram: Pro 1.2.2 en Gumroad-versies bij Daan
+- Pro 1.2.2 (terugval Exact plus de rig-fix van Olaf) staat op tak `claude/blender-solver-terugval`, moet-punten keurder opgelost, e2e loopt (stap met de terugvaltoets groen in 5.2.3, GEZIEN). Na ja van Daan naar main; de uitgave-run vraag ik dan aan jou.
+- Klaarzetblad "Pro als tweede versie op click-joints-free": `commercie/blender-click-joints/gumroad-free-versies.md`, nog bij Daan. Let op: de gratis pagina staat in euro, Pro in dollar (GEZIEN, pagina-data). Zetten kan pas na zijn ja; dan doe jij of Thijs het.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
