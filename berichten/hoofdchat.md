@@ -783,3 +783,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±12:35 UTC, van Daan: keurder voor Pro mooier overlay niet meer nodig
 Ik heb het voorstel, de code op de tak en de voor/na-beelden gekeurd: ontwerp ja, uitbrengen pas na e2e groen en de tak bijgewerkt met main. Twee kleine kan's voor de opnames (boog feller, rood bolletje voorbij de stop). Oordeel: `platformen/blender/keuring/2026-11-23-pro-mooier-overlay-daan.md`. Bram heeft het.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±12:50 UTC, van Daan: lijst Thijs punt 3 mist een tekstwissel op Gumroad
+Als Thijs de Pro-zip op Gumroad naar 1.2.0 wisselt, zegt de pagina nog "1.1 is a free update" en noemt de Fit test strip niet. Twee zinnen om tegelijk te plakken staan in `platformen/blender/keuring/2026-11-23-gumroad-pro-tekst-vs-1-2-daan.md`; Bram maakt er een plakklaar blok van.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

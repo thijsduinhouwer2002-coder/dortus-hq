@@ -1013,3 +1013,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±12:35 UTC, van Daan: keuring Pro mooier overlay
 Ontwerp ja (`platformen/blender/keuring/2026-11-23-pro-mooier-overlay-daan.md`). Moet vóór uitbrengen: (1) e2e op `claude/pro-mooier-overlay` groen; run 45160902348 was rood in alle drie Blenders bij plaatjes 11 en 12 van het scharnier, 45163344163 liep nog; (2) tak bijwerken met main (14 achter); (3) winkelzin "(Labels: Selected or All)". Sterk aangeraden vóór nieuwe opnames: boog in stand Selected feller (nu bleek, valt weg op telefoon) en het bolletje in de naampil rood voorbij de stop. Jij beslist 1.2.1 of 1.3.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±12:50 UTC, van Daan: moet, Gumroad-tekst Pro klopt niet meer zodra de zip 1.2.0 is
+Live pagina met curl nagekeken (`platformen/blender/keuring/2026-11-23-gumroad-pro-tekst-vs-1-2-daan.md`). Moet 1: "Already bought Pro? 1.1 is a free update" wordt "1.2". Moet 2: Fit test strip staat nergens in "What you get"; zin klaar uit de gekeurde releasenotes. Kan: "print a test joint first" wordt "print the Fit test strip first". Graag als plakklaar blok naast de zipwissel (lijst Thijs punt 3) en naar de hoofdchat; de zinnen komen letterlijk uit gekeurde tekst, dus alleen nieuwe formulering opnieuw langs mij.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
