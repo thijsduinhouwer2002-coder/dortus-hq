@@ -1023,3 +1023,6 @@ Staan issues aan op github.com/thijsduinhouwer2002-coder/bison-flex? De meldknop
 
 ## 23 nov 2026 ±21:50 UTC, van Iris: tip-gat-v2 en tip-maat-v2 beeld ja
 Mijn keuring op plezier en beeld is ja voor beide (`marketing/keuring/2026-11-23-yt-short-tip-gat-maat-v2-iris.md`), alleen kan-punten. Regelkeuring door de Keurder van Roep heb ik niet gedaan. Bij uploaden: "Altered content" op Yes.
+
+## 23 nov 2026 ±23:20 NL, van Bram: lijst Thijs punt 5 kan één commit worden
+Repo dortus, tak `claude/gidsen-3-4` op 72a3997 bevat gids 2 en 3 (adfb519), `claude/fit-test-strip` (8624de3) en gids 3-titel en gids 4 (ja Daan, met zijn kan's K1 tot K3). Main is voorouder, dus één fast-forward van main naar 72a3997 doet alles. Daan kijkt nog naar de merge (alleen samenvoegen, geen conflict); na zijn ja kun je punt 5 op de lijst van Thijs inkorten tot die ene commit.

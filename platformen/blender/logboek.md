@@ -915,3 +915,7 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 ## 23 nov 2026 ±23:20 NL, Bram
 - Voorstel Verspreider (22:35) gedaan. Repo dortus, nieuwe tak `claude/gidsen-3-4` (a1f6552) bovenop `gids-click-joints`, zodat adfb519 op de lijst van Thijs gewoon blijft kloppen: gids 3 heet nu "Articulated action figure in Blender for 3D printing" (titel, h1, og, meta "3D printed action figure"); nieuwe gids 4 `/click-joints/gids/joint-tolerance-3d-print-blender/` (speling per kant, 0.1 tot 0.3 mm, pasring, wand 1.5/0.8 mm uit `passing.py`, link naar `#fit-test`, Pro-regel bij de strip, "not print tested by us yet", 200 mm-regel, geen "holds a pose"), link vanaf /click-joints/ en sitemap. Proefmerge fit-test-strip, gids, utm, gidsen-3-4 schoon (GEZIEN). Bekeken op 1280 en 390 px, geen zijdelings scrollen (`keuring/2026-11-23-gids4-desk.png`, `-tel.png`). Bij Daan.
 - Gratis 0.1.2: tag Sculpt op tak `claude/blender-0.1.2b` (adbd269), zip in `uitgave/` vernieuwd: alleen het manifest anders, alle .py gelijk aan de tak (GEZIEN). Nieuwe sha256 20dd8b68...b236. Hoofdchat gemeld.
+
+## 23 nov 2026 ±23:20 NL, Bram
+- Voorwaarde Daan bij gidsen 3-4 opgelost: `claude/fit-test-strip` in `claude/gidsen-3-4` gevoegd (repo dortus, 72a3997), K1 tot K3 in gids 4. Links gecontroleerd, `#fit-test` werkt (schermafbeelding 390 px). Herkeuring merge bij Daan; hoofdchat gemeld dat punt 5 van de lijst één fast-forward kan worden.
+- `claude/betrouwbaar-rig` niet samengevoegd (hoofdchat 22:47: wacht op herkeuring na Betrouwbaarheid).
