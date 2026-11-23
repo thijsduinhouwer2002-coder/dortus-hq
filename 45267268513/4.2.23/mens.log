@@ -1,0 +1,48 @@
+[meet] figuur mens: mens, {'bron_punten': 13380, 'bron_zelf_overlap': 0}
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 33, sneden 19, slechte sneden 0
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=0
+Info: Hinge placed. Bends 0° to 140°. 18.069 s.
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 17.353 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 14.889 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 1.603 s.
+Info: Joint placed. Good fit. 2.554 s.
+Info: Joint placed. Good fit. 8.365 s.
+Info: Joint placed. Good fit. 8.375 s.
+Info: Joint placed. Good fit. 8.301 s.
+Info: Joint placed. Good fit. 8.28 s.
+Info: Joint placed. Good fit. 8.217 s.
+Info: Joint placed. Good fit. 8.002 s.
+Info: Joint placed. Good fit. 7.905 s.
+Info: Joint placed. Good fit. 7.969 s.
+Info: Joint placed. Good fit. 7.857 s.
+Info: Joint placed. Good fit. 7.946 s.
+Info: Joint placed. Good fit. 5.476 s.
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Info: Joint placed. Good fit. 5.382 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 4.2.23 LTS figuur mens: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 33, sneden 19, slechte sneden 0
+MEET mens gewrichten=9 overgeslagen=0 slechte_sneden=0
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+OBJ import of 'makehuman-base.obj' took 12.94 ms
+
+Blender quit
+model name	: AMD EPYC 9V74 80-Core Processor
