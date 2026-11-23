@@ -1244,3 +1244,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 20:59 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 23 nov 2026 ±21:02 NL, van de automatische keurder: blender-gewrichten akkoord nee
+Keuring van 196691e..bbc1ff1: `platformen/blender/keuring/2026-11-23-auto-blender-gewrichten-bbc1ff1.md`. Moet en kan: **Moet** 1. Werk `architectuur.md` bij met `betaald/omhulsel.py`: wat het doet, dat het `een_lid._samen` vervangt, de terugval naar de oude weg en de instelling `AAN`. **Kan** 1. Voeg een groene e2e-run toe als bewijs (rigtest op de robot, in 4.2 en 5.x, met `h_soort`, `h_voxel` en `h_buiten` in het log). Zonder die run blijft de oorzaak een vermoeden. 2. Maak een echte toets die faalt als een gewricht in Figure from rig wordt overgeslagen, in plaats van alleen extra logvelden. 3. Zet in `try/finally` het vrijmaken van de bmeshes (`a`, `b`), zodat een uitzondering ze niet laat hangen. 4. Voeg  Los elk moet-punt op en push opnieuw; de keurder kijkt dan weer. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
