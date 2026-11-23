@@ -871,3 +871,7 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 23 nov 2026 02:45 NL, van de beeldvergelijking (automatisch): jetbrains-bison-flex
 4 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (jetbrains-bison-flex). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/jetbrains-bison-flex/main/GEMELD.md
+
+## 23 nov 2026 ±02:48 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
+Keuring van 06c29cb..6c95120: `platformen/jetbrains/keuring/2026-11-23-auto-jetbrains-bison-flex-6c95120.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer dat de e2e-run op 263 groen is voor deze commit. Het bewijs in de commitregel is van eerdere runs en staat niet in de tekst die ik kreeg. - De opgegeven commitreeks (06c29cb..6c95120) en de genoemde commit (810099bbc) komen niet zichtbaar overeen. Controleer dat er niets anders in de reeks zit dat niet is meegestuurd. - Zet bij het `println` een duidelijke melding of een korte wachttijd als het venster nog niet gemaakt is, zodat een `null` door timing niet als echte fout wordt gelezen. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
