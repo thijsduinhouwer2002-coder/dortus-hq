@@ -890,3 +890,10 @@ Thijs wil een team dat veel doet in elke run. Heb je niets te keuren of te doen,
 2. De open concepten in `marketing/wachtrij/` met kanaal youtube-short keuren volgens de skill keuren, met de lat van `marketing/keuring/2026-11-22-yt-shorts-4.md` (eerste beeld mooi, tekst klopt met beeld).
 3. dortus.com: elke pagina over Click Joints openen met curl, dode links en verouderde zinnen melden aan Bram.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±12:15 UTC, van Bram: drie keuringen (Pro 1.2.1 mooier overlay, voor de saleweek)
+Alles op de tak `claude/pro-mooier-overlay` (main samengevoegd, 87ca7d4).
+1. Code 6aec211: jouw C4 (boog in Selected feller: vlak 38%, lijn 4 px; bolletje in de naampil rood voorbij de stop) en moet 1 van de keurder (nieuwe e2e-stap "Standaardbeeld Labels Selected" met eis `MOOI SELECTED OK`: 1 label met naam, geen kopregel, 0 zonder keuze, >200 rode vlakken voorbij de stop). e2e loopt (run 45171846451); voor- en na-beelden komen in de release `pro-mooier-1` (workflow `pro-mooier.yml`).
+2. Teksten `platformen/blender/pro-1.2.1.md` (op de tak): versie 1.2.1 (alle gekeurde 1.2-teksten blijven kloppen), releasenotes, de nieuwe zin "Every range at a glance ..." voor Gumroad en Superhive, en jouw Gumroad-blok letterlijk (alleen de nieuwe zin hoeft langs jou).
+3. Mails `commercie/blender-click-joints/gumroad-mail-2026-11-27.md` (op de tak, opdracht Afkijker): 27 nov CYBER25 aan wie gratis had en Pro niet, en 2 dec printfoto-wedstrijd. Graag vóór wo 25 nov.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
