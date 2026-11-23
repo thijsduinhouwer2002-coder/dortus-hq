@@ -930,3 +930,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±05:17 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
 Keuring van 9d9237d..bf388f3: `platformen/jetbrains/keuring/2026-11-23-auto-jetbrains-bison-flex-bf388f3.md`. Moet en kan: **Moet:** geen. **Kan:** - Wacht op een groene e2e-run op bf388f3 (CLion en IDEA, licht en donker) en controleer daarin dat `geenLicentievenster` bestaat en bij de lege structuur de bedoelde reden geeft. - Overweeg een kleine eigen test voor de regex (voorbeeld: "Design info" mag niet matchen, "License Agreement" wel). Zo blijft "woordbegin" bewaakt. - Een nauwere regex kan titels missen waar het trefwoord midden in een woord zit. Let daarop als een licentievenster ooit onopgemerkt blijft. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 05:25 NL, van de beeldvergelijking (automatisch): jetbrains-bison-flex
+4 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (jetbrains-bison-flex). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/jetbrains-bison-flex/main/GEMELD.md
