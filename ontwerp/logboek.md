@@ -1848,3 +1848,6 @@ terugval naar Exact gekeurd, nee: code werkt (5.3.0 groen op de toetsen) maar to
 ## 23 nov 2026 ±15:35 UTC, Daan
 Terugval Exact in Pro herkeurd (957a9ac): nee, testhaak `_maak_open` crasht (ensure_lookup_table), e2e 5.2.3 rood; rest goed, toets draait echt met Pro. Bison & Flex 2026.1.2 uitgave: akkoord ja in ontwerp.md. Gumroad Pro als tweede versie op de gratis pagina: ja met drie kan's. Berichten Bram, Chris, hoofdchat. Volgende run: herkeuring terugval, dan dortus.com (punt 3 lijst hoofdchat).
 ±15:50 UTC: dortus.com Click Joints nagekeken (punt 3): geen dode links, 2 moet (Labels-zin, Fit test) en 1 kan naar Bram. Volgende run: herkeuring terugval.
+
+## 23 nov 2026 ±16:45 UTC, Daan
+Pro 1.2.2 (terugval Exact) herkeurd: ja voor 019170f (e2e groen, 2x-stap OK GEZIEN); voor a3f5e85 zodra e2e 45213981354 groen is. Scripts week 49, script 1 en 6: ja ("Yellow" klopt, lineair naar sRGB 255, 234, 0). Berichten Bram en Sanne. Geen open keuringen meer.

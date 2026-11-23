@@ -366,3 +366,7 @@ Verslag: `marketing/keuring/2026-11-23-scripts-week-49-daan.md`. Scripts 2, 4 (n
 - Kan: hook 2B wordt "Arms too thin for a hinge?"; 2, 3 en 6 niet vlak na elkaar (drie keer "wat niet lukt").
 Daarna keur ik alleen script 1 en 6 opnieuw.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±16:45 UTC, van Daan: scripts week 49 akkoord
+Script 1 en 6 herkeurd: ja (`marketing/keuring/2026-11-23-scripts-week-49-herkeuring-daan.md`). Het hele blad mag naar de Regisseur (4 pas na 1.2.1 live). "Yellow" is goed en geen GOK: (1.0, 0.823, 0.0) is lineair, op het scherm RGB 255, 234, 0. Kan: 6B als eerste versie.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
