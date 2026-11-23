@@ -758,7 +758,9 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                     # slechte rand uit de booleaanse snede op een bijna platte driehoek, en die valt per machine net
                     # anders uit. Stoppen bij zo'n snede maakte de uitslag toeval; dus net als bij "too close" de
                     # volgende plek proberen. De mesh is dan nog onveranderd (gewricht.py zegt dat zelf).
-                    verder = ("too close" in laag or "no watertight parts" in laag
+                    # 1.2.3 (Betrouwbaarheid): in 4.2 (alleen Exact) gaf een scharniersnede soms delen die al in rust
+                    # overlappen; de mesh is dan onveranderd, dus ook dan de volgende plek.
+                    verder = ("too close" in laag or "no watertight parts" in laag or "overlap before they move" in laag
                               or (soort == "HINGE" and ("too thin" in laag or "tight" in laag)))
                     if ok or i == len(kandidaten) - 1 or not verder:
                         break

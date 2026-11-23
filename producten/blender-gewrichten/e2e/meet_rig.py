@@ -97,6 +97,33 @@ def bouw_armen():
     return mesh
 
 
+def bouw_meshy():
+    """Alleen voor onderzoek, niet in de testset (licentie van de Meshy-set niet zelf nagelezen): een Meshy-figuur
+    zoals toetsen_meshy_rig.py (150 mm, Make watertight, rig uit doorsneden, alleen heupen en knieën). Pad in CJ_GLB."""
+    os.environ["CJ_ALLEEN"] = "hip,knee"
+    os.environ["CJ_HEUP_PCT"] = "52"
+    src = open(os.path.join(HIER, "proef_meshy_rig.py"), encoding="utf-8").read().replace("\nmain()\n", "\n")
+    P = {"__name__": "proef_meshy_rig", "__file__": os.path.join(HIER, "proef_meshy_rig.py")}
+    exec(compile(src, "proef_meshy_rig.py", "exec"), P)
+    A = P["A"]
+    A["leeg"]()
+    ob = A["laad"](os.environ["CJ_GLB"])
+    st = A["mesh_staat"](ob)
+    if st["open_randen"] or st["randen_3plus"]:
+        actief(ob)
+        bpy.ops.click_joints.maak_gesloten()
+        nieuw = bpy.context.view_layer.objects.active
+        if nieuw is not ob:
+            bpy.data.objects.remove(ob)
+            ob = nieuw
+    rig = P["maak_rig"](ob)
+    ob.modifiers.new("Armature", "ARMATURE").object = rig
+    rigm = importlib.import_module("bl_ext.user_default.click_joints.betaald.rig")
+    echt = rigm.gewrichten
+    rigm.gewrichten = lambda a, meer=False: [x for x in echt(a, meer) if "hip" in x[2].lower() or "knee" in x[2].lower()]
+    return ob
+
+
 def zelf_overlap_bron(ob):
     import meet_diag
     try:
@@ -148,7 +175,7 @@ def main():
     installeer()
     bouwers = {"robot-a": lambda: bouw_robot(), "robot-b": lambda: bouw_robot(_stijl_b()),
                "robot-fijn": lambda: bouw_robot(voxel=0.35), "kleding": bouw_kleding, "mens": bouw_mens,
-               "armen": bouw_armen}
+               "armen": bouw_armen, "meshy": bouw_meshy}
     ob = bouwers[FIGUUR]()
     standaard_inst()
     naam = ob.name
