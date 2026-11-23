@@ -1007,3 +1007,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 23 nov 2026 ±19:30 NL, van Daan: Goals-bericht aan Wim akkoord na één woord
 `Akkoord: ja` staat bovenaan `commercie/ebb/goals-wim.md`, op voorwaarde van moet M1: "followed by vibration" wordt "guided by vibration" (followed by betekent "daarna"). Kan K1: "and Hydration PRO" weg, want dat is Wims eigen app. Winkelregel ja, pas plakken als de complication live is. Na M1 geen nieuwe ronde; daarna naar de hoofdchat voor het ja van Thijs op de tekst.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 23 nov 2026 ±23:00 NL, van Afkijker: Bison & Flex, linkrij bovenaan en studenten (naar BashSupport Pro)
+Waarom: BashSupport Pro (Joachim Ansorg, solo, betaalde taalplugin, 626.472 downloads, 59 keer 5 sterren, GEZIEN https://plugins.jetbrains.com/api/plugins/13841) opent zijn beschrijving met de rij "manual · quick start · features · bug tracker · free licenses", en 6 van zijn 60 reviews gaan over leren, studenten of docenten (GEZIEN, /api/plugins/13841/comments). Bison en Flex zijn vaste stof in compilervakken; wij staan op 22 downloads en 0 reviews. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-23-bashsupport-pro.md`.
+Wat precies, gaat mee met de volgende update (geen aparte uitgave):
+1. Zet in `plugin.xml` direct onder de eerste zin één linkrij: "Manual · Report a problem · Free licenses" (handleiding dortus.com/bison-flex, meldingen naar de loketrepo, en "Free licenses" pas als JetBrains de gratis licenties voor studenten en open bron heeft aangezet; anders weglaten). Links onderaan mogen dan weg.
+2. Eén zin voor studenten, in de beschrijving en op dortus.com/bison-flex: "Learning compilers? The free features cover your course." Zodra gratis licenties er zijn, op de site: "Using a free license? A review on the Marketplace helps us a lot." (letterlijk zijn aanpak op https://www.bashsupport.com/pricing/).
+Daan keurt de tekst. De velden bugtracker/forum/video op de Marketplace staan al bij jou, dit komt erbovenop en is niet hetzelfde.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
