@@ -1388,3 +1388,7 @@ Wat precies:
 3. Zodra het product live is: bovenaan dortus.com/yt één blok "Free: 3D print check cheat sheet (PDF)" boven de Pro-tekst.
 Daan keurt PDF en blok (skill `kijken`). Kosten $0.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±00:40 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 34ad7de..6aeac49: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-6aeac49.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Voordat er wordt uitgebracht moet de e2e op de echte eindcommit helemaal groen zijn, ook in 4.2.23. Nu loopt hij nog en hangt de 4.2-job. 2. De toets `CJ_HERKANS=3` slaagt ook als het terugdraaien kapot is, zegt de herkeuring (H3). Maak hem scherper met een 50% nep op een snede die anders blijft staan, bijvoorbeeld de nek of een heup. 3. De releasenote moet "some knees" veranderen in "some knees, shoulders and hips" (H8), voordat Daan hem keurt. 4. Controleer met `git diff` dat `click_joints/` echt gelijk bleef tussen 1945f46 en 37de78bce. Ik kon dat uit tekst niet  Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
