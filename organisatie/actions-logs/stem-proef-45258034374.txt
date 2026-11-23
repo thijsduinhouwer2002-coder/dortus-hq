@@ -1,4 +1,4 @@
-# gemaakt: 2026-11-23T20:35:32Z
+# gemaakt: 2026-11-23T20:35:34Z
 # workflow: Stem-proef (voice-over synchroon met het beeld) (.github/workflows/stem-proef.yml)
 # run: 45258034374 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45258034374
 # commit: 31aa61cb tak main gestart door push
