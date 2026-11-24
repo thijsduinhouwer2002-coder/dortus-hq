@@ -1,14 +1,15 @@
 # Tip-reeks 9: Put your name on a 3D print with Blender ✍️
 
-- status: wacht (de Regisseur zet hem op open zodra hij het releasebestand van regisseur-11 zelf heeft nagekeken: synchroon, geluid_check, beelden, vangnet-regels)
+- status: wacht (run 11: Convert werd niet gevonden in het Object-menu, vangnet zette om; de kijker ziet Convert en Mesh niet. OCR-vak vergroot, opname loopt opnieuw in regisseur-11; daarna nakijken en op open)
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL; recept v3 Malikose)
 - product: click-joints-pro (tip zonder reclame in het midden, alleen de eindzin naar dortus.com/yt)
-- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-11/tip-tekst-geluid.mp4 (workflow regisseur-11, nog niet nagekeken)
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-11/tip-tekst-geluid.mp4 (workflow regisseur-11, run 45308024901, door de Regisseur nagekeken 24 nov run 11)
 - stem_tekst: `commercie/filmpjes/regisseur-11/tip-tekst-stem.txt` (voor de ElevenLabs-stem Max van de hoofdchat)
-- geluid_check: nog niet (de workflow draait hem op het releasebestand en faalt bij FOUT)
-- lengte: nog niet gemeten (de workflow faalt buiten 40 tot 60 s)
+- geluid_check: GOED, gemiddeld -16,7 dB, piek -1,3 dB (GEZIEN, geluid_check.txt in de release)
+- lengte: 43,8 s (ffprobe, GEZIEN)
+- synchroon: 10 van 11 binnen 0,3 s volgens whisper; zin 9 ("Export it as STL") meet whisper 0,58 s te vroeg, maar de klank begint echt op 29,30 s bij een scène op 29,2 s (0,10 s, zelf nagemeten met RMS per 50 ms, GEZIEN). Zelfde whisper-plakfout als run 8.
 - tijd: voorstel 2026-12-06T12:00:00+01:00 (de hoofdchat kiest)
 - doel: dortus.com/yt (over te typen)
 - gemaakt_door: Regisseur run 10; opname in workflow regisseur-11 (Blender 5.3.0, xvfb, echte muis)

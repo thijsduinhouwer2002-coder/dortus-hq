@@ -1,0 +1,145 @@
+name: "Regisseur 12 (tip-reeks 10: piepklein in je slicer, export Scale 1000)"
+
+# 24 nov 2026, Regisseur run 11. Opname commercie/filmpjes/regisseur-12/tip_opname.py: Blender 5.3.0, geen add-on, echte
+# muis en echte menu's (tesseract). Tip-export: Unit Scale 1 met mm-weergave, N (60 mm), File > Export > STL, Scale 1000,
+# Export STL; beide STL-bestanden nagemeten in film.json. ElevenLabs-mp3 (tip-export-elevenlabs.mp3) wordt vanzelf gebruikt
+# (STEM_MP3), anders Kokoro (Apache 2.0). Uitvoer tip-export-geluid.mp4 in release regisseur-12. Niets geplaatst.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/regisseur-12/**", ".github/workflows/regisseur-12.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: regisseur-12
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a
+  KOKORO_VOICES_SHA: bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d
+
+jobs:
+  tips:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten (apt-snel van Olaf, gekeurd door Daan)
+        uses: ./.github/actions/apt-snel
+        with:
+          pakketten: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 imagemagick xdotool ffmpeg fonts-inter tesseract-ocr
+      - name: Ruwe opname hergebruiken als de opname-code gelijk is
+        id: ruw
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          nu=$(sha256sum commercie/filmpjes/regisseur-12/tip_opname.py | cut -c1-64)
+          echo "sha=$nu" >> "$GITHUB_OUTPUT"
+          mkdir -p /tmp/oud /tmp/pro
+          if gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p opname-sha.txt -p opname-tip.mkv -p film-tip.json -D /tmp/oud 2>/dev/null \
+             && [ "$(cat /tmp/oud/opname-sha.txt)" = "$nu" ] && [ -s /tmp/oud/opname-tip.mkv ]; then
+            cp /tmp/oud/opname-tip.mkv /tmp/pro/opname-ruw.mkv; cp /tmp/oud/film-tip.json /tmp/pro/film.json
+            echo "opnieuw=nee" >> "$GITHUB_OUTPUT"; echo "ruwe opname hergebruikt"
+          else
+            echo "opnieuw=ja" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Blender 5.3.0
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+      - name: Opnemen (2160x1920, echte muis)
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_tip12
+          BLENDER_USER_CONFIG: /tmp/cj_tip12/config
+        run: |
+          timeout 4800 xvfb-run --auto-servernum --server-args="-screen 0 2160x1920x24" \
+            /tmp/blender/blender --gpu-backend opengl --factory-startup --python commercie/filmpjes/regisseur-12/tip_opname.py -- /tmp/opn 2>&1 | tee /tmp/opname-tip.log || true
+          grep -E "KORT|Traceback|Error" /tmp/opname-tip.log | cut -c1-300 || true
+          if grep -q "KORT FOUT" /tmp/opname-tip.log; then echo "FOUT in de opname"; exit 1; fi
+          for d in j_mooi j_maat j_menu j_venster j_klaar; do grep -q "KORT OK $d" /tmp/opname-tip.log || { echo "FOUT: deel $d"; exit 1; }; done
+          ffmpeg -v error -framerate 30 -start_number 1 -i /tmp/opn/beelden/b%05d.png -c:v libx264 -preset veryfast -crf 12 -pix_fmt yuv444p /tmp/pro/opname-ruw.mkv
+          cp /tmp/opn/film.json /tmp/pro/film.json
+          rm -rf /tmp/opn/beelden
+      - name: Eindbeeld uit de opname (tekst)
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          f = json.load(open("/tmp/pro/film.json"))
+          d = f["delen"]
+          for naam, n in (("render-label.png", d["eind"] - 2),):
+              subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", "/tmp/pro/opname-ruw.mkv", "-vf",
+                              f"select=eq(n\\,{n - 1}),crop=1100:1300:530:330", "-frames:v", "1", f"/tmp/pro/{naam}"], check=True)
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Stem-pakketten en Kokoro (sha256 vast)
+        run: |
+          python -m pip install -q kokoro-onnx==0.6.1 soundfile faster-whisper==1.2.1 numpy pillow
+          mkdir -p /tmp/kokoro
+          curl -fsSL --retry 3 -o /tmp/kokoro/kokoro-v1.0.onnx "$KOKORO_URL/kokoro-v1.0.onnx"
+          curl -fsSL --retry 3 -o /tmp/kokoro/voices-v1.0.bin "$KOKORO_URL/voices-v1.0.bin"
+          echo "$KOKORO_ONNX_SHA  /tmp/kokoro/kokoro-v1.0.onnx" | sha256sum -c
+          echo "$KOKORO_VOICES_SHA  /tmp/kokoro/voices-v1.0.bin" | sha256sum -c
+      - name: Montage (vorm groot)
+        env:
+          KOKORO_MODEL: /tmp/kokoro/kokoro-v1.0.onnx
+          KOKORO_VOICES: /tmp/kokoro/voices-v1.0.bin
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ELEVENLABS_VOICE_ID: ${{ vars.ELEVENLABS_VOICE_ID }}
+          ELEVENLABS_MODEL: ${{ vars.ELEVENLABS_MODEL }}
+        run: |
+          mkdir -p /tmp/klaar
+          for n in tip-export; do
+            if [ -f commercie/filmpjes/regisseur-12/$n-elevenlabs.mp3 ]; then export STEM_MP3=$PWD/commercie/filmpjes/regisseur-12/$n-elevenlabs.mp3 STEM_BRON=elevenlabs; else unset STEM_MP3 STEM_BRON; fi
+            python commercie/filmpjes/regisseur-2/vul.py commercie/filmpjes/regisseur-12/$n.json /tmp/pro/film.json /tmp/$n.json
+            rm -rf /tmp/klaar/zinnen
+            python commercie/filmpjes/regisseur-2/montage2.py /tmp/$n.json /tmp/pro /tmp/klaar groot
+            mv /tmp/klaar/$n-groot.mp4 /tmp/klaar/$n-geluid.mp4
+            mv /tmp/klaar/overzicht-groot.jpg /tmp/klaar/overzicht-$n.jpg
+          done
+          rm -rf /tmp/klaar/zinnen
+      - name: Controle (synchroon, geluid, lengte)
+        env:
+          WHISPER_MODEL: small.en
+        run: |
+          cd /tmp/klaar
+          ok=0
+          for n in tip-export; do
+            mkdir -p meting-$n
+            python $GITHUB_WORKSPACE/commercie/filmpjes/regisseur-2/synchroon2.py $n-geluid.mp4 $n-groot-script.json meting-$n || ok=1
+            for f in meting-$n/*; do mv "$f" "$(basename ${f%.*})-$n.${f##*.}"; done
+            d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $n-geluid.mp4)
+            echo "$n $d s" | tee -a lengtes.txt
+            python -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: $n is $d s"; ok=1; }
+          done
+          python $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py *.mp4 | tee geluid_check.txt
+          grep -q "FOUT" geluid_check.txt && ok=1
+          sha256sum *.mp4 | tee SHA256SUMS.txt
+          exit $ok
+      - name: In de release zetten
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -d /tmp/klaar ] || exit 1
+          cd /tmp/klaar
+          cp /tmp/pro/render-label.png . 2>/dev/null || true
+          if [ "${{ steps.ruw.outputs.opnieuw }}" = "ja" ] && [ -s /tmp/pro/opname-ruw.mkv ]; then
+            cp /tmp/pro/opname-ruw.mkv opname-tip.mkv; cp /tmp/pro/film.json film-tip.json
+            echo "${{ steps.ruw.outputs.sha }}" > opname-sha.txt
+          fi
+          echo "Regisseur 12: tip-reeks 10 (piepklein in je slicer, export Scale 1000), echte Blender 5.3.0 zonder add-on. Concepten: marketing/wachtrij/. Niets geplaatst." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 12 (tip-reeks 10, tip-export)" --notes-file /tmp/notes.md
+          ls -la
+          gh release upload "$TAG" $(ls *.mp4 *.mkv *.json *.srt *.md *.txt *.jpg *.png 2>/dev/null) --clobber -R "$GITHUB_REPOSITORY"

@@ -1,0 +1,209 @@
+{
+ "naam": "tip-export",
+ "titel": "Tiny print in your slicer? Fix it in Blender 🔍 #blender #3dprinting",
+ "eind": {
+  "titel": "Blender for 3D printing",
+  "zin": "A new Blender tip for 3D printing every week.",
+  "adres": "dortus.com/yt",
+  "render": "render-label.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "venster": "Blender 5.3",
+ "scenes": [
+  {
+   "tekst": "Is your print tiny in the slicer? Check this in Blender.",
+   "label": "QUICK TIP",
+   "kleur": "oranje",
+   "kop": "Tiny in your slicer?",
+   "beeld": {
+    "deel": "j_mooi",
+    "van": 0,
+    "tot": 120,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1200
+     ],
+     [
+      1080,
+      1000,
+      1050
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Press N. Blender says this tag is 60 mm wide.",
+   "uitspraak": "Press N. Blender says this tag is sixty millimeters wide.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Blender: 60 mm",
+   "beeld": {
+    "deel": "j_maat",
+    "van": 0,
+    "tot": 110,
+    "uitsnede": [
+     [
+      1450,
+      900,
+      1850
+     ],
+     [
+      1720,
+      860,
+      1100
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "But Unit Scale is 1, so inside the file it is 0.06.",
+   "uitspraak": "But Unit Scale is one, so inside the file it is zero point zero six.",
+   "label": "WHY",
+   "kleur": "blauw",
+   "kop": "Stored as 0.06",
+   "beeld": {
+    "deel": "j_maat",
+    "van": 100,
+    "tot": 186,
+    "uitsnede": [
+     [
+      1720,
+      860,
+      1100
+     ],
+     [
+      1450,
+      900,
+      1850
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "An STL file has no unit. Most slicers read that as 0.06 mm.",
+   "uitspraak": "An STL file has no unit. Most slicers read that as zero point zero six millimeters.",
+   "label": "WHY",
+   "kleur": "blauw",
+   "kop": "STL: 0.06 mm",
+   "beeld": {
+    "deel": "j_maat",
+    "van": 150,
+    "tot": 226,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1300
+     ],
+     [
+      1080,
+      1000,
+      1500
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Open File, Export, STL.",
+   "label": "STEP 2",
+   "kleur": "groen",
+   "kop": "File, Export, STL",
+   "beeld": {
+    "deel": "j_menu",
+    "van": 0,
+    "tot": 140,
+    "uitsnede": [
+     [
+      560,
+      640,
+      1500
+     ],
+     [
+      700,
+      700,
+      1700
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Set Scale to 1000, then click Export STL.",
+   "uitspraak": "Set Scale to one thousand, then click Export S T L.",
+   "label": "STEP 3",
+   "kleur": "groen",
+   "kop": "Scale: 1000",
+   "beeld": {
+    "deel": "j_venster",
+    "van": 0,
+    "tot": 150,
+    "uitsnede": [
+     [
+      1080,
+      960,
+      2160
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Now the file says 60 mm, the same as in Blender.",
+   "uitspraak": "Now the file says sixty millimeters, the same as in Blender.",
+   "label": "RESULT",
+   "kleur": "groen",
+   "kop": "STL: 60 mm",
+   "beeld": {
+    "deel": "j_klaar",
+    "van": 0,
+    "tot": 100,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1300
+     ],
+     [
+      1080,
+      1000,
+      1150
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Save this for your next export.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Save this tip",
+   "beeld": {
+    "deel": "j_klaar",
+    "van": 90,
+    "tot": 180,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1150
+     ],
+     [
+      1080,
+      1000,
+      1050
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "More Blender tips for 3D printing at dortus.com/yt.",
+   "uitspraak": "More Blender tips for three D printing, at dortus dot com slash Y T.",
+   "label": "MORE TIPS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   }
+  }
+ ]
+}

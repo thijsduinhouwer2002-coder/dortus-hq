@@ -240,7 +240,7 @@ def kop_menu(kop, knop, knop_woord, sub, item, item_vak_dx, meet):
     yield from muis_naar(p[0], p[1], 16)
     neem(4)
     klik()
-    q = yield from wacht_ocr(sub, [max(0, p[0] - 200), p[1], 700, 900], p)
+    q = yield from wacht_ocr(sub, [max(0, p[0] - 200), p[1], 700, 1500], p)   # run 11: Convert staat onderaan het Object-menu
     film["metingen"][meet + "_sub"] = q
     if not q:
         toets("Escape")

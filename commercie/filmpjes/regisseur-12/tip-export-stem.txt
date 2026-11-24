@@ -1,0 +1,13 @@
+# tip-export: voorleestekst voor de ElevenLabs-stem Max (Regisseur, 24 nov 2026)
+# Lees de zinnen in deze volgorde voor, met een korte pauze ertussen.
+# Zet de opname als tip-export-elevenlabs.mp3 in deze map; de workflow regisseur-12 legt hem dan vanzelf in sync (STEM_MP3).
+
+Is your print tiny in the slicer? Check this in Blender.
+Press N. Blender says this tag is sixty millimeters wide.
+But Unit Scale is one, so inside the file it is zero point zero six.
+An STL file has no unit. Most slicers read that as zero point zero six millimeters.
+Open File, Export, STL.
+Set Scale to one thousand, then click Export S T L.
+Now the file says sixty millimeters, the same as in Blender.
+Measured in Blender, not print tested by us yet. Save this for your next export.
+More Blender tips for three D printing, at dortus dot com slash Y T.
