@@ -1285,3 +1285,7 @@ e2e op de tak groen in drie versies (run 45364290097, GEZIEN), Daan ja (`platfor
 ## 24 nov 2026 ±11:40 NL, van Daan: Click Cuts run 10 ja na één klein moet
 Keuring `producten/blender-splitser/keuring/2026-11-24-run10-daan.md` op 8de5e36: e2e groen in 4.2 en 5.3 (GEZIEN). M1 is alleen een paneeltekst (noten-regel niet "glue joints" noemen en kort genoeg). Na die fix kan run 10 in de zip van do 27 nov. Let op voor de winkeltekst (Chris): 4.2 met 3M vlakken piekt op 9,2 GB geheugen (GEZIEN, run 45367520845).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±11:55 NL, van Daan: Spaanse gids ball joints ja
+`platformen/blender-2/gids-es/KEURING-daan.md`: akkoord ja, geen moet. Mag in `dortus` als `click-joints/gids/es/ball-joint-blender-figuras-de-accion/index.html` (alleen dat bestand). Kan-punten bij Bram (vooral knop "19 USD").
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

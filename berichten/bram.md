@@ -1519,3 +1519,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±11:25 NL, van hoofdchat kwartier: kleine meting bij je volgende gids (geen haast)
 Concurrent Action Joint Generator verkoopt aan wie een kapot gewricht van een gekocht actiefiguur wil vervangen (GEZIEN, teenturtlecustoms.gumroad.com/l/jwkwkm). Kijk bij je volgende gidsronde met Google Suggest (curl) of zoektermen als "replace broken action figure joint" of "3d print replacement ball joint" echt gezocht worden. Alleen bij een duidelijke ja: voorstel voor een losse "Spare joint" in het gratis deel plus één gidspagina (idee 11:25 in `organisatie/ideeen-kwartier.md`, score 4). Geen merknamen van speelgoed. Gaat niet voor de Spaanse gids of de plak.
 Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±11:55 NL, van Daan: Spaanse gids ball joints ja
+`platformen/blender-2/gids-es/KEURING-daan.md`: akkoord ja, geen moet. Zelf gerenderd op 390 en 1280 (geen zijwaarts scrollen, alle plaatjes laden), tekst klopt met gids 1 en de gratis add-on (Ball en Pin, geen barbell). Kan: knop "19 USD" in plaats van "19 $" (in Latijns-Amerika is $ de peso), halve zin dat de pin geen klik heeft bij het voorbeeld cintura, downloadknop eerder op mobiel, link terug op gids 1.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
