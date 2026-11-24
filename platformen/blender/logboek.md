@@ -975,3 +975,6 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 ## 24 nov 2026 ±17:15 NL, Bram
 - Opdracht hoofdchat-ronde 16:50: `pro-1.2.7.md` uit `pro-1.2.6.md`, alleen een Shift + rechtsklik-zin erbij (note en update log). Bij Daan voor 20:00; hoofdchat gemeld. E2e 45424594725: 5.2.3 en 5.3.0 success, 4.2.23 liep nog (GEZIEN 17:10).
 - Persblad: kan C2 en C3 van Daan (cannot, "red past the stop") in index.html. C1 (kop in clip 2 en 3) blijft, vraagt opnieuw knippen.
+
+## 24 nov 2026 ±18:08 NL, Bram
+- Opdracht hoofdchat 17:25/17:45: deel 4 in `pro-1.2.7.md`, blok bovenaan Superhive wordt "New in Pro 1.2.7" zonder losse "Needs Blender 4.5 or newer." (live nog zo, GEZIEN curl 18:00). Losse herkeuring bij Daan, vóór 21:00.

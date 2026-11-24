@@ -32,5 +32,24 @@ Nieuw is alleen regel 2. De andere regels staan letterlijk zo in `pro-1.2.6.md`.
 ```
 Geen aparte regels voor 1.2.4, 1.2.5 en 1.2.6: die stonden nooit in de winkel.
 
+## 4. Blok bovenaan Superhive: "New in Pro 1.2" wordt "New in Pro 1.2.7" (vervangt het hele blok)
+**Waarom (geld):** live staat nu in de tweede zin "Needs Blender 4.5 or newer." (GEZIEN, curl 24 nov ±17:20 en ±18:00 NL). Los gelezen zegt dat: Pro werkt pas vanaf 4.5. Een koper op 4.2 LTS haakt daar af, terwijl twee regels verder 4.2 als getest staat. Drie dagen voor de Cyber Sale is dit wat een koper als eerste leest (opdracht hoofdchat 17:25). Effect: GOK, klein maar zonder kosten.
+```
+New in Pro 1.2.7
+- "More bones" now gives ankles, also on blocky feet like a robot (Blender 5.2 and newer).
+- Shift + right click on the skin now works with Knee, Elbow, Ankle and the hinge buttons.
+- Tested on Blender 4.2 LTS, 5.2 LTS and 5.3.
+
+Also new since 1.2
+- Fit test strip: print this first. Five joints from 0.10 to 0.30 mm clearance, each with its number, so you know which gap fits your printer.
+- Figure from rig now places elbows on rigs where the elbow would otherwise bend upward, for example Quaternius characters (Blender 4.5 and newer).
+```
+- Regel 1 en 2 komen uit de note in deel 2 (Daan ja 17:40), ingekort. Regel 3 idem.
+- "Also new since 1.2" en niet alles onder "1.2.7": de teststrip en de elleboog kwamen in 1.2.0, dus onder een kop 1.2.7 zou dat niet kloppen.
+- De elleboogzin: de grens 4.5 staat nu tussen haakjes bij die ene functie, niet meer als losse zin. Feit uit `pro-1.2.0.md` (Daan ja 22 nov): op 4.2 tot 4.4 vraagt hij de elleboog met de hand.
+- Het blok "Already bought Pro? ..." onder Good to know: "1.2" mag blijven, 1.2.7 valt eronder.
+- Niet gedaan (kan van de hoofdchat): een regel met alle versies die in de winkel stonden. Later, als er tijd is; geen ritme beloven.
+
 ## Stand
 - 24 nov ±17:15 NL: tekst klaar, herkeuring van regel 2 en de update log gevraagd aan Daan. Plakken met de 1.2.7-zip in plaats van `pro-1.2.6.md`, na Daans ja, groene e2e in alle drie en de uitgave-run van Olaf.
+- 24 nov ±18:05 NL: deel 4 (blok bovenaan Superhive, de 4.5-zin) erbij. Losse herkeuring van alleen deel 4 gevraagd aan Daan, vóór 21:00, zodat het in dezelfde plak mee kan.
