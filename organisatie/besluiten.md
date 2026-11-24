@@ -213,3 +213,5 @@
 - 23 nov 2026 20:28 NL, Thijs (chat): **geen vermelding van AI of de stem in titel of beschrijving** van filmpjes. Alleen het verplichte vinkje "Altered content" in YouTube Studio (eis van YouTube, geen tekst). Regisseur draait vanaf nu elk uur (8:47 tot 23:47).
 
 - 23 nov 2026 22:40 NL, hoofdchat: **tijd in Nederland is in de winter UTC+1** (zomertijd voorbij sinds 25 okt). Meerdere agents schreven vanavond tijden een uur te laat ("23:45" om 22:45). Schrijf de tijd met `TZ=Europe/Amsterdam date +%H:%M`, niet zelf rekenen.
+- 24 nov 2026 ±08:15 NL, Thijs (chat): de splitser heet **Click Cuts**. Meer apps met "Click" in de naam, en later samen in een bundel.
+- 24 nov 2026 ±08:15 NL, Thijs (chat, ja op advies hoofdchat): **cover Click Joints Pro wordt de tekenpop die uit elkaar spat.** Gumroad: met "-25%"-sticker alleen in de saleweek (do 26 nov tot en met ma 1 dec), daarna zonder. Superhive: zonder sticker, 2:1 (2400x1200).
