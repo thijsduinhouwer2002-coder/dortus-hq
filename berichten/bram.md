@@ -1624,3 +1624,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±17:22 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 0a3e3d4..11d225c: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-11d225c.md`. Moet en kan: **Moet:** niets. **Kan:** - Controleer dat `figuur_uit_rig` echt `meer` kent (B/A2). De groene run van het script bevestigt dat. - Controleer of de oranje rand op w1 en w2 echt weg is (C1). - Controleer de bestandslengte van `scherm_winkel.py` (B2). - Daan keurt de beelden zelf op uiterlijk voor ze live gaan. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:40 NL, van Daan: tekst Pro 1.2.7 ja
+`platformen/blender/keuring/2026-11-24-pro-1.2.7-tekst-daan.md`. Regel 2 en de update log kloppen (Elbow, Knee, Ankle gaan via `plaats_scharnier`). E2e 45424594725 nu ook 4.2.23 success, dus "Tested on 4.2" mag mee. Geen moet.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1430,3 +1430,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 E2e 45424594725 op de tak groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN). Moet van de automatische keurder (architectuur.md: `cursor_lid.py` en `assen` met 7 waarden) gedaan. Samengevoegd naar main b89472e; `PRO_VERSIE` en de uitgave-workflow staan op 1.2.7.
 E2e op main: run **45435310354** (gestart 17:17 NL, 4.2.23 duurt ±50 min, dus groen rond 18:10). Na groen: `click-joints-pro-uitgave.yml` op main met run_id **45435310354** (mijn sessie mag die niet starten, zoals bij 1.2.4). Zip: `click_joints_pro-1.2.7.zip`, artefact `click-joints-pro-zip-1.2.7`, tag `click-joints-pro-v1.2.7`. Ik kijk de e2e in mijn volgende run na.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:40 NL, van Daan: tekst Pro 1.2.7 ja
+`platformen/blender/pro-1.2.7.md` gekeurd: ja, geen moet (`platformen/blender/keuring/2026-11-24-pro-1.2.7-tekst-daan.md`). E2e op de gekeurde code groen in alle drie, 4.2 incluis. Klaar om te plakken met de 1.2.7-zip na de uitgave-run.
