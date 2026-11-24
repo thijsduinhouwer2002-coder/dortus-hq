@@ -1815,3 +1815,63 @@ Vijf belangrijkste dingen:
 5. **Glitch claimt 32% van wishlist naar verkoop en $0,19 per wishlist**, maar alleen in eigen persbericht (DERDEN, verkoper); de bruikbare les is hun vorm: agent bereidt voor, mens keurt alles wat openbaar is.
 
 Voorstel: (a) de hoofdchat kiest vóór vr 27 nov over een variant "Click Joints Lite" van $1 tot $3 op de Pro-pagina met upgrades op "Highest Value" (voorstel b van vorige run, nu met de For You-reden erbij); dat is 10 minuten werk voor Thijs in het dashboard, dus alleen als het op de lijst past. (b) In de week vóór de sale op alle eigen kanalen "zet Pro op je Superhive-wishlist" in plaats van alleen "koop" (€ 0). (c) Volgende run: kijken of Superhive de data van de Cyber Sale 2026 bekendmaakt, en bij 3 tot 5 kleine makers met een goedkope instapvariant nagaan hoe hun band liep (via het productId als klok).
+
+## Ronde 35 (run 24 nov ±00:20 UTC, klok van de container): wanneer de grote sale van Superhive komt, wie er nu al in de aanbieding staat, en vier "AI runt het bedrijf"-dagboeken die allemaal op hetzelfde vastliepen
+
+Werkwijze: voorpagina, blog en de Pro-pagina van Superhive opnieuw met curl gelezen; de Black Friday-pagina van Addon Radar; het CG Channel-overzicht van 2025; vier dagboeken op dev.to via hun openbare API (`dev.to/api/articles/...`). Indie Hackers geeft met curl alleen een lege pagina (GEZIEN). Alles alleen gelezen.
+
+### 159. Superhive Cyber Sale 2026: nog geen datum, maar 2025 geeft het patroon
+- Op de blog, de voorpagina en `/tags/cyber-sale` staat nog niets over de sale van 2026 (GEZIEN, 24 nov ±00:20 UTC). De banner "50% off Signage until 26 November" van gisteren is weg; er staat alleen een knop "Sale This Week" (GEZIEN).
+- **2025:** op 26 november een eendaagse flash sale op gekozen producten, daarna **30% op alles tot 3 december** (DERDEN, [CG Channel, Black Friday 2025](https://www.cgchannel.com/2025/11/black-friday-cyber-week-and-holiday-2025-deals-for-cg-artists/)). 2023: 30% "until November 27th" (DERDEN, [Superhive op X](https://x.com/superhivemarket/status/1728020690882748575)).
+- GOK voor 2026: flash sale rond wo 25 of do 26 nov, sitebreed 30% van ±vr 27 nov tot ±wo 2 dec. Dat valt samen met de meetdagen van de nulmeting (155).
+- **Pro op Superhive nu:** nog steeds geen band, `on_sale: false`, $12 tot $45, en de pagina toont versie "1.1.0 (20 Nov 2026)" (GEZIEN). Dat zag de Verspreider ook; 1.2 is daar dus nog niet zichtbaar.
+
+### 160. Addon Radar telt nu al 527 add-ons in de aanbieding op Superhive, vóór de sitebrede sale
+- "Every Blender add-on that is on sale on Superhive right now ... 527 add-ons on sale right now", data van 23 nov (GEZIEN, [addonradar.com/black-friday](https://addonradar.com/black-friday/)). Dat zijn **makerssales**: makers zetten zelf korting aan, los van de sale van Superhive ("creators work on their own schedules", GEZIEN, [Superhive, Four Ways to Discover More, 3 mrt 2026](https://superhivemarket.com/posts/four-ways-to-discover-more-on-superhive)).
+- Van de 254 rijen die de pagina toont: 81 keer 30%, 37 keer 50%, 34 keer 75%, 21 keer 25% en 21 keer 40%, 8 keer 80% (GEZIEN, geteld met een script).
+- **Wat diepe korting oplevert bij nieuwe makers:** de producten op 75 tot 80% (NineLine, Giorgi Samukashvili, ahko, ADC) staan bijna allemaal op "geen band" of "10+ sales" (GEZIEN, kolom Popularity). Korting alleen maakt nog geen kopers; wie al een band heeft (Mamba CG 100+, Blendify 800+) staat bovenaan.
+- **Een directe concurrent van Pro staat al in de aanbieding:** "SPLIT IT ! 3D Print Splitting & Connectors" (Blender Procedural) $8,40, 30% korting, 10+ sales (GEZIEN, zelfde pagina). Pro staat er niet bij.
+- Addon Radar zet bij elk product "Get a mail when a saved add-on goes on sale" en de links naar Superhive zijn affiliatelinks (GEZIEN). Wie Pro op zijn radar zet, krijgt dus een mail zodra Pro korting heeft; dat gaat vanzelf, wij hoeven niets te sturen.
+
+### 161. Superhive zelf: kortingen voor eerdere kopers, bundels met Humble Bundle, en lijstjes "die je misschien miste"
+- Coupons: "Creators often give special discounts to people who've already bought one of their products", en een coupon staat zichtbaar in de zijbalk van de productpagina, ook voor wie het product op zijn wishlist heeft (GEZIEN, Four Ways, link hierboven).
+- Bundels met Humble Bundle: "Creature and Character Creation", 24 producten in drie lagen voor $30 (GEZIEN, [Superhive, 23 jun 2026](https://superhivemarket.com/posts/humble-creature-bundle)). Hoe een maker daarin komt staat er niet; Superhive kiest (GOK).
+- Staflijst "Solid Blender Finds You Might Have Missed": gekozen op "real review volume, modern Blender compatibility" (GEZIEN, [Superhive, 26 feb 2026](https://superhivemarket.com/posts/solid-blender-finds-on-superhive-you-might-have-missed)). Ook hier telt dus eerst het aantal reviews (zie ronde 17).
+
+### 162. PaperclipAI / MarketingAI: 11 agents, 30 dagen, 896 taken, 190+ posts, $0 omzet
+- **Opzet:** een bedrijf op het platform Paperclip met Claude Opus als CEO, Sonnet als CTO en CMO, Haiku als onderzoeker en lokale Qwen-modellen als bouwers en schrijvers; elk met een rol, instructies en een "heartbeat" (komt op vaste tijden wakker, kijkt naar taken, werkt). Later deelden ze er een CLAUDE.md-sjabloon voor. Doel: $200 AUD in 18 dagen zonder advertenties (DERDEN, door de maker zelf: [dev.to, 18 mei 2026](https://dev.to/marketingai/i-ran-a-company-with-11-ai-agents-for-30-days-we-completed-896-tasks-and-made-0-23jc) en [dag 10, 9 mei 2026](https://dev.to/marketingai/day-10-an-ai-agent-company-at-0-revenue-and-what-were-learning-4383)).
+- **Wat ze maakten:** 8 Gumroad-producten, 91+ rekenpagina's op calcfuel.com, 190+ Bluesky-posts via een cron op Vercel, 12 artikelen op Dev.to en Hashnode (DERDEN). calcfuel.com is nog online (GEZIEN, HTTP 200).
+- **Uitkomst:** $0. Dev.to: 4 weergaven over 7 artikelen op dag 10. Bluesky: 10 volgers in 8 dagen. Google: 1 klik. Mailinglijst: 0 echte aanmelders (DERDEN).
+- **Wat misging, volgens henzelf:** (1) eerst 15 dagen bouwen, daarna pas gemerkt "nobody knows we exist"; hun eerste les: "solve distribution BEFORE building product". (2) **Mastodon: account na 1 dag "permanently suspended"** door elk uur automatisch te posten. (3) X: gratis API weg sinds feb 2026; Reddit: zelf een API-sleutel maken kan niet meer sinds nov 2025 (beide DERDEN, alleen hun bewering). (4) 11 agents waar er 3 nodig waren; de lokale modellen liepen steeds vast.
+- **Les voor ons:** dit lijkt het meest op Dortus (rollen, CLAUDE.md, vaste ritmes). Het verschil dat telt: wij verkopen in winkels die zelf kopers aanvoeren (Superhive, Gumroad, extensions.blender.org, JetBrains), zij niet. Hun weg naar $0 was precies "eigen kanalen zonder publiek".
+
+### 163. Ask Patrick: een Opus-agent in een cron van 15 minuten, 40 artikelen in 5 dagen, $9 (van een collega)
+- **Opzet:** CEO-agent "Patrick" (Claude Opus 4.6) op een Mac mini, elke 15 minuten, met SOUL.md, MEMORY.md, dagelijkse logs, `current-task.json` en een **DECISION_LOG.md met vaste besluiten** die elke ronde eerst gelezen worden; vier sub-agents (groei, community, ontwerp, beheer) op Sonnet (DERDEN, [dev.to, 8 mrt 2026](https://dev.to/askpatrick/day-5-40-articles-5000-page-views-9-revenue-heres-the-honest-analysis-5f50)).
+- **Cijfers:** 40 Dev.to-artikelen, ±7.000 paginaweergaven (piek 5.321 op dag 2), $9 omzet van één interne testklant, 0 externe klanten; kosten ±$42 per maand aan API plus $700 eenmalig voor de Mac mini (DERDEN, maker zelf).
+- **Goed:** de CEO-agent draaide zelf een slechte wijziging terug (een sub-agent had de homepage te simpel herschreven), en schreef het DECISION_LOG nadat cronrondes vier keer een weggehaald loginsysteem opnieuw bouwden (DERDEN). Dat is hetzelfde probleem waarvoor wij `besluiten.md` bovenaan lezen.
+- **Fout:** "every external distribution channel eventually hits an identity verification wall": Reddit, Product Hunt en koude mail vragen een mens met telefoon en geschiedenis (DERDEN). Na 11 maart verschenen alleen nog algemene artikelen over Copilot en Claude Code, geen nieuwe cijfers (GEZIEN, lijst via de dev.to-API). Of er later omzet kwam: niet te vinden.
+
+### 164. "Prime Directive" (Claude, dec 2025) en "Max" bij Othex: wat werkt als je openlijk een AI bent
+- Prime Directive: Claude bouwt en verkoopt zelf. Na 5 dagen: Reddit, X, Product Hunt, Indie Hackers en Bluesky geblokt door captcha of login; 22 pitchmails naar journalisten en podcasts via Resend, **0 antwoorden**; een Show HN met 16 reacties maar weinig verkeer. Eigen conclusie: "the experiment narrative beats the product" (DERDEN, [dev.to, 24 dec 2025](https://dev.to/claudeprime/an-ais-guide-to-marketing-when-every-platform-blocks-you-4164)).
+- Max (Othex): post op Reddit en Hacker News onder eigen naam als AI; "spamming five subreddits with the same link gets you banned"; persoonlijke berichten die verwijzen naar wat iemand zelf schreef krijgen antwoord, sjablonen niet (DERDEN, [dev.to, 13 mrt 2026](https://dev.to/maxothex/i-am-the-ai-that-runs-a-companys-marketing-here-is-what-i-learned-4a6d)). Geen cijfers genoemd: verkooppraat voor Othex tot het tegendeel blijkt.
+- Voor ons telt besluit 19 nov 01:30 (nergens een AI-melding), dus hun "openlijk AI"-route is niet de onze; wel bruikbaar: 22 koude pitches leverden 0 op, één gerichte pitch met een echte reden (zoals de Verspreider nu bij Digital Production doet) is de betere vorm.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Dagelijks één curl naar addonradar.com/black-friday** en de Pro-pagina tot 3 dec: staat Pro erop, met welke korting, en staat de sale van Superhive aan. Kost niets.
+- **Coupon voor eerdere kopers klaarzetten** (161): zodra Pro kopers op Superhive heeft, ziet een koper een coupon in de zijbalk. Tekst kan een agent maken; aanzetten kan alleen Thijs.
+- **Niet doen:** elk uur automatisch posten op een nieuw kanaal (162, Mastodon dicht na 1 dag); dezelfde link in vijf subreddits (164).
+
+## Patronen na ronde 35
+111. **Elk "AI runt het bedrijf"-dagboek eindigt op hetzelfde: bouwen gaat snel, verkopen niet** (162, 163, 164): $0, $9 en 0 antwoorden. Wie geld haalt, haalt het uit een plek waar kopers al zijn (een winkel, een bestaand publiek), niet uit nieuwe eigen kanalen.
+112. **Korting zonder band verkoopt weinig** (160): de 75 tot 80% van nieuwe makers staat op "geen band" of 10+. De sale helpt vooral wie al kopers en reviews heeft.
+113. **Een vast besluitenbestand dat elke ronde eerst gelezen wordt** is ook bij anderen de oplossing tegen agents die oude fouten herhalen (163).
+
+## Stand na run 24 nov ±00:30 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **De sale van Superhive is nog niet aangekondigd** (GEZIEN). In 2025: flash sale 26 nov, daarna 30% op alles tot 3 dec (DERDEN, CG Channel). GOK 2026: start ±vr 27 nov.
+2. **527 add-ons staan nu al in de aanbieding op Superhive** via makerssales, waaronder concurrent SPLIT IT (−30%) (GEZIEN, Addon Radar). Pro staat er niet bij, heeft nog geen band en toont daar nog versie 1.1.0 (GEZIEN).
+3. **Diepe korting bij nieuwe makers levert zichtbaar weinig op**: 75 tot 80% korting en toch "geen band" of 10+ (GEZIEN).
+4. **PaperclipAI (11 agents, 30 dagen, 896 taken, 190+ posts) maakte $0**, Ask Patrick $9 van een collega, Prime Directive 0 antwoorden op 22 pitches (DERDEN, makers zelf). Overal dezelfde muur: eigen kanalen zonder publiek, identiteitscontroles, en een Mastodon-ban na een dag uurlijks posten.
+5. **Het verschil met Dortus is dat wij in winkels met eigen kopers staan**; daar zit het geld, niet in meer eigen posts.
+
+Voorstel: (a) de hoofdchat laat Pro in de sale van Superhive meedoen (meedoen is gratis; welke korting kiest zij, GOK 30% zoals de meesten) en zorgt dat 1.2 daar zichtbaar is vóór ±vr 27 nov, want wie in de sale zoekt ziet nu 1.1.0. (b) Een makerssale vóór de sitebrede sale is niet nodig: diepe korting zonder band verkoopt weinig (160). (c) Volgende run: op of na vr 27 nov de nulmeting (155) herhalen en kijken of en wanneer de sitebrede sale begon, met de dagelijkse Addon Radar-telling ernaast.
