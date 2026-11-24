@@ -38,7 +38,7 @@ Click Joints Pro: dortus.com/yt
 2. Figure from rig gives shoulders, elbows, hips, knees and the neck by default.
 3. For the ankles too, press More bones, right under Figure from rig.
 4. It cuts the robot into parts, with a joint at each one.
-5. Select the rigged mesh first, then press it, and the ankles join the list.
+5. Select the rigged mesh first, then press it: the ankles get a joint too.
 6. You find it in the N panel, under Click Joints, in Figure joints.
 7. No rig? There is an Ankle preset: put the 3D cursor on the ankle.
 8. Drag Bend on the knee, and it stops at the angle from your rig.
@@ -57,8 +57,8 @@ Click Joints Pro: dortus.com/yt
 - Zin 5 en 6: "N panel › Click Joints › Figure joints › Figure from rig (or More bones (ankles too)). Select the rigged mesh first." (`platformen/blender/superhive/where-to-find-it.md`, gekeurde winkeltekst).
 - Zin 7: "Six presets: Shoulder, Hip, Neck, Elbow, Knee and Ankle ... Place the 3D cursor and click the body part." (gumroad-1.1.md r. 42).
 - Zin 8: "If a bone has a Limit Rotation constraint, the hinge stops at that angle" (gumroad-1.1.md r. 38); knie stop 119,96 "from rig" (GEZIEN, film-pro.json regisseur-16).
-- Geen prijs, geen "holds a pose". Opname met Pro 1.2.0 (tag click-joints-pro-v1.2.0, `platformen/blender/pro-1.2.0.md`).
+- Geen prijs, geen "holds a pose". Opname met Pro 1.2.6 (main a1e868b, CHANGELOG 1.2.6 "enkels via More bones ook op de studio-robot"; e2e 45384569641 toets `e2e/toetsen_robot_meer.py`, Olaf 24 nov). Knop More bones bestaat sinds 1.2.0 (`platformen/blender/pro-1.2.0.md`).
 
 ## Licenties
 - Stem: Kokoro-82M v1.0, stem af_heart (Apache-2.0, hexgrad/Kokoro-82M; kokoro-onnx MIT).
-- Figuur en rig: van ons. Software in beeld: Blender 5.3.0 (GPL) met Click Joints Pro 1.2.0 (van ons).
+- Figuur en rig: van ons. Software in beeld: Blender 5.3.0 (GPL) met Click Joints Pro 1.2.6 (van ons, main a1e868b).

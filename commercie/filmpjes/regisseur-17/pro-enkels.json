@@ -22,13 +22,13 @@
     "uitsnede": [
      [
       545,
-      760,
-      900
+      560,
+      950
      ],
      [
       545,
-      800,
-      800
+      580,
+      880
      ]
     ]
    },
@@ -104,24 +104,24 @@
    }
   },
   {
-   "tekst": "Select the rigged mesh first, then press it, and the ankles join the list.",
+   "tekst": "Select the rigged mesh first, then press it: the ankles get a joint too.",
    "label": "ANKLES",
    "kleur": "groen",
-   "kop": "Ankles in the list",
+   "kop": "Ankle joints",
    "beeld": {
-    "deel": "knie",
-    "van": 20,
-    "tot": 41,
+    "deel": "lijst",
+    "van": 30,
+    "tot": 110,
     "uitsnede": [
      [
-      1380,
-      720,
-      1150
+      540,
+      780,
+      900
      ],
      [
-      1380,
-      760,
-      1100
+      540,
+      880,
+      650
      ]
     ]
    }
