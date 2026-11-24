@@ -114,10 +114,28 @@ def stap():
                     a.tag_redraw()
             staat["stap"] = 3
             return 1.5
-        pad = os.path.join(uitmap, "paneel-meer.png")
+        if staat["stap"] == 3:
+            pad = os.path.join(uitmap, "paneel-meer.png")
+            subprocess.run(["import", "-window", "root", pad], capture_output=True)
+            ok = os.path.exists(pad) and os.path.getsize(pad) > 20000
+            log(f"{'PANEEL MEER OK' if ok else 'PANEEL MEER FOUT'} {pad}")
+            # third picture: More settings closed with notes, so the notes line can be seen whole (keuring
+            # run 10, M1). Uses the notes of this Split; when there are none, two example notes (logged).
+            inst = bpy.context.scene.split_joints
+            if not inst.meldingen.strip():
+                inst.meldingen = ("Piece 02: no room for the number on a part of this face\n"
+                                  "Piece 03: piece only 2.1 mm thick here, a pin needs 4.0 mm: glue this joint")
+                log("noten: voorbeeldnoten gezet (deze Split had geen noten)")
+            inst.meer = False
+            for w in bpy.context.window_manager.windows:
+                for a in w.screen.areas:
+                    a.tag_redraw()
+            staat["stap"] = 4
+            return 1.5
+        pad = os.path.join(uitmap, "paneel-noten.png")
         subprocess.run(["import", "-window", "root", pad], capture_output=True)
         ok = os.path.exists(pad) and os.path.getsize(pad) > 20000
-        log(f"{'PANEEL MEER OK' if ok else 'PANEEL MEER FOUT'} {pad}")
+        log(f"{'PANEEL NOTEN OK' if ok else 'PANEEL NOTEN FOUT'} {pad}")
     except Exception as e:
         log(f"PANEEL FOUT {e!r}")
     bpy.ops.wm.quit_blender()

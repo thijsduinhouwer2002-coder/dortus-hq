@@ -51,6 +51,61 @@ def bak(ob, naam, collectie):
     return uit
 
 
+def splits_vierkant(bm):
+    """Edges with 4 (or 6, ...) faces: two parts of the model touch each other exactly on a line in the cut
+    plane (seen with Exact in 4.2 on the 1M face skull scan, ontwerp 14b). Not a hole, so merging points does
+    not help. Every point of such an edge gets one copy per fan of faces around it (faces that are joined by
+    an edge with exactly 2 faces), so each part gets its own edge with 2 faces. The shape does not change.
+    Returns the number of points that were split."""
+    bm.edges.ensure_lookup_table()
+    punten = {v for e in bm.edges if len(e.link_faces) >= 4 and len(e.link_faces) % 2 == 0 for v in e.verts}
+    vervang = {}  # face -> {old vert: new vert}
+    gesplitst = 0
+    for v in punten:
+        vlakken = list(v.link_faces)
+        ouder = {f: f for f in vlakken}
+
+        def wortel(f):
+            while ouder[f] is not f:
+                ouder[f] = ouder[ouder[f]]
+                f = ouder[f]
+            return f
+
+        for e in v.link_edges:
+            if len(e.link_faces) == 2:
+                a, b = (wortel(f) for f in e.link_faces)
+                if a is not b:
+                    ouder[a] = b
+        groepen = {}
+        for f in vlakken:
+            groepen.setdefault(wortel(f), []).append(f)
+        if len(groepen) < 2:
+            continue
+        for groep in list(groepen.values())[1:]:
+            kopie = bm.verts.new(v.co)
+            gesplitst += 1
+            for f in groep:
+                vervang.setdefault(f, {})[v] = kopie
+    if not vervang:
+        return 0
+    oud = []
+    for f, kaart in vervang.items():
+        punten_f = [kaart.get(l.vert, l.vert) for l in f.loops]
+        try:
+            bm.faces.new(punten_f, f)
+        except ValueError:
+            continue
+        oud.append(f)
+    bmesh.ops.delete(bm, geom=oud, context="FACES_ONLY")
+    los = [e for e in bm.edges if not e.link_faces]
+    if los:
+        bmesh.ops.delete(bm, geom=los, context="EDGES")
+    los = [v for v in bm.verts if not v.link_edges]
+    if los:
+        bmesh.ops.delete(bm, geom=los, context="VERTS")
+    return gesplitst
+
+
 def herstel(ob, u):
     """Repair after a Boolean that left a few bad edges (seen with Exact in 4.2): merge points that lie on top
     of each other and dissolve slivers. Returns the number of bad edges after the repair."""
@@ -62,9 +117,20 @@ def herstel(ob, u):
     bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=0.0005 * u)
     bmesh.ops.dissolve_degenerate(bm, edges=bm.edges, dist=0.0005 * u)
     bm.to_mesh(ob.data)
-    bm.free()
     ob.data.update()
-    return foute_randen(ob.data)
+    fout = foute_randen(ob.data)
+    if fout and splits_vierkant(bm):
+        # only keep the split when it leaves fewer bad edges (a sliver can turn into open edges instead)
+        me = bpy.data.meshes.new("sj_herstel")
+        bm.to_mesh(me)
+        if foute_randen(me) < fout:
+            ob.data.clear_geometry()
+            bm.to_mesh(ob.data)
+            ob.data.update()
+            fout = foute_randen(ob.data)
+        bpy.data.meshes.remove(me)
+    bm.free()
+    return fout
 
 
 POGINGEN = ("gewoon", "driehoeken", "zelf", "gaten", "schuif")

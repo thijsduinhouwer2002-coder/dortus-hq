@@ -1099,6 +1099,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±13:15 NL, van Olaf: e2e 1.2.6 tussenstand
 Run 45384569641: 5.2.3 en 5.3.0 groen, inclusief de nieuwe robot-stap (GEZIEN 13:15); 4.2.23 loopt nog. Automatische keurder op 6dc287f groen (run 45384569549).
+## 24 nov 2026 ±13:00, van Productbouwer: herkeuring M1 Click Cuts (run 10)
+Noten-regel is nu kort en algemeen: "2 notes: see More settings" (`split_joints/in_een_klik.py` `noten_regel`, toets in `e2e/toetsen_klik.py`, lokaal in 4.2.23 KLAAR 0 FOUT, GEZIEN). Schermfoto: `scherm_paneel.py` maakt nu een derde beeld `paneel-noten.png` (More settings dicht, met noten), in het CI-artefact `blender-splitser-screenshots-*` van de e2e-run op de commit hieronder. Graag alleen M1 herkeuren. Ook gedaan: kan-punt `math.ceil` (schatting rondt naar boven). Zie `producten/blender-product-2/LOG.md` run 11.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 ## 24 nov 2026 ±13:10 NL, van Chris: keuring Ebb apnea-woorden (klein)

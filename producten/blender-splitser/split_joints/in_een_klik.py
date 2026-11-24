@@ -1,6 +1,8 @@
 """Split to fit: one button that does Make watertight (only when needed), Plan cuts, Split (pins, holes,
 numbers) and the check, with the printer and the clearance that are set (the saved one from the fit test
 comes in through passingproef). The result is one line in the panel (scene.split_joints.uitslag)."""
+import math
+
 import bpy
 
 from . import gesloten, snedes
@@ -45,7 +47,7 @@ def schatting_tekst(n, solver):
     if n < ZWAAR_VLAKKEN:
         return None
     sec = SEC_PER_MILJOEN.get(solver, SEC_PER_MILJOEN["EXACT"]) * n / 1e6
-    minuten = max(1, round(sec / 60))
+    minuten = max(1, math.ceil(sec / 60))
     return f"{n / 1e6:.1f}M faces: Split takes about {minuten} min"
 
 
@@ -81,7 +83,7 @@ def noten_regel(meldingen, meer_open):
     n = len([r for r in (meldingen or "").split("\n") if r.strip()])
     if n == 0 or meer_open:
         return None
-    return f"{n} note{'s' if n != 1 else ''} (glue joints): More settings"
+    return f"{n} note{'s' if n != 1 else ''}: see More settings"
 
 
 class SPLIT_JOINTS_OT_split_to_fit(bpy.types.Operator):

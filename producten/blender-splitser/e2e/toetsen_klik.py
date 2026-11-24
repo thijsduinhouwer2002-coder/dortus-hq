@@ -63,13 +63,33 @@ def alles(uitmap=None):
     klik.ZWAAR_VLAKKEN = oud
     # notes under the closed More settings get a line in the result box (keuring winkeltekst K1)
     stap("klik: noten-regel bij dicht vak", klik.noten_regel("a: Glue this joint\nb: Glue this joint", False)
-         == "2 notes (glue joints): More settings", repr(klik.noten_regel("a\nb", False)))
+         == "2 notes: see More settings", repr(klik.noten_regel("a\nb", False)))
     stap("klik: geen noten-regel als het vak open is of zonder noten", klik.noten_regel("a", True) is None
-         and klik.noten_regel("", False) is None and klik.noten_regel("x", False) == "1 note (glue joints): More settings")
+         and klik.noten_regel("", False) is None and klik.noten_regel("x", False) == "1 note: see More settings")
+    # two parts that touch exactly on a line (4 faces on one edge, Exact in 4.2 on the 1M skull, ontwerp 14b):
+    # the repair gives each part its own edge, the volume stays the same
+    import bmesh
+    spl = importlib.import_module("bl_ext.user_default.click_cuts.splitsen")
+    ges = importlib.import_module("bl_ext.user_default.click_cuts.gesloten")
+    bm = bmesh.new()
+    bmesh.ops.create_cube(bm, size=2.0)
+    r2 = bmesh.ops.create_cube(bm, size=2.0)
+    bmesh.ops.translate(bm, verts=r2["verts"], vec=(2.0, 2.0, 0.0))
+    bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-6)
+    me4 = bpy.data.meshes.new("sj_toets_vier")
+    bm.to_mesh(me4)
+    voor = (ges.foute_randen(me4), ges.volume(me4))
+    gesplitst = spl.splits_vierkant(bm)
+    bm.to_mesh(me4)
+    bm.free()
+    stap("klik: rand met 4 vlakken wordt 2 randen met 2 vlakken", voor[0] == 1 and gesplitst == 2
+         and ges.foute_randen(me4) == 0 and abs(ges.volume(me4) - voor[1]) < 1e-6,
+         repr((voor, gesplitst, ges.foute_randen(me4), ges.volume(me4))))
+    bpy.data.meshes.remove(me4)
     # the estimate follows the measured times (run 45349335526 and 2 cores here): never less than measured, per solver
     for n, solver, verwacht in ((999_999, "MANIFOLD", None), (1_000_000, "MANIFOLD", "1.0M faces: Split takes about 1 min"),
-                                (3_040_000, "MANIFOLD", "3.0M faces: Split takes about 2 min"),
-                                (1_010_000, "EXACT", "1.0M faces: Split takes about 3 min"),
+                                (3_040_000, "MANIFOLD", "3.0M faces: Split takes about 3 min"),
+                                (1_010_000, "EXACT", "1.0M faces: Split takes about 4 min"),
                                 (3_040_000, "EXACT", "3.0M faces: Split takes about 10 min")):
         t = klik.schatting_tekst(n, solver)
         stap(f"klik: schatting {n} {solver}", t == verwacht, repr(t))
