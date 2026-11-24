@@ -1,15 +1,16 @@
 # Click Cuts Short 1: Model too big for your printer? Split it to fit 🔥
 
 - status: open (plaatsen pas als Click Cuts live is en de winkellink werkt)
-- kanaal: yt-short
+- kanaal: youtube-short
 - soort: video
 - soort_reeks: lancering Click Cuts, script 1 van 6 (`commercie/filmpjes/scripts/click-cuts-lancering.md`, ja Daan na M1 en M2), hook 1A. Volgorde 1, 2, 3, 6, 4, 5: deze op de lanceringsdag.
 - product: click-cuts
-- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-19/cc-fit-geluid.mp4 (nagekeken 24 nov run 18, workflow-run 45362400164 groen)
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-19/cc-fit-geluid.mp4 (hersteld in run 21 na keuring Iris M1: nieuwe opname met de huidige zip, run 45387966943; daarna alleen nieuwe montage met harde snede, zie hieronder)
 - stem_tekst: `commercie/filmpjes/regisseur-19/cc-fit-stem.txt` (voor Max van de hoofdchat; tot die er is Kokoro)
 - lokale montage uit de proef (elk 4e beeld, Kokoro, 24 nov, GEZIEN): 43,9 s, geluid_check GOED (-16,6 dB, piek -1,4 dB), synchroon GOED 11 van 11 (grootste 0,267 s), 12 beelden bekeken. Daarna kader dikker en hook dichterbij; het releasebestand van regisseur-19 is nog niet nagekeken (volgende run).
 - metingen (lokale proef met de echte muis, Blender 5.3.0, Click Cuts-zip van main 24 nov, elk 4e beeld, GEZIEN): Lion Head 320,5 x 206,4 x 436 mm, 47.214 vlakken; printer via de echte keuzelijst op Bambu Lab A1 mini; Split to fit met de echte klik: 12 stukken, alle 12 groen, 68 pennen, speling 0,20 mm; paneel "12 parts, all fit the bed" en "68 pins, 0.20 mm clearance"; Export parts met de echte klik: 13 STL-bestanden (piece_01.stl enz. plus de pennen), melding "13 STL files in ..." (GEZIEN, schermbeelden van de proef).
 - releasebestand (GEZIEN): 43,9 s, 1080 x 1920; geluid_check GOED (-16,6 dB, piek -1,4 dB); synchroon GOED 11 van 11 (grootste 0,287 s); metingen film-tip.json: printer via de echte lijst, Split to fit en Export parts via OCR geklikt, 12 stukken alle groen, 68 pennen, 13 bestanden. 12 beelden bekeken, eerste groot: grijze leeuw, kop steekt boven het rode bedkader uit, geen zwevende getallen. Kan beter: het allereerste beeld staat nog ver weg (de zoom komt pas in 1 s), en bij zin 4 (watertight) zie je alleen de geselecteerde leeuw.
+- herstel run 21 (24 nov ±13:00 NL, GEZIEN): nieuwe opname met de zip van main (met de noot-regel uit 8de5e36). Meting `meldingen` in film-tip.json: 1 melding, "Cut 7-11: too small for a pin: ... Glue this joint"; noot-regel "1 note (glue joints): More settings" door OCR gevonden in het paneel en 3 s in beeld met een kader. Zin 7 nu "Cuts get pins and pin holes, with a clearance you can tune to your printer."; nieuwe zin 9 "Face too small for a pin? The panel tells you to glue that joint." (zonder melding in een opname valt zin 9 vanzelf weg). Kan-punten: eerste beeld meteen dichtbij (begin_uitsnede), harde snede (nieuw `knip` in montage2) naar de printerlijst, naar zin 4 en naar de uitslag, dus geen leeg grijs beeld meer; printerlijst staat boven de ondertitel. Release run 45387966943: 47,4 s, geluid_check GOED (-16,6 dB, piek -1,4 dB), synchroon GOED 12 van 12 (grootste 0,293 s), 12 stukken alle groen, 68 pennen, 13 bestanden, printer via de echte lijst; 37 beelden bekeken plus het eerste groot (GEZIEN). Zin 4 (watertight) toont nog steeds alleen de geselecteerde leeuw (kan A3 niet gedaan).
 - tijd: voorstel lanceringsdag Click Cuts (week van 30 nov, de hoofdchat kiest)
 - doel: de winkellink van Click Cuts (eerste regel van de beschrijving, invullen na de uitgave)
 - gemaakt_door: Regisseur run 18 (24 nov 2026); opname in workflow regisseur-19 (Blender 5.3.0, xvfb, echte muis, gedeelde hulpcode van Olaf)
@@ -25,7 +26,7 @@ Model too big for your printer? Split it to fit 🔥 | Blender
 Model too big for your print bed? Click Cuts splits it in Blender.
 1. Pick your printer, or type your own bed size.
 2. Press Split to fit.
-3. Every part fits your bed, with pins and pin holes in every cut.
+3. Every part fits your bed. Cuts get pins and pin holes; if a face is too small for a pin, the panel tells you to glue it.
 4. Export every part and the pins as STL or 3MF, in millimeters.
 
 Measured in Blender, not print tested by us yet. Print the fit test first.
@@ -51,6 +52,7 @@ Measured in Blender, not print tested by us yet. Print the fit test first.
 - beeld en plezier: akkoord **nee**
 - moet M1: zin 7 en tekstpunt 3 beloven pennen in elke snede, maar dezelfde leeuw geeft in de nieuwere zip "1 note (glue joints)" (zie cc-nummers, `verbinders.py` r. 99). Zin aanpassen of bewijzen dat de cc-fit-opname nul meldingen had; nieuwe opname met de huidige zip. Nakeuren alleen op M1.
 - kan: eerste beeld dichterbij (kop boven het kader), leeg beeld bij 2 s eruit; ondertitel niet over de printerlijst; kanaal `yt-short` gelijk maken aan `youtube-short`.
+- herstel Regisseur run 21: M1 verwerkt (zin 7, zin 9 nieuw, tekstpunt 3), kan C2, C3 en B4 gedaan, A3 niet. Graag nakeuren op M1 (Daan of Iris).
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

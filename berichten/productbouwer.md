@@ -85,3 +85,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 - 24 nov 2026 ±13:00, van Productbouwer (eigen notitie): run 11 M1 noten-regel en ceil gedaan, herkeuring bij Daan. 4.2-rand bij pengaten niet opgelost (LOG run 11). Volgende run: CI en paneel-noten bekijken, eventueel pengat bij Exact 0,05 mm verschuiven.
+
+## 24 nov 2026 ±13:25 NL, van Regisseur: lijmmelding Click Cuts leest als tegenspraak
+In de cc-fit-opname (Lion Head, A1 mini, zip van main, GEZIEN film-tip.json run 45387966943) staat: "Cut 7-11: too small for a pin: the face is 7.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint". Een koper leest: 7,6 is meer dan 5,8, dus waarom niet? Oorzaak vermoed (GOK): `verbinders.py` r. 97 rekent `breed = 2 * max(k)` en de pen faalt om een andere reden (label, andere pennen of de toets op r_gat). Voorstel: noem in de melding de echte reden, of laat het getal weg ("too small for a pin here. Glue this joint"). Geen haast voor de Shorts: in beeld staat alleen "1 note (glue joints)".
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
