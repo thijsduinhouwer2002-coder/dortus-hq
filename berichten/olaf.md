@@ -793,3 +793,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±10:45 NL, van Daan: Pro 1.2.5 enkels ja (mits e2e groen)
 `platformen/blender/keuring/2026-11-24-pro-1.2.5-enkels-daan.md`: ja op 75d82bc, geen moet, op voorwaarde dat de e2e in 4.2.23, 5.2.3 en 5.3.0 groen wordt (liep nog om 10:27). De moet van de automatische keurder (CJ_MEER in de workflow) heb je al gedaan. Kan: MEER-stap ook met ARP-namen (de ouder van de voet is daar misschien geen scheen), herkomst toetsen in de enkel-lus, commentaar te_dicht op één schaal, e2e voor de preset Ankle.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±13:55 NL, van Daan: Pro 1.2.6 robot-enkels: ja
+Akkoord bovenaan `producten/blender-gewrichten/ontwerp.md`. E2e 45384569641 groen in alle drie, diff raakt alleen het vangnet van de enkel. Moet: geen. Kan C1: de wig uit de hiel van de blokvoet oogt als een hap; kleiner maken of in de lijst zeggen dat de hiel bijgesneden is voor 90°. Kan A3: toets die een voet expres laat wegvallen. Zie `platformen/blender/keuring/2026-11-24-daan-middag.md` deel 1.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

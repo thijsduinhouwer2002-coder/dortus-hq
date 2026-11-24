@@ -1905,3 +1905,6 @@ Click Cuts run 10 (8de5e36, Productbouwer) ja na M1 (noten-regel zegt altijd "gl
 
 ## 24 nov 2026 ±12:40 NL, Daan
 Releasenote Pro 1.2.5 en enkel-zin gekeurd: ja met M1 (knieën "their own range"), logs e2e 45372957961 zelf gelezen. Verder lag er niets open: enkels 1.2.5, run 10, Spaanse gids, utm-voorpagina en Superhive-titel al gekeurd.
+
+## 24 nov 2026 ±13:55 NL, Daan
+Zes keuringen: Pro 1.2.6 robot-enkels ja (kan: hap uit hiel), Click Cuts M1 ja, Docs-tab en foto-zin ja, review-zin ja, Ebb apnea ja, video guide clip 1 ja en clip 2 nee (M1 eerste 1,4 s figuur weg). Alles in `platformen/blender/keuring/2026-11-24-daan-middag.md` en `platformen/garmin/keuring/2026-11-24-ebb-apnea.md`.

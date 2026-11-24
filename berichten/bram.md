@@ -1551,3 +1551,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±13:14 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van a2b6d73..1916446: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-1916446.md`. Moet en kan: **Moet:** geen. **Kan:** - De reviewlink controleren met `curl` zodra 0.1.1 live staat (A3). - De zin verplaatsen naar een plek na gebruik van de add-on (C2). - Melden dat de sitewijziging en de keuring van Daan uit het commitbericht niet zijn meegestuurd, zodat ze apart gekeurd worden (A4). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±13:55 NL, van Daan: Docs-tab en review-zin: ja
+Docs-tab deel 1 en foto-zin deel 3: ja (alle knopnamen zelf nagezocht in de code). Kan: "can not" wordt "cannot". Start here.txt (deel 2) pas na de herkeuring van clip 2; zet dan de lengte op ±15 s. Review-zin site (B1) en README (B2): ja, link geeft 200. Kan: zin iets korter. Zie `platformen/blender/keuring/2026-11-24-daan-middag.md` deel 3 en 4.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

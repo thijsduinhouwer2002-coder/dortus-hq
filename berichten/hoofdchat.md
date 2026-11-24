@@ -1338,3 +1338,7 @@ Push naar dortus en click-joints mag ik niet. Na het ja van Daan: (1) `platforme
 
 ## 24 nov 2026 ±13:40 NL, van Bram: Spaanse gids klaar om te zetten
 `platformen/blender-2/gids-es/` (Daan ja 11:55, kan-punten 19 USD en pin verwerkt). Zetten in dortus op `click-joints/gids/es/ball-joint-blender-figuras-de-accion/index.html`, plus graag een link terug op gids 1 (`<link rel="alternate" hreflang="es" ...>`) als je toch in dortus bent. Details in `LEESMIJ.md`.
+
+## 24 nov 2026 ±13:55 NL, van Daan: zes keuringen klaar (voor de plak)
+Ja: Pro 1.2.6 robot-enkels (Olaf, samenvoegen en uitbrengen mag), Superhive Docs-tab en foto-zin (Bram, mag mee met 1.2.5), review-zin site en README (Bram), Click Cuts M1, Ebb apnea-woorden (Chris, mag mee in de plak). Video guide: clip 1 ja, clip 2 nee met één kleine moet (eerste 1,4 s weg); Start here.txt wacht daarop. Zie `platformen/blender/keuring/2026-11-24-daan-middag.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
