@@ -1,0 +1,279 @@
+{
+ "naam": "tip-speling",
+ "titel": "Your ball joint gap, measured, not guessed 🔥 | Blender tip",
+ "eind": {
+  "titel": "Click Joints",
+  "zin": "Free on Blender Extensions.",
+  "adres": "dortus.com/yt",
+  "render": "render-label.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "venster": "Blender 5.3 with Click Joints",
+ "scenes": [
+  {
+   "tekst": "Is your gap really what you set?",
+   "label": "QUICK QUESTION",
+   "kleur": "oranje",
+   "kop": "Really 0.2 mm?",
+   "beeld": {
+    "deel": "uit",
+    "van": 60,
+    "tot": 120,
+    "uitsnede": [
+     [
+      790,
+      900,
+      900
+     ],
+     [
+      790,
+      880,
+      760
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Set a gap, cut, and check that the real gap matches.",
+   "label": "THE GAP",
+   "kleur": "blauw",
+   "kop": "Set vs real",
+   "beeld": {
+    "deel": "mooi",
+    "van": 0,
+    "tot": 50,
+    "uitsnede": [
+     [
+      790,
+      1000,
+      1100
+     ],
+     [
+      790,
+      1000,
+      900
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Select your part, and put the 3D cursor where the joint goes.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Part and cursor",
+   "beeld": {
+    "deel": "kies",
+    "van": 0,
+    "tot": 48,
+    "uitsnede": [
+     [
+      790,
+      1000,
+      1000
+     ],
+     [
+      790,
+      1000,
+      860
+     ]
+    ]
+   },
+   "uitspraak": "Select your part, and put the three D cursor where the joint goes."
+  },
+  {
+   "tekst": "Pick Ball, keep Clearance at 0.2, and press Place joint.",
+   "label": "STEP 2",
+   "kleur": "oranje",
+   "kop": "Ball, then Place joint",
+   "beeld": {
+    "deel": "bal",
+    "van": 0,
+    "tot": 68,
+    "uitsnede": [
+     [
+      1840,
+      740,
+      700
+     ],
+     [
+      1840,
+      800,
+      650
+     ]
+    ]
+   },
+   "uitspraak": "Pick Ball, keep Clearance at zero point two, and press Place joint."
+  },
+  {
+   "tekst": "Click Joints measures the gap between ball and socket after the cut.",
+   "label": "MEASURED",
+   "kleur": "blauw",
+   "kop": "Measured after the cut",
+   "beeld": {
+    "deel": "plaats",
+    "van": 0,
+    "tot": 80,
+    "uitsnede": [
+     [
+      790,
+      950,
+      900
+     ],
+     [
+      790,
+      930,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "It averages many points around the ball, and shows that in the panel.",
+   "label": "IN THE PANEL",
+   "kleur": "groen",
+   "kop": "Clearance (measured)",
+   "beeld": {
+    "deel": "meet",
+    "van": 0,
+    "tot": 80,
+    "uitsnede": [
+     [
+      1840,
+      1180,
+      560
+     ],
+     [
+      1840,
+      1200,
+      480
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Next to it you see the wall thickness, so a thin socket shows too.",
+   "label": "WALL",
+   "kleur": "oranje",
+   "kop": "Wall in mm",
+   "beeld": {
+    "deel": "meet",
+    "van": 0,
+    "tot": 80,
+    "uitsnede": [
+     [
+      1840,
+      1100,
+      600
+     ],
+     [
+      1840,
+      1150,
+      520
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Exploded view pulls the ball out of the socket, so you can check it.",
+   "label": "LOOK INSIDE",
+   "kleur": "blauw",
+   "kop": "Exploded view",
+   "beeld": {
+    "deel": "uit",
+    "van": 0,
+    "tot": 60,
+    "uitsnede": [
+     [
+      790,
+      900,
+      1000
+     ],
+     [
+      790,
+      880,
+      850
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Not sure which gap your printer likes? Print a fit test first.",
+   "label": "YOUR PRINTER",
+   "kleur": "oranje",
+   "kop": "Fit test first",
+   "beeld": {
+    "deel": "uit",
+    "van": 60,
+    "tot": 120,
+    "uitsnede": [
+     [
+      790,
+      900,
+      800
+     ],
+     [
+      790,
+      900,
+      700
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "The measured gap is in the free Click Joints, for every ball joint.",
+   "label": "FREE",
+   "kleur": "groen",
+   "kop": "Free",
+   "beeld": {
+    "deel": "meet",
+    "van": 0,
+    "tot": 80,
+    "uitsnede": [
+     [
+      1840,
+      1060,
+      900
+     ],
+     [
+      1840,
+      1100,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Print a test joint first.",
+   "label": "HONEST",
+   "kleur": "blauw",
+   "kop": "Test first",
+   "beeld": {
+    "deel": "uit",
+    "van": 90,
+    "tot": 150,
+    "uitsnede": [
+     [
+      790,
+      900,
+      760
+     ],
+     [
+      790,
+      900,
+      700
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Click Joints. Free on Blender Extensions.",
+   "label": "CLICK JOINTS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   }
+  }
+ ]
+}

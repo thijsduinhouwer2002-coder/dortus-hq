@@ -1,15 +1,16 @@
 # Pro-Short: Your rig, your bone names: printable joints in one click 🦴
 
-- status: wacht (workflow regisseur-16 neemt op; de Regisseur kijkt het releasebestand na en zet dan pas open)
+- status: open
 - kanaal: yt-short
 - soort: video
 - soort_reeks: Pro (script week 48 nr. 6, hook 6B, `commercie/filmpjes/scripts/week-48-click-joints.md`, ja Daan; Pro-lijst nr. 2 in `scripts/volgorde-stem.md`)
 - product: click-joints-pro
-- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-16/pro-botnamen-geluid.mp4 (nog niet nagekeken)
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-16/pro-botnamen-geluid.mp4 (nagekeken run 17)
 - stem: Kokoro (Apache 2.0), Pro-reeks (`scripts/volgorde-stem.md`). Geen ElevenLabs-opname nodig.
 - stem_tekst: `commercie/filmpjes/regisseur-16/pro-botnamen-stem.txt`
 - figuur: eigen robot van studio-3 (`commercie/filmpjes/studio/figuur_robot.py`), rig met Mixamo-botnamen uit `producten/blender-gewrichten/e2e/proef_mens.py` (maak_rig), geen licentie van derden
 - eerste release (run 45338202840, 24 nov) nagekeken in run 16: 51,9 s, geluid GOED (-16,4 dB), synchroon 13 van 13 (grootste 0,23 s), 9 gewrichten, knie stop 119,96 "from rig", 10 bestanden (GEZIEN). Afgekeurd door mij: er stond geen enkele botnaam in beeld (overlay show_text stond uit, dat verbergt ook de namen; zelf getoetst in Blender 5.3.0, GEZIEN), de kop van de hook liep over het venster, de kop bij HONEST over het hoofd van de robot. Hersteld in `regisseur-16/opname.py` en `pro-botnamen.json`; workflow neemt opnieuw op. Volgende run: namen leesbaar in hook en zin 2, dan pas open.
+- tweede release (run 45344790631, 24 nov) nagekeken in run 17 (GEZIEN): 51,9 s, geluid_check GOED (-16,4 dB, piek -1,4 dB), synchroon 13 van 13 (grootste 0,207 s), log `KORT namen in beeld: show_text aan`, 9 gewrichten, knie stop 119,96 "from rig", 7 rode vlakken, 10 bestanden, geen vangnet. 17 beelden bekeken, eerste beeld groot: robot met oranje botten en mixamorig-namen leesbaar, kop "Your bone names?" op één regel, geen zwevende getallen. Kan beter: in de hook overlappen een paar namen (RightShoulder/Spine2, RightUpLeg/LeftUpLeg); bij HONEST loopt de ondertitel over de romp (niet meer over het hoofd).
 - tijd: voorstel 2026-12-10T17:00:00+01:00, niet in dezelfde week als pro-robot-delen als de hoofdchat dat te veel van hetzelfde beeld vindt (zelfde robot en deels dezelfde stappen; ander onderwerp: botnamen en de stop uit je eigen rig)
 - doel: dortus.com/yt (over te typen)
 - gemaakt_door: Regisseur run 15 (24 nov 2026)

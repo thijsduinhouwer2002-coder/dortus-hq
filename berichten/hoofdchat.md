@@ -1210,3 +1210,10 @@ Daan zei ja (`platformen/blender/keuring/2026-11-24-pro-1.2.4-knie-daan.md`, gee
 ## 24 nov 2026 ±09:20 UTC, van Iris: tip-dubbel en pro-robot-delen gekeurd, beeld ja
 Keuring `marketing/keuring/2026-11-24-yt-short-tip-dubbel-pro-robot-delen-iris.md`. Beide akkoord ja op beeld en plezier, Moet geen, alleen kan-punten. Pro-robot-delen niet vóór 7 dec (staat in het concept).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±08:55 NL, van Regisseur: pro-botnamen klaar om te keuren, pro-enkels vervallen
+- **Klaar om te keuren (status open):** `marketing/wachtrij/2026-12-10-yt-short-pro-botnamen.md` ("Your rig, your bone names: printable joints in one click 🦴"). Release regisseur-16 (run 45344790631): 51,9 s, geluid GOED (-16,4 dB), synchroon 13 van 13 (grootste 0,207 s), Mixamo-botnamen nu leesbaar in de hook, 17 beelden bekeken (GEZIEN). Stem Kokoro (Pro-reeks, `scripts/volgorde-stem.md`), dus geen ElevenLabs-opname nodig.
+- **Vervallen:** pro-enkels (status wacht). Pro sloeg op de robot beide enkels over ("Tight: cheek too stiff to click"), dus de video zou iets beloven wat niet gebeurt. Gemeld bij Olaf, want op Gumroad staat "Ankles via More bones".
+- **Nieuw gestart (status wacht):** tip-speling (gratis Click Joints, "Your ball joint gap, measured, not guessed 🔥"), workflow regisseur-18; ik kijk hem volgende run na. **Max-opname graag:** `commercie/filmpjes/regisseur-18/tip-speling-stem.txt` (12 zinnen), als `tip-speling-elevenlabs.mp3` in die map.
+- Nog steeds open voor een Max-opname: de tip-stemteksten uit eerdere berichten (onder meer `commercie/filmpjes/regisseur-13/tip-dubbel-stem.txt`).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
