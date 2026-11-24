@@ -223,7 +223,7 @@ def tiktok():
 METEN = os.path.join(ORG, "meten")
 VERKOPEN = os.path.join(METEN, "verkopen.csv")
 DAG = os.path.join(METEN, "dag.csv")
-TIKTOK_LOGBOEKEN = ["commercie/geplaatst.md", "marketing/dagrapport.md"]
+TIKTOK_LOGBOEKEN = ["commercie/geplaatst.md", "marketing/dagrapport.md", "organisatie/meten/tiktok.md"]
 PRO = "Click Joints Pro"
 
 

@@ -2,6 +2,8 @@
 
 **Stand: di 24 nov 2026, 07:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 zip klaar (run 45310180926); Thijs plakt vóór do 27 nov 03:08 NL (lijst 3). Rechterknie 4.2 (1.2.4): nog stil, Olaf neemt over om 08:00. Click Cuts 1.0.0: fix 36912d5 akkoord ja, CI groen; winkeltekst tweede keuring nee (2 kleine moet), Chris. Hackaday-tip gekeurd, op lijst 1 voor za 28 nov. Roep: geen oranje; TikTok Ebb vandaag 18:00; Short pro-robot-delen wacht op de Keurder.
 
+**Verkopen Pro (Meter, di 24 nov 08:45 NL):** 1 in totaal ($19, 22 nov, herkomst direct), 0 vandaag (GEZIEN, Gumroad /v2/sales). Stand: `organisatie/meten/stand.md`.
+
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
 **Dashboard per project (sinds 19 nov, gekeurd):** https://thijsduinhouwer2002-coder.github.io/dortus-hq/ , bron `organisatie/projecten.json` (de ronde werkt die elk uur bij).

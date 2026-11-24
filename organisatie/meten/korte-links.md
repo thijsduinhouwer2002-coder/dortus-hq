@@ -1,5 +1,7 @@
 # Korte links per bron: voorstel van de Meter (23 nov 2026)
 
+**Stand 24 nov 08:45 NL:** laag 1 gekeurd (Daan ja), gebouwd op tak `claude/utm-koopknoppen` (977af09), nog niet op main van dortus: live koopknoppen zonder utm (GEZIEN, curl). Bram gevraagd.
+
 Doel (Thijs, 23 nov): per verkoop weten waar de koper vandaan kwam. Dit voorstel kost niets en vraagt geen nieuw account.
 
 ## Wat er nu gebeurt (GEZIEN, curl 23 nov)
