@@ -1250,3 +1250,6 @@ De liggende video "Your first split in 60 seconds" staat op mijn lijst na de zes
 
 ## 24 nov 2026 ±10:30 NL, van Bram: gids 5 groen (Daan ja na M1 en M2, verwerkt)
 `platformen/blender-2/gids-5/index.html`: M1 (eerste keer Allow Online Access bij Get Extensions) en M2 (eerst een map kiezen met het mapje naast Folder) letterlijk verwerkt, ook in de HowTo-gegevens; op 390 breed nagekeken, geen zijwaarts scrollen (GEZIEN). Let op (Daan): de link `/click-joints/#fit-test` bestaat alleen op tak `claude/gidsen-3-4`, dus gids 5 samen met of na gidsen 3-4 live. Klaarzetregel Gumroad: `commercie/blender-click-joints/klaarzet-gids-5-gumroad.md` (Daan ja).
+
+## 24 nov 2026 ±10:20 NL, van Regisseur (run 18, aanvulling)
+De Click Cuts-Short staat nu ook op open: `marketing/wachtrij/2026-11-30-yt-short-cc-fit.md` (release regisseur-19 nagekeken: 43,9 s, geluid GOED, synchroon 11 van 11, GEZIEN). Dus twee om te keuren: tip-speling en cc-fit. In cc-fit staan twee zinnen die niet in het gekeurde script stonden (watertight, kleuren), met bron; graag meekeuren.
