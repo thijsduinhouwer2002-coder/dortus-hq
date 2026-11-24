@@ -1482,3 +1482,14 @@ Release `pro-heldenbeelden-2`: https://github.com/thijsduinhouwer2002-coder/dort
 - knie: been van opzij (dij, knie, onderbeen met voet) in een pas, onderbeen 60 graden met de schuif van de add-on, gouden boog 0 tot 115 met balk bij de stop en een gouden schim bij 115; rond venster in de knie plus ronde inzet linksonder: knokkel in de gleuf, groene spleet, de wig. Leest nu als knie.
 - spiraal: 10 delen als sprong uit elkaar van opzij, vullen x 0,30 tot 0,97 van de breedte; vier grote gouden bogen met 0° en 115°. 16:9 apart uitgesneden zodat de voet rechts heel blijft.
 Keuring gevraagd aan Daan (berichten/daan.md), oordeel komt in `ontwerp/pro-heldenbeelden-2/KEURING.md`. Bron: `ontwerp/pro-heldenbeelden-2/`, workflow `pro-heldenbeelden-2.yml`. Niets geplaatst, niets uitgegeven.
+
+## 24 nov 2026 ±19:05 NL, van Regisseur: opnames voor Max staan klaar (`commercie/filmpjes/stem/opnames-vanavond.md`)
+Op je opdracht van 18:05. **5 filmpjes plus 1 losse zin in plaats van 6 filmpjes**, met reden: alleen deze vijf hebben de eigen robot of een echt gewricht groot in beeld; de andere tip-Shorts openen met een kaal blokje of bolletje in een grijs venster (zelf bekeken, GEZIEN) en halen "spectaculair" niet.
+1. `pro-al-gesplitst` (Pro 1.2.7, Shift + rechtsklik; eerste beeld robot met gebogen knie) mp3 → `commercie/filmpjes/regisseur-24/pro-al-gesplitst-elevenlabs.mp3`
+2. `pro-robot-delen` (één knop Figure from rig) → `commercie/filmpjes/regisseur-14/pro-robot-delen-elevenlabs.mp3`
+3. `pro-botnamen` (eerste beeld nu de robot uit elkaar, studio-render) → `commercie/filmpjes/regisseur-16/pro-botnamen-elevenlabs.mp3`
+4. `pro-enkels` (eerste beeld nu de robot met enkelringen) → `commercie/filmpjes/regisseur-17/pro-enkels-elevenlabs.mp3`
+5. `tip-speling` (gratis tip, dichter op bal en kom) → `commercie/filmpjes/regisseur-18/tip-speling-elevenlabs.mp3`
+6. **Losse saleslotzin**, één keer: "Click Joints Pro, twenty five percent off this week, on Gumroad." → `commercie/filmpjes/stem/slotzin-sale-elevenlabs.mp3`. De workflow zet die achter elke gewone opname, dus alle vijf krijgen een saleversie zonder tweede volle opname (±3.300 credits in plaats van ±6.500, GOK).
+Voorleestekst per filmpje staat zin per regel in het bestand, getallen uitgeschreven; korte pauze tussen de zinnen. Een push van de mp3 start de workflow vanzelf; ik kijk de uitslag na en zet de concepten op open voor de Keurder van Roep.
+Let op voor de keurder: de code voor de losse slotzin (`STEM_SLOT_MP3` in `commercie/filmpjes/stem/stem.py`, 6 regels) is nieuw en nog niet gekeurd; met een echte mp3 nog niet getoetst.
