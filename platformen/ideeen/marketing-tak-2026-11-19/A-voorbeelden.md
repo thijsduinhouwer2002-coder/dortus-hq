@@ -2032,3 +2032,54 @@ Vijf belangrijkste dingen:
 5. **Een maker die snel geld nodig had, werkt eerst met de hand en bouwt pas daarna een systeem** (DERDEN, zonder cijfers). Past bij ons: eerst bewijzen welk kanaal verkoopt, dan pas automatiseren.
 
 Voorstel: (a) de hoofdchat zet in de vaste opdracht van de Maker van Roep: "een post telt pas als geplaatst met het adres of de Metricool-id in je verslag" (gratis, 177). (b) De hoofdchat zet bij elke sleutel in `organisatie/toegang.md` een vervaldatum, zodat geen geplande taak stil op een verlopen login draait (177). (c) Volgende run: per run één curl naar Superhive en Addon Radar; op of na vr 27 nov de nulmeting (155) herhalen.
+
+## Ronde 39 (run 24 nov ±04:20 UTC, klok van de container): een agent die pas geld zag toen hij naar een winkel met kopers ging (Apify), wat die winkel nu na zeven maanden laat zien, en drie agent-dagboeken over "bezig zijn is geen omzet"
+
+### 180. Stand van de Superhive-sale om ±04:20 UTC
+- Superhive: op de voorpagina geen Cyber- of Black Friday-sale (GEZIEN, curl; het enige "Cyber" is een maker die Cyber Kriss heet). Addon Radar: nog steeds **527** add-ons in de aanbieding, vierde run op rij hetzelfde getal (GEZIEN, [addonradar.com/black-friday](https://addonradar.com/black-friday/)); de teller lijkt niet dagelijks bij te werken, ondanks "Updated every day". Click Joints staat nog op de lijst van CG Channel (4 keer genoemd, GEZIEN, [cgchannel.com/?p=180263](https://www.cgchannel.com/?p=180263)).
+
+### 181. AI Hustler (Marcin Dudek): $0 na 150+ runs op eigen kanalen, eerste geld binnen weken in een winkel waar al gezocht wordt
+- Opzet: Claude Sonnet op een kleine VPS, cron elke 2 uur, geen geheugen behalve een eigen STATE.md, $0 budget, geen toegang tot de accounts van de maker (DERDEN, [marcindudek.dev/projects/ai-hustler](https://marcindudek.dev/projects/ai-hustler/) en [dev.to, 7 apr 2026](https://dev.to/agenthustler/my-ai-agent-finally-made-money-it-took-200-runs-and-41-days-36jk)).
+- Eerste 75 runs: een eigen app 18 runs lang opgepoetst "in een lege kamer", een **shadowban op Hacker News** (elke reactie een week onzichtbaar zonder dat de agent het merkte), een kapotte wallet die weken niemand zag. Daarna MCP-servers (wel in een lijst met 82K sterren, geen betalers), affiliate-artikelen (27 klikken, 0 conversies). Na 150+ runs: $0 (DERDEN, zelfde bron).
+- Rond run 180 naar de **Apify Store**, een winkel voor scrapers waar kopers al zoeken. In ±3 weken 42 scrapers gezet, en ±479 artikelen op dev.to als trechter (±4.500 views totaal). Eerste omzet $6,74 op 7 apr. **79% van de nieuwe gebruikers kwam via Google**, niet via de winkel zelf en niet via sociale kanalen; de SEO van de productbeschrijvingen telde (DERDEN).
+- **Nu, 24 nov (GEZIEN, publieke API van Apify, `api.apify.com/v2/store?username=cryptosignals`):** 40 scrapers. Eén draagt alles: de LinkedIn-jobs-scraper heeft 789 gebruikers ooit en 21 in de laatste 30 dagen; de tweede (Twitter) 287 en 7. De rest zit onder de 150 gebruikers ooit en meestal onder de 10 per maand. Alle 40 op "pay per event". Omzet staat niet in de API; GOK: tientallen dollars per maand, geen honderden, gezien 21 gebruikers per maand op de beste.
+- Zijn eigen lessen die ertoe doen: (1) volg vraag, maak die niet; (2) **gratis gebruikers leveren niets op**, alleen wie op een betaald plan zit (net als gratis Click Joints tegenover Pro); (3) **controleer alles met een curl**: shadowban, prijs ($0,00005 in plaats van $0,005), wallet.
+- Kritisch: de omzet is klein en 479 artikelen voor 4.500 views is ±9 views per artikel. Het "werkte" door de winkel en Google, niet door de artikelen.
+- Voor ons: dit is precies onze situatie met Superhive. Wat telt is gevonden worden door wie al zoekt, en volgens dit voorbeeld komt dat voor een groot deel via Google naar de productpagina. Een agent kan de titel en eerste zinnen van de Pro-pagina en de docs nalopen op de woorden waarop mensen zoeken ("3D print connectors blender", "split model for 3d printing"), zonder iemand te benaderen.
+
+### 182. Otto: "ontdekking in een winkel is een beloning voor tractie, geen bron ervan"
+- Een agent met $100, een Stripe-account en een LLC van zijn mens; zette een digitaal product in een winkel. Na 30 dagen: 1 view, 0 verkopen, en die view was waarschijnlijk hijzelf (DERDEN, [dev.to, 27 jul 2026](https://dev.to/ottoautomaton/im-an-autonomous-ai-agent-running-a-real-business-11-cycles-in-ive-made-0-heres-the-wall-i-4agg)).
+- Zijn zin: de winkel laat je pas zien **na je eerste verkoop**; een mens komt over die drempel met een lijst, publiek of vrienden, een agent heeft dat niet. Het enige wat bij hem reactie gaf, was het eerlijke verhaal over zijn $0. Of dat geld wordt: onbekend, $0 bij publicatie.
+- Botst met 181? Niet echt: Apify stuurt zoekers via Google naar elke scraper, de winkel van Otto (niet genoemd) kennelijk niet. Bij Superhive zagen we hetzelfde als bij Otto: "New and Rising" toont producten met al een band (149, 151). **De eerste paar verkopen moeten dus van buiten de winkel komen**: Google, de lijst van CG Channel, Addon Radar, onze eigen kanalen, de maillijst.
+
+### 183. ZWISERFIT ("Baron"): 30 artikelen en 64 tweets voor $0,23, 2 reacties, en een X-quotum dat na 64 tweets op slot ging
+- Een merkagent in een ploeg van 9 agents voor een sportschool maakte in 14 dagen ±200 stukken voor $0,23 aan tokens (DERDEN, [dev.to, 5 jul 2026](https://dev.to/zwiserfit/we-spent-023-on-content-marketing-heres-what-30-blog-posts-and-64-tweets-got-us-4905)).
+- Uitkomst: 30 artikelen gaven 2 reacties en 2 opmerkingen; alleen 3 artikelen kregen iets. **De gratis X-API gaf na ±64 tweets "402 Payment Required"**, verder alleen met een plan van $100 per maand (DERDEN, zelfde bron). Hun eigen conclusie: maken is niet duur, verspreiding zonder publiek is het probleem; voortaan 3 per week met 48 uur ertussen om te kijken wat werkt.
+- Voor ons: X staat niet op onze lijst en dit bevestigt dat. Meer maken lost niets op; wat telt is per stuk meten of het tot een klik op de winkel leidt.
+
+### 184. Wye Co (dag 26): "vul geen activiteitsvak"
+- Een studio die door AI gerund wordt, dag 26 op 14 nov: nog geen verkoop. De agent schrapt zijn eigen gewoonte om onder oude posts te reageren "om een vak te vullen"; alleen nog waar hij iets nuttigs toevoegt. Hij scheidt streng: een reactie is meedoen, geen verkoop; een geplande check is geen bewijs van een lege inbox (DERDEN, [dev.to, 14 nov 2026](https://dev.to/wyeco_ai/day-26-dont-fill-an-activity-slot-1dp5)).
+- Zijn tabel van die dag: 0 benaderingen, 0 aanvragen, $0 uitgegeven, $0 omzet (DERDEN).
+- Voor ons: een agent die per run "iets moet plaatsen" gaat vullen. Beter een vaste regel: niets plaatsen is een geldige uitkomst als er niets is wat een koper dichterbij brengt.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Zoekwoorden op de Pro-pagina en in de docs nalopen** (181): welke woorden gebruiken kopers, staan die in de titel en de eerste zin. Kost niets, niemand benaderd. Wie de Superhive-pagina mag aanpassen, beslist de hoofdchat.
+- **Verkoop per bron blijven meten** (168), met Google apart: komt een koper via een zoekmachine of via de winkel zelf.
+- **Een vaste "curl-controle" op elk kanaal**, wekelijks: is een post echt zichtbaar als je niet ingelogd bent (shadowban, 181), staat de prijs goed, werkt de link naar de winkel.
+- **"Niets plaatsen" mag** als uitkomst van een run van de Maker van Roep (184), met een reden in het verslag.
+- **Niet doen:** honderden artikelen als trechter (181, 183: ±9 views per artikel en 2 reacties op 30); X erbij nemen (183: betaald quotum).
+
+## Patronen na ronde 39
+123. **Ga naar waar al gezocht wordt, en zorg dat Google je daar vindt** (181): de eerste dollars kwamen pas toen de agent in een winkel met zoekers stond, en 79% van die zoekers kwam via Google.
+124. **Een winkel duwt pas na de eerste verkopen** (182, 149, 151): de eerste kopers moeten van buiten komen.
+125. **Activiteit is geen omzet** (183, 184): goedkoop veel maken geeft geen kopers; meet per stuk en sla een run liever over dan een vak te vullen.
+
+## Stand na run 24 nov ±04:30 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **Superhive heeft nog steeds geen Cyber Sale op de voorpagina; Addon Radar staat de vierde run op rij op 527** (GEZIEN ±04:20 UTC). GOK blijft: start ±vr 27 nov. Click Joints staat nog op de lijst van CG Channel (GEZIEN).
+2. **AI Hustler: $0 na 150+ runs op eigen kanalen, eerste geld pas in de Apify Store, 79% van de kopers via Google** (DERDEN). Zeven maanden later draagt één scraper van de 40 bijna alles: 789 gebruikers ooit, 21 deze maand (GEZIEN, API van Apify).
+3. **Gratis gebruikers leveren niets op, alleen betalers** (181): het verschil tussen gratis Click Joints en Pro is dus waar het geld zit.
+4. **Een winkel laat je pas zien na je eerste verkopen** (182): bij Superhive zien we dat ook in "New and Rising". De eerste verkopen van Pro moeten van Google, CG Channel, Addon Radar en onze eigen kanalen komen.
+5. **Goedkoop veel maken geeft geen kopers** (183: 30 artikelen, 2 reacties; 184: "vul geen activiteitsvak").
+
+Voorstel: (a) de hoofdchat laat een agent de titel, de eerste zin en de tags van de Pro-pagina op Superhive en de docs nalopen op de zoekwoorden van kopers (gratis, 181). (b) In de vaste opdracht van de Maker van Roep: "niets plaatsen is goed als er niets is wat een koper dichterbij brengt; zeg waarom" (184). (c) Volgende run: één curl naar Superhive en Addon Radar; op of na vr 27 nov de nulmeting (155) herhalen.
