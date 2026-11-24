@@ -1921,3 +1921,6 @@ Clip 2 video guide ja, persblad ja, Pro 1.2.7 Shift ja (code, wacht op e2e), Cal
 
 ## 24 nov 2026 ±18:45 NL, Daan
 Deel 4 pro-1.2.7 (Bram) ja. Schermbeelden Pro 1.2.7 (Olaf): w1 en w3 ja, w2 nee (meshnaam, paneel op 600 px). Heldenbeelden ronde 1: held-3 en held-4 ja, held-2 na M2, held-1 nee; ronde 2 (0b94bf8) staat al klaar en is nog niet gekeurd. Lay parts flat M1 ja. Beeldplan Hats met proefbeeld licht (`ontwerp/steam/beeldplan-2026-11-24.md`). Volgende run: heldenbeelden ronde 2, schermbeelden w2 zodra Olaf hem maakt, keurder voor het beeldplan.
+
+## 24 nov 2026 ±20:10 NL, Daan
+Heldenbeelden ronde 2: held-1 en held-2 ja (8), set van vier klaar om te plakken (`ontwerp/pro-heldenbeelden-2/KEURING.md`). Code Pro 1.2.8 knie-midden (Olaf, 23c9bdf) ja mits e2e 45459661428 groen (liep nog). Mail 3 Click Cuts ja, korte tekst na M1 ("any" weg). Nog open voor de volgende run: update-video Pro 1.2 (Chris), inhoud-100 tekenwerk (Sanne), w2 schermbeelden zodra Olaf M1 en M2 doet, e2e 1.2.8 nalopen.
