@@ -44,6 +44,8 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: "1"
           CJ_MENS_OBJ: /tmp/mh_base.obj
+          CJ_AFSTAND: "375"   # ronde 2: de enkelbogen vielen onder de rand
+          CJ_MIDZ: "92"
         run: |
           cd producten/blender-gewrichten
           export BLENDER_USER_RESOURCES=/tmp/cj BLENDER_USER_CONFIG=/tmp/cj/config BLENDER_USER_EXTENSIONS=/tmp/cj/extensions
