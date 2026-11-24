@@ -985,3 +985,4 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - ±20:20 NL: Hats, opdracht Sanne 19:30: sim demovolgorde in `producten/steam-hol/inhoud-100.md` (script `sim/demo_volgorde.py`). Op vangsten 20 van 20 zaden een gat boven 3 min; voorstel vrijspelen op binnengekomen helden geeft max 2,8 min. Sanne gemeld.
 
 - 24 nov ±20:25 NL (Olaf): Tight op het midden van de robotknie nagespeeld (5.3.0 lokaal): randstraal raakte de schuine onderkant van de kniekap. Herstel op `claude/blender-pro-1.2.8-knie` (4e4166a), toets toetsen_knie_midden, lokaal alle betaalde en rig-toetsen 0 FOUT, e2e 45458794648 loopt, keuring Daan. Volgende run: e2e nakijken, dan w2 (M1, M2).
+- 24 nov ±20:45 NL (Olaf): automatische keurder akkoord; kan A4 en B3 in 23c9bdf, e2e 45459661428 loopt. w2 (M1, M2) volgende run.

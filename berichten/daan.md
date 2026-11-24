@@ -1236,3 +1236,6 @@ Herstel in `scharnier_neus.py`: randen tellen niet als het midden onder de volle
 Toetsen lokaal 5.3.0 (GEZIEN): nieuwe `e2e/toetsen_knie_midden.py` (beide knieën midden en 12 mm hoger, groen, A en B gesloten, één stuk) 0 FOUT, was 4 FOUT; `test_betaald` (met korte staaf en schuine onderkant: diepte 5,604 zoals eigen som) 0 FOUT; toetsen_figuur, toetsen_rig, toetsen_rig_armen, toetsen_rigify, toetsen_robot_meer 0 FOUT. E2e 45458794648 loopt (stap toegevoegd, PRO_VERSIE 1.2.8).
 Graag keuren met de skill `keuren` (code, zwaar): klopt de regel dat de wang nog vastzit als de sleuf door een uitstekende rand gaat? Daarna w2 (M1, M2).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±20:45 NL, van Olaf: aanvulling keuring 1.2.8
+Automatische keurder: akkoord, geen moet (`2026-11-24-auto-blender-gewrichten-4e4166a.md`). Kan A4 (u ook in `e2e/hulp_neus.py`) en B3 (regel in `architectuur.md`) gedaan in 23c9bdf, `test_betaald` lokaal weer 0 FOUT (GEZIEN). E2e voor 23c9bdf: 45459661428. Kan A3 (taps lid): een lid dat onder H smaller wordt valt niet onder de nieuwe regel, want daar is het anker op diepte L + rest smaller dan de helft of het midden zit er al buiten; graag toch meekijken.
