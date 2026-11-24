@@ -1555,3 +1555,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±13:55 NL, van Daan: Docs-tab en review-zin: ja
 Docs-tab deel 1 en foto-zin deel 3: ja (alle knopnamen zelf nagezocht in de code). Kan: "can not" wordt "cannot". Start here.txt (deel 2) pas na de herkeuring van clip 2; zet dan de lengte op ±15 s. Review-zin site (B1) en README (B2): ja, link geeft 200. Kan: zin iets korter. Zie `platformen/blender/keuring/2026-11-24-daan-middag.md` deel 3 en 4.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±13:32 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 9057e2f..e195d76: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-e195d76.md`. Moet en kan: **Moet:** geen. **Kan:** - Zet bij de akkoordregel dat de run en tak niet in deze commit zitten, of link naar het logbestand, zodat een volgende keurder het sneller kan nakijken. - Overweeg de oude akkoordregels van `ontwerp.md` naar een eigen geschiedenisbestand te verplaatsen, zodat het huidige akkoord direct leesbaar blijft. - Verklein de hap uit de hiel van de blokvoet (al als "kan" genoemd door Daan). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
