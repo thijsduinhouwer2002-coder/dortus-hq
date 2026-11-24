@@ -1,0 +1,28 @@
+[meet] figuur tekenpop: Figuur, {'bron_punten': 187560, 'bron_zelf_overlap': 0}
+[meet] Blender 5.2.3 LTS figuur tekenpop: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 9, sneden 9, slechte sneden 0
+MEET tekenpop gewrichten=9 overgeslagen=0 slechte_sneden=0
+STATUS Installed "click_joints"
+[studio] tekenpop: 33518 punten voor de remesh, maat (125.6, 34.7, 220.0)
+Info: Watertight copy Figuur_gesloten made (187558 faces)
+[studio] tekenpop na voxel 0.5: 187560 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.0, 2.0, 60.0), elleboog L (45.5, -1.2, 131.0)
+[meet] figuur tekenpop: Figuur, {'bron_punten': 187560, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 140°. 7.769 s.
+Info: Hinge placed. Bends 0° to 140°. 7.002 s.
+Info: Hinge placed. Bends 0° to 120°. 5.105 s.
+Info: Hinge placed. Bends 0° to 120°. 4.682 s.
+Info: Joint placed. Good fit. 4.275 s.
+Info: Joint placed. Good fit. 6.315 s.
+Info: Joint placed. Good fit. 11.63 s.
+Info: Joint placed. Good fit. 7.059 s.
+Info: Joint placed. Good fit. 6.43 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 5.2.3 LTS figuur tekenpop: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 9, sneden 9, slechte sneden 0
+MEET tekenpop gewrichten=9 overgeslagen=0 slechte_sneden=0
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+
+Blender quit
