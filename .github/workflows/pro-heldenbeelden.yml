@@ -1,0 +1,105 @@
+name: Pro heldenbeelden 1 (knie, spiraal, voor en na, Fit test strip)
+
+# 24 nov 2026, tekenpop-agent (opdracht hoofdchat 16:45: "spectaculairder, een mooi stuk techniek"). Vier heldenbeelden
+# voor Click Joints Pro in de stijl van cover-pop-dynamisch (release tekenpop-1): de houten tekenpop uit
+# commercie/filmpjes/studio/figuur_tekenpop.py met de echte knop Figure from rig van Pro 1.2.6 (tag
+# click-joints-pro-v1.2.6, stops 115 in de rig), en de echte knop "Fit test: ball". Cycles in Blender 5.3.0.
+# Script: ontwerp/pro-heldenbeelden-1/bron/. Alles in release pro-heldenbeelden-1. Niets wordt geplaatst, niets kost geld.
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/pro-heldenbeelden.yml", "ontwerp/pro-heldenbeelden-1/bron/**"]
+  workflow_dispatch:
+    inputs:
+      samples:
+        description: "Samples per render (standaard 64)"
+        default: "64"
+
+permissions:
+  contents: write
+
+env:
+  TAG: pro-heldenbeelden-1
+  PRO_COMMIT: db6631fd2bff3148f880eee02dd8e09d05122afa   # tag click-joints-pro-v1.2.6
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        shot: [knie, spiraal, voor, na, strip]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Blender 5.3.0 en de Pro-zip 1.2.0
+        run: |
+          B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          sudo apt-get install -y -q libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 >/dev/null || true
+          git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
+          mkdir -p /tmp/v12 && git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v12
+          (cd /tmp/v12/producten/blender-gewrichten && PRO_VERSIE=1.2.6 bash e2e/maak_zip.sh betaald)
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Render ${{ matrix.shot }}
+        env:
+          SHOT: ${{ matrix.shot }}
+          SAMPLES: ${{ github.event.inputs.samples || '64' }}
+          BLENDER_USER_RESOURCES: /tmp/cj
+          BLENDER_USER_CONFIG: /tmp/cj/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+        run: |
+          mkdir -p /tmp/uit
+          case "$SAMPLES" in ''|*[!0-9]*) SAMPLES=64 ;; esac
+          curl -fsSL -o /tmp/Inter.ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf" || true
+          export STRIP_FONT=/tmp/Inter.ttf CJ_STOP=115
+          timeout 3000 /tmp/blender/blender -b --factory-startup --python ontwerp/pro-heldenbeelden-1/bron/helden.py -- /tmp/click_joints_betaald.zip /tmp/uit b "$SHOT" "$SAMPLES" 100 2>&1 | tee /tmp/uit/b-$SHOT.log | grep -E "\[pro\]|\[helden\]|\[studio\]|Traceback|Error" | cut -c1-400
+          [ -s "/tmp/uit/b-$SHOT.png" ] || { echo "FOUT: geen render"; exit 1; }
+          python3 -c "import json,sys; d=json.load(open('/tmp/uit/b-$SHOT.json')); print('GEWRICHTEN', len(d.get('gewrichten', [])), d.get('uitslag'), 'delen', d.get('delen'), d.get('getallen', ''))"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: render-${{ matrix.shot }}
+          path: /tmp/uit/
+          retention-days: 7
+
+  beelden:
+    needs: render
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: /tmp/a
+      - name: Titel, voor en na, formaten
+        run: |
+          sudo apt-get install -y -q librsvg2-bin >/dev/null
+          pip install -q pillow
+          mkdir -p /tmp/r /tmp/f /tmp/b
+          find /tmp/a -type f \( -name '*.png' -o -name '*.log' -o -name '*.json' \) -exec cp {} /tmp/r/ \;
+          G=https://raw.githubusercontent.com/google/fonts/main/ofl
+          curl -fsSL -o /tmp/f/Bricolage.ttf "$G/bricolagegrotesque/BricolageGrotesque%5Bopsz%2Cwdth%2Cwght%5D.ttf"
+          curl -fsSL -o /tmp/f/Inter.ttf "$G/inter/Inter%5Bopsz%2Cwght%5D.ttf"
+          python3 ontwerp/pro-heldenbeelden-1/bron/maak.py /tmp/r /tmp/b /tmp/f ontwerp/click-joints/bron/icoon.svg
+          for f in /tmp/r/*.png; do cp "$f" "/tmp/b/render-$(basename $f)"; done
+          cp /tmp/r/*.json /tmp/b/ 2>/dev/null || true
+          for f in /tmp/b/*.json; do python3 -c "import json,sys; d=json.load(open(sys.argv[1])); print(sys.argv[1], 'GEWRICHTEN', len(d.get('gewrichten', [])), 'delen', d.get('delen'), d.get('getallen', ''))" "$f"; done
+          ls -la /tmp/b
+      - name: In release pro-heldenbeelden-1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          printf '%s\n' "Heldenbeelden voor Click Joints Pro, 24 nov 2026, tekenpop-agent Dortus. Gerenderd in Blender 5.3.0 (Cycles) in deze workflow, geen AI-beeld, geen foto van een echte print." "Figuur: de houten tekenpop van Dortus (eigen werk). Gewrichten uit de echte knop Figure from rig van Click Joints Pro 1.2.6 (ellebogen en knieen 0 tot 115 graden uit de rig). Strip: de echte knop Fit test: ball van Pro 1.2.6." "held-1-knie: kniescharnier met een kwart weggesneden; de groene lijn ligt op de randen van de snede die binnen 0,45 mm van het andere deel liggen (de speling). held-2-spiraal: delen in een draaikolk uit elkaar, met bewegingsonscherpte (alleen voor het beeld); de bogen tonen het bereik dat de add-on meldt. held-3-voor-na: links het figuur met rig (grijs, oranje botten), rechts na de knop. held-4-fit-test-strip: vijf staafjes, bovenste helft opgetild; de getallen op de vloer zijn de spelingen van de add-on (in mm)." "Elk in 2400x1200 (Superhive) en 1920x1080 (Gumroad). render-*: kale renders. b-*.json: wat de add-on meldde. Werkmateriaal, niets geplaatst." > /tmp/notes.md
+          for i in 1 2 3; do
+            if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              gh release upload "$TAG" /tmp/b/* --clobber -R "$GITHUB_REPOSITORY" && break
+            else
+              gh release create "$TAG" /tmp/b/* -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Pro heldenbeelden 1" --notes-file /tmp/notes.md && break
+            fi
+            sleep 20
+          done
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'

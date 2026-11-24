@@ -302,9 +302,10 @@ def materialen(delen, rand_mm=0.35):
         me.update()
 
 
-def laad_tekenpop(hoogte_mm=220.0, voxel_mm=0.5):
+def laad_tekenpop(hoogte_mm=220.0, voxel_mm=0.5, stop_graden=None):
     """Bouwt de tekenpop, maakt er één gesloten mesh van (Make watertight van de add-on) en hangt de rig eraan.
-    Geeft (rig, figuur, punten)."""
+    Geeft (rig, figuur, punten). stop_graden (of CJ_STOP): eindstop van linkerknie en linkerelleboog in de rig
+    (Limit Rotation), standaard knie 120 en elleboog 140; Figure from rig leest de stop uit de rig."""
     voxel_mm = float(os.environ.get("CJ_VOXEL", voxel_mm))
     for o in list(bpy.data.objects):
         bpy.data.objects.remove(o)
@@ -338,6 +339,13 @@ def laad_tekenpop(hoogte_mm=220.0, voxel_mm=0.5):
     FL.log(f"tekenpop na voxel {voxel_mm}: {len(fig.data.vertices)} punten, {FL.mesh_staat(fig)}")
     M = FL._mens_module(hoogte_mm)
     arm = M["maak_rig"](rig_punten(p, f))
+    stop_graden = stop_graden or (float(os.environ["CJ_STOP"]) if os.environ.get("CJ_STOP") else None)
+    if stop_graden:
+        for pb in arm.pose.bones:
+            for c in pb.constraints:
+                if c.type == "LIMIT_ROTATION" and c.use_limit_x:
+                    c.max_x = math.radians(stop_graden)
+                    FL.log(f"stop {pb.name}: {stop_graden} graden")
     arm.data.display_type = "STICK"
     fig.modifiers.new("Armature", "ARMATURE").object = arm
     return arm, fig, p
