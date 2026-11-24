@@ -1,0 +1,32 @@
+{
+  "titel": "Click Joints Pro, hoofdbeeld robot ronde 1 op Gumroad",
+  "rol": "You make 3D models in Blender and like to 3D print figures at home. You are browsing Gumroad for a paid Blender add-on worth buying this week.",
+  "ons": [
+    {
+      "naam": "robot uit elkaar met labels",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-labels-1920x1080.jpg"
+    },
+    {
+      "naam": "robot uit elkaar",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-1920x1080.jpg"
+    },
+    {
+      "naam": "robot heldenpose",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/pro-hoofdbeeld-robot/beelden/robot-held-1920x1080.jpg"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "MACHIN3tools",
+      "url": "https://public-files.gumroad.com/egshnm4akypjb72o2a2g7mzwc9wa"
+    },
+    {
+      "naam": "Buildify",
+      "url": "https://public-files.gumroad.com/g4r5jkr6ehqkwydi629zezgau9hv"
+    },
+    {
+      "naam": "BagaPie Modifier (omslag is de video)",
+      "url": "https://i.ytimg.com/vi/tRIDwMEugns/maxresdefault.jpg"
+    }
+  ]
+}
