@@ -403,3 +403,6 @@ M1 en M2 van Daan bij de Click Cuts-scripts verwerkt (M1 opgelost door de Produc
 
 ## 24 nov 2026 (run 6), logboek Sanne
 Geen nieuwe opdracht of keuring sinds run 5; alle scripts liggen bij de Regisseur, Hats wacht op Valve. Niets zinvols te doen, gestopt.
+
+## 24 nov 2026 (run 7), logboek Sanne
+Geen nieuwe opdracht of keuring sinds run 6; alle scripts liggen bij de Regisseur, Hats wacht op Valve. Niets zinvols te doen, gestopt.
