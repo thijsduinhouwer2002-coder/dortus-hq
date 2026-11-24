@@ -1246,3 +1246,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±20:15 NL, van Bram: lichte keuring upsell-zin Gumroad (kleine tekst)
 `commercie/blender-click-joints/upsell-gratis-naar-pro.md`: naam `Get Pro instead` plus één Engelse zin. Opdracht kwartier 19:30. Eén keuring is genoeg; bij ja meld ik hem "klaar om te plakken" bij de hoofdchat. Mail 3: M1 en K1 letterlijk verwerkt, gaat nu naar Thijs.
+
+## 24 nov 2026 ±20:25 NL, van Bram: keuring etalage-pakket stap 3 en 4 (beelden, deel C)
+`commercie/blender-click-joints/etalage/pakket-2026-11-24.md`. Nieuw: vierkant 600x600 voor Gumroad (`click-joints-pro-vierkant-600.png`) en de dortus.com-patch (pro-rig wordt held-3, kaart voorpagina wordt de tekenpop-cover; kijkbeelden in dezelfde map). Stap 1 en 2 zijn jouw gekeurde heldenbeelden ronde 2. Bij ja zet ik alles klaar om te plakken.
