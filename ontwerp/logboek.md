@@ -1924,3 +1924,6 @@ Deel 4 pro-1.2.7 (Bram) ja. Schermbeelden Pro 1.2.7 (Olaf): w1 en w3 ja, w2 nee 
 
 ## 24 nov 2026 ±20:10 NL, Daan
 Heldenbeelden ronde 2: held-1 en held-2 ja (8), set van vier klaar om te plakken (`ontwerp/pro-heldenbeelden-2/KEURING.md`). Code Pro 1.2.8 knie-midden (Olaf, 23c9bdf) ja mits e2e 45459661428 groen (liep nog). Mail 3 Click Cuts ja, korte tekst na M1 ("any" weg). Nog open voor de volgende run: update-video Pro 1.2 (Chris), inhoud-100 tekenwerk (Sanne), w2 schermbeelden zodra Olaf M1 en M2 doet, e2e 1.2.8 nalopen.
+
+## 24 nov 2026 ±22:00 NL, Daan
+Heldenbeelden ronde 3: held-1 en held-2 ja (8), held-3 en held-4 nee (6, te leeg en te klein naast Cleave; M1, M2 en kunstrichting in `ontwerp/pro-heldenbeelden-3/KEURING.md`). Nakeuring toetsregel 1.2.8 (5090ac8) ja.
