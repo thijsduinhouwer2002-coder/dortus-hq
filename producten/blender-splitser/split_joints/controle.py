@@ -58,6 +58,22 @@ def volume_mm3(ob, u):
     return float(volume(ob.data) / (u ** 3))
 
 
+def vlakken_op(me, n, c, u):
+    """Indices of the faces whose points all lie within 0.001 mm of the plane co . n = c (mm), with numpy
+    (the loop over the bmesh faces took 2.5 s per piece on 1M polygons, speed test 24 nov)."""
+    if not me.polygons:
+        return np.zeros(0, dtype=np.int64)
+    co = np.empty(len(me.vertices) * 3)
+    me.vertices.foreach_get("co", co)
+    op = np.abs(co.reshape(-1, 3) / u @ np.array(n[:]) - c) < 1e-3
+    vi = np.empty(len(me.loops), dtype=np.int64)
+    me.loops.foreach_get("vertex_index", vi)
+    start = np.empty(len(me.polygons), dtype=np.int64)
+    me.polygons.foreach_get("loop_start", start)
+    alle = np.minimum.reduceat(op[vi].astype(np.int8), start)
+    return np.flatnonzero(alle)
+
+
 def bvh_mm(ob, u, zonder_vlak=None):
     """BVH of the mesh in mm. zonder_vlak=(axis, position mm): leave out the faces that lie on that plane
     (the cut face a hole opens onto, which would otherwise be the nearest surface)."""
@@ -67,8 +83,10 @@ def bvh_mm(ob, u, zonder_vlak=None):
     if zonder_vlak is not None:
         a, c = zonder_vlak
         n = as_vec(a) if isinstance(a, int) else Vector(a)  # a world axis, or the normal of a free cut
-        weg = [f for f in bm.faces if all(abs(v.co.dot(n) - c) < 1e-3 for v in f.verts)]
-        bmesh.ops.delete(bm, geom=weg, context="FACES_ONLY")
+        weg = vlakken_op(ob.data, n, c, u)
+        if weg.size:
+            bm.faces.ensure_lookup_table()
+            bmesh.ops.delete(bm, geom=[bm.faces[i] for i in weg.tolist()], context="FACES_ONLY")
     boom = BVHTree.FromBMesh(bm)
     bm.free()
     return boom

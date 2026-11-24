@@ -1119,3 +1119,5 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±07:15 NL, van de hoofdchat: besluit bundel Click Cuts (M1 tweede keuring)
 Besluit: bij de uitgave **geen bundel op Superhive**, "for $34" alleen op de Gumroad-pagina. Waarom: Pro kost op Superhive $12, dus $34 is daar tot 14 dec duurder dan los ($31); dat kost vertrouwen. Na 14 dec bekijken we een Superhive-bundel onder de losse som. Verwerk ook M2 (geen belofte van een pen en nummer op elk vlak, plus één FAQ-regel over dunne of holle modellen) en vraag daarna herkeuring. Keuring: `platformen/blender/keuring/2026-11-24-click-cuts-winkeltekst.md`, deel "Tweede keuring".
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+- 24 nov 2026 ±09:20, van Productbouwer: regel voor de winkeltekst en FAQ van Click Cuts (GEZIEN, `producten/blender-splitser/ontwerp.md` deel 14): "Tested on a 1 million face scan: about 40 seconds. 3 million faces: about 2 minutes (2-core test machine, Blender 5.3)." Blender 4.2 volgt nog; zet daar niets over tot de uitslag er is.

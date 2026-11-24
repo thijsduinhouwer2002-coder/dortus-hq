@@ -1,0 +1,68 @@
+name: Click Cuts snelheid (zware modellen, handmatig)
+
+# Snelheidstoets op zware modellen (opdracht hoofdchat 24 nov 2026 07:25). Niet bij elke push: alleen met de
+# hand of als dit bestand of e2e/snelheid.py verandert. Meet Split to fit, export STL en 3MF en het geheugen
+# op de ScatteringSkull-scan (CC0 1.0, KhronosGroup glTF-Sample-Assets) op ±1 en ±3 miljoen vlakken, en op
+# een open Suzanne van ±1 miljoen vlakken (met de waterdicht-stap), in Blender 4.2 (Exact) en 5.3 (Manifold).
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/click-cuts-snelheid.yml", "producten/blender-splitser/e2e/snelheid.py"]
+
+permissions:
+  contents: read
+
+jobs:
+  snelheid:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        blender: ["4.2.23", "5.3.0"]
+    defaults:
+      run:
+        working-directory: producten/blender-splitser
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q libgl1 libegl1 libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip
+          nproc; free -m | head -2
+      - name: Blender ${{ matrix.blender }} ophalen
+        run: |
+          V="${{ matrix.blender }}"; KORT="${V%.*}"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            rm -f /tmp/blender.tar.xz
+          done
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+      - name: Model en zip
+        run: |
+          mkdir -p /tmp/modellen
+          curl -fsSL --retry 3 -o /tmp/modellen/schedel.glb https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/ScatteringSkull/glTF-Binary/ScatteringSkull.glb
+          bash e2e/maak_zip.sh
+      - name: Meten (elk geval een eigen Blender, max 25 minuten per geval)
+        env:
+          BLENDER_USER_RESOURCES: /tmp/sj
+          BLENDER_USER_CONFIG: /tmp/sj/config
+          BLENDER_USER_EXTENSIONS: /tmp/sj/extensions
+        run: |
+          for g in "scan 1000000" "scan 3000000" "open 1000000"; do
+            set -- $g
+            echo "=== $1 $2"
+            timeout 1500 /tmp/blender/blender -b --factory-startup --python e2e/snelheid.py -- /tmp/click_cuts.zip $1 $2 /tmp/modellen/schedel.glb > /tmp/snel.log 2>&1 \
+              || echo "[sj-snel] SNEL FOUT $1 $2 gestopt of te lang (timeout 1500 s of crash)"
+            grep "\[sj-snel\]" /tmp/snel.log | grep -v remesh | tee -a /tmp/uitslag.txt
+            grep -E "Traceback|Error" /tmp/snel.log | head -5 || true
+          done
+          echo "## Blender ${{ matrix.blender }}, $(nproc) kernen" >> "$GITHUB_STEP_SUMMARY"
+          sed 's/^/    /' /tmp/uitslag.txt >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: click-cuts-snelheid-${{ matrix.blender }}
+          path: /tmp/uitslag.txt

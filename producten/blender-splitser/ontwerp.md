@@ -93,3 +93,20 @@ Zie `architectuur.md`, deel Testen.
 - Wat de knop doet (`in_een_klik.py`): kiest het model (het actieve mesh als dat geen stuk, pen, snede of proefblok is, anders het model van de sneden), maakt een open model eerst dicht, dan Plan cuts, Split met pennen, gaten en nummers, en de controle. Printer en speling komen uit het paneel; de bewaarde speling uit de passingproef zit daar al in.
 - Fout: één rode regel met wat je moet doen ("Wrong unit? Open More settings and use Convert to mm"). Convert to mm wist die regel.
 - Bewijs in de e2e (`e2e/toetsen_klik.py`): één klik geeft dezelfde stukken, pennen en volumes als Plan cuts plus Split; een tweede model in dezelfde scene wordt het nieuwe model; meters weigeren binnen 5 seconden en snijden na Convert to mm wel.
+
+## 14. Snelheid op zware modellen (Productbouwer, di 24 nov 2026 ±09:15 NL, opdracht hoofdchat 24 nov 07:25)
+Toets: `e2e/snelheid.py` (los, niet bij elke push), workflow `click-cuts-snelheid.yml` (4.2 en 5.3, met de hand of als de toets verandert). Model: de ScatteringSkull-scan (CC0 1.0), 300 mm lang, met Blender's voxel remesh dicht gemaakt op het doel aantal vlakken, printer A1 mini, speling 0,2 mm. Gemeten in deze sandbox (2 kernen, 7 GB, Blender 5.3.0, Manifold), GEZIEN:
+
+| Model | Split to fit | Stukken | Export STL | Export 3MF | Piek geheugen |
+|---|---|---|---|---|---|
+| 1,01M vlakken (2,0M driehoeken), vóór de versnelling | 55,2 s | 8, alle groen | 0,2 s (104 MB) | 13,7 s (26 MB) | 2,2 GB |
+| 1,01M vlakken, na de versnelling | 42,3 s | 8, alle groen | 0,2 s (104 MB) | 14,1 s (26 MB) | 1,8 GB |
+| 3,04M vlakken (6,1M driehoeken), na de versnelling | 120,1 s | 8, alle groen | 0,6 s (308 MB) | 44,2 s (75 MB) | 4,7 GB |
+
+Niets liep vast; elk stuk dicht en op het bed. Waar de tijd zat (cProfile, 1M): de Booleans 36 s van 63 (elk stuk sneed voor de nummers het hele model een tweede keer), de wandmeting 9 s en het plaatsen van de pennen 11 s (Python-lussen per punt).
+
+Versneld:
+- Op Manifold (4.5+) snijdt de nummerstap nu het ruwe stuk in plaats van het hele model (`splitsen.py`); Exact in 4.2 houdt de oude weg (daar gaf het open randen).
+- `controle.vlakken_op` met numpy in plaats van een lus over alle vlakken; `verbind_3d.Plaatser` maakt de BVH uit `tolist()`.
+
+Te traag boven ±60 s blijft 3M (120 s hier; een koper met 8 kernen zit lager, GOK). Daarom een eerlijke regel: vanaf 1M vlakken toont het paneel onder Split to fit "3.0M faces: Split can take a few minutes" (klok-icoon, `in_een_klik.zwaar_tekst`, toets in `toetsen_klik.py`). Voor de FAQ en winkeltekst: "Tested on a 1 million face scan: about 40 seconds. 3 million faces: about 2 minutes (2-core test machine)." De 3MF-export is Python en de traagste export; STL is direct. 4.2 (Exact) volgt uit de workflow.

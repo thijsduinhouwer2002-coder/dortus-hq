@@ -282,7 +282,10 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
                 kleinste = min(lb["h"] for lb in labels[ijk])
                 doos = cel_doos(ijk, cellen[ijk], n_ijk, u, hulp)
                 gesneden, f1 = verschil(doos, lbo, solver, "sj_doos_nummers", hulp, u, voxel_mm=max(0.05, kleinste / 40.0))
-                werk, f2 = verschil(bak(ob, "sj_kopie", hulp), gesneden, solver, "sj_werk", hulp, u, actie="INTERSECT")
+                # Manifold (4.5+) handles the coplanar cut faces, so the rough piece is enough (speed test
+                # 24 nov: the whole model a second time per piece was a third of the time on 1M polygons).
+                bron = stuk if solver == "MANIFOLD" else ob
+                werk, f2 = verschil(bak(bron, "sj_kopie", hulp), gesneden, solver, "sj_werk", hulp, u, actie="INTERSECT")
                 fout += f1 + f2
             else:
                 werk = bak(stuk, "sj_werk", hulp)

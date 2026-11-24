@@ -49,6 +49,17 @@ def alles(uitmap=None):
     inst = bpy.context.scene.split_joints
     stap("klik: operator split_joints.split_to_fit bestaat", "split_to_fit" in dir(bpy.ops.split_joints))
 
+    # heavy model line (speed test 24 nov): none for a light model, a line from the threshold on
+    import importlib
+    klik = importlib.import_module("bl_ext.user_default.click_cuts.in_een_klik")
+    s, ob = doos_scene()
+    stap("klik: geen zwaar-regel bij een lichte doos", klik.zwaar_tekst(bpy.context) is None)
+    oud = klik.ZWAAR_VLAKKEN
+    klik.ZWAAR_VLAKKEN = 6
+    t = klik.zwaar_tekst(bpy.context)
+    klik.ZWAAR_VLAKKEN = oud
+    stap("klik: zwaar-regel vanaf de grens", bool(t) and "faces" in t and "minutes" in t, repr(t))
+
     # by hand: Plan cuts + Split
     s, ob = doos_scene()
     r1 = bpy.ops.split_joints.plan()

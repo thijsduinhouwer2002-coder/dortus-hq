@@ -33,6 +33,21 @@ def kies_model(context):
     return snedes.model(context)
 
 
+ZWAAR_VLAKKEN = 1_000_000
+
+
+def zwaar_tekst(context):
+    """One line for the panel when the selected model has a million faces or more, else None. Speed test
+    24 nov (e2e/snelheid.py): 1M faces about 40 s, 3M about 2 min for Split to fit on 2 cores in Blender 5.3."""
+    ob = kies_model(context)
+    if ob is None or ob.type != "MESH":
+        return None
+    n = len(ob.data.polygons)
+    if n < ZWAAR_VLAKKEN:
+        return None
+    return f"{n / 1e6:.1f}M faces: Split can take a few minutes"
+
+
 def uitslag_tekst(scene):
     """(main line, detail line, ok) from the pieces in the scene, or None when there are none."""
     stukken = [o for o in scene.objects if o.get("sj_stuk")]

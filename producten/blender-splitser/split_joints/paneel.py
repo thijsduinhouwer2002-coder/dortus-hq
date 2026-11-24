@@ -36,6 +36,9 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         # depress: the only highlighted button, so the eye lands here first (keuring C2)
         rij.operator("split_joints.split_to_fit", text="Split to fit", icon="MOD_EXPLODE", depress=True)
         uit = in_een_klik.uitslag_tekst(scene)
+        zwaar = in_een_klik.zwaar_tekst(context) if not uit and not inst.uitslag else None
+        if zwaar:  # speed test 24 nov: about 40 s per million faces on 2 cores, so say it before the click
+            layout.label(text=zwaar, icon="TIME")
         if inst.uitslag:
             vak = layout.box().column(align=True)
             vak.alert = True
