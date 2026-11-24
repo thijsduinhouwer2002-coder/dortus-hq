@@ -282,7 +282,7 @@ def shot_knie():
     afst = float(os.environ.get("KNIE_AFSTAND", "180"))
     doel = hp + Vector((0, 0, -2.0)) - (ax.cross(Vector((0, 0, 1)))).normalized() * float(os.environ.get("KNIE_X", "-9"))
     cam.location = doel + kijk * afst
-    rol = Quaternion((doel - cam.location).normalized(), math.radians(float(os.environ.get("KNIE_ROL", "20"))))
+    rol = Quaternion((doel - cam.location).normalized(), math.radians(float(os.environ.get("KNIE_ROL", "-20"))))
     cam.rotation_euler = (rol @ (doel - cam.location).to_track_quat("-Z", "Y")).to_euler()
     sc.camera = cam
     scherpte(cam, hp, float(os.environ.get("KNIE_F", "7")))
