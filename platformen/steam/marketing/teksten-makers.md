@@ -276,3 +276,5 @@ Waarom wel: een tweede moment in beeld een week na ons fest, voor een kleine kan
 
 ## Wat Thijs straks precies doet (komt op `organisatie/lijst-thijs.md` zodra de pagina live is)
 Per mail: adres opzoeken op het kanaal (staat in `makers.md` wie er een heeft), {naam}, {titel}, {link} en {GIF} invullen, versturen. ±3 minuten per mail. Eerste ronde: 7 mails op de paginadag (run 13: Easily Distracted, OKtrix, I Dream of Indie, Cozy With Toxi, Gaming In The Wild kort, Get To It, Sloth Vibes), plus Kaganath en GameGen als Thijs hun adres via de knop op het kanaal vindt; de rest bij demo af en in februari, zie `makers.md`.
+
+**24 nov 2026 ±13:14 NL: ingestuurd door Thijs** (hoofdchat gaf de antwoorden). Anders dan hierboven: geen zin over hoedendoelen (geen besluit), geen AI-zin (Thijs wil geen AI-vermelding), "Other details": "Steam page coming soon." (niet "December", want de KYC van Valve kan tot eind januari duren). Gesprekken t/m 11 dec; bij selectie trailer en one-pager vóór ma 4 jan.
