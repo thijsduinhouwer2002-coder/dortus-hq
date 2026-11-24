@@ -1,0 +1,196 @@
+name: Betrouwbaarheid Figure from rig (testset, echte Blender)
+
+# Agent Betrouwbaarheid (23 nov 2026): Figure from rig op een vaste testset van figuren in Blender 4.2.23, 5.2.3 en
+# 5.3.0. Per figuur en versie: hoeveel gewrichten, welke overgeslagen en waarom, en per snede wat er misging
+# (e2e/meet_rig.py en e2e/meet_diag.py). Uitslag als JSON op de tak betrouwbaar-uitslag (map <run>/<versie>/),
+# zodat een agent zonder sleutel hem met git kan lezen. De job is rood als een figuur minder gewrichten haalt dan
+# zijn ondergrens in e2e/meet_drempel.json (de eis van de testset).
+
+on:
+  push:
+    branches: ["claude/betrouwbaar-rig"]
+    paths: ["producten/blender-gewrichten/**", "commercie/filmpjes/studio/**", ".github/workflows/betrouwbaar-rig.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  meet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        # Hoofdchat 23 nov: dezelfde mesh gaf wisselend 8 of 9. Daarom elke meting 5 keer (herhaal), voor de code van
+        # deze tak en voor de nulstand (NUL_COMMIT, Pro 1.2.2 op main), met dezelfde figuren uit deze checkout.
+        # 24 nov (keuring A, M1): verlies bij elke kogelsnede, tak (5 keer) tegen nulstand (2 keer: de nulstand is per
+        # versie gelijk of wisselt alleen op de robot, zie run 45273407326), in alle drie versies.
+        blender: ["4.2.23", "5.2.3", "5.3.0"]
+        figuur: [robot-a, robot-b, robot-fijn, kleding, mens, rigify, armen]
+        code: [tak, nul]
+        herhaal: [1, 2, 3, 4, 5]
+        threads: [""]
+        exclude:
+          - { code: nul, herhaal: 3 }
+          - { code: nul, herhaal: 4 }
+          - { code: nul, herhaal: 5 }
+        # Proef met één thread (-t 1): include-regels met threads: "1" (gedaan in run 45273407326 op de nulstand).
+    env:
+      PRO_VERSIE: "1.2.3"
+      NUL_COMMIT: e8769d22bce26c401b2421ef0d9fef50aa122087
+      CJ_PROEVEN: ""
+      BLENDER_USER_RESOURCES: /tmp/cj
+      BLENDER_USER_CONFIG: /tmp/cj/config
+      BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+    steps:
+      - uses: actions/checkout@v4
+      - name: Blender ${{ matrix.blender }} ophalen
+        run: |
+          sudo apt-get install -y -q libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 zip >/dev/null || true
+          V="${{ matrix.blender }}"; KORT="${V%.*}"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          /tmp/blender/blender --version | head -1
+      - name: Pro-zip (${{ matrix.code }})
+        env:
+          CODE: ${{ matrix.code }}
+        run: |
+          if [ "$CODE" = "nul" ]; then
+            git fetch -q --no-tags --depth=1 origin "$NUL_COMMIT"
+            mkdir -p /tmp/nul && git archive "$NUL_COMMIT" producten/blender-gewrichten/click_joints producten/blender-gewrichten/e2e/maak_zip.sh producten/blender-gewrichten/e2e/betaald | tar -x -C /tmp/nul
+            (cd /tmp/nul/producten/blender-gewrichten && bash e2e/maak_zip.sh betaald)
+          else
+            (cd producten/blender-gewrichten && bash e2e/maak_zip.sh betaald)
+          fi
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Figure from rig op ${{ matrix.figuur }} (${{ matrix.code }}, herhaling ${{ matrix.herhaal }})
+        working-directory: producten/blender-gewrichten
+        env:
+          FIG: ${{ matrix.figuur }}
+          H: ${{ matrix.herhaal }}
+          CJ_THREADS: ${{ matrix.threads }}
+        run: |
+          mkdir -p /tmp/uit
+          N="$FIG-$H"; T=""
+          [ -n "$CJ_THREADS" ] && { N="$N-t1"; T="-t $CJ_THREADS"; }
+          echo "N=$N" >> "$GITHUB_ENV"
+          timeout 2700 /tmp/blender/blender -b --factory-startup $T --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip "$FIG" "/tmp/uit/$N.json" > /tmp/vol.log 2>&1 || true
+          { grep -E "\[meet\]|^MEET|Traceback|Error" /tmp/vol.log | cut -c1-2000; tail -30 /tmp/vol.log | cut -c1-400; grep -m1 "model name" /proc/cpuinfo; } > "/tmp/uit/$N.log"
+          grep "^MEET" /tmp/vol.log || tail -20 /tmp/vol.log
+      - name: Uitslag op tak betrouwbaar-uitslag
+        if: always()
+        env:
+          TOKEN: ${{ github.token }}
+          V: ${{ matrix.blender }}
+          CODE: ${{ matrix.code }}
+        run: |
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5 6 7 8 9 10; do
+            rm -rf /tmp/s
+            git clone -q --depth 1 --branch betrouwbaar-uitslag "$URL" /tmp/s 2>/dev/null || { sleep 5; continue; }
+            D="/tmp/s/${GITHUB_RUN_ID}/$CODE/$V"
+            mkdir -p "$D" && cp /tmp/uit/* "$D"/ 2>/dev/null || true
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, nul ${NUL_COMMIT}" > "/tmp/s/${GITHUB_RUN_ID}/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Meting $N $CODE $V run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin betrouwbaar-uitslag; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3 + RANDOM % 7))
+          done
+      - name: Eis van de testset
+        if: matrix.code == 'tak'
+        working-directory: producten/blender-gewrichten
+        env:
+          V: ${{ matrix.blender }}
+        run: python3 e2e/meet_eis.py "/tmp/uit/$N.json" "$V" e2e/meet_drempel.json
+
+  # De rig-toetsen uit de gewone e2e (stap "Figuurpresets"), met hun log op de tak betrouwbaar-uitslag, zodat een
+  # agent zonder sleutel ziet welke eis faalt. De gewone e2e draait op deze tak ook (blender-gewrichten-e2e.yml).
+  regressie:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        blender: ["4.2.23", "5.2.3", "5.3.0"]
+    env:
+      PRO_VERSIE: "1.2.3"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Blender ${{ matrix.blender }} ophalen
+        run: |
+          sudo apt-get install -y -q libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 zip >/dev/null || true
+          V="${{ matrix.blender }}"; KORT="${V%.*}"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+      - name: Rig-toetsen
+        working-directory: producten/blender-gewrichten
+        run: |
+          bash e2e/maak_zip.sh betaald
+          pip install -q remotezip
+          mkdir -p /tmp/meshy /tmp/uit && (cd /tmp/meshy && python3 -c "from remotezip import RemoteZip; z=RemoteZip('https://huggingface.co/datasets/tfnn/MESHY.AI_800_GLB_3D-Assets_Categorised_and_Labelled/resolve/main/MESHY_GLB.zip'); [z.extract(f'MESHY_GLB/people/{n}.glb', '.') for n in ('army_man', 'man_backpack', 'knight_yellow')]")
+          M=/tmp/meshy/MESHY_GLB/people
+          OBJ="$GITHUB_WORKSPACE/commercie/filmpjes/studio/modellen/makehuman-base.obj"
+          fout=0
+          draai() {
+            naam="$1"; shift
+            d="/tmp/cj_$naam"
+            env BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" "$@" \
+              /tmp/blender/blender -b --factory-startup --python "e2e/$SCRIPT" -- /tmp/click_joints_betaald.zip $ARGS > "/tmp/uit/$naam.log" 2>&1 || true
+            if grep -q "KLAAR 0 FOUT" "/tmp/uit/$naam.log"; then echo "GROEN $naam"; else echo "ROOD $naam"; fout=1; grep -E "FOUT|Traceback|Error" "/tmp/uit/$naam.log" | head -20 | cut -c1-500; fi
+          }
+          SCRIPT=toetsen_figuur.py ARGS="" draai figuur
+          SCRIPT=toetsen_vrije_stop.py ARGS="" draai vrije_stop
+          SCRIPT=toetsen_rig.py ARGS="" draai rig
+          SCRIPT=toetsen_rig_armen.py ARGS="" draai rig_armen
+          SCRIPT=toetsen_testkaart.py ARGS="" draai testkaart
+          SCRIPT=toetsen_rigify.py ARGS="" draai rigify
+          SCRIPT=toetsen_een_lid.py ARGS="" draai een_lid
+          SCRIPT=toetsen_meshy_voet.py ARGS="$M/army_man.glb" draai meshy_voet
+          SCRIPT=toetsen_meshy_rig.py ARGS="$M/man_backpack.glb $M/knight_yellow.glb" draai meshy_rig
+          SCRIPT=toetsen_mens.py ARGS="$OBJ" draai mens
+          SCRIPT=toetsen_mens.py ARGS="$OBJ" draai mens_herkans CJ_HERKANS=1
+          SCRIPT=toetsen_mens.py ARGS="$OBJ" draai mens_verlies CJ_HERKANS=3
+          SCRIPT=toetsen_mens.py ARGS="$OBJ" draai mens_arp CJ_RIG_NAMEN=arp
+          SCRIPT=toetsen_zwaai.py ARGS="$OBJ" draai zwaai
+          echo $fout > /tmp/uit/FOUT.txt
+          # Onderzoek (geen eis): meetregels per snede op de Meshy-figuren van toetsen_meshy_rig.
+          # Knight drie keer met het schone omhulsel en twee keer zonder (CJ_OMHULSEL_UIT): is de rechterknie een grensgeval?
+          for k in 1 2 3 uit1 uit2; do
+            n=knight_yellow; d="/tmp/cj_meet_$k"
+            UIT=""; case $k in uit*) UIT=1;; esac
+            CJ_OMHULSEL_UIT=$UIT CJ_GLB="$M/$n.glb" BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+              timeout 1200 /tmp/blender/blender -b --factory-startup --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip meshy "/tmp/uit/meet-$n-$k.json" 2>&1 | grep -E "^\[meet\]|^MEET" | cut -c1-1500 > "/tmp/uit/meet-$n-$k.log" || true
+          done
+      - name: Logs op tak betrouwbaar-uitslag
+        if: always()
+        env:
+          TOKEN: ${{ github.token }}
+          V: ${{ matrix.blender }}
+        run: |
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for f in /tmp/uit/*.log; do tail -c 60000 "$f" > "$f.k" && mv "$f.k" "$f"; done
+          for poging in 1 2 3 4 5 6 7 8; do
+            rm -rf /tmp/s
+            git clone -q --depth 1 --branch betrouwbaar-uitslag "$URL" /tmp/s 2>/dev/null || { sleep 5; continue; }
+            D="/tmp/s/${GITHUB_RUN_ID}/regressie-$V"
+            mkdir -p "$D" && cp /tmp/uit/* "$D"/ 2>/dev/null || true
+            cd /tmp/s && git add -A && git commit -q -m "Regressie $V run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin betrouwbaar-uitslag; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 4 + RANDOM % 5))
+          done
+      - name: Eis
+        run: test "$(cat /tmp/uit/FOUT.txt)" = "0"

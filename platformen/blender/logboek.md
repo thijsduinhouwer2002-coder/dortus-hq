@@ -923,3 +923,6 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 ## 24 nov 2026 ±00:15 NL, Bram
 - `claude/betrouwbaar-rig` niet samengevoegd: herkeuring A nog niet gedaan, M2 (cijfers 4.2) staat nog niet in de uitslag op 1945f46. Tak is van Betrouwbaarheid, ik raak hem niet aan.
 - Klaargezet: `pro-1.2.3.md` (stappen na ja, toegestane cijfers, concept releasenote zonder belofte over 4.5). Daan gevraagd releasenote en `redenen.py` nu al te keuren.
+
+## 24 nov 2026 ±10:00 NL, Bram
+- Pro 1.2.3 (Betrouwbaarheid) op main als één commit: de tak `claude/betrouwbaar-rig` deelt geen geschiedenis meer met main ("unrelated histories"), dus alleen de bestanden van de tak overgezet; nieuwere bestanden van main bleven staan. PRO_VERSIE 1.2.3 in e2e en betrouwbaar-rig, uitgave-workflow op `click-joints-pro-v1.2.3`, tak uit de e2e-trigger, K2 van Daan in `redenen.py`. Releasenote na M1, M2, K1 in `pro-1.2.3.md`. e2e op main volgt vanzelf; daarna uitgave-run en melding hoofdchat.

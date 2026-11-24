@@ -1,0 +1,30 @@
+{
+ "uitleg": "Ondergrens gewrichten per figuur in de testset Figure from rig (e2e/meet_rig.py), Betrouwbaarheid 23 nov 2026. \"alle\" geldt voor elke versie zonder eigen getal: elk haalbaar gewricht (robot en mensen 9; rigify 7, want de bovenarm van 29 mm is te kort naast de elleboog, in elke versie, voor en na; armen 8, de rig heeft geen nek). Blender 4.2 (alleen de Exact-solver) haalt dat nog niet op de robot (studio-3) en kleding: daar staat de gemeten stand van run 45275271607 (5 keer gelijk) als ondergrens, zodat een terugval opvalt. Doel blijft 9; zie proeven/betrouwbaar-rig-2026-11-23/uitslag.md.",
+ "figuren": {
+  "robot-a": {
+   "alle": 9,
+   "4.2": 6
+  },
+  "robot-b": {
+   "alle": 9,
+   "4.2": 6
+  },
+  "robot-fijn": {
+   "alle": 9,
+   "4.2": 7
+  },
+  "kleding": {
+   "alle": 9,
+   "4.2": 8
+  },
+  "mens": {
+   "alle": 9
+  },
+  "rigify": {
+   "alle": 7
+  },
+  "armen": {
+   "alle": 8
+  }
+ }
+}

@@ -436,6 +436,7 @@ def kogel_vast(nieuw):
     return False
 
 
+VERLOREN_MAX = 0.06  # grens van verloren_stuk, voor scharnier en (sinds 1.2.3) kogel
 KOGEL_MIN_DEEL = 0.4  # kleinste kogel (diameter) als deel van de breedte van het lid bij de snede
 
 
@@ -742,8 +743,10 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                         # Run 17 (CI 4.2.23, knight_yellow): ook een scharnier kan losse stukken achterlaten; dan
                         # terugdraaien met eerlijke reden in plaats van een deel uit vier stukken.
                         fout = "the cut left a loose piece here, place it by hand"
-                    elif ok and soort == "HINGE" and verloren_stuk(context, doel, nieuw, m.to_translation(),
-                                                                   max(0.6 * lengte, 15 * eenheid_per_mm(context.scene))) > 0.06:
+                    elif ok and verloren_stuk(context, doel, nieuw, m.to_translation(),
+                                              max(0.6 * lengte, 15 * eenheid_per_mm(context.scene))) > VERLOREN_MAX:
+                        # 1.2.3 (keuring Betrouwbaarheid A, M1): ook bij een kogel, want die krijgt nu soms het voxel-
+                        # omhulsel (omhulsel.py); verliest de snede meer dan 6% van het model, dan de volgende plek.
                         fout = "the cut lost part of the model here, place it by hand"
                     elif ok and soort != "HINGE" and kogel_te_klein(nieuw, eenheid_per_mm(context.scene)):
                         fout = "only a tiny ball fits here (the bone sits near the skin), place it by hand"
@@ -758,7 +761,9 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                     # slechte rand uit de booleaanse snede op een bijna platte driehoek, en die valt per machine net
                     # anders uit. Stoppen bij zo'n snede maakte de uitslag toeval; dus net als bij "too close" de
                     # volgende plek proberen. De mesh is dan nog onveranderd (gewricht.py zegt dat zelf).
-                    verder = ("too close" in laag or "no watertight parts" in laag
+                    # 1.2.3 (Betrouwbaarheid): in 4.2 (alleen Exact) gaf een scharniersnede soms delen die al in rust
+                    # overlappen; de mesh is dan onveranderd, dus ook dan de volgende plek.
+                    verder = ("too close" in laag or "no watertight parts" in laag or "overlap before they move" in laag
                               or (soort == "HINGE" and ("too thin" in laag or "tight" in laag)))
                     if ok or i == len(kandidaten) - 1 or not verder:
                         break
@@ -780,7 +785,8 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
             if ok:
                 gelukt.append(naam)
             else:
-                overgeslagen.append(f"{naam} ({melding or 'not placed'})")
+                from .redenen import leesbaar  # 1.2.3: wat de koper kan doen als de snede zelf misging
+                overgeslagen.append(f"{naam} ({leesbaar(melding) or 'not placed'})")
         cursor.matrix = oud_cursor
         alle = figuur.figuur_gewrichten(context.scene.objects, fig)
         tekst = figuur.samenvatting(alle) if alle else "No joints placed"

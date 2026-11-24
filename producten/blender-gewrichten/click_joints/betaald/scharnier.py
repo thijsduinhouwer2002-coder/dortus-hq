@@ -26,12 +26,18 @@ from ..uit_elkaar import echte_matrix
 from .. import een_lid, uit_elkaar
 from . import afstand
 from . import snippers
+from . import herstel
 from . import een_lid_diep
 from . import scharnier_beweeg as beweeg
 from . import scharnier_kleur
 from . import scharnier_neus as neus
 from . import scharnier_vorm as vorm
 from . import scharnier_zwaai as zwaai
+
+# Run 28 koos voor Exact (4.2) de gratis bereid, omdat het diepe omhulsel daar het andere onderbeen kwijtraakte. Dat
+# omhulsel sneed zichzelf (zie omhulsel.py). Proef 23 nov met de schone voxelvorm en het diepe omhulsel in 4.2 (run
+# 45261862637, GEZIEN): geen gewricht erbij op de testset, dus de oude keuze blijft. True zet de proef aan.
+DIEP_EXACT = [False]
 
 GRADEN_MIN, GRADEN_MAX = 30, 150  # vrije eindstop (Pro 1.1); buiten dit bereik geen getoetste vorm
 STAND_KEUZES = [(str(n), f"{n}°", f"Bends up to {n}°") for n in vorm.STANDEN]
@@ -164,7 +170,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             hulp.objects.link(werk)
             # 1.0.2: alleen het lid onder de cursor snijden, niet ook het andere been (proef Meshy-figuren 15 nov).
             # Run 28: met alleen Exact (4.2) de gratis bereid, het diepe omhulsel kostte daar het andere onderbeen.
-            bereid = een_lid_diep.origineel() if solver == "EXACT" else een_lid.bereid
+            bereid = een_lid_diep.origineel() if solver == "EXACT" and not DIEP_EXACT[0] else een_lid.bereid
             ok_lid, melding = bereid(werk, frame_i, 0.0, 1.2 * vorm.reik(maat) + maat["s"], maat["s"], solver, hulp)
             if not ok_lid:
                 ruim_op(hulp)
@@ -177,6 +183,10 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                 if snippers.actief():  # 1.1: dunne losse snippers van de snede met H weg
                     for d in (deel_a, deel_b):
                         d["cj_snippers"] = snippers.ruim_snippers(d, u)
+                if solver == "EXACT":  # 1.2.3: randen met 4 vlakken splitsen en bijna samenvallende punten samenvoegen
+                    herstel.na_exact((deel_a, deel_b), u)
+                else:
+                    herstel.herstel((deel_a, deel_b))
             except RuntimeError as e:  # controleur (d), punt 4: geen hulpobjecten achterlaten
                 ruim_op(hulp)
                 if i < laatste:

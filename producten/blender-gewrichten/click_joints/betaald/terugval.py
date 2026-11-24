@@ -54,6 +54,7 @@ def _maak_open(ob):
 def _snij(hulp, werk, frame, maat, soort, solver):
     voor = {o.name for o in hulp.objects}
     deel_a, deel_b = _oud[0](hulp, werk, frame, maat, soort, solver)
+    _herstel(deel_a, deel_b, solver == "EXACT")  # 1.2.3: randen met 4 vlakken splitsen (en na Exact opschonen)
     if solver != "MANIFOLD" or not _open(deel_a, deel_b):
         return deel_a, deel_b
     _ruim_extra(hulp, voor)
@@ -65,9 +66,19 @@ def _snij(hulp, werk, frame, maat, soort, solver):
     if FORCEER_OPEN > 0:  # test: ook de tweede snede open, de operator moet zelf weigeren
         FORCEER_OPEN -= 1
         _maak_open(deel_a)
+    _herstel(deel_a, deel_b, True)
     for d in (deel_a, deel_b):
         d["cj_solver_terugval"] = True
     return deel_a, deel_b
+
+
+def _herstel(deel_a, deel_b, exact=False):
+    from . import herstel
+    if exact:  # 1.2.3: na een Exact-snede ook bijna samenvallende punten samenvoegen (herstel.opschonen)
+        from ..eigenschappen import eenheid_per_mm
+        herstel.na_exact((deel_a, deel_b), eenheid_per_mm(bpy.context.scene))
+    elif not all(_gw[0].is_gesloten(d.data)[0] for d in (deel_a, deel_b)):
+        herstel.herstel((deel_a, deel_b))
 
 
 def _markeer(ob, kleur, gegevens, maat=None, u=1.0):
