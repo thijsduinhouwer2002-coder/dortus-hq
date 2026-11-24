@@ -1,0 +1,13 @@
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
+
+Is your model just one paper thin surface?
+A wall with zero thickness has nothing to print.
+No need to model a second wall by hand. One modifier does it.
+Open the Modifier properties and click Add Modifier.
+Choose Generate, then Solidify.
+Click the Thickness field, type two, and press Enter.
+Now the edge is a real wall, two millimeters thick, all the way around.
+Offset minus one puts the wall on the inside, so the outside keeps its size.
+And Even Thickness keeps the wall the same on sharp corners.
+Every printer is different, so print a small test first. Save this for your next print.
+Make your prints poseable: Click Joints Pro, on Gumroad.

@@ -1,0 +1,14 @@
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
+
+Does your model look smooth in Blender, but blocky when you print it?
+Shade Smooth only changes how Blender draws it. Your slicer gets the flat faces.
+Right click and pick Shade Flat to see what you will really print.
+Those flat faces are what ends up in your print.
+Open the Modifier properties and click Add Modifier.
+Choose Generate, then Subdivision Surface.
+Set Levels Viewport to two.
+Hover over the modifier, and press Control A to apply it.
+Now it looks round, even with flat shading. Ninety six faces became one thousand four hundred forty real faces.
+It gets a little smaller, so check the size before you export.
+Every printer is different, so print a small test first. Save this for your next print.
+Make your prints poseable: Click Joints Pro, on Gumroad.

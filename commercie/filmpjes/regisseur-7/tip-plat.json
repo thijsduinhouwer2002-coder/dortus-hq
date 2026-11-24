@@ -2,12 +2,12 @@
  "naam": "tip-plat",
  "titel": "Round model on one tiny point? Give it a flat bottom 🥚 #blender #3dprinting",
  "eind": {
-  "titel": "Blender for 3D printing",
-  "zin": "A new Blender tip for 3D printing every week.",
-  "adres": "dortus.com/yt",
+  "titel": "Click Joints Pro",
+  "zin": "Make your 3D prints poseable.",
+  "adres": "on Gumroad",
   "render": "render-ei.png"
  },
- "printzin": "Measured in Blender, not print tested by us yet.",
+ "printzin": "Every printer is different: print a small test first.",
  "venster": "Blender 5.3",
  "scenes": [
   {
@@ -170,8 +170,8 @@
    "uitspraak": "Now it stands on a flat circle, about twenty nine millimeters wide, instead of one point."
   },
   {
-   "tekst": "Measured in Blender, not print tested by us yet. Save this for your next print.",
-   "label": "HONEST",
+   "tekst": "Every printer is different, so print a small test first. Save this for your next print.",
+   "label": "PRINT FIRST",
    "kleur": "oranje",
    "kop": "Save this tip",
    "beeld": {
@@ -188,14 +188,14 @@
    }
   },
   {
-   "tekst": "More Blender tips for 3D printing at dortus.com/yt.",
-   "label": "MORE TIPS",
+   "tekst": "Make your prints poseable: Click Joints Pro, on Gumroad.",
+   "label": "CLICK JOINTS PRO",
    "kleur": "groen",
    "kop": "",
    "beeld": {
     "eindkaart": true
    },
-   "uitspraak": "More Blender tips for three D printing, at dortus dot com slash Y T."
+   "uitspraak": "Make your prints poseable: Click Joints Pro, on Gumroad."
   }
  ]
 }

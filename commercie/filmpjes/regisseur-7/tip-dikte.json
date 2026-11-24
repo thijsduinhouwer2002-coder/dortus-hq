@@ -1,0 +1,264 @@
+{
+ "naam": "tip-dikte",
+ "titel": "Paper thin model? Give it real walls in Blender 🏺 #blender #3dprinting",
+ "eind": {
+  "titel": "Click Joints Pro",
+  "zin": "Make your 3D prints poseable.",
+  "adres": "on Gumroad",
+  "render": "render-vaas.png"
+ },
+ "printzin": "Every printer is different: print a small test first.",
+ "venster": "Blender 5.3",
+ "scenes": [
+  {
+   "tekst": "Is your model just one paper thin surface?",
+   "label": "QUICK CHECK",
+   "kleur": "oranje",
+   "kop": "Paper thin?",
+   "beeld": {
+    "deel": "c_klaar",
+    "van": 50,
+    "tot": 130,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1300
+     ],
+     [
+      1080,
+      980,
+      1050
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "A wall with zero thickness has nothing to print.",
+   "label": "PROBLEM",
+   "kleur": "rood",
+   "kop": "Zero thickness",
+   "beeld": {
+    "deel": "c_dun",
+    "van": 0,
+    "tot": 110,
+    "uitsnede": [
+     [
+      1080,
+      960,
+      1600
+     ],
+     [
+      1080,
+      900,
+      1000
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "No need to model a second wall by hand. One modifier does it.",
+   "label": "TIP",
+   "kleur": "blauw",
+   "kop": "One modifier",
+   "beeld": {
+    "deel": "c_dun",
+    "van": 60,
+    "tot": 110,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      1000
+     ],
+     [
+      1080,
+      960,
+      1400
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Open the Modifier properties and click Add Modifier.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Add Modifier",
+   "beeld": {
+    "deel": "c_mod",
+    "van": 0,
+    "tot": 40,
+    "uitsnede": [
+     [
+      1128,
+      520,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Choose Generate, then Solidify.",
+   "label": "STEP 2",
+   "kleur": "blauw",
+   "kop": "Generate, Solidify",
+   "beeld": {
+    "deel": "c_mod",
+    "van": 36,
+    "tot": 97,
+    "uitsnede": [
+     [
+      1120,
+      640,
+      1500
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Click the Thickness field, type 2 and press Enter.",
+   "label": "STEP 3",
+   "kleur": "oranje",
+   "kop": "Thickness: 2 mm",
+   "beeld": {
+    "deel": "c_dik",
+    "van": 0,
+    "tot": 80,
+    "uitsnede": [
+     [
+      1250,
+      480,
+      1300
+     ]
+    ],
+    "nadruk": [
+     [
+      900,
+      377,
+      2105,
+      421
+     ]
+    ],
+    "nadruk_rel": [
+     20,
+     80
+    ]
+   },
+   "uitspraak": "Click the Thickness field, type two, and press Enter."
+  },
+  {
+   "tekst": "Now the edge is a real wall, 2 mm thick, all the way around.",
+   "label": "SOLID",
+   "kleur": "groen",
+   "kop": "2 mm wall",
+   "beeld": {
+    "deel": "c_klaar",
+    "van": 0,
+    "tot": 50,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      1000
+     ],
+     [
+      1080,
+      950,
+      1500
+     ]
+    ]
+   },
+   "uitspraak": "Now the edge is a real wall, two millimeters thick, all the way around."
+  },
+  {
+   "tekst": "Offset minus 1 puts the wall on the inside, so the outside keeps its size.",
+   "label": "BONUS",
+   "kleur": "blauw",
+   "kop": "Offset: -1 = inside",
+   "beeld": {
+    "deel": "c_dik",
+    "van": 40,
+    "tot": 80,
+    "uitsnede": [
+     [
+      1250,
+      480,
+      1300
+     ]
+    ],
+    "nadruk": [
+     [
+      900,
+      449,
+      2105,
+      493
+     ]
+    ],
+    "nadruk_rel": [
+     40,
+     80
+    ]
+   },
+   "uitspraak": "Offset minus one puts the wall on the inside, so the outside keeps its size."
+  },
+  {
+   "tekst": "And Even Thickness keeps the wall the same on sharp corners.",
+   "label": "BONUS",
+   "kleur": "groen",
+   "kop": "Even Thickness",
+   "beeld": {
+    "deel": "c_dik",
+    "van": 40,
+    "tot": 80,
+    "uitsnede": [
+     [
+      1250,
+      480,
+      1300
+     ]
+    ],
+    "nadruk": [
+     [
+      750,
+      524,
+      1100,
+      568
+     ]
+    ],
+    "nadruk_rel": [
+     40,
+     80
+    ]
+   }
+  },
+  {
+   "tekst": "Every printer is different, so print a small test first. Save this for your next print.",
+   "label": "PRINT FIRST",
+   "kleur": "oranje",
+   "kop": "Save this tip",
+   "beeld": {
+    "deel": "c_klaar",
+    "van": 60,
+    "tot": 130,
+    "uitsnede": [
+     [
+      1080,
+      980,
+      1500
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Make your prints poseable: Click Joints Pro, on Gumroad.",
+   "label": "CLICK JOINTS PRO",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   },
+   "uitspraak": "Make your prints poseable: Click Joints Pro, on Gumroad."
+  }
+ ]
+}

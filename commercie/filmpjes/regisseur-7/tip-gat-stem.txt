@@ -1,0 +1,12 @@
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
+
+Does your slicer say your model has holes?
+Blender can find them for you in a few seconds, before you print.
+Select your model, press Tab for Edit Mode, then two for edge select.
+Press Alt A, so nothing is selected.
+Open Select. Select All by Trait. Non-manifold.
+Every edge that is not closed lights up. Here, a hole in the head of the pawn.
+Press F to fill the hole with a new face.
+Run the check again with Shift, Control, Alt, M. Nothing lights up, so the mesh is closed.
+Every printer is different, so print a small test first. Save this for your next print.
+Make your prints poseable: Click Joints Pro, on Gumroad.

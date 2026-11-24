@@ -1,0 +1,12 @@
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
+
+Does your round model touch the bed in just one tiny point?
+Give it a flat bottom in Blender, with a few keys, before you slice.
+Press Tab for Edit Mode, then one for vertex select.
+Press one on the numpad for the front view, then Alt Z to see through.
+Drag a box around the bottom rows of points.
+Press S, then Z, then zero, and Enter. The points line up flat.
+Select more rows for a wider base, or fewer rows to keep more of the round shape.
+Now it stands on a flat circle, about twenty nine millimeters wide, instead of one point.
+Every printer is different, so print a small test first. Save this for your next print.
+Make your prints poseable: Click Joints Pro, on Gumroad.

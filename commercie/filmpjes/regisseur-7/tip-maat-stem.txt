@@ -1,0 +1,11 @@
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
+
+Is your model too big for your printer?
+Check it in Blender, before you slice.
+First, in Scene properties, set Unit Scale to zero point zero zero one, and Length to millimeters.
+Press N. Under Dimensions you see the real size: three hundred ten millimeters tall.
+This box is a print bed of two hundred twenty by two hundred twenty by two hundred fifty millimeters. The pawn is too tall for it.
+Hover over the view, press S, type zero point seven, and press Enter.
+Now it is two hundred seventeen millimeters tall, and it fits inside the bed.
+Every printer is different, so print a small test first. Save this for your next print.
+Make your prints poseable: Click Joints Pro, on Gumroad.

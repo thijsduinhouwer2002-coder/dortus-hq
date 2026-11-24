@@ -2,6 +2,7 @@ name: "Regisseur 7 (tip-gat, tip-maat, tip-plat, tip-glad: betere uitsneden)"
 
 # 23 nov 2026 ±22:05 NL, Regisseur run 6. Eigen controle van release regisseur-5 en -6 vond drie beeldfouten:
 # tip-gat STEP 1 pion half buiten beeld (tip-plat STEP 1 ei idem); tip-maat Units-labels en "310 mm" afgesneden aan de rand; tip-glad STEP 1
+# Regisseur run 25 (24 nov): tip-dikte erbij (scenes uit regisseur-4, voorheen release regisseur-5); alle vijf met slotzin naar Gumroad, geen "not print tested".
 # menu half buiten beeld en STEP 2 begint met een leeg donker vlak. Deze workflow neemt NIET opnieuw op: hij haalt de
 # ruwe opnames uit release regisseur-3, -4 en -6 en monteert opnieuw met de verbeterde uitsneden in regisseur-7/.
 # Stem: <naam>-elevenlabs.mp3 van de hoofdchat (ElevenLabs Max) als die er is, anders Kokoro (Apache 2.0). Niets geplaatst.
@@ -56,7 +57,7 @@ jobs:
         run: |
           mkdir -p /tmp/klaar
           : > /tmp/klaar/stemmen.txt
-          for item in 3:tip-gat 3:tip-maat 4:tip-plat 6:tip-glad; do
+          for item in 3:tip-gat 3:tip-maat 4:tip-plat 6:tip-glad 4:tip-dikte; do
             r=${item%%:*}; n=${item#*:}; d=commercie/filmpjes/regisseur-$r
             unset STEM_MP3 STEM_BRON
             for m in $d/stem/$n-elevenlabs.mp3 $d/$n-elevenlabs.mp3 commercie/filmpjes/regisseur-7/$n-elevenlabs.mp3; do
@@ -76,7 +77,7 @@ jobs:
         run: |
           cd /tmp/klaar
           ok=0
-          for n in tip-gat tip-maat tip-plat tip-glad; do
+          for n in tip-gat tip-maat tip-plat tip-glad tip-dikte; do
             mkdir -p meting-$n
             python $GITHUB_WORKSPACE/commercie/filmpjes/regisseur-2/synchroon2.py $n-geluid.mp4 $n-groot-script.json meting-$n || ok=1
             for f in meting-$n/*; do mv "$f" "$(basename ${f%.*})-$n.${f##*.}"; done
