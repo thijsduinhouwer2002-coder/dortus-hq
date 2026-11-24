@@ -28,6 +28,33 @@ REGELS = [
 
 TEKST = (".md", ".txt")
 
+# Omvang (opschonen 24 nov 2026, Thijs: "zodat ze dit echt heilig doen"). Alleen als jij het bestand
+# in deze push verandert, zodat wie het te groot maakt het ook kleiner maakt.
+GRENZEN = {"CLAUDE.md": 12000, "organisatie/besluiten.md": 25000}
+GRENS_BERICHTEN = 60000  # berichten/<naam>.md; oud werk naar berichten/archief/
+
+
+def omvang(van, tot):
+    cmd = ["git", "-c", "core.quotePath=false", "diff", "--name-only", "--diff-filter=AM", van] + ([tot] if tot else [])
+    namen = subprocess.run(cmd, capture_output=True, text=True, errors="replace").stdout.split()
+    fouten = []
+    for n in namen:
+        grens = GRENZEN.get(n)
+        if grens is None and n.startswith("berichten/") and n.count("/") == 1 and n.endswith(".md"):
+            grens = GRENS_BERICHTEN
+        if grens is None:
+            continue
+        try:
+            if tot:
+                data = subprocess.run(["git", "show", f"{tot}:{n}"], capture_output=True).stdout
+            else:
+                data = open(n, "rb").read()
+        except OSError:
+            continue
+        if len(data) > grens:
+            fouten.append(f"{n}: {len(data)} tekens, grens {grens}. Maak het korter (oud naar het archief) en commit opnieuw.")
+    return fouten
+
 
 def diff(van, tot):
     # quotePath=false: ook bestanden met een naam als "ideeën/" worden gecontroleerd.
@@ -70,6 +97,12 @@ def main():
             if patroon.search(tekst):
                 fouten.append(f"{bestand}:{regelnr}: {naam}")
         regelnr += 1
+    te_groot = omvang(van, tot)
+    if te_groot:
+        print("Controle omvang: NIET OK.")
+        for f in te_groot:
+            print("  " + f)
+        sys.exit(1)
     if fouten:
         print("Controle openbare repo: NIET OK. Haal dit weg (persoonsgegevens: schrijf 'staat bij Thijs'):")
         for f in fouten[:50]:

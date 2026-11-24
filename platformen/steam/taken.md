@@ -1,8 +1,7 @@
 # Steam: taken (Het Hol, Olaf bouwt, belangrijkste bovenaan)
 
-## Weekdoel 24 nov tot 1 dec 2026 (Sanne, besluiten Thijs 24 nov 17:34, 17:44 en 18:39)
-**Aandacht vasthouden 6 naar 8 en Leuk 7 naar 8 bij Iris. Plan `producten/steam-hol/inhoud-100.md` gekeurd. Systeem `inhoud.json` gebouwd en de eerste 5 nieuwe dingen erin.**
-De oude regel hieronder "geen nieuwe features buiten de demolijst" en "Hats wacht op Valve" vervallen (Thijs 24 nov 17:34: door tot een 8 of 9).
+## Weekdoel 24 nov tot 1 dec 2026 (hoofdchat, na Thijs 24 nov 20:17 en 20:59)
+**Het kernmoment voelt goed: Iris geeft "leuk" minstens een 8 op het moment dat een held in een val loopt** (klap, poef, muntjes in een boog, reeksbonus, graven en kopen voelen goed, één keuze met spanning; lijst bovenaan `spelgevoel.md`). Pas daarna gaat `inhoud-100.md` verder. Geen tijdsdruk, geen schermschudden.
 
 Open, bovenste eerst (wie vrij is pakt de bovenste die bij hem past):
 - [ ] **Iris en Daan: keur `inhoud-100.md`** (Iris op plezier, Daan op wat er te tekenen valt: 10 held-animaties en ±21 plaatjes voor de demo). Uitslag in `berichten/sanne.md`.
@@ -14,8 +13,7 @@ Open, bovenste eerst (wie vrij is pakt de bovenste die bij hem past):
 - [ ] **Daan: tekenlijst** van de 10 held-animaties (salto, glijden_rug, plakken, zweven, rennen_terug, hinken, lachen, slapen, duizelig, dansen) en de plaatjes van de demo-21, met welke het eerst nodig zijn (Banana Peel, Giant Potion, Slime Trail).
 - [ ] **Sanne met de Regisseur: 3 korte Hats-filmpjes** (9:16, 15 tot 30 s) uit echte beelden: kroniekregels, Gloop met hoedenstapel, held terug met verband.
 
-Opgeruimd 13 nov 2026 door Olaf. De oude lijst (tot 10 nov 06:45 UTC) staat volledig in `logboek.md` onder "13 nov 2026, Olaf: oude takenlijst verplaatst".
-Wat telt is de vaste demolijst in `planning-fest-2027.md` (demo af vr 18 dec). **Geen nieuwe features buiten die lijst.** Ploeg: Olaf (bouw, elk uur op :13) en Daan (ontwerp, elk uur op :23). Bram, Sanne en Mila staan uit; hun bestanden in `producten/steam-hol/godot/systemen/` en `kunst/` mag Olaf nu aanpassen als de demolijst dat nodig heeft (met een regel in het logboek).
+Oude afspraken uit de demotijd ("geen nieuwe features", vaste demolijst, ploeg van 13 nov) vervallen: Thijs 24 nov 17:34 en 20:59. De oude lijst staat in `logboek.md`.
 
 ## Demolijst: wat is klaar (eerlijk, 13 nov 12:40 UTC)
 | # | Punt | Stand | Bewijs |

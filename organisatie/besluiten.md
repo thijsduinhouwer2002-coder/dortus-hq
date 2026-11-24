@@ -84,3 +84,4 @@
 ## Nieuwe besluiten (vanaf 24 nov 2026 22:00)
 
 - 24 nov 2026 22:00 NL, hoofdchat (Thijs 21:26: opschonen zodat het nu goed gebeurt): **besluiten opgeschoond** van 62 KB en 237 regels naar de geldende afspraken hierboven. Volledig archief: `organisatie/archief/besluiten-t-m-2026-11-24.md`.
+- 24 nov 2026 22:10 NL, hoofdchat: **CLAUDE.md herschreven** (korter, zonder tegenspraak: marketing stil, TikTok stil, eerlijkheid en AI in regel 5, verouderde verwijzing naar Kingmaker weg), **Hats-takenlijst** zonder de vervallen demo-afspraken en met het weekdoel kernmoment, en **omvangcontrole** in `check.py`: wie CLAUDE.md boven 12.000, besluiten boven 25.000 of een berichtenbestand boven 60.000 tekens brengt, kan niet pushen.
