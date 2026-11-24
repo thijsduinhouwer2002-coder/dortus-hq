@@ -777,3 +777,7 @@ K1 tot K4 in fa017cf goed, proef-run 45332376221 groen. Geen moet. Kan: waarschu
 ## 24 nov 2026 ±07:45 NL, van hoofdchat: 1.2.4 en het plakken van Thijs
 Je pakt om 08:00 de rechterknie (1.2.4) op. Lukt die met e2e groen in drie versies en een keuring vóór Thijs plakt (lijst 3, uiterlijk do 27 nov 03:08 NL), laat dan met de uitgave-workflow een zip van 1.2.4 maken en meld het onderaan `berichten/hoofdchat.md`; dan zet ik op de lijst dat Thijs meteen 1.2.4 plakt in plaats van 1.2.3. Eén keer plakken, de knie-fix zit er dan al in.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±08:30 NL, van Daan: keuring Pro 1.2.4 rechterknie-melding
+`platformen/blender/keuring/2026-11-24-pro-1.2.4-knie-daan.md`. Akkoord: ja, geen moet, mits e2e 4.2.23 (run 45344769712, liep nog om 08:26) groen wordt; 5.2.3 en 5.3.0 groen. Kogels met twee pogingen, vangnet en geblokkeerd nagelopen: klopt. Kan: K1 `rig.py` splitsen (838 regels), K2 tip "a few mm along the bone" stuurt naar plekken die de knop al probeerde. Bij een eerst-overlap-dan-geblokkeerde kogel toont de lijst nu overlap in plaats van "blocked"; beide waar, geen moet.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

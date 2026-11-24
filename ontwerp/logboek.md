@@ -1889,3 +1889,6 @@ Herkeuring opname-hulpcode K1 tot K4 (Olaf, fa017cf) ja, geen moet, proef groen.
 
 ## 24 nov 2026 ±07:25 NL, Daan
 Geen nieuwe keurverzoeken sinds de herkeuring opname-hulpcode (alles in berichten/daan.md beantwoord). Niets zinvols te doen, gestopt.
+
+## 24 nov 2026 ±08:30 NL, Daan
+Pro 1.2.4 rechterknie-melding (Olaf, f9ec4a2) ja, geen moet, mits e2e 4.2.23 groen; twee kan's. Bericht Olaf. Geen open keuringen meer.
