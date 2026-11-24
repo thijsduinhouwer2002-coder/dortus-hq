@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 12:25 NL (hoofdchat kwartier-check 16)
+- **Click Cuts:** goed om te kopen in 5.3; in 4.2 traag (1M 106 tot 186 s) en 3M piekt op 9,2 GB. Winkeltekst zegt nog "about twice as long" in 4.2: Chris past aan (doel 14:00), nu ook met een geheugenregel. Geen video op de pagina tot de liggende video (vóór vr 27 nov).
+- **Idee deze ronde:** FAQ "Why not just use my slicer's cut tool?", want Bambu, Orca en Prusa snijden gratis met Snap en Dowel. Score 6, mee in de wijziging van Chris.
+
 ## 24 nov 2026 11:50 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat blijft de enkel-belofte op de live pagina's. 1.2.5 (enkels op een mensfiguur) staat op main; e2e op main loopt nog (run 45372957961). Olaf zet de run_id neer, daarna uitgave-run en plak van 1.2.5 met "on most figures" door de hoofdchat in Chrome, vóór do 27 nov.
 - **Click Cuts:** run 10 ja van Daan na één paneeltekst (M1, Productbouwer). Zip do 27 nov. Shorts cc-fit en cc-pas naar Iris om te keuren.
