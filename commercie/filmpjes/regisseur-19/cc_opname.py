@@ -238,7 +238,8 @@ def verloop():
     # keuring Iris 24 nov M1: de lijmmeldingen meten en de noot-regel in het paneel vinden (nieuwe zip, 8de5e36)
     meld = [r for r in (getattr(sc.split_joints, "meldingen", "") or "").split("\n") if r.strip()]
     M["meldingen"] = meld
-    M["noot_ocr"] = ocr("glue joints", vak, "35%") if meld else None
+    # run 23: de regel heet sinds bb379aa "1 note: see More settings" (OCR op "glue joints" vond niets meer)
+    M["noot_ocr"] = ocr("see more settings", vak, "35%") if meld else None
     log(f"KORT meldingen {len(meld)} noot {M['noot_ocr']}")
     yield from houd(80)
     cs = [o.matrix_world @ Vector(c) for o in st for c in o.bound_box]

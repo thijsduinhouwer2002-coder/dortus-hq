@@ -10,7 +10,7 @@ It cuts the model into the fewest parts that each fit your bed.
 Parts that touch never share a color, so you see every cut.
 Cuts get pins and pin holes, with a clearance you can tune to your printer.
 The panel tells you in one line: all parts fit the bed.
-No room for a pin? The panel tells you to glue that joint.
+No room for a pin? The panel adds a note: glue that joint.
 Then export every part and the pins as S T L or three M F, in millimeters.
 Measured in Blender, not print tested by us yet. Print the fit test first.
 Click Cuts for Blender. Link in the description.

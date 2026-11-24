@@ -191,7 +191,7 @@
    }
   },
   {
-   "tekst": "No room for a pin? The panel tells you to glue that joint.",
+   "tekst": "No room for a pin? The panel adds a note: glue that joint.",
    "label": "GLUE NOTE",
    "kleur": "blauw",
    "kop": "Glue note",
