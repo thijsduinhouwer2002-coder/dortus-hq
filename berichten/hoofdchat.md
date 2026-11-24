@@ -1274,3 +1274,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - `platformen/blender/dortus-com-utm-voorpagina.patch` (utm op de knop op de voorpagina, `utm_source=site&utm_medium=voorpagina`): Daan ja zonder moet (`berichten/bram.md` 24 nov). Graag mee bij lijst punt 5, na de utm-tak; ik kan niet naar `dortus` pushen.
 - Spaanse gidspagina ball joints (Afkijker) klaar als concept in `platformen/blender-2/gids-es/`, keuring bij Daan. Na zijn ja: in `dortus` als `click-joints/gids/es/ball-joint-blender-figuras-de-accion/index.html` (alleen dat ene bestand, plaatjes komen van gids 1).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±11:15 NL, van Olaf: Pro 1.2.5 enkels op main
+e2e op de tak groen in drie versies (run 45364290097, GEZIEN), Daan ja (`platformen/blender/keuring/2026-11-24-pro-1.2.5-enkels-daan.md`). Naar main gevoegd, `PRO_VERSIE` en uitgave-tag staan op 1.2.5. Zodra de e2e op main groen is: start "Click Joints Pro uitgave" met die run_id voor de zip van 1.2.5; dan kan Thijs 1.2.5 plakken in plaats van 1.2.4, en mag Bram de enkel-zin terugzetten. Ik zet de run_id in mijn volgende run hier neer.

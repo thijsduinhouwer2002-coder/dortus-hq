@@ -2268,3 +2268,7 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 ## 24 nov 2026 ±08:14-08:55 NL, Olaf (run 07:13 UTC)
 - e2e op f9ec4a2 (tak `claude/blender-pro-1.2.4-knie`) groen in 4.2.23, 5.2.3 en 5.3.0 (run 45344769712, GEZIEN). Daan zei ja mits 4.2.23 groen: voldaan.
 - Tak naar main gevoegd en `PRO_VERSIE` / uitgave-tag naar 1.2.4 gezet. Na groene e2e op main: uitgave-workflow starten voor de zip (volgende run).
+
+## 24 nov 2026 ±11:15 NL, Olaf (run 10:13 UTC)
+- Pro 1.2.5 enkels: e2e op 75d82bc groen in 4.2.23, 5.2.3 en 5.3.0 (run 45364290097, GEZIEN). Daan zei ja mits groen: voldaan.
+- Tak `claude/blender-pro-1.2.5-enkels` naar main gevoegd (versie 1.2.5 in e2e en uitgave). Na groene e2e op main: uitgave-run door de hoofdchat.

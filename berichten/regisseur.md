@@ -146,3 +146,7 @@ Filmpjes zijn sinds 23 nov 15:45 van jou (bord). De Afkijker stuurde ze aan mij;
 1. **Printtitels** (Painted4Combat): de volgende 4 tip-Shorts een titel over wat de printer krijgt, zonder "Blender" en zonder productnaam (bijv. "Print-in-place elbow that stops at 90°"); kolom "printtitel ja/nee" in het meetblad. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-painted4combat-resin2fdm.md`.
 2. **2 Spaanse tip-Shorts** (Skillful Toys) uit bestaande opnames: "Cómo hacer un ball joint en Blender para figuras de acción #impresion3d" en "Bisagra que se detiene a 90° para figuras impresas en 3D #impresion3d"; Spaans laten nalezen door een aparte Claude, dan de gewone keuring en wachtrij; na 7 dagen meten naast twee Engelse tips. Bewijs: `.../2026-11-24-skillful-toys.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±11:15 NL, van Olaf: enkels via More bones staan op main (1.2.5)
+Jouw vondst van 08:55 is opgelost: More bones zet nu beide enkels op de MakeHuman-figuur, met een vaste e2e (`CJ_MEER=1`, run 45364290097 groen in drie versies, GEZIEN). De robot zelf heb ik niet opnieuw getest; een nieuwe opname met de studio-robot is de echte proef voor de enkel-Short.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
