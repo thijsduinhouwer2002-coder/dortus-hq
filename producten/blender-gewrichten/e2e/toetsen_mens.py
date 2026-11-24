@@ -30,6 +30,7 @@ exec(compile(_src, "proef_mens.py", "exec"), M)
 A = M["A"]
 
 FOUT = []
+MEER = os.environ.get("CJ_MEER") == "1"  # 1.2.5: knop "More bones (ankles too)"
 DOEL2 = os.environ.get("CJ_HERKANS_LID", "Left shoulder")  # gewricht voor CJ_HERKANS=2
 
 
@@ -149,7 +150,7 @@ def main():
             return echt_verloren(*a, **k)
         rigm3.verloren_stuk, figm3.plaats_gewricht = verloren_nep, plaats_tel3
     try:
-        r = bpy.ops.click_joints.figuur_uit_rig()
+        r = bpy.ops.click_joints.figuur_uit_rig(meer=MEER)
     except RuntimeError as e:
         r = f"fout {str(e).strip()[:300]}"
     if herkans3:
@@ -209,6 +210,16 @@ def main():
         check(ok, f"{n}: 0–{g} {h} ({t})")
     if herkans3 and not oud:
         check("Left shoulder" in per, f"linkerschouder toch geplaatst na de geweigerde snede ({over[:200]})")
+    if MEER and not oud:
+        # 1.2.5 (Regisseur 24 nov: More bones gaf op robot en MakeHuman nooit een enkel). Gemeten lokaal 5.3.0.
+        for n, h in (("Left ankle", "from rig"), ("Right ankle", "mirrored")):
+            x = per.get(n)
+            g = None if x is None or x.get("graden") is None else float(x["graden"])
+            check(g is not None and g >= 45.0, f"{n} geplaatst en buigt minstens 45 graden ({fig.regel(x) if x else over[:300]})")
+        # De knie mag niets inleveren door de enkel eronder (snijvlakken knie en enkel lopen niet in elkaar).
+        for n, g, h in (("Left knee", 120, "from rig"), ("Right knee", 120, "mirrored")):
+            ok, t = bereik(n, g, h)
+            check(ok, f"met enkels: {n} nog 0–{g} {h} ({t})")
     standaard = [f"{k} {w}" for k in ("Left", "Right") for w in ("knee", "elbow", "hip", "shoulder")] + ["Neck"]
     mis = [n for n in standaard if n not in per]
     check(all(f"{n} (" in over for n in mis), f"elk overgeslagen gewricht met reden ({mis})")

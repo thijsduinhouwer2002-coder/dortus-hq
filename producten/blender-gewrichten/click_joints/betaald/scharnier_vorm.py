@@ -230,17 +230,20 @@ def te_dicht(bron, punt, m, u, bvh=None):
     """Eis 6: nodige afstand in mm (naar boven afgerond) als het nieuwe scharnier te dicht bij een gewricht op
     `bron` ligt, anders None.
     - Naast elk scharnier op het deel (afstand.scharnieren: alle, niet alleen het laatste): afstand tussen de
-      snijpunten minstens twee keer het grootste bereik van de twee (anders snijden de stopvlakken elkaar en blijft
+      snijpunten minstens twee keer het grootste bereik van de twee, of de som van beide plus 1 mm als die kleiner is
+      (1.2.5, zie onder) (anders snijden de stopvlakken elkaar en blijft
       er tussen de twee niets over). Het grootste, want dichtbij het oude scharnier loopt het stopvlak van het nieuwe
       al tegen het schuine vlak van het oude aan, en dan meet t_vlak van het nieuwe te kort.
     - Naast de kogel of pen waarvan het deel komt: van snijpunt tot kogelmidden minstens de reik van het scharnier
       plus de reik van de kogel naar het scharnier toe (afstand.kogel_van met punt, uitleg in afstand.py).
     Bij meer dan een te dichtbij telt de grootste nodige afstand."""
     eigen = snede_reik(m)  # 1.1 (run 11): hoe ver de snede echt gaat, niet alleen de rekensom
-    # PROEF 1.2.5 (Olaf 24 nov, enkels): som van beide reiken plus 1 mm in plaats van 2 keer de grootste. Knie en
-    # enkel op MakeHuman 150 mm liggen 35 mm uit elkaar, de oude regel vroeg 37. Nog NIET gekeurd: de reden voor
-    # 2 keer max (stopvlak van het nieuwe loopt tegen het schuine vlak van het oude) moet nog worden nagemeten.
-    paren = [((Vector(punt) - p).length, r + eigen + 1.0 * u) for p, r, k in afstand.scharnieren(bron)
+    # 1.2.5 (Olaf 24 nov, enkels via More bones): bij twee ongelijke reiken is 2 keer de grootste te streng. Knie en
+    # enkel op MakeHuman liggen 35 mm uit elkaar (150 mm hoog), de oude regel vroeg 37. Nu de kleinste van de oude regel
+    # en de som van beide reiken plus 1 mm, dus nooit strenger dan voor 1.2.5. Gemeten op het snijvlak (MakeHuman
+    # 220 mm, 5.3.0, doorsnede loodrecht op de scheen elke 2,5 mm): tussen knie en enkel blijft ±20 mm scheen met
+    # precies de oorspronkelijke doorsnede over, de stopvlakken raken elkaar dus niet.
+    paren = [((Vector(punt) - p).length, min(2.0 * max(r, eigen), r + eigen + 1.0 * u)) for p, r, k in afstand.scharnieren(bron)
              if r >= 0 and not ander_lid(bvh, punt, p, k + m["s"] + 1.0 * u, u)]
     kogel = afstand.kogel_van(bron, u, punt)  # 1.1: aan de komkant alleen de kom (afstand.py)
     if kogel is not None:
