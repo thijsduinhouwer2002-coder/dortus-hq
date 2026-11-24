@@ -37,7 +37,9 @@ SCHAAL = float(os.environ.get("CJ_WINKEL_SCHAAL", "1.5"))
 BREDER = int(os.environ.get("CJ_WINKEL_BREDER", "260"))  # zoveel pixels de zijbalk naar links trekken
 # w2: bij 1,5x blijven Folder, STL/3MF en Export onder de rand, ook na scrollen tot het eind (run 45447006294,
 # GEZIEN). 1,25x is nog steeds groter dan de standaard en laat het hele paneel tot de exportknop zien.
-SCHAAL_W2 = float(os.environ.get("CJ_WINKEL_SCHAAL_W2", "1.25"))
+# Keuring Daan 24 nov (M2): bij 1,25x is stap 3 op 600 px niet te lezen. Nu 2x, hoofdpaneel tot onderaan gescrold,
+# zodat stap 2 en 3 (Good fit, Export STL) groot in beeld staan; stap 1 mag boven de rand vallen.
+SCHAAL_W2 = float(os.environ.get("CJ_WINKEL_SCHAAL_W2", "2.0"))
 staat = {"beelden": [], "i": 0, "fase": "zet"}
 
 
@@ -155,6 +157,15 @@ def zijbalk_omlaag():
     log(f"WINKEL zijbalk omlaag view2d={getattr(regio, 'view2d', None) and regio.view2d.region_to_view(0, 0)}")
 
 
+def gewone_naam():
+    """Keuring Daan 24 nov (M1): na het snijden heet de romp "mens_A_A_A..." en dat leest in het paneel als een fout.
+    Voor w2 krijgt het actieve deel (object en mesh) een gewone naam."""
+    o = bpy.context.view_layer.objects.active
+    if o is not None:
+        o.name = o.data.name = os.environ.get("CJ_WINKEL_NAAM", "Human")
+        log(f"WINKEL naam w2 {o.name}")
+
+
 def ververs():
     _v, gebied, _r = zijbalk()
     if gebied:
@@ -165,7 +176,7 @@ PLAN = [
     ("w1-figuur", lambda: (kies_romp(), labels_alle(), klap_hoofdpaneel(), kijk_figuur())),
     ("-schaal-w2", lambda: schaal(SCHAAL_W2)),  # eigen stap: eerst opnieuw tekenen, anders mist de klik op de kop
     ("w2-uitelkaar", lambda: (klap_hoofdpaneel(), setattr(bpy.context.scene.click_joints, "uit_elkaar", True),
-                              kies_romp(), kijk_figuur()), zijbalk_omlaag),
+                              kies_romp(), gewone_naam(), kijk_figuur()), zijbalk_omlaag),
     ("-schaal-w3", lambda: schaal(SCHAAL)),
     ("w3-testkaart", testkaart),
 ]
