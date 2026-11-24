@@ -1,18 +1,20 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795558034
+HOL zaad 1795559139
 HOL plat zonder regel (2 keer gemeld)
-HOL kroniek 4.0 (wacht 0.0): Maud says this is a quick one.
-HOL begin: vallen (Maud)
-HOL held binnen: Maud
+HOL kroniek 4.0 (wacht 0.0): Elke is here for your gold.
+HOL begin: vallen (Elke)
+HOL held binnen: Elke
 HOL muisvlak 4 punten, lucht vrij op x=200
 HOL zicht 4.1 1
 HOL meting t=10 beelden=61 helden=1 hol_vast=1
-HOL kroniek 10.7 (wacht 0.0): Jop read about you in a tavern.
-HOL begin: vluchten (Jop)
-HOL held binnen: Jop
-HOL kroniek zelfde held vervangen: Maud says this is a quick one.
-HOL kroniek 12.7 (wacht 0.0): Maud stays forever. +6
-HOL kroniek 15.3 (wacht 2.5): Page for the Hero. The pit won.
-HOL meting t=20 beelden=129 helden=1 hol_vast=3
-HOL einde na 24 s, fps=10, goud=26, terugkomers=0
+HOL kroniek 10.1 (wacht 0.0): Maud knocks first. Polite.
+HOL begin: vluchten (Maud)
+HOL held binnen: Maud
+HOL kroniek zelfde held vervangen: Elke is here for your gold.
+HOL kroniek 12.7 (wacht 0.0): Elke stays forever. +6
+HOL kroniek 15.3 (wacht 2.6): Page for the Hero. The pit won.
+HOL meting t=20 beelden=128 helden=1 hol_vast=3
+HOL kroniek 23.9 (wacht 0.0): Maud escaped with a limp.
+HOL zicht 24.0 0
+HOL einde na 24 s, fps=10, goud=26, terugkomers=1
