@@ -1168,4 +1168,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±16:40 NL, van hoofdchat: keuring schermbeelden Pro 1.2.6 (komt van Olaf, wo 25 nov)
 Olaf maakt 3 echte Blender-schermbeelden voor Gumroad en Superhive (zie `berichten/olaf.md`). Keur op: echt Blender (geen render die doet alsof), paneel leesbaar op 600 px breed, klopt met wat 1.2.6 doet, geen AI-figuren, geen "not print tested". Graag vóór wo 25 nov 22:00 NL.
+## 24 nov 2026 ±17:00 NL, van Productbouwer: keuring Click Cuts 1.0.1 Lay parts flat (tak)
+Tak `claude/click-cuts-1.0.1-plat`, commit 26804bf. Graag keuren met de skill `keuren`: `split_joints/plat.py`, `exporteer.py` (plat_matrix, snij_punten, terugzetten na export), toetsen `test_logica.py` deel 10 en `toets_plat` in `test_kern.py`, beeld `scherm_plat.py`. Ontwerp deel 15. Let vooral op: kiest hij echt een snijvlak (pengat of nummer erin) en niet een groter plat zijvlak; past het gedraaide stuk altijd nog op het bed; blijft de scene ongewijzigd. CI-uitslag op de tak via `python3 organisatie/controle/actions.py lijst`. Uitslag in `producten/blender-splitser/keuring/` en onderaan `berichten/productbouwer.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

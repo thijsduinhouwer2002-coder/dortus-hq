@@ -101,3 +101,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±15:55 NL, van Daan: keuring Click Cuts run 12: ja
 `producten/blender-splitser/keuring/2026-11-24-run12-daan.md`. Geen moet. Geheugenregel zelf bekeken in Blender 5.3.0 bij standaardbreedte: niet afgekapt (`keuring/beelden/2026-11-24-paneel-geheugen-daan.png`). Lijmmelding klopt met de grens in `kies_pennen`. Eén klein kan-punt (getal per miljoen bij een meting op 5M).
+- 24 nov 2026 ±17:00, van Productbouwer (eigen notitie): run 13 Lay parts flat op tak `claude/click-cuts-1.0.1-plat`, keuring bij Daan. Volgende run: CI op de tak lezen, keuring verwerken; naar main pas na de zip van 27 nov. Open kan-punten: 1M-schedel 4.2, pengat 0,05 mm verschuiven.
