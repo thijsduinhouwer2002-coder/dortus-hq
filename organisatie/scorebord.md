@@ -1,6 +1,6 @@
 # Scorebord Dortus
 
-Gemeten op 2026-11-24 om 18:41 UTC met `organisatie/controle/scorebord.py`, openbare bronnen, plus Gumroad, Kit en bezoekers van dortus.com (Amami) met leessleutels. Elk cijfer is GEZIEN: het script leest het zelf; de bron staat per regel. Draait elke dag om 06:41 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
+Gemeten op 2026-11-24 om 18:47 UTC met `organisatie/controle/scorebord.py`, openbare bronnen, plus Gumroad, Kit en bezoekers van dortus.com (Amami) met leessleutels. Elk cijfer is GEZIEN: het script leest het zelf; de bron staat per regel. Draait elke dag om 06:41 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
 
 | Product | Platform | Maat | Vandaag | Gisteren | 7 dagen terug | Erbij in 7 dagen | Stand | Bron |
 |---|---|---|---|---|---|---|---|---|
@@ -30,12 +30,12 @@ Gemeten op 2026-11-24 om 18:41 UTC met `organisatie/controle/scorebord.py`, open
 | YouTube @Dortusapps | YouTube | weergaven eQsepIbHdgU | 625 | 469 | geen meting |  | 2026-11-22 Make your rigged character poseable for 3D printing 🔥 / Blen | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven 4-3l3MZZWPc | 6 | 3 | geen meting |  | 2026-11-22 Blender rig to 3D printable figure: one button, hinges and b | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven I78weVdhwdw | 1115 | 1097 | geen meting |  | 2026-11-22 One click: rig to 10 printable parts in Blender | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
-| YouTube @Dortusapps | YouTube | weergaven Ij-jc6t4WNo | 606 | 420 | geen meting |  | 2026-11-22 How far can this knee bend? Check it before you print 👀 / Bl | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
+| YouTube @Dortusapps | YouTube | weergaven Ij-jc6t4WNo | 608 | 420 | geen meting |  | 2026-11-22 How far can this knee bend? Check it before you print 👀 / Bl | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven m3sNvDOJYQ0 | 17 | 11 | geen meting |  | 2026-11-20 Blender hinge for 3D printing that stops at 115° / Click Joi | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven WqgDSDL5twg | 1452 | 1441 | geen meting |  | 2026-11-20 Blender add-on: a hinge for knees and elbows with an end sto | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven 65JiRlDupNc | 1219 | 1219 | geen meting |  | 2026-11-19 See how far a joint bends before you 3D print it (free Blend | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven sgcC965GVps | 98 | 93 | geen meting |  | 2026-11-17 Breathing exercise on your watch? Close your eyes and follow | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
-| YouTube @Dortusapps | YouTube | weergaven (RSS) | 7213 | 5133 | geen meting |  | 11 filmpjes in de RSS (alleen de nieuwste openbare, max 15) | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
+| YouTube @Dortusapps | YouTube | weergaven (RSS) | 7215 | 5133 | geen meting |  | 11 filmpjes in de RSS (alleen de nieuwste openbare, max 15) | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | TikTok @screencuts.co | TikTok | weergaven 7710270617886444833 | 289 | 289 | geen meting |  | videopagina | GEZIEN, tiktok.com videopagina (playCount) |
 | TikTok @dortusstudio | TikTok | weergaven 7711044046633913632 | 289 | 289 | geen meting |  | videopagina | GEZIEN, tiktok.com videopagina (playCount) |
 | TikTok @dortusstudio | TikTok | weergaven 7709898461893643553 | 298 | 298 | geen meting |  | videopagina | GEZIEN, tiktok.com videopagina (playCount) |
@@ -76,7 +76,7 @@ Bezoekers, bezoeken en weergaven gelden voor de hele site. Per pagina: het getal
 
 | Dag | Bezoekers | Bezoeken | Weergaven | voorpagina | Click Joints | Ebb | Rollwright | Bison & Flex | TikTok-adres | YouTube-adres | overig |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 2026-11-24 tot 19:41 (nog niet om, niet in de csv) | 12 | 12 | 14 | 0 | 3 | 0 | 0 | 0 | 0 | 2 | 7 |
+| 2026-11-24 tot 19:47 (nog niet om, niet in de csv) | 12 | 12 | 14 | 0 | 3 | 0 | 0 | 0 | 0 | 2 | 7 |
 | 2026-11-23 | 12 | 13 | 13 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 9 |
 | 2026-11-22 | 11 | 13 | 18 | 1 | 4 | 0 | 0 | 0 | 0 | 1 | 7 |
 | 2026-11-21 | 13 | 13 | 13 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 8 |
@@ -85,6 +85,20 @@ Bezoekers, bezoeken en weergaven gelden voor de hele site. Per pagina: het getal
 | 2026-11-18 | 36 | 36 | 43 | 2 | 31 | 0 | 0 | 0 | ? | ? | 8 |
 | 2026-11-17 | 8 | 8 | 9 | 1 | 3 | 0 | 0 | 0 | ? | ? | 4 |
 | 2026-11-16 | 5 | 5 | 6 | 3 | 2 | 0 | 0 | 0 | ? | ? | 0 |
+
+## Herkomst bezoeken dortus.com (Amami, verwijzende site per dag)
+
+Per dag het aantal bezoeken per verwijzende site (Umami-metrics type referrer). "direct" is zonder verwijzer: getypt, een bladwijzer of een app die niets doorgeeft (YouTube- en TikTok-apps doen dat vaak).
+
+| Dag | Bezoeken per verwijzer |
+|---|---|
+| 2026-11-24 tot 19:47 (nog niet om) | blendernation.com 2, youtube.com 1 |
+| 2026-11-23 | blendernation.com 3 |
+| 2026-11-22 | geen 0 |
+| 2026-11-21 | blendernation.com 4 |
+| 2026-11-20 | gumroad.com 5, blendernation.com 3, facebook.com 1, metainf.atlassian.net 1 |
+| 2026-11-19 | blendernation.com 8 |
+| 2026-11-18 | blendernation.com 25, bing.com 1, blender-3d.338.s1.nabble.com 1 |
 
 ## Wat niet te zien is
 
