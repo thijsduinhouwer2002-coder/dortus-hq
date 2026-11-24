@@ -1,5 +1,10 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 12:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat blijft de enkel-zin op de live pagina's. Pro 1.2.5 zip staat (run 45380984015), releasenote ja van Daan met M1 (Bram zet M1 in het bestand). Plak 1.2.5 plus nieuwe Docs-tab vóór do 27 nov, kan alleen in Chrome op de werklaptop. Olaf: 1.2.6 robot-enkels, keuring bij Daan.
+- **Click Cuts:** zip do 27 nov; cc-pas en cc-nummers ja van Iris, cc-fit nee om M1 (Regisseur).
+- **Idee deze ronde:** uitlegclips als los bestand bij de koop (les Surface Lab, 2 van 5 reviews prijzen video's). Chris knipt, Bram Docs-tab. Score 6.
+
 ## 24 nov 2026 12:25 NL (hoofdchat kwartier-check 16)
 - **Click Cuts:** goed om te kopen in 5.3; in 4.2 traag (1M 106 tot 186 s) en 3M piekt op 9,2 GB. Winkeltekst zegt nog "about twice as long" in 4.2: Chris past aan (doel 14:00), nu ook met een geheugenregel. Geen video op de pagina tot de liggende video (vóór vr 27 nov).
 - **Idee deze ronde:** FAQ "Why not just use my slicer's cut tool?", want Bambu, Orca en Prusa snijden gratis met Snap en Dowel. Score 6, mee in de wijziging van Chris.

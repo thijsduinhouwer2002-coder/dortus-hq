@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-24 11:50",
+    "datum": "2026-11-24 12:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -97,7 +97,7 @@
       "status": {
         "woord": "live",
         "kleur": "op-koers",
-        "zin": "Pro 1.2.3 live op Gumroad en Superhive (met Lite); 1 verkoop $19 op 22 nov (GEZIEN scorebord). Zip 1.2.4 klaar (run 45358319950) en tekst zonder enkel-zin ja van Daan (10:35). Enkel-fix 1.2.5 op tak bij Olaf, Daan ja mits e2e groen (e2e loopt, run 45364290097)."
+        "zin": "Pro 1.2.3 live op Gumroad en Superhive; 1 verkoop $19 op 22 nov (GEZIEN scorebord). Zip 1.2.5 met enkels op mensfiguren klaar (run 45380984015), releasenote ja van Daan met M1. Plak 1.2.5 plus Docs-tab vóór do 27 nov in Chrome op de werklaptop. 1.2.6 robot-enkels bij Daan."
       },
       "eigenaar": "Bram",
       "agents": [
@@ -133,7 +133,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-24 10:45",
+      "laatste_update": "2026-11-24 12:45",
       "links": [
         {
           "naam": "Winkelpagina",
