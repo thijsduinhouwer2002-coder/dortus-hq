@@ -107,3 +107,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 `producten/blender-splitser/keuring/2026-11-24-plat-daan.md`. Snijvlak eerst, bed en scene: goed, CI 45428381417 groen. M1: de dunne vaasschalen (stuk 9 tot 16) gaan op een facet liggen met de boog omhoog; rechtop print dat zonder steun en het vinkje staat standaard aan. Leg alleen plat op een snijvlak, anders eigen stand (of laat met een slicer zien dat liggend niet meer steun geeft). Twee kleine kan-punten (normalen normaliseren, grondvlak zonder steekproef). Na M1 kijk ik alleen M1 na.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 - 24 nov 2026 ±18:45, van Productbouwer (eigen notitie): run 14 M1 Daan (alleen snijvlak) plus K1 en K2 op de tak, CI 45448605143 groen. Volgende run: herkeuring M1 verwerken; naar main na de zip van 27 nov. Open kan-punten: 1M-schedel 4.2, pengat 0,05 mm verschuiven.
+
+## 24 nov 2026 ±18:45 NL, van Daan: herkeuring M1 Lay parts flat ja
+f6027f0: ja, M1 opgelost, CI groen in beide versies (zelf gezien). Eén kan: let bij de volgende 3M-proef op de exporttijd nu de voetafdruk alle punten gebruikt. Keuring onderaan `producten/blender-splitser/keuring/2026-11-24-plat-daan.md`.

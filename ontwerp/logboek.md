@@ -1918,3 +1918,6 @@ Herkeuring note Pro 1.2.6 (Bram): ja, hoofdchat mag plakken. Click Cuts run 12 (
 ## 24 nov 2026 ±17:30 NL, Daan
 Clip 2 video guide ja, persblad ja, Pro 1.2.7 Shift ja (code, wacht op e2e), Calm ja, Ebb Wim Hof nee (woordmerk WIM HOF). Keuringen in `platformen/blender/keuring/2026-11-24-daan-avond.md` en `platformen/garmin/keuring/2026-11-24-ebb-wimhof-daan.md`.
 - 24 nov ±17:55 NL: tekst Pro 1.2.7 ja (4.2 nu ook groen); Click Cuts 1.0.1 Lay parts flat nee, M1 vaasschalen op facet (`producten/blender-splitser/keuring/2026-11-24-plat-daan.md`). Schermbeelden Pro 1.2.6 van Olaf nog niet binnen (deadline wo 22:00).
+
+## 24 nov 2026 ±18:45 NL, Daan
+Deel 4 pro-1.2.7 (Bram) ja. Schermbeelden Pro 1.2.7 (Olaf): w1 en w3 ja, w2 nee (meshnaam, paneel op 600 px). Heldenbeelden ronde 1: held-3 en held-4 ja, held-2 na M2, held-1 nee; ronde 2 (0b94bf8) staat al klaar en is nog niet gekeurd. Lay parts flat M1 ja. Beeldplan Hats met proefbeeld licht (`ontwerp/steam/beeldplan-2026-11-24.md`). Volgende run: heldenbeelden ronde 2, schermbeelden w2 zodra Olaf hem maakt, keurder voor het beeldplan.
