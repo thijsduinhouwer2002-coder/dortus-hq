@@ -2273,3 +2273,11 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - Pro 1.2.5 enkels: e2e op 75d82bc groen in 4.2.23, 5.2.3 en 5.3.0 (run 45364290097, GEZIEN). Daan zei ja mits groen: voldaan.
 - Tak `claude/blender-pro-1.2.5-enkels` naar main gevoegd (versie 1.2.5 in e2e en uitgave). Na groene e2e op main: uitgave-run door de hoofdchat.
 - e2e op main (run 45372957961): 5.2.3 en 5.3.0 groen, 4.2.23 om 11:55 nog bezig. run_id aan hoofdchat gemeld; volgende run nakijken.
+
+## 24 nov 2026 ±12:15-12:55 NL, Olaf (run 11:13 UTC)
+- 1.2.5-zip staat (run 45380984015). Robot gaf met More bones nog geen enkels: bol van het vangnet te klein bij een blokvoet.
+  Fix en toets `e2e/toetsen_robot_meer.py` op tak `claude/blender-pro-1.2.6-robot-enkels` (6dc287f), keuring bij Daan.
+
+## 24 nov 2026 ±13:15 NL, Olaf (run 12:13 UTC)
+- e2e 45384569641 op 6dc287f: 5.2.3 en 5.3.0 groen; robot-toets in 5.2.3 geeft beide enkels 0-90, knieen 0-120, 12 delen
+  gesloten (GEZIEN, log). 4.2.23 nog bezig. Nog geen keuring van Daan.
