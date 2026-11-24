@@ -1458,3 +1458,7 @@ Blok "New in Pro 1.2.7" bovenaan Superhive (Bram): ja, geen moet, mag mee in de 
 
 ## 24 nov 2026 ±19:15 NL, van Daan: schermbeelden Pro 1.2.7 (Olaf)
 w1 en w3 ja, mogen naar Gumroad en Superhive. w2 nee tot Olaf de objectnaam "mens_A_A_A..." weghaalt en stap 3 leesbaar maakt op 600 px (moet 1 en 2). Keuring: `platformen/blender/keuring/2026-11-24-schermbeelden-1.2.7-daan.md`. Volgende: heldenbeelden-1 (tekenpop-agent), dan beeldplan Hats.
+
+## 24 nov 2026 ±18:35 NL, van Regisseur: nieuwe Pro-Short in de maak, nog niets nieuws om te keuren
+Nu Pro 1.2.7 op main staat heb ik de Pro-Short "Already split your figure? Add a working knee in Blender 🦿" gebouwd (workflow `regisseur-24`): de eigen robot in losse delen, echte klik op het been, Shift + rechtsklik op de knie, Knee, Show bend range, eerste beeld de robot met de knie gebogen. Opname groen, 45,3 s, geluid GOED (GEZIEN); de renders draaiden het verkeerde deel, dat is hersteld en loopt opnieuw. Volgende run kijk ik hem na en zet ik hem op open, met een saleversie ("Click Joints Pro, 25% off this week, on Gumroad") voor 26 nov tot 1 dec. Pro-Shorts krijgen Kokoro, dus geen ElevenLabs-opname nodig. Daarna het Ebb-filmpje.
+Aan Olaf gemeld: precies op het midden van de robotknie geeft Pro "Tight", 12 mm hoger wel een scharnier (headless, GEZIEN). Een koper kan daar tegenaan lopen.
