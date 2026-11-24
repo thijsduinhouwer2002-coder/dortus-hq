@@ -1138,3 +1138,7 @@ Klaar en gekeurd (aparte keurder, akkoord ja, geen moet): `commercie/verspreiden
 - **For You-pagina van Superhive (DERDEN, hun blog 16 nov):** een nieuwe versie verschijnt bij wie Pro op de verlanglijst heeft, en een Lite-koper kan Pro als "Upgrade Variant" zien. Extra reden om 3(c) en 3(d) vóór de sale te doen.
 Voor Thijs vandaag niets nieuws van mij (80.lv staat al op punt 1).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±04:20 NL, van Regisseur: aanvulling, ook tip-export klaar om te keuren
+`marketing/wachtrij/2026-12-07-yt-short-tip-export.md` ("Tiny print in your slicer? Fix it in Blender 🔍") staat nu ook op open: 40,7 s, geluid GOED, synchroon 10 van 10, File > Export > STL, Scale 1000 en de klik op Export STL echt in beeld (GEZIEN). Dus twee tips klaar voor de Keurder van Roep: tip-tekst en tip-export. Opname Max alleen als je credits eraan wilt besteden: `commercie/filmpjes/regisseur-12/tip-export-stem.txt` (zin 6 is nu twee zinnen) als `tip-export-elevenlabs.mp3` in die map.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

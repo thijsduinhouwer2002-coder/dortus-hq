@@ -1,14 +1,17 @@
 # Tip-reeks 10: Tiny print in your slicer? Fix it in Blender 🔍
 
-- status: wacht (run 12: release van run 45308576412 afgekeurd door mezelf: `j_file` null, het File-menu werd niet gevonden en het vangnet exporteerde via een script; de kijker zag File > Export > STL en Scale 1000 nooit (GEZIEN in film.json en het log). Hersteld en lokaal geproefd met Blender 5.3.0: File-menu, Export, STL, venster schermvullend, Scale 1000, klik op Export STL, "File exported successfully", `j_via_venster` true, label.stl 60 x 30 x 4 mm (GEZIEN). Workflow regisseur-12 neemt opnieuw op; de volgende run kijkt het releasebestand na en zet hem op open)
+- status: open (run 12: opname hersteld en releasebestand zelf nagekeken; File > Export > STL, Scale 1000 en de klik op Export STL nu echt in beeld, export via het venster: `j_via_venster` true, GEZIEN)
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL; recept v3 Malikose); onderwerp nr. 1 van de gratis tips in `commercie/filmpjes/scripts/volgorde-stem.md` (week 50 nr. 4), hier als Blender-tip zonder add-on
 - product: click-joints-pro (tip zonder reclame in het midden, alleen de eindzin naar dortus.com/yt)
-- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-12/tip-export-geluid.mp4 (workflow regisseur-12, nog niet nagekeken)
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-12/tip-export-geluid.mp4 (workflow regisseur-12, run 45317577738 op commit d35ec4f, opname uit run 45316791506; door de Regisseur nagekeken 24 nov run 12)
 - stem_tekst: `commercie/filmpjes/regisseur-12/tip-export-stem.txt` (voor de ElevenLabs-stem Max van de hoofdchat)
-- geluid_check: nog niet (de workflow draait hem op het releasebestand en faalt bij FOUT)
-- lengte: nog niet gemeten (de workflow faalt buiten 40 tot 60 s)
+- geluid_check: GOED, gemiddeld -16,7 dB, piek -1,4 dB (GEZIEN, zelf gedraaid op het releasebestand)
+- lengte: 40,7 s, 1080 x 1920 (ffprobe, GEZIEN)
+- synchroon: GOED, 10 van 10 zinnen binnen 0,3 s, grootste 0,18 s, gemiddeld 0,134 s (GEZIEN, synchroon-tip-export.md in de release)
+- beelden: 22 beelden zelf bekeken met Read, eerste beeld groot: grijs label met gat op het raster, kop "Tiny in your slicer?", geen getallen (GEZIEN). N-paneel met Dimensions 60 / 30 / 4 mm, File-menu met Export-submenu en STL, exportvenster met Scale 1000.000, klik op Export STL (GEZIEN). Kan beter: de ondertitel "Then click" ligt even over de knop Export STL.
+- metingen (film.json, GEZIEN): Blender 60 x 30 x 4 mm bij Unit Scale 1; STL zonder Scale 0,06 x 0,03 x 0,004; STL via het venster met Scale 1000: 60 x 30 x 4.
 - tijd: voorstel 2026-12-07T12:00:00+01:00 (de hoofdchat kiest)
 - doel: dortus.com/yt (over te typen)
 - gemaakt_door: Regisseur run 11; opname in workflow regisseur-12 (Blender 5.3.0, xvfb, echte muis)
@@ -36,12 +39,12 @@ More Blender tips for 3D printing: type dortus.com/yt in your browser.
 (leeg)
 
 ## Bronnen
-- **Hook (eerste 1,5 s):** "Is your print tiny in the slicer?" vanaf beeld 1, kop "Tiny in your slicer?", beeld: een oranje label met afgeronde hoeken en een gat dat langzaam draait (echte Blender). Geen productnaam, geen zwevende getallen.
+- **Hook (eerste 1,5 s):** "Is your print tiny in the slicer?" vanaf beeld 1, kop "Tiny in your slicer?", beeld: een grijs label (oranje selectierand) met afgeronde hoeken en een gat dat langzaam draait (echte Blender). Geen productnaam, geen zwevende getallen.
 - **Scale bij STL-export:** Blender-handleiding, STL export: "Scale: Value by which to scale the exported objects in relation to the world's origin." en "Scene Unit: Apply current scene's unit (as defined by unit scale) to exported data." (DERDEN: https://docs.blender.org/manual/en/latest/files/import_export/stl.html, met curl gelezen 24 nov).
 - **Unit Scale verandert alleen wat je ziet:** Blender-handleiding Scene Properties: "This only influences the values displayed in the user interface and not how things behave internally." (DERDEN: https://docs.blender.org/manual/en/latest/scene_layout/scene/properties.html, met curl gelezen 24 nov).
-- **"inside the file it is 0.06" en "now the file says 60 mm":** het script exporteert eerst met Scale 1 (onzichtbaar) en leest het STL-bestand na (`j_stl_zonder`), daarna via het echte venster met Scale 1000 (`j_stl_met`), in `film.json`. Moet 0,06 en 60 zijn; nog na te kijken in de release. Klopt het niet, dan gaan zin 3 en 7 eruit.
+- **"inside the file it is 0.06" en "now the file says 60 mm":** het script exporteert eerst met Scale 1 (onzichtbaar) en leest het STL-bestand na (`j_stl_zonder`), daarna via het echte venster met Scale 1000 (`j_stl_met`), in `film.json`. Gemeten: 0,06 x 0,03 x 0,004 en 60 x 30 x 4 (GEZIEN, film.json van run 45316791506).
 - **"Most slicers read that as mm":** STL bewaart geen eenheid (algemene kennis, ook in het script van Sanne week 50 nr. 4, gekeurd door Daan); "most" omdat we niet elke slicer zelf zagen (GOK voor de uitzonderingen). Geen slicer-naam genoemd of getoond.
-- **Echte menu's:** File > Export > STL met de echte muis (OCR, drempel 35 %), Scale in het venster met dubbelklik en 1000 getypt, knop Export STL geklikt. Nakijken in het log of er een vangnet-regel staat (`j_via_venster`).
+- **Echte menu's:** File > Export > STL met de echte muis (OCR, drempel 35 %), Scale in het venster met dubbelklik en 1000 getypt, knop Export STL geklikt. In film.json: `j_file`, `j_export`, `j_stl_item`, `j_scale_label` en `j_knop` gevonden, `j_venster_open` en `j_via_venster` true, dus geen vangnet (GEZIEN). Het exportvenster staat schermvullend (voorkeur File Browser: Maximized Area), dat kan een kijker zelf ook kiezen.
 - **Model:** eigen label van 60 x 30 x 4 mm, in het script gemaakt (kubus, afgeronde hoeken, gat). Geen modellicentie nodig.
 - **Stem:** tijdelijk Kokoro-82M, af_heart, Apache 2.0, commercieel gebruik toegestaan (DERDEN: https://huggingface.co/hexgrad/Kokoro-82M). ElevenLabs-opname (Max) gevraagd aan de hoofdchat: `tip-export-elevenlabs.mp3` in `commercie/filmpjes/regisseur-12/`.
 - **Nieuw onderwerp:** geen Short van de laatste 14 dagen over exportschaal of eenheden (wachtrij en regisseur-log nagekeken 24 nov, GEZIEN; tip-maat gaat over het printbed, niet over de export).
