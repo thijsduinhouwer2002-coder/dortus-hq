@@ -76,4 +76,4 @@ Click Joints Pro, one button from a rigged figure to printable parts with joints
 
 ## Na plaatsen
 - ingepland: 22 nov 2026 20:15 NL, Metricool-nummer 437867666, moment 2026-12-01 17:00 NL, status PENDING (GEZIEN createScheduledPost). Keuring groen Roep-Keurder commit c71ce042. Techniek: media GET 206 (HEAD 401 op de opslagserver, zoals de Keurder zag), geen < of >, geen Gumroad, https://dortus.com/yt/ op regel 1 en in de eerste reactie.
-
+- gelezen: 24 nov 2026 20:15 NL: hoofdchat paste de tekst aan op 24 nov 17:51 (Fit test-zin), Metricool-nummer nu 440578342, moment ongewijzigd, PENDING, geen draft (GEZIEN getScheduledPosts).

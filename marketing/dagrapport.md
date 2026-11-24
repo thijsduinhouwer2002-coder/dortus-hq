@@ -64,3 +64,12 @@ Schrijft: de Maker (geplande taak "Dortus Roep: maken en plaatsen"), één blok 
 - wachtrij: TikTok ingepland 24, 25 en 27 nov; open 2 TikTok-tips v2 (26 en 28 nov); groen 0 voor TikTok of lange video (groene Shorts plaatst de hoofdchat); oranje 0. Voorraad TikTok tot 28 nov: genoeg, niets gemaakt.
 - gemaakt vandaag: niets.
 - stopregel: beste TikTok 298 weergaven (GEZIEN, scorebord), onder 1.000; de regel geldt vanaf 1 dec. Geldklok: verkoop op 22 nov, dus 1 dag zonder verkoop van Pro (was dag 3 van 14).
+
+### di 24 nov 2026 NL
+- uitgegaan vandaag via Metricool: niets. De Ebb-TikTok van 18:00 ging niet uit: de hoofdchat zette hem om 17:52 op draft (TikTok staat stil, Thijs 24 nov 17:50). Ook de TikToks van 25 en 27 nov staan op draft; wachtrijbestanden op vervallen (GEZIEN getScheduledPosts 20:15). Shorts in YouTube Studio plaatst de hoofdchat (zie `commercie/geplaatst.md`).
+- cijfers (GEZIEN, `organisatie/scorebord.md`, meting 24 nov 18:47 UTC): TikTok beste 306 weergaven (7709157242309774625), alle 5 samen 1.309 (videopagina, playCount). Lange video's: Rig to figure (4-3l3MZZWPc) 6, scharnier (m3sNvDOJYQ0) 17 (RSS). Shorts beste: WqgDSDL5twg 1.452, lcUBuWMaJ_A 1.206, 65JiRlDupNc 1.219, I78weVdhwdw 1.115; RSS samen 7.215. Kijktijd TikTok niet gelezen.
+- geld: Gumroad-verkopen Pro 1 in totaal, $19, op 22 nov; vandaag geen nieuwe (GEZIEN, scorebord 18:47 UTC). Bezoeken TikTok-adres dortus.com/tt: 0 vandaag (tot 19:47); YouTube-adres dortus.com/yt: 2 vandaag (tot 19:47) (GEZIEN, Amami-tabel scorebord).
+- ingepland deze ronde: niets. Groen voor TikTok (tip-split-v2 26 nov, tip-buigen-v2 28 nov) blijft liggen: TikTok staat stil. Groene Shorts zijn voor de hoofdchat.
+- quotum november: 11 gewone posts in Metricool plus 3 TikTok-drafts (GEZIEN); of drafts en opnieuw gemaakte posts meetellen is niet bekend (GOK). Lang YouTube november 0 over volgens het plan. December: 2 lange video's ingepland (1 en 3 dec, nieuwe nummers 440578342 en 440578360 na tekstwijziging door de hoofdchat), over volgens het plan: lang 2, reserve 2; TikTok 14 staat stil.
+- wachtrij: lang ingepland 1 en 3 dec; lang 1.2-update wacht op keuring Daan; oranje 0; open vooral Shorts. Niets gemaakt: TikTok-concepten mogen niet, lange video's maakt Chris.
+- stopregel: beste TikTok 306 weergaven (GEZIEN), onder 1.000; TikTok staat al stil op besluit van Thijs. Geldklok: laatste verkoop van Pro 22 nov, dag 2 zonder verkoop.

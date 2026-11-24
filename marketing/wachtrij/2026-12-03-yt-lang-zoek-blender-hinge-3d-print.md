@@ -74,4 +74,4 @@ Click Joints Pro, a hinge with an end stop for 3D printing in Blender: https://d
 
 ## Na plaatsen
 - ingepland: 22 nov 2026 20:15 NL, Metricool-nummer 437867758, moment 2026-12-03 17:00 NL, status PENDING (GEZIEN createScheduledPost). Keuring groen Roep-Keurder commit c71ce042. Techniek: media GET 206 (HEAD 401 op de opslagserver), geen < of >, geen Gumroad, https://dortus.com/yt/ op regel 1 en in de eerste reactie.
-
+- gelezen: 24 nov 2026 20:15 NL: hoofdchat paste de tekst aan op 24 nov 17:51 (Fit test-zin), Metricool-nummer nu 440578360, moment ongewijzigd, PENDING, geen draft (GEZIEN getScheduledPosts).

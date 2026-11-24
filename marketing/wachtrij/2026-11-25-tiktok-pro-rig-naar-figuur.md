@@ -1,6 +1,6 @@
 # Click Joints Pro: één knop van rig naar printbare figuur
 
-- status: ingepland
+- status: vervallen (TikTok staat stil, Thijs 24 nov 17:50; hoofdchat zette hem op draft)
 - kanaal: tiktok
 - soort: video
 - product: click-joints-pro
@@ -48,3 +48,4 @@ One button in Blender: your rigged figure gets a hinge with an end stop at every
 
 ## Na plaatsen
 - ingepland: 21 nov 2026 20:15 NL, Metricool-nummer 436948770, moment 2026-11-25 18:00 NL, status PENDING (GEZIEN createScheduledPost)
+- gelezen: 24 nov 2026 20:15 NL, getScheduledPosts: draft true, Metricool-nummer nu 440577876 (uuid 2534191383024717241), moment 2026-11-25 18:00 NL, niet geplaatst (GEZIEN). Niet opnieuw inplannen tot de hoofdchat de TikTok-regel in REGELS.md weghaalt.
