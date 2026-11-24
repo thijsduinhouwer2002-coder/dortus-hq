@@ -1,6 +1,6 @@
 # Scorebord Dortus
 
-Gemeten op 2026-11-24 om 07:40 UTC met `organisatie/controle/scorebord.py`, openbare bronnen, plus Gumroad, Kit en bezoekers van dortus.com (Amami) met leessleutels. Elk cijfer is GEZIEN: het script leest het zelf; de bron staat per regel. Draait elke dag om 06:41 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
+Gemeten op 2026-11-24 om 07:43 UTC met `organisatie/controle/scorebord.py`, openbare bronnen, plus Gumroad, Kit en bezoekers van dortus.com (Amami) met leessleutels. Elk cijfer is GEZIEN: het script leest het zelf; de bron staat per regel. Draait elke dag om 06:41 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
 
 | Product | Platform | Maat | Vandaag | Gisteren | 7 dagen terug | Erbij in 7 dagen | Stand | Bron |
 |---|---|---|---|---|---|---|---|---|
@@ -12,7 +12,7 @@ Gemeten op 2026-11-24 om 07:40 UTC met `organisatie/controle/scorebord.py`, open
 | Gloop's Hat Tower | Garmin | beoordelingen | 0 | 0 | geen meting |  |  | GEZIEN, apps.garmin.com winkel-API |
 | Ebb Calm | Garmin | downloads | 10 | 10 | 1 | +9 | app, gratis, versie 1.0.1 | GEZIEN, apps.garmin.com winkel-API |
 | Ebb Calm | Garmin | beoordelingen | 0 | 0 | 0 | 0 |  | GEZIEN, apps.garmin.com winkel-API |
-| Ebb | Garmin | downloads | 1 | 1 | 0 | +1 | app, $2.99 USD, versie 1.0.1 | GEZIEN, apps.garmin.com winkel-API |
+| Ebb | Garmin | downloads | 1 | 1 | 0 | +1 | app, $4.99 CAD, versie 1.0.1 | GEZIEN, apps.garmin.com winkel-API |
 | Ebb | Garmin | beoordelingen | 0 | 0 | 0 | 0 |  | GEZIEN, apps.garmin.com winkel-API |
 | Rollwright | Obsidian | downloads | 52 | 52 | 44 | +8 | community-plugin-stats.json | GEZIEN, obsidian-releases community-plugin-stats.json |
 | Bison & Flex | JetBrains | downloads | 32 | 22 | 1 | +31 | in keuring, freemium | GEZIEN, plugins.jetbrains.com API |
@@ -39,7 +39,9 @@ Gemeten op 2026-11-24 om 07:40 UTC met `organisatie/controle/scorebord.py`, open
 | TikTok @screencuts.co | TikTok | weergaven 7710270617886444833 | 289 | 289 | geen meting |  | videopagina | GEZIEN, tiktok.com videopagina (playCount) |
 | TikTok @dortusstudio | TikTok | weergaven 7711044046633913632 | 289 | 289 | geen meting |  | videopagina | GEZIEN, tiktok.com videopagina (playCount) |
 | TikTok @dortusstudio | TikTok | weergaven 7709898461893643553 | 298 | 298 | geen meting |  | videopagina | GEZIEN, tiktok.com videopagina (playCount) |
-| TikTok (alle) | TikTok | weergaven | 876 | 876 | geen meting |  | 3 van 3 filmpjes leesbaar | GEZIEN, tiktok.com videopagina (playCount) |
+| TikTok @dortusstudio | TikTok | weergaven 7709157242309774625 | 306 | geen meting | geen meting |  | videopagina | GEZIEN, tiktok.com videopagina (playCount) |
+| TikTok @dortusstudio | TikTok | weergaven 7709109994217671968 | 127 | geen meting | geen meting |  | videopagina | GEZIEN, tiktok.com videopagina (playCount) |
+| TikTok (alle) | TikTok | weergaven | 1309 | 876 | geen meting |  | 5 van 5 filmpjes leesbaar | GEZIEN, tiktok.com videopagina (playCount) |
 
 ## Herkomst Gumroad-verkopen
 
@@ -74,7 +76,7 @@ Bezoekers, bezoeken en weergaven gelden voor de hele site. Per pagina: het getal
 
 | Dag | Bezoekers | Bezoeken | Weergaven | voorpagina | Click Joints | Ebb | Rollwright | Bison & Flex | TikTok-adres | YouTube-adres | overig |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 2026-11-24 tot 08:40 (nog niet om, niet in de csv) | 5 | 5 | 5 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 4 |
+| 2026-11-24 tot 08:43 (nog niet om, niet in de csv) | 5 | 5 | 5 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 4 |
 | 2026-11-23 | 12 | 13 | 13 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 9 |
 | 2026-11-22 | 11 | 13 | 18 | 1 | 4 | 0 | 0 | 0 | 0 | 1 | 7 |
 | 2026-11-21 | 13 | 13 | 13 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 8 |
