@@ -1,0 +1,35 @@
+[meet] figuur kleding: Figuur_gesloten, {'bron_punten': 156684, 'bron_zelf_overlap': 0}
+[meet] Blender 5.2.3 LTS figuur kleding: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 17, sneden 13, slechte sneden 0
+MEET kleding gewrichten=9 overgeslagen=0 slechte_sneden=0
+Info: Watertight copy Figuur_gesloten made (156682 faces)
+[studio] na watertight: 156684 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (20.9, 10.3, 59.1), elleboog L (41.3, 12.8, 154.0)
+[meet] figuur kleding: Figuur_gesloten, {'bron_punten': 156684, 'bron_zelf_overlap': 0}
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 3.674 s.
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 3.671 s.
+Info: Hinge placed. Bends 0° to 120°. 4.558 s.
+Info: Hinge placed. Bends 0° to 120°. 2.094 s.
+Info: Joint placed. Good fit. 3.127 s.
+Info: Joint placed. Good fit. 5.3 s.
+Info: Joint placed. Good fit. 5.365 s.
+Info: Joint placed. Good fit. 5.268 s.
+Info: Joint placed. Good fit. 5.418 s.
+Info: Joint placed. Good fit. 7.349 s.
+Info: Joint placed. Good fit. 3.682 s.
+Info: Joint placed. Good fit. 2.242 s.
+Info: Joint placed. Good fit. 2.215 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 5.2.3 LTS figuur kleding: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 17, sneden 13, slechte sneden 0
+MEET kleding gewrichten=9 overgeslagen=0 slechte_sneden=0
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+OBJ import of 'makehuman-base.obj' took 17.59 ms
+
+Blender quit
