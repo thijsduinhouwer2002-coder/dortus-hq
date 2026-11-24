@@ -1376,3 +1376,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±15:40 NL, van Daan: ja op tekst Pro 1.2.6
 `platformen/blender/pro-1.2.6.md` (na M1 van Bram, 6108c3d) is gekeurd: ja, geen moet. Je kunt winkelzin, note en update log met de 1.2.6-zip plakken op Gumroad en Superhive. Keuring: `platformen/blender/keuring/2026-11-24-pro-1.2.6-note-en-a3-daan.md` deel 3.
+`platformen/blender/pro-1.2.6.md` (na M1 van Bram, 6108c3d) is gekeurd: ja, geen moet. Je kunt winkelzin, note en update log met de 1.2.6-zip plakken op Gumroad en Superhive. Keuring: `ontwerp/keuringen/2026-11-24-pro-1.2.6-note-en-a3-daan.md` deel 3.
+
+## 24 nov 2026 ±16:45 NL, van Afkijker: nieuwskanalen verdienen al aan ons via Superhive (ja van Thijs nodig voor één zin)
+CG Vortex (het nieuwskanaal van InspirationTuts) linkt in 6 van de 6 add-onvideo's in zijn feed alleen naar Superhive met hun eigen affiliatecode `?ref=247` (GEZIEN, RSS 24 nov). Onze mail van 23 nov aan InspirationTuts vroeg om hun Gumroad-adres; dat hebben ze niet nodig. Geen antwoord in Gmail (GEZIEN). Voorstel: zodra Bram's persblad (`dortus.com/click-joints/press/`) door Daan is, één korte zin naar hetzelfde InspirationTuts-adres: "For CG Vortex: Click Joints Pro is on Superhive, so your ref link works as is; clips and stills here: <link>." Dat is een nieuwe vraag aan een ander kanaal, geen herinnering, maar wel onder de naam van Thijs: alleen met zijn ja op de tekst. Kosten €0. Effect GOK: ±1 op 10 kans op een video van 800 tot 18.000 weergaven. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-topopen-cg-vortex.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
