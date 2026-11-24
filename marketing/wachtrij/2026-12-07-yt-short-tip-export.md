@@ -2,6 +2,7 @@
 
 - status: open (run 12: opname hersteld en releasebestand zelf nagekeken; File > Export > STL, Scale 1000 en de klik op Export STL nu echt in beeld, export via het venster: `j_via_venster` true, GEZIEN)
 - bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-12).
+- nagekeken run 25 (GEZIEN, release regisseur-12, run 45431052371): lengte 40,8 s, geluid GOED (-16,6 dB), synchroon GOED 10 van 10 (0,187 s); zin 9 langer gemaakt want de eerste montage was 39,8 s; 3 beelden bekeken. Eerlijkheidszin en slotzin staan in beeld en stem.
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL; recept v3 Malikose); onderwerp nr. 1 van de gratis tips in `commercie/filmpjes/scripts/volgorde-stem.md` (week 50 nr. 4), hier als Blender-tip zonder add-on

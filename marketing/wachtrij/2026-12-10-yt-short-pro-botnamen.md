@@ -2,6 +2,7 @@
 
 - status: open
 - bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-16).
+- nagekeken run 25 (GEZIEN, release regisseur-16, run 45430298648): lengte 48,8 s, geluid GOED (-16,6 dB), synchroon GOED 13 van 13 (0,197 s). Eerlijkheidszin en slotzin staan in beeld en stem.
 - kanaal: yt-short
 - soort: video
 - soort_reeks: Pro (script week 48 nr. 6, hook 6B, `commercie/filmpjes/scripts/week-48-click-joints.md`, ja Daan; Pro-lijst nr. 2 in `scripts/volgorde-stem.md`)

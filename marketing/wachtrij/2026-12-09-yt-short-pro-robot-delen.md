@@ -2,6 +2,8 @@
 
 - status: open
 - bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-14).
+- nagekeken run 25 (GEZIEN, release regisseur-14, run 45431514557): lengte 44,3 s (saleversie 46,2 s), geluid GOED (-16,6 en -16,5 dB), synchroon GOED 13 van 13 (0,18 s), saleversie ook 13 van 13; 8 beelden bekeken. Eerlijkheidszin en slotzin staan in beeld en stem.
+- saleversie: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-14/pro-robot-delen-sale-geluid.mp4, slotzin "Click Joints Pro, 25% off this week, on Gumroad." Alleen do 26 nov avond tot en met di 1 dec en alleen als CYBER25 aanstaat; daarna de gewone versie.
 - nagekeken: Regisseur run 15, 24 nov (release nagekeken, uitsneden hersteld, opnieuw gemonteerd)
 - kanaal: yt-short
 - soort: video

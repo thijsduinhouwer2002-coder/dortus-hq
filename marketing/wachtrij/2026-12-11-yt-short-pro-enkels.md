@@ -2,6 +2,7 @@
 
 - status: open (Regisseur run 22, 24 nov: opgenomen met Pro 1.2.6, releasebestand zelf nagekeken)
 - bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-17).
+- nagekeken run 25 (GEZIEN, release regisseur-17, run 45430298655): lengte 41,6 s, geluid GOED (-16,5 dB), synchroon GOED 11 van 11 (0,18 s). Eerlijkheidszin en slotzin staan in beeld en stem.
 - opname (GEZIEN, release regisseur-17, runs 45397504004 en 45400996121, opname-pro.log): klik op More bones (1531, 323) echt; Pro meldt 11 gewrichten, waarvan `Left ankle · Hinge · 0–90° · preset` en `Right ankle · Hinge · 0–90° · preset`; statusbalk "11 joints · 2 rig · 2 mirror · 7 preset." (eerdere poging run 17 met 1.2.0: enkels overgeslagen).
 - kanaal: youtube-short
 - soort: video

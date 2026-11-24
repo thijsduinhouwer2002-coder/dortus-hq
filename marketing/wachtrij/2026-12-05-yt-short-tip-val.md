@@ -2,6 +2,7 @@
 
 - status: open (releasebestand nagekeken door de Regisseur, run 10, 24 nov)
 - bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-10).
+- nagekeken run 25 (GEZIEN, release regisseur-10, run 45430299421): lengte 42,8 s, geluid GOED (-16,6 dB), synchroon GOED 10 van 10 (0,23 s). Eerlijkheidszin en slotzin staan in beeld en stem.
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL; recept v3 Malikose)

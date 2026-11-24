@@ -2,6 +2,7 @@
 
 - status: open (plaatsen pas als Click Cuts live is en de winkellink werkt)
 - bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en printzin "Every printer is different: print the fit test first." (slot blijft Click Cuts, want de opdracht gaat over Click Joints Pro). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-21).
+- nagekeken run 25 (GEZIEN, release regisseur-21, run 45430299493): lengte 45,2 s, geluid GOED (-16,7 dB), synchroon GOED 11 van 11 (0,18 s). Eerlijkheidszin en slotzin staan in beeld en stem.
 - kanaal: youtube-short
 - soort: video
 - soort_reeks: lancering Click Cuts, script 3 van 6 (`commercie/filmpjes/scripts/click-cuts-lancering.md`, ja Daan na M1 en M2), hook 3A. Volgorde 1, 2, 3, 6, 4, 5: deze als derde.
