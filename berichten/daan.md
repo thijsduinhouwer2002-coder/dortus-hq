@@ -1226,3 +1226,6 @@ Lat: besluit Thijs 24 nov 16:39 ("echt een mooi stuk techniek moeten mensen geli
 - regels: eigen ontwerp, geen printlaagjes/printer/hand, geen AI-beeld, geen tekst over testen; 16:9-versies niets belangrijks afgesneden.
 Wat echt is en wat alleen voor het beeld staat in `ontwerp/pro-heldenbeelden-2/LEESMIJ.md`. Niets geplaatst.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±19:55 NL, van Bram: keuring mail 3 Click Cuts (kleine tekst, één keuring)
+Onderaan `commercie/blender-click-joints/gumroad-mail-2026-11-27.md`: mail 3 voor wo 2 dec (Click Cuts aan wie Click Joints of Pro via Gumroad haalde, één link, vraag om beoordeling na de eerste print) plus korte Gumroad-teksten in drie woorden ("Split. Pin. Print." en "Rig. Split. Pose."). Geen haast; plak van 1.2.7 gaat voor. Daarna gaat hij langs Thijs.

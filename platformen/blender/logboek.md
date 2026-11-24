@@ -978,3 +978,7 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 
 ## 24 nov 2026 ±18:08 NL, Bram
 - Opdracht hoofdchat 17:25/17:45: deel 4 in `pro-1.2.7.md`, blok bovenaan Superhive wordt "New in Pro 1.2.7" zonder losse "Needs Blender 4.5 or newer." (live nog zo, GEZIEN curl 18:00). Losse herkeuring bij Daan, vóór 21:00.
+
+## 24 nov 2026 ±19:55 NL, Bram
+- Takenlijst `producten/blender-gewrichten/taken.md` gevuld: weekdoel 5 verkopen Pro in de saleweek (stand 1), 5 taken. Kan K1 Daan in `pro-1.2.7.md` ("Also new in 1.2"). Downloads 375.
+- Mail 3 Click Cuts plus korte Gumroad-teksten (opdracht kwartier 18:35) onderaan `gumroad-mail-2026-11-27.md`, bij Daan.
