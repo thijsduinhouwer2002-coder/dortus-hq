@@ -304,6 +304,11 @@ def verloop():
     bmid = tuple((bmn + bmx) / 2)
     bgr = max(bmx - bmn)
     M["blok_mm"] = [round(v, 1) for v in (bmx - bmn)]
+    # run 21 (kan Iris cc-pas A5/C6): gravure in Solid onleesbaar zonder schaduw; Cavity aan zoals cc-nummers
+    sp.shading.show_cavity = True
+    sp.shading.cavity_type = "BOTH"
+    sp.shading.cavity_valley_factor = 2.0
+    sp.shading.cavity_ridge_factor = 1.0
     deel("blok")
     yield from stuk(90, lambda t: cam(-25 + 25 * t, 62.0 - 10 * t, bgr * 1.7 - bgr * 0.35 * t, bmid))
 
