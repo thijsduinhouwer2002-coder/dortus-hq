@@ -9,6 +9,7 @@ Figuren (allemaal eigen werk of vrije licentie, niets gedownload):
 - kleding: MakeHuman base.obj (CC0 1.0, staat in de repo) aangekleed, zoals in studio-1 (figuur_laden.py).
 - mens: dezelfde MakeHuman base.obj kaal, met de rig van e2e/proef_mens.py (zoals toetsen_mens.py), 220 mm.
 - rigify: de echte Rigify-metarig van Blender met buizen (e2e/proef_rigify.py).
+- tekenpop: de houten tekenpop van de winkelbeelden (eigen werk, commercie/filmpjes/studio/figuur_tekenpop.py).
 - armen: buizenfiguur met armen en benen uit één stuk (e2e/toetsen_rig_armen.py, B = 90).
 Gebruik: blender -b --factory-startup --python e2e/meet_rig.py -- <pro-zip> <figuur> <uit.json>
 Laatste regel: "MEET <figuur> gewrichten=<n> overgeslagen=<n>".
@@ -65,6 +66,14 @@ def bouw_robot(stijl=None, voxel=0.5):
 def bouw_kleding():
     import figuur_laden as FL
     _arm, ob, _p = FL.laad_mens_kleding(MH_OBJ, 220.0)
+    return ob
+
+
+def bouw_tekenpop():
+    """Houten tekenpop van de winkelbeelden (figuur_tekenpop.py, eigen werk), 220 mm. Toegevoegd door Olaf 24 nov:
+    het figuur dat kopers op de omslag zien, dus ook in de meting."""
+    import figuur_tekenpop as T
+    _arm, ob, _p = T.laad_tekenpop(220.0)
     return ob
 
 
@@ -179,7 +188,7 @@ def main():
     installeer()
     bouwers = {"robot-a": lambda: bouw_robot(), "robot-b": lambda: bouw_robot(_stijl_b()),
                "robot-fijn": lambda: bouw_robot(voxel=0.35), "kleding": bouw_kleding, "mens": bouw_mens,
-               "armen": bouw_armen, "meshy": bouw_meshy}
+               "armen": bouw_armen, "meshy": bouw_meshy, "tekenpop": bouw_tekenpop}
     ob = bouwers[FIGUUR]()
     standaard_inst()
     naam = ob.name

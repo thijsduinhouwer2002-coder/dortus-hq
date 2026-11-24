@@ -1,0 +1,96 @@
+name: Click Joints Pro op main, Figure from rig op de omslagfiguren (echte Blender)
+
+# Olaf 24 nov 2026 (opdracht hoofdchat 23 nov: e2e van Pro op de figuren van de studio). Pro 1.2.3 staat op main; de
+# testset van Betrouwbaarheid draait alleen op zijn tak en heeft de houten tekenpop niet, terwijl kopers die op de
+# omslag zien. Deze workflow meet de code van main (e2e/meet_rig.py) op tekenpop en kleding in de drie versies, elk twee
+# keer, en zet de JSON en het log op de tak betrouwbaar-uitslag onder main-<run>/ (lezen zonder sleutel, met git).
+
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/cj-rig-main.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  meet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        blender: ["4.2.23", "5.2.3", "5.3.0"]
+        figuur: [tekenpop, kleding]
+        herhaal: [1, 2]
+    env:
+      CJ_PROEVEN: ""
+      BLENDER_USER_RESOURCES: /tmp/cj
+      BLENDER_USER_CONFIG: /tmp/cj/config
+      BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+    steps:
+      - uses: actions/checkout@v4
+      - name: Blender ${{ matrix.blender }} ophalen
+        run: |
+          sudo apt-get install -y -q libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 zip >/dev/null || true
+          V="${{ matrix.blender }}"; KORT="${V%.*}"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          /tmp/blender/blender --version | head -1
+      - name: Pro-zip van main
+        run: |
+          (cd producten/blender-gewrichten && bash e2e/maak_zip.sh betaald)
+          sha256sum /tmp/click_joints_betaald.zip
+          grep -rh "PRO_VERSIE\|^version" producten/blender-gewrichten/click_joints/blender_manifest.toml 2>/dev/null | head -3 || true
+      - name: Figure from rig op ${{ matrix.figuur }} (herhaling ${{ matrix.herhaal }})
+        working-directory: producten/blender-gewrichten
+        env:
+          FIG: ${{ matrix.figuur }}
+          H: ${{ matrix.herhaal }}
+        run: |
+          mkdir -p /tmp/uit
+          N="$FIG-$H"
+          echo "N=$N" >> "$GITHUB_ENV"
+          timeout 2700 /tmp/blender/blender -b --factory-startup --python e2e/meet_rig.py -- /tmp/click_joints_betaald.zip "$FIG" "/tmp/uit/$N.json" > /tmp/vol.log 2>&1 || true
+          { grep -E "\[meet\]|^MEET|Traceback|Error" /tmp/vol.log | cut -c1-2000; tail -30 /tmp/vol.log | cut -c1-400; } > "/tmp/uit/$N.log"
+          grep "^MEET" /tmp/vol.log || tail -20 /tmp/vol.log
+      - name: Uitslag op tak betrouwbaar-uitslag
+        if: always()
+        env:
+          TOKEN: ${{ github.token }}
+          V: ${{ matrix.blender }}
+        run: |
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5 6 7 8 9 10; do
+            rm -rf /tmp/s
+            git clone -q --depth 1 --branch betrouwbaar-uitslag "$URL" /tmp/s 2>/dev/null || { sleep 5; continue; }
+            D="/tmp/s/main-${GITHUB_RUN_ID}/$V"
+            mkdir -p "$D" && cp /tmp/uit/* "$D"/ 2>/dev/null || true
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}" > "/tmp/s/main-${GITHUB_RUN_ID}/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Meting main $N $V run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin betrouwbaar-uitslag; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3 + RANDOM % 7))
+          done
+      - name: Eis (kleding volgens de testset; tekenpop alle 9)
+        working-directory: producten/blender-gewrichten
+        env:
+          V: ${{ matrix.blender }}
+        run: |
+          python3 - <<'EOF'
+          import json, os
+          d = json.load(open(f"/tmp/uit/{os.environ['N']}.json"))
+          v = os.environ["V"]
+          eis = 9
+          if d["figuur"] == "kleding" and v.startswith("4.2"):
+              eis = 8
+          print(d["figuur"], v, "gewrichten", d["gewrichten"], "eis", eis, "ontbreekt", d["ontbreekt"], "overgeslagen", d["overgeslagen"])
+          raise SystemExit(0 if d["gewrichten"] >= eis else 1)
+          EOF
