@@ -1,0 +1,11 @@
+Does your figure stand on stiff feet?
+Figure from rig gives shoulders, elbows, hips, knees and the neck by default.
+For the ankles too, press More bones, right under Figure from rig.
+It cuts the robot into parts, with a joint at each one.
+Select the rigged mesh first, then press it, and the ankles join the list.
+You find it in the N panel, under Click Joints, in Figure joints.
+No rig? There is an Ankle preset: put the 3D cursor on the ankle.
+Drag Bend on the knee, and it stops at the angle from your rig.
+Exploded view pulls the parts apart.
+Measured in Blender, not print tested by us yet. Print a test joint first.
+Click Joints Pro. Elbows and knees stop where your rig stops.

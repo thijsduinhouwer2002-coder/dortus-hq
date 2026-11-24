@@ -1,0 +1,244 @@
+{
+ "naam": "pro-enkels",
+ "titel": "Add ankle joints to your 3D printed figure 🔥 | Blender",
+ "eind": {
+  "titel": "Click Joints Pro",
+  "zin": "Elbows and knees stop where your rig stops.",
+  "adres": "dortus.com/yt",
+  "render": "render-3.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "venster": "Blender 5.3 with Click Joints Pro",
+ "scenes": [
+  {
+   "tekst": "Does your figure stand on stiff feet?",
+   "label": "QUICK QUESTION",
+   "kleur": "oranje",
+   "kop": "Stiff feet?",
+   "beeld": {
+    "deel": "heel",
+    "van": 0,
+    "tot": 40,
+    "uitsnede": [
+     [
+      545,
+      760,
+      900
+     ],
+     [
+      545,
+      800,
+      800
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Figure from rig gives shoulders, elbows, hips, knees and the neck by default.",
+   "label": "DEFAULT",
+   "kleur": "blauw",
+   "kop": "Five body parts",
+   "beeld": {
+    "deel": "kies",
+    "van": 0,
+    "tot": 44,
+    "uitsnede": [
+     [
+      540,
+      600,
+      1250
+     ],
+     [
+      540,
+      580,
+      1150
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "For the ankles too, press More bones, right under Figure from rig.",
+   "label": "MORE BONES",
+   "kleur": "groen",
+   "kop": "More bones",
+   "beeld": {
+    "deel": "knop",
+    "van": 0,
+    "tot": 40,
+    "uitsnede": [
+     [
+      1600,
+      420,
+      1000
+     ],
+     [
+      1620,
+      380,
+      850
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "It cuts the robot into parts, with a joint at each one.",
+   "label": "PARTS",
+   "kleur": "oranje",
+   "kop": "Cut into parts",
+   "beeld": {
+    "deel": "knop",
+    "van": 40,
+    "tot": 140,
+    "uitsnede": [
+     [
+      580,
+      600,
+      1350
+     ],
+     [
+      560,
+      590,
+      1250
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Select the rigged mesh first, then press it, and the ankles join the list.",
+   "label": "ANKLES",
+   "kleur": "groen",
+   "kop": "Ankles in the list",
+   "beeld": {
+    "deel": "knie",
+    "van": 20,
+    "tot": 41,
+    "uitsnede": [
+     [
+      1380,
+      720,
+      1150
+     ],
+     [
+      1380,
+      760,
+      1100
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "You find it in the N panel, under Click Joints, in Figure joints.",
+   "label": "WHERE",
+   "kleur": "blauw",
+   "kop": "Where to find it",
+   "beeld": {
+    "deel": "kies",
+    "van": 20,
+    "tot": 44,
+    "uitsnede": [
+     [
+      1600,
+      420,
+      1000
+     ],
+     [
+      1580,
+      400,
+      950
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "No rig? There is an Ankle preset: put the 3D cursor on the ankle.",
+   "label": "NO RIG",
+   "kleur": "oranje",
+   "kop": "Ankle preset",
+   "beeld": {
+    "deel": "knop",
+    "van": 0,
+    "tot": 30,
+    "uitsnede": [
+     [
+      1500,
+      500,
+      850
+     ],
+     [
+      1450,
+      500,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Drag Bend on the knee, and it stops at the angle from your rig.",
+   "label": "STOP",
+   "kleur": "oranje",
+   "kop": "Stops at your limit",
+   "beeld": {
+    "deel": "knie",
+    "van": 62,
+    "tot": 174,
+    "uitsnede": [
+     [
+      560,
+      640,
+      1300
+     ],
+     [
+      560,
+      650,
+      1260
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Exploded view pulls the parts apart.",
+   "label": "LOOK INSIDE",
+   "kleur": "blauw",
+   "kop": "Exploded view",
+   "beeld": {
+    "deel": "uitelkaar",
+    "van": 12,
+    "tot": 72,
+    "uitsnede": [
+     [
+      540,
+      600,
+      1300
+     ],
+     [
+      540,
+      590,
+      1220
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Print a test joint first.",
+   "label": "HONEST",
+   "kleur": "blauw",
+   "kop": "Test first",
+   "beeld": {
+    "render": "render-2.png",
+    "focus": [
+     0.5,
+     0.5
+    ]
+   }
+  },
+  {
+   "tekst": "Click Joints Pro. Elbows and knees stop where your rig stops.",
+   "label": "CLICK JOINTS PRO",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   }
+  }
+ ]
+}

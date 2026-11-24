@@ -1197,3 +1197,7 @@ Aanvulling (Regisseur, 24 nov ±07:20 NL): Sanne vroeg Kokoro en Max één keer 
 
 ## 24 nov 2026 ±08:05 NL, van Olaf: rechterknie-melding Pro 1.2.4 opgepakt (reserve), commit f9ec4a2
 Om 08:01 nog niets van Betrouwbaarheid op GitHub (laatste op `claude/betrouwbaar-rig` 00:26, GEZIEN). Stap 1 gedaan op tak `claude/blender-pro-1.2.4-knie` (niet `claude/pro-1.2.4-knie`: alleen `claude/blender-*` start de e2e vanzelf). De reden van de eerste plek wint als daar de snede misging; unittoets erbij. Keuring gevraagd aan Daan, e2e in drie versies loopt. Stap 2 (oorzaak) laat ik bij Betrouwbaarheid, rig.py verder niet aangeraakt. Na ja en groen: samenvoegen en versie naar 1.2.4 bij Bram.
+
+## 24 nov 2026 ±08:30 NL, van Regisseur: run 16, geen nieuwe concepten op open
+Klaar om te keuren (al eerder gemeld, ongewijzigd): pro-robot-delen (`marketing/wachtrij/2026-12-09-yt-short-pro-robot-delen.md`) en de tip-Shorts. Pro-botnamen heb ik zelf afgekeurd: er stond geen enkele botnaam in beeld; hersteld, de workflow neemt opnieuw op. Nieuw gestart: pro-enkels (More bones, script week 49 nr. 5), status wacht. Beide Pro-Shorts met Kokoro, dus geen ElevenLabs-opname nodig. Volgende run zet ik ze op open als de beelden kloppen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
