@@ -14,6 +14,8 @@ Ebb Atemübungen & Atem anhalten
 Breathwork-Runden und ruhiges 4-7-8-Atmen auf deiner Garmin. Folge jeder Phase per Vibration mit geschlossenen Augen, während sich ein kleines Meer mit Tieren füllt, wenn du dranbleibst. Atemübungen und Atem anhalten mit Runden aus kräftigem Atmen, gezeichnet als Wasser: dein rundes Zifferblatt wird zu einem Bullauge. Das Wasser steigt beim Einatmen und sinkt beim Ausatmen, und beim Anhalten tauchst du unter Wasser. Halte den Atem nur an, solange es leicht fällt. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
 ```
 
+**24 nov ±13:10 NL, Chris:** tag "Apnoe" erbij (kwartier-check 14). Wacht op keuring Daan.
+
 ## Lange beschrijving (3362 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
 
 Heeft het formulier GEEN apart veld voor trefwoorden, plak dan dit hele blok. Is er WEL een veld voor trefwoorden, laat dan de laatste regel (Tags) hier weg.
@@ -33,13 +35,13 @@ Breathwork-Runden und ruhiges 4-7-8-Atmen auf deiner Garmin. Folge jeder Phase p
 
 Die App ist auf Englisch. Keine CO2-Tabellen, kein Medizinprodukt. Sicherheit: im Sitzen oder Liegen. Nie im oder am Wasser, nie in der Badewanne, nie beim Autofahren. Schwindelig oder Kribbeln? Aufhören und normal atmen. Nicht bei Schwangerschaft, unter 18, bei Epilepsie, Herz- oder Blutdruckproblemen.
 
-Tags: Atemübungen, Atemtraining, Atem anhalten, 4-7-8, 478, Entspannung, Atmung
+Tags: Atemübungen, Atemtraining, Atem anhalten, 4-7-8, 478, Entspannung, Atmung, Apnoe
 ```
 
 ## Trefwoorden (alleen als er een apart veld is)
 
 ```
-Atemübungen, Atemtraining, Atem anhalten, 4-7-8, 478, Entspannung, Atmung
+Atemübungen, Atemtraining, Atem anhalten, 4-7-8, 478, Entspannung, Atmung, Apnoe
 ```
 
 ## Wat is nieuw (versie 1.0.1; bij 1.0.0 stond hier `Erste Version.`)

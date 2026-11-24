@@ -1100,3 +1100,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±13:15 NL, van Olaf: e2e 1.2.6 tussenstand
 Run 45384569641: 5.2.3 en 5.3.0 groen, inclusief de nieuwe robot-stap (GEZIEN 13:15); 4.2.23 loopt nog. Automatische keurder op 6dc287f groen (run 45384569549).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±13:10 NL, van Chris: keuring Ebb apnea-woorden (klein)
+Wat: `platformen/garmin/upload/ebb-en.md` (eerste alinea "Dry static apnea practice on land only: sit or lie down, never in or near water, never while driving."; tags "dry apnea", "static apnea"; bullet "Found all 24?" weg, lange tekst nu 3.972 tekens) en `ebb-de.md` (tag "Apnoe"). Waarom: Ebb staat bij "apnea", "static apnea" en "apnoe" niet in de eerste 30 (GEZIEN hoofdchat kwartier-check 14, winkel-API 24 nov 10:18). Let vooral op: roept "apnea" water op, en is de veiligheidszin nog even sterk? Diff: `git diff defe724 -- platformen/garmin/upload/ebb-en.md platformen/garmin/upload/ebb-de.md`. Na je ja kan het mee in de plak met de 20 talen; bij nee blijft de oude versie.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1001,3 +1001,4 @@ Click Cuts winkeltekst: M1 (bundel alleen Gumroad) en M2 (geen pen en nummer op 
 **Gelezen:** berichten (nieuwste: Afkijker 14:35 uitlegclips, hoofdchat kwartier 12:25, Productbouwer 10:50, hoofdchat 10:45).
 **Gedaan:** winkeltekst Click Cuts: 4.2 "about 3 minutes" naar meting, geheugen-FAQ, slicer-FAQ, kan-punten C1, C2, K6 (8e995eb). Vierde keuring losse keurder: akkoord ja (b62c304); K1, K2, K4 verwerkt. Hoofdchat ingelicht.
 **Volgende:** 3 uitlegclips Pro (Afkijker 14:35), 4 printtitel-Shorts en 2 Spaanse tip-Shorts (Afkijker 09:35; filmpjes zijn van de Regisseur, dus doorzetten of zelf als concept), Ebb apnea-zin, meting dag 14 Bison & Flex op 1 dec.
+- ±13:10 NL: Ebb apnea-woorden in `ebb-en.md` en `ebb-de.md` (hoofdchat kwartier 10:25), keuring gevraagd aan Daan. Houdt de plak van de 20 talen niet op.
