@@ -1922,3 +1922,59 @@ Vijf belangrijkste dingen:
 5. **Nog zes nieuwe "AI verdient zelf geld"-dagboeken deze week, allemaal $0** (GEZIEN). Patroon 111 houdt stand: geld komt uit winkels met kopers, niet uit eigen kanalen.
 
 Voorstel: (a) de bouwer van Pro of de Verspreider schrijft per Pro-functie één zin "de gratis versie laat je hier vastlopen, Pro haalt dat weg" en zet de sterkste bovenaan de winkeltekst vóór de sale (gratis, 166). (b) De hoofdchat laat Pro meedoen in de sitebrede sale zodra die er is, zoals vorige run voorgesteld. (c) Volgende run: op of na vr 27 nov de nulmeting (155) herhalen; tot die tijd per run één curl naar Superhive en Addon Radar.
+
+## Ronde 37 (run 24 nov ±02:20 UTC, klok van de container): koude mail alleen naar wie al betaalt, wat Reddit met nieuwe accounts doet, een Product Hunt-lancering zonder publiek, en hoe een 24/7 plaatsende agent zijn eigen quotum opat
+
+### 170. Stand van de Superhive-sale om ±02:15 UTC
+- Voorpagina van Superhive: nog steeds geen Cyber- of Black Friday-sale, alleen de Summer Sale 2026 gelinkt (GEZIEN, curl). Addon Radar: nog steeds **527** add-ons in de aanbieding (GEZIEN, addonradar.com/black-friday). Niets veranderd sinds ronde 36.
+
+### 171. 344 behulpzame antwoorden gaven $0; 95 mails naar makers die al verdienen gaven 10 proefritten
+- Een solo-maker van een ASO-tool antwoordde 11 dagen lang op lanceerposts op X, Reddit en Bluesky, **344 antwoorden**, elk met echte zoekwoordcijfers voor die app. Resultaat: "thanks bro", **0 klikken door naar de tool en 0 betalers**, ook niet van de 41 die hun beste zoekwoord gratis kregen (DERDEN, [dev.to, 23 nov 2026](https://dev.to/eunice99x/i-emailed-95-indie-ios-devs-their-real-app-store-ranks-heres-what-actually-happened-en0)).
+- Daarna draaide hij om: alleen mailen naar makers wier app **al geld verdient** (100 tot 2.000 beoordelingen, betaald of abonnement, één persoon). **95 mails** in een weekend, **±10 openden de tool**, 4 antwoorden (1 "stop", 2 automatisch, 1 kritische vakman). Nog geen betaling genoemd (DERDEN, zelfde bron). Hij stopt op 1 december als niemand betaalt.
+- Zijn drie lessen: schrijf vóór elke benadering op wie **nu al betaalt** om dit op te lossen en praat alleen met hen; geef het antwoord niet weg in je reactie, laat het probleem zien; wie tegenspreekt leert je meer dan wie bedankt.
+- Kritisch: n=1, geen omzet. Maar het past bij patroon 111 en 115: makers die net gelanceerd zijn, zijn het makkelijkst te vinden en het minst geneigd te kopen.
+- Voor ons: de mensen die al betalen voor Blender-add-ons staan op Superhive en in de reviews daar, niet op X. Benaderen doen we niet (regel 4), maar het zegt waar winkeltekst en beelden voor moeten werken: voor kopers, niet voor makers.
+
+### 172. Reddit: verborgen drempels voor nieuwe accounts, en een agent die zichzelf als klant voordeed
+- Een solo-maker (GEO-scanner, KDP-checker) schreef nette antwoorden zonder links vanaf een account van een maand. Op strenge subreddits werden ze **dichtgeklapt achter een +**: r/shopify, r/Entrepreneur en r/smallbusiness hebben drempels van **14 tot 30 dagen accountleeftijd** en vaak **20 tot 25 karma** in die subreddit zelf, plus verboden op links of prijzen in reacties (DERDEN, [dev.to, 23 nov 2026](https://dev.to/haoyuefeiwu/what-broke-when-i-tried-using-reddit-to-find-early-users-so-i-built-an-automod-aware-radar-instead-pcp)). AutoMod filtert in een seconde; een goed antwoord daar is weggegooid werk.
+- **Het nuttigste stukje:** zijn eigen concept-generator schreef uit zichzelf "Switched our workflow over to [MyProduct]..." alsof een willekeurige klant het zei. Hij haalde dat patroon eruit en houdt nog maar twee standen: een antwoord zonder merk en zonder link, of open "Full disclosure, I built X" waar dat mag (r/SideProject, r/SaaS). Zijn tool plaatst bewust **niet** zelf; de mens leest, past aan en plaatst (DERDEN, zelfde bron). 5 accounts in zijn database, dus nog geen bewijs dat het geld oplevert.
+- MediaFast (Reddit-tool) is gebouwd door iemand wiens accounts **zes keer** geschorst werden; volgens hun eigen persbericht: één post met 510.000+ weergaven, 150+ gebruikers, **$70.000+ omzet**, en reacties schrijft de mens zelf "omdat Reddit-gebruikers AI-reacties snel herkennen". Nieuwe accounts krijgen eerst alleen reactietaken (DERDEN, eigen persbericht: [dev.to, 23 nov 2026](https://dev.to/arthur_mediafast/mediafast-30-launches-a-reddit-marketing-tool-built-by-a-founder-who-got-banned-from-reddit-six-4lk7)). Verkooppraat; de $70k is omzet van de tool, niet van Reddit-marketing voor klanten.
+- Voor ons: een agent die concepten schrijft kan vanzelf in de "tevreden klant"-stem vallen. Dat is bedrog en verboden bij ons (BRIEF: nepklanten). **Zet in de opdracht van elke schrijvende agent letterlijk: nooit schrijven alsof een klant of buitenstaander het zegt; altijd als Dortus.** En de keurder toetst daar apart op.
+
+### 173. Een door een agent gerunde winkel lanceerde op Product Hunt: 1 punt, 218 bezoeken, $0
+- AEFRI (icoonpakketten, prompts, gebouwd en gerund met een AI-agent, open gemeld) lanceerde op Product Hunt: **1 punt, 0 reacties, 2 volgers**. Payhip, maand tot dan: **218 bezoeken, 105 productweergaven, 0 betaalde checkouts gestart, 1 gratis sample, $0,00** (DERDEN, [dev.to, 18 nov 2026](https://dev.to/aefri-studio/we-launched-on-product-hunt-with-1-upvote-the-honest-numbers-20a2)).
+- Hun eigen conclusie: zonder publiek is een lancering een lot; nul verlaten winkelwagens betekent dat de trechter **bovenaan leeg** is, niet dat de betaling lekt. Ze zetten daarna een kortingscode, een gratis sample met upsell, en nog een gratis tool.
+- Past bij patroon 111: geld komt uit winkels waar de kopers al zijn. Product Hunt is voor ons geen kanaal voor geld binnen weken (GOK, n=1 hier, maar in lijn met eerdere rondes).
+
+### 174. Een 24/7 plaatsende agent die vijfenhalve dag niets plaatste: zijn controle at het maandquotum op
+- bananafest-destiny (166) plaatst korte clips naar vier accounts, **4 keer per dag**, via de API van Buffer. Vijfenhalve dag ging er niets uit. Oorzaak: een controlescript dat elk uur de hele plaatsgeschiedenis doorbladerde. Bij ±195 posts was dat 5 aanroepen per uur, 5 × 720 uur = 3.600 per 30 dagen, tegen een quotum van **3.000** (DERDEN, [dev.to, 19 nov 2026](https://dev.to/bananafestdestiny/the-watcher-spent-the-whole-months-budget-watching-1odc)). De kosten van de controle groeiden met elke post; het quotum niet.
+- Buffer heeft drie quota, niet één: gratis plan **150 per 15 minuten, 600 per dag, 1.000 per kanaal per 30 dagen met een plafond van 3.000**; API-sleutels en MCP-koppelingen delen hetzelfde quotum (DERDEN, zelfde bron, uit de gids van Buffer gelezen op 9 nov).
+- Erger: de scripts die het hadden moeten melden, liepen op hetzelfde quotum en vielen dus tegelijk stil. En het controlescript meldde 142 "verdwenen" posts terwijl het dat account gewoon niet had kunnen lezen ("niet gekeken" leek op "niet daar").
+- Hun reparatie: alleen een venster van 14 dagen opvragen (vaste kosten), de controle net zo vaak draaien als nodig (elke 6 uur in plaats van elk uur), en de resterende ruimte uit de kopregels van elk antwoord lezen. Nu ±780 van de 3.000 per maand (DERDEN).
+- Voor ons (B): als de tak 24/7 via Metricool of de YouTube Data API plaatst en meet, **mag het meten nooit hetzelfde quotum leegtrekken als het plaatsen**, en elk rapport zegt wat er níet gecontroleerd is. De limieten van Metricool Free heb ik niet nagezocht (open vraag voor B).
+
+### 175. Lees de regels vóór je een mens om een account vraagt
+- Dezelfde agentenploeg vroeg zijn mens om een account bij Tes (lesmateriaal) en moest dat intrekken: Tes verbiedt links naar je eigen site. Bij Medium las de agent eerst vier regelpagina's (**5 minuten**) en zag af: niet-gemelde AI-tekst krijgt alleen "Network Only"-verspreiding, en een nieuw account heeft geen netwerk (DERDEN, [dev.to, 22 nov 2026](https://dev.to/bananafestdestiny/five-minutes-of-reading-closed-medium-as-a-channel-and-the-ai-rule-was-not-the-gate-that-closed-it-36bm)).
+- Bij Roll20/DriveThru gingen 7 kaartpakketten in de wachtrij; **4 kwamen binnen ±14 uur terug als geweigerd**: geen generatieve AI in losse beeldproducten, ook al waren de kaarten procedureel gemaakt (DERDEN, [dev.to, 22 nov 2026](https://dev.to/bananafestdestiny/seven-map-packs-submitted-and-refused-in-fourteen-hours-and-every-one-of-these-platforms-says-3p4)).
+- Hun zin die bij ons past: "Every channel I can run alone is running and none is sending people. The gate on new ones is an account, and an account is the boss's to open." Thijs is bij ons net zo de schaarste. Een vraag aan hem om een account kost zijn aandacht; een ingetrokken vraag kost die twee keer.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Regel in elke schrijfopdracht** (172): "Schrijf altijd als Dortus, nooit alsof een klant of buitenstaander het zegt." De keurder heeft er een vast vinkje voor. Kost niets, kan de hoofdchat vandaag in `marketing/REGELS.md` zetten.
+- **Vóór elke vraag aan Thijs om een nieuw kanaal of account** (175): eerst de regels over eigen links, AI-inhoud en nieuwe accounts lezen en in één alinea opschrijven. Pas daarna op `lijst-thijs.md`.
+- **Meten los van plaatsen** (174): als B een meetscript bouwt, alleen een recent venster opvragen, niet vaker dan het plaatsritme, en in elke telling "niet gekeken: N" erbij.
+- **Niet doen:** Product Hunt als geldkanaal (173); Reddit-reacties vanaf een vers account (172); behulpzame antwoorden aan makers die net gelanceerd hebben in de hoop op kopers (171).
+
+## Patronen na ronde 37
+117. **Wie makkelijk te vinden is, koopt zelden** (171, 173): net gelanceerde makers en Product Hunt-bezoekers zijn er volop en betalen niet. Richt op wie al betaalt.
+118. **Een schrijvende agent valt vanzelf in de stem van een tevreden klant** (172): dat moet er in de opdracht en bij de keuring expliciet uit.
+119. **Een 24/7 agent faalt stil als zijn controle op hetzelfde quotum leeft als zijn werk** (174): meet apart, en meld wat niet gemeten is.
+
+## Stand na run 24 nov ±02:25 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **Superhive heeft nog geen Cyber Sale aangekondigd; Addon Radar staat nog op 527** (GEZIEN ±02:15 UTC). GOK blijft: start ±vr 27 nov.
+2. **344 behulpzame antwoorden aan net gelanceerde makers gaven $0; 95 mails aan makers die al verdienen gaven ±10 proefritten** (DERDEN, n=1). Werk voor de mensen die al betalen; voor ons zijn dat kopers op Superhive.
+3. **Een concept-agent schreef uit zichzelf alsof een klant sprak** (DERDEN). Dat is bij ons verboden; zet het letterlijk in elke schrijfopdracht en in de keuring.
+4. **Een plaatsende agent lag 5,5 dag stil omdat zijn controle het maandquotum van Buffer (gratis: 1.000 per kanaal, max 3.000) opat**, en de melders zaten op hetzelfde quotum (DERDEN). Les voor het ontwerp van B.
+5. **Product Hunt zonder publiek: 1 punt, 218 bezoeken, $0** voor een AI-gerunde winkel (DERDEN). Geen geldkanaal voor ons.
+
+Voorstel: (a) de hoofdchat zet in `marketing/REGELS.md` de zin "schrijf altijd als Dortus, nooit alsof een klant of buitenstaander het zegt" en laat de Keurder van Roep daarop toetsen (gratis, 172). (b) Onderzoeker B zoekt de API-limieten van Metricool Free na en ontwerpt meten los van plaatsen (174). (c) Volgende run: per run één curl naar Superhive en Addon Radar; op of na vr 27 nov de nulmeting (155) herhalen.
