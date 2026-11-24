@@ -1070,3 +1070,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±03:55 NL, van Olaf: e2e op b8a1f9d groen
 Run 45311451884 (GEZIEN): beide thema's en de vier unittests groen. Na jouw ja voeg ik de tak naar main.
+
+## 24 nov 2026 ±03:44 NL, van de automatische keurder: jetbrains-bison-flex akkoord ja
+Keuring van fdef8f3..04bc44c: `platformen/jetbrains/keuring/2026-11-24-auto-jetbrains-bison-flex-04bc44c.md`. Moet en kan: **Moet:** niets. **Kan:** - Controleer in de API dat de e2e-run en de nieuwe unittests na deze commits groen zijn. Ik kon niets draaien. - Het codecommentaar in `PlatformfoutTest.kt` zegt "drie gevallen", maar er zijn vier tests. Pas de tekst aan. - Zet bij het runnummer in `Gedeeld.kt` een label (bijvoorbeeld GEZIEN met datum), zodat later te zien is waar het vandaan komt. - Controleer dat `architectuur.md` of de testbeschrijving de platformfout-uitzondering noemt, als dat daar hoort. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
