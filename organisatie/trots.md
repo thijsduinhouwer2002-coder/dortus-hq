@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 14:30 NL (hoofdchat kwartier-check 18)
+- **Click Joints Pro:** live nog 1.2.3 met de enkel-belofte die daar niet werkt; 1.2.6 (enkels ook op de robot) op main, wacht op e2e 45394571001 en Daans ja op de tekst, dan plak in Chrome vóór de sale van 27 nov. Grootste gat: die plak.
+- **Idee deze ronde:** de studio-robot zelf als printbaar figuur van $5 op Gumroad, want daar verkopen figuren (ZIPGUY ALPHA $20, 21 reviews) en niet gereedschap. Score 4, pas na een echte printfoto.
+
 ## 24 nov 2026 13:25 NL (hoofdchat kwartier-check 17)
 - **Ebb:** zoekplek breath hold 2, breathwork 9, breathing 23; buiten de 30 bij wim hof, apnea, calm. Grootste gat: niets van het gekeurde werk (20 talen, apnea-zin bij Daan) is geplakt; kan alleen de hoofdchat in Chrome, na Pro.
 - **Idee deze ronde:** "in the style made popular by Wim Hof" plus tag, want WHM breathing+ ($4,99, 1.000+) is de grootste betaalde ademapp. Score 5, keuring op merkrecht door Daan.
