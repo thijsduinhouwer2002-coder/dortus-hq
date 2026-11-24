@@ -8,3 +8,7 @@
 - [ ] **22 nov:** tellers van Hanru Croucamp opnieuw meten met `data/superhive-print-zoek-script.py` (proef of kleine print-hulpen zonder publiek verkopen).
 - [ ] (ronde 1 gedaan 8 nov 19:40, geen kandidaat) **Kies de add-on:** 3 kandidaten voor 3D-printen in Blender, elk met marktbewijs (GEZIEN: verkopen of downloads van vergelijkbare add-ons, prijzen, klachten in reviews, verzoeken op forums), de top 3 concurrenten en hoe sterk ze zijn (sterke nummer één: overslaan), wie betaalt en hoeveel. Schrijf het voorstel in `volgend-product.md` en zet het in `berichten/hans.md`. Laat een controleur het nalopen. Niet bouwen voor Hans ja zegt; Daan keurt het ontwerp voor er gebouwd wordt.
 - [ ] **Hergebruik wat Bram al heeft** (testworkflow in de echte Blender 4.2 en 5.x, schermafbeeldingen, winkelplaatjes, betaalroute). Pas niets aan in Brams bestanden; heb je iets van hem nodig, vraag het in `berichten/bram.md`.
+
+## 24 nov 2026, Bram
+- [ ] Gids 5 "Make a downloaded STL figure poseable" (Afkijker 06:34): ander CC0-model kiezen (dikke nek of armen los van de romp), schermen met `e2e/scherm_gids_stl.py`, pagina op tak bovenop `claude/gidsen-3-4`, klaarzetregel Gumroad in `commercie/blender-click-joints/`, keuring Daan.
+- [ ] Uitzoeken: Place joint waarvan het snijvlak ook door een tweede deel gaat (armen naast de romp) meldt "Clearance 4.36 mm (measured)" en "Bends ±0°" bij speling 0,20 (GEZIEN 24 nov, Quaternius-figuur 250 mm, cursor 0,3,125). Fout in de meting of terecht? Toets maken.

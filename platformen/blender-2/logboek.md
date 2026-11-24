@@ -351,3 +351,8 @@
 ## 23 nov 2026 ±21:25 NL, Bram
 - Utm-koopknoppen (Daan ja) en de gekeurde patch voor dortus.com/click-joints klaargezet voor dortus main; mijn push naar `dortus` weer geweigerd door de veiligheidscontrole, gemeld aan de hoofdchat.
 - Keuring nee op bbc1ff1 hoort bij de agent Betrouwbaarheid (zijn tak), doorgegeven via de hoofdchat; Olafs kantel ook naar hem. Pro 1.2.2 staat live (hoofdchat 20:45).
+
+## 24 nov 2026 ±08:00 NL, Bram: gidspagina "downloaded STL" (opdracht Afkijker 06:34), half af
+- Studio / Seller M1/M2 en de Click Cuts-uitgave waren al klaar (be9004b, 401e69f). Nu de nieuwe gids voor printers die nooit Blender openden (wordt gids 5 op de site; gids 4 is al tolerance op tak `claude/gidsen-3-4`).
+- Schermscript `producten/blender-gewrichten/e2e/scherm_gids_stl.py` en bron `e2e/gids_stl_bron.py` gemaakt: CC0-figuur van Quaternius als STL van 250 mm, in de standaardscene geladen, Check mesh, Convert to mm, Place joint, Export 3MF. Lokaal in Blender 5.3.0 gedraaid (GEZIEN): import geeft echt "Mesh is 1.8e+05 mm in size ... Convert to mm"; joint in het middel groen, wand 2,43 mm; export schrijft figure_A.3mf en figure_B.3mf.
+- Nog niet goed genoeg voor de site: het snijvlak in het middel snijdt ook door beide armen, en het paneel toont dan "Bends ±0°" en "Clearance 4.36 mm (measured)" (GEZIEN op s2). Nek en benen van deze chibi zijn te dun (rood, ook met diameter 6 mm). Volgende run: een ander CC0-model met een dikke nek of los hangende armen (of het figuur eerst in A-pose), dan pas de pagina schrijven. De 4.36 mm bij een snede door meer delen zet ik als mogelijke fout op mijn takenlijst.
