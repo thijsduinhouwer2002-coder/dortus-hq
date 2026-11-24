@@ -127,14 +127,14 @@
     "tot": 50,
     "uitsnede": [
      [
-      1800,
-      1500,
+      1830,
+      1640,
       700
      ],
      [
-      1800,
-      1550,
-      640
+      1830,
+      1640,
+      650
      ]
     ]
    }
@@ -163,7 +163,7 @@
    }
   },
   {
-   "tekst": "The panel shows the range it measured: zero to 135 degrees.",
+   "tekst": "The panel shows how far it bends: 0 to 135°.",
    "label": "BEND RANGE",
    "kleur": "groen",
    "kop": "Bends 0° to 135°",
@@ -173,18 +173,18 @@
     "tot": 77,
     "uitsnede": [
      [
-      1800,
-      1400,
+      1830,
+      1560,
       700
      ],
      [
-      1800,
-      1380,
-      620
+      1830,
+      1560,
+      650
      ]
     ]
    },
-   "uitspraak": "The panel shows the range it measured: zero to a hundred and thirty-five degrees."
+   "uitspraak": "The panel shows how far it bends: zero to one hundred and thirty-five degrees."
   },
   {
    "tekst": "Show bend range shows how far the knee can swing.",
@@ -236,7 +236,7 @@
    "tekst": "Your parts stay just as they are. Now that knee can bend.",
    "label": "RESULT",
    "kleur": "blauw",
-   "kop": "Now it moves",
+   "kop": "Now the knee bends",
    "beeld": {
     "render": "render-2.png",
     "focus": [

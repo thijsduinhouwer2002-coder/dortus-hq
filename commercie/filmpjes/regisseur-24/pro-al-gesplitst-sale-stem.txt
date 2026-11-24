@@ -7,7 +7,7 @@ Turn the view to the side. The hinge turns around the way you look.
 Shift and right click on the knee. The 3D cursor jumps there.
 In Click Joints Pro, go to Figure joints and click Knee.
 It cuts the leg in two and builds a hinge right at the cursor.
-The panel shows the range it measured: zero to a hundred and thirty-five degrees.
+The panel shows how far it bends: zero to one hundred and thirty-five degrees.
 Show bend range shows how far the knee can swing.
 Elbow and Ankle work the same way.
 Your parts stay just as they are. Now that knee can bend.

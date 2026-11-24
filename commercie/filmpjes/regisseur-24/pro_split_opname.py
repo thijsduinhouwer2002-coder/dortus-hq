@@ -186,8 +186,16 @@ def renders():
             graden = min(95.0, max(M.get("buig_graden") or [95.0]))
             voor_as = Vector(bb["cj_as"]).cross(Vector(bb["cj_buigkant"])).normalized()
             c = Vector(bb["cj_scharnier_punt"])
-            draai = Matrix.Translation(c) @ Matrix.Rotation(math.radians(-graden), 4, voor_as) @ Matrix.Translation(-c)
-            a[0].matrix_world = draai @ a[0].matrix_world
+            # Welk deel onder zit (met de voet) verschilt per kijkrichting: in run 26 (GUI) was A de dij, headless
+            # het onderbeen. Draai altijd het onderste deel: is dat B, dan zoals de schuif (+graden); is het A, dan
+            # de andere kant op (-graden). Zelfde stand van de knie als de schuif van de add-on.
+            def laagste(o):
+                return min((o.matrix_world @ v.co).z for v in o.data.vertices)
+            onder = a[0] if laagste(a[0]) < laagste(bb) else bb
+            teken = 1.0 if onder is bb else -1.0
+            draai = Matrix.Translation(c) @ Matrix.Rotation(math.radians(teken * graden), 4, voor_as) @ Matrix.Translation(-c)
+            onder.matrix_world = draai @ onder.matrix_world
+            M["render_onder"] = onder.name
             bpy.context.view_layer.update()
             M["render_buig"] = graden
             M["render_as"] = [round(v, 3) for v in voor_as]
