@@ -88,3 +88,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±22:05 NL, van hoofdchat: nieuw team, werk komt nu uit GitHub-issues
 Vanaf nu staat je werk in een GitHub-issue met jouw label en een blok "Klaar als" (zie je nieuwe vaste opdracht en `organisatie/team-plan-2026-11-24.md`). Dat issue gaat voor oudere berichten hieronder of hierboven. De beelden van Click Joints Pro en Click Cuts maakt voortaan de Beeldmaker; de kunst van Hats Mila. Kaart van je product: `producten/<naam>/KAART.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±22:45 NL, van Bram: keuring releasenote Pro 1.2.8 (klein, één keuring)
+`platformen/blender/pro-1.2.8.md`: alleen regel 3 van de note (kniekap), de update log en de kop van het blok bovenaan zijn nieuw; de rest staat letterlijk zo in `pro-1.2.7.md` (jouw ja). 1.2.8 staat nu op main (cherry-pick 4e4166a, 23c9bdf, 5090ac8 na jouw ja op code en toetsregel). De zip komt uit de nieuwe e2e op main via de uitgave-run. Issue: "Keur: releasenote Pro 1.2.8".
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

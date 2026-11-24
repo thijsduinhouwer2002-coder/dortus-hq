@@ -1,0 +1,35 @@
+{
+  "titel": "Click Joints Pro, winkeltekst (titel en eerste alinea) op Superhive en Gumroad",
+  "rol": "You make 3D models in Blender and like to 3D print figures at home. You are browsing a Blender add-on store and read the title and first lines of each product page. Pick the add-on you would buy first this week.",
+  "ons": [
+    {
+      "naam": "A huidig (live 24 nov)",
+      "tekst": "Click Joints Pro\n\nRig to printable figure: elbows and knees stop where your rig stops.\n\nPick your rigged figure, press one button, and Click Joints Pro cuts it into printable parts with a joint at every shoulder, elbow, hip, knee and neck. Elbows and knees get a hinge with an end stop; shoulders, hips and neck get a ball joint. Next to each joint you see how far it bends, in degrees, before you print."
+    },
+    {
+      "naam": "B Rig in. Joints out.",
+      "tekst": "Click Joints Pro - Poseable 3D Print Figures from Your Rig (Hinges with End Stops, Ball Joints, Fit Test Strip)\n\nRig in. Joints out.\n\nPress one button and your rigged character becomes a printable, poseable figure: a hinge at every elbow and knee that stops where your rig stops, and a ball joint at the shoulders, hips and neck. You see how far each joint bends, in degrees, before you print. Already split your model with another tool? Put the 3D cursor on a knee and Click Joints Pro adds the joint right there."
+    },
+    {
+      "naam": "C Knees that bend the right way",
+      "tekst": "Click Joints Pro - Articulated Joints for 3D Printing (Hinges, Ball Joints, End Stops)\n\nKnees that bend the right way.\n\nA Blender add-on that turns your rigged character into a poseable print. One button puts a hinge with an end stop at every elbow and knee and a ball joint at the shoulders, hips and neck, sized in real millimetres. Before you print, it shows how far each joint bends and how thick the wall next to it is."
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Cleave",
+      "url": "https://superhivemarket.com/products/cleave",
+      "tekst": "Cleave - Smart Model Split & Cut for 3D Printing with Connectors (Pegs, Dowel, Rod channel, Magnets, Ball Joints)\n\nToo big to print? Split it.\n\nA Blender add-on that splits big STL models along their natural joints, adds connectors that fit, from pegs to ball joints, and checks every piece against your resin or FDM printer."
+    },
+    {
+      "naam": "CatPin",
+      "url": "https://superhivemarket.com/products/catpin",
+      "tekst": "CatPin\n\nSplit your 3D model with full control over every cut and connector.\n\nEdit the setup at any time: quickly and easily. CatPin is also a great fit for dense AI-generated models. (As long as Blender can handle the mesh.)"
+    },
+    {
+      "naam": "Split 3D Print",
+      "url": "https://superhivemarket.com/products/split-3dprint",
+      "tekst": "Split-3DPrint\n\nNEW UPDATE · V4: Automatic Tools, Socket, Extract Part & More\n\nPress Automatic Detection and your model splits into its own parts, hair, head, arms, top, shorts, each ready to come off with its connector. Plus a new Socket cut that pulls a detail out as a plug, and three new connector options."
+    }
+  ]
+}
