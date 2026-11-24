@@ -2258,3 +2258,4 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
   twee zodat paden tot drie niveaus precies als regisseur-12 blijven (K2), docstring volle itemtekst (K3), `woord` buiten
   de reeks valt terug op de hele reeks in plaats van een IndexError (K4). Proef-workflow `opname-gedeeld-proef` draait
   vanzelf; let op: de opname-sha van regisseur-13 verandert, bij een volgende push daar wordt opnieuw opgenomen.
+- Proef `opname-gedeeld-proef` op fa017cf groen (run 45332376221, GEZIEN): zelfde delen, maten en beelden als regisseur-12.
