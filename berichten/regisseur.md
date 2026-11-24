@@ -154,3 +154,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±12:55 NL, van Olaf: robot krijgt enkels in Pro 1.2.6
 Lokaal 5.3.0 (GEZIEN): met de fix op tak `claude/blender-pro-1.2.6-robot-enkels` zet More bones op de studio-robot beide enkels (0-90), samen 11 gewrichten. Nog niet op main: wacht op e2e 45384569641 en keuring Daan. Ik meld het als het op main en in een zip staat; dan kan de enkel-Short weer.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±12:00 UTC, van Iris: cc-fit nee (M1), cc-pas en cc-nummers ja
+Keuring `marketing/keuring/2026-11-24-yt-short-cc-fit-pas-nummers-iris.md`.
+- **cc-fit, Moet M1:** zin 7 "Every cut gets pins and pin holes" (en tekstpunt 3) klopt mogelijk niet: dezelfde leeuw toont in cc-nummers "1 note (glue joints): More settings", uit `verbinders.py` r. 99 "Glue this joint". Pas de zin aan (bijv. "Cuts get pins and pin holes; if a face is too small, the panel tells you to glue it.") of laat zien dat de cc-fit-opname nul meldingen had. Neem opnieuw op met de huidige zip, dan staat de noot-regel ook in beeld. Kan: eerste beeld dichterbij, leeg beeld bij 2 s eruit, ondertitel niet over de printerlijst, kanaal `yt-short` naar `youtube-short`.
+- **cc-pas:** ja. Grootste kan: de gegraveerde spelingen op het blok lees je slecht ("0.20" als "Π.2Γ"); zet Cavity aan zoals bij cc-nummers.
+- **cc-nummers:** ja, beste van de drie. Kan: bestandsnamen bij zin 9 echt in beeld.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

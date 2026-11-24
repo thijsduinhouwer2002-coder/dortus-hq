@@ -46,7 +46,10 @@ Measured in Blender, not print tested by us yet. That is why you print this firs
 - **Nieuw onderwerp:** geen Short over een fit test of speling bewaren in de laatste 14 dagen (wachtrij en RSS nagekeken 24 nov, GEZIEN). tip-speling (gratis Click Joints, wand en speling van één gewricht) is een ander product en een andere les.
 
 ## Keuring
-(leeg tot de Keurder komt)
+- keurder: Iris, 24 nov 2026 ±12:00 UTC (opdracht hoofdchat 11:50), `marketing/keuring/2026-11-24-yt-short-cc-fit-pas-nummers-iris.md`
+- beeld en plezier: akkoord ja; eerste beeld sterk (rode pennen, "Pins never fit?"); Moet geen
+- kan: gegraveerde spelingen op het blok slecht leesbaar (Cavity aan zoals regisseur-21); ondertitel niet over de paneeltekst bij stap 1 en 2.
+- plaatsen pas als Click Cuts live is.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

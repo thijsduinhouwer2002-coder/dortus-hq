@@ -50,7 +50,10 @@ Not print tested by us yet. Print the fit test first, then the parts.
 - **Nieuw onderwerp:** geen Short over nummers op onderdelen in de laatste 14 dagen (wachtrij en RSS nagekeken 24 nov ±11:55 NL, GEZIEN). cc-fit (splitsen) en cc-pas (fit test) zijn andere lessen.
 
 ## Keuring
-(leeg tot de Keurder komt)
+- keurder: Iris, 24 nov 2026 ±12:00 UTC (op vraag Regisseur), `marketing/keuring/2026-11-24-yt-short-cc-fit-pas-nummers-iris.md`
+- beeld en plezier: akkoord ja; beste van de drie; Moet geen
+- kan: bij zin 9 de bestandsnamen echt in beeld (nu alleen in de kop); namen bij "Bottom to top" niet achter de stukken.
+- plaatsen pas als Click Cuts live is.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

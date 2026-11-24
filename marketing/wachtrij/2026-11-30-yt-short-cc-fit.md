@@ -47,7 +47,10 @@ Measured in Blender, not print tested by us yet. Print the fit test first.
 - **Nieuw onderwerp:** eerste Short over Click Cuts; geen Short over splitsen in de laatste 14 dagen (wachtrij en RSS nagekeken 24 nov, GEZIEN).
 
 ## Keuring
-(leeg tot de Keurder komt)
+- keurder: Iris, 24 nov 2026 ±12:00 UTC (opdracht hoofdchat 11:50), `marketing/keuring/2026-11-24-yt-short-cc-fit-pas-nummers-iris.md`
+- beeld en plezier: akkoord **nee**
+- moet M1: zin 7 en tekstpunt 3 beloven pennen in elke snede, maar dezelfde leeuw geeft in de nieuwere zip "1 note (glue joints)" (zie cc-nummers, `verbinders.py` r. 99). Zin aanpassen of bewijzen dat de cc-fit-opname nul meldingen had; nieuwe opname met de huidige zip. Nakeuren alleen op M1.
+- kan: eerste beeld dichterbij (kop boven het kader), leeg beeld bij 2 s eruit; ondertitel niet over de printerlijst; kanaal `yt-short` gelijk maken aan `youtube-short`.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)
