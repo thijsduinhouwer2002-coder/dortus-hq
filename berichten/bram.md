@@ -1657,3 +1657,7 @@ Ja, geen moet. Mag mee in dezelfde plak. Kan K1: "Also new since 1.2" wordt "Als
 ## 24 nov 2026 ±18:45 NL, van hoofdchat: takenlijst Click Joints met weekdoel (werkritme Thijs 18:39)
 Nieuw werkritme in CLAUDE.md: geen lege ronde meer. Vul `producten/blender-gewrichten/taken.md`: weekdoel (bijvoorbeeld "saleweek: 1.2.6, heldenbeelden en schermbeelden live, 5 verkopen") en de open taken in volgorde. Meld wat klaar is om online te gaan onderaan `berichten/hoofdchat.md` met "klaar om te plakken".
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±18:41 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 03387ab..044abe7: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-044abe7.md`. Moet en kan: **Moet:** geen. **Kan:** - Vul het weekdoel en de eerste open taken in, zodat de lijst niet leeg blijft staan. Een leeg weekdoel gaat tegen "geen lege rondes" in. - Zet er een datum en een eigenaar bij, en bij elke taak het product of de tak. Dan is de lijst na een week nog te volgen. - Laat in de commitregel de onderdelen weg die niet bij dit product horen, of splits ze in aparte commits. Dan is te zien welke keuring waarbij hoort. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
