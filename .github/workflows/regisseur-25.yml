@@ -1,0 +1,62 @@
+name: Regisseur 25 (Ebb met alle dieren, staand)
+
+# Regisseur run 28, 24 nov 2026 (opdracht hoofdchat 16:55, Thijs 16:49): Ebb-filmpje met alle 25 dieren.
+# Alleen echte simulatorbeelden: artefacten ebb-plaatjes-fenix847mm van run 74 (proef74a tot e) en tak schermen.
+# Muziek en geluid met code gemaakt. Alles in release regisseur-25. Er wordt niets geplaatst.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/regisseur-25/**", ".github/workflows/regisseur-25.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+env:
+  TAG: regisseur-25
+
+jobs:
+  film:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gereedschap
+        run: |
+          timeout 180 sudo apt-get update -q -o Acquire::http::Timeout=20 >/dev/null || true
+          timeout 300 sudo apt-get install -y -q --no-install-recommends ffmpeg fonts-inter >/dev/null
+          python3 -m pip install -q --break-system-packages numpy pillow
+      - name: Echte simulatorbeelden ophalen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/bron/plat /tmp/bron/sch /tmp/z
+          for p in "a 43315472109" "b 43315475655" "c 43315480366" "d 43315483088" "e 43315487820"; do
+            set -- $p
+            id=$(gh api repos/$GITHUB_REPOSITORY/actions/runs/$2/artifacts -q '.artifacts[]|select(.name=="ebb-plaatjes-fenix847mm")|.id')
+            gh api repos/$GITHUB_REPOSITORY/actions/artifacts/$id/zip > /tmp/z/$1.zip
+            mkdir -p /tmp/z/$1 && unzip -qo /tmp/z/$1.zip -d /tmp/z/$1
+            for f in /tmp/z/$1/namen/sessie-*; do cp "$f" "/tmp/bron/plat/${1}__$(basename $f)"; done
+          done
+          S=https://raw.githubusercontent.com/$GITHUB_REPOSITORY/schermen/garmin-adem/plaatjes/namen
+          for n in sealog-3-alle25 sessie-otter-in-dag sessie-otter-hold-dag sessie-otter-uit-dag sessie-krab-uit-dag einde-6b; do
+            curl -sSfL --retry 3 -o /tmp/bron/sch/$n.png $S/$n-fenix847mm.png
+          done
+          ls /tmp/bron/plat | wc -l
+      - name: Filmpje bouwen en toetsen
+        run: |
+          python3 commercie/filmpjes/regisseur-25/ebb_dieren.py /tmp/bron /tmp/klaar
+          cd /tmp/klaar
+          d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 ebb-dieren.mp4); echo "duur $d s" | tee lengtes.txt
+          python3 -c "import sys; d=float('$d'); sys.exit(0 if 15.0 <= d <= 25.0 else 1)"
+          python3 $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py ebb-dieren.mp4 | tee geluid_check.txt
+          ffmpeg -v error -y -i ebb-dieren.mp4 -vf "fps=1,scale=216:384,tile=7x3" -frames:v 1 overzicht-ebb-dieren.jpg
+          sha256sum * > SHA256SUMS.txt
+      - name: Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Ebb met alle dieren (concept, nog niet gekeurd). Echte schermen uit de Garmin-simulator, geluid met code gemaakt." > /tmp/notes.md
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --target "$GITHUB_SHA" --prerelease --title "Regisseur 25 (Ebb met alle dieren)" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/klaar/* --clobber
