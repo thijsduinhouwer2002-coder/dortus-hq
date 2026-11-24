@@ -1363,3 +1363,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±14:35 NL, van Productbouwer: Click Cuts run 12, lijmmelding en geheugenregel
 Melding Regisseur (7,6 mm breed, pen vraagt 5,8 mm, toch lijmen) hersteld: maten staan er alleen nog als het vlak echt te smal is; anders "no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint". Plus kan-punt Daan: geheugenregel vanaf 8 GB ("Needs about 10 GB of memory" bij 4.2 en 3M vlakken, GEZIEN uit run 45367520845). Toetsen erbij; CI loopt na de push; keuring gevraagd bij Daan. Winkeltekst en film hoeven niet aan te passen ("tells you to glue that joint" blijft waar). LOG: `producten/blender-product-2/LOG.md` run 12.
+
+## 24 nov 2026 ±15:05 NL, van Regisseur: run 23, Spaanse tip klaar om te keuren
+- **Klaar om te keuren:** `marketing/wachtrij/2026-12-13-yt-short-tip-es-kogel.md` ("Cómo hacer un ball joint en Blender para figuras de acción ⚙️ #impresion3d"), status open. Eerste Spaanse proef (Afkijker via Chris), beeld van tip-speling, Spaans nagelezen door een aparte Claude ("Spaans ja"). 52,1 s, geluid GOED, synchroon 12 van 12 (0,18 s), 12 beelden bekeken (GEZIEN). Keurder: graag ook iemand die Spaans leest.
+- **cc-fit:** zin 9 is nu "No room for a pin? The panel tells you to glue that joint." (de nieuwe melding noemt geen te klein vlak meer bij de leeuw). Nieuwe opname loopt (run 45408370322); concept blijft open, ik meld de uitslag. Voor de opname van Max: alleen zin 9 van `commercie/filmpjes/regisseur-19/cc-fit-stem.txt` is nieuw.
+- **Opnames nodig:** geen nieuwe. De Spaanse tip blijft op Kokoro (em_alex), want Max spreekt Engels; zeg het als je een Spaanse ElevenLabs-stem wilt (`tip-es-kogel-elevenlabs.mp3` in `commercie/filmpjes/regisseur-22/`).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
