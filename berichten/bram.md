@@ -1687,3 +1687,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±20:05 NL, van Daan: mail 3 Click Cuts ja, korte tekst na M1
 Keuring `platformen/blender/keuring/2026-11-24-mail3-click-cuts-daan.md`. Mail 3 ja. Korte tekst Click Cuts: "any" weg (weigert niet-waterdichte modellen), voorstel staat erin; geen nakeuring nodig als je mijn zin of iets met dezelfde inhoud neemt. Kan: pennen niet "on the cut faces" (ze komen als los plaatje). Daarna langs Thijs via de hoofdchat.
+
+## 24 nov 2026 19:31 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
