@@ -1,10 +1,10 @@
 # Scorebord Dortus
 
-Gemeten op 2026-11-24 om 03:15 UTC met `organisatie/controle/scorebord.py`, openbare bronnen, plus Gumroad, Kit en bezoekers van dortus.com (Amami) met leessleutels. Elk cijfer is GEZIEN: het script leest het zelf; de bron staat per regel. Draait elke dag om 06:41 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
+Gemeten op 2026-11-24 om 07:40 UTC met `organisatie/controle/scorebord.py`, openbare bronnen, plus Gumroad, Kit en bezoekers van dortus.com (Amami) met leessleutels. Elk cijfer is GEZIEN: het script leest het zelf; de bron staat per regel. Draait elke dag om 06:41 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
 
 | Product | Platform | Maat | Vandaag | Gisteren | 7 dagen terug | Erbij in 7 dagen | Stand | Bron |
 |---|---|---|---|---|---|---|---|---|
-| Click Joints | Blender | downloads | 356 | 347 | 197 | +159 | versie 0.1.1 | GEZIEN, extensions.blender.org (API en productpagina) |
+| Click Joints | Blender | downloads | 360 | 347 | 197 | +163 | versie 0.1.1 | GEZIEN, extensions.blender.org (API en productpagina) |
 | Click Joints | Blender | beoordelingen | 0 | 0 | 0 | 0 |  | GEZIEN, extensions.blender.org (API en productpagina) |
 | Click Joints Pro | Superhive | verkoopklasse | geen verkoopblok (onder 10 of nog niet zichtbaar) | geen verkoopblok (onder 10 of nog niet zichtbaar) | geen meting |  | Superhive toont alleen klassen | GEZIEN, superhivemarket.com productpagina |
 | Click Joints Pro | Superhive | beoordelingen | 0 | 0 | geen meting |  |  | GEZIEN, superhivemarket.com productpagina |
@@ -15,7 +15,7 @@ Gemeten op 2026-11-24 om 03:15 UTC met `organisatie/controle/scorebord.py`, open
 | Ebb | Garmin | downloads | 1 | 1 | 0 | +1 | app, $2.99 USD, versie 1.0.1 | GEZIEN, apps.garmin.com winkel-API |
 | Ebb | Garmin | beoordelingen | 0 | 0 | 0 | 0 |  | GEZIEN, apps.garmin.com winkel-API |
 | Rollwright | Obsidian | downloads | 52 | 52 | 44 | +8 | community-plugin-stats.json | GEZIEN, obsidian-releases community-plugin-stats.json |
-| Bison & Flex | JetBrains | downloads | 22 | 22 | 1 | +21 | in keuring, freemium | GEZIEN, plugins.jetbrains.com API |
+| Bison & Flex | JetBrains | downloads | 32 | 22 | 1 | +31 | in keuring, freemium | GEZIEN, plugins.jetbrains.com API |
 | Bison & Flex | JetBrains | beoordelingen | 0 | 0 | 0 | 0 |  | GEZIEN, plugins.jetbrains.com API |
 | Click Joints (free) for Blender | Gumroad | verkopen | 0 | 0 | geen meting |  | gepubliceerd, €0+ | GEZIEN, Gumroad API v2 /products (leessleutel) |
 | Click Joints (free) for Blender | Gumroad | omzet USD | 0.00 | 0.00 | geen meting |  | bruto, vóór kosten van Gumroad | GEZIEN, Gumroad API v2 /products (leessleutel) |
@@ -24,18 +24,18 @@ Gemeten op 2026-11-24 om 03:15 UTC met `organisatie/controle/scorebord.py`, open
 | Kit (alle) | Kit | abonnees | 0 | 0 | geen meting |  | actief, alle tags samen | GEZIEN, Kit API (leessleutel), alleen aantallen |
 | Hats of the Fallen | Discord | leden | 1 | 1 | geen meting |  | server Hats of the Fallen | GEZIEN, discord.com invite-API (with_counts) |
 | Hats of the Fallen | Discord | online | 0 | 0 | geen meting |  | op het moment van meten | GEZIEN, discord.com invite-API (with_counts) |
-| YouTube @Dortusapps | YouTube | weergaven awtDyH5hOPI | 129 | geen meting | geen meting |  | 2026-11-23 Rigged character to poseable 3D print in Blender: one button | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
-| YouTube @Dortusapps | YouTube | weergaven lcUBuWMaJ_A | 498 | 184 | geen meting |  | 2026-11-23 How far can a 3D printed knee bend? Check it in Blender | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
-| YouTube @Dortusapps | YouTube | weergaven pCyyQ4Qa9Gw | 374 | 196 | geen meting |  | 2026-11-23 Your rigged character as printable parts with joints 🧩 / Ble | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
-| YouTube @Dortusapps | YouTube | weergaven eQsepIbHdgU | 545 | 469 | geen meting |  | 2026-11-22 Make your rigged character poseable for 3D printing 🔥 / Blen | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
+| YouTube @Dortusapps | YouTube | weergaven awtDyH5hOPI | 147 | geen meting | geen meting |  | 2026-11-23 Rigged character to poseable 3D print in Blender: one button | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
+| YouTube @Dortusapps | YouTube | weergaven lcUBuWMaJ_A | 577 | 184 | geen meting |  | 2026-11-23 How far can a 3D printed knee bend? Check it in Blender | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
+| YouTube @Dortusapps | YouTube | weergaven pCyyQ4Qa9Gw | 494 | 196 | geen meting |  | 2026-11-23 Your rigged character as printable parts with joints 🧩 / Ble | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
+| YouTube @Dortusapps | YouTube | weergaven eQsepIbHdgU | 557 | 469 | geen meting |  | 2026-11-22 Make your rigged character poseable for 3D printing 🔥 / Blen | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven 4-3l3MZZWPc | 3 | 3 | geen meting |  | 2026-11-22 Blender rig to 3D printable figure: one button, hinges and b | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven I78weVdhwdw | 1108 | 1097 | geen meting |  | 2026-11-22 One click: rig to 10 printable parts in Blender | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
-| YouTube @Dortusapps | YouTube | weergaven Ij-jc6t4WNo | 578 | 420 | geen meting |  | 2026-11-22 How far can this knee bend? Check it before you print 👀 / Bl | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
+| YouTube @Dortusapps | YouTube | weergaven Ij-jc6t4WNo | 589 | 420 | geen meting |  | 2026-11-22 How far can this knee bend? Check it before you print 👀 / Bl | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven m3sNvDOJYQ0 | 14 | 11 | geen meting |  | 2026-11-20 Blender hinge for 3D printing that stops at 115° / Click Joi | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven WqgDSDL5twg | 1448 | 1441 | geen meting |  | 2026-11-20 Blender add-on: a hinge for knees and elbows with an end sto | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven 65JiRlDupNc | 1219 | 1219 | geen meting |  | 2026-11-19 See how far a joint bends before you 3D print it (free Blend | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
-| YouTube @Dortusapps | YouTube | weergaven sgcC965GVps | 95 | 93 | geen meting |  | 2026-11-17 Breathing exercise on your watch? Close your eyes and follow | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
-| YouTube @Dortusapps | YouTube | weergaven (RSS) | 6011 | 5133 | geen meting |  | 11 filmpjes in de RSS (alleen de nieuwste openbare, max 15) | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
+| YouTube @Dortusapps | YouTube | weergaven sgcC965GVps | 98 | 93 | geen meting |  | 2026-11-17 Breathing exercise on your watch? Close your eyes and follow | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
+| YouTube @Dortusapps | YouTube | weergaven (RSS) | 6254 | 5133 | geen meting |  | 11 filmpjes in de RSS (alleen de nieuwste openbare, max 15) | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | TikTok @screencuts.co | TikTok | weergaven 7710270617886444833 | 289 | 289 | geen meting |  | videopagina | GEZIEN, tiktok.com videopagina (playCount) |
 | TikTok @dortusstudio | TikTok | weergaven 7711044046633913632 | 289 | 289 | geen meting |  | videopagina | GEZIEN, tiktok.com videopagina (playCount) |
 | TikTok @dortusstudio | TikTok | weergaven 7709898461893643553 | 298 | 298 | geen meting |  | videopagina | GEZIEN, tiktok.com videopagina (playCount) |
@@ -74,7 +74,7 @@ Bezoekers, bezoeken en weergaven gelden voor de hele site. Per pagina: het getal
 
 | Dag | Bezoekers | Bezoeken | Weergaven | voorpagina | Click Joints | Ebb | Rollwright | Bison & Flex | TikTok-adres | YouTube-adres | overig |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 2026-11-24 tot 04:14 (nog niet om, niet in de csv) | 2 | 2 | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 |
+| 2026-11-24 tot 08:40 (nog niet om, niet in de csv) | 5 | 5 | 5 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 4 |
 | 2026-11-23 | 12 | 13 | 13 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 9 |
 | 2026-11-22 | 11 | 13 | 18 | 1 | 4 | 0 | 0 | 0 | 0 | 1 | 7 |
 | 2026-11-21 | 13 | 13 | 13 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 8 |
