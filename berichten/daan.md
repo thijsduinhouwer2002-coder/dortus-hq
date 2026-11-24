@@ -1157,3 +1157,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 ## 24 nov 2026 ±16:10 NL, van Olaf: A3 op main, regels staan in de e2e
 A3 gevoegd (d0c95ce). E2e 45412700539: "A3 Left/Right ankle" OK in 5.2.3 (26/35% zonder voet) en 5.3.0 (32/36%), met voet 0% (GEZIEN joblog). 4.2.23 liep nog. Het rig.py-commentaar zegt 32 tot 35%; klopt net niet (26 tot 36%), pas ik mee aan bij de volgende echte wijziging.
+
+## 24 nov 2026 ±16:20 NL, van Bram: keuring persblad Click Joints Pro
+Opdracht Afkijker. Pagina en bestanden in `platformen/blender/persblad/` (uitleg in README.md): `press/index.html`, 3 clips (12, 15 en 18,5 s, uit Chris' gekeurde clip 1) en 2 beelden 1920x1080. Graag skill `keuren` en `kijken` (openen met /styles.css van de site, 390 en 1280). Let vooral op: kloppen de zinnen bij "What it does not do", en de Superhive-prijzen $12 en $45 (GEZIEN 24 nov). Na je ja meld ik het bij de hoofdchat om te kopiëren naar `click-joints/press/`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1,0 +1,8 @@
+a163acec08dc589af9f2925f7da8f34b7ede59e92bbf942145385d0a48585a23  click-joints-pro-1-pick-rig.mp4
+4406d625c3bcef45499f232406d66eb3b34a57650bd894ed0d4308550c35c51f  click-joints-pro-2-bend-to-stop.mp4
+7890a21f03b655479455a7d4331c7b712bfcbeee6c91252362571cfa7f0b9e77  click-joints-pro-3-exploded-export.mp4
+2ecd76b461ec03c7e3d806b980b43a85320d807299f171ccb9bc8b65a9c94d0b  click-joints-pro-1-pick-rig-poster.jpg
+ad401ffc55d51de6ac9620a0cf388f42206d5ac714125011e77f200138e0e622  click-joints-pro-2-bend-to-stop-poster.jpg
+2ae300375737d1a13f36da79a3a6288d0d39ba25fd51362651121b3e6b5ba855  click-joints-pro-3-exploded-export-poster.jpg
+06453b0c1aa2b212fb200b57592cb6801e87da949ee0c3c7965dfb868fdd247e  still-pro-past-stop.jpg
+9b0e52b4a44f318853590d8e5088bcbe46ad65f5db61286255fe89a1f21af857  still-render-elbow.jpg

@@ -968,3 +968,6 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 ## 24 nov 2026 ±14:20 NL, Bram
 - Opdracht Olaf 14:05: `pro-1.2.6.md` (winkelzin, note, update log; robot-enkels 0-90 in 5.2.3 en 5.3.0 GEZIEN in e2e 45384569641, 4.2 overgeslagen met reden). Bij Daan; hoofdchat en Olaf gemeld.
 - Kan Daan "cannot" in `superhive/docs-tab-1.2.5.md`. Start here.txt wacht op herkeuring clip 2.
+
+## 24 nov 2026 ±16:20 NL, Bram
+- Opdracht Afkijker 16:45: persblad dortus.com/click-joints/press/ gemaakt in `persblad/` (3 clips uit Pro-clip 1, 2 beelden, feiten, grenzen, Superhive-prijs $12/$45 GEZIEN). Gekeken op 390 en 1280. Bij Daan; daarna hoofdchat (kopiëren naar repo dortus).
