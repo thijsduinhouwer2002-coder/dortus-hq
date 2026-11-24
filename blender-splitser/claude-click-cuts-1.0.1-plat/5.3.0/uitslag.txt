@@ -10,7 +10,7 @@
 [sj-e2e] OK   operator split_joints.split_to_fit bestaat 
 [sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
 [sj-e2e] suzanne: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] suzanne: split {'FINISHED'} in 1.75 s, solver MANIFOLD
+[sj-e2e] suzanne: split {'FINISHED'} in 2.01 s, solver MANIFOLD
 [sj-e2e] OK   suzanne: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   suzanne stuk 1: past op het bed [84.6, 96.1, 115.1]
 [sj-e2e] OK   suzanne stuk 1: waterdicht slechte randen 0, volume 255040 mm3, per stap [0, 0, 0, 0, 0]
@@ -258,27 +258,35 @@
 [sj-e2e] OK   suzanne: plat export 
 [sj-e2e] OK   suzanne: plat stuk 1 laagste punt op z = 0, past op het bed z 0.000, 115.1 x 96.1 x 84.6, rang 0
 [sj-e2e] OK   suzanne: plat stuk 1 zelfde volume als het stuk 255053 / 255053 mm3
+[sj-e2e] OK   suzanne: plat stuk 1 ligt op een snijvlak rang 0, onder 7136 mm2
 [sj-e2e] OK   suzanne: plat stuk 1 grootste snijvlak ligt onder onder 7136 mm2, grootste 7136 mm2
 [sj-e2e] OK   suzanne: plat stuk 2 laagste punt op z = 0, past op het bed z 0.000, 115.1 x 96.1 x 84.6, rang 0
 [sj-e2e] OK   suzanne: plat stuk 2 zelfde volume als het stuk 254828 / 254828 mm3
+[sj-e2e] OK   suzanne: plat stuk 2 ligt op een snijvlak rang 0, onder 7136 mm2
 [sj-e2e] OK   suzanne: plat stuk 2 grootste snijvlak ligt onder onder 7136 mm2, grootste 7136 mm2
 [sj-e2e] OK   suzanne: plat stuk 3 laagste punt op z = 0, past op het bed z -0.000, 137.6 x 88.1 x 47.7, rang 0
 [sj-e2e] OK   suzanne: plat stuk 3 zelfde volume als het stuk 137312 / 137312 mm3
+[sj-e2e] OK   suzanne: plat stuk 3 ligt op een snijvlak rang 0, onder 6517 mm2
 [sj-e2e] OK   suzanne: plat stuk 3 grootste snijvlak ligt onder onder 6517 mm2, grootste 6516 mm2
 [sj-e2e] OK   suzanne: plat stuk 4 laagste punt op z = 0, past op het bed z -0.000, 137.5 x 88.1 x 47.7, rang 0
 [sj-e2e] OK   suzanne: plat stuk 4 zelfde volume als het stuk 137196 / 137196 mm3
+[sj-e2e] OK   suzanne: plat stuk 4 ligt op een snijvlak rang 0, onder 6506 mm2
 [sj-e2e] OK   suzanne: plat stuk 4 grootste snijvlak ligt onder onder 6506 mm2, grootste 6505 mm2
 [sj-e2e] OK   suzanne: plat stuk 5 laagste punt op z = 0, past op het bed z 0.000, 98.8 x 113.5 x 96.3, rang 0
 [sj-e2e] OK   suzanne: plat stuk 5 zelfde volume als het stuk 621985 / 621985 mm3
+[sj-e2e] OK   suzanne: plat stuk 5 ligt op een snijvlak rang 0, onder 9456 mm2
 [sj-e2e] OK   suzanne: plat stuk 5 grootste snijvlak ligt onder onder 9456 mm2, grootste 9456 mm2
 [sj-e2e] OK   suzanne: plat stuk 6 laagste punt op z = 0, past op het bed z 0.000, 98.8 x 113.5 x 96.3, rang 0
 [sj-e2e] OK   suzanne: plat stuk 6 zelfde volume als het stuk 621753 / 621753 mm3
+[sj-e2e] OK   suzanne: plat stuk 6 ligt op een snijvlak rang 0, onder 9434 mm2
 [sj-e2e] OK   suzanne: plat stuk 6 grootste snijvlak ligt onder onder 9434 mm2, grootste 9434 mm2
 [sj-e2e] OK   suzanne: plat stuk 7 laagste punt op z = 0, past op het bed z 0.000, 159.6 x 115.1 x 96.3, rang 0
 [sj-e2e] OK   suzanne: plat stuk 7 zelfde volume als het stuk 721308 / 721308 mm3
+[sj-e2e] OK   suzanne: plat stuk 7 ligt op een snijvlak rang 0, onder 9456 mm2
 [sj-e2e] OK   suzanne: plat stuk 7 grootste snijvlak ligt onder onder 9456 mm2, grootste 9456 mm2
 [sj-e2e] OK   suzanne: plat stuk 8 laagste punt op z = 0, past op het bed z 0.000, 115.1 x 96.3 x 159.6, rang 0
 [sj-e2e] OK   suzanne: plat stuk 8 zelfde volume als het stuk 721048 / 721048 mm3
+[sj-e2e] OK   suzanne: plat stuk 8 ligt op een snijvlak rang 0, onder 9446 mm2
 [sj-e2e] OK   suzanne: plat stuk 8 grootste snijvlak ligt onder onder 9446 mm2, grootste 9446 mm2
 [sj-e2e] OK   suzanne: plat minstens de helft van de stukken ligt op een snijvlak 8 van 8
 [sj-e2e] OK   suzanne: plat pennenplaat ongewijzigd 1 platen
@@ -325,7 +333,7 @@
 [sj-e2e] OK   verschuif stuk 8: past en waterdicht 
 [sj-e2e] waterdicht GlassAlpha: {'FINISHED'} -> GlassAlpha_watertight 345960 vlakken
 [sj-e2e] vaas: plan {'FINISHED'} 16 stukken, n=[2, 2, 4]
-[sj-e2e] vaas: split {'FINISHED'} in 10.45 s, solver MANIFOLD
+[sj-e2e] vaas: split {'FINISHED'} in 11.21 s, solver MANIFOLD
 [sj-e2e] OK   vaas: meer dan 1 stuk 16 stukken
 [sj-e2e] vaas: meldingen: 'Cut 9-10: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-14: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 11-12: too small for a pin: the face is 5.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 15-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 9-11: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-15: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 10-12: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 14-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 5-9: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 7-11: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 6-10: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 8-12: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 9-13: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 11-15: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 10-14: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 12-16: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint'
 [sj-e2e] OK   vaas stuk 1: past op het bed [144.1, 144.1, 150.0]
@@ -638,52 +646,60 @@
 [sj-e2e] OK   vaas: plat export 
 [sj-e2e] OK   vaas: plat stuk 1 laagste punt op z = 0, past op het bed z 0.000, 150.0 x 144.1 x 144.1, rang 0
 [sj-e2e] OK   vaas: plat stuk 1 zelfde volume als het stuk 925079 / 925079 mm3
+[sj-e2e] OK   vaas: plat stuk 1 ligt op een snijvlak rang 0, onder 12358 mm2
 [sj-e2e] OK   vaas: plat stuk 1 grootste snijvlak ligt onder onder 12358 mm2, grootste 12358 mm2
 [sj-e2e] OK   vaas: plat stuk 2 laagste punt op z = 0, past op het bed z 0.000, 150.0 x 144.1 x 144.0, rang 0
 [sj-e2e] OK   vaas: plat stuk 2 zelfde volume als het stuk 924692 / 924692 mm3
+[sj-e2e] OK   vaas: plat stuk 2 ligt op een snijvlak rang 0, onder 12358 mm2
 [sj-e2e] OK   vaas: plat stuk 2 grootste snijvlak ligt onder onder 12358 mm2, grootste 12358 mm2
 [sj-e2e] OK   vaas: plat stuk 3 laagste punt op z = 0, past op het bed z 0.000, 144.1 x 150.0 x 144.0, rang 0
 [sj-e2e] OK   vaas: plat stuk 3 zelfde volume als het stuk 924698 / 924698 mm3
+[sj-e2e] OK   vaas: plat stuk 3 ligt op een snijvlak rang 0, onder 12358 mm2
 [sj-e2e] OK   vaas: plat stuk 3 grootste snijvlak ligt onder onder 12358 mm2, grootste 12358 mm2
 [sj-e2e] OK   vaas: plat stuk 4 laagste punt op z = 0, past op het bed z 0.000, 144.0 x 150.0 x 144.0, rang 0
 [sj-e2e] OK   vaas: plat stuk 4 zelfde volume als het stuk 924386 / 924386 mm3
+[sj-e2e] OK   vaas: plat stuk 4 ligt op een snijvlak rang 0, onder 12351 mm2
 [sj-e2e] OK   vaas: plat stuk 4 grootste snijvlak ligt onder onder 12351 mm2, grootste 12351 mm2
 [sj-e2e] OK   vaas: plat stuk 5 laagste punt op z = 0, past op het bed z 0.000, 140.5 x 150.0 x 140.5, rang 0
 [sj-e2e] OK   vaas: plat stuk 5 zelfde volume als het stuk 236996 / 236996 mm3
+[sj-e2e] OK   vaas: plat stuk 5 ligt op een snijvlak rang 0, onder 1887 mm2
 [sj-e2e] OK   vaas: plat stuk 5 grootste snijvlak ligt onder onder 1887 mm2, grootste 1887 mm2
 [sj-e2e] OK   vaas: plat stuk 6 laagste punt op z = 0, past op het bed z 0.000, 150.0 x 140.5 x 140.4, rang 0
 [sj-e2e] OK   vaas: plat stuk 6 zelfde volume als het stuk 236911 / 236911 mm3
+[sj-e2e] OK   vaas: plat stuk 6 ligt op een snijvlak rang 0, onder 1882 mm2
 [sj-e2e] OK   vaas: plat stuk 6 grootste snijvlak ligt onder onder 1882 mm2, grootste 1882 mm2
 [sj-e2e] OK   vaas: plat stuk 7 laagste punt op z = 0, past op het bed z 0.000, 140.5 x 150.0 x 140.4, rang 0
 [sj-e2e] OK   vaas: plat stuk 7 zelfde volume als het stuk 236927 / 236927 mm3
+[sj-e2e] OK   vaas: plat stuk 7 ligt op een snijvlak rang 0, onder 1887 mm2
 [sj-e2e] OK   vaas: plat stuk 7 grootste snijvlak ligt onder onder 1887 mm2, grootste 1887 mm2
 [sj-e2e] OK   vaas: plat stuk 8 laagste punt op z = 0, past op het bed z 0.000, 150.0 x 140.4 x 140.4, rang 0
 [sj-e2e] OK   vaas: plat stuk 8 zelfde volume als het stuk 236886 / 236886 mm3
+[sj-e2e] OK   vaas: plat stuk 8 ligt op een snijvlak rang 0, onder 1885 mm2
 [sj-e2e] OK   vaas: plat stuk 8 grootste snijvlak ligt onder onder 1885 mm2, grootste 1885 mm2
-[sj-e2e] OK   vaas: plat stuk 9 laagste punt op z = 0, past op het bed z -0.000, 166.5 x 157.0 x 135.1, rang 6
+[sj-e2e] OK   vaas: plat stuk 9 laagste punt op z = 0, past op het bed z 0.000, 150.1 x 150.1 x 150.0, rang -1
 [sj-e2e] OK   vaas: plat stuk 9 zelfde volume als het stuk 206536 / 206536 mm3
-[sj-e2e] OK   vaas: plat stuk 9 een plat vlak onder of eigen stand rang 6, onder 3168 mm2
-[sj-e2e] OK   vaas: plat stuk 10 laagste punt op z = 0, past op het bed z -0.000, 157.0 x 166.4 x 135.1, rang 6
+[sj-e2e] OK   vaas: plat stuk 9 geen snijvlak past: eigen stand, niet gedraaid 150.1 x 150.1 x 150.0 / 150.1 x 150.1 x 150.0
+[sj-e2e] OK   vaas: plat stuk 10 laagste punt op z = 0, past op het bed z 0.000, 150.1 x 150.1 x 150.0, rang -1
 [sj-e2e] OK   vaas: plat stuk 10 zelfde volume als het stuk 206498 / 206498 mm3
-[sj-e2e] OK   vaas: plat stuk 10 een plat vlak onder of eigen stand rang 6, onder 3166 mm2
-[sj-e2e] OK   vaas: plat stuk 11 laagste punt op z = 0, past op het bed z 0.000, 157.0 x 166.4 x 135.1, rang 6
+[sj-e2e] OK   vaas: plat stuk 10 geen snijvlak past: eigen stand, niet gedraaid 150.1 x 150.1 x 150.0 / 150.1 x 150.1 x 150.0
+[sj-e2e] OK   vaas: plat stuk 11 laagste punt op z = 0, past op het bed z 0.000, 150.1 x 150.1 x 150.0, rang -1
 [sj-e2e] OK   vaas: plat stuk 11 zelfde volume als het stuk 206497 / 206497 mm3
-[sj-e2e] OK   vaas: plat stuk 11 een plat vlak onder of eigen stand rang 6, onder 3166 mm2
-[sj-e2e] OK   vaas: plat stuk 12 laagste punt op z = 0, past op het bed z 0.000, 166.4 x 157.0 x 135.1, rang 6
+[sj-e2e] OK   vaas: plat stuk 11 geen snijvlak past: eigen stand, niet gedraaid 150.1 x 150.1 x 150.0 / 150.1 x 150.1 x 150.0
+[sj-e2e] OK   vaas: plat stuk 12 laagste punt op z = 0, past op het bed z 0.000, 150.1 x 150.1 x 150.0, rang -1
 [sj-e2e] OK   vaas: plat stuk 12 zelfde volume als het stuk 206477 / 206477 mm3
-[sj-e2e] OK   vaas: plat stuk 12 een plat vlak onder of eigen stand rang 6, onder 3168 mm2
-[sj-e2e] OK   vaas: plat stuk 13 laagste punt op z = 0, past op het bed z -0.000, 174.1 x 159.8 x 142.7, rang 6
+[sj-e2e] OK   vaas: plat stuk 12 geen snijvlak past: eigen stand, niet gedraaid 150.1 x 150.1 x 150.0 / 150.1 x 150.1 x 150.0
+[sj-e2e] OK   vaas: plat stuk 13 laagste punt op z = 0, past op het bed z 0.000, 158.7 x 158.7 x 150.0, rang -1
 [sj-e2e] OK   vaas: plat stuk 13 zelfde volume als het stuk 185371 / 185371 mm3
-[sj-e2e] OK   vaas: plat stuk 13 een plat vlak onder of eigen stand rang 6, onder 4007 mm2
-[sj-e2e] OK   vaas: plat stuk 14 laagste punt op z = 0, past op het bed z 0.000, 159.8 x 174.1 x 142.7, rang 6
+[sj-e2e] OK   vaas: plat stuk 13 geen snijvlak past: eigen stand, niet gedraaid 158.7 x 158.7 x 150.0 / 158.7 x 158.7 x 150.0
+[sj-e2e] OK   vaas: plat stuk 14 laagste punt op z = 0, past op het bed z 0.000, 158.7 x 158.7 x 150.0, rang -1
 [sj-e2e] OK   vaas: plat stuk 14 zelfde volume als het stuk 185372 / 185372 mm3
-[sj-e2e] OK   vaas: plat stuk 14 een plat vlak onder of eigen stand rang 6, onder 4008 mm2
-[sj-e2e] OK   vaas: plat stuk 15 laagste punt op z = 0, past op het bed z -0.000, 159.8 x 174.1 x 142.7, rang 6
+[sj-e2e] OK   vaas: plat stuk 14 geen snijvlak past: eigen stand, niet gedraaid 158.7 x 158.7 x 150.0 / 158.7 x 158.7 x 150.0
+[sj-e2e] OK   vaas: plat stuk 15 laagste punt op z = 0, past op het bed z 0.000, 158.7 x 158.7 x 150.0, rang -1
 [sj-e2e] OK   vaas: plat stuk 15 zelfde volume als het stuk 185361 / 185361 mm3
-[sj-e2e] OK   vaas: plat stuk 15 een plat vlak onder of eigen stand rang 6, onder 4008 mm2
-[sj-e2e] OK   vaas: plat stuk 16 laagste punt op z = 0, past op het bed z -0.000, 174.1 x 159.8 x 142.7, rang 6
+[sj-e2e] OK   vaas: plat stuk 15 geen snijvlak past: eigen stand, niet gedraaid 158.7 x 158.7 x 150.0 / 158.7 x 158.7 x 150.0
+[sj-e2e] OK   vaas: plat stuk 16 laagste punt op z = 0, past op het bed z 0.000, 158.7 x 158.7 x 150.0, rang -1
 [sj-e2e] OK   vaas: plat stuk 16 zelfde volume als het stuk 185284 / 185284 mm3
-[sj-e2e] OK   vaas: plat stuk 16 een plat vlak onder of eigen stand rang 6, onder 4007 mm2
+[sj-e2e] OK   vaas: plat stuk 16 geen snijvlak past: eigen stand, niet gedraaid 158.7 x 158.7 x 150.0 / 158.7 x 158.7 x 150.0
 [sj-e2e] OK   vaas: plat minstens de helft van de stukken ligt op een snijvlak 8 van 16
 [sj-e2e] OK   vaas: plat pennenplaat ongewijzigd 1 platen
 [sj-e2e] OK   vaas: plat stukken staan na export nog op hun plek in de scene 
@@ -734,7 +750,7 @@
 [sj-e2e] OK   vaas kleur: mesh en status blijven gelijk 
 [sj-e2e] waterdicht Skull: {'FINISHED'} -> Skull_watertight 79582 vlakken
 [sj-e2e] schedel: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] schedel: split {'FINISHED'} in 3.34 s, solver MANIFOLD
+[sj-e2e] schedel: split {'FINISHED'} in 3.63 s, solver MANIFOLD
 [sj-e2e] OK   schedel: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   schedel stuk 1: past op het bed [90.2, 149.9, 106.6]
 [sj-e2e] OK   schedel stuk 1: waterdicht slechte randen 0, volume 335329 mm3, per stap [0, 0, 0, 0, 0]
@@ -1002,27 +1018,35 @@
 [sj-e2e] OK   schedel: plat export 
 [sj-e2e] OK   schedel: plat stuk 1 laagste punt op z = 0, past op het bed z 0.000, 90.2 x 106.6 x 149.9, rang 0
 [sj-e2e] OK   schedel: plat stuk 1 zelfde volume als het stuk 335346 / 335346 mm3
+[sj-e2e] OK   schedel: plat stuk 1 ligt op een snijvlak rang 0, onder 5338 mm2
 [sj-e2e] OK   schedel: plat stuk 1 grootste snijvlak ligt onder onder 5338 mm2, grootste 5338 mm2
 [sj-e2e] OK   schedel: plat stuk 2 laagste punt op z = 0, past op het bed z 0.000, 90.1 x 106.7 x 149.5, rang 0
 [sj-e2e] OK   schedel: plat stuk 2 zelfde volume als het stuk 335367 / 335367 mm3
+[sj-e2e] OK   schedel: plat stuk 2 ligt op een snijvlak rang 0, onder 5335 mm2
 [sj-e2e] OK   schedel: plat stuk 2 grootste snijvlak ligt onder onder 5335 mm2, grootste 5335 mm2
 [sj-e2e] OK   schedel: plat stuk 3 laagste punt op z = 0, past op het bed z 0.000, 111.0 x 149.8 x 89.2, rang 0
 [sj-e2e] OK   schedel: plat stuk 3 zelfde volume als het stuk 974636 / 974636 mm3
+[sj-e2e] OK   schedel: plat stuk 3 ligt op een snijvlak rang 0, onder 12614 mm2
 [sj-e2e] OK   schedel: plat stuk 3 grootste snijvlak ligt onder onder 12614 mm2, grootste 12614 mm2
 [sj-e2e] OK   schedel: plat stuk 4 laagste punt op z = 0, past op het bed z 0.000, 111.7 x 149.9 x 89.2, rang 0
 [sj-e2e] OK   schedel: plat stuk 4 zelfde volume als het stuk 974159 / 974159 mm3
+[sj-e2e] OK   schedel: plat stuk 4 ligt op een snijvlak rang 0, onder 12614 mm2
 [sj-e2e] OK   schedel: plat stuk 4 grootste snijvlak ligt onder onder 12614 mm2, grootste 12614 mm2
 [sj-e2e] OK   schedel: plat stuk 5 laagste punt op z = 0, past op het bed z 0.000, 111.5 x 105.3 x 76.8, rang 0
 [sj-e2e] OK   schedel: plat stuk 5 zelfde volume als het stuk 363245 / 363245 mm3
+[sj-e2e] OK   schedel: plat stuk 5 ligt op een snijvlak rang 0, onder 7750 mm2
 [sj-e2e] OK   schedel: plat stuk 5 grootste snijvlak ligt onder onder 7750 mm2, grootste 7750 mm2
 [sj-e2e] OK   schedel: plat stuk 6 laagste punt op z = 0, past op het bed z 0.000, 111.5 x 105.3 x 76.8, rang 0
 [sj-e2e] OK   schedel: plat stuk 6 zelfde volume als het stuk 363002 / 363002 mm3
+[sj-e2e] OK   schedel: plat stuk 6 ligt op een snijvlak rang 0, onder 7750 mm2
 [sj-e2e] OK   schedel: plat stuk 6 grootste snijvlak ligt onder onder 7750 mm2, grootste 7750 mm2
 [sj-e2e] OK   schedel: plat stuk 7 laagste punt op z = 0, past op het bed z 0.000, 111.6 x 148.7 x 84.0, rang 0
 [sj-e2e] OK   schedel: plat stuk 7 zelfde volume als het stuk 801839 / 801839 mm3
+[sj-e2e] OK   schedel: plat stuk 7 ligt op een snijvlak rang 0, onder 12632 mm2
 [sj-e2e] OK   schedel: plat stuk 7 grootste snijvlak ligt onder onder 12632 mm2, grootste 12632 mm2
 [sj-e2e] OK   schedel: plat stuk 8 laagste punt op z = 0, past op het bed z 0.000, 111.6 x 148.7 x 84.0, rang 0
 [sj-e2e] OK   schedel: plat stuk 8 zelfde volume als het stuk 799252 / 799252 mm3
+[sj-e2e] OK   schedel: plat stuk 8 ligt op een snijvlak rang 0, onder 12632 mm2
 [sj-e2e] OK   schedel: plat stuk 8 grootste snijvlak ligt onder onder 12632 mm2, grootste 12632 mm2
 [sj-e2e] OK   schedel: plat minstens de helft van de stukken ligt op een snijvlak 8 van 8
 [sj-e2e] OK   schedel: plat pennenplaat ongewijzigd 1 platen
@@ -1063,7 +1087,7 @@
 [sj-e2e] OK   buis stuk 2: past en waterdicht 
 [sj-e2e] OK   doos: 8 hoekpunten, geen voxel 
 [sj-e2e] doos: plan {'FINISHED'} 3 stukken, n=[3, 1, 1]
-[sj-e2e] doos: split {'FINISHED'} in 0.17 s, solver MANIFOLD
+[sj-e2e] doos: split {'FINISHED'} in 0.18 s, solver MANIFOLD
 [sj-e2e] OK   doos: meer dan 1 stuk 3 stukken
 [sj-e2e] OK   doos stuk 1: past op het bed [166.7, 150.0, 120.0]
 [sj-e2e] OK   doos stuk 1: waterdicht slechte randen 0, volume 2999634 mm3, per stap [0, 0, 0, 0, 0]
@@ -1123,12 +1147,15 @@
 [sj-e2e] OK   doos: plat export 
 [sj-e2e] OK   doos: plat stuk 1 laagste punt op z = 0, past op het bed z 0.000, 120.0 x 150.0 x 166.7, rang 0
 [sj-e2e] OK   doos: plat stuk 1 zelfde volume als het stuk 2999634 / 2999634 mm3
+[sj-e2e] OK   doos: plat stuk 1 ligt op een snijvlak rang 0, onder 17852 mm2
 [sj-e2e] OK   doos: plat stuk 1 grootste snijvlak ligt onder onder 17852 mm2, grootste 17852 mm2
 [sj-e2e] OK   doos: plat stuk 2 laagste punt op z = 0, past op het bed z 0.000, 120.0 x 150.0 x 166.7, rang 0
 [sj-e2e] OK   doos: plat stuk 2 zelfde volume als het stuk 2998770 / 2998770 mm3
+[sj-e2e] OK   doos: plat stuk 2 ligt op een snijvlak rang 0, onder 17852 mm2
 [sj-e2e] OK   doos: plat stuk 2 grootste snijvlak ligt onder onder 17852 mm2, grootste 17852 mm2
 [sj-e2e] OK   doos: plat stuk 3 laagste punt op z = 0, past op het bed z 0.000, 120.0 x 150.0 x 166.7, rang 0
 [sj-e2e] OK   doos: plat stuk 3 zelfde volume als het stuk 2999136 / 2999136 mm3
+[sj-e2e] OK   doos: plat stuk 3 ligt op een snijvlak rang 0, onder 17844 mm2
 [sj-e2e] OK   doos: plat stuk 3 grootste snijvlak ligt onder onder 17844 mm2, grootste 17844 mm2
 [sj-e2e] OK   doos: plat minstens de helft van de stukken ligt op een snijvlak 3 van 3
 [sj-e2e] OK   doos: plat pennenplaat ongewijzigd 1 platen
@@ -1169,7 +1196,7 @@
 [sj-e2e] melding: 'Error: These cuts make 301 cells (limit 200). Remove cuts or plan again\n'
 [sj-e2e] OK   meter fout: Split weigert 301 cellen {'CANCELLED'} cellen:301
 [sj-e2e] meter-omgezet: plan {'FINISHED'} 3 stukken, n=[3, 1, 1]
-[sj-e2e] meter-omgezet: split {'FINISHED'} in 0.16 s, solver MANIFOLD
+[sj-e2e] meter-omgezet: split {'FINISHED'} in 0.18 s, solver MANIFOLD
 [sj-e2e] OK   meter-omgezet: meer dan 1 stuk 3 stukken
 [sj-e2e] OK   meter-omgezet stuk 1: past op het bed [166.7, 150.0, 120.0]
 [sj-e2e] OK   meter-omgezet stuk 1: waterdicht slechte randen 0, volume 2999634 mm3, per stap [0, 0, 0, 0, 0]
@@ -1229,12 +1256,15 @@
 [sj-e2e] OK   meter-omgezet: plat export 
 [sj-e2e] OK   meter-omgezet: plat stuk 1 laagste punt op z = 0, past op het bed z 0.000, 120.0 x 150.0 x 166.7, rang 0
 [sj-e2e] OK   meter-omgezet: plat stuk 1 zelfde volume als het stuk 2999634 / 2999634 mm3
+[sj-e2e] OK   meter-omgezet: plat stuk 1 ligt op een snijvlak rang 0, onder 17852 mm2
 [sj-e2e] OK   meter-omgezet: plat stuk 1 grootste snijvlak ligt onder onder 17852 mm2, grootste 17852 mm2
 [sj-e2e] OK   meter-omgezet: plat stuk 2 laagste punt op z = 0, past op het bed z 0.000, 120.0 x 150.0 x 166.7, rang 0
 [sj-e2e] OK   meter-omgezet: plat stuk 2 zelfde volume als het stuk 2998770 / 2998770 mm3
+[sj-e2e] OK   meter-omgezet: plat stuk 2 ligt op een snijvlak rang 0, onder 17852 mm2
 [sj-e2e] OK   meter-omgezet: plat stuk 2 grootste snijvlak ligt onder onder 17852 mm2, grootste 17852 mm2
 [sj-e2e] OK   meter-omgezet: plat stuk 3 laagste punt op z = 0, past op het bed z 0.000, 120.0 x 150.0 x 166.7, rang 0
 [sj-e2e] OK   meter-omgezet: plat stuk 3 zelfde volume als het stuk 2999136 / 2999136 mm3
+[sj-e2e] OK   meter-omgezet: plat stuk 3 ligt op een snijvlak rang 0, onder 17844 mm2
 [sj-e2e] OK   meter-omgezet: plat stuk 3 grootste snijvlak ligt onder onder 17844 mm2, grootste 17844 mm2
 [sj-e2e] OK   meter-omgezet: plat minstens de helft van de stukken ligt op een snijvlak 3 van 3
 [sj-e2e] OK   meter-omgezet: plat pennenplaat ongewijzigd 1 platen
@@ -1261,7 +1291,7 @@
 [sj-e2e] OK   meter fout: na omzetten 3 stukken 3
 [sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
 [sj-e2e] meter-suzanne: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] meter-suzanne: split {'FINISHED'} in 1.79 s, solver MANIFOLD
+[sj-e2e] meter-suzanne: split {'FINISHED'} in 1.86 s, solver MANIFOLD
 [sj-e2e] OK   meter-suzanne: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   meter-suzanne stuk 1: past op het bed [84.6, 96.1, 115.1]
 [sj-e2e] OK   meter-suzanne stuk 1: waterdicht slechte randen 0, volume 0 mm3, per stap [0, 0, 0, 0, 0]
@@ -1509,27 +1539,35 @@
 [sj-e2e] OK   meter-suzanne: plat export 
 [sj-e2e] OK   meter-suzanne: plat stuk 1 laagste punt op z = 0, past op het bed z 0.000, 115.1 x 96.1 x 84.6, rang 0
 [sj-e2e] OK   meter-suzanne: plat stuk 1 zelfde volume als het stuk 255051 / 255051 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 1 ligt op een snijvlak rang 0, onder 7136 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 1 grootste snijvlak ligt onder onder 7136 mm2, grootste 7136 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 2 laagste punt op z = 0, past op het bed z 0.000, 115.1 x 96.1 x 84.6, rang 0
 [sj-e2e] OK   meter-suzanne: plat stuk 2 zelfde volume als het stuk 254834 / 254834 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 2 ligt op een snijvlak rang 0, onder 7136 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 2 grootste snijvlak ligt onder onder 7136 mm2, grootste 7136 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 3 laagste punt op z = 0, past op het bed z -0.000, 137.6 x 88.1 x 47.7, rang 0
 [sj-e2e] OK   meter-suzanne: plat stuk 3 zelfde volume als het stuk 137313 / 137313 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 3 ligt op een snijvlak rang 0, onder 6517 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 3 grootste snijvlak ligt onder onder 6517 mm2, grootste 6516 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 4 laagste punt op z = 0, past op het bed z -0.000, 137.5 x 88.1 x 47.7, rang 0
 [sj-e2e] OK   meter-suzanne: plat stuk 4 zelfde volume als het stuk 137197 / 137197 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 4 ligt op een snijvlak rang 0, onder 6506 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 4 grootste snijvlak ligt onder onder 6506 mm2, grootste 6505 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 5 laagste punt op z = 0, past op het bed z 0.000, 98.8 x 113.5 x 96.3, rang 0
 [sj-e2e] OK   meter-suzanne: plat stuk 5 zelfde volume als het stuk 621985 / 621985 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 5 ligt op een snijvlak rang 0, onder 9456 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 5 grootste snijvlak ligt onder onder 9456 mm2, grootste 9456 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 6 laagste punt op z = 0, past op het bed z 0.000, 98.8 x 113.5 x 96.3, rang 0
 [sj-e2e] OK   meter-suzanne: plat stuk 6 zelfde volume als het stuk 621757 / 621757 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 6 ligt op een snijvlak rang 0, onder 9434 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 6 grootste snijvlak ligt onder onder 9434 mm2, grootste 9434 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 7 laagste punt op z = 0, past op het bed z 0.000, 159.6 x 115.1 x 96.3, rang 0
 [sj-e2e] OK   meter-suzanne: plat stuk 7 zelfde volume als het stuk 721311 / 721311 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 7 ligt op een snijvlak rang 0, onder 9456 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 7 grootste snijvlak ligt onder onder 9456 mm2, grootste 9456 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 8 laagste punt op z = 0, past op het bed z 0.000, 115.1 x 96.3 x 159.6, rang 0
 [sj-e2e] OK   meter-suzanne: plat stuk 8 zelfde volume als het stuk 721051 / 721051 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 8 ligt op een snijvlak rang 0, onder 9446 mm2
 [sj-e2e] OK   meter-suzanne: plat stuk 8 grootste snijvlak ligt onder onder 9446 mm2, grootste 9446 mm2
 [sj-e2e] OK   meter-suzanne: plat minstens de helft van de stukken ligt op een snijvlak 8 van 8
 [sj-e2e] OK   meter-suzanne: plat pennenplaat ongewijzigd 1 platen
