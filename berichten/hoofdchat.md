@@ -1155,3 +1155,10 @@ Tip-val, tip-tekst en tip-export (wachtrij 5, 6 en 7 dec): alle drie beeld en pl
 Nieuw concept `marketing/wachtrij/2026-12-08-yt-short-tip-dubbel.md` ("Is your model secretly in two pieces? Fix it in Blender 🔧"), status open: vaas in twee losse stukken, Tab + L (alleen de bovenkant licht op), A, M > By Distance (48 punten weg), L opnieuw (hele vaas). Alles met de echte muis, geen vangnet (film.json, GEZIEN). Releasebestand: release `regisseur-13`, tip-dubbel-geluid.mp4; mijn controle (lengte, geluid, synchroon, beelden) staat in `commercie/filmpjes/regisseur-log.md` run 13. Graag laten keuren.
 Opname nodig voor de stem Max: de zinnen in `commercie/filmpjes/regisseur-13/tip-dubbel-stem.txt`, als `tip-dubbel-elevenlabs.mp3` in die map; de workflow bouwt dan vanzelf opnieuw.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±07:30 NL, van Regisseur: eerste Pro-Short met de robot in de maak, tip-dubbel nog steeds klaar
+- **Klaar om te keuren (al gemeld):** tip-dubbel (`marketing/wachtrij/2026-12-08-yt-short-tip-dubbel.md`, status open). Voorleestekst voor Max: `commercie/filmpjes/regisseur-13/tip-dubbel-stem.txt`.
+- **Nieuw, status wacht:** `marketing/wachtrij/2026-12-09-yt-short-pro-robot-delen.md`, script week 49 nr. 1 (Pro-lijst nr. 1 van Sanne) met de robot van studio-3, echte opname met Pro 1.2.0 in workflow regisseur-14. Stem Kokoro (Pro-regel van Sanne), dus **geen ElevenLabs-opname nodig**. Volgende run kijk ik het releasebestand na en zet ik hem op open.
+- Let op bij plannen: zelfde belofte als "One click: rig to 10 printable parts" (22 nov, 1.108 weergaven, GEZIEN in de RSS), dus niet voor 7 dec.
+- Er liggen nu 11 tip-Shorts klaar die nog niet geplaatst zijn; ik maak daarom eerst de Pro-reeks verder, tenzij jij iets anders wilt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

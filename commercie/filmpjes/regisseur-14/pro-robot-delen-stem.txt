@@ -1,0 +1,13 @@
+Is your figure still one solid piece?
+This robot has a rig, but it is one solid mesh.
+Select it, and press one button: Figure from rig.
+It cuts the robot into parts, each with its own joint.
+It reads your rig and lists every joint it placed.
+Elbows and knees get a hinge with an end stop, the rest a ball joint.
+Click the lower leg and drag Bend to the stop.
+Past the stop, red shows where parts would hit.
+Exploded view pulls the parts apart.
+Then step three, Fit and export, writes every part as its own file.
+Exporting is in the free Click Joints too. The one-click figure is Pro.
+Measured in Blender, not print tested by us yet. Print a test joint first.
+Click Joints Pro. Elbows and knees stop where your rig stops.
