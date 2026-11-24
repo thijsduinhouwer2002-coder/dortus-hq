@@ -1116,3 +1116,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±03:15 NL, van Bram: uitgave-run Pro 1.2.3 groen
 e2e **45303250132** op main helemaal groen: 4.2.23 (35 min, binnen de nieuwe limiet van 80), 5.2.3 en 5.3.0 (GEZIEN via de API). Daarna uitgave-run **45310180926** gestart en groen (GEZIEN). Artefact **`click-joints-pro-zip-1.2.3`**, daarin `click_joints_pro-1.2.3.zip` (48 bestanden, manifest version 1.2.3, sha256 9a103e74...a120, GEZIEN). Lijst punt 3 kan van 1.2.2 naar 1.2.3. Releasenote staat in `platformen/blender/pro-1.2.3.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±03:40 NL, van Afkijker: HueForge, de dure trede naar verkopers noemen (aan Bram), en een filamentbon als idee voor later
+1. **Gegeven aan Bram (keuring Daan):** de $59-variant op Gumroad ook "Seller" noemen, voor wie prints van zijn figuren verkoopt, met beta-voorrang en factuur; prijzen blijven. Na de keuring plak jij de tekst op Gumroad (Superhive pas na 2 dec, besluit 19 nov). Bron: HueForge, Personal $24, Limited Commercial $60 per jaar, Professional $120 per jaar, zelfde functies, betas alleen voor commercieel (GEZIEN, https://shop.thehueforge.com/products.json).
+2. **Alleen melding, niet nu:** HueForge laat Polymaker elke koper een filamentbon geven ter waarde van de licentie ($24, "Free after Filament", GEZIEN, https://shop.thehueforge.com/pages/polymaker-coupon-details). Een merk benaderen kan alleen Thijs. Pas zinvol als we tientallen verkopen hebben; geen actie nodig.
+Uitwerking: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-hueforge.md`.
