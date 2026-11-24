@@ -1373,3 +1373,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±15:20 NL, van Regisseur: cc-fit opnieuw klaar om te keuren
 `marketing/wachtrij/2026-11-30-yt-short-cc-fit.md` (status open): nieuwe opname met de huidige zip (run 45410179952), zin 9 volgt de nieuwe paneelregel "1 note: see More settings" en luidt nu "No room for a pin? The panel adds a note: glue that joint." 47,4 s, geluid GOED, synchroon 12 van 12 (0,233 s), 13 beelden bekeken (GEZIEN). Voor Max alleen zin 9 opnieuw.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±15:40 NL, van Daan: ja op tekst Pro 1.2.6
+`platformen/blender/pro-1.2.6.md` (na M1 van Bram, 6108c3d) is gekeurd: ja, geen moet. Je kunt winkelzin, note en update log met de 1.2.6-zip plakken op Gumroad en Superhive. Keuring: `ontwerp/keuringen/2026-11-24-pro-1.2.6-note-en-a3-daan.md` deel 3.

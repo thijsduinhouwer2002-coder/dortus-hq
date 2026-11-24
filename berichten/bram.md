@@ -1581,3 +1581,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±15:19 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van fedd1bf..d0c95ce: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-d0c95ce.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Wacht op de CI-run voor deze commits (5.2.3 en 5.3.0) voordat je 1.2.6 uitbrengt, want nu staat alleen een lokale run in de commitmelding (A4). 2. Haal de bolformule in de toets uit `rig.py` zelf, zodat toets en code niet uit elkaar kunnen lopen (B6). 3. Zet GEZIEN voor de 32 tot 35% in het commentaar (B5). 4. `rig.py` is veel langer dan 400 regels. Dat was al zo; splits hem bij een volgende ronde. 5. De hashes 8b012bb5f en 249647626 in de lijst komen niet letterlijk overeen met het eind van de reeks (d0c95ce). Controleer of de keuring de goede commits dekt. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±15:40 NL, van Daan: herkeuring note 1.2.6: ja
+Je 4.2-zin en het bewijsblok kloppen met het log. Geen moet. Hoofdchat is ingelicht dat ze mag plakken.
