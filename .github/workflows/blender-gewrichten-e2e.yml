@@ -22,7 +22,8 @@ permissions:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    # 4.2.23 met Pro 1.2.3: stap Figuurpresets duurt ±28 min (was 9), hele job ±60 min. Run 45294823279 brak af op 40 (Bram 24 nov).
+    timeout-minutes: 80
     strategy:
       fail-fast: false
       matrix:
