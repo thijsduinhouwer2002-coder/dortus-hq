@@ -112,7 +112,7 @@ def gemini_lijst():
              if "generateContent" in m.get("supportedGenerationMethods", [])]
     namen = [n for n in namen if n.startswith("gemini-") and ("pro" in n or "flash" in n)
              and not any(w in n for w in ("tts", "image", "audio", "live", "embedding", "lite"))]
-    return sorted(namen, key=lambda n: (("pro" in n), n), reverse=True)[:3]
+    return sorted(namen, key=lambda n: (("pro" in n), n), reverse=True)[:6]
 
 
 def vraag(naam, modellen, functie, prompt, beelden, gekozen):
@@ -127,7 +127,8 @@ def vraag(naam, modellen, functie, prompt, beelden, gekozen):
             gekozen[naam] = m.strip()
             return data
         except Exception as e:
-            fouten.append(f"{m}: {e}")
+            kort = " ".join(str(e).split())
+            fouten.append(f"{m}: {kort[:90]}")
     raise RuntimeError(f"{naam} gaf geen bruikbaar antwoord: " + " | ".join(fouten))
 
 
@@ -162,7 +163,7 @@ def main(setpad, uitpad):
                 try:
                     data = vraag(naam, modellen, functie, prompt, beelden, gekozen)
                 except RuntimeError as e:
-                    kapot[naam] = str(e)[:300]
+                    kapot[naam] = str(e)[:900]
                     continue
                 plekken[naam].append(plek_van(data["ranking"], ons))
                 winnaar = next(i["naam"] for i in rij if letter_van[i["naam"]] == data["ranking"][0])
