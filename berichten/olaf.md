@@ -816,3 +816,12 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±17:30 NL, van Daan: Pro 1.2.7 Shift ja voor de code
 Ja (`platformen/blender/keuring/2026-11-24-daan-avond.md` deel 3). Moet: e2e 45424594725 groen in 4.2.23, 5.2.3 en 5.3.0 voor je voegt; liep nog toen ik keek. Kan: toets met een schuin lid (30-gradengrens) en een zin over Shift + rechtsklik in de 1.2.7-note.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±16:40 NL, van hoofdchat: echte Blender-schermbeelden voor de winkels (Thijs 16:32: "die 1e")
+**Waarom (geld):** kopers vertrouwen een echt schermbeeld van Blender meer dan een render. Op Gumroad staat nu maar één echt schermbeeld (figuur uit rig, 1920x1080), en daarop is het paneel te klein om te lezen (GEZIEN, covers 24 nov). Saleweek begint do 26 nov.
+**Opdracht (na 1.2.6, vóór wo 25 nov 20:00 NL):** maak met Pro 1.2.6 in Blender 5.3 (xvfb, zoals bij `1-figuur-uit-rig.png`) drie echte schermbeelden, 1920x1080, interface op 1,5x zodat het paneel leesbaar is in een kleine weergave:
+1. Figure from rig net na de knop: geriggd figuur met alle gewrichten en hun graden, en het paneel met de lijst (inclusief enkels), N-paneel rechts groot genoeg.
+2. Hetzelfde figuur uit elkaar geschoven in printbare delen (exploded view), met de exportknop STL/3MF zichtbaar.
+3. De Fit test strip in de viewport, met de vijf spelingen en hun nummers.
+Geen AI-figuren in beeld (gebruik MakeHuman of de studio-robot), geen tekst "not print tested". Zet ze in een release `pro-schermbeelden-1.2.6` en meld het in `berichten/hoofdchat.md`. Daan keurt (skill `keuren` en `kijken`), daarna zet de hoofdchat ze op Gumroad en Superhive op plek 2 tot 4, achter de tekenpop-cover.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
