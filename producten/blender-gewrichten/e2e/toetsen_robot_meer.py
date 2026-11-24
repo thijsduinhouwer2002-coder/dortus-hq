@@ -6,7 +6,8 @@ part of the model": het vangnet keek buiten een bol van 15 mm (0,6 keer het kort
 Gemeten lokaal 5.3.0: 11 gewrichten met beide enkels 0-90, knieën 0-120.
 
 Eisen vanaf Blender 4.5: beide enkels geplaatst en minstens 45 graden, knieën nog 0-120, alle delen gesloten en elk
-deel één stuk. In 4.2 (alleen Exact): elk overgeslagen gewricht met reden, en dezelfde eisen voor gesloten en één stuk.
+deel één stuk; en (kan A3 Daan) een weggevallen voet wordt door het vangnet gevangen (lokaal 5.3.0: bol 25,9 mm,
+zonder voet 32 en 35% verloren, met voet 0%, grens 6%). In 4.2 (alleen Exact): elk overgeslagen gewricht met reden, en dezelfde eisen voor gesloten en één stuk.
 
 Gebruik: blender -b --factory-startup --python e2e/toetsen_robot_meer.py -- <betaalde zip>
 Uitslag: regels [cj-robot-toets], laatste regel "KLAAR n FOUT".
@@ -16,6 +17,7 @@ import os
 import sys
 
 import bpy
+import mathutils
 
 os.environ["CJ_HOOGTE"] = "220"
 HIER = os.path.dirname(os.path.abspath(__file__))
@@ -42,7 +44,7 @@ def main():
     A["installeer"](args[0])
     sys.path.insert(0, STUDIO)
     import figuur_laden as FL
-    _rig, ob, _p = FL.laad_figuur("robot", 220.0)
+    rig, ob, _p = FL.laad_figuur("robot", 220.0)
     naam = ob.name
     inst = bpy.context.scene.click_joints
     inst.speling_mm, inst.as_bron, inst.uit_elkaar, inst.kogel_auto = 0.2, "CURSOR", False, True
@@ -77,7 +79,64 @@ def main():
     check(bool(delen) and all(ges.is_gesloten(o)[0] for o in delen), f"alle {len(delen)} delen gesloten")
     st = [A["mesh_staat"](o)["losse_stukken"] for o in delen]
     check(all(s == 1 for s in st), f"elk deel één stuk ({st})")
+    if bpy.app.version >= (4, 5, 0):
+        weggevallen_voet(rig, delen)
     log(f"KLAAR {len(FOUT)} FOUT")
+
+
+def weggevallen_voet(rig, delen):
+    """Kan A3 (keuring Daan 24 nov, 1.2.6): sinds 1.2.6 krijgt de bol van het vangnet bij de enkel de maat van het
+    scheenbot. Toets dat een voet die echt weg is nog gevangen wordt: bron = scheen en voet samen, nieuw = alleen de
+    scheen moet boven VERLOREN_MAX (6%) uitkomen; nieuw = scheen en voet moet eronder blijven. Zelfde bol als rig.py."""
+    rigmod = importlib.import_module("bl_ext.user_default.click_joints.betaald.rig")
+    eig = importlib.import_module("bl_ext.user_default.click_joints.eigenschappen")
+    fig = importlib.import_module("bl_ext.user_default.click_joints.betaald.figuur")
+    u = eig.eenheid_per_mm(bpy.context.scene)
+    for kant in ("Left", "Right"):
+        naam = f"{kant} ankle"
+        met = [d for d in delen if naam in [r.get("naam") for r in fig.lees(d)]]
+        if len(met) != 2:
+            check(False, f"A3 {naam}: voet en scheen niet te vinden ({[d.name for d in met]})")
+            continue
+
+        def laag(d):  # gemiddelde hoogte in wereldmaat: de voet ligt onder de scheen
+            return sum((d.matrix_world @ v.co).z for v in d.data.vertices) / max(1, len(d.data.vertices))
+        voet, scheen = sorted(met, key=laag)
+        rec = next(r for r in fig.lees(voet) if r.get("naam") == naam)
+        centrum = mathutils.Vector(rec["punt"])  # cj_snijpunt, in wereldmaat
+        pb = next((b for b in rig.pose.bones if b.name.endswith(f"{kant}Foot")), None)
+        if pb is None or pb.parent is None:
+            check(False, f"A3 {naam}: voetbot of scheenbot niet gevonden")
+            continue
+        sb = pb.parent
+        lengte = ((rig.matrix_world @ sb.tail) - (rig.matrix_world @ sb.head)).length
+        straal = max(0.6 * lengte, 15 * u)
+        kopie = []
+        for d in (scheen, voet):
+            k = d.copy()
+            k.data = d.data.copy()
+            bpy.context.scene.collection.objects.link(k)
+            kopie.append(k)
+        bpy.ops.object.select_all(action="DESELECT")
+        for k in kopie:
+            k.select_set(True)
+        bpy.context.view_layer.objects.active = kopie[0]
+        bpy.ops.object.join()
+        bron = kopie[0]
+        oud = {d.name: d.get("cj_deel") for d in (scheen, voet)}
+        for d, letter in ((scheen, "A"), (voet, "B")):
+            d["cj_deel"] = letter
+        alleen_scheen = rigmod.verloren_stuk(bpy.context, bron, [scheen], centrum, straal)
+        beide = rigmod.verloren_stuk(bpy.context, bron, [scheen, voet], centrum, straal)
+        for d in (scheen, voet):
+            if oud[d.name] is None:
+                del d["cj_deel"]
+            else:
+                d["cj_deel"] = oud[d.name]
+        bpy.data.objects.remove(bron, do_unlink=True)
+        log(f"A3 {naam}: bol {straal / u:.1f} mm, zonder voet {alleen_scheen:.0%} verloren, met voet {beide:.0%}")
+        check(alleen_scheen > rigmod.VERLOREN_MAX, f"A3 {naam}: weggevallen voet gevangen ({alleen_scheen:.0%} > 6%)")
+        check(beide <= rigmod.VERLOREN_MAX, f"A3 {naam}: hele voet niet verloren ({beide:.0%} <= 6%)")
 
 
 main()
