@@ -1,0 +1,75 @@
+name: Pro winkelschermbeelden (echte Blender 5.3, interface 1,5x)
+
+# 24 nov 2026, opdracht hoofdchat (Thijs 16:32 "die 1e"): drie echte schermbeelden van Click Joints Pro voor
+# Gumroad en Superhive (figuur uit rig, exploded view met export, Fit test strip). Script e2e/scherm_winkel.py op de
+# Pro-code van deze tak (gelijk aan main 1.2.7). Beelden in de release pro-schermbeelden-1.2.7 (alleen
+# schermafbeeldingen en het log, nooit een zip). Daan keurt, daarna zet de hoofdchat ze in de winkels.
+on:
+  push:
+    branches: ["claude/pro-schermbeelden"]
+    paths: ["producten/blender-gewrichten/**", ".github/workflows/pro-schermbeelden.yml"]
+
+permissions:
+  contents: write
+
+env:
+  TAG: pro-schermbeelden-1.2.7
+
+jobs:
+  beelden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          timeout 300 sudo apt-get update -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 >/dev/null || echo "apt update traag, ga door"
+          timeout 600 sudo apt-get install -y -q -o Acquire::http::Timeout=20 -o Acquire::Retries=3 xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool
+      - name: Blender 5.3.0 en MakeHuman-figuur
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          curl -fsSL --retry 3 -o /tmp/mh_base.obj https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj
+      - name: Pro-zip 1.2.7 van deze tak
+        run: |
+          (cd producten/blender-gewrichten && PRO_VERSIE=1.2.7 bash e2e/maak_zip.sh betaald) && mv /tmp/click_joints_betaald.zip /tmp/pro.zip
+          sha256sum /tmp/pro.zip
+      - name: Beelden maken
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          CJ_MENS_OBJ: /tmp/mh_base.obj
+        run: |
+          cd producten/blender-gewrichten
+          export BLENDER_USER_RESOURCES=/tmp/cj BLENDER_USER_CONFIG=/tmp/cj/config BLENDER_USER_EXTENSIONS=/tmp/cj/extensions
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
+          timeout 600 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start.blend --python e2e/scherm_winkel.py -- /tmp/uit /tmp/pro.zip 2>&1 | tee /tmp/winkel.log || true
+          grep "WINKEL\|MENS knop\|Traceback\|Error" /tmp/winkel.log | cut -c1-800 || true
+          grep -q "WINKEL OK" /tmp/winkel.log || { echo "FOUT: niet alle beelden"; exit 1; }
+      - name: Klaarzetten
+        if: always()
+        run: |
+          mkdir -p /tmp/klaar
+          cp /tmp/uit/w*.png /tmp/klaar/ 2>/dev/null || true
+          cp /tmp/winkel.log /tmp/klaar/ 2>/dev/null || true
+          echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}" > /tmp/klaar/RUN.txt
+          for f in /tmp/klaar/*.png; do identify "$f"; done || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pro-schermbeelden
+          path: /tmp/klaar
+          if-no-files-found: warn
+      - name: In de release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Click Joints Pro 1.2.7, drie echte schermbeelden uit Blender 5.3.0 (interface 1,5x) op de MakeHuman-figuur (CC0) met rig. Werkbeelden voor de keuring van Daan, nog niet in een winkel. Geen zip." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease --title "Pro schermbeelden 1.2.7" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/klaar/* --clobber -R "$GITHUB_REPOSITORY"
