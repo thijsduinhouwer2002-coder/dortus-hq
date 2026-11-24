@@ -40,3 +40,14 @@ Bewijs dat het hetzelfde doet: `proef_tip12.py` is de opname van regisseur-12 op
 onderaan `../regisseur-log.md`.
 
 Oude opnames (regisseur-3 tot en met 12) blijven zoals ze zijn; niets daarvan hoeft om.
+
+## Nieuwe tip klaarzetten in één regel
+
+```bash
+python3 commercie/filmpjes/opname/nieuwe_tip.py 13 tip-bed "tip-reeks 11: past het op je bed" k_mooi k_menu k_klaar
+```
+
+Maakt `.github/workflows/regisseur-13.yml` (afgeleid van regisseur-12, sha met de hulpcode erin, jouw delen in de
+KORT OK-controle) en een kaal `regisseur-13/tip_opname.py` met die delen. Zelf nog: het verloop, `<naam>.json`,
+`<naam>-stem.txt`, en de stap "Eindbeeld uit de opname" aanpassen of weghalen. Getoetst: workflow is geldige YAML en
+verschilt van regisseur-12 alleen in nummer, naam, delen, titel en de sha-regel (diff bekeken, GEZIEN).

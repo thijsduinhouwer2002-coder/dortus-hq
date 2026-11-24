@@ -5,7 +5,7 @@ name: "Opname gedeeld (proef Olaf: regisseur-12 op blender_opname.py)"
 on:
   push:
     branches: [main]
-    paths: ["commercie/filmpjes/opname/**", ".github/workflows/opname-gedeeld-proef.yml"]
+    paths: ["commercie/filmpjes/opname/blender_opname.py", "commercie/filmpjes/opname/proef_tip12.py", ".github/workflows/opname-gedeeld-proef.yml"]
   workflow_dispatch:
 
 permissions:
