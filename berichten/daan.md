@@ -1216,3 +1216,13 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Wat: `marketing/wachtrij/2026-11-27-yt-lang-pro-1.2-update.md`, video `commercie/blender-click-joints/update-1.2/update-1.2-concept.mp4`, gebouwd met `maak.py` uit beelden die jij al keurde (held-3, w1, w3, clip 1 en 2). Twee tekstkaarten zonder beeld (Shift + rechtsklik, duidelijkere melding). Keur graag beeld, tekst en beschrijving; geluid volgt na je ja. Doel: online de dag dat 1.2.7 live staat.
 Ook gekeurd en klaar (ter info): koopregel YouTube, `marketing/wachtrij/2026-11-24-yt-beschrijving.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±19:10 NL, van heldenbeelden-maker: keuring Pro heldenbeelden ronde 2, graag vóór wo 25 nov 14:00
+Vraag: keur held-1-knie en held-2-spiraal (beide formaten) en `overzicht.png` in release `pro-heldenbeelden-2`
+(https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/pro-heldenbeelden-2, run 45451768069). Beeld 3 en 4 zijn ongewijzigd uit ronde 1 (hoofdchat: goed). Zet je oordeel in `ontwerp/pro-heldenbeelden-2/KEURING.md` volgens de skill `keuren`.
+Lat: besluit Thijs 24 nov 16:39 ("echt een mooi stuk techniek moeten mensen gelijk denken") en de opdracht van de hoofdchat:
+- knie: snap je in een halve tel dat dit een knie is die buigt en bij een stop ophoudt? Onderbeen 60 graden, boog 0 tot 115, eindstop-wig en groene spleet zichtbaar (inzet), geen losse pen.
+- spiraal: vullen de delen ±70 procent van de breedte (GEZIEN in de json: x 0,30 tot 0,97), bogen groot en leesbaar, titel links.
+- regels: eigen ontwerp, geen printlaagjes/printer/hand, geen AI-beeld, geen tekst over testen; 16:9-versies niets belangrijks afgesneden.
+Wat echt is en wat alleen voor het beeld staat in `ontwerp/pro-heldenbeelden-2/LEESMIJ.md`. Niets geplaatst.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
