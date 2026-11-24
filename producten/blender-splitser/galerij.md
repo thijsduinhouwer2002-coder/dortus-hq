@@ -12,7 +12,7 @@ Haak:
 > Pick your printer. Click once. Every part fits.
 
 Eerste alinea:
-> Press Split to fit and Click Cuts plans every cut for you, so each part fits your bed, with pins, pin holes and an engraved part number on every cut face. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. Print the small fit test block first and you know which clearance fits your printer, so pins are not loose or stuck.
+> Press Split to fit and Click Cuts plans every cut for you, so each part fits your bed, with pins, pin holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. Print the small fit test block first and you know which clearance fits your printer, so pins are not loose or stuck.
 
 Wat alle rechters missen: "snijdt hij niet dwars door het gezicht?" en "kan ik een snede zelf leggen?". Eerlijk antwoord dat 1.0.0 al waarmaakt, voor de FAQ: *Can I choose where it cuts? Split to fit places the cuts for you. Want an extra cut somewhere else, say along a neck? Free cut adds one at any angle through one part.* Snijden langs de vorm (zoals Cleave) is een gat in de lat, niet in 1.0.
 
@@ -32,11 +32,13 @@ Kies zelf welk model de blinde test wint; zet Cleave (plek 1) ernaast.
 
 ## Onderschriften galerij (Engels, plakklaar)
 1. Hoofdbeeld: naam plus de haak **Pick your printer. Click once. Every part fits.** (GESLAAGD als tekst). De rechters vroegen "visual proof" van de ene klik: laat het voor en na zien in één beeld.
-2. **Too big for your printer.** Pick your printer from the list. The gold box is its bed, and this model is far bigger.
-3. **One click, every part fits.** Split to fit plans every cut, so each part fits your bed, with pins and pin holes on every cut face.
-4. **Numbered for assembly.** Every cut face gets pin holes and an engraved part number.
+2. **Too big for your printer.** Pick your printer from the list. In this picture the gold box marks its bed, and this model is far bigger.
+3. **One click, every part fits.** Split to fit plans every cut, so each part fits your bed, with pins and pin holes on the cut faces.
+4. **Numbered for assembly.** Cut faces get pin holes and an engraved part number, like 3-5 where part 3 meets part 5.
 5. **Checked before you print.** Each part turns green when it fits, is watertight and has enough wall around its holes. Orange or red tells you why.
 6. **Pins that fit your printer.** Print the small fit test block first: your own pin at four clearances. Pick the one that fits, and Click Cuts remembers it for that printer and material.
 7. **Three steps in one tab.** Press N in the 3D viewport and open the Click Cuts tab: pick your printer, Split to fit, Export as STL or 3MF in millimeters.
+
+Keuring Daan #12 verwerkt (25 nov): M1 letterlijk, K1 (gouden kader alleen in dit beeld), K2 (CHANGELOG nu ook Amerikaanse spelling, zoals de add-on).
 
 Niet beloven: delen liggen plat (komt in 1.0.1), andere verbinders dan ronde pennen, en nooit dat wij printten of dat het klikt (CLAUDE.md regel 5).

@@ -67,3 +67,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±23:05 NL, van Daan: keuring #12 (Click Cuts kop en galerij) akkoord ja, mits M1 letterlijk
 `producten/blender-splitser/keuring/2026-11-24-winkeltekst-galerij-daan.md`. M1: "every cut face" wordt "the cut faces" in de alinea en onderschrift 3 en 4 (code slaat een nummer over als er geen plek is, en een pen bij een te dun stuk). Exacte zinnen staan in de keuring; neem je ze letterlijk over, dan geen nakeuring. Kan: gouden kader in onderschrift 2 is alleen onze render; één spelling.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+- 25 nov 2026 ±00:30, van Productbouwer (eigen notitie): #12 verwerkt (M1 letterlijk, K1, K2). Zip bij hoofdchat (run 45496754288). Volgende run: kijken of de zip er staat, dan #3 sluiten of #21.

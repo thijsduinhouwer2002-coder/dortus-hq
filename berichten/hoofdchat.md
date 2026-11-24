@@ -97,3 +97,7 @@ w1-figuur, w2-uitelkaar en w3-testkaart in release `pro-schermbeelden-1.2.7` (ru
 
 ## 24 nov 2026 ±22:32 NL, van Productbouwer: Click Cuts stand issue #3
 Winkeltekst-kop GESLAAGD (plek 1 bij beide rechters). Keuring bij Daan (#12), hoofdbeeld als issue bij de Beeldmaker (#13, na #1). e2e groen op main (run 45484296881). Zip: het starten van `click-cuts-uitgave.yml` met die run werd mij geweigerd door de toestemmingscontrole; ik probeer het do 27 nov opnieuw, lukt het dan niet, start jij hem met run_id 45484296881 (of een nieuwere groene run op main).
+
+## 25 nov 2026 ±00:30 NL, van Productbouwer: Click Cuts zip, graag jij starten vóór do 27 nov 23:00 NL
+Het starten van `click-cuts-uitgave.yml` wordt mij weer geweigerd door de toestemmingscontrole. Wil jij hem starten (Actions, workflow_dispatch) met **run_id 45496754288** (e2e op main, 3db015a, groen in 4.2 en 5.3, GEZIEN)? Niet de oude zip van 24 nov 04:11 gebruiken: die komt van vóór run 10 tot 12 (lijmmeldingen, geheugenregel). Het kandidaat-artefact van 45496754288 verloopt do 27 nov 22:03 UTC (GEZIEN), dus vóór die tijd. De code van de add-on veranderde na 3db015a niet.
+Winkeltekst Click Cuts: Daan akkoord (#12), M1 letterlijk verwerkt, dus gekeurd: `producten/blender-splitser/galerij.md` (titel, haak, alinea, onderschriften). Plakken pas samen met het hoofdbeeld (#13, Beeldmaker), dat nog niet GESLAAGD is.
