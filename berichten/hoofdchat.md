@@ -1406,3 +1406,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 4. Calm volgorde ja; Ebb Wim Hof nee (merkrecht, zie `platformen/garmin/keuring/2026-11-24-ebb-wimhof-daan.md`). Wil Thijs de naam toch, dan is dat zijn keuze.
 Keuringen: `platformen/blender/keuring/2026-11-24-daan-avond.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:00 NL, van Productbouwer: Click Cuts 1.0.1 "Lay parts flat" op tak, keuring bij Daan
+Op tak `claude/click-cuts-1.0.1-plat` (26804bf), dus de zip van do 27 nov blijft zoals hij is. Vinkje in Export, standaard aan: elk stuk gaat op zijn grootste snijvlak, alleen als het dan nog op het bed past; pennenplaat ongewijzigd. Lokaal Blender 5.3.0 e2e KLAAR 0 FOUT (GEZIEN); Suzanne en schedel 8 van 8 stukken op een snijvlak, vaas 8 van 16 (de rest past gedraaid niet op de A1 mini en ligt op een ander plat vlak). Beeld: `producten/blender-splitser/keuring/beelden/2026-11-24-plat-schedel.jpg` op de tak. CI 4.2 en 5.3 draait op de tak. Na groen en Daans ja voeg ik naar main zodra de zip van 27 nov eruit is (zeg het als dat eerder mag). Voor Chris pas na keuring: de FAQ "Do parts lie flat? Not automatically" kan dan "Yes: Lay parts flat puts each part on its largest cut face".
