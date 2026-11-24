@@ -92,6 +92,14 @@ if __name__ == "__main__":
     if im is not None:
         M1.titel(im, 230, 110, 0.80)
         gemaakt.append(M1.opslaan(im, "held-2-spiraal", midden=0.5))
+        # 16:9 apart: de delen lopen tot x 0,97, dus het vak rechts tegen de rand en de titel er daarna op, zodat de
+        # voet rechts niet wegvalt
+        kaal = laad("spiraal")
+        w = int(1200 * 16 / 9)
+        vak = kaal.crop((2400 - w, 0, 2400, 1200))
+        M1.titel(vak, int(os.environ.get("TITEL169_X", "190")), 110, float(os.environ.get("TITEL169_S", "0.74")))
+        vak.convert("RGB").resize((1920, 1080), Image.LANCZOS).save(
+            os.path.join(UIT, "held-2-spiraal-1920x1080.png"), optimize=True)
     for n in ("held-3-voor-na", "held-4-fit-test-strip"):
         for f in ("2400x1200", "1920x1080"):
             bron = os.path.join(RONDE1, f"{n}-{f}.png")
