@@ -237,7 +237,10 @@ def te_dicht(bron, punt, m, u, bvh=None):
       plus de reik van de kogel naar het scharnier toe (afstand.kogel_van met punt, uitleg in afstand.py).
     Bij meer dan een te dichtbij telt de grootste nodige afstand."""
     eigen = snede_reik(m)  # 1.1 (run 11): hoe ver de snede echt gaat, niet alleen de rekensom
-    paren = [((Vector(punt) - p).length, 2.0 * max(r, eigen)) for p, r, k in afstand.scharnieren(bron)
+    # PROEF 1.2.5 (Olaf 24 nov, enkels): som van beide reiken plus 1 mm in plaats van 2 keer de grootste. Knie en
+    # enkel op MakeHuman 150 mm liggen 35 mm uit elkaar, de oude regel vroeg 37. Nog NIET gekeurd: de reden voor
+    # 2 keer max (stopvlak van het nieuwe loopt tegen het schuine vlak van het oude) moet nog worden nagemeten.
+    paren = [((Vector(punt) - p).length, r + eigen + 1.0 * u) for p, r, k in afstand.scharnieren(bron)
              if r >= 0 and not ander_lid(bvh, punt, p, k + m["s"] + 1.0 * u, u)]
     kogel = afstand.kogel_van(bron, u, punt)  # 1.1: aan de komkant alleen de kom (afstand.py)
     if kogel is not None:
