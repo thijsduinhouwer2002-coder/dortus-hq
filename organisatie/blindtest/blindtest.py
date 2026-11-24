@@ -85,7 +85,7 @@ def vraag_gemini(prompt, beelden, model):
         parts += [{"text": f"Image {letter}:"}, {"inline_data": {"mime_type": "image/jpeg", "data": b64}}]
     r = post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
              {"contents": [{"parts": parts}], "generationConfig": {"responseMimeType": "application/json"}},
-             {"x-goog-api-key": os.environ["GEMINI_API_KEY"]})
+             {"x-goog-api-key": os.environ["GEMINI_API_KEY"].strip()})
     return r["candidates"][0]["content"]["parts"][0]["text"]
 
 
@@ -96,7 +96,7 @@ def vraag_openai(prompt, beelden, model):
                     {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}}]
     r = post("https://api.openai.com/v1/chat/completions",
              {"model": model, "messages": [{"role": "user", "content": content}], "response_format": {"type": "json_object"}},
-             {"Authorization": "Bearer " + os.environ["OPENAI_API_KEY"]})
+             {"Authorization": "Bearer " + os.environ["OPENAI_API_KEY"].strip()})
     return r["choices"][0]["message"]["content"]
 
 
@@ -116,16 +116,16 @@ def vraag(naam, modellen, functie, prompt, beelden, gekozen):
 def main(setpad, uitpad):
     s = json.load(open(setpad))
     rechters = []
-    if os.environ.get("GEMINI_API_KEY"):
+    if os.environ.get("GEMINI_API_KEY", "").strip():
         rechters.append(("Gemini", GEMINI_MODELLEN, vraag_gemini))
-    if os.environ.get("OPENAI_API_KEY"):
+    if os.environ.get("OPENAI_API_KEY", "").strip():
         rechters.append(("ChatGPT", OPENAI_MODELLEN, vraag_openai))
     if not rechters:
         print("Geen sleutels (GEMINI_API_KEY, OPENAI_API_KEY): niets getest.")
         return 0
     prompt = VRAAG.format(rol=s["rol"])
     plaatjes = {i["naam"]: als_jpeg(haal(i["url"])) for i in s["ons"] + s["concurrenten"]}
-    gekozen, regels, alles_goed = {}, [], True
+    gekozen, regels, alles_goed, kapot = {}, [], True, {}
     regels += [f"# Blinde test: {s['titel']}", "", f"Rol voor de rechters: {s['rol']}", "",
                "Concurrenten: " + ", ".join(f"[{c['naam']}]({c['url']})" for c in s["concurrenten"]), "",
                "Geslaagd = bij elke rechter gemiddeld plek 2 of beter (van 4), over "
@@ -139,18 +139,25 @@ def main(setpad, uitpad):
             beelden = [(LETTERS[i], plaatjes[item["naam"]]) for i, item in enumerate(rij)]
             ons = letter_van[kand["naam"]]
             for naam, modellen, functie in rechters:
-                data = vraag(naam, modellen, functie, prompt, beelden, gekozen)
+                if naam in kapot:
+                    continue
+                try:
+                    data = vraag(naam, modellen, functie, prompt, beelden, gekozen)
+                except RuntimeError as e:
+                    kapot[naam] = str(e)[:300]
+                    continue
                 plekken[naam].append(plek_van(data["ranking"], ons))
                 winnaar = next(i["naam"] for i in rij if letter_van[i["naam"]] == data["ranking"][0])
                 uitleg.append(f"- Ronde {ronde + 1}, {naam}: wij plek {plek_van(data['ranking'], ons)}, "
                               f"eerste keus {winnaar}. Over ons: {data.get('reasons', {}).get(ons, '?')} "
                               f"Beter maken: {data.get('improve', {}).get(ons, '?')}")
-        gem = {n: sum(p) / len(p) for n, p in plekken.items()}
-        goed = all(g <= 2 for g in gem.values())
+        gem = {n: sum(p) / len(p) for n, p in plekken.items() if p}
+        goed = bool(gem) and len(gem) == len(rechters) and all(g <= 2 for g in gem.values())
         alles_goed &= goed
         regels += [f"## {kand['naam']}: {'GESLAAGD' if goed else 'NIET GESLAAGD'}", "",
                    f"Beeld: {kand['url']}", "",
                    "Gemiddelde plek: " + ", ".join(f"{n} {g:.1f}" for n, g in gem.items()), ""] + uitleg + [""]
+    regels += [f"LET OP: {n} deed niet mee: {f}" for n, f in kapot.items()]
     regels += ["Modellen: " + ", ".join(f"{n} = {m}" for n, m in gekozen.items()),
                "Alles is GEZIEN: letterlijke antwoorden van de modellen, ingekort tot één zin per punt."]
     os.makedirs(os.path.dirname(uitpad) or ".", exist_ok=True)
