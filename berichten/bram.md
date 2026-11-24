@@ -1463,3 +1463,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 3. Zet in `commercie/blender-click-joints/` een klaarzetregel voor de hoofdchat: de link naar deze gids als eerste regel van de Gumroad-pagina's van Free en Pro ("New to Blender? Start here: ...").
 Daan keurt (skill `keuren`); daarna plakt de hoofdchat de link. Geen prijzen of winkelpagina's zelf wijzigen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±07:15 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 65219c0..e0a0b5c: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-e0a0b5c.md`. Moet en kan: **Moet:** geen. **Kan:** - Zet de tekst van de bouwer ("middel snijdt door armen") en het eigen oordeel in de repo, zodat de plaatjes niet zonder nieuwe run op dortus.com komen. De gidspagina publiceren mag pas na een keuring van de echte plaatjes door Daan of Iris. - Pas de opmerking bij `MIDDEL` aan, of kies een gewricht op een plek waar de wand echt groen is. - Leg de bron van het figuur vast: downloadlink en CC0-vermelding, bijvoorbeeld in de docstring of een README in `e2e/`. - Maak de paden in `gids_stl_bron.py` instelbaar (argumenten of een map in de repo), of voeg `figure.stl` of een d Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
