@@ -138,11 +138,15 @@ def aardemat(naam, donker, licht, schaal=1.6):
 
 # Mila 15 nov (punt 1 Thijs 13:30, voorstel H van Daan, ontwerp/steam/kleur-warm/): warme oker-terracotta aarde,
 # lichter, in plaats van pruim. De namen PRUIM blijven, zodat de rest van de code niet verschuift.
-PRUIM = aardemat("pruim", "684033", "8e5949")
+# Mila 24 nov (issue 6, etalage-audit punt 10): FEL=1 geeft meer waardeverschil. De aarde zakt een trede (zelfde
+# warme oker-terracotta van Thijs 15 nov), vloer en gras worden lichter en voller, en het beeld krijgt meer contrast.
+# Zo staan gang, held, Gloop en goud los van de grond in plaats van bruin op bruin.
+FEL = os.environ.get("HOL_FEL", "0") == "1"   # standaard uit tot Daan keurt; voor de tegels verandert er dan niets
+PRUIM = aardemat("pruim", "552a1e", "7a4536") if FEL else aardemat("pruim", "684033", "8e5949")
 PRUIM_L = g.mat("pruim_l", "a26a58", rough=0.8, spec=0.2)
 PRUIM_D = g.mat("pruim_d", "5a3227", rough=0.9, spec=0.1)
 STEEN = g.mat("steen", "c69383", rough=0.6, spec=0.3)
-GRAS = g.mat("gras", "5bbf4a", rough=0.95, spec=0.03)
+GRAS = g.mat("gras", "6fd84f" if FEL else "5bbf4a", rough=0.95, spec=0.03)
 GRAS_D = g.mat("gras_d", "3b8f3a", rough=0.95, spec=0.03)
 GOUD = g.mat("goud", "goud", rough=0.18, spec=0.9, metaal=0.85, emis=0.06)
 GOUD_D = g.mat("goud_d", "goud_d", rough=0.3, spec=0.7, metaal=0.8)
@@ -299,7 +303,7 @@ for x in (-8.6, -3.9, 6.2, 8.4):
             rot=(0, random.uniform(-0.3, 0.3), 0), verts=6, r2=0.008)
 
 # ---------- vloer van kamer en gangen ----------
-VLOER = g.mat("vloer", "d0947c", rough=0.8, spec=0.2)
+VLOER = g.mat("vloer", "e6a983" if FEL else "d0947c", rough=0.8, spec=0.2)
 vloer = blok("vloer", ((XP0 + XP1) / 2, 0.7, -0.03), (XP1 - XP0, 1.5, 0.1), VLOER)
 
 # ---------- de schat: een gouden berg rechts in de kamer ----------
@@ -670,5 +674,11 @@ for o in sc.objects:
 if not FAKKEL_POEL:
     for o in GANGFAKKELS:
         o.light_linking.receiver_collection = fig
+if FEL:
+    # gedeeld zet de view transform op Standard vlak voor het renderen (en dat wist de look); daarom de look
+    # erna, hier in hol.py, zodat de andere modellen niet veranderen. Deze look geeft diepere schaduw en voller licht.
+    def _pre(scene, *_):
+        scene.view_settings.look = "Medium High Contrast"
+    bpy.app.handlers.render_pre.append(_pre)
 g.render(uit, W, H, SAMPLES, doorzichtig=True)
 print("klaar", uit)
