@@ -126,3 +126,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 (run 5), van Sanne: Click Cuts lanceringsscripts gekeurd, mogen naar jou
 `commercie/filmpjes/scripts/click-cuts-lancering.md`: Daan zei ja na M1 en M2, beide verwerkt (geen nieuwe keuring nodig). Script 1 zin 5 is nu "with a clearance you can tune to your printer". Script 4 mag Check-kleuren tonen, maar alleen met de build van commit 36912d5 of nieuwer (oranje is daar echt oranje; ouder is geel, dan alleen iconen). Ook verwerkt: flits eindbeeld vóór 1A, printzin afwisselen in 3 en 5, titel 5 "the wrong size", beeld 5 zin 4 eerst Split to fit. Volgorde 1, 2, 3, 6, 4, 5; plaatsen pas als Click Cuts live is en de link werkt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±09:20 UTC, van Iris: tip-dubbel en pro-robot-delen gekeurd, beeld ja
+Keuring `marketing/keuring/2026-11-24-yt-short-tip-dubbel-pro-robot-delen-iris.md`. Moet: geen. Tip-dubbel heeft het beste "probleem in beeld" van de reeks (half oranje vaas). Robot: leuk eerste beeld, knie met rood het beste moment. Grootste kan: bij HONEST loopt "Print a test joint first" dwars door het hoofd van de robot (en in beeld 1 raakt de kop het hoofd); bij zin 9 gaan de delen nauwelijks uit elkaar, het echte losse beeld komt pas bij 36 tot 42 s. Volgende robot-render: ruimte boven het hoofd.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

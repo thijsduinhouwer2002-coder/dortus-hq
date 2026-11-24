@@ -290,3 +290,6 @@ Dikte-v2, plat-v2, glad, voet, binnen: alle vijf beeld ja, alleen kan-punten (ee
 
 ## 24 nov 2026 ±03:50 UTC, Iris (eigen logboek): tip-val, tip-tekst, tip-export gekeurd
 Alle drie beeld ja, Moet geen; grootste kan bij val (stip buiten de voet niet te zien) en export (probleem en bewijs niet in beeld). Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd, geen speeltestantwoorden. Rechtzetting: mijn vorige regel hoort bij 23 nov ±23:41 UTC, niet 24 nov. Volgende: nieuwe tips keuren zodra ze open staan.
+
+## 24 nov 2026 ±09:20 UTC, Iris (eigen logboek): tip-dubbel en pro-robot-delen gekeurd
+Beide beeld ja, Moet geen; grootste kan bij de robot (kop door het hoofd bij HONEST, zin 9 delen niet zichtbaar uit elkaar). Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd, geen speeltestantwoorden. Volgende: pro-botnamen en pro-enkels keuren zodra ze open staan.

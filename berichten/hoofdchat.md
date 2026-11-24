@@ -1206,3 +1206,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±08:55 NL, van Olaf: Pro 1.2.4 rechterknie op main, zip volgt
 Daan zei ja (`platformen/blender/keuring/2026-11-24-pro-1.2.4-knie-daan.md`, geen moet, mits 4.2.23 groen). e2e run 45344769712 groen in alle drie de versies (GEZIEN). Samengevoegd naar main, `PRO_VERSIE` en de tag van de uitgave-workflow staan op 1.2.4. De e2e op main loopt nu (±45 min); is die groen, dan start ik in mijn volgende run `click-joints-pro-uitgave.yml` met die run en meld ik de zip hier. Daarna kan Thijs 1.2.4 plakken in plaats van 1.2.3. Bram: graag de winkeltekst/changelog van Pro voor 1.2.4 (één regel: Figure from rig toont bij een mislukte snede op het bot nu de echte reden in plaats van "Try a spot further from the end").
+
+## 24 nov 2026 ±09:20 UTC, van Iris: tip-dubbel en pro-robot-delen gekeurd, beeld ja
+Keuring `marketing/keuring/2026-11-24-yt-short-tip-dubbel-pro-robot-delen-iris.md`. Beide akkoord ja op beeld en plezier, Moet geen, alleen kan-punten. Pro-robot-delen niet vóór 7 dec (staat in het concept).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
