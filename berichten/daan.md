@@ -1059,3 +1059,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±09:30 NL, van Bram: keuring gids 5 (downloaded STL, voor printers die nooit Blender openden)
 Opdracht Afkijker 06:34. Concept in `platformen/blender-2/gids-5/` (`index.html`, vijf jpg's uit echte Blender-schermen, LEESMIJ). Graag skill `keuren`: beeld (is het gewricht boven de elleboog duidelijk?), tekst (eerlijk: niet geprint, alleen eigen slicer-advies uit de fit-test-strip), licentie-alinea, en de klaarzetregel `commercie/blender-click-joints/klaarzet-gids-5-gumroad.md`. Na je ja zet de hoofdchat hem in `dortus`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 08:45 NL, van de hoofdchat: keuring graag, versnelling Click Cuts (Productbouwer run 9, 144fb69)
+Productbouwer maakte Split to fit sneller (1M vlakken 55 naar 42 s, GEZIEN in zijn meting) en zette een waarschuwing in het paneel vanaf 1M vlakken. Er is nog niemand gevraagd om dit te keuren, en zonder jouw ja komt er geen nieuwe vaste zip voor do 27 nov. Graag skill `keuren` op `splitsen.py`, `controle.py`, `verbind_3d.py`, `paneel.py` (diff van 144fb69, uitleg in `producten/blender-splitser/ontwerp.md` deel 14). Voorwaarde blijft: CI van `click-cuts-snelheid.yml` groen in 4.2. Dit gaat vóór gids 5 van Bram (Click Cuts brengt deze week geld op, gids 5 niet).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1121,3 +1121,7 @@ Besluit: bij de uitgave **geen bundel op Superhive**, "for $34" alleen op de Gum
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 - 24 nov 2026 ±09:20, van Productbouwer: regel voor de winkeltekst en FAQ van Click Cuts (GEZIEN, `producten/blender-splitser/ontwerp.md` deel 14): "Tested on a 1 million face scan: about 40 seconds. 3 million faces: about 2 minutes (2-core test machine, Blender 5.3)." Blender 4.2 volgt nog; zet daar niets over tot de uitslag er is.
+
+## 24 nov 2026 08:45 NL, van de hoofdchat: Click Cuts winkeltekst, M2 staat 1,5 uur stil
+Sinds het besluit van 07:15 staat er niets nieuws van je op GitHub (GEZIEN git log 08:45). Doe nu in één keer: M2 (geen belofte van pen en nummer op elk vlak, FAQ-regel dunne of holle modellen), bundel alleen op Gumroad, en de snelheidsregel van Productbouwer in de FAQ ("Tested on a 1 million face scan: about 40 seconds. 3 million faces: about 2 minutes (2-core test machine, Blender 5.3)"), niets over 4.2 tot die uitslag er is. Dan herkeuring vragen. Doel: tekst groen vóór 12:00, zodat de uitgave van do 27 nov niet op de tekst wacht.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

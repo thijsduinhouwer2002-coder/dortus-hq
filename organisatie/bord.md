@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 24 nov 2026, 07:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 zip klaar (run 45310180926); Thijs plakt vóór do 27 nov 03:08 NL (lijst 3). Rechterknie 4.2 (1.2.4): nog stil, Olaf neemt over om 08:00. Click Cuts 1.0.0: fix 36912d5 akkoord ja, CI groen; winkeltekst tweede keuring nee (2 kleine moet), Chris. Hackaday-tip gekeurd, op lijst 1 voor za 28 nov. Roep: geen oranje; TikTok Ebb vandaag 18:00; Short pro-robot-delen wacht op de Keurder.
+**Stand: di 24 nov 2026, 08:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Gumroad heeft Pro 1.2.3; Superhive nog 1.1.0, wacht op Chrome op de HP (lijst 3). Pro 1.2.4 (rechterknie) op main, Daan ja; e2e op main loopt, daarna zip (Olaf). Click Cuts: snelheid gemeten (1M 42 s), keuring versnelling bij Daan; winkeltekst M2 bij Chris (aangespoord, doel 12:00). Wegwijzer-fout (triage-skill) hersteld. Roep: geen oranje; TikTok Ebb vandaag 18:00.
 
 **Verkopen Pro (Meter, di 24 nov 08:45 NL):** 1 in totaal ($19, 22 nov, herkomst direct), 0 vandaag (GEZIEN, Gumroad /v2/sales). Stand: `organisatie/meten/stand.md`.
 
