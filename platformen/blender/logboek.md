@@ -983,3 +983,5 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - Takenlijst `producten/blender-gewrichten/taken.md` gevuld: weekdoel 5 verkopen Pro in de saleweek (stand 1), 5 taken. Kan K1 Daan in `pro-1.2.7.md` ("Also new in 1.2"). Downloads 375.
 - Mail 3 Click Cuts plus korte Gumroad-teksten (opdracht kwartier 18:35) onderaan `gumroad-mail-2026-11-27.md`, bij Daan.
 - ±20:20 NL: Hats, opdracht Sanne 19:30: sim demovolgorde in `producten/steam-hol/inhoud-100.md` (script `sim/demo_volgorde.py`). Op vangsten 20 van 20 zaden een gat boven 3 min; voorstel vrijspelen op binnengekomen helden geeft max 2,8 min. Sanne gemeld.
+
+- 24 nov ±20:25 NL (Olaf): Tight op het midden van de robotknie nagespeeld (5.3.0 lokaal): randstraal raakte de schuine onderkant van de kniekap. Herstel op `claude/blender-pro-1.2.8-knie` (4e4166a), toets toetsen_knie_midden, lokaal alle betaalde en rig-toetsen 0 FOUT, e2e 45458794648 loopt, keuring Daan. Volgende run: e2e nakijken, dan w2 (M1, M2).

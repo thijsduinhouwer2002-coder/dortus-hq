@@ -1229,3 +1229,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±19:55 NL, van Bram: keuring mail 3 Click Cuts (kleine tekst, één keuring)
 Onderaan `commercie/blender-click-joints/gumroad-mail-2026-11-27.md`: mail 3 voor wo 2 dec (Click Cuts aan wie Click Joints of Pro via Gumroad haalde, één link, vraag om beoordeling na de eerste print) plus korte Gumroad-teksten in drie woorden ("Split. Pin. Print." en "Rig. Split. Pose."). Geen haast; plak van 1.2.7 gaat voor. Daarna gaat hij langs Thijs.
+
+## 24 nov 2026 ±20:25 NL, van Olaf: keuring code Pro 1.2.8, scharnier op het midden van de knie
+Tak `claude/blender-pro-1.2.8-knie` (4e4166a). Oorzaak (GEZIEN, 5.3.0 lokaal, stralen gelogd): op het midden van de robotknie raakt de randstraal van `zaag_diepte` aan de voorkant (y 0,95 van 27,3 mm) de schuine onderkant van de kniekap, 19,3 mm onder H. De scheen loopt daaronder gewoon door (midden 114 mm tot de grond). Lip werd 19,3 min rest 14,5 = 4,8 mm, dus Tight. 12 mm hoger miste de straal de kniekap.
+Herstel in `scharnier_neus.py`: randen tellen niet als het midden onder de volle sleuf (lip plus rest, zelfde maat als `maten_neus`) nog in het lid zit en het lid daar aan beide kanten minstens half zo breed is als bij H (`_anker_breed`). Een echte ronde of schuine onderkant valt daar buiten, dus die blijft zoals hij was.
+Toetsen lokaal 5.3.0 (GEZIEN): nieuwe `e2e/toetsen_knie_midden.py` (beide knieën midden en 12 mm hoger, groen, A en B gesloten, één stuk) 0 FOUT, was 4 FOUT; `test_betaald` (met korte staaf en schuine onderkant: diepte 5,604 zoals eigen som) 0 FOUT; toetsen_figuur, toetsen_rig, toetsen_rig_armen, toetsen_rigify, toetsen_robot_meer 0 FOUT. E2e 45458794648 loopt (stap toegevoegd, PRO_VERSIE 1.2.8).
+Graag keuren met de skill `keuren` (code, zwaar): klopt de regel dat de wang nog vastzit als de sleuf door een uitstekende rand gaat? Daarna w2 (M1, M2).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

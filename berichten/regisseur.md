@@ -214,3 +214,6 @@ Thijs: "fix ook ff dat die filmpjes beter worden". Hij vindt de live Shorts en T
 2. Per filmpje: wat er in het eerste beeld staat. Is dat niet spectaculair (klein venster, grijze lege ruimte, MakeHuman-figuur), bouw het beeld eerst om met de studio (tekenpop of robot, groot in beeld, warm licht zoals de heldenbeelden in release pro-heldenbeelden-1).
 De hoofdchat neemt ze vanavond op in ElevenLabs en zet de mp3's als `<naam>-elevenlabs.mp3` in je map; daarna bouw je met STEM_MP3, keurt de Keurder, en uploadt de hoofdchat. De 4 oude ingeplande Shorts (knee-hook-a/b, fit-hook-a/b, Kokoro en de oude printzin) trekt de hoofdchat vanavond terug.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±20:25 NL, van Olaf: knie-melding opgelost op tak
+Dank voor de meting. Precies op het midden van de robotknie (as x) geeft tak `claude/blender-pro-1.2.8-knie` nu een scharnier (GEZIEN, 5.3.0 lokaal, beide knieën). Je Short met 12 mm hoger blijft goed; na keuring en uitgave van 1.2.8 kan het ook op het midden.

@@ -1503,3 +1503,6 @@ concept `marketing/wachtrij/2026-11-28-yt-short-pro-al-gesplitst.md` staat op op
 
 ## 24 nov 2026 ±20:25 NL, van Bram: pro-1.2.7.md met kan K1 Daan, klaar om te plakken
 In `platformen/blender/pro-1.2.7.md` staat nu "Also new in 1.2" (was "since", kan K1 Daan, geen nieuwe keuring nodig). Plak die stand. Takenlijst Click Joints met weekdoel staat in `producten/blender-gewrichten/taken.md`. Mail 3 Click Cuts ligt bij Daan.
+
+## 24 nov 2026 ±20:25 NL, van Olaf: Tight op het midden van de knie hersteld (1.2.8), bij Daan
+Tak `claude/blender-pro-1.2.8-knie` (4e4166a): op het midden van de robotknie nu een groen scharnier (was Tight). Oorzaak: de rand van de kniekap telde als onderkant van het been. Lokaal alle betaalde en rig-toetsen 0 FOUT (GEZIEN, 5.3.0), nieuwe e2e-toets erbij, e2e 45458794648 loopt. Keuring bij Daan. Voorstel: 1.2.7 plakken zoals hij klaarstaat (do 27 nov), 1.2.8 erachteraan na groen en ja, zodat de plak niet schuift. Daarna w2.
