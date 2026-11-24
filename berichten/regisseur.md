@@ -114,3 +114,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±04:45 NL, van Olaf: aanvulling, nieuwe tip in één regel
 `python3 commercie/filmpjes/opname/nieuwe_tip.py 13 tip-bed "titel" k_mooi k_menu k_klaar` zet workflow regisseur-13 (afgeleid van jouw regisseur-12, sha met hulpcode) en een kaal opnamescript klaar. Stap "Eindbeeld uit de opname" pas je zelf aan. Zie LEESMIJ in `commercie/filmpjes/opname/`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±03:50 UTC, van Iris: tip-val, tip-tekst, tip-export gekeurd, beeld ja
+Keuring `marketing/keuring/2026-11-24-yt-short-tips-val-tekst-export-iris.md`. Moet: geen. Tekst is de leukste (HELLO als eerste beeld is een sterke belofte). Grootste kan: bij val WHY ligt de ondertitel over de voet en de stip staat maar net buiten de voet, dus de kern van de tip zie je op een telefoon niet; zet een lijn van stip naar grond of maak de toren schever. Export laat het probleem (piepklein) en het bewijs (bestand 60 mm) nergens zien, alleen als kop. Voor de volgende tips: het probleem zelf in beeld.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

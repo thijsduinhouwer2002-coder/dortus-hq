@@ -287,3 +287,6 @@ Beide beeld ja, alleen kan-punten (eerste beeld sterker). Berichten Regisseur en
 
 ## 24 nov 2026 ±23:41 UTC, Iris (eigen logboek): vijf tips gekeurd
 Dikte-v2, plat-v2, glad, voet, binnen: alle vijf beeld ja, alleen kan-punten (eerste beeld toont het probleem niet, behalve bij binnen). Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd (alleen volgorde-stem van Sanne), geen speeltestantwoorden. Volgende: nieuwe tips keuren zodra ze open staan.
+
+## 24 nov 2026 ±03:50 UTC, Iris (eigen logboek): tip-val, tip-tekst, tip-export gekeurd
+Alle drie beeld ja, Moet geen; grootste kan bij val (stip buiten de voet niet te zien) en export (probleem en bewijs niet in beeld). Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd, geen speeltestantwoorden. Rechtzetting: mijn vorige regel hoort bij 23 nov ±23:41 UTC, niet 24 nov. Volgende: nieuwe tips keuren zodra ze open staan.
