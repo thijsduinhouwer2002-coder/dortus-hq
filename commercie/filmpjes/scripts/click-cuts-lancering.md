@@ -6,11 +6,11 @@ Bouw zoals week 48 tot 51: zin 1 = hook A of B, max 7 woorden, een vraag (of kor
 
 Bron: de kandidaat 1.0.0, GEZIEN op main 8f5db37: `producten/blender-splitser/CHANGELOG.md` en de code in `producten/blender-splitser/split_joints/` (regels per script). Beelden: release `splitser-merk-1` (Lion Head van Poly Haven, CC0, stukken in kleur), release `splitser-kern-1` en tak `schermen` map `blender-splitser/main/` (Suzanne, vaas, schedel in Exploded view, close-up snijvlak, `paneel-x.png`, `paneel-meer.png`, `passing-1.png`, `passing-2.png`).
 
-**Stand: concept, ligt bij Daan voor keuring. Pas na een ja naar de Regisseur. Alleen plaatsen als Click Cuts echt live is (link in de beschrijving moet werken).**
+**Stand: gekeurd door Daan (ja na M1 en M2, `ontwerp/keuringen/2026-11-24-click-cuts-scripts-daan.md`), M1 en M2 verwerkt op 24 nov; ligt bij de Regisseur. Alleen plaatsen als Click Cuts echt live is (link in de beschrijving moet werken).**
 
 ## Vaste regels voor alle zes
 - **Prijs niet uitspreken.** De prijzen zet Thijs zelf (voorstel $19 tot 14 dec staat bij Chris, nog niet vast). Eindkaart zonder bedrag.
-- **Geen print-belofte.** Wij hebben nog niets met Click Cuts geprint. Printzin: "Measured in Blender, not print tested by us yet. Print the fit test first." (script 2 maakt die zin waar: de fit test is de eerste print).
+- **Geen print-belofte.** Wij hebben nog niets met Click Cuts geprint. Printzin: "Measured in Blender, not print tested by us yet. Print the fit test first." (script 2 maakt die zin waar: de fit test is de eerste print). Wissel af (Daan C1): in script 3 en 5 de tweede variant "Not print tested by us yet. Print the fit test first, then the parts." Zelfde inhoud, zodat een vaste kijker niet zes keer dezelfde zin hoort.
 - **Geen klikverbinders, magneten of "snap"**: de kandidaat maakt alleen ronde pennen (opdracht Chris punt 4). Ook niet "click" als werkwoord: de naam Click Cuts is goed, "it clicks together" niet.
 - **Eindkaart** (zin 9): "Click Cuts for Blender. Link in the description." met kop "Click Cuts" en het icoon (`merk/icoon-512.png`). De eerste regel van de beschrijving is de winkellink zodra die er is (de Regisseur vult hem in na de uitgave).
 - **Volgorde:** 1, 2, 3, 6, 4, 5. Script 1 op de lanceringsdag (de belofte in één keer), 2 de dag erna (het bezwaar "past het wel"), daarna de rest. 4 en 5 laten allebei zien wat de add-on tegenhoudt; niet op dezelfde dag.
@@ -23,12 +23,13 @@ Titel: Model too big for your printer? Split it to fit 🔥 | Blender
 
 | # | gesproken | kop (groot) | beeld |
 |---|---|---|---|
+| 0 | (stil, 0,5 s) | | flits van het eindbeeld: Lion Head in felle kleuren uit elkaar (Daan C2), dan meteen 1A |
 | 1A | Model too big for your print bed? | Too big to print? | Lion Head in Blender, het printbed (A1 mini) als doos eromheen, de kop steekt er rood bovenuit |
 | 1B | Still cutting big models by hand? | Still cutting by hand? | zelfde kop met één scheef handmatig snijvlak, rood |
 | 2 | Pick your printer from the list, or type in your own bed size. | Pick your printer | keuzelijst "Your printer" open, muis op Bambu Lab A1 mini |
 | 3 | Then press Split to fit, the one big button in the panel. | Split to fit | muis klikt op de opgelichte knop (`paneel-x.png` als voorbeeld) |
 | 4 | It cuts the model into the fewest parts that each fit your bed. | Fewest parts that fit | Exploded view, elk stuk een eigen felle kleur |
-| 5 | Every cut gets pins and pin holes, with clearance for your printer. | Pins and holes | close-up snijvlak met gaten, pennen ernaast |
+| 5 | Every cut gets pins and pin holes, with a clearance you can tune to your printer. | Pins and holes | close-up snijvlak met gaten, pennen ernaast |
 | 6 | The panel tells you in one line: all parts fit the bed. | All fit the bed | uitslagregel "N parts, all fit the bed" en "N pins, 0.20 mm clearance" |
 | 7 | Then export every part and the pins as STL or 3MF, in millimeters. | STL or 3MF | knop Export parts, map met piece_01.stl enz. |
 | 8 | Measured in Blender, not print tested by us yet. Print the fit test first. | Print the fit test first | stukken weer in elkaar, kleuren zichtbaar |
@@ -70,7 +71,7 @@ Titel: Which printed part goes where? Number every cut 🔥 | Blender
 | 4 | It is sunk into the cut, so the outside of your model stays clean. | Outside stays clean | buitenkant van het stuk, geen tekst |
 | 5 | And it sits where there is room, not on top of a pin hole. | Not on a hole | snijvlak met twee gaten en het nummer ertussen |
 | 6 | Parts are numbered from bottom to top, so you build up in order. | Bottom to top | Exploded view, nummers lopen op van onder naar boven |
-| 7 | Measured in Blender, not print tested by us yet. Print the fit test first. | Print the fit test first | gekleurde stukken in elkaar |
+| 7 | Not print tested by us yet. Print the fit test first, then the parts. | Print the fit test first | gekleurde stukken in elkaar |
 | 8 | Click Cuts for Blender. Link in the description. | (eindkaart) | eindkaart |
 
 Bron (code, GEZIEN): `splitsen.py` (nummers van onder naar boven: z, dan y, dan x; per stuk eerst de doos min de nummers, zo komt de tekst nooit op een al gesneden stuk), `verbinders.py` (`kies_label`: punt met de meeste ruimte buiten de gaten, hoogte 8 tot 2,5 mm), `vormen.py` (nummer als plaat tot de diepte binnen het vlak, leesbaar van buiten het snijvlak), `eigenschappen.py` (nummers aan, diepte 0,6 mm). Test: `e2e/test_kern.py` (op elk snijvlak met een buur een nummer dat met het eigen nummer begint en echt verdiept is). `verbind_3d.py` r. 137 (tekst op het vlak is "eigen-buur": "2-3" op stuk 2, "3-2" op stuk 3). **Let op:** zin 3: in de kop de echte nummers uit de opname, niet uitspreken als "two dash three". "Twelve" in 3A alleen als het model in beeld echt 12 stukken geeft; anders het echte getal (kop in cijfers). Zin 4 klopt omdat het nummer alleen op het snijvlak zit; nummers kun je uitzetten, niet nodig om te noemen.
@@ -92,12 +93,12 @@ Titel: Pin hole breaks through the wall? Check before you print 🔥 | Blender
 | 7 | Measured in Blender, not print tested by us yet. Print the fit test first. | Print the fit test first | alle stukken groen in Exploded view |
 | 8 | Click Cuts for Blender. Link in the description. | (eindkaart) | eindkaart |
 
-Bron (code, GEZIEN): `controle.py` r. 84 tot 90 (`status_uit`: rood als het niet past, niet waterdicht is of de wand onder 0,8 mm (`ROOD_WAND_MM`, r. 21) ligt; oranje als de wand onder de ingestelde minimale wand min 0,05 mm ligt; anders groen), r. 93 tot 96 (`wand_rond_gaten`: kleinste wand van gatwand en gatbodem tot de buitenkant, en tussen de gaten), r. 150 tot 161 (`tekst`: maat, "too big", "not watertight", "wall x.x"); `eigenschappen.py` (minimale wand standaard 1,2 mm); `in_een_klik.py` r. 48 ("{n} parts, {m} need attention (see More settings, step 4)"); CHANGELOG ("Check: every part is green ..., orange or red, with the reason"). **Let op:** zin 5 klopt alleen met "too thin" als rood bij een wand onder 0,8 mm; zeg niet "any thin wall". Voor zin 4 en 5 moet de opname echt een oranje en een rood stuk tonen; maak er een met een kleine minimale wand of een te klein printbed (Custom size). Lukt dat niet in beeld, dan zin 4 en 5 samen tot "Green is good. Orange and red tell you what to fix." De add-on houdt een rood stuk niet tegen bij export; niet zeggen dat het "blocks" of "stops".
+Bron (code, GEZIEN): `controle.py` r. 84 tot 90 (`status_uit`: rood als het niet past, niet waterdicht is of de wand onder 0,8 mm (`ROOD_WAND_MM`, r. 21) ligt; oranje als de wand onder de ingestelde minimale wand min 0,05 mm ligt; anders groen), r. 93 tot 96 (`wand_rond_gaten`: kleinste wand van gatwand en gatbodem tot de buitenkant, en tussen de gaten), r. 150 tot 161 (`tekst`: maat, "too big", "not watertight", "wall x.x"); `eigenschappen.py` (minimale wand standaard 1,2 mm); `in_een_klik.py` r. 48 ("{n} parts, {m} need attention (see More settings, step 4)"); CHANGELOG ("Check: every part is green ..., orange or red, with the reason"). **Kleur (Daan M1):** oranje was in de code geel (1.0, 0.92, 0.0); de Productbouwer maakte het echt oranje (lineair 1.0, 0.26, 0.0, commit 36912d5, GEZIEN op main 24 nov). Neem op met die build of nieuwer; met een oudere build geen Check-kleuren in beeld, alleen de lijst met iconen en kop "Orange: thin wall". **Let op:** zin 5 klopt alleen met "too thin" als rood bij een wand onder 0,8 mm; zeg niet "any thin wall". Voor zin 4 en 5 moet de opname echt een oranje en een rood stuk tonen; maak er een met een kleine minimale wand of een te klein printbed (Custom size). Lukt dat niet in beeld, dan zin 4 en 5 samen tot "Green is good. Orange and red tell you what to fix." De add-on houdt een rood stuk niet tegen bij export; niet zeggen dat het "blocks" of "stops".
 
 ---
 
 ## 5. Je STL is duizend keer te klein? Verkeerde eenheid
-Titel: Imported STL is tiny in Blender? It is the unit 🔥 | Blender tip
+Titel: Imported STL the wrong size in Blender? It is the unit 🔥 | Blender tip
 
 | # | gesproken | kop (groot) | beeld |
 |---|---|---|---|
@@ -105,10 +106,10 @@ Titel: Imported STL is tiny in Blender? It is the unit 🔥 | Blender tip
 | 5B | Your model is not too small. Blender is. | It's the unit | zelfde, eenheid "m" omcirkeld |
 | 2 | STL files are usually in millimeters, but a new Blender scene is in meters. | mm vs meters | Scene Properties, Units, Unit Scale 1.0 |
 | 3 | So a 330 millimeter bust can read as 330 meters, or the other way round. | 330 mm or 330 m? | maat in het N-paneel |
-| 4 | Click Cuts sees it at once, and shows a red line in the panel. | Red line | paneel: "Model is ... mm in size", "Wrong unit? (mm model in a meter scene)" |
+| 4 | Click Cuts sees it at once, and shows a red line in the panel. | Red line | eerst Split to fit drukken, dan de rode regel "Wrong unit? Open More settings and use Convert to mm", dan More settings open met "Wrong unit? (mm model in a meter scene)" (Daan K1); toon de kant mm-model-in-meterscene |
 | 5 | Press Convert to mm, and only the scene unit changes. | Convert to mm | muis op de knop |
 | 6 | Your model itself stays exactly the same, so nothing gets scaled by accident. | Model unchanged | maat na de knop: 330 mm |
-| 7 | Measured in Blender, not print tested by us yet. Print the fit test first. | Print the fit test first | Split to fit op het model, stukken in kleur |
+| 7 | Not print tested by us yet. Print the fit test first, then the parts. | Print the fit test first | Split to fit op het model, stukken in kleur |
 | 8 | Click Cuts for Blender. Link in the description. | (eindkaart) | eindkaart |
 
 Bron (code, GEZIEN): `schaal.py` r. 1 tot 11 (onder 10 of boven 3000 mm is de eenheid waarschijnlijk fout; "meters (the Blender default) is 1000 times too big"), r. 38 tot 39 ("Convert to mm": "Set the scene unit scale so the model measures between 10 and 3000 mm. The model does not change"); `paneel.py` r. 77 tot 78 (rode regels); `in_een_klik.py` r. 75 (Split to fit weigert met "Wrong unit? Open More settings and use Convert to mm"); test `e2e/toetsen_extra.py` (doos als STL in mm in een scene in meters: Plan weigert, Convert to mm, daarna gewoon 3 stukken). **Let op:** zin 2 "usually" laten staan (STL heeft geen eenheid; de meeste slicers lezen mm). Zin 3: kies in de opname een model van 330 mm (Suzanne uit de test is 330 mm breed), anders het getal en de kop aanpassen. Welke kant het opvalt hangt van de importinstellingen af; laat in beeld zien wat er echt gebeurt en kies 5A of 5B daarop. Dit is half een tip (ook zonder add-on bruikbaar: Unit Scale), dus goed voor opslagen.

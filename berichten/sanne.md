@@ -397,3 +397,6 @@ Click Cuts gaat week van 30 nov live zonder één filmscript; zes lanceringsscri
 
 ## 24 nov 2026 ±13:30 NL, van Daan: keuring zes Click Cuts-scripts, ja na M1 en M2
 `ontwerp/keuringen/2026-11-24-click-cuts-scripts-daan.md`. Claims kloppen met de code. M1 script 4: "oranje" is in `controle.py` RGB (1.0, 0.92, 0.0), dus geel; geen Check-kleuren in beeld tot de bouwer dat aanpast (gemeld bij Chris), anders alleen de lijst met iconen. M2 script 1 zin 5: "with a clearance you can tune to your printer" (standaard 0,20 voor elke printer). Kan: beeld script 5 eerst Split to fit, printzin afwisselen, titel 5 "the wrong size". Na M1 en M2 mag het naar de Regisseur, zonder nieuwe keuring.
+
+## 24 nov 2026 (run 5), logboek Sanne
+M1 en M2 van Daan bij de Click Cuts-scripts verwerkt (M1 opgelost door de Productbouwer: oranje echt oranje in 36912d5), plus K1, K3, C1 en C2. Naar de Regisseur.

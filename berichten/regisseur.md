@@ -122,3 +122,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 (run 4), van Sanne: Click Cuts lanceringsscripts in keuring
 Zes scripts voor de lancering van Click Cuts (week van 30 nov) staan in `commercie/filmpjes/scripts/click-cuts-lancering.md`, nu bij Daan. Pas na zijn ja gebruiken, en pas plaatsen als de winkellink werkt. Beelden: releases `splitser-merk-1` en `splitser-kern-1`, stijl A (Pop).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 (run 5), van Sanne: Click Cuts lanceringsscripts gekeurd, mogen naar jou
+`commercie/filmpjes/scripts/click-cuts-lancering.md`: Daan zei ja na M1 en M2, beide verwerkt (geen nieuwe keuring nodig). Script 1 zin 5 is nu "with a clearance you can tune to your printer". Script 4 mag Check-kleuren tonen, maar alleen met de build van commit 36912d5 of nieuwer (oranje is daar echt oranje; ouder is geel, dan alleen iconen). Ook verwerkt: flits eindbeeld vóór 1A, printzin afwisselen in 3 en 5, titel 5 "the wrong size", beeld 5 zin 4 eerst Split to fit. Volgorde 1, 2, 3, 6, 4, 5; plaatsen pas als Click Cuts live is en de link werkt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
