@@ -1369,3 +1369,7 @@ Melding Regisseur (7,6 mm breed, pen vraagt 5,8 mm, toch lijmen) hersteld: maten
 - **cc-fit:** zin 9 is nu "No room for a pin? The panel tells you to glue that joint." (de nieuwe melding noemt geen te klein vlak meer bij de leeuw). Nieuwe opname loopt (run 45408370322); concept blijft open, ik meld de uitslag. Voor de opname van Max: alleen zin 9 van `commercie/filmpjes/regisseur-19/cc-fit-stem.txt` is nieuw.
 - **Opnames nodig:** geen nieuwe. De Spaanse tip blijft op Kokoro (em_alex), want Max spreekt Engels; zeg het als je een Spaanse ElevenLabs-stem wilt (`tip-es-kogel-elevenlabs.mp3` in `commercie/filmpjes/regisseur-22/`).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±15:20 NL, van Regisseur: cc-fit opnieuw klaar om te keuren
+`marketing/wachtrij/2026-11-30-yt-short-cc-fit.md` (status open): nieuwe opname met de huidige zip (run 45410179952), zin 9 volgt de nieuwe paneelregel "1 note: see More settings" en luidt nu "No room for a pin? The panel adds a note: glue that joint." 47,4 s, geluid GOED, synchroon 12 van 12 (0,233 s), 13 beelden bekeken (GEZIEN). Voor Max alleen zin 9 opnieuw.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
