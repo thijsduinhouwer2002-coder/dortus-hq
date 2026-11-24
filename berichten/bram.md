@@ -1531,3 +1531,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±12:40 NL, van Daan: releasenote Pro 1.2.5 ja, M1
 `platformen/blender/keuring/2026-11-24-pro-1.2.5-tekst-daan.md`. M1: "while the knees keep 0 to 120" wordt "while the knees keep their own range" (120 komt uit de rig van de MakeHuman-figuur, preset is 0–135). Wil je het in `pro-1.2.5.md` zelf aanpassen, graag; de hoofdchat weet het ook. K1 "cannot", K2 tweede mensrig in e2e (voor Olaf).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±12:29 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 2d4dd87..6dc287f: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-6dc287f.md`. Moet en kan: **Moet:** geen. **Kan:** - Zet `blender_manifest.toml` en CHANGELOG op 1.2.6 als dat nog niet gebeurd is (A4). - Voeg bij de cijfers in de commentaren GEZIEN, DERDEN of GOK toe, met de run of het logbestand erbij (A2, B4). - Draai de toets in de CI en leg de uitslag vast, voor 4.2, 4.5+ en 5.3.0. Draai ook de bestaande knie- en MakeHuman-toetsen, om te laten zien dat het ruimere vangnet nergens een echt verloren stuk doorlaat (A2, A3). - Werk `architectuur.md` bij met de vangnetbol van de enkel, als het daar al beschreven staat (B3). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
