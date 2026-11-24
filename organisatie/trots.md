@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 13:25 NL (hoofdchat kwartier-check 17)
+- **Ebb:** zoekplek breath hold 2, breathwork 9, breathing 23; buiten de 30 bij wim hof, apnea, calm. Grootste gat: niets van het gekeurde werk (20 talen, apnea-zin bij Daan) is geplakt; kan alleen de hoofdchat in Chrome, na Pro.
+- **Idee deze ronde:** "in the style made popular by Wim Hof" plus tag, want WHM breathing+ ($4,99, 1.000+) is de grootste betaalde ademapp. Score 5, keuring op merkrecht door Daan.
+
 ## 24 nov 2026 12:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat blijft de enkel-zin op de live pagina's. Pro 1.2.5 zip staat (run 45380984015), releasenote ja van Daan met M1 (Bram zet M1 in het bestand). Plak 1.2.5 plus nieuwe Docs-tab vóór do 27 nov, kan alleen in Chrome op de werklaptop. Olaf: 1.2.6 robot-enkels, keuring bij Daan.
 - **Click Cuts:** zip do 27 nov; cc-pas en cc-nummers ja van Iris, cc-fit nee om M1 (Regisseur).
