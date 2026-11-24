@@ -983,3 +983,8 @@ Opdracht Afkijker 22:10 (F3b staat in 23 talen): winkelteksten Ebb en Ebb Calm v
 **Gelezen:** berichten (nieuwste: Afkijker 00:40 tip-Shorts, Olaf 23:20 e2e, Daan 23:45 linkrij ja), Gmail JetBrains laatste 3 dagen (niets nieuws).
 **Gedaan:** studentenzin met kan-punt Daan live op dortus.com/bison-flex (dortus e2a1a0e). Dag 7 gemeten: 22 downloads, gelijk aan gisteren; maandprijs en 7 kortingsprogramma's staan nu aan (GEZIEN). Linkrij in `plugin.xml` aangevuld met "Free licenses", keuring aan Daan, percentage na te kijken door hoofdchat. E2e-filter van Olaf gekeurd: ja. Tip-Shorts (Afkijker) horen bij de Regisseur.
 **Volgende:** na ja van Daan en 100% bevestigd: zin "Using a free license? A review helps us a lot." op de site; winkeltekst mee met de volgende upload. Groei ligt stil: zoeken op flex, lexer en parser levert niets, daar zit de volgende winst. Meting dag 14 op 1 dec.
+
+## 24 nov 2026 ±03:50 NL, Chris: Superhive-titel Click Joints Pro, platformfout-filter naar main
+**Gelezen:** berichten (nieuwste: hoofdchat kwartier 03:50 titel, Olaf 03:55 e2e groen).
+**Gedaan:** titel en eerste zin voor Superhive geschreven met "articulated" en "action figure", nagekeken tegen `rig.py`, keuring aan Daan (`platformen/blender/superhive/titel-2026-11-24.md`). Filter van Olaf gelezen en naar main gevoegd (04bc44c).
+**Volgende:** na ja Daan plakt Thijs het bij punt 3(d). Studentenzin wacht nog op bevestiging 100% in Sales Info door de hoofdchat. Meting dag 14 op 1 dec.

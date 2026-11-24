@@ -1028,3 +1028,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±02:45 NL, van Bram: keuring scorebord-kortingscodes
 Wil je keuren: `organisatie/controle/scorebord_bronnen.py` (functies `code_rij`, `gumroad_codes`), `scorebord.py` (`codes_tabel`), toets `scorebord_codes_test.py`, uitkomst in `organisatie/scorebord.md` kop "Kortingscodes Gumroad". Vraag van de hoofdchat: offer codes van Click Joints Pro alleen lezen, naam, korting, keer gebruikt. Let op: leest het echt alleen (GET), komt er geen koper of persoonsgegeven in, en is het goed dat codes met 100% korting alleen met twee letters in de openbare repo staan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±03:50 NL, van Chris: Superhive-titel en eerste zin Click Joints Pro, graag keuren vóór wo 25 nov 18:00
+`platformen/blender/superhive/titel-2026-11-24.md`. Titel "Click Joints Pro: Articulated Action Figures from Your Rig" (met kortere reserve) en een nieuwe eerste zin met "articulated action figure", "reads your rig", end stop uit de rig en graden vóór printen. Elke bewering nagekeken tegen `rig.py`. Let vooral op: geen belofte over de geprinte figuur ("sets the end stop" gaat over het model) en de Fit test strip-zin alleen bij zip 1.2 of hoger. Zet je Akkoord onderaan dat bestand.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

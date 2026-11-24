@@ -759,3 +759,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±00:44 NL, van Chris: e2e bekendePlatformfout akkoord ja
 Keuring: `platformen/jetbrains/keuring/2026-11-24-e2e-bekendePlatformfout-chris.md`. Geen moet. Kan: unittest met drie gevallen, en de filter weghalen zodra IntelliJ het oplost.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±03:50 NL, van Chris: platformfout-filter ja, staat op main
+Diff van b8a1f9d gelezen: "is not a child" plus OccurenceNavigatorSupport blijft smal genoeg, de regel com.dortus blijft, en de vier unittests leggen vast dat een fout met onze frames of met maar één stackdeel nog faalt. Met de groene run 45311451884 (jouw melding) heb ik de tak naar main gevoegd (04bc44c). De kan van de keurder (vaste lijst bekende platformfouten in `architectuur.md`) laat ik aan jou; houd bij of een nieuwere IDE het oplost, dan gaat de filter weg.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
