@@ -1,0 +1,230 @@
+{
+ "naam": "cc-pas",
+ "titel": "Printed pins too tight or too loose? Do this first 🔥 | Blender",
+ "eind": {
+  "titel": "Click Cuts",
+  "zin": "For Blender.",
+  "adres": "Link in the description",
+  "render": "render-cc.png",
+  "icoon": "producten/blender-splitser/merk/icoon-512.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "venster": "Blender 5.3 with Click Cuts",
+ "scenes": [
+  {
+   "tekst": "Do your printed pins never fit?",
+   "label": "QUICK QUESTION",
+   "kleur": "oranje",
+   "kop": "Pins never fit?",
+   "beeld": {
+    "deel": "mooi",
+    "van": 0,
+    "tot": 80,
+    "uitsnede": [
+     [
+      720,
+      900,
+      850
+     ],
+     [
+      720,
+      900,
+      720
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Every printer and filament prints a hole a little different.",
+   "label": "THE PROBLEM",
+   "kleur": "blauw",
+   "kop": "Every printer differs",
+   "beeld": {
+    "deel": "gaten",
+    "van": 0,
+    "tot": 110,
+    "uitsnede": [
+     [
+      720,
+      980,
+      950
+     ],
+     [
+      720,
+      980,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "So open More settings, and go to step three: pins and numbers.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "More settings, step 3",
+   "beeld": {
+    "deel": "meer",
+    "van": 0,
+    "tot": 90,
+    "uitsnede": [
+     [
+      1800,
+      900,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Press Make fit test. It uses your own pin size from the panel.",
+   "label": "STEP 2",
+   "kleur": "oranje",
+   "kop": "Make fit test",
+   "beeld": {
+    "deel": "maak",
+    "van": 0,
+    "tot": 48,
+    "uitsnede": [
+     [
+      1800,
+      900,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "You get a small test block with four holes, plus four pins.",
+   "label": "WHAT YOU GET",
+   "kleur": "groen",
+   "kop": "4 holes, 4 pins",
+   "beeld": {
+    "deel": "blok",
+    "van": 0,
+    "tot": 90,
+    "uitsnede": [
+     [
+      720,
+      960,
+      900
+     ],
+     [
+      720,
+      960,
+      760
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Each hole has a different clearance, engraved right next to it.",
+   "label": "THE TRICK",
+   "kleur": "blauw",
+   "kop": "Clearance engraved",
+   "beeld": {
+    "deel": "boven",
+    "van": 0,
+    "tot": 100,
+    "uitsnede": [
+     [
+      720,
+      960,
+      900
+     ],
+     [
+      720,
+      960,
+      760
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Print it, try your pin, and click the hole that fits.",
+   "label": "STEP 3",
+   "kleur": "oranje",
+   "kop": "Click the one that fits",
+   "beeld": {
+    "deel": "kies",
+    "van": 0,
+    "tot": 54,
+    "uitsnede": [
+     [
+      1800,
+      900,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "It remembers that clearance for this printer and this filament.",
+   "label": "SAVED",
+   "kleur": "groen",
+   "kop": "Remembered",
+   "beeld": {
+    "deel": "bewaard",
+    "van": 0,
+    "tot": 50,
+    "uitsnede": [
+     [
+      1800,
+      900,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Switch printer or filament, and the saved clearance comes back by itself.",
+   "label": "SAVED",
+   "kleur": "blauw",
+   "kop": "Comes back",
+   "beeld": {
+    "deel": "wissel",
+    "van": 0,
+    "tot": 136,
+    "uitsnede": [
+     [
+      1800,
+      900,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. That is why you print this first.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Print this first",
+   "beeld": {
+    "deel": "samen",
+    "van": 0,
+    "tot": 140,
+    "uitsnede": [
+     [
+      720,
+      960,
+      900
+     ],
+     [
+      720,
+      960,
+      760
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Click Cuts for Blender. Link in the description.",
+   "label": "CLICK CUTS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   }
+  }
+ ]
+}
