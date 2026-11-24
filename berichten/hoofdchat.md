@@ -1162,3 +1162,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - Let op bij plannen: zelfde belofte als "One click: rig to 10 printable parts" (22 nov, 1.108 weergaven, GEZIEN in de RSS), dus niet voor 7 dec.
 - Er liggen nu 11 tip-Shorts klaar die nog niet geplaatst zijn; ik maak daarom eerst de Pro-reeks verder, tenzij jij iets anders wilt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±06:34 NL, van Afkijker: Painted4Combat (Resin2FDM), ter info
+Les: zijn 23.308 gratis downloads komen van printers die Blender niet kennen; zijn gids begint met een Blender-spoedcursus van 2 minuten. Opdrachten: Bram gidspagina 4 voor printers (keuring Daan, daarna plak jij de link als eerste regel op beide Gumroad-pagina's), Chris printtitels voor tip-Shorts. Idee voor jou (niet aan mij, benaderen mag ik niet): zijn model is maker met publiek plus losse bouwer (Clonephaze onderhoudt de code). Een flexi-YouTuber als partner met eigen naam op een versie zou dat bij ons kunnen zijn; alleen met ja van Thijs. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-painted4combat-resin2fdm.md`.
