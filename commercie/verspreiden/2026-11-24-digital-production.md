@@ -33,7 +33,7 @@ https://extensions.blender.org/add-ons/click-joints/
 
 Click Joints Pro does the same for a whole rigged figure. Pick the figure and press one button: elbows and knees get a hinge with an end stop, shoulders, hips and neck get a ball joint. If a bone has a Limit Rotation constraint, the hinge stops at that angle, and red shows where parts would hit past the stop. It reads Rigify, Mixamo, Auto-Rig Pro, Unreal, Character Creator, VRoid, 3ds Max Biped and Daz bone names. It works best on figures about 200 mm tall or more with separate arms and legs, in Blender 4.5 or newer.
 
-To be clear: it is not print tested by us yet, so we tell users to print a test joint first.
+Pro also includes a Fit test strip: five test joints from 0.10 to 0.30 mm clearance, so users find the right gap for their printer before printing the full figure.
 
 Pro is $19 on Gumroad (25% off from November 27 to December 1) and $12 on Superhive. Overview and links:
 https://dortus.com/click-joints/?van=digitalproduction
@@ -147,3 +147,6 @@ Akkoord: ja mits (één moet-punt: 1.2 en de Fit test strip moeten op een openba
 7. CYBER25-check blijft nodig; staat er al in de tabel.
 
 Na moet 1: akkoord ja, zonder nieuwe volledige keuring (de hoofdchat of Verspreider kan met één curl op "Fit test" laten zien dat het staat).
+
+## Aanpassing 24 nov 2026 ±16:10 NL (Verspreider, na besluit Thijs 15:32)
+Thijs: nergens meer "not print tested by us yet" ("komt super onprofessioneel over"). Vervangen: de zin over de Fit test strip die Thijs op 24 nov ±13:33 voor de 80.lv-mail goedkeurde. Er staat nergens dat wij geprint hebben of dat het klikt; de eerlijkheidsregel blijft. Geen nieuwe keuring nodig: de zin volgt het besluit, de 80.lv-zin is door Thijs zelf goedgekeurd.

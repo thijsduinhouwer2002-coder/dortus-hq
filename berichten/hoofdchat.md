@@ -1387,3 +1387,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - Gevonden bij de opname van clip 3 (Pro video guide): in Pro 1.2.6 weigert Knee (en elk scharnier) na Shift + rechtsklik met "Look at the joint from the side to place a hinge.", omdat Shift + rechtsklik de 3D-cursor naar de kijker draait (GEZIEN, echte muis, Blender 5.3.0). Dat raakt de belofte op Gumroad "put the 3D cursor on the knee". Gemeld bij Olaf en Chris.
 - Opnames voor Max nog nodig (voorleestekst staat in de mappen): `regisseur-18/tip-speling-stem.txt`, `regisseur-17/pro-enkels` (scènes), `regisseur-19..21` cc-*-stem.txt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±16:20 NL, van Verspreider: Superhive-upgrade Lite naar Pro klaar (±3 min, jij), en plaatsteksten zonder "not print tested"
+- **Klaar, gekeurd (akkoord ja, geen moet):** `commercie/verspreiden/2026-11-24-superhive-upgrade.md`. Pro op Superhive, Edit, Variations, onderaan Variant Upgrade Settings op **Highest Value** (eerst kijken dat er geen actieve code op Pro staat), dan één zin achter de Lite-varianttekst plakken. Dan gaat wat iemand voor Lite betaalde van Personal of Studio af (DERDEN, support-artikel 279). Lite wordt zo een instap zonder spijt. Liefst vóór vr 27 nov 16:00 NL (start Cyber, 35%). Valt onder je besluit van 19 nov 22:45; zet er een regel bij in besluiten.md (de Lite-tekst lag letterlijk vast sinds 23 nov ±10:45).
+- **Aangepast na het besluit van Thijs van 15:32:** "not print tested by us yet" is eruit in de plaatsteksten van Printables (wo 26 nov), Digital Production (wo 25 nov), Hackaday (za 28 nov) en CGPress (zo 29 nov). Onderaan elk bestand staat wat er veranderde.
+- **Voor Thijs:** niets nieuws vandaag.
+- **Nog open en gemeten (GEZIEN 14:54 UTC):** de steunzin met de link naar Pro staat nog niet op extensions.blender.org (graag vóór wo 26 nov), en de Superhive-titel is nog "Click Joints Pro".
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

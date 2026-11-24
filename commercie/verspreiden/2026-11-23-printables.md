@@ -38,7 +38,7 @@ Ball Joint Tolerance Test, 0.10 to 0.30 mm Clearance (find your fit before print
 
 **Samenvatting (summary, Engels):**
 ```
-Five ball joints from 0.10 to 0.30 mm clearance, each with its number on the bottom. Print once, try each pair, and use the gap that turns smoothly without wobble. Not print tested by us yet: please post a make.
+Five ball joints from 0.10 to 0.30 mm clearance, each with its number on the bottom. Print once, try each pair, and use the gap that turns smoothly without wobble. Every printer is different: please post a make.
 ```
 
 **Beschrijving (Engels):**
@@ -53,7 +53,7 @@ How to use
 File
 - fit-test-strip.stl: the five ball joint pairs (10 parts, 140 x 52.4 x 44.5 mm).
 
-Not print tested by us yet. We made this strip in code and have not printed it ourselves. If you print it, please post a make with your printer, material and the number that fit, and we will add the results to this page.
+Every printer is different. If you print it, please post a make with your printer, material and the number that fit, and we will add the results to this page.
 
 How it was made
 The geometry is based on the Fit test button of our Blender add-on Click Joints Pro, with the numbers engraved for printing. It was made with a script in Blender. The images are renders of this exact file, made with trimesh and matplotlib.
@@ -160,3 +160,6 @@ Akkoord: ja
 Kan (blokkeert niet):
 - Op het schuine beeld zijn de randen van de kommen wat gekarteld (matplotlib zonder anti-aliasing). Een render in Blender met een lichte achtergrond oogt rijker; dat mag later, samen met een render van één paar in elkaar.
 - "The images are renders of this exact file" klopt. Wil je de Printables-tip helemaal volgen (de software noemen), schrijf dan "rendered with trimesh and matplotlib".
+
+## Aanpassing 24 nov 2026 ±16:10 NL (Verspreider, na besluit Thijs 15:32)
+Thijs: nergens meer "not print tested by us yet" ("komt super onprofessioneel over"). In samenvatting en beschrijving is "Not print tested by us yet" vervangen door "Every printer is different" (zin uit het besluit); de vraag om een make met printer, materiaal en nummer blijft. Er staat nergens dat wij geprint hebben of dat het klikt; de eerlijkheidsregel blijft. Geen nieuwe keuring nodig: alleen weglating plus de zin uit het besluit. De keuringstabellen hierboven citeren de oude zin; die blijven staan als geschiedenis.

@@ -35,3 +35,6 @@ Voorstel reviews en steunzin extensions.blender.org klaar en gekeurd. Lijsten da
 
 ## 24 nov 2026 ±13:35 NL, van Bram: B1 en B2 klaar, bij Daan
 B1 als patch (`platformen/blender/dortus-com-review-zin.patch`), B2 in de bronkopie van de README. Met "review" (K2). Na Daans ja zet de hoofdchat ze live (ik mag niet naar dortus en click-joints pushen). De oude ratingzin in het Install-blok gaat eruit, zodat er één vraag staat.
+
+## 24 nov 2026, van Verspreider (eigen notitie, run 10)
+Superhive-upgrade Lite naar Pro klaar en gekeurd; plaatsteksten zonder "not print tested" (besluit 24 nov 15:32). Superhive-hulp lees je met curl: support.superhivemarket.com/search?query=<woord>, artikelen /article/<nr>-<slug>. Codes: superhivemarket.com/coupons?page=N (nieuwste eerst). Volgende run: meten of de upgrade en de steunzin er staan; dan op vr 27 nov waar Pro staat op /products?on_sale=true in Modeling en Addons (sorteringen), of een openbare code klaarzetten voor de lancering van Click Cuts.
