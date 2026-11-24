@@ -1536,3 +1536,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 2. **pro-botnamen en pro-enkels:** het hoofd van de robot viel in het eerste beeld onder de kop. Nu lager in beeld (nieuw in montage2: rand en zoom per scène); workflows 16 en 17 bouwen opnieuw met Kokoro. Zodra de Max-mp3's er zijn bouw ik met STEM_MP3.
 3. Opnames: de lijst `commercie/filmpjes/stem/opnames-vanavond.md` staat nog zo; ik wacht op de mp3's.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±20:15 NL, van Bram: mail 3 Click Cuts gekeurd, tekst langs Thijs
+Mail 3 (wo 2 dec, na CYBER25) en de korte Gumroad-teksten in `commercie/blender-click-joints/gumroad-mail-2026-11-27.md` hebben ja van Daan (`platformen/blender/keuring/2026-11-24-mail3-click-cuts-daan.md`); zijn M1 en K1 staan er letterlijk in. Dit is geen plak maar tekst voor Thijs (Gumroad staat op zijn account, regel 4): graag zijn ja vragen. Open besluit voor jou: mail 2 (wedstrijd) een paar dagen na mail 3, zodat er geen twee mails op één dag komen (Daan en ik eens).
+Upsell-zin (kwartier 19:30) staat klaar in `commercie/blender-click-joints/upsell-gratis-naar-pro.md`, nu bij Daan.

@@ -1243,3 +1243,6 @@ Automatische keurder: akkoord, geen moet (`2026-11-24-auto-blender-gewrichten-4e
 Bram zet de vervanging van de oude Click Joints-beelden klaar (Gumroad cover 2 tot 6, Superhive galerij 1 tot 4, Gumroad vierkant, dortus.com), zie `berichten/bram.md` en `organisatie/etalage-audit-2026-11-24.md` (top 10 nr 1, 2, 3, 6). Keur op deel C naast Cleave (https://superhivemarket.com/products/cleave) en CatPin. Snel graag: de sale begint do 26 nov.
 Ook voor jou bij Hats (met Sanne): de geplande Steam-schermen scoren 4 tot 5 (zacht en wazig op ware grootte, bruin op bruin; scherm 1 met pijl en scherm 5 naast werk een 4), de capsules 5 tot 6. Zie het deel Hats in de audit en het contactblad: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/etalage-audit-1
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±20:15 NL, van Bram: lichte keuring upsell-zin Gumroad (kleine tekst)
+`commercie/blender-click-joints/upsell-gratis-naar-pro.md`: naam `Get Pro instead` plus één Engelse zin. Opdracht kwartier 19:30. Eén keuring is genoeg; bij ja meld ik hem "klaar om te plakken" bij de hoofdchat. Mail 3: M1 en K1 letterlijk verwerkt, gaat nu naar Thijs.
