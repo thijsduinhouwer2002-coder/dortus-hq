@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-24 04:45",
+    "datum": "2026-11-24 05:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -186,7 +186,7 @@
       "status": {
         "woord": "bouwen",
         "kleur": "op-koers",
-        "zin": "1.0.0-kandidaat klaar: herkeuring akkoord ja (89753dd), e2e groen in Blender 4.2 en 5.3 (run 45320623940, GEZIEN). Nog nodig: winkeltekst (Chris) en vaste zip via uitgave-workflow (Bram)."
+        "zin": "1.0.0-kandidaat klaar en gekeurd; vaste zip click-cuts-zip-1.0.0 bewaard tot 24 dec (uitgave-run 45324607549, GEZIEN). Lanceringsscripts Sanne gekeurd (Daan). Nog nodig: winkeltekst (Chris) en oranje in Check-kleuren is nu geel (Productbouwer)."
       },
       "eigenaar": "Productbouwer",
       "agents": [
@@ -201,9 +201,9 @@
         "reden": "Nog geen keuring van kans of prognose; concurrentie.md is gekeurd, de omzet daarin is een scenario.",
         "bron": "producten/blender-splitser/concurrentie.md"
       },
-      "volgende_stap": "Winkeltekst Click Cuts door Chris, keuring door een ander; Bram maakt click-cuts-uitgave.yml voor een vaste zip; daarna plakt Thijs op Superhive en Gumroad. Live week van 30 nov of eerder.",
+      "volgende_stap": "Winkeltekst Click Cuts door Chris, keuring door een ander; Productbouwer maakt oranje echt oranje (1.0.1 of nieuwe kandidaat); daarna plakt Thijs op Superhive en Gumroad. Live week van 30 nov of eerder.",
       "thijs": [],
-      "laatste_update": "2026-11-24 04:45"
+      "laatste_update": "2026-11-24 05:45"
     },
     {
       "id": "roep",

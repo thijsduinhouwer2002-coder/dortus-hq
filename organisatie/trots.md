@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 05:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat blijft de plak van 1.2.3 door Thijs (lijst 3, zip verloopt do 27 nov 03:08 NL). Rechterknie-melding 4.2 (1.2.4): nog steeds geen tak van Betrouwbaarheid (GEZIEN ls-remote 05:43); Olaf neemt het om 08:00 over zoals afgesproken.
+- **Click Cuts:** vaste zip klaar (Bram, tot 24 dec), scripts gekeurd. Gaten: winkeltekst (Chris, opdracht 04:25, nog niets) en "orange" is geel in Check-kleuren (Daan); doorgezet naar Productbouwer, vóór do 27 nov.
+- **Idee deze ronde:** in de winkeltekst van Click Cuts een korte rij "Tested in Blender 4.2 and 5.3 on every change" met het paneelbeeld, zoals bij Pro voorgesteld; kopers van $15 tot $25 add-ons twijfelen vooral of het werkt. Score 4, mee met Chris.
 
 ## 24 nov 2026 05:20 NL (hoofdchat kwartier-check 9)
 - **Ebb:** product ja op ronde horloges, maar 1+ downloads tegen 100+ voor BreathGym op dezelfde zoekplek (GEZIEN). Grootste gat: BreathGym op 101 horloges, Ebb op 74; 27 van de missende zijn rond en bekend in onze SDK. Tweede gat blijft: 20 gekeurde talen nog niet geplakt (hoofdchat, Chrome).

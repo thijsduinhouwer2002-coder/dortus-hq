@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 24 nov 2026, 04:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 zip klaar (run 45310180926); Thijs plakt vóór do 27 nov 03:08 NL (lijst 3). Rechterknie 4.2 (1.2.4): Betrouwbaarheid aangespoord, Olaf reserve vanaf 08:00. Click Cuts 1.0.0-kandidaat klaar en gekeurd; winkeltekst bij Chris, vaste zip bij Bram. Roep: geen oranje; TikTok Ebb vandaag 18:00, groene TikToks 26 en 28 nov wachten op de Maker.
+**Stand: di 24 nov 2026, 05:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 zip klaar (run 45310180926); Thijs plakt vóór do 27 nov 03:08 NL (lijst 3). Rechterknie 4.2 (1.2.4): nog stil, Olaf neemt over om 08:00. Click Cuts 1.0.0 gekeurd, vaste zip tot 24 dec (Bram); winkeltekst bij Chris, oranje-is-geel bij Productbouwer. Roep: geen oranje; TikTok Ebb vandaag 18:00; tip-dubbel wacht op de Keurder.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 
