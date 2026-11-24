@@ -248,21 +248,11 @@ def verloop():
         o.hide_set(False)
     bpy.context.view_layer.update()
 
-    # ---- Exploded view met de echte objectnamen, van onder naar boven ----
     inst.uit_elkaar = True
     bpy.context.view_layer.update()
     mn, mx = doos(st)
     mid = tuple((mn + mx) / 2)
     gr = max(mx - mn)
-    for o in st:
-        o.show_name = True
-    sp.overlay.show_overlays = True
-    M["namen"] = [o.name for o in st]
-    M["z_volgorde"] = [int(o["sj_stuk"]) for o in sorted(st, key=lambda o: o.get("sj_midden_mm", [0, 0, 0])[2])]
-    deel("lagen")
-    yield from stuk(150, lambda t: cam(-25 + 35 * t, 78.0, gr * 1.55 - gr * 0.12 * t, mid))
-    for o in st:
-        o.show_name = False
 
     # ---- klik Export parts ----
     deel("export")
@@ -331,6 +321,14 @@ def verloop():
 
     # ---- close-ups van de echte nummers (andere stukken even verborgen, alleen in de weergave) ----
     sp.overlay.show_overlays = False
+    # run 20 les: een verdiept nummer recht van voren in Solid is onzichtbaar (geen schaduw): Cavity aan (echte
+    # Blender-weergave) en de camera schuiner, zodat de wanden van de letters donker worden
+    sp.shading.show_cavity = True
+    sp.shading.cavity_type = "BOTH"
+    sp.shading.cavity_valley_factor = 2.0
+    sp.shading.cavity_ridge_factor = 1.0
+    sp.shading.curvature_valley_factor = 2.0
+    sp.shading.curvature_ridge_factor = 1.0
     alle = [(nr, lb) for nr, v in labels.items() for lb in v]
     if not alle:
         log("KORT FOUT geen labels")
@@ -352,14 +350,14 @@ def verloop():
 
     alleen([p_ob])
     deel("vlak")
-    yield from stuk(130, lambda t: kijk_op(lb, p_ob, breed * (12.0 - 7.0 * t), kanteling=28 - 20 * t, zij=-10 + 10 * t))
+    yield from stuk(130, lambda t: kijk_op(lb, p_ob, breed * (9.0 - 5.0 * t), kanteling=38 - 16 * t, zij=-12 + 6 * t))
 
     deel("buren")
-    yield from stuk(70, lambda t: kijk_op(lb, p_ob, breed * (5.0 - 0.6 * t), kanteling=8))
+    yield from stuk(70, lambda t: kijk_op(lb, p_ob, breed * (3.8 - 0.5 * t), kanteling=22))
     if q_ob is not None and lb_q is not None:
         alleen([q_ob])
         bq = lb_q.get("breed") or lb_q["h"] * 2.2
-        yield from stuk(70, lambda t: kijk_op(lb_q, q_ob, bq * (5.0 - 0.6 * t), kanteling=8))
+        yield from stuk(70, lambda t: kijk_op(lb_q, q_ob, bq * (3.8 - 0.5 * t), kanteling=22))
     else:
         yield from houd(70)
 
@@ -380,7 +378,8 @@ def verloop():
     yield from stuk(130, lambda t: kijk_richting(weg, pgr * (2.3 - 0.3 * t), tuple(pmid), extra=-25 + 50 * t))
 
     # vlak met gaten: het nummer staat ertussen
-    met = [(n_, l_) for n_, l_ in alle if len(gaten_bij(per_nr[n_], l_)) >= 2]
+    met = [(n_, l_) for n_, l_ in alle if len(gaten_bij(per_nr[n_], l_)) >= 2 and l_['h'] >= 5.0]
+    met = [x for x in met if x[1]['tekst'] not in (lb['tekst'], tegen)] or met
     gn, gl = met[0] if met else (nr, lb)
     g_ob = per_nr[gn]
     gg = gaten_bij(g_ob, gl)
@@ -393,7 +392,7 @@ def verloop():
     deel("gaten")
     gb = gl.get("breed") or gl["h"] * 2.2
     afst = max(gb * 5.0, ver * 3.6)
-    yield from stuk(130, lambda t: kijk_op(gl, g_ob, afst * (1.25 - 0.25 * t), kanteling=20 - 14 * t))
+    yield from stuk(130, lambda t: kijk_op(gl, g_ob, afst * (1.25 - 0.25 * t), kanteling=30 - 12 * t))
 
     # kleinste nummer
     kl = min(alle, key=lambda x: (x[1]["h"], x[0]))
@@ -404,7 +403,45 @@ def verloop():
     alleen([k_ob])
     deel("klein")
     kb = kll.get("breed") or kll["h"] * 2.2
-    yield from stuk(130, lambda t: kijk_op(kll, k_ob, kb * (10.0 - 4.5 * t), kanteling=24 - 16 * t, zij=8 - 8 * t))
+    yield from stuk(130, lambda t: kijk_op(kll, k_ob, kb * (7.0 - 3.0 * t), kanteling=36 - 14 * t, zij=8 - 6 * t))
+
+    # ---- Exploded view met de echte objectnamen, van onder naar boven ----
+    inst.uit_elkaar = True
+    bpy.context.view_layer.update()
+    mn, mx = doos(st)
+    mid = tuple((mn + mx) / 2)
+    gr = max(mx - mn)
+    # run 20 les: alle oorsprongen lagen op 0,0,0, dus alle namen op één kluitje: oorsprong naar het midden van elk stuk
+    # (na de close-ups, want sj_labels staan in mesh-coördinaten; de plek in de wereld blijft gelijk)
+    alleen(st + pen)
+    for o in st:
+        o.select_set(True)
+    bpy.context.view_layer.objects.active = st[0]
+    try:
+        with bpy.context.temp_override(selected_editable_objects=st, selected_objects=st, active_object=st[0],
+                                       object=st[0]):
+            bpy.ops.object.origin_set(type="ORIGIN_GEOMETRY", center="BOUNDS")
+        M["oorsprong_midden"] = True
+    except Exception as e:  # noqa: BLE001
+        log(f"KORT oorsprong niet gezet: {e}")
+        M["oorsprong_midden"] = False
+    for o in st:
+        o.select_set(False)
+    bpy.context.view_layer.objects.active = None
+    bpy.context.view_layer.update()
+    mn, mx = doos(st)
+    mid = tuple((mn + mx) / 2)
+    gr = max(mx - mn)
+    for o in st:
+        o.show_name = True
+    sp.overlay.show_overlays = True
+    sp.shading.show_cavity = False
+    M["namen"] = [o.name for o in st]
+    M["z_volgorde"] = [int(o["sj_stuk"]) for o in sorted(st, key=lambda o: o.get("sj_midden_mm", [0, 0, 0])[2])]
+    deel("lagen")
+    yield from stuk(150, lambda t: cam(-25 + 35 * t, 78.0, gr * 1.55 - gr * 0.12 * t, mid))
+    for o in st:
+        o.show_name = False
 
     # ---- in elkaar, kleuren zichtbaar ----
     alleen(st + pen)
