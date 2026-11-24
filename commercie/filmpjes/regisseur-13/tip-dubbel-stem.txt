@@ -3,11 +3,14 @@
 # Zet de opname als tip-dubbel-elevenlabs.mp3 in deze map; workflow regisseur-13 legt hem dan vanzelf in sync (STEM_MP3).
 
 Is your model secretly in two pieces? Check it in Blender.
+See the soft line in the middle? That is your clue.
 Press Tab, point at the top, and press L.
 Only the top lights up. Blender sees two loose parts.
 The seam has forty eight double points, so the edge is open.
-Press A. Then press M and pick By Distance.
+Press A to select everything.
+Then press M and pick By Distance.
 Blender removed forty eight points. The seam is closed.
 Press Alt A, then L again. Now the whole vase lights up.
+Do this check on every model you join or import.
 Measured in Blender, not print tested by us yet. Save this before your next export.
 More Blender tips for three D printing, at dortus dot com slash Y T.

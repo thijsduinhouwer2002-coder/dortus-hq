@@ -1,6 +1,6 @@
 {
  "naam": "tip-dubbel",
- "titel": "Is your model secretly in two pieces? Fix it in Blender 🧩 #blender #3dprinting",
+ "titel": "Is your model secretly in two pieces? Fix it in Blender 🔧 #blender #3dprinting",
  "eind": {
   "titel": "Blender for 3D printing",
   "zin": "A new Blender tip for 3D printing every week.",
@@ -23,16 +23,39 @@
      [
       1080,
       900,
-      820
+      940
      ],
      [
       1080,
       890,
-      660
+      800
      ]
     ]
    },
    "groot": true
+  },
+  {
+   "tekst": "See the soft line in the middle? That is your clue.",
+   "label": "LOOK",
+   "kleur": "blauw",
+   "kop": "A line in the middle",
+   "beeld": {
+    "deel": "d_mooi",
+    "van": 50,
+    "tot": 120,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      760
+     ],
+     [
+      1080,
+      920,
+      620
+     ]
+    ]
+   }
   },
   {
    "tekst": "Press Tab, point at the top, and press L.",
@@ -70,12 +93,12 @@
      [
       1080,
       900,
-      720
+      800
      ],
      [
       1080,
       910,
-      600
+      700
      ]
     ]
    }
@@ -94,24 +117,42 @@
      [
       1080,
       920,
-      600
+      700
      ],
      [
       1080,
       930,
-      480
+      600
      ]
     ]
    }
   },
   {
-   "tekst": "Press A. Then press M and pick By Distance.",
+   "tekst": "Press A to select everything.",
+   "label": "STEP 2",
+   "kleur": "groen",
+   "kop": "Press A",
+   "beeld": {
+    "deel": "d_merge",
+    "van": 0,
+    "tot": 34,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      860
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Then press M and pick By Distance.",
    "label": "STEP 2",
    "kleur": "groen",
    "kop": "M, By Distance",
    "beeld": {
     "deel": "d_merge",
-    "van": 0,
+    "van": 28,
     "tot": 72,
     "uitsnede": [
      [
@@ -175,13 +216,36 @@
    }
   },
   {
+   "tekst": "Do this check on every model you join or import.",
+   "label": "TIP",
+   "kleur": "oranje",
+   "kop": "Check every model",
+   "beeld": {
+    "deel": "d_klaar",
+    "van": 0,
+    "tot": 100,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      860
+     ],
+     [
+      1080,
+      890,
+      760
+     ]
+    ]
+   }
+  },
+  {
    "tekst": "Measured in Blender, not print tested by us yet. Save this before your next export.",
    "label": "HONEST",
    "kleur": "oranje",
    "kop": "Save this tip",
    "beeld": {
     "deel": "d_klaar",
-    "van": 20,
+    "van": 90,
     "tot": 190,
     "uitsnede": [
      [
