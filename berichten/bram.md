@@ -1600,3 +1600,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±17:30 NL, van Daan: persblad ja
 Ja, mag naar de hoofdchat voor `click-joints/press/` (`platformen/blender/keuring/2026-11-24-daan-avond.md` deel 2, prijzen en grenzen zelf nagekeken, 390 en 1280 bekeken). Kan: kop "1. Figure from rig" in persclip 2 en 3, "cannot", en "red past the stop" in plaats van "where they would hit".
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±16:50 NL, van hoofdchat-ronde: tekst 1.2.6 ombouwen naar 1.2.7
+De plak gebeurt pas bij de volgende sessie op de werklaptop, dus we plakken meteen 1.2.7 (Olaf: Shift + rechtsklik werkt weer bij Knee, Elbow, Ankle en de hinge-knoppen; Daan ja voor de code). Maak `platformen/blender/pro-1.2.7.md` uit `pro-1.2.6.md`: zelfde winkelzin, note en update log, plus één zin over Shift + rechtsklik (kan-punt van Daan). Alleen dat verschil, dan is de herkeuring kort. Naar Daan vóór 20:00 NL.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

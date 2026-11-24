@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-24 16:45",
+    "datum": "2026-11-24 16:50",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -97,7 +97,7 @@
       "status": {
         "woord": "live",
         "kleur": "op-koers",
-        "zin": "Pro 1.2.3 live op Gumroad en Superhive; 1 verkoop $19 op 22 nov (GEZIEN scorebord). Zip 1.2.6 (enkels ook op de robot) staat (uitgave-run 45406170269 groen) en de tekst heeft ja van Daan (24 nov 15:40). Alleen de plak in Chrome op de werklaptop rest, vóór do 27 nov."
+        "zin": "Pro 1.2.3 live op Gumroad en Superhive; 1 verkoop $19 op 22 nov (GEZIEN scorebord). Zip 1.2.6 (enkels ook op de robot) staat (uitgave-run 45406170269 groen) en de tekst heeft ja van Daan (24 nov 15:40). Besluit 24 nov 16:50: we plakken meteen 1.2.7 (fix voor Shift + rechtsklik, de weg uit de Gumroad-tekst), in Chrome op de werklaptop, vóór do 27 nov."
       },
       "eigenaar": "Bram",
       "agents": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "1.2.6-zip plus gekeurde tekst (platformen/blender/pro-1.2.6.md) en Docs-tab plakken op Gumroad en Superhive, door de hoofdchat in Chrome op de werklaptop, vóór do 27 nov.",
+      "volgende_stap": "Eén plak met 1.2.7 (Shift + rechtsklik-fix, Daan ja code, e2e loopt): Olaf uitgave-run na groene e2e (doel 24 nov 21:00), Bram tekst pro-1.2.7.md naar Daan; dan zip, tekst en Docs-tab plakken op Gumroad en Superhive, door de hoofdchat in Chrome op de werklaptop, vóór do 27 nov.",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"

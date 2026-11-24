@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 16:50 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat blijft de plak (live 1.2.3). Nieuw: 1.2.6 weigert scharnieren na Shift + rechtsklik, precies de weg uit de Gumroad-tekst; fix 1.2.7 heeft ja van Daan, e2e loopt. Besluit: één plak met 1.2.7, Olaf start de uitgave-run na groene e2e (doel 21:00), Bram maakt de 1.2.7-tekst (naar Daan vóór 20:00). Plakken: hoofdchat in Chrome op de werklaptop, vóór do 27 nov.
+- **Idee deze ronde:** de CG Vortex-zin wacht nog: persblad heeft ja van Daan maar staat niet live (dortus.com/click-joints/press/ geeft geen pagina, repo dortus main zit vast, lijst punt 4). Eerst punt 4, dan de zin. Score 5.
+
 ## 24 nov 2026 17:05 NL (hoofdchat kwartier-check 20)
 - **Ebb:** breath hold 2, breathwork 9, 1+ downloads; titel zonder taal nog Duits. Grootste gat: geen enkel gekeurd Ebb-werk geplakt (alleen hoofdchat in Chrome, na Pro en Click Cuts). BreathGym ($1,99, 100+) verkoopt vooruitgang in zin 1, wij het plaatje.
 - **Idee deze ronde:** eerste zin Ebb: tijd per ronde en gemiddelde over 8 weken, zonder wedstrijd. Score 3, mee met de Wim Hof-zin.
