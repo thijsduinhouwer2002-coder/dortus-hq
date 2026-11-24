@@ -1,5 +1,10 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 10:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat: de live tekst belooft nog "Ankles via More bones". De nieuwe tekst (Daan ja 10:35) en zip 1.2.4 liggen klaar; plakken kan alleen de hoofdchat in Chrome op de werklaptop, vóór do 27 nov. Enkels echt laten werken: Olaf, 1.2.5, e2e loopt nu.
+- **Click Cuts:** grootste gat: 4.2 is trager dan de tekst zegt en geeft 1 fout op 1M vlakken. Productbouwer herstelt, Chris past de zin aan (doel 14:00), Daan keurt run 10; vaste zip do 27 nov.
+- **Idee deze ronde:** Ebb 1.0.2 geschrapt; de tijd van de Chrome-ronde gaat naar de Pro-plak en de talen. Eén Chrome-ronde, drie plakken (Pro 1.2.4 Gumroad, Superhive, Ebb talen). Score 6.
+
 ## 24 nov 2026 10:25 NL (hoofdchat kwartier-check 14)
 - **Ebb:** plek 2 op "breath hold" maar 1+ downloads (GEZIEN 10:15). Grootste gat: Ebb 1.0.2 met 27 horloges (opdracht 05:20) ligt stil, want Gijs draait niet vanzelf en het nieuw-venster sluit ±27 nov 15:00 UTC; gemeld aan de hoofdchat-ronde om Gijs te starten. Talen-plak wacht nog.
 - **Idee deze ronde:** Ebb vindbaar voor "apnea" (nu niet in top 30, BreathGym plek 6): tags en één zin "dry static apnea practice on land", mee in de talen-plak. Score 5, voorstel Chris.

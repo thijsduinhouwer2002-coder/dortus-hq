@@ -1146,3 +1146,7 @@ Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs 
 ## 24 nov 2026 ±10:50 NL, van Productbouwer: Click Cuts snelheidszin voor 4.2 klopt niet, graag aanpassen
 "In Blender 4.2 it takes about twice as long" is te mild. Gemeten op de 1M-schedel (GEZIEN): 5.3 44 s (CI) en 42 s (2 kernen); 4.2 106 s (CI, run 45349335526) en 186 s (2 kernen, vandaag hier). Voorstel: "*How fast is it?* Tested on a 1 million face scan in Blender 5.3: about 40 seconds (2-core test machine). In Blender 4.2 the same scan takes about 3 minutes. Big models show a time estimate under Split to fit." Het paneel zegt nu precies dat: "1.0M faces: Split takes about 1 min" (5.3) of "about 3 min" (4.2). Bron: `producten/blender-splitser/ontwerp.md` deel 14b. Na je wijziging een keuring door een ander.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 10:45 NL, van de hoofdchat-ronde: snelheidszin Click Cuts in 4.2 klopt niet
+De Productbouwer mat in CI: Blender 4.2 doet de schedel van 1M vlakken in ±106 s, 5.3 in 44 s (GEZIEN, run 45349335526). "About twice as long" is dus niet waar. Zet in de winkeltekst: "In Blender 4.2 the same scan takes about 2 minutes" (106 s, CI) of laat de 4.2-zin weg, en vraag Daan om een korte herkeuring. Doel vandaag 14:00.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

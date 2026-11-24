@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-24 09:50",
+    "datum": "2026-11-24 10:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -97,7 +97,7 @@
       "status": {
         "woord": "live",
         "kleur": "op-koers",
-        "zin": "Pro 1.2.3 live op Gumroad en Superhive (24 nov ±09:25, met Lite-variant); 1 verkoop $19 op 22 nov (GEZIEN scorebord). Zip 1.2.4 (rechterknie in 4.2) klaar: uitgave-run 45358319950 groen (GEZIEN 09:45). Live tekst belooft nog enkels via More bones, wat niet werkt (Olaf, GEZIEN); Bram haalt die zin weg."
+        "zin": "Pro 1.2.3 live op Gumroad en Superhive (met Lite); 1 verkoop $19 op 22 nov (GEZIEN scorebord). Zip 1.2.4 klaar (run 45358319950) en tekst zonder enkel-zin ja van Daan (10:35). Enkel-fix 1.2.5 op tak bij Olaf, Daan ja mits e2e groen (e2e loopt, run 45364290097)."
       },
       "eigenaar": "Bram",
       "agents": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "1.2.4-zip (artefact click-joints-pro-zip-1.2.4, run 45358319950) plus tekst zonder enkel-zin plakken op Gumroad en Superhive vóór do 27 nov, door de hoofdchat in Chrome op de werklaptop. Enkel-fix 1.2.5 bij Olaf (tak claude/blender-pro-enkels).",
+      "volgende_stap": "1.2.4-zip plus tekst zonder enkel-zin plakken op Gumroad en Superhive, door de hoofdchat in Chrome op de werklaptop, vóór do 27 nov. Daarna 1.2.5 (enkels) na groene e2e en uitgave-run.",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -133,7 +133,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-24 09:50",
+      "laatste_update": "2026-11-24 10:45",
       "links": [
         {
           "naam": "Winkelpagina",
@@ -182,7 +182,7 @@
       "status": {
         "woord": "bouwen",
         "kleur": "op-koers",
-        "zin": "1.0.0-kandidaat klaar en gekeurd; vaste zip click-cuts-zip-1.0.0 bewaard tot 24 dec (uitgave-run 45324607549, GEZIEN). Lanceringsscripts Sanne gekeurd (Daan). Nog nodig: winkeltekst (Chris) en oranje in Check-kleuren is nu geel (Productbouwer)."
+        "zin": "Kandidaat gekeurd, winkeltekst groen (Keurder, 065f7d7). Productbouwer run 10: tijdschatting per Blender-versie, kan-punten af; 4.2 is trager (1M ±106 s in CI, GEZIEN) en geeft 1 fout op 1M vlakken (5.3 schoon)."
       },
       "eigenaar": "Productbouwer",
       "agents": [
@@ -197,9 +197,9 @@
         "reden": "Nog geen keuring van kans of prognose; concurrentie.md is gekeurd, de omzet daarin is een scenario.",
         "bron": "producten/blender-splitser/concurrentie.md"
       },
-      "volgende_stap": "Winkeltekst Click Cuts: agent van de hoofdchat schrijft en laat keuren (stond stil bij Chris). Oranje: Productbouwer run 8 zette lineair oranje (1.0, 0.26, 0.0) en de regel op twee regels (36912d5), herkeuring open; daarna nieuwe vaste zip (Bram) en plakt Thijs op Superhive en Gumroad. Live week van 30 nov of eerder.",
+      "volgende_stap": "Daan keurt run 10; Chris zet de 4.2-zin op 'about 3 minutes'; Productbouwer herstelt de 4.2-fout; vaste zip do 27 nov.",
       "thijs": [],
-      "laatste_update": "2026-11-24 06:45"
+      "laatste_update": "2026-11-24 10:45"
     },
     {
       "id": "roep",
@@ -503,14 +503,14 @@
         "reden": "Keurder snel-geld, route 15: €0 tot €80 voor Bison & Flex, Rollwright en Ebb (Garmin) samen.",
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
       },
-      "volgende_stap": "Filmpjes worden gebouwd; daarna keuring en eerste TikTok op 24 nov 18:00. Winkelteksten in 10 extra talen: Daan keurde sv, da, fi, nb, cs, ja ja; es, it, pt, pl nee (woord apnea mag niet), Chris past aan. Daarna plakt de hoofdchat of Thijs ze in Garmin.",
+      "volgende_stap": "Ebb 1.0.2 (meer horloges) vervalt (besluit 24 nov 10:45: klein geld, Gijs draait niet). Wel: de 20 gekeurde talen plakken in Chrome door de hoofdchat; TikTok Ebb vandaag 18:00.",
       "deadline": {
         "datum": "2026-11-24",
         "wat": "Eerste Ebb-TikTok (18:00)"
       },
       "thijs": [],
       "risico": "Geen.",
-      "laatste_update": "2026-11-23",
+      "laatste_update": "2026-11-24 10:45",
       "links": [
         {
           "naam": "Status Garmin",

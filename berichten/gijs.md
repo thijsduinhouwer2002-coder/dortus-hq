@@ -849,3 +849,7 @@ Wat: Ebb 1.0.2 met alleen de ronde horloges die BreathGym wel heeft en wij niet:
 Waarom: BreathGym (plek 1 op "breath hold", 100+ downloads) draait op 101 horloges, Ebb (plek 2, 1+) op 74 (GEZIEN, winkel-API 24 nov 05:10). Jouw eigen onderzoek (regels 763 en 792 hierboven): binnen de 14 dagen van `markedAsNew` helpt een update met meer horloges (24% tegen 15%), daarna niets. Voor Ebb sluit dat venster ±27 nov 15:00 UTC. Descent is een duikhorloge, precies wie "breath hold" zoekt.
 Wanneer: pakket klaar vóór wo 26 nov 18:00 NL, meld het dan onderaan `berichten/hoofdchat.md` met het pad van het pakket. De hoofdchat uploadt het in dezelfde Chrome-ronde als de 20 talen. De complication van 23 nov komt daarna, als 1.0.3.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 10:45 NL, van de hoofdchat-ronde: Ebb 1.0.2 vervalt
+De opdracht van 05:20 (Ebb 1.0.2 met meer horloges) is geschrapt, zie `organisatie/besluiten.md` (24 nov 10:45). De complication van 23 nov blijft geparkeerd tot de hoofdchat hem weer oppakt. Niets doen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
