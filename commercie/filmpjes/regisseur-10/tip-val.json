@@ -1,0 +1,241 @@
+{
+ "naam": "tip-val",
+ "titel": "Will your print fall over? Check it before you print ⚖️ #blender #3dprinting",
+ "eind": {
+  "titel": "Blender for 3D printing",
+  "zin": "A new Blender tip for 3D printing every week.",
+  "adres": "dortus.com/yt",
+  "render": "render-toren.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "venster": "Blender 5.3",
+ "scenes": [
+  {
+   "tekst": "Will your print fall over? Check it in Blender before you print.",
+   "label": "QUICK CHECK",
+   "kleur": "oranje",
+   "kop": "Will it fall over?",
+   "beeld": {
+    "deel": "v_heel",
+    "van": 10,
+    "tot": 114,
+    "uitsnede": [
+     [
+      1100,
+      900,
+      1300
+     ],
+     [
+      1100,
+      900,
+      1100
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Open Object, Set Origin, Origin to Center of Mass, Volume.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Set Origin: Center of Mass",
+   "beeld": {
+    "deel": "v_origin",
+    "van": 0,
+    "tot": 126,
+    "uitsnede": [
+     [
+      1000,
+      760,
+      2000
+     ],
+     [
+      1050,
+      820,
+      1800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Now look from the front. View, Viewpoint, Front.",
+   "label": "STEP 2",
+   "kleur": "groen",
+   "kop": "View, Viewpoint, Front",
+   "beeld": {
+    "deel": "v_front",
+    "van": 0,
+    "tot": 70,
+    "uitsnede": [
+     [
+      1000,
+      700,
+      1900
+     ],
+     [
+      1135,
+      960,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "The orange dot is the balance point. It sits outside the foot, so this tips over.",
+   "label": "WHY",
+   "kleur": "blauw",
+   "kop": "Dot outside the foot",
+   "beeld": {
+    "deel": "v_front",
+    "van": 60,
+    "tot": 152,
+    "uitsnede": [
+     [
+      1135,
+      960,
+      1300
+     ]
+    ],
+    "nadruk_ocr": [
+     "v_stip_scherm",
+     45,
+     45
+    ],
+    "nadruk_rel": [
+     60,
+     152
+    ]
+   }
+  },
+  {
+   "tekst": "To fix it, press Tab, then 3. From below, click the bottom face.",
+   "uitspraak": "To fix it, press Tab, then three. From below, click the bottom face.",
+   "label": "STEP 3",
+   "kleur": "groen",
+   "kop": "Tab, 3, click the bottom",
+   "beeld": {
+    "deel": "v_onder",
+    "van": 0,
+    "tot": 118,
+    "uitsnede": [
+     [
+      1000,
+      700,
+      1900
+     ],
+     [
+      1135,
+      960,
+      1500
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Press S, type 3, Enter. The foot is now three times wider.",
+   "uitspraak": "Press S, type three, Enter. The foot is now three times wider.",
+   "label": "STEP 4",
+   "kleur": "oranje",
+   "kop": "S, 3, Enter",
+   "beeld": {
+    "deel": "v_schaal",
+    "van": 0,
+    "tot": 102,
+    "uitsnede": [
+     [
+      1135,
+      960,
+      1500
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Set the origin again. The dot is now inside the foot.",
+   "label": "RESULT",
+   "kleur": "groen",
+   "kop": "Dot inside the foot",
+   "beeld": {
+    "deel": "v_terug",
+    "van": 40,
+    "tot": 226,
+    "uitsnede": [
+     [
+      1000,
+      760,
+      2000
+     ],
+     [
+      1135,
+      960,
+      1500
+     ]
+    ],
+    "nadruk_ocr": [
+     "v_stip2_scherm",
+     45,
+     45
+    ],
+    "nadruk_rel": [
+     170,
+     226
+    ]
+   }
+  },
+  {
+   "tekst": "A wider foot or less lean keeps your print standing.",
+   "label": "TIP",
+   "kleur": "groen",
+   "kop": "Wider foot, less lean",
+   "beeld": {
+    "deel": "v_klaar",
+    "van": 0,
+    "tot": 120,
+    "uitsnede": [
+     [
+      1135,
+      960,
+      1500
+     ],
+     [
+      1100,
+      900,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Save this for your next print.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Save this tip",
+   "beeld": {
+    "deel": "v_klaar",
+    "van": 100,
+    "uitsnede": [
+     [
+      1100,
+      900,
+      1300
+     ],
+     [
+      1100,
+      900,
+      1150
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "More Blender tips for 3D printing at dortus.com/yt.",
+   "uitspraak": "More Blender tips for three D printing, at dortus dot com slash Y T.",
+   "label": "MORE TIPS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   }
+  }
+ ]
+}

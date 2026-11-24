@@ -1,0 +1,14 @@
+# tip-val: voorleestekst voor de ElevenLabs-stem Max (Regisseur, 24 nov 2026)
+# Lees de zinnen in deze volgorde voor, met een korte pauze ertussen.
+# Zet de opname als tip-val-elevenlabs.mp3 in deze map; de workflow regisseur-10 legt hem dan vanzelf in sync (STEM_MP3).
+
+Will your print fall over? Check it in Blender before you print.
+Open Object, Set Origin, Origin to Center of Mass, Volume.
+Now look from the front. View, Viewpoint, Front.
+The orange dot is the balance point. It sits outside the foot, so this tips over.
+To fix it, press Tab, then three. From below, click the bottom face.
+Press S, type three, Enter. The foot is now three times wider.
+Set the origin again. The dot is now inside the foot.
+A wider foot or less lean keeps your print standing.
+Measured in Blender, not print tested by us yet. Save this for your next print.
+More Blender tips for three D printing, at dortus dot com slash Y T.
