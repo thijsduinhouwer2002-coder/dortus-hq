@@ -1,10 +1,10 @@
 HOL eerste start (geen gekozen hoogte) dpi=96 hoogte=120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795564421
+HOL zaad 1795564498
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Wout is here for your gold.
-HOL begin: vallen (Wout)
-HOL held binnen: Wout
+HOL kroniek 4.0 (wacht 0.0): Fenna is here for your gold.
+HOL begin: vallen (Fenna)
+HOL held binnen: Fenna
 HOL zicht 4.1 1
 HOL einde na 6 s, fps=10, goud=20, terugkomers=0
