@@ -1,5 +1,10 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 19:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat blijft de plak (winkel staat op 1.2.3, 1.2.7 plus heldenbeelden held-1 tot held-4 klaar, alleen Chrome op de werklaptop, vóór do 27 nov). Betrouwbaarheid: knie-fix 1.2.8 heeft ja van Daan mits e2e 45459661428 groen (loopt, GEZIEN API 19:42); Olaf en Bram (changelog) zijn ermee bezig, niemand staat stil.
+- **Besluit deze ronde:** saleweek is vr 27 nov t/m di 1 dec, zoals de code CYBER25, de site en de persmails al zeggen; de -25%-cover gaat op 27 nov live, niet 26 nov.
+- **Idee deze ronde:** na de plak het vierkante 600x600 beeld als eerste (Discover en profiel tonen dat), score 4, staat al bij Bram.
+
 ## 24 nov 2026 19:30 NL (hoofdchat kwartier-check 23)
 - **Click Joints Pro:** 1.2.7 klaar om te plakken. Nieuw gezien: Pro staat in de Gumroad-zoekfunctie nergens, ook niet op "click joints"; Discover komt pas na $100 omzet plus ±3 weken (DERDEN). In de saleweek komt elke Gumroad-verkoop dus uit onze eigen links.
 - **Idee deze ronde:** upsell bij het gratis product op Gumroad: wie de gratis versie haalt, krijgt Pro met CYBER25 voorgesteld. Score 5, kan-opdracht Bram.

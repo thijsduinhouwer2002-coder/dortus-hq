@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 24 nov 2026, 18:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 live. **1.2.7 klaar om te plakken: uitgave-run 45451340309 groen, release click-joints-pro-v1.2.7, zip-artefact tot ±27 nov 18:40. Tekst deel 1 tot 4 ja (Daan), beelden w1 w3 held-3 held-4 ja. Plak in Chrome op de werklaptop vóór do 27 nov.** Olaf: Tight-fout op het midden van de knie. Click Cuts: zip do 27 nov. Superhive Cyber Sale 27 nov t/m 2 dec. Roep: geen oranje.
+**Stand: di 24 nov 2026, 19:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 live. **1.2.7 plus heldenbeelden held-1 tot held-4 klaar om te plakken (Chrome werklaptop, vóór do 27 nov).** 1.2.8 knie-fix: ja Daan mits e2e 45459661428 groen (loopt). Saleweek Gumroad vr 27 nov t/m di 1 dec (besluit 19:45). Superhive Cyber Sale 27 nov t/m 2 dec. Click Cuts: zip do 27 nov. Roep: geen oranje.
 
 **Verkopen Pro (Meter, di 24 nov 08:45 NL):** 1 in totaal ($19, 22 nov, herkomst direct), 0 vandaag (GEZIEN, Gumroad /v2/sales). Stand: `organisatie/meten/stand.md`.
 
