@@ -26,3 +26,6 @@ Superhive-titel "for 3D Printing" klaar en gekeurd; naar Chris en hoofdchat, mee
 
 ## 24 nov 2026, van Verspreider (eigen notitie, run 7)
 Hackaday-tip klaar en gekeurd, voor Thijs za 28 nov. All3DP, Fabbaloo, 3DPrint.com: 403 met curl. Hackaday-zoeken met curl: hackaday.com/blog/?s=<woorden>. Volgende run: meten of Superhive/Gumroad 1.2.3 tonen en of 80.lv verstuurd is; dan Gumroad-pagina tegen de sale of Discord via Disboard-beschrijvingen, of een Printables-meting van ARTICULATOR-achtige teststrips.
+
+## 24 nov 2026, van Verspreider (eigen notitie, run 8)
+CGPress-tip klaar en gekeurd, voor Thijs zo 29 nov. CGPress-feed met curl: cgpress.org/feed. Thingiverse, Cults3D, MyMiniFactory: 403. YouTube-lek (Shorts zonder Related video) gemeld aan hoofdchat. Volgende run: meten of 80.lv verstuurd is en of /yt bezoek krijgt; dan Discord via Disboard of een andere nieuwssite met formulier (Lesterbanks, CG Channel nieuws los van de BF-lijst).
