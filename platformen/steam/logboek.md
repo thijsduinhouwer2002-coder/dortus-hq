@@ -2259,3 +2259,7 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
   de reeks valt terug op de hele reeks in plaats van een IndexError (K4). Proef-workflow `opname-gedeeld-proef` draait
   vanzelf; let op: de opname-sha van regisseur-13 verandert, bij een volgende push daar wordt opnieuw opgenomen.
 - Proef `opname-gedeeld-proef` op fa017cf groen (run 45332376221, GEZIEN): zelfde delen, maten en beelden als regisseur-12.
+
+## 24 nov 2026 ±07:15-08:05 NL, Olaf (run 06:13 UTC)
+- Kan Daan (herkeuring opname-hulpcode): `ocr` meldt nu "LET OP" als `woord` buiten de reeks valt in plaats van stil de hele reeks te nemen.
+- Rechterknie Pro 1.2.4: om 07:15 nog geen commit van Betrouwbaarheid (laatste op `claude/betrouwbaar-rig` 00:26). Fix lokaal klaargezet, push pas na 08:00 NL.

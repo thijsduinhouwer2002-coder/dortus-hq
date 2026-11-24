@@ -168,6 +168,9 @@ def ocr(tekst, vak, drempel="60%", woord=None):
             regels.setdefault((d[2], d[3], d[4]), []).append(
                 (d[11].strip().lower().strip(".,:;(){}[]'\"|"), int(d[6]), int(d[7]), int(d[8]), int(d[9])))
     doel = tekst.lower().split()
+    if woord is not None and not -len(doel) <= woord < len(doel):
+        # Kan Daan (herkeuring 24 nov): niet stil terugvallen, wel zeggen dat de hele reeks telt.
+        log(f"LET OP ocr woord={woord} valt buiten {tekst!r} ({len(doel)} woorden); de hele reeks telt")
     for ws in regels.values():
         ws.sort(key=lambda w: w[1])
         for i in range(len(ws) - len(doel) + 1):
