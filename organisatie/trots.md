@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 09:25 NL (hoofdchat kwartier-check 13)
+- **Click Cuts:** product en paneel ja (versnelling 1M 42 s, wacht op keuring Daan en CI 4.2). Grootste gat: geen enkele video voor de winkelpagina, terwijl Cleave er drie heeft (demo, "Your first split", complex model, GEZIEN curl 09:22). Winkeltekst M2 bij Chris (doel 12:00).
+- **Idee deze ronde:** liggende video "Your first split in 60 seconds" als eerste beeld op beide pagina's bij de lancering. Score 8, opdracht Regisseur.
+
 ## 24 nov 2026 08:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat blijft dat Superhive nog 1.1.0 toont (Gumroad heeft 1.2.3 sinds ±08:30, GEZIEN volgens lijst 3); Superhive vraagt Chrome op de HP van Thijs, groot open (lijst 3). Knie-fix 1.2.4 staat op main (Olaf, Daan ja); e2e op main loopt, daarna zip. Dan alleen 1.2.4 uploaden op Superhive, niet eerst 1.2.3.
 - **Click Cuts:** snelheid gemeten (1M 42 s, 3M 120 s, GEZIEN Productbouwer). Gaten: keuring versnelling (nu bij Daan, gevraagd 08:45) en winkeltekst M2 (Chris, 1,5 uur stil, aangespoord, doel 12:00).
