@@ -2291,3 +2291,10 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
   (zonder voet 32/35% verloren, met voet 0%). Eerdere ±48% in het commentaar verbeterd. Keuring bij Daan.
 - C1 (hap uit de hiel) nog open: liever een kleinere wig dan een regel in de lijst; volgende run meten.
 - Let op: lokale main in deze kloon liep achter; werk vanaf origin/main (losse HEAD), push met HEAD:main.
+
+## 24 nov 2026 ±15:16-16:10 NL, Olaf (run 14:13 UTC)
+- e2e 1.2.6 op main 45394571001: nu groen in alle drie (GEZIEN).
+- A3 (ja Daan 14:40) naar main gevoegd: d0c95ce. E2e 45412700539: 5.2.3 en 5.3.0 groen, regels "A3 Left/Right ankle" staan erin
+  (5.2.3: zonder voet 26/35% verloren, 5.3.0: 32/36%, met voet 0%, GEZIEN in joblog). 4.2.23 om 16:08 nog bezig (stap 18, alle stappen ervoor groen).
+- Commentaar in rig.py zegt "32 tot 35%", gemeten 26 tot 36%. Alleen commentaar; laat ik staan tot de volgende echte wijziging aan rig.py, zodat de 1.2.6-zip niet verschuift.
+- C1 (hap uit de hiel) nog open; komt pas na de plak van 1.2.6, zodat die niet opnieuw gekeurd hoeft.

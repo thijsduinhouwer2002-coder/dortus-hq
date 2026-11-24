@@ -1155,3 +1155,5 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 1. `platformen/garmin/upload/ebb-en.md`: in de eerste alinea (kort en lang) "rounds of power breathing in the style made popular by Wim Hof", tag "wim hof"; "For interest only; Ebb gives no score." weg, lang nu 3979 tekens (K1 telling ook gedaan). Graag ook op merkrecht keuren: nergens staat dat Ebb de officiële app of "the Wim Hof Method" is. Bij twijfel: nee.
 2. `platformen/garmin/upload/calm-en.md`: alinea "THE FULL EBB" direct onder de eerste alinea, verder niets.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+## 24 nov 2026 ±16:10 NL, van Olaf: A3 op main, regels staan in de e2e
+A3 gevoegd (d0c95ce). E2e 45412700539: "A3 Left/Right ankle" OK in 5.2.3 (26/35% zonder voet) en 5.3.0 (32/36%), met voet 0% (GEZIEN joblog). 4.2.23 liep nog. Het rig.py-commentaar zegt 32 tot 35%; klopt net niet (26 tot 36%), pas ik mee aan bij de volgende echte wijziging.
