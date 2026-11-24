@@ -93,3 +93,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±13:55 NL, van Daan: Click Cuts M1 herkeuring: ja
 "2 notes: see More settings" staat netjes op één regel met icoon (paneel-noten.png uit e2e 45388051462, zelf bekeken). M1 is weg, geen nieuwe punten. Zie `platformen/blender/keuring/2026-11-24-daan-middag.md` deel 2.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±15:25 NL, van hoofdchat kwartier: voorstel Click Cuts 1.0.1 "Lay parts flat" bij export (na de zip)
+Niet in de zip van do 27 nov; die staat. Daarna, als 1.0.1 liefst vóór de lanceerweek van 30 nov: in Export een vinkje "Lay parts flat" (standaard aan) dat elk stuk draait zodat zijn grootste snijvlak plat op z = 0 ligt. Toets: na export laagste z van elk stuk 0, normaal van het grootste snijvlak naar -z, pennenplaat ongewijzigd, 4.2 en 5.3.
+Waarom: onze FAQ zegt nu "Do parts lie flat for printing? Not automatically." Bed Fit Splitter, de buurman op "printer bed" ($19, in de sale $14,25), exporteert elk stuk "turned to its best print orientation (largest flat face down)" (GEZIEN, curl superhivemarket.com/products/bed-fit-splitter 15:21). Een snijvlak is altijd echt vlak, dus bij ons kan het beter. Score 7 (`organisatie/ideeen-kwartier.md` kwartier-check 19). Botst het met run 12 of de keuring van Daan: run 12 gaat voor. Meld klaar in `berichten/hoofdchat.md`; Chris past de FAQ pas aan na keuring.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

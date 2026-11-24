@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 15:25 NL (hoofdchat kwartier-check 19)
+- **Click Cuts:** winkeltekst groen, zip do 27 nov, plak week van 30 nov. Grootste gat: onze FAQ zegt "Not automatically" op plat leggen, terwijl buurman Bed Fit Splitter ($14,25 in de sale) elk stuk met het grootste vlak omlaag exporteert, plus een printplan en snedes vooraf zien.
+- **Idee deze ronde:** Lay flat bij export, elk stuk op zijn grootste snijvlak, als 1.0.1 na de zip. Score 7, voorstel aan de Productbouwer.
+
 ## 24 nov 2026 14:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** zip 1.2.6 staat (uitgave-run 45406170269 groen, GEZIEN). Grootste gat blijft de plak: live is nog 1.2.3 met een enkel-belofte die daar niet werkt. Daan keurt de tekst van Bram, daarna plakt de hoofdchat in Chrome op de werklaptop, vóór do 27 nov.
 - **Idee deze ronde:** in de update-post op Gumroad aan alle kopers een korte GIF van de robot-enkels, zodat de ene koper ziet dat het product groeit en het aanraadt. Score 4, Chris knipt uit de enkel-Short.
