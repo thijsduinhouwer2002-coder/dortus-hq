@@ -1,7 +1,7 @@
 name: "Regisseur 19 (Click Cuts Short 1: Split to fit)"
 
 # Afgeleid van regisseur-18.yml (Regisseur run 18): Click Cuts-zip van main en de Lion Head (Poly Haven, CC0). Opname commercie/filmpjes/regisseur-19/cc_opname.py op de gedeelde hulpcode
-# (opname/blender_opname.py). ElevenLabs-mp3 (cc-fit-elevenlabs.mp3) wordt vanzelf gebruikt, anders Kokoro. Niets geplaatst.
+# (opname/blender_opname.py). Run 21: nieuwe opname met de huidige zip, lijmmelding gemeten. ElevenLabs-mp3 (cc-fit-elevenlabs.mp3) wordt vanzelf gebruikt, anders Kokoro. Niets geplaatst.
 
 on:
   push:
@@ -107,7 +107,9 @@ jobs:
           mkdir -p /tmp/klaar
           for n in cc-fit; do
             if [ -f commercie/filmpjes/regisseur-19/$n-elevenlabs.mp3 ]; then export STEM_MP3=$PWD/commercie/filmpjes/regisseur-19/$n-elevenlabs.mp3 STEM_BRON=elevenlabs; else unset STEM_MP3 STEM_BRON; fi
-            python commercie/filmpjes/regisseur-2/vul.py commercie/filmpjes/regisseur-19/$n.json /tmp/pro/film.json /tmp/$n.json
+            # run 21 (keuring Iris M1): zonder lijmmelding in deze opname valt de zin GLUE NOTE weg (dan klopt hij niet)
+            python -c "import json; f=json.load(open('/tmp/pro/film.json')); m=f['metingen']; j=json.load(open('commercie/filmpjes/regisseur-19/$n.json')); j['scenes']=[s for s in j['scenes'] if s.get('label')!='GLUE NOTE' or m.get('noot_ocr')]; json.dump(j, open('/tmp/$n-sj.json','w'), indent=1, ensure_ascii=False); print('meldingen', m.get('meldingen'), 'noot', m.get('noot_ocr'), 'zinnen', len(j['scenes']))"
+            python commercie/filmpjes/regisseur-2/vul.py /tmp/$n-sj.json /tmp/pro/film.json /tmp/$n.json
             rm -rf /tmp/klaar/zinnen
             python commercie/filmpjes/regisseur-2/montage2.py /tmp/$n.json /tmp/pro /tmp/klaar groot
             mv /tmp/klaar/$n-groot.mp4 /tmp/klaar/$n-geluid.mp4

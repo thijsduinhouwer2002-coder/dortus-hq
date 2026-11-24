@@ -1,4 +1,4 @@
-# cc-fit (Click Cuts Short 1): voorleestekst voor de ElevenLabs-stem Max (Regisseur run 18, 24 nov 2026)
+# cc-fit (Click Cuts Short 1): voorleestekst voor de ElevenLabs-stem Max (Regisseur run 18, 24 nov 2026; run 21 zin 7 aangepast en zin 9 erbij, keuring Iris M1; zonder lijmmelding in de opname valt zin 9 weg)
 # Lees de zinnen in deze volgorde voor, met een korte pauze ertussen.
 # Zet de opname als cc-fit-elevenlabs.mp3 in deze map; workflow regisseur-19 legt hem dan vanzelf in sync (STEM_MP3).
 
@@ -8,8 +8,9 @@ Then press Split to fit, the one big button in the panel.
 Open model? It makes a watertight copy first, in the same click.
 It cuts the model into the fewest parts that each fit your bed.
 Parts that touch never share a color, so you see every cut.
-Every cut gets pins and pin holes, with a clearance you can tune to your printer.
+Cuts get pins and pin holes, with a clearance you can tune to your printer.
 The panel tells you in one line: all parts fit the bed.
+Face too small for a pin? The panel tells you to glue that joint.
 Then export every part and the pins as S T L or three M F, in millimeters.
 Measured in Blender, not print tested by us yet. Print the fit test first.
 Click Cuts for Blender. Link in the description.

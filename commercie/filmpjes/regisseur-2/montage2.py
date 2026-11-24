@@ -504,6 +504,9 @@ def main():
                                 "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE,
                                stderr=subprocess.DEVNULL)
         sleutels = b["uitsnede"]
+        if b.get("knip"):
+            # knip (run 21, kan Iris cc-fit): harde snede naar de eerste sleutel, geen zoom over leeg scherm
+            vorige_u = list(sleutels[0])
         huidig, gelezen, src = -1, 0, None
         laatste_klik = -99
         gezien_klik = set()

@@ -23,14 +23,19 @@
     "uitsnede": [
      [
       720,
-      900,
-      850
+      920,
+      800
      ],
      [
       720,
-      880,
-      720
+      930,
+      760
      ]
+    ],
+    "begin_uitsnede": [
+     720,
+     920,
+     800
     ]
    },
    "groot": true
@@ -42,20 +47,21 @@
    "kop": "Pick your printer",
    "beeld": {
     "deel": "printer",
-    "van": 0,
+    "van": 8,
     "tot": 82,
     "uitsnede": [
      [
-      1800,
-      480,
-      800
+      1860,
+      640,
+      980
      ],
      [
-      1800,
-      460,
-      700
+      1860,
+      640,
+      940
      ]
-    ]
+    ],
+    "knip": true
    }
   },
   {
@@ -91,7 +97,8 @@
       950,
       1000
      ]
-    ]
+    ],
+    "knip": true
    }
   },
   {
@@ -141,7 +148,7 @@
    }
   },
   {
-   "tekst": "Every cut gets pins and pin holes, with a clearance you can tune to your printer.",
+   "tekst": "Cuts get pins and pin holes, with a clearance you can tune to your printer.",
    "label": "PINS",
    "kleur": "oranje",
    "kop": "Pins and holes",
@@ -162,7 +169,7 @@
      ]
     ]
    },
-   "uitspraak": "Every cut gets pins and pin holes, with a clearance you can tune to your printer."
+   "uitspraak": "Cuts get pins and pin holes, with a clearance you can tune to your printer."
   },
   {
    "tekst": "The panel tells you in one line: all parts fit the bed.",
@@ -178,6 +185,31 @@
       1856,
       470,
       650
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Face too small for a pin? The panel tells you to glue that joint.",
+   "label": "GLUE NOTE",
+   "kleur": "blauw",
+   "kop": "Glue note",
+   "beeld": {
+    "deel": "uitslag",
+    "van": 30,
+    "tot": 90,
+    "uitsnede": [
+     [
+      "@noot_ocr",
+      700,
+      0,
+      40
+     ],
+     [
+      "@noot_ocr",
+      620,
+      0,
+      20
      ]
     ]
    }

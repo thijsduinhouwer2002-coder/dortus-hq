@@ -1,4 +1,4 @@
-"""Opname cc-fit (regisseur-19, Regisseur run 18, 24 nov 2026): Click Cuts Short 1 "Split to fit".
+"""Opname cc-fit (regisseur-19, Regisseur run 18, 24 nov 2026; run 21: lijmmeldingen gemeten en noot-regel langer in beeld, keuring Iris M1): Click Cuts Short 1 "Split to fit".
 Script: commercie/filmpjes/scripts/click-cuts-lancering.md nr. 1 (gekeurd door Daan), hook 1A.
 Echte Blender 5.3.0, X-scherm 2160x1920, UI-schaal 2, Click Cuts-zip van main (producten/blender-splitser/e2e/maak_zip.sh).
 Model: Lion Head van Poly Haven (CC0), 436 mm hoog, zoals splitser-merk-1.
@@ -234,7 +234,12 @@ def verloop():
     # uitslag in het paneel en de stukken
     deel("uitslag")
     M["uitslag_ocr"] = ocr("fit the bed", vak, "35%")
-    yield from houd(40)
+    # keuring Iris 24 nov M1: de lijmmeldingen meten en de noot-regel in het paneel vinden (nieuwe zip, 8de5e36)
+    meld = [r for r in (getattr(sc.split_joints, "meldingen", "") or "").split("\n") if r.strip()]
+    M["meldingen"] = meld
+    M["noot_ocr"] = ocr("glue joints", vak, "35%") if meld else None
+    log(f"KORT meldingen {len(meld)} noot {M['noot_ocr']}")
+    yield from houd(80)
     cs = [o.matrix_world @ Vector(c) for o in st for c in o.bound_box]
     mn = Vector((min(c.x for c in cs), min(c.y for c in cs), min(c.z for c in cs)))
     mx = Vector((max(c.x for c in cs), max(c.y for c in cs), max(c.z for c in cs)))
