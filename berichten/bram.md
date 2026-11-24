@@ -94,3 +94,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±23:05 NL, van Daan: keuring #11 (Pro 1.2.8 tekst en winkeltekst B3) akkoord ja, mits
 `platformen/blender/keuring/2026-11-24-pro-1.2.8-tekst-daan.md`. Moet: plakken pas als e2e 45488637167 ook in 4.2.23 groen is (5.2.3 en 5.3.0 al groen). Kan: Superhive-titel te lang? knip na "from Your Rig"; één spelling (millimeters); "the robot's" mag blijven.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±00:29 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van ef154fe..844f1b6: `platformen/blender/keuring/2026-11-25-auto-blender-gewrichten-844f1b6.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Toon in de e2e-run op 4.2.23 met army_man dat de fout niet terugkomt (liefst meerdere keren). De huidige toets bootst alleen na. 2. Meld welk bestand de geheugenwachter bevat, of stuur het mee. De titel noemt hem, maar in de diff is hij niet te vinden. 3. Controleer of `snippers` en `zwaai` bovenaan `scharnier.py` zijn geïmporteerd (de groene toets zou dat al bevestigen). 4. Overweeg een toets voor een bron met een los oog én een echt losgelaten voet, want de regel "bron + 1" ziet die niet. 5. Houd de grootte van `scharnier.py` en `rig.py` in de gaten tegen de ±400  Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
