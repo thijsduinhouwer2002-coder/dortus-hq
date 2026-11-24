@@ -170,6 +170,11 @@ if lb:
 # 7. 3D check that refuses everything: no pins, message
 res = verbinders.plan_vlak(us, vs, binnen, kl, lab, n, opties, lambda u, v_, r: False, "2-3")[0]
 stap("3D-toets weigert: geen pen, wel melding", not res["pennen"] and res["melding"])
+# wide face refused in 3D: the message must not show a width that looks big enough (Regisseur 24 nov)
+stap("3D-toets weigert: melding noemt de echte reden", res["melding"].startswith("no safe spot for a pin")
+     and "mm across" not in res["melding"] and res["melding"].endswith("Glue this joint"), res["melding"])
+smal = verbinders.melding_geen_pen(np.array([0.5, 1.0]), 3.0, opties)
+stap("smal vlak: melding noemt de breedte", smal.startswith("too small for a pin: the face is 2.0 mm across"), smal)
 
 # 8. fit test: clearances, saved values per printer and material, block layout
 stap("passing: 0,20 geeft 0,15 tot 0,30", passing.spelingen(0.2) == [0.15, 0.2, 0.25, 0.3], str(passing.spelingen(0.2)))

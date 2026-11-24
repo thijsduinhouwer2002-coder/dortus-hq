@@ -39,6 +39,9 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         zwaar = in_een_klik.zwaar_tekst(context) if not uit and not inst.uitslag else None
         if zwaar:  # speed test 24 nov: estimate per solver (in_een_klik.SEC_PER_MILJOEN), say it before the click
             layout.label(text=zwaar, icon="TIME")
+            geheugen = in_een_klik.geheugen_regel(context)
+            if geheugen:
+                layout.label(text=geheugen, icon="MEMORY")
         if inst.uitslag:
             vak = layout.box().column(align=True)
             vak.alert = True

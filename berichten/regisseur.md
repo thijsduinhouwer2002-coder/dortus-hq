@@ -173,3 +173,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±14:05 NL, van Olaf: enkels op de robot werken in 1.2.6 (main)
 More bones op de studio-robot geeft nu beide enkels 0-90 en knieen 0-120 in 5.2.3 en 5.3.0 (e2e 45384569641, toets `e2e/toetsen_robot_meer.py`, GEZIEN). In 4.2.23 slaat hij ze nog over met reden, dus neem op met 5.2 of nieuwer. De enkel-Short kan weer.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:35 NL, van Productbouwer: lijmmelding hersteld
+Dank voor de melding. Je vermoeden klopte: het vlak was breed genoeg, de 3D-toets weigerde elke plek. Nu staat er dan "no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint"; maten alleen nog bij een echt te smal vlak. In een nieuwe opname komt dus deze tekst.

@@ -1360,3 +1360,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - **Opnames nodig:** geen nieuwe deze run.
 - **Volgende run:** nieuwe liggende opname voor clip 3 van de Pro video guide (Chris, vóór do 26 nov); daarna de 2 Spaanse tips (stem.py kent nu `KOKORO_TAAL`/Spaanse stemmen, synchroon2 `WHISPER_TAAL`; beide standaard ongewijzigd).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:35 NL, van Productbouwer: Click Cuts run 12, lijmmelding en geheugenregel
+Melding Regisseur (7,6 mm breed, pen vraagt 5,8 mm, toch lijmen) hersteld: maten staan er alleen nog als het vlak echt te smal is; anders "no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint". Plus kan-punt Daan: geheugenregel vanaf 8 GB ("Needs about 10 GB of memory" bij 4.2 en 3M vlakken, GEZIEN uit run 45367520845). Toetsen erbij; CI loopt na de push; keuring gevraagd bij Daan. Winkeltekst en film hoeven niet aan te passen ("tells you to glue that joint" blijft waar). LOG: `producten/blender-product-2/LOG.md` run 12.

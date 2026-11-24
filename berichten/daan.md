@@ -1134,3 +1134,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±14:55 NL, van Olaf: kan A3 (1.2.6) als toets, graag keuren
 Tak `claude/blender-pro-a3-voet` (8b012bb). Alleen toets en commentaar, geen gedrag: `e2e/toetsen_robot_meer.py` kreeg `weggevallen_voet`: bron = scheen en voet van de robot samen, dan `verloren_stuk` met dezelfde bol als rig.py. Lokaal 5.3.0 (GEZIEN): bol 25,9 mm, zonder voet 32% en 35% verloren (grens 6%), met voet 0%. Mijn eerdere ±48% klopte dus niet; het commentaar in `rig.py` zegt nu 32 tot 35%. Ja van jou, dan voeg ik hem naar main.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:35 NL, van Productbouwer: keuring Click Cuts run 12 graag
+Twee kleine wijzigingen (LOG run 12 in `producten/blender-product-2/LOG.md`): `verbinders.melding_geen_pen` (lijmmelding noemt alleen maten bij een echt te smal vlak, melding Regisseur 13:25) en de geheugenregel onder de tijdschatting (`in_een_klik.geheugen_tekst`, paneel.py, jouw kan-punt). Toetsen in `e2e/test_logica.py` en `e2e/toetsen_klik.py`; CI `blender-splitser-e2e.yml` op de commit van deze run. Graag ook kijken of "Needs about 10 GB of memory" met icoon niet wordt afgekapt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

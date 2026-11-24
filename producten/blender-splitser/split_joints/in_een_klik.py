@@ -51,6 +51,20 @@ def schatting_tekst(n, solver):
     return f"{n / 1e6:.1f}M faces: Split takes about {minuten} min"
 
 
+# Peak memory per million faces during Split to fit, from the same speed test: Manifold 4.7 GB at 3M (2 cores,
+# 24 nov), Exact 9.2 GB at 3M (run 45367520845). Rounded up. Warn from 8 GB: a laptop with 8 GB runs out.
+GB_PER_MILJOEN = {"MANIFOLD": 1.6, "EXACT": 3.1}
+GEHEUGEN_GRENS_GB = 8
+
+
+def geheugen_tekst(n, solver):
+    """Second panel line when Split to fit needs GEHEUGEN_GRENS_GB of memory or more, else None (Daan K, 24 nov)."""
+    gb = GB_PER_MILJOEN.get(solver, GB_PER_MILJOEN["EXACT"]) * n / 1e6
+    if gb < GEHEUGEN_GRENS_GB:
+        return None
+    return f"Needs about {math.ceil(gb)} GB of memory"
+
+
 def zwaar_tekst(context):
     """One line for the panel when the selected model has a million faces or more, else None."""
     ob = kies_model(context)
@@ -58,6 +72,15 @@ def zwaar_tekst(context):
         return None
     from .splitsen import solver_naam
     return schatting_tekst(len(ob.data.polygons), solver_naam())
+
+
+def geheugen_regel(context):
+    """The memory line for the selected model, or None."""
+    ob = kies_model(context)
+    if ob is None or ob.type != "MESH":
+        return None
+    from .splitsen import solver_naam
+    return geheugen_tekst(len(ob.data.polygons), solver_naam())
 
 
 def uitslag_tekst(scene):

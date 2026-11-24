@@ -93,6 +93,11 @@ def alles(uitmap=None):
                                 (3_040_000, "EXACT", "3.0M faces: Split takes about 10 min")):
         t = klik.schatting_tekst(n, solver)
         stap(f"klik: schatting {n} {solver}", t == verwacht, repr(t))
+    # memory line: Exact 3M peaked at 9.2 GB (run 45367520845), Manifold 3M 4.7 GB; warn from 8 GB
+    for n, solver, verwacht in ((3_040_000, "EXACT", "Needs about 10 GB of memory"), (2_000_000, "EXACT", None),
+                                (3_040_000, "MANIFOLD", None), (5_000_000, "MANIFOLD", "Needs about 8 GB of memory")):
+        t = klik.geheugen_tekst(n, solver)
+        stap(f"klik: geheugen {n} {solver}", t == verwacht, repr(t))
 
     # by hand: Plan cuts + Split
     s, ob = doos_scene()

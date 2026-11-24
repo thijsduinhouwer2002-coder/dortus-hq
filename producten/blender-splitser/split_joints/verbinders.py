@@ -93,13 +93,23 @@ def plan_vlak(us, vs, binnen, kl, labels, n_eil, opties, toets, tekst):
                 res["pennen"] = [(float(pu[i]), float(pv[i]), d) for i in gekozen]
                 break
         if not res["pennen"]:
-            d_min = min(maten)
-            breed = 2.0 * float(k.max()) if len(k) else 0.0
-            res["melding"] = (f"too small for a pin: the face is {breed:.1f} mm across, a {d_min:g} mm pin needs "
-                              f"{d_min + 2 * (opties['speling'] + opties['wand']):.1f} mm. Glue this joint")
+            res["melding"] = melding_geen_pen(k, min(maten), opties)
         res["label"] = kies_label(us, vs, np.where(m, kl, -np.inf), res["pennen"], opties, tekst)
         uit.append(res)
     return uit
+
+
+def melding_geen_pen(k, d_min, opties):
+    """Why no pin fits on this island, in words a buyer can check. k: clearance (mm to the edge) per grid point.
+    Only name the width when the face really is too narrow; when it is wide enough, the 3D check refused every
+    spot (the hole would come out of the surface behind the face, or touch another pin), so say that instead
+    of numbers that read as a contradiction (7.6 mm across, needs 5.8 mm)."""
+    breed = 2.0 * float(k.max()) if len(k) else 0.0
+    nodig = d_min + 2 * (opties["speling"] + opties["wand"])
+    if breed < nodig:
+        return (f"too small for a pin: the face is {breed:.1f} mm across, a {d_min:g} mm pin needs "
+                f"{nodig:.1f} mm. Glue this joint")
+    return "no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint"
 
 
 def kies_label(us, vs, kl2d, pennen, opties, tekst):
