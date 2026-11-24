@@ -1,10 +1,10 @@
 HOL eerste start (geen gekozen hoogte) dpi=144 hoogte=160
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=160 schaal=4 spelpixels=256x40 venster=(1024, 160) pos=(0, 560) held=res://systemen/held.gd
-HOL zaad 1795553707
+HOL zaad 1795558034
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Teun says this is a quick one.
-HOL begin: vallen (Teun)
-HOL held binnen: Teun
+HOL kroniek 4.0 (wacht 0.0): Maud says this is a quick one.
+HOL begin: vallen (Maud)
+HOL held binnen: Maud
 HOL zicht 4.1 1
 HOL einde na 6 s, fps=10, goud=20, terugkomers=0
