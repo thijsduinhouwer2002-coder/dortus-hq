@@ -111,6 +111,8 @@ var faam := 0   # gevangen helden, ook als je weg was; hol-niveau (systemen/hol_
 var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als "Kees II" (Sanne toets 2, punt 4)
 var slijm
 var slijm_plat := false
+var reeks := 0                # vangsten op rij zonder vlucht (kern/afloop.gd, niet bewaard)
+var klap                     # laag met klap-ster, "+9" en "x3" bij een vangst (kern/klap.gd)
 var zelf_gegraven := 0       # cellen die de speler zelf groef (gang, kamer, ingang), in de save; graafbonus in voortgang.gd
 var recente_namen: Array = []   # voornamen van de laatste nieuwe helden, niet in de save (Sanne 17 nov 16:50 punt 3)
 var naamgenoot_gezien := {}  # voornamen die deze speelbeurt al een naamgenoot-regel kregen (Sanne 16 nov 22:00)
@@ -217,6 +219,12 @@ func _ready() -> void:
 	tekst.hoogte = hoogte
 	tekst.schaal = schaal
 	add_child(tekst)
+	klap = Node2D.new()
+	klap.set_script(load("res://kern/klap.gd"))
+	klap.name = "Klap"
+	klap.schaal = schaal
+	klap.hol_pos = hol.position
+	add_child(klap)
 	# het hol groeit niet onder het tekstvak: de schat staat er rechts tegenaan, het hol groeit naar links
 	hol.max_kol = int((scherm.size.x - tekst.vak_breedte() - 40) / (HOL.KOL * schaal)) - 1
 	hol.leg_aan(hol.max_kol)

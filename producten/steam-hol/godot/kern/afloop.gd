@@ -43,6 +43,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		b.erase(v)
 	b.erase("wat")
 	if uitkomst == "ontsnapt":
+		if s.get("reeks") != null:   # nep-strook in de toetsen heeft geen reeks
+			s.reeks = 0   # de reeks is voorbij als er een ontsnapt (kern/klap.gd)
 		# bard: hij zingt over je hol en er komen helden bij (heldensoort.gd, Bram 02:30): de regel en de eerste extra
 		# held binnen 8 tot 20 s (strook.gd telt lied_helden af). De lied-regel komt na de vlucht-regel.
 		var lied := int(info.get("lied", 0))
@@ -91,13 +93,21 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 	else:
 		# goud per val: 6, plus 3 per eerder bezoek; een held met een wrok is een beloning (balans.md punt 1, besluit Olaf)
 		# plus graafbonus: +1 per 8 zelf gegraven cellen, hooguit +3 (Sanne 16 nov 21:00, balans.md)
-		var buit := 6 + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven))
+		# plus reeksbonus: vangsten op rij zonder dat er een ontsnapt, vanaf de derde +1 per stap, hooguit +4 (Olaf 24 nov, issue 5)
+		var reeks: int = int(s.get("reeks")) + 1 if s.get("reeks") != null else 1
+		if s.get("reeks") != null:
+			s.reeks = reeks
+		var buit := 6 + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven)) + reeks_bonus(reeks)
 		s.hol.goud += buit
 		faam_erbij(s, 1)
 		var naam: String = String(info.naam)
 		var basis := naam.split(" ")[0]
 		s.gevallen_namen[basis] = int(s.gevallen_namen.get(basis, 0)) + 1
-		s.hol.munt_regen(s.hol.pos_naar_cel(_held.position).x)
+		s.hol.munt_regen(s.hol.pos_naar_cel(_held.position).x, 3 + mini(reeks - 1, 3))   # meer muntjes in een reeks
+		if s.get("klap") != null and _held != null:
+			s.klap.vangst(_held.position, buit, reeks)
+		if reeks >= 2:
+			s.log_regel("HOL reeks %d (+%d, t %.1f)" % [reeks, reeks_bonus(reeks), s.t])
 		var wat: String = String(info.get("wat", "fell"))
 		var r := ""
 		var extra := " +%d" % buit
@@ -165,6 +175,10 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				# "hat pile is taller than him" klopt pas bij een echte stapel (controleur punt 6)
 				var soort := "hoed" if n_hoed >= 5 else "hoed_klein"
 				s._kroniek(s.regels.kies(soort, w))
+
+# Reeksbonus (issue 5): 1 en 2 op rij niets extra, de derde +1, de vierde +2, ... hooguit +4.
+static func reeks_bonus(r: int) -> int:
+	return clampi(r - 2, 0, 4)
 
 # Engelse naam van hoed i voor "hap_hoed": Brams lijst (kroniek_regels.gd HOED_KORT, zijn toets vergelijkt hem met boek.gd).
 const KR := preload("res://systemen/kroniek_regels.gd")

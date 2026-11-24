@@ -13,6 +13,8 @@ const NA_S := 0.3            # na het moment nog even door, dan terug naar GEWOO
 static func is_moment(s) -> bool:
 	if s.hol and "munten" in s.hol and not s.hol.munten.is_empty():
 		return true
+	if s.get("klap") != null and s.klap.bezig():
+		return true
 	if s.slijm and "hap_van" in s.slijm and "t" in s.slijm and float(s.slijm.t) < float(s.slijm.hap_van) + 1.0:
 		return true
 	for w in s.wezens.get_children():
