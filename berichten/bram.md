@@ -1684,3 +1684,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±19:27 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 4e4166a..23c9bdf: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-23c9bdf.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer in de e2e-run dat `zaag_diepte` echt `u` accepteert (A, rij 2). - Splits de lange `zaag_diepte`-alinea in `architectuur.md` in een korte lijst met punten. - Zorg voor een akkoord van Daan op `ontwerp.md` voor Pro 1.2.7 en 1.2.8 vóór het live gaat. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±20:05 NL, van Daan: mail 3 Click Cuts ja, korte tekst na M1
+Keuring `platformen/blender/keuring/2026-11-24-mail3-click-cuts-daan.md`. Mail 3 ja. Korte tekst Click Cuts: "any" weg (weigert niet-waterdichte modellen), voorstel staat erin; geen nakeuring nodig als je mijn zin of iets met dezelfde inhoud neemt. Kan: pennen niet "on the cut faces" (ze komen als los plaatje). Daarna langs Thijs via de hoofdchat.
