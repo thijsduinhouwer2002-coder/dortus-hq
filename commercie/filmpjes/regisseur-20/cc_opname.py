@@ -223,22 +223,25 @@ def verloop():
     else:
         doel = mid
     M["pen_doel"] = [round(v, 1) for v in doel]
-    cam(15, 58.0, 230.0, doel)
+    cam(15, 58.0, 300.0, doel)
     yield 1.0
     deel("mooi")
-    yield from stuk(80, lambda t: cam(15 + 25 * t, 58.0, 230.0 - 35 * t, doel))
+    yield from stuk(80, lambda t: cam(15 + 25 * t, 58.0, 300.0 - 50 * t, doel))
     for m, kl in goud:
         m.diffuse_color = kl
 
     # snijvlakken met gaten van boven
     deel("gaten")
-    yield from stuk(110, lambda t: cam(-30 + 40 * t, 38.0, gr * 1.5 - gr * 0.25 * t, mid))
+    yield from stuk(110, lambda t: cam(-30 + 40 * t, 40.0, gr * 1.05 - gr * 0.2 * t, mid))
 
     # More settings openen en naar stap 3 scrollen
     deel("meer")
     vak = ui_vak()
     M["ui_vak"] = vak
-    ms = knop("More settings", vak)
+    # run 19 les: "More settings" staat ook in de notitieregel boven Export parts; zoek de schakelaar onder Export parts
+    ep = knop("Export parts", vak)
+    onder = (vak[0], ep[1] + 20, vak[2], vak[3] - (ep[1] + 20 - vak[1])) if ep else vak
+    ms = knop("More settings", onder)
     M["meer_ocr"] = ms
     if ms:
         yield from muis_naar(ms[0], ms[1], 18)
@@ -261,8 +264,11 @@ def verloop():
         yield 0.15
         neem(2)
     M["scroll_stappen"] = i
+    # run 19 les: het scrollen loopt na; eerst stil laten staan en dan pas de plek opnieuw lezen
+    yield from houd(14)
+    yield 0.8
+    mf = knop("Make fit test", vak) or mf
     M["maak_ocr"] = mf
-    yield from houd(10)
 
     # Make fit test
     deel("maak")
@@ -299,14 +305,14 @@ def verloop():
     bgr = max(bmx - bmn)
     M["blok_mm"] = [round(v, 1) for v in (bmx - bmn)]
     deel("blok")
-    yield from stuk(90, lambda t: cam(-25 + 25 * t, 62.0 - 10 * t, bgr * 2.4 - bgr * 0.5 * t, bmid))
+    yield from stuk(90, lambda t: cam(-25 + 25 * t, 62.0 - 10 * t, bgr * 1.7 - bgr * 0.35 * t, bmid))
 
     # van boven: spelingen leesbaar
     kmn, kmx = doos([blok])
     kmid = tuple((kmn + kmx) / 2)
     kgr = max(kmx - kmn)
     deel("boven")
-    yield from stuk(100, lambda t: cam(0, 30.0 - 12 * t, kgr * 1.9 - kgr * 0.3 * t, kmid))
+    yield from stuk(100, lambda t: cam(0, 30.0 - 12 * t, kgr * 1.45 - kgr * 0.2 * t, kmid))
 
     # klik op 0.25: This one fits
     deel("kies")
@@ -377,7 +383,7 @@ def verloop():
     muis_weg()
     yield from houd(10)
     deel("samen")
-    yield from stuk(130, lambda t: cam(-35 + 70 * t, 60.0, bgr * 2.2, bmid))
+    yield from stuk(130, lambda t: cam(-35 + 70 * t, 60.0, bgr * 1.55, bmid))
     yield from houd(10)
 
     deel("eind")
