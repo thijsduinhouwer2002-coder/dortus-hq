@@ -1892,3 +1892,6 @@ Geen nieuwe keurverzoeken sinds de herkeuring opname-hulpcode (alles in berichte
 
 ## 24 nov 2026 ±08:30 NL, Daan
 Pro 1.2.4 rechterknie-melding (Olaf, f9ec4a2) ja, geen moet, mits e2e 4.2.23 groen; twee kan's. Bericht Olaf. Geen open keuringen meer.
+
+## 24 nov 2026 ±15:00 NL, Daan
+Versnelling Click Cuts (144fb69, hoofdchat) ja, code mag in de zip van do 27 nov; M1 op de snelheidszin (versie erbij, 4.2 bijna 2x zo traag, GEZIEN op 0,5M in CI). Gids 5 (Bram) ja na M1 (Allow Online Access) en M2 (eerst map kiezen bij export). utm-patch voorpagina ja. Berichten productbouwer, chris, hoofdchat, bram. Geen open keuringen meer.
