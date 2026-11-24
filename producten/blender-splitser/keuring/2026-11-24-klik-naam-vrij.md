@@ -45,3 +45,38 @@ Hoe gemeten: zip gemaakt met `e2e/maak_zip.sh`, in Blender 5.3.0 lokaal `e2e/toe
 - K2: CI 5.3.0 op c651793 groen zien voor de kandidaat van do 27 nov.
 - K3: deel in `ontwerp.md` voor Split to fit.
 - K4: C2, C4, C5 hierboven.
+
+## Herkeuring M1, M2 en kan-punten (ea51a74, 817d650), 24 nov 2026
+Wat ik keurde: commit ea51a74 (M1 `in_een_klik.kies_model`, M2 toets in `e2e/toetsen_vrij.py`, printer één keer) en 817d650 (knop opgelicht, Export kleiner, Convert to mm wist de rode regel, paneelbeeld met More settings open, ontwerp.md deel 13), nu op main.
+Akkoord: ja
+
+Hoe gemeten: zip gemaakt met `e2e/maak_zip.sh`, in Blender 5.3.0 lokaal `toetsen_klik.py` en `toetsen_vrij.py` gedraaid: beide `KLAAR 0 FOUT []` (GEZIEN). Daarnaast drie eigen meetscripts buiten de repo (scratchmap) die de add-on aanroepen en de stukken meten. CI-run 45319700708 op 817d650: 5.3.0 en 4.2.23 beide groen, uitslag success (GEZIEN). Beelden `blender-5.3.0-paneel-x.png` en `blender-5.3.0-paneel-meer.png` uit release `splitser-kern-1` (03:30 UTC, uit die run) zelf bekeken.
+
+| # | Bevinding | Feit of vermoeden | Zekerheid | Wat het zou bevestigen of weerleggen |
+|---|---|---|---|---|
+| H1 | **M1 opgelost.** Cilinder (r 90, 420 mm) geklikt: 12 stukken rond x 0. Daarna een bol (r 150) op x 800 gemaakt, alleen die geselecteerd en actief, Split to fit: bron "Bol", 8 stukken op x 631 tot 969, de stukken van de cilinder zijn weg, de cilinder zelf bestaat nog (verborgen). | feit | hoog | eigen meetscript |
+| H2 | Met een stuk, een penplaatje, een snedevlak, het proefblok of de proefpennen actief geeft een klik steeds weer de bol (bron "Bol", 8 stukken, zelfde plek). Cilinder weer zichtbaar en gekozen: die wordt weer het model (12 stukken). Niets actief: het laatste model. Alle objecten van de add-on dragen een van de vlaggen die `kies_model` overslaat (`sj_stuk`, `sj_pennen`, `sj_as`, `sj_passing`, `sj_vrij`), dus er is geen object dat per ongeluk als model telt. | feit | hoog | eigen meetscript, lijst van objecten met hun vlaggen |
+| H3 | De nieuwe toets in `toetsen_klik.py` (tweede doos "Second", gekozen, klik) toetst op bron, aantal en maat van de stukken: OK in mijn run. | feit | hoog | log toetsen_klik |
+| H4 | **M2 opgelost.** De toets zet het vlak nu op het echte gat van stuk 2 (punt van het gat plus halve diepte langs de normaal plus de uit-elkaar-verschuiving `delta_location`) en toetst op "pin hole" in de melding; log: "goes through a pin hole of Piece 02 (to piece 1)". De tweede toets (3 mm voorbij de bodem van het gat) snijdt: 3 stukken. | feit | hoog | log toetsen_vrij |
+| H5 | Zelf de grens gemeten met hetzelfde vlak op verschillende diepten (gat 6,30 mm diep): 0,3, 3,15, 6,0, 6,8 en 7,3 mm geweigerd met "pin hole"; 7,8 mm snijdt. Dat klopt met "Move it at least 1.2 mm away". -0,5 mm (buiten het stuk) geeft terecht "does not go through Piece 02". | feit | hoog | eigen meetscript |
+| H6 | Split to fit is in het beeld de enige blauw opgelichte knop, Export parts (STL) eronder is duidelijk kleiner. | feit | hoog | paneel-x.png 5.3.0 |
+| H7 | Tweede beeld met More settings open: stap 1 heeft nu alleen Margin en "Usable: 176 x 176 x 178 mm" (printer niet meer dubbel), snedelijst "Cut X (mm) 5.0, Cut Y (mm) -2.8, Cut Z (mm) 116.9" met één decimaal, telling "8 cells, 8 fit the bed". | feit | hoog | paneel-meer.png 5.3.0 |
+| H8 | Convert to mm wist de rode regel en daarna snijdt de klik wel (toetsen "Convert to mm wist de rode regel" en "na Convert to mm snijdt hij wel": OK, 3 stukken). De code wist alleen een regel die met "Wrong unit" begint, andere foutregels blijven staan. | feit | hoog | log toetsen_klik, `schaal.py` |
+| H9 | ontwerp.md deel 13 beschrijft de knop, de keuze van het model, de foutregel en wat de e2e bewijst; klopt met wat ik mat. | feit | hoog | ontwerp.md |
+| H10 | Regels: bestaande toetsen niet verzwakt (de oude pengat-toets is strenger geworden), bestanden onder 400 regels (toetsen 167 en 185), architectuur.md bijgewerkt voor `kies_model` en `depress`, geen persoonsgegevens in de diff. | feit | hoog (persoonsgegevens: midden) | git diff, wc |
+
+## Deel C (herkeuring): zou een gebruiker het fijn vinden?
+| # | Bevinding | Wat het beter maakt | Moeite |
+|---|---|---|---|
+| HC1 | Na een klik op een tweede model verdwijnen de stukken van het eerste model en blijft het eerste model verborgen. Een koper die twee modellen in één bestand heeft, ziet zijn eerste model niet meer terug en moet het in de Outliner zichtbaar maken om het weer te snijden. | het oude model weer zichtbaar maken als een ander model gesneden wordt, of één regel "Previous model hidden: Cyl" | klein |
+| HC2 | Direct na een klik staat in het uitslagvak ook "Move a cut in More settings, then Split". Na een eerste klik is dat een derde regel die de koper niet nodig heeft, en "then Split" zegt niet welke knop (Split to fit of Split in stap 3). | regel alleen tonen als een snede verschoven is, of "then Split to fit" | klein |
+| HC3 | Is een ander mesh geselecteerd maar een stuk actief, dan snijdt de klik het oude model. Dat is de gewone Blender-regel (actief telt), dus geen fout. | (goed zo) | |
+
+## Moet (blokkeert akkoord) / Kan (mag later)
+**Moet:** geen. M1 en M2 zijn opgelost en zelf gemeten.
+
+**Kan**
+- K5 (HC1): het vorige model weer zichtbaar maken of melden als een ander model gesneden wordt.
+- K6 (HC2): de regel "Move a cut in More settings, then Split" alleen na een verschoven snede, en de knop bij naam noemen.
+- K7: de toets "net voorbij het gat" op 1,5 mm in plaats van 3 mm zetten, dan bewaakt hij de grens van 1,2 mm echt (zelf gemeten: grens ligt tussen 7,3 en 7,8 mm).
+- K8: architectuur.md noemt bij `passingproef.py` nog de oude collectienaam "Split Joints fit test".
