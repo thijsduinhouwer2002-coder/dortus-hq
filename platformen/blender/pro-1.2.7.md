@@ -40,12 +40,12 @@ New in Pro 1.2.7
 - Shift + right click on the skin now works with Knee, Elbow, Ankle and the hinge buttons.
 - Tested on Blender 4.2 LTS, 5.2 LTS and 5.3.
 
-Also new since 1.2
+Also new in 1.2
 - Fit test strip: print this first. Five joints from 0.10 to 0.30 mm clearance, each with its number, so you know which gap fits your printer.
 - Figure from rig now places elbows on rigs where the elbow would otherwise bend upward, for example Quaternius characters (Blender 4.5 and newer).
 ```
 - Regel 1 en 2 komen uit de note in deel 2 (Daan ja 17:40), ingekort. Regel 3 idem.
-- "Also new since 1.2" en niet alles onder "1.2.7": de teststrip en de elleboog kwamen in 1.2.0, dus onder een kop 1.2.7 zou dat niet kloppen.
+- "Also new in 1.2" (kan K1 Daan, was "since") en niet alles onder "1.2.7": de teststrip en de elleboog kwamen in 1.2.0, dus onder een kop 1.2.7 zou dat niet kloppen.
 - De elleboogzin: de grens 4.5 staat nu tussen haakjes bij die ene functie, niet meer als losse zin. Feit uit `pro-1.2.0.md` (Daan ja 22 nov): op 4.2 tot 4.4 vraagt hij de elleboog met de hand.
 - Het blok "Already bought Pro? ..." onder Good to know: "1.2" mag blijven, 1.2.7 valt eronder.
 - Niet gedaan (kan van de hoofdchat): een regel met alle versies die in de winkel stonden. Later, als er tijd is; geen ritme beloven.
