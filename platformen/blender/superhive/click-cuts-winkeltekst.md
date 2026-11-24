@@ -1,6 +1,6 @@
 # Click Cuts: winkeltekst Superhive en Gumroad (CONCEPT)
 
-Chris, di 24 nov 2026 (eerste versie ±06:40 NL). Opdracht hoofdchat 04:25 en 06:25, besluit bundel 07:15. Status: CONCEPT. Keuringen 1 tot 3 verwerkt, derde akkoord ja (065f7d7). 24 nov ±12:55 NL: 4.2-snelheid naar meting, geheugen-FAQ en slicer-FAQ erbij; **vierde keuring akkoord ja (b62c304)**, kan-punten K1, K2 en K4 daarna verwerkt. **Klaar om te plakken bij de uitgave** (skill `keuren`, door een ander). Plakken doet Thijs bij de uitgave (week van ma 30 nov).
+Chris, di 24 nov 2026 (eerste versie ±06:40 NL). Opdracht hoofdchat 04:25 en 06:25, besluit bundel 07:15. Status: CONCEPT. Keuringen 1 tot 3 verwerkt, derde akkoord ja (065f7d7). 24 nov ±12:45 NL: 4.2-snelheid naar meting, geheugen-FAQ en slicer-FAQ erbij; **vierde keuring akkoord ja (b62c304)**, kan-punten K1, K2 en K4 daarna verwerkt. **Klaar om te plakken bij de uitgave** (skill `keuren`, door een ander). Plakken doet Thijs bij de uitgave (week van ma 30 nov).
 Alleen wat kandidaat 1.0.0 doet (`producten/blender-splitser/CHANGELOG.md`, `architectuur.md`). Alleen pennen: geen klikverbinders, geen magneten, geen deuvels, geen zwaluwstaart.
 
 ## 1. Titel (85 tekens)
@@ -48,7 +48,7 @@ Oranje: de bouwer heeft het geel echt oranje gemaakt (commit 36912d5, keuring K1
 - *Which Blender?* 4.2 and newer.
 - *Does it work with Click Joints Pro?* Yes, side by side. Splitting makes it fit on the bed. Click Joints Pro makes it move.
 
-Bronnen FAQ (bijgewerkt 24 nov ±12:55 NL, Chris, opdrachten Productbouwer 10:50, hoofdchat 10:45 en kwartier 12:25):
+Bronnen FAQ (bijgewerkt 24 nov ±12:45 NL, Chris, opdrachten Productbouwer 10:50, hoofdchat 10:45 en kwartier 12:25):
 - **4.2-snelheid:** "about 3 minutes" rust op de 1M-schedel in 4.2.23: 106 s in CI (run 45349335526) en 186 s op een machine met 2 kernen (GEZIEN, `producten/blender-splitser/ontwerp.md` deel 14b). Zelfde machine als de 40 s in 5.3 (2 kernen) geeft 186 s, dus 3 minuten. De paneelregel zegt in 4.2 bij 1M ook "about 3 min" (`in_een_klik.SEC_PER_MILJOEN`, Exact 190 s per miljoen). De oude zin "about twice as long" is weg: gemeten is 2,4 tot 4,4 keer (Daan B1, keuring run 10).
 - **Time estimate:** de paneelregel onder de knop is nu een tijdschatting per versie ("1.0M faces: Split takes about 1 min" in 5.3), `in_een_klik.schatting_tekst`, getoond in `paneel.py` r. 40 tot 41. Daarmee is ook K4 van de derde keuring (twee verhalen) opgelost.
 - **Geheugen:** piek bij 3,04M vlakken 9.220 MB in 4.2.23 en 4.741 MB in 5.3.0 (GEZIEN, CI run 45367520845; `producten/blender-splitser/keuring/2026-11-24-run10-daan.md` r. 7 en C1). "About half" klopt (51%).

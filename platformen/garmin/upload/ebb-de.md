@@ -14,7 +14,7 @@ Ebb Atemübungen & Atem anhalten
 Breathwork-Runden und ruhiges 4-7-8-Atmen auf deiner Garmin. Folge jeder Phase per Vibration mit geschlossenen Augen, während sich ein kleines Meer mit Tieren füllt, wenn du dranbleibst. Atemübungen und Atem anhalten mit Runden aus kräftigem Atmen, gezeichnet als Wasser: dein rundes Zifferblatt wird zu einem Bullauge. Das Wasser steigt beim Einatmen und sinkt beim Ausatmen, und beim Anhalten tauchst du unter Wasser. Halte den Atem nur an, solange es leicht fällt. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
 ```
 
-**24 nov ±13:10 NL, Chris:** tag "Apnoe" erbij (kwartier-check 14). Wacht op keuring Daan.
+**24 nov ±12:49 NL, Chris:** tag "Apnoe" erbij (kwartier-check 14). Wacht op keuring Daan.
 
 ## Lange beschrijving (3362 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
 

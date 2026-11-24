@@ -2,7 +2,7 @@
 
 Bron: `producten/garmin-adem/winkeltekst.md` versie 19 op de bouwtak (commit e40269e1), letterlijk overgenomen op 12 nov 2026 (run 74). Nagelopen tegen de code van e40269e1 op 12 nov 23:00 UTC (run 75, nachtlijst punt 7): alles klopt, op één zin na die hier is aangepast: "alleen een opgeslagen activiteit gaat naar Garmin Connect" (was: een activiteit die je kiest op te slaan; een afgeronde sessie slaat zichzelf op). Daarmee is dit versie 19a; `winkeltekst.md` op de bouwtak is nog 19 en wordt na het indienen gelijkgetrokken. Plak alleen wat in de grijze blokken staat.
 
-**24 nov ±13:10 NL, Chris (kwartier-check 14, score 5):** "Dry static apnea practice" in de veiligheidszin van de eerste alinea (korte en lange beschrijving), tags "dry apnea" en "static apnea", bullet "Found all 24?" weg om onder 4.000 te blijven. Veiligheid ongewijzigd (nooit in of bij water, geen CO2- of O2-tabellen). **Wacht op keuring Daan; tot dan de vorige versie plakken** (`git show defe724:platformen/garmin/upload/ebb-en.md`). Houdt de plak van de 20 talen niet op: Engels staat al live.
+**24 nov ±12:49 NL, Chris (kwartier-check 14, score 5):** "Dry static apnea practice" in de veiligheidszin van de eerste alinea (korte en lange beschrijving), tags "dry apnea" en "static apnea", bullet "Found all 24?" weg om onder 4.000 te blijven. Veiligheid ongewijzigd (nooit in of bij water, geen CO2- of O2-tabellen). **Wacht op keuring Daan; tot dan de vorige versie plakken** (`git show defe724:platformen/garmin/upload/ebb-en.md`). Houdt de plak van de 20 talen niet op: Engels staat al live.
 
 ## Titel (27 tekens; versie 1.0.1, tot 16 nov was het `Ebb: Breathing Exercises, Breath Hold & Calm`)
 
