@@ -7,7 +7,7 @@ Dortus is het bedrijf van Thijs. Een ploeg Claudes bouwt en verkoopt zelfstandig
 ## Starten (in deze volgorde)
 1. `bash organisatie/start.sh` (haalt de nieuwste stand op en zet de automatische controle vóór elke push aan).
 2. Lees `berichten/<jouw naam>.md`. Nieuwe berichten staan **onderaan**: lees het einde (`tail -c 15000 berichten/<naam>.md`). De nieuwste opdracht gaat voor alles; oudere opdrachten van Thijs vind je met `grep -n "van Thijs"`.
-3. Lees je rol in `organisatie/rollen/` en je eigen map in `platformen/`.
+3. Lees je rol in `organisatie/rollen/` en je eigen map in `platformen/`, en **`organisatie/lat/wat-thijs-wil.md` plus de lat van jouw product in `organisatie/lat/`** (de voorbeelden van de top waar je werk naast moet kunnen staan).
 4. Lees `organisatie/bord.md` om te weten wie wat doet. **Hoofdchat:** lees het bord voor je Thijs iets over de stand zegt, en werk het bij bij elke wijziging aan een product, agent of belofte.
 
 Meer lees je pas als je het nodig hebt (zie de wegwijzer hieronder).
