@@ -6,6 +6,7 @@ name: Scorebord (elke dag 06:41 UTC)
 # sinds 16 nov ook bezoekers van dortus.com uit Amami met de leessleutel AMAMI_API_KEY; sinds 18 nov (R6)
 # ook Gumroad, Kit, Discord en YouTube (organisatie/controle/scorebord_bronnen.py); sinds 23 nov (Meter) ook
 # TikTok-weergaven, herkomst per Gumroad-verkoop (/v2/sales) en organisatie/meten/dag.csv.
+# Sinds 24 nov (Bram): kortingscodes per Gumroad-product (/v2/products/:id/offer_codes, alleen lezen).
 on:
   schedule:
     - cron: "41 6 * * *"  # 06:41 UTC: GitHub stelt runs op :00 vaak uit of slaat ze over (17 nov 07:00 kwam niet)

@@ -255,6 +255,20 @@ def herkomst_tabel(rijen):
     return uit
 
 
+def codes_tabel(rijen):
+    kop = ["", "## Kortingscodes Gumroad", ""]
+    if rijen is None:
+        return kop + ["Niet gemeten deze run (zie meldingen)."]
+    uit = kop + ["Per product uit Gumroad API v2 /products/:id/offer_codes (GEZIEN, leessleutel, alleen lezen). "
+                 "Codes met 100% korting staan er niet voluit in.", "",
+                 "| Product | Code | Korting | Keer gebruikt | Max | Alle producten |", "|---|---|---|---|---|---|"]
+    for r in rijen:
+        uit.append(f"| {r['product']} | {r['code']} | {r['korting']} | {r['gebruikt']} | {r['max']} | {r['alle_producten']} |")
+    if not rijen:
+        uit.append("| | geen kortingscodes | | | | |")
+    return uit
+
+
 def schrijf_verkopen(rijen):
     os.makedirs(METEN, exist_ok=True)
     with open(VERKOPEN, "w", newline="", encoding="utf-8") as f:
@@ -361,6 +375,12 @@ def main():
         verkopen = None
         NOTEN.append(f"herkomst: fout tijdens meten ({type(e).__name__}).")
 
+    try:
+        codes = bronnen.gumroad_codes(NOTEN)
+    except Exception as e:  # noqa: BLE001
+        codes = None
+        NOTEN.append(f"kortingscodes: fout tijdens meten ({type(e).__name__}).")
+
     geschiedenis = lees_geschiedenis()
     al = {r["datum"] for r in geschiedenis if r["platform"] == "dortus.com" and r["product"] == "dortus.com"}
     try:
@@ -396,6 +416,7 @@ def main():
         kt = tekst(k) + (f" ({kd})" if kd and kd != week else "") if k is not None else "geen meting"
         regels.append(f"| {p} | {pl} | {m} | {tekst(w)} | {gt} | {kt} | {verschil(w, k)} | {toel} | {BRON.get(pl, 'GEZIEN')} |")
     regels += herkomst_tabel(verkopen)
+    regels += codes_tabel(codes)
     regels += amami.bezoek_tabel(alles)
     regels += ["", "## Wat niet te zien is", "",
                "- Gumroad-bezoekers staan niet in de Gumroad API v2 (verkopen per product, en sinds 23 nov per verkoop de bron via /sales); bezoekers van de productpagina's op dortus.com staan hierboven (Amami).",

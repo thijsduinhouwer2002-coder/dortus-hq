@@ -67,6 +67,7 @@ def gumroad(meet, noten):
         meet("Gumroad (alle)", "Gumroad", "verkopen", None, f"API niet leesbaar ({code})")
         return
     producten = [p for p in d.get("products", []) if not p.get("deleted")]
+    GUMROAD_PRODUCTEN[:] = [(p.get("id"), (p.get("name") or "?").strip()) for p in producten if p.get("id")]
     if not producten:
         noten.append("Gumroad: geen producten in de lijst.")
     for p in producten:
@@ -80,6 +81,63 @@ def gumroad(meet, noten):
             if isinstance(p.get(k), int):
                 meet(naam, "Gumroad", "bezoekers", p[k], "uit de productlijst")
                 break
+
+
+# Gevuld door gumroad(): (id, naam) per product, zodat gumroad_codes() niet nog eens de lijst haalt.
+GUMROAD_PRODUCTEN = []
+
+
+def code_rij(product, c):
+    """Eén kortingscode als rij, zonder kopers. Codes met 100% korting (gratis, voor reviewers of
+    vrienden) zetten we niet voluit in de openbare repo: alleen de eerste twee letters."""
+    naam = _schoon(c.get("name") or "?", 30)
+    pct, cent = c.get("percent_off"), c.get("amount_cents")
+    if isinstance(pct, (int, float)) and pct:
+        korting = f"{pct:g}%"
+        gratis = pct >= 100
+    elif isinstance(cent, (int, float)) and cent:
+        korting = f"${cent / 100:.2f}"
+        gratis = False
+    else:
+        korting, gratis = "?", False
+    if gratis:
+        naam = naam[:2] + "… (100%, niet voluit)"
+    maxi = c.get("max_purchase_count")
+    return {"product": product, "code": naam, "korting": korting,
+            "gebruikt": c.get("times_used") if isinstance(c.get("times_used"), int) else "?",
+            "max": maxi if isinstance(maxi, int) else "geen",
+            "alle_producten": "ja" if c.get("universal") else "nee"}
+
+
+def gumroad_codes(noten):
+    """Kortingscodes per Gumroad-product (GET /v2/products/:id/offer_codes, alleen lezen).
+    Geeft een lijst rijen, of None als er niets te lezen viel. Hoofdchat 24 nov: weten of CYBER25 bestaat."""
+    sleutel = os.environ.get("GUMROAD_ACCESS_TOKEN", "").strip()
+    if not sleutel:
+        noten.append("Kortingscodes: geen GUMROAD_ACCESS_TOKEN, overgeslagen.")
+        return None
+    if not GUMROAD_PRODUCTEN:
+        noten.append("Kortingscodes: geen Gumroad-productlijst in deze run, overgeslagen.")
+        return None
+    rijen, gezien, fouten = [], set(), 0
+    for pid, naam in GUMROAD_PRODUCTEN:
+        pad = f"https://api.gumroad.com/v2/products/{urllib.parse.quote(str(pid))}/offer_codes"
+        d, code = _get(pad, {"Authorization": f"Bearer {sleutel}"})
+        if code == 401:
+            d, code = _get(pad + "?" + urllib.parse.urlencode({"access_token": sleutel}))
+        if not isinstance(d, dict) or not d.get("success"):
+            fouten += 1
+            noten.append(f"Kortingscodes: {_schoon(naam)} niet leesbaar ({code}).")
+            continue
+        for c in d.get("offer_codes") or []:
+            cid = c.get("id") or (c.get("name"), naam)
+            if c.get("universal") and cid in gezien:
+                continue  # een code voor alle producten maar één keer
+            gezien.add(cid)
+            rijen.append(code_rij(naam, c))
+    if fouten == len(GUMROAD_PRODUCTEN):
+        return None
+    return rijen
 
 
 # ---------------------------------------------------------------- Kit
