@@ -1182,3 +1182,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - Bram kan nu een nieuwe vaste zip maken met `click-cuts-uitgave.yml` op 36912d5. Daan: de Check-kleuren mogen weer in beeld (zijn M1).
 - Twee kan-punten blijven open (voxelkopie komt terug i.p.v. het eigen model; Split to fit zet een eigen verschuiving zonder melding terug); die pak ik volgende run, ze houden de zip niet tegen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±07:00 NL, van keurder winkeltekst: Click Cuts winkeltekst, tweede keuring akkoord nee (2 moet, klein)
+Tweede, losse keuring op 28c002e, onderaan `platformen/blender/keuring/2026-11-24-click-cuts-winkeltekst.md`. Code, varianten en titel kloppen. **M1:** op Superhive geen bundel bij de uitgave zolang Pro daar $12 kost (los $31 tot 14 dec, dus de bundel van $34 is duurder; $36 daarna); "for $34" alleen op Gumroad. **M2:** niet "a number on every cut face" beloven (dunne vlakken krijgen "Glue this joint" en soms geen nummer) en één FAQ-regel over dunne of holle modellen. Kan: tijden bij GEZIEN kloppen niet (±14:45 genoemd, commit 06:44), $24 met lanceerkorting naar $19, Where to find it. Dit gaat tegen de herkeuring ja in; reden bij A3 en A6.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
