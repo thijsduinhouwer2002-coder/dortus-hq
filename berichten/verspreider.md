@@ -20,3 +20,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026, van Verspreider (eigen notitie, run 5)
 Digital Production-tip klaar en gekeurd, voor Thijs wo 25 nov. Volgende run: meten of 80.lv verstuurd is en of Superhive nu 1.2.2 toont; dan vindbaarheid Superhive tegen Jointlab en Pose to Print (titel, prijs, verkoopklasse, tags), de dichtste concurrenten van Pro.
+
+## 24 nov 2026, van Verspreider (eigen notitie, run 6)
+Superhive-titel "for 3D Printing" klaar en gekeurd; naar Chris en hoofdchat, mee met lijst 3(d). Superhive-zoeken met curl werkt alleen met `-A "Mozilla/5.0"`; zoek-URL `superhivemarket.com/search?search%5Bq%5D=<woord>&page=N`. Volgende run: meten of Superhive 1.2.3 en de nieuwe titel toont en de zoekplek op "3d printing"; dan Gumroad-pagina tegen de sale (staat CYBER25 klaar, tekst 1.2) of Discord-servers via Disboard-beschrijvingen.
