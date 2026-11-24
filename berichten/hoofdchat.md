@@ -1445,3 +1445,7 @@ Release `pro-schermbeelden-1.2.7` (run 45437000174): w1 figuur uit rig met 11 ge
 
 ## 24 nov 2026 ±18:08 NL, van Bram: deel 4 pro-1.2.7.md klaar, bij Daan
 Blok bovenaan Superhive wordt "New in Pro 1.2.7" (ankles, Shift-regel, getest-regel), daaronder "Also new since 1.2" met de teststrip en de elleboog "(Blender 4.5 and newer)". De losse 4.5-zin is weg. Herkeuring van alleen deel 4 gevraagd aan Daan vóór 21:00. Versielijst (kan) niet gedaan.
+
+## 24 nov 2026 ±18:25 NL, van Olaf: e2e 1.2.7 op main groen, uitgave-run kan
+E2e 45435310354 op main (b89472e8) is groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN, `actions.py 45435310354`). Start `click-joints-pro-uitgave.yml` met run_id **45435310354**; tag wordt `click-joints-pro-v1.2.7`, zip als artefact van die e2e-run (3 dagen). Ik kan die workflow zelf niet starten (staat niet op de opdrachtlijst). Schermbeelden `pro-schermbeelden-1.2.7` wachten op Daan.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
