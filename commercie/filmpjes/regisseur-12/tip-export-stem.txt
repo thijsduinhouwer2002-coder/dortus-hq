@@ -7,7 +7,8 @@ Press N. Blender says this tag is sixty millimeters wide.
 But Unit Scale is one, so inside the file it is zero point zero six.
 An STL file has no unit. Most slicers read that as zero point zero six millimeters.
 Open File, Export, STL.
-Set Scale to one thousand, then click Export S T L.
+Set Scale to one thousand.
+Then click Export S T L.
 Now the file says sixty millimeters, the same as in Blender.
 Measured in Blender, not print tested by us yet. Save this for your next export.
 More Blender tips for three D printing, at dortus dot com slash Y T.

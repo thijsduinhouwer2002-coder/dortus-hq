@@ -43,7 +43,7 @@
    "beeld": {
     "deel": "j_maat",
     "van": 0,
-    "tot": 110,
+    "tot": 100,
     "uitsnede": [
      [
       1450,
@@ -66,8 +66,8 @@
    "kop": "Stored as 0.06",
    "beeld": {
     "deel": "j_maat",
-    "van": 100,
-    "tot": 186,
+    "van": 40,
+    "tot": 102,
     "uitsnede": [
      [
       1720,
@@ -89,19 +89,19 @@
    "kleur": "blauw",
    "kop": "STL: 0.06 mm",
    "beeld": {
-    "deel": "j_maat",
-    "van": 150,
-    "tot": 226,
+    "deel": "j_mooi",
+    "van": 20,
+    "tot": 120,
     "uitsnede": [
      [
       1080,
       1000,
-      1300
+      1000
      ],
      [
       1080,
       1000,
-      1500
+      1300
      ]
     ]
    }
@@ -114,7 +114,7 @@
    "beeld": {
     "deel": "j_menu",
     "van": 0,
-    "tot": 140,
+    "tot": 80,
     "uitsnede": [
      [
       560,
@@ -130,20 +130,44 @@
    }
   },
   {
-   "tekst": "Set Scale to 1000, then click Export STL.",
-   "uitspraak": "Set Scale to one thousand, then click Export S T L.",
+   "tekst": "Set Scale to 1000.",
+   "uitspraak": "Set Scale to one thousand.",
    "label": "STEP 3",
    "kleur": "groen",
    "kop": "Scale: 1000",
    "beeld": {
     "deel": "j_venster",
     "van": 0,
-    "tot": 150,
+    "tot": 95,
     "uitsnede": [
      [
-      1080,
-      960,
-      2160
+      1500,
+      700,
+      1500
+     ],
+     [
+      1900,
+      440,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Then click Export STL.",
+   "uitspraak": "Then click Export S T L.",
+   "label": "STEP 3",
+   "kleur": "groen",
+   "kop": "Click Export STL",
+   "beeld": {
+    "deel": "j_venster",
+    "van": 90,
+    "tot": 128,
+    "uitsnede": [
+     [
+      1850,
+      1700,
+      900
      ]
     ]
    }
