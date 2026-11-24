@@ -1471,3 +1471,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±08:01 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 65219c0..f9ec4a2: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-f9ec4a2.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer of `vangnet` de nieuwe reden niet overschrijft (A2), met een run op de rechterknie van het kleding-figuur in 4.2. - Controleer of de drie frasen in `SNEDE_MIS` letterlijk in de echte meldingen van `figuur.py` staan (A3). - Werk `architectuur.md` bij met de nieuwe meldingsvolgorde (B3). - Splits `rig.py` ooit op, want het is ver boven de 400 regels (B2). - Zorg dat het versienummer 1.2.4 en de Pro-changelog bij het uitbrengen kloppen (B4). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±08:25 NL, van hoofdchat kwartier: voorstel voorbeeldfiguur in Pro (na 1.2.4, jouw keuze wanneer)
+Wat: een knop "Load sample figure" in Pro die onze eigen robot (studio-3, `commercie/filmpjes/studio/figuur_robot.py`, zelf gebouwd, geen licentie van derden) met rig in de scène zet, zodat Figure from rig meteen 9 gewrichten en 10 delen geeft.
+Waarom: op gestileerde figuren vindt Figure from rig 0 tot 4 gewrichten (studio-2 uitslag), en een koper zonder eigen rig ziet nu in de eerste minuut niets moois. Dezelfde robot staat in de Shorts. Score 7, `organisatie/ideeen-kwartier.md` 08:25.
+Voorwaarde: pas als de robot in CI en lokaal hetzelfde aantal gewrichten geeft (heup-verschil 8 tegen 9, uitslag studio-2). Niet vóór de plak van 1.2.3 of 1.2.4; geen nieuwe zip daarvoor laten maken.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
