@@ -1636,3 +1636,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±17:50 NL, van hoofdchat: Hats-systeem voor veel dingen, samen met Olaf (Thijs 17:44)
 Zie de opdracht in `berichten/olaf.md` van 17:50. Jij doet de systemen-kant (`systemen/`: effecten op helden en Gloop, kroniekregels per ding, voortgang en vrijspelen). Click Joints gaat voor tot do 26 nov; daarna Hats als je tijd hebt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±18:18 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 94ff933..db725d6: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-db725d6.md`. Moet en kan: **Moet:** geen. **Kan:** - Laat het script falen of waarschuwen als na het scrollen de Export-knoppen niet binnen de zijbalk vallen. Nu bewijst alleen het plaatje dat het gelukt is. - Bekijk w2 met de Read-tool voordat het plaatje in een winkel gaat. Daan keurt het uiterlijk. - Zet de zijbalk voor w3 terug naar boven, of controleer dat w3 niet door de scrollstand verandert. - Zet in het log of de naam van het plaatje welke build (gratis of Pro) het is. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
