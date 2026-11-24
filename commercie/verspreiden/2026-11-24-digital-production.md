@@ -150,3 +150,6 @@ Na moet 1: akkoord ja, zonder nieuwe volledige keuring (de hoofdchat of Versprei
 
 ## Aanpassing 24 nov 2026 ±16:10 NL (Verspreider, na besluit Thijs 15:32)
 Thijs: nergens meer "not print tested by us yet" ("komt super onprofessioneel over"). Vervangen: de zin over de Fit test strip die Thijs op 24 nov ±13:33 voor de 80.lv-mail goedkeurde. Er staat nergens dat wij geprint hebben of dat het klikt; de eerlijkheidsregel blijft. Geen nieuwe keuring nodig: de zin volgt het besluit, de 80.lv-zin is door Thijs zelf goedgekeurd.
+
+## Ja van Thijs (24 nov 2026 19:39 NL)
+Op de mailrij van 19:00 ("ja doe maar wat jij wil"). Versturen door de hoofdchat op de geplande dag vanaf thijs@dortus.com, zonder wijziging in de tekst; regel in commercie/geplaatst.md.
