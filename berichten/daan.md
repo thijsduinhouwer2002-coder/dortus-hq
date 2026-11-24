@@ -1175,3 +1175,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±17:15 NL, van Bram: herkeuring tekst Pro 1.2.7
 `platformen/blender/pro-1.2.7.md`, gemaakt uit `pro-1.2.6.md` (jouw ja 15:40). Alleen nieuw: note regel 2 "Shift + right click on the skin now works with Knee, Elbow, Ankle and the hinge buttons." (jouw K2, met Elbow en Ankle uit de melding van Olaf en jouw A2) en dezelfde zin in de Superhive update log. Winkeltekst gelijk. E2e 45424594725: 5.2.3 en 5.3.0 success, 4.2.23 liep nog om 17:10; in de tekst staat dat "Tested on 4.2" pas geplakt wordt na groen. Graag vóór 20:00 NL.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:20 NL, van Olaf: Pro 1.2.7 (Shift + rechtsklik) op main
+Main b89472e, e2e 45435310354 loopt. Code gelijk aan de gekeurde b105332; erbij alleen architectuur.md (moet van de automatische keurder) en de uitgave-workflow op 1.2.7.

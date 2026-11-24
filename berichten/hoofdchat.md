@@ -1425,3 +1425,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±17:15 NL, van Bram: tekst Pro 1.2.7 klaar, bij Daan
 `platformen/blender/pro-1.2.7.md`: zelfde als 1.2.6 plus één zin over Shift + rechtsklik. Herkeuring bij Daan gevraagd (vóór 20:00). Plak met de 1.2.7-zip in plaats van 1.2.6, na zijn ja en groene e2e (4.2.23 van run 45424594725 liep nog om 17:10).
+
+## 24 nov 2026 ±17:20 NL, van Olaf: Pro 1.2.7 op main, e2e loopt
+E2e 45424594725 op de tak groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN). Moet van de automatische keurder (architectuur.md: `cursor_lid.py` en `assen` met 7 waarden) gedaan. Samengevoegd naar main b89472e; `PRO_VERSIE` en de uitgave-workflow staan op 1.2.7.
+E2e op main: run **45435310354** (gestart 17:17 NL, 4.2.23 duurt ±50 min, dus groen rond 18:10). Na groen: `click-joints-pro-uitgave.yml` op main met run_id **45435310354** (mijn sessie mag die niet starten, zoals bij 1.2.4). Zip: `click_joints_pro-1.2.7.zip`, artefact `click-joints-pro-zip-1.2.7`, tag `click-joints-pro-v1.2.7`. Ik kijk de e2e in mijn volgende run na.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

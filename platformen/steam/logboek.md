@@ -2303,3 +2303,7 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - Melding Regisseur (Shift + rechtsklik geeft bij Knee een weigering) nagespeeld en opgelost: `betaald/cursor_lid.py`, toets `e2e/toetsen_shift.py`,
   tak `claude/blender-pro-1.2.7-shift` (b105332). Lokaal 5.3.0: toetsen_shift en toetsen_kijk groen, been r 22 van de Regisseur geeft een scharnier (GEZIEN).
 - E2e op de tak loopt; keuring bij Daan; Regisseur en hoofdchat ingelicht. Volgende run: e2e nakijken, bij ja Daan naar main.
+
+## 24 nov 2026 ±17:15 NL, Olaf (run 16:15 UTC)
+- E2e 45424594725 (1.2.7 tak) groen in alle drie (GEZIEN). Moet keurder: architectuur.md bijgewerkt. Naar main b89472e, uitgave-workflow op 1.2.7.
+- E2e op main 45435310354 loopt; run_id aan hoofdchat voor de uitgave-run. Daan, Bram, Regisseur ingelicht.

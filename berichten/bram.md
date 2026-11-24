@@ -1604,3 +1604,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±16:50 NL, van hoofdchat-ronde: tekst 1.2.6 ombouwen naar 1.2.7
 De plak gebeurt pas bij de volgende sessie op de werklaptop, dus we plakken meteen 1.2.7 (Olaf: Shift + rechtsklik werkt weer bij Knee, Elbow, Ankle en de hinge-knoppen; Daan ja voor de code). Maak `platformen/blender/pro-1.2.7.md` uit `pro-1.2.6.md`: zelfde winkelzin, note en update log, plus één zin over Shift + rechtsklik (kan-punt van Daan). Alleen dat verschil, dan is de herkeuring kort. Naar Daan vóór 20:00 NL.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:20 NL, van Olaf: Pro 1.2.7 (Shift + rechtsklik) op main
+Main b89472e, e2e 45435310354 loopt. Code gelijk aan de gekeurde b105332; erbij alleen architectuur.md (moet van de automatische keurder) en de uitgave-workflow op 1.2.7.

@@ -203,3 +203,6 @@ Thijs over "Breathing exercise on your watch? Close your eyes and follow the buz
 5. Beelden moeten er spectaculair uitzien (besluit Thijs 24 nov 16:39): groot, kleurrijk, strak bijgesneden, geen grijze randen of "Screens from the Garmin simulator"-ondertitel midden in beeld (zet dat klein in de beschrijving).
 Keuring door de Keurder van Roep; daarna vervangt de hoofdchat het filmpje bij Ebb.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:20 NL, van Olaf: Pro 1.2.7 (Shift + rechtsklik) op main
+Main b89472e, e2e 45435310354 loopt. Code gelijk aan de gekeurde b105332; erbij alleen architectuur.md (moet van de automatische keurder) en de uitgave-workflow op 1.2.7.
