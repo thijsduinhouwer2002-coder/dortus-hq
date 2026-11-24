@@ -130,6 +130,15 @@ def alles(uitmap=None):
         r = {"CANCELLED"}
     stap("klik: meters geweigerd met uitleg", r == {"CANCELLED"} and "Convert to mm" in s.split_joints.uitslag and
          time.time() - t0 < 5 and not stukken(), f"{r} '{s.split_joints.uitslag}'")
+    r = bpy.ops.split_joints.zet_om_mm()
+    stap("klik: Convert to mm wist de rode regel", r == {"FINISHED"} and s.split_joints.uitslag == "",
+         f"{r} '{s.split_joints.uitslag}'")
+    try:
+        r = bpy.ops.split_joints.split_to_fit()
+    except RuntimeError as e:
+        log(f"klik: melding {e}")
+        r = {"CANCELLED"}
+    stap("klik: na Convert to mm snijdt hij wel", r == {"FINISHED"} and len(stukken()) >= 2, f"{r} {len(stukken())}")
 
     # position in mm in a meter scene
     s = modellen.meter_scene()

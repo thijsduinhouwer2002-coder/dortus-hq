@@ -56,6 +56,8 @@ class SPLIT_JOINTS_OT_zet_om_mm(bpy.types.Operator):
         us.scale_length, us.length_unit = keuze
         nieuw = maat_mm(ob, context.scene)
         context.scene["sj_schaal_omgezet"] = [oud, nieuw]
+        if context.scene.split_joints.uitslag.startswith("Wrong unit"):
+            context.scene.split_joints.uitslag = ""  # the red line of Split to fit is solved (keuring C5)
         self.report({"INFO"}, f"Unit scale {keuze[0]:g}: the model now measures {nieuw:.1f} mm (was {oud:.4g} mm)")
         return {"FINISHED"}
 

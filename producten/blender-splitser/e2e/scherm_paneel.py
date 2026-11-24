@@ -102,10 +102,22 @@ def stap():
                 bpy.ops.wm.quit_blender()
                 return None
             return 0.6
-        pad = os.path.join(uitmap, "paneel-x.png")
+        if staat["stap"] == 2:
+            pad = os.path.join(uitmap, "paneel-x.png")
+            subprocess.run(["import", "-window", "root", pad], capture_output=True)
+            ok = os.path.exists(pad) and os.path.getsize(pad) > 20000
+            log(f"{'PANEEL OK' if ok else 'PANEEL FOUT'} {pad}")
+            # second picture with More settings open, so the cut positions (0.1 mm) can be seen (keuring K1)
+            bpy.context.scene.split_joints.meer = True
+            for w in bpy.context.window_manager.windows:
+                for a in w.screen.areas:
+                    a.tag_redraw()
+            staat["stap"] = 3
+            return 1.5
+        pad = os.path.join(uitmap, "paneel-meer.png")
         subprocess.run(["import", "-window", "root", pad], capture_output=True)
         ok = os.path.exists(pad) and os.path.getsize(pad) > 20000
-        log(f"{'PANEEL OK' if ok else 'PANEEL FOUT'} {pad}")
+        log(f"{'PANEEL MEER OK' if ok else 'PANEEL MEER FOUT'} {pad}")
     except Exception as e:
         log(f"PANEEL FOUT {e!r}")
     bpy.ops.wm.quit_blender()

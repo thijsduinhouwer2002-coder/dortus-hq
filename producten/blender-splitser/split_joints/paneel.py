@@ -33,7 +33,8 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         layout.prop(inst, "printer", text="")
         rij = layout.row()
         rij.scale_y = 2.0
-        rij.operator("split_joints.split_to_fit", text="Split to fit", icon="MOD_EXPLODE")
+        # depress: the only highlighted button, so the eye lands here first (keuring C2)
+        rij.operator("split_joints.split_to_fit", text="Split to fit", icon="MOD_EXPLODE", depress=True)
         uit = in_een_klik.uitslag_tekst(scene)
         if inst.uitslag:
             vak = layout.box().column(align=True)
@@ -47,7 +48,9 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             if snedes.snede_objecten(scene):
                 vak.label(text="Move a cut in More settings, then Split")
         if uit:
-            grote_knop(layout, "split_joints.exporteer", f"Export parts ({inst.formaat})", "EXPORT")
+            rij = layout.row()
+            rij.scale_y = 1.3  # smaller than Split to fit (keuring C2)
+            rij.operator("split_joints.exporteer", text=f"Export parts ({inst.formaat})", icon="EXPORT")
         layout.prop(inst, "meer", icon="TRIA_DOWN" if inst.meer else "TRIA_RIGHT", emboss=False)
         if not inst.meer:
             return
