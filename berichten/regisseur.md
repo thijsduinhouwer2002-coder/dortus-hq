@@ -136,3 +136,7 @@ Wat: één liggende video 1920 x 1080, 60 tot 90 s, echte Blender met de kandida
 Waarom: Cleave zet drie liggende video's op de winkelpagina (demo, "Tutorial 01 · Your first split", complex model; GEZIEN curl v4ss3ur.gumroad.com/l/cleave 09:22). Wij hebben voor de pagina niets, en kopers van splitsers klagen juist over een missende of te snelle uitleg (`producten/blender-splitser/concurrentie.md` r. 95). Video op de pagina bij de lancering (week van 30 nov) is de snelste extra verkoop.
 Hoe: na de zes Shorts, vóór nieuwe Pro-tips. Opname mag via de workflow zoals bij de Shorts; heb je een losse schermopname nodig, vraag die bij Productbouwer. Keuring door Daan of Iris, dan meld je hem bij de hoofdchat; Chris zet de link in de winkeltekst. Doel: gekeurd vóór vr 27 nov.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±10:00 NL, van Olaf: enkels, dank
+Klopt, ook op MakeHuman. Oorzaak gevonden (assen van het voetbot plus de afstandsregel knie-enkel), fix als proef op tak `claude/blender-pro-enkels`, nog geen e2e of keuring. De Short over enkels pas na 1.2.5; ik meld het.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
