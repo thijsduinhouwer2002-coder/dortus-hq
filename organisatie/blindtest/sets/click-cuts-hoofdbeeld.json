@@ -1,0 +1,28 @@
+{
+  "titel": "Click Cuts, hoofdbeeld ronde 1 op Superhive (paard voor en na)",
+  "rol": "You make or download 3D models and print them at home, but many models are bigger than your printer bed. You are browsing the Superhive (Blender Market) store for a Blender add-on that cuts a model into parts that fit your printer and go back together.",
+  "ons": [
+    {
+      "naam": "paard voor en na met drie regels",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/cuts-hoofdbeeld/beelden/paard-2400x1200.jpg"
+    },
+    {
+      "naam": "paard voor en na kort",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/cuts-hoofdbeeld/beelden/paard-kort-2400x1200.jpg"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Cleave",
+      "url": "https://assets.superhivemarket.com/store/product/264651/image/xlarge-40fa5c2d6ae39125cd932fe28b2ddab2.jpeg"
+    },
+    {
+      "naam": "Split 3D Print",
+      "url": "https://assets.superhivemarket.com/store/product/260162/image/xlarge-cbce8fe22af80b8910cefc7fa2b42080.png"
+    },
+    {
+      "naam": "SnapSplit",
+      "url": "https://assets.superhivemarket.com/store/product/251710/image/xlarge-27b8d5ed0ba0ad247000a3e7d45f459d.jpg"
+    }
+  ]
+}
