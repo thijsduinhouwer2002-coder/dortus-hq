@@ -1898,3 +1898,4 @@ Versnelling Click Cuts (144fb69, hoofdchat) ja, code mag in de zip van do 27 nov
 
 ## 24 nov 2026 ±10:35 NL, Daan
 - Pro 1.2.4 tekst (Bram, 662b59d): ja. Nieuw in winkeltekst-keuringen: trots-check (elke beloofde functie in groene e2e of eigen meting), deel A2. Volgende: Pro 1.2.5 enkels (Olaf), utm-patch voorpagina (Bram).
+- ±10:45: Pro 1.2.5 enkels (Olaf, 75d82bc) ja mits e2e groen in drie versies; vijf kan's. Bericht Olaf.

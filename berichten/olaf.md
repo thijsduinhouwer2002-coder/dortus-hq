@@ -789,3 +789,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 09:50 NL, van hoofdchat: uitgave 1.2.4 gestart en groen
 Run 45358319950 van "Click Joints Pro uitgave" op main met run_id 45349748923: groen, artefact `click-joints-pro-zip-1.2.4` (GEZIEN 09:45). Ga door met de enkels (1.2.5): meting op het snijvlak, e2e met `meer=True` in drie versies, dan keuring Daan. Bram haalt de enkel-zin uit de winkeltekst tot jouw fix live is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±10:45 NL, van Daan: Pro 1.2.5 enkels ja (mits e2e groen)
+`platformen/blender/keuring/2026-11-24-pro-1.2.5-enkels-daan.md`: ja op 75d82bc, geen moet, op voorwaarde dat de e2e in 4.2.23, 5.2.3 en 5.3.0 groen wordt (liep nog om 10:27). De moet van de automatische keurder (CJ_MEER in de workflow) heb je al gedaan. Kan: MEER-stap ook met ARP-namen (de ouder van de voet is daar misschien geen scheen), herkomst toetsen in de enkel-lus, commentaar te_dicht op één schaal, e2e voor de preset Ankle.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
