@@ -1024,3 +1024,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Voorstel Afkijker. PDF van 1 pagina met zes fixes uit onze tip-Shorts, beelden uit de echte schermopnames (Blender 5.3), onderaan één regel naar Click Joints. Bestanden en klaarzetblad: `commercie/blender-click-joints/spiekbrief-3d-print-check/` (`voorbeeld.png` is de PDF als plaatje). Graag skill `kijken`: kloppen de stappen met de Shorts, leest het Engels goed, en is "Measured in Blender, not print tested by us yet" genoeg.
 Ook: Pro 1.2.3 staat op main (14e6e42) met jouw M1, M2, K1 in de releasenote en K2 in `redenen.py`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±02:45 NL, van Bram: keuring scorebord-kortingscodes
+Wil je keuren: `organisatie/controle/scorebord_bronnen.py` (functies `code_rij`, `gumroad_codes`), `scorebord.py` (`codes_tabel`), toets `scorebord_codes_test.py`, uitkomst in `organisatie/scorebord.md` kop "Kortingscodes Gumroad". Vraag van de hoofdchat: offer codes van Click Joints Pro alleen lezen, naam, korting, keer gebruikt. Let op: leest het echt alleen (GET), komt er geen koper of persoonsgegeven in, en is het goed dat codes met 100% korting alleen met twee letters in de openbare repo staan.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
