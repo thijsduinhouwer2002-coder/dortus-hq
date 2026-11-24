@@ -1,0 +1,88 @@
+# gemaakt: 2026-11-24T18:06:28Z
+# workflow: Regisseur 18 (tip-reeks 13: speling gemeten) (.github/workflows/regisseur-18.yml)
+# run: 45454832991 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45454832991
+# commit: ebf5c55e tak main gestart door push
+# mislukte stappen: tips: Controle (synchroon, geluid, lengte)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== tips / Controle (synchroon, geluid, lengte) (laatste 79 van 79 regels) =====
+##[group]Run cd /tmp/klaar
+cd /tmp/klaar
+ok=0
+for n in tip-speling tip-speling-sale; do
+  mkdir -p meting-$n
+  python $[weggehaald: lange base64-reeks].py $n-geluid.mp4 $n-groot-script.json meting-$n || ok=1
+  for f in meting-$n/*; do mv "$f" "$(basename ${f%.*})-$n.${f##*.}"; done
+  d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $n-geluid.mp4)
+  echo "$n $d s" | tee -a lengtes.txt
+  python -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: $n is $d s"; ok=1; }
+done
+python $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py *.mp4 | tee geluid_check.txt
+grep -q "FOUT" geluid_check.txt && ok=1
+sha256sum *.mp4 | tee SHA256SUMS.txt
+exit $ok
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-18
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+  PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+  Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+  WHISPER_MODEL: small.en
+##[endgroup]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+# Synchroon-meting tip-speling-geluid.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **FOUT**, 11 van 12 zinnen binnen 0.3 s; grootste verschil 0.46 s, gemiddeld 0.167 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.18 | 0.18 | 7/7 | ja | Is your gap really what you set? |
+| 2 | 1.93 | 2.06 | 2.07 | 0.137 | 11/11 | ja | Set a gap, cut, and check that the real gap matches. |
+| 3 | 5.33 | 5.46 | 5.45 | 0.117 | 12/12 | ja | Select your part, and put the 3D cursor where the joint goes. |
+| 4 | 9.43 | 9.56 | 9.55 | 0.117 | 11/11 | ja | Pick Ball, keep Clearance at 0.2, and press Place joint. |
+| 5 | 13.67 | 13.82 | 13.77 | 0.103 | 12/12 | ja | Click Joints measures the gap between ball and socket after the cut. |
+| 6 | 17.8 | 17.9 | 17.93 | 0.13 | 13/13 | ja | It averages many points around the ball, and shows that in the panel. |
+| 7 | 21.93 | 22.06 | 22.11 | 0.177 | 14/14 | ja | Next to it you see the wall thickness, so a thin socket shows too. |
+| 8 | 26.03 | 25.66 | 26.17 | 0.137 | 14/14 | ja | Exploded view pulls the ball out of the socket, so you can check it. |
+| 9 | 29.97 | 29.76 | 30.15 | 0.183 | 12/12 | ja | Not sure which gap your printer likes? Print a fit test first. |
+| 10 | 33.6 | 33.14 | 33.14 | -0.46 | 13/13 | NEE | The measured gap is in the free Click Joints, for every ball joint. |
+| 11 | 37.57 | 37.28 | 37.7 | 0.133 | 9/9 | ja | Every printer is different. Print a test joint first. |
+| 12 | 40.9 | 40.6 | 41.03 | 0.13 | 10/11 | ja | Click Joints is free. Want more? Click Joints Pro, on Gumroad. |
+tip-speling 46.833008 s
+# Synchroon-meting tip-speling-sale-geluid.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **GOED**, 12 van 12 zinnen binnen 0.3 s; grootste verschil 0.187 s, gemiddeld 0.141 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.18 | 0.18 | 7/7 | ja | Is your gap really what you set? |
+| 2 | 1.93 | 2.06 | 2.07 | 0.137 | 11/11 | ja | Set a gap, cut, and check that the real gap matches. |
+| 3 | 5.33 | 5.46 | 5.45 | 0.117 | 12/12 | ja | Select your part, and put the 3D cursor where the joint goes. |
+| 4 | 9.43 | 9.56 | 9.55 | 0.117 | 11/11 | ja | Pick Ball, keep Clearance at 0.2, and press Place joint. |
+| 5 | 13.67 | 13.8 | 13.77 | 0.103 | 12/12 | ja | Click Joints measures the gap between ball and socket after the cut. |
+| 6 | 17.8 | 17.88 | 17.93 | 0.13 | 13/13 | ja | It averages many points around the ball, and shows that in the panel. |
+| 7 | 21.93 | 22.04 | 22.12 | 0.187 | 14/14 | ja | Next to it you see the wall thickness, so a thin socket shows too. |
+| 8 | 26.03 | 25.66 | 26.17 | 0.137 | 14/14 | ja | Exploded view pulls the ball out of the socket, so you can check it. |
+| 9 | 29.97 | 29.74 | 30.15 | 0.183 | 12/12 | ja | Not sure which gap your printer likes? Print a fit test first. |
+| 10 | 33.6 | 33.14 | 33.74 | 0.14 | 13/13 | ja | The measured gap is in the free Click Joints, for every ball joint. |
+| 11 | 37.57 | 37.28 | 37.7 | 0.133 | 9/9 | ja | Every printer is different. Print a test joint first. |
+| 12 | 40.9 | 40.62 | 41.03 | 0.13 | 8/9 | ja | Click Joints Pro, 25% off this week, on Gumroad. |
+tip-speling-sale 46.533008 s
+GOED: tip-speling-geluid.mp4: gemiddeld -16.7 dB, piek -1.3 dB
+GOED: tip-speling-sale-geluid.mp4: gemiddeld -16.7 dB, piek -1.3 dB
+[weggehaald: lange hex-reeks]  tip-speling-geluid.mp4
+[weggehaald: lange hex-reeks]  tip-speling-sale-geluid.mp4
+##[error]Process completed with exit code 1.
