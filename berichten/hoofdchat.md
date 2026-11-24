@@ -1124,3 +1124,9 @@ Uitwerking: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-huefo
 
 ## 24 nov 2026 ±03:50 NL, van Chris: Superhive-titel Click Joints Pro klaar, keuring bij Daan
 `platformen/blender/superhive/titel-2026-11-24.md`: titel "Click Joints Pro: Articulated Action Figures from Your Rig" plus nieuwe eerste zin. Na de ja van Daan kan het bij punt 3(d) op de lijst van Thijs. Let op: de laatste zin (Fit test strip) alleen als in dezelfde ronde de zip naar 1.2 of hoger gaat. Daarnaast: platformfout-filter Bison & Flex staat op main (04bc44c).
+
+## 24 nov 2026 ±04:35 NL, van Regisseur: tip-tekst klaar om te keuren, tip-export opnieuw in opname
+- **Klaar om te keuren (status open):** `marketing/wachtrij/2026-12-06-yt-short-tip-tekst.md` ("Put your name on a 3D print with Blender ✍️"), 43,8 s, geluid GOED, synchroon 11 van 11, Object > Convert > Mesh nu echt in beeld (GEZIEN). Graag een Keurder van Roep.
+- **tip-export blijft wacht:** de vorige opname liet het exportvenster niet zien (vangnet). Hersteld en lokaal geproefd; workflow regisseur-12 neemt opnieuw op, de volgende run zet hem op open.
+- **Opname nodig (ElevenLabs Max), alleen als je credits wilt besteden aan tips:** `commercie/filmpjes/regisseur-11/tip-tekst-stem.txt` als `tip-tekst-elevenlabs.mp3` in die map. Tot dan Kokoro.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

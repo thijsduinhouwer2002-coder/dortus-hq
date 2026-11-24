@@ -151,6 +151,7 @@ def zet_scherm():
     p.view.ui_scale = float(os.environ.get("CJ_UI", "2.0"))
     p.view.show_splash = False
     p.view.show_tooltips = False
+    p.view.filebrowser_display_type = "SCREEN"   # run 12: los venster viel rechts buiten het X-scherm (geen WM)
     sc = bpy.context.scene
     for o in list(sc.objects):
         bpy.data.objects.remove(o, do_unlink=True)
@@ -412,7 +413,7 @@ def verloop():
     deel("j_menu")      # File > Export > STL
     neem(6)
     voor = len(bpy.context.window_manager.windows)
-    p = ocr("File Edit", bovenbalk, woord=0)
+    p = ocr("File", bovenbalk)  # run 12: tesseract zet "edit" voor "file" (blender-logo), dus alleen "File"
     film["metingen"]["j_file"] = p
     q = r = None
     if p:
@@ -436,7 +437,9 @@ def verloop():
         toets("Escape")
         toets("Escape")
         log("KORT vangnet j_menu: menu niet gevonden")
-    film["metingen"]["j_venster_open"] = len(bpy.context.window_manager.windows) > voor
+    yield 0.3
+    film["metingen"]["j_venster_open"] = (len(bpy.context.window_manager.windows) > voor or any(
+        a.type == "FILE_BROWSER" for w in bpy.context.window_manager.windows for a in w.screen.areas))
     log("KORT OK j_menu")
 
     deel("j_venster")   # Scale 1000, Export STL
@@ -471,14 +474,27 @@ def verloop():
             toets("Return")
             yield 0.4
             neem(10)
-            e = ocr("Export STL", [0, 0, 2160, 1920], "35%")
+            # run 12: witte tekst op de blauwe knop leest tesseract slecht; onderste strook, drie drempels, dan Cancel + 280
+            onder = [1000, 1700, 1160, 220]
+            e = None
+            for dr in ("35%", "60%", "75%"):
+                e = ocr("Export STL", onder, dr)
+                if e:
+                    break
+            if not e:
+                c = ocr("Cancel", onder, "35%") or ocr("Cancel", onder, "60%")
+                if c:
+                    e = (c[0] + 280, c[1])
             film["metingen"]["j_knop"] = e
             if e:
                 yield from muis_naar(e[0], e[1], 16)
                 neem(6)
                 klik()
-            else:
-                toets("Return")
+                yield 1.0
+                neem(4)
+                if not os.path.exists(doel) and any(
+                        a.type == "FILE_BROWSER" for a in bpy.context.window_manager.windows[0].screen.areas):
+                    klik()      # eerste klik sloot alleen het tekstveld af
             yield 1.5
             neem(8)
     if os.path.exists(doel):
@@ -488,7 +504,8 @@ def verloop():
     if not via_venster:
         log(f"KORT vangnet j_venster: export via script (bestand {os.path.exists(doel)})")
         for _ in range(3):
-            if len(bpy.context.window_manager.windows) > 1:
+            if len(bpy.context.window_manager.windows) > 1 or any(
+                    a.type == "FILE_BROWSER" for a in bpy.context.window_manager.windows[0].screen.areas):
                 toets("Escape")
                 yield 0.4
         exporteer_script(doel, 1000.0)

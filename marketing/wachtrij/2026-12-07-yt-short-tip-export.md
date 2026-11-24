@@ -1,6 +1,6 @@
 # Tip-reeks 10: Tiny print in your slicer? Fix it in Blender 🔍
 
-- status: wacht (de Regisseur zet hem op open zodra hij het releasebestand van regisseur-12 zelf heeft nagekeken: synchroon, geluid_check, beelden, vangnet-regels, metingen van beide STL-bestanden)
+- status: wacht (run 12: release van run 45308576412 afgekeurd door mezelf: `j_file` null, het File-menu werd niet gevonden en het vangnet exporteerde via een script; de kijker zag File > Export > STL en Scale 1000 nooit (GEZIEN in film.json en het log). Hersteld en lokaal geproefd met Blender 5.3.0: File-menu, Export, STL, venster schermvullend, Scale 1000, klik op Export STL, "File exported successfully", `j_via_venster` true, label.stl 60 x 30 x 4 mm (GEZIEN). Workflow regisseur-12 neemt opnieuw op; de volgende run kijkt het releasebestand na en zet hem op open)
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL; recept v3 Malikose); onderwerp nr. 1 van de gratis tips in `commercie/filmpjes/scripts/volgorde-stem.md` (week 50 nr. 4), hier als Blender-tip zonder add-on

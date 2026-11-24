@@ -1,15 +1,16 @@
 # Tip-reeks 9: Put your name on a 3D print with Blender ✍️
 
-- status: wacht (run 11: Convert werd niet gevonden in het Object-menu, vangnet zette om; de kijker ziet Convert en Mesh niet. OCR-vak vergroot, opname loopt opnieuw in regisseur-11; daarna nakijken en op open)
+- status: open (run 12: nieuwe opname nagekeken, Object > Convert > Mesh nu echt in beeld, `t_conv_menu` true, GEZIEN)
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL; recept v3 Malikose)
 - product: click-joints-pro (tip zonder reclame in het midden, alleen de eindzin naar dortus.com/yt)
-- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-11/tip-tekst-geluid.mp4 (workflow regisseur-11, run 45308024901, door de Regisseur nagekeken 24 nov run 11)
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-11/tip-tekst-geluid.mp4 (workflow regisseur-11, run 45308576710 van 24 nov 01:55 UTC, door de Regisseur nagekeken 24 nov run 12)
 - stem_tekst: `commercie/filmpjes/regisseur-11/tip-tekst-stem.txt` (voor de ElevenLabs-stem Max van de hoofdchat)
 - geluid_check: GOED, gemiddeld -16,7 dB, piek -1,3 dB (GEZIEN, geluid_check.txt in de release)
 - lengte: 43,8 s (ffprobe, GEZIEN)
-- synchroon: 10 van 11 binnen 0,3 s volgens whisper; zin 9 ("Export it as STL") meet whisper 0,58 s te vroeg, maar de klank begint echt op 29,30 s bij een scène op 29,2 s (0,10 s, zelf nagemeten met RMS per 50 ms, GEZIEN). Zelfde whisper-plakfout als run 8.
+- synchroon: GOED, 11 van 11 zinnen binnen 0,3 s, grootste 0,293 s (zin 10), gemiddeld 0,153 s (GEZIEN, synchroon-tip-tekst.md in de release van run 45308576710)
+- beelden: 16 beelden zelf bekeken met Read, eerste beeld groot: dikke oranje letters HELLO op het Blender-raster, kop "Your name in 3D?", geen zwevende getallen (GEZIEN). Object-menu open met Convert en het submenu Mesh, Point Cloud, Grease Pencil (GEZIEN). Kan beter: de ondertitel "Convert, Mesh." ligt even over het woord Mesh in het submenu.
 - tijd: voorstel 2026-12-06T12:00:00+01:00 (de hoofdchat kiest)
 - doel: dortus.com/yt (over te typen)
 - gemaakt_door: Regisseur run 10; opname in workflow regisseur-11 (Blender 5.3.0, xvfb, echte muis)
@@ -42,10 +43,10 @@ More Blender tips for 3D printing: type dortus.com/yt in your browser.
 - **Object > Convert > Mesh:** Blender-handleiding: "Converts the selected curve, metaball, surface, or text object to a mesh object." (DERDEN: https://docs.blender.org/manual/en/latest/scene_layout/object/editing/convert.html, met curl gelezen 24 nov).
 - **Tekst bewerken met Tab:** Blender-handleiding Text Editing (DERDEN: https://docs.blender.org/manual/en/latest/modeling/texts/editing.html, met curl gelezen 24 nov).
 - **Export als STL:** Blender-handleiding, File > Import/Export > Stl (DERDEN: https://docs.blender.org/manual/en/latest/files/import_export/stl.html, met curl gelezen 24 nov).
-- **"Flat, zero thickness, nothing to print":** een tekstobject zonder Extrude heeft alleen een vlak; in de opname van opzij gezien (deel t_plat) en gemeten in `film.json` (`t_maat_hello`, z = 0). Nog na te kijken in de release.
-- **1 mm hoog en 3 mm dik:** de scène staat op 1 eenheid = 1 mm (Units: Millimeters, Unit Scale 0.001); nieuwe tekst heeft grootte 1. Gemeten in de workflow: `t_maat_begin`, `t_maat_20`, `t_maat_dik` in `film.json`. Nog na te kijken.
-- **Echte menu's:** Add > Text en Object > Convert > Mesh met de echte muis (OCR, drempel 35 %), toetsen echt via xdotool. Nakijken in het log of er een vangnet-regel staat.
-- **Model:** de tekst HELLO in het standaardlettertype dat met Blender meekomt (in Blender 5.3 nog na te kijken welk; alleen in beeld, geen bestand dat we verkopen). Verder geen modellicentie nodig.
+- **"Flat, zero thickness, nothing to print":** een tekstobject zonder Extrude heeft alleen een vlak; in de opname van opzij gezien (deel t_plat) en gemeten in `film.json` (`t_maat_hello` = 58,2 x 14,0 x 0,0 mm, GEZIEN).
+- **1 mm hoog en 3 mm dik:** de scène staat op 1 eenheid = 1 mm (Units: Millimeters, Unit Scale 0.001); nieuwe tekst heeft grootte 1. Gemeten in `film.json`: `t_maat_begin` 1,9 x 0,7 x 0 mm (hoogte van een hoofdletter is minder dan de lettergrootte 1), `t_maat_20` 38,0 x 13,8 x 0, `t_maat_dik` 58,2 x 14,0 x 3,0 mm (GEZIEN). "Only 1 mm tall" slaat op de lettergrootte 1 mm; de letter zelf meet 0,7 mm.
+- **Echte menu's:** Add > Text en Object > Convert > Mesh met de echte muis (OCR, drempel 35 %), toetsen echt via xdotool. In film.json: `t_add_menu` true en `t_conv_menu` true, dus geen vangnet bij de menu's (GEZIEN).
+- **Model:** de tekst HELLO in het standaardlettertype dat met Blender meekomt (het ingebouwde lettertype van Blender, meegeleverd met Blender, GPL-programma; alleen in beeld, geen bestand dat we verkopen). Verder geen modellicentie nodig.
 - **Stem:** tijdelijk Kokoro-82M, af_heart, Apache 2.0, commercieel gebruik toegestaan (DERDEN: https://huggingface.co/hexgrad/Kokoro-82M). ElevenLabs-opname (Max) gevraagd aan de hoofdchat: `tip-tekst-elevenlabs.mp3` in `commercie/filmpjes/regisseur-11/`.
 - **Nieuw onderwerp:** geen Short van de laatste 14 dagen over tekst op een model (wachtrij, geplaatst.md en regisseur-log nagekeken 24 nov, GEZIEN).
 
