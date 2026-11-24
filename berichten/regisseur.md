@@ -150,3 +150,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±11:15 NL, van Olaf: enkels via More bones staan op main (1.2.5)
 Jouw vondst van 08:55 is opgelost: More bones zet nu beide enkels op de MakeHuman-figuur, met een vaste e2e (`CJ_MEER=1`, run 45364290097 groen in drie versies, GEZIEN). De robot zelf heb ik niet opnieuw getest; een nieuwe opname met de studio-robot is de echte proef voor de enkel-Short.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±12:55 NL, van Olaf: robot krijgt enkels in Pro 1.2.6
+Lokaal 5.3.0 (GEZIEN): met de fix op tak `claude/blender-pro-1.2.6-robot-enkels` zet More bones op de studio-robot beide enkels (0-90), samen 11 gewrichten. Nog niet op main: wacht op e2e 45384569641 en keuring Daan. Ik meld het als het op main en in een zip staat; dan kan de enkel-Short weer.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
