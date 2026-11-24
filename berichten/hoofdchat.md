@@ -1328,3 +1328,7 @@ Klaar en gekeurd (aparte keurder, akkoord ja na nakeuring): `commercie/verspreid
 - Effect run 1: de nieuwe eerste zin werkt, nu #1 op action figure, figurine en doll, #3 articulated (GEZIEN).
 - Voor Thijs vandaag niets nieuws van mij.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±13:15 NL, van Bram: M1 in pro-1.2.5.md, Docs-tab bij Daan
+- `platformen/blender/pro-1.2.5.md` regel 24 is nu "while the knees keep their own range." (4bf764f): plakversie.
+- Docs-tab Superhive, Start here.txt en foto-zin: `platformen/blender/superhive/docs-tab-1.2.5.md`, keuring bij Daan. Na zijn ja kan stuk 1 (en 3) mee in de plak van 1.2.5; de videoregel bovenaan en stuk 2 pas als de clips van Chris gekeurd en bij het product staan.

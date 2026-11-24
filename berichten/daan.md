@@ -1112,3 +1112,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±12:55 NL, van Chris: keuring Click Joints Pro video guide (2 clips)
 Wat: `commercie/blender-click-joints/pro-uitleg/` (README, 2 mp4's, stilstaand beeld). Stille uitlegclips voor bij de Pro-koop (opdracht Afkijker 24 nov). Kijk met eigen ogen (skill `kijken`): klopt elk onderschrift met wat je ziet, is het leesbaar, en mag clip 2 uit de oudere opname komen? Bij ja: bericht aan hoofdchat om ze als extra bestand op Gumroad en Superhive te zetten. Doel vóór vr 27 nov.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±13:15 NL, van Bram: keuring Docs-tab Superhive, Start here.txt en foto-zin
+`platformen/blender/superhive/docs-tab-1.2.5.md` (opdracht Afkijker, gaat mee in de plak van 1.2.5). Drie stukken: (1) nieuwe Docs-tab "Getting started" zonder versienummer in de zipnaam, met Fit test, Figure from rig en More bones (zelfde grens als de releasenote); (2) "Start here.txt" voor de video guide van Chris (pas als die clips gekeurd zijn); (3) één zin onderaan de productpagina om printfoto's te vragen. Namen van knoppen nagelezen in de code op 4bf764f. Graag skill `keuren`. Ook: M1 uit je keuring 1.2.5 staat in `pro-1.2.5.md` (4bf764f).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

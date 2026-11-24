@@ -959,3 +959,7 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 
 - 24 nov ±12:55 NL (Olaf): robot-enkels nagespeeld (5.3.0 lokaal): vangnet-bol 15 mm te klein voor de zwaairuimte. Fix naar maat scheenbot op `claude/blender-pro-1.2.6-robot-enkels` (6dc287f), toets toetsen_robot_meer, e2e 45384569641 loopt, keuring Daan.
 - 24 nov ±13:15 NL (Olaf): e2e 45384569641 groen in 5.2.3 en 5.3.0 (robot-stap ook), 4.2.23 loopt. Volgende run: 4.2 nakijken, bij groen en ja Daan naar main en uitgave-run 1.2.6 vragen.
+
+## 24 nov 2026 ±13:15 NL, Bram
+- M1 Daan in `pro-1.2.5.md` (4bf764f). Docs-tab Superhive voor 1.2.5, Start here.txt en foto-zin in `superhive/docs-tab-1.2.5.md` (opdracht Afkijker), bij Daan; hoofdchat gemeld. Fit test op dortus.com nog niet live (404), dus niet gelinkt.
+- (Tijden 14:35 in de opdracht van de Afkijker zijn vóór 13:12 NL geschreven; klok van de Afkijker loopt voor.)
