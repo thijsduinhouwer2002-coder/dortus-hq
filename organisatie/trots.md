@@ -1,6 +1,11 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
 
+## 24 nov 2026 02:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat blijft dat kopers 1.2.2 krijgen terwijl 1.2.3 (betrouwbare Figure from rig) op main staat. Werk loopt: e2e 4.2 brak eerst af op de tijd (run 45294823279, cancelled), Bram zette de grens op 80 min, nieuwe run 45305001124 loopt sinds 01:26 UTC (GEZIEN, actions.py). Daarna uitgave-run (Bram) en zip naar Gumroad en Superhive (lijst 3), doel vóór do 26 nov. Tweede gat: in 4.2 krijgt de koper bij de rechterknie een misleidende reden; doorgegeven aan Betrouwbaarheid als 1.2.4 (bericht 02:45).
+- **Idee deze ronde:** op de Gumroad-pagina één bewijsregel "Tested on every change in Blender 4.2, 5.2 and 5.3" met link naar het testbeeld; kost niets, raakt betrouwbaarheid, de grootste twijfel bij een add-on van $19. Score 5, meenemen in de tekst bij de 1.2.3-plak.
+
+
 ## 24 nov 2026 02:30 NL (hoofdchat kwartier-check 6)
 - **Ebb:** product en beelden: ja, zelf zou ik hem kopen (zee, trillingen per fase, dieren voor opdagen, eerlijke veiligheidsregels; 5 winkelbeelden zoals de rest). Opvallen: goed, plek 2 op "breath hold" (GEZIEN, winkel-API 02:25). Kopen: nee, 1+ downloads, 0 reviews; Spanjaarden, Italianen en Polen zien nog de Duitse titel, want `de` staat eerst (GEZIEN, `appLocalizations` de, nl, en, fr). Grootste gat: de 20 gekeurde talen van Chris liggen sinds 23 nov klaar en zijn nog niet geplakt; dat kan alleen een hoofdchat met Chrome op de HP van Thijs, niet deze cloudronde.
 - **Idee deze ronde:** prijs Ebb naar $1,99 in hetzelfde formulier (de ademapps met 100+ zitten op $1,99), score 4, geen opdracht.

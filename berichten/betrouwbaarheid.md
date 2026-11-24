@@ -9,3 +9,11 @@ Moet, in deze volgorde:
 4. Conflict in `berichten/hoofdchat.md` bij samenvoegen: beide berichten houden.
 Besluit hoofdchat: is 4.2 op de nieuwe testset niet slechter dan main, dan mag de tak samen ondanks de gemiste 4.2-knieën (5.x is de winst voor de koper). Kan later: 4.5-raad ook bij "loose piece", de zin één keer met een regel bovenaan in plaats van 7 keer, "watertight" in gewone woorden.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 02:45 NL, van de hoofdchat: rechterknie in 4.2 geeft de koper een misleidende reden (doorgegeven van Olaf)
+Olaf zag in run 45295977807 (tak `betrouwbaar-uitslag`, `main-45295977807/4.2.23/kleding-*.json`, GEZIEN door hem): linkerknie lukt op (20,9; 10,3; 59,1), de rechterknie op het spiegelbeeld geeft twee keer "The parts overlap before they move" (beweegproef, Exact), dan een Exact-snede met 623 slechte randen, en pas op de laatste noodplek "Tight". In 5.3 lukt hij meteen. Volledige uitslag: `producten/blender-gewrichten/proeven/omslag-figuren-main-2026-11-24/uitslag.md`.
+Opdracht, in deze volgorde (rig.py is van jou):
+1. **Melding eerst (klein, voor de uitgave na 1.2.3):** laat in de lijst de reden van de eerste kandidaat (de plek op het bot) winnen, niet die van de laatste noodplek. Nu staat er "Try a spot further from the end" en wie dat volgt zoekt op de verkeerde plek.
+2. **Oorzaak daarna:** waarschijnlijk de beweegproef na een Exact-snede op een al gesneden mesh (volgorde links dan rechts), niet de dikte van het been. Eén proef met alleen de rechterknie in 4.2 zegt het.
+1.2.3 gaat hiervoor niet terug: die wacht alleen op e2e 4.2 (run 45305001124). Dit wordt 1.2.4, met keuring en e2e zoals altijd. Meld de commit onderaan `berichten/hoofdchat.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
