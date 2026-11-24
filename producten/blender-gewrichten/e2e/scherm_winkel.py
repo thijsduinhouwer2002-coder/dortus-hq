@@ -35,6 +35,9 @@ from scherm_basis import klap_hoofdpaneel, log, open_paneel, toestand, uitmap, w
 
 SCHAAL = float(os.environ.get("CJ_WINKEL_SCHAAL", "1.5"))
 BREDER = int(os.environ.get("CJ_WINKEL_BREDER", "260"))  # zoveel pixels de zijbalk naar links trekken
+# w2: bij 1,5x blijven Folder, STL/3MF en Export onder de rand, ook na scrollen tot het eind (run 45447006294,
+# GEZIEN). 1,25x is nog steeds groter dan de standaard en laat het hele paneel tot de exportknop zien.
+SCHAAL_W2 = float(os.environ.get("CJ_WINKEL_SCHAAL_W2", "1.25"))
 staat = {"beelden": [], "i": 0, "fase": "zet"}
 
 
@@ -125,6 +128,10 @@ def schiet(naam):
         staat["beelden"].append(naam)
 
 
+def schaal(waarde):
+    bpy.context.preferences.view.ui_scale = waarde
+
+
 def zijbalk_omlaag():
     """w2: stap 3 met Export STL/3MF staat bij 1,5x onder de rand van het scherm (eigen keuring 24 nov). Het paneel
     is hier langer dan de zijbalk, dus scrollen met het wiel boven de zijbalk werkt (bij plaatje 19 paste alles en
@@ -156,9 +163,9 @@ def ververs():
 
 PLAN = [
     ("w1-figuur", lambda: (kies_romp(), labels_alle(), klap_hoofdpaneel(), kijk_figuur())),
-    ("w2-uitelkaar", lambda: (klap_hoofdpaneel(), setattr(bpy.context.scene.click_joints, "uit_elkaar", True),
+    ("w2-uitelkaar", lambda: (schaal(SCHAAL_W2), klap_hoofdpaneel(), setattr(bpy.context.scene.click_joints, "uit_elkaar", True),
                               kies_romp(), kijk_figuur()), zijbalk_omlaag),
-    ("w3-testkaart", testkaart),
+    ("w3-testkaart", lambda: (schaal(SCHAAL), testkaart())),
 ]
 
 
