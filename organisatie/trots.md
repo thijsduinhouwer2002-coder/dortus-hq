@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 17:25 NL (hoofdchat kwartier-check 21)
+- **Click Joints Pro:** live 1.2.3. Nieuw gat: Superhive zegt bovenaan "Needs Blender 4.5 or newer" en twee zinnen later "Tested on 4.2 LTS"; de 1.2.7-tekst raakte dat blok niet. Bram zet een deel 4 erbij, Daan keurt mee vóór 20:00, plak in Chrome vóór do 27 nov.
+- **Idee deze ronde:** blok "free updates" met echte winkelversies bovenaan, zoals Cleave ("12 free updates since launch"). Score 5.
+
 ## 24 nov 2026 16:50 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat blijft de plak (live 1.2.3). Nieuw: 1.2.6 weigert scharnieren na Shift + rechtsklik, precies de weg uit de Gumroad-tekst; fix 1.2.7 heeft ja van Daan, e2e loopt. Besluit: één plak met 1.2.7, Olaf start de uitgave-run na groene e2e (doel 21:00), Bram maakt de 1.2.7-tekst (naar Daan vóór 20:00). Plakken: hoofdchat in Chrome op de werklaptop, vóór do 27 nov.
 - **Idee deze ronde:** de CG Vortex-zin wacht nog: persblad heeft ja van Daan maar staat niet live (dortus.com/click-joints/press/ geeft geen pagina, repo dortus main zit vast, lijst punt 4). Eerst punt 4, dan de zin. Score 5.
