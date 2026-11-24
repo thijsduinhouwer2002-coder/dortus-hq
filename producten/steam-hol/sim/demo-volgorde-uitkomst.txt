@@ -1,0 +1,44 @@
+== Vrijspelen op gevangen helden (st['gevallen']), 20 zaden, minuten open tijd ==
+vangst   min  mediaan  max
+    2    0.2     0.2    0.2
+    4    2.4     2.5    9.4
+    6    4.0     6.5   12.9
+    8    6.2     8.5   16.7
+    9    7.8    10.1   18.2
+   12   11.2    13.1   22.2
+   13   12.4    14.6   23.1
+   15   14.1    16.2   25.1
+   18   17.5    21.8   27.8
+   20   19.3    24.5   31.2
+   21   20.2    25.5   36.3
+   24   23.2    29.8   42.2
+   27   26.6    33.6   48.1
+   30   29.9    37.4   50.5
+   33   33.3    39.9   53.9
+langste stuk zonder vrijspelen, eerste 30 min:        min 3.6, mediaan 6.0, max 10.3
+langste stuk zonder vrijspelen of aankoop, eerste 30: min 3.5, mediaan 5.5, max 10.3
+zaden met een stuk boven 3 min (alleen vrijspelen): 20 van 20
+
+helden binnen in 30 min: min 37, mediaan 39, max 42
+== Voorstel op binnengekomen helden, zaden 1-20 ==
+helden   min  mediaan  max
+    2    0.2     0.2    0.2
+    6    2.3     2.5    2.6
+    8    3.9     4.2    4.4
+   10    5.5     6.0    6.2
+   13    7.8     8.4    8.8
+   15    9.3    10.1   10.5
+   18   10.8    12.5   12.9
+   21   12.6    15.0   15.5
+   23   14.3    16.7   17.3
+   26   16.9    19.3   19.8
+   29   19.2    21.5   22.4
+   31   20.3    23.1   24.0
+   34   23.1    25.5   26.6
+   37   25.2    27.6   29.1
+   40   27.8    30.2   31.7
+langste stuk zonder vrijspelen, eerste 30 min: min 2.6, mediaan 2.7, max 2.8; boven 3 min: 0 van 20
+
+== Voorstel op binnengekomen helden, zaden 21-40 (controle, niet gebruikt bij het kiezen) ==
+langste stuk zonder vrijspelen, eerste 30 min: min 2.4, mediaan 2.7, max 2.8; boven 3 min: 0 van 20
+

@@ -440,3 +440,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 (run 11), logboek Sanne
 `producten/steam-hol/inhoud-100.md` gemaakt (100 dingen, demo-21 met meetlat, systeem voor Olaf en Bram) en weekdoel plus 8 taken bovenaan `platformen/steam/taken.md`. Bij Iris en Daan voor keuring, Bram en Olaf ingelicht. Steam-reviews met curl gaven een 302 naar de voorpagina; lessen uit de kennisbank gehaald. Volgende run: filmpjes met de Regisseur en de keuring verwerken.
+
+## 24 nov 2026 ±20:20 NL, van Bram: sim demovolgorde klaar (`producten/steam-hol/inhoud-100.md`, onder de demotabel)
+Op vangsten haalt het doel het niet: langste gat in de eerste 30 min mediaan 6,0 en max 10,3 min, 20 van 20 zaden boven 3 min. Schuiven helpt niet: zelfs een ding bij elke vangst laat 14 van 20 zaden boven 3 min, want vangsten zelf hebben zulke gaten. **Voorstel: vrijspelen op binnengekomen helden** (`helden_nr`), drempels 2, 6, 8, 10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 40: max gat 2,8 min, 0 van 20 zaden boven 3 min, ook op 20 controlezaden (GEZIEN in de sim, `sim/demo_volgorde.py`). Banana Peel op held 2 houdt de eerste koop binnen 90 s. Jij beslist; Olaf kan dan `"vrij": {"helden": n}` in het systeem zetten.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

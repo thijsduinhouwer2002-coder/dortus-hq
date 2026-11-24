@@ -178,6 +178,36 @@ Elk ding hieronder is zichtbaar en grappig binnen een blik van 30 s. Vrijspelen 
 | 20 | hol 6 | Mimic Chest (#9) | |
 | 21 | hol 6 | Rat Courier (#59) | |
 
+**Sim van de demovolgorde (Bram, 24 nov 2026 ±20:15 NL).** Script `sim/demo_volgorde.py`, uitkomst `sim/demo-volgorde-uitkomst.txt`, 20 zaden, economie zoals het spel nu (heldensoorten aan, goud 6 + 3 per bezoek, start 20 goud). Alles GEZIEN in de sim; hoe het echte spel loopt is GOK tot de duurtest.
+
+*1. Zo als het nu staat (vrijspelen op gevangen helden):* minuut van open tijd, min / mediaan / max.
+
+| Vangst | 2 | 4 | 6 | 8 | 9 | 12 | 13 | 15 | 18 | 20 | 21 | 24 | 27 | 30 | 33 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| min | 0,2 | 2,4 | 4,0 | 6,2 | 7,8 | 11,2 | 12,4 | 14,1 | 17,5 | 19,3 | 20,2 | 23,2 | 26,6 | 29,9 | 33,3 |
+| mediaan | 0,2 | 2,5 | 6,5 | 8,5 | 10,1 | 13,1 | 14,6 | 16,2 | 21,8 | 24,5 | 25,5 | 29,8 | 33,6 | 37,4 | 39,9 |
+| max | 0,2 | 9,4 | 12,9 | 16,7 | 18,2 | 22,2 | 23,1 | 25,1 | 27,8 | 31,2 | 36,3 | 42,2 | 48,1 | 50,5 | 53,9 |
+
+Langste stuk zonder iets nieuws in de eerste 30 min: min 3,6, mediaan 6,0, max 10,3 minuten. **In 20 van 20 zaden boven 3 minuten: haalt het doel niet.** Met de aankopen uit de sim erbij nauwelijks beter (mediaan 5,5, max 10,3).
+
+*Waarom schuiven niet helpt:* vangsten komen te onregelmatig. In 30 min vang je 19 tot 30 helden, en er zitten zelf gaten van meer dan 3 min tussen (vangst 4 kan op 9,4 min vallen). Zelfs met een nieuw ding bij **elke** vangst houden 14 van 20 zaden een gat boven 3 min (max 8,2).
+
+*2. Voorstel: vrijspelen op binnengekomen helden* (teller `helden_nr` in de save van `strook.gd`). Er komt elke 35 tot 60 s een held binnen, gevangen of niet, dus dat loopt als een klok (spreiding ±1 min tussen zaden):
+
+| Volgorde | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| helden binnen | 2 | 6 | 8 | 10 | 13 | 15 | 18 | 21 | 23 | 26 | 29 | 31 | 34 | 37 | 40 |
+| min | 0,2 | 2,3 | 3,9 | 5,5 | 7,8 | 9,3 | 10,8 | 12,6 | 14,3 | 16,9 | 19,2 | 20,3 | 23,1 | 25,2 | 27,8 |
+| mediaan | 0,2 | 2,5 | 4,2 | 6,0 | 8,4 | 10,1 | 12,5 | 15,0 | 16,7 | 19,3 | 21,5 | 23,1 | 25,5 | 27,6 | 30,2 |
+| max | 0,2 | 2,6 | 4,4 | 6,2 | 8,8 | 10,5 | 12,9 | 15,5 | 17,3 | 19,8 | 22,4 | 24,0 | 26,6 | 29,1 | 31,7 |
+
+Langste stuk zonder iets nieuws in de eerste 30 min: **max 2,8 minuten, 0 van 20 zaden boven 3 min.** Controle op 20 andere zaden (21 tot 40, niet gebruikt bij het kiezen): ook max 2,8, 0 van 20.
+- Banana Peel op held 2 (10 s): met 20 startgoud en prijs 20 kan de eerste koop dan binnen 90 s (zelfde moment als vangst 2 nu).
+- Alles komt 0 tot 3 minuten eerder dan de GOK-minuut in de demotabel, omdat de stappen nu ±2,5 min zijn in plaats van 3: Giant Potion ±2,5 (was 4), Hat Cage ±10 (was 12), Kitchen ±27,5 (was 30), Hero Parade ±30 (was 33). De rijen 17 tot 21 (hol 4 tot 6) blijven zoals ze zijn.
+- In de json: `"vrij": {"helden": 6}` in plaats van `{"faam": ...}`.
+
+*Wat de sim niet weet:* de nieuwe dingen zelf (Banana Peel vangt helden, Frog pakt hoeden) zitten er niet in. Op helden binnen maakt dat voor het vrijspelen niets uit, op vangsten wel (dan komt alles iets eerder). In de sim verandert graven of kopen het tempo van binnenkomende helden niet, dus het voorstel geldt ook voor wie niet kijkt (GOK dat het spel ook zo loopt; Kitchen geeft straks meer helden, dan komt wat daarna komt iets eerder).
+
 **Meten of het werkt** (zelfde duurtest en sim als nu):
 - In de eerste 30 minuten nooit meer dan **3 minuten** zonder iets nieuws (vrijgespeeld, gekocht of gebeurtenis). Nu 7 minuten.
 - **Eerste koop binnen 90 s** in minstens 18 van 20 zaden (nu 141 tot 206 s).
