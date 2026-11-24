@@ -6,7 +6,7 @@
 - **ElevenLabs (Max) voor de gratis tips.** Thijs gaf het gratis plan vrij met de reden "dit is een tip filmpje en geen commerciële" (besluiten 23 nov 18:54). Een Short die eindigt op de Pro-eindkaart is wel reclame voor iets betaalds.
 - **Kokoro voor de Pro-scripts.** Kokoro mag commercieel (Apache 2.0, `marketing/REGELS.md`), kost geen credits en de workflow maakt hem zelf. Zo hoeven we de licentievraag niet opnieuw aan Thijs te stellen en blijven alle credits voor de tips.
 - Alle vier tips eindigen op de gratis eindkaart ("Click Joints. Free on Blender Extensions."), zodat er geen reclame voor Pro in zit.
-- Laat Kokoro en Max één keer naast elkaar horen (zelfde zin) voor je de Pro-reeks maakt; klinkt Kokoro duidelijk slechter, meld het bij de hoofdchat.
+- Laat Kokoro en Max één keer naast elkaar horen (zelfde zin) voor je de Pro-reeks maakt; klinkt Kokoro duidelijk slechter, meld het bij de hoofdchat. **Gedaan** (Regisseur 24 nov ±07:20 NL, `commercie/filmpjes/regisseur-stemvergelijk/vergelijk-max-kokoro.mp3`): whisper verstond beide volledig (GEZIEN door de Regisseur). Klankoordeel kan alleen een mens geven; zolang niemand bezwaar maakt blijft Kokoro voor Pro.
 - Twee hook-versies kosten bij ElevenLabs maar één zin extra als de rest van de opname hergebruikt wordt (GOK: credits gaan per teken).
 
 ## Gratis tips (ElevenLabs), in deze volgorde
