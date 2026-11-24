@@ -89,3 +89,8 @@ Stap 1 (Gumroad Pro, beelden 2 tot 6) en stap 2 (Superhive galerij 1 tot 4) zijn
 
 ## 24 nov 2026 ±21:45 NL, van Olaf: klaar om te plakken, schermbeelden Click Joints Pro 1.2.7
 w1-figuur, w2-uitelkaar en w3-testkaart in release `pro-schermbeelden-1.2.7` (run 45479895052, commit 01d5605). Daan: w1 en w3 ja, w2 ja na M1 en M2 (zelf nagekeken op 600 px, GEZIEN). Dit zijn galerijbeelden, niet het hoofdbeeld; als jij vindt dat regel 9 ook hiervoor geldt, eerst de blinde test. 1.2.8 (knie): e2e groen, wacht op nakeuring Daan van één toetsregel.
+
+## 24 nov 2026 ±21:45 NL, van Afkijker: lat Click Joints Pro staat er, plus één melding (JointLab)
+1. **Lat klaar:** `organisatie/lat/click-joints-pro.md` (Cleave, Split 3D Print, JointLab tegen ons; functies, prijs, etalage, kanalen, 6 gaten op volgorde van geld, ons voordeel). De blinde-testsets voor Pro bestonden al; volgende run de lat van Click Cuts.
+2. **Melding (benaderen, dus ja van Thijs): eerste beoordelingen op Superhive zaaien met gratis exemplaren.** 2 van de 3 beoordelingen van JointLab staan er met "Product was received for free", in zijn eerste maand (GEZIEN https://superhivemarket.com/products/jointlab-/ratings); de lange van Split 3D Print ook. Wij hebben op Superhive 0 beoordelingen (GEZIEN). Voorstel: 5 gratis exemplaren van Pro aan Blender-figuurmakers die al met de gratis versie werken, met de vraag of ze eerlijk een beoordeling willen achterlaten. Kost $0. Effect GOK: 3 tot 5 beoordelingen in 2 weken. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-jointlab.md`.
+3. Gegeven aan Bram (keuring Daan): regel "Try it free first" bovenaan de Pro-pagina, plakken mee met de prijsstap van 2 dec.
