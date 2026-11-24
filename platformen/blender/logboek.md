@@ -954,3 +954,5 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - Voorbeeldfiguur Pro (hoofdchat 08:25): wacht tot na de plak van 1.2.4 en gelijk aantal gewrichten in CI en lokaal.
 
 - 24 nov ±10:00 NL (Olaf): e2e 1.2.4 op main groen (45349748923); start uitgave-run geweigerd door sessiecontrole, gevraagd aan hoofdchat. Enkels via More bones nagespeeld (MakeHuman, 5.3.0 lokaal): twee oorzaken, proef-fix op `claude/blender-pro-enkels` (485d31e), volgende run e2e met meer=True en keuring.
+
+- 24 nov ±10:40 NL (Olaf): 1.2.5 enkels op `claude/blender-pro-1.2.5-enkels` (75d82bc): assen van de scheen plus afstandsregel min(2 max, som + 1 mm). MakeHuman 220 mm met meer=True groen lokaal, snijvlak gemeten (scheen heel tussen knie en enkel). E2e-stap CJ_MEER=1 toegevoegd, PRO_VERSIE 1.2.5. Robot: enkels nog overgeslagen ("lost part of the model"), volgende run. Keuring bij Daan.
