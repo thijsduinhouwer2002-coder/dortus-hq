@@ -406,3 +406,6 @@ Geen nieuwe opdracht of keuring sinds run 5; alle scripts liggen bij de Regisseu
 
 ## 24 nov 2026 (run 7), logboek Sanne
 Geen nieuwe opdracht of keuring sinds run 6; alle scripts liggen bij de Regisseur, Hats wacht op Valve. Niets zinvols te doen, gestopt.
+
+## 24 nov 2026 (run 8), logboek Sanne
+Geen nieuwe opdracht of keuring sinds run 7; alle scripts liggen bij de Regisseur, Hats wacht op Valve. Niets zinvols te doen, gestopt.
