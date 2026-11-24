@@ -19,6 +19,7 @@ sys.path.insert(0, os.path.join(HIER, "..", "opname"))
 sys.path.insert(0, os.path.join(HIER, "..", "studio"))
 from blender_opname import *  # noqa: F401,F403,E402
 import bmesh  # noqa: E402
+from mathutils import Matrix, Vector  # noqa: E402
 from bpy_extras import view3d_utils  # noqa: E402
 
 zet_naam("pro24")
@@ -176,23 +177,20 @@ def renders():
     b = [o for o in delen if o.get("cj_deel") == "B"]
     M["render_buig"] = None
     if a and b:
-        # De add-on draait deel B (de dij) om het scharnier. Voor de render blijft de dij aan de romp en draait het
+        # De pose-schuif van de add-on draait deel B (de dij) om het scharnier (scharnier_beweeg.pose_q: om
+        # cj_as x cj_buigkant, door cj_scharnier_punt). Voor de render blijft de dij aan de romp en draait het
         # onderbeen (deel A) dezelfde hoek de andere kant op: zelfde stand van de knie, de robot staat op zijn
-        # rechterbeen met de linkerknie gebogen.
+        # rechterbeen met de linkerknie gebogen. (Run 26 eerste poging via de schuif: B bleef gedraaid, fout.)
         try:
-            a_oud = a[0].matrix_world.copy()
-            b_oud = b[0].matrix_world.copy()
-            bpy.context.view_layer.objects.active = b[0]
+            bb = b[0]
             graden = min(95.0, max(M.get("buig_graden") or [95.0]))
-            bpy.context.window_manager.cj_scharnier_pose = graden
-            bpy.context.view_layer.update()
-            rot = b[0].matrix_world @ b_oud.inverted()
-            bpy.context.window_manager.cj_scharnier_pose = 0.0
-            bpy.context.view_layer.update()
-            b[0].matrix_world = b_oud
-            a[0].matrix_world = rot.inverted() @ a_oud
+            voor_as = Vector(bb["cj_as"]).cross(Vector(bb["cj_buigkant"])).normalized()
+            c = Vector(bb["cj_scharnier_punt"])
+            draai = Matrix.Translation(c) @ Matrix.Rotation(math.radians(-graden), 4, voor_as) @ Matrix.Translation(-c)
+            a[0].matrix_world = draai @ a[0].matrix_world
             bpy.context.view_layer.update()
             M["render_buig"] = graden
+            M["render_as"] = [round(v, 3) for v in voor_as]
         except Exception as e:  # noqa: BLE001
             log(f"buigen voor de render lukte niet: {e}")
     for o in sc.objects:
@@ -248,20 +246,20 @@ def verloop():
     xdo("mousemove", "400", "900")
     MUIS["x"], MUIS["y"] = 400, 900
     midden = (0.0, 0.0, H * 0.5)
-    cam(-40, 80.0, H * 2.6, midden)
+    cam(-40, 80.0, H * 1.7, midden)
     yield 1.0
 
     # Even uit elkaar: zo zie je dat het al losse delen zijn (Blender, echte objecten)
     deel("mooi")
     rust = {o.name: o.location.copy() for o in sc.objects if o.type == "MESH"}
-    uit = {"Body": Vector((0, 0, 0.06 * H)), "Leg.L": Vector((0.05 * H, 0, -0.02 * H)), "Leg.R": Vector((-0.05 * H, 0, -0.02 * H))}
+    uit = {"Body": Vector((0, 0, 0.10 * H)), "Leg.L": Vector((0.08 * H, 0, -0.01 * H)), "Leg.R": Vector((-0.08 * H, 0, -0.01 * H))}
 
     def schuif(t):
         s = math.sin(math.pi * t)
         for n, v in uit.items():
             if n in rust:
                 bpy.data.objects[n].location = rust[n] + v * s
-        cam(-40 + 25 * t, 80.0 + 4 * t, H * (2.6 - 0.3 * t), midden)
+        cam(-40 + 25 * t, 80.0 + 4 * t, H * (1.7 - 0.2 * t), midden)
     yield from stuk(90, schuif)
     for n in rust:
         bpy.data.objects[n].location = rust[n]
@@ -283,7 +281,7 @@ def verloop():
 
     # Van opzij kijken (de scharnieras is de kijkrichting, melding Olaf 16:50), dan Shift + rechtsklik op de knie
     deel("opzij")
-    yield from stuk(60, lambda t: cam(-15 + 105 * t, 84.0 + 6 * t, H * (2.3 - 1.2 * t), Vector(midden).lerp(knie, t)))
+    yield from stuk(60, lambda t: cam(-15 + 105 * t, 84.0 + 6 * t, H * (1.5 - 0.4 * t), Vector(midden).lerp(knie, t)))
     cam(90, 90.0, H * 1.1, knie)
     yield from houd(10)
     deel("cursor")

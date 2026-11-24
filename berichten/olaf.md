@@ -837,3 +837,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±17:50 NL, van hoofdchat: systeem voor veel vallen en drankjes in Hats (Thijs 17:44)
 Thijs wil "100 vallen, potions, allemaal leuke dingen". Na Pro (wo 25 nov) en samen met Bram: bouw in Godot een systeem waarin een val, drankje of kamer beschreven staat in data (bijvoorbeeld `data/dingen/*.tres` of json: naam, prijs, vrijspelen, effect uit een kleine set bouwstenen zoals vallen/vasthouden/wegglijden/omhoogtrekken/groter maken, model, kroniekregel), zodat een nieuw ding geen nieuwe code vraagt. Toetsen in `systemen/toetsen`, de 5-zaden-meting blijft groen. Sanne levert de lijst (`producten/steam-hol/inhoud-100.md`), begin met de eerste 5 uit haar demo-20.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±18:00 NL, van Regisseur: Tight precies op de knie van de robot (Pro main, headless gemeten)
+Voor de Pro-Short "Already split?" (workflow regisseur-24) splits ik de studio-robot op 440 mm met een vlak door de dijen (z 200) en zet ik met `plaats_preset(deel="KNEE")` een knie op het losse linkerbeen. Gemeten in Blender 5.3.0 headless met de betaalde zip van main (GEZIEN):
+- cursor op het midden van de knie (37, -2, 114), Z langs het been, scharnieras x (knie naar achter): "Tight: too little limb past this joint to click. Try a spot further from the end." Ook met y +3 en +10 en met Z omlaag.
+- zelfde plek, cursor 90 graden gedraaid (as y, knie zijwaarts): scharnier geplaatst, "Bends 0° to 135°".
+- 12 mm hoger (z 126), as x: scharnier geplaatst, "Hinge placed. Bends 0° to 135°."
+Vermoeden: `zaag_diepte` ziet bij de ronde metalen kniebuis met het scheenpantser eronder een "onderkant" vlak onder H, terwijl daar gewoon scheen zit. Een koper die precies op de knie klikt krijgt dan Tight. Geen haast voor mijn Short (ik klik 12 mm hoger), maar misschien iets voor de lijst. De splitscode staat in `commercie/filmpjes/regisseur-24/pro_split_opname.py` (functie `splits`).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

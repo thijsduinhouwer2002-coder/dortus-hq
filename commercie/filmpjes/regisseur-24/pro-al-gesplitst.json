@@ -31,18 +31,18 @@
    "kop": "Already in parts",
    "beeld": {
     "deel": "mooi",
-    "van": 0,
-    "tot": 44,
+    "van": 10,
+    "tot": 80,
     "uitsnede": [
      [
-      700,
-      900,
-      1450
+      790,
+      1000,
+      1100
      ],
      [
-      700,
-      900,
-      1300
+      790,
+      1000,
+      1000
      ]
     ]
    }
@@ -55,17 +55,17 @@
    "beeld": {
     "deel": "kies",
     "van": 0,
-    "tot": 30,
+    "tot": 44,
     "uitsnede": [
      [
-      760,
-      1000,
-      1300
+      790,
+      1100,
+      1000
      ],
      [
-      760,
-      1050,
-      1150
+      800,
+      1150,
+      880
      ]
     ]
    }
@@ -78,17 +78,17 @@
    "beeld": {
     "deel": "opzij",
     "van": 0,
-    "tot": 40,
+    "tot": 70,
     "uitsnede": [
      [
-      760,
-      960,
-      1300
+      795,
+      1000,
+      1100
      ],
      [
-      760,
-      960,
-      1150
+      795,
+      1010,
+      950
      ]
     ]
    }
@@ -101,17 +101,17 @@
    "beeld": {
     "deel": "cursor",
     "van": 0,
-    "tot": 40,
+    "tot": 58,
     "uitsnede": [
      [
-      760,
-      960,
-      1100
+      795,
+      1010,
+      900
      ],
      [
-      760,
-      960,
-      900
+      795,
+      1010,
+      760
      ]
     ]
    }
@@ -124,19 +124,17 @@
    "beeld": {
     "deel": "knee",
     "van": 0,
-    "tot": 40,
+    "tot": 50,
     "uitsnede": [
      [
-      "@knee_ocr",
-      900,
-      0,
-      0
+      1800,
+      1500,
+      700
      ],
      [
-      "@knee_ocr",
-      760,
-      0,
-      0
+      1800,
+      1550,
+      640
      ]
     ]
    }
@@ -148,21 +146,45 @@
    "kop": "A hinge at the cursor",
    "beeld": {
     "deel": "knee",
-    "van": 40,
-    "tot": 90,
+    "van": 20,
+    "tot": 50,
     "uitsnede": [
      [
       760,
       960,
-      1100
+      1000
      ],
      [
       760,
       960,
-      1000
+      880
      ]
     ]
    }
+  },
+  {
+   "tekst": "The panel shows the range it measured: zero to 135 degrees.",
+   "label": "BEND RANGE",
+   "kleur": "groen",
+   "kop": "Bends 0° to 135°",
+   "beeld": {
+    "deel": "knee",
+    "van": 40,
+    "tot": 77,
+    "uitsnede": [
+     [
+      1800,
+      1400,
+      700
+     ],
+     [
+      1800,
+      1380,
+      620
+     ]
+    ]
+   },
+   "uitspraak": "The panel shows the range it measured: zero to a hundred and thirty-five degrees."
   },
   {
    "tekst": "Show bend range shows how far the knee can swing.",
@@ -176,13 +198,13 @@
     "uitsnede": [
      [
       760,
-      960,
-      1200
+      980,
+      1050
      ],
      [
       760,
-      960,
-      950
+      980,
+      900
      ]
     ]
    }
@@ -199,19 +221,19 @@
     "uitsnede": [
      [
       760,
-      960,
-      1000
+      980,
+      900
      ],
      [
       760,
-      960,
-      900
+      980,
+      820
      ]
     ]
    }
   },
   {
-   "tekst": "Your parts stay as they are. Now they move.",
+   "tekst": "Your parts stay just as they are. Now that knee can bend.",
    "label": "RESULT",
    "kleur": "blauw",
    "kop": "Now it moves",
