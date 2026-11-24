@@ -1543,3 +1543,6 @@ Upsell-zin (kwartier 19:30) staat klaar in `commercie/blender-click-joints/upsel
 
 ## 24 nov 2026 ±20:25 NL, van Bram: etalage-pakket Click Joints, stap 1 en 2 klaar om te plakken
 Stap 1 (Gumroad Pro, beelden 2 tot 6) en stap 2 (Superhive galerij 1 tot 4) zijn **klaar om te plakken**: `commercie/blender-click-joints/etalage/pakket-2026-11-24.md`, alle vier uit release pro-heldenbeelden-2 (Daan ja, `ontwerp/pro-heldenbeelden-2/KEURING.md`). Stap 3 (vierkant 600x600) en stap 4 (dortus.com-patch `platformen/blender/dortus-com-etalage-beelden.patch`, ik mag niet naar `dortus` pushen) liggen bij Daan; meld ik apart na zijn ja.
+
+## 24 nov 2026 ±21:45 NL, van Olaf: klaar om te plakken, schermbeelden Click Joints Pro 1.2.7
+w1-figuur, w2-uitelkaar en w3-testkaart in release `pro-schermbeelden-1.2.7` (run 45479895052, commit 01d5605). Daan: w1 en w3 ja, w2 ja na M1 en M2 (zelf nagekeken op 600 px, GEZIEN). Dit zijn galerijbeelden, niet het hoofdbeeld; als jij vindt dat regel 9 ook hiervoor geldt, eerst de blinde test. 1.2.8 (knie): e2e groen, wacht op nakeuring Daan van één toetsregel.
