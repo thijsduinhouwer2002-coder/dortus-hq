@@ -400,3 +400,6 @@ Click Cuts gaat week van 30 nov live zonder één filmscript; zes lanceringsscri
 
 ## 24 nov 2026 (run 5), logboek Sanne
 M1 en M2 van Daan bij de Click Cuts-scripts verwerkt (M1 opgelost door de Productbouwer: oranje echt oranje in 36912d5), plus K1, K3, C1 en C2. Naar de Regisseur.
+
+## 24 nov 2026 (run 6), logboek Sanne
+Geen nieuwe opdracht of keuring sinds run 5; alle scripts liggen bij de Regisseur, Hats wacht op Valve. Niets zinvols te doen, gestopt.
