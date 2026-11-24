@@ -2,6 +2,23 @@
 
 Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, is het duidelijk, is het grappig. Nieuwste bovenaan. Wat er in het spel hoort staat in `features.md`.
 
+
+## Plan: van virus naar iets leuks (Sanne, 25 nov 2026, issue #19)
+Thijs speelde op 24 nov en zei: voelt als een virus, poppetjes lopen raar, om de 15 s een held die niet opvalt, niet duidelijk wat je doet. Daarna: het spel lag over zijn typvak, helden liepen over vallen, tekst te klein en te veel, geen controle. Dit plan gaat voor alles. Bronnen: Rusty's winkeltekst (GEZIEN, appdetails 2666510, 25 nov), `organisatie/lat/hats.md`, `broncode-concurrenten-2026-11-25.md`.
+
+| Klacht | Hoe de top het doet | Onze eis | Wie, issue |
+|---|---|---|---|
+| **1. Virus-gevoel, ligt over mijn werk** | Rusty: "built to sit comfortably at the bottom of your screen", zoom uit voor minder afleiding, "Focus Mode" (GEZIEN). Desktop Heroes: klikt door naar je bureaublad (DERDEN, issue #19). Marginalia: pakt nooit de focus (DERDEN, issue #19). | App-balk (Windows maakt ruimte, vensters eindigen erboven), alles boven de grond doorklikbaar, geen taakbalkknop, nooit focus, weg bij volledig scherm, systeemvak met Pauze, Geluid, Stoppen. Eerste start: één regel met naam en wat het is (concept "Hats of the Fallen. Your taskbar has a basement."; Thijs schrijft de echte). | Olaf #24 (blokkeert), welkomstregel in #26 |
+| **2. Poppetjes lopen raar** | Shimeji: elk loopbeeld schuift een vast aantal pixels, voeten als anker (GEZIEN, code). | Loopbeeld volgt de afgelegde weg, minstens 6 loopbeelden, draaipauze, stilstaan en rondkijken, schrikken als hele clip. Nooit glijden. | Mila nieuw issue (beelden), Olaf #25 (code) |
+| **3. Helden niet bijzonder, om de 15 s** | Rusty: elke robot een eigen taak en uiterlijk (GEZIEN, "customize and upgrade your helper bots"). Shimeji: zelfde figuur, ander karakter door andere gewichten (GEZIEN, code). | Minstens 3 soorten die je herkent aan silhouet, hoed en loop (ridder stampt, dief sluipt snel, bard huppelt), eigen gedrag (bange blijft staan, dappere rent door). Ritme met rust en uitschieters in plaats van een vaste klok. Naam en één grappig zinnetje blijven. | Mila (silhouet en loop per soort), Olaf #25 (gewichten), #26 (ritme) |
+| **4. Niet duidelijk wat je doet** | Rusty: één lus in drie woorden, planten, oogsten, verkopen (GEZIEN). Windowstead: steeds één doel in beeld (GEZIEN, code). Desktop Defender krijgt de klacht "lacks descriptions" (GEZIEN, lat). | Altijd precies één doel in beeld, één korte regel in groot schrift ("Dig here", "Place a trap"), met een pijl in de eerste minuut. Geen uitlegscherm. | Olaf #26 |
+| **5. Helden lopen over vallen** | goob: een korte actie (schrikken) speelt altijd helemaal af, nooit half (GEZIEN, code). | Elke held die bij een val komt, reageert zichtbaar: hij valt erin, of springt er met een icoon overheen zodat je ziet waarom. Vallen werken vaker dan nu (nu 35 tot 45%, GEZIEN `held.gd` r. 51). | Olaf #25, Mila (sprongbeeld) |
+| **6. Tekst klein en te veel** | Rusty: kernlus zonder tekst te volgen, het beeld vertelt het (GOK, uit de schermen in de lat). | Hooguit één regel tegelijk, op 2x minstens 2 keer zo groot als nu, kroniek standaard korter. | Olaf #26 |
+| **7. Geen controle** | Rusty krijgt zelf de klacht "Unable to opt out of events" (GEZIEN, `data/reviews-2026-11-09/top4.json`). idle.exe: gebeurtenissen uit, zelden, normaal, vaak, alleen als de speler er is (GEZIEN, code). | Helden en gebeurtenissen alleen als de muis bewoog, instelbaar, elke klik binnen 0,5 s zichtbaar effect, grootte en tempo in het systeemvak. | Olaf #26 |
+
+**Volgorde:** #24 (app-balk, Thijs kan het anders niet aan laten), dan #25 met de beelden van Mila, dan #26. Mila begint nu aan de loopbeelden zodat Olaf ze heeft als #24 klaar is. Steam-header (#30) en felle schermen (#6) wachten tot hier.
+**Klaar met dit plan als:** een film van 60 s waarin een nieuwe speler zonder uitleg snapt wat hij doet, Iris geeft "leuk" en "duidelijk" minstens 8 (issue #7), en Thijs speelt opnieuw en noemt het geen virus meer.
+
 ## Toets 8: de speeltestbuild als .exe, eerste 3 minuten en ritme (17 nov ±04:04 UTC, run 44008361789, 959aef4 = spelcode van main sinds 7e1ee59)
 GEZIEN in `hol.log` op `schermen` (`steam-hol-duur/claude-steam-hol-regels-zaad-1794860558-1920x1080-exe/`), ritme met `e2e/ritme_meting.py` zelf gedraaid.
 - **Ritme haalt mijn eis ruim:** held in beeld 62% (eis 45%), langste stuk zonder held en zonder regel 26 s (eis 40 s), 107 kroniekregels in 20 min.

@@ -2324,3 +2324,4 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - Volgorde blijft: 1.2.8 e2e 45469343573 afwachten plus nakeuring Daan, dan w2, dan Hats (taken Sanne).
 - 24 nov ±21:45 NL Olaf: w2 ronde 8 (01d5605, run 45479895052): zijbalk echt omlaag met view2d.scroll_down in 9 stappen (wiel en deltay deden niets, lokaal in 5.3.0 uitgezocht); op 600 px GEZIEN: "Human", stap 3 tot en met Export STL leesbaar. 1.2.8 e2e 45469343573 groen in 4.2, 5.2 en 5.3 (knietoets KLAAR 0 FOUT). Hats kernmoment pas als dit af is (één ding tegelijk).
 - 24 nov ±23:21 NL Olaf: issue 5 deel 1, de val krijgt een klap: witte ster, "+9" in goud omhoog, reeks "x2" tot "x6" met meer muntjes en bonus tot +4 (kern/klap.gd, toets_klap 0 FOUT, lokaal GEZIEN in de demofilm op 120 px).
+- 25 nov 2026 (Sanne): plan 'van virus naar leuk' bovenaan spelgevoel.md (issue #19), Mila op #32 loopbeelden, #6 en #30 op later.
