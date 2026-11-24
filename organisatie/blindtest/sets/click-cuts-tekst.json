@@ -1,0 +1,35 @@
+{
+  "titel": "Click Cuts, winkeltekst ronde 1 (titel, haak en eerste alinea tegen Cleave, Split 3D Print en SnapSplit)",
+  "rol": "You make or download 3D models and print them at home on an FDM or resin printer. You have a model that is too big for your print bed. You are browsing a Blender add-on store and read the title and first lines of each product page. Pick the add-on you would buy first this week.",
+  "ons": [
+    {
+      "naam": "A huidige tekst",
+      "tekst": "Click Cuts: Split Models for 3D Printing to Fit Your Printer Bed, with Pin Connectors\n\nPick your printer, click Split to fit, and Click Cuts cuts your model into parts that fit your bed, with pins, pin holes and part numbers on the cut faces. A small fit test block tells you which clearance fits your printer before you print the big parts. Made for busts, cosplay props, terrain and statues that are too big for one print."
+    },
+    {
+      "naam": "B Pick your printer. Click once.",
+      "tekst": "Click Cuts: Split Models for 3D Printing to Fit Your Printer Bed (One Click, Pin Connectors, Fit Test, Part Numbers)\n\nPick your printer. Click once. Every part fits.\n\nPress Split to fit and Click Cuts plans every cut for you, so each part fits your bed, with pins, pin holes and an engraved part number on every cut face. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. Print the small fit test block first and you know which clearance fits your printer, so pins are not loose or stuck."
+    },
+    {
+      "naam": "C Pins that fit on the first print",
+      "tekst": "Click Cuts: Split Models for 3D Printing to Fit Your Printer Bed (One Click, Pin Connectors, Fit Test, Part Numbers)\n\nToo big for your printer? One click and every part fits.\n\nPick your printer and press Split to fit: Click Cuts plans every cut, adds pins, pin holes and an engraved part number to every cut face, and checks each part for fit, watertightness and wall around the holes, green, orange or red with the reason. Before the big print, a small fit test block with your own pin at four clearances shows which one fits your printer, and Click Cuts remembers it."
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Cleave",
+      "url": "https://superhivemarket.com/products/cleave",
+      "tekst": "Cleave - Smart Model Split & Cut for 3D Printing With Connectors (Pegs, Dowel, Rod Channel, Magnets, Ball Joints)\n\nToo big to print? Split it.\n\nA Blender add-on that splits big STL models along their natural joints, adds connectors that fit, from pegs to ball joints, and checks every piece against your resin or FDM printer."
+    },
+    {
+      "naam": "Split 3D Print",
+      "url": "https://superhivemarket.com/products/split-3dprint",
+      "tekst": "Split-3DPrint\n\nNEW UPDATE · V4: Automatic Tools, Socket, Extract Part & More\n\nPress Automatic Detection and your model splits into its own parts, hair, head, arms, top, shorts, each ready to come off with its connector. Plus a new Socket cut that pulls a detail out as a plug, and three new connector options."
+    },
+    {
+      "naam": "SnapSplit",
+      "url": "https://superhivemarket.com/products/snapsplit",
+      "tekst": "SnapSplit 0.2.1 - Cuts & Custom Connector Builds for 3D Printing\n\nSnapSplit is a Blender add-on for splitting 3D models into printable parts and creating matching connectors and sockets. It is useful for models that exceed your print bed, modular sculptures, props, prototypes, and other projects that need to be assembled after printing."
+    }
+  ]
+}
