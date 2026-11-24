@@ -1,20 +1,19 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795557757
+HOL zaad 1795558059
 HOL plat zonder regel (2 keer gemeld)
-HOL kroniek 4.1 (wacht 0.0): Geert read about you in a tavern.
-HOL begin: vallen (Geert)
-HOL held binnen: Geert
+HOL kroniek 4.0 (wacht 0.0): Rik climbs into your hole.
+HOL begin: vallen (Rik)
+HOL held binnen: Rik
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL zicht 4.2 1
-HOL kroniek 10.0 (wacht 0.0): Wout says this is a quick one.
-HOL begin: vluchten (Wout)
-HOL held binnen: Wout
-HOL meting t=10 beelden=61 helden=2 hol_vast=1
-HOL kroniek zelfde held vervangen: Geert read about you in a tavern.
-HOL kroniek 12.8 (wacht 0.0): Geert found the Spike Pit. Hard. +6
-HOL kroniek 15.4 (wacht 2.6): Page for the Hero. The pit won.
+HOL zicht 4.1 1
+HOL meting t=10 beelden=61 helden=1 hol_vast=1
+HOL kroniek 10.2 (wacht 0.0): Geert has a map. It is wrong.
+HOL begin: vluchten (Geert)
+HOL held binnen: Geert
+HOL kroniek zelfde held vervangen: Rik climbs into your hole.
+HOL kroniek 12.7 (wacht 0.0): Rik will not be leaving. +6
+HOL kroniek 15.3 (wacht 2.6): New page: the Hero. The pit won.
 HOL meting t=20 beelden=128 helden=1 hol_vast=3
-HOL kroniek 23.8 (wacht 0.0): Wout escaped with a limp.
-HOL zicht 23.9 0
-HOL einde na 24 s, fps=10, goud=26, terugkomers=1
+HOL einde na 24 s, fps=10, goud=26, terugkomers=0
+HOL kroniek 24.0 (wacht 0.0): Geert escaped with a limp.
