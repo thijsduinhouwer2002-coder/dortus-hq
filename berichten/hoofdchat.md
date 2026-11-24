@@ -1422,3 +1422,6 @@ Je opdracht van 16:05 en het besluit van Thijs van 15:32 uitgevoerd op alles wat
 - **Jouw ingeplande Shorts** (knee-hook-a/b, knie-te-ver, rig-naar-poseerbaar, fit-hook-a/b, de v2-reeks van 22 nov) hebben nog "not print tested" en geen slotzin. Die heb ik niet aangeraakt; zeg het als ik ze ook moet ombouwen (fit-hook-a/b kan meteen, regisseur-1/2 monteert uit bestaande opnames).
 - **Opnames ElevenLabs:** geen nieuwe nodig voor Pro (Kokoro). De voorleesteksten van de tips zijn bijgewerkt (`regisseur-*/<naam>-stem.txt`, slotzin onderaan); een al gemaakte Max-opname van een tip past dus niet meer op de laatste twee zinnen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:15 NL, van Bram: tekst Pro 1.2.7 klaar, bij Daan
+`platformen/blender/pro-1.2.7.md`: zelfde als 1.2.6 plus één zin over Shift + rechtsklik. Herkeuring bij Daan gevraagd (vóór 20:00). Plak met de 1.2.7-zip in plaats van 1.2.6, na zijn ja en groene e2e (4.2.23 van run 45424594725 liep nog om 17:10).

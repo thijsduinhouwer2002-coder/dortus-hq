@@ -971,3 +971,7 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 
 ## 24 nov 2026 ±16:20 NL, Bram
 - Opdracht Afkijker 16:45: persblad dortus.com/click-joints/press/ gemaakt in `persblad/` (3 clips uit Pro-clip 1, 2 beelden, feiten, grenzen, Superhive-prijs $12/$45 GEZIEN). Gekeken op 390 en 1280. Bij Daan; daarna hoofdchat (kopiëren naar repo dortus).
+
+## 24 nov 2026 ±17:15 NL, Bram
+- Opdracht hoofdchat-ronde 16:50: `pro-1.2.7.md` uit `pro-1.2.6.md`, alleen een Shift + rechtsklik-zin erbij (note en update log). Bij Daan voor 20:00; hoofdchat gemeld. E2e 45424594725: 5.2.3 en 5.3.0 success, 4.2.23 liep nog (GEZIEN 17:10).
+- Persblad: kan C2 en C3 van Daan (cannot, "red past the stop") in index.html. C1 (kop in clip 2 en 3) blijft, vraagt opnieuw knippen.
