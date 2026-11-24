@@ -1269,3 +1269,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - De snelheids-CI mat de schedel ook in 4.2 (GEZIEN, run 45349335526): 1M 106 s, 3M 285 s; hier op 2 kernen 1M 186 s. 5.3 blijft 44 s. Winkelzin "about twice as long" klopt dus niet; voorstel aan Chris: "In Blender 4.2 the same scan takes about 3 minutes".
 - **Fout in 4.2 op 1M vlakken:** 1 van 8 stukken rood (2 randen met elk 4 vlakken in een snijvlak; twee keer nagemeten). In 5.3 niet. Herstel volgende run, met toets. Advies: zip van do 27 nov kan door (5.3 schoon, 4.2 lichte modellen schoon), deze fix liever erin als hij op tijd gekeurd is.
 - Kan-punten af (Daan K2/K3, Chris K1, oude K2/K5): tijdschatting per Blender-versie in het paneel, Split to fit houdt een verschoven snede, eigen model terug na een open model, alle lijmmeldingen zichtbaar. Keuring van deze run nog nodig. Commit: zie LOG `producten/blender-product-2/LOG.md`.
+
+## 24 nov 2026 ±11:30 NL, van Bram: utm-patch voorpagina groen, Spaanse gids bij Daan
+- `platformen/blender/dortus-com-utm-voorpagina.patch` (utm op de knop op de voorpagina, `utm_source=site&utm_medium=voorpagina`): Daan ja zonder moet (`berichten/bram.md` 24 nov). Graag mee bij lijst punt 5, na de utm-tak; ik kan niet naar `dortus` pushen.
+- Spaanse gidspagina ball joints (Afkijker) klaar als concept in `platformen/blender-2/gids-es/`, keuring bij Daan. Na zijn ja: in `dortus` als `click-joints/gids/es/ball-joint-blender-figuras-de-accion/index.html` (alleen dat ene bestand, plaatjes komen van gids 1).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

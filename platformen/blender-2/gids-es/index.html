@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://analytics.amami.dev; connect-src 'self' https://analytics.amami.dev; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Cómo hacer ball joints en Blender para figuras de acción (FDM y resina) · Dortus</title>
+  <meta name="description" content="Paso a paso: corta un ball joint en tu figura en Blender, elige la holgura en mm, revisa el grosor de la pared y mira cuánto se dobla antes de imprimir en 3D." />
+  <meta name="theme-color" content="#13213a" />
+  <link rel="icon" href="/assets/dortus-mark.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="/assets/app-icon.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="canonical" href="https://dortus.com/click-joints/gids/es/ball-joint-blender-figuras-de-accion/" />
+  <link rel="alternate" hreflang="es" href="https://dortus.com/click-joints/gids/es/ball-joint-blender-figuras-de-accion/" />
+  <link rel="alternate" hreflang="en" href="https://dortus.com/click-joints/gids/ball-joint-3d-print-blender/" />
+  <meta property="og:title" content="Cómo hacer ball joints en Blender para figuras de acción" />
+  <meta property="og:description" content="Corta un ball joint, elige la holgura en mm, revisa la pared y mira cuánto se dobla, todo antes de imprimir." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://dortus.com/click-joints/gids/es/ball-joint-blender-figuras-de-accion/" />
+  <meta property="og:site_name" content="Dortus" />
+  <meta property="og:image" content="https://dortus.com/click-joints/gids/ball-joint-3d-print-blender/3-exploded.jpg" />
+  <meta property="og:image:alt" content="Una extremidad en Blender cortada en bola y cavidad, separadas, con un rango de 20 grados dibujado sobre el modelo." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>@media (max-width: 600px) { .panel-crop img { max-width: 260px; height: auto; margin: 0 auto; display: block; } }</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Cómo hacer ball joints en Blender para figuras de acción",
+    "description": "Corta un ball joint en una figura en Blender con una holgura en mm, revisa el grosor de la pared y el rango de giro, y exporta un STL o 3MF por pieza.",
+    "tool": [
+      { "@type": "HowToTool", "name": "Blender 4.2 o más nuevo" },
+      { "@type": "HowToTool", "name": "Click Joints (add-on gratis para Blender)" }
+    ],
+    "step": [
+      { "@type": "HowToStep", "name": "Instala Click Joints", "text": "En Blender: Edit, Preferences, Get Extensions. La primera vez, haz clic en Allow Online Access. Busca joints y haz clic en Install." },
+      { "@type": "HowToStep", "name": "Revisa el modelo", "text": "Selecciona la figura y haz clic en Check mesh en el panel de Click Joints." },
+      { "@type": "HowToStep", "name": "Pon el cursor 3D", "text": "Shift + clic derecho donde va la articulación, por ejemplo el hombro." },
+      { "@type": "HowToStep", "name": "Coloca la articulación", "text": "Elige Ball, deja Diameter en Auto, pon la holgura (0.20 mm por defecto) y haz clic en Place joint." },
+      { "@type": "HowToStep", "name": "Lee el ajuste", "text": "El paso 3 muestra Good fit, Tight o Too thin, la pared en mm, la holgura medida y cuánto se dobla." },
+      { "@type": "HowToStep", "name": "Exporta", "text": "Elige una carpeta, STL o 3MF, y haz clic en Export. Sale un archivo por pieza, en milímetros." }
+    ],
+    "publisher": { "@type": "Organization", "@id": "https://dortus.com/#org", "name": "Dortus", "url": "https://dortus.com/" },
+    "inLanguage": "es"
+  }
+  </script>
+  <script defer src="https://analytics.amami.dev/script.js" data-website-id="15a913ac-0312-4c10-bfbb-8c7c412fcd06"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir al contenido</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>Dortus</a>
+      <nav class="nav" aria-label="Principal">
+        <a href="/click-joints/">Click Joints</a>
+        <a href="/click-joints/gids/ball-joint-3d-print-blender/" hreflang="en" lang="en">English</a>
+        <a class="btn btn-primary" href="https://extensions.blender.org/add-ons/click-joints/">Descarga gratis <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-head guide-head">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Guía &middot; Blender para impresión 3D</p>
+          <h1 style="margin-bottom: 0.9rem">Cómo hacer ball joints en Blender para figuras de acción (FDM y resina)</h1>
+          <p class="lede">
+            Tienes una figura de acción en Blender y quieres que el brazo o la cabeza se muevan después de imprimirla.
+            Para eso necesitas un ball joint: una bola en una pieza, una cavidad en la otra y una pequeña holgura entre las dos.
+            Esta página explica cómo cortarlo, qué holgura usar y cómo revisar la articulación antes de imprimir.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <div class="prose">
+
+          <h3 id="a-mano">Las tres cosas que salen mal</h3>
+          <p>Puedes hacer un ball joint a mano: una UV sphere, un Boolean union en una pieza y una esfera un poco más grande como Boolean difference en la otra. Funciona, pero hay tres problemas que solo ves después de imprimir:</p>
+          <ul>
+            <li><strong>La holgura no es la correcta.</strong> Si es muy pequeña, la bola queda pegada o atascada. Si es muy grande, el brazo cuelga suelto. La holgura depende de la segunda esfera, y es fácil equivocarse por unas décimas.</li>
+            <li><strong>La pared es muy delgada.</strong> La cavidad se come la pieza. Junto a ella queda solo una capa fina, que se rompe cuando metes la bola.</li>
+            <li><strong>No se dobla lo suficiente.</strong> El cuello de la bola choca con el borde de la cavidad a los pocos grados. Te das cuenta cuando la figura no puede levantar el brazo.</li>
+          </ul>
+          <p>Los pasos de abajo usan Click Joints, un add-on gratis para Blender que hacemos en Dortus. Hace el corte y muestra esos tres números sobre el modelo. Si prefieres trabajar a mano, los números de la sección <a href="#numeros">Qué holgura y qué pared usar</a> te sirven igual.</p>
+
+          <h3 id="pasos">Paso a paso</h3>
+          <p>Blender y Click Joints están en inglés, así que los nombres de los botones van en inglés, tal como los verás en pantalla.</p>
+          <ol>
+            <li><strong>Instala Click Joints.</strong> En Blender 4.2 o más nuevo: Edit, Preferences, Get Extensions. La primera vez, haz clic en <em>Allow Online Access</em>. Busca <em>joints</em> y haz clic en Install. También puedes descargarlo de <a href="https://extensions.blender.org/add-ons/click-joints/">Blender Extensions</a>. Luego pulsa N en la vista 3D y abre la pestaña Click Joints.</li>
+            <li><strong>Revisa el modelo.</strong> Selecciona la figura y haz clic en <em>Check mesh</em>. Si el tamaño no está entre 5 y 500 mm, el panel ofrece <em>Convert to mm</em>. Si la malla no está cerrada (watertight), ofrece <em>Make watertight</em>, sobre una copia.</li>
+            <li><strong>Pon el cursor 3D en la articulación.</strong> Shift + clic derecho en el punto donde va la bola, por ejemplo el hombro. Elige si el eje de la articulación sigue la dirección de la vista o el cursor 3D.</li>
+            <li><strong>Coloca la articulación.</strong> En 2 Joint elige <em>Ball</em>. Deja Diameter en <em>Auto</em>: elige la bola más grande que todavía da un buen ajuste en ese punto. Pon la holgura (0.20 mm por defecto) y haz clic en <em>Place joint</em>. El modelo queda cortado en dos piezas cerradas.</li>
+            <li><strong>Lee el ajuste.</strong> En 3 Fit and export el panel dice <em>Good fit</em>, <em>Tight</em> o <em>Too thin</em>, con la pared y la holgura en mm y cuánto se dobla la articulación, por ejemplo <em>Bends &plusmn;20&deg;</em>.</li>
+            <li><strong>Exporta.</strong> Primero elige una carpeta (por ejemplo el escritorio) con el icono de carpeta junto a Folder, para encontrar luego tus archivos. Elige STL o 3MF y haz clic en <em>Export</em>. Sale un archivo por pieza, en milímetros.</li>
+          </ol>
+        </div>
+
+        <figure class="frame" style="margin: 2rem 0 3rem">
+          <span class="frame-media panel-crop">
+            <picture><source media="(max-width: 600px)" srcset="../../ball-joint-3d-print-blender/1-panel-panel.jpg" width="260" height="635" /><img src="../../ball-joint-3d-print-blender/1-panel.jpg" alt="Blender con una figura de prueba seleccionada y el panel de Click Joints abierto en la barra lateral: 1 Place con Check mesh, 2 Joint con Ball, Diameter 5.0 mm en Auto, Clearance 0.20 mm y Place joint, 3 Fit and export dice No joint yet." width="1550" height="920" loading="lazy" /></picture>
+          </span>
+          <figcaption><strong>Antes del corte.</strong> El panel en la barra lateral (pulsa N), pestaña Click Joints. Captura de nuestra prueba automática en Blender 5.3.</figcaption>
+        </figure>
+
+        <figure class="frame" style="margin: 0 0 3rem">
+          <span class="frame-media panel-crop">
+            <picture><source media="(max-width: 600px)" srcset="../../ball-joint-3d-print-blender/2-ball-joint-panel.jpg" width="260" height="635" /><img src="../../ball-joint-3d-print-blender/2-ball-joint.jpg" alt="Una extremidad cortada con un anillo verde en el corte y un rango de 20 grados dibujado sobre el modelo. El panel dice Good fit, Bends más o menos 20 grados, Wall 1.54 mm, Clearance 0.20 mm measured." width="1550" height="920" loading="lazy" /></picture>
+          </span>
+          <figcaption><strong>Después de Place joint.</strong> Verde: buen ajuste. Pared 1.54 mm, holgura 0.20 mm medida, se dobla &plusmn;20&deg;.</figcaption>
+        </figure>
+
+        <figure class="frame" style="margin: 0 0 3rem">
+          <span class="frame-media">
+            <img src="../../ball-joint-3d-print-blender/3-exploded.jpg" alt="Vista separada: la bola con su cuello y la cavidad, separadas a lo largo del eje, con el rango de 20 grados dibujado sobre el modelo." width="1550" height="920" loading="lazy" />
+          </span>
+          <figcaption><strong>Vista separada.</strong> Muestra la bola y la cavidad por separado, solo en la vista 3D. La exportación deja las piezas en su sitio.</figcaption>
+        </figure>
+
+        <div class="prose">
+          <h3 id="numeros">Qué holgura y qué pared usar</h3>
+          <ul>
+            <li><strong>Holgura: empieza con 0.20 mm.</strong> Es el valor por defecto de Click Joints. Entre 0.1 y 0.3 mm es lo normal para FDM y resina; una impresora con menos precisión necesita más. Imprime una articulación de prueba antes de la figura entera, cada impresora es distinta.</li>
+            <li><strong>Pared: apunta a 1.5 mm o más junto a la cavidad.</strong> Click Joints marca una pared de menos de 1.5 mm como <em>Tight</em> y de menos de 0.8 mm como <em>Too thin</em>, y te dice el número.</li>
+            <li><strong>Tamaño de la bola: más o menos el 60% del ancho más estrecho en el corte.</strong> De ahí parte Auto. Luego elige la bola más grande que todavía da un buen ajuste, en pasos de 0.5 mm.</li>
+          </ul>
+          <p>Estos números están medidos en Blender; nosotros todavía no los hemos probado en una impresión. Son un punto de partida, no una promesa de que tu pieza encaje.</p>
+
+          <h3 id="giro">¿Cuánto se dobla?</h3>
+          <p>El giro tiene un límite: el cuello de la bola choca con el borde de la cavidad. Click Joints lo mide en Blender y lo muestra como un transportador sobre el modelo. Arrastra <em>Bend</em> en el panel para inclinar la pieza. Si pasas del límite medido, el punto donde choca se pone en rojo, con los grados que te pasaste.</p>
+        </div>
+
+        <figure class="frame" style="margin: 2rem 0 3rem">
+          <span class="frame-media">
+            <img src="../../ball-joint-3d-print-blender/4-too-far.jpg" alt="El mismo ball joint inclinado más allá de su límite: la parte del transportador después de 20 grados está en rojo, el punto donde el cuello choca con la cavidad está en rojo, y una etiqueta dice más 8 grados past limit." width="1550" height="920" loading="lazy" />
+          </span>
+          <figcaption><strong>Más allá del límite.</strong> Rojo donde choca, y <em>+8&deg; past limit</em>.</figcaption>
+        </figure>
+
+        <div class="prose">
+          <h3 id="otras">Peg joints, swivel y barbell</h3>
+          <p>Además del ball joint, el Click Joints gratis hace un pin (peg joint, en el panel <em>Pin</em>): un perno en una pieza y un agujero en la otra, con la misma holgura en mm. Sirve para un swivel, por ejemplo en la cintura o en el bíceps, donde la pieza solo gira sobre su eje. Click Joints todavía no hace un barbell joint (dos bolas unidas por una barra, como en el cuello o el abdomen de muchas figuras indie).</p>
+
+          <h3 id="pro">Rodillas y codos: una bisagra, no una bola</h3>
+          <p>Un ball joint gira en todas las direcciones. Para una rodilla o un codo normalmente quieres una bisagra que se doble hacia un lado y pare, para que la pierna no se doble hacia atrás. Eso está en Click Joints Pro: una bisagra con tope a 90&deg;, 115&deg; o 135&deg;, y para una figura con esqueleto (rig) un solo botón que coloca una articulación en cada hombro, codo, cadera, rodilla y cuello. Pro cuesta 19 USD, es un pago único y la página de compra está en inglés.</p>
+        </div>
+
+        <div class="cta-row" style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem">
+          <a class="btn btn-primary" href="https://extensions.blender.org/add-ons/click-joints/">Click Joints, gratis en Blender Extensions <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-line" href="https://duinhouwer8.gumroad.com/l/click-joints-pro?utm_source=site&amp;utm_medium=gids-es">Click Joints Pro, 19 $</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-rule">
+      <p class="footer-legal">
+        Click Joints es de <a href="/">Dortus</a>. Blender es una marca registrada de la Blender
+        Foundation. Dortus no está afiliado a la Blender Foundation.
+      </p>
+    </div>
+  </footer>
+
+  <script src="/site.js" defer></script>
+</body>
+</html>

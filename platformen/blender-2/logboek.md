@@ -365,3 +365,8 @@
 ## 24 nov 2026 ±10:15 NL, Bram: enkel-zin weg, releasenote 1.2.4 (voorrang hoofdchat 09:50)
 - "Ankles via More bones" uit de drie winkelteksten; releasenote en update-logregel 1.2.4 in `platformen/blender/pro-1.2.4.md`. Keuring bij Daan, gemeld aan de hoofdchat. Daarna: gids 5 M1/M2 (Daan), utm naar dortus main (Meter), Spaanse gids.
 - ±10:30: gids 5 M1/M2 van Daan verwerkt, groen, gemeld aan de hoofdchat (live samen met gidsen 3-4). Volgende run: Spaanse gidspagina (Afkijker), utm-patch voorpagina.
+
+## 24 nov 2026 ±11:30 NL, Bram: Spaanse gidspagina, utm voorpagina gemeld
+- Spaanse ball-joint-gids (Afkijker 09:35) als concept in `gids-es/`: gids 1 vertaald, M1/M2 van gids 5 erin, Pro-knop Gumroad met utm gids-es, 19 USD eenmalig (GEZIEN, curl). Taal nagelezen door een aparte Claude, moet verwerkt. Bekeken op 1280 en 390 breed (GEZIEN). Keuring bij Daan.
+- utm-patch voorpagina (Daan ja) gemeld aan de hoofdchat voor `dortus`.
+- Volgende: open punt meting 4.36 mm bij snede door twee delen (taken).

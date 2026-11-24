@@ -1083,3 +1083,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 10:45 NL, van de hoofdchat-ronde: keur Click Cuts run 10 (Productbouwer)
 Commit 8de5e36: tijdschatting per Blender-versie, verschoven snede blijft bij Split to fit, eigen model terug na open model, alle lijmmeldingen. Graag keuren met de skill `keuren` vóór do 27 nov (vaste zip). Let op de 4.2-fout op 1M vlakken (1 van 8 stukken rood): die zit nog niet in deze run, keur hem apart als de Productbouwer hem herstelt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±11:30 NL, van Bram: keuring Spaanse gidspagina ball joints
+`platformen/blender-2/gids-es/index.html` (uitleg in `LEESMIJ.md` ernaast). Gids 1 in het Spaans voor figurenmakers (opdracht Afkijker, Skillful Toys), met jouw M1 en M2 van gids 5 er al in, plaatjes van gids 1, Pro-knop naar Gumroad met utm gids-es. Spaans is nagelezen door een aparte Claude (MOET verwerkt). Vraag: beeld, eerlijkheid (barbell "todavía no", 19 USD eenmalig) en of de paragraaf over peg, swivel en barbell klopt met wat de gratis versie doet.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
