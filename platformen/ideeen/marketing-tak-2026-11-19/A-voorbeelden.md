@@ -2083,3 +2083,71 @@ Vijf belangrijkste dingen:
 5. **Goedkoop veel maken geeft geen kopers** (183: 30 artikelen, 2 reacties; 184: "vul geen activiteitsvak").
 
 Voorstel: (a) de hoofdchat laat een agent de titel, de eerste zin en de tags van de Pro-pagina op Superhive en de docs nalopen op de zoekwoorden van kopers (gratis, 181). (b) In de vaste opdracht van de Maker van Roep: "niets plaatsen is goed als er niets is wat een koper dichterbij brengt; zeg waarom" (184). (c) Volgende run: één curl naar Superhive en Addon Radar; op of na vr 27 nov de nulmeting (155) herhalen.
+
+## Ronde 40 (run 24 nov ±05:00 UTC, klok van de container): de titel van Pro op Superhive naast die van de concurrenten, wat Superhive zelf over titels zegt, en makers die via AI-assistenten gevonden worden
+
+### 185. Stand van de Superhive-sale om ±05:00 UTC
+- Superhive: nog steeds geen Cyber- of Black Friday-sale op de voorpagina (GEZIEN, curl). Addon Radar: **527** add-ons in de aanbieding, vijfde run op rij hetzelfde getal (GEZIEN, [addonradar.com/black-friday](https://addonradar.com/black-friday/)).
+
+### 186. De titel van Pro bevat geen enkel zoekwoord; die van de concurrenten wel
+Gelezen met curl op de productpagina's (GEZIEN, 24 nov ±05:00 UTC; titel is wat Google als kop toont):
+
+| Product | Titel (zonder "- Superhive") | Prijs op de pagina | Beoordelingen |
+|---|---|---|---|
+| Click Joints Pro | "Click Joints Pro" | $12,00 | geen |
+| Cleave | "Smart Model Split & Cut for 3D Printing with Connectors (Pegs, Dowel, Rod channel, Magnets, Ball Joints)" | $23,00 | 3 |
+| Pose to Print (meshwright) | "Turn Rigged Characters Into Print-Ready Miniatures and Figures" | $24,00 | geen gezien |
+| CatPin | "CatPin Blender add-on" | $24,00 (lijst $30) | 4 |
+| JointLab | "Articulated Joints & Multi-Part Tools for 3D Printing" | $65,00 | 3 |
+| SPLIT IT ! | "3D Print Splitting & Connectors" | $8,40 (lijst $12) | geen gezien |
+
+- De beschrijving onder de titel (meta description) van Pro is goed ("Rig to printable figure: elbows and knees stop where your rig stops..."), maar 201 tekens; Google toont er ±155 (GEZIEN lengte; afkapping is GOK op basis van de Superhive-gids hieronder).
+- **Zoekproef** met WebSearch (een Amerikaanse zoekmachine, niet per se Google, GOK dat Google vergelijkbaar is): op "blender addon 3d print connectors joints split model" stonden Cleave, Split It, Easy Print, Mesh Split, CatPin, Cutlink en JointLab bovenaan, Pro niet. Op "blender addon rigged character to 3d printable articulated figure ball joints" stond **Pose to Print** bovenaan (4 van de eerste 5 treffers), daarna JointLab; Pro niet. Alleen op de naam "Click Joints" verscheen Pro als eerste (GEZIEN, de drie zoekopdrachten deze run).
+- **Pose to Print is nieuw voor ons als buur van Pro:** ook "rig in, printbaar figuur uit", maar één dicht poppetje met voet en magneet, geen scharnieren. Een koper die "rigged character to print" zoekt, vindt dus eerst dat product, niet ons (GEZIEN, [superhivemarket.com/products/pose-to-print](https://superhivemarket.com/products/pose-to-print)).
+- **Wat Superhive zelf adviseert** (DERDEN): "Use descriptive keywords that match what your customers are searching for ... but keep the title short", en een meta description van 150 tot 160 tekens als "elevator pitch" ([SEO-gids, Wes Burke, 31 aug 2023](https://blendermarket.com/posts/how-to-earn-more-organic-traffic-seo-tips-for-writing-product-pages)). De oudere naamgids zegt: een korte eigen naam plus wat het doet, zoals "Fluent - Stressless Modeling Tool", en geen titel volproppen met zoekwoorden ([naamgids, 16 feb 2021](https://superhivemarket.com/posts/how-to-name-your-product)).
+- Voor ons: dit is voorstel (a) van vorige run, nu concreet. Een titel in de vorm van Fluent, bijvoorbeeld "Click Joints Pro - Rig to Printable Articulated Figure (Hinges & Ball Joints for 3D Printing)", houdt de naam en zet de woorden erin waar kopers op zoeken ("rig", "articulated", "3D printing", "ball joints"). Plus de meta description inkorten tot ±155 tekens met dezelfde woorden vooraan. Kost niets, niemand benaderd. Of het verkoop geeft: GOK, maar AI Hustler (181) zag 79% van zijn kopers via Google komen.
+- Opgemerkt, niet uitgezocht: Pro staat op de Superhive-pagina op $12,00 (GEZIEN), terwijl het bord bij Gumroad $19 noemt. Of dat zo bedoeld is, weet de hoofdchat.
+
+### 187. Queryra: een plugin met 20 installaties die ChatGPT toch aanraadt
+- Een solo-maker van een zoekplugin voor WooCommerce: met ±15 tot 20 installaties werd hij door ChatGPT en Gemini genoemd naast concurrenten met 100.000+. Bezoekers via ChatGPT "komen met een besluit al genomen" en melden zich sneller aan (DERDEN, [dev.to, 28 apr 2026](https://dev.to/gronrafal/my-plugin-has-20-installs-chatgpt-recommends-it-over-competitors-with-100000-lp2)). Hoe hij dat deed, staat er niet in; het stuk eindigt in reclame voor zijn plugin.
+- **Nu, 24 nov:** 200 actieve installaties, 6.781 keer gedownload, 3 beoordelingen, sinds 29 jan 2026 (GEZIEN, publieke API van wordpress.org). Groei dus, maar klein, en omzet onbekend.
+- Kritisch: "ChatGPT raadt mij aan" testte hij zelf; niemand anders heeft het gemeten.
+
+### 188. IDPhotoSnap: 64% van het bezoek via ChatGPT, en een lijst van derden is wat je kandidaat maakt
+- Een gratis pasfoto-tool van één maker: in een week 3.038 bezoeken, waarvan 1.937 van chatgpt.com en 170 van Google (DERDEN, [dev.to, 11 jun 2026](https://dev.to/whitetirocket/chatgpt-sends-my-site-11x-more-traffic-than-google-here-is-what-i-did-2l5i)).
+- Zijn kern: een AI-assistent maakt eerst een lijst kandidaten uit **pagina's van derden** (vergelijkingen, lijstjes, Reddit, nieuws) en controleert die daarna op je eigen site. Je eigen site kan je dus niet op de lijst zetten, alleen bevestigen. **Eén vermelding in een onafhankelijk "beste gratis ..."-lijstje deed meer dan al het andere samen**; dat kostte één eerlijke mail aan één schrijver (DERDEN).
+- Wat niet werkte: een dozijn startup-gidsen (vrijwel 0 bezoek), en **een reeks pull requests naar awesome-lijsten in korte tijd: GitHub markeerde zijn account** (DERDEN).
+- Verder: één controleerbare bewering ("open DevTools en zie dat je foto niet geüpload wordt") wordt door AI vaak geciteerd; een llms.txt met letterlijke vragen en antwoorden (DERDEN, effect niet los gemeten).
+- Voor ons: (1) de vermeldingen die we al hebben (CG Channel-lijst, BlenderNation, 80 Level) zijn precies de pagina's van derden waar een AI zijn lijst uit haalt; die tellen dubbel. (2) Pro heeft een controleerbare bewering: "shows each range in degrees before you print". Die vooraan zetten. (3) **Waarschuwing voor het bord**: de awesome-lijst voor Bison & Flex: één PR, niet een reeks, anders risico op een gemarkeerd GitHub-account (en onze repo staat daar).
+
+### 189. Vijf "AI-marketingagenten" voor kleine app-makers naast elkaar, en lijstjes die door de verkoper zelf geschreven zijn
+- Een maker van één van de vijf (Distribewt) vergeleek op 23 nov de prijspagina's van Distribewt, Spreadcast, Appsurge, Handler en ReelFarm (DERDEN, [dev.to, 23 nov 2026](https://dev.to/areys/best-ai-marketing-agents-for-indie-ios-app-developers-distribewt-vs-spreadcast-vs-appsurge-vs-37eg)). Prijzen van $19 tot $199 per maand (DERDEN, zelfde bron).
+- Wat ze delen: bijna allemaal **een keuring door een mens vóór plaatsen** ("nothing posts without approval"), en controles in code vóór de keuring (aantal dia's, lengte van de haak, verboden oproepen, beweringen tegen de echte feiten van de app). Dat is hetzelfde als onze Keurder van Roep.
+- ReelFarm heeft een MCP-server met 23 tools die wel dia's maakt maar **niet plaatst** (DERDEN). Handler kijkt elke ochtend welke TikToks beter lopen dan normaal voor een account en maakt die na met een AI-maker.
+- Het nuttigste uit het stuk: op de vraag "beste AI-marketingagent voor indie-makers" citeert ChatGPT **het eigen lijstje van Handler, waarin Handler eerst staat**. De schrijver doet hetzelfde (zijn eigen product eerst), maar zegt het er eerlijk bij.
+- Voor ons: geen van deze vijf past (ze zijn voor iOS-apps en kosten geld). Wel bevestigt het 188: wie het lijstje schrijft, staat erin. Een eerlijke vergelijking "Blender add-ons om een figuur in delen te printen" op dortus.com, met Pro erin en de anderen eerlijk beschreven, is zo'n pagina. Grijs: een lijstje van de verkoper zelf; eerlijk melden dat wij Pro maken is dan een must.
+
+### 190. Wye Co, dag 32 tot 35: een trechter in vier stappen, en na 35 dagen nog steeds 0
+- De door AI gerunde studio (184) splitst elke dag: (1) toegang (er is een plek), (2) gesprek (iemand reageert op een probleem), (3) afspraak (werk, prijs, keuring), (4) betaald werk. Een goedgekeurde vermelding is stap 1, een reactie onder een post is "meedoen, nog geen gesprek", en geen van beide gaat in de verkoopkolom (DERDEN, [dag 32, 20 nov](https://dev.to/wyeco_ai/day-32-listed-but-not-hired-362a)). Dag 35: "onderzoek is geen inzending"; nog 0 betaald werk (DERDEN, [dag 35, 23 nov](https://dev.to/wyeco_ai/day-35-research-is-not-a-submission-4fco)).
+- Voor ons: een goede vorm voor het verslag van de Maker van Roep: per run in welke stap iets zit, en alleen stap 4 (een verkoop) telt als geld.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **De titel en de meta description van Pro herschrijven** (186) in de vorm "eigen naam - wat het doet met zoekwoorden", description ±155 tekens. Een agent schrijft het voorstel, een ander keurt, de hoofdchat zet het op Superhive (en Gumroad).
+- **Elke week dezelfde drie zoekproeven** draaien (186) en noteren of Pro in de eerste 10 staat. Gratis meetlat voor de titel.
+- **Vermeldingen van derden verzamelen en bijhouden** (188): CG Channel, BlenderNation, 80 Level, Addon Radar. Dat zijn de bronnen van AI-assistenten.
+- **Niet doen:** een reeks PR's naar awesome-lijsten in korte tijd (188), startup-gidsen (188), een betaalde AI-marketingtool (189).
+
+## Patronen na ronde 40
+126. **Een titel zonder zoekwoorden wordt niet gevonden** (186): alle buren van Pro zetten "3D printing", "joints" of "rigged" in de titel; Pro niet, en Pro kwam in geen enkele algemene zoekproef boven.
+127. **Pagina's van derden maken je kandidaat, je eigen pagina bevestigt alleen** (188, 189): zowel voor Google-lijstjes als voor AI-assistenten.
+128. **Tel alleen de laatste stap** (190): vermelding, reactie en gesprek zijn geen verkoop.
+
+## Stand na run 24 nov ±05:20 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **De titel van Pro op Superhive is alleen "Click Joints Pro"**; Cleave, JointLab, Pose to Print en Split It zetten de zoekwoorden in de titel (GEZIEN). In drie zoekproeven kwam Pro alleen boven op zijn eigen naam (GEZIEN, WebSearch).
+2. **Pose to Print (meshwright, $24) is een nieuwe buur**: "Turn Rigged Characters Into Print-Ready Miniatures and Figures" staat bovenaan op de zoekvraag waar Pro zou moeten staan (GEZIEN).
+3. **Superhive zelf adviseert zoekwoorden in de titel, kort gehouden, en een description van 150 tot 160 tekens** (DERDEN); die van Pro is 201 (GEZIEN).
+4. **AI-assistenten bouwen hun lijst uit pagina's van derden** (188: 64% van het bezoek via ChatGPT); onze vermeldingen bij CG Channel, BlenderNation en 80 Level tellen dus dubbel. Een reeks awesome-PR's kostte die maker een gemarkeerd GitHub-account.
+5. **Nog steeds geen Superhive-sale; Addon Radar vijf runs op rij 527** (GEZIEN). Pro staat op de pagina op $12,00 (GEZIEN), het bord noemt $19 bij Gumroad.
+
+Voorstel: (a) de hoofdchat laat een agent een nieuwe titel en description voor Pro schrijven in de vorm "Click Joints Pro - Rig to Printable Articulated Figure (Hinges & Ball Joints for 3D Printing)", description ±155 tekens met "rig", "articulated" en "3D print" vooraan; keuren en zetten vóór de sale (GOK ±vr 27 nov). (b) De awesome-lijst voor Bison & Flex: één PR, geen reeks (188). (c) Volgende run: dezelfde drie zoekproeven als nulmeting herhalen, één curl naar Superhive en Addon Radar.
