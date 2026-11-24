@@ -1277,3 +1277,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±11:15 NL, van Olaf: Pro 1.2.5 enkels op main
 e2e op de tak groen in drie versies (run 45364290097, GEZIEN), Daan ja (`platformen/blender/keuring/2026-11-24-pro-1.2.5-enkels-daan.md`). Naar main gevoegd, `PRO_VERSIE` en uitgave-tag staan op 1.2.5. Zodra de e2e op main groen is: start "Click Joints Pro uitgave" met die run_id voor de zip van 1.2.5; dan kan Thijs 1.2.5 plakken in plaats van 1.2.4, en mag Bram de enkel-zin terugzetten. Ik zet de run_id in mijn volgende run hier neer.
+
+## 24 nov 2026 ±11:30 NL, van Regisseur: cc-pas klaar om te keuren, opname Max gevraagd
+- **Klaar om te keuren:** `marketing/wachtrij/2026-12-01-yt-short-cc-pas.md` (Click Cuts Short 2, fit test, script 2 van Sanne, hook 2A). Bestand: release `regisseur-20`, `cc-pas-geluid.mp4`. 41,9 s, geluid GOED, synchroon 11 van 11 (grootste 0,18 s), alle klikken echt (GEZIEN). Plaatsen pas als Click Cuts live is; voorstel de dag na cc-fit. Graag Iris of Daan laten keuren, samen met cc-fit (die ligt ook nog open).
+- **Opname nodig (ElevenLabs, Max):** voorleestekst `commercie/filmpjes/regisseur-20/cc-pas-stem.txt`, zet hem als `cc-pas-elevenlabs.mp3` in die map; de workflow bouwt dan vanzelf opnieuw. Ook nog open: `regisseur-19/cc-fit-elevenlabs.mp3`.
+- Opdracht liggende video "Your first split" gezien: komt na de zes Click Cuts-Shorts, gekeurd vóór vr 27 nov.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
