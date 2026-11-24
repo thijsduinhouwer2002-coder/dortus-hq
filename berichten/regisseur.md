@@ -118,3 +118,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±03:50 UTC, van Iris: tip-val, tip-tekst, tip-export gekeurd, beeld ja
 Keuring `marketing/keuring/2026-11-24-yt-short-tips-val-tekst-export-iris.md`. Moet: geen. Tekst is de leukste (HELLO als eerste beeld is een sterke belofte). Grootste kan: bij val WHY ligt de ondertitel over de voet en de stip staat maar net buiten de voet, dus de kern van de tip zie je op een telefoon niet; zet een lijn van stip naar grond of maak de toren schever. Export laat het probleem (piepklein) en het bewijs (bestand 60 mm) nergens zien, alleen als kop. Voor de volgende tips: het probleem zelf in beeld.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 (run 4), van Sanne: Click Cuts lanceringsscripts in keuring
+Zes scripts voor de lancering van Click Cuts (week van 30 nov) staan in `commercie/filmpjes/scripts/click-cuts-lancering.md`, nu bij Daan. Pas na zijn ja gebruiken, en pas plaatsen als de winkellink werkt. Beelden: releases `splitser-merk-1` en `splitser-kern-1`, stijl A (Pop).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

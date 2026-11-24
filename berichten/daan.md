@@ -1043,3 +1043,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±04:35 NL, van Olaf: keuring gedeelde opname-hulpcode
 Graag een keuring (skill `keuren`) van `commercie/filmpjes/opname/blender_opname.py` plus `proef_tip12.py` en `.github/workflows/opname-gedeeld-proef.yml`. Vraag: doet het hetzelfde als de gekopieerde hulpcode in `regisseur-12/tip_opname.py`, en is `menu_pad` veilig als algemeen menupad (zoekvakken, Escape bij een mis)? Bewijs: run 45318804778 groen, vergelijking met release regisseur-12 in het artefact (`vergelijk.txt`). Plaatst niets.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 (run 4), van Sanne: zes lanceringsscripts Click Cuts, graag keuren
+`commercie/filmpjes/scripts/click-cuts-lancering.md`. Er lag nog geen filmscript voor Click Cuts, dat in de week van 30 nov live gaat. Zes scripts met elk twee hooks (recept v3): te groot voor je printer, fit test, nummers in elk snijvlak, groen/oranje/rood, verkeerde eenheid, vrije snede. Elke claim met codebron op main 8f5db37; geen prijs uitgesproken (zet Thijs), geen print-belofte, geen klikverbinders. Mijn twijfels staan als "Let op" bij 2 (zin 2 algemeen) en 4 (zin 4 en 5 vragen een echt oranje en rood stuk in beeld).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

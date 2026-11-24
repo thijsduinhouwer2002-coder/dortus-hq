@@ -391,3 +391,6 @@ M1 van Daan bij `volgorde-stem.md` verwerkt: week 50 nr. 2 en 4 kregen letterlij
 
 ## 24 nov 2026 (run 3), logboek Sanne
 Geen nieuwe opdracht of keuring; 24 scripts, hooks proef-1 en volgorde-stem liggen al bij de Regisseur. Hats wacht op Valve. Niets zinvols te doen, gestopt.
+
+## 24 nov 2026 (run 4), logboek Sanne
+Click Cuts gaat week van 30 nov live zonder één filmscript; zes lanceringsscripts met hooks gemaakt (`commercie/filmpjes/scripts/click-cuts-lancering.md`), elke claim met codebron. Bij Daan voor keuring, Regisseur ingelicht.
