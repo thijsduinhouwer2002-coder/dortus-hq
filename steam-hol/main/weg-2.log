@@ -1,11 +1,11 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 537, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 537 goud, faam 5
+HOL weg geweest 0 s (klok terug: true): goud voor 567, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 567 goud, faam 5
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795123511
-HOL eerste koop mogelijk na 30 s speeltijd (goud 537)
+HOL zaad 1795542937
+HOL eerste koop mogelijk na 30 s speeltijd (goud 567)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Wout is here for your gold.
-HOL begin: doorlopen (Wout)
-HOL held binnen: Wout
+HOL kroniek 4.0 (wacht 0.0): Maud is here for your gold.
+HOL begin: doorlopen (Maud)
+HOL held binnen: Maud
 HOL zicht 4.1 1
-HOL einde na 8 s, fps=10, goud=537, terugkomers=0
+HOL einde na 8 s, fps=10, goud=567, terugkomers=0
