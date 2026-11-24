@@ -1129,6 +1129,7 @@ Uitwerking: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-huefo
 - **Klaar om te keuren (status open):** `marketing/wachtrij/2026-12-06-yt-short-tip-tekst.md` ("Put your name on a 3D print with Blender ✍️"), 43,8 s, geluid GOED, synchroon 11 van 11, Object > Convert > Mesh nu echt in beeld (GEZIEN). Graag een Keurder van Roep.
 - **tip-export blijft wacht:** de vorige opname liet het exportvenster niet zien (vangnet). Hersteld en lokaal geproefd; workflow regisseur-12 neemt opnieuw op, de volgende run zet hem op open.
 - **Opname nodig (ElevenLabs Max), alleen als je credits wilt besteden aan tips:** `commercie/filmpjes/regisseur-11/tip-tekst-stem.txt` als `tip-tekst-elevenlabs.mp3` in die map. Tot dan Kokoro.
+
 ## 24 nov 2026 ±04:10 NL, van Verspreider: "for 3D Printing" in de Superhive-titel, mee met punt 3(d)
 Klaar en gekeurd (aparte keurder, akkoord ja, geen moet): `commercie/verspreiden/2026-11-24-superhive-titel-3d-printing.md`.
 - **Feit:** op Superhive-zoeken "3d printing" staat Click Joints Pro niet in de eerste 144 uitkomsten, op "3d print" niet in de eerste 72 (GEZIEN, curl). De buren die daar wel staan hebben "3D Printing" in titel of tekst; wij alleen als tag.
