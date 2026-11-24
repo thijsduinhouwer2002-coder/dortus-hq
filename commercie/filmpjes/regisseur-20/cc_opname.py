@@ -104,8 +104,16 @@ def stukken():
 
 def voorkeuren():
     for k, ad in bpy.context.preferences.addons.items():
-        if k.endswith("split_joints") and ad.preferences is not None:
+        if ad.preferences is not None and hasattr(ad.preferences, "spelingen_json"):
+            log(f"KORT voorkeuren van {k}")
             return ad.preferences
+    return None
+
+
+def passingproef_mod():
+    for k, m in list(sys.modules.items()):
+        if k.endswith(".passingproef") and hasattr(m, "schrijf_json"):
+            return m
     return None
 
 
@@ -163,13 +171,18 @@ def verloop():
     inst.materiaal = "PLA"
     # eerder bewaard (buiten beeld): PETG op deze printer 0.30 mm, zodat de wissel in zin 9 iets laat terugkomen
     vk = voorkeuren()
-    if vk is None:
+    pm = passingproef_mod()
+    if vk is None and pm is None:
         log("KORT FOUT geen voorkeuren van Click Cuts")
         einde()
         return
-    vk.spelingen_json = json.dumps({"A1MINI|PETG": 0.3})
+    lees = (lambda: vk.spelingen_json) if vk is not None else (lambda: pm.lees_json(bpy.context))
+    if vk is not None:
+        vk.spelingen_json = json.dumps({"A1MINI|PETG": 0.3})
+    else:
+        pm.schrijf_json(bpy.context, json.dumps({"A1MINI|PETG": 0.3}))
     inst.speling_mm = 0.2
-    M["voor_json"] = vk.spelingen_json
+    M["voor_json"] = lees()
     # buiten beeld splitsen (dat liet cc-fit al zien)
     selecteer(ob)
     bpy.ops.split_joints.split_to_fit()
@@ -313,7 +326,7 @@ def verloop():
         bpy.ops.split_joints.passing_kies(waarde=0.25)
         yield 0.4
     M["na_kies_speling"] = round(inst.speling_mm, 3)
-    M["na_kies_json"] = vk.spelingen_json
+    M["na_kies_json"] = lees()
     yield from houd(20)
 
     # Saved for this printer
