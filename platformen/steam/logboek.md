@@ -2316,3 +2316,7 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - Winkelschermbeelden w2: exportknop nu in beeld (1,25x, schaal in een eigen stap), runs 45447006294, 45447530025 (klik miste), 45447954139 goed. Bij Daan.
 - Knie-Tight van de Regisseur (ronde kniebuis): is het bekende geval "bol smaller onder H" uit `scharnier_neus._onderkant`, staat al op de lijst voor versie 2; niet nu, de 1.2.7-zip blijft zo.
 - Hats: nog geen taken van Sanne bovenaan `taken.md`; Hats start na Pro (uiterlijk wo 25 nov).
+
+## 24 nov 2026 ±21:10-21:30 NL, Olaf (run 20:13 UTC)
+- Pro 1.2.8 knie: e2e 45459661428 rood alleen in 4.2.23, op de controle "12 mm hoger" (snijfout van de 4.2-boolean). Lokaal 4.2.23 gedraaid met de zip van main en van de tak (GEZIEN): main faalt daar ook, en geeft op het midden Tight; de tak geeft op het midden een scharnier. Toets aangepast (alleen Blender < 5 mag op 12 mm hoger de melding "the mesh is unchanged"), 5090ac8, nieuwe e2e 45469343573. Daan om nakeuring gevraagd.
+- w2 ronde 7 (M1 "Human", M2 interface 2x): tak `claude/pro-schermbeelden` dfcb55f, run 45469587367.
