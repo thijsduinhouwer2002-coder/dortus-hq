@@ -1,0 +1,10 @@
+# gemaakt: 2026-11-24T22:35:55Z
+# workflow: Blender gewrichten e2e (Click Joints, echte Blender) (.github/workflows/blender-gewrichten-e2e.yml)
+# run: 45493451846 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45493451846
+# commit: 8fcde9eb tak main gestart door push
+# mislukte stappen: geen stap gemarkeerd (zie de run)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (4.2.23) / ? (laatste 1 van 1 regels) =====
+(log niet op te halen: HTTP Error 401: Server failed to authenticate the request. Please refer to the information in the www-authenticate header.)
