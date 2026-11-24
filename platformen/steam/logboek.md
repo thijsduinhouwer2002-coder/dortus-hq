@@ -2237,3 +2237,7 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
   via de hoofdchat (rig.py niet aangeraakt). Lokale herhaling in 4.2.23 te traag op 2 kernen, niet afgewacht.
 - Kan Chris: unittest `PlatformfoutTest.kt` (drie gevallen) op tak `claude/jetbrains-platformfout-test` (1ccdcd4),
   e2e draait daar; keuring gevraagd aan Chris, daarna naar main.
+## 24 nov 2026 ±03:15-03:45 NL, Olaf (run 02:13 UTC)
+- e2e op tak `claude/jetbrains-platformfout-test` rood (45305066655, GEZIEN): zelfde IntelliJ-fout via "Previous Conflict"
+  ("argument is not a child"), de filter ving alleen "node is not a child". Filter verbreed plus vierde unittest (b8a1f9d);
+  nieuwe keuring gevraagd aan Chris. Verder geen open opdrachten voor mij (apt-snel M1 stond er al in).
