@@ -28,6 +28,8 @@ def leesbaar(melding):
     extra = NIEUWER if _oud() else ""
     if "no watertight parts" in laag:
         return f"the cut gave no watertight parts here; place it by hand a few mm along the bone{extra}"
+    if "loose piece" in laag and "pieces)" in laag:  # 1.2.8: weigering van het scharnier zelf (issue 14)
+        return f"the cut left a loose piece here; place it by hand a few mm along the bone{extra}"
     if "the cut failed" in laag:
         return f"Blender could not make this cut (the cut failed); place it by hand a few mm along the bone{extra}"
     if "overlap before they move" in laag:

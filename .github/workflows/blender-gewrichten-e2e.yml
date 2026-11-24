@@ -171,6 +171,16 @@ jobs:
           done
       - name: Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur)
         run: |
+          # Issue 14 (25 nov): in 4.2.23 vraagt de Exact-boolean bij de elleboog van de Rigify-figuur meer dan 4 GB (lokaal
+          # GEZIEN, Malloc returns null). Twee runs eindigden zo met "runner lost communication" en zonder log. Wachter:
+          # minder dan 1500 MB vrij geheugen, dan blender stoppen met een leesbare regel; elke minuut het geheugen in het log.
+          ( while sleep 2; do
+              vrij=$(free -m | awk '/Mem:/{print $7}'); groot=$(ps -o rss=,args= -C blender | sort -n | tail -1 | cut -c1-160)
+              [ $(( $(date +%s) % 60 )) -lt 2 ] && echo "[geheugen] $(date +%T) vrij ${vrij} MB, grootste blender (KB): ${groot}"
+              if [ "$vrij" -lt 1500 ]; then echo "FOUT geheugen: nog ${vrij} MB vrij, blender gestopt: ${groot}"; pkill -9 -x blender; fi
+            done ) >> /tmp/geheugen.log 2>&1 &
+          WACHTER=$!
+          trap 'kill $WACHTER 2>/dev/null; tail -n 80 /tmp/geheugen.log 2>/dev/null' EXIT
           [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
           d=/tmp/cj_figuur
           BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \

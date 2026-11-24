@@ -207,9 +207,20 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             finally:
                 een_lid.reset()
             uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]
-            if all(ok for ok, _ in uitslag):
+            los = los_stuk(deel_a, deel_b, me_bron, u) if all(ok for ok, _ in uitslag) else None
+            if all(ok for ok, _ in uitslag) and los is None:
                 break
             ruim_op(hulp)
+            if los is not None and i == laatste:
+                # 1.2.8 (issue 14, CI 4.2.23 op army_man): de Exact-boolean gaf een gesloten maar half gelukt
+                # scharnier, voet los in deel B en geen eindstop. Nooit zo'n deel afleveren: weigeren met reden.
+                bpy.data.meshes.remove(me_bron)
+                bron["cj_weigering"] = (f"The cut left a loose piece (part A {los[0]}, part B {los[1]} pieces); "
+                                        "the mesh is unchanged")
+                self.report({"WARNING"}, bron["cj_weigering"] + ".")
+                return {"CANCELLED"}
+            if los is not None:
+                continue
             if i == laatste:
                 bpy.data.meshes.remove(me_bron)
                 self.report({"ERROR"}, "The cut gave no watertight parts (bad edges: part A "
@@ -285,6 +296,26 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         extra = f" Cursor on the surface: {bijgesteld}." if bijgesteld else ""  # 1.2.7, cursor_lid.py
         self.report({"WARNING"} if beweeg.geen_stop(voor) else {"INFO"}, f"{melding}{extra} {gegevens['cj_duur_s']} s.")
         return {"FINISHED"}
+
+
+def los_stuk(deel_a, deel_b, me_bron, u):
+    """1.2.8 (issue 14): None als de snede geen los stuk achterliet, anders (stukken A, stukken B).
+
+    Een scharnier op een lid uit één stuk geeft precies twee stukken: A en B. Had de bron al losse onderdelen (een
+    oog, een knoop), dan mag het totaal één hoger zijn dan in de bron. Eerst dezelfde opruimregel als Figure from
+    rig (run 27): dunne kruimels van de boolean tellen niet, een voet of zool wel."""
+    na, nb = zwaai.stukken(deel_a.data), zwaai.stukken(deel_b.data)
+    if na == 1 and nb == 1:
+        return None
+    for d in (deel_a, deel_b):
+        if zwaai.stukken(d.data) > 1:
+            d["cj_snippers"] = d.get("cj_snippers", 0) + snippers.ruim_snippers(d, u)
+    na, nb = zwaai.stukken(deel_a.data), zwaai.stukken(deel_b.data)
+    if na == 1 and nb == 1:
+        return None
+    if na >= 1 and nb >= 1 and na + nb <= zwaai.stukken(me_bron) + 1:
+        return None
+    return (na, nb)
 
 
 def teken_knop(self, context):

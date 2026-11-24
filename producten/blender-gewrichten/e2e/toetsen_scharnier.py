@@ -15,6 +15,7 @@ from mathutils import Matrix, Vector
 import figuren
 import toetsen_flip
 import toetsen_kijk
+import toetsen_los
 import toetsen_neus
 import toetsen_neus_kort
 import toetsen_print
@@ -130,6 +131,7 @@ def toets(stap, eigen):
     toetsen_print.toets(stap, eigen, _cursor)  # eis 5: oplegvlak en overhang bij neus, kuiltje en sleuf
     toetsen_scharnier_uit.toets(stap, eigen, _cursor)  # eis 6: Exploded view, export op de echte plek, te dichtbij
     toetsen_scharnier_pose.toets(stap, eigen, _cursor)  # eis 8: pose alleen weergave, export gelijk
+    toetsen_los.toets(stap, eigen)  # 1.2.8 issue 14: nooit een deel met een los stuk
     toets_tight_blijft(stap, eigen)  # A4: als laatste, want hij ruimt de scène op
 
 
