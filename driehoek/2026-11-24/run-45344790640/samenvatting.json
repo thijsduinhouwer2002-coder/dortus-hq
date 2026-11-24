@@ -1,0 +1,95 @@
+{
+ "begin": "2026-11-24T07:01:42Z",
+ "eind": "2026-11-24T12:26:42Z",
+ "minuten": 325.0,
+ "beurzen": {
+  "bitvavo": {
+   "rondes": 4873,
+   "fouten": 0,
+   "boeken": 0,
+   "driehoeken": 0,
+   "bevestigd": 0,
+   "status": "MiCA",
+   "paren": 434,
+   "driehoeken_bekend": 22,
+   "laatste_fout": null
+  },
+  "kraken": {
+   "rondes": 3898,
+   "fouten": 0,
+   "boeken": 1926,
+   "driehoeken": 0,
+   "bevestigd": 0,
+   "status": "MiCA",
+   "paren": 1353,
+   "driehoeken_bekend": 2352,
+   "laatste_fout": null
+  },
+  "okx": {
+   "rondes": 6478,
+   "fouten": 1,
+   "boeken": 48857,
+   "driehoeken": 2,
+   "bevestigd": 1,
+   "status": "MiCA-dochter",
+   "paren": 1250,
+   "driehoeken_bekend": 2338,
+   "laatste_fout": null
+  },
+  "kucoin": {
+   "rondes": 6497,
+   "fouten": 0,
+   "boeken": 2780,
+   "driehoeken": 0,
+   "bevestigd": 0,
+   "status": "MiCA-dochter",
+   "paren": 969,
+   "driehoeken_bekend": 452,
+   "laatste_fout": null
+  },
+  "gate": {
+   "rondes": 4857,
+   "fouten": 1,
+   "boeken": 708,
+   "driehoeken": 0,
+   "bevestigd": 0,
+   "status": "MiCA-dochter",
+   "paren": 2157,
+   "driehoeken_bekend": 372,
+   "laatste_fout": "2026-11-24T12:17:25Z TimeoutError  The read operation timed out"
+  },
+  "bitget": {
+   "rondes": 6495,
+   "fouten": 0,
+   "boeken": 262,
+   "driehoeken": 0,
+   "bevestigd": 0,
+   "status": "grijs",
+   "paren": 3659,
+   "driehoeken_bekend": 202,
+   "laatste_fout": null
+  },
+  "mexc": {
+   "rondes": 6475,
+   "fouten": 0,
+   "boeken": 39896,
+   "driehoeken": 21,
+   "bevestigd": 1,
+   "status": "grijs",
+   "paren": 1634,
+   "driehoeken_bekend": 868,
+   "laatste_fout": null
+  },
+  "bitstamp": {
+   "rondes": 3899,
+   "fouten": 0,
+   "boeken": 11685,
+   "driehoeken": 2,
+   "bevestigd": 0,
+   "status": "MiCA",
+   "paren": 252,
+   "driehoeken_bekend": 346,
+   "laatste_fout": null
+  }
+ }
+}
