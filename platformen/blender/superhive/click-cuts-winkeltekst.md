@@ -1,6 +1,6 @@
 # Click Cuts: winkeltekst Superhive en Gumroad (CONCEPT)
 
-Chris, di 24 nov 2026 ±14:45 NL. Opdracht hoofdchat 04:25 en 06:25. Status: **CONCEPT, keuring 1 nee (M1), M1 en kan-punten verwerkt, herkeuring M1 gevraagd** (skill `keuren`, door een ander). Plakken doet Thijs bij de uitgave (week van ma 30 nov).
+Chris, di 24 nov 2026 ±14:45 NL. Opdracht hoofdchat 04:25 en 06:25. Status: **CONCEPT, keuring 1 nee (M1), M1 en kan-punten verwerkt, herkeuring akkoord ja (14a3633), K7 verwerkt** (skill `keuren`, door een ander). Plakken doet Thijs bij de uitgave (week van ma 30 nov).
 Alleen wat kandidaat 1.0.0 doet (`producten/blender-splitser/CHANGELOG.md`, `architectuur.md`). Alleen pennen: geen klikverbinders, geen magneten, geen deuvels, geen zwaluwstaart.
 
 ## 1. Titel (85 tekens)
@@ -37,9 +37,9 @@ Wat geen concurrent zo zegt (`producten/blender-splitser/concurrentie.md` punt 1
 Oranje: de bouwer heeft het geel echt oranje gemaakt (commit 36912d5, keuring K1), dus "orange" klopt. Spelling Amerikaans zoals de add-on zelf ("millimeters", "color").
 
 **Korte FAQ (Engels, onderaan de pagina):**
-- *Which connectors?* Pins only in 1.0.0. No dovetails, magnets or snap keys yet.
+- *Which connectors?* Pins only in 1.0.0. No dovetails, magnets or snap keys.
 - *Does it fix broken meshes?* Make watertight makes a closed copy (voxel remesh). Very large or detailed models may need to be cleaned first.
-- *Do parts lie flat for printing?* Not automatically yet. You place them in your slicer.
+- *Do parts lie flat for printing?* Not automatically. You place them in your slicer.
 - *Which Blender?* 4.2 and newer, tested in 4.2 and 5.3.
 
 ## 4. Varianten en prijs (voorstel; de prijs zet Thijs zelf, geld uitgeven is het niet)
@@ -48,7 +48,7 @@ Oranje: de bouwer heeft het geel echt oranje gemaakt (commit 36912d5, keuring K1
 | Standard | **$19 tot en met 14 dec**, daarna $24 | alle functies, 1 persoon |
 | Supporter | $29 | dezelfde functies, steunt de updates |
 
-Onderbouwing: `concurrentie.md` punt 5. Cleave $23 en $28, Split $22 en $28 (GEZIEN 23 nov in `concurrentie.md`), CatPin $24 en $36 (DERDEN, keuring 23 nov). Of hun Supporter-variant precies dezelfde functies heeft, is niet nagekeken (GOK). Wat Supporter de koper geeft, op de pagina: "Same add-on. Pick Supporter if you want to fund faster updates."
+Onderbouwing: `concurrentie.md` punt 5. Cleave $23 en $28, Split $22 en $28 (GEZIEN 23 nov in `concurrentie.md`), CatPin $24 en $36 (DERDEN, keuring 23 nov). Of hun Supporter-variant precies dezelfde functies heeft, is niet nagekeken (GOK). Wat Supporter de koper geeft, op de pagina: "Same add-on. Pick Supporter if you want to support updates."
 
 ## 5. Bundel: "Figure Print Kit: Click Joints Pro + Click Cuts"
 **Prijs voorstel: $34.** Los op Gumroad $19 (Pro) + $24 (Cuts) = $43, dus $9 minder (21%).

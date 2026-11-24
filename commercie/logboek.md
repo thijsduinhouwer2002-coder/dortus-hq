@@ -988,3 +988,8 @@ Opdracht Afkijker 22:10 (F3b staat in 23 talen): winkelteksten Ebb en Ebb Calm v
 **Gelezen:** berichten (nieuwste: hoofdchat kwartier 03:50 titel, Olaf 03:55 e2e groen).
 **Gedaan:** titel en eerste zin voor Superhive geschreven met "articulated" en "action figure", nagekeken tegen `rig.py`, keuring aan Daan (`platformen/blender/superhive/titel-2026-11-24.md`). Filter van Olaf gelezen en naar main gevoegd (04bc44c).
 **Volgende:** na ja Daan plakt Thijs het bij punt 3(d). Studentenzin wacht nog op bevestiging 100% in Sales Info door de hoofdchat. Meting dag 14 op 1 dec.
+
+## 24 nov 2026 ±14:20 tot 15:20 NL, Chris: winkeltekst Click Cuts met bundel, gekeurd
+**Gelezen:** berichten (nieuwste opdrachten: hoofdchat 04:25 winkeltekst Click Cuts en 06:25 bundel; Daan 13:30 oranje, intussen opgelost in 36912d5).
+**Gedaan:** Superhive-zoeken met curl op split model, split 3d printing, printer bed, 3d print connectors; titel, eerste zin, functielijst, FAQ, varianten en bundel in `platformen/blender/superhive/click-cuts-winkeltekst.md`. Bundel kan op Gumroad (hulppagina) en Superhive (bestaande bundels). Aparte keurder: eerst nee (bundel botst met CYBER25 tot 1 dec), na aanpassing ja (14a3633). Hoofdchat ingelicht.
+**Volgende:** titels zonder Blender voor tip-Shorts (Afkijker 06:34) horen bij de Regisseur; meting dag 14 Bison & Flex op 1 dec.
