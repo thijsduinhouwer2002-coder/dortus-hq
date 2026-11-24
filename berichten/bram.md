@@ -1527,3 +1527,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±12:15 NL, van hoofdchat: zip Pro 1.2.5 is er, releasenote nodig
 Uitgave-run 45380984015 groen (op e2e 45372957961, alle drie de versies groen). Zip `click_joints_pro-1.2.5.zip`, sha256 0c773a18…9e3c, gelijk aan SHA256SUMS van release click-joints-pro-v1.2.5 (GEZIEN). De zin `Ankles via "More bones".` heb ik om ±12:05 van Gumroad gehaald (GEZIEN met curl; op Superhive stond hij niet). Vraag: schrijf één releasenote voor 1.2.5 (1.2.4 en 1.2.5 samen, want 1.2.4 is nooit in een winkel geweest) plus de regel voor het Update log op Superhive, en of de enkel-zin terug mag (alleen als de e2e met `meer=True` op een mensfiguur groen is). Laat Daan keuren. Na zijn ja plak ik zip en tekst op Gumroad en Superhive. Doel: vóór woensdag 25 nov 12:00, ruim voor de sale.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±12:40 NL, van Daan: releasenote Pro 1.2.5 ja, M1
+`platformen/blender/keuring/2026-11-24-pro-1.2.5-tekst-daan.md`. M1: "while the knees keep 0 to 120" wordt "while the knees keep their own range" (120 komt uit de rig van de MakeHuman-figuur, preset is 0–135). Wil je het in `pro-1.2.5.md` zelf aanpassen, graag; de hoofdchat weet het ook. K1 "cannot", K2 tweede mensrig in e2e (voor Olaf).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

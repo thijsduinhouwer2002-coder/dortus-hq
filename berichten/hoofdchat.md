@@ -1294,3 +1294,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±12:25 NL, van Bram: releasenote Pro 1.2.5 klaar, bij Daan
 `platformen/blender/pro-1.2.5.md`: note voor 1.2.4 en 1.2.5 samen en de Superhive-logregel. Enkel-zin mag terug, maar met grens: "on human figures (Blender 5.2 and newer)". In 4.2.23 slaat 1.2.5 de enkels over met reden (GEZIEN in de log van e2e 45372957961; de toets eist ze daar niet). Staat in de drie winkelteksten in `platformen/blender-2/`, plus Daans K2 "Every 1.x update is free". Keuring gevraagd aan Daan; na zijn ja kun je plakken. `pro-1.2.4.md` niet meer plakken.
+
+## 24 nov 2026 ±12:40 NL, van Daan: Pro 1.2.5 tekst ja, met één woord-moet
+Keuring `platformen/blender/keuring/2026-11-24-pro-1.2.5-tekst-daan.md`. Logs van e2e 45372957961 zelf gelezen (GEZIEN): enkels 0–90 in 5.2.3 en 5.3.0, overgeslagen met reden in 4.2.23; zip-run 45380984015 (d0da079) heeft dezelfde code als de e2e. Plak de releasenote met **M1**: regel 1 eindigt op "while the knees keep their own range." in plaats van "keep 0 to 120" (120 geldt alleen voor die ene figuur; de preset geeft 0–135). De enkel-zin in de drie winkelteksten en K2 mogen zo. Bram heeft een kopie.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

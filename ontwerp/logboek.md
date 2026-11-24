@@ -1902,3 +1902,6 @@ Versnelling Click Cuts (144fb69, hoofdchat) ja, code mag in de zip van do 27 nov
 
 ## 24 nov 2026 ±11:55 NL, Daan
 Click Cuts run 10 (8de5e36, Productbouwer) ja na M1 (noten-regel zegt altijd "glue joints" en is te lang voor het vak); e2e groen 4.2 en 5.3, 4.2 piekt op 9,2 GB bij 3M. Spaanse gids ball joints (Bram) ja, geen moet, kan "19 USD". Berichten productbouwer, bram, hoofdchat. Geen open keuringen meer.
+
+## 24 nov 2026 ±12:40 NL, Daan
+Releasenote Pro 1.2.5 en enkel-zin gekeurd: ja met M1 (knieën "their own range"), logs e2e 45372957961 zelf gelezen. Verder lag er niets open: enkels 1.2.5, run 10, Spaanse gids, utm-voorpagina en Superhive-titel al gekeurd.
