@@ -1,3 +1,5 @@
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
+
 Does your rig use different bone names?
 This robot's rig uses Mixamo style bone names.
 Click Joints Pro knows the bone names of the common rigs.
@@ -9,5 +11,5 @@ No limit on one side? It takes the limit of the other side.
 Drag Bend on the knee, and it stops at the angle from your rig.
 Past the stop, red shows where parts would hit.
 Exploded view pulls the parts apart.
-Measured in Blender, not print tested by us yet. Print a test joint first.
-Click Joints Pro. Elbows and knees stop where your rig stops.
+Every printer is different. Print a test joint first.
+Click Joints Pro, on Gumroad.

@@ -2,12 +2,12 @@
  "naam": "tip-speling",
  "titel": "Your ball joint gap, measured, not guessed 🔥 | Blender tip",
  "eind": {
-  "titel": "Click Joints",
-  "zin": "Free on Blender Extensions.",
-  "adres": "dortus.com/yt",
+  "titel": "Click Joints Pro",
+  "zin": "Make your 3D prints poseable.",
+  "adres": "on Gumroad",
   "render": "render-label.png"
  },
- "printzin": "Measured in Blender, not print tested by us yet.",
+ "printzin": "Every printer is different: print a test joint first.",
  "venster": "Blender 5.3 with Click Joints",
  "scenes": [
   {
@@ -244,8 +244,8 @@
    }
   },
   {
-   "tekst": "Measured in Blender, not print tested by us yet. Print a test joint first.",
-   "label": "HONEST",
+   "tekst": "Every printer is different. Print a test joint first.",
+   "label": "PRINT FIRST",
    "kleur": "blauw",
    "kop": "Test first",
    "beeld": {
@@ -267,13 +267,14 @@
    }
   },
   {
-   "tekst": "Click Joints. Free on Blender Extensions.",
-   "label": "CLICK JOINTS",
+   "tekst": "Click Joints is free. Want more? Click Joints Pro, on Gumroad.",
+   "label": "CLICK JOINTS PRO",
    "kleur": "groen",
    "kop": "",
    "beeld": {
     "eindkaart": true
-   }
+   },
+   "uitspraak": "Click Joints is free. Want more? Click Joints Pro, on Gumroad."
   }
  ]
 }

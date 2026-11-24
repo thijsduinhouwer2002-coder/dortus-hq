@@ -8,7 +8,7 @@
   "render": "render-cc.png",
   "icoon": "producten/blender-splitser/merk/icoon-512.png"
  },
- "printzin": "Measured in Blender, not print tested by us yet.",
+ "printzin": "Every printer is different: print the fit test first.",
  "venster": "Blender 5.3 with Click Cuts",
  "scenes": [
   {
@@ -245,8 +245,8 @@
    "uitspraak": "Then export every part and the pins as S T L or three M F, in millimeters."
   },
   {
-   "tekst": "Measured in Blender, not print tested by us yet. Print the fit test first.",
-   "label": "HONEST",
+   "tekst": "Every printer is different. Print the fit test first.",
+   "label": "PRINT FIRST",
    "kleur": "oranje",
    "kop": "Fit test first",
    "beeld": {

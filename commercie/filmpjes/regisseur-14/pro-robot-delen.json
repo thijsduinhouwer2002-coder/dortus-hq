@@ -4,10 +4,10 @@
  "eind": {
   "titel": "Click Joints Pro",
   "zin": "Elbows and knees stop where your rig stops.",
-  "adres": "dortus.com/yt",
+  "adres": "on Gumroad",
   "render": "render-3.png"
  },
- "printzin": "Measured in Blender, not print tested by us yet.",
+ "printzin": "Every printer is different: print a test joint first.",
  "venster": "Blender 5.3 with Click Joints Pro",
  "scenes": [
   {
@@ -255,8 +255,8 @@
    }
   },
   {
-   "tekst": "Measured in Blender, not print tested by us yet. Print a test joint first.",
-   "label": "HONEST",
+   "tekst": "Every printer is different. Print a test joint first.",
+   "label": "PRINT FIRST",
    "kleur": "blauw",
    "kop": "Print a test joint first",
    "beeld": {
@@ -268,13 +268,14 @@
    }
   },
   {
-   "tekst": "Click Joints Pro. Elbows and knees stop where your rig stops.",
+   "tekst": "Click Joints Pro, on Gumroad.",
    "label": "CLICK JOINTS PRO",
    "kleur": "groen",
    "kop": "",
    "beeld": {
     "eindkaart": true
-   }
+   },
+   "uitspraak": "Click Joints Pro, on Gumroad."
   }
  ]
 }

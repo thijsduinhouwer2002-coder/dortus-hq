@@ -8,7 +8,7 @@
   "render": "render-cc.png",
   "icoon": "producten/blender-splitser/merk/icoon-512.png"
  },
- "printzin": "Measured in Blender, not print tested by us yet.",
+ "printzin": "Every printer is different: print the fit test first.",
  "venster": "Blender 5.3 with Click Cuts",
  "scenes": [
   {
@@ -200,8 +200,8 @@
    }
   },
   {
-   "tekst": "Measured in Blender, not print tested by us yet. That is why you print this first.",
-   "label": "HONEST",
+   "tekst": "Every printer is different. That is why you print this first.",
+   "label": "PRINT FIRST",
    "kleur": "oranje",
    "kop": "Print this first",
    "beeld": {

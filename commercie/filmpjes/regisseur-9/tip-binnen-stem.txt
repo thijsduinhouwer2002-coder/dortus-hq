@@ -1,6 +1,7 @@
 # tip-binnen: voorleestekst voor de ElevenLabs-stem Max (Regisseur, 23 nov 2026)
 # Lees de zinnen in deze volgorde voor, met een korte pauze ertussen.
 # Zet de opname als tip-binnen-elevenlabs.mp3 in deze map; de workflow regisseur-9 legt hem dan vanzelf in sync (STEM_MP3).
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
 
 Is your three D model secretly inside out? You can check it in two clicks.
 Open the Overlays menu and tick Face Orientation.
@@ -10,5 +11,5 @@ To fix it, press Tab for Edit Mode, then A to select everything.
 Now press Shift N. Blender turns every face to the outside.
 No red left. All ninety six inward faces now point out.
 Do this check before every export to your slicer.
-Measured in Blender, not print tested by us yet. Save this for your next print.
-More Blender tips for three D printing, at dortus dot com slash Y T.
+Every printer is different, so print a small test first. Save this for your next print.
+Make your prints poseable: Click Joints Pro, on Gumroad.

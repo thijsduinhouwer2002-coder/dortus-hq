@@ -1,6 +1,7 @@
 # tip-speling: voorleestekst voor de ElevenLabs-stem Max (Regisseur run 17, 24 nov 2026)
 # Lees de zinnen in deze volgorde voor, met een korte pauze ertussen.
 # Zet de opname als tip-speling-elevenlabs.mp3 in deze map; workflow regisseur-18 legt hem dan vanzelf in sync (STEM_MP3).
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
 
 Is your gap really what you set?
 Set a gap, cut, and check that the real gap matches.
@@ -12,5 +13,5 @@ Next to it you see the wall thickness, so a thin socket shows too.
 Exploded view pulls the ball out of the socket, so you can check it.
 Not sure which gap your printer likes? Print a fit test first.
 The measured gap is in the free Click Joints, for every ball joint.
-Measured in Blender, not print tested by us yet. Print a test joint first.
-Click Joints. Free on Blender Extensions.
+Every printer is different. Print a test joint first.
+Click Joints is free. Want more? Click Joints Pro, on Gumroad.

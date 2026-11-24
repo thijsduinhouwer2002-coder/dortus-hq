@@ -1,6 +1,7 @@
 # tip-voet: voorleestekst voor de ElevenLabs-stem Max (Regisseur, 23 nov 2026)
 # Lees de zinnen in deze volgorde voor, met een korte pauze ertussen.
 # Zet de opname als tip-voet-elevenlabs.mp3 in deze map; de workflow regisseur-8 legt hem dan vanzelf in sync (STEM_MP3).
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
 
 Does the bottom edge of your print bulge out, like a little lip?
 That is elephant foot. The first layer gets squished wider than the rest.
@@ -10,5 +11,5 @@ Open View, Viewpoint, Bottom. Then click the bottom face.
 Press Control B, type zero point five, and press Enter.
 Now the bottom edge has a slope of half a millimeter, all the way around.
 Print guides suggest zero point two to zero point five millimeters. The wider first layer fills that slope.
-Measured in Blender, not print tested by us yet. Save this for your next print.
-More Blender tips for three D printing, at dortus dot com slash Y T.
+Every printer is different, so print a small test first. Save this for your next print.
+Make your prints poseable: Click Joints Pro, on Gumroad.

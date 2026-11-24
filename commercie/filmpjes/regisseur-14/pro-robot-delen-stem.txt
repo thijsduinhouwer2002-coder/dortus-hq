@@ -1,3 +1,5 @@
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
+
 Is your figure still one solid piece?
 This robot has a rig, but it is one solid mesh.
 Select it, and press one button: Figure from rig.
@@ -9,5 +11,5 @@ Past the stop, red shows where parts would hit.
 Exploded view pulls the parts apart.
 Then step three, Fit and export, writes every part as its own file.
 Exporting is in the free Click Joints too. The one-click figure is Pro.
-Measured in Blender, not print tested by us yet. Print a test joint first.
-Click Joints Pro. Elbows and knees stop where your rig stops.
+Every printer is different. Print a test joint first.
+Click Joints Pro, on Gumroad.

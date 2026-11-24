@@ -1,6 +1,7 @@
 # tip-dubbel: voorleestekst voor de ElevenLabs-stem Max (Regisseur run 13, 24 nov 2026)
 # Lees de zinnen in deze volgorde voor, met een korte pauze ertussen.
 # Zet de opname als tip-dubbel-elevenlabs.mp3 in deze map; workflow regisseur-13 legt hem dan vanzelf in sync (STEM_MP3).
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
 
 Is your model secretly in two pieces? Check it in Blender.
 See the soft line in the middle? That is your clue.
@@ -12,5 +13,5 @@ Then press M and pick By Distance.
 Blender removed forty eight points. The seam is closed.
 Press Alt A, then L again. Now the whole vase lights up.
 Do this check on every model you join or import.
-Measured in Blender, not print tested by us yet. Save this before your next export.
-More Blender tips for three D printing, at dortus dot com slash Y T.
+Every printer is different, so print a small test first. Save this before your next export.
+Make your prints poseable: Click Joints Pro, on Gumroad.

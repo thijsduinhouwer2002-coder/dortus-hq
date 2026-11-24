@@ -1,6 +1,7 @@
 # cc-pas (Click Cuts Short 2, fit test): voorleestekst voor de ElevenLabs-stem Max (Regisseur run 19, 24 nov 2026)
 # Lees de zinnen in deze volgorde voor, met een korte pauze ertussen.
 # Zet de opname als cc-pas-elevenlabs.mp3 in deze map; workflow regisseur-20 legt hem dan vanzelf in sync (STEM_MP3).
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
 
 Do your printed pins never fit?
 Every printer and filament prints a hole a little different.
@@ -11,5 +12,5 @@ Each hole has a different clearance, engraved right next to it.
 Print it, try your pin, and click the hole that fits.
 It remembers that clearance for this printer and this filament.
 Switch printer or filament, and the saved clearance comes back by itself.
-Measured in Blender, not print tested by us yet. That is why you print this first.
+Every printer is different. That is why you print this first.
 Click Cuts for Blender. Link in the description.
