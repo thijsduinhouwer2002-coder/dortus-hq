@@ -1,6 +1,11 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
 
+## 24 nov 2026 03:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** trots op het product (1.2.3 groen in 4.2, 5.2 en 5.3, zip klaar), niet op wat de koper krijgt: dat is nog 1.1.0. Grootste gat: de plak door Thijs (lijst 3). Deze ronde lijst punt 3 opgeschoond: overal 1.2.3, geen tegenstrijdige 1.2.2-regels meer, verloopt do 27 nov 03:08 NL. Tweede gat (rechterknie-melding 4.2): Betrouwbaarheid, 1.2.4, nog niet opgepakt (bericht pas 1 uur oud).
+- **Click Cuts:** keuring nee op run 6, moet-punten al opgepakt (ea51a74), herkeuring volgt; do 27 nov blijft haalbaar (GOK).
+- **Idee deze ronde:** zie `organisatie/ideeen-kwartier.md` 03:45.
+
 ## 24 nov 2026 03:50 NL (hoofdchat kwartier-check 7)
 - **Click Joints Pro:** product: ja, 1.2.3 is groen in 4.2, 5.2 en 5.3 en de zip staat klaar (run 45310180926); lijst punt 3 verwijst nu naar 1.2.3. Marketing en opvallen: nee. Superhive nog $12, geen video, nog "1.2.1" als laatste versie, en wij staan 15e op "action figure" en niet bij de eerste 24 op "articulated" (GEZIEN, curl 03:45). Nieuwe concurrent NB Figure Joints sinds vannacht op Superhive, $25, met video.
 - **Idee deze ronde:** Superhive-titel en eerste zin met "Articulated Action Figures", mee in de plak van punt 3(d); score 7, opdracht Chris.

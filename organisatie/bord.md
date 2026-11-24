@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 24 nov 2026, 02:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 op main; e2e 5.2 en 5.3 groen, 4.2 brak af op tijd, nieuwe run 45305001124 (80 min) loopt; daarna uitgave-run (Bram) en zip naar Gumroad en Superhive (lijst 3), doel live vóór do 26 nov. Misleidende rechterknie-melding in 4.2 naar Betrouwbaarheid (1.2.4). Click Cuts: keuring nee, moet-punten in run 6 opgepakt, kandidaat do 27 nov. Roep: geen oranje.
+**Stand: di 24 nov 2026, 03:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 groen in 4.2, 5.2 en 5.3, zip klaar (run 45310180926); Thijs plakt hem op Gumroad en Superhive vóór do 27 nov 03:08 NL (lijst 3, opgeschoond naar 1.2.3). Rechterknie-melding 4.2 wordt 1.2.4 (Betrouwbaarheid). Click Cuts: keuring nee, moet-punten opgepakt, herkeuring volgt, kandidaat do 27 nov. Roep: geen oranje; TikTok Ebb vandaag 18:00.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

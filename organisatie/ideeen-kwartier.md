@@ -1,5 +1,10 @@
 # Ideeën uit de kwartier-check (nieuwste bovenaan)
 
+## 24 nov 2026 03:45 NL, Click Joints Pro (hoofdchat-ronde)
+- **Idee:** de zip van een uitgave niet alleen als GitHub-artefact (verloopt na 3 dagen, Thijs moet inloggen en een zip in een zip uitpakken), maar ook als release-bijlage op GitHub met een vaste link. Dan is lijst punt 3 een klik minder en verloopt er niets vóór de Cyber Sale.
+- **Ideeëntest:** geld binnen weken: indirect, het haalt een drempel weg voor de plak die 1.2.3 bij kopers brengt. Hoeveel: GOK 0 tot 1 extra verkoop, vooral minder kans dat een plak mislukt of verloopt. Let op: de repo is openbaar, dus een release-bijlage maakt de betaalde zip voor iedereen te downloaden. Dat mag niet.
+- **Score:** 2 van 10 (afgeschoten om de openbare repo). Geen opdracht.
+
 ## 24 nov 2026 03:50 NL, Click Joints Pro (kwartier-check 7)
 - **Nieuw sinds vannacht:** **NB Figure Joints** (NunnBreakable) staat sinds ±9 uur op Superhive, $25, Blender 4.2 tot 5.3, met YouTube-video en de woorden "action figures", "toy" en "articulated" in de tekst (GEZIEN, curl https://superhivemarket.com/products/nb-figure-joints 03:40). Tot nu toe zat hij alleen op zijn Patreon. Een directe concurrent, net vóór de Cyber Sale.
 - **Opvallen (GEZIEN, curl Superhive-zoeken 03:45, volgorde in de HTML):** "action figure": Articulator 4, NB Figure Joints 5, Cut Flex 10, wij 15. "articulated": JointLab 1, Cut Flex 19, NB 20, Articulator 22, **wij niet bij de eerste 24**. "joints": wij 8. Onze titel is alleen "Click Joints Pro", de eerste zin "Rig to printable figure"; de woorden waar kopers op zoeken staan alleen in de tags.
