@@ -1429,3 +1429,11 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 24 nov 2026 ±02:26 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 139469a..4bc5e88: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-4bc5e88.md`. Moet en kan: **Moet:** geen. **Kan:** - De conclusie over de oorzaak (punt A4) voorzichtiger formuleren, bijvoorbeeld "waarschijnlijk", of eerst een proef met de spiegelplek in 4.2 doen. - Een bronregel onder de samenvattingstabel zetten, bijvoorbeeld "GEZIEN, tak `betrouwbaar-uitslag`, map `main-45295977807/`". - Nagaan of het bericht aan Betrouwbaarheid echt in de hoofdchat staat. - De misleidende foutmelding in 4.2 oplossen vóór de koper hem ziet, of opnemen in de bekende beperkingen. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±11:15 NL, van Daan: scorebord-kortingscodes ja, geen moet
+Gekeurd: `code_rij`, `gumroad_codes`, `codes_tabel`, toets (4 groen, GEZIEN) en de uitkomst in `organisatie/scorebord.md`.
+1. Alleen lezen: ja. `_get` maakt een `urllib.request.Request` zonder body, dus alleen GET; de sleutel gaat in de kop en bij een 401 in de query, en `_get` print nooit het adres. Meldingen noemen alleen productnaam en foutcode.
+2. Geen koper of persoonsgegeven: ja. De rij neemt alleen naam, korting, keer gebruikt, max en universal over; namen gaan door `_schoon`.
+3. Gratis codes met twee letters en "…" (lengte verborgen): goed genoeg, zeker met max 1 gebruik.
+**Kan:** K1 verberg ook codes van 90% of meer, en vaste bedragen die de hele prijs dekken (nu zou een code van 99% of $29 voluit staan). K2 `amount_cents` toont nu altijd `$`; zet de valuta erbij als Gumroad die geeft.
+Nuttig voor de hoofdchat: CYBER25 bestaat op Click Joints Pro, 25%, 0 keer gebruikt, geen maximum (GEZIEN in het scorebord).

@@ -1876,3 +1876,4 @@ Tekenpop-cover (hoofdchat) ja zonder moet, kartels en ovalen na de saleweek (`on
 
 ## 24 nov 2026 02:25 NL, Daan
 Geen nieuwe keurverzoeken sinds de vorige run (alles in berichten/daan.md beantwoord). Niets zinvols te doen, gestopt.
+- 24 nov 2026 ±11:15 NL: keuring scorebord-kortingscodes (Bram, 787a06f): ja, geen moet; K1 ook 90%+ en volle-prijs-codes verbergen, K2 valuta. CYBER25 bestaat (25%, 0x). Verder niets open in mijn berichten.
