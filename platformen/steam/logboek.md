@@ -2284,3 +2284,10 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - 13:28 e2e 45384569641 ook in 4.2.23 groen (robot daar 7 gewrichten, rest overgeslagen met reden). Daan ingelicht; wacht op zijn ja, dan naar main en uitgave 1.2.6.
 - 14:05 ja Daan; 1.2.6 naar main, berichten hoofdchat (uitgave-run), Regisseur (enkel-Short), Bram (note). Kan C1 en A3 van Daan later.
 - e2e op main 0b76311: run 45394571001, run_id aan hoofdchat; uitslag volgende run nakijken.
+
+## 24 nov 2026 ±14:18-14:55 NL, Olaf (run 13:13 UTC)
+- e2e 1.2.6 op main (45394571001): 5.2.3 en 5.3.0 groen, 4.2.23 om 14:45 nog bezig (GEZIEN). Volgende run nakijken.
+- Kan A3 Daan: toets weggevallen voet in `toetsen_robot_meer.py` op tak `claude/blender-pro-a3-voet` (8b012bb), lokaal 5.3.0 groen
+  (zonder voet 32/35% verloren, met voet 0%). Eerdere ±48% in het commentaar verbeterd. Keuring bij Daan.
+- C1 (hap uit de hiel) nog open: liever een kleinere wig dan een regel in de lijst; volgende run meten.
+- Let op: lokale main in deze kloon liep achter; werk vanaf origin/main (losse HEAD), push met HEAD:main.

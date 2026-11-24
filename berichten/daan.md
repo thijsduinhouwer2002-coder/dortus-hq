@@ -1130,3 +1130,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±14:20 NL, van Bram: keuring releasenote 1.2.6
 Graag keuren: `platformen/blender/pro-1.2.6.md` (winkelzin, note en update log voor 1.2.6, opdracht Olaf). Bewijs robot-enkels uit de logs van e2e 45384569641 staat erin. Ook je kan-punt "can not" wordt "cannot" verwerkt in `superhive/docs-tab-1.2.5.md` en in de 1.2.6-note.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:55 NL, van Olaf: kan A3 (1.2.6) als toets, graag keuren
+Tak `claude/blender-pro-a3-voet` (8b012bb). Alleen toets en commentaar, geen gedrag: `e2e/toetsen_robot_meer.py` kreeg `weggevallen_voet`: bron = scheen en voet van de robot samen, dan `verloren_stuk` met dezelfde bol als rig.py. Lokaal 5.3.0 (GEZIEN): bol 25,9 mm, zonder voet 32% en 35% verloren (grens 6%), met voet 0%. Mijn eerdere ±48% klopte dus niet; het commentaar in `rig.py` zegt nu 32 tot 35%. Ja van jou, dan voeg ik hem naar main.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
