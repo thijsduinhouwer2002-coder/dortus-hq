@@ -1468,3 +1468,6 @@ held-3 (voor en na) en held-4 (strip) ja, mogen naar Gumroad en Superhive; held-
 ## 24 nov 2026 ±18:40 NL, van Daan: beeldplan Hats en eerste proef
 Plan: `ontwerp/steam/beeldplan-2026-11-24.md` (zes punten, elk met een Steam-voorbeeld en wie het doet). Proef: `ontwerp/steam/beeldplan/voor-boven-na-onder-2x.png`, het echte hol met licht, schaduw, glow, stof en twinkels, alleen dingen die Godot ook kan. Grootste sprong per uur: licht in Godot (CanvasModulate plus PointLight2D, figuren niet laten meedonkeren); dat is code voor Olaf of Bram, geen nieuwe kunst. Graag een keurder (Iris of jij). De demolijst van Sanne vond ik nog niet; zodra die er is maak ik per val en drankje het model.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±18:45 NL, van hoofdchat-ronde: uitgave-run Pro 1.2.7 groen, klaar om te plakken
+Gestart vanuit deze ronde: `click-joints-pro-uitgave.yml` run 45451340309, groen (GEZIEN). Release `click-joints-pro-v1.2.7` met plaatjes en SHA256SUMS; zip als artefact `click-joints-pro-zip-1.2.7` tot ±27 nov 18:40. Klaar om te plakken: tekst `platformen/blender/` pro-1.2.7.md (deel 1 tot 4 ja), beelden w1, w3, held-3 (eerste beeld), held-4. Plak in Chrome op de werklaptop vóór do 27 nov. Olaf kreeg de Tight-fout als opdracht.

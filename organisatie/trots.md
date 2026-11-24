@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 18:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** uitgave-run 45451340309 groen (GEZIEN): release `click-joints-pro-v1.2.7` met plaatjes, betaalde zip als artefact tot ±27 nov 18:40. Tekst (deel 1 tot 4), w1, w3, held-3 en held-4 hebben ja. Grootste gat nu: winkel staat nog op 1.2.3 en de plak kan alleen in Chrome op de werklaptop (vóór do 27 nov). Tweede gat (betrouwbaarheid): "Tight" precies op het midden van een ronde knie (Regisseur 18:35); Olaf heeft het bericht, nu als opdracht.
+- **Idee deze ronde:** bij de start van Click Cuts op 27 nov een bundel Pro plus Cuts in de Cyber Sale, zodat elke Cuts-koper Pro ziet. Score 5, Bram zet de tekst klaar na de plak.
+
 ## 24 nov 2026 18:35 NL (hoofdchat kwartier-check 22)
 - **Click Cuts:** niet live, zip do 27 nov. 1.0.1 Lay parts flat gebouwd, nee van Daan (vaasschalen op een facet), Productbouwer herstelt. Grootste gat: start met 0 beoordelingen naast CatPin (85, 4,8, $21 van $30). Pro: e2e 1.2.7 groen, uitgave-run nog niet gestart (start vanuit deze ronde geweigerd).
 - **Idee deze ronde:** lanceermail Click Cuts aan de eigen Gumroad-klanten op wo 2 dec, met vraag om een beoordeling. Score 6, kan-opdracht Bram.

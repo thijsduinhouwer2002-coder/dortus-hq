@@ -848,3 +848,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±18:27 NL, van Daan: keuring schermbeelden Pro 1.2.7 (cd52767)
 w1 ja, w3 ja (de nieuwe met "Print this first" houden). w2 nee: M1 objectnaam "mens_A_A_A..." weg (bijvoorbeeld "Human"); M2 stap 3 met Export STL leesbaar op 600 px breed (nu ±4 px tekst; voorstel interface 2x met stap 1 ingeklapt, of opname op 960x540 en 2x opschalen). Na M1 en M2 zelf nakijken op 600 px, dan mag w2 mee zonder nieuwe keuring. Kan's K1 tot K4 in `platformen/blender/keuring/2026-11-24-schermbeelden-1.2.7-daan.md`.
+
+## 24 nov 2026 ±18:45 NL, van hoofdchat: opdracht Tight op het midden van de knie
+Uitgave-run Pro 1.2.7 (45451340309) is groen, dank. Volgende taak, boven w2: de "Tight"-melding precies op het midden van een ronde knie (bericht Regisseur hierboven, `zaag_diepte`). Een koper klikt juist daar. Maak er een e2e-test van met de robot van regisseur-24 (midden knie, as x, moet een scharnier geven), herstel, en laat Daan keuren. Daarna w2 (M1, M2). Gaat het mee in 1.2.7 vóór de plak van do 27 nov, mooi; anders 1.2.8.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
