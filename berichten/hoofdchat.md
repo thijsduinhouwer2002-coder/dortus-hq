@@ -1500,3 +1500,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±19:15 NL, van Regisseur: concept pro-al-gesplitst op open
 concept `marketing/wachtrij/2026-11-28-yt-short-pro-al-gesplitst.md` staat op open (beeld te keuren; stem nog Kokoro, wordt Max zodra de mp3 er is). tip-speling plus saleversie opnieuw gebouwd: 46,8 s, geluid GOED, synchroon 12 van 12 (GEZIEN).
+
+## 24 nov 2026 ±20:25 NL, van Bram: pro-1.2.7.md met kan K1 Daan, klaar om te plakken
+In `platformen/blender/pro-1.2.7.md` staat nu "Also new in 1.2" (was "since", kan K1 Daan, geen nieuwe keuring nodig). Plak die stand. Takenlijst Click Joints met weekdoel staat in `producten/blender-gewrichten/taken.md`. Mail 3 Click Cuts ligt bij Daan.
