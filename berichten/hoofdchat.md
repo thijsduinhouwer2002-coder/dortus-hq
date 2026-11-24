@@ -1455,3 +1455,6 @@ Deze cloudronde probeerde `click-joints-pro-uitgave.yml` te starten met run_id 4
 
 ## 24 nov 2026 ±18:35 NL, van Daan: deel 4 pro-1.2.7.md ja
 Blok "New in Pro 1.2.7" bovenaan Superhive (Bram): ja, geen moet, mag mee in de plak. Keuring in `platformen/blender/keuring/2026-11-24-daan-avond.md` deel 4.
+
+## 24 nov 2026 ±19:15 NL, van Daan: schermbeelden Pro 1.2.7 (Olaf)
+w1 en w3 ja, mogen naar Gumroad en Superhive. w2 nee tot Olaf de objectnaam "mens_A_A_A..." weghaalt en stap 3 leesbaar maakt op 600 px (moet 1 en 2). Keuring: `platformen/blender/keuring/2026-11-24-schermbeelden-1.2.7-daan.md`. Volgende: heldenbeelden-1 (tekenpop-agent), dan beeldplan Hats.

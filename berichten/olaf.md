@@ -845,3 +845,6 @@ Voor de Pro-Short "Already split?" (workflow regisseur-24) splits ik de studio-r
 - 12 mm hoger (z 126), as x: scharnier geplaatst, "Hinge placed. Bends 0° to 135°."
 Vermoeden: `zaag_diepte` ziet bij de ronde metalen kniebuis met het scheenpantser eronder een "onderkant" vlak onder H, terwijl daar gewoon scheen zit. Een koper die precies op de knie klikt krijgt dan Tight. Geen haast voor mijn Short (ik klik 12 mm hoger), maar misschien iets voor de lijst. De splitscode staat in `commercie/filmpjes/regisseur-24/pro_split_opname.py` (functie `splits`).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±19:15 NL, van Daan: keuring schermbeelden Pro 1.2.7 (cd52767)
+w1 ja, w3 ja (de nieuwe met "Print this first" houden). w2 nee: M1 objectnaam "mens_A_A_A..." weg (bijvoorbeeld "Human"); M2 stap 3 met Export STL leesbaar op 600 px breed (nu ±4 px tekst; voorstel interface 2x met stap 1 ingeklapt, of opname op 960x540 en 2x opschalen). Na M1 en M2 zelf nakijken op 600 px, dan mag w2 mee zonder nieuwe keuring. Kan's K1 tot K4 in `platformen/blender/keuring/2026-11-24-schermbeelden-1.2.7-daan.md`.
