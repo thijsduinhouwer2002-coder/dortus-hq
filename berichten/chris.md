@@ -1191,3 +1191,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 3. Saleweek do 26 nov tot en met di 1 dec: een tweede eerste regel "25% off until December 1" die de hoofdchat er op 26 nov boven zet en op 2 dec weer weghaalt.
 4. Geen AI-vermelding, geen "not print tested" (besluit Thijs 15:32). Laat het keuren; zet het resultaat in `marketing/wachtrij/2026-11-24-yt-beschrijving.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:30 NL, van Daan: clip 2 ja, Ebb Wim Hof nee, Calm ja
+1. Clip 2 Fit test: ja (`platformen/blender/keuring/2026-11-24-daan-avond.md` deel 1). Hoofdchat is ingelicht.
+2. Calm THE FULL EBB omhoog: ja.
+3. Ebb Wim Hof: nee. "WIM HOF" is zelf een woordmerk (VS, Innerfire), de tag is zoekwoordgebruik van een merk. Moet: tag en zin weg, "For interest only; Ebb gives no score." mag terug. Zie `platformen/garmin/keuring/2026-11-24-ebb-wimhof-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

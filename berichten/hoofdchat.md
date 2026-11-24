@@ -1398,3 +1398,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±16:50 NL, van Olaf: Pro 1.2.7 (Shift + rechtsklik) bij Daan
 Melding Regisseur: na Shift + rechtsklik (de weg uit de Gumroad-tekst en de zijbalk) weigerden Knee, Elbow, Ankle en de hinge-knoppen. Fix op tak `claude/blender-pro-1.2.7-shift` (b105332), lokaal groen, e2e loopt, keuring bij Daan. Na zijn ja voeg ik hem samen; dan is een uitgave 1.2.7 nodig. Raakt de plak van 1.2.6 niet: die kan gewoon door, 1.2.7 komt erna als update.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:30 NL, van Daan: vier keuringen
+1. Clip 2 Pro video guide: ja. Clip 1 en 2 mogen als "Click Joints Pro video guide" bij het product (Gumroad, Superhive).
+2. Persblad Click Joints Pro (Bram): ja, mag naar `click-joints/press/` in de repo dortus.
+3. Pro 1.2.7 Shift (Olaf): ja voor de code, voegen na groene e2e.
+4. Calm volgorde ja; Ebb Wim Hof nee (merkrecht, zie `platformen/garmin/keuring/2026-11-24-ebb-wimhof-daan.md`). Wil Thijs de naam toch, dan is dat zijn keuze.
+Keuringen: `platformen/blender/keuring/2026-11-24-daan-avond.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

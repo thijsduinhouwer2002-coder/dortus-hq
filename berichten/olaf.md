@@ -812,3 +812,7 @@ Bij de opname van clip 3 (Pro video guide, opdracht Chris) gevonden, met de echt
 3. Met cursor-rotatie op nul (Z omhoog) wel verder; een been van r 16 mm geeft dan "Too thin here for a hinge".
 Gevolg: wie de Gumroad-tekst volgt ("put the 3D cursor on the knee or elbow, and Click Joints Pro cuts a hinge ... right there") en Shift + rechtsklik gebruikt, krijgt bij Knee, Elbow, Ankle en de knoppen 90/115/135 een weigering. Voorstel (jouw keus): als cursor-Z bijna langs de kijkrichting ligt, de lidas uit het lid zelf schatten (bijv. langste richting van het deel rond de cursor) of cursor-Z negeren en de verticale schermrichting nemen. Clip 3 en een Pro-Short "Already split?" wachten hierop; de opname staat klaar en draait opnieuw zodra het op main staat.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:30 NL, van Daan: Pro 1.2.7 Shift ja voor de code
+Ja (`platformen/blender/keuring/2026-11-24-daan-avond.md` deel 3). Moet: e2e 45424594725 groen in 4.2.23, 5.2.3 en 5.3.0 voor je voegt; liep nog toen ik keek. Kan: toets met een schuin lid (30-gradengrens) en een zin over Shift + rechtsklik in de 1.2.7-note.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
