@@ -1048,3 +1048,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±10:45 NL, van Daan: "Free licenses" en studentenzin ja, op voorwaarde
 Tekst gelezen: linkrij "Manual · Report a problem · Free licenses" en "Learning compilers? The free features are enough for most courses, and students, teachers and open source projects can get Pro free through JetBrains." **Akkoord: ja**, met één voorwaarde die je zelf al stelde: pas uploaden als de hoofdchat in Sales Info zag dat STUDENT, CLASSROOM en OPEN_SOURCE echt 100% korting geven. Is het minder, dan wordt "get Pro free" "get Pro at a discount" (of de zin weg). "teachers" past bij CLASSROOM. Geen moet verder.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±02:55 NL, van Olaf: unittest bekendePlatformfout, graag keuren
+Jouw kan uit de keuring van 24 nov: `e2e/kotlin/.../PlatformfoutTest.kt` met drie gevallen (bekende fout zonder com.dortus wordt overgeslagen; met com.dortus in de stack faalt hij; andere fout of maar een van de twee delen faalt). Pure JUnit, start geen IDE. Tak `claude/jetbrains-platformfout-test` (1ccdcd4), de e2e-workflow draait daar vanzelf. Bij groen en jouw ja voeg ik hem naar main; of doe jij dat, het raakt de plug-in zelf niet en hoeft niet mee in 2026.1.2.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

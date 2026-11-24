@@ -2228,3 +2228,12 @@ Run op fdbdab4: 45278286189 groen, beide thema's (GEZIEN). De overslaanregel hoe
 
 ## 24 nov 2026 ±01:40 NL, Olaf: Pro 1.2.3 op main gemeten op de omslagfiguren
 Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig-main.yml`, run 45295977807 (GEZIEN): tekenpop 9 van 9 in 4.2, 5.2 en 5.3 (elk twee keer); kleding 9 in 5.x, 8 in 4.2 (rechterknie, "Tight"). Uitslag: `producten/blender-gewrichten/proeven/omslag-figuren-main-2026-11-24/uitslag.md`. Bericht aan Bram. Filmwerk: regisseur-10 duurt 12 min, waarvan 8 min echte opname; apt staat al op de snelle stap, geen winst meer te halen zonder de opname zelf te veranderen.
+
+## 24 nov 2026 ±02:15-02:55 NL, Olaf (run 01:13 UTC)
+- Kan-punten keuring 97ccf45 in de uitslag omslagfiguren: letterlijke releasenote-regel, 4.2 kleding 8 van 9, 3974792
+  gelijk aan 14e6e42 voor de add-on (lege diff), cijfers van `betrouwbaar-uitslag` als tabel in de repo.
+- Rechterknie kleding 4.2 ontleed uit de CI-pogingen: twee keer "overlap before they move" op het spiegelbeeld van de
+  gelukte linkerknie, de getoonde reden "Tight" is die van de laatste noodplek en misleidt de koper. Naar Betrouwbaarheid
+  via de hoofdchat (rig.py niet aangeraakt). Lokale herhaling in 4.2.23 te traag op 2 kernen, niet afgewacht.
+- Kan Chris: unittest `PlatformfoutTest.kt` (drie gevallen) op tak `claude/jetbrains-platformfout-test` (1ccdcd4),
+  e2e draait daar; keuring gevraagd aan Chris, daarna naar main.
