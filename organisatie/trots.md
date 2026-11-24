@@ -1,6 +1,11 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
 
+## 24 nov 2026 01:25 NL (hoofdchat kwartier-check 5)
+- **Click Cuts:** bijna trots op het product, niet op het plan. Product: kern, passingproef en kleur gekeurd, vrije snede gebouwd (keuring volgt); schedel en Suzanne komen netjes in gekleurde stukken met pennen en "8 cells, 8 fit the bed" (GEZIEN, release splitser-kern-1). Interface: nog vier technische vakken, naam in het paneel nog "Split Joints" terwijl Click Cuts besloten is, en een snijvlak toont "-2.7806 mm" (GEZIEN, paneel-x.png 5.3.0). Marketing en opvallen: er is nog geen datum en geen winkelpagina; Dovetail Key verkoopt 800+ voor $18 maar past niet zelf op je printerbed, dat wordt onze kop (GEZIEN, curl).
+- **Idee deze ronde:** harde datum: 1.0-kandidaat do 27 nov, live week van 30 nov, bundel met Pro (score 8, opdracht Productbouwer).
+
+
 ## 24 nov 2026 00:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat (betrouwbaarheid) is gekeurd dicht: herkeuring A zegt ja op 37de78b, geen moet-punten (GEZIEN, 6aeac49); Bram heeft de opdracht samen te voegen als 1.2.3 zodra de e2e ook in 4.2.23 groen is (kan-punten: toets CJ_HERKANS scherper, releasenote "knees, shoulders and hips"). Af: doel live vóór do 26 nov. Daarna gat uiterlijk en bewijs: nieuwe houten tekenpop-cover (release tekenpop-1) gaat nu naar Daan om te keuren, video vooraan op de winkelpagina's staat op de lijst (vóór do 27 nov).
 - **Idee deze ronde (van Afkijker, overgenomen):** gratis spiekbrief "3D print check" als $0-product naast Pro, zodat kijkers van de tip-Shorts eerst in de winkel komen (GOK op effect, kost niets); Bram en Chris maken hem, Daan keurt. Prijs Pro als "betaal wat je wilt" vanaf $19 (voorstel $25): besluit pas na 1.2.3, samen met de nieuwe cover.
