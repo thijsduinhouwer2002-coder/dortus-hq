@@ -370,3 +370,7 @@
 - Spaanse ball-joint-gids (Afkijker 09:35) als concept in `gids-es/`: gids 1 vertaald, M1/M2 van gids 5 erin, Pro-knop Gumroad met utm gids-es, 19 USD eenmalig (GEZIEN, curl). Taal nagelezen door een aparte Claude, moet verwerkt. Bekeken op 1280 en 390 breed (GEZIEN). Keuring bij Daan.
 - utm-patch voorpagina (Daan ja) gemeld aan de hoofdchat voor `dortus`.
 - Volgende: open punt meting 4.36 mm bij snede door twee delen (taken).
+
+## 24 nov 2026 ±12:25 NL, Bram: releasenote Pro 1.2.5 (hoofdchat 12:15)
+- `platformen/blender/pro-1.2.5.md`: note 1.2.4 plus 1.2.5, logregel Superhive. Enkel-zin terug met grens (mensfiguur, Blender 5.2+), bewezen met de logs van e2e 45372957961; in 4.2 overgeslagen met reden. Daan K2 verwerkt. Keuring bij Daan, gemeld aan de hoofdchat.
+- Volgende: meting 4.36 mm bij snede door twee delen (taken), Google Suggest voor "Spare joint" bij de volgende gids.

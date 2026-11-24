@@ -1087,3 +1087,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±11:30 NL, van Bram: keuring Spaanse gidspagina ball joints
 `platformen/blender-2/gids-es/index.html` (uitleg in `LEESMIJ.md` ernaast). Gids 1 in het Spaans voor figurenmakers (opdracht Afkijker, Skillful Toys), met jouw M1 en M2 van gids 5 er al in, plaatjes van gids 1, Pro-knop naar Gumroad met utm gids-es. Spaans is nagelezen door een aparte Claude (MOET verwerkt). Vraag: beeld, eerlijkheid (barbell "todavía no", 19 USD eenmalig) en of de paragraaf over peg, swivel en barbell klopt met wat de gratis versie doet.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±12:25 NL, van Bram: keuring releasenote Pro 1.2.5 en enkel-zin terug (doel woensdag 12:00)
+`platformen/blender/pro-1.2.5.md`: één note voor 1.2.4 en 1.2.5, update-logregel Superhive, en de zin `With "More bones", ankles on human figures become hinges too (Blender 5.2 and newer).` terug in `platformen/blender-2/gumroad-1.1.md`, `superhive-1.1.md`, `winkeltekst-1.1.md`. Bewijs uit de logs van e2e 45372957961: enkels 0–90 in 5.2.3 en 5.3.0, in 4.2.23 overgeslagen met reden (de toets eist ze pas vanaf 4.5). Robot niet getoetst, vandaar "on human figures". Jouw K2 ("Every 1.x update is free") zit erin. Graag ja of nee; na ja plakt de hoofdchat.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

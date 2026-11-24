@@ -47,7 +47,7 @@ Already split your model into printable parts with another tool? Keep those part
 You can. A sphere, a boolean and some offset get you a joint. What you only find out after the print is that the knee bends backwards, the wall next to the socket is 0.4 mm thin, or the ball is stuck. Click Joints shows all three before you print: an end stop on every hinge, the wall and clearance as a number, and the range in degrees.
 
 **What you get**
-- Figure from rig. One button reads your armature. Elbows and knees become hinges with an end stop, shoulders, hips and neck become ball joints.
+- Figure from rig. One button reads your armature. Elbows and knees become hinges with an end stop, shoulders, hips and neck become ball joints. With "More bones", ankles on human figures become hinges too (Blender 5.2 and newer).
 - The end stop comes from your rig. If a bone has a Limit Rotation constraint, the hinge stops at that angle (30° to 150°). No limit on one side? It takes the other side (mirrored). No limit at all: a preset per body part.
 - Every range in one view. A small degree arc at each joint with its number, and a list in the panel: name, type, range and where the range came from (from rig, mirror or preset).
 - Honest when it can not. A joint that does not fit is skipped, and the list tells you why and what to try.
@@ -62,7 +62,7 @@ You can. A sphere, a boolean and some offset get you a joint. What you only find
 - Tested in Blender 4.2, 5.2 and 5.3 on a MakeHuman figure, a Rigify metarig and three AI-made figures. Not print tested by us yet: print a test joint first, every printer is different.
 - Clearance 0.2 mm by default.
 - The free Click Joints (Blender Extensions) and Pro can not be enabled at the same time. Disable the free one first; your settings stay in the .blend file.
-- Already bought Pro? 1.1 is a free update: download it from your Orders page on Superhive, or update it inside Blender if you added Superhive as a repository.
+- Already bought Pro? Every 1.x update is free: download it from your Orders page on Superhive, or update it inside Blender if you added Superhive as a repository.
 - Includes 12 months of updates. Every version you download is yours to keep. After a year you can extend updates for 25% of the price; it is never required.
 - Support: the "Contact the creator" link on this page (your Superhive inbox), https://github.com/thijsduinhouwer2002-coder/click-joints/issues or thijs@dortus.com
 

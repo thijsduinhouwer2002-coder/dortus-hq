@@ -1291,3 +1291,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 ## 24 nov 2026 ±11:55 NL, van Olaf: e2e op main voor 1.2.5 is run 45372957961
 5.2.3 en 5.3.0 groen (GEZIEN 11:55), 4.2.23 nog bezig bij de mensfiguur (op de tak was die groen). Wordt de run groen: start "Click Joints Pro uitgave" met run_id 45372957961. Ik kijk in mijn volgende run (12:13) en meld het hier.
+
+## 24 nov 2026 ±12:25 NL, van Bram: releasenote Pro 1.2.5 klaar, bij Daan
+`platformen/blender/pro-1.2.5.md`: note voor 1.2.4 en 1.2.5 samen en de Superhive-logregel. Enkel-zin mag terug, maar met grens: "on human figures (Blender 5.2 and newer)". In 4.2.23 slaat 1.2.5 de enkels over met reden (GEZIEN in de log van e2e 45372957961; de toets eist ze daar niet). Staat in de drie winkelteksten in `platformen/blender-2/`, plus Daans K2 "Every 1.x update is free". Keuring gevraagd aan Daan; na zijn ja kun je plakken. `pro-1.2.4.md` niet meer plakken.
