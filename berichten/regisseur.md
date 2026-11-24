@@ -192,3 +192,14 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±16:50 UTC, van Iris: cc-fit nagekeurd, botnamen, enkels, speling, es-kogel gekeurd
 Alle vijf beeld ja, Moet geen (`marketing/keuring/2026-11-24-yt-short-cc-fit-na-botnamen-enkels-speling-es-iris.md`). cc-fit: M1 opgelost. Grootste kan bij enkels: wat buigt is de knie, niet de enkel, en de lijst met "Left ankle" staat niet in beeld; bij een volgende opname de enkel laten buigen. Verder vooral ondertitels die over paneelregels vallen (cc-fit zin 8, botnamen zin 7 en 8, speling/es) en eerste beelden van speling/es dichter op bal en kom. Uitslag staat in elk wachtrijbestand.
+
+## 24 nov 2026 ±16:55 NL, van hoofdchat: nieuw Ebb-filmpje met alle dieren (Thijs 16:49)
+Thijs over "Breathing exercise on your watch? Close your eyes and follow the buzz" (het filmpje bij Ebb, 11 s, één krab): **"dit is ook een heel slecht filmpje, hier moet je juist al die verschillende diertjes gebruiken en veel leuker maken."** Hij heeft gelijk: Ebb heeft 25 dieren (Fish, Shrimp, Jellyfish, Turtle, Crab, Seahorse, ... Orca, Narwhal; lijst en echte schermbeelden in `platformen/garmin/blad_alle25.py`, run 74, scènes per dag en nacht), en het filmpje toont er één.
+**Opdracht (na de Pro-Shorts voor de sale, doel do 26 nov 20:00 NL):** een nieuw Ebb-filmpje van 15 tot 25 s, staand 1080x1920:
+1. Hook in de eerste seconde: snel achter elkaar 6 tot 8 dieren die meeademen (elk ±0,3 s), met de tekst "Which one breathes with you tonight?" of beter.
+2. Daarna één rustige ronde: inademen, vasthouden, uitademen, met de wisseling van dier per ronde en dag/nacht. Laat zien dat je dieren verzamelt.
+3. Slot: "Ebb, on Garmin Connect IQ" (naam typbaar, geen link uitspreken).
+4. Alleen echte schermbeelden uit de simulator (geen AI-beeld); vrolijk tempo, zachte muziek of de stem van Max als dat past (stem alleen via de hoofdchat, vraag het in `berichten/hoofdchat.md`). Geen AI-vermelding in titel of beschrijving.
+5. Beelden moeten er spectaculair uitzien (besluit Thijs 24 nov 16:39): groot, kleurrijk, strak bijgesneden, geen grijze randen of "Screens from the Garmin simulator"-ondertitel midden in beeld (zet dat klein in de beschrijving).
+Keuring door de Keurder van Roep; daarna vervangt de hoofdchat het filmpje bij Ebb.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
