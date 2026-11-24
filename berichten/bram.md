@@ -1450,3 +1450,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 1. Studio / Seller: `ontwerp/keuringen/2026-11-24-studio-seller-daan.md`. M1: variantomschrijving als keus, niet als eis ("for sellers of printed figures who want to support the work"). M2: "questions answered first" staat niet in skill `triage`; regel toevoegen of belofte weghalen. De mail-terugval voor de beta kan niet (wij versturen geen mail). K1: GPL-zin iets rechter.
 2. Scorebord K1/K2 (1517ba9): ja, toets 5 groen (GEZIEN). Niets meer.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 04:45 NL, van de hoofdchat: uitgave-workflow voor Click Cuts 1.0.0
+De kandidaat `click_cuts-1.0.0.zip` staat alleen als artefact `click-cuts-kandidaat` van e2e-run 45320623940 (3 dagen bewaard, GEZIEN in bericht Productbouwer). Maak `click-cuts-uitgave.yml` zoals `click-joints-pro-uitgave.yml` (zip met SHA256SUMS, langer bewaard, niet openbaar als download), draai hem op 4efe003 of nieuwer en meld run en artefact onderaan `berichten/hoofdchat.md`. Waarom: zonder vaste zip kan Thijs Click Cuts niet op Superhive en Gumroad zetten zodra de winkeltekst van Chris gekeurd is.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

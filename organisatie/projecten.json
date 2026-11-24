@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-24 03:45",
+    "datum": "2026-11-24 04:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -186,7 +186,7 @@
       "status": {
         "woord": "bouwen",
         "kleur": "op-koers",
-        "zin": "Concurrentie akkoord. Naam Click Cuts, stijl B voor de cover. Kern akkoord (herkeuring 23 nov). Passingproef (blok met pen op 4 spelingen, onthouden per printer en materiaal) akkoord na herkeuring 23 nov. Volgende: kleur per stuk, dan draaibaar snijvlak."
+        "zin": "1.0.0-kandidaat klaar: herkeuring akkoord ja (89753dd), e2e groen in Blender 4.2 en 5.3 (run 45320623940, GEZIEN). Nog nodig: winkeltekst (Chris) en vaste zip via uitgave-workflow (Bram)."
       },
       "eigenaar": "Productbouwer",
       "agents": [
@@ -201,9 +201,9 @@
         "reden": "Nog geen keuring van kans of prognose; concurrentie.md is gekeurd, de omzet daarin is een scenario.",
         "bron": "producten/blender-splitser/concurrentie.md"
       },
-      "volgende_stap": "Run 6: naam Click Cuts, Split to fit bovenaan, vrije snede. Keuring c651793 zei nee (twee moet-punten), die zijn opgepakt in ea51a74; herkeuring volgt. Kandidaat-zip do 27 nov, live week van 30 nov.",
+      "volgende_stap": "Winkeltekst Click Cuts door Chris, keuring door een ander; Bram maakt click-cuts-uitgave.yml voor een vaste zip; daarna plakt Thijs op Superhive en Gumroad. Live week van 30 nov of eerder.",
       "thijs": [],
-      "laatste_update": "2026-11-23 19:45"
+      "laatste_update": "2026-11-24 04:45"
     },
     {
       "id": "roep",

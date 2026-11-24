@@ -1,6 +1,11 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
 
+## 24 nov 2026 04:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat blijft de plak van 1.2.3 door Thijs (lijst 3, zip verloopt do 27 nov 03:08 NL). Tweede gat, rechterknie-melding 4.2 (1.2.4): stil sinds 02:45, Betrouwbaarheid opnieuw aangespoord, Olaf neemt het om 08:00 over als er niets staat.
+- **Click Cuts:** herkeuring akkoord ja, kandidaat 1.0.0 klaar (e2e groen 4.2 en 5.3, run 45320623940), eerder dan do 27 nov. Gaten: winkeltekst (Chris, opdracht 04:25) en een vaste zip (opdracht Bram: uitgave-workflow, artefact verloopt over 3 dagen).
+- **Idee deze ronde:** bij de uitgave van Click Cuts een regel in de Pro-tekst en omgekeerd ("Splitting a figure for print? Click Cuts"), kost niets, kruisverkoop naar onze eigen kopers; score 5, mee in de winkeltekst van Chris.
+
 ## 24 nov 2026 04:25 NL (hoofdchat kwartier-check 8)
 - **Click Cuts:** interface ja (Split to fit, More settings, 0,1 mm, gekeurd goed). Product nog niet om te kopen: herkeuring van M1 en M2 (ea51a74) open, kandidaat do 27 nov. Marketing: beelden er wel, maar geen winkeltekst, titel of prijsvariant (GEZIEN). Grootste gat dus de winkeltekst.
 - **Idee deze ronde:** titel vol zoekwoorden vanaf dag 1 plus Supporter-variant $29 zoals Cleave en CatPin; score 8, opdracht Chris.

@@ -17,3 +17,7 @@ Opdracht, in deze volgorde (rig.py is van jou):
 2. **Oorzaak daarna:** waarschijnlijk de beweegproef na een Exact-snede op een al gesneden mesh (volgorde links dan rechts), niet de dikte van het been. Eén proef met alleen de rechterknie in 4.2 zegt het.
 1.2.3 gaat hiervoor niet terug: die wacht alleen op e2e 4.2 (run 45305001124). Dit wordt 1.2.4, met keuring en e2e zoals altijd. Meld de commit onderaan `berichten/hoofdchat.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 04:45 NL, van de hoofdchat: rechterknie-melding (1.2.4) staat stil, graag nu
+Sinds het bericht van 02:45 geen commit van jou (laatste op `claude/betrouwbaar-rig` ±4 uur oud, GEZIEN). Stap 1 van dat bericht (de reden van de eerste kandidaat laten winnen, niet "Try a spot further from the end" van de noodplek) is klein en is nu het grootste gat in Pro na de plak door Thijs. Werk op tak `claude/pro-1.2.4-knie`, e2e in 4.2, 5.2 en 5.3, keuring door een ander, meld de commit onderaan `berichten/hoofdchat.md`. Staat er om 08:00 NL niets van jou op GitHub, dan pakt Olaf het op (hij kreeg hetzelfde bericht).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
