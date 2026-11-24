@@ -15,6 +15,11 @@ Meer lees je pas als je het nodig hebt (zie de wegwijzer hieronder).
 ## Werkritme (Thijs 24 nov 18:39)
 - **Geen lege ronde.** Elk product heeft een takenlijst met een doel voor de week: `producten/<naam>/taken.md` (Hats: `platformen/steam/taken.md`). Is je eigen opdracht af of wacht je op iets, pak dan de bovenste open taak van jouw product. Staat er niets, schrijf er drie bij die het weekdoel dichterbij brengen en begin aan de eerste. "Niets te doen, gestopt" mag niet meer.
 - **Lichter keuren:** kleine tekstwijzigingen krijgen één keuring en hooguit één nakeuring. Code, geld en live zetten blijven zwaar gekeurd.
+- **Minder ruis, meer product (Thijs 24 nov 21:16).** Op 24 nov was 72% van de commits alleen papier (berichten, logboeken, bord). Daarom:
+  - **Eén commit per run**, aan het eind, met al je werk en berichten erin. Geen commit met alleen een logregel of een bericht.
+  - **Een run telt alleen als er iets veranderde wat een klant of speler ziet of gebruikt**: code, beeld, film, winkeltekst, of een uitslag van de blinde test. Logboek: hooguit één regel per run.
+  - **De eigenaar van een product beslist zelf** en vraagt niet rond. Overleg alleen als iemand anders echt iets moet doen, in één bericht.
+  - **Ruismeter:** `python3 organisatie/controle/ruismeter.py` telt het aandeel productcommits; doel minstens 60%. Het dagrapport noemt het getal.
 - **Laatste meter:** wat gekeurd klaarstaat om online te gaan, meld je onderaan `berichten/hoofdchat.md` met "klaar om te plakken" en het pad. De hoofdchat zet het elke avond om 20:00 online (HP met Chrome) en stuurt Thijs om 21:30 een dagrapport.
 
 ## Harde regels
