@@ -16,7 +16,7 @@ from . import printers
 from .gesloten import foute_randen, volume
 from .verbind_3d import as_vec, segment_afstand
 
-KLEUREN = {"groen": (0.0, 0.84, 0.59, 1.0), "oranje": (1.0, 0.92, 0.0, 1.0), "rood": (1.0, 0.30, 0.30, 1.0)}
+KLEUREN = {"groen": (0.0, 0.84, 0.59, 1.0), "oranje": (1.0, 0.55, 0.0, 1.0), "rood": (1.0, 0.30, 0.30, 1.0)}
 NAMEN = {"groen": "green", "oranje": "orange", "rood": "red"}
 ROOD_WAND_MM = 0.8
 

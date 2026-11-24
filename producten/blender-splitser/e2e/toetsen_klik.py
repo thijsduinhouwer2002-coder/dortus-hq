@@ -6,7 +6,9 @@ Measured on the meshes, not on what the add-on says:
   per piece) and the same pins as Plan cuts plus Split by hand; the result line says "3 parts, all fit the bed";
 - a second click with a piece active splits the same model again (no double pieces);
 - another printer (A1, 256 mm) gives the count of a plan for that printer;
-- a second model, selected, is split instead of the first one (keuring 24 nov, M1);
+- a second model, selected, is split instead of the first one (keuring 24 nov, M1), and the first one is
+  visible again (K5);
+- the line "Cuts changed" shows only after a cut moved, and is gone after Split (K6);
 - an open Suzanne (not watertight) gets a watertight copy first, then all pieces are watertight and fit;
 - a model in mm in a meter scene is refused at once with a line that says what to do;
 - sj_plek_mm reads and writes the cut position in mm (mm scene and meter scene)."""
@@ -104,6 +106,19 @@ def alles(uitmap=None):
          f"{r} bron {s.split_joints.bron} {len(stukken())} plan {n_plan}")
     stap("klik: tweede model, eerste doos blijft bestaan", bpy.data.objects.get("Box") is not None and
          max(maat(o)[0] for o in stukken()) <= 252.0, f"{xs}")
+    doos = bpy.data.objects.get("Box")
+    stap("klik: tweede model, eerste doos weer zichtbaar (K5)", doos is not None and doos.visible_get() and
+         not bpy.data.objects["Second"].visible_get(), f"Box {doos.visible_get() if doos else None}")
+
+    # the hint "Cuts changed" only after a moved cut (K6), gone again after Split
+    sn = next(m for n, m in sys.modules.items() if n.endswith("click_cuts.snedes"))
+    stap("klik: na de klik geen regel 'Cuts changed' (K6)", not sn.verschoven(s), s.get("sj_snedes_bij_split"))
+    snede = sn.snede_objecten(s)[0]
+    snede.sj_plek_mm = snede.sj_plek_mm + 5.0
+    stap("klik: snede verschoven geeft de regel (K6)", sn.verschoven(s), s.get("sj_snedes_bij_split"))
+    modellen.actief(bpy.data.objects["Second"])
+    r = bpy.ops.split_joints.split()
+    stap("klik: na Split weer geen regel (K6)", r == {"FINISHED"} and not sn.verschoven(s), f"{r}")
 
     # open model: watertight copy first
     s = modellen.mm_scene()

@@ -47,7 +47,7 @@ def toets(naam):
     voor = {o.name: tuple(o.color) for o in lijst}
 
     inst.kleur = "CHECK"
-    from_status = {"groen": (0.0, 0.84, 0.59), "oranje": (1.0, 0.92, 0.0), "rood": (1.0, 0.30, 0.30)}
+    from_status = {"groen": (0.0, 0.84, 0.59), "oranje": (1.0, 0.55, 0.0), "rood": (1.0, 0.30, 0.30)}
     goed = all(gelijk(o.color, from_status[o["sj_status"]]) and o.data.materials[0].name in ("Click Cuts green", "Click Cuts orange", "Click Cuts red")
                for o in lijst)
     stap(f"{naam} kleur: Check geeft groen, oranje of rood per status", goed,

@@ -2,6 +2,7 @@
 
 A cut is a flat object in the collection "Click Cuts cut planes" with sj_as (0, 1, 2). Its position along
 that axis (location) is the cut; the other axes are locked, so dragging it only slides the cut."""
+import json
 import bpy
 import numpy as np
 from mathutils import Vector
@@ -57,6 +58,19 @@ def lees(scene):
     """All cuts as (axis, position mm)."""
     u = eenheid_per_mm(scene)
     return [(int(o["sj_as"]), o.location[int(o["sj_as"])] / u) for o in snede_objecten(scene)]
+
+
+def handtekening(scene):
+    """The cuts as a sorted list of [axis, position mm rounded to 0.01], to see later if a cut moved."""
+    return sorted([a, round(p, 2)] for a, p in lees(scene))
+
+
+def verschoven(scene):
+    """True when a cut was moved, added or removed after the last Split (keuring K6: only then the hint)."""
+    oud = scene.get("sj_snedes_bij_split")
+    if not oud or not snede_objecten(scene):
+        return False
+    return oud != json.dumps(handtekening(scene))
 
 
 def maak_snede(scene, as_, pos_mm, lo, hi):
