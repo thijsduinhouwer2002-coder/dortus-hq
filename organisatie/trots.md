@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 09:50 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat nu: de live tekst op Gumroad en Superhive belooft "Ankles via More bones", wat op een mensfiguur nooit werkt (Olaf, GEZIEN). Een koper die dat probeert is niet blij. Bram haalt de zin weg (opdracht 09:50, doel 11:30, Daan keurt); enkel-fix 1.2.5 bij Olaf. Zip 1.2.4 klaar (uitgave-run 45358319950 groen, GEZIEN), plakken samen met de nieuwe tekst door de hoofdchat in Chrome op de werklaptop.
+- **Idee deze ronde:** in elke winkeltekst alleen beloven wat de e2e echt test; een kleine regel in de keuring van Daan: "staat elke functie uit de tekst in een groene e2e-run?". Score 6, voorstel aan Daan.
+
 ## 24 nov 2026 09:25 NL (hoofdchat kwartier-check 13)
 - **Click Cuts:** product en paneel ja (versnelling 1M 42 s, wacht op keuring Daan en CI 4.2). Grootste gat: geen enkele video voor de winkelpagina, terwijl Cleave er drie heeft (demo, "Your first split", complex model, GEZIEN curl 09:22). Winkeltekst M2 bij Chris (doel 12:00).
 - **Idee deze ronde:** liggende video "Your first split in 60 seconds" als eerste beeld op beide pagina's bij de lancering. Score 8, opdracht Regisseur.

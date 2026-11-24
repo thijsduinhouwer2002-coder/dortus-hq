@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 24 nov 2026, 08:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Gumroad heeft Pro 1.2.3; Superhive nog 1.1.0, wacht op Chrome op de HP (lijst 3). Pro 1.2.4 (rechterknie) op main, Daan ja; e2e op main loopt, daarna zip (Olaf). Click Cuts: snelheid gemeten (1M 42 s), keuring versnelling bij Daan; winkeltekst M2 bij Chris (aangespoord, doel 12:00). Wegwijzer-fout (triage-skill) hersteld. Roep: geen oranje; TikTok Ebb vandaag 18:00.
+**Stand: di 24 nov 2026, 09:50 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 staat op Gumroad én Superhive (09:25, met Lite). Zip 1.2.4 klaar (uitgave-run 45358319950 groen, door hoofdchat gestart); plakken samen met nieuwe tekst zonder de onware enkel-zin (Bram, doel 11:30), door hoofdchat in Chrome. Enkel-fix 1.2.5 bij Olaf. Click Cuts: versnelling ja van Daan; winkeltekst M2 bij Chris. Roep: geen oranje; TikTok Ebb vandaag 18:00.
 
 **Verkopen Pro (Meter, di 24 nov 08:45 NL):** 1 in totaal ($19, 22 nov, herkomst direct), 0 vandaag (GEZIEN, Gumroad /v2/sales). Stand: `organisatie/meten/stand.md`.
 

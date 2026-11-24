@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-24 08:45",
+    "datum": "2026-11-24 09:50",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -97,7 +97,7 @@
       "status": {
         "woord": "live",
         "kleur": "op-koers",
-        "zin": "Versie 1.1.0 live op Gumroad ($19/$24/$59) en Superhive ($12/$45); 1 verkoop $19 op 22 nov (GEZIEN scorebord). Pro 1.2.3 (betrouwbare Figure from rig) staat op main sinds 24 nov 01:10; e2e 5.2.3 en 5.3.0 groen, 4.2.23 loopt. Tekenpop-cover en gratis spiekbrief kregen ja van Daan (24 nov)."
+        "zin": "Pro 1.2.3 live op Gumroad en Superhive (24 nov ±09:25, met Lite-variant); 1 verkoop $19 op 22 nov (GEZIEN scorebord). Zip 1.2.4 (rechterknie in 4.2) klaar: uitgave-run 45358319950 groen (GEZIEN 09:45). Live tekst belooft nog enkels via More bones, wat niet werkt (Olaf, GEZIEN); Bram haalt die zin weg."
       },
       "eigenaar": "Bram",
       "agents": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "Pro 1.2.3 (betrouwbaarder Figure from rig) staat op main, e2e groen in 4.2, 5.2 en 5.3, zip klaar (uitgave-run 45310180926, GEZIEN). Thijs zet de 1.2.3-zip op Gumroad en Superhive vóór do 27 nov 03:08 NL (lijst 3). Daarna 1.2.4: misleidende melding rechterknie in 4.2 (Betrouwbaarheid).",
+      "volgende_stap": "1.2.4-zip (artefact click-joints-pro-zip-1.2.4, run 45358319950) plus tekst zonder enkel-zin plakken op Gumroad en Superhive vóór do 27 nov, door de hoofdchat in Chrome op de werklaptop. Enkel-fix 1.2.5 bij Olaf (tak claude/blender-pro-enkels).",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -130,14 +130,10 @@
         {
           "doen": "BlenderArtists: account aanmaken en ja op de gekeurde tekst (lijst-thijs punt 5), plaatsen op of na 27 nov.",
           "voor": "2026-11-27"
-        },
-        {
-          "doen": "Superhive: variant Lite $3 aanzetten met de gekeurde tekst (lijst 3c).",
-          "voor": "2026-11-27"
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-24 01:45",
+      "laatste_update": "2026-11-24 09:50",
       "links": [
         {
           "naam": "Winkelpagina",
