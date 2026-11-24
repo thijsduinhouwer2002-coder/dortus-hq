@@ -2,6 +2,7 @@
 # Lees de zinnen in deze volgorde voor, met een korte pauze ertussen.
 # Zet de opname als tip-export-elevenlabs.mp3 in deze map; de workflow regisseur-12 legt hem dan vanzelf in sync (STEM_MP3).
 # Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
+# Bijgewerkt Regisseur run 25 (24 nov): slotzin naar Gumroad, geen 'not print tested' meer.
 
 Is your print tiny in the slicer? Check this in Blender.
 Press N. Blender says this tag is sixty millimeters wide.
@@ -11,5 +12,5 @@ Open File, Export, STL.
 Set Scale to one thousand.
 Then click Export S T L.
 Now the file says sixty millimeters, the same as in Blender.
-Every printer is different, so print a small test first. Save this for your next export.
+Every printer is different, so print a small test first. Save this tip and check it before every export.
 Make your prints poseable: Click Joints Pro, on Gumroad.
