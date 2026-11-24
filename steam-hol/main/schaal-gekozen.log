@@ -1,9 +1,9 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795542972
+HOL zaad 1795544684
 HOL muisvlak 6 punten, lucht vrij op x=200
-HOL kroniek 4.0 (wacht 0.0): Ineke knocks first. Polite.
-HOL begin: vallen (Ineke)
-HOL held binnen: Ineke
+HOL kroniek 4.0 (wacht 0.0): Kobus has a map. It is wrong.
+HOL begin: vallen (Kobus)
+HOL held binnen: Kobus
 HOL zicht 4.1 1
 HOL einde na 6 s, fps=10, goud=20, terugkomers=0
