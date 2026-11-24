@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-24 12:45",
+    "datum": "2026-11-24 14:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -121,7 +121,7 @@
         "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
         "waarschijnlijk": 30
       },
-      "volgende_stap": "1.2.4-zip plus tekst zonder enkel-zin plakken op Gumroad en Superhive, door de hoofdchat in Chrome op de werklaptop, vóór do 27 nov. Daarna 1.2.5 (enkels) na groene e2e en uitgave-run.",
+      "volgende_stap": "1.2.6 (enkels ook op de robot) staat op main, Daan ja; e2e op main loopt (run 45394571001). Na groen: uitgave-run 1.2.6, dan zip plus Docs-tab plakken op Gumroad en Superhive door de hoofdchat in Chrome op de werklaptop, vóór do 27 nov. Lukt 1.2.6 niet op tijd: 1.2.5.",
       "deadline": {
         "datum": "2026-11-27",
         "wat": "Superhive Cyber Sale (Black Friday)"
@@ -133,7 +133,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-24 12:45",
+      "laatste_update": "2026-11-24 14:45",
       "links": [
         {
           "naam": "Winkelpagina",

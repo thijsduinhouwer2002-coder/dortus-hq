@@ -1,5 +1,10 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 14:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat blijft dat de live pagina's 1.2.3 tonen. 1.2.6 (enkels op mens en robot) op main met ja van Daan; e2e op main loopt (run 45394571001, ±50 min). Volgende ronde: uitgave-run, dan plak 1.2.6 plus Docs-tab door de hoofdchat in Chrome op de werklaptop, vóór do 27 nov. Video guide clip 2: Chris knipt de eerste 1,4 s weg.
+- **Click Cuts:** zip do 27 nov; cc-fit opnieuw ingesproken na M1 (Regisseur, opname Max).
+- **Idee deze ronde:** de releasenote van 1.2.6 als korte "free update"-mail aan de ene koper via Gumroad (Thijs-ja nodig, want onder zijn naam). Score 3: een blije eerste koper is ons enige bewijs. Klaargezet als voorstel, niet op de lijst (die is vol).
+
 ## 24 nov 2026 13:25 NL (hoofdchat kwartier-check 17)
 - **Ebb:** zoekplek breath hold 2, breathwork 9, breathing 23; buiten de 30 bij wim hof, apnea, calm. Grootste gat: niets van het gekeurde werk (20 talen, apnea-zin bij Daan) is geplakt; kan alleen de hoofdchat in Chrome, na Pro.
 - **Idee deze ronde:** "in the style made popular by Wim Hof" plus tag, want WHM breathing+ ($4,99, 1.000+) is de grootste betaalde ademapp. Score 5, keuring op merkrecht door Daan.
