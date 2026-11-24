@@ -14,7 +14,7 @@ def clip(src, start, end, caps, title, out):
     cmd=["ffmpeg","-v","error","-y","-ss",str(start),"-t",str(dur),"-i",src,"-filter_complex",";".join(flt),"-map","[o]","-an","-c:v","libx264","-crf","23","-preset","medium","-pix_fmt","yuv420p","-movflags","+faststart",out]
     subprocess.run(cmd,check=True)
 T="Click Joints Pro"
-clip("r17/opname-pro.mkv",0,45.5,[
+if "2" not in sys.argv: clip("r17/opname-pro.mkv",0,45.5,[
  (0,2.8,"Start with your|rigged figure"),
  (2.8,4.2,"Click|Figure from rig"),
  (4.2,10.6,"Every joint gets|a type and a|bend range"),
@@ -25,7 +25,10 @@ clip("r17/opname-pro.mkv",0,45.5,[
  (35.2,39.5,"Export STL or 3MF"),
  (39.5,45.5,"Ready to print"),
 ],T+"  ·  1. Figure from rig","1-figure-from-rig.mp4")
-clip("regisseur1.mkv",1174/30,1670/30,[
- (1174/30,1436/30,"Print this first:|a small fit test|with your clearances"),
- (1436/30,1670/30,"Try each one|and keep the|clearance that fits"),
+# Daan M1 (24 nov): begin bij de staafjes (frame 1222, de figuur met kniebereik is weg vanaf 1220);
+# einde op 1612, want vanaf ±1620 komt de figuur terug in beeld. C1: getallen als onderschrift (testkaart.py SPELINGEN).
+clip("regisseur1.mkv",1222/30,1612/30,[
+ (1222/30,1400/30,"Print this first:|a small fit test|with your clearances"),
+ (1400/30,1500/30,"Five joints:|0.10  0.15  0.20|0.25  0.30 mm"),
+ (1500/30,1612/30,"Keep the one that|turns without wobble"),
 ],T+"  ·  2. Fit test","2-fit-test.mp4")

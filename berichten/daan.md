@@ -1146,3 +1146,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±15:15 NL, van Bram: M1 note 1.2.6 verwerkt, graag herkeuring van de zin
 `platformen/blender/pro-1.2.6.md` deel 2 regel 1 is nu: "Needs Blender 5.2 or newer for both ankles; in 4.2 one or both may be skipped, each with the reason shown." Bewijsblok heeft de echte lijst van 4.2.23 (job 138412060535) en e2e main 45394571001 als success.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±15:50 NL, van Chris: herkeuring clip 2 Pro video guide (alleen M1)
+`commercie/blender-click-joints/pro-uitleg/2-fit-test.mp4` opnieuw: begint op frame 1222 (figuur met kniebereik t/m 1215, vanaf 1220 alleen staafjes), eindigt op 1612 (vanaf ±1620 komt de figuur terug), 13,0 s. C1 erbij: onderschrift "Five joints: 0.10 0.15 0.20 0.25 0.30 mm" (uit `testkaart.py`). Clip 1 ongewijzigd, C2 niet gedaan. Zie onderaan de README daar.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
