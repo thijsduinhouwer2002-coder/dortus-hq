@@ -1,0 +1,209 @@
+# gemaakt: 2026-11-24T01:39:09Z
+# workflow: Bison & Flex e2e (echte IDE) (.github/workflows/jetbrains-bison-flex-e2e.yml)
+# run: 45305066655 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45305066655
+# commit: 1ccdcd4f tak claude/jetbrains-platformfout-test gestart door push
+# mislukte stappen: e2e: Test in de echte IDE (IDEA Community 2025.2)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e / Test in de echte IDE (IDEA Community 2025.2) (laatste 200 van 3441 regels) =====
+    Nov 24, 2026 1:38:19 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 24, 2026 1:38:19 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 24, 2026 1:38:19 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 24, 2026 1:38:19 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 24, 2026 1:38:19 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 24, 2026 1:38:19 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 24, 2026 1:38:19 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 24, 2026 1:38:19 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 24, 2026 1:38:19 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+    Nov 24, 2026 1:38:19 AM io.qameta.allure.AllureLifecycle prepareAttachment
+    SEVERE: Could not add attachment: no test is running
+
+IdeTest > lichtThema() STANDARD_OUT
+    [01:38:19]: Successfully finished publishArtifacts run for bisonflex-licht
+    [01:38:19]: IDERunContext(testContext=com.intellij.ide.starter.ide.IDETestContext@6df2a206, commandLine=fun openTestCaseProject(com.intellij.ide.starter.runner.IDERunContext): com.intellij.ide.starter.runner.IDECommandLine, commands=com.intellij.tools.ide.performanceTesting.commands.CommandChain@54c414b1, runTimeout=10m, useStartupScript=true, verboseOutput=false, launchName=, expectedKill=false, expectedExitCode=0, collectNativeThreads=false, stdOut=null)
+
+IdeTest > lichtThema() STANDARD_ERROR
+    [01:38:19]: Error during IDE execution
+    org.opentest4j.AssertionFailedError: (java.lang.IllegalArgumentException: argument is not a child) faalt: Test: com.dortus.bisonflex.e2e.IdeTest.lichtThema
+    You can find logs and other useful info in CI artifacts under the path bisonflex-licht
+    java.lang.IllegalArgumentException: argument is not a child
+    	at java.desktop/javax.swing.tree.DefaultMutableTreeNode.getChildBefore(DefaultMutableTreeNode.java:973)
+    	at java.desktop/javax.swing.tree.DefaultMutableTreeNode.getPreviousSibling(DefaultMutableTreeNode.java:1081)
+    	at java.desktop/javax.swing.tree.DefaultMutableTreeNode.getPreviousNode(DefaultMutableTreeNode.java:757)
+    	at com.intellij.ide.OccurenceNavigatorSupport.findNextNodeAfter(OccurenceNavigatorSupport.java:119)
+    	at com.intellij.ide.OccurenceNavigatorSupport.findNode(OccurenceNavigatorSupport.java:101)
+    	at com.intellij.ide.OccurenceNavigatorSupport.hasPreviousOccurence(OccurenceNavigatorSupport.java:80)
+    	at com.intellij.ide.actions.PreviousOccurenceAction.hasOccurenceToGo(PreviousOccurenceAction.java:19)
+    	at com.intellij.ide.actions.OccurenceNavigatorActionBase.lambda$update$1(OccurenceNavigatorActionBase.java:89)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$UpdateSessionImpl$compute$1.invokeSuspend$lambda$0(ActionUpdater.kt:643)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$callAction$2$1.invoke(ActionUpdater.kt:144)
+    	at com.intellij.openapi.application.rw.InternalReadAction.runReadAction$lambda$1(InternalReadAction.kt:32)
+    	at com.intellij.openapi.application.impl.AppImplKt$rethrowCheckedExceptions$2.invoke(appImpl.kt:106)
+    	at com.intellij.platform.locking.impl.NestedLocksThreadingSupport.runReadAction(NestedLocksThreadingSupport.kt:784)
+    	at com.intellij.openapi.application.impl.ApplicationImpl.runReadAction(ApplicationImpl.java:1043)
+    	at com.intellij.openapi.application.ReadAction.compute(ReadAction.java:66)
+    	at com.intellij.openapi.application.rw.InternalReadAction.runReadAction(InternalReadAction.kt:32)
+    	at com.intellij.openapi.application.rw.PlatformReadWriteActionSupport.executeReadAction(PlatformReadWriteActionSupport.kt:42)
+    	at com.intellij.openapi.application.ReadWriteActionSupport.executeReadAction$default(ReadWriteActionSupport.kt:15)
+    	at com.intellij.openapi.application.CoroutinesKt.constrainedReadActionUndispatched(coroutines.kt:90)
+    	at com.intellij.openapi.application.CoroutinesKt.readActionUndispatched(coroutines.kt:77)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$callAction$$inlined$useWithScope$1.invokeSuspend(trace.kt:114)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$callAction$$inlined$useWithScope$1.invoke(trace.kt)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$callAction$$inlined$useWithScope$1.invoke(trace.kt)
+    	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:44)
+    	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:166)
+    	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater.callAction(ActionUpdater.kt:894)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater.access$callAction(ActionUpdater.kt:76)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$UpdateSessionImpl$compute$1.invokeSuspend(ActionUpdater.kt:643)
+    	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+    	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+    	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+    	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:112)
+    	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$BuildersKt__BuildersKt(Builders.kt:85)
+    	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:53)
+    	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source)
+    	at com.intellij.openapi.actionSystem.impl.UtilsKt$runBlockingForActionExpand$1.invoke(Utils.kt:1294)
+    	at com.intellij.openapi.actionSystem.impl.UtilsKt$runBlockingForActionExpand$1.invoke(Utils.kt:1285)
+    	at com.intellij.openapi.progress.ContextKt.prepareThreadContext(context.kt:82)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$UpdateSessionImpl.compute(ActionUpdater.kt:891)
+    	at com.intellij.ide.actions.OccurenceNavigatorActionBase.update(OccurenceNavigatorActionBase.java:88)
+    	at com.intellij.openapi.actionSystem.ex.ActionUtil.updateAction$lambda$2(ActionUtil.kt:265)
+    	at com.intellij.openapi.actionSystem.ex.ActionUtil.updateAction(ActionUtil.kt:273)
+    	at com.intellij.openapi.actionSystem.ex.ActionUtil.performDumbAwareUpdate(ActionUtil.kt:234)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$updateAction$success$1$1$1.invoke(ActionUpdater.kt:508)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$updateAction$success$1$1$1.invoke(ActionUpdater.kt:507)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$callAction$2$1.invoke(ActionUpdater.kt:144)
+    	at com.intellij.openapi.application.rw.InternalReadAction.insideReadAction(InternalReadAction.kt:111)
+    	at com.intellij.openapi.application.rw.InternalReadAction.tryReadCancellable$lambda$4(InternalReadAction.kt:101)
+    	at com.intellij.openapi.application.rw.CancellableReadActionKt.cancellableReadActionInternal$lambda$3$lambda$2$lambda$1(cancellableReadAction.kt:32)
+    	at com.intellij.platform.locking.impl.NestedLocksThreadingSupport.tryRunReadAction(NestedLocksThreadingSupport.kt:826)
+    	at com.intellij.openapi.application.impl.ApplicationImpl.tryRunReadAction(ApplicationImpl.java:1221)
+    	at com.intellij.openapi.application.rw.CancellableReadActionKt.cancellableReadActionInternal$lambda$3$lambda$2(cancellableReadAction.kt:30)
+    	at com.intellij.openapi.progress.util.ProgressIndicatorUtilService.runActionAndCancelBeforeWrite(ProgressIndicatorUtilService.java:73)
+    	at com.intellij.openapi.progress.util.ProgressIndicatorUtils.runActionAndCancelBeforeWrite(ProgressIndicatorUtils.java:152)
+    	at com.intellij.openapi.application.rw.CancellableReadActionKt.cancellableReadActionInternal(cancellableReadAction.kt:28)
+    	at com.intellij.openapi.application.rw.InternalReadAction.tryReadCancellable(InternalReadAction.kt:100)
+    	at com.intellij.openapi.application.rw.InternalReadAction.tryReadAction(InternalReadAction.kt:86)
+    	at com.intellij.openapi.application.rw.InternalReadAction.readLoop(InternalReadAction.kt:73)
+    	at com.intellij.openapi.application.rw.InternalReadAction.access$readLoop(InternalReadAction.kt:15)
+    	at com.intellij.openapi.application.rw.InternalReadAction$runReadAction$3.invokeSuspend(InternalReadAction.kt:35)
+    	at com.intellij.openapi.application.rw.InternalReadAction$runReadAction$3.invoke(InternalReadAction.kt)
+    	at com.intellij.openapi.application.rw.InternalReadAction$runReadAction$3.invoke(InternalReadAction.kt)
+    	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:44)
+    	at kotlinx.coroutines.CoroutineScopeKt.coroutineScope(CoroutineScope.kt:285)
+    	at com.intellij.openapi.application.rw.InternalReadAction.runReadAction(InternalReadAction.kt:34)
+    	at com.intellij.openapi.application.rw.PlatformReadWriteActionSupport.executeReadAction(PlatformReadWriteActionSupport.kt:42)
+    	at com.intellij.openapi.application.ReadWriteActionSupport.executeReadAction$default(ReadWriteActionSupport.kt:15)
+    	at com.intellij.openapi.application.CoroutinesKt.constrainedReadActionUndispatched(coroutines.kt:90)
+    	at com.intellij.openapi.application.CoroutinesKt.readActionUndispatched(coroutines.kt:77)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$callAction$$inlined$useWithScope$1.invokeSuspend(trace.kt:114)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$callAction$$inlined$useWithScope$1.invoke(trace.kt)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$callAction$$inlined$useWithScope$1.invoke(trace.kt)
+    	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:44)
+    	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:166)
+    	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater.callAction(ActionUpdater.kt:894)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater.access$callAction(ActionUpdater.kt:76)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$updateAction$success$1$1.invokeSuspend(ActionUpdater.kt:507)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$updateAction$success$1$1.invoke(ActionUpdater.kt)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$updateAction$success$1$1.invoke(ActionUpdater.kt)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$updateAction$$inlined$retryOnAwaitSharedData$1.invokeSuspend(ActionUpdater.kt:893)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$updateAction$$inlined$retryOnAwaitSharedData$1.invoke(ActionUpdater.kt)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$updateAction$$inlined$retryOnAwaitSharedData$1.invoke(ActionUpdater.kt)
+    	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:44)
+    	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:166)
+    	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater.updateAction(ActionUpdater.kt:950)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater.expandGroupChild(ActionUpdater.kt:354)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater.access$expandGroupChild(ActionUpdater.kt:76)
+    	at com.intellij.openapi.actionSystem.impl.ActionUpdater$doExpandActionGroup$2$expandResult$1$1.invokeSuspend(ActionUpdater.kt:276)
+    	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+    	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+    	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:113)
+    	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:613)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:1189)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:778)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:765)
+    	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:50)
+    	at org.junit.jupiter.api.Assertions.fail(Assertions.java:173)
+    	at org.junit.jupiter.api.AssertionsKt.fail(Assertions.kt:52)
+    	at com.dortus.bisonflex.e2e.GedeeldKt$zetCiServer$1$1$1.reportTestFailure(Gedeeld.kt:56)
+    	at com.intellij.ide.starter.report.ErrorReporterToCI.reportErrors(ErrorReporterToCI.kt:132)
+    	at com.intellij.ide.starter.report.ErrorReporterToCI.reportErrorsAsFailedTests(ErrorReporterToCI.kt:24)
+    	at com.intellij.ide.starter.runner.LocalIDEProcess.run(LocalIDEProcess.kt:160)
+    	at com.intellij.ide.starter.runner.IDERunContext.runIdeSuspending(IDERunContext.kt:186)
+    	at com.intellij.ide.starter.ide.IDETestContext.runIdeSuspending-bhIBvvc(IDETestContext.kt:441)
+    	at com.intellij.ide.starter.ide.IDETestContext.runIdeSuspending-bhIBvvc$default(IDETestContext.kt:413)
+    	at com.intellij.ide.starter.driver.engine.LocalDriverRunner$runIdeWithDriver$runResult$1.invokeSuspend(LocalDriverRunner.kt:31)
+    	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+    	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+    	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:113)
+    	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
+[01:38:19]: Canceling children of 'Test's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+[01:38:19]: Canceling children of 'Test class's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+[01:38:19]: Canceling children of 'Test suite's supervisor scope': Shutdown is in progress: either SIGTERM or SIGKILL is caught
+
+
+> Task :integrationTest FAILED
+
+IdeTest > lichtThema() FAILED
+    org.opentest4j.AssertionFailedError at Gedeeld.kt:56
+
+IdeTest STANDARD_OUT
+    [01:38:19]: Canceling children of 'Test's supervisor scope': Test `lichtThema()` execution is finished
+5 tests completed, 1 failed
+
+
+FAILURE: Build failed with an exception.
+Gradle Test Executor 1 STANDARD_OUT
+
+* What went wrong:
+Execution failed for task ':integrationTest'.
+> There were failing tests. See the report at: file:///home/runner/work/dortus-hq/dortus-hq/producten/jetbrains-bison-flex/build/reports/tests/integrationTest/index.html
+    [01:38:19]: Canceling children of 'Test class's supervisor scope': Test class `IdeTest` execution is finished
+
+
+PlatformfoutTest > andereFoutFaaltNog() PASSED
+
+PlatformfoutTest STANDARD_OUT
+    [01:38:19]: Canceling children of 'Test's supervisor scope': Test `andereFoutFaaltNog()` execution is finished
+
+PlatformfoutTest > bekendeFoutZonderPluginWordtOvergeslagen() PASSED
+
+PlatformfoutTest STANDARD_OUT
+    [01:38:19]: Canceling children of 'Test's supervisor scope': Test `bekendeFoutZonderPluginWordtOvergeslagen()` execution is finished
+
+* Try:
+PlatformfoutTest > bekendeFoutMetPluginInDeStackFaaltNog() PASSED
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+
+PlatformfoutTest STANDARD_OUT
+BUILD FAILED in 7m 6s
+    [01:38:19]: Canceling children of 'Test's supervisor scope': Test `bekendeFoutMetPluginInDeStackFaaltNog()` execution is finished
+
+Gradle Test Executor 1 STANDARD_OUT
+    [01:38:19]: Canceling children of 'Test class's supervisor scope': Test class `PlatformfoutTest` execution is finished
+    [01:38:19]: Canceling children of 'Test class's supervisor scope': Test class `JUnit Jupiter` execution is finished
+    [01:38:19]: INFO - com.intellij.tools.ide.starter.bus.shared.server.LocalEventBusServer - Server stopped
+    [01:38:19]: Canceling children of 'Test suite's supervisor scope': Test plan execution is finished
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_4-1795483877172.json
+15 actionable tasks: 7 executed, 8 up-to-date
+##[error]Process completed with exit code 1.
