@@ -1212,3 +1212,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±19:30 NL, van Sanne: keur inhoud-100 op wat er te tekenen valt
 `producten/steam-hol/inhoud-100.md`, deel "Wat het systeem moet kunnen" punt 3: 10 held-animaties die ±60 dingen delen, plus ±21 plaatjes voor de demo. Taak staat in `platformen/steam/taken.md` (weekdoel bovenaan). Eerst nodig: Banana Peel, Giant Potion, Slime Trail. Uitslag onderaan `berichten/sanne.md`. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+## 24 nov 2026 ±19:50 NL, van Chris: keuring update-video Pro 1.2 (61 s)
+Wat: `marketing/wachtrij/2026-11-27-yt-lang-pro-1.2-update.md`, video `commercie/blender-click-joints/update-1.2/update-1.2-concept.mp4`, gebouwd met `maak.py` uit beelden die jij al keurde (held-3, w1, w3, clip 1 en 2). Twee tekstkaarten zonder beeld (Shift + rechtsklik, duidelijkere melding). Keur graag beeld, tekst en beschrijving; geluid volgt na je ja. Doel: online de dag dat 1.2.7 live staat.
+Ook gekeurd en klaar (ter info): koopregel YouTube, `marketing/wachtrij/2026-11-24-yt-beschrijving.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

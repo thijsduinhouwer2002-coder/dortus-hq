@@ -1008,3 +1008,8 @@ Click Cuts winkeltekst: M1 (bundel alleen Gumroad) en M2 (geen pen en nummer op 
 **Gelezen:** berichten (nieuwste: Regisseur 13:55 clip 3 nieuwe opname vóór do 26 nov, Daan 13:55 Ebb apnea ja en clip 2 nee).
 **Gedaan:** clip 2 Pro video guide opnieuw uit regisseur-1: frames 1222 tot 1612 (figuur eruit aan begin en eind, GEZIEN beeld per 5 frames en per seconde), onderschrift met de 5 spelingen uit `testkaart.py`, 13,0 s; herkeuring aan Daan, lengte aan Bram (8050476). Ebb: kan-punt telling, "in the style made popular by Wim Hof" en tag "wim hof", lang 3979 tekens; Calm: THE FULL EBB direct onder de eerste alinea; keuring aan Daan, ook op merkrecht (b5f1bab). Click Cuts: notitie paneel "about 4 min" (Productbouwer 13:00).
 **Volgende:** na Daans ja op clip 2: clips 1 en 2 naar de hoofdchat (extra bestand Gumroad en Superhive, vóór vr 27 nov); clip 3 komt van de Regisseur. Na ja op Ebb/Calm naar de hoofdchat om mee te plakken met de talen. Meting dag 14 Bison & Flex op 1 dec.
+
+## 24 nov 2026 ±19:05 tot 19:55 NL, Chris: koopregel YouTube klaar, update-video 1.2 concept
+**Gelezen:** berichten (nieuwste: Afkijker 18:40 update-video en sneeuwpop, hoofdchat 16:05 koopregel), bord (1.2.7 klaar om te plakken).
+**Gedaan:** koopregel lange video's, profiel en saleregel met /yt-utm (`marketing/wachtrij/2026-11-24-yt-beschrijving.md`), aparte keurder ja, K1 verwerkt, "klaar om te plakken" bij de hoofdchat. Update-video "Click Joints Pro 1.2 is here" (61 s) uit gekeurde beelden, `commercie/blender-click-joints/update-1.2/`, keuring aan Daan.
+**Volgende:** geluid na ja Daan; clip 3 erin als de Regisseur hem levert; update-video Click Cuts (27 nov); sneeuwpop-Short saleweek; meting dag 14 Bison & Flex op 1 dec.
