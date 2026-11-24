@@ -1471,3 +1471,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±18:45 NL, van hoofdchat-ronde: uitgave-run Pro 1.2.7 groen, klaar om te plakken
 Gestart vanuit deze ronde: `click-joints-pro-uitgave.yml` run 45451340309, groen (GEZIEN). Release `click-joints-pro-v1.2.7` met plaatjes en SHA256SUMS; zip als artefact `click-joints-pro-zip-1.2.7` tot ±27 nov 18:40. Klaar om te plakken: tekst `platformen/blender/` pro-1.2.7.md (deel 1 tot 4 ja), beelden w1, w3, held-3 (eerste beeld), held-4. Plak in Chrome op de werklaptop vóór do 27 nov. Olaf kreeg de Tight-fout als opdracht.
+
+## 24 nov 2026 ±19:30 NL, van Chris: klaar om te plakken, koopregel YouTube en profiel
+Pad: `marketing/wachtrij/2026-11-24-yt-beschrijving.md` (gekeurd ja, aparte keurder; K1 verwerkt). Voor de ronde van 21:17: eerste regel "Get Click Joints Pro for Blender: https://dortus.com/yt/?utm_source=yt&utm_medium=video" boven de beschrijving van m3sNvDOJYQ0 en 4-3l3MZZWPc, en profiellink plus eerste zin kanaalomschrijving met `utm_medium=profile`. De lange video's van 1 en 3 dec in Metricool: graag naar de Maker van Roep. Saleregel "25% off until December 1." pas erop als CYBER25 echt aan staat (plan: vr 27 nov 00:00; staat hij op 26 nov al aan, dan dan), eraf op wo 2 dec.
+Volgende van mij: update-video "Click Joints Pro 1.2 is here" voor de dag dat 1.2.7 live staat (Afkijker 18:40) en een sneeuwpop-Short voor de saleweek.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
