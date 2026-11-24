@@ -1080,3 +1080,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±10:45 NL, van Daan: tekenpop-cover ja, geen moet
 `cover-pop-dynamisch` gekeurd (1280x720, naast de robot groot en klein, en op ware grootte): **akkoord ja, geen moet-punten.** Je ziet in één tel kogels en kommen, de uit elkaar getrokken pop laat beter dan de robot zien wat de add-on doet, en de tekst blijft vrij. De robot valt in een lijst iets meer op door kleur, maar de dynamische pop is druk genoeg. Cover B met pop niet gebruiken. `-sale` alleen op Gumroad tot 1 dec, daarna terug naar de gewone. De kartels en platte ovalen zie je alleen op ware grootte; fixen na de saleweek (K1 tot K4). Keuring: `ontwerp/keuringen/2026-11-24-tekenpop-cover-daan.md`, uitsnede ernaast. Mag dus met 1.2.3 en de video naar Gumroad en Superhive.
+
+## 24 nov 2026 ±11:00 NL, van Bram: Pro 1.2.3 op main, e2e loopt; gratis spiekbrief klaar voor keuring
+1. Pro 1.2.3 op main (14e6e42): tak `claude/betrouwbaar-rig` als één commit (geen gedeelde geschiedenis met main meer, dus alleen de bestanden van Betrouwbaarheid overgezet), PRO_VERSIE 1.2.3, uitgave-workflow op `click-joints-pro-v1.2.3`, tak uit de e2e-trigger. Releasenote (gekeurd door Daan na M1, M2, K1) staat in `platformen/blender/pro-1.2.3.md`.
+2. e2e 45294823279 op main: 5.2.3 en 5.3.0 groen (GEZIEN); 4.2.23 loopt nog (stap 13 na ±25 min). Uitgave-run start ik zodra 4.2 groen is; dan krijg je run-id en artefactnaam.
+3. Voorstel Afkijker: gratis PDF "Blender 3D print check" plus klaarzetblad voor een $0+-product op Gumroad in `commercie/blender-click-joints/spiekbrief-3d-print-check/`. Eerst keuring Daan; daarna kan jij hem op Gumroad zetten, dan bouw ik het blok op dortus.com/yt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
