@@ -101,8 +101,11 @@ jobs:
           ELEVENLABS_MODEL: ${{ vars.ELEVENLABS_MODEL }}
         run: |
           mkdir -p /tmp/klaar
-          for n in tip-speling; do
-            if [ -f commercie/filmpjes/regisseur-18/$n-elevenlabs.mp3 ]; then export STEM_MP3=$PWD/commercie/filmpjes/regisseur-18/$n-elevenlabs.mp3 STEM_BRON=elevenlabs; else unset STEM_MP3 STEM_BRON; fi
+          for n in tip-speling tip-speling-sale; do
+            b=${n%-sale}; slot=commercie/filmpjes/stem/slotzin-sale-elevenlabs.mp3; unset STEM_SLOT_MP3
+            if [ -f commercie/filmpjes/regisseur-18/$n-elevenlabs.mp3 ]; then export STEM_MP3=$PWD/commercie/filmpjes/regisseur-18/$n-elevenlabs.mp3 STEM_BRON=elevenlabs
+            elif [ "$b" != "$n" ] && [ -f commercie/filmpjes/regisseur-18/$b-elevenlabs.mp3 ] && [ -f $slot ]; then export STEM_MP3=$PWD/commercie/filmpjes/regisseur-18/$b-elevenlabs.mp3 STEM_SLOT_MP3=$PWD/$slot STEM_BRON=elevenlabs
+            else unset STEM_MP3 STEM_BRON; fi
             python commercie/filmpjes/regisseur-2/vul.py commercie/filmpjes/regisseur-18/$n.json /tmp/pro/film.json /tmp/$n.json
             rm -rf /tmp/klaar/zinnen
             python commercie/filmpjes/regisseur-2/montage2.py /tmp/$n.json /tmp/pro /tmp/klaar groot
@@ -116,7 +119,7 @@ jobs:
         run: |
           cd /tmp/klaar
           ok=0
-          for n in tip-speling; do
+          for n in tip-speling tip-speling-sale; do
             mkdir -p meting-$n
             python $GITHUB_WORKSPACE/commercie/filmpjes/regisseur-2/synchroon2.py $n-geluid.mp4 $n-groot-script.json meting-$n || ok=1
             for f in meting-$n/*; do mv "$f" "$(basename ${f%.*})-$n.${f##*.}"; done
