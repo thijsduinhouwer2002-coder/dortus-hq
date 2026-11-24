@@ -108,3 +108,4 @@ Staat in `organisatie/lijst-thijs.md` (max 5).
 - 24 nov ±16:05 (hoofdchat, ja Thijs 15:59): van kijker naar koopknop. Regisseur: elke Short eindigt met "Click Joints Pro, on Gumroad" (saleweek: "25% off this week"). Chris: koplink als eerste regel in de beschrijving van de lange video's en in het kanaalprofiel; hoofdchat plakt bij 21:17. Review-vraag aan de ene Pro-koper: tekst bij Thijs, versturen via Gumroad na de plak van 1.2.6.
 - 24 nov ±16:45 (hoofdchat): heldenbeelden Pro (4 stuks, tekenpop-stijl) bij de tekenpop-maker, doel wo 25 nov 18:00; daarna op Gumroad en Superhive vóór de sale.
 - 24 nov ±16:55 (hoofdchat, Thijs 16:49): nieuw Ebb-filmpje met alle 25 dieren bij de Regisseur, doel do 26 nov 20:00; oud filmpje (één krab) vervangen na keuring.
+- 24 nov ±17:00 (hoofdchat, ok Thijs 16:55): Ebb Calm blijft tot de meting van 30 nov; heeft Calm dan niemand naar Ebb gestuurd, dan voorstel aan Thijs om Calm weg te halen.
