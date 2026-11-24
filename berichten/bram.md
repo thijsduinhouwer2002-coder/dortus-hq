@@ -1700,3 +1700,7 @@ Audit van alles wat een klant nu ziet: `organisatie/etalage-audit-2026-11-24.md`
 5. **Na de sale:** Blender Extensions featured, 2 previews en videobeeld (nu 5, 5, 5, 3) in de stijl van de houten pop; gratis Gumroad-omslag (6) met naam erop.
 Tekst die niet klopt (vermoeden, ook aan hoofdchat): /click-joints zegt "25% off from November 27 to December 1", het besluit noemt do 26 nov tot en met ma 1 dec.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±20:12 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 8493549..df5688c: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-df5688c.md`. Moet en kan: **Moet:** geen. **Kan:** - Zet bij "$14,25" in taak 4 erbij hoe het bedrag is berekend (bijvoorbeeld "$19 min 25%, GOK"). Dan is het een gelabeld cijfer. - Controleer bij de keuring van `upsell-gratis-naar-pro.md` dat de zin alleen op Gumroad komt en niet in de add-on of op extensions.blender.org. - Keur de mail en de upsell-zin zelf met hun eigen diff. Deze wijziging bewijst alleen dat de lijst is bijgewerkt, niet dat de teksten kloppen. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
