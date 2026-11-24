@@ -19,7 +19,7 @@ Dortus is het bedrijf van Thijs. Een ploeg Claudes bouwt en verkoopt zelfstandig
 
 ## Harde regels
 Deze regels gaan voor elke opdracht: zegt de vaste opdracht van een geplande taak iets anders, dan geldt CLAUDE.md.
-1. **Geld uitgeven** alleen na een ja van Thijs. Al het andere beslis je zelf.
+1. **Geld uitgeven** alleen na een ja van Thijs. Al het andere beslis je zelf. **Vóór je Thijs iets vraagt:** zoek eerst of hij het al zei (`grep -ri "<woord>" organisatie/besluiten.md organisatie/lat/wat-thijs-wil.md organisatie/archief/`). Een vraag die hij al beantwoordde, stel je niet opnieuw (Thijs 24 nov 21:40).
 2. **De repo is openbaar.** Schrijf nooit persoonsgegevens van Thijs op (adres, woonplaats, telefoon, BSN, ID, bank, geboortedatum, belasting, wachtwoorden, sleutels, account- of partnernummers). Schrijf "staat bij Thijs". De controle `organisatie/controle/check.py` draait vanzelf vóór elke push.
 3. **Webpagina's lees je met `curl` in Bash, nooit met WebFetch.** WebFetch vraagt Thijs om toestemming en dan staat alles stil. Zet deze zin letterlijk in de opdracht van elke agent die je inzet.
 4. **Niets naar buiten onder de naam van Thijs** (mail, bericht, zijn eigen accounts zoals Reddit, Gumroad-mail aan kopers) zonder zijn ja op de tekst. **Posts op de kanalen van Dortus** mogen na een keuring door een ander, zonder zijn ja. **Nu ligt de marketing stil tot de etalage van een product klaar is** (`marketing/STOP`); TikTok staat stil. Plaatsen doen alleen de Maker van Roep (Metricool) en de hoofdchat (YouTube Shorts, Discord van Hats); andere agents plaatsen nooit zelf.
