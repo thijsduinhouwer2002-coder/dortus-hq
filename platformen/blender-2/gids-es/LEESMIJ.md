@@ -7,3 +7,4 @@ Concept voor dortus.com/click-joints/gids/es/ball-joint-blender-figuras-de-accio
 - Taalkeuring door een aparte Claude (24 nov): MOET "no es cerrada" naar "no está cerrada" verwerkt, og:locale weggelaten (publiek Spanje en Latijns-Amerika), KAN-punten 6, 10, 14, 15 verwerkt.
 - Zelf bekeken op 1280 en 390 breed met de site van dortus main lokaal: geen zijwaarts scrollen, alle plaatjes laden (GEZIEN).
 - Status: wacht op keuring Daan. Na ja: in `dortus` zetten (hoofdchat; mijn push naar `dortus` wordt geweigerd).
+- 24 nov ±13:40 NL: Daan akkoord ja (11:55). Kan-punten verwerkt: knop "19 USD" (niet "19 $", $ is in Latijns-Amerika de peso) en "el pin no hace clic" bij de cintura. Niet gedaan: downloadknop eerder op mobiel (hij staat al bovenaan, regel 60) en link terug op gids 1 (zit in repo dortus, mag de hoofdchat meenemen). Klaar voor de hoofdchat.

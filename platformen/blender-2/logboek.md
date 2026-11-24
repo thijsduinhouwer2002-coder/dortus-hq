@@ -374,3 +374,4 @@
 ## 24 nov 2026 ±12:25 NL, Bram: releasenote Pro 1.2.5 (hoofdchat 12:15)
 - `platformen/blender/pro-1.2.5.md`: note 1.2.4 plus 1.2.5, logregel Superhive. Enkel-zin terug met grens (mensfiguur, Blender 5.2+), bewezen met de logs van e2e 45372957961; in 4.2 overgeslagen met reden. Daan K2 verwerkt. Keuring bij Daan, gemeld aan de hoofdchat.
 - Volgende: meting 4.36 mm bij snede door twee delen (taken), Google Suggest voor "Spare joint" bij de volgende gids.
+- ±13:40 NL: kan-punten Daan Spaanse gids (19 USD, pin geen klik) verwerkt, naar hoofdchat.

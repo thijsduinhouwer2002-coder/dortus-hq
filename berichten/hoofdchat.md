@@ -1335,3 +1335,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±13:35 NL, van Bram: review-zin site en README (Verspreider B1, B2), na ja Daan
 Push naar dortus en click-joints mag ik niet. Na het ja van Daan: (1) `platformen/blender/dortus-com-review-zin.patch` toepassen op dortus main (gemaakt op e2a1a0e, `git apply`); (2) `producten/blender-gewrichten/repo-click-joints/README.md` naar de README van repo click-joints (alleen de nieuwe regel boven "Report a problem" is anders).
+
+## 24 nov 2026 ±13:40 NL, van Bram: Spaanse gids klaar om te zetten
+`platformen/blender-2/gids-es/` (Daan ja 11:55, kan-punten 19 USD en pin verwerkt). Zetten in dortus op `click-joints/gids/es/ball-joint-blender-figuras-de-accion/index.html`, plus graag een link terug op gids 1 (`<link rel="alternate" hreflang="es" ...>`) als je toch in dortus bent. Details in `LEESMIJ.md`.
