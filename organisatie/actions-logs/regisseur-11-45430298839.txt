@@ -1,0 +1,63 @@
+# gemaakt: 2026-11-24T15:54:55Z
+# workflow: Regisseur 11 (tip-reeks 9: je naam op een print, tekst dik maken) (.github/workflows/regisseur-11.yml)
+# run: 45430298839 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45430298839
+# commit: 6eecb11c tak main gestart door push
+# mislukte stappen: tips: Controle (synchroon, geluid, lengte)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== tips / Controle (synchroon, geluid, lengte) (laatste 54 van 54 regels) =====
+##[group]Run cd /tmp/klaar
+cd /tmp/klaar
+ok=0
+for n in tip-tekst; do
+  mkdir -p meting-$n
+  python $[weggehaald: lange base64-reeks].py $n-geluid.mp4 $n-groot-script.json meting-$n || ok=1
+  for f in meting-$n/*; do mv "$f" "$(basename ${f%.*})-$n.${f##*.}"; done
+  d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $n-geluid.mp4)
+  echo "$n $d s" | tee -a lengtes.txt
+  python -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: $n is $d s"; ok=1; }
+done
+python $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py *.mp4 | tee geluid_check.txt
+grep -q "FOUT" geluid_check.txt && ok=1
+sha256sum *.mp4 | tee SHA256SUMS.txt
+exit $ok
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-11
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+  PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+  Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+  WHISPER_MODEL: small.en
+##[endgroup]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+# Synchroon-meting tip-tekst-geluid.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **FOUT**, 10 van 11 zinnen binnen 0.3 s; grootste verschil 0.62 s, gemiddeld 0.179 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.22 | 0.22 | 12/12 | ja | Want your name on a 3D print? Here is how, in Blender. |
+| 2 | 3.77 | 3.94 | 3.89 | 0.123 | 7/7 | ja | Open the Add menu and click Text. |
+| 3 | 6.1 | 6.26 | 6.24 | 0.14 | 9/11 | ja | It is only 1 mm tall. Press S, type 20, Enter. |
+| 4 | 10.27 | 10.4 | 10.3 | 0.033 | 11/11 | ja | Press Tab, delete the word, type your name, then Tab again. |
+| 5 | 13.87 | 13.98 | 13.98 | 0.113 | 17/17 | ja | Now look from the side. The text is flat, zero thickness, so there is nothing to print. |
+| 6 | 19.37 | 19.52 | 19.5 | 0.133 | 4/4 | ja | Open Object, Convert, Mesh. |
+| 7 | 21.6 | 21.74 | 21.7 | 0.1 | 8/8 | ja | Press Tab, A, then E, type 3, Enter. |
+| 8 | 24.17 | 24.3 | 24.36 | 0.193 | 11/13 | ja | Now every letter is 3 mm thick. Press N and check the Dimensions. |
+| 9 | 29.2 | 28.58 | 28.58 | -0.62 | 9/10 | NEE | Export it as STL and open it in your slicer. |
+| 10 | 32.47 | 32.7 | 32.58 | 0.113 | 16/16 | ja | Every printer is different, so print a small test first. Save this for your next print. |
+| 11 | 37.7 | 37.88 | 37.88 | 0.18 | 8/9 | ja | Make your prints poseable: Click Joints Pro, on Gumroad. |
+tip-tekst 42.945000 s
+GOED: tip-tekst-geluid.mp4: gemiddeld -16.9 dB, piek -1.4 dB
+[weggehaald: lange hex-reeks]  tip-tekst-geluid.mp4
+##[error]Process completed with exit code 1.
