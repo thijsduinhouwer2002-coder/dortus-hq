@@ -19,8 +19,9 @@
     "render": "render-2.png",
     "focus": [
      0.5,
-     0.36
-    ]
+     0.42
+    ],
+    "rand": 240
    },
    "groot": true
   },

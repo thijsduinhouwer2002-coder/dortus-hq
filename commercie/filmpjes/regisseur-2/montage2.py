@@ -323,11 +323,25 @@ def plak_ondertitel(im, onder, tijd):
 _VOL = {}
 
 
-def vol_beeld(pad, W, H, zoom, focus):
-    """Render die het hele beeld vult (cover), ingezoomd rond focus (fractie van breedte en hoogte)."""
-    if pad not in _VOL:
-        _VOL[pad] = Image.open(pad).convert("RGB")
-    r = _VOL[pad]
+def vol_beeld(pad, W, H, zoom, focus, rand=0):
+    """Render die het hele beeld vult (cover), ingezoomd rond focus (fractie van breedte en hoogte).
+    rand (px, of [boven, opzij, onder]): de render krijgt een rand met de randkleur doorgetrokken, zodat je kunt uitzoomen
+    (bijv. een hoofd dat anders onder de kop valt komt lager in beeld). Focus geldt dan op het grotere doek."""
+    rand = tuple(rand) if isinstance(rand, (list, tuple)) else (rand, rand, rand)  # boven, opzij, onder
+    if (pad, rand) not in _VOL:
+        r = Image.open(pad).convert("RGB")
+        if any(rand):
+            rb, rz, ro = rand
+            a = np.asarray(r)
+            a = np.pad(a, ((rb, ro), (rz, rz), (0, 0)), mode="edge")
+            r = Image.fromarray(a)
+            # de doorgetrokken rand zacht maken, het midden blijft scherp
+            zacht_r = r.filter(ImageFilter.GaussianBlur(24))
+            m = Image.new("L", r.size, 255)
+            ImageDraw.Draw(m).rectangle((rz, rb, r.width - rz, r.height - ro), fill=0)
+            r = Image.composite(zacht_r, r, m.filter(ImageFilter.GaussianBlur(12)))
+        _VOL[(pad, rand)] = r
+    r = _VOL[(pad, rand)]
     s = max(W / r.width, H / r.height) * zoom
     bw, bh = W / s, H / s
     fx, fy = focus[0] * r.width, focus[1] * r.height
@@ -464,8 +478,8 @@ def main():
                         im = Image.blend(b_leeg, im, a)
                 elif groot:
                     # vorm groot: de render vult het hele beeld (1080x1920), langzaam inzoomen op het midden
-                    zm = 1.0 + (0.18 if i == 0 else 0.07) * zacht(k / max(1, n - 1))
-                    im = vol_beeld(bron / b["render"], W, H, zm, b.get("focus", [0.5, 0.47])).convert("RGBA")
+                    zm = 1.0 + b.get("zoom", 0.18 if i == 0 else 0.07) * zacht(k / max(1, n - 1))  # "zoom": eigen inzoom per scène
+                    im = vol_beeld(bron / b["render"], W, H, zm, b.get("focus", [0.5, 0.47]), b.get("rand", 0)).convert("RGBA")
                     a = 1.0 if i == 0 else zacht(tt / FADE)
                     if a < 1:
                         laag2 = laag.copy()
