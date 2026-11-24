@@ -1,5 +1,8 @@
 # Regels van de marketingtak Roep
 
+> **TikTok staat stil (Thijs 24 nov 17:50: "kut tiktoks die niemand kijkt").** Plan geen TikTok in en maak geen TikTok-concepten tot de hoofdchat deze regel weghaalt. De 3 geplande TikToks (24, 25, 27 nov) zijn door de hoofdchat op concept (draft) gezet in Metricool. TikTok komt pas terug met filmpjes die op YouTube al bewezen goed lopen (Regisseur, stem Max), en alleen na keuring. Lange YouTube-video's gaan gewoon door.
+
+
 Gemaakt 19 nov 2026 door een bouwer, volgens de keuring van 19 nov (`platformen/ideeen/marketing-tak-2026-11-19/KEURING.md`), het ontwerp van onderzoeker B (`B-ontwerp.md`, run 5 tot 7) en de keuring van deze opzet (`marketing/KEURING.md`). Wie deze regels wil veranderen: een regel onderaan `organisatie/besluiten.md` en een bericht aan de hoofdchat.
 
 **Doel: Click Joints Pro verkopen** ($19 op Gumroad, ook op Superhive; prijs bijgewerkt 20 nov). Het is nu het enige product dat via onze eigen kanalen geld kan opleveren: de gratis add-on mag in Blender niet naar Pro wijzen (voorwaarden extensions.blender.org 6.1 tot 6.3, GEZIEN door onderzoeker B). Bereik telt alleen als het naar een klik op een winkel leidt.
