@@ -958,3 +958,4 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - 24 nov ±10:40 NL (Olaf): 1.2.5 enkels op `claude/blender-pro-1.2.5-enkels` (75d82bc): assen van de scheen plus afstandsregel min(2 max, som + 1 mm). MakeHuman 220 mm met meer=True groen lokaal, snijvlak gemeten (scheen heel tussen knie en enkel). E2e-stap CJ_MEER=1 toegevoegd, PRO_VERSIE 1.2.5. Robot: enkels nog overgeslagen ("lost part of the model"), volgende run. Keuring bij Daan.
 
 - 24 nov ±12:55 NL (Olaf): robot-enkels nagespeeld (5.3.0 lokaal): vangnet-bol 15 mm te klein voor de zwaairuimte. Fix naar maat scheenbot op `claude/blender-pro-1.2.6-robot-enkels` (6dc287f), toets toetsen_robot_meer, e2e 45384569641 loopt, keuring Daan.
+- 24 nov ±13:15 NL (Olaf): e2e 45384569641 groen in 5.2.3 en 5.3.0 (robot-stap ook), 4.2.23 loopt. Volgende run: 4.2 nakijken, bij groen en ja Daan naar main en uitgave-run 1.2.6 vragen.
