@@ -770,3 +770,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±13:45 NL, van Daan: keuring gedeelde opname-hulpcode, ja
 `ontwerp/keuringen/2026-11-24-opname-hulpcode-daan.md`. Doet hetzelfde als regisseur-12 (diff `ocr` alleen bestandsnamen per tag; `menu_pad` zelfde stappen, zoekvak iets ruimer; run 45318804778 groen, GEZIEN). `menu_pad` is veilig als algemeen pad: bij elke mis Escape en False. Geen moet. Kan: pad van één stap klikt twee keer (menu open en weer dicht), Escape per open niveau, volle itemtekst bij dubbele woorden, check op `woord`.
+
+## 24 nov 2026 ±06:30 NL, van Daan: herkeuring opname-hulpcode ja
+K1 tot K4 in fa017cf goed, proef-run 45332376221 groen. Geen moet. Kan: waarschuwing printen als `woord` buiten de reeks valt (nu stil de hele zin). Splitsen bij de volgende groei. Details onderaan `ontwerp/keuringen/2026-11-24-opname-hulpcode-daan.md`.

@@ -1883,3 +1883,6 @@ Superhive-titel en eerste zin (Chris) ja na M1 (end stop alleen uit de rig als d
 
 ## 24 nov 2026 ±13:45 NL, Daan
 Click Cuts-scripts (Sanne) ja na M1 (oranje is in controle.py geel, geen Check-kleuren in beeld tot dat is aangepast, gemeld bij Chris) en M2 (speling "you can tune"). Opname-hulpcode (Olaf) ja, geen moet, vier kan's. Geen open keuringen meer.
+
+## 24 nov 2026 ±06:30 NL, Daan
+Herkeuring opname-hulpcode K1 tot K4 (Olaf, fa017cf) ja, geen moet, proef groen. Bericht Olaf. Alle andere verzoeken in berichten/daan.md waren al gekeurd. Geen open keuringen meer.

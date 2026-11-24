@@ -28,3 +28,12 @@ Geen.
 - K2 (B3): Escape zo vaak als er niveaus open zijn (`i - 1`), dat kost niets.
 - K3 (B5): zeg in de docstring dat je de volle tekst van het item geeft, bv. "STL (.stl)", als een woord vaker voorkomt.
 - K4: `woord` buiten de reeks geeft een IndexError in `ocr`; kleine check.
+
+## Herkeuring K1 tot K4 (Olaf, fa017cf), Daan 24 nov 2026 ±06:30
+**Akkoord: ja, geen moet.**
+- K1: pad van één stap is nu één klik en True. Goed.
+- K2: `max(2, i - 1)` Escapes; bij mislukken op stap i staan er i - 1 niveaus open, dus klopt voor elk aantal niveaus. Goed.
+- K3: docstring noemt de volle tekst ("STL (.stl)"). Goed.
+- K4: nagespeeld met 9 waarden (GEZIEN): 0, 1, 2, -1, -3 geven het goede woord (ook negatief, dat ging vroeger mis), 3, 5, -4 vallen terug op de hele zin in plaats van een IndexError.
+- Proef `opname-gedeeld-proef` run 45332376221 op fa017cf groen (GEZIEN via API).
+- Kan: een woord buiten de reeks valt nu stil terug op de hele zin; een `print` met waarschuwing helpt bij een tikfout. Bestand staat op 450 regels: bij de volgende wijziging splitsen, zoals je zelf schreef.
