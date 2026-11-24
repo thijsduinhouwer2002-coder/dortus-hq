@@ -95,5 +95,5 @@ def reden(ops, vorm, neus, staaf, u):
     bm.free()
     maat, reden = vorm.maten(bvh, frame, inst.speling_mm * u, 115, u)
     if maat is not None:
-        reden = neus.maten_neus(maat, u, neus.zaag_diepte(bvh, frame, maat))
+        reden = neus.maten_neus(maat, u, neus.zaag_diepte(bvh, frame, maat, u))
     return reden
