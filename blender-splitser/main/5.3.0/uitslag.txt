@@ -10,7 +10,7 @@
 [sj-e2e] OK   operator split_joints.split_to_fit bestaat 
 [sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
 [sj-e2e] suzanne: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] suzanne: split {'FINISHED'} in 3.32 s, solver MANIFOLD
+[sj-e2e] suzanne: split {'FINISHED'} in 1.89 s, solver MANIFOLD
 [sj-e2e] OK   suzanne: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   suzanne stuk 1: past op het bed [84.6, 96.1, 115.1]
 [sj-e2e] OK   suzanne stuk 1: waterdicht slechte randen 0, volume 255040 mm3, per stap [0, 0, 0, 0, 0]
@@ -256,24 +256,24 @@
 [sj-e2e] OK   suzanne stuk 8: nummer 8-4 verdiept in het vlak 52 punten op de bodem
 [sj-e2e] OK   suzanne: aantal stukken gelijk aan het plan 8 / 8
 [sj-e2e] OK   suzanne: export STL 9 bestanden
-[sj-e2e] OK   suzanne: STL piece_01.stl maat gelijk 9470 driehoeken, [84.59, 96.1, 115.08]
-[sj-e2e] OK   suzanne: STL piece_02.stl maat gelijk 9554 driehoeken, [84.56, 96.1, 115.08]
-[sj-e2e] OK   suzanne: STL piece_03.stl maat gelijk 6694 driehoeken, [137.57, 88.06, 47.69]
-[sj-e2e] OK   suzanne: STL piece_04.stl maat gelijk 6654 driehoeken, [137.54, 88.06, 47.69]
-[sj-e2e] OK   suzanne: STL piece_05.stl maat gelijk 13196 driehoeken, [98.82, 96.34, 113.5]
-[sj-e2e] OK   suzanne: STL piece_06.stl maat gelijk 13310 driehoeken, [98.79, 96.34, 113.5]
-[sj-e2e] OK   suzanne: STL piece_07.stl maat gelijk 15986 driehoeken, [159.6, 96.31, 115.05]
-[sj-e2e] OK   suzanne: STL piece_08.stl maat gelijk 15966 driehoeken, [159.57, 96.31, 115.05]
+[sj-e2e] OK   suzanne: STL piece_01.stl maat gelijk 9452 driehoeken, [84.59, 96.1, 115.08]
+[sj-e2e] OK   suzanne: STL piece_02.stl maat gelijk 9548 driehoeken, [84.56, 96.1, 115.08]
+[sj-e2e] OK   suzanne: STL piece_03.stl maat gelijk 6700 driehoeken, [137.57, 88.06, 47.69]
+[sj-e2e] OK   suzanne: STL piece_04.stl maat gelijk 6646 driehoeken, [137.54, 88.06, 47.69]
+[sj-e2e] OK   suzanne: STL piece_05.stl maat gelijk 13180 driehoeken, [98.82, 96.34, 113.5]
+[sj-e2e] OK   suzanne: STL piece_06.stl maat gelijk 13292 driehoeken, [98.79, 96.34, 113.5]
+[sj-e2e] OK   suzanne: STL piece_07.stl maat gelijk 15978 driehoeken, [159.6, 96.31, 115.05]
+[sj-e2e] OK   suzanne: STL piece_08.stl maat gelijk 15962 driehoeken, [159.57, 96.31, 115.05]
 [sj-e2e] OK   suzanne: STL pins_5mm_x40.stl maat gelijk 10080 driehoeken, [59.0, 50.0, 12.0]
 [sj-e2e] OK   suzanne: export 3MF 9 bestanden
-[sj-e2e] OK   suzanne: 3MF piece_01.3mf in mm, maat gelijk 9470 driehoeken, [84.59, 96.1, 115.08]
-[sj-e2e] OK   suzanne: 3MF piece_02.3mf in mm, maat gelijk 9554 driehoeken, [84.56, 96.1, 115.08]
-[sj-e2e] OK   suzanne: 3MF piece_03.3mf in mm, maat gelijk 6694 driehoeken, [137.57, 88.06, 47.69]
-[sj-e2e] OK   suzanne: 3MF piece_04.3mf in mm, maat gelijk 6654 driehoeken, [137.54, 88.06, 47.69]
-[sj-e2e] OK   suzanne: 3MF piece_05.3mf in mm, maat gelijk 13196 driehoeken, [98.82, 96.34, 113.5]
-[sj-e2e] OK   suzanne: 3MF piece_06.3mf in mm, maat gelijk 13310 driehoeken, [98.79, 96.34, 113.5]
-[sj-e2e] OK   suzanne: 3MF piece_07.3mf in mm, maat gelijk 15986 driehoeken, [159.6, 96.31, 115.05]
-[sj-e2e] OK   suzanne: 3MF piece_08.3mf in mm, maat gelijk 15966 driehoeken, [159.57, 96.31, 115.05]
+[sj-e2e] OK   suzanne: 3MF piece_01.3mf in mm, maat gelijk 9452 driehoeken, [84.59, 96.1, 115.08]
+[sj-e2e] OK   suzanne: 3MF piece_02.3mf in mm, maat gelijk 9548 driehoeken, [84.56, 96.1, 115.08]
+[sj-e2e] OK   suzanne: 3MF piece_03.3mf in mm, maat gelijk 6700 driehoeken, [137.57, 88.06, 47.69]
+[sj-e2e] OK   suzanne: 3MF piece_04.3mf in mm, maat gelijk 6646 driehoeken, [137.54, 88.06, 47.69]
+[sj-e2e] OK   suzanne: 3MF piece_05.3mf in mm, maat gelijk 13180 driehoeken, [98.82, 96.34, 113.5]
+[sj-e2e] OK   suzanne: 3MF piece_06.3mf in mm, maat gelijk 13292 driehoeken, [98.79, 96.34, 113.5]
+[sj-e2e] OK   suzanne: 3MF piece_07.3mf in mm, maat gelijk 15978 driehoeken, [159.6, 96.31, 115.05]
+[sj-e2e] OK   suzanne: 3MF piece_08.3mf in mm, maat gelijk 15962 driehoeken, [159.57, 96.31, 115.05]
 [sj-e2e] OK   suzanne: 3MF pins_5mm_x40.3mf in mm, maat gelijk 10080 driehoeken, [59.0, 50.0, 12.0]
 [sj-e2e] OK   suzanne kleur: standaard Per piece PIECE
 [sj-e2e] OK   suzanne kleur: elk stuk een eigen materiaal met dezelfde objectkleur 
@@ -297,14 +297,14 @@
 [sj-e2e] OK   verschuif stuk 8: past en waterdicht 
 [sj-e2e] waterdicht GlassAlpha: {'FINISHED'} -> GlassAlpha_watertight 345960 vlakken
 [sj-e2e] vaas: plan {'FINISHED'} 16 stukken, n=[2, 2, 4]
-[sj-e2e] vaas: split {'FINISHED'} in 23.71 s, solver MANIFOLD
+[sj-e2e] vaas: split {'FINISHED'} in 10.21 s, solver MANIFOLD
 [sj-e2e] OK   vaas: meer dan 1 stuk 16 stukken
 [sj-e2e] vaas: meldingen: 'Cut 9-10: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-14: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 11-12: too small for a pin: the face is 5.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 15-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 9-11: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-15: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 10-12: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 14-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 5-9: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 7-11: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 6-10: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 8-12: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 9-13: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 11-15: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 10-14: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 12-16: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint'
 [sj-e2e] OK   vaas stuk 1: past op het bed [144.1, 144.1, 150.0]
 [sj-e2e] OK   vaas stuk 1: waterdicht slechte randen 0, volume 925041 mm3, per stap [0, 0, 0, 0, 0]
 [sj-e2e] OK   vaas stuk 1: status groen groen, wand 1.389
 [sj-e2e] OK   vaas stuk 2: past op het bed [144.0, 144.1, 150.0]
-[sj-e2e] OK   vaas stuk 2: waterdicht slechte randen 0, volume 924730 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 2: waterdicht slechte randen 0, volume 924729 mm3, per stap [0, 0, 0, 0, 0]
 [sj-e2e] OK   vaas stuk 2: status groen groen, wand 1.219
 [sj-e2e] OK   vaas stuk 3: past op het bed [144.1, 144.0, 150.0]
 [sj-e2e] OK   vaas stuk 3: waterdicht slechte randen 0, volume 924736 mm3, per stap [0, 0, 0, 0, 0]
@@ -564,7 +564,7 @@
 [sj-e2e] OK   vaas stuk 11: nummer 11-12 begint met het eigen nummer 
 [sj-e2e] OK   vaas stuk 11: nummer 11-12 verdiept in het vlak 86 punten op de bodem
 [sj-e2e] OK   vaas stuk 11: nummer 11-9 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 11: nummer 11-9 verdiept in het vlak 69 punten op de bodem
+[sj-e2e] OK   vaas stuk 11: nummer 11-9 verdiept in het vlak 68 punten op de bodem
 [sj-e2e] OK   vaas stuk 11: nummer 11-7 begint met het eigen nummer 
 [sj-e2e] OK   vaas stuk 11: nummer 11-7 verdiept in het vlak 60 punten op de bodem
 [sj-e2e] OK   vaas stuk 11: nummer 11-15 begint met het eigen nummer 
@@ -603,45 +603,45 @@
 [sj-e2e] OK   vaas stuk 16: nummer 16-15 begint met het eigen nummer 
 [sj-e2e] OK   vaas stuk 16: nummer 16-15 verdiept in het vlak 92 punten op de bodem
 [sj-e2e] OK   vaas stuk 16: nummer 16-14 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 16: nummer 16-14 verdiept in het vlak 89 punten op de bodem
+[sj-e2e] OK   vaas stuk 16: nummer 16-14 verdiept in het vlak 88 punten op de bodem
 [sj-e2e] OK   vaas stuk 16: nummer 16-12 begint met het eigen nummer 
 [sj-e2e] OK   vaas stuk 16: nummer 16-12 verdiept in het vlak 92 punten op de bodem
 [sj-e2e] OK   vaas: aantal stukken gelijk aan het plan 16 / 16
 [sj-e2e] OK   vaas: export STL 17 bestanden
-[sj-e2e] OK   vaas: STL piece_01.stl maat gelijk 35626 driehoeken, [144.07, 144.07, 150.01]
-[sj-e2e] OK   vaas: STL piece_02.stl maat gelijk 35662 driehoeken, [144.05, 144.07, 150.01]
-[sj-e2e] OK   vaas: STL piece_03.stl maat gelijk 35580 driehoeken, [144.07, 144.05, 150.01]
-[sj-e2e] OK   vaas: STL piece_04.stl maat gelijk 35660 driehoeken, [144.05, 144.05, 150.01]
-[sj-e2e] OK   vaas: STL piece_05.stl maat gelijk 50152 driehoeken, [140.45, 140.45, 150.0]
-[sj-e2e] OK   vaas: STL piece_06.stl maat gelijk 50284 driehoeken, [140.43, 140.45, 150.0]
-[sj-e2e] OK   vaas: STL piece_07.stl maat gelijk 50124 driehoeken, [140.45, 140.43, 150.0]
-[sj-e2e] OK   vaas: STL piece_08.stl maat gelijk 50234 driehoeken, [140.43, 140.43, 150.0]
-[sj-e2e] OK   vaas: STL piece_09.stl maat gelijk 47930 driehoeken, [150.09, 150.09, 150.0]
-[sj-e2e] OK   vaas: STL piece_10.stl maat gelijk 48142 driehoeken, [150.07, 150.09, 150.0]
-[sj-e2e] OK   vaas: STL piece_11.stl maat gelijk 48040 driehoeken, [150.09, 150.07, 150.0]
-[sj-e2e] OK   vaas: STL piece_12.stl maat gelijk 48214 driehoeken, [150.07, 150.07, 150.0]
-[sj-e2e] OK   vaas: STL piece_13.stl maat gelijk 51054 driehoeken, [158.69, 158.69, 149.99]
-[sj-e2e] OK   vaas: STL piece_14.stl maat gelijk 51082 driehoeken, [158.67, 158.69, 149.99]
-[sj-e2e] OK   vaas: STL piece_15.stl maat gelijk 51084 driehoeken, [158.69, 158.67, 149.99]
-[sj-e2e] OK   vaas: STL piece_16.stl maat gelijk 51046 driehoeken, [158.67, 158.67, 149.99]
+[sj-e2e] OK   vaas: STL piece_01.stl maat gelijk 35612 driehoeken, [144.07, 144.07, 150.01]
+[sj-e2e] OK   vaas: STL piece_02.stl maat gelijk 35646 driehoeken, [144.05, 144.07, 150.01]
+[sj-e2e] OK   vaas: STL piece_03.stl maat gelijk 35572 driehoeken, [144.07, 144.05, 150.01]
+[sj-e2e] OK   vaas: STL piece_04.stl maat gelijk 35640 driehoeken, [144.05, 144.05, 150.01]
+[sj-e2e] OK   vaas: STL piece_05.stl maat gelijk 50130 driehoeken, [140.45, 140.45, 150.0]
+[sj-e2e] OK   vaas: STL piece_06.stl maat gelijk 50270 driehoeken, [140.43, 140.45, 150.0]
+[sj-e2e] OK   vaas: STL piece_07.stl maat gelijk 50106 driehoeken, [140.45, 140.43, 150.0]
+[sj-e2e] OK   vaas: STL piece_08.stl maat gelijk 50212 driehoeken, [140.43, 140.43, 150.0]
+[sj-e2e] OK   vaas: STL piece_09.stl maat gelijk 47900 driehoeken, [150.09, 150.09, 150.0]
+[sj-e2e] OK   vaas: STL piece_10.stl maat gelijk 48128 driehoeken, [150.07, 150.09, 150.0]
+[sj-e2e] OK   vaas: STL piece_11.stl maat gelijk 48006 driehoeken, [150.09, 150.07, 150.0]
+[sj-e2e] OK   vaas: STL piece_12.stl maat gelijk 48186 driehoeken, [150.07, 150.07, 150.0]
+[sj-e2e] OK   vaas: STL piece_13.stl maat gelijk 51030 driehoeken, [158.69, 158.69, 149.99]
+[sj-e2e] OK   vaas: STL piece_14.stl maat gelijk 51068 driehoeken, [158.67, 158.69, 149.99]
+[sj-e2e] OK   vaas: STL piece_15.stl maat gelijk 51058 driehoeken, [158.69, 158.67, 149.99]
+[sj-e2e] OK   vaas: STL piece_16.stl maat gelijk 51016 driehoeken, [158.67, 158.67, 149.99]
 [sj-e2e] OK   vaas: STL pins_5mm_x32.stl maat gelijk 8064 driehoeken, [50.0, 50.0, 12.0]
 [sj-e2e] OK   vaas: export 3MF 17 bestanden
-[sj-e2e] OK   vaas: 3MF piece_01.3mf in mm, maat gelijk 35626 driehoeken, [144.07, 144.07, 150.01]
-[sj-e2e] OK   vaas: 3MF piece_02.3mf in mm, maat gelijk 35662 driehoeken, [144.05, 144.07, 150.01]
-[sj-e2e] OK   vaas: 3MF piece_03.3mf in mm, maat gelijk 35580 driehoeken, [144.07, 144.05, 150.01]
-[sj-e2e] OK   vaas: 3MF piece_04.3mf in mm, maat gelijk 35660 driehoeken, [144.05, 144.05, 150.01]
-[sj-e2e] OK   vaas: 3MF piece_05.3mf in mm, maat gelijk 50152 driehoeken, [140.45, 140.45, 150.0]
-[sj-e2e] OK   vaas: 3MF piece_06.3mf in mm, maat gelijk 50284 driehoeken, [140.43, 140.45, 150.0]
-[sj-e2e] OK   vaas: 3MF piece_07.3mf in mm, maat gelijk 50124 driehoeken, [140.45, 140.43, 150.0]
-[sj-e2e] OK   vaas: 3MF piece_08.3mf in mm, maat gelijk 50234 driehoeken, [140.43, 140.43, 150.0]
-[sj-e2e] OK   vaas: 3MF piece_09.3mf in mm, maat gelijk 47930 driehoeken, [150.09, 150.09, 150.0]
-[sj-e2e] OK   vaas: 3MF piece_10.3mf in mm, maat gelijk 48142 driehoeken, [150.07, 150.09, 150.0]
-[sj-e2e] OK   vaas: 3MF piece_11.3mf in mm, maat gelijk 48040 driehoeken, [150.09, 150.07, 150.0]
-[sj-e2e] OK   vaas: 3MF piece_12.3mf in mm, maat gelijk 48214 driehoeken, [150.07, 150.07, 150.0]
-[sj-e2e] OK   vaas: 3MF piece_13.3mf in mm, maat gelijk 51054 driehoeken, [158.69, 158.69, 149.99]
-[sj-e2e] OK   vaas: 3MF piece_14.3mf in mm, maat gelijk 51082 driehoeken, [158.67, 158.69, 149.99]
-[sj-e2e] OK   vaas: 3MF piece_15.3mf in mm, maat gelijk 51084 driehoeken, [158.69, 158.67, 149.99]
-[sj-e2e] OK   vaas: 3MF piece_16.3mf in mm, maat gelijk 51046 driehoeken, [158.67, 158.67, 149.99]
+[sj-e2e] OK   vaas: 3MF piece_01.3mf in mm, maat gelijk 35612 driehoeken, [144.07, 144.07, 150.01]
+[sj-e2e] OK   vaas: 3MF piece_02.3mf in mm, maat gelijk 35646 driehoeken, [144.05, 144.07, 150.01]
+[sj-e2e] OK   vaas: 3MF piece_03.3mf in mm, maat gelijk 35572 driehoeken, [144.07, 144.05, 150.01]
+[sj-e2e] OK   vaas: 3MF piece_04.3mf in mm, maat gelijk 35640 driehoeken, [144.05, 144.05, 150.01]
+[sj-e2e] OK   vaas: 3MF piece_05.3mf in mm, maat gelijk 50130 driehoeken, [140.45, 140.45, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_06.3mf in mm, maat gelijk 50270 driehoeken, [140.43, 140.45, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_07.3mf in mm, maat gelijk 50106 driehoeken, [140.45, 140.43, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_08.3mf in mm, maat gelijk 50212 driehoeken, [140.43, 140.43, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_09.3mf in mm, maat gelijk 47900 driehoeken, [150.09, 150.09, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_10.3mf in mm, maat gelijk 48128 driehoeken, [150.07, 150.09, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_11.3mf in mm, maat gelijk 48006 driehoeken, [150.09, 150.07, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_12.3mf in mm, maat gelijk 48186 driehoeken, [150.07, 150.07, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_13.3mf in mm, maat gelijk 51030 driehoeken, [158.69, 158.69, 149.99]
+[sj-e2e] OK   vaas: 3MF piece_14.3mf in mm, maat gelijk 51068 driehoeken, [158.67, 158.69, 149.99]
+[sj-e2e] OK   vaas: 3MF piece_15.3mf in mm, maat gelijk 51058 driehoeken, [158.69, 158.67, 149.99]
+[sj-e2e] OK   vaas: 3MF piece_16.3mf in mm, maat gelijk 51016 driehoeken, [158.67, 158.67, 149.99]
 [sj-e2e] OK   vaas: 3MF pins_5mm_x32.3mf in mm, maat gelijk 8064 driehoeken, [50.0, 50.0, 12.0]
 [sj-e2e] OK   vaas kleur: standaard Per piece PIECE
 [sj-e2e] OK   vaas kleur: elk stuk een eigen materiaal met dezelfde objectkleur 
@@ -654,7 +654,7 @@
 [sj-e2e] OK   vaas kleur: mesh en status blijven gelijk 
 [sj-e2e] waterdicht Skull: {'FINISHED'} -> Skull_watertight 79582 vlakken
 [sj-e2e] schedel: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] schedel: split {'FINISHED'} in 6.63 s, solver MANIFOLD
+[sj-e2e] schedel: split {'FINISHED'} in 3.49 s, solver MANIFOLD
 [sj-e2e] OK   schedel: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   schedel stuk 1: past op het bed [90.2, 149.9, 106.6]
 [sj-e2e] OK   schedel stuk 1: waterdicht slechte randen 0, volume 335329 mm3, per stap [0, 0, 0, 0, 0]
@@ -920,24 +920,24 @@
 [sj-e2e] OK   schedel stuk 8: nummer 8-4 verdiept in het vlak 52 punten op de bodem
 [sj-e2e] OK   schedel: aantal stukken gelijk aan het plan 8 / 8
 [sj-e2e] OK   schedel: export STL 9 bestanden
-[sj-e2e] OK   schedel: STL piece_01.stl maat gelijk 32028 driehoeken, [90.17, 149.88, 106.59]
-[sj-e2e] OK   schedel: STL piece_02.stl maat gelijk 31992 driehoeken, [90.14, 149.49, 106.73]
-[sj-e2e] OK   schedel: STL piece_03.stl maat gelijk 24400 driehoeken, [89.17, 149.85, 111.0]
-[sj-e2e] OK   schedel: STL piece_04.stl maat gelijk 24480 driehoeken, [89.15, 149.85, 111.66]
-[sj-e2e] OK   schedel: STL piece_05.stl maat gelijk 17148 driehoeken, [76.83, 105.31, 111.54]
-[sj-e2e] OK   schedel: STL piece_06.stl maat gelijk 17178 driehoeken, [76.82, 105.32, 111.54]
-[sj-e2e] OK   schedel: STL piece_07.stl maat gelijk 18910 driehoeken, [84.02, 148.74, 111.64]
-[sj-e2e] OK   schedel: STL piece_08.stl maat gelijk 18970 driehoeken, [83.98, 148.67, 111.64]
+[sj-e2e] OK   schedel: STL piece_01.stl maat gelijk 31988 driehoeken, [90.17, 149.88, 106.59]
+[sj-e2e] OK   schedel: STL piece_02.stl maat gelijk 31958 driehoeken, [90.14, 149.49, 106.73]
+[sj-e2e] OK   schedel: STL piece_03.stl maat gelijk 24382 driehoeken, [89.17, 149.85, 111.0]
+[sj-e2e] OK   schedel: STL piece_04.stl maat gelijk 24470 driehoeken, [89.15, 149.85, 111.66]
+[sj-e2e] OK   schedel: STL piece_05.stl maat gelijk 17124 driehoeken, [76.83, 105.31, 111.54]
+[sj-e2e] OK   schedel: STL piece_06.stl maat gelijk 17140 driehoeken, [76.82, 105.32, 111.54]
+[sj-e2e] OK   schedel: STL piece_07.stl maat gelijk 18900 driehoeken, [84.02, 148.74, 111.64]
+[sj-e2e] OK   schedel: STL piece_08.stl maat gelijk 18948 driehoeken, [83.98, 148.67, 111.64]
 [sj-e2e] OK   schedel: STL pins_5mm_x44.stl maat gelijk 11088 driehoeken, [59.0, 59.0, 12.0]
 [sj-e2e] OK   schedel: export 3MF 9 bestanden
-[sj-e2e] OK   schedel: 3MF piece_01.3mf in mm, maat gelijk 32028 driehoeken, [90.17, 149.88, 106.59]
-[sj-e2e] OK   schedel: 3MF piece_02.3mf in mm, maat gelijk 31992 driehoeken, [90.14, 149.49, 106.73]
-[sj-e2e] OK   schedel: 3MF piece_03.3mf in mm, maat gelijk 24400 driehoeken, [89.17, 149.85, 111.0]
-[sj-e2e] OK   schedel: 3MF piece_04.3mf in mm, maat gelijk 24480 driehoeken, [89.15, 149.85, 111.66]
-[sj-e2e] OK   schedel: 3MF piece_05.3mf in mm, maat gelijk 17148 driehoeken, [76.83, 105.31, 111.54]
-[sj-e2e] OK   schedel: 3MF piece_06.3mf in mm, maat gelijk 17178 driehoeken, [76.82, 105.32, 111.54]
-[sj-e2e] OK   schedel: 3MF piece_07.3mf in mm, maat gelijk 18910 driehoeken, [84.02, 148.74, 111.64]
-[sj-e2e] OK   schedel: 3MF piece_08.3mf in mm, maat gelijk 18970 driehoeken, [83.98, 148.67, 111.64]
+[sj-e2e] OK   schedel: 3MF piece_01.3mf in mm, maat gelijk 31988 driehoeken, [90.17, 149.88, 106.59]
+[sj-e2e] OK   schedel: 3MF piece_02.3mf in mm, maat gelijk 31958 driehoeken, [90.14, 149.49, 106.73]
+[sj-e2e] OK   schedel: 3MF piece_03.3mf in mm, maat gelijk 24382 driehoeken, [89.17, 149.85, 111.0]
+[sj-e2e] OK   schedel: 3MF piece_04.3mf in mm, maat gelijk 24470 driehoeken, [89.15, 149.85, 111.66]
+[sj-e2e] OK   schedel: 3MF piece_05.3mf in mm, maat gelijk 17124 driehoeken, [76.83, 105.31, 111.54]
+[sj-e2e] OK   schedel: 3MF piece_06.3mf in mm, maat gelijk 17140 driehoeken, [76.82, 105.32, 111.54]
+[sj-e2e] OK   schedel: 3MF piece_07.3mf in mm, maat gelijk 18900 driehoeken, [84.02, 148.74, 111.64]
+[sj-e2e] OK   schedel: 3MF piece_08.3mf in mm, maat gelijk 18948 driehoeken, [83.98, 148.67, 111.64]
 [sj-e2e] OK   schedel: 3MF pins_5mm_x44.3mf in mm, maat gelijk 11088 driehoeken, [59.0, 59.0, 12.0]
 [sj-e2e] OK   schedel kleur: standaard Per piece PIECE
 [sj-e2e] OK   schedel kleur: elk stuk een eigen materiaal met dezelfde objectkleur 
@@ -955,7 +955,7 @@
 [sj-e2e] OK   buis stuk 2: past en waterdicht 
 [sj-e2e] OK   doos: 8 hoekpunten, geen voxel 
 [sj-e2e] doos: plan {'FINISHED'} 3 stukken, n=[3, 1, 1]
-[sj-e2e] doos: split {'FINISHED'} in 0.27 s, solver MANIFOLD
+[sj-e2e] doos: split {'FINISHED'} in 0.17 s, solver MANIFOLD
 [sj-e2e] OK   doos: meer dan 1 stuk 3 stukken
 [sj-e2e] OK   doos stuk 1: past op het bed [166.7, 150.0, 120.0]
 [sj-e2e] OK   doos stuk 1: waterdicht slechte randen 0, volume 2999634 mm3, per stap [0, 0, 0, 0, 0]
@@ -1013,13 +1013,13 @@
 [sj-e2e] OK   doos stuk 3: nummer 3-2 verdiept in het vlak 56 punten op de bodem
 [sj-e2e] OK   doos: aantal stukken gelijk aan het plan 3 / 3
 [sj-e2e] OK   doos: export STL 4 bestanden
-[sj-e2e] OK   doos: STL piece_01.stl maat gelijk 732 driehoeken, [166.68, 150.0, 120.0]
-[sj-e2e] OK   doos: STL piece_02.stl maat gelijk 1472 driehoeken, [166.67, 150.0, 120.0]
+[sj-e2e] OK   doos: STL piece_01.stl maat gelijk 724 driehoeken, [166.68, 150.0, 120.0]
+[sj-e2e] OK   doos: STL piece_02.stl maat gelijk 1468 driehoeken, [166.67, 150.0, 120.0]
 [sj-e2e] OK   doos: STL piece_03.stl maat gelijk 752 driehoeken, [166.65, 150.0, 120.0]
 [sj-e2e] OK   doos: STL pins_5mm_x8.stl maat gelijk 2016 driehoeken, [23.0, 23.0, 12.0]
 [sj-e2e] OK   doos: export 3MF 4 bestanden
-[sj-e2e] OK   doos: 3MF piece_01.3mf in mm, maat gelijk 732 driehoeken, [166.68, 150.0, 120.0]
-[sj-e2e] OK   doos: 3MF piece_02.3mf in mm, maat gelijk 1472 driehoeken, [166.67, 150.0, 120.0]
+[sj-e2e] OK   doos: 3MF piece_01.3mf in mm, maat gelijk 724 driehoeken, [166.68, 150.0, 120.0]
+[sj-e2e] OK   doos: 3MF piece_02.3mf in mm, maat gelijk 1468 driehoeken, [166.67, 150.0, 120.0]
 [sj-e2e] OK   doos: 3MF piece_03.3mf in mm, maat gelijk 752 driehoeken, [166.65, 150.0, 120.0]
 [sj-e2e] OK   doos: 3MF pins_5mm_x8.3mf in mm, maat gelijk 2016 driehoeken, [23.0, 23.0, 12.0]
 [sj-e2e] OK   doos kleur: standaard Per piece PIECE
@@ -1048,7 +1048,7 @@
 [sj-e2e] melding: 'Error: These cuts make 301 cells (limit 200). Remove cuts or plan again\n'
 [sj-e2e] OK   meter fout: Split weigert 301 cellen {'CANCELLED'} cellen:301
 [sj-e2e] meter-omgezet: plan {'FINISHED'} 3 stukken, n=[3, 1, 1]
-[sj-e2e] meter-omgezet: split {'FINISHED'} in 0.26 s, solver MANIFOLD
+[sj-e2e] meter-omgezet: split {'FINISHED'} in 0.17 s, solver MANIFOLD
 [sj-e2e] OK   meter-omgezet: meer dan 1 stuk 3 stukken
 [sj-e2e] OK   meter-omgezet stuk 1: past op het bed [166.7, 150.0, 120.0]
 [sj-e2e] OK   meter-omgezet stuk 1: waterdicht slechte randen 0, volume 2999634 mm3, per stap [0, 0, 0, 0, 0]
@@ -1106,13 +1106,13 @@
 [sj-e2e] OK   meter-omgezet stuk 3: nummer 3-2 verdiept in het vlak 56 punten op de bodem
 [sj-e2e] OK   meter-omgezet: aantal stukken gelijk aan het plan 3 / 3
 [sj-e2e] OK   meter-omgezet: export STL 4 bestanden
-[sj-e2e] OK   meter-omgezet: STL piece_01.stl maat gelijk 732 driehoeken, [166.68, 150.0, 120.0]
-[sj-e2e] OK   meter-omgezet: STL piece_02.stl maat gelijk 1472 driehoeken, [166.67, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet: STL piece_01.stl maat gelijk 724 driehoeken, [166.68, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet: STL piece_02.stl maat gelijk 1468 driehoeken, [166.67, 150.0, 120.0]
 [sj-e2e] OK   meter-omgezet: STL piece_03.stl maat gelijk 752 driehoeken, [166.65, 150.0, 120.0]
 [sj-e2e] OK   meter-omgezet: STL pins_5mm_x8.stl maat gelijk 2016 driehoeken, [23.0, 23.0, 12.0]
 [sj-e2e] OK   meter-omgezet: export 3MF 4 bestanden
-[sj-e2e] OK   meter-omgezet: 3MF piece_01.3mf in mm, maat gelijk 732 driehoeken, [166.68, 150.0, 120.0]
-[sj-e2e] OK   meter-omgezet: 3MF piece_02.3mf in mm, maat gelijk 1472 driehoeken, [166.67, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet: 3MF piece_01.3mf in mm, maat gelijk 724 driehoeken, [166.68, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet: 3MF piece_02.3mf in mm, maat gelijk 1468 driehoeken, [166.67, 150.0, 120.0]
 [sj-e2e] OK   meter-omgezet: 3MF piece_03.3mf in mm, maat gelijk 752 driehoeken, [166.65, 150.0, 120.0]
 [sj-e2e] OK   meter-omgezet: 3MF pins_5mm_x8.3mf in mm, maat gelijk 2016 driehoeken, [23.0, 23.0, 12.0]
 [sj-e2e] OK   meter-omgezet kleur: standaard Per piece PIECE
@@ -1127,7 +1127,7 @@
 [sj-e2e] OK   meter fout: na omzetten 3 stukken 3
 [sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
 [sj-e2e] meter-suzanne: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] meter-suzanne: split {'FINISHED'} in 3.29 s, solver MANIFOLD
+[sj-e2e] meter-suzanne: split {'FINISHED'} in 1.84 s, solver MANIFOLD
 [sj-e2e] OK   meter-suzanne: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   meter-suzanne stuk 1: past op het bed [84.6, 96.1, 115.1]
 [sj-e2e] OK   meter-suzanne stuk 1: waterdicht slechte randen 0, volume 0 mm3, per stap [0, 0, 0, 0, 0]
@@ -1373,24 +1373,24 @@
 [sj-e2e] OK   meter-suzanne stuk 8: nummer 8-4 verdiept in het vlak 52 punten op de bodem
 [sj-e2e] OK   meter-suzanne: aantal stukken gelijk aan het plan 8 / 8
 [sj-e2e] OK   meter-suzanne: export STL 9 bestanden
-[sj-e2e] OK   meter-suzanne: STL piece_01.stl maat gelijk 9468 driehoeken, [84.59, 96.1, 115.08]
-[sj-e2e] OK   meter-suzanne: STL piece_02.stl maat gelijk 9554 driehoeken, [84.56, 96.1, 115.08]
-[sj-e2e] OK   meter-suzanne: STL piece_03.stl maat gelijk 6694 driehoeken, [137.57, 88.06, 47.69]
-[sj-e2e] OK   meter-suzanne: STL piece_04.stl maat gelijk 6654 driehoeken, [137.54, 88.06, 47.69]
-[sj-e2e] OK   meter-suzanne: STL piece_05.stl maat gelijk 13196 driehoeken, [98.82, 96.34, 113.5]
-[sj-e2e] OK   meter-suzanne: STL piece_06.stl maat gelijk 13310 driehoeken, [98.79, 96.34, 113.5]
-[sj-e2e] OK   meter-suzanne: STL piece_07.stl maat gelijk 15986 driehoeken, [159.6, 96.31, 115.05]
-[sj-e2e] OK   meter-suzanne: STL piece_08.stl maat gelijk 15966 driehoeken, [159.57, 96.31, 115.05]
+[sj-e2e] OK   meter-suzanne: STL piece_01.stl maat gelijk 9448 driehoeken, [84.59, 96.1, 115.08]
+[sj-e2e] OK   meter-suzanne: STL piece_02.stl maat gelijk 9544 driehoeken, [84.56, 96.1, 115.08]
+[sj-e2e] OK   meter-suzanne: STL piece_03.stl maat gelijk 6704 driehoeken, [137.57, 88.06, 47.69]
+[sj-e2e] OK   meter-suzanne: STL piece_04.stl maat gelijk 6646 driehoeken, [137.54, 88.06, 47.69]
+[sj-e2e] OK   meter-suzanne: STL piece_05.stl maat gelijk 13178 driehoeken, [98.82, 96.34, 113.5]
+[sj-e2e] OK   meter-suzanne: STL piece_06.stl maat gelijk 13298 driehoeken, [98.79, 96.34, 113.5]
+[sj-e2e] OK   meter-suzanne: STL piece_07.stl maat gelijk 15978 driehoeken, [159.6, 96.31, 115.05]
+[sj-e2e] OK   meter-suzanne: STL piece_08.stl maat gelijk 15962 driehoeken, [159.57, 96.31, 115.05]
 [sj-e2e] OK   meter-suzanne: STL pins_5mm_x40.stl maat gelijk 10080 driehoeken, [59.0, 50.0, 12.0]
 [sj-e2e] OK   meter-suzanne: export 3MF 9 bestanden
-[sj-e2e] OK   meter-suzanne: 3MF piece_01.3mf in mm, maat gelijk 9468 driehoeken, [84.59, 96.1, 115.08]
-[sj-e2e] OK   meter-suzanne: 3MF piece_02.3mf in mm, maat gelijk 9554 driehoeken, [84.56, 96.1, 115.08]
-[sj-e2e] OK   meter-suzanne: 3MF piece_03.3mf in mm, maat gelijk 6694 driehoeken, [137.57, 88.06, 47.69]
-[sj-e2e] OK   meter-suzanne: 3MF piece_04.3mf in mm, maat gelijk 6654 driehoeken, [137.54, 88.06, 47.69]
-[sj-e2e] OK   meter-suzanne: 3MF piece_05.3mf in mm, maat gelijk 13196 driehoeken, [98.82, 96.34, 113.5]
-[sj-e2e] OK   meter-suzanne: 3MF piece_06.3mf in mm, maat gelijk 13310 driehoeken, [98.79, 96.34, 113.5]
-[sj-e2e] OK   meter-suzanne: 3MF piece_07.3mf in mm, maat gelijk 15986 driehoeken, [159.6, 96.31, 115.05]
-[sj-e2e] OK   meter-suzanne: 3MF piece_08.3mf in mm, maat gelijk 15966 driehoeken, [159.57, 96.31, 115.05]
+[sj-e2e] OK   meter-suzanne: 3MF piece_01.3mf in mm, maat gelijk 9448 driehoeken, [84.59, 96.1, 115.08]
+[sj-e2e] OK   meter-suzanne: 3MF piece_02.3mf in mm, maat gelijk 9544 driehoeken, [84.56, 96.1, 115.08]
+[sj-e2e] OK   meter-suzanne: 3MF piece_03.3mf in mm, maat gelijk 6704 driehoeken, [137.57, 88.06, 47.69]
+[sj-e2e] OK   meter-suzanne: 3MF piece_04.3mf in mm, maat gelijk 6646 driehoeken, [137.54, 88.06, 47.69]
+[sj-e2e] OK   meter-suzanne: 3MF piece_05.3mf in mm, maat gelijk 13178 driehoeken, [98.82, 96.34, 113.5]
+[sj-e2e] OK   meter-suzanne: 3MF piece_06.3mf in mm, maat gelijk 13298 driehoeken, [98.79, 96.34, 113.5]
+[sj-e2e] OK   meter-suzanne: 3MF piece_07.3mf in mm, maat gelijk 15978 driehoeken, [159.6, 96.31, 115.05]
+[sj-e2e] OK   meter-suzanne: 3MF piece_08.3mf in mm, maat gelijk 15962 driehoeken, [159.57, 96.31, 115.05]
 [sj-e2e] OK   meter-suzanne: 3MF pins_5mm_x40.3mf in mm, maat gelijk 10080 driehoeken, [59.0, 50.0, 12.0]
 [sj-e2e] OK   meter-suzanne kleur: standaard Per piece PIECE
 [sj-e2e] OK   meter-suzanne kleur: elk stuk een eigen materiaal met dezelfde objectkleur 
@@ -1541,9 +1541,11 @@
 [sj-e2e] OK   vrij: 1,0 mm voorbij het gat nog geweigerd {'CANCELLED'} 'Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2'
 [sj-e2e] OK   vrij: snede net voorbij het gat snijdt wel {'FINISHED'} 3 ''
 [sj-e2e] OK   klik: operator split_joints.split_to_fit bestaat 
+[sj-e2e] OK   klik: geen zwaar-regel bij een lichte doos 
+[sj-e2e] OK   klik: zwaar-regel vanaf de grens '0.0M faces: Split can take a few minutes'
 [sj-e2e] OK   klik: plek in mm gelijk aan de plek -83.3333 -83.3333
 [sj-e2e] klik: met de hand {'FINISHED'} {'FINISHED'} [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
-[sj-e2e] klik: een klik {'FINISHED'} in 0.3 s [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
+[sj-e2e] klik: een klik {'FINISHED'} in 0.2 s [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
 [sj-e2e] OK   klik: een klik lukt {'FINISHED'}
 [sj-e2e] OK   klik: zelfde stukken als Plan plus Split 3 tegen 3
 [sj-e2e] OK   klik: zelfde pennen 8 tegen 8
