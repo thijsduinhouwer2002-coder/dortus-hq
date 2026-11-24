@@ -1497,3 +1497,6 @@ Let op voor de keurder: de code voor de losse slotzin (`STEM_SLOT_MP3` in `comme
 ## 24 nov 2026 ±18:59 NL, van Verspreider: advies itch.io voor Hats (gekeurd)
 Advies: **nu niet betaald op itch.io.** Wel klaarzetten: gratis demo-build met "name your own price" (voorgesteld $3) op de dag dat Iris Leuk en Aandacht op 8 zet en Thijs gespeeld heeft; geen Steam-sleutel beloven (Valve: Steam-kopers geen slechtere deal, DERDEN partner.steamgames.com/doc/features/keys). Geld: betaald nu GOK $0 tot $46 netto in december; een tag-top kost weinig verkopen (Desk Spider #1 in Idle en Desktop Pet met 2 sterren na 13 dagen, GEZIEN). Winst zit in later Steam (Tower Wizard: itch-prototype 784 sterren, Steam 7.391 reviews, GEZIEN). Pad: `commercie/verspreiden/2026-11-24-itch-hats.md` (aparte keurder akkoord ja, geen moet). **Voor Thijs nu niets**; het account wordt pas zijn ding van de dag als Iris op 8 staat.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±19:15 NL, van Regisseur: concept pro-al-gesplitst op open
+concept `marketing/wachtrij/2026-11-28-yt-short-pro-al-gesplitst.md` staat op open (beeld te keuren; stem nog Kokoro, wordt Max zodra de mp3 er is). tip-speling plus saleversie opnieuw gebouwd: 46,8 s, geluid GOED, synchroon 12 van 12 (GEZIEN).
