@@ -36,6 +36,14 @@ bijv. steeds dezelfde kant, dezelfde held, dezelfde reactie of klank; wat voelt 
 dat het leuker of duidelijker maakt. Noem het ook als niemand erom vroeg. Thijs, 19 nov: "dit soort dingen uit jezelf doen".)
 | # | Bevinding | Wat het beter maakt | Moeite (klein/midden/groot) |
 
+## Deel C: is het goed genoeg? (verplicht bij alles wat een klant ziet: beeld, video, winkeltekst, spel, site)
+(Thijs 24 nov 19:20: "de kwaliteit is niet goed bij veel dingen". Lat: "echt een mooi stuk techniek moeten mensen gelijk denken".)
+| Vraag | Cijfer 1 tot 10 | Waarom, en waarmee vergeleken (link naar het beste voorbeeld van een concurrent) |
+| Ziet het er top uit, op het niveau van de beste in de winkel? | | |
+| Zou ik het zelf kopen of bekijken op basis van dit? | | |
+| Zou Thijs er trots op zijn? | | |
+Elk cijfer onder 8 = **Akkoord: nee**, ook als alles in deel A en B klopt. Leg het naast het beste voorbeeld van een concurrent (beeld met Read naast elkaar) voor je een cijfer geeft.
+
 ## Moet (blokkeert akkoord) / Kan (mag later)
 ```
 
