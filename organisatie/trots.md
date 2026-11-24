@@ -1,6 +1,10 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
 
+## 24 nov 2026 02:30 NL (hoofdchat kwartier-check 6)
+- **Ebb:** product en beelden: ja, zelf zou ik hem kopen (zee, trillingen per fase, dieren voor opdagen, eerlijke veiligheidsregels; 5 winkelbeelden zoals de rest). Opvallen: goed, plek 2 op "breath hold" (GEZIEN, winkel-API 02:25). Kopen: nee, 1+ downloads, 0 reviews; Spanjaarden, Italianen en Polen zien nog de Duitse titel, want `de` staat eerst (GEZIEN, `appLocalizations` de, nl, en, fr). Grootste gat: de 20 gekeurde talen van Chris liggen sinds 23 nov klaar en zijn nog niet geplakt; dat kan alleen een hoofdchat met Chrome op de HP van Thijs, niet deze cloudronde.
+- **Idee deze ronde:** prijs Ebb naar $1,99 in hetzelfde formulier (de ademapps met 100+ zitten op $1,99), score 4, geen opdracht.
+
 ## 24 nov 2026 01:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat is nu dat kopers nog 1.1.0 krijgen (Gumroad zegt "1.1 is a free update", GEZIEN door de Verspreider-keurder 24 nov), terwijl 1.2.3 met de betrouwbare Figure from rig op main staat (14e6e42; e2e 5.2.3 en 5.3.0 groen, 4.2.23 loopt, GEZIEN in bericht Bram). Bram start de uitgave-run zodra 4.2 groen is; daarna plakt Thijs de zip (lijst punt 3, nu 1.2.3 in plaats van 1.2.2). Cover tekenpop en spiekbrief kregen ja van Daan. Af: doel live vóór do 26 nov. Superhive kon deze run niet gelezen worden (proxy 403).
 - **Idee deze ronde:** de scorebord-workflow leest voortaan ook de kortingscodes van Pro (Gumroad API, alleen lezen), zodat we vóór vr 27 nov zeker weten dat CYBER25 bestaat; anders vallen alle Black Friday-teksten met "with code CYBER25" in het water. Opdracht Bram.
