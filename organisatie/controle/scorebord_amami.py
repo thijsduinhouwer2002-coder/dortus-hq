@@ -72,7 +72,30 @@ def pagina_van(pad):
     return "overig"
 
 
-def dortus_bezoek(al_gemeten, haal, noten):
+def verwijzer_van(x):
+    """Umami-referrer (domein of adres) naar een korte host, zonder pad of query. Leeg is direct."""
+    x = (x or "").strip().lower()
+    if not x:
+        return "direct"
+    x = re.sub(r"^[a-z]+://", "", x).split("/")[0].split("?")[0].split("#")[0].split("@")[-1].split(":")[0]
+    x = re.sub(r"^(www|m|l|lm|out)\.", "", x)
+    return x or "direct"
+
+
+def verwijzer_rijen(d, vrijen):
+    """Bezoeken per verwijzende host; altijd minstens één regel ("verwijzer geen" 0) zodat de dag als gemeten telt."""
+    per_v = {}
+    for r in vrijen:
+        if isinstance(r, dict) and getal_uit(r.get("y")) is not None:
+            h = verwijzer_van(r.get("x"))
+            per_v[h] = per_v.get(h, 0) + int(getal_uit(r.get("y")))
+    if not per_v:
+        per_v = {"geen": 0}
+    return [(d, f"verwijzer {h}", "bezoeken", n) for h, n in sorted(per_v.items())]
+
+
+def dortus_bezoek(al_gemeten, haal, noten, zonder_verw=()):
+    """zonder_verw: dagen die al gemeten zijn maar nog geen verwijzers hebben; daarvan alleen de verwijzers halen."""
     sleutel = os.environ.get("AMAMI_API_KEY", "").strip()
     if not sleutel:
         noten.append("dortus.com: geen AMAMI_API_KEY in de omgeving, bezoekcijfers overgeslagen.")
@@ -93,6 +116,12 @@ def dortus_bezoek(al_gemeten, haal, noten):
         begin = dt.datetime.combine(dag, dt.time(0), tz)
         eind = min(dt.datetime.combine(dag + dt.timedelta(days=1), dt.time(0), tz), dt.datetime.now(tz))
         bereik = {"startAt": int(begin.timestamp() * 1000), "endAt": int(eind.timestamp() * 1000) - 1}
+        if dag.isoformat() in zonder_verw:  # oude cijfers blijven staan, alleen verwijzers erbij
+            verw = amami_get(f"/websites/{site}/metrics", dict(bereik, type="referrer", limit=50), sleutel)
+            vrijen = verw.get("data", []) if isinstance(verw, dict) else verw
+            if isinstance(vrijen, list):
+                BEZOEK.extend(verwijzer_rijen(dag.isoformat(), vrijen))
+            continue
         doel = BEZOEK if terug > 0 else None
         stats = amami_get(f"/websites/{site}/stats", bereik, sleutel)
         if not isinstance(stats, dict):
@@ -103,6 +132,8 @@ def dortus_bezoek(al_gemeten, haal, noten):
         if not isinstance(rijen, list):
             noten.append(f"dortus.com: cijfers per pagina van {dag} niet leesbaar, alleen het totaal.")
             rijen = []
+        verw = amami_get(f"/websites/{site}/metrics", dict(bereik, type="referrer", limit=50), sleutel)
+        vrijen = verw.get("data", []) if isinstance(verw, dict) else verw
         d = dag.isoformat()
         uit = []
         for maat in ("visitors", "visits", "pageviews"):
@@ -117,6 +148,10 @@ def dortus_bezoek(al_gemeten, haal, noten):
         if metr is not None:
             for naam in ["voorpagina", *PAGINAS.values(), "overig"]:
                 uit.append((d, naam, "pagina", per.get(naam, 0)))
+        if isinstance(vrijen, list):  # herkomst van bezoeken: per verwijzende site (Meter, 24 nov)
+            uit.extend(verwijzer_rijen(d, vrijen))
+        elif verw is None:
+            noten.append(f"dortus.com: verwijzers van {dag} niet leesbaar.")
         if doel is None:  # vandaag: alleen tonen
             VANDAAG_TOT_NU.update({(p, m): w for _, p, m, w in uit})
             VANDAAG_TOT_NU["tijd"] = f"{dag} tot {eind:%H:%M}"
@@ -131,6 +166,30 @@ def dortus_bezoek(al_gemeten, haal, noten):
 
 def tekst(w):
     return "?" if w in (None, "") else str(w)
+
+
+def verwijzer_tabel(alles):
+    """Waar bezoekers van dortus.com vandaan komen, per dag (Umami-referrer)."""
+    rijen = [r for r in alles if r["platform"] == "dortus.com" and str(r["product"]).startswith("verwijzer ")]
+    per = {}
+    for r in rijen:
+        per.setdefault(r["datum"], []).append((r["product"][len("verwijzer "):], r["waarde"]))
+    vandaag = [(k[0][len("verwijzer "):], w) for k, w in VANDAAG_TOT_NU.items()
+               if isinstance(k, tuple) and str(k[0]).startswith("verwijzer ")]
+    if not per and not vandaag:
+        return []
+    def cel(lijst):
+        lijst = sorted(lijst, key=lambda t: (-int(t[1] or 0), t[0]))
+        return ", ".join(f"{h} {w}" for h, w in lijst) or "geen"
+    regels = ["", "## Herkomst bezoeken dortus.com (Amami, verwijzende site per dag)", "",
+              "Per dag het aantal bezoeken per verwijzende site (Umami-metrics type referrer). \"direct\" is zonder "
+              "verwijzer: getypt, een bladwijzer of een app die niets doorgeeft (YouTube- en TikTok-apps doen dat vaak).", "",
+              "| Dag | Bezoeken per verwijzer |", "|---|---|"]
+    if vandaag:
+        regels.append(f"| {VANDAAG_TOT_NU.get('tijd', 'vandaag')} (nog niet om) | {cel(vandaag)} |")
+    for d in sorted(per, reverse=True)[:14]:
+        regels.append(f"| {d} | {cel(per[d])} |")
+    return regels
 
 
 def bezoek_tabel(alles):

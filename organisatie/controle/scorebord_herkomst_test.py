@@ -64,5 +64,35 @@ class TikTok(unittest.TestCase):
         self.assertIsNone(b.tiktok_cijfers('"playCount":'))
 
 
+class Verwijzer(unittest.TestCase):
+    def test_host(self):
+        import scorebord_amami as a
+        self.assertEqual(a.verwijzer_van(""), "direct")
+        self.assertEqual(a.verwijzer_van(None), "direct")
+        self.assertEqual(a.verwijzer_van("www.youtube.com"), "youtube.com")
+        self.assertEqual(a.verwijzer_van("https://m.youtube.com/watch?v=x&email=a@b.c"), "youtube.com")
+        self.assertEqual(a.verwijzer_van("l.instagram.com"), "instagram.com")
+        self.assertEqual(a.verwijzer_van("https://iemand:geheim@reddit.com:443/r/blender"), "reddit.com")
+
+    def test_lege_dag_telt_als_gemeten(self):
+        import scorebord_amami as a
+        self.assertEqual(a.verwijzer_rijen("2026-11-20", []), [("2026-11-20", "verwijzer geen", "bezoeken", 0)])
+        self.assertEqual(a.verwijzer_rijen("d", [{"x": "www.youtube.com", "y": 2}, {"x": "youtube.com", "y": 1}]),
+                         [("d", "verwijzer youtube.com", "bezoeken", 3)])
+
+    def test_tabel(self):
+        import scorebord_amami as a
+        a.VANDAAG_TOT_NU.clear()
+        a.VANDAAG_TOT_NU.update({("verwijzer direct", "bezoeken"): 4, ("dortus.com", "bezoekers"): 5, "tijd": "2026-11-24 tot 19:00"})
+        alles = [{"datum": "2026-11-23", "product": "verwijzer youtube.com", "platform": "dortus.com", "maat": "bezoeken", "waarde": 2},
+                 {"datum": "2026-11-23", "product": "verwijzer direct", "platform": "dortus.com", "maat": "bezoeken", "waarde": 9},
+                 {"datum": "2026-11-23", "product": "dortus.com", "platform": "dortus.com", "maat": "bezoekers", "waarde": 12}]
+        t = "\n".join(a.verwijzer_tabel(alles))
+        self.assertIn("| 2026-11-23 | direct 9, youtube.com 2 |", t)
+        self.assertIn("direct 4", t)
+        a.VANDAAG_TOT_NU.clear()
+        self.assertEqual(a.verwijzer_tabel([]), [])
+
+
 if __name__ == "__main__":
     unittest.main()

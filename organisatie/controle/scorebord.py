@@ -21,7 +21,7 @@ Wat het meet (alles openbaar, niet inloggen):
 - Discord (R6): leden en online van de Hats-server via de openbare invite-API (code in scorebord_bronnen.py).
 - YouTube (R6): weergaven per filmpje van @Dortusapps uit de openbare RSS, zonder sleutel.
   Zie scorebord_bronnen.py.
-- dortus.com (sinds 16 nov 20:35): bezoekers per dag uit Amami, totaal en per productpagina.
+- dortus.com (sinds 16 nov 20:35): bezoekers per dag uit Amami, totaal en per productpagina; sinds 24 nov (Meter) ook per verwijzende site.
   Met sleutel: AMAMI_API_KEY als GitHub-secret, alleen gelezen uit de
   omgeving, nooit geprint of opgeslagen. Zonder sleutel slaat het script dit deel over. Het
   website-id wordt elke run uit de html van dortus.com gelezen. Amami bewaart cijfers 7 dagen,
@@ -382,9 +382,12 @@ def main():
         NOTEN.append(f"kortingscodes: fout tijdens meten ({type(e).__name__}).")
 
     geschiedenis = lees_geschiedenis()
-    al = {r["datum"] for r in geschiedenis if r["platform"] == "dortus.com" and r["product"] == "dortus.com"}
+    # een dag geldt als gemeten als er een totaal en een verwijzerregel is (verwijzers sinds 24 nov, dus oudere dagen één keer opnieuw)
+    met_verw = {r["datum"] for r in geschiedenis if r["platform"] == "dortus.com" and str(r["product"]).startswith("verwijzer ")}
+    totaal_al = {r["datum"] for r in geschiedenis if r["platform"] == "dortus.com" and r["product"] == "dortus.com"}
+    al = totaal_al & met_verw
     try:
-        amami.dortus_bezoek(al, haal, NOTEN)
+        amami.dortus_bezoek(al, haal, NOTEN, zonder_verw=totaal_al - met_verw)
     except Exception as e:  # noqa: BLE001
         NOTEN.append(f"dortus_bezoek: fout tijdens meten ({type(e).__name__}).")
     # bezoekrijen hebben de bezoekdag als datum; ze blijven staan, behalve een dag die opnieuw gehaald is
@@ -418,6 +421,7 @@ def main():
     regels += herkomst_tabel(verkopen)
     regels += codes_tabel(codes)
     regels += amami.bezoek_tabel(alles)
+    regels += amami.verwijzer_tabel(alles)
     regels += ["", "## Wat niet te zien is", "",
                "- Gumroad-bezoekers staan niet in de Gumroad API v2 (verkopen per product, en sinds 23 nov per verkoop de bron via /sales); bezoekers van de productpagina's op dortus.com staan hierboven (Amami).",
                "- YouTube: de RSS toont alleen de nieuwste openbare filmpjes (max 15); oudere filmpjes en abonnees vragen de YouTube Data API (sleutel ontbreekt nog, zie toegang.md).",
