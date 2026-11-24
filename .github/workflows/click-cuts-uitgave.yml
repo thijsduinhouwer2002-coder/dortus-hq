@@ -1,0 +1,82 @@
+name: Click Cuts uitgave (vaste zip als artefact, 30 dagen)
+
+# Zet de Click Cuts-zip uit een groene e2e-run vast, zodat de hoofdchat en Thijs hem op Superhive en
+# Gumroad kunnen zetten zodra de winkeltekst gekeurd is (Bram, 24 nov 2026, opdracht hoofdchat 04:45).
+# De zip komt uit de e2e-run zelf (daar getest in Blender 4.2.23 en 5.3.0), niet opnieuw gebouwd.
+# Zoals bij Pro (besluit Thijs 15 nov 19:52): de betaalde zip komt NIET in een openbare release, alleen
+# als Actions-artefact. Bewaartijd 30 dagen in plaats van 3: Superhive gaat pas na 2 dec, het artefact
+# van de e2e (3 dagen) is dan weg.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Groene run van blender-splitser-e2e.yml op main (op 4efe003 of nieuwer)"
+        required: true
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  VERSIE: "1.0.0"
+  BASIS: 4efe003   # eerste commit met de 1.0.0-kandidaat
+  RUN: ${{ inputs.run_id }}
+
+jobs:
+  uitgave:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: e2e-run moet groen zijn, van main komen en op of na de basis liggen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN" --jq '.path, .head_branch, .head_sha, .conclusion' | tee /tmp/run.txt
+          grep -q 'blender-splitser-e2e.yml' /tmp/run.txt || { echo "FOUT: geen splitser-e2e-run"; exit 1; }
+          [ "$(sed -n 2p /tmp/run.txt)" = "main" ] || { echo "FOUT: niet van main"; exit 1; }
+          [ "$(sed -n 4p /tmp/run.txt)" = "success" ] || { echo "FOUT: run niet groen"; exit 1; }
+          sha=$(sed -n 3p /tmp/run.txt)
+          stand=$(gh api "repos/$GITHUB_REPOSITORY/compare/$BASIS...$sha" --jq '.status')
+          echo "basis $BASIS tegen $sha: $stand"
+          case "$stand" in identical|ahead) ;; *) echo "FOUT: run ligt voor $BASIS"; exit 1;; esac
+      - name: Kandidaat-zip van de run ophalen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download "$RUN" -R "$GITHUB_REPOSITORY" -n click-cuts-kandidaat -D /tmp/k
+          ls -la /tmp/k
+      - name: Zip nakijken (sha256, naam, id, versie, inhoud)
+        run: |
+          z=/tmp/k/click_cuts-$VERSIE.zip
+          [ -s "$z" ] || { echo "FOUT: geen click_cuts-$VERSIE.zip"; exit 1; }
+          (cd /tmp/k && sha256sum -c SHA256SUMS.txt)
+          unzip -p "$z" blender_manifest.toml | tee /tmp/man.toml
+          grep -qx "version = \"$VERSIE\"" /tmp/man.toml || { echo "FOUT: versie"; exit 1; }
+          grep -qx 'name = "Click Cuts"' /tmp/man.toml || { echo "FOUT: naam"; exit 1; }
+          grep -qx 'id = "click_cuts"' /tmp/man.toml || { echo "FOUT: id"; exit 1; }
+          unzip -l "$z" | tee /tmp/inhoud.txt
+          grep -q ' __init__.py$' /tmp/inhoud.txt || { echo "FOUT: geen __init__.py bovenin"; exit 1; }
+          if grep -E '(^|/)(e2e|tests?|__pycache__)/|\.blend1?$' /tmp/inhoud.txt; then echo "FOUT: testbestanden in de zip"; exit 1; fi
+          python3 -m zipfile -t "$z"
+      - name: Vaste zip en SHA256SUMS klaarzetten
+        run: |
+          mkdir -p /tmp/uit
+          cp "/tmp/k/click_cuts-$VERSIE.zip" /tmp/uit/
+          (cd /tmp/uit && sha256sum * | tee SHA256SUMS.txt)
+          {
+            echo "### Click Cuts $VERSIE"
+            echo
+            echo "Uit e2e-run $RUN op main (groen in Blender 4.2.23 en 5.3.0)."
+            echo
+            echo '```'
+            cat /tmp/uit/SHA256SUMS.txt
+            echo '```'
+            echo
+            echo "Artefact \`click-cuts-zip-$VERSIE\`, 30 dagen bewaard, niet in een openbare release."
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Betaalde zip als artefact (30 dagen, niet openbaar als download)
+        uses: actions/upload-artifact@v4
+        with:
+          name: click-cuts-zip-${{ env.VERSIE }}
+          path: /tmp/uit
+          retention-days: 30
