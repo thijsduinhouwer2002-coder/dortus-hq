@@ -682,6 +682,13 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
             soort = figuur.PER_SLEUTEL[sleutel][2]
             stop, herkomst = per_naam[naam]
             m = cursor_matrix(arm, pb, stop[1] if stop else 1)
+            if sleutel == "ANKLE" and pb.parent is not None:
+                # 1.2.5 (Regisseur 24 nov: robot en MakeHuman kregen nooit een enkel): de voet staat haaks op de
+                # scheen, dus langs de lidas van het voetbot ligt achter de enkel alleen de hiel ("too little limb").
+                # Neem de assen van het scheenbot (lidas omlaag langs de scheen) op de plek van de enkel: dan is
+                # deel A de scheen en deel B de voet, zoals bij een knie.
+                m = cursor_matrix(arm, pb.parent, stop[1] if stop else 1)
+                m.col[3][:3] = (arm.matrix_world @ pb.matrix).to_translation()
             delen = [o for o in context.scene.objects if o.type == "MESH" and o.visible_get()
                      and (o is mesh or o.get("cj_figuur") == fig)]
             doel = deel_met(context, delen, m.to_translation())
