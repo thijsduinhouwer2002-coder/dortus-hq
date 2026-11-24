@@ -1,0 +1,281 @@
+{
+ "naam": "pro-robot-delen-sale",
+ "titel": "Turn your rigged figure into printable parts in one click 🔥 | Blender",
+ "eind": {
+  "titel": "Click Joints Pro",
+  "zin": "25% off this week.",
+  "adres": "on Gumroad",
+  "render": "render-3.png"
+ },
+ "printzin": "Every printer is different: print a test joint first.",
+ "venster": "Blender 5.3 with Click Joints Pro",
+ "scenes": [
+  {
+   "tekst": "Is your figure still one solid piece?",
+   "label": "QUICK QUESTION",
+   "kleur": "oranje",
+   "kop": "One solid piece?",
+   "beeld": {
+    "render": "render-1.png",
+    "focus": [
+     0.5,
+     0.45
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "This robot has a rig, but it is one solid mesh.",
+   "label": "BEFORE",
+   "kleur": "blauw",
+   "kop": "One mesh",
+   "beeld": {
+    "deel": "heel",
+    "van": 0,
+    "tot": 84,
+    "uitsnede": [
+     [
+      540,
+      600,
+      1250
+     ],
+     [
+      540,
+      570,
+      1150
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Select it, and press one button: Figure from rig.",
+   "label": "ONE BUTTON",
+   "kleur": "groen",
+   "kop": "Figure from rig",
+   "beeld": {
+    "deel": "knop",
+    "van": 0,
+    "tot": 60,
+    "uitsnede": [
+     [
+      1560,
+      420,
+      1100
+     ],
+     [
+      1580,
+      330,
+      900
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "It cuts the robot into parts, each with its own joint.",
+   "label": "PARTS",
+   "kleur": "oranje",
+   "kop": "Cut into parts",
+   "beeld": {
+    "deel": "knop",
+    "van": 40,
+    "tot": 140,
+    "uitsnede": [
+     [
+      580,
+      600,
+      1350
+     ],
+     [
+      560,
+      590,
+      1250
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "It reads your rig and lists every joint it placed.",
+   "label": "FROM YOUR RIG",
+   "kleur": "blauw",
+   "kop": "Every joint listed",
+   "beeld": {
+    "deel": "lijst",
+    "van": 0,
+    "tot": 150,
+    "uitsnede": [
+     [
+      560,
+      590,
+      1300
+     ],
+     [
+      560,
+      580,
+      1250
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Elbows and knees get a hinge with an end stop, the rest a ball joint.",
+   "label": "HINGE OR BALL",
+   "kleur": "groen",
+   "kop": "Hinge or ball",
+   "beeld": {
+    "deel": "knie",
+    "van": 20,
+    "tot": 40,
+    "uitsnede": [
+     [
+      1380,
+      650,
+      950
+     ],
+     [
+      1360,
+      640,
+      880
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Click the lower leg and drag Bend to the stop.",
+   "label": "STEP 2",
+   "kleur": "oranje",
+   "kop": "Bend to the stop",
+   "beeld": {
+    "deel": "knie",
+    "van": 62,
+    "tot": 174,
+    "uitsnede": [
+     [
+      560,
+      640,
+      1300
+     ],
+     [
+      560,
+      650,
+      1260
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Past the stop, red shows where parts would hit.",
+   "label": "CHECK",
+   "kleur": "rood",
+   "kop": "Red past the stop",
+   "beeld": {
+    "deel": "knie_rood",
+    "van": 0,
+    "tot": 147,
+    "uitsnede": [
+     [
+      540,
+      880,
+      1350
+     ],
+     [
+      540,
+      900,
+      1320
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Exploded view pulls the parts apart.",
+   "label": "LOOK INSIDE",
+   "kleur": "blauw",
+   "kop": "Exploded view",
+   "beeld": {
+    "deel": "uitelkaar",
+    "van": 12,
+    "tot": 72,
+    "uitsnede": [
+     [
+      540,
+      600,
+      1300
+     ],
+     [
+      540,
+      590,
+      1220
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Then step three, Fit and export, writes every part as its own file.",
+   "label": "STEP 3",
+   "kleur": "groen",
+   "kop": "Fit and export",
+   "beeld": {
+    "deel": "export",
+    "van": 0,
+    "tot": 118,
+    "uitsnede": [
+     [
+      1560,
+      1172,
+      1100
+     ],
+     [
+      1580,
+      1172,
+      900
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Exporting is in the free Click Joints too. The one-click figure is Pro.",
+   "label": "FREE OR PRO",
+   "kleur": "oranje",
+   "kop": "One click is Pro",
+   "beeld": {
+    "deel": "held",
+    "van": 0,
+    "tot": 180,
+    "uitsnede": [
+     [
+      540,
+      600,
+      1350
+     ],
+     [
+      540,
+      580,
+      1250
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Every printer is different. Print a test joint first.",
+   "label": "PRINT FIRST",
+   "kleur": "blauw",
+   "kop": "Print a test joint first",
+   "beeld": {
+    "render": "render-2.png",
+    "focus": [
+     0.5,
+     0.5
+    ]
+   }
+  },
+  {
+   "tekst": "Click Joints Pro, 25% off this week, on Gumroad.",
+   "label": "CLICK JOINTS PRO",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   },
+   "uitspraak": "Click Joints Pro, twenty five percent off this week, on Gumroad."
+  }
+ ]
+}
