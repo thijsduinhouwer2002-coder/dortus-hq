@@ -1,0 +1,211 @@
+{
+ "naam": "tip-dubbel",
+ "titel": "Is your model secretly in two pieces? Fix it in Blender 🧩 #blender #3dprinting",
+ "eind": {
+  "titel": "Blender for 3D printing",
+  "zin": "A new Blender tip for 3D printing every week.",
+  "adres": "dortus.com/yt",
+  "render": "render-label.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "venster": "Blender 5.3",
+ "scenes": [
+  {
+   "tekst": "Is your model secretly in two pieces? Check it in Blender.",
+   "label": "QUICK TIP",
+   "kleur": "oranje",
+   "kop": "Two pieces?",
+   "beeld": {
+    "deel": "d_mooi",
+    "van": 0,
+    "tot": 120,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      820
+     ],
+     [
+      1080,
+      890,
+      660
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Press Tab, point at the top, and press L.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Tab, then L",
+   "beeld": {
+    "deel": "d_l1",
+    "van": 0,
+    "tot": 60,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      820
+     ],
+     [
+      1080,
+      900,
+      720
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Only the top lights up. Blender sees two loose parts.",
+   "label": "WHY",
+   "kleur": "blauw",
+   "kop": "Only the top!",
+   "beeld": {
+    "deel": "d_l1",
+    "van": 44,
+    "tot": 156,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      720
+     ],
+     [
+      1080,
+      910,
+      600
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "The seam has 48 double points, so the edge is open.",
+   "uitspraak": "The seam has forty eight double points, so the edge is open.",
+   "label": "WHY",
+   "kleur": "blauw",
+   "kop": "48 double points",
+   "beeld": {
+    "deel": "d_l1",
+    "van": 80,
+    "tot": 156,
+    "uitsnede": [
+     [
+      1080,
+      920,
+      600
+     ],
+     [
+      1080,
+      930,
+      480
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Press A. Then press M and pick By Distance.",
+   "label": "STEP 2",
+   "kleur": "groen",
+   "kop": "M, By Distance",
+   "beeld": {
+    "deel": "d_merge",
+    "van": 0,
+    "tot": 72,
+    "uitsnede": [
+     [
+      1050,
+      950,
+      900
+     ],
+     [
+      980,
+      980,
+      760
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Blender removed 48 points. The seam is closed.",
+   "uitspraak": "Blender removed forty eight points. The seam is closed.",
+   "label": "RESULT",
+   "kleur": "groen",
+   "kop": "48 removed",
+   "beeld": {
+    "deel": "d_merge",
+    "van": 60,
+    "tot": 154,
+    "uitsnede": [
+     [
+      1080,
+      920,
+      600
+     ],
+     [
+      1080,
+      900,
+      760
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Press Alt A, then L again. Now the whole vase lights up.",
+   "label": "STEP 3",
+   "kleur": "groen",
+   "kop": "One part now",
+   "beeld": {
+    "deel": "d_l2",
+    "van": 0,
+    "tot": 146,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      800
+     ],
+     [
+      1080,
+      900,
+      700
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Save this before your next export.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Save this tip",
+   "beeld": {
+    "deel": "d_klaar",
+    "van": 20,
+    "tot": 190,
+    "uitsnede": [
+     [
+      1080,
+      900,
+      800
+     ],
+     [
+      1080,
+      890,
+      700
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "More Blender tips for 3D printing at dortus.com/yt.",
+   "uitspraak": "More Blender tips for three D printing, at dortus dot com slash Y T.",
+   "label": "MORE TIPS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   }
+  }
+ ]
+}
