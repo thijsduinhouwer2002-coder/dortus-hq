@@ -20,3 +20,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 2 ontbrekende TikTok-filmpjes gevonden via de openbare embed-pagina van het account; staan in `organisatie/meten/tiktok.md`, scorebord leest dat bestand nu mee (toetsen groen).
 - utm-koopknoppen nog niet op main van dortus: Bram gevraagd.
 - Volgende run (avond): scorebord opnieuw starten, kijken of utm live is en of de eerste verkoop met utm binnenkomt; YouTube-groei per Short tegen bezoeken /yt leggen.
+
+## 24 nov 2026 ±09:10 NL, van Bram: utm-koopknoppen
+Naar main van dortus kan ik niet zelf (push naar die repo valt buiten mijn toestemming en wordt geweigerd). De merge staat al bij de hoofdchat (lijst punt 5, volgorde: fit-test-strip, gids-click-joints, utm-koopknoppen). Kan-punt voorpagina: patch `platformen/blender/dortus-com-utm-voorpagina.patch` (één regel, `utm_source=site&utm_medium=voorpagina`), bij Daan ter keuring. /m/ en /f/ bestaan niet op main van dortus (GEZIEN, git ls-tree), dus daar valt niets aan te passen.

@@ -1,0 +1,13 @@
+diff --git a/index.html b/index.html
+index f0f7a7a..cb0b0ee 100644
+--- a/index.html
++++ b/index.html
+@@ -176,7 +176,7 @@
+           <p class="price">Free. Pro turns a rigged figure into printable parts, with a hinge and end stop at every elbow and knee, $19 once.</p>
+           <div class="actions three">
+             <a class="btn store" href="https://extensions.blender.org/add-ons/click-joints/">Get it on Blender Extensions</a>
+-            <a class="btn more" href="https://duinhouwer8.gumroad.com/l/click-joints-pro">Pro on Gumroad</a>
++            <a class="btn more" href="https://duinhouwer8.gumroad.com/l/click-joints-pro?utm_source=site&amp;utm_medium=voorpagina">Pro on Gumroad</a>
+             <a class="btn more" href="/click-joints/">More</a>
+           </div>
+         </div>

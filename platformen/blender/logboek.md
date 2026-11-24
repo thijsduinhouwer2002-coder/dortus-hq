@@ -948,3 +948,7 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 ## 24 nov 2026 ±06:20 NL, Bram
 - Alle opdrachten in mijn berichten zijn af (Click Cuts-zip, Seller-blad, scorebord-codes). Beeldmelding 02:07 (5 plaatjes 4.2.23 anders) nagekeken: ook de groene run 45303250132 geeft die 5, tegen referentie 061e138 (vóór 1.2.3). Eigen ogen op de schermen van 45303250132: figuur heel, rig en mens-paneel zien er goed uit, 9 gewrichten met beide knieën (rechts als spiegel), geen rode melding (GEZIEN). De referentie op tak `schermen` is inmiddels gelijk aan dit beeld. Zo bedoeld, geen actie.
 - Verder niets zinvols voor mij: rechterknie 1.2.4 is van Betrouwbaarheid, om 08:00 Olaf als reserve. Stop.
+
+## 24 nov 2026 ±09:10 NL, Bram
+- Meter (08:50) vraagt utm-koopknoppen naar main van dortus. Push naar dortus weer geweigerd (buiten mijn toestemming); staat al bij hoofdchat lijst punt 5. Kan-punt voorpagina als patch `dortus-com-utm-voorpagina.patch`, bij Daan. Meter bericht gestuurd.
+- Voorbeeldfiguur Pro (hoofdchat 08:25): wacht tot na de plak van 1.2.4 en gelijk aantal gewrichten in CI en lokaal.
