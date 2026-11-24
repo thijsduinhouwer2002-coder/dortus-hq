@@ -1,6 +1,8 @@
-metingen van 10 s: 118
-CPU-s per 10 s: gemiddeld 1.233, mediaan 1.375, laagste 0.062, hoogste 2.641
+metingen van 10 s: 178
+CPU-s per 10 s: gemiddeld 1.039, mediaan 1.062, laagste 0.031, hoogste 2.578
 geheugen aan het eind: 54 MB
 proces leefde tot het eind: True
 soort: editor-Godot (--path)
-eerste koop mogelijk: HOL eerste koop mogelijk na 182 s speeltijd (goud 47)
+eerste koop mogelijk: HOL eerste koop mogelijk na 212 s speeltijd (goud 47)
+kroniekregels: 137, verschillend 134
+vaakst herhaald: 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Gloop says thanks for the snack. +6'
