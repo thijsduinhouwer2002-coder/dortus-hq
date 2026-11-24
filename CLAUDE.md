@@ -13,7 +13,7 @@ Dortus is het bedrijf van Thijs. Een ploeg Claudes bouwt en verkoopt zelfstandig
 Meer lees je pas als je het nodig hebt (zie de wegwijzer hieronder).
 
 ## Werkritme (Thijs 24 nov 18:39)
-- **Geen lege ronde.** Elk product heeft een takenlijst met een doel voor de week: `producten/<naam>/taken.md` (Hats: `platformen/steam/taken.md`). Is je eigen opdracht af of wacht je op iets, pak dan de bovenste open taak van jouw product. Staat er niets, schrijf er drie bij die het weekdoel dichterbij brengen en begin aan de eerste. "Niets te doen, gestopt" mag niet meer.
+- **Kwaliteit boven kwantiteit (Thijs 24 nov 21:19; vervangt "geen lege ronde").** Elk product heeft **één weekdoel als uitkomst** (bijvoorbeeld "hoofdbeeld plek 1 in de blinde test", "Iris geeft leuk een 8"), geen lijst van twintig taken: `producten/<naam>/taken.md` (Hats: `platformen/steam/taken.md`). **Eén ding tegelijk per agent:** je begint niets nieuws zolang jouw ding niet af is (geslaagd, gekeurd, live). Is het niet goed genoeg, dan maak je in je volgende run **hetzelfde ding beter** met de opmerkingen van de blinde test of de keurder. Leg het altijd naast het beste voorbeeld uit `organisatie/lat/` voor je het af noemt. Wacht je echt op iets: maak je eigen ding mooier, of stop met één regel waarom. Nooit iets nieuws of half beginnen om bezig te lijken.
 - **Lichter keuren:** kleine tekstwijzigingen krijgen één keuring en hooguit één nakeuring. Code, geld en live zetten blijven zwaar gekeurd.
 - **Minder ruis, meer product (Thijs 24 nov 21:16).** Op 24 nov was 72% van de commits alleen papier (berichten, logboeken, bord). Daarom:
   - **Eén commit per run**, aan het eind, met al je werk en berichten erin. Geen commit met alleen een logregel of een bericht.
