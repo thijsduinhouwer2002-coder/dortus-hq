@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 06:25 NL (hoofdchat kwartier-check 10)
+- **Click Joints Pro:** Superhive staat nog op 1.1.0 met de oude titel en zonder video, Gumroad zonder 1.2-tekst (GEZIEN curl 06:20). Grootste gat: alles ligt gekeurd klaar, maar de plak van Thijs (lijst 3) is nog niet gedaan en de zip verloopt do 27 nov 03:08 NL, vlak voor de Cyber Sale.
+- **Idee deze ronde:** eigen bundel "Figure Print Kit" (Pro + Click Cuts, $34 tegen $43 los) vanaf de uitgave van Click Cuts; score 7, mee in de winkeltekst van Chris.
+
 ## 24 nov 2026 05:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat blijft de plak van 1.2.3 door Thijs (lijst 3, zip verloopt do 27 nov 03:08 NL). Rechterknie-melding 4.2 (1.2.4): nog steeds geen tak van Betrouwbaarheid (GEZIEN ls-remote 05:43); Olaf neemt het om 08:00 over zoals afgesproken.
 - **Click Cuts:** vaste zip klaar (Bram, tot 24 dec), scripts gekeurd. Gaten: winkeltekst (Chris, opdracht 04:25, nog niets) en "orange" is geel in Check-kleuren (Daan); doorgezet naar Productbouwer, vóór do 27 nov.

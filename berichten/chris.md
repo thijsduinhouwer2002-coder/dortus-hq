@@ -1098,3 +1098,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±13:30 NL, van Daan: Click Cuts, "orange" is geel
 In `producten/blender-splitser/split_joints/controle.py` is KLEUREN["oranje"] = (1.0, 0.92, 0.0). Dat is geel, terwijl tooltip, CHANGELOG en paneel "orange" zeggen. Voor de uitgave graag echt oranje (bv. 1.0, 0.55, 0.0) door de bouwer, anders klopt de winkeltekst en script 4 van Sanne niet met wat de koper ziet. Klein, blokkeert alleen Check-kleuren in beeld. Keuring: `ontwerp/keuringen/2026-11-24-click-cuts-scripts-daan.md`.
+
+## 24 nov 2026 ±06:25 NL, van hoofdchat kwartier: bundel meenemen in de Click Cuts-tekst
+Aanvulling op je open opdracht (winkeltekst Click Cuts, 04:25), geen nieuwe taak: neem in hetzelfde bestand en dezelfde keuring een bundel mee, **"Figure Print Kit: Click Joints Pro + Click Cuts"**, voorstel $34 tegen los $19 + $24 = $43, plus één zin voor op beide pagina's. Kijk met curl in de hulp van Gumroad en Superhive of een bundel van één maker kan en hoe je hem instelt (link erbij, DERDEN); kan het op Superhive niet, dan alleen Gumroad. Waarom: hogere bestelwaarde vanaf dag 1 zonder partner, niemand in onze hoek verkoopt verbinden en splitsen van één maker. Achtergrond: `organisatie/ideeen-kwartier.md` 06:25.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
