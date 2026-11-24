@@ -2,7 +2,7 @@
 
 **Stand: di 24 nov 2026, 19:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 live. **1.2.7 plus heldenbeelden held-1 tot held-4 klaar om te plakken (Chrome werklaptop, vóór do 27 nov).** 1.2.8 knie-fix: ja Daan mits e2e 45459661428 groen (loopt). Saleweek Gumroad vr 27 nov t/m di 1 dec (besluit 19:45). Superhive Cyber Sale 27 nov t/m 2 dec. Click Cuts: zip do 27 nov. Roep: geen oranje.
 
-**Verkopen Pro (Meter, di 24 nov 08:45 NL):** 1 in totaal ($19, 22 nov, herkomst direct), 0 vandaag (GEZIEN, Gumroad /v2/sales). Stand: `organisatie/meten/stand.md`.
+**Verkopen Pro (Meter, di 24 nov 19:55 NL):** 1 in totaal ($19, 22 nov, herkomst direct), 0 vandaag (GEZIEN, Gumroad /v2/sales). Grootste verwijzer naar dortus.com: BlenderNation (GEZIEN, Amami). Stand: `organisatie/meten/stand.md`.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

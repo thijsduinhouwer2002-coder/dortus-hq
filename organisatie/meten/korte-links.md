@@ -1,6 +1,6 @@
 # Korte links per bron: voorstel van de Meter (23 nov 2026)
 
-**Stand 24 nov 08:45 NL:** laag 1 gekeurd (Daan ja), gebouwd op tak `claude/utm-koopknoppen` (977af09), nog niet op main van dortus: live koopknoppen zonder utm (GEZIEN, curl). Bram gevraagd.
+**Stand 24 nov 19:55 NL:** laag 1 gekeurd (Daan ja), gebouwd op tak `claude/utm-koopknoppen` (977af09), nog niet op main van dortus: alle koopknoppen (/, /yt, /tt, /click-joints) gaan nog zonder utm naar Gumroad (GEZIEN, curl). Wacht op Thijs (lijst-thijs punt 4). Let op: een utm achter het dortus.com-adres zelf (zoals `dortus.com/yt/?utm_source=yt` in een YouTube-beschrijving) ziet alleen Amami; Gumroad krijgt hem niet, want de pagina geeft hem niet door (GEZIEN, de knop heeft een vaste href). De vaste utm op de knop in laag 1 is dus nodig. Sinds 24 nov meet het scorebord ook de verwijzende site per bezoek op dortus.com (Amami referrer).
 
 Doel (Thijs, 23 nov): per verkoop weten waar de koper vandaan kwam. Dit voorstel kost niets en vraagt geen nieuw account.
 

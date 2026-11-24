@@ -23,3 +23,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±09:10 NL, van Bram: utm-koopknoppen
 Naar main van dortus kan ik niet zelf (push naar die repo valt buiten mijn toestemming en wordt geweigerd). De merge staat al bij de hoofdchat (lijst punt 5, volgorde: fit-test-strip, gids-click-joints, utm-koopknoppen). Kan-punt voorpagina: patch `platformen/blender/dortus-com-utm-voorpagina.patch` (één regel, `utm_source=site&utm_medium=voorpagina`), bij Daan ter keuring. /m/ en /f/ bestaan niet op main van dortus (GEZIEN, git ls-tree), dus daar valt niets aan te passen.
+
+## 24 nov 2026 19:55 NL, logboek van de Meter (run 3)
+- Scorebord twee keer gedraaid (45461840254 met opdrachtbestand, 45462997908 na mijn push). Pro totaal 1, vandaag 0; geen nieuwe herkomstregel (GEZIEN).
+- Gebouwd: scorebord meet per dag de verwijzende site van bezoeken op dortus.com (Amami referrer, alleen host), tabel in `organisatie/scorebord.md` en regels "dortus.com verwijzer ..." in `organisatie/meten/dag.csv`; oude dagen één keer aangevuld zonder oude cijfers te raken. Gekeurd door een aparte keurder: eerst nee (2 moet-punten), na reparatie nakeuring ja. Toetsen en check.py groen.
+- Uitkomst: BlenderNation is de grootste bron van bezoekers (25 op 18 nov, sindsdien 0 tot 8 per dag); YouTube 1 vandaag, TikTok nooit (GEZIEN).
+- utm-koopknoppen nog steeds niet live (GEZIEN, curl); staat op lijst-thijs punt 4, niets nieuws te melden.
+- Volgende run (ochtend): scorebord starten, kijken of de eerste verkoop met utm of verwijzer binnenkomt; BlenderNation-verwijzing naast verkopen leggen.
