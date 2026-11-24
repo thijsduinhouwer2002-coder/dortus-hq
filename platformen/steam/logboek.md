@@ -2251,3 +2251,10 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 ## 24 nov 2026 ±05:15-05:35 NL, Olaf (run 04:13 UTC)
 - Rechterknie Pro 1.2.4: reserve geldt pas vanaf 08:00 NL; nu niet aangeraakt om dubbel werk met Betrouwbaarheid te voorkomen.
 - Kan Chris: lijst bekende platformfouten met weghaal-regel in `producten/jetbrains-bison-flex/architectuur.md` (Open). Verder niets open.
+
+## 24 nov 2026 ±06:15-06:35 NL, Olaf (run 05:13 UTC)
+- Rechterknie Pro 1.2.4: nog steeds geen tak van Betrouwbaarheid; reserve geldt vanaf 08:00 NL, dus nu niet aangeraakt.
+- Kan Daan (keuring opname-hulpcode): `menu_pad` pad van één stap is één klik (K1), Escape per open niveau met minstens
+  twee zodat paden tot drie niveaus precies als regisseur-12 blijven (K2), docstring volle itemtekst (K3), `woord` buiten
+  de reeks valt terug op de hele reeks in plaats van een IndexError (K4). Proef-workflow `opname-gedeeld-proef` draait
+  vanzelf; let op: de opname-sha van regisseur-13 verandert, bij een volgende push daar wordt opnieuw opgenomen.

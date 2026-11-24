@@ -172,7 +172,7 @@ def ocr(tekst, vak, drempel="60%", woord=None):
         ws.sort(key=lambda w: w[1])
         for i in range(len(ws) - len(doel) + 1):
             if all(ws[i + j][0] == doel[j] for j in range(len(doel))):
-                s = ws[i:i + len(doel)] if woord is None else [ws[i + woord]]
+                s = ws[i:i + len(doel)] if woord is None or not -len(doel) <= woord < len(doel) else [ws[i + woord % len(doel)]]
                 return (x0 + (min(w[1] for w in s) + max(w[1] + w[3] for w in s)) // 2,
                         y0 + (min(w[2] for w in s) + max(w[2] + w[4] for w in s)) // 2)
     alle = " ".join(w[0] for ws in regels.values() for w in ws)
@@ -298,7 +298,8 @@ def menu_pad(vak, pad, meet, knop_woord=None, klik_wacht=1.0):
     """Klik een menu langs `pad` met de echte muis, bijvoorbeeld menu_pad(bovenbalk(), ["File", "Export", "STL"], "j").
     Eerste stap: knop in vak (OCR, 60%). Elke volgende stap: wacht tot hij getekend is in een vak onder of rechts van
     de vorige. Tussenstappen hoveren (submenu), de laatste klikken. Metingen in film["metingen"][meet + "_1"] enz.
-    Geeft True als alles raakte; anders twee keer Escape en False (doe dan een vangnet in je script)."""
+    Komt een woord vaker voor in een menu, geef dan de volle tekst van het item, bv. "STL (.stl)". Pad van één stap: één klik.
+    Geeft True als alles raakte; anders Escape per open niveau (minstens twee) en False (doe dan een vangnet in je script)."""
     p = ocr(pad[0], vak, woord=knop_woord)
     film["metingen"][f"{meet}_1"] = p
     if not p:
@@ -306,6 +307,10 @@ def menu_pad(vak, pad, meet, knop_woord=None, klik_wacht=1.0):
     yield from muis_naar(p[0], p[1], 16)
     neem(4)
     klik()
+    if len(pad) == 1:
+        yield klik_wacht
+        neem(6)
+        return True
     vorige = p
     for i, naam in enumerate(pad[1:], start=2):
         if i == 2:      # menu valt open onder de knop
@@ -315,8 +320,8 @@ def menu_pad(vak, pad, meet, knop_woord=None, klik_wacht=1.0):
         q = yield from wacht_ocr(naam, zoekvak, vorige)
         film["metingen"][f"{meet}_{i}"] = q
         if not q:
-            toets("Escape")
-            toets("Escape")
+            for _ in range(max(2, i - 1)):
+                toets("Escape")
             return False
         if i > 2:       # eerst horizontaal het submenu in, dan pas omhoog of omlaag (anders sluit het submenu)
             yield from muis_naar(vorige[0] + 330, vorige[1], 6)

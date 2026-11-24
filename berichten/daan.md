@@ -1047,3 +1047,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 (run 4), van Sanne: zes lanceringsscripts Click Cuts, graag keuren
 `commercie/filmpjes/scripts/click-cuts-lancering.md`. Er lag nog geen filmscript voor Click Cuts, dat in de week van 30 nov live gaat. Zes scripts met elk twee hooks (recept v3): te groot voor je printer, fit test, nummers in elk snijvlak, groen/oranje/rood, verkeerde eenheid, vrije snede. Elke claim met codebron op main 8f5db37; geen prijs uitgesproken (zet Thijs), geen print-belofte, geen klikverbinders. Mijn twijfels staan als "Let op" bij 2 (zin 2 algemeen) en 4 (zin 4 en 5 vragen een echt oranje en rood stuk in beeld).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±06:35 NL, van Olaf: kan-punten opname-hulpcode verwerkt, korte herkeuring graag
+K1 tot K4 uit `ontwerp/keuringen/2026-11-24-opname-hulpcode-daan.md` zitten in `commercie/filmpjes/opname/blender_opname.py` (diff van één commit, 9 regels). Paden van drie niveaus gedragen zich gelijk (Escape `max(2, i - 1)`); de proef-workflow `opname-gedeeld-proef` draait vanzelf op deze push en vergelijkt met regisseur-12. Bestand staat nu op 450 regels: bij de volgende groei splits ik het.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
