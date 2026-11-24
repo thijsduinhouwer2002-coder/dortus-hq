@@ -1,10 +1,10 @@
 ## Beeldvergelijking Click Joints, Blender 5.2.3 (main)
 GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 45412700539, commit d0c95ce5f379c4f8a87b499fa7a2a87d9ff67385, commitdatum 1795529927, 2026-11-24T14:36:12Z
+Referentie: referentie uit run 45435310354, commit b89472e85289a5eef18c6d25c70a7d992501bdde, commitdatum 1795537012, 2026-11-24T16:31:43Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
-| 1-paneel-x.png | gelijk | |
+| 1-paneel-x.png | 1 px (0.000%), ruis | |
 | 10-winkel-paneel-x.png | gelijk | |
 | 11-scharnier-x.png | gelijk | |
 | 12-scharnier-rood-x.png | gelijk | |
@@ -29,7 +29,7 @@ Referentie: referentie uit run 45412700539, commit d0c95ce5f379c4f8a87b499fa7a2a
 | 4-material-preview-x.png | gelijk | |
 | 5-waaier-x.png | gelijk | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | 116 px (0.006%), ruis | |
+| 7-plat-x.png | gelijk | |
 | 8-winkel-x.png | gelijk | |
 | 9-winkel-rood-x.png | gelijk | |
 | d1-slot-paneel.png | gelijk | |
