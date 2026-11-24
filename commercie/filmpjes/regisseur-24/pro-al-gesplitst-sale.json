@@ -1,0 +1,250 @@
+{
+ "naam": "pro-al-gesplitst-sale",
+ "titel": "Already split your figure? Add a working knee in Blender 🦿",
+ "eind": {
+  "titel": "Click Joints Pro",
+  "zin": "A hinge right where your cursor is.",
+  "adres": "25% off this week, on Gumroad",
+  "render": "render-3.png"
+ },
+ "printzin": "Every printer is different: print a test joint first.",
+ "venster": "Blender 5.3 with Click Joints Pro",
+ "scenes": [
+  {
+   "tekst": "Already split your figure? Can that knee still bend?",
+   "label": "QUICK QUESTION",
+   "kleur": "oranje",
+   "kop": "Can it still bend?",
+   "beeld": {
+    "render": "render-1.png",
+    "focus": [
+     0.5,
+     0.45
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "This robot is already in parts: a body and two separate legs.",
+   "label": "ALREADY SPLIT",
+   "kleur": "blauw",
+   "kop": "Already in parts",
+   "beeld": {
+    "deel": "mooi",
+    "van": 0,
+    "tot": 44,
+    "uitsnede": [
+     [
+      700,
+      900,
+      1450
+     ],
+     [
+      700,
+      900,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Click the leg you want to bend.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Click the leg",
+   "beeld": {
+    "deel": "kies",
+    "van": 0,
+    "tot": 30,
+    "uitsnede": [
+     [
+      760,
+      1000,
+      1300
+     ],
+     [
+      760,
+      1050,
+      1150
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Turn the view to the side. The hinge turns around the way you look.",
+   "label": "STEP 2",
+   "kleur": "blauw",
+   "kop": "Look from the side",
+   "beeld": {
+    "deel": "opzij",
+    "van": 0,
+    "tot": 40,
+    "uitsnede": [
+     [
+      760,
+      960,
+      1300
+     ],
+     [
+      760,
+      960,
+      1150
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Shift and right click on the knee. The 3D cursor jumps there.",
+   "label": "STEP 3",
+   "kleur": "oranje",
+   "kop": "Shift + right click",
+   "beeld": {
+    "deel": "cursor",
+    "van": 0,
+    "tot": 40,
+    "uitsnede": [
+     [
+      760,
+      960,
+      1100
+     ],
+     [
+      760,
+      960,
+      900
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "In Click Joints Pro, go to Figure joints and click Knee.",
+   "label": "STEP 4",
+   "kleur": "groen",
+   "kop": "Click Knee",
+   "beeld": {
+    "deel": "knee",
+    "van": 0,
+    "tot": 40,
+    "uitsnede": [
+     [
+      "@knee_ocr",
+      900,
+      0,
+      0
+     ],
+     [
+      "@knee_ocr",
+      760,
+      0,
+      0
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "It cuts the leg in two and builds a hinge right at the cursor.",
+   "label": "HINGE",
+   "kleur": "blauw",
+   "kop": "A hinge at the cursor",
+   "beeld": {
+    "deel": "knee",
+    "van": 40,
+    "tot": 90,
+    "uitsnede": [
+     [
+      760,
+      960,
+      1100
+     ],
+     [
+      760,
+      960,
+      1000
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Show bend range shows how far the knee can swing.",
+   "label": "CHECK",
+   "kleur": "oranje",
+   "kop": "Show bend range",
+   "beeld": {
+    "deel": "bereik",
+    "van": 0,
+    "tot": 80,
+    "uitsnede": [
+     [
+      760,
+      960,
+      1200
+     ],
+     [
+      760,
+      960,
+      950
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Elbow and Ankle work the same way.",
+   "label": "SAME FOR",
+   "kleur": "groen",
+   "kop": "Elbow and ankle too",
+   "beeld": {
+    "deel": "bereik",
+    "van": 80,
+    "tot": 140,
+    "uitsnede": [
+     [
+      760,
+      960,
+      1000
+     ],
+     [
+      760,
+      960,
+      900
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Your parts stay as they are. Now they move.",
+   "label": "RESULT",
+   "kleur": "blauw",
+   "kop": "Now it moves",
+   "beeld": {
+    "render": "render-2.png",
+    "focus": [
+     0.5,
+     0.5
+    ]
+   }
+  },
+  {
+   "tekst": "Every printer is different. Print a test joint first.",
+   "label": "PRINT FIRST",
+   "kleur": "blauw",
+   "kop": "Print a test joint first",
+   "beeld": {
+    "render": "render-3.png",
+    "focus": [
+     0.5,
+     0.5
+    ]
+   }
+  },
+  {
+   "tekst": "Click Joints Pro, 25% off this week, on Gumroad.",
+   "label": "CLICK JOINTS PRO",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   },
+   "uitspraak": "Click Joints Pro, 25% off this week, on Gumroad."
+  }
+ ]
+}

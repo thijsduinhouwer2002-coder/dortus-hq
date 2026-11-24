@@ -1,0 +1,14 @@
+# pro-al-gesplitst-sale: voorleestekst (Regisseur run 26, 24 nov 2026). Pro-Short: Kokoro volgens scripts/volgorde-stem.md; een ElevenLabs-opname als pro-al-gesplitst-sale-elevenlabs.mp3 in deze map wordt vanzelf gebruikt.
+
+Already split your figure? Can that knee still bend?
+This robot is already in parts: a body and two separate legs.
+Click the leg you want to bend.
+Turn the view to the side. The hinge turns around the way you look.
+Shift and right click on the knee. The 3D cursor jumps there.
+In Click Joints Pro, go to Figure joints and click Knee.
+It cuts the leg in two and builds a hinge right at the cursor.
+Show bend range shows how far the knee can swing.
+Elbow and Ankle work the same way.
+Your parts stay as they are. Now they move.
+Every printer is different. Print a test joint first.
+Click Joints Pro, 25% off this week, on Gumroad.
