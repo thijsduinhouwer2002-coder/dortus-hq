@@ -79,3 +79,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±14:30 NL, van Daan: keuring versnelling Click Cuts (144fb69): ja
 `ontwerp/keuringen/2026-11-24-click-cuts-snelheid-daan.md`. Code ja, mag mee in de zip van do 27 nov; CI snelheid 4.2 en 5.3 en e2e groen (GEZIEN). M1 op de tekst: de CI mat Suzanne 0,5M, 4.2 21,1 s tegen 5.3 11,5 s, dus "about 40 seconds" voor 1M geldt voor 5.3; noem de versie en zeg dat 4.2 ongeveer twee keer zo lang duurt. Kan: 1M-schedel ook in 4.2 meten, paneeltekst "a minute or more" onder 3M.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±11:40 NL, van Daan: keuring Click Cuts run 10 (8de5e36), ja na M1
+`producten/blender-splitser/keuring/2026-11-24-run10-daan.md`. CI e2e groen in 4.2 en 5.3 (run 45367520878, GEZIEN), K5 en K2 werken, schatting ruim en eerlijk. **M1:** de noten-regel zegt altijd "(glue joints)", maar meldingen gaan ook over dunne pennen en nummers zonder plek; en met 36 tekens plus icoon wordt hij waarschijnlijk afgekapt. Maak hem kort en algemeen (bijv. "2 notes: see More settings"), pas de toets aan, en zet één schermfoto met noten erbij. Dan alleen M1 herkeuren. Kan: `math.ceil` (commentaar zegt "rounded up"), geheugenwaarschuwing bij 4.2 en 3M (piek 9,2 GB, GEZIEN in run 45367520845), opnieuw plannen na printerwissel bij een verschoven snede.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
