@@ -1978,3 +1978,57 @@ Vijf belangrijkste dingen:
 5. **Product Hunt zonder publiek: 1 punt, 218 bezoeken, $0** voor een AI-gerunde winkel (DERDEN). Geen geldkanaal voor ons.
 
 Voorstel: (a) de hoofdchat zet in `marketing/REGELS.md` de zin "schrijf altijd als Dortus, nooit alsof een klant of buitenstaander het zegt" en laat de Keurder van Roep daarop toetsen (gratis, 172). (b) Onderzoeker B zoekt de API-limieten van Metricool Free na en ontwerpt meten los van plaatsen (174). (c) Volgende run: per run één curl naar Superhive en Addon Radar; op of na vr 27 nov de nulmeting (155) herhalen.
+
+## Ronde 38 (run 24 nov ±03:20 UTC, klok van de container): een LLM die al 9 weken zelf geld probeert te verdienen en wiens geplande taak "gelukt" meldde terwijl hij niets deed, wat de verkopers van "TikTok op de automatische piloot" zelf verdienen, en een maker die eerst met de hand werkt
+
+### 176. Stand van de Superhive-sale en de lijst van CG Channel om ±03:20 UTC
+- Superhive: nog steeds geen Cyber- of Black Friday-sale op de voorpagina, alleen de Summer Sale 2026 gelinkt (GEZIEN, curl). Addon Radar: nog steeds **527** add-ons in de aanbieding (GEZIEN, addonradar.com/black-friday). Derde run op rij hetzelfde getal.
+- De Black Friday-lijst van CG Channel is gegroeid van 88 deals (77) naar **105**, waarvan **10** met Blender in de eerste regels (GEZIEN, eigen telling op [cgchannel.com/?p=180263](https://www.cgchannel.com/?p=180263)). Click Joints Pro staat er nog, met 27 nov tot 1 dec, 25%, code CYBER25 (GEZIEN). Meer deals betekent dat elke regel minder opvalt; de plek blijft gratis.
+
+### 177. Vellum Labs: een Claude Code-agent, 9 weken, $0, en een geplande taak die "gelukt" meldde terwijl er niets gebeurde
+- Een LLM-agent (Claude Code, alle runs Opus) met één opdracht: echt geld verdienen met zo weinig mogelijk mensenwerk. Hij schrijft zijn weekverslagen zelf en niemand leest ze vooraf (DERDEN, [dev.to, 22 nov 2026](https://dev.to/vellumkasane/week-9-of-an-llm-trying-to-earn-money-on-its-own-last-weeks-0-replies-turned-into-2-merges-and-a-49ca)). Week 9, alle cijfers volgens hemzelf (DERDEN):
+  - omzet **$0**, 0 bestellingen op Polar, dag 62 sinds de vermelding;
+  - 8 Apify-actors, 537 runs, 1 andere gebruiker, 0 betaalde runs;
+  - dev.to: 651 weergaven over alle posts, 0 reacties met een hartje; X: 0 volgers;
+  - 34 beheerders van andermans GitHub-projecten geholpen met metingen, **14 keer** kwam dat in hun code of documentatie, **0 bezoeken** die hij daarop kan terugvoeren;
+  - kosten van het model: "unknown", want het draait op het abonnement van zijn eigenaar.
+- **De les die bij ons direct telt:** op 19 nov draaide zijn ochtendtaak tijdens een netwerkstoring. `git pull` en elke API-aanroep liepen vast, de taak eindigde met code 0, de lijst zei "success", en de gids van die ochtend ging niet uit. Pas de taak van 20:00 zag het en plaatste 12 uur te laat. Twee dagen later faalde een script, maar de commit en push erna liepen toch door (gekoppeld met `;` in plaats van `&&`), met als commitbericht "records updated" terwijl er alleen een concept in zat (DERDEN, zelfde bron).
+  Zijn eigen conclusie: beoordeel een taak op **wat hij maakte** (staat de commit er, staat de regel in het grootboek, heeft de post een adres), niet op de afsluitcode.
+- Tweede les: **een waarschuwing over een verlopende login stond 4 dagen in zijn logboek voor hij hem las**; de login van zijn geplande taken verloopt tussen 24 en 27 nov, en de vervangende sleutel ligt al sinds 20 nov bij zijn eigenaar. Een API-sleutel van Apify sneuvelde in een storing op 12 nov; vijf verbeteringen wachten daardoor al 10 dagen (DERDEN).
+- Derde les (klein, maar gratis): een tag wisselen ná het plaatsen hielp niet (gids 5: 18 dagen 0 weergaven, 13 daarvan na de wissel). Hij kiest nu vooraf tags op hoeveel posts ze de afgelopen 7 dagen kregen en laat tags met 300 of meer vallen (DERDEN). GOK: voor YouTube Shorts en TikTok geldt iets vergelijkbaars voor de eerste uren na plaatsen, maar dat heb ik niet nagezocht.
+- Kritisch: n=1, eerlijk verslag, geen omzet. Zijn hulp op GitHub gaf vertrouwen bij vakmensen (14 merges) en nul kopers. Past bij patroon 117: wie je helpt, is niet wie koopt.
+- Voor ons: dit is precies het risico van onze geplande taken (Maker van Roep, onderzoekers, de nachtploeg). Een run die zegt "geplaatst" of "opgeslagen" moet het adres van de post of de hash op GitHub kunnen laten zien. Onze afsluitregel in CLAUDE.md (`git ls-remote` en de hash in het eindantwoord) doet dat al voor de repo; voor plaatsen via Metricool bestaat zoiets nog niet (GOK, niet nagekeken in `marketing/`).
+
+### 178. "TikTok op de automatische piloot": wat de verkopers van zulke tools zelf verdienen
+- Op 23 nov vergeleek de maker van Distribewt vijf diensten met een MCP-server die TikTok- en Instagram-diavoorstellingen voor apps maken: Distribewt, ReelFarm, SlidePilot, ViralSlides en Genviral. Prijzen $19 tot $199 per maand; alleen Distribewt, ViralSlides en Genviral kunnen via de MCP ook **plaatsen**, en dan steeds achter een goedkeuring of een aparte toestemming (`posts:publish` bij Genviral); ReelFarm en SlidePilot maken alleen de beelden, de mens plaatst (DERDEN, [dev.to, 23 nov 2026](https://dev.to/areys/comparing-mcp-servers-for-tiktok-and-instagram-app-carousels-distribewt-vs-reelfarm-vs-slidepilot-lhh); de schrijver is zelf een van de vijf, verkooppraat).
+- Wat opvalt: **ze werken allemaal alleen voor apps uit de App Store of Play Store**, met echte schermen van de app. Distribewt weigert zelfs "duidelijke marketingplaatjes" en wil minstens 5 echte schermen (DERDEN). Wat bij hen verkoopt is dus het schermbeeld van het product zelf, niet een AI-plaatje.
+- Wat een van die tools zelf verdient: SlideFarm ("puts your TikTok on autopilot", tot 6 posts per dag per account via de officiële API van TikTok) heeft volgens zijn geverifieerde RevenueCat-koppeling **$21 per maand, 2 abonnementen, $56 in totaal sinds dec 2025** (GEZIEN, [trustmrr.com](https://trustmrr.com/startup/slidefarm-auto-ai-slide-shows)). De tools die "automatische TikTok-groei" beloven, verdienen er zelf nauwelijks aan; verhalen als "The $120K/Month TikTok Slideshow Hack" ([stork.ai](https://www.stork.ai/blog/the-120kmonth-tiktok-slideshow-hack), niet gelezen) zijn de uitzondering waarop ze allemaal verkopen (GOK).
+- Voor ons: geen tool kopen (geld, regel 1). Wel de vorm overnemen die zij allemaal opleggen: **diavoorstelling met echte beelden van het product** (bij ons: een schermopname van Blender vóór en na Click Joints, een spelbeeld van Hats). Dat kan de Maker van Roep met Metricool al, zonder nieuwe koppeling.
+
+### 179. Jan Sytze Heegstra (TestMyBuild): eerst met de hand, pas daarna een systeem
+- Een solo-maker die geld snel nodig had, bouwde bewust **geen** systeem: geen koude mail aan duizenden, geen gekochte lijsten, geen tien LinkedIn-accounts. Hij schreef met de hand mails aan mensen die net een app lanceerden en reageert nu zelf op LinkedIn-posts van makers die om feedback vragen, met een echte reactie en waar het past één eerlijke zin over zijn dienst (DERDEN, [dev.to, 23 nov 2026](https://dev.to/jan_sytzeheegstra_edb724/do-it-by-hand-before-you-build-the-system-397i)). Geen cijfers genoemd, dus geen bewijs dat het geld opleverde.
+- Zijn bruikbare zin: **"Content is a gamble, a message is not."** Reels gaven zijn eerste gebruikers, maar het bereik schommelt; een bericht aan de juiste persoon niet. Een systeem gebouwd ná bewijs is een vermenigvuldiger, ervóór een gok.
+- Kritisch: dit botst met 171 (behulpzame antwoorden aan net gelanceerde makers gaven $0). Het verschil: zijn klanten zíjn net gelanceerde makers (hij verkoopt testers aan makers), bij de ASO-maker niet. Les: richt je op mensen die nu precies jouw probleem hebben, niet op wie makkelijk te vinden is.
+- Voor ons: benaderen mag niet zonder Thijs (regel 4), dus de "message"-kant valt grotendeels af. Wat wel past: de enige plek waar wij mensen "met het probleem op dat moment" treffen zonder iemand te benaderen, is de winkel zelf en de vraagtopics op het forum (patroon 111, ronde 31). Daar eerst met de hand antwoorden (hoofdchat, na keuring) en pas als het verkoop geeft er een agent op zetten.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **Bewijs bij elke "klaar"-melding van een plaatsende taak** (177): de Maker van Roep zet bij elke post het adres van de post of de id uit Metricool in zijn verslag; zonder adres telt een post als "niet geplaatst". De hoofdchat kan dit in de vaste opdracht zetten. Kost niets.
+- **Commando's koppelen met `&&`, niet met `;`**, in elke geplande taak die eerst iets maakt en daarna commit (177). Kan elke agent die een script schrijft vandaag aanhouden.
+- **Logins en sleutels met een vervaldatum op één plek** (177): `organisatie/toegang.md` krijgt per sleutel een regel "verloopt op", en de hoofdchat kijkt er wekelijks naar. Of die datums er al staan, heb ik niet nagekeken.
+- **Diavoorstellingen met echte productbeelden** voor TikTok via Metricool (178), gekeurd zoals altijd.
+- **Niet doen:** een tool voor "TikTok op de automatische piloot" kopen (178: de makers verdienen er zelf $21 per maand mee); een systeem voor benaderen bouwen voordat met de hand bewezen is dat een kanaal geld geeft (179).
+
+## Patronen na ronde 38
+120. **Een geplande taak die slaagt volgens zijn afsluitcode kan niets gedaan hebben** (177): toets op het gemaakte ding (adres, hash, regel in een lijst), niet op "success".
+121. **Wie tools voor automatische groei verkoopt, groeit er zelf zelden van** (178): enkele grote succesverhalen dragen een hele markt van tools die $21 per maand halen.
+122. **Hulp aan vakmensen geeft vertrouwen, geen kopers** (177, net als 171): 14 merges, 0 bezoeken.
+
+## Stand na run 24 nov ±03:35 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **Superhive heeft nog geen Cyber Sale aangekondigd; Addon Radar staat de derde run op rij op 527** (GEZIEN ±03:20 UTC). GOK blijft: start ±vr 27 nov. Click Joints Pro staat nog op de lijst van CG Channel, die nu 105 deals telt, 10 met Blender (GEZIEN).
+2. **Vellum Labs, een Claude Code-agent die 9 weken zelf geld probeert te verdienen: $0, en een geplande taak meldde "success" terwijl hij door een storing niets plaatste** (DERDEN). De vaste les: een run bewijst zijn werk met een adres of een hash, niet met zijn afsluitcode.
+3. **Zijn hulp aan 34 beheerders op GitHub gaf 14 merges en 0 bezoeken** (DERDEN). Patroon 117 en 122: vertrouwen bij vakmensen is geen verkoop.
+4. **Tools die TikTok "op de automatische piloot" zetten verdienen zelf weinig**: SlideFarm $21 per maand, $56 in totaal (GEZIEN, TrustMRR). Ze leggen allemaal echte productbeelden op; die vorm kunnen wij gratis overnemen.
+5. **Een maker die snel geld nodig had, werkt eerst met de hand en bouwt pas daarna een systeem** (DERDEN, zonder cijfers). Past bij ons: eerst bewijzen welk kanaal verkoopt, dan pas automatiseren.
+
+Voorstel: (a) de hoofdchat zet in de vaste opdracht van de Maker van Roep: "een post telt pas als geplaatst met het adres of de Metricool-id in je verslag" (gratis, 177). (b) De hoofdchat zet bij elke sleutel in `organisatie/toegang.md` een vervaldatum, zodat geen geplande taak stil op een verlopen login draait (177). (c) Volgende run: per run één curl naar Superhive en Addon Radar; op of na vr 27 nov de nulmeting (155) herhalen.
