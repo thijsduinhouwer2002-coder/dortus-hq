@@ -1,6 +1,7 @@
 # Tip-reeks 8: Will your print fall over? Check it before you print ⚖️
 
 - status: open (releasebestand nagekeken door de Regisseur, run 10, 24 nov)
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-10).
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL; recept v3 Malikose)
@@ -26,7 +27,7 @@ Tall or leaning model? Check if it will stand before you print.
 4. Set the origin again: the dot is now inside the foot.
 A wider foot or less lean keeps your print standing.
 
-Measured in Blender, not print tested by us yet.
+Every printer is different: print a small test first.
 Screen recording in Blender 5.3 (no add-on used).
 More Blender tips for 3D printing: type dortus.com/yt in your browser.
 
@@ -38,7 +39,7 @@ More Blender tips for 3D printing: type dortus.com/yt in your browser.
 
 ## Bronnen
 - **Hook (eerste 1,5 s):** "Will your print fall over?" vanaf beeld 1, kop "Will it fall over?", beeld: een oranje scheve toren die draait en inzoomt. Geen productnaam, geen zwevende getallen.
-- **Origin to Center of Mass:** Blender-handleiding: "Origin to Center of Mass: Moves the origin to the calculated center of mass of model (assuming the mesh has a uniform density)." (DERDEN: https://docs.blender.org/manual/en/latest/scene_layout/object/origin.html, met curl gelezen 24 nov). Een print met infill is niet overal even dicht: daarom "Measured in Blender, not print tested".
+- **Origin to Center of Mass:** Blender-handleiding: "Origin to Center of Mass: Moves the origin to the calculated center of mass of model (assuming the mesh has a uniform density)." (DERDEN: https://docs.blender.org/manual/en/latest/scene_layout/object/origin.html, met curl gelezen 24 nov). Een print met infill is niet overal even dicht: daarom "Every printer is different".
 - **Stip buiten de voet = valt om:** Wikipedia, Support polygon: "its support polygon is a horizontal region over which the center of mass must lie to achieve static stability" (DERDEN: https://en.wikipedia.org/wiki/Support_polygon, met curl gelezen 24 nov). Let op: de bron zegt ook "necessary ... but not sufficient"; de Short zegt alleen dat een stip buiten de voet omvalt, niet dat een stip binnen de voet altijd blijft staan ("keeps your print standing" bij TIP is algemeen; de keurder mag dit strenger willen).
 - **Gemeten in de lokale proef (GEZIEN, log 24 nov ±01:20 NL):** eigen scheve toren 80 mm, voet x van -12,0 tot 12,0 mm, zwaartepunt op x 19,9 mm (buiten); na S 3 op het ondervlak voet -36,0 tot 36,0 mm, zwaartepunt x 12,6 mm (binnen). De workflow meet opnieuw in `film.json` (`v_stip`, `v_na`).
 - **Echte menu's:** Object > Set Origin > Origin to Center of Mass (Volume) en View > Viewpoint > Front/Bottom met de echte muis (OCR). In de proef met drempel 60 % vond OCR het vooraanzicht niet (vangnet via script); nu drempel 35 % (les run 8). Nakijken in het log van de workflow of er een vangnet-regel staat.

@@ -1,6 +1,7 @@
 # Tip-reeks 5: Smooth in Blender, blocky in your print? ✨
 
 - status: open
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-7).
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL, voorbeeld Thijs: BlenderSecrets)
@@ -27,7 +28,7 @@ Does your model look smooth in Blender, but blocky when you print it? Shade Smoo
 Our test ball went from 96 to 1,440 real faces and looks round even with flat shading.
 It gets a little smaller, so check the size before you export.
 
-Measured in Blender, not print tested by us yet.
+Every printer is different: print a small test first.
 Screen recording in Blender 5.3 (no add-on used).
 More Blender tips for 3D printing: type dortus.com/yt in your browser.
 

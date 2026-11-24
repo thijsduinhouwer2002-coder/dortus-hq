@@ -1,6 +1,7 @@
 # Tip-reeks 11: Is your model secretly in two pieces? Fix it in Blender 🔧
 
 - status: open
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-13).
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL; recept v3 Malikose: vraag aan de kijker als hook, één les die je kunt nadoen)
@@ -27,7 +28,7 @@ A model can look like one piece but be two loose parts with double points on the
 2. Press A, then M and pick By Distance. Blender removed 48 double points here.
 3. Press Alt A, then L again. Now the whole vase lights up: one part.
 
-Measured in Blender, not print tested by us yet.
+Every printer is different: print a small test first.
 Screen recording in Blender 5.3 (no add-on used).
 More Blender tips for 3D printing: type dortus.com/yt in your browser.
 
@@ -42,7 +43,7 @@ More Blender tips for 3D printing: type dortus.com/yt in your browser.
 - **Merge by Distance:** Blender-handleiding: "Mesh ‣ Clean up ‣ Merge by Distance. Merges the selected vertices that are closer to each other than a certain distance." en Merge, "Shortcut: M", optie "By Distance" (DERDEN: https://docs.blender.org/manual/en/latest/modeling/meshes/editing/mesh/cleanup.html en https://docs.blender.org/manual/en/latest/modeling/meshes/editing/mesh/merge.html, met curl gelezen 24 nov).
 - **Select Linked:** Blender-handleiding: "Selects all the geometry that's connected directly or indirectly to the current selection." (Ctrl L; DERDEN: https://docs.blender.org/manual/en/latest/modeling/meshes/selecting/linked.html, met curl gelezen 24 nov). L onder de muis zelf getoetst: kiest 289 van 578 vlakken, alleen de bovenkant (GEZIEN, film.json).
 - **"48 double points" en "the edge is open":** de vaas is in het script gemaakt met ring 6 twee keer (48 punten per ring). Gemeten in film.json: 96 losse randen voor, 0 na; 48 punten weg na By Distance (GEZIEN). "Open" betekent hier: randen met maar één vlak (boundary), wat Blender ook onder Select Non Manifold vindt.
-- **Wat het voor een print betekent:** niet geclaimd. Geen slicer genoemd, geen belofte dat de print beter wordt; alleen "Measured in Blender, not print tested by us yet."
+- **Wat het voor een print betekent:** niet geclaimd. Geen slicer genoemd, geen belofte dat de print beter wordt; alleen "Every printer is different: print a small test first."
 - **Model:** eigen vaas van 60 mm hoog, in het script gemaakt. Geen modellicentie nodig.
 - **Stem:** tijdelijk Kokoro-82M, af_heart, Apache 2.0, commercieel gebruik toegestaan (DERDEN: https://huggingface.co/hexgrad/Kokoro-82M). ElevenLabs-opname (Max) gevraagd aan de hoofdchat: `tip-dubbel-elevenlabs.mp3` in `commercie/filmpjes/regisseur-13/`.
 - **Nieuw onderwerp:** geen Short van de laatste 14 dagen over dubbele punten, losse delen of Merge by Distance (wachtrij, `commercie/geplaatst.md` en YouTube-RSS nagekeken 24 nov, GEZIEN). Verwant aan tip-gat (Non Manifold, gaten), maar ander probleem, andere knop en ander beeld.

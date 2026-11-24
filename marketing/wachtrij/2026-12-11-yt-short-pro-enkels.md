@@ -1,6 +1,7 @@
 # Pro-Short: Add ankle joints to your 3D printed figure 🔥
 
 - status: open (Regisseur run 22, 24 nov: opgenomen met Pro 1.2.6, releasebestand zelf nagekeken)
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-17).
 - opname (GEZIEN, release regisseur-17, runs 45397504004 en 45400996121, opname-pro.log): klik op More bones (1531, 323) echt; Pro meldt 11 gewrichten, waarvan `Left ankle · Hinge · 0–90° · preset` en `Right ankle · Hinge · 0–90° · preset`; statusbalk "11 joints · 2 rig · 2 mirror · 7 preset." (eerdere poging run 17 met 1.2.0: enkels overgeslagen).
 - kanaal: youtube-short
 - soort: video
@@ -29,7 +30,7 @@ Does your figure stand on stiff feet?
 3. N panel > Click Joints > Figure joints. Select the rigged mesh first.
 4. No rig? Use the Ankle preset: put the 3D cursor on the ankle.
 
-Measured in Blender, not print tested by us yet. Print a test joint first.
+Every printer is different. Print a test joint first.
 Click Joints Pro: dortus.com/yt
 ```
 
@@ -43,8 +44,8 @@ Click Joints Pro: dortus.com/yt
 7. No rig? There is an Ankle preset: put the 3D cursor on the ankle.
 8. Drag Bend on the knee, and it stops at the angle from your rig.
 9. Exploded view pulls the parts apart.
-10. Measured in Blender, not print tested by us yet. Print a test joint first.
-11. Click Joints Pro. Elbows and knees stop where your rig stops.
+10. Every printer is different. Print a test joint first.
+11. Click Joints Pro, on Gumroad.
 
 ## Afwijkingen van het script (voor de keurder)
 - Zin 5 toont de voeten van dichtbij na de snede (groene ring van de add-on bij de enkel), niet de lijst: in 1.2.6 staat de lijst van gewrichten niet open in het paneel, alleen kort de statusbalk "11 joints". Kan voor een volgende versie: de enkel zelf laten buigen in plaats van de knie (zin 8 toont de knie; de Bend-schuif staat niet in beeld, de opname buigt via het vangnet, log `vangnet knie`).

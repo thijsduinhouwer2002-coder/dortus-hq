@@ -1,6 +1,7 @@
 # Tip-reeks 6: Bulging first layer? Fix it in Blender before you slice 🐘
 
 - status: open
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-8).
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL, voorbeeld Thijs: BlenderSecrets; recept v3 Malikose)
@@ -26,7 +27,7 @@ Give the bottom edge a small slope in Blender before you slice:
 3. Press Ctrl B, type 0.5 and press Enter.
 Now the bottom edge has a 0.5 mm slope all the way around. Print guides suggest 0.2 to 0.5 mm; the wider first layer fills that slope.
 
-Measured in Blender, not print tested by us yet.
+Every printer is different: print a small test first.
 Screen recording in Blender 5.3 (no add-on used).
 More Blender tips for 3D printing: type dortus.com/yt in your browser.
 

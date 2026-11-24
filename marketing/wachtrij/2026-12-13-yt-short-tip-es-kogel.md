@@ -1,6 +1,7 @@
 # Spaanse tip 1: Cómo hacer un ball joint en Blender para figuras de acción ⚙️
 
 - status: open
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "¿Quieres más? Click Joints Pro, en Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-22).
 - kanaal: youtube-short
 - soort: video
 - soort_reeks: Spaanse proef (opdracht Afkijker 24 nov via Chris, `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-skillful-toys.md`), Spaanse titel, Spaanse tekst in beeld en Spaanse voice-over. Zelfde opname als tip-speling (regisseur-18), alles in het Spaans. Meten na 7 dagen naast twee Engelse tips van dezelfde week.
@@ -28,7 +29,7 @@ Cómo hacer un ball joint en Blender para figuras de acción ⚙️ #impresion3d
 3. El paso 3 del panel muestra Clearance (measured) y el grosor de la pared. Aquí: 0.20 mm y 4.01 mm.
 
 ¿No sabes qué holgura necesita tu impresora? Imprime primero una prueba.
-Medido en Blender; todavía no lo hemos impreso.
+Cada impresora es distinta.
 Click Joints es gratis en Blender Extensions. Más consejos de Blender para impresión 3D: escribe dortus.com/yt en tu navegador.
 
 #impresion3d #blender #figurasdeaccion #b3d #shorts
@@ -43,7 +44,7 @@ Click Joints es gratis en Blender Extensions. Más consejos de Blender para impr
 - **Gemeten na de snede, gemiddelde rond de kogel:** `producten/blender-gewrichten/click_joints/gewricht.py` r. 303 tot 310 (`passing.meet_speling`, `cj_speling_gemeten_mm`), alleen bij een kogel (GEZIEN). In deze opname: 0,1996 mm gemeten, wand 4,015 mm (GEZIEN, film-tip.json release regisseur-18).
 - **Paneelregels:** `paneel.py` r. 99 tot 102 ("Wall: N mm", "Clearance: N mm (measured)") (GEZIEN). De knopnamen blijven Engels in beeld en tekst, want zo staan ze in de add-on.
 - **Gratis:** de paneelregel staat in de gratis code (niet in `betaald/`); Click Joints is live op Blender Extensions (`organisatie/bord.md`, GEZIEN).
-- **Wat het voor een print betekent:** niet geclaimd; alleen "Medido en Blender; todavía no lo hemos impreso."
+- **Wat het voor een print betekent:** niet geclaimd; alleen "Cada impresora es distinta."
 - **Model:** eigen cilinder, in het script gemaakt. Geen modellicentie nodig.
 - **Stem:** tijdelijk Kokoro-82M, em_alex (Spaans), Apache 2.0, commercieel gebruik toegestaan (DERDEN: https://huggingface.co/hexgrad/Kokoro-82M). Max spreekt Engels; een Spaanse ElevenLabs-opname mag als `tip-es-kogel-elevenlabs.mp3` in `commercie/filmpjes/regisseur-22/` (de hoofdchat beslist of dat nodig is).
 - **Nieuw onderwerp:** eerste Spaanse Short; het Engelse tip-speling (zelfde beeld) staat nog op open en is niet geplaatst. Geen Spaanse post in de laatste 14 dagen (YouTube-RSS 24 nov, GEZIEN).

@@ -2,12 +2,12 @@
  "naam": "tip-es-kogel",
  "titel": "Cómo hacer un ball joint en Blender para figuras de acción ⚙️ #impresion3d",
  "eind": {
-  "titel": "Click Joints",
-  "zin": "Gratis en Blender Extensions.",
-  "adres": "dortus.com/yt",
+  "titel": "Click Joints Pro",
+  "zin": "Figuras articuladas en Blender.",
+  "adres": "en Gumroad",
   "render": "render-label.png"
  },
- "printzin": "Medido en Blender; todavía no lo hemos impreso.",
+ "printzin": "Cada impresora es distinta: imprime antes una prueba.",
  "venster": "Blender 5.3 con Click Joints",
  "scenes": [
   {
@@ -244,8 +244,8 @@
    }
   },
   {
-   "tekst": "Medido en Blender; todavía no lo hemos impreso. Imprime antes una articulación de prueba.",
-   "label": "HONESTO",
+   "tekst": "Cada impresora es distinta. Imprime antes una articulación de prueba.",
+   "label": "PRIMERO",
    "kleur": "blauw",
    "kop": "Sin imprimir aún",
    "beeld": {
@@ -267,13 +267,14 @@
    }
   },
   {
-   "tekst": "Click Joints. Gratis en Blender Extensions.",
-   "label": "CLICK JOINTS",
+   "tekst": "¿Quieres más? Click Joints Pro, en Gumroad.",
+   "label": "CLICK JOINTS PRO",
    "kleur": "groen",
    "kop": "",
    "beeld": {
     "eindkaart": true
-   }
+   },
+   "uitspraak": "¿Quieres más? Click Joints Pro, en Gumroad."
   }
  ]
 }

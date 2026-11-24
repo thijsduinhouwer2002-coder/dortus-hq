@@ -1,6 +1,7 @@
 # Tip-reeks 7: Is your model inside out? Find it in 2 clicks 🔴
 
 - status: open
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-9).
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL, voorbeeld Thijs: BlenderSecrets; recept v3 Malikose)
@@ -26,7 +27,7 @@ Check it in two clicks, fix it in one:
 3. Press Shift N (Mesh > Normals > Recalculate Outside).
 No red left: every face points outward. Run this check before you export to your slicer.
 
-Measured in Blender, not print tested by us yet.
+Every printer is different: print a small test first.
 Screen recording in Blender 5.3 (no add-on used).
 More Blender tips for 3D printing: type dortus.com/yt in your browser.
 

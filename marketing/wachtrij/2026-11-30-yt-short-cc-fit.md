@@ -1,6 +1,7 @@
 # Click Cuts Short 1: Model too big for your printer? Split it to fit 🔥
 
 - status: open (plaatsen pas als Click Cuts live is en de winkellink werkt)
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en printzin "Every printer is different: print the fit test first." (slot blijft Click Cuts, want de opdracht gaat over Click Joints Pro). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-19).
 - kanaal: youtube-short
 - soort: video
 - soort_reeks: lancering Click Cuts, script 1 van 6 (`commercie/filmpjes/scripts/click-cuts-lancering.md`, ja Daan na M1 en M2), hook 1A. Volgorde 1, 2, 3, 6, 4, 5: deze op de lanceringsdag.
@@ -30,7 +31,7 @@ Model too big for your print bed? Click Cuts splits it in Blender.
 3. Every part fits your bed. Cuts get pins and pin holes; where there is no room for a pin, the panel adds a note to glue that joint.
 4. Export every part and the pins as STL or 3MF, in millimeters.
 
-Measured in Blender, not print tested by us yet. Print the fit test first.
+Every printer is different. Print the fit test first.
 
 #blender #3dprinting #b3d #blendertips #shorts
 ```

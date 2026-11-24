@@ -1,6 +1,7 @@
 # Pro-Short: Turn your rigged figure into printable parts in one click 🔥
 
 - status: open
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-14).
 - nagekeken: Regisseur run 15, 24 nov (release nagekeken, uitsneden hersteld, opnieuw gemonteerd)
 - kanaal: yt-short
 - soort: video
@@ -31,7 +32,7 @@ Rigged your figure already? One button cuts it into printable parts.
 2. Check the list: hinges with an end stop at elbows and knees, ball joints at shoulders, hips and neck.
 3. Bend a knee to its stop, then Fit and export writes every part as its own file.
 
-Measured in Blender, not print tested by us yet. Print a test joint first.
+Every printer is different. Print a test joint first.
 Click Joints Pro: dortus.com/yt
 ```
 
@@ -47,8 +48,8 @@ Click Joints Pro: dortus.com/yt
 9. Exploded view pulls the parts apart.
 10. Then step three, Fit and export, writes every part as its own file.
 11. Exporting is in the free Click Joints too. The one-click figure is Pro.
-12. Measured in Blender, not print tested by us yet. Print a test joint first.
-13. Click Joints Pro. Elbows and knees stop where your rig stops.
+12. Every printer is different. Print a test joint first.
+13. Click Joints Pro, on Gumroad.
 
 ## Bronnen (alleen voor de keurder, niet voor kijkers)
 - Zin 3, 4, 6: "press one button, and Click Joints Pro cuts it into printable parts with a joint at every shoulder, elbow, hip, knee and neck. Elbows and knees get a hinge with an end stop; shoulders, hips and neck get a ball joint" (`platformen/blender-2/gumroad-1.1.md` r. 25).

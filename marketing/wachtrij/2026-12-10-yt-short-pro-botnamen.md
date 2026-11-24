@@ -1,6 +1,7 @@
 # Pro-Short: Your rig, your bone names: printable joints in one click 🦴
 
 - status: open
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-16).
 - kanaal: yt-short
 - soort: video
 - soort_reeks: Pro (script week 48 nr. 6, hook 6B, `commercie/filmpjes/scripts/week-48-click-joints.md`, ja Daan; Pro-lijst nr. 2 in `scripts/volgorde-stem.md`)
@@ -25,7 +26,7 @@ Does your rig use different bone names? Click Joints Pro reads the common ones.
 2. Press Figure from rig: a joint at every shoulder, elbow, hip, knee and neck.
 3. A bone with Limit Rotation? The hinge stops at that angle. No limit on one side? It takes the other side.
 
-Measured in Blender, not print tested by us yet. Print a test joint first.
+Every printer is different. Print a test joint first.
 Click Joints Pro: dortus.com/yt
 ```
 
@@ -41,8 +42,8 @@ Click Joints Pro: dortus.com/yt
 9. Drag Bend on the knee, and it stops at the angle from your rig.
 10. Past the stop, red shows where parts would hit.
 11. Exploded view pulls the parts apart.
-12. Measured in Blender, not print tested by us yet. Print a test joint first.
-13. Click Joints Pro. Elbows and knees stop where your rig stops.
+12. Every printer is different. Print a test joint first.
+13. Click Joints Pro, on Gumroad.
 
 ## Afwijkingen van het script (voor de keurder)
 - Hook 6B, niet 6A, en geen "Mixamo" in de titel: Sanne's "Let op" (geen echte Mixamo-figuur getest, Adobe-account kunnen we niet gebruiken). In beeld staat onze eigen robot met een rig die Mixamo-botnamen heeft (mixamorig:LeftForeArm enzovoort); zin 2 zegt precies dat.

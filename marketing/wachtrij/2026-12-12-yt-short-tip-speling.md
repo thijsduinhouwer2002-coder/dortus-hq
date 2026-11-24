@@ -1,6 +1,7 @@
 # Tip-reeks 13: Your ball joint gap, measured, not guessed 🔥
 
 - status: open
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Click Joints is free. Want more? Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-18).
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip uit de gratis Click Joints (script week 51 nr. 6, hook 6A, `commercie/filmpjes/scripts/week-51-click-joints.md`, ja Daan; gratis tip nr. 2 in `scripts/volgorde-stem.md`). Eindigt op de gratis eindkaart, geen Pro-reclame.
@@ -29,7 +30,7 @@ You set 0.2 mm. Is the gap after the cut really 0.2 mm?
 3. Step 3 of the panel shows Clearance (measured) and the wall in mm. Here: 0.20 mm and 4.01 mm.
 
 Not sure which gap your printer likes? Print a fit test first.
-Measured in Blender, not print tested by us yet.
+Every printer is different: print a small test first.
 Click Joints is free on Blender Extensions. More Blender tips for 3D printing: type dortus.com/yt in your browser.
 
 #blender #3dprinting #b3d #blendertips #shorts
@@ -44,7 +45,7 @@ Click Joints is free on Blender Extensions. More Blender tips for 3D printing: t
 - **Wall in het paneel:** `paneel.py` r. 99 tot 102 ("Wall: N mm", "Clearance: N mm (measured)") (GEZIEN). Zin 2 is de voorzichtige versie uit het script ("check that the real gap matches"), want het paneel toont echt 0.20.
 - **In de gratis versie:** de paneelregel staat in de gratis code (niet in `betaald/`), sinds de eerste versies (`platformen/blender/logboek.md` r. 163). Click Joints is live op Blender Extensions (`organisatie/bord.md`, GEZIEN).
 - **Fit test:** "Print a fit test first" verwijst naar een testgewricht in het algemeen; de Fit test strip zelf is Pro 1.2.0 (`platformen/blender/pro-1.2.0.md`) en wordt in deze gratis tip niet beloofd.
-- **Wat het voor een print betekent:** niet geclaimd; alleen "Measured in Blender, not print tested by us yet."
+- **Wat het voor een print betekent:** niet geclaimd; alleen "Every printer is different: print a small test first."
 - **Model:** eigen cilinder, in het script gemaakt. Geen modellicentie nodig.
 - **Stem:** tijdelijk Kokoro-82M, af_heart, Apache 2.0, commercieel gebruik toegestaan (DERDEN: https://huggingface.co/hexgrad/Kokoro-82M). ElevenLabs-opname (Max) gevraagd aan de hoofdchat: `tip-speling-elevenlabs.mp3` in `commercie/filmpjes/regisseur-18/`.
 - **Nieuw onderwerp:** geen Short van de laatste 14 dagen over speling meten (wachtrij en YouTube-RSS nagekeken 24 nov, GEZIEN; Sanne liep het ook na voor week 51). Verwant aan fit-hook (Fit test strip), maar ander probleem en de gratis versie.

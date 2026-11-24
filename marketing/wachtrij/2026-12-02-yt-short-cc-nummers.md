@@ -1,6 +1,7 @@
 # Click Cuts Short 3: Which printed part goes where? Number every cut 🔥
 
 - status: open (plaatsen pas als Click Cuts live is en de winkellink werkt)
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en printzin "Every printer is different: print the fit test first." (slot blijft Click Cuts, want de opdracht gaat over Click Joints Pro). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-21).
 - kanaal: youtube-short
 - soort: video
 - soort_reeks: lancering Click Cuts, script 3 van 6 (`commercie/filmpjes/scripts/click-cuts-lancering.md`, ja Daan na M1 en M2), hook 3A. Volgorde 1, 2, 3, 6, 4, 5: deze als derde.
@@ -27,7 +28,7 @@ Twelve printed parts and no idea where they go? Number every cut.
 3. The number sits inside the cut, away from the pin holes. The outside stays clean.
 4. Parts are numbered from bottom to top, and the files follow the same order.
 
-Not print tested by us yet. Print the fit test first, then the parts.
+Every printer is different. Print the fit test first, then the parts.
 
 #blender #3dprinting #b3d #blendertips #shorts
 ```

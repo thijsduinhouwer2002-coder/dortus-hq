@@ -1,6 +1,7 @@
 # Tip-reeks 2: Will your model fit your printer? Check it first 📏
 
 - status: open
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-7).
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL, voorbeeld Thijs: BlenderSecrets)
@@ -24,7 +25,7 @@ Is your model too big for your printer? Check it in Blender before you slice:
 3. Compare with your print bed (here a box of 220 x 220 x 250 mm).
 4. Hover over the view, press S, type 0.7, Enter: now 217 mm tall, and it fits.
 
-Measured in Blender, not print tested by us yet.
+Every printer is different: print a small test first.
 Screen recording in Blender 5.3 (no add-on used).
 More Blender tips for 3D printing: type dortus.com/yt in your browser.
 

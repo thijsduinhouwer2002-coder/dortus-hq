@@ -1,6 +1,7 @@
 # Click Cuts Short 2: Printed pins too tight or too loose? Do this first 🔥
 
 - status: open (plaatsen pas als Click Cuts live is en de winkellink werkt)
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en printzin "Every printer is different: print the fit test first." (slot blijft Click Cuts, want de opdracht gaat over Click Joints Pro). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-20).
 - kanaal: youtube-short
 - soort: video
 - soort_reeks: lancering Click Cuts, script 2 van 6 (`commercie/filmpjes/scripts/click-cuts-lancering.md`, ja Daan na M1 en M2), hook 2A. Volgorde 1, 2, 3, 6, 4, 5: deze de dag na de lancering.
@@ -27,7 +28,7 @@ Printed pins too tight or too loose? Print the fit test first.
 3. Print it, try your pin, and click the clearance that fits.
 4. Click Cuts remembers it for that printer and filament.
 
-Measured in Blender, not print tested by us yet. That is why you print this first.
+Every printer is different: print the fit test first. That is why you print this first.
 
 #blender #3dprinting #b3d #blendertips #shorts
 ```

@@ -1,6 +1,7 @@
 # Tip-reeks 4: Round model on one tiny point? Give it a flat bottom 🥚
 
 - status: open
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-7).
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL, voorbeeld Thijs: BlenderSecrets)
@@ -26,7 +27,7 @@ Does your round model touch the bed in just one tiny point? Give it a flat botto
 4. S, Z, 0, Enter: the points line up flat.
 Here the egg now stands on a flat circle about 29 mm wide. More rows give a wider base, fewer rows keep more of the round shape.
 
-Measured in Blender, not print tested by us yet.
+Every printer is different: print a small test first.
 Screen recording in Blender 5.3 (no add-on used).
 More Blender tips for 3D printing: type dortus.com/yt in your browser.
 

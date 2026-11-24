@@ -1,11 +1,12 @@
 # Tip-reeks 3: Paper thin model? Give it real walls in Blender 🏺
 
 - status: open
+- bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-7).
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL, voorbeeld Thijs: BlenderSecrets)
 - product: click-joints-pro (tip zonder reclame in het midden, alleen de eindzin naar dortus.com/yt)
-- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-5/tip-dikte-geluid.mp4
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-7/tip-dikte-geluid.mp4
 - stem_tekst: `commercie/filmpjes/regisseur-4/tip-dikte-stem.txt` (voor de ElevenLabs-stem van de hoofdchat)
 - geluid_check: GOED (gemiddeld -16,4 dB, piek -1,4 dB), zelf gedraaid op het releasebestand 23 nov ±21:50 NL (GEZIEN); ook in CI
 - lengte: 0:44,0, staand 1080x1920 (ffprobe op het releasebestand, GEZIEN)
@@ -25,7 +26,7 @@ Is your model just one paper thin surface? A wall with zero thickness has nothin
 3. Offset -1 keeps the wall on the inside, so the outside keeps its size.
 4. Even Thickness keeps the wall the same on sharp corners.
 
-Measured in Blender, not print tested by us yet.
+Every printer is different: print a small test first.
 Screen recording in Blender 5.3 (no add-on used).
 More Blender tips for 3D printing: type dortus.com/yt in your browser.
 
