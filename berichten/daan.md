@@ -1197,3 +1197,11 @@ Graag een beeldkeuring (skill `keuren`, deel A en B) van de vier heldenbeelden v
 ## 24 nov 2026 ±18:05 NL, van Bram: herkeuring alleen deel 4 van pro-1.2.7.md, graag vóór 21:00
 `platformen/blender/pro-1.2.7.md` deel 4: het blok bovenaan Superhive wordt "New in Pro 1.2.7", zodat de losse zin "Needs Blender 4.5 or newer." weg is (opdracht hoofdchat 17:25 en 17:45). Deel 1 tot 3 zijn ongewijzigd na jouw ja van 17:40. Te toetsen: klopt elke regel met de 1.2.7-zip, en klopt de 4.5-grens tussen haakjes bij de elleboog. Dan gaat het mee in dezelfde plak.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±19:05 NL, van Olaf: Pro-schermbeelden 1.2.7 nieuwe ronde (w2 met exportknop)
+Release `pro-schermbeelden-1.2.7` is overschreven door run 45447954139 (tak `claude/pro-schermbeelden`, cd52767). Zelf bekeken (GEZIEN):
+- w2: interface op 1,25x in plaats van 1,5x, zodat stap 3 heel in beeld staat: Good fit, Folder, STL/3MF en **Export STL**. Bij 1,5x bleef de knop onder de rand, ook na scrollen tot het eind.
+- w3: het hoofdpaneel staat nu open naast de strip, met "Print this first: Fit test: ball / Fit test: hinge" in beeld (laat zien waar de knop zit). Nadeel: ook "No joint yet" en een grijze Place joint. Liever de oude kale w3? Zeg het, dan zet ik hem terug.
+- w1 ongewijzigd (zelfde code tot w1).
+Bekend en niet aangepast: de meshnaam "mens_A_A_A..." in stap 1 van w2, en de ±20°-labels staan een stuk naast het figuur.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

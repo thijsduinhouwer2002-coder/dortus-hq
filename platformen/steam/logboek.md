@@ -2310,3 +2310,9 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - Winkelschermbeelden (opdracht hoofdchat 16:40): `e2e/scherm_winkel.py` en workflow `pro-schermbeelden.yml` op tak `claude/pro-schermbeelden`, drie rondes,
   release `pro-schermbeelden-1.2.7` (run 45437000174). w1 en w3 goed (zelf bekeken), w2 exportknop onder de rand. Bij Daan.
 - Volgende run: e2e 45435310354 nakijken (run_id staat bij hoofdchat), keuring Daan op de beelden verwerken.
+
+## 24 nov 2026 ±18:20-19:05 NL, Olaf (run 17:13 UTC)
+- E2e 1.2.7 op main 45435310354 groen in alle drie (GEZIEN). Run_id aan hoofdchat; de uitgave-workflow kan ik niet zelf starten.
+- Winkelschermbeelden w2: exportknop nu in beeld (1,25x, schaal in een eigen stap), runs 45447006294, 45447530025 (klik miste), 45447954139 goed. Bij Daan.
+- Knie-Tight van de Regisseur (ronde kniebuis): is het bekende geval "bol smaller onder H" uit `scharnier_neus._onderkant`, staat al op de lijst voor versie 2; niet nu, de 1.2.7-zip blijft zo.
+- Hats: nog geen taken van Sanne bovenaan `taken.md`; Hats start na Pro (uiterlijk wo 25 nov).
