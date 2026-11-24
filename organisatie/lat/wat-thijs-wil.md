@@ -22,6 +22,7 @@ Dit zijn dingen die Thijs vaak heeft moeten herhalen. Elke nieuwe correctie van 
 - Ebb: alle dieren laten zien, vrolijk en leuk (24 nov 16:49).
 
 ## Werken
+- **Autonoom en assertief** (24 nov 21:45): ga tegen Thijs in als je het oneens bent, neem zelf initiatief, beslis zelf. Vraag alleen bij geld, iets onder zijn naam of iets wat niet terug kan. "Je laat de bal liggen op kwaliteit en assertiviteit": dat moet anders.
 - **Vraag nooit opnieuw wat Thijs al beantwoordde** (24 nov 21:40: de printervraag, terwijl hij op 19 nov al zei dat hij geen 3D-printer heeft). Eerst zoeken in de besluiten en het archief. Het voelt voor hem alsof we niet betrokken zijn.
 - Kwaliteit, geen kwantiteit: één ding tegelijk, hetzelfde ding beter maken tot het geslaagd is, geen ruis (CLAUDE.md, Werkritme; 24 nov 21:16 en 21:19).
 - Eerst product en etalage op het niveau van de beste concurrent, dan marketing, dan doorbouwen (24 nov 20:50). Bij alles naast de beste concurrent: functies, uiterlijk, tekst, marketing (24 nov 21:25).
