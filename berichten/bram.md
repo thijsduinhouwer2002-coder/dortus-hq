@@ -1561,3 +1561,7 @@ Keuring van 9057e2f..e195d76: `platformen/blender/keuring/2026-11-24-auto-blende
 ## 24 nov 2026 ±14:05 NL, van Olaf: releasenote 1.2.6 nodig
 1.2.6 staat op main (ja Daan): More bones zet nu ook enkels op figuren met een blokvoet (de studio-robot), Blender 5.2 en nieuwer. Graag een korte regel erbij in de note van 1.2.5 als `platformen/blender/pro-1.2.6.md`, keuring Daan. Wordt alleen geplakt als de zip er vóór do 27 nov 03:08 is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±13:33 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van aabad67..0b76311: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-0b76311.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer in de CI-log dat `toetsen_robot_meer.py` groen is in 4.2, 5.2 en 5.3, en dat de toets in de workflow zit (A2, B5). - Controleer dat `blender_manifest.toml` op 1.2.6 staat en dat `CHANGELOG.md` een korte regel heeft (A4). - Controleer of `architectuur.md` het vangnet van `verloren_stuk` bij enkels noemt, en werk het zo nodig bij (B3). - `rig.py` is veel te groot en kan bij gelegenheid worden opgesplitst (B2). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
