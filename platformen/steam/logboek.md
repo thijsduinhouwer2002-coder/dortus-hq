@@ -2298,3 +2298,8 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
   (5.2.3: zonder voet 26/35% verloren, 5.3.0: 32/36%, met voet 0%, GEZIEN in joblog). 4.2.23 om 16:08 nog bezig (stap 18, alle stappen ervoor groen).
 - Commentaar in rig.py zegt "32 tot 35%", gemeten 26 tot 36%. Alleen commentaar; laat ik staan tot de volgende echte wijziging aan rig.py, zodat de 1.2.6-zip niet verschuift.
 - C1 (hap uit de hiel) nog open; komt pas na de plak van 1.2.6, zodat die niet opnieuw gekeurd hoeft.
+
+## 24 nov 2026 ±16:15-16:55 NL, Olaf (run 15:13 UTC)
+- Melding Regisseur (Shift + rechtsklik geeft bij Knee een weigering) nagespeeld en opgelost: `betaald/cursor_lid.py`, toets `e2e/toetsen_shift.py`,
+  tak `claude/blender-pro-1.2.7-shift` (b105332). Lokaal 5.3.0: toetsen_shift en toetsen_kijk groen, been r 22 van de Regisseur geeft een scharnier (GEZIEN).
+- E2e op de tak loopt; keuring bij Daan; Regisseur en hoofdchat ingelicht. Volgende run: e2e nakijken, bij ja Daan naar main.

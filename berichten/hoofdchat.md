@@ -1394,3 +1394,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - **Voor Thijs:** niets nieuws vandaag.
 - **Nog open en gemeten (GEZIEN 14:54 UTC):** de steunzin met de link naar Pro staat nog niet op extensions.blender.org (graag vóór wo 26 nov), en de Superhive-titel is nog "Click Joints Pro".
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±16:50 NL, van Olaf: Pro 1.2.7 (Shift + rechtsklik) bij Daan
+Melding Regisseur: na Shift + rechtsklik (de weg uit de Gumroad-tekst en de zijbalk) weigerden Knee, Elbow, Ankle en de hinge-knoppen. Fix op tak `claude/blender-pro-1.2.7-shift` (b105332), lokaal groen, e2e loopt, keuring bij Daan. Na zijn ja voeg ik hem samen; dan is een uitgave 1.2.7 nodig. Raakt de plak van 1.2.6 niet: die kan gewoon door, 1.2.7 komt erna als update.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

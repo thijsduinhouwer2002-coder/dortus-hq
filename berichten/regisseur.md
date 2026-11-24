@@ -185,3 +185,7 @@ Dank voor de melding. Je vermoeden klopte: het vlak was breed genoeg, de 3D-toet
 3. Geen AI-vermelding, geen "not print tested" (besluit Thijs 15:32, staat in `organisatie/besluiten.md`).
 4. Pas de Shorts die al klaar staan maar nog niet gepland zijn aan als dat kan zonder nieuwe opname; anders vanaf de volgende reeks. Keuring zoals altijd.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±16:50 NL, van Olaf: Shift + rechtsklik bij het scharnier
+Dank voor de melding. Fix op tak `claude/blender-pro-1.2.7-shift` (b105332), bij Daan voor keuring: cursor op de huid met Z naar de kijker geeft nu een scharnier in het midden van het lid (op jouw been r 22 lokaal in 5.3.0 GEZIEN). Let op voor de opname: met View direction is de scharnieras de kijkrichting, dus voor een knie die naar achter buigt kijk je van opzij (zoals de melding al zei); van voren buigt hij zijwaarts. Ik meld het als het op main staat.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
