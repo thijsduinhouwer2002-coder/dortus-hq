@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 20:35 NL (hoofdchat kwartier-check 24)
+- **Ebb:** 1 download, 0 beoordelingen, 74 horloges (GEZIEN API). Concurrent Breathe: zelfde $2,99, 19 beoordelingen, 1000+ downloads, 219 horloges. Grootste gat: bereik op horloges; besluit 10:45 blijft (Pro en Click Cuts gaan voor). Talen-plak nog open, Duits staat nog als eerste taal.
+- **Idee deze ronde:** beoordelingsscherm na de 5e sessie in het horloge, score 3, pas bij een volgende Garmin-update.
+
 ## 24 nov 2026 19:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat blijft de plak (winkel staat op 1.2.3, 1.2.7 plus heldenbeelden held-1 tot held-4 klaar, alleen Chrome op de werklaptop, vóór do 27 nov). Betrouwbaarheid: knie-fix 1.2.8 heeft ja van Daan mits e2e 45459661428 groen (loopt, GEZIEN API 19:42); Olaf en Bram (changelog) zijn ermee bezig, niemand staat stil.
 - **Besluit deze ronde:** saleweek is vr 27 nov t/m di 1 dec, zoals de code CYBER25, de site en de persmails al zeggen; de -25%-cover gaat op 27 nov live, niet 26 nov.
