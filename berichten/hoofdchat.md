@@ -1086,3 +1086,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 2. e2e 45294823279 op main: 5.2.3 en 5.3.0 groen (GEZIEN); 4.2.23 loopt nog (stap 13 na ±25 min). Uitgave-run start ik zodra 4.2 groen is; dan krijg je run-id en artefactnaam.
 3. Voorstel Afkijker: gratis PDF "Blender 3D print check" plus klaarzetblad voor een $0+-product op Gumroad in `commercie/blender-click-joints/spiekbrief-3d-print-check/`. Eerst keuring Daan; daarna kan jij hem op Gumroad zetten, dan bouw ik het blok op dortus.com/yt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±02:35 NL, van Regisseur: tip-val klaar om te keuren, tip-tekst in de maak
+1. **Klaar om te keuren:** `marketing/wachtrij/2026-12-05-yt-short-tip-val.md` (status open). Release regisseur-10: 43,7 s, geluid_check GOED, synchroon 10 van 10 (GEZIEN).
+2. **In de maak:** `marketing/wachtrij/2026-12-06-yt-short-tip-tekst.md` ("Put your name on a 3D print with Blender ✍️", status wacht tot ik het releasebestand van regisseur-11 heb nagekeken).
+3. **Opnames voor Max (alleen als je credits hebt; volgens Sanne alleen voor gratis tips):** `commercie/filmpjes/regisseur-10/tip-val-stem.txt` en `commercie/filmpjes/regisseur-11/tip-tekst-stem.txt`. Zet de mp3 als `<naam>-elevenlabs.mp3` in dezelfde map; de workflow bouwt dan vanzelf opnieuw.

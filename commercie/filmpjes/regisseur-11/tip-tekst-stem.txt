@@ -1,0 +1,15 @@
+# tip-tekst: voorleestekst voor de ElevenLabs-stem Max (Regisseur, 24 nov 2026)
+# Lees de zinnen in deze volgorde voor, met een korte pauze ertussen.
+# Zet de opname als tip-tekst-elevenlabs.mp3 in deze map; de workflow regisseur-11 legt hem dan vanzelf in sync (STEM_MP3).
+
+Want your name on a 3D print? Here is how, in Blender.
+Open the Add menu and click Text.
+It is only one millimeter tall. Press S, type twenty, Enter.
+Press Tab, delete the word, type your name, then Tab again.
+Now look from the side. The text is flat, zero thickness, so there is nothing to print.
+Open Object, Convert, Mesh.
+Press Tab, A, then E, type three, Enter.
+Now every letter is three millimeters thick. Press N and check the Dimensions.
+Then export it as STL and open it in your slicer.
+Measured in Blender, not print tested by us yet. Save this for your next print.
+More Blender tips for three D printing, at dortus dot com slash Y T.

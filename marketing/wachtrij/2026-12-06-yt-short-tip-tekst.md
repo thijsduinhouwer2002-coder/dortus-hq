@@ -1,0 +1,58 @@
+# Tip-reeks 9: Put your name on a 3D print with Blender ✍️
+
+- status: wacht (de Regisseur zet hem op open zodra hij het releasebestand van regisseur-11 zelf heeft nagekeken: synchroon, geluid_check, beelden, vangnet-regels)
+- kanaal: yt-short
+- soort: video
+- soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL; recept v3 Malikose)
+- product: click-joints-pro (tip zonder reclame in het midden, alleen de eindzin naar dortus.com/yt)
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-11/tip-tekst-geluid.mp4 (workflow regisseur-11, nog niet nagekeken)
+- stem_tekst: `commercie/filmpjes/regisseur-11/tip-tekst-stem.txt` (voor de ElevenLabs-stem Max van de hoofdchat)
+- geluid_check: nog niet (de workflow draait hem op het releasebestand en faalt bij FOUT)
+- lengte: nog niet gemeten (de workflow faalt buiten 40 tot 60 s)
+- tijd: voorstel 2026-12-06T12:00:00+01:00 (de hoofdchat kiest)
+- doel: dortus.com/yt (over te typen)
+- gemaakt_door: Regisseur run 10; opname in workflow regisseur-11 (Blender 5.3.0, xvfb, echte muis)
+- vorige:
+
+## Titel
+Put your name on a 3D print with Blender ✍️
+
+## Tekst
+```
+Want your name or a word on a 3D print? Text in Blender starts flat, so there is nothing to print. Make it solid:
+1. Add > Text. It starts 1 mm tall: press S, type 20, Enter.
+2. Tab, delete the word, type your name, Tab.
+3. Object > Convert > Mesh.
+4. Tab, A, E, type 3, Enter: every letter is now 3 mm thick. Press N to check the Dimensions.
+5. File > Export > STL and open it in your slicer.
+
+Measured in Blender, not print tested by us yet.
+Screen recording in Blender 5.3 (no add-on used).
+More Blender tips for 3D printing: type dortus.com/yt in your browser.
+
+#blender #3dprinting #b3d #blendertips #shorts
+```
+
+## Eerste reactie
+(leeg)
+
+## Bronnen
+- **Hook (eerste 1,5 s):** "Want your name on a 3D print?" vanaf beeld 1, kop "Your name in 3D?", beeld: de dikke oranje letters HELLO die draaien (eind van de opname, echte Blender). Geen productnaam, geen zwevende getallen.
+- **Object > Convert > Mesh:** Blender-handleiding: "Converts the selected curve, metaball, surface, or text object to a mesh object." (DERDEN: https://docs.blender.org/manual/en/latest/scene_layout/object/editing/convert.html, met curl gelezen 24 nov).
+- **Tekst bewerken met Tab:** Blender-handleiding Text Editing (DERDEN: https://docs.blender.org/manual/en/latest/modeling/texts/editing.html, met curl gelezen 24 nov).
+- **Export als STL:** Blender-handleiding, File > Import/Export > Stl (DERDEN: https://docs.blender.org/manual/en/latest/files/import_export/stl.html, met curl gelezen 24 nov).
+- **"Flat, zero thickness, nothing to print":** een tekstobject zonder Extrude heeft alleen een vlak; in de opname van opzij gezien (deel t_plat) en gemeten in `film.json` (`t_maat_hello`, z = 0). Nog na te kijken in de release.
+- **1 mm hoog en 3 mm dik:** de scène staat op 1 eenheid = 1 mm (Units: Millimeters, Unit Scale 0.001); nieuwe tekst heeft grootte 1. Gemeten in de workflow: `t_maat_begin`, `t_maat_20`, `t_maat_dik` in `film.json`. Nog na te kijken.
+- **Echte menu's:** Add > Text en Object > Convert > Mesh met de echte muis (OCR, drempel 35 %), toetsen echt via xdotool. Nakijken in het log of er een vangnet-regel staat.
+- **Model:** de tekst HELLO in het standaardlettertype dat met Blender meekomt (in Blender 5.3 nog na te kijken welk; alleen in beeld, geen bestand dat we verkopen). Verder geen modellicentie nodig.
+- **Stem:** tijdelijk Kokoro-82M, af_heart, Apache 2.0, commercieel gebruik toegestaan (DERDEN: https://huggingface.co/hexgrad/Kokoro-82M). ElevenLabs-opname (Max) gevraagd aan de hoofdchat: `tip-tekst-elevenlabs.mp3` in `commercie/filmpjes/regisseur-11/`.
+- **Nieuw onderwerp:** geen Short van de laatste 14 dagen over tekst op een model (wachtrij, geplaatst.md en regisseur-log nagekeken 24 nov, GEZIEN).
+
+## Keuring
+(leeg tot de Keurder komt)
+
+## Oranje-besluit
+(alleen de hoofdchat, alleen bij oranje)
+
+## Na plaatsen
+(alleen de Maker)

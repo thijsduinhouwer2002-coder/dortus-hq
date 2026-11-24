@@ -1,0 +1,243 @@
+{
+ "naam": "tip-tekst",
+ "titel": "Put your name on a 3D print with Blender ✍️ #blender #3dprinting",
+ "eind": {
+  "titel": "Blender for 3D printing",
+  "zin": "A new Blender tip for 3D printing every week.",
+  "adres": "dortus.com/yt",
+  "render": "render-tekst.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "venster": "Blender 5.3",
+ "scenes": [
+  {
+   "tekst": "Want your name on a 3D print? Here is how, in Blender.",
+   "label": "QUICK TIP",
+   "kleur": "oranje",
+   "kop": "Your name in 3D?",
+   "beeld": {
+    "deel": "t_klaar",
+    "van": 0,
+    "tot": 110,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1300
+     ],
+     [
+      1080,
+      1000,
+      1100
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Open the Add menu and click Text.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Add, Text",
+   "beeld": {
+    "deel": "t_add",
+    "van": 0,
+    "tot": 92,
+    "uitsnede": [
+     [
+      1000,
+      760,
+      2000
+     ],
+     [
+      1080,
+      960,
+      1500
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "It is only 1 mm tall. Press S, type 20, Enter.",
+   "uitspraak": "It is only one millimeter tall. Press S, type twenty, Enter.",
+   "label": "STEP 2",
+   "kleur": "groen",
+   "kop": "S, 20, Enter",
+   "beeld": {
+    "deel": "t_schaal",
+    "van": 0,
+    "tot": 110,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Press Tab, delete the word, type your name, then Tab again.",
+   "label": "STEP 3",
+   "kleur": "groen",
+   "kop": "Tab, type, Tab",
+   "beeld": {
+    "deel": "t_typ",
+    "van": 0,
+    "tot": 95,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Now look from the side. The text is flat, zero thickness, so there is nothing to print.",
+   "label": "WHY",
+   "kleur": "blauw",
+   "kop": "Flat: nothing to print",
+   "beeld": {
+    "deel": "t_plat",
+    "van": 0,
+    "tot": 140,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1300
+     ],
+     [
+      1080,
+      1000,
+      1100
+     ],
+     [
+      1080,
+      1000,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Open Object, Convert, Mesh.",
+   "label": "STEP 4",
+   "kleur": "groen",
+   "kop": "Object, Convert, Mesh",
+   "beeld": {
+    "deel": "t_conv",
+    "van": 0,
+    "tot": 112,
+    "uitsnede": [
+     [
+      1000,
+      760,
+      2000
+     ],
+     [
+      1080,
+      960,
+      1500
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Press Tab, A, then E, type 3, Enter.",
+   "uitspraak": "Press Tab, A, then E, type three, Enter.",
+   "label": "STEP 5",
+   "kleur": "oranje",
+   "kop": "Tab, A, E, 3, Enter",
+   "beeld": {
+    "deel": "t_dik",
+    "van": 0,
+    "tot": 134,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1300
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Now every letter is 3 mm thick. Press N and check the Dimensions.",
+   "uitspraak": "Now every letter is three millimeters thick. Press N and check the Dimensions.",
+   "label": "RESULT",
+   "kleur": "groen",
+   "kop": "3 mm thick",
+   "beeld": {
+    "deel": "t_maat",
+    "van": 0,
+    "tot": 96,
+    "uitsnede": [
+     [
+      1300,
+      900,
+      1700
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Then export it as STL and open it in your slicer.",
+   "label": "TIP",
+   "kleur": "groen",
+   "kop": "Export as STL",
+   "beeld": {
+    "deel": "t_klaar",
+    "van": 40,
+    "tot": 150,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1300
+     ],
+     [
+      1080,
+      1000,
+      1150
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Save this for your next print.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Save this tip",
+   "beeld": {
+    "deel": "t_klaar",
+    "van": 110,
+    "tot": 180,
+    "uitsnede": [
+     [
+      1080,
+      1000,
+      1150
+     ],
+     [
+      1080,
+      1000,
+      1050
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "More Blender tips for 3D printing at dortus.com/yt.",
+   "uitspraak": "More Blender tips for three D printing, at dortus dot com slash Y T.",
+   "label": "MORE TIPS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   }
+  }
+ ]
+}

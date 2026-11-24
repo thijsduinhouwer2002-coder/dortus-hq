@@ -1,14 +1,14 @@
 # Tip-reeks 8: Will your print fall over? Check it before you print ⚖️
 
-- status: wacht (de Regisseur zet hem op open zodra hij het releasebestand van regisseur-10 zelf heeft nagekeken: synchroon, geluid_check, beelden)
+- status: open (releasebestand nagekeken door de Regisseur, run 10, 24 nov)
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip (opdracht hoofdchat 23 nov 17:45 NL; recept v3 Malikose)
 - product: click-joints-pro (tip zonder reclame in het midden, alleen de eindzin naar dortus.com/yt)
-- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-10/tip-val-geluid.mp4 (workflow regisseur-10, nog niet nagekeken)
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-10/tip-val-geluid.mp4 (workflow regisseur-10, run 45294223456, nagekeken)
 - stem_tekst: `commercie/filmpjes/regisseur-10/tip-val-stem.txt` (voor de ElevenLabs-stem Max van de hoofdchat)
-- geluid_check: nog niet (de workflow draait hem op het releasebestand en faalt bij FOUT)
-- lengte: nog niet gemeten (de workflow faalt buiten 40 tot 60 s)
+- geluid_check: GOED, gemiddeld -16.4 dB, piek -1.3 dB (zelf gedraaid op het releasebestand, GEZIEN)
+- lengte: 43,7 s, 1080 x 1920 (ffprobe, GEZIEN); synchroon 10 van 10 binnen 0,3 s, grootste 0,247 s (synchroon-tip-val.md in de release, GEZIEN); 17 beelden zelf bekeken: geen afgesneden menu, stip en voet leesbaar. Kan beter: bij WHY staat geen lijn van de stip naar de grond, je moet zelf zien dat de stip rechts van de voet valt.
 - tijd: voorstel 2026-12-05T12:00:00+01:00 (de hoofdchat kiest)
 - doel: dortus.com/yt (over te typen)
 - gemaakt_door: Regisseur run 9; proefopname lokaal (Blender 5.3.0, xvfb), releasebestand uit workflow regisseur-10 (neemt zelf op met hetzelfde script)
