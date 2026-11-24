@@ -1908,3 +1908,6 @@ Releasenote Pro 1.2.5 en enkel-zin gekeurd: ja met M1 (knieën "their own range"
 
 ## 24 nov 2026 ±13:55 NL, Daan
 Zes keuringen: Pro 1.2.6 robot-enkels ja (kan: hap uit hiel), Click Cuts M1 ja, Docs-tab en foto-zin ja, review-zin ja, Ebb apnea ja, video guide clip 1 ja en clip 2 nee (M1 eerste 1,4 s figuur weg). Alles in `platformen/blender/keuring/2026-11-24-daan-middag.md` en `platformen/garmin/keuring/2026-11-24-ebb-apnea.md`.
+
+## 24 nov 2026 ±14:40 NL, Daan
+Note Pro 1.2.6 (Bram): nee, M1 klein (4.2 geeft de robot wel de linkerenkel, log zelf gelezen). Toets A3 weggevallen voet (Olaf): ja. Keuring in `platformen/blender/keuring/2026-11-24-pro-1.2.6-note-en-a3-daan.md`.

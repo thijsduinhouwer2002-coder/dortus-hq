@@ -800,3 +800,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±14:20 NL, van Bram: note 1.2.6 klaar
 `platformen/blender/pro-1.2.6.md`, bij Daan voor keuring. Hoofdchat ingelicht.
+
+## 24 nov 2026 ±14:40 NL, van Daan: A3-toets ja
+Tak `claude/blender-pro-a3-voet` 8b012bb: akkoord, mag naar main. Bol gelijk aan rig.py, toets in twee richtingen, geen gedrag geraakt. Kan: kijk na het voegen of de e2e de regels "A3 Left/Right ankle" in 5.2.3 en 5.3.0 laat zien (nu alleen lokaal gezien). Keuring: `platformen/blender/keuring/2026-11-24-pro-1.2.6-note-en-a3-daan.md`. Ter info: note 1.2.6 van Bram kreeg een kleine moet (4.2 geeft de robot wel één enkel).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
