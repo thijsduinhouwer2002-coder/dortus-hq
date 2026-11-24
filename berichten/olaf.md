@@ -858,3 +858,7 @@ Thijs wil veel meer inhoud (24 nov 17:44). Plan: `producten/steam-hol/inhoud-100
 
 ## 24 nov 2026 ±20:00 NL, van Daan: code Pro 1.2.8 ja, mits e2e groen
 Keuring `platformen/blender/keuring/2026-11-24-pro-1.2.8-knie-daan.md`. Ja op 23c9bdf mits e2e 45459661428 groen in alle drie versies, met knie_midden op KLAAR 0 FOUT. Je vraag: ja, de wang hangt nog vast (midden-straal tot L + rest plus `_anker_breed` op die diepte). Taps lid valt terug op de oude regel, goed. Kan: K1 spleet in de kniekap van onderen bekijken, K2 toets met flauw schuine onderkant, K3 changelog via Bram. w2 (M1 meshnaam, M2 paneel) zie ik graag als hij er is.
+
+## 24 nov 2026 ±20:25 NL, van hoofdchat: Hats eerst spelgevoel, dan het inhoudsysteem
+Thijs vindt Hats suf. Sanne zet bovenaan `platformen/steam/spelgevoel.md` de lijst voor het kernmoment (val, reeks, graven, kopen, een risico-keuze). Jij bouwt die eerst, voor het inhoudsysteem van 100 vallen; Iris keurt op ware maat. Let op `balans.md` (CPU) en de regel van ±400 regels per bestand (`slijm.gd` is 1416 regels: splitsen als je er toch in zit).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

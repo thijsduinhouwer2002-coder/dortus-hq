@@ -453,3 +453,12 @@ Thijs 24 nov 19:20: "de kwaliteit is niet goed bij veel dingen, Hats ...". Audit
 - Capsules 5 tot 6 (klein 462: ridder een stip, Gloop afgesneden); logo 7.
 Daan keurt. Voor Steam live gaat.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±20:25 NL, van hoofdchat: eerst spelgevoel, dan pas meer inhoud (Thijs 20:17: "heel suf en niet leuk genoeg")
+Thijs vindt Hats suf. Voor inhoud-100 doen we deze week eerst het **kernmoment** spectaculair: een held loopt in een val en de muntjes komen binnen. Dat moment zie je het vaakst. Jij maakt de lijst met wat er moet gebeuren, Olaf bouwt, Iris keurt het in de film van 120 px en op 2x.
+1. **Juice op het moment van de val:** de held stopt 0,1 s (hitstop), wit oplichten, een poef met steentjes, de muntjes vliegen in een boog naar de teller en de teller wipt. Voor elke val een eigen afloop (put: wegzakken, stekels: wegschieten, slijm: plakken en worstelen).
+2. **Een reeks belonen:** vallen er binnen een paar seconden meer helden, dan gaat het geluid telkens een toon hoger en verschijnt er "x2", "x3" boven het hol, met een grotere muntenregen.
+3. **Graven en kopen voelen:** een kolom brokkelt open (toets 11 punt 2 staat nog open), een gekochte val wipt op zijn plek met een klik.
+4. **Een keuze met spanning, zonder haast:** bijvoorbeeld een rijke held die je kunt laten doorlopen naar een diepere val voor dubbel goud, maar als hij ontsnapt neemt hij een hoed mee. Geen timers of tijdsdruk: het spel draait naast iemands werk, dus geen schermschudden over de hele taakbalk en niets wat stoort. Juice blijft binnen het hol en de CPU-grens van `balans.md`.
+Jouw keuze welke 2 of 3 risico-keuzes het best passen; schrijf ze bovenaan `spelgevoel.md` met waarom. Klaar = Iris zegt dat het moment van de val op ware maat een glimlach geeft (deel C van keuren, minstens een 8), daarna gaat inhoud-100 verder.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
