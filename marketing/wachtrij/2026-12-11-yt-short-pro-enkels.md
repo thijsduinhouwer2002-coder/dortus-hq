@@ -8,8 +8,10 @@
 - soort: video
 - soort_reeks: Pro (script week 49 nr. 5, hook 5A, `commercie/filmpjes/scripts/week-49-click-joints.md`, ja Daan; Pro-lijst nr. 13 in `scripts/volgorde-stem.md`)
 - product: click-joints-pro
-- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-17/pro-enkels-geluid.mp4 (sha256 b083c823d64e0357e0030fad3249837b00cb65ec87597dec5afe31ac5c829301)
-- stem: Kokoro (Apache 2.0), Pro-reeks (`scripts/volgorde-stem.md`). Geen ElevenLabs-opname nodig.
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-17/pro-enkels-geluid.mp4 (sha256 in SHA256SUMS.txt van de release)
+- saleversie: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-17/pro-enkels-sale-geluid.mp4, slotzin en eindkaart "Click Joints Pro, 25% off this week, on Gumroad". Alleen do 26 nov avond tot en met di 1 dec en alleen als CYBER25 aanstaat.
+- herbouw Regisseur run 27 (24 nov ±19:20 NL): eerste beeld nu studio-render van de robot met de blauwe enkelringen, ingezoomd op benen en voeten (render-3) in plaats van het grijze Blender-venster (opdracht hoofdchat 18:05: eerste beeld spectaculair). Alleen montage, zelfde opname en tekst.
+- stem: nu Kokoro (Apache 2.0) als proef. **Niet plaatsen zonder Max** (hoofdchat 24 nov 18:05); opname staat op `commercie/filmpjes/stem/opnames-vanavond.md`, de workflow bouwt dan beide versies opnieuw.
 - stem_tekst: `commercie/filmpjes/regisseur-17/pro-enkels-stem.txt`
 - figuur: eigen robot van studio-3 (`commercie/filmpjes/studio/figuur_robot.py`), rig uit `producten/blender-gewrichten/e2e/proef_mens.py` (maak_rig, met voetbotten), geen licentie van derden
 - lengte 44,7 s (ffprobe, GEZIEN); geluid_check GOED (-16,3 dB, piek -1,4 dB); synchroon GOED 11 van 11, grootste 0,22 s (`synchroon-pro-enkels.md`); 17 beelden zelf bekeken, eerste beeld groot: hele robot met rig, kop en voeten in beeld, vraag in de kop.
