@@ -1,0 +1,237 @@
+{
+ "naam": "cc-fit",
+ "titel": "Model too big for your printer? Split it to fit 🔥 | Blender",
+ "eind": {
+  "titel": "Click Cuts",
+  "zin": "For Blender.",
+  "adres": "Link in the description",
+  "render": "render-cc.png",
+  "icoon": "producten/blender-splitser/merk/icoon-512.png"
+ },
+ "printzin": "Measured in Blender, not print tested by us yet.",
+ "venster": "Blender 5.3 with Click Cuts",
+ "scenes": [
+  {
+   "tekst": "Model too big for your print bed?",
+   "label": "QUICK QUESTION",
+   "kleur": "oranje",
+   "kop": "Too big to print?",
+   "beeld": {
+    "deel": "mooi",
+    "van": 0,
+    "tot": 70,
+    "uitsnede": [
+     [
+      720,
+      900,
+      850
+     ],
+     [
+      720,
+      880,
+      720
+     ]
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Pick your printer from the list, or type in your own bed size.",
+   "label": "STEP 1",
+   "kleur": "groen",
+   "kop": "Pick your printer",
+   "beeld": {
+    "deel": "printer",
+    "van": 0,
+    "tot": 82,
+    "uitsnede": [
+     [
+      1800,
+      480,
+      800
+     ],
+     [
+      1800,
+      460,
+      700
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Then press Split to fit, the one big button in the panel.",
+   "label": "STEP 2",
+   "kleur": "oranje",
+   "kop": "Split to fit",
+   "beeld": {
+    "deel": "split",
+    "van": 0,
+    "tot": 32,
+    "uitsnede": [
+     [
+      1840,
+      420,
+      700
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Open model? It makes a watertight copy first, in the same click.",
+   "label": "NO PREP",
+   "kleur": "blauw",
+   "kop": "Watertight first",
+   "beeld": {
+    "deel": "kies",
+    "van": 0,
+    "tot": 38,
+    "uitsnede": [
+     [
+      720,
+      950,
+      1000
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "It cuts the model into the fewest parts that each fit your bed.",
+   "label": "THE CUT",
+   "kleur": "groen",
+   "kop": "Fewest parts that fit",
+   "beeld": {
+    "deel": "uit",
+    "van": 0,
+    "tot": 55,
+    "uitsnede": [
+     [
+      720,
+      980,
+      950
+     ],
+     [
+      720,
+      980,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Parts that touch never share a color, so you see every cut.",
+   "label": "COLORS",
+   "kleur": "blauw",
+   "kop": "Every cut visible",
+   "beeld": {
+    "deel": "uit",
+    "van": 55,
+    "tot": 110,
+    "uitsnede": [
+     [
+      720,
+      980,
+      800
+     ],
+     [
+      720,
+      980,
+      700
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Every cut gets pins and pin holes, with a clearance you can tune to your printer.",
+   "label": "PINS",
+   "kleur": "oranje",
+   "kop": "Pins and holes",
+   "beeld": {
+    "deel": "pen",
+    "van": 0,
+    "tot": 90,
+    "uitsnede": [
+     [
+      780,
+      950,
+      1300
+     ],
+     [
+      780,
+      950,
+      1150
+     ]
+    ]
+   },
+   "uitspraak": "Every cut gets pins and pin holes, with a clearance you can tune to your printer."
+  },
+  {
+   "tekst": "The panel tells you in one line: all parts fit the bed.",
+   "label": "RESULT",
+   "kleur": "groen",
+   "kop": "All fit the bed",
+   "beeld": {
+    "deel": "uitslag",
+    "van": 0,
+    "tot": 40,
+    "uitsnede": [
+     [
+      1856,
+      470,
+      650
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Then export every part and the pins as STL or 3MF, in millimeters.",
+   "label": "EXPORT",
+   "kleur": "blauw",
+   "kop": "STL or 3MF",
+   "beeld": {
+    "deel": "export",
+    "van": 0,
+    "tot": 62,
+    "uitsnede": [
+     [
+      1830,
+      560,
+      700
+     ]
+    ]
+   },
+   "uitspraak": "Then export every part and the pins as S T L or three M F, in millimeters."
+  },
+  {
+   "tekst": "Measured in Blender, not print tested by us yet. Print the fit test first.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Fit test first",
+   "beeld": {
+    "deel": "samen",
+    "van": 0,
+    "tot": 130,
+    "uitsnede": [
+     [
+      720,
+      960,
+      1000
+     ],
+     [
+      720,
+      960,
+      850
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Click Cuts for Blender. Link in the description.",
+   "label": "CLICK CUTS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   }
+  }
+ ]
+}

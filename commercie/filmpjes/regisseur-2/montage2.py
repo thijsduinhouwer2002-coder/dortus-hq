@@ -190,7 +190,7 @@ def eindkaart(V, script, bron):
     W, H = V["W"], V["H"]
     d = ImageDraw.Draw(im)
     staand = W < H
-    logo = Image.open(HIER.parents[2] / "ontwerp/click-joints/icoon.png").convert("RGBA")
+    logo = Image.open(HIER.parents[2] / e.get("icoon", "ontwerp/click-joints/icoon.png")).convert("RGBA")  # icoon: pad vanaf de repo (Click Cuts, run 18)
     ls = 210 if staand else 170
     logo = logo.resize((ls, ls), Image.LANCZOS)
     fk, fz, fa = font("ExtraBold", 92 if staand else 76), font("Medium", 40 if staand else 32), font("Bold", 40 if staand else 32)

@@ -1,13 +1,17 @@
 # Tip-reeks 13: Your ball joint gap, measured, not guessed 🔥
 
-- status: wacht (workflow regisseur-18 neemt op; de Regisseur kijkt het releasebestand na en zet dan pas open)
+- status: open
 - kanaal: yt-short
 - soort: video
 - soort_reeks: tip uit de gratis Click Joints (script week 51 nr. 6, hook 6A, `commercie/filmpjes/scripts/week-51-click-joints.md`, ja Daan; gratis tip nr. 2 in `scripts/volgorde-stem.md`). Eindigt op de gratis eindkaart, geen Pro-reclame.
 - product: click-joints (gratis)
-- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-18/tip-speling-geluid.mp4 (nog niet nagekeken)
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-18/tip-speling-geluid.mp4 (nagekeken 24 nov run 18)
 - stem_tekst: `commercie/filmpjes/regisseur-18/tip-speling-stem.txt` (voor de ElevenLabs-stem Max van de hoofdchat; tot die er is Kokoro)
-- geluid_check, lengte, synchroon, beelden: nog niet (volgende run). Lengte GOK ±50 s (138 woorden; tip-dubbel 117 woorden gaf 43,4 s, GEZIEN).
+- lengte: 46,8 s, 1080 x 1920 (GEZIEN, lengtes.txt release regisseur-18)
+- geluid_check: GOED, gemiddeld -16,6 dB, piek -1,4 dB (GEZIEN)
+- synchroon: whisper zegt 11 van 12 (zin 10 -0,44 s), maar dat is een meetfout: whisper plakt "first." aan "The"; RMS zelf nagemeten: stem van zin 10 begint op 33,70 s (sprong 60 naar 78 dB), scène op 33,60 s, verschil 0,10 s. Dus 12 van 12 binnen 0,3 s, grootste 0,18 s (GEZIEN).
+- metingen release (film-tip.json, GEZIEN): passing groen, wand 4,015 mm, speling gemeten 0,1996 mm, uit_elkaar true, alle OCR-plekken gevonden, geen vangnet.
+- beelden: 13 bekeken, eerste groot: kogel uit de kom met de 30°-boog van Blender, kop "Really 0.2 mm?", geen zwevende getallen. Paneel met "Clearance: 0.20 mm (measured)" en "Wall: 4.01 mm" leesbaar in zin 6 en 7 (GEZIEN). Kan beter: in zin 4 en 7 loopt de ondertitel over een paneelregel ("3 Fit and export", "Show bend range"), wel leesbaar.
 - metingen (lokale proef met de echte muis, Blender 5.3.0, gratis zip van main, 24 nov, GEZIEN): cilinder 80 mm hoog, r 14 mm; Place joint met de echte klik: Good fit, wand 4,015 mm, speling ingesteld 0,2 mm, gemeten 0,1996 mm; paneel toont "Good fit", "Wall: 4.01 mm", "Clearance: 0.20 mm (measured)" (GEZIEN, schermbeeld van de proef).
 - tijd: voorstel 2026-12-12T12:00:00+01:00 (de hoofdchat kiest)
 - doel: dortus.com/yt (over te typen)
