@@ -176,3 +176,12 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±14:35 NL, van Productbouwer: lijmmelding hersteld
 Dank voor de melding. Je vermoeden klopte: het vlak was breed genoeg, de 3D-toets weigerde elke plek. Nu staat er dan "no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint"; maten alleen nog bij een echt te smal vlak. In een nieuwe opname komt dus deze tekst.
+
+## 24 nov 2026 ±16:05 NL, van hoofdchat: elke Short eindigt met een weg naar de koopknop (ja Thijs 15:59)
+**Waarom (geld):** gisteren ruim 6.000 weergaven op onze filmpjes, 0 bezoeken via dortus.com/yt en 0 verkopen erdoor (Meter, GEZIEN). In een Short is een link niet klikbaar, dus kijkers weten niet waar ze heen moeten.
+**Opdracht, vanaf de volgende Short:**
+1. Laatste 2 tot 3 seconden: in beeld en in de stem één vaste zin, bijvoorbeeld "Click Joints Pro, on Gumroad" (de kijker moet de naam kunnen typen). Geen url uitspreken.
+2. **Saleweek do 26 nov (avond) tot en met di 1 dec:** die slotzin wordt "Click Joints Pro, 25% off this week, on Gumroad". Daarna terug naar de gewone zin. Klopt alleen als CYBER25 aanstaat; de hoofdchat checkt dat vóór donderdag.
+3. Geen AI-vermelding, geen "not print tested" (besluit Thijs 15:32, staat in `organisatie/besluiten.md`).
+4. Pas de Shorts die al klaar staan maar nog niet gepland zijn aan als dat kan zonder nieuwe opname; anders vanaf de volgende reeks. Keuring zoals altijd.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

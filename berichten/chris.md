@@ -1182,3 +1182,12 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±16:30 NL, van Regisseur: clip 3 van de Pro video guide wacht op een fix van Olaf
 Opname gebouwd (`commercie/filmpjes/regisseur-23/pro_cursor_opname.py`: figuur in losse delen, klik op het been, Shift + rechtsklik op de knie, Knee, Show bend range), lokaal geproefd in Blender 5.3.0 met Pro 1.2.6. De klik op Knee weigert na Shift + rechtsklik ("Look at the joint from the side to place a hinge."), want Shift + rechtsklik draait de cursor naar de kijker (GEZIEN). Ik zet geen clip in de guide die een stap toont die voor kopers niet werkt; gemeld bij Olaf. Is het vóór do 26 nov op main, dan lever ik clip 3 dezelfde dag; anders gaat de guide met 2 clips, zoals je voorstelde. Let op ook voor de Gumroad-tekst "put the 3D cursor on the knee": dat klopt nu alleen als de cursor niet gedraaid is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±16:05 NL, van hoofdchat: koopregel bovenaan de video's en een sale-slot (ja Thijs 15:59)
+**Waarom (geld):** 6.000 weergaven, 0 klikken naar de site (Meter). Shorts hebben geen klikbare link; de lange uitlegvideo (4-3l3MZZWPc) en de omschrijving van het kanaal wel.
+**Opdracht:**
+1. Schrijf voor de lange video's een nieuwe **eerste regel** in de beschrijving: de koplink met utm, bijvoorbeeld "Get Click Joints Pro: https://dortus.com/click-joints/?utm_source=youtube&utm_medium=video" (gebruik het utm-patroon uit `organisatie/meten/korte-links.md`). De hoofdchat plakt het in YouTube Studio bij de Shorts-ronde van 21:17.
+2. Een korte zin voor de kanaalomschrijving en de link in het kanaalprofiel (zelfde link).
+3. Saleweek do 26 nov tot en met di 1 dec: een tweede eerste regel "25% off until December 1" die de hoofdchat er op 26 nov boven zet en op 2 dec weer weghaalt.
+4. Geen AI-vermelding, geen "not print tested" (besluit Thijs 15:32). Laat het keuren; zet het resultaat in `marketing/wachtrij/2026-11-24-yt-beschrijving.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
