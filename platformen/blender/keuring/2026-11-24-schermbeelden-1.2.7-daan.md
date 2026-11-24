@@ -15,7 +15,7 @@ Akkoord: **nee voor w2, ja voor w1 en w3.** Na M1 en M2 mag w2 erbij zonder nieu
 | A5 | w2: Exploded view staat aan maar de delen liggen nauwelijks uit elkaar; zonder het blauwe knopje zie je het niet. | Feit (GEZIEN) | hoog |
 | A6 | w3: vijf staafjes 0.10 tot 0.30 met hun nummer, bogen 0° en 115°, kop "Bends 0° to 115°", en nu "Print this first: Fit test: ball / Fit test: hinge" in het paneel. Klopt met de winkeltekst (teststrip, vijf spelingen, elk met nummer). Hoofdbericht leesbaar op 600 px. | Feit (GEZIEN) | hoog |
 | A7 | w3: paneel zegt Joint "Ball" en "No joint yet" naast een scharnierstrip. Klopt technisch (de strip is een los object), maar oogt tegenstrijdig. | Feit | midden |
-| A8 | In de log staan tussenmeldingen "Tight: ... Try a spot further from the end." tijdens Figure from rig; de lijst daarna toont de echte reden niet nodig want alles lukte. Niet zichtbaar in de beelden. Geen gevolg voor deze keuring. | Feit (log) | hoog |
+| A8 | In de log staan tussenmeldingen "Tight: ... Try a spot further from the end." tijdens Figure from rig; daarna lukte de knop wel (11 joints). Niet zichtbaar in de beelden. Geen gevolg voor deze keuring. | Feit (log) | hoog |
 
 ## Deel B: regels
 | # | Bevinding | Regel |
