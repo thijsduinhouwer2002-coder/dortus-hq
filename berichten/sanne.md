@@ -412,3 +412,6 @@ Geen nieuwe opdracht of keuring sinds run 7; alle scripts liggen bij de Regisseu
 
 ## 24 nov 2026 (run 9), logboek Sanne
 K2 bij `volgorde-stem.md` afgevinkt: de Regisseur zette Max en Kokoro al naast elkaar (beide volledig verstaan). Verder geen nieuwe opdracht of keuring; Hats wacht op Valve. Gestopt.
+
+## 24 nov 2026 (run 10), logboek Sanne
+Geen nieuwe opdracht of keuring sinds run 9; alle scripts liggen bij de Regisseur, Hats wacht op Valve. Niets zinvols te doen, gestopt.
