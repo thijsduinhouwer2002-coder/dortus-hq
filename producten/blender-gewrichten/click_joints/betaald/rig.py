@@ -682,6 +682,7 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
             soort = figuur.PER_SLEUTEL[sleutel][2]
             stop, herkomst = per_naam[naam]
             m = cursor_matrix(arm, pb, stop[1] if stop else 1)
+            vang_bot = pb  # bot waarvan de bol van verloren_stuk zijn maat krijgt
             if sleutel == "ANKLE" and pb.parent is not None:
                 # 1.2.5 (Regisseur 24 nov: robot en MakeHuman kregen nooit een enkel): de voet staat haaks op de
                 # scheen, dus langs de lidas van het voetbot ligt achter de enkel alleen de hiel ("too little limb").
@@ -689,6 +690,11 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 # deel A de scheen en deel B de voet, zoals bij een knie.
                 m = cursor_matrix(arm, pb.parent, stop[1] if stop else 1)
                 m.col[3][:3] = (arm.matrix_world @ pb.matrix).to_translation()
+                # 1.2.6 (robot van de studio, Olaf 24 nov): dan ook de bol van het vangnet "lost part" naar de scheen,
+                # zoals bij de knie (0,6 keer het bot van de assen). Met het korte voetbot was die bol 15 mm, kleiner
+                # dan de uitsnede voor 0-90 graden buigen op een blokvoet: 13% "verloren" dat gewoon zwaairuimte was.
+                # Gemeten op de robot (scheenbot 43 mm, bol 26 mm): 0% verloren, en een weggevallen voet zou nog ±48% zijn.
+                vang_bot = pb.parent
             delen = [o for o in context.scene.objects if o.type == "MESH" and o.visible_get()
                      and (o is mesh or o.get("cj_figuur") == fig)]
             doel = deel_met(context, delen, m.to_translation())
@@ -697,6 +703,7 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 continue
             kandidaten = [(m, 0.0)]
             lengte = ((arm.matrix_world @ pb.tail) - (arm.matrix_world @ pb.head)).length
+            vang_lengte = ((arm.matrix_world @ vang_bot.tail) - (arm.matrix_world @ vang_bot.head)).length
             if soort != "HINGE":
                 # Kogel: uit de romp schuiven (de botkop van dij en bovenarm ligt meestal in bekken of borst).
                 # Eerst met de hele bolnaad buiten de romp (vol bereik); is het daar te dicht bij de knie, dan de
@@ -769,7 +776,7 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                         # terugdraaien met eerlijke reden in plaats van een deel uit vier stukken.
                         fout = "the cut left a loose piece here, place it by hand"
                     elif ok and verloren_stuk(context, doel, nieuw, m.to_translation(),
-                                              max(0.6 * lengte, 15 * eenheid_per_mm(context.scene))) > VERLOREN_MAX:
+                                              max(0.6 * vang_lengte, 15 * eenheid_per_mm(context.scene))) > VERLOREN_MAX:
                         # 1.2.3 (keuring Betrouwbaarheid A, M1): ook bij een kogel, want die krijgt nu soms het voxel-
                         # omhulsel (omhulsel.py); verliest de snede meer dan 6% van het model, dan de volgende plek.
                         fout = "the cut lost part of the model here, place it by hand"
