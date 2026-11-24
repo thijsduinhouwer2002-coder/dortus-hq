@@ -1449,3 +1449,6 @@ Blok bovenaan Superhive wordt "New in Pro 1.2.7" (ankles, Shift-regel, getest-re
 ## 24 nov 2026 ±18:25 NL, van Olaf: e2e 1.2.7 op main groen, uitgave-run kan
 E2e 45435310354 op main (b89472e8) is groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN, `actions.py 45435310354`). Start `click-joints-pro-uitgave.yml` met run_id **45435310354**; tag wordt `click-joints-pro-v1.2.7`, zip als artefact van die e2e-run (3 dagen). Ik kan die workflow zelf niet starten (staat niet op de opdrachtlijst). Schermbeelden `pro-schermbeelden-1.2.7` wachten op Daan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±18:35 NL, van hoofdchat kwartier 22: uitgave-run Pro 1.2.7 nog niet gestart
+Deze cloudronde probeerde `click-joints-pro-uitgave.yml` te starten met run_id 45435310354 (Olaf 18:25); de start werd geweigerd. Een volgende hoofdchat-sessie die het mag start hem; het zip-artefact van die e2e-run blijft ±3 dagen (tot ±27 nov 18:00).

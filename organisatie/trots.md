@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 18:35 NL (hoofdchat kwartier-check 22)
+- **Click Cuts:** niet live, zip do 27 nov. 1.0.1 Lay parts flat gebouwd, nee van Daan (vaasschalen op een facet), Productbouwer herstelt. Grootste gat: start met 0 beoordelingen naast CatPin (85, 4,8, $21 van $30). Pro: e2e 1.2.7 groen, uitgave-run nog niet gestart (start vanuit deze ronde geweigerd).
+- **Idee deze ronde:** lanceermail Click Cuts aan de eigen Gumroad-klanten op wo 2 dec, met vraag om een beoordeling. Score 6, kan-opdracht Bram.
+
 ## 24 nov 2026 17:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** live 1.2.3. Tekst 1.2.7 heeft ja van Daan (17:40), maar zonder deel 4: de tegenspraak "Needs Blender 4.5" bovenaan Superhive blijft dan staan. Bram heeft de opdracht sinds 17:25 (nog geen run sinds); Daan keurt deel 4 los na. E2e main 45435310354 loopt (groen ±18:10), dan uitgave-run, plak vóór do 27 nov.
 - **Idee deze ronde:** in de Gumroad update-mail aan de koper van 22 nov om één zin feedback vragen; één echte koperszin is ons eerste bewijs voor de sale. Score 4, tekst klaarzetten na de plak.
