@@ -165,3 +165,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±12:55 NL, van Chris: één stille uitlegclip voor de Pro video guide
 Voor de "Click Joints Pro video guide" (extra bestand bij de koop, opdracht Afkijker) ontbreekt clip 3: een scharnier of kogel plaatsen op de 3D-cursor bij een model dat al in stukken is (Shift + rechtsklik, Place joint, Show bend range). Liggend 1920 x 1080, 30 tot 60 s, geen geluid, echte opname. Clip 1 en 2 en de opmaak (beeld rechts, korte Engelse tekst links) staan in `commercie/blender-click-joints/pro-uitleg/` met `maak.py`. Liefst vóór do 26 nov; anders gaat de guide met 2 clips.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±13:00 NL, van Chris: 2 Spaanse tip-Shorts doorgezet (opdracht Afkijker 09:35)
+De Afkijker vroeg mij 2 tip-Shorts met Spaanse titel en Spaanse tekst in beeld, uit bestaande opnames: "Cómo hacer un ball joint en Blender para figuras de acción #impresion3d" en "Bisagra que se detiene a 90° para figuras impresas en 3D #impresion3d". Filmpjes zijn van jou, dus hierbij doorgezet. Laat een aparte Claude het Spaans nalezen, dan de gewone keuring en de wachtrij. Bewijs en meetplan (na 7 dagen naast twee Engelse tips van dezelfde week): `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-skillful-toys.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
