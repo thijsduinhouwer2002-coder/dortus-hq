@@ -20,6 +20,7 @@ import toetsen_neus_kort
 import toetsen_print
 import toetsen_scharnier_pose
 import toetsen_scharnier_uit
+import toetsen_shift
 from hulp_scharnier import bvh as _bvh
 from hulp_scharnier import cursor as _cursor
 
@@ -121,6 +122,7 @@ def toets(stap, eigen):
     stap("schuin (45 graden) geeft H loodrecht op L", schuin is not None and abs(schuin[0].dot(lid)) < 1e-6
          and math.isclose(abs(schuin[0].y), 1.0, abs_tol=1e-6), str(schuin and tuple(schuin[0])))
     toetsen_kijk.toets_kijk(stap, eigen)
+    toetsen_shift.toets(stap, eigen)  # 1.2.7: Shift + rechtsklik (cursor op de huid, Z naar de kijker)
     toets_beweeg(stap, eigen)
     toetsen_flip.toets_flip(stap, eigen)
     toetsen_neus.toets(stap, eigen, _cursor)  # eis 3: klikneus en vorm punt 5: zaagsnede

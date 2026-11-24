@@ -25,6 +25,7 @@ from ..gewricht import kijk_regio, ruim_op, solver_naam, verhuis
 from ..uit_elkaar import echte_matrix
 from .. import een_lid, uit_elkaar
 from . import afstand
+from . import cursor_lid
 from . import snippers
 from . import herstel
 from . import een_lid_diep
@@ -57,18 +58,25 @@ def kijk_en_omhoog(context, kijk=None, omhoog=None):
     return (rv3d.view_rotation @ Vector((0, 0, -1))).normalized(), rv3d.view_rotation @ Vector((0, 1, 0))
 
 
-def assen(context, inst, kijk=None, omhoog=None, omdraaien=False):
-    """(punt, H, buigkant, L, as-bron, terugval) of None als de kijkrichting te dicht bij de lidas ligt."""
+def assen(context, inst, kijk=None, omhoog=None, omdraaien=False, bvh=None, u=1.0):
+    """(punt, H, buigkant, L, as-bron, terugval, bijgesteld) of None als de kijkrichting te dicht bij de lidas ligt.
+
+    Pro 1.2.7: met bvh en as-bron View direction eerst cursor_lid.bijstellen (Shift + rechtsklik: cursor op de
+    huid, Z naar de kijker). bijgesteld is dan een korte uitleg voor de melding, anders een lege tekst."""
     cursor = context.scene.cursor
     m = cursor.matrix
     lid = m.col[2].xyz.normalized()
+    punt = cursor.location.copy()
     if inst.as_bron == "KIJK":
         ko = kijk_en_omhoog(context, kijk, omhoog)
         if ko is not None:
+            wat = ""
+            if bvh is not None:
+                punt, lid, wat = cursor_lid.bijstellen(bvh, punt, lid, ko[0], u)
             uit = vorm.scharnier_assen(lid, kijk=ko[0], omhoog=ko[1], omdraaien=omdraaien)
-            return None if uit is None else (cursor.location.copy(),) + uit[:3] + ("KIJK", False)
+            return None if uit is None else (punt,) + uit[:3] + ("KIJK", False, wat)
     uit = vorm.scharnier_assen(lid, cursor_x=m.col[0].xyz, cursor_y=m.col[1].xyz, omdraaien=omdraaien)
-    return (cursor.location.copy(),) + uit[:3] + ("CURSOR", inst.as_bron == "KIJK")
+    return (punt,) + uit[:3] + ("CURSOR", inst.as_bron == "KIJK", "")
 
 
 class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
@@ -101,28 +109,8 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             self.report({"ERROR"}, f"The mesh {bron.name} is not watertight ({fout} edges without exactly "
                                    "2 faces). Click Make watertight first.")
             return {"CANCELLED"}
-        uit = assen(context, inst, kijk=self.kijk_richting, omhoog=self.kijk_omhoog, omdraaien=self.flip_bend)
-        if uit is None:
-            self.report({"WARNING"}, vorm.KIJK_LANGS)
-            return {"CANCELLED"}
-        punt, h, buig, lid, as_bron, terugval = uit
-        # Controleur (d), punt 1: niet opnieuw snijden op dezelfde plek van een bestaand scharnier (bijvoorbeeld na
-        # het omzetten van Flip bend in het paneel). Een tweede gewricht elders op het deel mag wel.
-        # Kan-punt controleur (b): tegen alle scharnieren van het deel (afstand.scharnieren), niet alleen het laatste.
-        oude = afstand.scharnieren(bron)
-        oud_pas, oud_punt, oud_wand = bron.get("cj_passing"), bron.get("cj_snijpunt"), bron.get("cj_wand_mm")
-        oud_punt = None if oud_punt is None else tuple(oud_punt)
-        if any((Vector(punt) - p).length < 2.0 * k + 1e-9 for p, _r, k in oude):
-            self.report({"WARNING"}, "There is already a hinge here. Undo first, or use Flip bend in the "
-                                     "Redo panel right after placing.")
-            return {"CANCELLED"}
-        if terugval:
-            self.report({"WARNING"}, "No 3D viewport found for the view direction; the hinge axis now follows "
-                                     "the X axis of the 3D cursor.")
         u = eenheid_per_mm(context.scene)
         s = inst.speling_mm * u
-        frame = vorm.frame_scharnier(punt, h, buig, lid)
-
         me = bpy.data.meshes.new_from_object(bron.evaluated_get(dg))
         me.transform(echte_matrix(bron))
         bm = bmesh.new()
@@ -132,6 +120,28 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             bm.to_mesh(me)
         bvh = BVHTree.FromBMesh(bm)
         bm.free()
+        uit = assen(context, inst, kijk=self.kijk_richting, omhoog=self.kijk_omhoog, omdraaien=self.flip_bend,
+                    bvh=bvh, u=u)
+        if uit is None:
+            bpy.data.meshes.remove(me)
+            self.report({"WARNING"}, vorm.KIJK_LANGS)
+            return {"CANCELLED"}
+        punt, h, buig, lid, as_bron, terugval, bijgesteld = uit
+        # Controleur (d), punt 1: niet opnieuw snijden op dezelfde plek van een bestaand scharnier (bijvoorbeeld na
+        # het omzetten van Flip bend in het paneel). Een tweede gewricht elders op het deel mag wel.
+        # Kan-punt controleur (b): tegen alle scharnieren van het deel (afstand.scharnieren), niet alleen het laatste.
+        oude = afstand.scharnieren(bron)
+        oud_pas, oud_punt, oud_wand = bron.get("cj_passing"), bron.get("cj_snijpunt"), bron.get("cj_wand_mm")
+        oud_punt = None if oud_punt is None else tuple(oud_punt)
+        if any((Vector(punt) - p).length < 2.0 * k + 1e-9 for p, _r, k in oude):
+            bpy.data.meshes.remove(me)
+            self.report({"WARNING"}, "There is already a hinge here. Undo first, or use Flip bend in the "
+                                     "Redo panel right after placing.")
+            return {"CANCELLED"}
+        if terugval:
+            self.report({"WARNING"}, "No 3D viewport found for the view direction; the hinge axis now follows "
+                                     "the X axis of the 3D cursor.")
+        frame = vorm.frame_scharnier(punt, h, buig, lid)
         stand = int(self.stand)
         if self.graden:
             if not GRADEN_MIN <= self.graden <= GRADEN_MAX:
@@ -220,7 +230,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                     "cj_neus_klik": maat["neus_klik"],
                     "cj_neus_voet": maat["neus_voet"], "cj_wang_t": maat["wang_t"], "cj_lip": maat["lip"],
                     "cj_rek": maat["rek"], "cj_zaag_diepte": maat.get("zaag_diepte", -1.0),
-                    "cj_reik": vorm.snede_reik(maat)}
+                    "cj_reik": vorm.snede_reik(maat), "cj_bijgesteld": bijgesteld}
         # Beweegproef om H (eis 2) op de delen in wereldcoordinaten, voor ze verhuizen.
         voor, achter = beweeg.bereik(deel_a, deel_b, draaipunt, h, buig, lid,
                                      1.5 * math.hypot(maat["wx"], maat["wy"]) + maat["rn"])
@@ -272,7 +282,8 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             melding = f"{kop}, but no end stop was found. Check the shape near the joint."
         for deel in (deel_a, deel_b):
             deel["cj_melding"] = melding
-        self.report({"WARNING"} if beweeg.geen_stop(voor) else {"INFO"}, f"{melding} {gegevens['cj_duur_s']} s.")
+        extra = f" Cursor on the surface: {bijgesteld}." if bijgesteld else ""  # 1.2.7, cursor_lid.py
+        self.report({"WARNING"} if beweeg.geen_stop(voor) else {"INFO"}, f"{melding}{extra} {gegevens['cj_duur_s']} s.")
         return {"FINISHED"}
 
 
