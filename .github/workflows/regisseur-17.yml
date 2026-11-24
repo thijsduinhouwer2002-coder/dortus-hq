@@ -1,6 +1,6 @@
 name: "Regisseur 17 (Pro-Short: enkels via More bones, script week 49 nr. 5)"
 
-# 24 nov 2026, Regisseur run 16. Zelfde opname als regisseur-14 (robot, Click Joints Pro 1.2.0, echte muis), maar met een
+# 24 nov 2026, Regisseur run 16; run 22 opnieuw met Pro 1.2.6 (enkels werken nu op de robot). Zelfde opname als regisseur-14 (robot, Click Joints Pro 1.2.6, echte muis), maar met een
 # klik op More bones (ankles too) in plaats van Figure from rig. Script week 49 nr. 5, hook 5A. Montage vorm groot met
 # Kokoro (Pro-scripts, scripts/volgorde-stem.md). Controle: synchroon2, geluid_check, 40 tot 60 s.
 # Alles in release regisseur-17. Er wordt niets geplaatst.
@@ -15,7 +15,7 @@ permissions:
 
 env:
   TAG: regisseur-17
-  PRO_COMMIT: f8dfbd30850afbee2da32219fe735c7b386827bd   # tag click-joints-pro-v1.2.0
+  PRO_COMMIT: a1e868b267ebea728846508b89e7c8fd5a43b95b   # main, Pro 1.2.6 (enkels op de robot, Olaf 24 nov)
   KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
   KOKORO_ONNX_SHA: beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a
   KOKORO_VOICES_SHA: bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d
@@ -35,7 +35,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          nu=$(cat commercie/filmpjes/regisseur-17/opname.py commercie/filmpjes/regisseur-14/opname.py commercie/filmpjes/youtube-shorts-4/opname.py commercie/filmpjes/studio/*.py | sha256sum | cut -c1-64)
+          nu=$(cat commercie/filmpjes/regisseur-17/opname.py commercie/filmpjes/regisseur-14/opname.py commercie/filmpjes/youtube-shorts-4/opname.py commercie/filmpjes/studio/*.py <(echo "$PRO_COMMIT") | sha256sum | cut -c1-64)
           echo "sha=$nu" >> "$GITHUB_OUTPUT"
           mkdir -p /tmp/oud /tmp/pro
           if gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p opname-sha.txt -p opname-pro.mkv -p film-pro.json -p 'render-*.png' -D /tmp/oud 2>/dev/null \
@@ -45,7 +45,7 @@ jobs:
           else
             echo "opnieuw=ja" >> "$GITHUB_OUTPUT"
           fi
-      - name: Blender 5.3.0 en de Pro-zip 1.2.0
+      - name: Blender 5.3.0 en de Pro-zip 1.2.6
         if: steps.ruw.outputs.opnieuw == 'ja'
         run: |
           V="5.3.0"; KORT="5.3"
@@ -58,7 +58,7 @@ jobs:
           mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
           git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
           mkdir -p /tmp/v12 && git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v12
-          (cd /tmp/v12/producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald)
+          (cd /tmp/v12/producten/blender-gewrichten && PRO_VERSIE=1.2.6 bash e2e/maak_zip.sh betaald)
           sha256sum /tmp/click_joints_betaald.zip
       - name: Opnemen (breed 2160x1920, echte muis, robot)
         if: steps.ruw.outputs.opnieuw == 'ja'
@@ -76,6 +76,7 @@ jobs:
           cp /tmp/opname-pro.log /tmp/klaar/opname-pro.log
           grep -E "KORT|Traceback|Error" /tmp/opname-pro.log | cut -c1-400 || true
           if grep -q "KORT FOUT" /tmp/opname-pro.log; then echo "FOUT in de opname"; exit 1; fi
+          grep -q "KORT enkels in de lijst: \[\]" /tmp/opname-pro.log && { echo "FOUT: geen enkels in de lijst"; exit 1; }
           for d in heel kies knop lijst knie pose uitelkaar export held render; do grep -q "KORT OK $d" /tmp/opname-pro.log || { echo "FOUT: deel $d"; exit 1; }; done
           ffmpeg -v error -framerate 30 -start_number 1 -i /tmp/opn/beelden/b%05d.png -c:v libx264 -preset veryfast -crf 12 -pix_fmt yuv444p /tmp/pro/opname-ruw.mkv
           cp /tmp/opn/film.json /tmp/pro/film.json
@@ -89,7 +90,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          echo "Regisseur 17: enkels via More bones van Click Joints Pro 1.2.0, echte opname in Blender 5.3.0 met de eigen robot (studio-3) en een voice-over (Kokoro, Apache 2.0). Concepten: marketing/wachtrij/. opname-pro.mkv is werkmateriaal. Niets geplaatst." > /tmp/notes.md
+          echo "Regisseur 17: enkels via More bones van Click Joints Pro 1.2.6, echte opname in Blender 5.3.0 met de eigen robot (studio-3) en een voice-over (Kokoro, Apache 2.0). Concepten: marketing/wachtrij/. opname-pro.mkv is werkmateriaal. Niets geplaatst." > /tmp/notes.md
           gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 17 (Pro: enkels met More bones)" --notes-file /tmp/notes.md
           gh release upload "$TAG" /tmp/klaar/* --clobber -R "$GITHUB_REPOSITORY"
       - uses: actions/setup-python@v5
@@ -147,7 +148,7 @@ jobs:
           [ -d /tmp/klaar ] || exit 1
           cd /tmp/klaar
           cp /tmp/pro/render-*.png . 2>/dev/null || true
-          echo "Regisseur 17: enkels via More bones van Click Joints Pro 1.2.0 (Kokoro, Apache 2.0). Concepten: marketing/wachtrij/. Niets geplaatst." > /tmp/notes.md
+          echo "Regisseur 17: enkels via More bones van Click Joints Pro 1.2.6 (Kokoro, Apache 2.0). Concepten: marketing/wachtrij/. Niets geplaatst." > /tmp/notes.md
           gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 17 (Pro: enkels met More bones)" --notes-file /tmp/notes.md
           ls -la
           gh release upload "$TAG" $(ls *.mp4 *.mkv *.json *.srt *.md *.txt *.jpg *.png 2>/dev/null) --clobber -R "$GITHUB_REPOSITORY"

@@ -1,6 +1,6 @@
 # Pro-Short: Add ankle joints to your 3D printed figure 🔥
 
-- status: wacht (laten vallen tot Pro enkels zet; Regisseur run 17, 24 nov: Pro zet op de robot geen enkels; de video zou iets beloven wat niet gebeurt)
+- status: in de maak (run 22, 24 nov: opnieuw opgenomen met Pro 1.2.6 van main, waarin More bones op de robot beide enkels zet; Olaf 24 nov ±14:05, e2e 45384569641. Workflow faalt als de lijst geen enkel toont.)
 - reden (GEZIEN, release regisseur-17, run 45345175105, opname-pro.log regel 24): de klik op "More bones (ankles too)" werkte (knop op 1531/323), maar Pro meldt `9 joints · 2 rig · 2 mirror · 5 preset. Skipped: Left ankle (Tight: cheek too stiff to click. Try a thicker spot); Right ankle (idem)`. Meting `enkels` = []. Gemeld bij Olaf. Opnieuw proberen als een figuur met dikkere enkels (of een fix in Pro) de enkels wel in de lijst krijgt.
 - kanaal: yt-short
 - soort: video
