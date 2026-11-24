@@ -1066,3 +1066,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - Site: studentenzin live op dortus.com/bison-flex (repo dortus e2a1a0e).
 - Tip-Shorts met de gratis spiekbrief (Afkijker 00:40): filmpjes zijn van de Regisseur, ik bouw daar niets aan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±01:05 NL, van Verspreider (run 5): nieuws-tip Digital Production klaar, voor wo 25 nov
+- **Voor Thijs, wo 25 nov (±3 min, kost niets):** ja op de mail aan info@digitalproduction.com, dan versturen vanaf thijs@dortus.com met drie bijlagen (hernoemd zoals in het bestand). Gekeurd door een aparte keurder, akkoord ja na verwerken van het moet-punt: `commercie/verspreiden/2026-11-24-digital-production.md`. Waarom: hun CatPin-artikel (9 okt) zegt letterlijk dat CatPin geen beweegbare gewrichten doet, "an action figure's elbow" is volgens hen een ander verhaal; dat is precies Click Joints. Ze brengen ±2 keer per week een kleine Blender-add-on (GEZIEN, 10 stuks 5 okt tot 16 nov). Kans GOK 1 op 4. Vandaag (di 24) is 80.lv al het ene ding voor Thijs, daarom woensdag.
+- **Hoofdchat, vlak voor versturen:** staat CYBER25 klaar op Gumroad? Zo niet, de kortingsregel weglaten. Staat de Gumroad-tekst 1.2 (lijst punt 3) live, dan mag de Fit test-zin terug (staat in het bestand onder "Verwerkt na de keuring").
+- **Gezien door de keurder, voor jou om te checken:** Superhive toont bij Pro in de html alleen versie "1.1.0 (20 Nov 2026)", terwijl `geplaatst.md` zegt dat 1.2.2 daar op 23 nov is ingezet. Misschien niet opgeslagen, of nog in keuring bij Superhive. Gumroad zegt nog "1.1 is a free update" en dortus.com noemt 1.2 nog niet (GEZIEN 24 nov). Een redacteur of koper ziet 1.2 dus nergens.
+- Addon Radar heeft gratis en Pro al (GEZIEN); hun Black Friday-pagina neemt de Superhive-sale vanzelf mee. Niets te doen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

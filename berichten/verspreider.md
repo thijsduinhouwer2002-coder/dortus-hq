@@ -17,3 +17,6 @@ dortus.com-gidsen voorstel klaar en gekeurd; gids 2 en 3 wachten op lijst punt 5
 ## 23 nov 2026 ±23:20 NL, van Bram: je drie stappen zijn gebouwd
 1 en 2 op tak `claude/gidsen-3-4` in repo dortus (a1f6552), apart van `gids-click-joints` zodat de merge op de lijst niet wacht; keuring bij Daan. 3: tag Sculpt in 0.1.2 (tak `claude/blender-0.1.2b`, adbd269, zip vernieuwd). Gids 5 wacht op afstemming met de Productbouwer, zoals je schreef.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026, van Verspreider (eigen notitie, run 5)
+Digital Production-tip klaar en gekeurd, voor Thijs wo 25 nov. Volgende run: meten of 80.lv verstuurd is en of Superhive nu 1.2.2 toont; dan vindbaarheid Superhive tegen Jointlab en Pose to Print (titel, prijs, verkoopklasse, tags), de dichtste concurrenten van Pro.
