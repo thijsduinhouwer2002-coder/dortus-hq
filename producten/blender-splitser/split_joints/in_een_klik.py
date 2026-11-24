@@ -34,18 +34,28 @@ def kies_model(context):
 
 
 ZWAAR_VLAKKEN = 1_000_000
+# Seconds per million faces for Split to fit, from the speed test on the 1M face skull scan (e2e/snelheid.py):
+# Manifold (4.5+) 44 s on GitHub (run 45349335526) and 42 s on 2 cores; Exact (4.2) 106 s on GitHub but
+# 186 s on 2 cores (24 nov). The slowest measure counts, rounded up, so the panel never promises less.
+SEC_PER_MILJOEN = {"MANIFOLD": 45, "EXACT": 190}
+
+
+def schatting_tekst(n, solver):
+    """Panel line for a model of n faces with this solver, or None below ZWAAR_VLAKKEN."""
+    if n < ZWAAR_VLAKKEN:
+        return None
+    sec = SEC_PER_MILJOEN.get(solver, SEC_PER_MILJOEN["EXACT"]) * n / 1e6
+    minuten = max(1, round(sec / 60))
+    return f"{n / 1e6:.1f}M faces: Split takes about {minuten} min"
 
 
 def zwaar_tekst(context):
-    """One line for the panel when the selected model has a million faces or more, else None. Speed test
-    24 nov (e2e/snelheid.py): 1M faces about 40 s, 3M about 2 min for Split to fit on 2 cores in Blender 5.3."""
+    """One line for the panel when the selected model has a million faces or more, else None."""
     ob = kies_model(context)
     if ob is None or ob.type != "MESH":
         return None
-    n = len(ob.data.polygons)
-    if n < ZWAAR_VLAKKEN:
-        return None
-    return f"{n / 1e6:.1f}M faces: Split can take a few minutes"
+    from .splitsen import solver_naam
+    return schatting_tekst(len(ob.data.polygons), solver_naam())
 
 
 def uitslag_tekst(scene):
@@ -63,6 +73,15 @@ def uitslag_tekst(scene):
         hoofd = f"{n} parts, {len(niet)} need attention"  # "see step 4" is its own line in the panel (cut off)
     detail = f"{pennen} pins, {inst.speling_mm:.2f} mm clearance"
     return hoofd, detail, not niet
+
+
+def noten_regel(meldingen, meer_open):
+    """Line for the result box when Split left notes (glue this joint, ...) and More settings is closed, so the
+    buyer knows they are there (keuring winkeltekst K1: the notes hid under the closed More settings)."""
+    n = len([r for r in (meldingen or "").split("\n") if r.strip()])
+    if n == 0 or meer_open:
+        return None
+    return f"{n} note{'s' if n != 1 else ''} (glue joints): More settings"
 
 
 class SPLIT_JOINTS_OT_split_to_fit(bpy.types.Operator):
@@ -99,7 +118,11 @@ class SPLIT_JOINTS_OT_split_to_fit(bpy.types.Operator):
                 return {"CANCELLED"}
             stappen.append("watertight copy made")
             ob = context.active_object
-        if _doe(bpy.ops.split_joints.plan) is not True:
+        # keuring K5 (oranje-k5-k6): cuts moved by hand on this same model are kept, not planned again
+        eigen_snedes = snedes.verschoven(scene) and scene.get("sj_gesneden_model") == ob.name
+        if eigen_snedes:
+            stappen.append("kept your moved cuts")
+        elif _doe(bpy.ops.split_joints.plan) is not True:
             inst.uitslag = "No plan: check the unit or pick a bigger printer"
             self.report({"ERROR"}, inst.uitslag)
             return {"CANCELLED"}

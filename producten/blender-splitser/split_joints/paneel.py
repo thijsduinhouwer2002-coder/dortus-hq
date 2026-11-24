@@ -37,7 +37,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         rij.operator("split_joints.split_to_fit", text="Split to fit", icon="MOD_EXPLODE", depress=True)
         uit = in_een_klik.uitslag_tekst(scene)
         zwaar = in_een_klik.zwaar_tekst(context) if not uit and not inst.uitslag else None
-        if zwaar:  # speed test 24 nov: about 40 s per million faces on 2 cores, so say it before the click
+        if zwaar:  # speed test 24 nov: estimate per solver (in_een_klik.SEC_PER_MILJOEN), say it before the click
             layout.label(text=zwaar, icon="TIME")
         if inst.uitslag:
             vak = layout.box().column(align=True)
@@ -50,9 +50,12 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             vak.label(text=detail)
             if not goed:
                 vak.label(text="See More settings, step 4")
+            noten = in_een_klik.noten_regel(inst.meldingen, inst.meer)
+            if noten:
+                vak.label(text=noten, icon="INFO")
             if snedes.verschoven(scene):  # keuring K6: only after a moved cut, and name the button
-                vak.label(text="Cuts changed: press Split", icon="INFO")
-                vak.label(text="in More settings, step 3")  # two lines: one was cut off (keuring M2)
+                vak.label(text="Cuts changed: press", icon="INFO")
+                vak.label(text="Split to fit again")  # two lines: one was cut off (keuring M2); keeps the cuts
         if uit:
             rij = layout.row()
             rij.scale_y = 1.3  # smaller than Split to fit (keuring C2)
@@ -143,7 +146,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             rij.operator("split_joints.vrije_snede", text="Cut piece", icon="MOD_BOOLEAN")
         if inst.meldingen:
             vak = stap.column(align=True)
-            for regel in inst.meldingen.split("\n")[:8]:
+            for regel in inst.meldingen.split("\n"):  # all of them (keuring winkeltekst K1: 8 of 16 showed)
                 vak.label(text=regel, icon="INFO")
         rij = stap.row(align=True)
         rij.prop(inst, "formaat", expand=True)

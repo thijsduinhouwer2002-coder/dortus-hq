@@ -76,6 +76,7 @@ class SPLIT_JOINTS_OT_maak_gesloten(bpy.types.Operator):
         for c in bron.users_collection:
             c.objects.link(kopie)
         kopie.matrix_world = bron.matrix_world
+        kopie["sj_bron"] = bron.name  # keuring K2 (oranje-k5-k6): the own model comes back, not this copy
         ok, fout = is_gesloten(me)
         if not ok:
             bpy.data.objects.remove(kopie)

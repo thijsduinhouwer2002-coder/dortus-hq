@@ -240,8 +240,12 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
         lijst, grenzen = plan.cellen(lo, hi, sn)
         # keuring K5: a model split before that is not this one comes back into view (its pieces go)
         vorig = bpy.data.objects.get(scene.get("sj_gesneden_model", ""))
-        if vorig is not None and vorig is not ob and vorig.name in context.view_layer.objects:
-            vorig.hide_set(False)
+        if vorig is not None and vorig is not ob:
+            eigen = bpy.data.objects.get(vorig.get("sj_bron", ""))  # a watertight copy: show the own model
+            if eigen is not None and eigen is not ob and eigen.name in context.view_layer.objects:
+                vorig = eigen
+            if vorig.name in context.view_layer.objects:
+                vorig.hide_set(False)
         ruim_oud_op(scene)
         col = nieuwe_collectie(STUKKEN, scene)
         hulp = nieuwe_collectie("sj_hulp", scene)

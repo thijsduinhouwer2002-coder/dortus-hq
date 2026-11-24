@@ -122,6 +122,14 @@ def main():
     tri = sum(driehoeken(o) for o in stukken)
     log(f"STUKKEN {len(stukken)}, groen {len(groen)}, triangles in pieces {tri}, "
         f"klikstappen '{s.get('sj_klik_stappen', '')}', uitslag '{s.split_joints.uitslag}'")
+    controle = __import__("bl_ext.user_default.click_cuts.controle", fromlist=["x"])
+    for o in stukken:
+        if o.get("sj_status") != "groen":  # which piece and why (4.2 scan 1M gave 7 of 8 green, run 45349335526)
+            log(f"NIET GROEN stuk {int(o['sj_stuk'])}: {o.get('sj_status')}, {controle.tekst(o)}, "
+                f"open edges {o.get('sj_foute_randen')}, wall {o.get('sj_wand_mm')}, size {[round(x, 1) for x in o.get('sj_maat_mm', [])]}")
+    if os.environ.get("SJ_SNEL_BLEND"):  # keep the result to look at the pieces later (by hand only)
+        bpy.ops.wm.save_as_mainfile(filepath=os.environ["SJ_SNEL_BLEND"])
+        return
     if r != {"FINISHED"} or not stukken:
         log(f"SNEL FOUT {geval} split_to_fit gaf {r}")
         return

@@ -70,6 +70,7 @@ def vlakken_op(me, n, c, u):
     me.loops.foreach_get("vertex_index", vi)
     start = np.empty(len(me.polygons), dtype=np.int64)
     me.polygons.foreach_get("loop_start", start)
+    # reduceat needs rising loop_start values: Blender 4.x and 5.x store the face loops in order
     alle = np.minimum.reduceat(op[vi].astype(np.int8), start)
     return np.flatnonzero(alle)
 

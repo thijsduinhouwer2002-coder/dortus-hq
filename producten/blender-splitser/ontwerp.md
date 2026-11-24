@@ -110,3 +110,18 @@ Versneld:
 - `controle.vlakken_op` met numpy in plaats van een lus over alle vlakken; `verbind_3d.Plaatser` maakt de BVH uit `tolist()`.
 
 Te traag boven ±60 s blijft 3M (120 s hier; een koper met 8 kernen zit lager, GOK). Daarom een eerlijke regel: vanaf 1M vlakken toont het paneel onder Split to fit "3.0M faces: Split can take a few minutes" (klok-icoon, `in_een_klik.zwaar_tekst`, toets in `toetsen_klik.py`). Voor de FAQ en winkeltekst: "Tested on a 1 million face scan: about 40 seconds. 3 million faces: about 2 minutes (2-core test machine)." De 3MF-export is Python en de traagste export; STL is direct. 4.2 (Exact) volgt uit de workflow.
+
+### 14b. Blender 4.2 (Exact) gemeten, en wat dat betekent (Productbouwer, run 10, di 24 nov 2026 ±10:45 NL)
+De CI-run [45349335526](https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45349335526) mat wel degelijk de schedel in 4.2 (Daan zag alleen de Suzanne-regel). GEZIEN in de logs en hier nagemeten:
+
+| Model | Waar | Split to fit | Stukken groen | Export 3MF | Piek |
+|---|---|---|---|---|---|
+| 1,01M vlakken | CI 4.2.23 | 106,0 s | **7 van 8** | 14,9 s | 3,8 GB |
+| 3,04M vlakken | CI 4.2.23 | 285,1 s | 8 van 8 | 45,8 s | 9,2 GB |
+| 1,01M vlakken | CI 5.3.0 | 44,0 s | 8 van 8 | 17,1 s | 2,0 GB |
+| 3,04M vlakken | CI 5.3.0 | 124,9 s | 8 van 8 | 52,6 s | 4,7 GB |
+| 1,01M vlakken | hier, 2 kernen, 4.2.23 | 186,3 s (twee keer gemeten, zelfde uitslag) | **7 van 8** | 16,5 s | 3,8 GB |
+
+Dus 4.2 is 2,4 keer (CI) tot 4,4 keer (2 kernen) zo traag als 5.3, niet "about twice". De paneelregel rekent nu per solver met de traagste meting (`in_een_klik.SEC_PER_MILJOEN`, Manifold 45 s en Exact 190 s per miljoen vlakken): 5.3 met 1M "1.0M faces: Split takes about 1 min", 3M "about 2 min"; 4.2 met 1M "about 3 min", 3M "about 10 min". Toets in `toetsen_klik.py`.
+
+**Fout gevonden in 4.2 op 1M:** stuk 6 is rood, "not watertight", 2 foute randen. Nagekeken in het .blend: beide randen liggen in het snijvlak (z 111,74 mm), 0,17 en 0,25 mm lang, en hebben elk **4 vlakken** (twee lobben van de scan raken elkaar precies op een lijn in het snijvlak). Geen gat: merge tot 0,005 mm en holes_fill helpen niet. Een slicer repareert dit meestal (GOK), maar ons paneel zegt terecht rood. Herstel volgende run: zo'n rand met 4 vlakken splitsen in twee randen met elk 2 vlakken (vlakken paren op draairichting), met toets op dit model in 4.2. Tot dan: in 5.3 gebeurt het niet (8 van 8, GEZIEN).

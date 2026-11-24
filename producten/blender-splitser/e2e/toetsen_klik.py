@@ -8,7 +8,8 @@ Measured on the meshes, not on what the add-on says:
 - another printer (A1, 256 mm) gives the count of a plan for that printer;
 - a second model, selected, is split instead of the first one (keuring 24 nov, M1), and the first one is
   visible again (K5);
-- the line "Cuts changed" shows only after a cut moved, and is gone after Split (K6);
+- the line "Cuts changed" shows only after a cut moved, and is gone after Split (K6); Split to fit then
+  keeps the moved cut (K5), and after an open model the own model comes back, not the voxel copy (K2);
 - an open Suzanne (not watertight) gets a watertight copy first, then all pieces are watertight and fit;
 - a model in mm in a meter scene is refused at once with a line that says what to do;
 - sj_plek_mm reads and writes the cut position in mm (mm scene and meter scene)."""
@@ -58,7 +59,20 @@ def alles(uitmap=None):
     klik.ZWAAR_VLAKKEN = 6
     t = klik.zwaar_tekst(bpy.context)
     klik.ZWAAR_VLAKKEN = oud
-    stap("klik: zwaar-regel vanaf de grens", bool(t) and "faces" in t and "minutes" in t, repr(t))
+    stap("klik: zwaar-regel vanaf de grens", bool(t) and "faces" in t and " min" in t, repr(t))
+    klik.ZWAAR_VLAKKEN = oud
+    # notes under the closed More settings get a line in the result box (keuring winkeltekst K1)
+    stap("klik: noten-regel bij dicht vak", klik.noten_regel("a: Glue this joint\nb: Glue this joint", False)
+         == "2 notes (glue joints): More settings", repr(klik.noten_regel("a\nb", False)))
+    stap("klik: geen noten-regel als het vak open is of zonder noten", klik.noten_regel("a", True) is None
+         and klik.noten_regel("", False) is None and klik.noten_regel("x", False) == "1 note (glue joints): More settings")
+    # the estimate follows the measured times (run 45349335526 and 2 cores here): never less than measured, per solver
+    for n, solver, verwacht in ((999_999, "MANIFOLD", None), (1_000_000, "MANIFOLD", "1.0M faces: Split takes about 1 min"),
+                                (3_040_000, "MANIFOLD", "3.0M faces: Split takes about 2 min"),
+                                (1_010_000, "EXACT", "1.0M faces: Split takes about 3 min"),
+                                (3_040_000, "EXACT", "3.0M faces: Split takes about 10 min")):
+        t = klik.schatting_tekst(n, solver)
+        stap(f"klik: schatting {n} {solver}", t == verwacht, repr(t))
 
     # by hand: Plan cuts + Split
     s, ob = doos_scene()
@@ -130,6 +144,17 @@ def alles(uitmap=None):
     modellen.actief(bpy.data.objects["Second"])
     r = bpy.ops.split_joints.split()
     stap("klik: na Split weer geen regel (K6)", r == {"FINISHED"} and not sn.verschoven(s), f"{r}")
+    # Split to fit after a moved cut keeps the cut (keuring oranje-k5-k6, K5)
+    snede = sn.snede_objecten(s)[0]
+    plek = snede.sj_plek_mm + 4.0
+    snede.sj_plek_mm = plek
+    snede.select_set(True)
+    bpy.context.view_layer.objects.active = snede  # the cut plane is active, as after moving it by hand
+    r = bpy.ops.split_joints.split_to_fit()
+    snede = sn.snede_objecten(s)[0]
+    stap("klik: Split to fit houdt een verschoven snede (K5)", r == {"FINISHED"} and abs(snede.sj_plek_mm - plek) < 0.05
+         and "kept your moved cuts" in s.get("sj_klik_stappen", "") and not sn.verschoven(s),
+         f"{r} plek {snede.sj_plek_mm:.1f} verwacht {plek:.1f} '{s.get('sj_klik_stappen')}'")
 
     # open model: watertight copy first
     s = modellen.mm_scene()
@@ -143,6 +168,15 @@ def alles(uitmap=None):
          and s.split_joints.bron.endswith("_watertight"), f"{r} {s.get('sj_klik_stappen')} {s.split_joints.bron}")
     stap("klik: open model, stukken dicht en passend", len(st) > 1 and
          all(dicht(o)[0] and past(maat(o), A1MINI) for o in st), f"{len(st)} stukken")
+    # then a second model: the own open model comes back, the voxel copy stays hidden (keuring K2)
+    naam_open, kopie = ob.name, bpy.data.objects.get(s.split_joints.bron)
+    tweede = modellen.doos(200.0, 120.0, 100.0, naam="Second box")
+    modellen.actief(tweede)
+    r = bpy.ops.split_joints.split_to_fit()
+    eigen = bpy.data.objects.get(naam_open)
+    stap("klik: na open model komt het eigen model terug, niet de kopie (K2)", r == {"FINISHED"} and eigen is not None
+         and eigen.visible_get() and kopie is not None and not kopie.visible_get(),
+         f"{r} eigen {eigen.visible_get() if eigen else None} kopie {kopie.visible_get() if kopie else None}")
 
     # meter scene: refused at once, with a line
     s = modellen.meter_scene()
