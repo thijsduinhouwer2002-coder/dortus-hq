@@ -31,9 +31,11 @@ internal val schermen: Path by lazy { Path.of(System.getProperty("dortus.e2e.scr
  * enkele regel van Bison & Flex (com.dortus) in de melding staat; elke andere fout laat de test nog steeds falen.
  * - "node is not a child" in OccurenceNavigatorSupport: de knop "Next Conflict" van het conflictvenster wordt
  *   bijgewerkt terwijl de boom net verandert (run 45262737601, donker thema, stap hernoemen naar line; licht slaagde).
+ *   Zelfde fout bij de knop "Previous Conflict" heet "argument is not a child" (getPreviousSibling; run 45305066655,
+ *   licht thema). Daarom alleen "is not a child" plus OccurenceNavigatorSupport.
  */
 private val bekendePlatformfouten = listOf(
-    listOf("node is not a child", "OccurenceNavigatorSupport"),
+    listOf("is not a child", "OccurenceNavigatorSupport"),
 )
 
 internal fun bekendePlatformfout(message: String, details: String): Boolean {
