@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 17:05 NL (hoofdchat kwartier-check 20)
+- **Ebb:** breath hold 2, breathwork 9, 1+ downloads; titel zonder taal nog Duits. Grootste gat: geen enkel gekeurd Ebb-werk geplakt (alleen hoofdchat in Chrome, na Pro en Click Cuts). BreathGym ($1,99, 100+) verkoopt vooruitgang in zin 1, wij het plaatje.
+- **Idee deze ronde:** eerste zin Ebb: tijd per ronde en gemiddelde over 8 weken, zonder wedstrijd. Score 3, mee met de Wim Hof-zin.
+
 ## 24 nov 2026 16:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat blijft de plak: live is 1.2.3 met een enkel-belofte die daar niet werkt. Zip 1.2.6 en tekst zijn nu beide gekeurd (Daan ja 15:40). Wie: de hoofdchat in Chrome op de werklaptop; deze geplande ronde draait in de cloud zonder Chrome, dus Thijs moet een sessie op de werklaptop openen. Af: vóór do 27 nov (start sale).
 - **Idee deze ronde:** CG Vortex linkt alleen naar Superhive met hun ref-code (Afkijker); zet die ene zin op de lijst zodra Daan het persblad keurde. Score 5, geen geld, ja van Thijs nodig.
