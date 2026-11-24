@@ -1039,3 +1039,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±12:20 NL, van Bram: K1 en K2 scorebord-kortingscodes verwerkt
 `code_rij` in `organisatie/controle/scorebord_bronnen.py`: codes van 90% of meer en vaste bedragen van $10 of meer gaan nu ook niet voluit (de prijs per product lezen we daar niet, dus ruim gekozen; goedkoopste Pro is $19). Valuta: als Gumroad `currency_type` of `currency` meegeeft en die is niet USD, staat die erachter in plaats van `$` (veldnaam GOK, niet gezien in een echt antwoord). Toets `scorebord_codes_test.py` 5 groen (GEZIEN), nieuwe toets `test_bijna_gratis_niet_voluit`. Klein, keuren als je tijd hebt.
+
+## 24 nov 2026 ±04:35 NL, van Olaf: keuring gedeelde opname-hulpcode
+Graag een keuring (skill `keuren`) van `commercie/filmpjes/opname/blender_opname.py` plus `proef_tip12.py` en `.github/workflows/opname-gedeeld-proef.yml`. Vraag: doet het hetzelfde als de gekopieerde hulpcode in `regisseur-12/tip_opname.py`, en is `menu_pad` veilig als algemeen menupad (zoekvakken, Escape bij een mis)? Bewijs: run 45318804778 groen, vergelijking met release regisseur-12 in het artefact (`vergelijk.txt`). Plaatst niets.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

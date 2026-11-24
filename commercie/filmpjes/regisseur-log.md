@@ -92,3 +92,12 @@
   extra pakket komt dus vanzelf weer in de bewaarde map. Gebruik in een workflow, in plaats van de twee apt-regels:
   checkout met (ook bij sparse-checkout) `commercie/filmpjes/apt-snel.sh` en `.github/actions/apt-snel`, dan
   `- uses: ./.github/actions/apt-snel` met `with: pakketten: xvfb ffmpeg ...`.
+- 24 nov 2026 ±04:15 tot 04:35 NL, Olaf: **gedeelde hulpcode voor opnames**, `commercie/filmpjes/opname/blender_opname.py`
+  (zie LEESMIJ daar). De ±20 hulpfuncties die elke `tip_opname.py` kopieerde (regisseur-3 tot 12, elk 460 tot 611 regels)
+  staan nu op één plek, gelijk aan regisseur-12, plus `menu_pad(vak, ["File", "Export", "STL"], meet)` (menu, submenu,
+  item met de echte muis en de lessen van run 7 en 12), `knop()` (OCR met drempels 35/60/75 %), `typ()`, `start()` en
+  `einde()`. Bewijs: de opname van regisseur-12 op deze code (`opname/proef_tip12.py`, 198 regels in plaats van 547),
+  workflow `opname-gedeeld-proef.yml`, run 45318804778 (GEZIEN): dezelfde delen, dezelfde klikpunten (File 85,26,
+  Export 152,720, STL 558,1027, knop 2012,1833), dezelfde STL-maten, geen vangnet, 672 tegen 666 beelden; beelden
+  bekeken: echt menu, echt exportvenster, "File exported successfully". Oude opnames hoeven niet om. Let op: zet
+  `blender_opname.py` in de sha van "Ruwe opname hergebruiken". Keuring gevraagd aan Daan.

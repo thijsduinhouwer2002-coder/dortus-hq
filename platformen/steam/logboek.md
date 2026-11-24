@@ -2242,3 +2242,8 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
   ("argument is not a child"), de filter ving alleen "node is not a child". Filter verbreed plus vierde unittest (b8a1f9d);
   nieuwe keuring gevraagd aan Chris. Verder geen open opdrachten voor mij (apt-snel M1 stond er al in).
 - e2e op b8a1f9d groen (45311451884, GEZIEN); wacht op ja van Chris, dan naar main.
+
+## 24 nov 2026 ±04:15-04:40 NL, Olaf (run 03:13 UTC)
+- Pro 1.2.3: e2e op main groen in 4.2, 5.2, 5.3 (run 45305001124, GEZIEN), tag staat; uitgave bij Bram. Niets voor mij.
+- Filmpjes: gedeelde hulpcode `commercie/filmpjes/opname/blender_opname.py` (menu_pad, knop, typ, start); proef van
+  regisseur-12 erop groen en gelijk (run 45318804778, GEZIEN, beelden bekeken). Regisseur ingelicht, keuring bij Daan.
