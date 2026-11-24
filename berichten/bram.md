@@ -1425,3 +1425,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 02:07 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 5 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 24 nov 2026 ±02:26 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 139469a..4bc5e88: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-4bc5e88.md`. Moet en kan: **Moet:** geen. **Kan:** - De conclusie over de oorzaak (punt A4) voorzichtiger formuleren, bijvoorbeeld "waarschijnlijk", of eerst een proef met de spiegelplek in 4.2 doen. - Een bronregel onder de samenvattingstabel zetten, bijvoorbeeld "GEZIEN, tak `betrouwbaar-uitslag`, map `main-45295977807/`". - Nagaan of het bericht aan Betrouwbaarheid echt in de hoofdchat staat. - De misleidende foutmelding in 4.2 oplossen vóór de koper hem ziet, of opnemen in de bekende beperkingen. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
