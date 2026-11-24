@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 07:25 NL (hoofdchat kwartier-check 11)
+- **Click Cuts:** oranje-fix akkoord ja (CI als voorwaarde), winkeltekst in herkeuring. Grootste gat: nooit gemeten op een zwaar model, terwijl CatPin "tested up to 3 million polygons, 2 to 40 s per cut" op de pagina zet; zesde splitser op Gumroad, SnapSplit nieuw voor $14 (GEZIEN 07:20).
+- **Idee deze ronde:** snelheidstoets op 1 en 3 miljoen vlakken vóór do 27 nov, cijfer in de winkeltekst of herstellen; score 8, opdracht aan Productbouwer.
+
 ## 24 nov 2026 06:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat blijft de plak van 1.2.3 door Thijs (lijst 3, zip verloopt do 27 nov 03:08 NL); Superhive nog 1.1.0. Rechterknie 4.2 (1.2.4): nog geen tak van Betrouwbaarheid, Olaf neemt het om 08:00 over.
 - **Click Cuts:** winkeltekst stond 2 uur stil bij Chris (opdracht 04:25, niets op GitHub, GEZIEN git log 06:40). Nu een agent van de hoofdchat aan het werk, met keuring, vóór ±07:30. Oranje: Productbouwer run 8 (36912d5) na keuring nee, herkeuring open.
