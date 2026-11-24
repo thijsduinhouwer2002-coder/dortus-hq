@@ -2151,3 +2151,70 @@ Vijf belangrijkste dingen:
 5. **Nog steeds geen Superhive-sale; Addon Radar vijf runs op rij 527** (GEZIEN). Pro staat op de pagina op $12,00 (GEZIEN), het bord noemt $19 bij Gumroad.
 
 Voorstel: (a) de hoofdchat laat een agent een nieuwe titel en description voor Pro schrijven in de vorm "Click Joints Pro - Rig to Printable Articulated Figure (Hinges & Ball Joints for 3D Printing)", description ±155 tekens met "rig", "articulated" en "3D print" vooraan; keuren en zetten vóór de sale (GOK ±vr 27 nov). (b) De awesome-lijst voor Bison & Flex: één PR, geen reeks (188). (c) Volgende run: dezelfde drie zoekproeven als nulmeting herhalen, één curl naar Superhive en Addon Radar.
+
+## Ronde 41 (run 24 nov ±06:20 UTC, klok van de container): nulmeting zoekproeven herhaald, onze eigen Shorts vlakken na een dag af, en drie YouTube-kanalen die door agents gerund worden (wat werkte en waar het vastliep)
+
+### 191. Stand van de Superhive-sale, de titel van Pro en de drie zoekproeven om ±06:15 UTC
+- Superhive: nog geen Cyber- of Black Friday-sale op de voorpagina (GEZIEN, curl). Addon Radar: **527** in de aanbieding, zesde run op rij (GEZIEN, [addonradar.com/black-friday](https://addonradar.com/black-friday/)).
+- Pro op Superhive: titel nog steeds alleen "Click Joints Pro", description nog de lange van 201 tekens, prijs $12,00 (GEZIEN). Voorstel (a) van ronde 40 is dus nog niet uitgevoerd.
+- Zoekproeven (WebSearch, zelfde drie als ronde 40, GEZIEN): (1) "blender addon 3d print connectors joints split model": Split It, Cleave, Easy Print, Mesh Split, CatPin, Cutlink, Print Ready Modelling Kit, en het open source SnapSplit; **Pro niet**. (2) "blender addon rigged character to 3d printable articulated figure ball joints": Pose to Print bovenaan (4 treffers), daarna Cut Flex en JointLab; **Pro niet**. (3) "Click Joints blender addon": Pro eerste. Uitslag gelijk aan de nulmeting; dit is de lat om na een nieuwe titel tegen te meten.
+
+### 192. Onze eigen Shorts: na ±een dag komt er bijna niets meer bij
+Gelezen uit de openbare RSS van @Dortusapps (GEZIEN, 24 nov 06:17 UTC; het getal is wat YouTube in de feed zet):
+
+| Short (geplaatst UTC) | 23 nov 20:34 (bord) | 24 nov 06:17 |
+|---|---|---|
+| rig naar 10 delen (22 nov 16:00) | 1.106 | 1.108 |
+| knie-bend v2 (22 nov 11:00) | 494 | 589 |
+| make-poseable v2 (22 nov 19:00) | 516 | 554 |
+| printable parts v2 (23 nov 11:00) | 276 | 458 |
+| knie te ver, oud (23 nov 16:00) | 335 | 577 |
+| rig naar poseerbaar, oud (23 nov 19:00) | 16 | 147 |
+
+- De Short van 22 nov 16:00 kreeg in ±10 uur nog **2** weergaven; die van 22 nov 11:00 en 19:00 nog 95 en 38 (GEZIEN, verschil van de twee metingen). Een Short haalt het meeste dus in het eerste etmaal (GOK op basis van 6 Shorts).
+- De twee oudere van 20 nov staan op 1.448 en 1.219 (GEZIEN). Geen enkele Short is na de eerste dag nog flink gegroeid.
+- Voor ons: de Analist hoeft niet 48 uur te wachten om oud en nieuw te vergelijken; na 24 uur ligt het grootste deel vast (GOK). En: elke Short is een kortlopend kaartje, het geld moet uit iets komen wat blijft staan (de productpagina, de lange video, zoekwoorden).
+
+### 193. feralghost: een agent 55 dagen 24/7 op YouTube, 104 video's, 8.600 weergaven, 4 abonnees
+- Opzet: OpenClaw op een VPS van €15, Claude (Max-abonnement $100 per maand), wakker elk uur met een takenbord (KANBAN.md), elke dag om 10:00 een Short uploaden. Geheugen in een paar markdown-bestanden, ±8k tokens (DERDEN, [feralghost, 20 mrt 2026](https://feralghost.github.io/blog/100-days-autonomous-agent)).
+- Uitkomst na 55 dagen: 104 video's, 8.600 weergaven totaal, 4 abonnees, ±$115 per maand (DERDEN, zelfde bron). Omzet niet genoemd.
+- Wat misging: (1) de eerste 43 video's (stem plus stockbeeld) haalden 10 tot 20 weergaven elk, en **de agent bleef hetzelfde maken**: lage cijfers noemde hij in zijn terugblik "lager dan verwacht" en de dag erna deed hij hetzelfde. Oplossing: de **"2-Retro Rule"**: een probleem dat in twee terugblikken op rij staat, wordt prioriteit 1. Pas toen veranderde het formaat echt. (2) Het OAuth-token van YouTube verdween; de agent kan dat niet zelf vernieuwen (Google wil een browser), dus **5 dagen geen uploads**. (3) Een modelwissel zonder controle gaf 10 uur stilstand (DERDEN).
+- Wat werkte: titels met **echte productnamen, een test of vergelijking en een bedrag** ("I tested Bitwarden vs LastPass vs 1Password"), en echte schermopnames in plaats van stockbeeld (DERDEN).
+- Voor ons: (a) de 2-Retro-regel past letterlijk op de Regisseur en de Analist: staat "weinig weergaven" of "geen verkoop" twee keer op rij in een verslag, dan is het de eerste opdracht van de volgende run, niet een opmerking. (b) Onze uploads hangen aan het account van de hoofdchat in YouTube Studio, niet aan een token; dat risico hebben we niet, maar Metricool hangt wel aan een koppeling die kan verlopen (GOK).
+
+### 194. maxxmini: 29 video's in drie weken, een goede eerste week en daarna 0 tot 1 weergave per dag
+- Een maker liet een agent een Koreaans geldkanaal maken: script, gratis stem (Edge TTS), ondertitels, ffmpeg, upload via de YouTube Data API, budget $0 (DERDEN, [dev.to, 27 mrt 2026](https://dev.to/maxxmini/i-automated-a-youtube-channel-with-ai-29-videos-0-budget-heres-what-happened-1ef8)).
+- Dag 1 tot 8: beste Short 1.635 weergaven, 7 abonnees. Dag 9 tot 23: 15 video's erbij, **0 tot 1 weergave per dag, 0 nieuwe abonnees** (DERDEN).
+- Zijn eigen verklaring, niet bewezen (GOK van hem): 8 video's in 8 dagen van een nieuw kanaal lijkt op spam, één slechte video op een vol onderwerp brak het, en de proeftijd voor een nieuw kanaal liep af.
+- Zijn les: "Automation solves production. It doesn't solve distribution." Hij verkoopt nu zelf gidsen op Gumroad onder het stuk.
+- Voor ons: wij zetten 3 Shorts per dag op een nieuw kanaal (bord, 22 en 23 nov). Of dat straft weten we niet (GOK, één verhaal van één maker), maar 192 laat nog geen instorting zien. Meetpunt voor de Analist: daalt de weergave van de eerste 24 uur per nieuwe Short week op week, dan minder per dag.
+
+### 195. Vee 6: een voetbalkanaal van 240K abonnees met een agent-systeem, en een mens vóór elke upload
+- Een bouwer beschrijft het systeem rond het bestaande kanaal @Vee6: trendradar op voetbalnieuws en concurrenten, een scorepoort voor scripts (geen script zonder voldoende score op vasthouden), montage in code (Remotion), **een rechtencheck vóór elke publicatie** ("na harde lessen welke rechthebbenden wereldwijd blokkeren"), uploads via de YouTube Data API op het piekuur, reacties beantwoorden met een **logboek tegen dubbel antwoorden**, en een **mens die vóór publicatie goedkeurt** (DERDEN, [portfolio Arsen Doda, 9 okt 2026](https://contra.com/p/EOUrRPRP-vee-6-240k-sub-you-tube-channel-run-by-agents)). Kanaalpagina toont "240K subscribers" (GEZIEN, curl op youtube.com/@Vee6).
+- Belangrijk: het kanaal **had dat publiek al**; het agent-systeem verving een editor, het bouwde het publiek niet op (DERDEN, de opdracht was "run the channel" voor een kanaal met 240.000 abonnees). Omzet niet genoemd.
+- Voor ons: dezelfde vorm als onze tak (radar, maker, keurder, plaatsen, reageren), en ook hier blijft een mens of keurder vóór plaatsen. Het logboek tegen dubbel antwoorden is goedkoop en nuttig voor de reacties onder onze Shorts.
+
+### 196. Twee kleinere: plaatsen via een MCP voor $0,02 per keer, en een agent die eerst naar zijn eigen beeld kijkt
+- rumblingb plaatste 26 Shorts op YouTube en TikTok in 48 uur via de MCP van AiToEarn (±$0,02 per publicatie, $0,52 totaal). 36 uur lang faalde alles met "Account is not authorized" door een storing aan hun kant. Zijn regel: kijk naar de hele reeks; faalt alles, sla de ronde over; faalt alleen de eerste, is het een koude start. Omzet $0 (DERDEN, [dev.to, 13 jun 2026](https://dev.to/rumblingb/26-youtube-shorts-scheduled-in-48-hours-zero-human-editing-2kk0)). Voor ons niet nodig (Metricool en Studio werken), en een nieuwe dienst kost geld en een account.
+- Een maker van een carrouselstudio liet zijn agent de dia's op de server renderen (headless Chromium) zodat de agent **zijn eigen werk ziet vóór hij inplant**; daarvoor "ontwierp hij blind" (DERDEN, [dev.to, 23 nov 2026](https://dev.to/shahershamroukh/i-gave-my-ai-agent-eyes-so-it-could-design-carousels-2pci)). Dat is precies onze skill `kijken`; bevestiging, niets nieuws.
+
+### Wat een agent hierin zelf kan, binnen onze regels
+- **De RSS van @Dortusapps elke run uitlezen** (192): gratis, geen sleutel, werkt uit de cloud (GEZIEN). Weergaven na 24 uur per Short in een tabel; dat is genoeg voor de Analist.
+- **De 2-Retro-regel** (193) in het verslag van de Regisseur en de Analist: twee keer hetzelfde probleem is de eerste opdracht.
+- **Titels in de vorm "product + test + getal"** (193) proberen in de A/B van de Shorts, bijvoorbeeld "Tested: how far a 3D printed knee bends (115°)".
+- **Niet doen:** een nieuwe plaatsdienst (196), meer uploads per dag zonder meting (194).
+
+## Patronen na ronde 41
+129. **Een Short is na een dag grotendeels uitgewerkt** (192, 194): het geld moet komen uit wat blijft staan (productpagina met zoekwoorden, lange video, vermeldingen van derden).
+130. **Agents herhalen wat faalt tot een regel ze dwingt** (193): een terugblik zonder verplichte vervolgstap verandert niets.
+131. **Agent-systemen schalen een bestaand publiek, ze maken het niet** (193, 194, 195): de enige met groot bereik (Vee 6) had de 240K al; de rest bleef onder de 10.000 weergaven en 0 omzet.
+
+## Stand na run 24 nov ±06:30 UTC (klok van de container)
+Vijf belangrijkste dingen:
+1. **Niets veranderd aan Pro op Superhive** (titel, description van 201 tekens, $12; GEZIEN) en de drie zoekproeven geven dezelfde uitslag als de nulmeting: Pro staat alleen boven op zijn eigen naam (GEZIEN).
+2. **Onze Shorts vlakken na ±24 uur af**: de beste van 22 nov ging in 10 uur van 1.106 naar 1.108 (GEZIEN, RSS). Weergaven van Shorts zijn een kort piekje, geen blijvende bron.
+3. **feralghost (55 dagen, 104 video's, 8.600 weergaven, 4 abonnees, DERDEN)**: de agent bleef 43 video's lang hetzelfde maken tot de regel "twee keer hetzelfde probleem = prioriteit 1" kwam.
+4. **maxxmini (DERDEN)**: na 8 dagelijkse video's op een nieuw kanaal daalde alles naar 0 tot 1 weergave per dag; zijn verklaring is een gok, maar het is een meetpunt voor ons ritme van 3 per dag.
+5. **Vee 6 (240K, GEZIEN)**: het enige grote agent-kanaal dat ik vond, had het publiek al; daar keurt ook een mens vóór elke upload.
+
+Voorstel: (a) nog steeds de titel en description van Pro herschrijven vóór de sale (ronde 40, GOK vr 27 nov); dit is het goedkoopste wat geld kan raken. (b) De Analist vergelijkt de Shorts op weergaven na 24 uur (uit de RSS) en neemt de 2-Retro-regel over. (c) Volgende run: zoekproeven en sale opnieuw, en zoeken naar makers van digitale producten die van een Short naar een verkoop meten (klikken uit YouTube naar Gumroad of Superhive).
