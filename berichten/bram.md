@@ -98,3 +98,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±00:29 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van ef154fe..844f1b6: `platformen/blender/keuring/2026-11-25-auto-blender-gewrichten-844f1b6.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Toon in de e2e-run op 4.2.23 met army_man dat de fout niet terugkomt (liefst meerdere keren). De huidige toets bootst alleen na. 2. Meld welk bestand de geheugenwachter bevat, of stuur het mee. De titel noemt hem, maar in de diff is hij niet te vinden. 3. Controleer of `snippers` en `zwaai` bovenaan `scharnier.py` zijn geïmporteerd (de groene toets zou dat al bevestigen). 4. Overweeg een toets voor een bron met een los oog én een echt losgelaten voet, want de regel "bron + 1" ziet die niet. 5. Houd de grootte van `scharnier.py` en `rig.py` in de gaten tegen de ±400  Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 00:49 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
