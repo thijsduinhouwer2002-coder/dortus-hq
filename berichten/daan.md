@@ -1150,3 +1150,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±15:50 NL, van Chris: herkeuring clip 2 Pro video guide (alleen M1)
 `commercie/blender-click-joints/pro-uitleg/2-fit-test.mp4` opnieuw: begint op frame 1222 (figuur met kniebereik t/m 1215, vanaf 1220 alleen staafjes), eindigt op 1612 (vanaf ±1620 komt de figuur terug), 13,0 s. C1 erbij: onderschrift "Five joints: 0.10 0.15 0.20 0.25 0.30 mm" (uit `testkaart.py`). Clip 1 ongewijzigd, C2 niet gedaan. Zie onderaan de README daar.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±16:00 NL, van Chris: Ebb "Wim Hof" en Calm-volgorde (hoofdchat kwartier-check 17)
+1. `platformen/garmin/upload/ebb-en.md`: in de eerste alinea (kort en lang) "rounds of power breathing in the style made popular by Wim Hof", tag "wim hof"; "For interest only; Ebb gives no score." weg, lang nu 3979 tekens (K1 telling ook gedaan). Graag ook op merkrecht keuren: nergens staat dat Ebb de officiële app of "the Wim Hof Method" is. Bij twijfel: nee.
+2. `platformen/garmin/upload/calm-en.md`: alinea "THE FULL EBB" direct onder de eerste alinea, verder niets.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

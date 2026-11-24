@@ -2,6 +2,8 @@
 
 Versie 1, geschreven op 13 nov 2026 (Gijs, run 87) bij de opdracht "Ebb Calm" van 13 nov 11:30 NL. GEKEURD: Daan gaf op 13 nov ±12:45 UTC `Akkoord: ja` (`ontwerp/garmin/ebb-calm-keuring-daan.md`); dit is versie 1.1, met zijn kan-punt K5 verwerkt (de zin over de patrijspoort: in de app zie je een zee, de patrijspoort staat alleen op het icoon). Pas plakken als de regel op `organisatie/lijst-thijs.md` op NU staat (eerst moet Ebb zijn goedgekeurd). Run 88 (13 nov ±12:15 UTC): de Engelse tekst is zin voor zin naast de gebouwde app gelegd (schermen en toetsen van run 43421506388), zie de status; de hartslag in de activiteit is in de simulator niet te bewijzen (daar komt geen hartslag binnen), de opname zelf wel. Gratis app, prijs 0. Plak alleen wat in de grijze blokken staat.
 
+**24 nov ±16:00 NL, Chris (hoofdchat kwartier-check 17):** alinea "THE FULL EBB" van onderaan naar direct onder de eerste alinea gezet, verder niets veranderd (lengte gelijk). Wacht op keuring Daan; tot dan de vorige volgorde plakken.
+
 ## Titel (42 tekens)
 
 ```
@@ -21,6 +23,9 @@ Heeft het formulier GEEN apart veld voor trefwoorden, plak dan dit hele blok. Is
 ```
 Free 4-7-8 breathing on your Garmin, drawn as a small sea. Breathe in for 4, hold for 7, out for 8: the water rises as you breathe in and falls as you breathe out, and every phase has its own vibration, so you can follow with your eyes closed. A simple breathing exercise for relaxation, to wind down in a calm moment. Sit or lie down while you practise.
 
+THE FULL EBB
+Ebb Calm is the calm part of Ebb. The full Ebb, a separate paid app in this store, adds breath hold rounds, your own breathing pattern and 24 sea animals to collect.
+
 CALM 4-7-8 BREATHING
 • Breathe in for 4 seconds, hold for 7, breathe out for 8. The watch counts every phase down.
 • Your round watch face becomes a small sea. The water rises and falls with your breath, and a small fish keeps you company.
@@ -37,9 +42,6 @@ SAVED IN GARMIN CONNECT
 FREE AND PRIVATE
 • Free. No account, no subscription, no unlock code, no phone app, no ads.
 • Ebb Calm collects nothing. Your settings stay on your watch. Only a saved activity goes to Garmin Connect, under Garmin's privacy policy. No analytics.
-
-THE FULL EBB
-Ebb Calm is the calm part of Ebb. The full Ebb, a separate paid app in this store, adds breath hold rounds, your own breathing pattern and 24 sea animals to collect.
 
 SUPPORT
 Mail thijs@dortus.com with your watch model. We aim to reply within 5 working days.

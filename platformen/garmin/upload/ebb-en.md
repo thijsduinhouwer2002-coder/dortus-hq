@@ -2,7 +2,9 @@
 
 Bron: `producten/garmin-adem/winkeltekst.md` versie 19 op de bouwtak (commit e40269e1), letterlijk overgenomen op 12 nov 2026 (run 74). Nagelopen tegen de code van e40269e1 op 12 nov 23:00 UTC (run 75, nachtlijst punt 7): alles klopt, op één zin na die hier is aangepast: "alleen een opgeslagen activiteit gaat naar Garmin Connect" (was: een activiteit die je kiest op te slaan; een afgeronde sessie slaat zichzelf op). Daarmee is dit versie 19a; `winkeltekst.md` op de bouwtak is nog 19 en wordt na het indienen gelijkgetrokken. Plak alleen wat in de grijze blokken staat.
 
-**24 nov ±12:49 NL, Chris (kwartier-check 14, score 5):** "Dry static apnea practice" in de veiligheidszin van de eerste alinea (korte en lange beschrijving), tags "dry apnea" en "static apnea", bullet "Found all 24?" weg om onder 4.000 te blijven. Veiligheid ongewijzigd (nooit in of bij water, geen CO2- of O2-tabellen). **Wacht op keuring Daan; tot dan de vorige versie plakken** (`git show defe724:platformen/garmin/upload/ebb-en.md`). Houdt de plak van de 20 talen niet op: Engels staat al live.
+**24 nov ±12:49 NL, Chris (kwartier-check 14, score 5):** "Dry static apnea practice" in de veiligheidszin van de eerste alinea (korte en lange beschrijving), tags "dry apnea" en "static apnea", bullet "Found all 24?" weg om onder 4.000 te blijven. Veiligheid ongewijzigd (nooit in of bij water, geen CO2- of O2-tabellen). **Wacht op keuring Daan; tot dan de vorige versie plakken** (`git show defe724:platformen/garmin/upload/ebb-en.md`). Houdt de plak van de 20 talen niet op: Engels staat al live. **Daan 24 nov ±13:55: ja** (`platformen/garmin/keuring/2026-11-24-ebb-apnea.md`).
+
+**24 nov ±16:00 NL, Chris (hoofdchat kwartier-check 17, score 5):** "in the style made popular by Wim Hof" in de eerste alinea (kort en lang), tag "wim hof"; om onder 4.000 te blijven "For interest only; Ebb gives no score." weg. Geen bewering dat Ebb de officiële app of de methode is. **Wacht op keuring Daan (ook merkrecht); tot dan de versie van 9c05848 plakken.**
 
 ## Titel (27 tekens; versie 1.0.1, tot 16 nov was het `Ebb: Breathing Exercises, Breath Hold & Calm`)
 
@@ -13,15 +15,15 @@ Ebb Breathing & Breath Hold
 ## Korte beschrijving (alleen als het formulier er een apart veld voor heeft; dit is de eerste alinea van de lange)
 
 ```
-Breathwork rounds and calm 4-7-8 breathing on your Garmin. Follow every phase by vibration with your eyes closed, while a small sea fills with animals as you keep coming back. Breathing exercises and breath hold training with rounds of power breathing, drawn as water: your round watch face becomes a porthole on a small sea. The water rises as you breathe in and falls as you breathe out, and when you hold your breath you go under water. Hold only while it feels easy. Dry static apnea practice on land only: sit or lie down, never in or near water, never while driving.
+Breathwork rounds and calm 4-7-8 breathing on your Garmin. Follow every phase by vibration with your eyes closed, while a small sea fills with animals as you keep coming back. Breathing exercises and breath hold training with rounds of power breathing in the style made popular by Wim Hof, drawn as water: your round watch face becomes a porthole on a small sea. The water rises as you breathe in and falls as you breathe out, and when you hold your breath you go under water. Hold only while it feels easy. Dry static apnea practice on land only: sit or lie down, never in or near water, never while driving.
 ```
 
-## Lange beschrijving (3987 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
+## Lange beschrijving (3979 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
 
 Heeft het formulier GEEN apart veld voor trefwoorden, plak dan dit hele blok. Is er WEL een veld voor trefwoorden, laat dan de laatste regel (Tags) hier weg.
 
 ```
-Breathwork rounds and calm 4-7-8 breathing on your Garmin. Follow every phase by vibration with your eyes closed, while a small sea fills with animals as you keep coming back. Breathing exercises and breath hold training with rounds of power breathing, drawn as water: your round watch face becomes a porthole on a small sea. The water rises as you breathe in and falls as you breathe out, and when you hold your breath you go under water. Hold only while it feels easy. Dry static apnea practice on land only: sit or lie down, never in or near water, never while driving.
+Breathwork rounds and calm 4-7-8 breathing on your Garmin. Follow every phase by vibration with your eyes closed, while a small sea fills with animals as you keep coming back. Breathing exercises and breath hold training with rounds of power breathing in the style made popular by Wim Hof, drawn as water: your round watch face becomes a porthole on a small sea. The water rises as you breathe in and falls as you breathe out, and when you hold your breath you go under water. Hold only while it feels easy. Dry static apnea practice on land only: sit or lie down, never in or near water, never while driving.
 
 BREATH HOLD ROUNDS
 • Rounds of deep breaths at a steady pace, then breathe out and hold for as long as feels right.
@@ -49,7 +51,7 @@ BREATHE WITH YOUR EYES CLOSED
 • While you breathe and hold, the touchscreen does nothing, so a sleeve cannot stop a hold; only the buttons work. Ebb makes no sound.
 
 SAVED IN GARMIN CONNECT
-• Each session is saved as a breathing activity with your heart rate. Rounds: one lap per round with its hold time and breaths. For interest only; Ebb gives no score.
+• Each session is saved as a breathing activity with your heart rate. Rounds: one lap per round with its hold time and breaths.
 • A finished session saves itself. Calm breathing, and a session left paused, save by themselves after 30 minutes. Press back to pause: resume, save or discard.
 
 SETTINGS ON THE WATCH
@@ -65,13 +67,13 @@ Mail thijs@dortus.com with your watch model. We aim to reply within 5 working da
 SAFETY
 Sit or lie down. Never practise breath holds in or near water, in the bath, or while driving. Feel dizzy or tingly? Stop and breathe normally. Not if pregnant, under 18, or with epilepsy, heart or blood pressure problems. Ebb has no CO2 or O2 tables and is not a medical device.
 
-Tags: breathing, breathwork, breath hold, breath training, 4-7-8, 478, relaxation, dry apnea, static apnea
+Tags: breathing, breathwork, breath hold, breath training, 4-7-8, 478, relaxation, dry apnea, static apnea, wim hof
 ```
 
 ## Trefwoorden (alleen als er een apart veld is)
 
 ```
-breathing, breathwork, breath hold, breath training, 4-7-8, 478, relaxation, dry apnea, static apnea
+breathing, breathwork, breath hold, breath training, 4-7-8, 478, relaxation, dry apnea, static apnea, wim hof
 ```
 
 ## Wat is nieuw (versie 1.0.1; bij 1.0.0 stond hier `First release.`)
