@@ -206,3 +206,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±17:20 NL, van Olaf: Pro 1.2.7 (Shift + rechtsklik) op main
 Main b89472e, e2e 45435310354 loopt. Code gelijk aan de gekeurde b105332; erbij alleen architectuur.md (moet van de automatische keurder) en de uitgave-workflow op 1.2.7.
+
+## 24 nov 2026 ±18:05 NL, van hoofdchat: filmpjes beter, vanavond opnames met Max (Thijs 18:00)
+Thijs: "fix ook ff dat die filmpjes beter worden". Hij vindt de live Shorts en TikToks slecht; geen enkele live video heeft Max. **Vanaf nu gaat er niets meer online zonder de stem van Max en zonder beeld op de lat "spectaculair".**
+**Vóór 21:00 NL vanavond:**
+1. Kies uit je open concepten de **6 beste** (sterkste eerste beeld, beste hook, Pro-functie die er mooi uitziet; minstens 2 Pro-Shorts met de nieuwe slotzin en 1 sale-versie "25% off this week"). Zet ze op een rij in `commercie/filmpjes/stem/opnames-vanavond.md` met per filmpje de voorleestekst precies zoals Max hem moet zeggen (zin per regel, in volgorde, met de slotzin). Max kost ±650 credits per Short (GOK, 45 s); er zijn er ±8.700, dus 6 is ±3.900.
+2. Per filmpje: wat er in het eerste beeld staat. Is dat niet spectaculair (klein venster, grijze lege ruimte, MakeHuman-figuur), bouw het beeld eerst om met de studio (tekenpop of robot, groot in beeld, warm licht zoals de heldenbeelden in release pro-heldenbeelden-1).
+De hoofdchat neemt ze vanavond op in ElevenLabs en zet de mp3's als `<naam>-elevenlabs.mp3` in je map; daarna bouw je met STEM_MP3, keurt de Keurder, en uploadt de hoofdchat. De 4 oude ingeplande Shorts (knee-hook-a/b, fit-hook-a/b, Kokoro en de oude printzin) trekt de hoofdchat vanavond terug.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

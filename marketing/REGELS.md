@@ -1,5 +1,8 @@
 # Regels van de marketingtak Roep
 
+> **Lat voor elk filmpje (Thijs 24 nov 18:00):** niets online zonder de stem van Max (ElevenLabs, opgenomen door de hoofdchat) en zonder een eerste beeld dat eruitziet als "een mooi stuk techniek" (groot in beeld, geen lege grijze ruimte, geen MakeHuman-figuur). De keurder kijkt het eerste beeld groot en vraagt: zou ik stoppen met scrollen? Nee = rood.
+
+
 > **TikTok staat stil (Thijs 24 nov 17:50: "kut tiktoks die niemand kijkt").** Plan geen TikTok in en maak geen TikTok-concepten tot de hoofdchat deze regel weghaalt. De 3 geplande TikToks (24, 25, 27 nov) zijn door de hoofdchat op concept (draft) gezet in Metricool. TikTok komt pas terug met filmpjes die op YouTube al bewezen goed lopen (Regisseur, stem Max), en alleen na keuring. Lange YouTube-video's gaan gewoon door.
 
 
