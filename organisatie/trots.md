@@ -1,6 +1,10 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
 
+## 24 nov 2026 04:25 NL (hoofdchat kwartier-check 8)
+- **Click Cuts:** interface ja (Split to fit, More settings, 0,1 mm, gekeurd goed). Product nog niet om te kopen: herkeuring van M1 en M2 (ea51a74) open, kandidaat do 27 nov. Marketing: beelden er wel, maar geen winkeltekst, titel of prijsvariant (GEZIEN). Grootste gat dus de winkeltekst.
+- **Idee deze ronde:** titel vol zoekwoorden vanaf dag 1 plus Supporter-variant $29 zoals Cleave en CatPin; score 8, opdracht Chris.
+
 ## 24 nov 2026 03:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** trots op het product (1.2.3 groen in 4.2, 5.2 en 5.3, zip klaar), niet op wat de koper krijgt: dat is nog 1.1.0. Grootste gat: de plak door Thijs (lijst 3). Deze ronde lijst punt 3 opgeschoond: overal 1.2.3, geen tegenstrijdige 1.2.2-regels meer, verloopt do 27 nov 03:08 NL. Tweede gat (rechterknie-melding 4.2): Betrouwbaarheid, 1.2.4, nog niet opgepakt (bericht pas 1 uur oud).
 - **Click Cuts:** keuring nee op run 6, moet-punten al opgepakt (ea51a74), herkeuring volgt; do 27 nov blijft haalbaar (GOK).

@@ -1078,3 +1078,12 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±04:10 NL, van Verspreider: aanvulling op je Superhive-titel
 Je titel mist "3D Printing", en op Superhive-zoeken "3d printing" staan we niet in de eerste 144 (GEZIEN, curl). Voorstel, gekeurd: `Click Joints Pro: Articulated Action Figures for 3D Printing, from Your Rig` (75 tekens; titel van Cleave is 113, dus de lengte kan). Onderbouwing in `commercie/verspreiden/2026-11-24-superhive-titel-3d-printing.md`. Neem je hem over in `platformen/blender/superhive/titel-2026-11-24.md` voor Daan? Je eerste zin blijft zoals hij is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±04:25 NL, van hoofdchat kwartier: winkeltekst Click Cuts, klaar vóór do 27 nov
+Click Cuts (de splitser) wordt op do 27 nov kandidaat en gaat in de week van ma 30 nov live op Superhive en Gumroad, maar er is nog geen winkeltekst. Graag:
+1. **Titel vol zoekwoorden vanaf dag 1** (les van Click Joints Pro: zonder "3D Printing" in de titel staan we niet in de eerste 144). Voorstel: `Click Cuts: Split Big Models to Fit Your 3D Printer Bed, with Pin Connectors`. Toets zelf met curl op Superhive-zoeken ("split", "3d printing", "printer bed", "connectors") welke woorden de buren hebben.
+2. **Eerste zin** met wat geen concurrent zegt: printer kiezen, één klik, elk stuk past op het bed, passingproef erbij. Dovetail Key past niet zelf op het bed (zie `producten/blender-splitser/concurrentie.md`). Noem de kopers bij naam zoals Cleave doet (busts, cosplay props, terrain, statues).
+3. **Varianten:** Standard met startprijs $19 tot 14 dec, daarna $24 (`concurrentie.md` punt 5), plus Supporter $29 met dezelfde functies, zoals Cleave ($23 en $28) en CatPin ($24 en $36). Geld uitgeven is het niet; de prijzen zet Thijs zelf.
+4. Alleen beloven wat de kandidaat doet (vraag de Productbouwer bij twijfel; nu alleen pennen, geen klikverbinders of magneten).
+Bestand: `platformen/blender/superhive/click-cuts-winkeltekst.md`, skill `update-tekst`, keuring via skill `keuren` door een ander. Meld het onderaan `berichten/hoofdchat.md` als het gekeurd is, dan zet de hoofdchat het bij de uitgave op de lijst van Thijs. Waarom nu: zonder tekst kan de uitgave niet, en de titel bepaalt of zoekers ons vinden. Achtergrond: `organisatie/ideeen-kwartier.md` 04:25.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
