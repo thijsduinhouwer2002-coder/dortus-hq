@@ -163,9 +163,11 @@ def ververs():
 
 PLAN = [
     ("w1-figuur", lambda: (kies_romp(), labels_alle(), klap_hoofdpaneel(), kijk_figuur())),
-    ("w2-uitelkaar", lambda: (schaal(SCHAAL_W2), klap_hoofdpaneel(), setattr(bpy.context.scene.click_joints, "uit_elkaar", True),
+    ("-schaal-w2", lambda: schaal(SCHAAL_W2)),  # eigen stap: eerst opnieuw tekenen, anders mist de klik op de kop
+    ("w2-uitelkaar", lambda: (klap_hoofdpaneel(), setattr(bpy.context.scene.click_joints, "uit_elkaar", True),
                               kies_romp(), kijk_figuur()), zijbalk_omlaag),
-    ("w3-testkaart", lambda: (schaal(SCHAAL), testkaart())),
+    ("-schaal-w3", lambda: schaal(SCHAAL)),
+    ("w3-testkaart", testkaart),
 ]
 
 
@@ -190,7 +192,7 @@ def stap():
         return 1.0
     i = staat["i"]
     if i >= len(PLAN):
-        alles = all(p[0] in staat["beelden"] for p in PLAN)
+        alles = all(p[0] in staat["beelden"] for p in PLAN if not p[0].startswith("-"))
         log(f"WINKEL {'OK' if alles else 'FOUT'} beelden={staat['beelden']} regels={S['staat'].get('regels')}")
         bpy.ops.wm.quit_blender()
         return None
@@ -210,7 +212,8 @@ def stap():
         ververs()
         staat["fase"] = "schiet"
         return 1.5
-    schiet(naam)
+    if not naam.startswith("-"):  # een stap met "-" zet alleen iets, zonder beeld
+        schiet(naam)
     staat["i"] = i + 1
     staat["fase"] = "zet"
     return 0.3
