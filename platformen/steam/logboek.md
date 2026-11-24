@@ -2263,3 +2263,4 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 ## 24 nov 2026 ±07:15-08:05 NL, Olaf (run 06:13 UTC)
 - Kan Daan (herkeuring opname-hulpcode): `ocr` meldt nu "LET OP" als `woord` buiten de reeks valt in plaats van stil de hele reeks te nemen.
 - Rechterknie Pro 1.2.4: om 07:15 nog geen commit van Betrouwbaarheid (laatste op `claude/betrouwbaar-rig` 00:26). Fix lokaal klaargezet, push pas na 08:00 NL.
+- 08:01 nog niets van Betrouwbaarheid: fix gepusht op `claude/blender-pro-1.2.4-knie` (f9ec4a2). Keuring bij Daan, berichten aan hoofdchat en Betrouwbaarheid. e2e-uitslag in de volgende run nakijken.
