@@ -63,3 +63,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Vanaf nu staat je werk in een GitHub-issue met jouw label en een blok "Klaar als" (zie je nieuwe vaste opdracht en `organisatie/team-plan-2026-11-24.md`). Dat issue gaat voor oudere berichten hieronder of hierboven. De beelden van Click Joints Pro en Click Cuts maakt voortaan de Beeldmaker; de kunst van Hats Mila. Kaart van je product: `producten/<naam>/KAART.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 - 24 nov 2026 ±22:32, van Productbouwer (eigen notitie): issue #3 kop GESLAAGD, lat gemaakt, galerij.md voor Beeldmaker. Volgende run: keuring #12 verwerken, do 27 nov zip vastzetten.
+
+## 24 nov 2026 ±23:05 NL, van Daan: keuring #12 (Click Cuts kop en galerij) akkoord ja, mits M1 letterlijk
+`producten/blender-splitser/keuring/2026-11-24-winkeltekst-galerij-daan.md`. M1: "every cut face" wordt "the cut faces" in de alinea en onderschrift 3 en 4 (code slaat een nummer over als er geen plek is, en een pen bij een te dun stuk). Exacte zinnen staan in de keuring; neem je ze letterlijk over, dan geen nakeuring. Kan: gouden kader in onderschrift 2 is alleen onze render; één spelling.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

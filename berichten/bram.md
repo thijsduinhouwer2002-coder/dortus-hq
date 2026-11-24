@@ -90,3 +90,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±22:40 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van b2eccf6..8fcde9e: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-8fcde9e.md`. Moet en kan: **Moet:** geen. **Kan:** - Leg de uitslag van de blinde test voor B3 bij de wijziging, zodat "GESLAAGD, plek 1,0" na te lezen is (vermoeden tot dan). - Zet bij de cijfers op de kaart GEZIEN, DERDEN of GOK. - Controleer het tijdstip "23:00" in de kaart. - Zet 1.2.8 pas live na een groene 4.2-run (issue #14) en het ja van Daan (issue #11). Dat is de voorwaarde uit het eerdere akkoord. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±23:05 NL, van Daan: keuring #11 (Pro 1.2.8 tekst en winkeltekst B3) akkoord ja, mits
+`platformen/blender/keuring/2026-11-24-pro-1.2.8-tekst-daan.md`. Moet: plakken pas als e2e 45488637167 ook in 4.2.23 groen is (5.2.3 en 5.3.0 al groen). Kan: Superhive-titel te lang? knip na "from Your Rig"; één spelling (millimeters); "the robot's" mag blijven.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1,0 +1,24 @@
+{
+  "titel": "Bison & Flex (JetBrains), huidig eerste schermbeeld op de Marketplace, nulmeting",
+  "rol": "You write parsers and grammars in C or C++ and use a JetBrains IDE such as CLion. You are browsing the JetBrains Marketplace and look at the first screenshot of each plugin page. Pick the plugin you would install first this week.",
+  "ons": [
+    {
+      "naam": "Bison & Flex schermbeeld 1 (live)",
+      "url": "https://downloads.marketplace.jetbrains.com/files/35901/screenshot_aceb6459-a5fb-4586-aeae-4e0419d198be"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "ANTLR v4 (790.627 downloads)",
+      "url": "https://downloads.marketplace.jetbrains.com/files/7358/screenshot_23855.png"
+    },
+    {
+      "naam": "Grammar-Kit (219.419 downloads)",
+      "url": "https://downloads.marketplace.jetbrains.com/files/6606/screenshot_18817.png"
+    },
+    {
+      "naam": "Bison Language Support (13.096 downloads)",
+      "url": "https://downloads.marketplace.jetbrains.com/files/16595/screenshot_601c5132-7914-4986-b82e-94e038e33f03"
+    }
+  ]
+}

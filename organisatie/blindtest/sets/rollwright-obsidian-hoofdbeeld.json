@@ -1,0 +1,24 @@
+{
+  "titel": "Rollwright (Obsidian), huidig eerste beeld in de README, nulmeting",
+  "rol": "You run tabletop role-playing games and keep your session notes in Obsidian. You are browsing Obsidian community plugins and look at the first picture on each plugin page. Pick the plugin you would install first this week.",
+  "ons": [
+    {
+      "naam": "Rollwright poster (live)",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/poster.png"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Fantasy Statblocks (374.793 downloads)",
+      "url": "https://raw.githubusercontent.com/valentine195/obsidian-5e-statblocks/beta/images/example.PNG"
+    },
+    {
+      "naam": "Iron Vault (21.274 downloads)",
+      "url": "https://raw.githubusercontent.com/iron-vault-plugin/iron-vault/main/docs/Support/img/iron-vault-screenshot.png"
+    },
+    {
+      "naam": "BeastVault (2.562 downloads)",
+      "url": "https://raw.githubusercontent.com/ly0va/beastvault/main/media/create.png"
+    }
+  ]
+}
