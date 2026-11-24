@@ -1,4 +1,4 @@
-"""Settings of Split Joints, stored per scene (scene.split_joints)."""
+"""Settings of Click Cuts, stored per scene (scene.split_joints)."""
 import bpy
 from bpy.props import BoolProperty, EnumProperty, FloatProperty, PointerProperty, StringProperty
 
@@ -65,7 +65,7 @@ class SplitJointsInstellingen(bpy.types.PropertyGroup):
                               ("3MF", "3MF", "One 3MF file per piece, in millimeters")),
         default="STL")
     exportmap: StringProperty(
-        name="Folder", description="Folder for the exported files. Empty: split_joints folder next to the .blend",
+        name="Folder", description="Folder for the exported files. Empty: click_cuts folder next to the .blend",
         default="", subtype="DIR_PATH")
     uit_elkaar: BoolProperty(
         name="Exploded view", description="Show the pieces a little apart, only in the viewport. "
@@ -76,17 +76,41 @@ class SplitJointsInstellingen(bpy.types.PropertyGroup):
                               ("CHECK", "Check", "Green fits, orange thin wall, red needs attention")),
         default="PIECE", update=_kleur)
     bron: StringProperty(name="Model", description="The model the cuts belong to", default="")
+    uitslag: StringProperty(default="")  # error line of Split to fit; empty: the panel shows the pieces
+    meer: BoolProperty(name="More settings", description="Printer margin, cuts, pins, fit test, check and export",
+                       default=False)
     meldingen: StringProperty(default="")  # one message per line, from the last split
 
 
 KLASSEN = (SplitJointsInstellingen,)
 
 
+def _plek_scene(ob):
+    scenes = ob.users_scene
+    return scenes[0] if scenes else bpy.context.scene
+
+
+def _plek_get(ob):
+    """Position of a cut plane along its axis in mm (panel shows it rounded to 0.1 mm)."""
+    if "sj_as" not in ob:
+        return 0.0
+    return ob.location[int(ob["sj_as"])] / eenheid_per_mm(_plek_scene(ob))
+
+
+def _plek_set(ob, waarde):
+    if "sj_as" in ob:
+        ob.location[int(ob["sj_as"])] = waarde * eenheid_per_mm(_plek_scene(ob))
+
+
 def koppel():
     bpy.types.Scene.split_joints = PointerProperty(type=SplitJointsInstellingen)
+    bpy.types.Object.sj_plek_mm = FloatProperty(
+        name="Position", description="Where the cut lies along its axis, in mm (drag or type, G also works)",
+        get=_plek_get, set=_plek_set, precision=1, step=10)
 
 
 def ontkoppel():
+    del bpy.types.Object.sj_plek_mm
     del bpy.types.Scene.split_joints
 
 

@@ -1,6 +1,6 @@
 """Plan cuts: cut planes as objects you can move along their axis (G), plus the model in millimeters.
 
-A cut is a flat object in the collection "Split Joints cuts" with sj_as (0, 1, 2). Its position along
+A cut is a flat object in the collection "Click Cuts cut planes" with sj_as (0, 1, 2). Its position along
 that axis (location) is the cut; the other axes are locked, so dragging it only slides the cut."""
 import bpy
 import numpy as np
@@ -9,7 +9,7 @@ from mathutils import Vector
 from . import plan
 from .eigenschappen import bed, eenheid_per_mm
 
-COLLECTIE = "Split Joints cuts"
+COLLECTIE = "Click Cuts cut planes"
 ASNAAM = "XYZ"
 
 

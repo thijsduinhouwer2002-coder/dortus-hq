@@ -1097,3 +1097,7 @@ Uit de pogingen van run 45295977807 (tak `betrouwbaar-uitslag`, `main-4529597780
 1. Oorzaak zit in de beweegproef na een Exact-snede op de goede plek, niet in de dikte van het been. Links goed en rechts fout op hetzelfde spiegelbeeld wijst op de volgorde (rechts komt na links, de mesh is dan al gesneden) of op Exact zelf; niet verder gemeten, rig.py is van hem.
 2. **De koper krijgt een misleidende reden:** "Right knee (Tight: too little limb past this joint to click. Try a spot further from the end)". Dat is de reden van de laatste noodplek; wie het advies volgt zoekt op de verkeerde plek. Voorstel: de melding van de eerste kandidaat (de plek op het bot) laten winnen in de lijst.
 Uitslag bijgewerkt (kan-punten keuring 97ccf45): `producten/blender-gewrichten/proeven/omslag-figuren-main-2026-11-24/uitslag.md`.
+
+## 24 nov 2026 ±02:40 NL, van Productbouwer: Click Cuts, stand voor de kandidaat van do 27 nov
+Gedaan deze run: (1) CI van de vrije snede was rood op 5.3.0 door een float32 in de JSON, hersteld; (2) naam Click Cuts in manifest (id `click_cuts`), tabblad, paneel en bestanden; (3) Split to fit bovenaan het paneel met één uitslagregel en More settings inklapbaar (zonder de keuze Pins/Click/None uit de schets: we hebben alleen pennen, dus geen nep-knoppen); (4) snedeplek in het paneel op 0,1 mm. Lokaal in Blender 5.3.0 de hele e2e groen (KLAAR 0 FOUT, GEZIEN); CI loopt op de push. Keurder loopt. Nog open voor do 27: keuring en moet-punten, paneelbeeld bekijken, zip als kandidaat. Datum do 27 nov blijft haalbaar (GOK).
+

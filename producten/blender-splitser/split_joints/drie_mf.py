@@ -109,7 +109,7 @@ def model_xml(naam, punten, lijst):
     stukken = ['<?xml version="1.0" encoding="UTF-8"?>\n'
                '<model unit="millimeter" xml:lang="en-US" '
                'xmlns="http://schemas.microsoft.com/3dmanufacturing/core/2015/02">'
-               f'<metadata name="Application">Split Joints</metadata>'
+               f'<metadata name="Application">Click Cuts</metadata>'
                f'<resources><object id="1" type="model" name="{escape(naam, {chr(34): "&quot;"})}"><mesh><vertices>']
     stukken += [f'<vertex x="{x:.6f}" y="{y:.6f}" z="{z:.6f}"/>' for x, y, z in punten]
     stukken.append('</vertices><triangles>')

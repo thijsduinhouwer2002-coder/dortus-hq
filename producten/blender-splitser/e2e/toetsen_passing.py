@@ -11,11 +11,11 @@ import modellen
 from hulp import SCHAAL, bestaat, dicht, gat_maten, label_punten, lees_3mf, lees_stl, log, maat, past, pennen, stap
 
 BED = (176.0, 176.0, 178.0)
-PAKKET = "bl_ext.user_default.split_joints"
+PAKKET = "bl_ext.user_default.click_cuts"
 
 
 def proef():
-    col = bpy.data.collections.get("Split Joints fit test")
+    col = bpy.data.collections.get("Click Cuts fit test")
     objs = list(col.objects) if col else []
     blok = next((o for o in objs if o.get("sj_passing") == "blok"), None)
     pen = next((o for o in objs if o.get("sj_passing") == "pennen"), None)

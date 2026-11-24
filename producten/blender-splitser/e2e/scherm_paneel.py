@@ -1,7 +1,7 @@
-"""Screenshot of the real Blender window with the Split Joints panel (under xvfb, with the interface).
+"""Screenshot of the real Blender window with the Click Cuts panel (under xvfb, with the interface).
 blender --gpu-backend opengl /tmp/start.blend --python e2e/scherm_paneel.py -- <out dir> <zip> <suzanne.blend>
 Installs the add-on, brings in the split Suzanne (pieces, pins, cuts), opens the sidebar on the tab
-Split Joints (Ctrl + mouse wheel with xdotool, as in the Click Joints screen test) and takes the picture.
+Click Cuts (Ctrl + mouse wheel with xdotool, as in the Click Joints screen test) and takes the picture.
 Logs PANEEL OK when the tab was active and the picture exists."""
 import os
 import subprocess
@@ -12,7 +12,7 @@ import bpy
 args = sys.argv[sys.argv.index("--") + 1:]
 uitmap, zip_pad, blend = args[0], args[1], args[2]
 os.makedirs(uitmap, exist_ok=True)
-DOEL = "Split Joints"
+DOEL = "Click Cuts"
 staat = {"stap": 0, "pogingen": 0}
 
 
@@ -42,7 +42,7 @@ def klaarzetten():
         doel.objects = [n for n in bron.objects if n.startswith(("Piece", "Pins", "Cut")) or n.endswith("_watertight")]
     s = bpy.context.scene
     s.unit_settings.system, s.unit_settings.scale_length, s.unit_settings.length_unit = "METRIC", 0.001, "MILLIMETERS"
-    sneden = bpy.data.collections.new("Split Joints cuts")
+    sneden = bpy.data.collections.new("Click Cuts cut planes")
     s.collection.children.link(sneden)
     for ob in doel.objects:
         (sneden if "sj_as" in ob else s.collection).objects.link(ob)
@@ -98,7 +98,7 @@ def stap():
                 staat["stap"] = 2
                 return 1.5
             if staat["pogingen"] > 14:
-                log("PANEEL FOUT: tabblad Split Joints niet actief")
+                log("PANEEL FOUT: tabblad Click Cuts niet actief")
                 bpy.ops.wm.quit_blender()
                 return None
             return 0.6

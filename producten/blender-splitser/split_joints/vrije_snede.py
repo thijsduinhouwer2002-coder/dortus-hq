@@ -100,15 +100,26 @@ def wand_vlak(stuk_ruw, R, o, a, b, u):
     return opp
 
 
+def _getal(x):
+    """numpy numbers (float32 in Blender 5.3) to plain Python for json."""
+    if hasattr(x, "tolist"):
+        return x.tolist()
+    raise TypeError(f"Object of type {type(x).__name__} is not JSON serializable")
+
+
+def _json(obj):
+    return json.dumps(obj, default=_getal)
+
+
 def naar_wereld(item, R, o):
     """A hole or label planned in the frame of the cut, back in the mesh space of the piece."""
     uit = dict(item)
-    uit["p"] = list(R @ np.array(item["p"]) + o)
-    uit["n"] = list(R[:, 2])
+    uit["p"] = [float(x) for x in R @ np.array(item["p"], dtype=float) + o]
+    uit["n"] = [float(x) for x in R[:, 2]]
     uit["as"] = -1
     uit["vrij"] = True
     if item.get("richting") is not None:
-        uit["richting"] = list(R @ np.array(item["richting"]))
+        uit["richting"] = [float(x) for x in R @ np.array(item["richting"], dtype=float)]
     return uit
 
 
@@ -248,16 +259,16 @@ def _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report):
         af["sj_cel"] = list(oud["sj_cel"]) if oud["sj_cel"] is not None else [nr, 0, 0]
         af["sj_vrij_buren"] = sorted(set(int(x) for x in (oud["sj_vrij_buren"] or [])) | {buur})
         af["sj_label_diepte_mm"] = oud["sj_label_diepte_mm"] or inst.label_diepte_mm
-        af["sj_labels"] = json.dumps([lb for lb in oude_labels if op_kant(lb["p"])] +
+        af["sj_labels"] = _json([lb for lb in oude_labels if op_kant(lb["p"])] +
                                      [naar_wereld(lb, R, o) for lb in labels.get(ijk, []) if not lb.get("weg")])
         af["sj_solver"] = solver
         # wall check: the new holes against this piece before its holes; the old holes kept their measured wall
-        af["sj_gaten"] = json.dumps(nieuw)
+        af["sj_gaten"] = _json(nieuw)
         controle.keur(af, ruw, b_bed, u, inst.wand_mm)
         wanden = [w for w in (af["sj_wand_mm"], oud["sj_wand_mm"] if mijn_oud else None) if w is not None and w >= 0]
         wand = min(wanden) if wanden else None
         af["sj_wand_mm"] = round(wand, 3) if wand is not None else -1.0
-        af["sj_gaten"] = json.dumps(mijn_oud + nieuw)
+        af["sj_gaten"] = _json(mijn_oud + nieuw)
         status = controle.status_uit(af["sj_past"], af["sj_gesloten"], wand, inst.wand_mm)
         controle.kleur(af, status)
         af["sj_volume_ruw_mm3"] = controle.volume_mm3(ruw, u)

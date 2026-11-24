@@ -15,7 +15,7 @@ from . import controle, kleuren, plan, snedes, uit_elkaar, verbind_3d, vormen
 from .eigenschappen import bed, eenheid_per_mm
 from .gesloten import foute_randen, is_gesloten
 
-STUKKEN = "Split Joints pieces"
+STUKKEN = "Click Cuts pieces"
 BUITEN_MM = 10.0  # outer boxes reach this far past the model
 # The cut lies this far past the plane you set: a cut exactly through existing points gave open edges in
 # Blender 4.2 (lesson from Click Joints, gewricht.py). Far below anything a printer can show.
@@ -236,6 +236,7 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
             self.report({"ERROR"}, f"These cuts make {n_cellen} cells (limit {plan.MAX_CELLEN}). Remove cuts or plan again")
             return {"CANCELLED"}
         scene["sj_geweigerd"] = ""
+        inst.uitslag = ""
         lijst, grenzen = plan.cellen(lo, hi, sn)
         ruim_oud_op(scene)
         col = nieuwe_collectie(STUKKEN, scene)

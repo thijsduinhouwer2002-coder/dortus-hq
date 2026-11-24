@@ -1,4 +1,4 @@
-name: Blender splitser e2e (Split Joints, echte Blender)
+name: Blender splitser e2e (Click Cuts, echte Blender)
 
 # Kern van het tweede Blender-product (23 nov 2026): model in stukken die op het bed passen, met pennen.
 # Toetst in echte Blender 4.2 en 5.3 op drie modellen met vrije licentie (Suzanne, vaas en schedel uit
@@ -58,7 +58,7 @@ jobs:
       - name: Add-on inpakken en valideren
         run: |
           bash e2e/maak_zip.sh
-          /tmp/blender/blender --command extension validate /tmp/split_joints.zip
+          /tmp/blender/blender --command extension validate /tmp/click_cuts.zip
       - name: Test zonder scherm (passen, waterdicht, pen in gat, nummers, export)
         env:
           BLENDER_USER_RESOURCES: /tmp/sj
@@ -66,7 +66,7 @@ jobs:
           BLENDER_USER_EXTENSIONS: /tmp/sj/extensions
         run: |
           mkdir -p /tmp/sj_uit
-          /tmp/blender/blender -b --factory-startup --python e2e/test_kern.py -- /tmp/split_joints.zip /tmp/modellen/vaas.glb /tmp/modellen/schedel.glb /tmp/sj_uit 2>&1 | tee /tmp/kern.log
+          /tmp/blender/blender -b --factory-startup --python e2e/test_kern.py -- /tmp/click_cuts.zip /tmp/modellen/vaas.glb /tmp/modellen/schedel.glb /tmp/sj_uit 2>&1 | tee /tmp/kern.log
           grep -q "KLAAR 0 FOUT" /tmp/kern.log || { echo "FOUT: kerntest"; grep "FOUT\|Traceback\|Error" /tmp/kern.log | head -60; exit 1; }
       - name: Schermafbeeldingen (Workbench-render van de stukken en een snijvlak)
         if: always()
@@ -97,7 +97,7 @@ jobs:
           [ -s /tmp/sj_uit/suzanne.blend ] || { echo "geen suzanne.blend"; exit 1; }
           /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
           timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
-            /tmp/blender/blender --gpu-backend opengl /tmp/start.blend --python e2e/scherm_paneel.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/split_joints.zip /tmp/sj_uit/suzanne.blend 2>&1 | tee /tmp/paneel.log || true
+            /tmp/blender/blender --gpu-backend opengl /tmp/start.blend --python e2e/scherm_paneel.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_cuts.zip /tmp/sj_uit/suzanne.blend 2>&1 | tee /tmp/paneel.log || true
           grep "\[sj-scherm\]\|Traceback\|Error" /tmp/paneel.log | head -20 || true
           grep -q "PANEEL OK" /tmp/paneel.log || { echo "FOUT: geen schermafbeelding van het paneel"; exit 1; }
       - uses: actions/upload-artifact@v4
@@ -115,12 +115,12 @@ jobs:
           [ -d "$D" ] && [ -n "$(ls -A "$D")" ] || { echo "geen beelden"; exit 0; }
           mkdir -p /tmp/rel
           for f in "$D"/*; do cp "$f" "/tmp/rel/blender-${{ matrix.blender }}-$(basename "$f")"; done
-          printf 'Split Joints kern, eerste versie (werknaam). Schermafbeeldingen uit de e2e in echte Blender.\n\nRun %s, commit %s.\n\nModellen: Suzanne (Blender), vaas uit GlassVaseFlowers en schedel uit ScatteringSkull (KhronosGroup glTF-Sample-Assets, CC0 1.0). Groen = past op een Bambu Lab A1 mini, waterdicht, wand rond de gaten in orde.\n' "$GITHUB_RUN_ID" "$GITHUB_SHA" > /tmp/notes.md
+          printf 'Click Cuts kern, eerste versie (werknaam). Schermafbeeldingen uit de e2e in echte Blender.\n\nRun %s, commit %s.\n\nModellen: Suzanne (Blender), vaas uit GlassVaseFlowers en schedel uit ScatteringSkull (KhronosGroup glTF-Sample-Assets, CC0 1.0). Groen = past op een Bambu Lab A1 mini, waterdicht, wand rond de gaten in orde.\n' "$GITHUB_RUN_ID" "$GITHUB_SHA" > /tmp/notes.md
           for poging in 1 2 3; do
             if gh release view "$TAG" >/dev/null 2>&1; then
               gh release upload "$TAG" /tmp/rel/* --clobber && gh release edit "$TAG" --notes-file /tmp/notes.md && break
             else
-              gh release create "$TAG" /tmp/rel/* --target "$GITHUB_SHA" --title "Split Joints kern 1 (schermafbeeldingen)" --notes-file /tmp/notes.md && break
+              gh release create "$TAG" /tmp/rel/* --target "$GITHUB_SHA" --title "Click Cuts kern 1 (schermafbeeldingen)" --notes-file /tmp/notes.md && break
             fi
             sleep $((poging * 7))
           done

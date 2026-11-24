@@ -16,12 +16,12 @@ from hulp import SCHAAL, log, stap, stukken
 
 
 def _module(naam):
-    basis = next(a.module for a in bpy.context.preferences.addons if a.module.endswith("split_joints"))
+    basis = next(a.module for a in bpy.context.preferences.addons if a.module.endswith("click_cuts"))
     return importlib.import_module(f"{basis}.{naam}")
 
 
 def snede_objecten():
-    col = bpy.data.collections.get("Split Joints cuts")
+    col = bpy.data.collections.get("Click Cuts cut planes")
     return [o for o in col.objects if "sj_as" in o] if col else []
 
 

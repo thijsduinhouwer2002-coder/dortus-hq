@@ -14,7 +14,7 @@ from .exporteer import exportmap
 from .gesloten import is_gesloten
 from .verbind_3d import EXTRA_DIEPTE_MM
 
-COLLECTIE = "Split Joints fit test"
+COLLECTIE = "Click Cuts fit test"
 AFSTAND_MM = 15.0  # room between the model and the fit test
 _GEHEUGEN = {"json": ""}  # used when the preferences are not there (add-on loaded as a plain module)
 

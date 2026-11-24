@@ -9,13 +9,13 @@ from . import drie_mf
 from .eigenschappen import eenheid_per_mm
 from .uit_elkaar import echte_plek
 
-STANDAARD = "//split_joints/"
+STANDAARD = "//click_cuts/"
 
 
 def exportmap(scene):
     pad = scene.split_joints.exportmap or STANDAARD
     if pad.startswith("//") and not bpy.data.filepath:
-        return os.path.join(tempfile.gettempdir(), "split_joints")
+        return os.path.join(tempfile.gettempdir(), "click_cuts")
     return bpy.path.abspath(pad)
 
 

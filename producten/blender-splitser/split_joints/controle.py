@@ -22,7 +22,7 @@ ROOD_WAND_MM = 0.8
 
 
 def materiaal(status):
-    naam = f"Split Joints {NAMEN[status]}"
+    naam = f"Click Cuts {NAMEN[status]}"
     mat = bpy.data.materials.get(naam)
     if mat is None:
         mat = bpy.data.materials.new(naam)

@@ -1,5 +1,5 @@
 """Runs with: blender -b --factory-startup --python e2e/test_kern.py -- <zip> <vase.gltf> <skull.gltf> <out dir>
-Installs Split Joints as an extension and splits three free models for a Bambu Lab A1 mini (180 mm).
+Installs Click Cuts as an extension and splits three free models for a Bambu Lab A1 mini (180 mm).
 Checks per model: every piece fits the bed, every piece is watertight, every pin fits its holes with the
 set clearance and is not longer than both holes, every piece has its engraved numbers, export to STL and
 3MF works (both read back and measured). Plus: a moved cut, a thin tube that gives a clear "too small" message,
@@ -13,6 +13,7 @@ import bpy
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import modellen  # noqa: E402
 import toetsen_extra  # noqa: E402
+import toetsen_klik  # noqa: E402
 import toetsen_kleur  # noqa: E402
 import toetsen_passing  # noqa: E402
 import toetsen_vrij  # noqa: E402
@@ -154,7 +155,7 @@ def main():
     log(f"Blender {bpy.app.version_string}")
     bpy.ops.extensions.package_install_files(filepath=zip_pad, repo="user_default", enable_on_install=True)
     for op in ("plan", "split", "exporteer", "maak_gesloten", "snede_erbij", "snede_weg", "vrije_snede_erbij",
-               "vrije_snede"):
+               "vrije_snede", "split_to_fit"):
         stap(f"operator split_joints.{op} bestaat", op in dir(bpy.ops.split_joints))
     for naam, maak in (("suzanne", modellen.suzanne), ("vaas", lambda: modellen.vaas(vaas_pad)),
                        ("schedel", lambda: modellen.schedel(schedel_pad))):
@@ -169,7 +170,8 @@ def main():
             traceback.print_exc()
             stap(f"{naam}: geen fout", False)
     for naam, f in (("buis", te_klein), ("extra", lambda: toetsen_extra.alles(model, uitmap)),
-                    ("passing", lambda: toetsen_passing.alles(uitmap)), ("vrij", lambda: toetsen_vrij.alles(uitmap))):
+                    ("passing", lambda: toetsen_passing.alles(uitmap)), ("vrij", lambda: toetsen_vrij.alles(uitmap)),
+                    ("klik", lambda: toetsen_klik.alles(uitmap))):
         try:
             f()
         except Exception:
@@ -179,7 +181,7 @@ def main():
 
 def verschuif(ob):
     """A cut moved by hand (5 mm along its axis): the pieces follow the plane and still fit."""
-    col = bpy.data.collections.get("Split Joints cuts")
+    col = bpy.data.collections.get("Click Cuts cut planes")
     cuts = sorted((o for o in col.objects if "sj_as" in o), key=lambda o: o.name) if col else []
     if not stap("verschuif: er is een snede", bool(cuts)):
         return

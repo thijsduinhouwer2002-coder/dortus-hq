@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Pakt Split Joints in als extensie-zip: /tmp/split_joints.zip (daarna: blender --command extension validate).
+# Pakt Click Cuts in als extensie-zip: /tmp/click_cuts.zip (daarna: blender --command extension validate).
 set -euo pipefail
 cd "$(dirname "$0")/.."
-rm -f /tmp/split_joints.zip
-(cd split_joints && zip -qr /tmp/split_joints.zip . -x '*__pycache__*')
-echo /tmp/split_joints.zip
+rm -f /tmp/click_cuts.zip
+(cd split_joints && zip -qr /tmp/click_cuts.zip . -x '*__pycache__*')
+echo /tmp/click_cuts.zip

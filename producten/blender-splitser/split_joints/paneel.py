@@ -1,7 +1,8 @@
-"""Sidebar (N), tab Split Joints: four numbered steps, each with one big button."""
+"""Sidebar (N), tab Click Cuts: printer, one big Split to fit button with a one-line result, Export, and
+the four numbered steps folded under More settings."""
 import bpy
 
-from . import controle, exporteer, passingproef, printers, schaal, snedes
+from . import controle, exporteer, in_een_klik, passingproef, printers, schaal, snedes
 from .eigenschappen import bed
 
 
@@ -16,16 +17,40 @@ ICOON = {"groen": "CHECKMARK", "oranje": "ERROR", "rood": "CANCEL"}
 
 
 class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
-    bl_label = "Split Joints"
+    bl_label = "Click Cuts"
     bl_idname = "SPLIT_JOINTS_PT_paneel"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-    bl_category = "Split Joints"
+    bl_category = "Click Cuts"
 
     def draw(self, context):
         scene = context.scene
         inst = scene.split_joints
         layout = self.layout
+
+        # one click: printer, Split to fit, result, export (keuring K3, opdracht hoofdchat 23 nov 23:35)
+        layout.label(text="Your printer")
+        layout.prop(inst, "printer", text="")
+        rij = layout.row()
+        rij.scale_y = 2.0
+        rij.operator("split_joints.split_to_fit", text="Split to fit", icon="MOD_EXPLODE")
+        uit = in_een_klik.uitslag_tekst(scene)
+        if inst.uitslag:
+            vak = layout.box().column(align=True)
+            vak.alert = True
+            vak.label(text=inst.uitslag, icon="ERROR")
+        elif uit:
+            hoofd, detail, goed = uit
+            vak = layout.box().column(align=True)
+            vak.label(text=hoofd, icon="CHECKMARK" if goed else "ERROR")
+            vak.label(text=detail)
+            if snedes.snede_objecten(scene):
+                vak.label(text="Move a cut in More settings, then Split")
+        if uit:
+            grote_knop(layout, "split_joints.exporteer", f"Export parts ({inst.formaat})", "EXPORT")
+        layout.prop(inst, "meer", icon="TRIA_DOWN" if inst.meer else "TRIA_RIGHT", emboss=False)
+        if not inst.meer:
+            return
 
         stap = layout.box()
         stap.label(text="1  Printer", icon="MOD_BUILD")
@@ -58,7 +83,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             kol = stap.column(align=True)
             for s in lijst[:MAX_RIJEN]:
                 rij = kol.row(align=True)
-                rij.prop(s, "location", index=int(s["sj_as"]), text=f"Cut {snedes.ASNAAM[int(s['sj_as'])]}")
+                rij.prop(s, "sj_plek_mm", text=f"Cut {snedes.ASNAAM[int(s['sj_as'])]} (mm)")
                 rij.operator("split_joints.snede_weg", text="", icon="X").naam = s.name
             if len(lijst) > MAX_RIJEN:
                 kol.label(text=f"and {len(lijst) - MAX_RIJEN} more cuts")
