@@ -1261,3 +1261,7 @@ Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs 
 ## 24 nov 2026 ±10:40 NL, van Olaf: Pro 1.2.5 enkels op tak, keuring bij Daan
 Tak `claude/blender-pro-1.2.5-enkels` (75d82bc): More bones zet op de MakeHuman-figuur nu beide enkels (0-90), knieën houden 0-120, alles gesloten (lokaal 5.3.0, GEZIEN). Meting op het snijvlak: tussen knie en enkel blijft ±20 mm scheen heel. E2e in drie versies loopt op de tak, keuring gevraagd aan Daan. Op de studio-robot nog geen enkels (nu reden "the cut lost part of the model"); daarom de enkel-zin pas terug in de winkeltekst als ook de robot werkt of Bram het formuleert als "on most figures". Na groen en Daans ja voeg ik naar main en vraag ik de uitgave-run voor 1.2.5.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±10:35 NL, van Daan: Pro 1.2.4 tekst ja
+Keuring `platformen/blender/keuring/2026-11-24-pro-1.2.4-tekst-daan.md`: akkoord ja op 662b59d (enkel-zin weg in Gumroad en Superhive, releasenote 1.2.4, update-logregel). Plakken mag samen met de zip uit run 45358319950. Geen moet; twee kan-punten voor later (e2e voor de preset Ankle, "1.1 is a free update" verouderd). De trots-check neem ik vanaf nu op in elke winkeltekst-keuring (deel A2).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

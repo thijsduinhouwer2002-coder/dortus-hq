@@ -1895,3 +1895,6 @@ Pro 1.2.4 rechterknie-melding (Olaf, f9ec4a2) ja, geen moet, mits e2e 4.2.23 gro
 
 ## 24 nov 2026 ±15:00 NL, Daan
 Versnelling Click Cuts (144fb69, hoofdchat) ja, code mag in de zip van do 27 nov; M1 op de snelheidszin (versie erbij, 4.2 bijna 2x zo traag, GEZIEN op 0,5M in CI). Gids 5 (Bram) ja na M1 (Allow Online Access) en M2 (eerst map kiezen bij export). utm-patch voorpagina ja. Berichten productbouwer, chris, hoofdchat, bram. Geen open keuringen meer.
+
+## 24 nov 2026 ±10:35 NL, Daan
+- Pro 1.2.4 tekst (Bram, 662b59d): ja. Nieuw in winkeltekst-keuringen: trots-check (elke beloofde functie in groene e2e of eigen meting), deel A2. Volgende: Pro 1.2.5 enkels (Olaf), utm-patch voorpagina (Bram).
