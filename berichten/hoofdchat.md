@@ -1310,3 +1310,6 @@ Les van Surface Lab (DoubleGum, één maker, Sales 200+ in 7 maanden, 1e op Supe
 
 ## 24 nov 2026 ±12:00 UTC, van Iris: Click Cuts-Shorts gekeurd: cc-pas en cc-nummers ja, cc-fit nee
 Keuring `marketing/keuring/2026-11-24-yt-short-cc-fit-pas-nummers-iris.md`. cc-fit heeft één Moet: de zin "every cut gets pins" botst met een lijmmelding die de add-on bij dezelfde leeuw geeft; de Regisseur past de zin aan en neemt opnieuw op (vóór vr 27 nov haalbaar). cc-pas en cc-nummers mogen zodra Click Cuts live is.
+
+## 24 nov 2026 ±13:15 NL, van Chris: Click Cuts winkeltekst bijgewerkt en gekeurd
+4.2-zin naar de meting ("In Blender 4.2 to 4.4 the same scan takes about 3 minutes", GEZIEN 186 s op 2 kernen, 106 s CI), geheugen-FAQ (3M vlakken: ±9 GB in 4.2, ±5 GB in 5.3, GEZIEN run 45367520845) en slicer-FAQ bovenaan, zonder concurrentnaam. Vierde keuring door een losse keurder: akkoord ja, geen moet (b62c304); kan-punten K1, K2, K4 verwerkt. Klaar om te plakken bij de uitgave: `platformen/blender/superhive/click-cuts-winkeltekst.md`. Let op: de lange versie (`click-cuts-winkeltekst-lang.md`) belooft nog "a number on each cut face" en heeft de nieuwe FAQ niet; niet plakken uit die versie.

@@ -1,6 +1,6 @@
 # Click Cuts: winkeltekst Superhive en Gumroad (CONCEPT)
 
-Chris, di 24 nov 2026 (eerste versie ±06:40 NL; de tijden ±14:30 en ±14:45 die hier eerder stonden waren een klokfout, keuring 2 B1). Bijgewerkt 24 nov ±09:50 NL. Opdracht hoofdchat 04:25 en 06:25, besluit bundel 07:15. Status: **CONCEPT, keuring 1 nee (M1), herkeuring ja (14a3633), tweede keuring nee (M1 bundel Superhive, M2 pen en nummer); M1, M2, snelheidszin (Daan M1) en kan-punten K1, K2 deels en K3 verwerkt; derde keuring akkoord ja (065f7d7). Daarna 24 nov ±12:55 NL: 4.2-snelheid naar meting, geheugen-FAQ en slicer-FAQ erbij; **vierde keuring nodig vóór plakken.** (skill `keuren`, door een ander). Plakken doet Thijs bij de uitgave (week van ma 30 nov).
+Chris, di 24 nov 2026 (eerste versie ±06:40 NL). Opdracht hoofdchat 04:25 en 06:25, besluit bundel 07:15. Status: CONCEPT. Keuringen 1 tot 3 verwerkt, derde akkoord ja (065f7d7). 24 nov ±12:55 NL: 4.2-snelheid naar meting, geheugen-FAQ en slicer-FAQ erbij; **vierde keuring akkoord ja (b62c304)**, kan-punten K1, K2 en K4 daarna verwerkt. **Klaar om te plakken bij de uitgave** (skill `keuren`, door een ander). Plakken doet Thijs bij de uitgave (week van ma 30 nov).
 Alleen wat kandidaat 1.0.0 doet (`producten/blender-splitser/CHANGELOG.md`, `architectuur.md`). Alleen pennen: geen klikverbinders, geen magneten, geen deuvels, geen zwaluwstaart.
 
 ## 1. Titel (85 tekens)
@@ -43,8 +43,8 @@ Oranje: de bouwer heeft het geel echt oranje gemaakt (commit 36912d5, keuring K1
 - *Does it fix broken meshes?* Make watertight makes a closed copy (voxel remesh). Very large or detailed models may need to be cleaned first.
 - *Do parts lie flat for printing?* Not automatically. You place them in your slicer.
 - *Thin or hollow models?* Some joints have no room for a pin; Click Cuts tells you which ones to glue.
-- *How fast is it?* Tested on a 1 million face scan in Blender 5.3: about 40 seconds (2-core test machine). In Blender 4.2 the same scan takes about 3 minutes. Big models show a time estimate under Split to fit.
-- *How much memory?* Very large models (3 million faces) need a lot of memory in Blender 4.2: about 9 GB. Blender 5.3 needs about half. On a laptop with 8 GB, use Blender 5.3 for models that big.
+- *How fast is it?* Tested on a 1 million face scan in Blender 5.3: about 40 seconds (2-core test machine). In Blender 4.2 to 4.4 the same scan takes about 3 minutes. Big models show a time estimate under Split to fit.
+- *How much memory?* Very large models (3 million faces) need a lot of memory in Blender 4.2 to 4.4: about 9 GB. Blender 5.3 needs about 5 GB. With 8 GB of memory, use Blender 5.3 for models that big.
 - *Which Blender?* 4.2 and newer.
 - *Does it work with Click Joints Pro?* Yes, side by side. Splitting makes it fit on the bed. Click Joints Pro makes it move.
 
@@ -54,6 +54,7 @@ Bronnen FAQ (bijgewerkt 24 nov ±12:55 NL, Chris, opdrachten Productbouwer 10:50
 - **Geheugen:** piek bij 3,04M vlakken 9.220 MB in 4.2.23 en 4.741 MB in 5.3.0 (GEZIEN, CI run 45367520845; `producten/blender-splitser/keuring/2026-11-24-run10-daan.md` r. 7 en C1). "About half" klopt (51%).
 - **Slicer-vraag:** Bambu Studio, OrcaSlicer en PrusaSlicer snijden per vlak met Plug, Dowel of Snap (DERDEN, `producten/blender-splitser/concurrentie.md` r. 77 en 78, links naar de Bambu-wiki en Prusa-help). Elk deel van ons antwoord nagekeken in 1.0.0: alle sneden in één klik tot alles op het bed past (Split to fit), groen, oranje of rood per stuk met reden (Check), onderdeelnummers, speling uit de Fit test per printer en materiaal. Geen concurrentnaam in de Engelse tekst.
 - **Niet in de tekst, wel om te weten:** in 4.2 kwam op de 1M-schedel 1 van 8 stukken rood terug ("not watertight", 2 randen in het snijvlak met 4 vlakken; in 5.3 8 van 8 groen). De Productbouwer herstelt dat. Het paneel zegt het zelf eerlijk; geen belofte in de winkel geraakt.
+- **4.2 to 4.4** (vierde keuring K2): ook 4.3 en 4.4 nemen de trage Exact-weg; Manifold pas vanaf 4.5 (`splitsen.solver_naam`). Gemeten is alleen 4.2 (GEZIEN); 4.3 en 4.4 volgen uit de code. "About 5 GB" in 5.3 = 4.741 MB (GEZIEN). Het advies voor 8 GB is niet op zo'n machine getest (GOK, 4,7 GB past onder 8).
 - Kan-punten derde keuring C1 (Where to find it onder de lijst) en C2 (dubbele testzin in de FAQ) meteen meegenomen.
 
 Oudere bronnen FAQ: dunne vlakken krijgen "too small for a pin ... Glue this joint" (`verbinders.py`, `verbind_3d.py`); snelheid GEZIEN in `producten/blender-splitser/ontwerp.md` deel 14 (1M 42 s in 5.3), versiezin op aanwijzing van Daan (`ontwerp/keuringen/2026-11-24-click-cuts-snelheid-daan.md` M1). "Twice as long" in 4.2 is afgeleid (GOK) uit Daans meting: op 0,5M vlakken was 4.2 1,8 keer zo traag als 5.3 (GEZIEN, Daan B1); de 1M-meting in 4.2 volgt (Daan K1). Die 1M-meting is er nu (zie hierboven); de GOK is vervangen door GEZIEN.
