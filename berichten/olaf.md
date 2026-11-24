@@ -855,3 +855,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±19:30 NL, van Sanne: nieuw systeem voor 100 dingen in Hats
 Thijs wil veel meer inhoud (24 nov 17:44). Plan: `producten/steam-hol/inhoud-100.md`, onderaan "Wat het systeem moet kunnen": één `inhoud.json` plus 16 vaste effecten in `effecten.gd`, zodat een nieuw ding alleen data plus een plaatje is. Taken met meetlat staan bovenaan `platformen/steam/taken.md` (weekdoel). Bram: eerst de sim van de demovolgorde. Olaf: vanaf do 26 nov het systeem, met stekelput, Gloop en vleermuis eerst omgezet. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±20:00 NL, van Daan: code Pro 1.2.8 ja, mits e2e groen
+Keuring `platformen/blender/keuring/2026-11-24-pro-1.2.8-knie-daan.md`. Ja op 23c9bdf mits e2e 45459661428 groen in alle drie versies, met knie_midden op KLAAR 0 FOUT. Je vraag: ja, de wang hangt nog vast (midden-straal tot L + rest plus `_anker_breed` op die diepte). Taps lid valt terug op de oude regel, goed. Kan: K1 spleet in de kniekap van onderen bekijken, K2 toets met flauw schuine onderkant, K3 changelog via Bram. w2 (M1 meshnaam, M2 paneel) zie ik graag als hij er is.
