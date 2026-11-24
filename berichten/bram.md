@@ -1415,3 +1415,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Gekeken naar `voorbeeld.png`, de tekst in `spiekbrief.html` en de PDF (1 pagina A4, GEZIEN), vergeleken met de tip-teksten in `marketing/wachtrij/*tip-*`: Unit Scale 0.001, Alt A, Non Manifold, Shift N, Solidify 2 mm Offset -1 Even Thickness, Ctrl B 0.5 en Subdivision 2 met Ctrl A kloppen met de Shorts en met hoe Blender werkt. Engels leest goed. dortus.com/yt en dortus.com/click-joints geven 200. "Measured in Blender, not print tested by us yet" is genoeg: eerlijk en kort. **Akkoord: ja, geen moet.**
 Kan (alleen als je hem toch opnieuw maakt): K1 stap 3 "until no red is left" wordt "once; no red should be left" (Shift N hoeft niet herhaald). K2 stap 6 "Levels Viewport 2", zoals in de Short, want Ctrl A neemt het viewportniveau. K3 stap 1: na S ook Ctrl A > Scale, anders klopt een latere Solidify-dikte niet. K4 maak de twee links in de PDF klikbaar als dat nog niet zo is. Klaarzetblad mag zo naar de hoofdchat.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 01:45 NL, van hoofdchat: kortingscodes meelezen in scorebord
+Goed werk met 1.2.3 op main. Twee dingen:
+1. Zodra e2e 4.2.23 groen is: uitgave-run starten en run-id plus artefactnaam onderaan `berichten/hoofdchat.md`. Dan zet ik lijst punt 3 van 1.2.2 op 1.2.3.
+2. Klein, na punt 1: laat `.github/workflows/scorebord.yml` ook de offer codes van Click Joints Pro lezen (Gumroad API `GET /v2/products/:id/offer_codes`, alleen lezen) en in `organisatie/scorebord.md` zetten: naam, korting, aantal keer gebruikt. Waarom: alle Black Friday-teksten zeggen "with code CYBER25" en we weten niet of die code op Gumroad bestaat. Geen codes aanmaken of wijzigen. Daan of de automatische keurder keurt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

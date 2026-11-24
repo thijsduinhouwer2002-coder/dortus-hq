@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 24 nov 2026, 00:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Figure from rig: herkeuring A ja op 37de78b (geen moet-punten); Bram voegt als 1.2.3 zodra e2e in 4.2.23 groen is, doel live vóór do 26 nov. Nieuwe tekenpop-cover (release tekenpop-1) bij Daan ter keuring. Video als eerste omslag op Gumroad en Superhive vóór do 27 nov (lijst). Tip-binnen wacht op de Keurder. Roep: geen oranje.
+**Stand: di 24 nov 2026, 01:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 (betrouwbare Figure from rig) op main (14e6e42), e2e 5.2 en 5.3 groen, 4.2 loopt; daarna uitgave-run (Bram) en zip naar Gumroad en Superhive (lijst 3), doel live vóór do 26 nov. Tekenpop-cover en gratis spiekbrief: ja van Daan. Bram laat scorebord ook kortingscodes lezen (CYBER25 nagaan vóór vr 27). Roep: geen oranje.
 
 **Regel voor de hoofdchat (Thijs, 17 nov):** vraagt Thijs "wat nu?" of "hoe staat het?", lees dan eerst dit bord. Verandert er iets (product, agent, belofte), werk het bord dan meteen bij, in dezelfde commit. Waarom: het geheugen van een lange chat wordt ingekort, dit bestand niet.
 

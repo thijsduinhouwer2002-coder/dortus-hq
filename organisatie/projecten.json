@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-24 00:45",
+    "datum": "2026-11-24 01:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -97,7 +97,7 @@
       "status": {
         "woord": "live",
         "kleur": "op-koers",
-        "zin": "Versie 1.1.0 live op Gumroad ($19/$24/$59) en Superhive ($12/$45). Trechter gratis naar Pro gedicht 20 nov 14:40 (site, README, Short-beschrijving, kanaallink; gekeurd). Gidspagina 1 (ball joint) live op dortus.com sinds 21 nov ±14:50 als zoekpagina naar Pro. Verkopen 0 (GEZIEN scorebord). Steunzin met link naar Pro voor de beschrijving op extensions.blender.org gekeurd (Daan ja 22 nov), staat op lijst Thijs 3b."
+        "zin": "Versie 1.1.0 live op Gumroad ($19/$24/$59) en Superhive ($12/$45); 1 verkoop $19 op 22 nov (GEZIEN scorebord). Pro 1.2.3 (betrouwbare Figure from rig) staat op main sinds 24 nov 01:10; e2e 5.2.3 en 5.3.0 groen, 4.2.23 loopt. Tekenpop-cover en gratis spiekbrief kregen ja van Daan (24 nov)."
       },
       "eigenaar": "Bram",
       "agents": [
@@ -137,7 +137,7 @@
         }
       ],
       "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
-      "laatste_update": "2026-11-23 22:45",
+      "laatste_update": "2026-11-24 01:45",
       "links": [
         {
           "naam": "Winkelpagina",

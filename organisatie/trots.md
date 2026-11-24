@@ -1,6 +1,11 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
 
+## 24 nov 2026 01:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat is nu dat kopers nog 1.1.0 krijgen (Gumroad zegt "1.1 is a free update", GEZIEN door de Verspreider-keurder 24 nov), terwijl 1.2.3 met de betrouwbare Figure from rig op main staat (14e6e42; e2e 5.2.3 en 5.3.0 groen, 4.2.23 loopt, GEZIEN in bericht Bram). Bram start de uitgave-run zodra 4.2 groen is; daarna plakt Thijs de zip (lijst punt 3, nu 1.2.3 in plaats van 1.2.2). Cover tekenpop en spiekbrief kregen ja van Daan. Af: doel live vóór do 26 nov. Superhive kon deze run niet gelezen worden (proxy 403).
+- **Idee deze ronde:** de scorebord-workflow leest voortaan ook de kortingscodes van Pro (Gumroad API, alleen lezen), zodat we vóór vr 27 nov zeker weten dat CYBER25 bestaat; anders vallen alle Black Friday-teksten met "with code CYBER25" in het water. Opdracht Bram.
+
+
 ## 24 nov 2026 01:25 NL (hoofdchat kwartier-check 5)
 - **Click Cuts:** bijna trots op het product, niet op het plan. Product: kern, passingproef en kleur gekeurd, vrije snede gebouwd (keuring volgt); schedel en Suzanne komen netjes in gekleurde stukken met pennen en "8 cells, 8 fit the bed" (GEZIEN, release splitser-kern-1). Interface: nog vier technische vakken, naam in het paneel nog "Split Joints" terwijl Click Cuts besloten is, en een snijvlak toont "-2.7806 mm" (GEZIEN, paneel-x.png 5.3.0). Marketing en opvallen: er is nog geen datum en geen winkelpagina; Dovetail Key verkoopt 800+ voor $18 maar past niet zelf op je printerbed, dat wordt onze kop (GEZIEN, curl).
 - **Idee deze ronde:** harde datum: 1.0-kandidaat do 27 nov, live week van 30 nov, bundel met Pro (score 8, opdracht Productbouwer).
