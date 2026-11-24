@@ -25,6 +25,10 @@ _src = open(os.path.join(HIER, "scherm_mens.py"), encoding="utf-8").read()
 _START = "\nbpy.app.timers.register(stap, first_interval=3.0)\n"
 assert _src.count(_START) == 1, "scherm_mens.py: de regel die de eigen volgorde start is veranderd"
 _src = _src.replace(_START, "\n")
+if os.environ.get("CJ_WINKEL_MEER", "1") == "1":  # More bones (ankles too), zodat de enkels in de lijst staan
+    _KNOP = "bpy.ops.click_joints.figuur_uit_rig()"
+    assert _src.count(_KNOP) == 1, "scherm_mens.py: de aanroep van Figure from rig is veranderd"
+    _src = _src.replace(_KNOP, "bpy.ops.click_joints.figuur_uit_rig(meer=True)")
 S = {"__name__": "scherm_mens_lib", "__file__": os.path.join(HIER, "scherm_mens.py")}
 exec(compile(_src, "scherm_mens.py", "exec"), S)
 from scherm_basis import klap_hoofdpaneel, log, open_paneel, toestand, uitmap, wiel_naar_tabblad, xdo, zijbalk, zip_pad  # noqa: E402
@@ -42,6 +46,20 @@ def niets_gekozen():
     for o in bpy.context.view_layer.objects:
         o.select_set(False)
     bpy.context.view_layer.objects.active = None
+
+
+def kies_romp():
+    """Het grootste deel van het figuur actief (de romp), zodat Figure joints de lijst en de knoppen toont en stap 3
+    de export van dit figuur. De oranje rand is uit (rustig)."""
+    delen = [o for o in bpy.context.scene.objects if o.type == "MESH" and o.get("cj_deel") and o.visible_get()]
+    if not delen:
+        return None
+    romp = max(delen, key=lambda o: len(o.data.vertices))
+    niets_gekozen()
+    for o in delen:
+        o.select_set(True)
+    bpy.context.view_layer.objects.active = romp
+    return romp
 
 
 def breder():
@@ -114,9 +132,9 @@ def ververs():
 
 
 PLAN = [
-    ("w1-figuur", lambda: (niets_gekozen(), labels_alle(), klap_hoofdpaneel(), kijk_figuur())),
+    ("w1-figuur", lambda: (kies_romp(), labels_alle(), klap_hoofdpaneel(), kijk_figuur())),
     ("w2-uitelkaar", lambda: (klap_hoofdpaneel(), setattr(bpy.context.scene.click_joints, "uit_elkaar", True),
-                              kijk_figuur())),
+                              kies_romp(), kijk_figuur())),
     ("w3-testkaart", testkaart),
 ]
 
