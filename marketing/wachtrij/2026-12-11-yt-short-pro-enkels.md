@@ -63,3 +63,8 @@ Click Joints Pro: dortus.com/yt
 ## Licenties
 - Stem: Kokoro-82M v1.0, stem af_heart (Apache-2.0, hexgrad/Kokoro-82M; kokoro-onnx MIT).
 - Figuur en rig: van ons. Software in beeld: Blender 5.3.0 (GPL) met Click Joints Pro 1.2.6 (van ons, main a1e868b).
+
+## Keuring
+- keurder: Iris, 24 nov 2026 ±16:50 UTC, `marketing/keuring/2026-11-24-yt-short-cc-fit-na-botnamen-enkels-speling-es-iris.md`
+- beeld en plezier: akkoord **ja**, Moet geen
+- Kan: grootste punt: het buigmoment is de knie, niet de enkel, en de lijst met de enkels staat niet in beeld (alleen de groene ringen); eerste beeld dichter op de voeten; Exploded view bij zin 9 nauwelijks uit elkaar.

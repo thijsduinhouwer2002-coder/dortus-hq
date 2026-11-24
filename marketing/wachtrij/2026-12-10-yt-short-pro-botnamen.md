@@ -59,3 +59,8 @@ Click Joints Pro: dortus.com/yt
 ## Licenties
 - Stem: Kokoro-82M v1.0, stem af_heart (Apache-2.0, hexgrad/Kokoro-82M; kokoro-onnx MIT).
 - Figuur en rig: van ons. Software in beeld: Blender 5.3.0 (GPL) met Click Joints Pro 1.2.0 (van ons).
+
+## Keuring
+- keurder: Iris, 24 nov 2026 ±16:50 UTC, `marketing/keuring/2026-11-24-yt-short-cc-fit-na-botnamen-enkels-speling-es-iris.md`
+- beeld en plezier: akkoord **ja**, Moet geen
+- Kan: ondertitel bij zin 7 en 8 niet over de onderste regels van de lijst.

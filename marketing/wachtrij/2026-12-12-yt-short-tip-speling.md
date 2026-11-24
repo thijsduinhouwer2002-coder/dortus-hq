@@ -50,7 +50,9 @@ Click Joints is free on Blender Extensions. More Blender tips for 3D printing: t
 - **Nieuw onderwerp:** geen Short van de laatste 14 dagen over speling meten (wachtrij en YouTube-RSS nagekeken 24 nov, GEZIEN; Sanne liep het ook na voor week 51). Verwant aan fit-hook (Fit test strip), maar ander probleem en de gratis versie.
 
 ## Keuring
-(leeg tot de Keurder komt)
+- keurder: Iris, 24 nov 2026 ±16:50 UTC, `marketing/keuring/2026-11-24-yt-short-cc-fit-na-botnamen-enkels-speling-es-iris.md`
+- beeld en plezier: akkoord **ja**, Moet geen
+- Kan: eerste beeld dichter op bal en kom; ondertitels niet over de paneelregels; Diameter 5.0 en later 17.0 (Auto) kan verwarren.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

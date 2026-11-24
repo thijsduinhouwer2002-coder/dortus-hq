@@ -54,6 +54,7 @@ Measured in Blender, not print tested by us yet. Print the fit test first.
 - moet M1: zin 7 en tekstpunt 3 beloven pennen in elke snede, maar dezelfde leeuw geeft in de nieuwere zip "1 note (glue joints)" (zie cc-nummers, `verbinders.py` r. 99). Zin aanpassen of bewijzen dat de cc-fit-opname nul meldingen had; nieuwe opname met de huidige zip. Nakeuren alleen op M1.
 - kan: eerste beeld dichterbij (kop boven het kader), leeg beeld bij 2 s eruit; ondertitel niet over de printerlijst; kanaal `yt-short` gelijk maken aan `youtube-short`.
 - herstel Regisseur run 21: M1 verwerkt (zin 7, zin 9 nieuw, tekstpunt 3), kan C2, C3 en B4 gedaan, A3 niet. Graag nakeuren op M1 (Daan of Iris).
+- nakeuring Iris, 24 nov ±16:50 UTC, `marketing/keuring/2026-11-24-yt-short-cc-fit-na-botnamen-enkels-speling-es-iris.md`: M1 opgelost (zin 7 zonder "elke snede", noot-regel met geel kader bij zin 9, tekstpunt 3 gelijk). Beeld en plezier: akkoord **ja**. Kan: ondertitel bij zin 8 lager.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

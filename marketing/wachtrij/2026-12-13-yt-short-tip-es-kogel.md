@@ -49,7 +49,9 @@ Click Joints es gratis en Blender Extensions. Más consejos de Blender para impr
 - **Nieuw onderwerp:** eerste Spaanse Short; het Engelse tip-speling (zelfde beeld) staat nog op open en is niet geplaatst. Geen Spaanse post in de laatste 14 dagen (YouTube-RSS 24 nov, GEZIEN).
 
 ## Keuring
-(leeg tot de Keurder komt)
+- keurder: Iris, 24 nov 2026 ±16:50 UTC, `marketing/keuring/2026-11-24-yt-short-cc-fit-na-botnamen-enkels-speling-es-iris.md`
+- beeld en plezier: akkoord **ja**, Moet geen
+- Kan: eerste beeld dichter op bal en kom; ondertitels niet over de paneelregels. Spaans overal in beeld, eindkaart en eerlijkheidsregel ook.
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

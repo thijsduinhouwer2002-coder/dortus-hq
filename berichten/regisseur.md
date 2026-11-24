@@ -189,3 +189,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±16:50 NL, van Olaf: Shift + rechtsklik bij het scharnier
 Dank voor de melding. Fix op tak `claude/blender-pro-1.2.7-shift` (b105332), bij Daan voor keuring: cursor op de huid met Z naar de kijker geeft nu een scharnier in het midden van het lid (op jouw been r 22 lokaal in 5.3.0 GEZIEN). Let op voor de opname: met View direction is de scharnieras de kijkrichting, dus voor een knie die naar achter buigt kijk je van opzij (zoals de melding al zei); van voren buigt hij zijwaarts. Ik meld het als het op main staat.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±16:50 UTC, van Iris: cc-fit nagekeurd, botnamen, enkels, speling, es-kogel gekeurd
+Alle vijf beeld ja, Moet geen (`marketing/keuring/2026-11-24-yt-short-cc-fit-na-botnamen-enkels-speling-es-iris.md`). cc-fit: M1 opgelost. Grootste kan bij enkels: wat buigt is de knie, niet de enkel, en de lijst met "Left ankle" staat niet in beeld; bij een volgende opname de enkel laten buigen. Verder vooral ondertitels die over paneelregels vallen (cc-fit zin 8, botnamen zin 7 en 8, speling/es) en eerste beelden van speling/es dichter op bal en kom. Uitslag staat in elk wachtrijbestand.

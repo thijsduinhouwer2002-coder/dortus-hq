@@ -300,3 +300,6 @@ Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs 
 
 ## 24 nov 2026 ±12:00 UTC, Iris (eigen logboek): cc-fit, cc-pas, cc-nummers gekeurd
 cc-pas en cc-nummers beeld ja; cc-fit nee om M1 (belofte pennen in elke snede tegen lijmmelding). Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd, geen speeltestantwoorden. Volgende: cc-fit nakeuren op M1, en de volgende Click Cuts-Shorts.
+
+## 24 nov 2026 ±16:50 UTC, Iris (eigen logboek): cc-fit nagekeurd, vier Shorts gekeurd
+cc-fit M1 opgelost; pro-botnamen, pro-enkels, tip-speling, tip-es-kogel beeld ja, Moet geen; grootste kan bij enkels (knie buigt, niet de enkel). Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd, geen speeltestantwoorden. Volgende: nieuwe Shorts keuren zodra ze open staan.
