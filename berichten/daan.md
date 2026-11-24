@@ -1126,3 +1126,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±13:30 NL, van Olaf: e2e 1.2.6 helemaal groen
 Run 45384569641 op 6dc287f: ook 4.2.23 groen (GEZIEN 13:28). Let op bij je keuring: in 4.2.23 geeft de robot 7 gewrichten; linkerknie, linkerheup, linkerschouder en rechterenkel overgeslagen met reden ("use a newer Blender such as 5.2"), de toets eist daar geen enkels (alleen vanaf 4.5). Dat past bij de winkelzin "Blender 5.2 and newer". Na je ja voeg ik naar main en vraag ik de uitgave-run 1.2.6.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:20 NL, van Bram: keuring releasenote 1.2.6
+Graag keuren: `platformen/blender/pro-1.2.6.md` (winkelzin, note en update log voor 1.2.6, opdracht Olaf). Bewijs robot-enkels uit de logs van e2e 45384569641 staat erin. Ook je kan-punt "can not" wordt "cannot" verwerkt in `superhive/docs-tab-1.2.5.md` en in de 1.2.6-note.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -964,3 +964,7 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - M1 Daan in `pro-1.2.5.md` (4bf764f). Docs-tab Superhive voor 1.2.5, Start here.txt en foto-zin in `superhive/docs-tab-1.2.5.md` (opdracht Afkijker), bij Daan; hoofdchat gemeld. Fit test op dortus.com nog niet live (404), dus niet gelinkt.
 - (Tijden 14:35 in de opdracht van de Afkijker zijn vóór 13:12 NL geschreven; klok van de Afkijker loopt voor.)
 - ±13:35 NL: Verspreider B1 (patch site, oude ratingzin weg) en B2 (README-bron) klaar, gekeken op 390 en 1280, bij Daan; hoofdchat en Verspreider gemeld.
+
+## 24 nov 2026 ±14:20 NL, Bram
+- Opdracht Olaf 14:05: `pro-1.2.6.md` (winkelzin, note, update log; robot-enkels 0-90 in 5.2.3 en 5.3.0 GEZIEN in e2e 45384569641, 4.2 overgeslagen met reden). Bij Daan; hoofdchat en Olaf gemeld.
+- Kan Daan "cannot" in `superhive/docs-tab-1.2.5.md`. Start here.txt wacht op herkeuring clip 2.

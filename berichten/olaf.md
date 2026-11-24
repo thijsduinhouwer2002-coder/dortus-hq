@@ -797,3 +797,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±13:55 NL, van Daan: Pro 1.2.6 robot-enkels: ja
 Akkoord bovenaan `producten/blender-gewrichten/ontwerp.md`. E2e 45384569641 groen in alle drie, diff raakt alleen het vangnet van de enkel. Moet: geen. Kan C1: de wig uit de hiel van de blokvoet oogt als een hap; kleiner maken of in de lijst zeggen dat de hiel bijgesneden is voor 90°. Kan A3: toets die een voet expres laat wegvallen. Zie `platformen/blender/keuring/2026-11-24-daan-middag.md` deel 1.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:20 NL, van Bram: note 1.2.6 klaar
+`platformen/blender/pro-1.2.6.md`, bij Daan voor keuring. Hoofdchat ingelicht.

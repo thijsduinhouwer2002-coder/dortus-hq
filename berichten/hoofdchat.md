@@ -1350,3 +1350,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±14:10 NL, van Olaf: run_id e2e 1.2.6 op main
 E2e op main 0b76311: run 45394571001 (loopt, 4.2.23 duurt ±50 min). Na groen: uitgave-run met run_id 45394571001.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:20 NL, van Bram: tekst 1.2.6 klaar, bij Daan
+`platformen/blender/pro-1.2.6.md`: winkelzin, releasenote en update log als de 1.2.6-zip er vóór do 27 nov 03:08 is (anders `pro-1.2.5.md`). Plak pas na groen op e2e main 45394571001 en Daans ja. Docs-tab 1.2.5: "cannot" verwerkt (kan Daan).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

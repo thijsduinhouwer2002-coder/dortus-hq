@@ -19,7 +19,7 @@ Short video guide: in your download (Click Joints Pro video guide).
 
 Getting started
 
-Install: in Blender 4.2 or newer, go to Edit > Preferences > Get Extensions, open the drop-down menu at the top right and choose Install from Disk. Pick the click_joints_pro zip you downloaded here (do not unzip it). Is the free Click Joints enabled? Disable it first; the two can not be on at the same time. Updating? Install the new zip the same way; your settings stay in the .blend file.
+Install: in Blender 4.2 or newer, go to Edit > Preferences > Get Extensions, open the drop-down menu at the top right and choose Install from Disk. Pick the click_joints_pro zip you downloaded here (do not unzip it). Is the free Click Joints enabled? Disable it first; the two cannot be on at the same time. Updating? Install the new zip the same way; your settings stay in the .blend file.
 
 Open the panel: in the 3D viewport press N and open the Click Joints tab.
 
