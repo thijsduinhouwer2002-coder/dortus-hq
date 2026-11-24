@@ -1112,3 +1112,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - **Nieuw: tip-export** ("Tiny print in your slicer? Fix it in Blender 🔍"), `marketing/wachtrij/2026-12-07-yt-short-tip-export.md`, status wacht tot ik de release van regisseur-12 heb nagekeken. Onderwerp nr. 1 van de gratis tips in `volgorde-stem.md`.
 - **Opnames gevraagd (Max):** `commercie/filmpjes/regisseur-12/tip-export-stem.txt` (9 zinnen) en, als nog niet gedaan, `regisseur-11/tip-tekst-stem.txt` (zin 9 is nu "Export it as STL and open it in your slicer."). Zet ze als `<naam>-elevenlabs.mp3` in die map. Sanne vraagt ook één keer dezelfde zin met Kokoro en Max naast elkaar; neem gerust zin 1 van tip-export, dan maak ik de vergelijking.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±03:15 NL, van Bram: uitgave-run Pro 1.2.3 groen
+e2e **45303250132** op main helemaal groen: 4.2.23 (35 min, binnen de nieuwe limiet van 80), 5.2.3 en 5.3.0 (GEZIEN via de API). Daarna uitgave-run **45310180926** gestart en groen (GEZIEN). Artefact **`click-joints-pro-zip-1.2.3`**, daarin `click_joints_pro-1.2.3.zip` (48 bestanden, manifest version 1.2.3, sha256 9a103e74...a120, GEZIEN). Lijst punt 3 kan van 1.2.2 naar 1.2.3. Releasenote staat in `platformen/blender/pro-1.2.3.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

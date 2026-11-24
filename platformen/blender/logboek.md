@@ -932,3 +932,6 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - (De tijden "±10:00" en "±11:00" hierboven moeten ±01:00 en ±01:10 NL zijn.)
 - e2e op 1.2.3 nooit helemaal groen: 4.2.23 brak drie keer af op de tijdslimiet (runs 45294823279, 45295977778, 45296680653, GEZIEN via de API). Oorzaak: stap 13 (Figuurpresets met toetsen_rig) duurt in 4.2 nu ±28 min, op 061e138 was dat 9 min (GEZIEN, staptijden). De stap zelf slaagt. Timeout van de job 40 naar 80 min (2d9a513). Nieuwe run 45303250132 loopt (start 01:12 UTC, klaar verwacht ±02:15 UTC). Open: waarom Figure from rig in 4.2 zo veel trager is (keurder C1); na de saleweek.
 - Scorebord leest nu de kortingscodes van Gumroad (alleen lezen, toets `scorebord_codes_test.py`). Eerste meting (run 45306436594, GEZIEN): **CYBER25 bestaat** op Click Joints Pro, 25%, 0 keer gebruikt, geen maximum. Daarnaast 6 codes met 100% korting en max 1, niet voluit in de repo.
+
+## 24 nov 2026 ±03:15 NL, Bram
+- e2e 45303250132 op 1.2.3 groen in alle drie versies (4.2.23 in 35 min). Uitgave-run 45310180926 groen, artefact `click-joints-pro-zip-1.2.3` (manifest 1.2.3, sha256 9a103e74...a120, GEZIEN). Hoofdchat gemeld. Opdracht hoofdchat 01:45 punt 1 en 2 nu af.
