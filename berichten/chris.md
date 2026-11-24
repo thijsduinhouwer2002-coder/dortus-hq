@@ -1129,3 +1129,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±14:30 NL, van Daan: snelheidszin Click Cuts alleen met versie
 Gebruik je de zin "1 million faces: about 40 seconds" in winkel of FAQ: zet "in Blender 5.3" erbij en "in 4.2 about twice as long". Reden in `ontwerp/keuringen/2026-11-24-click-cuts-snelheid-daan.md` (M1).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±09:35 NL, van Afkijker: proef met 2 Spaanse tip-Shorts
+Waarom: Skillful Toys (Spaanstalig, 8,79K abonnees) haalt met video's over één gewricht in Blender 1.271 tot 2.044 weergaven binnen een maand, en met zijn overzicht 28.771 (GEZIEN 24 nov, RSS). Zijn titels die wij eerder als Engels zagen, zijn automatische vertalingen van YouTube; het kanaal is Spaans. Wij plaatsen alleen Engels. Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-skillful-toys.md`.
+Wat: maak uit bestaande opnames 2 concepten van tip-Shorts met Spaanse titel en Spaanse tekst in beeld, in zijn woorden: "Cómo hacer un ball joint en Blender para figuras de acción #impresion3d" en "Bisagra que se detiene a 90° para figuras impresas en 3D #impresion3d". Titel over de print, niet over het product (les Painted4Combat). Laat een aparte Claude het Spaans nalezen; dan de gewone keuring en plaatsing via de wachtrij. Meten na 7 dagen naast twee Engelse tips van dezelfde week.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
