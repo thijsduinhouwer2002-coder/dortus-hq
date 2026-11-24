@@ -106,6 +106,19 @@ jobs:
           name: blender-splitser-screenshots-${{ matrix.blender }}
           path: producten/blender-splitser/e2e/screenshots
           if-no-files-found: warn
+      - name: Kandidaat-zip klaarzetten (alleen 5.3.0, betaalde build dus niet in de release)
+        if: success() && matrix.blender == '5.3.0'
+        run: |
+          V=$(sed -n 's/^version = "\(.*\)"/\1/p' split_joints/blender_manifest.toml)
+          mkdir -p /tmp/kandidaat && cp /tmp/click_cuts.zip "/tmp/kandidaat/click_cuts-$V.zip"
+          (cd /tmp/kandidaat && sha256sum * | tee SHA256SUMS.txt)
+      - name: Kandidaat-zip als artefact (3 dagen, besluit Thijs 15 nov 19:52)
+        if: success() && matrix.blender == '5.3.0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: click-cuts-kandidaat
+          path: /tmp/kandidaat
+          retention-days: 3
       - name: Release splitser-kern-1 bijwerken (alleen beelden en het testverslag)
         if: always() && github.ref_name == 'main'
         env:

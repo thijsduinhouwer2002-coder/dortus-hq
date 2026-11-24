@@ -165,8 +165,14 @@ def alles(uitmap=None):
     weg = [o for o in bpy.context.scene.objects if o.get("sj_vrij")]
     for o in weg:
         bpy.data.objects.remove(o)
-    # a parallel plane 3 mm past the bottom of the hole does cut
-    op_gat(g["diepte"] + 3.0)
+    # the 1.2 mm limit itself (keuring K7): 1.0 mm past the bottom is refused, 1.5 mm past it cuts
+    op_gat(g["diepte"] + 1.0)
+    r = knip()
+    stap("vrij: 1,0 mm voorbij het gat nog geweigerd", r == {"CANCELLED"} and len(stukken()) == 2 and
+         "pin hole" in LAATSTE[0], f"{r} '{LAATSTE[0][:90]}'")
+    for o in [o for o in bpy.context.scene.objects if o.get("sj_vrij")]:
+        bpy.data.objects.remove(o)
+    op_gat(g["diepte"] + 1.5)
     r = knip()
     stap("vrij: snede net voorbij het gat snijdt wel", r == {"FINISHED"} and len(stukken()) == 3,
          f"{r} {len(stukken())} '{LAATSTE[0][:90]}'")
