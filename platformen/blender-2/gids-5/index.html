@@ -33,11 +33,11 @@
       { "@type": "HowToTool", "name": "Click Joints (free Blender add-on)" }
     ],
     "step": [
-      { "@type": "HowToStep", "name": "Install Blender and Click Joints", "text": "Download Blender for free from blender.org. In Blender: Edit, Preferences, Get Extensions, search joints, Install." },
+      { "@type": "HowToStep", "name": "Install Blender and Click Joints", "text": "Download Blender for free from blender.org. In Blender: Edit, Preferences, Get Extensions. The first time, click Allow Online Access. Then search joints and click Install." },
       { "@type": "HowToStep", "name": "Import the STL", "text": "Delete the default cube, then File, Import, STL. Press N and open the Click Joints tab." },
       { "@type": "HowToStep", "name": "Check mesh and convert to mm", "text": "Click Check mesh. If the size is wrong, click Convert to mm. If the mesh is not watertight, click Make watertight." },
       { "@type": "HowToStep", "name": "Place one joint", "text": "Shift + right click on a thick spot of a limb, choose Ball and click Place joint. Green means a good fit." },
-      { "@type": "HowToStep", "name": "Export 3MF", "text": "Pick 3MF and click Export. You get one file per part, in millimetres, ready for your slicer." }
+      { "@type": "HowToStep", "name": "Export 3MF", "text": "Pick a folder (for example your Desktop) with the folder icon next to Folder, pick 3MF and click Export. You get one file per part, in millimetres, ready for your slicer." }
     ],
     "publisher": { "@type": "Organization", "@id": "https://dortus.com/#org", "name": "Dortus", "url": "https://dortus.com/" },
     "inLanguage": "en"
@@ -79,7 +79,7 @@
           <h3 id="crash-course">Blender in two minutes</h3>
           <ol>
             <li><strong>Get Blender.</strong> It is free: download it from <a href="https://www.blender.org/download/">blender.org</a>. You need version 4.2 or newer.</li>
-            <li><strong>Install Click Joints.</strong> In Blender: Edit, Preferences, Get Extensions, search <em>joints</em>, Install. It is a free add-on made by us at Dortus.</li>
+            <li><strong>Install Click Joints.</strong> In Blender: Edit, Preferences, Get Extensions. The first time, click <em>Allow Online Access</em>. Then search <em>joints</em> and click Install. It is a free add-on made by us at Dortus.</li>
             <li><strong>Make room.</strong> A new file starts with a grey cube. Click it and press X, then Delete.</li>
             <li><strong>Import your STL.</strong> File, Import, STL (.stl), pick the file.</li>
             <li><strong>Open the panel.</strong> Move the mouse over the 3D view and press N. A sidebar opens on the right; click the tab <em>Click Joints</em>.</li>
@@ -110,7 +110,7 @@
         </figure>
         <div class="prose">
           <h3 id="export">Export for your slicer</h3>
-          <p>Under 3 Fit and export pick <em>3MF</em> and click <em>Export 3MF</em>. Leave Folder empty and the files go to a temporary folder, or pick your own folder first. You get one file per part (on our figure <code>figure_A.3mf</code> and <code>figure_B.3mf</code>), in millimetres, so the slicer shows the right size.</p>
+          <p>Under 3 Fit and export pick <em>3MF</em> and click <em>Export 3MF</em>. Pick a folder first (for example your Desktop) with the small folder icon next to <em>Folder</em>, so you can find the files again. You get one file per part (on our figure <code>figure_A.3mf</code> and <code>figure_B.3mf</code>), in millimetres, so the slicer shows the right size.</p>
           <h3 id="slicer">In the slicer</h3>
           <ul>
             <li><strong>Print a test joint first.</strong> Every printer is different. Our free <a href="/click-joints/#fit-test">fit test strip</a> prints five joints from 0.10 to 0.30 mm clearance. Print them flat end down, no supports, and use the clearance that turns smoothly without wobble.</li>

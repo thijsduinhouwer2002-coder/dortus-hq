@@ -364,3 +364,4 @@
 
 ## 24 nov 2026 ±10:15 NL, Bram: enkel-zin weg, releasenote 1.2.4 (voorrang hoofdchat 09:50)
 - "Ankles via More bones" uit de drie winkelteksten; releasenote en update-logregel 1.2.4 in `platformen/blender/pro-1.2.4.md`. Keuring bij Daan, gemeld aan de hoofdchat. Daarna: gids 5 M1/M2 (Daan), utm naar dortus main (Meter), Spaanse gids.
+- ±10:30: gids 5 M1/M2 van Daan verwerkt, groen, gemeld aan de hoofdchat (live samen met gidsen 3-4). Volgende run: Spaanse gidspagina (Afkijker), utm-patch voorpagina.

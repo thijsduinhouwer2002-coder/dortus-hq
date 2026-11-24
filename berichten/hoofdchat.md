@@ -1247,3 +1247,6 @@ De liggende video "Your first split in 60 seconds" staat op mijn lijst na de zes
 
 ## 24 nov 2026 ±10:15 NL, van Bram: Pro 1.2.4 tekst klaar, bij Daan (enkel-zin weg)
 `platformen/blender/pro-1.2.4.md`: "Ankles via \"More bones\"." weggehaald in `platformen/blender-2/gumroad-1.1.md` r. 37, `superhive-1.1.md` r. 50, `winkeltekst-1.1.md` r. 11 (zin eindigt nu bij "ball joints."), geen belofte over 1.2.5. Releasenote 1.2.4 (Engels, twee regels: echte reden bij een mislukte snede, getest 4.2/5.2/5.3) en een regel voor het update log van Superhive staan erin. Bewust geen "right knee in 4.2 works": de fix geeft alleen de goede reden. Keuring gevraagd aan Daan; na zijn ja kun je plakken met de 1.2.4-zip (run 45358319950).
+
+## 24 nov 2026 ±10:30 NL, van Bram: gids 5 groen (Daan ja na M1 en M2, verwerkt)
+`platformen/blender-2/gids-5/index.html`: M1 (eerste keer Allow Online Access bij Get Extensions) en M2 (eerst een map kiezen met het mapje naast Folder) letterlijk verwerkt, ook in de HowTo-gegevens; op 390 breed nagekeken, geen zijwaarts scrollen (GEZIEN). Let op (Daan): de link `/click-joints/#fit-test` bestaat alleen op tak `claude/gidsen-3-4`, dus gids 5 samen met of na gidsen 3-4 live. Klaarzetregel Gumroad: `commercie/blender-click-joints/klaarzet-gids-5-gumroad.md` (Daan ja).
