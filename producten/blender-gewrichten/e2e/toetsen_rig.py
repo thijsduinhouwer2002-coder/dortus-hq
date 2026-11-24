@@ -136,6 +136,16 @@ def main():
     check("neck" in rigm.kogel_reden("NECK", None) and "neck" in rigm.kogel_reden("NECK", "nothing was cut")
           and rigm.kogel_reden("NECK", "the cut left a loose piece here, place it by hand").startswith("the cut left"),
           "nek: leesbare reden in plaats van 'not placed'")
+    # 1.2.4 (rechterknie kleding 4.2): mislukt de snede op de eerste plek, dan wint die reden, niet de noodplek
+    tight = "Tight: too little limb past this joint to click. Try a spot further from the end"
+    over = "The parts overlap before they move; the mesh is unchanged."
+    check(rigm.reden_eerste(over, tight) == over
+          and rigm.reden_eerste("The cut gave no watertight parts (bad edges: part A 3, part B 0)", tight).startswith("The cut gave")
+          and rigm.reden_eerste("The cut failed; the mesh is unchanged.", tight).startswith("The cut failed"),
+          "eerste plek: misgelukte snede wint van de noodplek")
+    check(rigm.reden_eerste("Too thin here for a hinge. Try a thicker spot", tight) == tight
+          and rigm.reden_eerste(None, tight) == tight and rigm.reden_eerste(over, None) == over,
+          "andere eerste redenen: de oude volgorde blijft")
     g36 = rigm.geen_ruimte("too close to another joint, keep 36 mm apart", "Left hip", 38.0)
     check(g36 is not None and "next to the knee" in g36, f"36 mm op een dij van 38: geen ruimte ({g36})")
     check(rigm.geen_ruimte("too close to another joint, keep 20 mm apart", "Left hip", 38.0) is None,

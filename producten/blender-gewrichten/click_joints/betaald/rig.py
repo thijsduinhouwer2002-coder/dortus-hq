@@ -219,6 +219,21 @@ def kogel_reden(sleutel, melding):
     return "no clean spot for a shoulder ball on this upper arm (arm touches the body or is short), place it by hand"
 
 
+# Pro 1.2.4 (Olaf, 24 nov, kleding-figuur in 4.2, run 45295977807): de rechterknie mislukte op de plek op het bot met
+# "overlap before they move", daarna kwamen noodplekken verder van het bot, en de lijst toonde de reden van de laatste
+# ("Tight ... Try a spot further from the end"). Wie dat volgt, zoekt op de verkeerde plek. Mislukte de snede zelf op
+# de eerste plek, dan is dat de echte reden en wint die. Andere eerste redenen (te dun, te dicht) laten de oude
+# volgorde staan, want daar zeggen latere plekken vaak meer.
+SNEDE_MIS = ("overlap before they move", "no watertight parts", "the cut failed")
+
+
+def reden_eerste(eerste, laatste):
+    """De reden voor de lijst: die van de eerste kandidaat als daar de snede zelf misging, anders de laatste."""
+    if eerste and any(s in eerste.lower() for s in SNEDE_MIS):
+        return eerste
+    return laatste
+
+
 # ---------- Operator "Figure from rig" (bpy alleen hieronder, zodat de naamregels zonder Blender te toetsen zijn) ----------
 import bpy  # noqa: E402
 from bpy.props import BoolProperty  # noqa: E402
@@ -696,6 +711,7 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 eigen_n = len(kandidaten)
             from . import afstand, een_lid_diep
             andere, eerste = [], None
+            eerste_kand = None  # 1.2.4: kernmelding van de eerste plek (op het bot), zie reden_eerste
             for poging_kk in ((0, 1) if soort != "HINGE" else (0,)):
                 if poging_kk == 1:
                     # Run 21: tweede poging zonder de kernregel kogel naast kogel. Die regel rekent met bollen en ziet
@@ -724,6 +740,8 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                         ok, melding, nieuw = figuur.plaats_gewricht(context, sleutel, naam, stop[0] if stop else 0, herkomst)
                     finally:
                         een_lid_diep.ALTIJD_H[0] = False
+                    if i == 0 and not ok and eerste_kand is None:
+                        eerste_kand = melding
                     if ok:
                         # Run 27: ook zonder H (een_lid) kan een snede een kruimel van 0,1 mm achterlaten, ver van het
                         # gewricht (MakeHuman-mens: 4 punten bij de rechterelleboog na de rechterschoudersnede). Zelfde
@@ -774,6 +792,8 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                     ok = False
             if not ok and eerste is not None:
                 melding, vangnet, geblokkeerd = eerste  # de reden van de eerste poging telt
+            if not ok:
+                melding = reden_eerste(eerste_kand, melding)  # 1.2.4: de plek op het bot, niet de noodplek
             if not ok and vangnet:
                 melding = vangnet  # de echte reden; latere plekken zeggen vaak alleen "nothing was cut"
             if not ok and soort != "HINGE":
