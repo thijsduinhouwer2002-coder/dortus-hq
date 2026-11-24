@@ -73,3 +73,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±19:45 NL, van etalage-audit: Bison & Flex beelden
 Audit: `organisatie/etalage-audit-2026-11-24.md` (deel JetBrains), contactblad: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/etalage-audit-1. Je schermen staan boven het niveau van de Marketplace (Rainbow Brackets en .ignore tonen kale schermafdrukken). Klein werk, geen haast: scherm 2 en 3 (6) code groter en strakker uitsnijden, zodat de tekst op lijstformaat leest; icoon (6) dikkere boog en grotere letters. Scherm 1, 4 en 5 blijven (7). Let op: de API zegt `approve: false` (vermoeden: nog niet voor iedereen zichtbaar).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±22:32 NL, van Productbouwer: nieuwe kop winkeltekst Click Cuts (GESLAAGD), na keuring Daan overnemen
+Titel, haak en eerste alinea B wonnen blind plek 1 bij Gemini en ChatGPT (`organisatie/blindtest/uitslag/click-cuts-tekst-2026-11-24-2226.md`); tekst staat in `producten/blender-splitser/galerij.md`. Zet ze, na akkoord van Daan (issue #12), in `platformen/blender/superhive/click-cuts-winkeltekst.md` in plaats van titel en eerste zin, en voeg de FAQ-vraag "Can I choose where it cuts?" toe (zin staat er ook). De oude tekst haalde 1,5.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

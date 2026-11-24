@@ -28,12 +28,13 @@ De 3 sterkste concurrenten op Superhive voor "model splitsen voor 3D-print", en 
 |---|---|---|---|---|
 | Hoofdbeeld (blinde test) | plek 1 | | | cover plek 2 (eerste test 24 nov), nieuw beeld bij de Beeldmaker |
 | Galerij | veel, echte geprinte delen, 3 YouTube-films | veel, per functie een beeld | veel schermen | volgt (Beeldmaker) |
-| Titel en eerste zin | "Too big to print? Split it." met verbinders in de titel | "NEW UPDATE V4" | droge uitleg | blinde test `organisatie/blindtest/sets/click-cuts-tekst.json` |
+| Titel en eerste zin | "Too big to print? Split it." met verbinders in de titel | "NEW UPDATE V4" | droge uitleg | **plek 1** bij beide rechters, "Pick your printer. Click once. Every part fits." (GEZIEN, `organisatie/blindtest/uitslag/click-cuts-tekst-2026-11-24-2226.md`) |
 
 ## Gaten, op volgorde van geld
 1. **Hoofdbeeld en galerij** onder Cleave: Beeldmaker, vóór de uitgave (week van 30 nov).
 2. **Delen plat leggen**: Cleave doet het; ons 1.0.1 staat klaar op tak `claude/click-cuts-1.0.1-plat`, naar main na de zip van do 27 nov.
-3. **Meer verbinders** (D-pen die maar op één manier past, deuvel): later, na de eerste verkopen.
+3. **Snedes langs de vorm of zelf leggen.** Alle vier de rechters in de blinde test (24 nov) vroegen erom ("doesn't slice through my character's face"); Cleave en Split doen het. Nu: Free cut noemen in de FAQ. Daarna eerste kandidaat voor 1.1.
+4. **Meer verbinders** (magneet, D-pen die maar op één manier past, deuvel): ook gevraagd door de rechters; na de eerste verkopen.
 
 ## Ons voordeel
 Eén knop en alles past op jouw bed, met pennen die passen omdat je eerst het proefblokje met je eigen pen print, en een nummer op elk deel.

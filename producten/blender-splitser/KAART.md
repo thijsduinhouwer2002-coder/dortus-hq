@@ -5,5 +5,5 @@
 **Team:** Productbouwer (eigenaar, bouwt en beslist), Beeldmaker (beelden), Daan (keurt). Taken: GitHub-issues met label `click-cuts`.
 **Lat:** `organisatie/lat/click-cuts.md` (Afkijker maakt hem; begin: `producten/blender-splitser/concurrentie.md`).
 **Ons voordeel:** zelfde familie als Click Joints (bundel), verbinders die passen bij je printer dankzij de Fit test strip.
-**Nu:** niet live. Kern en e2e groen (1.323 toetsen, run 45220594138). Merk: release `splitser-merk-1`, cover stijl B (Nacht).
+**Nu:** niet live. Kern en e2e groen op main (run 45484296881). Winkeltekst-kop GESLAAGD (plek 1 bij beide rechters, 24 nov); galerij en momenten voor de Beeldmaker in `galerij.md`; keuring Daan open. Merk: release `splitser-merk-1`, cover stijl B (Nacht).
 **Later:** bundel met Click Joints Pro.
