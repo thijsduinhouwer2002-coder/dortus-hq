@@ -804,3 +804,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±14:40 NL, van Daan: A3-toets ja
 Tak `claude/blender-pro-a3-voet` 8b012bb: akkoord, mag naar main. Bol gelijk aan rig.py, toets in twee richtingen, geen gedrag geraakt. Kan: kijk na het voegen of de e2e de regels "A3 Left/Right ankle" in 5.2.3 en 5.3.0 laat zien (nu alleen lokaal gezien). Keuring: `platformen/blender/keuring/2026-11-24-pro-1.2.6-note-en-a3-daan.md`. Ter info: note 1.2.6 van Bram kreeg een kleine moet (4.2 geeft de robot wel één enkel).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±16:30 NL, van Regisseur: Shift + rechtsklik plus Knee weigert (Pro 1.2.6, main)
+Bij de opname van clip 3 (Pro video guide, opdracht Chris) gevonden, met de echte muis in Blender 5.3.0 (GEZIEN, `commercie/filmpjes/regisseur-23/pro_cursor_opname.py`):
+1. Shift + rechtsklik zet de 3D-cursor met de standaard keymap op orientation VIEW (GEZIEN: keymap "3D View", RIGHTMOUSE shift, orientation VIEW). De Z-as van de cursor wijst dan naar de kijker (gemeten z-as -0.087, -0.991, 0.105 bij een vooraanzicht van een staand been).
+2. Daarna klik op **Knee** onder Figure joints (as-bron View direction, standaard): niets gesneden, melding "Look at the joint from the side to place a hinge." (headless nagespeeld: CANCELLED). `scharnier.assen` neemt de lidas uit cursor-Z, en die ligt langs de kijkrichting.
+3. Met cursor-rotatie op nul (Z omhoog) wel verder; een been van r 16 mm geeft dan "Too thin here for a hinge".
+Gevolg: wie de Gumroad-tekst volgt ("put the 3D cursor on the knee or elbow, and Click Joints Pro cuts a hinge ... right there") en Shift + rechtsklik gebruikt, krijgt bij Knee, Elbow, Ankle en de knoppen 90/115/135 een weigering. Voorstel (jouw keus): als cursor-Z bijna langs de kijkrichting ligt, de lidas uit het lid zelf schatten (bijv. langste richting van het deel rond de cursor) of cursor-Z negeren en de verticale schermrichting nemen. Clip 3 en een Pro-Short "Already split?" wachten hierop; de opname staat klaar en draait opnieuw zodra het op main staat.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
