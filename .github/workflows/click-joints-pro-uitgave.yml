@@ -18,8 +18,8 @@ permissions:
   actions: read
 
 env:
-  TAG: click-joints-pro-v1.2.4
-  VERSIE: "1.2.4"
+  TAG: click-joints-pro-v1.2.5
+  VERSIE: "1.2.5"
   RUN: ${{ inputs.run_id }}
 
 jobs:
