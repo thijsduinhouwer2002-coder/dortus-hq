@@ -70,28 +70,53 @@ def _onderkant(hit, zij, omlaag):
     return c_hit >= ONDER_COS and hoek_hit <= hoek_zij - DRAAI_MIN
 
 
-def zaag_diepte(bvh, frame, m):
+def zaag_diepte(bvh, frame, m, u=1.0):
     """Kleinste afstand van H (z = 0) tot de huid langs -Z (de lidas omlaag, naar de onderkant van deel A),
     gemeten midden in beide sleuven; None als geen straal iets raakt. De sleuf loopt door het hele lid langs de
     buigkant, dus behalve in het midden en op de helft ook vlak bij beide randen (0,95 van de zijmaat langs +Y
     en -Y op die plek): bij een schuine of afgeronde onderkant ligt de huid daar het dichtst bij H. Het midden
-    telt altijd, dus onder de sleuf blijft daar steeds minstens max(t, 0,8 mm) materiaal (maten_neus)."""
+    telt altijd, dus onder de sleuf blijft daar steeds minstens max(t, 0,8 mm) materiaal (maten_neus).
+
+    1.2.8 (Regisseur 24 nov, robot van regisseur-24): precies op het midden van de knie raakte de randstraal aan
+    de voorkant de schuine onderkant van de kniekap, 19 mm onder H, terwijl de scheen daaronder gewoon doorloopt.
+    Dan gaf het Tight, 12 mm hoger niet. Zo'n uitstekende rand is geen onderkant: zaagt de sleuf erdoor, dan hangt
+    de wang nog aan de scheen. Daarom tellen de randen niet als het lid onder de volle sleuf (op lip plus rest,
+    dezelfde maat als maten_neus) in het midden nog doorloopt en aan beide kanten minstens half zo breed is als
+    bij H (_anker_breed). Een echte onderkant (rond, schuin, afgeplat) is daar smaller of al voorbij."""
     xm = m["tw"] + (ZAAG_X[0] + ZAAG_X[1]) / 2 * m["s"]
     rot = frame.to_3x3()
     omlaag = (rot @ Vector((0, 0, -1))).normalized()
+    t = m["wx"] - m["tw"] - m["s"]
+    nodig = ZAAG * 2 * m["wy"] + max(t, ZAAG_REST_MM * u)
     diepte = None
     for x in (xm, -xm):
         ys = [(0.0, None)]
+        randen = {}
         for teken in (1, -1):
             # Zijstraal op de bovenkant van de sleuf (z = -s/4), net onder H: daar begint deel A.
             zij = bvh.ray_cast(frame @ Vector((x, 0.0, -m["s"] / 4)), (rot @ Vector((0, teken, 0))).normalized())
             rand = zij[3] if zij[0] is not None else m["wy"]
+            randen[teken] = rand
             ys += [(teken * f * rand, zij[1] if zij[0] is not None else None) for f in (0.5, 0.95)]
+        midden = bvh.ray_cast(frame @ Vector((x, 0.0, 0.0)), omlaag)
+        alleen_midden = midden[0] is not None and midden[3] >= nodig and _anker_breed(bvh, frame, rot, x, nodig, randen)
         for y, zij_n in ys:
-            hit = bvh.ray_cast(frame @ Vector((x, y, 0.0)), omlaag)
+            if alleen_midden and y != 0.0:
+                continue
+            hit = midden if y == 0.0 else bvh.ray_cast(frame @ Vector((x, y, 0.0)), omlaag)
             if hit[0] is not None and (y == 0.0 or _onderkant(hit[1], zij_n, omlaag)):
                 diepte = hit[3] if diepte is None else min(diepte, hit[3])
     return diepte
+
+
+def _anker_breed(bvh, frame, rot, x, z, randen):
+    """Is het lid op diepte z onder H (onder de volle sleuf) aan beide kanten minstens half zo breed als bij H?
+    Zijstralen vanuit het midden langs +Y en -Y; geen treffer telt als niet breed (dan zitten we buiten het lid)."""
+    for teken, rand in randen.items():
+        hit = bvh.ray_cast(frame @ Vector((x, 0.0, -z)), (rot @ Vector((0, teken, 0))).normalized())
+        if hit[0] is None or hit[3] < 0.5 * rand:
+            return False
+    return True
 
 
 def maten_neus(m, u, diepte=None):

@@ -152,7 +152,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         maat, reden = vorm.maten(bvh, frame, s, stand, u)
         if maat is not None:
             # Eis 3: klikneus en rek, of Tight (dan geen scharnier); de sleuf nooit door de onderkant van A.
-            reden = neus.maten_neus(maat, u, neus.zaag_diepte(bvh, frame, maat))
+            reden = neus.maten_neus(maat, u, neus.zaag_diepte(bvh, frame, maat, u))
             maat = None if reden else maat
         if maat is None:
             bpy.data.meshes.remove(me)

@@ -30,7 +30,7 @@ jobs:
         # Vaste versies bij een push; week-test.yml leest deze lijst en geeft zijn eigen lijst mee.
         blender: ${{ fromJSON(inputs.blender || '["4.2.23", "5.2.3", "5.3.0"]') }}
     env:
-      PRO_VERSIE: "1.2.7"
+      PRO_VERSIE: "1.2.8"
     defaults:
       run:
         working-directory: producten/blender-gewrichten
@@ -233,6 +233,10 @@ jobs:
           BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
             /tmp/blender/blender -b --factory-startup --python e2e/toetsen_robot_meer.py -- /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/robot_meer.log
           grep -q "KLAAR 0 FOUT" /tmp/robot_meer.log || { echo "FOUT: More bones geeft op de studio-robot geen enkels"; exit 1; }
+          # Knie precies op het midden (1.2.8, Regisseur 24 nov): de rand van de kniekap gaf Tight, 12 mm hoger niet.
+          BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_knie_midden.py -- /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/knie_midden.log
+          grep -q "KLAAR 0 FOUT" /tmp/knie_midden.log || { echo "FOUT: geen scharnier op het midden van de robotknie"; exit 1; }
           # Auto-Rig Pro-namen (17 nov run 25, Lars verhaal 26): zelfde mens en rig, botten als forearm_stretch.l, neck.x.
           CJ_RIG_NAMEN=arp BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
             /tmp/blender/blender -b --factory-startup --python e2e/toetsen_mens.py -- /tmp/click_joints_betaald.zip /tmp/mh_base.obj 2>&1 | tee /tmp/mens_arp.log
