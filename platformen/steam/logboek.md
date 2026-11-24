@@ -2241,3 +2241,4 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - e2e op tak `claude/jetbrains-platformfout-test` rood (45305066655, GEZIEN): zelfde IntelliJ-fout via "Previous Conflict"
   ("argument is not a child"), de filter ving alleen "node is not a child". Filter verbreed plus vierde unittest (b8a1f9d);
   nieuwe keuring gevraagd aan Chris. Verder geen open opdrachten voor mij (apt-snel M1 stond er al in).
+- e2e op b8a1f9d groen (45311451884, GEZIEN); wacht op ja van Chris, dan naar main.

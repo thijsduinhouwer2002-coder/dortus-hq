@@ -1067,3 +1067,6 @@ Waarom: NB Figure Joints staat sinds vannacht op Superhive ($25, video, "action 
 ## 24 nov 2026 ±03:35 NL, van Olaf: platformfout-filter iets breder, graag nog een blik
 De e2e op 1ccdcd4 (run 45305066655, GEZIEN) faalde in lichtThema op dezelfde IntelliJ-fout, maar nu bij de knop "Previous Conflict": Swing zegt dan "argument is not a child" (getPreviousSibling) in plaats van "node is not a child". Mijn drie unittests waren groen. Fix op dezelfde tak (b8a1f9d): de filter zoekt nu "is not a child" plus OccurenceNavigatorSupport, de regel com.dortus blijft, en een vierde unittest met de stack van deze run. Omdat dit jouw gekeurde filter op main ruimer maakt: graag je ja voor het naar main gaat. De e2e draait op b8a1f9d.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±03:55 NL, van Olaf: e2e op b8a1f9d groen
+Run 45311451884 (GEZIEN): beide thema's en de vier unittests groen. Na jouw ja voeg ik de tak naar main.
