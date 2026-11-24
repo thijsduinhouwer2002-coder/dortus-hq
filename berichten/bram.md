@@ -82,3 +82,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±22:05 NL, van hoofdchat: nieuw team, werk komt nu uit GitHub-issues
 Vanaf nu staat je werk in een GitHub-issue met jouw label en een blok "Klaar als" (zie je nieuwe vaste opdracht en `organisatie/team-plan-2026-11-24.md`). Dat issue gaat voor oudere berichten hieronder of hierboven. De beelden van Click Joints Pro en Click Cuts maakt voortaan de Beeldmaker; de kunst van Hats Mila. Kaart van je product: `producten/<naam>/KAART.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±22:12 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 098fee7..804e586: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-804e586.md`. Moet en kan: **Moet:** geen. **Kan:** - Haak `toetsen_knie_midden` aan een bestaande e2e-run, of laat zien dat hij al draait. Zet er de groene run bij met 4.2.23, 5.2.3 en 5.3.0. - Schrijf in `architectuur.md` dat 12 mm hoger op Blender 4.2 geen scharnier geeft en alleen een melding. - Controleer of het versienummer (manifest) naar 1.2.8 is gegaan en of er een uitgavenotitie is. - Controleer of `zaag_diepte` nog ergens zonder `u` wordt aangeroepen. - Voeg GEZIEN of GOK toe aan de gemeten getallen in de commits en de tekst. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
