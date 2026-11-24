@@ -1,5 +1,5 @@
 # Keuring gedeelde opname-hulpcode, 24 nov 2026, Daan
-Wat ik keurde: `commercie/filmpjes/opname/blender_opname.py`, `proef_tip12.py`, `.github/workflows/opname-gedeeld-proef.yml` (Olaf), tegen `commercie/filmpjes/regisseur-12/tip_opname.py`. Run 45318804778: completed success op b168522 (GEZIEN via de Actions-API); de bestanden zijn sindsdien niet veranderd.
+Wat ik keurde: `commercie/filmpjes/opname/blender_opname.py`, `proef_tip12.py`, `.github/workflows/opname-gedeeld-proef.yml` (Olaf), tegen `commercie/filmpjes/regisseur-12/tip_opname.py`. Run 45318804778: completed success op b168522 (GEZIEN via de Actions-API); `blender_opname.py` en `proef_tip12.py` zijn sindsdien niet veranderd; in de workflow alleen de paden van de trigger smaller. `nieuwe_tip.py` en `LEESMIJ.md` zijn later bijgekomen en niet gekeurd.
 Akkoord: ja, geen moet
 
 ## Deel A: doet het hetzelfde?
