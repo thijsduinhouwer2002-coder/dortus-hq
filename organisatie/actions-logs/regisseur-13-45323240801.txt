@@ -1,0 +1,62 @@
+# gemaakt: 2026-11-24T04:10:17Z
+# workflow: Regisseur 13 (tip-reeks 11: model in twee stukken, Merge by Distance) (.github/workflows/regisseur-13.yml)
+# run: 45323240801 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45323240801
+# commit: 7ec7a42d tak main gestart door push
+# mislukte stappen: tips: Controle (synchroon, geluid, lengte)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== tips / Controle (synchroon, geluid, lengte) (laatste 53 van 53 regels) =====
+##[group]Run cd /tmp/klaar
+cd /tmp/klaar
+ok=0
+for n in tip-dubbel; do
+  mkdir -p meting-$n
+  python $[weggehaald: lange base64-reeks].py $n-geluid.mp4 $n-groot-script.json meting-$n || ok=1
+  for f in meting-$n/*; do mv "$f" "$(basename ${f%.*})-$n.${f##*.}"; done
+  d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $n-geluid.mp4)
+  echo "$n $d s" | tee -a lengtes.txt
+  python -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: $n is $d s"; ok=1; }
+done
+python $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py *.mp4 | tee geluid_check.txt
+grep -q "FOUT" geluid_check.txt && ok=1
+sha256sum *.mp4 | tee SHA256SUMS.txt
+exit $ok
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-13
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+  PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+  Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+  WHISPER_MODEL: small.en
+##[endgroup]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+# Synchroon-meting tip-dubbel-geluid.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **GOED**, 9 van 9 zinnen binnen 0.3 s; grootste verschil 0.18 s, gemiddeld 0.127 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.18 | 0.18 | 11/11 | ja | Is your model secretly in two pieces? Check it in Blender. |
+| 2 | 3.8 | 4.02 | 3.91 | 0.11 | 9/9 | ja | Press Tab, point at the top, and press L. |
+| 3 | 6.47 | 6.6 | 6.59 | 0.123 | 10/10 | ja | Only the top lights up. Blender sees two loose parts. |
+| 4 | 10.0 | 10.14 | 10.12 | 0.12 | 11/11 | ja | The seam has 48 double points, so the edge is open. |
+| 5 | 13.6 | 13.78 | 13.69 | 0.09 | 9/9 | ja | Press A. Then press M and pick By Distance. |
+| 6 | 16.7 | 16.86 | 16.83 | 0.13 | 8/8 | ja | Blender removed 48 points. The seam is closed. |
+| 7 | 20.23 | 20.4 | 20.31 | 0.077 | 12/12 | ja | Press Alt A, then L again. Now the whole vase lights up. |
+| 8 | 24.13 | 24.34 | 24.3 | 0.167 | 15/15 | ja | Measured in Blender, not print tested by us yet. Save this before your next export. |
+| 9 | 29.5 | 29.1 | 29.65 | 0.15 | 9/10 | ja | More Blender tips for 3D printing at dortus.com/yt. |
+tip-dubbel 35.975000 s
+FOUT: tip-dubbel is 35.975000 s
+GOED: tip-dubbel-geluid.mp4: gemiddeld -16.5 dB, piek -1.4 dB
+[weggehaald: lange hex-reeks]  tip-dubbel-geluid.mp4
+##[error]Process completed with exit code 1.
