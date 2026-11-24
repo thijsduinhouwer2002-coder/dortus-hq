@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://analytics.amami.dev; connect-src 'self' https://analytics.amami.dev; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Make a downloaded STL figure poseable (even if you never opened Blender) · Dortus</title>
+  <meta name="description" content="You have an STL figure from someone else and want an arm to move after printing. Install Blender for free, import the STL, cut a ball joint in mm and export a 3MF for your slicer." />
+  <meta name="theme-color" content="#13213a" />
+  <link rel="icon" href="/assets/dortus-mark.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="/assets/app-icon.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="canonical" href="https://dortus.com/click-joints/gids/downloaded-stl-figure-poseable-blender/" />
+  <meta property="og:title" content="Make a downloaded STL figure poseable, even if you never opened Blender" />
+  <meta property="og:description" content="Free Blender, a free add-on, one ball joint in mm, a 3MF for your slicer." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://dortus.com/click-joints/gids/downloaded-stl-figure-poseable-blender/" />
+  <meta property="og:site_name" content="Dortus" />
+  <meta property="og:image" content="https://dortus.com/click-joints/gids/downloaded-stl-figure-poseable-blender/2-joint.jpg" />
+  <meta property="og:image:alt" content="A downloaded figure in Blender with a ball joint cut just above the elbow, marked green for a good fit." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>@media (max-width: 600px) { .panel-crop img { max-width: 260px; height: auto; margin: 0 auto; display: block; } }</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Make a downloaded STL figure poseable in Blender",
+    "description": "Install Blender and the free Click Joints add-on, import an STL figure, convert it to millimetres, cut a ball joint and export one 3MF per part for your slicer.",
+    "tool": [
+      { "@type": "HowToTool", "name": "Blender 4.2 or newer (free)" },
+      { "@type": "HowToTool", "name": "Click Joints (free Blender add-on)" }
+    ],
+    "step": [
+      { "@type": "HowToStep", "name": "Install Blender and Click Joints", "text": "Download Blender for free from blender.org. In Blender: Edit, Preferences, Get Extensions, search joints, Install." },
+      { "@type": "HowToStep", "name": "Import the STL", "text": "Delete the default cube, then File, Import, STL. Press N and open the Click Joints tab." },
+      { "@type": "HowToStep", "name": "Check mesh and convert to mm", "text": "Click Check mesh. If the size is wrong, click Convert to mm. If the mesh is not watertight, click Make watertight." },
+      { "@type": "HowToStep", "name": "Place one joint", "text": "Shift + right click on a thick spot of a limb, choose Ball and click Place joint. Green means a good fit." },
+      { "@type": "HowToStep", "name": "Export 3MF", "text": "Pick 3MF and click Export. You get one file per part, in millimetres, ready for your slicer." }
+    ],
+    "publisher": { "@type": "Organization", "@id": "https://dortus.com/#org", "name": "Dortus", "url": "https://dortus.com/" },
+    "inLanguage": "en"
+  }
+  </script>
+  <script defer src="https://analytics.amami.dev/script.js" data-website-id="15a913ac-0312-4c10-bfbb-8c7c412fcd06"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>Dortus</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/click-joints/">Click Joints</a>
+        <a href="/click-joints/#pro">Pro</a>
+        <a class="btn btn-primary" href="https://extensions.blender.org/add-ons/click-joints/">Free download <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head guide-head">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Guide &middot; Blender for 3D printing</p>
+          <h1 style="margin-bottom: 0.9rem">Make a downloaded STL figure poseable (even if you never opened Blender)</h1>
+          <p class="lede">
+            You printed figures from STL files that someone else made, and you want an arm or a head to move.
+            You do not need to learn Blender for that. This page takes you from a fresh install to a 3MF file for your slicer,
+            with one ball joint in the arm.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="band">
+      <div class="wrap">
+        <div class="prose">
+          <h3 id="crash-course">Blender in two minutes</h3>
+          <ol>
+            <li><strong>Get Blender.</strong> It is free: download it from <a href="https://www.blender.org/download/">blender.org</a>. You need version 4.2 or newer.</li>
+            <li><strong>Install Click Joints.</strong> In Blender: Edit, Preferences, Get Extensions, search <em>joints</em>, Install. It is a free add-on made by us at Dortus.</li>
+            <li><strong>Make room.</strong> A new file starts with a grey cube. Click it and press X, then Delete.</li>
+            <li><strong>Import your STL.</strong> File, Import, STL (.stl), pick the file.</li>
+            <li><strong>Open the panel.</strong> Move the mouse over the 3D view and press N. A sidebar opens on the right; click the tab <em>Click Joints</em>.</li>
+          </ol>
+          <p>Three mouse moves are enough for this guide: scroll to zoom, hold the middle mouse button to turn the view, and Shift + right click to put the 3D cursor (the small red and white ring) on the model.</p>
+        </div>
+        <figure class="frame" style="margin: 2rem 0 3rem">
+          <span class="frame-media panel-crop">
+            <picture><source media="(max-width: 600px)" srcset="1-import-panel.jpg" width="260" height="720" /><img src="1-import.jpg" alt="Blender with a downloaded STL figure in T-pose just imported. The Click Joints panel shows in red: Mesh is 3.035e+05 mm in size, Expected 5 to 500 mm: is the unit right?, and a red Convert to mm button." width="1550" height="920" loading="lazy" /></picture>
+          </span>
+          <figcaption><strong>Right after the import.</strong> The STL is in millimetres, but a new Blender file counts in metres, so the panel says the size is wrong and offers <em>Convert to mm</em>. Screenshot from Blender 5.3 with the free add-on; the figure is a free CC0 model by <a href="https://quaternius.com/packs/ultimatemonsters.html">Quaternius</a>, scaled to 250 mm.</figcaption>
+        </figure>
+        <div class="prose">
+          <h3 id="steps">One joint, step by step</h3>
+          <ol>
+            <li><strong>Check mesh.</strong> Click <em>Check mesh</em>. Downloaded STLs often have the wrong scale; click <em>Convert to mm</em> when the panel asks. If it says the mesh is not watertight, click <em>Make watertight</em> (it works on a copy).</li>
+            <li><strong>Set the 3D cursor on a thick spot.</strong> Shift + right click on the arm. On our figure the elbow itself was too thin (the panel said <em>Too thin here for a ball joint</em>), so we moved 12 mm up toward the shoulder.</li>
+            <li><strong>Point the joint along the arm.</strong> Under 1 Place, choose <em>View direction</em> and look straight down the arm, or <em>3D cursor</em> if you rotated the cursor yourself.</li>
+            <li><strong>Place joint.</strong> Under 2 Joint choose <em>Ball</em>, leave Diameter on <em>Auto</em> and Clearance on 0.20 mm, and click <em>Place joint</em>. The figure is cut into two closed parts.</li>
+            <li><strong>Read the colour.</strong> Green is a good fit. Orange (<em>Tight</em>) means the wall is under 1.5 mm; red means too thin. Move the cursor to a thicker spot and try again with Ctrl + Z.</li>
+          </ol>
+        </div>
+        <figure class="frame" style="margin: 2rem 0 3rem">
+          <span class="frame-media panel-crop">
+            <picture><source media="(max-width: 600px)" srcset="2-joint-panel.jpg" width="260" height="845" /><img src="2-joint.jpg" alt="Close-up of the arm cut just above the elbow: a ball on one part, a socket on the other, both marked green, with a 20 degree bend range drawn on the model. The panel reads Good fit, Bends plus or minus 20 degrees, Wall 1.55 mm, Clearance 0.20 mm measured." width="1550" height="920" loading="lazy" /></picture>
+          </span>
+          <figcaption><strong>After Place joint.</strong> Good fit, wall 1.55 mm, clearance 0.20 mm measured. On this arm it bends &plusmn;20&deg;.</figcaption>
+        </figure>
+        <div class="prose">
+          <h3 id="export">Export for your slicer</h3>
+          <p>Under 3 Fit and export pick <em>3MF</em> and click <em>Export 3MF</em>. Leave Folder empty and the files go to a temporary folder, or pick your own folder first. You get one file per part (on our figure <code>figure_A.3mf</code> and <code>figure_B.3mf</code>), in millimetres, so the slicer shows the right size.</p>
+          <h3 id="slicer">In the slicer</h3>
+          <ul>
+            <li><strong>Print a test joint first.</strong> Every printer is different. Our free <a href="/click-joints/#fit-test">fit test strip</a> prints five joints from 0.10 to 0.30 mm clearance. Print them flat end down, no supports, and use the clearance that turns smoothly without wobble.</li>
+            <li><strong>Put the socket opening up or on its side,</strong> so the slicer does not fill the hollow with supports.</li>
+          </ul>
+          <p>We have not printed this figure yet. The numbers on this page are measured in Blender, not print tested by us.</p>
+          <h3 id="license">Only use models you may change</h3>
+          <p>Cutting a joint is a change to the model. Do it only with files whose license allows changes, such as CC0 or CC BY (credit the maker). Many models on print sites are &ldquo;no derivatives&rdquo; or personal use only; check the license on the download page. The figure on this page is CC0 (<a href="https://quaternius.com/packs/ultimatemonsters.html">Quaternius, Ultimate Monsters</a>).</p>
+          <h3 id="more">A whole figure at once</h3>
+          <p>The free add-on places one joint at a time. If your figure comes with a rig, <a href="/click-joints/#pro">Click Joints Pro</a> places a joint at every shoulder, elbow, hip, knee and neck with one button, and adds a hinge with an end stop for knees and elbows. More guides: <a href="/click-joints/gids/ball-joint-3d-print-blender/">a ball joint in detail</a>, <a href="/click-joints/gids/hinge-joint-3d-print-blender/">a hinge with an end stop</a>.</p>
+        </div>
+        <div class="cta-row" style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem">
+          <a class="btn btn-primary" href="https://extensions.blender.org/add-ons/click-joints/">Click Joints, free on Blender Extensions <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-line" href="/click-joints/#pro">Click Joints Pro, $19</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-rule">
+      <p class="footer-legal">
+        Click Joints is made by <a href="/">Dortus</a>. Blender is a trademark of the Blender
+        Foundation. Dortus is not affiliated with the Blender Foundation.
+      </p>
+    </div>
+  </footer>
+
+  <script src="/site.js" defer></script>
+</body>
+</html>

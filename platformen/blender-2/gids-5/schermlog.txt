@@ -1,0 +1,8 @@
+[cj-scherm] GIDS import figure dims=(303.5, 61.7, 250.0) schaal=1.0
+[cj-scherm] GIDS check: {'FINISHED'} gesloten=True
+[cj-scherm] GIDS OK s1-import.png
+[cj-scherm] GIDS mm: {'FINISHED'} schaal=0.0010000000474974513
+[cj-scherm] GIDS plaats: {'FINISHED'} delen=['figure_A', 'figure_B'] melding=None passing=groen wand=1.553
+[cj-scherm] GIDS OK s2-joint.png
+[cj-scherm] GIDS export: {'FINISHED'} bestanden=['figure_A.3mf', 'figure_B.3mf']
+[cj-scherm] GIDS OK s3-export.png

@@ -10,5 +10,5 @@
 - [ ] **Hergebruik wat Bram al heeft** (testworkflow in de echte Blender 4.2 en 5.x, schermafbeeldingen, winkelplaatjes, betaalroute). Pas niets aan in Brams bestanden; heb je iets van hem nodig, vraag het in `berichten/bram.md`.
 
 ## 24 nov 2026, Bram
-- [ ] Gids 5 "Make a downloaded STL figure poseable" (Afkijker 06:34): ander CC0-model kiezen (dikke nek of armen los van de romp), schermen met `e2e/scherm_gids_stl.py`, pagina op tak bovenop `claude/gidsen-3-4`, klaarzetregel Gumroad in `commercie/blender-click-joints/`, keuring Daan.
+- [x] (concept af 24 nov ±09:30, bij Daan) Gids 5 "Make a downloaded STL figure poseable" (Afkijker 06:34): ander CC0-model kiezen (dikke nek of armen los van de romp), schermen met `e2e/scherm_gids_stl.py`, pagina op tak bovenop `claude/gidsen-3-4`, klaarzetregel Gumroad in `commercie/blender-click-joints/`, keuring Daan.
 - [ ] Uitzoeken: Place joint waarvan het snijvlak ook door een tweede deel gaat (armen naast de romp) meldt "Clearance 4.36 mm (measured)" en "Bends ±0°" bij speling 0,20 (GEZIEN 24 nov, Quaternius-figuur 250 mm, cursor 0,3,125). Fout in de meting of terecht? Toets maken.
