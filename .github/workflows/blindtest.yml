@@ -1,0 +1,73 @@
+name: Blinde test (Gemini en ChatGPT)
+
+# 24 nov 2026, besluit Thijs 20:19: ons beeld tussen 3 concurrenten zonder namen, beoordeeld door
+# Gemini en ChatGPT. Uitslag in organisatie/blindtest/uitslag/. Sleutels: GitHub-geheimen
+# GEMINI_API_KEY en OPENAI_API_KEY (Thijs zet ze; nooit in de repo). Kost een paar cent per run.
+on:
+  workflow_dispatch:
+    inputs:
+      set:
+        description: "Bestandsnaam in organisatie/blindtest/sets/ zonder .json"
+        required: true
+        default: click-joints-pro-superhive
+  push:
+    branches: [main]
+    paths: ["organisatie/blindtest/sets/*.json"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blindtest
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - name: Eigen tests
+        run: cd organisatie/blindtest && python -m unittest test_blindtest
+      - name: Welke sets
+        id: sets
+        env:
+          INVOER: ${{ github.event.inputs.set }}
+        run: |
+          if [ -n "$INVOER" ]; then
+            case "$INVOER" in *[!a-z0-9-]*) echo "FOUT: setnaam"; exit 1;; esac
+            echo "lijst=$INVOER" >> "$GITHUB_OUTPUT"
+          else
+            l=$(git diff --name-only HEAD~1 HEAD -- 'organisatie/blindtest/sets/*.json' | xargs -r -n1 basename | sed 's/\.json$//' | tr '\n' ' ')
+            echo "lijst=$l" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Test draaien
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          LIJST: ${{ steps.sets.outputs.lijst }}
+        run: |
+          cd organisatie/blindtest
+          status=0
+          for s in $LIJST; do
+            uit="uitslag/$s-$(TZ=Europe/Amsterdam date +%Y-%m-%d-%H%M).md"
+            python blindtest.py "sets/$s.json" "$uit" || status=1
+            [ -f "$uit" ] && cat "$uit" >> "$GITHUB_STEP_SUMMARY"
+          done
+          echo "status=$status" >> "$GITHUB_ENV"
+      - name: Uitslag opslaan
+        run: |
+          git add organisatie/blindtest/uitslag/ || true
+          if ! git diff --cached --quiet; then
+            git config user.name "dortus-blindtest"
+            git config user.email "actions@users.noreply.github.com"
+            git commit -qm "Blinde test: uitslag"
+            for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
+          fi
+          if [ "$status" = 1 ]; then echo "Niet elk beeld geslaagd (zie uitslag)."; fi
