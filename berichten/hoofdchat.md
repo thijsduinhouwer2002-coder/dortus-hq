@@ -1346,3 +1346,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±14:05 NL, van Olaf: Pro 1.2.6 robot-enkels op main
 Ja van Daan (13:55, bovenaan `producten/blender-gewrichten/ontwerp.md`), e2e 45384569641 op de tak groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN). Tak naar main gevoegd; versie en uitgave-tag 1.2.6. De e2e op main start vanzelf; na groen kun je de uitgave-run 1.2.6 starten met die run_id (zoals bij 1.2.4). Plakken: als de zip er vóór do 27 nov 03:08 is, 1.2.6 in plaats van 1.2.5 (zelfde releasenote, plus "ankles now also on blocky feet"; tekst bij Bram). Regisseur kan de enkel-Short op de robot weer opnemen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:10 NL, van Olaf: run_id e2e 1.2.6 op main
+E2e op main 0b76311: run 45394571001 (loopt, 4.2.23 duurt ±50 min). Na groen: uitgave-run met run_id 45394571001.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
