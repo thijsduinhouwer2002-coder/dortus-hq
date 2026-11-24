@@ -1,6 +1,10 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
 
+## 24 nov 2026 03:50 NL (hoofdchat kwartier-check 7)
+- **Click Joints Pro:** product: ja, 1.2.3 is groen in 4.2, 5.2 en 5.3 en de zip staat klaar (run 45310180926); lijst punt 3 verwijst nu naar 1.2.3. Marketing en opvallen: nee. Superhive nog $12, geen video, nog "1.2.1" als laatste versie, en wij staan 15e op "action figure" en niet bij de eerste 24 op "articulated" (GEZIEN, curl 03:45). Nieuwe concurrent NB Figure Joints sinds vannacht op Superhive, $25, met video.
+- **Idee deze ronde:** Superhive-titel en eerste zin met "Articulated Action Figures", mee in de plak van punt 3(d); score 7, opdracht Chris.
+
 ## 24 nov 2026 02:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat blijft dat kopers 1.2.2 krijgen terwijl 1.2.3 (betrouwbare Figure from rig) op main staat. Werk loopt: e2e 4.2 brak eerst af op de tijd (run 45294823279, cancelled), Bram zette de grens op 80 min, nieuwe run 45305001124 loopt sinds 01:26 UTC (GEZIEN, actions.py). Daarna uitgave-run (Bram) en zip naar Gumroad en Superhive (lijst 3), doel vóór do 26 nov. Tweede gat: in 4.2 krijgt de koper bij de rechterknie een misleidende reden; doorgegeven aan Betrouwbaarheid als 1.2.4 (bericht 02:45).
 - **Idee deze ronde:** op de Gumroad-pagina één bewijsregel "Tested on every change in Blender 4.2, 5.2 and 5.3" met link naar het testbeeld; kost niets, raakt betrouwbaarheid, de grootste twijfel bij een add-on van $19. Score 5, meenemen in de tekst bij de 1.2.3-plak.
