@@ -1,0 +1,152 @@
+# gemaakt: 2026-11-24T16:04:11Z
+# workflow: Regisseur 7 (tip-gat, tip-maat, tip-plat, tip-glad: betere uitsneden) (.github/workflows/regisseur-7.yml)
+# run: 45430412786 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45430412786
+# commit: 7bb0b53d tak main gestart door push
+# mislukte stappen: herbouw: Controle (synchroon, geluid, lengte)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== herbouw / Controle (synchroon, geluid, lengte) (laatste 143 van 143 regels) =====
+##[group]Run cd /tmp/klaar
+cd /tmp/klaar
+ok=0
+for n in tip-gat tip-maat tip-plat tip-glad tip-dikte; do
+  mkdir -p meting-$n
+  python $[weggehaald: lange base64-reeks].py $n-geluid.mp4 $n-groot-script.json meting-$n || ok=1
+  for f in meting-$n/*; do mv "$f" "$(basename ${f%.*})-$n.${f##*.}"; done
+  rmdir meting-$n
+  d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $n-geluid.mp4)
+  echo "$n $d s" | tee -a lengtes.txt
+  python -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: $n is $d s"; ok=1; }
+done
+python $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py *-geluid.mp4 | tee geluid_check.txt
+grep -q "FOUT" geluid_check.txt && ok=1
+sha256sum *.mp4 | tee SHA256SUMS.txt
+exit $ok
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-7
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+  PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+  Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+  WHISPER_MODEL: small.en
+##[endgroup]
+# Synchroon-meting tip-gat-geluid.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **FOUT**, 8 van 10 zinnen binnen 0.3 s; grootste verschil 1.477 s, gemiddeld 0.287 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.22 | 0.22 | 8/8 | ja | Does your slicer say your model has holes? |
+| 2 | 2.87 | 3.14 | 3.04 | 0.173 | 13/13 | ja | Blender can find them for you in a few seconds, before you print. |
+| 3 | 6.73 | 7.08 | 6.84 | 0.107 | 13/13 | ja | Select your model, press Tab for Edit Mode, then 2 for edge select. |
+| 4 | 11.5 | 11.64 | 11.63 | 0.13 | 7/7 | ja | Press Alt A, so nothing is selected. |
+| 5 | 14.27 | 14.46 | 14.37 | 0.103 | 8/8 | ja | Open Select, Select All by Trait, Non Manifold. |
+| 6 | 18.87 | 19.0 | 18.98 | 0.113 | 17/17 | ja | Every edge that is not closed lights up. Here, a hole in the head of the pawn. |
+| 7 | 24.03 | 24.2 | 24.16 | 0.127 | 10/10 | ja | Press F to fill the hole with a new face. |
+| 8 | 26.97 | 26.5 | 27.1 | 0.133 | 17/17 | ja | Run the check again with Shift Ctrl Alt M. Nothing lights up, so the mesh is closed. |
+| 9 | 32.93 | 34.58 | 34.41 | 1.477 | 8/16 | NEE | Every printer is different, so print a small test first. Save this for your next print. |
+| 10 | 37.97 | None | None | None | 0/9 | NEE | Make your prints poseable: Click Joints Pro, on Gumroad. |
+tip-gat 44.166016 s
+# Synchroon-meting tip-maat-geluid.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **FOUT**, 7 van 9 zinnen binnen 0.3 s; grootste verschil 1.343 s, gemiddeld 0.284 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.18 | 0.18 | 8/8 | ja | Is your model too big for your printer? |
+| 2 | 2.57 | 2.64 | 2.68 | 0.113 | 7/7 | ja | Check it in Blender, before you slice. |
+| 3 | 5.0 | 5.42 | 5.09 | 0.09 | 14/14 | ja | First, in Scene properties, set Unit Scale to 0.001 and Length to millimeters. |
+| 4 | 12.03 | 12.22 | 12.16 | 0.127 | 11/12 | ja | Press N. Under Dimensions you see the real size: 310 mm tall. |
+| 5 | 18.07 | 18.14 | 18.21 | 0.143 | 19/20 | ja | This box is a print bed of 220 by 220 by 250 mm. The pawn is too tall for it. |
+| 6 | 25.83 | 25.74 | 25.95 | 0.117 | 12/12 | ja | Hover over the view, press S, type 0.7 and press Enter. |
+| 7 | 30.93 | 31.2 | 31.09 | 0.157 | 10/12 | ja | Now it is 217 mm tall, and it fits inside the bed. |
+| 8 | 35.77 | 37.28 | 37.11 | 1.343 | 8/16 | NEE | Every printer is different, so print a small test first. Save this for your next print. |
+| 9 | 40.57 | None | None | None | 0/9 | NEE | Make your prints poseable: Click Joints Pro, on Gumroad. |
+tip-maat 46.542000 s
+# Synchroon-meting tip-plat-geluid.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **GOED**, 10 van 10 zinnen binnen 0.3 s; grootste verschil 0.18 s, gemiddeld 0.138 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.18 | 0.18 | 12/12 | ja | Does your round model touch the bed in just one tiny point? |
+| 2 | 3.77 | 3.9 | 3.9 | 0.133 | 13/14 | ja | Give it a flat bottom in Blender, with a few keys, before you slice. |
+| 3 | 7.93 | 8.16 | 8.06 | 0.127 | 9/10 | ja | Press Tab for Edit Mode, then 1 for vertex select. |
+| 4 | 11.37 | 11.5 | 11.49 | 0.123 | 14/15 | ja | Press 1 on the numpad for the front view, then Alt Z to see through. |
+| 5 | 15.57 | 15.68 | 15.69 | 0.123 | 9/9 | ja | Drag a box around the bottom rows of points. |
+| 6 | 18.23 | 18.38 | 18.31 | 0.077 | 13/13 | ja | Press S, then Z, then 0, and Enter. The points line up flat. |
+| 7 | 22.63 | 22.86 | 22.77 | 0.137 | 17/17 | ja | Select more rows for a wider base, or fewer rows to keep more of the round shape. |
+| 8 | 27.7 | 27.4 | 27.88 | 0.18 | 13/15 | ja | Now it stands on a flat circle about 29 mm wide, instead of one point. |
+| 9 | 33.2 | 33.36 | 33.32 | 0.12 | 16/16 | ja | Every printer is different, so print a small test first. Save this for your next print. |
+| 10 | 38.43 | 38.6 | 38.61 | 0.177 | 8/9 | ja | Make your prints poseable: Click Joints Pro, on Gumroad. |
+tip-plat 43.675000 s
+# Synchroon-meting tip-glad-geluid.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **GOED**, 12 van 12 zinnen binnen 0.3 s; grootste verschil 0.187 s, gemiddeld 0.139 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.18 | 0.18 | 13/13 | ja | Does your model look smooth in Blender, but blocky when you print it? |
+| 2 | 3.87 | 4.14 | 4.0 | 0.133 | 14/14 | ja | Shade Smooth only changes how Blender draws it. Your slicer gets the flat faces. |
+| 3 | 9.5 | 9.7 | 9.66 | 0.16 | 13/13 | ja | Right click and pick Shade Flat to see what you will really print. |
+| 4 | 13.2 | 13.36 | 13.36 | 0.16 | 10/10 | ja | Those flat faces are what ends up in your print. |
+| 5 | 16.2 | 16.38 | 16.32 | 0.12 | 8/8 | ja | Open the Modifier properties and click Add Modifier. |
+| 6 | 19.8 | 19.96 | 19.91 | 0.11 | 5/5 | ja | Choose Generate, then Subdivision Surface. |
+| 7 | 22.7 | 22.86 | 22.83 | 0.13 | 5/5 | ja | Set Levels Viewport to 2. |
+| 8 | 24.57 | 24.78 | 24.68 | 0.113 | 10/11 | ja | Hover over the modifier and press Ctrl A to apply it. |
+| 9 | 28.13 | 27.84 | 28.32 | 0.187 | 15/15 | ja | Now it looks round even with flat shading: 96 faces became 1,440 real faces. |
+| 10 | 35.83 | 35.96 | 35.96 | 0.127 | 12/12 | ja | It gets a little smaller, so check the size before you export. |
+| 11 | 39.63 | 39.78 | 39.72 | 0.087 | 16/16 | ja | Every printer is different, so print a small test first. Save this for your next print. |
+| 12 | 44.87 | 45.02 | 45.03 | 0.163 | 8/9 | ja | Make your prints poseable: Click Joints Pro, on Gumroad. |
+tip-glad 50.100000 s
+# Synchroon-meting tip-dikte-geluid.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **GOED**, 11 van 11 zinnen binnen 0.3 s; grootste verschil 0.233 s, gemiddeld 0.142 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.18 | 0.18 | 8/8 | ja | Is your model just one paper thin surface? |
+| 2 | 2.8 | 2.92 | 2.92 | 0.12 | 9/9 | ja | A wall with zero thickness has nothing to print. |
+| 3 | 5.87 | 6.1 | 6.1 | 0.233 | 13/13 | ja | No need to model a second wall by hand. One modifier does it. |
+| 4 | 10.27 | 10.42 | 10.38 | 0.113 | 8/8 | ja | Open the Modifier properties and click Add Modifier. |
+| 5 | 13.87 | 13.96 | 13.97 | 0.103 | 4/4 | ja | Choose Generate, then Solidify. |
+| 6 | 16.07 | 16.16 | 16.2 | 0.133 | 9/9 | ja | Click the Thickness field, type 2 and press Enter. |
+| 7 | 19.3 | 19.48 | 19.47 | 0.17 | 12/14 | ja | Now the edge is a real wall, 2 mm thick, all the way around. |
+| 8 | 23.9 | 24.1 | 24.03 | 0.13 | 15/15 | ja | Offset minus 1 puts the wall on the inside, so the outside keeps its size. |
+| 9 | 29.0 | 28.52 | 29.12 | 0.12 | 11/11 | ja | And Even Thickness keeps the wall the same on sharp corners. |
+| 10 | 32.67 | 32.88 | 32.76 | 0.093 | 16/16 | ja | Every printer is different, so print a small test first. Save this for your next print. |
+| 11 | 37.9 | 38.06 | 38.07 | 0.17 | 8/9 | ja | Make your prints poseable: Click Joints Pro, on Gumroad. |
+tip-dikte 43.133333 s
+GOED: tip-dikte-geluid.mp4: gemiddeld -16.6 dB, piek -1.4 dB
+GOED: tip-gat-geluid.mp4: gemiddeld -18.1 dB, piek -1.2 dB
+GOED: tip-glad-geluid.mp4: gemiddeld -16.9 dB, piek -1.4 dB
+GOED: tip-maat-geluid.mp4: gemiddeld -18.1 dB, piek -1.1 dB
+GOED: tip-plat-geluid.mp4: gemiddeld -16.6 dB, piek -1.2 dB
+[weggehaald: lange hex-reeks]  tip-dikte-geluid.mp4
+[weggehaald: lange hex-reeks]  tip-gat-geluid.mp4
+[weggehaald: lange hex-reeks]  tip-glad-geluid.mp4
+[weggehaald: lange hex-reeks]  tip-maat-geluid.mp4
+[weggehaald: lange hex-reeks]  tip-plat-geluid.mp4
+##[error]Process completed with exit code 1.
