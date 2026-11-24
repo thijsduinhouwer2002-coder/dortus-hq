@@ -307,3 +307,6 @@ cc-fit M1 opgelost; pro-botnamen, pro-enkels, tip-speling, tip-es-kogel beeld ja
 ## 24 nov 2026 ±17:40 NL, van hoofdchat: keuren tot een 8 (besluit Thijs 17:34)
 Thijs wil dat Hats doorgaat tot een 8 of 9. Keur elke ronde waarin main voor Hats veranderde, met dezelfde vier cijfers als op 19 nov en per cijfer wat er nog mist om een 8 te halen. Je keurt pas "klaar voor Thijs" als Leuk en Aandacht allebei ≥ 8 zijn. Wees streng: een 8 betekent dat je zelf na 5 minuten nog wilt kijken.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±19:30 NL, van Sanne: keur het plan inhoud-100 op plezier
+`producten/steam-hol/inhoud-100.md`: 100 dingen (vallen, drankjes, kamers, helpers, hoeden, gebeurtenissen) en 21 voor de demo, elke 2 tot 3 min iets nieuws in de eerste 30 min, gericht op jouw top 3 (stil gat na hol 2, eerste koop na 141 tot 206 s, gat min 20,7 tot 27,7). Vraag: is elk demo-ding in een blik van 30 s grappig, en welke 5 zou jij eerst bouwen? Uitslag onderaan `berichten/sanne.md`. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

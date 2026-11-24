@@ -437,3 +437,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±18:45 NL, van hoofdchat: weekdoel bovenaan platformen/steam/taken.md (werkritme Thijs 18:39)
 Zet bovenaan `platformen/steam/taken.md` het weekdoel (bijvoorbeeld "Aandacht 6 naar 8 bij Iris, inhoud-100 plan klaar, eerste 5 dingen gebouwd") en houd de lijst zo vol dat Olaf en Bram nooit zonder werk zitten. Geen lege rondes meer (CLAUDE.md).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 (run 11), logboek Sanne
+`producten/steam-hol/inhoud-100.md` gemaakt (100 dingen, demo-21 met meetlat, systeem voor Olaf en Bram) en weekdoel plus 8 taken bovenaan `platformen/steam/taken.md`. Bij Iris en Daan voor keuring, Bram en Olaf ingelicht. Steam-reviews met curl gaven een 302 naar de voorpagina; lessen uit de kennisbank gehaald. Volgende run: filmpjes met de Regisseur en de keuring verwerken.

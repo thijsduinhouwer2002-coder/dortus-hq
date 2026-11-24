@@ -1,5 +1,19 @@
 # Steam: taken (Het Hol, Olaf bouwt, belangrijkste bovenaan)
 
+## Weekdoel 24 nov tot 1 dec 2026 (Sanne, besluiten Thijs 24 nov 17:34, 17:44 en 18:39)
+**Aandacht vasthouden 6 naar 8 en Leuk 7 naar 8 bij Iris. Plan `producten/steam-hol/inhoud-100.md` gekeurd. Systeem `inhoud.json` gebouwd en de eerste 5 nieuwe dingen erin.**
+De oude regel hieronder "geen nieuwe features buiten de demolijst" en "Hats wacht op Valve" vervallen (Thijs 24 nov 17:34: door tot een 8 of 9).
+
+Open, bovenste eerst (wie vrij is pakt de bovenste die bij hem past):
+- [ ] **Iris en Daan: keur `inhoud-100.md`** (Iris op plezier, Daan op wat er te tekenen valt: 10 held-animaties en ±21 plaatjes voor de demo). Uitslag in `berichten/sanne.md`.
+- [ ] **Bram: sim voor de demovolgorde.** Reken met `sim/` na hoeveel minuten de vangsten 2, 4, 6, 8, 9, 12, 13, 15, 18, 20, 21, 24, 27, 30, 33 vallen (20 zaden, min/mediaan/max). Doel: in de eerste 30 min nooit meer dan 3 min zonder iets nieuws. Zet de getallen in `inhoud-100.md` onder de demotabel; Sanne schuift de drempels als het niet klopt.
+- [ ] **Olaf (vanaf do 26 nov), of Bram eerder: systeem `godot/systemen/inhoud.json` plus `effecten.gd`** zoals in `inhoud-100.md` deel "Wat het systeem moet kunnen", eerst met de bestaande stekelput, Gloop en vleermuis omgezet. Af als de 6 toetsen daar groen zijn en een duurtest van 15 min niets anders doet dan main (zelfde zaad).
+- [ ] **Eerste koop binnen 90 s** (Iris probleem 2, nu 141 tot 206 s): Banana Peel (kost 20, vrij na 2 vangsten) als eerste nieuw ding bouwen. Meten: duurtest, logregel eerste koop, 18 van 20 zaden onder 90 s.
+- [ ] **Stil gat na hol-niveau 2** (Iris probleem 1, ±25 s leeg hol in alle 5 zaden): Giant Potion (vangst 4) en Map Hero (vangst 8, gebeurtenis zonder kosten) erin. Meten: langste stuk zonder held en zonder regel tussen min 2 en 10 onder 15 s in 5 van 5 zaden.
+- [ ] **Gat min 20,7 tot 27,7** (Iris probleem 3): Gloop's Birthday (vangst 20) en Mirror (vangst 21). Meten: in de duurtest geen 3 min zonder nieuw ding, gekochte upgrade of gebeurtenis in de eerste 30 min.
+- [ ] **Daan: tekenlijst** van de 10 held-animaties (salto, glijden_rug, plakken, zweven, rennen_terug, hinken, lachen, slapen, duizelig, dansen) en de plaatjes van de demo-21, met welke het eerst nodig zijn (Banana Peel, Giant Potion, Slime Trail).
+- [ ] **Sanne met de Regisseur: 3 korte Hats-filmpjes** (9:16, 15 tot 30 s) uit echte beelden: kroniekregels, Gloop met hoedenstapel, held terug met verband.
+
 Opgeruimd 13 nov 2026 door Olaf. De oude lijst (tot 10 nov 06:45 UTC) staat volledig in `logboek.md` onder "13 nov 2026, Olaf: oude takenlijst verplaatst".
 Wat telt is de vaste demolijst in `planning-fest-2027.md` (demo af vr 18 dec). **Geen nieuwe features buiten die lijst.** Ploeg: Olaf (bouw, elk uur op :13) en Daan (ontwerp, elk uur op :23). Bram, Sanne en Mila staan uit; hun bestanden in `producten/steam-hol/godot/systemen/` en `kunst/` mag Olaf nu aanpassen als de demolijst dat nodig heeft (met een regel in het logboek).
 

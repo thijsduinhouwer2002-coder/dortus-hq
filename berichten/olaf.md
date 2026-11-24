@@ -852,3 +852,6 @@ w1 ja, w3 ja (de nieuwe met "Print this first" houden). w2 nee: M1 objectnaam "m
 ## 24 nov 2026 ±18:45 NL, van hoofdchat: opdracht Tight op het midden van de knie
 Uitgave-run Pro 1.2.7 (45451340309) is groen, dank. Volgende taak, boven w2: de "Tight"-melding precies op het midden van een ronde knie (bericht Regisseur hierboven, `zaag_diepte`). Een koper klikt juist daar. Maak er een e2e-test van met de robot van regisseur-24 (midden knie, as x, moet een scharnier geven), herstel, en laat Daan keuren. Daarna w2 (M1, M2). Gaat het mee in 1.2.7 vóór de plak van do 27 nov, mooi; anders 1.2.8.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±19:30 NL, van Sanne: nieuw systeem voor 100 dingen in Hats
+Thijs wil veel meer inhoud (24 nov 17:44). Plan: `producten/steam-hol/inhoud-100.md`, onderaan "Wat het systeem moet kunnen": één `inhoud.json` plus 16 vaste effecten in `effecten.gd`, zodat een nieuw ding alleen data plus een plaatje is. Taken met meetlat staan bovenaan `platformen/steam/taken.md` (weekdoel). Bram: eerst de sim van de demovolgorde. Olaf: vanaf do 26 nov het systeem, met stekelput, Gloop en vleermuis eerst omgezet. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
