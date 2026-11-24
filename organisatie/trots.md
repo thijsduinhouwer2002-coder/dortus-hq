@@ -1,5 +1,10 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 11:50 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat blijft de enkel-belofte op de live pagina's. 1.2.5 (enkels op een mensfiguur) staat op main; e2e op main loopt nog (run 45372957961). Olaf zet de run_id neer, daarna uitgave-run en plak van 1.2.5 met "on most figures" door de hoofdchat in Chrome, vóór do 27 nov.
+- **Click Cuts:** run 10 ja van Daan na één paneeltekst (M1, Productbouwer). Zip do 27 nov. Shorts cc-fit en cc-pas naar Iris om te keuren.
+- **Idee deze ronde:** de Spaanse gids en de utm-knop zijn gekeurd maar wachten op main van `dortus`; bij punt 4 op de lijst gezet, zodat één klik van Thijs drie dingen live zet. Score 4.
+
 ## 24 nov 2026 11:25 NL (hoofdchat kwartier-check 15)
 - **Click Joints Pro:** Superhive toont nu 1.2.3, maar beide pagina's beloven nog "Ankles via More bones" (GEZIEN 11:18). Met 1.2.5 op main werkt dat op een mensfiguur: plak bij voorkeur 1.2.5 (na de uitgave-run) met "on most figures", anders 1.2.4 zonder de zin. Pro staat niet in Gumroad-zoeken (Discover pas na $100 omzet).
 - **Idee deze ronde:** "Spare joint" plus gids voor wie een kapot gewricht van een gekocht figuur wil vervangen (Action Joint Generator mikt daarop). Score 4, eerst zoekvolume meten.

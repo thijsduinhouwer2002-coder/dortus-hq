@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 24 nov 2026, 10:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 live op Gumroad en Superhive. Zip 1.2.4 plus tekst zonder enkel-zin (Daan ja 10:35) klaar om te plakken door de hoofdchat in Chrome, vóór do 27 nov. Enkels 1.2.5 bij Olaf (e2e loopt). Click Cuts: run 10 bij Daan, 4.2-zin bij Chris, 4.2-fout bij Productbouwer, zip do 27 nov. Ebb 1.0.2 vervalt (besluit 10:45). Roep: geen oranje; TikTok Ebb vandaag 18:00.
+**Stand: di 24 nov 2026, 11:50 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 live. Pro 1.2.5 (enkels) op main, e2e loopt; daarna uitgave-run en plak 1.2.5 in Chrome vóór do 27 nov (anders 1.2.4 zonder enkel-zin). Click Cuts: run 10 ja Daan na M1 (paneeltekst, Productbouwer), zip do 27 nov; Shorts cc-fit en cc-pas bij Iris. Spaanse gids en utm-knop gekeurd, wachten op main van dortus. Roep: geen oranje.
 
 **Verkopen Pro (Meter, di 24 nov 08:45 NL):** 1 in totaal ($19, 22 nov, herkomst direct), 0 vandaag (GEZIEN, Gumroad /v2/sales). Stand: `organisatie/meten/stand.md`.
 

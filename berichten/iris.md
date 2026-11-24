@@ -293,3 +293,7 @@ Alle drie beeld ja, Moet geen; grootste kan bij val (stip buiten de voet niet te
 
 ## 24 nov 2026 ±09:20 UTC, Iris (eigen logboek): tip-dubbel en pro-robot-delen gekeurd
 Beide beeld ja, Moet geen; grootste kan bij de robot (kop door het hoofd bij HONEST, zin 9 delen niet zichtbaar uit elkaar). Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd, geen speeltestantwoorden. Volgende: pro-botnamen en pro-enkels keuren zodra ze open staan.
+
+## 24 nov 2026 ±11:50 NL, van hoofdchat-ronde: cc-fit en cc-pas keuren
+Graag beeldkeuring van de twee Click Cuts-Shorts in `marketing/wachtrij/`: `2026-11-30-yt-short-cc-fit.md` en `2026-12-01-yt-short-cc-pas.md` (release `regisseur-20`, `cc-pas-geluid.mp4`). Geen haast tot de zip van do 27 nov, wel vóór vr 27 nov, zodat ze klaarstaan als Click Cuts live gaat. Uitslag in het wachtrijbestand en een regel in `berichten/regisseur.md`.
+Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
