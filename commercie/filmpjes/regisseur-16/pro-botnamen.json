@@ -14,21 +14,21 @@
    "tekst": "Does your rig use different bone names?",
    "label": "QUICK QUESTION",
    "kleur": "oranje",
-   "kop": "Different bone names?",
+   "kop": "Your bone names?",
    "beeld": {
     "deel": "heel",
     "van": 0,
     "tot": 40,
     "uitsnede": [
      [
-      700,
-      480,
-      800
+      560,
+      570,
+      1100
      ],
      [
-      660,
-      500,
-      900
+      545,
+      565,
+      1000
      ]
     ]
    },
@@ -258,7 +258,7 @@
    "tekst": "Measured in Blender, not print tested by us yet. Print a test joint first.",
    "label": "HONEST",
    "kleur": "blauw",
-   "kop": "Print a test joint first",
+   "kop": "Test first",
    "beeld": {
     "render": "render-2.png",
     "focus": [

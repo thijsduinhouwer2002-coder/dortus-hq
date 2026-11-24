@@ -9,7 +9,7 @@
 - stem: Kokoro (Apache 2.0), Pro-reeks (`scripts/volgorde-stem.md`). Geen ElevenLabs-opname nodig.
 - stem_tekst: `commercie/filmpjes/regisseur-16/pro-botnamen-stem.txt`
 - figuur: eigen robot van studio-3 (`commercie/filmpjes/studio/figuur_robot.py`), rig met Mixamo-botnamen uit `producten/blender-gewrichten/e2e/proef_mens.py` (maak_rig), geen licentie van derden
-- geluid_check, lengte, synchroon, beelden: nog niet (volgende run)
+- eerste release (run 45338202840, 24 nov) nagekeken in run 16: 51,9 s, geluid GOED (-16,4 dB), synchroon 13 van 13 (grootste 0,23 s), 9 gewrichten, knie stop 119,96 "from rig", 10 bestanden (GEZIEN). Afgekeurd door mij: er stond geen enkele botnaam in beeld (overlay show_text stond uit, dat verbergt ook de namen; zelf getoetst in Blender 5.3.0, GEZIEN), de kop van de hook liep over het venster, de kop bij HONEST over het hoofd van de robot. Hersteld in `regisseur-16/opname.py` en `pro-botnamen.json`; workflow neemt opnieuw op. Volgende run: namen leesbaar in hook en zin 2, dan pas open.
 - tijd: voorstel 2026-12-10T17:00:00+01:00, niet in dezelfde week als pro-robot-delen als de hoofdchat dat te veel van hetzelfde beeld vindt (zelfde robot en deels dezelfde stappen; ander onderwerp: botnamen en de stop uit je eigen rig)
 - doel: dortus.com/yt (over te typen)
 - gemaakt_door: Regisseur run 15 (24 nov 2026)
