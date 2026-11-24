@@ -35,3 +35,7 @@ De GitHub-sleutel in onze sessies werkt niet (GH_TOKEN ongeldig, GEZIEN 18 nov),
 | Superhive, Gumroad, Garmin, Steamworks, JetBrains-dashboard | instellingen, teksten, keuringen | Chrome (hoofdchat) | werkt | niets |
 
 Samen ±1 uur voor Thijs, in één keer te doen. De hoofdchat opent in Chrome de juiste pagina's; Thijs maakt en plakt de sleutels zelf.
+
+
+## Mail vanaf thijs@dortus.com (hoofdchat, 24 nov 2026)
+thijs@dortus.com is een Google Workspace-account (MX van dortus.com wijst naar Google, GEZIEN 24 nov). Het staat als apart Google-account in de Chrome van de werklaptop (privé-profiel), naast de privé-accounts; in de accountkiezer heet het "Thijs (Dortus)". Versturen alleen door de hoofdchat, alleen na een ja van Thijs op de tekst. Werkwijze die werkt: opstel-link `mail.google.com/mail/u/<nummer van het Dortus-account>/?view=cm&fs=1&to=...&su=...&body=...`, bijlagen met file_upload op de verborgen bestandsinvoer, controleren in Verzonden. Het ImprovMX-bericht "Removing dortus.com" is onschuldig: mail loopt via Google, niet via ImprovMX.
