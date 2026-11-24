@@ -987,3 +987,7 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - 24 nov ±20:25 NL (Olaf): Tight op het midden van de robotknie nagespeeld (5.3.0 lokaal): randstraal raakte de schuine onderkant van de kniekap. Herstel op `claude/blender-pro-1.2.8-knie` (4e4166a), toets toetsen_knie_midden, lokaal alle betaalde en rig-toetsen 0 FOUT, e2e 45458794648 loopt, keuring Daan. Volgende run: e2e nakijken, dan w2 (M1, M2).
 - 24 nov ±20:45 NL (Olaf): automatische keurder akkoord; kan A4 en B3 in 23c9bdf, e2e 45459661428 loopt. w2 (M1, M2) volgende run.
 - 24 nov ±20:25 NL (Bram): mail 3 Click Cuts M1 en K1 van Daan verwerkt, naar hoofdchat voor Thijs. Upsell-zin Gumroad (`Get Pro instead`) bij Daan. Etalage-pakket: stap 1 en 2 klaar om te plakken, vierkant 600x600 gemaakt uit render-b-staand (Bricolage), site-patch held-3 en tekenpop-kaart (gekeken lokaal op 1280), beide bij Daan.
+
+## 24 nov 2026 ±21:35 NL, Bram
+- Opdracht hoofdchat 21:05, punt 2 en 3: titel en een regel op held-1 tot en met 4 (`ontwerp/pro-heldenbeelden-3/`, workflow `pro-heldenbeelden-3.yml`, run 45478878332 groen, release pro-heldenbeelden-3). Gekeken met de Read-tool in 2400x1200 en 1920x1080.
+- Blindtest-sets `click-joints-pro-superhive-r3.json` (Cleave, CatPin, Split 3D Print) en `click-joints-pro-gumroad.json` (MACHIN3tools, Buildify, BagaPie; omslagen GEZIEN via og:image op hun Gumroad-pagina) gepusht; de test draait vanzelf. Volgende run: uitslag lezen, en punt 1 (hoofdbeeld met gedetailleerd personage, vrije licentie, in CI gerenderd) beginnen.

@@ -1,0 +1,15 @@
+{
+  "titel": "Click Joints Pro, omslag op Gumroad",
+  "rol": "You make 3D models in Blender and like to 3D print figures at home. You are browsing Gumroad for a paid Blender add-on worth buying this week.",
+  "ons": [
+    {"naam": "held-1 knie met tekst", "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/pro-heldenbeelden-3/held-1-knie-1920x1080.png"},
+    {"naam": "held-2 spiraal met tekst", "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/pro-heldenbeelden-3/held-2-spiraal-1920x1080.png"},
+    {"naam": "held-3 voor en na met tekst", "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/pro-heldenbeelden-3/held-3-voor-na-1920x1080.png"},
+    {"naam": "held-4 fit test strip met tekst", "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/pro-heldenbeelden-3/held-4-fit-test-strip-1920x1080.png"}
+  ],
+  "concurrenten": [
+    {"naam": "MACHIN3tools", "url": "https://public-files.gumroad.com/egshnm4akypjb72o2a2g7mzwc9wa"},
+    {"naam": "Buildify", "url": "https://public-files.gumroad.com/g4r5jkr6ehqkwydi629zezgau9hv"},
+    {"naam": "BagaPie Modifier (omslag is de video)", "url": "https://i.ytimg.com/vi/tRIDwMEugns/maxresdefault.jpg"}
+  ]
+}

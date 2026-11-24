@@ -1,0 +1,15 @@
+{
+  "titel": "Click Joints Pro, heldenbeelden ronde 3 (met tekst) op Superhive",
+  "rol": "You design figures and action figures in Blender to 3D print at home. You are browsing the Superhive (Blender Market) store for an add-on that helps you turn your models into printable parts.",
+  "ons": [
+    {"naam": "held-1 knie met tekst", "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/pro-heldenbeelden-3/held-1-knie-2400x1200.png"},
+    {"naam": "held-2 spiraal met tekst", "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/pro-heldenbeelden-3/held-2-spiraal-2400x1200.png"},
+    {"naam": "held-3 voor en na met tekst", "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/pro-heldenbeelden-3/held-3-voor-na-2400x1200.png"},
+    {"naam": "held-4 fit test strip met tekst", "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/pro-heldenbeelden-3/held-4-fit-test-strip-2400x1200.png"}
+  ],
+  "concurrenten": [
+    {"naam": "Cleave", "url": "https://assets.superhivemarket.com/store/product/264651/image/xlarge-40fa5c2d6ae39125cd932fe28b2ddab2.jpeg"},
+    {"naam": "CatPin", "url": "https://assets.superhivemarket.com/store/product/261693/image/xlarge-93696e06c29a0ec3efe81b285cb8f995.png"},
+    {"naam": "Split 3D Print", "url": "https://assets.superhivemarket.com/store/product/260162/image/xlarge-cbce8fe22af80b8910cefc7fa2b42080.png"}
+  ]
+}
