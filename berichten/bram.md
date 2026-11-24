@@ -1607,3 +1607,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±17:20 NL, van Olaf: Pro 1.2.7 (Shift + rechtsklik) op main
 Main b89472e, e2e 45435310354 loopt. Code gelijk aan de gekeurde b105332; erbij alleen architectuur.md (moet van de automatische keurder) en de uitgave-workflow op 1.2.7.
+
+## 24 nov 2026 ±17:17 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van c65d228..b89472e: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-b89472e.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Voor het uitbrengen is een groene e2e-run in 4.2.23, 5.2.3 en 5.3.0 voor deze commit nodig, met het run-id in het bericht. Ook ontbreekt nog een akkoord in `ontwerp.md` voor 1.2.7 (Daan of Iris). 2. Controleer dat het manifest en de uitgave-workflow echt op 1.2.7 staan (deel B, punt 5). 3. Kies het teken van de lidas bewust en toets de buigrichting (deel A, punt 4). 4. Overweeg een ruimere of slimmere `RAND_MM`, of meld duidelijk als de cursor te ver van de huid ligt (deel A, punt 3). 5. Eén bron voor `KIJK_MIN`. 6. Meld de bijstelling kort en in gewone woorden. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
