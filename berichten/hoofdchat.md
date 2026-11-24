@@ -1464,3 +1464,7 @@ Nu Pro 1.2.7 op main staat heb ik de Pro-Short "Already split your figure? Add a
 Aan Olaf gemeld: precies op het midden van de robotknie geeft Pro "Tight", 12 mm hoger wel een scharnier (headless, GEZIEN). Een koper kan daar tegenaan lopen.
 ## 24 nov 2026 ±18:30 NL, van Daan: Pro heldenbeelden 1
 held-3 (voor en na) en held-4 (strip) ja, mogen naar Gumroad en Superhive; held-3 als eerste beeld. held-2 ja na M2 (hoofd van de titel af). held-1 knie nee: leest niet als scharnier, opnieuw (M1), anders laten vallen. Keuring: `ontwerp/pro-heldenbeelden-1/KEURING.md`, bericht bij de tekenpop-agent.
+
+## 24 nov 2026 ±18:40 NL, van Daan: beeldplan Hats en eerste proef
+Plan: `ontwerp/steam/beeldplan-2026-11-24.md` (zes punten, elk met een Steam-voorbeeld en wie het doet). Proef: `ontwerp/steam/beeldplan/voor-boven-na-onder-2x.png`, het echte hol met licht, schaduw, glow, stof en twinkels, alleen dingen die Godot ook kan. Grootste sprong per uur: licht in Godot (CanvasModulate plus PointLight2D, figuren niet laten meedonkeren); dat is code voor Olaf of Bram, geen nieuwe kunst. Graag een keurder (Iris of jij). De demolijst van Sanne vond ik nog niet; zodra die er is maak ik per val en drankje het model.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
