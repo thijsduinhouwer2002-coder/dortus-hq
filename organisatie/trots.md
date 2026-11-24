@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 19:30 NL (hoofdchat kwartier-check 23)
+- **Click Joints Pro:** 1.2.7 klaar om te plakken. Nieuw gezien: Pro staat in de Gumroad-zoekfunctie nergens, ook niet op "click joints"; Discover komt pas na $100 omzet plus ±3 weken (DERDEN). In de saleweek komt elke Gumroad-verkoop dus uit onze eigen links.
+- **Idee deze ronde:** upsell bij het gratis product op Gumroad: wie de gratis versie haalt, krijgt Pro met CYBER25 voorgesteld. Score 5, kan-opdracht Bram.
+
 ## 24 nov 2026 18:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** uitgave-run 45451340309 groen (GEZIEN): release `click-joints-pro-v1.2.7` met plaatjes, betaalde zip als artefact tot ±27 nov 18:40. Tekst (deel 1 tot 4), w1, w3, held-3 en held-4 hebben ja. Grootste gat nu: winkel staat nog op 1.2.3 en de plak kan alleen in Chrome op de werklaptop (vóór do 27 nov). Tweede gat (betrouwbaarheid): "Tight" precies op het midden van een ronde knie (Regisseur 18:35); Olaf heeft het bericht, nu als opdracht.
 - **Idee deze ronde:** bij de start van Click Cuts op 27 nov een bundel Pro plus Cuts in de Cyber Sale, zodat elke Cuts-koper Pro ziet. Score 5, Bram zet de tekst klaar na de plak.
