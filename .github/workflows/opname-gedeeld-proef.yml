@@ -1,0 +1,74 @@
+name: "Opname gedeeld (proef Olaf: regisseur-12 op blender_opname.py)"
+
+# 24 nov 2026, Olaf. Neemt de tip-export van regisseur-12 op met de gedeelde hulpcode commercie/filmpjes/opname/ en
+# vergelijkt delen en metingen met film-tip.json uit release regisseur-12. Plaatst niets, maakt geen release.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/opname/**", ".github/workflows/opname-gedeeld-proef.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proef:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        uses: ./.github/actions/apt-snel
+        with:
+          pakketten: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 imagemagick xdotool ffmpeg fonts-inter tesseract-ocr
+      - name: Blender 5.3.0
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+      - name: Opnemen met de gedeelde hulpcode
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_proef
+          BLENDER_USER_CONFIG: /tmp/cj_proef/config
+        run: |
+          mkdir -p /tmp/uit
+          timeout 3000 xvfb-run --auto-servernum --server-args="-screen 0 2160x1920x24" \
+            /tmp/blender/blender --gpu-backend opengl --factory-startup --python commercie/filmpjes/opname/proef_tip12.py -- /tmp/opn 2>&1 | tee /tmp/uit/opname.log || true
+          grep -E "KORT|Traceback|Error" /tmp/uit/opname.log | cut -c1-300 || true
+          grep -q "KORT FOUT" /tmp/uit/opname.log && { echo "FOUT in de opname"; exit 1; }
+          for d in j_mooi j_maat j_menu j_venster j_klaar; do grep -q "KORT OK $d" /tmp/uit/opname.log || { echo "FOUT: deel $d"; exit 1; }; done
+          ffmpeg -v error -framerate 30 -start_number 1 -i /tmp/opn/beelden/b%05d.png -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -vf scale=1080:-2 /tmp/uit/opname-klein.mp4
+          cp /tmp/opn/film.json /tmp/uit/film.json
+      - name: Vergelijken met release regisseur-12
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download regisseur-12 -R "$GITHUB_REPOSITORY" -p film-tip.json -D /tmp/oud
+          python3 - <<'PY' | tee /tmp/uit/vergelijk.txt
+          import json
+          a = json.load(open("/tmp/oud/film-tip.json")); b = json.load(open("/tmp/uit/film.json"))
+          fout = 0
+          print("beelden: regisseur-12", a["n"], "proef", b["n"])
+          print("delen gelijk:", list(a["delen"]) == list(b["delen"]), list(b["delen"]))
+          for k in ("j_maat_blender_mm", "j_stl_zonder", "j_stl_met", "j_via_venster", "j_venster_open"):
+              ok = a["metingen"].get(k) == b["metingen"].get(k)
+              fout += not ok
+              print(f"{k}: {a['metingen'].get(k)} / {b['metingen'].get(k)} {'gelijk' if ok else 'ANDERS'}")
+          print("menu proef:", {k: v for k, v in b["metingen"].items() if k.startswith("j_menu_") or k == "j_knop"})
+          print("menu oud:", {k: a["metingen"].get(k) for k in ("j_file", "j_export", "j_stl_item", "j_knop")})
+          if abs(a["n"] - b["n"]) > 0.1 * a["n"]:
+              fout += 1; print("ANDERS: beelden wijken meer dan 10 % af")
+          print("UITSLAG", "GOED" if fout == 0 else f"{fout} ANDERS")
+          PY
+          grep -q "UITSLAG GOED" /tmp/uit/vergelijk.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: opname-gedeeld-proef
+          path: /tmp/uit
