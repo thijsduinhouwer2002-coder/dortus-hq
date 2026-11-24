@@ -45,8 +45,11 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             vak = layout.box().column(align=True)
             vak.label(text=hoofd, icon="CHECKMARK" if goed else "ERROR")
             vak.label(text=detail)
+            if not goed:
+                vak.label(text="See More settings, step 4")
             if snedes.verschoven(scene):  # keuring K6: only after a moved cut, and name the button
-                vak.label(text="Cuts changed: press Split (More settings, step 3)", icon="INFO")
+                vak.label(text="Cuts changed: press Split", icon="INFO")
+                vak.label(text="in More settings, step 3")  # two lines: one was cut off (keuring M2)
         if uit:
             rij = layout.row()
             rij.scale_y = 1.3  # smaller than Split to fit (keuring C2)

@@ -16,7 +16,8 @@ from . import printers
 from .gesloten import foute_randen, volume
 from .verbind_3d import as_vec, segment_afstand
 
-KLEUREN = {"groen": (0.0, 0.84, 0.59, 1.0), "oranje": (1.0, 0.55, 0.0, 1.0), "rood": (1.0, 0.30, 0.30, 1.0)}
+# linear values: Blender shows (1.0, 0.26, 0.0) as orange (255, 139, 0) on screen (keuring 24 nov, M1)
+KLEUREN = {"groen": (0.0, 0.84, 0.59, 1.0), "oranje": (1.0, 0.26, 0.0, 1.0), "rood": (1.0, 0.03, 0.03, 1.0)}
 NAMEN = {"groen": "green", "oranje": "orange", "rood": "red"}
 ROOD_WAND_MM = 0.8
 
@@ -26,11 +27,12 @@ def materiaal(status):
     mat = bpy.data.materials.get(naam)
     if mat is None:
         mat = bpy.data.materials.new(naam)
-        mat.diffuse_color = KLEUREN[status]
         mat.use_nodes = True
-        bsdf = mat.node_tree.nodes.get("Principled BSDF")
-        if bsdf is not None:
-            bsdf.inputs["Base Color"].default_value = KLEUREN[status]
+    # always set: a .blend saved with an older version keeps its old colour otherwise (keuring 24 nov, kan)
+    mat.diffuse_color = KLEUREN[status]
+    bsdf = mat.node_tree.nodes.get("Principled BSDF") if mat.node_tree else None
+    if bsdf is not None:
+        bsdf.inputs["Base Color"].default_value = KLEUREN[status]
     return mat
 
 

@@ -45,7 +45,7 @@ def uitslag_tekst(scene):
     if not niet:
         hoofd = f"{n} parts, all fit the bed" if n != 1 else "1 part, it fits the bed"
     else:
-        hoofd = f"{n} parts, {len(niet)} need attention (see More settings, step 4)"
+        hoofd = f"{n} parts, {len(niet)} need attention"  # "see step 4" is its own line in the panel (cut off)
     detail = f"{pennen} pins, {inst.speling_mm:.2f} mm clearance"
     return hoofd, detail, not niet
 
