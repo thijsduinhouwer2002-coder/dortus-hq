@@ -6,6 +6,7 @@ Dit zijn dingen die Thijs vaak heeft moeten herhalen. Elke nieuwe correctie van 
 - **Spectaculair, niet simpel.** "Echt een mooi stuk techniek moeten mensen gelijk denken." Een beeld, video, winkelpagina of spel is pas af als het naast de beste concurrent kan staan (`organisatie/lat/<product>.md` heeft de voorbeelden). Leg het er echt naast, met de Read-tool.
 - **Liever minder en goed** dan veel en middelmatig. Maar wel veel inhoud waar het spel om vraagt (Hats: "100 vallen, potions, allemaal leuke dingen").
 - **Oude, slechte dingen gaan weg.** Wat live staat en onder de lat zit, vervang je; niet laten staan omdat het er al was.
+- **Blinde test door Gemini en ChatGPT vóór live** (24 nov 20:31): hoofdbeeld, omslag en thumbnail alleen live als ze GESLAAGD zijn in `organisatie/blindtest/uitslag/`. Thijs: "ik wil dat ze ook echt gebruikt worden".
 - Keuren: deel C van de skill keuren (cijfers, onder 8 = nee) is verplicht bij alles wat een klant ziet.
 
 ## Tekst en eerlijkheid

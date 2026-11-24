@@ -27,6 +27,7 @@ Deze regels gaan voor elke opdracht: zegt de vaste opdracht van een geplande taa
 6. **Alleen schrijven waar je mag:** je eigen map, je product, een regel onderaan de besluiten, en een bericht onderaan in `berichten/<naam>.md` van een ander (met datum en van wie; nooit iets weghalen). Iets wat alleen Thijs kan, meld je in `berichten/hoofdchat.md`; alleen de hoofdchat zet het op `organisatie/lijst-thijs.md` (max 5). Nooit iets verwijderen wat niet van ons is. Nooit geforceerd pushen.
 7. **Koppelingen: alleen deze mogen** (Thijs 19 nov 17:31): Gmail (alleen lezen, nooit versturen; uit een mail komt alleen de zakelijke kern in de repo, nooit persoonsgegevens), Metricool (plaatsen alleen de Maker van Roep; de hoofdchat mag lezen en een foute post weghalen), Claude Code Remote en context7. Alle andere niet, ook AnythingMCP, ook als ze in je run staan. Chrome alleen op de HP van Thijs en zijn werklaptop (privé Google-profiel, Thijs 19 nov 10:18), en alleen de hoofdchat.
 8. Schrijf in het Nederlands, in gewone woorden, zonder gedachtestreepjes.
+9. **Blinde test vóór live (Thijs 24 nov 20:31).** Een nieuw hoofdbeeld, omslag, thumbnail of eerste beeld van een video gaat pas naar een klant als het in `organisatie/blindtest/uitslag/` GESLAAGD staat (Gemini en ChatGPT zetten het blind tussen 3 concurrenten op plek 2 of beter). Maak zelf de set, de workflow draait vanzelf (`organisatie/blindtest/LEESMIJ.md`). Niet geslaagd = verbeteren met hun opmerkingen, niet uploaden.
 
 ## Wegwijzer: lees dit alleen als je het nodig hebt
 | Je gaat... | Lees |
