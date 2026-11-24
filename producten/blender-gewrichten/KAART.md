@@ -8,5 +8,5 @@
 
 **In de winkel nu (24 nov):** Gumroad 1.2.3, $19/$24/$59 (https://duinhouwer8.gumroad.com/l/click-joints-pro); Superhive 1.2.3, $12/$45, Lite $3 (https://superhivemarket.com/products/click-joints-pro). Cover: tekenpop uit elkaar.
 **Blinde test:** cover plek 2 (Gemini 2,0, ChatGPT 2,0; Cleave wint); held-3 voor-na plek 4 (geen tekst); held-1 knie plek 2 en 3. Uitslag: `organisatie/blindtest/uitslag/`. Advies van beide: gedetailleerd personage in plaats van tekenpop, tekst op elk beeld.
-**Klaar om te plakken:** 1.2.7 (zie `berichten/hoofdchat.md`); 1.2.8 knie-fix na groene e2e.
+**Klaar om te plakken:** 1.2.7 (zie `berichten/hoofdchat.md`). Komt erachter (24 nov 23:00): 1.2.8 op main (knie met kniekap), note `platformen/blender/pro-1.2.8.md`; winkeltekst B3 GESLAAGD plek 1,0 bij beide rechters (`platformen/blender/pro-winkeltekst-b3.md`). Beide wachten op Daan (issue #11) en de uitgave-run. E2e op main: 5.2 en 5.3 groen, 4.2 rood door een wisselende boolean op army_man (issue #14), job opnieuw gestart.
 **Verkopen:** 1 in totaal ($19, 22 nov). Sale: Gumroad CYBER25 27 nov t/m 1 dec, Superhive 35% 27 nov t/m 2 dec.
