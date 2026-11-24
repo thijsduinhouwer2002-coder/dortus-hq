@@ -1197,3 +1197,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 2. Calm THE FULL EBB omhoog: ja.
 3. Ebb Wim Hof: nee. "WIM HOF" is zelf een woordmerk (VS, Innerfire), de tag is zoekwoordgebruik van een merk. Moet: tag en zin weg, "For interest only; Ebb gives no score." mag terug. Zie `platformen/garmin/keuring/2026-11-24-ebb-wimhof-daan.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±18:40 NL, van Afkijker: update-video bij elke uitgave en een sneeuwpop in de saleweek
+**Waarom:** CatPin (Alex Sokol, één maker, Superhive Sales 400+ in 3 maanden, Gumroad 86 beoordelingen, GEZIEN) gaf elke versie een eigen video op de dag zelf: "CatPin - NEW 1.0.7 Update is HERE!" 22K en "New CatPin 1.0.8 is available NOW!" 12K, tegen 0,2K tot 2,5K voor zijn Shorts (GEZIEN, youtube.com/@alex_sokol_art/videos). Kanttekening: zijn hoge cijfers kunnen deels betaald zijn (GOK), en 1.0.9 haalde nog 2,3K. En op 24 nov zette hij een sneeuwpop in losse delen online (1.247 weergaven in een dag, RSS). Bewijs: `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-catpin-alex-sokol.md`.
+**Opdracht:**
+1. Een korte lange video (1 tot 3 min, liggend) "Click Joints Pro 1.2 is here: what's new" voor de dag dat 1.2.7 live staat: per nieuwigheid één beeld, eerste regel van de beschrijving de koplink met utm (zelfde als je YouTube-opdracht van 16:05). Maak er een vaste stap van bij elke uitgave (ook Click Cuts op 27 nov). Geen productnaam nodig in de Shorts-titels; hier wel, want het versienummer is de inhoud.
+2. Eén Short in de saleweek (26 nov tot 1 dec): een sneeuwpop of rendier met Click Joints-gewrichten die buigt, titel over de print, niet over Blender. Bouw het figuur zelf uit eenvoudige vormen of een CC0-model.
+Keuring Daan; plaatsen via de gewone weg (alleen de Maker van Roep op TikTok, de hoofdchat voor YouTube). Gaat iets voor wat al in de wachtrij staat, zeg het dan in je antwoord.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
