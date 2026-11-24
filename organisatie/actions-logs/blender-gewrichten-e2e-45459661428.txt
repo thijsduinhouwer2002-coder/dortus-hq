@@ -1,0 +1,209 @@
+# gemaakt: 2026-11-24T19:15:10Z
+# workflow: Blender gewrichten e2e (Click Joints, echte Blender) (.github/workflows/blender-gewrichten-e2e.yml)
+# run: 45459661428 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45459661428
+# commit: 23c9bdfb tak claude/blender-pro-1.2.8-knie gestart door push
+# mislukte stappen: e2e (4.2.23): Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (4.2.23) / Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur) (laatste 200 van 916 regels) =====
+[cj-mens] RIG: 20 botten, knie L (20.9, 10.3, 59.1), elleboog L (41.3, 12.8, 154.0)
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 20.49 s.
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 20.916 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 18.043 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 1.902 s.
+Info: Joint placed. Good fit. 2.826 s.
+Info: Joint placed. Good fit. 9.576 s.
+Info: Joint placed. Good fit. 9.385 s.
+Info: Joint placed. Good fit. 9.663 s.
+Info: Joint placed. Good fit. 9.386 s.
+Info: Joint placed. Good fit. 9.368 s.
+Info: Joint placed. Good fit. 9.088 s.
+Info: Joint placed. Good fit. 9.016 s.
+Info: Joint placed. Good fit. 9.087 s.
+Info: Joint placed. Good fit. 9.103 s.
+Info: Joint placed. Good fit. 8.979 s.
+Info: Joint placed. Good fit. 6.177 s.
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Info: Joint placed. Good fit. 6.067 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[cj-mens-toets] verlies gemeten bij kogels: ['Neck', 'Left shoulder', 'Left shoulder', 'Left shoulder', 'Left shoulder', 'Left shoulder', 'Right shoulder', 'Right shoulder', 'Right shoulder', 'Right shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[cj-mens-toets] OK   het vangnet 'lost part of the model' meet ook bij kogelsneden
+[cj-mens-toets] OK   na een kogelsnede die te veel verliest neemt de knop een volgende plek (linkerschouder)
+[cj-mens-toets] OK   geen lege tussenmeshes achtergebleven (0)
+[cj-mens-toets] uitslag={'FINISHED'} gewrichten=9: ['Left elbow · Hinge · 0–140° · from rig', 'Right elbow · Hinge · 0–140° · mirror', 'Left knee · Hinge · 0–120° · from rig', 'Right knee · Hinge · 0–120° · mirror', 'Neck · Ball · ±20° · preset', 'Left shoulder · Ball · ±20° · preset', 'Right shoulder · Ball · ±20° · preset', 'Left hip · Ball · ±20° · preset', 'Right hip · Ball · ±20° · preset']
+[cj-mens-toets] overgeslagen: 
+[cj-mens-toets] OK   4.2: minstens 3 gewrichten (9)
+[cj-mens-toets] OK   Left elbow: 0–140 from rig (Left elbow · Hinge · 0–140° · from rig)
+[cj-mens-toets] OK   Right elbow: 0–140 mirrored (Right elbow · Hinge · 0–140° · mirror)
+[cj-mens-toets] OK   elk overgeslagen gewricht met reden ([])
+[cj-mens-toets] OK   alle 10 delen gesloten
+[cj-mens-toets] OK   elk deel één stuk ([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+[cj-mens-toets] kogels (diameter, breedte lid): [(4.499999786261479, 10.365), (4.499999786261479, 10.365), (5.9999997150153055, 12.449), (12.499999406281887, 20.886), (12.499999406281887, 20.886)]
+[cj-mens-toets] OK   elke kogel minstens 0.4 keer de breedte van het lid ([(4.499999786261479, 10.365), (4.499999786261479, 10.365), (5.9999997150153055, 12.449), (12.499999406281887, 20.886), (12.499999406281887, 20.886)])
+[cj-mens-toets] OK   l-hand (56.9, -8.7, 140.2) ligt nog in een deel
+[cj-mens-toets] OK   r-hand (-56.9, -8.7, 140.2) ligt nog in een deel
+[cj-mens-toets] OK   l-ankle (29.0, 14.6, 9.5) ligt nog in een deel
+[cj-mens-toets] OK   r-ankle (-29.0, 14.6, 9.5) ligt nog in een deel
+[cj-mens-toets] OK   head (0.0, 12.4, 200.0) ligt nog in een deel
+[cj-mens-toets] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+OBJ import of 'mh_base.obj' took 17.52 ms
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-ai] Pro geladen: True
+[cj-mens] RIG: 20 botten, knie L (20.9, 10.3, 59.1), elleboog L (41.3, 12.8, 154.0)
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 20.656 s.
+Warning: Too thin here for a hinge. Try a thicker spot.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Hinge placed. Bends 0° to 140°. 21.094 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 18.108 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Another part of the mesh is too close to this limb (for example the other leg), so the joint would cut it too. Pick another spot, or move the parts a little apart first.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 1.924 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Another part of the mesh is too close to this limb (for example the other leg), so the joint would cut it too. Pick another spot, or move the parts a little apart first.
+Info: Joint placed. Good fit. 2.921 s.
+Info: Joint placed. Good fit. 9.714 s.
+Info: Joint placed. Good fit. 9.443 s.
+Info: Joint placed. Good fit. 9.468 s.
+Info: Joint placed. Good fit. 9.377 s.
+Info: Joint placed. Good fit. 9.523 s.
+Info: Joint placed. Good fit. 9.153 s.
+Info: Joint placed. Good fit. 9.201 s.
+Info: Joint placed. Good fit. 9.154 s.
+Info: Joint placed. Good fit. 9.103 s.
+Info: Joint placed. Good fit. 9.195 s.
+Info: Joint placed. Good fit. 6.276 s.
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Warning: Too close to another joint (keep 34 mm apart).
+Warning: Too close to another joint (keep 33 mm apart).
+Info: Joint placed. Good fit. 6.161 s.
+Warning: 9 joints · 2 rig · 2 mirror · 5 preset. Skipped: Left ankle (the cut parts overlap before they move here; place it by hand a few mm along the bone, or use a newer Blender such as 5.2, which cuts more reliably); Right ankle (the cut parts overlap before they move here; place it by hand a few mm along the bone, or use a newer Blender such as 5.2, which cuts more reliably)
+[cj-mens-toets] OK   geen lege tussenmeshes achtergebleven (0)
+[cj-mens-toets] uitslag={'FINISHED'} gewrichten=9: ['Left elbow · Hinge · 0–140° · from rig', 'Right elbow · Hinge · 0–140° · mirror', 'Left knee · Hinge · 0–120° · from rig', 'Right knee · Hinge · 0–120° · mirror', 'Neck · Ball · ±20° · preset', 'Left shoulder · Ball · ±20° · preset', 'Right shoulder · Ball · ±20° · preset', 'Left hip · Ball · ±20° · preset', 'Right hip · Ball · ±20° · preset']
+[cj-mens-toets] overgeslagen: Left ankle (the cut parts overlap before they move here; place it by hand a few mm along the bone, or use a newer Blender such as 5.2, which cuts more reliably); Right ankle (the cut parts overlap before they move here; place it by hand a few mm along the bone, or use a newer Blender such as 5.2, which cuts more reliably)
+[cj-mens-toets] OK   4.2: minstens 3 gewrichten (9)
+[cj-mens-toets] OK   Left elbow: 0–140 from rig (Left elbow · Hinge · 0–140° · from rig)
+[cj-mens-toets] OK   Right elbow: 0–140 mirrored (Right elbow · Hinge · 0–140° · mirror)
+[cj-mens-toets] OK   elk overgeslagen gewricht met reden ([])
+[cj-mens-toets] OK   alle 10 delen gesloten
+[cj-mens-toets] OK   elk deel één stuk ([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+[cj-mens-toets] kogels (diameter, breedte lid): [(4.499999786261479, 10.365), (4.499999786261479, 10.365), (5.9999997150153055, 12.449), (12.499999406281887, 20.886), (12.499999406281887, 20.886)]
+[cj-mens-toets] OK   elke kogel minstens 0.4 keer de breedte van het lid ([(4.499999786261479, 10.365), (4.499999786261479, 10.365), (5.9999997150153055, 12.449), (12.499999406281887, 20.886), (12.499999406281887, 20.886)])
+[cj-mens-toets] OK   l-hand (56.9, -8.7, 140.2) ligt nog in een deel
+[cj-mens-toets] OK   r-hand (-56.9, -8.7, 140.2) ligt nog in een deel
+[cj-mens-toets] OK   l-ankle (29.0, 14.6, 9.5) ligt nog in een deel
+[cj-mens-toets] OK   r-ankle (-29.0, 14.6, 9.5) ligt nog in een deel
+[cj-mens-toets] OK   head (0.0, 12.4, 200.0) ligt nog in een deel
+[cj-mens-toets] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+OBJ import of 'mh_base.obj' took 17.41 ms
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-ai] Pro geladen: True
+[studio] robot: 20100 punten voor de remesh, maat (148.5, 42.2, 220.4)
+Info: Watertight copy Figuur_gesloten made (273110 faces)
+[studio] kleuren per vorm: 273110 vlakken, 3200 buiten elke vorm
+[studio] robot na voxel: 273112 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.5, 4.0, 57.0), elleboog L (50.0, -3.6, 132.0)
+Error: The cut gave no watertight parts (bad edges: part A 425, part B 0); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 140°. 20.819 s.
+Info: Hinge placed. Bends 0° to 140°. 11.849 s.
+Info: Hinge placed. Bends 0° to 120°. 8.828 s.
+Info: Hinge placed. Bends 0° to 90°. 2.367 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 8.52 s.
+Info: Hinge placed. Bends 0° to 120°. 16.96 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Warning: Too close to another joint (keep 55 mm apart).
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+Info: Joint placed. Good fit. 4.911 s.
+Warning: Too close to another joint (keep 44 mm apart).
+Warning: Too close to another joint (keep 44 mm apart).
+Warning: Too close to another joint (keep 44 mm apart).
+Warning: Too close to another joint (keep 44 mm apart).
+Info: Joint placed. Good fit. 13.02 s.
+Warning: Too close to another joint (keep 53 mm apart).
+Warning: Too close to another joint (keep 53 mm apart).
+Warning: Too close to another joint (keep 53 mm apart).
+Warning: Too close to another joint (keep 53 mm apart).
+Info: Joint placed. Good fit. 11.532 s.
+Warning: 8 joints · 2 rig · 2 mirror · 4 preset. Skipped: Right ankle (the cut parts overlap before they move here; place it by hand a few mm along the bone, or use a newer Blender such as 5.2, which cuts more reliably); Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (no room on this 59 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-robot-toets] uitslag={'FINISHED'} gewrichten=8: ['Left elbow · Hinge · 0–140° · from rig', 'Right elbow · Hinge · 0–140° · mirror', 'Left knee · Hinge · 0–120° · from rig', 'Left ankle · Hinge · 0–90° · preset', 'Right knee · Hinge · 0–120° · mirror', 'Neck · Ball · ±20° · preset', 'Right shoulder · Ball · ±30° · preset', 'Right hip · Ball · ±22° · preset']
+[cj-robot-toets] overgeslagen: Right ankle (the cut parts overlap before they move here; place it by hand a few mm along the bone, or use a newer Blender such as 5.2, which cuts more reliably); Left shoulder (no room on this 48 mm bone for a ball joint next to the elbow, place it by hand or give the elbow a smaller range); Left hip (no room on this 59 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-robot-toets] OK   elk overgeslagen gewricht met reden (['Left hip', 'Left shoulder', 'Right ankle'])
+[cj-robot-toets] OK   alle 9 delen gesloten
+[cj-robot-toets] OK   elk deel één stuk ([1, 1, 1, 1, 1, 1, 1, 1, 1])
+[cj-robot-toets] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-ai] Pro geladen: True
+[studio] robot: 20100 punten voor de remesh, maat (297.0, 84.5, 440.8)
+Info: Watertight copy Figuur_gesloten made (273110 faces)
+[studio] kleuren per vorm: 273110 vlakken, 9097 buiten elke vorm
+[studio] robot na voxel: 273112 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (37.0, 8.0, 114.0), elleboog L (100.0, -7.2, 264.0)
+[cj-knie-toets] OK   twee losse benen (['Leg.L', 'Leg.R'])
+Info: Hinge placed. Bends 0° to 135°. 2.593 s.
+Info: Knee: hinge, 0–135°.
+[cj-knie-toets] Leg.L midden (37.0, -2.0, 114.0): uitslag {'FINISHED'}, delen 2, passing groen, zaag_diepte 114.0, weigering ''
+[cj-knie-toets] OK   Leg.L knie midden: scharnier geplaatst, Good fit
+[cj-knie-toets] OK   Leg.L midden: A en B gesloten
+[cj-knie-toets] OK   Leg.L midden: elk deel één stuk ([1, 1])
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged.
+[cj-knie-toets] Leg.L 12 mm hoger (37.0, -2.0, 126.0): uitslag fout Error: The cut gave no watertight parts (bad edges: part A 0, part B 0); the mesh is unchanged., delen 0, passing None, zaag_diepte None, weigering ''
+[cj-knie-toets] FOUT Leg.L knie 12 mm hoger: scharnier geplaatst, Good fit
+Info: Hinge placed. Bends 0° to 135°. 2.516 s.
+Info: Knee: hinge, 0–135°.
+[cj-knie-toets] Leg.R midden (-37.0, -2.0, 114.0): uitslag {'FINISHED'}, delen 2, passing groen, zaag_diepte 114.0, weigering ''
+[cj-knie-toets] OK   Leg.R knie midden: scharnier geplaatst, Good fit
+[cj-knie-toets] OK   Leg.R midden: A en B gesloten
+[cj-knie-toets] OK   Leg.R midden: elk deel één stuk ([1, 1])
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 3); the mesh is unchanged.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 3); the mesh is unchanged.
+[cj-knie-toets] Leg.R 12 mm hoger (-37.0, -2.0, 126.0): uitslag fout Error: The cut gave no watertight parts (bad edges: part A 0, part B 3); the mesh is unchanged., delen 0, passing None, zaag_diepte None, weigering ''
+[cj-knie-toets] FOUT Leg.R knie 12 mm hoger: scharnier geplaatst, Good fit
+[cj-knie-toets] KLAAR 2 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+FOUT: geen scharnier op het midden van de robotknie
+##[error]Process completed with exit code 1.
