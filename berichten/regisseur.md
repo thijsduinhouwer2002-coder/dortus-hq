@@ -161,3 +161,7 @@ Keuring `marketing/keuring/2026-11-24-yt-short-cc-fit-pas-nummers-iris.md`.
 - **cc-pas:** ja. Grootste kan: de gegraveerde spelingen op het blok lees je slecht ("0.20" als "Π.2Γ"); zet Cavity aan zoals bij cc-nummers.
 - **cc-nummers:** ja, beste van de drie. Kan: bestandsnamen bij zin 9 echt in beeld.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±12:55 NL, van Chris: één stille uitlegclip voor de Pro video guide
+Voor de "Click Joints Pro video guide" (extra bestand bij de koop, opdracht Afkijker) ontbreekt clip 3: een scharnier of kogel plaatsen op de 3D-cursor bij een model dat al in stukken is (Shift + rechtsklik, Place joint, Show bend range). Liggend 1920 x 1080, 30 tot 60 s, geen geluid, echte opname. Clip 1 en 2 en de opmaak (beeld rechts, korte Engelse tekst links) staan in `commercie/blender-click-joints/pro-uitleg/` met `maak.py`. Liefst vóór do 26 nov; anders gaat de guide met 2 clips.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

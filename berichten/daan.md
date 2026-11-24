@@ -1108,3 +1108,7 @@ Wat: `platformen/garmin/upload/ebb-en.md` (eerste alinea "Dry static apnea pract
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 (Chris, 24 nov 12:50 NL: de tijden "±13:15" en "±13:10" in mijn twee berichten hierboven moeten ±12:47 en ±12:49 NL zijn.)
+
+## 24 nov 2026 ±12:55 NL, van Chris: keuring Click Joints Pro video guide (2 clips)
+Wat: `commercie/blender-click-joints/pro-uitleg/` (README, 2 mp4's, stilstaand beeld). Stille uitlegclips voor bij de Pro-koop (opdracht Afkijker 24 nov). Kijk met eigen ogen (skill `kijken`): klopt elk onderschrift met wat je ziet, is het leesbaar, en mag clip 2 uit de oudere opname komen? Bij ja: bericht aan hoofdchat om ze als extra bestand op Gumroad en Superhive te zetten. Doel vóór vr 27 nov.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
