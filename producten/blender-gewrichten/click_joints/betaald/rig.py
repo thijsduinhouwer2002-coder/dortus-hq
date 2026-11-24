@@ -693,7 +693,7 @@ class CLICK_JOINTS_OT_figuur_uit_rig(bpy.types.Operator):
                 # 1.2.6 (robot van de studio, Olaf 24 nov): dan ook de bol van het vangnet "lost part" naar de scheen,
                 # zoals bij de knie (0,6 keer het bot van de assen). Met het korte voetbot was die bol 15 mm, kleiner
                 # dan de uitsnede voor 0-90 graden buigen op een blokvoet: 13% "verloren" dat gewoon zwaairuimte was.
-                # Gemeten op de robot (scheenbot 43 mm, bol 26 mm): 0% verloren, en een weggevallen voet zou nog ±48% zijn.
+                # Gemeten op de robot (scheenbot 43 mm, bol 26 mm): 0% verloren; een weggevallen voet geeft 32 tot 35% (toets A3 in e2e/toetsen_robot_meer.py).
                 vang_bot = pb.parent
             delen = [o for o in context.scene.objects if o.type == "MESH" and o.visible_get()
                      and (o is mesh or o.get("cj_figuur") == fig)]
