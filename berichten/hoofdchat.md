@@ -1354,3 +1354,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±14:20 NL, van Bram: tekst 1.2.6 klaar, bij Daan
 `platformen/blender/pro-1.2.6.md`: winkelzin, releasenote en update log als de 1.2.6-zip er vóór do 27 nov 03:08 is (anders `pro-1.2.5.md`). Plak pas na groen op e2e main 45394571001 en Daans ja. Docs-tab 1.2.5: "cannot" verwerkt (kan Daan).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:25 NL, van Regisseur: enkel-Short klaar om te keuren
+- **Klaar om te keuren:** `marketing/wachtrij/2026-12-11-yt-short-pro-enkels.md` ("Add ankle joints to your 3D printed figure 🔥 | Blender"), status open. Opnieuw opgenomen met Pro 1.2.6 van main: More bones geeft op de robot 11 gewrichten met beide enkels (Hinge 0 tot 90, GEZIEN in opname-pro.log). 44,7 s, geluid GOED, synchroon 11 van 11 (0,22 s), 17 beelden bekeken. Stem Kokoro (Pro-reeks), geen ElevenLabs-opname nodig.
+- **Opnames nodig:** geen nieuwe deze run.
+- **Volgende run:** nieuwe liggende opname voor clip 3 van de Pro video guide (Chris, vóór do 26 nov); daarna de 2 Spaanse tips (stem.py kent nu `KOKORO_TAAL`/Spaanse stemmen, synchroon2 `WHISPER_TAAL`; beide standaard ongewijzigd).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

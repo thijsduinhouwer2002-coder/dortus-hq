@@ -112,7 +112,7 @@ def main():
     model = WhisperModel(model_naam, device="cpu", compute_type="int8")
     geluid = audio(mp4)
     aan = klankbegin(geluid)
-    segs, _ = model.transcribe(geluid, language="en", word_timestamps=True, beam_size=5,
+    segs, _ = model.transcribe(geluid, language=os.environ.get("WHISPER_TAAL", "en"), word_timestamps=True, beam_size=5,
                                condition_on_previous_text=False)
     segs = list(segs)
     tw = []

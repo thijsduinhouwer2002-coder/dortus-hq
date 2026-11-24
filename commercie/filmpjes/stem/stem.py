@@ -63,7 +63,8 @@ class Kokoro:
         self.stem = os.environ.get("KOKORO_STEM", "af_heart")
         self.snelheid = float(os.environ.get("KOKORO_SNELHEID", "0.95"))
         self.k = K(os.environ.get("KOKORO_MODEL", "kokoro-v1.0.onnx"), os.environ.get("KOKORO_VOICES", "voices-v1.0.bin"))
-        self.taal = "en-gb" if self.stem.startswith("b") else "en-us"
+        # taal uit KOKORO_TAAL (bijv. "es" voor ef_dora/em_alex, Spaanse proef Skillful Toys 24 nov); standaard als voorheen
+        self.taal = os.environ.get("KOKORO_TAAL") or ("es" if self.stem[:1] == "e" else "en-gb" if self.stem.startswith("b") else "en-us")
 
     def info(self):
         return {"stem": "Kokoro-82M v1.0", "stemnaam": self.stem, "snelheid": self.snelheid,
