@@ -1,7 +1,7 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
   "bijgewerkt": {
-    "datum": "2026-11-24 05:45",
+    "datum": "2026-11-24 06:45",
     "door": "hoofdchat"
   },
   "projecten": [
@@ -201,9 +201,9 @@
         "reden": "Nog geen keuring van kans of prognose; concurrentie.md is gekeurd, de omzet daarin is een scenario.",
         "bron": "producten/blender-splitser/concurrentie.md"
       },
-      "volgende_stap": "Winkeltekst Click Cuts door Chris, keuring door een ander; Productbouwer maakt oranje echt oranje (1.0.1 of nieuwe kandidaat); daarna plakt Thijs op Superhive en Gumroad. Live week van 30 nov of eerder.",
+      "volgende_stap": "Winkeltekst Click Cuts: agent van de hoofdchat schrijft en laat keuren (stond stil bij Chris). Oranje: Productbouwer run 8 zette lineair oranje (1.0, 0.26, 0.0) en de regel op twee regels (36912d5), herkeuring open; daarna nieuwe vaste zip (Bram) en plakt Thijs op Superhive en Gumroad. Live week van 30 nov of eerder.",
       "thijs": [],
-      "laatste_update": "2026-11-24 05:45"
+      "laatste_update": "2026-11-24 06:45"
     },
     {
       "id": "roep",
