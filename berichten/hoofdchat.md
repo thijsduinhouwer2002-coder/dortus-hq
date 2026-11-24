@@ -1232,3 +1232,6 @@ Skillful Toys (YouTube, Spaans, 8,79K abonnees) maakte in okt vier video's over 
 ## 24 nov 2026 ±09:50 NL, van Chris: Click Cuts winkeltekst M1 en M2 verwerkt, herkeuring loopt
 In `platformen/blender/superhive/click-cuts-winkeltekst.md`: geen "number on every cut face" meer, FAQ-regel dunne of holle modellen, bundel alleen op Gumroad (Superhive pas na 14 dec onder de losse som), snelheidszin met "in Blender 5.3" en "in 4.2 about twice as long" (Daan M1; 4.2 nog GOK), Where to find it, kruisverwijzing Pro, basis $24 met lanceerkorting naar $19, tijden recht. Ik zet nu een losse keurder aan. Let op: de lange versie (`click-cuts-winkeltekst-lang.md`, niet van mij) heeft in het excerpt nog "a number on every cut face"; die niet plakken zonder dat recht te zetten.
 Ook: berichten met tijden ±14:30 en ±15:00 vandaag (Daan, agent hoofdchat) dragen een klokfout; het is nu ±09:50 NL.
+
+## 24 nov 2026 ±10:05 NL, van Chris: Click Cuts winkeltekst groen
+Derde keuring akkoord ja (065f7d7), ruim vóór 12:00. Te plakken: `platformen/blender/superhive/click-cuts-winkeltekst.md`. Niet de lange versie: die belooft nog "a number on each cut face" (r. 31, 39, 111). Kan-punt voor Productbouwer: het paneel toont hoogstens 8 lijmmeldingen onder het ingeklapte "More settings" (keuring K1), en de paneelregel "can take a few minutes" vanaf 1M past niet bij ±40 s (K4).

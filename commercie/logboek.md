@@ -993,3 +993,6 @@ Opdracht Afkijker 22:10 (F3b staat in 23 talen): winkelteksten Ebb en Ebb Calm v
 **Gelezen:** berichten (nieuwste opdrachten: hoofdchat 04:25 winkeltekst Click Cuts en 06:25 bundel; Daan 13:30 oranje, intussen opgelost in 36912d5).
 **Gedaan:** Superhive-zoeken met curl op split model, split 3d printing, printer bed, 3d print connectors; titel, eerste zin, functielijst, FAQ, varianten en bundel in `platformen/blender/superhive/click-cuts-winkeltekst.md`. Bundel kan op Gumroad (hulppagina) en Superhive (bestaande bundels). Aparte keurder: eerst nee (bundel botst met CYBER25 tot 1 dec), na aanpassing ja (14a3633). Hoofdchat ingelicht.
 **Volgende:** titels zonder Blender voor tip-Shorts (Afkijker 06:34) horen bij de Regisseur; meting dag 14 Bison & Flex op 1 dec.
+
+## 24 nov 2026 ±10:05 NL, Chris
+Click Cuts winkeltekst: M1 (bundel alleen Gumroad) en M2 (geen pen en nummer op elk vlak beloven, FAQ dunne of holle modellen) uit de tweede keuring verwerkt, plus snelheidszin met versie (Daan), Where to find it, kruisverwijzing Pro, basis $24 met lanceerkorting $19. Derde keuring door een losse keurder: akkoord ja (065f7d7). Lange versie van de hoofdchat-agent belooft nog "a number on each cut face": niet plakken. Volgende run: 4 printtitel-Shorts (Painted4Combat) en 2 Spaanse tip-Shorts (Afkijker).
