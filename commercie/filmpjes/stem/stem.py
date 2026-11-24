@@ -134,6 +134,12 @@ def _zinnen_uit_bestand(zinnen, map_, pad):
     met splits.py, zelfde uitvoer als hierboven. STEM_BRON zet de naam in de info (standaard elevenlabs)."""
     import splits
     stukken, verslag = splits.knip(splits.lees_audio(pad), zinnen)
+    slot = os.environ.get("STEM_SLOT_MP3", "").strip()
+    if slot:
+        # saleversie zonder tweede volle opname (Regisseur run 27, 24 nov 2026): de opname van de gewone versie levert
+        # alle zinnen, de losse opname van de saleslotzin vervangt alleen de laatste zin
+        stukken[-1] = splits.lees_audio(slot)
+        verslag["manier"] += f"; laatste zin uit {Path(slot).name}"
     if verslag.get("onzeker"):
         print(f"stem bestand: naluisteren, onzekere grenzen {verslag['onzeker']} ({verslag['manier']})")
     uit = []

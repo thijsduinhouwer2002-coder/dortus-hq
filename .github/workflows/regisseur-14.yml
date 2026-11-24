@@ -114,7 +114,10 @@ jobs:
         run: |
           mkdir -p /tmp/klaar
           for n in pro-robot-delen pro-robot-delen-sale; do
-            if [ -f commercie/filmpjes/regisseur-14/$n-elevenlabs.mp3 ]; then export STEM_MP3=$PWD/commercie/filmpjes/regisseur-14/$n-elevenlabs.mp3 STEM_BRON=elevenlabs; else unset STEM_MP3 STEM_BRON; fi
+            b=${n%-sale}; slot=commercie/filmpjes/stem/slotzin-sale-elevenlabs.mp3; unset STEM_SLOT_MP3
+            if [ -f commercie/filmpjes/regisseur-14/$n-elevenlabs.mp3 ]; then export STEM_MP3=$PWD/commercie/filmpjes/regisseur-14/$n-elevenlabs.mp3 STEM_BRON=elevenlabs
+            elif [ "$b" != "$n" ] && [ -f commercie/filmpjes/regisseur-14/$b-elevenlabs.mp3 ] && [ -f $slot ]; then export STEM_MP3=$PWD/commercie/filmpjes/regisseur-14/$b-elevenlabs.mp3 STEM_SLOT_MP3=$PWD/$slot STEM_BRON=elevenlabs
+            else unset STEM_MP3 STEM_BRON; fi
             python commercie/filmpjes/regisseur-2/vul.py commercie/filmpjes/regisseur-14/$n.json /tmp/pro/film.json /tmp/$n.json
             rm -rf /tmp/klaar/zinnen
             python commercie/filmpjes/regisseur-2/montage2.py /tmp/$n.json /tmp/pro /tmp/klaar groot

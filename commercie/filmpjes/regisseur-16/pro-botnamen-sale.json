@@ -1,0 +1,271 @@
+{
+ "naam": "pro-botnamen-sale",
+ "titel": "Your rig, your bone names: printable joints in one click 🦴 | Blender",
+ "eind": {
+  "titel": "Click Joints Pro",
+  "zin": "Elbows and knees stop where your rig stops.",
+  "adres": "on Gumroad",
+  "render": "render-3.png"
+ },
+ "printzin": "Every printer is different: print a test joint first.",
+ "venster": "Blender 5.3 with Click Joints Pro",
+ "scenes": [
+  {
+   "tekst": "Does your rig use different bone names?",
+   "label": "QUICK QUESTION",
+   "kleur": "oranje",
+   "kop": "Your bone names?",
+   "beeld": {
+    "render": "render-2.png",
+    "focus": [
+     0.5,
+     0.42
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "This robot's rig uses Mixamo style bone names.",
+   "label": "BONE NAMES",
+   "kleur": "blauw",
+   "kop": "mixamorig: names",
+   "beeld": {
+    "deel": "kies",
+    "van": 0,
+    "tot": 44,
+    "uitsnede": [
+     [
+      540,
+      600,
+      1250
+     ],
+     [
+      540,
+      580,
+      1150
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Click Joints Pro knows the bone names of the common rigs.",
+   "label": "KNOWS YOUR RIG",
+   "kleur": "groen",
+   "kop": "Knows your rig",
+   "beeld": {
+    "deel": "knop",
+    "van": 0,
+    "tot": 30,
+    "uitsnede": [
+     [
+      540,
+      580,
+      1300
+     ],
+     [
+      560,
+      590,
+      1250
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Rigify, Mixamo, Auto-Rig Pro, Unreal, Character Creator, VRoid, Biped and Daz.",
+   "label": "EIGHT RIG TYPES",
+   "kleur": "oranje",
+   "kop": "Eight rig types",
+   "beeld": {
+    "render": "render-1.png",
+    "focus": [
+     0.5,
+     0.45
+    ]
+   }
+  },
+  {
+   "tekst": "Press Figure from rig, and it finds the elbows, knees, shoulders, hips and neck.",
+   "label": "ONE BUTTON",
+   "kleur": "groen",
+   "kop": "Finds every joint",
+   "beeld": {
+    "deel": "knop",
+    "van": 0,
+    "tot": 60,
+    "uitsnede": [
+     [
+      1560,
+      420,
+      1100
+     ],
+     [
+      1580,
+      330,
+      900
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "It cuts the robot into parts, with a joint at each one.",
+   "label": "PARTS",
+   "kleur": "oranje",
+   "kop": "Cut into parts",
+   "beeld": {
+    "deel": "knop",
+    "van": 40,
+    "tot": 140,
+    "uitsnede": [
+     [
+      580,
+      600,
+      1350
+     ],
+     [
+      560,
+      590,
+      1250
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Does a bone have a Limit Rotation? Then the hinge stops at that angle.",
+   "label": "YOUR LIMIT",
+   "kleur": "blauw",
+   "kop": "Your limit, your stop",
+   "beeld": {
+    "deel": "knie",
+    "van": 20,
+    "tot": 31,
+    "uitsnede": [
+     [
+      1380,
+      650,
+      950
+     ],
+     [
+      1360,
+      590,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "No limit on one side? It takes the limit of the other side.",
+   "label": "MIRRORED",
+   "kleur": "groen",
+   "kop": "Mirrored",
+   "beeld": {
+    "deel": "knie",
+    "van": 31,
+    "tot": 41,
+    "uitsnede": [
+     [
+      1360,
+      590,
+      800
+     ],
+     [
+      1380,
+      660,
+      950
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Drag Bend on the knee, and it stops at the angle from your rig.",
+   "label": "STEP 2",
+   "kleur": "oranje",
+   "kop": "Stops at your limit",
+   "beeld": {
+    "deel": "knie",
+    "van": 62,
+    "tot": 174,
+    "uitsnede": [
+     [
+      560,
+      640,
+      1300
+     ],
+     [
+      560,
+      650,
+      1260
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Past the stop, red shows where parts would hit.",
+   "label": "CHECK",
+   "kleur": "rood",
+   "kop": "Red past the stop",
+   "beeld": {
+    "deel": "knie_rood",
+    "van": 0,
+    "tot": 147,
+    "uitsnede": [
+     [
+      540,
+      880,
+      1350
+     ],
+     [
+      540,
+      900,
+      1320
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Exploded view pulls the parts apart.",
+   "label": "LOOK INSIDE",
+   "kleur": "blauw",
+   "kop": "Exploded view",
+   "beeld": {
+    "deel": "uitelkaar",
+    "van": 12,
+    "tot": 72,
+    "uitsnede": [
+     [
+      540,
+      600,
+      1300
+     ],
+     [
+      540,
+      590,
+      1220
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Every printer is different. Print a test joint first.",
+   "label": "PRINT FIRST",
+   "kleur": "blauw",
+   "kop": "Test first",
+   "beeld": {
+    "render": "render-3.png",
+    "focus": [
+     0.5,
+     0.45
+    ]
+   }
+  },
+  {
+   "tekst": "Click Joints Pro, 25% off this week, on Gumroad.",
+   "label": "CLICK JOINTS PRO",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   },
+   "uitspraak": "Click Joints Pro, twenty five percent off this week, on Gumroad."
+  }
+ ]
+}

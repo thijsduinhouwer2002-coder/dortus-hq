@@ -16,20 +16,10 @@
    "kleur": "oranje",
    "kop": "Your bone names?",
    "beeld": {
-    "deel": "heel",
-    "van": 0,
-    "tot": 40,
-    "uitsnede": [
-     [
-      560,
-      570,
-      1100
-     ],
-     [
-      545,
-      565,
-      1000
-     ]
+    "render": "render-2.png",
+    "focus": [
+     0.5,
+     0.42
     ]
    },
    "groot": true
@@ -260,10 +250,10 @@
    "kleur": "blauw",
    "kop": "Test first",
    "beeld": {
-    "render": "render-2.png",
+    "render": "render-3.png",
     "focus": [
      0.5,
-     0.5
+     0.45
     ]
    }
   },

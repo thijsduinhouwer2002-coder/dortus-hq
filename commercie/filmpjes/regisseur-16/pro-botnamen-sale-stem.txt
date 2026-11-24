@@ -1,0 +1,15 @@
+# pro-botnamen-sale: alleen voor de saleweek do 26 nov tot en met di 1 dec (CYBER25 moet aanstaan). Regisseur run 27. Met Max: de gewone opname plus stem/slotzin-sale-elevenlabs.mp3.
+
+Does your rig use different bone names?
+This robot's rig uses Mixamo style bone names.
+Click Joints Pro knows the bone names of the common rigs.
+Rigify, Mixamo, Auto-Rig Pro, Unreal, Character Creator, VRoid, Biped and Daz.
+Press Figure from rig, and it finds the elbows, knees, shoulders, hips and neck.
+It cuts the robot into parts, with a joint at each one.
+Does a bone have a Limit Rotation? Then the hinge stops at that angle.
+No limit on one side? It takes the limit of the other side.
+Drag Bend on the knee, and it stops at the angle from your rig.
+Past the stop, red shows where parts would hit.
+Exploded view pulls the parts apart.
+Every printer is different. Print a test joint first.
+Click Joints Pro, twenty five percent off this week, on Gumroad.

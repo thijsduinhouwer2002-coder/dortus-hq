@@ -16,20 +16,10 @@
    "kleur": "oranje",
    "kop": "Stiff feet?",
    "beeld": {
-    "deel": "heel",
-    "van": 0,
-    "tot": 40,
-    "uitsnede": [
-     [
-      545,
-      560,
-      950
-     ],
-     [
-      545,
-      580,
-      880
-     ]
+    "render": "render-3.png",
+    "focus": [
+     0.5,
+     0.6
     ]
    },
    "groot": true
