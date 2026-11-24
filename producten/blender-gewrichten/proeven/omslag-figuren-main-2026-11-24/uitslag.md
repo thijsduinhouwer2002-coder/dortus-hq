@@ -17,4 +17,36 @@ Alle delen gesloten, beide herhalingen gelijk.
 2. Kleding is in 5.x 9 van 9 (was 8 in CI op 1.2.0); in 4.2 blijft de rechterknie weg met "Tight: too little limb past
    this joint" (Exact-solver), gelijk aan de ondergrens 8 in `e2e/meet_drempel.json`. Geen terugval, wel een open punt
    voor 4.2 (zelfde melding als bij de knieën van spacetrooper1, zie `../ai-figuren-tak-rig-2026-11-24/`).
-3. De releasenote "on our test figures" klopt; voor 4.2 niet beloven dat elk figuur alles krijgt.
+3. De releasenote klopt. Letterlijke regel uit `platformen/blender/pro-1.2.3.md` (r21): "On our test figures in Blender
+   5.2 and 5.3 it placed every joint, and the same mesh gave the same joints every time we ran it." Die belooft niets
+   voor 4.2, en dat is goed: **in 4.2 geeft kleding 8 van 9** (rechterknie weg). Niet beloven dat elk figuur in 4.2
+   alles krijgt.
+
+## Aanvulling 24 nov ±02:30 (kan-punten keuring 97ccf45)
+- Commit 3974792 (gemeten) en main 14e6e42 (Pro 1.2.3) zijn voor de add-on gelijk: `git diff 14e6e42 3974792 --
+  producten/blender-gewrichten/click_joints` is leeg (GEZIEN). Tussen die twee zitten alleen de spiekbrief van Bram,
+  een automatische keuring en deze meting.
+- Samenvatting van de tak `betrouwbaar-uitslag` (map `main-45295977807/`), zodat het hier na te gaan is (GEZIEN):
+
+| Versie | Figuur | Run 1 | Run 2 | Ontbreekt |
+|---|---|---|---|---|
+| 4.2.23 | tekenpop | 9 | 9 | |
+| 4.2.23 | kleding | 8 | 8 | Right knee |
+| 5.2.3 | tekenpop | 9 | 9 | |
+| 5.2.3 | kleding | 9 | 9 | |
+| 5.3.0 | tekenpop | 9 | 9 | |
+| 5.3.0 | kleding | 9 | 9 | |
+
+- Rechterknie kleding in 4.2, pogingen uit `4.2.23/kleding-1.json` (run 2 gelijk, GEZIEN). De linkerknie lukt op
+  (20,9; 10,3; 59,1), de rechterknie op precies het spiegelbeeld niet:
+  1. (-20,9; 10,3; 59,1): "The parts overlap before they move" (beweegproef in `scharnier.py`).
+  2. (-20,6; 11,3; 59,1): weer "overlap before they move".
+  3. (-22,1; 12,7; 54,4): Exact-snede geeft deel A met 623 slechte randen ("no watertight parts").
+  4. (-23,7; 14,2; 49,6): "Tight: too little limb past this joint".
+  In 5.3 lukt de rechterknie meteen op plek 1. Het verschil zit dus in de eerste twee pogingen (Exact in 4.2, de
+  delen overlappen al in rust), niet in de dikte van het been.
+- **Misleidende reden voor de koper:** de lijst zegt "Right knee (Tight: too little limb past this joint to click.
+  Try a spot further from the end)". Dat is alleen de reden van de laatste noodplek; de echte reden is de overlap op
+  de goede plek. Wie het advies volgt (verder van het uiteinde) zoekt op de verkeerde plek. Doorgegeven aan
+  Betrouwbaarheid (via de hoofdchat): de reden van de plek op het bot zelf tonen (de eerste kandidaat), niet die van
+  de laatste noodplek; nu wint in `rig.py` de melding van de laatste poging (behalve bij `vangnet`).
