@@ -21,6 +21,17 @@ class PlatformfoutTest {
     }
 
     @Test
+    fun zelfdeFoutBijPreviousConflictWordtOvergeslagen() {
+        // Run 45305066655: knop "Previous Conflict", tekst van Swing is dan "argument is not a child".
+        val stackVorige = """
+            java.lang.IllegalArgumentException: argument is not a child
+                at javax.swing.tree.DefaultMutableTreeNode.getChildBefore(DefaultMutableTreeNode.java:973)
+                at com.intellij.ide.OccurenceNavigatorSupport.findNextNodeAfter(OccurenceNavigatorSupport.java:119)
+        """.trimIndent()
+        assertTrue(bekendePlatformfout("PreviousOccurenceToolbarAction", stackVorige))
+    }
+
+    @Test
     fun bekendeFoutMetPluginInDeStackFaaltNog() {
         val metPlugin = stackIntelliJ + "\n    at com.dortus.bisonflex.pro.HernoemDiagnose.run(HernoemDiagnose.kt:0)"
         assertFalse(bekendePlatformfout("node is not a child", metPlugin))
