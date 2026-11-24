@@ -1,0 +1,90 @@
+# gemaakt: 2026-11-24T17:40:40Z
+# workflow: Regisseur 24 (Pro-Short: already split, knee on the 3D cursor) (.github/workflows/regisseur-24.yml)
+# run: 45449190225 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45449190225
+# commit: cd37df7a tak main gestart door push
+# mislukte stappen: short: Controle (synchroon, geluid, lengte)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== short / Controle (synchroon, geluid, lengte) (laatste 81 van 81 regels) =====
+##[group]Run cd /tmp/klaar
+cd /tmp/klaar
+ok=0
+for n in pro-al-gesplitst pro-al-gesplitst-sale; do
+  mkdir -p meting-$n
+  python $[weggehaald: lange base64-reeks].py $n-geluid.mp4 $n-groot-script.json meting-$n || ok=1
+  for f in meting-$n/*; do mv "$f" "$(basename ${f%.*})-$n.${f##*.}"; done
+  d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $n-geluid.mp4)
+  echo "$n $d s" | tee -a lengtes.txt
+  python -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: $n is $d s"; ok=1; }
+done
+python $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py *.mp4 | tee geluid_check.txt
+grep -q "FOUT" geluid_check.txt && ok=1
+sha256sum *.mp4 | tee SHA256SUMS.txt
+exit $ok
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-24
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+  PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+  Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+  WHISPER_MODEL: small.en
+##[endgroup]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+# Synchroon-meting pro-al-gesplitst-geluid.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **FOUT**, 12 van 13 zinnen binnen 0.3 s; grootste verschil 0.6 s, gemiddeld 0.15 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.0 | 0.0 | 9/9 | ja | Already split your figure? Can that knee still bend? |
+| 2 | 3.03 | 3.16 | 3.19 | 0.157 | 12/12 | ja | This robot is already in parts: a body and two separate legs. |
+| 3 | 7.3 | 7.52 | 7.42 | 0.12 | 7/7 | ja | Click the leg you want to bend. |
+| 4 | 9.1 | 9.28 | 9.24 | 0.14 | 14/14 | ja | Turn the view to the side. The hinge turns around the way you look. |
+| 5 | 13.0 | 13.24 | 13.13 | 0.13 | 12/12 | ja | Shift and right click on the knee. The 3D cursor jumps there. |
+| 6 | 17.03 | 17.14 | 17.15 | 0.117 | 11/11 | ja | In Click Joints Pro, go to Figure joints and click Knee. |
+| 7 | 20.5 | 20.58 | 20.63 | 0.13 | 14/14 | ja | It cuts the leg in two and builds a hinge right at the cursor. |
+| 8 | 24.33 | 24.42 | 24.46 | 0.127 | 11/11 | ja | The panel shows how far it bends: 0 to 135°. |
+| 9 | 29.4 | 28.8 | 28.8 | -0.6 | 10/10 | NEE | Show bend range shows how far the knee can swing. |
+| 10 | 32.37 | 32.6 | 32.41 | 0.043 | 7/7 | ja | Elbow and Ankle work the same way. |
+| 11 | 34.6 | 34.74 | 34.72 | 0.12 | 12/12 | ja | Your parts stay just as they are. Now that knee can bend. |
+| 12 | 38.13 | 38.3 | 38.27 | 0.137 | 9/9 | ja | Every printer is different. Print a test joint first. |
+| 13 | 41.47 | 41.62 | 41.59 | 0.123 | 5/5 | ja | Click Joints Pro, on Gumroad. |
+pro-al-gesplitst 45.266667 s
+# Synchroon-meting pro-al-gesplitst-sale-geluid.mp4
+
+Gemeten uit het mp4-bestand (GEZIEN): stem met faster-whisper small.en (woordtijden), scène uit de sprong in het tekstvak.
+Uitslag: **FOUT**, 12 van 13 zinnen binnen 0.3 s; grootste verschil 0.6 s, gemiddeld 0.149 s.
+
+Stem = woordtijd van whisper, verfijnd tot het begin van de klank (energie boven 1 kHz, na een stilte) binnen 0,6 s van die woordtijd.
+
+| Zin | Scène (beeld) s | Stem whisper s | Stem begin klank s | Verschil s | Woorden | Goed | Tekst |
+|---|---|---|---|---|---|---|---|
+| 1 | 0.0 | 0.0 | 0.0 | 0.0 | 9/9 | ja | Already split your figure? Can that knee still bend? |
+| 2 | 3.03 | 3.16 | 3.19 | 0.157 | 12/12 | ja | This robot is already in parts: a body and two separate legs. |
+| 3 | 7.3 | 7.52 | 7.42 | 0.12 | 7/7 | ja | Click the leg you want to bend. |
+| 4 | 9.1 | 9.28 | 9.24 | 0.14 | 14/14 | ja | Turn the view to the side. The hinge turns around the way you look. |
+| 5 | 13.0 | 13.24 | 13.13 | 0.13 | 12/12 | ja | Shift and right click on the knee. The 3D cursor jumps there. |
+| 6 | 17.03 | 17.14 | 17.16 | 0.127 | 11/11 | ja | In Click Joints Pro, go to Figure joints and click Knee. |
+| 7 | 20.5 | 20.58 | 20.63 | 0.13 | 14/14 | ja | It cuts the leg in two and builds a hinge right at the cursor. |
+| 8 | 24.33 | 24.44 | 24.44 | 0.107 | 11/11 | ja | The panel shows how far it bends: 0 to 135°. |
+| 9 | 29.4 | 28.8 | 28.8 | -0.6 | 10/10 | NEE | Show bend range shows how far the knee can swing. |
+| 10 | 32.37 | 32.6 | 32.43 | 0.063 | 7/7 | ja | Elbow and Ankle work the same way. |
+| 11 | 34.6 | 34.74 | 34.73 | 0.13 | 12/12 | ja | Your parts stay just as they are. Now that knee can bend. |
+| 12 | 38.17 | 38.3 | 38.27 | 0.103 | 9/9 | ja | Every printer is different. Print a test joint first. |
+| 13 | 41.47 | 41.62 | 41.6 | 0.133 | 9/9 | ja | Click Joints Pro, 25% off this week, on Gumroad. |
+pro-al-gesplitst-sale 47.100000 s
+GOED: pro-al-gesplitst-geluid.mp4: gemiddeld -16.5 dB, piek -1.4 dB
+GOED: pro-al-gesplitst-sale-geluid.mp4: gemiddeld -16.5 dB, piek -1.4 dB
+[weggehaald: lange hex-reeks]  pro-al-gesplitst-geluid.mp4
+[weggehaald: lange hex-reeks]  pro-al-gesplitst-sale-geluid.mp4
+##[error]Process completed with exit code 1.
