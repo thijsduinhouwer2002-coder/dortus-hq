@@ -135,26 +135,20 @@ def schaal(waarde):
 
 
 def zijbalk_omlaag():
-    """w2: stap 3 met Export STL/3MF staat bij 1,5x onder de rand van het scherm (eigen keuring 24 nov). Het paneel
-    is hier langer dan de zijbalk, dus scrollen met het wiel boven de zijbalk werkt (bij plaatje 19 paste alles en
-    deed het wiel niets). Daarna nog view2d.scroll_down als vangnet; de log zegt hoe ver het kwam."""
+    """w2 (Daan M2): bij 2x staat stap 3 onder de rand. Het wiel (xdotool) en view2d.scroll_down(deltay=...) deden
+    hier niets: deltay wordt genegeerd, de muis kwam niet aan (ronde 7, GEZIEN). Wat wel werkt (lokaal getest in 5.3.0
+    onder Xvfb): view2d.scroll_down zonder argumenten met een volledige context (window, screen, area, region); elke
+    aanroep is één vaste stap. Zoveel stappen dat "3  Fit and export" bovenaan staat en Export STL er nog onder past.
+    Daarna de muis naar een leeg stuk van het beeld, anders staat er een hulpballon in het beeld."""
     venster, gebied, regio = zijbalk()
     if not regio:
         return
-    x = venster.x + regio.x + regio.width // 2
-    y = venster.y + venster.height - (regio.y + regio.height // 2)
-    xdo("mousemove", str(x), str(y))
-    time.sleep(0.2)
-    for _ in range(int(os.environ.get("CJ_WINKEL_WIEL", "25"))):
-        xdo("click", "5")
-        time.sleep(0.03)
-    try:
-        with bpy.context.temp_override(window=bpy.context.window_manager.windows[0], area=gebied, region=regio):
-            bpy.ops.view2d.scroll_down(deltay=2000)
-    except Exception as fout:  # noqa: BLE001
-        log(f"WINKEL scroll_down fout: {fout}")
+    with bpy.context.temp_override(window=venster, screen=venster.screen, area=gebied, region=regio):
+        for _ in range(int(os.environ.get("CJ_WINKEL_STAPPEN", "9"))):
+            bpy.ops.view2d.scroll_down("EXEC_DEFAULT")
+    xdo("mousemove", str(venster.x + 1100), str(venster.y + 950))
     gebied.tag_redraw()
-    log(f"WINKEL zijbalk omlaag view2d={getattr(regio, 'view2d', None) and regio.view2d.region_to_view(0, 0)}")
+    log(f"WINKEL zijbalk omlaag view2d={regio.view2d.region_to_view(0, 0)} hoogte={regio.height}")
 
 
 def gewone_naam():
