@@ -1,5 +1,7 @@
 # Hoofdchat-ronde (vast, elk uur op minuut 40)
 
+**STIL (Thijs 24 nov 20:19):** bestaat `organisatie/STIL`, doe dan niets: schrijf niets, leg niets vast, eindantwoord "stil". De vaste rondes liggen stil terwijl de hoofdchat het uiterlijk opknapt.
+
 Draait als geplande taak ("hoofdchat-ronde", cron `40 * * * *`: elk uur op minuut 40), ook als Thijs weg is. Dit ís de hoofdchat. TikTok en YouTube plaatst de Maker van Roep; de hoofdchat plaatst daar niet meer zelf (CLAUDE.md regel 4). Het quotum van Metricool (20 per maand) is van Roep, zie `marketing/REGELS.md`. Hoofdzaak: snel veel geld verdienen (bovenaan CLAUDE.md). Doen, niet rapporteren. Werktijd ±20 minuten. Is er sinds de vorige ronde niets nieuws (geen oranje, geen bericht, geen nieuwe verkoop), doe dan alleen de trots-check (stap 4) en stop.
 
 1. `bash organisatie/start.sh`. Lees `organisatie/bord.md`, het laatste blok van `marketing/dagrapport.md`, het einde van `berichten/hoofdchat.md` (nieuw sinds de vorige ronde), de besluiten bovenaan en de nieuwste onderaan `organisatie/besluiten.md`.
