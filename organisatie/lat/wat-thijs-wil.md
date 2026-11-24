@@ -15,6 +15,11 @@ Dit zijn dingen die Thijs vaak heeft moeten herhalen. Elke nieuwe correctie van 
 - Eerlijk blijven: geen beloftes die het product niet waarmaakt (de enkel-zin van 24 nov).
 - Professioneel en zelfverzekerd schrijven, niet verontschuldigend.
 
+## Hats (Thijs speelde het, 24 nov 23:56)
+- "Voelt meer als een virus dan als iets leuks." Nooit in de weg: doorzichtig, doorklikbaar, gezellig, stoort nooit (zoals Rusty's Retirement en Marginalia).
+- Poppetjes moeten goed lopen, elke held bijzonder, niet steeds hetzelfde om de 15 seconden.
+- Altijd duidelijk wat je moet doen: de eerste minuut leert het je, en er is altijd één zichtbaar volgend doel.
+
 ## Filmpjes
 - Stem: ElevenLabs Max, Engels met Nederlands accent. Niets online zonder Max (24 nov 18:00).
 - Eerste beeld groot en mooi, geen lege grijze ruimte, geen grijs MakeHuman-poppetje.
