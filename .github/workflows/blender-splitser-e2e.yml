@@ -6,7 +6,7 @@ name: Blender splitser e2e (Click Cuts, echte Blender)
 # (alleen beelden, geen zip of code) en op de tak schermen.
 on:
   push:
-    branches: [main]
+    branches: [main, "claude/click-cuts-*"]
     paths: ["producten/blender-splitser/**", ".github/workflows/blender-splitser-e2e.yml"]
   workflow_dispatch:
 
@@ -86,6 +86,12 @@ jobs:
             /tmp/blender/blender -b --factory-startup --python e2e/scherm_passing.py -- /tmp/sj_uit "$PWD/e2e/screenshots/${{ matrix.blender }}" 2>&1 | tee /tmp/passing.log || true
           grep "\[sj-scherm\]" /tmp/passing.log || true
           grep -q "SCHERM OK passing-2" /tmp/passing.log || { echo "FOUT: geen beeld van de passingproef"; exit 1; }
+      - name: Schermafbeelding van Lay parts flat (STL-bestanden uit de export, uit en aan)
+        if: always()
+        run: |
+          timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender -b --factory-startup --python e2e/scherm_plat.py -- /tmp/sj_uit "$PWD/e2e/screenshots/${{ matrix.blender }}" schedel 2>&1 | tee /tmp/plat.log || true
+          grep -q "SCHERM OK plat-schedel" /tmp/plat.log || { echo "FOUT: geen beeld van Lay parts flat"; grep "Traceback\|Error" /tmp/plat.log | head; exit 1; }
       - name: Schermafbeelding van het paneel (echte interface)
         if: always()
         env:

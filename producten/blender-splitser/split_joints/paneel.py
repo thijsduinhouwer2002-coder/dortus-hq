@@ -153,6 +153,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
                 vak.label(text=regel, icon="INFO")
         rij = stap.row(align=True)
         rij.prop(inst, "formaat", expand=True)
+        stap.prop(inst, "plat")
         stap.prop(inst, "exportmap")
         h = exporteer.hint(scene)
         if h:

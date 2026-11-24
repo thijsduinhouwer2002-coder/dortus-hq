@@ -18,6 +18,7 @@ doorsnede = importlib.import_module("split_joints.doorsnede")
 verbinders = importlib.import_module("split_joints.verbinders")
 passing = importlib.import_module("split_joints.passing")
 kleuren = importlib.import_module("split_joints.kleuren")
+plat = importlib.import_module("split_joints.plat")
 
 fouten = []
 
@@ -239,6 +240,84 @@ def lab(hex_):
 alle = list(kleuren.PALET) + [kleuren.GOUD]
 dlab = min(math.dist(lab(a), lab(b)) for i, a in enumerate(alle) for b in alle[i + 1:])
 stap("kleur: elk paar kleuren (ook het goud) minstens 25 uit elkaar in Lab", dlab >= 25.0, f"{dlab:.1f}")
+
+# 10. Lay parts flat (1.0.1): the largest flat plane goes down, only if it is a real bottom and fits the bed
+def doos_vlakken(x, y, z, gat=False):
+    """Faces of a box 0..x, 0..y, 0..z as (normals, points, areas); gat: the +x face has a hole of 25%."""
+    nrm, pts, opp = [], [], []
+    for as_, maat_ in ((0, x), (1, y), (2, z)):
+        rest = [m for i, m in enumerate((x, y, z)) if i != as_]
+        for kant in (0.0, 1.0):
+            n = [0.0, 0.0, 0.0]
+            n[as_] = 1.0 if kant else -1.0
+            p = [x / 2, y / 2, z / 2]
+            p[as_] = maat_ * kant
+            a = rest[0] * rest[1] * (0.75 if gat and as_ == 0 and kant else 1.0)
+            nrm.append(n), pts.append(p), opp.append(a)
+    return np.array(nrm), np.array(pts), np.array(opp)
+
+
+def doos_hoeken(x, y, z):
+    return np.array([(a, b, c) for a in (0, x) for b in (0, y) for c in (0, z)], dtype=float)
+
+
+nrm, pts, opp = doos_vlakken(40.0, 100.0, 60.0)
+n, a, d = plat.grootste_vlak(nrm, pts, opp)
+stap("plat: grootste vlak van een doos 40 x 100 x 60 is 100 x 60", abs(a - 6000.0) < 1e-6 and abs(abs(n[0]) - 1) < 1e-9,
+     f"{a:.0f} {n}")
+# a cut face with pin holes, split in many small triangles, still counts as one plane
+rng = np.random.default_rng(1)
+stukjes = rng.uniform(10.0, 50.0, 400)  # together far more than the 6000 of the box
+nrm2 = np.vstack([nrm, np.tile([1.0, 0.0, 0.0], (400, 1)) + rng.normal(0, 1e-5, (400, 3))])
+pts2 = np.vstack([pts, np.column_stack([np.full(400, 200.0), rng.uniform(0, 50, 400), rng.uniform(0, 50, 400)])])
+opp2 = np.concatenate([opp, stukjes])
+n2, a2, d2 = plat.grootste_vlak(nrm2, pts2, opp2)
+stap("plat: veel kleine driehoeken in één vlak tellen samen", abs(a2 - stukjes.sum()) < 1e-6 and abs(d2 - 200.0) < 0.02,
+     f"{a2:.1f} van {stukjes.sum():.1f}")
+for nv in ([0, 0, 1], [0, 0, -1], [1, 0, 0], [0.6, 0, 0.8], [0.3, -0.4, -0.866]):
+    nv = np.array(nv, dtype=float) / np.linalg.norm(nv)
+    r = plat.draai_naar_beneden(nv)
+    stap(f"plat: draaiing zet {np.round(nv, 2).tolist()} naar beneden", np.allclose(r @ nv, [0, 0, -1], atol=1e-9)
+         and np.allclose(r @ r.T, np.eye(3), atol=1e-9) and abs(np.linalg.det(r) - 1) < 1e-9)
+# box on an A1 mini (176 x 176 x 178): the 100 x 60 face down, height 40
+r, a, rang, _snij = plat.kies_stand(nrm, pts, opp, doos_hoeken(40.0, 100.0, 60.0), (176.0, 176.0, 178.0))
+w = doos_hoeken(40.0, 100.0, 60.0) @ r.T
+stap("plat: doos ligt op zijn grootste kant", r is not None and rang == 0 and abs(np.ptp(w[:, 2]) - 40.0) < 1e-6,
+     f"hoogte {np.ptp(w[:, 2]):.1f}")
+# long thin piece on a low bed: the big face down would be fine, but a bed of 120 high and 90 wide
+# does not take the 170 x 100 face lying down; the next plane that fits wins
+nrm3, pts3, opp3 = doos_vlakken(170.0, 100.0, 30.0)
+r3, a3, rang3, _snij = plat.kies_stand(nrm3, pts3, opp3, doos_hoeken(170.0, 100.0, 30.0), (120.0, 120.0, 180.0))
+w3 = doos_hoeken(170.0, 100.0, 30.0) @ r3.T if r3 is not None else None
+stap("plat: past het grootste vlak niet op het bed, dan het volgende dat past", r3 is not None and rang3 > 0
+     and np.ptp(w3[:, 0]) <= 120.0 + 1e-6 and np.ptp(w3[:, 1]) <= 120.0 + 1e-6 and np.ptp(w3[:, 2]) <= 180.0 + 1e-6,
+     f"rang {rang3}")
+# turned around z to fit: a 140 x 10 strip on a 110 x 110 bed fits only diagonally (at 45 degrees 106 x 106)
+nrm4, pts4, opp4 = doos_vlakken(140.0, 10.0, 5.0)
+r4, a4, rang4, _snij = plat.kies_stand(nrm4, pts4, opp4, doos_hoeken(140.0, 10.0, 5.0), (110.0, 110.0, 50.0))
+w4 = doos_hoeken(140.0, 10.0, 5.0) @ r4.T if r4 is not None else None
+stap("plat: draait om z als het recht niet past", r4 is not None and rang4 == 0 and np.ptp(w4[:, 0]) <= 110.0 + 1e-6
+     and np.ptp(w4[:, 1]) <= 110.0 + 1e-6)
+# L-shape: the largest plane is a step in the middle, the rest sticks out past it: not a bottom
+nrm5 = np.array([[0, 0, 1.0], [0, 0, -1.0], [0, 0, 1.0]])
+pts5 = np.array([[50, 50, 10.0], [10, 50, 0.0], [10, 50, 40.0]])
+opp5 = np.array([8000.0, 2000.0, 2000.0])
+hoeken5 = np.array([[0, 0, 0], [100, 0, 0], [0, 100, 0], [100, 100, 0], [0, 0, 40], [20, 100, 40], [100, 100, 10.0]])
+r5, a5, rang5, _snij = plat.kies_stand(nrm5, pts5, opp5, hoeken5, (176.0, 176.0, 178.0))
+stap("plat: een vlak waar iets van het stuk voorbij steekt ligt niet onder", r5 is not None and abs(a5 - 2000.0) < 1e-6
+     and np.allclose(r5 @ [0, 0, -1.0], [0, 0, -1.0]), f"vlak {a5:.0f}")
+# cut faces first: a faceted side (8000 mm2) is larger than the cut face (2000 mm2) with a pin hole in it
+nrm6 = np.array([[1.0, 0, 0], [0, 0, -1.0], [0, 0, 1.0]])
+pts6 = np.array([[100, 50, 20.0], [50, 50, 0.0], [50, 50, 40.0]])
+opp6 = np.array([8000.0, 2000.0, 2000.0])
+hoeken6 = doos_hoeken(100.0, 100.0, 40.0)
+r6, a6, _, snij6 = plat.kies_stand(nrm6, pts6, opp6, hoeken6, (176.0, 176.0, 178.0), snij=[((30.0, 40.0, 0.05), (0.0, 0.0, 1.0))])
+stap("plat: een snijvlak (met pengat) gaat voor een groter plat vlak van het model", r6 is not None and abs(a6 - 2000.0) < 1e-6
+     and snij6 and np.allclose(r6 @ [0, 0, -1.0], [0, 0, -1.0]), f"vlak {a6:.0f}")
+r7, a7, _, snij7 = plat.kies_stand(nrm6, pts6, opp6, hoeken6, (176.0, 176.0, 178.0), snij=[((30.0, 40.0, 3.0), (0.0, 0.0, 1.0))])
+stap("plat: een pengat buiten het vlak maakt het geen snijvlak", abs(a7 - 8000.0) < 1e-6 and not snij7, f"vlak {a7:.0f}")
+stap("plat: geen enkel plat vlak: stuk houdt zijn eigen stand", plat.kies_stand(np.zeros((0, 3)), np.zeros((0, 3)),
+     np.zeros(0), hoeken5, (176.0, 176.0, 178.0))[0] is None)
 
 print(f"[sj-logica] KLAAR {len(fouten)} FOUT {fouten}")
 sys.exit(1 if fouten else 0)

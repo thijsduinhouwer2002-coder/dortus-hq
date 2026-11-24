@@ -1,5 +1,8 @@
 # Click Cuts changelog
 
+## 1.0.1 (candidate, not released yet)
+- Lay parts flat (on by default, in Export): every part is exported lying on its largest cut face, so it goes on the bed the right way up without supports under that face. Only when it still fits your printer; otherwise the next flat face, or the part keeps its own way up. Pins are not changed.
+
 ## 1.0.0 (candidate, 24 Nov 2026)
 First version.
 - Split to fit: one button cuts the selected model into parts that fit your printer bed, with pins, pin holes and part numbers.

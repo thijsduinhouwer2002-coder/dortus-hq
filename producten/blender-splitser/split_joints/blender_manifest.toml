@@ -1,6 +1,6 @@
 schema_version = "1.0.0"
 id = "click_cuts"
-version = "1.0.0"
+version = "1.0.1"
 name = "Click Cuts"
 tagline = "Split big models to fit your printer, with pins that fit"
 maintainer = "Dortus <thijs@dortus.com>"

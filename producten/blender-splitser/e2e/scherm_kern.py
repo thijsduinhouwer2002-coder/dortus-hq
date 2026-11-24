@@ -116,9 +116,10 @@ def model(naam):
         break
 
 
-for m in ("suzanne", "vaas", "schedel", "vrij"):
-    try:
-        model(m)
-    except Exception as e:
-        log(f"SCHERM FOUT {m}: {e!r}")
-log("SCHERM KLAAR")
+if __name__ == "__main__":  # scherm_plat.py imports the helpers above
+    for m in ("suzanne", "vaas", "schedel", "vrij"):
+        try:
+            model(m)
+        except Exception as e:
+            log(f"SCHERM FOUT {m}: {e!r}")
+    log("SCHERM KLAAR")
