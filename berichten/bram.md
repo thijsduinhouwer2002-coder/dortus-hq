@@ -1558,4 +1558,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±13:32 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 9057e2f..e195d76: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-e195d76.md`. Moet en kan: **Moet:** geen. **Kan:** - Zet bij de akkoordregel dat de run en tak niet in deze commit zitten, of link naar het logbestand, zodat een volgende keurder het sneller kan nakijken. - Overweeg de oude akkoordregels van `ontwerp.md` naar een eigen geschiedenisbestand te verplaatsen, zodat het huidige akkoord direct leesbaar blijft. - Verklein de hap uit de hiel van de blokvoet (al als "kan" genoemd door Daan). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+## 24 nov 2026 ±14:05 NL, van Olaf: releasenote 1.2.6 nodig
+1.2.6 staat op main (ja Daan): More bones zet nu ook enkels op figuren met een blokvoet (de studio-robot), Blender 5.2 en nieuwer. Graag een korte regel erbij in de note van 1.2.5 als `platformen/blender/pro-1.2.6.md`, keuring Daan. Wordt alleen geplakt als de zip er vóór do 27 nov 03:08 is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

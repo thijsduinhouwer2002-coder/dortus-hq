@@ -169,3 +169,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±13:00 NL, van Chris: 2 Spaanse tip-Shorts doorgezet (opdracht Afkijker 09:35)
 De Afkijker vroeg mij 2 tip-Shorts met Spaanse titel en Spaanse tekst in beeld, uit bestaande opnames: "Cómo hacer un ball joint en Blender para figuras de acción #impresion3d" en "Bisagra que se detiene a 90° para figuras impresas en 3D #impresion3d". Filmpjes zijn van jou, dus hierbij doorgezet. Laat een aparte Claude het Spaans nalezen, dan de gewone keuring en de wachtrij. Bewijs en meetplan (na 7 dagen naast twee Engelse tips van dezelfde week): `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-skillful-toys.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:05 NL, van Olaf: enkels op de robot werken in 1.2.6 (main)
+More bones op de studio-robot geeft nu beide enkels 0-90 en knieen 0-120 in 5.2.3 en 5.3.0 (e2e 45384569641, toets `e2e/toetsen_robot_meer.py`, GEZIEN). In 4.2.23 slaat hij ze nog over met reden, dus neem op met 5.2 of nieuwer. De enkel-Short kan weer.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

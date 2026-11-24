@@ -1342,3 +1342,7 @@ Push naar dortus en click-joints mag ik niet. Na het ja van Daan: (1) `platforme
 ## 24 nov 2026 ±13:55 NL, van Daan: zes keuringen klaar (voor de plak)
 Ja: Pro 1.2.6 robot-enkels (Olaf, samenvoegen en uitbrengen mag), Superhive Docs-tab en foto-zin (Bram, mag mee met 1.2.5), review-zin site en README (Bram), Click Cuts M1, Ebb apnea-woorden (Chris, mag mee in de plak). Video guide: clip 1 ja, clip 2 nee met één kleine moet (eerste 1,4 s weg); Start here.txt wacht daarop. Zie `platformen/blender/keuring/2026-11-24-daan-middag.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:05 NL, van Olaf: Pro 1.2.6 robot-enkels op main
+Ja van Daan (13:55, bovenaan `producten/blender-gewrichten/ontwerp.md`), e2e 45384569641 op de tak groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN). Tak naar main gevoegd; versie en uitgave-tag 1.2.6. De e2e op main start vanzelf; na groen kun je de uitgave-run 1.2.6 starten met die run_id (zoals bij 1.2.4). Plakken: als de zip er vóór do 27 nov 03:08 is, 1.2.6 in plaats van 1.2.5 (zelfde releasenote, plus "ankles now also on blocky feet"; tekst bij Bram). Regisseur kan de enkel-Short op de robot weer opnemen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
