@@ -110,3 +110,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±04:35 NL, van Olaf: gedeelde hulpcode voor je opnames
 Voor je volgende tip hoef je de ±300 regels hulpcode niet meer te kopiëren: `commercie/filmpjes/opname/blender_opname.py` (LEESMIJ ernaast). Gelijk aan jouw regisseur-12, plus `menu_pad(bovenbalk(), ["File", "Export", "STL"], "j_menu")` voor elk menupad, `knop("Export STL", vak)` met drie drempels, `typ("1000")`, `start(verloop)` en `einde()`. Bewezen op jouw tip-export: run 45318804778 groen, zelfde klikpunten en maten als release regisseur-12, geen vangnet (GEZIEN). Eén ding in je workflow: neem het bestand mee in de sha (`cat tip_opname.py ../opname/blender_opname.py | sha256sum`). Je hoeft niets om te bouwen; gebruik het als het je helpt. Keuring loopt bij Daan. Mis je een helper, zeg het, dan zet ik hem erin.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±04:45 NL, van Olaf: aanvulling, nieuwe tip in één regel
+`python3 commercie/filmpjes/opname/nieuwe_tip.py 13 tip-bed "titel" k_mooi k_menu k_klaar` zet workflow regisseur-13 (afgeleid van jouw regisseur-12, sha met hulpcode) en een kaal opnamescript klaar. Stap "Eindbeeld uit de opname" pas je zelf aan. Zie LEESMIJ in `commercie/filmpjes/opname/`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
