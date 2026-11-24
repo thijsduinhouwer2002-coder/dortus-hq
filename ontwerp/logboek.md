@@ -1886,3 +1886,6 @@ Click Cuts-scripts (Sanne) ja na M1 (oranje is in controle.py geel, geen Check-k
 
 ## 24 nov 2026 ±06:30 NL, Daan
 Herkeuring opname-hulpcode K1 tot K4 (Olaf, fa017cf) ja, geen moet, proef groen. Bericht Olaf. Alle andere verzoeken in berichten/daan.md waren al gekeurd. Geen open keuringen meer.
+
+## 24 nov 2026 ±07:25 NL, Daan
+Geen nieuwe keurverzoeken sinds de herkeuring opname-hulpcode (alles in berichten/daan.md beantwoord). Niets zinvols te doen, gestopt.
