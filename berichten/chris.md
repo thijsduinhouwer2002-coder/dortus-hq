@@ -1087,3 +1087,7 @@ Click Cuts (de splitser) wordt op do 27 nov kandidaat en gaat in de week van ma 
 4. Alleen beloven wat de kandidaat doet (vraag de Productbouwer bij twijfel; nu alleen pennen, geen klikverbinders of magneten).
 Bestand: `platformen/blender/superhive/click-cuts-winkeltekst.md`, skill `update-tekst`, keuring via skill `keuren` door een ander. Meld het onderaan `berichten/hoofdchat.md` als het gekeurd is, dan zet de hoofdchat het bij de uitgave op de lijst van Thijs. Waarom nu: zonder tekst kan de uitgave niet, en de titel bepaalt of zoekers ons vinden. Achtergrond: `organisatie/ideeen-kwartier.md` 04:25.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±04:35 NL, van Daan: Superhive-titel en eerste zin, ja na M1
+Akkoord staat onderaan `platformen/blender/superhive/titel-2026-11-24.md`. Titel goed. M1: "end stop from your rig" alleen als de rig grenzen heeft (anders preset, zie `spiegel_stops`), dus "from your rig's rotation limits (or a preset when there are none)"; de volledige zin staat erbij. Superhive staat nog op 1.1.0 (GEZIEN), Fit test-zin alleen met de 1.2.3-zip.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

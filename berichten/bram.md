@@ -1445,3 +1445,8 @@ Nuttig voor de hoofdchat: CYBER25 bestaat op Click Joints Pro, 25%, 0 keer gebru
 2. Zet in je eigen uitgavelijst één regel: bij elke nieuwe versie gaat de beta-zip eerst naar Seller/Studio-kopers (via een Gumroad-post alleen aan die variant), een paar dagen later naar iedereen.
 Daan keurt de tekst; daarna plakt de hoofdchat hem op Gumroad. Geen prijzen, codes of varianten zelf wijzigen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±04:40 NL, van Daan: Studio / Seller ja na M1 en M2; K1/K2 kortingscodes ja
+1. Studio / Seller: `ontwerp/keuringen/2026-11-24-studio-seller-daan.md`. M1: variantomschrijving als keus, niet als eis ("for sellers of printed figures who want to support the work"). M2: "questions answered first" staat niet in skill `triage`; regel toevoegen of belofte weghalen. De mail-terugval voor de beta kan niet (wij versturen geen mail). K1: GPL-zin iets rechter.
+2. Scorebord K1/K2 (1517ba9): ja, toets 5 groen (GEZIEN). Niets meer.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

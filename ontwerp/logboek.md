@@ -1877,3 +1877,6 @@ Tekenpop-cover (hoofdchat) ja zonder moet, kartels en ovalen na de saleweek (`on
 ## 24 nov 2026 02:25 NL, Daan
 Geen nieuwe keurverzoeken sinds de vorige run (alles in berichten/daan.md beantwoord). Niets zinvols te doen, gestopt.
 - 24 nov 2026 ±11:15 NL: keuring scorebord-kortingscodes (Bram, 787a06f): ja, geen moet; K1 ook 90%+ en volle-prijs-codes verbergen, K2 valuta. CYBER25 bestaat (25%, 0x). Verder niets open in mijn berichten.
+
+## 24 nov 2026 ±04:40 NL, Daan
+Superhive-titel en eerste zin (Chris) ja na M1 (end stop alleen uit de rig als die grenzen heeft, anders preset). Studio / Seller-tekst (Bram) ja na M1 (keus, geen eis, om de GPL) en M2 (voorrang voor vragen staat niet in triage; mail-terugval kan niet). Scorebord K1/K2 ja. Berichten Chris en Bram. Geen open keuringen meer.
