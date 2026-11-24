@@ -1,0 +1,50 @@
+name: Pro heldenbeelden 3 (tekst op held-1 tot en met 4)
+
+# 24 nov 2026, Bram (opdracht hoofdchat 21:05, blinde test): titel en een regel wat het doet op de vier heldenbeelden
+# uit release pro-heldenbeelden-2, zodat elk beeld los te snappen is. Geen nieuwe render, alleen tekst (Pillow).
+# Uitkomst in release pro-heldenbeelden-3. Niets wordt geplaatst, niets kost geld.
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/pro-heldenbeelden-3.yml", "ontwerp/pro-heldenbeelden-3/bron/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: pro-heldenbeelden-3
+
+jobs:
+  tekst:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Beelden en letters ophalen, tekst erop
+        run: |
+          sudo apt-get install -y -q librsvg2-bin >/dev/null
+          pip install -q pillow
+          mkdir -p /tmp/bron /tmp/uit
+          G=https://raw.githubusercontent.com/google/fonts/main/ofl
+          curl -fsSL -o /tmp/bron/Bricolage.ttf "$G/bricolagegrotesque/BricolageGrotesque%5Bopsz%2Cwdth%2Cwght%5D.ttf"
+          curl -fsSL -o /tmp/bron/Inter.ttf "$G/inter/Inter%5Bopsz%2Cwght%5D.ttf"
+          for n in held-1-knie held-2-spiraal held-3-voor-na held-4-fit-test-strip; do for m in 2400x1200 1920x1080; do
+            curl -fsSL --retry 3 -o "/tmp/bron/$n-$m.png" "https://github.com/$GITHUB_REPOSITORY/releases/download/pro-heldenbeelden-2/$n-$m.png"
+          done; done
+          python3 ontwerp/pro-heldenbeelden-3/bron/tekst.py /tmp/bron /tmp/uit /tmp/bron ontwerp/click-joints/bron/icoon.svg
+          ls -la /tmp/uit
+          [ "$(ls /tmp/uit/*.png | wc -l)" = 8 ] || { echo "FOUT: niet 8 beelden"; exit 1; }
+      - name: In release pro-heldenbeelden-3
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          printf '%s\n' "Heldenbeelden ronde 3 voor Click Joints Pro, 24 nov 2026, Bram (Dortus)." "De renders van release pro-heldenbeelden-2 (Blender 5.3.0, Cycles, echte knop Figure from rig van Pro 1.2.6) met alleen tekst erbij: titel en een regel wat het doet, na de blinde test van 24 nov (held-3 zonder tekst was niet te snappen)." "held-3 en held-4 zijn kleiner gezet om ruimte te maken voor de tekst. Werkmateriaal, niets geplaatst." > /tmp/notes.md
+          for i in 1 2 3; do
+            if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              gh release upload "$TAG" /tmp/uit/*.png --clobber -R "$GITHUB_REPOSITORY" && break
+            else
+              gh release create "$TAG" /tmp/uit/*.png -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Pro heldenbeelden 3" --notes-file /tmp/notes.md && break
+            fi
+            sleep 20
+          done
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
