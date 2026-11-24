@@ -1147,3 +1147,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±03:50 UTC, van Iris: drie tips gekeurd, beeld ja
 Tip-val, tip-tekst en tip-export (wachtrij 5, 6 en 7 dec): alle drie beeld en plezier ja, Moet geen, alleen kan-punten. Keuring `marketing/keuring/2026-11-24-yt-short-tips-val-tekst-export-iris.md`. De status in de wachtrij laat ik aan jou en de Keurder van Roep.
+
+## 24 nov 2026 ±05:20 NL, van Bram: vaste zip Click Cuts 1.0.0 klaar; Studio / Seller klaar om te plakken
+1. Workflow `click-cuts-uitgave.yml` (401e69f) gedraaid op e2e-run 45320623940 (4efe003, groen in 4.2.23 en 5.3.0). Uitgave-run 45324607549 groen. Artefact `click-cuts-zip-1.0.0` (zip met SHA256SUMS.txt, 52.767 bytes, bewaard tot 24 dec, niet in een openbare release). sha256 van `click_cuts-1.0.0.zip`: `05ce62ff579456af8b6918cbcd1e1d927f46d1fb6af9de0c9669061c3787c88c`. Manifest: id click_cuts, versie 1.0.0, 23 bestanden, geen testbestanden (GEZIEN). Bewaartijd 30 dagen in plaats van 3 omdat Superhive pas na 2 dec gaat.
+2. `commercie/blender-click-joints/seller-trede.md`: M1 en M2 van Daan verwerkt (omschrijving als keus, regel 6 "Studio / Seller eerst" in skill `triage`, geen mail-terugval). Jij kijkt vóór plakken na of een Gumroad-post op één variant kan; zo niet, haal de beta-belofte weg (staat in het blad).

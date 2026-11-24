@@ -19,25 +19,28 @@ Studio / Seller
 
 **Variantomschrijving** (was "License for a team or studio of up to 5 people."):
 ```
-For a team of up to 5 people, or for anyone who sells prints of their figures. Same add-on as Personal. You get new versions first as a beta, and your questions are answered first.
+For a team of up to 5 people, or for sellers of printed figures who want to support the work. Same add-on as Personal. You get new versions first as a beta, and your questions are answered first.
 ```
 
 **Kopje Versions in de beschrijving** (vervangt de hele zin eronder):
 ```
-Personal is for one person. Supporter is the same download and helps us keep building. Studio / Seller is for a team of up to 5 people, or for anyone who sells prints of their figures: you get new versions first as a beta and your questions are answered first. Every version is GPL, so you may sell prints with any of them; Studio / Seller is how sellers support the work.
+Personal is for one person. Supporter is the same download and helps us keep building. Studio / Seller is for a team of up to 5 people, or for sellers of printed figures who want to support the work: you get new versions first as a beta and your questions are answered first. You may sell your prints with any version; Studio / Seller is how sellers support the work.
 ```
 
 ## Waarom zo (eerlijk onder de GPL)
 - Click Joints Pro is GPL-3.0-or-later. Daarom staat er nergens dat Personal niet mag verkopen. De laatste zin zegt het juist andersom: met elke versie mag je verkopen.
-- De twee echte extra's zijn dingen die wij zelf kiezen en die de GPL niet raakt: wie wij een beta-zip sturen (vaste regel in `platformen/blender/uitgavelijst-pro.md`) en wiens vraag wij eerst beantwoorden (mail of issue van een Studio/Seller-koper eerst, zie skill `triage`).
+- De twee echte extra's zijn dingen die wij zelf kiezen en die de GPL niet raakt: wie wij een beta-zip sturen (vaste regel in `platformen/blender/uitgavelijst-pro.md`) en wiens vraag wij eerst beantwoorden (punt 6 in skill `triage`: vraag van een Studio / Seller-koper bovenaan).
 - **De factuur op bedrijfsnaam laat ik bewust weg.** Gumroad geeft volgens mij elke koper een factuur waarop hij zelf een bedrijfsnaam zet (GOK, niet nagekeken). Dan is het geen extra van deze trede en zou de tekst meer beloven dan er is. Wil de hoofdchat hem toch: eerst nakijken of Gumroad dat alleen bij sommige kopers doet.
 - Geen nieuwe prijzen: $19 / $24 / $59 blijft (besluit 19 nov). Superhive pas na 2 dec en dan apart (daar heet hij Studio, $45).
 - CYBER25 (25%, GEZIEN in het scorebord) geldt op alle varianten, dus ook op Studio / Seller; niets aan te passen.
 
 ## Na plakken (hoofdchat)
-1. Curl de pagina en zoek "Studio / Seller" en "sells prints"; zet GEZIEN met tijd onderaan dit blad.
+1. Curl de pagina en zoek "Studio / Seller" en "sellers of printed figures"; zet GEZIEN met tijd onderaan dit blad.
 2. Variant-id blijft gelijk (alleen hernoemen, geen nieuwe variant), zodat oude Studio-kopers in dezelfde groep blijven voor de beta-post.
 3. Zet de nieuwe zin ook in `commercie/blender-click-joints/winkeltekst.md` (FAQ "What is the Studio licence?") of laat Bram dat doen.
 
 ## Open voor de hoofdchat (alleen nakijken, niets wijzigen)
-- Kan een Gumroad-post (e-mail aan kopers) gefilterd worden op één variant? Ik denk ja (GOK). Zo niet, dan stuurt Bram de beta-link via de hoofdchat per mail naar de Studio/Seller-kopers uit de verkooplijst. Dat is nu hooguit één koper.
+- Kan een Gumroad-post (e-mail aan kopers) gefilterd worden op één variant? Ik denk ja (GOK). **Zo niet: haal "You get new versions first as a beta" uit beide teksten vóór plakken.** Een mail-terugval is er niet: wij versturen geen mail (Gmail alleen lezen).
+
+## Keuring
+- Daan 24 nov ±04:40: ja na M1 en M2 (`ontwerp/keuringen/2026-11-24-studio-seller-daan.md`). Verwerkt 24 nov ±05:20 door Bram: M1 omschrijving als keus (letterlijk de zin van Daan, ook in de beschrijving); M2 regel 6 in skill `triage`, mail-terugval weg; K1 GPL-zin. Klaar voor de hoofdchat.
