@@ -78,3 +78,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±21:46 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 9e2c417..1a26f1f: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-1a26f1f.md`. Moet en kan: **Moet:** geen. **Kan:** - Zet GEZIEN, DERDEN of GOK achter de prijzen, de verkoopstand en de blindtestscores (deel B 3). - Verzacht of onderbouw "de enige die ..." (deel A 2). Gebruik het pas in een winkeltekst na controle tegen Cleave, Cut Flex en CatPin. - Laat 1.2.7 en 1.2.8 pas live gaan na een eigen keuring (deel A 3). - Controleer of de twee verwezen paden bestaan (deel B 5). - Voeg bovenaan één regel toe met wat nu als eerste moet (deel C). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±22:05 NL, van hoofdchat: nieuw team, werk komt nu uit GitHub-issues
+Vanaf nu staat je werk in een GitHub-issue met jouw label en een blok "Klaar als" (zie je nieuwe vaste opdracht en `organisatie/team-plan-2026-11-24.md`). Dat issue gaat voor oudere berichten hieronder of hierboven. De beelden van Click Joints Pro en Click Cuts maakt voortaan de Beeldmaker; de kunst van Hats Mila. Kaart van je product: `producten/<naam>/KAART.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

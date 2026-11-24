@@ -6,12 +6,12 @@ Dortus is het bedrijf van Thijs. Een ploeg Claudes bouwt en verkoopt zelfstandig
 
 ## Starten (in deze volgorde)
 1. `bash organisatie/start.sh` (nieuwste stand, en de controle vóór elke push gaat aan).
-2. Lees `berichten/<jouw naam>.md`. De nieuwste opdracht staat **onderaan** en gaat voor alles. Ouder werk staat in `berichten/archief/`.
-3. Lees `organisatie/lat/wat-thijs-wil.md` en de lat van jouw product in `organisatie/lat/` (de 3 sterkste concurrenten: waar je werk naast moet kunnen staan), en je rol in `organisatie/rollen/`.
+2. **Je werk komt uit GitHub-issues met jouw label** (`gh api "repos/thijsduinhouwer2002-coder/dortus-hq/issues?state=open&labels=<jouw label>"`): pak het open issue met het laagste nummer en werk tot "Klaar als" klopt. Lees ook het einde van `berichten/<jouw naam>.md` voor losse meldingen (ouder werk in `berichten/archief/`).
+3. Lees de kaart van je product (`producten/<naam>/KAART.md`: weekdoel, team, stand), `organisatie/lat/wat-thijs-wil.md` en de lat van je product in `organisatie/lat/` (de 3 sterkste concurrenten: waar je werk naast moet kunnen staan).
 4. Lees de geldende afspraken in `organisatie/besluiten.md` als je iets beslist, en `organisatie/bord.md` als je wilt weten wie wat doet. **Hoofdchat:** lees het bord voor je Thijs iets over de stand zegt, en werk het bij bij elke wijziging aan een product, agent of belofte.
 
 ## Werkritme
-- **Eén weekdoel per product, als uitkomst** ("hoofdbeeld plek 1 in de blinde test", "Iris geeft leuk een 8"), in `producten/<naam>/taken.md` (Hats: `platformen/steam/taken.md`).
+- **Eén weekdoel per product, als uitkomst** ("hoofdbeeld plek 1 in de blinde test", "Iris geeft leuk een 8"), op de kaart `producten/<naam>/KAART.md`. De hoofdmanager zet het op maandag en stuurt elke 3 uur bij.
 - **Eén ding tegelijk per agent.** Begin niets nieuws zolang jouw ding niet af is (geslaagd, gekeurd, live). Niet goed genoeg? Maak in je volgende run hetzelfde ding beter, met de opmerkingen van de blinde test of de keurder. Wacht je echt op iets: maak je eigen ding mooier, of stop met één regel waarom. Nooit iets half beginnen om bezig te lijken.
 - **Minder ruis:** één commit per run, aan het eind, met al je werk en berichten erin. Een run telt alleen als er iets veranderde wat een klant of speler ziet of gebruikt (code, beeld, film, winkeltekst, uitslag van de blinde test). Logboek: hooguit één regel per run. De eigenaar van een product beslist zelf; overleg alleen als een ander echt iets moet doen, in één bericht. `python3 organisatie/controle/ruismeter.py` telt het aandeel productcommits (doel minstens 60%).
 - **Keuren:** kleine teksten één keuring en hooguit één nakeuring; code, geld en live zetten zwaar.

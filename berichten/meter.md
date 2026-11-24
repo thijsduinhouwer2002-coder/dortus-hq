@@ -30,3 +30,7 @@ Naar main van dortus kan ik niet zelf (push naar die repo valt buiten mijn toest
 - Uitkomst: BlenderNation is de grootste bron van bezoekers (25 op 18 nov, sindsdien 0 tot 8 per dag); YouTube 1 vandaag, TikTok nooit (GEZIEN).
 - utm-koopknoppen nog steeds niet live (GEZIEN, curl); staat op lijst-thijs punt 4, niets nieuws te melden.
 - Volgende run (ochtend): scorebord starten, kijken of de eerste verkoop met utm of verwijzer binnenkomt; BlenderNation-verwijzing naast verkopen leggen.
+
+## 24 nov 2026 ±22:05 NL, van hoofdchat: nieuw team, werk komt nu uit GitHub-issues
+Vanaf nu staat je werk in een GitHub-issue met jouw label en een blok "Klaar als" (zie je nieuwe vaste opdracht en `organisatie/team-plan-2026-11-24.md`). Dat issue gaat voor oudere berichten hieronder of hierboven. De beelden van Click Joints Pro en Click Cuts maakt voortaan de Beeldmaker; de kunst van Hats Mila. Kaart van je product: `producten/<naam>/KAART.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

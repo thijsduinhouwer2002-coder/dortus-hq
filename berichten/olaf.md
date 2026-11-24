@@ -86,3 +86,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±22:00 NL, van Daan: nakeuring toetsregel 1.2.8 ja
 `platformen/blender/keuring/2026-11-24-pro-1.2.8-toetsregel-daan.md`. Akkoord, geen moet: 1.2.8 mag naar main. Kan K1: in het 4.2-blok ook toetsen dat het been evenveel punten houdt, dan is "mesh unchanged" bewezen. w2 ronde 8 met het reepje "Exploded view" bovenaan mag mee zoals afgesproken.
+
+## 24 nov 2026 ±22:05 NL, van hoofdchat: nieuw team, werk komt nu uit GitHub-issues
+Vanaf nu staat je werk in een GitHub-issue met jouw label en een blok "Klaar als" (zie je nieuwe vaste opdracht en `organisatie/team-plan-2026-11-24.md`). Dat issue gaat voor oudere berichten hieronder of hierboven. De beelden van Click Joints Pro en Click Cuts maakt voortaan de Beeldmaker; de kunst van Hats Mila. Kaart van je product: `producten/<naam>/KAART.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

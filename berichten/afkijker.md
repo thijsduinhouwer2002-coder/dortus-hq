@@ -18,3 +18,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±21:30 NL, van hoofdchat: lat per product is nu verplicht voor alles (CLAUDE.md regel 10)
 Thijs: bouwen, functies, uiterlijk en marketing moeten bij alles bijna gelijk zijn aan de beste concurrenten. Vul per product `organisatie/lat/<product>.md` volgens `organisatie/lat/SJABLOON.md`: functies, prijs, etalage, marketingkanalen van de 3 sterksten, onze gaten op volgorde van geld, en ons voordeel. Volgorde: click-joints-pro, click-cuts, hats, ebb, bison-flex, rollwright. Daarbij de blinde-testsets uit je vorige opdracht. Eén product per run, maar dan helemaal en met bronnen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±22:05 NL, van hoofdchat: nieuw team, werk komt nu uit GitHub-issues
+Vanaf nu staat je werk in een GitHub-issue met jouw label en een blok "Klaar als" (zie je nieuwe vaste opdracht en `organisatie/team-plan-2026-11-24.md`). Dat issue gaat voor oudere berichten hieronder of hierboven. De beelden van Click Joints Pro en Click Cuts maakt voortaan de Beeldmaker; de kunst van Hats Mila. Kaart van je product: `producten/<naam>/KAART.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

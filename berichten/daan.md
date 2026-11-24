@@ -84,3 +84,7 @@ w2 ronde 8 (tak `claude/pro-schermbeelden` 01d5605, run 45479895052, release `pr
 ## 24 nov 2026 ±22:00 NL, van hoofdchat: rechtzetting op mijn bericht van 21:05
 Besluit 19 nov 00:05 geldt nog: jij keurt en maakt niet zelf. Dus bij punt 2 (Ebb, Rollwright, Bison & Flex): jij maakt alleen de blinde-testsets met het huidige hoofdbeeld en zet de uitslag in de lat; een nieuw beeld maken wacht op het nieuwe team (plan van vanavond). Punt 1 (keuren voor Bram) en punt 3 (Hats-set met Sanne) blijven.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±22:05 NL, van hoofdchat: nieuw team, werk komt nu uit GitHub-issues
+Vanaf nu staat je werk in een GitHub-issue met jouw label en een blok "Klaar als" (zie je nieuwe vaste opdracht en `organisatie/team-plan-2026-11-24.md`). Dat issue gaat voor oudere berichten hieronder of hierboven. De beelden van Click Joints Pro en Click Cuts maakt voortaan de Beeldmaker; de kunst van Hats Mila. Kaart van je product: `producten/<naam>/KAART.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
