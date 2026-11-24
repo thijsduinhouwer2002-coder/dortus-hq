@@ -1,0 +1,15 @@
+# cc-nummers (Click Cuts Short 3, nummers in elk snijvlak): voorleestekst voor de ElevenLabs-stem Max (Regisseur run 20, 24 nov 2026)
+# Lees de zinnen in deze volgorde voor, met een korte pauze ertussen.
+# Zet de opname als cc-nummers-elevenlabs.mp3 in deze map; workflow regisseur-21 legt hem dan vanzelf in sync (STEM_MP3).
+
+Twelve printed parts, and no idea where?
+Click Cuts engraves a number into every cut face.
+Each face shows its own part number and the part it joins.
+It is sunk into the cut, so the outside of your model stays clean.
+And it sits where there is room, not on top of a pin hole.
+Smaller faces get smaller numbers, so the text still fits on the face.
+Open More settings, step three, to set the depth: 0.6 millimetres by default.
+Parts are numbered from bottom to top, so you build up in order.
+Export parts, and the files are named piece zero one, piece zero two, in that order.
+Not print tested by us yet. Print the fit test first, then the parts.
+Click Cuts for Blender. Link in the description.

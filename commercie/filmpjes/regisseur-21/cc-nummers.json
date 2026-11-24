@@ -1,0 +1,246 @@
+{
+ "naam": "cc-nummers",
+ "titel": "Which printed part goes where? Number every cut 🔥 | Blender",
+ "eind": {
+  "titel": "Click Cuts",
+  "zin": "For Blender.",
+  "adres": "Link in the description",
+  "render": "render-cc.png",
+  "icoon": "producten/blender-splitser/merk/icoon-512.png"
+ },
+ "printzin": "Not print tested by us yet.",
+ "venster": "Blender 5.3 with Click Cuts",
+ "scenes": [
+  {
+   "tekst": "Twelve printed parts, and no idea where?",
+   "label": "QUICK QUESTION",
+   "kleur": "oranje",
+   "kop": "Which goes where?",
+   "beeld": {
+    "deel": "hoop",
+    "van": 0,
+    "tot": 100,
+    "uitsnede": [
+     [
+      788,
+      960,
+      900
+     ],
+     [
+      788,
+      960,
+      760
+     ]
+    ],
+    "begin_uitsnede": [
+     788,
+     960,
+     900
+    ]
+   },
+   "groot": true
+  },
+  {
+   "tekst": "Click Cuts engraves a number into every cut face.",
+   "label": "THE FIX",
+   "kleur": "groen",
+   "kop": "A number on every cut",
+   "beeld": {
+    "deel": "vlak",
+    "van": 0,
+    "tot": 130,
+    "uitsnede": [
+     [
+      788,
+      960,
+      860
+     ],
+     [
+      788,
+      960,
+      760
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Each face shows its own part number and the part it joins.",
+   "label": "NEIGHBORS",
+   "kleur": "blauw",
+   "kop": "PAAR_KOP",
+   "beeld": {
+    "deel": "buren",
+    "van": 0,
+    "tot": 140,
+    "uitsnede": [
+     [
+      788,
+      960,
+      800
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "It is sunk into the cut, so the outside of your model stays clean.",
+   "label": "CLEAN",
+   "kleur": "groen",
+   "kop": "Outside stays clean",
+   "beeld": {
+    "deel": "buiten",
+    "van": 0,
+    "tot": 130,
+    "uitsnede": [
+     [
+      788,
+      960,
+      950
+     ],
+     [
+      788,
+      960,
+      850
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "And it sits where there is room, not on top of a pin hole.",
+   "label": "SMART SPOT",
+   "kleur": "oranje",
+   "kop": "Not on a hole",
+   "beeld": {
+    "deel": "gaten",
+    "van": 0,
+    "tot": 130,
+    "uitsnede": [
+     [
+      788,
+      960,
+      900
+     ],
+     [
+      788,
+      960,
+      820
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Smaller faces get smaller numbers, so the text still fits on the face.",
+   "label": "SMALL FACES",
+   "kleur": "blauw",
+   "kop": "Small face, small number",
+   "beeld": {
+    "deel": "klein",
+    "van": 0,
+    "tot": 130,
+    "uitsnede": [
+     [
+      788,
+      960,
+      860
+     ],
+     [
+      788,
+      960,
+      780
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Open More settings, step three, to set the depth: 0.6 millimetres by default.",
+   "label": "SETTING",
+   "kleur": "groen",
+   "kop": "0.6 mm deep",
+   "beeld": {
+    "deel": "paneel",
+    "van": 0,
+    "tot": 150,
+    "uitsnede": [
+     [
+      "@paneel_plek",
+      640,
+      0,
+      0
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Parts are numbered from bottom to top, so you build up in order.",
+   "label": "ORDER",
+   "kleur": "oranje",
+   "kop": "Bottom to top",
+   "beeld": {
+    "deel": "lagen",
+    "van": 0,
+    "tot": 150,
+    "uitsnede": [
+     [
+      788,
+      960,
+      1000
+     ],
+     [
+      788,
+      960,
+      900
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Export parts, and the files are named piece zero one, piece zero two, in that order.",
+   "label": "EXPORT",
+   "kleur": "blauw",
+   "kop": "piece_01, piece_02 ...",
+   "beeld": {
+    "deel": "export",
+    "van": 0,
+    "tot": 90,
+    "uitsnede": [
+     [
+      1830,
+      700,
+      700
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Not print tested by us yet. Print the fit test first, then the parts.",
+   "label": "HONEST",
+   "kleur": "oranje",
+   "kop": "Print the fit test first",
+   "beeld": {
+    "deel": "samen",
+    "van": 0,
+    "tot": 140,
+    "uitsnede": [
+     [
+      788,
+      960,
+      950
+     ],
+     [
+      788,
+      960,
+      830
+     ]
+    ]
+   }
+  },
+  {
+   "tekst": "Click Cuts for Blender. Link in the description.",
+   "label": "CLICK CUTS",
+   "kleur": "groen",
+   "kop": "",
+   "beeld": {
+    "eindkaart": true
+   }
+  }
+ ]
+}
