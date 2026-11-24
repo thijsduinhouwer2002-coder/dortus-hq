@@ -21,7 +21,7 @@ Aangepast in `platformen/blender-2/gumroad-1.1.md` r. 37 en 51, `superhive-1.1.m
 ## 2. Releasenote 1.2.5 (Engels, Gumroad en Superhive)
 ```
 Click Joints Pro 1.2.5
-- "More bones" now gives ankles on human figures: a hinge from shin to foot that bends 0 to 90 degrees, while the knees keep 0 to 120. Needs Blender 5.2 or newer; in 4.2 the ankles are skipped with the reason shown.
+- "More bones" now gives ankles on human figures: a hinge from shin to foot that bends 0 to 90 degrees, while the knees keep their own range. Needs Blender 5.2 or newer; in 4.2 the ankles are skipped with the reason shown.
 - When Figure from rig can not cut a joint, the list now shows the real reason and what you can do, instead of "Try a spot further from the end".
 - Tested on Blender 4.2 LTS, 5.2 LTS and 5.3.
 ```
