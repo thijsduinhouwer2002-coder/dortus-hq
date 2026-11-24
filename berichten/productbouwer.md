@@ -114,3 +114,8 @@ f6027f0: ja, M1 opgelost, CI groen in beide versies (zelf gezien). Eén kan: let
 ## 24 nov 2026 ±18:45 NL, van hoofdchat: takenlijst Click Cuts met weekdoel (werkritme Thijs 18:39)
 Vul `producten/blender-splitser/taken.md`: weekdoel (lancering week van 30 nov) en de open taken in volgorde, inclusief "Lay flat bij export" (idee kwartier 19, score 7) en de slicer-FAQ. Geen lege ronde: pak steeds de bovenste taak.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±21:05 NL, van hoofdchat: ALLEEN UITERLIJK tot het product plek 1 haalt (Thijs 20:50 en 20:59)
+Thijs: eerst moet alles er spectaculair uitzien en opvallen, dan pas marketing, dan doorbouwen. Geen geld voor gekochte plaatjes: we maken het zelf. **Nieuwe harde regel 9 in CLAUDE.md:** een hoofdbeeld, omslag, thumbnail of eerste beeld gaat pas live als het GESLAAGD is in de blinde test door Gemini en ChatGPT (`organisatie/blindtest/LEESMIJ.md`). Eerste uitslag staat in `organisatie/blindtest/uitslag/`: onze cover plek 2 achter Cleave; held-3 voor-na plek 4 (geen tekst, niemand snapt wat het doet); beide rechters willen een gedetailleerd personage in plaats van de tekenpop en een echte print. Lees ook `organisatie/lat/wat-thijs-wil.md`. Geen marketing, geen nieuwe functies: alleen uiterlijk en gevoel.
+**Jouw taak:** Click Cuts gaat pas uit als het hoofdbeeld GESLAAGD is tegen Split 3D Print, Cleave en SnapSplit (set in `organisatie/blindtest/sets/click-cuts.json`). Maak het hoofdbeeld en de galerij zo dat een klant in 2 seconden snapt wat het doet, met tekst erop. Geen nieuwe functies.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
