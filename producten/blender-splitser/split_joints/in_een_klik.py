@@ -23,6 +23,16 @@ def _doe(op):
         return str(e).strip()
 
 
+def kies_model(context):
+    """The selected model: the active mesh when it can be split (keuring 24 nov, M1: a second model in the
+    scene was ignored), else the model of the cuts (a piece is active after a split)."""
+    ob = context.active_object
+    if ob is not None and ob.type == "MESH" and "sj_as" not in ob and not ob.get("sj_stuk") \
+            and not ob.get("sj_pennen") and not ob.get("sj_passing") and not ob.get("sj_vrij"):
+        return ob
+    return snedes.model(context)
+
+
 def uitslag_tekst(scene):
     """(main line, detail line, ok) from the pieces in the scene, or None when there are none."""
     stukken = [o for o in scene.objects if o.get("sj_stuk")]
@@ -49,12 +59,12 @@ class SPLIT_JOINTS_OT_split_to_fit(bpy.types.Operator):
 
     @classmethod
     def poll(cls, context):
-        return snedes.model(context) is not None
+        return kies_model(context) is not None
 
     def execute(self, context):
         scene = context.scene
         inst = scene.split_joints
-        ob = snedes.model(context)
+        ob = kies_model(context)
         if ob is None:
             inst.uitslag = "Select the model first"
             self.report({"ERROR"}, inst.uitslag)

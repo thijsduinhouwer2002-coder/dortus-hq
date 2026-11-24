@@ -6,7 +6,7 @@ Split gives one piece on an A1 mini. Then a free cut turned 90 degrees (arrow al
 through the arm. Measured on the meshes: two pieces, both watertight and green, the new piece holds only the arm
 end (its size), volumes add up, every new hole is as deep as planned along the plane normal on both sides,
 the two halves get different colors, pins match the hole pairs. Refused (piece count stays): a rectangle
-smaller than the arm, a plane that misses the piece, a plane through an existing pin hole."""
+smaller than the arm, a plane that misses the piece, a plane through an existing pin hole (message checked);\na parallel plane 3 mm past the bottom of that hole does cut."""
 import math
 import os
 import sys
@@ -58,12 +58,17 @@ def vrije_snede(stuk, x, hoek_z=15.0, schaal=1.0):
     return r, snede
 
 
+LAATSTE = [""]  # message of the last refused Cut piece
+
+
 def knip():
     """Runs Cut piece; an ERROR report raises in bpy.ops, that counts as CANCELLED with the message."""
+    LAATSTE[0] = ""
     try:
         return bpy.ops.split_joints.vrije_snede()
     except RuntimeError as e:
-        log(f"vrij: melding {str(e).strip()[:160]}")
+        LAATSTE[0] = str(e).strip()
+        log(f"vrij: melding {LAATSTE[0][:160]}")
         return {"CANCELLED"}
 
 
@@ -139,11 +144,32 @@ def alles(uitmap=None):
     pen = sum(int(p["sj_pennen"]) for p in pen_objecten())
     stap("vrij: pennen gelijk aan gatenparen", pen == len(nieuw_a), f"{pen} pennen")
 
-    # refused: a free cut through the pin hole of the new piece (2 mm into piece B, parallel)
-    r, snede = vrije_snede(b, 52.0)
-    modellen.actief(snede)
+    # refused: a free cut through the pin hole of piece B (parallel, halfway down the hole). The plane is placed
+    # in world space on the hole itself, with the exploded view offset (keuring 24 nov, M2: on x = 52 the plane
+    # missed the moved piece and was refused for the wrong reason)
+    g = nieuw_b[0]
+    gn = Vector(g["n"])
+    verschuiving = Vector(b.delta_location)
+
+    def op_gat(diep):
+        r, snede = vrije_snede(b, 0.0)
+        snede.location = Vector(g["p"]) + gn * diep + verschuiving
+        bpy.context.view_layer.update()
+        modellen.actief(snede)
+        return snede
+
+    op_gat(g["diepte"] / 2.0)
     r = knip()
-    stap("vrij: snede door een pengat geweigerd", r == {"CANCELLED"} and len(stukken()) == 2, f"{r}")
+    stap("vrij: snede door een pengat geweigerd", r == {"CANCELLED"} and len(stukken()) == 2 and
+         "pin hole" in LAATSTE[0], f"{r} '{LAATSTE[0][:90]}'")
+    weg = [o for o in bpy.context.scene.objects if o.get("sj_vrij")]
+    for o in weg:
+        bpy.data.objects.remove(o)
+    # a parallel plane 3 mm past the bottom of the hole does cut
+    op_gat(g["diepte"] + 3.0)
+    r = knip()
+    stap("vrij: snede net voorbij het gat snijdt wel", r == {"FINISHED"} and len(stukken()) == 3,
+         f"{r} {len(stukken())} '{LAATSTE[0][:90]}'")
     if uitmap:
         bpy.ops.wm.save_as_mainfile(filepath=os.path.join(uitmap, "vrij.blend"))
 

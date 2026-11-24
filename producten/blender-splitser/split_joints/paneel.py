@@ -53,8 +53,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             return
 
         stap = layout.box()
-        stap.label(text="1  Printer", icon="MOD_BUILD")
-        stap.prop(inst, "printer", text="")
+        stap.label(text="1  Printer", icon="MOD_BUILD")  # the printer itself is chosen at the top (keuring K5)
         if inst.printer == printers.EIGEN:
             rij = stap.row(align=True)
             rij.prop(inst, "eigen_x", text="X")

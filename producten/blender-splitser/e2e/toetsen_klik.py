@@ -6,6 +6,7 @@ Measured on the meshes, not on what the add-on says:
   per piece) and the same pins as Plan cuts plus Split by hand; the result line says "3 parts, all fit the bed";
 - a second click with a piece active splits the same model again (no double pieces);
 - another printer (A1, 256 mm) gives the count of a plan for that printer;
+- a second model, selected, is split instead of the first one (keuring 24 nov, M1);
 - an open Suzanne (not watertight) gets a watertight copy first, then all pieces are watertight and fit;
 - a model in mm in a meter scene is refused at once with a line that says what to do;
 - sj_plek_mm reads and writes the cut position in mm (mm scene and meter scene)."""
@@ -90,6 +91,19 @@ def alles(uitmap=None):
     n_plan = int(s["sj_plan"]["stukken"])
     stap("klik: andere printer volgt het plan", r == {"FINISHED"} and len(stukken()) == n_plan and n_plan == 2 and
          all(past(maat(o), (252.0, 252.0, 254.0)) for o in stukken()), f"{len(stukken())} plan {n_plan}")
+
+    # a second model in the same scene, selected: that one is split (keuring 24 nov, M1)
+    tweede = modellen.doos(400.0, 120.0, 100.0, naam="Second")
+    tweede.location.x = 700.0
+    modellen.actief(tweede)
+    r = bpy.ops.split_joints.split_to_fit()
+    n_plan = int(s["sj_plan"]["stukken"])
+    xs = [o.matrix_world.translation.x for o in stukken()]
+    stap("klik: tweede model gekozen wordt gesneden", r == {"FINISHED"} and s.split_joints.bron == "Second" and
+         len(stukken()) == n_plan == 2 and all(past(maat(o), (252.0, 252.0, 254.0)) for o in stukken()),
+         f"{r} bron {s.split_joints.bron} {len(stukken())} plan {n_plan}")
+    stap("klik: tweede model, eerste doos blijft bestaan", bpy.data.objects.get("Box") is not None and
+         max(maat(o)[0] for o in stukken()) <= 252.0, f"{xs}")
 
     # open model: watertight copy first
     s = modellen.mm_scene()
