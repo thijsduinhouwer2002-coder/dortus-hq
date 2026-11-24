@@ -145,3 +145,47 @@ Geen.
 - K4 (A5): paneelregel "can take a few minutes" laten passen bij de FAQ, bijvoorbeeld "can take a minute or more" vanaf 1M (Daan K2).
 - K5 (A8): één keer Click Cuts en Click Joints Pro samen aanzetten in 4.2 en 5.3 voor de FAQ-regel "side by side" GEZIEN is.
 - K6: kleine opruiming in deel 5: "Twee dingen om op te letten" telt nu vier punten (0 tot 3), en de regel "Kan het daar niet, dan alleen Gumroad" is overbodig nu het besluit al "alleen Gumroad" is. C1 en C2 hierboven.
+
+## Vierde keuring, 24 nov 2026, 12:44 NL, losse keurder
+Wat ik keurde: `platformen/blender/superhive/click-cuts-winkeltekst.md` op 8e995eb (diff tegen de versie van de derde keuring), tegen `producten/blender-splitser/ontwerp.md` deel 14b, `producten/blender-splitser/keuring/2026-11-24-run10-daan.md`, `concurrentie.md` r. 77 en 78, de code in `split_joints/` (`in_een_klik.py`, `paneel.py`, `splitsen.py`, `controle.py`, `plan.py`, `passingproef.py`, `eigenschappen.py`) en met curl de Prusa-help en de Bambu-wiki (24 nov 12:44 NL).
+Akkoord: **ja** (geen moet-punten).
+
+### Deel A: doet het wat beloofd is?
+| # | Bevinding | Feit of vermoeden | Zekerheid | Wat het zou bevestigen of weerleggen |
+|---|---|---|---|---|
+| A1 | **"In Blender 4.2 the same scan takes about 3 minutes" klopt.** Deel 14b: 1,01M vlakken in 4.2.23 op 2 kernen 186,3 s (twee keer gemeten), in CI 106,0 s. "The same scan" staat naast de 40 s op de machine met 2 kernen; 186 s is 3,1 minuut. Eerlijk afgerond, en de traagste meting telt. De oude GOK "twice as long" is weg (gemeten 2,4 tot 4,4 keer). | feit | hoog | |
+| A2 | **"Big models show a time estimate under Split to fit" klopt.** `in_een_klik.zwaar_tekst` geeft vanaf `ZWAAR_VLAKKEN = 1_000_000` de regel `schatting_tekst` ("1.0M faces: Split takes about N min"), per solver (`splitsen.solver_naam`: Manifold vanaf 4.5, anders Exact), en `paneel.py` r. 39 tot 41 tekent hem direct onder de knop zolang er nog geen uitslag is. 4.2 met 1M: 190 s, "about 3 min", gelijk aan de FAQ. 5.3 met 1M: "about 1 min" tegen 40 s in de FAQ: ruimer, niet krapper. Daarmee is K4 van de derde keuring (twee verhalen) weg. | feit | hoog | |
+| A3 | **Geheugen-FAQ klopt met de meting.** Piek bij 3,04M vlakken 9.220 MB in 4.2.23 en 4.741 MB in 5.3.0 (GEZIEN door Daan, CI run 45367520845; ook deel 14b: 9,2 en 4,7 GB). "About 9 GB" en "about half" (51%) kloppen. Dit was Daans C1 en K2. | feit | hoog | |
+| A4 | **Het advies "On a laptop with 8 GB, use Blender 5.3 for models that big" is niet op een machine met 8 GB getest.** 4,7 GB piek plus Blender en het systeem past waarschijnlijk, maar het is een afleiding (GOK), geen meting. Geen moet: het is een advies in de goede richting (weg van 4.2), geen belofte dat het werkt. Wel netter als de koper zelf het getal ziet (K1). | vermoeden | midden | 3M-model splitsen in 5.3 op een machine met 8 GB |
+| A5 | **Slicer-FAQ, deel "A slicer cuts one plane at a time, and you set every cut and connector yourself": klopt.** Prusa-help: "A widget showing the cutting plane", "Use the left mouse button to add a connector"; Bambu-wiki: "a planar cut tool", connectors "Plug, Dowel and Snap" die je toevoegt, en na het snijden "Preview Printability ... fits within your bed" (zelf nakijken). DERDEN, curl 24 nov 12:44 NL. | feit | hoog | |
+| A6 | **"Click Cuts plans all the cuts so every part fits your bed": klopt.** `plan.py`: "where to cut so every piece fits on the bed, with as few pieces as possible"; Split to fit doet plan, splitsen en check in één klik (`in_een_klik.py` r. 1 tot 3). Sneden langs de wereldassen; de tekst belooft geen schuine sneden (Free cut staat apart in de lijst). | feit | hoog | |
+| A7 | **"checks each part (green fits, orange or red tells you why)": klopt.** `controle.status_uit`: rood bij niet passen, niet dicht of wand onder het minimum, oranje bij te dunne wand; redenen als "too big" en "not watertight" (`controle.py` r. 175 en 177). "green fits" is korter dan wat groen echt toetst (ook dicht en wand), maar niet onwaar. | feit | hoog | |
+| A8 | **"numbers the parts": klopt.** `eigenschappen.labels` "Engrave numbers", standaard aan (`default=True`), nummer plus buurman op elk snijvlak; als er geen plek is, een melding ("no room for the number", `splitsen.py` r. 170). | feit | hoog | |
+| A9 | **"uses the clearance from your own fit test print": klopt.** `passingproef.py`: blok met je eigen pen op vier spelingen, de gekozen speling wordt per printer en materiaal bewaard in de voorkeuren en komt terug via `pas_toe`; Split to fit gebruikt die speling (`in_een_klik.py` r. 1 tot 3). | feit | hoog | |
+| A10 | **Het 4.2-getal geldt ook voor 4.3 en 4.4.** `solver_naam` kiest Manifold pas vanaf 4.5; 4.3 en 4.4 gebruiken Exact, net als 4.2. Een koper met 4.4 leest "4.2" en denkt dat hij de snelle weg heeft. Niet onwaar, wel onvolledig (K2). Of 4.5 even snel is als 5.3 is niet gemeten. | feit | hoog | 1M-schedel in 4.4 en 4.5 meten |
+| A11 | Niet in de tekst, wel goed dat Chris het noemt: in 4.2 komt op de 1M-schedel 1 van 8 stukken rood ("not watertight", deel 14b, Daan A9). De tekst belooft niet dat elk stuk groen wordt, en het paneel zegt het eerlijk. Wel opnieuw naar kijken als het herstel niet in de zip van 1.0.0 komt (K3). | feit | hoog | log snelheidsrun na het herstel |
+| A12 | Kan-punten derde keuring: C1 (Where to find it nu onder de lijst, na de pennenregel) en C2 (FAQ "Which Blender?" alleen "4.2 and newer") zijn gedaan. K6 (deel 5 "Om op te letten", overbodige Superhive-zin weg) ook. | feit | hoog | |
+
+### Deel B: houdt het zich aan onze regels?
+| # | Bevinding | Feit of vermoeden | Zekerheid | Regel |
+|---|---|---|---|---|
+| B1 | Elk nieuw cijfer heeft een bron met GEZIEN of DERDEN en een run-nummer of link (186 s, 106 s, 9.220 MB, 4.741 MB, 190 s per miljoen, Plug, Dowel, Snap). De oude GOK is vervangen door GEZIEN en dat staat erbij. | feit | hoog | eerlijk |
+| B2 | Geen concurrentnaam in de Engelse tekst: Bambu, Orca en Prusa staan alleen in de Nederlandse bronregel. "your slicer's cut tool" noemt geen merk. | feit | hoog | opdracht |
+| B3 | Geen persoonsgegevens, geen gedachtestreepjes, nog CONCEPT, prijs bij Thijs. | feit | hoog | regels 2, 5, 8 |
+| B4 | De statusregel bovenaan heeft vetgedrukt in vetgedrukt ("**CONCEPT ... **vierde keuring nodig vóór plakken.**"), dus de opmaak breekt; en hij moet na deze keuring bijgewerkt worden. Alleen Nederlandse werknotitie. | feit | hoog | netheid |
+
+### Deel C: zou een koper het fijn vinden?
+| # | Bevinding | Wat het beter maakt | Moeite |
+|---|---|---|---|
+| C1 | De slicer-vraag bovenaan de FAQ is sterk: dat is precies de twijfel van wie Bambu of Prusa heeft. Het antwoord noemt vier dingen die de slicer niet doet, zonder te zeggen dat de slicer slecht is. | laten staan | |
+| C2 | De geheugen-FAQ zegt "about half" maar geen getal voor 5.3; wie 16 GB heeft weet het, wie 8 GB heeft moet rekenen. | "Blender 5.3 needs about half (about 5 GB)" | klein |
+| C3 | Wie Blender 4.4 heeft, vindt zichzelf nergens in de snelheids- en geheugenregels. | "Blender 4.2 to 4.4" in plaats van "Blender 4.2" waar het over de trage weg gaat | klein |
+
+### Moet (blokkeert akkoord)
+Geen.
+
+### Kan (mag later)
+- K1 (A4, C2): bij de geheugen-FAQ het getal voor 5.3 noemen ("about 5 GB"), zodat het 8 GB-advies herleidbaar is; of het advies laten rusten op een meting op 8 GB.
+- K2 (A10, C3): "Blender 4.2" in de snelheids- en geheugen-FAQ vervangen door "Blender 4.2 to 4.4" (zelfde Exact-weg, `splitsen.solver_naam`). "Blender 5.3" laten staan; 4.5 is niet gemeten.
+- K3 (A11): als het herstel van de rode rand in 4.2 niet in de 1.0.0-zip komt, de zin "Tested in Blender 4.2 and 5.3 on every change" nog eens naast het snelheidslog leggen; de tekst zelf blijft waar.
+- K4 (B4): statusregel bovenaan rechtzetten (vet niet nesten) en "vierde keuring akkoord ja" erin zetten.
