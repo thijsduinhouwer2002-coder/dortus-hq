@@ -1,6 +1,9 @@
 {
   "_uitleg": "De ene bron voor de stand per project. Uitleg van elk veld: organisatie/projecten-leesmij.md. De hoofdchat-ronde werkt dit elk uur bij; het dashboard (dashboard/bouw.py) leest het. Geen persoonsgegevens van Thijs: schrijf 'staat bij Thijs'. Elk getal heeft GEZIEN, DERDEN of GOK.",
-  "bijgewerkt": "2026-11-24 19:45 NL",
+  "bijgewerkt": {
+    "datum": "2026-11-24 19:45",
+    "door": "hoofdchat"
+  },
   "projecten": [
     {
       "id": "reddit-hat-tower",
