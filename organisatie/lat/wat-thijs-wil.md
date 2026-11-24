@@ -22,6 +22,8 @@ Dit zijn dingen die Thijs vaak heeft moeten herhalen. Elke nieuwe correctie van 
 - Ebb: alle dieren laten zien, vrolijk en leuk (24 nov 16:49).
 
 ## Werken
-- Geen lege rondes; pak de volgende taak (CLAUDE.md, Werkritme).
+- Kwaliteit, geen kwantiteit: één ding tegelijk, hetzelfde ding beter maken tot het geslaagd is, geen ruis (CLAUDE.md, Werkritme; 24 nov 21:16 en 21:19).
+- Eerst product en etalage op het niveau van de beste concurrent, dan marketing, dan doorbouwen (24 nov 20:50). Bij alles naast de beste concurrent: functies, uiterlijk, tekst, marketing (24 nov 21:25).
+- Geen gekochte plaatjes of pakketten: zelf maken (24 nov 20:59).
 - Thijs wil zo min mogelijk gevraagd worden, maar mails en posts onder zijn naam en geld alleen na zijn ja.
 - Thijs wil spreiden over meerdere producten (24 nov 20:08); elk product een eigen team dat beter opgeleid is, met deze lat.
