@@ -10,7 +10,7 @@ import base64, hashlib, io, json, os, random, sys, time, urllib.request, urllib.
 
 RONDES = 2
 LETTERS = "ABCD"
-GEMINI_MODELLEN = os.environ.get("GEMINI_MODELLEN", "gemini-2.5-pro,gemini-2.5-flash").split(",")
+GEMINI_MODELLEN = os.environ.get("GEMINI_MODELLEN", "gemini-3.1-pro-preview,gemini-3-pro-preview,gemini-2.5-flash").split(",")
 OPENAI_MODELLEN = os.environ.get("OPENAI_MODELLEN", "gpt-5,gpt-4.1,gpt-4o").split(",")
 
 VRAAG = """{rol}
@@ -100,10 +100,28 @@ def vraag_openai(prompt, beelden, model):
     return r["choices"][0]["message"]["content"]
 
 
+def gemini_lijst():
+    """Nieuwste Gemini-modellen die beelden aankunnen, als de vaste namen niet meer bestaan."""
+    try:
+        req = urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/models?pageSize=200",
+                                     headers={"x-goog-api-key": os.environ["GEMINI_API_KEY"].strip()})
+        data = json.loads(urllib.request.urlopen(req, timeout=60).read())
+    except Exception:
+        return []
+    namen = [m["name"].split("/")[-1] for m in data.get("models", [])
+             if "generateContent" in m.get("supportedGenerationMethods", [])]
+    namen = [n for n in namen if n.startswith("gemini-") and ("pro" in n or "flash" in n)
+             and not any(w in n for w in ("tts", "image", "audio", "live", "embedding", "lite"))]
+    return sorted(namen, key=lambda n: (("pro" in n), n), reverse=True)[:3]
+
+
 def vraag(naam, modellen, functie, prompt, beelden, gekozen):
     """Probeert modellen op volgorde; onthoudt welk model werkte."""
     fouten = []
-    for m in ([gekozen[naam]] if naam in gekozen else modellen):
+    lijst = [gekozen[naam]] if naam in gekozen else list(modellen)
+    if naam == "Gemini" and naam not in gekozen:
+        lijst += [m for m in gemini_lijst() if m not in lijst]
+    for m in lijst:
         try:
             data = lees_antwoord(functie(prompt, beelden, m.strip()))
             gekozen[naam] = m.strip()
@@ -157,6 +175,11 @@ def main(setpad, uitpad):
         regels += [f"## {kand['naam']}: {'GESLAAGD' if goed else 'NIET GESLAAGD'}", "",
                    f"Beeld: {kand['url']}", "",
                    "Gemiddelde plek: " + ", ".join(f"{n} {g:.1f}" for n, g in gem.items()), ""] + uitleg + [""]
+    if len(kapot) == len(rechters):
+        print("Geen enkele rechter gaf antwoord, geen uitslag geschreven:")
+        for n, f in kapot.items():
+            print(f"- {n}: {f}")
+        return 2
     regels += [f"LET OP: {n} deed niet mee: {f}" for n, f in kapot.items()]
     regels += ["Modellen: " + ", ".join(f"{n} = {m}" for n, m in gekozen.items()),
                "Alles is GEZIEN: letterlijke antwoorden van de modellen, ingekort tot één zin per punt."]
