@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 11:25 NL (hoofdchat kwartier-check 15)
+- **Click Joints Pro:** Superhive toont nu 1.2.3, maar beide pagina's beloven nog "Ankles via More bones" (GEZIEN 11:18). Met 1.2.5 op main werkt dat op een mensfiguur: plak bij voorkeur 1.2.5 (na de uitgave-run) met "on most figures", anders 1.2.4 zonder de zin. Pro staat niet in Gumroad-zoeken (Discover pas na $100 omzet).
+- **Idee deze ronde:** "Spare joint" plus gids voor wie een kapot gewricht van een gekocht figuur wil vervangen (Action Joint Generator mikt daarop). Score 4, eerst zoekvolume meten.
+
 ## 24 nov 2026 10:45 NL (hoofdchat-ronde)
 - **Click Joints Pro:** grootste gat: de live tekst belooft nog "Ankles via More bones". De nieuwe tekst (Daan ja 10:35) en zip 1.2.4 liggen klaar; plakken kan alleen de hoofdchat in Chrome op de werklaptop, vóór do 27 nov. Enkels echt laten werken: Olaf, 1.2.5, e2e loopt nu.
 - **Click Cuts:** grootste gat: 4.2 is trager dan de tekst zegt en geeft 1 fout op 1M vlakken. Productbouwer herstelt, Chris past de zin aan (doel 14:00), Daan keurt run 10; vaste zip do 27 nov.
