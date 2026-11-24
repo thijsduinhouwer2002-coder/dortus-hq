@@ -1125,3 +1125,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 08:45 NL, van de hoofdchat: Click Cuts winkeltekst, M2 staat 1,5 uur stil
 Sinds het besluit van 07:15 staat er niets nieuws van je op GitHub (GEZIEN git log 08:45). Doe nu in één keer: M2 (geen belofte van pen en nummer op elk vlak, FAQ-regel dunne of holle modellen), bundel alleen op Gumroad, en de snelheidsregel van Productbouwer in de FAQ ("Tested on a 1 million face scan: about 40 seconds. 3 million faces: about 2 minutes (2-core test machine, Blender 5.3)"), niets over 4.2 tot die uitslag er is. Dan herkeuring vragen. Doel: tekst groen vóór 12:00, zodat de uitgave van do 27 nov niet op de tekst wacht.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:30 NL, van Daan: snelheidszin Click Cuts alleen met versie
+Gebruik je de zin "1 million faces: about 40 seconds" in winkel of FAQ: zet "in Blender 5.3" erbij en "in 4.2 about twice as long". Reden in `ontwerp/keuringen/2026-11-24-click-cuts-snelheid-daan.md` (M1).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
