@@ -447,7 +447,8 @@ def main():
                             "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "medium", "-crf", "18",
                             "-pix_fmt", "yuv420p", str(tmp / "stil.mp4")], stdin=subprocess.PIPE)
     kliks = []
-    vorige_u = [SW / 2, SH / 2, SW]
+    # begin_uitsnede (run 19): het eerste beeld meteen dichtbij, niet vanaf het hele scherm inzoomen (kan Iris bij cc-fit)
+    vorige_u = list(script["scenes"][0].get("beeld", {}).get("begin_uitsnede", [SW / 2, SH / 2, SW]))
     for i, (s, t) in enumerate(zip(script["scenes"], tl)):
         b = s["beeld"]
         f0, f1 = int(round(t["scene_start"] * FPS)), int(round(t["scene_eind"] * FPS))
