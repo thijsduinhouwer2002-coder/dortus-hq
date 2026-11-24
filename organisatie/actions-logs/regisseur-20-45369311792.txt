@@ -1,0 +1,79 @@
+# gemaakt: 2026-11-24T09:53:44Z
+# workflow: Regisseur 20 (Click Cuts Short 2: fit test) (.github/workflows/regisseur-20.yml)
+# run: 45369311792 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45369311792
+# commit: 1708f518 tak main gestart door push
+# mislukte stappen: tips: Opnemen (2160x1920, echte muis); tips: In de release zetten
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== tips / Opnemen (2160x1920, echte muis) (laatste 47 van 47 regels) =====
+##[group]Run bash producten/blender-splitser/e2e/maak_zip.sh
+bash producten/blender-splitser/e2e/maak_zip.sh
+sha256sum /tmp/click_cuts.zip
+PH=https://dl.polyhaven.org/file/ph-assets/Models; L=/tmp/mod/lion_head && mkdir -p $L/textures
+curl -fsSL --retry 3 -o $L/lion_head_1k.gltf "$[weggehaald: lange base64-reeks].gltf"
+curl -fsSL --retry 3 -o $L/lion_head.bin "$PH/gltf/8k/lion_head/lion_head.bin"
+echo "[weggehaald: lange hex-reeks]  $L/lion_head.bin" | md5sum -c
+timeout 4800 xvfb-run --auto-servernum --server-args="-screen 0 2160x1920x24" \
+  /tmp/blender/blender --gpu-backend opengl --factory-startup --python commercie/filmpjes/regisseur-20/cc_opname.py -- /tmp/opn /tmp/click_cuts.zip /tmp/mod/lion_head 2>&1 | tee /tmp/opname-tip.log || true
+grep -E "KORT|Traceback|Error" /tmp/opname-tip.log | cut -c1-300 || true
+if grep -q "KORT FOUT" /tmp/opname-tip.log; then echo "FOUT in de opname"; exit 1; fi
+for d in alles; do grep -q "KORT OK $d" /tmp/opname-tip.log || { echo "FOUT: deel $d"; exit 1; }; done
+ffmpeg -v error -framerate 30 -start_number 1 -i /tmp/opn/beelden/b%05d.png -c:v libx264 -preset veryfast -crf 12 -pix_fmt yuv444p /tmp/pro/opname-ruw.mkv
+cp /tmp/opn/film.json /tmp/pro/film.json
+rm -rf /tmp/opn/beelden
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-20
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_cc20
+  BLENDER_USER_CONFIG: /tmp/cj_cc20/config
+##[endgroup]
+/tmp/click_cuts.zip
+[weggehaald: lange hex-reeks]  /tmp/click_cuts.zip
+/tmp/mod/lion_head/lion_head.bin: OK
+[cc20] KORT scherm 2160x1920 gebieden 1
+09:53:26 | INFO: Data are loaded, start creating Blender stuff
+09:53:26 | INFO: Blender create Mesh node Plane.002
+09:53:26 | ERROR: Missing image file (index 1): /tmp/mod/lion_head/textures/lion_head_diff_1k.jpg
+09:53:26 | ERROR: Missing image file (index 2): /tmp/mod/lion_head/textures/lion_head_arm_1k.jpg
+09:53:26 | ERROR: Missing image file (index 0): /tmp/mod/lion_head/textures/lion_head_nor_gl_1k.jpg
+09:53:26 | INFO: glTF import finished in 0.07s
+[cc20] KORT leeuw [320.5, 206.4, 436.0] vlakken 47214
+[cc20] KORT FOUT geen voorkeuren van Click Cuts
+[cc20] KORT klaar 0 beelden
+00:08.940  blend            | Saved session recovery to "/tmp/quit.blend"
+
+Blender quit
+[cc20] KORT scherm 2160x1920 gebieden 1
+[cc20] KORT leeuw [320.5, 206.4, 436.0] vlakken 47214
+[cc20] KORT FOUT geen voorkeuren van Click Cuts
+[cc20] KORT klaar 0 beelden
+FOUT in de opname
+##[error]Process completed with exit code 1.
+
+===== tips / In de release zetten (laatste 21 van 21 regels) =====
+##[group]Run [ -d /tmp/klaar ] || exit 1
+[ -d /tmp/klaar ] || exit 1
+cd /tmp/klaar
+cp /tmp/pro/render-cc.png . 2>/dev/null || true
+if [ "ja" = "ja" ] && [ -s /tmp/pro/opname-ruw.mkv ]; then
+  cp /tmp/pro/opname-ruw.mkv opname-tip.mkv; cp /tmp/pro/film.json film-tip.json
+  echo "[weggehaald: lange hex-reeks]" > opname-sha.txt
+fi
+echo "Regisseur 20: Click Cuts Short 2, fit test. Concepten: marketing/wachtrij/. Niets geplaatst." > /tmp/notes.md
+gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 20 (Click Cuts Short 2: fit test)" --notes-file /tmp/notes.md
+ls -la
+gh release upload "$TAG" $(ls *.mp4 *.mkv *.json *.srt *.md *.txt *.jpg *.png 2>/dev/null) --clobber -R "$GITHUB_REPOSITORY"
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-20
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  GH_TOKEN: ***
+##[endgroup]
+##[error]Process completed with exit code 1.
