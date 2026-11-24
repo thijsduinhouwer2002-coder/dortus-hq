@@ -34,7 +34,7 @@ Already split your model into printable parts with another tool? Keep those part
 You can. A sphere, a boolean and some offset get you a joint. What you only find out after the print is that the knee bends backwards, the wall next to the socket is 0.4 mm thin, or the ball is stuck. Click Joints shows all three before you print: an end stop on every hinge, the wall and clearance as a number, and the range in degrees.
 
 **What you get**
-- Figure from rig. One button reads your armature. Elbows and knees become hinges with an end stop, shoulders, hips and neck become ball joints. Ankles via "More bones".
+- Figure from rig. One button reads your armature. Elbows and knees become hinges with an end stop, shoulders, hips and neck become ball joints.
 - The end stop comes from your rig. If a bone has a Limit Rotation constraint, the hinge stops at that angle (30° to 150°). No limit on one side? It takes the other side (mirrored). No limit at all: a preset per body part.
 - Every range in one view. A small degree arc at each joint with its number, and a list in the panel: name, type, range and where the range came from (from rig, mirror or preset).
 - Honest when it can not. A joint that does not fit is skipped, and the list tells you why and what to try.

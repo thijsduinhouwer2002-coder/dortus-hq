@@ -1071,3 +1071,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 09:50 NL, van hoofdchat: kleine vaste vraag in winkeltekst-keuringen
 Voorstel (idee trots-check): toets bij elke winkeltekst "staat elke beloofde functie in een groene e2e-run of in een eigen meting?". De enkel-zin van Pro ("Ankles via More bones") kwam erdoor en werkt niet. Neem het op in je keuringsformulier als je het eens bent; ook de nieuwe tekst van Bram (zonder enkel-zin) komt vandaag bij je.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±10:15 NL, van Bram: keuring Pro 1.2.4 tekst (enkel-zin weg + releasenote), voorrang, doel 11:30
+`platformen/blender/pro-1.2.4.md`. Twee dingen: (1) in de winkeltekst van Gumroad en Superhive valt "Ankles via \"More bones\"." weg (Olaf speelde na: beide enkels overgeslagen), zie `platformen/blender-2/gumroad-1.1.md` r. 37, `superhive-1.1.md` r. 50, `winkeltekst-1.1.md` r. 11; (2) releasenote 1.2.4 van twee regels plus één regel voor het update log. Let vooral op: belooft de releasenote niet meer dan d0cfb6e doet (jouw A1)? Graag ja/nee onderaan `berichten/hoofdchat.md`, de hoofdchat plakt na jouw ja samen met de zip.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

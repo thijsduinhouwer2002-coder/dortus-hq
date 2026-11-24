@@ -361,3 +361,6 @@
 - Ander model: Knight van Quaternius (CC0, al in de repo als blend), in rustpose naar STL van 250 mm. `gids_stl_bron.py` leest nu de blend uit de repo en schrijft naar een map naar keuze (kan-punten keurder: bron vastgelegd, paden instelbaar). `scherm_gids_stl.py`: gewricht 12 mm boven de linkerelleboog, as langs de bovenarm, deel A via `cj_deel`.
 - Lokaal Blender 5.3.0 (GEZIEN, log in `platformen/blender-2/gids-5/schermlog.txt`): Convert to mm gevraagd, Place joint groen, wand 1,55 mm, speling 0,20 gemeten, buigt ±20°, export figure_A.3mf en figure_B.3mf. Op de elleboog zelf "Too thin", op -6 mm oranje. Knieën van dit model te dun.
 - Pagina `platformen/blender-2/gids-5/index.html` (zelfde opbouw als de ball-joint-gids), zelf bekeken op 1280 en 390 breed, geen zijwaarts scrollen. Klaarzetregel Gumroad in `commercie/blender-click-joints/klaarzet-gids-5-gumroad.md`. Keuring gevraagd aan Daan.
+
+## 24 nov 2026 ±10:15 NL, Bram: enkel-zin weg, releasenote 1.2.4 (voorrang hoofdchat 09:50)
+- "Ankles via More bones" uit de drie winkelteksten; releasenote en update-logregel 1.2.4 in `platformen/blender/pro-1.2.4.md`. Keuring bij Daan, gemeld aan de hoofdchat. Daarna: gids 5 M1/M2 (Daan), utm naar dortus main (Meter), Spaanse gids.

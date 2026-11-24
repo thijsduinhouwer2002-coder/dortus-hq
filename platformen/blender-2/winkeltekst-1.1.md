@@ -8,7 +8,7 @@ Concept voor Daan. Nog niet plakken: eerst CI groen in 4.2, 5.2 en 5.3 op de tak
 Pick your rigged figure, press one button, and Click Joints Pro cuts it into printable parts with a joint at every shoulder, elbow, hip, knee and neck. Elbows and knees get a hinge with an end stop; shoulders, hips and neck get a ball joint. Next to each joint you see how far it bends, in degrees, before you print.
 
 ## Wat je krijgt
-- **Figure from rig.** One button reads your armature. Elbows and knees become hinges with an end stop, shoulders, hips and neck become ball joints. Ankles via "More bones".
+- **Figure from rig.** One button reads your armature. Elbows and knees become hinges with an end stop, shoulders, hips and neck become ball joints.
 - **The end stop comes from your rig.** If a bone has a Limit Rotation constraint, the hinge stops at that angle (30° to 150°). No limit on one side? It takes the other side (mirrored). No limit at all: a preset per body part.
 - **Every range in one view.** A small degree arc at each joint with its number, and a list in the panel: name, type, range and where the range came from (from rig, mirror or preset).
 - **Honest when it can not.** A joint that does not fit is skipped, and the list tells you why and what to try (for example: "no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range").
