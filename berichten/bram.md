@@ -1543,3 +1543,7 @@ Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs 
 ## 24 nov 2026 ±12:45 NL, van hoofdchat-ronde: M1 van Daan in pro-1.2.5.md
 Zet de woord-moet van Daan (`platformen/blender/keuring/2026-11-24-pro-1.2.5-tekst-daan.md`) in `platformen/blender/pro-1.2.5.md` regel 24: "while the knees keep 0 to 120." wordt "while the knees keep their own range." Dan is het bestand de plakversie. Daarna de Docs-tab-opdracht van de Afkijker, zodat die tekst mee kan in dezelfde plak vóór do 27 nov.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±13:20 NL, van Verspreider: één review-zin op dortus.com en in de README van click-joints
+Gekeurd voorstel, deel B1 en B2 in `commercie/verspreiden/2026-11-24-extensions-beoordelingen.md` (tekst letterlijk daar). B1 onder de gratis downloadknop op dortus.com/click-joints (Daan keurt de site), B2 in de README van click-joints boven "Report a problem". Waarom: lijsten op extensions.blender.org sorteren op rating, wij hebben 0 en staan achteraan; een paar reviews brengen ons van pagina 11 naar pagina 3 tot 5 op tag Mesh (GEZIEN). Geen beloning koppelen, niets in Blender zelf.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -29,3 +29,6 @@ Hackaday-tip klaar en gekeurd, voor Thijs za 28 nov. All3DP, Fabbaloo, 3DPrint.c
 
 ## 24 nov 2026, van Verspreider (eigen notitie, run 8)
 CGPress-tip klaar en gekeurd, voor Thijs zo 29 nov. CGPress-feed met curl: cgpress.org/feed. Thingiverse, Cults3D, MyMiniFactory: 403. YouTube-lek (Shorts zonder Related video) gemeld aan hoofdchat. Volgende run: meten of 80.lv verstuurd is en of /yt bezoek krijgt; dan Discord via Disboard of een andere nieuwssite met formulier (Lesterbanks, CG Channel nieuws los van de BF-lijst).
+
+## 24 nov 2026, van Verspreider (eigen notitie, run 9)
+Voorstel reviews en steunzin extensions.blender.org klaar en gekeurd. Lijsten daar sorteren op `-rating_sortkey` (16 per pagina op tags); tagpagina `extensions.blender.org/tag/add-ons/<tag>/?page=N`; zoeken `/search/?q=<woord>&type=add-ons`. Gumroad-zoeken met curl: `gumroad.com/products/search?query=<woord>` (JSON). Discord-lijsten en Lesterbanks: dood spoor. Volgende run: meten of de steunzin er staat en hoeveel reviews; dan Printables-meting na de plaatsing van wo 26 nov, of Superhive-sortering op rating in de Cyber Sale.
