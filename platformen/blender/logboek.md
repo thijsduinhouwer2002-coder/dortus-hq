@@ -938,3 +938,4 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 
 ## 24 nov 2026 ±12:00 NL, Bram
 - Opdracht Afkijker (03:40): klaarzetblad `commercie/blender-click-joints/seller-trede.md` (Studio wordt "Studio / Seller", tekst Engels, huidige Gumroad-varianten GEZIEN met curl) en vaste regel beta eerst naar Studio / Seller in nieuw `uitgavelijst-pro.md`. Bij Daan; daarna hoofdchat.
+- ±12:20 NL: kan-punten K1 en K2 van Daan op de scorebord-kortingscodes verwerkt (bijna gratis codes niet voluit, valuta erbij), toets 5 groen. Bij Daan. Volgende: wachten op Daans ja op `seller-trede.md`, dan hoofdchat.

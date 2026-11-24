@@ -14,7 +14,7 @@ import scorebord_bronnen as b  # noqa: E402
 ANTWOORD = {"success": True, "offer_codes": [
     {"id": "c1", "name": "CYBER25", "percent_off": 25, "max_purchase_count": None, "universal": False, "times_used": 3},
     {"id": "c2", "name": "VRIENDGRATIS", "percent_off": 100, "max_purchase_count": 5, "universal": False, "times_used": 1},
-    {"id": "c3", "name": "TIENKORT", "amount_cents": 1000, "universal": True, "times_used": 0},
+    {"id": "c3", "name": "TIENKORT", "amount_cents": 500, "universal": True, "times_used": 0},
 ]}
 
 
@@ -48,12 +48,21 @@ class Codes(unittest.TestCase):
         self.assertEqual((cyber[0]["korting"], cyber[0]["gebruikt"], cyber[0]["max"]), ("25%", 3, "geen"))
         # universele code maar één keer
         self.assertEqual(len([x for x in r if x["code"] == "TIENKORT"]), 1)
-        self.assertEqual([x["korting"] for x in r if x["code"] == "TIENKORT"], ["$10.00"])
+        self.assertEqual([x["korting"] for x in r if x["code"] == "TIENKORT"], ["$5.00"])
 
     def test_gratis_code_niet_voluit(self):
         tekst = " ".join(" ".join(map(str, x.values())) for x in b.gumroad_codes([]))
         self.assertNotIn("VRIENDGRATIS", tekst)
         self.assertIn("VR…", tekst)
+
+    def test_bijna_gratis_niet_voluit(self):
+        # Daan K1: 90% of meer en vaste bedragen vanaf $10 ook verbergen; valuta erbij als die niet USD is
+        r = b.code_rij("P", {"name": "BIJNA90", "percent_off": 90})
+        self.assertTrue(r["code"].startswith("BI…"))
+        r = b.code_rij("P", {"name": "VOLPRIJS", "amount_cents": 2900})
+        self.assertTrue(r["code"].startswith("VO…"))
+        self.assertEqual(b.code_rij("P", {"name": "BF89", "percent_off": 89})["code"], "BF89")
+        self.assertEqual(b.code_rij("P", {"name": "EU", "amount_cents": 300, "currency_type": "eur"})["korting"], "3.00 EUR")
 
     def test_tabel(self):
         t = "\n".join(sb.codes_tabel(b.gumroad_codes([])))

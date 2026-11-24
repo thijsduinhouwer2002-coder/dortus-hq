@@ -92,16 +92,19 @@ def code_rij(product, c):
     vrienden) zetten we niet voluit in de openbare repo: alleen de eerste twee letters."""
     naam = _schoon(c.get("name") or "?", 30)
     pct, cent = c.get("percent_off"), c.get("amount_cents")
+    # Daan K1 (24 nov): ook bijna gratis codes verbergen. 90% of meer, en vaste bedragen van $10 of
+    # meer (de goedkoopste Pro-variant is $19; de prijs per product lezen we hier niet, dus ruim).
     if isinstance(pct, (int, float)) and pct:
         korting = f"{pct:g}%"
-        gratis = pct >= 100
+        gratis = pct >= 90
     elif isinstance(cent, (int, float)) and cent:
-        korting = f"${cent / 100:.2f}"
-        gratis = False
+        munt = str(c.get("currency_type") or c.get("currency") or "usd").upper()
+        korting = f"${cent / 100:.2f}" if munt == "USD" else f"{cent / 100:.2f} {_schoon(munt, 4)}"
+        gratis = cent >= 1000
     else:
         korting, gratis = "?", False
     if gratis:
-        naam = naam[:2] + "… (100%, niet voluit)"
+        naam = naam[:2] + f"… ({korting}, niet voluit)"
     maxi = c.get("max_purchase_count")
     return {"product": product, "code": naam, "korting": korting,
             "gebruikt": c.get("times_used") if isinstance(c.get("times_used"), int) else "?",
