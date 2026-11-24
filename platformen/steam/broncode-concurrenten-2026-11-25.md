@@ -150,3 +150,8 @@ Alle repo's met `git clone --depth 1` in /tmp gezet en alleen gelezen, niets uit
 
 ## Naamsvermelding als we code overnemen
 In `producten/steam-hol/godot/DERDEN.txt` (nieuw, gaat mee in de build): naam van de repo, link, de MIT- of BSD-tekst met de copyrightregel. Voor nu: WpfAppBar (In Touch Technologies, MIT), Desktop Truck Simulator (hubacekjakub, MIT), godot-native-click-through (Khang Quach, MIT), idle.exe code (XYMYX, MIT) als we iets uit `sysinfo.cpp` gebruiken.
+
+## Issues voor Olaf (25 nov)
+- #24 app-balk, doorklikken, systeemvak
+- #25 lopen en vallen die altijd zichtbaar iets doen
+- #26 de speler is de baas (één doel, rustig ritme, grootte en gebeurtenissen instelbaar)
