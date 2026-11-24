@@ -1,0 +1,33 @@
+[meet] figuur tekenpop: Figuur, {'bron_punten': 187560, 'bron_zelf_overlap': 0}
+Error: The parts overlap before they move; the mesh is unchanged.
+[meet] Blender 4.2.23 LTS figuur tekenpop: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 11, sneden 12, slechte sneden 1
+[meet]   SLECHT {"poging": 5, "gewricht": "Right knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4797059339342481, "h_voxel": 0.2399, "h_vlakken": 126058, "h_buiten": 0.0, "h_buiten_om": 0.0201, "h_pogingen": null}, "A": {"gesloten": false, "fout": 296, "punten": 129289, "zelf": 0, "herstel": null}, "B": {"gesloten": true, "fout": 0, "punten": 19445, "zelf": 0}, "goed": false}
+MEET tekenpop gewrichten=9 overgeslagen=0 slechte_sneden=1
+STATUS Installed "click_joints"
+[studio] tekenpop: 33518 punten voor de remesh, maat (125.6, 34.7, 220.0)
+Info: Watertight copy Figuur_gesloten made (187558 faces)
+[studio] tekenpop na voxel 0.5: 187560 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.0, 2.0, 60.0), elleboog L (45.5, -1.2, 131.0)
+[meet] figuur tekenpop: Figuur, {'bron_punten': 187560, 'bron_zelf_overlap': 0}
+Info: Hinge placed. Bends 0° to 140°. 8.756 s.
+Warning: Hinge placed, but no end stop was found. Check the shape near the joint. 7.786 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 140°. 11.033 s.
+Info: Hinge placed. Bends 0° to 120°. 6.875 s.
+Info: Hinge placed. Bends 0° to 120°. 12.567 s.
+Info: Joint placed. Good fit. 4.146 s.
+Info: Joint placed. Good fit. 10.493 s.
+Info: Joint placed. Good fit. 11.187 s.
+Info: Joint placed. Good fit. 7.728 s.
+Info: Joint placed. Good fit. 7.191 s.
+Info: 9 joints · 2 rig · 2 mirror · 5 preset.
+[meet] Blender 4.2.23 LTS figuur tekenpop: 9 gewrichten ['Left elbow', 'Right elbow', 'Left knee', 'Right knee', 'Neck', 'Left shoulder', 'Right shoulder', 'Left hip', 'Right hip']
+[meet] ontbreekt: []; overgeslagen: 
+[meet] pogingen 11, sneden 12, slechte sneden 1
+[meet]   SLECHT {"poging": 5, "gewricht": "Right knee", "soort": "SCHARNIER", "solver": "EXACT", "een_lid": {"lussen": 3, "lid": "B", "h_soort": "voxel", "lid_open": 0, "vreemd": 0, "marge": 0.4797059339342481, "h_voxel": 0.2399, "h_vlakken": 126058, "h_buiten": 0.0, "h_buiten_om": 0.0201, "h_pogingen": null}, "A": {"gesloten": false, "fout": 296, "punten": 129289, "zelf": 0, "herstel": null}, "B"
+MEET tekenpop gewrichten=9 overgeslagen=0 slechte_sneden=1
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
