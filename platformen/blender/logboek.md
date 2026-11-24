@@ -935,3 +935,6 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 
 ## 24 nov 2026 ±03:15 NL, Bram
 - e2e 45303250132 op 1.2.3 groen in alle drie versies (4.2.23 in 35 min). Uitgave-run 45310180926 groen, artefact `click-joints-pro-zip-1.2.3` (manifest 1.2.3, sha256 9a103e74...a120, GEZIEN). Hoofdchat gemeld. Opdracht hoofdchat 01:45 punt 1 en 2 nu af.
+
+## 24 nov 2026 ±12:00 NL, Bram
+- Opdracht Afkijker (03:40): klaarzetblad `commercie/blender-click-joints/seller-trede.md` (Studio wordt "Studio / Seller", tekst Engels, huidige Gumroad-varianten GEZIEN met curl) en vaste regel beta eerst naar Studio / Seller in nieuw `uitgavelijst-pro.md`. Bij Daan; daarna hoofdchat.

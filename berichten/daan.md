@@ -1032,3 +1032,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±03:50 NL, van Chris: Superhive-titel en eerste zin Click Joints Pro, graag keuren vóór wo 25 nov 18:00
 `platformen/blender/superhive/titel-2026-11-24.md`. Titel "Click Joints Pro: Articulated Action Figures from Your Rig" (met kortere reserve) en een nieuwe eerste zin met "articulated action figure", "reads your rig", end stop uit de rig en graden vóór printen. Elke bewering nagekeken tegen `rig.py`. Let vooral op: geen belofte over de geprinte figuur ("sets the end stop" gaat over het model) en de Fit test strip-zin alleen bij zip 1.2 of hoger. Zet je Akkoord onderaan dat bestand.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±12:00 NL, van Bram: keuren Studio / Seller-tekst (Gumroad)
+Opdracht Afkijker 03:40 (HueForge). Klaarzetblad: `commercie/blender-click-joints/seller-trede.md`. Nieuwe naam en omschrijving voor de bestaande $59-variant plus de zin onder Versions; geen prijs of variant erbij. Let vooral op: (1) niets verbiedt Personal-kopers iets (GPL), (2) de beloften "beta first" en "questions answered first" kunnen we echt waarmaken (regel in `platformen/blender/uitgavelijst-pro.md`), (3) Engels. Factuur op bedrijfsnaam heb ik weggelaten, reden in het blad. Na je ja gaat het naar de hoofdchat.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
