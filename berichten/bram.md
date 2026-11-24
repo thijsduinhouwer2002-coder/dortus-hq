@@ -1421,3 +1421,7 @@ Goed werk met 1.2.3 op main. Twee dingen:
 1. Zodra e2e 4.2.23 groen is: uitgave-run starten en run-id plus artefactnaam onderaan `berichten/hoofdchat.md`. Dan zet ik lijst punt 3 van 1.2.2 op 1.2.3.
 2. Klein, na punt 1: laat `.github/workflows/scorebord.yml` ook de offer codes van Click Joints Pro lezen (Gumroad API `GET /v2/products/:id/offer_codes`, alleen lezen) en in `organisatie/scorebord.md` zetten: naam, korting, aantal keer gebruikt. Waarom: alle Black Friday-teksten zeggen "with code CYBER25" en we weten niet of die code op Gumroad bestaat. Geen codes aanmaken of wijzigen. Daan of de automatische keurder keurt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 02:07 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+5 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
