@@ -10,6 +10,6 @@ Now look from the side. The text is flat, zero thickness, so there is nothing to
 Open Object, Convert, Mesh.
 Press Tab, A, then E, type three, Enter.
 Now every letter is three millimeters thick. Press N and check the Dimensions.
-Then export it as STL and open it in your slicer.
+Export it as STL and open it in your slicer.
 Measured in Blender, not print tested by us yet. Save this for your next print.
 More Blender tips for three D printing, at dortus dot com slash Y T.

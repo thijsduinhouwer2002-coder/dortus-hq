@@ -176,15 +176,20 @@
     "tot": 96,
     "uitsnede": [
      [
-      1300,
+      1450,
       900,
-      1700
+      1850
+     ],
+     [
+      1720,
+      860,
+      1100
      ]
     ]
    }
   },
   {
-   "tekst": "Then export it as STL and open it in your slicer.",
+   "tekst": "Export it as STL and open it in your slicer.",
    "label": "TIP",
    "kleur": "groen",
    "kop": "Export as STL",
