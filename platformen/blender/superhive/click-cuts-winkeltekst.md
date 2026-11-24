@@ -1,6 +1,6 @@
 # Click Cuts: winkeltekst Superhive en Gumroad (CONCEPT)
 
-Chris, di 24 nov 2026 (eerste versie ±06:40 NL; de tijden ±14:30 en ±14:45 die hier eerder stonden waren een klokfout, keuring 2 B1). Bijgewerkt 24 nov ±09:50 NL. Opdracht hoofdchat 04:25 en 06:25, besluit bundel 07:15. Status: **CONCEPT, keuring 1 nee (M1), herkeuring ja (14a3633), tweede keuring nee (M1 bundel Superhive, M2 pen en nummer); M1, M2, snelheidszin (Daan M1) en kan-punten K1, K2 deels en K3 verwerkt; derde keuring akkoord ja (065f7d7). Klaar om te plakken bij de uitgave.** (skill `keuren`, door een ander). Plakken doet Thijs bij de uitgave (week van ma 30 nov).
+Chris, di 24 nov 2026 (eerste versie ±06:40 NL; de tijden ±14:30 en ±14:45 die hier eerder stonden waren een klokfout, keuring 2 B1). Bijgewerkt 24 nov ±09:50 NL. Opdracht hoofdchat 04:25 en 06:25, besluit bundel 07:15. Status: **CONCEPT, keuring 1 nee (M1), herkeuring ja (14a3633), tweede keuring nee (M1 bundel Superhive, M2 pen en nummer); M1, M2, snelheidszin (Daan M1) en kan-punten K1, K2 deels en K3 verwerkt; derde keuring akkoord ja (065f7d7). Daarna 24 nov ±12:55 NL: 4.2-snelheid naar meting, geheugen-FAQ en slicer-FAQ erbij; **vierde keuring nodig vóór plakken.** (skill `keuren`, door een ander). Plakken doet Thijs bij de uitgave (week van ma 30 nov).
 Alleen wat kandidaat 1.0.0 doet (`producten/blender-splitser/CHANGELOG.md`, `architectuur.md`). Alleen pennen: geen klikverbinders, geen magneten, geen deuvels, geen zwaluwstaart.
 
 ## 1. Titel (85 tekens)
@@ -31,23 +31,32 @@ Wat geen concurrent zo zegt (`producten/blender-splitser/concurrentie.md` punt 1
 - **Make watertight** when the model has holes, on a copy.
 - **Export** all parts and pins as STL or 3MF in millimeters. Wrong unit is caught at once, with Convert to mm.
 - Blender 4.2 and newer. Tested in Blender 4.2 and 5.3 on every change.
+- **Connectors in 1.0.0 are pins.** Round pins with your own clearance, printed separately.
 
 **Where to find it:** press N in the 3D viewport and open the Click Cuts tab.
-
-- **Connectors in 1.0.0 are pins.** Round pins with your own clearance, printed separately.
 
 Oranje: de bouwer heeft het geel echt oranje gemaakt (commit 36912d5, keuring K1), dus "orange" klopt. Spelling Amerikaans zoals de add-on zelf ("millimeters", "color").
 
 **Korte FAQ (Engels, onderaan de pagina):**
+- *Why not just use my slicer's cut tool?* A slicer cuts one plane at a time, and you set every cut and connector yourself. Click Cuts plans all the cuts so every part fits your bed, checks each part (green fits, orange or red tells you why), numbers the parts, and uses the clearance from your own fit test print.
 - *Which connectors?* Pins only in 1.0.0. No dovetails, magnets or snap keys.
 - *Does it fix broken meshes?* Make watertight makes a closed copy (voxel remesh). Very large or detailed models may need to be cleaned first.
 - *Do parts lie flat for printing?* Not automatically. You place them in your slicer.
 - *Thin or hollow models?* Some joints have no room for a pin; Click Cuts tells you which ones to glue.
-- *How fast is it?* Tested on a 1 million face scan in Blender 5.3: about 40 seconds (2-core test machine). In Blender 4.2 it takes about twice as long. Big models show a note under Split to fit.
-- *Which Blender?* 4.2 and newer, tested in 4.2 and 5.3 on every change.
+- *How fast is it?* Tested on a 1 million face scan in Blender 5.3: about 40 seconds (2-core test machine). In Blender 4.2 the same scan takes about 3 minutes. Big models show a time estimate under Split to fit.
+- *How much memory?* Very large models (3 million faces) need a lot of memory in Blender 4.2: about 9 GB. Blender 5.3 needs about half. On a laptop with 8 GB, use Blender 5.3 for models that big.
+- *Which Blender?* 4.2 and newer.
 - *Does it work with Click Joints Pro?* Yes, side by side. Splitting makes it fit on the bed. Click Joints Pro makes it move.
 
-Bronnen FAQ: dunne vlakken krijgen "too small for a pin ... Glue this joint" (`verbinders.py`, `verbind_3d.py`); snelheid GEZIEN in `producten/blender-splitser/ontwerp.md` deel 14 (1M 42 s in 5.3), versiezin op aanwijzing van Daan (`ontwerp/keuringen/2026-11-24-click-cuts-snelheid-daan.md` M1). "Twice as long" in 4.2 is afgeleid (GOK) uit Daans meting: op 0,5M vlakken was 4.2 1,8 keer zo traag als 5.3 (GEZIEN, Daan B1); de 1M-meting in 4.2 volgt (Daan K1). Komt die boven 2,5 keer, dan gaat de zin vóór het plakken om; komt de meting anders uit, dan past de zin zich aan. Wil de keurder geen GOK in de winkel, dan valt de 4.2-zin weg en blijft "in Blender 5.3" staan.
+Bronnen FAQ (bijgewerkt 24 nov ±12:55 NL, Chris, opdrachten Productbouwer 10:50, hoofdchat 10:45 en kwartier 12:25):
+- **4.2-snelheid:** "about 3 minutes" rust op de 1M-schedel in 4.2.23: 106 s in CI (run 45349335526) en 186 s op een machine met 2 kernen (GEZIEN, `producten/blender-splitser/ontwerp.md` deel 14b). Zelfde machine als de 40 s in 5.3 (2 kernen) geeft 186 s, dus 3 minuten. De paneelregel zegt in 4.2 bij 1M ook "about 3 min" (`in_een_klik.SEC_PER_MILJOEN`, Exact 190 s per miljoen). De oude zin "about twice as long" is weg: gemeten is 2,4 tot 4,4 keer (Daan B1, keuring run 10).
+- **Time estimate:** de paneelregel onder de knop is nu een tijdschatting per versie ("1.0M faces: Split takes about 1 min" in 5.3), `in_een_klik.schatting_tekst`, getoond in `paneel.py` r. 40 tot 41. Daarmee is ook K4 van de derde keuring (twee verhalen) opgelost.
+- **Geheugen:** piek bij 3,04M vlakken 9.220 MB in 4.2.23 en 4.741 MB in 5.3.0 (GEZIEN, CI run 45367520845; `producten/blender-splitser/keuring/2026-11-24-run10-daan.md` r. 7 en C1). "About half" klopt (51%).
+- **Slicer-vraag:** Bambu Studio, OrcaSlicer en PrusaSlicer snijden per vlak met Plug, Dowel of Snap (DERDEN, `producten/blender-splitser/concurrentie.md` r. 77 en 78, links naar de Bambu-wiki en Prusa-help). Elk deel van ons antwoord nagekeken in 1.0.0: alle sneden in één klik tot alles op het bed past (Split to fit), groen, oranje of rood per stuk met reden (Check), onderdeelnummers, speling uit de Fit test per printer en materiaal. Geen concurrentnaam in de Engelse tekst.
+- **Niet in de tekst, wel om te weten:** in 4.2 kwam op de 1M-schedel 1 van 8 stukken rood terug ("not watertight", 2 randen in het snijvlak met 4 vlakken; in 5.3 8 van 8 groen). De Productbouwer herstelt dat. Het paneel zegt het zelf eerlijk; geen belofte in de winkel geraakt.
+- Kan-punten derde keuring C1 (Where to find it onder de lijst) en C2 (dubbele testzin in de FAQ) meteen meegenomen.
+
+Oudere bronnen FAQ: dunne vlakken krijgen "too small for a pin ... Glue this joint" (`verbinders.py`, `verbind_3d.py`); snelheid GEZIEN in `producten/blender-splitser/ontwerp.md` deel 14 (1M 42 s in 5.3), versiezin op aanwijzing van Daan (`ontwerp/keuringen/2026-11-24-click-cuts-snelheid-daan.md` M1). "Twice as long" in 4.2 is afgeleid (GOK) uit Daans meting: op 0,5M vlakken was 4.2 1,8 keer zo traag als 5.3 (GEZIEN, Daan B1); de 1M-meting in 4.2 volgt (Daan K1). Die 1M-meting is er nu (zie hierboven); de GOK is vervangen door GEZIEN.
 
 ## 4. Varianten en prijs (voorstel; de prijs zet Thijs zelf, geld uitgeven is het niet)
 | Variant | Prijs | Wat |
@@ -64,9 +73,9 @@ Onderbouwing: `concurrentie.md` punt 5. Cleave $23 en $28, Split $22 en $28 (GEZ
 
 Kan het?
 - **Gumroad: ja.** Product type "Bundle", kies je eigen producten, eigen prijs; de koper ziet de losse waarde doorgestreept. Maar één variant per product in een bundel, en een bundel kan niet in een bundel (DERDEN, [Gumroad help: Product bundles](https://gumroad.com/help/article/339-product-bundles)). Instellen: Products, New Product, type Bundle, prijs $34, Click Joints Pro (Standard) en Click Cuts (Standard) kiezen.
-- **Superhive: bundels bestaan, maar niet bij de uitgave** (aparte adressen onder `/bundles/`). Een add-onmaker doet het al: "Lazy3D Bestselling Add-ons Bundle", 7 producten, Sales 20+ (GEZIEN, [Superhive](https://superhivemarket.com/bundles/lazy3d-bestselling-add-ons-bundle)). Hoe je hem aanmaakt staat niet in de openbare hulp die ik met curl kon lezen; dat ziet Thijs in zijn verkopersomgeving. Kan het daar niet, dan alleen Gumroad.
+- **Superhive: bundels bestaan, maar niet bij de uitgave** (aparte adressen onder `/bundles/`). Een add-onmaker doet het al: "Lazy3D Bestselling Add-ons Bundle", 7 producten, Sales 20+ (GEZIEN, [Superhive](https://superhivemarket.com/bundles/lazy3d-bestselling-add-ons-bundle)). Hoe je hem aanmaakt staat niet in de openbare hulp die ik met curl kon lezen.
 
-Twee dingen om op te letten:
+Om op te letten:
 0. **Pas na di 1 dec live zetten (keuring M1).** Tot en met 1 dec geeft CYBER25 25% op Pro op Gumroad (`commercie/blender-click-joints/black-friday.md`): los $14,25 + $19 = $33,25, goedkoper dan de bundel van $34. Dus de bundel gaat op **wo 2 dec** live, niet eerder. Click Cuts zelf kan gewoon in de week van 30 nov.
 1. **Tot en met 14 dec is de korting klein:** $19 + $19 = $38 tegen $34. Dat is goed (de bundel wordt na 14 dec vanzelf aantrekkelijker), maar noem in posts tot 14 dec de losse startprijs, niet de bundel.
 2. **Geen bundel op Superhive bij de uitgave** (besluit hoofdchat 07:15). Pro kost daar $12 (GEZIEN 24 nov): los $12 + $19 = $31 tot en met 14 dec, dus $34 zou daar duurder zijn dan los. Na 14 dec bekijken we een Superhive-bundel onder de losse som ($36), bijvoorbeeld $29.
