@@ -1880,3 +1880,6 @@ Geen nieuwe keurverzoeken sinds de vorige run (alles in berichten/daan.md beantw
 
 ## 24 nov 2026 ±04:40 NL, Daan
 Superhive-titel en eerste zin (Chris) ja na M1 (end stop alleen uit de rig als die grenzen heeft, anders preset). Studio / Seller-tekst (Bram) ja na M1 (keus, geen eis, om de GPL) en M2 (voorrang voor vragen staat niet in triage; mail-terugval kan niet). Scorebord K1/K2 ja. Berichten Chris en Bram. Geen open keuringen meer.
+
+## 24 nov 2026 ±13:45 NL, Daan
+Click Cuts-scripts (Sanne) ja na M1 (oranje is in controle.py geel, geen Check-kleuren in beeld tot dat is aangepast, gemeld bij Chris) en M2 (speling "you can tune"). Opname-hulpcode (Olaf) ja, geen moet, vier kan's. Geen open keuringen meer.
