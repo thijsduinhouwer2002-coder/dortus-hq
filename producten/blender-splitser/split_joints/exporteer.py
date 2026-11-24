@@ -80,6 +80,7 @@ def plat_matrix(ob, u, bed_mm):
         oe.to_mesh_clear()
     inv = np.linalg.inv(m[:3, :3]).T  # normals go with the inverse transpose
     nrm = nrm.reshape(-1, 3) @ inv.T
+    nrm /= np.maximum(np.linalg.norm(nrm, axis=1), 1e-12)[:, None]  # unit length again after a scale
     mid = mid.reshape(-1, 3) @ m[:3, :3].T + m[:3, 3]
     schaal = abs(np.linalg.det(m[:3, :3])) ** (1.0 / 3.0)
     opp = opp * schaal * schaal / (u * u)

@@ -20,7 +20,7 @@ def grootste_vlak(normalen, punten, oppervlak):
     pts = np.asarray(punten, dtype=np.float64).reshape(-1, 3)
     opp = np.asarray(oppervlak, dtype=np.float64).reshape(-1)
     lengte = np.linalg.norm(nrm, axis=1)
-    goed = (lengte > 0.5) & (opp > 0.0)
+    goed = (lengte > 1e-9) & (opp > 0.0)  # any length: a scaled piece gives normals shorter or longer than 1
     if not goed.any():
         return None, 0.0, 0.0
     nrm = nrm[goed] / lengte[goed, None]
@@ -86,26 +86,30 @@ def is_snijvlak(n, d, snij):
     return False
 
 
-def kies_stand(normalen, punten, oppervlak, hoeken, bed, snij=()):
+def kies_stand(normalen, punten, oppervlak, hoeken, bed, snij=(), alleen_snijvlak=True):
     """Which way a piece lies on the bed. hoeken (m, 3) vertices in mm, bed (x, y, z) usable size in mm.
     Tries the largest flat planes in turn (each turned face down) and turns around z in steps of 5 degrees
     so the footprint fits the bed. A plane only counts if nothing of the piece sticks out past it.
-    Cut faces come first (snij: points and axes of the pin holes and numbers, see is_snijvlak): a faceted
-    model (the low poly vase) has flat sides larger than its thin cut ring, and those print worse. Returns (rotation 3 x 3, area of the face down in mm2, rank of that plane
-    from 0, cut faces first, True if it is a cut face) or (None, 0.0, -1, False) if no flat plane down fits: then the piece keeps its own way up."""
-    alle = np.asarray(hoeken, dtype=np.float64).reshape(-1, 3)
-    v = alle[:: len(alle) // 20000 + 1] if len(alle) > 20000 else alle  # enough for the footprint
+    alleen_snijvlak (the add-on always): only cut faces (snij: points and axes of the pin holes and numbers,
+    see is_snijvlak) may go down. A flat side of the model itself does not: on a thin curved shell (the low
+    poly vase) a facet down leaves the curve hanging over, while its own way up prints without supports.
+    Returns (rotation 3 x 3, area of the face down in mm2, rank of that plane from 0, True if it is a cut
+    face) or (None, 0.0, -1, False) if no allowed plane down fits: then the piece keeps its own way up."""
+    alle = np.asarray(hoeken, dtype=np.float64).reshape(-1, 3)  # all points: one sticking out never misses the bed
     bx, by, bz = (float(b) + 1e-6 for b in bed)
     snij = [(np.asarray(p, dtype=np.float64), np.asarray(a, dtype=np.float64) / np.linalg.norm(a)) for p, a in snij]
     kandidaten = vlakken(normalen, punten, oppervlak, n_max=12)
-    kandidaten.sort(key=lambda k: not is_snijvlak(k[0], k[2], snij))  # stable: by area within each group
-    for rang, (n, a, d) in enumerate(kandidaten):
+    kandidaten = [(n, a, d, is_snijvlak(n, d, snij)) for n, a, d in kandidaten]
+    if alleen_snijvlak:
+        kandidaten = [k for k in kandidaten if k[3]]
+    kandidaten.sort(key=lambda k: not k[3])  # stable: cut faces first, by area within each group
+    for rang, (n, a, d, snijvlak) in enumerate(kandidaten):
         if float(np.max(alle @ n)) > d + BUITEN_MM:  # part of the piece sticks out past this plane: not a bottom
             continue
-        r = draai_naar_beneden(n)
-        w = v @ r.T
         if float(np.ptp(alle @ n)) > bz:
             continue
+        r = draai_naar_beneden(n)
+        w = alle @ r.T
         beste = None
         for graden in range(0, 90, 5):
             rz = _draai_z(graden)
@@ -115,5 +119,5 @@ def kies_stand(normalen, punten, oppervlak, hoeken, bed, snij=()):
                 if beste is None or dx * dy < beste[0] - 1e-9:
                     beste = (dx * dy, rz)
         if beste is not None:
-            return beste[1] @ r, a, rang, is_snijvlak(n, d, snij)
+            return beste[1] @ r, a, rang, snijvlak
     return None, 0.0, -1, False

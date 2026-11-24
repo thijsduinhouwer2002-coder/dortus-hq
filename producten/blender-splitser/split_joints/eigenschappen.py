@@ -68,8 +68,8 @@ class SplitJointsInstellingen(bpy.types.PropertyGroup):
         name="Folder", description="Folder for the exported files. Empty: click_cuts folder next to the .blend",
         default="", subtype="DIR_PATH")
     plat: BoolProperty(
-        name="Lay parts flat", description="Turn every piece so its largest flat face (mostly a cut face) lies "
-        "on the bed, and only if it still fits the printer. Pins and fit test stay as they are", default=True)
+        name="Lay parts flat", description="Turn every piece so a cut face lies on the bed, only if it still fits "
+        "the printer. Otherwise the piece keeps its own way up. Pins and fit test stay as they are", default=True)
     uit_elkaar: BoolProperty(
         name="Exploded view", description="Show the pieces a little apart, only in the viewport. "
         "The export uses the real position", default=True, update=_uit_elkaar)

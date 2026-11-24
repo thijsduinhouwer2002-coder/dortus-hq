@@ -169,6 +169,7 @@ def toets_plat(naam, lijst):
     bpy.ops.split_joints.exporteer()
     pen_uit = {os.path.basename(p): open(p, "rb").read() for p in bpy.context.scene["sj_laatste_export"] if "pins_" in p}
     vol_uit = {o.name: abs(stl_volume(stl_driehoeken(o["sj_bestand"]))) for o in lijst}  # same piece, not turned
+    maat_uit = {o.name: np.ptp(stl_driehoeken(o["sj_bestand"]).reshape(-1, 3), axis=0) for o in lijst}
     inst.plat = True
     inst.exportmap = os.path.join(uitmap, naam, "plat_aan") + os.sep
     r = bpy.ops.split_joints.exporteer()
@@ -193,13 +194,19 @@ def toets_plat(naam, lijst):
              abs(float(z.min())) < 0.01 and past_bed, f"z {z.min():.3f}, {mx:.1f} x {my:.1f} x {mz:.1f}, rang {rang}")
         stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} zelfde volume als het stuk",
              abs(abs(vol) - vol_uit[ob.name]) < max(1.0, 1e-4 * abs(vol)), f"{abs(vol):.0f} / {vol_uit[ob.name]:.0f} mm3")
-        if rang == 0:
-            stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} grootste {'snijvlak' if snijvlak else 'platte vlak'} ligt onder",
-                 onder >= 0.99 * groot > 0, f"onder {onder:.0f} mm2, grootste {groot:.0f} mm2")
-            op_snijvlak += snijvlak
-        else:
-            stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} een plat vlak onder of eigen stand", rang > 0 and onder > 0 or rang == -1,
+        if rang >= 0:  # M1 Daan: only a cut face may go down
+            stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} ligt op een snijvlak", snijvlak and onder > 0,
                  f"rang {rang}, onder {onder:.0f} mm2")
+            op_snijvlak += snijvlak
+        if rang == 0:
+            stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} grootste snijvlak ligt onder",
+                 onder >= 0.99 * groot > 0, f"onder {onder:.0f} mm2, grootste {groot:.0f} mm2")
+        elif rang == -1:
+            mu = maat_uit[ob.name]
+            stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} geen snijvlak past: eigen stand, niet gedraaid",
+                 np.allclose([mx, my, mz], mu, atol=0.01), f"{mx:.1f} x {my:.1f} x {mz:.1f} / {mu[0]:.1f} x {mu[1]:.1f} x {mu[2]:.1f}")
+        elif rang < -1:
+            stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} kreeg geen stand", False, f"rang {rang}")
     stap(f"{naam}: plat minstens de helft van de stukken ligt op een snijvlak", 2 * op_snijvlak >= len(lijst),
          f"{op_snijvlak} van {len(lijst)}")
     pen_aan = {os.path.basename(p): open(p, "rb").read() for p in bpy.context.scene["sj_laatste_export"] if "pins_" in p}

@@ -1,7 +1,7 @@
 # Click Cuts changelog
 
 ## 1.0.1 (candidate, not released yet)
-- Lay parts flat (on by default, in Export): every part is exported lying on its largest cut face, so it goes on the bed the right way up without supports under that face. Only when it still fits your printer; otherwise the next flat face, or the part keeps its own way up. Pins are not changed.
+- Lay parts flat (on by default, in Export): every part is exported lying on a cut face (the largest one that still fits your printer), so it goes on the bed the right way up without supports under that face. A part with no cut face that fits keeps its own way up. Pins are not changed.
 
 ## 1.0.0 (candidate, 24 Nov 2026)
 First version.
