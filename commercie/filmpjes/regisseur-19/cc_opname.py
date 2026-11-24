@@ -1,3 +1,4 @@
+# run 23 (24 nov): opnieuw opnemen met de zip van 51afeb1 (lijmmelding "no safe spot for a pin ... Glue this joint")
 """Opname cc-fit (regisseur-19, Regisseur run 18, 24 nov 2026; run 21: lijmmeldingen gemeten en noot-regel langer in beeld, keuring Iris M1): Click Cuts Short 1 "Split to fit".
 Script: commercie/filmpjes/scripts/click-cuts-lancering.md nr. 1 (gekeurd door Daan), hook 1A.
 Echte Blender 5.3.0, X-scherm 2160x1920, UI-schaal 2, Click Cuts-zip van main (producten/blender-splitser/e2e/maak_zip.sh).

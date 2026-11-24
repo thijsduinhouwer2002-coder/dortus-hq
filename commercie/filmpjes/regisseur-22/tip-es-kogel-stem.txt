@@ -1,0 +1,16 @@
+# tip-es-kogel: Spaanse voorleestekst (Regisseur run 23, 24 nov 2026; opname van regisseur-18 tip-speling, opdracht Afkijker via Chris)
+# Tijdelijke stem Kokoro em_alex (Spaans). Een Spaanse ElevenLabs-opname mag als tip-es-kogel-elevenlabs.mp3 in deze map (STEM_MP3).
+# Spaans nagelezen door een aparte Claude (run 23): "Spaans ja", alle verbeteringen verwerkt (holgura in plaats van hueco).
+
+¿Tu ball joint sale demasiado apretado?
+Click Joints corta la articulación en Blender y mide la holgura por ti.
+Selecciona la pieza y pon el cursor tres D donde va la articulación.
+Elige Ball, deja Clearance en cero punto dos milímetros y pulsa Place joint.
+Tras cortar, Click Joints mide la holgura entre la bola y la cavidad.
+Promedia muchos puntos alrededor de la bola y muestra el valor en el panel.
+Al lado ves el grosor de la pared, para detectar paredes demasiado finas.
+Exploded view saca la bola de la cavidad para que veas el interior.
+¿No sabes qué holgura necesita tu impresora? Imprime primero una prueba.
+La holgura medida viene gratis en Click Joints, en cada ball joint.
+Medido en Blender; todavía no lo hemos impreso. Imprime antes una articulación de prueba.
+Click Joints. Gratis en Blender Extensions.
