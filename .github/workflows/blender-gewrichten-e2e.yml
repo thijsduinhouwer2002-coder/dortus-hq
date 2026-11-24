@@ -30,7 +30,7 @@ jobs:
         # Vaste versies bij een push; week-test.yml leest deze lijst en geeft zijn eigen lijst mee.
         blender: ${{ fromJSON(inputs.blender || '["4.2.23", "5.2.3", "5.3.0"]') }}
     env:
-      PRO_VERSIE: "1.2.3"
+      PRO_VERSIE: "1.2.4"
     defaults:
       run:
         working-directory: producten/blender-gewrichten
