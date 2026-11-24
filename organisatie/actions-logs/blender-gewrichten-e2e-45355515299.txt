@@ -1,0 +1,613 @@
+# gemaakt: 2026-11-24T08:38:06Z
+# workflow: Blender gewrichten e2e (Click Joints, echte Blender) (.github/workflows/blender-gewrichten-e2e.yml)
+# run: 45355515299 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45355515299
+# commit: 485d31e1 tak claude/blender-pro-enkels gestart door push
+# mislukte stappen: e2e (4.2.23): Betaalde build (twee zips uit één bron, weigering naast de gratis); e2e (5.2.3): Betaalde build (twee zips uit één bron, weigering naast de gratis); e2e (5.3.0): Betaalde build (twee zips uit één bron, weigering naast de gratis)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (4.2.23) / Betaalde build (twee zips uit één bron, weigering naast de gratis) (laatste 200 van 481 regels) =====
+[cj-betaald] METING print arm deel A: oplegvlak langs H 1.79 mm2 in 2 vlakken, omlaag (0.831, -0.0, 0.556), |n.H| 0.0000
+[cj-betaald] METING print arm deel A: onderkant wang grootste overhang 44.00 graden over 1959 vlakken (x -2.484, rho 2.697, z -1.799 mm), vlakken op 43 tot 45 graden op afstand d van H 4, d verwacht 2.6949 mm, gemeten 2.6949 mm
+[cj-betaald] OK print arm deel A: schuine onderkant wang hoogstens 45 graden en aanwezig (43 tot 45 graden op d = rho cos b binnen 0,02 mm) 44.00 graden, 4 schuine vlakken
+[cj-betaald] METING print arm deel A: grootste overhang bij neus, kuiltje en sleuf 44.00 graden (hoek met omlaag 46.00) over 1581 vlakken, slechtste vlak (x -2.484, rho 2.697, z -1.799 mm), omlaag (-1.0, -0.0, 0.0)
+[cj-betaald] OK print arm deel A: geen overhang boven 45 graden bij neus, kuiltje en sleuf 44.00 graden (x -2.484, rho 2.697, z -1.799 mm)
+[cj-betaald] METING print arm deel B: oplegvlak langs H 0.54 mm2 in 1 vlakken, omlaag (-0.924, 0.0, 0.383), |n.H| 0.0000
+[cj-betaald] METING print arm deel B: grootste overhang bij neus, kuiltje 40.67 graden (hoek met omlaag 49.33) over 644 vlakken, slechtste vlak (x 1.596, rho 1.148, z 1.143 mm), omlaag (1.0, 0.0, -0.0)
+[cj-betaald] OK print arm deel B: geen overhang boven 45 graden bij neus, kuiltje 40.67 graden (x 1.596, rho 1.148, z 1.143 mm)
+Info: Hinge placed. Bends 0° to 135°. 0.445 s.
+[cj-betaald] METING print staaf stand 135 deel A: oplegvlak langs H 78.51 mm2 in 1 vlakken, omlaag (-1.0, 0.0, 0.0), |n.H| 0.0000
+[cj-betaald] OK print staaf stand 135 deel A: vlakke kant langs H om op te leggen (eindvlak, minstens 70 mm2) 78.51 mm2
+[cj-betaald] METING print staaf stand 135 deel A: onderkant wang grootste overhang 44.00 graden over 37 vlakken (x -4.659, rho 2.491, z -1.651 mm), vlakken op 43 tot 45 graden op afstand d van H 4, d verwacht 2.4885 mm, gemeten 2.4885 mm
+[cj-betaald] OK print staaf stand 135 deel A: schuine onderkant wang hoogstens 45 graden en aanwezig (43 tot 45 graden op d = rho cos b binnen 0,02 mm) 44.00 graden, 4 schuine vlakken
+[cj-betaald] METING print staaf stand 135 deel A: grootste overhang bij neus, kuiltje en sleuf 44.00 graden (hoek met omlaag 46.00) over 744 vlakken, slechtste vlak (x -2.496, rho 2.491, z -1.652 mm), omlaag (-1.0, 0.0, 0.0)
+[cj-betaald] OK print staaf stand 135 deel A: geen overhang boven 45 graden bij neus, kuiltje en sleuf 44.00 graden (x -2.496, rho 2.491, z -1.652 mm)
+[cj-betaald] METING print staaf stand 135 deel B: oplegvlak langs H 78.51 mm2 in 1 vlakken, omlaag (1.0, 0.0, 0.0), |n.H| 0.0000
+[cj-betaald] OK print staaf stand 135 deel B: vlakke kant langs H om op te leggen (eindvlak, minstens 70 mm2) 78.51 mm2
+[cj-betaald] METING print staaf stand 135 deel B: grootste overhang bij neus, kuiltje 40.67 graden (hoek met omlaag 49.33) over 644 vlakken, slechtste vlak (x 1.596, rho 1.148, z 1.143 mm), omlaag (1.0, 0.0, 0.0)
+[cj-betaald] OK print staaf stand 135 deel B: geen overhang boven 45 graden bij neus, kuiltje 40.67 graden (x 1.596, rho 1.148, z 1.143 mm)
+Info: Hinge placed. Bends 0° to 115°. 0.454 s.
+[cj-betaald] OK eis 6: scharnier geplaatst op de lange staaf {'FINISHED'}
+[cj-betaald] METING eis 6 Exploded view aan=True: deel B 8.8500 mm langs L (verwacht 8.8500, Rn 2.9500), dwars 0.00000 mm, laagste punt B langs L 7.102 mm, hoogste punt A 2.847 mm, location (0.0, 0.0, 0.0)
+[cj-betaald] OK eis 6: Exploded view aan=True: deel B 8.850 mm langs L verschoven, dwars niets 8.8500 mm, dwars 0.00000
+[cj-betaald] OK eis 6: Exploded view: tong helemaal uit de vork (B boven A langs L) spleet 4.256 mm
+[cj-betaald] METING eis 6 Exploded view aan=False: deel B 0.0000 mm langs L (verwacht 0.0000, Rn 2.9500), dwars 0.00000 mm, laagste punt B langs L -1.748 mm, hoogste punt A 2.847 mm, location (0.0, 0.0, 0.0)
+[cj-betaald] OK eis 6: Exploded view aan=False: deel B 0.000 mm langs L verschoven, dwars niets 0.0000 mm, dwars 0.00000
+[cj-betaald] OK eis 6: location van deel B verandert niet
+Info: 2 STL files in /tmp/cj_export_scharnier/
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] METING eis 6 export STL deel B met Exploded view aan: 6516 punten, grenzen [-1.748, -5.0, -5.0]..[40.0, 5.0, 5.0] mm, echte plek [-1.748, -5.0, -5.0]..[40.0, 5.0, 5.0] mm, verschil 0.000002 mm, gelijk aan export met Exploded view uit True
+[cj-betaald] OK eis 6: STL deel B gelijk met en zonder Exploded view
+[cj-betaald] OK eis 6: STL deel B op de echte plek (binnen 0,001 mm) 0.000002 mm
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] METING eis 6 export 3MF deel B met Exploded view aan: 1088 punten, grenzen [-1.748, -5.0, -5.0]..[40.0, 5.0, 5.0] mm, echte plek [-1.748, -5.0, -5.0]..[40.0, 5.0, 5.0] mm, verschil 0.000002 mm, gelijk aan export met Exploded view uit True
+[cj-betaald] OK eis 6: 3MF deel B gelijk met en zonder Exploded view
+[cj-betaald] OK eis 6: 3MF deel B op de echte plek (binnen 0,001 mm) 0.000002 mm
+[cj-betaald] OK eis 6: na export staat deel B weer verschoven
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+Timer 'STL Export' took 0.28 ms
+Timer 'STL Export' took 0.32 ms
+Timer 'STL Export' took 0.33 ms
+Timer 'STL Export' took 0.31 ms
+Warning: Too close to another joint (keep 22 mm apart).
+[cj-betaald] METING eis 6 te dicht: reik 10.348 mm (t_vlak 12.097, wig 57.026, Rn 2.950, lip 6.500), 2 reik 20.697, N eigen rekensom 21, tweede op x=20.197 mm: uitslag={'CANCELLED'}, cj_te_dicht_mm=22, nieuwe objecten [], melding gevangen False
+[cj-betaald] FOUT eis 6: tweede scharnier op 20.197 mm (2 reik - 0,5) geweigerd met keep 21 mm, geen nieuwe delen kreeg 22, nieuw []
+[cj-betaald] FOUT eis 6: melding precies 'Too close to another joint (keep 21 mm apart).'
+Warning: Too close to another joint (keep 22 mm apart).
+[cj-betaald] METING eis 6 tweede scharnier op x=21.0 mm (precies N): uitslag={'CANCELLED'}, nieuwe delen [], foute randen [], cj_bereik_graden []
+[cj-betaald] FOUT eis 6: tweede scharnier op N = 21.0 mm geplaatst (twee nieuwe delen) {'CANCELLED'}
+[cj-betaald] FOUT eis 6: tweede scharnier op N: beide delen gesloten []
+[cj-betaald] FOUT eis 6: tweede scharnier op N: gemeten bereik binnen 2 graden onder de stand 115 []
+Info: Hinge placed. Bends 0° to 115°. 0.456 s.
+[cj-betaald] OK pose: scharnier geplaatst {'FINISHED'}
+Info: 2 STL files in /tmp/cj_export_scharnier/
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] OK pose: export zonder pose gelukt
+[cj-betaald] METING pose 60: lidas in beeld 60.0000 graden gedraaid, draaipunt 0.000000 mm verplaatst, delta_rotation (-0.0, -1.0472, 0.0), delta_location (-1.299, -0.0, -0.75) mm, location en echte_matrix gelijk True
+[cj-betaald] OK pose 60: location, rotation en echte_matrix van B ongewijzigd
+[cj-betaald] OK pose 60: in beeld 60 graden om H gedraaid, draaipunt stil 60.0000 graden, 0.000000 mm
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] METING pose 60 export STL: grootste verschil met export zonder pose 0.0000000 mm
+[cj-betaald] OK pose 60: export STL van deel B gelijk aan zonder pose 0.0000000 mm
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] METING pose 60 export 3MF: grootste verschil met export zonder pose 0.0000000 mm
+[cj-betaald] OK pose 60: export 3MF van deel B gelijk aan zonder pose 0.0000000 mm
+[cj-betaald] OK pose 60: na export staat B weer gedraaid
+[cj-betaald] METING pose 60 Exploded view aan=True: draaiing 60.0000 graden, draaipunt 8.8500 mm verschoven (verwacht 8.8500), afwijking 0.000000 mm
+[cj-betaald] OK pose 60 met Exploded view aan=True: draaiing om H blijft 60, draaipunt op de goede plek 60.0000 graden, 0.000000 mm
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] OK pose 60 met Exploded view: export STL gelijk aan zonder pose 0.0000000 mm
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] OK pose 60 met Exploded view: export 3MF gelijk aan zonder pose 0.0000000 mm
+[cj-betaald] METING pose 60 Exploded view aan=False: draaiing 60.0000 graden, draaipunt 0.0000 mm verschoven (verwacht 0.0000), afwijking 0.000000 mm
+[cj-betaald] OK pose 60 met Exploded view aan=False: draaiing om H blijft 60, draaipunt op de goede plek 60.0000 graden, 0.000000 mm
+[cj-betaald] METING groene band (cj_band_vlakken, vlakken op Good fit): {'pose_A': (813, 813), 'pose_B': (741, 741)}
+[cj-betaald] OK band: A en B hebben een groene band langs de naad {'pose_A': (813, 813), 'pose_B': (741, 741)}
+[cj-betaald] OK band: rand glad gesneden (1.0.1, geen trapjesrand) {'pose_A': 'glad', 'pose_B': 'glad'}
+[cj-betaald] METING sleuf (cj_sleuf_vlakken, vlakken op Flex slot): {'pose_A': (38, 38), 'pose_B': (0, 0)}
+[cj-betaald] OK sleuf: alleen A heeft donkere sleufvlakken, even veel als de add-on telde {'pose_A': (38, 38), 'pose_B': (0, 0)}
+[cj-betaald] METING rood 118.0 graden: A 6 vlakken, B 7 vlakken, verst 7.43 mm van H
+[cj-betaald] OK rood voorbij de stop op A en op B A 6, B 7
+[cj-betaald] OK rood alleen bij de stop (binnen 15 mm van het draaipunt) 7.43 mm
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] OK rood en band: export STL van B gelijk aan zonder pose 0.0000000 mm
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] OK rood en band: export 3MF van B gelijk aan zonder pose 0.0000000 mm
+[cj-betaald] OK pose 0 haalt het rood van A en B weg, de band blijft
+[cj-betaald] OK pose 0: matrix_world gelijk aan echte_matrix 0.00e+00
+Info: 2 STL files in /tmp/cj_export_scharnier/
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] METING pose 60 met B zelf gedraaid (XYZ): afwijking van T(c) Q T(-c) 1.19e-07, export STL verschil 0.0000000 mm
+[cj-betaald] OK pose 60 met B zelf gedraaid (XYZ): draaiing om H door het draaipunt, goede richting 1.19e-07
+[cj-betaald] OK pose 60 met B zelf gedraaid (XYZ): export STL gelijk aan zonder pose 0.0000000 mm
+Info: 2 STL files in /tmp/cj_export_scharnier/
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] METING pose 60 met B zelf gedraaid (QUATERNION): afwijking van T(c) Q T(-c) 1.19e-07, export STL verschil 0.0000000 mm
+[cj-betaald] OK pose 60 met B zelf gedraaid (QUATERNION): draaiing om H door het draaipunt, goede richting 1.19e-07
+[cj-betaald] OK pose 60 met B zelf gedraaid (QUATERNION): export STL gelijk aan zonder pose 0.0000000 mm
+[cj-betaald] OK pose-schuif: zet de stand op deel B en leest hem terug 30.0
+[cj-betaald] METING pose-schuif 30: delta_rotation (-0.0, -1.0472, 0.0), delta_quaternion (0.96593, 0.0, -0.25882, 0.0), delta_location (-0.75, -0.0, -0.201) mm, verschil met beweeg.pose 0.00e+00
+[cj-betaald] OK pose-schuif 30: delta's van B gelijk aan beweeg.pose 30 en niet nul 0.00e+00
+[cj-betaald] OK pose-schuif volgt de stand die op deel B staat 45.0
+[cj-betaald] OK pose-schuif zonder actief scharnier: 0 0.0
+Info: Hinge placed. Bends 0° to 115°. 0.462 s.
+[cj-betaald] OK pose-schuif: tweede scharnier geplaatst {'FINISHED'}
+[cj-betaald] METING pose-schuif met A2 actief: B2 40.0, schuif 40.0, eerste B 0.0 (matrix_world verschil 0.00e+00)
+[cj-betaald] OK pose-schuif met A van het tweede scharnier actief: B2 op 40, schuif leest 40 40.0
+[cj-betaald] OK pose-schuif met A2 actief: het eerste scharnier blijft op 0 (0.0, 0.0)
+Info: Hinge placed. Bends 0° to 115°. 0.448 s.
+[cj-betaald] OK eerder Tight blijft op zijn eigen deel, ander deel Good fit rechts oranje 0.9 links groen
+Info: Hinge placed. Bends 0° to 115°. 0.484 s.
+Info: Joint placed. Good fit. 0.401 s.
+[cj-betaald] OK afstand: scharnier en kogel op losse staven geplaatst {'FINISHED'} {'FINISHED'}
+[cj-betaald] METING afstand: reik scharnier 10.348 mm (cj_reik 10.349), reik kogel 6.300 mm (r 1.500, naad_r 5.700), kogelmidden 2.688 mm voor de cursor, grens 16.648, N 17
+[cj-betaald] OK afstand: cj_reik gelijk aan de eigen rekensom (binnen 0,01 mm) 10.3485 tegen 10.3485
+[cj-betaald] OK afstand: deel van een scharnier draagt cj_scharnieren met zijn snijpunt [0.0] [0.0]
+Timer 'STL Export' took 0.33 ms
+Timer 'STL Export' took 0.31 ms
+Timer 'STL Export' took 0.36 ms
+Timer 'STL Export' took 0.30 ms
+Timer 'STL Export' took 0.53 ms
+Timer 'STL Export' took 0.42 ms
+Timer 'STL Export' took 0.48 ms
+Timer 'STL Export' took 0.42 ms
+Timer 'STL Export' took 0.47 ms
+Timer 'STL Export' took 0.39 ms
+Timer 'STL Export' took 0.45 ms
+Timer 'STL Export' took 0.42 ms
+Timer 'STL Export' took 0.44 ms
+Timer 'STL Export' took 0.43 ms
+Timer 'STL Export' took 0.44 ms
+Timer 'STL Export' took 0.40 ms
+Warning: Too close to another joint (keep 17 mm apart).
+[cj-betaald] METING afstand (a1) kogel op 16.448 mm van het scharnier: uitslag={'CANCELLED'}, cj_te_dicht_mm=17, nieuw []
+[cj-betaald] OK afstand (a1): kogel 16.448 mm van het scharnier (grens - 0,2) geweigerd met keep 17 mm kreeg 17, nieuw 0
+[cj-betaald] OK afstand (a1): melding precies 'Too close ...'
+[cj-betaald] OK afstand (a1): beide delen van het scharnier heel
+Info: Joint placed. Good fit. 0.433 s.
+[cj-betaald] METING afstand (a1) kogel op 16.848 mm van het scharnier: uitslag={'FINISHED'}, cj_te_dicht_mm=None, nieuw ['s1_B_A', 's1_B_B']
+[cj-betaald] OK afstand (a1): kogel 16.848 mm van het scharnier (grens + 0,2) geplaatst, twee gesloten delen {'FINISHED'}
+[cj-betaald] OK afstand (a1): deel A van de kogel (kant van het scharnier) erft het scharnier, deel B niet A [0.0] B []
+[cj-betaald] OK afstand (a1): deel A van het scharnier heel
+[cj-betaald] METING afstand (a2): grens komkant 12.548 mm, N 13
+Warning: Too close to another joint (keep 13 mm apart).
+[cj-betaald] METING afstand (a2) scharnier op 12.348 mm van het kogelmidden: uitslag={'CANCELLED'}, cj_te_dicht_mm=13, nieuw []
+[cj-betaald] OK afstand (a2): scharnier 12.348 mm van de kogel (grens - 0,2) geweigerd met keep 13 mm kreeg 13, nieuw 0
+[cj-betaald] OK afstand (a2): melding precies 'Too close ...'
+[cj-betaald] OK afstand (a2): beide delen van de kogel heel
+Info: Hinge placed. Bends 0° to 115°. 0.534 s.
+[cj-betaald] METING afstand (a2) scharnier op 12.748 mm van het kogelmidden: uitslag={'FINISHED'}, cj_te_dicht_mm=None, nieuw ['s2_B_A', 's2_B_B']
+[cj-betaald] OK afstand (a2): scharnier 12.748 mm van de kogel (grens + 0,2) geplaatst, twee gesloten delen {'FINISHED'}
+[cj-betaald] OK afstand (a2): deel A van de kogel heel
+[cj-betaald] OK afstand (a2): kom heel (geen nieuwe hoekpunten binnen r + s + 0,45 mm) 0 nieuw
+Info: Hinge placed. Bends 0° to 115°. 0.465 s.
+Info: Hinge placed. Bends 0° to 115°. 0.483 s.
+[cj-betaald] OK afstand (b): tweede scharnier op 43.394 mm geplaatst {'FINISHED'}
+[cj-betaald] METING afstand (b): reik 10.348 mm, cj_scharnieren s3_A [0.0], s3_B_A [0.0, 43.394], s3_B_B [43.394], cj_snijpunt middendeel 43.394
+[cj-betaald] OK afstand (b): middendeel draagt beide snijpunten [0.0, 43.394]
+[cj-betaald] OK afstand (b): buitenste deel alleen het tweede [43.394]
+[cj-betaald] OK afstand (b): oude enkele sleutel cj_snijpunt blijft (laatste scharnier) 43.394003
+[cj-betaald] OK afstand (b): deel met alleen de oude sleutels telt als een scharnier [(Vector((1.0, 2.0, 3.0)), 4.0, 0.5)]
+Warning: There is already a hinge here. Undo first, or use Flip bend in the Redo panel right after placing.
+[cj-betaald] OK afstand (b): derde scharnier op 0,5 mm (bij het eerste, niet het laatste): 'already a hinge here' {'CANCELLED'} nieuw 0
+Warning: Too close to another joint (keep 22 mm apart).
+[cj-betaald] METING afstand (b) derde scharnier op x=20.497 mm (tot het tweede 22.897 mm): uitslag={'CANCELLED'}, cj_te_dicht_mm=22, nieuw []
+[cj-betaald] FOUT afstand (b): derde scharnier op 20.497 mm (2 reik - 0,2 van het eerste) geweigerd met keep 21 mm kreeg 22, nieuw 0
+[cj-betaald] FOUT afstand (b): melding precies 'Too close ...'
+Warning: Too close to another joint (keep 22 mm apart).
+[cj-betaald] METING afstand (b) derde scharnier op x=20.897 mm (tot het tweede 22.497 mm): uitslag={'CANCELLED'}, cj_te_dicht_mm=22, nieuw []
+[cj-betaald] FOUT afstand (b): derde scharnier op 20.897 mm (2 reik + 0,2) geplaatst, twee gesloten delen {'CANCELLED'}
+[cj-betaald] OK afstand (b): de andere delen (s3_A en het buitenste) heel en onveranderd
+[cj-betaald] OK betaalde omhult gewricht.te_dicht en gewricht.markeer zolang hij aan staat
+[cj-betaald] OK andere_versies ziet gratis naast betaald
+[cj-betaald] OK andere_versies negeert zichzelf en andere add-ons
+[cj-betaald] OK betaalde omhult addon_utils.enable zolang hij aan staat
+[cj-betaald] OK uitzetten zet addon_utils.enable terug
+[cj-betaald] OK uitzetten zet gewricht.te_dicht en gewricht.markeer terug
+Info: Added User Repository "cj_gratis"
+STATUS Installed "click_joints"
+[cj-betaald] OK gratis staat aan in eigen repository ['bl_ext.cj_gratis.click_joints']
+Exception in module register(): /tmp/cj_betaald/extensions/user_default/click_joints/__init__.py
+[cj-betaald] melding: Disable the free Click Joints first. Your settings stay in the .blend file.
+[cj-betaald] OK (a) gratis aan, dan betaald: betaalde weigert ['bl_ext.cj_gratis.click_joints']
+[cj-betaald] OK (a) weigermelding gegeven Disable the free Click Joints first. Your settings stay in the .blend file.
+[cj-betaald] OK (a) gratis blijft werken
+[cj-betaald] OK (a) geen omhulsel na weigering
+[cj-betaald] OK gratis uit, dan kan betaald weer aan ['bl_ext.user_default.click_joints']
+[cj-betaald] OK betaald werkt weer (scharnier-operator)
+Click Joints: Click Joints Pro was turned off. Disable the free Click Joints first, then enable Pro again.
+[cj-betaald] OK (b) betaald aan, dan gratis: betaalde is uit ['bl_ext.cj_gratis.click_joints']
+[cj-betaald] OK (b) gratis staat aan ['bl_ext.cj_gratis.click_joints']
+[cj-betaald] OK (b) weigermelding gegeven Click Joints Pro was turned off. Disable the free Click Joints first, then enable Pro again.
+[cj-betaald] OK (b) gratis werkt (operators, paneel, scene.click_joints)
+[cj-betaald] OK (b) omhulsel opgeruimd
+[cj-betaald] OK (b) gratis instelling leesbaar
+[cj-betaald] OK (b) gratis weer uit, dan kan betaald weer aan ['bl_ext.user_default.click_joints']
+[cj-betaald] OK (b) betaald werkt weer
+[cj-betaald] klaar: 8 FOUT
+##[error]Process completed with exit code 1.
+
+===== e2e (5.2.3) / Betaalde build (twee zips uit één bron, weigering naast de gratis) (laatste 200 van 502 regels) =====
+[cj-betaald] OK eis 6: scharnier geplaatst op de lange staaf {'FINISHED'}
+[cj-betaald] METING eis 6 Exploded view aan=True: deel B 8.8500 mm langs L (verwacht 8.8500, Rn 2.9500), dwars 0.00000 mm, laagste punt B langs L 7.102 mm, hoogste punt A 2.847 mm, location (0.0, 0.0, 0.0)
+[cj-betaald] OK eis 6: Exploded view aan=True: deel B 8.850 mm langs L verschoven, dwars niets 8.8500 mm, dwars 0.00000
+[cj-betaald] OK eis 6: Exploded view: tong helemaal uit de vork (B boven A langs L) spleet 4.256 mm
+[cj-betaald] METING eis 6 Exploded view aan=False: deel B 0.0000 mm langs L (verwacht 0.0000, Rn 2.9500), dwars 0.00000 mm, laagste punt B langs L -1.748 mm, hoogste punt A 2.847 mm, location (0.0, 0.0, 0.0)
+[cj-betaald] OK eis 6: Exploded view aan=False: deel B 0.000 mm langs L verschoven, dwars niets 0.0000 mm, dwars 0.00000
+[cj-betaald] OK eis 6: location van deel B verandert niet
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] METING eis 6 export STL deel B met Exploded view aan: 6516 punten, grenzen [-1.748, -5.0, -5.0]..[40.0, 5.0, 5.0] mm, echte plek [-1.748, -5.0, -5.0]..[40.0, 5.0, 5.0] mm, verschil 0.000002 mm, gelijk aan export met Exploded view uit True
+[cj-betaald] OK eis 6: STL deel B gelijk met en zonder Exploded view
+[cj-betaald] OK eis 6: STL deel B op de echte plek (binnen 0,001 mm) 0.000002 mm
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] METING eis 6 export 3MF deel B met Exploded view aan: 1088 punten, grenzen [-1.748, -5.0, -5.0]..[40.0, 5.0, 5.0] mm, echte plek [-1.748, -5.0, -5.0]..[40.0, 5.0, 5.0] mm, verschil 0.000002 mm, gelijk aan export met Exploded view uit True
+[cj-betaald] OK eis 6: 3MF deel B gelijk met en zonder Exploded view
+[cj-betaald] OK eis 6: 3MF deel B op de echte plek (binnen 0,001 mm) 0.000002 mm
+[cj-betaald] OK eis 6: na export staat deel B weer verschoven
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+Timer 'STL Export' took 1.01 ms
+Timer 'STL Export' took 0.90 ms
+Timer 'STL Export' took 0.99 ms
+Timer 'STL Export' took 0.85 ms
+Warning: Too close to another joint (keep 22 mm apart).
+[cj-betaald] METING eis 6 te dicht: reik 10.348 mm (t_vlak 12.097, wig 57.026, Rn 2.950, lip 6.500), 2 reik 20.697, N eigen rekensom 21, tweede op x=20.197 mm: uitslag={'CANCELLED'}, cj_te_dicht_mm=22, nieuwe objecten [], melding gevangen False
+[cj-betaald] FOUT eis 6: tweede scharnier op 20.197 mm (2 reik - 0,5) geweigerd met keep 21 mm, geen nieuwe delen kreeg 22, nieuw []
+[cj-betaald] FOUT eis 6: melding precies 'Too close to another joint (keep 21 mm apart).'
+Warning: Too close to another joint (keep 22 mm apart).
+[cj-betaald] METING eis 6 tweede scharnier op x=21.0 mm (precies N): uitslag={'CANCELLED'}, nieuwe delen [], foute randen [], cj_bereik_graden []
+[cj-betaald] FOUT eis 6: tweede scharnier op N = 21.0 mm geplaatst (twee nieuwe delen) {'CANCELLED'}
+[cj-betaald] FOUT eis 6: tweede scharnier op N: beide delen gesloten []
+[cj-betaald] FOUT eis 6: tweede scharnier op N: gemeten bereik binnen 2 graden onder de stand 115 []
+Info: Hinge placed. Bends 0° to 115°. 0.314 s.
+[cj-betaald] OK pose: scharnier geplaatst {'FINISHED'}
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] OK pose: export zonder pose gelukt
+[cj-betaald] METING pose 60: lidas in beeld 60.0000 graden gedraaid, draaipunt 0.000000 mm verplaatst, delta_rotation (-0.0, -1.0472, 0.0), delta_location (-1.299, -0.0, -0.75) mm, location en echte_matrix gelijk True
+[cj-betaald] OK pose 60: location, rotation en echte_matrix van B ongewijzigd
+[cj-betaald] OK pose 60: in beeld 60 graden om H gedraaid, draaipunt stil 60.0000 graden, 0.000000 mm
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] METING pose 60 export STL: grootste verschil met export zonder pose 0.0000000 mm
+[cj-betaald] OK pose 60: export STL van deel B gelijk aan zonder pose 0.0000000 mm
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] METING pose 60 export 3MF: grootste verschil met export zonder pose 0.0000000 mm
+[cj-betaald] OK pose 60: export 3MF van deel B gelijk aan zonder pose 0.0000000 mm
+[cj-betaald] OK pose 60: na export staat B weer gedraaid
+[cj-betaald] METING pose 60 Exploded view aan=True: draaiing 60.0000 graden, draaipunt 8.8500 mm verschoven (verwacht 8.8500), afwijking 0.000000 mm
+[cj-betaald] OK pose 60 met Exploded view aan=True: draaiing om H blijft 60, draaipunt op de goede plek 60.0000 graden, 0.000000 mm
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] OK pose 60 met Exploded view: export STL gelijk aan zonder pose 0.0000000 mm
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] OK pose 60 met Exploded view: export 3MF gelijk aan zonder pose 0.0000000 mm
+[cj-betaald] METING pose 60 Exploded view aan=False: draaiing 60.0000 graden, draaipunt 0.0000 mm verschoven (verwacht 0.0000), afwijking 0.000000 mm
+[cj-betaald] OK pose 60 met Exploded view aan=False: draaiing om H blijft 60, draaipunt op de goede plek 60.0000 graden, 0.000000 mm
+[cj-betaald] METING groene band (cj_band_vlakken, vlakken op Good fit): {'pose_A': (814, 814), 'pose_B': (741, 741)}
+[cj-betaald] OK band: A en B hebben een groene band langs de naad {'pose_A': (814, 814), 'pose_B': (741, 741)}
+[cj-betaald] OK band: rand glad gesneden (1.0.1, geen trapjesrand) {'pose_A': 'glad', 'pose_B': 'glad'}
+[cj-betaald] METING sleuf (cj_sleuf_vlakken, vlakken op Flex slot): {'pose_A': (37, 37), 'pose_B': (0, 0)}
+[cj-betaald] OK sleuf: alleen A heeft donkere sleufvlakken, even veel als de add-on telde {'pose_A': (37, 37), 'pose_B': (0, 0)}
+[cj-betaald] METING rood 118.0 graden: A 6 vlakken, B 7 vlakken, verst 7.43 mm van H
+[cj-betaald] OK rood voorbij de stop op A en op B A 6, B 7
+[cj-betaald] OK rood alleen bij de stop (binnen 15 mm van het draaipunt) 7.43 mm
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] OK rood en band: export STL van B gelijk aan zonder pose 0.0000000 mm
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] OK rood en band: export 3MF van B gelijk aan zonder pose 0.0000000 mm
+[cj-betaald] OK pose 0 haalt het rood van A en B weg, de band blijft
+[cj-betaald] OK pose 0: matrix_world gelijk aan echte_matrix 0.00e+00
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] METING pose 60 met B zelf gedraaid (XYZ): afwijking van T(c) Q T(-c) 1.19e-07, export STL verschil 0.0000000 mm
+[cj-betaald] OK pose 60 met B zelf gedraaid (XYZ): draaiing om H door het draaipunt, goede richting 1.19e-07
+[cj-betaald] OK pose 60 met B zelf gedraaid (XYZ): export STL gelijk aan zonder pose 0.0000000 mm
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] METING pose 60 met B zelf gedraaid (QUATERNION): afwijking van T(c) Q T(-c) 1.19e-07, export STL verschil 0.0000000 mm
+[cj-betaald] OK pose 60 met B zelf gedraaid (QUATERNION): draaiing om H door het draaipunt, goede richting 1.19e-07
+[cj-betaald] OK pose 60 met B zelf gedraaid (QUATERNION): export STL gelijk aan zonder pose 0.0000000 mm
+[cj-betaald] OK pose-schuif: zet de stand op deel B en leest hem terug 30.0
+[cj-betaald] METING pose-schuif 30: delta_rotation (-0.0, -1.0472, 0.0), delta_quaternion (0.96593, 0.0, -0.25882, 0.0), delta_location (-0.75, -0.0, -0.201) mm, verschil met beweeg.pose 0.00e+00
+[cj-betaald] OK pose-schuif 30: delta's van B gelijk aan beweeg.pose 30 en niet nul 0.00e+00
+[cj-betaald] OK pose-schuif volgt de stand die op deel B staat 45.0
+[cj-betaald] OK pose-schuif zonder actief scharnier: 0 0.0
+Info: Hinge placed. Bends 0° to 115°. 0.307 s.
+[cj-betaald] OK pose-schuif: tweede scharnier geplaatst {'FINISHED'}
+[cj-betaald] METING pose-schuif met A2 actief: B2 40.0, schuif 40.0, eerste B 0.0 (matrix_world verschil 0.00e+00)
+[cj-betaald] OK pose-schuif met A van het tweede scharnier actief: B2 op 40, schuif leest 40 40.0
+[cj-betaald] OK pose-schuif met A2 actief: het eerste scharnier blijft op 0 (0.0, 0.0)
+Info: Hinge placed. Bends 0° to 115°. 0.325 s.
+[cj-betaald] OK eerder Tight blijft op zijn eigen deel, ander deel Good fit rechts oranje 0.9 links groen
+Info: Hinge placed. Bends 0° to 115°. 0.314 s.
+Info: Joint placed. Good fit. 0.218 s.
+[cj-betaald] OK afstand: scharnier en kogel op losse staven geplaatst {'FINISHED'} {'FINISHED'}
+[cj-betaald] METING afstand: reik scharnier 10.348 mm (cj_reik 10.349), reik kogel 6.300 mm (r 1.500, naad_r 5.700), kogelmidden 2.688 mm voor de cursor, grens 16.648, N 17
+[cj-betaald] OK afstand: cj_reik gelijk aan de eigen rekensom (binnen 0,01 mm) 10.3485 tegen 10.3485
+[cj-betaald] OK afstand: deel van een scharnier draagt cj_scharnieren met zijn snijpunt [0.0] [0.0]
+Timer 'STL Export' took 0.99 ms
+Timer 'STL Export' took 0.91 ms
+Timer 'STL Export' took 1.08 ms
+Timer 'STL Export' took 0.90 ms
+Timer 'STL Export' took 1.15 ms
+Timer 'STL Export' took 0.96 ms
+Timer 'STL Export' took 1.19 ms
+Timer 'STL Export' took 1.02 ms
+Timer 'STL Export' took 1.14 ms
+Timer 'STL Export' took 0.97 ms
+Timer 'STL Export' took 1.02 ms
+Timer 'STL Export' took 0.95 ms
+Timer 'STL Export' took 1.03 ms
+Timer 'STL Export' took 0.93 ms
+Timer 'STL Export' took 1.01 ms
+Timer 'STL Export' took 0.91 ms
+Warning: Too close to another joint (keep 17 mm apart).
+[cj-betaald] METING afstand (a1) kogel op 16.448 mm van het scharnier: uitslag={'CANCELLED'}, cj_te_dicht_mm=17, nieuw []
+[cj-betaald] OK afstand (a1): kogel 16.448 mm van het scharnier (grens - 0,2) geweigerd met keep 17 mm kreeg 17, nieuw 0
+[cj-betaald] OK afstand (a1): melding precies 'Too close ...'
+[cj-betaald] OK afstand (a1): beide delen van het scharnier heel
+Info: Joint placed. Good fit. 0.242 s.
+[cj-betaald] METING afstand (a1) kogel op 16.848 mm van het scharnier: uitslag={'FINISHED'}, cj_te_dicht_mm=None, nieuw ['s1_B_A', 's1_B_B']
+[cj-betaald] OK afstand (a1): kogel 16.848 mm van het scharnier (grens + 0,2) geplaatst, twee gesloten delen {'FINISHED'}
+[cj-betaald] OK afstand (a1): deel A van de kogel (kant van het scharnier) erft het scharnier, deel B niet A [0.0] B []
+[cj-betaald] OK afstand (a1): deel A van het scharnier heel
+[cj-betaald] METING afstand (a2): grens komkant 12.548 mm, N 13
+Warning: Too close to another joint (keep 13 mm apart).
+[cj-betaald] METING afstand (a2) scharnier op 12.348 mm van het kogelmidden: uitslag={'CANCELLED'}, cj_te_dicht_mm=13, nieuw []
+[cj-betaald] OK afstand (a2): scharnier 12.348 mm van de kogel (grens - 0,2) geweigerd met keep 13 mm kreeg 13, nieuw 0
+[cj-betaald] OK afstand (a2): melding precies 'Too close ...'
+[cj-betaald] OK afstand (a2): beide delen van de kogel heel
+Info: Hinge placed. Bends 0° to 115°. 0.352 s.
+[cj-betaald] METING afstand (a2) scharnier op 12.748 mm van het kogelmidden: uitslag={'FINISHED'}, cj_te_dicht_mm=None, nieuw ['s2_B_A', 's2_B_B']
+[cj-betaald] OK afstand (a2): scharnier 12.748 mm van de kogel (grens + 0,2) geplaatst, twee gesloten delen {'FINISHED'}
+[cj-betaald] OK afstand (a2): deel A van de kogel heel
+[cj-betaald] OK afstand (a2): kom heel (geen nieuwe hoekpunten binnen r + s + 0,45 mm) 0 nieuw
+Info: Hinge placed. Bends 0° to 115°. 0.351 s.
+Info: Hinge placed. Bends 0° to 115°. 0.344 s.
+[cj-betaald] OK afstand (b): tweede scharnier op 43.394 mm geplaatst {'FINISHED'}
+[cj-betaald] METING afstand (b): reik 10.348 mm, cj_scharnieren s3_A [0.0], s3_B_A [0.0, 43.394], s3_B_B [43.394], cj_snijpunt middendeel 43.394
+[cj-betaald] OK afstand (b): middendeel draagt beide snijpunten [0.0, 43.394]
+[cj-betaald] OK afstand (b): buitenste deel alleen het tweede [43.394]
+[cj-betaald] OK afstand (b): oude enkele sleutel cj_snijpunt blijft (laatste scharnier) 43.394003
+[cj-betaald] OK afstand (b): deel met alleen de oude sleutels telt als een scharnier [(Vector((1.0, 2.0, 3.0)), 4.0, 0.5)]
+Warning: There is already a hinge here. Undo first, or use Flip bend in the Redo panel right after placing.
+[cj-betaald] OK afstand (b): derde scharnier op 0,5 mm (bij het eerste, niet het laatste): 'already a hinge here' {'CANCELLED'} nieuw 0
+Warning: Too close to another joint (keep 22 mm apart).
+[cj-betaald] METING afstand (b) derde scharnier op x=20.497 mm (tot het tweede 22.897 mm): uitslag={'CANCELLED'}, cj_te_dicht_mm=22, nieuw []
+[cj-betaald] FOUT afstand (b): derde scharnier op 20.497 mm (2 reik - 0,2 van het eerste) geweigerd met keep 21 mm kreeg 22, nieuw 0
+[cj-betaald] FOUT afstand (b): melding precies 'Too close ...'
+Warning: Too close to another joint (keep 22 mm apart).
+[cj-betaald] METING afstand (b) derde scharnier op x=20.897 mm (tot het tweede 22.497 mm): uitslag={'CANCELLED'}, cj_te_dicht_mm=22, nieuw []
+[cj-betaald] FOUT afstand (b): derde scharnier op 20.897 mm (2 reik + 0,2) geplaatst, twee gesloten delen {'CANCELLED'}
+[cj-betaald] OK afstand (b): de andere delen (s3_A en het buitenste) heel en onveranderd
+[cj-betaald] OK betaalde omhult gewricht.te_dicht en gewricht.markeer zolang hij aan staat
+[cj-betaald] OK andere_versies ziet gratis naast betaald
+[cj-betaald] OK andere_versies negeert zichzelf en andere add-ons
+[cj-betaald] OK betaalde omhult addon_utils.enable zolang hij aan staat
+[cj-betaald] OK uitzetten zet addon_utils.enable terug
+[cj-betaald] OK uitzetten zet gewricht.te_dicht en gewricht.markeer terug
+Info: Added User Repository "cj_gratis"
+STATUS Installed "click_joints"
+[cj-betaald] OK gratis staat aan in eigen repository ['bl_ext.cj_gratis.click_joints']
+Exception in module register(): /tmp/cj_betaald/extensions/user_default/click_joints/__init__.py
+[cj-betaald] melding: Disable the free Click Joints first. Your settings stay in the .blend file.
+[cj-betaald] OK (a) gratis aan, dan betaald: betaalde weigert ['bl_ext.cj_gratis.click_joints']
+[cj-betaald] OK (a) weigermelding gegeven Disable the free Click Joints first. Your settings stay in the .blend file.
+[cj-betaald] OK (a) gratis blijft werken
+[cj-betaald] OK (a) geen omhulsel na weigering
+[cj-betaald] OK gratis uit, dan kan betaald weer aan ['bl_ext.user_default.click_joints']
+[cj-betaald] OK betaald werkt weer (scharnier-operator)
+Click Joints: Click Joints Pro was turned off. Disable the free Click Joints first, then enable Pro again.
+[cj-betaald] OK (b) betaald aan, dan gratis: betaalde is uit ['bl_ext.cj_gratis.click_joints']
+[cj-betaald] OK (b) gratis staat aan ['bl_ext.cj_gratis.click_joints']
+[cj-betaald] OK (b) weigermelding gegeven Click Joints Pro was turned off. Disable the free Click Joints first, then enable Pro again.
+[cj-betaald] OK (b) gratis werkt (operators, paneel, scene.click_joints)
+[cj-betaald] OK (b) omhulsel opgeruimd
+[cj-betaald] OK (b) gratis instelling leesbaar
+[cj-betaald] OK (b) gratis weer uit, dan kan betaald weer aan ['bl_ext.user_default.click_joints']
+[cj-betaald] OK (b) betaald werkt weer
+[cj-betaald] klaar: 8 FOUT
+##[error]Process completed with exit code 1.
+
+===== e2e (5.3.0) / Betaalde build (twee zips uit één bron, weigering naast de gratis) (laatste 200 van 502 regels) =====
+[cj-betaald] OK eis 6: scharnier geplaatst op de lange staaf {'FINISHED'}
+[cj-betaald] METING eis 6 Exploded view aan=True: deel B 8.8500 mm langs L (verwacht 8.8500, Rn 2.9500), dwars 0.00000 mm, laagste punt B langs L 7.102 mm, hoogste punt A 2.847 mm, location (0.0, 0.0, 0.0)
+[cj-betaald] OK eis 6: Exploded view aan=True: deel B 8.850 mm langs L verschoven, dwars niets 8.8500 mm, dwars 0.00000
+[cj-betaald] OK eis 6: Exploded view: tong helemaal uit de vork (B boven A langs L) spleet 4.256 mm
+[cj-betaald] METING eis 6 Exploded view aan=False: deel B 0.0000 mm langs L (verwacht 0.0000, Rn 2.9500), dwars 0.00000 mm, laagste punt B langs L -1.748 mm, hoogste punt A 2.847 mm, location (0.0, 0.0, 0.0)
+[cj-betaald] OK eis 6: Exploded view aan=False: deel B 0.000 mm langs L verschoven, dwars niets 0.0000 mm, dwars 0.00000
+[cj-betaald] OK eis 6: location van deel B verandert niet
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] METING eis 6 export STL deel B met Exploded view aan: 6516 punten, grenzen [-1.748, -5.0, -5.0]..[40.0, 5.0, 5.0] mm, echte plek [-1.748, -5.0, -5.0]..[40.0, 5.0, 5.0] mm, verschil 0.000002 mm, gelijk aan export met Exploded view uit True
+[cj-betaald] OK eis 6: STL deel B gelijk met en zonder Exploded view
+[cj-betaald] OK eis 6: STL deel B op de echte plek (binnen 0,001 mm) 0.000002 mm
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] METING eis 6 export 3MF deel B met Exploded view aan: 1088 punten, grenzen [-1.748, -5.0, -5.0]..[40.0, 5.0, 5.0] mm, echte plek [-1.748, -5.0, -5.0]..[40.0, 5.0, 5.0] mm, verschil 0.000002 mm, gelijk aan export met Exploded view uit True
+[cj-betaald] OK eis 6: 3MF deel B gelijk met en zonder Exploded view
+[cj-betaald] OK eis 6: 3MF deel B op de echte plek (binnen 0,001 mm) 0.000002 mm
+[cj-betaald] OK eis 6: na export staat deel B weer verschoven
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+Timer 'STL Export' took 0.79 ms
+Timer 'STL Export' took 0.69 ms
+Timer 'STL Export' took 0.83 ms
+Timer 'STL Export' took 0.74 ms
+Warning: Too close to another joint (keep 22 mm apart).
+[cj-betaald] METING eis 6 te dicht: reik 10.348 mm (t_vlak 12.097, wig 57.026, Rn 2.950, lip 6.500), 2 reik 20.697, N eigen rekensom 21, tweede op x=20.197 mm: uitslag={'CANCELLED'}, cj_te_dicht_mm=22, nieuwe objecten [], melding gevangen False
+[cj-betaald] FOUT eis 6: tweede scharnier op 20.197 mm (2 reik - 0,5) geweigerd met keep 21 mm, geen nieuwe delen kreeg 22, nieuw []
+[cj-betaald] FOUT eis 6: melding precies 'Too close to another joint (keep 21 mm apart).'
+Warning: Too close to another joint (keep 22 mm apart).
+[cj-betaald] METING eis 6 tweede scharnier op x=21.0 mm (precies N): uitslag={'CANCELLED'}, nieuwe delen [], foute randen [], cj_bereik_graden []
+[cj-betaald] FOUT eis 6: tweede scharnier op N = 21.0 mm geplaatst (twee nieuwe delen) {'CANCELLED'}
+[cj-betaald] FOUT eis 6: tweede scharnier op N: beide delen gesloten []
+[cj-betaald] FOUT eis 6: tweede scharnier op N: gemeten bereik binnen 2 graden onder de stand 115 []
+Info: Hinge placed. Bends 0° to 115°. 0.227 s.
+[cj-betaald] OK pose: scharnier geplaatst {'FINISHED'}
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] OK pose: export zonder pose gelukt
+[cj-betaald] METING pose 60: lidas in beeld 60.0000 graden gedraaid, draaipunt 0.000000 mm verplaatst, delta_rotation (-0.0, -1.0472, 0.0), delta_location (-1.299, -0.0, -0.75) mm, location en echte_matrix gelijk True
+[cj-betaald] OK pose 60: location, rotation en echte_matrix van B ongewijzigd
+[cj-betaald] OK pose 60: in beeld 60 graden om H gedraaid, draaipunt stil 60.0000 graden, 0.000000 mm
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] METING pose 60 export STL: grootste verschil met export zonder pose 0.0000000 mm
+[cj-betaald] OK pose 60: export STL van deel B gelijk aan zonder pose 0.0000000 mm
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] METING pose 60 export 3MF: grootste verschil met export zonder pose 0.0000000 mm
+[cj-betaald] OK pose 60: export 3MF van deel B gelijk aan zonder pose 0.0000000 mm
+[cj-betaald] OK pose 60: na export staat B weer gedraaid
+[cj-betaald] METING pose 60 Exploded view aan=True: draaiing 60.0000 graden, draaipunt 8.8500 mm verschoven (verwacht 8.8500), afwijking 0.000000 mm
+[cj-betaald] OK pose 60 met Exploded view aan=True: draaiing om H blijft 60, draaipunt op de goede plek 60.0000 graden, 0.000000 mm
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] OK pose 60 met Exploded view: export STL gelijk aan zonder pose 0.0000000 mm
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] OK pose 60 met Exploded view: export 3MF gelijk aan zonder pose 0.0000000 mm
+[cj-betaald] METING pose 60 Exploded view aan=False: draaiing 60.0000 graden, draaipunt 0.0000 mm verschoven (verwacht 0.0000), afwijking 0.000000 mm
+[cj-betaald] OK pose 60 met Exploded view aan=False: draaiing om H blijft 60, draaipunt op de goede plek 60.0000 graden, 0.000000 mm
+[cj-betaald] METING groene band (cj_band_vlakken, vlakken op Good fit): {'pose_A': (814, 814), 'pose_B': (741, 741)}
+[cj-betaald] OK band: A en B hebben een groene band langs de naad {'pose_A': (814, 814), 'pose_B': (741, 741)}
+[cj-betaald] OK band: rand glad gesneden (1.0.1, geen trapjesrand) {'pose_A': 'glad', 'pose_B': 'glad'}
+[cj-betaald] METING sleuf (cj_sleuf_vlakken, vlakken op Flex slot): {'pose_A': (37, 37), 'pose_B': (0, 0)}
+[cj-betaald] OK sleuf: alleen A heeft donkere sleufvlakken, even veel als de add-on telde {'pose_A': (37, 37), 'pose_B': (0, 0)}
+[cj-betaald] METING rood 118.0 graden: A 6 vlakken, B 7 vlakken, verst 7.43 mm van H
+[cj-betaald] OK rood voorbij de stop op A en op B A 6, B 7
+[cj-betaald] OK rood alleen bij de stop (binnen 15 mm van het draaipunt) 7.43 mm
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] OK rood en band: export STL van B gelijk aan zonder pose 0.0000000 mm
+Info: 2 3MF files in /tmp/cj_export_scharnier/
+[cj-betaald] OK rood en band: export 3MF van B gelijk aan zonder pose 0.0000000 mm
+[cj-betaald] OK pose 0 haalt het rood van A en B weg, de band blijft
+[cj-betaald] OK pose 0: matrix_world gelijk aan echte_matrix 0.00e+00
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] METING pose 60 met B zelf gedraaid (XYZ): afwijking van T(c) Q T(-c) 1.19e-07, export STL verschil 0.0000000 mm
+[cj-betaald] OK pose 60 met B zelf gedraaid (XYZ): draaiing om H door het draaipunt, goede richting 1.19e-07
+[cj-betaald] OK pose 60 met B zelf gedraaid (XYZ): export STL gelijk aan zonder pose 0.0000000 mm
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/cj_export_scharnier/
+[cj-betaald] METING pose 60 met B zelf gedraaid (QUATERNION): afwijking van T(c) Q T(-c) 1.19e-07, export STL verschil 0.0000000 mm
+[cj-betaald] OK pose 60 met B zelf gedraaid (QUATERNION): draaiing om H door het draaipunt, goede richting 1.19e-07
+[cj-betaald] OK pose 60 met B zelf gedraaid (QUATERNION): export STL gelijk aan zonder pose 0.0000000 mm
+[cj-betaald] OK pose-schuif: zet de stand op deel B en leest hem terug 30.0
+[cj-betaald] METING pose-schuif 30: delta_rotation (-0.0, -1.0472, 0.0), delta_quaternion (0.96593, 0.0, -0.25882, 0.0), delta_location (-0.75, -0.0, -0.201) mm, verschil met beweeg.pose 0.00e+00
+[cj-betaald] OK pose-schuif 30: delta's van B gelijk aan beweeg.pose 30 en niet nul 0.00e+00
+[cj-betaald] OK pose-schuif volgt de stand die op deel B staat 45.0
+[cj-betaald] OK pose-schuif zonder actief scharnier: 0 0.0
+Info: Hinge placed. Bends 0° to 115°. 0.227 s.
+[cj-betaald] OK pose-schuif: tweede scharnier geplaatst {'FINISHED'}
+[cj-betaald] METING pose-schuif met A2 actief: B2 40.0, schuif 40.0, eerste B 0.0 (matrix_world verschil 0.00e+00)
+[cj-betaald] OK pose-schuif met A van het tweede scharnier actief: B2 op 40, schuif leest 40 40.0
+[cj-betaald] OK pose-schuif met A2 actief: het eerste scharnier blijft op 0 (0.0, 0.0)
+Info: Hinge placed. Bends 0° to 115°. 0.23 s.
+[cj-betaald] OK eerder Tight blijft op zijn eigen deel, ander deel Good fit rechts oranje 0.9 links groen
+Info: Hinge placed. Bends 0° to 115°. 0.227 s.
+Info: Joint placed. Good fit. 0.17 s.
+[cj-betaald] OK afstand: scharnier en kogel op losse staven geplaatst {'FINISHED'} {'FINISHED'}
+[cj-betaald] METING afstand: reik scharnier 10.348 mm (cj_reik 10.349), reik kogel 6.300 mm (r 1.500, naad_r 5.700), kogelmidden 2.688 mm voor de cursor, grens 16.648, N 17
+[cj-betaald] OK afstand: cj_reik gelijk aan de eigen rekensom (binnen 0,01 mm) 10.3485 tegen 10.3485
+[cj-betaald] OK afstand: deel van een scharnier draagt cj_scharnieren met zijn snijpunt [0.0] [0.0]
+Timer 'STL Export' took 0.85 ms
+Timer 'STL Export' took 0.69 ms
+Timer 'STL Export' took 1.01 ms
+Timer 'STL Export' took 0.77 ms
+Timer 'STL Export' took 0.89 ms
+Timer 'STL Export' took 0.71 ms
+Timer 'STL Export' took 0.93 ms
+Timer 'STL Export' took 0.73 ms
+Timer 'STL Export' took 0.92 ms
+Timer 'STL Export' took 0.78 ms
+Timer 'STL Export' took 0.80 ms
+Timer 'STL Export' took 0.73 ms
+Timer 'STL Export' took 0.79 ms
+Timer 'STL Export' took 0.71 ms
+Timer 'STL Export' took 0.79 ms
+Timer 'STL Export' took 0.70 ms
+Warning: Too close to another joint (keep 17 mm apart).
+[cj-betaald] METING afstand (a1) kogel op 16.448 mm van het scharnier: uitslag={'CANCELLED'}, cj_te_dicht_mm=17, nieuw []
+[cj-betaald] OK afstand (a1): kogel 16.448 mm van het scharnier (grens - 0,2) geweigerd met keep 17 mm kreeg 17, nieuw 0
+[cj-betaald] OK afstand (a1): melding precies 'Too close ...'
+[cj-betaald] OK afstand (a1): beide delen van het scharnier heel
+Info: Joint placed. Good fit. 0.185 s.
+[cj-betaald] METING afstand (a1) kogel op 16.848 mm van het scharnier: uitslag={'FINISHED'}, cj_te_dicht_mm=None, nieuw ['s1_B_A', 's1_B_B']
+[cj-betaald] OK afstand (a1): kogel 16.848 mm van het scharnier (grens + 0,2) geplaatst, twee gesloten delen {'FINISHED'}
+[cj-betaald] OK afstand (a1): deel A van de kogel (kant van het scharnier) erft het scharnier, deel B niet A [0.0] B []
+[cj-betaald] OK afstand (a1): deel A van het scharnier heel
+[cj-betaald] METING afstand (a2): grens komkant 12.548 mm, N 13
+Warning: Too close to another joint (keep 13 mm apart).
+[cj-betaald] METING afstand (a2) scharnier op 12.348 mm van het kogelmidden: uitslag={'CANCELLED'}, cj_te_dicht_mm=13, nieuw []
+[cj-betaald] OK afstand (a2): scharnier 12.348 mm van de kogel (grens - 0,2) geweigerd met keep 13 mm kreeg 13, nieuw 0
+[cj-betaald] OK afstand (a2): melding precies 'Too close ...'
+[cj-betaald] OK afstand (a2): beide delen van de kogel heel
+Info: Hinge placed. Bends 0° to 115°. 0.257 s.
+[cj-betaald] METING afstand (a2) scharnier op 12.748 mm van het kogelmidden: uitslag={'FINISHED'}, cj_te_dicht_mm=None, nieuw ['s2_B_A', 's2_B_B']
+[cj-betaald] OK afstand (a2): scharnier 12.748 mm van de kogel (grens + 0,2) geplaatst, twee gesloten delen {'FINISHED'}
+[cj-betaald] OK afstand (a2): deel A van de kogel heel
+[cj-betaald] OK afstand (a2): kom heel (geen nieuwe hoekpunten binnen r + s + 0,45 mm) 0 nieuw
+Info: Hinge placed. Bends 0° to 115°. 0.241 s.
+Info: Hinge placed. Bends 0° to 115°. 0.252 s.
+[cj-betaald] OK afstand (b): tweede scharnier op 43.394 mm geplaatst {'FINISHED'}
+[cj-betaald] METING afstand (b): reik 10.348 mm, cj_scharnieren s3_A [0.0], s3_B_A [0.0, 43.394], s3_B_B [43.394], cj_snijpunt middendeel 43.394
+[cj-betaald] OK afstand (b): middendeel draagt beide snijpunten [0.0, 43.394]
+[cj-betaald] OK afstand (b): buitenste deel alleen het tweede [43.394]
+[cj-betaald] OK afstand (b): oude enkele sleutel cj_snijpunt blijft (laatste scharnier) 43.394003
+[cj-betaald] OK afstand (b): deel met alleen de oude sleutels telt als een scharnier [(Vector((1.0, 2.0, 3.0)), 4.0, 0.5)]
+Warning: There is already a hinge here. Undo first, or use Flip bend in the Redo panel right after placing.
+[cj-betaald] OK afstand (b): derde scharnier op 0,5 mm (bij het eerste, niet het laatste): 'already a hinge here' {'CANCELLED'} nieuw 0
+Warning: Too close to another joint (keep 22 mm apart).
+[cj-betaald] METING afstand (b) derde scharnier op x=20.497 mm (tot het tweede 22.897 mm): uitslag={'CANCELLED'}, cj_te_dicht_mm=22, nieuw []
+[cj-betaald] FOUT afstand (b): derde scharnier op 20.497 mm (2 reik - 0,2 van het eerste) geweigerd met keep 21 mm kreeg 22, nieuw 0
+[cj-betaald] FOUT afstand (b): melding precies 'Too close ...'
+Warning: Too close to another joint (keep 22 mm apart).
+[cj-betaald] METING afstand (b) derde scharnier op x=20.897 mm (tot het tweede 22.497 mm): uitslag={'CANCELLED'}, cj_te_dicht_mm=22, nieuw []
+[cj-betaald] FOUT afstand (b): derde scharnier op 20.897 mm (2 reik + 0,2) geplaatst, twee gesloten delen {'CANCELLED'}
+[cj-betaald] OK afstand (b): de andere delen (s3_A en het buitenste) heel en onveranderd
+[cj-betaald] OK betaalde omhult gewricht.te_dicht en gewricht.markeer zolang hij aan staat
+[cj-betaald] OK andere_versies ziet gratis naast betaald
+[cj-betaald] OK andere_versies negeert zichzelf en andere add-ons
+[cj-betaald] OK betaalde omhult addon_utils.enable zolang hij aan staat
+[cj-betaald] OK uitzetten zet addon_utils.enable terug
+[cj-betaald] OK uitzetten zet gewricht.te_dicht en gewricht.markeer terug
+Info: Added User Repository "cj_gratis"
+STATUS Installed "click_joints"
+[cj-betaald] OK gratis staat aan in eigen repository ['bl_ext.cj_gratis.click_joints']
+Exception in module register(): /tmp/cj_betaald/extensions/user_default/click_joints/__init__.py
+[cj-betaald] melding: Disable the free Click Joints first. Your settings stay in the .blend file.
+[cj-betaald] OK (a) gratis aan, dan betaald: betaalde weigert ['bl_ext.cj_gratis.click_joints']
+[cj-betaald] OK (a) weigermelding gegeven Disable the free Click Joints first. Your settings stay in the .blend file.
+[cj-betaald] OK (a) gratis blijft werken
+[cj-betaald] OK (a) geen omhulsel na weigering
+[cj-betaald] OK gratis uit, dan kan betaald weer aan ['bl_ext.user_default.click_joints']
+[cj-betaald] OK betaald werkt weer (scharnier-operator)
+Click Joints: Click Joints Pro was turned off. Disable the free Click Joints first, then enable Pro again.
+[cj-betaald] OK (b) betaald aan, dan gratis: betaalde is uit ['bl_ext.cj_gratis.click_joints']
+[cj-betaald] OK (b) gratis staat aan ['bl_ext.cj_gratis.click_joints']
+[cj-betaald] OK (b) weigermelding gegeven Click Joints Pro was turned off. Disable the free Click Joints first, then enable Pro again.
+[cj-betaald] OK (b) gratis werkt (operators, paneel, scene.click_joints)
+[cj-betaald] OK (b) omhulsel opgeruimd
+[cj-betaald] OK (b) gratis instelling leesbaar
+[cj-betaald] OK (b) gratis weer uit, dan kan betaald weer aan ['bl_ext.user_default.click_joints']
+[cj-betaald] OK (b) betaald werkt weer
+[cj-betaald] klaar: 8 FOUT
+##[error]Process completed with exit code 1.
