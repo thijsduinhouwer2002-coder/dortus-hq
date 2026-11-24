@@ -15,7 +15,7 @@ OPENAI_MODELLEN = os.environ.get("OPENAI_MODELLEN", "gpt-5,gpt-4.1,gpt-4o").spli
 
 VRAAG = """{rol}
 
-Below are four product images, labeled A, B, C and D. Judge ONLY from what you see.
+Below are four products, labeled A, B, C and D (images or store texts). Judge ONLY from what you see.
 Be honest and critical, not polite: you are spending your own money.
 Which product would you click and buy first, second, third, fourth?
 
@@ -82,7 +82,10 @@ def post(url, body, headers):
 def vraag_gemini(prompt, beelden, model):
     parts = [{"text": prompt}]
     for letter, b64 in beelden:
-        parts += [{"text": f"Image {letter}:"}, {"inline_data": {"mime_type": "image/jpeg", "data": b64}}]
+        if isinstance(b64, tuple):
+            parts += [{"text": f"Product {letter} (store text):\n{b64[1]}"}]
+        else:
+            parts += [{"text": f"Image {letter}:"}, {"inline_data": {"mime_type": "image/jpeg", "data": b64}}]
     r = post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
              {"contents": [{"parts": parts}], "generationConfig": {"responseMimeType": "application/json"}},
              {"x-goog-api-key": os.environ["GEMINI_API_KEY"].strip()})
@@ -92,8 +95,11 @@ def vraag_gemini(prompt, beelden, model):
 def vraag_openai(prompt, beelden, model):
     content = [{"type": "text", "text": prompt}]
     for letter, b64 in beelden:
-        content += [{"type": "text", "text": f"Image {letter}:"},
-                    {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}}]
+        if isinstance(b64, tuple):
+            content += [{"type": "text", "text": f"Product {letter} (store text):\n{b64[1]}"}]
+        else:
+            content += [{"type": "text", "text": f"Image {letter}:"},
+                        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}}]
     r = post("https://api.openai.com/v1/chat/completions",
              {"model": model, "messages": [{"role": "user", "content": content}], "response_format": {"type": "json_object"}},
              {"Authorization": "Bearer " + os.environ["OPENAI_API_KEY"].strip()})
@@ -143,7 +149,8 @@ def main(setpad, uitpad):
         print("Geen sleutels (GEMINI_API_KEY, OPENAI_API_KEY): niets getest.")
         return 0
     prompt = VRAAG.format(rol=s["rol"])
-    plaatjes = {i["naam"]: als_jpeg(haal(i["url"])) for i in s["ons"] + s["concurrenten"]}
+    plaatjes = {i["naam"]: (("tekst", i["tekst"]) if "tekst" in i else als_jpeg(haal(i["url"])))
+                for i in s["ons"] + s["concurrenten"]}
     gekozen, regels, alles_goed, kapot = {}, [], True, {}
     regels += [f"# Blinde test: {s['titel']}", "", f"Rol voor de rechters: {s['rol']}", "",
                "Concurrenten: " + ", ".join(f"[{c['naam']}]({c['url']})" for c in s["concurrenten"]), "",
@@ -174,7 +181,7 @@ def main(setpad, uitpad):
         goed = bool(gem) and len(gem) == len(rechters) and all(g <= 2 for g in gem.values())
         alles_goed &= goed
         regels += [f"## {kand['naam']}: {'GESLAAGD' if goed else 'NIET GESLAAGD'}", "",
-                   f"Beeld: {kand['url']}", "",
+                   f"Kandidaat: {kand.get('url', kand.get('tekst', '')[:120])}", "",
                    "Gemiddelde plek: " + ", ".join(f"{n} {g:.1f}" for n, g in gem.items()), ""] + uitleg + [""]
     if len(kapot) == len(rechters):
         print("Geen enkele rechter gaf antwoord, geen uitslag geschreven:")

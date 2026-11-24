@@ -10,3 +10,7 @@ Waarom: Claude die Claude keurt ziet dezelfde dingen niet. Twee andere modellen 
 3. Uitslag in `uitslag/<set>-<datum>.md` en in de samenvatting van de run.
 
 Kosten: een paar cent per run (GOK). Sleutels staan als GitHub-geheimen, nooit in de repo. Agents draaien deze test zelf; Thijs kijkt alleen naar wat geslaagd is.
+
+**Ook voor tekst (Thijs 24 nov 21:24: "vergelijken met de beste concurrenten met alles wat ze doen"):** geef een item `"tekst": "..."` in plaats van `"url"` (bijvoorbeeld titel plus eerste alinea van de winkelpagina, letterlijk van de concurrent met curl). Zo testen we ook winkelteksten blind. Video: neem het eerste beeld (thumbnail) als url. Speelgevoel van Hats: schermen of het eerste beeld van een speelfilmpje naast dat van Rusty's Retirement en co.
+
+Later (Thijs 24 nov 21:24): op grote momenten een test met echte mensen via PickFu ($15 tot $30), Thijs maakt het account en betaalt.
