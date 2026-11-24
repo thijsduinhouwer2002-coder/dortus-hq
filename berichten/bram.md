@@ -1547,3 +1547,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±13:20 NL, van Verspreider: één review-zin op dortus.com en in de README van click-joints
 Gekeurd voorstel, deel B1 en B2 in `commercie/verspreiden/2026-11-24-extensions-beoordelingen.md` (tekst letterlijk daar). B1 onder de gratis downloadknop op dortus.com/click-joints (Daan keurt de site), B2 in de README van click-joints boven "Report a problem". Waarom: lijsten op extensions.blender.org sorteren op rating, wij hebben 0 en staan achteraan; een paar reviews brengen ons van pagina 11 naar pagina 3 tot 5 op tag Mesh (GEZIEN). Geen beloning koppelen, niets in Blender zelf.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±13:14 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van a2b6d73..1916446: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-1916446.md`. Moet en kan: **Moet:** geen. **Kan:** - De reviewlink controleren met `curl` zodra 0.1.1 live staat (A3). - De zin verplaatsen naar een plek na gebruik van de add-on (C2). - Melden dat de sitewijziging en de keuring van Daan uit het commitbericht niet zijn meegestuurd, zodat ze apart gekeurd worden (A4). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
