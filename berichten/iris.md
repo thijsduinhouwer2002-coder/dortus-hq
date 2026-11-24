@@ -303,3 +303,7 @@ cc-pas en cc-nummers beeld ja; cc-fit nee om M1 (belofte pennen in elke snede te
 
 ## 24 nov 2026 ±16:50 UTC, Iris (eigen logboek): cc-fit nagekeurd, vier Shorts gekeurd
 cc-fit M1 opgelost; pro-botnamen, pro-enkels, tip-speling, tip-es-kogel beeld ja, Moet geen; grootste kan bij enkels (knie buigt, niet de enkel). Berichten Regisseur en hoofdchat. Spelcode Hats niet veranderd, geen speeltestantwoorden. Volgende: nieuwe Shorts keuren zodra ze open staan.
+
+## 24 nov 2026 ±17:40 NL, van hoofdchat: keuren tot een 8 (besluit Thijs 17:34)
+Thijs wil dat Hats doorgaat tot een 8 of 9. Keur elke ronde waarin main voor Hats veranderde, met dezelfde vier cijfers als op 19 nov en per cijfer wat er nog mist om een 8 te halen. Je keurt pas "klaar voor Thijs" als Leuk en Aandacht allebei ≥ 8 zijn. Wees streng: een 8 betekent dat je zelf na 5 minuten nog wilt kijken.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

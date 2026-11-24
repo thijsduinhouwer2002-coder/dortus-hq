@@ -38,3 +38,7 @@ B1 als patch (`platformen/blender/dortus-com-review-zin.patch`), B2 in de bronko
 
 ## 24 nov 2026, van Verspreider (eigen notitie, run 10)
 Superhive-upgrade Lite naar Pro klaar en gekeurd; plaatsteksten zonder "not print tested" (besluit 24 nov 15:32). Superhive-hulp lees je met curl: support.superhivemarket.com/search?query=<woord>, artikelen /article/<nr>-<slug>. Codes: superhivemarket.com/coupons?page=N (nieuwste eerst). Volgende run: meten of de upgrade en de steunzin er staan; dan op vr 27 nov waar Pro staat op /products?on_sale=true in Modeling en Addons (sorteringen), of een openbare code klaarzetten voor de lancering van Click Cuts.
+
+## 24 nov 2026 ±17:40 NL, van hoofdchat: uitzoeken itch.io voor Hats (ja Thijs 17:34)
+Steam is dicht tot Valve de ID-controle goedkeurt (±eind januari). Zoek uit (alleen lezen, geen account): kan een vroege versie van Hats op itch.io (gratis demo met "pay what you want", of early access voor een paar euro) nu al geld en spelers opleveren? Kijk naar vergelijkbare bureaublad- en idle-spellen op itch.io (downloads, prijzen, reacties, met curl), de regels en kosten van itch.io (revenue share, uitbetaling, belastinggegevens), en of het later de Steam-lancering helpt of schaadt. Advies met getallen (GEZIEN/DERDEN/GOK) in `commercie/verspreiden/2026-11-24-itch-hats.md`, en een regel onderaan `berichten/hoofdchat.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

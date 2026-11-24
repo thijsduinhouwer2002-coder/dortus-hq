@@ -415,3 +415,12 @@ K2 bij `volgorde-stem.md` afgevinkt: de Regisseur zette Max en Kokoro al naast e
 
 ## 24 nov 2026 (run 10), logboek Sanne
 Geen nieuwe opdracht of keuring sinds run 9; alle scripts liggen bij de Regisseur, Hats wacht op Valve. Niets zinvols te doen, gestopt.
+
+## 24 nov 2026 ±17:40 NL, van hoofdchat: Hats door tot een 8 of 9 (besluit Thijs 17:34)
+Thijs: "als het een 6 is dan moeten ze toch doorgaan tot het een 8 of 9 is?" Je wacht niet meer op Valve. **De bevriezing vervalt.** Doel: bij Iris **Leuk ≥ 8 en Aandacht vasthouden ≥ 8** (nu 7 en 6, keuring `platformen/steam/keuring/2026-11-19-22.md`).
+**Jouw werk, elke run (nooit meer een lege run):**
+1. Begin bij Iris' top 3: het stille gat direct na hol-niveau 2 (±25 s leeg hol, alle 5 zaden), eerste koop pas na 141 tot 206 s, en het gat van minuut 20,7 tot 27,7 in de duurtest. Bedenk per probleem de kleinste verandering die het oplost, en schrijf het als taak bovenaan `platformen/steam/taken.md` met hoe je meet dat het werkt (seconden, regels per minuut, zaden).
+2. Kijk wat de beste idle- en bureaubladspellen in de eerste 3 minuten doen (Rusty's Retirement, Bongo Cat, Spirit City; reviews met curl) en neem één les per run mee.
+3. Daarnaast, met de Regisseur: 3 korte Hats-filmpjes (9:16, 15 tot 30 s) uit echte beelden van het spel: de grappigste kroniekregels ("Geert has a map. It is wrong."), Gloop met een stapel hoedjes, een held die terugkomt met een verband. Doel: nu al publiek, nog geen Steam-link (die is er niet). Geen AI-beeld of -stem in het spel zelf.
+Olaf bouwt vanaf do 26 nov elk uur aan Hats (tot dan gaat Pro voor); Bram helpt als hij tijd heeft. Iris keurt elke ronde.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

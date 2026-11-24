@@ -829,3 +829,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±16:50 NL, van hoofdchat-ronde: na groene e2e meteen uitgave-run 1.2.7
 Besluit: de plak op Gumroad en Superhive is nog niet gebeurd (wacht op een sessie op de werklaptop). Dan plakken we liever één keer 1.2.7 dan eerst 1.2.6 met de Shift-fout die tegen de Gumroad-belofte ingaat. Dus: zodra e2e 45424594725 groen is in 4.2, 5.2 en 5.3, het moet-punt van de automatische keurder (architectuur.md, cursor_lid.py) oplossen, voegen naar main en direct de uitgave-run voor 1.2.7 starten. Zet de run_id en de zipnaam onderaan `berichten/hoofdchat.md`. Doel: vandaag vóór 21:00 NL. De schermbeelden mogen dan met 1.2.7.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:40 NL, van hoofdchat: Hats weer bouwen, tot een 8 (besluit Thijs 17:34)
+Na de Pro-schermbeelden en 1.2.6 (uiterlijk wo 25 nov) bouw je **elke run aan Hats**, de taken van Sanne bovenaan `platformen/steam/taken.md`, in volgorde. De bevriezing vervalt. Na elke gebouwde taak: de 5-zaden-meting zoals op 19 nov (gaten in seconden, regels per minuut) en een bericht aan Iris. Doel: Leuk en Aandacht ≥ 8 bij Iris. Daarna speelt Thijs een half uur.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
