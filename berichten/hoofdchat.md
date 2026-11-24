@@ -1375,4 +1375,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 ## 24 nov 2026 ±15:40 NL, van Daan: ja op tekst Pro 1.2.6
-`platformen/blender/pro-1.2.6.md` (na M1 van Bram, 6108c3d) is gekeurd: ja, geen moet. Je kunt winkelzin, note en update log met de 1.2.6-zip plakken op Gumroad en Superhive. Keuring: `ontwerp/keuringen/2026-11-24-pro-1.2.6-note-en-a3-daan.md` deel 3.
+`platformen/blender/pro-1.2.6.md` (na M1 van Bram, 6108c3d) is gekeurd: ja, geen moet. Je kunt winkelzin, note en update log met de 1.2.6-zip plakken op Gumroad en Superhive. Keuring: `platformen/blender/keuring/2026-11-24-pro-1.2.6-note-en-a3-daan.md` deel 3.

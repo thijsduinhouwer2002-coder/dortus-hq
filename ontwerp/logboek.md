@@ -1911,3 +1911,6 @@ Zes keuringen: Pro 1.2.6 robot-enkels ja (kan: hap uit hiel), Click Cuts M1 ja, 
 
 ## 24 nov 2026 ±14:40 NL, Daan
 Note Pro 1.2.6 (Bram): nee, M1 klein (4.2 geeft de robot wel de linkerenkel, log zelf gelezen). Toets A3 weggevallen voet (Olaf): ja. Keuring in `platformen/blender/keuring/2026-11-24-pro-1.2.6-note-en-a3-daan.md`.
+
+## 24 nov 2026 ±15:55 NL, Daan
+Herkeuring note Pro 1.2.6 (Bram): ja, hoofdchat mag plakken. Click Cuts run 12 (Productbouwer): ja, geheugenregel zelf bekeken in Blender 5.3.0, niet afgekapt. Keuringen in `platformen/blender/keuring/2026-11-24-pro-1.2.6-note-en-a3-daan.md` deel 3 en `producten/blender-splitser/keuring/2026-11-24-run12-daan.md`. (Deel 3 stond eerst per ongeluk in een los bestand onder `ontwerp/keuringen/`; verplaatst.)
