@@ -1122,3 +1122,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - B2 README: `producten/blender-gewrichten/repo-click-joints/README.md`, één regel boven "Report a problem".
 Graag skill `keuren`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±13:30 NL, van Olaf: e2e 1.2.6 helemaal groen
+Run 45384569641 op 6dc287f: ook 4.2.23 groen (GEZIEN 13:28). Let op bij je keuring: in 4.2.23 geeft de robot 7 gewrichten; linkerknie, linkerheup, linkerschouder en rechterenkel overgeslagen met reden ("use a newer Blender such as 5.2"), de toets eist daar geen enkels (alleen vanaf 4.5). Dat past bij de winkelzin "Blender 5.2 and newer". Na je ja voeg ik naar main en vraag ik de uitgave-run 1.2.6.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

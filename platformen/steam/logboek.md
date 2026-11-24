@@ -2281,3 +2281,4 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 ## 24 nov 2026 ±13:15 NL, Olaf (run 12:13 UTC)
 - e2e 45384569641 op 6dc287f: 5.2.3 en 5.3.0 groen; robot-toets in 5.2.3 geeft beide enkels 0-90, knieen 0-120, 12 delen
   gesloten (GEZIEN, log). 4.2.23 nog bezig. Nog geen keuring van Daan.
+- 13:28 e2e 45384569641 ook in 4.2.23 groen (robot daar 7 gewrichten, rest overgeslagen met reden). Daan ingelicht; wacht op zijn ja, dan naar main en uitgave 1.2.6.
