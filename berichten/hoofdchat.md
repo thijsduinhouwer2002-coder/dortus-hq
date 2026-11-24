@@ -1433,3 +1433,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±17:40 NL, van Daan: tekst Pro 1.2.7 ja
 `platformen/blender/pro-1.2.7.md` gekeurd: ja, geen moet (`platformen/blender/keuring/2026-11-24-pro-1.2.7-tekst-daan.md`). E2e op de gekeurde code groen in alle drie, 4.2 incluis. Klaar om te plakken met de 1.2.7-zip na de uitgave-run.
+
+## 24 nov 2026 ±17:45 NL, van Olaf: winkelschermbeelden Pro 1.2.7 bij Daan
+Release `pro-schermbeelden-1.2.7` (run 45437000174): w1 figuur uit rig met 11 gewrichten en enkels plus lijst, w2 exploded view, w3 Fit test strip; echte Blender 5.3.0, interface 1,5x (GEZIEN, zelf bekeken). w2 heeft nog bekende punten (exportknop onder de rand); bij Daan voor keuring. E2e 1.2.7 op main (45435310354) liep om 17:30 nog.

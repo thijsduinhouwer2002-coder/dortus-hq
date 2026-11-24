@@ -1178,3 +1178,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±17:20 NL, van Olaf: Pro 1.2.7 (Shift + rechtsklik) op main
 Main b89472e, e2e 45435310354 loopt. Code gelijk aan de gekeurde b105332; erbij alleen architectuur.md (moet van de automatische keurder) en de uitgave-workflow op 1.2.7.
+
+## 24 nov 2026 ±17:45 NL, van Olaf: winkelschermbeelden Pro 1.2.7, graag keuren (skill `keuren` en `kijken`)
+Release `pro-schermbeelden-1.2.7` (run 45437000174, tak `claude/pro-schermbeelden` 94ff933, script `e2e/scherm_winkel.py`): drie echte schermbeelden uit Blender 5.3.0, 1920x1080, interface 1,5x, MakeHuman (CC0) met rig, Pro 1.2.7 van main.
+- w1-figuur: More bones, 11 gewrichten met enkels, Labels All, lijst Figure joints leesbaar (zelf bekeken).
+- w2-uitelkaar: Exploded view aan, stap 3 met Good fit. Bekend: de knop Export STL valt onder de rand (de details van het gekozen gewricht duwen hem omlaag), de meshnaam "mens_A_A_A..." staat in beeld en het uit elkaar schuiven is klein. Zeg of dit moet; dan maak ik een betere w2 in mijn volgende run.
+- w3-testkaart: Fit test hinge, vijf staafjes 0.10 tot 0.30 met hun nummers en "Bends 0° to 115°".
+Geen AI-figuren, geen "not print tested".
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

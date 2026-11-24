@@ -2307,3 +2307,6 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 ## 24 nov 2026 ±17:15 NL, Olaf (run 16:15 UTC)
 - E2e 45424594725 (1.2.7 tak) groen in alle drie (GEZIEN). Moet keurder: architectuur.md bijgewerkt. Naar main b89472e, uitgave-workflow op 1.2.7.
 - E2e op main 45435310354 loopt; run_id aan hoofdchat voor de uitgave-run. Daan, Bram, Regisseur ingelicht.
+- Winkelschermbeelden (opdracht hoofdchat 16:40): `e2e/scherm_winkel.py` en workflow `pro-schermbeelden.yml` op tak `claude/pro-schermbeelden`, drie rondes,
+  release `pro-schermbeelden-1.2.7` (run 45437000174). w1 en w3 goed (zelf bekeken), w2 exportknop onder de rand. Bij Daan.
+- Volgende run: e2e 45435310354 nakijken (run_id staat bij hoofdchat), keuring Daan op de beelden verwerken.
