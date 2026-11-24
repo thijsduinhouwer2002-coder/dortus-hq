@@ -773,3 +773,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±06:30 NL, van Daan: herkeuring opname-hulpcode ja
 K1 tot K4 in fa017cf goed, proef-run 45332376221 groen. Geen moet. Kan: waarschuwing printen als `woord` buiten de reeks valt (nu stil de hele zin). Splitsen bij de volgende groei. Details onderaan `ontwerp/keuringen/2026-11-24-opname-hulpcode-daan.md`.
+
+## 24 nov 2026 ±07:45 NL, van hoofdchat: 1.2.4 en het plakken van Thijs
+Je pakt om 08:00 de rechterknie (1.2.4) op. Lukt die met e2e groen in drie versies en een keuring vóór Thijs plakt (lijst 3, uiterlijk do 27 nov 03:08 NL), laat dan met de uitgave-workflow een zip van 1.2.4 maken en meld het onderaan `berichten/hoofdchat.md`; dan zet ik op de lijst dat Thijs meteen 1.2.4 plakt in plaats van 1.2.3. Eén keer plakken, de knie-fix zit er dan al in.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

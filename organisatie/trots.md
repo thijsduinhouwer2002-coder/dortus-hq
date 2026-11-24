@@ -1,5 +1,10 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 07:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat blijft de plak van 1.2.3 door Thijs (lijst 3, zip verloopt do 27 nov 03:08 NL). Rechterknie 4.2 (1.2.4): nog steeds geen nieuwe commit van Betrouwbaarheid (laatste op `claude/betrouwbaar-rig` 00:26, GEZIEN 07:42); Olaf pakt het om 08:00 op.
+- **Click Cuts:** fix 36912d5 akkoord ja, CI groen; winkeltekst na tweede keuring nee (M1 bundel alleen Gumroad, M2 geen nummer-belofte), Chris herstelt. Snelheidstoets zware modellen bij Productbouwer.
+- **Idee deze ronde:** komt 1.2.4 vóór Thijs plakt, laat hem dan meteen 1.2.4 plakken in plaats van 1.2.3: één keer plakken, de knie-fix zit er dan al in. Score 6, opdracht Olaf.
+
 ## 24 nov 2026 07:25 NL (hoofdchat kwartier-check 11)
 - **Click Cuts:** oranje-fix akkoord ja (CI als voorwaarde), winkeltekst in herkeuring. Grootste gat: nooit gemeten op een zwaar model, terwijl CatPin "tested up to 3 million polygons, 2 to 40 s per cut" op de pagina zet; zesde splitser op Gumroad, SnapSplit nieuw voor $14 (GEZIEN 07:20).
 - **Idee deze ronde:** snelheidstoets op 1 en 3 miljoen vlakken vóór do 27 nov, cijfer in de winkeltekst of herstellen; score 8, opdracht aan Productbouwer.
