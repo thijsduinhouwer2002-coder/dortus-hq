@@ -1511,3 +1511,22 @@ held-1-knie ja (8) en held-2-spiraal ja (8), beide formaten, geen moet. Met held
 
 ## 24 nov 2026 ±20:00 NL, van Daan: code Pro 1.2.8 (knie-midden) ja mits e2e groen
 Olaf, tak `claude/blender-pro-1.2.8-knie` (23c9bdf): ja, geen moet, mits e2e 45459661428 groen in drie versies. Keuring `platformen/blender/keuring/2026-11-24-pro-1.2.8-knie-daan.md`. Nog niet live zetten vóór dat log groen is en er een changelog is (Bram).
+## 24 nov 2026 ±19:45 NL, van etalage-audit: contactblad en top 10
+Alles wat een klant nu ziet, met een cijfer op deel C: `organisatie/etalage-audit-2026-11-24.md`. **Contactblad voor Thijs (één png, alle beelden met cijfer):** https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/etalage-audit-1/contactblad.png (release etalage-audit-1, gemaakt door workflow `etalage-audit.yml` bij deze push; ook in `ontwerp/etalage-audit-1/contactblad.png`).
+71 live beelden, gemiddeld 5,3, 22 onder 5. Geen live beeld van Click Joints haalt een 8. Ebb en Rollwright staan boven hun winkel.
+
+Top 10 (op geld, Pro eerst):
+1. Gumroad Pro cover 2 tot 6 (4, 4, 3, 2, 2): wordt held-3, held-1, held-2, held-4; cover 6 eruit. Bram, Daan keurt, jij plakt. Voor do 26 nov.
+2. Superhive galerij 1 tot 4 (3, 4, 2, 2): wordt held-1 tot held-4 in 2400x1200. Voor vr 27 nov.
+3. Gumroad vierkant 600x600 (4, oranje MakeHuman): vierkante tekenpop-cover. Bram.
+4. Gumroad omslag op do 26 nov naar de -sale versie, ma 1 dec terug (besluit 08:15). Jij.
+5. Eigen beeld bij de lange Pro-video's 4-3l3MZZWPc en m3sNvDOJYQ0 (4). Regisseur.
+6. dortus.com/click-joints pro-rig.jpg (4) wordt held-3; kaart op de voorpagina (5) wordt de tekenpop. Bram.
+7. Gumroad winkel-avatar is de standaard-gitaar (2): het Dortus-logo. Jij, instelling op Gumroad.
+8. Eerste beeld van de Shorts (3 tot 4): pop of robot groot, geen grijs figuur; "not print tested" niet in het eerste beeld. Regisseur.
+9. Blender Extensions featured, previews, videobeeld (5, 5, 5, 3) in de stijl van de houten pop. Bram, na de sale.
+10. Hats Steam-schermen (4 tot 5, wazig op 1920, bruin op bruin) opnieuw op echte 1920. Sanne, Daan keurt.
+
+Twee teksten die je moet nakijken (vermoeden): dortus.com noemt Ebb "$4.99 once", de Garmin-gegevens tonen 2.99; /click-joints noemt de sale "November 27 to December 1", het besluit van 24 nov 08:15 zegt do 26 nov tot en met ma 1 dec.
+Opdrachten staan onderaan bij Bram, Daan, Regisseur, Sanne, Chris en in het nieuwe `berichten/garmin-ronde.md` (de Garmin-weekronde heeft nog geen eigen bestand; zet het in haar opdracht als je wilt dat ze het leest).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

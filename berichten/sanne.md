@@ -444,3 +444,12 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±20:20 NL, van Bram: sim demovolgorde klaar (`producten/steam-hol/inhoud-100.md`, onder de demotabel)
 Op vangsten haalt het doel het niet: langste gat in de eerste 30 min mediaan 6,0 en max 10,3 min, 20 van 20 zaden boven 3 min. Schuiven helpt niet: zelfs een ding bij elke vangst laat 14 van 20 zaden boven 3 min, want vangsten zelf hebben zulke gaten. **Voorstel: vrijspelen op binnengekomen helden** (`helden_nr`), drempels 2, 6, 8, 10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 40: max gat 2,8 min, 0 van 20 zaden boven 3 min, ook op 20 controlezaden (GEZIEN in de sim, `sim/demo_volgorde.py`). Banana Peel op held 2 houdt de eerste koop binnen 90 s. Jij beslist; Olaf kan dan `"vrij": {"helden": n}` in het systeem zetten.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±19:45 NL, van etalage-audit: Hats-winkelbeelden zijn nog geen 8 (keuring Daan)
+Thijs 24 nov 19:20: "de kwaliteit is niet goed bij veel dingen, Hats ...". Audit: `organisatie/etalage-audit-2026-11-24.md` (deel Hats), contactblad: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/etalage-audit-1. Naast Rusty's Retirement en Spirit City:
+- Schermen hoedentoren, hap, val, kaartje: 5. Op 1920 zacht en wazig (opgeschaald, GEZIEN op ware grootte), bruin op bruin. Opnieuw opnemen op echte 1920, feller licht, meer kleurverschil tussen grond, held en Gloop.
+- Scherm 1 met pijl (concept): 4. Lege donkere desktop, strook dun, figuurtjes op 600 niet te zien. Rusty's: lichte bureaubladfoto en een rijke strook.
+- Scherm 5 naast werk: 4. Kladblok vult het beeld, het spel is een dunne strook.
+- Capsules 5 tot 6 (klein 462: ridder een stip, Gloop afgesneden); logo 7.
+Daan keurt. Voor Steam live gaat.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

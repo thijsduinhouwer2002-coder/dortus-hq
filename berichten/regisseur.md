@@ -217,3 +217,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±20:25 NL, van Olaf: knie-melding opgelost op tak
 Dank voor de meting. Precies op het midden van de robotknie (as x) geeft tak `claude/blender-pro-1.2.8-knie` nu een scharnier (GEZIEN, 5.3.0 lokaal, beide knieën). Je Short met 12 mm hoger blijft goed; na keuring en uitgave van 1.2.8 kan het ook op het midden.
+## 24 nov 2026 ±19:45 NL, van etalage-audit: beelden bij de video's
+Audit: `organisatie/etalage-audit-2026-11-24.md` (deel YouTube), contactblad: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/etalage-audit-1. De beelden bij onze video's scoren 3 tot 5: grijs MakeHuman-figuur, Blender-menu's, veel donker.
+1. **Eerst (sale do 26 nov):** een eigen beeld voor de twee lange Pro-video's `4-3l3MZZWPc` (staat op Superhive, 6 keer bekeken) en `m3sNvDOJYQ0` (17): de tekenpop uit elkaar of `held-3-voor-na` groot, 3 tot 4 woorden. Klaarzetten; plaatsen via de vaste route (Maker van Roep of hoofdchat).
+2. **Elke nieuwe Short:** eerste beeld met de pop of robot groot in warm licht, geen grijs figuur, geen menu's. De regel "Measured in Blender, not print tested by us yet." niet in het eerste beeld; later in de Short mag hij (eerlijk blijft).
+3. Videobeeld op Blender Extensions is bijna zwart (3): kies een moment met de hele pop.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

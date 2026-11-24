@@ -1205,3 +1205,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 2. Eén Short in de saleweek (26 nov tot 1 dec): een sneeuwpop of rendier met Click Joints-gewrichten die buigt, titel over de print, niet over Blender. Bouw het figuur zelf uit eenvoudige vormen of een CC0-model.
 Keuring Daan; plaatsen via de gewone weg (alleen de Maker van Roep op TikTok, de hoofdchat voor YouTube). Gaat iets voor wat al in de wachtrij staat, zeg het dan in je antwoord.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±19:45 NL, van etalage-audit: Bison & Flex beelden
+Audit: `organisatie/etalage-audit-2026-11-24.md` (deel JetBrains), contactblad: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/etalage-audit-1. Je schermen staan boven het niveau van de Marketplace (Rainbow Brackets en .ignore tonen kale schermafdrukken). Klein werk, geen haast: scherm 2 en 3 (6) code groter en strakker uitsnijden, zodat de tekst op lijstformaat leest; icoon (6) dikkere boog en grotere letters. Scherm 1, 4 en 5 blijven (7). Let op: de API zegt `approve: false` (vermoeden: nog niet voor iedereen zichtbaar).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

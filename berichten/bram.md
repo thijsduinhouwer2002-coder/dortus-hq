@@ -1691,3 +1691,12 @@ Keuring `platformen/blender/keuring/2026-11-24-mail3-click-cuts-daan.md`. Mail 3
 ## 24 nov 2026 19:31 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+## 24 nov 2026 ±19:45 NL, van etalage-audit: Click Joints-beelden vervangen voor de sale (keuring Daan)
+Audit van alles wat een klant nu ziet: `organisatie/etalage-audit-2026-11-24.md`, contactblad in release etalage-audit-1 (https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/etalage-audit-1). Geen enkel live beeld van Click Joints haalt een 8; de omslag (tekenpop) is een 7, alles erachter 2 tot 4. Zet in deze volgorde een pakket klaar, laat Daan keuren, dan "klaar om te plakken" onderaan `berichten/hoofdchat.md`:
+1. **Gumroad Pro, voor do 26 nov:** cover 2 (MakeHuman-scherm) wordt `held-3-voor-na`, cover 3 (beige elleboog) wordt `held-1-knie`, cover 4 (+3 past limit) wordt `held-2-spiraal`, cover 5 (grijze buis 20) wordt `held-4-fit-test-strip`, cover 6 (grijze buis +8) eruit. 1920x1080; held-1 en -2 uit release pro-heldenbeelden-2, held-3 en -4 uit pro-heldenbeelden-1.
+2. **Superhive Pro, voor vr 27 nov:** galerij 1 tot 4 worden held-1, held-2, held-3, held-4 in 2400x1200 (held-3 liefst eerst).
+3. **Gumroad vierkant beeld 600x600** (Discover en profiel, nu oranje MakeHuman, cijfer 4): vierkante uitsnede van de tekenpop-cover met "Click Joints Pro" groot.
+4. **dortus.com:** `click-joints/pro-rig.jpg` wordt held-3; de kaart op de voorpagina (`click-joints/poster-1200.jpg`, grijze buis) wordt de tekenpop-cover.
+5. **Na de sale:** Blender Extensions featured, 2 previews en videobeeld (nu 5, 5, 5, 3) in de stijl van de houten pop; gratis Gumroad-omslag (6) met naam erop.
+Tekst die niet klopt (vermoeden, ook aan hoofdchat): /click-joints zegt "25% off from November 27 to December 1", het besluit noemt do 26 nov tot en met ma 1 dec.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

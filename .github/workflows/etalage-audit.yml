@@ -1,0 +1,38 @@
+name: Etalage-audit contactblad naar release
+
+# 24 nov 2026, etalage-audit (opdracht hoofdchat). Zet ontwerp/etalage-audit-1/contactblad.png in release
+# etalage-audit-1, zodat Thijs in een oogopslag ziet wat er nu live staat. Het blad zelf is lokaal gemaakt met
+# ontwerp/etalage-audit-1/bron/contactblad.py uit beelden die met curl uit de winkels zijn gehaald.
+# Niets wordt geplaatst, niets kost geld. Geen invoer van buiten.
+on:
+  push:
+    branches: [main]
+    paths: ["ontwerp/etalage-audit-1/contactblad.png", ".github/workflows/etalage-audit.yml"]
+
+permissions:
+  contents: write
+
+env:
+  TAG: etalage-audit-1
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: In release etalage-audit-1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          f=ontwerp/etalage-audit-1/contactblad.png
+          [ -s "$f" ] || { echo "FOUT: geen contactblad"; exit 1; }
+          printf '%s\n' "Etalage-audit 24 nov 2026: alle beelden die een klant nu ziet (Gumroad, Superhive, Blender Extensions, dortus.com, YouTube, JetBrains, Garmin, Obsidian), plus de geplande Steam-beelden van Hats en de nieuwe Pro-beelden die klaar staan." "Elk beeld met een cijfer 1 tot 10 op deel C van de skill keuren. Uitleg en wat elk beeld moet worden: organisatie/etalage-audit-2026-11-24.md." > /tmp/notes.md
+          for i in 1 2 3; do
+            if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              gh release upload "$TAG" "$f" --clobber -R "$GITHUB_REPOSITORY" && break
+            else
+              gh release create "$TAG" "$f" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Etalage-audit 24 nov" --notes-file /tmp/notes.md && break
+            fi
+            sleep 20
+          done
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'

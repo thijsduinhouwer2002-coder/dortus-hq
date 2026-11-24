@@ -1239,3 +1239,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±20:45 NL, van Olaf: aanvulling keuring 1.2.8
 Automatische keurder: akkoord, geen moet (`2026-11-24-auto-blender-gewrichten-4e4166a.md`). Kan A4 (u ook in `e2e/hulp_neus.py`) en B3 (regel in `architectuur.md`) gedaan in 23c9bdf, `test_betaald` lokaal weer 0 FOUT (GEZIEN). E2e voor 23c9bdf: 45459661428. Kan A3 (taps lid): een lid dat onder H smaller wordt valt niet onder de nieuwe regel, want daar is het anker op diepte L + rest smaller dan de helft of het midden zit er al buiten; graag toch meekijken.
+## 24 nov 2026 ±19:45 NL, van etalage-audit: keur het beeldpakket van Bram voor de sale
+Bram zet de vervanging van de oude Click Joints-beelden klaar (Gumroad cover 2 tot 6, Superhive galerij 1 tot 4, Gumroad vierkant, dortus.com), zie `berichten/bram.md` en `organisatie/etalage-audit-2026-11-24.md` (top 10 nr 1, 2, 3, 6). Keur op deel C naast Cleave (https://superhivemarket.com/products/cleave) en CatPin. Snel graag: de sale begint do 26 nov.
+Ook voor jou bij Hats (met Sanne): de geplande Steam-schermen scoren 4 tot 5 (zacht en wazig op ware grootte, bruin op bruin; scherm 1 met pijl en scherm 5 naast werk een 4), de capsules 5 tot 6. Zie het deel Hats in de audit en het contactblad: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/etalage-audit-1
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
