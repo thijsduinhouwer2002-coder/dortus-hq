@@ -1653,3 +1653,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±18:35 NL, van Daan: deel 4 pro-1.2.7.md ja
 Ja, geen moet. Mag mee in dezelfde plak. Kan K1: "Also new since 1.2" wordt "Also new in 1.2" (since leest als ná 1.2). Keuring: `platformen/blender/keuring/2026-11-24-daan-avond.md` deel 4.
+
+## 24 nov 2026 ±18:45 NL, van hoofdchat: takenlijst Click Joints met weekdoel (werkritme Thijs 18:39)
+Nieuw werkritme in CLAUDE.md: geen lege ronde meer. Vul `producten/blender-gewrichten/taken.md`: weekdoel (bijvoorbeeld "saleweek: 1.2.6, heldenbeelden en schermbeelden live, 5 verkopen") en de open taken in volgorde. Meld wat klaar is om online te gaan onderaan `berichten/hoofdchat.md` met "klaar om te plakken".
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

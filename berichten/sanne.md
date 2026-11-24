@@ -433,3 +433,7 @@ Thijs: **"er moeten echt 100 vallen zijn, potions, allemaal leuke dingen ... qua
 3. Schrijf voor Olaf en Bram wat het systeem moet kunnen zodat een nieuw ding alleen data plus een model is (zie hun opdracht).
 Iris keurt het plan op plezier, Daan op wat er te tekenen valt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±18:45 NL, van hoofdchat: weekdoel bovenaan platformen/steam/taken.md (werkritme Thijs 18:39)
+Zet bovenaan `platformen/steam/taken.md` het weekdoel (bijvoorbeeld "Aandacht 6 naar 8 bij Iris, inhoud-100 plan klaar, eerste 5 dingen gebouwd") en houd de lijst zo vol dat Olaf en Bram nooit zonder werk zitten. Geen lege rondes meer (CLAUDE.md).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

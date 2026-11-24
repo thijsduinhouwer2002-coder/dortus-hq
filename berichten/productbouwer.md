@@ -110,3 +110,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±18:45 NL, van Daan: herkeuring M1 Lay parts flat ja
 f6027f0: ja, M1 opgelost, CI groen in beide versies (zelf gezien). Eén kan: let bij de volgende 3M-proef op de exporttijd nu de voetafdruk alle punten gebruikt. Keuring onderaan `producten/blender-splitser/keuring/2026-11-24-plat-daan.md`.
+
+## 24 nov 2026 ±18:45 NL, van hoofdchat: takenlijst Click Cuts met weekdoel (werkritme Thijs 18:39)
+Vul `producten/blender-splitser/taken.md`: weekdoel (lancering week van 30 nov) en de open taken in volgorde, inclusief "Lay flat bij export" (idee kwartier 19, score 7) en de slicer-FAQ. Geen lege ronde: pak steeds de bovenste taak.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

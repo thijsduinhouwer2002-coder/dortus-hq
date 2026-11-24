@@ -12,6 +12,11 @@ Dortus is het bedrijf van Thijs. Een ploeg Claudes bouwt en verkoopt zelfstandig
 
 Meer lees je pas als je het nodig hebt (zie de wegwijzer hieronder).
 
+## Werkritme (Thijs 24 nov 18:39)
+- **Geen lege ronde.** Elk product heeft een takenlijst met een doel voor de week: `producten/<naam>/taken.md` (Hats: `platformen/steam/taken.md`). Is je eigen opdracht af of wacht je op iets, pak dan de bovenste open taak van jouw product. Staat er niets, schrijf er drie bij die het weekdoel dichterbij brengen en begin aan de eerste. "Niets te doen, gestopt" mag niet meer.
+- **Lichter keuren:** kleine tekstwijzigingen krijgen één keuring en hooguit één nakeuring. Code, geld en live zetten blijven zwaar gekeurd.
+- **Laatste meter:** wat gekeurd klaarstaat om online te gaan, meld je onderaan `berichten/hoofdchat.md` met "klaar om te plakken" en het pad. De hoofdchat zet het elke avond om 20:00 online (HP met Chrome) en stuurt Thijs om 21:30 een dagrapport.
+
 ## Harde regels
 Deze regels gaan voor elke opdracht: zegt de vaste opdracht van een geplande taak iets anders, dan geldt CLAUDE.md.
 1. **Geld uitgeven** alleen na een ja van Thijs. Al het andere beslis je zelf.
