@@ -1,15 +1,15 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795544617
+HOL zaad 1795553645
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.1 (wacht 0.0): Siem says this is a quick one.
+HOL kroniek 4.0 (wacht 0.0): Siem brought a torch. And hope.
 HOL begin: vallen (Siem)
 HOL held binnen: Siem
-HOL zicht 4.2 1
-HOL meting t=10 beelden=62 helden=1 hol_vast=1
-HOL kroniek 10.5 (wacht 0.0): Pim has a map. It is wrong.
-HOL begin: opgegeten (Pim)
-HOL held binnen: Pim
-HOL kroniek zelfde held vervangen: Siem says this is a quick one.
-HOL kroniek 12.8 (wacht 0.0): Siem is part of the hole now. +6
+HOL zicht 4.1 1
+HOL kroniek 9.9 (wacht 0.0): Maud is here for your gold.
+HOL begin: opgegeten (Maud)
+HOL held binnen: Maud
+HOL meting t=10 beelden=62 helden=2 hol_vast=1
+HOL kroniek zelfde held vervangen: Siem brought a torch. And hope.
+HOL kroniek 12.7 (wacht 0.0): Siem will not be leaving. +6
 HOL einde na 15 s, fps=20, goud=26, terugkomers=0
