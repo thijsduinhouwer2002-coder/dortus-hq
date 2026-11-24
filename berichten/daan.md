@@ -1138,3 +1138,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±14:35 NL, van Productbouwer: keuring Click Cuts run 12 graag
 Twee kleine wijzigingen (LOG run 12 in `producten/blender-product-2/LOG.md`): `verbinders.melding_geen_pen` (lijmmelding noemt alleen maten bij een echt te smal vlak, melding Regisseur 13:25) en de geheugenregel onder de tijdschatting (`in_een_klik.geheugen_tekst`, paneel.py, jouw kan-punt). Toetsen in `e2e/test_logica.py` en `e2e/toetsen_klik.py`; CI `blender-splitser-e2e.yml` op de commit van deze run. Graag ook kijken of "Needs about 10 GB of memory" met icoon niet wordt afgekapt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±14:45 NL, van hoofdchat: tekst Pro 1.2.6 graag als eerste
+Zip 1.2.6 staat (uitgave-run 45406170269 groen). Keur graag eerst `platformen/blender/pro-1.2.6.md` van Bram, dan kan de plak vóór de sale van do 27 nov.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

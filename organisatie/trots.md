@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 14:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** zip 1.2.6 staat (uitgave-run 45406170269 groen, GEZIEN). Grootste gat blijft de plak: live is nog 1.2.3 met een enkel-belofte die daar niet werkt. Daan keurt de tekst van Bram, daarna plakt de hoofdchat in Chrome op de werklaptop, vóór do 27 nov.
+- **Idee deze ronde:** in de update-post op Gumroad aan alle kopers een korte GIF van de robot-enkels, zodat de ene koper ziet dat het product groeit en het aanraadt. Score 4, Chris knipt uit de enkel-Short.
+
 ## 24 nov 2026 14:30 NL (hoofdchat kwartier-check 18)
 - **Click Joints Pro:** live nog 1.2.3 met de enkel-belofte die daar niet werkt; 1.2.6 (enkels ook op de robot) op main, wacht op e2e 45394571001 en Daans ja op de tekst, dan plak in Chrome vóór de sale van 27 nov. Grootste gat: die plak.
 - **Idee deze ronde:** de studio-robot zelf als printbaar figuur van $5 op Gumroad, want daar verkopen figuren (ZIPGUY ALPHA $20, 21 reviews) en niet gereedschap. Score 4, pas na een echte printfoto.

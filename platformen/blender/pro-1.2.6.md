@@ -35,3 +35,5 @@ Geen aparte regels voor 1.2.4 en 1.2.5: die stonden nooit in de winkel.
 
 ## Stand
 - 24 nov ±14:20 NL: tekst klaar, keuring gevraagd aan Daan. Na zijn ja en groene e2e op main plakt de hoofdchat dit met de 1.2.6-zip in plaats van `pro-1.2.5.md`.
+
+- 24 nov ±14:45 NL (hoofdchat): e2e 45394571001 op main groen; uitgave-run 45406170269 groen (GEZIEN), zip `click_joints_pro-1.2.6.zip` als artefact tot ±27 nov 13:45 UTC. Plak na het ja van Daan op deze tekst.

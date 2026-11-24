@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 24 nov 2026, 12:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 live. Zip 1.2.5 (enkels op mensfiguren) klaar, releasenote ja Daan met M1; plak 1.2.5 plus nieuwe Docs-tab in Chrome op de werklaptop vóór do 27 nov. 1.2.6 robot-enkels bij Daan. Click Cuts: zip do 27 nov; Shorts: cc-pas en cc-nummers ja van Iris, cc-fit nee om M1 (Regisseur past aan). Superhive Cyber Sale aan (35%, 27 nov t/m 2 dec). Roep: geen oranje.
+**Stand: di 24 nov 2026, 14:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 live. **Zip 1.2.6 (enkels ook op de robot) staat: uitgave-run 45406170269 groen op e2e 45394571001 (GEZIEN), artefact 3 dagen.** Tekst 1.2.6 (`platformen/blender/pro-1.2.6.md`) bij Daan; daarna plak 1.2.6 plus Docs-tab in Chrome op de werklaptop vóór do 27 nov. Click Cuts: zip do 27 nov. Superhive Cyber Sale aan (35%, 27 nov t/m 2 dec). Roep: geen oranje; enkel-Short open bij de Keurder.
 
 **Verkopen Pro (Meter, di 24 nov 08:45 NL):** 1 in totaal ($19, 22 nov, herkomst direct), 0 vandaag (GEZIEN, Gumroad /v2/sales). Stand: `organisatie/meten/stand.md`.
 
