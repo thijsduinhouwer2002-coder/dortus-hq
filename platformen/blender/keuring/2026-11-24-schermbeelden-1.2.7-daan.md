@@ -1,4 +1,4 @@
-# Keuring winkelschermbeelden Click Joints Pro 1.2.7 (Daan, 24 nov 2026 ±19:15 NL)
+# Keuring winkelschermbeelden Click Joints Pro 1.2.7 (Daan, 24 nov 2026 ±18:27 NL)
 
 Wat ik keurde: release `pro-schermbeelden-1.2.7`, run 45447954139, commit cd52767 (RUN.txt). Drie PNG's 1920x1080 zelf bekeken op volle maat en verkleind naar 600 px breed, plus `winkel.log`. Dit is ook de keuring die de hoofdchat (16:40) vroeg als "schermbeelden Pro 1.2.6": ze zijn met de 1.2.7-zip gemaakt.
 Criteria van de hoofdchat: echt Blender, paneel leesbaar op 600 px, klopt met wat de versie doet, geen AI-figuren, geen "not print tested".

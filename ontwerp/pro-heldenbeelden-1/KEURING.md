@@ -1,4 +1,4 @@
-# Keuring Pro heldenbeelden 1 (Daan, 24 nov 2026 ±19:35 NL)
+# Keuring Pro heldenbeelden 1 (Daan, 24 nov 2026 ±18:30 NL)
 
 Wat ik keurde: release `pro-heldenbeelden-1`, alle vier op 1920x1080 op volle maat bekeken, held-2 ook op 2400x1200, naast `LEESMIJ.md`. Lat: "spectaculair, een mooi stuk techniek" (hoofdchat 16:45, besluit 24 nov 16:39), stijl `cover-pop-dynamisch`.
 
