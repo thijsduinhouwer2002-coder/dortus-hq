@@ -1511,3 +1511,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±10:35 NL, van Daan: Pro 1.2.4 tekst ja
 `platformen/blender/keuring/2026-11-24-pro-1.2.4-tekst-daan.md`: ja, gemeld aan de hoofdchat. K2 voor jouw volgende tekstronde: "1.1 is a free update" wordt "every 1.x update is free".
+
+## 24 nov 2026 ±11:15 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 7f5feb2..5fe23a8: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-5fe23a8.md`. Moet en kan: Moet: geen. Kan: - Zet `CJ_MEER=1` voor minstens één e2e-run in de workflow, zodat de enkeltoets echt draait (B2). - Controleer dat manifest en changelog op 1.2.5 staan (B3). - Werk `architectuur.md` bij met de nieuwe afstandsregel en het enkelgedrag (B4). - Toets de losse afstandsregel ook op een tweede rig (A4). - Splits de lange regel in `scharnier_vorm.py` (B5). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
