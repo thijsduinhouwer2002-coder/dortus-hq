@@ -10,7 +10,7 @@
 [sj-e2e] OK   operator split_joints.split_to_fit bestaat 
 [sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
 [sj-e2e] suzanne: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] suzanne: split {'FINISHED'} in 3.34 s, solver MANIFOLD
+[sj-e2e] suzanne: split {'FINISHED'} in 3.39 s, solver MANIFOLD
 [sj-e2e] OK   suzanne: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   suzanne stuk 1: past op het bed [84.6, 96.1, 115.1]
 [sj-e2e] OK   suzanne stuk 1: waterdicht slechte randen 0, volume 255040 mm3, per stap [0, 0, 0, 0, 0]
@@ -297,7 +297,7 @@
 [sj-e2e] OK   verschuif stuk 8: past en waterdicht 
 [sj-e2e] waterdicht GlassAlpha: {'FINISHED'} -> GlassAlpha_watertight 345960 vlakken
 [sj-e2e] vaas: plan {'FINISHED'} 16 stukken, n=[2, 2, 4]
-[sj-e2e] vaas: split {'FINISHED'} in 23.33 s, solver MANIFOLD
+[sj-e2e] vaas: split {'FINISHED'} in 23.92 s, solver MANIFOLD
 [sj-e2e] OK   vaas: meer dan 1 stuk 16 stukken
 [sj-e2e] vaas: meldingen: 'Cut 9-10: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-14: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 11-12: too small for a pin: the face is 5.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 15-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 9-11: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-15: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 10-12: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 14-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 5-9: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 7-11: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 6-10: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 8-12: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 9-13: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 11-15: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 10-14: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 12-16: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint'
 [sj-e2e] OK   vaas stuk 1: past op het bed [144.1, 144.1, 150.0]
@@ -654,7 +654,7 @@
 [sj-e2e] OK   vaas kleur: mesh en status blijven gelijk 
 [sj-e2e] waterdicht Skull: {'FINISHED'} -> Skull_watertight 79582 vlakken
 [sj-e2e] schedel: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] schedel: split {'FINISHED'} in 6.76 s, solver MANIFOLD
+[sj-e2e] schedel: split {'FINISHED'} in 6.69 s, solver MANIFOLD
 [sj-e2e] OK   schedel: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   schedel stuk 1: past op het bed [90.2, 149.9, 106.6]
 [sj-e2e] OK   schedel stuk 1: waterdicht slechte randen 0, volume 335329 mm3, per stap [0, 0, 0, 0, 0]
@@ -1048,7 +1048,7 @@
 [sj-e2e] melding: 'Error: These cuts make 301 cells (limit 200). Remove cuts or plan again\n'
 [sj-e2e] OK   meter fout: Split weigert 301 cellen {'CANCELLED'} cellen:301
 [sj-e2e] meter-omgezet: plan {'FINISHED'} 3 stukken, n=[3, 1, 1]
-[sj-e2e] meter-omgezet: split {'FINISHED'} in 0.26 s, solver MANIFOLD
+[sj-e2e] meter-omgezet: split {'FINISHED'} in 0.27 s, solver MANIFOLD
 [sj-e2e] OK   meter-omgezet: meer dan 1 stuk 3 stukken
 [sj-e2e] OK   meter-omgezet stuk 1: past op het bed [166.7, 150.0, 120.0]
 [sj-e2e] OK   meter-omgezet stuk 1: waterdicht slechte randen 0, volume 2999634 mm3, per stap [0, 0, 0, 0, 0]
@@ -1535,8 +1535,9 @@
 [sj-e2e] OK   vrij: nummers op beide snijvlakken ['1-2', '2-1']
 [sj-e2e] OK   vrij: helften verschillende kleur [1.0, 0.10461648553609848, 0.0423114113509655] [0.04666508734226227, 0.10461648553609848, 1.0]
 [sj-e2e] OK   vrij: pennen gelijk aan gatenparen 1 pennen
-[sj-e2e] vrij: melding Error: The free cut does not go through Piece 02. Move it (G) so it crosses the piece
-[sj-e2e] OK   vrij: snede door een pengat geweigerd {'CANCELLED'}
+[sj-e2e] vrij: melding Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] OK   vrij: snede door een pengat geweigerd {'CANCELLED'} 'Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2'
+[sj-e2e] OK   vrij: snede net voorbij het gat snijdt wel {'FINISHED'} 3 ''
 [sj-e2e] OK   klik: operator split_joints.split_to_fit bestaat 
 [sj-e2e] OK   klik: plek in mm gelijk aan de plek -83.3333 -83.3333
 [sj-e2e] klik: met de hand {'FINISHED'} {'FINISHED'} [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
@@ -1549,6 +1550,8 @@
 [sj-e2e] OK   klik: uitslag noemt pennen en speling ('3 parts, all fit the bed', '8 pins, 0.20 mm clearance', True)
 [sj-e2e] OK   klik: tweede klik met een stuk actief {'FINISHED'} 3
 [sj-e2e] OK   klik: andere printer volgt het plan 2 plan 2
+[sj-e2e] OK   klik: tweede model gekozen wordt gesneden {'FINISHED'} bron Second 2 plan 2
+[sj-e2e] OK   klik: tweede model, eerste doos blijft bestaan [-24.998289108276367, 25.001707077026367]
 [sj-e2e] OK   klik: open model krijgt eerst een dichte kopie {'FINISHED'} watertight copy made Suzanne open_watertight
 [sj-e2e] OK   klik: open model, stukken dicht en passend 4 stukken
 [sj-e2e] klik: melding Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
