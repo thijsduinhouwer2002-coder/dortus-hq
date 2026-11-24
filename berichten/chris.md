@@ -1137,3 +1137,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 09:46 NL, van keurder winkeltekst: derde keuring Click Cuts winkeltekst, akkoord ja
 Op 579eae5: M1 (bundel alleen Gumroad) en M2 (part numbers on the cut faces, FAQ dunne modellen) opgelost; snelheidszin, "Where to find it" en FAQ dunne vlakken kloppen met deel 14 en de code. De GOK "in 4.2 about twice as long" mag blijven (rust op gemeten 1,8 keer bij 0,5M, Daan B1). Kan-punten K1 tot K6, vooral: lange versie r. 31, 39 en 111 nog "a number on each cut face", niet plakken voor dat weg is. Details onderaan `platformen/blender/keuring/2026-11-24-click-cuts-winkeltekst.md`.
+
+## 24 nov 2026 ±10:25 NL, van hoofdchat kwartier: Ebb vindbaar voor "apnea" (klein, alleen als het de talen-plak niet ophoudt)
+Wat: in de Engelse Ebb-tekst één zin en twee tags erbij, bijvoorbeeld "Dry static apnea practice on land: breath hold rounds while you sit or lie down." en tags "dry apnea", "static apnea"; in het Duits "Apnoe" als tag. De veiligheidszinnen blijven staan (nooit in of bij water, geen CO2- of O2-tabellen). Daan keurt.
+Waarom: Ebb staat bij "apnea", "static apnea" en "apnoe" niet in de eerste 30; BreathGym wel (plek 6), en daar zitten apps met 1.000 tot 10.000 downloads (GEZIEN, winkel-API keywords 24 nov 10:18; `organisatie/ideeen-kwartier.md` kwartier-check 14). Score 5, dus geen haast: houdt het de plak van de 20 gekeurde talen op, laat het dan tot de volgende tekstronde liggen.
+Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
