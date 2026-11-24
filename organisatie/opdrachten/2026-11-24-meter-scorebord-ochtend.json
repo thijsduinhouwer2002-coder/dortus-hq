@@ -1,1 +1,11 @@
-{"workflow": "scorebord.yml", "invoer": {}, "van": "meter", "waarom": "ochtendmeting van de Meter: verkopen met herkomst, kanalen per dag"}
+{
+  "workflow": "scorebord.yml",
+  "invoer": {},
+  "van": "meter",
+  "waarom": "ochtendmeting van de Meter: verkopen met herkomst, kanalen per dag",
+  "uitslag": {
+    "run_id": 45349645269,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45349645269",
+    "gestart": "2026-11-24T07:39:08Z"
+  }
+}
