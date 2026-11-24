@@ -10,7 +10,7 @@
 [sj-e2e] OK   operator split_joints.split_to_fit bestaat 
 [sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
 [sj-e2e] suzanne: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] suzanne: split {'FINISHED'} in 1.89 s, solver MANIFOLD
+[sj-e2e] suzanne: split {'FINISHED'} in 2.99 s, solver MANIFOLD
 [sj-e2e] OK   suzanne: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   suzanne stuk 1: past op het bed [84.6, 96.1, 115.1]
 [sj-e2e] OK   suzanne stuk 1: waterdicht slechte randen 0, volume 255040 mm3, per stap [0, 0, 0, 0, 0]
@@ -297,7 +297,7 @@
 [sj-e2e] OK   verschuif stuk 8: past en waterdicht 
 [sj-e2e] waterdicht GlassAlpha: {'FINISHED'} -> GlassAlpha_watertight 345960 vlakken
 [sj-e2e] vaas: plan {'FINISHED'} 16 stukken, n=[2, 2, 4]
-[sj-e2e] vaas: split {'FINISHED'} in 10.21 s, solver MANIFOLD
+[sj-e2e] vaas: split {'FINISHED'} in 15.29 s, solver MANIFOLD
 [sj-e2e] OK   vaas: meer dan 1 stuk 16 stukken
 [sj-e2e] vaas: meldingen: 'Cut 9-10: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-14: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 11-12: too small for a pin: the face is 5.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 15-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 9-11: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-15: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 10-12: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 14-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 5-9: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 7-11: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 6-10: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 8-12: too small for a pin: the face is 6.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 9-13: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 11-15: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 10-14: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 12-16: too small for a pin: the face is 6.2 mm across, a 3 mm pin needs 5.8 mm. Glue this joint'
 [sj-e2e] OK   vaas stuk 1: past op het bed [144.1, 144.1, 150.0]
@@ -564,7 +564,7 @@
 [sj-e2e] OK   vaas stuk 11: nummer 11-12 begint met het eigen nummer 
 [sj-e2e] OK   vaas stuk 11: nummer 11-12 verdiept in het vlak 86 punten op de bodem
 [sj-e2e] OK   vaas stuk 11: nummer 11-9 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 11: nummer 11-9 verdiept in het vlak 68 punten op de bodem
+[sj-e2e] OK   vaas stuk 11: nummer 11-9 verdiept in het vlak 69 punten op de bodem
 [sj-e2e] OK   vaas stuk 11: nummer 11-7 begint met het eigen nummer 
 [sj-e2e] OK   vaas stuk 11: nummer 11-7 verdiept in het vlak 60 punten op de bodem
 [sj-e2e] OK   vaas stuk 11: nummer 11-15 begint met het eigen nummer 
@@ -603,7 +603,7 @@
 [sj-e2e] OK   vaas stuk 16: nummer 16-15 begint met het eigen nummer 
 [sj-e2e] OK   vaas stuk 16: nummer 16-15 verdiept in het vlak 92 punten op de bodem
 [sj-e2e] OK   vaas stuk 16: nummer 16-14 begint met het eigen nummer 
-[sj-e2e] OK   vaas stuk 16: nummer 16-14 verdiept in het vlak 88 punten op de bodem
+[sj-e2e] OK   vaas stuk 16: nummer 16-14 verdiept in het vlak 89 punten op de bodem
 [sj-e2e] OK   vaas stuk 16: nummer 16-12 begint met het eigen nummer 
 [sj-e2e] OK   vaas stuk 16: nummer 16-12 verdiept in het vlak 92 punten op de bodem
 [sj-e2e] OK   vaas: aantal stukken gelijk aan het plan 16 / 16
@@ -612,14 +612,14 @@
 [sj-e2e] OK   vaas: STL piece_02.stl maat gelijk 35646 driehoeken, [144.05, 144.07, 150.01]
 [sj-e2e] OK   vaas: STL piece_03.stl maat gelijk 35572 driehoeken, [144.07, 144.05, 150.01]
 [sj-e2e] OK   vaas: STL piece_04.stl maat gelijk 35640 driehoeken, [144.05, 144.05, 150.01]
-[sj-e2e] OK   vaas: STL piece_05.stl maat gelijk 50130 driehoeken, [140.45, 140.45, 150.0]
+[sj-e2e] OK   vaas: STL piece_05.stl maat gelijk 50132 driehoeken, [140.45, 140.45, 150.0]
 [sj-e2e] OK   vaas: STL piece_06.stl maat gelijk 50270 driehoeken, [140.43, 140.45, 150.0]
 [sj-e2e] OK   vaas: STL piece_07.stl maat gelijk 50106 driehoeken, [140.45, 140.43, 150.0]
 [sj-e2e] OK   vaas: STL piece_08.stl maat gelijk 50212 driehoeken, [140.43, 140.43, 150.0]
-[sj-e2e] OK   vaas: STL piece_09.stl maat gelijk 47900 driehoeken, [150.09, 150.09, 150.0]
+[sj-e2e] OK   vaas: STL piece_09.stl maat gelijk 47902 driehoeken, [150.09, 150.09, 150.0]
 [sj-e2e] OK   vaas: STL piece_10.stl maat gelijk 48128 driehoeken, [150.07, 150.09, 150.0]
 [sj-e2e] OK   vaas: STL piece_11.stl maat gelijk 48006 driehoeken, [150.09, 150.07, 150.0]
-[sj-e2e] OK   vaas: STL piece_12.stl maat gelijk 48186 driehoeken, [150.07, 150.07, 150.0]
+[sj-e2e] OK   vaas: STL piece_12.stl maat gelijk 48184 driehoeken, [150.07, 150.07, 150.0]
 [sj-e2e] OK   vaas: STL piece_13.stl maat gelijk 51030 driehoeken, [158.69, 158.69, 149.99]
 [sj-e2e] OK   vaas: STL piece_14.stl maat gelijk 51068 driehoeken, [158.67, 158.69, 149.99]
 [sj-e2e] OK   vaas: STL piece_15.stl maat gelijk 51058 driehoeken, [158.69, 158.67, 149.99]
@@ -630,14 +630,14 @@
 [sj-e2e] OK   vaas: 3MF piece_02.3mf in mm, maat gelijk 35646 driehoeken, [144.05, 144.07, 150.01]
 [sj-e2e] OK   vaas: 3MF piece_03.3mf in mm, maat gelijk 35572 driehoeken, [144.07, 144.05, 150.01]
 [sj-e2e] OK   vaas: 3MF piece_04.3mf in mm, maat gelijk 35640 driehoeken, [144.05, 144.05, 150.01]
-[sj-e2e] OK   vaas: 3MF piece_05.3mf in mm, maat gelijk 50130 driehoeken, [140.45, 140.45, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_05.3mf in mm, maat gelijk 50132 driehoeken, [140.45, 140.45, 150.0]
 [sj-e2e] OK   vaas: 3MF piece_06.3mf in mm, maat gelijk 50270 driehoeken, [140.43, 140.45, 150.0]
 [sj-e2e] OK   vaas: 3MF piece_07.3mf in mm, maat gelijk 50106 driehoeken, [140.45, 140.43, 150.0]
 [sj-e2e] OK   vaas: 3MF piece_08.3mf in mm, maat gelijk 50212 driehoeken, [140.43, 140.43, 150.0]
-[sj-e2e] OK   vaas: 3MF piece_09.3mf in mm, maat gelijk 47900 driehoeken, [150.09, 150.09, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_09.3mf in mm, maat gelijk 47902 driehoeken, [150.09, 150.09, 150.0]
 [sj-e2e] OK   vaas: 3MF piece_10.3mf in mm, maat gelijk 48128 driehoeken, [150.07, 150.09, 150.0]
 [sj-e2e] OK   vaas: 3MF piece_11.3mf in mm, maat gelijk 48006 driehoeken, [150.09, 150.07, 150.0]
-[sj-e2e] OK   vaas: 3MF piece_12.3mf in mm, maat gelijk 48186 driehoeken, [150.07, 150.07, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_12.3mf in mm, maat gelijk 48184 driehoeken, [150.07, 150.07, 150.0]
 [sj-e2e] OK   vaas: 3MF piece_13.3mf in mm, maat gelijk 51030 driehoeken, [158.69, 158.69, 149.99]
 [sj-e2e] OK   vaas: 3MF piece_14.3mf in mm, maat gelijk 51068 driehoeken, [158.67, 158.69, 149.99]
 [sj-e2e] OK   vaas: 3MF piece_15.3mf in mm, maat gelijk 51058 driehoeken, [158.69, 158.67, 149.99]
@@ -654,7 +654,7 @@
 [sj-e2e] OK   vaas kleur: mesh en status blijven gelijk 
 [sj-e2e] waterdicht Skull: {'FINISHED'} -> Skull_watertight 79582 vlakken
 [sj-e2e] schedel: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] schedel: split {'FINISHED'} in 3.49 s, solver MANIFOLD
+[sj-e2e] schedel: split {'FINISHED'} in 5.77 s, solver MANIFOLD
 [sj-e2e] OK   schedel: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   schedel stuk 1: past op het bed [90.2, 149.9, 106.6]
 [sj-e2e] OK   schedel stuk 1: waterdicht slechte randen 0, volume 335329 mm3, per stap [0, 0, 0, 0, 0]
@@ -955,7 +955,7 @@
 [sj-e2e] OK   buis stuk 2: past en waterdicht 
 [sj-e2e] OK   doos: 8 hoekpunten, geen voxel 
 [sj-e2e] doos: plan {'FINISHED'} 3 stukken, n=[3, 1, 1]
-[sj-e2e] doos: split {'FINISHED'} in 0.17 s, solver MANIFOLD
+[sj-e2e] doos: split {'FINISHED'} in 0.28 s, solver MANIFOLD
 [sj-e2e] OK   doos: meer dan 1 stuk 3 stukken
 [sj-e2e] OK   doos stuk 1: past op het bed [166.7, 150.0, 120.0]
 [sj-e2e] OK   doos stuk 1: waterdicht slechte randen 0, volume 2999634 mm3, per stap [0, 0, 0, 0, 0]
@@ -1041,14 +1041,14 @@
 [sj-e2e] OK   meter fout: Plan weigert snel {'CANCELLED'} in 0.00 s
 [sj-e2e] melding: 'Error: Box would need 250000 voxels across (limit 3000). Check the unit of the scene (Convert to mm) or use a bigger voxel size\n'
 [sj-e2e] OK   meter fout: Make watertight weigert {'CANCELLED'}
-[sj-e2e] OK   meter fout: paneeltelling met 300 sneden snel en zonder cellen (301, None, (0.0, 0.0, 0.0)) in 0.001 s
+[sj-e2e] OK   meter fout: paneeltelling met 300 sneden snel en zonder cellen (301, None, (0.0, 0.0, 0.0)) in 0.002 s
 [sj-e2e] melding: 'Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n'
 [sj-e2e] OK   meter fout: Split weigert (schaal) {'CANCELLED'}
 [sj-e2e] OK   meter fout: Convert to mm {'FINISHED'} 0.0010000000474974513
 [sj-e2e] melding: 'Error: These cuts make 301 cells (limit 200). Remove cuts or plan again\n'
 [sj-e2e] OK   meter fout: Split weigert 301 cellen {'CANCELLED'} cellen:301
 [sj-e2e] meter-omgezet: plan {'FINISHED'} 3 stukken, n=[3, 1, 1]
-[sj-e2e] meter-omgezet: split {'FINISHED'} in 0.17 s, solver MANIFOLD
+[sj-e2e] meter-omgezet: split {'FINISHED'} in 0.27 s, solver MANIFOLD
 [sj-e2e] OK   meter-omgezet: meer dan 1 stuk 3 stukken
 [sj-e2e] OK   meter-omgezet stuk 1: past op het bed [166.7, 150.0, 120.0]
 [sj-e2e] OK   meter-omgezet stuk 1: waterdicht slechte randen 0, volume 2999634 mm3, per stap [0, 0, 0, 0, 0]
@@ -1127,7 +1127,7 @@
 [sj-e2e] OK   meter fout: na omzetten 3 stukken 3
 [sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
 [sj-e2e] meter-suzanne: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] meter-suzanne: split {'FINISHED'} in 1.84 s, solver MANIFOLD
+[sj-e2e] meter-suzanne: split {'FINISHED'} in 2.97 s, solver MANIFOLD
 [sj-e2e] OK   meter-suzanne: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   meter-suzanne stuk 1: past op het bed [84.6, 96.1, 115.1]
 [sj-e2e] OK   meter-suzanne stuk 1: waterdicht slechte randen 0, volume 0 mm3, per stap [0, 0, 0, 0, 0]
@@ -1542,10 +1542,17 @@
 [sj-e2e] OK   vrij: snede net voorbij het gat snijdt wel {'FINISHED'} 3 ''
 [sj-e2e] OK   klik: operator split_joints.split_to_fit bestaat 
 [sj-e2e] OK   klik: geen zwaar-regel bij een lichte doos 
-[sj-e2e] OK   klik: zwaar-regel vanaf de grens '0.0M faces: Split can take a few minutes'
+[sj-e2e] OK   klik: zwaar-regel vanaf de grens '0.0M faces: Split takes about 1 min'
+[sj-e2e] OK   klik: noten-regel bij dicht vak '2 notes (glue joints): More settings'
+[sj-e2e] OK   klik: geen noten-regel als het vak open is of zonder noten 
+[sj-e2e] OK   klik: schatting 999999 MANIFOLD None
+[sj-e2e] OK   klik: schatting 1000000 MANIFOLD '1.0M faces: Split takes about 1 min'
+[sj-e2e] OK   klik: schatting 3040000 MANIFOLD '3.0M faces: Split takes about 2 min'
+[sj-e2e] OK   klik: schatting 1010000 EXACT '1.0M faces: Split takes about 3 min'
+[sj-e2e] OK   klik: schatting 3040000 EXACT '3.0M faces: Split takes about 10 min'
 [sj-e2e] OK   klik: plek in mm gelijk aan de plek -83.3333 -83.3333
 [sj-e2e] klik: met de hand {'FINISHED'} {'FINISHED'} [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
-[sj-e2e] klik: een klik {'FINISHED'} in 0.2 s [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
+[sj-e2e] klik: een klik {'FINISHED'} in 0.3 s [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
 [sj-e2e] OK   klik: een klik lukt {'FINISHED'}
 [sj-e2e] OK   klik: zelfde stukken als Plan plus Split 3 tegen 3
 [sj-e2e] OK   klik: zelfde pennen 8 tegen 8
@@ -1560,8 +1567,10 @@
 [sj-e2e] OK   klik: na de klik geen regel 'Cuts changed' (K6) [[0, 700.0]]
 [sj-e2e] OK   klik: snede verschoven geeft de regel (K6) [[0, 700.0]]
 [sj-e2e] OK   klik: na Split weer geen regel (K6) {'FINISHED'}
+[sj-e2e] OK   klik: Split to fit houdt een verschoven snede (K5) {'FINISHED'} plek 709.0 verwacht 709.0 'kept your moved cuts'
 [sj-e2e] OK   klik: open model krijgt eerst een dichte kopie {'FINISHED'} watertight copy made Suzanne open_watertight
 [sj-e2e] OK   klik: open model, stukken dicht en passend 4 stukken
+[sj-e2e] OK   klik: na open model komt het eigen model terug, niet de kopie (K2) {'FINISHED'} eigen True kopie False
 [sj-e2e] klik: melding Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
 [sj-e2e] OK   klik: meters geweigerd met uitleg {'CANCELLED'} 'Wrong unit? Open More settings and use Convert to mm'
 [sj-e2e] OK   klik: Convert to mm wist de rode regel {'FINISHED'} ''
