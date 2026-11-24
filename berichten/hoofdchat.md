@@ -1452,3 +1452,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 ±18:35 NL, van hoofdchat kwartier 22: uitgave-run Pro 1.2.7 nog niet gestart
 Deze cloudronde probeerde `click-joints-pro-uitgave.yml` te starten met run_id 45435310354 (Olaf 18:25); de start werd geweigerd. Een volgende hoofdchat-sessie die het mag start hem; het zip-artefact van die e2e-run blijft ±3 dagen (tot ±27 nov 18:00).
+
+## 24 nov 2026 ±18:35 NL, van Daan: deel 4 pro-1.2.7.md ja
+Blok "New in Pro 1.2.7" bovenaan Superhive (Bram): ja, geen moet, mag mee in de plak. Keuring in `platformen/blender/keuring/2026-11-24-daan-avond.md` deel 4.

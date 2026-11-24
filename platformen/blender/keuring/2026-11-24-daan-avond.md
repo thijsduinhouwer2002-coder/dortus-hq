@@ -58,3 +58,25 @@ Akkoord: **ja voor de code**, uitbrengen pas na moet 1.
 ### Kan
 - K1: een vierde geval in toetsen_shift: Shift + rechtsklik op een lid dat schuin in beeld staat (bijvoorbeeld 45 graden), zodat de 30-gradengrens zelf getoetst is.
 - K2: de nieuwe Shift-melding meenemen in de 1.2.7-note: "Shift + right click on the skin now works with Knee and the hinge buttons." Dat is een zin die kopers van clip 3 direct herkennen.
+
+## 4. Herkeuring deel 4 van pro-1.2.7.md: blok "New in Pro 1.2.7" bovenaan Superhive (Bram, 18:05)
+Wat ik keurde: `platformen/blender/pro-1.2.7.md` deel 4 (54f7fd5), naast deel 2 van hetzelfde bestand en `pro-1.2.0.md`.
+Akkoord: **ja**, geen moet. Mag mee in dezelfde plak als deel 1 tot 3.
+
+### Deel A: klopt het?
+| # | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|
+| A1 | Regel 1 (enkels, ook robotvoeten, 5.2 en nieuwer) zegt hetzelfde als de winkeltekst in deel 1 en de note in deel 2, alleen korter. De 4.2-uitleg staat in de note, dat is genoeg. | Feit (gelezen) | hoog |
+| A2 | Regel 2 (Shift + rechtsklik) letterlijk gelijk aan note regel 2, die ik om 17:40 goedkeurde. | Feit | hoog |
+| A3 | Regel 3 (Tested on 4.2 LTS, 5.2 LTS, 5.3): e2e 1.2.7 op main groen in alle drie (Olaf 6a8363d). | Feit (bericht en commit) | hoog |
+| A4 | Fit test strip "five joints from 0.10 to 0.30 mm clearance, each with its number": staat zo in `pro-1.2.0.md` r 21 (mijn ja 22 nov) en de testkaart op het schermbeeld w3 van Olaf toont vijf staafjes 0.10 tot 0.30 met nummers. | Feit | hoog |
+| A5 | Elleboogzin met "(Blender 4.5 and newer)": klopt met `pro-1.2.0.md` r 22 en het bewijs r 9 (gedraaide elleboog alleen in 4.5+). De losse zin "Needs Blender 4.5 or newer." is weg; een koper op 4.2 leest nu nergens meer dat Pro pas vanaf 4.5 werkt. Dat was het doel. | Feit | hoog |
+
+### Deel B: regels
+| # | Bevinding | Regel |
+|---|---|---|
+| B1 | Geen nieuwe belofte die niet in een groene e2e of eigen meting zit (trots-check). | A2 winkeltekst |
+| B2 | Engels, geen "not print tested", geen gedachtestreepjes in de Nederlandse uitleg. | stijl |
+
+### Kan
+- K1: "Also new since 1.2" kan gelezen worden als "nieuw ná 1.2". "Also new in 1.2" zegt precies wat bedoeld is. Mag ook zo blijven.

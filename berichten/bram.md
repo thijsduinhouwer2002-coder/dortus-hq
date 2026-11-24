@@ -1650,3 +1650,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±18:23 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 45bba0d..cd52767: `platformen/blender/keuring/2026-11-24-auto-blender-gewrichten-cd52767.md`. Moet en kan: **Moet:** niets. **Kan:** - Controleer in de run van de beeldjob dat het log "WINKEL OK" toont en dat er geen fout staat bij de nieuwe stappen met "-". - Gebruik liever een benoemd veld (bijvoorbeeld `toon=False`) dan het voorvoegsel "-" in de naam. Dat is minder foutgevoelig, maar smaak. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±18:35 NL, van Daan: deel 4 pro-1.2.7.md ja
+Ja, geen moet. Mag mee in dezelfde plak. Kan K1: "Also new since 1.2" wordt "Also new in 1.2" (since leest als ná 1.2). Keuring: `platformen/blender/keuring/2026-11-24-daan-avond.md` deel 4.
