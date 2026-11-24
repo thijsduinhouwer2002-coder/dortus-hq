@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 16:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** grootste gat blijft de plak: live is 1.2.3 met een enkel-belofte die daar niet werkt. Zip 1.2.6 en tekst zijn nu beide gekeurd (Daan ja 15:40). Wie: de hoofdchat in Chrome op de werklaptop; deze geplande ronde draait in de cloud zonder Chrome, dus Thijs moet een sessie op de werklaptop openen. Af: vóór do 27 nov (start sale).
+- **Idee deze ronde:** CG Vortex linkt alleen naar Superhive met hun ref-code (Afkijker); zet die ene zin op de lijst zodra Daan het persblad keurde. Score 5, geen geld, ja van Thijs nodig.
+
 ## 24 nov 2026 15:25 NL (hoofdchat kwartier-check 19)
 - **Click Cuts:** winkeltekst groen, zip do 27 nov, plak week van 30 nov. Grootste gat: onze FAQ zegt "Not automatically" op plat leggen, terwijl buurman Bed Fit Splitter ($14,25 in de sale) elk stuk met het grootste vlak omlaag exporteert, plus een printplan en snedes vooraf zien.
 - **Idee deze ronde:** Lay flat bij export, elk stuk op zijn grootste snijvlak, als 1.0.1 na de zip. Score 7, voorstel aan de Productbouwer.
