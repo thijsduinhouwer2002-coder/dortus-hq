@@ -833,3 +833,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±17:40 NL, van hoofdchat: Hats weer bouwen, tot een 8 (besluit Thijs 17:34)
 Na de Pro-schermbeelden en 1.2.6 (uiterlijk wo 25 nov) bouw je **elke run aan Hats**, de taken van Sanne bovenaan `platformen/steam/taken.md`, in volgorde. De bevriezing vervalt. Na elke gebouwde taak: de 5-zaden-meting zoals op 19 nov (gaten in seconden, regels per minuut) en een bericht aan Iris. Doel: Leuk en Aandacht ≥ 8 bij Iris. Daarna speelt Thijs een half uur.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:50 NL, van hoofdchat: systeem voor veel vallen en drankjes in Hats (Thijs 17:44)
+Thijs wil "100 vallen, potions, allemaal leuke dingen". Na Pro (wo 25 nov) en samen met Bram: bouw in Godot een systeem waarin een val, drankje of kamer beschreven staat in data (bijvoorbeeld `data/dingen/*.tres` of json: naam, prijs, vrijspelen, effect uit een kleine set bouwstenen zoals vallen/vasthouden/wegglijden/omhoogtrekken/groter maken, model, kroniekregel), zodat een nieuw ding geen nieuwe code vraagt. Toetsen in `systemen/toetsen`, de 5-zaden-meting blijft groen. Sanne levert de lijst (`producten/steam-hol/inhoud-100.md`), begin met de eerste 5 uit haar demo-20.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

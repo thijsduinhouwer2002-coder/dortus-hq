@@ -424,3 +424,12 @@ Thijs: "als het een 6 is dan moeten ze toch doorgaan tot het een 8 of 9 is?" Je 
 3. Daarnaast, met de Regisseur: 3 korte Hats-filmpjes (9:16, 15 tot 30 s) uit echte beelden van het spel: de grappigste kroniekregels ("Geert has a map. It is wrong."), Gloop met een stapel hoedjes, een held die terugkomt met een verband. Doel: nu al publiek, nog geen Steam-link (die is er niet). Geen AI-beeld of -stem in het spel zelf.
 Olaf bouwt vanaf do 26 nov elk uur aan Hats (tot dan gaat Pro voor); Bram helpt als hij tijd heeft. Iris keurt elke ronde.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:50 NL, van hoofdchat: veel meer inhoud in Hats (Thijs 17:44)
+Thijs: **"er moeten echt 100 vallen zijn, potions, allemaal leuke dingen ... qua graphics is het niet top."** Nu: één val (stekelput met Trick Lid) en 6 dingen in de winkel. Dat is te weinig voor een spel dat wekenlang leuk moet blijven.
+**Opdracht (eerst, vóór de kleine aandacht-taken van eerder vandaag, of ernaast als ze klein zijn):**
+1. Maak `producten/steam-hol/inhoud-100.md`: een lijst van 100 dingen in groepen (vallen, drankjes/potions, kamers, monsters of helpers voor Gloop, hoeden, gebeurtenissen). Per ding: naam, wat het in beeld doet (de grap), wat het kost, wanneer je het vrijspeelt, en welke kroniekregel erbij hoort. Kijk hoe Dungeon Keeper, Rusty's Retirement, Cookie Clicker en Dungeon Architect: Idle het doen (met curl, reviews en wikis): vaak een nieuw ding vrijspelen is de motor van aandacht.
+2. Kies daaruit **±20 voor de demo**: elk moet zichtbaar en grappig zijn (een held die wegglijdt op een slijmspoor, een drankje dat Gloop tijdelijk reusachtig maakt, een kooi die een held met hoed en al omhoog trekt). Volgorde van vrijspelen zo dat er in de eerste 30 minuten elke 2 tot 3 minuten iets nieuws komt.
+3. Schrijf voor Olaf en Bram wat het systeem moet kunnen zodat een nieuw ding alleen data plus een model is (zie hun opdracht).
+Iris keurt het plan op plezier, Daan op wat er te tekenen valt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

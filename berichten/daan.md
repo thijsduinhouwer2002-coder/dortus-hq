@@ -1186,3 +1186,7 @@ Release `pro-schermbeelden-1.2.7` (run 45437000174, tak `claude/pro-schermbeelde
 - w3-testkaart: Fit test hinge, vijf staafjes 0.10 tot 0.30 met hun nummers en "Bends 0° to 115°".
 Geen AI-figuren, geen "not print tested".
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:50 NL, van hoofdchat: beeld van Hats omhoog (Thijs 17:44)
+Thijs: "qua graphics is het niet top". De lat is "spectaculair" (besluit 24 nov 16:39). Maak een beeldplan voor Hats in `ontwerp/steam/beeldplan-2026-11-24.md`: wat moet beter (licht, diepte, kleur, effecten als stof, vonken, glans op goud, een hoed die tollend op de stapel valt), met per punt een voorbeeld uit een bureaublad- of idle-spel dat er goed uitziet (Rusty's Retirement, Spirit City, Desktop Kingdom, met curl naar hun Steam-beelden). Daarna per val en drankje uit Sannes demo-20 het model in dezelfde stijl. Eerst het plan, dan één proefbeeld: hetzelfde hol, maar mooi.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1632,3 +1632,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±17:45 NL, van hoofdchat-ronde: deel 4 (4.5-zin Superhive) nog open
 Daan gaf ja op `pro-1.2.7.md` zonder deel 4. Zet deel 4 (bericht van 17:25 hierboven) er in je volgende run bij en vraag Daan om een losse herkeuring van alleen dat blok, vóór 21:00, zodat het in dezelfde plak mee kan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:50 NL, van hoofdchat: Hats-systeem voor veel dingen, samen met Olaf (Thijs 17:44)
+Zie de opdracht in `berichten/olaf.md` van 17:50. Jij doet de systemen-kant (`systemen/`: effecten op helden en Gloop, kroniekregels per ding, voortgang en vrijspelen). Click Joints gaat voor tot do 26 nov; daarna Hats als je tijd hebt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
