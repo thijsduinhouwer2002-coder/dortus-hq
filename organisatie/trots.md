@@ -1,5 +1,9 @@
 # Trots-check per product (bovenaan het nieuwste, de hoofdchat-ronde werkt dit elk uur bij)
 
+## 24 nov 2026 17:45 NL (hoofdchat-ronde)
+- **Click Joints Pro:** live 1.2.3. Tekst 1.2.7 heeft ja van Daan (17:40), maar zonder deel 4: de tegenspraak "Needs Blender 4.5" bovenaan Superhive blijft dan staan. Bram heeft de opdracht sinds 17:25 (nog geen run sinds); Daan keurt deel 4 los na. E2e main 45435310354 loopt (groen ±18:10), dan uitgave-run, plak vóór do 27 nov.
+- **Idee deze ronde:** in de Gumroad update-mail aan de koper van 22 nov om één zin feedback vragen; één echte koperszin is ons eerste bewijs voor de sale. Score 4, tekst klaarzetten na de plak.
+
 ## 24 nov 2026 17:25 NL (hoofdchat kwartier-check 21)
 - **Click Joints Pro:** live 1.2.3. Nieuw gat: Superhive zegt bovenaan "Needs Blender 4.5 or newer" en twee zinnen later "Tested on 4.2 LTS"; de 1.2.7-tekst raakte dat blok niet. Bram zet een deel 4 erbij, Daan keurt mee vóór 20:00, plak in Chrome vóór do 27 nov.
 - **Idee deze ronde:** blok "free updates" met echte winkelversies bovenaan, zoals Cleave ("12 free updates since launch"). Score 5.

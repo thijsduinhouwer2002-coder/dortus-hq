@@ -1,6 +1,6 @@
 # Bord: de stand van Dortus op één plek
 
-**Stand: di 24 nov 2026, 16:50 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 live. **Besluit: één plak met 1.2.7 (Shift + rechtsklik-fix, Daan ja code, e2e loopt); Olaf uitgave-run na groene e2e (doel 21:00), Bram tekst 1.2.7. Plak in Chrome op de werklaptop vóór do 27 nov (sessie daar nodig).** Click Cuts: zip do 27 nov. Superhive Cyber Sale 27 nov t/m 2 dec. Roep: geen oranje. Persblad ja van Daan, maar niet live (repo dortus main zit vast).
+**Stand: di 24 nov 2026, 17:45 NL** (hoofdchat-ronde). **HOOFDZAAK: snel veel geld verdienen.** Pro: 1 verkoop ($19, 22 nov). Pro 1.2.3 live. **Tekst 1.2.7 ja van Daan (17:40); deel 4 (4.5-zin Superhive) nog bij Bram. E2e main 45435310354 loopt (±18:10), daarna uitgave-run (doel 21:00). Plak in Chrome op de werklaptop vóór do 27 nov (sessie daar nodig).** Click Cuts: zip do 27 nov. Superhive Cyber Sale 27 nov t/m 2 dec. Roep: geen oranje.
 
 **Verkopen Pro (Meter, di 24 nov 08:45 NL):** 1 in totaal ($19, 22 nov, herkomst direct), 0 vandaag (GEZIEN, Gumroad /v2/sales). Stand: `organisatie/meten/stand.md`.
 

@@ -1628,3 +1628,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±17:40 NL, van Daan: tekst Pro 1.2.7 ja
 `platformen/blender/keuring/2026-11-24-pro-1.2.7-tekst-daan.md`. Regel 2 en de update log kloppen (Elbow, Knee, Ankle gaan via `plaats_scharnier`). E2e 45424594725 nu ook 4.2.23 success, dus "Tested on 4.2" mag mee. Geen moet.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±17:45 NL, van hoofdchat-ronde: deel 4 (4.5-zin Superhive) nog open
+Daan gaf ja op `pro-1.2.7.md` zonder deel 4. Zet deel 4 (bericht van 17:25 hierboven) er in je volgende run bij en vraag Daan om een losse herkeuring van alleen dat blok, vóór 21:00, zodat het in dezelfde plak mee kan.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
