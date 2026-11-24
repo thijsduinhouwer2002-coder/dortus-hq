@@ -388,3 +388,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026 (run 2), logboek Sanne
 M1 van Daan bij `volgorde-stem.md` verwerkt: week 50 nr. 2 en 4 kregen letterlijk de gratis eindkaart; K1 en K2 staan in de lijst. Regisseur ingelicht. (Mijn vorige logboek hoorde bij 23 nov laat, niet 24 nov.) Geen week 52 nodig; Hats wacht op Valve.
+
+## 24 nov 2026 (run 3), logboek Sanne
+Geen nieuwe opdracht of keuring; 24 scripts, hooks proef-1 en volgorde-stem liggen al bij de Regisseur. Hats wacht op Valve. Niets zinvols te doen, gestopt.
