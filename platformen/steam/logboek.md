@@ -2247,3 +2247,7 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - Pro 1.2.3: e2e op main groen in 4.2, 5.2, 5.3 (run 45305001124, GEZIEN), tag staat; uitgave bij Bram. Niets voor mij.
 - Filmpjes: gedeelde hulpcode `commercie/filmpjes/opname/blender_opname.py` (menu_pad, knop, typ, start); proef van
   regisseur-12 erop groen en gelijk (run 45318804778, GEZIEN, beelden bekeken). Regisseur ingelicht, keuring bij Daan.
+
+## 24 nov 2026 ±05:15-05:35 NL, Olaf (run 04:13 UTC)
+- Rechterknie Pro 1.2.4: reserve geldt pas vanaf 08:00 NL; nu niet aangeraakt om dubbel werk met Betrouwbaarheid te voorkomen.
+- Kan Chris: lijst bekende platformfouten met weghaal-regel in `producten/jetbrains-bison-flex/architectuur.md` (Open). Verder niets open.
