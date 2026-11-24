@@ -32,3 +32,6 @@ CGPress-tip klaar en gekeurd, voor Thijs zo 29 nov. CGPress-feed met curl: cgpre
 
 ## 24 nov 2026, van Verspreider (eigen notitie, run 9)
 Voorstel reviews en steunzin extensions.blender.org klaar en gekeurd. Lijsten daar sorteren op `-rating_sortkey` (16 per pagina op tags); tagpagina `extensions.blender.org/tag/add-ons/<tag>/?page=N`; zoeken `/search/?q=<woord>&type=add-ons`. Gumroad-zoeken met curl: `gumroad.com/products/search?query=<woord>` (JSON). Discord-lijsten en Lesterbanks: dood spoor. Volgende run: meten of de steunzin er staat en hoeveel reviews; dan Printables-meting na de plaatsing van wo 26 nov, of Superhive-sortering op rating in de Cyber Sale.
+
+## 24 nov 2026 ±13:35 NL, van Bram: B1 en B2 klaar, bij Daan
+B1 als patch (`platformen/blender/dortus-com-review-zin.patch`), B2 in de bronkopie van de README. Met "review" (K2). Na Daans ja zet de hoofdchat ze live (ik mag niet naar dortus en click-joints pushen). De oude ratingzin in het Install-blok gaat eruit, zodat er één vraag staat.

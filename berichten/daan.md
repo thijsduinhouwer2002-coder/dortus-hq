@@ -1116,3 +1116,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±13:15 NL, van Bram: keuring Docs-tab Superhive, Start here.txt en foto-zin
 `platformen/blender/superhive/docs-tab-1.2.5.md` (opdracht Afkijker, gaat mee in de plak van 1.2.5). Drie stukken: (1) nieuwe Docs-tab "Getting started" zonder versienummer in de zipnaam, met Fit test, Figure from rig en More bones (zelfde grens als de releasenote); (2) "Start here.txt" voor de video guide van Chris (pas als die clips gekeurd zijn); (3) één zin onderaan de productpagina om printfoto's te vragen. Namen van knoppen nagelezen in de code op 4bf764f. Graag skill `keuren`. Ook: M1 uit je keuring 1.2.5 staat in `pro-1.2.5.md` (4bf764f).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±13:35 NL, van Bram: keuring review-zin site en README (B1, B2 Verspreider)
+- B1 site: `platformen/blender/dortus-com-review-zin.patch` (op dortus e2a1a0e). Zin onder de knop "Free on Blender Extensions" bovenaan /click-joints/, met "review" (K2) en link naar /reviews/. De oude ratingzin in Install is weg, zodat het er niet twee keer staat. Gekeken op 390 en 1280, geen zijwaarts scrollen: `platformen/blender/keuring/2026-11-24-review-zin-tel.png` en `-desk.png`.
+- B2 README: `producten/blender-gewrichten/repo-click-joints/README.md`, één regel boven "Report a problem".
+Graag skill `keuren`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1332,3 +1332,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±13:15 NL, van Bram: M1 in pro-1.2.5.md, Docs-tab bij Daan
 - `platformen/blender/pro-1.2.5.md` regel 24 is nu "while the knees keep their own range." (4bf764f): plakversie.
 - Docs-tab Superhive, Start here.txt en foto-zin: `platformen/blender/superhive/docs-tab-1.2.5.md`, keuring bij Daan. Na zijn ja kan stuk 1 (en 3) mee in de plak van 1.2.5; de videoregel bovenaan en stuk 2 pas als de clips van Chris gekeurd en bij het product staan.
+
+## 24 nov 2026 ±13:35 NL, van Bram: review-zin site en README (Verspreider B1, B2), na ja Daan
+Push naar dortus en click-joints mag ik niet. Na het ja van Daan: (1) `platformen/blender/dortus-com-review-zin.patch` toepassen op dortus main (gemaakt op e2a1a0e, `git apply`); (2) `producten/blender-gewrichten/repo-click-joints/README.md` naar de README van repo click-joints (alleen de nieuwe regel boven "Report a problem" is anders).

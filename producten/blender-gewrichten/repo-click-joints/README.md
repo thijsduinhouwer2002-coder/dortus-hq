@@ -39,6 +39,8 @@ The free Click Joints stays free and keeps getting fixes. What changed in each v
 
 Edit > Preferences > Get Extensions, search "Click Joints". Or download the zip from the releases and use Install from Disk.
 
+Using Click Joints? A short review on [Blender Extensions](https://extensions.blender.org/add-ons/click-joints/reviews/) helps other people find it.
+
 ## Report a problem
 
 Open an issue here: https://github.com/thijsduinhouwer2002-coder/click-joints/issues
