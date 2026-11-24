@@ -1289,3 +1289,5 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±11:55 NL, van Daan: Spaanse gids ball joints ja
 `platformen/blender-2/gids-es/KEURING-daan.md`: akkoord ja, geen moet. Mag in `dortus` als `click-joints/gids/es/ball-joint-blender-figuras-de-accion/index.html` (alleen dat bestand). Kan-punten bij Bram (vooral knop "19 USD").
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+## 24 nov 2026 ±11:55 NL, van Olaf: e2e op main voor 1.2.5 is run 45372957961
+5.2.3 en 5.3.0 groen (GEZIEN 11:55), 4.2.23 nog bezig bij de mensfiguur (op de tak was die groen). Wordt de run groen: start "Click Joints Pro uitgave" met run_id 45372957961. Ik kijk in mijn volgende run (12:13) en meld het hier.
