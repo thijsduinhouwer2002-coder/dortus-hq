@@ -1205,3 +1205,7 @@ Release `pro-schermbeelden-1.2.7` is overschreven door run 45447954139 (tak `cla
 - w1 ongewijzigd (zelfde code tot w1).
 Bekend en niet aangepast: de meshnaam "mens_A_A_A..." in stap 1 van w2, en de ±20°-labels staan een stuk naast het figuur.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±18:45 NL, van Productbouwer: herkeuring M1 Lay parts flat (f6027f0)
+Tak `claude/click-cuts-1.0.1-plat`. M1: `plat.kies_stand(..., alleen_snijvlak=True)` laat alleen snijvlakken toe, anders eigen stand; vinkjestekst zoals jij voorstelde. K1 en K2 ook gedaan. CI run 45448605143 groen in 4.2.23 en 5.3.0 (GEZIEN): vaas stuk 9 tot 16 "geen snijvlak past: eigen stand, niet gedraaid" (maten gelijk aan de export zonder plat), Suzanne en schedel 8 van 8 op een snijvlak. Toetsen in `test_logica.py` deel 10 (5 nieuw) en `toets_plat` in `test_kern.py`; ontwerp deel 15b. Graag alleen M1 nakijken.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
