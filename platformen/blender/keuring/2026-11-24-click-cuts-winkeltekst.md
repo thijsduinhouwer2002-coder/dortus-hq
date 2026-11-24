@@ -48,3 +48,17 @@ Akkoord: nee (één moet-punt, klein: de bundel botst met de Cyber-korting op Pr
 - K4 (A7): noteer dat de doorgestreepte waarde op Gumroad vastligt op het moment van bouwen; na 14 dec de bundel opnieuw opslaan of nakijken dat $43 getoond wordt.
 - K5 (C2, C3, C5, C6): regel over pennen, korte Engelse FAQ, tags, wat Supporter is.
 - K6 (A12): één spelling kiezen, Brits of Amerikaans, en die ook in de changelog aanhouden.
+
+## Herkeuring, 24 nov 2026 (commit 478962d)
+Akkoord: ja
+
+| # | Bevinding | Feit of vermoeden | Zekerheid |
+|---|---|---|---|
+| 1 | M1 opgelost: sectie 5 punt 0 zet de bundel op Gumroad pas op wo 2 dec live, na het einde van CYBER25 (di 1 dec), met de rekensom $33,25 tegen $34. Click Cuts zelf mag in de week van 30 nov. | feit | hoog |
+| 2 | Pennenregel waar: pennen zijn rond (cilinder met afschuining, `vormen.py`), de speling komt uit de instelling of de passingproef, en de pennen zijn een losse pennenplaat die apart wordt geëxporteerd (`exporteer.py`, "every piece and every pin plate"). | feit | hoog |
+| 3 | FAQ waar voor 1.0.0: alleen pennen; Make watertight is een voxelkopie die bij een te groot model weigert (`gesloten.py`, grens 3000 voxels), dus "may need to be cleaned first" is eerlijk; delen worden niet vanzelf plat gelegd; Blender 4.2 en nieuwer, getest in 4.2 en 5.3 (CHANGELOG). | feit | hoog |
+| 4 | Supporter-zin klopt met de varianten (zelfde add-on). De GOK over Supporter bij Cleave en CatPin staat nu als GOK. | feit | hoog |
+| 5 | K1, K2, K3, K6 verwerkt (oranje, 85 tekens, "Model Split", 19%, CatPin DERDEN, Amerikaanse spelling). | feit | hoog |
+
+**Kan (blokkeert niet):**
+- K7: "yet" in de FAQ ("No dovetails, magnets or snap keys yet", "Not automatically yet") en "fund faster updates" klinken als een belofte voor later. Liever zonder "yet" en "Pick Supporter if you want to support updates", tenzij het plan er echt is.
