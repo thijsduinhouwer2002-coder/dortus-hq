@@ -1,0 +1,42 @@
+{
+ "paren": 434,
+ "driehoeken": 22,
+ "status": "MiCA",
+ "ritme_s": 4,
+ "max_boeken": 6,
+ "kosten": {
+  "GEZIEN support.bitvavo.com: maximaal 0,25% taker": {
+   "hoog": 0.0025,
+   "laag": 0.0025,
+   "paren": 418
+  },
+  "categorie C: lager dan 0,25% volgens Bitvavo, getal onbekend (GOK)": {
+   "hoog": 0.0025,
+   "laag": 0.0,
+   "paren": 5
+  },
+  "categorie B: lager dan 0,25% volgens Bitvavo, getal onbekend (GOK)": {
+   "hoog": 0.0025,
+   "laag": 0.0,
+   "paren": 10
+  },
+  "categorie D: lager dan 0,25% volgens Bitvavo, getal onbekend (GOK)": {
+   "hoog": 0.0025,
+   "laag": 0.0,
+   "paren": 1
+  }
+ },
+ "minima_paren": 434,
+ "geladen": "2026-11-24T13:02:21Z",
+ "min_inleg": {
+  "driehoeken": 22,
+  "mediaan_eur": 10.0,
+  "met_eur": 22,
+  "tot_100": 22,
+  "met_eur_tot_100": 22,
+  "tot_150": 22,
+  "met_eur_tot_150": 22,
+  "tot_200": 22,
+  "met_eur_tot_200": 22
+ }
+}
