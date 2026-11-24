@@ -1,0 +1,153 @@
+name: "Regisseur 16 (Pro-Short: botnamen van je rig, script week 48 nr. 6)"
+
+# 24 nov 2026, Regisseur run 15. Zelfde opname als regisseur-14 (robot, Click Joints Pro 1.2.0, echte muis), maar met de
+# botnamen van de rig in beeld (Mixamo-namen, armature Names aan). Script week 48 nr. 6, hook 6B. Montage vorm groot met
+# Kokoro (Pro-scripts, scripts/volgorde-stem.md). Controle: synchroon2, geluid_check, 40 tot 60 s.
+# Alles in release regisseur-16. Er wordt niets geplaatst.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/regisseur-16/**", ".github/workflows/regisseur-16.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: regisseur-16
+  PRO_COMMIT: f8dfbd30850afbee2da32219fe735c7b386827bd   # tag click-joints-pro-v1.2.0
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a
+  KOKORO_VOICES_SHA: bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d
+
+jobs:
+  short:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten (apt-snel van Olaf, gekeurd door Daan)
+        uses: ./.github/actions/apt-snel
+        with:
+          pakketten: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter tesseract-ocr
+      - name: Ruwe opname hergebruiken als de opname-code gelijk is
+        id: ruw
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          nu=$(cat commercie/filmpjes/regisseur-16/opname.py commercie/filmpjes/regisseur-14/opname.py commercie/filmpjes/youtube-shorts-4/opname.py commercie/filmpjes/studio/*.py | sha256sum | cut -c1-64)
+          echo "sha=$nu" >> "$GITHUB_OUTPUT"
+          mkdir -p /tmp/oud /tmp/pro
+          if gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p opname-sha.txt -p opname-pro.mkv -p film-pro.json -p 'render-*.png' -D /tmp/oud 2>/dev/null \
+             && [ "$(cat /tmp/oud/opname-sha.txt)" = "$nu" ] && [ -s /tmp/oud/opname-pro.mkv ]; then
+            cp /tmp/oud/opname-pro.mkv /tmp/pro/opname-ruw.mkv; cp /tmp/oud/film-pro.json /tmp/pro/film.json; cp /tmp/oud/render-*.png /tmp/pro/
+            echo "opnieuw=nee" >> "$GITHUB_OUTPUT"; echo "ruwe opname hergebruikt"
+          else
+            echo "opnieuw=ja" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Blender 5.3.0 en de Pro-zip 1.2.0
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          git fetch -q --no-tags --depth=1 origin "$PRO_COMMIT"
+          mkdir -p /tmp/v12 && git archive "$PRO_COMMIT" producten/blender-gewrichten | tar -x -C /tmp/v12
+          (cd /tmp/v12/producten/blender-gewrichten && PRO_VERSIE=1.2.0 bash e2e/maak_zip.sh betaald)
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Opnemen (breed 2160x1920, echte muis, robot)
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          CJ_SAMPLES: "24"   # proef van Olaf 23 nov: ±10 min sneller dan 64 (GOK tot gemeten)
+          BLENDER_USER_RESOURCES: /tmp/cj_pro
+          BLENDER_USER_CONFIG: /tmp/cj_pro/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_pro/extensions
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_s.blend')"
+          mkdir -p /tmp/klaar
+          timeout 5400 xvfb-run --auto-servernum --server-args="-screen 0 2160x1920x24" \
+            /tmp/blender/blender --gpu-backend opengl /tmp/start_s.blend --python commercie/filmpjes/regisseur-16/opname.py -- /tmp/opn /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/opname-pro.log || true
+          cp /tmp/opname-pro.log /tmp/klaar/opname-pro.log
+          grep -E "KORT|Traceback|Error" /tmp/opname-pro.log | cut -c1-400 || true
+          if grep -q "KORT FOUT" /tmp/opname-pro.log; then echo "FOUT in de opname"; exit 1; fi
+          for d in heel kies knop lijst knie pose uitelkaar export held render; do grep -q "KORT OK $d" /tmp/opname-pro.log || { echo "FOUT: deel $d"; exit 1; }; done
+          ffmpeg -v error -framerate 30 -start_number 1 -i /tmp/opn/beelden/b%05d.png -c:v libx264 -preset veryfast -crf 12 -pix_fmt yuv444p /tmp/pro/opname-ruw.mkv
+          cp /tmp/opn/film.json /tmp/pro/film.json
+          rm -rf /tmp/opn/beelden
+          cp /tmp/pro/opname-ruw.mkv /tmp/klaar/opname-pro.mkv
+          cp /tmp/pro/film.json /tmp/klaar/film-pro.json
+          cp /tmp/opn/render-*.png /tmp/pro/ && cp /tmp/opn/render-*.png /tmp/klaar/
+          echo "${{ steps.ruw.outputs.sha }}" > /tmp/klaar/opname-sha.txt
+      - name: Ruwe opname alvast in de release
+        if: steps.ruw.outputs.opnieuw == 'ja'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Regisseur 16: botnamen van de rig en Figure from rig van Click Joints Pro 1.2.0, echte opname in Blender 5.3.0 met de eigen robot (studio-3) en een voice-over (Kokoro, Apache 2.0). Concepten: marketing/wachtrij/. opname-pro.mkv is werkmateriaal. Niets geplaatst." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 16 (Pro: botnamen van je rig)" --notes-file /tmp/notes.md
+          gh release upload "$TAG" /tmp/klaar/* --clobber -R "$GITHUB_REPOSITORY"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Stem-pakketten en Kokoro (sha256 vast)
+        run: |
+          python -m pip install -q kokoro-onnx==0.6.1 soundfile faster-whisper==1.2.1 numpy pillow
+          mkdir -p /tmp/kokoro
+          curl -fsSL --retry 3 -o /tmp/kokoro/kokoro-v1.0.onnx "$KOKORO_URL/kokoro-v1.0.onnx"
+          curl -fsSL --retry 3 -o /tmp/kokoro/voices-v1.0.bin "$KOKORO_URL/voices-v1.0.bin"
+          echo "$KOKORO_ONNX_SHA  /tmp/kokoro/kokoro-v1.0.onnx" | sha256sum -c
+          echo "$KOKORO_VOICES_SHA  /tmp/kokoro/voices-v1.0.bin" | sha256sum -c
+      - name: Montage (vorm groot)
+        env:
+          KOKORO_MODEL: /tmp/kokoro/kokoro-v1.0.onnx
+          KOKORO_VOICES: /tmp/kokoro/voices-v1.0.bin
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ELEVENLABS_VOICE_ID: ${{ vars.ELEVENLABS_VOICE_ID }}
+          ELEVENLABS_MODEL: ${{ vars.ELEVENLABS_MODEL }}
+        run: |
+          mkdir -p /tmp/klaar
+          for n in pro-botnamen; do
+            if [ -f commercie/filmpjes/regisseur-16/$n-elevenlabs.mp3 ]; then export STEM_MP3=$PWD/commercie/filmpjes/regisseur-16/$n-elevenlabs.mp3 STEM_BRON=elevenlabs; else unset STEM_MP3 STEM_BRON; fi
+            python commercie/filmpjes/regisseur-2/vul.py commercie/filmpjes/regisseur-16/$n.json /tmp/pro/film.json /tmp/$n.json
+            rm -rf /tmp/klaar/zinnen
+            python commercie/filmpjes/regisseur-2/montage2.py /tmp/$n.json /tmp/pro /tmp/klaar groot
+            mv /tmp/klaar/$n-groot.mp4 /tmp/klaar/$n-geluid.mp4
+            mv /tmp/klaar/overzicht-groot.jpg /tmp/klaar/overzicht-$n.jpg
+          done
+          rm -rf /tmp/klaar/zinnen
+      - name: Controle (synchroon, geluid, lengte)
+        env:
+          WHISPER_MODEL: small.en
+        run: |
+          cd /tmp/klaar
+          ok=0
+          for n in pro-botnamen; do
+            mkdir -p meting-$n
+            python $GITHUB_WORKSPACE/commercie/filmpjes/regisseur-2/synchroon2.py $n-geluid.mp4 $n-groot-script.json meting-$n || ok=1
+            for f in meting-$n/*; do mv "$f" "$(basename ${f%.*})-$n.${f##*.}"; done
+            d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $n-geluid.mp4)
+            echo "$n $d s" | tee -a lengtes.txt
+            python -c "import sys; d=float('$d'); sys.exit(0 if 40.0 <= d <= 60.0 else 1)" || { echo "FOUT: $n is $d s"; ok=1; }
+          done
+          python $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py *.mp4 | tee geluid_check.txt
+          grep -q "FOUT" geluid_check.txt && ok=1
+          sha256sum *.mp4 | tee SHA256SUMS.txt
+          exit $ok
+      - name: In de release zetten
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -d /tmp/klaar ] || exit 1
+          cd /tmp/klaar
+          cp /tmp/pro/render-*.png . 2>/dev/null || true
+          echo "Regisseur 16: botnamen van de rig en Figure from rig van Click Joints Pro 1.2.0 (Kokoro, Apache 2.0). Concepten: marketing/wachtrij/. Niets geplaatst." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 16 (Pro: botnamen van je rig)" --notes-file /tmp/notes.md
+          ls -la
+          gh release upload "$TAG" $(ls *.mp4 *.mkv *.json *.srt *.md *.txt *.jpg *.png 2>/dev/null) --clobber -R "$GITHUB_REPOSITORY"

@@ -6,7 +6,7 @@
 - soort: video
 - soort_reeks: Pro (script week 49 nr. 1, `commercie/filmpjes/scripts/week-49-click-joints.md`, ja Daan; Pro-lijst nr. 1 in `scripts/volgorde-stem.md`)
 - product: click-joints-pro
-- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-14/pro-robot-delen-geluid.mp4 (workflow regisseur-14, montage van run 15 met nieuwe uitsneden; sha256 lokaal gebouwd 3b97429ddb482d085ea7d90c0b2708442350f45a0c21431ea91c326cb8792653, de workflow maakt hem opnieuw uit dezelfde ruwe opname)
+- bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-14/pro-robot-delen-geluid.mp4 (workflow regisseur-14, montage van run 15 met nieuwe uitsneden, run 45337604854 groen, sha256 96a7cad12b1d5080f5c9de9adfaf59091db14aeff58ec6ab40c20163b48b6b37; geluid GOED, synchroon 13 van 13, beelden gelijk aan de lokale bouw, GEZIEN)
 - stem: Kokoro (Apache 2.0), want Pro-scripts krijgen Kokoro (`scripts/volgorde-stem.md`, ja Daan). Geen ElevenLabs-opname nodig.
 - stem_tekst: `commercie/filmpjes/regisseur-14/pro-robot-delen-stem.txt`
 - figuur: eigen robot-actiefiguur van studio-3 (`commercie/filmpjes/studio/figuur_robot.py`, zelf gebouwd, geen licentie van derden)
