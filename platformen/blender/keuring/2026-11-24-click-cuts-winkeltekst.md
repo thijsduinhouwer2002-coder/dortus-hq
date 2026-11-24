@@ -103,3 +103,45 @@ Akkoord: **nee** (twee moet-punten, allebei klein). Dit staat tegenover de herke
 - K2 (C1 tot C4): Where to find it, $24 met lanceerkorting, titel minder als Bed Fit Splitter, Keywords als tags.
 - K3 (A8): "also in your next file" alleen met "as long as Blender saves your preferences", of weglaten.
 - K4: wie de eerste week kan curlen, meet de plek op "split model", "3d printing", "printer bed", "connectors".
+
+## Derde keuring, 24 nov 2026, 09:46 NL, keurder winkeltekst (los, herkeuring van M1 en M2 uit de tweede keuring)
+Wat ik keurde: `platformen/blender/superhive/click-cuts-winkeltekst.md` op 579eae5 (diff tegen 28c002e), tegen de tweede keuring hierboven, `producten/blender-splitser/ontwerp.md` deel 14, `ontwerp/keuringen/2026-11-24-click-cuts-snelheid-daan.md`, en de code in `split_joints/` (`paneel.py`, `verbinders.py`, `verbind_3d.py`, `splitsen.py`, `in_een_klik.py`). Geen curl nodig: alle nieuwe zinnen gaan over onze eigen code en metingen.
+Akkoord: **ja** voor `click-cuts-winkeltekst.md` (geen moet-punten meer). Let op: de lange versie `click-cuts-winkeltekst-lang.md` is hiermee **niet** goedgekeurd om te plakken (zie A6).
+
+### Deel A: doet het wat beloofd is?
+| # | Bevinding | Feit of vermoeden | Zekerheid | Wat het zou bevestigen of weerleggen |
+|---|---|---|---|---|
+| A1 | **M1 opgelost.** Deel 5 zegt "Alleen op Gumroad", de zin "for $34" staat er als "alleen voor de Gumroad-pagina's (niet op Superhive)", punt 2 zegt "Geen bundel op Superhive bij de uitgave" met de som $12 + $19 = $31, en punt 3 zegt dat wie de bundel instelt die dag de prijs van Pro in beide winkels nakijkt. Precies wat M1 vroeg. | feit | hoog | |
+| A2 | **M2 opgelost.** Eerste zin nu "with pins, pin holes and part numbers on the cut faces": belooft niet meer elk vlak. FAQ-regel "*Thin or hollow models?* Some joints have no room for a pin; Click Cuts tells you which ones to glue." staat er letterlijk. | feit | hoog | |
+| A3 | **FAQ dunne vlakken klopt met de code.** Geen pen past: `verbinders.py` r. 97 tot 99 geeft "too small for a pin ... Glue this joint"; te dun stuk: `verbind_3d.py` r. 151 tot 153 "piece only ... mm thick here ... Glue this joint". Elke melding begint met de naam van de snede (`{naam}:`), komt via `splitsen.py` r. 331 in `inst.meldingen` en staat in het paneel (`paneel.py` r. 144 tot 147); de knop meldt "N notes in the panel" (`splitsen.py` r. 343). Twee kleine randjes: het paneel toont **hoogstens 8** meldingen (`[:8]`), en ze staan onder het ingeklapte "More settings". Bij de vaas uit `ontwerp.md` deel 8 (16 van 28 naden zonder pen) ziet de koper dus maar 8 namen. Geen moet voor de tekst: de zin is waar voor de meeste modellen; het is een punt voor de bouwer (K1). | feit | hoog | een holle vaas splitsen en de meldingen in het paneel tellen |
+| A4 | **Snelheidszin klopt met de meting.** "Tested on a 1 million face scan in Blender 5.3: about 40 seconds (2-core test machine)": deel 14 meet 1,01M vlakken, Blender 5.3.0, 2 kernen, 42,3 s na de versnelling, 8 stukken groen (GEZIEN door de bouwer). "about 40" is eerlijk afgerond. Het model is de ScatteringSkull-scan, met voxel remesh op 1M gebracht: "scan" mag. Daan M1 (versie noemen) is gedaan. | feit | hoog | |
+| A5 | **"Big models show a note under Split to fit"** klopt: `in_een_klik.zwaar_tekst` vanaf 1M vlakken, getekend direct onder de knop in `paneel.py` als er nog geen uitslag is. Wel zegt die regel "can take a few minutes", terwijl de FAQ 40 seconden noemt (Daan B3 en K2). Niet fout (te ruim, niet te krap), wel twee verhalen. | feit | hoog | |
+| A6 | **"Where to find it: press N in the 3D viewport and open the Click Cuts tab"** klopt: `paneel.py` r. 20 tot 24, `bl_space_type = "VIEW_3D"`, `bl_region_type = "UI"` (de zijbalk onder N), `bl_category = "Click Cuts"`, geen `poll` die het paneel verbergt. | feit | hoog | |
+| A7 | **De lange versie heeft M2 nog niet.** `click-cuts-winkeltekst-lang.md` r. 31 ("a number on each cut face"), r. 39 ("a number on every cut face") en r. 111 ("a number on each cut face") beloven nog elk vlak. Die regels staan niet in 579eae5 en Chris is niet de schrijver; de lange versie zegt zelf dat de tekst van Chris leidend is. Dus geen blokkade voor deze keuring, wel: niets uit de lange versie plakken voor die drie regels zijn aangepast (K2). | feit | hoog | |
+| A8 | Nieuwe FAQ "*Does it work with Click Joints Pro?* Yes, side by side." Beide add-ons hebben een eigen tab en eigen namen (`split_joints` tegenover Pro); niet zelf samen geïnstalleerd getest. | vermoeden | midden | beide add-ons tegelijk aanzetten in 4.2 en 5.3 |
+| A9 | Prijs nu "basisprijs $24, lanceerkorting naar $19 tot en met 14 dec": de kan-punt C2 uit de tweede keuring is verwerkt. De bundelsom op Gumroad ($19 + $24 = $43, $9 minder) klopt. | feit | hoog | |
+
+### Deel B: houdt het zich aan onze regels?
+| # | Bevinding | Feit of vermoeden | Zekerheid | Regel |
+|---|---|---|---|---|
+| B1 | **De GOK "In Blender 4.2 it takes about twice as long" mag in de winkel blijven.** Reden: het is geen los verzonnen getal. Daan zag in de CI-logs op hetzelfde soort werk (Suzanne, 0,5M vlakken) 4.2 21,1 s tegen 5.3 11,5 s, dus 1,8 keer (GEZIEN, Daan B1). Alleen de 1M-maat in 4.2 is afgeleid. Bovendien is het een waarschuwing in ons nadeel: de koper verwacht eerder te traag dan te snel. Daan vroeg deze zin zelf (zijn M1). Voorwaarde: de bronregel onder de FAQ noemt het nu "nog GOK"; schrijf daar bij dat het rust op de gemeten 1,8 keer bij 0,5M (Daan B1), zodat het herleidbaar is. Komt de 1M-meting in 4.2 (Daan K1) voor het plakken, dan het getal daaraan aanpassen. Komt die op meer dan 2,5 keer uit, dan de zin aanpassen voor het plakken. | feit + oordeel | hoog | eerlijk (GEZIEN, DERDEN, GOK) |
+| B2 | Andere cijfers: 9 printers, 4.2 en 5.3, $24, $19, $29, $34, $43, $12, $31, $36 hebben allemaal een bron in de tekst of de vorige keuringen. De tijden bovenaan zijn rechtgezet (K1 tweede keuring). | feit | hoog | eerlijk |
+| B3 | Geen persoonsgegevens, geen concurrentnaam in de Engelse tekst, geen gedachtestreepjes, CONCEPT, prijs bij Thijs. | feit | hoog | regels 1, 2, 5, 8 |
+
+### Deel C: zou een koper het fijn vinden?
+| # | Bevinding | Wat het beter maakt | Moeite |
+|---|---|---|---|
+| C1 | "Where to find it" staat nu tussen twee lijstjes, tussen "Blender 4.2 and newer" en "Connectors in 1.0.0 are pins". Leest als losse regel midden in de lijst. | "Where to find it" onder de lijst zetten, na de pennenregel | klein |
+| C2 | "Tested in Blender 4.2 and 5.3 on every change" staat twee keer (lijst en FAQ). | in de FAQ alleen "4.2 and newer" | klein |
+| C3 | Een koper met een holle vaas leest "tells you which ones to glue" en ziet 8 namen van de 16. | in de code "and N more" of alle meldingen; tekst kan blijven | klein |
+
+### Moet (blokkeert akkoord)
+Geen.
+
+### Kan (mag later)
+- K1 (A3, C3, voor de bouwer): het paneel toont nu hoogstens 8 meldingen en verbergt ze onder More settings; laat "and N more" zien of toon de lijm-meldingen ook bij de uitslag bovenaan.
+- K2 (A7): in `click-cuts-winkeltekst-lang.md` r. 31, 39 en 111 dezelfde fix als M2 ("part numbers on the cut faces") voordat iets uit die versie geplakt wordt.
+- K3 (B1): bronregel onder de FAQ aanvullen met "rust op 1,8 keer gemeten bij 0,5M (Daan B1)"; na Daan K1 het 4.2-getal vervangen door de meting.
+- K4 (A5): paneelregel "can take a few minutes" laten passen bij de FAQ, bijvoorbeeld "can take a minute or more" vanaf 1M (Daan K2).
+- K5 (A8): één keer Click Cuts en Click Joints Pro samen aanzetten in 4.2 en 5.3 voor de FAQ-regel "side by side" GEZIEN is.
+- K6: kleine opruiming in deel 5: "Twee dingen om op te letten" telt nu vier punten (0 tot 3), en de regel "Kan het daar niet, dan alleen Gumroad" is overbodig nu het besluit al "alleen Gumroad" is. C1 en C2 hierboven.
