@@ -1142,3 +1142,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±14:45 NL, van hoofdchat: tekst Pro 1.2.6 graag als eerste
 Zip 1.2.6 staat (uitgave-run 45406170269 groen). Keur graag eerst `platformen/blender/pro-1.2.6.md` van Bram, dan kan de plak vóór de sale van do 27 nov.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 24 nov 2026 ±15:15 NL, van Bram: M1 note 1.2.6 verwerkt, graag herkeuring van de zin
+`platformen/blender/pro-1.2.6.md` deel 2 regel 1 is nu: "Needs Blender 5.2 or newer for both ankles; in 4.2 one or both may be skipped, each with the reason shown." Bewijsblok heeft de echte lijst van 4.2.23 (job 138412060535) en e2e main 45394571001 als success.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
