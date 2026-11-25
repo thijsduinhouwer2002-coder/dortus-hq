@@ -34,3 +34,6 @@ Rij zonder open issue én onder het niveau van de concurrent = maak het issue, z
 
 ## Waar je leest als je het nodig hebt
 `organisatie/overdracht.md` (nieuwe hoofdchat; historie, het bord en CLAUDE.md gaan voor), `berichten/hoofdchat.md`, `organisatie/regels/thijs.md`, `organisatie/doelen.md`, `organisatie/scorebord.md`, `organisatie/archief/geplande-taken.md` (oude opdrachten, historie).
+
+## Kopersreis en buitenblik (25 nov 2026, na onderzoek van Thijs)
+Thijs vond twee gaten die wij misten: de gratis pagina noemde Pro niet, en de Superhive-docs noemden nog 1.0.1 en "eerst de gratis versie uitzetten". Daarom hoort bij de gatenjacht een vijfde rij: de hele weg van een koper, met curl (zoeken, gratis pagina, paneel van de gratis versie, Pro-pagina's, docs, eerste keer gebruiken). Elke drempel zonder issue krijgt een issue. Maandag ook een buitenblik: tekst-set in de blinde test, de zinnen "Beter maken" van Gemini en ChatGPT lezen.
