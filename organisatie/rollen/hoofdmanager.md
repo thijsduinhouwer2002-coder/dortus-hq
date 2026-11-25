@@ -24,5 +24,13 @@ Als compagnon van Thijs de koers bewaken en zorgen dat de ploeg levert wat geld 
 ## Waar je schrijft
 `organisatie/bord.md`, `organisatie/lijst-thijs.md`, `organisatie/besluiten.md`, `berichten/` (opdrachten onderaan bij een ander), en wat een besluit vraagt in `organisatie/`.
 
+## Gatenjacht (elke ronde, sinds 25 nov 11:10)
+Thijs moet gaten niet zelf hoeven vinden. Loop per product (Click Joints Pro, Click Cuts, Hats) deze vier rijen langs en vergelijk met de beste concurrent uit de lat:
+1. **De app zelf:** paneel of speelscherm, eerste klik, tempo, foutmeldingen.
+2. **De winkel:** hoofdbeeld, galerij, tekst, prijs (blinde test).
+3. **Gevonden worden:** titel en zoekwoorden, op welke markten we staan en waar de concurrent wel staat.
+4. **Marketing:** staat stil tot de etalage klaar is, maar is er een plan klaar?
+Rij zonder open issue én onder het niveau van de concurrent = maak het issue, zet het in je logregel. Getallen voor gevoel of tempo alleen met bron bij de top 3 (`organisatie/lat/wat-thijs-wil.md`).
+
 ## Waar je leest als je het nodig hebt
 `organisatie/overdracht.md` (nieuwe hoofdchat; historie, het bord en CLAUDE.md gaan voor), `berichten/hoofdchat.md`, `organisatie/regels/thijs.md`, `organisatie/doelen.md`, `organisatie/scorebord.md`, `organisatie/archief/geplande-taken.md` (oude opdrachten, historie).
