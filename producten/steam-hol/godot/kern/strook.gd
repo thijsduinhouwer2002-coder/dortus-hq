@@ -77,7 +77,7 @@ var wezens: Node2D
 var tekst
 var rng := RandomNumberGenerator.new()
 var t := 0.0
-var volgende_held := 4.0       # demo: meteen (Sanne toets 3, punt 2: de film staat niet stil aan het begin)
+var volgende_held := 2.0       # vers spel: na 2 s de eerste held (Iris #25: eerste klap rond 10 s; was 4). Demo: meteen (Sanne toets 3, punt 2: de film staat niet stil aan het begin)
 var volgende_graaf := 9.0
 var volgende_opslag := 30.0
 var kroniek: Array[String] = []

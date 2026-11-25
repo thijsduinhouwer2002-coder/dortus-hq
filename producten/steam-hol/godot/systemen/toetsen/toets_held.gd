@@ -534,23 +534,24 @@ func _init() -> void:
 	hv.set_script(load("res://systemen/held.gd"))
 	hv.val_teken = "boos"
 	var b0: Dictionary = hv.val_beeld(0.05)
+	var b0t: Dictionary = hv.val_beeld(0.2)
 	var b1: Dictionary = hv.val_beeld(0.32)
 	var b2: Dictionary = hv.val_beeld(0.48)
 	var b3: Dictionary = hv.val_beeld(hv.VAL_WEG)
 	ok(int(b0.hop) < 0 and int(b0.zak) == 0, "eerst schrik: hop omhoog, nog niet gezakt (hop %d)" % b0.hop)
 	ok(int(b1.zak) > 0 and int(b1.zak) < int(b2.zak) and int(b2.zak) < 16, "dan zakt hij zichtbaar in stappen (%d, %d)" % [b1.zak, b2.zak])
 	ok(int(b3.zak) == 16, "op VAL_WEG (0,6 s) helemaal onder de vloer (%d)" % b3.zak)
-	ok(String(b0.teken) == "poef" and String(b3.teken) == "", "boze wolkje knapt als poef, daarna geen teken")
+	ok(String(b0.teken) == "" and String(b0t.teken) == "poef" and String(b3.teken) == "", "boze wolkje: niet tijdens de witte flits (Daan #53 kan 1), dan poef, daarna geen teken")
 	var hbeeld = load("res://systemen/held_beeld.gd")
 	var fasen: Array = []
 	for i in 8:
-		var vbi: Dictionary = hv.val_beeld(i * 0.05)
+		var vbi: Dictionary = hv.val_beeld(hv.VAL_TEKEN_VAN + i * 0.05)
 		if String(vbi.teken) == "poef":
 			fasen.append(hbeeld.poef_beeld(float(vbi.poef_fase)))
 	ok(fasen == [0, 0, 1, 1, 2, 2, 3, 3], "poef: Mila's 4 beelden op 10 fps, één keer (%s)" % str(fasen))
 	ok(hbeeld.POEF.get_width() == 48 and hbeeld.POEF.get_height() == 10, "poef.png is 4 beelden van 12 x 10")
 	hv.val_teken = ""
-	ok(String(hv.val_beeld(0.1).teken) == "uitroep", "zonder wrok: uitroepteken bij de schrik")
+	ok(String(hv.val_beeld(0.2).teken) == "uitroep" and String(hv.val_beeld(0.1).teken) == "", "zonder wrok: uitroepteken bij de schrik, na de witte flits")
 	ok(bool(hv.val_beeld(0.5).hoed), "in de put zakt de hoed mee")
 	hv.info["hoed_naar"] = "bewoner"
 	ok(not bool(hv.val_beeld(0.5).hoed), "opgegeten: de hoed staat al op de toren, dus niet ook nog op zijn hoofd")
@@ -597,6 +598,8 @@ func _init() -> void:
 		for kk in ["kleur", "hoed", "zaad"]:
 			ia.erase(kk)
 			ib.erase(kk)
+		if not zelfde_pad or hel_b.staat != "weg":
+			print("[held-toets] herstel anders bij z=%d: %s/%s x %.2f/%.2f na %d" % [z, hel_a.staat, hel_b.staat, hel_a.position.x, hel_b.position.x, na])
 		if zelfde_pad and hel_b.staat == "weg" and hel_a.klappen == hel_b.klappen and _zelfde(ia, ib) and String(hel_a.info.get("wat", "")) == String(hel_b.info.get("wat", "")) and hel_b.info.get("kleur") is Color:
 			gelijk += 1
 		ha.free()

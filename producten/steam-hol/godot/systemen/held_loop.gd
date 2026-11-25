@@ -25,6 +25,14 @@ const DRAAI_S := 0.25
 const SPRONG_S := 0.6
 const SPRONG_HOOG := 5.0          # spelpixels boven de vloer op het hoogste punt
 const SPRONG_VER := 12.0          # zo ver voorbij het midden van de val landt hij (een kolom is 16 breed)
+# Iris (#25, build 46cdec1): twee helden draalden 20 s vlak bij de val. Nu: wie een val of bewoner nadert, kijkt niet meer rond
+# (binnen ZICHT_PX) en zet het de laatste AANLOOP_PX op een rennen (zelfde beelden, AANLOOP_X keer zo snel, voeten blijven
+# staan), zodat hij binnen 2 s valt of springt. Een held met een wrok en de eerste held van een vers spel kijken nooit rond.
+const ZICHT_PX := 64.0
+const AANLOOP_PX := 24.0
+const AANLOOP_X := 3.5
+const AANLOOP_FPS := 42.0         # nooit sneller dan dit in de aanloop (de eerste held loopt al 2 keer zo snel)
+const GEEN := 99999.0
 
 # Eén keer bij start(): stap en klok uit het blad van deze held. Bij een 3D-blad zonder stap_px (oud blad): pixelwaarden.
 static func kies(h) -> void:
@@ -44,8 +52,10 @@ static func kies(h) -> void:
 	h.loop_n = 6
 
 # Hoeveel beeldwissels in deze aanroep (echte tijd); de rest van de klok blijft staan voor de volgende.
-static func wissels(h, echt: float, vluchten: bool) -> int:
+static func wissels(h, echt: float, vluchten: bool, aanloop := false) -> int:
 	var fps: float = float(h.loop_fps) * clampf(float(h.info.get("snelheid", 1.0)), 0.25, 4.0) * (VLUCHT_X if vluchten else 1.0)
+	if aanloop:
+		fps = minf(fps * AANLOOP_X, maxf(fps, AANLOOP_FPS))
 	h.loop_klok += echt * fps
 	var n := int(h.loop_klok + 0.0001)
 	h.loop_klok = maxf(0.0, h.loop_klok - n)
@@ -77,16 +87,43 @@ static func loop(h, n: int, doel_x: float, kijk_onderweg: bool) -> void:
 # Staat hij nu stil om rond te kijken? Telt alleen in lopen (niet bij vluchten). Eigen dobbelsteen, zodat de uitkomsten
 # van de vallen (h.rng) precies blijven wat ze waren.
 const EPS := 0.000001             # t komt uit een som van beeldtijden; na bewaren in JSON kan hij 1e-15 anders zijn
-static func kijkt(h) -> bool:
+static func kijkt(h, afstand := GEEN) -> bool:
 	if h.t < h.kijk_tot - EPS:
-		return true
+		if afstand >= AANLOOP_PX:
+			return true
+		h.kijk_tot = 0.0   # in de aanloop breekt hij het rondkijken af
 	if h.volgende_kijk <= 0.0:
 		h.volgende_kijk = h.t + h.rng_loop.randf_range(KIJK_ELKE.x, KIJK_ELKE.y)
+	if afstand < ZICHT_PX or not mag_kijken(h):
+		h.volgende_kijk = maxf(float(h.volgende_kijk), h.t + KIJK_ELKE.x * 0.5)   # na de val niet meteen stilstaan
+		return false
 	if h.t >= h.volgende_kijk - EPS:
 		h.kijk_tot = h.t + KIJK_S
 		h.volgende_kijk = h.kijk_tot + h.rng_loop.randf_range(KIJK_ELKE.x, KIJK_ELKE.y)
 		return true
 	return false
+
+# Wie nooit rondkijkt: een held met een wrok (hij weet waar hij heen wil) en de eerste held van een vers spel.
+static func mag_kijken(h) -> bool:
+	return int(h.vijand_kol) < 0 and not bool(h.info.get("moet_vallen", false))
+
+# Spelpixels tot de linkerrand van de eerstvolgende val of bewoner rechts van hem die hij nog niet zag (daar beslist
+# held_val.gd); GEEN als er tot zijn doel geen meer is. Hooguit een paar kolommen per beeld, dus licht.
+static func afstand_verdediging(h) -> float:
+	var k0: int = h.hol.pos_naar_cel(h.position).x
+	var eind: int = maxi(int(h.doel_kol), k0)
+	for k in range(k0, eind + 1):
+		if h.gezien.has(k):
+			continue
+		var cel := Vector2i(k, 0)
+		if h.hol.val_op(cel) != "" or h._bewoner_op(k) != null:
+			if k == k0:
+				return 0.0
+			var rand: float = (h.hol.cel_naar_pos(cel).x + h.hol.cel_naar_pos(Vector2i(k - 1, 0)).x) * 0.5
+			return maxf(0.0, rand - float(h.position.x))
+		if float(h.hol.cel_naar_pos(cel).x) - float(h.position.x) > ZICHT_PX + 16.0:
+			break
+	return GEEN
 
 # Begin van vluchten: eerst het draai-beeld, dan rennen.
 static func draai(h) -> void:

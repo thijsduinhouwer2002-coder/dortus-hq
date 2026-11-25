@@ -22,6 +22,8 @@ static func ouder_naam(naam: String) -> String:
 		return basis + " II"
 	return basis
 
+const EERSTE_SNEL := 2.0
+
 static func nieuwe_held(s) -> bool:
 	var info := {}
 	var stap: String = s._begin_stap()
@@ -102,7 +104,12 @@ static func nieuwe_held(s) -> bool:
 	while s.namen_recent.size() > 24:
 		s.namen_recent.remove_at(0)
 	match stap:
-		"vallen": info["moet_vallen"] = true
+		"vallen":
+			info["moet_vallen"] = true
+			# Iris (#25, build 46cdec1): de eerste klap kwam pas op 37 s. De eerste held van een vers spel rent recht op de
+			# eerste val af (zelfde beelden sneller, held_loop.gd), zodat de eerste klap rond 10 s valt.
+			if not s.demo:
+				info["snelheid"] = EERSTE_SNEL
 		"terug":
 			# de wrok krijgt een afloop: hij komt terug voor de put en valt erin, of Gloop eet hem (Sanne toets 6, punt 1).
 			# Ook buiten de demo, maar alleen in de eerste tien minuten (stap "terug" in BEGIN); daarna kan een terugkomer

@@ -22,7 +22,22 @@ static func naar_dict(h) -> Dictionary:
 		"dut_kol": h.dut_kol, "dut_tot": h.dut_tot, "pas_klok": h.pas_klok, "pas_rest": h.pas_rest,
 		"loop": [h.afgelegd, h.loop_klok, h.kijk_tot, h.volgende_kijk, h.draai_tot, h.spring_t, h.spring_van, h.spring_naar],
 		"spring_teken": h.spring_teken, "na_sprong": h.na_sprong, "rng_loop": str(h.rng_loop.state),
-		"terug_gesprongen": h.terug_gesprongen.keys()}
+		"terug_gesprongen": h.terug_gesprongen.keys(), "precies": precies_van(h)}
+
+# De klokken precies (JSON schrijft getallen afgerond; een klok net op een beeldgrens gaf dan na herstel één beeld
+# verschil). Als bytes in base64, ook in een oude save zonder dit veld werkt herstel gewoon zoals eerst.
+static func precies_van(h) -> String:
+	var a := PackedFloat64Array([h.t, h.pas_klok, h.loop_klok, h.kijk_tot, h.volgende_kijk, h.draai_tot, h.spring_t, h.afgelegd,
+		h.position.x, h.position.y, h.val_t, h.geraakt_tot, h.dut_tot])
+	return Marshalls.raw_to_base64(a.to_byte_array())
+
+static func precies_naar(held, tekst: String) -> void:
+	var a := Marshalls.base64_to_raw(tekst).to_float64_array()
+	if a.size() != 13:
+		return
+	held.t = a[0]; held.pas_klok = a[1]; held.loop_klok = a[2]; held.kijk_tot = a[3]; held.volgende_kijk = a[4]
+	held.draai_tot = a[5]; held.spring_t = a[6]; held.afgelegd = a[7]; held.position = Vector2(a[8], a[9])
+	held.val_t = a[10]; held.geraakt_tot = a[11]; held.dut_tot = a[12]
 
 static func herstel(held, hol, d: Dictionary) -> void:
 	var i: Dictionary = (d.get("info", {}) as Dictionary).duplicate()
@@ -64,6 +79,8 @@ static func herstel(held, hol, d: Dictionary) -> void:
 	held.terug_gesprongen.clear()
 	for k in d.get("terug_gesprongen", []):
 		held.terug_gesprongen[int(k)] = true
+	if d.has("precies"):
+		precies_naar(held, String(d.precies))
 	if d.has("rng_loop"):
 		held.rng_loop.state = String(d.rng_loop).to_int()
 	if d.has("rng"):

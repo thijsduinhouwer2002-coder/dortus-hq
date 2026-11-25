@@ -66,6 +66,7 @@ const VAL_S := 0.7           # hele val, daarna klaar()
 const VAL_SCHRIK := 0.2      # hop omhoog voordat hij zakt
 const VAL_WEG := 0.6         # op dit moment is hij helemaal onder de vloer
 const VAL_TEKEN_S := 0.4     # zo lang staat het uitroepteken of de poef erboven
+const VAL_TEKEN_VAN := 0.18  # pas na de witte flits (held_beeld.gd FLITS_WIT + FLITS_HALF)
 
 var hol
 var info := {}
@@ -258,8 +259,9 @@ func stap(delta: float) -> void:
 				info["dutje"] = true
 				return
 			# lopen (#25): het loopbeeld volgt de weg, elke 3 tot 6 s even rondkijken (held_loop.gd)
-			if not HELD_LOOP.kijkt(self):
-				HELD_LOOP.loop(self, HELD_LOOP.wissels(self, echt, false), doel.x, true)
+			var tot_val := HELD_LOOP.afstand_verdediging(self)   # aanloop naar een val of bewoner: rennen, niet rondkijken
+			if not HELD_LOOP.kijkt(self, tot_val):
+				HELD_LOOP.loop(self, HELD_LOOP.wissels(self, echt, false, tot_val < HELD_LOOP.AANLOOP_PX), doel.x, true)
 			if staat == "lopen" and absf(position.x - doel.x) < 0.5:
 				_aangekomen()
 		"dutten":
@@ -327,9 +329,9 @@ func val_beeld(vt: float) -> Dictionary:
 	var u := clampf((vt - VAL_SCHRIK) / (VAL_WEG - VAL_SCHRIK), 0.0, 1.0)
 	var zak := int(round(16.0 * u * u))    # eerst langzaam, dan snel: hij wordt naar binnen getrokken
 	var tk := ""
-	if vt < VAL_TEKEN_S:
+	if vt >= VAL_TEKEN_VAN and vt < VAL_TEKEN_VAN + VAL_TEKEN_S:   # niet tijdens de witte flits: dan werd het wolkje een witte vlek (kan 1 Daan #53)
 		tk = "poef" if val_teken == "boos" else "uitroep"
-	return {"hop": hop, "zak": zak, "teken": tk, "poef_fase": clampf(vt / VAL_TEKEN_S, 0.0, 1.0),
+	return {"hop": hop, "zak": zak, "teken": tk, "poef_fase": clampf((vt - VAL_TEKEN_VAN) / VAL_TEKEN_S, 0.0, 1.0),
 		"hoed": String(info.get("hoed_naar", "")) == ""}
 
 # ---- tekenen: in systemen/held_beeld.gd (opgesplitst 10 nov, held.gd bleef anders boven de 400 regels) ----
