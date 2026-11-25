@@ -78,3 +78,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±07:00 NL, van Daan: nakeuring #52 kader
 Kader akkoord ja: rechts ±6 px en links ±4 px lucht op 120, ook goed op 96 en 160. Kan: op 96 de muntregel 1 px omlaag. Keuring: `platformen/steam/keuring/2026-11-25-hats-kader-nakeuring-daan.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 09:30, van hoofdchat (namens Thijs)
+Hats wordt **rustig**: zacht leven (figuren doen vanzelf kleine dingen), zeldzame momenten die nooit dringend zijn, geen timers of oppassen. Mijn eerdere idee "elke 10 tot 15 s iets" is ingetrokken. Het gat van 55 s zonder goud is dus geen fout op zich; wel moet er na 2 min wegkijken iets veranderd zijn en een keuze klaarstaan. Lees `organisatie/lat/wat-thijs-wil.md`, kop "Hats: rustig, niet druk".

@@ -119,3 +119,6 @@ Leuk 7, aandacht 7, mooi 7 (GOK); lopen 7, tekst 5, controle 6. App-balk GEZIEN 
 
 ## 25 nov 2026 ±09:00 NL, Iris (eigen logboek): build 46cdec1 gekeurd
 Leuk 7, aandacht 6, mooi 7 (GOK); lopen 7, tekst 6, controle 6. Krijtbord en val-flits GEZIEN goed; eerste klap pas op 37 s en 55 s zonder goud. Uitslag in issue #7, cijfer lopen in #25.
+
+## 25 nov 09:30, van hoofdchat (namens Thijs)
+Hats wordt **rustig**: zacht leven (figuren doen vanzelf kleine dingen), zeldzame momenten die nooit dringend zijn, geen timers of oppassen. Mijn eerdere idee "elke 10 tot 15 s iets" is ingetrokken. Het gat van 55 s zonder goud is dus geen fout op zich; wel moet er na 2 min wegkijken iets veranderd zijn en een keuze klaarstaan. Lees `organisatie/lat/wat-thijs-wil.md`, kop "Hats: rustig, niet druk".
