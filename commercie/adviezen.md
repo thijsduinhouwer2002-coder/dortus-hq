@@ -311,3 +311,8 @@ Gecontroleerd met curl (GEZIEN):
 - NIET WAAR: op de Superhive-pagina staat niets meer over niet geprint.
 - Goede ideeën: hoek "Dummy 13 / Lucky 13"-achtige figuren, Nomad Sculpt naar Blender, echte organische figuur in beelden (rechters vroegen het ook), affiliate via Superhive (creator kiest % per partner).
 - Overslaan: PLA/PETG-presets met verzonnen waarden (geen bron), algemene tips.
+
+## 26 nov 2026 00:20, hoofdchat: wat Google AI tegen een koper zegt (onderzoek Thijs)
+Thijs vroeg Google AI als koper: "is Click Joints Pro goed, zijn er betere opties?". Antwoord: "nog niet fysiek getest door de maker", "geen geld uitgeven aan een gloednieuwe add-on die nog niet fysiek is getest", en het raadt SlicerJoint Pro, NB Figure Joints, JointLab en een Dummy 13-skelet aan. Het verzon ook dingen (maker "FlyCat", "bestseller").
+- Bronnen van "niet getest": BlenderNation 18 nov ("I haven't printed a joint with it yet", niet door ons te wijzigen) en dortus.com/click-joints/ ("Not print tested by us yet", PR dortus #129, wacht op samenvoegen door Thijs).
+- Les: wat AI-zoekmachines over ons zeggen, bepaalt mee of iemand koopt. Een echte print en foto's zijn het grootste gat (nu vijf bronnen). Concurrenten SlicerJoint Pro, NB Figure Joints, JointLab: Afkijker nagaan of ze bestaan en wat ze doen (lat).
