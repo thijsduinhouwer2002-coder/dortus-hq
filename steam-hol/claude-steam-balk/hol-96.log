@@ -1,0 +1,60 @@
+HOL balk gestart, pid 8764, hoogte 96
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
+HOL zaad 7
+HOL balk aan
+HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
+HOL begin: vallen (Kees)
+HOL held binnen: Kees
+HOL muisvlak via de balk, lucht vrij op x=200
+HOL zicht 0.7 1
+HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
+HOL kroniek 7.0 (wacht 0.0): Anouk the Bard tunes a lute.
+HOL begin: vluchten (Anouk)
+HOL held binnen: Anouk
+HOL gegraven kolom 12 (zelf 1, graafbonus 0)
+HOL kroniek zelfde held vervangen: Kees is here for your gold.
+HOL kroniek 9.3 (wacht 0.0): Kees will not be leaving. +6
+HOL meting t=10 beelden=113 helden=1 hol_vast=3
+HOL kroniek 12.4 (wacht 0.0): Siem climbs into your hole.
+HOL begin: opgegeten (Siem)
+HOL held binnen: Siem
+HOL gegraven kolom 9 (zelf 2, graafbonus 0)
+HOL demo klik op Gloop
+HOL kaartje open 18.5: slijm
+HOL demo klik op Buy
+HOL koop 20.0: slijm niveau 1, goud 27
+HOL meting t=20 beelden=112 helden=2 hol_vast=9
+HOL kaartje dicht 22.6
+HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
+HOL begin: doorlopen (Jop)
+HOL held binnen: Jop
+HOL kroniek 25.1 (wacht 4.3): Anouk left. Took nothing. Angry.
+HOL gegraven kolom 11 (zelf 3, graafbonus 0)
+HOL kroniek 27.6 (wacht 4.5): Jop knows all the words. Sadly.
+HOL begin: terug (Anouk)
+HOL held binnen: Anouk
+HOL meting t=30 beelden=136 helden=2 hol_vast=11
+HOL kroniek zelfde held vervangen: Anouk left. Took nothing. Angry.
+HOL kroniek 30.1 (wacht 2.0): Anouk is back for the Spike Pit.
+HOL kroniek 32.7 (wacht 3.6): Gloop ate Siem. Kept the crown. +6
+HOL kroniek 35.2 (wacht 4.3): Jop is now the Hoard-Toucher.
+HOL gegraven kolom 8 (zelf 4, graafbonus 0)
+HOL kroniek 37.7 (wacht 8.2): Gloop is flat. Back soon.
+HOL hol-niveau 2 (faam 3, t 38.5)
+HOL reeks 2 (+0, t 38.5)
+HOL bordje wip niveau 2
+HOL kroniek 38.8 (wacht 0.2): Anouk came back. The Spike Pit won. +9
+HOL zicht 39.4 0
+HOL meting t=40 beelden=135 helden=0 hol_vast=18
+HOL begin: opgegeten2 (Maud)
+HOL held binnen: Maud
+HOL zicht 40.5 1
+HOL kroniek 41.3 (wacht 2.0): Jop ran. Hands smell of gold.
+HOL kroniek vervallen 43.5: Maud read about you in a tavern.
+HOL kroniek 43.8 (wacht 23.0): A song about you! Heroes on the way.
+HOL gegraven kolom 10 (zelf 5, graafbonus 0)
+HOL kroniek 46.3 (wacht 7.7): Gloop is up again. Wobbly.
+HOL held binnen: Bram
+HOL kroniek 48.8 (wacht 2.2): Bram knocks first. Polite.
+HOL einde na 50 s, fps=10, goud=42, terugkomers=1

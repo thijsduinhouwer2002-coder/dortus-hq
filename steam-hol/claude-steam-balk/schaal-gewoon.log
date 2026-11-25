@@ -1,0 +1,12 @@
+HOL eerste start (geen gekozen hoogte) dpi=96 hoogte=120
+HOL balk gestart, pid 9212, hoogte 120
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
+HOL zaad 1795566788
+HOL balk aan
+HOL muisvlak via de balk, lucht vrij op x=-1
+HOL kroniek 4.1 (wacht 0.0): Odo brought a torch. And hope.
+HOL begin: vallen (Odo)
+HOL held binnen: Odo
+HOL zicht 4.2 1
+HOL einde na 6 s, fps=10, goud=20, terugkomers=0

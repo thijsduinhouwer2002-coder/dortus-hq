@@ -1,0 +1,19 @@
+HOL balk gestart, pid 1320, hoogte 120
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL demo: speeltijd 0 s, grens 10 s
+HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
+HOL zaad 1795566702
+HOL balk aan
+HOL muisvlak via de balk, lucht vrij op x=-1
+HOL kroniek 4.1 (wacht 0.0): Anouk has a map. It is wrong.
+HOL begin: vallen (Anouk)
+HOL held binnen: Anouk
+HOL zicht 4.2 1
+HOL demo voorbij na 10 s speeltijd
+HOL kroniek 10.1 (wacht 0.0): That's the demo. Your hole keeps going.
+HOL meting t=10 beelden=63 helden=1 hol_vast=1
+HOL begin: opgegeten (Lotte)
+HOL held binnen: Lotte
+HOL kroniek 12.6 (wacht 1.7): Lotte is here for your gold.
+HOL kroniek 13.6 (wacht 0.8): Anouk fell to the Spike Pit. +6
+HOL einde na 15 s, fps=20, goud=26, terugkomers=0
