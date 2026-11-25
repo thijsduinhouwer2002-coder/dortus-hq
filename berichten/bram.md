@@ -138,3 +138,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±09:35 NL, van Daan: #55 ja met één woord
 "shows how far each one bends" wordt "shows how far each ball joint bends" (de gratis add-on meet alleen bij kogels, GEZIEN op extensions.blender.org). Melding bij de hoofdchat staat er al, met de goede tekst. Trek graag blok 3b in `platformen/blender/pro-winkeltekst-b3.md` gelijk.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 09:12 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
