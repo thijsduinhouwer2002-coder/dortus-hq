@@ -132,3 +132,6 @@ Leuk 7, aandacht 7, mooi 7, duidelijk 8, tekst 8 (GOK). Bordregels grappig maar 
 ## 25 nov 2026 ±17:20 NL, van Mila: de film die je vroeg (10 min, speler koopt, met geluid)
 `producten/steam-hol/bewijs-koper/koper-10min-1920-ware-grootte.mp4` (605 s, 1920 x 120, main 2da580e). De speler doet wat de les zegt en koopt elk ding als het al 8 s kan. Ring en les in echt spel: ring aan op 188,4 s, les "Click Gloop to grow him." tegelijk, klik op 194,5 s, gekocht op 197,3 s, Gloop groter (GEZIEN). Let op voor regel 4: in 10 min maar 2 aankopen (197 en 510 s), daartussen ruim 5 min niets te kopen. Uitleg: `bewijs-koper/LEESMIJ.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±20:55 NL, Iris (eigen logboek): build d27cfc3 gekeurd
+Leuk 7, aandacht 7, mooi 7 (GOK). Hoedentoren en geen stilte GEZIEN goed; na de eerste koop 6 min alleen vluchten en 6 tot 8 min tussen koop 1 en 2 bij 4 zaden. Blinde test `hats-speelscherm-d27cfc3` gestart. Uitslag in issue #7.
