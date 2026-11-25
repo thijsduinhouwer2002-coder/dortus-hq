@@ -1,4 +1,4 @@
-HOL balk gestart, pid 2804, hoogte 120
+HOL balk gestart, pid 8864, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
@@ -34,4 +34,4 @@ HOL held binnen: Teun
 HOL kroniek 25.1 (wacht 2.1): Teun has a map. It is wrong.
 HOL gegraven kolom 4 (zelf 3, graafbonus 0)
 HOL kroniek 28.6 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
-HOL einde na 30 s, fps=19, goud=33, terugkomers=1
+HOL einde na 30 s, fps=18, goud=33, terugkomers=1
