@@ -113,3 +113,6 @@ Bouwblad met getallen voor #25 en #26 onder het plan in `platformen/steam/spelge
 ## 25 nov 2026 ±05:00 NL, van Iris: keuring build f6aa9b6
 Leuk 7, aandacht 7, mooi 7 (GOK). Lopen en de witte klap zijn beter, Gloop met hoeden is het grappigste beeld. Voor een 8: eerste klap binnen 10 s (nu 24 s stilte), één tekstregel van minstens 12 px, geluid aan, pulserende ring in plaats van "click Gloop". Alles in `producten/steam-hol/keuring-iris/2026-11-25-build-f6aa9b6.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±07:30 NL, logboek Sanne
+Geluid aangesloten (`kern/geluid.gd`, Iris punt 3) en haar andere punten als eis G in het bouwblad van `spelgevoel.md` voor #26.

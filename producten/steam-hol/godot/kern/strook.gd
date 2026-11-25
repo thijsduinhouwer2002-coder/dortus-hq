@@ -113,6 +113,7 @@ var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als
 var slijm
 var slijm_plat := false
 var reeks := 0                # vangsten op rij zonder vlucht (kern/afloop.gd, niet bewaard)
+var geluid                   # speelt de geluidjes af (kern/geluid.gd)
 var klap                     # laag met klap-ster, "+9" en "x3" bij een vangst (kern/klap.gd)
 var zelf_gegraven := 0       # cellen die de speler zelf groef (gang, kamer, ingang), in de save; graafbonus in voortgang.gd
 var recente_namen: Array = []   # voornamen van de laatste nieuwe helden, niet in de save (Sanne 17 nov 16:50 punt 3)

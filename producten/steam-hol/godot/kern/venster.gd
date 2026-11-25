@@ -45,6 +45,11 @@ static func lagen(s, scherm: Rect2i) -> void:
 	klap.hol_pos = s.hol.position
 	s.add_child(klap)
 	s.klap = klap
+	var geluid := Node.new()   # de geluidjes van Mila echt afspelen (kern/geluid.gd, Sanne 25 nov)
+	geluid.set_script(load("res://kern/geluid.gd"))
+	geluid.name = "Geluid"
+	s.add_child(geluid)
+	s.geluid = geluid
 
 static func log_start(s, scherm: Rect2i, spel_h: int) -> void:
 	s.log_regel("HOL start hoogte=%d schaal=%d spelpixels=%dx%d venster=%s pos=%s held=%s" % [s.hoogte, s.schaal,

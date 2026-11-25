@@ -2,7 +2,7 @@
 
 Zelf gemaakt in code door `ontwerp/steam/mila/bron/geluid.py` (geen licentie van anderen nodig). Pas de wav's niet met de hand aan: pas het script aan en draai het opnieuw.
 
-Klank: zacht en rond (sinus en driehoek), kort, piek -9 dB, geen tik aan begin of eind. Standaard uit (Olaf 01:40), aan via het rechtsklikmenu.
+Klank: zacht en rond (sinus en driehoek), kort, piek -9 dB, geen tik aan begin of eind. Afgespeeld door `kern/geluid.gd` (Sanne 25 nov): standaard aan en zacht, uit via Sound in het systeemvak of het rechtsklikmenu. Tot 25 nov speelde geen script de wav's af.
 
 | bestand | wanneer | lengte |
 |---|---|---|

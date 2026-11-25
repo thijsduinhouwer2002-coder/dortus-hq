@@ -162,6 +162,8 @@ static func koop(s) -> void:
 		return
 	s.hol.goud = rest
 	s.hol.munt_naar(s.kaart_kol, 4)
+	if s.get("geluid") != null:
+		s.geluid.speel("koop")
 	# het koop-moment moet je zien (Sanne toets 9 punt 1): Gloop wipt en zwelt (Bram, slijm.gd), de put schudt (hol.gd)
 	if soort == "slijm" and s.slijm.has_method("vier_koop"):
 		s.slijm.vier_koop()

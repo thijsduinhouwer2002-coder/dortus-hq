@@ -54,6 +54,13 @@ Zodat #25 en #26 zonder vragen gebouwd kunnen worden. Beslist door mij als eigen
 
 **F. De speler is de baas (#26).** Muis 3 min niet bewogen: gaten tussen helden x2 en geen tekstregels (alles komt op het kaartje bij terugkomst). Gebeurtenissen (lied, Hoard-Toucher, terugkomer met wrok) starten alleen als de muis in de laatste 60 s bewoog. In het systeemvak en het rechtsklikmenu: "Heroes: Calm / Normal / Busy" (gaten x1,5 / x1 / x0,7), naast Height, Sound, Pause en Quit die er al zijn (#24).
 
+**G. Na de keuring van Iris (25 nov ±05:00, build f6aa9b6: leuk 7, aandacht 7, mooi 7, GOK van Iris).** Haar vijf punten voor een 8, als eis:
+1. **Eerste klap binnen 10 s** na de eerste start (nu 24 s stilte, GEZIEN in haar film). De eerste held staat al op 2 s in de gang, niet bovenaan de schacht, en valt volgens B in de put die er al staat. Meten in de film: tijd van "HOL begin: vallen" tot de eerste "HOL reeks"- of vangstregel, hooguit 10 s na start. (#26)
+2. **Tekst minstens 12 px** op 120 px (nu ±8 px, gemeten door Iris): zie C en D. (#26)
+3. **Geluid aan.** Gedaan door mij op 25 nov: `kern/geluid.gd` speelt nu Mila's wav's echt af (plof bij een val, hap bij Gloop, munt 0,18 s erna, koop, lied). Tot nu toe speelde geen script ze af, dus de knop Sound deed niets (GEZIEN, geen `.wav` in een .gd). Zacht op -6 dB, hooguit één munt per 0,12 s, uit via Sound in het systeemvak. Muziek blijft uit.
+4. **Pulserende ring in plaats van tekst** "click Gloop" en "click the pit": om het ding dat je kunt kopen een ring die zacht groter en kleiner wordt (1,2 s per keer), geen woorden. Het pijltje van C blijft alleen voor stap 3 en 4. (#26, ring door Mila als zij #43 af heeft)
+5. **Gloop plat levert iets op:** als een held Gloop plat slaat, vliegt er één hoedje van zijn kop en een klein "-1" in grijs, zodat je ziet dat het iets kost. (later, na #26)
+
 ## Toets 8: de speeltestbuild als .exe, eerste 3 minuten en ritme (17 nov ±04:04 UTC, run 44008361789, 959aef4 = spelcode van main sinds 7e1ee59)
 GEZIEN in `hol.log` op `schermen` (`steam-hol-duur/claude-steam-hol-regels-zaad-1794860558-1920x1080-exe/`), ritme met `e2e/ritme_meting.py` zelf gedraaid.
 - **Ritme haalt mijn eis ruim:** held in beeld 62% (eis 45%), langste stuk zonder held en zonder regel 26 s (eis 40 s), 107 kroniekregels in 20 min.

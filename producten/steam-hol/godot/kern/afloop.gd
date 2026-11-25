@@ -88,6 +88,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 			# de afloop zie je wel: de helden die erdoor komen krijgen een eigen regel die voorgaat (binnen_lied, strook.gd)
 			s._kroniek(s.regels.kies("lied", {"naam": info.naam}), true, "lied")
 			s.lied_helden += lied
+			if s.get("geluid") != null:
+				s.geluid.speel("lied")
 			if not s.demo:
 				s.volgende_held = minf(s.volgende_held, s.t + s.rng.randf_range(8.0, 20.0))
 	else:
@@ -106,6 +108,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		s.hol.munt_regen(s.hol.pos_naar_cel(_held.position).x, 3 + mini(reeks - 1, 3))   # meer muntjes in een reeks
 		if s.get("klap") != null and _held != null:
 			s.klap.vangst(_held.position, buit, reeks)
+		if s.get("geluid") != null:   # plof of hap, en net daarna de munt (kern/geluid.gd)
+			s.geluid.vangst(String(info.get("wat", "fell")).ends_with(s.slijm.naam()))
 		if reeks >= 2:
 			s.log_regel("HOL reeks %d (+%d, t %.1f)" % [reeks, reeks_bonus(reeks), s.t])
 		var wat: String = String(info.get("wat", "fell"))

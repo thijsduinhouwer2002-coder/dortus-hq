@@ -15,6 +15,7 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 | Afloop | `kern/afloop.gd` | Olaf | wat er gebeurt als een held klaar is: vlucht met wrok, of val met goud, munten en hoed op de toren; `terugslag` (de vangst slaat terug op de binnenkomst, `binnen_soort`), `hap_soort` (eigen hapregel per heldensoort, terugkomers en demofilm gewoon `val_bewoner`); zet de volle naam in `s.laars_namen` als de valregel een laars noemt (laarsgrap, Iris 19 nov; niet bewaard bij herstart) |
 | Opslag | `kern/opslag.gd` | Olaf | bewaren en laden (`user://hol.json`), voortgang terwijl je weg was (via `systemen/voortgang.gd`) |
 | Klap | `kern/klap.gd` | Olaf | het kernmoment van de val (issue 5): witte klap-ster, "+9" in goud uit de aarde, "x3" bij een reeks vangsten op rij; reeksbonus in `afloop.gd` (`reeks_bonus`, vanaf de derde +1, hooguit +4), vlucht zet de reeks op 0; toets `systemen/toetsen/toets_klap.gd` |
+| Geluid | `kern/geluid.gd` | Sanne | speelt Mila's wav's af: plof of hap bij een vangst en 0,18 s later de munt, koop, lied; -6 dB, hooguit één munt per 0,12 s; Sound in het systeemvak dempt bus 0; toets in `toets_klap.gd` |
 | Tekstvak | `kern/tekst.gd` | Olaf | goud, laatste regel, paneel bij hover |
 | Regels | `kern/regels.gd` | Olaf | voorraad korte regels per soort (aangevuld uit `systemen/kroniek_regels.gd`), schudzak, max 42 tekens; `vul` vult {naam}, {held}, {oud} en {ouder} (die laatste uit de naam via `namen.gd`) |
 | Hol | `hol/hol.gd` | Olaf | raster, graven, put, schat, munten, tekenen |
