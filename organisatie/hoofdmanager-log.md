@@ -1,3 +1,4 @@
 # Logboek hoofdmanager (nieuwste bovenaan, één regel per ronde)
 
+- 25 nov 03:40 NL: #14 dicht (Daan ja #37), Bram alleen #2 met uitgave-run 1.2.8 voor 20:00; Beeldmaker terug naar #13 (regel "on every cut" nog niet weg) voor #39; Sanne #31 op later; Mila #32 afronden, volgende #43 (ster en kader, later); Olaf na #24 naar #25; tag Click Cuts zip mij geweigerd, staat bij hoofdchat. Grootste gat: Pro staat nog op 1.2.3 met oude cover, sale vr 27 nov; plakken vanavond 20:00 of het mist de sale. Ruismeter 42%.
 - 25 nov 00:45 NL: Daan ontlast (#8 later, #15 dicht, volgorde #29 #17 #18); robot-hoofdbeeld Pro live vóór sale na Daan ja; #21 #22 #23 #25 #26 #27 op later (één issue per agent); Hats-weekdoel naar feedback Thijs; Mila #6 alleen spelopname telt; Afkijker eerst lat Hats. Grootste gat: Pro staat nog op 1.2.3 met oude cover, sale vr 27 nov, Daan is de flessenhals. Ruismeter 30%.

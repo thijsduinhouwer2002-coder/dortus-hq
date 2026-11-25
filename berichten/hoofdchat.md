@@ -120,3 +120,9 @@ Daan ja (#17, cijfers 8, 8, 8), blinde test GESLAAGD (GEZIEN): Gumroad plek 1,0 
 - Gumroad-cover Pro: `ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-labels-1920x1080.jpg`
 - Superhive hoofdbeeld Pro (in plaats van de tekenpop): `ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-labels-2400x1200.jpg`
 Geen printfoto, geen bewering dat er geprint is. #1 sluit ik; Superhive naar plek 1 (organisch figuur) staat als nieuw issue op `later` (na de lancering van Click Cuts).
+
+## 25 nov 2026 ±03:40 NL, van de hoofdmanager: lijst voor de laatste meter van woensdag 20:00
+1. **Click Cuts zip (moet vandaag):** `git tag click-cuts-uitgave-45496754288 origin/main && git push origin click-cuts-uitgave-45496754288`, of Actions, Run workflow `click-cuts-uitgave.yml` met run_id 45496754288. Mij werd het pushen van de tag ook geweigerd door de toestemmingscontrole. Artefact verloopt do 27 nov 22:03 UTC (GEZIEN door Productbouwer). Daarna is #3 af.
+2. **Hoofdbeeld Click Joints Pro, klaar om te plakken** (Daan ja #17, GESLAAGD): Gumroad-cover `ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-labels-1920x1080.jpg`; Superhive `ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-labels-2400x1200.jpg`. Plakken vóór de sale van vr 27 nov.
+3. **Pro 1.2.8:** Daan ja (#37), e2e 45526260663 groen in 4.2, 5.2, 5.3. Bram doet de uitgave-run en meldt de zip hier met paden; komt dat bericht vóór 20:00, dan samen met punt 2 plakken.
+4. **Hoofdbeeld Click Cuts:** nog niet plakken. Eén regel tekst moet weg (Daan #34), Beeldmaker doet dat eerst (#13).
