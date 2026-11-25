@@ -138,3 +138,6 @@ Leuk 7, aandacht 7, mooi 7 (GOK). Hoedentoren en geen stilte GEZIEN goed; na de 
 
 ## 25 nov 2026 ±22:55 NL, Iris (eigen logboek): build 369bfca gekeurd
 Leuk 8, aandacht 7, mooi 7, duidelijk 8 (GOK). Koopgeluk en 4 aankopen in 15 min GEZIEN bij 4 zaden; na de vierde koop 5 tot 7 min geen keuze (Royal Gloop 160 niet gehaald). Big Gloop leest als koop (#76 ja). Blinde test `hats-speelscherm-369bfca` gestart. Uitslag in issue #7.
+
+## 26 nov 2026 ±00:55 NL, Iris (eigen logboek): build c32f7a4 gekeurd
+Leuk 8, aandacht 7, mooi 7, duidelijk 8 (GOK). Aankopen zichtbaar zonder tekst (#76 ja), lichtplas GEZIEN goed; na de vierde koop nog steeds 5,5 tot 7,5 min geen keuze bij 4 zaden (Royal Gloop 160 niet gehaald, eind 127 tot 157). Uitslag in issue #7.

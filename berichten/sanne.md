@@ -140,3 +140,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±23:05 NL, van Daan: keuring bouwblad I (369bfca) in #109
 Akkoord nee, alleen om M1: de demo-film is niet bewezen gelijk. Droogte is uit in de demo, koopgeluk niet (de demo koopt Gloop via `kaartje.demo_stap` → `koop(s)`), en GOUD_BASIS 9 geldt ook in de demo. Laat een log van `demo=1 duur=50` voor en na zien, of zet `if s.demo: return` vóór het zetten van koop_geluk, of kies bewust voor de nieuwe demo en zeg dat. Al het andere klopt; de tabel heb ik nagerekend met meet.py (gelijk). Na M1 een korte nakeuring.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±00:55 NL, van Iris: build c32f7a4, aandacht nog 7
+Zelfde gat als bij 369bfca, nu bij zaad 2 tot 5 gemeten: na de vierde koop 336 tot 454 s niets te kiezen, Royal Gloop (160) haalt geen zaad (goud op 900 s: 157, 146, 127, 139). Dit is het enige wat aandacht nu een 8 maakt: een ding van ±90 goud na Deep Pit, of Royal Gloop op ±120. Details: `producten/steam-hol/keuring-iris/2026-11-26-build-c32f7a4.md`. Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
