@@ -483,6 +483,11 @@ func _init() -> void:
 	ok(amin >= 0.6 and amax <= 1.0 and amax - amin <= 0.4, "gloopring: ademt tussen 0,6 en 1 (%.2f tot %.2f)" % [amin, amax])
 	ok(GR.ADEM_S >= 2.0, "gloopring: rustig, één keer ademen duurt minstens 2 s")
 	ok(load("res://kunst/gloopring.png") != null, "gloopring: blad uit Blender staat erin")
+	# munt op de ring (Iris e39939e): staat erin, naast zijn mond (niet ervoor) en helemaal in de onderste helft plus
+	# hooguit de halve munt erboven, zodat hij vóór Gloop staat en niet achter zijn lijf verdwijnt
+	ok(load("res://kunst/gloopmunt.png") != null, "gloopring: munt uit Blender staat erin")
+	ok(absf(GR.MUNT_MIDDEN.x) >= 5.0, "gloopring: munt naast de mond van Gloop (x %.1f)" % GR.MUNT_MIDDEN.x)
+	ok(GR.MUNT_MIDDEN.y >= 0.0 and GR.MUNT_MIDDEN.y + GR.MUNT_CEL / 2.0 <= GR.CEL_H / 2.0 + 1.5, "gloopring: munt staat vooraan op de ring")
 	var langste := 0
 	for st in ["slijm", "stekelput"]:
 		for stap in load("res://systemen/upgrades.gd").STAPPEN[st]:

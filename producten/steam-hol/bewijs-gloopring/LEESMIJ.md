@@ -18,3 +18,11 @@ Iris (keuring 46cdec1): tekst 6, aandacht 6. Thijs wil rustig. Daarom staat "Big
 Draai: `~/bpyenv/bin/python modellen/gloopring.py godot/kunst/gloopring.png 8 96` (±5 s).
 
 **Code:** `godot/systemen/gloop_ring.gd` (nieuw), `systemen/slijm.gd` (`zet_klaar`, `ring_aan`), `kern/kaartje.gd` (`tik` zet de ring, `doel_regel` geeft leeg als Gloop klaar is). Zuinig: de ring tekent één keer; het ademen is alleen doorzichtigheid en maat, 10 keer per seconde, en alleen als de ring aan is.
+
+## Munt op de ring (Mila, 25 nov ±13:00, na de keuring van Iris op e39939e)
+Iris: "je ziet dat Gloop iets bijzonders heeft, niet dat je hem kunt kopen. Half ja." Daarom staat er nu een gouden munt rechtop links vooraan op de ring. In het hol betekent een munt al "dit kun je kopen" (het muntje boven een put); de ring zegt nu hetzelfde, zonder tekst.
+- Munt ±10 schermpixels op strook 120, even groot als de muntjes boven de putten (GEZIEN). Naast zijn mond, nooit ervoor; ver van de goudschat rechts zodat hij daar niet in wegvalt. Hij ademt mee met de ring, verder stil.
+- Eigen blad `godot/kunst/gloopmunt.png` (64 x 64, 8 bladpixels per spelpixel) uit hetzelfde `modellen/gloopring.py`, zodat hij groter mag zijn dan de onderste helft van de ring en toch helemaal vóór Gloop staat.
+- `gloopring-munt-30s-ware-grootte.mp4`: 155 tot 185 s, met geluid. Ring en munt aan op 164,1 s bij 47 goud (log `HOL gloop ring aan na 164.1 s (goud 47)`).
+- `gloopring-munt-strip-ware-grootte.png` en `-2x.png`: 41 goud zonder ring, de klap die het goud brengt, ring en munt die opkomen, Gloop die knipoogt in de ring.
+- Toetsen 7 x 0 FOUT op Linux, 3 nieuwe voor de munt (staat erin, naast de mond, vooraan op de ring).

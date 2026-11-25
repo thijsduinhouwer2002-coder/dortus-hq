@@ -9,6 +9,12 @@ extends Node2D
 # het ademen is alleen modulate en scale, en alleen 10 keer per seconde (zoals de rest van het spel weinig tekent).
 
 const BLAD := preload("res://kunst/gloopring.png")
+# Munt op de ring, links vooraan (Iris, keuring e39939e: "je ziet dat Gloop iets bijzonders heeft, niet dat je hem kunt
+# kopen"). Een munt betekent in het hol "dit kun je kopen", net als het muntje boven een put. Eigen blad uit hetzelfde
+# Blender-bestand; midden van de munt in spelpixels vanaf het midden van de ring (print van modellen/gloopring.py).
+const MUNT := preload("res://kunst/gloopmunt.png")
+const MUNT_CEL := 8.0
+const MUNT_MIDDEN := Vector2(-7.0, 0.3)
 const CEL_W := 36.0
 const CEL_H := 12.0
 const ADEM_S := 2.8         # één keer ademen
@@ -19,6 +25,7 @@ const OPKOMEN_S := 0.6      # zacht verschijnen als je net genoeg goud hebt
 
 var helft := "achter"       # "achter" of "voor"
 var tex: CanvasTexture
+var munt_tex: CanvasTexture
 var t := 0.0
 var _stap_t := 0.0
 var basis := 1.0            # maat van Gloop: 1 groot, 0,8 klein (slijm.gd zet_klaar)
@@ -27,6 +34,9 @@ func _ready() -> void:
 	tex = CanvasTexture.new()
 	tex.diffuse_texture = BLAD
 	tex.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	munt_tex = CanvasTexture.new()
+	munt_tex.diffuse_texture = MUNT
+	munt_tex.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	show_behind_parent = helft == "achter"
 	visible = false
 	set_process(false)
@@ -39,6 +49,7 @@ func _draw() -> void:
 		draw_texture_rect_region(tex, Rect2(-CEL_W / 2.0, -h, CEL_W, h), Rect2(0, 0, bron_w, bron_h))
 	else:
 		draw_texture_rect_region(tex, Rect2(-CEL_W / 2.0, 0, CEL_W, h), Rect2(0, bron_h, bron_w, bron_h))
+		draw_texture_rect(munt_tex, Rect2(MUNT_MIDDEN - Vector2(MUNT_CEL, MUNT_CEL) / 2.0, Vector2(MUNT_CEL, MUNT_CEL)), false)
 
 # licht (0 tot 1) en maat op tijd t sinds aan; los zodat de toets het kan nakijken
 static func adem(t_: float) -> Vector2:
