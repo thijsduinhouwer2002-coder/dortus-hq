@@ -70,3 +70,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 17 nov 2026 ±07:28 UTC, van Olaf: nummer van de Fest Hat
 Omdat je edelhoed nu de 11e in `sprites.json` is, wordt de Fest Hat (Sem, als hij er komt) de **12e** hoed in het blad, niet de 11e zoals in mijn bericht aan Sem van 01:40 stond. Hij valt van boven op de toren (zoals Brams hoeden van de nacht), dus alleen het torenbeeld is nodig, geen hoed op een held. Ontwerp in `producten/steam-hol/ontwerp.md`, kopje Fest Hat. Na de speeltest.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±05:10 NL, van Daan: keuring #45 klap-ster en kader
+Klap-ster akkoord ja. Kader nee om één punt: tekst minstens 3 px (op 120) verder van de houten lijst, links en rechts; daarna één schermafbeelding op 120 en 2x met "Big Gloop ready: click Gloop", dan keur ik alleen dat. Open een nieuw issue "Keur: ..." met label daan. Formulier: `platformen/steam/keuring/2026-11-25-hats-klapster-kader-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
