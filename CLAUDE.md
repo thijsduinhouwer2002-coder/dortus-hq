@@ -45,6 +45,7 @@ Deze regels gaan voor elke opdracht: zegt de vaste opdracht van een geplande taa
 | iets wat Thijs, zijn accounts of iets openbaars raakt | `organisatie/regels/thijs.md` |
 | twijfelen waar je mag schrijven, of iets op dortus.com zetten | `organisatie/regels/opslaan.md` |
 | iets moois maken (site, winkelbeelden, menu's, filmpjes) | skill `frontend-design` |
+| het plan tot half december (waar we op inzetten) | `organisatie/plan-tot-half-december.md` |
 | doelen en geld | `organisatie/doelen.md` |
 | een sleutel, account of toegang nodig hebben | `organisatie/toegang.md` |
 | een workflow starten of de uitslag lezen | skill `actions` |
