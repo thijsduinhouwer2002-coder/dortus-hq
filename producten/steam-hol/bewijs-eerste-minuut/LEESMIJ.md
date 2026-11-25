@@ -21,3 +21,5 @@ Thijs 24 nov: "het is niet duidelijk wat je moet doen". Nu leert het spel het je
 - Toetsen 7 x 0 FOUT op Linux (systemen, namen, held, vleermuis, berg_wand, klap, aanloop).
 
 **Code:** `godot/kern/eerste_minuut.gd` (nieuw), `kern/strook.gd` (aanmaken, doel op het bord leeg tijdens de les), `kern/opslag.gd` (veld `uitleg`), `kern/proef.gd` (`uitleg_klik=<s>` voor film en toets).
+
+**25 nov ±13:00 (Sanne, Daan #64 C3):** bij "Click the tunnel to set a trap." wees het pijltje op het pas gegraven kamertje, het gouden vak lag een rij lager. Nu loopt de pijl met een steel door het kamertje en raakt de punt de bovenkant van het gouden vak. Bij "dig" raakt de punt het gras boven het vak. GEZIEN in `pijl-dig-en-trap-2x.png` (boven dig op 12 s, onder trap op 17 s) en `eerste-minuut-60s-pijl-op-vak.mp4` (60 s, alleen de strook, zonder geluid; Godot 4.3 Linux onder xvfb, `hoogte=120 vers=1 zaad=2 uitleg_klik=6 balk=0`). Log: dig 9,0 s, trap 15,1 s, klaar 21,2 s. Toetsen 7 x 0 FOUT op Linux.

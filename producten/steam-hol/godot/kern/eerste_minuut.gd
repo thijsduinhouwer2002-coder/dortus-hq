@@ -183,9 +183,20 @@ func _draw() -> void:
 		if duw_t >= 0.0 and stap_t - duw_t < 0.8:
 			groot = 1.0 + 0.6 * sin((stap_t - duw_t) / 0.8 * PI)
 		var wip := (0.5 + 0.5 * sin(stap_t * TAU / 0.9)) * 2.0 * sc
+		# De punt raakt de bovenkant van het gouden vak. Bij de val ligt dat vak een rij onder het pas gegraven
+		# kamertje: dan loopt een steel door het kamertje, zodat je niet eerst naar het kamertje kijkt (Daan #64 C3).
 		var bw := 3.5 * sc * groot
+		var kop := 5.0 * sc * groot
 		var top := py + 1.0 + wip
-		var punt := minf(lucht - 1.0, top + 5.0 * sc * groot)
-		var pts := PackedVector2Array([Vector2(pijl_x - bw, top), Vector2(pijl_x + bw, top), Vector2(pijl_x, punt)])
+		var doel_y := maxf(lucht, vak.position.y) - 1.0
+		var punt := maxf(top + kop, doel_y + wip * 0.5)
+		var kop_top := punt - kop
+		var donker := Color(0.13, 0.07, 0.05, 0.9)
+		if kop_top - top > 1.0:
+			var st := maxf(1.0, 0.9 * sc)
+			var steel := Rect2(pijl_x - st, top, st * 2.0, kop_top - top + 0.5)
+			draw_rect(steel.grow(1.0), donker, true)
+			draw_rect(steel, Color("#ffe07a"), true)
+		var pts := PackedVector2Array([Vector2(pijl_x - bw, kop_top), Vector2(pijl_x + bw, kop_top), Vector2(pijl_x, punt)])
 		draw_colored_polygon(pts, Color("#ffe07a"))
-		draw_polyline(PackedVector2Array([pts[0], pts[1], pts[2], pts[0]]), Color(0.13, 0.07, 0.05, 0.9), 1.5, true)
+		draw_polyline(PackedVector2Array([pts[0], pts[1], pts[2], pts[0]]), donker, 1.5, true)

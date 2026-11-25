@@ -2326,3 +2326,4 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - 24 nov ±23:21 NL Olaf: issue 5 deel 1, de val krijgt een klap: witte ster, "+9" in goud omhoog, reeks "x2" tot "x6" met meer muntjes en bonus tot +4 (kern/klap.gd, toets_klap 0 FOUT, lokaal GEZIEN in de demofilm op 120 px).
 - 25 nov 2026 (Sanne): plan 'van virus naar leuk' bovenaan spelgevoel.md (issue #19), Mila op #32 loopbeelden, #6 en #30 op later.
 - 25 nov ±07:45 Olaf (#25): klap-ster (Mila) en witte flits bij vallen ingebouwd, sprongteken onder het gras, held.gd 337 en held_beeld.gd 392 regels (held_val.gd, held_noot.gd); 6 toetsen 0 FOUT (GEZIEN, Linux), film bewijs-klap-in/.
+- 25 nov ±13:00 Sanne: pijl bij 'set a trap' raakt nu het gouden vak (Daan #64 C3), keuring #77.
