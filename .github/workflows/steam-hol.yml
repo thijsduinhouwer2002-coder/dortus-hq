@@ -31,7 +31,7 @@ jobs:
         shell: pwsh
         run: |
           $fout = 0
-          foreach ($t in @("toets_systemen", "toets_namen", "toets_held", "toets_vleermuis", "toets_berg_wand", "toets_klap", "toets_aanloop")) {
+          foreach ($t in @("toets_systemen", "toets_namen", "toets_held", "toets_vleermuis", "toets_berg_wand", "toets_klap", "toets_aanloop", "toets_licht")) {
             $uit = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot -s "systemen/toetsen/$t.gd" 2>&1 | Out-String
             Write-Output $uit
             if ($LASTEXITCODE -ne 0 -or $uit -match "FOUT [^0]|SCRIPT ERROR|Parse Error") { Write-Output "== $t ROOD"; $fout++ }
@@ -41,7 +41,7 @@ jobs:
         shell: pwsh
         run: |
           $alles = ""
-          foreach ($f in @("kern/strook.gd", "kern/wachtrij.gd", "kern/namen.gd", "kern/afloop.gd", "kern/opslag.gd", "kern/kaartje.gd", "kern/tekst.gd", "kern/eerste_minuut.gd", "hol/hol.gd", "hol/hol_vast.gd")) {
+          foreach ($f in @("kern/strook.gd", "kern/wachtrij.gd", "kern/namen.gd", "kern/afloop.gd", "kern/opslag.gd", "kern/kaartje.gd", "kern/tekst.gd", "kern/eerste_minuut.gd", "hol/hol.gd", "hol/hol_vast.gd", "kern/hol_lagen.gd", "systemen/licht.gd", "systemen/licht_gloed.gd", "systemen/leven.gd")) {
             $uit = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --check-only -s $f 2>&1 | Out-String
             Write-Output "== $f"
             Write-Output $uit

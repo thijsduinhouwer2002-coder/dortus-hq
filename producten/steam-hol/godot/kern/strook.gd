@@ -17,6 +17,7 @@ const RITME := preload("res://kern/ritme.gd")   # wanneer de volgende held komt;
 const BINNENKOMST := preload("res://kern/binnenkomst.gd")   # een nieuwe held of terugkomer binnen laten
 const KAARTJE := preload("res://kern/kaartje.gd")
 const DEMO_EINDE := preload("res://kern/demo_einde.gd")   # gratis Steam-demo: na 2 uur stopt alleen groeien
+const HOL_LAGEN := preload("res://kern/hol_lagen.gd")   # lagen in het hol, in tekenvolgorde (#97)
 const PROEF := preload("res://kern/proef.gd")       # startargumenten, proeven en winkelmomenten
 const MUISVLAK := preload("res://kern/muisvlak.gd")
 const VENSTER := preload("res://kern/venster.gd")   # venster plaatsen, invoer, hoogte, stoppen (issue #24)   # welk deel van het venster de muis vangt
@@ -189,21 +190,7 @@ func _ready() -> void:
 	if "helden" in proef_uit3d:
 		load("res://systemen/held_beeld.gd").met_3d = false
 	hol.maak(int(scherm.size.x / schaal))
-	wezens = Node2D.new()
-	wezens.name = "Wezens"
-	# vleermuis (Bram 16 nov, Mila punt 4b) vóór Wezens: de helden lopen voor hem langs; zonder blad doet hij niets
-	var vleermuis := Node2D.new()
-	vleermuis.set_script(load("res://systemen/vleermuis.gd"))
-	vleermuis.name = "Vleermuis"
-	hol.add_child(vleermuis)
-	# bordje met het hol-niveau (Mila 16 nov 16:20, plek Daan keus A), ook vóór Wezens; zonder blad doet het niets
-	holbord = Node2D.new()
-	holbord.set_script(load("res://systemen/holbord.gd"))
-	holbord.name = "Holbord"
-	hol.add_child(holbord)
-	hol.add_child(wezens)
-	vleermuis.zet(hol, wezens)
-	holbord.zet(self, hol)
+	HOL_LAGEN.maak(self)   # licht, klein leven, vleermuis, bordje en wezens in het hol (kern/hol_lagen.gd)
 	# Brams slijm (Gloop, gaat nooit dood) als die er is, anders de stand-in
 	slijm = Node2D.new()
 	slijm.set_script(load("res://systemen/slijm.gd") if ResourceLoader.exists("res://systemen/slijm.gd") else load("res://kern/standin_slijm.gd"))

@@ -7,6 +7,9 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 | Strook | `kern/strook.gd` | Olaf | venster boven de taakbalk, hoogte (96, 120, 160), de toestand van het spel, de eerste tien minuten (BEGIN, BEGIN_DEMO; de keuze van de stap staat in `binnenkomst.gd`), `_process` |
 | Muisvlak | `kern/muisvlak.gd` | Olaf | welk deel van het venster de muis vangt (hol, gras, bult boven Gloop, paneel bij hover); strook.gd houdt `_muis_vlak`, `muis_vlak_punten` en `gloop_bult` als doorgeefluik |
 | Proef | `kern/proef.gd` | Olaf | startargumenten (hoogte, duur, log, demo, film, zaad, fps en alle `*_proef`), en de winkelmomenten `moment=hap/val/munt` met de logregel `HOL moment vast` |
+| Hol-lagen | `kern/hol_lagen.gd` | Olaf | maakt de lagen in het hol in tekenvolgorde: klein leven, licht, vleermuis, bordje, Wezens (helden en Gloop bovenop) |
+| Licht | `systemen/licht.gd`, `systemen/licht_gloed.gd` | Olaf | lichtkaart (vermenigvuldigen, halve spelpixels, alleen opnieuw als het hol verandert) en warme gloed (optellen, flakkert 90 tot 100%) om fakkel, schatkamer en schacht; `uit3d=licht` zet licht en leven uit (#97) |
+| Leven | `systemen/leven.gd` | Olaf | om de 5 tot 15 s één klein ding: stofje, worm, kruimels, mot; logregel `HOL leven`; toets `toets_licht.gd` (#97) |
 | Ritme | `kern/ritme.gd` | Olaf | wanneer de volgende held komt (ook na het lied van een bard) en het graven in de demo-film |
 | Kroniek-wachtrij | `kern/wachtrij.gd` | Olaf | welke regel wanneer in het tekstvak komt (gebeurtenis gaat voor, binnenkom-regel vervalt na 3 s) |
 | Beeldtempo | `kern/beeldtempo.gd` | Olaf | 10 beelden per s, 20 tijdens een moment (val, hap, muntjes); `fps=<n>` houdt het vast. Helden lopen in hele pixels op een klok van 0,1 s (`systemen/held.gd` PAS) |
