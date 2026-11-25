@@ -489,6 +489,39 @@ if PUT_STAP == 0 and not PUT_OUD:
     bol("putschedel", (PUT_X - 0.34, 0.02, -0.17), (0.13, 0.11, 0.12), BOT, 16)
     for ox in (-0.045, 0.045):
         bol("putschedel_oog", (PUT_X - 0.34 + ox, -0.09, -0.15), (0.03, 0.02, 0.035), PUT_ZWART, 10)
+elif PUT_STAP == 1 and not PUT_OUD:
+    # Mila 25 nov (issue #76, tempo-regel 4): Rusty Spikes las na de koop zwakker dan de put ervoor (dunne donkere
+    # staafjes tegen de roodbruine vloer, hoed en schedel weg). Nu dezelfde opbouw als stap 0, maar meer en hoger:
+    # 7 stekels voor in plaats van 5, ±15 procent hoger, onderste helft fel oranje roest, bovenste helft glimmend staal
+    # met een wit puntje. Hoed en schedel blijven: het is dezelfde put, alleen gemener.
+    STAAL_P = g.mat("put_staal", "eef0f6", rough=0.25, spec=0.9, metaal=0.5, emis=0.18)
+    ROEST_F = g.mat("put_roest", "d0601c", rough=0.8, spec=0.2, metaal=0.1, emis=0.12)
+    ROEST_D = g.mat("put_roestd", "8a3410", rough=0.9, spec=0.1)
+    RAND_D = g.mat("put_randd", "1a0a0a", rough=1.0, spec=0.0)
+    rnd_r = random.Random(11)
+    hoogtes = (0.74, 1.0, 0.82, 1.06, 0.86, 0.98, 0.76)
+    for i, hoog in enumerate(hoogtes):
+        x = PUT_X - 0.6 + i * 0.2
+        r = 0.088
+        kant = (0, math.radians(rnd_r.uniform(-6, 6)), 0)
+        z0 = -0.3
+        cil("stekel", (x, 0.12, z0 + hoog / 2), r, hoog, STAAL_P, rot=kant, verts=10, r2=0.0)
+        k = 0.52   # roest tot iets over de helft, een kraag net om de stekel heen
+        cil("stekelroest", (x, 0.115, z0 + hoog * k / 2), r + 0.012, hoog * k, ROEST_F if i % 3 else ROEST_D,
+            rot=kant, verts=10, r2=r * (1 - k) + 0.012)
+        cil("stekelrand", (x, 0.2, z0 + (hoog + 0.08) / 2), r + 0.035, hoog + 0.08, RAND_D, rot=kant, verts=10, r2=0.0)
+    for i in range(6):   # achterste rij: lager, helemaal roest
+        x = PUT_X - 0.5 + i * 0.2
+        cil("stekel", (x, 0.7, -0.3 + 0.3), 0.08, 0.6, ROEST_F, verts=10, r2=0.0)
+    HX = PUT_X - 0.6 + 3 * 0.2
+    MUTS = g.mat("put_muts", "3d6fe0", rough=0.6)
+    cil("puthoed_rand", (HX, 0.1, 0.5), 0.2, 0.035, MUTS, rot=(0, math.radians(-10), 0), verts=20)
+    cil("puthoed", (HX + 0.02, 0.1, 0.62), 0.15, 0.26, MUTS, rot=(0, math.radians(-10), 0), verts=20, r2=0.0)
+    cil("puthoed_band", (HX, 0.1, 0.53), 0.152, 0.04, g.mat("put_band", "f2c230", rough=0.5), rot=(0, math.radians(-10), 0), verts=20)
+    BOT = g.mat("put_bot", "f4eee2", rough=0.35, spec=0.6, emis=0.12)
+    bol("putschedel", (PUT_X - 0.4, 0.02, -0.17), (0.13, 0.11, 0.12), BOT, 16)
+    for ox in (-0.045, 0.045):
+        bol("putschedel_oog", (PUT_X - 0.4 + ox, -0.09, -0.15), (0.03, 0.02, 0.035), PUT_ZWART, 10)
 elif PUT_STAP == 0:
     for i in range(6):
         for j in range(3):

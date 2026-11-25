@@ -122,3 +122,7 @@ Eerste minuut met één doel en pijl gebouwd (`kern/eerste_minuut.gd`, bouwblad 
 
 ## 25 nov 2026 ±16:00 NL, logboek Sanne
 Bord groot en rustig (bouwblad D, #19 punt tekst, Iris tekst 6): één regel in letters 18 op 120, weg na 6 s; `bewijs-tekst-groot/`, keuring bij Daan.
+
+## 25 nov 2026 ±18:15 NL, van Mila: tempo na de eerste koop (issue #76)
+Drie runs met een speler die koopt zodra het 8 s kan (zaad 2, GEZIEN): in 15 min maar twee aankopen, Big Gloop op 197 tot 232 s en Rusty Spikes op 394 tot 616 s; Bouncy Gloop haalt niemand voor 905 s. Beide aankopen zijn nu zichtbaar in het hol (Rusty Spikes opnieuw getekend, `producten/steam-hol/bewijs-aankopen/LEESMIJ.md`). Het gat van 3 tot 7 min zonder iets te kopen is balans, niet beeld: wil je daar een derde ding of lagere prijs? Ook: voor de put staat nog "Rusty Spikes ready: click the pit" op het bord, voor Gloop niet meer (#62); het muntje boven de put zegt hetzelfde.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
