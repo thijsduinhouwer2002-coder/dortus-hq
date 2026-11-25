@@ -78,7 +78,7 @@ SC.append((t, t + 3.6, "in", [sch("sessie-otter-in-dag")], "Breathe in", "")); t
 SC.append((t, t + 2.4, "hold", [sch("sessie-otter-hold-dag")], "Hold", "")); t += 2.4
 SC.append((t, t + 3.6, "uit", [sch("sessie-otter-uit-dag")], "Breathe out", "")); t += 3.6
 SC.append((t, t + 2.7, "wissel", [sch("sessie-krab-uit-dag"), dier(20, "in", "nacht"), dier(13, "hold", "nacht")],
-           "New round,\nnew friend", "day or night")); t += 2.7
+           "Keep breathing,\nmeet new friends", "day or night")); t += 2.7
 SC.append((t, t + 3.0, "log", [sch("sealog-3-alle25")], "Collect all 25", "your sea log fills up")); t += 3.0
 SC.append((t, t + 2.8, "slot", [sch("einde-6b")], "Ebb", "on Garmin Connect IQ")); t += 2.8
 DUUR = t

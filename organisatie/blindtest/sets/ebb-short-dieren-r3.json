@@ -1,0 +1,28 @@
+{
+  "titel": "Ebb YouTube Short 'alle dieren', ronde 3: nieuw eerste beeld met het echte horloge uit de Garmin-simulator (ronde 1 en 2: 'childish', 'unclear if it's a Garmin watch app', 'show it running on a watch')",
+  "rol": "You scroll YouTube Shorts and own a smartwatch (Garmin or similar). You are interested in calm breathing exercises. You see these four Shorts thumbnails. Pick the one you would tap and watch first.",
+  "ons": [
+    {
+      "naam": "Ebb Short: horloge groot, 'Breathe with your eyes closed?'",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/commercie/filmpjes/regisseur-25/ebb-eerste-beeld-ogen-dicht.jpg"
+    },
+    {
+      "naam": "Ebb Short: horloge groot, 'How long can you hold?'",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/commercie/filmpjes/regisseur-25/ebb-eerste-beeld-hold.jpg"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Garmin's Breathwork vs Moonbird (Wim, Garmin-apps)",
+      "url": "https://i.ytimg.com/vi/DJv7WAYCe4g/oardefault.jpg"
+    },
+    {
+      "naam": "Breath & Plunge for fenix (white-bear developers)",
+      "url": "https://i.ytimg.com/vi/DXbcpheElfI/hq720.jpg"
+    },
+    {
+      "naam": "Breathe app on Apple Watch (Missair)",
+      "url": "https://i.ytimg.com/vi/wx8tP-_xHcg/oardefault.jpg"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Sale-Short Click Joints Pro: One click turns your rigged figure into printable parts 🔥 | Blender
 
-- status: bij Daan voor keuring (stem Max erin, zelf gecontroleerd 25 nov ±22:35 NL)
+- status: klaar om te plakken (Daan ja in #111, 25 nov 23:05)
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
@@ -11,7 +11,7 @@
 - beeld: echte schermopname van Blender 5.3.0 met Click Joints Pro 1.2.8 en de eigen robot (ffmpeg x11grab, 30 beelden per seconde, echte muis en klikken, de knie gebogen met de Bend-schuif); geen getekende stappen
 - eerste beeld: `commercie/filmpjes/regisseur-26/eerste-beeld-een-knop.jpg` (studio-render robot, hook groot, "25% OFF THIS WEEK"); blinde test GESLAAGD (Gemini 1,0, ChatGPT 1,0, `organisatie/blindtest/uitslag/pro-sale-shorts-2026-11-25-1912.md`)
 - slot: "Click Joints Pro, 25% off this week, on Gumroad." in beeld en stem
-- alleen plaatsen: vr 27 nov tot en met di 1 dec, en alleen als CYBER25 aanstaat (`bash platformen/blender/sale-controle.sh`); daarna niet meer gebruiken
+- plaatsen: **za 28 nov ochtend** (Daan K3: niet op dezelfde ochtend als eindstop). Alleen tussen vr 27 nov tot en met di 1 dec, en alleen als CYBER25 aanstaat (`bash platformen/blender/sale-controle.sh`); daarna niet meer gebruiken
 - gemaakt_door: Regisseur run 29 en 30 (25 nov 2026)
 
 ## Titel

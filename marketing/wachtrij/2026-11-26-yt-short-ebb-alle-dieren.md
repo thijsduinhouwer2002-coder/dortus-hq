@@ -16,7 +16,7 @@
 Which sea animal breathes with you tonight? 🐙 Breathing on your Garmin
 
 ## Tekst
-25 sea friends breathe along with you on your Garmin watch. Breathe in, hold, breathe out, and every round a new friend joins your sea log. Day or night.
+25 sea friends breathe along with you on your Garmin watch. Breathe in, hold, breathe out. Keep coming back and new friends join your sea log. Day or night.
 Ebb is our breathing app for Garmin: search "Ebb" in the Connect IQ Store, or type dortus.com/yt
 Screens from the Garmin simulator (fenix 8).
 #garmin #breathing #breathwork #calm #smartwatch #connectiq
