@@ -1,0 +1,20 @@
+# Gloop laat zelf zien dat hij klaar is (Mila, 25 nov 2026, issue #62)
+
+Iris (keuring 46cdec1): tekst 6, aandacht 6. Thijs wil rustig. Daarom staat "Big Gloop ready: click Gloop" niet meer op het bord: Gloop krijgt een ring van licht om zijn voet zodra je zijn volgende stap kunt kopen.
+
+**Wat de speler ziet:**
+- Genoeg goud voor Gloops volgende stap: een ring van licht ligt op de vloer om hem heen, licht mint met een wit hart en vier lichtpareltjes. De achterkant zit achter zijn lijf, de voorkant ervoor, dus hij staat ín de ring.
+- De ring komt in 0,6 s zacht op en ademt daarna rustig in 2,8 s (licht 0,62 tot 1, maat 0,97 tot 1,03). Geen knipperen, geen geluid, geen schermschudden.
+- Op het bord staat dan geen regel meer (alleen het goud en de kroniek). Het muntje boven Gloop is weg: de ring vervangt het. Het muntje boven een put blijft.
+- Ligt Gloop plat, dan wacht de ring tot hij weer staat (plat las de ring als een schoteltje).
+- Kleur: mint op de roodbruine aarde is het grootste kleurverschil in het hol; een gouden ring viel weg tegen de schat ernaast.
+
+**Bewijs (GEZIEN, Godot 4.3 Linux onder xvfb, scherm 1024 breed, strook 120, `vers=1 zaad=2 uitleg_klik=6`, 20 beelden per s):**
+- `gloopring-45s-ware-grootte.mp4`: 155 tot 200 s speeltijd op ware grootte. Op 164,7 s heeft de speler 47 goud (Big Gloop kost 45): ring aan (log: `HOL gloop ring aan na 164.7 s (goud 47)`).
+- `gloopring-strip-ware-grootte.png` en `gloopring-strip-2x.png`: 41 goud met "Next: Big Gloop, 4 gold to go" en geen ring; daarna de ring die opkomt, zwak en sterk ademend, bord zonder regel.
+- Toetsen 7 x 0 FOUT op Linux (systemen, namen, held, vleermuis, berg_wand, klap, aanloop), met 4 nieuwe toetsen voor de ring.
+
+**Kunst:** `modellen/gloopring.py` (Blender, geen AI, geen gekocht pakket) maakt `godot/kunst/gloopring.png`, 288 x 96 (cel 36 x 12 spelpixels, 8 bladpixels per spelpixel: scherp tot strook 160 zonder opschalen).
+Draai: `~/bpyenv/bin/python modellen/gloopring.py godot/kunst/gloopring.png 8 96` (±5 s).
+
+**Code:** `godot/systemen/gloop_ring.gd` (nieuw), `systemen/slijm.gd` (`zet_klaar`, `ring_aan`), `kern/kaartje.gd` (`tik` zet de ring, `doel_regel` geeft leeg als Gloop klaar is). Zuinig: de ring tekent één keer; het ademen is alleen doorzichtigheid en maat, 10 keer per seconde, en alleen als de ring aan is.

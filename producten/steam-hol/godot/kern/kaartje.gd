@@ -70,6 +70,8 @@ static func doel_regel(s) -> String:
 	var bew: String = s._bewoner()
 	var naam := String(d.naam).replace("Gloop", bew) if d.soort == "slijm" else String(d.naam)
 	var ding := bew if d.soort == "slijm" else "the pit"
+	if d.soort == "slijm" and s.hol.goud >= int(d.kost) and s.slijm != null and s.slijm.has_method("zet_klaar"):
+		return ""   # Gloop laat zelf zien dat hij klaar is (ring, issue #62): geen regel op het bord
 	return doel_tekst(naam, ding, int(d.kost), s.hol.goud)
 
 # "Next: a tavern tale, 4 heroes" (Sanne 16 nov 16:10/16:20); past de naam niet in DOEL_MAX: "Next: level 13, 40 heroes".
@@ -264,15 +266,22 @@ static func tik(s) -> void:
 		dicht(s)
 	var up = s.hol.upgrades
 	var munt: Array = []
+	var klaar := false   # Gloop is klaar: hij krijgt zijn ring (systemen/gloop_ring.gd, issue #62), geen muntje meer boven hem
 	if DEMO_EINDE.klaar(s):
 		pass   # na het demo-einde geen muntje en geen koop-hint meer
 	elif up.kan_kopen("slijm", s.hol.goud):
-		munt.append(slijm_kol(s))
+		klaar = true
 	if not DEMO_EINDE.klaar(s) and up.kan_kopen("stekelput", s.hol.goud):
 		for k in s.hol.vallen:
 			munt.append(int(k))
+	var ring := klaar
+	if ring and s.slijm != null and s.slijm.has_method("is_plat") and s.slijm.is_plat():
+		ring = false   # plat leest de ring als een schoteltje: pas als hij weer staat
+	if s.slijm != null and s.slijm.has_method("zet_klaar") and s.slijm.ring_aan() != ring:
+		s.slijm.zet_klaar(ring)
+		s.log_regel("HOL gloop ring %s na %.1f s (goud %d)" % ["aan" if ring else "uit", float(s.t), s.hol.goud])
 	# demolijst punt 3 (bewijs in het spel): de eerste keer dat je iets kunt kopen, als er nog niets gekocht is
-	if not munt.is_empty() and not s.eerste_koop_gemeld:
+	if (klaar or not munt.is_empty()) and not s.eerste_koop_gemeld:
 		s.eerste_koop_gemeld = true
 		if up.niveau("slijm") == 0 and up.niveau("stekelput") == 0:
 			s.log_regel("HOL eerste koop mogelijk na %d s speeltijd (goud %d)" % [int(s.speeltijd_s), s.hol.goud])

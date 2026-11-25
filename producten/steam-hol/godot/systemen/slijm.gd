@@ -150,6 +150,45 @@ func zet(h, kol: int) -> void:
 	rng_adem.seed = hash([kol, "adem"])
 	_plan_adem()
 	_toren_uit_argument(OS.get_cmdline_user_args())
+	_maak_ring()
+
+# Gloop is klaar (Mila 25 nov, issue #62): ring van licht om zijn voet, achterkant achter het lijf en voorkant ervoor.
+const RING := preload("res://systemen/gloop_ring.gd")
+var ring_achter: Node2D
+var ring_voor: Node2D
+
+func _maak_ring() -> void:
+	if ring_achter != null:
+		return
+	for helft in ["achter", "voor"]:
+		var r := Node2D.new()
+		r.set_script(RING)
+		r.helft = helft
+		add_child(r)
+		if helft == "achter":
+			ring_achter = r
+		else:
+			ring_voor = r
+
+# Aan als je zijn volgende stap kunt kopen (kern/kaartje.gd tik). Het midden van de ring ligt op zijn voet: in het
+# 3D-blad staat de voet nul_y spelpixels onder de bovenkant van de cel, de rest is schaduw.
+func zet_klaar(aan: bool) -> void:
+	if ring_achter == null:
+		return
+	var k := 1.0 if niveau() >= 1 else 0.8
+	var voet := 0.0
+	if met_3d:
+		_laad_3d()
+		if lijf3d != null:
+			voet = -(float(lijf3d_info["cel_px"][1]) / float(lijf3d_info["px"]) - float(lijf3d_info["nul_y"][0])) * k
+	voet += 1.0   # 1 spelpixel lager: zo ligt de ring op de vloer om hem heen en niet om zijn buik (film 25 nov, GEZIEN)
+	for r in [ring_achter, ring_voor]:
+		r.position = Vector2(0, voet)
+		r.basis = k
+		r.zet_aan(aan)
+
+func ring_aan() -> bool:
+	return ring_achter != null and ring_achter.visible
 
 # Alleen voor de strooktest (Daan 13 nov 22:55: de 3D-toren keuren met 4 tot 6 hoeden): argument toren=0,4,5,1,6 geeft Gloop
 # die hoeden, oudste eerst (nummers als in held.gd). Alleen samen met vers=1. Zonder argument niets.

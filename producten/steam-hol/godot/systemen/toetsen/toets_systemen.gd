@@ -471,6 +471,18 @@ func _init() -> void:
 	ok(KJD.doel_tekst("Big Gloop", "Gloop", 45, 20) == "Next: Big Gloop, 25 gold to go", "doel_tekst: nog goud nodig")
 	ok(KJD.doel_tekst("Big Gloop", "Gloop", 45, 45) == "Big Gloop ready: click Gloop", "doel_tekst: kan, zeg waar klikken")
 	ok(KJD.doel_tekst("x", "y", -1, 0) == "", "doel_tekst: alles gekocht leeg")
+	# Gloop is klaar (Mila, issue #62): de ring komt zacht op en ademt rustig, nooit uit en nooit fel knipperend
+	var GR = load("res://systemen/gloop_ring.gd")
+	ok(GR.adem(0.0).x == 0.0, "gloopring: begint onzichtbaar (komt zacht op)")
+	var amin := 9.0
+	var amax := 0.0
+	for i in range(1, 60):
+		var a: Vector2 = GR.adem(GR.OPKOMEN_S + i * 0.1)
+		amin = minf(amin, a.x)
+		amax = maxf(amax, a.x)
+	ok(amin >= 0.6 and amax <= 1.0 and amax - amin <= 0.4, "gloopring: ademt tussen 0,6 en 1 (%.2f tot %.2f)" % [amin, amax])
+	ok(GR.ADEM_S >= 2.0, "gloopring: rustig, één keer ademen duurt minstens 2 s")
+	ok(load("res://kunst/gloopring.png") != null, "gloopring: blad uit Blender staat erin")
 	var langste := 0
 	for st in ["slijm", "stekelput"]:
 		for stap in load("res://systemen/upgrades.gd").STAPPEN[st]:
