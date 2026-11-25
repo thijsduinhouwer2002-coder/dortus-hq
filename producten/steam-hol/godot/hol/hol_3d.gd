@@ -135,20 +135,40 @@ static func teken_deco(doek: CanvasItem, naam: String, plek: Vector2, schaal: fl
 	doek.draw_texture_rect_region(deco_blad, Rect2(plek, Vector2(m[0], m[1]) * schaal), Rect2(v[0], v[1], v[2], v[3]))
 	return true
 
-# Vlammetje op de 3D-fakkel (issue #79, tempo-regel 1): de vlam in het deco-blad is een vast beeld en de gloed
-# eromheen is zwak, dus in een leeg hol stond de fakkel stil. Een smal tongetje boven op de vlam wordt hoger en lager
-# met hetzelfde flakkerpatroon als de gloed (hol.gd FLAKKER, buren dicht bij elkaar: geen sprong, geen knipperen).
-# `top` is de bovenkant van de vlam in spelpixels, f de flakkerstand 0 tot 1.
-const VLAM_VOET := Color(1.0, 0.62, 0.2, 0.85)   # oranje voet, breed als de top van de vlam
-const VLAM_PUNT := Color(1.0, 0.85, 0.4, 0.85)   # gele punt, smal, wiegt een derde spelpixel opzij
-static func vlam_hoogte(f: float) -> float:
-	return 1.0 + 1.5 * clampf(f, 0.0, 1.0)
+# Vlam op de 3D-fakkel (issue #79, tempo-regel 1; keuring Daan #80 M1 en M2): de vlam in het deco-blad is een vast
+# beeld, dus in een leeg hol stond de fakkel stil. Eerst stond er een hard geel staafje op, dat las als knipperend
+# stokje en nam de punt van de vlam weg. Nu tekenen we de fakkel in twee delen uit hetzelfde 3D-plaatje: de steel
+# gewoon, en de vlam (bovenste VLAM_BLAD bladpixels) gerekt vanaf zijn voet en met de punt iets opzij. Zelfde kleur
+# en zachtheid als de render, de punt blijft spits, en de vlam is er altijd (rekt hooguit, krimpt nooit onder 1).
+# f is de flakkerstand 0 tot 1 (hol.gd FLAKKER, buren dicht bij elkaar), g een tweede stand voor de zwaai.
+const VLAM_BLAD := 26.0        # bladpixels: rij 0 tot 26 van het fakkelvak is vlam, daaronder de steel
+const VLAM_REK := 0.16         # vlam rekt van 1,0 tot 1,16 keer zijn hoogte (±0,8 spelpixel hoger)
+const VLAM_ZWAAI := 0.35       # punt wiegt hooguit 0,35 spelpixel opzij, de voet staat stil
+static func vlam_schaal(f: float) -> float:
+	return 1.0 + VLAM_REK * clampf(f, 0.0, 1.0)
 
-static func teken_vlam(doek: CanvasItem, top: Vector2, f: float) -> void:
-	var h := vlam_hoogte(f)
-	var zwaai := (clampf(f, 0.0, 1.0) - 0.5) * 0.67
-	doek.draw_rect(Rect2(top.x - 1.0, top.y - 1.0, 2.0, 1.0), VLAM_VOET)
-	doek.draw_rect(Rect2(top.x - 0.5 + zwaai, top.y - h, 1.0, h - 1.0), VLAM_PUNT)
+static func vlam_zwaai(g: float) -> float:
+	return (clampf(g, 0.0, 1.0) - 0.5) * 2.0 * VLAM_ZWAAI
+
+static func teken_fakkel(doek: CanvasItem, plek: Vector2, f: float, g: float) -> bool:
+	laad()
+	if deco_blad == null or not deco.has("fakkel"):
+		return false
+	var v: Array = deco["fakkel"]["vak_px"]
+	var m: Array = deco["fakkel"]["maat"]
+	var per := float(v[3]) / float(m[1])            # bladpixels per spelpixel (4)
+	var vh := VLAM_BLAD / per                       # vlamhoogte in spelpixels (6,5)
+	# steel: alles onder de vlam, gewoon
+	doek.draw_texture_rect_region(deco_blad, Rect2(plek.x, plek.y + vh, m[0], m[1] - vh),
+			Rect2(v[0], v[1] + VLAM_BLAD, v[2], v[3] - VLAM_BLAD))
+	# vlam: vanaf de voet (midden onder) rekken; een punt h boven de voet schuift zwaai * h / vh opzij
+	var voet := Vector2(plek.x + m[0] / 2.0, plek.y + vh)
+	var s := vlam_schaal(f)
+	var t := Transform2D(Vector2(1.0, 0.0), Vector2(-vlam_zwaai(g) / vh, s), voet)
+	doek.draw_set_transform_matrix(t)
+	doek.draw_texture_rect_region(deco_blad, Rect2(-m[0] / 2.0, -vh, m[0], vh), Rect2(v[0], v[1], v[2], VLAM_BLAD))
+	doek.draw_set_transform_matrix(Transform2D.IDENTITY)
+	return true
 
 # bovenkant van het stuk in spelpixels zoals de render hem zette (`uit`, beeld = spel), of `anders` als die er niet is
 static func deco_y(naam: String, anders: float) -> float:

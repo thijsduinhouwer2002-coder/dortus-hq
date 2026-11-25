@@ -2,3 +2,6 @@ voor.avi hol met Gloop duur 605 s langste stil 3.8 s stukken >15 s: 0 samen >15 
 voor.avi zonder Gloop duur 605 s langste stil 29.6 s stukken >15 s: 13 samen >15 s: 298 s
 na.avi hol met Gloop duur 605 s langste stil 0.2 s stukken >15 s: 0 samen >15 s: 0 s
 na.avi zonder Gloop duur 605 s langste stil 0.2 s stukken >15 s: 0 samen >15 s: 0 s
+na M1 en M2 van Daan (#80), vlam uit de 3D-render, ruwe avi: hol met Gloop langste stil 0.2 s, zonder Gloop langste stil 0.2 s, stukken >15 s: 0
+na M1 en M2, de mp4 in deze map (h264 dempt kleine verschillen): langste stil 1.0 s, met en zonder Gloop, stukken >15 s: 0
+vlam bij de ingang, 20 beelden vanaf 400 s zonder held erbij (beeld 10 tot 19): 6 tot 18 pixels verschil per beeld, de vlam is er in elk beeld

@@ -1164,19 +1164,23 @@ func _init() -> void:
 	ok(sprong <= 0.15 * 0.36, "fakkel: zachte overgang, maat springt per beeld hooguit een derde van 0,85 tot 1 (%.3f)" % sprong)
 	ok(is_equal_approx(HS.fakkel_flakker(7, 0).y, 0.85) and is_equal_approx(HS.fakkel_flakker(3, 0).y, 1.0), "fakkel: sterkte tussen 0,85 en 1 (Daan juice.md)")
 	ok(gelijk == 0, "de twee fakkels flakkeren niet gelijk")
-	# issue #79, tempo-regel 1: ook in een leeg hol flakkert de vlam zelf (tongetje), rustig en zonder sprong
+	# issue #79, tempo-regel 1: ook in een leeg hol flakkert de vlam zelf, rustig en zonder sprong (Daan #80: de vlam
+	# uit de 3D-render zelf, rekt alleen, krimpt nooit onder zijn eigen maat, dus geen stokje dat aan en uit springt)
 	var BT = load("res://kern/beeldtempo.gd")
 	var vl_min := 99.0
 	var vl_max := 0.0
 	var vl_sprong := 0.0
+	var zw_max := 0.0
 	for a in 24:
 		var fa: float = HS.FLAKKER[a % HS.FLAKKER.size()]
 		var fb: float = HS.FLAKKER[(a + 1) % HS.FLAKKER.size()]
-		vl_min = minf(vl_min, H3.vlam_hoogte(fa))
-		vl_max = maxf(vl_max, H3.vlam_hoogte(fa))
-		vl_sprong = maxf(vl_sprong, absf(H3.vlam_hoogte(fb) - H3.vlam_hoogte(fa)))
-	ok(vl_max - vl_min >= 1.0, "vlam: tongetje wordt minstens 1 spelpixel hoger en lager (%.2f tot %.2f)" % [vl_min, vl_max])
-	ok(vl_sprong <= 0.5, "vlam: per beeld hooguit een halve spelpixel verschil, geen knipperen (%.2f)" % vl_sprong)
+		vl_min = minf(vl_min, H3.vlam_schaal(fa))
+		vl_max = maxf(vl_max, H3.vlam_schaal(fa))
+		vl_sprong = maxf(vl_sprong, absf(H3.vlam_schaal(fb) - H3.vlam_schaal(fa)))
+		zw_max = maxf(zw_max, absf(H3.vlam_zwaai(fa)))
+	ok(vl_min >= 1.0 and vl_max - vl_min >= 0.12, "vlam: rekt minstens 12 procent en krimpt nooit onder zijn maat (%.2f tot %.2f)" % [vl_min, vl_max])
+	ok(vl_sprong <= 0.06, "vlam: per beeld hooguit 6 procent verschil, geen knipperen (%.2f)" % vl_sprong)
+	ok(zw_max > 0.2 and zw_max <= 0.36, "vlam: punt wiegt hooguit een derde spelpixel (%.2f)" % zw_max)
 	ok(BT.fakkel_tempo(0) > 0.0 and BT.fakkel_tempo(0) <= 3.0 and BT.fakkel_tempo(1) == 6.0, "fakkels: leeg hol 3 beeldjes per s (rustig), met held 6")
 	# winkelbeeld moment=val (Bram 15 nov): bij de eerste val blijven de muntjes in hun boog hangen
 	var hmv = Node2D.new()

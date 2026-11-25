@@ -2328,3 +2328,4 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - 25 nov ±07:45 Olaf (#25): klap-ster (Mila) en witte flits bij vallen ingebouwd, sprongteken onder het gras, held.gd 337 en held_beeld.gd 392 regels (held_val.gd, held_noot.gd); 6 toetsen 0 FOUT (GEZIEN, Linux), film bewijs-klap-in/.
 - 25 nov ±13:00 Sanne: pijl bij 'set a trap' raakt nu het gouden vak (Daan #64 C3), keuring #77.
 - 25 nov ±13:30 NL (Olaf, #79): fakkelvlam flakkert ook zonder held; film 10 min echt spel zonder demo, langste stil stuk 0,2 s (was 29,6 s buiten Gloop), `producten/steam-hol/bewijs-zacht-leven/`. #25 dicht (Iris lopen 8).
+- 25 nov ±15:40 NL (Olaf, #79, Daan #80 M1 M2): fakkelvlam zonder hard staafje, de vlam uit de render rekt en wiegt, punt spits; toetsen 7 x 0 FOUT, film opnieuw, langste stil 0,2 s.
