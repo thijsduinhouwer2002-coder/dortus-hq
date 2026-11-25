@@ -1,0 +1,209 @@
+# gemaakt: 2026-11-25T00:16:20Z
+# workflow: Het Hol (Steam, Godot op Windows) (.github/workflows/steam-hol.yml)
+# run: 45516619970 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45516619970
+# commit: 4341d40e tak main gestart door push
+# mislukte stappen: hol: Toetsen systemen en held (Bram, moeten 0 FOUT geven)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== hol / Toetsen systemen en held (Bram, moeten 0 FOUT geven) (laatste 200 van 843 regels) =====
+[held-toets] OK 3D: na 0,2 s ogen weer open
+[held-toets] OK 3D: na knipperen geen _process meer (zuinig)
+[held-toets] OK knijp: in rust niets
+[held-toets] OK knijp: hap plat en breed ((1.231061, 0.760842), kruin 3 lager, lijf (21.12, 12.544))
+[held-toets] OK knijp: de kruin zakt een heel aantal spelpixels, net als de toren
+[held-toets] OK knijp: de toren zakt mee in de hap
+[held-toets] OK knijp: hap veert terug via 0,9 / 1,1 ((0.899621, 1.079719))
+[held-toets] OK knijp: na 0,33 s weer 1,0 (hap)
+[held-toets] OK knijp: blij rekt omhoog ((0.899621, 1.159439))
+[held-toets] OK adem: niet tijdens blij
+[held-toets] OK knijp: na blij weer 1,0
+[held-toets] OK adem: in rust wel
+[held-toets] OK adem: kruin precies één spelpixel hoger ((1, 1.079719))
+[held-toets] OK adem: zonder _process (twee wekkers)
+[held-toets] OK adem: de toren gaat 1 spelpixel mee omhoog
+[held-toets] OK adem: na de tweede wekker terug
+[held-toets] OK knijp: de pixel-Gloop knijpt niet
+[held-toets] OK 3D: spugen als kneep, kneep, spuug, spuug (kneep, kneep, spuug, spuug)
+[held-toets] OK 3D: laars begint achter het lijf op x 6 en landt op 15 (6, 15)
+[held-toets] OK 3D: na het spugen weer rust, laars ligt
+[held-toets] OK 3D uit: de oude pixel-Gloop
+[held-toets] OK pas: op 10 fps elke stap 1 pixel ([1])
+[held-toets] OK pas: op 10 fps altijd hele pixels
+[held-toets] OK pas: op 20 fps 0 of 1 pixel ([0, 1])
+[held-toets] OK pas: op 20 fps altijd hele pixels
+[held-toets] OK pas: op 15 fps altijd hele pixels
+[held-toets] OK pas: haperend (0.001 s) toch elke stap 1 pixel ([1])
+[held-toets] OK pas: haperend (0.005 s) toch elke stap 1 pixel ([1])
+[held-toets] OK 3D-held: schakelaar staat aan (hoeden A, akkoord Daan 13 nov 20:50)
+[held-toets] OK 3D-held: lopen stap1, rust, stap2
+[held-toets] OK 3D-held: vallen en anders rust
+[held-toets] OK 3D-held: eerste deel van de val de stand schrik (rechtop), daarna de valstand
+[held-toets] OK moment=val staat op 15 fps stil terwijl de held nog rechtop staat
+[held-toets] OK 3D-held: ridder-blad geladen, filter lineair
+[held-toets] OK 3D-held: ridder en magier hun eigen blad
+[held-toets] OK 3D-held: eigen blad per tuniek (kleur_nr), dief en bard
+[held-toets] OK 3D-held: gewone held, dief en bard niet in pixels
+[held-toets] OK 3D-held: gewone held kleur 0 krijgt held0
+[held-toets] OK 3D-held: gewone held kleur 1 krijgt held1
+[held-toets] OK 3D-held: gewone held kleur 2 krijgt held2
+[held-toets] OK 3D-held: gewone held kleur 3 krijgt held3
+[held-toets] OK 3D-held: gewone held kleur 4 krijgt held4
+[held-toets] OK 3D-held: dief en bard hun eigen blad
+[held-toets] OK 3D-held: dief even groot als de ridder (zelfde eenheid)
+[held-toets] OK 3D-held: zonder eigen blad terugval op ridder of heks
+[held-toets] OK 3D-held: GEWOON_3D uit en geen eigen blad geeft pixels
+[held-toets] OK 3D-teken: blad tekens geladen
+[held-toets] OK 3D-teken: zelfde volgorde als tekens.png (["boos", "uitroep", "zweet", "zzz", "ster", "noot", "laars"])
+[held-toets] OK 3D-teken: cel 8 hoog, hooguit 10 breed ([32, 32])
+[held-toets] OK 3D-teken: lineair gefilterd
+[held-toets] OK 3D-teken: onbekend teken (poef) geeft false, dan tekent de held zelf
+[held-toets] OK 3D-laars: voetpunt onder-midden, 8 hoog
+[held-toets] OK 3D-teken: met_3d uit geeft false, ook met blad
+[held-toets] OK 3D-teken: zonder blad false, dan tekens.png
+[held-toets] OK teken-rand: bovenkant van het teken 1 spelpixel onder de bovenrand (4)
+[held-toets] OK noot-rand: noot blijft onder het gras (rij 9) (5)
+[held-toets] OK teken-gras: bovenkant van het teken op de eerste rij aarde (12)
+[held-toets] OK noot-rand bij figuur 1,15: gedeeld door de schaal (5)
+[held-toets] OK 3D-noot: onbekend frame geeft false, dan pixels
+[held-toets] OK 3D-noot: 6e frame in het blad
+[held-toets] OK 3D-hoed: tuimelen begint op de kruin
+[held-toets] OK 3D-hoed: wipt eerst op (-3.0), zakt daarna de put in (16.0) en draait weg (-2.2)
+[held-toets] OK 3D-hoed: blad met 10 hoeden en nulpunt per hoed
+[held-toets] OK 3D-hoed: kruin per stand van de ridder
+[held-toets] FOUT 3D-hoed: hoedenblad op 1,3 keer de ridder, maal 1,3 in de info (1.350)
+[held-toets] OK pas b: hebzuchtig lopen elke stap 1 pixel ([1])
+[held-toets] OK pas b: opschepper lopen elke stap 1 pixel ([1])
+[held-toets] OK pas b: dapper vluchten elke stap 2 pixel ([2])
+[held-toets] OK hoedvlucht: begint bij de hap, vanaf het hoofd van de held
+[held-toets] OK hoedvlucht: voor de beet nog niet te zien (de held heeft hem op)
+[held-toets] OK hoedvlucht: start op het hoofd van de held ([true, 14, -10, -3.14159265358979, 1])
+[held-toets] OK hoedvlucht: halverwege boven de rechte lijn, tussen held en toren ([true, 4, -26, -0.78539816339745, 1])
+[held-toets] OK hoedvlucht: landt precies op zijn plek op de toren
+[held-toets] OK hoedvlucht: wiebelt na, eerste uitslag 8 graden (Daan) (8.0)
+[held-toets] OK hoedvlucht: wiebel in stapjes van 4 graden
+[held-toets] OK hoedvlucht: bij de landing één beeld plat, 90% hoog
+[held-toets] OK hoedvlucht: op hele spelpixels ([true, 6, -23, -1.17809724509617, 1])
+[held-toets] OK hoedvlucht: daarna stil op de toren
+[held-toets] OK hoedvlucht: klaar binnen de blije tijd (process loopt nog)
+[held-toets] OK moment=hap: een hap zonder hoed zet niets stil
+[held-toets] OK moment=hap: na 3 s hangt de hoed nog boven de rechte lijn ([true, 4, -25, -0.78539816339745, 1])
+[held-toets] OK moment=hap: Gloop staat stil in de hap ([<CompressedTexture2D#-9223372007125547679>, 8])
+[held-toets] OK moment=hap: plat of een volgende hap verandert het stille beeld niet
+[held-toets] OK nachthoeden: 29 in de rij, toren nog op 2 ([29])
+[held-toets] OK nachthoeden: save gelijk aan meteen geven (afsluiten tijdens het vallen verliest niets)
+[held-toets] OK nachthoeden: eerste valt na de wip, op 1.00 s
+[held-toets] OK nachthoeden: tiende 3,1 s na de eerste (eerste drie 0,5 s, Daan) (3.10)
+[held-toets] OK nachthoeden: alles staat en wiebelde uit binnen ±4,2 s (Daan) (4.05 s)
+[held-toets] OK nachthoeden: tien keer één, dan één plof van 19 ([1, 19])
+[held-toets] OK nachthoeden: dezelfde hoeden in dezelfde volgorde als meteen geven
+[held-toets] OK nachthoeden: elke hoed is geland voor de volgende valt
+[held-toets] OK nachthoeden: Gloop pas blij bij de landing, niet tijdens de val
+[held-toets] OK nachthoeden: daarna geen werk meer (rij leeg, hoed stil, blij voorbij: stap zet process uit)
+[held-toets] OK nachthoed: begint boven het hol, recht boven de top, zonder draai ([-92, -90, -84, -75, -62, -45])
+[held-toets] OK nachthoed: valt alleen omlaag ([-92, -90, -84, -75, -62, -45])
+[held-toets] OK nachthoed: landt op de top met één beeld plat ([true, 3, -24, 0, 0.9])
+[held-toets] OK nachthoed: daarna stil
+[held-toets] OK nachthoed: de volgende hap vliegt weer in een boog
+[held-toets] OK nachthoeden: hap tijdens het vallen telt alles en zet de held-hoed bovenop (6, [1, 2, 3, 4, 5, 7])
+[held-toets] OK nachthoeden: de boog van de held blijft daarna van hem
+[held-toets] OK nachthoeden: zonder hoeden van de nacht geen rij
+[held-toets] OK nachthoeden: tempo 0,5 / 0,5 / dan 0,3, plof na de tiende (Daan)
+[held-toets] OK nachthoeden: vorige hoed wiebelt nog even uit onder de nieuwe en staat 0,1 s na diens landing stil
+[held-toets] OK nachthoeden: laden leegt de rij
+[held-toets] OK berg binnen een maat: 44 -> 7, 70 -> 8, grenzen gelijk ([0, 0, 1, 5, 6, 7, 8, 9, 10, 14, 15, 21, 32, 33, 33])
+[held-toets] OK berg: 8 zichtbaar, de nieuwste ligt erop (8)
+[held-toets] OK vaste plekjes: geen zichtbare hoed springt van plek, er komen alleen plekjes bij ()
+[held-toets] OK vaste plekjes: per hoed verandert hooguit één plekje, en daar ligt de nieuwste ()
+[held-toets] OK vaste plekjes: de berg toont altijd de nieuwste n hoeden
+[held-toets] OK vaste plekjes: elk plekje boven de vloer ligt op twee plekjes die er al waren
+[held-toets] OK vaste plekjes: zelfde tel geeft zelfde berg, ook opnieuw gerekend zoals na laden; 33 bij 3000+
+[held-toets] OK vaste plekjes: de bewaarde kaart kan niemand aanpassen
+[held-toets] OK schaal 100% en 115%: 120 px
+[held-toets] OK schaal 125%, 150% en 200%: 160 px
+[held-toets] OK hapering: met beelden van 2,5 s gooit hij toch bij alle 9 vallen (9)
+[held-toets] klaar: 1 FOUT
+WARNING: 8 RIDs of type "CanvasItem" were leaked.
+     at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2485)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object/object.cpp:2284)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:604)
+
+== toets_held ROOD
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+
+[hol-toets] OK aantal: leeg hol geen, groot hol twee
+[hol-toets] OK niet bij schacht en schatkamer: [4, 5, 6, 7, 8, 9, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+[hol-toets] OK niet boven een val of onder een kamer
+[hol-toets] OK twee plekken, ver genoeg uit elkaar: [12, 25]
+[hol-toets] OK vaste keuze (hash), elke start gelijk
+[hol-toets] OK gekozen plek 12 mag
+[hol-toets] OK gekozen plek 25 mag
+[hol-toets] OK held links: vliegt naar rechts (22)
+[hol-toets] OK held rechts: vliegt naar links (18)
+[hol-toets] OK aan het eind van de gang: dan toch de andere kant op (25)
+[hol-toets] OK bezette plekken overslaan
+[hol-toets] OK vol hol: er hangen plafonddingen ([4, 7, 9, 12, 19])
+[hol-toets] OK vol hol: vleermuis nooit onder een plafondding ([5, 6, 8, 11, 13, 15, 16, 17, 18, 20, 21, 22, 23, 24, 25, 26, 27, 28])
+[hol-toets] OK vol hol: zelfde kolommen als hol_vast.gd tekent
+[hol-toets] OK vol hol: gekozen plek 25 is vrij
+[hol-toets] OK vol hol: gekozen plek 21 is vrij
+[hol-toets] OK vlucht: van, boog de gang in, naar
+[hol-toets] OK blad kunst/3d/vleermuis.png geladen
+[hol-toets] OK klein hol (7 tegels): geen vleermuis
+[hol-toets] OK groot hol (29 tegels): twee vleermuizen
+[hol-toets] OK held eronder: vleermuis vliegt op
+[hol-toets] OK na de vlucht hangt hij op een nieuwe plek
+[hol-toets] OK even rust na het landen
+[hol-toets] OK berggrens 70, groot 72
+[hol-toets] OK berggrens schaalt mee met Gloop (1,15)
+[hol-toets] OK met Gloop: geen plek binnen 70 px van zijn midden ([4, 5, 6, 7, 8, 9, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23])
+[hol-toets] OK gekozen plek 12 ligt links van de berg
+[hol-toets] OK gekozen plek 21 ligt links van de berg
+[hol-toets] OK vlucht weg van de held gaat niet achter de berg (22)
+[hol-toets] OK kort hol: geen plek links van de berg, dan geen vleermuis
+[hol-toets] OK spel: na het eerste beeld hangt elke vleermuis links van de berg (groot lijf, [{ "k": 12, "naar": 12, "t": -1, "rust": 0 }, { "k": 21, "naar": 21, "t": -1, "rust": 0 }])
+[hol-toets] OK kort hol zonder Gloop-grens: wel een vleermuis (toets toetst iets)
+[hol-toets] OK spel: kort hol met Gloop, geen vleermuis (0)
+[hol-toets] OK spinrag-grens = vleermuis-grens bij Gloop op schat_kol - 2 (384)
+[hol-toets] OK spinrag: bergrand bij 10 plekjes 414 (verwacht 414)
+[hol-toets] OK spinrag: kleinere berg, grens verder rechts
+[hol-toets] OK spinrag: geen berg, geen grens
+[hol-toets] OK spinrag: grens nog niet berekend, dan de volle berg van de vleermuis
+[hol-toets] OK spinrag: pixelding is een tegel breed
+[hol-toets] KLAAR vleermuis fouten=0
+
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+
+[berg-wand] OK wandblad geladen (anders bewijst deze toets niets)
+HELD3D geladen: ridder, heks, dief, bard, held0, held1, held2, held3, held4, hoeden, hoeden_hap, tekens; zonder eigen blad: geen; terugval op ridder/heks: true
+[berg-wand] OK hol 480/26 figuur 1.00: berg (45 plekjes) minstens 2 spelpx van elk getekend gat (18.00)
+[berg-wand] OK hol 480/26 figuur 1.00: berg binnen de linkerrand (336.0)
+[berg-wand] OK hol 480/26 figuur 1.00: 20 hoeden erbij, wand vol, berg_max blijft 45 (45)
+[berg-wand] OK hol 480/26 figuur 1.15: berg (33 plekjes) minstens 2 spelpx van elk getekend gat (9.60)
+[berg-wand] OK hol 480/26 figuur 1.15: berg binnen de linkerrand (327.6)
+[berg-wand] OK hol 480/26 figuur 1.15: 20 hoeden erbij, wand vol, berg_max blijft 33 (33)
+[berg-wand] OK hol 640/40 figuur 1.00: berg (45 plekjes) minstens 2 spelpx van elk getekend gat (18.00)
+[berg-wand] OK hol 640/40 figuur 1.00: berg binnen de linkerrand (544.0)
+[berg-wand] OK hol 640/40 figuur 1.00: 20 hoeden erbij, wand vol, berg_max blijft 45 (45)
+[berg-wand] OK hol 320/20 figuur 1.15: berg (33 plekjes) minstens 2 spelpx van elk getekend gat (6.60)
+[berg-wand] OK hol 320/20 figuur 1.15: berg binnen de linkerrand (215.6)
+[berg-wand] OK hol 320/20 figuur 1.15: 20 hoeden erbij, wand vol, berg_max blijft 33 (33)
+[berg-wand] KLAAR fouten=0
+
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+
+[klap-toets] OK eerste en tweede vangst op rij: geen bonus
+[klap-toets] OK derde +1, vierde +2
+[klap-toets] OK hooguit +4
+[klap-toets] OK getal eerst 1,5 keer, dan 8 spelpixels (24 px op schaal 3)
+[klap-toets] OK getal vervaagt naar 0 aan het eind
+[klap-toets] OK reeks x6 heeft een andere kleur dan x2
+[klap-toets] OK laag rekent niet als er niets te zien is (CPU)
+[klap-toets] OK nooit meer dan drie getallen tegelijk (3)
+[klap-toets] OK na een vangst rekent de laag mee
+[klap-toets] OK na de duur weg en het rekenen weer uit
+[klap-toets] klaar: 0 FOUT
+
+##[error]Process completed with exit code 1.
