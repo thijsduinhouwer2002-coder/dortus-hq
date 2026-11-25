@@ -152,6 +152,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		# (put alleen als het echt de put was; anders Gloop, ook als zijn bijnaam net veranderde, controleur kan-punt 6)
 		var door := "stekelput" if wat.ends_with("the Spike Pit") else "slijm"
 		boek_regel(s, s.boek.held(String(info.get("soort_held", "")), door, naam, s._bewoner()))
+		if door == "stekelput":
+			put_hoed(s, _held)
 		if wat.begins_with("finally") and int(info.get("bezoeken", 0)) >= 3:
 			# eerst zorgen dat hij in het boek staat (aartsvijand uit een save van voor het boek), dan afrekenen.
 			# Geen regel: er is nog geen dagteller en "settled on day 1" op dag 5 is niet waar (controleur kan-punt 5)
@@ -179,6 +181,26 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				# "hat pile is taller than him" klopt pas bij een echte stapel (controleur punt 6)
 				var soort := "hoed" if n_hoed >= 5 else "hoed_klein"
 				s._kroniek(s.regels.kies(soort, w))
+
+# Wegkijken (issue #86, tempo-regel 5): ook de hoed van wie in de put viel gaat naar de hoedentoren, zodat het hol
+# zichtbaar groeit voor een speler die niets koopt (toren, berg en hoedenwand tellen alle hoeden van Gloop). Hij valt
+# 1,2 s na de klap van boven op de top, met de landing van de hoeden van de nacht (slijm.gd, al gekeurd); geen tekst,
+# geen geluid. Pas als Gloop zijn eigen eerste hoed heeft (de eerste minuut en de regel "first hat" blijven gelijk),
+# niet in de demo-film. Telt niet als opgegeten: gegeten blijft gelijk, anders spuugt Gloop laarzen van wie hij niet at.
+const PUT_HOED_WACHT_S := 1.2
+static func put_hoed(s, _held) -> void:
+	var sl = s.get("slijm")
+	if s.demo or sl == null or _held == null or not sl.has_method("krijg_hoed_later") or sl.get("hoeden") == null:
+		return
+	if (sl.hoeden as Array).is_empty() or sl.get("moment_vast") != null and float(sl.moment_vast) >= 0.0:
+		return
+	var hn = _held.get("hoed_nr")
+	if hn == null or int(hn) < 0:
+		return
+	sl.krijg_hoed_later(int(hn))
+	sl.gegeten -= 1
+	sl.start_nacht(PUT_HOED_WACHT_S)
+	s.log_regel("HOL put-hoed %d naar de toren (hoeden nu %d, t %.1f)" % [int(hn), sl.hoeden.size() + sl.nacht_hoeden.size(), s.t])
 
 # Reeksbonus (issue 5): 1 en 2 op rij niets extra, de derde +1, de vierde +2, ... hooguit +4.
 static func reeks_bonus(r: int) -> int:

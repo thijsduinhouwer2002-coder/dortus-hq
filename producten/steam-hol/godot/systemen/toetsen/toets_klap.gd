@@ -69,5 +69,29 @@ func _init() -> void:
 	ok(g.gespeeld.back() == "koop" and g.spelers.any(func(p): return p.playing or p.stream != null), "koop klinkt")
 	ok(is_equal_approx(g.spelers[0].volume_db, -6.0), "zacht: -6 dB")
 	g.queue_free()
+	# wegkijken (#86): de hoed van wie in de put viel komt op de toren, pas na Gloops eigen eerste hoed, niet in de demo
+	var nep := GDScript.new()
+	nep.source_code = "extends RefCounted\nvar demo := false\nvar slijm\nvar t := 0.0\nvar log := []\nfunc log_regel(r): log.append(r)\n"
+	nep.reload()
+	var st = nep.new()
+	var sl: Node2D = Node2D.new()
+	sl.set_script(load("res://systemen/slijm.gd"))
+	st.slijm = sl
+	var hs := GDScript.new()
+	hs.source_code = "extends RefCounted\nvar hoed_nr := 6\n"
+	hs.reload()
+	var hd = hs.new()
+	AF.put_hoed(st, hd)
+	ok(sl.nacht_hoeden.is_empty() and sl.hoeden.is_empty(), "put-hoed: nog geen eigen hoed van Gloop, dan niets (eerste minuut blijft gelijk)")
+	sl.hoeden.append(4)
+	var at: int = sl.gegeten
+	AF.put_hoed(st, hd)
+	ok(sl.nacht_hoeden == [6] and sl.nacht_van > 0.0, "put-hoed: daarna valt zijn hoed op de toren (rij van de nacht, gestart)")
+	ok(sl.gegeten == at, "put-hoed: telt niet als opgegeten (%d)" % sl.gegeten)
+	ok(st.log.size() == 1 and String(st.log[0]).begins_with("HOL put-hoed 6"), "put-hoed: logregel voor de film")
+	st.demo = true
+	AF.put_hoed(st, hd)
+	ok(sl.nacht_hoeden.size() == 1, "put-hoed: niet in de demo-film")
+	sl.free()
 	print("[klap-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
