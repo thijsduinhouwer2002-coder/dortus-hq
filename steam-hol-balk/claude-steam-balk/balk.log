@@ -1,0 +1,28 @@
+00:25:32 BALK stijl 0x80c0038 -> 0x80800b8
+00:25:32 BALK ABM_NEW ok
+00:25:32 BALK plek 0,600 tot 1024,720 (hoogte 120)
+00:25:32 BALK eerste vlak, 1 stukken
+00:25:47 BALK melding volledig scherm 1
+00:25:48 BALK verstopt (volledig scherm)
+00:25:51 BALK melding volledig scherm 0
+00:25:51 BALK weer zichtbaar (volledig scherm)
+00:25:55 BALK spel stopt (stdin dicht of q)
+00:25:55 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
+00:26:02 BALK stijl 0x80c0038 -> 0x80800b8
+00:26:02 BALK ABM_NEW ok
+00:26:02 BALK plek 0,600 tot 1024,720 (hoogte 120)
+00:26:03 BALK eerste vlak, 1 stukken
+00:26:30 BALK spel stopt (stdin dicht of q)
+00:26:30 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
+00:26:34 BALK stijl 0x80c0038 -> 0x80800b8
+00:26:34 BALK ABM_NEW ok
+00:26:34 BALK plek 0,600 tot 1024,720 (hoogte 120)
+00:26:34 BALK eerste vlak, 1 stukken
+00:26:58 BALK spel stopt (stdin dicht of q)
+00:26:58 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
+00:27:02 BALK stijl 0x80c0038 -> 0x80800b8
+00:27:02 BALK ABM_NEW ok
+00:27:02 BALK plek 0,600 tot 1024,720 (hoogte 120)
+00:27:03 BALK eerste vlak, 1 stukken
+00:27:08 BALK spel stopt (stdin dicht of q)
+00:27:08 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
