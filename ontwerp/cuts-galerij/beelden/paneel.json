@@ -1,0 +1,46 @@
+{
+ "model_mm": [
+  385.3,
+  254.8,
+  520.0
+ ],
+ "split": [
+  "FINISHED"
+ ],
+ "stukken": 12,
+ "status": [
+  "groen",
+  "groen",
+  "groen",
+  "groen",
+  "groen",
+  "groen",
+  "groen",
+  "groen",
+  "groen",
+  "groen",
+  "groen",
+  "groen"
+ ],
+ "printer": "A1",
+ "formaat": "STL",
+ "pen_mm": 5.0,
+ "speling_mm": 0.2,
+ "uitslag_fout": "StopIteration()",
+ "kader_mm": [
+  433.9,
+  286.6,
+  605.9
+ ],
+ "zijbalk_px": [
+  2444,
+  33,
+  436,
+  1470
+ ],
+ "venster_px": [
+  2880,
+  1620
+ ],
+ "ui_scale": 1.5
+}

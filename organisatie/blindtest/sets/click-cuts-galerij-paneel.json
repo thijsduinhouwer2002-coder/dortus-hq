@@ -1,0 +1,24 @@
+{
+  "titel": "Click Cuts, galerijbeeld 'Three steps in one tab' op Superhive (echt Blender-paneel)",
+  "rol": "You make or download 3D models and print them at home, but many models are bigger than your printer bed. You are browsing the Superhive (Blender Market) store for a Blender add-on that cuts a model into parts that fit your printer and go back together. You are not a Blender expert and want to know how easy the add-on is to use. You are now looking at the gallery images that show each add-on's panel inside Blender.",
+  "ons": [
+    {
+      "naam": "paneel met paard en drie stappen",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/cuts-galerij/beelden/paneel-2400x1200.jpg"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Cleave (galerij: paneel met robot)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1382774/image/xlarge-1d041584654c22028689b7890686595c.png"
+    },
+    {
+      "naam": "Split 3D Print (galerij: paneel)",
+      "url": "https://assets.superhivemarket.com/cache/9af983d5b14e527399aa19c4d3724b61.webp"
+    },
+    {
+      "naam": "SnapSplit (galerij: paneel)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1346053/image/xlarge-36ed4672ca1765be503ff783a40e1ca6.jpg"
+    }
+  ]
+}

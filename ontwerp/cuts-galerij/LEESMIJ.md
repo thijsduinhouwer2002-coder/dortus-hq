@@ -30,3 +30,14 @@ SV_STUK=7 SV_BUUR=11 SV_N_GAT=4 SV_RAND=40 SV_F=11 SV_LEEG=0 SV_BUUR_IN_BEELD=1 
 ZK_KADER=0.56,0.10,0.855,0.80 ZK_Y=870 ZK_H=380 python3 bron/tekst_passend.py render-passend.png passend.json render-zak.png beelden <fonts> ../../producten/blender-splitser/merk/icoon.svg
 ```
 Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-passend.json`, zelfde concurrenten als "Numbered for assembly".
+
+## Beeld "Three steps in one tab" (`beelden/paneel-*`, 25 nov ±15:00)
+Moment 5 en onderschrift 7 uit `galerij.md`: het echte paneel. Wens van beide rechters bij "Numbered for assembly" (een stukje echt Blender-paneel).
+
+**Schermafbeelding:** echte Blender 5.3.0 met interface (Xvfb, schaal 1.5), add-on uit de zip van main, het paard (Poly Haven, CC0) 520 mm hoog, echte knop Split to fit met Bambu Lab A1: 12 stukken, alle 12 groen, 48 pennen, speling 0,20 mm (GEZIEN, `beelden/paneel.json` en kale schermafbeelding `beelden/paneel-scherm.jpg`). Het 3D-venster staat schermvullend; de pennenbak naast het model staat uit. Het vergrote paneel rechts is pixel voor pixel uit dezelfde schermafbeelding, niets nagetekend. Stappen links: printers uit `printers.py` (Bambu, Prusa, Creality, eigen maat), formaten uit `eigenschappen.py` (STL, 3MF, in mm).
+```
+xvfb-run -s "-screen 0 2880x1620x24" env PN_AFSTAND=1.18 PN_DX=40 PN_DRAAI=-28 PN_KANTEL=74 \
+  blender --gpu-backend opengl <start.blend zonder splash> --python bron/paneel.py -- <click_cuts.zip> <modelmap> <uitmap>
+python3 bron/tekst_paneel.py <uitmap>/paneel-scherm.png <uitmap>/paneel.json beelden <fonts> ../../producten/blender-splitser/merk/icoon.svg
+```
+Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-paneel.json`, tegen de paneelbeelden van Cleave, Split 3D Print en SnapSplit (lat, deel Paneel).
