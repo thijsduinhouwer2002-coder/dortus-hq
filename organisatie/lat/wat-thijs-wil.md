@@ -47,6 +47,7 @@ Dit zijn dingen die Thijs vaak heeft moeten herhalen. Elke nieuwe correctie van 
 - Geen zoem of bromtoon op de achtergrond (onze met code gemaakte geluidsbedden klinken zo). Stilte of zacht geluid, plus de stem van Max.
 - Vloeiend, geen haperingen: 30 of 60 beelden per seconde, gelijkmatig.
 - Hook eerst, grote ondertitels, stem Max (ElevenLabs). Geen Kokoro meer.
+- Kwaliteit boven ritme (Thijs 25 nov 21:44): "iets wat in een uurtje in elkaar is gezet gaat nooit aanslaan". Liever een week geen filmpje dan een middelmatig filmpje. Een datum (zoals de sale) is geen reden om een filmpje te plaatsen dat niet goed genoeg is; Thijs ziet het eerst.
 
 ## De 2-secondentoets (Thijs 25 nov 21:38)
 - Thijs keek naar het geslaagde Click Cuts-beeld 'Numbered for assembly' en vroeg: "wat moet het voorstellen?". De blinde test liet het door, een mens snapte het niet.
