@@ -30,6 +30,15 @@ func ok(voorwaarde: bool, wat: String) -> void:
 		fout += 1
 		print("[hol-toets] FOUT ", wat)
 
+# Raakt de held (x ± 5, de hele ganghoogte) de vleermuis zoals _draw() hem tekent? Hangend 18 breed, vliegend 0,6 keer.
+func _raakt(vm, v: Dictionary, held_x: float) -> bool:
+	var mx := int(v["k"]) * 16 + 8.0
+	var half := 9.0
+	if v["t"] >= 0.0 or float(v["zweef_t"]) >= 0.0:
+		mx = vm.lucht_plek(v).x
+		half = 9.0 * vm.VLIEG_MAAL
+	return absf(held_x - mx) < half + 5.0
+
 func nep(van: int, tot: int, breed := 40) -> NepHol:
 	var h := NepHol.new()
 	for k in breed:
@@ -87,8 +96,8 @@ func _init() -> void:
 	var a: Vector2 = V.vlucht_plek(100.0, 200.0, 28.0, 0.0)
 	var m: Vector2 = V.vlucht_plek(100.0, 200.0, 28.0, 0.5)
 	var e: Vector2 = V.vlucht_plek(100.0, 200.0, 28.0, 1.0)
-	ok(a.is_equal_approx(Vector2(100, 28)) and e.is_equal_approx(Vector2(200, 28)) and is_equal_approx(m.x, 150.0) and m.y > 32.0,
-		"vlucht: van, boog de gang in, naar")
+	ok(a.is_equal_approx(Vector2(100, 28)) and e.is_equal_approx(Vector2(200, 28)) and is_equal_approx(m.x, 150.0) and m.y > 28.5 and m.y < 30.0,
+		"vlucht: van, kleine boog (boven de hoofden), naar")
 	# klein hol: geen vleermuis; groot hol: een die opvliegt als een held eronder loopt, en daarna weer hangt
 	var root_node := Node2D.new()
 	get_root().add_child(root_node)
@@ -112,9 +121,79 @@ func _init() -> void:
 	for i in 100:
 		vm._process(0.016)
 	ok(vm.vm[0]["t"] < 0.0 and int(vm.vm[0]["k"]) == int(vm.vm[0]["naar"]) and int(vm.vm[0]["k"]) != k0, "na de vlucht hangt hij op een nieuwe plek")
-	held.position = Vector2(int(vm.vm[0]["k"]) * 16 + 3.0, 37.0)
+	held.position = Vector2(int(vm.vm[0]["k"]) * 16 + 8.0 - 20.0, 37.0)
 	vm._process(0.016)
-	ok(vm.vm[0]["t"] < 0.0, "even rust na het landen")
+	ok(vm.vm[0]["t"] < 0.0, "even rust na het landen (held op 20 px)")
+	held.position = Vector2(int(vm.vm[0]["k"]) * 16 + 8.0 - 12.0, 37.0)
+	vm._process(0.016)
+	ok(vm.vm[0]["t"] >= 0.0, "held raakt hem bijna (12 px): ook in de rust weg")
+	for i in 100:
+		vm._process(0.016)
+	wezens.remove_child(held)
+	# Daan #59: de held liep een halve seconde door de vleermuis heen. Nu: een held die onder elke vleermuis
+	# door loopt (gewoon tempo 5,6 en eerste held 15 px/s, beide kanten op) raakt hem nooit.
+	for snel in [5.6, 7.5, 15.0]:
+		for richting in [1.0, -1.0]:
+			vm.hol = h
+			vm.herkies()
+			var loper := NepHeld.new()
+			wezens.add_child(loper)
+			var start_x: float = (3 * 16.0) if richting > 0 else (29 * 16.0)
+			loper.position = Vector2(start_x, 37.0)
+			var raak := 0
+			var langs := 0
+			var vlucht := 0
+			for i in int(26 * 16 / snel / 0.02):
+				loper.position.x += richting * snel * 0.02
+				vm._process(0.02)
+				for v in vm.vm:
+					if v["t"] >= 0.0:
+						vlucht += 1
+					if _raakt(vm, v, loper.position.x):
+						if v["t"] >= 0.0 and float(v.get("tempo", 1.0)) > 1.0:
+							langs += 1   # klem: snel langs de held, mag kort
+						else:
+							raak += 1
+			ok(raak == 0 and vlucht > 0, "held op %s px/s (%s) raakt geen hangende of wegvliegende vleermuis (%d beelden raak, %d in de lucht)" % [str(snel), "rechts" if richting > 0 else "links", raak, vlucht])
+			ok(langs * 0.02 <= 0.5, "klem aan het eind: samen hooguit 0,5 s langs de held (%.2f s)" % (langs * 0.02))
+			wezens.remove_child(loper)
+			loper.free()
+	# Kort hol zoals de eerste minuut (zaad 2: ladder 6, put 9, Gloop): maar één plek. Daan #59 zag de held er dwars
+	# doorheen lopen, want er was geen plek om heen te vliegen. Nu: snel langs, achter de held fladderen, dan terug.
+	var w3 := Node2D.new()
+	var vm3 := Node2D.new()
+	vm3.set_script(V)
+	root_node.add_child(vm3)
+	root_node.add_child(w3)
+	var eerst := nep(6, 16)
+	eerst.deco_proef = true
+	eerst.vallen[9] = "stekelput"
+	var gl3 := NepGloop.new()
+	gl3.position = Vector2(221.5, 37.0)
+	w3.add_child(gl3)
+	vm3.zet(eerst, w3)
+	vm3._process(0.016)
+	ok(vm3.vm.size() == 1 and int(vm3.vm[0]["k"]) == 8 and V.plekken(eerst, vm3._grens) == [8], "kort hol: één vleermuis op de enige plek (%s)" % str(vm3.vm))
+	var eh := NepHeld.new()
+	w3.add_child(eh)
+	eh.position = Vector2(100.0, 37.0)
+	var eraak := 0
+	var elangs := 0
+	var gezweefd := false
+	for i in 1000:   # 20 s: held loopt op 7,5 px/s helemaal door
+		eh.position.x += 7.5 * 0.02
+		vm3._process(0.02)
+		var v3: Dictionary = vm3.vm[0]
+		if float(v3["zweef_t"]) >= 0.0:
+			gezweefd = true
+		if _raakt(vm3, v3, eh.position.x):
+			if v3["t"] >= 0.0 and float(v3["tempo"]) > 1.0:
+				elangs += 1
+			else:
+				eraak += 1
+	ok(eraak == 0 and gezweefd, "kort hol: held raakt de vleermuis niet, die fladdert achter hem (%d beelden raak)" % eraak)
+	ok(elangs * 0.02 <= 0.4, "kort hol: hooguit 0,4 s snel langs de held (%.2f s)" % (elangs * 0.02))
+	ok(vm3.vm[0]["t"] < 0.0 and float(vm3.vm[0]["zweef_t"]) < 0.0 and int(vm3.vm[0]["k"]) == 8, "kort hol: daarna hangt hij weer op zijn plek")
 	# nooit achter de hoedenberg (Mila 17 nov 08:00): rechterrand tegel minstens 70 (groot 72) spelpixels links van Gloop
 	ok(is_equal_approx(V.berg_grens(456.0, false), 386.0) and is_equal_approx(V.berg_grens(456.0, true), 384.0), "berggrens 70, groot 72")
 	ok(is_equal_approx(V.berg_grens(456.0, false, 1.15), 456.0 - 80.5), "berggrens schaalt mee met Gloop (1,15)")

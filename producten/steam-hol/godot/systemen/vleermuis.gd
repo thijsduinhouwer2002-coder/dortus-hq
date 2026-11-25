@@ -14,10 +14,18 @@ const MIN_GANG := 10
 const TWEE_GANG := 24
 const VLIEG_S := 1.2      # zo lang duurt een vlucht
 const SLAG_S := 0.08      # vleugels om de 0,08 s open of half dicht
-const SCHRIK_X := 10.0    # held binnen zoveel spelpixels (x): opvliegen
-const RUST_S := 2.0       # na het landen zo lang niet opnieuw schrikken
+# Held binnen zoveel spelpixels (x): opvliegen. Daan #59: met 10 liep de held een halve seconde door hem heen,
+# want de vleermuis is 18 breed en de held 10: ze raken elkaar al op 14. Op 26 is er 12 px lucht, ook voor de
+# eerste held die 2 keer zo snel loopt (±15 px/s: 0,8 s, dan is de vleermuis al driekwart weg).
+const SCHRIK_X := 26.0
+const TERUG_TEMPO := 2.0  # zoveel keer sneller als hij langs de held moet (klem aan het eind van de gang)
+const UITWIJK_X := 20.0   # geen andere plek: zoveel spelpixels achter de held gaan fladderen
+const ZWEEF_MIN_S := 0.6  # minstens zo lang fladderen voor hij terugvliegt
+const RAAK_X := 15.0      # zo dichtbij raken held en vleermuis elkaar: dan ook tijdens de rust weg
+const RUST_S := 2.0       # na het landen zo lang niet opnieuw schrikken (behalve bij RAAK_X)
 const VLIEG_MAAL := 0.6   # het vliegbeeld is breed (vleugels open); kleiner tekenen, dan is hij even groot als hangend
-const BOOG := 5.0         # zoveel spelpixels zakt hij midden in de vlucht de gang in
+const BOOG := 1.5         # zoveel spelpixels zakt hij midden in de vlucht; klein, want de held is bijna zo hoog als de gang
+const VLIEG_Y := 3.5      # midden van de vliegende vleermuis zoveel onder het gangplafond (boven de hoofden)
 # Nooit achter de hoedenberg (Mila 17 nov 08:00, moet Daan 07:45): de rechterrand van zijn tegel ligt minstens zoveel
 # spelpixels links van Gloops midden. Volle berg 8 onderaan: x = -12 - 6*7 - 3 = -57, plus halve hoed en lucht; groot lijf -59.
 # Keer de schaal van Gloop (proef_figuur), want de berg schaalt mee.
@@ -118,8 +126,9 @@ static func kies(h, n: int, grens := 1e9) -> Array:
 			uit.append(k)
 	return uit
 
-# Waarheen bij schrik: de dichtstbijzijnde vrije plek minstens 2 kolommen weg, liefst weg van de held.
-static func vlucht_doel(h, van: int, held_x: float, bezet: Array, grens := 1e9) -> int:
+# Waarheen bij schrik: de dichtstbijzijnde vrije plek minstens 2 kolommen weg, liefst weg van de held,
+# en niet boven een andere held (helden_x: hun x; daar zou hij meteen weer opvliegen).
+static func vlucht_doel(h, van: int, held_x: float, bezet: Array, grens := 1e9, helden_x: Array = []) -> int:
 	var beste := -1
 	var beste_s := 1e9
 	var weg_rechts: bool = held_x <= van * KOL + KOL / 2.0
@@ -129,6 +138,9 @@ static func vlucht_doel(h, van: int, held_x: float, bezet: Array, grens := 1e9) 
 		var s := float(absi(k - van))
 		if (k > van) != weg_rechts:
 			s += 100.0   # naar de held toe alleen als het niet anders kan
+		for hx in helden_x:
+			if absf(float(hx) - (k * KOL + KOL / 2.0)) < SCHRIK_X:
+				s += 50.0   # boven een held landen alleen als het niet anders kan
 		if s < beste_s:
 			beste_s = s
 			beste = k
@@ -162,7 +174,7 @@ func herkies() -> void:
 	var gekozen := kies(hol, aantal(tegels), _grens)   # past er geen plek (kort hol), dan geen vleermuis
 	vm.clear()
 	for k in gekozen:
-		vm.append({"k": k, "naar": k, "t": -1.0, "rust": 0.0})
+		vm.append({"k": k, "naar": k, "t": -1.0, "rust": 0.0, "zweef_t": -1.0})
 	queue_redraw()
 
 func _process(delta: float) -> void:
@@ -178,38 +190,84 @@ func _process(delta: float) -> void:
 		bezet.append(v["naar"])
 	for v in vm:
 		if v["t"] >= 0.0:
-			v["t"] += delta
+			v["t"] += delta * float(v.get("tempo", 1.0))
 			if v["t"] >= VLIEG_S:
 				v["t"] = -1.0
-				v["k"] = v["naar"]
-				v["rust"] = RUST_S
+				v["tempo"] = 1.0
+				if v.get("uitwijk", false):
+					v["uitwijk"] = false
+					v["zweef_t"] = 0.0   # niet landen: fladderen tot de held voorbij zijn plek is
+				else:
+					v["k"] = v["naar"]
+					v["rust"] = RUST_S
 			queue_redraw()
+			continue
+		var thuis := int(v["k"]) * KOL + KOL / 2.0
+		var held_x := _held_onder(int(v["k"]))
+		if float(v.get("zweef_t", -1.0)) >= 0.0:
+			v["zweef_t"] += delta
+			queue_redraw()
+			if held_x < -1e8 and v["zweef_t"] >= ZWEEF_MIN_S:   # held voorbij: terug naar zijn plek
+				v["zweef_t"] = -1.0
+				_vlieg(v, float(v["naar_x"]), thuis, int(v["k"]), 1.0)
 			continue
 		if v["rust"] > 0.0:
 			v["rust"] -= delta
-			continue
-		var held_x := _held_onder(int(v["k"]))
+			if held_x < -1e8 or absf(held_x - thuis) >= RAAK_X:
+				continue
 		if proef and held_x < -1e8:
 			_proef_t += delta
 			if _proef_t >= 4.0:
 				_proef_t = 0.0
 				held_x = int(v["k"]) * KOL + 2.0
 		if held_x > -1e8:
-			var doel := vlucht_doel(hol, int(v["k"]), held_x, bezet, _grens)
+			var doel := vlucht_doel(hol, int(v["k"]), held_x, bezet, _grens, _helden_x())
 			if doel >= 0:
-				v["naar"] = doel
-				v["t"] = 0.0
+				# Klem aan het eind van de gang: dan moet hij langs de held. Dat doet hij snel (0,6 s), achter
+				# het hoofd langs, zodat het leest als wegfladderen en niet als er doorheen lopen (Daan #59).
+				var naar := doel * KOL + KOL / 2.0
+				_vlieg(v, thuis, naar, doel, TERUG_TEMPO if (naar > thuis) == (held_x > thuis) else 1.0)
 				bezet.append(doel)
-				queue_redraw()
+			else:
+				# Geen andere plek (kort hol, zoals de eerste minuut: alleen tussen ladder en put): snel langs de held
+				# naar achter hem, daar fladderen tot hij voorbij is, dan terug (Daan #59: niet meer stil laten hangen).
+				var achter := held_x + (UITWIJK_X if held_x > thuis else -UITWIJK_X)
+				achter = clampf(achter, hol.ingang_kol * KOL + KOL / 2.0, hol.schat_kol * KOL + KOL / 2.0)   # in de schacht mag, in de grond niet
+				_vlieg(v, thuis, achter, int(v["k"]), TERUG_TEMPO)
+				v["uitwijk"] = true
+
+func _vlieg(v: Dictionary, van_x: float, naar_x: float, naar_k: int, tempo: float) -> void:
+	v["van_x"] = van_x
+	v["naar_x"] = naar_x
+	v["naar"] = naar_k
+	v["t"] = 0.0
+	v["tempo"] = tempo
+	queue_redraw()
+
+# Midden van een vliegende of fladderende vleermuis (alleen geldig als hij niet hangt).
+func lucht_plek(v: Dictionary) -> Vector2:
+	if v["t"] >= 0.0:
+		return vlucht_plek(float(v["van_x"]), float(v["naar_x"]), GANG_BOVEN + VLIEG_Y, v["t"] / VLIEG_S)
+	return Vector2(float(v["naar_x"]), GANG_BOVEN + VLIEG_Y + sin(float(v["zweef_t"]) * 5.0) * 0.8)
 
 func _held_onder(k: int) -> float:
 	if wezens == null:
 		return -1e9
 	var x := k * KOL + KOL / 2.0
-	for w in wezens.get_children():
+	var beste := -1e9
+	for w in wezens.get_children():   # de dichtstbijzijnde held binnen SCHRIK_X
 		if w.has_method("is_held") and w.position.y > GANG_BOVEN and absf(w.position.x - x) < SCHRIK_X:
-			return w.position.x
-	return -1e9
+			if beste < -1e8 or absf(w.position.x - x) < absf(beste - x):
+				beste = w.position.x
+	return beste
+
+func _helden_x() -> Array:
+	var uit: Array = []
+	if wezens != null:
+		for w in wezens.get_children():
+			if w.has_method("is_held") and w.position.y > GANG_BOVEN:
+				uit.append(w.position.x)
+	return uit
 
 func _draw() -> void:
 	if ct == null:
@@ -220,15 +278,14 @@ func _draw() -> void:
 	var ax := float(info["anker_x"])
 	var tops: Array = info.get("top", [0, 0])
 	for v in vm:
-		if v["t"] < 0.0:
+		if v["t"] < 0.0 and float(v.get("zweef_t", -1.0)) < 0.0:
 			# hangend: frame 0, bovenkant van het lijf 1 spelpixel onder het plafond
 			var x := int(v["k"]) * KOL + KOL / 2.0 - ax / px
 			var y := GANG_BOVEN + 1 - float(tops[0])
 			draw_texture_rect_region(ct, Rect2(x, y, cw / px, ch / px), Rect2(0, 0, cw, ch))
 		else:
-			var f: float = v["t"] / VLIEG_S
-			var p := vlucht_plek(int(v["k"]) * KOL + KOL / 2.0, int(v["naar"]) * KOL + KOL / 2.0, GANG_BOVEN + 4.0, f)
-			var open := int(v["t"] / SLAG_S) % 2 == 0
+			var p := lucht_plek(v)
+			var open := int((v["t"] if v["t"] >= 0.0 else float(v["zweef_t"])) / SLAG_S) % 2 == 0
 			var b := cw / px * VLIEG_MAAL
 			var hh := ch / px * VLIEG_MAAL * (1.0 if open else 0.55)
 			draw_texture_rect_region(ct, Rect2(p.x - ax / px * VLIEG_MAAL, p.y - hh / 2.0, b, hh), Rect2(cw, 0, cw, ch))
