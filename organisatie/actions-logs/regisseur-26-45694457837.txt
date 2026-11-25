@@ -1,0 +1,28 @@
+# gemaakt: 2026-11-25T20:35:56Z
+# workflow: Regisseur 26 (sale-Shorts #75: echte schermopname in Blender met x11grab) (.github/workflows/regisseur-26.yml)
+# run: 45694457837 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45694457837
+# commit: 82db0396 tak main gestart door push
+# mislukte stappen: opname: In de release zetten
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== opname / In de release zetten (laatste 19 van 19 regels) =====
+##[group]Run [ -d /tmp/klaar ] || exit 1
+[ -d /tmp/klaar ] || exit 1
+echo "Regisseur 26 (issue #75): echte schermopname van Blender 5.3.0 met Click Joints Pro 1.2.8 en de eigen robot (ffmpeg x11grab, 30 beelden per seconde, echte muis). Werkmateriaal voor twee sale-Shorts. Niets geplaatst." > /tmp/notes.md
+gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 26 (sale-Shorts, echte schermopname)" --notes-file /tmp/notes.md
+gh release upload "$TAG" /tmp/klaar/* --clobber -R "$GITHUB_REPOSITORY"
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-26
+  PRO_COMMIT_VOOR: a3c1ea1
+  pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+  PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+  Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+  GH_TOKEN: ***
+##[endgroup]
+Post "https://uploads.github.com/repos/thijsduinhouwer2002-coder/dortus-hq/releases/458484006/assets?label=&name=meting-sale-een-knop": read /tmp/klaar/meting-sale-een-knop: is a directory
+##[error]Process completed with exit code 1.
