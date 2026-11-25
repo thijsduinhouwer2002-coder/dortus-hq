@@ -766,8 +766,8 @@ func _init() -> void:
 		ok(not sl_u.royal_3d_aan("rust") and sl_u.royal_rect("achter", 0).size.x == 0.0, "Royal 3D: nog geen blad royal, dan de pixel-cape en -zoom")
 	var ri_oud: Dictionary = sl_u.royal3d_info
 	sl_u.royal3d_info = {"frames": ["achter", "voor"], "cel_px": [160, 64], "px": 4, "anker_x": 80}
-	ok(sl_u.is_groot() and sl_u.royal_rect("achter", 0) == Rect2(-20, -16, 40, 16), "Royal 3D: cel 40 spelpixels breed, midden onder hem, onderkant op de vloer (%s)" % str(sl_u.royal_rect("achter", 0)))
-	ok(sl_u.royal_rect("voor", -2) == Rect2(-20, -18, 40, 16) and sl_u.royal_rect("kroon", 0).size.x == 0.0, "Royal 3D: wipt mee, onbekend frame tekent niets")
+	ok(sl_u.is_groot() and sl_u.royal_rect("achter", 0).is_equal_approx(Rect2(Vector2(-20, -16) * sl_u.K_GROOT, Vector2(40, 16) * sl_u.K_GROOT)), "Royal 3D: cel 40 spelpixels breed keer de maat van Big Gloop, midden onder hem, onderkant op de vloer (%s)" % str(sl_u.royal_rect("achter", 0)))
+	ok(sl_u.royal_rect("voor", -2).is_equal_approx(Rect2(Vector2(-20, -16) * sl_u.K_GROOT + Vector2(0, -2), Vector2(40, 16) * sl_u.K_GROOT)) and sl_u.royal_rect("kroon", 0).size.x == 0.0, "Royal 3D: wipt mee, onbekend frame tekent niets")
 	var rt_oud: CanvasTexture = sl_u.royal3d
 	if sl_u.royal3d == null:
 		sl_u.royal3d = CanvasTexture.new()

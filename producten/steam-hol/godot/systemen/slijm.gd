@@ -175,7 +175,7 @@ func _maak_ring() -> void:
 func zet_klaar(aan: bool) -> void:
 	if ring_achter == null:
 		return
-	var k := 1.0 if niveau() >= 1 else 0.8
+	var k := K_GROOT if niveau() >= 1 else K_KLEIN
 	var voet := 0.0
 	if met_3d:
 		_laad_3d()
@@ -248,7 +248,7 @@ func lijf_maat() -> Vector2:
 	if lijf3d_info.is_empty():
 		return Vector2(20, 16)
 	var px: float = lijf3d_info["px"]
-	var k := 1.0 if is_groot() else 0.8
+	var k := lijf_k()
 	var top3: float = lijf3d_info["top"][lijf3d_info["frames"].find("rust")] if lijf3d_info.has("top") else 0.0
 	return Vector2(float(lijf3d_info["cel_px"][0]) / px * k, (float(lijf3d_info["cel_px"][1]) - top3) / px * k)
 
@@ -832,6 +832,13 @@ func frame_nu() -> Array:
 		f[0] = RUST_GROOT if f[0] == RUST else LEVEN_GROOT
 	return f
 
+# Maat van het 3D-lijf (Mila 25 nov, #76, Iris #7: "Big Gloop leest nauwelijks als groter op ware maat"). Was 0,8 naar
+# 1,0 (25 procent); nu 0,8 naar 1,2 (50 procent), zodat de koop op 120 px meteen opvalt naast de hoedentoren.
+const K_KLEIN := 0.8
+const K_GROOT := 1.2
+func lijf_k() -> float:
+	return K_GROOT if is_groot() else K_KLEIN
+
 func is_groot() -> bool:
 	var n := niveau()
 	if n == 1 and not _rust_som and t >= koop_van and t < koop_van + 1.0 / FPS:
@@ -935,7 +942,7 @@ func royal_rect(naam: String, wip: int) -> Rect2:
 	if royal3d_info.is_empty() or not (royal3d_info["frames"] as Array).has(naam):
 		return Rect2()
 	var px: float = royal3d_info["px"]
-	var k := 1.0 if is_groot() else 0.8
+	var k := lijf_k()
 	var w: float = float(royal3d_info["cel_px"][0]) / px * k
 	var h: float = float(royal3d_info["cel_px"][1]) / px * k
 	return Rect2(-float(royal3d_info["anker_x"]) / px * k, -h + wip, w, h)
@@ -967,7 +974,7 @@ func _teken_3d(naam: String, wip: int) -> void:
 	var cw: float = lijf3d_info["cel_px"][0]
 	var ch: float = lijf3d_info["cel_px"][1]
 	var px: float = lijf3d_info["px"]
-	var k := 1.0 if is_groot() else 0.8
+	var k := lijf_k()
 	var w := cw / px * k
 	var h := ch / px * k
 	var x := -float(lijf3d_info["anker_x"]) / px * k
@@ -984,7 +991,7 @@ func top_nu() -> int:
 	if b3 != "":
 		var ch: float = float(lijf3d_info["cel_px"][1]) / float(lijf3d_info["px"])
 		var top3: float = lijf3d_info["top"][lijf3d_info["frames"].find(b3)]
-		var k := 1.0 if is_groot() else 0.8
+		var k := lijf_k()
 		return int(round(16.0 - (ch - top3) * k)) + 1   # +1: de onderste hoedrij zakt 1 px in zijn kruin, zoals bij de pixels
 	var f := frame_nu()
 	if _rust_som and not is_plat():

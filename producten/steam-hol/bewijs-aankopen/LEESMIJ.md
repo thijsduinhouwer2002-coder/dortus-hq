@@ -32,3 +32,11 @@ Daan: op 100% las de oranje roest als donker tegen de roodbruine vloer. Nu: bove
 - Ware grootte, echt spel (zaad 2, koper=1, koop op 299,8 s, GEZIEN in het log): `rusty-spikes-licht-voor-296s.png`, `rusty-spikes-licht-na-306s.png`, uitsnede `rusty-spikes-licht-voor-na-1x.png` en `-3x.png`. Zelf gekeken op 100%: het oog gaat na de koop eerst naar de put (meer wit, hoger, goud onderaan).
 - Film: `rusty-spikes-licht-koop-20s-ware-grootte.mp4` (290 tot 310 s).
 - Alleen het vak van put_1 (x 1408 tot 1479) in `hol_proef.png` vervangen; methode nagerekend op de oude put (gemiddeld verschil 0,02 op 255). Toetsen 7 x 0 FOUT.
+
+## Big Gloop ronde 3: echt groter (Mila, 25 nov ±21:30 NL, Iris #7 build d27cfc3: "Big Gloop leest nauwelijks als groter op ware maat")
+Het lijf ging van 0,8 naar 1,0 (25 procent groter). Naast de groeiende hoedentoren viel dat op 120 px weg. Nu van 0,8 naar 1,2 (50 procent groter, zichtbaar lijf ±13 naar ±20 spelpixels breed, GEZIEN in het blad: 84 px op 5 px per spelpixel, keer 0,8 of 1,2). Het blad blijft hetzelfde (getekend op 5 px per spelpixel, dus ook op 1,2 nog verkleind en scherp, niet opgeschaald).
+- Code: `godot/systemen/slijm.gd`, `K_KLEIN` 0,8 en `K_GROOT` 1,2 met `lijf_k()` op alle vijf plekken waar de maat stond (lijf, ring, Royal-cape, toren, tekenen). Alleen tekenen; vangen en lopen veranderen niet.
+- Ware grootte, echt spel (zaad 2, koper=1, koop op 196,4 s, GEZIEN in het log): `big-gloop-12-voor-192s.png` en `big-gloop-12-na-214s.png`.
+- Voor, oude na (1,0) en nieuwe na (1,2) naast elkaar: `big-gloop-12-voor-oud-nieuw-1x.png` en `-3x.png`. Zelf gekeken op 100%: na de koop is Gloop het grootste ding in de schatkamer, groter dan de goudstapel, en de toren staat op hem in plaats van andersom.
+- 14 min (zaad 3, beelden op 560, 700 en 840 s, zelf gekeken op 3x): de hoedenberg links houdt lucht tot zijn flank, de toren blijft onder de bovenrand.
+- Toetsen 7 x 0 FOUT (Godot 4.3 Linux). De Royal-toets rekent nu met `K_GROOT` (de cape groeit mee met het lijf).
