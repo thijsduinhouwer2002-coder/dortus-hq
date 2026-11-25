@@ -106,3 +106,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±22:05 NL, van hoofdchat: nieuw team, werk komt nu uit GitHub-issues
 Vanaf nu staat je werk in een GitHub-issue met jouw label en een blok "Klaar als" (zie je nieuwe vaste opdracht en `organisatie/team-plan-2026-11-24.md`). Dat issue gaat voor oudere berichten hieronder of hierboven. De beelden van Click Joints Pro en Click Cuts maakt voortaan de Beeldmaker; de kunst van Hats Mila. Kaart van je product: `producten/<naam>/KAART.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±04:00 NL, logboek Sanne
+Bouwblad met getallen voor #25 en #26 onder het plan in `platformen/steam/spelgevoel.md` (loopsnelheid per soort uit stap_px x loop_fps, beslist: langzamer lopen; val doet altijd zichtbaar iets; eerste minuut in 5 stappen; ritme met rust). Wacht op #24 (nakeuring #41) voor de film van #19.

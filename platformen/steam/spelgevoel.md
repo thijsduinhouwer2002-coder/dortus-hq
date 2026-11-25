@@ -19,6 +19,41 @@ Thijs speelde op 24 nov en zei: voelt als een virus, poppetjes lopen raar, om de
 **Volgorde:** #24 (app-balk, Thijs kan het anders niet aan laten), dan #25 met de beelden van Mila, dan #26. Mila begint nu aan de loopbeelden zodat Olaf ze heeft als #24 klaar is. Steam-header (#30) en felle schermen (#6) wachten tot hier.
 **Klaar met dit plan als:** een film van 60 s waarin een nieuwe speler zonder uitleg snapt wat hij doet, Iris geeft "leuk" en "duidelijk" minstens 8 (issue #7), en Thijs speelt opnieuw en noemt het geen virus meer.
 
+### Bouwblad bij het plan: de getallen voor Olaf (Sanne, 25 nov ±04:00 NL, issue #19)
+Zodat #25 en #26 zonder vragen gebouwd kunnen worden. Beslist door mij als eigenaar; Olaf mag een getal bijstellen als het in de film slecht leest, met een regel waarom.
+
+**A. Lopen (#25).** Snelheid = `stap_px` x `loop_fps`, met `loop_fps` tussen 8 en 12, zodat de voeten nooit glijden en de beentjes niet trappelen. Helden lopen dus langzamer dan nu (10 spelpx/s), dat past bij een spel naast je werk en je ziet elke held langer. Per soort (blad in `godot/kunst/3d/sprites.json`):
+
+| soort | stap_px | loop_fps | snelheid spelpx/s | gevoel |
+|---|---|---|---|---|
+| gewone held (held0 tot 4) | 0,463 | 12 | 5,6 | gewoon |
+| ridder | 0,327 | 12 | 3,9 | zwaar, stampt |
+| magier (blad heks) | 0,327 | 12 | 3,9 | kijkt rond |
+| bard | 0,408 | 12 | 4,9 | huppelt |
+| dief | 0,626 | 12 | 7,5 | snel, sluipt |
+
+`SOORT.snel` en `SNEL` in `held.gd` vervallen voor het lopen; vluchten mag x1,5 op de fps (tot 18), anders blijft alles bij deze tabel. Elke 3 tot 6 s lopen: 1 s stilstaan met het kijk-beeld (niet bij vluchten). Bij omdraaien eerst het draai-beeld.
+
+**B. Een val doet altijd iets (#25).** Komt een held op een val, dan speelt altijd een hele clip af, nooit niets:
+- **Valt:** meteen bij aanraken (nu ±1 s op de pinnen, Iris), met de klap die er al is.
+- **Valt niet:** het sprong-beeld over de val heen plus één teken erboven, 0,6 s: dief een wit streepje (te snel), magier een oog (ziet de val), ridder en de rest een klein "!" (geluk). Zo snap je waarom.
+- **De eerste 3 helden van een nieuw spel vallen altijd** in de eerste val die ze raken, zodat de eerste minuut laat zien dat vallen werken. Daarna de kansen zoals nu (`KANS` in `held.gd`, geen balanswijziging).
+
+**C. Eerste minuut: altijd één doel (#26).** Eén regel tegelijk, groot (letters minstens 12 px hoog op een strook van 120, gemeten), midden boven het hol, met een pijltje dat zacht op en neer wipt naar de plek. Spelerstekst hieronder is concept tot Thijs hem schrijft.
+1. Eerste start, 4 s: "Hats of the Fallen. Your taskbar has a basement." Daarna weg, nooit meer.
+2. De eerste held loopt binnen en valt in de put die er al staat (regel B), de muntjes vliegen naar de teller. Geen tekst, het beeld vertelt het.
+3. Direct na die muntjes: "Click the dirt to dig." Pijl naar de grond rechts van de gang. Klaar bij het eerste gegraven vak.
+4. Dan: "Click the tunnel to set a trap." Pijl naar het nieuwe vak. Klaar bij de eerste eigen val.
+5. Dan het doel dat er al is, maar op dezelfde grote plek: "Next: Big Gloop, 25 gold to go". Vanaf hier staat er altijd precies één doel.
+- Doet de speler 20 s niets bij stap 3 of 4, dan wipt de pijl één keer groter; meer niet, geen tweede regel. Klikt hij ergens anders iets goeds (graven voor stap 3 of een val voor stap 4), dan telt dat ook.
+- Elke klik geeft binnen 0,5 s iets te zien; een klik op een plek waar niets kan, geeft een klein grijs wolkje.
+
+**D. Tekst (#26).** Het logboek rechts wordt één regel van minstens 12 px die na 6 s verdwijnt; het hele logboek komt pas bij een klik op het boek. Nooit twee regels tegelijk over het hol.
+
+**E. Ritme met rust en uitschieters (#26).** De gaten tussen helden blijven 28 tot 38 s met 15% kans op een paar (6 tot 10 s), en daar komt bij: na elke 4 tot 6 helden een rust van 60 tot 90 s zonder nieuwe held. Bijzonder in plaats van steeds dezelfde: `EERSTE_GEWOON` van 10 naar 3 en `KIES_GEWICHT` gewone held van 55 naar 25 (ridder 25, dief 25, magier 15, bard 10), zodat de meeste helden een soort met eigen loop en eigen reden zijn. Ruwe schets van dit ritme met de snelheden van A (20 zaden, 30 min, `scratchpad`, GOK want het spel zelf is niet gedraaid): held in beeld ±63% (nu ±44% in dezelfde schets), langste stuk zonder held ±70 s, en dat is dan de rust. Eis voor de echte meting met `e2e/ritme_meting.py`: in beeld minstens 55%, langste stuk zonder held hooguit 90 s.
+
+**F. De speler is de baas (#26).** Muis 3 min niet bewogen: gaten tussen helden x2 en geen tekstregels (alles komt op het kaartje bij terugkomst). Gebeurtenissen (lied, Hoard-Toucher, terugkomer met wrok) starten alleen als de muis in de laatste 60 s bewoog. In het systeemvak en het rechtsklikmenu: "Heroes: Calm / Normal / Busy" (gaten x1,5 / x1 / x0,7), naast Height, Sound, Pause en Quit die er al zijn (#24).
+
 ## Toets 8: de speeltestbuild als .exe, eerste 3 minuten en ritme (17 nov ±04:04 UTC, run 44008361789, 959aef4 = spelcode van main sinds 7e1ee59)
 GEZIEN in `hol.log` op `schermen` (`steam-hol-duur/claude-steam-hol-regels-zaad-1794860558-1920x1080-exe/`), ritme met `e2e/ritme_meting.py` zelf gedraaid.
 - **Ritme haalt mijn eis ruim:** held in beeld 62% (eis 45%), langste stuk zonder held en zonder regel 26 s (eis 40 s), 107 kroniekregels in 20 min.
