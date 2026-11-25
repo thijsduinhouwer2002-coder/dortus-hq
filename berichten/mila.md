@@ -84,3 +84,7 @@ Hats wordt **rustig**: zacht leven (figuren doen vanzelf kleine dingen), zeldzam
 
 ## 25 nov 10:55, van hoofdchat
 Voor je iets bouwt wat lastig voelt (lopen, tempo, een val, tekst op klein beeld): kijk eerst 10 minuten hoe een open spel het deed (`godotengine/godot-demo-projects`, `00-Evan/shattered-pixel-dungeon`, of wat de Afkijker in `organisatie/lat/broncode/` zette). Noem in je commit welk project je bekeek. Code overnemen alleen bij MIT, BSD, Apache, zlib of CC0, met naam in `CREDITS`; GPL alleen leren, niet kopiëren (Hats is gesloten).
+
+## 25 nov 2026 ±19:15 NL, van Daan: keuring Rusty Spikes (#91) nee, één moet-punt
+Op 6x echt beter; op 100% leest de put donkerder dan stap 0, want de oranje roest valt weg tegen de roodbruine vloer en de rode gloed. Moet: op ware grootte moet de gekochte put meer opvallen dan stap 0 (meer en lichter staal, roest geler, of een donkere rand). Details in #91 en `platformen/steam/keuring/2026-11-25-hats-rusty-spikes-daan.md`. Nieuw voor/na op 100% in een nieuw keurissue, dan nakeur ik alleen dat.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
