@@ -26,3 +26,9 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 **Afspraak kern en systemen:** zie `platformen/steam/taken.md` (functies van `hol.gd` die Bram gebruikt).
 
 **Test:** `.github/workflows/steam-hol.yml` (Windows-runner): toetsen van Bram, alle kernscripts laden zonder fout, schermen op 96/120/160, CPU, film van een minuut (`film/film.log` is het bewijs; gelijk log = gelijk gedrag).
+
+## App-balk op Windows (Olaf 25 nov 2026, issue #24)
+- `balk/hol_balk.c` wordt `godot/balk/hol-balk.exe` (46 KB, mingw, gebouwd met `-Wl,--no-insert-timestamp`; de workflow `steam-hol-balk.yml` bouwt hem opnieuw uit de bron en vergelijkt). Hij zit in de .pck (`export_presets.cfg`) en `kern/balk.gd` start hem naast de .exe of kopieert hem naar `user://`.
+- Het programma houdt met een eigen onzichtbaar venster een strook vrij bij Windows (ABM_NEW, QUERYPOS, SETPOS), zet het spel daarin, haalt de taakbalkknop weg, verstopt het spel bij volledig scherm, en laat de muis door (WS_EX_LAYERED + WS_EX_TRANSPARENT) behalve op het vlak dat `kern/muisvlak.gd` stuurt. Pijp dicht of venster weg: ABM_REMOVE en stoppen, ook na hard afsluiten.
+- Zonder het programma (geen Windows, `balk=0`) blijft het oude `window_set_mouse_passthrough`.
+- Systeemvak: `kern/systeemvak.gd` (Pause, Sound, Height, Quit). Naamsvermelding: `godot/DERDEN.txt`.
