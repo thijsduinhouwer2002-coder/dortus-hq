@@ -24,7 +24,7 @@ De rest van de pagina blijft zoals in `pro-1.2.8.md` (blok "New in Pro 1.2.8" en
 
 ## 3b. Regel "Try it free first" (direct onder de eerste alinea, Gumroad en Superhive; Bram 25 nov, issue #50, lat gat 2)
 ```
-Try it free first: the free Click Joints on Blender Extensions makes ball and pin joints, one at a time, and shows how far each one bends. Hinges with end stops, Figure from rig and the Fit test strip are in Pro only. https://extensions.blender.org/add-ons/click-joints/
+Try it free first: the free Click Joints on Blender Extensions makes ball and pin joints, one at a time, and shows how far each ball joint bends. Hinges with end stops, Figure from rig and the Fit test strip are in Pro only. https://extensions.blender.org/add-ons/click-joints/
 ```
 Waarom (geld): JointLab zet "USE ONLINE, FREE" naast de koopknop en Split 3D Print heeft een $0-variant (lat gat 2, GEZIEN). Wie twijfelt over $19 kan eerst zien dat het werkt; de gratis versie heeft 375 downloads (GEZIEN, `producten/blender-gewrichten/taken.md`), dus het lijntje terug naar Pro loopt ook die kant op. Effect op verkoop: GOK.
 
