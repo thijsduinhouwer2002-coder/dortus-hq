@@ -1,23 +1,23 @@
-HOL balk gestart, pid 8284, hoogte 96
+HOL balk gestart, pid 2128, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 3 s
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795567758
+HOL zaad 1795572641
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
 HOL demo voorbij na 3 s speeltijd
-HOL kroniek 3.1 (wacht 0.0): That's the demo. Your hole keeps going.
+HOL kroniek 3.0 (wacht 0.0): That's the demo. Your hole keeps going.
 HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
-HOL begin: vallen (Lotte)
-HOL held binnen: Lotte
-HOL zicht 4.2 1
-HOL kroniek 5.6 (wacht 1.5): Lotte brought a torch. And hope.
-HOL meting t=10 beelden=65 helden=1 hol_vast=1
-HOL kroniek 10.3 (wacht 0.0): Siem climbs into your hole.
-HOL begin: opgegeten (Siem)
-HOL held binnen: Siem
-HOL kroniek zelfde held vervangen: Lotte brought a torch. And hope.
-HOL kroniek 12.8 (wacht 0.0): Lotte found the Spike Pit. Hard. +6
-HOL kroniek 15.3 (wacht 2.5): Page for the Hero. The pit won.
-HOL meting t=20 beelden=129 helden=1 hol_vast=3
+HOL begin: vallen (Rik)
+HOL held binnen: Rik
+HOL zicht 4.1 1
+HOL kroniek 5.5 (wacht 1.5): Rik read about you in a tavern.
+HOL meting t=10 beelden=64 helden=1 hol_vast=1
+HOL kroniek 10.9 (wacht 0.0): Odo climbs into your hole.
+HOL begin: opgegeten (Odo)
+HOL held binnen: Odo
+HOL kroniek zelfde held vervangen: Rik read about you in a tavern.
+HOL kroniek 12.7 (wacht 0.0): Rik stays forever. +6
+HOL kroniek 15.3 (wacht 2.5): New page: the Hero. The pit won.
+HOL meting t=20 beelden=128 helden=1 hol_vast=3
 HOL einde na 25 s, fps=10, goud=26, terugkomers=0

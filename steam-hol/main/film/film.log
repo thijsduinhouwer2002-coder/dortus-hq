@@ -1,4 +1,4 @@
-HOL balk gestart, pid 4456, hoogte 120
+HOL balk gestart, pid 7888, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
@@ -62,7 +62,3 @@ HOL kroniek 50.8 (wacht 0.0): Gloop ate Maud. Kept the bucket. +6
 HOL held binnen: Jop
 HOL kroniek 53.3 (wacht 0.0): Jop the Hoard-Toucher is back for Gloop.
 HOL gegraven kolom 7 (zelf 6, graafbonus 0)
-HOL hol-niveau 3 (faam 5, t 58.2)
-HOL reeks 2 (+0, t 58.2)
-HOL kroniek 58.2 (wacht 0.0): Bram stays forever. +6
-HOL bordje wip niveau 3
