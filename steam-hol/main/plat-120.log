@@ -1,20 +1,22 @@
-HOL balk gestart, pid 5944, hoogte 120
+HOL balk gestart, pid 3824, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795575173
+HOL zaad 1795578448
 HOL balk aan
 HOL plat zonder regel (2 keer gemeld)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Mara has a map. It is wrong.
-HOL begin: vallen (Mara)
-HOL held binnen: Mara
+HOL kroniek 4.0 (wacht 0.0): Jop knocks first. Polite.
+HOL begin: vallen (Jop)
+HOL held binnen: Jop
 HOL zicht 4.1 1
-HOL meting t=10 beelden=62 helden=1 hol_vast=1
-HOL kroniek 11.0 (wacht 0.0): Femke climbs into your hole.
-HOL begin: vluchten (Femke)
-HOL held binnen: Femke
-HOL kroniek zelfde held vervangen: Mara has a map. It is wrong.
-HOL kroniek 12.7 (wacht 0.0): Mara took the short way down. +6
-HOL kroniek 15.3 (wacht 2.6): Page for the Hero. The pit won.
+HOL kroniek 9.4 (wacht 0.0): Mara is here for your gold.
+HOL begin: vluchten (Mara)
+HOL held binnen: Mara
+HOL meting t=10 beelden=62 helden=2 hol_vast=1
+HOL kroniek zelfde held vervangen: Jop knocks first. Polite.
+HOL kroniek 12.8 (wacht 0.0): Jop found the Spike Pit. Hard. +6
+HOL kroniek 15.3 (wacht 2.6): New page: the Hero. The pit won.
 HOL meting t=20 beelden=128 helden=1 hol_vast=3
-HOL einde na 24 s, fps=10, goud=26, terugkomers=0
+HOL kroniek 23.2 (wacht 0.0): Mara fled, crying a little.
+HOL zicht 23.3 0
+HOL einde na 24 s, fps=10, goud=26, terugkomers=1

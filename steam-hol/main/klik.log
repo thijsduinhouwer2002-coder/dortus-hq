@@ -1,20 +1,20 @@
-HOL balk gestart, pid 8820, hoogte 96
+HOL balk gestart, pid 2512, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795575208
+HOL zaad 1795578480
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
 HOL klik op (200, 90): niets
-HOL kroniek 4.0 (wacht 0.0): Rik climbs into your hole.
-HOL begin: vallen (Rik)
-HOL held binnen: Rik
-HOL zicht 4.1 1
-HOL meting t=10 beelden=63 helden=1 hol_vast=1
-HOL kroniek 10.0 (wacht 0.0): Jop says this is a quick one.
-HOL begin: opgegeten (Jop)
-HOL held binnen: Jop
-HOL kroniek zelfde held vervangen: Rik climbs into your hole.
-HOL kroniek 12.7 (wacht 0.0): Rik checked the floor. Too late. +6
-HOL kroniek 15.3 (wacht 2.6): New page: the Hero. The pit won.
+HOL kroniek 4.1 (wacht 0.0): Bram has a map. It is wrong.
+HOL begin: vallen (Bram)
+HOL held binnen: Bram
+HOL zicht 4.2 1
+HOL meting t=10 beelden=64 helden=1 hol_vast=1
+HOL kroniek 10.4 (wacht 0.0): Teun knocks first. Polite.
+HOL begin: opgegeten (Teun)
+HOL held binnen: Teun
+HOL kroniek zelfde held vervangen: Bram has a map. It is wrong.
+HOL kroniek 12.8 (wacht 0.0): Bram is part of the hole now. +6
+HOL kroniek 15.4 (wacht 2.6): Page for the Hero. The pit won.
 HOL meting t=20 beelden=129 helden=1 hol_vast=3
 HOL einde na 25 s, fps=10, goud=26, terugkomers=0

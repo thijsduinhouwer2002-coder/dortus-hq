@@ -1,14 +1,14 @@
-HOL balk gestart, pid 5964, hoogte 120
+HOL balk gestart, pid 1884, hoogte 120
 HOL weg geweest 1 s (klok terug: false): goud voor 26, helden 0, erbij 0, hoeden 0
 HOL opslag geladen: 0 terugkomers, 26 goud, faam 1
 HOL demo: speeltijd 15 s, grens 10 s
 HOL kroniek 0.0 (wacht 0.0): Demo over. The full game keeps it all.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795575369
+HOL zaad 1795578651
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Wout has a map. It is wrong.
-HOL begin: vluchten (Wout)
-HOL held binnen: Wout
-HOL zicht 4.1 1
+HOL kroniek 4.1 (wacht 0.0): Ineke climbs into your hole.
+HOL begin: vluchten (Ineke)
+HOL held binnen: Ineke
+HOL zicht 4.2 1
 HOL einde na 8 s, fps=10, goud=26, terugkomers=0
