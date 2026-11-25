@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (main)
 GROOT: 1 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 45557142889, commit 08eaf888734193534adac5ca2577349d3669c8cd, commitdatum 1795586229, 2026-11-25T06:28:30Z
+Referentie: referentie uit run 45570215552, commit a52980a5919a39368b480ed65029a8c7694ff991, commitdatum 1795592523, 2026-11-25T08:12:25Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -10,7 +10,7 @@ Referentie: referentie uit run 45557142889, commit 08eaf888734193534adac5ca25773
 | 12-scharnier-rood-x.png | 7 px (0.000%), ruis | |
 | 13-pro-knie-schoon-x.png | 12 px (0.001%), ruis | |
 | 13-pro-knie-x.png | 8 px (0.000%), ruis | |
-| 13d-pro-knie-dicht-x.png | gelijk | |
+| 13d-pro-knie-dicht-x.png | 56 px (0.003%), ruis | |
 | 14-pro-knie-rood-x.png | gelijk | |
 | 14b-pro-knie-rood-los-x.png | 7 px (0.000%), ruis | |
 | 15-figuur-paneel.png | gelijk | |
