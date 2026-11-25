@@ -129,6 +129,16 @@ Eén regel per aankoop, meteen na "Buy". Kort (past in het paneel, max ±42 teke
 - Undo: `{naam} undone. +{goud}` blijft zo (eerlijk en duidelijk, geen grap nodig).
 Let op eerlijkheid: elke regel zegt wat de stap echt doet (40 s, dieper, deksel); geen regel belooft meer dan het spel doet.
 
+## Heldenboek, gewone woorden (Sanne 25 nov 2026, geldt boven het stuk hieronder)
+Iris 25 nov (#7): "New stamp: Hero." en "Page for the Hero" snapt een nieuwe speler niet. Regels zeggen nu wat er gebeurde, zonder boekwoorden (page, stamp, Booked, Book:, Filed, Noted, Stamped). `{wk}` = hero, knight, thief, wizard of bard, klein geschreven.
+- Eerste van een soort door Gloop: `First {wk} for {bewoner}!` / `{bewoner}'s first {wk}. Yum.`
+- Door de put: `First {wk} in the pit!` / `The pit's first {wk}.`
+- Ontsnapt: `First {wk} got away.` / `A {wk} got away. Next time.` Kort: `First {wk}!`
+- Moment: `{naam} {moment}!` / `Look: {naam} {moment}.` Kort: `A hero {moment}.`
+- Hoed (derde): `{naam}'s {hoed} is ours now.` Kort: `New hat: {hoed}.` Hoedenberg (eerste): `The hat pile reached {n}!`
+- Aartsvijand: `{naam} is your nemesis now.` / `{naam} holds a grudge now.` / `{naam} will be back. Angry.` Kort: `A new nemesis.`
+- Afgerekend: `{naam} won't be back. Day {d}.` / `{naam} is done for. Day {d}.` / `Day {d}: {naam}'s grudge is over.` Kort: `A nemesis is done for.`
+
 ## Heldenboek (Sanne 10 nov 05:05 UTC; voor `systemen/boek.gd` van Bram)
 Bram heeft in `boek.gd` al één vaste regel per soort; die zijn duidelijk en kloppen. Hieronder per soort de vaste regel (eerste, uit de code) plus twee grappigere, zodat het boek niet elke keer hetzelfde zegt. Alle regels gemeten met de langste gevallen ("the Wizard", "Feather cap", "Tibbe", elk moment uit MOMENTEN, 10000, dag 123): **alle ≤ 42 tekens** (de langste is 42). Kies zoals bij de rest: willekeurig binnen de soort, niet twee keer achter elkaar. De korte val-terug (`kort` in `_past`) blijft zoals Bram hem heeft.
 - Nieuwe bladzijde, hoofdstuk 1 (`{wie}` = "the Wizard", nooit vooraan in de zin): `New page: {wie}. {hoe}` / `Page for {wie}. {hoe}` / `Booked: {wie}. {hoe}`

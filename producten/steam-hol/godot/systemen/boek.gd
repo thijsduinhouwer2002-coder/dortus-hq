@@ -95,21 +95,19 @@ func held(soort_held: String, wat: String, naam: String, bewoner := "Gloop") -> 
 	var b: Dictionary = helden.get(soort_held, {})
 	if b.has(wat):
 		return ""
-	var nieuwe_pagina := b.is_empty()
 	b[wat] = naam
 	helden[soort_held] = b
-	var wie: String = HELD_NAAM[soort_held]
-	var hoe := ""
+	# Gewone woorden: zeg wat er gebeurde, niet dat er een bladzijde of stempel bij kwam (Iris 25 nov #7: "New stamp"
+	# en "Page for the Hero" snapt een nieuwe speler niet). Het boek zelf houdt de bladzijden en stempels bij.
+	var wk: String = String(HELD_NAAM[soort_held]).replace("the ", "").to_lower()
+	var r := ""
 	if wat == "slijm":
-		hoe = _kies("hoe_slijm", ["%s got this one." % bewoner, "%s says yum." % bewoner])
+		r = _kies("hoe_slijm", ["First %s for %s!" % [wk, bewoner], "%s's first %s. Yum." % [bewoner, wk]])
 	elif wat == "stekelput":
-		hoe = _kies("hoe_put", ["The pit won.", "Spikes: one."])
+		r = _kies("hoe_put", ["First %s in the pit!" % wk, "The pit's first %s." % wk])
 	else:
-		hoe = _kies("hoe_weg", ["Got away.", "Ran off. Counts."])
-	var kort := "New stamp: %s." % wie.replace("the ", "")
-	if nieuwe_pagina:
-		return _bewaar(_past(_kies("pagina", ["New page: %s. %s", "Page for %s. %s", "Booked: %s. %s"]) % [wie, hoe], kort))
-	return _bewaar(_past("New stamp for %s. %s" % [wie, hoe], kort))
+		r = _kies("hoe_weg", ["First %s got away." % wk, "A %s got away. Next time." % wk])
+	return _bewaar(_past(r, "First %s!" % wk))
 
 # Zwakte zoals in heldensoort.gd: de verdediging waar hij het gevoeligst voor is, pas na zijn eerste vangst.
 # Gelijk (gewone held, bard) geeft "".
@@ -128,8 +126,8 @@ func moment(trek: String, naam: String) -> String:
 	if not MOMENTEN.has(trek) or not MOMENT_BESTAAT[trek] or momenten.has(trek):
 		return ""
 	momenten[trek] = naam
-	var zin := _kies("moment", ["New page: %s %s.", "Book: %s %s. Noted.", "%s %s. Filed."])
-	return _bewaar(_past(zin % [naam, MOMENTEN[trek]], "New page: %s." % TREK_NAAM[trek].replace("the ", "")))
+	var zin := _kies("moment", ["%s %s!", "Look: %s %s."])
+	return _bewaar(_past(zin % [naam, MOMENTEN[trek]], "A hero %s." % MOMENTEN[trek]))
 
 # Hoofdstuk 3. De eerste keer dat Gloop deze hoed kreeg.
 func hoed(nr: int, naam: String) -> String:
@@ -137,8 +135,8 @@ func hoed(nr: int, naam: String) -> String:
 		return ""
 	hoeden[str(nr)] = naam
 	var hn: String = HOED_NAMEN[nr]
-	var zin := _kies("hoed", ["New hat: %s. Thanks, %s." % [hn, naam], "%s added. %s won't need it." % [hn, naam], "Book: %s's %s. Kept." % [naam, hn]])
-	return _bewaar(_past(zin, "New hat in the book: %s." % hn))
+	var zin := _kies("hoed", ["New hat: %s. Thanks, %s." % [hn, naam], "%s added. %s won't need it." % [hn, naam], "%s's %s is ours now." % [naam, hn]])
+	return _bewaar(_past(zin, "New hat: %s." % hn))
 
 func berg(aantal: int, bewoner := "Gloop") -> String:
 	var hoogste := 0
@@ -148,7 +146,7 @@ func berg(aantal: int, bewoner := "Gloop") -> String:
 			hoogste = g   # bij een sprong (weg geweest) alleen de hoogste regel
 	if hoogste == 0:
 		return ""
-	var zin := _kies("berg", ["The hat pile reached %d. Stamped." % hoogste, "%d hats. The pile has weather now." % hoogste, "%d hats. %s is very proud." % [hoogste, bewoner]])
+	var zin := _kies("berg", ["The hat pile reached %d!" % hoogste, "%d hats. The pile has weather now." % hoogste, "%d hats. %s is very proud." % [hoogste, bewoner]])
 	return _bewaar(_past(zin, "The hat pile reached %d." % hoogste))
 
 # Hoofdstuk 4. Een nieuwe aartsvijand (Thrice-Fled). info mag bijnaam, wrok, bezoeken en littekens hebben.
@@ -161,8 +159,8 @@ func aarts(naam: String, info := {}) -> String:
 		return ""
 	aartsvijanden.append({"naam": naam, "bijnaam": String(info.get("bijnaam", "Thrice-Fled")), "wrok": String(info.get("wrok", "")),
 		"bezoeken": int(info.get("bezoeken", 3)), "littekens": int(info.get("littekens", 0)), "af_door": "", "af_dag": 0})
-	var zin := _kies("aarts", ["New nemesis in the book: %s.", "%s is in the book. In red ink.", "%s gets a whole page. Framed it."])
-	return _bewaar(_past(zin % naam, "New nemesis in the book."))
+	var zin := _kies("aarts", ["%s is your nemesis now.", "%s holds a grudge now.", "%s will be back. Angry."])
+	return _bewaar(_past(zin % naam, "A new nemesis."))
 
 func aarts_af(naam: String, door: String, dag: int) -> String:
 	var a := _aarts_van(naam)
@@ -171,8 +169,8 @@ func aarts_af(naam: String, door: String, dag: int) -> String:
 	a.af_door = door
 	a.af_dag = maxi(1, dag)
 	var d := int(a.af_dag)
-	var zin := _kies("aarts_af", ["Book: %s, settled on day %d." % [naam, d], "%s's page is closed. Day %d." % [naam, d], "Day %d: %s's grudge is filed." % [d, naam]])
-	return _bewaar(_past(zin, "Book: a nemesis settled."))
+	var zin := _kies("aarts_af", ["%s won't be back. Day %d." % [naam, d], "%s is done for. Day %d." % [naam, d], "Day %d: %s's grudge is over." % [d, naam]])
+	return _bewaar(_past(zin, "A nemesis is done for."))
 
 func _aarts_van(naam: String) -> Dictionary:
 	for a in aartsvijanden:
