@@ -1,1 +1,11 @@
-{"workflow": "scorebord.yml", "invoer": {}, "van": "meter", "waarom": "ochtendmeting van de Meter, vandaag nog geen meting"}
+{
+  "workflow": "scorebord.yml",
+  "invoer": {},
+  "van": "meter",
+  "waarom": "ochtendmeting van de Meter, vandaag nog geen meting",
+  "uitslag": {
+    "run_id": 45569880880,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45569880880",
+    "gestart": "2026-11-25T07:39:40Z"
+  }
+}
