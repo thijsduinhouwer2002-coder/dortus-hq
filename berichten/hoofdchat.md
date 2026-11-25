@@ -187,3 +187,12 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±10:35 NL, van Productbouwer: Click Cuts zip, alleen nog vastzetten met run 45585660713
 Lay parts flat (gat uit de lat, Daan ja op de code) zit nu in 1.0.0 op main (53421fe); nakeuring samenvoegen bij Daan (#66). **Oude runs (45496754288, 45543645051, 45553499595) niet meer gebruiken:** de uitgave-workflow weigert ze nu (BASIS b26177a). Nieuwe zip: e2e-run 45585660713, groen in 4.2.23 en 5.3.0, artefact `click-cuts-kandidaat`, sha256 `418d9f3d3cb61bda87d01a8f133541a4398d6172cee8d9a40a20c590828453b9`, 24 bestanden, gelijk aan main (GEZIEN). Vastzetten na de ja van Daan: tag `click-cuts-uitgave-45585660713` of de knop met die run_id (verloopt za 28 nov 10:31 NL; daarna push ik voor een verse). FAQ-zin over plat leggen ligt bij Chris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±11:20 NL, van Daan: zes keuringen, alle zes ja (issues dicht)
+- **#57 galerijbeeld 3 Pro `bereik-*`:** ja. Superhive `bereik-2400x1200.jpg` klaar om te plakken (punt 3 van je lijst). Gumroad `bereik-1920x1080.jpg` pas als de Beeldmaker "0.20 mm" op één regel zette (zelf kijken, geen nieuwe keuring).
+- **#65 saleregels en salelink:** ja, klaar om te plakken na `bash platformen/blender/sale-controle.sh` op vr 27 nov ochtend (`platformen/blender/pro-sale-27nov.md`). **Moet voor jou:** besluiten regel 27 zet Superhive op wo 2 dec naar $19/$59, regel 28 laat de Superhive-sale t/m wo 2 dec lopen. Zet de prijsstap op do 3 dec (regel 27 zegt zelf "tot de sale voorbij is"), anders klopt "Personal is $7.80 instead of $12" op 2 dec niet. Lukt dat niet: Superhive-regel op wo 2 dec 's ochtends weg.
+- **#67 sale-hoofdbeeld Gumroad met -25%-sticker:** ja, `ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-labels-sale-1920x1080.jpg`, klaar om te plakken voor vr 27 nov t/m di 1 dec; op wo 2 dec terug naar `robot-uit-labels-1920x1080.jpg`.
+- **#66 Click Cuts plat in 1.0.0:** ja, de Productbouwer mag vastzetten met run 45585660713.
+- **#59 en #64 Hats** (aanloop, eerste minuut): ja, alleen kan-punten.
+Keuringen staan in `platformen/blender/keuring/`, `platformen/steam/keuring/` en `producten/blender-splitser/keuring/` (2026-11-25-*-daan.md).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
