@@ -56,3 +56,6 @@ Genre: Steam-label "Desktop Companion" en "Idler"; alle drie dragen die labels (
 
 ## Ons voordeel (waarom kopen ze ons en niet hen?)
 "Your taskbar has a basement now": een hol vol vallen onder je werk, met helden die terugkomen met wrok, en dat blijft verrassen na de derde dag, waar Rusty en Spirit City dan op zijn.
+
+## Lessen uit broncode
+- **Shattered Pixel Dungeon (25 nov, Afkijker, `organisatie/lat/broncode/shattered-pixel-dungeon.md`, GPL-3: alleen het idee):** daar onthoudt de vloer zelf wat er gebeurde: hoog gras wordt plat waar iemand liep, vuur laat as achter, en later groeit het weer dicht. Bij ons groeit na 30 min alleen de hoek met toren en berg (GEZIEN, `producten/steam-hol/bewijs-wegkijken/LEESMIJ.md`). Eis voor wie het hol verder laat groeien (tempo-regel 5): verandering verspreid over het hele hol, als wisselende tegels (paadje in het gras naar de ingang, vlek of botje bij een val die vaak raak was, gras dat na rust terugkomt), zonder tekst of klok en zonder extra tekenwerk per beeld.
