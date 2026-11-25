@@ -20,13 +20,14 @@ Click Joints Pro 1.2.8
 - Shift + right click on the skin now works with Knee, Elbow, Ankle and the hinge buttons.
 - A knee with a kneecap, like the robot's, now gets a hinge with a good fit right in the middle of the knee. Before, it said Tight there.
 - When Figure from rig cannot cut a joint, the list now shows the real reason and what you can do, instead of "Try a spot further from the end".
+- Figure from rig on Blender 4.2 LTS now needs far less memory. Before, on some figures it could fill all memory at the elbow and freeze Blender.
 - Tested on Blender 4.2 LTS, 5.2 LTS and 5.3.
 ```
-Nieuw is alleen regel 3. De andere regels staan letterlijk zo in `pro-1.2.7.md` (Daan ja).
+Nieuw is alleen regel 3, en sinds 25 nov regel 5 (geheugen in 4.2, issue #14: vóór de fix boven 15 GB in CI, nu piek ±2,5 GB lokaal en 4,6 GB in CI-run 45526260663 op dezelfde figuur, GEZIEN; keuring in #37). De andere regels staan letterlijk zo in `pro-1.2.7.md` (Daan ja).
 
 ## 3. Update log Superhive (bovenaan erbij)
 ```
-1.2.8 (<dag van upload> Nov 2026): "More bones" now gives ankles on human figures and blocky feet (Blender 5.2+). Shift + right click on the skin now works with Knee, Elbow, Ankle and the hinge buttons. A knee with a kneecap now gets a good fit in the middle. Clearer reason when Figure from rig cannot cut a joint.
+1.2.8 (<dag van upload> Nov 2026): "More bones" now gives ankles on human figures and blocky feet (Blender 5.2+). Shift + right click on the skin now works with Knee, Elbow, Ankle and the hinge buttons. A knee with a kneecap now gets a good fit in the middle. Clearer reason when Figure from rig cannot cut a joint. Figure from rig needs far less memory on Blender 4.2.
 ```
 Geen aparte regel voor 1.2.7: die stond nooit in de winkel.
 
@@ -42,3 +43,4 @@ Uitgave-run `click-joints-pro-uitgave.yml` (VERSIE 1.2.8) met de groene e2e-run 
 
 ## Stand
 - 24 nov ±22:40 NL: 1.2.8 op main gezet (cherry-pick van de tak, Daan ja op code en toetsregel). Note klaar, keuring van regel 3 en de update log gevraagd aan Daan.
+- 25 nov ±02:45 NL: fix geheugen Rigify-elleboog in 4.2 (ook in 1.2.7 aanwezig) op main, 95a72a4; regel 5 in de note en een zin in de update log erbij, nakeuring M1, M2 en die regel in #37. E2e 45526260663 groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN), army_man KLAAR 0 FOUT in 4.2, piek Rigify 4614 MB.
