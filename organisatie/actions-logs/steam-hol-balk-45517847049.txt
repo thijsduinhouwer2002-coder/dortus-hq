@@ -1,0 +1,196 @@
+# gemaakt: 2026-11-25T00:27:35Z
+# workflow: Het Hol app-balk (Windows, issue 24) (.github/workflows/steam-hol-balk.yml)
+# run: 45517847049 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45517847049
+# commit: 501c6b8b tak claude/steam-balk gestart door push
+# mislukte stappen: balk: Toetsen van de app-balk
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== balk / Toetsen van de app-balk (laatste 187 van 187 regels) =====
+##[group]Run Add-Type @"
+Add-Type @"
+using System; using System.Runtime.InteropServices;
+public struct RECT { public int L, T, R, B; }
+public class W {
+  [DllImport("user32.dll")] public static extern bool SystemParametersInfo(uint a, uint b, ref RECT r, uint c);
+  [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr h, out RECT r);
+  [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow();
+  [DllImport("user32.dll")] public static extern bool SetForegroundWindow(IntPtr h);
+  [DllImport("user32.dll")] public static extern bool IsWindowVisible(IntPtr h);
+  [DllImport("user32.dll")] public static extern long GetWindowLongPtr(IntPtr h, int i);
+  [DllImport("user32.dll")] public static extern IntPtr WindowFromPoint(POINT p);
+  [DllImport("user32.dll")] public static extern IntPtr GetAncestor(IntPtr h, uint f);
+  [DllImport("user32.dll")] public static extern bool SetCursorPos(int x, int y);
+  [DllImport("user32.dll")] public static extern void mouse_event(uint f, uint dx, uint dy, uint d, IntPtr e);
+  [DllImport("user32.dll")] public static extern bool ShowWindow(IntPtr h, int c);
+  [DllImport("user32.dll")] public static extern IntPtr FindWindow(string c, string t);
+  public struct POINT { public int X, Y; public POINT(int x, int y) { X = x; Y = y; } }
+  public static RECT Werk() { RECT r = new RECT(); SystemParametersInfo(0x30, 0, ref r, 0); return r; }
+  public static RECT Rect(IntPtr h) { RECT r; GetWindowRect(h, out r); return r; }
+  public static IntPtr Op(int x, int y) { return GetAncestor(WindowFromPoint(new POINT(x, y)), 2); }
+}
+"@
+$uit = "producten/steam-hol/e2e/screenshots/balk"; New-Item -ItemType Directory -Force $uit | Out-Null
+$uit = (Resolve-Path $uit).Path
+$ug = $uit -replace '\\','/'
+$exe = (Resolve-Path "producten/steam-hol/bouw/volledig/HetHol.exe").Path
+$blog = Join-Path $env:APPDATA "Dortus/Het Hol/logs/balk.log"
+$r = @(); $fout = 0
+function Ok($goed, $tekst) { if ($goed) { $script:r += "OK   $tekst" } else { $script:r += "FOUT $tekst"; $script:fout++ } }
+function Tekst($x) { "$($x.L),$($x.T) tot $($x.R),$($x.B)" }
+function Venster($p) { $h = [IntPtr]::Zero; for ($i = 0; $i -lt 40 -and $h -eq [IntPtr]::Zero; $i++) { Start-Sleep 0.5; $p.Refresh(); $h = $p.MainWindowHandle }; $h }
+Add-Type -AssemblyName System.Windows.Forms
+$sb = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
+$w0 = [W]::Werk()
+$r += "scherm $($sb.Width)x$($sb.Height), werkruimte zonder spel $(Tekst $w0)"
+
+# 1 en 2: Kladblok gemaximaliseerd, dan het spel
+$n = Start-Process notepad.exe -PassThru -WindowStyle Maximized
+Start-Sleep 3
+$nh = Venster $n
+$p = Start-Process -FilePath $exe -ArgumentList "-- hoogte=120 vers=1 demo=1 log=$ug/spel-1.log" -PassThru
+$sh = Venster $p
+Start-Sleep 12
+$w1 = [W]::Werk(); $kr = [W]::Rect($nh); $sr = [W]::Rect($sh)
+$r += "met spel: werkruimte $(Tekst $w1), Kladblok $(Tekst $kr), spel $(Tekst $sr)"
+Ok ($w1.B -eq $w0.B - 120) "werkruimte 120 px korter ($($w0.B) -> $($w1.B))"
+Ok ($kr.B -le $sr.T + 8) "Kladblok (gemaximaliseerd) eindigt boven het spel (onder $($kr.B), spel boven $($sr.T); 8 px is de onzichtbare rand van Windows)"
+Ok ($sr.B -eq $w0.B) "spel staat direct boven de taakbalk"
+$ex = [W]::GetWindowLongPtr($sh, -20)
+Ok (($ex -band 0x80) -ne 0 -and ($ex -band 0x40000) -eq 0) ("geen taakbalkknop (exstijl 0x{0:x})" -f $ex)
+Ok (([W]::GetForegroundWindow()) -ne $sh) "het spel heeft de focus niet"
+$null = & producten/steam-hol/e2e/scherm.ps1 "$uit/1-kladblok-gemaximaliseerd.png"
+# alleen de onderkant groot, zodat je het typvak en het gras ziet
+Add-Type -AssemblyName System.Drawing
+$bmp = New-Object System.Drawing.Bitmap $sb.Width, 360
+$g = [System.Drawing.Graphics]::FromImage($bmp); $g.CopyFromScreen(0, $sb.Height - 360, 0, 0, $bmp.Size); $bmp.Save("$uit/1-onderkant.png")
+
+# 3: doorklikken. Lucht: 6 px onder de bovenrand van het spel; hol: 12 px boven de onderkant
+$mx = [int]($sb.Width / 3)
+$lm = [regex]::Match((Get-Content "$uit/spel-1.log" -Raw), "lucht vrij op x=(\d+)")
+if ($lm.Success -and [int]$lm.Groups[1].Value -gt 0) { $mx = $sr.L + [int]$lm.Groups[1].Value }
+$r += "lucht en hol getoetst op x=$mx"
+[W]::SetCursorPos($mx, $sr.T + 6) | Out-Null; Start-Sleep -Milliseconds 400
+$onder = [W]::Op($mx, $sr.T + 6)
+Ok ($onder -eq $nh) "muis in de lucht boven het hol: venster eronder is Kladblok ($onder, Kladblok $nh, spel $sh)"
+[W]::SetCursorPos($mx, $sr.B - 12) | Out-Null; Start-Sleep -Milliseconds 400
+$op = [W]::Op($mx, $sr.B - 12)
+Ok ($op -eq $sh) "muis in het hol: het spel vangt hem ($op)"
+[W]::mouse_event(2, 0, 0, 0, [IntPtr]::Zero); Start-Sleep -Milliseconds 80; [W]::mouse_event(4, 0, 0, 0, [IntPtr]::Zero)
+Start-Sleep 1
+[W]::SetCursorPos($mx, $sr.T + 6) | Out-Null; Start-Sleep -Milliseconds 400
+[W]::mouse_event(2, 0, 0, 0, [IntPtr]::Zero); Start-Sleep -Milliseconds 80; [W]::mouse_event(4, 0, 0, 0, [IntPtr]::Zero)
+Start-Sleep 1
+Ok (([W]::GetForegroundWindow()) -eq $nh) "klik in de lucht komt aan in Kladblok (voorgrond is Kladblok)"
+$l1 = Get-Content "$uit/spel-1.log" -Raw
+Ok ($l1 -match "HOL klik op") "klik in het hol komt aan in het spel"
+Ok ($l1 -match "HOL balk aan") "spel meldt: balk aan"
+
+# 4: volledig scherm (een randloos venster over het hele scherm, zoals een film in de browser)
+$vol = Start-Process pwsh -PassThru -ArgumentList "-NoProfile", "-Command", "Add-Type -AssemblyName System.Windows.Forms; `$f = New-Object System.Windows.Forms.Form; `$f.FormBorderStyle = 'None'; `$f.WindowState = 'Maximized'; `$f.BackColor = 'Black'; `$f.TopMost = `$true; `$f.Add_Shown({ `$f.Activate() }); [System.Windows.Forms.Application]::Run(`$f)"
+Start-Sleep 5
+Ok (-not [W]::IsWindowVisible($sh)) "film op volledig scherm: spel verstopt"
+$null = & producten/steam-hol/e2e/scherm.ps1 "$uit/4-volledig-scherm.png"
+Stop-Process -Id $vol.Id -Force
+Start-Sleep 4
+Ok ([W]::IsWindowVisible($sh)) "na de film: spel weer zichtbaar"
+
+# 6: hard afsluiten
+$balkp = Get-Process hol-balk -ErrorAction SilentlyContinue
+Ok ($balkp -ne $null) "hol-balk.exe draait"
+Stop-Process -Id $p.Id -Force
+Start-Sleep 4
+$w2 = [W]::Werk()
+Ok ($w2.B -eq $w0.B) "na hard afsluiten: werkruimte weer normaal ($(Tekst $w2))"
+Ok ((Get-Process hol-balk -ErrorAction SilentlyContinue) -eq $null) "na hard afsluiten: hol-balk.exe ook weg"
+[W]::ShowWindow($nh, 3) | Out-Null; Start-Sleep 2
+$null = & producten/steam-hol/e2e/scherm.ps1 "$uit/6-na-hard-afsluiten.png"
+Ok (([W]::Rect($nh)).B -ge $w0.B - 2) "Kladblok gemaximaliseerd is weer net zo hoog als zonder spel"
+
+# 5: systeemvak (vak=pauze, vak=geluid, vak=stop kiezen de menuregel na 6 s)
+foreach ($v in @("pauze", "geluid", "stop")) {
+  $q = Start-Process -FilePath $exe -ArgumentList "-- hoogte=120 vers=1 demo=1 duur=25 vak=$v log=$ug/vak-$v.log" -PassThru
+  if (-not $q.WaitForExit(60000)) { Stop-Process -Id $q.Id -Force }
+  Start-Sleep 3
+  $lv = Get-Content "$uit/vak-$v.log" -Raw
+  switch ($v) {
+    "pauze" { Ok ($lv -match "vak pauze aan" -and $lv -match "vak pauze uit") "systeemvak: pauze aan en uit" }
+    "geluid" { Ok ($lv -match "vak geluid uit" -and $lv -match "vak geluid aan") "systeemvak: geluid uit en aan" }
+    "stop" { Ok ($lv -match "einde via het systeemvak") "systeemvak: stoppen stopt het spel" }
+  }
+  $w3 = [W]::Werk()
+  Ok ($w3.B -eq $w0.B) "na stoppen ($v): werkruimte weer normaal ($(Tekst $w3))"
+}
+$null = & producten/steam-hol/e2e/scherm.ps1 "$uit/5-na-stoppen-systeemvak.png"
+Ok ((Get-Process hol-balk -ErrorAction SilentlyContinue) -eq $null) "na stoppen: hol-balk.exe weg"
+Ok (Test-Path "producten/steam-hol/godot/DERDEN.txt") "DERDEN.txt staat in het project (gaat mee in de .pck)"
+
+Copy-Item $blog "$uit/balk.log" -ErrorAction SilentlyContinue
+Copy-Item (Join-Path $env:APPDATA "Dortus/Het Hol/logs/godot.log") "$uit/godot.log" -ErrorAction SilentlyContinue
+$g = Get-Content "$uit/godot.log" -Raw -ErrorAction SilentlyContinue
+Ok ($g -notmatch "SCRIPT ERROR|Parse Error") "geen SCRIPT ERROR in godot.log"
+$r += "balk-toetsen: $fout FOUT"
+$r | ForEach-Object { Write-Output $_ }
+$r | Set-Content "$uit/uitslag.txt"
+Get-Content "$uit/balk.log" -ErrorAction SilentlyContinue
+if ($fout -gt 0) { exit 1 }
+shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+##[endgroup]
+scherm 1024x768, werkruimte zonder spel 0,0 tot 1024,720
+met spel: werkruimte 0,0 tot 1024,600, Kladblok -8,-8 tot 1032,608, spel 0,600 tot 1024,720
+OK   werkruimte 120 px korter (720 -> 600)
+OK   Kladblok (gemaximaliseerd) eindigt boven het spel (onder 608, spel boven 600; 8 px is de onzichtbare rand van Windows)
+OK   spel staat direct boven de taakbalk
+OK   geen taakbalkknop (exstijl 0x80800b8)
+OK   het spel heeft de focus niet
+lucht en hol getoetst op x=341
+FOUT muis in de lucht boven het hol: venster eronder is Kladblok (393522, Kladblok 262268, spel 393522)
+OK   muis in het hol: het spel vangt hem (393522)
+OK   klik in de lucht komt aan in Kladblok (voorgrond is Kladblok)
+OK   klik in het hol komt aan in het spel
+OK   spel meldt: balk aan
+OK   film op volledig scherm: spel verstopt
+OK   na de film: spel weer zichtbaar
+OK   hol-balk.exe draait
+OK   na hard afsluiten: werkruimte weer normaal (0,0 tot 1024,720)
+OK   na hard afsluiten: hol-balk.exe ook weg
+OK   Kladblok gemaximaliseerd is weer net zo hoog als zonder spel
+OK   systeemvak: pauze aan en uit
+OK   na stoppen (pauze): werkruimte weer normaal (0,0 tot 1024,720)
+OK   systeemvak: geluid uit en aan
+OK   na stoppen (geluid): werkruimte weer normaal (0,0 tot 1024,720)
+OK   systeemvak: stoppen stopt het spel
+OK   na stoppen (stop): werkruimte weer normaal (0,0 tot 1024,720)
+OK   na stoppen: hol-balk.exe weg
+OK   DERDEN.txt staat in het project (gaat mee in de .pck)
+OK   geen SCRIPT ERROR in godot.log
+balk-toetsen: 1 FOUT
+00:25:32 BALK stijl 0x80c0038 -> 0x80800b8
+00:25:32 BALK ABM_NEW ok
+00:25:32 BALK plek 0,600 tot 1024,720 (hoogte 120)
+00:25:32 BALK eerste vlak, 1 stukken
+00:25:47 BALK melding volledig scherm 1
+00:25:48 BALK verstopt (volledig scherm)
+00:25:51 BALK melding volledig scherm 0
+00:25:51 BALK weer zichtbaar (volledig scherm)
+00:25:55 BALK spel stopt (stdin dicht of q)
+00:25:55 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
+00:26:02 BALK stijl 0x80c0038 -> 0x80800b8
+00:26:02 BALK ABM_NEW ok
+00:26:02 BALK plek 0,600 tot 1024,720 (hoogte 120)
+00:26:03 BALK eerste vlak, 1 stukken
+00:26:30 BALK spel stopt (stdin dicht of q)
+00:26:30 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
+00:26:34 BALK stijl 0x80c0038 -> 0x80800b8
+00:26:34 BALK ABM_NEW ok
+00:26:34 BALK plek 0,600 tot 1024,720 (hoogte 120)
+00:26:34 BALK eerste vlak, 1 stukken
+00:26:58 BALK spel stopt (stdin dicht of q)
+00:26:58 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
+00:27:02 BALK stijl 0x80c0038 -> 0x80800b8
+00:27:02 BALK ABM_NEW ok
+00:27:02 BALK plek 0,600 tot 1024,720 (hoogte 120)
+00:27:03 BALK eerste vlak, 1 stukken
+00:27:08 BALK spel stopt (stdin dicht of q)
+00:27:08 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
+##[error]Process completed with exit code 1.
