@@ -32,6 +32,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         layout.label(text="Your printer")
         layout.prop(inst, "printer", text="")
         if inst.printer == printers.EIGEN:  # issue #69: the size goes right under Custom, not hidden in More settings
+            layout.label(text="Bed size in mm")  # keuring #74 K2: the unit without a hover
             rij = layout.row(align=True)
             rij.prop(inst, "eigen_x", text="X")
             rij.prop(inst, "eigen_y", text="Y")
