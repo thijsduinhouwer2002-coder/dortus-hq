@@ -170,7 +170,7 @@ def _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report):
     oude_gaten = json.loads(stuk.get("sj_gaten", "[]"))
     g = door_gat(oude_gaten, R, o, a, b, inst.wand_mm)
     if g is not None:
-        report({"ERROR"}, f"The free cut goes through a hole of {stuk.name} (to piece {g.get('buur')}). "
+        report({"ERROR"}, f"The free cut goes through a {'magnet' if g.get('soort') == 'magneet' else 'pin'} hole of {stuk.name} (to piece {g.get('buur')}). "
                           f"Move it at least {inst.wand_mm:.1f} mm away from the hole")
         return None
     lo, hi = lok.min(axis=0), lok.max(axis=0)
