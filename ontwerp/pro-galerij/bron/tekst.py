@@ -179,6 +179,40 @@ def strip(img, s, meta, P):
         pil(img, s, (int(x), int(y + 70 * s)), f"{getal} mm", maat=30)
 
 
+def inzet(img, s, x0, y0):
+    """Kaartje met de robot uit dezelfde render als 'Rig in. Parts out.' (klik): daarna krijgt elk gewricht die speling."""
+    pad = os.environ.get("GB_INZET")
+    if not pad:
+        return
+    r = Image.open(pad).convert("RGBA")
+    W0, H0 = r.size
+    robot = r.crop((int(W0 * 0.53), int(H0 * 0.10), int(W0 * 0.82), int(H0 * 0.92)))
+    h = int(330 * s)
+    robot = robot.resize((int(robot.width * h / robot.height), h), Image.LANCZOS)
+    bw = robot.width + int(430 * s)
+    bh = h + int(30 * s)
+    laag = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(laag).rounded_rectangle((x0, y0 + 8, x0 + bw, y0 + bh + 8), radius=int(28 * s), fill=(0, 0, 0, 160))
+    img.alpha_composite(laag.filter(ImageFilter.GaussianBlur(14)))
+    kaart = Image.new("RGBA", (bw, bh), (0, 0, 0, 0))
+    m = Image.new("L", (bw, bh), 0)
+    ImageDraw.Draw(m).rounded_rectangle((0, 0, bw - 1, bh - 1), radius=int(28 * s), fill=255)
+    kaart.paste(robot, (int(10 * s), int(15 * s)))
+    img.paste(Image.new("RGBA", (bw, bh), (20, 12, 28, 255)), (x0, y0), m)
+    img.alpha_composite(kaart, (x0, y0))
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle((x0, y0, x0 + bw, y0 + bh), radius=int(28 * s), outline=GOUD + (255,), width=max(2, int(2 * s)))
+    tx = x0 + robot.width + int(30 * s)
+    f1 = font("Bricolage.ttf", int(44 * s), "Bold")
+    f2 = font("Inter.ttf", int(30 * s), "Medium")
+    ty = y0 + int(70 * s)
+    schaduw_tekst(img, [((tx, ty), "Then one click", f1, CREME)], 6)
+    ty += int(64 * s)
+    for t in passend(d, "and every joint on your figure gets that clearance.", f2, int(370 * s)):
+        schaduw_tekst(img, [((tx, ty), t, f2, ZACHT)], 6)
+        ty += int(42 * s)
+
+
 def maak(basis, W, H, meta, dy, schaal):
     img = basis.copy()
     s = H / 1200.0 if W / H > 1.9 else H / 1080.0 * 0.92
@@ -189,7 +223,7 @@ def maak(basis, W, H, meta, dy, schaal):
     if MODUS == "knie":
         donker(img, int(W * 0.55))
         kop(img, s, x0, int(H * 0.12), ["Knees stop", "where your", "rig stops"],
-            "A real end stop on every hinge, with the bend range in degrees before you print.", int(W * 0.36))
+            "Generated hinge with a real end stop, bend range in degrees, 0.20 mm clearance.", int(W * 0.36))
         boog(img, s, meta, P)
     elif MODUS == "klik":
         donker(img, int(H * 0.42), kant="boven", sterk=150)
@@ -199,8 +233,9 @@ def maak(basis, W, H, meta, dy, schaal):
     else:
         donker(img, int(W * 0.55))
         kop(img, s, x0, int(H * 0.12), ["Find the fit", "for your", "printer"],
-            "Five test joints from 0.10 to 0.30 mm. Keep the one that turns without wobble.", int(W * 0.37))
+            "Five test joints, 0.10 to 0.30 mm. Keep the one that turns without wobble.", int(W * 0.37))
         strip(img, s, meta, P)
+        inzet(img, s, x0, int(H * 0.62))
     return img.convert("RGB")
 
 

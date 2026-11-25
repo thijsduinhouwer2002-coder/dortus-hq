@@ -17,7 +17,9 @@ GB_MODUS=strip GB_TIL=10 GB_KANTEL_TOP=-40 GB_OP=0.3 GB_ZIJ=-0.75 GB_AFSTAND=400
   blender -b --factory-startup --python bron/galerij.py -- <pro-zip> <uit> 32 100
 GB_MODUS=knie GB_KANT=-1 GB_UIT=6 GB_HEUP=-22 GB_SCHUIN=0.12 GB_AFSTAND=620 GB_HOOG=5 GB_SHIFT=-0.17 HB_LICHT=2.6 (zelfde regel)
 GB_MODUS=klik HB_DRAAI=-8 HB_KANTEL=5 HB_SHIFT=0 HB_VUL=0.66 HB_LICHT=2.6 (zelfde regel)
-python3 bron/tekst.py <knie|klik|strip> <uit>/render-<modus>.png <uit>/<modus>.json beelden <fontmap met Bricolage.ttf en Inter.ttf> ../click-joints/bron/icoon.svg
+[GB_INZET=<uit>/render-klik.png bij strip] python3 bron/tekst.py <knie|klik|strip> <uit>/render-<modus>.png <uit>/<modus>.json beelden <fontmap met Bricolage.ttf en Inter.ttf> ../click-joints/bron/icoon.svg
 ```
 Uit: `<modus>-2400x1200.jpg` (Superhive) en `<modus>-1920x1080.jpg` (Gumroad).
 Blinde test: sets `organisatie/blindtest/sets/click-joints-pro-galerij-{knie,klik,strip}.json`, tegen galerijbeelden van Cleave, CatPin en Split 3D Print.
+
+Ronde 1 (07:23 tot 07:28): klik GESLAAGD (Gemini 1,0, ChatGPT 1,0); knie 2,5 en 3,0, strip 2,5 en 3,5 niet geslaagd. Rechters: bij de strip "alleen proefstukjes, laat zien dat het gewrichten in je model zet"; bij de knie "laat de echte scharniervorm en speling zien". Ronde 2: strip met kaartje van de robot ("Then one click and every joint on your figure gets that clearance", robot uit dezelfde render als klik), knie met regel over het gemaakte scharnier en 0,20 mm speling. Een close-up met de delen ver uit elkaar (GB_UIT=12) werd onleesbaar en is niet gebruikt.

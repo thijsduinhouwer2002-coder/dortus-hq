@@ -216,6 +216,10 @@ def strip():
     soort = os.environ.get("GB_SOORT", "KOGEL")
     r = bpy.ops.click_joints.testkaart(soort=soort)
     log("Fit test strip", r)
+    voor = {o.name for o in sc.objects if o.type == "MESH" and o.get("cj_deel")}
+    tweede = os.environ.get("GB_SOORT2")
+    if tweede:   # tweede set (Fit test: hinge); de add-on zet hem zelf achter de eerste
+        log("Fit test strip 2", bpy.ops.click_joints.testkaart(soort=tweede))
     delen = [o for o in sc.objects if o.type == "MESH" and o.get("cj_deel")]
     meting["delen"] = sorted(o.name for o in delen)
     meting["getallen"] = sorted({o.get("cj_kaart_getal") for o in delen if o.get("cj_kaart_getal")})
@@ -256,7 +260,7 @@ def strip():
     camera_op(cam, doel, Vector((float(os.environ.get("GB_ZIJ", "-0.35")), -1.0, float(os.environ.get("GB_OP", "0.55")))),
               float(os.environ.get("GB_AFSTAND", "330")), float(os.environ.get("GB_LENS", "60")))
     for o in delen:
-        if o.get("cj_kaart_getal"):
+        if o.get("cj_kaart_getal") and o.name in voor:
             top = max((o.matrix_world @ Vector(c)).z for c in o.bound_box)
             c = o.matrix_world @ (sum((Vector(h) for h in o.bound_box), Vector()) / 8)
             labels[o["cj_kaart_getal"]] = {"top": naar_beeld(cam, (c.x, c.y, top)),
