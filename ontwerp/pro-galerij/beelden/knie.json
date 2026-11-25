@@ -1,0 +1,150 @@
+{
+ "figuur": "robot (figuur_robot.py, eigen werk)",
+ "uit_mm": 36.0,
+ "modus": "knie",
+ "knop_s": 94.8,
+ "gewrichten": [
+  "Left elbow · Hinge · 0–140° · from rig",
+  "Right elbow · Hinge · 0–140° · mirror",
+  "Left knee · Hinge · 0–120° · from rig",
+  "Right knee · Hinge · 0–120° · mirror",
+  "Neck · Ball · ±20° · preset",
+  "Left shoulder · Ball · ±30° · preset",
+  "Right shoulder · Ball · ±30° · preset",
+  "Left hip · Ball · ±22° · preset",
+  "Right hip · Ball · ±30° · preset"
+ ],
+ "records": [
+  {
+   "naam": "Left elbow",
+   "soort": "HINGE",
+   "graden": 140.0,
+   "punt": [
+    50.0,
+    -3.6,
+    132.0
+   ]
+  },
+  {
+   "naam": "Right elbow",
+   "soort": "HINGE",
+   "graden": 140.1,
+   "punt": [
+    -50.0,
+    -3.6,
+    132.0
+   ]
+  },
+  {
+   "naam": "Left knee",
+   "soort": "HINGE",
+   "graden": 120.0,
+   "punt": [
+    18.5,
+    4.0,
+    57.0
+   ]
+  },
+  {
+   "naam": "Right knee",
+   "soort": "HINGE",
+   "graden": 120.0,
+   "punt": [
+    -18.5,
+    4.0,
+    57.0
+   ]
+  },
+  {
+   "naam": "Neck",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    0.0,
+    0.1464,
+    181.5137
+   ]
+  },
+  {
+   "naam": "Left shoulder",
+   "soort": "BALL",
+   "graden": 30.0,
+   "punt": [
+    31.0419,
+    0.056,
+    172.6996
+   ]
+  },
+  {
+   "naam": "Right shoulder",
+   "soort": "BALL",
+   "graden": 30.0,
+   "punt": [
+    -31.0414,
+    0.0567,
+    172.6994
+   ]
+  },
+  {
+   "naam": "Left hip",
+   "soort": "BALL",
+   "graden": 22.0,
+   "punt": [
+    16.9899,
+    -0.0506,
+    115.9826
+   ]
+  },
+  {
+   "naam": "Right hip",
+   "soort": "BALL",
+   "graden": 30.0,
+   "punt": [
+    -16.9899,
+    -0.0505,
+    115.9826
+   ]
+  }
+ ],
+ "goud_vlakken": 26274,
+ "stop_graden": 119.96,
+ "pose": {
+  "Left shoulder": 18.0,
+  "Right shoulder": 18.0,
+  "Left hip": 22.0,
+  "Left elbow": 70.0,
+  "Right elbow": 70.0,
+  "Left knee": 120.0,
+  "Right knee": 8.0
+ },
+ "kader": [
+  [
+   -82.15727233886719,
+   -69.7260513305664,
+   -0.24210502207279205
+  ],
+  [
+   82.15745544433594,
+   80.67503356933594,
+   241.53018188476562
+  ]
+ ],
+ "boog": {
+  "knie": [
+   0.65,
+   0.5964
+  ],
+  "dij": [
+   0.6586,
+   0.3825
+  ],
+  "scheen0": [
+   0.65,
+   0.8093
+  ],
+  "scheen": [
+   0.522,
+   0.3807
+  ]
+ }
+}

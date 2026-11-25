@@ -1,0 +1,54 @@
+{
+ "figuur": "robot (figuur_robot.py, eigen werk)",
+ "uit_mm": 36.0,
+ "modus": "klik",
+ "gewrichten": [
+  "Left elbow · Hinge · 0–140° · from rig",
+  "Right elbow · Hinge · 0–140° · mirror",
+  "Left knee · Hinge · 0–120° · from rig",
+  "Right knee · Hinge · 0–120° · mirror",
+  "Neck · Ball · ±20° · preset",
+  "Left shoulder · Ball · ±30° · preset",
+  "Right shoulder · Ball · ±30° · preset",
+  "Left hip · Ball · ±22° · preset",
+  "Right hip · Ball · ±30° · preset"
+ ],
+ "delen": 10,
+ "goud_vlakken": 26272,
+ "pose": {},
+ "kader": [
+  [
+   -342.40283203125,
+   -26.267963409423828,
+   -8.940696716308594e-08
+  ],
+  [
+   86.53312683105469,
+   16.000001907348633,
+   268.313720703125
+  ]
+ ],
+ "kaders": {
+  "rig": [
+   [
+    0.2065,
+    0.844
+   ],
+   [
+    0.4136,
+    0.8345
+   ]
+  ],
+  "delen": [
+   [
+    0.5567,
+    0.6205
+   ],
+   [
+    0.7848,
+    0.6135
+   ]
+  ]
+ },
+ "botten": 20
+}

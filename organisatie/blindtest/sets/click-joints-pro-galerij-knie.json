@@ -1,0 +1,24 @@
+{
+  "titel": "Click Joints Pro, galerijbeeld 'Knees stop where your rig stops' op Superhive (issue #49)",
+  "rol": "You design figures and action figures in Blender to 3D print at home. You are browsing the Superhive (Blender Market) store for an add-on that helps you turn your models into printable parts. You are now looking at the gallery images on the product pages to see what each add-on really does.",
+  "ons": [
+    {
+      "naam": "knie met eindstop en gradenboog",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/pro-galerij/beelden/knie-2400x1200.jpg"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Cleave (galerij: Connectors that fit)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1385307/image/xlarge-217a3e0da44f8801d1e83b7bcbae19f5.jpg"
+    },
+    {
+      "naam": "CatPin (galerij: More tools 1.0.7)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1338008/image/xlarge-057298506b83164a27600ce01597a458.png"
+    },
+    {
+      "naam": "Split 3D Print (enige galerijbeeld)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1398051/image/xlarge-32eaf9ab9695881dcea508674d158d72.webp"
+    }
+  ]
+}
