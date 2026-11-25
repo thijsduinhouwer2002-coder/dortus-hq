@@ -1,8 +1,8 @@
 metingen van 10 s: 358
-CPU-s per 10 s: gemiddeld 1.386, mediaan 1.297, laagste 1, hoogste 2.406
-geheugen aan het eind: 52 MB
+CPU-s per 10 s: gemiddeld 1.643, mediaan 1.562, laagste 0.984, hoogste 3.328
+geheugen aan het eind: 60 MB
 proces leefde tot het eind: True
 soort: editor-Godot (--path)
-eerste koop mogelijk: HOL eerste koop mogelijk na 144 s speeltijd (goud 50)
-kroniekregels: 279, verschillend 274
-vaakst herhaald: 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Jop climbs into your hole.'; 2x 'Sir Wout was very sure. Was. +7'; 2x 'Teun II wrote a song about Gloop.'
+eerste koop mogelijk: HOL eerste koop mogelijk na 186 s speeltijd (goud 47)
+kroniekregels: 285, verschillend 270
+vaakst herhaald: 3x 'Wout fled. Grudge: Gloop.'; 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Gloop says thanks for the snack. +6'; 2x 'Henk II left. Took nothing. Angry.'
