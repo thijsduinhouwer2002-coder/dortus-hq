@@ -21,9 +21,10 @@ static func teken(h) -> void:
 		return
 	var t: float = float(h.t)
 	var frame := 0
-	if staat in ["lopen", "vluchten"]:
-		frame = int(t * 8) % 4
-	var omlaag := 1 if frame in [1, 3] else 0
+	var pose: String = h.HELD_LOOP.pose(h)   # kijk, draai, sprong of "" (systemen/held_loop.gd, #25)
+	if staat in ["lopen", "vluchten"] and pose == "":
+		frame = h.HELD_LOOP.beeld(h)          # het loopbeeld volgt de afgelegde weg, niet de klok
+	var omlaag := 1 if frame % 4 in [1, 3] else 0
 	var links := staat == "vluchten"
 	var wapen := 2 if String(h.trek) == "schijterig" else 0       # schijterig neemt een fakkel mee, hebzuchtig een zwaard
 	var w_soort: int = h.SOORT.wapen(String(h.soort_held))
@@ -39,16 +40,19 @@ static func teken(h) -> void:
 		vb = h.val_beeld(float(h.val_t))
 		zak = int(vb.zak)
 		hop = int(vb.hop)
+	elif pose == "sprong":
+		hop = int(round(h.HELD_LOOP.sprong_hop(h)))
 	if links:
 		h.draw_set_transform(Vector2.ZERO, 0, Vector2(-1, 1))   # spiegelen, geen halve pixels
 	var y := -16 + zak + hop
 	var hoed_nr: int = int(h.hoed_nr)
-	var kop3d := _teken_3d(h, staat, frame, zak, hop, vb, kleur)
+	var kop3d := _teken_3d(h, staat, frame, zak, hop, vb, kleur, pose)
 	if kop3d != NIET_3D:
 		h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
 		_tekens(h, staat, vb, t, kop3d - 1)
 		return
 	# bij een hop staat hij boven de vloer: niets afsnijden; bij zakken alles onder y 0 weg
+	frame = frame % 4   # pixelheld: 4 beelden
 	_laag(h, LIJF, frame * 16, int(h.kleur_nr) * 16, y, zak, kleur)
 	var rij: int = h.SOORT.rij(String(h.soort_held))
 	if rij >= 0:
@@ -76,6 +80,8 @@ static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> v
 	if tk == "poef":
 		_poef(h, onder - 4, float(vb.poef_fase))
 		return
+	if h.HELD_LOOP.teken_eigen(h, tk, onder):
+		return   # strepen (dief) of oog (magier) bij een sprong over een val
 	var eigen := onder
 	onder = maxi(onder, teken_onder_min(h))   # Daan 14 nov 01:40: teken minstens 1 spelpixel onder de bovenrand
 	# Daan 15 nov 14:45 (kan): bij figuur 1,15 raakte het wolkje de grasrand. Liefst onder het maaiveld, maar hooguit
@@ -221,21 +227,22 @@ static func _laad_3d() -> void:
 	print("HELD3D geladen: %s; zonder eigen blad: %s; terugval op ridder/heks: %s" % [", ".join(PackedStringArray(held3d.keys())),
 		", ".join(PackedStringArray(ontbreekt)) if ontbreekt else "geen", str(GEWOON_3D)])
 
-# Welke stand uit het blad: lopen en vluchten stap1, rust, stap2, rust (zelfde klok als de pixelheld), vallen, anders rust.
+# Welke stand uit het blad: lopen en vluchten stap1 tot stap6 (frame = loopbeeld uit held_loop.gd), vallen, anders rust.
+# Een blad zonder stap6 (oud) houdt stap1, rust, stap2, rust. pose (kijk, draai, sprong) gaat voor als het blad hem heeft.
 # Vallen: de eerste VAL_RECHT s staat hij nog rechtop in de stand "schrik" uit het blad (mond open), met het "!" erboven
 # en de hoed die loskomt; daarna de valstand (Olaf 15 nov, voorstel aan Daan: de valstand ligt ondersteboven en leest op
 # 160 px als klodder). 0,2 = gelijk aan VAL_SCHRIK in held.gd: rechtop zolang hij opwipt (moet Daan 15 nov 22:55).
 const VAL_RECHT := 0.2
-static func stand_3d(staat: String, frame: int, vt: float = 9.0) -> String:
+static func stand_3d(staat: String, frame: int, vt: float = 9.0, zes := true) -> String:
 	if staat == "vallen":
 		return "schrik" if vt < VAL_RECHT else "vallen"
 	if staat in ["lopen", "vluchten"]:
-		return ["stap1", "rust", "stap2", "rust"][frame % 4]
+		return "stap%d" % (posmod(frame, 6) + 1) if zes else ["stap1", "rust", "stap2", "rust"][frame % 4]
 	return "rust"
 
 # Tekent het 3D-lijf (voeten op y 0, midden op x 0, onder de vloer afgesneden zoals _laag) en geeft de bovenste rij van het
 # hoofd (of van de spelhoed) terug, of NIET_3D als deze held pixels blijft.
-static func _teken_3d(h, staat: String, frame: int, zak: int, hop: int, vb: Dictionary, kleur: Color) -> int:
+static func _teken_3d(h, staat: String, frame: int, zak: int, hop: int, vb: Dictionary, kleur: Color, pose := "") -> int:
 	if not met_3d:
 		return NIET_3D
 	var naam: String = blad_voor(String(h.soort_held), int(h.kleur_nr))
@@ -246,7 +253,9 @@ static func _teken_3d(h, staat: String, frame: int, zak: int, hop: int, vb: Dict
 		return NIET_3D
 	var ct: CanvasTexture = held3d[naam][0]
 	var info: Dictionary = held3d[naam][1]
-	var stand := stand_3d(staat, frame, float(h.val_t) if staat == "vallen" else 9.0)
+	var stand := stand_3d(staat, frame, float(h.val_t) if staat == "vallen" else 9.0, (info["frames"] as Array).has("stap6"))
+	if pose != "" and (info["frames"] as Array).has(pose):
+		stand = pose
 	var i: int = info["frames"].find(stand)
 	if i < 0:
 		i = maxi(0, info["frames"].find("rust"))
