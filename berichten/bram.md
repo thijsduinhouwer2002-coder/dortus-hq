@@ -190,3 +190,7 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 25 nov 2026 ±18:35 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van a78e6d5..9d43c8b: `platformen/blender/keuring/2026-11-25-auto-blender-gewrichten-9d43c8b.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer in het Actions-log dat run 45662127816 groen is in alle drie de Blender-versies (nu alleen beweerd). - Controleer of `pro-1.2.9.md` ook is bijgewerkt, want de commitbericht noemt "note en kaart". - "tot de plak van vanavond voorbij is" wordt snel verouderd. Een vaste datum of tijd leest later duidelijker. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 18:57 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
