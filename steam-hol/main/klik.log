@@ -1,25 +1,28 @@
-HOL balk gestart, pid 4116, hoogte 96
+HOL balk gestart, pid 5340, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795636251
+HOL zaad 1795636798
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Wout)
-HOL held binnen: Wout
-HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Wout climbs into your hole.
+HOL begin: vallen (Femke)
+HOL held binnen: Femke
+HOL zicht 2.2 1
+HOL kroniek 2.6 (wacht 0.5): Femke brought a torch. And hope.
 HOL klik op (200, 90): niets
-HOL uitleg stap 1 t=4.0 
-HOL kroniek zelfde held vervangen: Wout climbs into your hole.
-HOL kroniek 7.3 (wacht 0.0): Wout checked the floor. Too late. +6
+HOL uitleg stap 1 t=4.1 
+HOL kroniek zelfde held vervangen: Femke brought a torch. And hope.
+HOL kroniek 7.4 (wacht 0.0): Femke will not be leaving. +6
 HOL zicht 7.4 0
-HOL begin: opgegeten (Merel)
-HOL held binnen: Merel
-HOL zicht 8.7 1
+HOL begin: opgegeten (Lotte)
+HOL held binnen: Lotte
+HOL zicht 7.8 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL kroniek 9.9 (wacht 2.6): First hero in the pit!
+HOL kroniek 9.9 (wacht 2.5): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 11.7: Merel says this is a quick one.
+HOL kroniek vervallen 10.8: Lotte knocks first. Polite.
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
-HOL einde na 25 s, fps=10, goud=26, terugkomers=0
+HOL reeks 2 (+0, t 24.7)
+HOL kroniek 24.7 (wacht 0.0): Gloop ate Lotte. Kept the crown. +6
+HOL zicht 24.8 0
+HOL einde na 25 s, fps=12, goud=32, terugkomers=0
