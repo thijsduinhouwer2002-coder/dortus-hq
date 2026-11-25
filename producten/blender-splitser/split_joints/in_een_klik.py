@@ -35,9 +35,14 @@ def kies_model(context):
     return snedes.model(context)
 
 
+WATERDICHT_ACHTERVOEGSEL = "_watertight"  # name Make watertight gives the copy (gesloten.py)
+
+
 def model_tekst(naam, n):
     """Panel line that names the model Split to fit will cut, like Cleave shows "TV_robot · 1,982,604 faces"
     (issue #69: the buyer sees what will be cut before the click)."""
+    if naam.endswith(WATERDICHT_ACHTERVOEGSEL):  # keuring #74 K1: the suffix is internal, a buyer reads words
+        naam = naam[:-len(WATERDICHT_ACHTERVOEGSEL)] + " (closed)"  # short: "(watertight copy)" was cut off at the default width
     return f"{naam}: {n:,} faces"
 
 
