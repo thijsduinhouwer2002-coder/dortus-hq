@@ -1,12 +1,12 @@
-HOL balk gestart, pid 6576, hoogte 120
+HOL balk gestart, pid 8660, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
 HOL balk aan
 HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
+HOL muisvlak via de balk, lucht vrij op x=-1
 HOL begin: vallen (Kees)
 HOL held binnen: Kees
-HOL muisvlak via de balk, lucht vrij op x=-1
 HOL zicht 0.6 1
 HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
 HOL vak stoppen

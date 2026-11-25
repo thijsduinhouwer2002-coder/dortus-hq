@@ -6,8 +6,8 @@ OK   spel staat direct boven de taakbalk
 OK   geen taakbalkknop (exstijl 0x80800b8)
 OK   het spel heeft de focus niet
 lucht en hol getoetst op x=200
-INFO WindowFromPoint in de lucht: 131424 (Kladblok 131424, spel 328164); telt niet, de klik hieronder telt
-OK   muis in het hol: het spel vangt hem (328164)
+INFO WindowFromPoint in de lucht: 131240 (Kladblok 131240, spel 328194); telt niet, de klik hieronder telt
+OK   muis in het hol: het spel vangt hem (328194)
 OK   klik in de lucht komt aan in Kladblok (voorgrond is Kladblok)
 OK   precies 1 klik in het spel: die in het hol kwam aan, die in de lucht ging erdoorheen (1)
 OK   hol-balk.exe wisselt tussen doorlaten en vangen
@@ -16,7 +16,7 @@ OK   film op volledig scherm: spel verstopt
 OK   na de film: spel weer zichtbaar
 OK   tweede hol-balk.exe stopt meteen (exitcode 4)
 OK   na de tweede: werkruimte nog steeds 96 px korter (624)
-OK   na crash van hol-balk.exe: opnieuw gestart (pid 8864 -> 5436)
+OK   na crash van hol-balk.exe: opnieuw gestart (pid 7636 -> 1816)
 OK   na crash: werkruimte weer 96 px korter (0,0 tot 1024,624)
 OK   na crash: het hol vangt de muis weer
 OK   spel meldt: hol-balk.exe opnieuw gestart

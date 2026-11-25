@@ -1,61 +1,58 @@
-02:30:34 BALK muis gaat door op 512,-240
-02:30:35 BALK stijl 0x80c0038 -> 0x80800b8
-02:30:35 BALK ABM_NEW ok
-02:30:35 BALK plek 0,624 tot 1024,720 (hoogte 96)
-02:30:36 BALK eerste vlak, 1 stukken
-02:30:46 BALK muis op het hol op 200,84
-02:30:48 BALK muis gaat door op 200,6
-02:30:53 BALK melding volledig scherm 1
-02:30:53 BALK verstopt (volledig scherm)
-02:30:54 BALK melding volledig scherm 0
-02:30:55 BALK weer zichtbaar (volledig scherm)
-02:31:01 BALK muis gaat door op 200,6
-02:31:01 BALK ABM_NEW ok
-02:31:01 BALK plek 0,624 tot 1024,720 (hoogte 96)
-02:31:02 BALK eerste vlak, 2 stukken
-02:31:08 BALK muis op het hol op 200,84
-02:31:09 BALK muis gaat door op 200,6
-02:31:11 BALK opnieuw aanmelden (werkruimte loopt door de strook, 1)
-02:31:11 BALK ABM_NEW ok
-02:31:11 BALK plek 0,624 tot 1024,720 (hoogte 96)
-02:31:11 BALK opnieuw aanmelden (verkenner opnieuw gestart, 2)
-02:31:11 BALK ABM_NEW ok
-02:31:11 BALK plek 0,624 tot 1024,720 (hoogte 96)
-02:31:33 BALK spel stopt (stdin dicht of q)
-02:31:33 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
-02:31:39 BALK muis gaat door op 200,30
-02:31:40 BALK stijl 0x80c0038 -> 0x80800b8
-02:31:40 BALK ABM_NEW ok
-02:31:40 BALK plek 0,600 tot 1024,720 (hoogte 120)
-02:31:41 BALK eerste vlak, 1 stukken
-02:31:41 BALK muis op het hol op 200,30
-02:32:07 BALK spel stopt (stdin dicht of q)
-02:32:07 BALK muis gaat door op 200,630
-02:32:07 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
-02:32:11 BALK muis gaat door op 200,30
-02:32:11 BALK stijl 0x80c0038 -> 0x80800b8
-02:32:11 BALK ABM_NEW ok
-02:32:11 BALK plek 0,600 tot 1024,720 (hoogte 120)
-02:32:12 BALK eerste vlak, 1 stukken
-02:32:12 BALK muis op het hol op 200,30
-02:32:36 BALK spel stopt (stdin dicht of q)
-02:32:36 BALK muis gaat door op 200,30
-02:32:36 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
-02:32:40 BALK muis gaat door op 200,30
-02:32:40 BALK stijl 0x80c0038 -> 0x80800b8
-02:32:40 BALK ABM_NEW ok
-02:32:40 BALK plek 0,600 tot 1024,720 (hoogte 120)
-02:32:41 BALK eerste vlak, 1 stukken
-02:32:41 BALK muis op het hol op 200,30
-02:32:46 BALK spel stopt (stdin dicht of q)
-02:32:46 BALK muis gaat door op 200,30
-02:32:46 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
-02:32:50 BALK muis gaat door op 200,6
-02:32:50 BALK stijl 0x80c0038 -> 0x80800b8
-02:32:50 BALK ABM_NEW ok
-02:32:50 BALK plek 0,624 tot 1024,720 (hoogte 96)
-02:32:51 BALK eerste vlak, 1 stukken
-02:33:02 BALK muis op het hol op 200,84
-02:33:03 BALK spel stopt (stdin dicht of q)
-02:33:03 BALK muis gaat door op 285,70
-02:33:03 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
+05:51:20 BALK muis gaat door op 512,-240
+05:51:21 BALK stijl 0x80c0038 -> 0x80800b8
+05:51:21 BALK ABM_NEW ok
+05:51:21 BALK plek 0,624 tot 1024,720 (hoogte 96)
+05:51:22 BALK eerste vlak, 1 stukken
+05:51:35 BALK muis op het hol op 200,84
+05:51:36 BALK muis gaat door op 200,6
+05:51:41 BALK melding volledig scherm 1
+05:51:42 BALK verstopt (volledig scherm)
+05:51:43 BALK melding volledig scherm 0
+05:51:44 BALK weer zichtbaar (volledig scherm)
+05:51:51 BALK muis gaat door op 200,6
+05:51:51 BALK ABM_NEW ok
+05:51:51 BALK plek 0,624 tot 1024,720 (hoogte 96)
+05:51:52 BALK eerste vlak, 2 stukken
+05:51:57 BALK muis op het hol op 200,84
+05:51:57 BALK muis gaat door op 200,6
+05:51:59 BALK opnieuw aanmelden (verkenner opnieuw gestart, 1)
+05:51:59 BALK ABM_NEW ok
+05:51:59 BALK plek 0,624 tot 1024,720 (hoogte 96)
+05:52:21 BALK spel stopt (stdin dicht of q)
+05:52:21 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
+05:52:28 BALK muis gaat door op 200,30
+05:52:28 BALK stijl 0x80c0038 -> 0x80800b8
+05:52:28 BALK ABM_NEW ok
+05:52:28 BALK plek 0,600 tot 1024,720 (hoogte 120)
+05:52:29 BALK eerste vlak, 1 stukken
+05:52:29 BALK muis op het hol op 200,30
+05:52:56 BALK spel stopt (stdin dicht of q)
+05:52:56 BALK muis gaat door op 200,30
+05:52:56 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
+05:52:59 BALK muis gaat door op 200,30
+05:53:00 BALK stijl 0x80c0038 -> 0x80800b8
+05:53:00 BALK ABM_NEW ok
+05:53:00 BALK plek 0,600 tot 1024,720 (hoogte 120)
+05:53:00 BALK eerste vlak, 1 stukken
+05:53:00 BALK muis op het hol op 200,30
+05:53:24 BALK spel stopt (stdin dicht of q)
+05:53:24 BALK muis gaat door op 200,30
+05:53:24 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
+05:53:28 BALK muis gaat door op 200,30
+05:53:28 BALK stijl 0x80c0038 -> 0x80800b8
+05:53:28 BALK ABM_NEW ok
+05:53:28 BALK plek 0,600 tot 1024,720 (hoogte 120)
+05:53:29 BALK eerste vlak, 1 stukken
+05:53:29 BALK muis op het hol op 200,30
+05:53:34 BALK spel stopt (stdin dicht of q)
+05:53:34 BALK muis gaat door op 200,30
+05:53:34 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
+05:53:38 BALK muis gaat door op 200,6
+05:53:38 BALK stijl 0x80c0038 -> 0x80800b8
+05:53:38 BALK ABM_NEW ok
+05:53:38 BALK plek 0,624 tot 1024,720 (hoogte 96)
+05:53:39 BALK eerste vlak, 1 stukken
+05:53:50 BALK muis op het hol op 200,84
+05:53:52 BALK spel stopt (stdin dicht of q)
+05:53:52 BALK muis gaat door op 285,70
+05:53:52 BALK ABM_REMOVE, werkruimte nu 0,0 tot 1024,720
