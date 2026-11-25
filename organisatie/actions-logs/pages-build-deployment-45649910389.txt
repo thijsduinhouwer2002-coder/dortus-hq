@@ -1,0 +1,36 @@
+# gemaakt: 2026-11-25T15:57:36Z
+# workflow: pages build and deployment (dynamic/pages/pages-build-deployment)
+# run: 45649910389 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45649910389
+# commit: 317e5161 tak dashboard gestart door dynamic
+# mislukte stappen: deploy: Deploy to GitHub Pages
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== deploy / Deploy to GitHub Pages (laatste 27 van 27 regels) =====
+##[group]Run actions/deploy-pages@v5
+with:
+  token: ***
+  timeout: 600000
+  error_count: 10
+  reporting_interval: 5000
+  artifact_name: github-pages
+  preview: false
+##[endgroup]
+(node:2246) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Fetching artifact metadata for "github-pages" in this workflow run
+Found 1 artifact(s)
+Creating Pages deployment with payload:
+{
+	"artifact_id": 15038834003,
+	"pages_build_version": "[weggehaald: lange hex-reeks]",
+	"oidc_token": "***"
+}
+##[error]Creating Pages deployment failed
+##[error]HttpError: 
+    at /home/runner/work/_actions/actions/deploy-pages/v5/node_modules/@octokit/request/dist-node/index.js:124:1
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at createPagesDeployment (/home/runner/work/_actions/actions/deploy-pages/v5/src/internal/api-client.js:125:1)
+    at Deployment.create (/home/runner/work/_actions/actions/deploy-pages/v5/src/internal/deployment.js:82:1)
+    at main (/home/runner/work/_actions/actions/deploy-pages/v5/src/index.js:30:1)
+##[error]Error: Failed to create deployment (status: 500) with build version [weggehaald: lange hex-reeks]. Request ID A5F0:23E2DB:76F53FD:1762ADE4:6B070561 Server error, is githubstatus.com reporting a Pages outage? Please re-run the deployment at a later time.
