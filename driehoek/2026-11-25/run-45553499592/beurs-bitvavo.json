@@ -1,5 +1,5 @@
 {
- "paren": 434,
+ "paren": 433,
  "driehoeken": 22,
  "status": "MiCA",
  "ritme_s": 4,
@@ -8,7 +8,7 @@
   "GEZIEN support.bitvavo.com: maximaal 0,25% taker": {
    "hoog": 0.0025,
    "laag": 0.0025,
-   "paren": 418
+   "paren": 417
   },
   "categorie C: lager dan 0,25% volgens Bitvavo, getal onbekend (GOK)": {
    "hoog": 0.0025,
@@ -26,8 +26,8 @@
    "paren": 1
   }
  },
- "minima_paren": 434,
- "geladen": "2026-11-25T08:56:13Z",
+ "minima_paren": 433,
+ "geladen": "2026-11-25T09:26:14Z",
  "min_inleg": {
   "driehoeken": 22,
   "mediaan_eur": 10.0,
