@@ -1,0 +1,126 @@
+{
+ "naam": "sale-een-knop",
+ "eerste_beeld": "eerste-beeld-een-knop.jpg",
+ "slot_beeld": "slot-sale.jpg",
+ "zinnen": [
+  {
+   "tekst": "Still cutting your figure apart by hand?",
+   "soort": "beeld"
+  },
+  {
+   "tekst": "This robot has a rig, but it's one solid mesh.",
+   "stukken": [
+    {
+     "deel": "kies",
+     "na": 0.0,
+     "x": 0
+    }
+   ]
+  },
+  {
+   "tekst": "Click it, then click Figure from rig.",
+   "stukken": [
+    {
+     "deel": "kies",
+     "na": 1.0,
+     "duur": 1.0,
+     "x": 0
+    },
+    {
+     "deel": "knop",
+     "na": 2.0,
+     "x": 1080
+    }
+   ]
+  },
+  {
+   "tekst": "Click Joints Pro cuts it into parts, each with its own joint.",
+   "stukken": [
+    {
+     "deel": "lijst",
+     "na": 2.0,
+     "x": 0
+    }
+   ]
+  },
+  {
+   "tekst": "Knees and elbows get a hinge with an end stop.",
+   "stukken": [
+    {
+     "deel": "knie",
+     "na": 0.6,
+     "split": {
+      "boven": [
+       0,
+       0,
+       1240
+      ],
+      "onder": [
+       1080,
+       1240,
+       680
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "tekst": "Bend the knee, and it stops at the limit from your rig.",
+   "stukken": [
+    {
+     "deel": "knie_stop",
+     "na": 0.2,
+     "split": {
+      "boven": [
+       0,
+       0,
+       1240
+      ],
+      "onder": [
+       1080,
+       1240,
+       680
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "tekst": "Push past the stop, and red shows where parts would hit.",
+   "stukken": [
+    {
+     "deel": "knie_stop",
+     "na": -8.0,
+     "split": {
+      "boven": [
+       0,
+       0,
+       1240
+      ],
+      "onder": [
+       1080,
+       1240,
+       680
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "tekst": "Print the Fit test strip first: every printer is different.",
+   "stukken": [
+    {
+     "deel": "pose",
+     "na": 0.5,
+     "x": 1080
+    }
+   ],
+   "ondertitel_y": 1700
+  },
+  {
+   "tekst": "Click Joints Pro, 25% off this week, on Gumroad.",
+   "uitspraak": "Click Joints Pro, twenty five percent off this week, on Gumroad.",
+   "soort": "slot"
+  }
+ ]
+}

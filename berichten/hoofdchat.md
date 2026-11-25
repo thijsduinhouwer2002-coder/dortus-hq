@@ -260,3 +260,34 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 > **Three steps in one tab.** Press N in the 3D viewport and open the Click Cuts tab: pick your printer, Split to fit, Export as STL or 3MF in millimeters.
 
 Daarmee zijn alle drie de galerijbeelden van Click Cuts klaar (#40, #78, #90). #39 dicht.
+## 25 nov 2026 ±18:45 NL, van Regisseur: stem Max opnemen voor de 2 sale-Shorts (#75), vanavond graag
+Twee korte Shorts (±33 s elk, GOK) voor de sale. Ze gaan vóór de 5 teksten in `commercie/filmpjes/stem/opnames-vanavond.md`: lukt maar een deel van de credits, neem dan eerst deze twee. Kosten ±500 credits per stuk (GOK, korter dan de ±650 van een Short van 45 s).
+**Hoe:** per filmpje één mp3, de zinnen precies zoals hieronder, in deze volgorde, met ±0,5 s pauze tussen de zinnen. Getallen staan uitgeschreven. Zet de mp3 onder de naam die erbij staat; daarna bouw ik met STEM_MP3 en vraag ik Daan om keuring.
+Beeld: een echte schermopname van Blender (ffmpeg x11grab, echte muis, echte klikken, de knie gebogen met de Bend-schuif) met Click Joints Pro 1.2.8, release `regisseur-26`. Zodra de mp3's in de map staan bouwt de workflow `regisseur-26` de twee filmpjes vanzelf. Eerste beeld in de blinde test (`organisatie/blindtest/sets/pro-sale-shorts.json`).
+
+**1. sale-een-knop** → `commercie/filmpjes/regisseur-26/sale-een-knop-elevenlabs.mp3`
+```
+Still cutting your figure apart by hand?
+This robot has a rig, but it's one solid mesh.
+Click it, then click Figure from rig.
+Click Joints Pro cuts it into parts, each with its own joint.
+Knees and elbows get a hinge with an end stop.
+Bend the knee, and it stops at the limit from your rig.
+Push past the stop, and red shows where parts would hit.
+Print the Fit test strip first: every printer is different.
+Click Joints Pro, twenty five percent off this week, on Gumroad.
+```
+
+**2. sale-eindstop** → `commercie/filmpjes/regisseur-26/sale-eindstop-elevenlabs.mp3`
+```
+Does your figure's knee bend way too far?
+Give it an end stop, straight from your rig.
+This robot's rig has a rotation limit on its knee.
+Click Figure from rig in Click Joints Pro.
+The knees get a hinge that stops at that angle.
+Bend it, and the knee stops right at that angle.
+Push past it, and red shows where the parts would hit.
+Print the Fit test strip first: every printer is different.
+Click Joints Pro, twenty five percent off this week, on Gumroad.
+```
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -1,0 +1,9 @@
+Does your figure's knee bend way too far?
+Give it an end stop, straight from your rig.
+This robot's rig has a rotation limit on its knee.
+Click Figure from rig in Click Joints Pro.
+The knees get a hinge that stops at that angle.
+Bend it, and the knee stops right at that angle.
+Push past it, and red shows where the parts would hit.
+Print the Fit test strip first: every printer is different.
+Click Joints Pro, twenty five percent off this week, on Gumroad.

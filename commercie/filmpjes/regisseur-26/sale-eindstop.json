@@ -1,0 +1,131 @@
+{
+ "naam": "sale-eindstop",
+ "eerste_beeld": "eerste-beeld-eindstop.jpg",
+ "slot_beeld": "slot-sale.jpg",
+ "zinnen": [
+  {
+   "tekst": "Does your figure's knee bend way too far?",
+   "soort": "beeld"
+  },
+  {
+   "tekst": "Give it an end stop, straight from your rig.",
+   "stukken": [
+    {
+     "deel": "knie_stop",
+     "na": 0.0,
+     "split": {
+      "boven": [
+       0,
+       0,
+       1240
+      ],
+      "onder": [
+       1080,
+       1240,
+       680
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "tekst": "This robot's rig has a rotation limit on its knee.",
+   "stukken": [
+    {
+     "deel": "kies",
+     "na": 0.0,
+     "x": 0
+    }
+   ]
+  },
+  {
+   "tekst": "Click Figure from rig in Click Joints Pro.",
+   "stukken": [
+    {
+     "deel": "knop",
+     "na": 1.6,
+     "x": 1080
+    }
+   ]
+  },
+  {
+   "tekst": "The knees get a hinge that stops at that angle.",
+   "stukken": [
+    {
+     "deel": "knie",
+     "na": 0.6,
+     "split": {
+      "boven": [
+       0,
+       0,
+       1240
+      ],
+      "onder": [
+       1080,
+       1240,
+       680
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "tekst": "Bend it, and the knee stops right at that angle.",
+   "stukken": [
+    {
+     "deel": "knie_stop",
+     "na": 0.2,
+     "split": {
+      "boven": [
+       0,
+       0,
+       1240
+      ],
+      "onder": [
+       1080,
+       1240,
+       680
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "tekst": "Push past it, and red shows where the parts would hit.",
+   "stukken": [
+    {
+     "deel": "knie_stop",
+     "na": -8.0,
+     "split": {
+      "boven": [
+       0,
+       0,
+       1240
+      ],
+      "onder": [
+       1080,
+       1240,
+       680
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "tekst": "Print the Fit test strip first: every printer is different.",
+   "stukken": [
+    {
+     "deel": "pose",
+     "na": 0.5,
+     "x": 1080
+    }
+   ],
+   "ondertitel_y": 1700
+  },
+  {
+   "tekst": "Click Joints Pro, 25% off this week, on Gumroad.",
+   "uitspraak": "Click Joints Pro, twenty five percent off this week, on Gumroad.",
+   "soort": "slot"
+  }
+ ]
+}

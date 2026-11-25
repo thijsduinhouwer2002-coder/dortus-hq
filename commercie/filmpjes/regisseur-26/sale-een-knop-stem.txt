@@ -1,0 +1,9 @@
+Still cutting your figure apart by hand?
+This robot has a rig, but it's one solid mesh.
+Click it, then click Figure from rig.
+Click Joints Pro cuts it into parts, each with its own joint.
+Knees and elbows get a hinge with an end stop.
+Bend the knee, and it stops at the limit from your rig.
+Push past the stop, and red shows where parts would hit.
+Print the Fit test strip first: every printer is different.
+Click Joints Pro, twenty five percent off this week, on Gumroad.
