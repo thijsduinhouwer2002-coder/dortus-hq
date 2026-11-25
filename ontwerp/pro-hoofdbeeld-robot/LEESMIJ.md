@@ -17,3 +17,10 @@ Kandidaten in `beelden/`: robot-uit-labels, robot-uit, robot-held (elk 2400x1200
 Blinde test: sets `click-joints-pro-robot-superhive` en `click-joints-pro-robot-gumroad`.
 
 **Sale-versie (issue #56, 25 nov):** `beelden/robot-uit-labels-sale-1920x1080.jpg` = het GESLAAGDE Gumroad-hoofdbeeld met rechtsboven de gouden sticker "-25% CYBER25 until Dec 1" (zelfde stijl als de tekenpop-sale). Alleen Gumroad, alleen vr 27 nov t/m di 1 dec; daarna terug naar `robot-uit-labels-1920x1080.jpg`. Niet op Superhive (daar 35% zonder code). Maken: `python3 bron/sale.py beelden/robot-uit-labels-1920x1080.jpg beelden/robot-uit-labels-sale-1920x1080.jpg <fontmap met Inter.ttf en Bricolage.ttf>`.
+
+**Vierkant voor Gumroad (issue #94, 25 nov):** `beelden/robot-vierkant-600x600.jpg` en `-1200x1200.jpg` (Discover, profiel, zoeken), plus `robot-vierkant-sale-*` met de gouden sticker (alleen Gumroad, vr 27 nov t/m di 1 dec; wo 2 dec terug naar het gewone vierkant). Zelfde robot en zelfde echte Figure from rig (Pro 1.2.8, zip van main), nu vierkant gerenderd met de robot rechts (`beelden/hoofdbeeld-vierkant.json`). Blinde test: set `click-joints-pro-vierkant-gumroad` tegen de Gumroad-vierkanten van Cleave, Split 3D Print en MACHIN3tools (Buildify en BagaPie hebben geen Gumroad-pagina meer die curl vindt: 404; Cleave en Split zijn de echte concurrenten op Gumroad).
+```
+HB_W=1200 HB_H=1200 HB_UIT=22 HB_LICHT=2.6 HB_VUL=0.9 HB_DRAAI=-22 HB_KANTEL=9 HB_SHIFT=-0.19 HB_SHIFT_Y=0.015 \
+  blender -b --factory-startup --python bron/hoofdbeeld.py -- <pro-zip> <uit> 64 100
+python3 bron/vierkant.py <uit>/hoofdbeeld-render.png <uitmap> <fontmap> ontwerp/click-joints/bron/icoon.svg [sale]
+```

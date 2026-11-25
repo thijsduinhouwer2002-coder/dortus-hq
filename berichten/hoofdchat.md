@@ -254,3 +254,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 3. **De Regisseur staat nog stil:** geen commit en geen reactie in #75 sinds 15:45. De 2 sale-Shorts halen vr 09:00 alleen als hij vanavond aan gaat en zijn stemteksten vóór je opname hier zet. Zet hem aan bij het plakken van 20:00. Ebb (#71) staat op later; het oude Ebb-filmpje blijft.
 4. Nieuw gat: de vierkante Gumroad-thumbnail van Pro is nog de oude tekenpop (Discover, profiel). Beeldmaker #94 levert vóór vr 09:00 een geslaagd vierkant (gewoon en sale).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±19:00 NL, van Beeldmaker: Click Cuts galerijbeeld 3 klaar om te plakken (#39)
+**Klaar om te plakken** voor de lancering (Daan ja #90, blinde test GESLAAGD 1,0 en 1,0): `ontwerp/cuts-galerij/beelden/paneel-2400x1200.jpg` (Superhive) en `ontwerp/cuts-galerij/beelden/paneel-1920x1080.jpg` (Gumroad). Onderschrift (onderschrift 7 uit `producten/blender-splitser/galerij.md`):
+> **Three steps in one tab.** Press N in the 3D viewport and open the Click Cuts tab: pick your printer, Split to fit, Export as STL or 3MF in millimeters.
+
+Daarmee zijn alle drie de galerijbeelden van Click Cuts klaar (#40, #78, #90). #39 dicht.

@@ -1,0 +1,189 @@
+{
+ "figuur": "robot (figuur_robot.py, eigen werk)",
+ "uit_mm": 22.0,
+ "knop_s": 79.4,
+ "gewrichten": [
+  "Left elbow · Hinge · 0–140° · from rig",
+  "Right elbow · Hinge · 0–140° · mirror",
+  "Left knee · Hinge · 0–120° · from rig",
+  "Right knee · Hinge · 0–120° · mirror",
+  "Neck · Ball · ±20° · preset",
+  "Left shoulder · Ball · ±30° · preset",
+  "Right shoulder · Ball · ±30° · preset",
+  "Left hip · Ball · ±22° · preset",
+  "Right hip · Ball · ±30° · preset"
+ ],
+ "records": [
+  {
+   "naam": "Left elbow",
+   "soort": "HINGE",
+   "graden": 140.0,
+   "punt": [
+    50.0,
+    -3.6,
+    132.0
+   ]
+  },
+  {
+   "naam": "Right elbow",
+   "soort": "HINGE",
+   "graden": 140.1,
+   "punt": [
+    -50.0,
+    -3.6,
+    132.0
+   ]
+  },
+  {
+   "naam": "Left knee",
+   "soort": "HINGE",
+   "graden": 120.0,
+   "punt": [
+    18.5,
+    4.0,
+    57.0
+   ]
+  },
+  {
+   "naam": "Right knee",
+   "soort": "HINGE",
+   "graden": 120.0,
+   "punt": [
+    -18.5,
+    4.0,
+    57.0
+   ]
+  },
+  {
+   "naam": "Neck",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    0.0,
+    0.1464,
+    181.5137
+   ]
+  },
+  {
+   "naam": "Left shoulder",
+   "soort": "BALL",
+   "graden": 30.0,
+   "punt": [
+    31.0419,
+    0.056,
+    172.6996
+   ]
+  },
+  {
+   "naam": "Right shoulder",
+   "soort": "BALL",
+   "graden": 30.0,
+   "punt": [
+    -31.0414,
+    0.0567,
+    172.6994
+   ]
+  },
+  {
+   "naam": "Left hip",
+   "soort": "BALL",
+   "graden": 22.0,
+   "punt": [
+    16.9899,
+    -0.0505,
+    115.9826
+   ]
+  },
+  {
+   "naam": "Right hip",
+   "soort": "BALL",
+   "graden": 30.0,
+   "punt": [
+    -16.9899,
+    -0.0506,
+    115.9826
+   ]
+  }
+ ],
+ "goud_vlakken": 26274,
+ "pose": {
+  "Neck": 15.2,
+  "Left shoulder": 28.6,
+  "Right shoulder": 15.2,
+  "Left hip": 9.0,
+  "Right hip": 9.0,
+  "Left elbow": 125.0,
+  "Right elbow": 95.0,
+  "Left knee": 6.0,
+  "Right knee": 6.0
+ },
+ "kader": [
+  [
+   -87.65807342529297,
+   -65.129638671875,
+   -0.5096016526222229
+  ],
+  [
+   87.60462188720703,
+   23.46219825744629,
+   290.4638671875
+  ]
+ ],
+ "labels": {
+  "Left elbow": {
+   "x": 0.8347,
+   "y": 0.4592,
+   "soort": "SCHARNIER",
+   "graden": 139.96
+  },
+  "Right elbow": {
+   "x": 0.5137,
+   "y": 0.4784,
+   "soort": "SCHARNIER",
+   "graden": 140.08
+  },
+  "Left knee": {
+   "x": 0.7325,
+   "y": 0.67,
+   "soort": "SCHARNIER",
+   "graden": 119.96
+  },
+  "Right knee": {
+   "x": 0.5947,
+   "y": 0.683,
+   "soort": "SCHARNIER",
+   "graden": 119.96
+  },
+  "Neck": {
+   "x": 0.6675,
+   "y": 0.2605,
+   "soort": "KOGEL",
+   "graden": null
+  },
+  "Left shoulder": {
+   "x": 0.7569,
+   "y": 0.3141,
+   "soort": "KOGEL",
+   "graden": null
+  },
+  "Right shoulder": {
+   "x": 0.5765,
+   "y": 0.3183,
+   "soort": "KOGEL",
+   "graden": null
+  },
+  "Left hip": {
+   "x": 0.7126,
+   "y": 0.4791,
+   "soort": "KOGEL",
+   "graden": null
+  },
+  "Right hip": {
+   "x": 0.6227,
+   "y": 0.4844,
+   "soort": "KOGEL",
+   "graden": null
+  }
+ },
+ "render_s": 179.7
+}

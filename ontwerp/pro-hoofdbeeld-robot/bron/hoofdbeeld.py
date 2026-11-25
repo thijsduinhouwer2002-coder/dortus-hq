@@ -265,8 +265,9 @@ def scene(delen):
     draai = math.radians(float(os.environ.get("HB_DRAAI", "-24")))
     kantel = math.radians(float(os.environ.get("HB_KANTEL", "4")))
     # afstand zo dat het figuur ±86% van de beeldhoogte vult (16:9, verticale fov)
-    sc.render.resolution_x, sc.render.resolution_y = 2400, 1350
-    fov_v = 2 * math.atan((cd.sensor_width * 1350 / 2400) / 2 / cd.lens)
+    rw, rh = int(os.environ.get("HB_W", "2400")), int(os.environ.get("HB_H", "1350"))   # vierkant: HB_W=HB_H (#94)
+    sc.render.resolution_x, sc.render.resolution_y = rw, rh
+    fov_v = 2 * math.atan((cd.sensor_width * min(1.0, rh / rw)) / 2 / cd.lens)
     vul = float(os.environ.get("HB_VUL", "0.80"))
     afstand = (h / vul) / 2 / math.tan(fov_v / 2) + (hi.y - lo.y) / 2
     doel = mid.copy()
@@ -274,6 +275,7 @@ def scene(delen):
     cam.location = doel + richting * afstand
     cam.rotation_euler = (doel - cam.location).to_track_quat("-Z", "Y").to_euler()
     cd.shift_x = float(os.environ.get("HB_SHIFT", "-0.21"))
+    cd.shift_y = float(os.environ.get("HB_SHIFT_Y", "0"))
     cd.dof.use_dof = False
     # gloed op de wand precies achter het figuur, gezien vanaf de camera
     bpy.context.view_layer.update()
