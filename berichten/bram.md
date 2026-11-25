@@ -214,3 +214,7 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 25 nov 2026 ±21:19 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 8a63cef..d3ab39a: `platformen/blender/keuring/2026-11-25-auto-blender-gewrichten-d3ab39a.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Controleer dat `exporteer.py` `cj_laatste_export` echt zet (Deel A, 2). Anders is de regel dood. Laat de toets één echte export doen. 2. Draai e2e op exact d3ab39a en noteer de run. Dan staat er geen onbekende hash in de KAART, en is de hash van `meld.py` in `toets_zips.py` bevestigd. 3. Maak de herstart op 4.2.23 (`knight_yellow`) een eigen issue als hij vaker rood wordt, in plaats van "buiten deze wijziging". 4. Pas "één keer per sessie" in `architectuur.md` aan of cache ook het ontbreken van het merkje. 5. Laat Daan of Iris het paneel op smalle breedte bekijken ( Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 21:49 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+18 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
