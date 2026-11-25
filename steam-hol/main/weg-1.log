@@ -1,25 +1,25 @@
-HOL balk gestart, pid 2224, hoogte 120
-HOL weg geweest 28802 s (klok terug: false): goud voor 29, helden 115, erbij 523, hoeden 41
-HOL weg faam afgekapt 4 van 68 (hooguit 2 niveaus)
+HOL balk gestart, pid 3808, hoogte 120
+HOL weg geweest 28802 s (klok terug: false): goud voor 29, helden 115, erbij 583, hoeden 37
+HOL weg faam afgekapt 4 van 78 (hooguit 2 niveaus)
 HOL hol-niveau 2 (faam 5, t 0.0)
 HOL hol-niveau 3 (faam 5, t 0.0)
-HOL hoeden van de nacht 41 (vallen vanaf 1.0 s, toren nu 0)
+HOL hoeden van de nacht 37 (vallen vanaf 1.0 s, toren nu 0)
 HOL berg zichtbaar 0 -> 6
-HOL kroniek 0.0 (wacht 0.0): 115 came, 68 fell, 41 hats. +523 gold.
+HOL kroniek 0.0 (wacht 0.0): 115 came, 78 fell, 37 hats. +583 gold.
 HOL optocht wip, geen poef; helden [3]; duur 0.0 s
-HOL opslag geladen: 0 terugkomers, 552 goud, faam 5
+HOL opslag geladen: 0 terugkomers, 612 goud, faam 5
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795641249
+HOL zaad 1795643821
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 552)
-HOL eerste koop mogelijk na 15 s speeltijd (goud 552)
+HOL gloop ring aan na 0.1 s (goud 612)
+HOL eerste koop mogelijk na 15 s speeltijd (goud 612)
 HOL bordje wip na weg (niveau 3)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vluchten (Wout)
-HOL held binnen: Wout
+HOL begin: vluchten (Kees)
+HOL held binnen: Kees
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Wout has a map. It is wrong.
-HOL leven mot t=7.1 x=72 y=26
+HOL kroniek 2.6 (wacht 0.5): Kees says this is a quick one.
+HOL leven mot t=5.1 x=72 y=26
 HOL meting t=10 beelden=100 helden=1 hol_vast=12
-HOL einde na 15 s, fps=10, goud=552, terugkomers=0
+HOL einde na 15 s, fps=10, goud=612, terugkomers=0

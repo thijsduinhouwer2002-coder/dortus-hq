@@ -1,4 +1,4 @@
-HOL balk gestart, pid 2984, hoogte 120
+HOL balk gestart, pid 8380, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
@@ -10,7 +10,7 @@ HOL begin: vallen (Kees)
 HOL held binnen: Kees
 HOL zicht 0.6 1
 HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
-HOL leven mot t=6.5 x=72 y=26
+HOL leven kruimels t=6.8 x=171 y=25
 HOL kroniek 6.9 (wacht 0.0): Anouk the Bard tunes a lute.
 HOL begin: vluchten (Anouk)
 HOL held binnen: Anouk
@@ -32,7 +32,7 @@ HOL kaartje dicht 22.5
 HOL kroniek 22.5 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Teun)
 HOL held binnen: Teun
-HOL leven kruimels t=23.6 x=139 y=25
+HOL leven stofje t=23.0 x=56 y=26
 HOL kroniek 25.0 (wacht 2.2): Teun has a map. It is wrong.
 HOL gegraven kolom 4 (zelf 3, graafbonus 0)
 HOL kroniek 28.4 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
@@ -42,10 +42,10 @@ HOL begin: terug (Anouk)
 HOL held binnen: Anouk
 HOL kroniek zelfde held vervangen: Anouk fled. Grudge: the Spike Pit.
 HOL kroniek 33.4 (wacht 1.0): Anouk is back for the Spike Pit.
+HOL leven kruimels t=34.5 x=133 y=25
 HOL kroniek 36.0 (wacht 2.0): Gloop is flat. Back soon.
 HOL gegraven kolom 1 (zelf 4, graafbonus 0)
 HOL kroniek 38.5 (wacht 0.0): Teun is now the Hoard-Toucher.
-HOL leven worm t=39.7 x=57 y=18
 HOL meting t=40 beelden=200 helden=2 hol_vast=24
 HOL kroniek 41.0 (wacht 12.6): Anouk's song got popular. Uh oh.
 HOL kroniek 43.6 (wacht 0.6): Gloop is up again. Wobbly.
@@ -57,8 +57,8 @@ HOL bordje wip niveau 2
 HOL begin: opgegeten2 (Pim)
 HOL held binnen: Pim
 HOL gegraven kolom 3 (zelf 5, graafbonus 0)
+HOL leven stofje t=45.1 x=40 y=26
 HOL kroniek 47.3 (wacht 2.4): Pim knows all the words. Sadly.
-HOL leven mot t=49.8 x=40 y=26
 HOL meting t=50 beelden=200 helden=2 hol_vast=27
 HOL kroniek 50.5 (wacht 0.0): Gerda brought a torch. And hope.
 HOL held binnen: Gerda
@@ -66,6 +66,6 @@ HOL kroniek 51.6 (wacht 0.0): Teun ran. Hands smell of gold.
 HOL gegraven kolom 7 (zelf 6, graafbonus 0)
 HOL kroniek 58.3 (wacht 0.0): Lotte read about you in a tavern.
 HOL held binnen: Lotte
-HOL leven stofje t=58.8 x=40 y=26
 HOL gloop ring aan na 58.9 s (goud 60)
+HOL leven worm t=59.3 x=107 y=16
 HOL kroniek 59.4 (wacht 0.5): Gloop ate Pim. The bucket fits. +9
