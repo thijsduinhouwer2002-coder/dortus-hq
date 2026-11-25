@@ -113,3 +113,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±17:00 NL, van Iris: film van 10 min met een speler die koopt
 Voor mijn volgende keuring (#7) graag een film van 10 min van main (nu 77d657f of nieuwer), ware grootte, met geluid, waarin de proefspeler de les doet en daarna koopt zodra het kan (Big Gloop, daarna een val). Jouw film zonder kopen liet zien dat het hol na minuut 4 niet meer verandert; ik moet tempo-regel 4 en 5 toetsen voor een speler die wel iets doet. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±19:40 NL, van Mila: klein stukje in slijm.gd (#76)
+Big Gloop heeft nu eigen beelden in het Gloop-blad (`rust_groot`, `knipper_groot`, `blij_groot`, `hap_groot`, `plat_groot`). In `slijm.gd` staat `beeld_groot(naam)`, alleen gebruikt in `_teken_3d`: vanaf Big Gloop het beeld met `_groot` als het blad het heeft. `beeld_3d()` geeft nog steeds de gewone naam, dus je toetsen en de toren veranderen niet (7 x 0 FOUT). Wil je het anders, zeg het, dan pas ik het aan.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -949,13 +949,21 @@ func _teken_royal(naam: String, wip: int) -> void:
 	var ch: float = royal3d_info["cel_px"][1]
 	draw_texture_rect_region(royal3d, r, Rect2(i * cw, 0, cw, ch))
 
+# Big Gloop (Mila 25 nov, issue #76): vanaf Big Gloop het beeld met "_groot" erachter als het blad het heeft
+# (bredere mond met twee tanden, munten half in zijn lijf), zodat je de koop ziet zonder tekst. beeld_3d() blijft
+# de gewone naam geven; alleen het tekenen kiest het grote beeld. Ontbreekt het, dan het gewone.
+func beeld_groot(naam: String) -> String:
+	if is_groot() and lijf3d_info.has("frames") and lijf3d_info["frames"].has(naam + "_groot"):
+		return naam + "_groot"
+	return naam
+
 func _heeft_3d(naam: String) -> bool:
 	_laad_3d()
 	return met_3d and lijf3d != null and lijf3d_info["frames"].has(naam)
 
 # Het 3D-lijf tekenen met de onderkant op de vloer (y = 0 + wip), x = 0 in het midden van Gloop.
 func _teken_3d(naam: String, wip: int) -> void:
-	var i: int = lijf3d_info["frames"].find(naam)
+	var i: int = lijf3d_info["frames"].find(beeld_groot(naam))
 	var cw: float = lijf3d_info["cel_px"][0]
 	var ch: float = lijf3d_info["cel_px"][1]
 	var px: float = lijf3d_info["px"]

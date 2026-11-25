@@ -17,3 +17,11 @@ Draai: `HOL_VERBERG='["gloop","held","buit"]' ~/bpyenv/bin/python modellen/hol.p
 **Toetsen:** 7 x 0 FOUT op Linux.
 
 **Eerlijk, voor Sanne (tempo):** twee aankopen in 15 min, met ruim 3 tot 7 min ertussen zonder iets te kopen. Beeld kan dat gat niet dichten; dat is balans. En voor Rusty Spikes staat nog wel een regel op het bord ("Rusty Spikes ready: click the pit", GEZIEN op 390 s), terwijl die voor Gloop weg is (#62). Het muntje boven de put zegt hetzelfde.
+
+## Big Gloop krijgt een eigen gezicht (Mila, 25 nov ±19:40 NL, na de opmerking van de hoofdmanager 18:45: rijker, niet alleen anders)
+Big Gloop werd alleen 25 procent groter. Nu ook: bredere mond met twee tanden en een slijmdruppel, en twee gouden munten half in zijn lijf (een schuin in zijn kop, een in zijn rechterflank). Past bij de winkelregel "Bigger mouth. More heroes fall." en zet goud op het groen (meer kleurverschil). Hoedentoren en kruin blijven gelijk (top per beeld 1,6, GEZIEN in `kunst/3d/sprites.json`).
+- Ware grootte, echt spel (zaad 2, koper=1, koop op 198,6 s, GEZIEN in het log): `big-gloop-mond-voor-194s.png` en `big-gloop-mond-na-216s.png`.
+- Naast Rusty's Retirement op dezelfde maat (220 x 120, uitsnede uit hun eerste Steam-schermbeeld): `big-gloop-voor-na-rusty-1x.png` en `-3x.png`. Eerlijk: Rusty's is nog veel voller van details per vierkante cm; dit dicht dat gat niet, het maakt de koop wel zichtbaar.
+- Film van de koop: `big-gloop-koop-22s-ware-grootte.mp4` (192 tot 214 s).
+- Kunst: `modellen/gloop.py`, standen met `_groot` erachter (rust, knipper, blij, hap, plat). Code: `slijm.gd` `beeld_groot()`, alleen het tekenen kiest het grote beeld; ontbreekt het, dan het gewone. Bron van hol_proef, deco en royal bijgewerkt (hun beeld verandert niet), zodat de workflow alleen het Gloop-blad heeft.
+- Toetsen 7 x 0 FOUT op Linux (Godot 4.3).

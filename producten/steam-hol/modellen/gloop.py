@@ -64,6 +64,12 @@ vloer = bpy.context.object; vloer.is_shadow_catcher = True
 # Voorkant van het lijf ligt rond y = -1.05 op ooghoogte. Oog groot en iets rechts van het midden.
 OX, OZ = 0.16, 0.98
 _stand = globals().get("STAND", "rust")   # hol.py leest dit stuk in zonder STAND: dan rust
+# Big Gloop (Mila 25 nov, issue #76): stand met "_groot" erachter (rust_groot, hap_groot, ...) is dezelfde stand,
+# maar met een bredere mond met twee tanden, een slijmdruppel en twee munten half in zijn lijf: je ziet zonder
+# tekst dat hij meer eet. slijm.gd (_teken_3d) kiest dat beeld vanaf Big Gloop als het in het blad staat.
+GROOT = _stand.endswith("_groot")
+if GROOT:
+    _stand = _stand[:-len("_groot")]
 if _stand in ("knipper", "blij"):
     # oog dicht: een donker boogje op de plek van het oog (knipper hangt, blij staat omhoog als ^)
     bpy.ops.mesh.primitive_torus_add(major_radius=0.3, minor_radius=0.065, location=(OX, -1.06, OZ + (0.1 if _stand == "knipper" else -0.12)),
@@ -96,7 +102,13 @@ m1 = mond.modifiers.new("snij", "BOOLEAN"); m1.object = snij; m1.operation = "DI
 mond.scale = (1.15, 1.0, 0.85)
 if _stand == "blij":
     mond.scale = (1.35, 1.0, 1.05)
-if _stand == "hap":
+if GROOT and _stand in ("rust", "knipper", "blij"):
+    mond.scale = (mond.scale[0] * 1.45, 1.0, mond.scale[2] * 1.3)
+    mond.location.z -= 0.04
+if _stand == "hap" and GROOT:
+    mond.modifiers.remove(m1)
+    mond.location = (0.04, -1.0, 0.24); mond.scale = (1.95, 1.0, 1.3)
+elif _stand == "hap":
     # Daan 13 nov 17:45: hap is een open O (ronde bovenkant), geen diepe lach. Halve schijf las als lach
     # (frisse kijker); nu een hele ovaal, lager, met de tand aan de bovenlip.
     mond.modifiers.remove(m1)
@@ -117,6 +129,17 @@ bpy.ops.mesh.primitive_cube_add(size=1, location=(0.14, -1.12, 0.565) if _stand 
 tand.scale = (0.10, 0.05, 0.09); tand.rotation_euler = (0, math.radians(-10), 0)
 bev = tand.modifiers.new("rond", "BEVEL"); bev.width = 0.02; bev.segments = 3
 tand.data.materials.append(g.mat("tand", "tand", rough=0.3))
+if GROOT and _stand in ("rust", "knipper", "blij", "hap"):
+    # bredere mond: tong breder, de tand naar rechts en een tweede tand links, plus een slijmdruppel aan de mondhoek
+    _tong.scale = (_tong.scale[0] * 1.5, _tong.scale[1], _tong.scale[2] * 1.2)
+    tand.location.x += 0.08
+    tand.scale = (0.11, 0.05, 0.11)
+    tz = tand.location.z
+    bpy.ops.mesh.primitive_cube_add(size=1, location=(-0.18, -1.12, tz - 0.01)); tand2 = bpy.context.object
+    tand2.scale = (0.10, 0.05, 0.10); tand2.rotation_euler = (0, math.radians(-10), 0)
+    b2 = tand2.modifiers.new("rond", "BEVEL"); b2.width = 0.02; b2.segments = 3
+    tand2.data.materials.append(g.mat("tand", "tand", rough=0.3))
+    bol("drup", (-0.24, -1.04, 0.22 if _stand != "hap" else 0.06), (0.06, 0.05, 0.09), lijfmat)
 if _stand == "kneep":   # mond dicht: geen tong en geen tand (lazen als vuil, controleur 15 nov)
     _tong.hide_render = True; tand.hide_render = True
 if _stand == "spuug":   # tong achter in de O, tand weg (de laars komt eruit)
@@ -146,6 +169,10 @@ def munt(naam, loc, kantel_x, kantel_y, r=0.2):
     return o
 
 
+if GROOT and _stand in ("rust", "knipper", "blij", "hap"):
+    # twee munten half in het lijf gezakt: goud op het groen, op 120 px te zien als glim (onderaan lazen ze als wieltjes)
+    munt("buikmunt1", (-0.62, -0.45, 1.08), 82, 30, r=0.2)    # steekt schuin uit zijn kop: net naar binnen geschrokt
+    munt("buikmunt2", (0.86, -0.62, 0.5), 62, -52, r=0.16)    # half in zijn rechterflank gezakt
 if VERSIE == 2:
     # half in de buik gezakt, linksonder, schuin
     munt("munt", (-0.55, -0.92, 0.32), 72, 18, r=0.24)

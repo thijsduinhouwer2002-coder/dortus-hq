@@ -66,6 +66,41 @@
             0.96,
             1.06
           ]
+        },
+        "rust_groot": {
+          "stand": "rust_groot",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "knipper_groot": {
+          "stand": "knipper_groot",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "blij_groot": {
+          "stand": "blij_groot",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "hap_groot": {
+          "stand": "hap_groot",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "plat_groot": {
+          "stand": "rust_groot",
+          "schaal": [
+            1.3,
+            0.42
+          ]
         }
       }
     },

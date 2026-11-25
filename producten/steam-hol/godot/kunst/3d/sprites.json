@@ -114,7 +114,7 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bron": "f36f014a5cdc6079",
+  "bron": "b4345c0e7f2dfad1",
   "bytes": 49754,
   "model": "hol.py",
   "px": 4,
@@ -547,8 +547,8 @@
  "gloop": {
   "anker_x": 66,
   "blad": "res://kunst/3d/gloop.png",
-  "bron": "76c300b892c5b21c",
-  "bytes": 58782,
+  "bron": "68f116b09c5b622c",
+  "bytes": 95700,
   "cel_px": [
    132,
    80
@@ -561,7 +561,12 @@
    "blij",
    "hap",
    "kneep",
-   "spuug"
+   "spuug",
+   "rust_groot",
+   "knipper_groot",
+   "blij_groot",
+   "hap_groot",
+   "plat_groot"
   ],
   "kruin": [
    [
@@ -591,10 +596,35 @@
    [
     0.3,
     1.0
+   ],
+   [
+    0.3,
+    1.6
+   ],
+   [
+    0.3,
+    1.6
+   ],
+   [
+    0.3,
+    1.6
+   ],
+   [
+    0.3,
+    1.6
+   ],
+   [
+    0.4,
+    7.2
    ]
   ],
   "model": "gloop.py",
   "nul_y": [
+   12.22,
+   12.22,
+   12.22,
+   12.22,
+   12.22,
    12.22,
    12.22,
    12.22,
@@ -612,7 +642,12 @@
    1.6,
    1.6,
    2.6,
-   1.0
+   1.0,
+   1.6,
+   1.6,
+   1.6,
+   1.6,
+   7.2
   ]
  },
  "heks": {
@@ -1552,7 +1587,7 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bron": "721931f96f0e5b57",
+  "bron": "ad439af35bd19292",
   "bytes": 138353,
   "model": "hol.py",
   "px": 4,
@@ -2166,7 +2201,7 @@
  "royal": {
   "anker_x": 92,
   "blad": "res://kunst/3d/royal.png",
-  "bron": "1431961045a15a43",
+  "bron": "f29f9cca3c6bf9c4",
   "bytes": 20236,
   "cel_px": [
    185,
