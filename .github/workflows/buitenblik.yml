@@ -1,0 +1,48 @@
+name: Buitenblik (Gemini en ChatGPT als strenge adviseur)
+
+# 25 nov 2026, idee Thijs: zoals zijn vraag aan Google AI, maar elke week vanzelf, met onze echte pagina's
+# en met zoeken op internet. Uitslag in organisatie/buitenblik/uitslag/. De hoofdmanager checkt elk punt.
+on:
+  workflow_dispatch:
+    inputs:
+      product:
+        description: "Bestandsnaam in organisatie/buitenblik/producten/ zonder .json"
+        required: true
+        default: click-joints-pro
+  schedule:
+    - cron: "17 5 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: buitenblik
+  cancel-in-progress: false
+
+jobs:
+  vraag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Vragen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PRODUCT: ${{ github.event.inputs.product || 'click-joints-pro' }}
+        run: |
+          case "$PRODUCT" in *[!a-z0-9-]*) echo "FOUT: productnaam"; exit 1;; esac
+          cd organisatie/buitenblik
+          uit="uitslag/$PRODUCT-$(TZ=Europe/Amsterdam date +%Y-%m-%d-%H%M).md"
+          python buitenblik.py "producten/$PRODUCT.json" "$uit"
+          echo "UIT=organisatie/buitenblik/$uit" >> "$GITHUB_ENV"
+      - name: Opslaan
+        run: |
+          git config user.name "buitenblik"
+          git config user.email "buitenblik@users.noreply.github.com"
+          git add organisatie/buitenblik/uitslag/
+          git commit -m "Buitenblik: $UIT" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done

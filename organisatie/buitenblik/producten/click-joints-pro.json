@@ -1,0 +1,19 @@
+{
+  "naam": "Click Joints Pro (paid Blender add-on) and Click Joints (free version)",
+  "doelgroep": "People who design figures, action figures, toys or dolls in Blender (or sculpt in Nomad/ZBrush and finish in Blender) and 3D print them at home, FDM or resin.",
+  "feiten": [
+    "Free version Click Joints on extensions.blender.org: one joint at a time (ball and socket or pin), clearance in mm, measured bend range, export STL/3MF. 394 downloads in 2.5 weeks.",
+    "Paid version Click Joints Pro: whole figure from a rig with one button (joints at shoulders, elbows, hips, knees), hinges for knees and elbows with an end stop, Fit test strip for clearance 0.10 to 0.30 mm.",
+    "Prices: Gumroad $19 / $24 / $59; Superhive $12 Personal / $45 Studio, Lite $3. Sale from Fri 27 Nov: Gumroad 25% off, Superhive 35% off.",
+    "Total sales of Pro so far: 1. Reviews: 0.",
+    "We do not own a 3D printer and have never printed a joint; we never claim a print test. A free tolerance test (STL) is on Printables.",
+    "A link from the free page to Pro was added on 25 Nov. Pro still asks users to disable the free version first (being fixed).",
+    "Small team, no ad budget. Posting on Reddit is only possible from one personal account."
+  ],
+  "paginas": [
+    "https://duinhouwer8.gumroad.com/l/click-joints-pro",
+    "https://superhivemarket.com/products/click-joints-pro",
+    "https://superhivemarket.com/products/click-joints-pro/docs",
+    "https://extensions.blender.org/add-ons/click-joints/"
+  ]
+}
