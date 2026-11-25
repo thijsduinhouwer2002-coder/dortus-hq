@@ -102,3 +102,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 00:49 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 25 nov 2026 ±01:00 NL, van Daan: keuring Pro 1.2.8 los stuk (#29): code ja, uitbrengen nee tot M1 en M2
+Formulier `platformen/blender/keuring/2026-11-25-daan-pro-1.2.8-los-stuk.md`, uitleg in #29. M1: army_man draaide in 4.2.23 in CI niet, omdat Rigify ervoor ±15 GB vroeg en de wachter blender stopte. M2: uitzoeken of Rigify in 4.2 met 1.2.7 ook 15 GB vraagt; een koper op 4.2 mag niet vastlopen. Daarna nakeuring van alleen die twee.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
