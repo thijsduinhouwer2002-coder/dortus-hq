@@ -18,7 +18,8 @@ const BINNENKOMST := preload("res://kern/binnenkomst.gd")   # een nieuwe held of
 const KAARTJE := preload("res://kern/kaartje.gd")
 const DEMO_EINDE := preload("res://kern/demo_einde.gd")   # gratis Steam-demo: na 2 uur stopt alleen groeien
 const PROEF := preload("res://kern/proef.gd")       # startargumenten, proeven en winkelmomenten
-const MUISVLAK := preload("res://kern/muisvlak.gd")   # welk deel van het venster de muis vangt
+const MUISVLAK := preload("res://kern/muisvlak.gd")
+const VENSTER := preload("res://kern/venster.gd")   # venster plaatsen, invoer, hoogte, stoppen (issue #24)   # welk deel van het venster de muis vangt
 const BOEK := preload("res://systemen/boek.gd")         # het Heldenboek (Bram 03:45); stap 1: bijhouden, opslaan, regel
 const VOORTGANG := preload("res://systemen/voortgang.gd")   # graafbonus (Sanne 16 nov 21:00)
 # Hoogte van de strook, in het spel te kiezen met rechtsklik (96, 120, 160), bewaard los van het spel
@@ -148,6 +149,8 @@ func _ready() -> void:
 		if inst is Dictionary and inst.has("hoogte"):
 			hoogte = clampi(int(inst.hoogte), 96, 160)
 			hoogte_gekozen = true
+		if inst is Dictionary and inst.get("stil", false):
+			AudioServer.set_bus_mute(0, true)   # geluid uit via het systeemvak, bewaard
 	PROEF.lees_argumenten(self)   # alle startargumenten (hoogte, duur, log, proeven): kern/proef.gd
 	PROEF.kies_begin_hoogte(self)   # niets gekozen: hoogte naar de schaal van het scherm (kern/proef.gd)
 	steamdemo = DEMO_EINDE.is_demo(OS.get_cmdline_user_args())
@@ -162,10 +165,7 @@ func _ready() -> void:
 	var scherm := DisplayServer.screen_get_usable_rect()  # zonder taakbalk
 	schaal = maxi(2, int(hoogte / 40.0))   # naar beneden afronden, anders valt de bovenkant van het hol weg
 	var spel_h := int(hoogte / schaal)
-	DisplayServer.window_set_size(Vector2i(scherm.size.x, hoogte))
-	DisplayServer.window_set_position(Vector2i(scherm.position.x, scherm.position.y + scherm.size.y - hoogte))
-	_icoon_zetten()
-	get_tree().create_timer(1.0).timeout.connect(_icoon_zetten)
+	VENSTER.plaats(self, scherm)   # venster, icoon, app-balk (kern/balk.gd) en systeemvak (kern/systeemvak.gd)
 	var boven := (spel_h - HOL.H) * schaal   # lege (doorzichtige) rand bovenaan bij 96 px
 	# klikken gaan door de lucht en het gras heen naar het venster erachter; alleen het hol zelf (onder het maaiveld)
 	# vangt de muis (graven, hover op het paneel). Zo blokkeert de strook nooit meer dan de rijen van het hol.
@@ -213,18 +213,7 @@ func _ready() -> void:
 	if demo and "plat_s" in slijm:
 		slijm.plat_s = 9.0   # demo: Gloop ±9 s plat in plaats van 30, net als de helden in de demo sneller komen (Sanne toets 2, punt 1)
 
-	tekst = Node2D.new()
-	tekst.set_script(TEKST)
-	tekst.breedte = scherm.size.x
-	tekst.hoogte = hoogte
-	tekst.schaal = schaal
-	add_child(tekst)
-	klap = Node2D.new()
-	klap.set_script(load("res://kern/klap.gd"))
-	klap.name = "Klap"
-	klap.schaal = schaal
-	klap.hol_pos = hol.position
-	add_child(klap)
+	VENSTER.lagen(self, scherm)   # tekst en klap over het hol
 	# het hol groeit niet onder het tekstvak: de schat staat er rechts tegenaan, het hol groeit naar links
 	hol.max_kol = int((scherm.size.x - tekst.vak_breedte() - 40) / (HOL.KOL * schaal)) - 1
 	hol.leg_aan(hol.max_kol)
@@ -247,10 +236,7 @@ func _ready() -> void:
 	hol.gegraven.connect(func(cel):
 		zelf_gegraven += 1   # graafbonus (Sanne 16 nov 21:00): alleen wat de speler graaft, de begingang telt niet
 		log_regel("HOL gegraven kolom %d (zelf %d, graafbonus %d)" % [cel.x, zelf_gegraven, VOORTGANG.graafbonus(zelf_gegraven)]))
-	log_regel("HOL start hoogte=%d schaal=%d spelpixels=%dx%d venster=%s pos=%s held=%s" % [hoogte, schaal,
-		int(scherm.size.x / schaal), spel_h, DisplayServer.window_get_size(), DisplayServer.window_get_position(), held_script.resource_path])
-	# Olaf 15 nov: het zaad in de log, zodat een goede winkelopname (bijvoorbeeld met de dief) na te spelen is met zaad=<n>.
-	log_regel("HOL zaad %d" % rng.seed)
+	VENSTER.log_start(self, scherm, spel_h)
 
 # De kroniek-wachtrij (welke regel wanneer): kern/wachtrij.gd. Hier alleen de toestand.
 var wachtrij: Array = []        # [{r, binnen, sinds}]
@@ -382,48 +368,14 @@ func _process(delta: float) -> void:
 		bewaar()
 		get_tree().quit()
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if KAARTJE.klik(self, event.position):
-			log_regel("HOL klik op %s: kaartje" % event.position)
-			return
-		if DEMO_EINDE.weiger(self, "klik in het hol"):
-			return
-		var p: Vector2 = (event.position - hol.position) / schaal
-		var wat: String = hol.klik(p)
-		if wat != "" and slijm != null:
-			slijm.werk_berg_grens()   # put gebouwd of weg, of gegraven: linkergrens van de hoedenberg (Bram 17 nov)
-		log_regel("HOL klik op %s: %s" % [event.position, wat if wat != "" else "niets"])
-	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-		zet_hoogte(HOOGTES[(HOOGTES.find(hoogte) + 1) % HOOGTES.size()] if HOOGTES.has(hoogte) else 120)
-	if event is InputEventMouseMotion and holbord != null and holbord.actief():
-		var pb: Vector2 = (event.position - hol.position) / schaal
-		var op_bord: bool = holbord.vlak().has_point(pb)
-		if op_bord != holbord.hover:
-			holbord.hover = op_bord
-			if op_bord:
-				log_regel("HOL hover bordje: %s" % holbord.hover_tekst())
-	if event is InputEventMouseMotion and not tekst.hover:
-		tekst.hover = true
-		tekst.queue_redraw()
-		_muis_vlak(true)
-
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_WM_MOUSE_EXIT and tekst:
-		if holbord != null:
-			holbord.hover = false
-		tekst.hover = false
-		tekst.queue_redraw()
-		_muis_vlak(kaart_soort != "")   # een open kaartje blijft de muis vangen
-	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
-		KAARTJE.dicht(self)   # een wachtende koopregel komt eerst in de kroniek, dan bewaren (controleur kan-punt 1)
-		bewaar()
-
 # Welk deel van het venster de muis vangt: kern/muisvlak.gd (uitleg staat daar). Hier alleen de toestand.
 var vangt_y := 0
 var vlak_paneel := false
 var vlak_gloop := Vector3i(-1, -1, -1)   # x links, x rechts, bovenkant (venster-pixels) van de bult boven Gloop
 var lucht_gemeld := false
+var balk_vol := false   # met de app-balk vangt het venster overal en laat hol-balk.exe de muis door (kern/muisvlak.gd)
+var balk_pad := ""      # balk=<pad> of balk=0 (kern/balk.gd)
+var proef_vak := ""     # vak=pauze|geluid|stop (toets van het systeemvak)
 func _muis_vlak(paneel: bool) -> void:
 	MUISVLAK.zet(self, paneel)
 
@@ -437,16 +389,21 @@ func gloop_bult() -> Vector3i:
 func rand_veranderd() -> void:
 	_muis_vlak(vlak_paneel)
 
-# Andere hoogte: bewaar spel en instelling, dan de strook opnieuw opbouwen (schaal en venster hangen ervan af).
+# Invoer, venstermeldingen, hoogte en stoppen: kern/venster.gd
+func _input(event: InputEvent) -> void:
+	VENSTER.invoer(self, event)
+
+func _notification(what: int) -> void:
+	VENSTER.melding(self, what)
+
 func zet_hoogte(h: int) -> void:
-	log_regel("HOL hoogte %d -> %d" % [hoogte, h])
-	KAARTJE.dicht(self)
-	bewaar()
-	var f := FileAccess.open(INSTELLING, FileAccess.WRITE)
-	if f:
-		f.store_string(JSON.stringify({"hoogte": h}))
-		f.close()
-	get_tree().reload_current_scene()
+	VENSTER.zet_hoogte(self, h)
+
+func bewaar_instelling(sleutel: String, waarde) -> void:
+	VENSTER.bewaar_instelling(self, sleutel, waarde)
+
+func stoppen() -> void:
+	VENSTER.stoppen(self)
 
 func bewaar() -> void:
 	OPSLAG_M.bewaar(self)
@@ -454,14 +411,3 @@ func bewaar() -> void:
 func laad() -> void:
 	OPSLAG_M.laad(self, BEGIN)
 
-
-# Olaf 15 nov (Daan 05:50, run 43681846964): los gestart met --path toonde de taakbalk tot ±35 s een gewoon
-# vensterpictogram in plaats van Gloop. Godot zet het icoon bij het opstarten al, maar de taakbalkknop bestaat dan
-# nog niet altijd. Daarom het icoon nog een keer zetten zodra het venster zijn maat heeft, en na 1 s nog eens.
-# Alleen op Windows; het geexporteerde spel heeft het icoon ook in de exe.
-func _icoon_zetten() -> void:
-	if OS.get_name() != "Windows":
-		return
-	const ICO := "res://kunst/icoon.ico"
-	if FileAccess.file_exists(ICO):
-		DisplayServer.set_native_icon(ICO)

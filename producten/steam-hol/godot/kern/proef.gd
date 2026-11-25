@@ -20,6 +20,8 @@ static func lees_argumenten(s) -> void:
 			"dpi": s.proef_dpi = clampi(int(kv[1]), 48, 480)   # dpi=<n>: doen alsof het scherm n dpi heeft (eerste start), om de grote stand op de runner te toetsen
 			"duur": s.duur = float(kv[1])
 			"log": s.logpad = kv[1]
+			"balk": s.balk_pad = kv[1]   # balk=<pad naar hol-balk.exe> of balk=0 zonder app-balk (kern/balk.gd, issue #24)
+			"vak": s.proef_vak = kv[1]   # vak=pauze|geluid|stop: doen alsof die regel in het systeemvak gekozen is (toets)
 			"demo": s.demo = kv[1] == "1"
 			"film": s.film = kv[1] == "1"
 			"vers": s.vers = kv[1] == "1"

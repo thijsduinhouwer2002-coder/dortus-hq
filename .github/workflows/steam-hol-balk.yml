@@ -1,0 +1,227 @@
+name: Het Hol app-balk (Windows, issue 24)
+
+# Olaf, 25 nov 2026 (issue #24, Thijs 24 nov 23:59: het spel lag over het typvak van zijn gemaximaliseerde vensters).
+# Bouwt de echte .exe (met hol-balk.exe in de .pck) en toetst op een Windows-runner:
+#   1. Kladblok gemaximaliseerd eindigt boven het spel; werkruimte is kleiner met de hoogte van de strook
+#   2. geen taakbalkknop (WS_EX_TOOLWINDOW), het spel pakt de focus niet
+#   3. de muis gaat door de lucht naar Kladblok en een klik in het hol komt aan in het spel
+#   4. een venster op volledig scherm verstopt het spel, daarna komt het terug
+#   5. systeemvak: pauze, geluid, stoppen (vak=...); na stoppen is de werkruimte weer normaal
+#   6. na hard afsluiten (Stop-Process -Force) is de werkruimte weer normaal en hol-balk.exe weg
+#   7. hol-balk.exe in de repo is precies wat de bron geeft (opnieuw gebouwd op ubuntu, zelfde sha256)
+# Uitslag en schermafbeeldingen op tak schermen, map steam-hol-balk/<tak>.
+on:
+  push:
+    branches: [main, "claude/steam-*"]
+    paths: ["producten/steam-hol/balk/**", "producten/steam-hol/godot/balk/**", "producten/steam-hol/godot/kern/balk.gd",
+            "producten/steam-hol/godot/kern/systeemvak.gd", "producten/steam-hol/godot/kern/venster.gd",
+            ".github/workflows/steam-hol-balk.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bron:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: hol-balk.exe opnieuw bouwen uit de bron en vergelijken
+        run: |
+          sudo apt-get install -y -q gcc-mingw-w64-x86-64 >/dev/null
+          x86_64-w64-mingw32-gcc -O2 -s -Wall -mwindows -Wl,--no-insert-timestamp producten/steam-hol/balk/hol_balk.c -o nieuw.exe -lshell32 -luser32
+          sha256sum nieuw.exe producten/steam-hol/godot/balk/hol-balk.exe
+          if [ "$(sha256sum < nieuw.exe)" != "$(sha256sum < producten/steam-hol/godot/balk/hol-balk.exe)" ]; then
+            echo "LET OP: andere sha256 (andere gcc-versie kan dat geven); de toetsen gebruiken de exe uit de repo"
+          fi
+
+  balk:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Godot 4.3 en de Windows-sjablonen downloaden
+        shell: pwsh
+        run: |
+          $ProgressPreference = 'SilentlyContinue'
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip" -OutFile godot.zip
+          Expand-Archive godot.zip -DestinationPath godot
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz" -OutFile sjablonen.zip
+          $doel = Join-Path $env:APPDATA "Godot/export_templates/4.3.stable"
+          New-Item -ItemType Directory -Force $doel | Out-Null
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          $zip = [System.IO.Compression.ZipFile]::OpenRead((Resolve-Path sjablonen.zip).Path)
+          foreach ($e in $zip.Entries) {
+            if ($e.FullName -match '^templates/(windows_release_x86_64\.exe|version\.txt)$') {
+              [System.IO.Compression.ZipFileExtensions]::ExtractToFile($e, (Join-Path $doel $e.Name), $true)
+            }
+          }
+          $zip.Dispose()
+      - name: Importeren en bouwen
+        shell: pwsh
+        run: |
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
+          if (-not $p.WaitForExit(180000)) { Stop-Process -Id $p.Id -Force }
+          New-Item -ItemType Directory -Force producten/steam-hol/bouw/volledig | Out-Null
+          # zonder rcedit: icoon en versie doet steam-hol-exe.yml; hier telt alleen het venster
+          & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --export-release "Windows" "../bouw/volledig/HetHol.exe" 2>&1 | Select-Object -Last 15
+          if (-not (Test-Path producten/steam-hol/bouw/volledig/HetHol.exe)) { Write-Output "FOUT: geen exe"; exit 1 }
+          Get-ChildItem producten/steam-hol/bouw/volledig | ForEach-Object { Write-Output "$($_.Name) $([math]::Round($_.Length / 1MB, 1)) MB" }
+      - name: Toetsen van de app-balk
+        shell: pwsh
+        run: |
+          Add-Type @"
+          using System; using System.Runtime.InteropServices;
+          public struct RECT { public int L, T, R, B; }
+          public class W {
+            [DllImport("user32.dll")] public static extern bool SystemParametersInfo(uint a, uint b, ref RECT r, uint c);
+            [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr h, out RECT r);
+            [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow();
+            [DllImport("user32.dll")] public static extern bool SetForegroundWindow(IntPtr h);
+            [DllImport("user32.dll")] public static extern bool IsWindowVisible(IntPtr h);
+            [DllImport("user32.dll")] public static extern long GetWindowLongPtr(IntPtr h, int i);
+            [DllImport("user32.dll")] public static extern IntPtr WindowFromPoint(POINT p);
+            [DllImport("user32.dll")] public static extern IntPtr GetAncestor(IntPtr h, uint f);
+            [DllImport("user32.dll")] public static extern bool SetCursorPos(int x, int y);
+            [DllImport("user32.dll")] public static extern void mouse_event(uint f, uint dx, uint dy, uint d, IntPtr e);
+            [DllImport("user32.dll")] public static extern bool ShowWindow(IntPtr h, int c);
+            [DllImport("user32.dll")] public static extern IntPtr FindWindow(string c, string t);
+            public struct POINT { public int X, Y; public POINT(int x, int y) { X = x; Y = y; } }
+            public static RECT Werk() { RECT r = new RECT(); SystemParametersInfo(0x30, 0, ref r, 0); return r; }
+            public static RECT Rect(IntPtr h) { RECT r; GetWindowRect(h, out r); return r; }
+            public static IntPtr Op(int x, int y) { return GetAncestor(WindowFromPoint(new POINT(x, y)), 2); }
+          }
+          "@
+          $uit = "producten/steam-hol/e2e/screenshots/balk"; New-Item -ItemType Directory -Force $uit | Out-Null
+          $uit = (Resolve-Path $uit).Path
+          $ug = $uit -replace '\\','/'
+          $exe = (Resolve-Path "producten/steam-hol/bouw/volledig/HetHol.exe").Path
+          $blog = Join-Path $env:APPDATA "Dortus/Het Hol/logs/balk.log"
+          $r = @(); $fout = 0
+          function Ok($goed, $tekst) { if ($goed) { $script:r += "OK   $tekst" } else { $script:r += "FOUT $tekst"; $script:fout++ } }
+          function Tekst($x) { "$($x.L),$($x.T) tot $($x.R),$($x.B)" }
+          function Venster($p) { $h = [IntPtr]::Zero; for ($i = 0; $i -lt 40 -and $h -eq [IntPtr]::Zero; $i++) { Start-Sleep 0.5; $p.Refresh(); $h = $p.MainWindowHandle }; $h }
+          Add-Type -AssemblyName System.Windows.Forms
+          $sb = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
+          $w0 = [W]::Werk()
+          $r += "scherm $($sb.Width)x$($sb.Height), werkruimte zonder spel $(Tekst $w0)"
+
+          # 1 en 2: Kladblok gemaximaliseerd, dan het spel
+          $n = Start-Process notepad.exe -PassThru -WindowStyle Maximized
+          Start-Sleep 3
+          $nh = Venster $n
+          $p = Start-Process -FilePath $exe -ArgumentList "-- hoogte=120 vers=1 demo=1 log=$ug/spel-1.log" -PassThru
+          $sh = Venster $p
+          Start-Sleep 12
+          $w1 = [W]::Werk(); $kr = [W]::Rect($nh); $sr = [W]::Rect($sh)
+          $r += "met spel: werkruimte $(Tekst $w1), Kladblok $(Tekst $kr), spel $(Tekst $sr)"
+          Ok ($w1.B -eq $w0.B - 120) "werkruimte 120 px korter ($($w0.B) -> $($w1.B))"
+          Ok ($kr.B -le $sr.T + 8) "Kladblok (gemaximaliseerd) eindigt boven het spel (onder $($kr.B), spel boven $($sr.T); 8 px is de onzichtbare rand van Windows)"
+          Ok ($sr.B -eq $w0.B) "spel staat direct boven de taakbalk"
+          $ex = [W]::GetWindowLongPtr($sh, -20)
+          Ok (($ex -band 0x80) -ne 0 -and ($ex -band 0x40000) -eq 0) ("geen taakbalkknop (exstijl 0x{0:x})" -f $ex)
+          Ok (([W]::GetForegroundWindow()) -ne $sh) "het spel heeft de focus niet"
+          $null = & producten/steam-hol/e2e/scherm.ps1 "$uit/1-kladblok-gemaximaliseerd.png"
+          # alleen de onderkant groot, zodat je het typvak en het gras ziet
+          Add-Type -AssemblyName System.Drawing
+          $bmp = New-Object System.Drawing.Bitmap $sb.Width, 360
+          $g = [System.Drawing.Graphics]::FromImage($bmp); $g.CopyFromScreen(0, $sb.Height - 360, 0, 0, $bmp.Size); $bmp.Save("$uit/1-onderkant.png")
+
+          # 3: doorklikken. Lucht: 6 px onder de bovenrand van het spel; hol: 12 px boven de onderkant
+          $mx = [int]($sb.Width / 3)
+          $lm = [regex]::Match((Get-Content "$uit/spel-1.log" -Raw), "lucht vrij op x=(\d+)")
+          if ($lm.Success -and [int]$lm.Groups[1].Value -gt 0) { $mx = $sr.L + [int]$lm.Groups[1].Value }
+          $r += "lucht en hol getoetst op x=$mx"
+          [W]::SetCursorPos($mx, $sr.T + 6) | Out-Null; Start-Sleep -Milliseconds 400
+          $onder = [W]::Op($mx, $sr.T + 6)
+          Ok ($onder -eq $nh) "muis in de lucht boven het hol: venster eronder is Kladblok ($onder, Kladblok $nh, spel $sh)"
+          [W]::SetCursorPos($mx, $sr.B - 12) | Out-Null; Start-Sleep -Milliseconds 400
+          $op = [W]::Op($mx, $sr.B - 12)
+          Ok ($op -eq $sh) "muis in het hol: het spel vangt hem ($op)"
+          [W]::mouse_event(2, 0, 0, 0, [IntPtr]::Zero); Start-Sleep -Milliseconds 80; [W]::mouse_event(4, 0, 0, 0, [IntPtr]::Zero)
+          Start-Sleep 1
+          [W]::SetCursorPos($mx, $sr.T + 6) | Out-Null; Start-Sleep -Milliseconds 400
+          [W]::mouse_event(2, 0, 0, 0, [IntPtr]::Zero); Start-Sleep -Milliseconds 80; [W]::mouse_event(4, 0, 0, 0, [IntPtr]::Zero)
+          Start-Sleep 1
+          Ok (([W]::GetForegroundWindow()) -eq $nh) "klik in de lucht komt aan in Kladblok (voorgrond is Kladblok)"
+          $l1 = Get-Content "$uit/spel-1.log" -Raw
+          Ok ($l1 -match "HOL klik op") "klik in het hol komt aan in het spel"
+          Ok ($l1 -match "HOL balk aan") "spel meldt: balk aan"
+
+          # 4: volledig scherm (een randloos venster over het hele scherm, zoals een film in de browser)
+          $vol = Start-Process pwsh -PassThru -ArgumentList "-NoProfile", "-Command", "Add-Type -AssemblyName System.Windows.Forms; `$f = New-Object System.Windows.Forms.Form; `$f.FormBorderStyle = 'None'; `$f.WindowState = 'Maximized'; `$f.BackColor = 'Black'; `$f.TopMost = `$true; `$f.Add_Shown({ `$f.Activate() }); [System.Windows.Forms.Application]::Run(`$f)"
+          Start-Sleep 5
+          Ok (-not [W]::IsWindowVisible($sh)) "film op volledig scherm: spel verstopt"
+          $null = & producten/steam-hol/e2e/scherm.ps1 "$uit/4-volledig-scherm.png"
+          Stop-Process -Id $vol.Id -Force
+          Start-Sleep 4
+          Ok ([W]::IsWindowVisible($sh)) "na de film: spel weer zichtbaar"
+
+          # 6: hard afsluiten
+          $balkp = Get-Process hol-balk -ErrorAction SilentlyContinue
+          Ok ($balkp -ne $null) "hol-balk.exe draait"
+          Stop-Process -Id $p.Id -Force
+          Start-Sleep 4
+          $w2 = [W]::Werk()
+          Ok ($w2.B -eq $w0.B) "na hard afsluiten: werkruimte weer normaal ($(Tekst $w2))"
+          Ok ((Get-Process hol-balk -ErrorAction SilentlyContinue) -eq $null) "na hard afsluiten: hol-balk.exe ook weg"
+          [W]::ShowWindow($nh, 3) | Out-Null; Start-Sleep 2
+          $null = & producten/steam-hol/e2e/scherm.ps1 "$uit/6-na-hard-afsluiten.png"
+          Ok (([W]::Rect($nh)).B -ge $w0.B - 2) "Kladblok gemaximaliseerd is weer net zo hoog als zonder spel"
+
+          # 5: systeemvak (vak=pauze, vak=geluid, vak=stop kiezen de menuregel na 6 s)
+          foreach ($v in @("pauze", "geluid", "stop")) {
+            $q = Start-Process -FilePath $exe -ArgumentList "-- hoogte=120 vers=1 demo=1 duur=25 vak=$v log=$ug/vak-$v.log" -PassThru
+            if (-not $q.WaitForExit(60000)) { Stop-Process -Id $q.Id -Force }
+            Start-Sleep 3
+            $lv = Get-Content "$uit/vak-$v.log" -Raw
+            switch ($v) {
+              "pauze" { Ok ($lv -match "vak pauze aan" -and $lv -match "vak pauze uit") "systeemvak: pauze aan en uit" }
+              "geluid" { Ok ($lv -match "vak geluid uit" -and $lv -match "vak geluid aan") "systeemvak: geluid uit en aan" }
+              "stop" { Ok ($lv -match "einde via het systeemvak") "systeemvak: stoppen stopt het spel" }
+            }
+            $w3 = [W]::Werk()
+            Ok ($w3.B -eq $w0.B) "na stoppen ($v): werkruimte weer normaal ($(Tekst $w3))"
+          }
+          $null = & producten/steam-hol/e2e/scherm.ps1 "$uit/5-na-stoppen-systeemvak.png"
+          Ok ((Get-Process hol-balk -ErrorAction SilentlyContinue) -eq $null) "na stoppen: hol-balk.exe weg"
+          Ok (Test-Path "producten/steam-hol/godot/DERDEN.txt") "DERDEN.txt staat in het project (gaat mee in de .pck)"
+
+          Copy-Item $blog "$uit/balk.log" -ErrorAction SilentlyContinue
+          Copy-Item (Join-Path $env:APPDATA "Dortus/Het Hol/logs/godot.log") "$uit/godot.log" -ErrorAction SilentlyContinue
+          $g = Get-Content "$uit/godot.log" -Raw -ErrorAction SilentlyContinue
+          Ok ($g -notmatch "SCRIPT ERROR|Parse Error") "geen SCRIPT ERROR in godot.log"
+          $r += "balk-toetsen: $fout FOUT"
+          $r | ForEach-Object { Write-Output $_ }
+          $r | Set-Content "$uit/uitslag.txt"
+          Get-Content "$uit/balk.log" -ErrorAction SilentlyContinue
+          if ($fout -gt 0) { exit 1 }
+      - name: Uitslag openbaar zetten (tak schermen)
+        if: always()
+        shell: bash
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/steam-hol/e2e/screenshots/balk"
+          [ -d "$SRC" ] || { echo "geen uitslag"; exit 0; }
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          T="$RUNNER_TEMP/s"
+          for poging in 1 2 3 4 5; do
+            rm -rf "$T"
+            if git clone -q --depth 1 --filter=blob:none --sparse --branch schermen "$URL" "$T" 2>/dev/null; then
+              git -C "$T" sparse-checkout set "steam-hol-balk/$NAAM"
+            else
+              mkdir -p "$T" && cd "$T" && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="$T/steam-hol-balk/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd "$T" && git add -A && git commit -q -m "Balk steam-hol/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/steam-hol-balk/$NAAM"
