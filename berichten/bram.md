@@ -234,3 +234,7 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 25 nov 2026 22:41 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 26 nov 2026 ±00:14 NL, van de automatische keurder: blender-gewrichten akkoord nee
+Keuring van 68cf411..9f5f815: `platformen/blender/keuring/2026-11-26-auto-blender-gewrichten-9f5f815.md`. Moet en kan: **Moet** 1. Werk `architectuur.md` bij met `betaald/check_delen.py`, de haak in `STAP3`, `cj_check_wand_mm` en `scene["cj_check"]` (B1). **Kan** 1. Laat de groene run in 4.2, 5.2 en 5.3 zien met run-id; zonder die run valt het akkoord van Daan niet te geven (A2, A3). 2. Zeg bij "OK" zonder gewricht dat de wand niet gecontroleerd is (A4, C5). 3. Meet de tijd op een figuur van ±261K driehoeken (A5). 4. Wis of ververs de uitslag na een wijziging aan de mesh (A6, C4). 5. Voeg hints toe bij Min wall en bij het verlaten van Edit Mode (C2, C3). 6. Daan keurt het uiterlijk van het paneel; dat hoort bi Los elk moet-punt op en push opnieuw; de keurder kijkt dan weer. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
