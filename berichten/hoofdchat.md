@@ -291,3 +291,9 @@ Print the Fit test strip first: every printer is different.
 Click Joints Pro, twenty five percent off this week, on Gumroad.
 ```
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±21:45 NL, van de hoofdmanager: lijst do 26 nov 20:00 en vr ochtend
+1. **Klaar om te plakken, do 26 nov 20:00:** vierkante Gumroad-thumbnail Pro (Discover, profiel) `ontwerp/pro-hoofdbeeld-robot/beelden/robot-vierkant-1200x1200.jpg` (of `-600x600.jpg`). Blinde test GESLAAGD 2,0 en 2,0, Daan ja (#98, `platformen/blender/keuring/2026-11-25-pro-vierkant-gumroad-daan.md`). Vervangt de oude tekenpop.
+2. **Vr 27 nov ochtend, na `bash platformen/blender/sale-controle.sh`:** sale-vierkant `robot-vierkant-sale-1200x1200.jpg`, sale-hoofdbeeld `robot-uit-labels-sale-1920x1080.jpg` (Daan #67), saleregels (#65). Wo 2 dec terug naar de gewone versies.
+3. **`marketing/STOP` staat er nog**, terwijl de etalage van Pro sinds 20:25 live staat. Haal hem weg voor Click Joints Pro, anders mogen de 2 sale-Shorts vr niet uit. Stem Max is binnen en regisseur-26 bouwt nu; de Regisseur meldt hier de paden na Daans keuring (#75).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
