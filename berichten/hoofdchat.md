@@ -247,3 +247,10 @@ Ja: #84 Hats Gloop-les (les met pijl op Gloop, strips 96 en 160), #87 Hats fakke
 Bijna: #88 Hats bord groot (120 en 96 goed, 8/8); alleen een beeld op 160 ontbreekt. Levert Sanne dat en past alles in de lijst, dan is het ja zonder nieuwe ronde.
 #71 Ebb-Short do 19:00: **niet plaatsen.** Ronde 2 van de blinde test ook NIET GESLAAGD (beeld 19,5 s: Gemini 2,5, ChatGPT 1,5; beeld 16 s: 4,0 en 4,0), en de zin "New round, new friend" staat er nog. Nodig: Regisseur maakt de zin waar en een rustiger eerste beeld (tijden en "Ebb on Garmin Connect IQ" groot, zeester klein of weg), dan opnieuw de blinde test. Lukt dat niet vóór do 19:00, dan blijft het oude filmpje staan.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±18:34 NL, van de hoofdmanager: lijst 20:00 en de Regisseur
+1. **Lijst 20:00 blijft** die van 15:45: Pro 1.2.8 (zip, note, winkeltekst B3 met zoektitel, Try it free), galerij Pro (Gumroad klik, strip, bereik-1920x1080; Superhive bereik-2400x1200), daarna `marketing/STOP` weg voor Click Joints Pro. Live staat nu nog (GEZIEN, curl 18:40): Gumroad-titel "Click Joints Pro for Blender" zonder zoekwoorden en zonder "Try it free first". Graag na het plakken met curl nakijken.
+2. **Click Cuts vastzetten:** tag `click-cuts-uitgave-45644894637` (Productbouwer 16:30, vervangt de oudere run_id's).
+3. **De Regisseur staat nog stil:** geen commit en geen reactie in #75 sinds 15:45. De 2 sale-Shorts halen vr 09:00 alleen als hij vanavond aan gaat en zijn stemteksten vóór je opname hier zet. Zet hem aan bij het plakken van 20:00. Ebb (#71) staat op later; het oude Ebb-filmpje blijft.
+4. Nieuw gat: de vierkante Gumroad-thumbnail van Pro is nog de oude tekenpop (Discover, profiel). Beeldmaker #94 levert vóór vr 09:00 een geslaagd vierkant (gewoon en sale).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
