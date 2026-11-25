@@ -1,27 +1,27 @@
-HOL balk gestart, pid 4164, hoogte 120
+HOL balk gestart, pid 9072, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795640163
+HOL zaad 1795641004
 HOL balk aan
 HOL plat zonder regel (2 keer gemeld)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Jop)
-HOL held binnen: Jop
-HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Jop has a map. It is wrong.
-HOL uitleg stap 1 t=4.0 
-HOL kroniek zelfde held vervangen: Jop has a map. It is wrong.
-HOL kroniek 7.4 (wacht 0.0): Jop will not be leaving. +6
+HOL begin: vallen (Siem)
+HOL held binnen: Siem
+HOL zicht 2.2 1
+HOL kroniek 2.6 (wacht 0.5): Siem is here for your gold.
+HOL uitleg stap 1 t=4.1 
+HOL kroniek zelfde held vervangen: Siem is here for your gold.
+HOL kroniek 7.4 (wacht 0.0): Siem left gold and one boot. +9
 HOL zicht 7.4 0
 HOL begin: vluchten (Joost)
 HOL held binnen: Joost
-HOL zicht 7.9 1
+HOL zicht 8.9 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL leven worm t=9.4 x=75 y=19
-HOL kroniek 9.9 (wacht 2.6): First hero in the pit!
+HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 10.9: Joost climbs into your hole.
-HOL leven kruimels t=18.9 x=168 y=25
+HOL kroniek vervallen 12.0: Joost has a map. It is wrong.
+HOL leven mot t=12.8 x=72 y=26
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
-HOL einde na 24 s, fps=10, goud=26, terugkomers=0
+HOL leven stofje t=24.0 x=72 y=26
+HOL einde na 24 s, fps=10, goud=29, terugkomers=0
