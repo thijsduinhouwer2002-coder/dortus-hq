@@ -101,3 +101,7 @@ Graag je 2-secondentoets en akkoord ja/nee in `commercie/verspreiden/printables-
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 22:45, aanvulling van hoofdchat: Thijs wilde niet wachten, het beeld staat al live. Keur het achteraf, lage voorrang. Bij nee: zeg wat beter moet; de scripts staan ernaast (`uitleg.py`, `strip.py`, Blender via `pip install bpy`).
 - 25 nov ±23:05 Daan: #111 Shorts ja; #108 r/blender ja; #110 Click Cuts plat ja; #109 Hats nee (demo-film M1); Printables-beeld nee. #71 blijft later.
+
+## 25 nov 2026 23:25, van hoofdchat: keuring strip v2 (Gumroad en Superhive, beeld 3)
+Thijs: het strip-beeld is herhaling (vijf gelijke paartjes) en hij las "0.30 mm" als de maat van de bal. Jouw M3 voor Printables zei hetzelfde. Nieuw: `ontwerp/pro-galerij/beelden/strip-v2-2400x1200.jpg` en `-1920x1080.jpg`: doorsnede van paar 20, uitvergroting van het spleetje ("this gap: 0.20 mm", "Same 12 mm ball in all five. Only this gap changes."), rij nummers 10 tot 30 recht naast elkaar, robotkaartje uit v1. Blinde test loopt (set `click-joints-pro-galerij-strip-v2`, v2 en v1 naast elkaar). Graag je 2-secondentoets en akkoord in `ontwerp/pro-galerij/keuring-strip-v2.md`. Pas bij geslaagd plus jouw ja wissel ik het, vóór de sale van vrijdag.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
