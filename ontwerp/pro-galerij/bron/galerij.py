@@ -397,6 +397,19 @@ def delen_plat():
         x += w + gat
     if rij:
         rijen.append(rij)
+    if os.environ.get("GB_LEG") == "lichaam" and len(delen) == 10:
+        # ronde 2 (#101, mens): zoals een lichaam uit elkaar ligt. Achter: dij, bovenarm, romp, bovenarm, dij;
+        # voor: scheen, onderarm, hoofd, onderarm, scheen. Welk deel wat is volgt uit de rusthouding (hoogte, links/rechts).
+        mid_ = {o.name: (maat(o)[0] + maat(o)[1]) / 2 for o in delen}
+        vol = {o.name: (maat(o)[1] - maat(o)[0]).x * (maat(o)[1] - maat(o)[0]).y * (maat(o)[1] - maat(o)[0]).z for o in delen}
+        romp = max(delen, key=lambda o: vol[o.name])
+        rest = [o for o in delen if o is not romp]
+        hoofd = max(rest, key=lambda o: mid_[o.name].z if abs(mid_[o.name].x) < 15 else -1e9)
+        rest = sorted([o for o in rest if o is not hoofd], key=lambda o: -mid_[o.name].z)
+        paren = [sorted(rest[i:i + 2], key=lambda o: mid_[o.name].x) for i in range(0, 8, 2)]
+        bov, ond, dij, sch = paren
+        rijen = [[sch[0], ond[0], hoofd, ond[1], sch[1]], [dij[0], bov[0], romp, bov[1], dij[1]]]   # rij 0 = voor
+        meting["leg"] = {"voor": [o.name for o in rijen[0]], "achter": [o.name for o in rijen[1]]}
     y = 0.0
     plek = {}
     for rij in rijen:

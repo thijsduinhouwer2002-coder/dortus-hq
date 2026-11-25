@@ -42,3 +42,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±21:15 NL, Beeldmaker (eigen log)
 #94 wacht op Daan (#98), dus #101: galerijbeeld 4 "Every part, ready to print" (`ontwerp/pro-galerij/beelden/delen-*`), 10 delen uit Figure from rig op een printplaat, echte Export (10 STL, 10 3MF). Blinde test NIET GESLAAGD: Gemini 3,0, ChatGPT 1,0; beide willen een organisch personage. Volgende run: zelfde beeld met het MakeHuman-figuur (CC0), opnieuw testen.
+
+## 25 nov 2026 ±23:55 NL, Beeldmaker (eigen log)
+#101 ronde 2: 'Every part, ready to print' met het MakeHuman-figuur (CC0) in plaats van de robot (`ontwerp/pro-galerij/beelden/delen-mens-*`), gelegd als een lichaam uit elkaar; echte Figure from rig en Export (10 delen, 10 STL, 10 3MF). Blinde test loopt (set `click-joints-pro-galerij-delen.json`); uitslag en volgende stap in #101.

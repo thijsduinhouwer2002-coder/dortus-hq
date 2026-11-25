@@ -1,0 +1,255 @@
+{
+ "figuur": "MakeHuman base mesh (CC0 1.0, commercie/filmpjes/studio/modellen/makehuman-base-LICENTIE.md), aangekleed door figuur_laden.py",
+ "uit_mm": 36.0,
+ "modus": "delen",
+ "knop_s": 79.0,
+ "gewrichten": [
+  "Left elbow · Hinge · 0–140° · from rig",
+  "Right elbow · Hinge · 0–140° · mirror",
+  "Left knee · Hinge · 0–120° · from rig",
+  "Right knee · Hinge · 0–120° · mirror",
+  "Neck · Ball · ±20° · preset",
+  "Left shoulder · Ball · ±20° · preset",
+  "Right shoulder · Ball · ±20° · preset",
+  "Left hip · Ball · ±20° · preset",
+  "Right hip · Ball · ±20° · preset"
+ ],
+ "records": [
+  {
+   "naam": "Left elbow",
+   "soort": "HINGE",
+   "graden": 140.0,
+   "punt": [
+    42.3468,
+    10.0688,
+    152.8846
+   ]
+  },
+  {
+   "naam": "Right elbow",
+   "soort": "HINGE",
+   "graden": 140.0,
+   "punt": [
+    -42.3457,
+    10.0693,
+    152.8825
+   ]
+  },
+  {
+   "naam": "Left knee",
+   "soort": "HINGE",
+   "graden": 120.0,
+   "punt": [
+    20.8809,
+    10.2929,
+    59.0681
+   ]
+  },
+  {
+   "naam": "Right knee",
+   "soort": "HINGE",
+   "graden": 120.0,
+   "punt": [
+    -20.8809,
+    10.2929,
+    59.0681
+   ]
+  },
+  {
+   "naam": "Neck",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    0.0056,
+    11.5246,
+    185.4845
+   ]
+  },
+  {
+   "naam": "Left shoulder",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    28.2948,
+    12.8324,
+    169.8787
+   ]
+  },
+  {
+   "naam": "Right shoulder",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    -28.2948,
+    12.8328,
+    169.8788
+   ]
+  },
+  {
+   "naam": "Left hip",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    14.1203,
+    11.2695,
+    98.676
+   ]
+  },
+  {
+   "naam": "Right hip",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    -14.1201,
+    11.2696,
+    98.676
+   ]
+  }
+ ],
+ "goud_vlakken": 18377,
+ "export": {
+  "stl": 10,
+  "3mf": 10,
+  "namen": [
+   "Figuur_gesloten_A_A_A_A_A_A_A_A_A.stl",
+   "Figuur_gesloten_A_A_A_A_A_A_A_A_B.stl",
+   "Figuur_gesloten_A_A_A_A_A_A_A_B.stl",
+   "Figuur_gesloten_A_A_A_A_A_A_B.stl",
+   "Figuur_gesloten_A_A_A_A_A_B.stl",
+   "Figuur_gesloten_A_A_A_A_B.stl",
+   "Figuur_gesloten_A_A_A_B.stl",
+   "Figuur_gesloten_A_A_B.stl",
+   "Figuur_gesloten_A_B.stl",
+   "Figuur_gesloten_B.stl"
+  ],
+  "zichtbare_delen": 10
+ },
+ "leg": {
+  "voor": [
+   "Figuur_gesloten_A_A_A_B",
+   "Figuur_gesloten_A_B",
+   "Figuur_gesloten_A_A_A_A_B",
+   "Figuur_gesloten_B",
+   "Figuur_gesloten_A_A_B"
+  ],
+  "achter": [
+   "Figuur_gesloten_A_A_A_A_A_A_A_A_B",
+   "Figuur_gesloten_A_A_A_A_A_A_B",
+   "Figuur_gesloten_A_A_A_A_A_A_A_A_A",
+   "Figuur_gesloten_A_A_A_A_A_B",
+   "Figuur_gesloten_A_A_A_A_A_A_A_B"
+  ]
+ },
+ "rijen": [
+  5,
+  5
+ ],
+ "kader": [
+  [
+   -118.48033142089844,
+   0.0,
+   0.0
+  ],
+  [
+   118.48033142089844,
+   88.9794921875,
+   101.73046112060547
+  ]
+ ],
+ "plaat_mm": [
+  273,
+  125
+ ],
+ "punten": {
+  "Figuur_gesloten_B": {
+   "beeld": [
+    0.8061,
+    0.5027
+   ],
+   "bestand": "Figuur_gesloten_B.stl",
+   "soort": "SCHARNIER",
+   "gewricht": "Left elbow"
+  },
+  "Figuur_gesloten_A_B": {
+   "beeld": [
+    0.6188,
+    0.5502
+   ],
+   "bestand": "Figuur_gesloten_A_B.stl",
+   "soort": "SCHARNIER",
+   "gewricht": "Right elbow"
+  },
+  "Figuur_gesloten_A_A_B": {
+   "beeld": [
+    0.8941,
+    0.3805
+   ],
+   "bestand": "Figuur_gesloten_A_A_B.stl",
+   "soort": "SCHARNIER",
+   "gewricht": "Left knee"
+  },
+  "Figuur_gesloten_A_A_A_B": {
+   "beeld": [
+    0.5232,
+    0.4685
+   ],
+   "bestand": "Figuur_gesloten_A_A_A_B.stl",
+   "soort": "SCHARNIER",
+   "gewricht": "Right knee"
+  },
+  "Figuur_gesloten_A_A_A_A_B": {
+   "beeld": [
+    0.7139,
+    0.493
+   ],
+   "bestand": "Figuur_gesloten_A_A_A_A_B.stl",
+   "soort": "KOGEL",
+   "gewricht": "Neck"
+  },
+  "Figuur_gesloten_A_A_A_A_A_B": {
+   "beeld": [
+    0.8051,
+    0.4152
+   ],
+   "bestand": "Figuur_gesloten_A_A_A_A_A_B.stl",
+   "soort": "KOGEL",
+   "gewricht": "Left shoulder"
+  },
+  "Figuur_gesloten_A_A_A_A_A_A_B": {
+   "beeld": [
+    0.5573,
+    0.4745
+   ],
+   "bestand": "Figuur_gesloten_A_A_A_A_A_A_B.stl",
+   "soort": "KOGEL",
+   "gewricht": "Right shoulder"
+  },
+  "Figuur_gesloten_A_A_A_A_A_A_A_B": {
+   "beeld": [
+    0.8868,
+    0.3254
+   ],
+   "bestand": "Figuur_gesloten_A_A_A_A_A_A_A_B.stl",
+   "soort": "KOGEL",
+   "gewricht": "Left hip"
+  },
+  "Figuur_gesloten_A_A_A_A_A_A_A_A_A": {
+   "beeld": [
+    0.6828,
+    0.1986
+   ],
+   "bestand": "Figuur_gesloten_A_A_A_A_A_A_A_A_A.stl",
+   "soort": "KOGEL",
+   "gewricht": "Right hip"
+  },
+  "Figuur_gesloten_A_A_A_A_A_A_A_A_B": {
+   "beeld": [
+    0.4659,
+    0.4214
+   ],
+   "bestand": "Figuur_gesloten_A_A_A_A_A_A_A_A_B.stl",
+   "soort": "KOGEL",
+   "gewricht": "Right hip"
+  }
+ }
+}

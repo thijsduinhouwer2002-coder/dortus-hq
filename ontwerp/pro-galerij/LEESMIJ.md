@@ -38,3 +38,9 @@ python3 bron/tekst.py delen <uit>/render-delen.png <uit>/delen.json beelden <fon
 ```
 Blinde test: set `organisatie/blindtest/sets/click-joints-pro-galerij-delen.json` (zelfde drie concurrenten als bereik).
 Ronde 1 (25 nov 21:06): NIET GESLAAGD, Gemini 3,0 en ChatGPT 1,0 (`organisatie/blindtest/uitslag/click-joints-pro-galerij-delen-2026-11-25-2106.md`). Beide prijzen export per deel en 0,20 mm; beide vragen hetzelfde: laat het zien op een organisch, gedetailleerd personage in plaats van de blokkige robot. Volgende ronde: zelfde opzet met het MakeHuman-figuur (CC0, `commercie/filmpjes/studio/modellen/makehuman-base-LICENTIE.md`, `FL.laad_figuur("mens")`).
+
+Ronde 2 (#101, 25 nov ±23:55): `delen-mens-*`, zelfde beeld met een organisch figuur: MakeHuman base mesh (CC0 1.0, `commercie/filmpjes/studio/modellen/makehuman-base-LICENTIE.md`), aangekleed door `figuur_laden.laad_mens_kleding`. Figure from rig van Pro (zip van main) maakte 9 gewrichten en 10 delen; Export schreef 10 STL en 10 3MF (GEZIEN, `beelden/delen-mens.json`). Gelegd als een lichaam uit elkaar: achter dij, bovenarm, romp, bovenarm, dij; voor scheen, onderarm, hoofd, onderarm, scheen (`GB_LEG=lichaam`; welk deel wat is volgt uit de rusthouding).
+```
+HB_FIGUUR=mens GB_LEG=lichaam GB_MODUS=delen GB_PLAATRAND=18 GB_GAT=20 HB_LICHT=2.6 GB_SHIFT=-0.20 GB_SHIFT_Y=0 GB_OP=0.6 GB_LENS=55 GB_AFSTAND=740 GB_ZIJ=-0.28 (zelfde regel, 32 samples)
+python3 bron/tekst.py delen <uit>/render-delen.png <uit>/delen.json <uit> <fonts> ../click-joints/bron/icoon.svg   (daarna hernoemd naar delen-mens-*)
+```

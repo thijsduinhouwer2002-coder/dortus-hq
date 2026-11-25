@@ -93,7 +93,10 @@ def buig(naam, graden):
 
 def figuur():
     bpy.ops.extensions.package_install_files(filepath=ZIP, repo="user_default", enable_on_install=True)
-    arm, ob, _p = FL.laad_figuur("robot", 220.0)
+    keuze = os.environ.get("HB_FIGUUR", "robot")   # "mens": MakeHuman base (CC0), aangekleed (#101 ronde 2)
+    arm, ob, _p = FL.laad_figuur(keuze, 220.0)
+    if keuze == "mens":
+        meting["figuur"] = "MakeHuman base mesh (CC0 1.0, commercie/filmpjes/studio/modellen/makehuman-base-LICENTIE.md), aangekleed door figuur_laden.py"
     inst = bpy.context.scene.click_joints
     inst.speling_mm, inst.as_bron, inst.uit_elkaar, inst.kogel_auto = 0.2, "CURSOR", False, True
     naam = ob.name
