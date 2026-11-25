@@ -36,3 +36,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±16:45 NL, Beeldmaker (eigen log)
 #39 beeld 3 opnieuw (Daan #82 M1): schermafbeelding uit Blender 5.3.0 met de zip van main (4801bc8), het paneel toont nu "Horse (closed): 505,742 faces"; verder gelijk. Nakeuring #90. Volgende: na Daans ja klaar om te plakken en #39 dicht; daarna #38 als het label later eraf is.
+
+## 25 nov 2026 ±19:15 NL, Beeldmaker (eigen log)
+#39 dicht (onderschrift beeld 3 klaar om te plakken). #94: vierkante Gumroad-thumbnail uit een nieuwe vierkante render van de robot (`ontwerp/pro-hoofdbeeld-robot/beelden/robot-vierkant-*`), gewoon en sale. Blinde test ronde 1 GESLAAGD 2,0 en 2,0 (Cleave eerste). Ronde 2 met de pil "Fit test: 0.10 to 0.30 mm" (`*-strip-*`) loopt; uitslag en keuring (Daan) in #94. Volgende: na Daans ja klaar om te plakken vóór vr 09:00; dan het videobeeld 1280x720.

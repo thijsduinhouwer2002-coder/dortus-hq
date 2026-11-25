@@ -96,12 +96,25 @@ def main():
     schaduw_tekst(img, [((x0, y), "Rig in.", f_slag, CREME), ((x0, y + 88), "Joints out.", f_slag, GOUD)], 10)
     y += 88 + 128
     f_punt = font("Inter.ttf", 34, "Medium")
-    for t in ("Ball joints and hinges", "with bend limits, ready", "to 3D print"):
+    strip = os.environ.get("VK_STRIP") == "1"   # ronde 2: beide rechters vroegen om de speling (fit)
+    regels = ("Ball joints and hinges", "with bend limits") if strip else (
+        "Ball joints and hinges", "with bend limits, ready", "to 3D print")
+    for t in regels:
         schaduw_tekst(img, [((x0, y), t, f_punt, ZACHT)], 6)
         y += 46
+    if strip:
+        # pil met de Fit test strip van Pro: vijf gewrichten van 0.10 tot 0.30 mm speling (betaald/testkaart.py)
+        f_pil = font("Inter.ttf", 32, "SemiBold")
+        t = "Fit test: 0.10 to 0.30 mm"
+        d = ImageDraw.Draw(img)
+        bb = d.textbbox((0, 0), t, font=f_pil)
+        py = y + 14
+        d.rounded_rectangle((x0, py, x0 + bb[2] + 40, py + 56), radius=28, fill=(24, 16, 30, 235), outline=GOUD + (255,),
+                            width=3)
+        d.text((x0 + 20, py + 28 - (bb[3] + bb[1]) / 2), t, font=f_pil, fill=GOUD)
     if SALE:
         sticker(img, 1050, 160, 250)
-    naam = "robot-vierkant-sale" if SALE else "robot-vierkant"
+    naam = ("robot-vierkant-sale" if SALE else "robot-vierkant") + ("-strip" if strip else "")
     rgb = img.convert("RGB")
     rgb.save(os.path.join(UIT, f"{naam}-1200x1200.jpg"), quality=93, subsampling=0)
     rgb.resize((600, 600), Image.LANCZOS).save(os.path.join(UIT, f"{naam}-600x600.jpg"), quality=93, subsampling=0)

@@ -23,4 +23,6 @@ Blinde test: sets `click-joints-pro-robot-superhive` en `click-joints-pro-robot-
 HB_W=1200 HB_H=1200 HB_UIT=22 HB_LICHT=2.6 HB_VUL=0.9 HB_DRAAI=-22 HB_KANTEL=9 HB_SHIFT=-0.19 HB_SHIFT_Y=0.015 \
   blender -b --factory-startup --python bron/hoofdbeeld.py -- <pro-zip> <uit> 64 100
 python3 bron/vierkant.py <uit>/hoofdbeeld-render.png <uitmap> <fontmap> ontwerp/click-joints/bron/icoon.svg [sale]
+(ronde 2, met de pil "Fit test: 0.10 to 0.30 mm": VK_STRIP=1 ervoor, geeft robot-vierkant-strip-* en robot-vierkant-sale-strip-*)
 ```
+Ronde 1 (25 nov 18:50): robot-vierkant en robot-vierkant-sale allebei GESLAAGD, plek 2,0 bij Gemini en bij ChatGPT (Cleave telkens eerste). ChatGPT vroeg twee keer om de speling, dus ronde 2 zet de echte Fit test strip van Pro (vijf gewrichten, 0.10 tot 0.30 mm) als pil onderaan: set `click-joints-pro-vierkant-gumroad-r2`. Gemini blijft een organisch figuur vragen: dat is #38.
