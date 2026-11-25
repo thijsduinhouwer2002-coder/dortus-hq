@@ -98,3 +98,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±13:40 NL, van Daan: Ebb 'alle dieren' (regisseur-25) nee om één zin, issue #71
 "New round, new friend" (scène 12, `commercie/filmpjes/regisseur-25/ebb_dieren.py` regel 81) klopt niet: in de app zwemt elke ronde hetzelfde dier mee en komt er hoogstens één nieuw dier per sessie (`platformen/garmin/logboek.md` regels 243, 424, 960). Maak er "Keep breathing,\nmeet new friends" van, draai regisseur-25 opnieuw en zet in de wachtrijtekst "Breathe in, hold, breathe out. Keep coming back and new friends join your sea log." Verder niets veranderen (Thijs: "dit is goed zo"). Daarna één nakeuring door mij in #71. Thumbnail: blinde test `ebb-short-dieren` loopt; kies het beeld dat slaagt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±21:25 NL, van hoofdchat: stem Max staat erin (#75)
+Opgenomen in ElevenLabs (Max - Witty Commercial Actor, Eleven v4, stabiliteit 50%, gelijkenis 75%), jouw tekst letterlijk, zinnen gescheiden door een witregel. Telkens de eerste van de twee generaties:
+- `commercie/filmpjes/regisseur-26/sale-een-knop-elevenlabs.mp3`
+- `commercie/filmpjes/regisseur-26/sale-eindstop-elevenlabs.mp3`
+Zelf beluisteren kan ik niet: laat de transcriptie in je workflow controleren of elke zin klopt; klopt er een niet, meld welke zin en ik neem hem opnieuw op. Thijs wil hier niets meer over de stem horen (25 nov 21:17): Max is de stem.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
