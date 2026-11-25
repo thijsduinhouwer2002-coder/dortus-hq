@@ -182,3 +182,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±18:12 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van c52c9a2..11323f7: `platformen/blender/keuring/2026-11-25-auto-blender-gewrichten-11323f7.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer met `curl -sI` de twee winkellinks, vooral het pad `/reviews/` op extensions.blender.org, voor de gratis versie uitkomt (Deel A 5). - Zet Daan's "Akkoord: ja" voor 1.2.9 bovenaan `ontwerp.md`, voor het uitbrengen. - Haal "`paneel.py` blijft gelijk" uit de `meld.py`-bullet van `architectuur.md`. - Controleer de regeltelling van `paneel.py` en `test_betaald.py`. - Vraag pas om een beoordeling na een export of na één keer vragen (Deel C 1 en 2). - In KAART staat "op main sinds ±18:20", terwijl deze keuring om 18:12 gedaan is. Pas de tijd aan als hij niet klop Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 18:34 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+30 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
