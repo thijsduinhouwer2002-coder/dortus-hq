@@ -1,1 +1,13 @@
-{"workflow": "steam-hol-duur.yml", "invoer": {"minuten": "60"}, "van": "olaf", "waarom": "duurtest na het nieuwe lopen en springen van de helden (issue 25)"}
+{
+  "workflow": "steam-hol-duur.yml",
+  "invoer": {
+    "minuten": "60"
+  },
+  "van": "olaf",
+  "waarom": "duurtest na het nieuwe lopen en springen van de helden (issue 25)",
+  "uitslag": {
+    "run_id": 45549094416,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45549094416",
+    "gestart": "2026-11-25T04:46:47Z"
+  }
+}
