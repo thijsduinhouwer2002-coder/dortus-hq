@@ -39,3 +39,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±19:15 NL, Beeldmaker (eigen log)
 #39 dicht (onderschrift beeld 3 klaar om te plakken). #94: vierkante Gumroad-thumbnail uit een nieuwe vierkante render van de robot (`ontwerp/pro-hoofdbeeld-robot/beelden/robot-vierkant-*`), gewoon en sale. Blinde test ronde 1 GESLAAGD 2,0 en 2,0 (Cleave eerste). Ronde 2 met de pil "Fit test: 0.10 to 0.30 mm" (`*-strip-*`) loopt; uitslag en keuring (Daan) in #94. Volgende: na Daans ja klaar om te plakken vóór vr 09:00; dan het videobeeld 1280x720.
+
+## 25 nov 2026 ±21:15 NL, Beeldmaker (eigen log)
+#94 wacht op Daan (#98), dus #101: galerijbeeld 4 "Every part, ready to print" (`ontwerp/pro-galerij/beelden/delen-*`), 10 delen uit Figure from rig op een printplaat, echte Export (10 STL, 10 3MF). Blinde test NIET GESLAAGD: Gemini 3,0, ChatGPT 1,0; beide willen een organisch personage. Volgende run: zelfde beeld met het MakeHuman-figuur (CC0), opnieuw testen.

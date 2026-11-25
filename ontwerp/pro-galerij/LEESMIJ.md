@@ -37,3 +37,4 @@ GB_MODUS=delen GB_RIJ=330 GB_PLAATRAND=20 GB_GAT=24 HB_LICHT=2.6 GB_SHIFT=-0.17 
 python3 bron/tekst.py delen <uit>/render-delen.png <uit>/delen.json beelden <fonts> ../click-joints/bron/icoon.svg
 ```
 Blinde test: set `organisatie/blindtest/sets/click-joints-pro-galerij-delen.json` (zelfde drie concurrenten als bereik).
+Ronde 1 (25 nov 21:06): NIET GESLAAGD, Gemini 3,0 en ChatGPT 1,0 (`organisatie/blindtest/uitslag/click-joints-pro-galerij-delen-2026-11-25-2106.md`). Beide prijzen export per deel en 0,20 mm; beide vragen hetzelfde: laat het zien op een organisch, gedetailleerd personage in plaats van de blokkige robot. Volgende ronde: zelfde opzet met het MakeHuman-figuur (CC0, `commercie/filmpjes/studio/modellen/makehuman-base-LICENTIE.md`, `FL.laad_figuur("mens")`).
