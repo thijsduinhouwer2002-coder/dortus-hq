@@ -1,7 +1,8 @@
 extends Node2D
 # Het Hol: het kernmoment van de val (Olaf 24 nov, issue 5; lijst in issue 4 van Sanne: klap, wit oplichten, poef,
 # muntjes in een boog, reeksbonus). Dit is de laag erbovenop, in schermpixels, kind van de strook:
-# - een witte klap-ster op de plek van de val (6 korte stralen die uitschieten en weg zijn in 0,16 s);
+# - de klap-ster van Mila (kunst/klapster.png, 4 beelden van 16 x 16 spelpixels, 8 per seconde, één keer: 0,5 s) op de
+#   plek van de val, wit-geel met een donkere rand (Iris #7: de oude witte stralen lazen als een stofwolk; Daan #45 ja);
 # - "+9" in goud dat uit de aarde boven de val omhoog komt, eerst groot en dan op maat, en vervaagt;
 # - bij een reeks (2 of meer vangsten op rij zonder dat er een ontsnapt) "x3" ernaast, warmer van kleur per stap.
 # Alles blijft onder het maaiveld: op Windows tekent het venster niets buiten het muisvlak (kern/muisvlak.gd).
@@ -9,11 +10,14 @@ extends Node2D
 
 const HOL := preload("res://hol/hol.gd")
 const FREDOKA := preload("res://kunst/letters/Fredoka.ttf")
+const KLAPSTER := preload("res://kunst/klapster.png")   # 4 beelden naast elkaar, 128 x 128 bladpixels per beeld
+const STER_BEELDEN := 4
+const STER_CEL := 16.0     # spelpixels per beeld (8 bladpixels per spelpixel)
 
 const DUUR := 1.3          # zo lang staat het getal er
 const POP_S := 0.12        # eerst groter, dan op maat
 const VERVAAG_S := 0.35    # het laatste stuk vervaagt
-const STER_S := 0.25       # de klap-ster
+const STER_S := 0.5        # de klap-ster: 4 beelden op 8 per seconde
 const STIJG := 7.0         # spelpixels omhoog over de hele duur (blijft onder het maaiveld)
 const GOUD := Color("#ffd75e")
 const RAND := Color(0.16, 0.07, 0.02, 0.9)
@@ -25,12 +29,22 @@ var hol_pos := Vector2.ZERO
 var stil := false            # winkelbeeld: alles blijft staan op het hoogste punt
 var bijs: Array = []         # {x, y (spelpixels, plek van de val), buit, reeks, t}
 var letter: FontVariation
+var ster_tex: CanvasTexture   # lineair gefilterd, net als de andere 3D-bladen (Mila)
 
 func _ready() -> void:
 	letter = FontVariation.new()
 	letter.base_font = FREDOKA
 	letter.variation_opentype = {TextServerManager.get_primary_interface().name_to_tag("wght"): 700}
+	ster_tex = CanvasTexture.new()
+	ster_tex.diffuse_texture = KLAPSTER
+	ster_tex.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	set_process(false)
+
+# Welk beeld van de klap-ster op tijd t (0 tot 3), of -1 als hij weg is.
+static func ster_beeld(t: float) -> int:
+	if t < 0.0 or t >= STER_S:
+		return -1
+	return clampi(int(t / STER_S * STER_BEELDEN), 0, STER_BEELDEN - 1)
 
 # Een vangst op plek p (spelpixels van het hol): buit en de reeks na deze vangst.
 func vangst(p: Vector2, buit: int, reeks: int) -> void:
@@ -73,19 +87,14 @@ func _draw() -> void:
 		var t: float = b.t
 		var s := float(schaal)
 		var mx: float = hol_pos.x + float(b.x) * s
-		# klap-ster: 6 witte stralen rond de val, midden van de gang
-		if t < STER_S:
-			var u := t / STER_S
+		# klap-ster van Mila: midden van het beeld op de plek van de klap (midden van de gang)
+		var sb := ster_beeld(t)
+		if sb >= 0:
 			var c := hol_pos + Vector2(float(b.x), float(HOL.GANG_BOVEN + 6)) * s
-			var kleur := Color(1, 1, 0.92, 1.0 - u * u)
-			for i in 8:
-				var hoek := TAU * float(i) / 8.0 + 0.2
-				var lang := 4.0 if i % 2 == 0 else 2.5   # om en om lang en kort: een ster, geen wiel
-				var r0 := (2.0 + 6.0 * u) * s
-				var r1 := r0 + (lang - 1.5 * u) * s
-				draw_line(c + Vector2.from_angle(hoek) * r0, c + Vector2.from_angle(hoek) * r1, kleur, maxf(2.0, s * 1.2 * (1.0 - u * 0.5)))
-			if u < 0.5:
-				draw_circle(c, (4.0 - 4.0 * u) * s, Color(1, 1, 1, 0.9 * (1.0 - 2.0 * u)))   # wit oplichten op de plek van de klap
+			var cel := float(KLAPSTER.get_width()) / STER_BEELDEN
+			var maat_s := STER_CEL * s
+			draw_texture_rect_region(ster_tex, Rect2(c - Vector2(maat_s, maat_s) / 2.0, Vector2(maat_s, maat_s)),
+				Rect2(sb * cel, 0, cel, float(KLAPSTER.get_height())))
 		# "+9" omhoog uit de aarde boven de val
 		var omhoog := (1.0 - pow(1.0 - clampf(t / DUUR, 0.0, 1.0), 2.0)) * STIJG
 		var y := hol_pos.y + (float(HOL.GANG_BOVEN) - 2.0 - omhoog) * s

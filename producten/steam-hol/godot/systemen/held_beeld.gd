@@ -13,12 +13,14 @@ const KLEDING := preload("res://kunst/held_soort.png")          # Mila 10 nov: 4
 const POEF := preload("res://kunst/poef.png")                 # Mila 10 nov: boze wolkje knapt, 4 x (12 x 10)
 const TEKENS := preload("res://kunst/tekens.png")            # boos, uitroep, zweet, zzz, ster
 const TEKEN := {"boos": 0, "uitroep": 1, "zweet": 2, "zzz": 3, "ster": 4}
+const NOOT := preload("res://systemen/held_noot.gd")          # muzieknootjes (los sinds 25 nov)
 
 # Daans lijf + kleding per soort (Mila) + litteken + hoed + wapen (16 x 16, anker midden onder), teken erboven.
 static func teken(h) -> void:
 	var staat: String = String(h.staat)
 	if staat == "weg":
 		return
+	flits_zet(h, flits(staat, float(h.val_t)))
 	var t: float = float(h.t)
 	var frame := 0
 	var pose: String = h.HELD_LOOP.pose(h)   # kijk, draai, sprong of "" (systemen/held_loop.gd, #25)
@@ -69,12 +71,45 @@ static func teken(h) -> void:
 	var onder: int = y + (int(tops[hoed_nr]) if hoed_nr < tops.size() else 0) + omlaag - 1
 	_tekens(h, staat, vb, t, onder)
 
+# Witte flits op de held die valt (Mila #43, Daan #45): 0,12 s helemaal wit, dan 0,06 s half, dan niets. Een eigen
+# ShaderMaterial op de held, alleen zolang hij flitst (daarna weer null: geen extra werk voor de andere helden).
+const FLITS_WIT := 0.12
+const FLITS_HALF := 0.06
+const FLITS_SHADER := "shader_type canvas_item;\nuniform float flits = 0.0;\nvoid fragment() {\n\tvec4 c = texture(TEXTURE, UV) * COLOR;\n\tCOLOR = vec4(mix(c.rgb, vec3(1.0), flits), c.a);\n}\n"
+static var flits_shader: Shader
+static func flits(staat: String, vt: float) -> float:
+	if staat != "vallen":
+		return 0.0
+	if vt < FLITS_WIT:
+		return 1.0
+	if vt < FLITS_WIT + FLITS_HALF:
+		return 0.5
+	return 0.0
+
+static func flits_zet(h, f: float) -> void:
+	if not (h is CanvasItem):
+		return
+	var ci := h as CanvasItem
+	if f <= 0.0:
+		if ci.material != null:
+			ci.material = null
+		return
+	if flits_shader == null:
+		flits_shader = Shader.new()
+		flits_shader.code = FLITS_SHADER
+	var m := ci.material as ShaderMaterial
+	if m == null:
+		m = ShaderMaterial.new()
+		m.shader = flits_shader
+		ci.material = m
+	m.set_shader_parameter("flits", f)
+
 # Teken (boos, uitroep, ...), poef en nootjes boven het hoofd; onder = de rij net boven de bovenkant van de hoed.
 static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> void:
 	var tk: String = String(h.teken_nu()) if staat != "vallen" else String(vb.teken)
 	if staat != "vallen":
 		for nt in nootjes(String(h.soort_held), bool(h.info.get("lied_held", false)), staat, t):
-			_noot(h, int(nt[0]), onder - 6 + int(nt[1]), float(nt[2]))
+			NOOT.noot(h, int(nt[0]), onder - 6 + int(nt[1]), float(nt[2]))
 	if tk == "":
 		return
 	if tk == "poef":
@@ -86,7 +121,9 @@ static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> v
 	onder = maxi(onder, teken_onder_min(h))   # Daan 14 nov 01:40: teken minstens 1 spelpixel onder de bovenrand
 	# Daan 15 nov 14:45 (kan): bij figuur 1,15 raakte het wolkje de grasrand. Liefst onder het maaiveld, maar hooguit
 	# 2 spelpixels lager dan zijn eigen plek, zodat het bij een held hoog op de ladder niet over zijn gezicht valt.
-	onder = maxi(onder, mini(teken_onder_gras(h), eigen + 2))
+	# Daan #46 (kan 2): in de sprong stak de "!" boven de gang uit tot in het gras; dan mag hij de hele sprong lager.
+	var ruim := 2 + int(ceil(-float(h.HELD_LOOP.sprong_hop(h))))
+	onder = maxi(onder, mini(teken_onder_gras(h), eigen + ruim))
 	if teken_3d(h, tk, 0.0, float(onder)):
 		return
 	h.draw_texture_rect_region(TEKENS, Rect2(-4, onder - 8, 8, 8), Rect2(int(TEKEN[tk]) * 8, 0, 8, 8))
@@ -347,58 +384,9 @@ static func poef_beeld(fase: float) -> int:
 static func _poef(h, midden_y: int, fase: float) -> void:   # midden_y = onder - 4 (zoals het oude wolkje), bovenkant beeld = midden_y - 4
 	h.draw_texture_rect_region(POEF, Rect2(-6, midden_y - 4, 12, 10), Rect2(poef_beeld(fase) * 12, 0, 12, 10))
 
-# Muzieknootjes (Sanne toets 10 punt 1: "het lied zie je niet"). Een bard die binnenloopt of vlucht laat elke 2 s een
-# nootje opstijgen (4 s lang, 8 spelpixels omhoog, vervaagt), dus 2 tegelijk; een held die door het lied komt heeft
-# de eerste 2 s één nootje boven zijn hoofd. Geeft [x, dy, alfa] per nootje; dy 0 = vlak boven de hoed.
-const NOOT_ELKE_S := 2.0
-const NOOT_LEEF_S := 4.0
-const NOOT_LIED_S := 2.0
+# Muzieknootjes: systemen/held_noot.gd (doorgeefluik, zodat toetsen HB.nootjes en HB.noot_alfa houden).
 static func nootjes(soort_held: String, lied_held: bool, staat: String, t: float) -> Array:
-	var uit := []
-	if staat in ["weg", "vallen"]:
-		return uit
-	if soort_held == "bard" and staat in ["afdalen", "lopen", "vluchten", "klimmen"]:
-		var k := int(floor(t / NOOT_ELKE_S))
-		for i: int in [k, k - 1]:
-			if i < 0:
-				continue
-			var leef: float = t - float(i) * NOOT_ELKE_S
-			if leef < 0.0 or leef >= NOOT_LEEF_S:
-				continue
-			var u: float = leef / NOOT_LEEF_S
-			var x := (2 if i % 2 == 0 else -5) + int(round(sin(leef * 3.0)))   # om en om links en rechts, wiebelt een pixel
-			uit.append([x, -int(round(8.0 * u)), noot_alfa(u)])
-	elif lied_held and t < NOOT_LIED_S:
-		uit.append([-2, -int(round(sin(t * 6.0))), 1.0])   # wipt op de maat
-	return uit
+	return NOOT.nootjes(soort_held, lied_held, staat, t)
 
-# Alfa van een opstijgend nootje: vervaagt, en in het laatste kwart sneller naar 0, zodat hij verdwijnt voor hij een rand
-# raakt (Daan 14 nov 03:50: niet doormidden gaan).
 static func noot_alfa(u: float) -> float:
-	return clampf((1.0 - u * u) * clampf((1.0 - u) / 0.25, 0.0, 1.0), 0.0, 1.0)
-
-# Nootje van 5 x 5 in pixels (achtste noot met vlag), tot Mila er een tekening voor heeft (tekens.png, 2 beelden).
-const NOOT_PIX := ["..##.", "..#.#", "..#..", "###..", "###.."]
-static func _noot(h, x: int, y: int, alfa: float) -> void:
-	var y_min := noot_y_min(h)   # Daan 14 nov 02:45, 15 nov 14:45: de noot blijft onder het gras
-	if y < y_min:   # Daan 03:50: wil hij hoger dan mag, dan vervaagt hij daar in 3 spelpixels in plaats van te blijven hangen
-		alfa *= clampf(1.0 - float(y_min - y) / 3.0, 0.0, 1.0)
-		y = y_min
-	if alfa <= 0.02:
-		return
-	if teken_vak_3d(h, "noot", Vector2(x - 2, y - 3), Color(1, 1, 1, alfa)):
-		return   # 3D-noot uit het blad tekens (Daan: valt in het 8x8-vak precies over het 5x5-pixelnootje)
-	var licht := Color(1.0, 0.88, 0.45, alfa)
-	var rand := Color(0.13, 0.08, 0.05, alfa * 0.9)
-	for ry in 5:
-		for rx in 5:
-			if NOOT_PIX[ry][rx] == "#":
-				for d in [Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, -1), Vector2i(0, 1)]:
-					var nx: int = rx + d.x
-					var ny: int = ry + d.y
-					if nx < 0 or ny < 0 or nx > 4 or ny > 4 or NOOT_PIX[ny][nx] != "#":
-						h.draw_rect(Rect2(x + nx, y + ny, 1, 1), rand)   # donkere rand, leesbaar op lucht en aarde
-	for ry in 5:
-		for rx in 5:
-			if NOOT_PIX[ry][rx] == "#":
-				h.draw_rect(Rect2(x + rx, y + ry, 1, 1), licht)
+	return NOOT.noot_alfa(u)
