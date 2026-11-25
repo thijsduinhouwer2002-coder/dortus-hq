@@ -51,27 +51,11 @@ def url_hier():
     return url(naam, versie, bpy.app.version_string, systeem())
 
 
-# Beoordelen (1.2.9, issue 70, gat 3 in de lat: Cleave, Split 3D Print en JointLab hebben er elk 3, wij 0). Eén rustige
-# regel onder het paneel, pas na een goed resultaat: geen popup, niets in ruil. Links nagekeken met curl op 25 nov
-# (200); superhivemarket.com/.../reviews valt terug op de voorpagina, dus daar de productpagina zelf.
+# Beoordelen (issue 70, gat 3 in de lat: Cleave, Split 3D Print en JointLab hebben er elk 3, wij 0). Eén rustige regel
+# onder het paneel, pas na een goed resultaat: geen popup, niets in ruil. Link nagekeken met curl op 25 nov (200). Een
+# andere build zet hier zijn eigen winkels in (en zet bij uitzetten deze terug).
 BEOORDEEL_GRATIS = (("Blender Extensions", "https://extensions.blender.org/add-ons/click-joints/reviews/"),)
-BEOORDEEL_PRO = (("Superhive", "https://superhivemarket.com/products/click-joints-pro"),
-                 ("Gumroad", "https://duinhouwer8.gumroad.com/l/click-joints-pro"))
-
-
-def beoordeel_links(naam):
-    """Waar een gebruiker van deze build een beoordeling kan achterlaten: Pro in beide winkels, gratis bij Blender."""
-    return BEOORDEEL_PRO if "Pro" in naam else BEOORDEEL_GRATIS
-
-
-_NAAM = []
-
-
-def _naam():
-    """Naam uit het manifest, één keer gelezen (draw loopt bij elke herteken)."""
-    if not _NAAM:
-        _NAAM.append(manifest()[0])
-    return _NAAM[0]
+BEOORDEEL = list(BEOORDEEL_GRATIS)
 
 
 def goed_resultaat(objecten):
@@ -106,7 +90,7 @@ class CLICK_JOINTS_PT_meld(bpy.types.Panel):
             kol = self.layout.column(align=True)
             kol.label(text="Happy with it? Leave a rating:", icon="SOLO_OFF")  # past in een smalle zijbalk
             rij = kol.row(align=True)
-            for winkel, link in beoordeel_links(_naam()):
+            for winkel, link in BEOORDEEL:
                 rij.operator("wm.url_open", text=winkel, icon="URL").url = link
         self.layout.operator(CLICK_JOINTS_OT_meld.bl_idname, icon="URL", emboss=False)
 

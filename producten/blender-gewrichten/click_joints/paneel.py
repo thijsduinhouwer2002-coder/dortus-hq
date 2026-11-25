@@ -6,17 +6,16 @@ import bpy
 from . import exporteer, passing, schaal
 
 
-# Plekken voor het Pro-deel (1.2.9, issue 70): elke functie krijgt (layout, context) en tekent op die plek in het
-# paneel. Bij Cleave en Split 3D Print staat de hoofdknop bovenaan en hoort elke knop bij zijn stap (GEZIEN op hun
-# Superhive-pagina's, lat kop Paneel); bij ons hing het Pro-deel los onder Export. In de gratis versie blijven ze leeg.
-BOVEN = []  # boven stap 1 (Figure from rig als je mesh een rig heeft)
-STAP2 = []  # in stap 2 onder Clearance (proefstrip: welke speling past)
-STAP2_KEUS = []  # in stap 2 onder Place joint (scharnier)
-STAP3 = []  # in stap 3 onder de passing (bereik van het scharnier)
+# Plekken voor uitbreidingen (issue 70): elke functie krijgt (layout, context) en tekent op die plek in het paneel.
+# Bij Cleave en Split 3D Print hoort elke knop bij zijn stap (lat kop Paneel). In deze versie blijven ze leeg.
+BOVEN = []  # boven stap 1
+STAP2 = []  # in stap 2 onder Clearance
+STAP2_KEUS = []  # in stap 2 onder Place joint
+STAP3 = []  # in stap 3 onder de passing
 
 
 def teken(lijst, layout, context):
-    """Tekent de Pro-stukken; een fout in één stuk mag het paneel niet leeg laten."""
+    """Tekent de uitbreidingen; een fout in één stuk mag het paneel niet leeg laten."""
     for f in lijst:
         try:
             f(layout, context)

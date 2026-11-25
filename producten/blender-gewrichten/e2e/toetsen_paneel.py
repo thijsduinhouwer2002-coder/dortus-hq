@@ -88,10 +88,9 @@ def toets(stap, eigen):
     stap("paneel: niets van Pro meer onder Export", export >= 0 and not any(
         str(t).startswith(("Not sure", "Or a hinge", "Rig found")) for _s, t in log[export:]))
 
-    stap("beoordelen: Pro wijst naar Superhive en Gumroad",
-         [w for w, _l in meld.beoordeel_links("Click Joints Pro")] == ["Superhive", "Gumroad"])
+    stap("beoordelen: Pro wijst naar Superhive en Gumroad", [w for w, _l in meld.BEOORDEEL] == ["Superhive", "Gumroad"])
     stap("beoordelen: gratis wijst naar Blender Extensions",
-         [w for w, _l in meld.beoordeel_links("Click Joints")] == ["Blender Extensions"])
+         [w for w, _l in meld.BEOORDEEL_GRATIS] == ["Blender Extensions"])
     stap("beoordelen: niet zonder goed resultaat", not meld.goed_resultaat([lijf]))
     lijf["cj_passing"] = "groen"
     stap("beoordelen: wel na Good fit", meld.goed_resultaat([lijf]))
