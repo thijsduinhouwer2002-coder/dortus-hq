@@ -60,3 +60,4 @@ Elke plaatsing (datum, kanaal, link) en elke ronde zonder plaatsing, één regel
 - Tekst: gekeurde versie uit `commercie/verspreiden/2026-11-23-printables.md`, samenvatting ingekort tot onder 120 tekens. Categorie Test Models, licentie CC BY, Original model.
 - AI-vraag van Printables eerlijk op "AI-assisted" gezet: het Blender-script is met hulp van AI geschreven. Er staat nu een klein AI-icoon op het hoofdbeeld. In de tekst zelf staat geen AI.
 - Links naar Click Joints (gratis) en Click Joints Pro (Gumroad, utm_source=printables). Meten: Gumroad-verwijzers met bron printables.
+- 22:35: Printables-model terug op concept. Het hoofdbeeld was slecht (pixelig, legde niets uit) en was niet gekeurd. Nieuw beeld `commercie/verspreiden/printables-beelden/hoofdbeeld-v2.png` wacht op Daan.

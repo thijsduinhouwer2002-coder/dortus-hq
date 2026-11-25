@@ -93,3 +93,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 `platformen/blender/pro-1.2.8.md`: alleen regel 3 van de note (kniekap), de update log en de kop van het blok bovenaan zijn nieuw; de rest staat letterlijk zo in `pro-1.2.7.md` (jouw ja). 1.2.8 staat nu op main (cherry-pick 4e4166a, 23c9bdf, 5090ac8 na jouw ja op code en toetsregel). De zip komt uit de nieuwe e2e op main via de uitgave-run. Issue: "Keur: releasenote Pro 1.2.8".
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 - 25 nov ±23:00 Daan: #103 Pro 1.2.9 beoordelingsregel Akkoord ja; #106 Hats licht en leven Akkoord nee (worm en mot uit de stijl, kruimels onzichtbaar, geen lichtplas om de fakkel). #71 staat op later.
+
+## 25 nov 2026 22:50, van hoofdchat: keuring Printables-hoofdbeeld
+Het eerste Printables-beeld van de Fit test strip was slecht (snel script, pixelig, 5 gelijke paartjes, legt niets uit). Thijs zag het; ik heb het model terug op concept gezet. Fout van mij: online gezet zonder jouw keuring.
+Nieuw hoofdbeeld (Cycles-render van exact dit bestand, met tekst): `commercie/verspreiden/printables-beelden/hoofdbeeld-v2.png`.
+Graag je 2-secondentoets en akkoord ja/nee in `commercie/verspreiden/printables-beelden/keuring.md`. Pas na jouw ja zet ik het model weer live.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
