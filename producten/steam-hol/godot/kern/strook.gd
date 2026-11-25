@@ -22,7 +22,7 @@ const MUISVLAK := preload("res://kern/muisvlak.gd")
 const VENSTER := preload("res://kern/venster.gd")   # venster plaatsen, invoer, hoogte, stoppen (issue #24)   # welk deel van het venster de muis vangt
 const BOEK := preload("res://systemen/boek.gd")         # het Heldenboek (Bram 03:45); stap 1: bijhouden, opslaan, regel
 const VOORTGANG := preload("res://systemen/voortgang.gd")   # graafbonus (Sanne 16 nov 21:00)
-# Hoogte van de strook, in het spel te kiezen met rechtsklik (96, 120, 160), bewaard los van het spel
+# Hoogte van de strook, in het spel te kiezen in het rechtsklikmenu of het systeemvak (96, 120, 160), bewaard los van het spel
 # (eerlijk in de winkeltekst: "you can set it from 96 to 160", Sanne en Daan 10 nov 00:00)
 const INSTELLING := "user://instellingen.json"
 const HOOGTES := [96, 120, 160]

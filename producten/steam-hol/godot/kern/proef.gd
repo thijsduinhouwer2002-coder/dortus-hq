@@ -47,7 +47,7 @@ static func lees_argumenten(s) -> void:
 
 # Eerste start (Olaf 16 nov, voor de speeltest van Thijs): het spel rekent in echte schermpixels. Op een laptop
 # met schaal 125% of meer is 120 px dan klein (Gloop ±48 schermpixels, op 150% oogt dat als 32). Zonder bewaarde
-# hoogte en zonder hoogte=<n> kiezen we daarom de stand die bij de schaal past. Rechtsklik blijft wisselen en bewaart.
+# hoogte en zonder hoogte=<n> kiezen we daarom de stand die bij de schaal past. Het rechtsklikmenu blijft wisselen en bewaart.
 static func hoogte_voor_dpi(dpi: int) -> int:
 	return 160 if dpi >= 120 else 120   # 96 dpi = 100%: 120; 120 dpi = 125%: 120 x 1,25 = 150, dichtst bij 160
 

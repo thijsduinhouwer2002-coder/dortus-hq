@@ -15,6 +15,10 @@
  * pijp naar het spel breekt, het venster bestaat niet meer) en geeft het de strook netjes terug. Het onzichtbare
  * venster van de app-balk is van dit programma zelf, dus ABM_REMOVE gaat altijd over een levend venster.
  *
+ * Na de keuring van Daan (25 nov, issue #36): na een herstart van verkenner (TaskbarCreated) of als de werkruimte de
+ * strook kwijt is, meldt het de app-balk opnieuw aan; één exemplaar tegelijk (mutex); stoppen bij afmelden of
+ * afsluiten van Windows (WM_ENDSESSION).
+ *
  * Gebruik: hol-balk.exe <hwnd> <hoogte> [logbestand]
  * Regels op stdin (van het spel):
  *   h <hoogte>                   nieuwe hoogte van de strook
@@ -45,6 +49,8 @@ static int vlak_n = 0;        /* 0 = nog geen vlak: alles gaat door (veilig) */
 static int vlak[MAX_STUK][3];
 static FILE *logf = NULL;
 static RECT laatste = {0, 0, 0, 0};
+static UINT wm_taakbalk = 0;  /* "TaskbarCreated": verkenner is opnieuw gestart, alle app-balken zijn weg */
+static int herstellen = 0;
 
 static void logr(const char *fmt, ...) {
 	if (!logf) return;
@@ -116,6 +122,34 @@ static void registreer(void) {
 	geregistreerd = SHAppBarMessage(ABM_NEW, &ab) ? 1 : 0;
 	logr("BALK ABM_NEW %s", geregistreerd ? "ok" : "MISLUKT");
 	plaats();
+}
+
+/* Verkenner opnieuw gestart, of de werkruimte loopt weer door onze strook heen: opnieuw aanmelden (hooguit 50 keer). */
+static void opnieuw(const char *waarom) {
+	if (++herstellen > 50) return;
+	logr("BALK opnieuw aanmelden (%s, %d)", waarom, herstellen);
+	if (geregistreerd) {
+		APPBARDATA ab;
+		memset(&ab, 0, sizeof(ab));
+		ab.cbSize = sizeof(ab);
+		ab.hWnd = balk;
+		SHAppBarMessage(ABM_REMOVE, &ab);
+	}
+	geregistreerd = 0;
+	memset(&laatste, 0, sizeof(laatste));
+	registreer();
+}
+
+/* Elke seconde: houdt Windows onze strook nog vrij? Zo niet (verkenner herstart zonder dat de melding aankwam), opnieuw. */
+static void controleer_werkruimte(void) {
+	if (!geregistreerd || verstopt || laatste.bottom == 0) return;
+	MONITORINFO mi;
+	mi.cbSize = sizeof(mi);
+	if (!GetMonitorInfoW(MonitorFromWindow(balk, MONITOR_DEFAULTTOPRIMARY), &mi)) return;
+	/* twee seconden achter elkaar mis, want na een nieuwe hoogte rekent Windows de werkruimte even later */
+	static int mis = 0;
+	if (mi.rcWork.bottom <= laatste.top) mis = 0;
+	else if (++mis >= 2) mis = 0, opnieuw("werkruimte loopt door de strook");
 }
 
 static void geef_terug(void) {
@@ -213,6 +247,16 @@ static LRESULT CALLBACK balk_proc(HWND h, UINT m, WPARAM w, LPARAM l) {
 		else if (w == ABN_FULLSCREENAPP) logr("BALK melding volledig scherm %d", (int)l);
 		return 0;
 	}
+	if (wm_taakbalk && m == wm_taakbalk) {
+		opnieuw("verkenner opnieuw gestart");
+		return 0;
+	}
+	if (m == WM_ENDSESSION && w) {
+		logr("BALK Windows meldt af of sluit af");
+		zet_doorzicht(1);
+		geef_terug();
+		return 0;
+	}
 	if (m == WM_DISPLAYCHANGE || m == WM_DPICHANGED) {
 		plaats();
 		return 0;
@@ -286,7 +330,14 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE vorige, LPSTR cmd, int toon) {
 	if (argc < 3) return 2;
 	spel = (HWND)(intptr_t)_strtoi64(argv[1], NULL, 10);
 	hoogte = atoi(argv[2]);
+	if (hoogte < 48 || hoogte > 400) hoogte = 120;
 	if (argc >= 4) logf = fopen(argv[3], "a");
+	/* één exemplaar: twee keer starten gaf twee strooks en twee keer doorklikken (Daan #36 A5) */
+	HANDLE mutex = CreateMutexW(NULL, TRUE, L"Local\\HetHolBalk");
+	if (mutex && GetLastError() == ERROR_ALREADY_EXISTS) {
+		logr("BALK draait al, dit exemplaar stopt");
+		return 4;
+	}
 	dpi_bewust();
 	if (!IsWindow(spel)) {
 		logr("BALK geen venster %s", argv[1]);
@@ -300,6 +351,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE vorige, LPSTR cmd, int toon) {
 	wc.hInstance = inst;
 	wc.lpszClassName = L"HetHolBalk";
 	RegisterClassW(&wc);
+	wm_taakbalk = RegisterWindowMessageW(L"TaskbarCreated");
 	/* onzichtbaar en zonder knop: alleen om de app-balk bij Windows op naam te hebben */
 	balk = CreateWindowExW(WS_EX_TOOLWINDOW | WS_EX_NOACTIVATE, wc.lpszClassName, L"Het Hol balk", WS_POPUP, 0, 0, 0, 0,
 	                       NULL, NULL, inst, NULL);
@@ -328,6 +380,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE vorige, LPSTR cmd, int toon) {
 		if (++tik % 20 == 0) {   /* elke seconde */
 			zet_verstopt(volledig_scherm(), "volledig scherm");
 			bewaak();
+			controleer_werkruimte();
 		}
 		MsgWaitForMultipleObjects(0, NULL, FALSE, 50, QS_ALLINPUT);
 	}
@@ -335,5 +388,6 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE vorige, LPSTR cmd, int toon) {
 	geef_terug();
 	if (balk) DestroyWindow(balk);
 	if (logf) fclose(logf);
+	if (mutex) CloseHandle(mutex);
 	return 0;
 }

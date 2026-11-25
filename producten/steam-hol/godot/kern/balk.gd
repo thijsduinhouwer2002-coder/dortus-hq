@@ -78,6 +78,21 @@ static func vlak(tops: PackedInt32Array) -> void:
 		laatste_vlak = regel
 		_stuur(regel)
 
+# Elke 2 s (kern/venster.gd): is hol-balk.exe weg terwijl het spel draait, dan opnieuw starten en het vlak opnieuw sturen.
+# Hooguit 5 keer per spel, zodat een exe die meteen stopt (virusscanner) niet eindeloos herstart.
+static var herstarts := 0
+static func bewaak(s) -> void:
+	if pijp == null or OS.is_process_running(pid) or herstarts >= 5:
+		return
+	herstarts += 1
+	s.log_regel("HOL balk: hol-balk.exe (pid %d) is weg, opnieuw starten (%d)" % [pid, herstarts])
+	pijp.close()
+	pijp = null
+	pid = 0
+	if start(s):
+		s.balk_vol = false   # passthrough opnieuw leegmaken in muisvlak.zet
+		s._muis_vlak(s.vlak_paneel)
+
 static func stop() -> void:
 	if pijp != null:
 		_stuur("q")

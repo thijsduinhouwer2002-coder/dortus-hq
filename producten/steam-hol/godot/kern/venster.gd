@@ -11,10 +11,17 @@ static func plaats(s, scherm: Rect2i) -> void:
 	DisplayServer.window_set_size(Vector2i(scherm.size.x, s.hoogte))
 	# met de app-balk is het bruikbare vlak al zonder onze strook: dan zet hol-balk.exe het venster op zijn plek
 	var y: int = scherm.position.y + scherm.size.y - (0 if BALK.actief() else s.hoogte)
-	DisplayServer.window_set_position(Vector2i(scherm.position.x, mini(y, DisplayServer.screen_get_size().y - s.hoogte)))
+	DisplayServer.window_set_position(Vector2i(scherm.position.x, mini(y, scherm.position.y + scherm.size.y - s.hoogte)))
 	icoon()
 	s.get_tree().create_timer(1.0).timeout.connect(icoon)
 	BALK.start(s)
+	# crasht hol-balk.exe (of zet een virusscanner hem stop), dan opnieuw starten; anders blijft het hol onklikbaar
+	var wacht := Timer.new()
+	wacht.wait_time = 2.0
+	wacht.process_mode = Node.PROCESS_MODE_ALWAYS
+	wacht.timeout.connect(func(): BALK.bewaak(s))
+	s.add_child(wacht)
+	wacht.start()
 	var vak := Node.new()
 	vak.set_script(load("res://kern/systeemvak.gd"))
 	s.add_child(vak)
@@ -76,8 +83,10 @@ static func invoer(s, event: InputEvent) -> void:
 			s.slijm.werk_berg_grens()   # put gebouwd of weg, of gegraven: linkergrens van de hoedenberg (Bram 17 nov)
 		s.log_regel("HOL klik op %s: %s" % [event.position, wat if wat != "" else "niets"])
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-		var h: Array = s.HOOGTES
-		s.zet_hoogte(h[(h.find(s.hoogte) + 1) % h.size()] if h.has(s.hoogte) else 120)
+		# rechtsklik: het menu van het systeemvak (Pause, Sound, Height, Quit); vroeger alleen de volgende hoogte
+		var vak = s.get_node_or_null("Systeemvak")
+		if vak:
+			vak.open_bij_muis()
 	var holbord = s.holbord
 	if event is InputEventMouseMotion and holbord != null and holbord.actief():
 		var pb: Vector2 = (event.position - hol.position) / s.schaal
