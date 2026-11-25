@@ -4,7 +4,8 @@ Het hoofdpaneel tekent in een nep-layout die elke regel en knop in volgorde opsc
 1. met een rig aan je mesh staat "Figure from rig" bovenaan, vóór stap 1 (zonder rig niet);
 2. de proefstrip staat in stap 2 onder Clearance en vóór Place joint;
 3. het scharnier staat in stap 2 onder Place joint en vóór stap 3 (niet meer los onder Export);
-4. de regel om te beoordelen komt pas na een goed resultaat, met de twee winkels van Pro.
+4. de regel om te beoordelen komt pas na een goed resultaat, met de twee winkels van Pro;
+5. bij een geplaatst scharnier zegt stap 3 "Hinge placed" (Daan #83 C2: stap 2 houdt Ball blauw voor het volgende).
 Aangeroepen vanuit test_betaald.py met toets(stap, eigen)."""
 import sys
 from types import SimpleNamespace
@@ -100,5 +101,17 @@ def toets(stap, eigen):
          plek(log, "label", "Happy with it") == 0 and [t for s, t in log if s == "op"][:2] == ["Superhive", "Gumroad"],
          str(log))
 
-    for o in (lijf, arm):
+    delen = []
+    for deel in ("A", "B"):
+        bpy.ops.mesh.primitive_cube_add(size=0.02)
+        d = bpy.context.active_object
+        d.name = f"paneel_scharnier_{deel}"
+        d.update({"cj_soort": "SCHARNIER", "cj_bron": "paneel_lijf", "cj_deel": deel,
+                  "cj_snijpunt": [0.0, 0.0, 0.0], "cj_bereik_graden": 135.0, "cj_stand": 0, "cj_passing": "groen"})
+        delen.append(d)
+    log = teken(eigen, delen[1])
+    stap3, klaar = plek(log, "label", "3  Fit and export"), plek(log, "label", "Hinge placed")
+    stap("scharnier geplaatst: stap 3 zegt Hinge placed", 0 <= stap3 < klaar, f"({stap3}, {klaar})")
+
+    for o in [lijf, arm] + delen:
         bpy.data.objects.remove(o, do_unlink=True)

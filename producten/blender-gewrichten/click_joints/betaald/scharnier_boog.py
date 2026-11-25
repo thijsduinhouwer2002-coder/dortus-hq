@@ -403,7 +403,8 @@ def teken_paneel(layout, context):
         return
     wm = context.window_manager
     vak = layout.column(align=True)
-    vak.label(text="Hinge", icon="CON_PIVOT")
+    # Daan #83 C2: stap 2 houdt Ball blauw (keuze voor het volgende gewricht), dus hier zeggen wat er al staat
+    vak.label(text="Hinge placed", icon="CON_PIVOT")
     if beweeg.geen_stop(float(a["cj_bereik_graden"])):
         vak.label(text="No end stop found", icon="ERROR")
         return
