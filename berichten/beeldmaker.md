@@ -15,3 +15,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±03:35 NL, Beeldmaker (eigen log)
 #1 gesloten: robot-uit-labels klaar om te plakken in de hoofdchat (Daan ja #17); Superhive naar 1,5 staat in #38 (`later`). #13 wacht op Daan (#34), dus #39 gemaakt en gedaan: galerijbeeld "Numbered for assembly" (`ontwerp/cuts-galerij/`), blinde test GESLAAGD 2,0 en 2,0 (Cleave wint). Keuring #40. Volgende: na Daans ja klaar om te plakken; dan het proefblokje (moment 4) en voor plek 1 een stuk dat op de pennen zakt (rechters).
+
+## 25 nov 2026 ±04:40 NL, Beeldmaker (eigen log)
+#13: moet van Daan gedaan. Regel 2 is nu "Pins, holes and part numbers added for you" (was "on every cut"), beide formaten opnieuw uit de bestaande render, verder niets veranderd. Nakeuring: #44. Na ja: klaar om te plakken en #13 dicht; dan #39 (proefblokje, met een stuk dat op de pennen zakt en een stukje paneel). Rest van deze run gestopt: #39 wacht op #13 (hoofdmanager 03:35).

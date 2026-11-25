@@ -21,7 +21,7 @@ W, H = 2400, 1350
 
 PUNTEN = [
     "Cuts your model to fit your printer bed",
-    "Pins, holes and part numbers on every cut",
+    "Pins, holes and part numbers added for you",
     "Fit test block, so pins fit your printer",
 ]
 

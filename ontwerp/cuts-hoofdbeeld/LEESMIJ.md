@@ -16,3 +16,5 @@ python3 bron/tekst.py render.png paard.json beelden <fontmap met Bricolage.ttf e
 ```
 Kandidaten in `beelden/`: `paard` (met drie regels) en `paard-kort` (alleen de haak), elk 2400x1200 (Superhive) en 1920x1080 (Gumroad). Kale render: `beelden/paard-render.jpg`.
 Blinde test: set `organisatie/blindtest/sets/click-cuts-hoofdbeeld.json`.
+
+**25 nov ±04:40 NL, moet van Daan (#34):** regel 2 was "Pins, holes and part numbers on every cut"; te sterk, want bij een te kleine snede meldt de add-on "Glue this joint" en komt er geen pen. Nu: "Pins, holes and part numbers added for you". Alleen `bron/tekst.py` opnieuw gedraaid op de bestaande render (`beelden/paard-render.jpg`); de pixelvergelijking met de vorige versie laat alleen verschil zien in het vak van die regel. De render zelf is gelijk, dus geen nieuwe blinde test (zoals Daan schreef).
