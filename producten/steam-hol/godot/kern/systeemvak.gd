@@ -1,5 +1,7 @@
 # Het Hol: icoon in het systeemvak met een menu (Olaf, 25 nov 2026, issue #24). Er is geen taakbalkknop meer
 # (kern/balk.gd), dus hier zet je het spel stil, het geluid uit, de hoogte, en stop je het.
+# Hetzelfde menu komt ook bij rechtsklik op het hol (Daan keuring #36 moet 3: Windows 11 verstopt het icoon in het
+# overloopmenu, dus er moet een tweede weg zijn om te stoppen). Op Windows is dat een echt Windows-menu (NativeMenu).
 # Naar autoloads/system_tray.gd r. 14 tot 57 van Desktop Truck Simulator (MIT,
 # https://github.com/hubacekjakub/Godot-DesktopTruckSimulator): StatusIndicator met een eigen PopupMenu.
 extends Node
@@ -10,6 +12,7 @@ const STOP := 3
 const HOOGTE := 10   # 10 + index in strook.HOOGTES
 
 var s   # de strook
+var eigen := RID()   # het Windows-menu bij rechtsklik
 
 func zet(strook) -> void:
 	s = strook
@@ -46,6 +49,39 @@ func _vink(menu: PopupMenu) -> void:
 	var vak := get_node_or_null("Icoon")
 	if vak:
 		vak.tooltip = "Hats of the Fallen (paused)" if s.get_tree().paused else "Hats of the Fallen"
+
+# Rechtsklik op het hol: het menu op de plek van de muis. Elke keer opnieuw opgebouwd, dan kloppen de vinkjes.
+func open_bij_muis() -> void:
+	var waar := DisplayServer.mouse_get_position()
+	if not NativeMenu.has_feature(NativeMenu.FEATURE_POPUP_MENU):
+		var menu: PopupMenu = get_node("Menu")
+		_vink(menu)
+		menu.popup(Rect2i(DisplayServer.window_get_position() + Vector2i(get_viewport().get_mouse_position()), Vector2i.ZERO))
+		return
+	if eigen.is_valid():
+		NativeMenu.free_menu(eigen)
+	eigen = NativeMenu.create_menu()
+	var i := NativeMenu.add_check_item(eigen, "Pause", _gekozen, Callable(), PAUZE)
+	NativeMenu.set_item_checked(eigen, i, s.get_tree().paused)
+	i = NativeMenu.add_check_item(eigen, "Sound", _gekozen, Callable(), GELUID)
+	NativeMenu.set_item_checked(eigen, i, not AudioServer.is_bus_mute(0))
+	NativeMenu.add_separator(eigen)
+	for h in s.HOOGTES.size():
+		i = NativeMenu.add_radio_check_item(eigen, "Height %d px" % s.HOOGTES[h], _gekozen, Callable(), HOOGTE + h)
+		NativeMenu.set_item_checked(eigen, i, s.HOOGTES[h] == s.hoogte)
+	NativeMenu.add_separator(eigen)
+	NativeMenu.add_item(eigen, "Quit", _gekozen, Callable(), STOP)
+	s.log_regel("HOL menu open bij rechtsklik op %s" % waar)
+	NativeMenu.popup(eigen, waar)
+
+# NativeMenu geeft de tag mee (precies één argument).
+func _gekozen(tag) -> void:
+	kies(int(tag))
+
+func _exit_tree() -> void:
+	if eigen.is_valid():
+		NativeMenu.free_menu(eigen)
+		eigen = RID()
 
 func kies(id: int) -> void:
 	if id == PAUZE:

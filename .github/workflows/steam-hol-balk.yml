@@ -8,7 +8,11 @@ name: Het Hol app-balk (Windows, issue 24)
 #   4. een venster op volledig scherm verstopt het spel, daarna komt het terug
 #   5. systeemvak: pauze, geluid, stoppen (vak=...); na stoppen is de werkruimte weer normaal
 #   6. na hard afsluiten (Stop-Process -Force) is de werkruimte weer normaal en hol-balk.exe weg
-#   7. hol-balk.exe in de repo is precies wat de bron geeft (opnieuw gebouwd op ubuntu, zelfde sha256)
+#   7. hol-balk.exe in de repo is precies wat de bron geeft (opnieuw gebouwd op ubuntu-24.04 met vaste mingw, zelfde
+#      sha256, anders rood; de Windows-toetsen wachten op deze job)
+#   Na keuring Daan #36 (25 nov): 8. hol-balk.exe gecrasht: het spel start hem opnieuw; 9. verkenner opnieuw gestart:
+#   de strook komt terug; 10. tweede hol-balk.exe stopt meteen; 11. rechtsklik op het hol geeft het menu, Quit met de
+#   muis stopt het spel.
 # Uitslag en schermafbeeldingen op tak schermen, map steam-hol-balk/<tak>.
 on:
   push:
@@ -23,19 +27,34 @@ permissions:
 
 jobs:
   bron:
-    runs-on: ubuntu-latest
+    # Vaste versies, zodat de bouw elke keer dezelfde bytes geeft. Zelfde opdracht maakt de exe in de repo
+    # (Olaf bouwt lokaal op Ubuntu 24.04 met precies deze pakketten).
+    runs-on: ubuntu-24.04
+    env:
+      MINGW: "gcc-mingw-w64-x86-64-win32=13.2.0-6ubuntu1+26.1 gcc-mingw-w64-base=13.2.0-6ubuntu1+26.1 binutils-mingw-w64-x86-64=2.41.90.20240122-1ubuntu1+11.4 mingw-w64-x86-64-dev=11.0.1-3build1 mingw-w64-common=11.0.1-3build1 gcc-mingw-w64-x86-64-win32-runtime=13.2.0-6ubuntu1+26.1"
     steps:
       - uses: actions/checkout@v4
-      - name: hol-balk.exe opnieuw bouwen uit de bron en vergelijken
+      - name: hol-balk.exe opnieuw bouwen uit de bron en vergelijken (rood bij verschil)
         run: |
-          sudo apt-get install -y -q gcc-mingw-w64-x86-64 >/dev/null
-          x86_64-w64-mingw32-gcc -O2 -s -Wall -mwindows -Wl,--no-insert-timestamp producten/steam-hol/balk/hol_balk.c -o nieuw.exe -lshell32 -luser32
+          sudo apt-get update -q >/dev/null
+          sudo apt-get install -y -q --no-install-recommends $MINGW >/dev/null
+          dpkg-query -W gcc-mingw-w64-x86-64-win32 binutils-mingw-w64-x86-64 mingw-w64-x86-64-dev
+          x86_64-w64-mingw32-gcc-win32 --version | head -1
+          x86_64-w64-mingw32-gcc-win32 -O2 -s -Wall -mwindows -Wl,--no-insert-timestamp producten/steam-hol/balk/hol_balk.c -o nieuw.exe -lshell32 -luser32
           sha256sum nieuw.exe producten/steam-hol/godot/balk/hol-balk.exe
           if [ "$(sha256sum < nieuw.exe)" != "$(sha256sum < producten/steam-hol/godot/balk/hol-balk.exe)" ]; then
-            echo "LET OP: andere sha256 (andere gcc-versie kan dat geven); de toetsen gebruiken de exe uit de repo"
+            echo "FOUT: hol-balk.exe in de repo is niet wat hol_balk.c geeft. Bouw hem opnieuw met de opdracht hierboven."
+            exit 1
           fi
+          echo "OK: hol-balk.exe in de repo komt precies uit hol_balk.c"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hol-balk-uit-bron
+          path: nieuw.exe
 
   balk:
+    needs: bron
     runs-on: windows-latest
     timeout-minutes: 30
     steps:
@@ -86,6 +105,9 @@ jobs:
             [DllImport("user32.dll")] public static extern void mouse_event(uint f, uint dx, uint dy, uint d, IntPtr e);
             [DllImport("user32.dll")] public static extern bool ShowWindow(IntPtr h, int c);
             [DllImport("user32.dll")] public static extern IntPtr FindWindow(string c, string t);
+            [DllImport("user32.dll")] public static extern IntPtr SendMessage(IntPtr h, uint m, IntPtr w, IntPtr l);
+            [DllImport("user32.dll")] public static extern int GetMenuItemCount(IntPtr m);
+            [DllImport("user32.dll")] public static extern bool GetMenuItemRect(IntPtr h, IntPtr m, uint i, out RECT r);
             public struct POINT { public int X, Y; public POINT(int x, int y) { X = x; Y = y; } }
             public static RECT Werk() { RECT r = new RECT(); SystemParametersInfo(0x30, 0, ref r, 0); return r; }
             public static RECT Rect(IntPtr h) { RECT r; GetWindowRect(h, out r); return r; }
@@ -161,6 +183,46 @@ jobs:
           Start-Sleep 4
           Ok ([W]::IsWindowVisible($sh)) "na de film: spel weer zichtbaar"
 
+          # 10: tweede hol-balk.exe stopt meteen (geen dubbele strook)
+          $balkpad = (Get-Process hol-balk -ErrorAction SilentlyContinue | Select-Object -First 1).Path
+          if ($balkpad) {
+            $tw = Start-Process -FilePath $balkpad -ArgumentList "$sh 96" -PassThru
+            $null = $tw.WaitForExit(5000)
+            Ok ($tw.HasExited -and $tw.ExitCode -eq 4) "tweede hol-balk.exe stopt meteen (exitcode $($tw.ExitCode))"
+            if (-not $tw.HasExited) { Stop-Process -Id $tw.Id -Force }
+            Start-Sleep 2
+            Ok (([W]::Werk()).B -eq $w0.B - 96) "na de tweede: werkruimte nog steeds 96 px korter ($(([W]::Werk()).B))"
+          } else { Ok $false "hol-balk.exe draait niet (pad onbekend)" }
+
+          # 8: hol-balk.exe crasht: het spel start hem binnen 2 s opnieuw en het hol vangt de muis weer
+          $oud = (Get-Process hol-balk -ErrorAction SilentlyContinue | Select-Object -First 1).Id
+          Stop-Process -Name hol-balk -Force -ErrorAction SilentlyContinue
+          Start-Sleep 8
+          $nieuw = (Get-Process hol-balk -ErrorAction SilentlyContinue | Select-Object -First 1).Id
+          Ok ($nieuw -and $nieuw -ne $oud) "na crash van hol-balk.exe: opnieuw gestart (pid $oud -> $nieuw)"
+          $wc = [W]::Werk()
+          Ok ($wc.B -eq $w0.B - 96) "na crash: werkruimte weer 96 px korter ($(Tekst $wc))"
+          [W]::SetCursorPos($mx, $sr.B - 12) | Out-Null; Start-Sleep -Milliseconds 600
+          Ok (([W]::Op($mx, $sr.B - 12)) -eq $sh) "na crash: het hol vangt de muis weer"
+          [W]::SetCursorPos($mx, $sr.T + 6) | Out-Null; Start-Sleep -Milliseconds 600
+          Ok ((Get-Content "$uit/spel-1.log" -Raw) -match "hol-balk.exe \(pid \d+\) is weg, opnieuw starten") "spel meldt: hol-balk.exe opnieuw gestart"
+
+          # 9: verkenner opnieuw starten (zoals na een crash of update): de app-balk meldt zich opnieuw aan
+          Stop-Process -Name explorer -Force -ErrorAction SilentlyContinue
+          Start-Sleep 5
+          if (-not (Get-Process explorer -ErrorAction SilentlyContinue)) { Start-Process explorer.exe; $r += "INFO verkenner zelf gestart" }
+          Start-Sleep 15
+          $we = [W]::Werk()
+          $r += "na herstart verkenner: werkruimte $(Tekst $we)"
+          Ok ($we.B -eq $w0.B - 96) "na herstart verkenner: werkruimte weer 96 px korter ($($w0.B) -> $($we.B))"
+          [W]::ShowWindow($nh, 9) | Out-Null; Start-Sleep 1; [W]::ShowWindow($nh, 3) | Out-Null; Start-Sleep 2
+          $kr2 = [W]::Rect($nh); $sr2 = [W]::Rect($sh)
+          Ok ($kr2.B -le $sr2.T + 8) "na herstart verkenner: Kladblok gemaximaliseerd eindigt weer boven het spel (onder $($kr2.B), spel boven $($sr2.T))"
+          $bmp9 = New-Object System.Drawing.Bitmap $sb.Width, 360
+          $g9 = [System.Drawing.Graphics]::FromImage($bmp9); $g9.CopyFromScreen(0, $sb.Height - 360, 0, 0, $bmp9.Size); $bmp9.Save("$uit/9-na-herstart-verkenner.png")
+          $bl9 = Get-Content $blog -Raw -ErrorAction SilentlyContinue
+          Ok ($bl9 -match "opnieuw aanmelden") "hol-balk.exe meldt: opnieuw aanmelden"
+
           # 6: hard afsluiten
           $balkp = Get-Process hol-balk -ErrorAction SilentlyContinue
           Ok ($balkp -ne $null) "hol-balk.exe draait"
@@ -189,6 +251,35 @@ jobs:
           }
           $null = & producten/steam-hol/e2e/scherm.ps1 "$uit/5-na-stoppen-systeemvak.png"
           Ok ((Get-Process hol-balk -ErrorAction SilentlyContinue) -eq $null) "na stoppen: hol-balk.exe weg"
+
+          # 11: rechtsklik op het hol geeft het menu; Quit met de echte muis stopt het spel (Daan #36 moet 3)
+          $q = Start-Process -FilePath $exe -ArgumentList "-- hoogte=96 vers=1 demo=1 log=$ug/menu.log" -PassThru
+          $qh = Venster $q
+          Start-Sleep 12
+          $qr = [W]::Rect($qh)
+          [W]::SetCursorPos($mx, $qr.B - 12) | Out-Null; Start-Sleep -Milliseconds 600
+          [W]::mouse_event(8, 0, 0, 0, [IntPtr]::Zero); Start-Sleep -Milliseconds 80; [W]::mouse_event(0x10, 0, 0, 0, [IntPtr]::Zero)
+          $mw = [IntPtr]::Zero
+          for ($i = 0; $i -lt 20 -and $mw -eq [IntPtr]::Zero; $i++) { Start-Sleep -Milliseconds 250; $mw = [W]::FindWindow("#32768", $null) }
+          Ok ($mw -ne [IntPtr]::Zero) "rechtsklik op het hol: het menu staat open"
+          $bmp11 = New-Object System.Drawing.Bitmap $sb.Width, 420
+          $g11 = [System.Drawing.Graphics]::FromImage($bmp11); $g11.CopyFromScreen(0, $sb.Height - 420, 0, 0, $bmp11.Size); $bmp11.Save("$uit/11-menu-rechtsklik.png")
+          if ($mw -ne [IntPtr]::Zero) {
+            $hm = [W]::SendMessage($mw, 0x01E1, [IntPtr]::Zero, [IntPtr]::Zero)   # MN_GETHMENU
+            $nm = [W]::GetMenuItemCount($hm)
+            $ir = New-Object RECT
+            $okr = [W]::GetMenuItemRect([IntPtr]::Zero, $hm, [uint32]($nm - 1), [ref]$ir)
+            $r += "menu: $nm regels, Quit op $(Tekst $ir)"
+            Ok ($nm -eq 8 -and $okr) "menu heeft 8 regels (Pause, Sound, 3 hoogtes, Quit, 2 strepen)"
+            [W]::SetCursorPos([int](($ir.L + $ir.R) / 2), [int](($ir.T + $ir.B) / 2)) | Out-Null; Start-Sleep -Milliseconds 500
+            [W]::mouse_event(2, 0, 0, 0, [IntPtr]::Zero); Start-Sleep -Milliseconds 80; [W]::mouse_event(4, 0, 0, 0, [IntPtr]::Zero)
+          }
+          if (-not $q.WaitForExit(20000)) { Stop-Process -Id $q.Id -Force; Ok $false "Quit uit het menu: spel stopt niet" } else { Ok $true "Quit uit het menu met de muis: spel gestopt" }
+          Start-Sleep 3
+          $lm2 = Get-Content "$uit/menu.log" -Raw -ErrorAction SilentlyContinue
+          Ok ($lm2 -match "menu open bij rechtsklik" -and $lm2 -match "HOL vak stoppen") "spel meldt: menu open en Quit gekozen"
+          Ok (([W]::Werk()).B -eq $w0.B) "na Quit uit het menu: werkruimte weer normaal"
+          Ok ((Get-Process hol-balk -ErrorAction SilentlyContinue) -eq $null) "na Quit uit het menu: hol-balk.exe weg"
           Ok (Test-Path "producten/steam-hol/godot/DERDEN.txt") "DERDEN.txt staat in het project (gaat mee in de .pck)"
 
           Copy-Item $blog "$uit/balk.log" -ErrorAction SilentlyContinue
