@@ -6,7 +6,11 @@ name: Click Cuts uitgave (vaste zip als artefact, 30 dagen)
 # Zoals bij Pro (besluit Thijs 15 nov 19:52): de betaalde zip komt NIET in een openbare release, alleen
 # als Actions-artefact. Bewaartijd 30 dagen in plaats van 3: Superhive gaat pas na 2 dec, het artefact
 # van de e2e (3 dagen) is dan weg.
+# Tag-route (25 nov 2026, Productbouwer, organisatie/toegang.md): "Run workflow" kan de ploeg niet, dus
+# een tag click-cuts-uitgave-<run_id> pushen start deze workflow met die e2e-run. Dezelfde controles.
 on:
+  push:
+    tags: ["click-cuts-uitgave-*"]
   workflow_dispatch:
     inputs:
       run_id:
@@ -20,13 +24,23 @@ permissions:
 env:
   VERSIE: "1.0.0"
   BASIS: 4efe003   # eerste commit met de 1.0.0-kandidaat
-  RUN: ${{ inputs.run_id }}
+  INVOER_RUN: ${{ inputs.run_id }}
 
 jobs:
   uitgave:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Welke e2e-run (invoer of tagnaam, alleen cijfers)
+        run: |
+          if [ "$GITHUB_REF_TYPE" = "tag" ]; then
+            run="${GITHUB_REF_NAME#click-cuts-uitgave-}"
+          else
+            run="$INVOER_RUN"
+          fi
+          case "$run" in ''|*[!0-9]*) echo "FOUT: run_id moet alleen cijfers zijn"; exit 1;; esac
+          echo "RUN=$run" >> "$GITHUB_ENV"
+          echo "e2e-run: $run"
       - name: e2e-run moet groen zijn, van main komen en op of na de basis liggen
         env:
           GH_TOKEN: ${{ github.token }}
