@@ -7,7 +7,8 @@ Een kogel op een dunne staaf (straal 4 mm, kogel 5 mm) geeft delen A en B met ee
 3. een klik op de dunne wand opent deel B in Edit Mode met precies dat aantal vlakken gekozen;
 4. een gat in deel A (één vlak weg): open randen gevonden, en de klik kiest precies die randen;
 5. een los blokje in deel B: één los stuk, en de klik kiest precies zijn 8 punten;
-6. het paneel tekent in stap 3 de knop Check parts en een regel per deel (nep-layout uit toetsen_paneel).
+6. het paneel tekent in stap 3 de knop Check parts en een regel per deel (nep-layout uit toetsen_paneel);
+7. een kogel met een ruime wand (staaf 6 mm) geeft met de standaard Min wall 1,5 mm geen enkele dunne wand.
 Aangeroepen vanuit test_betaald.py met toets(stap, eigen)."""
 import json
 
@@ -113,6 +114,22 @@ def toets(stap, eigen):
     gat = toetsen_paneel.plek(log, "op", f"{da['open']} open edges")
     stap("check: paneel toont Check parts in stap 3 vóór Export, met een regel en knop per fout",
          0 <= stap3 < knop < regel_a < gat < export, f"({stap3}, {knop}, {regel_a}, {gat}, {export})")
+
+    # 7: een gewricht met een ruime wand (staaf 6 mm, kogel 5 mm) geeft met de standaard Min wall geen dunne wand,
+    # ook niet langs de scherpe rand van de bolnaad (keurder 26 nov, moet 1).
+    for ob in list(bpy.data.objects):
+        bpy.data.objects.remove(ob)
+    dik = figuren.staaf("gstaaf", 6.0)
+    figuren.zet_cursor((0, 0, 0), (1, 0, 0))
+    figuren.maak_actief(dik)
+    uitslag = bpy.ops.click_joints.plaats()
+    scene.cj_check_wand_mm = 1.5
+    bpy.ops.click_joints.check_delen()
+    lijst = json.loads(scene.get("cj_check", "[]"))
+    print("[cj-check] uitslag ruim gewricht:", lijst)
+    stap("check: ruime wand (staaf 6 mm) met Min wall 1,5 mm: twee delen, geen dunne wand",
+         uitslag == {"FINISHED"} and len(lijst) == 2 and all(d["dun"] == 0 and d["open"] == 0 and d["los"] == 0
+                                                          for d in lijst), f"{uitslag} {lijst}")
     for ob in list(bpy.data.objects):
         bpy.data.objects.remove(ob)
     if "cj_check" in scene:

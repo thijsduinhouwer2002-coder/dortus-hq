@@ -5,9 +5,8 @@ selecteert met één klik de foute randen of vlakken. Onze "Check mesh" gaf alle
 Per deel (alles met cj_deel, anders de actieve mesh) drie controles:
 1. open randen: randen zonder precies 2 vlakken (zoals gesloten.foute_randen);
 2. losse stukken: elk stuk naast het grootste (een los stuk valt uit je print);
-3. dunne wand bij een gewricht: vlakken binnen het gebied rond kom, pin of knokkel waar een straal recht naar
-   binnen de andere kant van de wand al binnen de ingestelde mm raakt (zoals de dikte-controle van 3D Print Toolbox,
-   eigen code).
+3. dunne wand rond een kom: vlakken van de kom waar een straal recht de wand in de buitenkant al binnen de
+   ingestelde mm raakt (zoals de dikte-controle van 3D Print Toolbox, eigen code). Nu alleen bij een kogel.
 De uitslag staat als JSON in scene["cj_check"]; de foute plekken worden bij een klik opnieuw berekend, zodat er
 geen grote lijsten in de .blend komen.
 Alleen in de betaalde build: het gratis deel blijft gelijk aan de gekeurde stand (e2e/toets_zips.py)."""
@@ -16,6 +15,7 @@ import json
 import bmesh
 import bpy
 import numpy as np
+from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
 from ..eigenschappen import eenheid_per_mm
@@ -24,7 +24,6 @@ from ..uit_elkaar import echte_matrix
 
 SLEUTEL = "cj_check"
 SOORTEN = ("open", "los", "dun")
-GEBIED = 2.5  # straal van het gebied rond een gewricht, in kogel- of knokkelstralen (plus de wandgrens)
 MIN_HOEK = 0.3  # de geraakte wand moet de straal tegemoet komen (cos), anders is het een hoek en geen wand
 
 
@@ -78,42 +77,58 @@ def losse_punten(me):
     return len(soorten) - 1, np.flatnonzero(lab != grootste).tolist()
 
 
-def gewrichten(objecten):
-    """(punt, straal) in wereldcoördinaten van elk gewricht dat op een van de delen staat (kogel, pen of scharnier)."""
+def gewrichten(objecten, u=1.0):
+    """(centrum, kogelstraal, speling) in wereldcoördinaten van elk kogelgewricht op een van de delen.
+    Pen en scharnier nog niet: hun kom is geen bol om één punt (ontwerp, Check parts)."""
     uit = []
     for o in objecten:
-        if "cj_centrum" in o and o.get("cj_kogel_r", 0) > 0:
-            uit.append((tuple(o["cj_centrum"]), float(o["cj_kogel_r"])))
-        if "cj_scharnier_punt" in o and o.get("cj_knokkel_r", 0) > 0:
-            uit.append((tuple(o["cj_scharnier_punt"]), float(o["cj_knokkel_r"])))
-    return list(dict.fromkeys((tuple(round(x, 6) for x in p), round(r, 6)) for p, r in uit))
+        if o.get("cj_soort", "KOGEL") == "KOGEL" and "cj_centrum" in o and o.get("cj_kogel_r", 0) > 0:
+            uit.append((tuple(round(x, 6) for x in o["cj_centrum"]), round(float(o["cj_kogel_r"]), 6),
+                        round(float(o.get("cj_speling_mm", 0.2)) * u, 6)))
+    return list(dict.fromkeys(uit))
 
 
 def dunne_vlakken(ob, grens, gewr):
-    """Indexen van de vlakken bij een gewricht met een wand dunner dan grens (in scene-eenheden)."""
-    if not gewr or not ob.data.polygons:
+    """Indexen van de vlakken van een kom met een wand dunner dan grens (in scene-eenheden).
+
+    Net als passing.beoordeel meten we vanaf de kom zelf naar buiten: alleen vlakken op de bol om het centrum
+    (straal kogel + speling) met hun normaal naar het centrum (de holte in). Een straal recht de wand in moet de
+    buitenkant binnen grens raken. Zo telt de scherpe rand langs de bolnaad niet mee (keurder 26 nov, moet 1)."""
+    me = ob.data
+    if not gewr or not me.polygons:
+        return []
+    m = echte_matrix(ob)
+    n_v = len(me.polygons)
+    mid = np.empty(n_v * 3, dtype=np.float64)
+    me.polygons.foreach_get("center", mid)
+    mid = mid.reshape(-1, 3) @ np.array(m.to_3x3()).T + np.array(m.translation)
+    kans = np.zeros(n_v, dtype=bool)
+    for p, r, sp in gewr:
+        afst = np.linalg.norm(mid - np.array(p), axis=1)
+        kom = r + sp
+        kans |= (afst >= 0.9 * kom) & (afst <= kom + sp + 0.05 * r)
+    if not kans.any():
         return []
     bm = bmesh.new()
-    bm.from_mesh(ob.data)
-    m = echte_matrix(ob)
+    bm.from_mesh(me)
     bm.transform(m)
     if m.to_3x3().determinant() < 0:
         bmesh.ops.reverse_faces(bm, faces=bm.faces[:])
     bm.normal_update()
     bm.faces.ensure_lookup_table()
     bvh = BVHTree.FromBMesh(bm)
-    punten = np.array([p for p, _r in gewr], dtype=np.float64)
-    reik2 = np.array([(GEBIED * r + grens) ** 2 for _p, r in gewr], dtype=np.float64)
+    centra = [Vector(p) for p, _r, _s in gewr]
     eps = grens * 1e-3
     uit = []
-    for f in bm.faces:
-        c = f.calc_center_median()
-        if not np.any(((punten - np.array(c)) ** 2).sum(axis=1) <= reik2):
-            continue
-        n = f.normal
+    for i_f in np.flatnonzero(kans).tolist():
+        f = bm.faces[i_f]
+        c, n = f.calc_center_median(), f.normal
         if n.length < 0.5:
             continue
-        hit, hn, i, d = bvh.ray_cast(c - n * eps, -n, grens)
+        dichtst = min(centra, key=lambda q: (q - c).length_squared)
+        if n.dot(dichtst - c) <= 0:  # normaal van het centrum af: kogel of huid, geen kom
+            continue
+        hit, hn, i, _d = bvh.ray_cast(c - n * eps, -n, grens)
         if hit is not None and i != f.index and hn.dot(-n) > MIN_HOEK:
             uit.append(f.index)
     bm.free()
@@ -123,8 +138,9 @@ def dunne_vlakken(ob, grens, gewr):
 def controleer(context, grens_mm):
     """Rekent de drie controles voor elk deel uit; geeft de lijst die in scene["cj_check"] komt."""
     objecten = delen(context)
-    grens = grens_mm * eenheid_per_mm(context.scene)
-    gewr = gewrichten(objecten)
+    u = eenheid_per_mm(context.scene)
+    grens = grens_mm * u
+    gewr = gewrichten(objecten, u)
     uitslag = []
     for o in objecten:
         aantal_los, _p = losse_punten(o.data)
@@ -143,7 +159,7 @@ def lees(scene):
 class CLICK_JOINTS_OT_check_delen(bpy.types.Operator):
     bl_idname = "click_joints.check_delen"
     bl_label = "Check parts"
-    bl_description = ("Check every part before you print: open edges, loose pieces, and walls around a joint "
+    bl_description = ("Check every part before you print: open edges, loose pieces, and socket walls of a ball joint "
                       "thinner than Min wall. Click a result to select it in Edit Mode")
 
     @classmethod
@@ -178,6 +194,9 @@ class CLICK_JOINTS_OT_check_toon(bpy.types.Operator):
         if ob is None or ob.type != "MESH":
             self.report({"WARNING"}, f"{self.naam} is gone. Click Check parts again.")
             return {"CANCELLED"}
+        if ob.name not in context.view_layer.objects or ob.hide_viewport or ob.library is not None:
+            self.report({"WARNING"}, f"{ob.name} can't be opened here (hidden, excluded or linked).")
+            return {"CANCELLED"}
         if context.mode != "OBJECT":
             bpy.ops.object.mode_set(mode="OBJECT")
         me = ob.data
@@ -186,8 +205,8 @@ class CLICK_JOINTS_OT_check_toon(bpy.types.Operator):
         elif self.soort == "los":
             kies, modus = losse_punten(me)[1], (True, False, False)
         else:
-            gewr = gewrichten(delen(context))
-            kies = dunne_vlakken(ob, context.scene.cj_check_wand_mm * eenheid_per_mm(context.scene), gewr)
+            u = eenheid_per_mm(context.scene)
+            kies = dunne_vlakken(ob, context.scene.cj_check_wand_mm * u, gewrichten(delen(context), u))
             modus = (False, False, True)
         for reeks in (me.vertices, me.edges, me.polygons):
             reeks.foreach_set("select", np.zeros(len(reeks), dtype=bool))
@@ -219,7 +238,7 @@ class CLICK_JOINTS_OT_check_toon(bpy.types.Operator):
         return {"FINISHED"}
 
 
-TEKST = {"open": "{n} open edges", "los": "{n} loose pieces", "dun": "{n} faces with a thin wall"}
+TEKST = {"open": "{n} open edges", "los": "{n} loose pieces", "dun": "{n} socket faces with a thin wall"}
 
 
 def teken(layout, context):
@@ -253,7 +272,7 @@ KLASSEN = (CLICK_JOINTS_OT_check_delen, CLICK_JOINTS_OT_check_toon)
 def register():
     bpy.types.Scene.cj_check_wand_mm = bpy.props.FloatProperty(
         name="Min wall (mm)", default=GRENS_ORANJE_MM, min=0.1, max=10.0, step=10, precision=2,
-        description="Check parts flags faces near a joint where the wall is thinner than this")
+        description="Check parts flags ball joint sockets with a wall thinner than this")
 
 
 def unregister():
