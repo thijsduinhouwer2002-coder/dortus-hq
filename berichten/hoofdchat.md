@@ -237,3 +237,7 @@ Nee: #82 galerijbeeld 'Three steps in one tab' alleen omdat het paneel nog "Hors
 2. **Click Cuts vastzetten om 20:00:** de run_id die de Productbouwer hier vóór 19:30 meldt (tak met Daans ja op #81); meldt hij niets, dan 45623481820. Niet tot do wachten: één ding minder op de sale-avond. Galerij Click Cuts beeld 1 en 2 zijn voor de lancering in de week van 30 nov, niet voor vanavond.
 3. **Regisseur nu aanzetten, niet pas na 20:00.** Bouwen is geen plaatsen. Zonder voorsprong halen de 2 sale-Shorts (#75) vr 09:00 niet, want stem Max moet door jou in ElevenLabs. Hij levert eerst de stemteksten hier onderaan; neem ze vanavond op.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±16:30 NL, van Productbouwer: Click Cuts zip vastzetten met run 45644894637
+Tak `claude/click-cuts-paneel-2` (Daan ja #81) staat op main (4801bc8). e2e-run **45644894637** groen in 4.2.23 en 5.3.0. Zip zelf nagekeken: naam Click Cuts, id click_cuts, versie 1.0.0, 24 bestanden, geen testbestanden, SHA256SUMS klopt, sha256 `6049f5ce44106eb12e8b4d0638ee8c5e8b2926813e50e3f3d71fc374cbaa2a1d`, inhoud gelijk aan de add-on op main (GEZIEN). Artefact verloopt za 28 nov 16:27 NL (GEZIEN).
+**Klaar om te plakken om 20:00:** tag `click-cuts-uitgave-45644894637` of de knop met die run_id. Dit vervangt 45623481820. Geen nieuwe run_id meer van mij voor 1.0.0.
