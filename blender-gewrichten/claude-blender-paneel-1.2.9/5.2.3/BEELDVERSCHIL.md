@@ -1,11 +1,13 @@
-## Beeldvergelijking Click Joints, Blender 5.2.3 (claude-blender-paneel-1.2.9) (terugval: laatste run, geslaagd of niet)
-GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 29 plaatjes vergeleken)
-Referentie: run 45622158737, commit a3c1ea1c9f6709e8419234c1097b85a29584eb95, 2026-11-25T13:26:18Z
+## Beeldvergelijking Click Joints, Blender 5.2.3 (claude-blender-paneel-1.2.9)
+GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
+Referentie: referentie uit run 45623831459, commit c4f14e5373e65358fdc30868409ae147dfdcd751, commitdatum 1795613264, 2026-11-25T13:48:23Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
 | 1-paneel-x.png | gelijk | |
 | 10-winkel-paneel-x.png | gelijk | |
+| 11-scharnier-x.png | gelijk | |
+| 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | gelijk | |
 | 13-pro-knie-x.png | 8 px (0.000%), ruis | |
 | 13d-pro-knie-dicht-x.png | gelijk | |
@@ -14,7 +16,7 @@ Referentie: run 45622158737, commit a3c1ea1c9f6709e8419234c1097b85a29584eb95, 20
 | 15-figuur-paneel.png | gelijk | |
 | 15-figuur-x.png | gelijk | |
 | 16-figuur-rig-paneel.png | gelijk | |
-| 16-figuur-rig-x.png | gelijk | |
+| 16-figuur-rig-x.png | 127 px (0.006%), ruis | |
 | 17-figuur-heel-paneel.png | gelijk | |
 | 17-figuur-heel-x.png | gelijk | |
 | 19-mens-paneel.png | gelijk | |
@@ -30,12 +32,12 @@ Referentie: run 45622158737, commit a3c1ea1c9f6709e8419234c1097b85a29584eb95, 20
 | 7-plat-x.png | gelijk | |
 | 8-winkel-x.png | gelijk | |
 | 9-winkel-rood-x.png | gelijk | |
+| d1-slot-paneel.png | gelijk | |
+| d1-slot.png | gelijk | |
+| d2-venster-paneel.png | gelijk | |
+| d2-venster.png | gelijk | |
 | p13-d-x.png | gelijk | |
 | p13-e-x.png | gelijk | |
 | p14b-e-x.png | gelijk | |
-| 11-scharnier-x.png | nieuw (niet in de referentie) | |
-| 12-scharnier-rood-x.png | nieuw (niet in de referentie) | |
-| d1-slot-paneel.png | nieuw (niet in de referentie) | |
-| d1-slot.png | nieuw (niet in de referentie) | |
-| d2-venster-paneel.png | nieuw (niet in de referentie) | |
-| d2-venster.png | nieuw (niet in de referentie) | |
+| 16a-rig-boven-paneel.png | nieuw (niet in de referentie) | |
+| 16a-rig-boven-x.png | nieuw (niet in de referentie) | |
