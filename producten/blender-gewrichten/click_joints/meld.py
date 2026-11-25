@@ -51,6 +51,18 @@ def url_hier():
     return url(naam, versie, bpy.app.version_string, systeem())
 
 
+# Beoordelen (issue 70, gat 3 in de lat: Cleave, Split 3D Print en JointLab hebben er elk 3, wij 0). Eén rustige regel
+# onder het paneel, pas na een goed resultaat: geen popup, niets in ruil. Link nagekeken met curl op 25 nov (200). Een
+# andere build zet hier zijn eigen winkels in (en zet bij uitzetten deze terug).
+BEOORDEEL_GRATIS = (("Blender Extensions", "https://extensions.blender.org/add-ons/click-joints/reviews/"),)
+BEOORDEEL = list(BEOORDEEL_GRATIS)
+
+
+def goed_resultaat(objecten):
+    """True zodra er in de scène een gewricht met "Good fit" (groen) staat: pas dan vragen we om een beoordeling."""
+    return any(ob.get("cj_passing") == "groen" for ob in objecten)
+
+
 class CLICK_JOINTS_OT_meld(bpy.types.Operator):
     bl_idname = "click_joints.meld"
     bl_label = "Report a problem"
@@ -74,6 +86,12 @@ class CLICK_JOINTS_PT_meld(bpy.types.Panel):
     bl_options = {"HIDE_HEADER"}
 
     def draw(self, context):
+        if goed_resultaat(context.scene.objects):
+            kol = self.layout.column(align=True)
+            kol.label(text="Happy with it? Leave a rating:", icon="SOLO_OFF")  # past in een smalle zijbalk
+            rij = kol.row(align=True)
+            for winkel, link in BEOORDEEL:
+                rij.operator("wm.url_open", text=winkel, icon="URL").url = link
         self.layout.operator(CLICK_JOINTS_OT_meld.bl_idname, icon="URL", emboss=False)
 
 

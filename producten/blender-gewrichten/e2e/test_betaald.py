@@ -15,6 +15,7 @@ import bpy
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import toetsen_scharnier  # noqa: E402
 import toetsen_scharnier_afstand  # noqa: E402
+import toetsen_paneel  # noqa: E402
 from hulp_scharnier import cursor as _cursor  # noqa: E402
 
 args = sys.argv[sys.argv.index("--") + 1:]
@@ -57,6 +58,11 @@ def main():
     except Exception:
         traceback.print_exc()
         stap("toetsen afstand scharnier liepen zonder fout", False)
+    try:
+        toetsen_paneel.toets(stap, eigen)  # 1.2.9 (issue 70): Figure from rig bovenaan, Pro-stukken in hun stap
+    except Exception:
+        traceback.print_exc()
+        stap("toetsen paneel liepen zonder fout", False)
     gewricht, maat = sys.modules[eigen + ".gewricht"], sys.modules[eigen + ".maat"]
     stap("betaalde omhult gewricht.te_dicht en gewricht.markeer zolang hij aan staat",
          gewricht.te_dicht is not maat.te_dicht and gewricht.markeer.__module__ != gewricht.__name__)
@@ -102,6 +108,10 @@ def main():
     stap("(b) gratis werkt (operators, paneel, scene.click_joints)",
          "plaats" in dir(bpy.ops.click_joints) and hasattr(bpy.types, "CLICK_JOINTS_PT_paneel")
          and hasattr(bpy.types.Scene, "click_joints") and "plaats_scharnier" not in dir(bpy.ops.click_joints))
+    gm, bm = sys.modules.get(gratis_mod + ".meld"), sys.modules.get(eigen + ".meld")
+    stap("(b) gratis vraagt om een beoordeling op Blender Extensions (issue 70)",
+         gm is not None and [w for w, _l in gm.BEOORDEEL] == ["Blender Extensions"])
+    stap("(b) betaald uit: zijn winkellinks zijn teruggezet", bm is None or list(bm.BEOORDEEL) == list(bm.BEOORDEEL_GRATIS))
     stap("(b) omhulsel opgeruimd", addon_utils.enable is enable_orig)
     stap("(b) gratis instelling leesbaar", bpy.context.scene.click_joints is not None)
     # En terug: gratis uit, betaald aan.
@@ -110,6 +120,8 @@ def main():
     stap("(b) gratis weer uit, dan kan betaald weer aan", aan() == [eigen], str(aan()))
     stap("(b) betaald werkt weer", "plaats_scharnier" in dir(bpy.ops.click_joints)
          and addon_utils.enable is not enable_orig)
+    bm = sys.modules.get(eigen + ".meld")
+    stap("(b) betaald weer aan: Superhive en Gumroad", bm is not None and [w for w, _l in bm.BEOORDEEL] == ["Superhive", "Gumroad"])
 
 
 try:

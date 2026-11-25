@@ -318,12 +318,13 @@ def los_stuk(deel_a, deel_b, me_bron, u):
     return (na, nb)
 
 
-def teken_knop(self, context):
-    """Kleine knoppen onder het paneel van de kern: drie standen als knoppen, dan Place hinge."""
+def teken_knop(layout, context):
+    """In stap 2 onder Place joint (1.2.9: bij de andere gewrichten, niet los onder Export): drie standen als
+    knoppen, dan Flip bend."""
     if context.active_object is None:
         return
-    vak = self.layout.box()
-    vak.label(text="Place hinge, bends up to:")
+    vak = layout.column(align=True)
+    vak.label(text="Or a hinge that bends up to:")
     rij = vak.row(align=True)
     wm = context.window_manager
     flip = bool(getattr(wm, "cj_flip_bend", False))

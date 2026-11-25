@@ -7,7 +7,7 @@ operators, panelen en scene.click_joints."""
 import addon_utils
 import bpy
 
-from .. import gewricht, uit_elkaar
+from .. import gewricht, meld, uit_elkaar
 from . import afstand, figuur, figuur_teken, labels, scharnier, scharnier_beweeg, scharnier_boog, snippers, een_lid_diep, omhulsel, terugval, testkaart
 
 ACTIEF = True
@@ -111,16 +111,31 @@ def _scharnier_recht():
         o.delta_rotation_quaternion = (1.0, 0.0, 0.0, 0.0)
 
 
+# Beoordelen (issue 70): wie Pro kocht, beoordeelt in de winkel waar hij kocht. Nagekeken met curl op 25 nov (200);
+# superhivemarket.com/.../reviews valt terug op de voorpagina, dus de productpagina zelf.
+WINKELS = (("Superhive", "https://superhivemarket.com/products/click-joints-pro"),
+           ("Gumroad", "https://duinhouwer8.gumroad.com/l/click-joints-pro"))
+
+
+def _kern_paneel():
+    """Module paneel.py van de kern (één map hoger), met de plekken BOVEN, STAP2, STAP2_KEUS en STAP3."""
+    from .. import paneel
+    return paneel
+
+
 def register(eigen=None):
     for k in KLASSEN:
         bpy.utils.register_class(k)
     # Keuze voor de knoppen in het paneel (niet in de .blend, zoals een knop in een werkbalk).
     bpy.types.WindowManager.cj_flip_bend = bpy.props.BoolProperty(
         name="Flip bend", default=False, description="Bend the other way: the end stop moves to the other side")
-    paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
-    if paneel is not None:
-        paneel.append(testkaart.teken_knop)  # "Print this first": bovenaan het Pro-deel
-        paneel.append(scharnier.teken_knop)
+    kern = _kern_paneel()  # 1.2.9 (issue 70): elk Pro-stuk in zijn eigen stap, niet los onder Export
+    if kern is not None:
+        for lijst, f in ((kern.BOVEN, figuur.teken_boven), (kern.STAP2, testkaart.teken_knop),
+                         (kern.STAP2_KEUS, scharnier.teken_knop)):
+            if f not in lijst:
+                lijst.append(f)
+    meld.BEOORDEEL[:] = WINKELS
     scharnier_boog.register()  # eis 8: gradenboog en pose-schuif van het scharnier
     labels.register()  # mooier overlay 23 nov: schakelaar Labels (Selected / All / None) bij een figuur
     figuur_teken.register()  # 1.1: figuurkogel klein en groen, één getal buiten het lid (gratis deel onveranderd)
@@ -148,10 +163,13 @@ def unregister():
     figuur_teken.unregister()
     labels.unregister()
     scharnier_boog.unregister()
-    paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
-    if paneel is not None:
-        paneel.remove(scharnier.teken_knop)
-        paneel.remove(testkaart.teken_knop)
+    kern = _kern_paneel()
+    if kern is not None:
+        for lijst, f in ((kern.BOVEN, figuur.teken_boven), (kern.STAP2, testkaart.teken_knop),
+                         (kern.STAP2_KEUS, scharnier.teken_knop)):
+            if f in lijst:
+                lijst.remove(f)
+    meld.BEOORDEEL[:] = meld.BEOORDEEL_GRATIS
     if hasattr(bpy.types.WindowManager, "cj_flip_bend"):
         del bpy.types.WindowManager.cj_flip_bend
     for k in reversed(KLASSEN):

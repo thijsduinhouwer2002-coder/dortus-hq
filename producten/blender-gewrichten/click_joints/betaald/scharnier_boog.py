@@ -394,15 +394,17 @@ def _pose_zet(_wm, waarde):
     herteken()
 
 
-def teken_paneel(self, context):
-    """In het paneel bij een actief scharnierdeel: "Bends 0° to N°", de boog aan of uit en de pose-schuif."""
+def teken_paneel(layout, context):
+    """In stap 3 van het paneel bij een actief scharnierdeel (1.2.9: naast de passing, niet los onder Export):
+    "Bends 0° to N°", de boog aan of uit en de pose-schuif."""
     ob = context.active_object
     a, b = paar(context.scene, ob)
     if a is None or b is None or "cj_bereik_graden" not in a:
         return
     wm = context.window_manager
-    vak = self.layout.box()
-    vak.label(text="Hinge", icon="CON_PIVOT")
+    vak = layout.column(align=True)
+    # Daan #83 C2: stap 2 houdt Ball blauw (keuze voor het volgende gewricht), dus hier zeggen wat er al staat
+    vak.label(text="Hinge placed", icon="CON_PIVOT")
     if beweeg.geen_stop(float(a["cj_bereik_graden"])):
         vak.label(text="No end stop found", icon="ERROR")
         return
@@ -412,6 +414,12 @@ def teken_paneel(self, context):
     blok.prop(wm, "cj_scharnier_pose", slider=True)
 
 
+def _kern_paneel():
+    """Module paneel.py van de kern waar dit Pro-deel in zit (zelfde pakket, één map hoger)."""
+    from .. import paneel
+    return paneel
+
+
 def register():
     bpy.types.WindowManager.cj_scharnier_boog = bpy.props.BoolProperty(
         name="Show bend range", default=True, description="Draw the measured bend range of the hinge", update=herteken)
@@ -419,9 +427,9 @@ def register():
         name="Bend", default=0.0, min=0.0, max=150.0,
         description="Bend part B in the view only, to check the range. Past the end stop, touching faces turn red",
         get=_pose_lees, set=_pose_zet)
-    paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
-    if paneel is not None:
-        paneel.append(teken_paneel)
+    kern = _kern_paneel()
+    if kern is not None and teken_paneel not in kern.STAP3:
+        kern.STAP3.append(teken_paneel)
     if not bpy.app.background and _handler[0] is None:
         _handler[0] = bpy.types.SpaceView3D.draw_handler_add(_veilig, (), "WINDOW", "POST_PIXEL")
 
@@ -430,9 +438,9 @@ def unregister():
     if _handler[0] is not None:
         bpy.types.SpaceView3D.draw_handler_remove(_handler[0], "WINDOW")
         _handler[0] = None
-    paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
-    if paneel is not None:
-        paneel.remove(teken_paneel)
+    kern = _kern_paneel()
+    if kern is not None and teken_paneel in kern.STAP3:
+        kern.STAP3.remove(teken_paneel)
     for naam in ("cj_scharnier_pose", "cj_scharnier_boog"):
         if hasattr(bpy.types.WindowManager, naam):
             delattr(bpy.types.WindowManager, naam)
