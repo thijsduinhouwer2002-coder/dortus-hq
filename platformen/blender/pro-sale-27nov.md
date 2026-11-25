@@ -29,7 +29,7 @@ Cyber Week sale: 25% off, applied at checkout, Friday November 27 to Tuesday Dec
 ```
 **Superhive:**
 ```
-Cyber Sale: 35% off on Superhive, Friday November 27 to Wednesday December 2. No code needed. Personal is $7.80 instead of $12.
+Cyber Sale: 35% off, Friday November 27 to Wednesday December 2. No code needed. Personal is $7.80 instead of $12.
 ```
 
 Feiten achter de regels:
@@ -47,6 +47,7 @@ bash platformen/blender/sale-controle.sh
 Het script leest met curl de gewone Gumroad-pagina, de salelink en de Superhive-pagina, en zegt per stap GOED of FOUT:
 1. Salelink: `"valid":true` = goed. Nog `inactive` of `invalid_offer` na 27 nov 00:00 NL = de code staat niet aan: niet plakken, melden.
 2. Gewone pagina: `"valid":true` = vanzelf toepassen staat aan, gebruik regel B. Anders regel A.
+   Bij `"valid":true` rekent het script ook na: het percentage uit de pagina maal de prijs moet $14.25 geven, anders FOUT (toegevoegd 25 nov 12:15 NL, kan-punt van de automatische keurder).
 3. Superhive: $7.80 bij Personal = goed, plak de Superhive-regel. Geen $7.80 = Superhive-regel niet plakken, kijk in het dashboard.
 
 Het script geeft uitgang 0 als alles goed is en 1 bij iets fouts. Proef op 25 nov 10:20 NL: stap 1 "inactive", stap 2 `null`, stap 3 $12 en $45, uitgang 1 (GEZIEN; zo hoort het twee dagen voor de sale).

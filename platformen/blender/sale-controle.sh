@@ -22,7 +22,19 @@ fout = 0
 link = korting(lees("link"))
 print("1. Gumroad salelink /CYBER25:", link)
 if '"valid":true' in link:
-    print("   GOED: de link geeft de korting.")
+    # Bedrag nalopen: 25% van de prijs op de pagina moet $14.25 zijn (geen mandje nodig, de pagina rekent zelf).
+    pc = re.search(r'"price_cents":(\d{3,})', lees("link"))
+    pct = re.search(r'"percents?":(\d+)', link)
+    if pc and pct:
+        na = int(pc.group(1)) * (100 - int(pct.group(1))) / 10000
+        print(f"   Korting {pct.group(1)}% op ${int(pc.group(1))/100:.2f} = ${na:.2f}")
+        if int(pct.group(1)) != 25 or abs(na - 14.25) > 0.005:
+            print("   FOUT: niet 25% of niet $14.25: de saleregel klopt dan niet. Niet plakken, meld het de hoofdchat.")
+            fout = 1
+    else:
+        print("   Percentage niet in de pagina gevonden: open de salelink zelf en kijk of $14.25 naast de doorgestreepte $19 staat.")
+    if not fout:
+        print("   GOED: de link geeft de korting.")
 elif "inactive" in link:
     print("   NOG NIET ACTIEF: de code bestaat, maar loopt nu niet. Na 27 nov 00:00 NL is dit fout: meld het de hoofdchat.")
     fout = 1
