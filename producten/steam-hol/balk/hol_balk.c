@@ -142,9 +142,16 @@ static void geen_taakbalkknop(void) {
 	logr("BALK stijl 0x%llx -> 0x%llx", (unsigned long long)ex, (unsigned long long)nieuw);
 }
 
+static int wissels = 0;
 static void zet_doorzicht(int aan) {
 	if (aan == doorzicht) return;
 	doorzicht = aan;
+	if (++wissels <= 20) {   /* de eerste wissels in het log, voor de toets; daarna stil */
+		POINT p;
+		GetCursorPos(&p);
+		ScreenToClient(spel, &p);
+		logr("BALK muis %s op %ld,%ld", aan ? "gaat door" : "op het hol", p.x, p.y);
+	}
 	LONG_PTR ex = GetWindowLongPtrW(spel, GWL_EXSTYLE);
 	ex |= WS_EX_LAYERED;
 	if (aan) ex |= WS_EX_TRANSPARENT;

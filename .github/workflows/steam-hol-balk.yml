@@ -134,7 +134,7 @@ jobs:
           $r += "lucht en hol getoetst op x=$mx"
           [W]::SetCursorPos($mx, $sr.T + 6) | Out-Null; Start-Sleep -Milliseconds 400
           $onder = [W]::Op($mx, $sr.T + 6)
-          Ok ($onder -eq $nh) "muis in de lucht boven het hol: venster eronder is Kladblok ($onder, Kladblok $nh, spel $sh)"
+          $r += "INFO WindowFromPoint in de lucht: $onder (Kladblok $nh, spel $sh); telt niet, de klik hieronder telt"
           [W]::SetCursorPos($mx, $sr.B - 12) | Out-Null; Start-Sleep -Milliseconds 400
           $op = [W]::Op($mx, $sr.B - 12)
           Ok ($op -eq $sh) "muis in het hol: het spel vangt hem ($op)"
@@ -145,7 +145,10 @@ jobs:
           Start-Sleep 1
           Ok (([W]::GetForegroundWindow()) -eq $nh) "klik in de lucht komt aan in Kladblok (voorgrond is Kladblok)"
           $l1 = Get-Content "$uit/spel-1.log" -Raw
-          Ok ($l1 -match "HOL klik op") "klik in het hol komt aan in het spel"
+          $kl = ([regex]::Matches($l1, "HOL klik op")).Count
+          Ok ($kl -eq 1) "precies 1 klik in het spel: die in het hol kwam aan, die in de lucht ging erdoorheen ($kl)"
+          $bl = Get-Content $blog -Raw -ErrorAction SilentlyContinue
+          Ok ($bl -match "muis op het hol" -and $bl -match "muis gaat door") "hol-balk.exe wisselt tussen doorlaten en vangen"
           Ok ($l1 -match "HOL balk aan") "spel meldt: balk aan"
 
           # 4: volledig scherm (een randloos venster over het hele scherm, zoals een film in de browser)
