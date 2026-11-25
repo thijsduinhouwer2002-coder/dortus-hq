@@ -65,24 +65,31 @@ def goed_resultaat(objecten):
     return any(ob.get("cj_passing") == "groen" for ob in objecten)
 
 
-def merkbestand():
+GEVRAAGD = [False]  # eenmaal gezien (klik of merkje): niet bij elke hertekening opnieuw het bestand lezen
+
+
+def merkbestand(maak=False):
     """Pad van het merkje in de gebruikersmap van deze extensie (blijft over bestanden heen), of None als de add-on
     niet als extensie draait (dan alleen de scène)."""
     try:
-        return os.path.join(bpy.utils.extension_path_user(__package__, create=True), MERK)
+        return os.path.join(bpy.utils.extension_path_user(__package__, create=maak), MERK)
     except Exception:
         return None
 
 
 def al_gevraagd(scene):
+    if GEVRAAGD[0] or scene.get("cj_beoordeeld"):
+        return True
     pad = merkbestand()
-    return bool(scene.get("cj_beoordeeld")) or bool(pad and os.path.exists(pad))
+    GEVRAAGD[0] = bool(pad and os.path.exists(pad))
+    return GEVRAAGD[0]
 
 
 def onthoud(scene):
-    """Na een klik op een winkel: niet meer vragen, in deze scène en (als het kan) in elk bestand."""
+    """Na een klik op een winkel of op het kruisje: niet meer vragen, in deze scène en (als het kan) in elk bestand."""
     scene["cj_beoordeeld"] = True
-    pad = merkbestand()
+    GEVRAAGD[0] = True
+    pad = merkbestand(maak=True)
     if pad:
         try:
             with open(pad, "w", encoding="utf-8") as f:
@@ -92,20 +99,25 @@ def onthoud(scene):
 
 
 def vraag_beoordeling(scene):
-    """Regel tonen: Good fit, er is geëxporteerd (exporteer.py zet cj_laatste_export) en nog niet geklikt."""
+    """Regel tonen: er is geëxporteerd (exporteer.py zet cj_laatste_export), Good fit, en nog niet geklikt."""
     return "cj_laatste_export" in scene and goed_resultaat(scene.objects) and not al_gevraagd(scene)
 
 
 class CLICK_JOINTS_OT_beoordeel(bpy.types.Operator):
+    """Winkelknop (url gevuld) of kruisje (url leeg): daarna vragen we niet meer."""
     bl_idname = "click_joints.beoordeel"
     bl_label = "Leave a rating"
-    bl_description = "Open the store page to leave a rating"
     bl_options = {"INTERNAL"}
 
     url: bpy.props.StringProperty(options={"SKIP_SAVE"})
 
+    @classmethod
+    def description(cls, _context, properties):
+        return "Open the store page to leave a rating" if properties.url else "Don't ask again"
+
     def execute(self, context):
-        bpy.ops.wm.url_open(url=self.url)
+        if self.url:
+            bpy.ops.wm.url_open(url=self.url)
         onthoud(context.scene)
         return {"FINISHED"}
 
@@ -139,6 +151,7 @@ class CLICK_JOINTS_PT_meld(bpy.types.Panel):
             rij = kol.row(align=True)
             for winkel, link in BEOORDEEL:
                 rij.operator(CLICK_JOINTS_OT_beoordeel.bl_idname, text=winkel, icon="URL").url = link
+            rij.operator(CLICK_JOINTS_OT_beoordeel.bl_idname, text="", icon="X", emboss=False).url = ""
         self.layout.operator(CLICK_JOINTS_OT_meld.bl_idname, icon="URL", emboss=False)
 
 

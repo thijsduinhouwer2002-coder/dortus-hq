@@ -99,17 +99,22 @@ def toets(stap, eigen):
     stap("beoordelen: gratis wijst naar Blender Extensions",
          [w for w, _l in meld.BEOORDEEL_GRATIS] == ["Blender Extensions"])
     scene = bpy.context.scene
-    merk = meld.merkbestand()
-    if merk and os.path.exists(merk):
-        os.remove(merk)
-    for k in ("cj_laatste_export", "cj_beoordeeld"):
-        if k in scene:
-            del scene[k]
+
+    def schoon():
+        merk = meld.merkbestand()
+        if merk and os.path.exists(merk):
+            os.remove(merk)
+        for k in ("cj_laatste_export", "cj_beoordeeld"):
+            if k in scene:
+                del scene[k]
+        meld.GEVRAAGD[0] = False
+
+    schoon()
     stap("beoordelen: niet zonder goed resultaat", not meld.goed_resultaat([lijf]) and not meld.vraag_beoordeling(scene))
     lijf["cj_passing"] = "groen"
     stap("beoordelen: Good fit telt", meld.goed_resultaat([lijf]))
     stap("beoordelen: nog niet vóór een export (issue 100)", not meld.vraag_beoordeling(scene))
-    scene["cj_laatste_export"] = ["/tmp/paneel_lijf_A.stl"]
+    scene["cj_laatste_export"] = ["/tmp/paneel_lijf_A.stl"]  # wat exporteer.py na het schrijven zet
     stap("beoordelen: wel na Good fit en export", meld.vraag_beoordeling(scene))
     log = []
     OPS.clear()
@@ -117,20 +122,22 @@ def toets(stap, eigen):
     stap("beoordelen: regel en twee knoppen boven Report a problem",
          plek(log, "label", "Happy with it") == 0 and [t for s, t in log if s == "op"][:2] == ["Superhive", "Gumroad"],
          str(log))
-    stap("beoordelen: winkelknop gaat via click_joints.beoordeel (onthoudt de klik)",
-         OPS[:2] == ["click_joints.beoordeel"] * 2, str(OPS))
-    meld.onthoud(scene)  # wat de knop doet na het openen van de winkel
+    stap("beoordelen: winkels en kruisje gaan via click_joints.beoordeel (onthoudt de klik)",
+         OPS[:3] == ["click_joints.beoordeel"] * 3 and ("op", "") in log, str(OPS))
+    uitslag = bpy.ops.click_joints.beoordeel(url="")  # het kruisje, echte operator, opent niets
+    stap("beoordelen: kruisje werkt", uitslag == {"FINISHED"} and scene.get("cj_beoordeeld"), str(uitslag))
     log = []
     meld.CLICK_JOINTS_PT_meld.draw(SimpleNamespace(layout=Nep(log)), SimpleNamespace(scene=scene))
     stap("beoordelen: na een klik weg, Report a problem blijft",
          plek(log, "label", "Happy with it") < 0 and [t for s, t in log if s == "op"] == ["click_joints.meld"], str(log))
+    merk = meld.merkbestand()
+    print(f"[cj-paneel] merkje: {merk if merk else 'geen extensiemap, stap ander bestand overgeslagen'}")
     if merk:
         del scene["cj_beoordeeld"]
-        stap("beoordelen: ook in een ander bestand weg (merkje in de extensiemap)", not meld.vraag_beoordeling(scene))
-        os.remove(merk)
-    for k in ("cj_laatste_export", "cj_beoordeeld"):
-        if k in scene:
-            del scene[k]
+        meld.GEVRAAGD[0] = False  # zoals een nieuwe sessie met een ander bestand
+        stap("beoordelen: ook in een ander bestand weg (merkje in de extensiemap)",
+             os.path.exists(merk) and not meld.vraag_beoordeling(scene), merk)
+    schoon()
 
     delen = []
     for deel in ("A", "B"):

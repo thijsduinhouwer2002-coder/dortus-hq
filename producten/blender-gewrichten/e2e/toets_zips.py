@@ -58,7 +58,7 @@ for n in namen:
 # versie haar knoppen in haar eigen stap zet; in de gratis versie leeg, dus hetzelfde paneel. meld.py: na een Good fit één
 # regel "Happy with it? Leave a rating:" met een knop naar de reviews op extensions.blender.org. Nergens de betaalde versie.
 # Opnieuw 25 nov (Bram, issue 100): meld.py vraagt pas na een export, en niet meer na een klik op de winkel (merkje in de
-# gebruikersmap van de extensie). Geen netwerk vanzelf, nergens de betaalde versie.
+# gebruikersmap van de extensie), met een kruisje "Don't ask again". Geen netwerk vanzelf, nergens de betaalde versie.
 GEKEURD = {
     "__init__.py": "526d677349cf407344d268dc15dbcb1bb68116dcdff387ceb221f6e80d88861e",
     "beweeg.py": "f7d9f2f26d2e780984b3b94e4e21ec983557f79e6d54f6f406b1ff83517219c6",
@@ -72,7 +72,7 @@ GEKEURD = {
     "gradenboog.py": "159a503b3621da1073c8c29ee026454c9146a9b46a90d0028fec97096612e251",
     "kleur.py": "9f98ca165bfbe06d5c5737185bd4eee973accb8818563dbec0c794c2e5c9e1c4",
     "maat.py": "db5be6fea8bf18b478ba699a5cf68f564aeb7f33e7923f226b4cff108d2c9a9f",
-    "meld.py": "ef1e60c632750db9fc733ff6878153f76d5c645057eecf94fd00fa6ec14097a8",
+    "meld.py": "716ca1380e22a19e7e0edfd1414dab38b4374e92be8f190fec7b0838d7c1e0c0",
     "paneel.py": "a8873a1b0f8c1b0e0aef6fd46530f46fbeee6a1ec74d9d8073f39b3c55c4b75b",
     "passing.py": "26d843fc8fd39a519b82539811365cfe46d8115072ddafd85e9ca61889ea3aa9",
     "schaal.py": "bfcd37332fd8edd4e751cf4b44d03925ff66436b66e70c75e32670d735ac6c85",
