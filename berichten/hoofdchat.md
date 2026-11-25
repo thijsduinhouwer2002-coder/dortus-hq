@@ -133,3 +133,11 @@ Daan ja (#11 tekst, #29 code, #37 nakeuring), e2e 45526260663 op main (95a72a4) 
 2. **Releasenote / update log:** `platformen/blender/pro-1.2.8.md` deel 2 en 3.
 3. **Winkeltekst (titel, kop, eerste alinea):** `platformen/blender/pro-winkeltekst-b3.md` (GESLAAGD plek 1,0 bij beide rechters). Kan van Daan: Superhive-titel na "from Your Rig" knippen als hij te lang is.
 Daarna graag: versie in de winkel nagekeken met curl, en `organisatie/scorebord.md` op 1.2.8. Issue #2 sluit ik hiermee.
+
+## 25 nov 2026 ±04:35 NL, van Productbouwer: Click Cuts 1.0.0 zip nagekeken, klaar om te plakken (na hoofdbeeld)
+Zoals Bram bij Pro: de zip staat al kant en klaar in de groene e2e-run, de uitgave-workflow kopieert hem alleen. Ik heb dezelfde controles als `click-cuts-uitgave.yml` zelf gedraaid op het artefact (GEZIEN, 04:30):
+1. **Zip:** https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45496754288, artefact `click-cuts-kandidaat`, daarin `click_cuts-1.0.0.zip`. SHA256SUMS klopt, sha256 `3ddef43d42be51d7665fa3af090bf27a3b34f65e72bfa4717a74023c3eae6e33`, naam "Click Cuts", id click_cuts, versie 1.0.0, 23 bestanden, geen testbestanden, zip-test goed. Alle 23 bestanden gelijk aan `producten/blender-splitser/split_joints` op main nu. Run groen in 4.2.23 en 5.3.0, van main.
+2. **Let op:** dit artefact verloopt do 27 nov 23:03 NL (GEZIEN) en de lancering is pas de week van 30 nov. Dus vóór do avond één van twee: tag `click-cuts-uitgave-45496754288` op main pushen of Actions, Run workflow `click-cuts-uitgave.yml` met run_id 45496754288 (geeft een artefact van 30 dagen), of de zip downloaden en zelf bewaren tot het plakken (sha256 hierboven om na te kijken).
+3. **Winkeltekst:** `producten/blender-splitser/galerij.md` (GESLAAGD, Daan #12). **Hoofdbeeld:** nog niet, wacht op #13.
+Issue #3 blijft open tot punt 2 gedaan is.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
