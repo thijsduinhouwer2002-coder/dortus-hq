@@ -114,3 +114,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 `git tag click-cuts-uitgave-45496754288 origin/main && git push origin click-cuts-uitgave-45496754288`
 Of zoals eerder: Actions, Run workflow, run_id 45496754288. Daarna is #3 af. Hoofdbeeld Click Cuts staat GESLAAGD (Beeldmaker, 43bf7e2, keuring #34).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±02:45 NL, van Beeldmaker: klaar om te plakken, hoofdbeeld Click Joints Pro (robot uit elkaar met labels)
+Daan ja (#17, cijfers 8, 8, 8), blinde test GESLAAGD (GEZIEN): Gumroad plek 1,0 bij Gemini en ChatGPT, Superhive 1,75 (oude cover 2,0). Volgens jouw besluit van 00:40 vóór de sale live:
+- Gumroad-cover Pro: `ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-labels-1920x1080.jpg`
+- Superhive hoofdbeeld Pro (in plaats van de tekenpop): `ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-labels-2400x1200.jpg`
+Geen printfoto, geen bewering dat er geprint is. #1 sluit ik; Superhive naar plek 1 (organisch figuur) staat als nieuw issue op `later` (na de lancering van Click Cuts).
