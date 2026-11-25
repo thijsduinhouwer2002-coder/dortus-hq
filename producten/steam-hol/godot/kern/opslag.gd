@@ -17,6 +17,7 @@ static func bewaar(s) -> void:
 		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht, "helden_nr": s.helden_nr, "lied_helden": s.lied_helden,
 		"pensioen_namen": s.pensioen_namen, "speeltijd_s": s.speeltijd_s, "faam": s.faam, "rij": s.rij, "rij_t": s.rij_t, "gegraven": s.zelf_gegraven,
 		"uitleg": int(s.uitleg.stap) if s.uitleg != null else 4,
+		"gloop_les": bool(s.uitleg.gloop_gezien) if s.uitleg != null else s.uitleg_gloop,
 		"slijm": s.slijm.naar_dict() if s.slijm.has_method("naar_dict") else {},
 		"upgrades": s.hol.upgrades.naar_dict() if s.hol.upgrades != null else {},
 		"boek": s.boek.naar_dict() if s.boek != null else {}}
@@ -96,6 +97,7 @@ static func laad(s, begin) -> void:
 	s.faam = maxi(0, int(data.get("faam", 0)))
 	s.zelf_gegraven = maxi(0, int(data.get("gegraven", 0)))   # graafbonus (Sanne 16 nov 21:00); oude saves 0
 	s.uitleg_stap = clampi(int(data.get("uitleg", 4)), 0, 4)   # eerste minuut (kern/eerste_minuut.gd); oude saves: klaar
+	s.uitleg_gloop = bool(data.get("gloop_les", false))   # Gloop-les één keer (Daan #68); oude saves krijgen hem ook één keer
 	s.rij = maxi(0, int(data.get("rij", 0)))   # rij bij de ingang (Sanne 16 nov 16:00); oude saves 0
 	s.rij_t = float(data.get("rij_t", 0.0))   # oude saves vanaf 0 (hol-niveau 1); versie blijft gelijk
 	s.speeltijd_s = float(data.get("speeltijd_s", 0))   # demo-einde; oude saves vanaf 0, versie blijft 3

@@ -112,6 +112,17 @@ def bouw():
     hart = bpy.context.object; hart.name = "hart"
     bpy.ops.object.shade_smooth()
     hart.data.materials.append(gloei_mat("wit", "f4fff9", 4.0))
+    # witter hart vooraan (kan-punt Daan #68): vooraan staat de ring tegen Gloops eigen mint lijf en ging hij daar
+    # wat op. Een iets dikkere, wittere boog over de voorste helft houdt de voorkant los van zijn lijf.
+    import bmesh
+    bpy.ops.mesh.primitive_torus_add(major_radius=R, minor_radius=BUIS * 1.35, major_segments=128, minor_segments=16,
+                                     location=(0, 0, BUIS * 2.4))
+    boog = bpy.context.object; boog.name = "voorboog"
+    bm = bmesh.new(); bm.from_mesh(boog.data)
+    bmesh.ops.delete(bm, geom=[v for v in bm.verts if v.co.y > -0.35 * R], context="VERTS")
+    bm.to_mesh(boog.data); bm.free()
+    bpy.ops.object.shade_smooth()
+    boog.data.materials.append(gloei_mat("voorwit", "ffffff", 5.5))
     # gloed op de vloer
     bpy.ops.mesh.primitive_plane_add(size=2 * (R + 1.6), location=(0, 0, 0.005))
     waas = bpy.context.object; waas.name = "waas"

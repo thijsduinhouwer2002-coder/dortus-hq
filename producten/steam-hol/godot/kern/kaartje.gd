@@ -280,6 +280,8 @@ static func tik(s) -> void:
 	if s.slijm != null and s.slijm.has_method("zet_klaar") and s.slijm.ring_aan() != ring:
 		s.slijm.zet_klaar(ring)
 		s.log_regel("HOL gloop ring %s na %.1f s (goud %d)" % ["aan" if ring else "uit", float(s.t), s.hol.goud])
+		if ring and s.uitleg != null and s.uitleg.has_method("ring_aan"):
+			s.uitleg.ring_aan()   # de eerste keer: één keer "Click Gloop to grow him." met pijl (Daan #68)
 	# demolijst punt 3 (bewijs in het spel): de eerste keer dat je iets kunt kopen, als er nog niets gekocht is
 	if (klaar or not munt.is_empty()) and not s.eerste_koop_gemeld:
 		s.eerste_koop_gemeld = true

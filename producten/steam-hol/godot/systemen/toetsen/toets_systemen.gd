@@ -488,6 +488,14 @@ func _init() -> void:
 	ok(load("res://kunst/gloopmunt.png") != null, "gloopring: munt uit Blender staat erin")
 	ok(absf(GR.MUNT_MIDDEN.x) >= 5.0, "gloopring: munt naast de mond van Gloop (x %.1f)" % GR.MUNT_MIDDEN.x)
 	ok(GR.MUNT_MIDDEN.y >= 0.0 and GR.MUNT_MIDDEN.y + GR.MUNT_CEL / 2.0 <= GR.CEL_H / 2.0 + 1.5, "gloopring: munt staat vooraan op de ring")
+	# Gloop-les (Daan #68): de eerste keer dat de ring aangaat één keer de regel met pijl, weg na klik, ring uit of 20 s
+	var EM = load("res://kern/eerste_minuut.gd")
+	ok(EM.gloop_les_mag(false, EM.KLAAR, true), "gloop-les: eerste keer ring aan na de les")
+	ok(not EM.gloop_les_mag(true, EM.KLAAR, true), "gloop-les: nooit een tweede keer")
+	ok(not EM.gloop_les_mag(false, EM.VAL, true), "gloop-les: niet tijdens de eerste minuut (één regel tegelijk)")
+	ok(not EM.gloop_les_weg(5.0, "", true) and EM.gloop_les_weg(EM.GLOOP_MAX_S, "", true), "gloop-les: blijft tot 20 s")
+	ok(EM.gloop_les_weg(1.0, "slijm", true) and EM.gloop_les_weg(1.0, "", false), "gloop-les: weg na klik of als de ring uitgaat")
+	ok(EM.GLOOP_TEKST.length() <= 30, "gloop-les: regel kort (%d tekens)" % EM.GLOOP_TEKST.length())
 	var langste := 0
 	for st in ["slijm", "stekelput"]:
 		for stap in load("res://systemen/upgrades.gd").STAPPEN[st]:

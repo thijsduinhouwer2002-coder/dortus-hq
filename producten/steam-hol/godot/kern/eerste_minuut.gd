@@ -11,6 +11,10 @@ extends Node2D
 #   4 KLAAR   niets meer; het doel op het bord (kern/kaartje.gd doel_regel) neemt het over
 # Doet de speler 20 s niets bij stap 2 of 3, dan wipt de pijl één keer groter. Nooit een tweede regel.
 # Een bestaande save zonder "uitleg" telt als KLAAR (wie al speelde krijgt geen les).
+# Gloop-les (Daan #68, issue #62): de eerste keer dat Gloops ring aangaat (systemen/gloop_ring.gd) staat één keer
+# dezelfde regel met pijl op Gloop: "Click Gloop to grow him." Weg zodra hij op Gloop klikt (kaartje open), de ring
+# uitgaat, of na 20 s. Daarna nooit meer: de ring alleen zegt het dan. Zo leert de speler wat de ring betekent en
+# blijft het bord rustig (Thijs 25 nov). Bewaard als "gloop_les" in de save.
 
 const HOL := preload("res://hol/hol.gd")
 const FREDOKA := preload("res://kunst/letters/Fredoka.ttf")
@@ -25,6 +29,11 @@ const TEKST := {
 	GRAAF: "Click the dirt to dig.",
 	VAL: "Click the tunnel to set a trap.",
 }
+const GLOOP_TEKST := "Click Gloop to grow him."
+const GLOOP_MAX_S := 20.0
+
+var gloop_gezien := false      # de Gloop-les stond al eens in beeld (save "gloop_les")
+var gloop_t := -1.0            # >= 0: de Gloop-les staat nu in beeld, zo lang al
 
 var s                          # de strook
 var stap := KLAAR
@@ -52,6 +61,36 @@ func zet(strook, begin_stap: int) -> void:
 func actief() -> bool:
 	return stap != KLAAR
 
+# ---- Gloop-les: los te toetsen ----
+static func gloop_les_mag(gezien: bool, stap_: int, ring: bool) -> bool:
+	return ring and not gezien and stap_ == KLAAR
+
+static func gloop_les_weg(t_: float, kaart: String, ring: bool) -> bool:
+	return t_ >= GLOOP_MAX_S or kaart != "" or not ring
+
+# kern/kaartje.gd tik roept dit als de ring aangaat
+func ring_aan() -> void:
+	if not gloop_les_mag(gloop_gezien, stap, true):
+		return
+	gloop_gezien = true
+	gloop_t = 0.0
+	s.log_regel("HOL uitleg gloop aan t=%.1f %s" % [s.t, GLOOP_TEKST])
+	set_process(true)
+	queue_redraw()
+
+func _gloop_tik(delta: float) -> void:
+	gloop_t += delta
+	var ring: bool = s.slijm != null and s.slijm.has_method("ring_aan") and s.slijm.ring_aan()
+	if s.proef_uitleg_klik > 0.0 and gloop_t >= s.proef_uitleg_klik and s.kaart_soort == "":
+		s.log_regel("HOL uitleg gloop proefklik")
+		load("res://kern/kaartje.gd").open(s, "slijm")
+	if gloop_les_weg(gloop_t, s.kaart_soort, ring):
+		s.log_regel("HOL uitleg gloop weg t=%.1f na %.1f s (%s)" % [s.t, gloop_t,
+			"klik" if s.kaart_soort != "" else ("ring uit" if not ring else "tijd")])
+		gloop_t = -1.0
+		set_process(stap != KLAAR)
+	queue_redraw()
+
 func _log() -> void:
 	s.log_regel("HOL uitleg stap %d t=%.1f %s" % [stap, s.t, TEKST.get(stap, "")])
 
@@ -64,6 +103,8 @@ func _naar(n: int) -> void:
 	_log()
 	if stap == KLAAR:
 		set_process(false)
+		if s.slijm != null and s.slijm.has_method("ring_aan") and s.slijm.ring_aan():
+			ring_aan()   # de ring ging al aan tijdens de les: de Gloop-les nu
 	queue_redraw()
 
 func _gegraven(cel: Vector2i) -> void:
@@ -72,6 +113,9 @@ func _gegraven(cel: Vector2i) -> void:
 		_naar(VAL)
 
 func _process(delta: float) -> void:
+	if gloop_t >= 0.0:
+		_gloop_tik(delta)
+		return
 	stap_t += delta
 	match stap:
 		WELKOM:
@@ -141,23 +185,45 @@ func maat() -> int:
 	return maxi(12, 5 * int(s.schaal))   # 15 px op 120, 12 op 96, 20 op 160
 
 func _draw() -> void:
+	if gloop_t >= 0.0:
+		_teken_gloop()
+		return
 	if stap == KLAAR or stap == KIJK:
 		return
 	var t: String = TEKST.get(stap, "")
-	var m := maat()
-	var sc: float = s.schaal
-	var lucht: float = s.hol.position.y + HOL.OPP * sc   # hoogte van de lucht boven het gras, in vensterpixels
-	var tb := letter.get_string_size(t, HORIZONTAL_ALIGNMENT_LEFT, -1, m)
-	var ph := float(m) + 6.0
-	var py := maxf(0.0, lucht - ph - 1.0)
 	var pijl_x := -1.0
 	var vak := doel_vak()
+	var sc: float = s.schaal
 	if stap != WELKOM and vak.size.x > 0:
 		pijl_x = vak.position.x + vak.size.x / 2.0
 		# ademende gouden rand om het vak (1,2 s per keer, rustig: geen knipperen)
 		var a := 0.7 + 0.3 * sin(stap_t * TAU / 1.2)
 		draw_rect(vak.grow(-1.0), Color(1.0, 0.86, 0.42, 0.10 + 0.08 * a), true)
 		draw_rect(vak.grow(-sc * 0.5), Color(1.0, 0.86, 0.42, a), false, sc)
+	var groot := 1.0
+	if duw_t >= 0.0 and stap_t - duw_t < 0.8:
+		groot = 1.0 + 0.6 * sin((stap_t - duw_t) / 0.8 * PI)
+	_teken_plaat(t, pijl_x, vak.position.y if pijl_x >= 0.0 else 0.0, stap_t, groot)
+
+# Gloop-les: dezelfde plaat en pijl, de punt op de bovenkant van Gloop (met zijn hoeden), geen gouden vak (de ring is het vak)
+func _teken_gloop() -> void:
+	if s.slijm == null:
+		return
+	var sc: float = s.schaal
+	var KJ = load("res://kern/kaartje.gd")
+	var o: Vector2 = s.hol.position
+	var gx: float = o.x + float(s.slijm.position.x) * sc
+	var top: float = o.y + float(KJ.munt_top(s)) * sc - 2.0 * sc   # 2 spelpixels lucht boven zijn kruin
+	_teken_plaat(GLOOP_TEKST, gx, top, gloop_t, 1.0)
+
+# Plaat met de regel in de lucht boven het hol, en (pijl_x >= 0) een pijltje naar beneden tot doel_y (vensterpixels).
+func _teken_plaat(t: String, pijl_x: float, doel_y_in: float, tijd: float, groot: float) -> void:
+	var m := maat()
+	var sc: float = s.schaal
+	var lucht: float = s.hol.position.y + HOL.OPP * sc   # hoogte van de lucht boven het gras, in vensterpixels
+	var tb := letter.get_string_size(t, HORIZONTAL_ALIGNMENT_LEFT, -1, m)
+	var ph := float(m) + 6.0
+	var py := maxf(0.0, lucht - ph - 1.0)
 	# plaatje met de regel: naast de pijl, of midden boven het hol bij het welkom
 	var px: float
 	var hol_breed: float = (s.hol.max_kol + 1) * HOL.KOL * sc
@@ -179,16 +245,13 @@ func _draw() -> void:
 	draw_string(letter, Vector2(px + 6.0, py + ph / 2.0 + m * 0.36), t, HORIZONTAL_ALIGNMENT_LEFT, -1, m, Color("#ffe07a"))
 	if pijl_x >= 0.0:
 		# pijltje naar beneden in de lucht, wipt zacht 2 spelpixels; na 20 s niets één keer groter
-		var groot := 1.0
-		if duw_t >= 0.0 and stap_t - duw_t < 0.8:
-			groot = 1.0 + 0.6 * sin((stap_t - duw_t) / 0.8 * PI)
-		var wip := (0.5 + 0.5 * sin(stap_t * TAU / 0.9)) * 2.0 * sc
-		# De punt raakt de bovenkant van het gouden vak. Bij de val ligt dat vak een rij onder het pas gegraven
-		# kamertje: dan loopt een steel door het kamertje, zodat je niet eerst naar het kamertje kijkt (Daan #64 C3).
+		var wip := (0.5 + 0.5 * sin(tijd * TAU / 0.9)) * 2.0 * sc
+		# De punt raakt de bovenkant van het doel. Ligt dat onder de grond (een vak in de gang, of Gloop), dan loopt
+		# een steel door de grond, zodat je niet eerst naar het kamertje kijkt (Daan #64 C3).
 		var bw := 3.5 * sc * groot
 		var kop := 5.0 * sc * groot
 		var top := py + 1.0 + wip
-		var doel_y := maxf(lucht, vak.position.y) - 1.0
+		var doel_y := maxf(lucht, doel_y_in) - 1.0
 		var punt := maxf(top + kop, doel_y + wip * 0.5)
 		var kop_top := punt - kop
 		var donker := Color(0.13, 0.07, 0.05, 0.9)

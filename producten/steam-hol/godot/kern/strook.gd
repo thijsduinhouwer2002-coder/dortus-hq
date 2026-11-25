@@ -84,6 +84,7 @@ var kroniek: Array[String] = []
 var terugkomers: Array = []   # ontsnapte helden die terugkomen
 var held_script
 var uitleg                   # de eerste minuut: één doel met een pijl (kern/eerste_minuut.gd, Sanne 25 nov)
+var uitleg_gloop := false    # de Gloop-les stond al eens in beeld (kern/eerste_minuut.gd, save "gloop_les")
 var uitleg_stap := 0         # 0 = nieuw spel begint bij het welkom; laad() zet 4 (klaar) voor een oude save
 var proef_uitleg_klik := 0.0 # uitleg_klik=<s>: doe wat de regel zegt na s seconden (film en toets)
 var eerste_held_gedaan := false   # de eerste held van een nieuw spel valt altijd (balans.md, Sanne)
@@ -241,6 +242,7 @@ func _ready() -> void:
 	uitleg.name = "Uitleg"
 	add_child(uitleg)
 	uitleg.zet(self, 4 if demo else uitleg_stap)   # de demo-film koopt zelf; de Steam-demo krijgt wel de les
+	uitleg.gloop_gezien = uitleg_gloop or demo
 	DEMO_EINDE.bij_start(self)
 	hol.gegraven.connect(func(cel):
 		zelf_gegraven += 1   # graafbonus (Sanne 16 nov 21:00): alleen wat de speler graaft, de begingang telt niet

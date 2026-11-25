@@ -26,3 +26,13 @@ Iris: "je ziet dat Gloop iets bijzonders heeft, niet dat je hem kunt kopen. Half
 - `gloopring-munt-30s-ware-grootte.mp4`: 155 tot 185 s, met geluid. Ring en munt aan op 164,1 s bij 47 goud (log `HOL gloop ring aan na 164.1 s (goud 47)`).
 - `gloopring-munt-strip-ware-grootte.png` en `-2x.png`: 41 goud zonder ring, de klap die het goud brengt, ring en munt die opkomen, Gloop die knipoogt in de ring.
 - Toetsen 7 x 0 FOUT op Linux, 3 nieuwe voor de munt (staat erin, naast de mond, vooraan op de ring).
+
+## Gloop-les en witter hart vooraan (Mila, 25 nov ±15:05, keuring Daan #68)
+Daan: "Juist op het moment dat de speler iets moet doen, verliest hij de enige uitleg. Een ring leest als geselecteerd of sokkel, niet vanzelf als klik mij."
+- **Eén keer een les:** de eerste keer dat de ring aangaat staat dezelfde plaat met pijl als in de eerste minuut, met "Click Gloop to grow him." (concept tot Thijs hem schrijft). De pijl wijst van de lucht door de grond op Gloops kruin. Geen gouden vak: de ring is het vak. Weg zodra je op Gloop klikt (het kaartje gaat open), als de ring uitgaat, of na 20 s. Daarna nooit meer, ook niet na een herstart (save `gloop_les`). Niet tijdens de eerste minuut: komt de ring dan al, dan volgt de les als die klaar is.
+- **Witter hart vooraan (kan):** een iets dikkere witte boog over de voorste helft van de ring (`modellen/gloopring.py`, `voorboog`), zodat de voorkant niet opgaat in Gloops eigen mint.
+- **Bewijs (GEZIEN, Godot 4.3 Linux onder Xvfb, scherm 1024, `--write-movie --fixed-fps 20`, `vers=1 zaad=2 uitleg_klik=6 balk=0`):** op alle drie de hoogtes logt het spel `HOL uitleg gloop aan` op het moment dat de ring aangaat (120 en 96: 137,5 s bij 47 goud; 160: 131,7 s) en `HOL uitleg gloop weg ... na 6,0 s (klik)` als de proefspeler op Gloop klikt.
+  - `gloop-les-strip-96-*.png`, `-120-*.png`, `-160-*.png` (ware grootte en 2x): voor de ring, les in beeld, les met ring, na de klik het kaartje met Buy 45 en geen les meer. Op 96 blijft de voorkant van de ring onder zijn voet zichtbaar.
+  - `gloop-les-20s-ware-grootte.mp4`: 128 tot 148 s op strook 120.
+- Toetsen 7 x 0 FOUT op Linux, 6 nieuwe voor de les (eerste keer ja, tweede keer nooit, niet tijdens de eerste minuut, blijft tot 20 s, weg na klik of ring uit, regel kort).
+- Op 160 ligt de plaat 20 s lang over het bordje met de pijl naar de ingang; daarna is het weer vrij.
