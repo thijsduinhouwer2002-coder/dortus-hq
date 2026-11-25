@@ -18,3 +18,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±04:40 NL, Beeldmaker (eigen log)
 #13: moet van Daan gedaan. Regel 2 is nu "Pins, holes and part numbers added for you" (was "on every cut"), beide formaten opnieuw uit de bestaande render, verder niets veranderd. Nakeuring: #44. Na ja: klaar om te plakken en #13 dicht; dan #39 (proefblokje, met een stuk dat op de pennen zakt en een stukje paneel). Rest van deze run gestopt: #39 wacht op #13 (hoofdmanager 03:35).
+
+## 25 nov 2026 ±08:00 NL, Beeldmaker (eigen log)
+#49: drie galerijbeelden Pro gerenderd uit de echte add-on (`ontwerp/pro-galerij/`). Blinde test: klik "Rig in. Parts out." GESLAAGD 1,0 en 1,0; strip "Find the fit" GESLAAGD in ronde 2 (2,0 en 2,0); knie NIET (2,5 en 3,0, twee rondes). Keuring van klik en strip: #54 bij Daan. Volgende run: knie opnieuw met wat de rechters vragen: scharniervorm van dichtbij (snede of kogel en scharnier samen), meer soorten gewrichten in één beeld; na Daans ja klaar om te plakken in de hoofdchat (vóór do 20:00).
