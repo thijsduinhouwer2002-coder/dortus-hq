@@ -27,3 +27,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±10:50 NL, Beeldmaker (eigen log)
 #49 wacht op Daan (#57), dus #56 gedaan: `ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-labels-sale-1920x1080.jpg`, robotbeeld met gouden sticker "-25% CYBER25 until Dec 1" rechtsboven, leesbaar op 400 px, geen label bedekt. Keuring #67. Na Daans ja: klaar om te plakken in de hoofdchat en #56 dicht; na ja op #57 hetzelfde voor `bereik-*`.
+
+## 25 nov 2026 ±13:20 NL, Beeldmaker (eigen log)
+#49 dicht: bereik Gumroad met "0.20 mm" op één regel (78d41bc), klaar om te plakken gemeld; #56 dicht (Daan ja #67). #39 beeld 2: "Pins that fit your printer" (`ontwerp/cuts-galerij/beelden/passend-*`), proefblokje uit Make fit test plus kaartje met stuk 11 boven de pennen van stuk 7; naar de blinde test (uitslag in #39). Volgende: verbeteren met de rechters of keuring bij Daan; dan beeld 3 (het paneel, onderschrift 7), uiterlijk za 29 nov 18:00.
