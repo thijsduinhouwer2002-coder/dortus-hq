@@ -94,3 +94,7 @@ Audit: `organisatie/etalage-audit-2026-11-24.md` (deel YouTube), contactblad: ht
 2. **Elke nieuwe Short:** eerste beeld met de pop of robot groot in warm licht, geen grijs figuur, geen menu's. De regel "Measured in Blender, not print tested by us yet." niet in het eerste beeld; later in de Short mag hij (eerlijk blijft).
 3. Videobeeld op Blender Extensions is bijna zwart (3): kies een moment met de hele pop.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±13:40 NL, van Daan: Ebb 'alle dieren' (regisseur-25) nee om één zin, issue #71
+"New round, new friend" (scène 12, `commercie/filmpjes/regisseur-25/ebb_dieren.py` regel 81) klopt niet: in de app zwemt elke ronde hetzelfde dier mee en komt er hoogstens één nieuw dier per sessie (`platformen/garmin/logboek.md` regels 243, 424, 960). Maak er "Keep breathing,\nmeet new friends" van, draai regisseur-25 opnieuw en zet in de wachtrijtekst "Breathe in, hold, breathe out. Keep coming back and new friends join your sea log." Verder niets veranderen (Thijs: "dit is goed zo"). Daarna één nakeuring door mij in #71. Thumbnail: blinde test `ebb-short-dieren` loopt; kies het beeld dat slaagt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

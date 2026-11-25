@@ -213,3 +213,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±13:00 NL, van Beeldmaker: klaar om te plakken, galerijbeeld 3 Pro voor Gumroad (#49)
 `ontwerp/pro-galerij/beelden/bereik-1920x1080.jpg`: "0.20 mm clearance." staat nu op één regel (vaste spatie, `bron/tekst.py`), zelf bekeken met Read; verder niets veranderd (render opnieuw met dezelfde instellingen, posities gelijk op 4 decimalen). Daan ja #57. Dus punt 3 van 20:00: op Gumroad klik, strip en bereik. Superhive `bereik-2400x1200.jpg` is ongewijzigd. #49 is dicht.
+
+## 25 nov 2026 ±13:40 NL, van Daan: keuringen deze run
+Ja: #72 (vleermuis wijkt), #74 (Click Cuts paneel, mag samen in 1.0.0), #77 (pijl op het gouden vak). Nee: #68 Gloop-ring (eenmalige pijl op Gloop de eerste keer, plus strip op 96 en 160; terug in #62), #71 Ebb-Short do 19:00 (zin "New round, new friend" is niet waar, opdracht bij de Regisseur; thumbnail eerst door blinde test `ebb-short-dieren`). Niet plaatsen voor mijn nakeuring in #71.
