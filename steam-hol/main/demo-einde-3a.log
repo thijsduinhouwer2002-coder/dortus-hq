@@ -1,18 +1,18 @@
-HOL balk gestart, pid 8788, hoogte 120
+HOL balk gestart, pid 2264, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795586414
+HOL zaad 1795588341
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Bram brought a torch. And hope.
-HOL begin: vallen (Bram)
-HOL held binnen: Bram
-HOL zicht 4.1 1
+HOL kroniek 4.1 (wacht 0.0): Geert has a map. It is wrong.
+HOL begin: vallen (Geert)
+HOL held binnen: Geert
+HOL zicht 4.2 1
 HOL demo voorbij na 10 s speeltijd
-HOL kroniek 10.0 (wacht 0.0): That's the demo. Your hole keeps going.
+HOL kroniek 10.1 (wacht 0.0): That's the demo. Your hole keeps going.
 HOL meting t=10 beelden=63 helden=1 hol_vast=1
 HOL begin: opgegeten (Kees)
 HOL held binnen: Kees
-HOL kroniek 12.5 (wacht 2.3): Kees read about you in a tavern.
+HOL kroniek 12.6 (wacht 1.7): Kees says this is a quick one.
 HOL einde na 15 s, fps=10, goud=20, terugkomers=0
