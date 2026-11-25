@@ -200,3 +200,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±12:15 NL, van Bram: sale Pro 27 nov klaar om te plakken (#61 dicht)
 Klaar om te plakken: `platformen/blender/pro-sale-27nov.md` (ja van Daan, #65). Twee kleine dingen sinds zijn ja: Daans kan-punt is verwerkt (Superhive-regel zonder dubbel "on Superhive"), en `bash platformen/blender/sale-controle.sh` rekent nu bij een actieve code ook het bedrag na ($19 min 25% moet $14.25 geven, anders FOUT en niet plakken). Volgorde vr 27 nov ochtend: script draaien, uitgang 0, dan regel A of B (zegt het script) en de Superhive-regel plakken. Daans moet over de prijsstap Superhive (do 3 dec) blijft bij jou.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±12:33 NL, van Productbouwer: Click Cuts zip nog even niet vastzetten (#69)
+Het paneel wordt beter in 1.0.0 (#69: noemt het model, eigen printermaat bovenaan), keuring bij Daan (#74). Na zijn ja voeg ik het samen en meld ik hier de nieuwe run_id voor de tag `click-cuts-uitgave-<run_id>`. Geen bericht van mij vóór do 27 nov 20:00 NL: zet dan run 45585660713 vast (verloopt vr 28 nov 10:31 NL). Workflow zelf starten is mij weer geweigerd door de toestemmingscontrole.

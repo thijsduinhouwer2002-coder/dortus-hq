@@ -40,6 +40,21 @@ YouTube-zoekpagina met curl gelezen op 25 nov (zoektermen "cleave blender addon 
 
 Les: Cleave verkoopt 300+ met een eigen kanaal van korte lessen per moeilijkheid (beginner, complex, figuur in 20 delen). Wie van ons een film maakt (na `marketing/STOP`): dezelfde vorm, met ons figuur en "every part fits your bed". CatPin en Dovetail Key staan nog niet in deze lat; bij de volgende ronde nakijken of zij op Superhive of Gumroad beter verkopen dan SnapSplit.
 
+## Paneel (Productbouwer, 25 nov 2026, issue #69)
+Beelden van de concurrenten: hun eigen galerijbeelden op Superhive, met curl gehaald op 25 nov ±12:00 NL (GEZIEN): [Cleave paneel](https://assets.superhivemarket.com/store/productimage/1382774/image/xlarge-1d041584654c22028689b7890686595c.png), [Split 3D Print paneel](https://assets.superhivemarket.com/cache/9af983d5b14e527399aa19c4d3724b61.webp), [SnapSplit paneel](https://assets.superhivemarket.com/store/productimage/1346053/image/xlarge-36ed4672ca1765be503ff783a40e1ca6.jpg) en [SnapSplit Tolerance](https://assets.superhivemarket.com/cache/e42e1e74225221e8c84297a4736da3bc.png). Ons paneel: echte Blender 4.2.23 en 5.3.0 in de e2e, beelden in `producten/blender-splitser/keuring/beelden/2026-11-25-paneel-*.png`.
+
+| | Cleave | Split 3D Print | SnapSplit | Wij |
+|---|---|---|---|---|
+| Klikken tot de eerste snede | Scan Model (35 s in hun beeld), dan delen, naden, verbinders: minstens 3 (GOK, uit het beeld) | zelf een lijn tekenen (Draw Cut Line) of Automatic Detection: minstens 2 plus tekenen (GOK) | as kiezen, aantal delen, Planar Split: 3 (GEZIEN in het beeld) | **2: printer kiezen, Split to fit** (GEZIEN, e2e) |
+| Volgorde | genummerd 1 Part Finder tot 5 Export, inklapbaar, plus History | koppen in hoofdletters (Cut tools, Automatic tools, Connectors, Inspect, Repair, Export), geen nummers | Segmentation, Connections, Tolerance, Alignment, elk met More/Less | grote knop bovenaan, daaronder genummerd 1 tot 4 onder More settings |
+| Wat wordt gesneden | **naam en aantal vlakken bovenaan** ("TV_robot · 1,982,604 faces"), "15 parts · 1 piece" | niet in beeld | naam in de kop van de viewport | **sinds #69 ook:** "Statue: 500 faces" boven de knop (na Split: het dichte model, "Suzanne_watertight: 34,934 faces"); zonder model "Click your model in the viewport" in plaats van alleen een grijze knop |
+| Standaardwaarden | Simple/Advanced-knop | Fast/Expert-knop met één zin uitleg | Material PLA, tolerantie 0.00 | printer A1, pen 5 mm, speling 0.20 mm (of wat de Fit test strip gaf), meteen goed |
+| Uitleg bij hover | onbekend (GOK) | onbekend | onbekend | elke instelling; **sinds #69 ook printer en eigen maat** (die hadden geen uitleg) |
+| Foutmeldingen | "Last one took 35 s" | Mesh Check | tip in gewone woorden ("For tight fit, reduce...") | uitslag in een vak: "8 parts, all fit the bed", rood met reden, tijd en geheugen vooraf bij 1M+ vlakken |
+| Hulp | **"?"-knop** in de kop | "Where to find it" op de winkelpagina | geen | geen knop (nog geen hulppagina op dortus.com) |
+
+**Verbeterd in 1.0.0 (#69):** (1) het paneel noemt het model dat gesneden wordt, of zegt wat je moet doen als er geen is; (2) bij "Custom size" staan X, Y en Z meteen onder de printer, niet meer verstopt onder More settings stap 1; (3) uitleg bij hover voor printer en eigen maat. **Nog open:** een "?"-knop zoals Cleave, pas als er een hulppagina is.
+
 ## Gaten, op volgorde van geld
 1. **Hoofdbeeld en galerij** onder Cleave: Beeldmaker, vóór de uitgave (week van 30 nov).
 2. **Delen plat leggen**: Cleave doet het; zit sinds 25 nov in 1.0.0 (nog niets live, dus geen aparte 1.0.1). Dicht zodra de FAQ is aangepast.
