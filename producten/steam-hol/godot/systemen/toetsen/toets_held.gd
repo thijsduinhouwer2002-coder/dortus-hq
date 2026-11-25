@@ -526,20 +526,20 @@ func _init() -> void:
 	ok(absf(sl_b.plat_tot - sl_b.t - 20.0) < 0.01, "Bouncy Gloop: plat 20 s in plaats van 30 (%.1f)" % (sl_b.plat_tot - sl_b.t))
 	hol_b.free()
 
-	# Sanne toets 7 punt 2: de val duurt ±1 s en je ziet hem wegzakken (niet één beeld half doorzichtig)
+	# Sanne toets 7 punt 2: je ziet hem wegzakken (niet één beeld half doorzichtig); Iris #25: hij valt meteen, ±0,7 s (was ±1 s)
 	r = speel({"naam": "Bram", "bezoeken": 1, "wrok": "the Spike Pit", "moet_afgerekend": true, "zaad": 5})
-	ok(r.val_tijd >= 1.0 and r.val_tijd <= 1.3, "de val duurt ±1 s tot klaar() (%.2f s)" % r.val_tijd)
+	ok(r.val_tijd >= 0.65 and r.val_tijd <= 0.9, "de val duurt ±0,7 s tot klaar() (%.2f s)" % r.val_tijd)
 	ok(r.val_teken == "boos", "terugkomer op weg naar zijn put had het boze wolkje toen hij viel (%s)" % r.val_teken)
 	var hv := Node2D.new()
 	hv.set_script(load("res://systemen/held.gd"))
 	hv.val_teken = "boos"
 	var b0: Dictionary = hv.val_beeld(0.05)
-	var b1: Dictionary = hv.val_beeld(0.45)
-	var b2: Dictionary = hv.val_beeld(0.7)
-	var b3: Dictionary = hv.val_beeld(1.0)
+	var b1: Dictionary = hv.val_beeld(0.32)
+	var b2: Dictionary = hv.val_beeld(0.48)
+	var b3: Dictionary = hv.val_beeld(hv.VAL_WEG)
 	ok(int(b0.hop) < 0 and int(b0.zak) == 0, "eerst schrik: hop omhoog, nog niet gezakt (hop %d)" % b0.hop)
 	ok(int(b1.zak) > 0 and int(b1.zak) < int(b2.zak) and int(b2.zak) < 16, "dan zakt hij zichtbaar in stappen (%d, %d)" % [b1.zak, b2.zak])
-	ok(int(b3.zak) == 16, "op 1,0 s helemaal onder de vloer (%d)" % b3.zak)
+	ok(int(b3.zak) == 16, "op VAL_WEG (0,6 s) helemaal onder de vloer (%d)" % b3.zak)
 	ok(String(b0.teken) == "poef" and String(b3.teken) == "", "boze wolkje knapt als poef, daarna geen teken")
 	var hbeeld = load("res://systemen/held_beeld.gd")
 	var fasen: Array = []
@@ -1066,64 +1066,62 @@ func _init() -> void:
 		print("[held-toets] let op: geen kunst/3d/sprites.json, 3D-toetsen overgeslagen")
 	hol_3.free()
 
-	# Lopen in gelijke stappen (Daan 13 nov 17:35): op 10 beelden per s elke stap precies 1 hele pixel,
-	# op 20 per s om het andere beeld 1 pixel, en bij hapering (0,1 en 0,2 s door elkaar) nooit een halve pixel.
-	for fps in [10.0, 20.0, 15.0]:
+	# Lopen (#25, moet Daan #35): elke beeldwissel schuift precies stap_px uit sprites.json, het loopbeeld volgt de weg.
+	# Bij elk beeldtempo (10, 15, 20 fps en haperend) is elke verschuiving een heel aantal stappen, nooit een rest.
+	for fps in [10.0, 20.0, 15.0, 12.0]:
 		var hol_p := Node2D.new()
 		hol_p.set_script(load("res://systemen/toetsen/nep_hol.gd"))
 		var hp := Node2D.new()
 		hp.set_script(load("res://systemen/held.gd"))
 		hol_p.add_child(hp)
-		hp.start(hol_p, {"trek": "dapper"})
-		hp.trek = "dapper"
+		hp.start(hol_p, {"naam": "Pas", "trek": "dapper"})
 		var np := 0
 		while hp.staat != "lopen" and np < 2000:
 			hp.stap(1.0 / fps)
 			np += 1
-		var sprongen := {}
 		var heel := true
+		var beelden := {}
 		var x0: float = hp.position.x
-		for i in 30:
+		for i in int(fps * 6):
 			hp.stap(1.0 / fps)
 			if hp.staat != "lopen":
 				break
-			var dp: float = absf(hp.position.x - x0)
-			sprongen[dp] = true
-			heel = heel and is_equal_approx(hp.position.x, roundf(hp.position.x))
+			var n_st: float = absf(hp.position.x - x0) / float(hp.loop_stap)
+			heel = heel and absf(n_st - roundf(n_st)) < 0.01
+			beelden[hp.HELD_LOOP.beeld(hp)] = true
 			x0 = hp.position.x
-		if fps == 10.0:
-			ok(sprongen.keys() == [1.0], "pas: op 10 fps elke stap 1 pixel (%s)" % str(sprongen.keys()))
-		elif fps == 20.0:
-			ok(sprongen.has(1.0) and sprongen.has(0.0) and sprongen.size() == 2, "pas: op 20 fps 0 of 1 pixel (%s)" % str(sprongen.keys()))
-		ok(heel, "pas: op %d fps altijd hele pixels" % int(fps))
+		ok(heel, "loop: op %d fps elke verschuiving een heel aantal stappen van %.3f" % [int(fps), hp.loop_stap])
+		if fps == 12.0:
+			ok(beelden.size() == hp.loop_n and hp.loop_n == 6, "loop: alle 6 loopbeelden komen voorbij (%s)" % str(beelden.keys()))
 		hol_p.free()
-	# haperende beelden (0,099 en 0,101 s door elkaar, en 0,095 / 0,105): op 10 fps toch elke stap 1 pixel
+	# haperende beelden rond 12 per s (0,083 s plus of min): toch elke wissel precies 1 stap
 	for afw in [0.001, 0.005]:
 		var hol_q := Node2D.new()
 		hol_q.set_script(load("res://systemen/toetsen/nep_hol.gd"))
 		var hq := Node2D.new()
 		hq.set_script(load("res://systemen/held.gd"))
 		hol_q.add_child(hq)
-		hq.start(hol_q, {"trek": "dapper"})
-		hq.trek = "dapper"
+		hq.start(hol_q, {"naam": "Hap", "trek": "dapper"})
 		var nq := 0
 		while hq.staat != "lopen" and nq < 2000:
-			hq.stap(0.1)
+			hq.stap(1.0 / 12.0)
 			nq += 1
 		var spr := {}
 		var xq: float = hq.position.x
 		for i in 30:
-			hq.stap(0.1 - afw if i % 2 == 0 else 0.1 + afw)
-			if hq.staat != "lopen":
-				break
-			spr[absf(hq.position.x - xq)] = true
+			hq.stap(1.0 / 12.0 - afw if i % 2 == 0 else 1.0 / 12.0 + afw)
+			if hq.staat != "lopen" or hq.HELD_LOOP.pose(hq) != "":
+				xq = hq.position.x
+				continue
+			spr[snappedf(absf(hq.position.x - xq) / float(hq.loop_stap), 0.01)] = true
 			xq = hq.position.x
-		ok(spr.keys() == [1.0], "pas: haperend (%.3f s) toch elke stap 1 pixel (%s)" % [afw, str(spr.keys())])
+		ok(spr.keys().size() >= 1 and spr.keys().all(func(k): return k == 1.0 or k == 0.0), "loop: haperend (%.3f s) toch hooguit 1 stap per beeld (%s)" % [afw, str(spr.keys())])
 		hol_q.free()
 	# 3D-helden (Bram 13 nov): schakelaar standaard uit, standen, en het blad laadt lineair als het er is.
 	var HB3 = load("res://systemen/held_beeld.gd")
 	ok(HB3.met_3d == true, "3D-held: schakelaar staat aan (hoeden A, akkoord Daan 13 nov 20:50)")
-	ok(HB3.stand_3d("lopen", 0) == "stap1" and HB3.stand_3d("lopen", 1) == "rust" and HB3.stand_3d("lopen", 2) == "stap2", "3D-held: lopen stap1, rust, stap2")
+	ok(HB3.stand_3d("lopen", 0) == "stap1" and HB3.stand_3d("lopen", 5) == "stap6" and HB3.stand_3d("vluchten", 6) == "stap1", "3D-held: lopen stap1 tot stap6 in een kring")
+	ok(HB3.stand_3d("lopen", 1, 9.0, false) == "rust", "3D-held: oud blad zonder stap6 houdt stap1, rust, stap2, rust")
 	ok(HB3.stand_3d("vallen", 3) == "vallen" and HB3.stand_3d("klimmen", 2) == "rust", "3D-held: vallen en anders rust")
 	ok(HB3.stand_3d("vallen", 3, 0.05) == "schrik" and HB3.stand_3d("vallen", 3, HB3.VAL_RECHT) == "vallen", "3D-held: eerste deel van de val de stand schrik (rechtop), daarna de valstand")
 	ok(ceilf(load("res://kern/proef.gd").MOMENT_VAL_T * 15.0) / 15.0 < HB3.VAL_RECHT, "moment=val staat op 15 fps stil terwijl de held nog rechtop staat")
@@ -1201,32 +1199,116 @@ func _init() -> void:
 		ok(ri.has("kruin") and (ri["kruin"] as Array).size() == (ri["frames"] as Array).size(), "3D-hoed: kruin per stand van de ridder")
 		var e_h := float(hi.get("eenheid_px", 0)); var e_r := float(ri.get("eenheid_px", 1))
 		ok(absf(e_h / e_r - 1.3) < 0.01 and absf(float(hi.get("maal", 0)) - 1.3) < 0.001, "3D-hoed: hoedenblad op 1,3 keer de ridder, maal 1,3 in de info (%.3f)" % (e_h / e_r))
-	# keus b van Daan (13 nov 19:45): elke trek loopt 1 pixel per stap, vluchten 2, nooit een rest
-	for geval in [["hebzuchtig", "lopen", 1.0], ["opschepper", "lopen", 1.0], ["dapper", "vluchten", 2.0]]:
+	# Lopen per soort (#25, Sanne bouwblad A): snelheid = stap_px x 12, vluchten 1,5 keer zo snel; trek maakt niet meer uit
+	var snelheden := {}
+	for soort_t in ["", "ridder", "magier", "bard", "dief"]:
 		var hol_t := Node2D.new()
 		hol_t.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+		hol_t.schat_kol = 30
 		var ht := Node2D.new()
 		ht.set_script(load("res://systemen/held.gd"))
 		hol_t.add_child(ht)
-		ht.start(hol_t, {"trek": geval[0]})
-		ht.trek = geval[0]
+		ht.start(hol_t, {"naam": "Snel" + soort_t, "trek": "hebzuchtig", "soort_held": soort_t})
 		var nt := 0
 		while ht.staat != "lopen" and nt < 2000:
 			ht.stap(0.1)
 			nt += 1
-		if geval[1] == "vluchten":
-			ht.staat = "vluchten"
-			ht.position.x = hol_t.cel_naar_pos(Vector2i(10, 0)).x
-		var stappen_t := {}
-		var xt: float = ht.position.x
-		for i in 20:
+		var x_t: float = ht.position.x
+		var loop_t := 0.0
+		for i in 100:
+			var kijk_v: bool = ht.HELD_LOOP.pose(ht) == "kijk" or ht.HELD_LOOP.kijkt(ht)
 			ht.stap(0.1)
-			if ht.staat != geval[1]:
-				break
-			stappen_t[absf(ht.position.x - xt)] = true
-			xt = ht.position.x
-		ok(stappen_t.keys() == [geval[2]], "pas b: %s %s elke stap %d pixel (%s)" % [geval[0], geval[1], int(geval[2]), str(stappen_t.keys())])
+			if not kijk_v:
+				loop_t += 0.1
+		snelheden[soort_t] = (ht.position.x - x_t) / maxf(loop_t, 0.1)
 		hol_t.free()
+	print("[held-toets] loopsnelheid per soort (spelpx/s, zonder stilstaan): %s" % str(snelheden))
+	ok(absf(float(snelheden[""]) - 5.6) < 0.6 and absf(float(snelheden["ridder"]) - 3.9) < 0.5 and absf(float(snelheden["dief"]) - 7.5) < 0.8, "loop: gewoon ±5,6, ridder ±3,9, dief ±7,5 spelpx/s (Sanne A)")
+	ok(float(snelheden["ridder"]) < float(snelheden["bard"]) and float(snelheden["bard"]) < float(snelheden[""]) and float(snelheden[""]) < float(snelheden["dief"]), "loop: ridder < bard < gewoon < dief, je ziet het verschil")
+	# rondkijken en omdraaien (Sanne A, goob): elke 3 tot 6 s 1 s stil met het kijk-beeld; vluchten begint met het draai-beeld
+	var hol_kk := Node2D.new()
+	hol_kk.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+	hol_kk.schat_kol = 30
+	var hkk := Node2D.new()
+	hkk.set_script(load("res://systemen/held.gd"))
+	hol_kk.add_child(hkk)
+	hkk.start(hol_kk, {"naam": "Kijk", "trek": "hebzuchtig"})
+	var kijk_keer := 0
+	var was_kijk := false
+	var kijk_lang := 0.0
+	var kijk_nu := 0.0
+	var kijk_af := 0
+	var max_stil := 0.0
+	for i in 600:
+		var x_k: float = hkk.position.x
+		hkk.stap(1.0 / 30.0)
+		var is_kijk: bool = hkk.HELD_LOOP.pose(hkk) == "kijk"
+		if is_kijk and not was_kijk:
+			kijk_keer += 1
+		if is_kijk:
+			kijk_nu += 1.0 / 30.0
+			max_stil = maxf(max_stil, absf(hkk.position.x - x_k))
+		elif was_kijk:
+			kijk_lang += kijk_nu
+			kijk_af += 1
+			kijk_nu = 0.0
+		was_kijk = is_kijk
+	ok(kijk_keer >= 3 and kijk_keer <= 6, "kijken: in 20 s 3 tot 6 keer stilstaan (%d)" % kijk_keer)
+	ok(max_stil == 0.0 and kijk_af > 0 and absf(kijk_lang / kijk_af - 1.0) < 0.1, "kijken: dan staat hij echt stil, ±1 s per keer (%.2f s)" % (kijk_lang / maxf(kijk_af, 1)))
+	hkk.HELD_LOOP.draai(hkk)
+	ok(hkk.HELD_LOOP.pose(hkk) == "draai" and hkk.staat == "vluchten", "draaien: vluchten begint met het draai-beeld")
+	var x_d: float = hkk.position.x
+	hkk.stap(0.1)
+	ok(hkk.position.x == x_d, "draaien: tijdens het draai-beeld schuift hij niet")
+	hkk.stap(0.3)
+	ok(hkk.HELD_LOOP.pose(hkk) == "" and hkk.position.x < x_d, "draaien: daarna rent hij terug")
+	hol_kk.free()
+	# Een val doet altijd iets (#25, Sanne B): geen enkele held loopt over de put zonder te vallen of te springen
+	var over := 0
+	var gesprongen := 0
+	var gevallen_p := 0
+	var tekens_p := {}
+	for z in 300:
+		var soort_z: String = ["", "dief", "magier", "ridder", "bard"][z % 5]
+		var hol_v := Node2D.new()
+		hol_v.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+		hol_v.vallen[9] = "stekelput"
+		var hv2 := Node2D.new()
+		hv2.set_script(load("res://systemen/held.gd"))
+		hol_v.add_child(hv2)
+		uitkomst = ""
+		hv2.klaar.connect(_klaar)
+		hv2.start(hol_v, {"naam": "Val%d" % z, "bezoeken": 0, "wrok": "", "zaad": 7000 + z, "soort_held": soort_z})
+		var sprong_z := false
+		var val_z := false
+		var over_z := false
+		var put_l: float = 9 * 16
+		var put_r: float = 10 * 16
+		var na := 0
+		while uitkomst == "" and na < 20000:
+			hv2.stap(1.0 / 30.0)
+			na += 1
+			if hv2.spring_t >= 0.0:
+				if not sprong_z:
+					tekens_p[soort_z] = hv2.teken_nu()
+				sprong_z = true
+			if hv2.staat == "vallen":
+				val_z = true
+			# over de put gelopen: voeten op de vloer midden boven de put, zonder sprong of val
+			# ook terug bij vluchten: dan springt hij terug (zweetdruppel), nooit gewoon eroverheen
+			var boven_put: bool = hv2.spring_t < 0.0 and hv2.position.x > put_l + 4 and hv2.position.x < put_r - 4
+			if boven_put and ((hv2.staat == "lopen" and not sprong_z and not val_z) or hv2.staat == "vluchten"):
+				over_z = true
+		if over_z:
+			over += 1
+		if sprong_z:
+			gesprongen += 1
+		if val_z:
+			gevallen_p += 1
+		hol_v.free()
+	ok(over == 0, "val doet altijd iets: geen held loopt over de put zonder te vallen of te springen (%d)" % over)
+	ok(gesprongen + gevallen_p >= 300 and gesprongen > 0 and gevallen_p > 0, "val doet altijd iets: %d gevallen, %d gesprongen van 300" % [gevallen_p, gesprongen])
+	ok(String(tekens_p.get("dief", "")) == "streep" and String(tekens_p.get("magier", "")) == "oog" and String(tekens_p.get("ridder", "")) == "uitroep", "sprong: dief strepen, magier oog, ridder uitroep (%s)" % str(tekens_p))
 	# leven in het spel, punt 2 (hoofdchat 15 nov): de hoed vliegt van de held in een boog naar de toren en wiebelt na
 	var gv = Node2D.new()
 	gv.set_script(load("res://systemen/slijm.gd"))

@@ -39,14 +39,15 @@ signal klaar(held, uitkomst: String, info: Dictionary)
 # hoed met een hap als Gloop hem beet, tekens (8 x 8) boven het hoofd. Nooit schalen (halve pixels).
 const SOORT := preload("res://systemen/heldensoort.gd")      # ridder, dief, magiër, bard (versie 1); "" = zoals altijd
 const HELD_BEELD := preload("res://systemen/held_beeld.gd")   # lijf, littekens, hoed, wapen, teken en de val
+const HELD_LOOP := preload("res://systemen/held_loop.gd")
+const HELD_OPSLAG := preload("res://systemen/held_opslag.gd")   # naar_dict en herstel (bewaren midden in een loop)     # lopen: beeld volgt de afgelegde weg, kijken, draaien, springen (#25)
 const HOED_SOORTEN := 10        # Mila 21:55: 10 hoeden in held_hoeden.png en held_hoeden_hap.png
 const HOED_TOP := [0, 0, 2, 3, 2, 0, 0, 0, 2, 0]   # Mila 23:00 en 23:10: helm met kam vanaf rij 0, kroon 2 (hoed erboven zakt tussen de punten); bovenste pixel per hoed (helm, puntmuts, kap, pet, kroon, koksmuts, emmer, hoge hoed, pan, veermuts)
 const OOGLAP := 1
 const SCHRAM := 2                # ooglap en schram nooit samen (zelfde oog, Daan)
 
-const SNEL := 10.0           # spelpixels per seconde (was 11; Daan 13 nov: bij 10 beelden per s precies 1 pixel per stap)
-# Lopen in gelijke stappen (Daan 13 nov 17:35, "moet"): een held verschuift alleen op een vaste klok van PAS s en
-# altijd in hele spelpixels. Bij snelheid 1 is dat elke stap precies 1 pixel, hoe de beelden ook vallen (10 of 20 fps).
+const SNEL := 10.0           # afdalen en klimmen, spelpixels per seconde (lopen en vluchten: systemen/held_loop.gd, #25)
+# Afdalen en klimmen in gelijke stappen (Daan 13 nov 17:35): op een vaste klok van PAS s, altijd hele spelpixels.
 const PAS := 0.1
 const KANS := {"slijm": 0.45, "stekelput": 0.35}   # uit sim/ (Bram 9 nov), balans.md had 0,30 en 0,22
 const KANS_ANDERS := 0.25
@@ -59,9 +60,10 @@ const WAND_ER := false
 # De val zelf (Sanne toets 7 punt 2: "duurt één beeld"): schrik (hop van 2 pixels), dan zakt hij in hele pixels
 # weg onder de vloerlijn (bijgesneden, niet vervaagd en niet geschaald), het boze wolkje knapt als een poef.
 # klaar() komt pas als hij helemaal weg is, dus muntjes en regel vallen samen met het verdwijnen.
-const VAL_S := 1.1           # hele val, daarna klaar()
+# Iris (#7, #25): hij stond ±1 s op de pinnen; nu valt hij meteen: 0,2 s schrik, in 0,4 s weg (was 0,8).
+const VAL_S := 0.7           # hele val, daarna klaar()
 const VAL_SCHRIK := 0.2      # hop omhoog voordat hij zakt
-const VAL_WEG := 1.0         # op dit moment is hij helemaal onder de vloer
+const VAL_WEG := 0.6         # op dit moment is hij helemaal onder de vloer
 const VAL_TEKEN_S := 0.4     # zo lang staat het uitroepteken of de poef erboven
 
 var hol
@@ -90,6 +92,22 @@ var vloer := 36.0            # voeten op de vloer van de gang: uit hol.cel_naar_
 var kleur_nr := 0            # rij in held_lijf_kleuren.png, vast per naam
 var hoed_nr := 0
 var littekens: Array[int] = []
+# lopen (systemen/held_loop.gd, issue #25)
+var loop_stap := 1.0         # spelpixels per beeldwissel (stap_px uit sprites.json)
+var loop_fps := 10.0
+var loop_n := 4              # loopbeelden in een kring (6 bij een 3D-blad)
+var loop_klok := 0.25        # start een kwart beeld voor de grens, zodat haperende beelden niet afwisselend 0 en 2 wissels geven
+var afgelegd := 0.0          # spelpixels gelopen sinds hij begon te lopen of te vluchten: daaruit volgt het loopbeeld
+var kijk_tot := 0.0
+var volgende_kijk := 0.0
+var draai_tot := 0.0
+var spring_t := -1.0         # >= 0: in de sprong over een val
+var spring_van := 0.0
+var spring_naar := 0.0
+var spring_teken := ""
+var na_sprong := ""          # "vluchten": na de landing omdraaien
+var terug_gesprongen := {}   # kolommen met een val waar hij bij het vluchten al overheen terugsprong
+var rng_loop := RandomNumberGenerator.new()   # eigen dobbelsteen voor rondkijken, zodat de val-uitkomsten gelijk blijven
 
 func is_held() -> bool:
 	return true
@@ -115,60 +133,19 @@ func start(h, i: Dictionary) -> void:
 	position = Vector2(p.x, 2)
 	_kies_uiterlijk(naam)
 	_kies_doel()
+	rng_loop.seed = hash(naam + "#loop")
+	HELD_LOOP.kies(self)
 
 # Bewaren van een held die nog in het hol loopt (Olaf, kan-punt 00:40: bij wisselen van hoogte of afsluiten
 # verdween hij). naar_dict() geeft alleen JSON-veilige waarden (kleuren als tekst, rng.state als tekst want
 # JSON rekent met doubles); herstel(hol, d) zet hem precies terug, ook midden in een val. Roep herstel aan na
 # add_child (anders vindt hij de bewoners niet). Een held die al "weg" is geeft {}: niet bewaren.
 # Alleen de velden hieronder worden weer een Color of een heel getal; een nieuw kleurveld hier bijzetten.
-const KLEUR_VELDEN := ["kleur", "hoed"]
-const HEEL_VELDEN := ["bezoeken", "hoed_nr", "kleur_nr", "hoeden_bewoner", "zaad", "taai", "lied"]
-
 func naar_dict() -> Dictionary:
-	if staat == "weg":
-		return {}
-	var i := {}
-	for k in info.keys():
-		var v = info[k]
-		i[k] = (v as Color).to_html(false) if v is Color else v
-	return {"info": i, "staat": staat, "x": position.x, "y": position.y, "doel_kol": doel_kol, "vijand_kol": vijand_kol,
-		"klappen": klappen, "t": t, "geraakt_tot": geraakt_tot, "val_t": val_t, "val_teken": val_teken,
-		"gezien": gezien.keys(), "verdedigingen": verdedigingen, "rng": str(rng.state),
-		"dut_kol": dut_kol, "dut_tot": dut_tot, "pas_klok": pas_klok, "pas_rest": pas_rest}
+	return HELD_OPSLAG.naar_dict(self)
 
 func herstel(h, d: Dictionary) -> void:
-	var i: Dictionary = (d.get("info", {}) as Dictionary).duplicate()
-	for k in KLEUR_VELDEN:
-		if i.get(k) is String:
-			i[k] = Color(String(i[k]))
-	for k in HEEL_VELDEN:
-		if i.get(k) is float:
-			i[k] = int(i[k])
-	var gezien_v = i.get("gezien_vijand", null)
-	start(h, i)
-	if gezien_v != null:
-		info["gezien_vijand"] = gezien_v   # start() zet hem terug op false via _kies_doel
-	staat = String(d.get("staat", staat))
-	position = Vector2(float(d.get("x", position.x)), float(d.get("y", position.y)))
-	if not d.has("pas_rest"):
-		position = position.round()   # oude save: lopen ging toen in delen van een pixel
-	doel_kol = int(d.get("doel_kol", doel_kol))
-	vijand_kol = int(d.get("vijand_kol", vijand_kol))
-	klappen = int(d.get("klappen", 0))
-	t = float(d.get("t", 0.0))
-	geraakt_tot = float(d.get("geraakt_tot", 0.0))
-	val_t = float(d.get("val_t", 0.0))
-	val_teken = String(d.get("val_teken", ""))
-	gezien.clear()
-	for k in d.get("gezien", []):
-		gezien[int(k)] = true
-	verdedigingen = int(d.get("verdedigingen", 0))
-	dut_kol = int(d.get("dut_kol", dut_kol))
-	dut_tot = float(d.get("dut_tot", 0.0))
-	pas_klok = float(d.get("pas_klok", PAS / 4.0))
-	pas_rest = float(d.get("pas_rest", 0.0))
-	if d.has("rng"):
-		rng.state = String(d.rng).to_int()
+	HELD_OPSLAG.herstel(self, h, d)
 
 # Vast per naam (zaad = naam), zodat je Kees herkent als hij terugkomt.
 func _kies_uiterlijk(naam: String) -> void:
@@ -202,6 +179,8 @@ func is_gebeten() -> bool:
 
 # Welk teken boven zijn hoofd, "" voor geen. Eén tegelijk: boos > zweet > uitroep > ster.
 func teken_nu() -> String:
+	if spring_t >= 0.0:
+		return spring_teken    # sprong over een val: waarom hij niet viel (held_loop.gd)
 	if staat == "dutten":
 		return "zzz"           # slaapkop doet een dutje in je hol
 	if staat == "lopen" and vijand_kol >= 0:
@@ -256,6 +235,10 @@ func stap(delta: float) -> void:
 	passen = int(pas_klok / PAS + 0.0001)
 	pas_klok = maxf(0.0, pas_klok - passen * PAS)
 	var f := delta / echt if echt > 0.0 else 1.0   # snelheidsfactor van deze held
+	if spring_t >= 0.0:
+		HELD_LOOP.sprong_tik(self, echt)   # over een val heen (#25); daarna gewoon verder of omdraaien
+		queue_redraw()
+		return
 	match staat:
 		"afdalen":
 			position.y = move_toward(position.y, vloer, _px(f))
@@ -273,18 +256,9 @@ func stap(delta: float) -> void:
 				staat = "dutten"
 				info["dutje"] = true
 				return
-			var tempo := 1.25 if trek == "hebzuchtig" else (0.8 if trek == "opschepper" else 1.0)
-			# in stukjes van hooguit 8 pixels en na elk stukje kijken: na een hapering (één lang beeld) sprong hij
-			# anders in één keer over een hele kolom en dus over een val of Gloop heen (Bram 16 nov). Gewoon lopen
-			# (1 of 2 pixels per beeld) is één stukje, dus precies zoals hiervoor.
-			var rest := _px(tempo * f)
-			while true:
-				var stuk := minf(rest, 8.0)
-				position.x = move_toward(position.x, doel.x, stuk)
-				rest -= stuk
-				_onderweg()
-				if rest <= 0.0 or staat != "lopen" or absf(position.x - doel.x) < 0.5:
-					break
+			# lopen (#25): het loopbeeld volgt de weg, elke 3 tot 6 s even rondkijken (held_loop.gd)
+			if not HELD_LOOP.kijkt(self):
+				HELD_LOOP.loop(self, HELD_LOOP.wissels(self, echt, false), doel.x, true)
 			if staat == "lopen" and absf(position.x - doel.x) < 0.5:
 				_aangekomen()
 		"dutten":
@@ -292,7 +266,8 @@ func stap(delta: float) -> void:
 				staat = "lopen"   # wakker, verder (dezelfde kolom gooit hij niet nog eens)
 		"vluchten":
 			var terug: Vector2 = hol.cel_naar_pos(hol.ingang())
-			position.x = move_toward(position.x, terug.x, _px(1.5 * f))
+			if t >= draai_tot - HELD_LOOP.EPS:   # eerst het draai-beeld
+				HELD_LOOP.loop(self, HELD_LOOP.wissels(self, echt, true), terug.x, false)
 			if absf(position.x - terug.x) < 0.5:
 				staat = "klimmen"
 		"klimmen":
@@ -312,10 +287,8 @@ func stap(delta: float) -> void:
 				queue_free()
 	queue_redraw()
 
-# Hele pixels voor deze aanroep: per stap van de klok (PAS) een heel aantal spelpixels, nooit een rest (Daan 13 nov
-# 19:45, keus b). Factor x de gewone snelheid (SNEL, 1 pixel per stap) wordt afgerond, minstens 1: gewoon, hebzuchtig
-# (1,25), opschepper (0,8), ridder (0,75), dief (1,3) en demo 1,4 lopen 1 pixel per stap; vluchten (1,5) en demo 1,8
-# lopen 2. Een sprong van 2 tussen stappen van 1 las op ware grootte als haperen; karakter zit in het lopen zelf.
+# Hele pixels voor deze aanroep (afdalen en klimmen): per stap van de klok (PAS) een heel aantal spelpixels, nooit een
+# rest (Daan 13 nov 19:45, keus b). Lopen en vluchten gaan sinds 25 nov via systemen/held_loop.gd (stap_px per beeld).
 func _px(factor: float) -> float:
 	if passen == 0:
 		return 0.0
@@ -330,7 +303,7 @@ func _aangekomen() -> void:
 	# bij de schat: aanraken, niets pakken, wegrennen
 	info["hoard_toucher"] = true
 	info["wat"] = "touched your hoard, took nothing and ran"
-	staat = "vluchten"
+	HELD_LOOP.draai(self)
 	if SOORT.zingt(soort_held):
 		info["lied"] = SOORT.LIED_HELDEN
 
@@ -399,6 +372,8 @@ func _onderweg() -> void:
 			info["hoeden_bewoner"] = 0 if naar_wand or n == null else int(n)   # voor kroniek.hoed(naam, bewoner, aantal)
 		return
 	# overleefd: geraakt, wrok tegen dit ding; een bewoner die verliest is even plat
+	if soort != "":
+		HELD_LOOP.spring(self, round(hol.cel_naar_pos(cel).x))   # een val doet altijd iets: hij springt er zichtbaar overheen (#25)
 	klappen += 1
 	geraakt_tot = t + 0.5
 	info["laatst_geraakt"] = naam_vijand
@@ -421,7 +396,10 @@ func _onderweg() -> void:
 		rent = false
 	if rent:
 		info["wat"] = "got hurt by %s and ran" % naam_vijand
-		staat = "vluchten"
+		if spring_t >= 0.0:
+			na_sprong = "vluchten"   # eerst over de put heen, dan omdraaien
+		else:
+			HELD_LOOP.draai(self)
 		if SOORT.zingt(soort_held):
 			info["lied"] = SOORT.LIED_HELDEN   # bard: zingt over je hol, strook.gd laat er zoveel extra komen
 
