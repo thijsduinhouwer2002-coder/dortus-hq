@@ -2,6 +2,7 @@ extends RefCounted
 const VOORTGANG := preload("res://systemen/voortgang.gd")   # met_pensioen (Bram 04:35)
 const HOL_NIVEAU := preload("res://systemen/hol_niveau.gd")
 const GOUD_BASIS := 9   # goud per vangst zonder bonus (Sanne 25 nov, bouwblad I; was 6)
+const GOUD_DEMO := 6    # in de demo-film (demo=1) de oude basis, Daan #109 M1
 # Deel van kern/strook.gd (Olaf), losgehaald bij het opruimen van 10 nov (strook.gd was 650 regels).
 # Statische functies; `s` is de strook. Gedrag gelijk aan voor het splitsen (film.log gelijk).
 
@@ -101,7 +102,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		if s.get("reeks") != null:
 			s.reeks = reeks
 		# basis 9 (Sanne 25 nov, bouwblad I; was 6): koop 2 kwam 6 tot 8 min na koop 1 (Iris d27cfc3, GEZIEN)
-		var buit := GOUD_BASIS + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven)) + reeks_bonus(reeks)
+		# demo=1 (film) houdt de oude 6, zodat de gekeurde demo-film gelijk blijft (Daan #109 M1)
+		var buit := (GOUD_DEMO if bool(s.get("demo")) else GOUD_BASIS) + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven)) + reeks_bonus(reeks)
 		s.set_meta("laatste_vangst_t", s.t)   # droogte (kern/ritme.gd, bouwblad I)
 		s.hol.set_meta("droogte", false)
 		s.hol.set_meta("droogte_bezig", false)

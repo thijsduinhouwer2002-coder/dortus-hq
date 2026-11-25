@@ -8,3 +8,11 @@ d7.log kopen [83, 302, 465, 638] | vangsten 18 | gat zonder vangst min4-15 81 s 
 
 Voor (log van Iris, d27cfc3, zaad 3):
 producten/steam-hol/keuring-iris/build-d27cfc3-koper-zaad3.log kopen [201, 661] | vangsten 13 | gat zonder vangst min4-15 313 s | gat zonder koop 421 s | koop->vangst [352, 27] | koopgeluk-vangsten 0, droogte 0
+
+Ronde 2, Sanne 26 nov 2026: stap 3 kost 90 (was 160), zelfde args, Godot 4.3 Linux (GEZIEN). Logs in stap3-90/.
+d2 kopen [74, 307, 483, 534, 712, 900] | vangsten 22 | gat zonder vangst min4-15 65 s | gat zonder koop 188 s
+d3 kopen [82, 236, 403, 703] | vangsten 16 | gat zonder vangst min4-15 139 s | gat zonder koop 300 s
+d4 kopen [80, 279, 361, 555, 705] | vangsten 19 | gat zonder vangst min4-15 109 s | gat zonder koop 195 s
+d5 kopen [83, 226, 582, 666, 853] | vangsten 19 | gat zonder vangst min4-15 169 s | gat zonder koop 342 s
+d6 kopen [75, 323, 490, 715] | vangsten 17 | gat zonder vangst min4-15 96 s | gat zonder koop 225 s
+d7 kopen [83, 298, 534, 790] | vangsten 17 | gat zonder vangst min4-15 77 s | gat zonder koop 256 s

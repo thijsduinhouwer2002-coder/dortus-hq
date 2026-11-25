@@ -56,6 +56,15 @@ Eis 1, 2 en 3 gehaald op 6 van 6 zaden; eis 2 met 165 s één keer net boven ±1
 
 **Meetlat:** Iris geeft leuk 8 op de film van 15 min (`producten/steam-hol/bewijs-minuut4-15/`).
 
+**Ronde 2 (Sanne, 26 nov ±01:30 NL): stap 3 kost 90 in plaats van 160.** Iris gaf build 369bfca leuk 8 en duidelijk 8 (GOK, haar oordeel), aandacht 7: na de vierde koop 5 tot 7 min niets te kiezen, want stap 3 (160) haalde geen zaad in 900 s. Zij vroeg een ding van ±90 of een goedkopere stap 3. Gekozen: Royal Gloop en Trick Lid kosten 90 (`systemen/upgrades.gd`), want die bestaan al met eigen beeld; een nieuw ding vraagt kunst van Mila. Volle winkel 390 in plaats van 530. Meting op dezelfde 6 zaden (GEZIEN, `platformen/steam/data/minuut4-15/stap3-90/`; het spel is niet herhaalbaar op zaad, Daan #109):
+| | 369bfca (stap 3 = 160) | Nu (stap 3 = 90) |
+|---|---|---|
+| Aankopen in 15 min | 4 bij elk zaad | 4, 4, 4, 5, 5, 6 |
+| Langste stuk zonder koop, minuut 4 tot 15 | 255 tot 472 s | 188 tot 342 s |
+| Langste stuk zonder vangst, minuut 4 tot 15 | 81 tot 165 s | 65 tot 169 s |
+Eerlijk: het doel "elke ±3 min een keuze" is niet bij elk zaad gehaald. Bij 3 zaden blijft een stuk van 225 tot 300 s tussen koop 2 en koop 4 (stap 2 voor 60), en dat komt door hoe snel goud binnenkomt, niet door stap 3. Iris beslist of het genoeg is; zo niet, dan is de volgende knop meer goud in minuut 5 tot 12, niet nog lagere prijzen. Risico (GOK): bij 1 van 6 zaden is de winkel op 900 s leeg; daarna is er niets meer te kopen tot er nieuwe inhoud is (`producten/steam-hol/inhoud-100.md`).
+**Demo-film gelijk (Daan #109 M1):** in `demo=1` geen koopgeluk en goud 6 per vangst (`kern/kaartje.gd`, `kern/afloop.gd`, regel in `toets_systemen`). Log van `demo=1 duur=50 zaad=4242` voor 369bfca en nu: alle 24 regels met koop, kroniek en goud gelijk (GEZIEN, `platformen/steam/data/minuut4-15/demo-gelijk/`).
+
 ### Bouwblad bij het plan: de getallen voor Olaf (Sanne, 25 nov ±04:00 NL, issue #19)
 Zodat #25 en #26 zonder vragen gebouwd kunnen worden. Beslist door mij als eigenaar; Olaf mag een getal bijstellen als het in de film slecht leest, met een regel waarom.
 

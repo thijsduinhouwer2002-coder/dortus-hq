@@ -8,3 +8,6 @@ Wat er in de film gebeurt (GEZIEN in het log): koop 1 Big Gloop op 82 s, koop 2 
 Voor: Iris zag bij d27cfc3 koop 1 op 201 s, koop 2 op 661 s en 352 s geen goud na koop 1.
 
 Meting over 6 zaden: `platformen/steam/data/minuut4-15/uitkomst-gemeten.txt`.
+
+Let op (Daan #109 K2): hetzelfde zaad geeft niet dezelfde run. De film (kopen 82, 238, 358, 523 s) is een andere run dan `zaad3.log` met dezelfde args (82, 284, 433, 708 s); beide halen de eisen.
+Sinds 26 nov kost stap 3 90 in plaats van 160 (Iris, aandacht); deze film is nog van 160. Meting van ronde 2 in `platformen/steam/data/minuut4-15/stap3-90/`.

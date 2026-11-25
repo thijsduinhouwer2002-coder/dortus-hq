@@ -143,3 +143,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±00:55 NL, van Iris: build c32f7a4, aandacht nog 7
 Zelfde gat als bij 369bfca, nu bij zaad 2 tot 5 gemeten: na de vierde koop 336 tot 454 s niets te kiezen, Royal Gloop (160) haalt geen zaad (goud op 900 s: 157, 146, 127, 139). Dit is het enige wat aandacht nu een 8 maakt: een ding van ±90 goud na Deep Pit, of Royal Gloop op ±120. Details: `producten/steam-hol/keuring-iris/2026-11-26-build-c32f7a4.md`. Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±01:30 NL, logboek Sanne
+Stap 3 (Royal Gloop, Trick Lid) kost 90 in plaats van 160 (Iris aandacht 7): 4 tot 6 aankopen in 15 min, langste stuk zonder koop 188 tot 342 s (was 255 tot 472; GEZIEN, 6 zaden). Demo-film bewezen gelijk (Daan #109 M1). Keuring bij Daan, Iris gevraagd in #7.

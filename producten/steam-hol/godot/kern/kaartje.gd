@@ -172,7 +172,8 @@ static func koop(s) -> void:
 	elif soort == "stekelput" and s.hol.has_method("put_koop"):
 		s.hol.put_koop()
 	s.log_regel("HOL koop %.1f: %s niveau %d, goud %d" % [s.t, soort, up.niveau(soort), s.hol.goud])
-	s.hol.set_meta("koop_geluk", soort)   # de eerste held bij dit ding valt zeker (systemen/held_val.gd, bouwblad I)
+	if not s.demo:   # Daan #109 M1: de demo-film blijft zoals hij gekeurd is (geen koopgeluk in demo=1)
+		s.hol.set_meta("koop_geluk", soort)   # de eerste held bij dit ding valt zeker (systemen/held_val.gd, bouwblad I)
 	# het kaartje blijft 2,5 s staan met de nieuwe naam en Undo; de koopregel komt als het dichtgaat (dicht())
 	s.kaart_gekocht = true
 	s.kaart_regel = up.koop_regel(soort, s._bewoner())
@@ -193,6 +194,7 @@ static func undo(s) -> void:
 		s.slijm.upgrade_veranderd()   # terug naar zijn oude lijf, zonder feestje (Bram 03:25)
 	s.log_regel("HOL undo %.1f: %s niveau %d, goud %d" % [s.t, soort, up.niveau(soort), s.hol.goud])
 	s.hol.set_meta("koop_geluk", "")   # teruggedraaid: geen koopgeluk
+	# (Daan #109 K1) viel de koopgeluk-held al voor de Undo, dan blijft zijn dubbele goud: een gunst voor de speler, bewust
 	s.kaart_regel = ""   # Undo binnen de 2,5 s na Buy: de koopregel vervalt, alleen "undone"
 	dicht(s, false)
 	if soort == "slijm":

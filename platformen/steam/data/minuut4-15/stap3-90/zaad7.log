@@ -1,0 +1,385 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
+HOL start hoogte=120 schaal=3 spelpixels=640x40 venster=(1920, 120) pos=(320, 480) held=res://systemen/held.gd
+HOL zaad 7
+HOL balk uit
+HOL muisvlak passthrough, lucht vrij op x=-1
+HOL begin: vallen (Kees)
+HOL held binnen: Kees
+HOL zicht 2.4 1
+HOL kroniek 2.6 (wacht 0.4): Kees is here for your gold.
+HOL uitleg stap 1 t=4.2 
+HOL kroniek zelfde held vervangen: Kees is here for your gold.
+HOL kroniek 7.6 (wacht 0.0): Kees took the short way down. +9
+HOL zicht 7.8 0
+HOL begin: opgegeten (Jop)
+HOL held binnen: Jop
+HOL zicht 8.8 1
+HOL gegraven kolom 21 (zelf 1, graafbonus 0)
+HOL uitleg stap 2 t=9.2 Click the dirt to dig.
+HOL meting t=10 beelden=50 helden=1 hol_vast=3
+HOL kroniek 10.2 (wacht 2.6): First hero in the pit!
+HOL leven stofje t=10.2 x=328 y=26
+HOL kroniek vervallen 11.8: Jop says this is a quick one.
+HOL uitleg stap 3 t=15.2 Click the tunnel to set a trap.
+HOL gegraven kolom 22 (zelf 2, graafbonus 0)
+HOL uitleg proefklik (1080, 48): kamer
+HOL gegraven kolom 18 (zelf 3, graafbonus 0)
+HOL meting t=20 beelden=51 helden=1 hol_vast=7
+HOL uitleg proefklik (936, 93): val
+HOL uitleg stap 4 t=21.4 
+HOL leven vleermuis t=25.2 x=328 y=28
+HOL reeks 2 (+0, t 26.0)
+HOL kroniek 26.0 (wacht 0.0): Gloop ate Jop. Kept the crown. +9
+HOL zicht 26.2 0
+HOL gegraven kolom 20 (zelf 4, graafbonus 0)
+HOL kroniek 28.6 (wacht 2.6): First hero for Gloop!
+HOL begin: vluchten (Siem)
+HOL held binnen: Siem
+HOL zicht 29.8 1
+HOL meting t=30 beelden=49 helden=1 hol_vast=10
+HOL kroniek 31.2 (wacht 1.6): Siem read about you in a tavern.
+HOL leven goudstof t=33.4 x=468 y=30
+HOL gegraven kolom 17 (zelf 5, graafbonus 0)
+HOL kroniek zelfde held vervangen: Siem read about you in a tavern.
+HOL kroniek 40.6 (wacht 0.0): Siem ran. Swore revenge.
+HOL zicht 40.8 0
+HOL meting t=40 beelden=51 helden=0 hol_vast=13
+HOL kroniek 43.2 (wacht 2.6): First hero got away.
+HOL gegraven kolom 23 (zelf 6, graafbonus 0)
+HOL meting t=50 beelden=33 helden=0 hol_vast=14
+HOL leven stofje t=52.8 x=296 y=26
+HOL gegraven kolom 16 (zelf 7, graafbonus 0)
+HOL meting t=61 beelden=40 helden=0 hol_vast=17
+HOL gegraven kolom 18 (zelf 8, graafbonus 1)
+HOL kroniek zelfde held vervangen: Siem ran. Swore revenge.
+HOL kroniek 65.4 (wacht 0.0): Siem limps back to the Spike Pit.
+HOL begin: terug (Siem)
+HOL held binnen: Siem
+HOL zicht 65.6 1
+HOL leven goudstof t=69.2 x=468 y=30
+HOL meting t=71 beelden=44 helden=1 hol_vast=18
+HOL gegraven kolom 15 (zelf 9, graafbonus 1)
+HOL hol-niveau 2 (faam 3, t 74.2)
+HOL kroniek 74.2 (wacht 0.0): The Spike Pit wins round two. +13
+HOL put-hoed 6 naar de toren (hoeden nu 2, t 74.2)
+HOL zicht 74.4 0
+HOL gloop ring aan na 74.4 s (goud 51)
+HOL uitleg gloop aan t=74.4 Click Gloop to grow him.
+HOL eerste koop mogelijk na 74 s speeltijd (goud 51)
+HOL bordje wip niveau 2
+HOL uitleg gloop proefklik
+HOL kaartje open 80.4: slijm
+HOL uitleg gloop weg t=80.4 na 6.0 s (klik)
+HOL meting t=81 beelden=51 helden=0 hol_vast=24
+HOL gegraven kolom 17 (zelf 10, graafbonus 1)
+HOL koop 83.0: slijm niveau 1, goud 6
+HOL gloop ring uit na 83.2 s (goud 6)
+HOL leven stofje t=83.8 x=264 y=26
+HOL kaartje dicht 85.6
+HOL kroniek 85.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
+HOL gegraven kolom 14 (zelf 11, graafbonus 1)
+HOL meting t=91 beelden=46 helden=0 hol_vast=28
+HOL kroniek 93.6 (wacht 0.0): Ineke brought a torch. And hope.
+HOL begin: doorlopen (Ineke)
+HOL held binnen: Ineke
+HOL zicht 93.8 1
+HOL leven goudstof t=94.6 x=468 y=30
+HOL gegraven kolom 16 (zelf 12, graafbonus 1)
+HOL meting t=101 beelden=47 helden=1 hol_vast=29
+HOL leven stofje t=106.6 x=248 y=26
+HOL gegraven kolom 13 (zelf 13, graafbonus 1)
+HOL meting t=112 beelden=51 helden=1 hol_vast=32
+HOL gegraven kolom 15 (zelf 14, graafbonus 1)
+HOL kroniek 118.6 (wacht 0.0): Gloop is flat. Back soon.
+HOL meting t=122 beelden=51 helden=1 hol_vast=33
+HOL leven goudstof t=124.0 x=468 y=30
+HOL gegraven kolom 12 (zelf 15, graafbonus 1)
+HOL kroniek 127.2 (wacht 0.0): Pim climbs into your hole.
+HOL held binnen: Pim
+HOL kroniek 128.2 (wacht 0.4): Ineke is now the Hoard-Toucher.
+HOL meting t=132 beelden=51 helden=2 hol_vast=36
+HOL leven stofje t=133.8 x=216 y=26
+HOL gegraven kolom 14 (zelf 16, graafbonus 2)
+HOL meting t=142 beelden=51 helden=2 hol_vast=37
+HOL gegraven kolom 11 (zelf 17, graafbonus 2)
+HOL koopgeluk vangst +22 (t 148.4)
+HOL reeks 2 (+0, t 148.4)
+HOL kroniek zelfde held vervangen: Pim climbs into your hole.
+HOL kroniek 148.4 (wacht 0.0): Pim checked the floor. Too late. +22
+HOL put-hoed 3 naar de toren (hoeden nu 3, t 148.4)
+HOL kroniek 151.0 (wacht 2.4): Gloop is up again. Wobbly.
+HOL leven vleermuis t=151.2 x=216 y=28
+HOL meting t=152 beelden=51 helden=1 hol_vast=43
+HOL gegraven kolom 13 (zelf 18, graafbonus 2)
+HOL kroniek 158.6 (wacht 0.0): Rik has a map. It is wrong.
+HOL held binnen: Rik
+HOL meting t=163 beelden=51 helden=2 hol_vast=44
+HOL leven stofje t=163.2 x=200 y=26
+HOL kroniek 163.2 (wacht 0.0): Ineke the Hoard-Toucher ran.
+HOL gegraven kolom 10 (zelf 19, graafbonus 2)
+HOL gegraven kolom 12 (zelf 20, graafbonus 2)
+HOL meting t=173 beelden=51 helden=1 hol_vast=48
+HOL leven goudstof t=173.4 x=468 y=30
+HOL gegraven kolom 9 (zelf 21, graafbonus 2)
+HOL meting t=183 beelden=51 helden=1 hol_vast=51
+HOL leven vleermuis t=184.6 x=184 y=28
+HOL kroniek 187.8 (wacht 0.0): Gerda knocks first. Polite.
+HOL held binnen: Gerda
+HOL gegraven kolom 11 (zelf 22, graafbonus 2)
+HOL meting t=193 beelden=51 helden=2 hol_vast=52
+HOL leven goudstof t=195.0 x=468 y=30
+HOL gegraven kolom 8 (zelf 23, graafbonus 2)
+HOL meting t=203 beelden=51 helden=2 hol_vast=55
+HOL kroniek 209.0 (wacht 0.0): Rik left. Took nothing. Angry.
+HOL held binnen: Maud
+HOL gegraven kolom 10 (zelf 24, graafbonus 3)
+HOL kroniek 211.6 (wacht 2.4): Maud climbs into your hole.
+HOL meting t=214 beelden=51 helden=2 hol_vast=56
+HOL leven stofje t=214.6 x=152 y=26
+HOL gegraven kolom 7 (zelf 25, graafbonus 3)
+HOL droogte (t 223.6)
+HOL meting t=224 beelden=51 helden=2 hol_vast=59
+HOL gegraven kolom 9 (zelf 26, graafbonus 3)
+HOL leven goudstof t=230.0 x=468 y=30
+HOL meting t=234 beelden=51 helden=2 hol_vast=60
+HOL gegraven kolom 6 (zelf 27, graafbonus 3)
+HOL leven vleermuis t=242.6 x=136 y=28
+HOL hol-niveau 3 (faam 5, t 244.0)
+HOL kroniek zelfde held vervangen: Maud climbs into your hole.
+HOL kroniek 244.0 (wacht 0.0): Maud found the Spike Pit. Hard. +12
+HOL put-hoed 5 naar de toren (hoeden nu 4, t 244.0)
+HOL held binnen: Teun
+HOL bordje wip niveau 3
+HOL meting t=244 beelden=51 helden=2 hol_vast=64
+HOL gegraven kolom 8 (zelf 28, graafbonus 3)
+HOL kroniek 246.6 (wacht 2.4): Teun is here for your gold.
+HOL leven goudstof t=252.6 x=468 y=30
+HOL meting t=254 beelden=51 helden=2 hol_vast=67
+HOL gegraven kolom 5 (zelf 29, graafbonus 3)
+HOL kroniek 255.4 (wacht 0.0): Gerda fled. Grudge: the Spike Pit.
+HOL held binnen: Gerda
+HOL kroniek zelfde held vervangen: Gerda fled. Grudge: the Spike Pit.
+HOL kroniek 258.0 (wacht 2.4): Gerda remembers the Spike Pit.
+HOL gegraven kolom 7 (zelf 30, graafbonus 3)
+HOL meting t=265 beelden=51 helden=2 hol_vast=71
+HOL leven stofje t=265.8 x=104 y=26
+HOL gegraven kolom 4 (zelf 31, graafbonus 3)
+HOL meting t=275 beelden=51 helden=2 hol_vast=74
+HOL leven goudstof t=279.0 x=468 y=30
+HOL gegraven kolom 6 (zelf 32, graafbonus 3)
+HOL meting t=285 beelden=51 helden=2 hol_vast=75
+HOL kroniek zelfde held vervangen: Teun is here for your gold.
+HOL kroniek 289.4 (wacht 0.0): Teun fell to the Spike Pit. +12
+HOL put-hoed 8 naar de toren (hoeden nu 5, t 289.4)
+HOL held binnen: Bram
+HOL kroniek 292.0 (wacht 2.4): Bram says this is a quick one.
+HOL gegraven kolom 3 (zelf 33, graafbonus 3)
+HOL leven stofje t=292.6 x=72 y=26
+HOL meting t=295 beelden=51 helden=2 hol_vast=81
+HOL kaartje open 298.2: stekelput
+HOL koop 298.2: stekelput niveau 1, goud 7
+HOL kaartje dicht 300.8
+HOL kroniek 300.8 (wacht 0.0): The Spike Pit got rusty. Ouch.
+HOL gegraven kolom 5 (zelf 34, graafbonus 3)
+HOL meting t=305 beelden=51 helden=2 hol_vast=83
+HOL gegraven kolom 2 (zelf 35, graafbonus 3)
+HOL leven goudstof t=311.0 x=468 y=30
+HOL meting t=316 beelden=51 helden=2 hol_vast=86
+HOL gegraven kolom 4 (zelf 36, graafbonus 3)
+HOL meting t=326 beelden=51 helden=2 hol_vast=87
+HOL leven stofje t=328.4 x=56 y=26
+HOL gegraven kolom 1 (zelf 37, graafbonus 3)
+HOL meting t=336 beelden=51 helden=2 hol_vast=90
+HOL gegraven kolom 3 (zelf 38, graafbonus 3)
+HOL koopgeluk vangst +24 (t 339.0)
+HOL hol-niveau 4 (faam 7, t 339.0)
+HOL reeks 2 (+0, t 339.0)
+HOL kroniek zelfde held vervangen: Bram says this is a quick one.
+HOL kroniek 339.0 (wacht 0.0): Bram stays forever. +24
+HOL put-hoed 0 naar de toren (hoeden nu 6, t 339.0)
+HOL held binnen: Odo
+HOL bordje wip niveau 4
+HOL kroniek 341.6 (wacht 0.2): Gerda escaped with a limp.
+HOL kroniek vervallen 342.4: Odo has a map. It is wrong.
+HOL leven goudstof t=346.4 x=468 y=30
+HOL meting t=346 beelden=51 helden=1 hol_vast=94
+HOL gegraven kolom 24 (zelf 39, graafbonus 3)
+HOL gegraven kolom 25 (zelf 40, graafbonus 3)
+HOL meting t=356 beelden=51 helden=1 hol_vast=96
+HOL leven stofje t=359.8 x=40 y=26
+HOL gegraven kolom 26 (zelf 41, graafbonus 3)
+HOL meting t=367 beelden=51 helden=1 hol_vast=97
+HOL kroniek 371.6 (wacht 0.0): Wout the Thief tiptoes in.
+HOL held binnen: Wout
+HOL leven goudstof t=374.2 x=468 y=30
+HOL meting t=377 beelden=51 helden=2 hol_vast=97
+HOL meting t=387 beelden=51 helden=2 hol_vast=97
+HOL leven stofje t=393.8 x=40 y=26
+HOL meting t=397 beelden=51 helden=2 hol_vast=97
+HOL meting t=407 beelden=51 helden=2 hol_vast=97
+HOL leven goudstof t=413.4 x=468 y=30
+HOL droogte (t 414.2)
+HOL kroniek zelfde held vervangen: Wout the Thief tiptoes in.
+HOL kroniek 416.2 (wacht 0.0): Wout picked the wrong floor. +12
+HOL put-hoed 9 naar de toren (hoeden nu 7, t 416.2)
+HOL held binnen: Mara
+HOL meting t=418 beelden=51 helden=2 hol_vast=100
+HOL kroniek 418.8 (wacht 2.6): The pit's first thief.
+HOL kroniek vervallen 419.6: Mara the Spiteful is here.
+HOL meting t=428 beelden=51 helden=2 hol_vast=100
+HOL leven stofje t=432.2 x=40 y=26
+HOL kroniek 437.6 (wacht 0.0): Odo fled, crying a little.
+HOL meting t=438 beelden=51 helden=1 hol_vast=100
+HOL leven goudstof t=443.0 x=468 y=30
+HOL kroniek 448.2 (wacht 0.0): Femke sneaks in. Nobody saw. You saw.
+HOL held binnen: Femke
+HOL meting t=448 beelden=51 helden=2 hol_vast=100
+HOL leven stofje t=456.0 x=40 y=26
+HOL meting t=458 beelden=51 helden=2 hol_vast=100
+HOL meting t=469 beelden=51 helden=2 hol_vast=100
+HOL leven goudstof t=474.0 x=468 y=30
+HOL kroniek 476.2 (wacht 0.0): Mara holds a grudge. Down there. +12
+HOL put-hoed 2 naar de toren (hoeden nu 8, t 476.2)
+HOL held binnen: Elke
+HOL kroniek 478.8 (wacht 1.4): Elke picks the lock. It was open.
+HOL meting t=479 beelden=51 helden=2 hol_vast=103
+HOL leven stofje t=485.4 x=40 y=26
+HOL meting t=489 beelden=51 helden=2 hol_vast=103
+HOL meting t=499 beelden=51 helden=2 hol_vast=103
+HOL leven goudstof t=504.8 x=468 y=30
+HOL meting t=509 beelden=51 helden=2 hol_vast=103
+HOL leven stofje t=515.4 x=40 y=26
+HOL meting t=520 beelden=51 helden=2 hol_vast=103
+HOL reeks 2 (+0, t 525.2)
+HOL kroniek zelfde held vervangen: Elke picks the lock. It was open.
+HOL kroniek 525.2 (wacht 0.0): Nobody saw Elke fall. You saw. +12
+HOL put-hoed 8 naar de toren (hoeden nu 9, t 525.2)
+HOL gloop ring aan na 525.4 s (goud 67)
+HOL held binnen: Lotte
+HOL leven goudstof t=526.8 x=468 y=30
+HOL kroniek 527.8 (wacht 2.4): Lotte knocks first. Polite.
+HOL kroniek 529.0 (wacht 0.0): Femke escaped. You saw that too.
+HOL meting t=530 beelden=51 helden=1 hol_vast=106
+HOL kroniek 531.6 (wacht 2.6): A thief got away. Next time.
+HOL held binnen: Kobus
+HOL kaartje open 533.8: slijm
+HOL koop 533.8: slijm niveau 2, goud 7
+HOL gloop ring uit na 534.0 s (goud 7)
+HOL kaartje dicht 536.4
+HOL kroniek vervallen 536.4: Kobus read about you in a tavern.
+HOL kroniek 536.4 (wacht 0.0): Gloop bounces now. Back up in 40 s.
+HOL leven stofje t=540.0 x=40 y=26
+HOL meting t=540 beelden=51 helden=2 hol_vast=106
+HOL meting t=550 beelden=51 helden=2 hol_vast=106
+HOL leven goudstof t=553.0 x=468 y=30
+HOL meting t=560 beelden=51 helden=2 hol_vast=106
+HOL leven stofje t=570.8 x=40 y=26
+HOL meting t=571 beelden=51 helden=2 hol_vast=106
+HOL meting t=581 beelden=51 helden=2 hol_vast=106
+HOL leven goudstof t=584.6 x=468 y=30
+HOL koopgeluk vangst +24 (t 585.2)
+HOL kroniek 585.2 (wacht 0.0): Lotte will not be leaving. +24
+HOL put-hoed 4 naar de toren (hoeden nu 10, t 585.2)
+HOL held binnen: Fenna
+HOL kroniek 587.8 (wacht 2.4): Fenna is here for a story.
+HOL meting t=591 beelden=51 helden=2 hol_vast=109
+HOL leven stofje t=598.2 x=40 y=26
+HOL meting t=601 beelden=51 helden=2 hol_vast=109
+HOL meting t=611 beelden=51 helden=2 hol_vast=109
+HOL leven goudstof t=617.8 x=468 y=30
+HOL meting t=622 beelden=51 helden=2 hol_vast=109
+HOL kroniek 629.4 (wacht 0.0): Kobus fled. Grudge: the Spike Pit.
+HOL held binnen: Anouk
+HOL kroniek 632.0 (wacht 2.4): Anouk casts Light. It is a candle.
+HOL meting t=632 beelden=51 helden=2 hol_vast=109
+HOL leven stofje t=635.0 x=40 y=26
+HOL kroniek 641.6 (wacht 0.0): Fenna took a nap in your hole.
+HOL meting t=642 beelden=51 helden=2 hol_vast=109
+HOL leven goudstof t=646.0 x=468 y=30
+HOL meting t=652 beelden=51 helden=2 hol_vast=109
+HOL hol-niveau 5 (faam 12, t 658.6)
+HOL kroniek zelfde held vervangen: Fenna took a nap in your hole.
+HOL kroniek 658.6 (wacht 0.0): The ballad of Fenna: one verse. +12
+HOL put-hoed 5 naar de toren (hoeden nu 11, t 658.6)
+HOL bordje wip niveau 5
+HOL kroniek 661.2 (wacht 2.6): First bard in the pit!
+HOL meting t=662 beelden=51 helden=1 hol_vast=112
+HOL leven stofje t=663.0 x=40 y=26
+HOL kroniek 667.0 (wacht 0.0): Henk brought a torch. And hope.
+HOL held binnen: Henk
+HOL meting t=673 beelden=51 helden=2 hol_vast=112
+HOL leven goudstof t=677.4 x=468 y=30
+HOL meting t=683 beelden=51 helden=2 hol_vast=112
+HOL meting t=693 beelden=51 helden=2 hol_vast=112
+HOL leven stofje t=693.6 x=40 y=26
+HOL meting t=703 beelden=51 helden=2 hol_vast=112
+HOL leven goudstof t=706.4 x=468 y=30
+HOL meting t=713 beelden=51 helden=2 hol_vast=112
+HOL meting t=724 beelden=51 helden=2 hol_vast=112
+HOL leven stofje t=726.0 x=40 y=26
+HOL reeks 2 (+0, t 726.8)
+HOL kroniek zelfde held vervangen: Henk brought a torch. And hope.
+HOL kroniek 726.8 (wacht 0.0): Henk left gold and one boot. +12
+HOL put-hoed 2 naar de toren (hoeden nu 12, t 726.8)
+HOL held binnen: Ineke
+HOL kroniek 729.4 (wacht 2.4): Ineke the Hoard-Toucher is back for Gloop.
+HOL meting t=734 beelden=51 helden=2 hol_vast=115
+HOL leven goudstof t=737.0 x=468 y=30
+HOL meting t=744 beelden=51 helden=2 hol_vast=115
+HOL leven stofje t=749.8 x=40 y=26
+HOL meting t=754 beelden=51 helden=2 hol_vast=115
+HOL leven goudstof t=762.4 x=468 y=30
+HOL meting t=764 beelden=51 helden=2 hol_vast=115
+HOL kroniek 774.8 (wacht 0.0): Anouk vanished. Took the stairs.
+HOL held binnen: Joost
+HOL meting t=775 beelden=51 helden=2 hol_vast=115
+HOL kroniek 777.4 (wacht 2.6): First wizard got away.
+HOL kroniek vervallen 778.0: Joost the Thief tiptoes in.
+HOL leven stofje t=778.2 x=40 y=26
+HOL kroniek 781.6 (wacht 0.0): Ineke is part of the hole now. +15
+HOL put-hoed 6 naar de toren (hoeden nu 13, t 781.6)
+HOL held binnen: Rik
+HOL kroniek 784.2 (wacht 2.4): Rik is back for the Spike Pit.
+HOL meting t=785 beelden=51 helden=2 hol_vast=118
+HOL kaartje open 789.8: stekelput
+HOL koop 789.8: stekelput niveau 2, goud 10
+HOL kaartje dicht 792.4
+HOL kroniek 792.4 (wacht 0.0): The pit got deeper. Echo, echo.
+HOL leven goudstof t=793.0 x=468 y=30
+HOL meting t=795 beelden=51 helden=2 hol_vast=119
+HOL meting t=805 beelden=51 helden=2 hol_vast=119
+HOL leven stofje t=810.6 x=40 y=26
+HOL meting t=815 beelden=51 helden=2 hol_vast=119
+HOL koopgeluk vangst +24 (t 819.6)
+HOL reeks 2 (+0, t 819.6)
+HOL kroniek 819.6 (wacht 0.0): Joost picked the wrong floor. +24
+HOL put-hoed 1 naar de toren (hoeden nu 14, t 819.6)
+HOL held binnen: Femke
+HOL kroniek 822.2 (wacht 2.4): Femke remembers the Spike Pit.
+HOL meting t=826 beelden=51 helden=2 hol_vast=122
+HOL leven goudstof t=828.8 x=468 y=30
+HOL reeks 3 (+1, t 833.6)
+HOL kroniek 833.6 (wacht 0.0): Rik came back. The Spike Pit won. +16
+HOL put-hoed 8 naar de toren (hoeden nu 15, t 833.6)
+HOL meting t=836 beelden=51 helden=1 hol_vast=125
+HOL meting t=846 beelden=51 helden=1 hol_vast=125
+HOL leven stofje t=848.0 x=40 y=26
+HOL kroniek 848.2 (wacht 0.0): Merel says this is a quick one.
+HOL held binnen: Merel
+HOL meting t=856 beelden=51 helden=2 hol_vast=125
+HOL hol-niveau 6 (faam 17, t 861.6)
+HOL reeks 4 (+2, t 861.6)
+HOL kroniek 861.6 (wacht 0.0): Femke left gold and one boot. +17
+HOL put-hoed 8 naar de toren (hoeden nu 16, t 861.6)
+HOL bordje wip niveau 6
+HOL leven goudstof t=865.6 x=468 y=30
+HOL meting t=866 beelden=51 helden=1 hol_vast=128
+HOL meting t=877 beelden=51 helden=1 hol_vast=128
+HOL kroniek 877.4 (wacht 0.0): Geert is here for your gold.
+HOL held binnen: Geert
+HOL leven stofje t=882.6 x=40 y=26
+HOL meting t=887 beelden=51 helden=2 hol_vast=128
+HOL leven goudstof t=892.6 x=468 y=30
+HOL meting t=897 beelden=51 helden=2 hol_vast=128
+HOL einde na 900 s, fps=102, goud=67, terugkomers=0
