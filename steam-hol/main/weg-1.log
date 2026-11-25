@@ -1,24 +1,24 @@
-HOL balk gestart, pid 8148, hoogte 120
-HOL weg geweest 28804 s (klok terug: false): goud voor 26, helden 115, erbij 559, hoeden 47
-HOL weg faam afgekapt 4 van 74 (hooguit 2 niveaus)
+HOL balk gestart, pid 2924, hoogte 120
+HOL weg geweest 28802 s (klok terug: false): goud voor 26, helden 115, erbij 541, hoeden 37
+HOL weg faam afgekapt 4 van 71 (hooguit 2 niveaus)
 HOL hol-niveau 2 (faam 5, t 0.0)
 HOL hol-niveau 3 (faam 5, t 0.0)
-HOL hoeden van de nacht 47 (vallen vanaf 1.0 s, toren nu 0)
-HOL berg zichtbaar 0 -> 7
-HOL kroniek 0.0 (wacht 0.0): 115 came, 74 fell, 47 hats. +559 gold.
+HOL hoeden van de nacht 37 (vallen vanaf 1.0 s, toren nu 0)
+HOL berg zichtbaar 0 -> 6
+HOL kroniek 0.0 (wacht 0.0): 115 came, 71 fell, 37 hats. +541 gold.
 HOL optocht wip, geen poef; helden [3]; duur 0.0 s
-HOL opslag geladen: 0 terugkomers, 585 goud, faam 5
+HOL opslag geladen: 0 terugkomers, 567 goud, faam 5
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795608374
+HOL zaad 1795608424
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 585)
-HOL eerste koop mogelijk na 15 s speeltijd (goud 585)
+HOL gloop ring aan na 0.1 s (goud 567)
+HOL eerste koop mogelijk na 15 s speeltijd (goud 567)
 HOL bordje wip na weg (niveau 3)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vluchten (Mara)
-HOL held binnen: Mara
+HOL begin: vluchten (Ineke)
+HOL held binnen: Ineke
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Mara read about you in a tavern.
+HOL kroniek 2.5 (wacht 0.5): Ineke says this is a quick one.
 HOL meting t=10 beelden=100 helden=1 hol_vast=10
-HOL einde na 15 s, fps=10, goud=585, terugkomers=0
+HOL einde na 15 s, fps=10, goud=567, terugkomers=0
