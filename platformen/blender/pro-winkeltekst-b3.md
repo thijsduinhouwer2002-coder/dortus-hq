@@ -22,6 +22,21 @@ Press one button and your rigged character becomes a printable, poseable figure:
 ```
 De rest van de pagina blijft zoals in `pro-1.2.8.md` (blok "New in Pro 1.2.8" en verder).
 
+## 3b. Regel "Try it free first" (direct onder de eerste alinea, Gumroad en Superhive; Bram 25 nov, issue #50, lat gat 2)
+```
+Try it free first: the free Click Joints on Blender Extensions makes ball and pin joints, one at a time, and shows how far each one bends. Hinges with end stops, Figure from rig and the Fit test strip are in Pro only. https://extensions.blender.org/add-ons/click-joints/
+```
+Waarom (geld): JointLab zet "USE ONLINE, FREE" naast de koopknop en Split 3D Print heeft een $0-variant (lat gat 2, GEZIEN). Wie twijfelt over $19 kan eerst zien dat het werkt; de gratis versie heeft 375 downloads (GEZIEN, `producten/blender-gewrichten/taken.md`), dus het lijntje terug naar Pro loopt ook die kant op. Effect op verkoop: GOK.
+
+Feiten (nagekeken 25 nov ±08:15 NL met curl):
+- Link geeft 200 en toont Click Joints 0.1.1, "Add-on by Thijs-Dortus" (GEZIEN).
+- Gratis: kogel of pen en gat op de 3D-cursor, één gewricht per klik ("Set the 3D cursor where the joint goes, click Place joint"), buigbereik in graden, passingkleur, export STL of 3MF (GEZIEN op de pagina).
+- Alleen Pro: scharnier met eindstop (`click_joints/betaald/scharnier.py`), Figure from rig (`click_joints/betaald/rig.py`), Fit test strip (`click_joints/betaald/testkaart.py`); ontwerp.md regel 30 en 40 (GEZIEN in de code).
+- Geen belofte dat gratis hetzelfde is: de tweede zin noemt wat ontbreekt.
+- Regels van extensions.blender.org gaan over de gratis add-on zelf (geen verwijzing naar Pro daarin); een link van Pro naar gratis mag.
+
+Let op voor Superhive: de variant Lite ($3) is dezelfde code als de gratis versie. Met deze regel ziet een koper dat Lite gratis te krijgen is; dat is eerlijk en zo bedoeld. Lite schrappen beslis ik na de sale (geen wijziging nu, vlak voor 27 nov).
+
 ## Feiten achter elke bewering
 - Hinge met eindstop bij ellebogen en knieën, kogel bij schouders, heupen, nek: Figure from rig (live tekst, Daan ja sinds 1.1).
 - "stops where your rig stops": live kop sinds 22 nov; de pagina zegt verderop "where it sets one".
@@ -32,3 +47,4 @@ De rest van de pagina blijft zoals in `pro-1.2.8.md` (blok "New in Pro 1.2.8" en
 
 ## Stand
 - 24 nov ±23:00 NL: GESLAAGD (plek 1,0 bij beide). Keuring Daan gevraagd in issue #11. Daarna klaar om te plakken, samen met 1.2.8.
+- 25 nov ±08:20 NL: regel 3b "Try it free first" toegevoegd (#50), keuring Daan gevraagd.

@@ -991,3 +991,6 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 ## 24 nov 2026 ±21:35 NL, Bram
 - Opdracht hoofdchat 21:05, punt 2 en 3: titel en een regel op held-1 tot en met 4 (`ontwerp/pro-heldenbeelden-3/`, workflow `pro-heldenbeelden-3.yml`, run 45478878332 groen, release pro-heldenbeelden-3). Gekeken met de Read-tool in 2400x1200 en 1920x1080.
 - Blindtest-sets `click-joints-pro-superhive-r3.json` (Cleave, CatPin, Split 3D Print) en `click-joints-pro-gumroad.json` (MACHIN3tools, Buildify, BagaPie; omslagen GEZIEN via og:image op hun Gumroad-pagina) gepusht; de test draait vanzelf. Volgende run: uitslag lezen, en punt 1 (hoofdbeeld met gedetailleerd personage, vrije licentie, in CI gerenderd) beginnen.
+
+## 25 nov 2026 ±08:25 NL, Bram
+- #50: regel "Try it free first" als blok 3b in `platformen/blender/pro-winkeltekst-b3.md`, feiten met curl en in de code nagekeken; keuring bij Daan.
