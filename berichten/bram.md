@@ -218,3 +218,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 21:49 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 18 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23, 5.2.3, 5.3.0). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 25 nov 2026 ±21:56 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 075d23d..ca3900e: `platformen/blender/keuring/2026-11-25-auto-blender-gewrichten-ca3900e.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer de tijd "±23:00 NL" en zet er de echte tijd neer. Hij ligt na het moment van deze keuring. - Zet het akkoord op 1.2.9 ook bovenaan het bestand bij de andere akkoorden, zodat de kop niet 1.2.8 als laatste toont. - Daans eigen kan-punten blijven staan: regel 20 "Click a store or the X", een schermbeeld van de regel op 600 px, en het commitbericht over het merkje gelijk trekken met de code. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
