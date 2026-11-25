@@ -8,10 +8,10 @@ import addon_utils
 import bpy
 
 from .. import gewricht, meld, uit_elkaar
-from . import afstand, figuur, figuur_teken, labels, scharnier, scharnier_beweeg, scharnier_boog, snippers, een_lid_diep, omhulsel, terugval, testkaart
+from . import afstand, check_delen, figuur, figuur_teken, labels, scharnier, scharnier_beweeg, scharnier_boog, snippers, een_lid_diep, omhulsel, terugval, testkaart
 
 ACTIEF = True
-KLASSEN = scharnier.KLASSEN + testkaart.KLASSEN
+KLASSEN = scharnier.KLASSEN + testkaart.KLASSEN + check_delen.KLASSEN
 MELDING = "Disable the free Click Joints first. Your settings stay in the .blend file."
 MELDING_UIT = "Click Joints Pro was turned off. Disable the free Click Joints first, then enable Pro again."
 
@@ -127,12 +127,13 @@ def register(eigen=None):
     for k in KLASSEN:
         bpy.utils.register_class(k)
     # Keuze voor de knoppen in het paneel (niet in de .blend, zoals een knop in een werkbalk).
+    check_delen.register()  # issue 42: Min wall voor Check parts (in de .blend, per scene)
     bpy.types.WindowManager.cj_flip_bend = bpy.props.BoolProperty(
         name="Flip bend", default=False, description="Bend the other way: the end stop moves to the other side")
     kern = _kern_paneel()  # 1.2.9 (issue 70): elk Pro-stuk in zijn eigen stap, niet los onder Export
     if kern is not None:
         for lijst, f in ((kern.BOVEN, figuur.teken_boven), (kern.STAP2, testkaart.teken_knop),
-                         (kern.STAP2_KEUS, scharnier.teken_knop)):
+                         (kern.STAP2_KEUS, scharnier.teken_knop), (kern.STAP3, check_delen.teken)):
             if f not in lijst:
                 lijst.append(f)
     meld.BEOORDEEL[:] = WINKELS
@@ -166,12 +167,13 @@ def unregister():
     kern = _kern_paneel()
     if kern is not None:
         for lijst, f in ((kern.BOVEN, figuur.teken_boven), (kern.STAP2, testkaart.teken_knop),
-                         (kern.STAP2_KEUS, scharnier.teken_knop)):
+                         (kern.STAP2_KEUS, scharnier.teken_knop), (kern.STAP3, check_delen.teken)):
             if f in lijst:
                 lijst.remove(f)
     meld.BEOORDEEL[:] = meld.BEOORDEEL_GRATIS
     if hasattr(bpy.types.WindowManager, "cj_flip_bend"):
         del bpy.types.WindowManager.cj_flip_bend
+    check_delen.unregister()
     for k in reversed(KLASSEN):
         bpy.utils.unregister_class(k)
     _scharnier_recht()
