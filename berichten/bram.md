@@ -146,3 +146,7 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 25 nov 2026 ±10:12 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 64c6d6b..2945513: `platformen/blender/keuring/2026-11-25-auto-blender-gewrichten-2945513.md`. Moet en kan: **Moet:** niets. **Kan:** - Bevestig dat `pro-sale-27nov.md` en `sale-controle.sh` echt in de repo staan (deel A, rij 2). - Maak duidelijk of de Gumroad-link ook voor Superhive-kopers bedoeld is (deel A, rij 4). - Laat `sale-controle.sh` op 27 nov ochtend ook de salelink zelf openen en de korting in het mandje controleren (deel A, rij 3). - Daan keurt de saleregels nog zelf, zoals de kaart al zegt. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 10:41 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
