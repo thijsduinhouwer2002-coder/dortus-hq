@@ -17,14 +17,14 @@ Click Joints Pro 1.2.9
 - If your mesh has a rig, "Rig found" and the Figure from rig button are now the first thing in the panel.
 - The fit test strip now sits right under Clearance, and the hinge buttons sit under Place joint, so every button is in its own step.
 - After you place a hinge, step 3 says "Hinge placed" and shows its bend range next to the fit.
-- After a Good fit, one small line lets you leave a rating. No popups.
+- After a Good fit and an export, one small line lets you leave a rating. Click it or the X and it does not ask again. No popups.
 - Tested on Blender 4.2 LTS, 5.2 LTS and 5.3.
 ```
 Elke regel zit in de build en heeft een toets in `e2e/toetsen_paneel.py` of een schermbeeld (regel 1: beeld 16a; regel 3: `OK scharnier geplaatst: stap 3 zegt Hinge placed`).
 
 ## 3. Update log Superhive (bovenaan erbij)
 ```
-1.2.9 (<dag van upload> Nov 2026): Cleaner panel. With a rig, Figure from rig is now at the top. Fit test strip and hinge buttons moved into step 2, the hinge range into step 3. A small rating line after a Good fit.
+1.2.9 (<dag van upload> Nov 2026): Cleaner panel. With a rig, Figure from rig is now at the top. Fit test strip and hinge buttons moved into step 2, the hinge range into step 3. A small rating line after a good export.
 ```
 
 ## 4. Blok bovenaan Superhive
