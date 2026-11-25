@@ -1,33 +1,34 @@
-HOL balk gestart, pid 9104, hoogte 120
+HOL balk gestart, pid 1344, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
 HOL balk aan
 HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
-HOL muisvlak via de balk, lucht vrij op x=-1
 HOL begin: vallen (Kees)
 HOL held binnen: Kees
-HOL zicht 0.7 1
-HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
-HOL kroniek 7.0 (wacht 0.0): Anouk the Bard tunes a lute.
+HOL muisvlak via de balk, lucht vrij op x=-1
+HOL zicht 0.6 1
+HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
+HOL kroniek 6.9 (wacht 0.0): Anouk the Bard tunes a lute.
 HOL begin: vluchten (Anouk)
 HOL held binnen: Anouk
 HOL gegraven kolom 5 (zelf 1, graafbonus 0)
-HOL meting t=10 beelden=97 helden=2 hol_vast=2
-HOL kroniek 12.4 (wacht 0.0): Mara read about you in a tavern.
+HOL meting t=10 beelden=96 helden=2 hol_vast=2
+HOL kroniek 12.3 (wacht 0.0): Mara read about you in a tavern.
 HOL begin: opgegeten (Mara)
 HOL held binnen: Mara
-HOL kroniek 13.4 (wacht 0.2): Kees is part of the hole now. +6
+HOL kroniek 13.3 (wacht 0.2): Kees is part of the hole now. +6
 HOL gegraven kolom 2 (zelf 2, graafbonus 0)
 HOL demo klik op Gloop
 HOL kaartje open 18.5: slijm
+HOL meting t=20 beelden=124 helden=2 hol_vast=9
 HOL demo klik op Buy
 HOL koop 20.0: slijm niveau 1, goud 27
-HOL meting t=20 beelden=125 helden=2 hol_vast=9
 HOL kaartje dicht 22.6
 HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Siem)
 HOL held binnen: Siem
-HOL kroniek 25.2 (wacht 1.0): Siem has a map. It is wrong.
+HOL kroniek 25.1 (wacht 0.9): Siem has a map. It is wrong.
 HOL gegraven kolom 4 (zelf 3, graafbonus 0)
+HOL meting t=30 beelden=116 helden=3 hol_vast=10
 HOL einde na 30 s, fps=10, goud=27, terugkomers=0
