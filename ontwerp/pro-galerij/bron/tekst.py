@@ -213,6 +213,73 @@ def inzet(img, s, x0, y0):
         ty += int(42 * s)
 
 
+BEREIK = [  # gewricht, tekst, richting van het kaartje (dx, dy in px bij 2400 breed)
+    ("Neck", "Neck · ball · ±{g}°", (-300, -40)),
+    ("Right shoulder", "Shoulder · ball · ±{g}°", (-330, 10)),
+    ("Left elbow", "Elbow · hinge · 0–{g}°", (300, -150)),
+    ("Left knee", "Knee · hinge · 0–{g}°", (340, 40)),
+]
+
+
+def bereik(img, s, meta, P):
+    """Kaartjes bij vier gewrichten, met het bereik dat de add-on op dat gewricht zette (json, uit de records)."""
+    d = ImageDraw.Draw(img)
+    for naam, tekst, (dx, dy) in BEREIK:
+        q = meta["punten"].get(naam)
+        if not q:
+            continue
+        g = q["graden"]
+        g = int(round(float(g)))
+        x, y = P(q["beeld"])
+        tx, ty = x + dx * s, y + dy * s
+        d = ImageDraw.Draw(img)
+        half = (d.textlength(tekst.format(g=g), font=font("Inter.ttf", int(30 * s), "SemiBold")) + 36 * s) / 2
+        tx = max(half + 40 * s, min(tx, img.size[0] - half - 40 * s))   # kaartje binnen het beeld
+        eind = (tx - half if tx > x else tx + half, ty)
+        d.line(((x, y), eind), fill=GOUD + (255,), width=max(3, int(4 * s)))
+        r = int(9 * s)
+        d.ellipse((x - r, y - r, x + r, y + r), fill=GOUD + (255,), outline=(20, 12, 24, 255), width=max(2, int(3 * s)))
+        bb = pil(img, s, (int(tx), int(ty)), tekst.format(g=g), maat=30)
+
+
+def zoomkaart(img, s, x0, y0, meta):
+    """Kaartje met de render van dichtbij: het scharnier van de linkerknie bij de stop (render-bereik-knie.png)."""
+    pad = os.environ.get("GB_ZOOM")
+    if not pad:
+        return
+    z = Image.open(pad).convert("RGBA")
+    W0, H0 = z.size
+    k = [float(v) for v in os.environ.get("GB_ZOOM_KADER", "0,0,1,1").split(",")]   # uitsnede, 0..1
+    z = z.crop((int(W0 * k[0]), int(H0 * k[1]), int(W0 * k[2]), int(H0 * k[3])))
+    h = int(400 * s)
+    z = z.resize((h, h), Image.LANCZOS)
+    tw = int(400 * s)
+    bw, bh = h + tw, h
+    laag = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(laag).rounded_rectangle((x0, y0 + 8, x0 + bw, y0 + bh + 8), radius=int(28 * s), fill=(0, 0, 0, 170))
+    img.alpha_composite(laag.filter(ImageFilter.GaussianBlur(14)))
+    m = Image.new("L", (bw, bh), 0)
+    ImageDraw.Draw(m).rounded_rectangle((0, 0, bw - 1, bh - 1), radius=int(28 * s), fill=255)
+    kaart = Image.new("RGBA", (bw, bh), (20, 12, 28, 255))
+    kaart.paste(z, (0, 0))
+    img.paste(kaart, (x0, y0), m)
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle((x0, y0, x0 + bw, y0 + bh), radius=int(28 * s), outline=GOUD + (255,), width=max(2, int(2 * s)))
+    tx = x0 + h + int(30 * s)
+    f1 = font("Bricolage.ttf", int(44 * s), "Bold")
+    f2 = font("Inter.ttf", int(30 * s), "Medium")
+    ty = y0 + int(70 * s)
+    stop = int(round(float(meta["stop_graden"])))
+    for t in ("Built-in", f"end stop at {stop}°"):
+        schaduw_tekst(img, [((tx, ty), t, f1, CREME)], 6)
+        ty += int(58 * s)
+    ty += int(14 * s)
+    for t in passend(d, "The knee hinge, up close: it can't bend past the limit of your rig. 0.20 mm clearance.", f2,
+                     tw - int(56 * s)):
+        schaduw_tekst(img, [((tx, ty), t, f2, ZACHT)], 6)
+        ty += int(42 * s)
+
+
 def maak(basis, W, H, meta, dy, schaal):
     img = basis.copy()
     s = H / 1200.0 if W / H > 1.9 else H / 1080.0 * 0.92
@@ -230,6 +297,12 @@ def maak(basis, W, H, meta, dy, schaal):
         kop(img, s, x0, int(H * 0.06), ["Rig in. Parts out."],
             "One click turns your rigged model into printable parts with joints.", int(W * 0.21))
         klik(img, s, meta, P)
+    elif MODUS == "bereik":
+        donker(img, int(W * 0.55))
+        kop(img, s, x0, int(H * 0.08), ["Every joint", "knows its limit"],
+            "Hinges stop where your rig stops. Ball joints get their own swing.", int(W * 0.36))
+        bereik(img, s, meta, P)
+        zoomkaart(img, s, x0, int(H * 0.56), meta)
     else:
         donker(img, int(W * 0.55))
         kop(img, s, x0, int(H * 0.12), ["Find the fit", "for your", "printer"],

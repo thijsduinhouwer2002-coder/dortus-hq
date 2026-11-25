@@ -1,0 +1,193 @@
+{
+ "figuur": "robot (figuur_robot.py, eigen werk)",
+ "uit_mm": 36.0,
+ "modus": "bereik",
+ "knop_s": 86.0,
+ "gewrichten": [
+  "Left elbow · Hinge · 0–140° · from rig",
+  "Right elbow · Hinge · 0–140° · mirror",
+  "Left knee · Hinge · 0–120° · from rig",
+  "Right knee · Hinge · 0–120° · mirror",
+  "Neck · Ball · ±20° · preset",
+  "Left shoulder · Ball · ±30° · preset",
+  "Right shoulder · Ball · ±30° · preset",
+  "Left hip · Ball · ±22° · preset",
+  "Right hip · Ball · ±30° · preset"
+ ],
+ "records": [
+  {
+   "naam": "Left elbow",
+   "soort": "HINGE",
+   "graden": 140.0,
+   "punt": [
+    50.0,
+    -3.6,
+    132.0
+   ]
+  },
+  {
+   "naam": "Right elbow",
+   "soort": "HINGE",
+   "graden": 140.1,
+   "punt": [
+    -50.0,
+    -3.6,
+    132.0
+   ]
+  },
+  {
+   "naam": "Left knee",
+   "soort": "HINGE",
+   "graden": 120.0,
+   "punt": [
+    18.5,
+    4.0,
+    57.0
+   ]
+  },
+  {
+   "naam": "Right knee",
+   "soort": "HINGE",
+   "graden": 120.0,
+   "punt": [
+    -18.5,
+    4.0,
+    57.0
+   ]
+  },
+  {
+   "naam": "Neck",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    0.0,
+    0.1464,
+    181.5137
+   ]
+  },
+  {
+   "naam": "Left shoulder",
+   "soort": "BALL",
+   "graden": 30.0,
+   "punt": [
+    31.0419,
+    0.056,
+    172.6996
+   ]
+  },
+  {
+   "naam": "Right shoulder",
+   "soort": "BALL",
+   "graden": 30.0,
+   "punt": [
+    -31.0414,
+    0.0567,
+    172.6994
+   ]
+  },
+  {
+   "naam": "Left hip",
+   "soort": "BALL",
+   "graden": 22.0,
+   "punt": [
+    16.9899,
+    -0.0506,
+    115.9826
+   ]
+  },
+  {
+   "naam": "Right hip",
+   "soort": "BALL",
+   "graden": 30.0,
+   "punt": [
+    -16.9899,
+    -0.0506,
+    115.9826
+   ]
+  }
+ ],
+ "goud_vlakken": 26274,
+ "stop_graden": 119.96,
+ "elleboog_graden": 139.96,
+ "pose": {
+  "Neck": 20.0,
+  "Left shoulder": 20.0,
+  "Right shoulder": 28.0,
+  "Left hip": 22.0,
+  "Right hip": 6.0,
+  "Left elbow": 140.0,
+  "Right elbow": 40.0,
+  "Left knee": 120.0,
+  "Right knee": 6.0
+ },
+ "kader": [
+  [
+   -116.43679809570312,
+   -48.86617660522461,
+   -0.4013158977031708
+  ],
+  [
+   80.90330505371094,
+   41.0548210144043,
+   250.1183624267578
+  ]
+ ],
+ "punten": {
+  "Left knee": {
+   "beeld": [
+    0.7294,
+    0.6907
+   ],
+   "soort": "HINGE",
+   "graden": 120.0
+  },
+  "Left elbow": {
+   "beeld": [
+    0.7788,
+    0.4439
+   ],
+   "soort": "HINGE",
+   "graden": 140.0
+  },
+  "Right shoulder": {
+   "beeld": [
+    0.6848,
+    0.2931
+   ],
+   "soort": "BALL",
+   "graden": 30.0
+  },
+  "Neck": {
+   "beeld": [
+    0.728,
+    0.232
+   ],
+   "soort": "BALL",
+   "graden": 20.0
+  },
+  "Right knee": {
+   "beeld": [
+    0.7016,
+    0.676
+   ],
+   "soort": "HINGE",
+   "graden": 120.0
+  },
+  "Right elbow": {
+   "beeld": [
+    0.6415,
+    0.3887
+   ],
+   "soort": "HINGE",
+   "graden": 140.1
+  },
+  "Left shoulder": {
+   "beeld": [
+    0.7716,
+    0.3008
+   ],
+   "soort": "BALL",
+   "graden": 30.0
+  }
+ }
+}

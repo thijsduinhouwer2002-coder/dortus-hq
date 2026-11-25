@@ -269,4 +269,87 @@ def strip():
     render("strip")
 
 
-{"knie": knie, "klik": klik, "strip": strip}[MODUS]()
+# ---------------------------------------------------------------- bereik (ronde 3 van beeld 1, na de blinde test)
+def gewricht_punt(naam):
+    """Midden van de gouden vlakken van een gewricht, na pose (zoals labels() in hoofdbeeld.py)."""
+    from collections import Counter
+    lijst = GOUD_PLEK.get(naam) or []
+    if not lijst:
+        return None
+    meest = Counter(on for on, _pi in lijst).most_common(1)[0][0]
+    lijst = [x for x in lijst if x[0] == meest]
+    som, n = Vector(), 0
+    for on, pi in lijst[::5] or lijst:
+        o = bpy.context.scene.objects[on]
+        som += o.matrix_world @ o.data.polygons[pi].center
+        n += 1
+    return som / max(n, 1)
+
+
+def bereik():
+    """Heel figuur in een pose die elk bereik laat zien (knie tot de stop, elleboog ver gebogen, schouder opzij, nek
+    gedraaid), met de punten van vier gewrichten in beeld; daarna een tweede render van dichtbij: het scharnier van de
+    linkerknie bij de stop, zijaanzicht langs de as."""
+    naam, delen = figuur()
+    R.kleur_herstel(delen)
+    S.plastic(delen, gewricht="contrast", gewricht_kleur=R.GEWRICHT)
+    goud_gewrichten(delen)
+    a, _b = paar("Left knee")
+    stop = float(a.get("cj_bereik_graden", 120)) if a is not None else 120.0
+    meting["stop_graden"] = stop
+    ae, _be = paar("Left elbow")
+    meting["elleboog_graden"] = float(ae.get("cj_bereik_graden", 0)) if ae is not None else None
+    pose = {"Left hip": [((1, 0, 0), -float(os.environ.get("GB_HEUP", "22")))], "Left knee": stop,
+            "Right knee": 6.0, "Right hip": [((0, 1, 0), 6.0)],
+            "Left shoulder": [((1, 0, 0), -float(os.environ.get("GB_SCH_L", "20")))],
+            "Left elbow": float(os.environ.get("GB_ELL_L", "140")),
+            "Right shoulder": [((0, 1, 0), -float(os.environ.get("GB_SCH_R", "28")))],
+            "Right elbow": float(os.environ.get("GB_ELL_R", "40")),
+            "Neck": [((0, 0, 1), float(os.environ.get("GB_NEK", "20")))]}
+    meting["pose"] = R.poseer(delen, pose, uit=float(os.environ.get("GB_UIT", "6")), scharnier=lambda n, g: buig(n, g))
+    bpy.context.view_layer.update()
+    verberg_rest(delen)
+    cam = scene(delen)
+    bpy.context.view_layer.update()
+    rec = {r["naam"]: r for r in meting["records"]}
+    punten = {}
+    for n in ("Left knee", "Left elbow", "Right shoulder", "Neck", "Right knee", "Right elbow", "Left shoulder"):
+        w = gewricht_punt(n)
+        if w is not None:
+            punten[n] = {"beeld": naar_beeld(cam, w), "soort": rec.get(n, {}).get("soort"),
+                         "graden": rec.get(n, {}).get("graden"), "wereld": list(w)}
+    meting["punten"] = punten
+    if not os.environ.get("GB_ALLEEN_ZOOM"):
+        render("bereik")
+    if os.environ.get("GB_GEEN_ZOOM"):
+        return
+    # dichtbij: scharnier linkerknie, langs de as
+    k = Vector(punten["Left knee"]["wereld"])
+    sc = bpy.context.scene
+    sc.render.resolution_x, sc.render.resolution_y = 1200, 1200
+    # alleen het linkerbeen in beeld (dij en scheen van deze knie), zodat je één scharnier ziet
+    straal = float(os.environ.get("GB_ZSTRAAL", "30"))
+    for o in delen:
+        bb = [o.matrix_world @ Vector(c) for c in o.bound_box]
+        lo_ = Vector((min(p.x for p in bb), min(p.y for p in bb), min(p.z for p in bb)))
+        hi_ = Vector((max(p.x for p in bb), max(p.y for p in bb), max(p.z for p in bb)))
+        dichtst = Vector((min(max(k.x, lo_.x), hi_.x), min(max(k.y, lo_.y), hi_.y), min(max(k.z, lo_.z), hi_.z)))
+        midden_x = (lo_.x + hi_.x) / 2
+        weg = (dichtst - k).length > straal or midden_x < 2.0
+        o.hide_render = weg
+    cam.data.shift_x = cam.data.shift_y = 0
+    cam.data.lens = float(os.environ.get("GB_ZLENS", "100"))
+    r = Vector((float(os.environ.get("GB_ZKANT", "1")), float(os.environ.get("GB_ZSCHUIN", "-0.35")), 0.12))
+    cam.location = k + r.normalized() * float(os.environ.get("GB_ZAFSTAND", "150"))
+    cam.rotation_euler = (k - cam.location).to_track_quat("-Z", "Y").to_euler()
+    cam.data.dof.use_dof = True
+    cam.data.dof.focus_distance = (k - cam.location).length
+    cam.data.dof.aperture_fstop = float(os.environ.get("GB_FSTOP", "5.6"))
+    bpy.context.view_layer.update()
+    pad = os.path.join(UIT, "render-bereik-knie.png")
+    sc.render.filepath = pad
+    bpy.ops.render.render(write_still=True)
+    log("klaar", pad)
+
+
+{"knie": knie, "klik": klik, "strip": strip, "bereik": bereik}[MODUS]()

@@ -23,3 +23,9 @@ Uit: `<modus>-2400x1200.jpg` (Superhive) en `<modus>-1920x1080.jpg` (Gumroad).
 Blinde test: sets `organisatie/blindtest/sets/click-joints-pro-galerij-{knie,klik,strip}.json`, tegen galerijbeelden van Cleave, CatPin en Split 3D Print.
 
 Ronde 1 (07:23 tot 07:28): klik GESLAAGD (Gemini 1,0, ChatGPT 1,0); knie 2,5 en 3,0, strip 2,5 en 3,5 niet geslaagd. Rechters: bij de strip "alleen proefstukjes, laat zien dat het gewrichten in je model zet"; bij de knie "laat de echte scharniervorm en speling zien". Ronde 2: strip met kaartje van de robot ("Then one click and every joint on your figure gets that clearance", robot uit dezelfde render als klik), knie met regel over het gemaakte scharnier en 0,20 mm speling. Een close-up met de delen ver uit elkaar (GB_UIT=12) werd onleesbaar en is niet gebruikt.
+
+Ronde 3 knie (25 nov ±09:00): nieuw beeld `bereik-*`, **"Every joint knows its limit"**, in plaats van `knie-*` (dat twee keer niet slaagde). Heel figuur in een pose die elk bereik laat zien, met kaartjes bij vier gewrichten van twee soorten (nek kogel ±20°, schouder kogel ±30°, elleboog scharnier 0–140°, knie scharnier 0–120°; GEZIEN in `beelden/bereik.json`, `punten`), plus een kaartje met het scharnier van de linkerknie van dichtbij bij de stop (alleen dat been in beeld, delen 9 mm uit elkaar). Antwoord op de rechters: meer soorten gewrichten in één beeld en de scharniervorm van dichtbij.
+```
+GB_MODUS=bereik GB_SCH_R=-28 GB_UIT=9 HB_DRAAI=48 HB_KANTEL=6 HB_SHIFT=-0.2 HB_VUL=0.86 HB_LICHT=2.6 GB_ZAFSTAND=230 GB_ZSCHUIN=-0.2 GB_ZLENS=90 (zelfde regel, 32 samples)
+GB_ZOOM=<uit>/render-bereik-knie.png GB_ZOOM_KADER=0.17,0.27,0.77,0.87 python3 bron/tekst.py bereik <uit>/render-bereik.png <uit>/bereik.json beelden <fonts> ../click-joints/bron/icoon.svg
+```
