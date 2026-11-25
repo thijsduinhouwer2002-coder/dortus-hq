@@ -1808,9 +1808,37 @@
             1.0,
             1.0
           ]
+        },
+        "veer1": {
+          "stand": "8",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "veer2": {
+          "stand": "9",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "veer4": {
+          "stand": "10",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "veer5": {
+          "stand": "11",
+          "schaal": [
+            1.0,
+            1.0
+          ]
         }
       },
-      "_uitleg": "Bram 14 nov 01:20 (Daan 00:55): tekens boven het hoofd in 3D, volgorde en maat als kunst/tekens.png (5 vakken van 8 x 8 spelpixels). Onderkant cel = punt van het staartje. held_beeld.gd tekent ze als het blad er is, anders tekens.png. Bram 14 nov 02:40 (Daan 02:45): 6e frame noot, _noot() tekent het 8x8-vak op (x - 2, y - 3). Daan 14 nov 08:45 (Olaf 07:50): 7e frame laars, de uitgespuugde laars; slijm.gd tekent hem met HB.teken_3d(self, \"laars\"), voetpunt onder-midden. Mila 25 nov (issue #76): 8e frame veer, de gouden veer onder Bouncy Gloop (twee stuks, slijm.gd veer_aan()), voetpunt onder-midden."
+      "_uitleg": "Bram 14 nov 01:20 (Daan 00:55): tekens boven het hoofd in 3D, volgorde en maat als kunst/tekens.png (5 vakken van 8 x 8 spelpixels). Onderkant cel = punt van het staartje. held_beeld.gd tekent ze als het blad er is, anders tekens.png. Bram 14 nov 02:40 (Daan 02:45): 6e frame noot, _noot() tekent het 8x8-vak op (x - 2, y - 3). Daan 14 nov 08:45 (Olaf 07:50): 7e frame laars, de uitgespuugde laars; slijm.gd tekent hem met HB.teken_3d(self, \"laars\"), voetpunt onder-midden. Mila 25 nov (issue #76): 8e frame veer, de gouden veer onder Bouncy Gloop (twee stuks, slijm.gd veer_aan()), voetpunt onder-midden. Mila 26 nov (Daan #112): 9e tot 12e frame veer1, veer2, veer4, veer5, dezelfde veer in- en uitgedrukt (Gloop 1, 2, 4 of 5 spelpixels boven de vloer; veer zelf is 3), zodat hij echt veert."
     },
     "royal": {
       "model": "gloop.py",

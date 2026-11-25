@@ -149,6 +149,8 @@ func zet(h, kol: int) -> void:
 	_plan_knipper()
 	rng_adem.seed = hash([kol, "adem"])
 	_plan_adem()
+	rng_veer.seed = hash([kol, "veer"])
+	_plan_veer()
 	_toren_uit_argument(OS.get_cmdline_user_args())
 	_maak_ring()
 
@@ -372,7 +374,7 @@ func upgrade_veranderd() -> void:
 
 # Hoeveel spelpixels hij nu omhoog is door het koop-moment (0 of negatief).
 func wip_nu() -> int:
-	var veer := -VEER_TIL if veer_aan(beeld_3d()) else 0
+	var veer := -veer_til_nu() if veer_aan(beeld_3d()) else 0
 	if _rust_som or t < koop_van or t >= koop_van + KOOP_S or is_plat():
 		return veer
 	return int(KOOP_WIP[mini(KOOP_WIP.size() - 1, int((t - koop_van) * FPS))]) + veer
@@ -382,6 +384,49 @@ func wip_nu() -> int:
 # Alleen met het 3D-lijf en als het blad de veer heeft; plat ligt hij gewoon op de vloer (de veren weg).
 const VEER_TIL := 3
 const VEER_X := 6.0   # spelpixels links en rechts van zijn midden, bij het grote lijf (1,2)
+# Echt veren (Daan #112, moet 1): elke 3 tot 5 s één veer van 0,9 s, rustig (wens Thijs: Hats rustig). Eerst 2 spelpixels
+# in (de veren drukken in), dan 2 boven zijn rust uit, en terug. Per beeld hoeveel hij lager staat dan VEER_TIL (+ = in).
+# De veren hebben een eigen beeld per hoogte (tekens-blad veer1, veer2, veer, veer4, veer5; modellen/tekens.py), zodat
+# het plaatje bovenop altijd tegen zijn buik blijft. Met een wekker, zoals ademen: in rust geen _process.
+const VEER_MIN_S := 3.0
+const VEER_MAX_S := 5.0
+const VEER_FPS := 10.0
+const VEER_IN := [1, 2, 2, 1, 0, -1, -2, -1, 0]
+const VEER_BEELD := {1: "veer1", 2: "veer2", 3: "veer", 4: "veer4", 5: "veer5"}
+var veer_van := -10.0
+var rng_veer := RandomNumberGenerator.new()   # eigen dobbelsteen: knipperen en ademen blijven gelijk
+
+func _plan_veer() -> void:
+	if is_inside_tree():
+		get_tree().create_timer(rng_veer.randf_range(VEER_MIN_S, VEER_MAX_S)).timeout.connect(_veer_wekker)
+
+func _veer_wekker() -> void:
+	veer_wip()
+	_plan_veer()
+
+# Eén keer veren: alleen op de veren en niet tijdens het koop-moment (dan wipt hij al).
+func veer_wip() -> bool:
+	if not veer_aan(beeld_3d()) or t < koop_van + KOOP_S:
+		return false
+	veer_van = t
+	set_process(true)
+	return true
+
+func veer_s() -> float:
+	return VEER_IN.size() / VEER_FPS
+
+# Hoeveel spelpixels hij nu boven de vloer staat op zijn veren (1 tot 5, rust VEER_TIL).
+func veer_til_nu() -> int:
+	if _rust_som or t < veer_van or t >= veer_van + veer_s():
+		return VEER_TIL
+	return VEER_TIL - int(VEER_IN[mini(VEER_IN.size() - 1, int((t - veer_van) * VEER_FPS))])
+
+# Het veerbeeld bij die hoogte; valt terug op "veer" als het blad de standen nog niet heeft.
+func veer_beeld() -> String:
+	var naam: String = VEER_BEELD.get(veer_til_nu(), "veer")
+	if (HB.held3d[HB.TEKENS3D][1]["frames"] as Array).has(naam):
+		return naam
+	return "veer"
 func veer_aan(b3: String) -> bool:
 	if b3 == "" or b3 == "plat" or niveau() < 2 or is_plat():
 		return false
@@ -823,7 +868,7 @@ func stap(delta: float) -> void:
 		laars_op_vloer = true
 		if is_inside_tree():
 			get_tree().create_timer(LAARS_LIGT_S).timeout.connect(laars_weg)   # laars weg, zonder _process
-	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S and t > blij_tot and t > knipper_tot and nacht_hoeden.is_empty() and not hoed_vliegt():
+	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S and t > veer_van + veer_s() and t > blij_tot and t > knipper_tot and nacht_hoeden.is_empty() and not hoed_vliegt():
 		set_process(false)
 	_teken_als_anders()
 
@@ -884,6 +929,67 @@ static func _laad_3d() -> void:
 	lijf3d = CanvasTexture.new()
 	lijf3d.diffuse_texture = load(str(lijf3d_info["blad"]))
 	lijf3d.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+
+# Op de veren (Daan #112, moet 2): de schaduw zit in het blad onder zijn lijf en ging mee omhoog, tussen de veren een
+# donker gat. Eén keer bij het eerste gebruik splitsen we het blad: de schaduw is zwart met alfa (render.py, de
+# schaduwvanger), het lijf heeft kleur. Pixels met alle kanalen onder SCHADUW_GRENS zijn schaduw. Het lijf tekent dan
+# zonder schaduw omhoog, de schaduw apart op de vloer.
+const SCHADUW_GRENS := 0.1
+const VLOER_SCHADUW := 0.7     # zachter dan in het blad
+const VLOER_SMAL := 0.06       # per spelpixel hoger 6 procent smaller (op 5 spelpixels 0,88 breed)
+static var lijf3d_lijf: CanvasTexture
+static var lijf3d_schaduw: CanvasTexture
+static var schaduw_gezocht := false
+
+static func _laad_schaduw() -> bool:
+	if schaduw_gezocht:
+		return lijf3d_lijf != null
+	schaduw_gezocht = true
+	_laad_3d()
+	if lijf3d == null or lijf3d.diffuse_texture == null:
+		return false
+	var bron: Image = lijf3d.diffuse_texture.get_image()
+	if bron == null:
+		return false
+	bron = bron.duplicate()
+	if bron.is_compressed():
+		bron.decompress()
+	bron.clear_mipmaps()
+	bron.convert(Image.FORMAT_RGBA8)
+	var lijf := bron.duplicate() as Image
+	var scha := bron.duplicate() as Image
+	for y in bron.get_height():
+		for x in bron.get_width():
+			var c := bron.get_pixel(x, y)
+			if c.a <= 0.0:
+				continue
+			if maxf(c.r, maxf(c.g, c.b)) < SCHADUW_GRENS:
+				lijf.set_pixel(x, y, Color(0, 0, 0, 0))
+			else:
+				scha.set_pixel(x, y, Color(0, 0, 0, 0))
+	lijf3d_lijf = _canvas(lijf)
+	lijf3d_schaduw = _canvas(scha)
+	return true
+
+static func _canvas(img: Image) -> CanvasTexture:
+	img.generate_mipmaps()
+	var ct := CanvasTexture.new()
+	ct.diffuse_texture = ImageTexture.create_from_image(img)
+	ct.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	return ct
+
+# De schaduw van het huidige beeld op de vloer (niet omhoog met hem mee), smaller naarmate hij hoger staat.
+func _teken_vloerschaduw(naam: String) -> void:
+	var i: int = lijf3d_info["frames"].find(beeld_groot(naam))
+	var cw: float = lijf3d_info["cel_px"][0]
+	var ch: float = lijf3d_info["cel_px"][1]
+	var px: float = lijf3d_info["px"]
+	var k := lijf_k()
+	var smal := 1.0 - VLOER_SMAL * float(veer_til_nu() - 1)
+	var w := cw / px * k * smal
+	var h := ch / px * k
+	var x := -float(lijf3d_info["anker_x"]) / px * k * smal
+	draw_texture_rect_region(lijf3d_schaduw, Rect2(x, -h, w, h), Rect2(i * cw, 0, cw, ch), Color(1, 1, 1, VLOER_SCHADUW))
 
 # Welk 3D-beeld nu (rust, plat, hap, blij, knipper), of "" als het pixelbeeld moet (geen 3D).
 func beeld_3d() -> String:
@@ -981,7 +1087,7 @@ func _heeft_3d(naam: String) -> bool:
 	return met_3d and lijf3d != null and lijf3d_info["frames"].has(naam)
 
 # Het 3D-lijf tekenen met de onderkant op de vloer (y = 0 + wip), x = 0 in het midden van Gloop.
-func _teken_3d(naam: String, wip: int) -> void:
+func _teken_3d(naam: String, wip: int, zonder_schaduw := false) -> void:
 	var i: int = lijf3d_info["frames"].find(beeld_groot(naam))
 	var cw: float = lijf3d_info["cel_px"][0]
 	var ch: float = lijf3d_info["cel_px"][1]
@@ -993,7 +1099,7 @@ func _teken_3d(naam: String, wip: int) -> void:
 	var spiegel := naam == "spuug" and laars_kant < 0
 	if spiegel:
 		draw_set_transform(Vector2.ZERO, 0.0, Vector2(-_knijp.x, _knijp.y))
-	draw_texture_rect_region(lijf3d, Rect2(x, -h + wip, w, h), Rect2(i * cw, 0, cw, ch))
+	draw_texture_rect_region(lijf3d_lijf if zonder_schaduw else lijf3d, Rect2(x, -h + wip, w, h), Rect2(i * cw, 0, cw, ch))
 	if spiegel:
 		draw_set_transform(Vector2.ZERO, 0.0, _knijp)
 
@@ -1394,11 +1500,14 @@ func _draw() -> void:
 	var laars_achter := leven == "spugen" and b3 != ""
 	if laars_achter and t >= leven_van + 0.6:
 		_teken_laars()   # 3D: de laars vliegt achter het lijf vandaan (Daan 15 nov, moet 2)
-	if veer_aan(b3):
+	var op_veren := veer_aan(b3) and b3 != "" and _laad_schaduw()
+	if op_veren:
+		_teken_vloerschaduw(b3)   # Daan #112 moet 2: zijn schaduw blijft op de vloer, kleiner en zachter
+		var vb := veer_beeld()
 		for vx in [-VEER_X, VEER_X]:
-			HB.teken_3d(self, "veer", vx * lijf_k() / K_GROOT, 0.0)   # op de vloer, achter zijn lijf
+			HB.teken_3d(self, vb, vx * lijf_k() / K_GROOT, 0.0)   # op de vloer, achter zijn lijf
 	if b3 != "":
-		_teken_3d(b3, wip)
+		_teken_3d(b3, wip, op_veren)
 	elif f[0] == RUST_GROOT or f[0] == LEVEN_GROOT:
 		draw_texture_rect_region(f[0], Rect2(-10, -16 + wip, 20, 16), Rect2(int(f[1]) * 20, 0, 20, 16))
 	else:

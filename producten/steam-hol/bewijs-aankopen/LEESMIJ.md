@@ -57,3 +57,12 @@ Zelf gekeken in een film van het echte spel (zaad 3, koper=1, koper_wacht=8, 192
 **Big Gloop, controle van Daan (#102):** hoogste toren bij 1,2 (12 hoeden, 3 op zijn kop, 612 s): `big-gloop-12-hoogste-toren-612s.png`. De bovenste hoed raakt het gras, maar blijft 2 spelpixels onder de bovenrand (de plafondregel `PLAFOND` van Daan 14 nov); hij steekt er niet bovenuit.
 
 **Toetsen:** 8 x 0 FOUT (Godot 4.3 Linux).
+
+## Bouncy Gloop veert echt (Mila, 26 nov ±01:30 NL, nakeuring Daan #112: "staat stil op stijve veren, schaduw leest als gat")
+**Moet 1, hij veert:** elke 3 tot 5 s één veer van 0,9 s: eerst 2 spelpixels in (de veren drukken in), dan 2 spelpixels boven zijn rust uit, en terug. Rustig, geen geflits (wens Thijs). De veren gaan mee: het tekens-blad heeft nu vijf veerstanden (`modellen/tekens.py`, `veer1`, `veer2`, `veer`, `veer4`, `veer5`, in Blender gerenderd met dezelfde veer, korter of langer), zodat het plaatje bovenop altijd tegen zijn buik blijft. Code: `godot/systemen/slijm.gd` (`veer_wip`, `veer_til_nu`, `veer_beeld`, wekker zoals ademen, dus tussendoor geen _process). De andere 8 tekens zijn niet veranderd (gemiddeld verschil 0,004 op 255).
+**Moet 2, schaduw op de vloer:** de schaduw zit in het blad van Gloop onder zijn lijf. Op de veren splitst `slijm.gd` het blad één keer in lijf en schaduw (schaduw = zwart met alfa); het lijf gaat omhoog, de schaduw blijft op de vloer, op 70 procent en smaller naarmate hij hoger staat. Het donkere gat tussen de veren is weg; wat je daar nu ziet is de schatkist die al achter hem stond.
+- 3x, zes beelden binnen één veer (rust, in 1, in 2, rust, uit 2, uit 1): `bouncy-veert-6-beelden-3x.png` (en `-1x.png`). In beeld 5 knippert hij toevallig tegelijk.
+- Film op ware grootte, 1920 x 120, 20 fps, 15 s: `bouncy-veert-15s-ware-grootte.mp4`. Vier veren, op 3,7, 8,1, 12,3 en 15,5 s (GEZIEN, gemeten in de beelden).
+- Hele strook: `bouncy-veert-rust-1920.png`, `-in-1920.png`, `-uit-1920.png`.
+- Opname: Godot 4.3 Linux onder Xvfb, `--write-movie --fixed-fps 20`, `hoogte=120 vers=1 zaad=3 slijm_proef=2 balk=0 uitleg_klik=6`. Nieuw proefargument `slijm_proef=<0..3>` (`kern/proef.gd`) zet Gloop meteen op die stap.
+- Zelf gekeken op 100%: in en uit lees je, de veren worden zichtbaar kort en lang. Toetsen 8 x 0 FOUT (Godot 4.3 Linux).

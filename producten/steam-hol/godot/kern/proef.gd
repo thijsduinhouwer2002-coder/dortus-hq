@@ -38,6 +38,7 @@ static func lees_argumenten(s) -> void:
 			"drukte": s.proef_drukte = kv[1] == "1"   # Mila 16 nov: drie helden tegelijk in de winkelopname week
 			"deco_proef": s.proef_deco = kv[1] == "1"
 			"royal_proef": s.proef_royal = kv[1] == "1"
+			"slijm_proef": s.set_meta("slijm_proef", clampi(int(kv[1]), 0, 3))   # Mila 26 nov (Daan #112): Gloop meteen op die stap (2 = Bouncy, op de veren), voor de film van de veer
 			"graaf_proef": s.proef_graaf = kv[1] == "1"
 			"laars_proef": s.proef_laars = kv[1] == "1"
 			"plat_proef": s.proef_plat = kv[1] == "1"   # Daan 16 nov 20:35: Gloop plat zonder regel, om te keuren of hij zonder tekst leest
@@ -85,6 +86,9 @@ static func na_laad(s) -> void:
 	if s.proef_put > 0 and hol.upgrades != null:
 		hol.upgrades.niveaus["stekelput"] = s.proef_put
 		hol.queue_redraw()
+	if int(s.get_meta("slijm_proef", 0)) > 0 and hol.upgrades != null and s.slijm.has_method("upgrade_veranderd"):
+		hol.upgrades.niveaus["slijm"] = int(s.get_meta("slijm_proef"))
+		s.slijm.upgrade_veranderd()
 	if s.proef_royal and hol.upgrades != null and s.slijm.has_method("upgrade_veranderd"):
 		hol.upgrades.niveaus["slijm"] = 3
 		s.slijm.upgrade_veranderd()

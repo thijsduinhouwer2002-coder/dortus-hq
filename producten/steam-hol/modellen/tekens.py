@@ -21,7 +21,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bpy
 import gedeeld as g
 
-NAMEN = ["boos", "uitroep", "zweet", "zzz", "ster", "noot", "laars", "veer"]
+NAMEN = ["boos", "uitroep", "zweet", "zzz", "ster", "noot", "laars", "veer", "veer1", "veer2", "veer4", "veer5"]
+# Mila 26 nov (Daan #112, moet 1): de veer in vijf standen, zodat Gloop echt veert. Het getal is hoeveel spelpixels
+# Gloop boven de vloer staat; "veer" is de rust (3). Per spelpixel is de veer VEER_PX eenheden hoger of lager.
+VEER_TIL = {"veer1": 1, "veer2": 2, "veer": 3, "veer4": 4, "veer5": 5}
+VEER_PX = 4.0 / 33.3203   # bladpixels per spelpixel gedeeld door eenheid_px van dit blad
 GROOT = 0.86  # maat van de laars (Daan 08:55)
 TIL = 0.08    # laars omhoog zodat de onderkant van de rug gelijk ligt met de punt van de staartjes
 BOOS_AF = float(os.environ.get("TEKEN_BOOS_AF", "0.16"))     # was 0.21 (Mila 16 nov)
@@ -58,8 +62,13 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0):
     x, y, z = plek
     ouder = bpy.data.objects.new(f"teken_{naam}", None)
     bpy.context.scene.collection.objects.link(ouder)
-    if naam in ("noot", "laars", "veer"):
-        {"noot": _noot, "laars": _laars, "veer": _veer}[naam](ouder)
+    if naam in VEER_TIL:
+        _veer(ouder, 0.5 + (VEER_TIL[naam] - 3) * VEER_PX)
+        ouder.location = (x, y, z)
+        ouder.scale = (schaal, schaal, schaal)
+        return ouder
+    if naam in ("noot", "laars"):
+        {"noot": _noot, "laars": _laars}[naam](ouder)
         ouder.location = (x, y, z)
         ouder.scale = (schaal, schaal, schaal)
         return ouder
@@ -244,14 +253,14 @@ def _laars(ouder):
         o.scale = tuple(v * GROOT for v in o.scale)
 
 
-def _veer(ouder):
+def _veer(ouder, hoog=0.5):
     """Mila 25 nov (issue #76): de veer onder Bouncy Gloop. Na de koop staat Gloop op twee gouden veren, zodat je
     zonder tekst ziet dat hij nu verende sprongen maakt. Zijaanzicht van een schroefveer: 3 slagen goud draad tussen
     een donkere voetplaat en een donker plaatje bovenop, met een donkere rug erachter zoals de noot en de laars,
     zodat de veer op de roodbruine vloer en tegen het groen een rand houdt. Onderkant op de bodem van de cel."""
     goud = g.mat("teken_veer_goud", "ffd25a", rough=0.25, spec=0.8, metaal=0.6, emis=0.25)
     donker = g.mat("teken_veer_plaat", "2a1810", rough=0.6)
-    r, hoog, slagen, draad = 0.2, 0.5, 3.0, 0.045
+    r, slagen, draad = 0.2, 3.0, 0.045
     z0 = 0.16   # voetplaat net boven z 0.07, de punt van de staartjes: dan blijft de maat van het blad gelijk
     for laag, m, e, y0 in (("rug", donker, 0.015, 0.08), ("voor", goud, 0.0, 0.0)):
         cu = bpy.data.curves.new(f"teken_veer_{laag}", "CURVE")
