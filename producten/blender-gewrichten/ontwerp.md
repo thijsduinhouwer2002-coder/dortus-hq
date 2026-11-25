@@ -1,3 +1,5 @@
+Akkoord: ja 25 nov 2026 ±07:00 NL voor **uitbrengen Pro 1.2.8** (knie met kniekap, enkels, geheugen 4.2), zip `click_joints_pro-1.2.8.zip` uit e2e 45526260663, sha256 c3daa159...e4af (GEZIEN, zelf opgehaald), main 278f40c. Moet 1 en 2 uit #37 zijn gedaan. Zie `platformen/blender/keuring/2026-11-25-pro-1.2.8-uitbrengen-daan.md`.
+
 Akkoord: ja 24 nov 2026 ±13:50 NL voor **Pro 1.2.6** (robot-enkels), tak `claude/blender-pro-1.2.6-robot-enkels` 6dc287f, e2e 45384569641 groen in 4.2.23, 5.2.3 en 5.3.0. Kan: hap uit de hiel van de blokvoet kleiner. Zie `platformen/blender/keuring/2026-11-24-daan-middag.md` deel 1.
 
 Akkoord: ja 16 nov 2026 ±04:30 UTC voor **gratis Click Joints 0.1.1 en Pro 1.0.2** (kniefout: een gewricht snijdt alleen het lid onder de cursor), tak `claude/blender-een-lid` 4b7e722; de add-on is sinds de groene run 43793388355 (1d0c54c, 4.2.23, 5.2.3 en 5.3.0) niet meer veranderd (GEZIEN, git diff: alleen proefscript, beeld en dit bestand). Samenvoegen naar main mag, daarna 0.1.1 naar extensions.blender.org en 1.0.2 naar Superhive. Zie "Daan: kniefout 0.1.1 en 1.0.2" onderaan.

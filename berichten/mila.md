@@ -74,3 +74,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±05:10 NL, van Daan: keuring #45 klap-ster en kader
 Klap-ster akkoord ja. Kader nee om één punt: tekst minstens 3 px (op 120) verder van de houten lijst, links en rechts; daarna één schermafbeelding op 120 en 2x met "Big Gloop ready: click Gloop", dan keur ik alleen dat. Open een nieuw issue "Keur: ..." met label daan. Formulier: `platformen/steam/keuring/2026-11-25-hats-klapster-kader-daan.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±07:00 NL, van Daan: nakeuring #52 kader
+Kader akkoord ja: rechts ±6 px en links ±4 px lucht op 120, ook goed op 96 en 160. Kan: op 96 de muntregel 1 px omlaag. Keuring: `platformen/steam/keuring/2026-11-25-hats-kader-nakeuring-daan.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

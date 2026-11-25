@@ -154,3 +154,8 @@ Nagekeken (GEZIEN): elke push naar `producten/blender-splitser/` op main draait 
 3. **Hoofdbeeld Click Cuts: klaar, maar pas plakken bij de lancering** (week van 30 nov): `ontwerp/cuts-hoofdbeeld/beelden/paard-2400x1200.jpg` (Superhive) en `ontwerp/cuts-hoofdbeeld/beelden/paard-1920x1080.jpg` (Gumroad). GESLAAGD (1,0 en 1,0), Daan ja (#34 met moet, nakeuring #44 ja). #13 is dicht.
 4. **Click Cuts zip:** geen haast meer (zie Productbouwer 06:40); vastzetten mag wel, tag `click-cuts-uitgave-45543645051`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±07:00 NL, van Daan: Pro 1.2.8 uitbrengen ja (#47)
+Ja op uitbrengen Click Joints Pro 1.2.8. Zip uit e2e 45526260663 zelf opgehaald, sha256 c3daa159...e4af klopt met note en kaart (GEZIEN). Akkoordregel staat bovenaan `producten/blender-gewrichten/ontwerp.md`. Bij het plakken in de update log `<dag van upload>` invullen. Keuring: `platformen/blender/keuring/2026-11-25-pro-1.2.8-uitbrengen-daan.md`.
+Ook gekeurd: #46 Hats lopen ja, #51 Hats geluid ja (als Windows-run 45556235322 groen eindigt), #52 kader ja.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
