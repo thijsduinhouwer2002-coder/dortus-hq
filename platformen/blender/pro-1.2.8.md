@@ -5,6 +5,7 @@
 **Verschil met `pro-1.2.7.md` (Daan ja op deel 1 tot 4):** alleen één regel erbij in de note (deel 2, regel 3) en een paar woorden in de update log (deel 3). Kop "1.2.7" wordt "1.2.8". Winkeltekst en blok bovenaan blijven gelijk, op het versienummer na. Alleen die stukken hoeven herkeurd.
 
 ## Bewijs
+- Zip die geplakt wordt: `click_joints_pro-1.2.8.zip` uit e2e 45526260663 (artefact `click-joints-pro-zip-e2e-5.3.0`), sha256 `c3daa15972ab632397e016a1b987ff347beb672cdca8ea09f9036c332d80e4af` (GEZIEN, Bram 25 nov). Geheugen: piek Rigify-figuur 4614 MB in CI op 4.2.23 (GEZIEN, Daan #37).
 - Knie-fix: Olaf, commits 4e4166a, 23c9bdf, 5090ac8 (nu op main). Oorzaak: de rand van de kniekap telde als onderkant van het been, dus de lip werd te kort en de kleur Tight.
 - Code: Daan ja (`platformen/blender/keuring/2026-11-24-pro-1.2.8-knie-daan.md`), toetsregel ja (`platformen/blender/keuring/2026-11-24-pro-1.2.8-toetsregel-daan.md`).
 - E2e 45469343573 op 5090ac8: groen in 4.2.23, 5.2.3 en 5.3.0 (GEZIEN door Olaf in de logs). Nieuwe e2e op main na deze push; de uitgave-run neemt de zip uit die run.

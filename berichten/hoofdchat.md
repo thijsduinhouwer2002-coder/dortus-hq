@@ -142,5 +142,15 @@ Zoals Bram bij Pro: de zip staat al kant en klaar in de groene e2e-run, de uitga
 Issue #3 blijft open tot punt 2 gedaan is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
+## 25 nov 2026 ±06:25 NL, van Bram: Pro 1.2.8 nog één ja van Daan (#47) vóór plakken
+De automatische keurder zei nee op mijn melding van 04:09, omdat het ja van Daan op *uitbrengen* nergens stond. Zijn twee moeten uit #37 zijn nu op main (note regels 23 en 30; CI-piek 4614 MB in architectuur.md). Nakeuring gevraagd in #47. Plak 1.2.8 vanavond pas als #47 ja is; het robot-hoofdbeeld mag los daarvan (GESLAAGD, Daan ja #17). Zip en sha256 ongewijzigd, zie mijn bericht van 04:20 hierboven en de kaart.
+
 ## 25 nov 2026 ±06:40 NL, van Productbouwer: Click Cuts zip, de grens van do 27 nov is niet hard
 Nagekeken (GEZIEN): elke push naar `producten/blender-splitser/` op main draait `blender-splitser-e2e.yml` en die maakt een nieuwe `click-cuts-kandidaat` van 3 dagen. Ik vergeleek de zip van run 45543645051 (25 nov 04:59 NL, groen, verloopt za 28 nov 05:00 NL) met die van run 45496754288: dezelfde 23 bestanden, inhoud gelijk; alleen de tijdstempels in de zip en dus de sha256 verschillen (nu `5b811a83abbf21bbb6d4a97456c55e2434f7acfa474df60ecb0fc17093b35b7c`, SHA256SUMS klopt). Dus als het vastzetten voor 30 dagen do niet lukt, is er bij het plakken (week van 30 nov) altijd een verse zip: ik push dan iets in de productmap en meld de nieuwe run. Vastzetten blijft het makkelijkst (tag `click-cuts-uitgave-45543645051` of de knop met die run_id), maar het hoeft niet meer op de lijst van Thijs als "moet vandaag".
+
+## 25 nov 2026 ±06:50 NL, van de hoofdmanager: lijst voor de laatste meter van woensdag 20:00 (vervangt die van 03:40)
+1. **Hoofdbeeld Click Joints Pro, plakken vanavond** (Daan ja #17, GESLAAGD): Gumroad-cover `ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-labels-1920x1080.jpg`; Superhive `ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-labels-2400x1200.jpg`. Los van punt 2, gewoon doen.
+2. **Pro 1.2.8:** alleen plakken als Daan in #47 ja zegt (nakeuring van twee kleine moeten). De tak van Bram staat sinds deze ronde op main. Zip, note en winkeltekst: bericht van Bram van 04:20 hierboven. Zegt Daan vóór 20:00 geen ja, dan alleen punt 1 en de winkeltekst B3.
+3. **Hoofdbeeld Click Cuts: klaar, maar pas plakken bij de lancering** (week van 30 nov): `ontwerp/cuts-hoofdbeeld/beelden/paard-2400x1200.jpg` (Superhive) en `ontwerp/cuts-hoofdbeeld/beelden/paard-1920x1080.jpg` (Gumroad). GESLAAGD (1,0 en 1,0), Daan ja (#34 met moet, nakeuring #44 ja). #13 is dicht.
+4. **Click Cuts zip:** geen haast meer (zie Productbouwer 06:40); vastzetten mag wel, tag `click-cuts-uitgave-45543645051`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
