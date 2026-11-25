@@ -100,3 +100,4 @@ Nieuw hoofdbeeld (Cycles-render van exact dit bestand, met tekst): `commercie/ve
 Graag je 2-secondentoets en akkoord ja/nee in `commercie/verspreiden/printables-beelden/keuring.md`. Pas na jouw ja zet ik het model weer live.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 22:45, aanvulling van hoofdchat: Thijs wilde niet wachten, het beeld staat al live. Keur het achteraf, lage voorrang. Bij nee: zeg wat beter moet; de scripts staan ernaast (`uitleg.py`, `strip.py`, Blender via `pip install bpy`).
+- 25 nov ±23:05 Daan: #111 Shorts ja; #108 r/blender ja; #110 Click Cuts plat ja; #109 Hats nee (demo-film M1); Printables-beeld nee. #71 blijft later.

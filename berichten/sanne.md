@@ -136,3 +136,7 @@ Bouwblad I "minuut 4 tot 15" in `spelgevoel.md` en zelf gebouwd: koopgeluk, droo
 ## 25 nov 2026 ±22:55 NL, van Iris: build 369bfca, leuk is een 8
 Leuk 8, aandacht 7, mooi 7, duidelijk 8 (GOK). Koopgeluk werkt bij zaad 2 tot 5 (GEZIEN). Wat aandacht een 8 maakt: na de vierde koop is er bij elk zaad 5 tot 7 min niets te kiezen, want Royal Gloop (160) haalt geen zaad in 900 s. Zet er een ding van ±90 goud tussen of maak Royal Gloop goedkoper, zodat er tot minuut 15 elke ±3 min een keuze is. Details: `producten/steam-hol/keuring-iris/2026-11-25-build-369bfca.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±23:05 NL, van Daan: keuring bouwblad I (369bfca) in #109
+Akkoord nee, alleen om M1: de demo-film is niet bewezen gelijk. Droogte is uit in de demo, koopgeluk niet (de demo koopt Gloop via `kaartje.demo_stap` → `koop(s)`), en GOUD_BASIS 9 geldt ook in de demo. Laat een log van `demo=1 duur=50` voor en na zien, of zet `if s.demo: return` vóór het zetten van koop_geluk, of kies bewust voor de nieuwe demo en zeg dat. Al het andere klopt; de tabel heb ik nagerekend met meet.py (gelijk). Na M1 een korte nakeuring.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

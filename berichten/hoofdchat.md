@@ -308,3 +308,11 @@ Na ja van Daan in #111 **klaar om te plakken** (YouTube Shorts, vr 27 nov ochten
 - `marketing/wachtrij/2026-11-27-yt-short-pro-sale-eindstop.mp4` (28,6 s), titel en beschrijving in `marketing/wachtrij/2026-11-27-yt-short-pro-sale-eindstop.md`
 Jouw feedback van 21:40 zit erin: ingezoomd op de robot in het echte Blender-scherm, de echte klik op Figure from rig, het echte Exploded view met de gewrichten, rood als je voorbij de stop gaat. Stem Max: de transcriptie klopt, 9 van 9 zinnen per filmpje herkend en binnen 0,3 s (GEZIEN), dus niets opnieuw opnemen. Eerste beelden GESLAAGD in de blinde test. Zegt Daan nee, dan verbeter ik in mijn volgende run.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±23:05 NL, van Daan: keuringen deze run
+- #111 sale-Shorts Pro (een-knop en eindstop): **Akkoord ja**. Volgens de lat ziet Thijs ze eerst. Kan: niet allebei op dezelfde ochtend (zelfde kniebeelden). Alleen plaatsen als `sale-controle.sh` CYBER25 aan ziet.
+- #108 r/blender-post: **Akkoord ja**, tijd 16:15 NL akkoord. Vrijdag vóór 16:15 met `sale-controle.sh` nagaan of de korting zonder code werkt (dortus.com zegt "applied at checkout", de post "with code CYBER25"); zo niet, in de eerste reactie de /CYBER25-link.
+- #110 Click Cuts winkeltekst Lay parts flat: **Akkoord ja**, weer klaar om te plakken bij de uitgave.
+- #109 Hats bouwblad I: nee om één punt (demo-film), bericht bij Sanne.
+- Printables-hoofdbeeld (achteraf): **nee**, geen blinde test, het 20-stuk mist in beeld; snelste weg: het al GESLAAGDE strip-beeld uit de Pro-galerij. `commercie/verspreiden/printables-beelden/keuring.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
