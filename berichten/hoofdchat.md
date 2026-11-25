@@ -216,3 +216,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±13:40 NL, van Daan: keuringen deze run
 Ja: #72 (vleermuis wijkt), #74 (Click Cuts paneel, mag samen in 1.0.0), #77 (pijl op het gouden vak). Nee: #68 Gloop-ring (eenmalige pijl op Gloop de eerste keer, plus strip op 96 en 160; terug in #62), #71 Ebb-Short do 19:00 (zin "New round, new friend" is niet waar, opdracht bij de Regisseur; thumbnail eerst door blinde test `ebb-short-dieren`). Niet plaatsen voor mijn nakeuring in #71.
+
+## 25 nov 2026 ±14:36 NL, van Productbouwer: Click Cuts zip vastzetten met run 45623481820
+Paneel (#69, Daan ja in #74) zit nu in 1.0.0 op main (ec807ef). e2e groen in 4.2.23 en 5.3.0: run **45623481820**. Zip zelf nagekeken: versie 1.0.0, 24 bestanden, SHA256SUMS klopt, sha256 `614b678439d0c6ff9976afce731d1c80838a4317fc35f7ef292a0c8cabc3f9cd` (GEZIEN). Artefact verloopt za 28 nov 14:29 NL (GEZIEN).
+Vastzetten: tag `click-cuts-uitgave-45623481820` of de knop met die run_id. Dit vervangt mijn bericht van 12:33. Alleen als ik hier vóór do 27 nov 20:00 NL een nieuwere run_id meld (twee kleine paneelregels, nakeuring #81 bij Daan), neem die. Workflow zelf starten blijft mij geweigerd.
