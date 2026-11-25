@@ -1,0 +1,47 @@
+scherm 1024x768, werkruimte zonder spel 0,0 tot 1024,720
+met spel: werkruimte 0,0 tot 1024,624, Kladblok -8,-8 tot 1032,632, spel 0,624 tot 1024,720
+OK   werkruimte 96 px korter (720 -> 624)
+OK   Kladblok (gemaximaliseerd) eindigt boven het spel (onder 632, spel boven 624; 8 px is de onzichtbare rand van Windows)
+OK   spel staat direct boven de taakbalk
+OK   geen taakbalkknop (exstijl 0x80800b8)
+OK   het spel heeft de focus niet
+lucht en hol getoetst op x=200
+INFO WindowFromPoint in de lucht: 196688 (Kladblok 196688, spel 655828); telt niet, de klik hieronder telt
+OK   muis in het hol: het spel vangt hem (655828)
+OK   klik in de lucht komt aan in Kladblok (voorgrond is Kladblok)
+OK   precies 1 klik in het spel: die in het hol kwam aan, die in de lucht ging erdoorheen (1)
+OK   hol-balk.exe wisselt tussen doorlaten en vangen
+OK   spel meldt: balk aan
+OK   film op volledig scherm: spel verstopt
+OK   na de film: spel weer zichtbaar
+OK   tweede hol-balk.exe stopt meteen (exitcode 4)
+OK   na de tweede: werkruimte nog steeds 96 px korter (624)
+OK   na crash van hol-balk.exe: opnieuw gestart (pid 6312 -> 1420)
+OK   na crash: werkruimte weer 96 px korter (0,0 tot 1024,624)
+OK   na crash: het hol vangt de muis weer
+OK   spel meldt: hol-balk.exe opnieuw gestart
+na herstart verkenner: werkruimte 0,0 tot 1024,624
+OK   na herstart verkenner: werkruimte weer 96 px korter (720 -> 624)
+OK   na herstart verkenner: Kladblok gemaximaliseerd eindigt weer boven het spel (onder 632, spel boven 624)
+OK   hol-balk.exe meldt: opnieuw aanmelden
+OK   hol-balk.exe draait
+OK   na hard afsluiten: werkruimte weer normaal (0,0 tot 1024,720)
+OK   na hard afsluiten: hol-balk.exe ook weg
+OK   Kladblok gemaximaliseerd is weer net zo hoog als zonder spel
+OK   systeemvak: pauze aan en uit
+OK   na stoppen (pauze): werkruimte weer normaal (0,0 tot 1024,720)
+OK   systeemvak: geluid uit en aan
+OK   na stoppen (geluid): werkruimte weer normaal (0,0 tot 1024,720)
+OK   systeemvak: stoppen stopt het spel
+OK   na stoppen (stop): werkruimte weer normaal (0,0 tot 1024,720)
+OK   na stoppen: hol-balk.exe weg
+OK   rechtsklik op het hol: het menu staat open
+menu: 8 regels, Quit op 203,683 tot 367,705
+OK   menu heeft 8 regels (Pause, Sound, 3 hoogtes, Quit, 2 strepen)
+OK   Quit uit het menu met de muis: spel gestopt
+OK   spel meldt: menu open en Quit gekozen
+OK   na Quit uit het menu: werkruimte weer normaal
+OK   na Quit uit het menu: hol-balk.exe weg
+OK   DERDEN.txt staat in het project (gaat mee in de .pck)
+OK   geen SCRIPT ERROR in godot.log
+balk-toetsen: 0 FOUT
