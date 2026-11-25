@@ -2,7 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/hoedenwand.png.ctex"
+uid="uid://dq2bvldvcfc3n"
+path="res://.godot/imported/hoedenwand.png-510afd5c3ae329487caa7db680ead484.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/hoedenwand.png"
-dest_files=["res://.godot/imported/hoedenwand.png.ctex"]
+dest_files=["res://.godot/imported/hoedenwand.png-510afd5c3ae329487caa7db680ead484.ctex"]
 
 [params]
 

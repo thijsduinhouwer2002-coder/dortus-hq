@@ -2,7 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/holkaart.png.ctex"
+uid="uid://0fsg2jcm6x76"
+path="res://.godot/imported/holkaart.png-617d0e57dd8adcc3257e7532fe66fc83.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/holkaart.png"
-dest_files=["res://.godot/imported/holkaart.png.ctex"]
+dest_files=["res://.godot/imported/holkaart.png-617d0e57dd8adcc3257e7532fe66fc83.ctex"]
 
 [params]
 
