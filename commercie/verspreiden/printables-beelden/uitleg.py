@@ -11,10 +11,15 @@ b = m.node_tree.nodes['Principled BSDF']
 b.inputs['Base Color'].default_value = (0.85, 0.27, 0.03, 1)
 b.inputs['Roughness'].default_value = 0.42
 
+m2 = bpy.data.materials.new('pla2')
+b2 = m2.node_tree.nodes['Principled BSDF']
+b2.inputs['Base Color'].default_value = (0.03, 0.22, 0.55, 1)
+b2.inputs['Roughness'].default_value = 0.42
+
 def load(name):
     bpy.ops.wm.stl_import(filepath=D + name + '.stl')
     o = bpy.context.selected_objects[0]
-    o.data.materials.append(m)
+    o.data.materials.append(m2 if name.startswith('kom') else m)
     bpy.ops.object.shade_auto_smooth(angle=math.radians(35))
     return o
 
