@@ -86,10 +86,12 @@ def _staaf(ouder, a, b, r, m, verts=24):
 # buig = voorover (graden), zak = door de knieen, wieg = heen en weer (graden), dx = halve spreidstand,
 # zwaai = hoe ver de vrije hand meezwaait. fps = voorstel voor het spel (Olaf), loopsnelheid = stap_px x fps.
 LOOP = {
-    "ridder": dict(S=0.24, L=0.05, bob=0.02, hop=0.0, buig=0, zak=0.0, wieg=5, dx=0.16, zwaai=0, fps=8),
+    # Mila 25 nov run 2: ridder liep stijf. Nu een zware stamp: dieper zakken op contact, meer wiegen, schild zwaait iets mee.
+    "ridder": dict(S=0.24, L=0.07, bob=0.035, hop=0.0, buig=3, zak=0.02, wieg=8, dx=0.16, zwaai=8, fps=8),
     "dief": dict(S=0.46, L=0.13, bob=0.03, hop=0.0, buig=16, zak=0.07, wieg=0, dx=0.12, zwaai=0, fps=12),
     "bard": dict(S=0.30, L=0.08, bob=0.015, hop=0.12, buig=-3, zak=0.0, wieg=0, dx=0.12, zwaai=0, fps=10),
-    "heks": dict(S=0.28, L=0.04, bob=0.01, hop=0.0, buig=0, zak=0.0, wieg=3, dx=0.11, zwaai=22, fps=8),
+    # run 2: laarsjes komen onder de kortere mantel uit, dus de voet tilt hoger, zodat je haar ziet lopen.
+    "heks": dict(S=0.28, L=0.07, bob=0.015, hop=0.0, buig=0, zak=0.0, wieg=4, dx=0.11, zwaai=22, fps=8),
     "held": dict(S=0.34, L=0.09, bob=0.025, hop=0.0, buig=4, zak=0.0, wieg=0, dx=0.13, zwaai=22, fps=10),
 }
 LOOPDRAAI = -40     # loopt naar rechts in beeld, net als in het spel (voor 25 nov keken ze naar links: maanloop)
@@ -206,7 +208,10 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         _cil(ouder, (0, 0, 0.42), 0.27, 0.07, g.mat("riem", "4a2e2a", rough=0.5))
         _blok(ouder, (0, -0.27, 0.42), (0.08, 0.02, 0.07), g.mat("gesp", "goud", rough=0.2, metaal=0.9), rond=0.01)
     else:
-        _cil(ouder, (0, 0, 0.45), 0.36, 0.6, kleed, r2=0.2)
+        # Mila 25 nov run 2: zoom op 0.24 in plaats van 0.15 en smaller, zodat de laarsjes eronder uitkomen
+        # (keurpunt: haar benen vielen weg onder de jurk). De zoom zwaait iets mee met de stap.
+        zoom = _cil(ouder, (0, 0, 0.5), 0.32, 0.52, kleed, r2=0.2)
+        zoom.rotation_euler = (math.radians(-6 * stap), 0, 0)
         _bol(ouder, (0, 0, 0.75), (0.21, 0.19, 0.12), kleed)
         _cil(ouder, (0, 0, 0.62), 0.26, 0.05, g.mat("koord", "goud", rough=0.3, metaal=0.6))
 
@@ -315,7 +320,7 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         if stand == "vallen":
             # schild vliegt los achter hem (frisse kijker ronde 2: schild bij het hoofd verwarde de val)
             lx, lz = -0.55, 0.15
-        sx, sz = lx - 0.04, lz + 0.06
+        sx, sz = lx - 0.04, lz + 0.12   # run 2: schild hoger, zodat de benen eronder zichtbaar zijn
         _cil(ouder, (sx, -0.12, sz), 0.21, 0.05, g.mat("schild", "rood", rough=0.5),
              rot=(math.radians(90), 0, math.radians(-25)))
         bpy.ops.mesh.primitive_torus_add(major_radius=0.2, minor_radius=0.025, location=(sx, -0.15, sz),
