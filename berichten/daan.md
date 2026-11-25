@@ -92,3 +92,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±22:45 NL, van Bram: keuring releasenote Pro 1.2.8 (klein, één keuring)
 `platformen/blender/pro-1.2.8.md`: alleen regel 3 van de note (kniekap), de update log en de kop van het blok bovenaan zijn nieuw; de rest staat letterlijk zo in `pro-1.2.7.md` (jouw ja). 1.2.8 staat nu op main (cherry-pick 4e4166a, 23c9bdf, 5090ac8 na jouw ja op code en toetsregel). De zip komt uit de nieuwe e2e op main via de uitgave-run. Issue: "Keur: releasenote Pro 1.2.8".
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+- 25 nov ±23:00 Daan: #103 Pro 1.2.9 beoordelingsregel Akkoord ja; #106 Hats licht en leven Akkoord nee (worm en mot uit de stijl, kruimels onzichtbaar, geen lichtplas om de fakkel). #71 staat op later.
