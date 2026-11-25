@@ -1,18 +1,19 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795564228
+HOL zaad 1795566526
 HOL plat zonder regel (2 keer gemeld)
-HOL kroniek 4.0 (wacht 0.0): Jop brought a torch. And hope.
-HOL begin: vallen (Jop)
-HOL held binnen: Jop
+HOL kroniek 4.1 (wacht 0.0): Tibbe brought a torch. And hope.
+HOL begin: vallen (Tibbe)
+HOL held binnen: Tibbe
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL zicht 4.1 1
+HOL zicht 4.2 1
 HOL meting t=10 beelden=61 helden=1 hol_vast=1
-HOL kroniek 10.8 (wacht 0.0): Mara says this is a quick one.
-HOL begin: vluchten (Mara)
-HOL held binnen: Mara
-HOL kroniek zelfde held vervangen: Jop brought a torch. And hope.
-HOL kroniek 12.8 (wacht 0.0): Jop will not be leaving. +6
-HOL kroniek 15.3 (wacht 2.5): Page for the Hero. The pit won.
+HOL kroniek 10.3 (wacht 0.0): Ineke says this is a quick one.
+HOL begin: vluchten (Ineke)
+HOL held binnen: Ineke
+HOL kroniek zelfde held vervangen: Tibbe brought a torch. And hope.
+HOL kroniek 12.8 (wacht 0.0): Tibbe fell to the Spike Pit. +6
+HOL kroniek 15.4 (wacht 2.6): Page for the Hero. The pit won.
 HOL meting t=20 beelden=129 helden=1 hol_vast=3
 HOL einde na 24 s, fps=10, goud=26, terugkomers=0
+HOL kroniek 24.1 (wacht 0.0): Ineke ran. Swore revenge.

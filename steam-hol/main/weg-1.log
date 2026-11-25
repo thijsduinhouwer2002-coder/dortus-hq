@@ -1,20 +1,20 @@
-HOL weg geweest 28802 s (klok terug: false): goud voor 26, helden 115, erbij 607, hoeden 39
-HOL weg faam afgekapt 4 van 82 (hooguit 2 niveaus)
+HOL weg geweest 28801 s (klok terug: false): goud voor 26, helden 115, erbij 571, hoeden 38
+HOL weg faam afgekapt 4 van 76 (hooguit 2 niveaus)
 HOL hol-niveau 2 (faam 5, t 0.0)
 HOL hol-niveau 3 (faam 5, t 0.0)
-HOL hoeden van de nacht 39 (vallen vanaf 1.0 s, toren nu 0)
+HOL hoeden van de nacht 38 (vallen vanaf 1.0 s, toren nu 0)
 HOL berg zichtbaar 0 -> 6
-HOL kroniek 0.0 (wacht 0.0): 115 came, 82 fell, 39 hats. +607 gold.
+HOL kroniek 0.0 (wacht 0.0): 115 came, 76 fell, 38 hats. +571 gold.
 HOL optocht wip, geen poef; helden [3]; duur 0.0 s
-HOL opslag geladen: 0 terugkomers, 633 goud, faam 5
+HOL opslag geladen: 0 terugkomers, 597 goud, faam 5
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795564460
-HOL eerste koop mogelijk na 15 s speeltijd (goud 633)
+HOL zaad 1795566757
+HOL eerste koop mogelijk na 15 s speeltijd (goud 597)
 HOL bordje wip na weg (niveau 3)
 HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Gerda is here for your gold.
-HOL begin: vluchten (Gerda)
-HOL held binnen: Gerda
+HOL kroniek 4.0 (wacht 0.0): Ineke is here for your gold.
+HOL begin: vluchten (Ineke)
+HOL held binnen: Ineke
 HOL zicht 4.1 1
-HOL meting t=10 beelden=98 helden=1 hol_vast=8
-HOL einde na 15 s, fps=10, goud=633, terugkomers=0
+HOL meting t=10 beelden=98 helden=1 hol_vast=9
+HOL einde na 15 s, fps=10, goud=597, terugkomers=0
