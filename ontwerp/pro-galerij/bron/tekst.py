@@ -102,7 +102,7 @@ def kop(img, s, x0, y, titel, regel, breed_px):
 
 def passend(d, tekst, f, breed):
     regels, nu = [], ""
-    for w in tekst.split():
+    for w in tekst.split(" "):  # alleen gewone spaties: "0.20\u00a0mm" blijft bij elkaar
         proef = (nu + " " + w).strip()
         if d.textlength(proef, font=f) > breed and nu:
             regels.append(nu)
@@ -274,7 +274,7 @@ def zoomkaart(img, s, x0, y0, meta):
         schaduw_tekst(img, [((tx, ty), t, f1, CREME)], 6)
         ty += int(58 * s)
     ty += int(14 * s)
-    for t in passend(d, "The knee hinge, up close: it can't bend past the limit of your rig. 0.20 mm clearance.", f2,
+    for t in passend(d, "The knee hinge, up close: it can't bend past the limit of your rig. 0.20\u00a0mm clearance.", f2,
                      tw - int(56 * s)):
         schaduw_tekst(img, [((tx, ty), t, f2, ZACHT)], 6)
         ty += int(42 * s)
@@ -290,7 +290,7 @@ def maak(basis, W, H, meta, dy, schaal):
     if MODUS == "knie":
         donker(img, int(W * 0.55))
         kop(img, s, x0, int(H * 0.12), ["Knees stop", "where your", "rig stops"],
-            "Generated hinge with a real end stop, bend range in degrees, 0.20 mm clearance.", int(W * 0.36))
+            "Generated hinge with a real end stop, bend range in degrees, 0.20\u00a0mm clearance.", int(W * 0.36))
         boog(img, s, meta, P)
     elif MODUS == "klik":
         donker(img, int(H * 0.42), kant="boven", sterk=150)

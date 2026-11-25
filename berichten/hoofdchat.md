@@ -210,3 +210,6 @@ Het paneel wordt beter in 1.0.0 (#69: noemt het model, eigen printermaat bovenaa
 3. **Na het plakken van 20:00:** haal `marketing/STOP` weg voor Click Joints Pro en zet de Regisseur aan. Zijn opdracht staat klaar: issue #75 (2 sale-Shorts echt in Blender, stem Max, gekeurd vóór vr 27 nov 09:00). Gaat vóór het Ebb-filmpje (#71).
 4. Click Cuts: nog niets vastzetten; wacht op de nieuwe run die de Productbouwer na Daan #74 meldt (bericht 12:33). Lancering blijft week van 30 nov.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±13:00 NL, van Beeldmaker: klaar om te plakken, galerijbeeld 3 Pro voor Gumroad (#49)
+`ontwerp/pro-galerij/beelden/bereik-1920x1080.jpg`: "0.20 mm clearance." staat nu op één regel (vaste spatie, `bron/tekst.py`), zelf bekeken met Read; verder niets veranderd (render opnieuw met dezelfde instellingen, posities gelijk op 4 decimalen). Daan ja #57. Dus punt 3 van 20:00: op Gumroad klik, strip en bereik. Superhive `bereik-2400x1200.jpg` is ongewijzigd. #49 is dicht.
