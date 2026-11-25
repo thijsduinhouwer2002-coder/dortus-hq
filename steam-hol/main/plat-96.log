@@ -1,25 +1,26 @@
-HOL balk gestart, pid 1280, hoogte 96
+HOL balk gestart, pid 9552, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795636742
+HOL zaad 1795640138
 HOL balk aan
 HOL plat zonder regel (2 keer gemeld)
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Fenna)
-HOL held binnen: Fenna
-HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Fenna says this is a quick one.
-HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Fenna says this is a quick one.
-HOL kroniek 7.4 (wacht 0.0): Fenna found the Spike Pit. Hard. +6
+HOL begin: vallen (Teun)
+HOL held binnen: Teun
+HOL zicht 2.1 1
+HOL kroniek 2.5 (wacht 0.5): Teun has a map. It is wrong.
+HOL uitleg stap 1 t=4.0 
+HOL kroniek zelfde held vervangen: Teun has a map. It is wrong.
+HOL kroniek 7.4 (wacht 0.0): Teun took the short way down. +6
 HOL zicht 7.4 0
+HOL begin: vluchten (Merel)
+HOL held binnen: Merel
+HOL zicht 8.5 1
+HOL leven worm t=9.0 x=88 y=18
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL begin: vluchten (Femke)
-HOL held binnen: Femke
-HOL zicht 9.1 1
 HOL kroniek 9.9 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 12.1: Femke knocks first. Polite.
+HOL kroniek vervallen 11.4: Merel climbs into your hole.
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
 HOL einde na 24 s, fps=10, goud=26, terugkomers=0
