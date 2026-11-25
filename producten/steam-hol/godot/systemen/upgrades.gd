@@ -3,7 +3,7 @@ extends RefCounted
 # grootste gat tegenover de toppers (platformen/steam/toppers.md, gat 1): in een bezoek van 30 s iets te kiezen
 # dat je de minuut erna terugziet.
 #
-# Getallen uit platformen/steam/balans.md (Sanne) en sim/sim.py: drie upgrades per soort, kost 45, 126, 353 (45 x 2,8^n, Sanne 10 nov),
+# Getallen uit platformen/steam/balans.md (Sanne) en sim/sim.py: drie upgrades per soort, kost 45, 60, 160 (Sanne 25 nov; was 45, 126, 353),
 # elke upgrade +7 procentpunt kans dat een held valt. Daarbovenop heeft elke stap iets eigens dat je ziet of merkt,
 # zodat het een keuze is en geen getal:
 #   slijm:     1 Big Gloop (groter, +7)  2 Bouncy Gloop (+7, en plat 40 s in plaats van 60)  3 Royal Gloop (+7, paarse cape van Mila; eerst een kroon, maar die botste met de hoedentoren)
@@ -20,7 +20,10 @@ extends RefCounted
 const SOORTEN := ["slijm", "stekelput"]
 const MAX_NIVEAU := 3
 const BASIS := 45.0   # Sanne 10 nov 01:50 (balans.md): 45, 126, 353; was 60
-const FACTOR := 2.8
+const FACTOR := 2.8   # niet meer gebruikt voor de prijs, zie PRIJZEN
+# Sanne 25 nov (bouwblad I "minuut 4 tot 15", spelgevoel.md): koop 2 kwam pas 6 tot 8 min na koop 1 (Iris, 4 zaden,
+# GEZIEN); Ropuka krijgt precies die klacht ("1 upgrade every 6 minutes", DERDEN, lat hats-tempo.md). Stap 2 en 3 goedkoper.
+const PRIJZEN := [45, 60, 160]
 const KANS_PER := 0.07
 
 # Naam en korte uitleg per stap, Engels zoals in het spel (hooguit 22 en 34 tekens, past in het paneel).
@@ -46,7 +49,7 @@ func niveau(soort: String) -> int:
 func kost(soort: String) -> int:
 	if not niveaus.has(soort) or niveau(soort) >= MAX_NIVEAU:
 		return -1
-	return int(round(BASIS * pow(FACTOR, niveau(soort))))
+	return int(PRIJZEN[niveau(soort)])
 
 func kan_kopen(soort: String, goud: int) -> bool:
 	var k := kost(soort)
@@ -113,7 +116,7 @@ func terug(soort: String) -> int:
 	var n := niveau(soort)
 	if n <= 0:
 		return 0
-	return int(round(BASIS * pow(FACTOR, n - 1)))
+	return int(PRIJZEN[n - 1])
 
 # Koopregels met een grap (Sanne, platformen/steam/kroniek-regels.md "Kopen", toets 8 punt 4). Elke regel zegt
 # wat de stap echt doet. {b} = de naam van de bewoner. De eerste keer de eerste regel, daarna om de beurt.

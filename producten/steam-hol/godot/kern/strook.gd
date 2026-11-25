@@ -328,6 +328,7 @@ func _process(delta: float) -> void:
 		tekst.zet(kroniek, hol.goud)
 		if kaart_soort != "":
 			KAARTJE.ververs(self)
+	RITME.tik_droogte(self)
 	RITME.tik_held(self, helden)
 	BEELDTEMPO.fakkels(self, helden, delta)   # fakkels flakkeren altijd, zonder held rustiger (issue #79)
 	# stekelput klapt open als een held erop staat (alleen uiterlijk)

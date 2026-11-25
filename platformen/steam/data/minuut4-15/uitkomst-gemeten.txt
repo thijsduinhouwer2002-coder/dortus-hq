@@ -1,0 +1,10 @@
+Meting bouwblad I, Sanne 25 nov 2026, main + deze run, Godot 4.3 Linux, --fixed-fps 5, args: hoogte=120 vers=1 zaad=Z uitleg_klik=6 koper=1 koper_wacht=8 balk=0 duur=900 (GEZIEN)
+d2.log kopen [74, 272, 481, 613] | vangsten 17 | gat zonder vangst min4-15 149 s | gat zonder koop 287 s | koop->vangst [67, 26, 41, 5] | koopgeluk-vangsten 4, droogte 6
+d3.log kopen [82, 284, 433, 708] | vangsten 15 | gat zonder vangst min4-15 139 s | gat zonder koop 275 s | koop->vangst [66, 25, 38, 41] | koopgeluk-vangsten 4, droogte 4
+d4.log kopen [80, 238, 404, 539] | vangsten 20 | gat zonder vangst min4-15 90 s | gat zonder koop 361 s | koop->vangst [76, 32, 13, 5] | koopgeluk-vangsten 3, droogte 3
+d5.log kopen [83, 229, 495, 744] | vangsten 17 | gat zonder vangst min4-15 165 s | gat zonder koop 255 s | koop->vangst [72, 33, 23, 59] | koopgeluk-vangsten 4, droogte 4
+d6.log kopen [75, 225, 307, 428] | vangsten 20 | gat zonder vangst min4-15 135 s | gat zonder koop 472 s | koop->vangst [74, 23, 22, 63] | koopgeluk-vangsten 4, droogte 3
+d7.log kopen [83, 302, 465, 638] | vangsten 18 | gat zonder vangst min4-15 81 s | gat zonder koop 262 s | koop->vangst [65, 32, 49, 25] | koopgeluk-vangsten 4, droogte 1
+
+Voor (log van Iris, d27cfc3, zaad 3):
+producten/steam-hol/keuring-iris/build-d27cfc3-koper-zaad3.log kopen [201, 661] | vangsten 13 | gat zonder vangst min4-15 313 s | gat zonder koop 421 s | koop->vangst [352, 27] | koopgeluk-vangsten 0, droogte 0

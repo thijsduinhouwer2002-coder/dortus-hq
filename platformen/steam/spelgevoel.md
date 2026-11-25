@@ -20,6 +20,42 @@ Thijs speelde op 24 nov en zei: voelt als een virus, poppetjes lopen raar, om de
 **Volgorde:** #24 (app-balk, Thijs kan het anders niet aan laten), dan #25 met de beelden van Mila, dan #26. Mila begint nu aan de loopbeelden zodat Olaf ze heeft als #24 klaar is. Steam-header (#30) en felle schermen (#6) wachten tot hier. Daarna het gat "mooi" (punt 8): Mila #96 na #76, Olaf #97 na #86.
 **Klaar met dit plan als:** een film van 60 s waarin een nieuwe speler zonder uitleg snapt wat hij doet, Iris geeft "leuk" en "duidelijk" minstens 8 (issue #7), en Thijs speelt opnieuw en noemt het geen virus meer.
 
+### Bouwblad I: minuut 4 tot 15 (Sanne, 25 nov ±22:45 NL, issue #19, opdracht hoofdmanager 21:45)
+**Waarom:** Iris gaf leuk zes keer op rij een 7. Haar reden (keuring d27cfc3, GEZIEN in haar film en 4 logs): na de eerste koop 6 helden op rij weg en 352 s geen goud, en koop 2 pas 6 tot 8 min na koop 1. Een koop voelde als een fout. Al het werk van vandaag raakte dit stuk niet.
+
+**Wat de lat zegt** (`organisatie/lat/hats-tempo.md`, gelezen met curl op 25 nov):
+| | Tijd tot iets nieuws | Bron |
+|---|---|---|
+| Rusty's Retirement | eerste oogst na 70 tot 120 s, in het begin "check in every few minutes, plant something"; geprezen: "a fantastic mix of wanting to engage, but having to wait" | DERDEN (gameplay.tips, reviews in de lat) |
+| Ropuka's Idle Island | "I get to upgrade 1 thing every 6 minutes": de grootste klacht, ook Rusty-spelers noemen het "mind-numbingly slow" | DERDEN (reviews in de lat) |
+| Bongo Cat | een kist per 30 min; spelers vinden dat aan de lange kant | DERDEN (winkeltekst en discussie) |
+| Desktop Defender | geen getallen in de lat | GOK: niet gemeten, niet als meetlat gebruikt |
+Onze 6 tot 8 min tussen koop 1 en 2 is dus precies de klacht van Ropuka. Doel: dichter bij Rusty's "every few minutes".
+
+**Eisen** (meten met `koper=1 koper_wacht=8 vers=1`, 900 s, meerdere zaden; script `platformen/steam/data/minuut4-15/meet.py`):
+1. Na elke koop valt binnen ±75 s een held (koopgeluk). Eén ding gekocht = het werkt meteen.
+2. In minuut 4 tot 15 nooit langer dan ±150 s zonder vangst (droogte).
+3. In de eerste 15 min minstens 4 aankopen, koop 2 hooguit ±4 min na koop 1. Daarna geldt tempo-regel 3: elke 5 tot 15 min iets nieuws.
+4. Geen tijdsdruk en niets wat stoort: het blijft een gunst, nooit een straf.
+
+**Gebouwd (deze run, door mij; Olaf zit op #86 en #97):**
+- **Koopgeluk:** de eerste held die na een koop bij een val of Gloop komt, valt zeker en brengt dubbel goud (`systemen/held_val.gd`, `kern/kaartje.gd`, Undo zet het uit).
+- **Droogte:** 75 s geen vangst (Rusty's eerste oogst 70 tot 120 s), dan valt de volgende held bij zijn eerste verdediging (`kern/ritme.gd`). Niet in de vaste stappen van het begin en niet in de demo-film.
+- **Goud per vangst 9** in plaats van 6 (`kern/afloop.gd`), **prijzen 45, 60, 160** in plaats van 45, 126, 353 (`systemen/upgrades.gd`). Volle winkel kost nu 530 in plaats van 1.048, dus het demo-einde komt eerder (GOK; meten in de volgende duurtest).
+
+**Meting** (GEZIEN in `hol.log`, 6 zaden, Linux, `--fixed-fps 5`; uitkomst in `platformen/steam/data/minuut4-15/uitkomst-gemeten.txt`):
+| | Voor (Iris, d27cfc3, 4 zaden) | Na (6 zaden) |
+|---|---|---|
+| Aankopen in 15 min | 2 bij elk zaad | 4 bij elk zaad |
+| Koop 1 | 165 tot 204 s | 74 tot 83 s |
+| Koop 1 naar koop 2 | 359 tot 466 s | 146 tot 219 s |
+| Na een koop tot de volgende vangst | tot 352 s (zaad 3) | 5 tot 76 s |
+| Langste stuk zonder vangst, minuut 4 tot 15 | 313 s (zaad 3) | 81 tot 165 s |
+| Langste stuk zonder koop, minuut 4 tot 15 | 421 s (zaad 3) | 255 tot 472 s (na koop 4 is stap 3 voor 160 de volgende) |
+Eis 1, 2 en 3 gehaald op 6 van 6 zaden; eis 2 met 165 s één keer net boven ±150. De schets met een model (`schets.py`) was GOK en zat ernaast; de meting telt.
+
+**Meetlat:** Iris geeft leuk 8 op de film van 15 min (`producten/steam-hol/bewijs-minuut4-15/`).
+
 ### Bouwblad bij het plan: de getallen voor Olaf (Sanne, 25 nov ±04:00 NL, issue #19)
 Zodat #25 en #26 zonder vragen gebouwd kunnen worden. Beslist door mij als eigenaar; Olaf mag een getal bijstellen als het in de film slecht leest, met een regel waarom.
 

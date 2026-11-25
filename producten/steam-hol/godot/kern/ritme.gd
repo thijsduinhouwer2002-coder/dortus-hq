@@ -40,6 +40,21 @@ static func tel_helden(s) -> int:
 static func max_tegelijk(s) -> int:
 	return 3 if (s.demo or s.get("proef_drukte") == true) else MAX_TEGELIJK
 
+# Droogte (Sanne 25 nov, bouwblad I in platformen/steam/spelgevoel.md): al zo lang geen vangst, dan valt de volgende
+# held bij zijn eerste verdediging (systemen/held_val.gd). Grond: Iris zag 6 min geen vangst na de eerste koop (GEZIEN);
+# Rusty's eerste oogst komt na 70 tot 120 s (DERDEN, organisatie/lat/hats-tempo.md). Niet in de demo-film en niet
+# tijdens de vaste stappen van het begin.
+const DROOGTE_S := 75.0
+static func tik_droogte(s) -> void:
+	if s.demo or s._begin_stap() != "":
+		return
+	if not s.has_meta("laatste_vangst_t"):
+		s.set_meta("laatste_vangst_t", s.t)
+	var droog: bool = s.t - float(s.get_meta("laatste_vangst_t")) >= DROOGTE_S
+	if droog and not bool(s.hol.get_meta("droogte", false)) and not bool(s.hol.get_meta("droogte_bezig", false)):
+		s.hol.set_meta("droogte", true)
+		s.log_regel("HOL droogte (t %.1f)" % s.t)
+
 static func tik_held(s, helden: int) -> void:
 	if s.t < s.volgende_held or helden >= max_tegelijk(s):
 		return

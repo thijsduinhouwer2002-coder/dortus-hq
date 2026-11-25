@@ -1,6 +1,7 @@
 extends RefCounted
 const VOORTGANG := preload("res://systemen/voortgang.gd")   # met_pensioen (Bram 04:35)
 const HOL_NIVEAU := preload("res://systemen/hol_niveau.gd")
+const GOUD_BASIS := 9   # goud per vangst zonder bonus (Sanne 25 nov, bouwblad I; was 6)
 # Deel van kern/strook.gd (Olaf), losgehaald bij het opruimen van 10 nov (strook.gd was 650 regels).
 # Statische functies; `s` is de strook. Gedrag gelijk aan voor het splitsen (film.log gelijk).
 
@@ -39,7 +40,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 	var b := info.duplicate()
 	b["kleur"] = (info.kleur as Color).to_html(false)
 	b["hoed"] = (info.hoed as Color).to_html(false)
-	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid", "demo_clou", "lied", "dutje", "dutje_gemeld", "lied_held", "hoed_gemeld", "binnen_soort"]:
+	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid", "demo_clou", "lied", "dutje", "dutje_gemeld", "lied_held", "hoed_gemeld", "binnen_soort", "koop_geluk"]:
 		b.erase(v)
 	b.erase("wat")
 	if uitkomst == "ontsnapt":
@@ -99,7 +100,14 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		var reeks: int = int(s.get("reeks")) + 1 if s.get("reeks") != null else 1
 		if s.get("reeks") != null:
 			s.reeks = reeks
-		var buit := 6 + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven)) + reeks_bonus(reeks)
+		# basis 9 (Sanne 25 nov, bouwblad I; was 6): koop 2 kwam 6 tot 8 min na koop 1 (Iris d27cfc3, GEZIEN)
+		var buit := GOUD_BASIS + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven)) + reeks_bonus(reeks)
+		s.set_meta("laatste_vangst_t", s.t)   # droogte (kern/ritme.gd, bouwblad I)
+		s.hol.set_meta("droogte", false)
+		s.hol.set_meta("droogte_bezig", false)
+		if bool(info.get("koop_geluk", false)):
+			buit *= 2   # koopgeluk: de eerste vangst bij een net gekocht ding brengt dubbel (systemen/held_val.gd)
+			s.log_regel("HOL koopgeluk vangst +%d (t %.1f)" % [buit, s.t])
 		s.hol.goud += buit
 		faam_erbij(s, 1)
 		var naam: String = String(info.naam)

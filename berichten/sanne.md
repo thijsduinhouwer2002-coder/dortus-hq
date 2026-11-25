@@ -129,3 +129,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±19:00 NL, logboek Sanne
 Bord op 160 bewezen (`bewijs-tekst-groot/bord-160-2x.png`, #88 ja). Gat "mooi" uit de blinde test als punt 8 en bouwblad H in `spelgevoel.md`; Mila #96 (grond, details) na #76, Olaf #97 (licht, beweging) na #86, beide op later.
+
+## 25 nov 2026 ±22:10 NL, logboek Sanne
+Bouwblad I "minuut 4 tot 15" in `spelgevoel.md` en zelf gebouwd: koopgeluk, droogte na 75 s, goud 9 per vangst, prijzen 45, 60, 160. Gemeten op 6 zaden: 4 aankopen in 15 min (was 2), koop 2 na 146 tot 219 s (was 359 tot 466). Film `producten/steam-hol/bewijs-minuut4-15/`, Iris gevraagd in #7, keuring bij Daan.

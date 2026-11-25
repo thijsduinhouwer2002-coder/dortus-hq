@@ -40,6 +40,22 @@ static func onderweg(h) -> void:
 		valt = b != null       # een bewoner krijgt hem (held 5: eerste hoed op Gloop); een val overleeft hij
 	if bool(h.info.get("moet_afgerekend", false)):
 		valt = is_vijand       # alles onderweg overleeft hij, zijn eigen vijand krijgt hem
+	# Bouwblad I "minuut 4 tot 15" (Sanne 25 nov, platformen/steam/spelgevoel.md). Iris zag na de eerste koop 6 helden
+	# op rij vluchten en 6 min geen goud (keuring d27cfc3, GEZIEN): een koop voelde als een fout. Twee vlaggen op het hol:
+	# - koop_geluk (kern/kaartje.gd): de eerste held die na een koop bij een val of Gloop komt valt zeker, en brengt
+	#   dubbel goud (eerst alleen bij het gekochte ding, maar dan viel hij vaak al bij de put of keerde om: 0 van 6 zaden);
+	# - droogte (kern/ritme.gd): al DROOGTE_S geen vangst, dan valt de volgende held bij de eerste verdediging.
+	# Niet voor de vaste uitkomsten van het begin en niet voor een held die al zeker bij zijn vijand valt.
+	var vast: bool = h.info.has("moet_doorlopen") or h.info.has("moet_vluchten") or h.info.has("moet_opgegeten") or h.info.has("moet_afgerekend")
+	if not valt and not vast:
+		if String(h.hol.get_meta("koop_geluk", "")) != "":
+			valt = true
+			h.info["koop_geluk"] = true
+			h.hol.set_meta("koop_geluk", "")
+		elif bool(h.hol.get_meta("droogte", false)):
+			valt = true
+			h.hol.set_meta("droogte", false)
+			h.hol.set_meta("droogte_bezig", true)   # tot de vangst binnen is (kern/afloop.gd), anders valt ook de volgende
 	if valt:
 		h.info["laatst_geraakt"] = naam_vijand
 		h.info["wat"] = ("finally fell to " if is_vijand else "fell to ") + naam_vijand

@@ -1,0 +1,8 @@
+nu                  koop1 114 koop2 528  kopen<15min 2.0  langste gat zonder koop min4-15 415 s  langste gat zonder vangst 154 s
+pech 2              koop1 114 koop2 490  kopen<15min 2.0  langste gat zonder koop min4-15 414 s  langste gat zonder vangst 118 s
+pech2+geluk x2      koop1 114 koop2 381  kopen<15min 2.0  langste gat zonder koop min4-15 519 s  langste gat zonder vangst 117 s
++put30 na G, 90/80  koop1 114 koop2 272  kopen<15min 3.0  langste gat zonder koop min4-15 475 s  langste gat zonder vangst 117 s
++B9                 koop1 114 koop2 191  kopen<15min 3.6  langste gat zonder koop min4-15 368 s  langste gat zonder vangst 116 s
+B9 45/25 70/60      koop1 114 koop2 158  kopen<15min 4.0  langste gat zonder koop min4-15 312 s  langste gat zonder vangst 114 s
+KEUS B9 45/45 90/80  koop1 114 koop2 301  kopen<15min 3.3  langste gat zonder koop min4-15 365 s  langste gat zonder vangst 116 s
+KEUS zonder geluk    koop1 114 koop2 405  kopen<15min 2.8  langste gat zonder koop min4-15 418 s  langste gat zonder vangst 118 s
