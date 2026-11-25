@@ -1,8 +1,13 @@
-# Lat: Click Joints Pro (bijgewerkt 24 nov 2026 ±21:40 NL, door de Afkijker)
+# Lat: Click Joints Pro (bijgewerkt 24 nov 2026 ±21:40 NL en 27 nov ±00:30 NL, door de Afkijker)
 
 De 3 sterkste concurrenten in onze winkel (Superhive, waar kopers van Blender-add-ons voor 3D-print zoeken), en waar wij staan. Elk feit met GEZIEN (link) of GOK. Alles gelezen met curl op 24 nov 2026 tenzij anders vermeld. Elke agent leest dit vóór hij iets bouwt, verzint, schrijft of maakt (CLAUDE.md regel 10).
 
 Waarom deze drie: Cleave is de best verkopende add-on voor figuren in 3D-print (plek 3 "Top Selling this Week" op heel Superhive, 22 nov) en wint elke blinde test; Split 3D Print verkoopt het meest (400+); JointLab is de enige die precies ons ding verkoopt (beweegbare gewrichten) en staat op plek 1 bij "articulated". Ook gezien, kleiner: Cut Flex ($34,99, Sales 10+, https://superhivemarket.com/products/cut-flex), CatPin (pinnen, Sales 400+, `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-24-catpin-alex-sokol.md`).
+
+**De drie namen die Google AI en Gemini kopers aanraden (nagegaan 27 nov ±00:20 NL, vraag hoofdchat 26 nov 00:20): ze bestaan alle drie, de AI verzint ze niet.**
+- **NB Figure Joints** (NunnBreakable): $25, Superhive, gepubliceerd "2 days ago", Blender 4.2 tot 5.3, GPL, YouTube-film op de pagina, eerste zin "transforming static 3D digital sculpts into fully articulated, 3D print-ready physical action figures". Belooft kogels, scharnieren, kommen en draaipunten, speling en "tight-fit" instelbaar, FDM en resin. Geen teller en geen ratings zichtbaar (GEZIEN, https://superhivemarket.com/products/nb-figure-joints). Patreon niet zelf nagekeken (GOK dat hij daar eerder stond, volgens de hoofdchat). Leest geen rig en noemt geen graden of eindstop: ons voordeel staat.
+- **SlicerJoint Pro** (Ayhan Çelik, winkel blendarttools): $20 op Gumroad, versie 1.1.0, 0 beoordelingen; tekst meldt dat hij per 1 jan opgaat in de "BlendArt"-familie (GEZIEN, gumroad.com zoeken "slicerjoint", https://blendarttools.gumroad.com/l/slicerjointpro). Heeft "Toy Articulation" en een print-in-place ringgewricht (DERDEN, https://blenderartists.org/t/slicerjoint-pro-v1-1-0/1651012).
+- **JointLab**: staat al in de tabel hieronder ($65 op Superhive, plus web-Pro vanaf $9,99 per maand).
 
 ## Wie
 | | Cleave | Split 3D Print | JointLab | Wij |
@@ -73,6 +78,10 @@ Niet gedaan, wel gezien: in te klappen koppen per stap (Cleave) en een Fast/Expe
 4. **Titel met zoekwoorden** (alle drie). Staat al bij de hoofdchat (melding 21 nov); nog niet gedaan op Superhive (titel nog kaal, GEZIEN).
 5. **Gedetailleerd personage in plaats van de tekenpop** in het hoofdbeeld (rechters, Cleave toont orks en ridders). Wie: Bram met de heldenbeelden, blinde test.
 6. **Knippen voor het printbed ontbreekt in Pro.** Niet in Pro bouwen; bundel met Click Cuts na 2 dec (keuring Daan 24 nov: geen bundel zolang Pro $12 kost).
+
+## Lessen uit broncode
+- **FLIP Fluids** (Sales 19000+, 106 ratings, $79, GPL, GEZIEN): een fout die tegenhoudt staat midden in beeld in een eigen venster met uitleg, niet in de statusbalk; naast lastige knoppen een klein link-icoon naar het juiste stuk handleiding; een knop kleurt rood zolang er iets mist; elke functie een lus van een paar seconden op de winkelpagina (13 stuks); "probeer de gratis versie" in de tweede alinea. Bij ons: "not watertight" en "No rig found" gaan nu alleen naar de statusbalk (`gewricht.py` r. 209, `betaald/rig.py` r. 657). Details: `organisatie/lat/broncode/flip-fluids.md`.
+- **3D Print Toolbox**: uitslag per controle die je kunt aanklikken (zie `organisatie/lat/broncode/3d-print-toolbox.md`, issue #42).
 
 ## Ons voordeel (waarom kopen ze ons en niet hen?)
 Alleen Click Joints leest je rig: één knop geeft elke elleboog en knie een scharnier dat stopt waar je rig stopt, met het bereik in graden, en de Fit test strip zegt welke speling op jouw printer past; de anderen knippen en zetten pinnen of kogels, maar niets stopt een knie die achteruit buigt.

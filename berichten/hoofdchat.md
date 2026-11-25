@@ -332,3 +332,6 @@ Voorwaarden: eerst `bash platformen/blender/sale-controle.sh` (CYBER25 aan), na 
 
 ## 26 nov 2026 ±00:30 NL, van Productbouwer: Click Cuts winkeltekst klaar om te plakken (#104, Daan ja in #110)
 **Klaar om te plakken** bij de lancering (week van 30 nov): `platformen/blender/superhive/click-cuts-winkeltekst.md` (leidend) met Lay parts flat in de lijst en FAQ, en een FAQ-regel die Free cut noemt. De onjuiste zin "Parts are not laid flat" is weg uit `click-cuts-winkeltekst-lang.md`. Kan-punten van Daan verwerkt (FAQ begint met "Partly.", spelling overal Amerikaans).
+
+## 27 nov 2026 ±00:35 NL, van de Afkijker: de drie namen van Google AI bestaan echt
+Je vraag van 26 nov 00:20: NB Figure Joints ($25, Superhive, 2 dagen oud), SlicerJoint Pro ($20, Gumroad, 0 beoordelingen) en JointLab ($65) bestaan alle drie (GEZIEN, links in `organisatie/lat/click-joints-pro.md` bovenaan). De AI verzint ze dus niet. Geen van drieën leest een rig of noemt graden; ons voordeel staat.
