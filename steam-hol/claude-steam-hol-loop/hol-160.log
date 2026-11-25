@@ -1,0 +1,52 @@
+HOL balk gestart, pid 740, hoogte 160
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=160 schaal=4 spelpixels=256x40 venster=(1024, 160) pos=(0, 560) held=res://systemen/held.gd
+HOL zaad 7
+HOL balk aan
+HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
+HOL muisvlak via de balk, lucht vrij op x=-1
+HOL begin: vallen (Kees)
+HOL held binnen: Kees
+HOL zicht 0.7 1
+HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
+HOL kroniek 7.0 (wacht 0.0): Anouk the Bard tunes a lute.
+HOL begin: vluchten (Anouk)
+HOL held binnen: Anouk
+HOL gegraven kolom 3 (zelf 1, graafbonus 0)
+HOL meting t=10 beelden=97 helden=2 hol_vast=2
+HOL kroniek 12.4 (wacht 0.0): Mara read about you in a tavern.
+HOL begin: opgegeten (Mara)
+HOL held binnen: Mara
+HOL kroniek 13.4 (wacht 0.2): Kees is part of the hole now. +6
+HOL gegraven kolom 5 (zelf 2, graafbonus 0)
+HOL demo klik op Gloop
+HOL kaartje open 18.6: slijm
+HOL demo klik op Buy
+HOL koop 20.1: slijm niveau 1, goud 27
+HOL meting t=20 beelden=125 helden=2 hol_vast=5
+HOL kaartje dicht 22.6
+HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
+HOL begin: doorlopen (Siem)
+HOL held binnen: Siem
+HOL kroniek 25.1 (wacht 0.9): Siem has a map. It is wrong.
+HOL gegraven kolom 6 (zelf 3, graafbonus 0)
+HOL meting t=30 beelden=116 helden=3 hol_vast=6
+HOL kroniek 31.0 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
+HOL kroniek 33.5 (wacht 0.9): Gloop ate Mara. Kept the crown. +6
+HOL begin: terug (Anouk)
+HOL held binnen: Anouk
+HOL kroniek zelfde held vervangen: Anouk fled. Grudge: the Spike Pit.
+HOL kroniek 36.1 (wacht 0.9): Anouk is back for the Spike Pit.
+HOL kroniek 38.6 (wacht 0.0): Siem is now the Hoard-Toucher.
+HOL meting t=40 beelden=125 helden=2 hol_vast=7
+HOL kroniek 41.1 (wacht 7.1): Gloop is flat. Back soon.
+HOL kroniek 43.5 (wacht 0.0): Rik came for the gold in the song.
+HOL begin: opgegeten2 (Rik)
+HOL held binnen: Rik
+HOL kroniek 46.0 (wacht 14.9): Anouk's song got popular. Uh oh.
+HOL kroniek weggedrukt na 2.0 s, komt terug: Anouk's song got popular. Uh oh.
+HOL kroniek 48.0 (wacht 0.0): Siem the Hoard-Toucher ran.
+HOL hol-niveau 2 (faam 3, t 48.8)
+HOL bordje wip niveau 2
+HOL held binnen: Bram
+HOL einde na 50 s, fps=20, goud=42, terugkomers=1

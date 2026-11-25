@@ -1,0 +1,20 @@
+HOL balk gestart, pid 6104, hoogte 96
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
+HOL zaad 1795581169
+HOL balk aan
+HOL muisvlak via de balk, lucht vrij op x=200
+HOL klik op (200, 90): niets
+HOL kroniek 4.1 (wacht 0.0): Teun climbs into your hole.
+HOL begin: vallen (Teun)
+HOL held binnen: Teun
+HOL zicht 4.2 1
+HOL kroniek 9.7 (wacht 0.0): Wout has a map. It is wrong.
+HOL begin: opgegeten (Wout)
+HOL held binnen: Wout
+HOL meting t=10 beelden=64 helden=2 hol_vast=1
+HOL kroniek zelfde held vervangen: Teun climbs into your hole.
+HOL kroniek 16.7 (wacht 0.0): Teun stays forever. +6
+HOL kroniek 19.2 (wacht 2.5): New page: the Hero. The pit won.
+HOL meting t=20 beelden=125 helden=1 hol_vast=3
+HOL einde na 25 s, fps=10, goud=26, terugkomers=0
