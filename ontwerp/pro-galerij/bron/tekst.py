@@ -280,6 +280,63 @@ def zoomkaart(img, s, x0, y0, meta):
         ty += int(42 * s)
 
 
+def delen(img, s, meta, P):
+    """Beeld 4 (#101): kaartjes bij een kom en een scharnier, en wat Export schreef (aantal uit de json)."""
+    ex = meta["export"]
+    pt = meta["punten"]
+
+    def zoek(gewricht, soort):
+        kand = [q for q in pt.values() if q["gewricht"] == gewricht and q["soort"] == soort]
+        return min(kand, key=lambda q: q["beeld"][1]) if kand else None   # het verste deel (achterste rij)
+    for gewricht, soort, tekst, (dx, dy) in (
+            ("Left hip", "KOGEL", "Ball socket inside", (-60, -150)),
+            ("Left knee", "SCHARNIER", "Knee hinge with end stop", (120, 190))):
+        q = zoek(gewricht, soort)
+        if not q:
+            continue
+        x, y = P(q["beeld"])
+        y += 14 * s
+        d = ImageDraw.Draw(img)
+        half = (d.textlength(tekst, font=font("Inter.ttf", int(30 * s), "SemiBold")) + 36 * s) / 2
+        tx = max(half + 40 * s, min(x + dx * s, img.size[0] - half - 40 * s))
+        ty = y + dy * s
+        d.line(((x, y), (tx, ty)), fill=GOUD + (255,), width=max(3, int(4 * s)))
+        r = int(9 * s)
+        d.ellipse((x - r, y - r, x + r, y + r), fill=GOUD + (255,), outline=(20, 12, 24, 255), width=max(2, int(3 * s)))
+        pil(img, s, (int(tx), int(ty)), tekst, maat=30)
+    return ex
+
+
+def bestanden(img, s, x0, y0, ex):
+    """Kaartje links onder: wat de knop Export meldt, met het aantal bestanden uit de json."""
+    f1 = font("Bricolage.ttf", int(44 * s), "Bold")
+    f2 = font("Inter.ttf", int(30 * s), "Medium")
+    f3 = font("Inter.ttf", int(28 * s), "SemiBold")
+    bw, bh = int(720 * s), int(280 * s)
+    laag = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(laag).rounded_rectangle((x0, y0 + 8, x0 + bw, y0 + bh + 8), radius=int(28 * s), fill=(0, 0, 0, 170))
+    img.alpha_composite(laag.filter(ImageFilter.GaussianBlur(14)))
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle((x0, y0, x0 + bw, y0 + bh), radius=int(28 * s), fill=(20, 12, 28, 240), outline=GOUD + (255,),
+                        width=max(2, int(2 * s)))
+    tx, ty = x0 + int(36 * s), y0 + int(34 * s)
+    schaduw_tekst(img, [((tx, ty), f"{ex['stl']} parts, {ex['stl']} files", f1, CREME)], 6)
+    ty += int(70 * s)
+    d = ImageDraw.Draw(img)
+    for t in passend(d, "One click on Export. Each part is its own file, ready for your slicer.", f2, bw - int(72 * s)):
+        schaduw_tekst(img, [((tx, ty), t, f2, ZACHT)], 6)
+        ty += int(42 * s)
+    ty += int(22 * s)
+    x = tx
+    for t in ("STL", "3MF", "millimeters"):
+        d = ImageDraw.Draw(img)
+        w = d.textlength(t, font=f3)
+        d.rounded_rectangle((x, ty - int(6 * s), x + w + int(28 * s), ty + int(36 * s)), radius=int(20 * s),
+                            outline=GOUD + (255,), width=max(2, int(2 * s)))
+        d.text((x + int(14 * s), ty - int(2 * s)), t, font=f3, fill=GOUD)
+        x += w + int(44 * s)
+
+
 def maak(basis, W, H, meta, dy, schaal):
     img = basis.copy()
     s = H / 1200.0 if W / H > 1.9 else H / 1080.0 * 0.92
@@ -303,6 +360,13 @@ def maak(basis, W, H, meta, dy, schaal):
             "Hinges stop where your rig stops. Ball joints get their own swing.", int(W * 0.36))
         bereik(img, s, meta, P)
         zoomkaart(img, s, x0, int(H * 0.56), meta)
+    elif MODUS == "delen":
+        donker(img, int(W * 0.55))
+        kop(img, s, x0, int(H * 0.08), ["Every part,", "ready to print"],
+            "Separate parts, joints already inside, 0.20\u00a0mm clearance.",
+            int(W * 0.30))
+        ex = delen(img, s, meta, P)
+        bestanden(img, s, x0, int(H * 0.63), ex)
     else:
         donker(img, int(W * 0.55))
         kop(img, s, x0, int(H * 0.12), ["Find the fit", "for your", "printer"],

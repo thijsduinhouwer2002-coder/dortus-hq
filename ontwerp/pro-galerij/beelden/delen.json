@@ -1,0 +1,239 @@
+{
+ "figuur": "robot (figuur_robot.py, eigen werk)",
+ "uit_mm": 36.0,
+ "modus": "delen",
+ "knop_s": 63.8,
+ "gewrichten": [
+  "Left elbow · Hinge · 0–140° · from rig",
+  "Right elbow · Hinge · 0–140° · mirror",
+  "Left knee · Hinge · 0–120° · from rig",
+  "Right knee · Hinge · 0–120° · mirror",
+  "Neck · Ball · ±20° · preset",
+  "Left shoulder · Ball · ±30° · preset",
+  "Right shoulder · Ball · ±30° · preset",
+  "Left hip · Ball · ±22° · preset",
+  "Right hip · Ball · ±30° · preset"
+ ],
+ "records": [
+  {
+   "naam": "Left elbow",
+   "soort": "HINGE",
+   "graden": 140.0,
+   "punt": [
+    50.0,
+    -3.6,
+    132.0
+   ]
+  },
+  {
+   "naam": "Right elbow",
+   "soort": "HINGE",
+   "graden": 140.1,
+   "punt": [
+    -50.0,
+    -3.6,
+    132.0
+   ]
+  },
+  {
+   "naam": "Left knee",
+   "soort": "HINGE",
+   "graden": 120.0,
+   "punt": [
+    18.5,
+    4.0,
+    57.0
+   ]
+  },
+  {
+   "naam": "Right knee",
+   "soort": "HINGE",
+   "graden": 120.0,
+   "punt": [
+    -18.5,
+    4.0,
+    57.0
+   ]
+  },
+  {
+   "naam": "Neck",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    0.0,
+    0.1464,
+    181.5137
+   ]
+  },
+  {
+   "naam": "Left shoulder",
+   "soort": "BALL",
+   "graden": 30.0,
+   "punt": [
+    31.0419,
+    0.056,
+    172.6996
+   ]
+  },
+  {
+   "naam": "Right shoulder",
+   "soort": "BALL",
+   "graden": 30.0,
+   "punt": [
+    -31.0414,
+    0.0567,
+    172.6994
+   ]
+  },
+  {
+   "naam": "Left hip",
+   "soort": "BALL",
+   "graden": 22.0,
+   "punt": [
+    16.9899,
+    -0.0505,
+    115.9826
+   ]
+  },
+  {
+   "naam": "Right hip",
+   "soort": "BALL",
+   "graden": 30.0,
+   "punt": [
+    -16.9899,
+    -0.0505,
+    115.9826
+   ]
+  }
+ ],
+ "goud_vlakken": 26274,
+ "export": {
+  "stl": 10,
+  "3mf": 10,
+  "namen": [
+   "Figuur_A_A_A_A_A_A_A_A_A.stl",
+   "Figuur_A_A_A_A_A_A_A_A_B.stl",
+   "Figuur_A_A_A_A_A_A_A_B.stl",
+   "Figuur_A_A_A_A_A_A_B.stl",
+   "Figuur_A_A_A_A_A_B.stl",
+   "Figuur_A_A_A_A_B.stl",
+   "Figuur_A_A_A_B.stl",
+   "Figuur_A_A_B.stl",
+   "Figuur_A_B.stl",
+   "Figuur_B.stl"
+  ],
+  "zichtbare_delen": 10
+ },
+ "rijen": [
+  5,
+  5
+ ],
+ "kader": [
+  [
+   -150.78643798828125,
+   0.0,
+   0.0
+  ],
+  [
+   150.7864227294922,
+   93.50902557373047,
+   88.8778305053711
+  ]
+ ],
+ "plaat_mm": [
+  342,
+  134
+ ],
+ "punten": {
+  "Figuur_B": {
+   "beeld": [
+    0.6709,
+    0.2933
+   ],
+   "bestand": "Figuur_B.stl",
+   "soort": "SCHARNIER",
+   "gewricht": "Left elbow"
+  },
+  "Figuur_A_B": {
+   "beeld": [
+    0.5682,
+    0.3257
+   ],
+   "bestand": "Figuur_A_B.stl",
+   "soort": "SCHARNIER",
+   "gewricht": "Right elbow"
+  },
+  "Figuur_A_A_B": {
+   "beeld": [
+    0.7358,
+    0.3929
+   ],
+   "bestand": "Figuur_A_A_B.stl",
+   "soort": "SCHARNIER",
+   "gewricht": "Left knee"
+  },
+  "Figuur_A_A_A_B": {
+   "beeld": [
+    0.8293,
+    0.3619
+   ],
+   "bestand": "Figuur_A_A_A_B.stl",
+   "soort": "SCHARNIER",
+   "gewricht": "Right knee"
+  },
+  "Figuur_A_A_A_A_B": {
+   "beeld": [
+    0.6309,
+    0.4783
+   ],
+   "bestand": "Figuur_A_A_A_A_B.stl",
+   "soort": "KOGEL",
+   "gewricht": "Neck"
+  },
+  "Figuur_A_A_A_A_A_B": {
+   "beeld": [
+    0.9253,
+    0.3564
+   ],
+   "bestand": "Figuur_A_A_A_A_A_B.stl",
+   "soort": "KOGEL",
+   "gewricht": "Left shoulder"
+  },
+  "Figuur_A_A_A_A_A_A_B": {
+   "beeld": [
+    0.4616,
+    0.3732
+   ],
+   "bestand": "Figuur_A_A_A_A_A_A_B.stl",
+   "soort": "KOGEL",
+   "gewricht": "Right shoulder"
+  },
+  "Figuur_A_A_A_A_A_A_A_B": {
+   "beeld": [
+    0.7639,
+    0.2419
+   ],
+   "bestand": "Figuur_A_A_A_A_A_A_A_B.stl",
+   "soort": "KOGEL",
+   "gewricht": "Left hip"
+  },
+  "Figuur_A_A_A_A_A_A_A_A_A": {
+   "beeld": [
+    0.4629,
+    0.4018
+   ],
+   "bestand": "Figuur_A_A_A_A_A_A_A_A_A.stl",
+   "soort": "KOGEL",
+   "gewricht": "Right hip"
+  },
+  "Figuur_A_A_A_A_A_A_A_A_B": {
+   "beeld": [
+    0.8474,
+    0.2158
+   ],
+   "bestand": "Figuur_A_A_A_A_A_A_A_A_B.stl",
+   "soort": "KOGEL",
+   "gewricht": "Right hip"
+  }
+ }
+}

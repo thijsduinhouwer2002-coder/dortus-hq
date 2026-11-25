@@ -29,3 +29,11 @@ Ronde 3 knie (25 nov ±09:00): nieuw beeld `bereik-*`, **"Every joint knows its 
 GB_MODUS=bereik GB_SCH_R=-28 GB_UIT=9 HB_DRAAI=48 HB_KANTEL=6 HB_SHIFT=-0.2 HB_VUL=0.86 HB_LICHT=2.6 GB_ZAFSTAND=230 GB_ZSCHUIN=-0.2 GB_ZLENS=90 (zelfde regel, 32 samples)
 GB_ZOOM=<uit>/render-bereik-knie.png GB_ZOOM_KADER=0.17,0.27,0.77,0.87 python3 bron/tekst.py bereik <uit>/render-bereik.png <uit>/bereik.json beelden <fonts> ../click-joints/bron/icoon.svg
 ```
+
+## Beeld 4 (issue #101, 25 nov ±21:30): `delen-*`, "Every part, ready to print"
+Waarom: Superhive vraagt minimaal 4 galerijbeelden (nu 3). ChatGPT miste in eerdere rondes (#1) dat je losse printbare delen krijgt; dit beeld laat precies dat zien. Alle 10 delen uit Figure from rig naast elkaar op een printplaat, met kaartjes bij een kogelkom (heup) en een kniescharnier, en wat de knop Export schreef: 10 STL- en 10 3MF-bestanden (GEZIEN, `beelden/delen.json`, `export`). Leggen, plaat en camera zijn van ons; de add-on legt de delen niet zelf neer. Add-on: zip van 21bfad0 (Pro 1.2.8, vóór het paneel van 1.2.9; zelfde export).
+```
+GB_MODUS=delen GB_RIJ=330 GB_PLAATRAND=20 GB_GAT=24 HB_LICHT=2.6 GB_SHIFT=-0.17 GB_SHIFT_Y=-0.03 GB_OP=0.95 GB_LENS=55 GB_AFSTAND=820 GB_ZIJ=-0.28 (zelfde regel, 32 samples)
+python3 bron/tekst.py delen <uit>/render-delen.png <uit>/delen.json beelden <fonts> ../click-joints/bron/icoon.svg
+```
+Blinde test: set `organisatie/blindtest/sets/click-joints-pro-galerij-delen.json` (zelfde drie concurrenten als bereik).

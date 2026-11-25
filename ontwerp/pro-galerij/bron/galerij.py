@@ -352,4 +352,114 @@ def bereik():
     log("klaar", pad)
 
 
-{"knie": knie, "klik": klik, "strip": strip, "bereik": bereik}[MODUS]()
+# ---------------------------------------------------------------- delen (beeld 4, issue #101)
+def delen_plat():
+    """Alle delen uit Figure from rig naast elkaar op de printplaat (zoals je ze in je slicer zou leggen), na de echte
+    knop Export: het aantal bestanden en de namen komen uit wat de add-on schreef. Leggen en camera zijn van ons; de
+    add-on legt de delen niet zelf neer."""
+    import tempfile
+    naam, delen = figuur()
+    R.kleur_herstel(delen)
+    S.plastic(delen, gewricht="contrast", gewricht_kleur=R.GEWRICHT)
+    goud_gewrichten(delen)
+    inst = bpy.context.scene.click_joints
+    map_ = tempfile.mkdtemp(prefix="cj_export_")
+    inst.exportmap = map_
+    uitkomst = {}
+    for formaat in ("STL", "3MF"):
+        inst.formaat = formaat
+        r = bpy.ops.click_joints.exporteer()
+        uitkomst[formaat] = sorted(f for f in os.listdir(map_) if f.lower().endswith("." + formaat.lower()))
+        log("Export", formaat, r, len(uitkomst[formaat]))
+    meting["export"] = {"stl": len(uitkomst["STL"]), "3mf": len(uitkomst["3MF"]), "namen": uitkomst["STL"],
+                        "zichtbare_delen": len(delen)}
+    # leggen: rijen van groot naar klein, elk deel rechtop op de plaat (z laag = 0)
+    def maat(o):
+        """Kader uit de echte (geëvalueerde) hoekpunten: bound_box telt verborgen hulpvormen soms mee."""
+        dg = bpy.context.evaluated_depsgraph_get()
+        oe = o.evaluated_get(dg)
+        me = oe.to_mesh()
+        bb = [oe.matrix_world @ v.co for v in me.vertices] or [o.matrix_world @ Vector(c) for c in o.bound_box]
+        oe.to_mesh_clear()
+        return (Vector((min(p.x for p in bb), min(p.y for p in bb), min(p.z for p in bb))),
+                Vector((max(p.x for p in bb), max(p.y for p in bb), max(p.z for p in bb))))
+    gat = float(os.environ.get("GB_GAT", "12"))
+    breed_max = float(os.environ.get("GB_RIJ", "260"))
+    lijst = sorted(delen, key=lambda o: -((maat(o)[1] - maat(o)[0]).x * (maat(o)[1] - maat(o)[0]).y))
+    rijen, rij, x = [], [], 0.0
+    for o in lijst:
+        lo, hi = maat(o)
+        w = hi.x - lo.x
+        if rij and x + w > breed_max:
+            rijen.append(rij)
+            rij, x = [], 0.0
+        rij.append(o)
+        x += w + gat
+    if rij:
+        rijen.append(rij)
+    y = 0.0
+    plek = {}
+    for rij in rijen:
+        diep = max(maat(o)[1].y - maat(o)[0].y for o in rij)
+        tot = sum(maat(o)[1].x - maat(o)[0].x for o in rij) + gat * (len(rij) - 1)
+        x = -tot / 2
+        for o in rij:
+            lo, hi = maat(o)
+            d = Vector((x - lo.x, y + (diep - (hi.y - lo.y)) / 2 - lo.y, -lo.z))
+            o.matrix_world = Matrix.Translation(d) @ o.matrix_world
+            plek[o.name] = d
+            x += hi.x - lo.x + gat
+        y += diep + gat
+    bpy.context.view_layer.update()
+    meting["rijen"] = [len(r) for r in rijen]
+    verberg_rest(delen)
+    cam = scene(delen)
+    lo = Vector((min(maat(o)[0].x for o in delen), min(maat(o)[0].y for o in delen), 0))
+    hi = Vector((max(maat(o)[1].x for o in delen), max(maat(o)[1].y for o in delen),
+                 max(maat(o)[1].z for o in delen)))
+    mid = (lo + hi) / 2
+    # printplaat onder de delen: afgeronde plaat, iets lichter raster om de 10 mm en een gouden rand (alleen decor)
+    rand = float(os.environ.get("GB_PLAATRAND", "26"))
+    vloer = bpy.context.scene.objects.get("hb_vloer")
+    if vloer is not None:
+        vloer.location.z = -7.0
+    bpy.ops.mesh.primitive_cube_add(size=1, location=(mid.x, mid.y, -1.5))
+    plaat = bpy.context.active_object
+    plaat.name = "gb_plaat"
+    plaat.scale = (hi.x - lo.x + 2 * rand, hi.y - lo.y + 2 * rand, 3.0)
+    bpy.ops.object.transform_apply(scale=True)
+    bev = plaat.modifiers.new("rond", "BEVEL")
+    bev.width, bev.segments = 10.0, 8
+    bev.affect = "EDGES"
+    oud_raster = os.environ.get("HB_RASTER")
+    os.environ["HB_RASTER"] = os.environ.get("GB_PLAATRASTER", "4A3A5C")
+    plaat.data.materials.append(printbed(mat("gb_plaat", "221A2C", rough=0.5, coat=0.2), stap=10.0, dik=0.25))
+    if oud_raster is None:
+        del os.environ["HB_RASTER"]
+    else:
+        os.environ["HB_RASTER"] = oud_raster
+    bpy.ops.mesh.primitive_cube_add(size=1, location=(mid.x, mid.y, -4.0))
+    lijst_ = bpy.context.active_object
+    lijst_.name = "gb_plaatrand"
+    lijst_.scale = (hi.x - lo.x + 2 * rand + 5, hi.y - lo.y + 2 * rand + 5, 6.0)
+    bpy.ops.object.transform_apply(scale=True)
+    b2 = lijst_.modifiers.new("rond", "BEVEL")
+    b2.width, b2.segments = 11.0, 8
+    lijst_.data.materials.append(mat("gb_plaatgoud", os.environ.get("HB_GOUD", "FFB938"), rough=0.3, metal=0.6,
+                                     emis=float(os.environ.get("GB_RANDGLOED", "0.6"))))
+    meting["plaat_mm"] = [round(hi.x - lo.x + 2 * rand), round(hi.y - lo.y + 2 * rand)]
+    doel = Vector((mid.x, mid.y, hi.z * 0.25))
+    camera_op(cam, doel, Vector((float(os.environ.get("GB_ZIJ", "-0.25")), -1.0, float(os.environ.get("GB_OP", "0.95")))),
+              float(os.environ.get("GB_AFSTAND", "700")), float(os.environ.get("GB_LENS", "60")))
+    # punten voor kaartjes: midden-boven van elk deel in beeld, met de bestandsnaam van de STL
+    punten = {}
+    for o in delen:
+        lo_, hi_ = maat(o)
+        top = Vector(((lo_.x + hi_.x) / 2, (lo_.y + hi_.y) / 2, hi_.z))
+        punten[o.name] = {"beeld": naar_beeld(cam, top), "bestand": bpy.path.clean_name(o.name) + ".stl",
+                          "soort": o.get("cj_soort", ""), "gewricht": o.get("cj_naam", "")}
+    meting["punten"] = punten
+    render("delen")
+
+
+{"knie": knie, "klik": klik, "strip": strip, "bereik": bereik, "delen": delen_plat}[MODUS]()
