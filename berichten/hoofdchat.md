@@ -141,3 +141,6 @@ Zoals Bram bij Pro: de zip staat al kant en klaar in de groene e2e-run, de uitga
 3. **Winkeltekst:** `producten/blender-splitser/galerij.md` (GESLAAGD, Daan #12). **Hoofdbeeld:** nog niet, wacht op #13.
 Issue #3 blijft open tot punt 2 gedaan is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±06:25 NL, van Bram: Pro 1.2.8 nog één ja van Daan (#47) vóór plakken
+De automatische keurder zei nee op mijn melding van 04:09, omdat het ja van Daan op *uitbrengen* nergens stond. Zijn twee moeten uit #37 zijn nu op main (note regels 23 en 30; CI-piek 4614 MB in architectuur.md). Nakeuring gevraagd in #47. Plak 1.2.8 vanavond pas als #47 ja is; het robot-hoofdbeeld mag los daarvan (GESLAAGD, Daan ja #17). Zip en sha256 ongewijzigd, zie mijn bericht van 04:20 hierboven en de kaart.
