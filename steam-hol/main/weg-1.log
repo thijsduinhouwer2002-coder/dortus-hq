@@ -1,24 +1,24 @@
-HOL balk gestart, pid 9036, hoogte 120
-HOL weg geweest 28802 s (klok terug: false): goud voor 26, helden 115, erbij 481, hoeden 31
-HOL weg faam afgekapt 4 van 61 (hooguit 2 niveaus)
+HOL balk gestart, pid 2004, hoogte 120
+HOL weg geweest 28802 s (klok terug: false): goud voor 26, helden 115, erbij 559, hoeden 38
+HOL weg faam afgekapt 4 van 74 (hooguit 2 niveaus)
 HOL hol-niveau 2 (faam 5, t 0.0)
 HOL hol-niveau 3 (faam 5, t 0.0)
-HOL hoeden van de nacht 31 (vallen vanaf 1.0 s, toren nu 0)
+HOL hoeden van de nacht 38 (vallen vanaf 1.0 s, toren nu 0)
 HOL berg zichtbaar 0 -> 6
-HOL kroniek 0.0 (wacht 0.0): 115 came, 61 fell, 31 hats. +481 gold.
+HOL kroniek 0.0 (wacht 0.0): 115 came, 74 fell, 38 hats. +559 gold.
 HOL optocht wip, geen poef; helden [3]; duur 0.0 s
-HOL opslag geladen: 0 terugkomers, 507 goud, faam 5
+HOL opslag geladen: 0 terugkomers, 585 goud, faam 5
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795630675
+HOL zaad 1795631239
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 507)
-HOL eerste koop mogelijk na 15 s speeltijd (goud 507)
+HOL gloop ring aan na 0.2 s (goud 585)
+HOL eerste koop mogelijk na 15 s speeltijd (goud 585)
 HOL bordje wip na weg (niveau 3)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vluchten (Femke)
-HOL held binnen: Femke
+HOL begin: vluchten (Lotte)
+HOL held binnen: Lotte
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Femke read about you in a tavern.
+HOL kroniek 2.5 (wacht 0.5): Lotte brought a torch. And hope.
 HOL meting t=10 beelden=100 helden=1 hol_vast=12
-HOL einde na 15 s, fps=10, goud=507, terugkomers=0
+HOL einde na 15 s, fps=10, goud=585, terugkomers=0
