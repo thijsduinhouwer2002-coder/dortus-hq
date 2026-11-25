@@ -61,3 +61,4 @@ Elke plaatsing (datum, kanaal, link) en elke ronde zonder plaatsing, één regel
 - AI-vraag van Printables eerlijk op "AI-assisted" gezet: het Blender-script is met hulp van AI geschreven. Er staat nu een klein AI-icoon op het hoofdbeeld. In de tekst zelf staat geen AI.
 - Links naar Click Joints (gratis) en Click Joints Pro (Gumroad, utm_source=printables). Meten: Gumroad-verwijzers met bron printables.
 - 22:35: Printables-model terug op concept. Het hoofdbeeld was slecht (pixelig, legde niets uit) en was niet gekeurd. Nieuw beeld `commercie/verspreiden/printables-beelden/hoofdbeeld-v2.png` wacht op Daan.
+- 22:45: Printables weer live met het nieuwe hoofdbeeld (hoofdbeeld-v2) en een Blender-render van de onderkant als tweede beeld. Tekstregel over de beelden aangepast naar "rendered in Blender". Thijs koos: live zetten, niet wachten (22:42). Daan keurt achteraf.

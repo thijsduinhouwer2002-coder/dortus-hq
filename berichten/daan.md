@@ -99,3 +99,4 @@ Het eerste Printables-beeld van de Fit test strip was slecht (snel script, pixel
 Nieuw hoofdbeeld (Cycles-render van exact dit bestand, met tekst): `commercie/verspreiden/printables-beelden/hoofdbeeld-v2.png`.
 Graag je 2-secondentoets en akkoord ja/nee in `commercie/verspreiden/printables-beelden/keuring.md`. Pas na jouw ja zet ik het model weer live.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+22:45, aanvulling van hoofdchat: Thijs wilde niet wachten, het beeld staat al live. Keur het achteraf, lage voorrang. Bij nee: zeg wat beter moet; de scripts staan ernaast (`uitleg.py`, `strip.py`, Blender via `pip install bpy`).
