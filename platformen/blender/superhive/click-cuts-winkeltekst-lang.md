@@ -13,7 +13,7 @@ Gaat over **versie 1.0.0** (kandidaat, `producten/blender-splitser/CHANGELOG.md`
 - **Titel over de print, niet over Blender** (Afkijker 06:34: titels over het printresultaat halen het meest, GEZIEN bij Painted4Combat). Daarom staat "Blender" niet in de titel; Superhive is al een Blender-winkel.
 - **Eerste zin met wat geen concurrent zegt:** printer kiezen, één knop, elk deel past op je bed, en een passingproef met je eigen pen. CatPin laat de printermaat aan de koper ("user remains responsible ... printer volume"), Dovetail Key heeft geen past-op-bed, en geen van de grote vier heeft een passingproef in de splitser (GEZIEN 23 nov door de concurrentie-analist, `producten/blender-splitser/concurrentie.md` tabel 2a). Cleave heeft wel printerkeuze; wat Cleave niet heeft is de passingproef. Kopers bij naam, zoals Cleave doet: busts, statues, cosplay props, terrain, large figures.
 - **Geen concurrent bij naam in de tekst** (`concurrentie.md`: nooit afkraken).
-- **Wat 1.0.0 niet doet, staat er eerlijk in** (geen klikverbinders, geen magneten, geen zwaluwstaart, delen niet vanzelf plat op het bed, holle dunne wanden krijgen vaak geen pen). Zo koopt niemand iets wat er niet in zit, en vraagt niemand zijn geld terug.
+- **Wat 1.0.0 niet doet, staat er eerlijk in** (geen klikverbinders, geen magneten, geen zwaluwstaart, holle dunne wanden krijgen vaak geen pen). Zo koopt niemand iets wat er niet in zit, en vraagt niemand zijn geld terug.
 
 ## 1. Titel
 
@@ -46,6 +46,7 @@ What you get:
 - **Numbers on the hidden faces.** "3-5" on part 3 where it meets part 5, engraved into the cut face, so you know what goes where.
 - **Check before you print.** Every part is green (fits the bed, watertight, enough wall around the holes), orange (fits, but thin wall around a hole) or red, with the reason.
 - **Free cut.** After splitting, add an extra cut at any angle through one part, for example an arm at the shoulder, with pins and numbers like the other cuts.
+- **Lay parts flat.** On export, every part is turned so a flat face, usually a cut face, lies on the bed, if it still fits your printer. On by default.
 - **Colour per part** in an exploded view, neighbours never the same colour.
 - **Export** all parts and pins as STL or 3MF, in millimetres.
 
@@ -56,7 +57,7 @@ Good to know:
 - Open meshes are made watertight first with a voxel remesh on a copy; your original is kept.
 - A model in millimetres in a scene in metres is caught at once, with a Convert to mm button.
 - Hollow models with thin walls (a vase, a thin shell) often have no room for a pin. Click Cuts then tells you the joint is too small for a pin and to glue it.
-- Version 1.0 has round pins only: no snap connectors, magnets or dovetails yet. Cuts follow the X, Y and Z axes, plus the free cut. Parts are not laid flat on the bed for you; do that in your slicer.
+- Version 1.0 has round pins only: no snap connectors, magnets or dovetails yet. Cuts follow the X, Y and Z axes, plus the free cut.
 - Blender 4.2 and newer. Tested in Blender 4.2 and 5.3 on every change.
 - Pure Python, no other add-ons needed.
 
@@ -133,8 +134,9 @@ Beeld: het splitsbeeld uit release `splitser-merk-1` of een echte print zodra di
 | open mesh dicht met voxel op een kopie, origineel bewaard | `gesloten.py` r. 47 |
 | mm in meters gevangen, Convert to mm | `schaal.py` r. 38, CHANGELOG |
 | holle dunne wanden geen pen, "Glue this joint" | `verbinders.py` r. 99, `ontwerp.md` deel 8 (vaas: 16 van 28 naden zonder pen, GEZIEN door de bouwer) |
-| alleen ronde pennen, assen plus vrije snede, niet plat gelegd | `ontwerp.md` deel 6 (klik, zwaluwstaart, plat leggen staan op "later"); geen magneet in de code (`grep magnet` leeg) |
+| alleen ronde pennen, assen plus vrije snede | `ontwerp.md` deel 6 (klik, zwaluwstaart op "later"); geen magneet in de code (`grep magnet` leeg) |
+| Lay parts flat bij export, platte kant (meestal snijvlak) onder, alleen als het past, standaard aan | `eigenschappen.py` (`plat`, default True), `exporteer.py` r. 123 tot 132, `plat.py`; in 1.0.0 sinds 25 nov (issue #104) |
 | Tested in Blender 4.2 and 5.3 on every change | `.github/workflows/blender-splitser-e2e.yml`: start bij elke push op `producten/blender-splitser/**`, matrix 4.2.23 en 5.3.0 |
 | Click Joints Pro: 3D cursor, scharnier met eindstop of kogel, bereik in graden | gekeurde Pro-tekst in `README.md` van deze map ("Split with anything. Make it move.") |
 
-Bewust niet: "AI models" (niet getest op AI-modellen in deze versie), "lays parts flat", "snap", "magnets", "click" als belofte over de print, "first time right".
+Bewust niet: "AI models" (niet getest op AI-modellen in deze versie), "snap", "magnets", "click" als belofte over de print, "first time right".
