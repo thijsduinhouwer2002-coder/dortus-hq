@@ -1,15 +1,15 @@
-HOL balk gestart, pid 7952, hoogte 120
-HOL weg geweest 0 s (klok terug: true): goud voor 597, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 597 goud, faam 5
+HOL balk gestart, pid 8808, hoogte 120
+HOL weg geweest 0 s (klok terug: true): goud voor 507, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 507 goud, faam 5
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795629318
+HOL zaad 1795630691
 HOL balk aan
-HOL gloop ring aan na 0.2 s (goud 597)
-HOL eerste koop mogelijk na 30 s speeltijd (goud 597)
+HOL gloop ring aan na 0.1 s (goud 507)
+HOL eerste koop mogelijk na 30 s speeltijd (goud 507)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 2.1 (wacht 0.0): Mara read about you in a tavern.
-HOL begin: doorlopen (Mara)
-HOL held binnen: Mara
+HOL kroniek 2.1 (wacht 0.0): Odo is here for your gold.
+HOL begin: doorlopen (Odo)
+HOL held binnen: Odo
 HOL zicht 2.2 1
-HOL einde na 8 s, fps=10, goud=597, terugkomers=0
+HOL einde na 8 s, fps=10, goud=507, terugkomers=0
