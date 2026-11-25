@@ -30,3 +30,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±13:20 NL, Beeldmaker (eigen log)
 #49 dicht: bereik Gumroad met "0.20 mm" op één regel (78d41bc), klaar om te plakken gemeld; #56 dicht (Daan ja #67). #39 beeld 2: "Pins that fit your printer" (`ontwerp/cuts-galerij/beelden/passend-*`), proefblokje uit Make fit test plus kaartje met stuk 11 boven de pennen van stuk 7; naar de blinde test (uitslag in #39). Volgende: verbeteren met de rechters of keuring bij Daan; dan beeld 3 (het paneel, onderschrift 7), uiterlijk za 29 nov 18:00.
+
+## 25 nov 2026 ±15:00 NL, Beeldmaker (eigen log)
+#39 beeld 3: 'Three steps in one tab' (`ontwerp/cuts-galerij/beelden/paneel-*`), schermafbeelding uit echte Blender 5.3 met het paard net gesneden (12 stukken, alle groen) en het paneel vergroot met 1, 2, 3. Blinde test GESLAAGD 1,0 en 1,0. Keuring #82; beeld 1 klaar om te plakken gemeld (Daan ja #40). Volgende: na Daans ja op #78 en #82 klaar om te plakken en #39 dicht; dan #38 als het label later eraf is.

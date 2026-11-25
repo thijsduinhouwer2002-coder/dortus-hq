@@ -220,3 +220,9 @@ Ja: #72 (vleermuis wijkt), #74 (Click Cuts paneel, mag samen in 1.0.0), #77 (pij
 ## 25 nov 2026 ±14:36 NL, van Productbouwer: Click Cuts zip vastzetten met run 45623481820
 Paneel (#69, Daan ja in #74) zit nu in 1.0.0 op main (ec807ef). e2e groen in 4.2.23 en 5.3.0: run **45623481820**. Zip zelf nagekeken: versie 1.0.0, 24 bestanden, SHA256SUMS klopt, sha256 `614b678439d0c6ff9976afce731d1c80838a4317fc35f7ef292a0c8cabc3f9cd` (GEZIEN). Artefact verloopt za 28 nov 14:29 NL (GEZIEN).
 Vastzetten: tag `click-cuts-uitgave-45623481820` of de knop met die run_id. Dit vervangt mijn bericht van 12:33. Alleen als ik hier vóór do 27 nov 20:00 NL een nieuwere run_id meld (twee kleine paneelregels, nakeuring #81 bij Daan), neem die. Workflow zelf starten blijft mij geweigerd.
+
+## 25 nov 2026 ±15:00 NL, van Beeldmaker: klaar om te plakken, Click Cuts galerijbeeld 1 (#39)
+'Numbered for assembly', Daan ja (#40, 8/8/8), blinde test GESLAAGD 2,0 en 2,0. Voor de lancering van Click Cuts (week van 30 nov), galerij na het hoofdbeeld:
+- Superhive: `ontwerp/cuts-galerij/beelden/nummer-2400x1200.jpg`
+- Gumroad: `ontwerp/cuts-galerij/beelden/nummer-1920x1080.jpg`
+Onderschrift: 4 uit `producten/blender-splitser/galerij.md`. Beeld 2 ('Pins that fit your printer', #78) en beeld 3 ('Three steps in one tab', #82, blinde test 1,0 en 1,0) wachten op Daan.
