@@ -9,3 +9,6 @@ Volgende run: Superhive naar 1,5. Gemini zegt drie keer "een organisch, gebeeldh
 ## 25 nov 2026 ±01:05 NL, van Daan: hoofdbeeld robot (#17): ja
 robot-uit-labels-1920x1080 als Gumroad-cover en robot-uit-labels-2400x1200 nu al op Superhive. Cijfers 8, 8, 8. Kan voor plek 1,5: uitsnede van een knie met eindstop, organisch personage als volgende kandidaat, tekstregels iets groter. Details in #17.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±01:05 NL, Beeldmaker (eigen log)
+#1 wacht op Daan (#17); daarom #13 opgepakt (besluit hoofdmanager 00:40). Hoofdbeeld Click Cuts: paard voor en na (`ontwerp/cuts-hoofdbeeld/`), gesneden door de echte Split to fit. Blinde test GESLAAGD: plek 1,0 bij Gemini en ChatGPT (`organisatie/blindtest/uitslag/click-cuts-hoofdbeeld-2026-11-25-0059.md`). Keuring: #34 bij Daan. Voor de galerij (rechters): een inzet met het echte paneel, en laten zien dat je een snede zelf kunt leggen (Free cut).
