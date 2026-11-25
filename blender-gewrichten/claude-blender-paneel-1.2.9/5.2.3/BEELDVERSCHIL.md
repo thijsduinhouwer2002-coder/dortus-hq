@@ -1,24 +1,24 @@
 ## Beeldvergelijking Click Joints, Blender 5.2.3 (claude-blender-paneel-1.2.9)
-GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
-Referentie: referentie uit run 45623831459, commit c4f14e5373e65358fdc30868409ae147dfdcd751, commitdatum 1795613264, 2026-11-25T13:48:23Z
+GROOT: 2 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
+Referentie: referentie uit run 45627269280, commit ae05e08c2d196b3fdeda7d73198e024dbfea8061, commitdatum 1795614478, 2026-11-25T14:09:24Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
 | 1-paneel-x.png | gelijk | |
 | 10-winkel-paneel-x.png | gelijk | |
-| 11-scharnier-x.png | gelijk | |
-| 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | gelijk | |
-| 13-pro-knie-x.png | 8 px (0.000%), ruis | |
+| 13-pro-knie-x.png | gelijk | |
 | 13d-pro-knie-dicht-x.png | gelijk | |
 | 14-pro-knie-rood-x.png | gelijk | |
 | 14b-pro-knie-rood-los-x.png | gelijk | |
 | 15-figuur-paneel.png | gelijk | |
 | 15-figuur-x.png | gelijk | |
-| 16-figuur-rig-paneel.png | gelijk | |
-| 16-figuur-rig-x.png | 127 px (0.006%), ruis | |
-| 17-figuur-heel-paneel.png | gelijk | |
-| 17-figuur-heel-x.png | gelijk | |
+| 16-figuur-rig-paneel.png | 169 px (0.064%), x 84 tot 120, y 584 tot 593 | GROOT |
+| 16-figuur-rig-x.png | 169 px (0.008%), ruis | |
+| 16a-rig-boven-paneel.png | gelijk | |
+| 16a-rig-boven-x.png | gelijk | |
+| 17-figuur-heel-paneel.png | 169 px (0.064%), x 84 tot 120, y 584 tot 593 | GROOT |
+| 17-figuur-heel-x.png | 169 px (0.008%), ruis | |
 | 19-mens-paneel.png | gelijk | |
 | 19-mens-x.png | gelijk | |
 | 2-gewricht-x.png | gelijk | |
@@ -39,5 +39,5 @@ Referentie: referentie uit run 45623831459, commit c4f14e5373e65358fdc30868409ae
 | p13-d-x.png | gelijk | |
 | p13-e-x.png | gelijk | |
 | p14b-e-x.png | gelijk | |
-| 16a-rig-boven-paneel.png | nieuw (niet in de referentie) | |
-| 16a-rig-boven-x.png | nieuw (niet in de referentie) | |
+| 11-scharnier-x.png | verdwenen (wel in de referentie) | |
+| 12-scharnier-rood-x.png | verdwenen (wel in de referentie) | |
