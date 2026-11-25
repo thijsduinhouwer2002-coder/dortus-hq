@@ -194,3 +194,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 18:57 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 25 nov 2026 ±20:11 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van bbdd604..e893f68: `platformen/blender/keuring/2026-11-25-auto-blender-gewrichten-e893f68.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Zet in de e2e-test een harde eis dat `meld.merkbestand()` niet `None` is (of sla de stap uitdrukkelijk als "overgeslagen" over in het log), zodat een stille mislukking niet groen lijkt. 2. Controleer dat `exporteer.py` `cj_laatste_export` echt zet, met een e2e-stap die exporteert en dan `vraag_beoordeling` toetst (Deel A 3). 3. Controleer dat `import os` bovenin `meld.py` staat (Deel A 4). 4. Pas de Unreleased-regel in `CHANGELOG.md` aan naar "After a Good fit and an export" voor de uitgave. 5. Eis voor het uitbrengen een groene e2e-run (4.2, 5.2, 5.3) op deze commi Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
