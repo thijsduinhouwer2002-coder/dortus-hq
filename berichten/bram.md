@@ -226,3 +226,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±22:10 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 369bfca..b8e7e45: `platformen/blender/keuring/2026-11-25-auto-blender-gewrichten-b8e7e45.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer of `platformen/blender/pro-1.2.9.md` regel 20 echt gelijk is aan de CHANGELOG. Het bestand zit niet in deze wijziging. - Zet bij het akkoord van Daan (#103) de link naar het keuringsbestand erbij, zodat het te controleren is. - Kan 2 uit de KAART (schermbeeld van de beoordeelregel op 600 px) blijft open. Pak dat op bij de volgende schermbeeldrun. - De alinea over `meld.py` in architectuur.md is erg lang geworden. Splits hem eventueel in een eigen kopje voor de beoordeelregel. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 22:18 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
