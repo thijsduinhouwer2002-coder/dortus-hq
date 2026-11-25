@@ -93,6 +93,10 @@ def alles(uitmap=None):
                                 (3_040_000, "EXACT", "3.0M faces: Split takes about 10 min")):
         t = klik.schatting_tekst(n, solver)
         stap(f"klik: schatting {n} {solver}", t == verwacht, repr(t))
+    # issue #69: the panel names the model before the click, like Cleave ("TV_robot · 1,982,604 faces")
+    t = klik.model_tekst("Suzanne", 1982604)
+    stap("klik: modelregel", t == "Suzanne: 1,982,604 faces", repr(t))
+    stap("klik: regel zonder model", klik.GEEN_MODEL == "Click your model in the viewport", repr(klik.GEEN_MODEL))
     # memory line: Exact 3M peaked at 9.2 GB (run 45367520845), Manifold 3M 4.7 GB; warn from 8 GB
     for n, solver, verwacht in ((3_040_000, "EXACT", "Needs about 10 GB of memory"), (2_000_000, "EXACT", None),
                                 (3_040_000, "MANIFOLD", None), (5_000_000, "MANIFOLD", "Needs about 8 GB of memory")):

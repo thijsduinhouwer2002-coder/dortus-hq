@@ -106,6 +106,7 @@ jobs:
             /tmp/blender/blender --gpu-backend opengl /tmp/start.blend --python e2e/scherm_paneel.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_cuts.zip /tmp/sj_uit/suzanne.blend 2>&1 | tee /tmp/paneel.log || true
           grep "\[sj-scherm\]\|Traceback\|Error" /tmp/paneel.log | head -20 || true
           grep -q "PANEEL OK" /tmp/paneel.log || { echo "FOUT: geen schermafbeelding van het paneel"; exit 1; }
+          grep -q "PANEEL START OK" /tmp/paneel.log || { echo "FOUT: geen beeld van de beginstand (issue #69)"; exit 1; }
       - uses: actions/upload-artifact@v4
         if: always()
         with:

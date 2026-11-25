@@ -132,10 +132,45 @@ def stap():
                     a.tag_redraw()
             staat["stap"] = 4
             return 1.5
-        pad = os.path.join(uitmap, "paneel-noten.png")
+        if staat["stap"] == 4:
+            pad = os.path.join(uitmap, "paneel-noten.png")
+            subprocess.run(["import", "-window", "root", pad], capture_output=True)
+            ok = os.path.exists(pad) and os.path.getsize(pad) > 20000
+            log(f"{'PANEEL NOTEN OK' if ok else 'PANEEL NOTEN FOUT'} {pad}")
+            # issue #69: what a buyer sees first. A fresh scene: no pieces, the model selected, custom printer
+            s = bpy.context.scene
+            for ob in list(bpy.data.objects):
+                bpy.data.objects.remove(ob)
+            inst = s.split_joints
+            inst.bron, inst.uitslag, inst.meldingen, inst.meer = "", "", "", False
+            inst.printer = "CUSTOM"
+            venster, gebied, ui, hoofd = gebied_3d()
+            with bpy.context.temp_override(window=venster, area=gebied, region=hoofd):
+                bpy.ops.mesh.primitive_monkey_add(size=300.0)
+                model = bpy.context.view_layer.objects.active
+                model.name = "Statue"
+                model.select_set(True)
+                bpy.ops.view3d.view_all()
+            staat["stap"] = 5
+            return 1.5
+        if staat["stap"] == 5:
+            pad = os.path.join(uitmap, "paneel-start.png")
+            subprocess.run(["import", "-window", "root", pad], capture_output=True)
+            ok = os.path.exists(pad) and os.path.getsize(pad) > 20000
+            log(f"{'PANEEL START OK' if ok else 'PANEEL START FOUT'} {pad}")
+            # and with nothing selected: the panel says why Split to fit is grey
+            for o in bpy.context.view_layer.objects:
+                o.select_set(False)
+            bpy.context.view_layer.objects.active = None
+            for w in bpy.context.window_manager.windows:
+                for a in w.screen.areas:
+                    a.tag_redraw()
+            staat["stap"] = 6
+            return 1.5
+        pad = os.path.join(uitmap, "paneel-leeg.png")
         subprocess.run(["import", "-window", "root", pad], capture_output=True)
         ok = os.path.exists(pad) and os.path.getsize(pad) > 20000
-        log(f"{'PANEEL NOTEN OK' if ok else 'PANEEL NOTEN FOUT'} {pad}")
+        log(f"{'PANEEL LEEG OK' if ok else 'PANEEL LEEG FOUT'} {pad}")
     except Exception as e:
         log(f"PANEEL FOUT {e!r}")
     bpy.ops.wm.quit_blender()
