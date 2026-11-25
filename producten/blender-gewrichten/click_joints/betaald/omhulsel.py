@@ -26,6 +26,13 @@ from .. import een_lid as _l
 
 AAN = [True]          # voor de meting: False geeft precies de oude weg
 MAX_VLAKKEN = 250000  # voxelmaat zo dat H hooguit ±zoveel vlakken krijgt (snelheid van de booleans)
+# Issue 14 (25 nov): met Exact (4.2) vroeg de INTERSECT met een H van 214.150 vlakken (voxel 0,14 mm, de ondergrens
+# 0,5 m) bij de elleboog van de Rigify-figuur meer dan 15 GB (CI run 45510400380, lokaal meer dan 5 GB in 10 s, GEZIEN).
+# Exact rekent met exacte getallen en zijn geheugen groeit met het aantal driehoeken. Daarom voor Exact een eigen grens,
+# en die gaat voor de ondergrens 0,5 m: liever een wat grovere H (de controle hieronder kijkt of het lid erin zit) dan
+# een Blender die vastloopt. Gemeten op toetsen_rigify in 4.2.23 (lokaal, GEZIEN): 214.150 vlakken meer dan 5 GB en
+# gestopt; grens 60.000 piek 4,6 GB, 122 s; grens 30.000 piek 2,5 GB, 85 s, beide KLAAR 0 FOUT.
+MAX_VLAKKEN_EXACT = 30000
 # Hooguit dit deel van de controlepunten van het lid mag buiten H vallen. Niet 0: in een holte van de figuur vouwt de
 # verschoven huid om, en daar ligt het controlepunt (huid min m langs de nieuwe normaal) niet meer op de echte huid
 # (run 45255097554: 0,2 tot 1,9 procent, ook waar de snede daarna goed was).
@@ -62,7 +69,11 @@ def voxel_h(hb, lb, frame, hulp, m):
     controle = _binnen_punten(b, m)  # het lid; het omhulsel rond het vlak alleen voor het verslag
     controle_om = _binnen_punten(a, m)
     opp = _oppervlak(a) + _oppervlak(b)
-    v = max(0.5 * m, math.sqrt(opp / MAX_VLAKKEN))
+    from ..gewricht import solver_naam
+    if solver_naam() == "EXACT":
+        v = math.sqrt(opp / MAX_VLAKKEN_EXACT)  # issue 14: geen ondergrens 0,5 m, anders weer ±200.000 vlakken
+    else:
+        v = max(0.5 * m, math.sqrt(opp / MAX_VLAKKEN))
     kaart = {x: a.verts.new(x.co) for x in b.verts}
     for f in b.faces:
         try:

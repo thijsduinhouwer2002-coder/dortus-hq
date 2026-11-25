@@ -202,10 +202,8 @@ jobs:
           BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
             /tmp/blender/blender -b --factory-startup --python e2e/toetsen_testkaart.py -- /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/kaart.log
           grep -q "KLAAR 0 FOUT" /tmp/kaart.log || { echo "FOUT: fit test strip"; exit 1; }
-          # Echte Rigify-metarig (16 nov run 11): heupen bewegen naast de knieën, nooit een gewricht op blocked.
-          BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
-            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_rigify.py -- /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/rigify.log
-          grep -q "KLAAR 0 FOUT" /tmp/rigify.log || { echo "FOUT: figure from rig op de Rigify-metarig"; exit 1; }
+          # Rigify-metarig staat sinds 25 nov in een eigen stap ná deze (Daan #29 M1): in 4.2.23 stopte de wachter hier
+          # en draaide army_man niet.
           # Echte Meshy-figuur army_man (Chris 16 nov 20:00): een knie laat de zool niet als los stuk in B achter.
           pip install -q remotezip
           mkdir -p /tmp/meshy && (cd /tmp/meshy && python3 -c "from remotezip import RemoteZip; RemoteZip('https://huggingface.co/datasets/tfnn/MESHY.AI_800_GLB_3D-Assets_Categorised_and_Labelled/resolve/main/MESHY_GLB.zip').extract('MESHY_GLB/people/army_man.glb', '.')")
@@ -255,6 +253,26 @@ jobs:
           BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
             /tmp/blender/blender -b --factory-startup --python e2e/toetsen_zwaai.py -- /tmp/click_joints_betaald.zip /tmp/mh_base.obj 2>&1 | tee /tmp/zwaai.log
           grep -q "KLAAR 0 FOUT" /tmp/zwaai.log || { echo "FOUT: zwaairuimte van de elleboog"; exit 1; }
+      - name: Rigify-metarig met geheugengrens (Figure from rig, issue 14)
+        run: |
+          # Echte Rigify-metarig (16 nov run 11): heupen bewegen naast de knieën, nooit een gewricht op blocked.
+          # Eigen stap ná army_man (Daan #29 M1). Geheugen (issue 14): met Exact (4.2) vroeg H van 214.150 vlakken bij
+          # de elleboog ±15 GB (run 45510400380, GEZIEN). Pro 1.2.8 begrenst H; deze stap faalt als blender meer dan
+          # 6000 MB gebruikt (lokaal 4.2.23 piek ±2,5 GB, GEZIEN), zodat een koper op 4.2 LTS niet vastloopt.
+          ( piek=0; while sleep 1; do
+              r=$(ps -o rss= -C blender | sort -n | tail -1); r=${r:-0}; [ "$r" -gt "$piek" ] && piek=$r && echo "$piek" > /tmp/rigify_piek.txt
+              vrij=$(free -m | awk '/Mem:/{print $7}')
+              if [ "$vrij" -lt 1500 ]; then echo "FOUT geheugen: nog ${vrij} MB vrij, blender gestopt"; pkill -9 -x blender; fi
+            done ) >> /tmp/geheugen_rigify.log 2>&1 &
+          WACHTER=$!
+          trap 'kill $WACHTER 2>/dev/null; cat /tmp/geheugen_rigify.log 2>/dev/null' EXIT
+          d=/tmp/cj_figuur
+          BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+            /tmp/blender/blender -b --factory-startup --python e2e/toetsen_rigify.py -- /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/rigify.log
+          sleep 2; piek=$(( $(cat /tmp/rigify_piek.txt 2>/dev/null || echo 0) / 1024 ))
+          echo "[geheugen] piek blender bij Rigify: ${piek} MB"
+          grep -q "KLAAR 0 FOUT" /tmp/rigify.log || { echo "FOUT: figure from rig op de Rigify-metarig"; exit 1; }
+          [ "$piek" -le 6000 ] || { echo "FOUT: Figure from rig op de Rigify-metarig vraagt ${piek} MB (grens 6000)"; exit 1; }
       - name: Schermafbeelding figuurpresets (Pro 1.1, plaatje 15 voor Daan)
         if: always()
         env:
