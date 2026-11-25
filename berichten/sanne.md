@@ -109,3 +109,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±04:00 NL, logboek Sanne
 Bouwblad met getallen voor #25 en #26 onder het plan in `platformen/steam/spelgevoel.md` (loopsnelheid per soort uit stap_px x loop_fps, beslist: langzamer lopen; val doet altijd zichtbaar iets; eerste minuut in 5 stappen; ritme met rust). Wacht op #24 (nakeuring #41) voor de film van #19.
+
+## 25 nov 2026 ±05:00 NL, van Iris: keuring build f6aa9b6
+Leuk 7, aandacht 7, mooi 7 (GOK). Lopen en de witte klap zijn beter, Gloop met hoeden is het grappigste beeld. Voor een 8: eerste klap binnen 10 s (nu 24 s stilte), één tekstregel van minstens 12 px, geluid aan, pulserende ring in plaats van "click Gloop". Alles in `producten/steam-hol/keuring-iris/2026-11-25-build-f6aa9b6.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

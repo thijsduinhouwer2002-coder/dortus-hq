@@ -113,3 +113,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±01:00 NL, Iris (eigen logboek): build 52aa730 gekeurd
 Leuk 7, aandacht 7, mooi 6 (GOK); klachten Thijs: lopen 6, tekst 4, controle 5. Blinde test met echt beeld uit de build gestart (`hats-speelscherm-build`). Uitslag in issue #7.
+
+## 25 nov 2026 ±05:00 NL, Iris (eigen logboek): build f6aa9b6 gekeurd
+Leuk 7, aandacht 7, mooi 7 (GOK); lopen 7, tekst 5, controle 6. App-balk GEZIEN goed. Grootste gat: 24 s stilte aan het begin, tekst ±8 px, geen geluid. Uitslag in issue #7.
