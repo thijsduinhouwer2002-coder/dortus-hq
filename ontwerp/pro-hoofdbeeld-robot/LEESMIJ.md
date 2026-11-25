@@ -15,3 +15,5 @@ python3 bron/tekst.py <render.png> <json> <uit> <fontmap> ontwerp/click-joints/b
 ```
 Kandidaten in `beelden/`: robot-uit-labels, robot-uit, robot-held (elk 2400x1200 voor Superhive en 1920x1080 voor Gumroad).
 Blinde test: sets `click-joints-pro-robot-superhive` en `click-joints-pro-robot-gumroad`.
+
+**Sale-versie (issue #56, 25 nov):** `beelden/robot-uit-labels-sale-1920x1080.jpg` = het GESLAAGDE Gumroad-hoofdbeeld met rechtsboven de gouden sticker "-25% CYBER25 until Dec 1" (zelfde stijl als de tekenpop-sale). Alleen Gumroad, alleen vr 27 nov t/m di 1 dec; daarna terug naar `robot-uit-labels-1920x1080.jpg`. Niet op Superhive (daar 35% zonder code). Maken: `python3 bron/sale.py beelden/robot-uit-labels-1920x1080.jpg beelden/robot-uit-labels-sale-1920x1080.jpg <fontmap met Inter.ttf en Bricolage.ttf>`.

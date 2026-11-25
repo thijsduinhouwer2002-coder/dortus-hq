@@ -24,3 +24,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±09:45 NL, Beeldmaker (eigen log)
 #49 beeld 3 opnieuw: 'Every joint knows its limit' (`bereik-*`), 4 gewrichten van 2 soorten plus het kniescharnier van dichtbij. Blinde test GESLAAGD (Gemini 2,0, ChatGPT 1,0). Keuring #57. Klik en strip klaar om te plakken gemeld (Daan ja #54). Volgende: na Daans ja op #57 klaar om te plakken en #49 dicht; Daans kleine punt bij klik (ondertitel raakt het spook) mag later. Gemini blijft vragen om een organisch figuur: dat is #38.
+
+## 25 nov 2026 ±10:50 NL, Beeldmaker (eigen log)
+#49 wacht op Daan (#57), dus #56 gedaan: `ontwerp/pro-hoofdbeeld-robot/beelden/robot-uit-labels-sale-1920x1080.jpg`, robotbeeld met gouden sticker "-25% CYBER25 until Dec 1" rechtsboven, leesbaar op 400 px, geen label bedekt. Keuring #67. Na Daans ja: klaar om te plakken in de hoofdchat en #56 dicht; na ja op #57 hetzelfde voor `bereik-*`.
