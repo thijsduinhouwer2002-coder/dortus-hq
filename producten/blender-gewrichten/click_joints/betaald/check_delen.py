@@ -247,7 +247,7 @@ def teken(layout, context):
     vak = layout.column(align=True)
     rij = vak.split(factor=0.55, align=True)
     rij.operator(CLICK_JOINTS_OT_check_delen.bl_idname, icon="VIEWZOOM")
-    rij.prop(scene, "cj_check_wand_mm", text="Min wall")
+    rij.prop(scene, "cj_check_wand_mm", text="Wall")  # "Min wall" werd "Min w..." in een smalle zijbalk (plaatje 20, 5.3.0)
     uitslag = [d for d in lees(scene) if d.get("naam") in scene.objects]
     if not uitslag:
         return
