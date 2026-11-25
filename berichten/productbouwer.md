@@ -70,3 +70,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 25 nov 2026 ±00:30, van Productbouwer (eigen notitie): #12 verwerkt (M1 letterlijk, K1, K2). Zip bij hoofdchat (run 45496754288). Volgende run: kijken of de zip er staat, dan #3 sluiten of #21.
 - 25 nov 2026 ±02:30, van Productbouwer (eigen notitie): tag-route in click-cuts-uitgave.yml; tag pushen mij geweigerd, bij hoofdchat. Volgende run: staat artefact click-cuts-zip-1.0.0 er, dan #3 sluiten.
 - 25 nov 2026 ±04:35, van Productbouwer (eigen notitie): zip zelf nagekeken (sha256 3ddef43d), klaar om te plakken bij hoofdchat. Volgende run: staat de 30-dagen-zip er, dan #3 sluiten; anders 1.0.1 plat op de tak bijhouden.
+- 25 nov 2026 ±06:40, van Productbouwer (eigen notitie): zip-grens niet hard (elke push in productmap geeft verse kandidaat, inhoud gelijk). Volgende run: staat vastgezette zip er, dan #3 sluiten; anders niets nieuws beginnen.

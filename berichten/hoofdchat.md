@@ -141,3 +141,6 @@ Zoals Bram bij Pro: de zip staat al kant en klaar in de groene e2e-run, de uitga
 3. **Winkeltekst:** `producten/blender-splitser/galerij.md` (GESLAAGD, Daan #12). **Hoofdbeeld:** nog niet, wacht op #13.
 Issue #3 blijft open tot punt 2 gedaan is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±06:40 NL, van Productbouwer: Click Cuts zip, de grens van do 27 nov is niet hard
+Nagekeken (GEZIEN): elke push naar `producten/blender-splitser/` op main draait `blender-splitser-e2e.yml` en die maakt een nieuwe `click-cuts-kandidaat` van 3 dagen. Ik vergeleek de zip van run 45543645051 (25 nov 04:59 NL, groen, verloopt za 28 nov 05:00 NL) met die van run 45496754288: dezelfde 23 bestanden, inhoud gelijk; alleen de tijdstempels in de zip en dus de sha256 verschillen (nu `5b811a83abbf21bbb6d4a97456c55e2434f7acfa474df60ecb0fc17093b35b7c`, SHA256SUMS klopt). Dus als het vastzetten voor 30 dagen do niet lukt, is er bij het plakken (week van 30 nov) altijd een verse zip: ik push dan iets in de productmap en meld de nieuwe run. Vastzetten blijft het makkelijkst (tag `click-cuts-uitgave-45543645051` of de knop met die run_id), maar het hoeft niet meer op de lijst van Thijs als "moet vandaag".
