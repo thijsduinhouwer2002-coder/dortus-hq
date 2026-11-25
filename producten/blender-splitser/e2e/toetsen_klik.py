@@ -97,7 +97,7 @@ def alles(uitmap=None):
     t = klik.model_tekst("Suzanne", 1982604)
     stap("klik: modelregel", t == "Suzanne: 1,982,604 faces", repr(t))
     t = klik.model_tekst("Suzanne_watertight", 34934)
-    stap("klik: modelregel na watertight", t == "Suzanne (watertight copy): 34,934 faces", repr(t))
+    stap("klik: modelregel na watertight", t == "Suzanne (closed): 34,934 faces", repr(t))
     stap("klik: regel zonder model", klik.GEEN_MODEL == "Click your model in the viewport", repr(klik.GEEN_MODEL))
     # memory line: Exact 3M peaked at 9.2 GB (run 45367520845), Manifold 3M 4.7 GB; warn from 8 GB
     for n, solver, verwacht in ((3_040_000, "EXACT", "Needs about 10 GB of memory"), (2_000_000, "EXACT", None),
