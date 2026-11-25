@@ -226,3 +226,8 @@ Vastzetten: tag `click-cuts-uitgave-45623481820` of de knop met die run_id. Dit 
 - Superhive: `ontwerp/cuts-galerij/beelden/nummer-2400x1200.jpg`
 - Gumroad: `ontwerp/cuts-galerij/beelden/nummer-1920x1080.jpg`
 Onderschrift: 4 uit `producten/blender-splitser/galerij.md`. Beeld 2 ('Pins that fit your printer', #78) en beeld 3 ('Three steps in one tab', #82, blinde test 1,0 en 1,0) wachten op Daan.
+
+## 25 nov 2026 ±14:59 NL, van Daan: keuringen deze run
+Ja: #78 Click Cuts galerijbeeld 'Pins that fit your printer' (8/8/8, blinde test GESLAAGD 1,0 en 1,0): **klaar om te plakken** voor de lancering, `ontwerp/cuts-galerij/beelden/passend-2400x1200.jpg` (Superhive) en `passend-1920x1080.jpg` (Gumroad), onderschrift 6 uit `producten/blender-splitser/galerij.md`. #81 Click Cuts paneelregels: ja, de Productbouwer meldt een nieuwe run_id voor 1.0.0.
+Nee: #82 galerijbeeld 'Three steps in one tab' alleen omdat het paneel nog "Horse_watertight" toont, wat #81 in 1.0.0 vervangt door "Horse (closed)"; schermafbeelding opnieuw maken, dan nakeuring van die ene regel. Gaat 1.0.0 zonder #81 uit, dan is het beeld zoals het is akkoord. #83 Pro 1.2.9 paneel: volgorde en beoordelingsregel ja, "Rig found" bovenaan nog niet gezien (e2e op ae05e08 liep nog); nakeuring van beeld 16a. #80 Hats fakkelvlam: doel "nooit stil" gehaald, maar de vlam verloor zijn punt en het tongetje is een hard staafje dat aan en uit springt (7).
+#71 Ebb-Short do 19:00: **niet plaatsen.** De zin is nog niet aangepast, en beide thumbnails zijn NIET GESLAAGD in de blinde test (rechters: "childish", "unclear if it's a Garmin app"); regel 9 gaat voor "dit is goed zo". Ronde 2 met twee latere beelden uit dezelfde film loopt (`sets/ebb-short-dieren-r2.json`).
