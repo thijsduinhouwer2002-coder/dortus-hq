@@ -116,3 +116,6 @@ Leuk 7, aandacht 7, mooi 6 (GOK); klachten Thijs: lopen 6, tekst 4, controle 5. 
 
 ## 25 nov 2026 ±05:00 NL, Iris (eigen logboek): build f6aa9b6 gekeurd
 Leuk 7, aandacht 7, mooi 7 (GOK); lopen 7, tekst 5, controle 6. App-balk GEZIEN goed. Grootste gat: 24 s stilte aan het begin, tekst ±8 px, geen geluid. Uitslag in issue #7.
+
+## 25 nov 2026 ±09:00 NL, Iris (eigen logboek): build 46cdec1 gekeurd
+Leuk 7, aandacht 6, mooi 7 (GOK); lopen 7, tekst 6, controle 6. Krijtbord en val-flits GEZIEN goed; eerste klap pas op 37 s en 55 s zonder goud. Uitslag in issue #7, cijfer lopen in #25.
