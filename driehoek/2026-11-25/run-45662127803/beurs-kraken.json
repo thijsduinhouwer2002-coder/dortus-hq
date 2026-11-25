@@ -32,16 +32,16 @@
   }
  },
  "minima_paren": 1353,
- "geladen": "2026-11-25T17:41:58Z",
+ "geladen": "2026-11-25T18:11:59Z",
  "min_inleg": {
   "driehoeken": 2352,
   "mediaan_eur": 10.0,
   "met_eur": 1368,
-  "tot_100": 2348,
-  "met_eur_tot_100": 1367,
-  "tot_150": 2348,
-  "met_eur_tot_150": 1367,
-  "tot_200": 2348,
-  "met_eur_tot_200": 1367
+  "tot_100": 2352,
+  "met_eur_tot_100": 1368,
+  "tot_150": 2352,
+  "met_eur_tot_150": 1368,
+  "tot_200": 2352,
+  "met_eur_tot_200": 1368
  }
 }
