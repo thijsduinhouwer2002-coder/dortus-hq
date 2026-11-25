@@ -1,23 +1,28 @@
-HOL balk gestart, pid 3148, hoogte 96
+HOL balk gestart, pid 7472, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 3 s
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795595048
+HOL zaad 1795595475
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
+HOL begin: vallen (Bram)
+HOL held binnen: Bram
+HOL zicht 2.1 1
+HOL kroniek 2.5 (wacht 0.5): Bram says this is a quick one.
 HOL demo voorbij na 3 s speeltijd
-HOL kroniek 3.0 (wacht 0.0): That's the demo. Your hole keeps going.
+HOL kroniek 3.5 (wacht 0.5): That's the demo. Your hole keeps going.
 HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
-HOL begin: vallen (Joost)
-HOL held binnen: Joost
-HOL zicht 4.1 1
-HOL kroniek 5.5 (wacht 1.5): Joost is here for your gold.
-HOL meting t=10 beelden=64 helden=1 hol_vast=1
-HOL kroniek 11.0 (wacht 0.0): Kobus brought a torch. And hope.
-HOL begin: opgegeten (Kobus)
-HOL held binnen: Kobus
-HOL kroniek zelfde held vervangen: Joost is here for your gold.
-HOL kroniek 16.7 (wacht 0.0): Joost fell to the Spike Pit. +6
-HOL kroniek 19.2 (wacht 2.6): New page: the Hero. The pit won.
-HOL meting t=20 beelden=125 helden=1 hol_vast=3
-HOL einde na 25 s, fps=10, goud=26, terugkomers=0
+HOL kroniek zelfde held vervangen: Bram says this is a quick one.
+HOL kroniek 7.3 (wacht 0.0): Bram found the Spike Pit. Hard. +6
+HOL zicht 7.4 0
+HOL begin: opgegeten (Pim)
+HOL held binnen: Pim
+HOL zicht 7.4 1
+HOL kroniek 9.9 (wacht 2.6): New page: the Hero. The pit won.
+HOL meting t=10 beelden=106 helden=1 hol_vast=3
+HOL kroniek vervallen 10.4: Pim climbs into your hole.
+HOL meting t=20 beelden=100 helden=1 hol_vast=3
+HOL reeks 2 (+0, t 24.3)
+HOL kroniek 24.3 (wacht 0.0): Gloop ate Pim. Kept the crown. +6
+HOL zicht 24.4 0
+HOL einde na 25 s, fps=18, goud=32, terugkomers=0

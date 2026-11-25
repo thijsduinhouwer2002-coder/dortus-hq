@@ -1,18 +1,23 @@
-HOL balk gestart, pid 8604, hoogte 120
+HOL balk gestart, pid 7832, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795595172
+HOL zaad 1795595599
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Siem has a map. It is wrong.
-HOL begin: vallen (Siem)
-HOL held binnen: Siem
-HOL zicht 4.1 1
-HOL demo voorbij na 10 s speeltijd
-HOL kroniek 10.0 (wacht 0.0): That's the demo. Your hole keeps going.
-HOL meting t=10 beelden=63 helden=1 hol_vast=1
-HOL begin: opgegeten (Bram)
+HOL begin: vallen (Bram)
 HOL held binnen: Bram
-HOL kroniek 12.6 (wacht 2.1): Bram brought a torch. And hope.
-HOL einde na 15 s, fps=10, goud=20, terugkomers=0
+HOL zicht 2.1 1
+HOL kroniek 2.5 (wacht 0.5): Bram says this is a quick one.
+HOL kroniek zelfde held vervangen: Bram says this is a quick one.
+HOL kroniek 7.4 (wacht 0.0): Bram checked the floor. Too late. +6
+HOL zicht 7.4 0
+HOL begin: opgegeten (Ineke)
+HOL held binnen: Ineke
+HOL zicht 8.7 1
+HOL kroniek 9.9 (wacht 2.5): Page for the Hero. The pit won.
+HOL demo voorbij na 10 s speeltijd
+HOL meting t=10 beelden=106 helden=1 hol_vast=3
+HOL kroniek 10.9 (wacht 0.9): That's the demo. Your hole keeps going.
+HOL kroniek vervallen 11.6: Ineke climbs into your hole.
+HOL einde na 15 s, fps=10, goud=26, terugkomers=0
