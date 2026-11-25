@@ -28,6 +28,27 @@ Waarom deze drie: Cleave is de best verkopende add-on voor figuren in 3D-print (
 | Updates: hoe vaak, laatste | 11 versies in 8 weken, 1.7.0 op 17 nov ([versies](https://superhivemarket.com/products/cleave/versions)) | V4 11 nov, 4.0.2 13 nov | 1.2.0 op 30 okt, één versie in de lijst | 4 versies in 5 dagen, 1.2.3 op 24 nov | nee |
 | Uitleg, handleiding, support | 3 video's op de pagina | "Where to find it" bij elke functie, maker antwoordt op elke review | gidsen op eigen site in 7 talen | update-log, issues, mail; 1 video | klein |
 
+## Paneel (de add-on zelf in Blender, Bram 25 nov 2026, issue #70)
+Ons paneel: schermbeelden uit de e2e op main (run 45583103324, commit 2945513, `referentie/blender-gewrichten/main/5.3.0/` en `4.2.23/` op de tak `schermen`): `1-paneel-x.png` (gratis), `16-figuur-rig-paneel.png` en `19-mens-paneel.png` (Pro). Concurrenten: galerijbeelden en tekst van hun Superhive-pagina, gelezen met curl op 25 nov: [Cleave](https://superhivemarket.com/products/cleave) (beeld 6 en 8, kop "One sidebar tab, six steps"), [Split 3D Print](https://superhivemarket.com/products/split-3dprint) (beeld 1 tot 3 en 9 tot 14), [CatPin](https://superhivemarket.com/products/catpin) (beeld 6 tot 9), [MACHIN3tools](https://superhivemarket.com/products/machin3tools) (tekst; de docs op machin3.io weigeren curl, 403). Alles GEZIEN tenzij GOK erbij staat.
+
+| | Cleave | Split 3D Print | CatPin | MACHIN3tools | Wij (Pro 1.2.8) |
+|---|---|---|---|---|---|
+| Eerste knop die je ziet | "Scan Model" bovenaan, dan een schuif Parts | schakelaar Fast / Expert met één regel uitleg, dan Cut tools en "Automatic Detection" | modus en knippen bovenaan | geen zijbalk: taartmenu's per sneltoets | stap 1 Place met "Check mesh"; **Figure from rig staat in een tweede paneel onder ±880 px andere knoppen** (16-figuur-rig-paneel: niet in beeld; alleen te zien als je het hoofdpaneel inklapt, 19-mens-paneel) |
+| Volgorde | zes genummerde stappen, elke stap een eigen in te klappen kop ("3 - Explode & Preview", "4 - Export") | koppen per soort (Cut tools, Automatic tools, Connectors, Inspect, Repair), dicht wat je niet nodig hebt | één lijst | per menu | drie genummerde stappen, daarna los onder Export: "Print this first", "Place hinge, bends up to", "Hinge" (bereik). **Proefstrip en scharnier staan na Export** |
+| Standaardwaarden | verbinders in mm | Clearance 0,5 mm, in echte mm | GOK | n.v.t. | Clearance 0,20 mm, kogel "Auto", Ball; scharnier drie standen 90/115/135° |
+| Uitleg | video's en "Your first split" | "Where to find it" bij elke functie op de pagina | handleidingen in 11 talen, YouTube | docs per gereedschap | knoptips, één INFO-regel bij Export, "Shift + right click sets the 3D cursor" |
+| Foutmeldingen | "the panel warns when one does not fit"; mesh niet dicht: Make Manifold | Mesh Check in beeld, Fix Mesh | Repair Mesh, één klik | n.v.t. | rood vak bij verkeerde maat met knop "Convert to mm"; niet dicht: knop "Make watertight"; Tight/Good fit met reden; "No end stop found" |
+| Beoordelingen | 3 | 3 | GOK | 131 ratings | 0; geen regel om te beoordelen |
+
+**De drie grootste verschillen en wat 1.2.9 doet (geen nieuwe functies):**
+1. **Eerste klik tot resultaat.** Bij Cleave en Split 3D Print is de automatische knop het eerste wat je ziet; bij ons zat onze sterkste knop (Figure from rig) uit beeld. 1.2.9: heeft je mesh een rig, dan staat bovenaan het paneel "Rig found: <naam>" met de grote knop Figure from rig en "More bones (ankles too)". Zonder rig verandert er niets.
+2. **Volgorde.** Cleave en Split 3D Print zetten elke knop in de stap waar hij hoort; bij ons stonden proefstrip en scharnier ná Export. 1.2.9: de proefstrip ("Not sure? Print a fit test first") staat in stap 2 direct onder Clearance, het scharnier ("Or a hinge that bends up to: 90° 115° 135°", Flip bend) in stap 2 onder Place joint, en het bereik van het scharnier in stap 3 bij de passing.
+3. **Beoordelingen (gat 3).** Na een Good fit één rustige regel onder het paneel: "Happy with it? Leave a rating:" met knoppen Superhive en Gumroad (gratis: Blender Extensions). Geen popup, niets in ruil.
+
+Voor en na (5.3.0, uit de e2e): `producten/blender-gewrichten/keuring/2026-11-25-1.2.8-paneel-voor.png`, `2026-11-25-1.2.9-paneel-rig-boven.png` (Rig found bovenaan) en `2026-11-25-1.2.9-paneel-na-figuur.png` (nieuwe volgorde, beoordelingsregel).
+
+Niet gedaan, wel gezien: in te klappen koppen per stap (Cleave) en een Fast/Expert-schakelaar (Split 3D Print). Pas doen als een koper of de blinde test zegt dat het paneel te lang is.
+
 ## Etalage
 | | Cleave | Split 3D | JointLab | Wij |
 |---|---|---|---|---|
