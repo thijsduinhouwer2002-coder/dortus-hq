@@ -9,6 +9,7 @@ import sys
 import traceback
 
 import bpy
+from mathutils import Vector
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import modellen  # noqa: E402
@@ -113,8 +114,111 @@ def verwachte_buren(ob, lijst):
     return uit
 
 
+def stl_driehoeken(pad):
+    """(n, 3, 3) triangles in mm from a binary STL."""
+    import numpy as np
+    with open(pad, "rb") as f:
+        data = f.read()
+    n = int.from_bytes(data[80:84], "little")
+    rec = np.frombuffer(data, dtype=np.dtype([("n", "<f4", 3), ("v", "<f4", (3, 3)), ("a", "<u2")]), count=n, offset=84)
+    return rec["v"].astype(np.float64)
+
+
+def stl_volume(v):
+    import numpy as np
+    return float(np.einsum("ij,ij->i", v[:, 0], np.cross(v[:, 1], v[:, 2])).sum() / 6)
+
+
+def snij_mesh(ob):
+    """Pin holes and numbers of a piece as (point mm, axis): they lie in its cut faces."""
+    import json
+    uit = []
+    for g in json.loads(ob.get("sj_gaten") or "[]") + json.loads(ob.get("sj_labels") or "[]"):
+        a = g["n"] if "n" in g else [1.0 if i == g.get("as") else 0.0 for i in range(3)]
+        uit.append((Vector(g["p"]), Vector(a).normalized()))
+    return uit
+
+
+def grootste_vlak_mesh(ob, alleen_snij=False):
+    """Largest flat plane of a piece, measured on its own mesh in mm (normal and offset rounded), in mm2.
+    alleen_snij: only planes that hold a pin hole or number (a cut face)."""
+    snij = snij_mesh(ob) if alleen_snij else None
+    som = {}
+    # the mesh's own coordinates: holes and numbers are stored like that, without the exploded-view shift
+    # (delta_location, which matrix_basis includes)
+    for p in ob.data.polygons:
+        nw = p.normal.normalized()
+        c = p.center * SCHAAL[0]
+        k = (round(nw.x, 3), round(nw.y, 3), round(nw.z, 3), round(nw.dot(c), 1))
+        if snij is not None and not any(abs(nw.dot(a)) > 0.999 and abs(nw.dot(q) - nw.dot(c)) < 0.15 for q, a in snij):
+            continue
+        som[k] = som.get(k, 0.0) + p.area * SCHAAL[0] ** 2
+    return max(som.values()) if som else 0.0
+
+
+def toets_plat(naam, lijst):
+    """Lay parts flat (1.0.0): measured on the STL files, not on what the add-on says."""
+    import numpy as np
+    import importlib
+    bed_mm = importlib.import_module("bl_ext.user_default.click_cuts.eigenschappen").bed
+    inst = bpy.context.scene.split_joints
+    inst.formaat = "STL"
+    voor = {o.name: [tuple(r) for r in o.matrix_world] for o in lijst}
+    inst.plat = False
+    inst.exportmap = os.path.join(uitmap, naam, "plat_uit") + os.sep
+    bpy.ops.split_joints.exporteer()
+    pen_uit = {os.path.basename(p): open(p, "rb").read() for p in bpy.context.scene["sj_laatste_export"] if "pins_" in p}
+    vol_uit = {o.name: abs(stl_volume(stl_driehoeken(o["sj_bestand"]))) for o in lijst}  # same piece, not turned
+    maat_uit = {o.name: np.ptp(stl_driehoeken(o["sj_bestand"]).reshape(-1, 3), axis=0) for o in lijst}
+    inst.plat = True
+    inst.exportmap = os.path.join(uitmap, naam, "plat_aan") + os.sep
+    r = bpy.ops.split_joints.exporteer()
+    stap(f"{naam}: plat export", r == {"FINISHED"})
+    bed = bed_mm(bpy.context.scene)
+    op_snijvlak = 0
+    for ob in lijst:
+        v = stl_driehoeken(ob["sj_bestand"])
+        z = v[:, :, 2]
+        e1, e2 = v[:, 1] - v[:, 0], v[:, 2] - v[:, 0]
+        kruis = np.cross(e1, e2)
+        opp = np.linalg.norm(kruis, axis=1) / 2
+        vol = stl_volume(v)
+        nz = kruis[:, 2] / np.maximum(np.linalg.norm(kruis, axis=1), 1e-12)
+        onder = float(opp[(nz < -0.999) & (z.max(axis=1) < 0.01)].sum())
+        mx = np.ptp(v[:, :, 0]); my = np.ptp(v[:, :, 1]); mz = np.ptp(z)
+        past_bed = mz <= bed[2] + 0.01 and ((mx <= bed[0] + 0.01 and my <= bed[1] + 0.01) or (mx <= bed[1] + 0.01 and my <= bed[0] + 0.01))
+        rang = int(ob.get("sj_plat_rang", -9))
+        snijvlak = bool(ob.get("sj_plat_snijvlak"))
+        groot = grootste_vlak_mesh(ob, alleen_snij=snijvlak)
+        stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} laagste punt op z = 0, past op het bed",
+             abs(float(z.min())) < 0.01 and past_bed, f"z {z.min():.3f}, {mx:.1f} x {my:.1f} x {mz:.1f}, rang {rang}")
+        stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} zelfde volume als het stuk",
+             abs(abs(vol) - vol_uit[ob.name]) < max(1.0, 1e-4 * abs(vol)), f"{abs(vol):.0f} / {vol_uit[ob.name]:.0f} mm3")
+        if rang >= 0:  # M1 Daan: only a cut face may go down
+            stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} ligt op een snijvlak", snijvlak and onder > 0,
+                 f"rang {rang}, onder {onder:.0f} mm2")
+            op_snijvlak += snijvlak
+        if rang == 0:
+            stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} grootste snijvlak ligt onder",
+                 onder >= 0.99 * groot > 0, f"onder {onder:.0f} mm2, grootste {groot:.0f} mm2")
+        elif rang == -1:
+            mu = maat_uit[ob.name]
+            stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} geen snijvlak past: eigen stand, niet gedraaid",
+                 np.allclose([mx, my, mz], mu, atol=0.01), f"{mx:.1f} x {my:.1f} x {mz:.1f} / {mu[0]:.1f} x {mu[1]:.1f} x {mu[2]:.1f}")
+        elif rang < -1:
+            stap(f"{naam}: plat stuk {int(ob['sj_stuk'])} kreeg geen stand", False, f"rang {rang}")
+    stap(f"{naam}: plat minstens de helft van de stukken ligt op een snijvlak", 2 * op_snijvlak >= len(lijst),
+         f"{op_snijvlak} van {len(lijst)}")
+    pen_aan = {os.path.basename(p): open(p, "rb").read() for p in bpy.context.scene["sj_laatste_export"] if "pins_" in p}
+    stap(f"{naam}: plat pennenplaat ongewijzigd", pen_aan == pen_uit and len(pen_aan) > 0, f"{len(pen_aan)} platen")
+    na = {o.name: [tuple(r) for r in o.matrix_world] for o in lijst}
+    stap(f"{naam}: plat stukken staan na export nog op hun plek in de scene", na == voor)
+    inst.plat = False  # the other export checks compare sizes with the pieces as they stand
+
+
 def toets_export(naam, lijst):
     inst = bpy.context.scene.split_joints
+    toets_plat(naam, lijst)
     for formaat in ("STL", "3MF"):
         inst.formaat = formaat
         inst.exportmap = os.path.join(uitmap, naam, formaat.lower()) + os.sep

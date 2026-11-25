@@ -41,4 +41,6 @@ Kies zelf welk model de blinde test wint; zet Cleave (plek 1) ernaast.
 
 Keuring Daan #12 verwerkt (25 nov): M1 letterlijk, K1 (gouden kader alleen in dit beeld), K2 (CHANGELOG nu ook Amerikaanse spelling, zoals de add-on).
 
-Niet beloven: delen liggen plat (komt in 1.0.1), andere verbinders dan ronde pennen, en nooit dat wij printten of dat het klikt (CLAUDE.md regel 5).
+Mag sinds 25 nov wel: "Lay parts flat" (aan bij export, elk stuk op een snijvlak dat op je bed past; zonder zo een snijvlak houdt een stuk zijn eigen stand). Dus niet "every part lies flat", wel "parts are exported lying on a cut face".
+
+Niet beloven: andere verbinders dan ronde pennen, en nooit dat wij printten of dat het klikt (CLAUDE.md regel 5).

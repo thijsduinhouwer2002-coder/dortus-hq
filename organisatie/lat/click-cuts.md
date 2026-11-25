@@ -18,7 +18,7 @@ De 3 sterkste concurrenten op Superhive voor "model splitsen voor 3D-print", en 
 | Passingproef met je eigen verbinder, onthouden per printer | nee | nee | materiaalprofielen, "test on a small sample" | **ja** | voordeel |
 | Controle per deel met reden (past, dicht, wand rond gaten) | ja, tegen printer | Mesh Check | nee | **ja, groen/oranje/rood** | gelijk of beter |
 | Onderdeelnummers gegraveerd | nee | nee | nee | **ja** | voordeel |
-| Delen plat leggen bij export | **ja** ("each piece laid flat") | arrangement | nee | op tak 1.0.1, Daan akkoord | gat, dicht na de zip |
+| Delen plat leggen bij export | **ja** ("each piece laid flat") | arrangement | nee | ja, in 1.0.0 (25 nov, Daan akkoord op de code) | dicht |
 | Dichtmaken kapotte mesh | nee | Fix Mesh | nee | Make watertight (kopie) | gelijk |
 | Updates | 12 gratis sinds lancering, ±wekelijks | V4 op 11 nov | 0.2.1 | e2e in 4.2 en 5.3 bij elke wijziging | |
 | Uitleg | 2 tutorials op de pagina, 6 stappen | "Where to find it" bij elke functie | lijst | 3 stappen in het paneel | |
@@ -42,7 +42,7 @@ Les: Cleave verkoopt 300+ met een eigen kanaal van korte lessen per moeilijkheid
 
 ## Gaten, op volgorde van geld
 1. **Hoofdbeeld en galerij** onder Cleave: Beeldmaker, vóór de uitgave (week van 30 nov).
-2. **Delen plat leggen**: Cleave doet het; ons 1.0.1 staat klaar op tak `claude/click-cuts-1.0.1-plat`, naar main na de zip van do 27 nov.
+2. **Delen plat leggen**: Cleave doet het; zit sinds 25 nov in 1.0.0 (nog niets live, dus geen aparte 1.0.1). Dicht zodra de FAQ is aangepast.
 3. **Snedes langs de vorm of zelf leggen.** Alle vier de rechters in de blinde test (24 nov) vroegen erom ("doesn't slice through my character's face"); Cleave en Split doen het. Nu: Free cut noemen in de FAQ. Daarna eerste kandidaat voor 1.1.
 4. **Meer verbinders** (magneet, D-pen die maar op één manier past, deuvel): ook gevraagd door de rechters; na de eerste verkopen.
 

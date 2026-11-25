@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
     inputs:
       run_id:
-        description: "Groene run van blender-splitser-e2e.yml op main (op 4efe003 of nieuwer)"
+        description: "Groene run van blender-splitser-e2e.yml op main (na b26177a, dus met Lay parts flat)"
         required: true
 
 permissions:
@@ -23,7 +23,7 @@ permissions:
 
 env:
   VERSIE: "1.0.0"
-  BASIS: 4efe003   # eerste commit met de 1.0.0-kandidaat
+  BASIS: b26177a   # laatste commit vóór 1.0.0 met Lay parts flat (25 nov); alleen runs ná deze tellen
   INVOER_RUN: ${{ inputs.run_id }}
 
 jobs:
@@ -52,7 +52,7 @@ jobs:
           sha=$(sed -n 3p /tmp/run.txt)
           stand=$(gh api "repos/$GITHUB_REPOSITORY/compare/$BASIS...$sha" --jq '.status')
           echo "basis $BASIS tegen $sha: $stand"
-          case "$stand" in identical|ahead) ;; *) echo "FOUT: run ligt voor $BASIS"; exit 1;; esac
+          case "$stand" in ahead) ;; *) echo "FOUT: run ligt niet na $BASIS (zip zonder Lay parts flat)"; exit 1;; esac
       - name: Kandidaat-zip van de run ophalen
         env:
           GH_TOKEN: ${{ github.token }}
