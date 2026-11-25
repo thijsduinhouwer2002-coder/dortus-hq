@@ -1,13 +1,13 @@
-HOL balk gestart, pid 8768, hoogte 120
+HOL balk gestart, pid 9116, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
 HOL balk aan
 HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
+HOL muisvlak via de balk, lucht vrij op x=-1
 HOL begin: vallen (Kees)
 HOL held binnen: Kees
-HOL muisvlak via de balk, lucht vrij op x=-1
 HOL zicht 0.7 1
 HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
 HOL kroniek 7.0 (wacht 0.0): Anouk the Bard tunes a lute.
@@ -17,25 +17,25 @@ HOL gegraven kolom 5 (zelf 1, graafbonus 0)
 HOL kroniek zelfde held vervangen: Kees is here for your gold.
 HOL kroniek 9.3 (wacht 0.0): Kees will not be leaving. +6
 HOL demo voorbij na 10 s speeltijd
-HOL meting t=10 beelden=113 helden=1 hol_vast=3
-HOL kroniek 11.9 (wacht 1.8): That's the demo. Your hole keeps going.
+HOL meting t=10 beelden=114 helden=1 hol_vast=3
+HOL kroniek 11.8 (wacht 1.8): That's the demo. Your hole keeps going.
 HOL begin: opgegeten (Siem)
 HOL held binnen: Siem
-HOL kroniek 14.4 (wacht 2.0): Siem climbs into your hole.
+HOL kroniek 14.3 (wacht 1.9): Siem climbs into your hole.
 HOL demo voorbij: graven/kopen geweigerd (graven (film))
 HOL demo klik op Gloop
-HOL kaartje open 18.6: slijm
-HOL meting t=20 beelden=111 helden=2 hol_vast=4
+HOL kaartje open 18.5: slijm
 HOL demo klik op Buy
 HOL demo voorbij: graven/kopen geweigerd (kopen slijm)
+HOL meting t=20 beelden=111 helden=2 hol_vast=4
 HOL begin: doorlopen (Jop)
 HOL held binnen: Jop
-HOL kaartje dicht 24.6
-HOL kroniek 24.6 (wacht 3.8): Anouk left. Took nothing. Angry.
-HOL kroniek 27.1 (wacht 4.1): Jop knows all the words. Sadly.
+HOL kaartje dicht 24.5
+HOL kroniek 24.5 (wacht 3.7): Anouk left. Took nothing. Angry.
+HOL kroniek 27.0 (wacht 4.0): Jop knows all the words. Sadly.
 HOL demo voorbij: graven/kopen geweigerd (graven (film))
 HOL begin: terug (Anouk)
 HOL held binnen: Anouk
 HOL kroniek zelfde held vervangen: Anouk left. Took nothing. Angry.
-HOL kroniek 29.6 (wacht 1.5): Anouk is back for the Spike Pit.
+HOL kroniek 29.5 (wacht 1.4): Anouk is back for the Spike Pit.
 HOL einde na 30 s, fps=20, goud=78, terugkomers=0
