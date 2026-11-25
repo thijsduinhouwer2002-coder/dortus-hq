@@ -1,6 +1,6 @@
 # Click Cuts: winkeltekst Superhive en Gumroad (CONCEPT)
 
-Chris, di 24 nov 2026 (eerste versie ±06:40 NL). Opdracht hoofdchat 04:25 en 06:25, besluit bundel 07:15. Status: CONCEPT. Keuringen 1 tot 3 verwerkt, derde akkoord ja (065f7d7). 24 nov ±12:45 NL: 4.2-snelheid naar meting, geheugen-FAQ en slicer-FAQ erbij; **vierde keuring akkoord ja (b62c304)**, kan-punten K1, K2 en K4 daarna verwerkt. **Klaar om te plakken bij de uitgave** (skill `keuren`, door een ander). Plakken doet Thijs bij de uitgave (week van ma 30 nov). **25 nov ±22:30 NL (issue #104):** Lay parts flat en Free cut in lijst en FAQ, oude zin "Not automatically" weg; wacht op keuring Daan, daarna weer klaar om te plakken.
+Chris, di 24 nov 2026 (eerste versie ±06:40 NL). Opdracht hoofdchat 04:25 en 06:25, besluit bundel 07:15. Status: CONCEPT. Keuringen 1 tot 3 verwerkt, derde akkoord ja (065f7d7). 24 nov ±12:45 NL: 4.2-snelheid naar meting, geheugen-FAQ en slicer-FAQ erbij; **vierde keuring akkoord ja (b62c304)**, kan-punten K1, K2 en K4 daarna verwerkt. **Klaar om te plakken bij de uitgave** (skill `keuren`, door een ander). Plakken doet Thijs bij de uitgave (week van ma 30 nov). **25 nov ±22:30 NL (issue #104):** Lay parts flat en Free cut in lijst en FAQ, oude zin "Not automatically" weg; keuring Daan #110 akkoord ja, kan-punten K1 ("Partly.", "a character's face") en K2 (lange tekst Amerikaanse spelling) verwerkt 26 nov. **Weer klaar om te plakken.**
 Alleen wat kandidaat 1.0.0 doet (`producten/blender-splitser/CHANGELOG.md`, `architectuur.md`). Alleen pennen: geen klikverbinders, geen magneten, geen deuvels, geen zwaluwstaart.
 
 ## 1. Titel (85 tekens)
@@ -43,7 +43,7 @@ Oranje: de bouwer heeft het geel echt oranje gemaakt (commit 36912d5, keuring K1
 - *Which connectors?* Pins only in 1.0.0. No dovetails, magnets or snap keys.
 - *Does it fix broken meshes?* Make watertight makes a closed copy (voxel remesh). Very large or detailed models may need to be cleaned first.
 - *Do parts lie flat for printing?* Yes. Lay parts flat (on by default) turns every part on export so a flat face, usually a cut face, lies on the bed, if it still fits your printer. Otherwise the part keeps its own way up.
-- *Can I choose where it cuts, so it does not go through a face?* Split to fit cuts along the X, Y and Z axes. After splitting, Free cut adds a cut at any angle through one part, for example an arm at the shoulder, with pins and numbers like the other cuts.
+- *Can I choose where it cuts, so it does not go through a character's face?* Partly. Split to fit cuts along the X, Y and Z axes. After splitting, Free cut adds a cut at any angle through one part, for example an arm at the shoulder, with pins and numbers like the other cuts.
 - *Thin or hollow models?* Some joints have no room for a pin; Click Cuts tells you which ones to glue.
 - *How fast is it?* Tested on a 1 million face scan in Blender 5.3: about 40 seconds (2-core test machine). In Blender 4.2 to 4.4 the same scan takes about 3 minutes. Big models show a time estimate under Split to fit.
 - *How much memory?* Very large models (3 million faces) need a lot of memory in Blender 4.2 to 4.4: about 9 GB. Blender 5.3 needs about 5 GB. With 8 GB of memory, use Blender 5.3 for models that big.

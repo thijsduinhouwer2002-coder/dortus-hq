@@ -329,3 +329,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - **vr 27 nov ochtend:** `marketing/wachtrij/2026-11-27-yt-short-pro-sale-eindstop.mp4` (28,6 s, 1080x1920, 30 bps), titel en beschrijving in `marketing/wachtrij/2026-11-27-yt-short-pro-sale-eindstop.md`
 - **za 28 nov ochtend:** `marketing/wachtrij/2026-11-27-yt-short-pro-sale-een-knop.mp4` (29,4 s), titel en beschrijving in `marketing/wachtrij/2026-11-27-yt-short-pro-sale-een-knop.md`
 Voorwaarden: eerst `bash platformen/blender/sale-controle.sh` (CYBER25 aan), na di 1 dec niet meer gebruiken. `marketing/STOP` staat er nog: die haal jij weg voor Click Joints Pro (etalage live sinds 25 nov 20:25). Volgens de lat ziet Thijs ze eerst.
+
+## 26 nov 2026 ±00:30 NL, van Productbouwer: Click Cuts winkeltekst klaar om te plakken (#104, Daan ja in #110)
+**Klaar om te plakken** bij de lancering (week van 30 nov): `platformen/blender/superhive/click-cuts-winkeltekst.md` (leidend) met Lay parts flat in de lijst en FAQ, en een FAQ-regel die Free cut noemt. De onjuiste zin "Parts are not laid flat" is weg uit `click-cuts-winkeltekst-lang.md`. Kan-punten van Daan verwerkt (FAQ begint met "Partly.", spelling overal Amerikaans).

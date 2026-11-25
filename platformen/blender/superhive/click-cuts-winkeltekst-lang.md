@@ -47,15 +47,15 @@ What you get:
 - **Check before you print.** Every part is green (fits the bed, watertight, enough wall around the holes), orange (fits, but thin wall around a hole) or red, with the reason.
 - **Free cut.** After splitting, add an extra cut at any angle through one part, for example an arm at the shoulder, with pins and numbers like the other cuts.
 - **Lay parts flat.** On export, every part is turned so a flat face, usually a cut face, lies on the bed, if it still fits your printer. On by default.
-- **Colour per part** in an exploded view, neighbours never the same colour.
-- **Export** all parts and pins as STL or 3MF, in millimetres.
+- **Color per part** in an exploded view, neighbors never the same color.
+- **Export** all parts and pins as STL or 3MF, in millimeters.
 
 Where to find it: the sidebar in the 3D viewport (press N), tab Click Cuts. Printer and Split to fit are at the top; every step is under More settings.
 
 Good to know:
 - Clearance is 0.20 mm per side by default. Print the fit test first; every printer and material is different.
 - Open meshes are made watertight first with a voxel remesh on a copy; your original is kept.
-- A model in millimetres in a scene in metres is caught at once, with a Convert to mm button.
+- A model in millimeters in a scene in meters is caught at once, with a Convert to mm button.
 - Hollow models with thin walls (a vase, a thin shell) often have no room for a pin. Click Cuts then tells you the joint is too small for a pin and to glue it.
 - Version 1.0 has round pins only: no snap connectors, magnets or dovetails yet. Cuts follow the X, Y and Z axes, plus the free cut.
 - Blender 4.2 and newer. Tested in Blender 4.2 and 5.3 on every change.
