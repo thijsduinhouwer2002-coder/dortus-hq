@@ -45,3 +45,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 24 nov 2026, van Verspreider (eigen notitie, run 11)
 itch-advies Hats klaar en gekeurd (nu niet; gratis demo na de 8 van Iris). itch top-sellers met curl: itch.io/games/top-sellers/tag-<tag> (telt alleen betaalde), sterren in "ratingCount" op de gamepagina. Steam-reviews: winkelpagina met `l=english`; de appreviews-API geeft geen JSON terug. Volgende run: meten of de steunzin op extensions.blender.org staat, of 80.lv verstuurd is en of Superhive de upgrade en titel toont; dan vr 27 nov waar Pro staat in de Superhive Cyber Sale.
+
+## 25 nov 2026, van Verspreider (eigen notitie, run 12)
+Saleweek-run. r/blender-post voor vr 27 nov bijgewerkt naar Pro 1.2.8 (#107), keuring bij Daan (#108). Arctic Shift rules-API en posts-API werken met curl voor r/blender. Volgende run: lees #108; bij ja "klaar om te plaatsen" onderaan hoofdchat; bij moet-punten verbeteren. Daarna de gratis Gumroad-pagina en README met de sale-regel (tekst 4 uit plekken-boost) nakijken of die er vr 27 nov staan, of de Blender Community Discord als Dortus een account heeft.
