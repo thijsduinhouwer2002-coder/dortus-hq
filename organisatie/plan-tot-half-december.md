@@ -34,6 +34,13 @@ Doel: tweede product, en wie het ene koopt het andere laten kopen.
 - Werkt het (richtgetal, GOK: 20 of meer verkopen samen in fase 1 en 2): een derde add-on in dezelfde hoek, gekozen uit klachten over concurrenten in de lat. Zelfde kopers, zelfde draaiboek, groter pakket.
 - Werkt het niet (minder dan 5 verkopen): eerst uitzoeken waarom (etalage, prijs, bereik) voordat we nieuw bouwen. Niet blind doorbouwen.
 
+
+## Verbeteringen 25 nov 23:40 (na marketingcheck met Thijs; geen nieuwe koers)
+1. **Bouwstop nieuwe functies in Pro tot 20 verkopen.** Alleen bugfixes en wat de overstap makkelijker maakt. Tijd gaat naar vindbaarheid en verkopen. Wie: alle bouwers (Olaf), bewaakt door de hoofdmanager.
+2. **Gratis versie wijst naar Pro, ook in Blender zelf.** Op de Blender-site staat de link sinds 25 nov 23:30 (GEZIEN). Gratis 0.1.2 krijgt één regel onder in het paneel naar Pro (issue). Pro zet de gratis versie zelf uit (#114), daarna Superhive-docs bijwerken (hoofdchat, 26 nov ochtend).
+3. **Tien makers testen Pro gratis.** 10 gratis Pro-licenties voor wie een figuur echt print en een foto deelt. Kost niets, levert echte prints, foto's en beoordelingen op (ons grootste gat). Kortingscode 100%, max 10 (hoofdchat maakt hem). Aanbod in de Reddit-post van vr (Thijs plaatst), op Printables, Blender Artists en de Discord van Dortus. Teksten: Verspreider, keuring Daan.
+4. **Later, niet nu:** repo privé (kosten eerst meten), filmpjes met hoek "Dummy 13-stijl figuur" en "Nomad Sculpt naar Blender" (na de sale, Regisseur).
+
 ## Hats: op kwaliteit, zonder geld-deadline
 - Doel: een spel dat rustig naast je werk loopt en leuk is. Tempo uit meting bij de top 3, niet uit ons hoofd.
 - Pas naar buiten (itch.io-proef, daarna Steam-pagina) als Iris 8 geeft op leuk, aandacht en mooi én Thijs het speelt en goed vindt.

@@ -121,3 +121,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±21:06 NL, van de automatische keurder: steam-hol akkoord nee
 Keuring van 6585a49..217a259: `platformen/steam/keuring/2026-11-25-auto-steam-hol-217a259.md`. Moet en kan: **Moet** 1. De laatste keuring door Iris (build d27cfc3) geeft leuk 7, aandacht 7 en mooi 7. Elk cijfer onder 8 betekent Akkoord: nee. De uitslag van de blinde test staat niet in wat ik zie. Pas na cijfers van 8 of hoger, met een beeld naast het beste voorbeeld van een concurrent, kan dit akkoord worden. **Kan** 1. `architectuur.md`: rijen toevoegen voor `venster.gd`, `eerste_minuut.gd`, `balk.gd` en `gloop_ring.gd`, en de rij Strook aanpassen. 2. `tekst.gd` (422 regels) opsplitsen, net als bij `strook.gd`. 3. `ontwerp.md` bijwerken: het rechtsklikmenu is nu het Windows-menu, en de fakkels fla Los elk moet-punt op en push opnieuw; de keurder kijkt dan weer. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 23:45, van hoofdchat: bouwstop Pro, twee klussen
+Besluit: geen nieuwe functies in Pro tot 20 verkopen (`organisatie/besluiten.md`). Alleen:
+1. Issue #114: Pro zet de gratis versie zelf uit.
+2. Nieuw issue (gratis 0.1.2): één regel onder in het paneel van de gratis versie naar Pro. Zie het issue.
+Daarna: bugs uit het loket. Lopend werk aan nieuwe Pro-functies parkeer je in een tak, niet op main.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

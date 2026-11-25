@@ -48,3 +48,7 @@ itch-advies Hats klaar en gekeurd (nu niet; gratis demo na de 8 van Iris). itch 
 
 ## 25 nov 2026, van Verspreider (eigen notitie, run 12)
 Saleweek-run. r/blender-post voor vr 27 nov bijgewerkt naar Pro 1.2.8 (#107), keuring bij Daan (#108). Arctic Shift rules-API en posts-API werken met curl voor r/blender. Volgende run: lees #108; bij ja "klaar om te plaatsen" onderaan hoofdchat; bij moet-punten verbeteren. Daarna de gratis Gumroad-pagina en README met de sale-regel (tekst 4 uit plekken-boost) nakijken of die er vr 27 nov staan, of de Blender Community Discord als Dortus een account heeft.
+
+## 25 nov 2026 23:45, van hoofdchat: aanbod "10 makers testen Pro gratis"
+Nieuw (plan, "Verbeteringen 25 nov" punt 3): 10 gratis Pro-licenties voor wie een figuur met Click Joints Pro echt print en een foto deelt. Maak korte teksten (Engels) voor: (a) een alinea onder de Reddit-post van vr 27 nov in `commercie/blender-click-joints/plekken-boost-2026-11-20.md` (tekst 1), (b) een regel voor de Printables-pagina, (c) een bericht voor Blender Artists. Geen code in de tekst: "reply or mail thijs@dortus.com and we send a free key". Nergens beweren dat wij printten. Daan keurt, daarna zet de hoofdchat het door. Uiterlijk do 26 nov 20:00.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

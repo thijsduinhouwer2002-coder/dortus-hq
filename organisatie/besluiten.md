@@ -93,3 +93,4 @@
 - 25 nov 22:03, Thijs: **Click Cuts introprijs $19 tot en met 14 dec** (ja). Vaste prijs daarna op basis van verkoop.
 - 25 nov 22:03, Thijs: de hoofdchat mag altijd naar main van repo dortus (dortus.com) pushen. De automatische toestemmingscontrole weigert dat toch; daarom gaat het via een pull request die Thijs met één klik samenvoegt (eerste: dortus PR #128, gekeurde Fit test strip, direct-zip en gidsen 2 en 3).
 - 25 nov 23:01 (Thijs): geen testprint nu. Eerst installs en verkopen; een print pas als er echte verkopen zijn en het scharnier ertoe gaat doen. Nergens beweren dat het getest is blijft gelden.
+- 25 nov 23:40 (hoofdchat, past bij Thijs 23:01 "eerst installs en geld"): **bouwstop nieuwe functies in Click Joints Pro tot 20 verkopen**; alleen bugfixes en overstap-gemak (#114, link naar Pro in de gratis versie). Plus: 10 gratis Pro-licenties voor makers die echt printen en een foto delen. Zie `organisatie/plan-tot-half-december.md`, "Verbeteringen 25 nov".
