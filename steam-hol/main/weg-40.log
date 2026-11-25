@@ -1,21 +1,21 @@
-HOL balk gestart, pid 3688, hoogte 120
-HOL weg geweest 25211 s (klok terug: false): goud voor 573, helden 100, erbij 508, hoeden 41
-HOL weg faam afgekapt 7 van 68 (hooguit 2 niveaus)
+HOL balk gestart, pid 4100, hoogte 120
+HOL weg geweest 25209 s (klok terug: false): goud voor 627, helden 100, erbij 484, hoeden 37
+HOL weg faam afgekapt 7 van 64 (hooguit 2 niveaus)
 HOL hol-niveau 4 (faam 12, t 0.0)
 HOL hol-niveau 5 (faam 12, t 0.0)
-HOL hoeden van de nacht 41 (vallen vanaf 1.0 s, toren nu 40)
+HOL hoeden van de nacht 37 (vallen vanaf 1.0 s, toren nu 40)
 HOL berg zichtbaar 6 -> 8
-HOL kroniek 0.0 (wacht 0.0): 100 came, 68 fell, 41 hats. +508 gold.
+HOL kroniek 0.0 (wacht 0.0): 100 came, 64 fell, 37 hats. +484 gold.
 HOL optocht wip, 1.2 poef 4 munt; helden [5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1081 goud, faam 12
+HOL opslag geladen: 0 terugkomers, 1111 goud, faam 12
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795593175
+HOL zaad 1795595240
 HOL balk aan
-HOL eerste koop mogelijk na 38 s speeltijd (goud 1081)
+HOL eerste koop mogelijk na 38 s speeltijd (goud 1111)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Bram read about you in a tavern.
-HOL held binnen: Bram
+HOL kroniek 4.0 (wacht 0.0): Mara climbs into your hole.
+HOL held binnen: Mara
 HOL zicht 4.1 1
-HOL meting t=10 beelden=98 helden=1 hol_vast=8
-HOL einde na 12 s, fps=10, goud=1081, terugkomers=0
+HOL meting t=10 beelden=98 helden=1 hol_vast=11
+HOL einde na 12 s, fps=10, goud=1111, terugkomers=0

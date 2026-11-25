@@ -1,13 +1,13 @@
-HOL balk gestart, pid 7460, hoogte 120
-HOL weg geweest 0 s (klok terug: true): goud voor 573, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 573 goud, faam 5
+HOL balk gestart, pid 7424, hoogte 120
+HOL weg geweest 0 s (klok terug: true): goud voor 627, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 627 goud, faam 5
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795593166
+HOL zaad 1795595231
 HOL balk aan
-HOL eerste koop mogelijk na 30 s speeltijd (goud 573)
+HOL eerste koop mogelijk na 30 s speeltijd (goud 627)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 4.1 (wacht 0.0): Kobus climbs into your hole.
-HOL begin: doorlopen (Kobus)
-HOL held binnen: Kobus
-HOL zicht 4.2 1
-HOL einde na 8 s, fps=10, goud=573, terugkomers=0
+HOL kroniek 4.0 (wacht 0.0): Mara knocks first. Polite.
+HOL begin: doorlopen (Mara)
+HOL held binnen: Mara
+HOL zicht 4.1 1
+HOL einde na 8 s, fps=10, goud=627, terugkomers=0
