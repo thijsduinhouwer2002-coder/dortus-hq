@@ -1,4 +1,4 @@
-HOL balk gestart, pid 8488, hoogte 120
+HOL balk gestart, pid 1928, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
@@ -13,12 +13,11 @@ HOL kroniek 6.9 (wacht 0.0): Anouk the Bard tunes a lute.
 HOL begin: vluchten (Anouk)
 HOL held binnen: Anouk
 HOL gegraven kolom 5 (zelf 1, graafbonus 0)
-HOL kroniek zelfde held vervangen: Kees is here for your gold.
-HOL kroniek 9.2 (wacht 0.0): Kees will not be leaving. +6
-HOL meting t=10 beelden=200 helden=1 hol_vast=3
-HOL kroniek 12.3 (wacht 0.0): Siem climbs into your hole.
-HOL begin: opgegeten (Siem)
-HOL held binnen: Siem
+HOL meting t=10 beelden=200 helden=2 hol_vast=2
+HOL kroniek 12.3 (wacht 0.0): Mara read about you in a tavern.
+HOL begin: opgegeten (Mara)
+HOL held binnen: Mara
+HOL kroniek 13.3 (wacht 0.2): Kees is part of the hole now. +6
 HOL gegraven kolom 2 (zelf 2, graafbonus 0)
 HOL demo klik op Gloop
 HOL kaartje open 18.5: slijm
@@ -27,38 +26,35 @@ HOL demo klik op Buy
 HOL koop 20.0: slijm niveau 1, goud 27
 HOL kaartje dicht 22.5
 HOL kroniek 22.5 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
-HOL begin: doorlopen (Jop)
-HOL held binnen: Jop
-HOL kroniek 25.0 (wacht 4.4): Anouk left. Took nothing. Angry.
+HOL begin: doorlopen (Siem)
+HOL held binnen: Siem
+HOL kroniek 25.0 (wacht 1.0): Siem has a map. It is wrong.
 HOL gegraven kolom 4 (zelf 3, graafbonus 0)
-HOL kroniek 27.5 (wacht 4.7): Jop knows all the words. Sadly.
+HOL meting t=30 beelden=200 helden=3 hol_vast=14
+HOL kroniek 32.9 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
+HOL kroniek zelfde held vervangen: Anouk fled. Grudge: the Spike Pit.
+HOL kroniek 35.4 (wacht 2.5): Anouk's song got popular. Uh oh.
+HOL gegraven kolom 1 (zelf 4, graafbonus 0)
+HOL kroniek weggedrukt na 1.6 s, komt terug: Anouk's song got popular. Uh oh.
+HOL kroniek zelfde held vervangen: Anouk's song got popular. Uh oh.
+HOL kroniek 37.0 (wacht 0.0): Anouk is back for the Spike Pit.
 HOL begin: terug (Anouk)
 HOL held binnen: Anouk
-HOL meting t=30 beelden=200 helden=2 hol_vast=15
-HOL kroniek zelfde held vervangen: Anouk left. Took nothing. Angry.
-HOL kroniek 30.0 (wacht 2.2): Anouk is back for the Spike Pit.
-HOL kroniek 32.6 (wacht 3.6): Gloop ate Siem. Kept the crown. +6
-HOL kroniek 35.1 (wacht 4.5): Jop is now the Hoard-Toucher.
-HOL gegraven kolom 1 (zelf 4, graafbonus 0)
-HOL kroniek 37.7 (wacht 8.4): Gloop is flat. Back soon.
-HOL hol-niveau 2 (faam 3, t 38.2)
-HOL reeks 2 (+0, t 38.2)
-HOL bordje wip niveau 2
-HOL kroniek 38.7 (wacht 0.5): Anouk came back. The Spike Pit won. +9
-HOL zicht 39.1 0
-HOL meting t=40 beelden=200 helden=0 hol_vast=26
-HOL begin: opgegeten2 (Maud)
-HOL held binnen: Maud
-HOL zicht 40.3 1
-HOL kroniek 41.3 (wacht 2.2): Jop ran. Hands smell of gold.
-HOL kroniek vervallen 43.3: Maud read about you in a tavern.
-HOL kroniek 43.8 (wacht 23.1): A song about you! Heroes on the way.
+HOL kroniek 39.6 (wacht 0.3): Gloop ate Mara. Kept the crown. +6
+HOL meting t=40 beelden=200 helden=2 hol_vast=24
+HOL kroniek terugkomer vervallen 41.1: Anouk's song got popular. Uh oh.
+HOL kroniek 42.1 (wacht 3.2): Gloop is flat. Back soon.
+HOL kroniek 43.5 (wacht 0.0): Siem is now the Hoard-Toucher.
 HOL gegraven kolom 3 (zelf 5, graafbonus 0)
-HOL held binnen: Bram
-HOL kroniek 46.4 (wacht 8.1): Gloop is up again. Wobbly.
-HOL kroniek 48.9 (wacht 2.6): Bram knocks first. Polite.
-HOL meting t=50 beelden=200 helden=2 hol_vast=28
-HOL kroniek 50.8 (wacht 0.0): Gloop ate Maud. Kept the bucket. +6
-HOL held binnen: Jop
-HOL kroniek 53.3 (wacht 0.0): Jop the Hoard-Toucher is back for Gloop.
+HOL kroniek 47.9 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 49.4 (wacht 0.0): Rik came for the gold in the song.
+HOL begin: opgegeten2 (Rik)
+HOL held binnen: Rik
+HOL meting t=50 beelden=200 helden=3 hol_vast=25
 HOL gegraven kolom 7 (zelf 6, graafbonus 0)
+HOL kroniek 56.6 (wacht 0.0): Siem the Hoard-Toucher ran.
+HOL held binnen: Maud
+HOL hol-niveau 2 (faam 3, t 59.1)
+HOL kroniek 59.2 (wacht 0.1): The Spike Pit wins round two. +9
+HOL bordje wip niveau 2
+HOL kroniek vervallen 59.7: Maud brought a torch. And hope.

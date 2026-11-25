@@ -1,13 +1,13 @@
-HOL balk gestart, pid 5276, hoogte 120
-HOL weg geweest 0 s (klok terug: true): goud voor 597, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 597 goud, faam 5
+HOL balk gestart, pid 3580, hoogte 120
+HOL weg geweest 0 s (klok terug: true): goud voor 621, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 621 goud, faam 5
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795579536
+HOL zaad 1795582472
 HOL balk aan
-HOL eerste koop mogelijk na 30 s speeltijd (goud 597)
+HOL eerste koop mogelijk na 30 s speeltijd (goud 621)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 4.1 (wacht 0.0): Joost brought a torch. And hope.
-HOL begin: doorlopen (Joost)
-HOL held binnen: Joost
+HOL kroniek 4.1 (wacht 0.0): Anouk says this is a quick one.
+HOL begin: doorlopen (Anouk)
+HOL held binnen: Anouk
 HOL zicht 4.2 1
-HOL einde na 8 s, fps=10, goud=597, terugkomers=0
+HOL einde na 8 s, fps=10, goud=621, terugkomers=0
