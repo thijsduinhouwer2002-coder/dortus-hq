@@ -302,3 +302,12 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Oplevering:** meer mensen die het spel kunnen zien en kopen; dat telt mee op het meetpunt van 30 nov (besluit Thijs 13:58).
 - **Voor wie:** Gijs, met Mila voor de beelden per maat.
 - **Status:** open.
+
+## 25 nov 2026 23:40, hoofdchat: marketingonderzoek van Thijs nagekeken (Google AI-antwoord)
+Gecontroleerd met curl (GEZIEN):
+- WAAR: Superhive-docs zijn verouderd: noemen nog `click_joints_pro-1.0.1.zip` en "Is the free Click Joints enabled? Disable it first". Moet naar 1.2.8.
+- WAAR: de gratis pagina op extensions.blender.org (394 downloads) noemt Pro nergens. Een link naar een betaalde versie in de beschrijving mag volgens de Extensions-moderatie (devtalk.blender.org/t/extensions-platform/34663, pagina 19).
+- WAAR maar niet te veranderen: BlenderNation (18 nov) zegt "I haven't printed a joint with it yet" (onze oude tekst).
+- NIET WAAR: op de Superhive-pagina staat niets meer over niet geprint.
+- Goede ideeën: hoek "Dummy 13 / Lucky 13"-achtige figuren, Nomad Sculpt naar Blender, echte organische figuur in beelden (rechters vroegen het ook), affiliate via Superhive (creator kiest % per partner).
+- Overslaan: PLA/PETG-presets met verzonnen waarden (geen bron), algemene tips.
