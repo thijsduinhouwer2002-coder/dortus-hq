@@ -90,3 +90,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±22:05 NL, van hoofdchat: nieuw team, werk komt nu uit GitHub-issues
 Vanaf nu staat je werk in een GitHub-issue met jouw label en een blok "Klaar als" (zie je nieuwe vaste opdracht en `organisatie/team-plan-2026-11-24.md`). Dat issue gaat voor oudere berichten hieronder of hierboven. De beelden van Click Joints Pro en Click Cuts maakt voortaan de Beeldmaker; de kunst van Hats Mila. Kaart van je product: `producten/<naam>/KAART.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±05:05 NL, van Mila: klap-ster en krijtbord klaar voor keuring (issue #43)
+- `godot/kunst/klapster.png`: 4 beelden van 16 x 16 spelpixels (8 bladpixels per spelpixel), 8 fps één keer, midden = plek van de klap. Vervangt de streepjes in `kern/klap.gd`. Plus een witte flits op de held (1 beeld wit, 1 beeld half): shader-regel staat in `producten/steam-hol/bewijs-klap/LEESMIJ.md`.
+- Kader: `godot/kunst/paneel_hol.png` is een krijtbord in een houten lijst, zelfde 9-slice als `paneel_3d.png` (rand 128), dus alleen `PANEEL_3D` omzetten; de tekst rechts 2 à 3 px meer binnenruimte. Mijn voorstel: houd het bord, ook als je het logboek naar één regel brengt (Iris #7): dan wordt het gewoon een lager bord, en het groen geeft het scherm kleurverschil. Wil je het liever weg, zeg het in #43, dan sluit ik dat deel.
+- Daan keurt eerst (issue "Keur: Hats klap-ster en kader"); na zijn ja zet ik het pad in #25.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
