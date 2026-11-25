@@ -39,4 +39,5 @@ Dit zijn dingen die Thijs vaak heeft moeten herhalen. Elke nieuwe correctie van 
 - Hats moet voelen als iets rustigs waar je langzaam mee speelt, niet als een spel waar elke minuut veel gebeurt.
 - Dus: **zacht leven, zeldzame momenten.** Figuren doen altijd kleine dingen vanzelf (lopen, graven, slapen, rondkijken), want stilstand voelt zielloos (kennisbank: Mini Cozy Room, Ropuka). Iets wat je aandacht vraagt is zeldzaam en nooit dringend: geen timers, niets om op te passen (kennisbank: Desktop Detective, Rusty's chips).
 - Wel: als je kijkt, is er iets om te kiezen of te zien groeien. "Te weinig te doen" is de grootste klacht bij Rusty's (25 van 79 negatieve reviews, kennisbank). Rustig is niet leeg.
-- Geen eis meer van "iets elke 10 tot 15 seconden" (hoofdchat trok dat 25 nov 09:30 in). Iris toetst tempo zo: stoort het als je typt? Zie je na 2 minuten wegkijken iets veranderd?
+- Geen eis meer van "iets elke 10 tot 15 seconden" (hoofdchat trok dat 25 nov 09:30 in; het getal had geen bron).
+- **Geen getal voor spelgevoel (tempo, duur, aantallen) zonder meting bij de top 3.** Afspraak 24 nov: we doen de beste concurrent na. Tempo komt uit `organisatie/lat/hats-tempo.md` (Afkijker). Iris toetst tempo zo: stoort het als je typt? Zie je na 2 minuten wegkijken iets veranderd?
