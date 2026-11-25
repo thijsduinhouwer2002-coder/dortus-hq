@@ -1,1 +1,11 @@
-{"workflow": "scorebord.yml", "invoer": {}, "van": "meter", "waarom": "avondmeting van de Meter, eerste uren met het nieuwe hoofdbeeld"}
+{
+  "workflow": "scorebord.yml",
+  "invoer": {},
+  "van": "meter",
+  "waarom": "avondmeting van de Meter, eerste uren met het nieuwe hoofdbeeld",
+  "uitslag": {
+    "run_id": 45677847932,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45677847932",
+    "gestart": "2026-11-25T18:42:16Z"
+  }
+}
