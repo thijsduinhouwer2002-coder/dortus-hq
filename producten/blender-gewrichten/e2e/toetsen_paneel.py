@@ -106,8 +106,9 @@ def toets(stap, eigen):
         bpy.ops.mesh.primitive_cube_add(size=0.02)
         d = bpy.context.active_object
         d.name = f"paneel_scharnier_{deel}"
-        d.update({"cj_soort": "SCHARNIER", "cj_bron": "paneel_lijf", "cj_deel": deel,
-                  "cj_snijpunt": [0.0, 0.0, 0.0], "cj_bereik_graden": 135.0, "cj_stand": 0, "cj_passing": "groen"})
+        for k, v in {"cj_soort": "SCHARNIER", "cj_bron": "paneel_lijf", "cj_deel": deel,
+                  "cj_snijpunt": [0.0, 0.0, 0.0], "cj_bereik_graden": 135.0, "cj_stand": 0, "cj_passing": "groen"}.items():  # een Blender-object heeft geen update()
+            d[k] = v
         delen.append(d)
     log = teken(eigen, delen[1])
     stap3, klaar = plek(log, "label", "3  Fit and export"), plek(log, "label", "Hinge placed")
