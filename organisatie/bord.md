@@ -48,5 +48,8 @@
 - Gemini laten kijken naar speelfilmpjes van Hats (uitbreiding blinde test), deze week.
 - Productcode Hats en Bison & Flex privé vóór de Steam-pagina.
 
+- Ebb-filmpje met alle dieren (belofte 24 nov 16:55, zakte weg bij het opschonen; hoofdchat erkende dat 25 nov 11:25). Concept van de Regisseur bestaat (20 s, toont maar 6 van de 25 dieren). Plan: echt alle 25 in beeld, mee met de Garmin-kerstronde di 1 dec.
+- Marketing Click Joints Pro weer aan na het plakken van 25 nov 20:00 (etalage GESLAAGD): Regisseur maakt 2 tot 3 sale-filmpjes, gekeurd, live vr 27 nov op YouTube en TikTok.
+
 ## Wat Thijs moet doen
 Staat in `organisatie/lijst-thijs.md` (max 5).
