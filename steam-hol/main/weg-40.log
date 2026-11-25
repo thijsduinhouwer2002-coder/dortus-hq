@@ -1,26 +1,27 @@
-HOL balk gestart, pid 596, hoogte 120
-HOL weg geweest 25210 s (klok terug: false): goud voor 573, helden 100, erbij 448, hoeden 36
-HOL weg faam afgekapt 7 van 58 (hooguit 2 niveaus)
+HOL balk gestart, pid 5144, hoogte 120
+HOL weg geweest 25210 s (klok terug: false): goud voor 561, helden 100, erbij 460, hoeden 30
+HOL weg faam afgekapt 7 van 60 (hooguit 2 niveaus)
 HOL hol-niveau 4 (faam 12, t 0.0)
 HOL hol-niveau 5 (faam 12, t 0.0)
-HOL hoeden van de nacht 36 (vallen vanaf 1.0 s, toren nu 40)
+HOL hoeden van de nacht 30 (vallen vanaf 1.0 s, toren nu 40)
 HOL berg zichtbaar 6 -> 8
-HOL kroniek 0.0 (wacht 0.0): 100 came, 58 fell, 36 hats. +448 gold.
+HOL kroniek 0.0 (wacht 0.0): 100 came, 60 fell, 30 hats. +460 gold.
 HOL optocht wip, 1.2 poef 4 munt; helden [5]; duur 1.2 s
 HOL opslag geladen: 0 terugkomers, 1021 goud, faam 12
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795610276
+HOL zaad 1795616204
 HOL balk aan
-HOL gloop ring aan na 0.2 s (goud 1021)
+HOL gloop ring aan na 0.1 s (goud 1021)
 HOL eerste koop mogelijk na 38 s speeltijd (goud 1021)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL held binnen: Merel
+HOL held binnen: Elke
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Merel brought a torch. And hope.
+HOL kroniek zelfde held vervangen: Elke says this is a quick one.
+HOL kroniek 2.5 (wacht 0.5): Elke brought a torch. And hope.
 HOL meting t=10 beelden=101 helden=1 hol_vast=13
-HOL kroniek zelfde held vervangen: Merel brought a torch. And hope.
-HOL kroniek 10.5 (wacht 0.0): Merel checked the floor. Too late. +6
+HOL kroniek zelfde held vervangen: Elke brought a torch. And hope.
+HOL kroniek 10.5 (wacht 0.0): Elke took the short way down. +6
 HOL zicht 10.6 0
 HOL einde na 12 s, fps=20, goud=1027, terugkomers=0
