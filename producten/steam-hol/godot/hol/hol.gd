@@ -490,6 +490,7 @@ func _draw() -> void:
 			var fl := fakkel_flakker(anim, i)
 			var r := 12.0 * fl.y
 			draw_texture_rect_region(GLOED, Rect2(fx + 4 - r, fy + 5.0 - r, 2.0 * r, 2.0 * r), Rect2(0, 0, 52, 52), Color(1.0, 0.8, 0.45, fl.x))
+			HOL3D.teken_vlam(self, Vector2(fx + 4, fy + VLAM_TOP), FLAKKER[(anim + i * 5) % FLAKKER.size()])   # issue #79
 			continue
 		draw_texture_rect_region(FAKKEL, Rect2(fx, GANG_BOVEN + 1, 8, 12), Rect2((anim % 4) * 8, 0, 8, 12))
 	# schatkamer: vaandel aan het plafond en de schat op de vloer
@@ -592,6 +593,7 @@ static func munt_glinstert(m: Dictionary) -> bool:
 # flakkeren van fakkel i bij beeld a: (alfa van de gloed, maat 0,85 tot 1). Vast patroon van 7 standen, de twee fakkels
 # lopen niet gelijk. Alleen een nieuw beeld als er toch getekend wordt (tik()), dus stil beeld kost niets extra.
 # Zachte overgang (Daan): buren in het patroon liggen dicht bij elkaar, geen sprong van donker naar fel.
+const VLAM_TOP := 4.0   # bovenkant van de vlam in het fakkelblad, spelpixels onder fy (issue #79)
 const FLAKKER := [0.2, 0.45, 0.75, 1.0, 0.8, 0.55, 0.3, 0.0, 0.25, 0.55, 0.7, 0.45]
 static func fakkel_flakker(a: int, i: int) -> Vector2:
 	var f: float = FLAKKER[(a + i * 5) % FLAKKER.size()]

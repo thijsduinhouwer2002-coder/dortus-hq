@@ -17,6 +17,26 @@ const PAAR_KANS := 0.15                       # zo vaak komt de volgende held ko
 const PAAR_S := Vector2(6.0, 10.0)            # gat bij zo'n paar
 const MAX_TEGELIJK := 2                       # gewoon spel: hooguit 2 helden tegelijk (Sanne 16 nov 20:10, was 3); demo en drukte 3
 
+# Telt de helden in beeld (uit strook.gd _process gehaald, issue #79). Hoard-Toucher: de regel komt op het moment
+# dat hij de schat aanraakt, niet pas als hij ontsnapt (toets 5); "hoard_toucher" blijft in de save voor de bijnaam,
+# dus we kijken naar "wat". Slaapkop (Bram, versie 1): zijn dutje een lage regel, zoals binnenkomst.
+static func tel_helden(s) -> int:
+	var helden := 0
+	for w in s.wezens.get_children():
+		if not w.has_method("is_held"):
+			continue
+		helden += 1
+		var hi = w.get("info")
+		if not (hi is Dictionary):
+			continue
+		if String(hi.get("wat", "")).begins_with("touched") and not hi.has("schat_gemeld"):
+			hi["schat_gemeld"] = true
+			s._kroniek(s.regels.kies("schat", {"naam": hi.get("naam", "")}))
+		if bool(hi.get("dutje", false)) and not hi.has("dutje_gemeld"):
+			hi["dutje_gemeld"] = true
+			s._kroniek(s.regels.kies("dutje", {"naam": hi.get("naam", "")}), true)
+	return helden
+
 static func max_tegelijk(s) -> int:
 	return 3 if (s.demo or s.get("proef_drukte") == true) else MAX_TEGELIJK
 

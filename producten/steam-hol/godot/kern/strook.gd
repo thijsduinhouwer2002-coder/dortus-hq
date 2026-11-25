@@ -313,20 +313,7 @@ func _process(delta: float) -> void:
 			var ps: String = WACHTRIJ.plat_wissel(self, nu_plat)
 			if ps != "":
 				_kroniek(regels.kies(ps, {"bewoner": _bewoner()}), true, ps)
-	var helden := 0
-	for w in wezens.get_children():
-		if w.has_method("is_held"):
-			helden += 1
-			# Hoard-Toucher: de regel komt op het moment dat hij de schat aanraakt, niet pas als hij ontsnapt (toets 5)
-			var hi = w.get("info")
-			# (kijk naar "wat": "hoard_toucher" blijft in de save staan voor de bijnaam, dus een terugkomer heeft hem al)
-			if hi is Dictionary and String(hi.get("wat", "")).begins_with("touched") and not hi.has("schat_gemeld"):
-				hi["schat_gemeld"] = true
-				_kroniek(regels.kies("schat", {"naam": hi.get("naam", "")}))
-			# slaapkop (Bram, versie 1): zijn dutje een lage regel, zoals binnenkomst (hij ligt er 4 s, de regel mag wachten)
-			if hi is Dictionary and bool(hi.get("dutje", false)) and not hi.has("dutje_gemeld"):
-				hi["dutje_gemeld"] = true
-				_kroniek(regels.kies("dutje", {"naam": hi.get("naam", "")}), true)
+	var helden: int = RITME.tel_helden(self)   # telt de helden en geeft hun schat- en dutjesregel door
 	if logpad != "" and (helden > 0) != zicht_was:
 		zicht_was = helden > 0
 		log_regel("HOL zicht %.1f %d" % [t, helden])
@@ -353,12 +340,7 @@ func _process(delta: float) -> void:
 		if kaart_soort != "":
 			KAARTJE.ververs(self)
 	RITME.tik_held(self, helden)
-	# fakkels en schat bewegen alleen als er toch al getekend wordt (er loopt een held): 6 beeldjes per seconde
-	if helden > 0:
-		anim_t += delta
-		if anim_t >= 1.0 / 6.0:
-			anim_t = 0.0
-			hol.tik()
+	BEELDTEMPO.fakkels(self, helden, delta)   # fakkels flakkeren altijd, zonder held rustiger (issue #79)
 	# stekelput klapt open als een held erop staat (alleen uiterlijk)
 	for w in wezens.get_children():
 		if w.has_method("is_held") and str(w.get("staat")) == "vallen":

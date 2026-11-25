@@ -1,0 +1,4 @@
+voor.avi hol met Gloop duur 605 s langste stil 3.8 s stukken >15 s: 0 samen >15 s: 0 s
+voor.avi zonder Gloop duur 605 s langste stil 29.6 s stukken >15 s: 13 samen >15 s: 298 s
+na.avi hol met Gloop duur 605 s langste stil 0.2 s stukken >15 s: 0 samen >15 s: 0 s
+na.avi zonder Gloop duur 605 s langste stil 0.2 s stukken >15 s: 0 samen >15 s: 0 s

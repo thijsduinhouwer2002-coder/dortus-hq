@@ -2327,3 +2327,4 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - 25 nov 2026 (Sanne): plan 'van virus naar leuk' bovenaan spelgevoel.md (issue #19), Mila op #32 loopbeelden, #6 en #30 op later.
 - 25 nov ±07:45 Olaf (#25): klap-ster (Mila) en witte flits bij vallen ingebouwd, sprongteken onder het gras, held.gd 337 en held_beeld.gd 392 regels (held_val.gd, held_noot.gd); 6 toetsen 0 FOUT (GEZIEN, Linux), film bewijs-klap-in/.
 - 25 nov ±13:00 Sanne: pijl bij 'set a trap' raakt nu het gouden vak (Daan #64 C3), keuring #77.
+- 25 nov ±13:30 NL (Olaf, #79): fakkelvlam flakkert ook zonder held; film 10 min echt spel zonder demo, langste stil stuk 0,2 s (was 29,6 s buiten Gloop), `producten/steam-hol/bewijs-zacht-leven/`. #25 dicht (Iris lopen 8).

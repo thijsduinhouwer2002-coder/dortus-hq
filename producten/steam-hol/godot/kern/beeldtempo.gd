@@ -10,6 +10,22 @@ const GEWOON := 10
 const MOMENT := 20
 const NA_S := 0.3            # na het moment nog even door, dan terug naar GEWOON
 
+# Fakkels (en de pixelschat) krijgen een nieuw beeldje: 6 per s als er een held loopt, 3 per s in een leeg hol.
+# Issue #79, tempo-regel 1 (organisatie/lat/hats-tempo.md): in een leeg hol bewoog alleen Gloop, de rest stond tot
+# 30 s stil (GEZIEN, film van 10 min). Thijs 25 nov: rustig, zacht leven. 3 per s is een rustig flakkeren (het
+# patroon van 12 standen duurt 4 s); het hol tekent dan 3 keer per s opnieuw, het venster tekende al door voor Gloop.
+const FAKKEL_HELD := 6.0
+const FAKKEL_LEEG := 3.0
+
+static func fakkel_tempo(helden: int) -> float:
+	return FAKKEL_HELD if helden > 0 else FAKKEL_LEEG
+
+static func fakkels(s, helden: int, delta: float) -> void:
+	s.anim_t += delta
+	if s.anim_t >= 1.0 / fakkel_tempo(helden):
+		s.anim_t = 0.0
+		s.hol.tik()
+
 static func is_moment(s) -> bool:
 	if s.hol and "munten" in s.hol and not s.hol.munten.is_empty():
 		return true

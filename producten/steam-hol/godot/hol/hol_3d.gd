@@ -135,6 +135,21 @@ static func teken_deco(doek: CanvasItem, naam: String, plek: Vector2, schaal: fl
 	doek.draw_texture_rect_region(deco_blad, Rect2(plek, Vector2(m[0], m[1]) * schaal), Rect2(v[0], v[1], v[2], v[3]))
 	return true
 
+# Vlammetje op de 3D-fakkel (issue #79, tempo-regel 1): de vlam in het deco-blad is een vast beeld en de gloed
+# eromheen is zwak, dus in een leeg hol stond de fakkel stil. Een smal tongetje boven op de vlam wordt hoger en lager
+# met hetzelfde flakkerpatroon als de gloed (hol.gd FLAKKER, buren dicht bij elkaar: geen sprong, geen knipperen).
+# `top` is de bovenkant van de vlam in spelpixels, f de flakkerstand 0 tot 1.
+const VLAM_VOET := Color(1.0, 0.62, 0.2, 0.85)   # oranje voet, breed als de top van de vlam
+const VLAM_PUNT := Color(1.0, 0.85, 0.4, 0.85)   # gele punt, smal, wiegt een derde spelpixel opzij
+static func vlam_hoogte(f: float) -> float:
+	return 1.0 + 1.5 * clampf(f, 0.0, 1.0)
+
+static func teken_vlam(doek: CanvasItem, top: Vector2, f: float) -> void:
+	var h := vlam_hoogte(f)
+	var zwaai := (clampf(f, 0.0, 1.0) - 0.5) * 0.67
+	doek.draw_rect(Rect2(top.x - 1.0, top.y - 1.0, 2.0, 1.0), VLAM_VOET)
+	doek.draw_rect(Rect2(top.x - 0.5 + zwaai, top.y - h, 1.0, h - 1.0), VLAM_PUNT)
+
 # bovenkant van het stuk in spelpixels zoals de render hem zette (`uit`, beeld = spel), of `anders` als die er niet is
 static func deco_y(naam: String, anders: float) -> float:
 	laad()
