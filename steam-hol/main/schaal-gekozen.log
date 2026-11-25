@@ -1,9 +1,11 @@
+HOL balk gestart, pid 3720, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795566809
-HOL muisvlak 6 punten, lucht vrij op x=200
-HOL kroniek 4.0 (wacht 0.0): Gerda brought a torch. And hope.
-HOL begin: vallen (Gerda)
-HOL held binnen: Gerda
+HOL zaad 1795567978
+HOL balk aan
+HOL muisvlak via de balk, lucht vrij op x=200
+HOL kroniek 4.0 (wacht 0.0): Jop read about you in a tavern.
+HOL begin: vallen (Jop)
+HOL held binnen: Jop
 HOL zicht 4.1 1
 HOL einde na 6 s, fps=10, goud=20, terugkomers=0

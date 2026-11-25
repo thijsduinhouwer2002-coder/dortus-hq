@@ -1,15 +1,17 @@
+HOL balk gestart, pid 4908, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795566741
-HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Kobus knocks first. Polite.
-HOL begin: vallen (Kobus)
-HOL held binnen: Kobus
+HOL zaad 1795567909
+HOL balk aan
+HOL muisvlak via de balk, lucht vrij op x=-1
+HOL kroniek 4.0 (wacht 0.0): Gerda knocks first. Polite.
+HOL begin: vallen (Gerda)
+HOL held binnen: Gerda
 HOL zicht 4.1 1
-HOL kroniek 9.2 (wacht 0.0): Joost read about you in a tavern.
-HOL begin: opgegeten (Joost)
-HOL held binnen: Joost
-HOL meting t=10 beelden=62 helden=2 hol_vast=1
-HOL kroniek zelfde held vervangen: Kobus knocks first. Polite.
-HOL kroniek 12.7 (wacht 0.0): Kobus will not be leaving. +6
+HOL kroniek 9.9 (wacht 0.0): Maud is here for your gold.
+HOL begin: opgegeten (Maud)
+HOL held binnen: Maud
+HOL meting t=10 beelden=63 helden=2 hol_vast=1
+HOL kroniek zelfde held vervangen: Gerda knocks first. Polite.
+HOL kroniek 12.8 (wacht 0.0): Gerda is part of the hole now. +6
 HOL einde na 15 s, fps=20, goud=26, terugkomers=0

@@ -1,11 +1,13 @@
-HOL weg geweest 0 s (klok terug: true): goud voor 597, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 597 goud, faam 5
+HOL balk gestart, pid 4032, hoogte 120
+HOL weg geweest 0 s (klok terug: true): goud voor 555, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 555 goud, faam 5
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795566773
-HOL eerste koop mogelijk na 30 s speeltijd (goud 597)
-HOL muisvlak 4 punten, lucht vrij op x=-1
-HOL kroniek 4.0 (wacht 0.0): Bram is here for your gold.
-HOL begin: doorlopen (Bram)
-HOL held binnen: Bram
+HOL zaad 1795567942
+HOL balk aan
+HOL eerste koop mogelijk na 30 s speeltijd (goud 555)
+HOL muisvlak via de balk, lucht vrij op x=-1
+HOL kroniek 4.0 (wacht 0.0): Pim climbs into your hole.
+HOL begin: doorlopen (Pim)
+HOL held binnen: Pim
 HOL zicht 4.1 1
-HOL einde na 8 s, fps=10, goud=597, terugkomers=0
+HOL einde na 8 s, fps=10, goud=555, terugkomers=0
