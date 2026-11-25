@@ -290,7 +290,8 @@ def delen(img, s, meta, P):
         return min(kand, key=lambda q: q["beeld"][1]) if kand else None   # het verste deel (achterste rij)
     for gewricht, soort, tekst, (dx, dy) in (
             ("Left hip", "KOGEL", "Ball socket inside", (-60, -150)),
-            ("Left knee", "SCHARNIER", "Knee hinge with end stop", (120, 190))):
+            (os.environ.get("GB_KNIE", "Left knee"), "SCHARNIER", "Knee hinge with end stop",
+             tuple(int(v) for v in os.environ.get("GB_KNIE_D", "120,190").split(",")))):
         q = zoek(gewricht, soort)
         if not q:
             continue

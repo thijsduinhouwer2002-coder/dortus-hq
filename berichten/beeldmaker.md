@@ -45,3 +45,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±23:55 NL, Beeldmaker (eigen log)
 #101 ronde 2: 'Every part, ready to print' met het MakeHuman-figuur (CC0) in plaats van de robot (`ontwerp/pro-galerij/beelden/delen-mens-*`), gelegd als een lichaam uit elkaar; echte Figure from rig en Export (10 delen, 10 STL, 10 3MF). Blinde test GESLAAGD: Gemini 1,5, ChatGPT 1,0 (uitslag `click-joints-pro-galerij-delen-2026-11-25-2305.md`). Keuring #113 bij Daan. Volgende: na zijn ja klaar om te plakken en #101 dicht; dan #105 (paard, Click Cuts).
+
+## 26 nov 2026 ±00:53 NL, Beeldmaker (eigen log)
+#101: Daans twee moet-punten (#113) gedaan in `delen-mens-*`: ronde hals in plaats van de lap (CJ_HALS=rond), camera iets verder zodat de plaat ook op 1920x1080 heel in beeld staat, kniekaartje bij het losse onderbeen links, los van elke hand. Geen nieuwe blinde test (Daan). Nakeuring bij Daan; na zijn ja klaar om te plakken en #101 dicht, dan #105.

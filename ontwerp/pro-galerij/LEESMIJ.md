@@ -44,3 +44,10 @@ Ronde 2 (#101, 25 nov ±23:55): `delen-mens-*`, zelfde beeld met een organisch f
 HB_FIGUUR=mens GB_LEG=lichaam GB_MODUS=delen GB_PLAATRAND=18 GB_GAT=20 HB_LICHT=2.6 GB_SHIFT=-0.20 GB_SHIFT_Y=0 GB_OP=0.6 GB_LENS=55 GB_AFSTAND=740 GB_ZIJ=-0.28 (zelfde regel, 32 samples)
 python3 bron/tekst.py delen <uit>/render-delen.png <uit>/delen.json <uit> <fonts> ../click-joints/bron/icoon.svg   (daarna hernoemd naar delen-mens-*)
 ```
+
+Ronde 3 (#101, keuring #113, 26 nov ±01:30): `delen-mens-*` opnieuw met de twee moet-punten van Daan. M1: ronde hals in plaats van de vierkante huidkleurige lap (`CJ_HALS=rond` in `commercie/filmpjes/studio/figuur_laden.py`; zonder die variabele blijft alles zoals het was). M2: camera iets verder (`GB_AFSTAND=850`), zodat de hele plaat in beeld staat, ook op 1920x1080; het kniekaartje staat nu bij het losse onderbeen links (Daans kan-punt) en raakt geen hand. Zelfde compositie, dus geen nieuwe blinde test (Daan, #113).
+```
+CJ_HALS=rond HB_FIGUUR=mens GB_LEG=lichaam GB_MODUS=delen GB_PLAATRAND=18 GB_GAT=20 HB_LICHT=2.6 GB_SHIFT=-0.20 GB_SHIFT_Y=0 GB_OP=0.6 GB_LENS=55 GB_AFSTAND=850 GB_ZIJ=-0.28 (zelfde regel, 32 samples)
+GB_KNIE="Right knee" GB_KNIE_D=-40,-230 python3 bron/tekst.py delen <uit>/render-delen.png <uit>/delen.json <uit> <fonts> ../click-joints/bron/icoon.svg   (daarna hernoemd naar delen-mens-*)
+```
+Fonts: Bricolage Grotesque en Inter (OFL) uit github.com/google/fonts.

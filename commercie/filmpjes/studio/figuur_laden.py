@@ -372,7 +372,12 @@ def laad_mens_kleding(obj_pad, hoogte_mm=220.0, stijl=None, voxel_mm=0.5, dikte=
                     return "mond"
             return "huid"
         if best == "romp":
-            if c.z > p["neck"].z - 6.5 * f and abs(c.x) < 9.5 * f:
+            if os.environ.get("CJ_HALS") == "rond":
+                # ronde hals (Beeldmaker #101, keuring #113): een smalle boog rond de nek, geen vierkante lap
+                u = c.x / (7.0 * f)
+                if abs(u) < 1.0 and c.z > p["neck"].z + 1.0 * f - 4.0 * f * math.sqrt(1.0 - u * u):
+                    return "huid"
+            elif c.z > p["neck"].z - 6.5 * f and abs(c.x) < 9.5 * f:
                 return "huid"   # halsopening van het shirt
             if abs(c.z - taille) < 1.6 * f:
                 return "riem"
