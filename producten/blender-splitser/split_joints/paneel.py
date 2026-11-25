@@ -1,5 +1,5 @@
-"""Sidebar (N), tab Click Cuts: printer, one big Split to fit button with a one-line result, Export, and
-the four numbered steps folded under More settings."""
+"""Sidebar (N), tab Click Cuts: printer, the model that will be cut, one big Split to fit button with a
+one-line result, Export, and the four numbered steps folded under More settings."""
 import bpy
 
 from . import controle, exporteer, in_een_klik, passingproef, printers, schaal, snedes
@@ -31,6 +31,16 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         # one click: printer, Split to fit, result, export (keuring K3, opdracht hoofdchat 23 nov 23:35)
         layout.label(text="Your printer")
         layout.prop(inst, "printer", text="")
+        if inst.printer == printers.EIGEN:  # issue #69: the size goes right under Custom, not hidden in More settings
+            rij = layout.row(align=True)
+            rij.prop(inst, "eigen_x", text="X")
+            rij.prop(inst, "eigen_y", text="Y")
+            rij.prop(inst, "eigen_z", text="Z")
+        model = in_een_klik.kies_model(context)
+        if model is None:  # issue #69: say why Split to fit is grey, instead of a grey button alone
+            layout.label(text=in_een_klik.GEEN_MODEL, icon="RESTRICT_SELECT_OFF")
+        elif model.type == "MESH":
+            layout.label(text=in_een_klik.model_tekst(model.name, len(model.data.polygons)), icon="MESH_DATA")
         rij = layout.row()
         rij.scale_y = 2.0
         # depress: the only highlighted button, so the eye lands here first (keuring C2)
@@ -68,12 +78,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             return
 
         stap = layout.box()
-        stap.label(text="1  Printer", icon="MOD_BUILD")  # the printer itself is chosen at the top (keuring K5)
-        if inst.printer == printers.EIGEN:
-            rij = stap.row(align=True)
-            rij.prop(inst, "eigen_x", text="X")
-            rij.prop(inst, "eigen_y", text="Y")
-            rij.prop(inst, "eigen_z", text="Z")
+        stap.label(text="1  Printer", icon="MOD_BUILD")  # printer and custom size are chosen at the top (keuring K5)
         b = bed(scene)
         stap.prop(inst, "marge_mm")
         stap.label(text=f"Usable: {b[0]:.0f} x {b[1]:.0f} x {b[2]:.0f} mm")

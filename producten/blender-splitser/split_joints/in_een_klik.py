@@ -35,6 +35,15 @@ def kies_model(context):
     return snedes.model(context)
 
 
+def model_tekst(naam, n):
+    """Panel line that names the model Split to fit will cut, like Cleave shows "TV_robot · 1,982,604 faces"
+    (issue #69: the buyer sees what will be cut before the click)."""
+    return f"{naam}: {n:,} faces"
+
+
+GEEN_MODEL = "Click your model in the viewport"
+
+
 ZWAAR_VLAKKEN = 1_000_000
 # Seconds per million faces for Split to fit, from the speed test on the 1M face skull scan (e2e/snelheid.py):
 # Manifold (4.5+) 44 s on GitHub (run 45349335526) and 42 s on 2 cores; Exact (4.2) 106 s on GitHub but
