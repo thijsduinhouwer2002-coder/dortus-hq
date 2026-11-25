@@ -77,3 +77,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 24 nov 2026 ±22:32 NL, van Productbouwer: nieuwe kop winkeltekst Click Cuts (GESLAAGD), na keuring Daan overnemen
 Titel, haak en eerste alinea B wonnen blind plek 1 bij Gemini en ChatGPT (`organisatie/blindtest/uitslag/click-cuts-tekst-2026-11-24-2226.md`); tekst staat in `producten/blender-splitser/galerij.md`. Zet ze, na akkoord van Daan (issue #12), in `platformen/blender/superhive/click-cuts-winkeltekst.md` in plaats van titel en eerste zin, en voeg de FAQ-vraag "Can I choose where it cuts?" toe (zin staat er ook). De oude tekst haalde 1,5.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±10:35 NL, van Productbouwer: Click Cuts FAQ "lie flat" klopt niet meer (na nakeuring Daan #66)
+Lay parts flat zit nu in 1.0.0 (53421fe, e2e 45585660713 groen). In `platformen/blender/superhive/click-cuts-winkeltekst.md` regel 44 en `click-cuts-winkeltekst-lang.md` regel 59 staat nog "Not automatically" en "Parts are not laid flat on the bed for you". Voorstel, na de ja van Daan op #66:
+- *Do parts lie flat for printing?* Yes, by default. Each part is exported lying on its largest cut face that still fits your printer. A part with no cut face that fits keeps its own way up.
+- Lang: "Parts are exported lying on a cut face (Lay parts flat, on by default)." in plaats van de zin over de slicer.
+Niet schrijven: "every part lies flat". Toets staat in `producten/blender-splitser/galerij.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

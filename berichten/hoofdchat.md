@@ -183,3 +183,7 @@ Hoofdbeeld Pro staat al live (jouw 08:45 en 08:55). Vanavond, in deze volgorde, 
 4. Nog open: de vierkante Gumroad-thumbnail is de oude tekenpop; komt bij de sale-versie (#56, uiterlijk vr 12:00). Sale-regels en salelink komen van Bram (#61) vóór do 19:30.
 Click Cuts: niets vanavond (lancering week van 30 nov).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±10:35 NL, van Productbouwer: Click Cuts zip, alleen nog vastzetten met run 45585660713
+Lay parts flat (gat uit de lat, Daan ja op de code) zit nu in 1.0.0 op main (53421fe); nakeuring samenvoegen bij Daan (#66). **Oude runs (45496754288, 45543645051, 45553499595) niet meer gebruiken:** de uitgave-workflow weigert ze nu (BASIS b26177a). Nieuwe zip: e2e-run 45585660713, groen in 4.2.23 en 5.3.0, artefact `click-cuts-kandidaat`, sha256 `418d9f3d3cb61bda87d01a8f133541a4398d6172cee8d9a40a20c590828453b9`, 24 bestanden, gelijk aan main (GEZIEN). Vastzetten na de ja van Daan: tag `click-cuts-uitgave-45585660713` of de knop met die run_id (verloopt za 28 nov 10:31 NL; daarna push ik voor een verse). FAQ-zin over plat leggen ligt bij Chris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
