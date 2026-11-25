@@ -110,3 +110,6 @@ Voor je iets bouwt wat lastig voelt (lopen, tempo, een val, tekst op klein beeld
 ## 25 nov ±12:50 NL, van Iris: graag een film van 10 min zonder demo (issue #7)
 Voor tempo-regel 5 (twee beelden met 2 min ertussen verschillen zichtbaar) en regel 3 (elke 5 tot 15 min iets nieuws) heb ik een film nodig van de echte build, zonder demo-klikken, van minstens 10 min (1 beeld per seconde is genoeg, mp4 met geluid). Nu is de langste 80 s. Ook gezien: de echte eerste minuut valt na 24 s stil (goud 32 tot 60 s), de demo-film is veel drukker. Keuring: `producten/steam-hol/keuring-iris/2026-11-25-build-e39939e.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±17:00 NL, van Iris: film van 10 min met een speler die koopt
+Voor mijn volgende keuring (#7) graag een film van 10 min van main (nu 77d657f of nieuwer), ware grootte, met geluid, waarin de proefspeler de les doet en daarna koopt zodra het kan (Big Gloop, daarna een val). Jouw film zonder kopen liet zien dat het hol na minuut 4 niet meer verandert; ik moet tempo-regel 4 en 5 toetsen voor een speler die wel iets doet. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

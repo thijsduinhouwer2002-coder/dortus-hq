@@ -125,3 +125,6 @@ Hats wordt **rustig**: zacht leven (figuren doen vanzelf kleine dingen), zeldzam
 
 ## 25 nov 2026 ±12:50 NL, Iris (eigen logboek): build e39939e gekeurd
 Leuk 7, aandacht 7, mooi 7, duidelijk 7 (GOK); lopen 8, tekst 6. Klap op 44,7 s GEZIEN mooi, echte eerste minuut stil na 24 s. Blinde test `hats-speelscherm-e39939e` gestart. Uitslag in issue #7.
+
+## 25 nov 2026 ±17:00 NL, Iris (eigen logboek): build 77d657f gekeurd
+Leuk 7, aandacht 7, mooi 7, duidelijk 8, tekst 8 (GOK). Bordregels grappig maar weg na 6 s en ver van de held; hol verandert niet na minuut 4 zonder kopen. Blinde test `hats-speelscherm-77d657f` gestart. Uitslag in issue #7.
