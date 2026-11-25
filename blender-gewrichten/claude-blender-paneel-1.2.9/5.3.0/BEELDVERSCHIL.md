@@ -1,11 +1,13 @@
 ## Beeldvergelijking Click Joints, Blender 5.3.0 (claude-blender-paneel-1.2.9)
-GROOT: 2 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 35 plaatjes vergeleken)
+GROOT: 2 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 37 plaatjes vergeleken)
 Referentie: referentie uit run 45627269280, commit ae05e08c2d196b3fdeda7d73198e024dbfea8061, commitdatum 1795614478, 2026-11-25T14:05:47Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
 | 1-paneel-x.png | gelijk | |
 | 10-winkel-paneel-x.png | gelijk | |
+| 11-scharnier-x.png | gelijk | |
+| 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | gelijk | |
 | 13-pro-knie-x.png | gelijk | |
 | 13d-pro-knie-dicht-x.png | gelijk | |
@@ -39,5 +41,3 @@ Referentie: referentie uit run 45627269280, commit ae05e08c2d196b3fdeda7d73198e0
 | p13-d-x.png | gelijk | |
 | p13-e-x.png | gelijk | |
 | p14b-e-x.png | gelijk | |
-| 11-scharnier-x.png | verdwenen (wel in de referentie) | |
-| 12-scharnier-rood-x.png | verdwenen (wel in de referentie) | |
