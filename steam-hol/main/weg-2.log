@@ -1,13 +1,14 @@
-HOL balk gestart, pid 3292, hoogte 120
-HOL weg geweest 0 s (klok terug: true): goud voor 543, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 543 goud, faam 5
+HOL balk gestart, pid 10084, hoogte 120
+HOL weg geweest 0 s (klok terug: true): goud voor 579, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 579 goud, faam 5
+HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795595656
+HOL zaad 1795597267
 HOL balk aan
-HOL eerste koop mogelijk na 30 s speeltijd (goud 543)
+HOL eerste koop mogelijk na 30 s speeltijd (goud 579)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 2.0 (wacht 0.0): Geert brought a torch. And hope.
-HOL begin: doorlopen (Geert)
-HOL held binnen: Geert
+HOL kroniek 2.0 (wacht 0.0): Siem has a map. It is wrong.
+HOL begin: doorlopen (Siem)
+HOL held binnen: Siem
 HOL zicht 2.1 1
-HOL einde na 8 s, fps=10, goud=543, terugkomers=0
+HOL einde na 8 s, fps=10, goud=579, terugkomers=0
