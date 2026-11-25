@@ -7,7 +7,7 @@
 - issue: #75
 - bestand: komt in release `regisseur-26` als `sale-een-knop-geluid.mp4` zodra `commercie/filmpjes/regisseur-26/sale-een-knop-elevenlabs.mp3` er is (workflow regisseur-26 bouwt vanzelf)
 - beeld: echte schermopname van Blender 5.3.0 met Click Joints Pro 1.2.8 en de eigen robot (ffmpeg x11grab, 30 beelden per seconde, echte muis en klikken, de knie gebogen met de Bend-schuif); geen getekende stappen
-- eerste beeld: `commercie/filmpjes/regisseur-26/eerste-beeld-een-knop.jpg` (studio-render robot, hook groot, "25% OFF THIS WEEK"), blinde test `organisatie/blindtest/sets/pro-sale-shorts.json`, uitslag nog niet binnen
+- eerste beeld: `commercie/filmpjes/regisseur-26/eerste-beeld-een-knop.jpg` (studio-render robot, hook groot, "25% OFF THIS WEEK"); blinde test GESLAAGD (Gemini 1,0, ChatGPT 1,0, `organisatie/blindtest/uitslag/pro-sale-shorts-2026-11-25-1912.md`)
 - slot: "Click Joints Pro, 25% off this week, on Gumroad." in beeld en stem
 - alleen plaatsen: vr 27 nov tot en met di 1 dec, en alleen als CYBER25 aanstaat (`bash platformen/blender/sale-controle.sh`); daarna niet meer gebruiken
 - proef: lokaal met Kokoro gebouwd om de montage te toetsen (GEZIEN); die versie gaat nooit naar keuring
