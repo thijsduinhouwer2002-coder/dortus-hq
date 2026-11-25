@@ -1,0 +1,83 @@
+{
+ "vorm": "echt",
+ "duur": 28.614,
+ "stem": {
+  "soort": "elevenlabs",
+  "bestand": "sale-eindstop-elevenlabs.mp3",
+  "knippen": "whisper; grens 8|9 onzeker",
+  "onzeker": [
+   "8|9"
+  ]
+ },
+ "kliks_s": [
+  6.66,
+  9.66,
+  13.34,
+  17.92
+ ],
+ "zinnen": [
+  {
+   "tekst": "Does your figure's knee bend way too far?",
+   "scene_start": 0.0,
+   "scene_eind": 2.916,
+   "stem_start": 0.12,
+   "stem_duur": 2.516
+  },
+  {
+   "tekst": "Give it an end stop, straight from your rig.",
+   "scene_start": 2.916,
+   "scene_eind": 5.542,
+   "stem_start": 2.996,
+   "stem_duur": 2.266
+  },
+  {
+   "tekst": "This robot's rig has a rotation limit on its knee.",
+   "scene_start": 5.542,
+   "scene_eind": 8.625,
+   "stem_start": 5.622,
+   "stem_duur": 2.723
+  },
+  {
+   "tekst": "Click Figure from rig in Click Joints Pro.",
+   "scene_start": 8.625,
+   "scene_eind": 11.527,
+   "stem_start": 8.705,
+   "stem_duur": 2.542
+  },
+  {
+   "tekst": "The knees get a hinge that stops at that angle.",
+   "scene_start": 11.527,
+   "scene_eind": 14.366,
+   "stem_start": 11.607,
+   "stem_duur": 2.479
+  },
+  {
+   "tekst": "Bend it, and the knee stops right at that angle.",
+   "scene_start": 14.366,
+   "scene_eind": 17.094,
+   "stem_start": 14.446,
+   "stem_duur": 2.368
+  },
+  {
+   "tekst": "Push past it, and red shows where the parts would hit.",
+   "scene_start": 17.094,
+   "scene_eind": 20.33,
+   "stem_start": 17.174,
+   "stem_duur": 2.876
+  },
+  {
+   "tekst": "Print the Fit test strip first: every printer is different.",
+   "scene_start": 20.33,
+   "scene_eind": 23.941,
+   "stem_start": 20.41,
+   "stem_duur": 3.251
+  },
+  {
+   "tekst": "Click Joints Pro, 25% off this week, on Gumroad.",
+   "scene_start": 23.941,
+   "scene_eind": 28.614,
+   "stem_start": 24.021,
+   "stem_duur": 3.593
+  }
+ ]
+}

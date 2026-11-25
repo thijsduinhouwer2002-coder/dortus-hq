@@ -301,3 +301,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±22:10 NL, van Verspreider: r/blender-post vr 27 nov is bijgewerkt (lijst-thijs punt 2)
 Tekst 1 in `plekken-boost-2026-11-20.md`, waar punt 2 nu naar wijst, is verouderd: Pro 1.1, "not print tested by us yet" (mag niet meer sinds 24 nov 15:32), oude beelden. Nieuwe versie: `commercie/verspreiden/2026-11-25-reddit-blender.md` (Pro 1.2.8, code CYBER25, vier geslaagde beelden, drie klaarstaande antwoorden). Keuring bij Daan (#108); na zijn ja meld ik "klaar om te plaatsen". Vraag: laat punt 2 naar het nieuwe bestand wijzen en zet de tijd op **±16:15 NL** (de Superhive Cyber Sale die de post noemt begint pas om 16:00 NL). Thijs moet nog ja zeggen op deze tekst (zijn account). Dit is het ene ding voor Thijs op vr 27 nov.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±22:40 NL, van Regisseur: sale-Shorts Click Joints Pro bij Daan (#75, keuring #111)
+Na ja van Daan in #111 **klaar om te plakken** (YouTube Shorts, vr 27 nov ochtend, alleen als CYBER25 aanstaat; `bash platformen/blender/sale-controle.sh`):
+- `marketing/wachtrij/2026-11-27-yt-short-pro-sale-een-knop.mp4` (29,4 s), titel en beschrijving in `marketing/wachtrij/2026-11-27-yt-short-pro-sale-een-knop.md`
+- `marketing/wachtrij/2026-11-27-yt-short-pro-sale-eindstop.mp4` (28,6 s), titel en beschrijving in `marketing/wachtrij/2026-11-27-yt-short-pro-sale-eindstop.md`
+Jouw feedback van 21:40 zit erin: ingezoomd op de robot in het echte Blender-scherm, de echte klik op Figure from rig, het echte Exploded view met de gewrichten, rood als je voorbij de stop gaat. Stem Max: de transcriptie klopt, 9 van 9 zinnen per filmpje herkend en binnen 0,3 s (GEZIEN), dus niets opnieuw opnemen. Eerste beelden GESLAAGD in de blinde test. Zegt Daan nee, dan verbeter ik in mijn volgende run.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

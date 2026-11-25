@@ -5,10 +5,10 @@ name: "Regisseur 26 (sale-Shorts #75: echte schermopname in Blender met x11grab)
 # de muis glijdt in een eigen proces, de Bend-schuif wordt echt versleept. Click Joints Pro 1.2.8 (wat kopers in de
 # sale krijgen: de code van vóór de eerste 1.2.9-commit a3c1ea1). Stap 1 van deze workflow: alleen de ruwe opname en de
 # controle op vloeiend; de montage met stem Max draait zodra de mp3's van de hoofdchat in de map staan. Niets geplaatst.
+# Run 30 (25 nov ±22:35): alleen nog met de hand starten. De gekeurde v2 staat in marketing/wachtrij/ en is gebouwd uit
+# de opname van run c3d014f (tijden in commercie/filmpjes/regisseur-26/film-opname-c3d014f.json); een nieuwe push mag
+# die niet stilletjes vervangen door een nieuwe opname.
 on:
-  push:
-    branches: [main]
-    paths: ["commercie/filmpjes/regisseur-26/**", ".github/workflows/regisseur-26.yml"]
   workflow_dispatch:
 
 permissions:
@@ -94,4 +94,5 @@ jobs:
           [ -d /tmp/klaar ] || exit 1
           echo "Regisseur 26 (issue #75): echte schermopname van Blender 5.3.0 met Click Joints Pro 1.2.8 en de eigen robot (ffmpeg x11grab, 30 beelden per seconde, echte muis). Werkmateriaal voor twee sale-Shorts. Niets geplaatst." > /tmp/notes.md
           gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 26 (sale-Shorts, echte schermopname)" --notes-file /tmp/notes.md
-          gh release upload "$TAG" /tmp/klaar/* --clobber -R "$GITHUB_REPOSITORY"
+          for m in /tmp/klaar/meting-*; do [ -d "$m" ] && (cd "$m" && zip -qr "$m.zip" .) && rm -rf "$m"; done
+          find /tmp/klaar -maxdepth 1 -type f -print0 | xargs -0 gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY"

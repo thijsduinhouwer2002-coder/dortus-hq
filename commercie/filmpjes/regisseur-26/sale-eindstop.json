@@ -15,9 +15,10 @@
      "na": 0.0,
      "split": {
       "boven": [
+       240,
        0,
-       0,
-       1240
+       1240,
+       840
       ],
       "onder": [
        1080,
@@ -34,7 +35,11 @@
     {
      "deel": "kies",
      "na": 0.0,
-     "x": 0
+     "zoom": [
+      120,
+      0,
+      720
+     ]
     }
    ]
   },
@@ -44,7 +49,19 @@
     {
      "deel": "knop",
      "na": 1.6,
-     "x": 1080
+     "split": {
+      "boven": [
+       150,
+       40,
+       1240,
+       820
+      ],
+      "onder": [
+       1080,
+       0,
+       680
+      ]
+     }
     }
    ]
   },
@@ -52,20 +69,13 @@
    "tekst": "The knees get a hinge that stops at that angle.",
    "stukken": [
     {
-     "deel": "knie",
+     "deel": "uitelkaar",
      "na": 0.6,
-     "split": {
-      "boven": [
-       0,
-       0,
-       1240
-      ],
-      "onder": [
-       1080,
-       1240,
-       680
-      ]
-     }
+     "zoom": [
+      120,
+      0,
+      720
+     ]
     }
    ]
   },
@@ -77,9 +87,10 @@
      "na": 0.2,
      "split": {
       "boven": [
+       240,
        0,
-       0,
-       1240
+       1240,
+       840
       ],
       "onder": [
        1080,
@@ -94,13 +105,14 @@
    "tekst": "Push past it, and red shows where the parts would hit.",
    "stukken": [
     {
-     "deel": "knie_stop",
-     "na": -8.0,
+     "deel": "knie_rood",
+     "na": 6.0,
      "split": {
       "boven": [
+       240,
        0,
-       0,
-       1240
+       1240,
+       840
       ],
       "onder": [
        1080,
@@ -117,7 +129,19 @@
     {
      "deel": "pose",
      "na": 0.5,
-     "x": 1080
+     "split": {
+      "boven": [
+       240,
+       0,
+       1240,
+       840
+      ],
+      "onder": [
+       1080,
+       1200,
+       680
+      ]
+     }
     }
    ],
    "ondertitel_y": 1700

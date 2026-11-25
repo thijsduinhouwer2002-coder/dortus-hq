@@ -1,0 +1,163 @@
+{
+ "fps": 30,
+ "delen": {
+  "heel": 1795635710.909,
+  "kies": 1795635712.684,
+  "knop": 1795635716.916,
+  "lijst": 1795635823.641,
+  "knie": 1795635837.578,
+  "knie_stop": 1795635857.557,
+  "knie_rood": 1795635859.059,
+  "pose": 1795635870.242,
+  "uitelkaar": 1795635874.17,
+  "export": 1795635892.331,
+  "held": 1795635913.4,
+  "eind": 1795635921.136
+ },
+ "n": 0,
+ "kliks": [
+  1795635713.803,
+  1795635719.549,
+  1795635838.951,
+  1795635842.559,
+  1795635847.857,
+  1795635853.263,
+  1795635860.692,
+  1795635865.885,
+  1795635876.586,
+  1795635895.126,
+  1795635898.856
+ ],
+ "echt": true,
+ "metingen": {
+  "knop_ocr": [
+   1616,
+   265
+  ],
+  "gewrichten": 9,
+  "regels": [
+   "Left elbow \u00b7 Hinge \u00b7 0\u2013140\u00b0 \u00b7 from rig",
+   "Right elbow \u00b7 Hinge \u00b7 0\u2013140\u00b0 \u00b7 mirror",
+   "Left knee \u00b7 Hinge \u00b7 0\u2013120\u00b0 \u00b7 from rig",
+   "Right knee \u00b7 Hinge \u00b7 0\u2013120\u00b0 \u00b7 mirror",
+   "Neck \u00b7 Ball \u00b7 \u00b120\u00b0 \u00b7 preset",
+   "Left shoulder \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset",
+   "Right shoulder \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset",
+   "Left hip \u00b7 Ball \u00b7 \u00b122\u00b0 \u00b7 preset",
+   "Right hip \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset"
+  ],
+  "samenvatting": "9 joints \u00b7 2 rig \u00b7 2 mirror \u00b7 5 preset",
+  "lijst_ocr": null,
+  "knie_stop": 119.96,
+  "knie_herkomst": "from rig",
+  "bend_ocr": [
+   1182,
+   1729
+  ],
+  "knie_pose_stop": 119.9,
+  "schuif_stop": 119.9,
+  "knie_rood_vlakken": 13,
+  "knie_pose_rood": 135.0,
+  "schuif_rood": 135.0,
+  "exploded_ocr": [
+   1616,
+   855
+  ],
+  "uit_elkaar_delen": 9,
+  "export_ocr": [
+   1616,
+   1172
+  ],
+  "export": [
+   "Figuur_A_A_A_A_A_A_A_A_A.3mf",
+   "Figuur_A_A_A_A_A_A_A_A_B.3mf",
+   "Figuur_A_A_A_A_A_A_A_B.3mf",
+   "Figuur_A_A_A_A_A_A_B.3mf",
+   "Figuur_A_A_A_A_A_B.3mf",
+   "Figuur_A_A_A_A_B.3mf",
+   "Figuur_A_A_A_B.3mf",
+   "Figuur_A_A_B.3mf",
+   "Figuur_A_B.3mf",
+   "Figuur_B.3mf"
+  ]
+ },
+ "vlakken": {
+  "heel": {
+   "zijbalk": [
+    1078,
+    107,
+    1082,
+    1768
+   ],
+   "weergave": [
+    117,
+    107,
+    961,
+    1768
+   ]
+  },
+  "lijst": {
+   "zijbalk": [
+    1078,
+    107,
+    1082,
+    1768
+   ],
+   "weergave": [
+    117,
+    107,
+    961,
+    1768
+   ]
+  },
+  "knie": {
+   "zijbalk": [
+    1078,
+    107,
+    1082,
+    1768
+   ],
+   "weergave": [
+    117,
+    107,
+    961,
+    1768
+   ]
+  },
+  "uitelkaar": {
+   "zijbalk": [
+    1078,
+    107,
+    1082,
+    1768
+   ],
+   "weergave": [
+    117,
+    107,
+    961,
+    1768
+   ]
+  },
+  "export": {
+   "zijbalk": [
+    1078,
+    107,
+    1082,
+    1768
+   ],
+   "weergave": [
+    117,
+    107,
+    961,
+    1768
+   ]
+  }
+ },
+ "paneel_y": {
+  "knop": 265,
+  "lijst": null,
+  "knie": 1729,
+  "uitelkaar": 855,
+  "export": 1172
+ }
+}

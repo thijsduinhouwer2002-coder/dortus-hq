@@ -1,0 +1,83 @@
+{
+ "vorm": "echt",
+ "duur": 29.446,
+ "stem": {
+  "soort": "elevenlabs",
+  "bestand": "sale-een-knop-elevenlabs.mp3",
+  "knippen": "whisper",
+  "onzeker": []
+ },
+ "kliks_s": [
+  3.74,
+  6.07,
+  7.58,
+  14.08,
+  18.02,
+  18.89
+ ],
+ "zinnen": [
+  {
+   "tekst": "Still cutting your figure apart by hand?",
+   "scene_start": 0.0,
+   "scene_eind": 2.62,
+   "stem_start": 0.12,
+   "stem_duur": 2.22
+  },
+  {
+   "tekst": "This robot has a rig, but it's one solid mesh.",
+   "scene_start": 2.62,
+   "scene_eind": 5.95,
+   "stem_start": 2.7,
+   "stem_duur": 2.97
+  },
+  {
+   "tekst": "Click it, then click Figure from rig.",
+   "scene_start": 5.95,
+   "scene_eind": 8.467,
+   "stem_start": 6.03,
+   "stem_duur": 2.157
+  },
+  {
+   "tekst": "Click Joints Pro cuts it into parts, each with its own joint.",
+   "scene_start": 8.467,
+   "scene_eind": 12.262,
+   "stem_start": 8.547,
+   "stem_duur": 3.435
+  },
+  {
+   "tekst": "Knees and elbows get a hinge with an end stop.",
+   "scene_start": 12.262,
+   "scene_eind": 15.084,
+   "stem_start": 12.342,
+   "stem_duur": 2.462
+  },
+  {
+   "tekst": "Bend the knee, and it stops at the limit from your rig.",
+   "scene_start": 15.084,
+   "scene_eind": 18.06,
+   "stem_start": 15.164,
+   "stem_duur": 2.616
+  },
+  {
+   "tekst": "Push past the stop, and red shows where parts would hit.",
+   "scene_start": 18.06,
+   "scene_eind": 21.274,
+   "stem_start": 18.14,
+   "stem_duur": 2.854
+  },
+  {
+   "tekst": "Print the Fit test strip first: every printer is different.",
+   "scene_start": 21.274,
+   "scene_eind": 24.854,
+   "stem_start": 21.354,
+   "stem_duur": 3.22
+  },
+  {
+   "tekst": "Click Joints Pro, 25% off this week, on Gumroad.",
+   "scene_start": 24.854,
+   "scene_eind": 29.446,
+   "stem_start": 24.934,
+   "stem_duur": 3.512
+  }
+ ]
+}

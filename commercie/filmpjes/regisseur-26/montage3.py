@@ -2,8 +2,9 @@
 """Montage "echt" voor de sale-Shorts van issue #75 (Regisseur run 29, 25 nov 2026).
 
 Wens Thijs 25 nov 11:25: alsof iemand het op zijn eigen pc opnam. Dus anders dan regisseur-2/montage2.py:
-- Geen ingezoomde uitsneden en geen getekende muispijl: elk beeld is een 1080x1920-stuk van de echte schermopname
-  (scherm.mkv, 2160x1920, x11grab met de echte muis), pixel voor pixel. Links = de 3D-weergave, rechts = het paneel.
+- Elk beeld komt uit de echte schermopname (scherm.mkv, 2160x1920, x11grab met de echte muis). Het paneel pixel
+  voor pixel; op de robot mag worden ingezoomd ("zoom", of een split-stuk met bron_w), zodat hij het beeld vult
+  (feedback Thijs 25 nov 21:40 "kan spectaculairder"). De pijl volgt het muisspoor en schaalt mee.
 - Geen geluidsbed (geen zoem of brom): alleen de stem en een zacht tikje op de echte klikken uit film.json.
 - Grote ondertitels per 1 tot 3 woorden, synchroon met de stem (beeld volgt stem: elke scène is zo lang als zijn zin).
 - Eerste zin = de hook op het eerste beeld (thumbnail, al door de blinde test), laatste zin = een slotkaart.
@@ -70,17 +71,33 @@ def ondertitel_png(tekst, f):
     return im
 
 
-def frames_uit_scherm(mkv, van, n, x, split=None):
+def deel_vf(r, label_in, label_uit):
+    """Eén stuk van het scherm: [x, y, h] pixel voor pixel (1080 breed), of [x, y, h, bron_w]: een echt stuk scherm
+    van bron_w breed en h*bron_w/1080 hoog, vergroot naar 1080 x h (inzoomen op de robot, wens Thijs 25 nov 21:40)."""
+    x, y, h = r[:3]
+    if len(r) > 3:
+        bw = int(r[3])
+        bh = int(round(h * bw / W))
+        return f"[{label_in}]crop={bw}:{bh}:{x}:{y},scale={W}:{h}:flags=lanczos[{label_uit}]"
+    return f"[{label_in}]crop={W}:{h}:{x}:{y}[{label_uit}]"
+
+
+def frames_uit_scherm(mkv, van, n, x, split=None, zoom=None):
     """n beelden 1080x1920 vanaf seconde van, uitsnede vanaf x; te weinig = laatste beeld vasthouden.
-    split = {"boven": [x, y, h], "onder": [x, y, h]}: twee echte stukken van het scherm onder elkaar (3D-weergave boven,
-    paneel onder), zodat je de sleep aan de schuif en de knie tegelijk ziet. Pixel voor pixel, niets geschaald."""
+    split = {"boven": [x, y, h(, bron_w)], "onder": [...]}: twee echte stukken van het scherm onder elkaar.
+    zoom = [x, y, bron_w]: een echt stuk scherm (bron_w breed, 16:9 staand) vergroot tot het hele beeld."""
     vf = f"crop={W}:{H}:{x}:0,fps={FPS}"
+    complex_ = False
+    if zoom:
+        bw = int(zoom[2])
+        bh = int(round(H * bw / W))
+        vf = f"fps={FPS},crop={bw}:{bh}:{zoom[0]}:{zoom[1]},scale={W}:{H}:flags=lanczos"
     if split:
-        (x1, y1, h1), (x2, y2, h2) = split["boven"], split["onder"]
-        vf = (f"fps={FPS},split[a][b];[a]crop={W}:{h1}:{x1}:{y1}[t];[b]crop={W}:{h2}:{x2}:{y2},"
-              f"drawbox=x=0:y=0:w={W}:h=4:color=black@0.9:t=fill[o];[t][o]vstack")
+        complex_ = True
+        vf = (f"[0:v]fps={FPS},split[a][b];" + deel_vf(split["boven"], "a", "t") + ";" +
+              deel_vf(split["onder"], "b", "o0") + f";[o0]drawbox=x=0:y=0:w={W}:h=4:color=black@0.9:t=fill[o];[t][o]vstack")
     cmd = ["ffmpeg", "-v", "error", "-ss", f"{max(0.0, van):.3f}", "-i", str(mkv), "-frames:v", str(n),
-           "-filter_complex" if split else "-vf", vf, "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
+           "-filter_complex" if complex_ else "-vf", vf, "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
     data = subprocess.run(cmd, capture_output=True, check=True).stdout
     k = W * H * 3
     beelden = [data[i:i + k] for i in range(0, len(data) - k + 1, k)]
@@ -95,10 +112,11 @@ def frames_uit_beeld(pad, n, zoom=0.04):
     im = Image.open(pad).convert("RGB").resize((W, H))
     uit = []
     for i in range(n):
+        # uitsnede op subpixels: met hele pixels springt de zoom af en toe en staat hij soms stil (haperen)
         z = 1.0 + zoom * i / max(1, n - 1)
-        b, h = int(W / z), int(H / z)
-        x0, y0 = (W - b) // 2, (H - h) // 2
-        uit.append(im.crop((x0, y0, x0 + b, y0 + h)).resize((W, H), Image.BICUBIC).tobytes())
+        b, h = W / z, H / z
+        x0, y0 = (W - b) / 2, (H - h) / 2
+        uit.append(im.resize((W, H), Image.BICUBIC, box=(x0, y0, x0 + b, y0 + h)).tobytes())
     return uit
 
 
@@ -126,16 +144,25 @@ def muis_op(muis, t):
 
 
 def naar_beeld(x, y, s):
-    """Schermpunt naar punt in het 1080x1920-beeld van dit stuk (None = buiten beeld)."""
+    """Schermpunt naar (punt in het 1080x1920-beeld, schaal) van dit stuk (None = buiten beeld)."""
+    z = s.get("zoom")
+    if z:
+        f = W / z[2]
+        bx, by = (x - z[0]) * f, (y - z[1]) * f
+        return (bx, by, f) if 0 <= bx < W and 0 <= by < H else None
     sp = s.get("split")
     if not sp:
         cx = s.get("x", 0)
-        return (x - cx, y) if cx <= x < cx + W else None
-    (x1, y1, h1), (x2, y2, h2) = sp["boven"], sp["onder"]
-    if x1 <= x < x1 + W and y1 <= y < y1 + h1:
-        return x - x1, y - y1
-    if x2 <= x < x2 + W and y2 <= y < y2 + h2:
-        return x - x2, h1 + y - y2
+        return (x - cx, y, 1.0) if cx <= x < cx + W else None
+    top = 0
+    for r in (sp["boven"], sp["onder"]):
+        rx, ry, rh = r[:3]
+        bw = r[3] if len(r) > 3 else W
+        f = W / bw
+        bx, by = (x - rx) * f, (y - ry) * f
+        if 0 <= bx < W and 0 <= by < rh:
+            return bx, top + by, f
+        top += rh
     return None
 
 
@@ -196,7 +223,7 @@ def main():
                 if m <= 0:
                     break
                 van = film["delen"][s["deel"]] - start + s.get("na", 0.0)
-                beelden += frames_uit_scherm(mkv, van, m, s.get("x", 0), s.get("split"))
+                beelden += frames_uit_scherm(mkv, van, m, s.get("x", 0), s.get("split"), s.get("zoom"))
                 for i2 in range(m):
                     p2 = naar_beeld(*muis_op(muis, start + van + i2 / FPS), s) if muis else None
                     plek.append(p2)
@@ -222,7 +249,8 @@ def main():
             if act or mp:
                 im = Image.frombytes("RGB", (W, H), b)
                 if mp:
-                    im.paste(pijl, (int(round(mp[0])) - 2, int(round(mp[1])) - 2), pijl)
+                    pj = pijl if mp[2] == 1.0 else pijl.resize((int(24 * mp[2]), int(34 * mp[2])), Image.LANCZOS)
+                    im.paste(pj, (int(round(mp[0] - 2 * mp[2])), int(round(mp[1] - 2 * mp[2]))), pj)
                 if act:
                     im.paste(act[0], (0, z.get("ondertitel_y", ONDER_Y) - 150), act[0])
                 b = im.tobytes()
