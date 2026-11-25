@@ -1,0 +1,262 @@
+{
+ "t": "2026-11-25T04:59:06Z",
+ "beurzen": {
+  "bitvavo": {
+   "paren": 434,
+   "driehoeken": 22,
+   "status": "MiCA",
+   "ritme_s": 4,
+   "max_boeken": 6,
+   "kosten": {
+    "GEZIEN support.bitvavo.com: maximaal 0,25% taker": {
+     "hoog": 0.0025,
+     "laag": 0.0025,
+     "paren": 418
+    },
+    "categorie C: lager dan 0,25% volgens Bitvavo, getal onbekend (GOK)": {
+     "hoog": 0.0025,
+     "laag": 0.0,
+     "paren": 5
+    },
+    "categorie B: lager dan 0,25% volgens Bitvavo, getal onbekend (GOK)": {
+     "hoog": 0.0025,
+     "laag": 0.0,
+     "paren": 10
+    },
+    "categorie D: lager dan 0,25% volgens Bitvavo, getal onbekend (GOK)": {
+     "hoog": 0.0025,
+     "laag": 0.0,
+     "paren": 1
+    }
+   },
+   "minima_paren": 434,
+   "geladen": "2026-11-25T04:34:23Z",
+   "min_inleg": {
+    "driehoeken": 22,
+    "mediaan_eur": 10.0,
+    "met_eur": 22,
+    "tot_100": 22,
+    "met_eur_tot_100": 22,
+    "tot_150": 22,
+    "met_eur_tot_150": 22,
+    "tot_200": 22,
+    "met_eur_tot_200": 22
+   }
+  },
+  "kraken": {
+   "paren": 1353,
+   "driehoeken": 2352,
+   "status": "MiCA",
+   "ritme_s": 5,
+   "max_boeken": 3,
+   "kosten": {
+    "GEZIEN kraken.com/pro/fees 19 nov 2026: crypto 0,80% (tier 1)": {
+     "hoog": 0.008,
+     "laag": 0.008,
+     "paren": 1292
+    },
+    "GEZIEN kraken.com/pro/fees 19 nov 2026: FX en stablecoin 0,20%": {
+     "hoog": 0.002,
+     "laag": 0.002,
+     "paren": 52
+    },
+    "GEZIEN kraken.com/pro/fees 19 nov 2026: pegged-token paren 0,20%": {
+     "hoog": 0.002,
+     "laag": 0.002,
+     "paren": 2
+    },
+    "GEZIEN kraken.com/pro/fees 19 nov 2026: alle USDe-paren 0%": {
+     "hoog": 0.0,
+     "laag": 0.0,
+     "paren": 4
+    },
+    "GEZIEN kraken.com/pro/fees 19 nov 2026: USDG-paren 0,01%": {
+     "hoog": 0.0001,
+     "laag": 0.0001,
+     "paren": 3
+    }
+   },
+   "minima_paren": 1353,
+   "geladen": "2026-11-25T04:34:22Z",
+   "min_inleg": {
+    "driehoeken": 2352,
+    "mediaan_eur": 10.0,
+    "met_eur": 1368,
+    "tot_100": 2352,
+    "met_eur_tot_100": 1368,
+    "tot_150": 2352,
+    "met_eur_tot_150": 1368,
+    "tot_200": 2352,
+    "met_eur_tot_200": 1368
+   }
+  },
+  "okx": {
+   "paren": 1250,
+   "driehoeken": 2338,
+   "status": "MiCA-dochter",
+   "ritme_s": 3,
+   "max_boeken": 10,
+   "kosten": {
+    "DERDEN okx.com/en-eu/fees: Regular user taker 0,10%": {
+     "hoog": 0.001,
+     "laag": 0.001,
+     "paren": 1250
+    }
+   },
+   "minima_paren": 1250,
+   "geladen": "2026-11-25T04:34:19Z",
+   "min_inleg": {
+    "driehoeken": 2338,
+    "mediaan_eur": 10.0,
+    "met_eur": 1090,
+    "tot_100": 2326,
+    "met_eur_tot_100": 1086,
+    "tot_150": 2326,
+    "met_eur_tot_150": 1086,
+    "tot_200": 2326,
+    "met_eur_tot_200": 1086
+   }
+  },
+  "kucoin": {
+   "paren": 969,
+   "driehoeken": 452,
+   "status": "MiCA-dochter",
+   "ritme_s": 3,
+   "max_boeken": 10,
+   "kosten": {
+    "GEZIEN uit de API, per paar": {
+     "hoog": 0.001,
+     "laag": 0.001,
+     "paren": 969
+    }
+   },
+   "minima_paren": 969,
+   "geladen": "2026-11-25T04:34:13Z",
+   "min_inleg": {
+    "driehoeken": 452,
+    "mediaan_eur": 10.0,
+    "met_eur": 12,
+    "tot_100": 452,
+    "met_eur_tot_100": 12,
+    "tot_150": 452,
+    "met_eur_tot_150": 12,
+    "tot_200": 452,
+    "met_eur_tot_200": 12
+   }
+  },
+  "gate": {
+   "paren": 2133,
+   "driehoeken": 372,
+   "status": "MiCA-dochter",
+   "ritme_s": 4,
+   "max_boeken": 8,
+   "kosten": {
+    "GEZIEN uit de API, per paar": {
+     "hoog": 0.002,
+     "laag": 0.002,
+     "paren": 2133
+    }
+   },
+   "minima_paren": 2133,
+   "geladen": "2026-11-25T04:34:38Z",
+   "min_inleg": {
+    "driehoeken": 372,
+    "mediaan_eur": 10.0,
+    "met_eur": 0,
+    "tot_100": 372,
+    "met_eur_tot_100": 0,
+    "tot_150": 372,
+    "met_eur_tot_150": 0,
+    "tot_200": 372,
+    "met_eur_tot_200": 0
+   },
+   "fout": "2026-11-25T04:49:48Z TimeoutError  The read operation timed out"
+  },
+  "bitget": {
+   "paren": 3659,
+   "driehoeken": 202,
+   "status": "grijs",
+   "ritme_s": 3,
+   "max_boeken": 10,
+   "kosten": {
+    "GEZIEN uit de API, per paar": {
+     "hoog": 0.001,
+     "laag": 0.001,
+     "paren": 3659
+    }
+   },
+   "minima_paren": 3659,
+   "geladen": "2026-11-25T04:34:21Z",
+   "min_inleg": {
+    "driehoeken": 202,
+    "mediaan_eur": 10.0,
+    "met_eur": 46,
+    "tot_100": 202,
+    "met_eur_tot_100": 46,
+    "tot_150": 202,
+    "met_eur_tot_150": 46,
+    "tot_200": 202,
+    "met_eur_tot_200": 46
+   }
+  },
+  "mexc": {
+   "paren": 1635,
+   "driehoeken": 868,
+   "status": "grijs",
+   "ritme_s": 3,
+   "max_boeken": 15,
+   "kosten": {
+    "GEZIEN uit de API, per paar": {
+     "hoog": 0.0008,
+     "laag": 0.0008,
+     "paren": 1635
+    }
+   },
+   "minima_paren": 1635,
+   "geladen": "2026-11-25T04:34:29Z",
+   "min_inleg": {
+    "driehoeken": 868,
+    "mediaan_eur": 10.0,
+    "met_eur": 76,
+    "tot_100": 868,
+    "met_eur_tot_100": 76,
+    "tot_150": 868,
+    "met_eur_tot_150": 76,
+    "tot_200": 868,
+    "met_eur_tot_200": 76
+   }
+  },
+  "bitstamp": {
+   "paren": 252,
+   "driehoeken": 346,
+   "status": "MiCA",
+   "ritme_s": 5,
+   "max_boeken": 6,
+   "kosten": {
+    "DERDEN tradingview.com/broker/Bitstamp: FX en stablecoin 80% korting op 0,40%": {
+     "hoog": 0.0008,
+     "laag": 0.0008,
+     "paren": 17
+    },
+    "DERDEN tradingview.com/broker/Bitstamp: 0,40% laagste trede": {
+     "hoog": 0.004,
+     "laag": 0.004,
+     "paren": 235
+    }
+   },
+   "minima_paren": 252,
+   "geladen": "2026-11-25T04:34:14Z",
+   "min_inleg": {
+    "driehoeken": 346,
+    "mediaan_eur": 12.5,
+    "met_eur": 260,
+    "tot_100": 337,
+    "met_eur_tot_100": 253,
+    "tot_150": 338,
+    "met_eur_tot_150": 254,
+    "tot_200": 338,
+    "met_eur_tot_200": 254
+   }
+  }
+ }
+}
