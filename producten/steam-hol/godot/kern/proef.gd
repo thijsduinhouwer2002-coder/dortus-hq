@@ -30,6 +30,7 @@ static func lees_argumenten(s) -> void:
 				s.proef_fps = clampi(int(kv[1]), 8, 30)   # alleen voor de CPU-proef (demolijst 2), vast
 				s.fps_vast = true
 			"zaad": s.proef_zaad = int(kv[1])
+			"uitleg_klik": s.proef_uitleg_klik = maxf(0.0, float(kv[1]))
 			"koper":   # Iris keuring 7: speler die alles koopt zodra het kan; koper=2 koopt alleen en graaft niet (Sanne 16 nov 20:10)
 				s.proef_koper = kv[1] == "1" or kv[1] == "2"
 				s.proef_koper_graaf = kv[1] == "1"

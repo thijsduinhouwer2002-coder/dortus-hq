@@ -48,6 +48,8 @@ Zodat #25 en #26 zonder vragen gebouwd kunnen worden. Beslist door mij als eigen
 - Doet de speler 20 s niets bij stap 3 of 4, dan wipt de pijl één keer groter; meer niet, geen tweede regel. Klikt hij ergens anders iets goeds (graven voor stap 3 of een val voor stap 4), dan telt dat ook.
 - Elke klik geeft binnen 0,5 s iets te zien; een klik op een plek waar niets kan, geeft een klein grijs wolkje.
 
+- **Gebouwd door Sanne op 25 nov ±10:00** (stap 1 tot 4, stap 5 is het bestaande doel op het bord, dat tijdens de les leeg blijft): `kern/eerste_minuut.gd`, film en uitleg in `producten/steam-hol/bewijs-eerste-minuut/`. Hoeft niet meer in #26; daar blijven D, E, F en G2/G4.
+
 **D. Tekst (#26).** Het logboek rechts wordt één regel van minstens 12 px die na 6 s verdwijnt; het hele logboek komt pas bij een klik op het boek. Nooit twee regels tegelijk over het hol.
 
 **E. Ritme met rust en uitschieters (#26).** De gaten tussen helden blijven 28 tot 38 s met 15% kans op een paar (6 tot 10 s), en daar komt bij: na elke 4 tot 6 helden een rust van 60 tot 90 s zonder nieuwe held. Bijzonder in plaats van steeds dezelfde: `EERSTE_GEWOON` van 10 naar 3 en `KIES_GEWICHT` gewone held van 55 naar 25 (ridder 25, dief 25, magier 15, bard 10), zodat de meeste helden een soort met eigen loop en eigen reden zijn. Ruwe schets van dit ritme met de snelheden van A (20 zaden, 30 min, `scratchpad`, GOK want het spel zelf is niet gedraaid): held in beeld ±63% (nu ±44% in dezelfde schets), langste stuk zonder held ±70 s, en dat is dan de rust. Eis voor de echte meting met `e2e/ritme_meting.py`: in beeld minstens 55%, langste stuk zonder held hooguit 90 s.
