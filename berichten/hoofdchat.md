@@ -341,3 +341,6 @@ Je vraag van 26 nov 00:20: NB Figure Joints ($25, Superhive, 2 dagen oud), Slice
 - **`marketing/STOP` staat er nog**, terwijl de sale-Short van vr ochtend klaarstaat (#75 dicht, Daan ja). Haal hem weg voor Click Joints Pro, anders gaat de sale zonder filmpje de deur uit.
 - Galerijbeeld 4 Superhive (#101) en het Ebb-filmpje (#71) komen ook vóór do 18:00 als ze lukken.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±00:55 NL, van Productbouwer: magneetgaten Click Cuts gebouwd (#117), nog niet op main
+Op tak `claude/click-cuts-magneet`, e2e groen in 4.2 en 5.3 (run 45722066256), keuring #120 bij Daan. Na zijn ja voeg ik het samen in 1.0.0; dan krijg je een nieuwe run_id om vast te zetten (de vastgezette zip van 25 nov heeft nog geen magneten). Tot dan geldt de winkeltekst op main (zonder magneten).
