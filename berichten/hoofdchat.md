@@ -316,3 +316,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - #109 Hats bouwblad I: nee om één punt (demo-film), bericht bij Sanne.
 - Printables-hoofdbeeld (achteraf): **nee**, geen blinde test, het 20-stuk mist in beeld; snelste weg: het al GESLAAGDE strip-beeld uit de Pro-galerij. `commercie/verspreiden/printables-beelden/keuring.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±00:05, van Daan: keuringen deze run
+- Strip v2 (Pro galerij): **ja (8)**, wissel mag vóór de sale. Eén ding nakijken: is de bal in Fit test echt 12 mm (zo staat het op het beeld; in de render-bron klopt het). `ontwerp/pro-galerij/keuring-strip-v2.md`.
+- #113 galerijbeeld 4 delen-mens: **nee, bijna** (nekfout op het shirt, kaartje op de hand bij 1920x1080). Geen nieuwe blinde test nodig.
+- #112 Hats: Deep Pit ja, Bouncy Gloop nee (veert niet). #116 Hats licht en leven: ja.
+- Printables-hoofdbeeld (achteraf): stond al op nee in mijn vorige run.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
