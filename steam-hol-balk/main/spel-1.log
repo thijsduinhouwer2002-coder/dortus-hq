@@ -1,4 +1,4 @@
-HOL balk gestart, pid 4880, hoogte 96
+HOL balk gestart, pid 8864, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
 HOL zaad 7
@@ -7,7 +7,7 @@ HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
 HOL begin: vallen (Kees)
 HOL held binnen: Kees
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL zicht 0.7 1
+HOL zicht 0.6 1
 HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
 HOL kroniek 7.0 (wacht 0.0): Anouk the Bard tunes a lute.
 HOL begin: vluchten (Anouk)
@@ -30,3 +30,36 @@ HOL kaartje dicht 22.6
 HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Jop)
 HOL held binnen: Jop
+HOL kroniek 25.2 (wacht 4.4): Anouk left. Took nothing. Angry.
+HOL balk: hol-balk.exe (pid 8864) is weg, opnieuw starten (1)
+HOL balk gestart, pid 5436, hoogte 96
+HOL gegraven kolom 11 (zelf 3, graafbonus 0)
+HOL kroniek 27.7 (wacht 4.7): Jop knows all the words. Sadly.
+HOL begin: terug (Anouk)
+HOL held binnen: Anouk
+HOL meting t=30 beelden=135 helden=2 hol_vast=11
+HOL kroniek zelfde held vervangen: Anouk left. Took nothing. Angry.
+HOL kroniek 30.3 (wacht 2.1): Anouk is back for the Spike Pit.
+HOL kroniek 32.8 (wacht 3.7): Gloop ate Siem. Kept the crown. +6
+HOL kroniek 35.4 (wacht 4.7): Jop is now the Hoard-Toucher.
+HOL gegraven kolom 8 (zelf 4, graafbonus 0)
+HOL kroniek 37.9 (wacht 8.5): Gloop is flat. Back soon.
+HOL hol-niveau 2 (faam 3, t 38.4)
+HOL reeks 2 (+0, t 38.4)
+HOL begin: opgegeten2 (Pim)
+HOL held binnen: Pim
+HOL bordje wip niveau 2
+HOL kroniek 39.0 (wacht 0.5): Anouk came back. The Spike Pit won. +9
+HOL meting t=40 beelden=136 helden=1 hol_vast=18
+HOL kroniek 41.5 (wacht 2.3): Jop ran off, giggling.
+HOL kroniek vervallen 41.6: Pim has a map. It is wrong.
+HOL kroniek 44.0 (wacht 23.2): A song about you! Heroes on the way.
+HOL held binnen: Bram
+HOL gegraven kolom 10 (zelf 5, graafbonus 0)
+HOL kroniek 46.6 (wacht 8.1): Gloop is up again. Wobbly.
+HOL kroniek vervallen 47.3: Bram knocks first. Polite.
+HOL kroniek 49.0 (wacht 0.0): Gloop ate Pim. Kept the bucket. +6
+HOL meting t=50 beelden=124 helden=1 hol_vast=20
+HOL held binnen: Jop
+HOL kroniek 51.6 (wacht 0.4): Jop the Hoard-Toucher is back for Gloop.
+HOL gegraven kolom 7 (zelf 6, graafbonus 0)
