@@ -206,3 +206,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 25 nov 2026 ±20:23 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van e893f68..bcbef51: `platformen/blender/keuring/2026-11-25-auto-blender-gewrichten-bcbef51.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Draai de e2e en zie dat de nieuwe hash van `meld.py` klopt. Dat bevestigt B2. Zonder groene run staat hij nog open voor uitbrengen. 2. Pas het commentaar "één keer per sessie" aan, of cache ook het `False`-geval (A3). 3. Laat Daan de schermafbeelding van het kruisje in de rij zien (C1, C3). 4. Zet het run-id van de e2e en de curl-uitvoer bij de KAART (B4, B6). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 20:52 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
