@@ -1,26 +1,25 @@
-HOL balk gestart, pid 4880, hoogte 120
-HOL weg geweest 25210 s (klok terug: false): goud voor 615, helden 100, erbij 460, hoeden 28
-HOL weg faam afgekapt 7 van 60 (hooguit 2 niveaus)
+HOL balk gestart, pid 5136, hoogte 120
+HOL weg geweest 25209 s (klok terug: false): goud voor 567, helden 100, erbij 448, hoeden 40
+HOL weg faam afgekapt 7 van 58 (hooguit 2 niveaus)
 HOL hol-niveau 4 (faam 12, t 0.0)
 HOL hol-niveau 5 (faam 12, t 0.0)
-HOL hoeden van de nacht 28 (vallen vanaf 1.0 s, toren nu 40)
+HOL hoeden van de nacht 40 (vallen vanaf 1.0 s, toren nu 40)
 HOL berg zichtbaar 6 -> 8
-HOL kroniek 0.0 (wacht 0.0): 100 came, 60 fell, 28 hats. +460 gold.
+HOL kroniek 0.0 (wacht 0.0): 100 came, 58 fell, 40 hats. +448 gold.
 HOL optocht wip, 1.2 poef 4 munt; helden [5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1075 goud, faam 12
+HOL opslag geladen: 0 terugkomers, 1015 goud, faam 12
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795622095
+HOL zaad 1795622645
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 1075)
-HOL eerste koop mogelijk na 38 s speeltijd (goud 1075)
+HOL gloop ring aan na 0.1 s (goud 1015)
+HOL eerste koop mogelijk na 38 s speeltijd (goud 1015)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL held binnen: Odo
+HOL held binnen: Jop
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Odo has a map. It is wrong.
-HOL meting t=10 beelden=101 helden=1 hol_vast=13
-HOL kroniek zelfde held vervangen: Odo has a map. It is wrong.
-HOL kroniek 10.5 (wacht 0.0): Odo stays forever. +6
-HOL zicht 10.6 0
-HOL einde na 12 s, fps=20, goud=1081, terugkomers=0
+HOL kroniek 2.5 (wacht 0.5): Jop says this is a quick one.
+HOL meting t=10 beelden=100 helden=1 hol_vast=12
+HOL kroniek 11.3 (wacht 0.0): Geert read about you in a tavern.
+HOL held binnen: Geert
+HOL einde na 12 s, fps=10, goud=1015, terugkomers=0
