@@ -134,7 +134,8 @@ func _munt(p: Vector2, f := 1.0) -> void:
 # minstens 8 px tussen knop en gouden binnenrand); op 120 alles zoals het was; op 96 de knop 2 px hoger (vrij van de onderrand).
 # kop/tekst/uitleg/knop/knop2: lettermaten; regel_h: regelafstand; onder: ruimte onder de laatste regel tot de strookrand;
 # boven: ruimte boven de kopregel tot de bovenkant van het paneel; knop_h en knop_dy: hoogte en extra ruimte boven de knop;
-# kop_dy: kopregel iets hoger (op 160 3 px, anders plakt de grote kop tegen de regel eronder); munt: maat van het muntje.
+# kop_dy: kopregel iets hoger (op 160 3 px, anders plakt de grote kop tegen de regel eronder); op 96 1 px lager, vrij van het hout
+# bovenaan (kan Daan nakeuring #52, Mila 25 nov); munt: maat van het muntje.
 func maten() -> Dictionary:
 	if met_3d and hoogte >= 140:
 		return {"kop": 18, "tekst": 15, "uitleg": 15, "knop": 16, "knop2": 16, "regel_h": 20, "onder": 12, "boven": 14,
@@ -142,7 +143,7 @@ func maten() -> Dictionary:
 	var m := 12 if hoogte < 110 else 13
 	var binnen := 5 * schaal
 	return {"kop": m, "tekst": m, "uitleg": m - 1, "knop": m, "knop2": m - 1, "regel_h": m + 4, "onder": binnen,
-		"boven": binnen - 2, "knop_h": float(m + 4 + 2 * schaal), "knop_dy": 1 if (met_3d and hoogte < 110) else 3, "munt": 1.0, "kop_dy": 0}
+		"boven": binnen - 2, "knop_h": float(m + 4 + 2 * schaal), "knop_dy": 1 if (met_3d and hoogte < 110) else 3, "munt": 1.0, "kop_dy": 1 if (met_3d and hoogte < 110) else 0}
 
 func _munt_laag(c: Vector2, r: float, kleur: Color) -> void:
 	var rr := maxf(r - 0.5, 0.5)

@@ -20,3 +20,8 @@ Waarom: Iris (keuring 52aa730 en f6aa9b6) gaf de klap aandacht 7 en mooi 6/7: de
 - Gemeten op ware maat, 1920 breed, 120 hoog (GEZIEN, pixels geteld in `bord-marge-120-een-regel.png`): tussen de laatste letter van "Big Gloop ready: click Gloop" en het hout rechts 6 px lei, tussen het hout links en het muntje 4 px. Was rechts ±0,5 px.
 - Beelden uit het echte spel (Godot 4.3, `--write-movie`, doel en regels ingezet voor de foto): `strook-1920-120-bord-marge.png` (hele strook ware maat), `bord-marge-120-een-regel.png` en `-drie-regels.png` (ware maat), `bord-marge-2x-een-regel.png`, `-drie-regels.png` (2x), `bord-marge-2x-96.png` en `-160.png` (de andere hoogtes, 2x).
 - Toetsen: toets_systemen, toets_namen, toets_held, toets_vleermuis, toets_berg_wand, toets_klap allemaal 0 FOUT (GEZIEN, Godot 4.3 Linux).
+
+## Kan Daan nakeuring #52: muntregel op 96 1 px omlaag (25 nov ±09:00 NL)
+- `kern/tekst.gd` `maten()`: `kop_dy` op 96 is nu 1 (was 0), alleen bij de 3D-stijl. Op 120 en 160 verandert niets.
+- Gemeten in het echte spel op 1920 x 96 (Godot 4.3, GEZIEN, pixelrijen geteld): bovenkant van de kopregel van rij 25 naar rij 26, dus 1 px meer lucht onder het hout bovenaan; tussen kopregel en eerste kroniekregel blijven 3 lege rijen.
+- `bord-96-munt-voor-2x.png` en `bord-96-munt-na-2x.png` (2x, met "Big Gloop ready: click Gloop" en drie regels).
