@@ -68,6 +68,81 @@ def _blok(ouder, loc, maat, m, rot=(0, 0, 0), rond=0.02):
     return _kind(o, ouder)
 
 
+def _staaf(ouder, a, b, r, m, verts=24):
+    """Cilinder van punt a naar punt b (been, arm), zodat ledematen meezwaaien in plaats van te schuiven."""
+    from mathutils import Vector
+    a, b = Vector(a), Vector(b)
+    d = b - a
+    bpy.ops.mesh.primitive_cylinder_add(vertices=verts, radius=r, depth=max(0.02, d.length), location=(a + b) / 2)
+    o = bpy.context.object
+    o.rotation_mode = "QUATERNION"
+    o.rotation_quaternion = d.to_track_quat("Z", "Y")
+    bpy.ops.object.shade_smooth(); o.data.materials.append(m)
+    return _kind(o, ouder)
+
+
+# Mila 25 nov (issue 32): elke soort een eigen loop. S = afstand die een voet aflegt van voor naar achter
+# (eenheden), L = hoe hoog de zwaaivoet komt, bob = op en neer per stap, hop = sprongetje in de doorzwaai,
+# buig = voorover (graden), zak = door de knieen, wieg = heen en weer (graden), dx = halve spreidstand,
+# zwaai = hoe ver de vrije hand meezwaait. fps = voorstel voor het spel (Olaf), loopsnelheid = stap_px x fps.
+LOOP = {
+    "ridder": dict(S=0.24, L=0.05, bob=0.02, hop=0.0, buig=0, zak=0.0, wieg=5, dx=0.16, zwaai=0, fps=8),
+    "dief": dict(S=0.46, L=0.13, bob=0.03, hop=0.0, buig=16, zak=0.07, wieg=0, dx=0.12, zwaai=0, fps=12),
+    "bard": dict(S=0.30, L=0.08, bob=0.015, hop=0.12, buig=-3, zak=0.0, wieg=0, dx=0.12, zwaai=0, fps=10),
+    "heks": dict(S=0.28, L=0.04, bob=0.01, hop=0.0, buig=0, zak=0.0, wieg=3, dx=0.11, zwaai=22, fps=8),
+    "held": dict(S=0.34, L=0.09, bob=0.025, hop=0.0, buig=4, zak=0.0, wieg=0, dx=0.13, zwaai=22, fps=10),
+}
+LOOPDRAAI = -40     # loopt naar rechts in beeld, net als in het spel (voor 25 nov keken ze naar links: maanloop)
+STANDEN = ["rust", "stap1", "stap2", "stap3", "stap4", "stap5", "stap6", "schrik", "vallen", "kijk", "draai", "sprong"]
+
+
+def stand_draai(stand):
+    """Hoe de held in beeld staat per stand (graden, zie bouw)."""
+    return {"kijk": 0, "draai": 15}.get(stand, LOOPDRAAI)
+
+
+def stap_eenheid(soort):
+    """Hoeveel eenheden de held per loopbeeld naar rechts in beeld moet schuiven, zodat de voet op de vloer stilstaat."""
+    lp = LOOP.get(soort, LOOP["held"])
+    return lp["S"] / 3 * abs(math.sin(math.radians(LOOPDRAAI)))
+
+
+def _voeten(stand, lp):
+    """{kant: (naar voren, optillen, teen in graden)} voor kant -1 (links) en 1 (rechts)."""
+    S, L = lp["S"], lp["L"]
+    fase = [(S / 2, 0.0, -14), (S / 6, 0.0, 0), (-S / 6, 0.0, 6), (-S / 2, 0.025, 28), (-S / 6, 0.7 * L, 18), (S / 6, L, -6)]
+    if stand.startswith("stap") and stand[4:].isdigit():
+        i = (int(stand[4:]) - 1) % 6
+        hop = lp["hop"] if i in (2, 5) else 0.0
+        l, r = fase[i], fase[(i + 3) % 6]
+        return {-1: (l[0], l[1] + hop, l[2]), 1: (r[0], r[1] + hop, r[2])}
+    if stand == "draai":
+        return {-1: (0.08, 0.0, 0), 1: (-0.1, 0.03, 32)}   # draait op de bal van de achterste voet
+    if stand == "sprong":
+        return {-1: (0.1, 0.25, -25), 1: (-0.06, 0.2, 25)}   # voeten opgetrokken
+    if stand == "kijk":
+        return {-1: (0.03, 0.0, 0), 1: (-0.02, 0.0, 0)}
+    return {-1: (0.0, 0.0, 0), 1: (0.0, 0.0, 0)}
+
+
+def _romp(stand, lp):
+    """(omhoog, voorover in graden, opzij in graden) voor alles boven de benen."""
+    if stand == "vallen":
+        return 0.0, 0.0, 0.0
+    zak = 0.0 if stand in ("schrik",) else lp["zak"]
+    buig = 0.0 if stand in ("schrik", "kijk") else lp["buig"]
+    if stand.startswith("stap") and stand[4:].isdigit():
+        i = (int(stand[4:]) - 1) % 6
+        dz = [0.0, -lp["bob"], lp["bob"]][i % 3] + (lp["hop"] if i in (2, 5) else 0.0)
+        wieg = lp["wieg"] * [0.6, 1.0, 0.6][i % 3] * (1 if i < 3 else -1)
+        return dz - zak, buig, wieg
+    if stand == "sprong":
+        return 0.24 - zak, buig, 0.0
+    if stand == "draai":
+        return -zak, buig * 0.5, -4.0
+    return -zak, buig, 0.0
+
+
 def _noem_hoed(voor, naam):
     """Daan 13 nov (keuze A van Bram): elk hoedobject heet hoed_<naam>_..., zodat de pijplijn met
     HOL_VERBERG ["hoed"] een held zonder hoed rendert en het spel de hoed van held.gd erop zet.
@@ -101,21 +176,29 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         kleed = g.mat("jurk", "e8873a", rough=0.75, spec=0.25)
         kleed_d = g.mat("jurk_d", "a8552a", rough=0.75, spec=0.2)
 
-    # benen: stap1 linkervoet naar voren, stap2 rechts; schrik op de tenen
-    stap = {"rust": 0.0, "stap1": 1.0, "stap2": -1.0, "schrik": 0.0, "vallen": 0.6}.get(stand, 0.0)
+    # benen (Mila 25 nov, issue 32): loopcyclus van 6 beelden, voeten op de vloer en elke soort een eigen loop.
+    # Een voet op de grond schuift per beeld precies S/3 naar achteren, zodat hij stil op de vloer staat als het spel
+    # de held stap_px naar voren zet. Het been is een staaf van heup naar enkel, dus het zwaait mee.
+    lp = LOOP.get(soort, LOOP["held"])
     bang = stand in ("schrik", "vallen")
+    voeten = _voeten(stand, lp)
+    stap = voeten[-1][0] / (lp["S"] / 2) if stand.startswith("stap") else 0.0   # -1 tot 1: linkervoet voor of achter
+    benen = set()
+    voor_benen = set(bpy.data.objects)
+    heup_z = 0.4 + _romp(stand, lp)[0]
     for kant in (-1, 1):
-        dx = 0.13 * kant
-        voor = -0.14 * stap * kant         # -y is naar voren (het gezicht kijkt naar -y)
-        til = 0.07 if (stap * kant < 0) else 0.0
+        dx = lp["dx"] * kant
         if stand == "vallen":
             # ronde 4: benen gespreid en schuin (spartelen), leest op 25 px als een V van laarzen
             sp = math.radians(28)
             _cil(ouder, (dx + 0.07 * kant, 0, 0.2), 0.075, 0.3, kleed_d, rot=(0, -kant * sp, 0))
             _bol(ouder, (dx + 0.15 * kant, -0.04, 0.07), (0.1, 0.12, 0.075), laars)
             continue
-        _cil(ouder, (dx, voor, 0.2 + til), 0.075, 0.3, kleed_d)
-        _bol(ouder, (dx, voor - 0.04, 0.06 + til), (0.1, 0.12, 0.075), laars)
+        vy, til, teen = voeten[kant]
+        y = -vy                              # -y is naar voren (het gezicht kijkt naar -y)
+        _staaf(ouder, (dx * 0.8, 0.0, heup_z), (dx, y, 0.11 + til), 0.075, kleed_d)
+        _bol(ouder, (dx, y - 0.04, 0.06 + til), (0.1, 0.12, 0.075), laars, rot=(math.radians(teen), 0, 0))
+    benen = set(bpy.data.objects) - voor_benen
 
     # lijf: rond, iets peervormig
     if soort != "heks":
@@ -151,7 +234,9 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
             _bol(ouder, hk(ox, -0.27 + oy, HZ + 0.0), hs(0.055, 0.05, 0.045), wit)   # Daan proef: oogwit midden in de band, niet erboven
         else:
             _bol(ouder, hk(ox, -0.27 + oy, HZ + 0.02), hs(0.1, 0.05, 0.12), wit)
-        kijk = 0.025 if not bang else (0.06 if stand == "schrik" else 0.0)   # ronde 4 (plus = naar rechts in beeld, getoetst): schrik kijkt opzij naar wat hem bang maakt (naar rechts, naar Gloop), niet in de camera
+        kijk = 0.025 if not bang else (0.06 if stand == "schrik" else 0.0)
+        if stand == "kijk":
+            kijk = 0.0   # kijkt de speler recht aan   # ronde 4 (plus = naar rechts in beeld, getoetst): schrik kijkt opzij naar wat hem bang maakt (naar rechts, naar Gloop), niet in de camera
         if soort == "dief":   # Daan proef: kleine pupil binnen het oogwit, zodat het oog een wit gaatje in de band is
             _bol(ouder, hk(ox + kijk * 0.6, -0.31 + oy, HZ - 0.005), hs(0.03, 0.03, 0.032), pupil)
         else:
@@ -183,23 +268,34 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
     elif bang:
         hoek_l, hoek_r = 150, 150
     else:
-        hoek_l, hoek_r = 20 + 15 * stap, 20 - 15 * stap
+        hoek_l, hoek_r = 20, 20   # armen zwaaien naar voren en achteren (hieronder), niet opzij
         if soort == "heks":
             hoek_r = 70   # staf voor zich uit, zodat je arm en hand ziet (frisse kijker ronde 1)
     if soort in hs_.SOORTEN and hs_.armen(soort, stand, stap):
         hoek_l, hoek_r = hs_.armen(soort, stand, stap)
+    if stand in ("kijk", "draai"):
+        hoek_l, hoek_r = (12, 12) if stand == "kijk" else (40, 40)
+        if soort == "heks":
+            hoek_r = 70
+        if soort in hs_.SOORTEN and hs_.armen(soort, "rust", 0):
+            hoek_l, hoek_r = hs_.armen(soort, "rust", 0)   # dief houdt zijn zak, bard zijn luit
+    elif stand == "sprong":
+        hoek_l, hoek_r = 125, (80 if soort == "heks" else 125)   # armen omhoog, de heks houdt haar bezem
+        if soort in ("dief", "bard"):
+            hoek_l, hoek_r = hs_.armen(soort, "rust", 0)
     hy = hs_.hand_y(soort, stand) if soort in hs_.SOORTEN else -0.02
     handen = {}
     for kant, hoek in ((-1, hoek_l), (1, hoek_r)):
         a = math.radians(hoek)
         hx = kant * (0.3 + 0.18 * math.sin(a))
         hz = arm_z - 0.22 * math.cos(a)
-        _cil(ouder, ((kant * 0.29 + hx) / 2, hy / 2, (arm_z + hz) / 2), 0.055, 0.24, kleed,
-             rot=(math.atan2(-hy, 0.24) if hy < -0.05 else 0, kant * a, 0))
+        # vrije hand (links bij held en heks) zwaait tegen de benen in: linkervoet voor = linkerhand achter (+y)
+        hyk = hy + (0.2 * stap * lp["zwaai"] / 20 if kant == -1 else 0.0)
+        _staaf(ouder, (kant * 0.29, 0.0, arm_z), (hx, hyk, hz), 0.055, kleed)
         # Bram 15 nov (kan Daan 07:35): de dief draagt donkere handschoenen. De lichte linkerhand bij zijn wang
         # las op ware grootte als witte druppels naast het masker, zodat de band een witte rand leek te krijgen.
         hand_mat = g.mat("handschoen", "3a2e34", rough=0.7, spec=0.2) if soort == "dief" else huid
-        _bol(ouder, (hx, hy, hz), (0.085, 0.085, 0.085), hand_mat, segs=16)
+        _bol(ouder, (hx, hyk, hz), (0.085, 0.085, 0.085), hand_mat, segs=16)
         handen[kant] = (hx, hz)
 
     # spullen
@@ -276,6 +372,16 @@ def bouw(soort="ridder", stand="rust", plek=(0, 0, 0), draai=30, schaal=1.0, glo
         top = HZ + 1.05 * K
         _noem_hoed(voor, "heksenhoed")
 
+    # romp (Mila 25 nov): alles boven de benen gaat op en neer, buigt voorover of wiegt, rond de heup
+    dz, buig, wieg = _romp(stand, lp)
+    if dz or buig or wieg:
+        from mathutils import Matrix
+        heup = Matrix.Translation((0, 0, 0.4))
+        m = Matrix.Translation((0, 0, dz)) @ heup @ Matrix.Rotation(math.radians(buig), 4, "X") \
+            @ Matrix.Rotation(math.radians(wieg), 4, "Y") @ heup.inverted()
+        for o in list(ouder.children):
+            if o not in benen:
+                o.matrix_basis = m @ o.matrix_basis
     ouder.location = plek
     ouder.scale = (schaal, schaal, schaal)
     if stand == "vallen":
@@ -310,7 +416,7 @@ if __name__ == "__main__":
     W, H, SAMPLES = int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6])
     KLEUR_NR = int(sys.argv[7]) if len(sys.argv) > 7 else 0
     g.leeg()
-    h = bouw(SOORT, STAND, (0, 0, 0), draai=30, kleur=KLEUR_NR)
+    h = bouw(SOORT, STAND, (0, 0, 0), draai=stand_draai(STAND), kleur=KLEUR_NR)   # Mila 25 nov: was 30 (keek naar links)
     bpy.ops.mesh.primitive_plane_add(size=30, location=(0, 0, 0))
     bpy.context.object.is_shadow_catcher = True
     top = h["top"]

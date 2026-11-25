@@ -260,6 +260,12 @@ def _blad(naam, s, beelden, namen, samples, duur, cam=None, index=None):
         # eenheid_px: bladpixels per Blender-eenheid; nul_y: rij (spelpixels vanaf de bovenkant van de cel) van het
         # nulpunt van het model (helden: de vloer, hoeden: midden van de onderrand); kruin: [x vanaf anker, y] per beeld.
         info.update({"eenheid_px": round(schaal * rpe, 4), "nul_y": nul_y, "kruin": kruin})
+        if "stap" in s:
+            # Mila 25 nov (issue 32): spelpixels die de held per loopbeeld (stap1 tot stap6) vooruit moet, zodat de voet
+            # op de vloer stilstaat; "loop_fps" is het voorstel voor hoe snel de beelden wisselen
+            info["stap_px"] = round(float(s["stap"]) * schaal * rpe / px, 3)
+            if "loop_fps" in s:
+                info["loop_fps"] = s["loop_fps"]
         if "schaal_van" in s:
             info["maal"] = float(s["schaal_van"].get("maal", 1.0))   # hoed tegenover de held; Godot rekent per held bij
     print(f"{naam}: blad {blad.width}x{blad.height}, top {tops}")
