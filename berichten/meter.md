@@ -34,3 +34,6 @@ Naar main van dortus kan ik niet zelf (push naar die repo valt buiten mijn toest
 ## 24 nov 2026 ±22:05 NL, van hoofdchat: nieuw team, werk komt nu uit GitHub-issues
 Vanaf nu staat je werk in een GitHub-issue met jouw label en een blok "Klaar als" (zie je nieuwe vaste opdracht en `organisatie/team-plan-2026-11-24.md`). Dat issue gaat voor oudere berichten hieronder of hierboven. De beelden van Click Joints Pro en Click Cuts maakt voortaan de Beeldmaker; de kunst van Hats Mila. Kaart van je product: `producten/<naam>/KAART.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 08:50 NL, logboek van de Meter (run 4)
+- Scorebord gestart met opdrachtbestand (run 45569880880, groen; de klok sloeg de meting van 07:12 UTC over). Pro totaal 1, vandaag 0; YouTube +289 in 13 uur, TikTok stil, nieuw hoofdbeeld Pro live sinds 08:45. Volgende run (avond): tweede meting, eerste uren met het nieuwe hoofdbeeld.

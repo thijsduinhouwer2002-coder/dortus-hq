@@ -1,13 +1,20 @@
 # Stand van de Meter
 
+**wo 25 nov 2026, 08:50 NL** (scorebord-run 45569880880, 07:46 UTC)
+- Verkopen Pro vandaag 0, totaal 1 ($19, 22 nov UTC, herkomst direct, geen code, geen utm) (GEZIEN, Gumroad /v2/sales). Gratis op Gumroad 0; Superhive geen verkoopblok, dus onder 10 (GEZIEN).
+- Groeit: YouTube 7.504 weergaven op 11 filmpjes, gisteravond 7.215: +289 in 13 uur (GEZIEN, RSS). Meeste groei pCyyQ4Qa9Gw 648 naar 790. Blender gratis 385 downloads, +9 sinds gisteravond, +145 in 7 dagen (GEZIEN). Bison & Flex 32 naar 39 (GEZIEN).
+- Groeit niet: de Short lcUBuWMaJ_A valt stil (gisteren +629, vannacht +37) (GEZIEN). TikTok 1.309, al 2 dagen gelijk (GEZIEN). Kit 0, Discord 1 (GEZIEN).
+- dortus.com gisteren hele dag: 12 bezoeken, Click Joints 3, /yt 2, /tt 0; verwijzers BlenderNation 2, YouTube 1 (GEZIEN, Amami). Vandaag tot 08:46: 2 bezoeken (GEZIEN).
+- Opvallend: sinds 08:45 vandaag staat het nieuwe hoofdbeeld (robot uit labels) live op Gumroad en Superhive (`commercie/geplaatst.md`). Verkopen vanaf nu kunnen we leggen naast de dagen met de oude cover (1 verkoop). utm-koopknoppen nog niet live: de knop op /click-joints heeft nog geen utm (GEZIEN, curl).
+
+## Eerdere standen
+
 **di 24 nov 2026, 19:55 NL** (scorebord-runs 45461840254 en 45462997908, 18:41 en 18:47 UTC)
 - Verkopen Pro vandaag 0, totaal 1 ($19, 22 nov UTC, herkomst direct, geen code, geen utm) (GEZIEN, Gumroad /v2/sales). CYBER25 en de 11 makerscodes CJP... 0 keer gebruikt (GEZIEN).
 - Nieuw gemeten: waar bezoekers van dortus.com vandaan komen. BlenderNation is de grootste verwijzer: 25 bezoeken op 18 nov, daarna 8, 3, 4, 0, 3 en vandaag 2 (GEZIEN, Amami referrer). YouTube stuurde vandaag 1 bezoek, TikTok nog nooit (GEZIEN).
 - Groeit: YouTube 7.215 weergaven op 11 filmpjes, vanochtend 6.254 (GEZIEN, RSS); Short lcUBuWMaJ_A 577 naar 1.206 op één dag. Blender gratis 376 downloads, vanochtend 360, +179 in 7 dagen (GEZIEN).
 - Groeit niet: TikTok 1.309 op 5 filmpjes, gelijk aan vanochtend (GEZIEN). Kit 0, Discord 1 (GEZIEN). dortus.com vandaag tot 19:47 12 bezoeken, /yt 2, /tt 0 (GEZIEN, Amami).
 - Opvallend: ruim 2.000 YouTube-weergaven erbij vandaag en 2 bezoeken op /yt, 0 verkopen. Ongeveer 1 op 1.000 kijkers komt op de site (GOK, uit deze twee getallen). De utm-koopknoppen staan nog niet live (GEZIEN, curl): wacht op lijst-thijs punt 4.
-
-## Eerdere standen
 
 **di 24 nov 2026, 08:45 NL** (scorebord-run 45349645269, 07:40 UTC)
 - Verkopen Pro vandaag 0, totaal 1 ($19, 22 nov UTC) (GEZIEN, Gumroad /v2/sales). Gratis op Gumroad 0; 11 makerscodes CJP... samen 0 keer gebruikt (GEZIEN).
