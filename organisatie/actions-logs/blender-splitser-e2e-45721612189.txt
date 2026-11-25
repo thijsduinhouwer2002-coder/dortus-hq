@@ -1,0 +1,411 @@
+# gemaakt: 2026-11-25T23:32:23Z
+# workflow: Blender splitser e2e (Click Cuts, echte Blender) (.github/workflows/blender-splitser-e2e.yml)
+# run: 45721612189 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45721612189
+# commit: 1c4aecb1 tak claude/click-cuts-magneet gestart door push
+# mislukte stappen: e2e (4.2.23): Test zonder scherm (passen, waterdicht, pen in gat, nummers, export); e2e (5.3.0): Test zonder scherm (passen, waterdicht, pen in gat, nummers, export)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (4.2.23) / Test zonder scherm (passen, waterdicht, pen in gat, nummers, export) (laatste 200 van 2190 regels) =====
+[sj-e2e] OK   vrij: helften verschillende kleur [1.0, 0.10461648553609848, 0.0423114113509655] [0.04666508734226227, 0.10461648553609848, 1.0]
+[sj-e2e] OK   vrij: pennen gelijk aan gatenparen 1 pennen
+Info: Move (G), turn (R) and scale (S) the free cut, then Cut piece
+Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] vrij: melding Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] FOUT vrij: snede door een pengat geweigerd {'CANCELLED'} 'Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm '
+Info: Move (G), turn (R) and scale (S) the free cut, then Cut piece
+Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] vrij: melding Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] FOUT vrij: 1,0 mm voorbij het gat nog geweigerd {'CANCELLED'} 'Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm '
+Info: Move (G), turn (R) and scale (S) the free cut, then Cut piece
+Info: Piece 2 and new piece 3, 1 pins
+[sj-e2e] OK   vrij: snede net voorbij het gat snijdt wel {'FINISHED'} 3 ''
+Info: Saved "vrij.blend"
+[sj-e2e] OK   klik: operator split_joints.split_to_fit bestaat 
+[sj-e2e] OK   klik: geen zwaar-regel bij een lichte doos 
+[sj-e2e] OK   klik: zwaar-regel vanaf de grens '0.0M faces: Split takes about 1 min'
+[sj-e2e] OK   klik: noten-regel bij dicht vak '2 notes: see More settings'
+[sj-e2e] OK   klik: geen noten-regel als het vak open is of zonder noten 
+[sj-e2e] OK   klik: rand met 4 vlakken wordt 2 randen met 2 vlakken ((1, 16.0), 2, 0, 15.999999999999998)
+[sj-e2e] OK   klik: schatting 999999 MANIFOLD None
+[sj-e2e] OK   klik: schatting 1000000 MANIFOLD '1.0M faces: Split takes about 1 min'
+[sj-e2e] OK   klik: schatting 3040000 MANIFOLD '3.0M faces: Split takes about 3 min'
+[sj-e2e] OK   klik: schatting 1010000 EXACT '1.0M faces: Split takes about 4 min'
+[sj-e2e] OK   klik: schatting 3040000 EXACT '3.0M faces: Split takes about 10 min'
+[sj-e2e] OK   klik: modelregel 'Suzanne: 1,982,604 faces'
+[sj-e2e] OK   klik: modelregel na watertight 'Suzanne (closed): 34,934 faces'
+[sj-e2e] OK   klik: regel zonder model 'Click your model in the viewport'
+[sj-e2e] OK   klik: geheugen 3040000 EXACT 'Needs about 10 GB of memory'
+[sj-e2e] OK   klik: geheugen 2000000 EXACT None
+[sj-e2e] OK   klik: geheugen 3040000 MANIFOLD None
+[sj-e2e] OK   klik: geheugen 5000000 MANIFOLD 'Needs about 8 GB of memory'
+Info: 3 pieces, 2 cuts. Move a cut with G if you like.
+[sj-e2e] OK   klik: plek in mm gelijk aan de plek -83.3333 -83.3333
+Info: 3 pieces, 8 pins, all fit
+[sj-e2e] klik: met de hand {'FINISHED'} {'FINISHED'} [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
+Info: 3 pieces, 2 cuts. Move a cut with G if you like.
+Info: 3 pieces, 8 pins, all fit
+Info: 3 parts, all fit the bed. 8 pins, 0.20 mm clearance
+[sj-e2e] klik: een klik {'FINISHED'} in 0.4 s [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
+[sj-e2e] OK   klik: een klik lukt {'FINISHED'}
+[sj-e2e] OK   klik: zelfde stukken als Plan plus Split 3 tegen 3
+[sj-e2e] OK   klik: zelfde pennen 8 tegen 8
+[sj-e2e] OK   klik: elk stuk past en is dicht 
+[sj-e2e] OK   klik: uitslag in een regel ('3 parts, all fit the bed', '8 pins, 0.20 mm clearance', True)
+[sj-e2e] OK   klik: uitslag noemt pennen en speling ('3 parts, all fit the bed', '8 pins, 0.20 mm clearance', True)
+Info: 3 pieces, 2 cuts. Move a cut with G if you like.
+Info: 3 pieces, 8 pins, all fit
+Info: 3 parts, all fit the bed. 8 pins, 0.20 mm clearance
+[sj-e2e] OK   klik: tweede klik met een stuk actief {'FINISHED'} 3
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Info: 2 pieces, 4 pins, all fit
+Info: 2 parts, all fit the bed. 4 pins, 0.20 mm clearance
+[sj-e2e] OK   klik: andere printer volgt het plan 2 plan 2
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Info: 2 pieces, 4 pins, all fit
+Info: 2 parts, all fit the bed. 4 pins, 0.20 mm clearance
+[sj-e2e] OK   klik: tweede model gekozen wordt gesneden {'FINISHED'} bron Second 2 plan 2
+[sj-e2e] OK   klik: tweede model, eerste doos blijft bestaan [-24.998289108276367, 25.001707077026367]
+[sj-e2e] OK   klik: tweede model, eerste doos weer zichtbaar (K5) Box True
+[sj-e2e] OK   klik: na de klik geen regel 'Cuts changed' (K6) [[0, 700.0]]
+[sj-e2e] OK   klik: snede verschoven geeft de regel (K6) [[0, 700.0]]
+Info: 2 pieces, 4 pins, all fit
+[sj-e2e] OK   klik: na Split weer geen regel (K6) {'FINISHED'}
+Info: 2 pieces, 4 pins, all fit
+Info: 2 parts, all fit the bed. 4 pins, 0.20 mm clearance
+[sj-e2e] OK   klik: Split to fit houdt een verschoven snede (K5) {'FINISHED'} plek 709.0 verwacht 709.0 'kept your moved cuts'
+Info: Watertight copy Suzanne open_watertight made (64504 faces)
+Info: 4 pieces, 2 cuts. Move a cut with G if you like.
+Info: 4 pieces, 16 pins, all fit
+Info: 4 parts, all fit the bed. 16 pins, 0.25 mm clearance
+[sj-e2e] OK   klik: open model krijgt eerst een dichte kopie {'FINISHED'} watertight copy made Suzanne open_watertight
+[sj-e2e] OK   klik: open model, stukken dicht en passend 4 stukken
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Info: 2 pieces, 4 pins, all fit
+Info: 2 parts, all fit the bed. 4 pins, 0.25 mm clearance
+[sj-e2e] OK   klik: na open model komt het eigen model terug, niet de kopie (K2) {'FINISHED'} eigen True kopie False
+Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] klik: melding Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+
+[sj-e2e] OK   klik: meters geweigerd met uitleg {'CANCELLED'} 'Wrong unit? Open More settings and use Convert to mm'
+Info: Unit scale 0.001: the model now measures 500.0 mm (was 5e+05 mm)
+[sj-e2e] OK   klik: Convert to mm wist de rode regel {'FINISHED'} ''
+Info: 3 pieces, 2 cuts. Move a cut with G if you like.
+Info: 3 pieces, 8 pins, all fit
+Info: 3 parts, all fit the bed. 8 pins, 0.25 mm clearance
+[sj-e2e] OK   klik: na Convert to mm snijdt hij wel {'FINISHED'} 3
+Info: 3 pieces, 2 cuts. Move a cut with G if you like.
+[sj-e2e] OK   klik: plek in mm in een meter-scene -83.333 mm, -0.083333 m
+[sj-e2e] OK   klik: plek in mm zetten 0.0123000
+Info: Saved "klik.blend"
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Info: 2 pieces, holes for 4 magnets of 6x2 mm, all fit
+[sj-e2e] magneet doos 6x2: split {'FINISHED'}, meldingen ''
+[sj-e2e] OK   magneet doos: 2 stukken 2
+[sj-e2e] OK   magneet doos stuk 1: waterdicht slechte randen 0
+[sj-e2e] OK   magneet doos stuk 1: past en groen groen, wand 4.3
+[sj-e2e] OK   magneet doos stuk 2: waterdicht slechte randen 0
+[sj-e2e] OK   magneet doos stuk 2: past en groen groen, wand 4.3
+[sj-e2e] OK   magneet doos: geen penplaatjes []
+[sj-e2e] OK   magneet doos: er zijn magneetgaten 4 gaten
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 1: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 1: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 1: diepte 2.10 mm (magneet 2 + 0.1) 
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 1: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 1: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 1: diepte 2.10 mm (magneet 2 + 0.1) 
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 2: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 2: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 2: diepte 2.10 mm (magneet 2 + 0.1) 
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 2: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 2: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 2: diepte 2.10 mm (magneet 2 + 0.1) 
+[sj-e2e] OK   magneet doos: gat (0.014, 22.6, 52.6) in twee verschillende stukken [1, 2]
+[sj-e2e] OK   magneet doos: gat (0.014, -22.6, 7.4) in twee verschillende stukken [1, 2]
+[sj-e2e] OK   magneet doos: paneeltelling gelijk aan de gaten {'6x2': 4}
+[sj-e2e] OK   magneet doos: uitslagregel noemt de magneten ('2 parts, all fit the bed', '4 magnets 6x2 mm, 0.20 mm clearance', True)
+Info: 2 STL files in /tmp/sj_uit/magneet_doos/
+[sj-e2e] OK   magneet doos: export alleen de stukken, geen pennen ['piece_01.stl', 'piece_02.stl']
+Info: Watertight copy Figure_watertight made (80556 faces)
+[sj-e2e] waterdicht Figure: {'FINISHED'} -> Figure_watertight 80556 vlakken
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Warning: 2 pieces, holes for 2 magnets of 6x2 mm, all fit. 1 notes in the panel
+[sj-e2e] magneet arm 6x2: split {'FINISHED'}, meldingen 'Cut 1-2: no room for the number on a part of this face'
+[sj-e2e] OK   magneet arm: 2 stukken 2
+[sj-e2e] OK   magneet arm stuk 1: waterdicht slechte randen 0
+[sj-e2e] OK   magneet arm stuk 1: past en groen groen, wand 2.75
+[sj-e2e] OK   magneet arm stuk 2: waterdicht slechte randen 0
+[sj-e2e] OK   magneet arm stuk 2: past en groen groen, wand 2.75
+[sj-e2e] OK   magneet arm: geen penplaatjes []
+[sj-e2e] OK   magneet arm: er zijn magneetgaten 2 gaten
+[sj-e2e] OK   magneet arm: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet arm stuk 1: gat gevonden 
+[sj-e2e] OK   magneet arm stuk 1: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet arm stuk 1: diepte 2.10 mm (magneet 2 + 0.1) 
+[sj-e2e] OK   magneet arm: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet arm stuk 2: gat gevonden 
+[sj-e2e] OK   magneet arm stuk 2: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet arm stuk 2: diepte 2.10 mm (magneet 2 + 0.1) 
+[sj-e2e] OK   magneet arm: gat (105.014, -0.15, 29.85) in twee verschillende stukken [1, 2]
+[sj-e2e] OK   magneet arm: paneeltelling gelijk aan de gaten {'6x2': 2}
+[sj-e2e] OK   magneet arm: uitslagregel noemt de magneten ('2 parts, all fit the bed', '2 magnets 6x2 mm, 0.20 mm clearance', True)
+Info: 2 STL files in /tmp/sj_uit/magneet_arm/
+[sj-e2e] OK   magneet arm: export alleen de stukken, geen pennen ['piece_01.stl', 'piece_02.stl']
+[sj-e2e] OK   magneet arm: het gat zit in de arm [105.01370239257812]
+Info: Watertight copy Figure_watertight made (80556 faces)
+[sj-e2e] waterdicht Figure: {'FINISHED'} -> Figure_watertight 80556 vlakken
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Warning: 2 pieces, holes for 0 magnets of 10x3 mm, all fit. 1 notes in the panel
+[sj-e2e] magneet arm-dun 10x3: split {'FINISHED'}, meldingen 'Cut 1-2: too small for a magnet: the face is 11.7 mm across, a 10x3 mm magnet needs 12.6 mm with 1.2 mm wall. Glue this joint or pick a smaller magnet'
+[sj-e2e] OK   magneet arm 10x3: geen gaten in de te dunne arm [0, 0]
+[sj-e2e] OK   magneet arm 10x3: melding zegt waarom 'Cut 1-2: too small for a magnet: the face is 11.7 mm across, a 10x3 mm magnet needs 12.6 mm with 1.2 mm wall. Glue this joint or pick a smaller magnet'
+[sj-e2e] OK   magneet arm 10x3: stukken passen en zijn dicht 
+[sj-e2e] magneet: wand -1.0
+[sj-e2e] KLAAR 2 FOUT ['vrij: snede door een pengat geweigerd', 'vrij: 1,0 mm voorbij het gat nog geweigerd']
+Timer 'STL Export' took 1.16 ms
+Timer 'STL Export' took 0.46 ms
+Timer 'STL Export' took 0.18 ms
+Timer 'STL Export' took 1.33 ms
+Timer 'STL Export' took 1.34 ms
+Timer 'STL Export' took 1.04 ms
+Timer 'STL Export' took 1.04 ms
+Timer 'STL Export' took 1.52 ms
+Timer 'STL Export' took 1.75 ms
+Timer 'STL Export' took 2.13 ms
+Timer 'STL Export' took 2.07 ms
+Timer 'STL Export' took 1.16 ms
+Timer 'STL Export' took 0.17 ms
+Timer 'STL Export' took 0.17 ms
+Timer 'STL Export' took 11.45 ms
+Timer 'STL Export' took 5.57 ms
+FOUT: kerntest
+Error: Suzanne open is not watertight (42 bad edges). Use Make watertight first.
+[sj-e2e] open: melding 'Error: Suzanne open is not watertight (42 bad edges). Use Make watertight first.\n'
+Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] melding: 'Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n'
+Error: Box would need 250000 voxels across (limit 3000). Check the unit of the scene (Convert to mm) or use a bigger voxel size
+[sj-e2e] melding: 'Error: Box would need 250000 voxels across (limit 3000). Check the unit of the scene (Convert to mm) or use a bigger voxel size\n'
+Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] melding: 'Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n'
+Error: These cuts make 301 cells (limit 200). Remove cuts or plan again
+[sj-e2e] melding: 'Error: These cuts make 301 cells (limit 200). Remove cuts or plan again\n'
+Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+[sj-e2e] vrij: melding Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+[sj-e2e] vrij: melding Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] vrij: melding Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] FOUT vrij: snede door een pengat geweigerd {'CANCELLED'} 'Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm '
+Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] vrij: melding Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] FOUT vrij: 1,0 mm voorbij het gat nog geweigerd {'CANCELLED'} 'Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm '
+Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] klik: melding Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] KLAAR 2 FOUT ['vrij: snede door een pengat geweigerd', 'vrij: 1,0 mm voorbij het gat nog geweigerd']
+##[error]Process completed with exit code 1.
+
+===== e2e (5.3.0) / Test zonder scherm (passen, waterdicht, pen in gat, nummers, export) (laatste 200 van 2360 regels) =====
+[sj-e2e] OK   klik: plek in mm gelijk aan de plek -83.3333 -83.3333
+Info: 3 pieces, 8 pins, all fit
+[sj-e2e] klik: met de hand {'FINISHED'} {'FINISHED'} [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
+Info: 3 pieces, 2 cuts. Move a cut with G if you like.
+Info: 3 pieces, 8 pins, all fit
+Info: 3 parts, all fit the bed. 8 pins, 0.20 mm clearance
+[sj-e2e] klik: een klik {'FINISHED'} in 0.3 s [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
+[sj-e2e] OK   klik: een klik lukt {'FINISHED'}
+[sj-e2e] OK   klik: zelfde stukken als Plan plus Split 3 tegen 3
+[sj-e2e] OK   klik: zelfde pennen 8 tegen 8
+[sj-e2e] OK   klik: elk stuk past en is dicht 
+[sj-e2e] OK   klik: uitslag in een regel ('3 parts, all fit the bed', '8 pins, 0.20 mm clearance', True)
+[sj-e2e] OK   klik: uitslag noemt pennen en speling ('3 parts, all fit the bed', '8 pins, 0.20 mm clearance', True)
+Info: 3 pieces, 2 cuts. Move a cut with G if you like.
+Info: 3 pieces, 8 pins, all fit
+Info: 3 parts, all fit the bed. 8 pins, 0.20 mm clearance
+[sj-e2e] OK   klik: tweede klik met een stuk actief {'FINISHED'} 3
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Info: 2 pieces, 4 pins, all fit
+Info: 2 parts, all fit the bed. 4 pins, 0.20 mm clearance
+[sj-e2e] OK   klik: andere printer volgt het plan 2 plan 2
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Info: 2 pieces, 4 pins, all fit
+Info: 2 parts, all fit the bed. 4 pins, 0.20 mm clearance
+[sj-e2e] OK   klik: tweede model gekozen wordt gesneden {'FINISHED'} bron Second 2 plan 2
+[sj-e2e] OK   klik: tweede model, eerste doos blijft bestaan [-24.998289108276367, 25.001707077026367]
+[sj-e2e] OK   klik: tweede model, eerste doos weer zichtbaar (K5) Box True
+[sj-e2e] OK   klik: na de klik geen regel 'Cuts changed' (K6) [[0, 700.0]]
+[sj-e2e] OK   klik: snede verschoven geeft de regel (K6) [[0, 700.0]]
+Info: 2 pieces, 4 pins, all fit
+[sj-e2e] OK   klik: na Split weer geen regel (K6) {'FINISHED'}
+Info: 2 pieces, 4 pins, all fit
+Info: 2 parts, all fit the bed. 4 pins, 0.20 mm clearance
+[sj-e2e] OK   klik: Split to fit houdt een verschoven snede (K5) {'FINISHED'} plek 709.0 verwacht 709.0 'kept your moved cuts'
+Info: Watertight copy Suzanne open_watertight made (64504 faces)
+Info: 4 pieces, 2 cuts. Move a cut with G if you like.
+Info: 4 pieces, 16 pins, all fit
+Info: 4 parts, all fit the bed. 16 pins, 0.25 mm clearance
+[sj-e2e] OK   klik: open model krijgt eerst een dichte kopie {'FINISHED'} watertight copy made Suzanne open_watertight
+[sj-e2e] OK   klik: open model, stukken dicht en passend 4 stukken
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Info: 2 pieces, 4 pins, all fit
+Info: 2 parts, all fit the bed. 4 pins, 0.25 mm clearance
+[sj-e2e] OK   klik: na open model komt het eigen model terug, niet de kopie (K2) {'FINISHED'} eigen True kopie False
+Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] klik: melding Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+
+[sj-e2e] OK   klik: meters geweigerd met uitleg {'CANCELLED'} 'Wrong unit? Open More settings and use Convert to mm'
+Info: Unit scale 0.001: the model now measures 500.0 mm (was 5e+05 mm)
+[sj-e2e] OK   klik: Convert to mm wist de rode regel {'FINISHED'} ''
+Info: 3 pieces, 2 cuts. Move a cut with G if you like.
+Info: 3 pieces, 8 pins, all fit
+Info: 3 parts, all fit the bed. 8 pins, 0.25 mm clearance
+[sj-e2e] OK   klik: na Convert to mm snijdt hij wel {'FINISHED'} 3
+Info: 3 pieces, 2 cuts. Move a cut with G if you like.
+[sj-e2e] OK   klik: plek in mm in een meter-scene -83.333 mm, -0.083333 m
+[sj-e2e] OK   klik: plek in mm zetten 0.0123000
+Info: Saved as "klik.blend"
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Info: 2 pieces, holes for 4 magnets of 6x2 mm, all fit
+[sj-e2e] magneet doos 6x2: split {'FINISHED'}, meldingen ''
+[sj-e2e] OK   magneet doos: 2 stukken 2
+[sj-e2e] OK   magneet doos stuk 1: waterdicht slechte randen 0
+[sj-e2e] OK   magneet doos stuk 1: past en groen groen, wand 4.3
+[sj-e2e] OK   magneet doos stuk 2: waterdicht slechte randen 0
+[sj-e2e] OK   magneet doos stuk 2: past en groen groen, wand 4.3
+[sj-e2e] OK   magneet doos: geen penplaatjes []
+[sj-e2e] OK   magneet doos: er zijn magneetgaten 4 gaten
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 1: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 1: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 1: diepte 2.10 mm (magneet 2 + 0.1) 
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 1: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 1: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 1: diepte 2.10 mm (magneet 2 + 0.1) 
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 2: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 2: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 2: diepte 2.10 mm (magneet 2 + 0.1) 
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 2: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 2: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 2: diepte 2.10 mm (magneet 2 + 0.1) 
+[sj-e2e] OK   magneet doos: gat (0.014, 22.6, 52.6) in twee verschillende stukken [1, 2]
+[sj-e2e] OK   magneet doos: gat (0.014, -22.6, 7.4) in twee verschillende stukken [1, 2]
+[sj-e2e] OK   magneet doos: paneeltelling gelijk aan de gaten {'6x2': 4}
+[sj-e2e] OK   magneet doos: uitslagregel noemt de magneten ('2 parts, all fit the bed', '4 magnets 6x2 mm, 0.20 mm clearance', True)
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/sj_uit/magneet_doos/
+[sj-e2e] OK   magneet doos: export alleen de stukken, geen pennen ['piece_01.stl', 'piece_02.stl']
+Info: Watertight copy Figure_watertight made (80556 faces)
+[sj-e2e] waterdicht Figure: {'FINISHED'} -> Figure_watertight 80556 vlakken
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Warning: 2 pieces, holes for 2 magnets of 6x2 mm, all fit. 1 notes in the panel
+[sj-e2e] magneet arm 6x2: split {'FINISHED'}, meldingen 'Cut 1-2: no room for the number on a part of this face'
+[sj-e2e] OK   magneet arm: 2 stukken 2
+[sj-e2e] OK   magneet arm stuk 1: waterdicht slechte randen 0
+[sj-e2e] OK   magneet arm stuk 1: past en groen groen, wand 2.75
+[sj-e2e] OK   magneet arm stuk 2: waterdicht slechte randen 0
+[sj-e2e] OK   magneet arm stuk 2: past en groen groen, wand 2.75
+[sj-e2e] OK   magneet arm: geen penplaatjes []
+[sj-e2e] OK   magneet arm: er zijn magneetgaten 2 gaten
+[sj-e2e] OK   magneet arm: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet arm stuk 1: gat gevonden 
+[sj-e2e] OK   magneet arm stuk 1: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet arm stuk 1: diepte 2.10 mm (magneet 2 + 0.1) 
+[sj-e2e] OK   magneet arm: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet arm stuk 2: gat gevonden 
+[sj-e2e] OK   magneet arm stuk 2: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet arm stuk 2: diepte 2.10 mm (magneet 2 + 0.1) 
+[sj-e2e] OK   magneet arm: gat (105.014, 0.15, 30.15) in twee verschillende stukken [1, 2]
+[sj-e2e] OK   magneet arm: paneeltelling gelijk aan de gaten {'6x2': 2}
+[sj-e2e] OK   magneet arm: uitslagregel noemt de magneten ('2 parts, all fit the bed', '2 magnets 6x2 mm, 0.20 mm clearance', True)
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/sj_uit/magneet_arm/
+[sj-e2e] OK   magneet arm: export alleen de stukken, geen pennen ['piece_01.stl', 'piece_02.stl']
+[sj-e2e] OK   magneet arm: het gat zit in de arm [105.01370239257812]
+Info: Watertight copy Figure_watertight made (80556 faces)
+[sj-e2e] waterdicht Figure: {'FINISHED'} -> Figure_watertight 80556 vlakken
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Warning: 2 pieces, holes for 0 magnets of 10x3 mm, all fit. 1 notes in the panel
+[sj-e2e] magneet arm-dun 10x3: split {'FINISHED'}, meldingen 'Cut 1-2: too small for a magnet: the face is 11.7 mm across, a 10x3 mm magnet needs 12.6 mm with 1.2 mm wall. Glue this joint or pick a smaller magnet'
+[sj-e2e] OK   magneet arm 10x3: geen gaten in de te dunne arm [0, 0]
+[sj-e2e] OK   magneet arm 10x3: melding zegt waarom 'Cut 1-2: too small for a magnet: the face is 11.7 mm across, a 10x3 mm magnet needs 12.6 mm with 1.2 mm wall. Glue this joint or pick a smaller magnet'
+[sj-e2e] OK   magneet arm 10x3: stukken passen en zijn dicht 
+[sj-e2e] magneet: wand -1.0
+[sj-e2e] KLAAR 2 FOUT ['vrij: snede door een pengat geweigerd', 'vrij: 1,0 mm voorbij het gat nog geweigerd']
+r 'STL Export' took 0.81 ms
+Timer 'STL Export' took 0.86 ms
+Timer 'STL Export' took 0.92 ms
+Timer 'STL Export' took 2.89 ms
+Timer 'STL Export' took 2.54 ms
+Timer 'STL Export' took 2.25 ms
+Timer 'STL Export' took 2.24 ms
+Timer 'STL Export' took 3.01 ms
+Timer 'STL Export' took 3.00 ms
+Timer 'STL Export' took 3.40 ms
+Timer 'STL Export' took 3.35 ms
+Timer 'STL Export' took 2.40 ms
+Timer 'STL Export' took 2.47 ms
+Timer 'STL Export' took 2.51 ms
+Timer 'STL Export' took 2.08 ms
+Timer 'STL Export' took 2.04 ms
+Timer 'STL Export' took 2.82 ms
+Timer 'STL Export' took 2.79 ms
+Timer 'STL Export' took 3.18 ms
+Timer 'STL Export' took 3.11 ms
+Timer 'STL Export' took 2.36 ms
+Timer 'STL Export' took 2.58 ms
+Timer 'STL Export' took 2.36 ms
+Timer 'STL Export' took 2.00 ms
+Timer 'STL Export' took 2.01 ms
+Timer 'STL Export' took 2.71 ms
+Timer 'STL Export' took 2.72 ms
+Timer 'STL Export' took 3.05 ms
+Timer 'STL Export' took 3.04 ms
+Timer 'STL Export' took 2.37 ms
+Timer 'STL Export' took 0.96 ms
+Timer 'STL Export' took 0.59 ms
+Timer 'STL Export' took 2.82 ms
+Timer 'STL Export' took 2.68 ms
+Timer 'STL Export' took 2.40 ms
+Timer 'STL Export' took 2.33 ms
+Timer 'STL Export' took 3.12 ms
+Timer 'STL Export' took 3.12 ms
+Timer 'STL Export' took 3.48 ms
+Timer 'STL Export' took 3.43 ms
+Timer 'STL Export' took 2.56 ms
+Timer 'STL Export' took 0.65 ms
+Timer 'STL Export' took 0.62 ms
+Timer 'STL Export' took 13.72 ms
+Timer 'STL Export' took 6.61 ms
+FOUT: kerntest
+Error: Suzanne open is not watertight (42 bad edges). Use Make watertight first.
+[sj-e2e] open: melding 'Error: Suzanne open is not watertight (42 bad edges). Use Make watertight first.\n'
+Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] melding: 'Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n'
+Error: Box would need 250000 voxels across (limit 3000). Check the unit of the scene (Convert to mm) or use a bigger voxel size
+[sj-e2e] melding: 'Error: Box would need 250000 voxels across (limit 3000). Check the unit of the scene (Convert to mm) or use a bigger voxel size\n'
+Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] melding: 'Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n'
+Error: These cuts make 301 cells (limit 200). Remove cuts or plan again
+[sj-e2e] melding: 'Error: These cuts make 301 cells (limit 200). Remove cuts or plan again\n'
+Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+[sj-e2e] vrij: melding Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+[sj-e2e] vrij: melding Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] vrij: melding Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] FOUT vrij: snede door een pengat geweigerd {'CANCELLED'} 'Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm '
+Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] vrij: melding Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] FOUT vrij: 1,0 mm voorbij het gat nog geweigerd {'CANCELLED'} 'Error: The free cut goes through a hole of Piece 02 (to piece 1). Move it at least 1.2 mm '
+Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] klik: melding Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] KLAAR 2 FOUT ['vrij: snede door een pengat geweigerd', 'vrij: 1,0 mm voorbij het gat nog geweigerd']
+##[error]Process completed with exit code 1.
