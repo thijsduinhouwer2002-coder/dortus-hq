@@ -1,0 +1,209 @@
+# gemaakt: 2026-11-25T19:40:03Z
+# workflow: Blender gewrichten e2e (Click Joints, echte Blender) (.github/workflows/blender-gewrichten-e2e.yml)
+# run: 45684750503 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45684750503
+# commit: bcbef51e tak claude/blender-beoordeling-100 gestart door push
+# mislukte stappen: e2e (4.2.23): Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (4.2.23) / Figuurpresets (Pro 1.1 stap 1, zes gewrichten zonder rig en de lijst per figuur) (laatste 200 van 548 regels) =====
+[cj-kaart] OK   KOGEL: speling 0.20 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.20 op één deel (['0.20'])
+[cj-kaart] OK   KOGEL: speling 0.25 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.25 op één deel (['0.25'])
+[cj-kaart] OK   KOGEL: speling 0.30 op twee delen (2)
+[cj-kaart] OK   KOGEL: getal 0.30 op één deel (['0.30'])
+[cj-kaart] OK   KOGEL: alle delen gesloten (open: [])
+[cj-kaart] OK   KOGEL: speling scene blijft 0.17 (0.170)
+[cj-kaart] OK   KOGEL: Auto-diameter blijft aan
+[cj-kaart] OK   KOGEL: cursor blijft staan
+[cj-kaart] OK   KOGEL: eigen model niet aangeraakt
+Info: 10 STL files in /tmp/blender_YJqnBe/cj_kaart_KOGEL/
+[cj-kaart] OK   KOGEL: export geeft 10 bestanden (10)
+Info: Joint placed. Good fit. 0.266 s.
+Info: Joint placed. Good fit. 0.274 s.
+Info: Joint placed. Good fit. 0.268 s.
+Info: Joint placed. Good fit. 0.27 s.
+Info: Joint placed. Good fit. 0.278 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   KOGEL: tweede klik 10 nieuwe delen (10)
+[cj-kaart] OK   KOGEL: tweede set raakt de eerste niet
+[cj-kaart] KOGEL: maat set (140.0, 20.0, 60.6) mm
+Info: Joint placed. Good fit. 0.276 s.
+Info: Joint placed. Good fit. 0.277 s.
+Info: Joint placed. Good fit. 0.283 s.
+Info: Joint placed. Good fit. 0.276 s.
+Info: Joint placed. Good fit. 0.277 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   KOGEL meters: zelfde maat in mm ((140.0, 20.0, 60.6) tegen (140.0, 20.0, 60.6))
+[cj-kaart] OK   KOGEL meters: alle delen gesloten
+[cj-kaart] OK   KOGEL meters: vijf getallen (['0.10', '0.15', '0.20', '0.25', '0.30'])
+Info: Hinge placed. Bends 0° to 115°. 0.332 s.
+Info: Hinge placed. Bends 0° to 115°. 0.308 s.
+Info: Hinge placed. Bends 0° to 115°. 0.307 s.
+Info: Hinge placed. Bends 0° to 115°. 0.312 s.
+Info: Hinge placed. Bends 0° to 115°. 0.322 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER: knop geeft FINISHED ({'FINISHED'})
+[cj-kaart] OK   SCHARNIER: 10 delen (10)
+[cj-kaart] OK   SCHARNIER: alle delen in collectie Fit test
+[cj-kaart] OK   SCHARNIER: speling 0.10 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.10 op één deel (['0.10'])
+[cj-kaart] OK   SCHARNIER: speling 0.15 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.15 op één deel (['0.15'])
+[cj-kaart] OK   SCHARNIER: speling 0.20 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.20 op één deel (['0.20'])
+[cj-kaart] OK   SCHARNIER: speling 0.25 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.25 op één deel (['0.25'])
+[cj-kaart] OK   SCHARNIER: speling 0.30 op twee delen (2)
+[cj-kaart] OK   SCHARNIER: getal 0.30 op één deel (['0.30'])
+[cj-kaart] OK   SCHARNIER: alle delen gesloten (open: [])
+[cj-kaart] OK   SCHARNIER: speling scene blijft 0.17 (0.170)
+[cj-kaart] OK   SCHARNIER: Auto-diameter blijft aan
+[cj-kaart] OK   SCHARNIER: cursor blijft staan
+[cj-kaart] OK   SCHARNIER: eigen model niet aangeraakt
+Info: 10 STL files in /tmp/blender_YJqnBe/cj_kaart_SCHARNIER/
+[cj-kaart] OK   SCHARNIER: export geeft 10 bestanden (10)
+Info: Hinge placed. Bends 0° to 115°. 0.702 s.
+Info: Hinge placed. Bends 0° to 115°. 0.324 s.
+Info: Hinge placed. Bends 0° to 115°. 0.31 s.
+Info: Hinge placed. Bends 0° to 115°. 0.325 s.
+Info: Hinge placed. Bends 0° to 115°. 0.322 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER: tweede klik 10 nieuwe delen (10)
+[cj-kaart] OK   SCHARNIER: tweede set raakt de eerste niet
+[cj-kaart] SCHARNIER: maat set (110.0, 14.0, 60.6) mm
+Info: Hinge placed. Bends 0° to 115°. 0.327 s.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 75); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 115°. 0.311 s.
+Error: The cut gave no watertight parts (bad edges: part A 0, part B 35); the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 115°. 0.525 s.
+Info: Hinge placed. Bends 0° to 115°. 0.305 s.
+Info: Hinge placed. Bends 0° to 115°. 0.338 s.
+Info: Print all five. Use the clearance of the one that turns without wobble.
+[cj-kaart] OK   SCHARNIER meters: zelfde maat in mm ((110.0, 14.0, 60.6) tegen (110.0, 14.0, 60.6))
+[cj-kaart] OK   SCHARNIER meters: alle delen gesloten
+[cj-kaart] OK   SCHARNIER meters: vijf getallen (['0.10', '0.15', '0.20', '0.25', '0.30'])
+[cj-kaart] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+Timer 'STL Export' took 0.61 ms
+Timer 'STL Export' took 0.61 ms
+Timer 'STL Export' took 0.52 ms
+Timer 'STL Export' took 0.56 ms
+Timer 'STL Export' took 0.49 ms
+Timer 'STL Export' took 0.60 ms
+Timer 'STL Export' took 0.49 ms
+Timer 'STL Export' took 0.59 ms
+Timer 'STL Export' took 0.49 ms
+Timer 'STL Export' took 0.69 ms
+Timer 'STL Export' took 0.28 ms
+Timer 'STL Export' took 0.37 ms
+Timer 'STL Export' took 0.23 ms
+Timer 'STL Export' took 0.36 ms
+Timer 'STL Export' took 0.23 ms
+Timer 'STL Export' took 0.42 ms
+Timer 'STL Export' took 0.22 ms
+Timer 'STL Export' took 0.40 ms
+Timer 'STL Export' took 0.22 ms
+Timer 'STL Export' took 0.44 ms
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-ai] Pro geladen: True
+19:31:06 | INFO: Data are loaded, start creating Blender stuff
+19:31:06 | INFO: Blender create Mesh node Mesh1
+19:31:06 | INFO: glTF import finished in 0.03s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Error: The cut gave no watertight parts (bad edges: part A 1012, part B 0); the mesh is unchanged.
+[cj-chris] KNIE op (-0.3, 15.4, 40.5): fout Error: The cut gave no watertight parts (bad edges: part A 1012, part B 0); the mesh is unchanged.
+, delen [], melding None
+[cj-voet] OK   knie 27%: geweigerd, geen delen
+19:31:19 | INFO: Data are loaded, start creating Blender stuff
+19:31:19 | INFO: Blender create Mesh node Mesh1
+19:31:19 | INFO: glTF import finished in 0.03s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Error: The cut gave no watertight parts (bad edges: part A 818, part B 0); the mesh is unchanged.
+[cj-chris] KNIE op (1.1, 15.6, 37.5): fout Error: The cut gave no watertight parts (bad edges: part A 818, part B 0); the mesh is unchanged.
+, delen [], melding None
+[cj-voet] OK   knie 25%: geweigerd, geen delen
+19:31:30 | INFO: Data are loaded, start creating Blender stuff
+19:31:30 | INFO: Blender create Mesh node Mesh1
+19:31:30 | INFO: glTF import finished in 0.03s
+Info: Watertight copy army_man_gesloten made (133910 faces)
+Warning: Tight: too little limb past this joint to click. Try a spot further from the end.
+[cj-chris] KNIE op (-1.8, 14.6, 43.5): {'CANCELLED'}, delen [], melding None
+[cj-voet] OK   knie 29%: geweigerd, geen delen
+[cj-voet] INFO 4.2: 0 knie(ën) heel gelukt, weigeren is hier toegestaan (plan punt 3)
+[cj-voet] KLAAR 0 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+STATUS Reinstalled "click_joints"
+[cj-ai] Pro geladen: True
+[cj-mtoets] Blender 4.2.23 LTS
+19:31:33 | INFO: Data are loaded, start creating Blender stuff
+19:31:33 | INFO: Blender create Mesh node Mesh1
+19:31:33 | INFO: glTF import finished in 0.02s
+Info: Watertight copy man_backpack_gesloten made (107236 faces)
+[cj-mrig] man_backpack_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (11.3, -8.9, 40.5)
+[cj-mtoets] OK   man_backpack_gesloten: rig gemaakt
+Info: Hinge placed. Bends 0° to 120°. 3.617 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 3.488 s.
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: Too close to another joint (keep 37 mm apart).
+Warning: 2 joints · 1 rig · 1 mirror. Skipped: Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] OK   man_backpack_gesloten: geen lege tussenmeshes achtergebleven (0)
+[cj-mtoets] man_backpack_gesloten: uitslag {'FINISHED'}, gewrichten ['Left knee · Hinge · 0–120° · from rig', 'Right knee · Hinge · 0–120° · mirror'], overgeslagen: Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range); Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range)
+[cj-mtoets] OK   man_backpack_gesloten: linkerknie 0-120 from rig ({'nr': 1, 'naam': 'Left knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'from rig', 'punt': [11.3337, -8.9328, 40.5]})
+[cj-mtoets] OK   man_backpack_gesloten: rechterknie mirrored ({'nr': 2, 'naam': 'Right knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'mirrored', 'punt': [-11.8863, -6.6517, 37.4629]})
+[cj-mtoets] OK   man_backpack_gesloten: alle 3 delen gesloten
+[cj-mtoets] OK   man_backpack_gesloten: elk deel één stuk ([1, 1, 1])
+[cj-mtoets] OK   man_backpack_gesloten: Left hip overgeslagen met leesbare reden (Left hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+[cj-mtoets] OK   man_backpack_gesloten: Right hip overgeslagen met leesbare reden (Right hip (no room on this 38 mm bone for a ball joint next to the knee, place it by hand or give the knee a smaller range))
+19:31:57 | INFO: Data are loaded, start creating Blender stuff
+19:31:57 | INFO: Blender create Mesh node Mesh1
+19:31:58 | INFO: glTF import finished in 0.03s
+Info: Watertight copy knight_yellow_gesloten made (217072 faces)
+[cj-mrig] knight_yellow_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (10.6, 33.1, 40.5)
+[cj-mtoets] OK   knight_yellow_gesloten: rig gemaakt
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 12.872 s.
+Info: Hinge placed. Bends 0° to 120°. 6.726 s.
+Error: The parts overlap before they move; the mesh is unchanged.
+Info: Hinge placed. Bends 0° to 120°. 6.892 s.
+Error: The mesh knight_yellow_gesloten_A_A is not watertight (4 edges without exactly 2 faces). Click Make watertight first.
+Error: The mesh knight_yellow_gesloten_A_A is not watertight (4 edges without exactly 2 faces). Click Make watertight first.
+Warning: 2 joints · 1 rig · 1 mirror. Skipped: Left hip (The mesh knight_yellow_gesloten_A_A is not watertight (4 edges without exactly 2 faces). Click Make watertight first.); Right hip (The mesh knight_yellow_gesloten_A_A is not watertight (4 edges without exactly 2 faces). Click Make watertight first.)
+[cj-mtoets] OK   knight_yellow_gesloten: geen lege tussenmeshes achtergebleven (0)
+[cj-mtoets] knight_yellow_gesloten: uitslag {'FINISHED'}, gewrichten ['Left knee · Hinge · 0–120° · from rig', 'Right knee · Hinge · 0–120° · mirror'], overgeslagen: Left hip (The mesh knight_yellow_gesloten_A_A is not watertight (4 edges without exactly 2 faces). Click Make watertight first.); Right hip (The mesh knight_yellow_gesloten_A_A is not watertight (4 edges without exactly 2 faces). Click Make watertight first.)
+[cj-mtoets] OK   knight_yellow_gesloten: linkerknie 0-120 from rig ({'nr': 1, 'naam': 'Left knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'from rig', 'punt': [11.065, 33.6827, 40.5425]})
+[cj-mtoets] OK   knight_yellow_gesloten: rechterknie mirrored ({'nr': 2, 'naam': 'Right knee', 'preset': 'KNEE', 'soort': 'HINGE', 'graden': 120.0, 'herkomst': 'mirrored', 'punt': [-18.7909, 33.472, 37.758]})
+[cj-mtoets] FOUT knight_yellow_gesloten: alle 3 delen gesloten
+[cj-mtoets] OK   knight_yellow_gesloten: elk deel één stuk ([1, 1, 1])
+[cj-mtoets] OK   knight_yellow_gesloten: Left hip overgeslagen met leesbare reden (Left hip (The mesh knight_yellow_gesloten_A_A is not watertight (4 edges without exactly 2 faces). Click Make watertight first.))
+[cj-mtoets] OK   knight_yellow_gesloten: Right hip overgeslagen met leesbare reden (Right hip (The mesh knight_yellow_gesloten_A_A is not watertight (4 edges without exactly 2 faces). Click Make watertight first.))
+19:32:57 | INFO: Data are loaded, start creating Blender stuff
+19:32:57 | INFO: Blender create Mesh node Mesh1
+19:32:57 | INFO: glTF import finished in 0.02s
+Info: Watertight copy man_backpack_gesloten made (107236 faces)
+[cj-mrig] man_backpack_gesloten RIG: 12 botten, armen nee links, nee rechts; knie L (11.3, -8.9, 40.5)
+Info: Joint placed. Good fit. 3.982 s.
+Info: Joint placed. Good fit. 3.893 s.
+Info: Joint placed. Good fit. 3.994 s.
+Info: Joint placed. Good fit. 3.975 s.
+Warning: No joints placed. Skipped: Left hip (no room for a ball joint that can move here (it would be blocked); place it by hand); Right hip (no room for a ball joint that can move here (it would be blocked); place it by hand)
+[cj-mtoets] man_backpack_gesloten alleen heupen: uitslag {'CANCELLED'}, delen 1, overgeslagen: Left hip (no room for a ball joint that can move here (it would be blocked); place it by hand); Right hip (no room for a ball joint that can move here (it would be blocked); place it by hand)
+[cj-mtoets] OK   man_backpack_gesloten alleen heupen: model heel en ongesneden (1 delen)
+[cj-mtoets] OK   man_backpack_gesloten alleen heupen: redenen op het model te lezen (Left hip (no room for a ball joint that can move here (it would be blocked); place it by hand); Right hip (no room for a)
+[cj-mtoets] KLAAR 1 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+
+Blender quit
+FOUT: figure from rig op Meshy-figuren
+[geheugen] 19:31:01 vrij 14832 MB, grootste blender (KB): 341400 /tmp/blender/blender -b --factory-startup --python e2e/toetsen_testkaart.py -- /tmp/click_joints_betaald.zip
+[geheugen] 19:32:00 vrij 14327 MB, grootste blender (KB): 632816 /tmp/blender/blender -b --factory-startup --python e2e/toetsen_meshy_rig.py -- /tmp/click_joints_betaald.zip /tmp/meshy/MESHY_GLB/people/man_backpack.glb
+[geheugen] 19:33:00 vrij 14294 MB, grootste blender (KB): 689552 /tmp/blender/blender -b --factory-startup --python e2e/toetsen_meshy_rig.py -- /tmp/click_joints_betaald.zip /tmp/meshy/MESHY_GLB/people/man_backpack.glb
+##[error]Process completed with exit code 1.
