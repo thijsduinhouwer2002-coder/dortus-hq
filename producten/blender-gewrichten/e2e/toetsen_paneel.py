@@ -4,13 +4,18 @@ Het hoofdpaneel tekent in een nep-layout die elke regel en knop in volgorde opsc
 1. met een rig aan je mesh staat "Figure from rig" bovenaan, vóór stap 1 (zonder rig niet);
 2. de proefstrip staat in stap 2 onder Clearance en vóór Place joint;
 3. het scharnier staat in stap 2 onder Place joint en vóór stap 3 (niet meer los onder Export);
-4. de regel om te beoordelen komt pas na een goed resultaat, met de twee winkels van Pro;
+4. de regel om te beoordelen komt pas na een goed resultaat én een export, met de twee winkels van Pro, en is weg na een
+   klik op een winkel (issue 100);
 5. bij een geplaatst scharnier zegt stap 3 "Hinge placed" (Daan #83 C2: stap 2 houdt Ball blauw voor het volgende).
 Aangeroepen vanuit test_betaald.py met toets(stap, eigen)."""
+import os
 import sys
 from types import SimpleNamespace
 
 import bpy
+
+
+OPS = []  # idname van elke getekende knop, in volgorde
 
 
 class Nep:
@@ -34,6 +39,7 @@ class Nep:
         self.log.append(("prop", naam))
 
     def operator(self, idname, text=None, **_k):
+        OPS.append(idname)
         self.log.append(("op", text if text is not None else idname))
         return SimpleNamespace()
 
@@ -92,14 +98,39 @@ def toets(stap, eigen):
     stap("beoordelen: Pro wijst naar Superhive en Gumroad", [w for w, _l in meld.BEOORDEEL] == ["Superhive", "Gumroad"])
     stap("beoordelen: gratis wijst naar Blender Extensions",
          [w for w, _l in meld.BEOORDEEL_GRATIS] == ["Blender Extensions"])
-    stap("beoordelen: niet zonder goed resultaat", not meld.goed_resultaat([lijf]))
+    scene = bpy.context.scene
+    merk = meld.merkbestand()
+    if merk and os.path.exists(merk):
+        os.remove(merk)
+    for k in ("cj_laatste_export", "cj_beoordeeld"):
+        if k in scene:
+            del scene[k]
+    stap("beoordelen: niet zonder goed resultaat", not meld.goed_resultaat([lijf]) and not meld.vraag_beoordeling(scene))
     lijf["cj_passing"] = "groen"
-    stap("beoordelen: wel na Good fit", meld.goed_resultaat([lijf]))
+    stap("beoordelen: Good fit telt", meld.goed_resultaat([lijf]))
+    stap("beoordelen: nog niet vóór een export (issue 100)", not meld.vraag_beoordeling(scene))
+    scene["cj_laatste_export"] = ["/tmp/paneel_lijf_A.stl"]
+    stap("beoordelen: wel na Good fit en export", meld.vraag_beoordeling(scene))
     log = []
-    meld.CLICK_JOINTS_PT_meld.draw(SimpleNamespace(layout=Nep(log)), SimpleNamespace(scene=bpy.context.scene))
+    OPS.clear()
+    meld.CLICK_JOINTS_PT_meld.draw(SimpleNamespace(layout=Nep(log)), SimpleNamespace(scene=scene))
     stap("beoordelen: regel en twee knoppen boven Report a problem",
          plek(log, "label", "Happy with it") == 0 and [t for s, t in log if s == "op"][:2] == ["Superhive", "Gumroad"],
          str(log))
+    stap("beoordelen: winkelknop gaat via click_joints.beoordeel (onthoudt de klik)",
+         OPS[:2] == ["click_joints.beoordeel"] * 2, str(OPS))
+    meld.onthoud(scene)  # wat de knop doet na het openen van de winkel
+    log = []
+    meld.CLICK_JOINTS_PT_meld.draw(SimpleNamespace(layout=Nep(log)), SimpleNamespace(scene=scene))
+    stap("beoordelen: na een klik weg, Report a problem blijft",
+         plek(log, "label", "Happy with it") < 0 and [t for s, t in log if s == "op"] == ["click_joints.meld"], str(log))
+    if merk:
+        del scene["cj_beoordeeld"]
+        stap("beoordelen: ook in een ander bestand weg (merkje in de extensiemap)", not meld.vraag_beoordeling(scene))
+        os.remove(merk)
+    for k in ("cj_laatste_export", "cj_beoordeeld"):
+        if k in scene:
+            del scene[k]
 
     delen = []
     for deel in ("A", "B"):

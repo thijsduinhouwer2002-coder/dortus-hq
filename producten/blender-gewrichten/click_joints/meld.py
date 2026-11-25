@@ -52,15 +52,62 @@ def url_hier():
 
 
 # Beoordelen (issue 70, gat 3 in de lat: Cleave, Split 3D Print en JointLab hebben er elk 3, wij 0). Eén rustige regel
-# onder het paneel, pas na een goed resultaat: geen popup, niets in ruil. Link nagekeken met curl op 25 nov (200). Een
-# andere build zet hier zijn eigen winkels in (en zet bij uitzetten deze terug).
+# onder het paneel, geen popup, niets in ruil. Issue 100: pas na een Good fit én een export (eerder heeft de gebruiker
+# nog niets om te printen), en weg na een klik op een winkel, ook in een ander bestand. Link nagekeken met curl op
+# 25 nov (200). Een andere build zet hier zijn eigen winkels in (en zet bij uitzetten deze terug).
 BEOORDEEL_GRATIS = (("Blender Extensions", "https://extensions.blender.org/add-ons/click-joints/reviews/"),)
 BEOORDEEL = list(BEOORDEEL_GRATIS)
+MERK = "rating_asked"
 
 
 def goed_resultaat(objecten):
-    """True zodra er in de scène een gewricht met "Good fit" (groen) staat: pas dan vragen we om een beoordeling."""
+    """True zodra er in de scène een gewricht met "Good fit" (groen) staat."""
     return any(ob.get("cj_passing") == "groen" for ob in objecten)
+
+
+def merkbestand():
+    """Pad van het merkje in de gebruikersmap van deze extensie (blijft over bestanden heen), of None als de add-on
+    niet als extensie draait (dan alleen de scène)."""
+    try:
+        return os.path.join(bpy.utils.extension_path_user(__package__, create=True), MERK)
+    except Exception:
+        return None
+
+
+def al_gevraagd(scene):
+    pad = merkbestand()
+    return bool(scene.get("cj_beoordeeld")) or bool(pad and os.path.exists(pad))
+
+
+def onthoud(scene):
+    """Na een klik op een winkel: niet meer vragen, in deze scène en (als het kan) in elk bestand."""
+    scene["cj_beoordeeld"] = True
+    pad = merkbestand()
+    if pad:
+        try:
+            with open(pad, "w", encoding="utf-8") as f:
+                f.write("1")
+        except OSError:
+            pass
+
+
+def vraag_beoordeling(scene):
+    """Regel tonen: Good fit, er is geëxporteerd (exporteer.py zet cj_laatste_export) en nog niet geklikt."""
+    return "cj_laatste_export" in scene and goed_resultaat(scene.objects) and not al_gevraagd(scene)
+
+
+class CLICK_JOINTS_OT_beoordeel(bpy.types.Operator):
+    bl_idname = "click_joints.beoordeel"
+    bl_label = "Leave a rating"
+    bl_description = "Open the store page to leave a rating"
+    bl_options = {"INTERNAL"}
+
+    url: bpy.props.StringProperty(options={"SKIP_SAVE"})
+
+    def execute(self, context):
+        bpy.ops.wm.url_open(url=self.url)
+        onthoud(context.scene)
+        return {"FINISHED"}
 
 
 class CLICK_JOINTS_OT_meld(bpy.types.Operator):
@@ -86,13 +133,13 @@ class CLICK_JOINTS_PT_meld(bpy.types.Panel):
     bl_options = {"HIDE_HEADER"}
 
     def draw(self, context):
-        if goed_resultaat(context.scene.objects):
+        if vraag_beoordeling(context.scene):
             kol = self.layout.column(align=True)
             kol.label(text="Happy with it? Leave a rating:", icon="SOLO_OFF")  # past in een smalle zijbalk
             rij = kol.row(align=True)
             for winkel, link in BEOORDEEL:
-                rij.operator("wm.url_open", text=winkel, icon="URL").url = link
+                rij.operator(CLICK_JOINTS_OT_beoordeel.bl_idname, text=winkel, icon="URL").url = link
         self.layout.operator(CLICK_JOINTS_OT_meld.bl_idname, icon="URL", emboss=False)
 
 
-KLASSEN = (CLICK_JOINTS_OT_meld, CLICK_JOINTS_PT_meld)
+KLASSEN = (CLICK_JOINTS_OT_meld, CLICK_JOINTS_OT_beoordeel, CLICK_JOINTS_PT_meld)
