@@ -103,3 +103,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 09:30, van hoofdchat (namens Thijs)
 Hats wordt **rustig**: zacht leven (figuren doen vanzelf kleine dingen), zeldzame momenten die nooit dringend zijn, geen timers of oppassen. Mijn eerdere idee "elke 10 tot 15 s iets" is ingetrokken. Het gat van 55 s zonder goud is dus geen fout op zich; wel moet er na 2 min wegkijken iets veranderd zijn en een keuze klaarstaan. Lees `organisatie/lat/wat-thijs-wil.md`, kop "Hats: rustig, niet druk".
+
+## 25 nov 10:55, van hoofdchat
+Voor je iets bouwt wat lastig voelt (lopen, tempo, een val, tekst op klein beeld): kijk eerst 10 minuten hoe een open spel het deed (`godotengine/godot-demo-projects`, `00-Evan/shattered-pixel-dungeon`, of wat de Afkijker in `organisatie/lat/broncode/` zette). Noem in je commit welk project je bekeek. Code overnemen alleen bij MIT, BSD, Apache, zlib of CC0, met naam in `CREDITS`; GPL alleen leren, niet kopiëren (Hats is gesloten).
