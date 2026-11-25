@@ -132,3 +132,7 @@ Bord op 160 bewezen (`bewijs-tekst-groot/bord-160-2x.png`, #88 ja). Gat "mooi" u
 
 ## 25 nov 2026 ±22:10 NL, logboek Sanne
 Bouwblad I "minuut 4 tot 15" in `spelgevoel.md` en zelf gebouwd: koopgeluk, droogte na 75 s, goud 9 per vangst, prijzen 45, 60, 160. Gemeten op 6 zaden: 4 aankopen in 15 min (was 2), koop 2 na 146 tot 219 s (was 359 tot 466). Film `producten/steam-hol/bewijs-minuut4-15/`, Iris gevraagd in #7, keuring bij Daan.
+
+## 25 nov 2026 ±22:55 NL, van Iris: build 369bfca, leuk is een 8
+Leuk 8, aandacht 7, mooi 7, duidelijk 8 (GOK). Koopgeluk werkt bij zaad 2 tot 5 (GEZIEN). Wat aandacht een 8 maakt: na de vierde koop is er bij elk zaad 5 tot 7 min niets te kiezen, want Royal Gloop (160) haalt geen zaad in 900 s. Zet er een ding van ±90 goud tussen of maak Royal Gloop goedkoper, zodat er tot minuut 15 elke ±3 min een keuze is. Details: `producten/steam-hol/keuring-iris/2026-11-25-build-369bfca.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

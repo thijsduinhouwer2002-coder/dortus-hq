@@ -1,0 +1,198 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:360)
+OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.5 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+Movie Maker mode enabled, recording movie at 5 FPS...
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
+HOL start hoogte=120 schaal=3 spelpixels=640x40 venster=(1920, 120) pos=(0, 480) held=res://systemen/held.gd
+HOL zaad 4
+HOL balk uit
+HELD3D geladen: ridder, heks, dief, bard, held0, held1, held2, held3, held4, hoeden, hoeden_hap, tekens; zonder eigen blad: geen; terugval op ridder/heks: true
+HOL muisvlak passthrough, lucht vrij op x=-1
+HOL begin: vallen (Merel)
+HOL held binnen: Merel
+HOL kroniek 2.6 (wacht 0.4): Merel read about you in a tavern.
+HOL uitleg stap 1 t=4.2 
+HOL kroniek zelfde held vervangen: Merel read about you in a tavern.
+HOL kroniek 7.6 (wacht 0.0): Merel found the Spike Pit. Hard. +9
+HOL begin: opgegeten (Siem)
+HOL held binnen: Siem
+HOL uitleg stap 2 t=9.2 Click the dirt to dig.
+HOL kroniek 10.2 (wacht 2.6): First hero in the pit!
+HOL kroniek vervallen 11.0: Siem has a map. It is wrong.
+HOL uitleg stap 3 t=15.2 Click the tunnel to set a trap.
+HOL uitleg proefklik (1080, 48): kamer
+HOL uitleg proefklik (936, 93): val
+HOL uitleg stap 4 t=21.4 
+HOL reeks 2 (+0, t 25.2)
+HOL kroniek 25.2 (wacht 0.0): Gloop ate Siem. Kept the crown. +9
+HOL kroniek 27.8 (wacht 2.6): First hero for Gloop!
+HOL begin: vluchten (Geert)
+HOL held binnen: Geert
+HOL kroniek 30.4 (wacht 1.4): Geert knocks first. Polite.
+HOL kroniek zelfde held vervangen: Geert knocks first. Polite.
+HOL kroniek 40.0 (wacht 0.0): Geert fled. Grudge: the Spike Pit.
+HOL kroniek 42.6 (wacht 2.6): First hero got away.
+HOL kroniek zelfde held vervangen: Geert fled. Grudge: the Spike Pit.
+HOL kroniek 62.8 (wacht 0.0): Geert remembers the Spike Pit.
+HOL begin: terug (Geert)
+HOL held binnen: Geert
+HOL hol-niveau 2 (faam 3, t 71.6)
+HOL kroniek 71.6 (wacht 0.0): The Spike Pit won. Grudge settled. +13
+HOL put-hoed 6 naar de toren (hoeden nu 2, t 71.6)
+HOL gloop ring aan na 71.8 s (goud 51)
+HOL uitleg gloop aan t=71.8 Click Gloop to grow him.
+HOL eerste koop mogelijk na 71 s speeltijd (goud 51)
+HOL bordje wip niveau 2
+HOL uitleg gloop proefklik
+HOL kaartje open 77.8: slijm
+HOL uitleg gloop weg t=77.8 na 6.0 s (klik)
+HOL koop 80.0: slijm niveau 1, goud 6
+HOL gloop ring uit na 80.2 s (goud 6)
+HOL kaartje dicht 82.6
+HOL kroniek 82.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
+HOL kroniek 98.4 (wacht 0.0): Bram says this is a quick one.
+HOL begin: doorlopen (Bram)
+HOL held binnen: Bram
+HOL kroniek 123.4 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek zelfde held vervangen: Bram says this is a quick one.
+HOL kroniek 132.6 (wacht 0.0): Bram touched your hoard!
+HOL held binnen: Elke
+HOL kroniek 135.2 (wacht 0.8): Elke climbs into your hole.
+HOL droogte (t 146.8)
+HOL kroniek 153.4 (wacht 0.0): Gloop is up again. Wobbly.
+HOL koopgeluk vangst +22 (t 155.6)
+HOL reeks 2 (+0, t 155.6)
+HOL kroniek zelfde held vervangen: Elke climbs into your hole.
+HOL kroniek 155.6 (wacht 0.0): Elke is part of the hole now. +22
+HOL put-hoed 1 naar de toren (hoeden nu 3, t 155.6)
+HOL kroniek 169.0 (wacht 0.0): Jop brought a torch. And hope.
+HOL held binnen: Jop
+HOL kroniek 170.2 (wacht 0.4): Bram ran. Hands smell of gold.
+HOL kroniek 198.0 (wacht 0.0): Kees is here for your gold.
+HOL held binnen: Kees
+HOL hol-niveau 3 (faam 5, t 198.0)
+HOL put-hoed 9 naar de toren (hoeden nu 4, t 198.0)
+HOL bordje wip niveau 3
+HOL kroniek 199.2 (wacht 1.2): Jop took the short way down. +11
+HOL reeks 2 (+0, t 232.6)
+HOL kroniek zelfde held vervangen: Kees is here for your gold.
+HOL kroniek 232.6 (wacht 0.0): Kees left gold and one boot. +12
+HOL put-hoed 6 naar de toren (hoeden nu 5, t 232.6)
+HOL held binnen: Bram
+HOL kroniek 235.2 (wacht 0.4): Bram the Hoard-Toucher is back for Gloop.
+HOL kaartje open 242.0: stekelput
+HOL koop 242.0: stekelput niveau 1, goud 6
+HOL kaartje dicht 244.6
+HOL kroniek 244.6 (wacht 0.0): The Spike Pit got rusty. Ouch.
+HOL kroniek 268.8 (wacht 0.0): Odo brought a torch. And hope.
+HOL held binnen: Odo
+HOL hol-niveau 4 (faam 7, t 269.4)
+HOL reeks 3 (+1, t 269.4)
+HOL put-hoed 8 naar de toren (hoeden nu 6, t 269.4)
+HOL bordje wip niveau 4
+HOL kroniek 270.0 (wacht 0.6): Bram fell to the Spike Pit. +16
+HOL kroniek 297.8 (wacht 0.0): Ineke knocks first. Polite.
+HOL held binnen: Ineke
+HOL koopgeluk vangst +28 (t 315.2)
+HOL reeks 4 (+2, t 315.2)
+HOL kroniek 315.2 (wacht 0.0): Odo checked the floor. Too late. +28
+HOL put-hoed 1 naar de toren (hoeden nu 7, t 315.2)
+HOL kroniek 334.8 (wacht 0.0): Mara climbs into your hole.
+HOL held binnen: Mara
+HOL reeks 5 (+3, t 351.0)
+HOL kroniek 351.0 (wacht 0.0): Ineke will not be leaving. +15
+HOL put-hoed 5 naar de toren (hoeden nu 8, t 351.0)
+HOL gloop ring aan na 351.2 s (goud 65)
+HOL kaartje open 360.6: slijm
+HOL koop 360.6: slijm niveau 2, goud 5
+HOL gloop ring uit na 360.8 s (goud 5)
+HOL kaartje dicht 363.2
+HOL kroniek 363.2 (wacht 0.0): Gloop bounces now. Back up in 40 s.
+HOL kroniek 372.0 (wacht 0.0): Wout picks the lock. It was open.
+HOL held binnen: Wout
+HOL koopgeluk vangst +32 (t 394.6)
+HOL reeks 6 (+4, t 394.6)
+HOL kroniek 394.6 (wacht 0.0): Mara stays forever. +32
+HOL put-hoed 1 naar de toren (hoeden nu 9, t 394.6)
+HOL kroniek 406.2 (wacht 0.0): Femke sneaks in. Nobody saw. You saw.
+HOL held binnen: Femke
+HOL reeks 7 (+4, t 416.6)
+HOL kroniek 416.6 (wacht 0.0): Nobody saw Wout fall. You saw. +16
+HOL put-hoed 0 naar de toren (hoeden nu 10, t 416.6)
+HOL kroniek 419.2 (wacht 2.6): The pit's first thief.
+HOL kroniek 443.2 (wacht 0.0): Sir Henk polished up for this.
+HOL held binnen: Henk
+HOL hol-niveau 5 (faam 12, t 451.8)
+HOL reeks 8 (+4, t 451.8)
+HOL kroniek 451.8 (wacht 0.0): Femke picked the wrong floor. +16
+HOL put-hoed 1 naar de toren (hoeden nu 11, t 451.8)
+HOL bordje wip niveau 5
+HOL kaartje open 461.4: stekelput
+HOL koop 461.4: stekelput niveau 2, goud 9
+HOL kaartje dicht 464.0
+HOL kroniek 464.0 (wacht 0.0): The pit got deeper. Echo, echo.
+HOL kroniek 480.0 (wacht 0.0): Pim yawns. Long walk.
+HOL held binnen: Pim
+HOL koopgeluk vangst +32 (t 526.8)
+HOL reeks 9 (+4, t 526.8)
+HOL kroniek 526.8 (wacht 0.0): Sir Henk clanked all the way down. +32
+HOL put-hoed 4 naar de toren (hoeden nu 12, t 526.8)
+HOL held binnen: Anouk
+HOL kroniek 529.4 (wacht 2.6): First knight in the pit!
+HOL kroniek vervallen 530.0: Anouk is here for your gold.
+HOL kroniek 532.0 (wacht 2.0): Pim slept. Rude.
+HOL reeks 10 (+4, t 545.8)
+HOL kroniek zelfde held vervangen: Pim slept. Rude.
+HOL kroniek 545.8 (wacht 0.0): Pim gets a long nap now. +16
+HOL put-hoed 0 naar de toren (hoeden nu 13, t 545.8)
+HOL kroniek 561.8 (wacht 0.0): Joost says this is a quick one.
+HOL held binnen: Joost
+HOL reeks 11 (+4, t 586.8)
+HOL kroniek 586.8 (wacht 0.0): Anouk left gold and one boot. +16
+HOL put-hoed 8 naar de toren (hoeden nu 14, t 586.8)
+HOL kroniek 599.6 (wacht 0.0): Lotte has a map. It is wrong.
+HOL held binnen: Lotte
+HOL reeks 12 (+4, t 623.4)
+HOL kroniek 623.4 (wacht 0.0): Joost took the short way down. +16
+HOL put-hoed 4 naar de toren (hoeden nu 15, t 623.4)
+HOL kroniek 636.6 (wacht 0.0): Fenna read about you in a tavern.
+HOL held binnen: Fenna
+HOL hol-niveau 6 (faam 17, t 659.4)
+HOL reeks 13 (+4, t 659.4)
+HOL kroniek 659.4 (wacht 0.0): Lotte found the Spike Pit. Hard. +16
+HOL put-hoed 2 naar de toren (hoeden nu 16, t 659.4)
+HOL bordje wip niveau 6
+HOL kroniek 667.6 (wacht 0.0): Maud the Thief tiptoes in.
+HOL held binnen: Maud
+HOL reeks 14 (+4, t 695.4)
+HOL kroniek 695.4 (wacht 0.0): Fenna fell to the Spike Pit. +16
+HOL put-hoed 1 naar de toren (hoeden nu 17, t 695.4)
+HOL held binnen: Gerda
+HOL kroniek 698.0 (wacht 1.8): Gerda sneaks in. Nobody saw. You saw.
+HOL kroniek 748.4 (wacht 0.0): Maud escaped. You saw that too.
+HOL held binnen: Tibbe
+HOL kroniek 751.0 (wacht 2.6): A thief got away. Next time.
+HOL kroniek vervallen 751.6: Sir Tibbe is very slow. Very sure.
+HOL droogte (t 770.4)
+HOL kroniek 777.0 (wacht 0.0): Gerda escaped. You saw that too.
+HOL kroniek 780.2 (wacht 0.0): Teun is here for your gold.
+HOL held binnen: Teun
+HOL kroniek 831.2 (wacht 0.0): Sir Tibbe was very sure. Was. +12
+HOL put-hoed 0 naar de toren (hoeden nu 18, t 831.2)
+HOL held binnen: Rik
+HOL kroniek 833.8 (wacht 2.4): Sir Rik clanks in.
+HOL reeks 2 (+0, t 839.0)
+HOL kroniek 839.0 (wacht 0.0): Teun will not be leaving. +12
+HOL put-hoed 1 naar de toren (hoeden nu 19, t 839.0)
+HOL kroniek 862.6 (wacht 0.0): Kobus picks the lock. It was open.
+HOL held binnen: Kobus
+HOL einde na 900 s, fps=80, goud=145, terugkomers=0
+----------------
+Done recording movie at path: /tmp/claude-0/-home-claude/463caf3d-2302-5c58-93aa-afcaf3376dbf/scratchpad/film/z4.avi
+4501 frames at 5 FPS (movie length: 00:15:00), recorded in 00:01:04 (1406% of real-time speed).
+CPU time: 5.20 seconds (average: 1.16 ms/frame)
+GPU time: 15.37 seconds (average: 3.41 ms/frame)
+----------------

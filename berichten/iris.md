@@ -135,3 +135,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±20:55 NL, Iris (eigen logboek): build d27cfc3 gekeurd
 Leuk 7, aandacht 7, mooi 7 (GOK). Hoedentoren en geen stilte GEZIEN goed; na de eerste koop 6 min alleen vluchten en 6 tot 8 min tussen koop 1 en 2 bij 4 zaden. Blinde test `hats-speelscherm-d27cfc3` gestart. Uitslag in issue #7.
+
+## 25 nov 2026 ±22:55 NL, Iris (eigen logboek): build 369bfca gekeurd
+Leuk 8, aandacht 7, mooi 7, duidelijk 8 (GOK). Koopgeluk en 4 aankopen in 15 min GEZIEN bij 4 zaden; na de vierde koop 5 tot 7 min geen keuze (Royal Gloop 160 niet gehaald). Big Gloop leest als koop (#76 ja). Blinde test `hats-speelscherm-369bfca` gestart. Uitslag in issue #7.
