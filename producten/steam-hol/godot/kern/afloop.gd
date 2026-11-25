@@ -197,9 +197,15 @@ static func put_hoed(s, _held) -> void:
 	var hn = _held.get("hoed_nr")
 	if hn == null or int(hn) < 0:
 		return
+	# loopt er al een rij (nachthoeden bij terugkomen, of een vorige put-hoed): achteraan, zonder de klok te herstarten,
+	# anders pauzeert de rij die al valt (kan Daan #92 punt 4)
+	var loopt: bool = not (sl.nacht_hoeden as Array).is_empty() and float(sl.nacht_van) >= 0.0
 	sl.krijg_hoed_later(int(hn))
 	sl.gegeten -= 1
-	sl.start_nacht(PUT_HOED_WACHT_S)
+	if not loopt:
+		sl.start_nacht(PUT_HOED_WACHT_S)
+	else:
+		sl.set_process(true)
 	s.log_regel("HOL put-hoed %d naar de toren (hoeden nu %d, t %.1f)" % [int(hn), sl.hoeden.size() + sl.nacht_hoeden.size(), s.t])
 
 # Reeksbonus (issue 5): 1 en 2 op rij niets extra, de derde +1, de vierde +2, ... hooguit +4.

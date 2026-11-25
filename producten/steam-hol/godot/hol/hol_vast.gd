@@ -207,6 +207,7 @@ func teken(d: CanvasItem) -> void:
 		if h.vallen.has(k):
 			continue
 		hh = deco_hh(h, k, hh, vorige)
+		var vorige_voor := vorige
 		if hh < 30 or (hh < 36 and not h.boven[k]):   # spinrag alleen onder een dicht plafond (zie onder)
 			vorige = k
 		if hh < 14:
@@ -215,7 +216,10 @@ func teken(d: CanvasItem) -> void:
 		elif hh < 30:
 			var soorten := [0, 1, 2, 4, 5]   # paddenstoel, lichtzwam, ton, schedel, kristal
 			var c: int = soorten[hh % 5]
-			if not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[c], Vector2(k * KOL + midden, vloer + 1), false)):
+			var vx := vloer_x(h, k, HOL3D.DECO_GANG[c], gang_3d, berg_l, vorige_voor)
+			if is_nan(vx):
+				continue   # zou onder de hoedenberg liggen en links is geen plek (Daan #92 punt 3)
+			if not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[c], Vector2(vx, vloer + 1), false)):
 				d.draw_texture_rect_region(DECO, Rect2(k * KOL, vloer - 15, KOL, KOL), Rect2(c * KOL, 0, KOL, KOL))
 		elif hh < 36 and not h.boven[k]:
 			var web_maar: bool = gang_3d and k * KOL + KOL > spin_grens(h)
@@ -225,6 +229,21 @@ func teken(d: CanvasItem) -> void:
 				_teken_hangend(d, "spinrag", Vector2(k * KOL + midden, GANG_BOVEN))   # bij de berg: web wel, spin niet
 			elif not (gang_3d and HOL3D.teken_deco_op(d, HOL3D.DECO_GANG[6], Vector2(k * KOL + midden, GANG_BOVEN), true)):
 				d.draw_texture_rect_region(DECO, Rect2(k * KOL, GANG_BOVEN, KOL, KOL), Rect2(6 * KOL, 0, KOL, KOL))   # spinrag
+
+# Vloerding niet onder de hoedenberg (Daan #92 punt 3: de berg lag op de blauwe kristallen). Midden x van het ding op
+# kolom k; reikt het (3D-maat, plus 1 px lucht) over de linkerrand van de berg (berg_links), dan schuift het naar links,
+# hooguit één kolom, als die kolom geen val heeft en vrij is (niet naast het vorige stuk). Anders NAN: niet tekenen.
+# Pixelgang: alleen de berg-check met KOL breed. Zonder berg (berg_l INF) altijd gewoon het midden van de kolom.
+static func vloer_x(h, k: int, naam: String, gang_3d: bool, berg_l: float, vorige: int) -> float:
+	var x: float = k * KOL + KOL / 2.0
+	var m := HOL3D.deco_maat(naam) if gang_3d else Vector2.ZERO
+	var half: float = (m.x / 2.0 if m != Vector2.ZERO else KOL / 2.0) + 1.0
+	if x + half <= berg_l:
+		return x
+	var nx: float = floor(berg_l - half)
+	if nx >= (k - 1) * KOL + 2 and not h.vallen.has(k - 1) and k - 1 - vorige >= 2 and k - 1 > h.ingang_kol:
+		return nx
+	return NAN
 
 # Welke versiering op gangkolom k komt (hh zoals in teken(): onder 14 stut, 14 tot 30 een vloerding, 30 tot 36 spinrag,
 # 99 = niets). Dunner na de frisse kijker (Daan 14 nov 02:50 en 03:55):

@@ -17,3 +17,7 @@ Tempo-regel 5 (`organisatie/lat/hats-tempo.md`): na 2 min wegkijken is er iets t
 **Eerlijk:** zonder graven is de hoedenwand niet te zien (die hoort bij gegraven gang), dus de groei zit in de toren en de berg. De berg ligt bij 10 of meer hoeden deels voor de blauwe kristallen; dat lees ik als een berg die ervoor ligt, maar Daan kijkt ernaar.
 
 **Code:** `kern/afloop.gd` (`put_hoed`, één regel na de stempel van de put). Bekeken: hoe de hoeden van de nacht al landen (`systemen/slijm.gd`, Bram) en Rusty's Retirement in de lat (de boerderij verandert zichtbaar terwijl je werkt).
+
+## Na de keuring van Daan (#92, ja met twee kanpunten), Olaf 25 nov ±19:45 NL
+- **Kristallen niet meer onder de berg (punt 3):** een vloerding dat onder de linkerrand van de hoedenberg zou liggen, schuift hooguit één kolom naar links als daar plek is (geen val, niet naast het vorige stuk); anders wordt het niet getekend, zoals het spinrag bij de berg al deed (`hol/hol_vast.gd`, `vloer_x`). `kristal-niet-onder-berg-voor-en-na-2x.png`: boven main, onder nieuw, zelfde hol (zaad 2, 1024 breed, 27 hoeden op Gloop), GEZIEN: boven half onder de kroon en de berg, onder heel en vrij.
+- **Put-hoed achteraan de lopende rij (punt 4):** valt er al een rij hoeden (terugkomen, of een vorige put-hoed), dan gaat de nieuwe achteraan en start de klok van de nacht niet opnieuw (`kern/afloop.gd`). Nieuwe toets in `toets_klap.gd`. Toetsen 7 x 0 FOUT (Linux, GEZIEN).

@@ -92,6 +92,12 @@ func _init() -> void:
 	st.demo = true
 	AF.put_hoed(st, hd)
 	ok(sl.nacht_hoeden.size() == 1, "put-hoed: niet in de demo-film")
+	# rij loopt al (Daan #92 punt 4): achteraan, de klok van de nacht start niet opnieuw
+	st.demo = false
+	var klok: float = sl.nacht_van
+	sl.t += 5.0
+	AF.put_hoed(st, hd)
+	ok(sl.nacht_hoeden == [6, 6] and is_equal_approx(sl.nacht_van, klok), "put-hoed: achteraan de lopende rij, klok blijft %.2f" % sl.nacht_van)
 	sl.free()
 	print("[klap-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

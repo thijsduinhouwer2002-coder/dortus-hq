@@ -2329,3 +2329,4 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - 25 nov ±13:00 Sanne: pijl bij 'set a trap' raakt nu het gouden vak (Daan #64 C3), keuring #77.
 - 25 nov ±13:30 NL (Olaf, #79): fakkelvlam flakkert ook zonder held; film 10 min echt spel zonder demo, langste stil stuk 0,2 s (was 29,6 s buiten Gloop), `producten/steam-hol/bewijs-zacht-leven/`. #25 dicht (Iris lopen 8).
 - 25 nov ±15:40 NL (Olaf, #79, Daan #80 M1 M2): fakkelvlam zonder hard staafje, de vlam uit de render rekt en wiegt, punt spits; toetsen 7 x 0 FOUT, film opnieuw, langste stil 0,2 s.
+- 25 nov ±19:45 Olaf #86: na Daan #92 kristallen niet onder de berg, put-hoed achteraan de lopende rij; 7 x 0 FOUT.
