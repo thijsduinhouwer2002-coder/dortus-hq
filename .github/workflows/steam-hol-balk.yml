@@ -106,16 +106,17 @@ jobs:
           $w0 = [W]::Werk()
           $r += "scherm $($sb.Width)x$($sb.Height), werkruimte zonder spel $(Tekst $w0)"
 
-          # 1 en 2: Kladblok gemaximaliseerd, dan het spel
+          # 1 en 2: Kladblok gemaximaliseerd, dan het spel. Op 96 px, want alleen daar is echte lucht boven het gras
+          # (120 en 160 px: het gras begint in de bovenste rij, er is geen lucht om doorheen te klikken)
           $n = Start-Process notepad.exe -PassThru -WindowStyle Maximized
           Start-Sleep 3
           $nh = Venster $n
-          $p = Start-Process -FilePath $exe -ArgumentList "-- hoogte=120 vers=1 demo=1 log=$ug/spel-1.log" -PassThru
+          $p = Start-Process -FilePath $exe -ArgumentList "-- hoogte=96 vers=1 demo=1 log=$ug/spel-1.log" -PassThru
           $sh = Venster $p
           Start-Sleep 12
           $w1 = [W]::Werk(); $kr = [W]::Rect($nh); $sr = [W]::Rect($sh)
           $r += "met spel: werkruimte $(Tekst $w1), Kladblok $(Tekst $kr), spel $(Tekst $sr)"
-          Ok ($w1.B -eq $w0.B - 120) "werkruimte 120 px korter ($($w0.B) -> $($w1.B))"
+          Ok ($w1.B -eq $w0.B - 96) "werkruimte 96 px korter ($($w0.B) -> $($w1.B))"
           Ok ($kr.B -le $sr.T + 8) "Kladblok (gemaximaliseerd) eindigt boven het spel (onder $($kr.B), spel boven $($sr.T); 8 px is de onzichtbare rand van Windows)"
           Ok ($sr.B -eq $w0.B) "spel staat direct boven de taakbalk"
           $ex = [W]::GetWindowLongPtr($sh, -20)
