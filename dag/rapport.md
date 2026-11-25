@@ -2,9 +2,9 @@
 
 Denkbeeldige makerbot in jonge temperatuurmarkten. Geen account, geen geld, niets geplaatst. Beloning = GOK (formule van Polymarket; voor de concurrentie een ondergrens en een hoge schatting). Vullingen en verlies = GEZIEN (echte trades en gemeten midden), behalve waar GOK staat.
 
-**Met €150: netto $-1.48 tot $1.73 per dag (GOK)**, in 2 gemiddelde markten tegelijk (variant 1c, ondergrens tot hoge schatting van de beloning, min het verlies op vullingen).
+**Met €150: netto $-1.64 tot $1.86 per dag (GOK)**, in 2 gemiddelde markten tegelijk (variant 1c, ondergrens tot hoge schatting van de beloning, min het verlies op vullingen).
 
-Gemeten: 25 runs, 8396 minuten (139.9 uur) (GEZIEN). Markten in de data: 3861. Uitslag bekend voor 2706 markten.
+Gemeten: 26 runs, 8731 minuten (145.5 uur) (GEZIEN). Markten in de data: 4016. Uitslag bekend voor 2816 markten.
 
 ## Variant 1c (orders op 1 cent van het midden)
 
@@ -13,33 +13,33 @@ Gemeten: 25 runs, 8396 minuten (139.9 uur) (GEZIEN). Markten in de data: 3861. U
 | 2026-11-19 | 895 | 245 | $4,642 | $4,694 | $220 tot $466 | 2987 / 2103 | $9,892 | $-203 (14 nog zonder prijs) | $-543 (2987 van 2987 beslist) | $16.92 tot $262 |
 | 2026-11-20 | 1420 | 254 | $4,828 | $9,026 | $410 tot $843 | 4074 / 2965 | $13,129 | $-370 (114 nog zonder prijs) | $-325 (4074 van 4074 beslist) | $40.19 tot $473 |
 | 2026-11-21 | 1410 | 216 | $4,096 | $10,171 | $343 tot $704 | 4798 / 3271 | $15,012 | $-538 (97 nog zonder prijs) | $-427 (4798 van 4798 beslist) | $-195 tot $166 |
-| 2026-11-22 | 1432 | 191 | $3,616 | $9,582 | $352 tot $709 | 4422 / 3346 | $14,301 | $-490 (36 nog zonder prijs) | $-307 (4307 van 4422 beslist) | $-138 tot $220 |
-| 2026-11-23 | 1432 | 168 | $3,195 | $8,779 | $329 tot $661 | 4847 / 3681 | $15,405 | $-400 (38 nog zonder prijs) | $42.36 (3149 van 4847 beslist) | $-71.36 tot $261 |
-| 2026-11-24 | 1434 | 162 | $3,042 | $7,728 | $301 tot $621 | 4307 / 3017 | $14,667 | $-298 (35 nog zonder prijs) | $14.07 (67 van 4307 beslist) | $3.18 tot $324 |
-| 2026-11-25 | 373 | 159 | $3,014 | $7,388 | $77.22 tot $162 | 1152 / 751 | $4,000 | $-116 (204 nog zonder prijs) | $0.00 (0 van 1152 beslist) | $-38.44 tot $46.34 |
-| **Totaal** | 8396 | | $3,814 | $10,171 | $2,032 tot $4,167 | 26587 / 19134 | $86,406 | $-2,414 | $-1,545 | $-382 tot $1,753 |
+| 2026-11-22 | 1432 | 191 | $3,616 | $9,582 | $352 tot $709 | 4422 / 3346 | $14,301 | $-490 (36 nog zonder prijs) | $-380 (4422 van 4422 beslist) | $-138 tot $220 |
+| 2026-11-23 | 1432 | 168 | $3,195 | $8,779 | $329 tot $661 | 4847 / 3681 | $15,405 | $-400 (38 nog zonder prijs) | $275 (3776 van 4847 beslist) | $-71.36 tot $261 |
+| 2026-11-24 | 1434 | 162 | $3,042 | $7,728 | $301 tot $621 | 4307 / 3017 | $14,667 | $-298 (35 nog zonder prijs) | $16.76 (261 van 4307 beslist) | $3.18 tot $324 |
+| 2026-11-25 | 708 | 170 | $3,189 | $7,388 | $212 tot $448 | 2491 / 1620 | $8,961 | $-336 (235 nog zonder prijs) | $0.00 (0 van 2491 beslist) | $-123 tot $112 |
+| **Totaal** | 8731 | | $3,798 | $10,171 | $2,167 tot $4,453 | 27926 / 20003 | $91,367 | $-2,634 | $-1,383 | $-467 tot $1,819 |
 
-Resultaat vullingen 5 minuten later (vroege aanwijzing, GEZIEN): $-1,805 over 26533 vullingen en $86,238, dus -2.09% per gevulde dollar.
+Resultaat vullingen 5 minuten later (vroege aanwijzing, GEZIEN): $-1,967 over 27876 vullingen en $91,223, dus -2.16% per gevulde dollar.
 
-Verlies per gevulde dollar, 1 uur later: -2.84% over $84,896 (GEZIEN; B mat −1,05% voor alle makers binnen 1 cent, D −0,1 tot −0,3% voor alle makers in temperatuurmarkten). Alleen strenge vullingen: -3.67%.
+Verlies per gevulde dollar, 1 uur later: -2.94% over $89,733 (GEZIEN; B mat −1,05% voor alle makers binnen 1 cent, D −0,1 tot −0,3% voor alle makers in temperatuurmarkten). Alleen strenge vullingen: -3.75%.
 
-**Opgeschaald (GOK):** per dag $-72.89 (ondergrens) tot $293 (hoge schatting) netto (gemeten minuten × 1440 / 8396).
+**Opgeschaald (GOK):** per dag $-84.94 (ondergrens) tot $292 (hoge schatting) netto (gemeten minuten × 1440 / 8731).
 
-538 van de 26587 vullingen ($1,510) hebben nog geen prijs 1 uur later. Die tellen niet als 0: hun verlies is geschat met het verlies per dollar van de andere vullingen (1 uur later, -2.84%): $-42.94 (GOK).
+569 van de 27926 vullingen ($1,634) hebben nog geen prijs 1 uur later. Die tellen niet als 0: hun verlies is geschat met het verlies per dollar van de andere vullingen (1 uur later, -2.94%): $-47.98 (GOK).
 
-Geld dat de bot nodig had: gemiddeld $3,814 in open orders plus de hoogste stand van $10,171 vastzittend in gevulde voorraad tot de uitslag (JA en NEE per markt tegen elkaar weggestreept; vrij ±30 uur na het begin van de dag, GOK) = **$13,985**. De voorraad groeit tot de eerste markten beslist zijn (2 tot 3 dagen na de start), dus tot dan is dit getal te laag.
+Geld dat de bot nodig had: gemiddeld $3,798 in open orders plus de hoogste stand van $10,171 vastzittend in gevulde voorraad tot de uitslag (JA en NEE per markt tegen elkaar weggestreept; vrij ±30 uur na het begin van de dag, GOK) = **$13,969**. De voorraad groeit tot de eerste markten beslist zijn (2 tot 3 dagen na de start), dus tot dan is dit getal te laag.
 
 | Inleg | Te gebruiken (× 1.0 $/€, hooguit orders plus voorraad) | Netto over 90 dagen (GOK) |
 |---|---|---|
-| €2,000 | $2,000 | $-938 tot $3,774 |
-| €5,000 | $5,000 | $-2,345 tot $9,436 |
+| €2,000 | $2,000 | $-1,094 tot $3,764 |
+| €5,000 | $5,000 | $-2,736 tot $9,409 |
 
 Opschalen gaat lineair met het geld dat de bot nodig had (orders plus voorraad), en nooit daarboven: meer geld in dezelfde markten geeft geen evenredig grotere beloning (je deelt de pot). Kansspelbelasting (37,8%, mogelijk) en het verbod in Nederland staan hier niet in; zie README.
 
-Tegen de uitslag (de bot houdt zijn voorraad tot de uitslag): $-1,545 over 19382 vullingen en $62,536, dus -2.47% per gevulde dollar (GEZIEN).
+Tegen de uitslag (de bot houdt zijn voorraad tot de uitslag): $-1,383 over 20318 vullingen en $65,267, dus -2.12% per gevulde dollar (GEZIEN).
 
-- Hoogste temperatuur: 5 minuten later -2.02% per dollar over 25547 vullingen, 1 uur later -2.77% over 25055 (GEZIEN).
-- Laagste temperatuur: 5 minuten later -3.99% per dollar over 986 vullingen, 1 uur later -4.54% over 957 (GEZIEN).
+- Hoogste temperatuur: 5 minuten later -2.07% per dollar over 26799 vullingen, 1 uur later -2.86% over 26271 (GEZIEN).
+- Laagste temperatuur: 5 minuten later -4.09% per dollar over 1077 vullingen, 1 uur later -4.62% over 1046 (GEZIEN).
 
 ## Variant 3c (orders op 3 cent van het midden)
 
@@ -48,45 +48,45 @@ Tegen de uitslag (de bot houdt zijn voorraad tot de uitslag): $-1,545 over 19382
 | 2026-11-19 | 895 | 245 | $4,576 | $1,364 | $51.06 tot $127 | 490 / 352 | $1,800 | $-52.50 (6 nog zonder prijs) | $-84.53 (490 van 490 beslist) | $-1.45 tot $74.53 |
 | 2026-11-20 | 1420 | 254 | $4,737 | $3,186 | $98.64 tot $260 | 751 / 478 | $2,718 | $-74.90 (31 nog zonder prijs) | $145 (751 van 751 beslist) | $23.74 tot $185 |
 | 2026-11-21 | 1410 | 216 | $4,034 | $4,020 | $86.17 tot $230 | 966 / 606 | $3,482 | $-94.48 (14 nog zonder prijs) | $-66.21 (966 van 966 beslist) | $-8.31 tot $135 |
-| 2026-11-22 | 1432 | 191 | $3,551 | $3,943 | $88.97 tot $234 | 867 / 549 | $3,240 | $-71.94 (11 nog zonder prijs) | $-249 (839 van 867 beslist) | $17.03 tot $162 |
-| 2026-11-23 | 1432 | 168 | $3,136 | $3,949 | $83.83 tot $220 | 1159 / 776 | $4,375 | $-98.61 (6 nog zonder prijs) | $203 (770 van 1159 beslist) | $-14.78 tot $122 |
-| 2026-11-24 | 1434 | 162 | $3,013 | $3,774 | $73.70 tot $200 | 994 / 591 | $4,078 | $-43.91 (8 nog zonder prijs) | $30.36 (15 van 994 beslist) | $29.78 tot $156 |
-| 2026-11-25 | 373 | 159 | $2,967 | $3,504 | $18.39 tot $50.39 | 254 / 154 | $1,049 | $-32.16 (46 nog zonder prijs) | $0.00 (0 van 254 beslist) | $-13.77 tot $18.23 |
-| **Totaal** | 8396 | | $3,753 | $4,020 | $501 tot $1,321 | 5481 / 3506 | $20,742 | $-469 | $-21.40 | $32.25 tot $853 |
+| 2026-11-22 | 1432 | 191 | $3,551 | $3,943 | $88.97 tot $234 | 867 / 549 | $3,240 | $-71.94 (11 nog zonder prijs) | $-284 (867 van 867 beslist) | $17.03 tot $162 |
+| 2026-11-23 | 1432 | 168 | $3,136 | $3,949 | $83.83 tot $220 | 1159 / 776 | $4,375 | $-98.61 (6 nog zonder prijs) | $341 (909 van 1159 beslist) | $-14.78 tot $122 |
+| 2026-11-24 | 1434 | 162 | $3,013 | $3,774 | $73.70 tot $200 | 994 / 591 | $4,078 | $-43.91 (8 nog zonder prijs) | $27.37 (55 van 994 beslist) | $29.78 tot $156 |
+| 2026-11-25 | 708 | 170 | $3,161 | $3,577 | $49.09 tot $135 | 592 / 383 | $2,517 | $-90.79 (70 nog zonder prijs) | $0.00 (0 van 592 beslist) | $-41.70 tot $44.00 |
+| **Totaal** | 8731 | | $3,739 | $4,020 | $531 tot $1,405 | 5819 / 3735 | $22,210 | $-527 | $78.80 | $4.33 tot $878 |
 
-Resultaat vullingen 5 minuten later (vroege aanwijzing, GEZIEN): $-468 over 5464 vullingen en $20,661, dus -2.27% per gevulde dollar.
+Resultaat vullingen 5 minuten later (vroege aanwijzing, GEZIEN): $-525 over 5805 vullingen en $22,154, dus -2.37% per gevulde dollar.
 
-Verlies per gevulde dollar, 1 uur later: -2.30% over $20,361 (GEZIEN; B mat −1,05% voor alle makers binnen 1 cent, D −0,1 tot −0,3% voor alle makers in temperatuurmarkten). Alleen strenge vullingen: -3.32%.
+Verlies per gevulde dollar, 1 uur later: -2.42% over $21,761 (GEZIEN; B mat −1,05% voor alle makers binnen 1 cent, D −0,1 tot −0,3% voor alle makers in temperatuurmarkten). Alleen strenge vullingen: -3.41%.
 
-**Opgeschaald (GOK):** per dag $4.03 (ondergrens) tot $145 (hoge schatting) netto (gemeten minuten × 1440 / 8396).
+**Opgeschaald (GOK):** per dag $-1.08 (ondergrens) tot $143 (hoge schatting) netto (gemeten minuten × 1440 / 8731).
 
-122 van de 5481 vullingen ($381) hebben nog geen prijs 1 uur later. Die tellen niet als 0: hun verlies is geschat met het verlies per dollar van de andere vullingen (1 uur later, -2.30%): $-8.77 (GOK).
+146 van de 5819 vullingen ($449) hebben nog geen prijs 1 uur later. Die tellen niet als 0: hun verlies is geschat met het verlies per dollar van de andere vullingen (1 uur later, -2.42%): $-10.89 (GOK).
 
-Geld dat de bot nodig had: gemiddeld $3,753 in open orders plus de hoogste stand van $4,020 vastzittend in gevulde voorraad tot de uitslag (JA en NEE per markt tegen elkaar weggestreept; vrij ±30 uur na het begin van de dag, GOK) = **$7,773**. De voorraad groeit tot de eerste markten beslist zijn (2 tot 3 dagen na de start), dus tot dan is dit getal te laag.
+Geld dat de bot nodig had: gemiddeld $3,739 in open orders plus de hoogste stand van $4,020 vastzittend in gevulde voorraad tot de uitslag (JA en NEE per markt tegen elkaar weggestreept; vrij ±30 uur na het begin van de dag, GOK) = **$7,759**. De voorraad groeit tot de eerste markten beslist zijn (2 tot 3 dagen na de start), dus tot dan is dit getal te laag.
 
 | Inleg | Te gebruiken (× 1.0 $/€, hooguit orders plus voorraad) | Netto over 90 dagen (GOK) |
 |---|---|---|
-| €2,000 | $2,000 | $93.24 tot $3,351 |
-| €5,000 | $5,000 | $233 tot $8,377 |
+| €2,000 | $2,000 | $-25.11 tot $3,319 |
+| €5,000 | $5,000 | $-62.77 tot $8,297 |
 
 Opschalen gaat lineair met het geld dat de bot nodig had (orders plus voorraad), en nooit daarboven: meer geld in dezelfde markten geeft geen evenredig grotere beloning (je deelt de pot). Kansspelbelasting (37,8%, mogelijk) en het verbod in Nederland staan hier niet in; zie README.
 
-Tegen de uitslag (de bot houdt zijn voorraad tot de uitslag): $-21.40 over 3831 vullingen en $14,207, dus -0.15% per gevulde dollar (GEZIEN).
+Tegen de uitslag (de bot houdt zijn voorraad tot de uitslag): $78.80 over 4038 vullingen en $14,901, dus +0.53% per gevulde dollar (GEZIEN).
 
-- Hoogste temperatuur: 5 minuten later -2.26% per dollar over 5199 vullingen, 1 uur later -2.30% over 5089 (GEZIEN).
-- Laagste temperatuur: 5 minuten later -2.40% per dollar over 265 vullingen, 1 uur later -2.01% over 259 (GEZIEN).
+- Hoogste temperatuur: 5 minuten later -2.36% per dollar over 5507 vullingen, 1 uur later -2.41% over 5374 (GEZIEN).
+- Laagste temperatuur: 5 minuten later -2.53% per dollar over 298 vullingen, 1 uur later -2.50% over 288 (GEZIEN).
 
 ## Met weinig geld: €100, €150 en €200 (variant 1c, GOK)
 
-Een kleine inleg staat maar in een paar markten tegelijk. Per markt is nodig: de orders zelf (minimale grootte van die markt, vaak 20 aandelen, soms 100, afgerond op de tick van de markt, zoals gemeten) plus ruimte voor voorraad tot de rem (2 keer de ordergrootte aan de duurste kant). Markten die meer vragen dan de hele inleg vallen af. Gerekend over 1564 markten met minstens 60 gemeten minuten.
+Een kleine inleg staat maar in een paar markten tegelijk. Per markt is nodig: de orders zelf (minimale grootte van die markt, vaak 20 aandelen, soms 100, afgerond op de tick van de markt, zoals gemeten) plus ruimte voor voorraad tot de rem (2 keer de ordergrootte aan de duurste kant). Markten die meer vragen dan de hele inleg vallen af. Gerekend over 1650 markten met minstens 60 gemeten minuten.
 
 | Inleg | Gemiddelde markten: aantal | Beloning per dag | Netto per dag | Achteraf beste markten: aantal | Beloning per dag | Netto per dag |
 |---|---|---|---|---|---|---|
-| €100 | 1 | $1.54 tot $3.14 | $-0.74 tot $0.86 | 2 | $21.12 tot $39.71 | $39.17 tot $57.76 |
-| €150 | 2 | $3.07 tot $6.28 | $-1.48 tot $1.73 | 3 | $29.95 tot $55.54 | $35.81 tot $61.41 |
-| €200 | 3 | $4.61 tot $9.43 | $-2.22 tot $2.59 | 4 | $37.31 tot $68.08 | $46.03 tot $76.80 |
+| €100 | 1 | $1.67 tot $3.41 | $-0.82 tot $0.93 | 2 | $44.26 tot $88.71 | $-110 tot $-65.06 |
+| €150 | 2 | $3.33 tot $6.83 | $-1.64 tot $1.86 | 3 | $65.02 tot $129 | $-128 tot $-64.66 |
+| €200 | 3 | $5.00 tot $10.24 | $-2.46 tot $2.79 | 4 | $78.79 tot $157 | $-119 tot $-41.03 |
 
-Lees zo: per dag = gemeten opbrengst per markt-minuut × 1440 × aantal markten (GOK). "Achteraf beste" kiest de markten die in deze data het meest opleverden per dollar; dat is te mooi, want vooraf weet je niet welke dat zijn. Netto = beloning min het verlies op vullingen 1 uur later; vullingen zonder prijs 1 uur later zijn geschat met het verlies per dollar van de rest (-2.84%). Polymarket betaalt pas uit vanaf $1 beloning per dag (docs Liquidity Rewards); daaronder krijg je niets, maar het verlies op vullingen blijft. Geen belasting of verbod in Nederland meegerekend.
+Lees zo: per dag = gemeten opbrengst per markt-minuut × 1440 × aantal markten (GOK). "Achteraf beste" kiest de markten die in deze data het meest opleverden per dollar; dat is te mooi, want vooraf weet je niet welke dat zijn. Netto = beloning min het verlies op vullingen 1 uur later; vullingen zonder prijs 1 uur later zijn geschat met het verlies per dollar van de rest (-2.94%). Polymarket betaalt pas uit vanaf $1 beloning per dag (docs Liquidity Rewards); daaronder krijg je niets, maar het verlies op vullingen blijft. Geen belasting of verbod in Nederland meegerekend.
 
 ## Per markt (variant 1c)
 
@@ -96,14 +96,14 @@ Slechtste 10 en beste 10 op netto (beloning ondergrens plus resultaat 1 uur late
 |---|---|---|---|---|---|
 | highest wellington-on-november-23 19°C | 1574 | $4.66 tot $9.54 | 70 | $-35.02 | $-59.48 |
 | highest dallas-on-november-22 68-69°F | 2374 | $3.83 tot $7.62 | 52 | $-31.50 | $-104 |
+| highest paris-on-november-26 6°C | 1416 | $6.17 tot $13.23 | 59 | $-33.03 | $0.00 |
 | highest dallas-on-november-22 64-65°F | 2463 | $2.93 tot $6.04 | 36 | $-24.15 | $-54.33 |
 | highest nyc-on-november-25 48-49°F | 3278 | $9.66 tot $17.36 | 62 | $-29.88 | $0.00 |
 | highest paris-on-november-23 7°C | 2345 | $4.20 tot $9.02 | 69 | $-21.89 | $-93.47 |
+| highest helsinki-on-november-26 -1°C | 1006 | $3.94 tot $7.77 | 49 | $-21.48 | $0.00 |
 | highest taipei-on-november-24 21°C | 951 | $1.50 tot $3.00 | 33 | $-17.79 | $24.65 |
 | highest hong-kong-on-november-24 22°C | 1464 | $4.44 tot $8.79 | 89 | $-20.19 | $61.12 |
 | highest toronto-on-november-23 12°C | 1200 | $2.93 tot $5.19 | 44 | $-18.45 | $21.60 |
-| highest tel-aviv-on-november-25 24°C | 1688 | $6.04 tot $12.55 | 32 | $-20.91 | $0.00 |
-| highest wellington-on-november-23 18°C | 1574 | $4.34 tot $9.03 | 56 | $-18.80 | $28.93 |
 | ... | | | | | |
 | highest chicago-on-november-22 56-57°F | 2262 | $3.74 tot $6.27 | 57 | $6.34 | $11.46 |
 | highest hong-kong-on-november-20 18°C | 291 | $0.22 tot $0.54 | 39 | $9.97 | $-5.92 |
@@ -113,64 +113,64 @@ Slechtste 10 en beste 10 op netto (beloning ondergrens plus resultaat 1 uur late
 | highest helsinki-on-november-20 5°C | 740 | $1.97 tot $3.93 | 35 | $10.10 | $-2.39 |
 | highest seoul-on-november-24 6°C | 1617 | $3.16 tot $6.36 | 96 | $10.08 | $6.78 |
 | highest helsinki-on-november-25 0°C | 1679 | $5.71 tot $10.92 | 69 | $8.72 | $0.00 |
-| highest nyc-on-november-26 58-59°F | 1045 | $1.29 tot $2.38 | 11 | $20.32 | $0.00 |
+| highest nyc-on-november-26 58-59°F | 2176 | $3.85 tot $7.16 | 32 | $13.46 | $0.00 |
 | highest warsaw-on-november-25 5°C | 4353 | $5.15 tot $10.21 | 43 | $115 | $0.00 |
 
 ## Per stad (variant 1c)
 
 | Stad | Beloning ondergrens tot hoge schatting (GOK) | Vullingen | 1 uur later | Netto ondergrens |
 |---|---|---|---|---|
-| warsaw (highest) | $44.02 tot $92.00 | 421 | $89.59 | $134 |
-| seoul (highest) | $42.27 tot $89.95 | 775 | $0.17 | $42.45 |
-| london (lowest) | $35.92 tot $65.51 | 208 | $-3.91 | $32.01 |
-| miami (lowest) | $48.56 tot $84.67 | 118 | $-16.82 | $31.74 |
-| chengdu (highest) | $40.81 tot $89.27 | 420 | $-14.58 | $26.23 |
-| beijing (highest) | $34.85 tot $74.48 | 445 | $-12.77 | $22.08 |
-| paris (lowest) | $42.00 tot $77.34 | 143 | $-25.98 | $16.02 |
-| austin (highest) | $54.18 tot $113 | 568 | $-40.92 | $13.25 |
-| wuhan (highest) | $40.54 tot $85.90 | 370 | $-28.89 | $11.65 |
-| munich (highest) | $46.71 tot $98.37 | 693 | $-37.68 | $9.03 |
-| mexico-city (highest) | $36.41 tot $71.08 | 251 | $-28.58 | $7.83 |
-| jeddah (highest) | $22.29 tot $45.11 | 169 | $-14.52 | $7.77 |
-| chongqing (highest) | $42.78 tot $89.29 | 355 | $-35.03 | $7.75 |
-| karachi (highest) | $28.98 tot $57.41 | 235 | $-21.28 | $7.69 |
-| manila (highest) | $24.26 tot $48.96 | 210 | $-16.92 | $7.34 |
-| milan (highest) | $43.89 tot $89.95 | 608 | $-38.08 | $5.81 |
-| kuala-lumpur (highest) | $28.30 tot $54.65 | 282 | $-23.46 | $4.84 |
-| shanghai (lowest) | $11.89 tot $21.79 | 41 | $-7.06 | $4.83 |
-| singapore (highest) | $41.12 tot $88.24 | 541 | $-36.94 | $4.19 |
-| tokyo (highest) | $36.11 tot $79.44 | 648 | $-34.02 | $2.09 |
-| nyc (lowest) | $13.87 tot $23.48 | 89 | $-12.78 | $1.09 |
-| sao-paulo (highest) | $33.08 tot $65.75 | 371 | $-32.02 | $1.05 |
-| london (highest) | $48.84 tot $107 | 972 | $-47.92 | $0.92 |
-| seoul (lowest) | $25.59 tot $48.06 | 145 | $-25.87 | $-0.28 |
-| nyc (highest) | $60.78 tot $125 | 979 | $-61.21 | $-0.43 |
-| shenzhen (highest) | $31.43 tot $66.00 | 564 | $-32.37 | $-0.94 |
-| moscow (highest) | $28.57 tot $57.26 | 346 | $-30.05 | $-1.47 |
-| los-angeles (highest) | $42.34 tot $92.57 | 766 | $-45.65 | $-3.31 |
-| buenos-aires (highest) | $31.03 tot $61.26 | 428 | $-38.48 | $-7.45 |
-| qingdao (highest) | $25.00 tot $49.75 | 295 | $-32.79 | $-7.79 |
-| tokyo (lowest) | $13.47 tot $22.88 | 66 | $-21.97 | $-8.50 |
-| houston (highest) | $65.04 tot $133 | 918 | $-73.77 | $-8.73 |
-| ankara (highest) | $32.95 tot $64.20 | 506 | $-46.06 | $-13.11 |
-| taipei (highest) | $32.25 tot $60.12 | 353 | $-46.39 | $-14.14 |
-| madrid (highest) | $43.31 tot $94.84 | 615 | $-59.33 | $-16.02 |
-| miami (highest) | $52.38 tot $110 | 734 | $-69.54 | $-17.17 |
-| shanghai (highest) | $42.69 tot $92.31 | 812 | $-59.91 | $-17.22 |
-| chicago (highest) | $48.81 tot $91.60 | 769 | $-67.70 | $-18.89 |
-| lucknow (highest) | $48.47 tot $100 | 509 | $-70.75 | $-22.29 |
-| hong-kong (lowest) | $9.82 tot $17.65 | 177 | $-34.62 | $-24.79 |
-| guangzhou (highest) | $47.61 tot $97.84 | 645 | $-72.76 | $-25.15 |
-| amsterdam (highest) | $40.49 tot $88.40 | 719 | $-68.71 | $-28.21 |
-| tel-aviv (highest) | $54.90 tot $117 | 440 | $-86.05 | $-31.15 |
-| san-francisco (highest) | $36.68 tot $71.43 | 499 | $-68.09 | $-31.42 |
-| busan (highest) | $41.36 tot $88.44 | 572 | $-90.85 | $-49.50 |
-| dallas (highest) | $54.64 tot $115 | 738 | $-110 | $-54.91 |
-| helsinki (highest) | $62.91 tot $128 | 855 | $-118 | $-54.92 |
-| atlanta (highest) | $56.75 tot $119 | 1081 | $-115 | $-58.26 |
-| toronto (highest) | $28.10 tot $55.64 | 505 | $-88.52 | $-60.42 |
-| wellington (highest) | $38.34 tot $83.63 | 598 | $-101 | $-63.13 |
-| hong-kong (highest) | $37.26 tot $78.77 | 947 | $-103 | $-65.87 |
-| paris (highest) | $57.56 tot $125 | 1073 | $-135 | $-77.86 |
+| warsaw (highest) | $44.92 tot $93.72 | 424 | $91.16 | $136 |
+| seoul (highest) | $52.30 tot $114 | 831 | $-9.79 | $42.51 |
+| miami (lowest) | $49.55 tot $86.59 | 129 | $-16.80 | $32.75 |
+| london (lowest) | $38.19 tot $69.87 | 210 | $-5.77 | $32.42 |
+| chengdu (highest) | $43.13 tot $94.50 | 443 | $-14.37 | $28.77 |
+| beijing (highest) | $36.02 tot $77.24 | 481 | $-11.46 | $24.56 |
+| paris (lowest) | $44.04 tot $81.46 | 149 | $-25.55 | $18.49 |
+| wuhan (highest) | $42.58 tot $90.29 | 382 | $-29.02 | $13.56 |
+| austin (highest) | $56.77 tot $119 | 606 | $-46.26 | $10.51 |
+| manila (highest) | $25.26 tot $50.94 | 227 | $-16.05 | $9.20 |
+| karachi (highest) | $30.18 tot $59.72 | 239 | $-21.17 | $9.01 |
+| chongqing (highest) | $44.03 tot $92.06 | 367 | $-35.11 | $8.93 |
+| jeddah (highest) | $23.21 tot $46.79 | 176 | $-15.86 | $7.35 |
+| munich (highest) | $52.29 tot $111 | 756 | $-45.20 | $7.09 |
+| mexico-city (highest) | $37.01 tot $72.26 | 259 | $-30.13 | $6.88 |
+| tokyo (highest) | $43.15 tot $95.76 | 711 | $-36.76 | $6.39 |
+| singapore (highest) | $42.69 tot $91.54 | 558 | $-36.81 | $5.89 |
+| shanghai (lowest) | $11.92 tot $21.83 | 41 | $-7.06 | $4.86 |
+| london (highest) | $51.02 tot $111 | 997 | $-46.83 | $4.20 |
+| milan (highest) | $45.31 tot $92.80 | 629 | $-42.01 | $3.30 |
+| sao-paulo (highest) | $34.04 tot $67.64 | 381 | $-31.32 | $2.72 |
+| nyc (lowest) | $14.05 tot $23.84 | 89 | $-12.78 | $1.27 |
+| shenzhen (highest) | $32.60 tot $68.71 | 576 | $-31.85 | $0.75 |
+| kuala-lumpur (highest) | $29.42 tot $56.73 | 333 | $-29.26 | $0.15 |
+| los-angeles (highest) | $44.26 tot $96.73 | 789 | $-44.38 | $-0.13 |
+| seoul (lowest) | $27.21 tot $51.09 | 151 | $-28.56 | $-1.35 |
+| nyc (highest) | $63.33 tot $129 | 1000 | $-68.07 | $-4.74 |
+| qingdao (highest) | $26.19 tot $52.00 | 312 | $-31.51 | $-5.32 |
+| buenos-aires (highest) | $35.17 tot $70.97 | 454 | $-41.96 | $-6.78 |
+| moscow (highest) | $30.19 tot $60.44 | 365 | $-38.03 | $-7.83 |
+| houston (highest) | $67.09 tot $137 | 948 | $-75.40 | $-8.32 |
+| tokyo (lowest) | $13.49 tot $22.92 | 66 | $-21.97 | $-8.48 |
+| ankara (highest) | $33.97 tot $66.14 | 520 | $-46.91 | $-12.95 |
+| taipei (highest) | $33.39 tot $62.31 | 361 | $-47.00 | $-13.62 |
+| madrid (highest) | $44.65 tot $97.64 | 631 | $-59.80 | $-15.15 |
+| shanghai (highest) | $44.34 tot $95.81 | 841 | $-61.36 | $-17.02 |
+| lucknow (highest) | $50.31 tot $104 | 526 | $-72.71 | $-22.41 |
+| chicago (highest) | $49.93 tot $93.90 | 783 | $-73.70 | $-23.77 |
+| guangzhou (highest) | $49.50 tot $102 | 679 | $-74.40 | $-24.90 |
+| miami (highest) | $54.89 tot $115 | 779 | $-81.82 | $-26.93 |
+| amsterdam (highest) | $42.83 tot $93.37 | 741 | $-71.47 | $-28.65 |
+| hong-kong (lowest) | $18.08 tot $34.43 | 243 | $-50.43 | $-32.35 |
+| san-francisco (highest) | $38.06 tot $74.16 | 522 | $-72.08 | $-34.02 |
+| tel-aviv (highest) | $56.07 tot $120 | 455 | $-92.45 | $-36.38 |
+| busan (highest) | $58.59 tot $123 | 676 | $-107 | $-48.27 |
+| dallas (highest) | $55.61 tot $117 | 750 | $-115 | $-59.27 |
+| hong-kong (highest) | $38.46 tot $81.39 | 977 | $-102 | $-63.39 |
+| atlanta (highest) | $58.24 tot $123 | 1108 | $-122 | $-63.42 |
+| toronto (highest) | $28.91 tot $57.53 | 515 | $-93.30 | $-64.39 |
+| helsinki (highest) | $66.39 tot $135 | 903 | $-134 | $-67.12 |
+| wellington (highest) | $41.26 tot $90.07 | 646 | $-116 | $-75.04 |
+| paris (highest) | $73.39 tot $159 | 1191 | $-186 | $-113 |
 
 Grenzen: de beloning is een schatting (het echte aangepaste midden en de scores per maker zijn niet openbaar); een vulling telt 'los' als een trade op of door onze prijs gaat en 'streng' als hij erdoorheen gaat (de wachtrij is onbekend); trades staan 1 tot 2 minuten later in de Data API, dus de voorraadrem reageert iets te laat. Dit is meten, geen advies.
