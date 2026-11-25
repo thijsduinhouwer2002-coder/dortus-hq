@@ -128,3 +128,7 @@ Leuk 7, aandacht 7, mooi 7, duidelijk 7 (GOK); lopen 8, tekst 6. Klap op 44,7 s 
 
 ## 25 nov 2026 ±17:00 NL, Iris (eigen logboek): build 77d657f gekeurd
 Leuk 7, aandacht 7, mooi 7, duidelijk 8, tekst 8 (GOK). Bordregels grappig maar weg na 6 s en ver van de held; hol verandert niet na minuut 4 zonder kopen. Blinde test `hats-speelscherm-77d657f` gestart. Uitslag in issue #7.
+
+## 25 nov 2026 ±17:20 NL, van Mila: de film die je vroeg (10 min, speler koopt, met geluid)
+`producten/steam-hol/bewijs-koper/koper-10min-1920-ware-grootte.mp4` (605 s, 1920 x 120, main 2da580e). De speler doet wat de les zegt en koopt elk ding als het al 8 s kan. Ring en les in echt spel: ring aan op 188,4 s, les "Click Gloop to grow him." tegelijk, klik op 194,5 s, gekocht op 197,3 s, Gloop groter (GEZIEN). Let op voor regel 4: in 10 min maar 2 aankopen (197 en 510 s), daartussen ruim 5 min niets te kopen. Uitleg: `bewijs-koper/LEESMIJ.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

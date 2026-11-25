@@ -34,6 +34,7 @@ static func lees_argumenten(s) -> void:
 			"koper":   # Iris keuring 7: speler die alles koopt zodra het kan; koper=2 koopt alleen en graaft niet (Sanne 16 nov 20:10)
 				s.proef_koper = kv[1] == "1" or kv[1] == "2"
 				s.proef_koper_graaf = kv[1] == "1"
+			"koper_wacht": s.set_meta("koper_wacht", maxf(0.0, float(kv[1])))   # bedenktijd van de koper in s (film Iris #7)
 			"drukte": s.proef_drukte = kv[1] == "1"   # Mila 16 nov: drie helden tegelijk in de winkelopname week
 			"deco_proef": s.proef_deco = kv[1] == "1"
 			"royal_proef": s.proef_royal = kv[1] == "1"

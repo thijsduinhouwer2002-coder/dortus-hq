@@ -97,12 +97,28 @@ static func tik_demo_graaf(s) -> void:
 # koper=1 (Iris keuring 7, alleen met het startargument): een speler die elke upgrade koopt zodra het goud er is,
 # via hetzelfde kaartje als een klik (open, Buy). Elke 3 s kijken, niet als er al een kaartje open staat.
 static func tik_koper(s) -> void:
-	if s.t < s.volgende_koop or s.kaart_soort != "":
+	var wacht_aan: bool = float(s.get_meta("koper_wacht", 0.0)) > 0.0
+	if s.t < s.volgende_koop or (s.kaart_soort != "" and not wacht_aan):
 		return
-	s.volgende_koop = s.t + 3.0
+	s.volgende_koop = s.t + (1.0 if wacht_aan else 3.0)
 	var up = s.hol.upgrades
+	# koper_wacht=<s> (Mila 25 nov, film voor Iris #7): koopt pas als het al zoveel seconden kan, zoals een mens die
+	# eerst de ring en de les ziet en op Gloop klikt. Staat het kaartje van die soort al open, dan koopt hij daar.
+	var wacht: float = s.get_meta("koper_wacht", 0.0)
+	var sinds: Dictionary = s.get_meta("koper_sinds", {})
 	for soort in UPG.SOORTEN:
 		if up.kan_kopen(soort, s.hol.goud):
-			KAARTJE.open(s, soort)
+			if not sinds.has(soort):
+				sinds[soort] = s.t
+				s.set_meta("koper_sinds", sinds)
+			if s.t - float(sinds[soort]) < wacht:
+				continue
+			sinds.erase(soort)
+			s.set_meta("koper_sinds", sinds)
+			if s.kaart_soort != soort:
+				KAARTJE.open(s, soort)
 			KAARTJE.koop(s)
 			return
+		elif sinds.has(soort):
+			sinds.erase(soort)
+			s.set_meta("koper_sinds", sinds)
