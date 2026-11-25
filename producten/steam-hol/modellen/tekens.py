@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bpy
 import gedeeld as g
 
-NAMEN = ["boos", "uitroep", "zweet", "zzz", "ster", "noot", "laars"]
+NAMEN = ["boos", "uitroep", "zweet", "zzz", "ster", "noot", "laars", "veer"]
 GROOT = 0.86  # maat van de laars (Daan 08:55)
 TIL = 0.08    # laars omhoog zodat de onderkant van de rug gelijk ligt met de punt van de staartjes
 BOOS_AF = float(os.environ.get("TEKEN_BOOS_AF", "0.16"))     # was 0.21 (Mila 16 nov)
@@ -58,8 +58,8 @@ def bouw(nr, plek=(0, 0, 0), schaal=1.0):
     x, y, z = plek
     ouder = bpy.data.objects.new(f"teken_{naam}", None)
     bpy.context.scene.collection.objects.link(ouder)
-    if naam in ("noot", "laars"):
-        (_noot if naam == "noot" else _laars)(ouder)
+    if naam in ("noot", "laars", "veer"):
+        {"noot": _noot, "laars": _laars, "veer": _veer}[naam](ouder)
         ouder.location = (x, y, z)
         ouder.scale = (schaal, schaal, schaal)
         return ouder
@@ -242,6 +242,31 @@ def _laars(ouder):
     for o in ouder.children:
         o.location = (SCHUIF + o.location[0] * GROOT, o.location[1], 0.07 + TIL + (o.location[2] - 0.07) * GROOT)
         o.scale = tuple(v * GROOT for v in o.scale)
+
+
+def _veer(ouder):
+    """Mila 25 nov (issue #76): de veer onder Bouncy Gloop. Na de koop staat Gloop op twee gouden veren, zodat je
+    zonder tekst ziet dat hij nu verende sprongen maakt. Zijaanzicht van een schroefveer: 3 slagen goud draad tussen
+    een donkere voetplaat en een donker plaatje bovenop, met een donkere rug erachter zoals de noot en de laars,
+    zodat de veer op de roodbruine vloer en tegen het groen een rand houdt. Onderkant op de bodem van de cel."""
+    goud = g.mat("teken_veer_goud", "ffd25a", rough=0.25, spec=0.8, metaal=0.6, emis=0.25)
+    donker = g.mat("teken_veer_plaat", "2a1810", rough=0.6)
+    r, hoog, slagen, draad = 0.2, 0.5, 3.0, 0.045
+    z0 = 0.16   # voetplaat net boven z 0.07, de punt van de staartjes: dan blijft de maat van het blad gelijk
+    for laag, m, e, y0 in (("rug", donker, 0.015, 0.08), ("voor", goud, 0.0, 0.0)):
+        cu = bpy.data.curves.new(f"teken_veer_{laag}", "CURVE")
+        cu.dimensions = "3D"; cu.bevel_depth = draad + e; cu.bevel_resolution = 4
+        sp = cu.splines.new("POLY")
+        n = int(slagen * 32)
+        sp.points.add(n)
+        for i in range(n + 1):
+            a = 2 * math.pi * slagen * i / n
+            sp.points[i].co = (r * math.cos(a), y0 + r * 0.45 * math.sin(a), z0 + hoog * i / n, 1.0)
+        o = bpy.data.objects.new(f"teken_veer_{laag}", cu)
+        bpy.context.scene.collection.objects.link(o)
+        o.data.materials.append(m); o.parent = ouder
+    _blok(ouder, "veer_voet", donker, (0, 0, z0 - 0.035), (0.27, 0.12, 0.035), rond=0.02)
+    _blok(ouder, "veer_top", donker, (0, 0, z0 + hoog + 0.025), (0.24, 0.1, 0.025), rond=0.015)
 
 
 if __name__ == "__main__":

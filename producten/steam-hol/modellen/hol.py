@@ -525,6 +525,51 @@ elif PUT_STAP == 1 and not PUT_OUD:
     bol("putschedel", (PUT_X - 0.4, 0.02, -0.17), (0.13, 0.11, 0.12), BOT, 16)
     for ox in (-0.045, 0.045):
         bol("putschedel_oog", (PUT_X - 0.4 + ox, -0.09, -0.15), (0.03, 0.02, 0.035), PUT_ZWART, 10)
+elif PUT_STAP == 2 and not PUT_OUD:
+    # Mila 25 nov (issue #76): Deep Pit las na de koop als een stap terug (dunne grijze naaldjes op een zwarte strook,
+    # hoed en schedel weg), net als Rusty Spikes ronde 1. Nu: de put van Rusty Spikes, maar nog een stap rijker.
+    # Stekels ±25 procent hoger (zelfde wit staal), de kraag wordt glimmend goud, en de put krijgt een lijst: twee
+    # houten palen met een gouden dop aan de rand. Twee hoeden op de stekels (blauwe muts en een rode punthoed):
+    # er vallen er nu meer in. Schedel blijft. Op 120 px: hoger, meer goud, twee hoeden = zichtbaar beter.
+    STAAL_P = g.mat("put_staal", "f6f8ff", rough=0.22, spec=0.9, metaal=0.4, emis=0.32)
+    GOUD_K = g.mat("put_goudk", "ffcc33", rough=0.3, spec=0.8, metaal=0.6, emis=0.35)
+    RAND_D = g.mat("put_randd", "1a0a0a", rough=1.0, spec=0.0)
+    rnd_r = random.Random(13)
+    hoogtes = (0.92, 1.24, 1.02, 1.3, 1.08, 1.2, 0.94)
+    for i, hoog in enumerate(hoogtes):
+        x = PUT_X - 0.6 + i * 0.2
+        r = 0.1
+        kant = (0, math.radians(rnd_r.uniform(-5, 5)), 0)
+        z0 = -0.3
+        cil("stekel", (x, 0.12, z0 + hoog / 2), r, hoog, STAAL_P, rot=kant, verts=10, r2=0.0)
+        k = 0.24   # gouden kraag onderaan
+        cil("stekelgoud", (x, 0.115, z0 + hoog * k / 2), r + 0.014, hoog * k, GOUD_K,
+            rot=kant, verts=10, r2=r * (1 - k) + 0.014)
+        cil("stekelrand", (x, 0.2, z0 + (hoog + 0.08) / 2), r + 0.035, hoog + 0.08, RAND_D, rot=kant, verts=10, r2=0.0)
+    for i in range(6):   # achterste rij: ook hoger, licht staal met een gouden kraag
+        x = PUT_X - 0.5 + i * 0.2
+        cil("stekel", (x, 0.7, -0.3 + 0.38), 0.085, 0.76, STAAL_L, verts=10, r2=0.0)
+        cil("stekelgoud", (x, 0.69, -0.3 + 0.09), 0.095, 0.18, GOUD_K, verts=10, r2=0.065)
+    # lijst om de put: twee donkere houten palen met een gouden dop, net buiten de stekels
+    PAAL = g.mat("put_paal", "4a2614", rough=0.75)
+    for dx in (-0.8, 0.8):
+        blok("put_paal", (PUT_X + dx, 0.05, 0.05), (0.13, 0.13, 0.7), PAAL)
+        bol("put_dop", (PUT_X + dx, 0.03, 0.43), (0.1, 0.1, 0.08), GOUD_K, 12)
+    # hoed 1: de blauwe muts van stap 0 en 1, nu hoger op de langste stekel
+    HX = PUT_X - 0.6 + 3 * 0.2
+    MUTS = g.mat("put_muts", "3d6fe0", rough=0.6)
+    cil("puthoed_rand", (HX, 0.1, 0.74), 0.2, 0.035, MUTS, rot=(0, math.radians(-10), 0), verts=20)
+    cil("puthoed", (HX + 0.02, 0.1, 0.86), 0.15, 0.26, MUTS, rot=(0, math.radians(-10), 0), verts=20, r2=0.0)
+    cil("puthoed_band", (HX, 0.1, 0.77), 0.152, 0.04, g.mat("put_band", "f2c230", rough=0.5), rot=(0, math.radians(-10), 0), verts=20)
+    # hoed 2: een rode punthoed scheef op de tweede stekel
+    H2 = PUT_X - 0.6 + 1 * 0.2
+    ROOD = g.mat("put_rood", "e0402a", rough=0.6)
+    cil("puthoed2_rand", (H2, 0.08, 0.66), 0.17, 0.03, ROOD, rot=(0, math.radians(14), 0), verts=20)
+    cil("puthoed2", (H2 - 0.03, 0.08, 0.8), 0.12, 0.3, ROOD, rot=(0, math.radians(14), 0), verts=20, r2=0.0)
+    BOT = g.mat("put_bot", "f4eee2", rough=0.35, spec=0.6, emis=0.12)
+    bol("putschedel", (PUT_X + 0.42, 0.02, -0.17), (0.13, 0.11, 0.12), BOT, 16)
+    for ox in (-0.045, 0.045):
+        bol("putschedel_oog", (PUT_X + 0.42 + ox, -0.09, -0.15), (0.03, 0.02, 0.035), PUT_ZWART, 10)
 elif PUT_STAP == 0:
     for i in range(6):
         for j in range(3):

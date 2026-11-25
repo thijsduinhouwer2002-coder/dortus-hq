@@ -114,7 +114,7 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bron": "466048167e63c536",
+  "bron": "a383ebcc19ff7e93",
   "bytes": 49754,
   "model": "hol.py",
   "px": 4,
@@ -1587,8 +1587,8 @@
    40
   ],
   "blad": "res://kunst/3d/hol_proef.png",
-  "bron": "a86d8f96a465330b",
-  "bytes": 138640,
+  "bron": "b489b1100c8056a6",
+  "bytes": 158310,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -2238,8 +2238,8 @@
  "tekens": {
   "anker_x": 16,
   "blad": "res://kunst/3d/tekens.png",
-  "bron": "27b2b351ec6dd982",
-  "bytes": 10061,
+  "bron": "82ccc0015a4ccfba",
+  "bytes": 11589,
   "cel_px": [
    32,
    32
@@ -2252,7 +2252,8 @@
    "zzz",
    "ster",
    "noot",
-   "laars"
+   "laars",
+   "veer"
   ],
   "kruin": [
    [
@@ -2282,10 +2283,15 @@
    [
     -1.5,
     0.0
+   ],
+   [
+    0.0,
+    2.25
    ]
   ],
   "model": "tekens.py",
   "nul_y": [
+   8.12,
    8.12,
    8.12,
    8.12,
@@ -2303,7 +2309,8 @@
    0.0,
    0.0,
    1.0,
-   0.0
+   0.0,
+   2.25
   ]
  },
  "vleermuis": {

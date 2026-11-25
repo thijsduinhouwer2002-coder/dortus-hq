@@ -40,3 +40,20 @@ Het lijf ging van 0,8 naar 1,0 (25 procent groter). Naast de groeiende hoedentor
 - Voor, oude na (1,0) en nieuwe na (1,2) naast elkaar: `big-gloop-12-voor-oud-nieuw-1x.png` en `-3x.png`. Zelf gekeken op 100%: na de koop is Gloop het grootste ding in de schatkamer, groter dan de goudstapel, en de toren staat op hem in plaats van andersom.
 - 14 min (zaad 3, beelden op 560, 700 en 840 s, zelf gekeken op 3x): de hoedenberg links houdt lucht tot zijn flank, de toren blijft onder de bovenrand.
 - Toetsen 7 x 0 FOUT (Godot 4.3 Linux). De Royal-toets rekent nu met `K_GROOT` (de cape groeit mee met het lijf).
+
+## Bouncy Gloop en Deep Pit zichtbaar (Mila, 25 nov ±23:00 NL, Sanne 22:15: sinds 369bfca 4 aankopen in 15 min)
+Zelf gekeken in een film van het echte spel (zaad 3, koper=1, koper_wacht=8, 1920 x 120): Bouncy Gloop gaf alleen een glansster van ±3 px naast de hoeden, op 100% niet te zien. Deep Pit werd zwakker dan Rusty Spikes: dunne grijze naaldjes op een zwarte strook, goud, hoed en schedel weg (zelfde fout als Rusty ronde 1).
+
+**Bouncy Gloop: Gloop staat op twee gouden veren.** Nieuw beeld `veer` in het tekens-blad (`modellen/tekens.py` `_veer()`: schroefveer van 3 slagen goud draad tussen twee donkere plaatjes, met donkere rug). `slijm.gd` `veer_aan()`: vanaf Bouncy, niet plat, met het 3D-lijf, twee veren 6 spelpixels links en rechts van zijn midden en Gloop 3 spelpixels hoger (`VEER_TIL`, via `wip_nu()`, dus toren, muntje en hoeden gaan mee). De glansster gaat dan uit. Plat ligt hij gewoon op de vloer.
+- Ware grootte (koop op 454,2 s, GEZIEN in het log): `bouncy-veer-voor-450s.png`, `bouncy-veer-na-460s.png`, uitsnede `bouncy-veer-voor-na-1x.png` en `-3x.png`. Film: `bouncy-veer-koop-20s-ware-grootte.mp4` (444 tot 464 s).
+- Zelf gekeken op 100%: na de koop staat hij zichtbaar op twee gele veren boven de vloer, ook zonder te weten wat er gekocht is. Eerlijk: tussen de veren zie je zijn schaduw als donker vlakje mee omhoog.
+- De andere 7 tekens zijn niet veranderd (gemiddeld verschil 0,004 op 255, maat `eenheid_px` gelijk 33,32).
+
+**Deep Pit: de put van Rusty Spikes, een stap rijker.** `modellen/hol.py` nieuwe tak `PUT_STAP == 2`: 7 witte stalen stekels ±25 procent hoger dan Rusty, een glimmende gouden kraag in plaats van oker, achterste rij ook hoger met goud, twee houten palen met een gouden dop als lijst, twee hoeden op de stekels (de blauwe muts en een rode punthoed) en de schedel. Alleen het vak van put_2 (x 1480 tot 1551) in `hol_proef.png` vervangen; methode nagerekend op put_1 (gemiddeld verschil 0,07 op 255).
+- 6x: `put-stappen-deep-6x.png` (stap 0, Rusty Spikes, oude Deep Pit, nieuwe Deep Pit).
+- Ware grootte (koop op 567,8 s, GEZIEN in het log, film van vóór de veren): `deep-pit-voor-564s.png`, `deep-pit-na-575s.png`, uitsnede `deep-pit-voor-na-1x.png` en `-3x.png`. Film: `deep-pit-koop-20s-ware-grootte.mp4`.
+- Zelf gekeken op 100%: na de koop zijn beide putten hoger, goudener en dragen ze twee hoedjes; het oog gaat er eerder heen dan naar Rusty Spikes.
+
+**Big Gloop, controle van Daan (#102):** hoogste toren bij 1,2 (12 hoeden, 3 op zijn kop, 612 s): `big-gloop-12-hoogste-toren-612s.png`. De bovenste hoed raakt het gras, maar blijft 2 spelpixels onder de bovenrand (de plafondregel `PLAFOND` van Daan 14 nov); hij steekt er niet bovenuit.
+
+**Toetsen:** 8 x 0 FOUT (Godot 4.3 Linux).

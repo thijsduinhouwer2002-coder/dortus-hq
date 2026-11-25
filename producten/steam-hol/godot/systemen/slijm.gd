@@ -372,9 +372,21 @@ func upgrade_veranderd() -> void:
 
 # Hoeveel spelpixels hij nu omhoog is door het koop-moment (0 of negatief).
 func wip_nu() -> int:
+	var veer := -VEER_TIL if veer_aan(beeld_3d()) else 0
 	if _rust_som or t < koop_van or t >= koop_van + KOOP_S or is_plat():
-		return 0
-	return int(KOOP_WIP[mini(KOOP_WIP.size() - 1, int((t - koop_van) * FPS))])
+		return veer
+	return int(KOOP_WIP[mini(KOOP_WIP.size() - 1, int((t - koop_van) * FPS))]) + veer
+
+# Bouncy Gloop (Mila 25 nov, issue #76): na de koop staat Gloop op twee gouden veren (tekens-blad, beeld "veer"),
+# VEER_TIL spelpixels boven de vloer. Zo zie je de koop zonder tekst; de oude glansster (3 px) zag niemand op 120.
+# Alleen met het 3D-lijf en als het blad de veer heeft; plat ligt hij gewoon op de vloer (de veren weg).
+const VEER_TIL := 3
+const VEER_X := 6.0   # spelpixels links en rechts van zijn midden, bij het grote lijf (1,2)
+func veer_aan(b3: String) -> bool:
+	if b3 == "" or b3 == "plat" or niveau() < 2 or is_plat():
+		return false
+	HB._laad_3d()
+	return HB.held3d.has(HB.TEKENS3D) and (HB.held3d[HB.TEKENS3D][1]["frames"] as Array).has("veer")
 
 # Het hoogste punt van Gloop met alles wat hij draagt (Gloop-coordinaten, y omhoog negatief): de bovenste hoed,
 # anders zijn kruin, de glansster of de zzz niet meegerekend. Voor het muntje erboven (Sanne toets 8 punt 2: 3 spelpixels boven het bovenste).
@@ -927,8 +939,8 @@ static func _laad_royal() -> void:
 # en hoger vecht hij met de rugleuning (Daan 14 nov 10:45, moet 2). Royal zonder 3D-blad houdt de pixelster.
 func ster_aan(b3: String) -> bool:
 	var n := niveau()
-	if n < 2 or is_plat():
-		return false
+	if n < 2 or is_plat() or veer_aan(b3):
+		return false   # met de veren geen glansster meer (Mila 25 nov, #76)
 	return not (n >= 3 and royal_3d_aan(b3))
 
 # Royal in 3D aan: alleen met het 3D-lijf in beeld en het blad "royal" geladen. Dan geen pixel-cape of -zoom meer.
@@ -1382,6 +1394,9 @@ func _draw() -> void:
 	var laars_achter := leven == "spugen" and b3 != ""
 	if laars_achter and t >= leven_van + 0.6:
 		_teken_laars()   # 3D: de laars vliegt achter het lijf vandaan (Daan 15 nov, moet 2)
+	if veer_aan(b3):
+		for vx in [-VEER_X, VEER_X]:
+			HB.teken_3d(self, "veer", vx * lijf_k() / K_GROOT, 0.0)   # op de vloer, achter zijn lijf
 	if b3 != "":
 		_teken_3d(b3, wip)
 	elif f[0] == RUST_GROOT or f[0] == LEVEN_GROOT:
