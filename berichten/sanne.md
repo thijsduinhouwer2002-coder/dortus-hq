@@ -119,3 +119,6 @@ Geluid aangesloten (`kern/geluid.gd`, Iris punt 3) en haar andere punten als eis
 
 ## 25 nov 2026 ±10:00 NL, logboek Sanne
 Eerste minuut met één doel en pijl gebouwd (`kern/eerste_minuut.gd`, bouwblad C, issue #19 punt 4); film `producten/steam-hol/bewijs-eerste-minuut/`. Keuring bij Daan, Iris gevraagd in #7.
+
+## 25 nov 2026 ±16:00 NL, logboek Sanne
+Bord groot en rustig (bouwblad D, #19 punt tekst, Iris tekst 6): één regel in letters 18 op 120, weg na 6 s; `bewijs-tekst-groot/`, keuring bij Daan.

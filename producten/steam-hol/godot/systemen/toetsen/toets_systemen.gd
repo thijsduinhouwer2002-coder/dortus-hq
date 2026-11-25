@@ -1097,6 +1097,24 @@ func _init() -> void:
 	ok(m120.kop == 13 and m120.tekst == 13 and m120.uitleg == 12 and m120.knop_dy == 3 and m120.onder == 15 and m120.boven == 13 and m120.kop_dy == 0, "paneel r3: op 120 alles gelijk")
 	tk.schaal = 2; tk.hoogte = 96.0
 	ok(tk.maten().knop_dy == 1 and tk.maten().kop == 12, "paneel r3: op 96 knop 2 px hoger, letter 12")
+	# bouwblad D (Sanne 25 nov, #19): dicht bord groot (hoofdletters 0,7 em: op 120 minstens 12 px), regel weg na 6 s
+	tk.schaal = 3; tk.hoogte = 120.0
+	ok(tk.bord_maten().tekst * 0.7 >= 12.0 and tk.bord_maten().kop == 18 and tk.maten().tekst == 13, "bord D: op 120 letter 18 (hoofdletter 12,6 px), kaartje en hover houden 13")
+	tk.schaal = 4; tk.hoogte = 160.0
+	ok(tk.bord_maten().tekst == 24 and tk.maten().tekst == 15, "bord D: op 160 letter 24")
+	tk.schaal = 2; tk.hoogte = 96.0
+	ok(tk.bord_maten().tekst == 15 and 96 - int(tk.bord_maten().onder) - tk.bord_maten().regel_h * 2 - int(tk.bord_maten().boven) >= 96 * 0.3, "bord D: op 96 letter 15 en het bord laat het gras vrij")
+	ok(TKS.regel_zicht(0.0) == 1.0 and TKS.regel_zicht(5.3) == 1.0 and TKS.regel_zicht(5.7) > 0.0 and TKS.regel_zicht(5.7) < 1.0 and TKS.regel_zicht(6.0) == 0.0 and TKS.regel_zicht(60.0) == 0.0, "bord D: regel 5,4 s vol, dan zacht weg, op 6 s weg")
+	var rz: Array[String] = ["Kees fell in."]
+	tk.zet(rz, 5)
+	ok(tk.regel_sinds == 0.0, "bord D: nieuwe regel begint opnieuw")
+	tk.regel_sinds = 4.0
+	tk.zet(rz, 9)
+	ok(tk.regel_sinds == 4.0, "bord D: alleen meer goud zet de klok niet terug")
+	var rz2: Array[String] = ["Kees fell in.", "Kees fell in."]
+	tk.zet(rz2, 9)
+	ok(tk.regel_sinds == 0.0, "bord D: dezelfde tekst als nieuwe regel telt wel als nieuw")
+	tk.schaal = 2; tk.hoogte = 96.0
 	TKS.met_3d = false
 	ok(tk.maten().knop_dy == 3, "paneel r3 uit: oude knopplek")
 	tk.schaal = 4; tk.hoogte = 160.0

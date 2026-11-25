@@ -205,9 +205,51 @@ static func kies_toon(r: Array[String], v: String, wr: Array[String], tel: Strin
 	return toon
 
 func zet(r: Array[String], g: int) -> void:
+	var sleutel := "%d|%s" % [r.size(), r.back() if r.size() > 0 else ""]
+	if sleutel != regel_sleutel:
+		regel_sleutel = sleutel
+		regel_sinds = 0.0   # nieuwe regel: weer 6 s in beeld
+		set_process(true)
 	regels = r
 	goud = g
 	queue_redraw()
+
+# Bouwblad D (Sanne 25 nov, issue #19, Thijs "tekst heel klein en te veel", Iris tekst 6): het dichte bord toont
+# één regel in grote letters (hoofdletters minstens 12 px op 120) en die regel gaat na 6 s zacht weg. Daarna staan
+# alleen het goud en het doel op het bord. Muis erop: de laatste drie regels zoals altijd (oude maten, Daan r3).
+const REGEL_TIJD := 6.0
+const REGEL_WEG := 0.6   # zacht weg in de laatste 0,6 s
+var regel_sleutel := ""
+var regel_sinds := 99.0
+
+func _process(delta: float) -> void:
+	var voor := regel_sinds
+	regel_sinds += delta
+	if voor < REGEL_TIJD + 0.05:
+		if regel_sinds >= REGEL_TIJD - REGEL_WEG:
+			queue_redraw()
+	else:
+		set_process(false)
+
+# 1 = regel helemaal te zien, 0 = weg (getoetst in toets_systemen.gd)
+static func regel_zicht(sinds: float) -> float:
+	if sinds <= REGEL_TIJD - REGEL_WEG:
+		return 1.0
+	return clampf((REGEL_TIJD - sinds) / REGEL_WEG, 0.0, 1.0)
+
+# Maten van het dichte bord (bouwblad D): hoofdletters van Fredoka zijn 0,7 em, dus 18 geeft 12,6 px op 120.
+# Op 96 past 15 (10,5 px), op 160 24 (16,8 px). Het kaartje en de hover houden maten().
+func bord_maten() -> Dictionary:
+	if not met_3d:
+		return maten()
+	var M := maten()
+	if hoogte >= 140:
+		M.kop = 24; M.tekst = 24; M.uitleg = 22; M.regel_h = 29
+	elif hoogte >= 110:
+		M.kop = 18; M.tekst = 18; M.uitleg = 17; M.regel_h = 22; M.munt = 1.3   # muntje mee met het grotere getal
+	else:
+		M.kop = 15; M.tekst = 15; M.uitleg = 14; M.regel_h = 19; M.munt = 1.2
+	return M
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR if met_3d else CanvasItem.TEXTURE_FILTER_NEAREST
@@ -318,12 +360,14 @@ func _draw() -> void:
 	knop_undo = Rect2()
 	knop_weg = Rect2()
 	var font := _letter(450)
-	var M := maten()
+	var M := maten() if hover else bord_maten()
 	var kop: int = M.kop
 	var maat: int = M.tekst
 	var f: float = M.munt
 	var n := 3 if hover else 1
 	var toon: Array[String] = kies_toon(regels, vast, weg_regels, weg_tel, n, hover)
+	# dicht bord: de regel gaat na 6 s zacht weg; het bord blijft even hoog (geen springend paneel)
+	var zicht := 1.0 if (hover or vast != "") else regel_zicht(regel_sinds)
 	var regel_h: int = M.regel_h
 	var bw := vak_breedte()
 	var x := breedte - bw - 8
@@ -336,25 +380,28 @@ func _draw() -> void:
 	# vliegende muntjes in hol.gd, 4 x 4 spelpixels, op de schaal van de strook (scherpe pixels)
 	_munt(_munt_p(x, y0 + kop + int(M.kop_dy), kop, f), f)
 	_tekst(_letter(600), Vector2(x + 5 * schaal * f + 2, y0 + kop + int(M.kop_dy)), str(goud), bw, kop, Color("#ffe07a"))
-	_draw_doel(x, y0 + kop + int(M.kop_dy), bw, kop, f, font)
+	_draw_doel(x, y0 + kop + int(M.kop_dy), bw, kop, f, font, int(M.uitleg))
 	var bt: float = bw - marge_r()   # regels niet tot in de houten lijst (moet Daan #45)
+	if zicht <= 0.0:
+		return
+	var ondergrens := 10 if hover else maat - 3   # dicht bord: hooguit 3 px kleiner, dan liever "..."
 	for i in toon.size():
 		# nooit afkappen (Sanne 9 nov): eerst kleiner tot 10 px, past het dan nog niet, dan op een woordgrens met "..."
 		var r: String = toon[i]
 		var m := maat
-		while m > 10 and font.get_string_size(r, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bt:
+		while m > ondergrens and font.get_string_size(r, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bt:
 			m -= 1
 		if font.get_string_size(r, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bt:
 			var woorden := r.split(" ")
 			while woorden.size() > 1 and font.get_string_size(" ".join(woorden) + "...", HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bt:
 				woorden.remove_at(woorden.size() - 1)
 			r = " ".join(woorden) + "..."
-		draw_string(font, Vector2(x, y0 + regel_h * (i + 1) + maat), r, HORIZONTAL_ALIGNMENT_LEFT, -1, m, Color("#f3e2c0"))
+		draw_string(font, Vector2(x, y0 + regel_h * (i + 1) + maat), r, HORIZONTAL_ALIGNMENT_LEFT, -1, m, Color("#f3e2c0", zicht))
 
 # Het volgende doel rechts op de kopregel, naast het goud (Iris keuring 1, probleem 2). Rechts uitgelijnd binnen het vak,
 # kleiner dan de kop; past hij niet naast het goud, dan kleiner tot 10 px, en anders niet tonen (nooit over het goud).
 # Kan het al: goudgeel, anders gedempt, zodat het een doel is en geen knop.
-func _draw_doel(x: float, basis: float, bw: float, kop: int, f: float, font: Font) -> void:
+func _draw_doel(x: float, basis: float, bw: float, kop: int, f: float, font: Font, maat_doel := -1) -> void:
 	if doel == "":
 		return
 	var klaar := doel.contains("ready")
@@ -363,7 +410,7 @@ func _draw_doel(x: float, basis: float, bw: float, kop: int, f: float, font: Fon
 		font = _letter(600)
 	var gw := _letter(600).get_string_size(str(goud), HORIZONTAL_ALIGNMENT_LEFT, -1, kop).x
 	var vrij := bw - (5 * schaal * f + 2 + gw) - 3 * schaal - marge_r()
-	var m := int(maten().uitleg)
+	var m := int(maten().uitleg) if maat_doel < 0 else maat_doel
 	while m > 10 and font.get_string_size(doel, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > vrij:
 		m -= 1
 	var w := font.get_string_size(doel, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x
