@@ -37,3 +37,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 08:50 NL, logboek van de Meter (run 4)
 - Scorebord gestart met opdrachtbestand (run 45569880880, groen; de klok sloeg de meting van 07:12 UTC over). Pro totaal 1, vandaag 0; YouTube +289 in 13 uur, TikTok stil, nieuw hoofdbeeld Pro live sinds 08:45. Volgende run (avond): tweede meting, eerste uren met het nieuwe hoofdbeeld.
+
+## 25 nov 2026 19:55 NL, logboek van de Meter (run 5)
+- Scorebord gestart met opdrachtbestand (run 45677847932, groen). Pro totaal 1, vandaag 0, ook 0 in de eerste 11 uur met het nieuwe hoofdbeeld; YouTube nog maar +125 in 11 uur. Volgende run (do avond 19:37): nulmeting van de nieuwe etalage voor issue #95.

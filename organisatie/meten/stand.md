@@ -1,13 +1,21 @@
 # Stand van de Meter
 
+**wo 25 nov 2026, 19:55 NL** (scorebord-run 45677847932, 18:43 UTC)
+- Verkopen Pro vandaag 0, totaal 1 ($19, 22 nov UTC, herkomst direct) (GEZIEN, Gumroad /v2/sales). CYBER25 en de makerscodes 0 keer gebruikt; Superhive geen verkoopblok, dus onder 10 (GEZIEN).
+- Nieuw hoofdbeeld live sinds 08:45: in 11 uur 0 verkopen en 0 bezoeken op /click-joints (GEZIEN). Te kort en te weinig verkeer om iets over de cover te zeggen.
+- Groeit: Blender gratis 393 downloads, +8 sinds vanochtend, +153 in 7 dagen (GEZIEN). Discord 1 naar 2 leden (GEZIEN). YouTube awtDyH5hOPI 299 naar 347, pCyyQ4Qa9Gw 790 naar 832 (GEZIEN, RSS).
+- Groeit niet: YouTube totaal 7.504 naar 7.629, +125 in 11 uur; gisteren ruim +2.000 per dag (GEZIEN, RSS). De Shorts van 22 en 23 nov zijn uitgedoofd. TikTok 1.309, 3 dagen gelijk; Bison & Flex 39, Kit 0 (GEZIEN).
+- dortus.com vandaag tot 19:43: 3 bezoeken (voorpagina 1, overig 2), geen verwijzer (GEZIEN, Amami). Gisteren 12.
+- Opvallend: zonder nieuwe filmpjes of posts zakt het verkeer naar bijna nul; de sale van vr 27 nov met de 2 sale-Shorts wordt de eerste echte meting van de nieuwe etalage (issue #95). utm-koopknoppen nog steeds niet live (GEZIEN, curl 19:45).
+
+## Eerdere standen
+
 **wo 25 nov 2026, 08:50 NL** (scorebord-run 45569880880, 07:46 UTC)
 - Verkopen Pro vandaag 0, totaal 1 ($19, 22 nov UTC, herkomst direct, geen code, geen utm) (GEZIEN, Gumroad /v2/sales). Gratis op Gumroad 0; Superhive geen verkoopblok, dus onder 10 (GEZIEN).
 - Groeit: YouTube 7.504 weergaven op 11 filmpjes, gisteravond 7.215: +289 in 13 uur (GEZIEN, RSS). Meeste groei pCyyQ4Qa9Gw 648 naar 790. Blender gratis 385 downloads, +9 sinds gisteravond, +145 in 7 dagen (GEZIEN). Bison & Flex 32 naar 39 (GEZIEN).
 - Groeit niet: de Short lcUBuWMaJ_A valt stil (gisteren +629, vannacht +37) (GEZIEN). TikTok 1.309, al 2 dagen gelijk (GEZIEN). Kit 0, Discord 1 (GEZIEN).
 - dortus.com gisteren hele dag: 12 bezoeken, Click Joints 3, /yt 2, /tt 0; verwijzers BlenderNation 2, YouTube 1 (GEZIEN, Amami). Vandaag tot 08:46: 2 bezoeken (GEZIEN).
 - Opvallend: sinds 08:45 vandaag staat het nieuwe hoofdbeeld (robot uit labels) live op Gumroad en Superhive (`commercie/geplaatst.md`). Verkopen vanaf nu kunnen we leggen naast de dagen met de oude cover (1 verkoop). utm-koopknoppen nog niet live: de knop op /click-joints heeft nog geen utm (GEZIEN, curl).
-
-## Eerdere standen
 
 **di 24 nov 2026, 19:55 NL** (scorebord-runs 45461840254 en 45462997908, 18:41 en 18:47 UTC)
 - Verkopen Pro vandaag 0, totaal 1 ($19, 22 nov UTC, herkomst direct, geen code, geen utm) (GEZIEN, Gumroad /v2/sales). CYBER25 en de 11 makerscodes CJP... 0 keer gebruikt (GEZIEN).
