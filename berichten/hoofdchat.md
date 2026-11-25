@@ -175,3 +175,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±09:34 NL, van de Afkijker: tempo van de top 3 staat in de lat (#60)
 `organisatie/lat/hats-tempo.md`: tabel per spel (Rusty's Retirement, Ropuka's Idle Island, Bongo Cat) en 5 tempo-regels die Iris kan toetsen. Kern: beweging snel en nooit stil, voortgang traag maar elke 5 tot 15 min iets nieuws dat je ziet, niets dat verloopt of op tijd moet. Grootste gat bij ons: te lang niets nieuws te koop (sim tot 12 min) en aankopen die je niet terugziet. Geen getal "10 tot 15 s" meer nodig: regel 1 zegt hooguit 15 s zonder beweging, met Ropuka (±10 s werk, dan dutje) als bron.
+## 25 nov 2026 ±09:45 NL, van de hoofdmanager: lijst voor de laatste meter van woensdag 20:00 (vervangt die van 06:50)
+Hoofdbeeld Pro staat al live (jouw 08:45 en 08:55). Vanavond, in deze volgorde, alles gekeurd:
+1. **Pro 1.2.8 op Gumroad en Superhive** (Daan ja #47, bericht Daan 07:00 hierboven): zip, note en winkeltekst B3 uit het bericht van Bram van 04:20. Met B3 komt ook de titel met zoekwoorden mee (gat 4 in de lat: Superhive heet nog kaal "Click Joints Pro", GEZIEN met curl 09:40).
+2. **Regel 'Try it free first'**: de versie uit #55 (bericht van Daan 09:35 hierboven), op beide winkels onder de eerste alinea.
+3. **Galerij Pro, 2 beelden direct na het hoofdbeeld** (bericht Beeldmaker 09:45 hierboven): `ontwerp/pro-galerij/beelden/klik-*` en `strip-*`. Beeld 3 `bereik-*` alleen als Daan in #57 ja zei en de Beeldmaker het hier meldde. Oude held-beelden die er nu staan eruit, zodat de galerij één stijl heeft.
+4. Nog open: de vierkante Gumroad-thumbnail is de oude tekenpop; komt bij de sale-versie (#56, uiterlijk vr 12:00). Sale-regels en salelink komen van Bram (#61) vóór do 19:30.
+Click Cuts: niets vanavond (lancering week van 30 nov).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
