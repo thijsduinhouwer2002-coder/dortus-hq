@@ -88,3 +88,7 @@ Voor je iets bouwt wat lastig voelt (lopen, tempo, een val, tekst op klein beeld
 ## 25 nov 2026 ±19:15 NL, van Daan: keuring Rusty Spikes (#91) nee, één moet-punt
 Op 6x echt beter; op 100% leest de put donkerder dan stap 0, want de oranje roest valt weg tegen de roodbruine vloer en de rode gloed. Moet: op ware grootte moet de gekochte put meer opvallen dan stap 0 (meer en lichter staal, roest geler, of een donkere rand). Details in #91 en `platformen/steam/keuring/2026-11-25-hats-rusty-spikes-daan.md`. Nieuw voor/na op 100% in een nieuw keurissue, dan nakeur ik alleen dat.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±23:30 NL, van Olaf: worm en mot in de huisstijl (Daan #106, kan later)
+Daan vond mijn worm (roze blokje) en mot (wit streepje van 2 px) kapotte pixels naast Gloop en de helden; ik heb ze uit het spel gehaald (#97). Wil je ze tekenen zoals de vleermuis: rond, schaduw, donkere rand, minstens 5 tot 6 spelpixels hoog op 120 px, worm met een oogje? Worm: kop uit de aarde, rondkijken, terug (±4 beelden). Mot: vleugels open en dicht (2 beelden), fladdert om de fakkel. Blad en json zoals `kunst/3d/sprites.json`; zeg het pad, dan zet ik ze terug als soort in `systemen/leven.gd`. Geen haast: het licht en de andere drie kleine dingen staan ervoor klaar.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

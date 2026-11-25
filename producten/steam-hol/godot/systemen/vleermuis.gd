@@ -31,6 +31,10 @@ const VLIEG_Y := 3.5      # midden van de vliegende vleermuis zoveel onder het g
 # Keer de schaal van Gloop (proef_figuur), want de berg schaalt mee.
 const BERG_MARGE := 70.0
 const BERG_MARGE_GROOT := 72.0
+# Klein leven (#97, Daan #106): een hangende vleermuis wiegt even aan zijn pootjes, zacht in en uit. leven.gd kiest wanneer.
+const WIEG_S := 3.0
+const WIEG_HOEK := 0.22   # grootste uitslag in radialen (±13 graden)
+const WIEG_SLAG := 1.4    # één keer heen en weer in zoveel seconden
 
 var hol = null
 var wezens: Node = null
@@ -188,6 +192,11 @@ func _process(delta: float) -> void:
 	var bezet: Array = []
 	for v in vm:
 		bezet.append(v["naar"])
+		if float(v.get("wieg", -1.0)) >= 0.0:
+			v["wieg"] += delta
+			if v["wieg"] >= WIEG_S or v["t"] >= 0.0 or float(v.get("zweef_t", -1.0)) >= 0.0:
+				v["wieg"] = -1.0
+			queue_redraw()
 	for v in vm:
 		if v["t"] >= 0.0:
 			v["t"] += delta * float(v.get("tempo", 1.0))
@@ -236,6 +245,30 @@ func _process(delta: float) -> void:
 				_vlieg(v, thuis, achter, int(v["k"]), TERUG_TEMPO)
 				v["uitwijk"] = true
 
+# Laat één hangende vleermuis wiegen (niet in rust na een vlucht). Geeft zijn midden in spelpixels, of null als er geen is.
+func wieg():
+	for v in vm:
+		if v["t"] < 0.0 and float(v.get("zweef_t", -1.0)) < 0.0 and v["rust"] <= 0.0 and float(v.get("wieg", -1.0)) < 0.0:
+			v["wieg"] = 0.0
+			queue_redraw()
+			return Vector2(int(v["k"]) * KOL + KOL / 2.0, GANG_BOVEN + 4)
+	return null
+
+func kan_wiegen() -> bool:
+	if ct == null:
+		return false
+	for v in vm:
+		if v["t"] < 0.0 and float(v.get("zweef_t", -1.0)) < 0.0 and v["rust"] <= 0.0:
+			return true
+	return false
+
+# hoek van het wiegen op tijd w (0 tot WIEG_S): zacht in, zacht uit
+static func wieg_hoek(w: float) -> float:
+	if w < 0.0 or w >= WIEG_S:
+		return 0.0
+	var dek := clampf(minf(w / 0.6, (WIEG_S - w) / 0.8), 0.0, 1.0)
+	return sin(w * TAU / WIEG_SLAG) * WIEG_HOEK * dek
+
 func _vlieg(v: Dictionary, van_x: float, naar_x: float, naar_k: int, tempo: float) -> void:
 	v["van_x"] = van_x
 	v["naar_x"] = naar_x
@@ -282,7 +315,14 @@ func _draw() -> void:
 			# hangend: frame 0, bovenkant van het lijf 1 spelpixel onder het plafond
 			var x := int(v["k"]) * KOL + KOL / 2.0 - ax / px
 			var y := GANG_BOVEN + 1 - float(tops[0])
-			draw_texture_rect_region(ct, Rect2(x, y, cw / px, ch / px), Rect2(0, 0, cw, ch))
+			var hoek := wieg_hoek(float(v.get("wieg", -1.0)))
+			if hoek != 0.0:   # draaien om de pootjes aan het plafond
+				var poot := Vector2(int(v["k"]) * KOL + KOL / 2.0, GANG_BOVEN + 1)
+				draw_set_transform(poot, hoek, Vector2.ONE)
+				draw_texture_rect_region(ct, Rect2(x - poot.x, y - poot.y, cw / px, ch / px), Rect2(0, 0, cw, ch))
+				draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+			else:
+				draw_texture_rect_region(ct, Rect2(x, y, cw / px, ch / px), Rect2(0, 0, cw, ch))
 		else:
 			var p := lucht_plek(v)
 			var open := int((v["t"] if v["t"] >= 0.0 else float(v["zweef_t"])) / SLAG_S) % 2 == 0

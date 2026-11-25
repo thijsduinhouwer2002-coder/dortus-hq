@@ -2,8 +2,9 @@ extends SceneTree
 # Olaf 25 nov 2026 (issue #97): licht en klein leven in een echt hol.
 # - lichtkaart: gras blijft 1, gang donkerder dan aarde ver van licht, bij de fakkel lichter dan ver weg;
 # - flakkeren blijft tussen 0,9 en 1,0;
-# - leven: elk ding vindt een plek in een gewoon hol, worm alleen in dichte aarde, kruimels niet boven een put;
-#   in 10 min spel nooit twee tegelijk, gaten tussen 5 en 15 s, alle vier soorten komen voor.
+# - lichtplas om de fakkel groot genoeg (Daan #106);
+# - leven: elk ding vindt een plek in een gewoon hol, de vleermuis wiegt zacht in en uit;
+#   in 10 min spel nooit twee tegelijk, gaten tussen 5 en 15 s, alle drie soorten komen voor.
 # Gebruik: godot --headless --path . -s systemen/toetsen/toets_licht.gd  (0 fouten = groen)
 
 var fout := 0
@@ -55,23 +56,26 @@ func _init() -> void:
 	licht._process(1.0)
 	ok(licht.keer == kaart + 1, "kaart niet opnieuw zonder verandering (%d keer)" % licht.keer)
 
-	var r := RandomNumberGenerator.new()
-	r.seed = 5
+	# Daan #106 moet 3: de plas om de fakkel is groot en fel genoeg (2 tegels, dekking 0,4 tegen 0,2 eerst)
+	ok(G.FAKKEL_R >= 30.0 and G.KLEUR_FAKKEL.a >= 0.35, "lichtplas om de fakkel: straal %.0f, dekking %.2f" % [G.FAKKEL_R, G.KLEUR_FAKKEL.a])
+	# vleermuis in het hol (zelfde als hol_lagen.gd), zodat hij kan wiegen
+	var wz := Node2D.new()
+	var vm := Node2D.new()
+	vm.set_script(load("res://systemen/vleermuis.gd"))
+	vm.name = "Vleermuis"
+	hol.add_child(vm)
+	hol.add_child(wz)
+	vm.zet(hol, wz)
+	ok(vm.vm.size() >= 1, "vleermuis hangt in het hol (%d)" % vm.vm.size())
 	for s in V.SOORTEN:
-		ok(V.kies_plek(hol, s, r) != null, "plek voor %s in een gewoon hol" % s)
-	for i in 50:
-		var w: Vector2 = V.kies_plek(hol, "worm", r)
-		var k: int = int(w.x / 16)
-		if hol.boven[k] or k == hol.ingang_kol:
-			ok(false, "worm in open kolom %d" % k)
-			break
-	var put: int = hol.vallen.keys()[0]
-	var boven_put := false
-	for i in 80:
-		var kp: Vector2 = V.kies_plek(hol, "kruimels", r)
-		if int(kp.x / 16) == put:
-			boven_put = true
-	ok(not boven_put, "kruimels nooit boven de put")
+		ok(V.kies_plek(hol, s) != null, "plek voor %s in een gewoon hol" % s)
+	ok(not ("worm" in V.SOORTEN or "mot" in V.SOORTEN or "kruimels" in V.SOORTEN), "worm, mot en kruimels zijn eruit (Daan #106)")
+	var VM = load("res://systemen/vleermuis.gd")
+	var hk := 0.0
+	for i in 300:
+		hk = maxf(hk, absf(VM.wieg_hoek(i * 0.01)))
+	ok(hk <= VM.WIEG_HOEK + 0.001 and hk > 0.1 and VM.wieg_hoek(0.0) == 0.0 and VM.wieg_hoek(VM.WIEG_S) == 0.0,
+			"vleermuis wiegt zacht in en uit (grootste hoek %.2f)" % hk)
 
 	var lv = V.maak_in(hol, 3)
 	var gaten: Array = []
@@ -79,6 +83,7 @@ func _init() -> void:
 	var was := ""
 	for i in 6000:   # 10 min op 10 beelden per s
 		lv._process(0.1)
+		vm._process(0.1)
 		if lv.soort == "":
 			stil += 0.1
 		elif was == "":

@@ -6,7 +6,8 @@ extends Node2D
 
 const LICHT := preload("res://systemen/licht.gd")
 # per bron (zelfde volgorde als licht.gd bronnen): kleur met dekking en of hij flakkert
-const KLEUR_FAKKEL := Color(1.0, 0.62, 0.28, 0.20)
+const KLEUR_FAKKEL := Color(1.0, 0.62, 0.28, 0.40)   # Daan #106 moet 3: een lichtplas die je op ware grootte ziet (was 0,20)
+const FAKKEL_R := 32.0   # straal van de plas in spelpixels: 2 tegels (was 30 x 0,75 = 22)
 const KLEUR_GOUD := Color(1.0, 0.78, 0.35, 0.14)
 
 var h
@@ -51,6 +52,7 @@ func _draw() -> void:
 		var r: float = b[i][1]
 		var c: Color
 		c = KLEUR_FAKKEL if (b.size() == 2 and i == 0) else KLEUR_GOUD
+		var fakkel: bool = b.size() == 2 and i == 0
 		c.a *= flakker(t, i)
-		r *= (0.97 + 0.03 * flakker(t * 0.8, i + 3)) * 0.75
+		r = (FAKKEL_R if fakkel else r * 0.75) * (0.97 + 0.03 * flakker(t * 0.8, i + 3))
 		draw_texture_rect(vlek, Rect2(p.x - r, p.y - r, 2.0 * r, 2.0 * r), false, c)
