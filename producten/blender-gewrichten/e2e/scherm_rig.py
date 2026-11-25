@@ -35,6 +35,10 @@ def bouw():
         o.select_set(False)
     mesh.select_set(True)
     bpy.context.view_layer.objects.active = mesh
+    staat["mesh"] = mesh
+
+
+def bouw_figuur():
     staat["knop"] = bpy.ops.click_joints.figuur_uit_rig()
     fig = importlib.import_module("bl_ext.user_default.click_joints.betaald.figuur")
     staat["lijst"] = fig.figuur_gewrichten(bpy.context.scene.objects, "pop")
@@ -57,10 +61,10 @@ def kijk():
     rv.view_distance = 115.0
 
 
-def uitsnede():
+def uitsnede(naam="16-figuur-rig"):
     venster, _gebied, regio = zijbalk()
-    bron = os.path.join(uitmap, "16-figuur-rig-x.png")
-    doel = os.path.join(uitmap, "16-figuur-rig-paneel.png")
+    bron = os.path.join(uitmap, f"{naam}-x.png")
+    doel = os.path.join(uitmap, f"{naam}-paneel.png")
     if not (regio and os.path.exists(bron)):
         return False
     x = venster.x + regio.x
@@ -87,12 +91,25 @@ def stap():
         return 1.0
     if n == 2:
         alle_labels()
-        bouw()
+        bouw()  # alleen figuur en rig; Figure from rig pas na het schermbeeld 16a
         open_paneel()
         kijk()
         return 1.0
     if n < 20 and not wiel_naar_tabblad():
         return 0.5
+    if "boven" not in staat:  # 1.2.9 (issue 70): eerst het paneel vóór Figure from rig, met het vak Rig found bovenaan
+        staat["boven"] = True
+        zijbalk()[1].tag_redraw()
+        return 1.0
+    if "boven_geschoten" not in staat:
+        staat["boven_geschoten"] = True
+        schiet("16a-rig-boven.png")
+        ok_boven = uitsnede("16a-rig-boven")
+        rig = importlib.import_module("bl_ext.user_default.click_joints.betaald.rig")
+        arm = rig.zoek_armature(staat["mesh"])
+        log(f"RIG BOVEN {'OK' if arm is not None and ok_boven else 'FOUT'} rig={arm.name if arm else None} uitsnede={ok_boven}")
+        bouw_figuur()
+        return 1.0
     if "geschoten" not in staat:
         staat["geschoten"] = True
         venster, gebied, regio = zijbalk()

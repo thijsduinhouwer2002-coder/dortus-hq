@@ -301,7 +301,8 @@ jobs:
           timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
             /tmp/blender/blender --gpu-backend opengl /tmp/start_r.blend --python e2e/scherm_rig.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/rig_s.log || true
           grep -q "RIG BEELD OK" /tmp/rig_s.log || { echo "FOUT: plaatje 16 Figure from rig"; exit 1; }
-          for f in 16-figuur-rig-x.png 16-figuur-rig-paneel.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+          grep -q "RIG BOVEN OK" /tmp/rig_s.log || { echo "FOUT: plaatje 16a Rig found bovenaan (issue 70)"; exit 1; }
+          for f in 16a-rig-boven-paneel.png 16-figuur-rig-x.png 16-figuur-rig-paneel.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
       - name: Schermafbeelding hele figuur (Pro 1.1, plaatje 17 voor Daan, acht gewrichten met bereik)
         if: always()
         env:
