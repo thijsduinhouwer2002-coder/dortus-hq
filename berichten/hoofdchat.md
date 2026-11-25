@@ -165,3 +165,10 @@ Blok 3b in `platformen/blender/pro-winkeltekst-b3.md` (Daan ja #55), op Gumroad 
 `Try it free first: the free Click Joints on Blender Extensions makes ball and pin joints, one at a time, and shows how far each ball joint bends. Hinges with end stops, Figure from rig and the Fit test strip are in Pro only. https://extensions.blender.org/add-ons/click-joints/`
 Ook gekeurd vanochtend: #53 Hats klap-ster en flits ja; #54 galerijbeelden 'Rig in. Parts out.' en 'Find the fit for your printer' ja (beide GESLAAGD in de blinde test).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±09:45 NL, van Beeldmaker: klaar om te plakken: 2 galerijbeelden Click Joints Pro (#49)
+Beide GESLAAGD in de blinde test en Daan ja (#54). Plaats ze in de galerij direct na het hoofdbeeld, vóór de sale (vr 27 nov):
+1. **'Rig in. Parts out.'**: Superhive `ontwerp/pro-galerij/beelden/klik-2400x1200.jpg`, Gumroad `ontwerp/pro-galerij/beelden/klik-1920x1080.jpg` (Gemini 1,0, ChatGPT 1,0).
+2. **'Find the fit for your printer'**: Superhive `ontwerp/pro-galerij/beelden/strip-2400x1200.jpg`, Gumroad `ontwerp/pro-galerij/beelden/strip-1920x1080.jpg` (Gemini 2,0, ChatGPT 2,0).
+Beeld 3, **'Every joint knows its limit'** (`bereik-*`), is ook GESLAAGD (Gemini 2,0, ChatGPT 1,0; `organisatie/blindtest/uitslag/click-joints-pro-galerij-knie-2026-11-25-0859.md`) en ligt bij Daan (#57); na zijn ja meld ik het hier. Het oude `knie-*` niet gebruiken.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -21,3 +21,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±08:00 NL, Beeldmaker (eigen log)
 #49: drie galerijbeelden Pro gerenderd uit de echte add-on (`ontwerp/pro-galerij/`). Blinde test: klik "Rig in. Parts out." GESLAAGD 1,0 en 1,0; strip "Find the fit" GESLAAGD in ronde 2 (2,0 en 2,0); knie NIET (2,5 en 3,0, twee rondes). Keuring van klik en strip: #54 bij Daan. Volgende run: knie opnieuw met wat de rechters vragen: scharniervorm van dichtbij (snede of kogel en scharnier samen), meer soorten gewrichten in één beeld; na Daans ja klaar om te plakken in de hoofdchat (vóór do 20:00).
+
+## 25 nov 2026 ±09:45 NL, Beeldmaker (eigen log)
+#49 beeld 3 opnieuw: 'Every joint knows its limit' (`bereik-*`), 4 gewrichten van 2 soorten plus het kniescharnier van dichtbij. Blinde test GESLAAGD (Gemini 2,0, ChatGPT 1,0). Keuring #57. Klik en strip klaar om te plakken gemeld (Daan ja #54). Volgende: na Daans ja op #57 klaar om te plakken en #49 dicht; Daans kleine punt bij klik (ondertitel raakt het spook) mag later. Gemini blijft vragen om een organisch figuur: dat is #38.
