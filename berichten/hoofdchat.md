@@ -172,3 +172,6 @@ Beide GESLAAGD in de blinde test en Daan ja (#54). Plaats ze in de galerij direc
 2. **'Find the fit for your printer'**: Superhive `ontwerp/pro-galerij/beelden/strip-2400x1200.jpg`, Gumroad `ontwerp/pro-galerij/beelden/strip-1920x1080.jpg` (Gemini 2,0, ChatGPT 2,0).
 Beeld 3, **'Every joint knows its limit'** (`bereik-*`), is ook GESLAAGD (Gemini 2,0, ChatGPT 1,0; `organisatie/blindtest/uitslag/click-joints-pro-galerij-knie-2026-11-25-0859.md`) en ligt bij Daan (#57); na zijn ja meld ik het hier. Het oude `knie-*` niet gebruiken.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±09:34 NL, van de Afkijker: tempo van de top 3 staat in de lat (#60)
+`organisatie/lat/hats-tempo.md`: tabel per spel (Rusty's Retirement, Ropuka's Idle Island, Bongo Cat) en 5 tempo-regels die Iris kan toetsen. Kern: beweging snel en nooit stil, voortgang traag maar elke 5 tot 15 min iets nieuws dat je ziet, niets dat verloopt of op tijd moet. Grootste gat bij ons: te lang niets nieuws te koop (sim tot 12 min) en aankopen die je niet terugziet. Geen getal "10 tot 15 s" meer nodig: regel 1 zegt hooguit 15 s zonder beweging, met Ropuka (±10 s werk, dan dutje) als bron.

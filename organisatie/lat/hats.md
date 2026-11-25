@@ -4,6 +4,8 @@ De 3 sterkste concurrenten in onze winkel, en waar wij staan. Elk feit met GEZIE
 
 Genre: Steam-label "Desktop Companion" en "Idler"; alle drie dragen die labels (GEZIEN op hun winkelpagina's). Bronnen: winkelpagina `store.steampowered.com/app/<id>`, appdetails `store.steampowered.com/api/appdetails?appids=<id>`, negatieve reviews `steamcommunity.com/app/<id>/negativereviews/?browsefilter=toprated`, nieuws `api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=<id>`. Hoofdbeelden opgeslagen in `organisatie/lat/beelden/hats/`.
 
+**Tempo:** hoe vaak de top beweegt, vraagt en iets nieuws geeft, met 5 tempo-regels voor Hats: `organisatie/lat/hats-tempo.md` (25 nov, issue #60).
+
 ## Wie
 | | Rusty's Retirement | Spirit City: Lofi Sessions | Desktop Defender | Wij |
 |---|---|---|---|---|
