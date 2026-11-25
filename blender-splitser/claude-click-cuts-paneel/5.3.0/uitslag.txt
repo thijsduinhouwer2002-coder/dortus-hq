@@ -1,0 +1,1787 @@
+[sj-e2e] Blender 5.3.0
+[sj-e2e] OK   operator split_joints.plan bestaat 
+[sj-e2e] OK   operator split_joints.split bestaat 
+[sj-e2e] OK   operator split_joints.exporteer bestaat 
+[sj-e2e] OK   operator split_joints.maak_gesloten bestaat 
+[sj-e2e] OK   operator split_joints.snede_erbij bestaat 
+[sj-e2e] OK   operator split_joints.snede_weg bestaat 
+[sj-e2e] OK   operator split_joints.vrije_snede_erbij bestaat 
+[sj-e2e] OK   operator split_joints.vrije_snede bestaat 
+[sj-e2e] OK   operator split_joints.split_to_fit bestaat 
+[sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
+[sj-e2e] suzanne: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
+[sj-e2e] suzanne: split {'FINISHED'} in 2.25 s, solver MANIFOLD
+[sj-e2e] OK   suzanne: meer dan 1 stuk 8 stukken
+[sj-e2e] OK   suzanne stuk 1: past op het bed [84.6, 96.1, 115.1]
+[sj-e2e] OK   suzanne stuk 1: waterdicht slechte randen 0, volume 255040 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   suzanne stuk 1: status groen groen, wand 1.402
+[sj-e2e] OK   suzanne stuk 2: past op het bed [84.6, 96.1, 115.1]
+[sj-e2e] OK   suzanne stuk 2: waterdicht slechte randen 0, volume 254841 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   suzanne stuk 2: status groen groen, wand 1.391
+[sj-e2e] OK   suzanne stuk 3: past op het bed [137.6, 88.1, 47.7]
+[sj-e2e] OK   suzanne stuk 3: waterdicht slechte randen 0, volume 137283 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   suzanne stuk 3: status groen groen, wand 1.255
+[sj-e2e] OK   suzanne stuk 4: past op het bed [137.5, 88.1, 47.7]
+[sj-e2e] OK   suzanne stuk 4: waterdicht slechte randen 0, volume 137225 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   suzanne stuk 4: status groen groen, wand 1.254
+[sj-e2e] OK   suzanne stuk 5: past op het bed [98.8, 96.3, 113.5]
+[sj-e2e] OK   suzanne stuk 5: waterdicht slechte randen 0, volume 621980 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   suzanne stuk 5: status groen groen, wand 1.724
+[sj-e2e] OK   suzanne stuk 6: past op het bed [98.8, 96.3, 113.5]
+[sj-e2e] OK   suzanne stuk 6: waterdicht slechte randen 0, volume 621758 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   suzanne stuk 6: status groen groen, wand 1.721
+[sj-e2e] OK   suzanne stuk 7: past op het bed [159.6, 96.3, 115.1]
+[sj-e2e] OK   suzanne stuk 7: waterdicht slechte randen 0, volume 721327 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   suzanne stuk 7: status groen groen, wand 1.453
+[sj-e2e] OK   suzanne stuk 8: past op het bed [159.6, 96.3, 115.1]
+[sj-e2e] OK   suzanne stuk 8: waterdicht slechte randen 0, volume 721029 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   suzanne stuk 8: status groen groen, wand 1.451
+[sj-e2e] OK   suzanne: aantal pennen gelijk aan de gatenparen 40 pennen, 40 paren
+[sj-e2e] OK   suzanne: er zijn pennen 
+[sj-e2e] OK   suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   suzanne: gat (0.014, -66.146, 9.091) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, -10.065, 109.594) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, -90.73, 90.414) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, -41.563, 62.028) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-60.923, -2.767, 109.928) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-6.903, -2.767, 84.76) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-69.231, -9.703, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-13.285, -84.608, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-7.782, -21.725, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (60.933, -2.767, 109.928) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (6.929, -2.767, 84.76) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (69.244, -9.703, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (13.31, -84.608, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (7.808, -21.725, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, 71.585, 109.594) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, 4.553, 78.139) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-88.491, 30.716, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-11.451, 75.665, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-21.539, 5.03, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-45.385, 45.393, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (88.501, 30.716, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (11.476, 75.665, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (21.562, 5.03, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (45.403, 45.393, 116.883) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, -10.065, 221.581) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, -83.048, 124.169) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, -10.065, 145.646) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, -59.232, 181.696) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-13.288, -2.767, 222.434) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-80.939, -2.767, 124.071) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-7.207, -2.767, 137.69) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (-76.379, -2.767, 193.682) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (13.312, -2.767, 222.434) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (80.944, -2.767, 124.071) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (7.233, -2.767, 137.69) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (76.385, -2.767, 193.682) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, 4.553, 223.882) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, 80.061, 124.169) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, 4.553, 144.879) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne: gat (0.014, 71.585, 196.269) in twee stukken 2
+[sj-e2e] OK   suzanne: pen 5 mm past helemaal in de twee gaten pen 11.999998807907104, gaten samen 12.60
+[sj-e2e] OK   suzanne stuk 1: een nummer op elk snijvlak met een buur buren [2, 3, 5], nummers ['1-2', '1-3', '1-5']
+[sj-e2e] OK   suzanne stuk 1: nummer 1-2 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 1: nummer 1-2 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   suzanne stuk 1: nummer 1-3 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 1: nummer 1-3 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   suzanne stuk 1: nummer 1-5 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 1: nummer 1-5 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   suzanne stuk 2: een nummer op elk snijvlak met een buur buren [1, 4, 6], nummers ['2-1', '2-4', '2-6']
+[sj-e2e] OK   suzanne stuk 2: nummer 2-1 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 2: nummer 2-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   suzanne stuk 2: nummer 2-4 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 2: nummer 2-4 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   suzanne stuk 2: nummer 2-6 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 2: nummer 2-6 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   suzanne stuk 3: een nummer op elk snijvlak met een buur buren [1, 4, 7], nummers ['3-4', '3-1', '3-7']
+[sj-e2e] OK   suzanne stuk 3: nummer 3-4 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 3: nummer 3-4 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   suzanne stuk 3: nummer 3-1 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 3: nummer 3-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   suzanne stuk 3: nummer 3-7 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 3: nummer 3-7 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   suzanne stuk 4: een nummer op elk snijvlak met een buur buren [2, 3, 8], nummers ['4-3', '4-2', '4-8']
+[sj-e2e] OK   suzanne stuk 4: nummer 4-3 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 4: nummer 4-3 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   suzanne stuk 4: nummer 4-2 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 4: nummer 4-2 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   suzanne stuk 4: nummer 4-8 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 4: nummer 4-8 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   suzanne stuk 5: een nummer op elk snijvlak met een buur buren [1, 6, 7], nummers ['5-6', '5-7', '5-1']
+[sj-e2e] OK   suzanne stuk 5: nummer 5-6 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 5: nummer 5-6 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   suzanne stuk 5: nummer 5-7 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 5: nummer 5-7 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   suzanne stuk 5: nummer 5-1 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 5: nummer 5-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   suzanne stuk 6: een nummer op elk snijvlak met een buur buren [2, 5, 8], nummers ['6-5', '6-8', '6-2']
+[sj-e2e] OK   suzanne stuk 6: nummer 6-5 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 6: nummer 6-5 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   suzanne stuk 6: nummer 6-8 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 6: nummer 6-8 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   suzanne stuk 6: nummer 6-2 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 6: nummer 6-2 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   suzanne stuk 7: een nummer op elk snijvlak met een buur buren [3, 5, 8], nummers ['7-8', '7-5', '7-3']
+[sj-e2e] OK   suzanne stuk 7: nummer 7-8 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 7: nummer 7-8 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   suzanne stuk 7: nummer 7-5 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 7: nummer 7-5 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   suzanne stuk 7: nummer 7-3 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 7: nummer 7-3 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   suzanne stuk 8: een nummer op elk snijvlak met een buur buren [4, 6, 7], nummers ['8-7', '8-6', '8-4']
+[sj-e2e] OK   suzanne stuk 8: nummer 8-7 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 8: nummer 8-7 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   suzanne stuk 8: nummer 8-6 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 8: nummer 8-6 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   suzanne stuk 8: nummer 8-4 begint met het eigen nummer 
+[sj-e2e] OK   suzanne stuk 8: nummer 8-4 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   suzanne: aantal stukken gelijk aan het plan 8 / 8
+[sj-e2e] OK   suzanne: plat export 
+[sj-e2e] OK   suzanne: plat stuk 1 laagste punt op z = 0, past op het bed z 0.000, 115.1 x 96.1 x 84.6, rang 0
+[sj-e2e] OK   suzanne: plat stuk 1 zelfde volume als het stuk 255053 / 255053 mm3
+[sj-e2e] OK   suzanne: plat stuk 1 ligt op een snijvlak rang 0, onder 7136 mm2
+[sj-e2e] OK   suzanne: plat stuk 1 grootste snijvlak ligt onder onder 7136 mm2, grootste 7136 mm2
+[sj-e2e] OK   suzanne: plat stuk 2 laagste punt op z = 0, past op het bed z 0.000, 115.1 x 96.1 x 84.6, rang 0
+[sj-e2e] OK   suzanne: plat stuk 2 zelfde volume als het stuk 254828 / 254828 mm3
+[sj-e2e] OK   suzanne: plat stuk 2 ligt op een snijvlak rang 0, onder 7136 mm2
+[sj-e2e] OK   suzanne: plat stuk 2 grootste snijvlak ligt onder onder 7136 mm2, grootste 7136 mm2
+[sj-e2e] OK   suzanne: plat stuk 3 laagste punt op z = 0, past op het bed z -0.000, 137.6 x 88.1 x 47.7, rang 0
+[sj-e2e] OK   suzanne: plat stuk 3 zelfde volume als het stuk 137312 / 137312 mm3
+[sj-e2e] OK   suzanne: plat stuk 3 ligt op een snijvlak rang 0, onder 6517 mm2
+[sj-e2e] OK   suzanne: plat stuk 3 grootste snijvlak ligt onder onder 6517 mm2, grootste 6516 mm2
+[sj-e2e] OK   suzanne: plat stuk 4 laagste punt op z = 0, past op het bed z -0.000, 137.5 x 88.1 x 47.7, rang 0
+[sj-e2e] OK   suzanne: plat stuk 4 zelfde volume als het stuk 137196 / 137196 mm3
+[sj-e2e] OK   suzanne: plat stuk 4 ligt op een snijvlak rang 0, onder 6506 mm2
+[sj-e2e] OK   suzanne: plat stuk 4 grootste snijvlak ligt onder onder 6506 mm2, grootste 6505 mm2
+[sj-e2e] OK   suzanne: plat stuk 5 laagste punt op z = 0, past op het bed z 0.000, 98.8 x 113.5 x 96.3, rang 0
+[sj-e2e] OK   suzanne: plat stuk 5 zelfde volume als het stuk 621985 / 621985 mm3
+[sj-e2e] OK   suzanne: plat stuk 5 ligt op een snijvlak rang 0, onder 9456 mm2
+[sj-e2e] OK   suzanne: plat stuk 5 grootste snijvlak ligt onder onder 9456 mm2, grootste 9456 mm2
+[sj-e2e] OK   suzanne: plat stuk 6 laagste punt op z = 0, past op het bed z 0.000, 98.8 x 113.5 x 96.3, rang 0
+[sj-e2e] OK   suzanne: plat stuk 6 zelfde volume als het stuk 621753 / 621753 mm3
+[sj-e2e] OK   suzanne: plat stuk 6 ligt op een snijvlak rang 0, onder 9434 mm2
+[sj-e2e] OK   suzanne: plat stuk 6 grootste snijvlak ligt onder onder 9434 mm2, grootste 9434 mm2
+[sj-e2e] OK   suzanne: plat stuk 7 laagste punt op z = 0, past op het bed z 0.000, 159.6 x 115.1 x 96.3, rang 0
+[sj-e2e] OK   suzanne: plat stuk 7 zelfde volume als het stuk 721308 / 721308 mm3
+[sj-e2e] OK   suzanne: plat stuk 7 ligt op een snijvlak rang 0, onder 9456 mm2
+[sj-e2e] OK   suzanne: plat stuk 7 grootste snijvlak ligt onder onder 9456 mm2, grootste 9456 mm2
+[sj-e2e] OK   suzanne: plat stuk 8 laagste punt op z = 0, past op het bed z 0.000, 115.1 x 96.3 x 159.6, rang 0
+[sj-e2e] OK   suzanne: plat stuk 8 zelfde volume als het stuk 721048 / 721048 mm3
+[sj-e2e] OK   suzanne: plat stuk 8 ligt op een snijvlak rang 0, onder 9446 mm2
+[sj-e2e] OK   suzanne: plat stuk 8 grootste snijvlak ligt onder onder 9446 mm2, grootste 9446 mm2
+[sj-e2e] OK   suzanne: plat minstens de helft van de stukken ligt op een snijvlak 8 van 8
+[sj-e2e] OK   suzanne: plat pennenplaat ongewijzigd 1 platen
+[sj-e2e] OK   suzanne: plat stukken staan na export nog op hun plek in de scene 
+[sj-e2e] OK   suzanne: export STL 9 bestanden
+[sj-e2e] OK   suzanne: STL piece_01.stl maat gelijk 9452 driehoeken, [84.59, 96.1, 115.08]
+[sj-e2e] OK   suzanne: STL piece_02.stl maat gelijk 9548 driehoeken, [84.56, 96.1, 115.08]
+[sj-e2e] OK   suzanne: STL piece_03.stl maat gelijk 6700 driehoeken, [137.57, 88.06, 47.69]
+[sj-e2e] OK   suzanne: STL piece_04.stl maat gelijk 6646 driehoeken, [137.54, 88.06, 47.69]
+[sj-e2e] OK   suzanne: STL piece_05.stl maat gelijk 13180 driehoeken, [98.82, 96.34, 113.5]
+[sj-e2e] OK   suzanne: STL piece_06.stl maat gelijk 13292 driehoeken, [98.79, 96.34, 113.5]
+[sj-e2e] OK   suzanne: STL piece_07.stl maat gelijk 15978 driehoeken, [159.6, 96.31, 115.05]
+[sj-e2e] OK   suzanne: STL piece_08.stl maat gelijk 15962 driehoeken, [159.57, 96.31, 115.05]
+[sj-e2e] OK   suzanne: STL pins_5mm_x40.stl maat gelijk 10080 driehoeken, [59.0, 50.0, 12.0]
+[sj-e2e] OK   suzanne: export 3MF 9 bestanden
+[sj-e2e] OK   suzanne: 3MF piece_01.3mf in mm, maat gelijk 9452 driehoeken, [84.59, 96.1, 115.08]
+[sj-e2e] OK   suzanne: 3MF piece_02.3mf in mm, maat gelijk 9548 driehoeken, [84.56, 96.1, 115.08]
+[sj-e2e] OK   suzanne: 3MF piece_03.3mf in mm, maat gelijk 6700 driehoeken, [137.57, 88.06, 47.69]
+[sj-e2e] OK   suzanne: 3MF piece_04.3mf in mm, maat gelijk 6646 driehoeken, [137.54, 88.06, 47.69]
+[sj-e2e] OK   suzanne: 3MF piece_05.3mf in mm, maat gelijk 13180 driehoeken, [98.82, 96.34, 113.5]
+[sj-e2e] OK   suzanne: 3MF piece_06.3mf in mm, maat gelijk 13292 driehoeken, [98.79, 96.34, 113.5]
+[sj-e2e] OK   suzanne: 3MF piece_07.3mf in mm, maat gelijk 15978 driehoeken, [159.6, 96.31, 115.05]
+[sj-e2e] OK   suzanne: 3MF piece_08.3mf in mm, maat gelijk 15962 driehoeken, [159.57, 96.31, 115.05]
+[sj-e2e] OK   suzanne: 3MF pins_5mm_x40.3mf in mm, maat gelijk 10080 driehoeken, [59.0, 50.0, 12.0]
+[sj-e2e] OK   suzanne kleur: standaard Per piece PIECE
+[sj-e2e] OK   suzanne kleur: elk stuk een eigen materiaal met dezelfde objectkleur 
+[sj-e2e] OK   suzanne kleur: buren nooit dezelfde kleur 12 paren buren, gelijk []
+[sj-e2e] OK   suzanne kleur: verschillende kleuren 8 kleuren voor 8 stukken
+[sj-e2e] OK   suzanne kleur: pennen goud 1 plaatjes
+[sj-e2e] OK   suzanne kleur: Check geeft groen, oranje of rood per status ['groen']
+[sj-e2e] OK   suzanne kleur: Check maakt pennen groen 
+[sj-e2e] OK   suzanne kleur: terug naar Per piece geeft dezelfde kleuren 
+[sj-e2e] OK   suzanne kleur: mesh en status blijven gelijk 
+[sj-e2e] OK   verschuif: er is een snede 
+[sj-e2e] OK   verschuif: een stuk eindigt op de nieuwe plek {'FINISHED'}, snede 0.00 -> 5.00
+[sj-e2e] OK   verschuif: geen stuk eindigt op de oude plek 
+[sj-e2e] OK   verschuif stuk 1: past en waterdicht 
+[sj-e2e] OK   verschuif stuk 2: past en waterdicht 
+[sj-e2e] OK   verschuif stuk 3: past en waterdicht 
+[sj-e2e] OK   verschuif stuk 4: past en waterdicht 
+[sj-e2e] OK   verschuif stuk 5: past en waterdicht 
+[sj-e2e] OK   verschuif stuk 6: past en waterdicht 
+[sj-e2e] OK   verschuif stuk 7: past en waterdicht 
+[sj-e2e] OK   verschuif stuk 8: past en waterdicht 
+[sj-e2e] waterdicht GlassAlpha: {'FINISHED'} -> GlassAlpha_watertight 345960 vlakken
+[sj-e2e] vaas: plan {'FINISHED'} 16 stukken, n=[2, 2, 4]
+[sj-e2e] vaas: split {'FINISHED'} in 11.72 s, solver MANIFOLD
+[sj-e2e] OK   vaas: meer dan 1 stuk 16 stukken
+[sj-e2e] vaas: meldingen: 'Cut 9-10: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-14: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 11-12: too small for a pin: the face is 5.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 15-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 9-11: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-15: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 10-12: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 14-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 5-9: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 7-11: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 6-10: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 8-12: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 9-13: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 11-15: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 10-14: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 12-16: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint'
+[sj-e2e] OK   vaas stuk 1: past op het bed [144.1, 144.1, 150.0]
+[sj-e2e] OK   vaas stuk 1: waterdicht slechte randen 0, volume 925041 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 1: status groen groen, wand 1.389
+[sj-e2e] OK   vaas stuk 2: past op het bed [144.0, 144.1, 150.0]
+[sj-e2e] OK   vaas stuk 2: waterdicht slechte randen 0, volume 924729 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 2: status groen groen, wand 1.219
+[sj-e2e] OK   vaas stuk 3: past op het bed [144.1, 144.0, 150.0]
+[sj-e2e] OK   vaas stuk 3: waterdicht slechte randen 0, volume 924736 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 3: status groen groen, wand 1.389
+[sj-e2e] OK   vaas stuk 4: past op het bed [144.0, 144.0, 150.0]
+[sj-e2e] OK   vaas stuk 4: waterdicht slechte randen 0, volume 924348 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 4: status groen groen, wand 1.218
+[sj-e2e] OK   vaas stuk 5: past op het bed [140.5, 140.5, 150.0]
+[sj-e2e] OK   vaas stuk 5: waterdicht slechte randen 0, volume 236975 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 5: status groen groen, wand 1.402
+[sj-e2e] OK   vaas stuk 6: past op het bed [140.4, 140.5, 150.0]
+[sj-e2e] OK   vaas stuk 6: waterdicht slechte randen 0, volume 236933 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 6: status groen groen, wand 1.277
+[sj-e2e] OK   vaas stuk 7: past op het bed [140.5, 140.4, 150.0]
+[sj-e2e] OK   vaas stuk 7: waterdicht slechte randen 0, volume 236949 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 7: status groen groen, wand 1.397
+[sj-e2e] OK   vaas stuk 8: past op het bed [140.4, 140.4, 150.0]
+[sj-e2e] OK   vaas stuk 8: waterdicht slechte randen 0, volume 236865 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 8: status groen groen, wand 1.282
+[sj-e2e] OK   vaas stuk 9: past op het bed [150.1, 150.1, 150.0]
+[sj-e2e] OK   vaas stuk 9: waterdicht slechte randen 0, volume 206531 mm3, per stap [0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 9: status groen groen, wand -1.0
+[sj-e2e] OK   vaas stuk 10: past op het bed [150.1, 150.1, 150.0]
+[sj-e2e] OK   vaas stuk 10: waterdicht slechte randen 0, volume 206503 mm3, per stap [0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 10: status groen groen, wand -1.0
+[sj-e2e] OK   vaas stuk 11: past op het bed [150.1, 150.1, 150.0]
+[sj-e2e] OK   vaas stuk 11: waterdicht slechte randen 0, volume 206502 mm3, per stap [0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 11: status groen groen, wand -1.0
+[sj-e2e] OK   vaas stuk 12: past op het bed [150.1, 150.1, 150.0]
+[sj-e2e] OK   vaas stuk 12: waterdicht slechte randen 0, volume 206472 mm3, per stap [0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 12: status groen groen, wand -1.0
+[sj-e2e] OK   vaas stuk 13: past op het bed [158.7, 158.7, 150.0]
+[sj-e2e] OK   vaas stuk 13: waterdicht slechte randen 0, volume 185407 mm3, per stap [0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 13: status groen groen, wand -1.0
+[sj-e2e] OK   vaas stuk 14: past op het bed [158.7, 158.7, 150.0]
+[sj-e2e] OK   vaas stuk 14: waterdicht slechte randen 0, volume 185335 mm3, per stap [0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 14: status groen groen, wand -1.0
+[sj-e2e] OK   vaas stuk 15: past op het bed [158.7, 158.7, 150.0]
+[sj-e2e] OK   vaas stuk 15: waterdicht slechte randen 0, volume 185323 mm3, per stap [0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 15: status groen groen, wand -1.0
+[sj-e2e] OK   vaas stuk 16: past op het bed [158.7, 158.7, 150.0]
+[sj-e2e] OK   vaas stuk 16: waterdicht slechte randen 0, volume 185323 mm3, per stap [0, 0, 0, 0]
+[sj-e2e] OK   vaas stuk 16: status groen groen, wand -1.0
+[sj-e2e] OK   vaas: aantal pennen gelijk aan de gatenparen 32 pennen, 32 paren
+[sj-e2e] OK   vaas: er zijn pennen 
+[sj-e2e] OK   vaas stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   vaas: gat (0.014, -135.935, 6.918) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (0.014, -7.921, 143.1) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (0.014, -7.921, 14.366) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (0.014, -63.993, 79.265) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (-135.935, 0.014, 6.918) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (-13.211, 0.014, 143.1) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (-7.921, 0.014, 7.982) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (-58.703, 0.014, 75.009) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (-7.074, -26.979, 150.016) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (-26.979, -7.074, 150.016) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (135.786, 0.014, 6.918) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (13.325, 0.014, 143.1) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (6.935, 0.014, 7.982) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (56.985, 0.014, 73.946) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (7.096, -26.979, 150.016) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (26.985, -7.074, 150.016) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (0.014, 135.939, 6.918) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (0.014, 7.947, 143.1) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (0.014, 7.947, 14.366) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (0.014, 64.009, 79.265) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (-26.979, 7.096, 150.016) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (-7.074, 26.985, 150.016) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (26.985, 7.096, 150.016) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (7.096, 26.985, 150.016) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (0.014, -98.906, 190.973) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (0.014, -4.747, 154.803) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (-98.906, 0.014, 190.973) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (-13.211, 0.014, 154.803) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (100.645, 0.014, 192.037) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (13.325, 0.014, 154.803) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (0.014, 98.916, 190.973) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas: gat (0.014, 4.774, 154.803) in twee stukken 2
+[sj-e2e] OK   vaas: pen 5 mm past helemaal in de twee gaten pen 11.999998922692612, gaten samen 12.60
+[sj-e2e] OK   vaas stuk 1: een nummer op elk snijvlak met een buur buren [2, 3, 5], nummers ['1-2', '1-3', '1-5']
+[sj-e2e] OK   vaas stuk 1: nummer 1-2 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 1: nummer 1-2 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   vaas stuk 1: nummer 1-3 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 1: nummer 1-3 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   vaas stuk 1: nummer 1-5 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 1: nummer 1-5 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   vaas stuk 2: een nummer op elk snijvlak met een buur buren [1, 4, 6], nummers ['2-1', '2-4', '2-6']
+[sj-e2e] OK   vaas stuk 2: nummer 2-1 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 2: nummer 2-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   vaas stuk 2: nummer 2-4 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 2: nummer 2-4 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   vaas stuk 2: nummer 2-6 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 2: nummer 2-6 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   vaas stuk 3: een nummer op elk snijvlak met een buur buren [1, 4, 7], nummers ['3-4', '3-1', '3-7']
+[sj-e2e] OK   vaas stuk 3: nummer 3-4 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 3: nummer 3-4 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   vaas stuk 3: nummer 3-1 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 3: nummer 3-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   vaas stuk 3: nummer 3-7 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 3: nummer 3-7 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   vaas stuk 4: een nummer op elk snijvlak met een buur buren [2, 3, 8], nummers ['4-3', '4-2', '4-8']
+[sj-e2e] OK   vaas stuk 4: nummer 4-3 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 4: nummer 4-3 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   vaas stuk 4: nummer 4-2 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 4: nummer 4-2 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   vaas stuk 4: nummer 4-8 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 4: nummer 4-8 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   vaas stuk 5: een nummer op elk snijvlak met een buur buren [1, 6, 7, 9], nummers ['5-6', '5-7', '5-1', '5-9']
+[sj-e2e] OK   vaas stuk 5: nummer 5-6 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 5: nummer 5-6 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   vaas stuk 5: nummer 5-7 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 5: nummer 5-7 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   vaas stuk 5: nummer 5-1 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 5: nummer 5-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   vaas stuk 5: nummer 5-9 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 5: nummer 5-9 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   vaas stuk 6: een nummer op elk snijvlak met een buur buren [2, 5, 8, 10], nummers ['6-5', '6-8', '6-2', '6-10']
+[sj-e2e] OK   vaas stuk 6: nummer 6-5 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 6: nummer 6-5 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   vaas stuk 6: nummer 6-8 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 6: nummer 6-8 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   vaas stuk 6: nummer 6-2 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 6: nummer 6-2 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   vaas stuk 6: nummer 6-10 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 6: nummer 6-10 verdiept in het vlak 74 punten op de bodem
+[sj-e2e] OK   vaas stuk 7: een nummer op elk snijvlak met een buur buren [3, 5, 8, 11], nummers ['7-8', '7-5', '7-3', '7-11']
+[sj-e2e] OK   vaas stuk 7: nummer 7-8 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 7: nummer 7-8 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   vaas stuk 7: nummer 7-5 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 7: nummer 7-5 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   vaas stuk 7: nummer 7-3 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 7: nummer 7-3 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   vaas stuk 7: nummer 7-11 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 7: nummer 7-11 verdiept in het vlak 60 punten op de bodem
+[sj-e2e] OK   vaas stuk 8: een nummer op elk snijvlak met een buur buren [4, 6, 7, 12], nummers ['8-7', '8-6', '8-4', '8-12']
+[sj-e2e] OK   vaas stuk 8: nummer 8-7 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 8: nummer 8-7 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   vaas stuk 8: nummer 8-6 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 8: nummer 8-6 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   vaas stuk 8: nummer 8-4 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 8: nummer 8-4 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   vaas stuk 8: nummer 8-12 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 8: nummer 8-12 verdiept in het vlak 74 punten op de bodem
+[sj-e2e] OK   vaas stuk 9: een nummer op elk snijvlak met een buur buren [5, 10, 11, 13], nummers ['9-10', '9-11', '9-5', '9-13']
+[sj-e2e] OK   vaas stuk 9: nummer 9-10 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 9: nummer 9-10 verdiept in het vlak 74 punten op de bodem
+[sj-e2e] OK   vaas stuk 9: nummer 9-11 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 9: nummer 9-11 verdiept in het vlak 68 punten op de bodem
+[sj-e2e] OK   vaas stuk 9: nummer 9-5 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 9: nummer 9-5 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   vaas stuk 9: nummer 9-13 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 9: nummer 9-13 verdiept in het vlak 74 punten op de bodem
+[sj-e2e] OK   vaas stuk 10: een nummer op elk snijvlak met een buur buren [6, 9, 12, 14], nummers ['10-9', '10-12', '10-6', '10-14']
+[sj-e2e] OK   vaas stuk 10: nummer 10-9 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 10: nummer 10-9 verdiept in het vlak 74 punten op de bodem
+[sj-e2e] OK   vaas stuk 10: nummer 10-12 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 10: nummer 10-12 verdiept in het vlak 92 punten op de bodem
+[sj-e2e] OK   vaas stuk 10: nummer 10-6 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 10: nummer 10-6 verdiept in het vlak 74 punten op de bodem
+[sj-e2e] OK   vaas stuk 10: nummer 10-14 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 10: nummer 10-14 verdiept in het vlak 88 punten op de bodem
+[sj-e2e] OK   vaas stuk 11: een nummer op elk snijvlak met een buur buren [7, 9, 12, 15], nummers ['11-12', '11-9', '11-7', '11-15']
+[sj-e2e] OK   vaas stuk 11: nummer 11-12 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 11: nummer 11-12 verdiept in het vlak 86 punten op de bodem
+[sj-e2e] OK   vaas stuk 11: nummer 11-9 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 11: nummer 11-9 verdiept in het vlak 68 punten op de bodem
+[sj-e2e] OK   vaas stuk 11: nummer 11-7 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 11: nummer 11-7 verdiept in het vlak 60 punten op de bodem
+[sj-e2e] OK   vaas stuk 11: nummer 11-15 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 11: nummer 11-15 verdiept in het vlak 86 punten op de bodem
+[sj-e2e] OK   vaas stuk 12: een nummer op elk snijvlak met een buur buren [8, 10, 11, 16], nummers ['12-11', '12-10', '12-8', '12-16']
+[sj-e2e] OK   vaas stuk 12: nummer 12-11 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 12: nummer 12-11 verdiept in het vlak 86 punten op de bodem
+[sj-e2e] OK   vaas stuk 12: nummer 12-10 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 12: nummer 12-10 verdiept in het vlak 92 punten op de bodem
+[sj-e2e] OK   vaas stuk 12: nummer 12-8 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 12: nummer 12-8 verdiept in het vlak 74 punten op de bodem
+[sj-e2e] OK   vaas stuk 12: nummer 12-16 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 12: nummer 12-16 verdiept in het vlak 92 punten op de bodem
+[sj-e2e] OK   vaas stuk 13: een nummer op elk snijvlak met een buur buren [9, 14, 15], nummers ['13-14', '13-15', '13-9']
+[sj-e2e] OK   vaas stuk 13: nummer 13-14 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 13: nummer 13-14 verdiept in het vlak 88 punten op de bodem
+[sj-e2e] OK   vaas stuk 13: nummer 13-15 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 13: nummer 13-15 verdiept in het vlak 92 punten op de bodem
+[sj-e2e] OK   vaas stuk 13: nummer 13-9 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 13: nummer 13-9 verdiept in het vlak 74 punten op de bodem
+[sj-e2e] OK   vaas stuk 14: een nummer op elk snijvlak met een buur buren [10, 13, 16], nummers ['14-13', '14-16', '14-10']
+[sj-e2e] OK   vaas stuk 14: nummer 14-13 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 14: nummer 14-13 verdiept in het vlak 88 punten op de bodem
+[sj-e2e] OK   vaas stuk 14: nummer 14-16 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 14: nummer 14-16 verdiept in het vlak 88 punten op de bodem
+[sj-e2e] OK   vaas stuk 14: nummer 14-10 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 14: nummer 14-10 verdiept in het vlak 88 punten op de bodem
+[sj-e2e] OK   vaas stuk 15: een nummer op elk snijvlak met een buur buren [11, 13, 16], nummers ['15-16', '15-13', '15-11']
+[sj-e2e] OK   vaas stuk 15: nummer 15-16 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 15: nummer 15-16 verdiept in het vlak 92 punten op de bodem
+[sj-e2e] OK   vaas stuk 15: nummer 15-13 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 15: nummer 15-13 verdiept in het vlak 92 punten op de bodem
+[sj-e2e] OK   vaas stuk 15: nummer 15-11 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 15: nummer 15-11 verdiept in het vlak 86 punten op de bodem
+[sj-e2e] OK   vaas stuk 16: een nummer op elk snijvlak met een buur buren [12, 14, 15], nummers ['16-15', '16-14', '16-12']
+[sj-e2e] OK   vaas stuk 16: nummer 16-15 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 16: nummer 16-15 verdiept in het vlak 92 punten op de bodem
+[sj-e2e] OK   vaas stuk 16: nummer 16-14 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 16: nummer 16-14 verdiept in het vlak 88 punten op de bodem
+[sj-e2e] OK   vaas stuk 16: nummer 16-12 begint met het eigen nummer 
+[sj-e2e] OK   vaas stuk 16: nummer 16-12 verdiept in het vlak 92 punten op de bodem
+[sj-e2e] OK   vaas: aantal stukken gelijk aan het plan 16 / 16
+[sj-e2e] OK   vaas: plat export 
+[sj-e2e] OK   vaas: plat stuk 1 laagste punt op z = 0, past op het bed z 0.000, 150.0 x 144.1 x 144.1, rang 0
+[sj-e2e] OK   vaas: plat stuk 1 zelfde volume als het stuk 925079 / 925079 mm3
+[sj-e2e] OK   vaas: plat stuk 1 ligt op een snijvlak rang 0, onder 12358 mm2
+[sj-e2e] OK   vaas: plat stuk 1 grootste snijvlak ligt onder onder 12358 mm2, grootste 12358 mm2
+[sj-e2e] OK   vaas: plat stuk 2 laagste punt op z = 0, past op het bed z 0.000, 150.0 x 144.1 x 144.0, rang 0
+[sj-e2e] OK   vaas: plat stuk 2 zelfde volume als het stuk 924692 / 924692 mm3
+[sj-e2e] OK   vaas: plat stuk 2 ligt op een snijvlak rang 0, onder 12358 mm2
+[sj-e2e] OK   vaas: plat stuk 2 grootste snijvlak ligt onder onder 12358 mm2, grootste 12358 mm2
+[sj-e2e] OK   vaas: plat stuk 3 laagste punt op z = 0, past op het bed z 0.000, 144.1 x 150.0 x 144.0, rang 0
+[sj-e2e] OK   vaas: plat stuk 3 zelfde volume als het stuk 924698 / 924698 mm3
+[sj-e2e] OK   vaas: plat stuk 3 ligt op een snijvlak rang 0, onder 12358 mm2
+[sj-e2e] OK   vaas: plat stuk 3 grootste snijvlak ligt onder onder 12358 mm2, grootste 12358 mm2
+[sj-e2e] OK   vaas: plat stuk 4 laagste punt op z = 0, past op het bed z 0.000, 144.0 x 150.0 x 144.0, rang 0
+[sj-e2e] OK   vaas: plat stuk 4 zelfde volume als het stuk 924386 / 924386 mm3
+[sj-e2e] OK   vaas: plat stuk 4 ligt op een snijvlak rang 0, onder 12351 mm2
+[sj-e2e] OK   vaas: plat stuk 4 grootste snijvlak ligt onder onder 12351 mm2, grootste 12351 mm2
+[sj-e2e] OK   vaas: plat stuk 5 laagste punt op z = 0, past op het bed z 0.000, 140.5 x 150.0 x 140.5, rang 0
+[sj-e2e] OK   vaas: plat stuk 5 zelfde volume als het stuk 236996 / 236996 mm3
+[sj-e2e] OK   vaas: plat stuk 5 ligt op een snijvlak rang 0, onder 1887 mm2
+[sj-e2e] OK   vaas: plat stuk 5 grootste snijvlak ligt onder onder 1887 mm2, grootste 1887 mm2
+[sj-e2e] OK   vaas: plat stuk 6 laagste punt op z = 0, past op het bed z 0.000, 150.0 x 140.5 x 140.4, rang 0
+[sj-e2e] OK   vaas: plat stuk 6 zelfde volume als het stuk 236911 / 236911 mm3
+[sj-e2e] OK   vaas: plat stuk 6 ligt op een snijvlak rang 0, onder 1882 mm2
+[sj-e2e] OK   vaas: plat stuk 6 grootste snijvlak ligt onder onder 1882 mm2, grootste 1882 mm2
+[sj-e2e] OK   vaas: plat stuk 7 laagste punt op z = 0, past op het bed z 0.000, 140.5 x 150.0 x 140.4, rang 0
+[sj-e2e] OK   vaas: plat stuk 7 zelfde volume als het stuk 236927 / 236927 mm3
+[sj-e2e] OK   vaas: plat stuk 7 ligt op een snijvlak rang 0, onder 1887 mm2
+[sj-e2e] OK   vaas: plat stuk 7 grootste snijvlak ligt onder onder 1887 mm2, grootste 1887 mm2
+[sj-e2e] OK   vaas: plat stuk 8 laagste punt op z = 0, past op het bed z 0.000, 150.0 x 140.4 x 140.4, rang 0
+[sj-e2e] OK   vaas: plat stuk 8 zelfde volume als het stuk 236886 / 236886 mm3
+[sj-e2e] OK   vaas: plat stuk 8 ligt op een snijvlak rang 0, onder 1885 mm2
+[sj-e2e] OK   vaas: plat stuk 8 grootste snijvlak ligt onder onder 1885 mm2, grootste 1885 mm2
+[sj-e2e] OK   vaas: plat stuk 9 laagste punt op z = 0, past op het bed z 0.000, 150.1 x 150.1 x 150.0, rang -1
+[sj-e2e] OK   vaas: plat stuk 9 zelfde volume als het stuk 206536 / 206536 mm3
+[sj-e2e] OK   vaas: plat stuk 9 geen snijvlak past: eigen stand, niet gedraaid 150.1 x 150.1 x 150.0 / 150.1 x 150.1 x 150.0
+[sj-e2e] OK   vaas: plat stuk 10 laagste punt op z = 0, past op het bed z 0.000, 150.1 x 150.1 x 150.0, rang -1
+[sj-e2e] OK   vaas: plat stuk 10 zelfde volume als het stuk 206498 / 206498 mm3
+[sj-e2e] OK   vaas: plat stuk 10 geen snijvlak past: eigen stand, niet gedraaid 150.1 x 150.1 x 150.0 / 150.1 x 150.1 x 150.0
+[sj-e2e] OK   vaas: plat stuk 11 laagste punt op z = 0, past op het bed z 0.000, 150.1 x 150.1 x 150.0, rang -1
+[sj-e2e] OK   vaas: plat stuk 11 zelfde volume als het stuk 206497 / 206497 mm3
+[sj-e2e] OK   vaas: plat stuk 11 geen snijvlak past: eigen stand, niet gedraaid 150.1 x 150.1 x 150.0 / 150.1 x 150.1 x 150.0
+[sj-e2e] OK   vaas: plat stuk 12 laagste punt op z = 0, past op het bed z 0.000, 150.1 x 150.1 x 150.0, rang -1
+[sj-e2e] OK   vaas: plat stuk 12 zelfde volume als het stuk 206477 / 206477 mm3
+[sj-e2e] OK   vaas: plat stuk 12 geen snijvlak past: eigen stand, niet gedraaid 150.1 x 150.1 x 150.0 / 150.1 x 150.1 x 150.0
+[sj-e2e] OK   vaas: plat stuk 13 laagste punt op z = 0, past op het bed z 0.000, 158.7 x 158.7 x 150.0, rang -1
+[sj-e2e] OK   vaas: plat stuk 13 zelfde volume als het stuk 185371 / 185371 mm3
+[sj-e2e] OK   vaas: plat stuk 13 geen snijvlak past: eigen stand, niet gedraaid 158.7 x 158.7 x 150.0 / 158.7 x 158.7 x 150.0
+[sj-e2e] OK   vaas: plat stuk 14 laagste punt op z = 0, past op het bed z 0.000, 158.7 x 158.7 x 150.0, rang -1
+[sj-e2e] OK   vaas: plat stuk 14 zelfde volume als het stuk 185372 / 185372 mm3
+[sj-e2e] OK   vaas: plat stuk 14 geen snijvlak past: eigen stand, niet gedraaid 158.7 x 158.7 x 150.0 / 158.7 x 158.7 x 150.0
+[sj-e2e] OK   vaas: plat stuk 15 laagste punt op z = 0, past op het bed z 0.000, 158.7 x 158.7 x 150.0, rang -1
+[sj-e2e] OK   vaas: plat stuk 15 zelfde volume als het stuk 185361 / 185361 mm3
+[sj-e2e] OK   vaas: plat stuk 15 geen snijvlak past: eigen stand, niet gedraaid 158.7 x 158.7 x 150.0 / 158.7 x 158.7 x 150.0
+[sj-e2e] OK   vaas: plat stuk 16 laagste punt op z = 0, past op het bed z 0.000, 158.7 x 158.7 x 150.0, rang -1
+[sj-e2e] OK   vaas: plat stuk 16 zelfde volume als het stuk 185284 / 185284 mm3
+[sj-e2e] OK   vaas: plat stuk 16 geen snijvlak past: eigen stand, niet gedraaid 158.7 x 158.7 x 150.0 / 158.7 x 158.7 x 150.0
+[sj-e2e] OK   vaas: plat minstens de helft van de stukken ligt op een snijvlak 8 van 16
+[sj-e2e] OK   vaas: plat pennenplaat ongewijzigd 1 platen
+[sj-e2e] OK   vaas: plat stukken staan na export nog op hun plek in de scene 
+[sj-e2e] OK   vaas: export STL 17 bestanden
+[sj-e2e] OK   vaas: STL piece_01.stl maat gelijk 35612 driehoeken, [144.07, 144.07, 150.01]
+[sj-e2e] OK   vaas: STL piece_02.stl maat gelijk 35646 driehoeken, [144.05, 144.07, 150.01]
+[sj-e2e] OK   vaas: STL piece_03.stl maat gelijk 35572 driehoeken, [144.07, 144.05, 150.01]
+[sj-e2e] OK   vaas: STL piece_04.stl maat gelijk 35640 driehoeken, [144.05, 144.05, 150.01]
+[sj-e2e] OK   vaas: STL piece_05.stl maat gelijk 50130 driehoeken, [140.45, 140.45, 150.0]
+[sj-e2e] OK   vaas: STL piece_06.stl maat gelijk 50270 driehoeken, [140.43, 140.45, 150.0]
+[sj-e2e] OK   vaas: STL piece_07.stl maat gelijk 50106 driehoeken, [140.45, 140.43, 150.0]
+[sj-e2e] OK   vaas: STL piece_08.stl maat gelijk 50212 driehoeken, [140.43, 140.43, 150.0]
+[sj-e2e] OK   vaas: STL piece_09.stl maat gelijk 47900 driehoeken, [150.09, 150.09, 150.0]
+[sj-e2e] OK   vaas: STL piece_10.stl maat gelijk 48128 driehoeken, [150.07, 150.09, 150.0]
+[sj-e2e] OK   vaas: STL piece_11.stl maat gelijk 48006 driehoeken, [150.09, 150.07, 150.0]
+[sj-e2e] OK   vaas: STL piece_12.stl maat gelijk 48186 driehoeken, [150.07, 150.07, 150.0]
+[sj-e2e] OK   vaas: STL piece_13.stl maat gelijk 51030 driehoeken, [158.69, 158.69, 149.99]
+[sj-e2e] OK   vaas: STL piece_14.stl maat gelijk 51068 driehoeken, [158.67, 158.69, 149.99]
+[sj-e2e] OK   vaas: STL piece_15.stl maat gelijk 51058 driehoeken, [158.69, 158.67, 149.99]
+[sj-e2e] OK   vaas: STL piece_16.stl maat gelijk 51016 driehoeken, [158.67, 158.67, 149.99]
+[sj-e2e] OK   vaas: STL pins_5mm_x32.stl maat gelijk 8064 driehoeken, [50.0, 50.0, 12.0]
+[sj-e2e] OK   vaas: export 3MF 17 bestanden
+[sj-e2e] OK   vaas: 3MF piece_01.3mf in mm, maat gelijk 35612 driehoeken, [144.07, 144.07, 150.01]
+[sj-e2e] OK   vaas: 3MF piece_02.3mf in mm, maat gelijk 35646 driehoeken, [144.05, 144.07, 150.01]
+[sj-e2e] OK   vaas: 3MF piece_03.3mf in mm, maat gelijk 35572 driehoeken, [144.07, 144.05, 150.01]
+[sj-e2e] OK   vaas: 3MF piece_04.3mf in mm, maat gelijk 35640 driehoeken, [144.05, 144.05, 150.01]
+[sj-e2e] OK   vaas: 3MF piece_05.3mf in mm, maat gelijk 50130 driehoeken, [140.45, 140.45, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_06.3mf in mm, maat gelijk 50270 driehoeken, [140.43, 140.45, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_07.3mf in mm, maat gelijk 50106 driehoeken, [140.45, 140.43, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_08.3mf in mm, maat gelijk 50212 driehoeken, [140.43, 140.43, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_09.3mf in mm, maat gelijk 47900 driehoeken, [150.09, 150.09, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_10.3mf in mm, maat gelijk 48128 driehoeken, [150.07, 150.09, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_11.3mf in mm, maat gelijk 48006 driehoeken, [150.09, 150.07, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_12.3mf in mm, maat gelijk 48186 driehoeken, [150.07, 150.07, 150.0]
+[sj-e2e] OK   vaas: 3MF piece_13.3mf in mm, maat gelijk 51030 driehoeken, [158.69, 158.69, 149.99]
+[sj-e2e] OK   vaas: 3MF piece_14.3mf in mm, maat gelijk 51068 driehoeken, [158.67, 158.69, 149.99]
+[sj-e2e] OK   vaas: 3MF piece_15.3mf in mm, maat gelijk 51058 driehoeken, [158.69, 158.67, 149.99]
+[sj-e2e] OK   vaas: 3MF piece_16.3mf in mm, maat gelijk 51016 driehoeken, [158.67, 158.67, 149.99]
+[sj-e2e] OK   vaas: 3MF pins_5mm_x32.3mf in mm, maat gelijk 8064 driehoeken, [50.0, 50.0, 12.0]
+[sj-e2e] OK   vaas kleur: standaard Per piece PIECE
+[sj-e2e] OK   vaas kleur: elk stuk een eigen materiaal met dezelfde objectkleur 
+[sj-e2e] OK   vaas kleur: buren nooit dezelfde kleur 28 paren buren, gelijk []
+[sj-e2e] OK   vaas kleur: verschillende kleuren 12 kleuren voor 16 stukken
+[sj-e2e] OK   vaas kleur: pennen goud 1 plaatjes
+[sj-e2e] OK   vaas kleur: Check geeft groen, oranje of rood per status ['groen']
+[sj-e2e] OK   vaas kleur: Check maakt pennen groen 
+[sj-e2e] OK   vaas kleur: terug naar Per piece geeft dezelfde kleuren 
+[sj-e2e] OK   vaas kleur: mesh en status blijven gelijk 
+[sj-e2e] waterdicht Skull: {'FINISHED'} -> Skull_watertight 79582 vlakken
+[sj-e2e] schedel: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
+[sj-e2e] schedel: split {'FINISHED'} in 4.37 s, solver MANIFOLD
+[sj-e2e] OK   schedel: meer dan 1 stuk 8 stukken
+[sj-e2e] OK   schedel stuk 1: past op het bed [90.2, 149.9, 106.6]
+[sj-e2e] OK   schedel stuk 1: waterdicht slechte randen 0, volume 335329 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   schedel stuk 1: status groen groen, wand 1.418
+[sj-e2e] OK   schedel stuk 2: past op het bed [90.1, 149.5, 106.7]
+[sj-e2e] OK   schedel stuk 2: waterdicht slechte randen 0, volume 335385 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   schedel stuk 2: status groen groen, wand 1.417
+[sj-e2e] OK   schedel stuk 3: past op het bed [89.2, 149.8, 111.0]
+[sj-e2e] OK   schedel stuk 3: waterdicht slechte randen 0, volume 974634 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   schedel stuk 3: status groen groen, wand 1.403
+[sj-e2e] OK   schedel stuk 4: past op het bed [89.2, 149.9, 111.7]
+[sj-e2e] OK   schedel stuk 4: waterdicht slechte randen 0, volume 974161 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   schedel stuk 4: status groen groen, wand 1.402
+[sj-e2e] OK   schedel stuk 5: past op het bed [76.8, 105.3, 111.5]
+[sj-e2e] OK   schedel stuk 5: waterdicht slechte randen 0, volume 363234 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   schedel stuk 5: status groen groen, wand 1.202
+[sj-e2e] OK   schedel stuk 6: past op het bed [76.8, 105.3, 111.5]
+[sj-e2e] OK   schedel stuk 6: waterdicht slechte randen 0, volume 363015 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   schedel stuk 6: status groen groen, wand 1.221
+[sj-e2e] OK   schedel stuk 7: past op het bed [84.0, 148.7, 111.6]
+[sj-e2e] OK   schedel stuk 7: waterdicht slechte randen 0, volume 801852 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   schedel stuk 7: status groen groen, wand 1.603
+[sj-e2e] OK   schedel stuk 8: past op het bed [84.0, 148.7, 111.6]
+[sj-e2e] OK   schedel stuk 8: waterdicht slechte randen 0, volume 799240 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   schedel stuk 8: status groen groen, wand 1.602
+[sj-e2e] OK   schedel: aantal pennen gelijk aan de gatenparen 44 pennen, 44 paren
+[sj-e2e] OK   schedel: er zijn pennen 
+[sj-e2e] OK   schedel stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   schedel: gat (0.013, -136.908, 30.547) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, -112.992, 80.378) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, -7.361, 104.297) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, -63.166, 104.297) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-7.417, 0.113, 48.284) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-66.858, 0.113, 104.32) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-12.767, 0.113, 102.532) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-22.504, -88.208, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-56.784, -6.94, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-7.044, -33.805, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (7.443, 0.113, 48.284) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (66.879, 0.113, 104.32) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (12.792, 0.113, 102.532) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (21.849, -88.208, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (56.787, -6.94, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (7.068, -33.805, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, 7.605, 104.227) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, 135.477, 54.931) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, 70.542, 13.684) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, 81.531, 104.227) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-19.491, 7.55, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-13.49, 141.418, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-75.505, 76.963, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-7.489, 73.988, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (19.51, 7.55, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (13.511, 141.418, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (75.499, 76.963, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (7.512, 73.988, 111.772) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, -7.361, 214.935) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, -71.138, 119.248) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, -7.361, 145.163) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, -59.18, 180.049) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-13.099, 0.113, 214.763) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-63.299, 0.113, 118.836) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-7.854, 0.113, 151.555) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (-61.051, 0.113, 179.069) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (13.124, 0.113, 214.763) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (63.32, 0.113, 118.836) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (7.88, 0.113, 151.555) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (61.072, 0.113, 179.069) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, 140.472, 119.315) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, 7.605, 215.865) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, 38.574, 119.315) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel: gat (0.013, 89.523, 188.71) in twee stukken 2
+[sj-e2e] OK   schedel: pen 5 mm past helemaal in de twee gaten pen 11.999999426305294, gaten samen 12.60
+[sj-e2e] OK   schedel stuk 1: een nummer op elk snijvlak met een buur buren [2, 3, 5], nummers ['1-2', '1-2', '1-3', '1-5']
+[sj-e2e] OK   schedel stuk 1: nummer 1-2 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 1: nummer 1-2 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   schedel stuk 1: nummer 1-2 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 1: nummer 1-2 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   schedel stuk 1: nummer 1-3 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 1: nummer 1-3 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   schedel stuk 1: nummer 1-5 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 1: nummer 1-5 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   schedel stuk 2: een nummer op elk snijvlak met een buur buren [1, 4, 6], nummers ['2-1', '2-1', '2-4', '2-6']
+[sj-e2e] OK   schedel stuk 2: nummer 2-1 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 2: nummer 2-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   schedel stuk 2: nummer 2-1 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 2: nummer 2-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   schedel stuk 2: nummer 2-4 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 2: nummer 2-4 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   schedel stuk 2: nummer 2-6 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 2: nummer 2-6 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   schedel stuk 3: een nummer op elk snijvlak met een buur buren [1, 4, 7], nummers ['3-4', '3-1', '3-7']
+[sj-e2e] OK   schedel stuk 3: nummer 3-4 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 3: nummer 3-4 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   schedel stuk 3: nummer 3-1 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 3: nummer 3-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   schedel stuk 3: nummer 3-7 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 3: nummer 3-7 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   schedel stuk 4: een nummer op elk snijvlak met een buur buren [2, 3, 8], nummers ['4-3', '4-2', '4-8']
+[sj-e2e] OK   schedel stuk 4: nummer 4-3 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 4: nummer 4-3 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   schedel stuk 4: nummer 4-2 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 4: nummer 4-2 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   schedel stuk 4: nummer 4-8 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 4: nummer 4-8 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   schedel stuk 5: een nummer op elk snijvlak met een buur buren [1, 6, 7], nummers ['5-6', '5-7', '5-1']
+[sj-e2e] OK   schedel stuk 5: nummer 5-6 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 5: nummer 5-6 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   schedel stuk 5: nummer 5-7 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 5: nummer 5-7 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   schedel stuk 5: nummer 5-1 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 5: nummer 5-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   schedel stuk 6: een nummer op elk snijvlak met een buur buren [2, 5, 8], nummers ['6-5', '6-8', '6-2']
+[sj-e2e] OK   schedel stuk 6: nummer 6-5 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 6: nummer 6-5 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   schedel stuk 6: nummer 6-8 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 6: nummer 6-8 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   schedel stuk 6: nummer 6-2 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 6: nummer 6-2 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   schedel stuk 7: een nummer op elk snijvlak met een buur buren [3, 5, 8], nummers ['7-8', '7-5', '7-3']
+[sj-e2e] OK   schedel stuk 7: nummer 7-8 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 7: nummer 7-8 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   schedel stuk 7: nummer 7-5 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 7: nummer 7-5 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   schedel stuk 7: nummer 7-3 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 7: nummer 7-3 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   schedel stuk 8: een nummer op elk snijvlak met een buur buren [4, 6, 7], nummers ['8-7', '8-6', '8-4']
+[sj-e2e] OK   schedel stuk 8: nummer 8-7 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 8: nummer 8-7 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   schedel stuk 8: nummer 8-6 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 8: nummer 8-6 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   schedel stuk 8: nummer 8-4 begint met het eigen nummer 
+[sj-e2e] OK   schedel stuk 8: nummer 8-4 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   schedel: aantal stukken gelijk aan het plan 8 / 8
+[sj-e2e] OK   schedel: plat export 
+[sj-e2e] OK   schedel: plat stuk 1 laagste punt op z = 0, past op het bed z 0.000, 90.2 x 106.6 x 149.9, rang 0
+[sj-e2e] OK   schedel: plat stuk 1 zelfde volume als het stuk 335346 / 335346 mm3
+[sj-e2e] OK   schedel: plat stuk 1 ligt op een snijvlak rang 0, onder 5338 mm2
+[sj-e2e] OK   schedel: plat stuk 1 grootste snijvlak ligt onder onder 5338 mm2, grootste 5338 mm2
+[sj-e2e] OK   schedel: plat stuk 2 laagste punt op z = 0, past op het bed z 0.000, 90.1 x 106.7 x 149.5, rang 0
+[sj-e2e] OK   schedel: plat stuk 2 zelfde volume als het stuk 335367 / 335367 mm3
+[sj-e2e] OK   schedel: plat stuk 2 ligt op een snijvlak rang 0, onder 5335 mm2
+[sj-e2e] OK   schedel: plat stuk 2 grootste snijvlak ligt onder onder 5335 mm2, grootste 5335 mm2
+[sj-e2e] OK   schedel: plat stuk 3 laagste punt op z = 0, past op het bed z 0.000, 111.0 x 149.8 x 89.2, rang 0
+[sj-e2e] OK   schedel: plat stuk 3 zelfde volume als het stuk 974636 / 974636 mm3
+[sj-e2e] OK   schedel: plat stuk 3 ligt op een snijvlak rang 0, onder 12614 mm2
+[sj-e2e] OK   schedel: plat stuk 3 grootste snijvlak ligt onder onder 12614 mm2, grootste 12614 mm2
+[sj-e2e] OK   schedel: plat stuk 4 laagste punt op z = 0, past op het bed z 0.000, 111.7 x 149.9 x 89.2, rang 0
+[sj-e2e] OK   schedel: plat stuk 4 zelfde volume als het stuk 974159 / 974159 mm3
+[sj-e2e] OK   schedel: plat stuk 4 ligt op een snijvlak rang 0, onder 12614 mm2
+[sj-e2e] OK   schedel: plat stuk 4 grootste snijvlak ligt onder onder 12614 mm2, grootste 12614 mm2
+[sj-e2e] OK   schedel: plat stuk 5 laagste punt op z = 0, past op het bed z 0.000, 111.5 x 105.3 x 76.8, rang 0
+[sj-e2e] OK   schedel: plat stuk 5 zelfde volume als het stuk 363245 / 363245 mm3
+[sj-e2e] OK   schedel: plat stuk 5 ligt op een snijvlak rang 0, onder 7750 mm2
+[sj-e2e] OK   schedel: plat stuk 5 grootste snijvlak ligt onder onder 7750 mm2, grootste 7750 mm2
+[sj-e2e] OK   schedel: plat stuk 6 laagste punt op z = 0, past op het bed z 0.000, 111.5 x 105.3 x 76.8, rang 0
+[sj-e2e] OK   schedel: plat stuk 6 zelfde volume als het stuk 363002 / 363002 mm3
+[sj-e2e] OK   schedel: plat stuk 6 ligt op een snijvlak rang 0, onder 7750 mm2
+[sj-e2e] OK   schedel: plat stuk 6 grootste snijvlak ligt onder onder 7750 mm2, grootste 7750 mm2
+[sj-e2e] OK   schedel: plat stuk 7 laagste punt op z = 0, past op het bed z 0.000, 111.6 x 148.7 x 84.0, rang 0
+[sj-e2e] OK   schedel: plat stuk 7 zelfde volume als het stuk 801839 / 801839 mm3
+[sj-e2e] OK   schedel: plat stuk 7 ligt op een snijvlak rang 0, onder 12632 mm2
+[sj-e2e] OK   schedel: plat stuk 7 grootste snijvlak ligt onder onder 12632 mm2, grootste 12632 mm2
+[sj-e2e] OK   schedel: plat stuk 8 laagste punt op z = 0, past op het bed z 0.000, 111.6 x 148.7 x 84.0, rang 0
+[sj-e2e] OK   schedel: plat stuk 8 zelfde volume als het stuk 799252 / 799252 mm3
+[sj-e2e] OK   schedel: plat stuk 8 ligt op een snijvlak rang 0, onder 12632 mm2
+[sj-e2e] OK   schedel: plat stuk 8 grootste snijvlak ligt onder onder 12632 mm2, grootste 12632 mm2
+[sj-e2e] OK   schedel: plat minstens de helft van de stukken ligt op een snijvlak 8 van 8
+[sj-e2e] OK   schedel: plat pennenplaat ongewijzigd 1 platen
+[sj-e2e] OK   schedel: plat stukken staan na export nog op hun plek in de scene 
+[sj-e2e] OK   schedel: export STL 9 bestanden
+[sj-e2e] OK   schedel: STL piece_01.stl maat gelijk 31988 driehoeken, [90.17, 149.88, 106.59]
+[sj-e2e] OK   schedel: STL piece_02.stl maat gelijk 31958 driehoeken, [90.14, 149.49, 106.73]
+[sj-e2e] OK   schedel: STL piece_03.stl maat gelijk 24382 driehoeken, [89.17, 149.85, 111.0]
+[sj-e2e] OK   schedel: STL piece_04.stl maat gelijk 24470 driehoeken, [89.15, 149.85, 111.66]
+[sj-e2e] OK   schedel: STL piece_05.stl maat gelijk 17124 driehoeken, [76.83, 105.31, 111.54]
+[sj-e2e] OK   schedel: STL piece_06.stl maat gelijk 17140 driehoeken, [76.82, 105.32, 111.54]
+[sj-e2e] OK   schedel: STL piece_07.stl maat gelijk 18900 driehoeken, [84.02, 148.74, 111.64]
+[sj-e2e] OK   schedel: STL piece_08.stl maat gelijk 18948 driehoeken, [83.98, 148.67, 111.64]
+[sj-e2e] OK   schedel: STL pins_5mm_x44.stl maat gelijk 11088 driehoeken, [59.0, 59.0, 12.0]
+[sj-e2e] OK   schedel: export 3MF 9 bestanden
+[sj-e2e] OK   schedel: 3MF piece_01.3mf in mm, maat gelijk 31988 driehoeken, [90.17, 149.88, 106.59]
+[sj-e2e] OK   schedel: 3MF piece_02.3mf in mm, maat gelijk 31958 driehoeken, [90.14, 149.49, 106.73]
+[sj-e2e] OK   schedel: 3MF piece_03.3mf in mm, maat gelijk 24382 driehoeken, [89.17, 149.85, 111.0]
+[sj-e2e] OK   schedel: 3MF piece_04.3mf in mm, maat gelijk 24470 driehoeken, [89.15, 149.85, 111.66]
+[sj-e2e] OK   schedel: 3MF piece_05.3mf in mm, maat gelijk 17124 driehoeken, [76.83, 105.31, 111.54]
+[sj-e2e] OK   schedel: 3MF piece_06.3mf in mm, maat gelijk 17140 driehoeken, [76.82, 105.32, 111.54]
+[sj-e2e] OK   schedel: 3MF piece_07.3mf in mm, maat gelijk 18900 driehoeken, [84.02, 148.74, 111.64]
+[sj-e2e] OK   schedel: 3MF piece_08.3mf in mm, maat gelijk 18948 driehoeken, [83.98, 148.67, 111.64]
+[sj-e2e] OK   schedel: 3MF pins_5mm_x44.3mf in mm, maat gelijk 11088 driehoeken, [59.0, 59.0, 12.0]
+[sj-e2e] OK   schedel kleur: standaard Per piece PIECE
+[sj-e2e] OK   schedel kleur: elk stuk een eigen materiaal met dezelfde objectkleur 
+[sj-e2e] OK   schedel kleur: buren nooit dezelfde kleur 12 paren buren, gelijk []
+[sj-e2e] OK   schedel kleur: verschillende kleuren 8 kleuren voor 8 stukken
+[sj-e2e] OK   schedel kleur: pennen goud 1 plaatjes
+[sj-e2e] OK   schedel kleur: Check geeft groen, oranje of rood per status ['groen']
+[sj-e2e] OK   schedel kleur: Check maakt pennen groen 
+[sj-e2e] OK   schedel kleur: terug naar Per piece geeft dezelfde kleuren 
+[sj-e2e] OK   schedel kleur: mesh en status blijven gelijk 
+[sj-e2e] buis: plan {'FINISHED'} 2 stukken, n=[1, 1, 2]
+[sj-e2e] OK   buis: melding te klein voor een pen 'Cut 1-2: too small for a pin: the face is 2.0 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 1-2: no room for the number on a part of this face'
+[sj-e2e] OK   buis: geen pennen 
+[sj-e2e] OK   buis stuk 1: past en waterdicht 
+[sj-e2e] OK   buis stuk 2: past en waterdicht 
+[sj-e2e] OK   doos: 8 hoekpunten, geen voxel 
+[sj-e2e] doos: plan {'FINISHED'} 3 stukken, n=[3, 1, 1]
+[sj-e2e] doos: split {'FINISHED'} in 0.22 s, solver MANIFOLD
+[sj-e2e] OK   doos: meer dan 1 stuk 3 stukken
+[sj-e2e] OK   doos stuk 1: past op het bed [166.7, 150.0, 120.0]
+[sj-e2e] OK   doos stuk 1: waterdicht slechte randen 0, volume 2999634 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   doos stuk 1: status groen groen, wand 4.8
+[sj-e2e] OK   doos stuk 2: past op het bed [166.7, 150.0, 120.0]
+[sj-e2e] OK   doos stuk 2: waterdicht slechte randen 0, volume 2998770 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   doos stuk 2: status groen groen, wand 4.8
+[sj-e2e] OK   doos stuk 3: past op het bed [166.7, 150.0, 120.0]
+[sj-e2e] OK   doos stuk 3: waterdicht slechte randen 0, volume 2999136 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   doos stuk 3: status groen groen, wand 4.8
+[sj-e2e] OK   doos: aantal pennen gelijk aan de gatenparen 8 pennen, 8 paren
+[sj-e2e] OK   doos: er zijn pennen 
+[sj-e2e] OK   doos stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   doos: gat (-83.32, 67.5, 112.5) in twee stukken 2
+[sj-e2e] OK   doos: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   doos: gat (-83.32, -67.5, 7.5) in twee stukken 2
+[sj-e2e] OK   doos: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   doos: gat (-83.32, 41.5, 7.5) in twee stukken 2
+[sj-e2e] OK   doos: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   doos: gat (-83.32, -41.5, 112.5) in twee stukken 2
+[sj-e2e] OK   doos: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   doos: gat (83.347, 67.5, 112.5) in twee stukken 2
+[sj-e2e] OK   doos: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   doos: gat (83.347, -67.5, 7.5) in twee stukken 2
+[sj-e2e] OK   doos: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   doos: gat (83.347, 41.5, 7.5) in twee stukken 2
+[sj-e2e] OK   doos: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   doos: gat (83.347, -41.5, 112.5) in twee stukken 2
+[sj-e2e] OK   doos: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   doos stuk 1: een nummer op elk snijvlak met een buur buren [2], nummers ['1-2']
+[sj-e2e] OK   doos stuk 1: nummer 1-2 begint met het eigen nummer 
+[sj-e2e] OK   doos stuk 1: nummer 1-2 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   doos stuk 2: een nummer op elk snijvlak met een buur buren [1, 3], nummers ['2-1', '2-3']
+[sj-e2e] OK   doos stuk 2: nummer 2-1 begint met het eigen nummer 
+[sj-e2e] OK   doos stuk 2: nummer 2-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   doos stuk 2: nummer 2-3 begint met het eigen nummer 
+[sj-e2e] OK   doos stuk 2: nummer 2-3 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   doos stuk 3: een nummer op elk snijvlak met een buur buren [2], nummers ['3-2']
+[sj-e2e] OK   doos stuk 3: nummer 3-2 begint met het eigen nummer 
+[sj-e2e] OK   doos stuk 3: nummer 3-2 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   doos: aantal stukken gelijk aan het plan 3 / 3
+[sj-e2e] OK   doos: plat export 
+[sj-e2e] OK   doos: plat stuk 1 laagste punt op z = 0, past op het bed z 0.000, 120.0 x 150.0 x 166.7, rang 0
+[sj-e2e] OK   doos: plat stuk 1 zelfde volume als het stuk 2999634 / 2999634 mm3
+[sj-e2e] OK   doos: plat stuk 1 ligt op een snijvlak rang 0, onder 17852 mm2
+[sj-e2e] OK   doos: plat stuk 1 grootste snijvlak ligt onder onder 17852 mm2, grootste 17852 mm2
+[sj-e2e] OK   doos: plat stuk 2 laagste punt op z = 0, past op het bed z 0.000, 120.0 x 150.0 x 166.7, rang 0
+[sj-e2e] OK   doos: plat stuk 2 zelfde volume als het stuk 2998770 / 2998770 mm3
+[sj-e2e] OK   doos: plat stuk 2 ligt op een snijvlak rang 0, onder 17852 mm2
+[sj-e2e] OK   doos: plat stuk 2 grootste snijvlak ligt onder onder 17852 mm2, grootste 17852 mm2
+[sj-e2e] OK   doos: plat stuk 3 laagste punt op z = 0, past op het bed z 0.000, 120.0 x 150.0 x 166.7, rang 0
+[sj-e2e] OK   doos: plat stuk 3 zelfde volume als het stuk 2999136 / 2999136 mm3
+[sj-e2e] OK   doos: plat stuk 3 ligt op een snijvlak rang 0, onder 17844 mm2
+[sj-e2e] OK   doos: plat stuk 3 grootste snijvlak ligt onder onder 17844 mm2, grootste 17844 mm2
+[sj-e2e] OK   doos: plat minstens de helft van de stukken ligt op een snijvlak 3 van 3
+[sj-e2e] OK   doos: plat pennenplaat ongewijzigd 1 platen
+[sj-e2e] OK   doos: plat stukken staan na export nog op hun plek in de scene 
+[sj-e2e] OK   doos: export STL 4 bestanden
+[sj-e2e] OK   doos: STL piece_01.stl maat gelijk 724 driehoeken, [166.68, 150.0, 120.0]
+[sj-e2e] OK   doos: STL piece_02.stl maat gelijk 1468 driehoeken, [166.67, 150.0, 120.0]
+[sj-e2e] OK   doos: STL piece_03.stl maat gelijk 752 driehoeken, [166.65, 150.0, 120.0]
+[sj-e2e] OK   doos: STL pins_5mm_x8.stl maat gelijk 2016 driehoeken, [23.0, 23.0, 12.0]
+[sj-e2e] OK   doos: export 3MF 4 bestanden
+[sj-e2e] OK   doos: 3MF piece_01.3mf in mm, maat gelijk 724 driehoeken, [166.68, 150.0, 120.0]
+[sj-e2e] OK   doos: 3MF piece_02.3mf in mm, maat gelijk 1468 driehoeken, [166.67, 150.0, 120.0]
+[sj-e2e] OK   doos: 3MF piece_03.3mf in mm, maat gelijk 752 driehoeken, [166.65, 150.0, 120.0]
+[sj-e2e] OK   doos: 3MF pins_5mm_x8.3mf in mm, maat gelijk 2016 driehoeken, [23.0, 23.0, 12.0]
+[sj-e2e] OK   doos kleur: standaard Per piece PIECE
+[sj-e2e] OK   doos kleur: elk stuk een eigen materiaal met dezelfde objectkleur 
+[sj-e2e] OK   doos kleur: buren nooit dezelfde kleur 2 paren buren, gelijk []
+[sj-e2e] OK   doos kleur: verschillende kleuren 3 kleuren voor 3 stukken
+[sj-e2e] OK   doos kleur: pennen goud 1 plaatjes
+[sj-e2e] OK   doos kleur: Check geeft groen, oranje of rood per status ['groen']
+[sj-e2e] OK   doos kleur: Check maakt pennen groen 
+[sj-e2e] OK   doos kleur: terug naar Per piece geeft dezelfde kleuren 
+[sj-e2e] OK   doos kleur: mesh en status blijven gelijk 
+[sj-e2e] OK   doos: 3 stukken 3
+[sj-e2e] open: melding 'Error: Suzanne open is not watertight (42 bad edges). Use Make watertight first.\n'
+[sj-e2e] OK   open model: Split weigert {'CANCELLED'}
+[sj-e2e] OK   open model: reden is niet waterdicht open:42
+[sj-e2e] OK   twee gekozen: Plan meldt het andere object 1
+[sj-e2e] OK   meter fout: schaalwaarschuwing 500000 mm
+[sj-e2e] melding: 'Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n'
+[sj-e2e] OK   meter fout: Plan weigert snel {'CANCELLED'} in 0.00 s
+[sj-e2e] melding: 'Error: Box would need 250000 voxels across (limit 3000). Check the unit of the scene (Convert to mm) or use a bigger voxel size\n'
+[sj-e2e] OK   meter fout: Make watertight weigert {'CANCELLED'}
+[sj-e2e] OK   meter fout: paneeltelling met 300 sneden snel en zonder cellen (301, None, (0.0, 0.0, 0.0)) in 0.001 s
+[sj-e2e] melding: 'Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n'
+[sj-e2e] OK   meter fout: Split weigert (schaal) {'CANCELLED'}
+[sj-e2e] OK   meter fout: Convert to mm {'FINISHED'} 0.0010000000474974513
+[sj-e2e] melding: 'Error: These cuts make 301 cells (limit 200). Remove cuts or plan again\n'
+[sj-e2e] OK   meter fout: Split weigert 301 cellen {'CANCELLED'} cellen:301
+[sj-e2e] meter-omgezet: plan {'FINISHED'} 3 stukken, n=[3, 1, 1]
+[sj-e2e] meter-omgezet: split {'FINISHED'} in 0.21 s, solver MANIFOLD
+[sj-e2e] OK   meter-omgezet: meer dan 1 stuk 3 stukken
+[sj-e2e] OK   meter-omgezet stuk 1: past op het bed [166.7, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet stuk 1: waterdicht slechte randen 0, volume 2999634 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   meter-omgezet stuk 1: status groen groen, wand 4.8
+[sj-e2e] OK   meter-omgezet stuk 2: past op het bed [166.7, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet stuk 2: waterdicht slechte randen 0, volume 2998770 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   meter-omgezet stuk 2: status groen groen, wand 4.8
+[sj-e2e] OK   meter-omgezet stuk 3: past op het bed [166.7, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet stuk 3: waterdicht slechte randen 0, volume 2999136 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   meter-omgezet stuk 3: status groen groen, wand 4.8
+[sj-e2e] OK   meter-omgezet: aantal pennen gelijk aan de gatenparen 8 pennen, 8 paren
+[sj-e2e] OK   meter-omgezet: er zijn pennen 
+[sj-e2e] OK   meter-omgezet stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-omgezet: gat (-83.32, 67.5, 112.5) in twee stukken 2
+[sj-e2e] OK   meter-omgezet: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   meter-omgezet: gat (-83.32, -67.5, 7.5) in twee stukken 2
+[sj-e2e] OK   meter-omgezet: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   meter-omgezet: gat (-83.32, 41.5, 7.5) in twee stukken 2
+[sj-e2e] OK   meter-omgezet: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   meter-omgezet: gat (-83.32, -41.5, 112.5) in twee stukken 2
+[sj-e2e] OK   meter-omgezet: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   meter-omgezet: gat (83.347, 67.5, 112.5) in twee stukken 2
+[sj-e2e] OK   meter-omgezet: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   meter-omgezet: gat (83.347, -67.5, 7.5) in twee stukken 2
+[sj-e2e] OK   meter-omgezet: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   meter-omgezet: gat (83.347, 41.5, 7.5) in twee stukken 2
+[sj-e2e] OK   meter-omgezet: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   meter-omgezet: gat (83.347, -41.5, 112.5) in twee stukken 2
+[sj-e2e] OK   meter-omgezet: pen 5 mm past helemaal in de twee gaten pen 11.999999046325684, gaten samen 12.60
+[sj-e2e] OK   meter-omgezet stuk 1: een nummer op elk snijvlak met een buur buren [2], nummers ['1-2']
+[sj-e2e] OK   meter-omgezet stuk 1: nummer 1-2 begint met het eigen nummer 
+[sj-e2e] OK   meter-omgezet stuk 1: nummer 1-2 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   meter-omgezet stuk 2: een nummer op elk snijvlak met een buur buren [1, 3], nummers ['2-1', '2-3']
+[sj-e2e] OK   meter-omgezet stuk 2: nummer 2-1 begint met het eigen nummer 
+[sj-e2e] OK   meter-omgezet stuk 2: nummer 2-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   meter-omgezet stuk 2: nummer 2-3 begint met het eigen nummer 
+[sj-e2e] OK   meter-omgezet stuk 2: nummer 2-3 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   meter-omgezet stuk 3: een nummer op elk snijvlak met een buur buren [2], nummers ['3-2']
+[sj-e2e] OK   meter-omgezet stuk 3: nummer 3-2 begint met het eigen nummer 
+[sj-e2e] OK   meter-omgezet stuk 3: nummer 3-2 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   meter-omgezet: aantal stukken gelijk aan het plan 3 / 3
+[sj-e2e] OK   meter-omgezet: plat export 
+[sj-e2e] OK   meter-omgezet: plat stuk 1 laagste punt op z = 0, past op het bed z 0.000, 120.0 x 150.0 x 166.7, rang 0
+[sj-e2e] OK   meter-omgezet: plat stuk 1 zelfde volume als het stuk 2999634 / 2999634 mm3
+[sj-e2e] OK   meter-omgezet: plat stuk 1 ligt op een snijvlak rang 0, onder 17852 mm2
+[sj-e2e] OK   meter-omgezet: plat stuk 1 grootste snijvlak ligt onder onder 17852 mm2, grootste 17852 mm2
+[sj-e2e] OK   meter-omgezet: plat stuk 2 laagste punt op z = 0, past op het bed z 0.000, 120.0 x 150.0 x 166.7, rang 0
+[sj-e2e] OK   meter-omgezet: plat stuk 2 zelfde volume als het stuk 2998770 / 2998770 mm3
+[sj-e2e] OK   meter-omgezet: plat stuk 2 ligt op een snijvlak rang 0, onder 17852 mm2
+[sj-e2e] OK   meter-omgezet: plat stuk 2 grootste snijvlak ligt onder onder 17852 mm2, grootste 17852 mm2
+[sj-e2e] OK   meter-omgezet: plat stuk 3 laagste punt op z = 0, past op het bed z 0.000, 120.0 x 150.0 x 166.7, rang 0
+[sj-e2e] OK   meter-omgezet: plat stuk 3 zelfde volume als het stuk 2999136 / 2999136 mm3
+[sj-e2e] OK   meter-omgezet: plat stuk 3 ligt op een snijvlak rang 0, onder 17844 mm2
+[sj-e2e] OK   meter-omgezet: plat stuk 3 grootste snijvlak ligt onder onder 17844 mm2, grootste 17844 mm2
+[sj-e2e] OK   meter-omgezet: plat minstens de helft van de stukken ligt op een snijvlak 3 van 3
+[sj-e2e] OK   meter-omgezet: plat pennenplaat ongewijzigd 1 platen
+[sj-e2e] OK   meter-omgezet: plat stukken staan na export nog op hun plek in de scene 
+[sj-e2e] OK   meter-omgezet: export STL 4 bestanden
+[sj-e2e] OK   meter-omgezet: STL piece_01.stl maat gelijk 724 driehoeken, [166.68, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet: STL piece_02.stl maat gelijk 1468 driehoeken, [166.67, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet: STL piece_03.stl maat gelijk 752 driehoeken, [166.65, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet: STL pins_5mm_x8.stl maat gelijk 2016 driehoeken, [23.0, 23.0, 12.0]
+[sj-e2e] OK   meter-omgezet: export 3MF 4 bestanden
+[sj-e2e] OK   meter-omgezet: 3MF piece_01.3mf in mm, maat gelijk 724 driehoeken, [166.68, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet: 3MF piece_02.3mf in mm, maat gelijk 1468 driehoeken, [166.67, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet: 3MF piece_03.3mf in mm, maat gelijk 752 driehoeken, [166.65, 150.0, 120.0]
+[sj-e2e] OK   meter-omgezet: 3MF pins_5mm_x8.3mf in mm, maat gelijk 2016 driehoeken, [23.0, 23.0, 12.0]
+[sj-e2e] OK   meter-omgezet kleur: standaard Per piece PIECE
+[sj-e2e] OK   meter-omgezet kleur: elk stuk een eigen materiaal met dezelfde objectkleur 
+[sj-e2e] OK   meter-omgezet kleur: buren nooit dezelfde kleur 2 paren buren, gelijk []
+[sj-e2e] OK   meter-omgezet kleur: verschillende kleuren 3 kleuren voor 3 stukken
+[sj-e2e] OK   meter-omgezet kleur: pennen goud 1 plaatjes
+[sj-e2e] OK   meter-omgezet kleur: Check geeft groen, oranje of rood per status ['groen']
+[sj-e2e] OK   meter-omgezet kleur: Check maakt pennen groen 
+[sj-e2e] OK   meter-omgezet kleur: terug naar Per piece geeft dezelfde kleuren 
+[sj-e2e] OK   meter-omgezet kleur: mesh en status blijven gelijk 
+[sj-e2e] OK   meter fout: na omzetten 3 stukken 3
+[sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
+[sj-e2e] meter-suzanne: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
+[sj-e2e] meter-suzanne: split {'FINISHED'} in 2.23 s, solver MANIFOLD
+[sj-e2e] OK   meter-suzanne: meer dan 1 stuk 8 stukken
+[sj-e2e] OK   meter-suzanne stuk 1: past op het bed [84.6, 96.1, 115.1]
+[sj-e2e] OK   meter-suzanne stuk 1: waterdicht slechte randen 0, volume 0 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   meter-suzanne stuk 1: status groen groen, wand 1.402
+[sj-e2e] OK   meter-suzanne stuk 2: past op het bed [84.6, 96.1, 115.1]
+[sj-e2e] OK   meter-suzanne stuk 2: waterdicht slechte randen 0, volume 0 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   meter-suzanne stuk 2: status groen groen, wand 1.391
+[sj-e2e] OK   meter-suzanne stuk 3: past op het bed [137.6, 88.1, 47.7]
+[sj-e2e] OK   meter-suzanne stuk 3: waterdicht slechte randen 0, volume 0 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   meter-suzanne stuk 3: status groen groen, wand 1.255
+[sj-e2e] OK   meter-suzanne stuk 4: past op het bed [137.5, 88.1, 47.7]
+[sj-e2e] OK   meter-suzanne stuk 4: waterdicht slechte randen 0, volume 0 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   meter-suzanne stuk 4: status groen groen, wand 1.254
+[sj-e2e] OK   meter-suzanne stuk 5: past op het bed [98.8, 96.3, 113.5]
+[sj-e2e] OK   meter-suzanne stuk 5: waterdicht slechte randen 0, volume 0 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   meter-suzanne stuk 5: status groen groen, wand 1.724
+[sj-e2e] OK   meter-suzanne stuk 6: past op het bed [98.8, 96.3, 113.5]
+[sj-e2e] OK   meter-suzanne stuk 6: waterdicht slechte randen 0, volume 0 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   meter-suzanne stuk 6: status groen groen, wand 1.721
+[sj-e2e] OK   meter-suzanne stuk 7: past op het bed [159.6, 96.3, 115.1]
+[sj-e2e] OK   meter-suzanne stuk 7: waterdicht slechte randen 0, volume 0 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   meter-suzanne stuk 7: status groen groen, wand 1.453
+[sj-e2e] OK   meter-suzanne stuk 8: past op het bed [159.6, 96.3, 115.1]
+[sj-e2e] OK   meter-suzanne stuk 8: waterdicht slechte randen 0, volume 0 mm3, per stap [0, 0, 0, 0, 0]
+[sj-e2e] OK   meter-suzanne stuk 8: status groen groen, wand 1.451
+[sj-e2e] OK   meter-suzanne: aantal pennen gelijk aan de gatenparen 40 pennen, 40 paren
+[sj-e2e] OK   meter-suzanne: er zijn pennen 
+[sj-e2e] OK   meter-suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 1: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 2: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 3: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 4: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 5: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 6: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 7: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne stuk 8: speling gat 0.203 mm gat r 2.703, pen r 2.500, diepte 6.30
+[sj-e2e] OK   meter-suzanne: gat (0.014, -66.146, 9.091) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, -10.065, 109.594) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, -90.73, 90.414) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, -41.563, 62.028) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-60.923, -2.767, 109.928) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-6.903, -2.767, 84.76) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-69.231, -9.703, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-13.285, -84.609, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-7.782, -21.725, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (60.933, -2.767, 109.928) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (6.929, -2.767, 84.76) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (69.245, -9.703, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (13.31, -84.609, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (7.808, -21.725, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, 71.585, 109.594) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, 4.553, 78.139) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-88.491, 30.716, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-11.451, 75.665, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-21.539, 5.03, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-45.385, 45.393, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (88.501, 30.716, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (11.476, 75.665, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (21.562, 5.03, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (45.403, 45.393, 116.883) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, -10.065, 221.581) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, -83.048, 124.169) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, -10.065, 145.646) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, -59.232, 181.696) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-13.288, -2.767, 222.434) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-80.939, -2.767, 124.071) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-7.207, -2.767, 137.69) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (-76.379, -2.767, 193.682) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (13.312, -2.767, 222.434) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (80.944, -2.767, 124.071) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (7.233, -2.767, 137.69) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (76.385, -2.767, 193.682) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, 4.553, 223.882) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, 80.061, 124.169) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, 4.553, 144.879) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne: gat (0.014, 71.585, 196.269) in twee stukken 2
+[sj-e2e] OK   meter-suzanne: pen 5 mm past helemaal in de twee gaten pen 12.00000022072345, gaten samen 12.60
+[sj-e2e] OK   meter-suzanne stuk 1: een nummer op elk snijvlak met een buur buren [2, 3, 5], nummers ['1-2', '1-3', '1-5']
+[sj-e2e] OK   meter-suzanne stuk 1: nummer 1-2 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 1: nummer 1-2 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 1: nummer 1-3 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 1: nummer 1-3 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 1: nummer 1-5 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 1: nummer 1-5 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 2: een nummer op elk snijvlak met een buur buren [1, 4, 6], nummers ['2-1', '2-4', '2-6']
+[sj-e2e] OK   meter-suzanne stuk 2: nummer 2-1 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 2: nummer 2-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 2: nummer 2-4 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 2: nummer 2-4 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 2: nummer 2-6 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 2: nummer 2-6 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 3: een nummer op elk snijvlak met een buur buren [1, 4, 7], nummers ['3-4', '3-1', '3-7']
+[sj-e2e] OK   meter-suzanne stuk 3: nummer 3-4 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 3: nummer 3-4 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 3: nummer 3-1 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 3: nummer 3-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 3: nummer 3-7 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 3: nummer 3-7 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 4: een nummer op elk snijvlak met een buur buren [2, 3, 8], nummers ['4-3', '4-2', '4-8']
+[sj-e2e] OK   meter-suzanne stuk 4: nummer 4-3 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 4: nummer 4-3 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 4: nummer 4-2 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 4: nummer 4-2 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 4: nummer 4-8 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 4: nummer 4-8 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 5: een nummer op elk snijvlak met een buur buren [1, 6, 7], nummers ['5-6', '5-7', '5-1']
+[sj-e2e] OK   meter-suzanne stuk 5: nummer 5-6 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 5: nummer 5-6 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 5: nummer 5-7 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 5: nummer 5-7 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 5: nummer 5-1 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 5: nummer 5-1 verdiept in het vlak 50 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 6: een nummer op elk snijvlak met een buur buren [2, 5, 8], nummers ['6-5', '6-8', '6-2']
+[sj-e2e] OK   meter-suzanne stuk 6: nummer 6-5 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 6: nummer 6-5 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 6: nummer 6-8 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 6: nummer 6-8 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 6: nummer 6-2 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 6: nummer 6-2 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 7: een nummer op elk snijvlak met een buur buren [3, 5, 8], nummers ['7-8', '7-5', '7-3']
+[sj-e2e] OK   meter-suzanne stuk 7: nummer 7-8 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 7: nummer 7-8 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 7: nummer 7-5 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 7: nummer 7-5 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 7: nummer 7-3 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 7: nummer 7-3 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 8: een nummer op elk snijvlak met een buur buren [4, 6, 7], nummers ['8-7', '8-6', '8-4']
+[sj-e2e] OK   meter-suzanne stuk 8: nummer 8-7 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 8: nummer 8-7 verdiept in het vlak 48 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 8: nummer 8-6 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 8: nummer 8-6 verdiept in het vlak 56 punten op de bodem
+[sj-e2e] OK   meter-suzanne stuk 8: nummer 8-4 begint met het eigen nummer 
+[sj-e2e] OK   meter-suzanne stuk 8: nummer 8-4 verdiept in het vlak 52 punten op de bodem
+[sj-e2e] OK   meter-suzanne: aantal stukken gelijk aan het plan 8 / 8
+[sj-e2e] OK   meter-suzanne: plat export 
+[sj-e2e] OK   meter-suzanne: plat stuk 1 laagste punt op z = 0, past op het bed z 0.000, 115.1 x 96.1 x 84.6, rang 0
+[sj-e2e] OK   meter-suzanne: plat stuk 1 zelfde volume als het stuk 255051 / 255051 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 1 ligt op een snijvlak rang 0, onder 7136 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 1 grootste snijvlak ligt onder onder 7136 mm2, grootste 7136 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 2 laagste punt op z = 0, past op het bed z 0.000, 115.1 x 96.1 x 84.6, rang 0
+[sj-e2e] OK   meter-suzanne: plat stuk 2 zelfde volume als het stuk 254834 / 254834 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 2 ligt op een snijvlak rang 0, onder 7136 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 2 grootste snijvlak ligt onder onder 7136 mm2, grootste 7136 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 3 laagste punt op z = 0, past op het bed z -0.000, 137.6 x 88.1 x 47.7, rang 0
+[sj-e2e] OK   meter-suzanne: plat stuk 3 zelfde volume als het stuk 137313 / 137313 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 3 ligt op een snijvlak rang 0, onder 6517 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 3 grootste snijvlak ligt onder onder 6517 mm2, grootste 6516 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 4 laagste punt op z = 0, past op het bed z -0.000, 137.5 x 88.1 x 47.7, rang 0
+[sj-e2e] OK   meter-suzanne: plat stuk 4 zelfde volume als het stuk 137197 / 137197 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 4 ligt op een snijvlak rang 0, onder 6506 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 4 grootste snijvlak ligt onder onder 6506 mm2, grootste 6505 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 5 laagste punt op z = 0, past op het bed z 0.000, 98.8 x 113.5 x 96.3, rang 0
+[sj-e2e] OK   meter-suzanne: plat stuk 5 zelfde volume als het stuk 621985 / 621985 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 5 ligt op een snijvlak rang 0, onder 9456 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 5 grootste snijvlak ligt onder onder 9456 mm2, grootste 9456 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 6 laagste punt op z = 0, past op het bed z 0.000, 98.8 x 113.5 x 96.3, rang 0
+[sj-e2e] OK   meter-suzanne: plat stuk 6 zelfde volume als het stuk 621757 / 621757 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 6 ligt op een snijvlak rang 0, onder 9434 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 6 grootste snijvlak ligt onder onder 9434 mm2, grootste 9434 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 7 laagste punt op z = 0, past op het bed z 0.000, 159.6 x 115.1 x 96.3, rang 0
+[sj-e2e] OK   meter-suzanne: plat stuk 7 zelfde volume als het stuk 721311 / 721311 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 7 ligt op een snijvlak rang 0, onder 9456 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 7 grootste snijvlak ligt onder onder 9456 mm2, grootste 9456 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 8 laagste punt op z = 0, past op het bed z 0.000, 115.1 x 96.3 x 159.6, rang 0
+[sj-e2e] OK   meter-suzanne: plat stuk 8 zelfde volume als het stuk 721051 / 721051 mm3
+[sj-e2e] OK   meter-suzanne: plat stuk 8 ligt op een snijvlak rang 0, onder 9446 mm2
+[sj-e2e] OK   meter-suzanne: plat stuk 8 grootste snijvlak ligt onder onder 9446 mm2, grootste 9446 mm2
+[sj-e2e] OK   meter-suzanne: plat minstens de helft van de stukken ligt op een snijvlak 8 van 8
+[sj-e2e] OK   meter-suzanne: plat pennenplaat ongewijzigd 1 platen
+[sj-e2e] OK   meter-suzanne: plat stukken staan na export nog op hun plek in de scene 
+[sj-e2e] OK   meter-suzanne: export STL 9 bestanden
+[sj-e2e] OK   meter-suzanne: STL piece_01.stl maat gelijk 9448 driehoeken, [84.59, 96.1, 115.08]
+[sj-e2e] OK   meter-suzanne: STL piece_02.stl maat gelijk 9544 driehoeken, [84.56, 96.1, 115.08]
+[sj-e2e] OK   meter-suzanne: STL piece_03.stl maat gelijk 6704 driehoeken, [137.57, 88.06, 47.69]
+[sj-e2e] OK   meter-suzanne: STL piece_04.stl maat gelijk 6646 driehoeken, [137.54, 88.06, 47.69]
+[sj-e2e] OK   meter-suzanne: STL piece_05.stl maat gelijk 13178 driehoeken, [98.82, 96.34, 113.5]
+[sj-e2e] OK   meter-suzanne: STL piece_06.stl maat gelijk 13298 driehoeken, [98.79, 96.34, 113.5]
+[sj-e2e] OK   meter-suzanne: STL piece_07.stl maat gelijk 15978 driehoeken, [159.6, 96.31, 115.05]
+[sj-e2e] OK   meter-suzanne: STL piece_08.stl maat gelijk 15962 driehoeken, [159.57, 96.31, 115.05]
+[sj-e2e] OK   meter-suzanne: STL pins_5mm_x40.stl maat gelijk 10080 driehoeken, [59.0, 50.0, 12.0]
+[sj-e2e] OK   meter-suzanne: export 3MF 9 bestanden
+[sj-e2e] OK   meter-suzanne: 3MF piece_01.3mf in mm, maat gelijk 9448 driehoeken, [84.59, 96.1, 115.08]
+[sj-e2e] OK   meter-suzanne: 3MF piece_02.3mf in mm, maat gelijk 9544 driehoeken, [84.56, 96.1, 115.08]
+[sj-e2e] OK   meter-suzanne: 3MF piece_03.3mf in mm, maat gelijk 6704 driehoeken, [137.57, 88.06, 47.69]
+[sj-e2e] OK   meter-suzanne: 3MF piece_04.3mf in mm, maat gelijk 6646 driehoeken, [137.54, 88.06, 47.69]
+[sj-e2e] OK   meter-suzanne: 3MF piece_05.3mf in mm, maat gelijk 13178 driehoeken, [98.82, 96.34, 113.5]
+[sj-e2e] OK   meter-suzanne: 3MF piece_06.3mf in mm, maat gelijk 13298 driehoeken, [98.79, 96.34, 113.5]
+[sj-e2e] OK   meter-suzanne: 3MF piece_07.3mf in mm, maat gelijk 15978 driehoeken, [159.6, 96.31, 115.05]
+[sj-e2e] OK   meter-suzanne: 3MF piece_08.3mf in mm, maat gelijk 15962 driehoeken, [159.57, 96.31, 115.05]
+[sj-e2e] OK   meter-suzanne: 3MF pins_5mm_x40.3mf in mm, maat gelijk 10080 driehoeken, [59.0, 50.0, 12.0]
+[sj-e2e] OK   meter-suzanne kleur: standaard Per piece PIECE
+[sj-e2e] OK   meter-suzanne kleur: elk stuk een eigen materiaal met dezelfde objectkleur 
+[sj-e2e] OK   meter-suzanne kleur: buren nooit dezelfde kleur 12 paren buren, gelijk []
+[sj-e2e] OK   meter-suzanne kleur: verschillende kleuren 8 kleuren voor 8 stukken
+[sj-e2e] OK   meter-suzanne kleur: pennen goud 1 plaatjes
+[sj-e2e] OK   meter-suzanne kleur: Check geeft groen, oranje of rood per status ['groen']
+[sj-e2e] OK   meter-suzanne kleur: Check maakt pennen groen 
+[sj-e2e] OK   meter-suzanne kleur: terug naar Per piece geeft dezelfde kleuren 
+[sj-e2e] OK   meter-suzanne kleur: mesh en status blijven gelijk 
+[sj-e2e] OK   meter echt: 8 stukken zoals in de mm-scene 8
+[sj-e2e] OK   operator split_joints.passing_maak bestaat 
+[sj-e2e] OK   operator split_joints.passing_kies bestaat 
+[sj-e2e] OK   operator split_joints.passing_export bestaat 
+[sj-e2e] OK   voorkeuren van de add-on bestaan 
+[sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
+[sj-e2e] OK   passing: knop werkt {'FINISHED'}
+[sj-e2e] OK   passing: blok en pennen gemaakt 
+[sj-e2e] OK   passing: blok waterdicht slechte randen 0, volume 9008 mm3
+[sj-e2e] OK   passing: blok past op een A1 mini [68.0, 17.1, 8.3]
+[sj-e2e] OK   passing: vier spelingen rond de ingestelde [0.15, 0.2, 0.25, 0.3] verwacht [0.15, 0.2, 0.25, 0.3]
+[sj-e2e] OK   passing: vier gaten 
+[sj-e2e] OK   passing gat 0.15: gevonden 
+[sj-e2e] OK   passing gat 0.15: straal klopt gemeten 2.653, doel 2.650
+[sj-e2e] OK   passing gat 0.15: speling gemeten 0.153
+[sj-e2e] OK   passing gat 0.15: diep genoeg voor een halve pen diepte 6.299999961853027
+[sj-e2e] OK   passing gat 0.15: speling gegraveerd 70 punten op 0,6 mm diepte
+[sj-e2e] OK   passing gat 0.20: gevonden 
+[sj-e2e] OK   passing gat 0.20: straal klopt gemeten 2.703, doel 2.700
+[sj-e2e] OK   passing gat 0.20: speling gemeten 0.203
+[sj-e2e] OK   passing gat 0.20: diep genoeg voor een halve pen diepte 6.300000438690185
+[sj-e2e] OK   passing gat 0.20: speling gegraveerd 76 punten op 0,6 mm diepte
+[sj-e2e] OK   passing gat 0.25: gevonden 
+[sj-e2e] OK   passing gat 0.25: straal klopt gemeten 2.753, doel 2.750
+[sj-e2e] OK   passing gat 0.25: speling gemeten 0.253
+[sj-e2e] OK   passing gat 0.25: diep genoeg voor een halve pen diepte 6.299999961853027
+[sj-e2e] OK   passing gat 0.25: speling gegraveerd 76 punten op 0,6 mm diepte
+[sj-e2e] OK   passing gat 0.30: gevonden 
+[sj-e2e] OK   passing gat 0.30: straal klopt gemeten 2.803, doel 2.800
+[sj-e2e] OK   passing gat 0.30: speling gemeten 0.303
+[sj-e2e] OK   passing gat 0.30: diep genoeg voor een halve pen diepte 6.300000438690185
+[sj-e2e] OK   passing gat 0.30: speling gegraveerd 76 punten op 0,6 mm diepte
+[sj-e2e] OK   passing: vier pennen van de eigen maat [(2.5, 12.0), (2.5, 12.0), (2.5, 12.0), (2.5, 12.0)]
+[sj-e2e] OK   passing: blok staat naast het model blok 108.5, model 93.5
+[sj-e2e] OK   passing: blok ligt op de vloer 
+[sj-e2e] OK   passing export STL: twee bestanden {'FINISHED'}
+[sj-e2e] OK   passing export STL: maat blok gelijk [68.0, 17.1, 8.3]
+[sj-e2e] OK   passing export 3MF: twee bestanden {'FINISHED'}
+[sj-e2e] OK   passing export 3MF: maat blok gelijk [68.0, 17.1, 8.3]
+[sj-e2e] OK   kies 0,25: speling ingesteld {'FINISHED'} 0.25
+[sj-e2e] OK   kies 0,25: bewaard in de voorkeuren {'A1MINI|PLA': 0.25}
+[sj-e2e] OK   andere printer zonder proef: speling blijft 0.25
+[sj-e2e] OK   terug naar A1 mini: 0,25 komt terug 0.25
+[sj-e2e] OK   PETG 0,30 en PLA 0,25 los bewaard 0.25 {'A1MINI|PETG': 0.3, 'A1MINI|PLA': 0.25}
+[sj-e2e] OK   lege scene: bewaarde speling komt terug 0.25
+[sj-e2e] OK   handler bij openen bestaat 
+[sj-e2e] OK   nieuw bestand: bewaarde 0,25 zonder printer te wisselen 0.25
+[sj-e2e] OK   zelf getypte speling blijft bij openen 0.18000000715255737
+[sj-e2e] OK   speling 1,0: knoppen niet boven 1,0 [0.85, 0.9, 0.95, 1.0]
+[sj-e2e] OK   speling 1,0: bewaard wat de knop zegt {'A1MINI|PETG': 0.3, 'A1MINI|PLA': 1.0}
+[sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
+[sj-e2e] OK   na de proef: het model blijft actief (keuring M1) Suzanne_watertight
+[sj-e2e] OK   na de proef: Plan cuts werkt op het model Suzanne_watertight
+[sj-e2e] OK   proefblok actief: Plan cuts kiest het blok niet poll False
+[sj-e2e] OK   na Split: proef staat er nog 
+[sj-e2e] OK   export van de stukken neemt de proef niet mee ['piece_01.stl', 'piece_02.stl', 'piece_03.stl', 'piece_04.stl']
+[sj-e2e] OK   passing 3 mm: blok en pennen gemaakt 
+[sj-e2e] OK   passing 3 mm: blok waterdicht slechte randen 0, volume 6153 mm3
+[sj-e2e] OK   passing 3 mm: blok past op een A1 mini [68.0, 14.8, 6.3]
+[sj-e2e] OK   passing 3 mm: vier spelingen rond de ingestelde [0.0, 0.05, 0.1, 0.15] verwacht [0.0, 0.05, 0.1, 0.15]
+[sj-e2e] OK   passing 3 mm: vier gaten 
+[sj-e2e] OK   passing 3 mm gat 0.00: gevonden 
+[sj-e2e] OK   passing 3 mm gat 0.00: straal klopt gemeten 1.502, doel 1.500
+[sj-e2e] OK   passing 3 mm gat 0.00: speling gemeten 0.002
+[sj-e2e] OK   passing 3 mm gat 0.00: diep genoeg voor een halve pen diepte 4.299999961853027
+[sj-e2e] OK   passing 3 mm gat 0.00: speling gegraveerd 76 punten op 0,6 mm diepte
+[sj-e2e] OK   passing 3 mm gat 0.05: gevonden 
+[sj-e2e] OK   passing 3 mm gat 0.05: straal klopt gemeten 1.552, doel 1.550
+[sj-e2e] OK   passing 3 mm gat 0.05: speling gemeten 0.052
+[sj-e2e] OK   passing 3 mm gat 0.05: diep genoeg voor een halve pen diepte 4.299999961853027
+[sj-e2e] OK   passing 3 mm gat 0.05: speling gegraveerd 76 punten op 0,6 mm diepte
+[sj-e2e] OK   passing 3 mm gat 0.10: gevonden 
+[sj-e2e] OK   passing 3 mm gat 0.10: straal klopt gemeten 1.602, doel 1.600
+[sj-e2e] OK   passing 3 mm gat 0.10: speling gemeten 0.102
+[sj-e2e] OK   passing 3 mm gat 0.10: diep genoeg voor een halve pen diepte 4.299999961853027
+[sj-e2e] OK   passing 3 mm gat 0.10: speling gegraveerd 70 punten op 0,6 mm diepte
+[sj-e2e] OK   passing 3 mm gat 0.15: gevonden 
+[sj-e2e] OK   passing 3 mm gat 0.15: straal klopt gemeten 1.652, doel 1.650
+[sj-e2e] OK   passing 3 mm gat 0.15: speling gemeten 0.152
+[sj-e2e] OK   passing 3 mm gat 0.15: diep genoeg voor een halve pen diepte 4.299999961853027
+[sj-e2e] OK   passing 3 mm gat 0.15: speling gegraveerd 70 punten op 0,6 mm diepte
+[sj-e2e] OK   passing 3 mm: vier pennen van de eigen maat [(1.5, 8.0), (1.5, 8.0), (1.5, 8.0), (1.5, 8.0)]
+[sj-e2e] OK   passing meters: blok en pennen gemaakt 
+[sj-e2e] OK   passing meters: blok waterdicht slechte randen 0, volume 0 mm3
+[sj-e2e] OK   passing meters: blok past op een A1 mini [68.0, 17.1, 8.3]
+[sj-e2e] OK   passing meters: vier spelingen rond de ingestelde [0.15, 0.2, 0.25, 0.3] verwacht [0.15, 0.2, 0.25, 0.3]
+[sj-e2e] OK   passing meters: vier gaten 
+[sj-e2e] OK   passing meters gat 0.15: gevonden 
+[sj-e2e] OK   passing meters gat 0.15: straal klopt gemeten 2.653, doel 2.650
+[sj-e2e] OK   passing meters gat 0.15: speling gemeten 0.153
+[sj-e2e] OK   passing meters gat 0.15: diep genoeg voor een halve pen diepte 6.300000397711992
+[sj-e2e] OK   passing meters gat 0.15: speling gegraveerd 70 punten op 0,6 mm diepte
+[sj-e2e] OK   passing meters gat 0.20: gevonden 
+[sj-e2e] OK   passing meters gat 0.20: straal klopt gemeten 2.703, doel 2.700
+[sj-e2e] OK   passing meters gat 0.20: speling gemeten 0.203
+[sj-e2e] OK   passing meters gat 0.20: diep genoeg voor een halve pen diepte 6.300000863373279
+[sj-e2e] OK   passing meters gat 0.20: speling gegraveerd 76 punten op 0,6 mm diepte
+[sj-e2e] OK   passing meters gat 0.25: gevonden 
+[sj-e2e] OK   passing meters gat 0.25: straal klopt gemeten 2.753, doel 2.750
+[sj-e2e] OK   passing meters gat 0.25: speling gemeten 0.253
+[sj-e2e] OK   passing meters gat 0.25: diep genoeg voor een halve pen diepte 6.300000863373279
+[sj-e2e] OK   passing meters gat 0.25: speling gegraveerd 76 punten op 0,6 mm diepte
+[sj-e2e] OK   passing meters gat 0.30: gevonden 
+[sj-e2e] OK   passing meters gat 0.30: straal klopt gemeten 2.803, doel 2.800
+[sj-e2e] OK   passing meters gat 0.30: speling gemeten 0.303
+[sj-e2e] OK   passing meters gat 0.30: diep genoeg voor een halve pen diepte 6.300000863373279
+[sj-e2e] OK   passing meters gat 0.30: speling gegraveerd 76 punten op 0,6 mm diepte
+[sj-e2e] OK   passing meters: vier pennen van de eigen maat [(2.5, 12.0), (2.5, 12.0), (2.5, 12.0), (2.5, 12.0)]
+[sj-e2e] passing: klaar
+[sj-e2e] waterdicht Figure: {'FINISHED'} -> Figure_watertight 54996 vlakken
+[sj-e2e] OK   vrij: split geeft 1 stuk 1 stukken
+[sj-e2e] vrij: melding Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+[sj-e2e] OK   vrij: te kleine rechthoek geweigerd {'CANCELLED'}
+[sj-e2e] vrij: melding Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+[sj-e2e] OK   vrij: snede naast het stuk geweigerd {'CANCELLED'}
+[sj-e2e] OK   vrij: snijden lukt {'FINISHED'}
+[sj-e2e] OK   vrij: 2 stukken 2
+[sj-e2e] OK   vrij: snedevlak weg 
+[sj-e2e] OK   vrij stuk 1: waterdicht slecht 0, volume 71539, stappen [0, 0, 0]
+[sj-e2e] OK   vrij stuk 1: groen groen wand 3.762
+[sj-e2e] OK   vrij stuk 2: waterdicht slecht 0, volume 7519, stappen [0, 0, 0, 0]
+[sj-e2e] OK   vrij stuk 2: groen groen wand 3.762
+[sj-e2e] OK   vrij: nieuw stuk is alleen het armeinde x 47.9 tot 80.0
+[sj-e2e] OK   vrij: torso blijft heel 
+[sj-e2e] OK   vrij: gaten aan beide kanten 1 / 1
+[sj-e2e] OK   vrij: volumes tellen op (min gaten en nummers) voor 79357, na 79058, gaten 289
+[sj-e2e] OK   vrij A: gat langs de normaal van het vlak (0.966, 0.259, 0.0)
+[sj-e2e] OK   vrij A: gat 6.30 mm diep gemeten 6.300000476837158
+[sj-e2e] OK   vrij B: gat langs de normaal van het vlak (0.966, 0.259, 0.0)
+[sj-e2e] OK   vrij B: gat 6.30 mm diep gemeten 6.299994277954101
+[sj-e2e] OK   vrij: normaal 15 graden gedraaid (0.966, 0.259, -0.0)
+[sj-e2e] OK   vrij: nummers op beide snijvlakken ['1-2', '2-1']
+[sj-e2e] OK   vrij: helften verschillende kleur [1.0, 0.10461648553609848, 0.0423114113509655] [0.04666508734226227, 0.10461648553609848, 1.0]
+[sj-e2e] OK   vrij: pennen gelijk aan gatenparen 1 pennen
+[sj-e2e] vrij: melding Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] OK   vrij: snede door een pengat geweigerd {'CANCELLED'} 'Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2'
+[sj-e2e] vrij: melding Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] OK   vrij: 1,0 mm voorbij het gat nog geweigerd {'CANCELLED'} 'Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2'
+[sj-e2e] OK   vrij: snede net voorbij het gat snijdt wel {'FINISHED'} 3 ''
+[sj-e2e] OK   klik: operator split_joints.split_to_fit bestaat 
+[sj-e2e] OK   klik: geen zwaar-regel bij een lichte doos 
+[sj-e2e] OK   klik: zwaar-regel vanaf de grens '0.0M faces: Split takes about 1 min'
+[sj-e2e] OK   klik: noten-regel bij dicht vak '2 notes: see More settings'
+[sj-e2e] OK   klik: geen noten-regel als het vak open is of zonder noten 
+[sj-e2e] OK   klik: rand met 4 vlakken wordt 2 randen met 2 vlakken ((1, 16.0), 2, 0, 15.999999999999998)
+[sj-e2e] OK   klik: schatting 999999 MANIFOLD None
+[sj-e2e] OK   klik: schatting 1000000 MANIFOLD '1.0M faces: Split takes about 1 min'
+[sj-e2e] OK   klik: schatting 3040000 MANIFOLD '3.0M faces: Split takes about 3 min'
+[sj-e2e] OK   klik: schatting 1010000 EXACT '1.0M faces: Split takes about 4 min'
+[sj-e2e] OK   klik: schatting 3040000 EXACT '3.0M faces: Split takes about 10 min'
+[sj-e2e] OK   klik: modelregel 'Suzanne: 1,982,604 faces'
+[sj-e2e] OK   klik: regel zonder model 'Click your model in the viewport'
+[sj-e2e] OK   klik: geheugen 3040000 EXACT 'Needs about 10 GB of memory'
+[sj-e2e] OK   klik: geheugen 2000000 EXACT None
+[sj-e2e] OK   klik: geheugen 3040000 MANIFOLD None
+[sj-e2e] OK   klik: geheugen 5000000 MANIFOLD 'Needs about 8 GB of memory'
+[sj-e2e] OK   klik: plek in mm gelijk aan de plek -83.3333 -83.3333
+[sj-e2e] klik: met de hand {'FINISHED'} {'FINISHED'} [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
+[sj-e2e] klik: een klik {'FINISHED'} in 0.2 s [(1, [166.7, 150.0, 120.0], 2999634, 4), (2, [166.7, 150.0, 120.0], 2998770, 8), (3, [166.7, 150.0, 120.0], 2999136, 4)] pennen 8
+[sj-e2e] OK   klik: een klik lukt {'FINISHED'}
+[sj-e2e] OK   klik: zelfde stukken als Plan plus Split 3 tegen 3
+[sj-e2e] OK   klik: zelfde pennen 8 tegen 8
+[sj-e2e] OK   klik: elk stuk past en is dicht 
+[sj-e2e] OK   klik: uitslag in een regel ('3 parts, all fit the bed', '8 pins, 0.20 mm clearance', True)
+[sj-e2e] OK   klik: uitslag noemt pennen en speling ('3 parts, all fit the bed', '8 pins, 0.20 mm clearance', True)
+[sj-e2e] OK   klik: tweede klik met een stuk actief {'FINISHED'} 3
+[sj-e2e] OK   klik: andere printer volgt het plan 2 plan 2
+[sj-e2e] OK   klik: tweede model gekozen wordt gesneden {'FINISHED'} bron Second 2 plan 2
+[sj-e2e] OK   klik: tweede model, eerste doos blijft bestaan [-24.998289108276367, 25.001707077026367]
+[sj-e2e] OK   klik: tweede model, eerste doos weer zichtbaar (K5) Box True
+[sj-e2e] OK   klik: na de klik geen regel 'Cuts changed' (K6) [[0, 700.0]]
+[sj-e2e] OK   klik: snede verschoven geeft de regel (K6) [[0, 700.0]]
+[sj-e2e] OK   klik: na Split weer geen regel (K6) {'FINISHED'}
+[sj-e2e] OK   klik: Split to fit houdt een verschoven snede (K5) {'FINISHED'} plek 709.0 verwacht 709.0 'kept your moved cuts'
+[sj-e2e] OK   klik: open model krijgt eerst een dichte kopie {'FINISHED'} watertight copy made Suzanne open_watertight
+[sj-e2e] OK   klik: open model, stukken dicht en passend 4 stukken
+[sj-e2e] OK   klik: na open model komt het eigen model terug, niet de kopie (K2) {'FINISHED'} eigen True kopie False
+[sj-e2e] klik: melding Error: Box is 5e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[sj-e2e] OK   klik: meters geweigerd met uitleg {'CANCELLED'} 'Wrong unit? Open More settings and use Convert to mm'
+[sj-e2e] OK   klik: Convert to mm wist de rode regel {'FINISHED'} ''
+[sj-e2e] OK   klik: na Convert to mm snijdt hij wel {'FINISHED'} 3
+[sj-e2e] OK   klik: plek in mm in een meter-scene -83.333 mm, -0.083333 m
+[sj-e2e] OK   klik: plek in mm zetten 0.0123000
+[sj-e2e] KLAAR 0 FOUT []
