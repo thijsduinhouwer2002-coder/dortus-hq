@@ -6,6 +6,24 @@ import bpy
 from . import exporteer, passing, schaal
 
 
+# Plekken voor het Pro-deel (1.2.9, issue 70): elke functie krijgt (layout, context) en tekent op die plek in het
+# paneel. Bij Cleave en Split 3D Print staat de hoofdknop bovenaan en hoort elke knop bij zijn stap (GEZIEN op hun
+# Superhive-pagina's, lat kop Paneel); bij ons hing het Pro-deel los onder Export. In de gratis versie blijven ze leeg.
+BOVEN = []  # boven stap 1 (Figure from rig als je mesh een rig heeft)
+STAP2 = []  # in stap 2 onder Clearance (proefstrip: welke speling past)
+STAP2_KEUS = []  # in stap 2 onder Place joint (scharnier)
+STAP3 = []  # in stap 3 onder de passing (bereik van het scharnier)
+
+
+def teken(lijst, layout, context):
+    """Tekent de Pro-stukken; een fout in één stuk mag het paneel niet leeg laten."""
+    for f in lijst:
+        try:
+            f(layout, context)
+        except Exception as e:  # noqa: BLE001
+            print(f"Click Joints: panel part {getattr(f, '__name__', f)} failed ({e})")
+
+
 def grote_knop(layout, idname, tekst, icoon):
     rij = layout.row()
     rij.scale_y = 1.6
@@ -56,6 +74,7 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
         inst = context.scene.click_joints
         ob = context.active_object
         layout = self.layout
+        teken(BOVEN, layout, context)
 
         stap = layout.box()
         stap.label(text="1  Place", icon="PIVOT_CURSOR")
@@ -82,7 +101,9 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
         rij.prop(inst, "kogel_mm")
         rij.prop(inst, "kogel_auto", toggle=True)
         stap.prop(inst, "speling_mm", slider=True)
+        teken(STAP2, stap, context)
         grote_knop(stap, "click_joints.plaats", "Place joint", "MOD_BOOLEAN")
+        teken(STAP2_KEUS, stap, context)
         stap.prop(inst, "uit_elkaar", icon="MOD_EXPLODE")
 
         stap = layout.box()
@@ -110,6 +131,7 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
                 blok.operator("click_joints.reset_pose", icon="LOOP_BACK")
         else:
             stap.label(text="No joint yet")
+        teken(STAP3, stap, context)
         stap.prop(inst, "exportmap")
         tip = exporteer.hint(context.scene)
         if tip:

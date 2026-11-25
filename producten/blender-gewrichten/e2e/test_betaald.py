@@ -15,6 +15,7 @@ import bpy
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import toetsen_scharnier  # noqa: E402
 import toetsen_scharnier_afstand  # noqa: E402
+import toetsen_paneel  # noqa: E402
 from hulp_scharnier import cursor as _cursor  # noqa: E402
 
 args = sys.argv[sys.argv.index("--") + 1:]
@@ -57,6 +58,11 @@ def main():
     except Exception:
         traceback.print_exc()
         stap("toetsen afstand scharnier liepen zonder fout", False)
+    try:
+        toetsen_paneel.toets(stap, eigen)  # 1.2.9 (issue 70): Figure from rig bovenaan, Pro-stukken in hun stap
+    except Exception:
+        traceback.print_exc()
+        stap("toetsen paneel liepen zonder fout", False)
     gewricht, maat = sys.modules[eigen + ".gewricht"], sys.modules[eigen + ".maat"]
     stap("betaalde omhult gewricht.te_dicht en gewricht.markeer zolang hij aan staat",
          gewricht.te_dicht is not maat.te_dicht and gewricht.markeer.__module__ != gewricht.__name__)

@@ -203,6 +203,26 @@ class CLICK_JOINTS_OT_plaats_preset(bpy.types.Operator):
         return {"FINISHED"}
 
 
+def teken_boven(layout, context):
+    """Bovenaan het hoofdpaneel, vóór stap 1 (1.2.9, issue 70): heeft je mesh een rig, dan is Figure from rig de eerste
+    knop die je ziet. Cleave zet Scan Model bovenaan en Split 3D Print Automatic Detection (GEZIEN, lat kop Paneel);
+    bij ons stond onze sterkste knop in een tweede paneel onder ±880 px andere knoppen (GEZIEN, e2e 5.3.0).
+    Zonder rig tekent dit niets: dan begin je gewoon bij stap 1."""
+    ob = context.active_object
+    if ob is None or ob.type != "MESH":
+        return
+    from . import rig
+    arm = rig.zoek_armature(ob)
+    if arm is None:
+        return
+    vak = layout.box()
+    vak.label(text=f"Rig found: {arm.name}", icon="ARMATURE_DATA")
+    kol = vak.column(align=True)
+    kol.scale_y = 1.6
+    kol.operator(rig.CLICK_JOINTS_OT_figuur_uit_rig.bl_idname, icon="ARMATURE_DATA").meer = False
+    vak.operator(rig.CLICK_JOINTS_OT_figuur_uit_rig.bl_idname, text="More bones (ankles too)").meer = True
+
+
 class CLICK_JOINTS_PT_figuur(bpy.types.Panel):
     """Eigen paneel "Figure joints" onder Click Joints (zelfde tabblad): in te klappen en te verslepen."""
     bl_label = "Figure joints"
@@ -219,13 +239,9 @@ class CLICK_JOINTS_PT_figuur(bpy.types.Panel):
         layout = self.layout
         from . import rig
         arm = rig.zoek_armature(ob) if ob is not None and ob.type == "MESH" else None
-        if arm is not None:
-            kol = layout.column(align=True)
-            kol.scale_y = 1.4
-            kol.operator(rig.CLICK_JOINTS_OT_figuur_uit_rig.bl_idname, icon="ARMATURE_DATA").meer = False
-            layout.operator(rig.CLICK_JOINTS_OT_figuur_uit_rig.bl_idname, text="More bones (ankles too)").meer = True
-            layout.separator()
-        layout.label(text="Or put the 3D cursor on a joint, then:")
+        # 1.2.9: Figure from rig staat bovenaan het hoofdpaneel (teken_boven), hier alleen de knoppen per deel.
+        layout.label(text="Or put the 3D cursor on a joint, then:" if arm is not None else
+                     "Put the 3D cursor on a joint, then:")
         rooster = layout.grid_flow(row_major=True, columns=2, even_columns=True, align=True)
         for sleutel, naam, _soort, _stand in PRESETS:
             ic = icoon(sleutel)

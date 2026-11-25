@@ -207,9 +207,10 @@ class CLICK_JOINTS_OT_testkaart(bpy.types.Operator):
         return {"FINISHED"}
 
 
-def teken_knop(self, context):
-    vak = self.layout.box()
-    vak.label(text="Print this first")  # uitleg staat in de knoptip; past in een smalle zijbalk
+def teken_knop(layout, context):
+    """In stap 2 direct onder Clearance (1.2.9): de proefstrip zegt welke speling past, dus hij hoort bij die schuif."""
+    vak = layout.column(align=True)
+    vak.label(text="Not sure? Print a fit test first:")  # uitleg staat in de knoptip; past in een smalle zijbalk
     rij = vak.row(align=True)
     rij.operator(CLICK_JOINTS_OT_testkaart.bl_idname, text="Fit test: ball").soort = "KOGEL"
     rij.operator(CLICK_JOINTS_OT_testkaart.bl_idname, text="Fit test: hinge").soort = "SCHARNIER"
