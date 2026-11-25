@@ -1,0 +1,169 @@
+# gemaakt: 2026-11-25T13:26:37Z
+# workflow: Blender gewrichten e2e (Click Joints, echte Blender) (.github/workflows/blender-gewrichten-e2e.yml)
+# run: 45622158737 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45622158737
+# commit: a3c1ea1c tak claude/blender-paneel-1.2.9 gestart door push
+# mislukte stappen: e2e (5.3.0): Betaalde build (twee zips uit één bron, weigering naast de gratis); e2e (5.3.0): Direct-zip (gratis met Pro-knoppen op slot, niet voor extensions.blender.org); e2e (4.2.23): Betaalde build (twee zips uit één bron, weigering naast de gratis); e2e (4.2.23): Direct-zip (gratis met Pro-knoppen op slot, niet voor extensions.blender.org); e2e (5.2.3): Betaalde build (twee zips uit één bron, weigering naast de gratis); e2e (5.2.3): Direct-zip (gratis met Pro-knoppen op slot, niet voor extensions.blender.org)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (5.3.0) / Betaalde build (twee zips uit één bron, weigering naast de gratis) (laatste 32 van 32 regels) =====
+##[group]Run bash e2e/maak_zip.sh betaald
+bash e2e/maak_zip.sh betaald
+python3 -I e2e/toets_zips.py /tmp/click_joints.zip /tmp/click_joints_betaald.zip
+/tmp/blender/blender --command extension validate /tmp/click_joints_betaald.zip
+/tmp/blender/blender -b --factory-startup --python e2e/test_betaald.py -- /tmp/click_joints_betaald.zip /tmp/click_joints.zip
+# De betaalde zip hoort NIET bij de schermen (die gaan openbaar naar de tak schermen): eigen map en eigen
+# artefact met korte bewaartijd, dat click-joints-pro-uitgave.yml ophaalt (keuring R4, 19 nov).
+mkdir -p "e2e/screenshots/5.3.0" "/tmp/pro-zip/5.3.0"
+cp /tmp/click_joints_betaald.zip "/tmp/pro-zip/5.3.0/click_joints_pro-${PRO_VERSIE}.zip"
+sha256sum /tmp/click_joints_betaald.zip | tee "/tmp/pro-zip/5.3.0/click_joints_pro-${PRO_VERSIE}.sha256"
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.9
+  BLENDER_USER_RESOURCES: /tmp/cj_betaald
+  BLENDER_USER_CONFIG: /tmp/cj_betaald/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_betaald/extensions
+##[endgroup]
+/tmp/click_joints_betaald.zip
+[cj-zips] OK gratis zip zonder betaald/
+[cj-zips] OK regex vangt het hele woord []
+[cj-zips] OK regex negeert delen van woorden []
+[cj-zips] FOUT gratis code noemt de betaalde versie niet meld.py: Superhive; meld.py: pro; meld.py: pro; meld.py: Pro; meld.py: Pro
+[cj-zips] OK gratis zip is precies de bronmap 19 bestanden
+[cj-zips] FOUT gratis zip gelijk aan de gekeurde stand 014172e (sha256 per bestand) meld.py; paneel.py
+[cj-zips] OK betaalde zip heeft betaald/__init__.py
+[cj-zips] OK betaalde __init__ registreert betaald
+[cj-zips] OK betaalde __init__ begint met de gratis __init__
+[cj-zips] OK betaalde zip zonder __pycache__
+[cj-zips] OK betaalde manifest: naam Click Joints Pro, versie 1.2.9, id gelijk
+[cj-zips] OK betaalde tagline hooguit 64 tekens zonder punt aan het eind
+[cj-zips] klaar: 2 FOUT
+##[error]Process completed with exit code 1.
+
+===== e2e (5.3.0) / Direct-zip (gratis met Pro-knoppen op slot, niet voor extensions.blender.org) (laatste 45 van 45 regels) =====
+##[group]Run bash e2e/maak_zip.sh gratis
+bash e2e/maak_zip.sh gratis
+bash e2e/maak_zip.sh direct
+python3 -I e2e/toets_direct_zip.py /tmp/click_joints.zip /tmp/click_joints_direct.zip
+! unzip -p /tmp/click_joints.zip '*.py' | grep -qiw "pro" || { echo "FOUT: Pro in de extensions-zip"; exit 1; }
+/tmp/blender/blender --command extension validate /tmp/click_joints_direct.zip
+/tmp/blender/blender -b --factory-startup --python e2e/test_direct.py -- /tmp/click_joints_direct.zip
+rm -rf /tmp/cj_direct
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_d.blend')"
+mkdir -p "e2e/screenshots/5.3.0"
+timeout 240 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_d.blend --python e2e/scherm_direct.py -- "$PWD/e2e/screenshots/5.3.0" /tmp/click_joints_direct.zip 2>&1 | tee /tmp/direct.log || true
+grep "\[cj-scherm\] DIRECT" /tmp/direct.log || true
+grep -q "DIRECT OK d1-slot" /tmp/direct.log || { echo "FOUT: scherm d1-slot niet goed"; exit 1; }
+V=$(grep '^version' click_joints/blender_manifest.toml | cut -d'"' -f2)
+mkdir -p "/tmp/direct-zip/5.3.0"
+cp /tmp/click_joints_direct.zip "/tmp/direct-zip/5.3.0/click_joints-${V}-direct.zip"
+sha256sum /tmp/click_joints_direct.zip | tee "/tmp/direct-zip/5.3.0/click_joints-${V}-direct.sha256"
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.9
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_direct
+  BLENDER_USER_CONFIG: /tmp/cj_direct/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_direct/extensions
+##[endgroup]
+/tmp/click_joints.zip
+/tmp/click_joints_direct.zip
+[cj-direct-zip] FOUT extensions-zip noemt Pro nergens meld.py: pro; meld.py: pro; meld.py: Pro; meld.py: Pro; paneel.py: Pro
+[cj-direct-zip] OK extensions-zip heeft geen direct.py
+[cj-direct-zip] OK direct-zip = gratis zip plus direct.py 20 bestanden
+[cj-direct-zip] OK direct-zip zonder betaald/
+[cj-direct-zip] OK direct.py is e2e/direct/direct.py
+[cj-direct-zip] OK __init__.py = gratis plus fragment
+[cj-direct-zip] OK direct.py bevat 'Figure from rig'
+[cj-direct-zip] OK direct.py bevat 'Hinge with end stop'
+[cj-direct-zip] OK direct.py bevat 'Body-part presets'
+[cj-direct-zip] OK direct.py bevat 'This is in Click Joints Pro'
+[cj-direct-zip] OK direct.py bevat 'See Click Joints Pro'
+[cj-direct-zip] OK direct.py bevat 'Upgrade to Pro'
+[cj-direct-zip] OK direct.py bevat 'https://dortus.com/click-joints/'
+[cj-direct-zip] OK direct.py bevat 'LOCKED'
+[cj-direct-zip] OK geen prijs in de add-on
+[cj-direct-zip] KLAAR 1 FOUT
+##[error]Process completed with exit code 1.
+
+===== e2e (4.2.23) / Betaalde build (twee zips uit één bron, weigering naast de gratis) (laatste 32 van 32 regels) =====
+##[group]Run bash e2e/maak_zip.sh betaald
+bash e2e/maak_zip.sh betaald
+python3 -I e2e/toets_zips.py /tmp/click_joints.zip /tmp/click_joints_betaald.zip
+/tmp/blender/blender --command extension validate /tmp/click_joints_betaald.zip
+/tmp/blender/blender -b --factory-startup --python e2e/test_betaald.py -- /tmp/click_joints_betaald.zip /tmp/click_joints.zip
+# De betaalde zip hoort NIET bij de schermen (die gaan openbaar naar de tak schermen): eigen map en eigen
+# artefact met korte bewaartijd, dat click-joints-pro-uitgave.yml ophaalt (keuring R4, 19 nov).
+mkdir -p "e2e/screenshots/4.2.23" "/tmp/pro-zip/4.2.23"
+cp /tmp/click_joints_betaald.zip "/tmp/pro-zip/4.2.23/click_joints_pro-${PRO_VERSIE}.zip"
+sha256sum /tmp/click_joints_betaald.zip | tee "/tmp/pro-zip/4.2.23/click_joints_pro-${PRO_VERSIE}.sha256"
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.9
+  BLENDER_USER_RESOURCES: /tmp/cj_betaald
+  BLENDER_USER_CONFIG: /tmp/cj_betaald/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_betaald/extensions
+##[endgroup]
+/tmp/click_joints_betaald.zip
+[cj-zips] OK gratis zip zonder betaald/
+[cj-zips] OK regex vangt het hele woord []
+[cj-zips] OK regex negeert delen van woorden []
+[cj-zips] FOUT gratis code noemt de betaalde versie niet meld.py: Superhive; meld.py: pro; meld.py: pro; meld.py: Pro; meld.py: Pro
+[cj-zips] OK gratis zip is precies de bronmap 19 bestanden
+[cj-zips] FOUT gratis zip gelijk aan de gekeurde stand 014172e (sha256 per bestand) meld.py; paneel.py
+[cj-zips] OK betaalde zip heeft betaald/__init__.py
+[cj-zips] OK betaalde __init__ registreert betaald
+[cj-zips] OK betaalde __init__ begint met de gratis __init__
+[cj-zips] OK betaalde zip zonder __pycache__
+[cj-zips] OK betaalde manifest: naam Click Joints Pro, versie 1.2.9, id gelijk
+[cj-zips] OK betaalde tagline hooguit 64 tekens zonder punt aan het eind
+[cj-zips] klaar: 2 FOUT
+##[error]Process completed with exit code 1.
+
+===== e2e (4.2.23) / Direct-zip (gratis met Pro-knoppen op slot, niet voor extensions.blender.org) (laatste 45 van 45 regels) =====
+##[group]Run bash e2e/maak_zip.sh gratis
+bash e2e/maak_zip.sh gratis
+bash e2e/maak_zip.sh direct
+python3 -I e2e/toets_direct_zip.py /tmp/click_joints.zip /tmp/click_joints_direct.zip
+! unzip -p /tmp/click_joints.zip '*.py' | grep -qiw "pro" || { echo "FOUT: Pro in de extensions-zip"; exit 1; }
+/tmp/blender/blender --command extension validate /tmp/click_joints_direct.zip
+/tmp/blender/blender -b --factory-startup --python e2e/test_direct.py -- /tmp/click_joints_direct.zip
+rm -rf /tmp/cj_direct
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_d.blend')"
+mkdir -p "e2e/screenshots/4.2.23"
+timeout 240 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start_d.blend --python e2e/scherm_direct.py -- "$PWD/e2e/screenshots/4.2.23" /tmp/click_joints_direct.zip 2>&1 | tee /tmp/direct.log || true
+grep "\[cj-scherm\] DIRECT" /tmp/direct.log || true
+grep -q "DIRECT OK d1-slot" /tmp/direct.log || { echo "FOUT: scherm d1-slot niet goed"; exit 1; }
+V=$(grep '^version' click_joints/blender_manifest.toml | cut -d'"' -f2)
+mkdir -p "/tmp/direct-zip/4.2.23"
+cp /tmp/click_joints_direct.zip "/tmp/direct-zip/4.2.23/click_joints-${V}-direct.zip"
+sha256sum /tmp/click_joints_direct.zip | tee "/tmp/direct-zip/4.2.23/click_joints-${V}-direct.sha256"
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.9
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_direct
+  BLENDER_USER_CONFIG: /tmp/cj_direct/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_direct/extensions
+##[endgroup]
+/tmp/click_joints.zip
+/tmp/click_joints_direct.zip
+[cj-direct-zip] FOUT extensions-zip noemt Pro nergens meld.py: pro; meld.py: pro; meld.py: Pro; meld.py: Pro; paneel.py: Pro
+[cj-direct-zip] OK extensions-zip heeft geen direct.py
+[cj-direct-zip] OK direct-zip = gratis zip plus direct.py 20 bestanden
+[cj-direct-zip] OK direct-zip zonder betaald/
+[cj-direct-zip] OK direct.py is e2e/direct/direct.py
+[cj-direct-zip] OK __init__.py = gratis plus fragment
+[cj-direct-zip] OK direct.py bevat 'Figure from rig'
+[cj-direct-zip] OK direct.py bevat 'Hinge with end stop'
+[cj-direct-zip] OK direct.py bevat 'Body-part presets'
+[cj-direct-zip] OK direct.py bevat 'This is in Click Joints Pro'
+[cj-direct-zip] OK direct.py bevat 'See Click Joints Pro'
+[cj-direct-zip] OK direct.py bevat 'Upgrade to Pro'
+[cj-direct-zip] OK direct.py bevat 'https://dortus.com/click-joints/'
+[cj-direct-zip] OK direct.py bevat 'LOCKED'
+[cj-direct-zip] OK geen prijs in de add-on
+[cj-direct-zip] KLAAR 1 FOUT
+##[error]Process completed with exit code 1.
