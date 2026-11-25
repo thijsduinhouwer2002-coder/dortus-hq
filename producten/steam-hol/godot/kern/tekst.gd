@@ -18,7 +18,8 @@ const R := 4
 # als 9-slice (bron 384 px, rand 128), letter Fredoka (SIL OFL, kunst/letters/), ronde knop en rond muntje.
 # Uit = het pixelpaneel van voor 14 nov (alleen een terugvalschakelaar).
 static var met_3d := true
-const PANEEL_3D := preload("res://kunst/paneel_3d.png")
+# 25 nov (Mila #43, Olaf akkoord): krijtbord in een houten lijst, zelfde 9-slice; het oude bruine paneel blijft als kunst/paneel_3d.png
+const PANEEL_3D := preload("res://kunst/paneel_hol.png")
 const BRON_RAND := 128
 const FREDOKA := preload("res://kunst/letters/Fredoka.ttf")
 var letters := {}   # gewicht -> FontVariation
@@ -158,6 +159,18 @@ func _munt_p(x: float, basis: float, kop: int, f: float) -> Vector2:
 func vak_breedte() -> float:
 	return minf(430.0, breedte * 0.3)
 
+# Binnenruimte (moet Daan #45, 25 nov): de houten lijst van het krijtbord is ±2,1 spelpixel (6 px op 120), dus de tekst
+# blijft rechts minstens 3 px van het hout (marge_r) en het paneel begint links ver genoeg vóór de tekst (paneel_links).
+# Op 120: rechts 4,7 px en links 5,7 px lucht tussen hout en letter; op 96 en 160 rekent het mee met de schaal.
+func marge_r() -> float:
+	return 3.0 * schaal + 1.0 if met_3d else 0.0
+
+func paneel_links(x: float) -> float:
+	var binnen: float = 5.0 * schaal
+	if met_3d:
+		return x - maxf(binnen - 4.0, 4.0 * schaal)
+	return x - binnen + 4.0
+
 # Welke regels het paneel toont (getoetst in toets_systemen.gd). Na terugkomst (tel = de telling van de nacht) nooit
 # een regel van vóór het weggaan, ook niet als de eerste nieuwe held al binnen is (Iris keuring 16 punt 2; in run
 # 44017687872 stond anders "Gerda says this is a quick one." van vóór de nacht boven de telling). Wat telt: wat na de
@@ -202,10 +215,9 @@ func _ready() -> void:
 # paneel op 96 px niet dichtklapt als de muis boven het maaiveld komt (zelfde rekensom als _draw).
 func hover_vak() -> Rect2:
 	var M := maten()
-	var binnen := 5 * schaal
 	var x := breedte - vak_breedte() - 8
 	var y0 := hoogte - int(M.onder) - int(M.regel_h) * 4
-	var links := x - binnen + 4
+	var links := paneel_links(x)
 	var top := y0 - int(M.boven)
 	return Rect2(links, top, breedte - links, hoogte - top)
 
@@ -267,10 +279,10 @@ func _draw_kaart() -> void:
 	_tekst(vet, Vector2(x, y0 + kop + int(M.kop_dy)), String(kaart.titel), bw * 0.62, kop, Color("#ffe07a"))
 	# rechts op de kopregel: wat je hebt, als muntje plus getal (zelfde plek als bij de kroniek)
 	var gw := vet.get_string_size(str(goud), HORIZONTAL_ALIGNMENT_LEFT, -1, kop).x
-	var gx := x + bw - gw - 5 * schaal * f - (15 if met_3d else 6)   # 3D: niet tegen de gouden rand (15: paneel rechts 3 px smaller, ronde 3)
+	var gx: float = x + bw - gw - 5 * schaal * f - (maxf(15, marge_r()) if met_3d else 6)   # 3D: niet tegen de lijst (15: paneel rechts 3 px smaller, ronde 3)
 	_munt(_munt_p(gx, y0 + kop + int(M.kop_dy), kop, f), f)
 	_tekst(vet, Vector2(gx + 5 * schaal * f + 2, y0 + kop + int(M.kop_dy)), str(goud), -1, kop, Color("#f6e8ce") if met_3d else Color("#ffe07a"))
-	draw_string(font, Vector2(x, y0 + regel_h + maat), String(kaart.uitleg), HORIZONTAL_ALIGNMENT_LEFT, bw, int(M.uitleg), Color("#f3e2c0"))
+	draw_string(font, Vector2(x, y0 + regel_h + maat), String(kaart.uitleg), HORIZONTAL_ALIGNMENT_LEFT, bw - marge_r(), int(M.uitleg), Color("#f3e2c0"))
 	var ky := y0 + regel_h * 2 + int(M.knop_dy)
 	var kh: float = M.knop_h
 	var kx := x
@@ -314,10 +326,9 @@ func _draw() -> void:
 	var regel_h: int = M.regel_h
 	var bw := vak_breedte()
 	var x := breedte - bw - 8
-	var binnen := 5 * schaal   # tekst begint 5 spelpixels binnen de buitenkant van Daans paneel (kunst.json)
 	var y0 := hoogte - int(M.onder) - regel_h * (toon.size() + 1)
-	# paneel van x - binnen tot de rechterrand, van boven de kop tot onderaan de strook
-	var links := x - binnen + 4
+	# paneel van paneel_links(x) tot de rechterrand, van boven de kop tot onderaan de strook
+	var links := paneel_links(x)
 	var top := y0 - int(M.boven)
 	_paneel(Rect2(links, top, breedte - 2 - links, hoogte - 2 - top))
 	# goud als muntje plus getal in plaats van "Hoard: 24 gold" (Mila 20:55, stijl.md punt 5); zelfde kleuren als de
@@ -325,15 +336,16 @@ func _draw() -> void:
 	_munt(_munt_p(x, y0 + kop + int(M.kop_dy), kop, f), f)
 	_tekst(_letter(600), Vector2(x + 5 * schaal * f + 2, y0 + kop + int(M.kop_dy)), str(goud), bw, kop, Color("#ffe07a"))
 	_draw_doel(x, y0 + kop + int(M.kop_dy), bw, kop, f, font)
+	var bt: float = bw - marge_r()   # regels niet tot in de houten lijst (moet Daan #45)
 	for i in toon.size():
 		# nooit afkappen (Sanne 9 nov): eerst kleiner tot 10 px, past het dan nog niet, dan op een woordgrens met "..."
 		var r: String = toon[i]
 		var m := maat
-		while m > 10 and font.get_string_size(r, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bw:
+		while m > 10 and font.get_string_size(r, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bt:
 			m -= 1
-		if font.get_string_size(r, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bw:
+		if font.get_string_size(r, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bt:
 			var woorden := r.split(" ")
-			while woorden.size() > 1 and font.get_string_size(" ".join(woorden) + "...", HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bw:
+			while woorden.size() > 1 and font.get_string_size(" ".join(woorden) + "...", HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bt:
 				woorden.remove_at(woorden.size() - 1)
 			r = " ".join(woorden) + "..."
 		draw_string(font, Vector2(x, y0 + regel_h * (i + 1) + maat), r, HORIZONTAL_ALIGNMENT_LEFT, -1, m, Color("#f3e2c0"))
@@ -349,7 +361,7 @@ func _draw_doel(x: float, basis: float, bw: float, kop: int, f: float, font: Fon
 	if klaar:
 		font = _letter(600)
 	var gw := _letter(600).get_string_size(str(goud), HORIZONTAL_ALIGNMENT_LEFT, -1, kop).x
-	var vrij := bw - (5 * schaal * f + 2 + gw) - 3 * schaal - (6 if met_3d else 0)
+	var vrij := bw - (5 * schaal * f + 2 + gw) - 3 * schaal - marge_r()
 	var m := int(maten().uitleg)
 	while m > 10 and font.get_string_size(doel, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > vrij:
 		m -= 1
@@ -359,4 +371,4 @@ func _draw_doel(x: float, basis: float, bw: float, kop: int, f: float, font: Fon
 	# kan Daan 16 nov 21:10: de gedempte letter een tikje lichter (was #cdb48f, op het bruin de zwakste tekst); blijft
 	# donkerder dan de kroniekletter #f3e2c0, zodat het een doel blijft en geen knop
 	var kleur := Color("#ffe07a") if klaar else Color("#dcc6a2")
-	_tekst(font, Vector2(x + bw - w - (6 if met_3d else 0), basis), doel, -1, m, kleur)
+	_tekst(font, Vector2(x + bw - w - marge_r(), basis), doel, -1, m, kleur)
