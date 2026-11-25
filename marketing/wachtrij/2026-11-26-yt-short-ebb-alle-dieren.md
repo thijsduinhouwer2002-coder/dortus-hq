@@ -6,8 +6,9 @@
 - product: ebb
 - bestand: https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/download/regisseur-25/ebb-dieren.mp4
 - geluid_check: GOED (gemiddeld -18,3 dB, piek -4,4 dB), 24 nov 2026 ±20:20 NL, lokale proefbouw; de workflow regisseur-25 toetst opnieuw (geluid_check.txt in de release)
-- lengte: 00:20,5, staand 1080x1920
-- tijd: 2026-11-26T19:00:00+01:00
+- lengte: 00:22,1, staand 1080x1920 (26 nov: eindbeeld van 1,6 s erbij, het geslaagde eerste beeld)
+- tijd: na Akkoord ja van Daan in #71 (de hoofdchat kiest de dag)
+- thumbnail: kies bij het uploaden het laatste beeld (21,0 tot 22,1 s) = `commercie/filmpjes/regisseur-25/ebb-eerste-beeld-ogen-dicht.jpg` (echt horloge uit de simulator, "Breathe with your eyes closed?"); blinde test GESLAAGD (Gemini 1,5, ChatGPT 1,0, `organisatie/blindtest/uitslag/ebb-short-dieren-r3-2026-11-26-0024.md`)
 - doel: dortus.com/yt
 - gemaakt_door: Regisseur
 - vorige: (vervangt het oude Ebb-filmpje van 11 s met één krab; opdracht hoofdchat 24 nov 16:55)

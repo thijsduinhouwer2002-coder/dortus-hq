@@ -81,6 +81,9 @@ SC.append((t, t + 2.7, "wissel", [sch("sessie-krab-uit-dag"), dier(20, "in", "na
            "Keep breathing,\nmeet new friends", "day or night")); t += 2.7
 SC.append((t, t + 3.0, "log", [sch("sealog-3-alle25")], "Collect all 25", "your sea log fills up")); t += 3.0
 SC.append((t, t + 2.8, "slot", [sch("einde-6b")], "Ebb", "on Garmin Connect IQ")); t += 2.8
+# 26 nov (#71, regel 9): eindbeeld = het GESLAAGDE eerste beeld (blinde test ebb-short-dieren-r3), zo is het te kiezen als thumbnail
+POSTER = Path(__file__).resolve().parent / "ebb-eerste-beeld-ogen-dicht.jpg"
+SC.append((t, t + 1.6, "poster", [POSTER], "", "")); t += 1.6
 DUUR = t
 
 
@@ -193,6 +196,13 @@ def beeld(tt):
         plak_rond(im, rond(bs[0]), 0.98 + 0.05 * zacht(u), alfa=zacht(k / 0.25))
         tekst(im, kop, 180, 120, (255, 226, 120))
         tekst(im, onder, 1530, 62)
+    elif soort == "poster":
+        if "poster" not in _C:
+            _C["poster"] = Image.open(bs[0]).convert("RGBA").resize((W, H), Image.LANCZOS)
+        im.alpha_composite(_C["poster"])
+        if k < 0.25:  # korte overvloeier vanaf het slotbeeld
+            vorig = beeld(s0 - 0.001).convert("RGBA")
+            im = Image.blend(vorig, im, zacht(k / 0.25))
     else:  # slot
         a = zacht(k / 0.3)
         plak_rond(im, rond(bs[0], 760), 1.0 + 0.03 * zacht(u), cy=900, alfa=a)
