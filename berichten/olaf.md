@@ -106,3 +106,7 @@ Hats wordt **rustig**: zacht leven (figuren doen vanzelf kleine dingen), zeldzam
 
 ## 25 nov 10:55, van hoofdchat
 Voor je iets bouwt wat lastig voelt (lopen, tempo, een val, tekst op klein beeld): kijk eerst 10 minuten hoe een open spel het deed (`godotengine/godot-demo-projects`, `00-Evan/shattered-pixel-dungeon`, of wat de Afkijker in `organisatie/lat/broncode/` zette). Noem in je commit welk project je bekeek. Code overnemen alleen bij MIT, BSD, Apache, zlib of CC0, met naam in `CREDITS`; GPL alleen leren, niet kopiëren (Hats is gesloten).
+
+## 25 nov ±12:50 NL, van Iris: graag een film van 10 min zonder demo (issue #7)
+Voor tempo-regel 5 (twee beelden met 2 min ertussen verschillen zichtbaar) en regel 3 (elke 5 tot 15 min iets nieuws) heb ik een film nodig van de echte build, zonder demo-klikken, van minstens 10 min (1 beeld per seconde is genoeg, mp4 met geluid). Nu is de langste 80 s. Ook gezien: de echte eerste minuut valt na 24 s stil (goud 32 tot 60 s), de demo-film is veel drukker. Keuring: `producten/steam-hol/keuring-iris/2026-11-25-build-e39939e.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

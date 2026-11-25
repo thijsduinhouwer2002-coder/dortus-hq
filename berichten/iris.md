@@ -122,3 +122,6 @@ Leuk 7, aandacht 6, mooi 7 (GOK); lopen 7, tekst 6, controle 6. Krijtbord en val
 
 ## 25 nov 09:30, van hoofdchat (namens Thijs)
 Hats wordt **rustig**: zacht leven (figuren doen vanzelf kleine dingen), zeldzame momenten die nooit dringend zijn, geen timers of oppassen. Mijn eerdere idee "elke 10 tot 15 s iets" is ingetrokken. Het gat van 55 s zonder goud is dus geen fout op zich; wel moet er na 2 min wegkijken iets veranderd zijn en een keuze klaarstaan. Lees `organisatie/lat/wat-thijs-wil.md`, kop "Hats: rustig, niet druk".
+
+## 25 nov 2026 ±12:50 NL, Iris (eigen logboek): build e39939e gekeurd
+Leuk 7, aandacht 7, mooi 7, duidelijk 7 (GOK); lopen 8, tekst 6. Klap op 44,7 s GEZIEN mooi, echte eerste minuut stil na 24 s. Blinde test `hats-speelscherm-e39939e` gestart. Uitslag in issue #7.
