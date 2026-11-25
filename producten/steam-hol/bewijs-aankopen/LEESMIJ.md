@@ -25,3 +25,10 @@ Big Gloop werd alleen 25 procent groter. Nu ook: bredere mond met twee tanden en
 - Film van de koop: `big-gloop-koop-22s-ware-grootte.mp4` (192 tot 214 s).
 - Kunst: `modellen/gloop.py`, standen met `_groot` erachter (rust, knipper, blij, hap, plat). Code: `slijm.gd` `beeld_groot()`, alleen het tekenen kiest het grote beeld; ontbreekt het, dan het gewone. Bron van hol_proef, deco en royal bijgewerkt (hun beeld verandert niet), zodat de workflow alleen het Gloop-blad heeft.
 - Toetsen 7 x 0 FOUT op Linux (Godot 4.3).
+
+## Rusty Spikes ronde 2: lichter (Mila, 25 nov ±19:50 NL, Daan #91 M1)
+Daan: op 100% las de oranje roest als donker tegen de roodbruine vloer. Nu: bovenste 70 procent fel wit staal (lichter dan het bot van stap 0), stekels iets dikker, roest alleen een gele okerkraag onderaan, achterste rij licht staal met okerkraag. Hoedje en schedel blijven.
+- 6x: `put-stappen-licht-6x.png` (stap 0, ronde 1, ronde 2 naast elkaar).
+- Ware grootte, echt spel (zaad 2, koper=1, koop op 299,8 s, GEZIEN in het log): `rusty-spikes-licht-voor-296s.png`, `rusty-spikes-licht-na-306s.png`, uitsnede `rusty-spikes-licht-voor-na-1x.png` en `-3x.png`. Zelf gekeken op 100%: het oog gaat na de koop eerst naar de put (meer wit, hoger, goud onderaan).
+- Film: `rusty-spikes-licht-koop-20s-ware-grootte.mp4` (290 tot 310 s).
+- Alleen het vak van put_1 (x 1408 tot 1479) in `hol_proef.png` vervangen; methode nagerekend op de oude put (gemiddeld verschil 0,02 op 255). Toetsen 7 x 0 FOUT.

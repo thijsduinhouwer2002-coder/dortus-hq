@@ -492,27 +492,30 @@ if PUT_STAP == 0 and not PUT_OUD:
 elif PUT_STAP == 1 and not PUT_OUD:
     # Mila 25 nov (issue #76, tempo-regel 4): Rusty Spikes las na de koop zwakker dan de put ervoor (dunne donkere
     # staafjes tegen de roodbruine vloer, hoed en schedel weg). Nu dezelfde opbouw als stap 0, maar meer en hoger:
-    # 7 stekels voor in plaats van 5, ±15 procent hoger, onderste helft fel oranje roest, bovenste helft glimmend staal
-    # met een wit puntje. Hoed en schedel blijven: het is dezelfde put, alleen gemener.
-    STAAL_P = g.mat("put_staal", "eef0f6", rough=0.25, spec=0.9, metaal=0.5, emis=0.18)
-    ROEST_F = g.mat("put_roest", "d0601c", rough=0.8, spec=0.2, metaal=0.1, emis=0.12)
-    ROEST_D = g.mat("put_roestd", "8a3410", rough=0.9, spec=0.1)
+    # 7 stekels voor in plaats van 5, ±15 procent hoger, met een wit puntje. Hoed en schedel blijven.
+    # Ronde 2 (Daan #91, M1): op 100% las de oranje roest als donker tegen de roodbruine vloer. Nu is de bovenste
+    # 70 procent fel wit staal (lichter dan het bot van stap 0), de roest alleen een gele okerkraag onderaan, en
+    # de achterste rij licht staal met een okerkraag. Zo gaat het oog op ware grootte eerst naar deze put.
+    STAAL_P = g.mat("put_staal", "f6f8ff", rough=0.22, spec=0.9, metaal=0.4, emis=0.32)
+    ROEST_F = g.mat("put_roest", "e8a62a", rough=0.7, spec=0.3, metaal=0.2, emis=0.22)
+    ROEST_D = g.mat("put_roestd", "c8801c", rough=0.8, spec=0.2, emis=0.15)
     RAND_D = g.mat("put_randd", "1a0a0a", rough=1.0, spec=0.0)
     rnd_r = random.Random(11)
     hoogtes = (0.74, 1.0, 0.82, 1.06, 0.86, 0.98, 0.76)
     for i, hoog in enumerate(hoogtes):
         x = PUT_X - 0.6 + i * 0.2
-        r = 0.088
+        r = 0.098
         kant = (0, math.radians(rnd_r.uniform(-6, 6)), 0)
         z0 = -0.3
         cil("stekel", (x, 0.12, z0 + hoog / 2), r, hoog, STAAL_P, rot=kant, verts=10, r2=0.0)
-        k = 0.52   # roest tot iets over de helft, een kraag net om de stekel heen
+        k = 0.3   # okerkraag onderaan, net om de stekel heen
         cil("stekelroest", (x, 0.115, z0 + hoog * k / 2), r + 0.012, hoog * k, ROEST_F if i % 3 else ROEST_D,
             rot=kant, verts=10, r2=r * (1 - k) + 0.012)
         cil("stekelrand", (x, 0.2, z0 + (hoog + 0.08) / 2), r + 0.035, hoog + 0.08, RAND_D, rot=kant, verts=10, r2=0.0)
-    for i in range(6):   # achterste rij: lager, helemaal roest
+    for i in range(6):   # achterste rij: lager, licht staal met een okerkraag
         x = PUT_X - 0.5 + i * 0.2
-        cil("stekel", (x, 0.7, -0.3 + 0.3), 0.08, 0.6, ROEST_F, verts=10, r2=0.0)
+        cil("stekel", (x, 0.7, -0.3 + 0.3), 0.08, 0.6, STAAL_L, verts=10, r2=0.0)
+        cil("stekelroest", (x, 0.69, -0.3 + 0.09), 0.09, 0.18, ROEST_F, verts=10, r2=0.06)
     HX = PUT_X - 0.6 + 3 * 0.2
     MUTS = g.mat("put_muts", "3d6fe0", rough=0.6)
     cil("puthoed_rand", (HX, 0.1, 0.5), 0.2, 0.035, MUTS, rot=(0, math.radians(-10), 0), verts=20)
