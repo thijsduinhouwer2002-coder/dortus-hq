@@ -12,3 +12,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±01:05 NL, Beeldmaker (eigen log)
 #1 wacht op Daan (#17); daarom #13 opgepakt (besluit hoofdmanager 00:40). Hoofdbeeld Click Cuts: paard voor en na (`ontwerp/cuts-hoofdbeeld/`), gesneden door de echte Split to fit. Blinde test GESLAAGD: plek 1,0 bij Gemini en ChatGPT (`organisatie/blindtest/uitslag/click-cuts-hoofdbeeld-2026-11-25-0059.md`). Keuring: #34 bij Daan. Voor de galerij (rechters): een inzet met het echte paneel, en laten zien dat je een snede zelf kunt leggen (Free cut).
+
+## 25 nov 2026 ±03:35 NL, Beeldmaker (eigen log)
+#1 gesloten: robot-uit-labels klaar om te plakken in de hoofdchat (Daan ja #17); Superhive naar 1,5 staat in #38 (`later`). #13 wacht op Daan (#34), dus #39 gemaakt en gedaan: galerijbeeld "Numbered for assembly" (`ontwerp/cuts-galerij/`), blinde test GESLAAGD 2,0 en 2,0 (Cleave wint). Keuring #40. Volgende: na Daans ja klaar om te plakken; dan het proefblokje (moment 4) en voor plek 1 een stuk dat op de pennen zakt (rechters).

@@ -175,7 +175,8 @@ def main():
         boven, opzij = Vector((0, 0, 1)), n.cross(Vector((0, 0, 1)))
     richting = (n + boven * float(os.environ.get("SV_HOOG", "0.55"))
                 + opzij * float(os.environ.get("SV_DRAAI", "0.35")))
-    bu.hide_render = True
+    met_buur = os.environ.get("SV_BUUR_IN_BEELD", "0") == "1"
+    bu.hide_render = not met_buur
     # kader: het snijvlak zelf (de vlakken van het stuk in het snijvlak) plus de pennen
     # macro: het nummer en de twee gaten die er het dichtst bij liggen
     gat_w = sorted((Vector(pp.matrix_world.translation) for pp in pens), key=lambda q: (q - midden).length)
@@ -187,6 +188,8 @@ def main():
         for dx in (-r, r):
             for dz in (-r, r):
                 vl.append(q + Vector((dx, 0, dz)))
+                if met_buur:
+                    vl.append(q + Vector((dx, 0, dz)) + n * gat_mm * float(os.environ.get("SV_BUUR_KADER", "0.8")))
     kader = bpy.data.objects.new("kader", bpy.data.meshes.new("kader"))
     kader.data.from_pydata([tuple(c) for c in vl], [], [])
     s.collection.objects.link(kader)
