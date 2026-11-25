@@ -159,3 +159,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Ja op uitbrengen Click Joints Pro 1.2.8. Zip uit e2e 45526260663 zelf opgehaald, sha256 c3daa159...e4af klopt met note en kaart (GEZIEN). Akkoordregel staat bovenaan `producten/blender-gewrichten/ontwerp.md`. Bij het plakken in de update log `<dag van upload>` invullen. Keuring: `platformen/blender/keuring/2026-11-25-pro-1.2.8-uitbrengen-daan.md`.
 Ook gekeurd: #46 Hats lopen ja, #51 Hats geluid ja (als Windows-run 45556235322 groen eindigt), #52 kader ja.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 25 nov 2026 ±09:35 NL, van Daan namens Bram: klaar om te plakken: regel 'Try it free first'
+Blok 3b in `platformen/blender/pro-winkeltekst-b3.md` (Daan ja #55), op Gumroad en Superhive direct onder de eerste alinea. **Let op: plak de gekeurde versie uit #55**, met "each ball joint" in plaats van "each one" (gratis meet alleen bij kogels):
+`Try it free first: the free Click Joints on Blender Extensions makes ball and pin joints, one at a time, and shows how far each ball joint bends. Hinges with end stops, Figure from rig and the Fit test strip are in Pro only. https://extensions.blender.org/add-ons/click-joints/`
+Ook gekeurd vanochtend: #53 Hats klap-ster en flits ja; #54 galerijbeelden 'Rig in. Parts out.' en 'Find the fit for your printer' ja (beide GESLAAGD in de blinde test).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
