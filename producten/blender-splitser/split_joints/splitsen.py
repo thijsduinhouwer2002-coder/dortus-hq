@@ -12,7 +12,7 @@ import bpy
 from mathutils import Vector
 
 from . import controle, kleuren, plan, snedes, uit_elkaar, verbind_3d, vormen
-from .eigenschappen import bed, eenheid_per_mm
+from .eigenschappen import bed, eenheid_per_mm, verbind_opties
 from .gesloten import foute_randen, is_gesloten
 
 STUKKEN = "Click Cuts pieces"
@@ -333,8 +333,7 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
             ruw[ijk], cellen[ijk] = stuk, (mn, mx)
         volgorde = sorted(ruw, key=lambda t: (t[2], t[1], t[0]))
         nummers = {ijk: i + 1 for i, ijk in enumerate(volgorde)}
-        opties = {"pen_d": inst.pen_mm, "speling": inst.speling_mm, "wand": inst.wand_mm, "auto": inst.pen_auto,
-                  "min_d": 3.0, "pen_lengte": inst.pen_lengte_mm}
+        opties = verbind_opties(inst)
         gaten, labels, pennen, m2 = verbind_3d.plan_alles(punten, tri, cellen, nummers, grenzen, opties, inst.labels)
         meldingen += m2
         b = bed(scene)
@@ -374,7 +373,7 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
             af["sj_labels"] = json.dumps([lb for lb in labels.get(ijk, []) if not lb.get("weg")])
             af["sj_label_diepte_mm"] = inst.label_diepte_mm
             af["sj_solver"] = solver
-            controle.keur(af, stuk, b, u, inst.wand_mm)
+            controle.keur(af, stuk, b, u, opties["wand"])
             stukken.append(af)
         ruw_vol = {nummers[ijk]: controle.volume_mm3(ruw[ijk], u) for ijk in volgorde}
         for af in stukken:
@@ -407,7 +406,11 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
             context.view_layer.objects.active = stukken[0]
         rood = sum(1 for s in stukken if s.get("sj_status") == "rood")
         scene["sj_duur_s"] = round(time.time() - t0, 2)
-        tekst = f"{len(stukken)} pieces, {sum(a for _d, a in pennen)} pins"
+        if opties.get("soort") == "magneet":
+            n_mag = sum(len(gaten.get(ijk, [])) for ijk in volgorde)
+            tekst = f"{len(stukken)} pieces, holes for {n_mag} magnets of {inst.magneet} mm"
+        else:
+            tekst = f"{len(stukken)} pieces, {sum(a for _d, a in pennen)} pins"
         tekst += f", {rood} need attention" if rood else ", all fit"
         if meldingen:
             tekst += f". {len(meldingen)} notes in the panel"

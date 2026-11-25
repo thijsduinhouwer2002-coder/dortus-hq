@@ -3,7 +3,7 @@ one-line result, Export, and the four numbered steps folded under More settings.
 import bpy
 
 from . import controle, exporteer, in_een_klik, passingproef, printers, schaal, snedes
-from .eigenschappen import bed
+from .eigenschappen import bed, magneten
 
 
 def grote_knop(layout, idname, tekst, icoon):
@@ -120,10 +120,14 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             rij.operator("split_joints.snede_erbij", text=letter).as_ = i
 
         stap = layout.box()
-        stap.label(text="3  Pins and numbers", icon="SNAP_FACE_CENTER")
-        stap.prop(inst, "pen_mm")
-        stap.prop(inst, "pen_auto")
-        stap.prop(inst, "pen_lengte_mm")
+        stap.label(text="3  Joints and numbers", icon="SNAP_FACE_CENTER")
+        stap.row().prop(inst, "verbinder", expand=True)
+        if inst.verbinder == "MAGNET":
+            stap.prop(inst, "magneet")
+        else:
+            stap.prop(inst, "pen_mm")
+            stap.prop(inst, "pen_auto")
+            stap.prop(inst, "pen_lengte_mm")
         stap.prop(inst, "speling_mm")
         passingproef.teken(stap, context)
         stap.prop(inst, "wand_mm")
@@ -147,6 +151,8 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             for p in pennen:
                 kol.label(text=f"{int(p['sj_pennen'])} pins of {p['sj_pen_d']:g} mm, {p['sj_pen_lengte']:g} mm long",
                           icon="DOT")
+            for k, n in sorted(magneten(scene).items()):
+                kol.label(text=f"{n} magnet holes of {k} mm (magnets not included)", icon="DOT")
         if stukken:
             vrij = stap.box()
             vrij.label(text="Free cut (one piece, any angle)", icon="MOD_LINEART")

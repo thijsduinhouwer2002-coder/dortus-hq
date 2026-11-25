@@ -177,6 +177,23 @@ stap("3D-toets weigert: melding noemt de echte reden", res["melding"].startswith
 smal = verbinders.melding_geen_pen(np.array([0.5, 1.0]), 3.0, opties)
 stap("smal vlak: melding noemt de breedte", smal.startswith("too small for a pin: the face is 2.0 mm across"), smal)
 
+# 7b. magnets (issue #117): fixed size, clearance on the diameter, 1.2 mm wall at least, own message
+mo = verbinders.magneet_opties("6x2", 0.2, 0.8)
+stap("magneet 6x2: maat, halve speling per kant, diepte 2.1, wand minstens 1.2",
+     mo["pen_d"] == 6.0 and abs(mo["speling"] - 0.1) < 1e-9 and abs(mo["diepte"] - 2.1) < 1e-9 and mo["wand"] == 1.2
+     and not mo["auto"], str(mo))
+stap("magneet: alle maten uit de lijst", [k for k, _d, _t in verbinders.MAGNETEN] == ["5x2", "6x2", "6x3", "8x3", "10x3"])
+res = verbinders.plan_vlak(us, vs, binnen, kl, lab, n, mo, lambda u, v_, r: True, "2-3")[0]
+stap("magneet groot vlak: 2 tot 4 gaten van 6 mm", 2 <= len(res["pennen"]) <= 4
+     and all(d == 6.0 for _, _, d in res["pennen"]), str(res["pennen"]))
+mo10 = verbinders.magneet_opties("10x3", 0.2, 1.2)
+smal = verbinders.melding_geen_pen(np.array([5.0, 6.0]), 10.0, mo10)
+stap("magneet smal vlak: melding met breedte en wand", smal.startswith("too small for a magnet: the face is 12.0 mm across")
+     and "12.6 mm with 1.2 mm wall" in smal, smal)
+res = verbinders.plan_vlak(us, vs, binnen, kl, lab, n, mo10, lambda u, v_, r: False, "2-3")[0]
+stap("magneet 3D-toets weigert: geen gat, melding over de wand", not res["pennen"]
+     and res["melding"].startswith("no safe spot for a magnet"), res["melding"])
+
 # 8. fit test: clearances, saved values per printer and material, block layout
 stap("passing: 0,20 geeft 0,15 tot 0,30", passing.spelingen(0.2) == [0.15, 0.2, 0.25, 0.3], str(passing.spelingen(0.2)))
 stap("passing: nooit onder 0", passing.spelingen(0.02) == [0.0, 0.05, 0.1, 0.15], str(passing.spelingen(0.02)))

@@ -94,7 +94,9 @@ def plan_alles(punten, driehoeken, cellen, nummers, grenzen, opties, label_aan):
     Returns (gaten per ijk, labels per ijk, pennen [(d, count)], meldingen)."""
     pl = Plaatser(punten, driehoeken, opties)
     gaten, labels, meldingen, pennen = {}, {}, [], {}
-    diepte = opties["pen_lengte"] / 2.0 + EXTRA_DIEPTE_MM
+    # pins: half a pin plus a little per side; magnets: the magnet plus a little (opties["diepte"])
+    diepte = opties.get("diepte", opties.get("pen_lengte", 0.0) / 2.0 + EXTRA_DIEPTE_MM)
+    soort = opties.get("soort", "pen")
     for as_ in range(3):
         ua, va = doorsnede.assen(as_)
         for t in range(1, len(grenzen[as_]) - 1):
@@ -144,12 +146,16 @@ def plan_alles(punten, driehoeken, cellen, nummers, grenzen, opties, label_aan):
                         pl.voeg_toe(p3, as_, r_gat, diepte, (ijk_p, ijk_q))
                         gat = {"p": list(p3), "as": as_, "r_gat": r_gat, "diepte": diepte, "pen_d": d,
                                "snede": c}
+                        if soort == "magneet":
+                            gat["soort"], gat["magneet"] = "magneet", opties["magneet"]
                         gaten.setdefault(ijk_p, []).append(dict(gat, teken=1, buur=nq))
                         gaten.setdefault(ijk_q, []).append(dict(gat, teken=-1, buur=np_))
-                        pennen[d] = pennen.get(d, 0) + 1
+                        if soort != "magneet":  # magnets are bought, not printed: no pin plate
+                            pennen[d] = pennen.get(d, 0) + 1
                     if eil["melding"]:
                         if dik < diepte + opties["wand"]:
-                            meldingen.append(f"{naam}: piece only {dik:.1f} mm thick here, a pin needs "
+                            wat = "a magnet" if soort == "magneet" else "a pin"
+                            meldingen.append(f"{naam}: piece only {dik:.1f} mm thick here, {wat} needs "
                                              f"{diepte + opties['wand']:.1f} mm. Glue this joint")
                         else:
                             meldingen.append(f"{naam}: {eil['melding']}")

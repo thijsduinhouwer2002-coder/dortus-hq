@@ -17,7 +17,7 @@ import bpy
 import numpy as np
 from mathutils import Matrix, Vector
 
-from . import controle, kleuren, splitsen, uit_elkaar, verbind_3d, vormen
+from . import controle, eigenschappen, kleuren, splitsen, uit_elkaar, verbind_3d, vormen
 from .eigenschappen import bed, eenheid_per_mm
 
 NAAM = "Free cut"
@@ -170,7 +170,7 @@ def _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report):
     oude_gaten = json.loads(stuk.get("sj_gaten", "[]"))
     g = door_gat(oude_gaten, R, o, a, b, inst.wand_mm)
     if g is not None:
-        report({"ERROR"}, f"The free cut goes through a pin hole of {stuk.name} (to piece {g.get('buur')}). "
+        report({"ERROR"}, f"The free cut goes through a hole of {stuk.name} (to piece {g.get('buur')}). "
                           f"Move it at least {inst.wand_mm:.1f} mm away from the hole")
         return None
     lo, hi = lok.min(axis=0), lok.max(axis=0)
@@ -180,8 +180,7 @@ def _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report):
     cellen = {(0, 0, 0): ((x0, y0, lo[2]), (x1, y1, c)), (0, 0, 1): ((x0, y0, c), (x1, y1, hi[2]))}
     grenzen = [[x0, x1], [y0, y1], [lo[2], c, hi[2]]]
     nummers = {(0, 0, 0): nr_a, (0, 0, 1): nr_b}
-    opties = {"pen_d": inst.pen_mm, "speling": inst.speling_mm, "wand": inst.wand_mm, "auto": inst.pen_auto,
-              "min_d": 3.0, "pen_lengte": inst.pen_lengte_mm}
+    opties = eigenschappen.verbind_opties(inst)
     gaten, labels, pennen, meldingen = verbind_3d.plan_alles(lok, tri, cellen, nummers, grenzen, opties, inst.labels)
 
     solver = splitsen.solver_naam()
@@ -356,7 +355,14 @@ class SPLIT_JOINTS_OT_vrije_snede(bpy.types.Operator):
         b_ob.select_set(True)
         context.view_layer.objects.active = b_ob
         rood = [s for s in (a_ob, b_ob) if s.get("sj_status") == "rood"]
-        tekst = f"Piece {int(a_ob['sj_stuk'])} and new piece {int(b_ob['sj_stuk'])}, {n_pen} pins"
+        inst = scene.split_joints
+        if inst.verbinder == "MAGNET":
+            n_mag = sum(1 for s_ in (a_ob, b_ob) for g in json.loads(s_.get("sj_gaten", "[]"))
+                        if g.get("vrij") and g.get("soort") == "magneet")
+            wat = f"holes for {n_mag} magnets"
+        else:
+            wat = f"{n_pen} pins"
+        tekst = f"Piece {int(a_ob['sj_stuk'])} and new piece {int(b_ob['sj_stuk'])}, {wat}"
         self.report({"WARNING"} if rood else {"INFO"}, tekst + (", check the red piece" if rood else ""))
         return {"FINISHED"}
 

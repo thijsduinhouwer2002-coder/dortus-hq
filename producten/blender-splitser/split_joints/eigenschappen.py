@@ -2,7 +2,7 @@
 import bpy
 from bpy.props import BoolProperty, EnumProperty, FloatProperty, PointerProperty, StringProperty
 
-from . import passing, printers
+from . import passing, printers, verbinders
 
 
 def _speling(inst, context):
@@ -40,6 +40,16 @@ class SplitJointsInstellingen(bpy.types.PropertyGroup):
     marge_mm: FloatProperty(
         name="Margin (mm)", description="Keep this much room free on every side of the bed",
         default=2.0, min=0.0, max=30.0, precision=1)
+    verbinder: EnumProperty(
+        name="Joint", description="What holds the pieces together",
+        items=(("PIN", "Pins", "Printed round pins in holes on both sides of every cut"),
+               ("MAGNET", "Magnets", "A hole for a disc magnet on both sides of every cut. Magnets are not included")),
+        default="PIN")
+    magneet: EnumProperty(
+        name="Magnet (mm)", description="Diameter x thickness of your disc magnets. The hole gets the clearance "
+        "on the diameter and 0.1 mm extra depth for glue",
+        items=[(k, f"{k} mm", f"Disc magnet {d:g} mm across, {t:g} mm thick") for k, d, t in verbinders.MAGNETEN],
+        default="6x2")
     pen_mm: FloatProperty(
         name="Pin diameter (mm)", description="Diameter of the pins. Holes get the clearance on top",
         default=5.0, min=2.0, max=20.0, step=50, precision=1)
@@ -119,6 +129,26 @@ def koppel():
 def ontkoppel():
     del bpy.types.Object.sj_plek_mm
     del bpy.types.Scene.split_joints
+
+
+def verbind_opties(inst):
+    """Options for verbind_3d.plan_alles from the settings: pins or magnets."""
+    if inst.verbinder == "MAGNET":
+        return verbinders.magneet_opties(inst.magneet, inst.speling_mm, inst.wand_mm)
+    return {"pen_d": inst.pen_mm, "speling": inst.speling_mm, "wand": inst.wand_mm, "auto": inst.pen_auto,
+            "min_d": 3.0, "pen_lengte": inst.pen_lengte_mm}
+
+
+def magneten(scene):
+    """{size key: count} of the magnet holes in the pieces of the scene (one magnet per hole)."""
+    import json
+    tel = {}
+    for o in scene.objects:
+        if o.get("sj_stuk"):
+            for g in json.loads(o.get("sj_gaten", "[]")):
+                if g.get("soort") == "magneet":
+                    tel[g["magneet"]] = tel.get(g["magneet"], 0) + 1
+    return tel
 
 
 def eenheid_per_mm(scene):
