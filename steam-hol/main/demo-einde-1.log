@@ -1,16 +1,16 @@
-HOL balk gestart, pid 2516, hoogte 120
+HOL balk gestart, pid 3856, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 66)
+HOL gloop ring aan na 0.2 s (goud 66)
 HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
 HOL muisvlak via de balk, lucht vrij op x=-1
 HOL begin: vallen (Kees)
 HOL held binnen: Kees
-HOL zicht 0.7 1
-HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
+HOL zicht 0.6 1
+HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
 HOL kroniek 6.9 (wacht 0.0): Anouk the Bard tunes a lute.
 HOL begin: vluchten (Anouk)
 HOL held binnen: Anouk
@@ -40,4 +40,4 @@ HOL kroniek zelfde held vervangen: Anouk fled. Grudge: the Spike Pit.
 HOL kroniek 29.0 (wacht 2.5): Anouk's song got popular. Uh oh.
 HOL kroniek weggedrukt na 1.0 s, komt terug: Anouk's song got popular. Uh oh.
 HOL kroniek 30.0 (wacht 0.7): Gloop ate Siem. Kept the crown. +6
-HOL einde na 30 s, fps=17, goud=78, terugkomers=1
+HOL einde na 30 s, fps=19, goud=78, terugkomers=1
