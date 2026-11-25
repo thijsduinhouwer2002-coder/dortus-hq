@@ -7,7 +7,7 @@
 - issue: #75
 - bestand: komt in release `regisseur-26` als `sale-eindstop-geluid.mp4` zodra `commercie/filmpjes/regisseur-26/sale-eindstop-elevenlabs.mp3` er is (workflow regisseur-26 bouwt vanzelf)
 - beeld: echte schermopname van Blender 5.3.0 met Click Joints Pro 1.2.8 en de eigen robot (ffmpeg x11grab, 30 beelden per seconde, echte muis en klikken, de knie gebogen met de Bend-schuif); geen getekende stappen
-- eerste beeld: eerste poging `eerste-beeld-eindstop.jpg` NIET GESLAAGD (Gemini 2,5, ChatGPT 2,0, `organisatie/blindtest/uitslag/pro-sale-shorts-2026-11-25-1912.md`: wilden de Blender-interface en het mechaniek van de knie zien). Tweede poging met een echt beeld uit de schermopname (groene boog "Left knee 0-120°"): `eerste-beeld-eindstop-inzet.jpg` en `eerste-beeld-eindstop-scherm.jpg`, set `organisatie/blindtest/sets/pro-sale-eindstop-2.json`. Het geslaagde beeld wordt het eerste beeld; slaagt geen van beide, dan gaat deze Short niet uit.
+- eerste beeld: `commercie/filmpjes/regisseur-26/eerste-beeld-eindstop-inzet.jpg` (robot groot, inzet uit de echte schermopname met de groene boog "Left knee 0-120°", "Knee bends too far?", "25% OFF THIS WEEK"); blinde test GESLAAGD (Gemini 1,0, ChatGPT 1,0, `organisatie/blindtest/uitslag/pro-sale-eindstop-2-2026-11-25-2023.md`). Reserve, ook GESLAAGD 1,0: `eerste-beeld-eindstop-scherm.jpg`. De eerste poging `eerste-beeld-eindstop.jpg` slaagde niet en wordt niet gebruikt.
 - slot: "Click Joints Pro, 25% off this week, on Gumroad." in beeld en stem
 - alleen plaatsen: vr 27 nov tot en met di 1 dec, en alleen als CYBER25 aanstaat (`bash platformen/blender/sale-controle.sh`); daarna niet meer gebruiken
 - proef: lokaal met Kokoro gebouwd om de montage te toetsen (GEZIEN); die versie gaat nooit naar keuring
