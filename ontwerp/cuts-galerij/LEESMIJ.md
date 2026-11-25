@@ -41,3 +41,5 @@ xvfb-run -s "-screen 0 2880x1620x24" env PN_AFSTAND=1.18 PN_DX=40 PN_DRAAI=-28 P
 python3 bron/tekst_paneel.py <uitmap>/paneel-scherm.png <uitmap>/paneel.json beelden <fonts> ../../producten/blender-splitser/merk/icoon.svg
 ```
 Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-paneel.json`, tegen de paneelbeelden van Cleave, Split 3D Print en SnapSplit (lat, deel Paneel).
+
+**25 nov ±16:40, opnieuw gemaakt (Daan #82, M1):** zelfde opdracht en instellingen, nu met de zip van main op 4801bc8. Het paneel toont "Horse (closed): 505,742 faces" in plaats van "Horse_watertight"; verder gelijk (12 stukken groen, 48 pennen, 0,20 mm; GEZIEN, `beelden/paneel.json`). Geen nieuwe blinde test: alleen de modelnaam veranderde (hoofdmanager 15:45 in #39).

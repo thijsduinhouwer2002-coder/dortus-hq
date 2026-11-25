@@ -33,3 +33,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 ±15:00 NL, Beeldmaker (eigen log)
 #39 beeld 3: 'Three steps in one tab' (`ontwerp/cuts-galerij/beelden/paneel-*`), schermafbeelding uit echte Blender 5.3 met het paard net gesneden (12 stukken, alle groen) en het paneel vergroot met 1, 2, 3. Blinde test GESLAAGD 1,0 en 1,0. Keuring #82; beeld 1 klaar om te plakken gemeld (Daan ja #40). Volgende: na Daans ja op #78 en #82 klaar om te plakken en #39 dicht; dan #38 als het label later eraf is.
+
+## 25 nov 2026 ±16:45 NL, Beeldmaker (eigen log)
+#39 beeld 3 opnieuw (Daan #82 M1): schermafbeelding uit Blender 5.3.0 met de zip van main (4801bc8), het paneel toont nu "Horse (closed): 505,742 faces"; verder gelijk. Nakeuring #90. Volgende: na Daans ja klaar om te plakken en #39 dicht; daarna #38 als het label later eraf is.
