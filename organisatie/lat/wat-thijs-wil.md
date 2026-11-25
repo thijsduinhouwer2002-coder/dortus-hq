@@ -41,3 +41,9 @@ Dit zijn dingen die Thijs vaak heeft moeten herhalen. Elke nieuwe correctie van 
 - Wel: als je kijkt, is er iets om te kiezen of te zien groeien. "Te weinig te doen" is de grootste klacht bij Rusty's (25 van 79 negatieve reviews, kennisbank). Rustig is niet leeg.
 - Geen eis meer van "iets elke 10 tot 15 seconden" (hoofdchat trok dat 25 nov 09:30 in; het getal had geen bron).
 - **Geen getal voor spelgevoel (tempo, duur, aantallen) zonder meting bij de top 3.** Afspraak 24 nov: we doen de beste concurrent na. Tempo komt uit `organisatie/lat/hats-tempo.md` (Afkijker). Iris toetst tempo zo: stoort het als je typt? Zie je na 2 minuten wegkijken iets veranderd?
+
+## Filmpjes: echt in de tool (Thijs, 25 nov 11:25)
+- Moet eruitzien alsof iemand het op zijn eigen pc opnam en echt in Blender zit: het echte Blender-scherm met menu's, de muis die beweegt en klikt, stap voor stap (zoals @malikose.studio, zie `platformen/ideeen/afkijken-2-2026-11-21/doorlopend/2026-11-21-malikose-tip-format.md`).
+- Geen zoem of bromtoon op de achtergrond (onze met code gemaakte geluidsbedden klinken zo). Stilte of zacht geluid, plus de stem van Max.
+- Vloeiend, geen haperingen: 30 of 60 beelden per seconde, gelijkmatig.
+- Hook eerst, grote ondertitels, stem Max (ElevenLabs). Geen Kokoro meer.
