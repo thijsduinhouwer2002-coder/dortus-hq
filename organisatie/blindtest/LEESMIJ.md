@@ -2,6 +2,8 @@
 
 Waarom: Claude die Claude keurt ziet dezelfde dingen niet. Twee andere modellen beoordelen ons beeld **blind**: tussen 3 concurrenten, zonder namen, in wisselende volgorde, met de vraag welke ze als klant het eerst zouden kopen. "Is dit mooi?" vragen we nooit: daar zegt elk model ja op.
 
+**Sinds 26 nov 2026 15:30 (hoofdchat, Thijs 12:19: geen geld bijleggen voor Gemini):** alleen ChatGPT is rechter; GESLAAGD = bij ChatGPT gemiddeld plek 2 of beter. Omdat er maar één model kijkt, keurt Daan het beeld daarna altijd ook (skill `kijken`). Gemini komt terug als er gratis of met ja van Thijs weer tegoed is.
+
 **Regel:** een nieuw hoofdbeeld, omslag of thumbnail gaat pas live als het bij beide rechters gemiddeld op plek 2 of beter staat. Niet geslaagd: terug naar de maker met de zinnen "Over ons" en "Beter maken" uit de uitslag.
 
 **Hoe:**
