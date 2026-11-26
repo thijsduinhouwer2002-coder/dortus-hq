@@ -38,6 +38,31 @@ def tekst_png(regels, grootte, y_mid, font=FONT, kleur=(255, 255, 255)):
     return im
 
 
+def label_png(tekst, y_mid, grootte=64):
+    """Korte staptekst in een donker pilletje (Daan #193: bij elke stap zeggen wat er gebeurt, leesbaar op een telefoon)."""
+    f = ImageFont.truetype(FONT, grootte)
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    tw = d.textlength(tekst, font=f)
+    px, py = 38, 22
+    x0, y0 = (W - tw) / 2 - px, y_mid - grootte / 2 - py
+    d.rounded_rectangle((x0, y0, x0 + tw + 2 * px, y0 + grootte + 2 * py + 8), radius=34, fill=(12, 14, 20, 225))
+    d.text(((W - tw) / 2, y0 + py), tekst, font=f, fill=(255, 255, 255))
+    return im
+
+
+def ring_png(s, rect):
+    """Gele rand om een echte knop: rect = [x, y, w, h] in schermpunten, omgerekend naar dit stuk."""
+    a = naar_beeld(rect[0], rect[1], s)
+    b = naar_beeld(rect[0] + rect[2], rect[1] + rect[3], s)
+    if not a or not b:
+        return None
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(im).rounded_rectangle((a[0] - 10, a[1] - 10, b[0] + 10, b[1] + 10), radius=14,
+                                         outline=(255, 206, 40, 255), width=8)
+    return im
+
+
 def frames_uit_film(pad, n, start=0.0):
     data = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{start:.3f}", "-i", str(pad), "-frames:v", str(n),
                            "-vf", f"fps={FPS},scale={W}:{H}:flags=lanczos", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
@@ -59,7 +84,7 @@ def main():
     muis = lees_muis(opn / "muis.txt")
     pijl = pijl_beeld()
     boven = tekst_png(sc["boven"], 70, sc.get("boven_y", 250))
-    slot = tekst_png(sc["slot"], 74, 1250, kleur=(255, 255, 255))
+    slot = tekst_png(sc["slot"], 74, sc.get("slot_y", 1250), kleur=(255, 255, 255))
     totaal = sum(s["duur"] for s in sc["stukken"]) + sc["eind_duur"]
     nbeeld = int(round(totaal * FPS))
     enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
@@ -73,6 +98,8 @@ def main():
         van = film["delen"][s["deel"]] - start + s.get("na", 0.0)
         beelden = frames_uit_scherm(mkv, van, n, s.get("x", 0), s.get("split"), s.get("zoom"))
         overgangen.append(round(gemaakt / FPS, 2))
+        lab = label_png(s["label"], s.get("label_y", sc.get("label_y", 1560))) if s.get("label") else None
+        ring = ring_png(s, s["ring"]) if s.get("ring") else None
         for kt in ([] if s.get("geen_muis") else film.get("kliks", [])):
             rel = kt - start - van
             if 0 <= rel < n / FPS:
@@ -80,12 +107,16 @@ def main():
         for i, b in enumerate(beelden[:n]):
             t = (gemaakt + i) / FPS
             im = Image.frombytes("RGB", (W, H), b)
+            if ring and i / FPS < s.get("ring_tot", 99.0):
+                im.paste(ring, (0, 0), ring)
             mp = naar_beeld(*muis_op(muis, start + van + i / FPS), s) if muis and not s.get("geen_muis") else None
             if mp:
                 pj = pijl if mp[2] == 1.0 else pijl.resize((int(24 * mp[2]), int(34 * mp[2])), Image.LANCZOS)
                 im.paste(pj, (int(round(mp[0] - 2 * mp[2])), int(round(mp[1] - 2 * mp[2]))), pj)
             if t < sc["boven_tot"]:
                 im.paste(boven, (0, 0), boven)
+            elif lab:
+                im.paste(lab, (0, 0), lab)
             enc.stdin.write(im.tobytes())
         gemaakt += n
         print(f"{overgangen[-1]:6.2f} s  {s['deel']:<14} +{s.get('na', 0.0):.1f}  {n} beelden")

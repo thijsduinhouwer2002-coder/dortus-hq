@@ -1,0 +1,20 @@
+{"naam": "pro-sale-proces", "boven": ["Making a poseable", "figure in Blender"], "boven_tot": 5.7, "boven_y": 1560, "label_y": 1560,
+ "slot": ["Click Joints Pro", "25% off this week", "on Gumroad"], "slot_duur": 7.0, "slot_y": 1660, "eind_duur": 7.0, "eind_zoom": 1.10,
+ "muziek": "Inspired.mp3", "muziek_start": 0.0, "muziek_bron": "Inspired, Kevin MacLeod (incompetech.com), CC BY 4.0",
+ "opmerking": "v6 na Daan #193: knop Figure from rig uitvergroot met gele rand, staptekst bij elke stap, middenstuk 6 s naar 2 s, saleregel de hele eindfilm",
+ "stukken": [
+  {"deel": "grijs", "na": 0.2, "duur": 4.0},
+  {"deel": "rig", "na": 0.1, "duur": 0.7},
+  {"deel": "kies", "na": 0.6, "duur": 1.0},
+  {"deel": "knop", "na": 0.6, "duur": 1.6, "label": "Figure from rig", "label_y": 1030,
+   "split": {"boven": [0, 60, 960], "onder": [1240, 1244, 960, 760]}, "ring": [1250, 1700, 740, 48], "ring_tot": 0.8},
+  {"deel": "uitelkaar", "na": 0.7, "duur": 1.0, "label": "Exploded view"},
+  {"deel": "schouder", "na": 0.3, "duur": 1.0, "label": "Ball joints"},
+  {"deel": "heup", "na": 0.2, "duur": 0.7, "label": "Ball joints"},
+  {"deel": "knie", "na": 0.5, "duur": 1.3, "label": "Hinge from your rig"},
+  {"deel": "knie_buig", "na": 4.8, "duur": 1.2, "label": "Knee stops at 120°"},
+  {"deel": "knie_rood", "na": 2.4, "duur": 0.8, "label": "Past the stop: red"},
+  {"deel": "shading", "na": 0.4, "duur": 1.0, "x": 400, "label": "Add color", "label_y": 300},
+  {"deel": "tijdlijn", "na": 1.9, "duur": 1.0, "geen_muis": true, "label": "Pose it"},
+  {"deel": "render", "na": 0.3, "duur": 2.2, "label": "Render"}
+ ]}
