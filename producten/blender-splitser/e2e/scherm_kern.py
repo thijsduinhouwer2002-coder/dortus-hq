@@ -1,7 +1,8 @@
 """Renders of the split models (Workbench, needs a display: run under xvfb-run).
 blender -b --factory-startup --python e2e/scherm_kern.py -- <dir with suzanne.blend, vaas.blend, schedel.blend> <out dir>
 Per model: the pieces in exploded view with the pins (color per piece, pins gold: kleuren.py), and a
-close-up of one cut face with its pin holes and engraved number. Logs SCHERM OK per picture."""
+close-up of one cut face with its pin holes and engraved number.
+magneet.blend (toetsen_magneet.py, issue #144): the same pictures in Magnets mode, for the gallery. Logs SCHERM OK per picture."""
 import json
 import os
 import sys
@@ -117,7 +118,7 @@ def model(naam):
 
 
 if __name__ == "__main__":  # scherm_plat.py imports the helpers above
-    for m in ("suzanne", "vaas", "schedel", "vrij"):
+    for m in ("suzanne", "vaas", "schedel", "vrij", "magneet"):
         try:
             model(m)
         except Exception as e:
