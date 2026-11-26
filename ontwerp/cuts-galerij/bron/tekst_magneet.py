@@ -1,4 +1,4 @@
-"""Tekst op galerijbeeld Click Cuts "Magnet holes in every cut" (Beeldmaker, 26 nov 2026, issue #137).
+"""Tekst op galerijbeeld Click Cuts "Magnet holes or pins" (Beeldmaker, 26 nov 2026, issue #137; tekst #200).
 
 python3 tekst_magneet.py <render-paard.png> <paard.json> <render-macro.png> <macro.json> <uitmap> <fontmap> <icoon.svg>
 
@@ -72,11 +72,11 @@ def main():
     img.alpha_composite(icoon(84), (x, 150))
     schaduwtekst(img, (x + 104, 192), "Click Cuts", font("Bricolage.ttf", 64, "Bold"), CREME, anchor="lm")
     y = 300
-    for regel, kl in (("Magnet holes", CREME), ("in every cut.", GOUD)):
+    for regel, kl in (("Magnet holes", CREME), ("or pins.", GOUD)):
         schaduwtekst(img, (x, y), regel, font("Bricolage.ttf", 112, "ExtraBold"), kl)
         y += 132
     y += 34
-    zin = "Pick Magnets instead of pins. Both sides of every cut get a hole for a disc magnet, sized with your clearance."
+    zin = "Pick Magnets instead of pins: each cut gets a hole on both sides where a disc magnet fits, sized with your clearance."
     fz = font("Inter.ttf", 44, "Medium")
     for r in regels(zin, fz, 740):
         schaduwtekst(img, (x, y), r, fz, ZACHT, schaduw=6)

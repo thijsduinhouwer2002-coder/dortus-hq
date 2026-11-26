@@ -73,3 +73,9 @@ HB_VERBINDER=MAGNET HB_MAGNEET=6x2 SV_STUK=5 SV_BUUR=9 SV_LEEG=0 SV_MAG_UIT=0.8 
 KT_X=1600 KT_B=700 MG_CX=0.39 python3 bron/tekst_magneet.py render-paard.png magneet-paard.json render-macro.png magneet-macro.json beelden <fonts> ../../producten/blender-splitser/merk/icoon.svg
 ```
 Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-magneet.json`, zelfde concurrenten als "Numbered for assembly".
+
+**Tekst gelijk aan de add-on (#200), 26 nov ±16:50:** het beeld zei "Magnet holes in every cut" en "Both sides of every cut get a hole". De add-on slaat een gat over waar de magneet niet past ("glue this joint"), en de gekeurde winkeltekst zegt "each cut where it fits" (Daan M1 #189; melding Productbouwer 26 nov 09:25). Nu: titel "Magnet holes / or pins.", zin "Pick Magnets instead of pins: each cut gets a hole on both sides where a disc magnet fits, sized with your clearance." `bron/tekst_magneet_m1.py` haalde het linker tekstblok uit beide jpg's (inpainten op het donkere verloop) en zette de nieuwe tekst erin, zelfde letters, maten en plek; merk, paard en kaart ongewijzigd. `bron/tekst_magneet.py` heeft de nieuwe tekst voor een volgende render.
+```
+python3 bron/tekst_magneet_m1.py beelden <fonts>
+```
+Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-magneet-r2.json`.

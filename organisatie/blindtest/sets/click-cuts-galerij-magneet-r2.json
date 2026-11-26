@@ -1,0 +1,24 @@
+{
+  "titel": "Click Cuts, galerijbeeld 'Magnet holes or pins' op Superhive: zelfde paard en kaart, tekst zegt nu 'where a disc magnet fits' (#200)",
+  "rol": "You make or download 3D models and print them at home, but many models are bigger than your printer bed. You are browsing the Superhive (Blender Market) store for a Blender add-on that cuts a model into parts that fit your printer and go back together. You are now looking at the gallery images on the product pages to see how the parts connect.",
+  "ons": [
+    {
+      "naam": "paard met magneetgaten, titel Magnet holes or pins",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/cuts-galerij/beelden/magneet-2400x1200.jpg"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Cleave (galerij: Connectors that fit)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1385307/image/xlarge-217a3e0da44f8801d1e83b7bcbae19f5.jpg"
+    },
+    {
+      "naam": "Split 3D Print (enige galerijbeeld)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1398051/image/xlarge-32eaf9ab9695881dcea508674d158d72.webp"
+    },
+    {
+      "naam": "SnapSplit (galerij: eigen verbinders op het snijvlak)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1346055/image/xlarge-67e97c98f5a3827536e7dc0d93e50856.jpg"
+    }
+  ]
+}
