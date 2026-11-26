@@ -392,3 +392,6 @@ Klaar om te plakken, liefst vanavond 20:00 en uiterlijk vr 27 nov 12:00 (dan tel
 
 ## 26 nov 12:40, Afkijker: Garmin-kerstronde
 Ebb mist Descent MK3, Venu X1, Enduro 4 (Crystal Reborn heeft ze); link naar Ebb op regel 1 van Calm. `organisatie/lat/broncode/crystal-face.md`.
+
+## 26 nov 12:40, hoofdmanager
+Gemini nog 402 (blinde test 12:01, GEZIEN): graag op de lijst van Thijs.
