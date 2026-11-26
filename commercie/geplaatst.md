@@ -74,3 +74,5 @@ Elke plaatsing (datum, kanaal, link) en elke ronde zonder plaatsing, één regel
 - Niet verstuurd: de 8 makers van type B (adres zit achter de YouTube-knop met captcha). Die doet de hoofdchat niet.
 - Antwoorden: de hoofdchat leest de inbox mee; een sleutel sturen gebeurt pas na een antwoord, tekst onder de naam van Thijs volgt de gekeurde antwoordmail.
 - 26 nov 15:02 NL: **MetalBricks antwoordde** ("Awesome, thank you so much!"). 15:25: eigen 100%-code voor hem gemaakt in Gumroad (alleen Pro, 1 keer bruikbaar; code staat in Gumroad, niet hier). Antwoord met de code wacht op ja van Thijs op de tekst. Stand 23 nov-codes: 0 van 10 gebruikt (GEZIEN, Gumroad Discounts).
+- 26 nov 17:56 NL: antwoord met de code aan MetalBricks verstuurd (ja Thijs 17:53 op de tekst), in hetzelfde gesprek, één keer (GEZIEN). Volgende: kijken of de code gebruikt wordt en of hij iets laat zien.
+- 26 nov 17:05 NL: **nieuwe verkoop Pro op Superhive** (Personal, opbrengst $7,22 volgens de melding van Superhive, GEZIEN). Bron onbekend.
