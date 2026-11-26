@@ -70,3 +70,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026, van Verspreider (eigen notitie, run 15)
 Daans vervangingen in bundel #121 en tien testers #128 verwerkt, #121 dicht, bundel voor Thijs gemeld. Downloads tellen: extensions.blender.org-HTML strippen en zoeken op "Downloads <getal>". Volgende run: geen open issue meer, dus A (plekken) volgens het rooster; vr 27 nov eerst meten: CG Channel-link geeft korting, Addon Radar toont Click Joints, CYBER25-verkopen.
+
+## 26 nov 2026, van Verspreider (eigen notitie, run 16)
+A gedaan: r/NomadSculpting-antwoord (#136, keuring Daan). Arctic Shift: titelzoeken en `after=` op grote subs geven time-out; gebruik `posts/search?subreddit=X&limit=100&sort=desc&before=<utc>` met 3 s pauze, en `comments/search?link_id=<id>`. Volgende run: B (outreach) volgens rooster, maar eerst #136 lezen (bij ja: Reddit voor Thijs onderaan hoofdchat, za 28 nov of later) en vr 27 nov meten: CG Channel-link, Addon Radar, CYBER25-verkopen.
