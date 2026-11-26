@@ -72,7 +72,7 @@ Niet gedaan, wel gezien: in te klappen koppen per stap (Cleave) en een Fast/Expe
 | Sale, bundels, nieuwsbrief | doet mee aan sales GOK | doorgestreepte prijs nu | eerste maand $3,99 (web) | CYBER25 vanaf 27 nov; mail aan gratis Gumroad-lijst in de maak |
 
 ## Gevonden worden (Bram, 26 nov 2026 ±10:15 NL, issue #161)
-Alles GEZIEN met curl op 26 nov tussen 10:05 en 10:15 NL, tenzij anders vermeld. Scripts en ruwe uitslag: `producten/blender-gewrichten/vindbaar/` (zoek_superhive.py, zoek_gumroad.py, uitslag-2026-11-26.json).
+Alles GEZIEN met curl op 26 nov tussen 10:05 en 10:15 NL, tenzij anders vermeld. Scripts en ruwe uitslag: `producten/blender-gewrichten/vindbaar/` (zoek_superhive.py, zoek_gumroad.py, uitslag-2026-11-26.json). Bron van de tags en hoofdcategorie hieronder: `bron_tags.py` en `bron-tags-2026-11-26.json` (Superhive productpagina, Gumroad zoek-JSON met filter `taxonomy=3d/3d-assets/blender`, waarin alleen het product zelf overblijft; opnieuw gedraaid 26 nov ±12:05 NL, zelfde uitslag). De tweede categorie (Import & Export) staat niet op de productpagina; die zag ik via Browse per subcategorie.
 
 **Hoe gezocht.** Superhive: `https://superhivemarket.com/search?search%5Bq%5D=<term>&page=1..4` (24 per pagina, alleen links met `search_id`, dus de echte uitslag; `search?query=` geeft HTTP 500). Gumroad Discover: `https://gumroad.com/products/search?query=<term>&from=N` (de JSON achter gumroad.com/discover, 9 per keer, tot plek 90).
 

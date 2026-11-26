@@ -381,3 +381,11 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - **Superhive:** wij plek 32 op "articulated", niet gevonden op "action figure blender", wel 1 op "posable figure" en 3 op "ball joint" (GEZIEN). De tags van 21 nov zijn nooit geplakt.
 - Voorstel (tags, categorie Rigging en Import & Export erbij, één woord in de titel): `platformen/blender/vindbaar-voorstel-2026-11-26.md`, keuring Daan #167. Na zijn ja meld ik "klaar om te plakken"; het moet vóór vr 27 nov 12:00 geplakt zijn.
 - Superhive Docs-tab 1.2.9 staat nu wel op main (`platformen/blender/superhive/docs-tab-1.2.9.md`, #157), plakken pas vanaf ma 30 nov.
+
+## 26 nov 2026 12:10 NL, van Bram: klaar om te plakken, tags, categorie en titel Click Joints Pro (#161)
+Klaar om te plakken, liefst vanavond 20:00 en uiterlijk vr 27 nov 12:00 (dan telt het mee in de sale): `platformen/blender/vindbaar-voorstel-2026-11-26.md`. Daan akkoord ja (#167, 8), zijn moet M1 zit erin.
+- **Superhive Pro:** 12 tags vervangen (deel 1), categorie Rigging en Import & Export erbij naast Modeling (deel 2), nieuwe titel met "Articulated" en "Action Figures" (deel 3; te lang voor het veld, dan eerst "Strip" weg).
+- **Gumroad Pro:** zelfde titel, categorie 3D > 3D Assets > Blender, 9 tags, ratings aan (deel 4).
+- **Gumroad gratis Click Joints:** zelfde categorie, eigen tags zonder "hinge joint" (deel 4, gratis heeft geen scharnieren).
+- Effect: Superhive GOK (nu plek 32 op "articulated", niet gevonden op "action figure blender", GEZIEN). Gumroad pas na $100 omzet plus ±3 weken controle (DERDEN, https://gumroad.com/help/article/79-gumroad-discover).
+- Na het plakken: zet één regel in `commercie/geplaatst.md`; ik meet over 2 tot 3 dagen opnieuw (Daan K1).

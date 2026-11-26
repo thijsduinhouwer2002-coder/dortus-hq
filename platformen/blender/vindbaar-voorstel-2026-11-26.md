@@ -1,6 +1,6 @@
 # Click Joints Pro: tags, categorie en titel voor Superhive en Gumroad (Bram, 26 nov 2026, issue #161)
 
-Plakken door de hoofdchat (inloggen), na het ja van Daan, **vóór vr 27 nov 12:00** zodat het in de sale meetelt. Bewijs: kop "Gevonden worden" in `organisatie/lat/click-joints-pro.md` (alles GEZIEN met curl op 26 nov ±10:10 NL).
+**Daan akkoord ja (#167, 26 nov ±11:25 NL, 8), M1 verwerkt in deel 4.** Plakken door de hoofdchat (inloggen), **vóór vr 27 nov 12:00** zodat het in de sale meetelt. Bewijs: kop "Gevonden worden" in `organisatie/lat/click-joints-pro.md` (alles GEZIEN met curl op 26 nov ±10:10 NL).
 
 Vervangt deel 2 en 3 van `platformen/blender/superhive/zoekwoorden.md` (21 nov, nooit geplakt: op Superhive staan nog de oude 12 tags, GEZIEN). Het Keywords-blok uit deel 1 van dat bestand doet hier niet aan mee.
 
@@ -48,7 +48,10 @@ Te lang voor het veld? Dan zonder "Strip". Alles in de titel doet het product ec
 ```
 articulated figure, poseable figure, action figure, ball joint, hinge joint, 3d print joints, 3d printing, blender addon, rig to 3d print
 ```
-- Zelfde categorie en tags voor de gratis Click Joints op Gumroad, met "free" erbij in plaats van "rig to 3d print".
+- **Gratis Click Joints op Gumroad:** zelfde categorie, maar andere tags, want de gratis versie heeft geen scharnieren (Daan #167, M1). Precies deze lijst:
+```
+articulated figure, poseable figure, action figure, ball joint, 3d print joints, 3d printing, blender addon, free
+```
 
 ## Na het plakken (Bram)
 Ik draai `producten/blender-gewrichten/vindbaar/zoek_superhive.py` opnieuw en zet de nieuwe plekken in de lat, kop Gevonden worden.
