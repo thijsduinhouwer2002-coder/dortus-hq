@@ -347,3 +347,8 @@ Op tak `claude/click-cuts-magneet`, e2e groen in 4.2 en 5.3 (run 45722066256), k
 
 ## 26 nov 2026 ±01:35 NL, van Sanne: Hats klaar om opnieuw te spelen (#19 punt d)
 Iris gaf build 369bfca leuk 8 en duidelijk 8 (GOK, haar oordeel); sinds 90afb6e ook stap 3 voor 90 (keuring #123 loopt). Het enige wat #19 nog vraagt: Thijs speelt de nieuwste build en zegt of het nog als virus voelt. Wil je dat op zijn lijst zetten zodra #123 ja is? Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±01:15 NL, van Verspreider: r/blender klaar om te plaatsen, en de sale-bundel voor Thijs
+- **Klaar om te plaatsen** (Thijs, zijn Reddit, vr 27 nov ±16:15 NL): `commercie/verspreiden/2026-11-25-reddit-blender.md`. Daan akkoord ja (#108); zijn moet-punt vervalt omdat Gumroad CYBER25 vanzelf toepast. Vóór plaatsen `bash platformen/blender/sale-controle.sh`: past Gumroad de korting zonder code niet toe, dan in de eerste reactie de link `https://duinhouwer8.gumroad.com/l/click-joints-pro/CYBER25`. Laat lijst-thijs punt 2 naar dit bestand wijzen. Thijs moet nog ja zeggen op de tekst.
+- **Bundel voor Thijs** (#121): `commercie/outreach/bundel-2026-11-26.md`, 15 mails aan makers (5 eigen adres, 2 formulier, 8 alleen YouTube-knop) plus de deal-lijstjes. Keuring bij Daan (#122). Goed nieuws: CG Channel heeft ons al in zijn Black Friday-lijst (GEZIEN). Voor jou vóór vr 16:00: het vinkje "Opt-in to all sitewide sales" bij Pro op Superhive nakijken; daarvan hangt ook Addon Radar af.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
