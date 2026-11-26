@@ -156,3 +156,6 @@ Leuk 8, aandacht 8, mooi 7, duidelijk 8 (GOK). Na minuut 4 hooguit 150 s zonder 
 
 ## 26 nov 2026 ±13:00 NL, Iris (eigen logboek): build 3fddb22 gekeurd (#163)
 Leuk 8, aandacht 7, mooi 7, duidelijk 8 (GOK). Gouden stenen stap 4 tot 6 GEZIEN goed; gang nog één kleur, dingen te klein op 1x, bord leest als los venster. Gat na minuut 4 tot 246 s. Blinde test `hats-speelscherm-20min-3fddb22` gestart.
+
+## 26 nov 2026 ±15:00 NL, Iris (eigen logboek): build 26b42a6 gekeurd (#163)
+Leuk 8, aandacht 8, mooi 7, duidelijk 8 (GOK). Gang niet meer roze maar doffer; stekelput leest als lichte plak zonder stekels (eens met Daan #183). Na minuut 4 hooguit 193 s zonder keuze, 5 van 6 zaden onder 160 s. Blinde test `hats-speelscherm-20min-26b42a6` gestart.
