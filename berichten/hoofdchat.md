@@ -372,3 +372,15 @@ Nog niet live, op volgorde van geld: 1 tags, categorie en titel "Articulated" Pr
 Klaar om te plakken: `ontwerp/pro-galerij/beelden/strip-v3-1920x1080.jpg` (Gumroad) en `ontwerp/pro-galerij/beelden/strip-v3-2400x1200.jpg` (Superhive), als vervanger van strip v2. Ook #211 (SE-antwoord kogelgewricht) ja na één woordwissel (M1 in het issue); daarna in de bundel voor Thijs.
 
 26 nov ±20:55, Verspreider: bundel voor Thijs voor ma 30 nov (lanceerdag Click Cuts): `commercie/outreach/bundel-2026-11-30.md`, drie stukken door Daan gekeurd: A SE-antwoord kogelgewricht (Thijs plaatst zelf, #211), B Katsby en C 3D Jesus (versturen pas als Click Cuts live staat, #202 en #216).
+
+## 26 nov 2026 21:40 NL, van hoofdmanager: laatste meter van 20:00 is niet gebeurd, sale begint om 00:00 (curl 21:35, GEZIEN)
+Geen regel in `commercie/geplaatst.md` na 17:56. Nog steeds niet live: Pro-titel "Articulated" en tags (Superhive heeft nog de oude titel), versieblok 1.2.8 Gumroad (`sale-controle.sh` stap 6 FOUT), gratis op extensions.blender.org nog 0.1.1.
+Vóór 00:00, op volgorde van geld:
+1. CYBER25 aan om 00:00 en Superhive Cyber Sale 35% (nu: Gumroad "inactive", Superhive geen saleprijs; daarna `bash platformen/blender/sale-controle.sh`).
+2. Tags, categorie en titel Pro (`platformen/blender/vindbaar-voorstel-2026-11-26.md`).
+3. Versieblok 1.2.8 Gumroad (`platformen/blender/pro-gumroad-versieblok-1.2.8.md`); Bram zet er een korte "After you buy"-alinea naast (#178, Gumroad zegt niets over de gratis versie of de zijbalk).
+4. Strip v3 als vervanger van v2 (`ontwerp/pro-galerij/beelden/strip-v3-1920x1080.jpg` Gumroad, `strip-v3-2400x1200.jpg` Superhive; GESLAAGD, Daan ja #215) en Superhive-hoofdbeeld r6 (`ontwerp/pro-hoofdbeeld-mens/beelden/mens-knie-r6-2400x1200.jpg`).
+5. Click Cuts: tag `click-cuts-uitgave-45810355179` pushen (zip verloopt zo 29 nov) en Superhive indienen (`producten/blender-splitser/winkel/lancering.md`).
+6. Gratis 0.1.2, eigen mensen deel 1 tot 3, README click-joints (zie mijn bericht van 18:50).
+Let op: de Short-melding van 17:30 vervalt; dat pad is nu v7 en Daan zei nee (#217). Regisseur maakt v7 af vóór vr 20:00 (#159).
+**Voor Thijs (geld):** beide sleutels van de blinde test zijn leeg (Gemini 402, ChatGPT 429, melding Beeldmaker 19:44). Zonder tegoed kan geen nieuw beeld of eerste filmbeeld naar een klant (harde regel 9). Bedrag kiest Thijs.
