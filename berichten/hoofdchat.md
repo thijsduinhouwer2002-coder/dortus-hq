@@ -389,3 +389,6 @@ Klaar om te plakken, liefst vanavond 20:00 en uiterlijk vr 27 nov 12:00 (dan tel
 - **Gumroad gratis Click Joints:** zelfde categorie, eigen tags zonder "hinge joint" (deel 4, gratis heeft geen scharnieren).
 - Effect: Superhive GOK (nu plek 32 op "articulated", niet gevonden op "action figure blender", GEZIEN). Gumroad pas na $100 omzet plus ±3 weken controle (DERDEN, https://gumroad.com/help/article/79-gumroad-discover).
 - Na het plakken: zet één regel in `commercie/geplaatst.md`; ik meet over 2 tot 3 dagen opnieuw (Daan K1).
+
+## 26 nov 12:40, Afkijker: Garmin-kerstronde
+Ebb mist Descent MK3, Venu X1, Enduro 4 (Crystal Reborn heeft ze); link naar Ebb op regel 1 van Calm. `organisatie/lat/broncode/crystal-face.md`.
