@@ -140,7 +140,7 @@ def wortel(ouder, naam, x, z, lengte, dik, buig, mat, tip):
         rot=(0, -zb, 0), verts=8, r2=dik * 0.35)
 
 
-def kronkel(ouder, naam, x, z, lengte, dik, buig, mat, zaad=0):
+def kronkel(ouder, naam, x, z, lengte, dik, buig, mat, zaad=0, zijkant=None):
     """Dunne wortel die kronkelend naar beneden hangt (Daan #153 M1): een ketting van korte stukjes die om en om
     een andere kant op buigen, bijna even dik tot de punt, een ronde punt en een zijtak op ongeveer een derde."""
     n = 6
@@ -158,7 +158,8 @@ def kronkel(ouder, naam, x, z, lengte, dik, buig, mat, zaad=0):
             zij = (nx, nz, hoek, r)
         px, pz = nx, nz
     zx, zz, zh, zr = zij
-    zh2 = zh + (0.9 if buig < 0 else -0.9)
+    # zijkant: +1 zijtak naar rechts, -1 naar links; zonder keuze tegen de buiging in (zoals in de kamer)
+    zh2 = zh + (0.9 if (buig < 0 if zijkant is None else zijkant > 0) else -0.9)
     for j in range(3):
         zh2 += -0.5 if j % 2 == 0 else 0.5
         ex, ez = zx + math.sin(zh2) * stuk * 0.7, zz - math.cos(zh2) * stuk * 0.7
@@ -244,15 +245,21 @@ def wand(ouder, p, naam, s):
                                                (2.3, 3.6, 0.32, 0.5, wd)]):
             kronkel(ouder, p + f"_w{i}", dx * s, -0.2 * s, l * s, d * s, b, mt, zaad=i * 3 + 1)
     elif naam in ("wortels_a", "wortels_b"):
-        wm = m("wortel", "9a7352", rough=0.85)
-        tip = m("wortel_tip", "5e4434", rough=0.9)
-        rij = ([(-2.4, 7.5, 0.6, 0.22), (0.2, 9.5, 0.72, -0.14), (2.6, 5.0, 0.5, 0.3)]
+        # Daan #164 (kan): de oude bruine spitse wortels in de dichte grond lazen als driehoeken en pasten niet meer bij
+        # de nieuwe wortels in de kamer. Nu dezelfde vorm: dun, kronkelig, licht beige, ronde punt, zijtak. Iets langer
+        # en een fractie dikker dan in de kamer, want hier hangen ze in de aarde onder het gras en niet in de lucht.
+        wm = m("wwortel", "c9ab86", rough=0.8)
+        wd = m("wwortel_d", "a88a68", rough=0.85)
+        # elke wortel buigt naar buiten en zijn zijtak ook, zodat ze elkaar niet kruisen (geen X of H op 120 px)
+        # (dx, lengte, dikte, buiging, kleur, zijkant, zaad): het zaad kiest of de eerste kronkel links of rechts gaat
+        # de buiging werkt tegen de eerste kronkel in, zodat ze vooral naar beneden hangen en niet als poten uitwaaieren
+        rij = ([(-2.6, 6.6, 0.42, 0.3, wm, -1, 1), (0.5, 8.4, 0.46, -0.1, wm, 1, 0), (3.0, 4.6, 0.36, -0.2, wd, 1, 0)]
                if naam == "wortels_a" else
-               [(-1.6, 6.0, 0.55, -0.25), (1.4, 8.5, 0.7, 0.18)])
-        for i, (dx, l, d, b) in enumerate(rij):
-            wortel(ouder, p + f"_w{i}", dx * s, 0, l * s, d * s, b, wm, tip)
-        # donkere vochtige plek waar ze uit de aarde komen
+               [(-1.8, 5.6, 0.40, 0.3, wd, -1, 1), (1.5, 7.8, 0.46, -0.25, wm, 1, 2)])
+        # donkere vochtige plek waar ze uit de aarde komen (eerst, zodat de wortels ervoor liggen)
         kluit(ouder, p + "_kluit", (0, 0.2 * s, 0.1 * s), (4.0 * s, 0.8 * s, 1.0 * s))
+        for i, (dx, l, d, b, mt, zk, zd) in enumerate(rij):
+            kronkel(ouder, p + f"_w{i}", dx * s, -0.2 * s, l * s, d * s, b, mt, zaad=zd, zijkant=zk)
 
 
 def bouw(naam, x, z, y=0.35):
