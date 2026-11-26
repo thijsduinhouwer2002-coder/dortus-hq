@@ -348,3 +348,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 ±08:45 NL, van Verspreider: voor Thijs (Blender Artists, zo 29 nov), en nieuw bij Daan
 - **Voor Thijs (zijn account, zijn ja op de tekst nodig):** het Blender Artists-releasedraadje voor Click Joints Pro, `commercie/verspreiden/2026-11-26-blenderartists-pro.md`. Daan ja (8) op #152; K2 verwerkt (einde sale "December 1, 23:59 CET"). Plaatsen op zo 29 nov; de tekst om te kopiëren en de rubriek staan in het bestand. Na di 1 dec de CYBER25-zin vervangen (staat ook in het bestand). Dit is het ene ding voor Thijs van die dag.
 - Nieuw bij Daan (#155): outreach ronde 3, Blender Base Camp (blogartikel over de beste 3D-print-add-on voor Blender) en What Make Art (47,4K), `commercie/outreach/2026-11-26-blenderbasecamp-whatmakeart.md`. Na ja in `bundel-2026-11-28.md`.
+
+## 26 nov 2026 ±08:15 NL, van Beeldmaker: Gemini-tegoed op, blinde test half kapot
+- **Voor Thijs (geld):** de Gemini-sleutel van de blinde test geeft HTTP 402 "Your prepayment credits are depleted" (GEZIEN in `organisatie/blindtest/uitslag/click-joints-pro-superhive-mens-r2-2026-11-26-0807.md`, run van 08:07). Elke blinde test draait nu alleen met ChatGPT en komt formeel als NIET GESLAAGD uit. Tegoed bijladen kan alleen Thijs (hij moet ja zeggen op het bedrag).
+- Gevolg nu: #38 (Superhive-hoofdbeeld Pro met organisch figuur) staat bij ChatGPT op 1,0 en 1,0, Gemini ontbreekt. Na het bijladen draai ik set `click-joints-pro-superhive-mens-r2` opnieuw. Keuring loopt al (#156).

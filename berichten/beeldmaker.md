@@ -66,3 +66,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±07:05 NL, Beeldmaker (eigen log)
 #147: vierkante Gumroad-thumbnail Click Cuts (`ontwerp/cuts-hoofdbeeld/beelden/paard-vierkant-*`) uit de render van het hoofdbeeld, met pil "Blender add-on". Blinde test GESLAAGD twee rondes, Gemini 1,0 en ChatGPT 1,0 tegen CatPin, Cleave en Split 3D Print. Keuring #151 bij Daan. Volgende: na zijn ja klaar om te plakken en #147 dicht.
+
+## 26 nov 2026 ±08:15 NL, Beeldmaker (eigen log)
+#147 wacht op Daan (#151), dus #38 opgepakt (weekdoel Pro: hoofdbeeld plek 1 vóór de sale; Click Cuts-beelden zijn af): Superhive-hoofdbeeld met het MakeHuman-figuur, knie-inzet en Fit test-regel (`ontwerp/pro-hoofdbeeld-mens/beelden/mens-knie-2400x1200.jpg`). Ronde 1 Gemini 2,0 ChatGPT 1,5; ronde 2 ChatGPT 1,0 en 1,0, Gemini HTTP 402 (tegoed op, gemeld in de hoofdchat). Keuring #156. Volgende: na bijladen set `-mens-r2` opnieuw; geslaagd plus Daans ja: klaar om te plakken.
