@@ -1,0 +1,149 @@
+name: "Regisseur 28 (sale-Short in procesvorm #159: echte schermopname, grijs naar mooie render)"
+
+# 26 nov 2026, Regisseur, issue #159. Thijs 26 nov 09:00: de procesvideo van het voorbeeld (simonzhang.art) "exact
+# namaken, maar dan met onze robot". Echte Blender 5.3.0 met interface onder Xvfb, Click Joints Pro 1.2.8 (wat kopers
+# in de sale krijgen), ffmpeg x11grab 30 fps, echte muis (xdotool). Script: commercie/filmpjes/regisseur-28/proces.py.
+# Daarna in dezelfde Blender de eindfilm door de studiocamera (eind/). Muziek: proef van rechtenvrije stukken (CC BY 4.0,
+# Kevin MacLeod, incompetech.com) voor de montage. De eindfilm rendert in Cycles in 12 losse jobs (render) uit
+# eind.blend; job eind zet ze samen tot eind.mp4 in de release. Niets geplaatst.
+on:
+  workflow_dispatch:
+  push:
+    branches: [regisseur-28-proef]
+
+permissions:
+  contents: write
+
+env:
+  TAG: regisseur-28
+  PRO_COMMIT_VOOR: a3c1ea1   # eerste commit van 1.2.9; de zip komt van de commit ervoor (1.2.8)
+
+jobs:
+  opname:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Systeempakketten (apt-snel)
+        uses: ./.github/actions/apt-snel
+        with:
+          pakketten: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter tesseract-ocr x11-xserver-utils dmz-cursor-theme
+      - name: Blender 5.3.0 en de Pro-zip 1.2.8
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          mkdir -p /tmp/v128 && git archive "${PRO_COMMIT_VOOR}~1" producten/blender-gewrichten | tar -x -C /tmp/v128
+          (cd /tmp/v128/producten/blender-gewrichten && PRO_VERSIE=1.2.8 bash e2e/maak_zip.sh betaald)
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Opnemen (echt scherm 2160x1920, x11grab 30 fps)
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_pro
+          BLENDER_USER_CONFIG: /tmp/cj_pro/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_pro/extensions
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_s.blend')"
+          mkdir -p /tmp/klaar
+          timeout 2400 xvfb-run --auto-servernum --server-args="-screen 0 2160x1920x24 -noreset" \
+            bash commercie/filmpjes/regisseur-28/neem_op.sh /tmp/blender/blender /tmp/start_s.blend /tmp/opn /tmp/click_joints_betaald.zip 2160x1920 2>&1 | tee /tmp/klaar/opname.log || true
+          grep -E "KORT|Traceback|Error|opname klaar" /tmp/klaar/opname.log | cut -c1-400 || true
+          [ -s /tmp/opn/scherm-ruw.ts ] || { echo "FOUT: geen opname"; exit 1; }
+          cp /tmp/opn/film.json /tmp/opn/start.txt /tmp/opn/muis.txt /tmp/klaar/
+          ffmpeg -v error -i /tmp/opn/scherm-ruw.ts -r 30 -c:v libx264 -preset veryfast -crf 17 -pix_fmt yuv420p /tmp/klaar/scherm.mkv
+          ls -la /tmp/klaar
+      - name: Controle vloeiend
+        run: |
+          python3 commercie/filmpjes/regisseur-26/vloeiend.py /tmp/opn/scherm-ruw.ts | tee /tmp/klaar/vloeiend.txt || true
+          d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 /tmp/klaar/scherm.mkv)
+          for s in 0.1 0.3 0.5 0.7 0.9; do
+            t=$(python3 -c "print(round($d*$s,2))")
+            ffmpeg -v error -ss $t -i /tmp/klaar/scherm.mkv -frames:v 1 -vf scale=1080:-1 /tmp/klaar/blik-$s.jpg
+          done
+      - name: eind.blend bewaren voor de render-jobs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eind-blend
+          path: /tmp/opn/eind.blend
+          if-no-files-found: warn
+      - name: Muziek
+        run: |
+          ls /tmp/opn/proef 2>/dev/null | head
+          mkdir -p /tmp/klaar/muziek
+          for t in Inspired Wholesome Carefree Life_of_Riley Pixelland Fluffing_a_Duck; do
+            curl -fsSL --retry 2 -o "/tmp/klaar/muziek/$t.mp3" "https://incompetech.com/music/royalty-free/mp3-royaltyfree/$(echo $t | sed 's/_/%20/g').mp3" || echo "muziek niet gelukt: $t"
+          done
+          ls -la /tmp/klaar/muziek
+          (cd /tmp/klaar && [ -n "$(ls muziek)" ] && zip -qr muziek.zip muziek); rm -rf /tmp/klaar/muziek
+      - name: In de release zetten
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -d /tmp/klaar ] || exit 1
+          echo "Regisseur 28 (issue #159): echte schermopname van Blender 5.3.0 met Click Joints Pro 1.2.8 en de eigen robot, procesvorm van grijs naar mooie render (ffmpeg x11grab, 30 beelden per seconde, echte muis), plus de eindfilm. Werkmateriaal voor de sale-Short. Niets geplaatst." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 28 (sale-Short procesvorm, echte schermopname)" --notes-file /tmp/notes.md
+          for m in /tmp/klaar/meting-*; do [ -d "$m" ] && (cd "$m" && zip -qr "$m.zip" .) && rm -rf "$m"; done
+          find /tmp/klaar -maxdepth 1 -type f -print0 | xargs -0 gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY"
+
+  render:
+    needs: opname
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        stuk: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: eind-blend
+          path: /tmp/eb
+      - name: Blender 5.3.0
+        run: |
+          sudo apt-get install -y -qq libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 >/dev/null
+          V="5.3.0"; KORT="5.3"; B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break; rm -f /tmp/blender.tar.xz
+          done
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+      - name: Cycles-render van dit stuk
+        run: |
+          N=$(/tmp/blender/blender -b /tmp/eb/eind.blend --python-expr "import bpy; print('EINDN', bpy.context.scene.frame_end)" 2>/dev/null | grep EINDN | awk '{print $2}')
+          PER=$(( (N + 11) / 12 )); S=$(( ${{ matrix.stuk }} * PER + 1 )); E=$(( S + PER - 1 )); [ $E -gt $N ] && E=$N
+          echo "beelden $S tot $E van $N"
+          mkdir -p /tmp/fr
+          /tmp/blender/blender -b /tmp/eb/eind.blend -o /tmp/fr/e_#### -F PNG -s $S -e $E -a 2>&1 | grep -E "Fra:.*Time|Saved|Error" | tail -40
+          ls /tmp/fr | wc -l
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eind-${{ matrix.stuk }}
+          path: /tmp/fr
+
+  eind:
+    needs: render
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: eind-[0-9]*
+          path: /tmp/alle
+          merge-multiple: true
+      - name: eind.mp4 in de release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sudo apt-get install -y -qq ffmpeg imagemagick >/dev/null
+          ls /tmp/alle | wc -l
+          ffmpeg -v error -framerate 30 -pattern_type glob -i '/tmp/alle/e_*.png' -c:v libx264 -preset slow -crf 15 -pix_fmt yuv420p /tmp/eind.mp4
+          n=$(ls /tmp/alle/e_*.png | wc -l); for k in 1 $((n/2)) $n; do f=$(ls /tmp/alle/e_*.png | sed -n ${k}p); convert "$f" -resize 540x /tmp/eind-$k.jpg; done
+          gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY" /tmp/eind.mp4 /tmp/eind-*.jpg

@@ -160,3 +160,4 @@
 - 26 nov ±01:20 NL: #75 af en dicht (Daan ja #111, klaar om te plakken: eindstop vr, een-knop za); #71 zin waar gemaakt, nieuw eerste beeld met echt horloge GESLAAGD (1,5 en 1,0), film opnieuw (regisseur-25), nakeuring #118.
 - 26 nov ±04:36 NL, Regisseur (#135): echte opname Click Cuts met het paard (regisseur-27, lokaal 3 proeven, 12 stukken groen), eerste beeld naar blinde test, voorleestekst naar de hoofdchat.
 - 26 nov ±09:31 NL, Regisseur (#135): opname v2 met beweging vanaf seconde 0 (echte draai om het paard, muis rust nooit), geen omslag vooraan; proefmontage 27,5 s, 30 bps GOED, langste stil stuk 1,3 s; nieuw eerste beeld naar blinde test.
+- 26 nov ±11:40 NL, Regisseur (#159): procesvorm naar het voorbeeld van Thijs; echte opname regisseur-28 (grijze robot, rig, Exploded view, knie, dan Shading- en Layout-tab, tijdlijn, Render Animation), eindfilm in Cycles in 12 jobs; montage getoetst op proef 1 (17 s, 10 stukken), proef 3 loopt (run 45800569795).
