@@ -123,6 +123,21 @@ def stap():
             subprocess.run(["import", "-window", "root", pad], capture_output=True)
             ok = os.path.exists(pad) and os.path.getsize(pad) > 20000
             log(f"{'PANEEL MEER OK' if ok else 'PANEEL MEER FOUT'} {pad}")
+            # Daan #229 M1: scroll the sidebar down so the whole fit test box (both lines) can be seen
+            venster, gebied, ui, hoofd = gebied_3d()
+            xdo("mousemove", str(venster.x + ui.x + ui.width // 2),
+                str(venster.y + venster.height - (ui.y + ui.height // 2)))
+            for _ in range(12):
+                xdo("click", "5")
+            staat["stap"] = 30
+            return 1.5
+        if staat["stap"] == 30:
+            pad = os.path.join(uitmap, "paneel-proef.png")
+            subprocess.run(["import", "-window", "root", pad], capture_output=True)
+            ok = os.path.exists(pad) and os.path.getsize(pad) > 20000
+            log(f"{'PANEEL PROEF OK' if ok else 'PANEEL PROEF FOUT'} {pad}")
+            for _ in range(20):
+                xdo("click", "4")
             # third picture: More settings closed with notes, so the notes line can be seen whole (keuring
             # run 10, M1). Uses the notes of this Split; when there are none, two example notes (logged).
             inst = bpy.context.scene.split_joints
