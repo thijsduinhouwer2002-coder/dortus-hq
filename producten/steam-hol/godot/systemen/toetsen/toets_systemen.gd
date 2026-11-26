@@ -432,6 +432,10 @@ func _init() -> void:
 	ok(stt.aantal(0) == 0 and stt.aantal(3) == 0 and stt.aantal(4) == 1 and stt.aantal(5) == 2 and stt.aantal(6) == 3 and stt.aantal(9) == 3, "stenen per stap: 0,0,1,2,3 (#162)")
 	ok(is_equal_approx(stt.plek(0, 1), 0.0) and is_equal_approx(stt.plek(0, 3), -stt.plek(2, 3)) and stt.plek(1, 2) - stt.plek(0, 2) >= stt.HALF * 2.0, "stenen gecentreerd en raken elkaar niet (#162)")
 	ok(stt.plek(2, 3) + stt.HALF <= 8.0, "drie stenen passen in een putkolom van 16 (#162)")
+	# #222 (Iris 5ecaf64 punt 3): op het luik kleiner, rij van drie binnen het hout van het luik (±7 spelpixels), eigen plaatje
+	var pm: float = stt.PUT_MAAT
+	ok(pm < 1.0 and stt.plek(2, 3, pm) + stt.HALF * pm <= 6.0 and stt.plek(1, 2, pm) - stt.plek(0, 2, pm) >= stt.HALF * pm * 2.0, "stenen op het luik: kleiner, raken elkaar niet, drie binnen ±6 (#222)")
+	ok(stt.plaatje(2, 3.0, pm) != stt.plaatje(2, 3.0) and stt.plaatje(2, 3.0, pm).get_image().get_width() < stt.plaatje(2, 3.0).get_image().get_width(), "stenen op het luik: eigen, smaller plaatje (#222)")
 	var spl: ImageTexture = stt.plaatje(3, 3.0)
 	var spi := spl.get_image()
 	ok(spl == stt.plaatje(3, 3.0) and spi.get_width() < 64 and spi.get_height() < 24, "stenen één keer gebakken, klein plaatje (#162 CPU)")
@@ -985,6 +989,8 @@ func _init() -> void:
 		if dd[1] == 7:
 			vst += 1
 	ok(vst >= 3, "vol: stutten blijven regelmatig in een hol zonder kamers (%d op 38 tegels)" % vst)
+	# #222 (Iris 5ecaf64 punt 4): geen vaandel meer in de gang, het kromp tot een rood blokje
+	ok(HV.GANG_VAANDEL != "vaandel" and HV.hang_schaal(HV.GANG_VAANDEL) * 2.0 > HV.hang_schaal("vaandel"), "vol: in de gang wortels in plaats van het gekrompen vaandel (#222)")
 	# Daan 16 nov 22:45 (moet): kamers losser, 0, 1 of 2 dingen, ongeveer de helft leeg, nooit twee na elkaar gelijk
 	var vkd: Array = HV.kamer_dingen(vvh, false)
 	var vkok := true

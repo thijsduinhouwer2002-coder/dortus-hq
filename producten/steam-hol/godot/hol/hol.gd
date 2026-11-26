@@ -39,6 +39,7 @@ var met_3d := true
 const HOLVAST := preload("res://hol/hol_vast.gd")
 const LUIK := preload("res://hol/luik.gd")   # dichte put: luik van hout met rand (#209)
 const STAP_TEKEN := preload("res://systemen/stap_teken.gd")   # stap 4 tot 6: gouden stenen op de put (#162)
+const PUT_STEEN_Y := 38.0   # midden van de stenen op de put: onderaan op het luik (hout 33,5 tot 38,5, luik.gd); lager valt onder de rand van het scherm (40) weg (#222)
 const STAP_STENEN := preload("res://systemen/stap_stenen.gd")
 var _stenen: Node2D = null
 var met_vast := true   # alleen een testschakelaar: uit = geen gemeten bovenrand, dan is het gras op Windows weg (strook.gd muisvlak)
@@ -474,15 +475,19 @@ func _draw() -> void:
 			draw_texture_rect_region(PUT_UPG, Rect2(k * KOL + sx, vloer - 7 + sy, KOL, 8), Rect2(f * KOL, (put_niv - 1) * 8, KOL, 8))
 		else:
 			draw_texture_rect_region(PUT, Rect2(k * KOL + sx, vloer - 7 + sy, KOL, 8), Rect2(f * KOL, 0, KOL, 8))
-	# stap 4 tot 6 (#162): per stap boven Trick Lid één gouden steen op het luik, schudt mee met de koop
+	# stap 4 tot 6 (#162): per stap boven Trick Lid één gouden steen op het luik, schudt mee met de koop.
+	# Kleiner en op de onderrand van het luik (Mila #222, Iris 5ecaf64 punt 3), zodat de aarde en het gras van Trick Lid
+	# erboven te zien blijven; met het luik uit (luik=0) zoals eerst midden op de vloer.
 	var put_tekens: int = STAP_TEKEN.aantal(upgrades.niveau("stekelput")) if upgrades != null else 0
 	var put_plekken := []
+	var put_y: float = PUT_STEEN_Y if LUIK.aan() else GANG_ONDER - 1.0
 	for k in (vallen if put_tekens > 0 else {}):
 		if vallen[k] == "stekelput":
-			put_plekken.append(Vector2(k * KOL + KOL / 2.0 + sx, GANG_ONDER - 1 + put_schok(k)))
+			put_plekken.append(Vector2(k * KOL + KOL / 2.0 + sx, put_y + put_schok(k)))
 	if put_tekens > 0 or _stenen != null:
 		if _stenen == null:
 			_stenen = STAP_STENEN.maak(self)   # eigen laag: alleen opnieuw tekenen als er iets aan verandert (CPU)
+			_stenen.maat = STAP_TEKEN.PUT_MAAT if LUIK.aan() else 1.0
 		_stenen.zet(put_plekken, put_tekens)
 	# stofwolkje van de val, voor de put (Olaf 15 nov, juice 5)
 	for k in val_stof:

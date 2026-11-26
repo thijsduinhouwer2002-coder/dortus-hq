@@ -13,14 +13,19 @@ const GLIM := Color("#fff0aa")
 const SCHADUW := Color(0.12, 0.04, 0.12, 0.5)
 const HALF := 2.0        # halve breedte van een steen in spelpixels (4 breed, 12 schermpixels op 120)
 const AFSTAND := 5.0     # midden tot midden (Daan #177 kan 2: 4,5 raakte elkaar bijna, nu 1 schermpixel lucht)
+# Op het luik van de put kleiner (Mila #222, Iris 5ecaf64 punt 3: twee ruiten van volle maat bedekten bijna het hele
+# Trick Lid-luik, je las goud met een zwarte rand en geen aarde en gras). Op de put liggen ze onderaan op het
+# luik (hol.gd), op 0,7 van de maat: rij van drie ±10 spelpixels breed, het hout met aarde en gras erboven blijft vrij.
+# Bij Gloop blijft de volle maat.
+const PUT_MAAT := 0.7
 
 # Hoeveel stenen bij dit niveau (0 tot 6): alleen boven stap 3.
 static func aantal(niveau: int, beeld_max: int = 3) -> int:
 	return clampi(niveau - beeld_max, 0, 3)
 
 # Midden van steen i van n, ten opzichte van het midden van de rij (spelpixels).
-static func plek(i: int, n: int) -> float:
-	return (float(i) - float(n - 1) / 2.0) * AFSTAND
+static func plek(i: int, n: int, maat: float = 1.0) -> float:
+	return (float(i) - float(n - 1) / 2.0) * AFSTAND * maat
 
 # CPU (#162, hoofdmanager 26 nov 12:40): de rij wordt één keer per (aantal, schaal) naar een klein plaatje gebakken
 # (pixel voor pixel, 4 x 4 monsters per pixel voor de gladde rand) en daarna alleen nog als één plaatje getekend.
@@ -29,14 +34,14 @@ static func plek(i: int, n: int) -> float:
 static var _bak := {}
 
 # Plaatje van een rij van n stenen op schaal k (schermpixels per spelpixel, op 0,05 afgerond); midden van de rij = midden van het plaatje.
-static func plaatje(n: int, k: float) -> ImageTexture:
-	var sleutel := Vector2i(n, roundi(k * 20.0))
+static func plaatje(n: int, k: float, maat: float = 1.0) -> ImageTexture:
+	var sleutel := Vector3i(n, roundi(k * 20.0), roundi(maat * 20.0))
 	if _bak.has(sleutel):
 		return _bak[sleutel]
 	# zelfde maat als de eerste versie op het scherm (die met gladde lijnen was 1 schermpixel ruimer dan HALF): rand ±1 px
-	var h := HALF * k + 1.0
+	var h := HALF * maat * k + 1.0
 	var g := h - 1.2
-	var breed := int(ceil(2.0 * absf(plek(0, n)) * k + 2.0 * h)) + 4
+	var breed := int(ceil(2.0 * absf(plek(0, n, maat)) * k + 2.0 * h)) + 4
 	var hoog := int(ceil(2.0 * h)) + 4
 	breed += breed % 2
 	hoog += hoog % 2
@@ -44,7 +49,7 @@ static func plaatje(n: int, k: float) -> ImageTexture:
 	var m0 := Vector2(breed, hoog) / 2.0
 	var middens := []
 	for i in n:
-		middens.append(m0 + Vector2(plek(i, n) * k, 0.0))
+		middens.append(m0 + Vector2(plek(i, n, maat) * k, 0.0))
 	for y in hoog:
 		for x in breed:
 			var som := Color(0, 0, 0, 0)
@@ -75,11 +80,11 @@ static func _monster(q: Vector2, middens: Array, h: float, g: float) -> Color:
 	return Color(0, 0, 0, 0)
 
 # Teken n stenen in een rij met het midden op c (spelpixels, lokaal van doek): één plaatje, op hele schermpixels.
-static func teken(doek: CanvasItem, c: Vector2, n: int) -> void:
+static func teken(doek: CanvasItem, c: Vector2, n: int, maat: float = 1.0) -> void:
 	if n <= 0:
 		return
 	var k := maxf(roundf(doek.get_global_transform().get_scale().x * 20.0) / 20.0, 1.0)   # Gloop staat op 3,45: ook 1 op 1
-	var tex := plaatje(n, k)
+	var tex := plaatje(n, k, maat)
 	var lt := (c * k - tex.get_size() / 2.0).round()
 	doek.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE / k)
 	doek.draw_texture(tex, lt)

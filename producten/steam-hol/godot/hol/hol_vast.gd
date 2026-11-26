@@ -456,6 +456,8 @@ func _teken_vol(d: CanvasItem, vloer: int) -> void:
 		HOL3D.teken_deco_op(d, kd[0], kd[1], false, KAMER_SCHAAL)
 	for ding in vol_rij(h):
 		var naam: String = HOL3D.DECO_GANG[ding[1]]
+		if naam == "vaandel":
+			naam = GANG_VAANDEL
 		if not ding[2]:
 			HOL3D.teken_deco_op(d, naam, Vector2(ding[0] * KOL + midden, vloer + 1), false)
 		elif naam == "stut":
@@ -468,6 +470,11 @@ func _teken_vol(d: CanvasItem, vloer: int) -> void:
 # (SPIN_SCHAAL) en zonder de draad en de paarse spin rechts ervan: Daan 16 nov 10:50, moet, "onderaan recht afgesneden met
 # een los draadje ernaast leest als een kapot plaatje"; de spin leek ook op de vleermuis (één kleur per soort beestje).
 const SPIN_SCHAAL := 0.6
+# Geen vaandel in de gang (Mila #222, Iris 5ecaf64 punt 4): om binnen HANG_MAX te passen kromp het tot 0,47 en half
+# achter de plafondrand las het op 1x als een los rood blokje onder de hoedenwand. Op die plek hangen nu wortels door
+# het plafond (deco-blad, zelfde stuk als de wortels onder het gras): dun en licht, dus ook verkleind lees je wortels.
+# De regels van vol_rij (soort 8, nooit twee keer hetzelfde na elkaar) blijven gelijk. In de schatkamer hangt het vaandel nog.
+const GANG_VAANDEL := "wortels_a"
 # Geen paarse spin bij de hoedenberg (Daan 17 nov 07:45, Olaf 08:35): reikt een spinragkolom over de grens van de vleermuis
 # (vleermuis.gd berg_grens(): Gloop op schat_kol - 2, volle berg, groot lijf, keer zijn schaal), dan alleen het web
 # zoals in het volle hol (_teken_hangend). Verder van de berg blijft het hele spinrag met spin.

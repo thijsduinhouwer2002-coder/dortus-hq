@@ -33,3 +33,17 @@
 - `blad-voor-daan213-4x.png` en `blad-na-daan213-4x.png`: het blad op 1x (3 px per spelpixel) en 4x uitvergroot, voor en na.
 
 **CPU:** niets aan het tekenen veranderd: nog steeds één plaatje per dichte put, het blad is 288 x 48 in plaats van 288 x 40 (GEZIEN). **Toetsen:** alle 9 toetsen 0 FOUT op Linux (GEZIEN).
+
+## #222: luik van Trick Lid blijft zichtbaar, geen rood blokje (Mila, 26 nov ±23:15 NL; Iris 5ecaf64 punt 3 en 4)
+
+**Wat er voor de speler veranderde:**
+- De gouden ruiten van stap 4 tot 6 liggen op de put nu kleiner (0,7 van de maat, ±8 schermpixels breed op 120) en onderaan op het luik, niet meer midden erop. Het hele hout met de aarde en het plukje gras van Trick Lid zie je weer; de ruiten bedekken alleen de onderste rand (GEZIEN, `222-stap3-tot-6-voor-boven-na-onder-1x.png` en `-2x.png`: stap 3, 4, 5, 6 van links naar rechts, boven voor, onder na). Bij Gloop blijven de ruiten op volle maat.
+- Het rode blokje onder het rek met de kroon was het **vaandel** uit het deco-blad: in een vol hol (vanaf 20 gangtegels, hier vanaf ±200 s) hangt soms een vaandel aan het gangplafond. Om binnen de regel "hooguit 6 spelpixels onder het plafond" (Daan 16 nov) te passen kromp het tot 0,47, en half achter de plafondrand bleef op 1x alleen een rood vlakje van ±4 x 3 spelpixels over. Op die plek hangen nu wortels door het plafond (zelfde stuk als de wortels onder het gras): dun en licht, dus ook verkleind lees je wortels (GEZIEN, `222-1195s-voor-boven-na-onder-1x.png` en `-4x.png`, x 860 tot 1160, boven voor, onder na). In de schatkamer hangt het vaandel nog.
+
+**Blinde lezer (GEZIEN, één lezer):** `222-blind-volgorde-abcd-2x.png`, de twee putten op stap 5, 3, 6, 4 (A, B, C, D). Een aparte agent die niets van dit werk wist, kreeg alleen dit beeld en "zet van minst naar meest verbeterd": **B, D, A, C, goed**, "de gele ruitjes nemen toe; het gras en de planken zijn bij alle vier gelijk".
+
+**Beelden:** Godot 4.3 Linux onder xvfb. 1195 s: `--write-movie --fixed-fps 5`, `hoogte=120 vers=1 zaad=7 uitleg_klik=6 koper=1 koper_wacht=8 balk=0 duur=1200` (zelfde args als Iris; de runs lopen niet precies gelijk, op 1195 s staan beide putten op stap 5). Stap 3 tot 6: `--fixed-fps 1`, zelfde args zonder koper, `duur=40 put_proef=3..6`, beeld op 38 s.
+
+**CPU (GEZIEN):** 4 paren runs om en om, 1200 s spel, `--fixed-fps 5` zonder film, `put_proef=6` (drie ruiten op elke put), CPU-tijd user plus sys: voor 49,27 s, na 49,72 s gemiddeld, **+0,9 procent** (per paar +0,1, +0,8, +2,7, +0,1). De runs lopen uiteen (ander goud), dus dat is ruis; aan het tekenen veranderde niets: nog steeds één gebakken plaatje per rij ruiten (nu smaller) en één deco-stuk per plek.
+
+**Code:** `godot/systemen/stap_teken.gd` (PUT_MAAT 0,7, maat in plek en plaatje), `godot/systemen/stap_stenen.gd` (maat per laag), `godot/hol/hol.gd` (PUT_STEEN_Y 38), `godot/hol/hol_vast.gd` (GANG_VAANDEL = wortels_a in het volle gangstuk; regels van vol_rij gelijk). **Toetsen:** alle 9 op Linux 0 FOUT, 3 nieuwe regels in `toets_systemen.gd`.

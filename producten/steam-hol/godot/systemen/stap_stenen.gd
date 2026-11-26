@@ -10,6 +10,7 @@ const WISSEL_S := 20.0
 
 var plekken: Array = []   # middens van de rijen (Vector2, spelpixels in de ouder)
 var n := 0
+var maat := 1.0           # kleiner op het luik van de put (stap_teken.gd PUT_MAAT, #222)
 var _wissel := false
 var _nep := false   # wissel=nep: zelfde regels, stenen blijven aan (placebo voor de ruis)
 var _was := true
@@ -48,7 +49,7 @@ func zet(nieuw_plekken: Array, nieuw_n: int) -> void:
 func _draw() -> void:
 	for i in _keer:
 		for p in plekken:
-			STAP_TEKEN.teken(self, p + Vector2(0.0, -0.01 * i), n)
+			STAP_TEKEN.teken(self, p + Vector2(0.0, -0.01 * i), n, maat)
 
 # stenen_keer=<n> (alleen meten): elke rij n keer over elkaar, zodat de kost van één rij n keer zo groot en meetbaar wordt
 var _keer := 1
