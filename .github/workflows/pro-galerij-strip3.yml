@@ -3,7 +3,7 @@ name: Pro galerij strip v3 (kogel en scharnier)
 # 26 nov 2026, Beeldmaker (issue #205): galerijbeeld "Find the fit for your printer" met beide proefsets uit de echte
 # add-on (Pro 1.2.8): Fit test: ball en Fit test: hinge. De rechters van de blinde test zeiden bij strip v2 elke ronde
 # "lijkt alleen voor kogels". Drie camera-varianten in één run; alleen kale renders en json gaan naar release
-# pro-galerij-strip-3. De tekst komt er in de repo op (ontwerp/pro-galerij/bron/tekst.py). Niets geplaatst, niets kost geld.
+# pro-galerij-strip-3 (v3) en pro-galerij-strip-4 (strakke goudrand, 26 nov ±20:45). De tekst komt er in de repo op (ontwerp/pro-galerij/bron/tekst.py). Niets geplaatst, niets kost geld.
 on:
   push:
     branches: [main]
@@ -18,7 +18,7 @@ permissions:
   contents: write
 
 env:
-  TAG: pro-galerij-strip-3
+  TAG: pro-galerij-strip-4
 
 jobs:
   render:
@@ -54,9 +54,8 @@ jobs:
               | tee /tmp/uit/$naam.log | grep -E "\[|Traceback|Error" | cut -c1-300
             [ -s /tmp/uit/render-$naam.png ] && echo "OK $naam" || echo "GEEN RENDER $naam"
           }
-          r naast GB_NAAST=40 GB_TIL=10 GB_KANTEL_TOP=-35 GB_ZIJ=-0.45 GB_OP=0.42 GB_AFSTAND=820 GB_SHIFT=-0.17
-          r rij GB_RIJ2_Y=75 GB_TIL=10 GB_KANTEL_TOP=-35 GB_ZIJ=-0.6 GB_OP=0.8 GB_AFSTAND=520 GB_SHIFT=-0.17
-          r naast-laag GB_NAAST=40 GB_TIL=8 GB_KANTEL_TOP=-25 GB_ZIJ=-0.3 GB_OP=0.3 GB_AFSTAND=860 GB_SHIFT=-0.17
+          # strip v4 (Daan #215 kan-punt): zelfde camera als v3 'naast', alleen een strakke goudrand op de kogelstaven
+          r naast GB_STRAKKE_RAND=1 GB_NAAST=40 GB_TIL=10 GB_KANTEL_TOP=-35 GB_ZIJ=-0.45 GB_OP=0.42 GB_AFSTAND=820 GB_SHIFT=-0.17
           ls -la /tmp/uit
           ls /tmp/uit/render-*.png >/dev/null 2>&1 || { echo "FOUT: geen enkele render"; exit 1; }
       - name: In release pro-galerij-strip-3
@@ -69,7 +68,7 @@ jobs:
             if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
               gh release upload "$TAG" $F --clobber -R "$GITHUB_REPOSITORY" && break
             else
-              gh release create "$TAG" $F -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Pro galerij strip 3" --notes-file /tmp/notes.md && break
+              gh release create "$TAG" $F -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Pro galerij strip 4" --notes-file /tmp/notes.md && break
             fi
             sleep 20
           done

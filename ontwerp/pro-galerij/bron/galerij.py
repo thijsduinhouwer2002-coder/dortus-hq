@@ -255,9 +255,22 @@ def strip():
         mw = o.matrix_world
         zone = float(os.environ.get("GB_GOUDZONE", "11"))
         boven = bool(o.get("cj_kaart_getal"))   # bovenste helft: de kom; onderste helft: kogel en nek
+        # strakke rand (Daan #215 kan-punt, issue strip v3 rand): bij de kogelstaaf blijft de buitenwand wit, alleen
+        # het bovenvlak, de nek en de kogel worden goud. Zo loopt de grens over de rand van de staaf, niet rafelig
+        # over losse driehoekjes in de wand.
+        strak = os.environ.get("GB_STRAKKE_RAND") == "1" and not boven and o.name in voor
+        if strak:
+            hoeken = [mw @ Vector(c) for c in o.bound_box]
+            ax = sum((h.x for h in hoeken)) / 8
+            ay = sum((h.y for h in hoeken)) / 8
+            straal = max(math.hypot((mw @ v.co).x - ax, (mw @ v.co).y - ay) for v in o.data.vertices)
         for p in o.data.polygons:
             zs = [(mw @ o.data.vertices[i].co).z for i in p.vertices]
-            if (boven and all(z < 30.0 + zone for z in zs)) or (not boven and all(z > 29.5 for z in zs)):
+            if strak:
+                c = mw @ p.center
+                if c.z > 29.5 and math.hypot(c.x - ax, c.y - ay) < straal * 0.93:
+                    p.material_index = 1
+            elif (boven and all(z < 30.0 + zone for z in zs)) or (not boven and all(z > 29.5 for z in zs)):
                 p.material_index = 1
         o.data.update()
     kantel = math.radians(float(os.environ.get("GB_KANTEL_TOP", "0")))
