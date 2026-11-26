@@ -1,0 +1,200 @@
+# gemaakt: 2026-11-26T10:33:41Z
+# workflow: Regisseur 28 (sale-Short in procesvorm #159: echte schermopname, grijs naar mooie render) (.github/workflows/regisseur-28.yml)
+# run: 45795334989 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45795334989
+# commit: 5eb48f41 tak regisseur-28-proef gestart door push
+# mislukte stappen: opname: Opnemen (echt scherm 2160x1920, x11grab 30 fps)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== opname / Opnemen (echt scherm 2160x1920, x11grab 30 fps) (laatste 191 van 191 regels) =====
+##[group]Run /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_s.blend')"
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_s.blend')"
+mkdir -p /tmp/klaar
+timeout 2400 xvfb-run --auto-servernum --server-args="-screen 0 2160x1920x24 -noreset" \
+  bash commercie/filmpjes/regisseur-28/neem_op.sh /tmp/blender/blender /tmp/start_s.blend /tmp/opn /tmp/click_joints_betaald.zip 2160x1920 2>&1 | tee /tmp/klaar/opname.log || true
+grep -E "KORT|Traceback|Error|opname klaar" /tmp/klaar/opname.log | cut -c1-400 || true
+[ -s /tmp/opn/scherm-ruw.ts ] || { echo "FOUT: geen opname"; exit 1; }
+cp /tmp/opn/film.json /tmp/opn/start.txt /tmp/opn/muis.txt /tmp/klaar/
+ffmpeg -v error -i /tmp/opn/scherm-ruw.ts -r 30 -c:v libx264 -preset veryfast -crf 17 -pix_fmt yuv420p /tmp/klaar/scherm.mkv
+ls -la /tmp/klaar
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-28
+  PRO_COMMIT_VOOR: a3c1ea1
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/cj_pro
+  BLENDER_USER_CONFIG: /tmp/cj_pro/config
+  BLENDER_USER_EXTENSIONS: /tmp/cj_pro/extensions
+##[endgroup]
+00:01.606  blend            | Writing user preferences: "/tmp/cj_pro/config/userpref.blend" 
+Info: Preferences saved
+Info: Saved as "start_s.blend"
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+00:03.615  blend            | Read blend: "/tmp/start_s.blend"
+[cj-scherm] Blender 5.3.0, zip /tmp/click_joints_betaald.zip
+[studio] robot: 20100 punten voor de remesh, maat (148.5, 42.2, 220.4)
+Info: Watertight copy Figuur_gesloten made (273120 faces)
+[studio] kleuren per vorm: 273120 vlakken, 3200 buiten elke vorm
+[studio] robot na voxel: 273122 punten, {'open_randen': 0, 'stukken': 1}
+[cj-mens] RIG: 20 botten, knie L (18.5, 4.0, 57.0), elleboog L (50.0, -3.6, 132.0)
+[cj-scherm] KORT robot Figuur punten 273122
+[cj-scherm] actief tabblad: Item (poging 0)
+[cj-scherm] actief tabblad: Tool (poging 1)
+[cj-scherm] actief tabblad: View (poging 2)
+[cj-scherm] actief tabblad: Animation (poging 3)
+[cj-scherm] actief tabblad: Click Joints (poging 4)
+[cj-scherm] KORT zijbalk sleep dx=2: [1078, 107, 1082, 1768]
+[cj-scherm] KORT schaal 1221.0
+[cj-scherm] deel grijs 1795686846.334
+[cj-scherm] KORT OK grijs
+[cj-scherm] deel rig 1795686852.637
+[cj-scherm] KORT OK rig
+[cj-scherm] deel kies 1795686856.243
+[cj-scherm] deel knop 1795686860.210
+[cj-scherm] KORT knop poging 1: 0.6 s, delen False
+02:42.924  operator         | 9 joints · 2 rig · 2 mirror · 5 preset.
+Info: Hinge placed. Bends 0° to 140°. 8.423 s.
+Info: Hinge placed. Bends 0° to 140°. 7.989 s.
+Info: Hinge placed. Bends 0° to 120°. 8.236 s.
+Info: Hinge placed. Bends 0° to 120°. 7.632 s.
+Info: Joint placed. Good fit. 4.292 s.
+Info: Joint placed. Good fit. 6.07 s.
+Info: Joint placed. Good fit. 5.728 s.
+Info: Joint placed. Good fit. 6.693 s.
+Info: Joint placed. Good fit. 5.998 s.
+[cj-scherm] KORT knop poging 2: 102.7 s, delen True
+[cj-scherm] deel knop_klaar 1795686970.471
+[cj-scherm] KORT knop 9 gewrichten
+[cj-scherm] KORT OK knop
+[cj-scherm] deel uitelkaar 1795686974.132
+[cj-scherm] deel uitelkaar_aan 1795686977.719
+[cj-scherm] deel schouder 1795686981.593
+[cj-scherm] deel heup 1795686985.978
+[cj-scherm] KORT OK uitelkaar
+[cj-scherm] deel knie 1795686995.809
+[cj-scherm] KORT ocr niet gevonden: 'Bend' (116 woorden: v click joints yel 1 place mesh figuur_a_a_b shift + right click sets the 3d cursor view direction 3d cursor q check mesh © 2 joint ball pin diameter mm 13.0 auto clearance mm 0.20 j place joint ef exploded view t 3 fitand export vy good fit folder /tmp/opn/export stl 3mf export stl @ print this first fit test)
+[cj-scherm] KORT ocr niet gevonden: 'Show bend range' (116 woorden: v click joints yel 1 place mesh figuur_a_a_b shift + right click sets the 3d cursor view direction 3d cursor q check mesh © 2 joint ball pin diameter mm 13.0 auto clearance mm 0.20 j place joint ef exploded view t 3 fitand export vy good fit folder /tmp/opn/export stl 3mf export stl @ print this first fit test)
+[cj-scherm] deel knie_buig 1795687005.849
+[cj-scherm] deel knie_stop 1795687014.705
+[cj-scherm] deel knie_rood 1795687015.648
+[cj-scherm] KORT knie stop 119.96 rood 13
+[studio] kleuren per vorm: 273120 vlakken, 3199 buiten elke vorm
+[studio] kleuren per vorm: 331186 vlakken, 11066 buiten elke vorm
+[studio] kleuren per vorm: 448947 vlakken, 34674 buiten elke vorm
+[studio] kleuren per vorm: 251991 vlakken, 2720 buiten elke vorm
+[studio] kleuren per vorm: 304924 vlakken, 10360 buiten elke vorm
+[studio] kleuren per vorm: 412130 vlakken, 33092 buiten elke vorm
+[studio] kleuren per vorm: 18521 vlakken, 469 buiten elke vorm
+[studio] kleuren per vorm: 23039 vlakken, 657 buiten elke vorm
+[studio] kleuren per vorm: 32444 vlakken, 1408 buiten elke vorm
+[studio] kleuren per vorm: 230872 vlakken, 2244 buiten elke vorm
+[studio] kleuren per vorm: 278646 vlakken, 9655 buiten elke vorm
+[studio] kleuren per vorm: 375281 vlakken, 31508 buiten elke vorm
+[studio] kleuren per vorm: 18513 vlakken, 468 buiten elke vorm
+[studio] kleuren per vorm: 23041 vlakken, 659 buiten elke vorm
+[studio] kleuren per vorm: 32422 vlakken, 1412 buiten elke vorm
+[studio] kleuren per vorm: 196304 vlakken, 1931 buiten elke vorm
+[studio] kleuren per vorm: 238016 vlakken, 8558 buiten elke vorm
+[studio] kleuren per vorm: 322404 vlakken, 27563 buiten elke vorm
+[studio] kleuren per vorm: 32946 vlakken, 299 buiten elke vorm
+[studio] kleuren per vorm: 38662 vlakken, 1011 buiten elke vorm
+[studio] kleuren per vorm: 50333 vlakken, 3591 buiten elke vorm
+[studio] kleuren per vorm: 161736 vlakken, 1618 buiten elke vorm
+[studio] kleuren per vorm: 197387 vlakken, 7465 buiten elke vorm
+[studio] kleuren per vorm: 269541 vlakken, 23626 buiten elke vorm
+[studio] kleuren per vorm: 32948 vlakken, 299 buiten elke vorm
+[studio] kleuren per vorm: 38668 vlakken, 1010 buiten elke vorm
+[studio] kleuren per vorm: 50364 vlakken, 3593 buiten elke vorm
+[studio] kleuren per vorm: 139945 vlakken, 1456 buiten elke vorm
+[studio] kleuren per vorm: 171481 vlakken, 6953 buiten elke vorm
+[studio] kleuren per vorm: 235325 vlakken, 21496 buiten elke vorm
+[studio] kleuren per vorm: 26270 vlakken, 133 buiten elke vorm
+[studio] kleuren per vorm: 30696 vlakken, 498 buiten elke vorm
+[studio] kleuren per vorm: 39640 vlakken, 2072 buiten elke vorm
+[studio] kleuren per vorm: 126545 vlakken, 1465 buiten elke vorm
+[studio] kleuren per vorm: 154637 vlakken, 6884 buiten elke vorm
+[studio] kleuren per vorm: 211411 vlakken, 21192 buiten elke vorm
+[studio] kleuren per vorm: 17972 vlakken, 4 buiten elke vorm
+[studio] kleuren per vorm: 21572 vlakken, 18 buiten elke vorm
+[studio] kleuren per vorm: 29007 vlakken, 96 buiten elke vorm
+[studio] kleuren per vorm: 113166 vlakken, 1496 buiten elke vorm
+[studio] kleuren per vorm: 137670 vlakken, 6901 buiten elke vorm
+[studio] kleuren per vorm: 187024 vlakken, 21132 buiten elke vorm
+[studio] kleuren per vorm: 17970 vlakken, 4 buiten elke vorm
+[studio] kleuren per vorm: 21558 vlakken, 18 buiten elke vorm
+[studio] kleuren per vorm: 28978 vlakken, 96 buiten elke vorm
+[studio] kleuren per vorm: 93074 vlakken, 1536 buiten elke vorm
+[studio] kleuren per vorm: 113080 vlakken, 6875 buiten elke vorm
+[studio] kleuren per vorm: 153247 vlakken, 20783 buiten elke vorm
+[studio] kleuren per vorm: 24746 vlakken, 63 buiten elke vorm
+[studio] kleuren per vorm: 29470 vlakken, 274 buiten elke vorm
+[studio] kleuren per vorm: 39082 vlakken, 1011 buiten elke vorm
+[studio] kleuren per vorm: 72982 vlakken, 1506 buiten elke vorm
+[studio] kleuren per vorm: 88274 vlakken, 6634 buiten elke vorm
+[studio] kleuren per vorm: 118840 vlakken, 19813 buiten elke vorm
+[studio] kleuren per vorm: 24747 vlakken, 63 buiten elke vorm
+[studio] kleuren per vorm: 29464 vlakken, 273 buiten elke vorm
+[studio] kleuren per vorm: 39069 vlakken, 1003 buiten elke vorm
+[cj-scherm] deel kleur 1795687232.624
+[cj-scherm] KORT ocr niet gevonden: 'Shading' (15 woorden: 2 file edit render window - help layout av scene c wa v viewlayer c)
+[cj-scherm] KORT vangnet tab Shading
+[cj-scherm] deel shading 1795687242.120
+[cj-scherm] KORT OK kleur
+[cj-scherm] deel licht 1795687248.567
+[cj-scherm] KORT ocr niet gevonden: 'Roughness' (62 woorden: v view select add node slot 1 ov mm object v by toy_wit 2oca.x dq ¢ m= figuur > vy figuur.002 > @ toywit y material output all surface @ volume cement “ geometry position bsdf e ness tangent 0.000 4 true normal 0.360 incoming 1.500 parametric 1.000 backfacing pointiness random per island ween wee specular transmission coat sheen emission)
+[cj-scherm] KORT OK licht
+[cj-scherm] deel tijdlijn 1795687285.966
+[cj-scherm] KORT ocr niet gevonden: 'Layout' (15 woorden: 2 file edit render window - help shading av scene c wa v viewlayer c)
+[cj-scherm] KORT vangnet tab Layout
+[cj-scherm] KORT tijdlijn laag: 128
+[cj-scherm] KORT tijdlijn frame 60
+[cj-scherm] KORT OK tijdlijn
+[cj-scherm] deel render 1795687332.095
+[cj-scherm] KORT ocr niet gevonden: 'Render Animation' (44 woorden: 2 file edit render window - help layout ov m object mode v view select add object l global v cay v click joints ‘  woia  a yel 1 place \ 7 mesh select ar «e's shift + right clic vos \)
+[cj-scherm] KORT render-menu: Render Animation niet gevonden
+[cj-scherm] KORT OK render
+[cj-scherm] deel eind_render 1795687344.997
+12:20.054  render           | Saved: '/tmp/opn/eind/e_0001.png'
+14:36.937  render           | Saved: '/tmp/opn/eind/e_0002.png'
+16:54.500  render           | Saved: '/tmp/opn/eind/e_0003.png'
+19:10.987  render           | Saved: '/tmp/opn/eind/e_0004.png'
+21:27.951  render           | Saved: '/tmp/opn/eind/e_0005.png'
+23:44.676  render           | Saved: '/tmp/opn/eind/e_0006.png'
+26:02.013  render           | Saved: '/tmp/opn/eind/e_0007.png'
+28:18.657  render           | Saved: '/tmp/opn/eind/e_0008.png'
+30:35.517  render           | Saved: '/tmp/opn/eind/e_0009.png'
+32:52.852  render           | Saved: '/tmp/opn/eind/e_0010.png'
+35:10.198  render           | Saved: '/tmp/opn/eind/e_0011.png'
+37:27.038  render           | Saved: '/tmp/opn/eind/e_0012.png'
+39:43.688  render           | Saved: '/tmp/opn/eind/e_0013.png'
+[cj-scherm] KORT robot Figuur punten 273122
+[cj-scherm] KORT zijbalk sleep dx=2: [1078, 107, 1082, 1768]
+[cj-scherm] KORT schaal 1221.0
+[cj-scherm] KORT OK grijs
+[cj-scherm] KORT OK rig
+[cj-scherm] KORT knop poging 1: 0.6 s, delen False
+[cj-scherm] KORT knop poging 2: 102.7 s, delen True
+[cj-scherm] KORT knop 9 gewrichten
+[cj-scherm] KORT OK knop
+[cj-scherm] KORT OK uitelkaar
+[cj-scherm] KORT ocr niet gevonden: 'Bend' (116 woorden: v click joints yel 1 place mesh figuur_a_a_b shift + right click sets the 3d cursor view direction 3d cursor q check mesh © 2 joint ball pin diameter mm 13.0 auto clearance mm 0.20 j place joint ef exploded view t 3 fitand export vy good fit folder /tmp/opn/export stl 3mf export stl @ print this first fit test)
+[cj-scherm] KORT ocr niet gevonden: 'Show bend range' (116 woorden: v click joints yel 1 place mesh figuur_a_a_b shift + right click sets the 3d cursor view direction 3d cursor q check mesh © 2 joint ball pin diameter mm 13.0 auto clearance mm 0.20 j place joint ef exploded view t 3 fitand export vy good fit folder /tmp/opn/export stl 3mf export stl @ print this first fit test)
+[cj-scherm] KORT knie stop 119.96 rood 13
+[cj-scherm] KORT ocr niet gevonden: 'Shading' (15 woorden: 2 file edit render window - help layout av scene c wa v viewlayer c)
+[cj-scherm] KORT vangnet tab Shading
+[cj-scherm] KORT OK kleur
+[cj-scherm] KORT ocr niet gevonden: 'Roughness' (62 woorden: v view select add node slot 1 ov mm object v by toy_wit 2oca.x dq ¢ m= figuur > vy figuur.002 > @ toywit y material output all surface @ volume cement “ geometry position bsdf e ness tangent 0.000 4 true normal 0.360 incoming 1.500 parametric 1.000 backfacing pointiness random per island ween wee specular transmission coat sheen emission
+[cj-scherm] KORT OK licht
+[cj-scherm] KORT ocr niet gevonden: 'Layout' (15 woorden: 2 file edit render window - help shading av scene c wa v viewlayer c)
+cp: cannot stat '/tmp/opn/film.json': No such file or directory
+cp: cannot stat '/tmp/opn/start.txt': No such file or directory
+[cj-scherm] KORT vangnet tab Layout
+[cj-scherm] KORT tijdlijn laag: 128
+[cj-scherm] KORT tijdlijn frame 60
+[cj-scherm] KORT OK tijdlijn
+[cj-scherm] KORT ocr niet gevonden: 'Render Animation' (44 woorden: 2 file edit render window - help layout ov m object mode v view select add object l global v cay v click joints ‘  woia  a yel 1 place \ 7 mesh select ar «e's shift + right clic vos \)
+[cj-scherm] KORT render-menu: Render Animation niet gevonden
+[cj-scherm] KORT OK render
+##[error]Process completed with exit code 1.
