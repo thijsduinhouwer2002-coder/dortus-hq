@@ -1,0 +1,27 @@
+{
+ "paren": 1635,
+ "driehoeken": 868,
+ "status": "grijs",
+ "ritme_s": 3,
+ "max_boeken": 15,
+ "kosten": {
+  "GEZIEN uit de API, per paar": {
+   "hoog": 0.0008,
+   "laag": 0.0008,
+   "paren": 1635
+  }
+ },
+ "minima_paren": 1635,
+ "geladen": "2026-11-26T04:56:39Z",
+ "min_inleg": {
+  "driehoeken": 868,
+  "mediaan_eur": 10.0,
+  "met_eur": 76,
+  "tot_100": 868,
+  "met_eur_tot_100": 76,
+  "tot_150": 868,
+  "met_eur_tot_150": 76,
+  "tot_200": 868,
+  "met_eur_tot_200": 76
+ }
+}
