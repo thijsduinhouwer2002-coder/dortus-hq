@@ -1,5 +1,8 @@
 # Click Cuts changelog
 
+## Unreleased (1.1, after the launch of 1.0.0)
+- Draw cut: after Split to fit, press Draw cut under the result and drag a line across a part where you want it cut. The cut plane goes along your line, straight away from you, only as wide as the line, with its arrow on the smaller side. Press Cut piece and the part is cut there, with pins and numbers like every other cut. Adjust with G, R and S first if you like.
+
 ## 1.0.0 (candidate, 25 Nov 2026)
 First version.
 - Split to fit: one button cuts the selected model into parts that fit your printer bed, with pins, pin holes and part numbers.
