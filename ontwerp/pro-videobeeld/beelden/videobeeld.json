@@ -1,0 +1,54 @@
+{
+ "figuur": "MakeHuman base mesh (CC0 1.0, commercie/filmpjes/studio/modellen/makehuman-base-LICENTIE.md), aangekleed door figuur_laden.py",
+ "uit_mm": 36.0,
+ "modus": "klik",
+ "gewrichten": [
+  "Left elbow · Hinge · 0–140° · from rig",
+  "Right elbow · Hinge · 0–140° · mirror",
+  "Left knee · Hinge · 0–120° · from rig",
+  "Right knee · Hinge · 0–120° · mirror",
+  "Neck · Ball · ±20° · preset",
+  "Left shoulder · Ball · ±20° · preset",
+  "Right shoulder · Ball · ±20° · preset",
+  "Left hip · Ball · ±20° · preset",
+  "Right hip · Ball · ±20° · preset"
+ ],
+ "delen": 10,
+ "goud_vlakken": 18366,
+ "pose": {},
+ "kader": [
+  [
+   -283.6799011230469,
+   -39.05358123779297,
+   -8.940696716308594e-08
+  ],
+  [
+   83.95783996582031,
+   23.748140335083008,
+   269.6356506347656
+  ]
+ ],
+ "kaders": {
+  "rig": [
+   [
+    0.4128,
+    0.8801
+   ],
+   [
+    0.6142,
+    0.8704
+   ]
+  ],
+  "delen": [
+   [
+    0.721,
+    0.5039
+   ],
+   [
+    0.972,
+    0.4984
+   ]
+  ]
+ },
+ "botten": 20
+}
