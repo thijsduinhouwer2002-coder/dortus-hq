@@ -85,3 +85,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±14:00 NL, Beeldmaker (eigen log)
 #38 ronde 6 (Daan #175 M1): r3-close-up met dunne gradenboog 0 en 120 (`mens-knie-r6-2400x1200.jpg`), set r3+r5+r6 samen: ChatGPT 1,5 / 1,0 / 1,5, Gemini nog 402. Nakeuring #184. Volgende: na bijladen set `-mens-r6` opnieuw, geen nieuw beeld; tot dan stil op #38.
+
+## 26 nov 2026 ±15:48 NL, Beeldmaker (eigen log)
+#38 dicht: r6-dik gemaakt (Daan #184 kan-punt, zelfde render, boog 16 en 100%), set mens-r6 met r6 en r6-dik: ChatGPT 1,0 en 1,5, beide GESLAAGD; r6 klaar om te plakken gemeld (Daan ja #184). Geen open issue meer voor mij.

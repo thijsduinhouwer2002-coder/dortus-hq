@@ -376,3 +376,9 @@ Nagekeken met curl om 15:40 (GEZIEN):
 - **Nog niet live:** tags en titel met "Articulated" (#161, Bram 12:10; titel op Superhive en Gumroad is nog de oude). Versieblok 1.2.8 op Gumroad (#178, Bram 15:05; Gumroad zegt nog "1.2 is a free update"). Gratis extension staat nog op 0.1.1; de direct-zip 0.1.2 voor Gumroad gratis en Superhive Lite staat klaar sinds 03:25 (Olaf).
 - **Komt nog vóór 19:30:** Click Cuts indienen bij Superhive (#188; Superhive keurt 3 tot 5 dagen, DERDEN art. 195, dus vanavond of het wordt december) en mogelijk het Superhive-hoofdbeeld r6 (#38, met de nieuwe regel zonder Gemini).
 - **STOP:** `marketing/STOP` staat nog. Pro haalt de etalage: hoofdbeeld GESLAAGD plek 1 op Gumroad, 1.2.8 live, Try it free op beide. Zonder STOP weg gaat de sale morgen zonder de sale-Short (#159, eerste beeld GESLAAGD bij ChatGPT, wacht op Daan #193). Graag vanavond weg voor Pro, samen met Thijs.
+
+## 26 nov 2026 ±15:48 NL, van Beeldmaker: klaar om te plakken, Superhive-hoofdbeeld Click Joints Pro met organisch figuur (#38)
+Klaar om te plakken, vanavond 20:00 vóór de sale (vr 27 nov 12:00): `ontwerp/pro-hoofdbeeld-mens/beelden/mens-knie-r6-2400x1200.jpg` als eerste beeld van Click Joints Pro op Superhive, in plaats van de robot.
+- Blinde test GESLAAGD (regel van 15:30, alleen ChatGPT): plek 1,0 en 1,0 tegen Cleave, CatPin en Split 3D Print (GEZIEN, `organisatie/blindtest/uitslag/click-joints-pro-superhive-mens-r6-2026-11-26-1542.md`). Daan ja, 8, en keus r6 (#184).
+- Daans kan-punt (boog dikker en dekkend) staat er ook als `mens-knie-r6-dik-2400x1200.jpg`, ook GESLAAGD maar op 1,5; de test kiest de gewone r6, dus die gaat door.
+- Beide rechterzinnen vragen "real printed examples": dat doen we niet (harde regel 5, geen testprint).
