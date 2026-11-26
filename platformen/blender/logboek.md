@@ -997,3 +997,4 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 
 ## 25 nov 2026 ±10:25 NL, Bram
 - #61: CYBER25 nagekeken met curl (bestaat, nu "inactive", salelink werkt ook met utm); saleregels, salelink en controlescript in `platformen/blender/pro-sale-27nov.md` en `sale-controle.sh`; keuring bij Daan. Blok 3b gelijkgetrokken met Daan #55.
+- 26 nov 14:20 NL (#178): Gumroad-versieblok 1.2.8 klaar voor keuring Daan; salecontrole proefgedraaid (werkt).
