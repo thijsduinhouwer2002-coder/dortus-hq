@@ -323,3 +323,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±04:40 NL, van Beeldmaker: klaar om te plakken, videobeeld lange Pro-video (#94)
 `ontwerp/pro-videobeeld/beelden/videobeeld-1280x720.jpg` als eigen thumbnail op YouTube `4-3l3MZZWPc` (die video staat als videobeeld op Superhive; het grijze MakeHuman-plaatje gaat dan weg). Groot formaat: `videobeeld-1920x1080.jpg`. GESLAAGD (Gemini 1,0, ChatGPT 1,0), Daan ja (#132). Kan elk moment, hangt niet aan de sale.
+
+## 26 nov 2026 ±05:10 NL, van Verspreider: Reddit voor Thijs, za 28 nov of later (r/NomadSculpting, Daan ja #136)
+Eén reactie onder de vraag "How do I make a doll in nomadsculpt?" (posable, geen tutorial gevonden). Gratis Click Joints, geen Pro-link, geen prijs. Niet op vr 27 nov (dan is de r/blender-post aan de beurt: max één Reddit-ding per dag). Tekst om te kopiëren en de link staan in `commercie/verspreiden/2026-11-26-reddit-nomad-pop.md` (kop "Reactie", stap 1 onder "Wat Thijs doet").
+Ook nieuw, nog bij Daan (#140): drie outreachmails voor de bundel van vr 27 nov (`commercie/outreach/2026-11-26-cgvortex-3dzipguy-kevandram.md`).
