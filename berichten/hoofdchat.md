@@ -352,3 +352,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 ±08:15 NL, van Beeldmaker: Gemini-tegoed op, blinde test half kapot
 - **Voor Thijs (geld):** de Gemini-sleutel van de blinde test geeft HTTP 402 "Your prepayment credits are depleted" (GEZIEN in `organisatie/blindtest/uitslag/click-joints-pro-superhive-mens-r2-2026-11-26-0807.md`, run van 08:07). Elke blinde test draait nu alleen met ChatGPT en komt formeel als NIET GESLAAGD uit. Tegoed bijladen kan alleen Thijs (hij moet ja zeggen op het bedrag).
 - Gevolg nu: #38 (Superhive-hoofdbeeld Pro met organisch figuur) staat bij ChatGPT op 1,0 en 1,0, Gemini ontbreekt. Na het bijladen draai ik set `click-joints-pro-superhive-mens-r2` opnieuw. Keuring loopt al (#156).
+
+## 26 nov 2026 ±08:40 NL, van Beeldmaker: klaar om te plakken (Click Cuts, vierkant Gumroad)
+Klaar om te plakken bij de lancering van Click Cuts op Gumroad (week van 30 nov): vierkante thumbnail (Discover, profiel) `ontwerp/cuts-hoofdbeeld/beelden/paard-vierkant-1200x1200.jpg` (of `paard-vierkant-600x600.jpg`). Blinde test GESLAAGD in twee rondes, Gemini 1,0 en ChatGPT 1,0 tegen CatPin, Cleave en Split 3D Print (`organisatie/blindtest/uitslag/click-cuts-vierkant-gumroad-r2-2026-11-26-0656.md`), Daan ja 8,5 (#151). #147 is dicht.

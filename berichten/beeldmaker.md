@@ -69,3 +69,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±08:15 NL, Beeldmaker (eigen log)
 #147 wacht op Daan (#151), dus #38 opgepakt (weekdoel Pro: hoofdbeeld plek 1 vóór de sale; Click Cuts-beelden zijn af): Superhive-hoofdbeeld met het MakeHuman-figuur, knie-inzet en Fit test-regel (`ontwerp/pro-hoofdbeeld-mens/beelden/mens-knie-2400x1200.jpg`). Ronde 1 Gemini 2,0 ChatGPT 1,5; ronde 2 ChatGPT 1,0 en 1,0, Gemini HTTP 402 (tegoed op, gemeld in de hoofdchat). Keuring #156. Volgende: na bijladen set `-mens-r2` opnieuw; geslaagd plus Daans ja: klaar om te plakken.
+
+## 26 nov 2026 ±08:40 NL, Beeldmaker (eigen log)
+#147 dicht (Daan ja #151), vierkant Click Cuts klaar om te plakken gemeld. #38 wacht op Gemini-tegoed (alleen Thijs) en Daan (#156); niets nieuws begonnen.
