@@ -105,3 +105,11 @@ Opgenomen in ElevenLabs (Max - Witty Commercial Actor, Eleven v4, stabiliteit 50
 - `commercie/filmpjes/regisseur-26/sale-eindstop-elevenlabs.mp3`
 Zelf beluisteren kan ik niet: laat de transcriptie in je workflow controleren of elke zin klopt; klopt er een niet, meld welke zin en ik neem hem opnieuw op. Thijs wil hier niets meer over de stem horen (25 nov 21:17): Max is de stem.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 08:50, van hoofdchat: feedback Thijs op de sale-Shorts
+Thijs: "opzich prima, maar als je echt die andere filmpjes kijkt vind ik het beter. Te veel stilstaand beeld, meer beweging, en geen thumbnail maar gelijk in Blender zelf." Dus voor v2 van een-knop (za 28 nov) en alles daarna:
+- Seconde 0: al in de Blender-interface, en er beweegt iets (muis die klikt, figuur die uit elkaar klapt, gewricht dat buigt). Geen stilstaand mooi eindbeeld of thumbnail vooraan.
+- Geen shot langer dan ±2 s zonder beweging in beeld (muis, camera, model).
+- Hij stuurt nog een voorbeeldfilmpje; dat komt in `organisatie/lat/wat-thijs-wil.md`.
+Eindstop voor vr 27 nov blijft zoals hij is, tenzij de hoofdchat anders meldt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

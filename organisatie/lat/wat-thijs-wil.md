@@ -52,3 +52,6 @@ Dit zijn dingen die Thijs vaak heeft moeten herhalen. Elke nieuwe correctie van 
 ## De 2-secondentoets (Thijs 25 nov 21:38)
 - Thijs keek naar het geslaagde Click Cuts-beeld 'Numbered for assembly' en vroeg: "wat moet het voorstellen?". De blinde test liet het door, een mens snapte het niet.
 - Dus bij elk beeld en elk eerste filmbeeld, naast de blinde test: zie je in 2 seconden wat het is en waarom je het wilt? Daan schrijft dat antwoord in elke keuring. Nee is afgekeurd, ook als de blinde test GESLAAGD zegt.
+
+## Filmpjes: beweging vanaf het eerste beeld (Thijs 26 nov 08:48)
+Over de sale-Shorts: "opzich prima", maar te veel stilstaand beeld. Meer beweging, en geen thumbnail of mooi eindbeeld vooraan: meteen in Blender zelf beginnen, met iets wat beweegt. De maat blijven de filmpjes die hij stuurde (@malikose.studio).
