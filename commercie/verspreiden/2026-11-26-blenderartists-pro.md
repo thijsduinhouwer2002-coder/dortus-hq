@@ -39,7 +39,7 @@ Pick your rigged figure and press one button. Figure from rig reads the bones yo
 
 Print the Fit test strip first: every printer is different. Works best on figures about 200 mm tall or more with separate arms and legs. Best in Blender 4.5 or newer; in 4.2 it works, but some joints may need to be placed by hand.
 
-$19 on Gumroad, 25% off with code CYBER25 until December 1: https://dortus.com/click-joints/?van=ba
+$19 on Gumroad, 25% off with code CYBER25 until December 1, 23:59 CET: https://dortus.com/click-joints/?van=ba
 Also on Superhive: https://superhivemarket.com/products/click-joints-pro
 Free version with ball and pin joints: https://extensions.blender.org/add-ons/click-joints/
 
