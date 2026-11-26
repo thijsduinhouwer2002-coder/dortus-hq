@@ -277,6 +277,14 @@ def verloop_pro():
         film["metingen"]["knie_stop"] = stop
         s = math.floor(stop * 10) / 10
         deel("knie")
+        # v7d (Daan #232 K1): het label "Right knee 0-120°" en "+N° past limit" van Pro anderhalf keer zo groot,
+        # zodat ze op een telefoon leesbaar zijn. Alleen de tekstmaat van de echte overlay, verder niets.
+        import sys as _sys
+        _sb = [m for n, m in list(_sys.modules.items()) if n.endswith(".betaald.scharnier_boog")]
+        _oud = [(m, m.FIGUUR_PX, m.ROOD_PX) for m in _sb]
+        for m in _sb:
+            m.FIGUUR_PX, m.ROOD_PX = int(m.FIGUUR_PX * 1.5), int(m.ROOD_PX * 1.5)
+        log(f"KORT labels groter: {len(_sb)} module(s)")
         yield from tot(2.5)
         yield from doe_tot(3.6, lambda t: buig(b, s * zacht(t)))
         yield from tot(3.9)
@@ -284,9 +292,12 @@ def verloop_pro():
         yield from doe_tot(4.2, lambda t: buig(b, s + 15.0 * zacht(t)))
         film["metingen"]["knie_rood_vlakken"] = len(a.get("cj_rood_vlakken", [])) // 2
         log(f"KORT knie stop {stop} rood {film['metingen']['knie_rood_vlakken']}")
-        yield from tot(4.5)
+        # v7d (Daan #232 K2): rood 0,2 s langer vasthouden (tot 4,7 s), terug in 0,4 s; lengte blijft gelijk
+        yield from tot(4.7)
         yield from doe_tot(5.1, lambda t: buig(b, (s + 15.0) * (1 - zacht(t))))
         buig(b, 0.0)
+        for m, f_, r_ in _oud:
+            m.FIGUUR_PX, m.ROOD_PX = f_, r_
     else:
         log("KORT FOUT knie: geen linkerknie")
     geen_selectie()

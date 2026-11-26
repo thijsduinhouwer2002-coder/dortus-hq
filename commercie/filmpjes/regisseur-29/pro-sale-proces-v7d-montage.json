@@ -1,0 +1,20 @@
+{
+ "duur": 20.0,
+ "weergave_s": 13.5,
+ "eind_s": 6.5,
+ "boven": [
+  "Turning a rig into",
+  "a poseable figure:"
+ ],
+ "boven_tot": 9.0,
+ "slot": [
+  "Click Joints Pro",
+  "25% off this week,",
+  "on Gumroad"
+ ],
+ "slot_s": 3.0,
+ "muziek": {
+  "pro-sale-proces-v7d": "Dreamer, Kevin MacLeod (incompetech.com), CC BY 4.0"
+ },
+ "bron": "opname run 45910280309 (verloop7.py met K1 K2), Cycles run 45896469352, geluid gelijk aan v7c"
+}

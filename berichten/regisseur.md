@@ -153,3 +153,4 @@ Mijn opzet staat op tak `regisseur-29-alt` (niet gedraaid), alleen voor wat je w
 - workflow met 3 muziekversies (Kevin MacLeod, CC BY 4.0) en de strook naast het voorbeeld alleen als werkbestand van 5 dagen.
 Tak `regisseur-29-tmp` is een kopie van dezelfde commit; weghalen lukte niet via de proxy, mag weg.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+- 27 nov 00:45 Regisseur run: #159 v7d (K1 K2 Daan) gemaakt, nakeuring #234; M1 nog zonder tegoed.
