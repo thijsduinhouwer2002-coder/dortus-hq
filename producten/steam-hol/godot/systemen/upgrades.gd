@@ -3,7 +3,7 @@ extends RefCounted
 # grootste gat tegenover de toppers (platformen/steam/toppers.md, gat 1): in een bezoek van 30 s iets te kiezen
 # dat je de minuut erna terugziet.
 #
-# Getallen uit platformen/steam/balans.md (Sanne) en sim/sim.py: drie upgrades per soort, kost 45, 60, 90 (Sanne 26 nov; 25 nov 45, 60, 160; daarvoor 45, 126, 353),
+# Getallen uit platformen/steam/balans.md (Sanne) en sim/sim.py: drie upgrades per soort, kost 45, 60, 70 (Olaf 26 nov #134; Sanne 26 nov 45, 60, 90; 25 nov 45, 60, 160; daarvoor 45, 126, 353),
 # elke upgrade +7 procentpunt kans dat een held valt. Daarbovenop heeft elke stap iets eigens dat je ziet of merkt,
 # zodat het een keuze is en geen getal:
 #   slijm:     1 Big Gloop (groter, +7)  2 Bouncy Gloop (+7, en plat 40 s in plaats van 60)  3 Royal Gloop (+7, paarse cape van Mila; eerst een kroon, maar die botste met de hoedentoren)
@@ -25,7 +25,9 @@ const FACTOR := 2.8   # niet meer gebruikt voor de prijs, zie PRIJZEN
 # GEZIEN); Ropuka krijgt precies die klacht ("1 upgrade every 6 minutes", DERDEN, lat hats-tempo.md). Stap 2 en 3 goedkoper.
 # Sanne 26 nov (Iris keuring 369bfca, aandacht 7): na de vierde koop 5 tot 7 min niets te kiezen, want stap 3 (160)
 # haalde geen zaad in 900 s. Stap 3 naar 90: tot minuut 15 elke ±3 min een keuze (meting in spelgevoel.md, bouwblad I).
-const PRIJZEN := [45, 60, 90]
+# Olaf 26 nov (#134, Iris aandacht 7): stap 3 naar 70 (was 90). Een held brengt na minuut 4 ±15 tot 18
+# goud (kern/afloop.gd GOUD_LAAT); 90 vroeg 6 tot 7 vangsten en gaf het langste gat (meting platformen/steam/data/minuut4-15/olaf-134/).
+const PRIJZEN := [45, 60, 70]
 const KANS_PER := 0.07
 
 # Naam en korte uitleg per stap, Engels zoals in het spel (hooguit 22 en 34 tekens, past in het paneel).

@@ -157,3 +157,7 @@ Speelbuild voor Thijs (#19 d) was van 25 nov 00:44; nieuwe build van main gestar
 ## 26 nov 2026 ±04:50 NL, van Iris: keuring 8e50c87, aandacht nog 7, gat komt nu van pech
 Tempo zelf gelijk, maar met de nieuwe grond zijn de reeksen helden anders (GOK). Langste stuk zonder koop (GEZIEN, mijn logs): zaad 2: 228, 3: **395**, 5: 243, 7: 207 s. Zaad 3 heeft tussen 413 en 809 s vooral vluchten en maar 3 vangsten. Voorstel: een bodem onder het goud in minuut 5 tot 12 (een vlucht laat ook een paar munten achter, of na 2 vluchten op rij valt de derde zeker), tot het langste gat bij zaad 2, 3, 5, 7 onder ±180 s zit. Keuring: `producten/steam-hol/keuring-iris/2026-11-26-build-8e50c87.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±06:00 NL, van Olaf: #134 tempo minuut 4 tot 12, één ding voor jou
+Langste stuk zonder koop in minuut 4 tot 12 is nu mediaan 134 s (was 212), onder 180 s in 43 van 48 runs (GEZIEN, `platformen/steam/data/minuut4-15/olaf-134/UITKOMST.md`). Getallen: vanaf 240 s open tijd +4 goud per vangst, na 60 s zonder koop een droogte van 30 s in plaats van 75, stap 3 kost 70 (was 90). Minuut 0 tot 4 gelijk. Voor jou: er zijn maar 6 dingen te koop; na de zesde (mediaan 677 s) is er niets meer te kiezen. Wie in minuut 12 tot 15 ook een keuze wil, heeft een zevende stap of iets anders nodig. Dat is ontwerp, dus jouw keuze.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

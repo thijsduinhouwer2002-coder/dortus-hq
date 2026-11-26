@@ -45,12 +45,27 @@ static func max_tegelijk(s) -> int:
 # Rusty's eerste oogst komt na 70 tot 120 s (DERDEN, organisatie/lat/hats-tempo.md). Niet in de demo-film en niet
 # tijdens de vaste stappen van het begin.
 const DROOGTE_S := 75.0
+# Olaf 26 nov (#134, Iris aandacht 7): vanaf minuut 4 open tijd, al KRAP_NA_KOOP_S geen koop en er is nog iets te koop,
+# dan komt de bodem na DROOGTE_KRAP_S in plaats van 75 s. Zo blijft een slechte reeks vluchten geen 4 tot 6 min zonder
+# keuze, en wie net kocht ziet gewoon helden ontsnappen (wrok blijft). Minuut 0 tot 4 gelijk (geen koopgeluk weggeven).
+const LAAT_VANAF_S := 240.0
+const KRAP_NA_KOOP_S := 60.0
+const DROOGTE_KRAP_S := 30.0
+static func droogte_grens(s) -> float:
+	if float(s.get("speeltijd_s")) < LAAT_VANAF_S:
+		return DROOGTE_S
+	if s.t - float(s.get_meta("laatste_koop_t", 0.0)) < KRAP_NA_KOOP_S:
+		return DROOGTE_S
+	var up = s.hol.get("upgrades")
+	if up == null or (up.kost("slijm") < 0 and up.kost("stekelput") < 0):
+		return DROOGTE_S   # alles gekocht: geen haast
+	return DROOGTE_KRAP_S
 static func tik_droogte(s) -> void:
 	if s.demo or s._begin_stap() != "":
 		return
 	if not s.has_meta("laatste_vangst_t"):
 		s.set_meta("laatste_vangst_t", s.t)
-	var droog: bool = s.t - float(s.get_meta("laatste_vangst_t")) >= DROOGTE_S
+	var droog: bool = s.t - float(s.get_meta("laatste_vangst_t")) >= droogte_grens(s)
 	if droog and not bool(s.hol.get_meta("droogte", false)) and not bool(s.hol.get_meta("droogte_bezig", false)):
 		s.hol.set_meta("droogte", true)
 		s.log_regel("HOL droogte (t %.1f)" % s.t)

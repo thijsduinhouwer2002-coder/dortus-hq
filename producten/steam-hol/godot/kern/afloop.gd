@@ -3,6 +3,11 @@ const VOORTGANG := preload("res://systemen/voortgang.gd")   # met_pensioen (Bram
 const HOL_NIVEAU := preload("res://systemen/hol_niveau.gd")
 const GOUD_BASIS := 9   # goud per vangst zonder bonus (Sanne 25 nov, bouwblad I; was 6)
 const GOUD_DEMO := 6    # in de demo-film (demo=1) de oude basis, Daan #109 M1
+# Olaf 26 nov (#134, Iris aandacht 7): vanaf minuut 4 open tijd (speeltijd_s, ook over saves heen) GOUD_LAAT erbij per
+# vangst, samen met de krappe droogte (kern/ritme.gd) en stap 3 voor 70: in minuut 4 tot 12
+# een koop binnen ±3 min. Minuut 0 tot 4 blijft gelijk (geen koopgeluk weggeven).
+const LAAT_VANAF_S := 240.0
+const GOUD_LAAT := 4
 # Deel van kern/strook.gd (Olaf), losgehaald bij het opruimen van 10 nov (strook.gd was 650 regels).
 # Statische functies; `s` is de strook. Gedrag gelijk aan voor het splitsen (film.log gelijk).
 
@@ -103,7 +108,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 			s.reeks = reeks
 		# basis 9 (Sanne 25 nov, bouwblad I; was 6): koop 2 kwam 6 tot 8 min na koop 1 (Iris d27cfc3, GEZIEN)
 		# demo=1 (film) houdt de oude 6, zodat de gekeurde demo-film gelijk blijft (Daan #109 M1)
-		var buit := (GOUD_DEMO if bool(s.get("demo")) else GOUD_BASIS) + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven)) + reeks_bonus(reeks)
+		var buit := (GOUD_DEMO if bool(s.get("demo")) else goud_basis(s)) + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven)) + reeks_bonus(reeks)
 		s.set_meta("laatste_vangst_t", s.t)   # droogte (kern/ritme.gd, bouwblad I)
 		s.hol.set_meta("droogte", false)
 		s.hol.set_meta("droogte_bezig", false)
@@ -217,6 +222,11 @@ static func put_hoed(s, _held) -> void:
 	else:
 		sl.set_process(true)
 	s.log_regel("HOL put-hoed %d naar de toren (hoeden nu %d, t %.1f)" % [int(hn), sl.hoeden.size() + sl.nacht_hoeden.size(), s.t])
+
+static func goud_basis(s) -> int:
+	if float(s.get("speeltijd_s")) < LAAT_VANAF_S:
+		return GOUD_BASIS
+	return GOUD_BASIS + GOUD_LAAT
 
 # Reeksbonus (issue 5): 1 en 2 op rij niets extra, de derde +1, de vierde +2, ... hooguit +4.
 static func reeks_bonus(r: int) -> int:

@@ -172,6 +172,7 @@ static func koop(s) -> void:
 	elif soort == "stekelput" and s.hol.has_method("put_koop"):
 		s.hol.put_koop()
 	s.log_regel("HOL koop %.1f: %s niveau %d, goud %d" % [s.t, soort, up.niveau(soort), s.hol.goud])
+	s.set_meta("laatste_koop_t", s.t)   # droogte krap na lang geen koop (kern/ritme.gd, #134)
 	if not s.demo:   # Daan #109 M1: de demo-film blijft zoals hij gekeurd is (geen koopgeluk in demo=1)
 		s.hol.set_meta("koop_geluk", soort)   # de eerste held bij dit ding valt zeker (systemen/held_val.gd, bouwblad I)
 	# het kaartje blijft 2,5 s staan met de nieuwe naam en Undo; de koopregel komt als het dichtgaat (dicht())

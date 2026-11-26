@@ -1,0 +1,243 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
+HOL start hoogte=120 schaal=3 spelpixels=0x40 venster=(0, 0) pos=(0, 0) held=res://systemen/held.gd
+HOL zaad 6
+HOL balk uit
+HOL begin: vallen (Elke)
+HOL held binnen: Elke
+HOL kroniek 2.6 (wacht 0.4): Elke climbs into your hole.
+HOL uitleg stap 1 t=4.2 
+HOL kroniek zelfde held vervangen: Elke climbs into your hole.
+HOL kroniek 5.0 (wacht 0.0): Gloop ate Elke. Kept the hood. +9
+HOL uitleg stap 2 t=6.8 Click the dirt to dig.
+HOL kroniek 7.6 (wacht 2.6): First hero for Gloop!
+HOL begin: opgegeten (Merel)
+HOL held binnen: Merel
+HOL kroniek 10.2 (wacht 1.2): Merel knocks first. Polite.
+HOL reeks 2 (+0, t 13.6)
+HOL kroniek zelfde held vervangen: Merel knocks first. Polite.
+HOL kroniek 13.6 (wacht 0.0): Merel is gone. The crown stays. +9
+HOL uitleg duw stap 2
+HOL kroniek 30.0 (wacht 0.0): Tibbe read about you in a tavern.
+HOL begin: vluchten (Tibbe)
+HOL held binnen: Tibbe
+HOL kroniek 34.0 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek zelfde held vervangen: Tibbe read about you in a tavern.
+HOL kroniek 38.6 (wacht 0.0): Tibbe fled, crying a little.
+HOL kroniek 41.2 (wacht 2.6): First hero got away.
+HOL kroniek zelfde held vervangen: Tibbe fled, crying a little.
+HOL kroniek 62.0 (wacht 0.0): Tibbe wrote a song about Gloop.
+HOL begin: terug (Tibbe)
+HOL held binnen: Tibbe
+HOL kroniek 64.6 (wacht 0.4): Gloop is up again. Wobbly.
+HOL hol-niveau 2 (faam 3, t 66.6)
+HOL kroniek 66.6 (wacht 0.0): Gloop says thanks for the snack. +12
+HOL gloop ring aan na 66.8 s (goud 50)
+HOL eerste koop mogelijk na 66 s speeltijd (goud 50)
+HOL bordje wip niveau 2
+HOL kaartje open 75.0: slijm
+HOL koop 75.0: slijm niveau 1, goud 5
+HOL gloop ring uit na 75.2 s (goud 5)
+HOL kaartje dicht 77.6
+HOL kroniek 77.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
+HOL kroniek 98.8 (wacht 0.0): Lotte says this is a quick one.
+HOL begin: doorlopen (Lotte)
+HOL held binnen: Lotte
+HOL kroniek 102.8 (wacht 0.0): Gloop is flat. Back soon.
+HOL kroniek zelfde held vervangen: Lotte says this is a quick one.
+HOL kroniek 104.4 (wacht 0.0): Lotte is now the Hoard-Toucher.
+HOL kroniek zelfde held vervangen: Lotte is now the Hoard-Toucher.
+HOL kroniek 112.4 (wacht 0.0): Lotte the Hoard-Toucher ran.
+HOL kroniek 129.4 (wacht 0.0): Odo has a map. It is wrong.
+HOL held binnen: Odo
+HOL kroniek 132.8 (wacht 0.0): Gloop is up again. Wobbly.
+HOL koopgeluk vangst +18 (t 134.0)
+HOL kroniek zelfde held vervangen: Odo has a map. It is wrong.
+HOL kroniek 134.0 (wacht 0.0): Gloop ate Odo. The pointy hat fits. +18
+HOL held binnen: Anouk
+HOL kroniek 136.6 (wacht 0.4): Anouk brought a torch. And hope.
+HOL hol-niveau 3 (faam 5, t 140.8)
+HOL reeks 2 (+0, t 140.8)
+HOL kroniek zelfde held vervangen: Anouk brought a torch. And hope.
+HOL kroniek 140.8 (wacht 0.0): Gloop ate Anouk. Burp. +9
+HOL bordje wip niveau 3
+HOL kroniek 171.2 (wacht 0.0): Geert is here for your gold.
+HOL held binnen: Geert
+HOL reeks 3 (+1, t 175.8)
+HOL kroniek zelfde held vervangen: Geert is here for your gold.
+HOL kroniek 175.8 (wacht 0.0): Geert went down in one gulp. +10
+HOL kroniek 205.2 (wacht 0.0): Femke knocks first. Polite.
+HOL held binnen: Femke
+HOL hol-niveau 4 (faam 7, t 209.8)
+HOL reeks 4 (+2, t 209.8)
+HOL kroniek zelfde held vervangen: Femke knocks first. Polite.
+HOL kroniek 209.8 (wacht 0.0): Gloop ate Femke. Burp. +11
+HOL bordje wip niveau 4
+HOL kaartje open 219.2: stekelput
+HOL koop 219.2: stekelput niveau 1, goud 8
+HOL kaartje dicht 221.8
+HOL kroniek 221.8 (wacht 0.0): The Spike Pit got rusty. Ouch.
+HOL kroniek 233.6 (wacht 0.0): Kees climbs into your hole.
+HOL held binnen: Kees
+HOL koopgeluk vangst +24 (t 238.2)
+HOL reeks 5 (+3, t 238.2)
+HOL kroniek 238.2 (wacht 0.0): Gloop says thanks for the snack. +24
+HOL kroniek 264.2 (wacht 0.0): Henk read about you in a tavern.
+HOL held binnen: Henk
+HOL reeks 6 (+4, t 268.8)
+HOL kroniek zelfde held vervangen: Henk read about you in a tavern.
+HOL kroniek 268.8 (wacht 0.0): Gloop ate Henk. Kept the feather cap. +17
+HOL kroniek 292.6 (wacht 0.0): Joost says this is a quick one.
+HOL held binnen: Joost
+HOL reeks 7 (+4, t 297.2)
+HOL kroniek zelfde held vervangen: Joost says this is a quick one.
+HOL kroniek 297.2 (wacht 0.0): Joost went down in one gulp. +17
+HOL gloop ring aan na 297.4 s (goud 66)
+HOL kaartje open 306.6: slijm
+HOL koop 306.6: slijm niveau 2, goud 6
+HOL gloop ring uit na 306.8 s (goud 6)
+HOL kaartje dicht 309.2
+HOL kroniek 309.2 (wacht 0.0): Gloop bounces now. Back up in 40 s.
+HOL kroniek 329.0 (wacht 0.0): Gerda is here for your gold.
+HOL held binnen: Gerda
+HOL reeks 8 (+4, t 333.6)
+HOL kroniek zelfde held vervangen: Gerda is here for your gold.
+HOL kroniek 333.6 (wacht 0.0): Gloop ate Gerda, saved the pan. +17
+HOL kroniek 363.2 (wacht 0.0): Sir Pim clanks in.
+HOL held binnen: Pim
+HOL droogte (t 366.8)
+HOL koopgeluk vangst +34 (t 367.8)
+HOL hol-niveau 5 (faam 12, t 367.8)
+HOL reeks 9 (+4, t 367.8)
+HOL kroniek zelfde held vervangen: Sir Pim clanks in.
+HOL kroniek 367.8 (wacht 0.0): Gloop ate Sir Pim. Crunchy. +34
+HOL bordje wip niveau 5
+HOL kroniek 370.4 (wacht 2.6): Gloop's first knight. Yum.
+HOL kroniek 396.0 (wacht 0.0): Kobus casts Light. It is a candle.
+HOL held binnen: Kobus
+HOL droogte (t 398.0)
+HOL reeks 10 (+4, t 400.6)
+HOL kroniek zelfde held vervangen: Kobus casts Light. It is a candle.
+HOL kroniek 400.6 (wacht 0.0): No spell beats Gloop. Ask Kobus. +17
+HOL gloop ring aan na 400.8 s (goud 74)
+HOL kroniek 403.2 (wacht 2.6): First wizard for Gloop!
+HOL kaartje open 409.8: slijm
+HOL koop 409.8: slijm niveau 3, goud 4
+HOL gloop ring uit na 410.0 s (goud 4)
+HOL kaartje dicht 412.4
+HOL kroniek 412.4 (wacht 0.0): Gloop wears a royal cape now.
+HOL kroniek 430.6 (wacht 0.0): Jop brought a torch. And hope.
+HOL held binnen: Jop
+HOL reeks 11 (+4, t 435.2)
+HOL kroniek zelfde held vervangen: Jop brought a torch. And hope.
+HOL kroniek 435.2 (wacht 0.0): Gloop ate Jop. Burp. +17
+HOL kroniek 459.4 (wacht 0.0): Siem has a map. It is wrong.
+HOL held binnen: Siem
+HOL reeks 12 (+4, t 464.0)
+HOL kroniek zelfde held vervangen: Siem has a map. It is wrong.
+HOL kroniek 464.0 (wacht 0.0): Gloop ate Siem. Wears the crown now. +17
+HOL kroniek 491.8 (wacht 0.0): Teun read about you in a tavern.
+HOL held binnen: Teun
+HOL droogte (t 494.2)
+HOL reeks 13 (+4, t 496.4)
+HOL kroniek zelfde held vervangen: Teun read about you in a tavern.
+HOL kroniek 496.4 (wacht 0.0): Gloop ate Teun. Kept the top hat. +17
+HOL held binnen: Fenna
+HOL kroniek 499.0 (wacht 0.8): Fenna the Wizard sniffs for traps.
+HOL hol-niveau 6 (faam 17, t 502.8)
+HOL reeks 14 (+4, t 502.8)
+HOL kroniek zelfde held vervangen: Fenna the Wizard sniffs for traps.
+HOL kroniek 502.8 (wacht 0.0): Gloop ate Fenna. Fizzy. +17
+HOL bordje wip niveau 6
+HOL kaartje open 511.8: stekelput
+HOL koop 511.8: stekelput niveau 2, goud 12
+HOL kaartje dicht 514.4
+HOL kroniek 514.4 (wacht 0.0): The pit got deeper. Echo, echo.
+HOL kroniek 532.8 (wacht 0.0): Maud knows every trap. Almost.
+HOL held binnen: Maud
+HOL reeks 15 (+4, t 537.4)
+HOL kroniek zelfde held vervangen: Maud knows every trap. Almost.
+HOL kroniek 537.4 (wacht 0.0): No spell beats Gloop. Ask Maud. +17
+HOL kroniek 566.8 (wacht 0.0): Sir Rik polished up for this.
+HOL held binnen: Rik
+HOL koopgeluk vangst +34 (t 571.4)
+HOL reeks 16 (+4, t 571.4)
+HOL kroniek zelfde held vervangen: Sir Rik polished up for this.
+HOL kroniek 571.4 (wacht 0.0): Gloop ate Sir Rik, can and all. +34
+HOL kroniek 575.8 (wacht 0.0): Dame Mara is very slow. Very sure.
+HOL held binnen: Mara
+HOL plat zonder regel (2 keer gemeld)
+HOL kroniek zelfde held vervangen: Dame Mara is very slow. Very sure.
+HOL kroniek 582.0 (wacht 0.0): Mara tried to lift it. Too heavy.
+HOL kroniek zelfde held vervangen: Mara tried to lift it. Too heavy.
+HOL kroniek 591.6 (wacht 0.0): Mara ran. Hands smell of gold.
+HOL kroniek 594.2 (wacht 2.6): A knight got away. Next time.
+HOL droogte (t 601.4)
+HOL kroniek 604.6 (wacht 0.0): Ineke the Wizard sniffs for traps.
+HOL held binnen: Ineke
+HOL kroniek zelfde held vervangen: Ineke the Wizard sniffs for traps.
+HOL kroniek 609.2 (wacht 0.0): Gloop ate Ineke. Fizzy. +13
+HOL kaartje open 617.8: stekelput
+HOL koop 617.8: stekelput niveau 3, goud 6
+HOL kaartje dicht 620.4
+HOL kroniek 620.4 (wacht 0.0): The pit has a lid. Looks like floor.
+HOL kroniek 642.4 (wacht 0.0): Wout knows every trap. Almost.
+HOL held binnen: Wout
+HOL koopgeluk vangst +26 (t 647.0)
+HOL reeks 2 (+0, t 647.0)
+HOL kroniek zelfde held vervangen: Wout knows every trap. Almost.
+HOL kroniek 647.0 (wacht 0.0): Gloop ate Wout, saved the crown. +26
+HOL kroniek 675.8 (wacht 0.0): Bram sneaks in. Nobody saw. You saw.
+HOL held binnen: Bram
+HOL reeks 3 (+1, t 680.4)
+HOL kroniek zelfde held vervangen: Bram sneaks in. Nobody saw. You saw.
+HOL kroniek 680.4 (wacht 0.0): Bram snuck into Gloop. Oops. +14
+HOL kroniek 683.0 (wacht 2.6): Gloop's first thief. Yum.
+HOL kroniek 706.0 (wacht 0.0): Mara the Hoard-Toucher is back for Gloop.
+HOL held binnen: Mara
+HOL reeks 4 (+2, t 710.6)
+HOL kroniek zelfde held vervangen: Mara the Hoard-Toucher is back for Gloop.
+HOL kroniek 710.6 (wacht 0.0): Mara went down in one gulp. +18
+HOL kroniek 742.0 (wacht 0.0): Gerda II. Gerda fell here once.
+HOL held binnen: Gerda II
+HOL reeks 5 (+3, t 746.6)
+HOL kroniek 746.6 (wacht 0.0): Gloop says thanks for the snack. +16
+HOL kroniek 774.4 (wacht 0.0): Sir Odo II polished up for this.
+HOL held binnen: Odo II
+HOL hol-niveau 7 (faam 25, t 779.0)
+HOL reeks 6 (+4, t 779.0)
+HOL kroniek zelfde held vervangen: Sir Odo II polished up for this.
+HOL kroniek 779.0 (wacht 0.0): Gloop ate Sir Odo II. Crunchy. +17
+HOL bordje wip niveau 7
+HOL kroniek 781.6 (wacht 2.6): Gloop is now known as the Hatted.
+HOL kroniek 812.0 (wacht 0.0): Sir Siem II is very slow. Very sure.
+HOL held binnen: Siem II
+HOL reeks 7 (+4, t 816.6)
+HOL kroniek zelfde held vervangen: Sir Siem II is very slow. Very sure.
+HOL kroniek 816.6 (wacht 0.0): Gloop ate Sir Siem II, can and all. +17
+HOL kroniek 821.0 (wacht 0.0): Rik II says this is a quick one.
+HOL held binnen: Rik II
+HOL plat zonder regel (2 keer gemeld)
+HOL kroniek 827.4 (wacht 0.0): Merel II picks the lock. It was open.
+HOL held binnen: Merel II
+HOL kroniek zelfde held vervangen: Rik II says this is a quick one.
+HOL kroniek 829.6 (wacht 0.0): Rik II escaped with a limp.
+HOL kroniek zelfde held vervangen: Merel II picks the lock. It was open.
+HOL kroniek 832.6 (wacht 0.0): Merel II licked a coin and ran.
+HOL kroniek zelfde held vervangen: Merel II licked a coin and ran.
+HOL kroniek 839.8 (wacht 0.0): Merel II ran off, giggling.
+HOL kroniek 842.4 (wacht 2.6): First thief got away.
+HOL kroniek 857.0 (wacht 0.0): Rik II wrote a song about Gloop.
+HOL held binnen: Rik II
+HOL plat zonder regel (2 keer gemeld)
+HOL kroniek zelfde held vervangen: Rik II wrote a song about Gloop.
+HOL kroniek 865.6 (wacht 0.0): Rik II left. Took nothing. Angry.
+HOL kroniek 886.4 (wacht 0.0): Elke II has a map. It is wrong.
+HOL held binnen: Elke II
+HOL plat zonder regel (2 keer gemeld)
+HOL droogte (t 891.6)
+HOL kroniek zelfde held vervangen: Elke II has a map. It is wrong.
+HOL kroniek 892.0 (wacht 0.0): Elke II touched your hoard!
+HOL kroniek zelfde held vervangen: Elke II touched your hoard!
+HOL kroniek 900.0 (wacht 0.0): Elke II the Hoard-Toucher ran.
+HOL einde na 900 s, fps=108, goud=114, terugkomers=2
