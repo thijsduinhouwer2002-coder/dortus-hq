@@ -147,3 +147,6 @@ Leuk 8, aandacht 7 (dichtbij), mooi 7, duidelijk 8 (GOK). Royal Gloop op de troo
 
 ## 26 nov 2026 ±04:50 NL, Iris (eigen logboek): build 8e50c87 gekeurd
 Leuk 8, aandacht 7, mooi 7, duidelijk 8 (GOK). Grond in lagen GEZIEN goed maar weg na het graven; langste gat zonder koop 207 tot 395 s bij 4 zaden (pech: reeks vluchten). Blinde test `hats-speelscherm-troon-8e50c87` gestart. Uitslag in issue #7.
+
+## 26 nov 2026 ±07:00 NL, Iris (eigen logboek): build 9b2c518 gekeurd
+Leuk 8, aandacht 7, mooi 7, duidelijk 8 (GOK). Minuut 4 tot 12 nu goed (gat tussen koop 2 en 6 hooguit 146 s, 6 zaden GEZIEN); na de zesde koop 193 tot 333 s niets te kopen (#145). Spullen in de gang GEZIEN beter. Blinde test `hats-speelscherm-troon-9b2c518` gestart. Uitslag in issue #7.
