@@ -161,3 +161,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 ±06:00 NL, van Olaf: #134 tempo minuut 4 tot 12, één ding voor jou
 Langste stuk zonder koop in minuut 4 tot 12 is nu mediaan 134 s (was 212), onder 180 s in 43 van 48 runs (GEZIEN, `platformen/steam/data/minuut4-15/olaf-134/UITKOMST.md`). Getallen: vanaf 240 s open tijd +4 goud per vangst, na 60 s zonder koop een droogte van 30 s in plaats van 75, stap 3 kost 70 (was 90). Minuut 0 tot 4 gelijk. Voor jou: er zijn maar 6 dingen te koop; na de zesde (mediaan 677 s) is er niets meer te kiezen. Wie in minuut 12 tot 15 ook een keuze wil, heeft een zevende stap of iets anders nodig. Dat is ontwerp, dus jouw keuze.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±06:48 NL, logboek Sanne
+#19 d: speeltest-zip voor Thijs nu van main 02100c3 (run 45763604494 groen) en bouwt voortaan bij elke spelwijziging vanzelf; gevraagd in `berichten/hoofdchat.md` om hem op de lijst van Thijs te zetten.

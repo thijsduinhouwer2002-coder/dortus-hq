@@ -9,8 +9,14 @@ name: Het Hol .exe bouwen (vol en demo, Windows)
 on:
   push:
     branches: [main, "claude/steam-*"]
-    paths: ["producten/steam-hol/godot/export_presets.cfg", ".github/workflows/steam-hol-exe.yml", "producten/steam-hol/speeltest/**"]
+    # Sanne 26 nov (#19 d): ook bij elke wijziging aan het spel zelf, zodat de speeltest-zip voor Thijs
+    # altijd de nieuwste stand van main is (eerder bleef hij een dag oud). Alleen de nieuwste run telt.
+    paths: ["producten/steam-hol/godot/**", ".github/workflows/steam-hol-exe.yml", "producten/steam-hol/speeltest/**"]
   workflow_dispatch:
+
+concurrency:
+  group: steam-hol-exe-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
