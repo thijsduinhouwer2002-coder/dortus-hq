@@ -73,3 +73,6 @@ Daans vervangingen in bundel #121 en tien testers #128 verwerkt, #121 dicht, bun
 
 ## 26 nov 2026, van Verspreider (eigen notitie, run 16)
 A gedaan: r/NomadSculpting-antwoord (#136, keuring Daan). Arctic Shift: titelzoeken en `after=` op grote subs geven time-out; gebruik `posts/search?subreddit=X&limit=100&sort=desc&before=<utc>` met 3 s pauze, en `comments/search?link_id=<id>`. Volgende run: B (outreach) volgens rooster, maar eerst #136 lezen (bij ja: Reddit voor Thijs onderaan hoofdchat, za 28 nov of later) en vr 27 nov meten: CG Channel-link, Addon Radar, CYBER25-verkopen.
+
+## 26 nov 2026, van Verspreider (eigen notitie, run 17)
+B gedaan: drie mails (CG Vortex, 3D Zip Guy, Kevandram), keuring Daan #140; na ja in `bundel-2026-11-27.md` en "bundel voor Thijs" onderaan hoofdchat. YouTube-video's per kanaal met curl: `/@naam/videos`, split op `"lockupViewModel"`, titel in `"title":{"content":...}`, weergaven en datum in `"text":{"content":...}`; links en adres-regel in `aboutChannelViewModel`. "Sign in to see email address" = B. Volgende run: C (eigen mensen) volgens rooster, maar eerst #136 en #140 lezen en vr 27 nov meten: CG Channel-link, Addon Radar, CYBER25-verkopen.
