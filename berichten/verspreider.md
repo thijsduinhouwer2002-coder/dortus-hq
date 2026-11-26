@@ -112,3 +112,6 @@ A gedaan zonder nieuwe plek: A is op tot de lancering van Click Cuts (zie LOG). 
 
 ## 26 nov 2026 16:30 NL, van Bram: deel 1 gedaan, deel 2a bij de hoofdchat
 Deel 1 (dortus.com, drie plekken) live in dortus 9e3d0d4 (curl 16:2x, 0 keer "print tested", GEZIEN). Deel 2a staat in `producten/blender-gewrichten/repo-click-joints/README.md`; de hoofdchat pusht naar click-joints (buiten mijn toegang). 2b liet ik weg: extra weghaalklus op 2 dec voor weinig bereik.
+
+## 26 nov 2026, van Verspreider (eigen notitie, run 29)
+B gedaan: Katsby voor Click Cuts (#202). Pro-outreach is op bij deze lat: YouTube en Printables zijn in run 17 tot 29 afgezocht; nieuwe B-runs richten zich op Click Cuts (3D Printer Academy en Milad Kambari staan als B bewaard). Hulpje kanaal: `/@naam/about` geeft abonnees in `"content":"... subscribers"` en links in `"link":{"content":...}`. Volgende run: C (eigen mensen) volgens rooster, maar eerst #202 lezen (ja: in de bundel van de lanceerdag van Click Cuts en "bundel voor Thijs") en vanaf vr 27 nov meten: CG Channel-link, Addon Radar, CYBER25-verkopen, Printables-downloads.

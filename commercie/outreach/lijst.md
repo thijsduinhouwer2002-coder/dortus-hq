@@ -4,7 +4,7 @@ Bijhouden per run. Status: nieuw, mail klaar, ja Thijs, verstuurd, antwoord. Abo
 
 Al eerder gemaild (niet nog eens): de 10 makers van 23 nov (`commercie/geplaatst.md` regel 33: Stefan 3D AI, muwiart, Pixel Artistry, InspirationTuts, askNK, Nikko Industries, Azrach Toys, CG Dive, Grant Abbitt, Wickelle), 80.lv, Digital Production. Hackaday (za 28 nov) en CGPress (zo 29 nov) staan klaar met ja van Thijs.
 
-Bewust niet: Nunn Breakable, Cleave, Meshwright, BlendArt Tools, Granite Studio, 3DRedBox, xideaa (CutMode), AlexSokolArt (CatPin), LayerLab (Snappy, nog nakijken) (verkopen zelf een concurrerend gereedschap).
+Bewust niet: Nunn Breakable, Cleave (ook het kanaal V4SS3UR), Meshwright, BlendArt Tools, Granite Studio, 3DRedBox, xideaa (CutMode), AlexSokolArt (CatPin), LayerLab (Snappy, nog nakijken) (verkopen zelf een concurrerend gereedschap).
 
 | # | Wie | Kanaal | Publiek | Waarom ze passen | Waar het zakelijke adres staat | Status |
 |---|---|---|---|---|---|---|
@@ -30,8 +30,10 @@ Bewust niet: Nunn Breakable, Cleave, Meshwright, BlendArt Tools, Granite Studio,
 | 20 | [What Make Art](https://www.youtube.com/@WhatMakeArt) | YouTube | 47,4K | Blender voor 3D-printen (3D Print Toolbox, Blender naar Bambu); "Fusion Print-in-Place Hinge Tutorial" 326K weergaven | Kanaalbeschrijving, regel onder "Send in tutorial requests" | ja Daan (#155), in bundel-2026-11-28.md voor Thijs |
 | 21 | [Ksenia Starkova](https://www.youtube.com/@KseniaStarkova) | YouTube | 65,2K | Rigt en print haar eigen Blender-vos ("3D Fox Character Rigging", 336K; "3D Printing My Fox Character", 2 wk) | Geen adres in beschrijving of Linktree; alleen YouTube-knop (inlog) | ja Daan (#171), in `bundel-2026-11-29.md` voor Thijs (B: alleen als hij zelf het adres achter de knop bekijkt) |
 | 22 | [Loft Studios](https://www.youtube.com/@Loft_Studios) | YouTube + Printables | 1,51M (groot); Loftyo 9.589 downloads, 36 makes | Ontwerpt eigen figuren in Blender en print ze ("I used Blender to model all these figures"); eigen poseerbaar printfiguur Loftyo | Formulier getloftied.com/pages/contact | ja Daan (#186), in `bundel-2026-11-29.md` voor Thijs (formulier, de hoofdchat kan versturen) |
-| - | [Katsby the ArchiTECH](https://www.youtube.com/@Katsby_engineer) | YouTube | 22,1K | "Best Way To Connect 3D Prints": past bij Click Cuts | Kanaalbeschrijving, regel "For collaboration opportunities" | bewaren tot lancering Click Cuts |
+| - | [Katsby the ArchiTECH](https://www.youtube.com/@Katsby_engineer) | YouTube | 22,1K | "Best Way To Connect 3D Prints": past bij Click Cuts | Kanaalbeschrijving, regel "For collaboration opportunities" | mail klaar voor Click Cuts (`2026-11-26-katsby.md`), keuring Daan; versturen pas na de lancering |
 | - | [David Landry-Reed](https://www.youtube.com/@drugfreedave) | YouTube | 209K | Nomad-lessen "Make a KEY & CUT for 3D Printing Parts to Fit Together" (95K): past bij Click Cuts, niet bij Pro | YouTube-knop (inlog) | bewaren tot lancering Click Cuts |
+| - | [3D Printer Academy](https://www.youtube.com/@3DPrinterAcademyTutorials) | YouTube | 85,7K | "3D Printing BIG objects: How to scale & split into parts to fit your 3D printer": past bij Click Cuts | Geen adres; alleen Patreon (B) | bewaren: Click Cuts, alleen als type B kan |
+| - | [Milad Kambari Tutorials](https://www.youtube.com/@miladkambaritutorials) | YouTube | 198K | Bespreekt Blender-add-ons, ook "Dovetail Key: Cut & Join Any Mesh for 3D Printing" (30K): past bij Click Cuts | Geen adres (B) | bewaren: Click Cuts, alleen als type B kan |
 | - | [Guide Blocks](https://www.youtube.com/@GuideBlocks-fy5rk) | YouTube | 31,2K | Dummy 13-ombouw ("Dummy 13 → Iron Spider-Man Custom") | Geen adres gezien | niet mailen: geen adres |
 | - | [Markom3D](https://www.youtube.com/@Markom3D) | YouTube | 102K | Rigging en Character Creator 4; "Auto Rig Pro Review" 77K weergaven: past bij Figure from rig, maar print niet | Geen adres; alleen YouTube-knop (B) | bewaren: alleen als Thijs type B wil |
 
