@@ -1,5 +1,15 @@
 # Stand van de Meter
 
+**do 26 nov 2026, 19:55 NL** (scorebord-run 45878217029, 18:45 UTC)
+- Verkopen Pro vandaag 1, totaal 2: Superhive 1 Personal om 17:05 (opbrengst $7,22, GEZIEN, melding Superhive) en Gumroad 1 ($19, 22 nov, direct) (GEZIEN, Gumroad /v2/sales). Eerste verkoop met de nieuwe etalage.
+- Herkomst Superhive-verkoop onbekend: Superhive geeft geen bron. Op dortus.com vandaag als verwijzer alleen bing.com 1 (GEZIEN, Amami); of de koper via de knop op /click-joints kwam, is niet te zien (die knop heeft nog geen utm, GEZIEN). Zoeken binnen Superhive op de nieuwe zoektitel is mogelijk (GOK).
+- Nulmeting avond (issue #95), GEZIEN met curl om 19:43: zoektitel en "Try it free first" live op Gumroad en Superhive, Superhive 1.2.8; Gumroad $19, Superhive $12, sale nog niet aan. CYBER25 0 keer gebruikt (GEZIEN).
+- Groeit: dortus.com vandaag tot 19:45 13 bezoeken, 6 op /click-joints, gisteren hele dag 3 (GEZIEN, Amami). Blender gratis 406 downloads, +13 sinds gisteren, +155 in 7 dagen (GEZIEN).
+- Groeit niet: YouTube 7.747, +39 sinds vanochtend (GEZIEN, RSS). TikTok 1.309, 4 dagen gelijk; Kit 0, Discord 2 (GEZIEN).
+- Opvallend: op de eerste dag met zoektitel en Try it free komt er een verkoop én een sprong naar 6 bezoeken op /click-joints, zonder nieuw filmpje. Eén verkoop is te weinig om de etalage de eer te geven (GOK). Morgen de sale per bron (issue #95).
+
+## Eerdere standen
+
 **do 26 nov 2026, 08:50 NL** (scorebord-run 45777434104, 07:45 UTC)
 - Verkopen Pro vandaag 0, totaal 1 ($19, 22 nov UTC, herkomst direct) (GEZIEN, Gumroad /v2/sales). CYBER25 en de 11 makerscodes 0 keer gebruikt; Superhive geen verkoopblok, dus onder 10 (GEZIEN).
 - Nulmeting nieuwe etalage (issue #95), GEZIEN met curl om 08:43: zoektitel "Click Joints Pro - Poseable 3D Print Figures from Your Rig (Hinges with End Stops, Ball Joints, Fit Test Strip)" live op Gumroad en Superhive, "Try it free first" in beide teksten, Superhive noemt 1.2.8, Gumroad $19 (sale nog niet aan). Alles vóór do 26 nov telt als oude etalage: 1 verkoop in 5 dagen (22 t/m 26 nov) (GEZIEN).
@@ -8,7 +18,6 @@
 - dortus.com gisteren hele dag 3 bezoeken, geen verwijzer (GEZIEN, Amami); vandaag tot 08:44 4 bezoeken, 1 via bing.com, 0 op /click-joints (GEZIEN). Koopknop op /click-joints nog zonder utm (GEZIEN, curl 08:45).
 - Opvallend: door de nieuwe titel ziet het scorebord Pro als nieuw product ("gisteren geen meting"); het totaal klopt wel (1, $19). Zonder nieuwe filmpjes is het verkeer bijna nul: de sale van morgen met de sale-Shorts is de eerste echte toets.
 
-## Eerdere standen
 
 **wo 25 nov 2026, 19:55 NL** (scorebord-run 45677847932, 18:43 UTC)
 - Verkopen Pro vandaag 0, totaal 1 ($19, 22 nov UTC, herkomst direct) (GEZIEN, Gumroad /v2/sales). CYBER25 en de makerscodes 0 keer gebruikt; Superhive geen verkoopblok, dus onder 10 (GEZIEN).

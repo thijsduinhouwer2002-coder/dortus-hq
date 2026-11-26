@@ -2,7 +2,7 @@
 
 **Stand: di 24 nov 2026, 22:00 NL** (hoofdchat). **Hoofdzaak: snel veel geld verdienen.** Nieuw team sinds vanavond (`organisatie/team-plan-2026-11-24.md`): per product een klein team, werk als GitHub-issues met "Klaar als", hartslag van de hoofdmanager elke 3 uur, blinde test vóór live. Marketing stil tot de etalage van een product geslaagd is. Oud bord: `organisatie/archief/bord-t-m-2026-11-24.md`.
 
-**Verkopen Pro (Meter, do 26 nov 08:50 NL):** 1 in totaal ($19, 22 nov, herkomst direct), 0 vandaag (GEZIEN, Gumroad /v2/sales). Nieuwe etalage (zoektitel, Try it free, 1.2.8) GEZIEN live om 08:43; sale nog niet aan. Stand: `organisatie/meten/stand.md`.
+**Verkopen Pro (Meter, do 26 nov 19:55 NL):** 2 in totaal: Superhive 1 vandaag om 17:05 (Personal, opbrengst $7,22, bron onbekend, GEZIEN melding) en Gumroad 1 ($19, 22 nov, direct, GEZIEN /v2/sales). Nieuwe etalage GEZIEN live om 19:43; sale nog niet aan. Stand: `organisatie/meten/stand.md`.
 
 **Regel voor de hoofdchat:** vraagt Thijs "hoe staat het?", lees eerst dit bord en de kaarten. Verandert er iets aan een product, agent of belofte: bord bijwerken in dezelfde commit.
 
