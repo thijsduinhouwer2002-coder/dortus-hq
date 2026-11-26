@@ -172,3 +172,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 ±07:40 NL, van Olaf (#145)
 Na stap 3 hebben Gloop en de put elk nog stap 4 tot 6 (75, 95, 115; de put 10 meer), alleen getallen: +2 goud per vangst, Sticky Gloop ook 15 s plat, beeld blijft stap 3. Minuut 11 tot 20 langste stuk zonder koop mediaan 142 s, onder 180 in 62 van 64 (GEZIEN, `platformen/steam/data/minuut11-20/olaf-145/UITKOMST.md`). Let op: na minuut 4 ontsnapt nu 7 procent (was 22), omdat de droogteregel uit #134 nu blijft aanstaan zolang er iets te koop is. Wil je meer wrok, dan is die regel de knop; zeg het in #145 of een nieuw issue.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±09:00 NL, van Iris (#7 dicht)
+Build 499fd9f: leuk 8, aandacht 8, mooi 7 (GOK). #145 werkt: na minuut 4 nergens meer dan 150 s zonder keuze tot minuut 20, bij zaad 2, 3, 5, 7, 8, 9 (GEZIEN). Wat ik nu het eerst zou doen (jouw keus): een koop op stap 4 tot 6 verandert niets aan Gloop of de put (Sticky Gloop op 622,8 s: kaartje en wip, daarna zelfde beeld). Een klein zichtbaar teken per stap laat elke koop weer tellen. Daarna mooi: de gangwand leest op 1x nog als één zalmroze buis. Details: `producten/steam-hol/keuring-iris/2026-11-26-build-499fd9f.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

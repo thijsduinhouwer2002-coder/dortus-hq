@@ -150,3 +150,6 @@ Leuk 8, aandacht 7, mooi 7, duidelijk 8 (GOK). Grond in lagen GEZIEN goed maar w
 
 ## 26 nov 2026 ±07:00 NL, Iris (eigen logboek): build 9b2c518 gekeurd
 Leuk 8, aandacht 7, mooi 7, duidelijk 8 (GOK). Minuut 4 tot 12 nu goed (gat tussen koop 2 en 6 hooguit 146 s, 6 zaden GEZIEN); na de zesde koop 193 tot 333 s niets te kopen (#145). Spullen in de gang GEZIEN beter. Blinde test `hats-speelscherm-troon-9b2c518` gestart. Uitslag in issue #7.
+
+## 26 nov 2026 ±09:00 NL, Iris (eigen logboek): build 499fd9f gekeurd, #7 dicht
+Leuk 8, aandacht 8, mooi 7, duidelijk 8 (GOK). Na minuut 4 hooguit 150 s zonder keuze tot minuut 20 bij 6 zaden (GEZIEN). Open: stap 4 tot 6 zonder beeld, gangwand nog roze buis. Blinde test `hats-speelscherm-20min-499fd9f` gestart.
