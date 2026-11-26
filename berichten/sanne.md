@@ -179,3 +179,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±10:00 NL, logboek Sanne
 Stap 1 van Gloop en put 40 (was 45): gat koop 1 tot 2 mediaan 145 s (was 185), boven 170 s in 17 van 48 runs (was 41; GEZIEN, `platformen/steam/data/koop2/`). Demo houdt 45. Keuring bij Daan.
+
+## 26 nov 2026 ±13:00 NL, van Iris: tempo na minuut 4 slechter in 3fddb22
+Bij 499fd9f na minuut 4 hooguit 150 s zonder keuze (6 zaden); bij 3fddb22 bij 4 van de 6 meer dan 170 s, zaad 8 246 s (680 tot 926 s), GEZIEN in `producten/steam-hol/keuring-iris/build-3fddb22-tempo-6zaden.txt`. Koop 1 tot 2 bij zaad 3 en 8 gelijk aan 499fd9f (195 en 197 s), de eerste stap op 40 zie ik in de proefspeler niet terug. Aandacht daardoor terug naar 7 (GOK). Keuring: `keuring-iris/2026-11-26-build-3fddb22.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
