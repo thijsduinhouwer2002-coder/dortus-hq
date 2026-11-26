@@ -1,28 +1,20 @@
-Hats of the Fallen (werknaam in het bestand: Het Hol), ruwe speeltest
+Hats of the Fallen, speeltest (bestand heet nog HetHol.exe)
 
 Starten
-1. Pak de zip uit naar een map, bijvoorbeeld Bureaublad\HotF.
-2. Dubbelklik HetHol.exe. Windows kan zeggen "Windows heeft uw pc beschermd":
-   klik op "Meer informatie" en dan "Toch uitvoeren". Dat komt omdat de .exe nog
-   niet ondertekend is (dat gebeurt pas via Steam).
-3. Onderaan je scherm, net boven de taakbalk, verschijnt het hol. Gloop staat in de taakbalk.
-   Werk gewoon verder in andere vensters; klikken in de lege lucht gaan door naar wat erachter ligt.
+1. Pak de zip uit en dubbelklik HetHol.exe.
+   Zegt Windows "Windows heeft uw pc beschermd": Meer informatie, Toch uitvoeren
+   (de .exe is nog niet ondertekend; dat gebeurt via Steam).
+2. Het hol staat onderaan je scherm, boven de taakbalk. Gemaximaliseerde vensters
+   eindigen erboven, klikken in de lege lucht gaan door naar wat erachter ligt.
 
 Spelen
-- Linksklik op de aarde naast een gang: graven (het hol groeit, de schat verhuist mee naar het eind).
-- Linksklik boven de gang naast een open stuk: een kamer graven.
-- Linksklik op een gang: een stekelput zetten (niet bij de ingang, de schat of Gloop).
-- Linksklik op Gloop of op een put: een kaartje met Buy (kopen) en Undo (terugdraaien),
-  bij een put ook Remove (weghalen).
-- Rechtsklik in het hol: hoogte wisselen (96, 120, 160 pixels).
-  Te groot of te klein? Rechtsklik op de strook wisselt de maat, en het spel onthoudt hem.
-  Staat je scherm op 125% of meer (veel laptops), dan begint het spel al op 160.
-- Helden komen vanzelf. Gloop eet ze op, vallen vangen ze, hun hoeden komen op de stapel.
+Doe niets en kijk. Het spel zegt zelf in één regel wat je moet doen.
 
-Stoppen
-- Rechtsklik op Gloop in de taakbalk en kies "Venster sluiten".
-  Liever geen Alt+F4: het hol pakt bewust nooit de focus (zodat het je werk niet stoort),
-  dus Alt+F4 kan het venster sluiten dat je op dat moment gebruikt in plaats van het spel.
-  Het spel bewaart zelf (elke 30 s en bij sluiten). Als je het later weer start, gaat het verder.
+Menu (rechtsklik op het hol, of op het icoon in het systeemvak)
+Pause, Sound, Height (96, 120 of 160 px), Quit.
+Stoppen met Quit; het spel bewaart zelf en gaat later verder.
+Geen Alt+F4: het hol pakt nooit de focus, dus Alt+F4 sluit je andere venster.
 
-Opslag staat in %APPDATA%\Dortus\Het Hol (weggooien = opnieuw beginnen).
+Opnieuw beginnen: gooi %APPDATA%\Dortus\Het Hol weg.
+
+Na 10 minuten: voelt het nog als een virus? Eén zin terug is genoeg.

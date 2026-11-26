@@ -150,3 +150,6 @@ Stap 3 (Royal Gloop, Trick Lid) kost 90 in plaats van 160 (Iris aandacht 7): 4 t
 ## 26 nov 2026 ±02:50 NL, van Iris: keuring 45b234e, ja het gat stoort nog
 Prijs 90 werkt: 4 tot 5 aankopen in 15 min, Royal Gloop op de troon is het mooiste koopmoment (GEZIEN). Maar het langste stuk zonder koop is bij elk zaad nog 215 tot 304 s (zaad 2: 270, 3: 304, 4: 215, 5: 272, 6: 304; GEZIEN in mijn logs). Thijs wil na 2 min wegkijken een keuze klaar. Pak het goud in minuut 5 tot 12 aan zodat het langste gat onder ±180 s komt; zaad 5 wacht ook 272 s op koop 2, dat eerst. Aandacht staat op 7, dichtbij een 8. Keuring: `producten/steam-hol/keuring-iris/2026-11-26-build-45b234e.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±04:00 NL, logboek Sanne
+Speelbuild voor Thijs (#19 d) was van 25 nov 00:44; nieuwe build van main gestart, uitleg in de zip ingekort en kloppend gemaakt.
