@@ -22,7 +22,17 @@ jobs:
   opname:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    outputs:
+      eind_al: ${{ steps.al.outputs.al }}
     steps:
+      - name: Staat de eindfilm al in de release? (dan niet opnieuw renderen; robot en camera zijn gelijk)
+        id: al
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" --jq '.assets[].name' 2>/dev/null | grep -qx eind.mp4; then
+            echo "al=1" >> "$GITHUB_OUTPUT"; echo "eind.mp4 staat er al"
+          fi
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -96,8 +106,9 @@ jobs:
 
   render:
     needs: opname
+    if: needs.opname.outputs.eind_al != '1'
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 150   # proef 3: 18 beelden per job duurden langer dan 60 min
     strategy:
       fail-fast: false
       matrix:
@@ -129,8 +140,8 @@ jobs:
           path: /tmp/fr
 
   eind:
-    needs: render
-    if: always()
+    needs: [opname, render]
+    if: needs.render.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4

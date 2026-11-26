@@ -1,0 +1,14 @@
+{"naam": "proef", "boven": ["Making a poseable", "figure in Blender"], "boven_tot": 9.0,
+ "slot": ["Click Joints Pro", "25% off this week", "on Gumroad"], "slot_duur": 2.6, "eind_duur": 6.4,
+ "muziek": "Inspired.mp3", "muziek_start": 0.0, "muziek_bron": "Inspired, Kevin MacLeod (incompetech.com), CC BY 4.0",
+ "stukken": [
+  {"deel": "grijs", "na": 0.3, "duur": 4.0},
+  {"deel": "rig", "na": 0.1, "duur": 0.7},
+  {"deel": "kies", "na": 0.9, "duur": 1.0},
+  {"deel": "knop_klaar", "na": 0.3, "duur": 0.9},
+  {"deel": "uitelkaar", "na": 2.4, "duur": 0.7},
+  {"deel": "schouder", "na": 0.5, "duur": 1.0},
+  {"deel": "heup", "na": 0.5, "duur": 0.6},
+  {"deel": "knie", "na": 1.0, "duur": 1.4},
+  {"deel": "knie_rood", "na": 0.3, "duur": 0.5}
+ ]}
