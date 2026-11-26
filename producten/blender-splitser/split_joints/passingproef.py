@@ -79,11 +79,16 @@ def speling_gezet(scene):
         scene["sj_speling_eigen"] = True
 
 
-def pas_toe(context, scene=None):
-    """Printer or material changed (or a file opened): use the saved clearance for that pair, if there is one."""
+def pas_toe(context, scene=None, start=False):
+    """Printer or material changed (or a file opened): use the saved clearance for that pair, if there is one.
+    start=True (material changed): with nothing saved and no clearance typed by the user, use the start clearance
+    of the material, so the fit test is around the right value (resin 0.10, TPU 0.30). A printer change without
+    a saved value keeps the clearance: a fit test from another printer is a better start than the table."""
     scene = scene or context.scene
     inst = scene.split_joints
     s = passing.opgeslagen(lees_json(context), inst.printer, inst.materiaal)
+    if s is None and start and not scene.get("sj_speling_eigen"):
+        s = passing.startspeling(inst.materiaal)
     if s is not None and abs(inst.speling_mm - s) > 1e-6:
         zet_speling(scene, s)
 
@@ -282,6 +287,9 @@ def teken(layout, context):
         else:
             vak.operator(SPLIT_JOINTS_OT_passing_kies.bl_idname, text=f"Use saved {opgeslagen:.2f} mm",
                          icon="LOOP_BACK").waarde = opgeslagen
+    elif not context.scene.get("sj_speling_eigen") and \
+            abs(inst.speling_mm - passing.startspeling(inst.materiaal)) < 1e-6:
+        vak.label(text=f"Start value for {materiaal_naam(inst.materiaal)}, not tested", icon="INFO")
     lijst = passing.spelingen(inst.speling_mm)
     vak.operator(SPLIT_JOINTS_OT_passing_maak.bl_idname,
                  text=f"Make fit test ({passing.tekst(lijst[0])} to {passing.tekst(lijst[-1])} mm)", icon="MESH_CUBE")

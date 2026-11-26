@@ -109,6 +109,9 @@ def stap():
             log(f"{'PANEEL OK' if ok else 'PANEEL FOUT'} {pad}")
             # second picture with More settings open, so the cut positions (0.1 mm) can be seen (keuring K1)
             bpy.context.scene.split_joints.meer = True
+            # issue #227: resin starts at 0.10 and the fit test box says it is a start value
+            bpy.context.scene.split_joints.materiaal = "RESIN"
+            log(f"hars: speling {bpy.context.scene.split_joints.speling_mm:.2f}")
             for w in bpy.context.window_manager.windows:
                 for a in w.screen.areas:
                     a.tag_redraw()
