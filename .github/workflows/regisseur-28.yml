@@ -1,0 +1,97 @@
+name: "Regisseur 28 (sale-Short v2 in procesvorm #159: echte schermopname in Blender, staand)"
+
+# 26 nov 2026, Regisseur, issue #159. Thijs 26 nov 09:00: het voorbeeld van @simonzhang.art letterlijk namaken met onze
+# robot. Staand scherm 1080x1920 (hele Blender: menubalk, weergave met het paneel van Pro, Shader Editor, tijdlijn),
+# ffmpeg x11grab 30 beelden per seconde, echte muis (glij.py), Click Joints Pro 1.2.8 (wat kopers in de sale krijgen).
+# Na het scherm-deel rendert dezelfde Blender het eindbeeld door de camera (Material Preview) naar eind/.
+# Stap 1: ruwe opname, eindbeeld, controle vloeiend en een contactblad. De montage volgt als de stem er is. Niets geplaatst.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "commercie/filmpjes/regisseur-28/echt_held.py"
+      - "commercie/filmpjes/regisseur-28/neem_op.sh"
+      - ".github/workflows/regisseur-28.yml"
+
+permissions:
+  contents: write
+
+env:
+  TAG: regisseur-28
+  PRO_COMMIT_VOOR: a3c1ea1   # eerste commit van 1.2.9; de zip komt van de commit ervoor (1.2.8)
+
+jobs:
+  opname:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Systeempakketten (apt-snel)
+        uses: ./.github/actions/apt-snel
+        with:
+          pakketten: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter tesseract-ocr x11-xserver-utils dmz-cursor-theme
+      - name: Blender 5.3.0 en de Pro-zip 1.2.8
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          mkdir -p /tmp/v128 && git archive "${PRO_COMMIT_VOOR}~1" producten/blender-gewrichten | tar -x -C /tmp/v128
+          (cd /tmp/v128/producten/blender-gewrichten && PRO_VERSIE=1.2.8 bash e2e/maak_zip.sh betaald)
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Opnemen (echt scherm 1080x1920, x11grab 30 fps)
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_pro
+          BLENDER_USER_CONFIG: /tmp/cj_pro/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_pro/extensions
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_s.blend')"
+          mkdir -p /tmp/klaar
+          timeout 4800 xvfb-run --auto-servernum --server-args="-screen 0 1080x1920x24 -noreset" \
+            bash commercie/filmpjes/regisseur-28/neem_op.sh /tmp/blender/blender /tmp/start_s.blend /tmp/opn /tmp/click_joints_betaald.zip 1080x1920 2>&1 | tee /tmp/klaar/opname.log || true
+          grep -E "KORT|Traceback|Error|opname klaar|deel " /tmp/klaar/opname.log | cut -c1-400 || true
+          [ -s /tmp/opn/scherm-ruw.ts ] || { echo "FOUT: geen opname"; exit 1; }
+          cp /tmp/opn/film.json /tmp/opn/start.txt /tmp/opn/muis.txt /tmp/klaar/
+          ffmpeg -v error -i /tmp/opn/scherm-ruw.ts -r 30 -c:v libx264 -preset veryfast -crf 17 -pix_fmt yuv420p /tmp/klaar/scherm.mkv
+          n=$(ls /tmp/opn/eind/e_*.png 2>/dev/null | wc -l); echo "eindbeelden: $n"
+          [ "$n" -gt 0 ] && ffmpeg -v error -framerate 30 -pattern_type glob -i '/tmp/opn/eind/e_*.png' -c:v libx264 -preset veryfast -crf 16 -pix_fmt yuv420p /tmp/klaar/eind.mp4 || true
+          [ "$n" -gt 0 ] && cp "$(ls /tmp/opn/eind/e_*.png | head -1)" /tmp/klaar/eind-eerste.png && cp "$(ls /tmp/opn/eind/e_*.png | tail -1)" /tmp/klaar/eind-laatste.png || true
+          ls -la /tmp/klaar
+      - name: Controle vloeiend
+        run: |
+          python3 commercie/filmpjes/regisseur-26/vloeiend.py /tmp/opn/scherm-ruw.ts | tee /tmp/klaar/vloeiend.txt || true
+          d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 /tmp/klaar/scherm.mkv)
+          for s in 0.1 0.3 0.5 0.7 0.9; do
+            t=$(python3 -c "print(round($d*$s,2))")
+            ffmpeg -v error -ss $t -i /tmp/klaar/scherm.mkv -frames:v 1 -vf scale=1080:-1 /tmp/klaar/blik-$s.jpg
+          done
+      - name: Contactblad per deel (beeld 0,4 s na elk deel)
+        run: |
+          python3 - <<'PY2'
+          import json, subprocess
+          f = json.load(open("/tmp/opn/film.json")); s0 = float(open("/tmp/opn/start.txt").read())
+          for n, t in sorted(f["delen"].items(), key=lambda kv: kv[1]):
+              sec = max(0.0, t - s0 + 0.4)
+              print(f"{n:14s} {sec:7.2f} s")
+              subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{sec:.2f}", "-i", "/tmp/klaar/scherm.mkv", "-frames:v", "1",
+                              "-vf", "scale=540:-1", f"/tmp/klaar/deel-{n}.jpg"])
+          PY2
+          montage /tmp/klaar/deel-*.jpg -tile 6x -geometry +4+4 -label '%f' /tmp/klaar/blad.jpg 2>/dev/null || true
+      - name: In de release zetten
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -d /tmp/klaar ] || exit 1
+          echo "Regisseur 28 (issue #159): echte staande schermopname van Blender 5.3.0 met Click Joints Pro 1.2.8 en de eigen robot (ffmpeg x11grab, 30 beelden per seconde, echte muis), plus het eindbeeld door de camera. Werkmateriaal voor sale-Short v2 in procesvorm. Niets geplaatst." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 28 (sale-Short v2 procesvorm, echte schermopname)" --notes-file /tmp/notes.md
+          for m in /tmp/klaar/meting-*; do [ -d "$m" ] && (cd "$m" && zip -qr "$m.zip" .) && rm -rf "$m"; done
+          find /tmp/klaar -maxdepth 1 -type f -print0 | xargs -0 gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY"
