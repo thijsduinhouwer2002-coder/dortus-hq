@@ -43,3 +43,16 @@ python3 bron/tekst_paneel.py <uitmap>/paneel-scherm.png <uitmap>/paneel.json bee
 Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-paneel.json`, tegen de paneelbeelden van Cleave, Split 3D Print en SnapSplit (lat, deel Paneel).
 
 **25 nov ±16:40, opnieuw gemaakt (Daan #82, M1):** zelfde opdracht en instellingen, nu met de zip van main op 4801bc8. Het paneel toont "Horse (closed): 505,742 faces" in plaats van "Horse_watertight"; verder gelijk (12 stukken groen, 48 pennen, 0,20 mm; GEZIEN, `beelden/paneel.json`). Geen nieuwe blinde test: alleen de modelnaam veranderde (hoofdmanager 15:45 in #39).
+
+## Beeld "Numbered for assembly" met het hele paard (`beelden/nummer-paard-*`, 26 nov ±02:10, issue #105)
+Waarom: Thijs zag `nummer-*` en vroeg "wat moet het voorstellen?" (los oranje stuk). Dit beeld vervangt het: zelfde boodschap, maar je ziet eerst het hele paard.
+
+**Midden:** het paard (Poly Haven, CC0) gesneden door de echte knop Split to fit (zip van main op 29d0af9, A1): 12 stukken, alle groen, 48 pennen, uit elkaar zoals het hoofdbeeld (0,42), gouden pen op elk gatenpaar (GEZIEN, `beelden/nummer-paard.json`). **Rechts:** kaart met de close-up van de naad 5-9: het hoofd (stuk 9) boven de borst (stuk 5), pennen in de gaten van stuk 5 en het gegraveerde 5-9 van de add-on (pen 5 mm, speling 0,2 mm; GEZIEN, `beelden/nummer-naad.json`). Een gouden lijn wijst van die naad in het paard naar de kaart. Renders, geen foto van een print.
+```
+HB_UIT=0.42 HB_UIT_Z=0.8 NP_STUK=5 NP_BUUR=9 NP_X0=0.38 NP_X1=0.66 \
+  blender -b --factory-startup --python bron/nummer_paard.py -- ../cuts-hoofdbeeld/bron/hoofdbeeld.py <click_cuts.zip> <modelmap> render-paard.png nummer-paard.json 48 100
+SV_STUK=5 SV_BUUR=9 SV_N_GAT=2 SV_RAND=55 SV_F=16 SV_LEEG=0 SV_BUUR_IN_BEELD=1 SV_GAT=55 SV_BUUR_KADER=1.8 SV_X0=0.66 SV_Y0=0.05 SV_HOOG=0.75 SV_DRAAI=0.6 SV_LENS=70 \
+  blender -b --factory-startup --python bron/snijvlak.py -- ../cuts-hoofdbeeld/bron/hoofdbeeld.py <click_cuts.zip> <modelmap> render-naad.png nummer-naad.json 48 100
+python3 bron/tekst_nummer_paard.py render-paard.png nummer-paard.json render-naad.png nummer-naad.json beelden <fonts> ../../producten/blender-splitser/merk/icoon.svg
+```
+Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-nummer-paard.json`, GESLAAGD: Gemini 2,0, ChatGPT 1,5 (`organisatie/blindtest/uitslag/click-cuts-galerij-nummer-paard-2026-11-26-0200.md`). Het oude `nummer-*` haalde 2,0 en 2,0.

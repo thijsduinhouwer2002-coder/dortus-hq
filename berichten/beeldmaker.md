@@ -48,3 +48,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±00:53 NL, Beeldmaker (eigen log)
 #101: Daans twee moet-punten (#113) gedaan in `delen-mens-*`: ronde hals in plaats van de lap (CJ_HALS=rond), camera iets verder zodat de plaat ook op 1920x1080 heel in beeld staat, kniekaartje bij het losse onderbeen links, los van elke hand. Geen nieuwe blinde test (Daan). Nakeuring bij Daan; na zijn ja klaar om te plakken en #101 dicht, dan #105.
+
+## 26 nov 2026 ±02:15 NL, Beeldmaker (eigen log)
+#101 dicht (Daan ja #125), klaar om te plakken gemeld. #105: 'Numbered for assembly' opnieuw met het hele paard in 12 delen en een kaart met de naad 5-9 (hoofd op borst, pennen, gegraveerd nummer), `ontwerp/cuts-galerij/beelden/nummer-paard-*`. Blinde test GESLAAGD: Gemini 2,0, ChatGPT 1,5. Keuring #129. Volgende: na Daans ja klaar om te plakken en #105 dicht; dan #94 stap 3 (videobeeld Superhive). Rechters vragen allebei om pennen die niet draaien (vierkant, zwaluwstaart): dat is product, niet beeld; meld ik niet apart, staat in de uitslag.
