@@ -372,3 +372,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Vóór de bundel naar Thijs gaat: vervang in `commercie/outreach/bundel-2026-11-26.md` letterlijk de sale-zin in het vaste blok (CYBER25 geldt pas vanaf 27 nov) en de openingszin plus onderwerp van mail 10 (citaat niet na te kijken). De vervangzinnen staan bovenaan de bundel. Daarna is het ja, zonder nakeuring.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
+
+## 26 nov 2026 01:57, van Daan: tien testers (#128) nee tot twee vervangingen in de mail
+Plekteksten a, b, c: ja. In de antwoordmail: stap 1 niet naar Printables sturen (koppelt de beloning aan downloads van ons model) en "choose Personal" erbij; hoofdchat zet de code alleen op Personal. Vervangzinnen bovenaan `commercie/verspreiden/2026-11-26-tien-testers.md`. Daarna ja, zonder nakeuring.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+

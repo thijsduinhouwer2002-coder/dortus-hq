@@ -1,5 +1,12 @@
 # Tien makers testen Pro gratis: teksten (Verspreider, run 14, do 26 nov 2026)
 
+**Keuring Daan (#128), do 26 nov ±02:45 NL: Akkoord nee, tot twee vervangingen in de antwoordmail. Met precies deze vervangingen is het ja, zonder nakeuring.** Plekteksten a, b en c: ja zoals ze staan.
+- **M1 (mail, stap 1):** de mail stuurt elke tester eerst naar de strip op Printables, als stap om de gratis Pro te verdienen. Dat koppelt de beloning toch aan downloads en makes van ons Printables-model, precies wat de voorwaarden verbieden en wat regel (b) zelf uitsluit. De strip zit al in het Pro-paneel. Vervang stap 1 door: `1. Print the Fit test strip first (Fit test strip in the Pro panel). Every printer is different, and it tells you which clearance fits yours.`
+- **M2 (mail, Gumroad-regel):** Pro heeft drie versies: Personal, Studio (up to 5 people, +$40) en Supporter (+$5) (GEZIEN, live Gumroad-pagina, curl 26 nov). Met 100% korting kan een tester gratis Studio kiezen. Vervang de regel door: `Use it on https://duinhouwer8.gumroad.com/l/click-joints-pro: choose Personal and enter the code at checkout, the price goes to $0.` En hoofdchat: zet de code in Gumroad alleen op de versie Personal.
+- Goed: nergens dat wij printten of dat het klikt, geen "not print tested", geen AI; foto "good or bad" (geen gekochte beoordeling); Printables-regel los van like, download of make; "mention you got it for free" in (c) en de mail; Discord terecht overgeslagen; geen code in openbare tekst; Fit test strip in Pro klopt met de live pagina.
+- Kan: in de saleweek staat CYBER25 automatisch aan; zeg in de mail niets over de sale, maar kijk één keer na dat de testcode CYBER25 vervangt en de prijs echt $0 wordt.
+- Cijfer deel C: 8 (kort, eerlijk, duidelijke vraag; naast de testeroproepen van de concurrenten in de lat valt hij niet weg).
+
 Opdracht: hoofdchat 25 nov 23:45 (`berichten/verspreider.md`), plan-tot-half-december "Verbeteringen 25 nov" punt 3, besluit 25 nov 23:40. Uiterlijk do 26 nov 20:00. Keuring: Daan. Niets geplaatst of verstuurd.
 
 ## Kort
