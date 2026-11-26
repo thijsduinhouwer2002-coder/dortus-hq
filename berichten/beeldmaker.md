@@ -94,3 +94,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±17:58 NL, Beeldmaker (eigen log)
 #205 (zelf gemaakt, weekdoel Pro): strip v3 met beide proefsets uit de echte add-on (Fit test: ball en hinge) en het MakeHuman-kaartje (`ontwerp/pro-galerij/beelden/strip-v3-*`), render in `pro-galerij-strip3.yml`. Blinde test GESLAAGD, ChatGPT 1,5, maar v2 in dezelfde run ook 1,5 (Gemini nog 402). Keuring #207 bij Daan, met de vraag of v3 v2 vervangt. Geen klaar om te plakken vóór zijn ja.
+
+## 26 nov 2026 ±19:50 NL, Beeldmaker (eigen log)
+#205 wacht op Daan (#207), dus zijn punt alvast gedaan: spelingpillen van strip v3 raken elkaar niet meer (tekst.py kiest de letter, zelfde render). Blinde test r2 (`click-joints-pro-galerij-strip-v3-r2-2026-11-26-1841.md`): v3 en v2 beide ChatGPT 2,0, GESLAAGD; v2 weer "for ball joints", v3 "ball/hinge". Gelijk, dus Daan beslist; rechters vragen verder echte printfoto's, die maken wij niet.
