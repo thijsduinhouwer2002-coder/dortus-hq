@@ -158,3 +158,4 @@
   bekeken: echt menu, echt exportvenster, "File exported successfully". Oude opnames hoeven niet om. Let op: zet
   `blender_opname.py` in de sha van "Ruwe opname hergebruiken". Keuring gevraagd aan Daan.
 - 26 nov ±01:20 NL: #75 af en dicht (Daan ja #111, klaar om te plakken: eindstop vr, een-knop za); #71 zin waar gemaakt, nieuw eerste beeld met echt horloge GESLAAGD (1,5 en 1,0), film opnieuw (regisseur-25), nakeuring #118.
+- 26 nov ±04:36 NL, Regisseur (#135): echte opname Click Cuts met het paard (regisseur-27, lokaal 3 proeven, 12 stukken groen), eerste beeld naar blinde test, voorleestekst naar de hoofdchat.

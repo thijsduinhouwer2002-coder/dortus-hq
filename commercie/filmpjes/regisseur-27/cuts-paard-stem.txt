@@ -1,0 +1,13 @@
+Model too big for your printer?
+
+This horse is 520 millimeters tall. The bed is only 256.
+
+Click it, pick your printer, then Split to fit.
+
+One click, and all twelve parts fit the bed.
+
+Pins, pin holes and part numbers, added for you.
+
+Print the fit test block first: every printer is different.
+
+Click Cuts, for Blender, on Gumroad.

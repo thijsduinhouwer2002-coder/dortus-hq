@@ -1,0 +1,155 @@
+{
+ "naam": "cuts-paard",
+ "eerste_beeld": "eerste-beeld-paard.jpg",
+ "slot_beeld": "slot-paard.jpg",
+ "zinnen": [
+  {
+   "tekst": "Model too big for your printer?",
+   "soort": "beeld"
+  },
+  {
+   "tekst": "This horse is 520 millimeters tall. The bed is only 256.",
+   "uitspraak": "This horse is five hundred twenty millimeters tall. The bed is only two fifty six.",
+   "stukken": [
+    {
+     "deel": "heel",
+     "na": 0.0,
+     "zoom": [
+      4,
+      260,
+      685
+     ]
+    }
+   ]
+  },
+  {
+   "tekst": "Click it, pick your printer, then Split to fit.",
+   "stukken": [
+    {
+     "deel": "kies",
+     "na": 0.0,
+     "duur": 1.4,
+     "zoom": [
+      4,
+      260,
+      685
+     ]
+    },
+    {
+     "deel": "printer",
+     "na": -0.4,
+     "duur": 2.6,
+     "split": {
+      "boven": [
+       4,
+       300,
+       1100,
+       685
+      ],
+      "onder": [
+       700,
+       130,
+       820,
+       760
+      ]
+     }
+    },
+    {
+     "deel": "knop",
+     "na": -0.8,
+     "split": {
+      "boven": [
+       4,
+       300,
+       1100,
+       685
+      ],
+      "onder": [
+       700,
+       130,
+       820,
+       760
+      ]
+     }
+    }
+   ],
+   "ondertitel_y": 960
+  },
+  {
+   "tekst": "One click, and all twelve parts fit the bed.",
+   "stukken": [
+    {
+     "deel": "klaar",
+     "na": 0.6,
+     "duur": 1.6,
+     "split": {
+      "boven": [
+       4,
+       300,
+       1100,
+       685
+      ],
+      "onder": [
+       700,
+       130,
+       820,
+       760
+      ]
+     }
+    },
+    {
+     "deel": "draai",
+     "na": 0.0,
+     "zoom": [
+      4,
+      260,
+      685
+     ]
+    }
+   ],
+   "ondertitel_y": 960
+  },
+  {
+   "tekst": "Pins, pin holes and part numbers, added for you.",
+   "stukken": [
+    {
+     "deel": "zoom_dicht",
+     "na": -0.3,
+     "zoom": [
+      4,
+      260,
+      685
+     ]
+    }
+   ]
+  },
+  {
+   "tekst": "Print the fit test block first: every printer is different.",
+   "stukken": [
+    {
+     "deel": "lijst_onder",
+     "na": 0.0,
+     "split": {
+      "boven": [
+       4,
+       300,
+       1100,
+       685
+      ],
+      "onder": [
+       700,
+       560,
+       820,
+       760
+      ]
+     }
+    }
+   ],
+   "ondertitel_y": 960
+  },
+  {
+   "tekst": "Click Cuts, for Blender, on Gumroad.",
+   "soort": "slot"
+  }
+ ]
+}

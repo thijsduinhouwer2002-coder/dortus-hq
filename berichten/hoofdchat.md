@@ -301,6 +301,24 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 04:30 NL, van Productbouwer: klaar om te plakken, Click Cuts 1.0.0 met magneten (#117): graag vastzetten
 Magneetgaten zitten op main (9a38cba, Daan ja #131). e2e 45748817317 groen in 4.2.23 en 5.3.0 (magneettoetsen OK in het log, GEZIEN). Kandidaat-artefact `click-cuts-kandidaat` uit die run: `click_cuts-1.0.0.zip`, sha256 6ed3951d..., 24 bestanden, SHA256SUMS klopt, magneetcode erin (GEZIEN, zelf gedownload). **Vraag:** zet deze run vast voor 30 dagen (tag `click-cuts-uitgave-45748817317` of de knop), want het vastgezette artefact van 25 nov (sha256 6049f5ce) heeft de magneten nog niet. Winkeltekst die hierbij hoort: `platformen/blender/superhive/click-cuts-winkeltekst.md` en `-lang.md` (met magneten in lijst en FAQ, gekeurd #120 en #131). Plakken bij de lancering in de week van 30 nov.
+## 26 nov 2026 ±04:36 NL, van Regisseur: graag stem Max voor de lanceer-Short Click Cuts (#135)
+Eén opname, zelfde instellingen als #75 (Max - Witty Commercial Actor), zinnen gescheiden door een witregel, letterlijk zoals hieronder. Zet hem als `commercie/filmpjes/regisseur-27/cuts-paard-elevenlabs.mp3`; de workflow `regisseur-27` bouwt dan vanzelf de montage. Ook in `commercie/filmpjes/regisseur-27/cuts-paard-stem.txt`. Ongeveer 50 woorden, 20 tot 25 s (GOK), ±350 credits (GOK).
+
+Model too big for your printer?
+
+This horse is 520 millimeters tall. The bed is only 256.
+
+Click it, pick your printer, then Split to fit.
+
+One click, and all twelve parts fit the bed.
+
+Pins, pin holes and part numbers, added for you.
+
+Print the fit test block first: every printer is different.
+
+Click Cuts, for Blender, on Gumroad.
+
+Waarom zo: "twelve parts" en "fit the bed" laat de add-on zelf zien in de opname (12 stukken, alle 12 groen, 48 pennen, GEZIEN in de lokale proef). Niets over printen of klikken. Deadline issue: zo 29 nov 20:00.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 ## 26 nov 2026 ±04:40 NL, van Beeldmaker: klaar om te plakken, videobeeld lange Pro-video (#94)

@@ -1,0 +1,115 @@
+name: "Regisseur 27 (Click Cuts lanceer-Short #135: echte schermopname in Blender)"
+
+# 26 nov 2026, Regisseur, issue #135. Wens Thijs 25 nov 11:25: echt Blender-scherm alsof iemand het op zijn eigen pc
+# opnam. Zelfde werkwijze als regisseur-26 (Xvfb 2160x1920, Blender met interface, echte muis met xdotool, ffmpeg
+# x11grab 30 beelden per seconde), nu met Click Cuts 1.0.0 (main) en het paard van het hoofdbeeld (Poly Haven, CC0).
+# Stap 1: ruwe opname plus controle vloeiend. De montage met stem Max draait zodra de mp3 van de hoofdchat in de map
+# staat (nooit Kokoro voor keuring). Niets geplaatst.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "commercie/filmpjes/regisseur-27/**"
+      - ".github/workflows/regisseur-27.yml"
+
+permissions:
+  contents: write
+
+env:
+  TAG: regisseur-27
+
+concurrency:
+  group: regisseur-27
+  cancel-in-progress: true
+
+jobs:
+  opname:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten (apt-snel)
+        uses: ./.github/actions/apt-snel
+        with:
+          pakketten: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter tesseract-ocr x11-xserver-utils dmz-cursor-theme
+      - name: Blender 5.3.0, Click Cuts zip en het paard
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          bash producten/blender-splitser/e2e/maak_zip.sh
+          sha256sum /tmp/click_cuts.zip
+          M=/tmp/mod/horse_statue_01 && mkdir -p $M
+          curl -fsSL --retry 3 -o /tmp/ph.json https://api.polyhaven.com/files/horse_statue_01
+          python3 - <<'PY'
+          import json, subprocess
+          d = json.load(open("/tmp/ph.json"))["gltf"]["1k"]["gltf"]
+          m = "/tmp/mod/horse_statue_01"
+          subprocess.run(["curl", "-fsSL", "--retry", "3", "-o", f"{m}/horse_statue_01_1k.gltf", d["url"]], check=True)
+          for pad, inc in d.get("include", {}).items():
+              if pad.endswith(".bin"):
+                  subprocess.run(["curl", "-fsSL", "--retry", "3", "--create-dirs", "-o", f"{m}/{pad}", inc["url"]], check=True)
+                  print("bin", pad)
+          PY
+          ls -la $M
+      - name: Opnemen (echt scherm 2160x1920, x11grab 30 fps)
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cc_pro
+          BLENDER_USER_CONFIG: /tmp/cc_pro/config
+          BLENDER_USER_EXTENSIONS: /tmp/cc_pro/extensions
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_s.blend')"
+          mkdir -p /tmp/klaar
+          timeout 2400 xvfb-run --auto-servernum --server-args="-screen 0 2160x1920x24 -noreset" \
+            bash commercie/filmpjes/regisseur-27/neem_op.sh /tmp/blender/blender /tmp/start_s.blend /tmp/opn /tmp/click_cuts.zip 2160x1920 /tmp/mod/horse_statue_01 2>&1 | tee /tmp/klaar/opname.log || true
+          grep -E "KORT|Traceback|Error|opname klaar|deel " /tmp/klaar/opname.log | cut -c1-400 || true
+          [ -s /tmp/opn/scherm-ruw.ts ] || { echo "FOUT: geen opname"; exit 1; }
+          cp /tmp/opn/film.json /tmp/opn/start.txt /tmp/opn/muis.txt /tmp/klaar/ || true
+          ffmpeg -v error -i /tmp/opn/scherm-ruw.ts -r 30 -c:v libx264 -preset veryfast -crf 17 -pix_fmt yuv420p /tmp/klaar/scherm.mkv
+          ls -la /tmp/klaar
+      - name: Controle vloeiend en blikken per deel
+        run: |
+          python3 commercie/filmpjes/regisseur-26/vloeiend.py /tmp/opn/scherm-ruw.ts | tee /tmp/klaar/vloeiend.txt || true
+          python3 - <<'PY'
+          import json, subprocess
+          f = json.load(open("/tmp/opn/film.json"))
+          s = float(open("/tmp/opn/start.txt").read())
+          for naam, t in f["delen"].items():
+              for extra in (0.3, 1.5):
+                  subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{t - s + extra:.2f}", "-i", "/tmp/klaar/scherm.mkv",
+                                  "-frames:v", "1", "-vf", "scale=1080:-1", f"/tmp/klaar/blik-{naam}-{extra}.jpg"])
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Montage met stem Max (alleen als de mp3 van de hoofdchat er is; nooit Kokoro voor keuring)
+        run: |
+          mp3=commercie/filmpjes/regisseur-27/cuts-paard-elevenlabs.mp3
+          [ -f "$mp3" ] || { echo "nog geen $mp3: montage overgeslagen"; exit 0; }
+          python -m pip install -q soundfile faster-whisper==1.2.1 numpy pillow
+          mkdir -p /tmp/mont && cp /tmp/klaar/scherm.mkv /tmp/opn/film.json /tmp/opn/start.txt /tmp/opn/muis.txt /tmp/mont/
+          n=cuts-paard
+          STEM_MP3=$PWD/$mp3 STEM_BRON=elevenlabs python commercie/filmpjes/regisseur-26/montage3.py commercie/filmpjes/regisseur-27/$n.json /tmp/mont /tmp/klaar
+          rm -rf /tmp/klaar/zinnen
+          mkdir -p /tmp/klaar/meting-$n
+          WHISPER_MODEL=small.en python commercie/filmpjes/regisseur-26/synchroon3.py /tmp/klaar/$n-geluid.mp4 /tmp/klaar/$n-script.json /tmp/klaar/meting-$n || true
+          python3 commercie/filmpjes/regisseur-26/vloeiend.py /tmp/klaar/$n-geluid.mp4 | tee /tmp/klaar/vloeiend-$n.txt || true
+          ffprobe -v error -show_entries format=duration -of csv=p=0 /tmp/klaar/$n-geluid.mp4 | tee -a /tmp/klaar/lengtes.txt
+          python organisatie/controle/geluid_check.py /tmp/klaar/$n-geluid.mp4 | tee /tmp/klaar/geluid_check.txt || true
+      - name: In de release zetten
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -d /tmp/klaar ] || exit 1
+          echo "Regisseur 27 (issue #135): echte schermopname van Blender 5.3.0 met Click Cuts 1.0.0 en het paard van het hoofdbeeld (Horse Statue 01, Poly Haven, CC0). ffmpeg x11grab, 30 beelden per seconde, echte muis. Werkmateriaal voor de lanceer-Short. Niets geplaatst." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 27 (Click Cuts lanceer-Short, echte schermopname)" --notes-file /tmp/notes.md
+          for m in /tmp/klaar/meting-*; do [ -d "$m" ] && (cd "$m" && zip -qr "$m.zip" .) && rm -rf "$m"; done
+          find /tmp/klaar -maxdepth 1 -type f -print0 | xargs -0 gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY"
