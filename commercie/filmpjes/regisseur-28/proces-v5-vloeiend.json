@@ -1,0 +1,17 @@
+{
+ "beelden": 825,
+ "duur_s": 27.467,
+ "fps": 30.0,
+ "gaten": [],
+ "aantal_gaten": 0,
+ "dubbele_tijd": 0,
+ "stukken": [
+  {
+   "van": 0.0,
+   "tot": 4.0,
+   "beelden": 120,
+   "gelijk": 0
+  }
+ ],
+ "oordeel": "GOED"
+}

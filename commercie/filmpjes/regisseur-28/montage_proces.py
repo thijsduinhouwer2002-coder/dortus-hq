@@ -93,7 +93,13 @@ def main():
     overgangen.append(round(gemaakt / FPS, 2))
     eind = frames_uit_film(opn / "eind.mp4", n, sc.get("eind_start", 0.0))
     slot_van = n - int(sc["slot_duur"] * FPS)
+    zoom = float(sc.get("eind_zoom", 1.0))   # langzaam inzoomen op de eigen render (proef 7: de camera stond stil)
     for i, b in enumerate(eind):
+        if zoom > 1.0:
+            f = 1.0 + (zoom - 1.0) * (i / max(1, n - 1))
+            bw, bh = W / f, H / f
+            x0, y0 = (W - bw) / 2, (H - bh) * 0.42
+            b = Image.frombytes("RGB", (W, H), b).resize((W, H), Image.BICUBIC, box=(x0, y0, x0 + bw, y0 + bh)).tobytes()
         if i >= slot_van:
             im = Image.frombytes("RGB", (W, H), b)
             a = min(1.0, (i - slot_van) / 8.0)

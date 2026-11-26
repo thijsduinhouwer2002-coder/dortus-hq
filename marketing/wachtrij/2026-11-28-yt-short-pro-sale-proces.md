@@ -1,13 +1,13 @@
 # Sale-Short Click Joints Pro (procesvorm): From rig to poseable figure in Blender 🤖
 
-- status: in de maak (Regisseur, issue #159); nog niet gekeurd, nog niet plaatsen. Proef 4 en 5: het beeld van de weergave ververst maar ±2 keer per seconde, dus nog niet aanbieden
+- status: bij Daan voor keuring (Regisseur, issue #159, proef 7, 26 nov ±15:15 NL); nog niet plaatsen. Eigen controle (GEZIEN): 27,5 s, 1080x1920, 30 bps, 0 gaten, 0 dubbele tijden, eerste 4 s geen enkel beeld gelijk aan het vorige, langste stilstand 0,9 s, geluid_check GOED (gemiddeld -14,0 dB, piek -1,5 dB). Eerste beeld in de blinde test (set `pro-sale-proces`)
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
 - issue: #159
 - bestand: `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces.mp4` (1080x1920, 30 beelden per seconde)
 - vorm: opbouw en tempo van het voorbeeld dat Thijs stuurde (26 nov 08:48): seconde 0 al in Blender met een grijze robot die beweegt, dan elke ±0,5 tot 1,4 s een echte stap (rig, Figure from rig, Exploded view, knie tot de stop en rood erna, kleuren met de shader-editor, tijdlijn, Render Animation), daarna ±6 s de mooie eindfilm met de saleregel. Hun beelden en hun geluid zitten er niet in, alleen de opbouw.
-- beeld: echte schermopname van Blender 5.3.0 met Click Joints Pro 1.2.8 en de eigen robot (ffmpeg x11grab, echte muis en klikken), workflow `regisseur-28`, script `commercie/filmpjes/regisseur-28/proces.py`; eindfilm door de studiocamera uit dezelfde scène, Cycles-render in de workflow (eind.blend, 210 beelden). Montage: `commercie/filmpjes/regisseur-28/proces-v4.json` met `montage_proces.py`, 25,6 s, 15 stukken
+- beeld: echte schermopname van Blender 5.3.0 met Click Joints Pro 1.2.8 en de eigen robot, workflow `regisseur-28` run 45831687011 (release regisseur-28), script `commercie/filmpjes/regisseur-28/proces.py`. Opgenomen beeld voor beeld op een eigen klok: per 1/30 s zet het script de echte muis (xdotool), tekent Blender het hele venster echt en wordt dat scherm gepakt; echte kliks op robot, Figure from rig, Exploded view, onderbeen, Bend (typen), tabblad Shading, tabblad Layout, sleep van de afspeelkop, Render > Render Animation (alles gevonden, geen vangnet in film.json). Eindfilm: Cycles-render door de studiocamera uit dezelfde scène (210 beelden), langzaam ingezoomd in de montage. Montage: `commercie/filmpjes/regisseur-28/proces-v5.json` met `montage_proces.py`, 15 stukken
 - geluid: geen stem; alleen muziek met vrije licentie (Kevin MacLeod, incompetech.com, CC BY 4.0, naam van het stuk hieronder in de tekst) en zachte klikjes op de echte kliks
 - slot: "Click Joints Pro, 25% off this week, on Gumroad" in beeld
 - plaatsen: alleen tussen vr 27 nov en di 1 dec, en alleen als CYBER25 aanstaat (`bash platformen/blender/sale-controle.sh`); Thijs ziet hem voor hij online gaat (issue #159)
