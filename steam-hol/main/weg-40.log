@@ -1,27 +1,23 @@
-HOL balk gestart, pid 10124, hoogte 120
-HOL weg geweest 25210 s (klok terug: false): goud voor 570, helden 100, erbij 448, hoeden 29
-HOL weg faam afgekapt 7 van 58 (hooguit 2 niveaus)
+HOL balk gestart, pid 8236, hoogte 120
+HOL weg geweest 25211 s (klok terug: false): goud voor 564, helden 100, erbij 478, hoeden 43
+HOL weg faam afgekapt 7 van 63 (hooguit 2 niveaus)
 HOL hol-niveau 4 (faam 12, t 0.0)
 HOL hol-niveau 5 (faam 12, t 0.0)
-HOL hoeden van de nacht 29 (vallen vanaf 1.0 s, toren nu 40)
-HOL berg zichtbaar 6 -> 8
-HOL kroniek 0.0 (wacht 0.0): 100 came, 58 fell, 29 hats. +448 gold.
+HOL hoeden van de nacht 43 (vallen vanaf 1.0 s, toren nu 40)
+HOL berg zichtbaar 6 -> 9
+HOL kroniek 0.0 (wacht 0.0): 100 came, 63 fell, 43 hats. +478 gold.
 HOL optocht wip, 1.2 poef 4 munt; helden [5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1018 goud, faam 12
+HOL opslag geladen: 0 terugkomers, 1042 goud, faam 12
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795704430
+HOL zaad 1795705490
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 1018)
-HOL eerste koop mogelijk na 38 s speeltijd (goud 1018)
+HOL gloop ring aan na 0.1 s (goud 1042)
+HOL eerste koop mogelijk na 38 s speeltijd (goud 1042)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL held binnen: Anouk
+HOL held binnen: Jop
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Anouk says this is a quick one.
-HOL meting t=10 beelden=100 helden=1 hol_vast=13
-HOL kroniek zelfde held vervangen: Anouk says this is a quick one.
-HOL kroniek 10.6 (wacht 0.0): Anouk took the short way down. +9
-HOL put-hoed 8 naar de toren (hoeden nu 70, t 10.6)
-HOL zicht 10.6 0
-HOL einde na 12 s, fps=20, goud=1027, terugkomers=0
+HOL kroniek 2.6 (wacht 0.5): Jop climbs into your hole.
+HOL meting t=10 beelden=100 helden=1 hol_vast=12
+HOL einde na 12 s, fps=10, goud=1042, terugkomers=0
