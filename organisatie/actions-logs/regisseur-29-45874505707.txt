@@ -1,0 +1,22 @@
+# gemaakt: 2026-11-26T19:05:04Z
+# workflow: Regisseur 29 (sale-Short v7 #159: één doorlopende echte opname van de weergave, camera draait, robot verandert) (.github/workflows/regisseur-29.yml)
+# run: 45874505707 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45874505707
+# commit: 6fbc4141 tak regisseur-29-proef gestart door push
+# mislukte stappen: montage: Pakketten
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== montage / Pakketten (laatste 13 van 13 regels) =====
+##[group]Run sudo apt-get install -y -qq ffmpeg fonts-inter >/dev/null
+sudo apt-get install -y -qq ffmpeg fonts-inter >/dev/null
+python3 -m pip install -q numpy pillow
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-29
+  PRO_COMMIT_VOOR: a3c1ea1
+##[endgroup]
+E: Failed to fetch https://security.ubuntu.com/ubuntu/pool/main/p/pipewire/libspa-0.2-modules_1.6.2-1ubuntu1.2_amd64v3.deb  404  Not Found [IP: 185.125.190.81 443]
+E: Failed to fetch https://security.ubuntu.com/ubuntu/pool/main/p/pipewire/libpipewire-0.3-0t64_1.6.2-1ubuntu1.2_amd64v3.deb  404  Not Found [IP: 185.125.190.81 443]
+E: Failed to fetch https://security.ubuntu.com/ubuntu/pool/main/p/pipewire/libpipewire-0.3-common_1.6.2-1ubuntu1.2_all.deb  404  Not Found [IP: 185.125.190.81 443]
+E: Unable to fetch some archives, maybe run apt update or try with --fix-missing?
+##[error]Process completed with exit code 100.
