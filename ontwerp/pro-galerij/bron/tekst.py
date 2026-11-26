@@ -19,6 +19,10 @@ CREME, GOUD, ZACHT, DONKER = (255, 246, 230), (255, 196, 84), (226, 216, 232), (
 
 
 def font(naam, maat, gewicht):
+    stam, ext = os.path.splitext(naam)
+    vast = os.path.join(FONTS, f"{stam}-{gewicht}{ext}")   # statische letter per gewicht, als die er is (#205)
+    if os.path.exists(vast):
+        return ImageFont.truetype(vast, maat)
     f = ImageFont.truetype(os.path.join(FONTS, naam), maat)
     try:
         f.set_variation_by_name(gewicht)
@@ -179,6 +183,24 @@ def strip(img, s, meta, P):
         pil(img, s, (int(x), int(y + 70 * s)), f"{getal} mm", maat=30)
 
 
+def strip3(img, s, meta, P):
+    """Twee proefsets (kogel en scharnier): spelingen onder de voorste set, een soortpil boven elke set."""
+    W, H = img.size
+    for getal, q in sorted(meta["labels"].items()):
+        x, y = P(q["voet"])
+        pil(img, s, (int(x), int(y + 64 * s)), f"{getal}\u00a0mm", maat=24, rand=GOUD if getal == "0.20" else ZACHT)
+    for getal, q in sorted(meta.get("labels2", {}).items()):
+        if os.environ.get("GB_LABELS2"):
+            x, y = P(q["voet"])
+            pil(img, s, (int(x), int(y + 64 * s)), getal, maat=28, rand=GOUD if getal == "0.20" else ZACHT)
+    naam = {"KOGEL": "Fit test: ball", "SCHARNIER": "Fit test: hinge"}
+    for k in ("eerste", "tweede"):
+        st = meta["sets"][k]
+        x, y = P(st["boven"])
+        dy = float(os.environ.get("GB_SOORTPIL_DY", "-70"))
+        pil(img, s, (int(x), int(y + dy * s)), naam[st["soort"]], maat=34)
+
+
 def inzet(img, s, x0, y0):
     """Kaartje met de robot uit dezelfde render als 'Rig in. Parts out.' (klik): daarna krijgt elk gewricht die speling."""
     pad = os.environ.get("GB_INZET")
@@ -186,7 +208,8 @@ def inzet(img, s, x0, y0):
         return
     r = Image.open(pad).convert("RGBA")
     W0, H0 = r.size
-    robot = r.crop((int(W0 * 0.53), int(H0 * 0.10), int(W0 * 0.82), int(H0 * 0.92)))
+    k = [float(v) for v in os.environ.get("GB_INZET_KADER", "0.53,0.10,0.82,0.92").split(",")]
+    robot = r.crop((int(W0 * k[0]), int(H0 * k[1]), int(W0 * k[2]), int(H0 * k[3])))
     h = int(330 * s)
     robot = robot.resize((int(robot.width * h / robot.height), h), Image.LANCZOS)
     bw = robot.width + int(430 * s)
@@ -368,6 +391,13 @@ def maak(basis, W, H, meta, dy, schaal):
             int(W * 0.30))
         ex = delen(img, s, meta, P)
         bestanden(img, s, x0, int(H * 0.63), ex)
+    elif MODUS.startswith("strip3"):
+        donker(img, int(W * 0.55))
+        kop(img, s, x0, int(H * 0.10), ["Find the fit", "for your printer"],
+            "Test prints for balls and hinges, 0.10 to 0.30\u00a0mm. Keep the one that turns without wobble.",
+            int(W * 0.30))
+        strip3(img, s, meta, P)
+        inzet(img, s, x0, int(H * 0.60))
     else:
         donker(img, int(W * 0.55))
         kop(img, s, x0, int(H * 0.12), ["Find the fit", "for your", "printer"],
