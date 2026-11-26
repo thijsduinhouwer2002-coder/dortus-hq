@@ -268,7 +268,8 @@ def strip():
             zs = [(mw @ o.data.vertices[i].co).z for i in p.vertices]
             if strak:
                 c = mw @ p.center
-                if c.z > 29.5 and math.hypot(c.x - ax, c.y - ay) < straal * 0.93:
+                nz = (mw.to_3x3() @ p.normal).normalized().z   # bovenvlak wijst omhoog, de wand opzij
+                if c.z > 29.5 and (nz > 0.7 or math.hypot(c.x - ax, c.y - ay) < straal * 0.93):
                     p.material_index = 1
             elif (boven and all(z < 30.0 + zone for z in zs)) or (not boven and all(z > 29.5 for z in zs)):
                 p.material_index = 1

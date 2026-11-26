@@ -54,7 +54,7 @@ jobs:
               | tee /tmp/uit/$naam.log | grep -E "\[|Traceback|Error" | cut -c1-300
             [ -s /tmp/uit/render-$naam.png ] && echo "OK $naam" || echo "GEEN RENDER $naam"
           }
-          # strip v4 (Daan #215 kan-punt): zelfde camera als v3 'naast', alleen een strakke goudrand op de kogelstaven
+          # strip v4 (Daan #215 kan-punt): zelfde camera als v3 'naast', alleen een strakke goudrand op de kogelstaven (ronde 2: bovenvlak op normaal)
           r naast GB_STRAKKE_RAND=1 GB_NAAST=40 GB_TIL=10 GB_KANTEL_TOP=-35 GB_ZIJ=-0.45 GB_OP=0.42 GB_AFSTAND=820 GB_SHIFT=-0.17
           ls -la /tmp/uit
           ls /tmp/uit/render-*.png >/dev/null 2>&1 || { echo "FOUT: geen enkele render"; exit 1; }
