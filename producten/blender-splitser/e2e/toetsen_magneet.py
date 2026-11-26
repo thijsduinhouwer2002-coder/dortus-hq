@@ -97,6 +97,64 @@ def toets(naam, magneet, uitmap):
          and not any(b.startswith("pins_") for b in bestanden), str(bestanden))
 
 
+def vlak_tussen_gaten(ob):
+    """Daan #150 M1: the cut face between and around two magnet holes on the same face must be flat, no groove.
+    Rays from 1 mm outside the face straight in, on a fine grid over the stadium around each pair of holes
+    (along the line between the centres and across it, holes and number labels left out). Returns per pair:
+    (pieces, holes, rays that hit, rays deeper than 0.02 mm but under 1 mm, deepest of those, misses or deeper
+    than 1 mm (off the face edge), largest tilt of the surface normal in degrees where it is flat)."""
+    from hulp import boom, as_vec, SCHAAL, labels
+    b = boom(ob)
+    k = SCHAAL[0]
+    gl = gaten(ob)
+    lbs = labels(ob)
+    uit = []
+    for i in range(len(gl)):
+        for j in range(i + 1, len(gl)):
+            g, h = gl[i], gl[j]
+            if g["as"] != h["as"] or g.get("teken") != h.get("teken"):
+                continue
+            n = as_vec(g["as"])
+            richting = -n * g["teken"]  # into the piece
+            pg, ph = Vector(g["p"]), Vector(h["p"])
+            if abs((pg - ph).dot(n)) > 0.01 or (pg - ph).length > 150.0:
+                continue
+            lang = ph - pg
+            lengte = lang.length
+            e = lang / lengte
+            dwars = n.cross(e)
+            r = g["r_gat"]
+            raak = ondiep = mis = 0
+            diepst, kantel = 0.0, 0.0
+            plek = None
+            stappen_l = max(2, int((lengte + 2 * (r + 0.8)) / 0.25))
+            stappen_d = int(2 * (r + 0.8) / 0.05)
+            for a in range(stappen_l + 1):
+                s = -(r + 0.8) + a * (lengte + 2 * (r + 0.8)) / stappen_l
+                for c in range(stappen_d + 1):
+                    t = -(r + 0.8) + c * 0.05
+                    q = pg + e * s + dwars * t
+                    if (q - pg).length < r + 0.1 or (q - ph).length < r + 0.1:
+                        continue
+                    if any(lb.get("as") == g["as"] and (q - Vector(lb["p"])).length < lb.get("h", 5.0) * (len(lb.get("tekst", "")) * 0.7 + 1.5)
+                           for lb in lbs):
+                        continue
+                    hit = b.ray_cast((q - richting * 1.0) / k, richting, 50.0 / k)
+                    if hit[0] is None or hit[3] * k - 1.0 > 1.0:
+                        mis += 1
+                        continue
+                    diep = hit[3] * k - 1.0
+                    raak += 1
+                    if diep > 0.02:
+                        ondiep += 1
+                        if diep > diepst:
+                            diepst, plek = diep, (round(s, 2), round(t, 2))
+                    else:
+                        kantel = max(kantel, math.degrees(hit[1].angle(-richting)))
+            uit.append(((ob["sj_stuk"], i, j), raak, ondiep, diepst, plek, mis, kantel, lengte, r))
+    return uit
+
+
 def alles(uitmap):
     inst = bpy.context.scene.split_joints
     try:
@@ -131,6 +189,17 @@ def alles(uitmap):
         n_gaten = sum(len(gaten(o)) for o in lijst)
         stap("magneet suzanne: stukken met magneetgaten en geen penplaatjes",
              len(lijst) > 1 and n_gaten >= 2 and not pen_objecten(), f"{len(lijst)} stukken, {n_gaten} gaten")
+        # Daan #150 M1: is the thin stadium line between two holes on face 5-7 a groove? Measured with rays.
+        paren = 0
+        for ob in lijst:
+            for wie, raak, ondiep, diepst, plek, mis, kantel, lengte, r in vlak_tussen_gaten(ob):
+                paren += 1
+                log(f"vlakmeting stuk {ob.get('sj_naam', ob.name)} gaten {wie[1]}-{wie[2]} ({lengte:.1f} mm uit elkaar, r {r:.2f}): "
+                    f"{raak} raak, {ondiep} dieper dan 0.02 mm (diepst {diepst:.3f} mm op {plek}), {mis} buiten het vlak, "
+                    f"normaal hooguit {kantel:.2f} graden scheef")
+                stap(f"magneet suzanne stuk {wie[0]} gaten {wie[1]}-{wie[2]}: vlak tussen de gaten, geen groef",
+                     raak > 0 and ondiep == 0, f"{ondiep} punten dieper dan 0.02 mm, diepst {diepst:.3f} mm")
+        stap("magneet suzanne: er zijn paren gaten op één vlak gemeten", paren > 0, f"{paren} paren")
         bpy.ops.wm.save_as_mainfile(filepath=os.path.join(uitmap, "magneet.blend"))
     finally:
         inst.verbinder = "PIN"
