@@ -1,6 +1,6 @@
 # Sale-Short Click Joints Pro (procesvorm): From rig to poseable figure in Blender 🤖
 
-- status: bij Daan voor keuring (Regisseur, issue #159, proef 7, 26 nov ±15:15 NL); nog niet plaatsen. Eigen controle (GEZIEN): 27,5 s, 1080x1920, 30 bps, 0 gaten, 0 dubbele tijden, eerste 4 s geen enkel beeld gelijk aan het vorige, langste stilstand 0,9 s, geluid_check GOED (gemiddeld -14,0 dB, piek -1,5 dB). Eerste beeld in de blinde test (set `pro-sale-proces`)
+- status: bij Daan voor keuring (Regisseur, issue #159, proef 7, 26 nov ±15:15 NL); nog niet plaatsen. Eigen controle (GEZIEN): 27,5 s, 1080x1920, 30 bps, 0 gaten, 0 dubbele tijden, eerste 4 s geen enkel beeld gelijk aan het vorige, langste stilstand 0,9 s, geluid_check GOED (gemiddeld -14,0 dB, piek -1,5 dB). Eerste beeld GESLAAGD bij ChatGPT (plek 1 en 1, `organisatie/blindtest/uitslag/pro-sale-proces-2026-11-26-1519.md`, regel sinds 26 nov 15:30: ChatGPT plus een ja van Daan)
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
