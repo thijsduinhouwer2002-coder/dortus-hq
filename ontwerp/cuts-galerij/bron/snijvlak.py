@@ -195,7 +195,8 @@ def main():
     s.collection.objects.link(kader)
     kader.hide_render = True
     bpy.context.view_layer.update()
-    objs = [st] if os.environ.get("SV_KADER") == "stuk" else [kader] + pens
+    kz = os.environ.get("SV_KADER")
+    objs = [st] if kz == "stuk" else ([st, bu] if kz == "beide" else [kader] + pens)
     xb = (float(os.environ.get("SV_X0", "0.44")), 0.97)
     cam = camera(objs, richting, xb, (float(os.environ.get("SV_Y0", "0.06")), 0.96),
                  lens=float(os.environ.get("SV_LENS", "85")))
