@@ -2,7 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/mot.png.ctex"
+uid="uid://dpdgcqs78tyee"
+path="res://.godot/imported/mot.png-4b76e8cc60d90850ff1e9352e24e12dd.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/mot.png"
-dest_files=["res://.godot/imported/mot.png.ctex"]
+dest_files=["res://.godot/imported/mot.png-4b76e8cc60d90850ff1e9352e24e12dd.ctex"]
 
 [params]
 

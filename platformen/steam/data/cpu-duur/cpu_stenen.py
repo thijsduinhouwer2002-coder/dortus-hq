@@ -1,4 +1,5 @@
 """CPU binnen één run: gouden stenen (#162) aan tegen uit. Olaf 26 nov 2026.
+Ook voor worm en mot (#190): wissel=leven of wissel=nep geeft "HOL wissel leven aan|uit ..." met dezelfde blokken.
 
 Gebruik: python3 cpu_stenen.py <map> [...]
 De map heeft cpu.txt (per seconde "<unix-tijd> <utime+stime in ticks>" van het Godot-proces), uit.txt (uitvoer van
@@ -17,7 +18,7 @@ TCK = 100.0
 BLOK = 20
 for d in sys.argv[1:]:
     uit = open(d + '/uit.txt').read()
-    paren_tu = [(float(u), float(t)) for u, t in re.findall(r'HOL wissel stenen \w+ unix=([\d.]+) t=([\d.]+) pad=Hol', uit)]
+    paren_tu = [(float(u), float(t)) for u, t in re.findall(r'HOL wissel (?:stenen|leven) \w+ unix=([\d.]+) t=([\d.]+) pad=Hol', uit)]
     paren_tu = [p for p in paren_tu if p[1] > 1.0]
     off = S.median(u - t for u, t in paren_tu)
     zicht = [(float(t) + off, int(n)) for t, n in re.findall(r'HOL zicht ([\d.]+) (\d+)', open(d + '/hol.log').read())]

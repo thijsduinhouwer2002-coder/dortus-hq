@@ -4,7 +4,7 @@ extends SceneTree
 # - flakkeren blijft tussen 0,9 en 1,0;
 # - lichtplas om de fakkel groot genoeg (Daan #106);
 # - leven: elk ding vindt een plek in een gewoon hol, de vleermuis wiegt zacht in en uit;
-#   in 10 min spel nooit twee tegelijk, gaten tussen 5 en 15 s, alle drie soorten komen voor.
+#   in 10 min spel nooit twee tegelijk, gaten tussen 5 en 15 s, alle vijf soorten komen voor (worm en mot sinds #190).
 # Gebruik: godot --headless --path . -s systemen/toetsen/toets_licht.gd  (0 fouten = groen)
 
 var fout := 0
@@ -111,7 +111,37 @@ func _init() -> void:
 	ok(vm.vm.size() >= 1, "vleermuis hangt in het hol (%d)" % vm.vm.size())
 	for s in V.SOORTEN:
 		ok(V.kies_plek(hol, s) != null, "plek voor %s in een gewoon hol" % s)
-	ok(not ("worm" in V.SOORTEN or "mot" in V.SOORTEN or "kruimels" in V.SOORTEN), "worm, mot en kruimels zijn eruit (Daan #106)")
+	# #190: worm en mot terug met de bladen van Mila (Daan #180 ja); kruimels blijven eruit (Daan #106)
+	ok("worm" in V.SOORTEN and "mot" in V.SOORTEN and not "kruimels" in V.SOORTEN, "worm en mot terug, kruimels niet (#190)")
+	var B = load("res://systemen/leven_beest.gd")
+	ok(B.laad() != null, "bladen van worm en mot laden")
+	var wk: Array = B.worm_kolommen(hol)
+	var HV = load("res://hol/hol_vast.gd")
+	var wk_goed := not wk.is_empty()
+	for k in wk:
+		if HV.vloer_dicht(hol, k) or k <= hol.ingang_kol + 1 or k >= hol.schat_kol - B.TROON:
+			wk_goed = false
+	ok(wk_goed, "worm alleen op vrije gangtegels, niet bij val, schacht, vloerding of Gloop (%d plekken)" % wk.size())
+	var reeks: Array = []
+	for i in 42:
+		var wf: int = B.worm_stand(i * 0.1, 4.2) / 10
+		if reeks.is_empty() or reeks[-1] != wf:
+			reeks.append(wf)
+	ok(reeks == [1, 0, 2, 0, 3, 0, 1], "worm: piek, op, links, op, rechts, op, piek (%s)" % str(reeks))
+	var nieuw := 0
+	var vorig := -1
+	for i in 420:
+		var st: int = B.worm_stand(i * 0.01, 4.2)
+		if st != vorig:
+			nieuw += 1
+			vorig = st
+	ok(nieuw <= 16, "worm tekent zuinig: %d nieuwe beelden in 4,2 s" % nieuw)
+	var hoog := 99.0
+	var mb = B.laad()
+	for i in 450:
+		var mp: Vector2 = B.mot_plek(L.fakkel_punt(hol), i * 0.01)
+		hoog = minf(hoog, mp.y - float(mb.mot["nul_y"][0]))
+	ok(hoog >= 24.5, "mot blijft rond de vlam en onder het plafond (bovenkant %.1f, plafond 24, klem op 25)" % hoog)
 	var VM = load("res://systemen/vleermuis.gd")
 	var hk := 0.0
 	for i in 300:
@@ -142,5 +172,18 @@ func _init() -> void:
 	ok(lo_g >= 4.9 and hi_g <= 15.2, "gaten tussen 5 en 15 s (%.1f tot %.1f)" % [lo_g, hi_g])
 	for s in V.SOORTEN:
 		ok(int(lv.gedaan.get(s, 0)) >= 3, "%s kwam %d keer" % [s, int(lv.gedaan.get(s, 0))])
+	# #190 CPU: worm en mot komen in de plaats van een ander ding (zelfde gaten van 5 tot 15 s) en tekenen niet vaker
+	# (worm ±14 beelden, mot 54 zoals een stofje). Zelfde 30 min met en zonder hun bladen: tekenbeurten van deze laag.
+	var tel := {}
+	for met in [true, false]:
+		var lt = V.maak_in(hol, 11)
+		if not met:
+			lt.beest = null
+		for i in 18000:
+			lt._process(0.1)
+			vm._process(0.1)
+		tel[met] = lt.beurten
+		lt.queue_free()
+	ok(int(tel[true]) <= int(tel[false]), "met worm en mot niet meer tekenbeurten in 30 min (%d tegen %d zonder)" % [tel[true], tel[false]])
 	print("[licht] klaar: FOUT %d" % fout)
 	quit(1 if fout > 0 else 0)
