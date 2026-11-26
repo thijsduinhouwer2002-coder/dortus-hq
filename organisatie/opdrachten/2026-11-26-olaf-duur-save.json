@@ -1,1 +1,13 @@
-{"workflow": "steam-hol-duur.yml", "invoer": {"minuten": "60"}, "van": "olaf", "waarom": "duurtest na de veilige save, telt de save-bestanden na 120 bewaarrondes (issue 194)"}
+{
+  "workflow": "steam-hol-duur.yml",
+  "invoer": {
+    "minuten": "60"
+  },
+  "van": "olaf",
+  "waarom": "duurtest na de veilige save, telt de save-bestanden na 120 bewaarrondes (issue 194)",
+  "uitslag": {
+    "run_id": 45857850884,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45857850884",
+    "gestart": "2026-11-26T16:20:30Z"
+  }
+}
