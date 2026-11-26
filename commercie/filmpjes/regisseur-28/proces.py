@@ -133,10 +133,16 @@ def zicht(g, draai, kantel, afstand, punt):
 
 
 def mat_zicht(g):
+    # proef 4 (GEZIEN): Material Preview tekent op de runner (llvmpipe, 2160x1920) maar eens per 2 tot 3 s een nieuw
+    # beeld, dus alles in kleur was een diashow. Solid met de kleuren van de materialen tekent vloeiend; het mooie
+    # licht komt uit de Cycles-eindfilm.
     r = g.spaces.active
-    r.shading.type = "MATERIAL"
-    r.shading.use_scene_world = True
-    r.shading.use_scene_lights = True
+    r.shading.type = "SOLID"
+    r.shading.color_type = "MATERIAL"
+    r.shading.light = "STUDIO"
+    r.shading.show_cavity = False
+    r.shading.background_type = "VIEWPORT"
+    r.shading.background_color = (0.30, 0.48, 0.45)
     r.overlay.show_floor = False
     r.overlay.show_axis_x = r.overlay.show_axis_y = False
     r.overlay.show_extras = False
@@ -404,11 +410,6 @@ def verloop_pro():
     # in het volle scherm, Material Preview aan tot de shaders klaar zijn (dit stuk knipt de montage weg), dan terug
     # naar Solid zodat de stap naar kleur in Shading echt te zien is.
     deel("shaders")
-    _v, g_ = gebied3d()
-    mat_zicht(g_)
-    zicht(g_, 0, 82.0, 380.0, heel)
-    yield from drijf(55.0)
-    g_.spaces.active.shading.type = "SOLID"
     yield 0.5
     # terug uit het volle scherm (echte klik op "Back to Previous"), dan de echte klik op het tabblad Shading
     deel("kleur")
@@ -429,6 +430,16 @@ def verloop_pro():
     geen_selectie()
     bpy.context.view_layer.objects.active = romp
     romp.select_set(True)
+    # vooraf de werkruimte Shading klaarzetten (proef 4: de klik liet hem 33 s hangen op EEVEE-shaders en de
+    # bestandsbrowser): weergave in Solid met materiaalkleuren, bestandsbrowser wordt Properties
+    try:
+        for a_ in bpy.data.workspaces["Shading"].screens[0].areas:
+            if a_.type == "VIEW_3D":
+                mat_zicht(a_)
+            elif a_.type == "FILE_BROWSER":
+                a_.type = "PROPERTIES"
+    except Exception as f:  # noqa: BLE001
+        log(f"KORT shading vooraf {f}")
     yield from naar_tab("Shading")
     # de bestandsbrowser links (toont mappen van de runner) wordt het materiaal in Properties
     for a_ in venster.screen.areas:

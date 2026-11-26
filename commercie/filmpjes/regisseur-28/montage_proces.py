@@ -58,7 +58,7 @@ def main():
     mkv = opn / "scherm.mkv"
     muis = lees_muis(opn / "muis.txt")
     pijl = pijl_beeld()
-    boven = tekst_png(sc["boven"], 70, 250)
+    boven = tekst_png(sc["boven"], 70, sc.get("boven_y", 250))
     slot = tekst_png(sc["slot"], 74, 1250, kleur=(255, 255, 255))
     totaal = sum(s["duur"] for s in sc["stukken"]) + sc["eind_duur"]
     nbeeld = int(round(totaal * FPS))
@@ -73,14 +73,14 @@ def main():
         van = film["delen"][s["deel"]] - start + s.get("na", 0.0)
         beelden = frames_uit_scherm(mkv, van, n, s.get("x", 0), s.get("split"), s.get("zoom"))
         overgangen.append(round(gemaakt / FPS, 2))
-        for kt in film.get("kliks", []):
+        for kt in ([] if s.get("geen_muis") else film.get("kliks", [])):
             rel = kt - start - van
             if 0 <= rel < n / FPS:
                 kliks.append(gemaakt / FPS + rel)
         for i, b in enumerate(beelden[:n]):
             t = (gemaakt + i) / FPS
             im = Image.frombytes("RGB", (W, H), b)
-            mp = naar_beeld(*muis_op(muis, start + van + i / FPS), s) if muis else None
+            mp = naar_beeld(*muis_op(muis, start + van + i / FPS), s) if muis and not s.get("geen_muis") else None
             if mp:
                 pj = pijl if mp[2] == 1.0 else pijl.resize((int(24 * mp[2]), int(34 * mp[2])), Image.LANCZOS)
                 im.paste(pj, (int(round(mp[0] - 2 * mp[2])), int(round(mp[1] - 2 * mp[2]))), pj)
