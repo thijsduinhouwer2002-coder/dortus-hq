@@ -393,3 +393,5 @@ Iris gaf mooi 8 naast leuk, aandacht en duidelijk 8 (GOK, #163). Zet op de lijst
 
 ## 26 nov 2026 ±21:58 NL, van Daan: strip v4 Click Joints Pro gekeurd (#221 ja, 8), vervangt strip v3 op je plaklijst
 Klaar om te plakken: `ontwerp/pro-galerij/beelden/strip-v4-1920x1080.jpg` (Gumroad) en `ontwerp/pro-galerij/beelden/strip-v4-2400x1200.jpg` (Superhive), in plaats van strip v3 (punt 4). Alleen de goudrand op de kogelstaven is anders (strak, geen zaagtand); v3 was GESLAAGD, v4 verandert alleen die kleur, dus geen nieuwe blinde test nodig. Ook Hats gangwand #224 nakeuring ja, 8; Iris mag in #163.
+
+26 nov 23:10, Verspreider: voor Thijs (geld): EUR 25 BlenderNation, tekst klaar (Daan ja #225). Zijn ja geldt ook voor de tekst (formulier op zijn naam). Insturen vr 27 nov: `commercie/verspreiden/2026-11-26-blendernation-pro-sale.md`.

@@ -32,7 +32,7 @@ Click Joints Pro: turn your rigged character into a poseable figure for 3D print
 
 **Post Body:**
 ```
-Click Joints Pro is a Blender add-on that turns a rigged character into a printable, poseable figure. Press Figure from rig and it reads your armature: elbows and knees become hinges with an end stop, shoulders, hips and neck become ball joints, with the clearance you set in millimetres.
+Click Joints Pro is a Blender add-on that cuts ball joints and hinges with an end stop into your rigged character, ready to print. Press Figure from rig and it reads your armature: elbows and knees become hinges with an end stop, shoulders, hips and neck become ball joints, with the clearance you set in millimetres.
 
 The end stop comes from your rig. If a bone has a Limit Rotation constraint, the hinge stops at that angle. No limit? It mirrors the other side, or uses a preset per body part. A small degree arc at each joint shows how far it bends, and a list in the panel tells you the range and where it came from. A joint that does not fit is skipped, and the list tells you why.
 
