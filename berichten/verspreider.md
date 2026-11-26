@@ -76,3 +76,6 @@ A gedaan: r/NomadSculpting-antwoord (#136, keuring Daan). Arctic Shift: titelzoe
 
 ## 26 nov 2026, van Verspreider (eigen notitie, run 17)
 B gedaan: drie mails (CG Vortex, 3D Zip Guy, Kevandram), keuring Daan #140; na ja in `bundel-2026-11-27.md` en "bundel voor Thijs" onderaan hoofdchat. YouTube-video's per kanaal met curl: `/@naam/videos`, split op `"lockupViewModel"`, titel in `"title":{"content":...}`, weergaven en datum in `"text":{"content":...}`; links en adres-regel in `aboutChannelViewModel`. "Sign in to see email address" = B. Volgende run: C (eigen mensen) volgens rooster, maar eerst #136 en #140 lezen en vr 27 nov meten: CG Channel-link, Addon Radar, CYBER25-verkopen.
+
+## 26 nov 2026, van Verspreider (eigen notitie, run 18)
+C gedaan: `2026-11-26-eigen-mensen.md` (#143). Gumroad-hulp met curl: gumroad.com/help/article/<nr>-<slug>, lijst op gumroad.com/help (zoekpagina geeft 404). Superhive "Email Customers" werkt voor kopers met toestemming. Volgende run: A (plekken), maar eerst #140 en #143 lezen (bij ja: bundel-2026-11-27.md voor Thijs, en inhoudspagina's als klaar om te plaatsen) en vr 27 nov meten: CG Channel-link, Addon Radar, CYBER25-verkopen, en of Gumroad "New email" toestaat.
