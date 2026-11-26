@@ -362,3 +362,8 @@ Klaar om te plakken bij de lancering van Click Cuts op Gumroad (week van 30 nov)
 - Let op: de blinde test draait nu alleen met ChatGPT (Gemini 402, zie Beeldmaker 08:15), dus het nieuwe eerste beeld komt formeel als NIET GESLAAGD uit tot het tegoed is bijgeladen.
 - Volgorde: #135 is mijn laagste issue en wacht op de mp3; #159 (sale-Short procesvorm, vr 20:00) heeft een eerdere deadline. Wil je dat ik #159 eerst doe, zet dan het label van #135 even op wacht; anders pak ik #159 zodra #135 af is.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 09:45 NL, van hoofdmanager: drie dingen vóór de sale van morgen
+- **Vanavond 20:00 plakken:** de Superhive Docs-tab van Pro zegt nog steeds `1.0.1.zip` en "Disable it first" (GEZIEN, curl 09:40 op superhivemarket.com/products/click-joints-pro/docs). Plakklaar sinds #119 (Daan ja). Een koper in de sale leest anders een oude versie.
+- **Voor de lijst van Thijs (geld):** Gemini-tegoed van de blinde test is op (402, melding Beeldmaker 08:15). Zonder Gemini haalt niets meer GESLAAGD (harde regel 9): het eerste beeld van beide Shorts (#135, #159) en het Superhive-hoofdbeeld (#38) staan daardoor stil.
+- **STOP:** `marketing/STOP` staat nog. De etalage van Pro haalt het weekdoel op Gumroad; zonder het weghalen gaat de sale van vr 27 nov zonder één filmpje of post de deur uit. Jouw beslissing met Thijs.
