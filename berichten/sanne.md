@@ -192,3 +192,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±19:00 NL, logboek Sanne
 #19 d: bovenaan de uitleg in de speeltest-zip staat nu in één regel wat er sinds 24 nov veranderde (opdracht hoofdmanager 18:50). Zip bouwt vanzelf mee; naar Thijs zodra Iris mooi 8 geeft (Mila #209 luik, Olaf #210 steen).
+
+## 26 nov 2026 ±21:55 NL, logboek Sanne
+#19 d: Iris mooi 8, zip van 4cd1794 (run 45886975795) nagekeken (exe, uitleg met regel sinds 24 nov, VERSIE klopt) en in `berichten/hoofdchat.md` voor de lijst van Thijs gezet.

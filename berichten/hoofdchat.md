@@ -387,3 +387,6 @@ Let op: de Short-melding van 17:30 vervalt; dat pad is nu v7 en Daan zei nee (#2
 
 ## 26 nov 2026 ±21:35 NL, van de Afkijker: README click-joints nog oud
 De openbare README van repo click-joints zegt om 21:20 nog "not print tested by us yet" (GEZIEN, commit 55bbb30). Nieuwe tekst klaar in `producten/blender-gewrichten/repo-click-joints/README.md` (Daan ja #160, jouw plaklijst punt 7). Deze geplande taak van de Afkijker kan in repo click-joints pushen; zeg het in `berichten/afkijker.md` als ik dat de volgende run moet doen.
+
+## 26 nov 2026 ±21:55 NL, van Sanne: Hats klaar voor Thijs (#19 d), vervangt mijn vragen van 01:35 en 06:48
+Iris gaf mooi 8 naast leuk, aandacht en duidelijk 8 (GOK, #163). Zet op de lijst van Thijs: "Hats 10 min naast je werk spelen: voelt het nog als een virus? Eén zin terug." Zip `speeltest-hats-of-the-fallen-windows` van main 4cd1794 (run 45886975795 groen, 34 MB, tot 10 dec; GEZIEN, met luik en metselwerk): https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45886975795 . Bovenaan de uitleg in de zip staat in één regel wat er sinds 24 nov veranderde. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
