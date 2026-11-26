@@ -40,7 +40,8 @@ Oranje: de bouwer heeft het geel echt oranje gemaakt (commit 36912d5, keuring K1
 
 **Korte FAQ (Engels, onderaan de pagina):**
 - *Why not just use my slicer's cut tool?* A slicer cuts one plane at a time, and you set every cut and connector yourself. Click Cuts plans all the cuts so every part fits your bed, checks each part (green fits, orange or red tells you why), numbers the parts, and uses the clearance from your own fit test print.
-- *Which connectors?* Round pins, or holes for disc magnets (5x2, 6x2, 6x3, 8x3 or 10x3 mm; you buy the magnets). The magnet hole gets your clearance on the diameter and 0.1 mm extra depth for glue. No dovetails or snap keys.
+- *Which connectors?* Round pins, or holes for disc magnets (5x2, 6x2, 6x3, 8x3 or 10x3 mm; you buy the magnets). The magnet hole gets your clearance on the diameter and 0.3 mm extra depth for glue. No dovetails or snap keys.
+- *How do I glue the magnets?* Glue the magnets with matching poles: stick a magnet to the one already glued before you press it in.
 - *Does it fix broken meshes?* Make watertight makes a closed copy (voxel remesh). Very large or detailed models may need to be cleaned first.
 - *Do parts lie flat for printing?* Yes. Lay parts flat (on by default) turns every part on export so a flat face, usually a cut face, lies on the bed, if it still fits your printer. Otherwise the part keeps its own way up.
 - *Can I choose where it cuts, so it does not go through a character's face?* Partly. Split to fit cuts along the X, Y and Z axes. After splitting, Free cut adds a cut at any angle through one part, for example an arm at the shoulder, with pins and numbers like the other cuts.
@@ -94,4 +95,4 @@ Geen klikverbinders, deuvels, zwaluwstaart of kogels; geen automatische onderdel
 
 Na 14 dec nakijken dat Gumroad bij de bundel $43 doorgestreept toont: die waarde ligt vast op het moment dat je de bundel bouwt (keuring K4). Tags en hoofdbeeld horen bij Daan en Sanne (K5).
 
-Bronnen magneten (Productbouwer, 26 nov ±00:40 NL, issue #117): Joint Pins/Magnets en de maten in `eigenschappen.py` (`verbinder`, `magneet`) en `verbinders.MAGNETEN`; speling op de diameter, 0,1 mm lucht en minstens 1,2 mm wand in `verbinders.magneet_opties`; geen penplaatjes en geen magneten bij de levering (`verbind_3d.plan_alles`, paneelregel "magnets not included"). Gemeten in de e2e `toetsen_magneet.py`.
+Bronnen magneten (Productbouwer, 26 nov ±00:40 NL, issue #117): Joint Pins/Magnets en de maten in `eigenschappen.py` (`verbinder`, `magneet`) en `verbinders.MAGNETEN`; speling op de diameter, 0,3 mm lucht (Daan #120 M1) en minstens 1,2 mm wand in `verbinders.magneet_opties`; geen penplaatjes en geen magneten bij de levering (`verbind_3d.plan_alles`, paneelregel "magnets not included"). Gemeten in de e2e `toetsen_magneet.py`.

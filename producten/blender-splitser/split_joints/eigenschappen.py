@@ -47,7 +47,7 @@ class SplitJointsInstellingen(bpy.types.PropertyGroup):
         default="PIN")
     magneet: EnumProperty(
         name="Magnet (mm)", description="Diameter x thickness of your disc magnets. The hole gets the clearance "
-        "on the diameter and 0.1 mm extra depth for glue",
+        "on the diameter and 0.3 mm extra depth for glue",
         items=[(k, f"{k} mm", f"Disc magnet {d:g} mm across, {t:g} mm thick") for k, d, t in verbinders.MAGNETEN],
         default="6x2")
     pen_mm: FloatProperty(
@@ -60,7 +60,8 @@ class SplitJointsInstellingen(bpy.types.PropertyGroup):
         name="Pin length (mm)", description="Total length of a pin. Each hole is half this deep plus 0.3 mm",
         default=12.0, min=4.0, max=60.0, step=50, precision=1)
     speling_mm: FloatProperty(
-        name="Clearance (mm)", description="Gap between pin and hole on every side, in millimeters",
+        name="Clearance (mm)", description="Gap between pin and hole on every side, in millimeters. "
+        "Magnet holes get this gap on the diameter (half on each side)",
         default=0.2, min=0.0, max=1.0, step=1, precision=2, update=_speling)
     wand_mm: FloatProperty(
         name="Min. wall (mm)", description="Keep at least this much material around every hole",

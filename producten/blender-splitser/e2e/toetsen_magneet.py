@@ -5,7 +5,7 @@ Two models on an A1 mini (176 x 176 x 178 mm after the margin), Joint = Magnets:
 - a figure: torso 40 x 40 x 40 mm with an arm 12 x 12 mm, 250 mm long in total, made watertight: the cut goes
   through the arm.
 Measured on the meshes, not read from the add-on: every hole is found with rays, radius = magnet/2 + clearance/2
-(clearance on the diameter), depth = magnet thickness + 0.1 mm, each hole in exactly two pieces, no pin plates,
+(clearance on the diameter), depth = magnet thickness + 0.3 mm, each hole in exactly two pieces, no pin plates,
 the panel count equals the holes, export writes the pieces and no pin files. Then 10x3 on the 12 mm arm: no hole
 (the wall would be under 1.2 mm) and the message says why."""
 import math
@@ -74,8 +74,8 @@ def toets(naam, magneet, uitmap):
         speling_d = 2.0 * (straal - d / 2.0)  # gap on the diameter
         stap(f"magneet {naam} stuk {ob['sj_stuk']}: speling op de diameter {speling_d:.3f} mm",
              SPELING - 0.01 <= speling_d <= SPELING + 0.04, f"gat r {straal:.3f}, magneet {d:g} mm")
-        stap(f"magneet {naam} stuk {ob['sj_stuk']}: diepte {diepte:.2f} mm (magneet {t:g} + 0.1)",
-             diepte is not None and abs(diepte - (t + 0.1)) <= 0.03)
+        stap(f"magneet {naam} stuk {ob['sj_stuk']}: diepte {diepte:.2f} mm (magneet {t:g} + 0.3)",
+             diepte is not None and abs(diepte - (t + 0.3)) <= 0.03)
         plekken.setdefault(tuple(round(c, 3) for c in g["p"]), []).append(ob["sj_stuk"])
     for p, wie in plekken.items():
         stap(f"magneet {naam}: gat {p} in twee verschillende stukken", len(wie) == 2 and wie[0] != wie[1], str(wie))

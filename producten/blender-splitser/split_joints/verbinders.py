@@ -13,7 +13,8 @@ LABEL_HOOGTES = (8.0, 6.0, 5.0, 4.0, 3.0, 2.5)  # text height in mm, largest tha
 MAX_PENNEN = 4
 # Magnet sizes (diameter x thickness in mm) that are sold as standard neodymium discs. Key = what the panel shows.
 MAGNETEN = (("5x2", 5.0, 2.0), ("6x2", 6.0, 2.0), ("6x3", 6.0, 3.0), ("8x3", 8.0, 3.0), ("10x3", 10.0, 3.0))
-MAGNEET_LUCHT_MM = 0.1  # each magnet hole is this much deeper than the magnet, room for a drop of glue
+MAGNEET_LUCHT_MM = 0.3  # each magnet hole is this much deeper than the magnet: room for glue, and for a bridged
+# hole bottom that sags a little when the cut face lies on the bed (Lay parts flat)
 MAGNEET_WAND_MM = 1.2  # never less wall than this around a magnet hole, whatever Min. wall says
 
 

@@ -179,8 +179,8 @@ stap("smal vlak: melding noemt de breedte", smal.startswith("too small for a pin
 
 # 7b. magnets (issue #117): fixed size, clearance on the diameter, 1.2 mm wall at least, own message
 mo = verbinders.magneet_opties("6x2", 0.2, 0.8)
-stap("magneet 6x2: maat, halve speling per kant, diepte 2.1, wand minstens 1.2",
-     mo["pen_d"] == 6.0 and abs(mo["speling"] - 0.1) < 1e-9 and abs(mo["diepte"] - 2.1) < 1e-9 and mo["wand"] == 1.2
+stap("magneet 6x2: maat, halve speling per kant, diepte 2.3, wand minstens 1.2",
+     mo["pen_d"] == 6.0 and abs(mo["speling"] - 0.1) < 1e-9 and abs(mo["diepte"] - 2.3) < 1e-9 and mo["wand"] == 1.2
      and not mo["auto"], str(mo))
 stap("magneet: alle maten uit de lijst", [k for k, _d, _t in verbinders.MAGNETEN] == ["5x2", "6x2", "6x3", "8x3", "10x3"])
 res = verbinders.plan_vlak(us, vs, binnen, kl, lab, n, mo, lambda u, v_, r: True, "2-3")[0]

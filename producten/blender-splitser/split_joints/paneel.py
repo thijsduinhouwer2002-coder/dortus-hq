@@ -129,6 +129,8 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             stap.prop(inst, "pen_auto")
             stap.prop(inst, "pen_lengte_mm")
         stap.prop(inst, "speling_mm")
+        if inst.verbinder == "MAGNET":
+            stap.label(text="Magnets use half: clearance on the diameter", icon="INFO")
         passingproef.teken(stap, context)
         stap.prop(inst, "wand_mm")
         stap.prop(inst, "labels")
