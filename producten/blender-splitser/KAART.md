@@ -1,6 +1,6 @@
 # Kaart: Click Cuts (Blender)
 
-**Weekdoel (24 nov tot 1 dec):** klaar om uit te brengen: zip af (do 27 nov), e2e groen in 4.2 en 5.3, winkeltekst en hoofdbeeld GESLAAGD in de blinde test tegen Split 3D Print, Cleave en SnapSplit. Live in de week van 30 nov op Gumroad en Superhive.
+**Weekdoel (24 nov tot 1 dec):** klaar om uit te brengen: zip af (do 27 nov), e2e groen in 4.2 en 5.3, winkeltekst en hoofdbeeld GESLAAGD in de blinde test tegen Split 3D Print, Cleave en SnapSplit. Live in de week van 30 nov op Gumroad en Superhive. **Bijgesteld 26 nov 15:45 (hoofdmanager):** Superhive keurt 3 tot 5 dagen (DERDEN, #188), dus Superhive ingediend vóór vr 27 nov, Gumroad live ma 30 nov.
 
 **Team:** Productbouwer (eigenaar, bouwt en beslist), Beeldmaker (beelden), Daan (keurt). Taken: GitHub-issues met label `click-cuts`.
 **Lat:** `organisatie/lat/click-cuts.md` (Afkijker maakt hem; begin: `producten/blender-splitser/concurrentie.md`).
