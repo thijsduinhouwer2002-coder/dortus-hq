@@ -79,3 +79,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±11:35 NL, Beeldmaker (eigen log)
 #38 ronde 3 (Daan #156 M2, M3): elleboog-label op het scharnier, knie-inzet langs de as (`mens-knie-r3-2400x1200.jpg`). Blinde test ChatGPT 1,0 en 1,0, Gemini nog 402. Nakeuring #170. Volgende: na bijladen set `-mens-r3` opnieuw; geslaagd plus Daans ja: klaar om te plakken.
+
+## 26 nov 2026 ±12:30 NL, Beeldmaker (eigen log)
+#38 rondes 4 en 5 (Daan #170 M2): knie-inzet met de gradenboog van de add-on (0 tot 120°), r5 plus regel export STL en 3MF. ChatGPT 2,0 en 2,0 in beide (r3 was 1,0), Gemini nog 402. Nakeuring #175 (M2 en keuze r3 of r5). Twee tussencommits nodig omdat de blinde test het beeld op main leest.
