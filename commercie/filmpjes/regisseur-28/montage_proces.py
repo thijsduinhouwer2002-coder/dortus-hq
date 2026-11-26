@@ -115,7 +115,7 @@ def main():
                 im.paste(pj, (int(round(mp[0] - 2 * mp[2])), int(round(mp[1] - 2 * mp[2]))), pj)
             if t < sc["boven_tot"]:
                 im.paste(boven, (0, 0), boven)
-            elif lab:
+            elif lab and i / FPS < s.get("label_tot", 99.0):
                 im.paste(lab, (0, 0), lab)
             enc.stdin.write(im.tobytes())
         gemaakt += n

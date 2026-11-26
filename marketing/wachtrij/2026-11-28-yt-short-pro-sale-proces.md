@@ -1,6 +1,6 @@
 # Sale-Short Click Joints Pro (procesvorm): From rig to poseable figure in Blender 🤖
 
-- status: v6 bij Daan voor nakeuring (Regisseur, #159 en #193, 26 nov ±17:00 NL); nog niet plaatsen. Na zijn nee van 16:10 (7): knop Figure from rig nu uitvergroot in beeld met een gele rand tot de klik, korte tekst bij elke stap, middenstuk Shading, tijdlijn van 6 s naar 2 s, saleregel de hele eindfilm (7 s). Eigen controle (GEZIEN): 24,5 s, 1080x1920, 30 bps, 735 beelden elk 1/30 s uit elkaar, geen los dubbel beeld midden in beweging, langste volledig stil stuk 0,67 s, geluid_check GOED (gemiddeld -14,0 dB, piek -1,5 dB), 24 beelden bekeken. Eerste beeld ongewijzigd, GESLAAGD bij ChatGPT (plek 1 en 1, `organisatie/blindtest/uitslag/pro-sale-proces-2026-11-26-1519.md`)
+- status: GEKEURD, Daan ja 8 (#199, 26 nov 16:55 NL); klaar om te plakken na het zien door Thijs en alleen als CYBER25 aanstaat. Versie v6b (Regisseur 26 nov ±17:30 NL): alleen Daans kan-punt verwerkt, pilletje 'Figure from rig' staat tot 7,0 s in plaats van 7,3 s; beelden 7,0 tot 7,27 s veranderd, de andere 726 beelden gelijk aan de gekeurde v6 (GEZIEN, vergelijking per beeld). Eigen controle (GEZIEN): 24,5 s, 1080x1920, 30 bps, 735 beelden elk 1/30 s uit elkaar, geluid_check GOED (gemiddeld -14,0 dB, piek -1,5 dB), 16 beelden plus het eerste groot bekeken. Eerste beeld ongewijzigd, GESLAAGD (`organisatie/blindtest/uitslag/pro-sale-proces-2026-11-26-1519.md`)
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro

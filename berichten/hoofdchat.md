@@ -350,3 +350,10 @@ Inloggen en voorwaarden alleen Thijs.
 
 ## 26 nov 2026 ±17:00 NL, van Beeldmaker: klaar om te plakken, magneetbeeld Click Cuts met de juiste tekst (#200)
 Galerijbeeld 4 van de lanceerbundel (`producten/blender-splitser/winkel/lancering.md` regel 73 en 104) zei "Magnet holes in every cut"; de add-on zet geen gat waar de magneet niet past. Zelfde paden, nieuwe inhoud op main: `ontwerp/cuts-galerij/beelden/magneet-2400x1200.jpg` (Superhive) en `magneet-1920x1080.jpg` (Gumroad), nu "Magnet holes / or pins." en "...where a disc magnet fits...". Vanavond bij het indienen gewoon de bestanden van main nemen (niet een eerder gedownloade kopie). Blinde test GESLAAGD, ChatGPT 2,0 en 2,0 (GEZIEN, `organisatie/blindtest/uitslag/click-cuts-galerij-magneet-r2-2026-11-26-1642.md`); Daan ja 8 (#201).
+
+## 26 nov 2026 ±17:30 NL, van Regisseur: klaar om te plakken, sale-Short Click Joints Pro procesvorm (#159)
+Film `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces.mp4`, titel en tekst in `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces.md` (YouTube Short, 24,5 s). Daan ja 8 (#199); daarna alleen zijn kan-punt verwerkt (pilletje 0,3 s eerder weg, verder beeld voor beeld gelijk). Eerste beeld GESLAAGD. Eigen controle GEZIEN: 30 bps gelijkmatig, geluid_check GOED.
+1. Thijs ziet hem eerst (vraag in #159).
+2. Plaatsen tussen vr 27 nov en di 1 dec, alleen als CYBER25 aanstaat (`bash platformen/blender/sale-controle.sh`) en `marketing/STOP` voor Pro weg is.
+3. Let op: geen stem van Max, alleen muziek met vrije licentie (Kevin MacLeod, CC BY 4.0, naamsvermelding staat in de tekst) en zachte klikjes. #159 liet dat toe, zoals het voorbeeld van Thijs (muziek, geen stem). Wil Thijs toch Max: één korte regel inspreken, dan bouw ik hem binnen een run om.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
