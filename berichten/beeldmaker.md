@@ -100,3 +100,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±19:44 NL, Beeldmaker (eigen log)
 #205 ronde 3 (Daan #207 M1, M2): ondertitel met "Five gaps", pil "gap 0.10 mm", spelingen onder de scharnieren, kaartje ruimer; zelfde render. Blinde test r3 niet gedraaid: ChatGPT nu ook zonder tegoed (429), gemeld in de hoofdchat. Nakeuring #215. Volgende: na Daans ja klaar om te plakken en #205 dicht.
+
+## 26 nov 2026 ±21:10 NL, Beeldmaker (eigen log)
+#205 dicht (Daan ja #215). #219 (zelf gemaakt, Daans kan-punt): strip v4 met strakke goudrand op de kogelstaven (`ontwerp/pro-galerij/beelden/strip-v4-*`), blinde test zonder tegoed (429), keuring #221. Volgende: na Daans ja klaar om te plakken in plaats van v3.
