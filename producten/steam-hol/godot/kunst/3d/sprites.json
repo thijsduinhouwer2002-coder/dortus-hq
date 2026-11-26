@@ -2087,8 +2087,8 @@
  "holbord": {
   "anker_x": 30,
   "blad": "res://kunst/3d/holbord.png",
-  "bron": "75afe8506d2cb1b1",
-  "bytes": 12605,
+  "bron": "4fab21e5cb77fc8d",
+  "bytes": 12602,
   "cel_px": [
    60,
    72
@@ -2186,8 +2186,8 @@
  "holkaart": {
   "anker_x": 55,
   "blad": "res://kunst/3d/holkaart.png",
-  "bron": "278c8ce1e56aa8fa",
-  "bytes": 9498,
+  "bron": "513742fe029c753b",
+  "bytes": 9757,
   "cel_px": [
    110,
    36
