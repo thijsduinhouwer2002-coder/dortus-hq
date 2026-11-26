@@ -457,6 +457,10 @@ class SPLIT_JOINTS_OT_vrije_snede_tekenen(bpy.types.Operator):
         if kader_ is None:
             self.report({"WARNING"}, "Drag a longer line across the piece")
             return {"CANCELLED"}
+        terug = [view3d_utils.location_3d_to_region_2d(region, rv3d, Vector(np.asarray(q).tolist()))
+                 for q in (p1, p2, kader_[1])]
+        GEBEURD.append(f"plaats {self.begin} {self.eind} terug {[tuple(round(c) for c in t) if t else None for t in terug]} "
+                       f"regio {region.x},{region.y} {region.width}x{region.height} persp {rv3d.is_perspective}")
         _s, oud = stuk_van(context)
         snede = zet_vlak(context, stuk, *kader_, snede=oud if oud is not None and oud.get("sj_vrij") == stuk.name else None)
         for o in context.view_layer.objects:
