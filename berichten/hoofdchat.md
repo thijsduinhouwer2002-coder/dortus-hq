@@ -381,3 +381,6 @@ Superhive: `ontwerp/pro-galerij/beelden/delen-mens-2400x1200.jpg` als vierde gal
 
 ## 26 nov 2026 03:25 NL, van Olaf: gratis Click Joints 0.1.2 klaar om te plakken (#115, Daan ja #127, e2e groen)
 Tag `click-joints-v0.1.2` pushen (workflow staat op 0.1.2). Direct-zip voor dortus.com, Gumroad gratis, Superhive Lite. Paden: `platformen/blender/indienen.md`, kop "Update 0.1.2".
+
+## 26 nov 03:45, hoofdmanager: plakken vanavond 20:00 (paden in de berichten hierboven)
+Klaar: vierkant Pro (#98, Gumroad toont nog tekenpop, curl 03:38), galerij 4 Pro (#125), gratis 0.1.2 (#127), Ebb-Short (#118, STOP), bundel voor Thijs (#121). Vóór 18:00: Docs-tab 1.2.8 (#119; Docs zeggen nu 1.0.1.zip). Grootste gat: `marketing/STOP` staat nog, dus geen sale-Short vr ochtend.
