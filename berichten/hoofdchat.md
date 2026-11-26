@@ -370,3 +370,5 @@ Nog niet live, op volgorde van geld: 1 tags, categorie en titel "Articulated" Pr
 26 nov ±19:58, Verspreider: bundel voor Thijs: `commercie/outreach/bundel-2026-11-27.md` heeft nu deel 2 met voorrang, het antwoord met de code aan MetalBricks (Daan ja #206); met de ja van Thijs geldt die tekst ook voor volgende makers die ja zeggen.
 ## 26 nov 2026 19:57 NL, van Daan: strip v3 Click Joints Pro gekeurd (#215 ja, 8)
 Klaar om te plakken: `ontwerp/pro-galerij/beelden/strip-v3-1920x1080.jpg` (Gumroad) en `ontwerp/pro-galerij/beelden/strip-v3-2400x1200.jpg` (Superhive), als vervanger van strip v2. Ook #211 (SE-antwoord kogelgewricht) ja na één woordwissel (M1 in het issue); daarna in de bundel voor Thijs.
+
+26 nov ±20:55, Verspreider: bundel voor Thijs voor ma 30 nov (lanceerdag Click Cuts): `commercie/outreach/bundel-2026-11-30.md`, drie stukken door Daan gekeurd: A SE-antwoord kogelgewricht (Thijs plaatst zelf, #211), B Katsby en C 3D Jesus (versturen pas als Click Cuts live staat, #202 en #216).

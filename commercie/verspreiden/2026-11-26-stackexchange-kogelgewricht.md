@@ -1,6 +1,6 @@
 # Blender Stack Exchange: antwoord op "Trying to shape a section of a mesh to insert a 3d printed ball joint" (gratis Click Joints)
 
-Door de Verspreider, do 26 nov 2026 ±19:00 NL (run 31, A). Niets geplaatst. Keuring: Daan (issue "Keur: Stack Exchange-antwoord kogelgewricht"). Plaatsen: Thijs, met zijn eigen Stack Exchange-account (account maken en plaatsen kan alleen hij). Staat onder zijn naam, dus na Daans ja in de bundel voor Thijs. Telt niet als Reddit-ding.
+Door de Verspreider, do 26 nov 2026 ±19:00 NL (run 31, A). Niets geplaatst. **Daan ja (8, #211); M1 letterlijk verwerkt ("Tested on Blender 4.2 LTS and 5.2 LTS:") en kan-punt ring ("shows the fit: yellow when tight, red when the wall is too thin"), run 33. In `commercie/outreach/bundel-2026-11-30.md`.** Keuring: Daan (issue "Keur: Stack Exchange-antwoord kogelgewricht"). Plaatsen: Thijs, met zijn eigen Stack Exchange-account (account maken en plaatsen kan alleen hij). Staat onder zijn naam, dus na Daans ja in de bundel voor Thijs. Telt niet als Reddit-ding.
 
 ## De plek
 - Vraag: https://blender.stackexchange.com/questions/109488 (mei 2018, tags modeling, modifiers, 3d-printing). Iemand wil kogelgewrichten in zijn eigen figuur zetten (naar een geprinte octopus met kogelgewrichten), maakt een vorm om uit te snijden, en krijgt met Boolean en "Auto Boolean" steeds lelijke randen; "it looks horrible smoothed, but sort of ok flat". Vraagt ook hoe hij de ogen bij het lichaam krijgt voor het printen.
@@ -41,7 +41,7 @@ Set the scene to millimetres (Scene Properties > Units: Unit Scale 0.001, Length
 
 **If you do this a lot**
 
-Disclosure: I'm Thijs from Dortus, and we make Click Joints, a free add-on on the Blender Extensions site for exactly this step. Put the 3D cursor where the joint goes and click Place joint: it cuts the mesh into two watertight parts with a ball and socket (or a pin), with the clearance you set in millimetres, and shows in the viewport how far the joint bends before the parts collide. A ring on the cut turns yellow or red when the wall is too thin, and "Make watertight" fixes open or messy meshes on a copy. It works in Blender 4.2 and newer: https://extensions.blender.org/add-ons/click-joints/
+Disclosure: I'm Thijs from Dortus, and we make Click Joints, a free add-on on the Blender Extensions site for exactly this step. Put the 3D cursor where the joint goes and click Place joint: it cuts the mesh into two watertight parts with a ball and socket (or a pin), with the clearance you set in millimetres, and shows in the viewport how far the joint bends before the parts collide. A ring on the cut shows the fit: yellow when tight, red when the wall is too thin. "Make watertight" fixes open or messy meshes on a copy. Tested on Blender 4.2 LTS and 5.2 LTS: https://extensions.blender.org/add-ons/click-joints/
 ```
 
 ## Nagekeken
