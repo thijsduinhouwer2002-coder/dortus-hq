@@ -13,14 +13,14 @@ Gaat over **versie 1.0.0** (kandidaat, `producten/blender-splitser/CHANGELOG.md`
 - **Titel over de print, niet over Blender** (Afkijker 06:34: titels over het printresultaat halen het meest, GEZIEN bij Painted4Combat). Daarom staat "Blender" niet in de titel; Superhive is al een Blender-winkel.
 - **Eerste zin met wat geen concurrent zegt:** printer kiezen, één knop, elk deel past op je bed, en een passingproef met je eigen pen. CatPin laat de printermaat aan de koper ("user remains responsible ... printer volume"), Dovetail Key heeft geen past-op-bed, en geen van de grote vier heeft een passingproef in de splitser (GEZIEN 23 nov door de concurrentie-analist, `producten/blender-splitser/concurrentie.md` tabel 2a). Cleave heeft wel printerkeuze; wat Cleave niet heeft is de passingproef. Kopers bij naam, zoals Cleave doet: busts, statues, cosplay props, terrain, large figures.
 - **Geen concurrent bij naam in de tekst** (`concurrentie.md`: nooit afkraken).
-- **Wat 1.0.0 niet doet, staat er eerlijk in** (geen klikverbinders, geen magneten, geen zwaluwstaart, holle dunne wanden krijgen vaak geen pen). Zo koopt niemand iets wat er niet in zit, en vraagt niemand zijn geld terug.
+- **Wat 1.0.0 niet doet, staat er eerlijk in** (geen klikverbinders, geen zwaluwstaart, magneten alleen als gat zonder magneet erbij, holle dunne wanden krijgen vaak geen pen). Zo koopt niemand iets wat er niet in zit, en vraagt niemand zijn geld terug.
 
 ## 1. Titel
 
 ```
-Click Cuts: Split Big Models for 3D Printing to Fit Your Printer Bed, with Pin Connectors
+Click Cuts: Split Big Models for 3D Printing to Fit Your Printer Bed, with Pin or Magnet Connectors
 ```
-89 tekens (Cleave heeft ±110, dus de lengte kan). Reserve als een veld korter blijkt (64 tekens):
+99 tekens (Cleave heeft ±110, dus de lengte kan). "or Magnet" erbij op 26 nov (issue #144), nu magneetgaten in 1.0.0 zitten. Reserve als een veld korter blijkt (64 tekens):
 ```
 Click Cuts: Split Models for 3D Printing to Fit Your Printer Bed
 ```

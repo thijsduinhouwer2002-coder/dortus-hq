@@ -6,7 +6,9 @@ Productbouwer, 24 nov 2026 ±23:15 NL, issue #3. Alleen wat 1.0.0 doet (`CHANGEL
 Gekozen: **B**, plek 1.0 bij Gemini en bij ChatGPT in beide rondes tegen Cleave, Split 3D Print en SnapSplit (GEZIEN). C scoorde gelijk; B is korter en de haak lijkt niet op die van Cleave. A (de oude tekst) haalde 1,5.
 
 Titel:
-`Click Cuts: Split Models for 3D Printing to Fit Your Printer Bed (One Click, Pin Connectors, Fit Test, Part Numbers)`
+`Click Cuts: Split Models for 3D Printing to Fit Your Printer Bed (One Click, Pin or Magnet Connectors, Fit Test, Part Numbers)`
+
+26 nov (issue #144): "or Magnet" toegevoegd na de blinde test, nu magneetgaten in 1.0.0 zitten (#117). De rest van de geteste titel is gelijk.
 
 Haak:
 > Pick your printer. Click once. Every part fits.
@@ -22,6 +24,7 @@ Wat alle rechters missen: "snijdt hij niet dwars door het gezicht?" en "kan ik e
 3. **Alles groen.** De stukken in hun controlekleur (groen) met het paneel ernaast, één regel per stuk (vorm zoals "210x180x160 mm, wall 3.2", getallen als voorbeeld). Liefst één stuk oranje met de reden, zodat je ziet dat het echt meet.
 4. **Het proefblokje.** Blokje met je eigen pen op vier spelingen, de spelingen gegraveerd en leesbaar van boven (`e2e/scherm_passing.py`, `passing-2.png`). Ons voordeel tegen alle drie.
 5. **Het paneel.** Echte Blender met de tab Click Cuts open: printer kiezen, Split to fit, Export (`e2e/scherm_paneel.py`).
+6. **Magneten in plaats van pennen** (sinds 26 nov, #117). Hetzelfde snijvlak van dichtbij, nu met ronde magneetgaten aan beide kanten en het nummer, Joint op Magnets. Cleave heeft magneten ook (lat); dit beeld laat zien dat wij het ook kunnen, met maat en wand gecontroleerd. Bron: `e2e/scherm_kern.py` maakt `magneet-1-stukken.png` en `magneet-2-snijvlak-*.png` (Suzanne, 8x3 mm, tak `schermen` en release `splitser-kern-1`). Paneel in Magnets-stand: `keuring/beelden/2026-11-26-paneel-magneet-5.3.0.png`. Kies zelf het model; de Lion Head kan met dezelfde stand.
 
 ## Modellen (alle CC0, zelf in Blender, geen AI-beeld)
 - **Lion Head, Poly Haven** (al gebruikt voor de cover, `merk/bron/splits_scene.py`). Goed, maar de rechters vroegen bij de eerste test om meer detail en een "personage".
@@ -38,9 +41,10 @@ Kies zelf welk model de blinde test wint; zet Cleave (plek 1) ernaast.
 5. **Checked before you print.** Each part turns green when it fits, is watertight and has enough wall around its holes. Orange or red tells you why.
 6. **Pins that fit your printer.** Print the small fit test block first: your own pin at four clearances. Pick the one that fits, and Click Cuts remembers it for that printer and material.
 7. **Three steps in one tab.** Press N in the 3D viewport and open the Click Cuts tab: pick your printer, Split to fit, Export as STL or 3MF in millimeters.
+8. **Pins or magnets.** Switch Joint to Magnets and the cut faces get holes for disc magnets on both sides where they fit (5x2 to 10x3 mm), with at least 1.2 mm wall around them. Magnets not included.
 
 Keuring Daan #12 verwerkt (25 nov): M1 letterlijk, K1 (gouden kader alleen in dit beeld), K2 (CHANGELOG nu ook Amerikaanse spelling, zoals de add-on).
 
 Mag sinds 25 nov wel: "Lay parts flat" (aan bij export, elk stuk op een snijvlak dat op je bed past; zonder zo een snijvlak houdt een stuk zijn eigen stand). Dus niet "every part lies flat", wel "parts are exported lying on a cut face".
 
-Niet beloven: andere verbinders dan ronde pennen, en nooit dat wij printten of dat het klikt (CLAUDE.md regel 5).
+Niet beloven: andere verbinders dan ronde pennen en gaten voor schijfmagneten (geen magneten erbij, geen klik, geen zwaluwstaart; een gat alleen waar het past, anders zegt Click Cuts: lijmen), en nooit dat wij printten of dat het klikt (CLAUDE.md regel 5).

@@ -3,8 +3,10 @@
 Chris, di 24 nov 2026 (eerste versie ±06:40 NL). Opdracht hoofdchat 04:25 en 06:25, besluit bundel 07:15. Status: CONCEPT. Keuringen 1 tot 3 verwerkt, derde akkoord ja (065f7d7). 24 nov ±12:45 NL: 4.2-snelheid naar meting, geheugen-FAQ en slicer-FAQ erbij; **vierde keuring akkoord ja (b62c304)**, kan-punten K1, K2 en K4 daarna verwerkt. **Klaar om te plakken bij de uitgave** (skill `keuren`, door een ander). Plakken doet Thijs bij de uitgave (week van ma 30 nov). **25 nov ±22:30 NL (issue #104):** Lay parts flat en Free cut in lijst en FAQ, oude zin "Not automatically" weg; keuring Daan #110 akkoord ja, kan-punten K1 ("Partly.", "a character's face") en K2 (lange tekst Amerikaanse spelling) verwerkt 26 nov. **Weer klaar om te plakken.** 26 nov ±00:40 NL (issue #117, op tak `claude/click-cuts-magneet`): magneten in lijst en FAQ; **26 nov ±04:30 NL: magneetcode op main (Daan #131 ja), deze versie geldt; plakken met de nieuwe zip 1.0.0.**
 Alleen wat kandidaat 1.0.0 doet (`producten/blender-splitser/CHANGELOG.md`, `architectuur.md`). Pennen of magneetgaten (issue #117, op main sinds 26 nov): geen klikverbinders, geen deuvels, geen zwaluwstaart.
 
-## 1. Titel (85 tekens)
-`Click Cuts: Split Models for 3D Printing to Fit Your Printer Bed, with Pin Connectors`
+## 1. Titel (95 tekens)
+`Click Cuts: Split Models for 3D Printing to Fit Your Printer Bed, with Pin or Magnet Connectors`
+
+26 nov ±07:00 NL (issue #144, Daan #120 K4): "or Magnet" erbij, nu magneetgaten in 1.0.0 zitten. Cleave zet "Magnets" ook in zijn titel van ±110 tekens (DERDEN, `click-cuts-winkeltekst-lang.md` punt 1), dus 95 past. Oude titel (85): `... with Pin Connectors`.
 
 Waarom deze woorden (GEZIEN, curl op `superhivemarket.com/search?search[q]=...`, 24 nov ±06:30 NL, eerste 12 uitkomsten):
 - **"split model"**: #1 Cleave ("Model Split"), #2 Bed Fit Splitter, #4 PrintSplitter, #5 CatPin, #7 FigureCut. Wie bovenaan staat heeft "Split" plus "Model(s)" in de titel.
