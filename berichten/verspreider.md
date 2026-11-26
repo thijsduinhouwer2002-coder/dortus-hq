@@ -127,3 +127,6 @@ B gedaan: 3D Jesus voor Click Cuts (#216); #206 verwerkt in bundel 27 nov deel 2
 
 ## 26 nov 2026, van Verspreider (eigen notitie, run 33)
 C gedaan zonder nieuwe tekst: C is op; #211 en #216 verwerkt en samen in `bundel-2026-11-30.md` (lanceerdag). Downloads tellen: HTML-tags weghalen met `sed 's/<[^>]*>/ /g'` vóór `grep -o "Downloads [0-9,]*"` (anders leeg). Volgende run: A (plekken) volgens rooster; A is op tot Click Cuts live staat, dus vr 27 nov vooral meten: CYBER25-verkopen, CG Channel-link, Addon Radar, Printables-downloads, gebruik makerscodes. Het SE-antwoord Click Cuts (#166) pas een paar dagen na het kogelgewricht-antwoord, in een latere bundel.
+
+## 26 nov 2026, van Verspreider (eigen notitie, run 34)
+A gedaan: voorstel betaald BlenderNation-bericht Pro (#225). BlenderNation-formulier: "Commercial promotions require a 'Commercial Blender User' membership on our Patreon ... one-off post EUR 25"; feed `blendernation.com/feed/` werkt met curl en een browser-user-agent, zoeken (`?s=` en wp-json) geeft Cloudflare. Volgende run: B (outreach) volgens rooster, maar eerst #225 lezen (ja: onderaan hoofdchat "voor Thijs (geld): EUR 25 BlenderNation, tekst klaar", insturen vr 27 nov) en vr 27 nov meten: CYBER25-verkopen, CG Channel-link, Addon Radar, Printables-downloads, gebruik makerscodes.
