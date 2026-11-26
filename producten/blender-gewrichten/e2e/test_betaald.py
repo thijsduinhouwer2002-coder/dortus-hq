@@ -134,6 +134,7 @@ def main():
          gm is not None and [w for w, _l in gm.BEOORDEEL] == ["Blender Extensions"])
     stap("(b) betaald uit: zijn winkellinks zijn teruggezet", bm is None or list(bm.BEOORDEEL) == list(bm.BEOORDEEL_GRATIS))
     stap("(b) omhulsel opgeruimd", addon_utils.enable is enable_orig)
+    stap("(b) betaald uit: regel van de overname weg (GRATIS_UIT leeg)", betaald.GRATIS_UIT == [], str(betaald.GRATIS_UIT))
     stap("(b) gratis instelling leesbaar", bpy.context.scene.click_joints is not None)
     # En terug: gratis uit, betaald aan.
     addon_utils.disable(gratis_mod, default_set=True)

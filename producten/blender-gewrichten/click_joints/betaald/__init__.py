@@ -41,11 +41,15 @@ def zet_gratis_uit(eigen):
     namen = [a.module for a in bpy.context.preferences.addons]
     uit = []
     for n in andere_versies(namen, eigen):
+        fouten = []  # aanrader A1 Daan (#138): een fout in de unregister van de gratis vangt addon_utils zelf af
         try:
-            addon_utils.disable(n, default_set=True)
+            addon_utils.disable(n, default_set=True, handle_error=fouten.append)
             uit.append(n)
         except Exception as e:
             print(f"Click Joints: free version {n} could not be turned off: {e}")
+        if fouten:
+            print(f"Click Joints: free version {n} turned off with warnings: "
+                  + "; ".join(f"{type(f).__name__}: {f}" for f in fouten))
     weiger_dubbel(eigen)
     if uit:
         GRATIS_UIT[:] = uit
@@ -205,6 +209,7 @@ def unregister():
                 lijst.remove(f)
         if teken_overgenomen in kern.BOVEN:
             kern.BOVEN.remove(teken_overgenomen)
+    GRATIS_UIT[:] = []  # kan-punt keurder f43c3c6: de regel blijft niet staan als Pro weer aan gaat
     meld.BEOORDEEL[:] = meld.BEOORDEEL_GRATIS
     if hasattr(bpy.types.WindowManager, "cj_flip_bend"):
         del bpy.types.WindowManager.cj_flip_bend
