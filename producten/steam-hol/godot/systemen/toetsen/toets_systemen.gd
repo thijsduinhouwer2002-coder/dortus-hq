@@ -417,14 +417,28 @@ func _init() -> void:
 	ok(u.koop("slijm", 44) == -1 and u.niveau("slijm") == 0, "te weinig goud: niets gekocht")
 	ok(u.koop("slijm", 100) == 55 and u.niveau("slijm") == 1 and u.kost("slijm") == 60, "kopen: 55 over, volgende kost 60")
 	ok(u.koop("slijm", 60) == 0 and u.kost("slijm") == 70, "derde kost 70 (#134, Iris aandacht 7)")
-	ok(u.koop("slijm", 70) == 0 and u.kost("slijm") == -1 and u.volgende("slijm").is_empty(), "na drie stappen is alles gekocht")
+	ok(u.koop("slijm", 70) == 0 and u.kost("slijm") == 75 and u.beeld_niveau("slijm") == 3, "na stap 3 nog stap 4 voor 75 (#145)")
 	ok(absf(u.kans_erbij("slijm") - 0.21) < 0.0001 and u.kans_erbij("stekelput") == 0.0, "+7 procentpunt per stap")
-	ok(u.verkoop("slijm") == 70 and u.niveau("slijm") == 2, "weghalen geeft de volle prijs terug")
+	ok(u.goud_erbij() == 0 and u.koop("slijm", 75) == 0 and u.goud_erbij() == 2 and absf(u.plat_factor() * 30.0 - 15.0) < 0.01, "Sticky Gloop: 15 s plat en +2 goud per vangst")
+	ok(absf(u.kans_erbij("slijm") - 0.21) < 0.0001, "stap 4 tot 6: geen extra kans (wrok blijft)")
+	ok(u.kost("slijm") == 95 and u.koop("slijm", 95) == 0 and u.kost("slijm") == 115 and u.koop("slijm", 115) == 0 and u.goud_erbij() == 6, "stap 5 en 6: 95 en 115, samen +6 goud")
+	ok(u.kost("slijm") == -1 and u.volgende("slijm").is_empty() and u.beeld_niveau("slijm") == 3, "na zes stappen alles gekocht, beeld blijft stap 3")
+	ok(u.verkoop("slijm") == 115 and u.verkoop("slijm") == 95 and u.verkoop("slijm") == 75 and u.verkoop("slijm") == 70 and u.niveau("slijm") == 2, "weghalen geeft de volle prijs terug")
+	var up_put = load("res://systemen/upgrades.gd").new()
+	for i in 3:
+		up_put.koop("stekelput", 1000)
+	ok(up_put.kost("stekelput") == 85 and up_put.terug("stekelput") == 70, "put stap 4 kost 10 meer dan Gloop (85), om en om klaar")
 	var u2 = load("res://systemen/upgrades.gd").new()
 	u2.van_dict(u.naar_dict())
-	ok(u2.niveau("slijm") == 2 and absf(u2.plat_factor() * 60.0 - 40.0) < 0.01, "opslaan en laden, Bouncy Gloop 40 s")
+	ok(u2.niveau("slijm") == 2 and absf(u2.plat_factor() * 30.0 - 20.0) < 0.01, "opslaan en laden, Bouncy Gloop 20 s")
 	u2.van_dict({"slijm": 9, "stekelput": -3})
-	ok(u2.niveau("slijm") == 3 and u2.niveau("stekelput") == 0, "kapotte save: niveaus tussen 0 en 3")
+	ok(u2.niveau("slijm") == 6 and u2.niveau("stekelput") == 0, "kapotte save: niveaus tussen 0 en 6")
+	var stap_lang := 0
+	for soort in ["slijm", "stekelput"]:
+		for st in u2.STAPPEN[soort]:
+			if String(st.naam).length() > 22 or String(st.uitleg).length() > 34:
+				stap_lang += 1
+	ok(stap_lang == 0 and u2.STAPPEN["slijm"].size() == u2.MAX_NIVEAU and u2.PRIJZEN.size() == u2.MAX_NIVEAU, "elke stap heeft naam (22) en uitleg (34) die passen, en een prijs")
 	var regels_ok := 0
 	var u3 = load("res://systemen/upgrades.gd").new()
 	for soort in ["slijm", "stekelput"]:
@@ -439,6 +453,17 @@ func _init() -> void:
 	ok(regels_ok == 6, "namen, uitleg en kroniekregel passen (%d van 6)" % regels_ok)
 	var kr2: String = u3.koop_regel("slijm")
 	ok(kr2 == "All hail Royal Gloop. Burp." and u3.put_verborgen(), "tweede regel voor Royal is de tweede grap: " + kr2)
+	var u45 = load("res://systemen/upgrades.gd").new()
+	var r45 := 0
+	for soort in ["slijm", "stekelput"]:
+		for n in u45.MAX_NIVEAU:
+			u45.koop(soort, 1000)
+			var r45s: String = u45.koop_regel(soort)
+			if n >= 3 and r45s.length() <= 42 and not r45s.begins_with("The Spike Pit got ") and not r45s.contains("is now Sticky") and not r45s.contains("is now Greedy") and not r45s.contains("is now Gloop Prime"):
+				r45 += 1
+			elif n >= 3:
+				print("  stap 4 tot 6 zonder eigen regel: ", r45s)
+	ok(r45 == 6, "stap 4 tot 6 hebben een eigen kroniekregel die past (%d van 6, #145)" % r45)
 	var u5 = load("res://systemen/upgrades.gd").new()
 	u5.koop("slijm", 1000)
 	ok(u5.koop_regel("slijm") == "Gloop is now Big Gloop. Bigger mouth.", "eerste koop: eerste grap van Sanne")
@@ -478,8 +503,8 @@ func _init() -> void:
 	ud.koop("slijm", 1000)
 	ok(ud.doel(["slijm", "stekelput"], 0).get("soort") == "stekelput", "doel: goedkoopste wint (put 45 voor Bouncy 60)")
 	ok(ud.doel(["slijm"], 0).get("naam") == "Bouncy Gloop", "doel: zonder put alleen Gloop")
-	ud.koop("slijm", 1000)
-	ud.koop("slijm", 1000)
+	for i in ud.MAX_NIVEAU - 1:
+		ud.koop("slijm", 1000)
 	ok(ud.doel(["slijm"], 0).is_empty(), "doel: alles gekocht geeft niets")
 	var KJD = load("res://kern/kaartje.gd")
 	ok(KJD.doel_tekst("Big Gloop", "Gloop", 45, 20) == "Next: Big Gloop, 25 gold to go", "doel_tekst: nog goud nodig")

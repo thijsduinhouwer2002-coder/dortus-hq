@@ -120,7 +120,7 @@ static func boven_rij(r: Array, schaal: float) -> Array:
 static func put_in_schatkamer(h, k: int, schat_3d: bool) -> String:
 	if not schat_3d or k < h.schat_kol - 2 or k > h.schat_kol or not h.vallen.has(k):
 		return ""
-	var niv: int = h.upgrades.niveau("stekelput") if h.upgrades != null else 0
+	var niv: int = h.upgrades.beeld_niveau("stekelput") if h.upgrades != null else 0
 	if not h.put_open.has(k) and (niv == 0 or niv >= 3):
 		return "weg"
 	return put_stuk(h, k)
@@ -222,7 +222,7 @@ static func stuk(h, r: int, k: int, schat_3d: bool) -> String:
 		return ""
 	var naam := "aarde"
 	if r == 1 and h.gang[k]:
-		var put_niv: int = h.upgrades.niveau("stekelput") if h.upgrades != null else 0
+		var put_niv: int = h.upgrades.beeld_niveau("stekelput") if h.upgrades != null else 0
 		naam = "put" if h.vallen.has(k) and not h.put_open.has(k) and put_niv == 0 and heeft("put") else "gang"
 	elif r == 0 and h.boven[k] and k != h.ingang_kol:
 		# één brede kamer (moet 3, Daan 20:50, Bram 21:30): het stuk volgt de buren; ontbreekt het, dan kamer_los,
@@ -244,7 +244,7 @@ static func stuk(h, r: int, k: int, schat_3d: bool) -> String:
 static func put_stuk(h, k: int) -> String:
 	if not h.met_3d or not h.vallen.has(k) or not heeft("put"):
 		return ""
-	var niv: int = h.upgrades.niveau("stekelput") if h.upgrades != null else 0
+	var niv: int = h.upgrades.beeld_niveau("stekelput") if h.upgrades != null else 0
 	var open: bool = h.put_open.has(k)
 	if niv == 0 and not open:
 		return "vast"

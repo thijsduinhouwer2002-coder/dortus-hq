@@ -98,7 +98,7 @@ static func beschrijving(s, soort: String) -> Dictionary:
 	if v.is_empty():
 		var laatste: String = UPG.STAPPEN[soort][UPG.MAX_NIVEAU - 1]["naam"]
 		d.titel = laatste.replace("Gloop", bew) if soort == "slijm" else laatste
-		d.uitleg = "All three bought."
+		d.uitleg = "All bought."
 	else:
 		d.titel = String(v.naam).replace("Gloop", bew) if soort == "slijm" else String(v.naam)
 		d.uitleg = String(v.uitleg)

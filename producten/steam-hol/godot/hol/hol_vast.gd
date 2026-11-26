@@ -74,7 +74,7 @@ func maak_in(hol) -> void:
 
 # Alles waar het vaste beeld van afhangt. Anders dan de vorige keer: één keer opnieuw tekenen.
 func _sleutel() -> String:
-	var put_niv: int = h.upgrades.niveau("stekelput") if h.upgrades != null else 0
+	var put_niv: int = h.upgrades.beeld_niveau("stekelput") if h.upgrades != null else 0
 	var v: Array = h.vallen.keys()
 	v.sort()
 	var o: Array = h.put_open.keys()

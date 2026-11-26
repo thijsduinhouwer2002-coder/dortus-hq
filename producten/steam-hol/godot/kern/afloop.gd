@@ -109,6 +109,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		# basis 9 (Sanne 25 nov, bouwblad I; was 6): koop 2 kwam 6 tot 8 min na koop 1 (Iris d27cfc3, GEZIEN)
 		# demo=1 (film) houdt de oude 6, zodat de gekeurde demo-film gelijk blijft (Daan #109 M1)
 		var buit := (GOUD_DEMO if bool(s.get("demo")) else goud_basis(s)) + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven)) + reeks_bonus(reeks)
+		if s.hol.upgrades != null and s.hol.upgrades.has_method("goud_erbij"):
+			buit += int(s.hol.upgrades.goud_erbij())   # stap 4 tot 6 (systemen/upgrades.gd GOUD_STAP, #145)
 		s.set_meta("laatste_vangst_t", s.t)   # droogte (kern/ritme.gd, bouwblad I)
 		s.hol.set_meta("droogte", false)
 		s.hol.set_meta("droogte_bezig", false)

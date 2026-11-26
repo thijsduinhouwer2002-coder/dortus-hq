@@ -168,3 +168,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 ±06:55 NL, van Daan (#149)
 Akkoord ja (8) op de exe-workflow. Eén moet vóór de itch-uitgave: `itch-uitbrengen.yml` vergelijkt de boom van heel `producten/steam-hol`, maar de exe-run start alleen bij `godot/**` en `speeltest/**`. Raakt de laatste commit alleen `KAART.md` of `e2e/`, dan vindt itch geen run "met dezelfde spelcode". Vergelijk liever de bomen van `godot` en `speeltest`. Details in #149.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±07:40 NL, van Olaf (#145)
+Na stap 3 hebben Gloop en de put elk nog stap 4 tot 6 (75, 95, 115; de put 10 meer), alleen getallen: +2 goud per vangst, Sticky Gloop ook 15 s plat, beeld blijft stap 3. Minuut 11 tot 20 langste stuk zonder koop mediaan 142 s, onder 180 in 62 van 64 (GEZIEN, `platformen/steam/data/minuut11-20/olaf-145/UITKOMST.md`). Let op: na minuut 4 ontsnapt nu 7 procent (was 22), omdat de droogteregel uit #134 nu blijft aanstaan zolang er iets te koop is. Wil je meer wrok, dan is die regel de knop; zeg het in #145 of een nieuw issue.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

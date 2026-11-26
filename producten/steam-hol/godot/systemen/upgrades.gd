@@ -6,7 +6,7 @@ extends RefCounted
 # Getallen uit platformen/steam/balans.md (Sanne) en sim/sim.py: drie upgrades per soort, kost 45, 60, 70 (Olaf 26 nov #134; Sanne 26 nov 45, 60, 90; 25 nov 45, 60, 160; daarvoor 45, 126, 353),
 # elke upgrade +7 procentpunt kans dat een held valt. Daarbovenop heeft elke stap iets eigens dat je ziet of merkt,
 # zodat het een keuze is en geen getal:
-#   slijm:     1 Big Gloop (groter, +7)  2 Bouncy Gloop (+7, en plat 40 s in plaats van 60)  3 Royal Gloop (+7, paarse cape van Mila; eerst een kroon, maar die botste met de hoedentoren)
+#   slijm:     1 Big Gloop (groter, +7)  2 Bouncy Gloop (+7, en plat 20 s in plaats van 30)  3 Royal Gloop (+7, paarse cape van Mila; eerst een kroon, maar die botste met de hoedentoren)
 #   stekelput: 1 Rusty Spikes (+7)       2 Deep Pit (+7, en een schijterige held keert er niet voor om)  3 Trick Lid (+7, dicht tot hij erop staat)
 # Wat het spel ermee doet:
 # - held.gd vraagt de kans erbij via het hol: als hol een eigenschap "upgrades" heeft (dit object), telt
@@ -18,7 +18,12 @@ extends RefCounted
 # Geen tijdsdruk en geen straf: kopen kan altijd, weghalen geeft de volle prijs terug (balans.md), dus niets is fout te kiezen.
 
 const SOORTEN := ["slijm", "stekelput"]
-const MAX_NIVEAU := 3
+const MAX_NIVEAU := 6
+# Olaf 26 nov (#145, Iris aandacht 7): na de zesde koop (±11 min) was er 4 tot 9 min niets te kopen. Daarom per soort
+# stap 4, 5 en 6, alleen getallen, geen nieuwe kunst: het beeld blijft dat van stap 3 (beeld_niveau()) en het koopmoment
+# (wip van Gloop, schudden van de put, kroniekregel) is hetzelfde. Elk +2 goud per vangst (GOUD_STAP), geen extra
+# kans (dan ontsnapte bijna niemand meer, wrok weg); Sticky Gloop ligt ook maar 15 s plat. Prijs hoger dan stap 3.
+const BEELD_MAX := 3
 const BASIS := 45.0   # Sanne 10 nov 01:50 (balans.md): 45, 126, 353; was 60
 const FACTOR := 2.8   # niet meer gebruikt voor de prijs, zie PRIJZEN
 # Sanne 25 nov (bouwblad I "minuut 4 tot 15", spelgevoel.md): koop 2 kwam pas 6 tot 8 min na koop 1 (Iris, 4 zaden,
@@ -27,20 +32,31 @@ const FACTOR := 2.8   # niet meer gebruikt voor de prijs, zie PRIJZEN
 # haalde geen zaad in 900 s. Stap 3 naar 90: tot minuut 15 elke ±3 min een keuze (meting in spelgevoel.md, bouwblad I).
 # Olaf 26 nov (#134, Iris aandacht 7): stap 3 naar 70 (was 90). Een held brengt na minuut 4 ±15 tot 18
 # goud (kern/afloop.gd GOUD_LAAT); 90 vroeg 6 tot 7 vangsten en gaf het langste gat (meting platformen/steam/data/minuut4-15/olaf-134/).
-const PRIJZEN := [45, 60, 70]
+# Olaf 26 nov (#145): stap 4, 5 en 6 kosten 75, 95 en 115 (de put 10 meer, PUT_LATER); 2 of 4 stappen erbij gaf
+# steeds een lege winkel of een lang gat (meting en geprobeerde varianten in platformen/steam/data/minuut11-20/olaf-145/).
+const PRIJZEN := [45, 60, 70, 75, 95, 115]
 const KANS_PER := 0.07
+# Per stap wat hij erbij doet (#145): stap 1 tot 3 elk +7 procentpunt kans; stap 4 tot 6 elk +2 goud per vangst.
+const KANS_STAP := [0.07, 0.07, 0.07, 0.0, 0.0, 0.0]
+const GOUD_STAP := [0, 0, 0, 2, 2, 2]   # goud erbij per vangst (kern/afloop.gd)
 
 # Naam en korte uitleg per stap, Engels zoals in het spel (hooguit 22 en 34 tekens, past in het paneel).
 const STAPPEN := {
 	"slijm": [
 		{"naam": "Big Gloop", "uitleg": "Bigger mouth. More heroes fall."},
-		{"naam": "Bouncy Gloop", "uitleg": "Back up in 40 s instead of 60."},
+		{"naam": "Bouncy Gloop", "uitleg": "Back up in 20 s instead of 30."},
 		{"naam": "Royal Gloop", "uitleg": "A royal cape. Heroes gulp."},
+		{"naam": "Sticky Gloop", "uitleg": "Up in 15 s. Heroes drop +2 gold."},
+		{"naam": "Greedy Gloop", "uitleg": "Heroes drop 2 more gold."},
+		{"naam": "Gloop Prime", "uitleg": "Heroes drop 2 more gold. Again."},
 	],
 	"stekelput": [
 		{"naam": "Rusty Spikes", "uitleg": "Rust hurts. More heroes fall."},
 		{"naam": "Deep Pit", "uitleg": "Timid heroes forget to turn back."},
 		{"naam": "Trick Lid", "uitleg": "Looks like floor until it isn't."},
+		{"naam": "Sharp Spikes", "uitleg": "Sharper. Heroes drop 2 more gold."},
+		{"naam": "Endless Pit", "uitleg": "No bottom. Heroes drop +2 gold."},
+		{"naam": "Doom Pit", "uitleg": "Doom. Heroes drop 2 more gold."},
 	],
 }
 
@@ -49,11 +65,21 @@ var niveaus := {"slijm": 0, "stekelput": 0}
 func niveau(soort: String) -> int:
 	return int(niveaus.get(soort, 0))
 
+# Welk beeld de soort krijgt: stap 4 tot 6 hebben geen eigen kunst, dus het beeld van stap 3 (#145).
+func beeld_niveau(soort: String) -> int:
+	return mini(niveau(soort), BEELD_MAX)
+
 # Wat de volgende stap kost, of -1 als alles al gekocht is (of de soort onbekend is).
 func kost(soort: String) -> int:
 	if not niveaus.has(soort) or niveau(soort) >= MAX_NIVEAU:
 		return -1
-	return int(PRIJZEN[niveau(soort)])
+	return prijs(soort, niveau(soort))
+
+# Prijs van stap i + 1 van een soort. Vanaf stap 4 kost de put PUT_LATER meer, zodat Gloop en de put om en om
+# klaar zijn en niet twee kopen vlak na elkaar komen met daarna een lang gat (#145, meting olaf-145).
+const PUT_LATER := 10
+func prijs(soort: String, i: int) -> int:
+	return int(PRIJZEN[i]) + (PUT_LATER if soort == "stekelput" and i >= BEELD_MAX else 0)
 
 func kan_kopen(soort: String, goud: int) -> bool:
 	var k := kost(soort)
@@ -100,10 +126,25 @@ func doel(soorten: Array, goud: int) -> Dictionary:
 
 # Wat de held erbij telt (procentpunten als fractie): 0,07 per stap.
 func kans_erbij(soort: String) -> float:
-	return KANS_PER * niveau(soort)
+	var k := 0.0
+	for i in niveau(soort):
+		k += float(KANS_STAP[i])
+	return k
 
-# Factor op de tijd dat de slijm plat ligt (slijm.gd plat()): Bouncy Gloop 2/3, dus 40 s in plaats van 60.
+# Goud erbij per vangst door stap 4 tot 6 van beide soorten samen (#145), voor kern/afloop.gd.
+func goud_erbij() -> int:
+	var g := 0
+	for soort in SOORTEN:
+		for i in niveau(soort):
+			g += int(GOUD_STAP[i])
+	return g
+
+# Factor op de tijd dat de slijm plat ligt (slijm.gd plat()): Bouncy Gloop 2/3, dus 20 s in plaats van 30 (slijm.gd plat_s 30;
+# tot 26 nov zei de tekst 40 en 60, dat klopte niet meer sinds plat_s 30 werd).
+# Sticky Gloop (stap 4): 1/2, dus 15 s.
 func plat_factor() -> float:
+	if niveau("slijm") >= 4:
+		return 0.5
 	return 2.0 / 3.0 if niveau("slijm") >= 2 else 1.0
 
 # Deep Pit: een schijterige held keert na een klap van de put niet om.
@@ -120,17 +161,23 @@ func terug(soort: String) -> int:
 	var n := niveau(soort)
 	if n <= 0:
 		return 0
-	return int(PRIJZEN[n - 1])
+	return prijs(soort, n - 1)
 
 # Koopregels met een grap (Sanne, platformen/steam/kroniek-regels.md "Kopen", toets 8 punt 4). Elke regel zegt
 # wat de stap echt doet. {b} = de naam van de bewoner. De eerste keer de eerste regel, daarna om de beurt.
 const KOOP_REGELS := {
 	"Big Gloop": ["{b} is now Big {b}. Bigger mouth.", "{b} grew. The hats fit better.", "More {b}. Same appetite. Worse."],
-	"Bouncy Gloop": ["{b} bounces now. Back up in 40 s.", "{b} learned to bounce. Smug.", "Boing. {b} is Bouncy {b}."],
+	"Bouncy Gloop": ["{b} bounces now. Back up in 20 s.", "{b} learned to bounce. Smug.", "Boing. {b} is Bouncy {b}."],
 	"Royal Gloop": ["{b} wears a royal cape now.", "All hail Royal {b}. Burp.", "{b} is royalty now. Insufferable."],
 	"Rusty Spikes": ["The Spike Pit got rusty. Ouch.", "Rust on the spikes. On purpose.", "The spikes are rusty now. Tetanus."],
 	"Deep Pit": ["The pit got deeper. Echo, echo.", "Deeper pit. Nobody turns back now.", "The pit is very deep now. Hello?"],
 	"Trick Lid": ["The pit has a lid. Looks like floor.", "New floor. Not floor.", "The Spike Pit hides now. Shh."],
+	"Sticky Gloop": ["{b} is sticky now. Back up in 15 s.", "{b} got sticky. Nobody asked.", "Sticky {b}. Do not touch."],
+	"Greedy Gloop": ["{b} got greedy. Heroes pay more.", "Greedy {b}. Shake those pockets.", "{b} wants more gold. As always."],
+	"Gloop Prime": ["{b} Prime. Heroes pay even more.", "{b} is in its prime. Pay up.", "Prime {b}. Pockets empty faster."],
+	"Sharp Spikes": ["The spikes got sharper. Ouch.", "Sharp spikes. Very rude.", "Sharper spikes. On purpose."],
+	"Endless Pit": ["The pit has no bottom now.", "Endless pit. Hats still land.", "The pit goes down forever now."],
+	"Doom Pit": ["The Spike Pit is the Doom Pit now.", "Doom Pit. Heroes pay on the way down.", "Doom. Also, gold."],
 }
 const REGEL_MAX := 42
 var _regel_tel := {}   # hoe vaak elke stap al een regel gaf (niet bewaard: na herstart begint hij weer bij de eerste; Undo en opnieuw kopen geeft de volgende grap)

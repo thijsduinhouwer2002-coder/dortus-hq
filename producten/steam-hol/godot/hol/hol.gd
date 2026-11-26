@@ -431,7 +431,7 @@ func _draw() -> void:
 		_brokkel(c, float(brokkel[c]))
 	# vallen: stekelput dicht, en even open na een klap
 	# gekochte stappen (Rusty Spikes, Deep Pit, Trick Lid) hebben elk een eigen rij in stekelput_upgrades.png
-	var put_niv: int = upgrades.niveau("stekelput") if upgrades != null else 0
+	var put_niv: int = upgrades.beeld_niveau("stekelput") if upgrades != null else 0   # stap 4 tot 6: beeld van stap 3 (#145)
 	var sx := 0
 	if put_schud > 0.0:
 		sx = int(SCHUD_X[mini(SCHUD_X.size() - 1, int((SCHUD_S - put_schud) / SCHUD_S * SCHUD_X.size()))])

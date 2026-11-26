@@ -1,0 +1,32 @@
+HOL kaartje open 77.0: slijm
+HOL koop 79.2: slijm niveau 1, goud 6
+HOL kaartje dicht 82.0
+HOL koopgeluk vangst +20 (t 133.2)
+HOL kaartje open 277.2: stekelput
+HOL koop 277.2: stekelput niveau 1, goud 5
+HOL kaartje dicht 280.0
+HOL koopgeluk vangst +28 (t 306.5)
+HOL kaartje open 381.2: slijm
+HOL koop 381.2: slijm niveau 2, goud 4
+HOL kaartje dicht 384.0
+HOL koopgeluk vangst +34 (t 409.0)
+HOL kaartje open 452.2: slijm
+HOL koop 452.2: slijm niveau 3, goud 7
+HOL kaartje dicht 455.0
+HOL koopgeluk vangst +42 (t 517.2)
+HOL kaartje open 526.2: slijm
+HOL koop 526.2: slijm niveau 4, goud 10
+HOL kaartje dicht 529.0
+HOL koopgeluk vangst +40 (t 550.2)
+HOL kaartje open 599.2: stekelput
+HOL koop 599.2: stekelput niveau 2, goud 10
+HOL kaartje dicht 602.0
+HOL koopgeluk vangst +38 (t 628.2)
+HOL kaartje open 701.2: stekelput
+HOL koop 701.2: stekelput niveau 3, goud 11
+HOL kaartje dicht 704.0
+HOL kaartje open 822.2: stekelput
+HOL koop 822.2: stekelput niveau 4, goud 3
+HOL kaartje dicht 825.0
+HOL koopgeluk vangst +44 (t 875.2)
+HOL einde na 900 s, fps=159, goud=91, terugkomers=0
