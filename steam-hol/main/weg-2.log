@@ -1,15 +1,15 @@
-HOL balk gestart, pid 8856, hoogte 120
-HOL weg geweest 0 s (klok terug: true): goud voor 588, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 588 goud, faam 5
+HOL balk gestart, pid 6556, hoogte 120
+HOL weg geweest 0 s (klok terug: true): goud voor 630, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 630 goud, faam 5
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795723053
+HOL zaad 1795723302
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 588)
-HOL eerste koop mogelijk na 30 s speeltijd (goud 588)
+HOL gloop ring aan na 0.1 s (goud 630)
+HOL eerste koop mogelijk na 30 s speeltijd (goud 630)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 2.1 (wacht 0.0): Tibbe has a map. It is wrong.
-HOL begin: doorlopen (Tibbe)
-HOL held binnen: Tibbe
-HOL zicht 2.2 1
-HOL einde na 8 s, fps=10, goud=588, terugkomers=0
+HOL kroniek 2.0 (wacht 0.0): Pim read about you in a tavern.
+HOL begin: doorlopen (Pim)
+HOL held binnen: Pim
+HOL zicht 2.1 1
+HOL einde na 8 s, fps=10, goud=630, terugkomers=0

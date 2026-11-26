@@ -1,9 +1,9 @@
-HOL balk gestart, pid 7692, hoogte 120
+HOL balk gestart, pid 1716, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 66)
+HOL gloop ring aan na 0.2 s (goud 66)
 HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
 HOL muisvlak via de balk, lucht vrij op x=-1
 HOL begin: vallen (Kees)
@@ -13,7 +13,7 @@ HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
 HOL kroniek 7.0 (wacht 0.0): Anouk the Bard tunes a lute.
 HOL begin: vluchten (Anouk)
 HOL held binnen: Anouk
-HOL leven goudstof t=8.4 x=212 y=30
+HOL leven goudstof t=7.8 x=212 y=30
 HOL gegraven kolom 5 (zelf 1, graafbonus 0)
 HOL kroniek zelfde held vervangen: Kees is here for your gold.
 HOL kroniek 9.1 (wacht 0.0): Kees will not be leaving. +6
@@ -28,33 +28,36 @@ HOL meting t=20 beelden=109 helden=2 hol_vast=9
 HOL demo klik op Buy
 HOL koop 20.1: slijm niveau 1, goud 27
 HOL gloop ring uit na 20.2 s (goud 27)
+HOL leven stofje t=20.6 x=56 y=26
 HOL kaartje dicht 22.6
 HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Teun)
 HOL held binnen: Teun
 HOL kroniek 25.1 (wacht 2.1): Teun has a map. It is wrong.
-HOL leven mot t=26.4 x=56 y=26
 HOL gegraven kolom 4 (zelf 3, graafbonus 0)
 HOL kroniek 28.6 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
-HOL meting t=30 beelden=129 helden=1 hol_vast=11
-HOL kroniek 31.1 (wacht 1.8): Gloop ate Siem. Kept the crown. +6
+HOL meting t=30 beelden=130 helden=1 hol_vast=11
+HOL kroniek 31.2 (wacht 1.9): Gloop ate Siem. Kept the crown. +6
 HOL begin: terug (Anouk)
 HOL held binnen: Anouk
 HOL kroniek zelfde held vervangen: Anouk fled. Grudge: the Spike Pit.
-HOL kroniek 33.7 (wacht 0.9): Anouk is back for the Spike Pit.
-HOL kroniek 36.2 (wacht 1.9): Gloop is flat. Back soon.
+HOL kroniek 33.7 (wacht 1.0): Anouk is back for the Spike Pit.
+HOL kroniek 36.2 (wacht 2.0): Gloop is flat. Back soon.
 HOL gegraven kolom 1 (zelf 4, graafbonus 0)
-HOL kroniek 38.7 (wacht 0.0): Teun is now the Hoard-Toucher.
-HOL meting t=40 beelden=111 helden=2 hol_vast=16
-HOL kroniek 41.2 (wacht 12.6): Anouk's song got popular. Uh oh.
-HOL leven goudstof t=43.4 x=212 y=30
-HOL kroniek 43.7 (wacht 0.4): Gloop is up again. Wobbly.
-HOL kroniek 45.1 (wacht 0.0): Rik came for the gold in the song.
+HOL leven mot t=36.4 x=44 y=26
+HOL kroniek zelfde held vervangen: Anouk is back for the Spike Pit.
+HOL kroniek 38.7 (wacht 10.1): Anouk's song got popular. Uh oh.
+HOL kroniek weggedrukt na 1.0 s, komt terug: Anouk's song got popular. Uh oh.
+HOL kroniek 39.7 (wacht 0.9): Teun is now the Hoard-Toucher.
+HOL meting t=40 beelden=110 helden=2 hol_vast=16
+HOL kroniek 42.2 (wacht 2.5): Anouk's song got popular. Uh oh.
+HOL kroniek 44.8 (wacht 1.5): Gloop is up again. Wobbly.
 HOL begin: opgegeten2 (Rik)
 HOL held binnen: Rik
 HOL hol-niveau 2 (faam 3, t 45.1)
 HOL reeks 2 (+0, t 45.1)
-HOL gegraven kolom 3 (zelf 5, graafbonus 0)
 HOL bordje wip niveau 2
-HOL kroniek 47.7 (wacht 2.6): Anouk came back. The Spike Pit won. +9
+HOL gegraven kolom 3 (zelf 5, graafbonus 0)
+HOL kroniek 45.8 (wacht 0.7): Rik came for the gold in the song.
+HOL kroniek 48.4 (wacht 3.3): Anouk came back. The Spike Pit won. +9
 HOL einde na 50 s, fps=10, goud=42, terugkomers=0
