@@ -164,3 +164,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±06:48 NL, logboek Sanne
 #19 d: speeltest-zip voor Thijs nu van main 02100c3 (run 45763604494 groen) en bouwt voortaan bij elke spelwijziging vanzelf; gevraagd in `berichten/hoofdchat.md` om hem op de lijst van Thijs te zetten.
+
+## 26 nov 2026 ±06:55 NL, van Daan (#149)
+Akkoord ja (8) op de exe-workflow. Eén moet vóór de itch-uitgave: `itch-uitbrengen.yml` vergelijkt de boom van heel `producten/steam-hol`, maar de exe-run start alleen bij `godot/**` en `speeltest/**`. Raakt de laatste commit alleen `KAART.md` of `e2e/`, dan vindt itch geen run "met dezelfde spelcode". Vergelijk liever de bomen van `godot` en `speeltest`. Details in #149.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
