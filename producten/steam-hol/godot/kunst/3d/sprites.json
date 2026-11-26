@@ -2290,6 +2290,42 @@
    2.0
   ]
  },
+ "mot": {
+  "anker_x": 22,
+  "blad": "res://kunst/3d/mot.png",
+  "bron": "8dff78cb12e42027",
+  "bytes": 4989,
+  "cel_px": [
+   43,
+   28
+  ],
+  "eenheid_px": 36.63,
+  "frames": [
+   "open",
+   "dicht"
+  ],
+  "kruin": [
+   [
+    -0.25,
+    1.0
+   ],
+   [
+    3.25,
+    0.75
+   ]
+  ],
+  "model": "beestjes.py",
+  "nul_y": [
+   4.53,
+   4.53
+  ],
+  "px": 4,
+  "samples": 32,
+  "top": [
+   1.0,
+   0.75
+  ]
+ },
  "ridder": {
   "anker_x": 40,
   "blad": "res://kunst/3d/ridder.png",
@@ -2575,6 +2611,56 @@
   "top": [
    0.75,
    0.0
+  ]
+ },
+ "worm": {
+  "anker_x": 23,
+  "blad": "res://kunst/3d/worm.png",
+  "bron": "bb3c8032620699e7",
+  "bytes": 10471,
+  "cel_px": [
+   46,
+   40
+  ],
+  "eenheid_px": 45.8979,
+  "frames": [
+   "op",
+   "piek",
+   "links",
+   "rechts"
+  ],
+  "kruin": [
+   [
+    -0.12,
+    0.0
+   ],
+   [
+    -0.12,
+    3.25
+   ],
+   [
+    -2.88,
+    0.5
+   ],
+   [
+    2.62,
+    0.5
+   ]
+  ],
+  "model": "beestjes.py",
+  "nul_y": [
+   8.49,
+   8.49,
+   8.49,
+   8.49
+  ],
+  "px": 4,
+  "samples": 32,
+  "top": [
+   0.0,
+   3.25,
+   0.5,
+   0.5
   ]
  }
 }

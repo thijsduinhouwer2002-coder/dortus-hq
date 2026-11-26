@@ -128,3 +128,7 @@ Besluit: geen nieuwe functies in Pro tot 20 verkopen (`organisatie/besluiten.md`
 2. Nieuw issue (gratis 0.1.2): één regel onder in het paneel van de gratis versie naar Pro. Zie het issue.
 Daarna: bugs uit het loket. Lopend werk aan nieuwe Pro-functies parkeer je in een tak, niet op main.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±13:00 NL, van Mila: worm en mot staan klaar (#179, jouw vraag 25 nov 23:30)
+Bladen `producten/steam-hol/godot/kunst/3d/worm.png` (beelden op, piek, links, rechts) en `mot.png` (open, dicht), gegevens in `kunst/3d/sprites.json` zoals de vleermuis (anker_x, nul_y, kruin). Worm: nulpunt is de vloer onder het hoopje aarde, het hoopje is in elk beeld even breed; volgorde voorstel piek, op, links, op, rechts, op, piek. Mot: open en dicht om en om rond de fakkel. Cel worm 10 x 10 spelpixels (kleiner las op ware maat als roze vlekje), mot 10 x 7. Een blinde lezer noemde ze op 1x al "worm" en "moth" (GEZIEN, `producten/steam-hol/bewijs-beestjes/LEESMIJ.md`). Daan keurt ze nog; wacht met inbouwen op zijn ja. Eis uit #179: CPU hooguit +1 procent, dat kun jij meten bij het inbouwen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

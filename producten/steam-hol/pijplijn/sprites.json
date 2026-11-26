@@ -2257,6 +2257,96 @@
           ]
         }
       }
+    },
+    "worm": {
+      "model": "beestjes.py",
+      "args": [
+        "{uit}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "{stand}"
+      ],
+      "render": [
+        400,
+        400
+      ],
+      "samples": 32,
+      "ruimte": 1.0,
+      "cel": [
+        10,
+        10
+      ],
+      "px": 4,
+      "frames": {
+        "op": {
+          "stand": "op",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "piek": {
+          "stand": "piek",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "links": {
+          "stand": "links",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "rechts": {
+          "stand": "rechts",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "_uitleg": "Mila 26 nov (issue #179, vraag Olaf 25 nov 23:30, Daan #106): worm in de huisstijl van de vleermuis, met donkere rand. op = rechtop en kijkt je aan, piek = kop half uit het hoopje, links en rechts = buigt en kijkt opzij. Hoopje aarde is in elk beeld even breed, nulpunt = vloer onder het hoopje. Cel 10 x 10 spelpixels (30 px op strook 120; kleiner las op ware maat als roze vlekje, blinde lezer 26 nov). Voor systemen/leven.gd: piek, op, links, op, rechts, op, piek."
+    },
+    "mot": {
+      "model": "beestjes.py",
+      "args": [
+        "{uit}",
+        "{w}",
+        "{h}",
+        "{samples}",
+        "{stand}"
+      ],
+      "render": [
+        400,
+        400
+      ],
+      "samples": 32,
+      "ruimte": 1.0,
+      "cel": [
+        10,
+        7
+      ],
+      "px": 4,
+      "frames": {
+        "open": {
+          "stand": "open",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        },
+        "dicht": {
+          "stand": "dicht",
+          "schaal": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "_uitleg": "Mila 26 nov (issue #179): mot in de huisstijl van de vleermuis, roomwit met geveerde sprieten en donkere rand. open = vleugels wijd, dicht = vleugels half omhoog; om en om ±8 per s rond de fakkel. Cel 10 x 7 spelpixels (±30 x 21 px op strook 120; de vleugels zijn breed, het lijf is ±3 spelpixels)."
     }
   }
 }
