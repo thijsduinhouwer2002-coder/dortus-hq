@@ -1,27 +1,27 @@
-HOL balk gestart, pid 1368, hoogte 120
+HOL balk gestart, pid 5560, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795672558
+HOL zaad 1795675237
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Joost)
-HOL held binnen: Joost
-HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Joost read about you in a tavern.
-HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Joost read about you in a tavern.
-HOL kroniek 7.4 (wacht 0.0): Joost checked the floor. Too late. +9
+HOL begin: vallen (Pim)
+HOL held binnen: Pim
+HOL zicht 2.1 1
+HOL kroniek 2.5 (wacht 0.5): Pim has a map. It is wrong.
+HOL uitleg stap 1 t=4.0 
+HOL kroniek zelfde held vervangen: Pim has a map. It is wrong.
+HOL kroniek 7.3 (wacht 0.0): Pim checked the floor. Too late. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Lotte)
-HOL held binnen: Lotte
-HOL zicht 9.0 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
+HOL begin: opgegeten (Teun)
+HOL held binnen: Teun
+HOL zicht 9.1 1
+HOL kroniek 9.9 (wacht 2.6): First hero in the pit!
 HOL demo voorbij na 10 s speeltijd
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek 11.1 (wacht 1.0): That's the demo. Your hole keeps going.
-HOL kroniek vervallen 12.0: Lotte says this is a quick one.
-HOL leven vleermuis t=13.0 x=88 y=28
+HOL kroniek 10.9 (wacht 0.9): That's the demo. Your hole keeps going.
+HOL kroniek vervallen 12.1: Teun climbs into your hole.
+HOL leven goudstof t=13.9 x=212 y=30
 HOL einde na 15 s, fps=10, goud=29, terugkomers=0
