@@ -1,5 +1,5 @@
 {
- "paren": 969,
+ "paren": 970,
  "driehoeken": 452,
  "status": "MiCA-dochter",
  "ritme_s": 3,
@@ -8,11 +8,11 @@
   "GEZIEN uit de API, per paar": {
    "hoog": 0.001,
    "laag": 0.001,
-   "paren": 969
+   "paren": 970
   }
  },
- "minima_paren": 969,
- "geladen": "2026-11-26T07:56:43Z",
+ "minima_paren": 970,
+ "geladen": "2026-11-26T08:26:44Z",
  "min_inleg": {
   "driehoeken": 452,
   "mediaan_eur": 10.0,
