@@ -1,7 +1,7 @@
 # Click Cuts changelog
 
 ## Unreleased (1.1, after the launch of 1.0.0)
-- Start clearance per material: until you save a fit test for your printer and material, Click Cuts starts at a clearance that suits the material: Resin 0.10, PLA 0.20, PETG and ABS / ASA 0.25, TPU 0.30 mm. The fit test tests around that value (Resin 0.05 to 0.20 mm), so the one that fits is on the block. A saved fit test or a clearance you typed yourself always comes first. The fit test box says "Start value for Resin: print the fit test" until you pick one. After a Split, the result box keeps naming the clearance the parts were cut with; when you change it (also by picking another material) it says "Clearance changed: press Split to fit again". (Docs tab, Fit test step 2, gets the resin example when 1.1 goes out.)
+- Start clearance per material: until you save a fit test for your printer and material, Click Cuts starts at a clearance that suits the material: Resin 0.10, PLA 0.20, PETG and ABS / ASA 0.25, TPU 0.30 mm. The fit test tests around that value (Resin 0.05 to 0.20 mm), so the one that fits is on the block. A saved fit test or a clearance you typed yourself always comes first. The fit test box says "Start value for Resin: print the fit test to be sure" until you pick one. After a Split, the result box keeps naming the clearance the parts were cut with; when you change it (also by picking another material) it says "Clearance changed: press Split to fit again". (Docs tab, Fit test step 2, gets the resin example when 1.1 goes out.)
 
 ## 1.0.0 (candidate, 25 Nov 2026)
 First version.
