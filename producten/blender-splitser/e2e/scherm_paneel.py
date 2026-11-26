@@ -161,8 +161,8 @@ def stap():
             co = np.array([tuple(v.co) for v in stuk.data.vertices]) @ mw[:3, :3].T + mw[:3, 3]
             scherm = [view3d_utils.location_3d_to_region_2d(hoofd, rv3d, p) for p in co]
             scherm = np.array([tuple(p) for p in scherm if p is not None])
-            mx, my = scherm.mean(axis=0)
-            h = (scherm[:, 1].max() - scherm[:, 1].min()) * 0.65 + 10
+            mx, my = (scherm.min(axis=0) + scherm.max(axis=0)) / 2.0  # middle of the piece on the screen
+            h = (scherm[:, 1].max() - scherm[:, 1].min()) * 0.5 + 25  # the line runs 25 px past both ends
             with bpy.context.temp_override(window=venster, area=gebied, region=hoofd):
                 r = bpy.ops.split_joints.vrije_snede_tekenen("INVOKE_DEFAULT")
             log(f"tekenen: operator {r}, stuk {stuk.name}, lijn x {mx:.0f}, y {my - h:.0f} tot {my + h:.0f}")
