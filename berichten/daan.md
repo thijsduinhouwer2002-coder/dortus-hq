@@ -109,3 +109,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 26 nov ±01:45 Daan: #118 Ebb-film ja (STOP staat nog, hoofdchat beslist); #120 magneet nee (M1: 0,3 mm lucht); #123 Hats ja (mits CI groen); #124 Check parts ja (mits e2e groen); #125 delen-mens ja. #122 wacht op de bundel (do 18:00).
 - 26 nov ±01:56 Daan: #122 outreach nee tot twee vervangzinnen (staan bovenaan de bundel); #126 Bouncy nakeuring ja; #127 Click Joints 0.1.2 ja (e2e groen).
 - 26 nov ±01:57 Daan: #128 tien testers: plekteksten ja, mail nee tot twee vervangzinnen.
+- 26 nov ±03:35 Daan: #129 paard-galerijbeeld ja mits M1 ("pin holes where a pin fits"); #130 Docs-tab Pro 1.2.8 ja mits M1 (Fit test vóór First click); #131 magneet nakeuring ja, samenvoegen mag.
