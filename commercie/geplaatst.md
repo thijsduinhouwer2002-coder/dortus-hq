@@ -66,3 +66,10 @@ Elke plaatsing (datum, kanaal, link) en elke ronde zonder plaatsing, één regel
 - Volgende plek voor dezelfde strip: MakerWorld (44,2M bezoeken per maand, Semrush mei 2026, DERDEN), daarna Thingiverse.
 - 23:35: **Strip v2 live** als galerijbeeld op Gumroad Pro (cover 4, oude strip eruit, "Changes saved") en Superhive Pro (galerij, oude strip eruit, "Image Gallery saved"). Blinde test v2 GESLAAGD (Gemini 2,0, ChatGPT 2,0; v1 2,0 en 1,5), Thijs koos v2 (23:20) omdat hij "0.30 mm" las als de maat van de bal. Daan keurt achteraf.
 - 2026-11-26 08:20 NL, hoofdchat: tweede mail aan CG Channel (news@cgchannel.com), met ja van Thijs (08:16), nu met ook Superhive 35%. **Fout van de hoofdchat:** CG Channel had ons al op 20 nov opgenomen (regel hierboven, Jim Thacker antwoordde 20 nov 12:01 "I've added you in now"); ik zocht niet eerst in geplaatst.md en de mailbox. Geen vervolgmail (meer ruis); Jim kan het lezen als aanvulling. Regel voor mezelf: vóór elke mail of plaatsing eerst `grep -i <naam> commercie/geplaatst.md` en zoeken in de verzonden mail.
+
+## 26 nov 2026, middag: mailronde aan makers (hoofdchat)
+- 12:25 tot 12:33 NL, vanaf thijs@dortus.com, ja van Thijs (12:19) op de bundel `commercie/outreach/bundel-2026-11-26.md` (Daan akkoord). Vooraf gezocht in dit bestand en in Verzonden: niemand van deze 7 was al gemaild.
+- Verstuurd (GEZIEN, elk één keer in Verzonden): MetalBricks (6), Teeny Tinkers (7), 3D Musketeers (8), etellan (9), Cinderwing 3D (14), Lucky 13 Toys (11). MakerBuildIt (10) via het formulier op hun site ("Thanks for contacting us", GEZIEN).
+- Lucky 13 had geen formulier meer, wel een algemeen adres op de contactpagina: daarom als mail, met "Hi Gabe" (naam staat op die pagina). Bij 10 en 11 begint het vaste blok met "for joints" (zoals Daan bij 5 en 14 vroeg), verder letterlijk de gekeurde tekst.
+- Niet verstuurd: de 8 makers van type B (adres zit achter de YouTube-knop met captcha). Die doet de hoofdchat niet.
+- Antwoorden: de hoofdchat leest de inbox mee; een sleutel sturen gebeurt pas na een antwoord, tekst onder de naam van Thijs volgt de gekeurde antwoordmail.
