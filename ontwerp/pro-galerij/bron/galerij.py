@@ -268,8 +268,11 @@ def strip():
             zs = [(mw @ o.data.vertices[i].co).z for i in p.vertices]
             if strak:
                 c = mw @ p.center
-                nz = (mw.to_3x3() @ p.normal).normalized().z   # bovenvlak wijst omhoog, de wand opzij
-                if c.z > 29.5 and (nz > 0.7 or math.hypot(c.x - ax, c.y - ay) < straal * 0.93):
+                # ronde 3: alles in de bovenhelft behalve de buitenwand (opzij gericht en op de volle straal) goud,
+                # ook de schuine draairuimte rond de nek; die gaf eerst de zaagtand
+                nz = (mw.to_3x3() @ p.normal).normalized().z
+                wand = abs(nz) < 0.3 and math.hypot(c.x - ax, c.y - ay) > straal * 0.97
+                if c.z > 15.0 and not wand:
                     p.material_index = 1
             elif (boven and all(z < 30.0 + zone for z in zs)) or (not boven and all(z > 29.5 for z in zs)):
                 p.material_index = 1
