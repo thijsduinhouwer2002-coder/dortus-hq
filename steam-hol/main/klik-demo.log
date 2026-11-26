@@ -1,30 +1,30 @@
-HOL balk gestart, pid 7748, hoogte 96
+HOL balk gestart, pid 2912, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL demo: speeltijd 0 s, grens 3 s
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795718810
+HOL zaad 1795722849
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Mara)
-HOL held binnen: Mara
+HOL begin: vallen (Merel)
+HOL held binnen: Merel
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Mara read about you in a tavern.
+HOL kroniek 2.6 (wacht 0.5): Merel climbs into your hole.
 HOL demo voorbij na 3 s speeltijd
 HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
 HOL kroniek 3.6 (wacht 0.5): That's the demo. Your hole keeps going.
 HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Mara read about you in a tavern.
-HOL kroniek 7.4 (wacht 0.0): Mara is part of the hole now. +9
+HOL kroniek zelfde held vervangen: Merel climbs into your hole.
+HOL kroniek 7.4 (wacht 0.0): Merel fell to the Spike Pit. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Fenna)
-HOL held binnen: Fenna
-HOL zicht 8.4 1
+HOL begin: opgegeten (Femke)
+HOL held binnen: Femke
+HOL leven goudstof t=8.8 x=324 y=30
+HOL zicht 8.9 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
 HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL leven mot t=10.5 x=184 y=26
-HOL kroniek vervallen 11.4: Fenna brought a torch. And hope.
+HOL kroniek vervallen 11.9: Femke read about you in a tavern.
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
-HOL leven goudstof t=22.8 x=324 y=30
+HOL leven mot t=20.9 x=184 y=26
 HOL einde na 25 s, fps=10, goud=29, terugkomers=0
