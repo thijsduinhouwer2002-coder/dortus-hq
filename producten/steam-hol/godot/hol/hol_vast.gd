@@ -157,6 +157,7 @@ func teken(d: CanvasItem) -> void:
 		_tegel(d, k * KOL, GANG_BOVEN, 1, k, schat_3d)
 	if schat_3d:
 		HOL3D.teken(d, "schatkamer", Vector2((h.schat_kol - 2) * KOL, OPP))
+	grond(d, schat_3d)   # na de schatkamer: de vochtige rand loopt ook over de aarde boven de koepel
 	var gang: Array = h.gang
 	for k in h.kolommen:
 		# hier kun je graven: lichte stippels op de rand
@@ -559,6 +560,70 @@ func _teken_hangend(d: CanvasItem, naam: String, punt: Vector2) -> void:
 	var hoog: float = minf(m.y, punt.y + HANG_MAX - plek.y)   # alles daaronder valt weg
 	var bron_h: float = float(v[3]) * hoog / m.y
 	d.draw_texture_rect_region(HOL3D.deco_blad, Rect2(plek, Vector2(m.x, hoog)), Rect2(v[0], v[1], v[2], bron_h))
+
+# De grond in lagen (Mila 26 nov, issue 96; blinde test 25 nov: Gemini "art style looks too basic", "flat"). De aardtegel
+# zelf is overal gelijk; hierover komt per kolom iets anders, zodat geen stuk van 64 spelpixels op een ander lijkt:
+# - bovenlaag: een donkere vochtige rand onder het gras (3 rijen), met hier en daar wortels die uit het gras hangen;
+# - midden: om de ±5 kolommen een ding van een gevallen held half in de aarde (bot, helm, zwaard) of kiezels;
+# - diep (dichte cellen in de gangrij): koeler en donkerder, met grote grijze stenen.
+# Alles uit versiering.py (deco-blad, 3D uit Blender). Dingen niet op een hoed van de hoedenwand, de schacht of de schatkamer.
+const GROND_DING := ["bot", "kiezels_a", "helm", "kiezels_b", "zwaard"]
+const GROND_DIEP := ["steen_diep", "kiezels_b", "kiezels_a", "steen_diep", "kiezels_a"]
+const GROND_VOCHT := [0.34, 0.40, 0.16]   # dekking per rij onder het gras (rij 2 dekt de lichte rand van de tegel)
+const GROND_VOCHT_KLEUR := Color(0.14, 0.06, 0.05)
+const GROND_KOEL := Color(0.22, 0.25, 0.42, 0.20)
+
+static func grond_dingen(h, schat_3d: bool, bezet: Dictionary) -> Array:
+	var uit := []
+	var laatst := -99
+	var n := 0
+	var wortel_laatst := -99
+	var diep_laatst := -99
+	var diep_n := 0
+	for k in h.kolommen:
+		var boven_aarde: bool = HOL3D.stuk(h, 0, k, schat_3d) == "aarde"
+		if boven_aarde and not bezet.has(k) and k - laatst >= 4 and (h._hash(k, 53) % 3 == 0 or k - laatst >= 7):
+			uit.append([GROND_DING[(n + h._hash(k, 54)) % GROND_DING.size()], Vector2(k * KOL + 5 + h._hash(k, 55) % 6, OPP + 13), false])
+			laatst = k
+			n += 1
+		elif boven_aarde and k - wortel_laatst >= 2 and h._hash(k, 41) % 5 < 2:
+			uit.append(["wortels_a" if h._hash(k, 42) % 2 == 0 else "wortels_b", Vector2(k * KOL + 4 + h._hash(k, 43) % 8, OPP + 1), true])
+			wortel_laatst = k
+		if boven_aarde and not bezet.has(k) and k != laatst and h._hash(k, 71) % 3 == 0:
+			# kleine steentjes los door de aarde, op wisselende hoogte (geen vast ritme meer zoals de oude tegel)
+			uit.append(["kiezels_a" if h._hash(k, 72) % 2 == 0 else "kiezels_b",
+				Vector2(k * KOL + 2 + h._hash(k, 73) % 12, OPP + 7 + h._hash(k, 74) % 7), false])
+		if HOL3D.stuk(h, 1, k, schat_3d) == "aarde" and k - diep_laatst >= 2 and h._hash(k, 61) % 3 < 2:
+			var soort: String = GROND_DIEP[diep_n % GROND_DIEP.size()]
+			uit.append([soort, Vector2(k * KOL + 3 + h._hash(k, 63) % 10, GANG_BOVEN + 10 + h._hash(k, 64) % 5), false])
+			diep_laatst = k
+			diep_n += 1 + h._hash(k, 65) % 2
+	return uit
+
+func grond(d: CanvasItem, schat_3d: bool) -> void:
+	if not (h.met_3d and HOL3D.heeft("aarde")):
+		return
+	for k in h.kolommen:
+		if HOL3D.stuk(h, 1, k, schat_3d) == "aarde":
+			# de lichte rand bovenin de tegel hoort onder het gras; in de diepe rij is hij een naad, dus donkerder
+			for i in GROND_VOCHT.size():
+				var cd := GROND_VOCHT_KLEUR
+				cd.a = GROND_VOCHT[i]
+				d.draw_rect(Rect2(k * KOL, GANG_BOVEN + i, KOL, 1), cd)
+			d.draw_rect(Rect2(k * KOL, GANG_BOVEN, KOL, KOL), GROND_KOEL)
+		if k == h.ingang_kol:
+			continue
+		for i in GROND_VOCHT.size():
+			var c := GROND_VOCHT_KLEUR
+			c.a = GROND_VOCHT[i]
+			d.draw_rect(Rect2(k * KOL, OPP + i, KOL, 1), c)
+	var bezet := {}
+	if HOL3D.heeft_wand():
+		var wp: Array = wand_plekken(h, schat_3d)
+		for i in mini(wand_hoeden().size(), wp.size()):
+			bezet[int(wp[i].x) / KOL] = true
+	for ding in grond_dingen(h, schat_3d, bezet):
+		HOL3D.teken_deco_op(d, ding[0], ding[1], ding[2])
 
 func _tegel(d: CanvasItem, x: float, y: float, r: int, k: int, schat_3d: bool) -> void:
 	var stuk: String = HOL3D.stuk(h, r, k, schat_3d)

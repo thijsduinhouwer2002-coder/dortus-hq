@@ -33,3 +33,14 @@ Gemini vond het speelscherm "too basic" en "flat" (blinde test 25 nov 16:46). Wa
 **Eerlijk:** de kruimels zijn het kleinste van de vier en vallen op deze plek half voor het kristal; je ziet ze, maar alleen als je kijkt. Kristal, putten en de laars blijven fel in de donkere gang, omdat ze boven het vaste beeld getekend worden; dat lees ik als dingen die opvallen, Daan kijkt ernaar. Stofjes en mot zitten altijd bij de fakkel bij de ingang (de enige losse fakkel); in de 3D-schatkamer staat geen eigen vlam om iets omheen te laten fladderen.
 
 **Code:** `systemen/licht.gd` (kaart), `systemen/licht_gloed.gd` (gloed), `systemen/leven.gd` (kleine dingen, logregel `HOL leven`), `kern/hol_lagen.gd` (lagen in het hol in tekenvolgorde, uit `strook.gd` gehaald zodat die onder 400 regels blijft). `uit3d=licht` zet licht en leven uit, om te vergelijken. Bekeken: de 2D-lichtdemo in `godotengine/godot-demo-projects` (PointLight2D zou elk beeld per tegel en held kosten, daarom een gebakken kaart) en Rusty's Retirement in de lat (warme plekken, donkere randen).
+
+## De grond in lagen (Mila, 26 nov ±03:30 NL, issue #96; Gemini 25 nov: "art style looks too basic", "flat")
+**Wat er voor de speler veranderde:** de aarde was één tegel van 16 spelpixels met steeds dezelfde drie kiezels, dus een stippenpatroon over de hele strook. Nu:
+- **Bovenlaag:** een donkere vochtige rand onder het gras (3 rijen), en hier en daar wortels die uit het gras hangen.
+- **Midden:** om de ±5 kolommen iets van een gevallen held half in de aarde (bot, helm met pluim, zwaard in een kluit) en losse kiezelgroepjes op wisselende hoogte. Nooit op een hoed van de hoedenwand, de schacht of de schatkamer.
+- **Diep** (dichte cellen in de gangrij): koeler en donkerder, met grote grijze stenen.
+- De drie vaste kiezels zijn uit de tegel; geen stuk van 64 spelpixels lijkt meer op een ander (zelf gekeken op 100% en 3x).
+- Beelden (echt spel, demo-film op 57 s, 1920 x 120): `grond-voor-57s-ware-grootte.png`, `grond-na-57s-ware-grootte.png`, samen `grond-voor-en-na-ware-grootte.png`, links op 2x `grond-voor-en-na-links-2x.png`; op het bureaublad van de vorige blinde test: `scherm-grond-ware-maat.png`.
+- Kunst: `modellen/versiering.py` (bot, helm, zwaard, steen_diep, kiezels_a/b, wortels_a/b, Blender uit code, geen AI, geen gekocht pakket), `modellen/hol.py` (kiezels uit de herhaaltegel). Blad deco en hol_proef opnieuw gerenderd met de pijplijn (bpy 5.2.4), `bron` klopt, dus de workflow rendert niet dubbel.
+- Code: `godot/hol/hol_vast.gd`, `grond()` en `grond_dingen()` (alleen in het vaste beeld, dus geen extra CPU per beeld). Zonder 3D-aarde verandert er niets.
+- Toetsen 8 x 0 FOUT (Godot 4.3 Linux).

@@ -1729,6 +1729,30 @@
         },
         "vliegenzwam": {
           "laag": "versiering"
+        },
+        "bot": {
+          "laag": "versiering"
+        },
+        "helm": {
+          "laag": "versiering"
+        },
+        "zwaard": {
+          "laag": "versiering"
+        },
+        "steen_diep": {
+          "laag": "versiering"
+        },
+        "kiezels_a": {
+          "laag": "versiering"
+        },
+        "kiezels_b": {
+          "laag": "versiering"
+        },
+        "wortels_a": {
+          "laag": "versiering"
+        },
+        "wortels_b": {
+          "laag": "versiering"
         }
       }
     },

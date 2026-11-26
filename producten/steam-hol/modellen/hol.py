@@ -251,12 +251,9 @@ for i in range(70):
         continue
     r = random.uniform(0.07, 0.2)
     bol("kiezel", (x, -0.02, z), (r * 1.3, r * 0.6, r), random.choice([STEEN, PRUIM_L, PRUIM_L]), 12)
-for k in range(-1, 3):   # kolom 12 (half, voor de naad) tot 14, plus één voorbij de rand
-    x0 = TEGEL_X + k * KOL
-    for (dx, z, r, m) in [(0.35, 2.35, 0.15, STEEN), (1.2, 2.9, 0.1, PRUIM_L), (0.9, 1.85, 0.08, PRUIM_L)]:
-        if x0 + dx < LOS + KR + 0.3:
-            continue   # niet in de kamer rechts boven de gang
-        bol("kiezel", (x0 + dx, -0.02, z), (r * 1.3, r * 0.6, r), m, 12)
+# Mila 26 nov (issue 96, Gemini "too basic"): het rustige stuk (de tegel die het spel herhaalt) heeft geen kiezels meer.
+# Drie dezelfde kiezels elke 16 spelpixels lazen als een stippenpatroon. Nu legt het spel per kolom zelf stenen, botten,
+# een helm of wortels uit versiering.py (deco-blad), elke kolom anders. De rest van het beeld houdt zijn kiezels.
 # een strook lichtere aarde net onder het gras
 blok("toplaag", ((XP0 + XP1) / 2, -0.01, MAAIVELD - 0.18), (XP1 - XP0, 0.04, 0.12), PRUIM_L)
 

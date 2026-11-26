@@ -21,13 +21,19 @@ import bpy
 import gedeeld as g
 
 SPX = 4.5 / 40
-HANGT = ("spinrag", "stut", "vaandel")
+HANGT = ("spinrag", "stut", "vaandel", "wortels_a", "wortels_b")
 GANG = ("paddenstoel", "lichtzwam", "ton", "krat", "schedel", "kristal", "spinrag", "stut", "vaandel")
 MAAIVELD_NAMEN = ("bloemen", "struik", "steen", "bordje", "vliegenzwam")
+# Mila 26 nov (issue 96, Gemini "too basic"): dingen in de aardwand die het verhaal vertellen. Staand (voet onderaan):
+# bot, helm en zwaard van gevallen helden half in de aarde, een grote koele steen voor de diepe rij, twee kiezelgroepjes.
+# Hangend (hangpunt bovenaan): wortels onder het gras. Het spel kiest per kolom welk ding, zodat de aarde niet elke 16
+# spelpixels hetzelfde is.
+WAND_STAAND = ("bot", "helm", "zwaard", "steen_diep", "kiezels_a", "kiezels_b")
+WAND_HANG = ("wortels_a", "wortels_b")
 GANG_HOOG = 16 * SPX * 0.966 / 0.966  # 16 spelpixels gang (vloer z 0 tot plafond)
 
 _M = {}
-SCHAAL = {"ton": 0.78, "krat": 0.82, "kristal": 0.75, "schedel": 0.85}  # kristal en schedel: frisse kijker 14 nov, te groot en te fel
+SCHAAL = {"bot": 1.15, "helm": 1.15, "zwaard": 1.2, "steen_diep": 1.1, "ton": 0.78, "krat": 0.82, "kristal": 0.75, "schedel": 0.85}  # kristal en schedel: frisse kijker 14 nov, te groot en te fel
 
 
 def m(naam, kleur, **kw):
@@ -79,6 +85,93 @@ def hoed_zwam(ouder, pre, x, hoog, r, hoedmat, steelmat, stippen=True, scheef=0.
         wit = m("stip", "fff4e6", rough=0.5)
         for dx, dz, s in ((-0.45, 0.3, 0.2), (0.35, 0.42, 0.17), (0.0, 0.55, 0.15), (0.62, 0.12, 0.13)):
             bol(ouder, pre + "_stip", (x + dx * r, -r * 0.62, hoog + dz * r * 0.62), (s * r, s * r * 0.5, s * r), wit, 12)
+
+
+def kluit(ouder, naam, loc, maat):
+    """Kluit aarde voor een ding dat half in de wand zit: donkerder dan de wand, zodat het ding erin zakt."""
+    k = bol(ouder, naam, loc, maat, m("kluit", "5e3328", rough=0.95), 14)
+    return k
+
+
+def wortel(ouder, naam, x, z, lengte, dik, buig, mat, tip):
+    """Wortel die van boven schuin naar beneden hangt: dik bij de aarde, spits aan de punt (de punt donkerder).
+    Let op: bij een kegel is radius1 de onderkant (-z), dus de dunne punt."""
+    bx, bz = x + math.sin(buig) * lengte * 0.75, z - math.cos(buig) * lengte * 0.75
+    cil(ouder, naam + "_lijf", ((x + bx) / 2, 0, (z + bz) / 2), dik * 0.35, lengte * 0.78, mat, rot=(0, -buig, 0),
+        verts=12, r2=dik)
+    b2 = buig * 1.8
+    ex, ez = bx + math.sin(b2) * lengte * 0.25, bz - math.cos(b2) * lengte * 0.25
+    cil(ouder, naam + "_tip", ((bx + ex) / 2, 0, (bz + ez) / 2), dik * 0.08, lengte * 0.28, tip, rot=(0, -b2, 0),
+        verts=10, r2=dik * 0.38)
+    # zijworteltje halverwege
+    hx, hz = x + math.sin(buig) * lengte * 0.35, z - math.cos(buig) * lengte * 0.35
+    zb = buig - 0.9 if buig >= 0 else buig + 0.9
+    l2 = lengte * 0.3
+    cil(ouder, naam + "_zij", (hx + math.sin(zb) * l2 / 2, 0, hz - math.cos(zb) * l2 / 2), dik * 0.08, l2, mat,
+        rot=(0, -zb, 0), verts=8, r2=dik * 0.35)
+
+
+def wand(ouder, p, naam, s):
+    bot = m("bot", "c8b8a2", rough=0.7)
+    if naam == "bot":
+        # dijbeen schuin in de aarde, het rechtereind in een kluit
+        a = math.radians(-14)
+        cil(ouder, p + "_schacht", (0, 0, 1.6 * s), 0.62 * s, 6.4 * s, bot, rot=(0, math.radians(90) + a, 0), verts=14)
+        for zx in (-1, 1):
+            for dz in (-0.55, 0.55):
+                bol(ouder, p + "_knobbel", (zx * 3.2 * s * math.cos(a), -0.05 * s, 1.6 * s - zx * 3.2 * s * math.sin(a) + dz * s),
+                    (0.95 * s, 0.75 * s, 0.85 * s), bot, 14)
+        kluit(ouder, p + "_kluit", (3.6 * s, -0.5 * s, 0.9 * s), (2.0 * s, 0.9 * s, 1.3 * s))
+    elif naam == "helm":
+        ijzer = m("helm", "8f98ae", rough=0.32, metaal=0.65, spec=0.6)
+        ijzer_d = m("helm_d", "5d6478", rough=0.4, metaal=0.6)
+        gat = m("gat", "2a1832", rough=0.9)
+        bol(ouder, p + "_kap", (0, 0, 2.9 * s), (3.1 * s, 2.2 * s, 2.9 * s), ijzer, 24)
+        blok(ouder, p + "_kam", (0, -0.2 * s, 5.0 * s), (0.7 * s, 2.6 * s, 2.2 * s), ijzer_d, rond=0.25 * s, rot=(0, 0, 0))
+        blok(ouder, p + "_spleet", (0, -2.05 * s, 3.0 * s), (4.2 * s, 0.4 * s, 0.55 * s), gat, rond=0.15 * s)
+        blok(ouder, p + "_neus", (0, -2.15 * s, 2.3 * s), (0.6 * s, 0.4 * s, 1.6 * s), ijzer_d, rond=0.15 * s)
+        bol(ouder, p + "_pluim", (1.2 * s, 0.4 * s, 5.8 * s), (1.0 * s, 0.7 * s, 0.9 * s), m("pluim", "c23b2e", rough=0.8), 12)
+        # onderkant in de aarde: een brede lage kluit voor de kap
+        kluit(ouder, p + "_kluit", (0.2 * s, -1.4 * s, 0.9 * s), (4.4 * s, 1.4 * s, 1.3 * s))
+    elif naam == "zwaard":
+        staal = m("staal", "c3cad6", rough=0.22, metaal=0.8, spec=0.8)
+        goud = m("goud", "e8b73a", rough=0.3, metaal=0.8, spec=0.7)
+        greep = m("greep", "5a2e1c", rough=0.8)
+        a = math.radians(24)
+        def op(d):   # punt op afstand d langs het zwaard vanaf de punt in de kluit
+            return (math.sin(a) * d, math.cos(a) * d)
+        x, z = op(3.4 * s); blok(ouder, p + "_kling", (x, 0, z + 0.4 * s), (0.9 * s, 0.3 * s, 5.6 * s), staal, rond=0.12 * s, rot=(0, a, 0))
+        x, z = op(6.4 * s); blok(ouder, p + "_stang", (x, -0.1 * s, z + 0.4 * s), (3.8 * s, 0.6 * s, 0.75 * s), goud, rond=0.2 * s, rot=(0, a, 0))
+        x, z = op(7.7 * s); cil(ouder, p + "_greep", (x, -0.1 * s, z + 0.4 * s), 0.38 * s, 2.2 * s, greep, rot=(0, a, 0), verts=10)
+        x, z = op(9.0 * s); bol(ouder, p + "_knop", (x, -0.1 * s, z + 0.4 * s), (0.65 * s,) * 3, goud, 12)
+        kluit(ouder, p + "_kluit", (0.3 * s, -0.6 * s, 0.8 * s), (2.4 * s, 1.0 * s, 1.1 * s))
+    elif naam == "steen_diep":
+        k = m("steen_k", "5c5a6e", rough=0.75, spec=0.2)
+        kl = m("steen_kl", "7f7c92", rough=0.7, spec=0.25)
+        o = bol(ouder, p + "_groot", (-0.6 * s, 0, 2.2 * s), (4.0 * s, 2.0 * s, 2.3 * s), k, 9)
+        o.rotation_euler = (0, math.radians(10), 0)
+        bol(ouder, p + "_licht", (-1.4 * s, -1.3 * s, 3.1 * s), (2.0 * s, 0.8 * s, 0.9 * s), kl, 8)
+        bol(ouder, p + "_klein", (3.4 * s, -0.2 * s, 1.1 * s), (1.6 * s, 1.2 * s, 1.1 * s), kl, 8)
+    elif naam in ("kiezels_a", "kiezels_b"):
+        warm = m("kiezel_w", "c69383", rough=0.65, spec=0.25)
+        koel = m("kiezel_k", "7f7c92", rough=0.65, spec=0.25)
+        rij = ([(-2.6, 1.0, 1.0, warm), (-0.6, 0.8, 0.8, koel), (1.2, 1.6, 1.15, warm), (2.9, 0.7, 0.7, koel)]
+               if naam == "kiezels_a" else
+               [(-2.2, 1.7, 0.85, koel), (0.2, 0.9, 1.2, warm), (2.4, 2.1, 0.75, warm)])
+        for i, (dx, dz, r, mt) in enumerate(rij):
+            bol(ouder, p + f"_k{i}", (dx * s, -0.3 * s, dz * s), (r * 1.3 * s, r * 0.7 * s, r * s), mt, 10)
+        if naam == "kiezels_b":
+            cil(ouder, p + "_botje", (1.6 * s, -0.4 * s, 0.4 * s), 0.35 * s, 2.0 * s, bot, rot=(0, math.radians(75), 0), verts=10)
+    elif naam in ("wortels_a", "wortels_b"):
+        wm = m("wortel", "9a7352", rough=0.85)
+        tip = m("wortel_tip", "5e4434", rough=0.9)
+        rij = ([(-2.4, 7.5, 0.6, 0.22), (0.2, 9.5, 0.72, -0.14), (2.6, 5.0, 0.5, 0.3)]
+               if naam == "wortels_a" else
+               [(-1.6, 6.0, 0.55, -0.25), (1.4, 8.5, 0.7, 0.18)])
+        for i, (dx, l, d, b) in enumerate(rij):
+            wortel(ouder, p + f"_w{i}", dx * s, 0, l * s, d * s, b, wm, tip)
+        # donkere vochtige plek waar ze uit de aarde komen
+        kluit(ouder, p + "_kluit", (0, 0.2 * s, 0.1 * s), (4.0 * s, 0.8 * s, 1.0 * s))
 
 
 def bouw(naam, x, z, y=0.35):
@@ -268,6 +361,8 @@ def bouw(naam, x, z, y=0.35):
     elif naam == "vliegenzwam":
         rood = m("rood", "d9483b", rough=0.45, spec=0.4)
         hoed_zwam(ouder, p + "_a", 0, 4.4 * s, 3.4 * s, rood, room)
+    elif naam in WAND_STAAND or naam in WAND_HANG:
+        wand(ouder, p, naam, s)
     else:
         raise SystemExit("onbekende versiering: " + naam)
     ouder.location = (x, y, z)
@@ -298,7 +393,12 @@ if __name__ == "__main__":
         plek[n] = (x, GANG_TOP if n in HANGT else 0.0)
     for i, n in enumerate(MAAIVELD_NAMEN):
         plek[n] = (LINKS + (i + 0.5) * STAP + KOL * 0.2, MAAIVELD)
-    ouders = {n: bouw(n, x, z) for n, (x, z) in plek.items()}
+    for i, n in enumerate(WAND_STAAND):
+        plek[n] = (LINKS + (i + 0.5) * STAP + KOL * 0.2, 1.75)
+    for i, n in enumerate(WAND_HANG):
+        plek[n] = (LINKS + (i + 6.5) * STAP + KOL * 0.2, MAAIVELD - 0.12)
+    WAND = WAND_STAAND + WAND_HANG
+    ouders = {n: bouw(n, x, z, y=0.0 if n in WAND else 0.35) for n, (x, z) in plek.items()}
     cam = g.camera(hoogte_midden=CAM_MIDDEN, schaal=BREED)
     g.licht()
     # zelfde egale warme lamp als in hol.py (tegellicht), zodat de dingen zo licht zijn als in het hol
@@ -319,7 +419,7 @@ if __name__ == "__main__":
                 pts += [e.matrix_world @ v.co for v in e.data.vertices]
         sp = [world_to_camera_view(sc, cam, p) for p in pts]
         xs = [p.x * 240 for p in sp]; ys = [(1 - p.y) * 40 for p in sp]
-        a = world_to_camera_view(sc, cam, Vector((plek[n][0], 0.35, plek[n][1])))
+        a = world_to_camera_view(sc, cam, Vector((plek[n][0], 0.0 if n in WAND else 0.35, plek[n][1])))
         x0, y0 = math.floor(min(xs)) - 2, math.floor(min(ys)) - 2
         x1, y1 = math.ceil(max(xs)) + 2, math.ceil(max(ys)) + 2
         vakken[n] = {"vak": [x0, y0, x1 - x0, y1 - y0],
