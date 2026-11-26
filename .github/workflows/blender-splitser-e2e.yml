@@ -77,6 +77,7 @@ jobs:
           grep "\[sj-scherm\]" /tmp/scherm.log || true
           ! grep -q "SCHERM FOUT" /tmp/scherm.log || { echo "FOUT: schermafbeelding"; exit 1; }
           grep -q "SCHERM OK suzanne-1" /tmp/scherm.log || { echo "FOUT: geen beeld van Suzanne"; exit 1; }
+          grep -q "SCHERM OK magneet-2" /tmp/scherm.log || { echo "FOUT: geen snijvlak met magneetgaten (issue #144)"; exit 1; }
           grep "\[sj-e2e\]" /tmp/kern.log > "e2e/screenshots/${{ matrix.blender }}/uitslag.txt" || true
       - name: Schermafbeeldingen van de passingproef (blok en pennen, bovenaanzicht)
         if: always()

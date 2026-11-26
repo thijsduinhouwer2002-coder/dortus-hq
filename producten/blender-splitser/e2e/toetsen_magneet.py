@@ -123,5 +123,14 @@ def alles(uitmap):
         stap("magneet arm 10x3: melding zegt waarom", "magnet" in m and "Glue this joint" in m, repr(m[:300]))
         stap("magneet arm 10x3: stukken passen en zijn dicht", len(lijst) == 2 and all(past(maat(o), BED) and dicht(o)[0] for o in lijst))
         log(f"magneet: wand {math.inf if not lijst else lijst[0].get('sj_wand_mm')}")
+
+        # gallery moment (issue #144, Daan #120 K3): Suzanne split with 8x3 magnet holes, rendered by scherm_kern.py
+        modellen.mm_scene()
+        suz = modellen.suzanne()
+        lijst = splits("suzanne", suz, "8x3")
+        n_gaten = sum(len(gaten(o)) for o in lijst)
+        stap("magneet suzanne: stukken met magneetgaten en geen penplaatjes",
+             len(lijst) > 1 and n_gaten >= 2 and not pen_objecten(), f"{len(lijst)} stukken, {n_gaten} gaten")
+        bpy.ops.wm.save_as_mainfile(filepath=os.path.join(uitmap, "magneet.blend"))
     finally:
         inst.verbinder = "PIN"
