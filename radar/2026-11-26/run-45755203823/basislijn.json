@@ -1,0 +1,90 @@
+{
+ "t": "2026-11-26T04:26:47Z",
+ "basis": {
+  "USDS": {
+   "ratio": 1.0011,
+   "bron": "okx USDS-USDT",
+   "dagen": 45
+  },
+  "TUSD": {
+   "ratio": 0.9995,
+   "bron": "gate TUSD-USDT",
+   "dagen": 45
+  },
+  "USDQ": {
+   "ratio": 0.99,
+   "bron": "kraken USDQ-USDT",
+   "dagen": 45
+  },
+  "EURCV": {
+   "ratio": 0.9998,
+   "bron": "kraken EURCV-EUR",
+   "dagen": 23
+  },
+  "PYUSD": {
+   "ratio": 1.0009,
+   "bron": "okx PYUSD-USDT",
+   "dagen": 45
+  },
+  "EURC": {
+   "ratio": 1.0001,
+   "bron": "kraken EURC-EUR",
+   "dagen": 45
+  },
+  "USDE": {
+   "ratio": 1.0008,
+   "bron": "kraken USDE-USDT",
+   "dagen": 45
+  },
+  "FDUSD": {
+   "ratio": 0.9979,
+   "bron": "gate FDUSD-USDT",
+   "dagen": 45
+  },
+  "USDC": {
+   "ratio": 1.0011,
+   "bron": "kraken USDC-USDT",
+   "dagen": 45
+  },
+  "USDT": {
+   "ratio": 0.999,
+   "bron": "kucoin USDT-USDC",
+   "dagen": 45
+  },
+  "DAI": {
+   "ratio": 1.00086,
+   "bron": "kraken DAI-USDT",
+   "dagen": 45
+  },
+  "USD1": {
+   "ratio": 0.9998,
+   "bron": "okx USD1-USDT",
+   "dagen": 45
+  },
+  "EUROP": {
+   "ratio": 1.0,
+   "bron": "kraken EUROP-EUR",
+   "dagen": 45
+  },
+  "USDP": {
+   "ratio": 0.9961,
+   "bron": "gate USDP-USDT",
+   "dagen": 45
+  },
+  "USDG": {
+   "ratio": 1.0012,
+   "bron": "kraken USDG-USDT",
+   "dagen": 45
+  },
+  "RLUSD": {
+   "ratio": 1.00116,
+   "bron": "kraken RLUSD-USDT",
+   "dagen": 45
+  },
+  "EURQ": {
+   "ratio": 0.97,
+   "bron": "kraken EURQ-EUR",
+   "dagen": 45
+  }
+ }
+}
