@@ -18,3 +18,5 @@
 Vroeger gaf dit een vers begin en overschreef de eerste bewaarronde het kapotte bestand.
 
 **Windows:** de toetsrun van `steam-hol.yml` draait de nieuwe toets mee; de duurtest van 60 min (`steam-hol-duur.yml`) is rood als er na ±120 bewaarrondes iets anders staat dan `hol.json` en `hol.vorige.json`. Uitslag in het issue.
+
+**Duurtest Windows** (run 45857850884, commit 874cb99, GEZIEN in `steam-hol-duur/main/uitslag.txt` op de tak schermen): groen, 60 min, proces leefde tot het eind, geen scriptfout, daarna `save-bestanden: hol.json, hol.vorige.json`. CPU in de editor gemiddeld 1,90 CPU-s per 10 s, vorige duurtest (483f1cb) 1,92: gelijk binnen de ruis van de runner.
