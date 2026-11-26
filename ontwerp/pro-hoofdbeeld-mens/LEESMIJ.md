@@ -66,3 +66,9 @@ HB_POSE='{"Left elbow": 55, "Right elbow": 25, "Left knee": 30, "Right knee": 12
 IZ_BOOG=<uit>/knie.json IZ_BOOG_DUN=1 IZ_BOOG_MIDDEN=510,590 IZ_BOOG_STRAAL=215 IZ_BOOG_DIK=10 IZ_BOOG_ALFA=0.8 IZ_SCHADUW=0 IZ_X=1112 IZ_Y=690 IZ_M=380 IZ_SNEDE=0.43,0.69,0.58 python3 bron/inzet.py beelden/mens-knie-r3-2400x1200.jpg <uit>/knie-render.png beelden/mens-r3.json beelden/mens-knie-r6-2400x1200.jpg <fontmap>
 ```
 Set `click-joints-pro-superhive-mens-r6.json` zet r3, r5 en r6 samen tegen Cleave, CatPin en Split 3D Print (zoals Daan vroeg). Zolang Gemini 402 geeft telt alleen ChatGPT; na het bijladen deze zelfde set opnieuw starten (workflow `blindtest.yml`, set `click-joints-pro-superhive-mens-r6`). De beste gemiddelde plek bij beide rechters gaat door, ook als dat r3 is.
+
+**Ronde 6-dik (26 nov ±15:45, Daan #184 kan-punt, hoofdmanager #38):** `beelden/mens-knie-r6-dik-2400x1200.jpg` = r6 met de boog dikker (lijn 16 op 1000 in plaats van 10) en 100% dekkend. Geen nieuwe render: dezelfde close-up (`beelden/knie-as-render.jpg`) en boog (`beelden/knie-as-boog.json`); r6 met deze opdracht nagebouwd geeft hetzelfde beeld op JPEG-ruis na (GEZIEN, grootste verschil 24 van 255 in één klein vlak). Bekeken op 600 px breed: de boog zie je nu ook zonder de labels (GEZIEN).
+```
+IZ_BOOG=beelden/knie-as-boog.json IZ_BOOG_DUN=1 IZ_BOOG_MIDDEN=510,590 IZ_BOOG_STRAAL=215 IZ_BOOG_DIK=16 IZ_BOOG_ALFA=1 IZ_SCHADUW=0 IZ_X=1112 IZ_Y=690 IZ_M=380 IZ_SNEDE=0.43,0.69,0.58 python3 bron/inzet.py beelden/mens-knie-r3-2400x1200.jpg beelden/knie-as-render.jpg beelden/mens-r3.json beelden/mens-knie-r6-dik-2400x1200.jpg <map met Inter.ttf>
+```
+Set `click-joints-pro-superhive-mens-r6.json` zet nu r6 en r6-dik naast Cleave, CatPin en Split 3D Print (alleen ChatGPT, regel van 26 nov 15:30).
