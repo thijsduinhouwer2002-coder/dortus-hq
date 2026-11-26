@@ -19,6 +19,7 @@ const R := 4
 # Uit = het pixelpaneel van voor 14 nov (alleen een terugvalschakelaar).
 static var met_3d := true
 # 25 nov (Mila #43, Olaf akkoord): krijtbord in een houten lijst, zelfde 9-slice; het oude bruine paneel blijft als kunst/paneel_3d.png
+# 26 nov (Mila #197, Iris "los venster"): paneel_hol.png is nu een planken bord in de aarde (modellen/plankbord.py), zelfde 9-slice
 const PANEEL_3D := preload("res://kunst/paneel_hol.png")
 const BRON_RAND := 128
 const FREDOKA := preload("res://kunst/letters/Fredoka.ttf")
