@@ -294,3 +294,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 ±12:12 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van ab607b1..02752ea: `platformen/blender/keuring/2026-11-26-auto-blender-gewrichten-02752ea.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Controleer vóór het plakken in het voorstelbestand dat de tags van de gratis versie echt "hinge" missen (M1). Dat bestand zit niet in deze wijziging. 2. `tags_data` bij "click-joints-pro in 3d/3d-assets/blender" komt uit vier andere producten en is niet onze tags. Het commentaar in het script klopt hier niet, omdat wij niet in de uitslag staan. Haal dat veld weg of zet erbij dat het alleen telt bij `totaal == 1`. 3. Sluit het bestand in `bron_tags.py` netjes (`with open(...)`) en schrijf naar een vaste map, nu is dat de huidige map. 4. De unfiltered Gumroad-zoekuits Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 12:33 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
