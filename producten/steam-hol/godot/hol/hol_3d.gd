@@ -7,6 +7,7 @@ extends RefCounted
 
 const JSON_PAD := "res://kunst/3d/sprites.json"
 const SCHATKAMER_B := 48
+const LUIK := preload("res://hol/luik.gd")   # dichte put: luik (#209)
 
 static var blad: CanvasTexture = null
 static var stukken := {}
@@ -223,7 +224,8 @@ static func stuk(h, r: int, k: int, schat_3d: bool) -> String:
 	var naam := "aarde"
 	if r == 1 and h.gang[k]:
 		var put_niv: int = h.upgrades.beeld_niveau("stekelput") if h.upgrades != null else 0
-		naam = "put" if h.vallen.has(k) and not h.put_open.has(k) and put_niv == 0 and heeft("put") else "gang"
+		# met het luik (#209) ligt er op een dichte put een luik over de gewone gang, dus geen put in het vaste beeld
+		naam = "put" if h.vallen.has(k) and not h.put_open.has(k) and put_niv == 0 and heeft("put") and not LUIK.aan() else "gang"
 	elif r == 0 and h.boven[k] and k != h.ingang_kol:
 		# één brede kamer (moet 3, Daan 20:50, Bram 21:30): het stuk volgt de buren; ontbreekt het, dan kamer_los,
 		# dan de oude losse kommen (zolang een blad die nog heeft)

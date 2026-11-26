@@ -821,6 +821,21 @@ func _init() -> void:
 	ph["met_3d"] = true
 	H3.stukken.erase("put")
 	ok(H3.put_stuk(ph, 7) == "", "put 3D: zonder stuk put in het blad de pixel-put")
+	# luik op een dichte put (Mila #209): het vaste beeld toont dan de gewone gang, het luik ligt erop
+	var LK = load("res://hol/luik.gd")
+	H3.stukken["put"] = {"maat": [16, 16], "vak_px": [0, 0, 64, 64]}
+	var lh := {"met_3d": true, "schat_kol": 30, "ingang_kol": 0, "gang": [true, true, true, true, true, true, true, true, true],
+		"boven": [], "vallen": {7: "stekelput"}, "put_open": {}, "upgrades": pu}
+	pu.van_dict({"slijm": 0, "stekelput": 0})
+	ok(LK.aan(), "luik: staat aan zonder luik=0")
+	ok(H3.stuk(lh, 1, 7, false) == "gang", "luik: dichte put zonder stappen is in het vaste beeld gewone gang (luik erop)")
+	ok(LK.BLAD.get_width() == 4 * int(LK.CEL_W) * 4 and LK.BLAD.get_height() == int(LK.CEL_H) * 4, "luik: blad 4 beelden van 18 x 10 spelpixels op 4 px")
+	var lw := 0
+	for x in LK.BLAD.get_width():
+		if LK.BLAD.get_image().get_pixel(x, int(LK.CEL_H * 2)).a > 0.5:
+			lw += 1
+	ok(lw >= 4 * 14 * 4, "luik: elk beeld is minstens 14 spelpixels breed in het midden (%d px)" % lw)
+	H3.stukken.erase("put")
 	# put in de 3D-schatkamer (Olaf 14 nov, moet Daan 13:50): geen pixel-plank onder de troon
 	H3.stukken["put"] = {"maat": [16, 16], "vak_px": [0, 0, 64, 64]}
 	var sh := {"met_3d": true, "schat_kol": 14, "vallen": {12: "stekelput", 7: "stekelput"}, "put_open": {}, "upgrades": pu}

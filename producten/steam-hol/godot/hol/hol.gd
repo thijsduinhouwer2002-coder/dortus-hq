@@ -37,6 +37,7 @@ const HOL3D := preload("res://hol/hol_3d.gd")
 var met_3d := true
 # Het vaste deel van het hol in een eigen beeld (hol/hol_vast.gd). Uit = elk beeld alles opnieuw, zoals voor 13 nov.
 const HOLVAST := preload("res://hol/hol_vast.gd")
+const LUIK := preload("res://hol/luik.gd")   # dichte put: luik van hout met rand (#209)
 const STAP_TEKEN := preload("res://systemen/stap_teken.gd")   # stap 4 tot 6: gouden stenen op de put (#162)
 const STAP_STENEN := preload("res://systemen/stap_stenen.gd")
 var _stenen: Node2D = null
@@ -448,6 +449,9 @@ func _draw() -> void:
 	for k in vallen:
 		var f := 2 if put_open.has(k) else 0
 		var sy := put_schok(k)
+		# dicht: een luik van hout met een donkere rand, ook in de 3D-schatkamer (Mila #209, Iris bb298d3 punt 1)
+		if not put_open.has(k) and LUIK.teken(self, k * KOL + KOL / 2.0 + sx, sy, put_niv, LUIK.kleur(put_kleur(k))):
+			continue
 		if HOL3D.stuk(self, 1, k, schat_3d) == "put":
 			continue   # deze dichte put zit al in het 3D-stuk
 		# open (na een klap) en gekochte stappen: het 3D-stuk over de 3D-gang, met het schudden van de koop (Olaf 14 nov)
