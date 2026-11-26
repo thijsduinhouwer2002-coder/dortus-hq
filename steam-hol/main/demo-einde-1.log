@@ -1,4 +1,4 @@
-HOL balk gestart, pid 5712, hoogte 120
+HOL balk gestart, pid 6024, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
@@ -11,10 +11,10 @@ HOL begin: vallen (Kees)
 HOL held binnen: Kees
 HOL zicht 0.7 1
 HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
-HOL leven mot t=6.7 x=72 y=26
 HOL kroniek 7.0 (wacht 0.0): Anouk the Bard tunes a lute.
 HOL begin: vluchten (Anouk)
 HOL held binnen: Anouk
+HOL leven stofje t=8.6 x=72 y=26
 HOL gegraven kolom 5 (zelf 1, graafbonus 0)
 HOL kroniek zelfde held vervangen: Kees is here for your gold.
 HOL kroniek 9.1 (wacht 0.0): Kees will not be leaving. +6
@@ -35,11 +35,11 @@ HOL begin: doorlopen (Teun)
 HOL held binnen: Teun
 HOL kaartje dicht 24.6
 HOL kroniek 24.6 (wacht 1.6): Teun has a map. It is wrong.
-HOL leven stofje t=25.0 x=72 y=26
 HOL kroniek 26.5 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
 HOL demo voorbij: graven/kopen geweigerd (graven (film))
+HOL leven mot t=28.2 x=72 y=26
 HOL kroniek zelfde held vervangen: Anouk fled. Grudge: the Spike Pit.
 HOL kroniek 29.0 (wacht 2.5): Anouk's song got popular. Uh oh.
 HOL kroniek weggedrukt na 1.0 s, komt terug: Anouk's song got popular. Uh oh.
-HOL kroniek 30.0 (wacht 0.7): Gloop ate Siem. Kept the crown. +6
+HOL kroniek 30.0 (wacht 0.8): Gloop ate Siem. Kept the crown. +6
 HOL einde na 30 s, fps=16, goud=78, terugkomers=1

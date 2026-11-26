@@ -1,33 +1,29 @@
-HOL balk gestart, pid 5244, hoogte 96
+HOL balk gestart, pid 2236, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL demo: speeltijd 0 s, grens 3 s
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795715580
+HOL zaad 1795715939
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Mara)
-HOL held binnen: Mara
+HOL begin: vallen (Kees)
+HOL held binnen: Kees
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Mara brought a torch. And hope.
+HOL kroniek 2.6 (wacht 0.5): Kees knocks first. Polite.
 HOL demo voorbij na 3 s speeltijd
 HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
 HOL kroniek 3.7 (wacht 0.6): That's the demo. Your hole keeps going.
 HOL uitleg stap 1 t=4.1 
-HOL leven stofje t=6.4 x=184 y=26
-HOL kroniek zelfde held vervangen: Mara brought a torch. And hope.
-HOL kroniek 7.4 (wacht 0.0): Mara is part of the hole now. +9
+HOL kroniek zelfde held vervangen: Kees knocks first. Polite.
+HOL kroniek 7.4 (wacht 0.0): Kees will not be leaving. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Lotte)
-HOL held binnen: Lotte
-HOL zicht 7.7 1
+HOL begin: opgegeten (Fenna)
+HOL held binnen: Fenna
+HOL zicht 8.6 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL kroniek 9.9 (wacht 2.5): First hero in the pit!
-HOL meting t=10 beelden=123 helden=1 hol_vast=3
-HOL kroniek vervallen 10.7: Lotte read about you in a tavern.
-HOL leven mot t=16.9 x=184 y=26
+HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
+HOL meting t=10 beelden=124 helden=1 hol_vast=3
+HOL kroniek vervallen 11.7: Fenna is here for your gold.
+HOL leven goudstof t=12.1 x=324 y=30
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
-HOL reeks 2 (+0, t 24.6)
-HOL kroniek 24.6 (wacht 0.0): Gloop ate Lotte. Kept the crown. +9
-HOL zicht 24.7 0
-HOL einde na 25 s, fps=12, goud=38, terugkomers=0
+HOL einde na 25 s, fps=10, goud=29, terugkomers=0
