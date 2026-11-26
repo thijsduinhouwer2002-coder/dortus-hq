@@ -183,26 +183,35 @@ def strip(img, s, meta, P):
         pil(img, s, (int(x), int(y + 70 * s)), f"{getal} mm", maat=30)
 
 
-def strip3(img, s, meta, P):
-    """Twee proefsets (kogel en scharnier): spelingen onder de voorste set, een soortpil boven elke set."""
-    W, H = img.size
-    rij = [(getal, P(q["voet"])) for getal, q in sorted(meta["labels"].items())]
-    # Pillen mogen elkaar niet raken (Daan #207 en eigen blik: 0.25 en 0.30 plakten op 1920x1080). Meet de breedte
-    # vooraf en kies de grootste letter (24 tot 19) waarbij tussen buren minstens 10 px lucht zit.
+def pilmaat(img, s, rij, teksten, groot, klein, lucht=10):
+    """Grootste lettermaat (groot tot klein) waarbij de pillen van een rij elkaar niet raken (Daan #207)."""
     meet = ImageDraw.Draw(img)
-    maat = 24
-    while maat > 19:
+    maat = groot
+    while maat > klein:
         f = font("Inter.ttf", int(maat * s), "SemiBold")
-        br = [meet.textbbox((0, 0), f"{g}\u00a0mm", font=f)[2] + int(36 * s) for g, _ in rij]
-        if all(rij[i + 1][1][0] - rij[i][1][0] - (br[i] + br[i + 1]) / 2 >= 10 * s for i in range(len(rij) - 1)):
+        br = [meet.textbbox((0, 0), t, font=f)[2] + int(36 * s) for t in teksten]
+        if all(rij[i + 1][0] - rij[i][0] - (br[i] + br[i + 1]) / 2 >= lucht * s for i in range(len(rij) - 1)):
             break
         maat -= 1
-    for getal, (x, y) in rij:
-        pil(img, s, (int(x), int(y + 64 * s)), f"{getal}\u00a0mm", maat=maat, rand=GOUD if getal == "0.20" else ZACHT)
-    for getal, q in sorted(meta.get("labels2", {}).items()):
-        if os.environ.get("GB_LABELS2"):
-            x, y = P(q["voet"])
-            pil(img, s, (int(x), int(y + 64 * s)), getal, maat=28, rand=GOUD if getal == "0.20" else ZACHT)
+    return maat
+
+
+def strip3(img, s, meta, P):
+    """Twee proefsets (kogel en scharnier): spelingen onder beide sets, een soortpil boven elke set.
+
+    Daan #207 M1: '0.30 mm' onder een bal las als de maat van de bal; daarom staat 'gap' in de eerste pil.
+    M2: ook de scharnieren krijgen hun speling (alleen het getal, de mm staat al in de rij ernaast)."""
+    rij = [(getal, P(q["voet"])) for getal, q in sorted(meta["labels"].items())]
+    teksten = [("gap " if i == 0 else "") + f"{g}\u00a0mm" for i, (g, _) in enumerate(rij)]
+    maat = pilmaat(img, s, [p for _, p in rij], teksten, 24, 19)
+    for (getal, (x, y)), t in zip(rij, teksten):
+        pil(img, s, (int(x), int(y + 64 * s)), t, maat=maat, rand=GOUD if getal == "0.20" else ZACHT)
+    rij2 = [(getal, P(q["voet"])) for getal, q in sorted(meta.get("labels2", {}).items())]
+    if rij2 and os.environ.get("GB_LABELS2", "1") != "0":
+        maat2 = pilmaat(img, s, [p for _, p in rij2], [g for g, _ in rij2], 22, 16, lucht=8)
+        dy2 = float(os.environ.get("GB_LABELS2_DY", "56"))
+        for getal, (x, y) in rij2:
+            pil(img, s, (int(x), int(y + dy2 * s)), getal, maat=maat2, rand=GOUD if getal == "0.20" else ZACHT)
     naam = {"KOGEL": "Fit test: ball", "SCHARNIER": "Fit test: hinge"}
     for k in ("eerste", "tweede"):
         st = meta["sets"][k]
@@ -404,7 +413,7 @@ def maak(basis, W, H, meta, dy, schaal):
     elif MODUS.startswith("strip3"):
         donker(img, int(W * 0.55))
         kop(img, s, x0, int(H * 0.10), ["Find the fit", "for your printer"],
-            "Test prints for balls and hinges, 0.10 to 0.30\u00a0mm. Keep the one that turns without wobble.",
+            "Five gaps, 0.10 to 0.30\u00a0mm, for balls and hinges. Keep the one that turns without wobble.",
             int(W * 0.30))
         strip3(img, s, meta, P)
         inzet(img, s, x0, int(H * 0.60))
