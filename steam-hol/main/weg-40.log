@@ -1,28 +1,24 @@
-HOL balk gestart, pid 3808, hoogte 120
-HOL weg geweest 25210 s (klok terug: false): goud voor 576, helden 100, erbij 478, hoeden 32
-HOL weg faam afgekapt 7 van 63 (hooguit 2 niveaus)
+HOL balk gestart, pid 876, hoogte 120
+HOL weg geweest 25210 s (klok terug: false): goud voor 630, helden 100, erbij 496, hoeden 40
+HOL weg faam afgekapt 7 van 66 (hooguit 2 niveaus)
 HOL hol-niveau 4 (faam 12, t 0.0)
 HOL hol-niveau 5 (faam 12, t 0.0)
-HOL hoeden van de nacht 32 (vallen vanaf 1.0 s, toren nu 40)
+HOL hoeden van de nacht 40 (vallen vanaf 1.0 s, toren nu 40)
 HOL berg zichtbaar 6 -> 8
-HOL kroniek 0.0 (wacht 0.0): 100 came, 63 fell, 32 hats. +478 gold.
+HOL kroniek 0.0 (wacht 0.0): 100 came, 66 fell, 40 hats. +496 gold.
 HOL optocht wip, 1.2 poef 4 munt; helden [5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1054 goud, faam 12
+HOL opslag geladen: 0 terugkomers, 1126 goud, faam 12
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795672570
+HOL zaad 1795672625
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 1054)
-HOL eerste koop mogelijk na 38 s speeltijd (goud 1054)
+HOL gloop ring aan na 0.1 s (goud 1126)
+HOL eerste koop mogelijk na 38 s speeltijd (goud 1126)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL held binnen: Siem
+HOL held binnen: Kees
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Siem is here for your gold.
-HOL leven stofje t=7.4 x=72 y=26
-HOL meting t=10 beelden=101 helden=1 hol_vast=13
-HOL kroniek zelfde held vervangen: Siem is here for your gold.
-HOL kroniek 10.5 (wacht 0.0): Siem took the short way down. +9
-HOL put-hoed 2 naar de toren (hoeden nu 73, t 10.5)
-HOL zicht 10.6 0
-HOL einde na 12 s, fps=20, goud=1063, terugkomers=0
+HOL kroniek 2.5 (wacht 0.5): Kees says this is a quick one.
+HOL leven goudstof t=7.7 x=212 y=30
+HOL meting t=10 beelden=100 helden=1 hol_vast=12
+HOL einde na 12 s, fps=10, goud=1126, terugkomers=0

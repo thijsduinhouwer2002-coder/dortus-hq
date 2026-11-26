@@ -1,26 +1,27 @@
-HOL balk gestart, pid 7800, hoogte 96
+HOL balk gestart, pid 6924, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795672287
+HOL zaad 1795672334
 HOL balk aan
 HOL plat zonder regel (2 keer gemeld)
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Teun)
-HOL held binnen: Teun
+HOL begin: vallen (Femke)
+HOL held binnen: Femke
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Teun read about you in a tavern.
+HOL kroniek 2.6 (wacht 0.5): Femke says this is a quick one.
 HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Teun read about you in a tavern.
-HOL kroniek 7.4 (wacht 0.0): Teun left gold and one boot. +9
+HOL kroniek zelfde held vervangen: Femke says this is a quick one.
+HOL kroniek 7.4 (wacht 0.0): Femke left gold and one boot. +9
 HOL zicht 7.4 0
-HOL begin: vluchten (Mara)
-HOL held binnen: Mara
-HOL zicht 7.9 1
+HOL begin: vluchten (Merel)
+HOL held binnen: Merel
+HOL zicht 8.3 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
 HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 11.0: Mara brought a torch. And hope.
-HOL leven goudstof t=12.7 x=324 y=30
+HOL kroniek vervallen 11.3: Merel brought a torch. And hope.
+HOL leven vleermuis t=12.0 x=200 y=28
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
+HOL leven goudstof t=23.2 x=324 y=30
 HOL einde na 24 s, fps=10, goud=29, terugkomers=0
