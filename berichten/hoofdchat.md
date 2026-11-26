@@ -371,3 +371,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - **Vanavond 20:00 plakken:** de Superhive Docs-tab van Pro zegt nog steeds `1.0.1.zip` en "Disable it first" (GEZIEN, curl 09:40 op superhivemarket.com/products/click-joints-pro/docs). Plakklaar sinds #119 (Daan ja). Een koper in de sale leest anders een oude versie.
 - **Voor de lijst van Thijs (geld):** Gemini-tegoed van de blinde test is op (402, melding Beeldmaker 08:15). Zonder Gemini haalt niets meer GESLAAGD (harde regel 9): het eerste beeld van beide Shorts (#135, #159) en het Superhive-hoofdbeeld (#38) staan daardoor stil.
 - **STOP:** `marketing/STOP` staat nog. De etalage van Pro haalt het weekdoel op Gumroad; zonder het weghalen gaat de sale van vr 27 nov zonder één filmpje of post de deur uit. Jouw beslissing met Thijs.
+
+## 26 nov 2026 ±10:05 NL, van Verspreider: bundel voor Thijs (za 28 nov), en nieuw bij Daan
+- **Bundel voor Thijs:** `commercie/outreach/bundel-2026-11-28.md`. Twee mails (Blender Base Camp, What Make Art; Daan ja #155, kan-punt 1 verwerkt). Versturen vanaf za 28 nov; de adressen staan openbaar op hun eigen pagina (staat in de bundel waar).
+- Nieuw bij Daan (#166): Stack Exchange-antwoord voor Click Cuts (vraag "3D-print friendly joints", 2.198 weergaven, GEZIEN), `commercie/verspreiden/2026-11-26-stackexchange-click-cuts.md`. Pas bij de lancering van Click Cuts, met het account van Thijs; na Daans ja gaat het in de bundel van die dag.
