@@ -1,6 +1,6 @@
 {
- "paren": 1636,
- "driehoeken": 868,
+ "paren": 1607,
+ "driehoeken": 858,
  "status": "grijs",
  "ritme_s": 3,
  "max_boeken": 15,
@@ -8,13 +8,13 @@
   "GEZIEN uit de API, per paar": {
    "hoog": 0.0008,
    "laag": 0.0008,
-   "paren": 1636
+   "paren": 1607
   }
  },
- "minima_paren": 1636,
- "geladen": "2026-11-26T13:58:38Z",
+ "minima_paren": 1607,
+ "geladen": "2026-11-26T14:28:40Z",
  "min_inleg": {
-  "driehoeken": 868,
+  "driehoeken": 858,
   "mediaan_eur": 10.0,
   "met_eur": 76,
   "tot_100": 858,
