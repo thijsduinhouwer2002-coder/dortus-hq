@@ -224,6 +224,23 @@ def strip():
     if tweede:   # tweede set (Fit test: hinge); de add-on zet hem zelf achter de eerste
         log("Fit test strip 2", bpy.ops.click_joints.testkaart(soort=tweede))
     delen = [o for o in sc.objects if o.type == "MESH" and o.get("cj_deel")]
+    tweede_set = [o for o in delen if o.name not in voor]
+    # strip v3 (#205): tweede set naast de eerste (GB_NAAST=<gat in mm>) of verder naar achter (GB_RIJ2_Y=<mm>)
+    if tweede_set and (os.environ.get("GB_NAAST") or os.environ.get("GB_RIJ2_Y")):
+        eerste = [o for o in delen if o.name in voor]
+        xs1 = [(o.matrix_world @ Vector(c)).x for o in eerste for c in o.bound_box]
+        xs2 = [(o.matrix_world @ Vector(c)).x for o in tweede_set for c in o.bound_box]
+        ys1 = [(o.matrix_world @ Vector(c)).y for o in eerste for c in o.bound_box]
+        ys2 = [(o.matrix_world @ Vector(c)).y for o in tweede_set for c in o.bound_box]
+        if os.environ.get("GB_NAAST"):
+            d = Vector((max(xs1) + float(os.environ["GB_NAAST"]) - min(xs2),
+                        (min(ys1) + max(ys1)) / 2 - (min(ys2) + max(ys2)) / 2, 0))
+        else:
+            d = Vector(((min(xs1) + max(xs1)) / 2 - (min(xs2) + max(xs2)) / 2,
+                        float(os.environ["GB_RIJ2_Y"]) - (min(ys2) + max(ys2)) / 2, 0))
+        for o in tweede_set:
+            o.matrix_world = Matrix.Translation(d) @ o.matrix_world
+        bpy.context.view_layer.update()
     meting["delen"] = sorted(o.name for o in delen)
     meting["getallen"] = sorted({o.get("cj_kaart_getal") for o in delen if o.get("cj_kaart_getal")})
     wit = mat("gb_wit", "F4EFE6", rough=0.42, coat=0.25)
@@ -269,7 +286,25 @@ def strip():
             labels[o["cj_kaart_getal"]] = {"top": naar_beeld(cam, (c.x, c.y, top)),
                                            "voet": naar_beeld(cam, (c.x, c.y - 10, 0))}
     meting["labels"] = labels
-    render("strip")
+    if tweede:
+        labels2, sets = {}, {}
+        for o in delen:
+            if o.get("cj_kaart_getal") and o.name not in voor:
+                top = max((o.matrix_world @ Vector(c)).z for c in o.bound_box)
+                c = o.matrix_world @ (sum((Vector(h) for h in o.bound_box), Vector()) / 8)
+                labels2[o["cj_kaart_getal"]] = {"top": naar_beeld(cam, (c.x, c.y, top)),
+                                                "voet": naar_beeld(cam, (c.x, c.y - 10, 0))}
+        for naam, groep in (("eerste", [o for o in delen if o.name in voor]),
+                            ("tweede", [o for o in delen if o.name not in voor])):
+            ps = [o.matrix_world @ Vector(c) for o in groep for c in o.bound_box]
+            sets[naam] = {"soort": soort if naam == "eerste" else tweede,
+                          "links_onder": naar_beeld(cam, (min(p.x for p in ps), min(p.y for p in ps), 0)),
+                          "rechts_onder": naar_beeld(cam, (max(p.x for p in ps), min(p.y for p in ps), 0)),
+                          "boven": naar_beeld(cam, ((min(p.x for p in ps) + max(p.x for p in ps)) / 2,
+                                                    (min(p.y for p in ps) + max(p.y for p in ps)) / 2,
+                                                    max(p.z for p in ps)))}
+        meting["labels2"], meting["sets"] = labels2, sets
+    render(os.environ.get("GB_NAAM", "strip"))
 
 
 # ---------------------------------------------------------------- bereik (ronde 3 van beeld 1, na de blinde test)
