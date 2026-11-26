@@ -44,8 +44,22 @@ cx, cy, c = (float(v) for v in os.environ.get("IZ_SNEDE", "0.5,0.5,1.0").split("
 c *= min(kw, kh)
 x0, y0 = cx * kw - c / 2, cy * kh - c / 2
 BOOG = os.environ.get("IZ_BOOG")   # ronde 4 (Daan #170 M2 a): knie.json met knie_boog, de gradenboog van de add-on
+DUN = os.environ.get("IZ_BOOG_DUN") == "1"   # ronde 6 (Daan #175 M1): de boog dun en half doorzichtig over de close-up van r3
 if BOOG:
     kb = json.load(open(BOOG, encoding="utf-8"))["knie_boog"]
+    if os.environ.get("IZ_BOOG_MIDDEN"):
+        # De boog rekent de add-on in rusthouding; in de r3-close-up staan de delen 4 mm uit elkaar en is de camera veel
+        # dichterbij, dus de boog valt groter dan het beeld. Zelfde vorm en hoeken, verschoven naar het midden van de bal
+        # en verkleind tot IZ_BOOG_STRAAL renderpixels (alleen schaal en verschuiving, de hoeken 0 en 120 blijven gelijk).
+        mx, my = (float(v) for v in os.environ["IZ_BOOG_MIDDEN"].split(","))
+        c0 = kb["centrum"]
+        s = float(os.environ.get("IZ_BOOG_STRAAL", "200")) / ((kb["as_eind"][0] - c0[0]) ** 2 + (kb["as_eind"][1] - c0[1]) ** 2) ** 0.5
+
+        def T(q):
+            return [mx + (q[0] - c0[0]) * s, my + (q[1] - c0[1]) * s]
+        kb = {"getal": kb["getal"], "centrum": [mx, my], "boog": [T(q) for q in kb["boog"]], "as_eind": T(kb["as_eind"]),
+              "grens_eind": T(kb["grens_eind"]), "label": T(kb["label"]), "label_0": T(kb["label_0"]),
+              "streepjes": [[g, T(a), T(b)] for g, a, b in kb["streepjes"]]}
     f4 = 4  # tekenen op 4x en dan verkleinen: gladde lijnen
     groot = k.resize((kw * f4, kh * f4), Image.LANCZOS)
     laag = Image.new("RGBA", groot.size, (0, 0, 0, 0))
@@ -53,16 +67,18 @@ if BOOG:
 
     def P(q):
         return (q[0] * f4, q[1] * f4)
-    lw = int(c / 1000 * 9 * f4)          # lijndikte in renderpixels, mee met de uitsnede
-    WIT = (255, 255, 255, 255)
-    # vlak tussen 0 en de grens, heel licht, zodat het bereik als taartpunt leest
-    g.polygon([P(kb["centrum"])] + [P(q) for q in kb["boog"]], fill=(255, 255, 255, 46))
+    lw = int(c / 1000 * (float(os.environ.get("IZ_BOOG_DIK", "9"))) * f4)   # lijndikte in renderpixels, mee met de uitsnede
+    A = int(float(os.environ.get("IZ_BOOG_ALFA", "1")) * 255)
+    WIT = (255, 255, 255, A)
+    if not DUN:
+        # vlak tussen 0 en de grens, heel licht, zodat het bereik als taartpunt leest
+        g.polygon([P(kb["centrum"])] + [P(q) for q in kb["boog"]], fill=(255, 255, 255, 46))
     g.line([P(q) for q in kb["boog"]], fill=WIT, width=lw, joint="curve")
     for gr, a1, a2 in kb["streepjes"]:
-        if gr % 30 == 0:
+        if gr % 30 == 0 and (not DUN or gr in (0, kb["getal"])):
             g.line([P(a1), P(a2)], fill=WIT, width=max(2, lw // 2))
-    g.line([P(kb["centrum"]), P(kb["as_eind"])], fill=(255, 255, 255, 170), width=max(2, lw // 2))
-    g.line([P(kb["centrum"]), P(kb["grens_eind"])], fill=GOUD + (255,), width=lw)
+    g.line([P(kb["centrum"]), P(kb["as_eind"])], fill=(255, 255, 255, min(A, 170)), width=max(2, lw // 2))
+    g.line([P(kb["centrum"]), P(kb["grens_eind"])], fill=GOUD + (A,), width=lw)
     gx, gy = P(kb["grens_eind"])
     rr = lw * 1.6
     g.ellipse((gx - rr, gy - rr, gx + rr, gy + rr), fill=GOUD + (255,), outline=DONKER + (255,), width=max(2, lw // 3))
@@ -81,7 +97,8 @@ masker = Image.new("L", (M, M), 0)
 ImageDraw.Draw(masker).rounded_rectangle((0, 0, M - 1, M - 1), radius=30, fill=255)
 schaduw = Image.new("RGBA", img.size, (0, 0, 0, 0))
 ImageDraw.Draw(schaduw).rounded_rectangle((X, Y + 12, X + M, Y + M + 12), radius=30, fill=(0, 0, 0, 180))
-img.alpha_composite(schaduw.filter(ImageFilter.GaussianBlur(18)))
+if os.environ.get("IZ_SCHADUW", "1") != "0":   # 0: over een beeld dat de schaduw al heeft (r6 op r3, zelfde plek)
+    img.alpha_composite(schaduw.filter(ImageFilter.GaussianBlur(18)))
 img.paste(k, (X, Y), masker)
 d = ImageDraw.Draw(img)
 d.rounded_rectangle((X, Y, X + M, Y + M), radius=30, outline=GOUD + (255,), width=4)
