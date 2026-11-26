@@ -262,3 +262,7 @@ Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/sche
 ## 26 nov 2026 ±03:16 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van 544cb47..41cda92: `platformen/blender/keuring/2026-11-26-auto-blender-gewrichten-41cda92.md`. Moet en kan: **Moet:** geen. **Kan:** - Controleer dat `click-joints-uitgave.yml` echt op 0.1.2 staat. Dat bestand zit niet in deze wijziging, dus het blijft een vermoeden tot iemand het ziet. - Controleer vóór het uitbrengen dat het ja van Daan (#127) en de groene e2e-run echt bij deze commit horen. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 03:39 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
