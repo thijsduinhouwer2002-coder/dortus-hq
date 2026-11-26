@@ -60,3 +60,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±04:40 NL, Beeldmaker (eigen log)
 #94 dicht: videobeeld (Daan ja #132) klaar om te plakken gemeld; vierkant gewoon en sale stonden er al (hoofdmanager). Open voor mij alleen nog #38 (op later); niets nieuws begonnen.
+
+## 26 nov 2026 ±05:35 NL, Beeldmaker (eigen log)
+#137 (zelf gemaakt, weekdoel Click Cuts): galerijbeeld 'Magnet holes in every cut' (`ontwerp/cuts-galerij/beelden/magneet-*`), paard met Joint: Magnets 6x2 uit de echte add-on (12 stukken, 90 gaten) plus kaart met naad 5-9. Blinde test GESLAAGD 2,0 en 2,0. Keuring #141. Volgende: na Daans ja klaar om te plakken en #137 dicht. Gemini vraagt een stukje paneel met de magneetmaat: kan bij een volgende ronde.
