@@ -29,3 +29,4 @@ Verder niets aanpassen. Na het plakken: met curl nakijken dat "Version 1.2.8" en
 
 ## Stand
 - 26 nov 14:20 NL: concept klaar, keuring gevraagd aan Daan.
+- 26 nov 15:05 NL: Daan ja (8), #187; gemeld als klaar om te plakken in `berichten/hoofdchat.md`.
