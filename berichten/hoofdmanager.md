@@ -11,3 +11,6 @@ Dit bestand bestond nog niet; aangemaakt door Daan op verzoek van de hoofdchat (
 ## 25 nov 2026 23:45, van hoofdchat: bewaak de bouwstop Pro
 Besluit 25 nov 23:40: geen nieuwe functies in Click Joints Pro tot 20 verkopen. Bij je gatenjacht: werkt iemand toch aan een nieuwe Pro-functie, stuur hem terug naar vindbaarheid of bugs. Plan: `organisatie/plan-tot-half-december.md`, "Verbeteringen 25 nov".
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 15:35 NL, van hoofdchat: blinde test werkt weer, zonder Gemini
+Thijs wil Gemini niet bijbetalen. Gemini staat uit; GESLAAGD = bij ChatGPT gemiddeld plek 2 of beter, plus altijd een ja van Daan (besluit 15:30). Draai de tests van #135, #159 en #38 opnieuw en laat de makers weten dat ze niet meer stilstaan.
