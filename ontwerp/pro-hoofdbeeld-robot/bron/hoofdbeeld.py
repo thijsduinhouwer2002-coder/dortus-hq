@@ -122,6 +122,7 @@ def figuur():
 
 
 GOUD_PLEK = {}   # gewricht -> [(object, vlak)] van de gouden vlakken, voor de labels
+BOOG_RUST = {}   # scharnier -> gradenboog van de add-on in rusthouding (#38 ronde 4)
 AS_PLEK = {}     # scharnier -> (drager, punt lokaal, as lokaal), voor labels op de as en de knie-camera
 
 
@@ -403,6 +404,32 @@ def knie_camera(cam, delen, naam):
                           "pose_graden": float(b.get("cj_pose_graden", 0) or 0) if b else None,
                           "bereik": float(a.get("cj_bereik_graden", 0) or 0) if a else None}
     log("knie-camera", meting["knie_cam"])
+    if os.environ.get("HB_KNIE_BOOG") and BOOG_RUST.get(naam):
+        # #38 ronde 4 (Daan #170 M2 keuze a): de gradenboog van de add-on zelf (Show bend range, scharnier_boog.vorm),
+        # in pixels van deze camera, zodat inzet.py hem tekent zoals de koper hem in Blender ziet.
+        v = BOOG_RUST.get(naam)
+
+        def px(w):
+            q = world_to_camera_view(sc, cam, Vector(w))
+            return [round(q.x * m, 1), round((1 - q.y) * m, 1)]
+        meting["knie_boog"] = {"getal": v["getal"], "centrum": px(v["centrum"]), "boog": [px(w) for w in v["boog"]],
+                               "as_eind": px(v["as_eind"]), "grens_eind": px(v["grens_eind"]), "label": px(v["label"]),
+                               "label_0": px(v["label_0"]),
+                               "streepjes": [[g, px(p1), px(p2)] for g, p1, p2 in v["streepjes"]], "maat": m}
+        log("knie-boog", v["getal"], meting["knie_boog"]["centrum"], meting["knie_boog"]["grens_eind"])
+    if os.environ.get("HB_KNIE_TINT"):   # bovenbeen een tint lichter dan onderbeen (Daan #170 M2 b), twee delen in één blik
+        f = float(os.environ["HB_KNIE_TINT"])
+        drager = sc.objects[an]
+        for i, mt in enumerate(list(drager.data.materials)):
+            if mt is None or mt.name == "hb_goud" or not mt.use_nodes:
+                continue
+            g = mt.copy()
+            g.name = mt.name + "_licht"
+            bs = next((n for n in g.node_tree.nodes if n.type == "BSDF_PRINCIPLED"), None)
+            if bs is not None:
+                c = bs.inputs["Base Color"].default_value
+                bs.inputs["Base Color"].default_value = (c[0] + (1 - c[0]) * f, c[1] + (1 - c[1]) * f, c[2] + (1 - c[2]) * f, 1)
+            drager.data.materials[i] = g
 
 
 def main():
@@ -412,6 +439,12 @@ def main():
     goud_gewrichten(delen)
     # HB_POSE: eigen pose als json (#38, organisch figuur), zelfde vorm als R.HELD; anders de heldenpose van de robot
     pose = json.loads(os.environ["HB_POSE"]) if os.environ.get("HB_POSE") else R.HELD
+    if os.environ.get("HB_KNIE_BOOG") and os.environ.get("HB_KNIE_CAM"):
+        # boog in rusthouding (been recht, zoals de add-on hem rekent); het bovenbeen beweegt daarna niet (heup niet
+        # geposeerd, HB_UIT=0), dus de punten blijven kloppen
+        sb = importlib.import_module("bl_ext.user_default.click_joints.betaald.scharnier_boog")
+        ka, kb = paar(os.environ["HB_KNIE_CAM"])
+        BOOG_RUST[os.environ["HB_KNIE_CAM"]] = sb.vorm(ka, kb, 0.0)
     meting["pose"] = R.poseer(delen, pose, uit=UIT_MM, scharnier=lambda n, g: buig(n, g))
     bpy.context.view_layer.update()
     for o in bpy.context.scene.objects:   # alleen de delen van de add-on in beeld (het origineel en hulpvormen weg)

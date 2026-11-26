@@ -45,3 +45,11 @@ TK_ZAK='{"Left elbow": 34}' TK_PUNT3="Fit test strip: 0.10 to 0.30 mm clearance"
 IZ_X=1112 IZ_Y=690 IZ_M=380 IZ_SNEDE=0.43,0.69,0.58 python3 bron/inzet.py <uit>/mens-r3-2400x1200.png <uit>/knie-render.png <uit>/hoofdbeeld.json beelden/mens-knie-r3-2400x1200.jpg <fontmap>
 ```
 Set `click-joints-pro-superhive-mens-r3.json`. Gemini geeft nog HTTP 402 (tegoed op, alleen Thijs), dus de uitslag telt voorlopig alleen ChatGPT.
+
+**Ronde 4 (26 nov ±12:15, Daan #170 M2, keuze a):** `beelden/mens-knie-r4-2400x1200.jpg`. De inzet toont nu de gradenboog van de add-on zelf (Show bend range, `betaald/scharnier_boog.vorm`): de knie van opzij, delen tegen elkaar (HB_UIT=0, geen witte streep of spleet meer), bovenbeen een tint lichter (HB_KNIE_TINT=0.12), onderbeen op de stop van 120°, witte boog van 0° (been recht) tot 120° met een licht vlak ertussen, gouden lijn langs het onderbeen, getallen 0° en 120°. De boog rekent de add-on in rusthouding; hoofdbeeld.py zet hem naar pixels van de kniecamera (`beelden/knie-boog.json`, `knie_boog`), inzet.py tekent hem. Render lokaal (Blender 5.3.0, Cycles, zip van main als 1.2.8): `beelden/knie-boog-render.jpg`. Bekeken op 600 px breed: boog, 0° en 120° leesbaar (GEZIEN).
+```
+HB_POSE='{... "Right knee": 120 ...}' HB_UIT=0 HB_KNIE_CAM="Right knee" HB_KNIE_KANT=1 HB_KNIE_AFSTAND=120 HB_KNIE_LICHT=2.5 HB_KNIE_MAAT=1000 HB_KNIE_BOOG=1 HB_KNIE_TINT=0.12 HB_NAAM=knie <HB_* als ronde 1> blender ... hoofdbeeld.py -- <pro-zip> <uit> 64 100
+<hoofdrender en tekst.py als ronde 3, naam mens-r4>
+IZ_BOOG=<uit>/knie.json IZ_X=1105 IZ_Y=660 IZ_M=400 IZ_SNEDE=0.40,0.54,0.70 python3 bron/inzet.py <uitmap>/mens-r4-2400x1200.png <uit>/knie-render.png <uit>/hoofdbeeld.json beelden/mens-knie-r4-2400x1200.jpg <fontmap>
+```
+Set `click-joints-pro-superhive-mens-r4.json`.
