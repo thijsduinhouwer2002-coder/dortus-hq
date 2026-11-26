@@ -138,6 +138,19 @@ def alles(uitmap=None):
     stap("klik: uitslag noemt pennen en speling", uit is not None and uit[1] == f"{klik_pins} pins, 0.20 mm clearance",
          f"{uit}")
 
+    # #227: another material changes the clearance; the result box keeps naming what was cut and says so
+    if "sj_speling_eigen" in s:
+        del s["sj_speling_eigen"]  # like a buyer who never typed a clearance
+    s.split_joints.materiaal = "RESIN"
+    uit = klikmod.uitslag_tekst(s)
+    stap("klik: na ander materiaal noemt de uitslag nog de gesneden 0,20", uit is not None and
+         uit[1] == f"{klik_pins} pins, 0.20 mm clearance" and abs(s.split_joints.speling_mm - 0.1) < 1e-6,
+         f"{uit} speling {s.split_joints.speling_mm:.2f}")
+    stap("klik: speling anders gemeld", klikmod.speling_anders(s))
+    s.split_joints.materiaal = "PLA"
+    s.split_joints.speling_mm = 0.2  # (A1 mini + PLA has a saved 0.25 from the fit test toets)
+    stap("klik: terug op 0,20 niets gemeld", not klikmod.speling_anders(s), f"{s.split_joints.speling_mm:.2f}")
+
     # second click with a piece active: same model again, no double pieces
     modellen.actief(stukken()[0])
     r = bpy.ops.split_joints.split_to_fit()

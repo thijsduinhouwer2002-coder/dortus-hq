@@ -70,6 +70,9 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             if snedes.verschoven(scene):  # keuring K6: only after a moved cut, and name the button
                 vak.label(text="Cuts changed: press", icon="INFO")
                 vak.label(text="Split to fit again")  # two lines: one was cut off (keuring M2); keeps the cuts
+            elif in_een_klik.speling_anders(scene):  # #227: another material can change the clearance
+                vak.label(text="Clearance changed: press", icon="INFO")
+                vak.label(text="Split to fit again")
         if uit:
             rij = layout.row()
             rij.scale_y = 1.3  # smaller than Split to fit (keuring C2)
