@@ -1,9 +1,9 @@
 """Betaalde functies van Click Joints (alleen in de betaalde build, zie e2e/maak_zip.sh).
 
 Het scharnier met eindstop (ontwerp betaald v1.1 in ontwerp.md): vorm in scharnier_vorm.py, operator en
-paneelknoppen in scharnier.py. Ook de
-weigering als de gratis versie uit een andere repository ook aan staat: zelfde id, dus anders botsen
-operators, panelen en scene.click_joints."""
+paneelknoppen in scharnier.py. Ook wat er gebeurt als de gratis versie uit een andere repository ook aan staat
+(zelfde id, dus anders botsen operators, panelen en scene.click_joints): Pro aanzetten zet de gratis uit (issue 114),
+de gratis aanzetten terwijl Pro aan staat zet Pro opzij met een melding (eis 7)."""
 import addon_utils
 import bpy
 
@@ -21,10 +21,46 @@ def andere_versies(namen, eigen):
     return [n for n in namen if n != eigen and (n == "click_joints" or n.endswith(".click_joints"))]
 
 
+MELDING_OVERGENOMEN = "Free Click Joints was turned off; Pro includes everything in it."
+GRATIS_UIT = []  # modules van de gratis versie die Pro bij het aanzetten uitzette (voor de regel in het paneel)
+
+
 def weiger_dubbel(eigen):
     namen = [a.module for a in bpy.context.preferences.addons]
     if andere_versies(namen, eigen):
         raise RuntimeError(MELDING)
+
+
+def zet_gratis_uit(eigen):
+    """Issue 114: staat de gratis Click Joints aan als Pro wordt aangezet, dan zet Pro hem netjes uit in plaats van te
+    weigeren. Wie van gratis naar Pro overstapt, hoeft dan niets zelf te doen (docs Superhive zeiden "Disable it
+    first"). Niets wordt verwijderd: addon_utils.disable roept de eigen unregister van de gratis aan en haalt hem uit
+    de voorkeuren (default_set=True), zodat hij bij de volgende start ook uit blijft. Dit gebeurt vóór de kern van Pro
+    zich registreert, dus de gratis haalt alleen zijn eigen klassen weg. Lukt uitzetten niet, dan weigert Pro nog
+    steeds met MELDING (weiger_dubbel), zodat er nooit twee tegelijk aan staan."""
+    namen = [a.module for a in bpy.context.preferences.addons]
+    uit = []
+    for n in andere_versies(namen, eigen):
+        fouten = []  # aanrader A1 Daan (#138): een fout in de unregister van de gratis vangt addon_utils zelf af
+        try:
+            addon_utils.disable(n, default_set=True, handle_error=fouten.append)
+            uit.append(n)
+        except Exception as e:
+            print(f"Click Joints: free version {n} could not be turned off: {e}")
+        if fouten:
+            print(f"Click Joints: free version {n} turned off with warnings: "
+                  + "; ".join(f"{type(f).__name__}: {f}" for f in fouten))
+    weiger_dubbel(eigen)
+    if uit:
+        GRATIS_UIT[:] = uit
+        _meld(MELDING_OVERGENOMEN)
+    return uit
+
+
+def teken_overgenomen(layout, _context):
+    """Eén regel bovenaan het paneel zolang deze sessie loopt, als Pro de gratis versie uitzette."""
+    if GRATIS_UIT:
+        layout.label(text=MELDING_OVERGENOMEN, icon="INFO")
 
 
 LAATSTE_MELDING = [None]  # voor de e2e: de laatste keer dat de betaalde opzij ging voor de gratis
@@ -135,6 +171,8 @@ def register(eigen=None):
                          (kern.STAP2_KEUS, scharnier.teken_knop)):
             if f not in lijst:
                 lijst.append(f)
+        if teken_overgenomen not in kern.BOVEN:
+            kern.BOVEN.insert(0, teken_overgenomen)  # issue 114: boven Figure from rig
     meld.BEOORDEEL[:] = WINKELS
     scharnier_boog.register()  # eis 8: gradenboog en pose-schuif van het scharnier
     labels.register()  # mooier overlay 23 nov: schakelaar Labels (Selected / All / None) bij een figuur
@@ -169,6 +207,9 @@ def unregister():
                          (kern.STAP2_KEUS, scharnier.teken_knop)):
             if f in lijst:
                 lijst.remove(f)
+        if teken_overgenomen in kern.BOVEN:
+            kern.BOVEN.remove(teken_overgenomen)
+    GRATIS_UIT[:] = []  # kan-punt keurder f43c3c6: de regel blijft niet staan als Pro weer aan gaat
     meld.BEOORDEEL[:] = meld.BEOORDEEL_GRATIS
     if hasattr(bpy.types.WindowManager, "cj_flip_bend"):
         del bpy.types.WindowManager.cj_flip_bend

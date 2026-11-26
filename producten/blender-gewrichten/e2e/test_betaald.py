@@ -1,7 +1,7 @@
 """Draait met: blender -b --factory-startup --python e2e/test_betaald.py -- <betaalde zip> <gratis zip>
 Betaalde build (ontwerp betaald v1.1): installeren en aanzetten werkt, het betaalde deel is geladen en de
-kern doet het nog (operators, paneel). Daarna de weigering bij dubbel aanstaan (eis 7), in beide volgordes met de gratis zip in een
-tweede repository: (a) gratis aan, dan betaald: geweigerd met de melding; (b) betaald aan, dan gratis: de
+kern doet het nog (operators, paneel). Daarna dubbel aanstaan (eis 7), in beide volgordes met de gratis zip in een
+tweede repository: (a) gratis aan, dan betaald: Pro zet de gratis netjes uit en werkt (issue 114); (b) betaald aan, dan gratis: de
 betaalde gaat eerst netjes uit met dezelfde melding en de gratis werkt; na het uitzetten van de gratis kan
 de betaalde weer gewoon aan.
 Regels met [cj-betaald] in het log. Exit 1 bij elke fout."""
@@ -88,16 +88,37 @@ def main():
         meldingen.append(str(e))
         print(f"[cj-betaald] melding: {e}")
 
+    betaald.LAATSTE_MELDING[0] = None
+    betaald.GRATIS_UIT[:] = []
     addon_utils.enable(eigen, default_set=True, handle_error=fout_cb)
-    stap("(a) gratis aan, dan betaald: betaalde weigert", eigen not in aan(), str(aan()))
-    stap("(a) weigermelding gegeven", any(betaald.MELDING in m for m in meldingen), " | ".join(meldingen))
-    stap("(a) gratis blijft werken", "plaats" in dir(bpy.ops.click_joints) and hasattr(bpy.types.Scene, "click_joints"))
-    stap("(a) geen omhulsel na weigering", addon_utils.enable is enable_orig)
-    # Gratis weer uit: dan kan de betaalde gewoon aan.
-    addon_utils.disable(gratis_mod, default_set=True)
-    addon_utils.enable(eigen, default_set=True, handle_error=fout_cb)
-    stap("gratis uit, dan kan betaald weer aan", aan() == [eigen], str(aan()))
-    stap("betaald werkt weer (scharnier-operator)", "plaats_scharnier" in dir(bpy.ops.click_joints))
+    betaald = sys.modules.get(eigen + ".betaald", betaald)
+    # Issue 114: Pro weigert niet meer, maar zet de gratis netjes uit en neemt het over.
+    stap("(a) gratis aan, dan Pro aan: Pro staat aan, gratis uit", aan() == [eigen], str(aan()))
+    stap("(a) geen foutmelding bij aanzetten", not meldingen, " | ".join(meldingen))
+    stap("(a) melding: gratis uitgezet", betaald.LAATSTE_MELDING[0] == betaald.MELDING_OVERGENOMEN,
+         str(betaald.LAATSTE_MELDING[0]))
+    stap("(a) gratis ook uit de voorkeuren (blijft uit na herstart)",
+         gratis_mod not in {a.module for a in bpy.context.preferences.addons})
+    stap("(a) gratis is niet verwijderd (zit nog in zijn repository)",
+         any(m.__name__ == gratis_mod for m in addon_utils.modules(refresh=True)))
+    stap("(a) Pro werkt (scharnier, paneel, scene.click_joints, omhulsel)",
+         "plaats_scharnier" in dir(bpy.ops.click_joints) and hasattr(bpy.types, "CLICK_JOINTS_PT_paneel")
+         and hasattr(bpy.types.Scene, "click_joints") and addon_utils.enable is not enable_orig)
+    kern = sys.modules[eigen + ".paneel"]
+    stap("(a) regel in het paneel bovenaan", kern.BOVEN[:1] == [betaald.teken_overgenomen]
+         and betaald.GRATIS_UIT == [gratis_mod], str(betaald.GRATIS_UIT))
+    bm = sys.modules.get(eigen + ".meld")
+    stap("(a) winkellinks van Pro (Superhive en Gumroad)",
+         bm is not None and [w for w, _l in bm.BEOORDEEL] == ["Superhive", "Gumroad"])
+    try:
+        bpy.ops.object.select_all(action="DESELECT")
+        bpy.ops.mesh.primitive_cube_add(size=0.02)
+        log = toetsen_paneel.teken(eigen, bpy.context.active_object)  # echte draw van het paneel in een nep-layout
+        stap("(a) paneel toont de regel als eerste", toetsen_paneel.plek(log, "label", betaald.MELDING_OVERGENOMEN) == 0
+             and toetsen_paneel.plek(log, "label", "1  Place") > 0, str(log[:3]))
+    except Exception:
+        traceback.print_exc()
+        stap("(a) paneel tekent na overname zonder fout", False)
     # (b) Betaald aan, dan gratis aan -> betaalde gaat eerst uit met de melding, gratis werkt.
     betaald = sys.modules.get(eigen + ".betaald", betaald)  # zelfde module als het omhulsel
     betaald.LAATSTE_MELDING[0] = None
@@ -113,6 +134,7 @@ def main():
          gm is not None and [w for w, _l in gm.BEOORDEEL] == ["Blender Extensions"])
     stap("(b) betaald uit: zijn winkellinks zijn teruggezet", bm is None or list(bm.BEOORDEEL) == list(bm.BEOORDEEL_GRATIS))
     stap("(b) omhulsel opgeruimd", addon_utils.enable is enable_orig)
+    stap("(b) betaald uit: regel van de overname weg (GRATIS_UIT leeg)", betaald.GRATIS_UIT == [], str(betaald.GRATIS_UIT))
     stap("(b) gratis instelling leesbaar", bpy.context.scene.click_joints is not None)
     # En terug: gratis uit, betaald aan.
     addon_utils.disable(gratis_mod, default_set=True)
