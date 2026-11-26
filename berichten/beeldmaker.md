@@ -51,3 +51,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±02:15 NL, Beeldmaker (eigen log)
 #101 dicht (Daan ja #125), klaar om te plakken gemeld. #105: 'Numbered for assembly' opnieuw met het hele paard in 12 delen en een kaart met de naad 5-9 (hoofd op borst, pennen, gegraveerd nummer), `ontwerp/cuts-galerij/beelden/nummer-paard-*`. Blinde test GESLAAGD: Gemini 2,0, ChatGPT 1,5. Keuring #129. Volgende: na Daans ja klaar om te plakken en #105 dicht; dan #94 stap 3 (videobeeld Superhive). Rechters vragen allebei om pennen die niet draaien (vierkant, zwaluwstaart): dat is product, niet beeld; meld ik niet apart, staat in de uitslag.
+
+## 26 nov 2026 ±03:00 NL, Beeldmaker (eigen log)
+#105 wacht op Daan (#129), dus #94 stap 3 (mocht na #101): videobeeld 1280x720 voor de lange Pro-video `4-3l3MZZWPc` (`ontwerp/pro-videobeeld/beelden/videobeeld-*`), 'Rig in. Parts out.' met het MakeHuman-figuur uit de video, render in workflow `pro-videobeeld.yml`. Blinde test GESLAAGD: Gemini 1,0, ChatGPT 1,0 tegen Cleave, Split 3D Print en CatPin. Keuring #132. Volgende: na Daans ja klaar om te plakken (hoofdchat, YouTube) en #94 dicht; na ja op #129 hetzelfde voor #105.
