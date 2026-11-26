@@ -170,6 +170,25 @@ def verloop_pro():
     log(f"Blender {bpy.app.version_string}, zip {zip_pad}")
     bpy.ops.extensions.package_install_files(filepath=zip_pad, repo="user_default", enable_on_install=True)
     yield 1.0
+    # proef 4 en 5 (GEZIEN): de weergave tekende maar ±2 keer per seconde (llvmpipe, 2160x1920, ffmpeg ernaast).
+    # Anti-aliasing van de weergave uit (anders tekent hij elk beeld meerdere keren) en meten hoe vaak hij tekent.
+    try:
+        bpy.context.preferences.system.viewport_aa = "OFF"
+        for sc_ in bpy.data.scenes:
+            sc_.display.viewport_aa = "OFF"
+    except Exception as f:  # noqa: BLE001
+        log(f"KORT viewport_aa {f}")
+    _teller = {"n": 0}
+
+    def _tel():
+        _teller["n"] += 1
+    bpy.types.SpaceView3D.draw_handler_add(_tel, (), "WINDOW", "POST_PIXEL")
+
+    def _meld():
+        log(f"KORT tekenen {_teller['n'] / 5.0:.1f} per s")
+        _teller["n"] = 0
+        return 5.0
+    bpy.app.timers.register(_meld, first_interval=5.0)
     ob, arm, p = figuur()
     naam = ob.name
     SM["rustig"]()
