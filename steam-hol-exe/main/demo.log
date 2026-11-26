@@ -1,10 +1,10 @@
-HOL balk gestart, pid 2148, hoogte 120
+HOL balk gestart, pid 9504, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
 HOL balk aan
-HOL gloop ring aan na 0.2 s (goud 66)
+HOL gloop ring aan na 0.1 s (goud 66)
 HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
 HOL muisvlak via de balk, lucht vrij op x=-1
 HOL begin: vallen (Kees)
@@ -33,13 +33,13 @@ HOL demo klik op Buy
 HOL demo voorbij: graven/kopen geweigerd (kopen slijm)
 HOL begin: doorlopen (Teun)
 HOL held binnen: Teun
+HOL leven goudstof t=24.2 x=212 y=30
 HOL kaartje dicht 24.6
 HOL kroniek 24.6 (wacht 1.5): Teun has a map. It is wrong.
 HOL kroniek 26.5 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
 HOL demo voorbij: graven/kopen geweigerd (graven (film))
-HOL leven goudstof t=27.2 x=212 y=30
 HOL kroniek zelfde held vervangen: Anouk fled. Grudge: the Spike Pit.
 HOL kroniek 29.0 (wacht 2.5): Anouk's song got popular. Uh oh.
 HOL kroniek weggedrukt na 1.0 s, komt terug: Anouk's song got popular. Uh oh.
 HOL kroniek 30.0 (wacht 0.6): Gloop ate Siem. Kept the crown. +6
-HOL einde na 30 s, fps=16, goud=78, terugkomers=1
+HOL einde na 30 s, fps=17, goud=78, terugkomers=1
