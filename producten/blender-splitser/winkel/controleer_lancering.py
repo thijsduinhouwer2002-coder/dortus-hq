@@ -49,6 +49,11 @@ def main():
     # de oude zin uit de lange tekst mag er niet in (Daan M1 #12: geen "every cut face")
     if "every cut face" in tekst.replace("a number on every cut face", ""):
         fouten.append('"every cut face" staat erin (Daan M1 #12)')
+    # Daan M1 #189: magneetgat alleen "where it fits"; M2 #189: geen $24 na 14 dec (niet besloten)
+    if "both sides of every cut" in tekst:
+        fouten.append('"both sides of every cut" staat erin (Daan M1 #189: "each cut where it fits")')
+    if "daarna $24" in tekst:
+        fouten.append('"daarna $24" staat erin (Daan M2 #189: vaste prijs op basis van verkoop)')
     if "click-cuts-winkeltekst-lang.md" in tekst and "niet gebruiken" not in tekst:
         fouten.append("lange tekst genoemd zonder 'niet gebruiken'")
 

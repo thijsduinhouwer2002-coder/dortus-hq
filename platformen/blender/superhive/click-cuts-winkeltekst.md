@@ -34,7 +34,7 @@ Wat geen concurrent zo zegt (`producten/blender-splitser/concurrentie.md` punt 1
 - **Make watertight** when the model has holes, on a copy.
 - **Export** all parts and pins as STL or 3MF in millimeters. Wrong unit is caught at once, with Convert to mm.
 - Blender 4.2 and newer. Tested in Blender 4.2 and 5.3 on every change.
-- **Pins or magnets.** Round pins with your own clearance, printed separately. Or switch Joint to Magnets: a hole for a disc magnet on both sides of every cut (5x2, 6x2, 6x3, 8x3 or 10x3 mm), with at least 1.2 mm wall around it. Magnets are not included.
+- **Pins or magnets.** Round pins with your own clearance, printed separately. Or switch Joint to Magnets: a hole for a disc magnet on both sides of each cut where it fits (5x2, 6x2, 6x3, 8x3 or 10x3 mm), with at least 1.2 mm wall around it. Magnets are not included.
 
 **Where to find it:** press N in the 3D viewport and open the Click Cuts tab.
 
