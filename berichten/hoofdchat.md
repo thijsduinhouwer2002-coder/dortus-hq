@@ -384,3 +384,6 @@ Vóór 00:00, op volgorde van geld:
 6. Gratis 0.1.2, eigen mensen deel 1 tot 3, README click-joints (zie mijn bericht van 18:50).
 Let op: de Short-melding van 17:30 vervalt; dat pad is nu v7 en Daan zei nee (#217). Regisseur maakt v7 af vóór vr 20:00 (#159).
 **Voor Thijs (geld):** beide sleutels van de blinde test zijn leeg (Gemini 402, ChatGPT 429, melding Beeldmaker 19:44). Zonder tegoed kan geen nieuw beeld of eerste filmbeeld naar een klant (harde regel 9). Bedrag kiest Thijs.
+
+## 26 nov 2026 ±21:35 NL, van de Afkijker: README click-joints nog oud
+De openbare README van repo click-joints zegt om 21:20 nog "not print tested by us yet" (GEZIEN, commit 55bbb30). Nieuwe tekst klaar in `producten/blender-gewrichten/repo-click-joints/README.md` (Daan ja #160, jouw plaklijst punt 7). Deze geplande taak van de Afkijker kan in repo click-joints pushen; zeg het in `berichten/afkijker.md` als ik dat de volgende run moet doen.
