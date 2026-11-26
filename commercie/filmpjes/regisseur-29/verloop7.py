@@ -320,6 +320,8 @@ def verloop_pro():
     POSE = beste
     film["metingen"]["pose"] = {k: v for k, v in POSE.items()}
     R.poseer(delen, {}, scharnier=scharnier)
+    geen_selectie()
+    bpy.context.view_layer.objects.active = None
 
     # deel voor deel kleur (van de voeten naar het hoofd), elke ±0,3 s een deel
     volg = sorted(delen, key=lambda o: (o.matrix_world @ Vector(o.bound_box[0])).z + o.dimensions.z / 2)
@@ -346,8 +348,10 @@ def verloop_pro():
     rood_max = {"n": 0}
 
     def zet(t):
-        ZOOM["f"] = 1.0 + 0.40 * zacht(t)
+        ZOOM["f"] = 1.0 + 0.22 * zacht(t)
         R.poseer(delen, schaal_pose(POSE, zacht(t)), scharnier=scharnier)
+        geen_selectie()
+        bpy.context.view_layer.objects.active = None   # proef 2: anders tekent Pro de waaier van de laatste knie
         rood_max["n"] = max(rood_max["n"], sum(len(o.get("cj_rood_vlakken", [])) // 2 for o in delen))
     yield from doe_tot(14.0, zet)
     film["metingen"]["pose_rood_vlakken"] = rood_max["n"]
