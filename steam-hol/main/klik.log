@@ -1,26 +1,30 @@
-HOL balk gestart, pid 4524, hoogte 96
+HOL balk gestart, pid 9372, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795683654
+HOL zaad 1795684011
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Mara)
-HOL held binnen: Mara
+HOL begin: vallen (Bram)
+HOL held binnen: Bram
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Mara has a map. It is wrong.
+HOL kroniek 2.6 (wacht 0.5): Bram has a map. It is wrong.
 HOL klik op (200, 90): niets
 HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Mara has a map. It is wrong.
-HOL kroniek 7.4 (wacht 0.0): Mara checked the floor. Too late. +9
+HOL leven stofje t=7.1 x=184 y=26
+HOL kroniek zelfde held vervangen: Bram has a map. It is wrong.
+HOL kroniek 7.4 (wacht 0.0): Bram fell to the Spike Pit. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Joost)
-HOL held binnen: Joost
-HOL zicht 8.8 1
+HOL begin: opgegeten (Siem)
+HOL held binnen: Siem
+HOL zicht 7.5 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
 HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL leven stofje t=11.1 x=184 y=26
-HOL kroniek vervallen 11.8: Joost read about you in a tavern.
+HOL kroniek vervallen 10.6: Siem climbs into your hole.
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
-HOL einde na 25 s, fps=10, goud=29, terugkomers=0
+HOL leven vleermuis t=21.7 x=200 y=28
+HOL reeks 2 (+0, t 24.4)
+HOL kroniek 24.4 (wacht 0.0): Gloop ate Siem. Kept the crown. +9
+HOL zicht 24.4 0
+HOL einde na 25 s, fps=15, goud=38, terugkomers=0
