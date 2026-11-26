@@ -1,0 +1,26 @@
+# gemaakt: 2026-11-26T12:59:49Z
+# workflow: Regisseur 28 (sale-Short in procesvorm #159: echte schermopname, grijs naar mooie render) (.github/workflows/regisseur-28.yml)
+# run: 45810164930 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45810164930
+# commit: bee54cdd tak regisseur-28-proef gestart door push
+# mislukte stappen: eind: eind.mp4 in de release
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== eind / eind.mp4 in de release (laatste 17 van 17 regels) =====
+##[group]Run sudo apt-get install -y -qq ffmpeg imagemagick >/dev/null
+sudo apt-get install -y -qq ffmpeg imagemagick >/dev/null
+ls /tmp/alle | wc -l
+ffmpeg -v error -framerate 30 -pattern_type glob -i '/tmp/alle/e_*.png' -c:v libx264 -preset slow -crf 15 -pix_fmt yuv420p /tmp/eind.mp4
+n=$(ls /tmp/alle/e_*.png | wc -l); for k in 1 $((n/2)) $n; do f=$(ls /tmp/alle/e_*.png | sed -n ${k}p); convert "$f" -resize 540x /tmp/eind-$k.jpg; done
+gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY" /tmp/eind.mp4 /tmp/eind-*.jpg
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-28
+  PRO_COMMIT_VOOR: a3c1ea1
+  GH_TOKEN: ***
+##[endgroup]
+E: Failed to fetch https://security.ubuntu.com/ubuntu/pool/main/p/pipewire/libspa-0.2-modules_1.6.2-1ubuntu1.2_amd64v3.deb  404  Not Found [IP: 91.189.91.83 443]
+E: Failed to fetch https://security.ubuntu.com/ubuntu/pool/main/p/pipewire/libpipewire-0.3-0t64_1.6.2-1ubuntu1.2_amd64v3.deb  404  Not Found [IP: 91.189.91.83 443]
+E: Failed to fetch https://security.ubuntu.com/ubuntu/pool/main/p/pipewire/libpipewire-0.3-common_1.6.2-1ubuntu1.2_all.deb  404  Not Found [IP: 91.189.91.83 443]
+E: Unable to fetch some archives, maybe run apt update or try with --fix-missing?
+##[error]Process completed with exit code 100.
