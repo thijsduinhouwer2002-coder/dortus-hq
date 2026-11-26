@@ -15,7 +15,7 @@ Install: in Blender 4.2 or newer, go to Edit > Preferences > Get Extensions, ope
 
 Open the panel: in the 3D viewport press N and open the Click Cuts tab.
 
-Your first split, in two clicks:
+Your first split:
 1. Under Your printer, pick your printer. Not in the list? Pick Custom size and type your bed size in mm (X, Y, Z).
 2. Click your model in the viewport. The panel shows its name and face count, for example "Statue: 500 faces".
 3. Click Split to fit. Click Cuts plans the cuts, cuts the model into parts that fit your bed, adds pins and pin holes, and engraves a part number on the cut faces. The result box says, for example, "8 parts, all fit the bed" and "12 pins, 0.20 mm clearance".
@@ -78,7 +78,7 @@ Split to fit does everything below in one click. Open More settings to change it
 
 2 Cuts: Make watertight (a closed copy, with Voxel (mm) for the detail). Plan cuts places the cut planes so every part fits with as few parts as possible. Each cut has its own row, for example Cut X (mm): drag or type to move it, or remove it with the X. Add cut: X, Y or Z adds one. Moved a cut? Click Split to fit again: your moved cuts are kept.
 
-3 Joints and numbers: Joint (Pins or Magnets). For pins: Pin diameter (mm) (default 5), Smaller pins on small faces (down to 3 mm, on by default) and Pin length (mm) (default 12; each hole is half this deep plus 0.3 mm). Clearance (mm) (default 0.20) and the fit test. Min. wall (mm), the least material around every hole (default 1.2). Engrave numbers: every cut face gets its part number and its neighbor, for example 3-5 on part 3 where it meets part 5, with Number depth (mm) (default 0.6). Split cuts again with these settings.
+3 Joints and numbers: Joint (Pins or Magnets). For pins: Pin diameter (mm) (default 5), Smaller pins on small faces (down to 3 mm, on by default) and Pin length (mm) (default 12; each hole is half this deep plus 0.3 mm). Clearance (mm) (default 0.20) and the fit test. Min. wall (mm), the least material around every hole (default 1.2). Engrave numbers: the cut faces get their part number and its neighbor, for example 3-5 on part 3 where it meets part 5, with Number depth (mm) (default 0.6). Split cuts again with these settings.
 
 4 Check and export: every part with its size and a color. Green: it fits the bed, is watertight and has enough wall around its holes. Orange: the wall around a hole is thinner than Min. wall. Red: too big for the bed, not watertight, or less than 0.8 mm of wall; the row says which. Colors: Per piece (every part its own color, pins in gold) or Check. Exploded view shows the parts a little apart, only in the viewport. Free cut. Notes from the last split (for example a joint to glue). STL or 3MF, Lay parts flat, Folder, and Export.
 

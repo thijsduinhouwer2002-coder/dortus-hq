@@ -40,7 +40,7 @@ Do parts lie flat for printing?
 Yes. Lay parts flat (on by default) turns every part on export so a flat face, usually a cut face, lies on the bed, if it still fits your printer. Otherwise the part keeps its own way up.
 
 A part is red. What now?
-The row in More settings, step 4 says why: too big (pick the right printer, or add a cut), not watertight (try Make watertight with a larger Voxel (mm)), or too little wall around a hole (a smaller pin or magnet, or a lower Min. wall (mm)). Orange means the wall around a hole is thinner than Min. wall (mm).
+The row in More settings, step 4 says why: too big (pick the right printer, or add a cut), not watertight (try Make watertight with a larger Voxel (mm)), or too little wall around a hole (a smaller pin or magnet, or a higher Min. wall (mm) so holes stay further from the edge). Orange means the wall around a hole is thinner than Min. wall (mm).
 
 Thin or hollow models?
 Some joints have no room for a pin or magnet; Click Cuts tells you which ones to glue.
