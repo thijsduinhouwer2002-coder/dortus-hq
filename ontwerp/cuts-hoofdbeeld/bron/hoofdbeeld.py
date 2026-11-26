@@ -94,6 +94,9 @@ def splits(ob):
     ob.select_set(True)
     inst = s.split_joints
     inst.printer = PRINTER
+    if os.environ.get("HB_VERBINDER"):  # MAGNET: magneetgaten in plaats van pennen (galerijbeeld Magnets, #137)
+        inst.verbinder = os.environ["HB_VERBINDER"]
+        inst.magneet = os.environ.get("HB_MAGNEET", "8x3")
     r = bpy.ops.split_joints.split_to_fit()
     voor.hide_set(False)
     stukken = sorted((o for o in s.objects if o.get("sj_stuk")), key=lambda o: o["sj_stuk"])
@@ -167,8 +170,52 @@ def uit_elkaar(stukken, verschuif):
     return d
 
 
+def zilver():
+    """Vernikkelde schijfmagneet."""
+    m = bpy.data.materials.new("zilver")
+    b = next(n for n in m.node_tree.nodes if n.type == "BSDF_PRINCIPLED")
+    b.inputs["Base Color"].default_value = srgb("D9DDE3")
+    b.inputs["Metallic"].default_value = 1.0
+    b.inputs["Roughness"].default_value = 0.16
+    return m
+
+
+def magneten(stukken, d, verschuif, mat):
+    """Een schijfmagneet in elk magneetgat (beide kanten van elke snede), net boven het snijvlak uit."""
+    n = 0
+    sjabloon = None
+    for o in stukken:
+        for g in json.loads(o.get("sj_gaten", "[]")):
+            if g.get("soort") != "magneet":
+                continue
+            t = g["diepte"] - 0.3
+            if sjabloon is None:
+                bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=g["pen_d"] / 2, depth=t)
+                sjabloon = bpy.context.active_object
+                bv = sjabloon.modifiers.new("afschuin", "BEVEL")
+                bv.width, bv.segments = 0.3, 2
+                sjabloon.data.materials.append(mat)
+                for p in sjabloon.data.polygons:
+                    p.use_smooth = abs(p.normal.z) < 0.99
+                mg = sjabloon
+            else:
+                mg = sjabloon.copy()
+                bpy.context.scene.collection.objects.link(mg)
+            rot = {0: Matrix.Rotation(math.pi / 2, 4, "Y"), 1: Matrix.Rotation(math.pi / 2, 4, "X"),
+                   2: Matrix.Identity(4)}[g["as"]]
+            uit = Vector((0, 0, 0))
+            uit[g["as"]] = g.get("teken", 1)
+            plek = Vector(g["p"]) + verschuif + d[o["sj_stuk"]] + uit * (float(os.environ.get("HB_MAG_UIT", "0.6")) - t / 2)
+            mg.matrix_world = Matrix.Translation(plek) @ rot
+            mg["hb_pen"] = 1
+            n += 1
+    return n
+
+
 def pennen(stukken, d, verschuif, mat):
     """Een gouden pen op elk gatenpaar, halverwege tussen de twee stukken in de uiteengetrokken stand."""
+    if any(g.get("soort") == "magneet" for o in stukken for g in json.loads(o.get("sj_gaten", "[]"))):
+        return magneten(stukken, d, verschuif, zilver())
     gezien = set()
     n = 0
     sjabloon = None

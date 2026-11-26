@@ -58,3 +58,18 @@ python3 bron/tekst_nummer_paard.py render-paard.png nummer-paard.json render-naa
 Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-nummer-paard.json`, GESLAAGD: Gemini 2,0, ChatGPT 1,5 (`organisatie/blindtest/uitslag/click-cuts-galerij-nummer-paard-2026-11-26-0200.md`). Het oude `nummer-*` haalde 2,0 en 2,0.
 
 **M1 van Daan (#129), 26 nov ±03:41:** de zin links is nu "Cut faces get pin holes where a pin fits, and an engraved part number, like 5-9 where part 5 meets part 9." (de add-on zet geen pen waar er geen past en meldt dan "Glue this joint"). De renders waren niet bewaard, dus `bron/tekst_nummer_paard_m1.py` haalde de oude zin uit beide jpg's (inpainten op het donkere verloop) en zette de nieuwe erin met dezelfde letters (Inter, 44 Medium, 740 breed), plek en schaduw; paard en kaart zijn ongewijzigd. `bron/tekst_nummer_paard.py` heeft de nieuwe zin voor een volgende render. Geen nieuwe blinde test nodig (Daan).
+
+## Beeld "Magnet holes in every cut" (`beelden/magneet-*`, 26 nov ±05:40, issue #137)
+Waarom: Click Cuts 1.0.0 heeft magneetgaten (#117, Daan ja #131); Cleave zet Magnets in titel en galerij, onze galerij toonde alleen pennen. Zelfde opzet als "Numbered for assembly" met het hele paard (GESLAAGD).
+
+**Midden:** het paard (Poly Haven, CC0) gesneden door de echte knop Split to fit met Joint: Magnets, maat 6x2 (de standaard van de add-on; zip van main op 69f3cf2, A1): 12 stukken, alle groen, uit elkaar zoals het hoofdbeeld, met een zilveren schijfmagneet in elk magneetgat (GEZIEN, `beelden/magneet-paard.json`). **Rechts:** kaart met de naad 5-9 van dichtbij: een magneet in het gat van stuk 5 en het gegraveerde 5-9 (gat 6,2 mm, magneet 6 mm; GEZIEN, `beelden/magneet-macro.json`). Alleen voor het beeld: de magneten zelf (de add-on maakt de gaten; de koper koopt de magneten, dat staat ook op het beeld). Renders, geen foto van een print.
+
+`hoofdbeeld.py` kreeg HB_VERBINDER en HB_MAGNEET (zonder: pennen zoals altijd) en zilveren magneten in `pennen()` (HB_MAG_UIT: hoeveel mm de magneet uit het vlak steekt); `snijvlak.py` zet bij magneetgaten een magneet in het gat (SV_MAG_UIT), kent SV_X1 en schrijft `pennen_beeld` in de json.
+```
+HB_VERBINDER=MAGNET HB_MAGNEET=6x2 HB_MAG_UIT=0.8 HB_UIT=0.42 HB_UIT_Z=0.8 NP_STUK=5 NP_BUUR=9 NP_X0=0.38 NP_X1=0.66 \
+  blender -b --factory-startup --python bron/nummer_paard.py -- ../cuts-hoofdbeeld/bron/hoofdbeeld.py <click_cuts.zip> <modelmap> render-paard.png magneet-paard.json 48 100
+HB_VERBINDER=MAGNET HB_MAGNEET=6x2 SV_STUK=5 SV_BUUR=9 SV_LEEG=0 SV_MAG_UIT=0.8 SV_N_GAT=1 SV_RAND=9 SV_F=8 SV_BUUR_IN_BEELD=0 SV_X0=0.05 SV_Y0=0.05 SV_HOOG=1.0 SV_DRAAI=0.4 SV_LENS=100 \
+  blender -b --factory-startup --python bron/snijvlak.py -- ../cuts-hoofdbeeld/bron/hoofdbeeld.py <click_cuts.zip> <modelmap> render-macro.png magneet-macro.json 64 100
+KT_X=1600 KT_B=700 MG_CX=0.39 python3 bron/tekst_magneet.py render-paard.png magneet-paard.json render-macro.png magneet-macro.json beelden <fonts> ../../producten/blender-splitser/merk/icoon.svg
+```
+Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-magneet.json`, zelfde concurrenten als "Numbered for assembly".

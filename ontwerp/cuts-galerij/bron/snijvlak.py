@@ -96,24 +96,26 @@ def main():
     gat_mm = float(os.environ.get("SV_GAT", "150"))
     bu.location = n * gat_mm
     # pennen: half in de gaten van het stuk, één gat leeg
-    mat = goud()
+    mag = v["gaten"][0].get("soort") == "magneet"  # galerijbeeld Magnets (#137): schijfmagneet, net boven het vlak uit
+    mat = zilver() if mag else goud()
     leeg = int(os.environ.get("SV_LEEG", "1"))
     gs = sorted(v["gaten"], key=lambda g: -Vector(g["p"]).dot(Vector((1, -1, 0))))
     pens = []
     for i, g in enumerate(gs):
         if i < leeg:
             continue
-        lengte = 2 * g["diepte"]
-        bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=g["pen_d"] / 2, depth=lengte)
+        lengte = (g["diepte"] - 0.3) if mag else 2 * g["diepte"]
+        bpy.ops.mesh.primitive_cylinder_add(vertices=64, radius=g["pen_d"] / 2, depth=lengte)
         pen = bpy.context.active_object
         bv = pen.modifiers.new("afschuin", "BEVEL")
         bv.width, bv.segments = 0.5, 3
         pen.data.materials.append(mat)
         for p in pen.data.polygons:
-            p.use_smooth = True
+            p.use_smooth = (abs(p.normal.z) < 0.99) if mag else True
         rot = {0: (0, math.pi / 2, 0), 1: (math.pi / 2, 0, 0), 2: (0, 0, 0)}[g["as"]]
         pen.rotation_euler = rot
-        pen.location = Vector(g["p"]) + n * (lengte * 0.5 - g["diepte"] + 0.0)
+        pen.location = Vector(g["p"]) + n * ((float(os.environ.get("SV_MAG_UIT", "0.6")) - lengte * 0.5) if mag
+                                             else (lengte * 0.5 - g["diepte"]))
         pen["hb_pen"] = 1
         pens.append(pen)
     # draai alles zodat het snijvlak naar de camera kijkt (de studiowand staat aan de +Y-kant)
@@ -197,7 +199,7 @@ def main():
     bpy.context.view_layer.update()
     kz = os.environ.get("SV_KADER")
     objs = [st] if kz == "stuk" else ([st, bu] if kz == "beide" else [kader] + pens)
-    xb = (float(os.environ.get("SV_X0", "0.44")), 0.97)
+    xb = (float(os.environ.get("SV_X0", "0.44")), float(os.environ.get("SV_X1", "0.97")))
     cam = camera(objs, richting, xb, (float(os.environ.get("SV_Y0", "0.06")), 0.96),
                  lens=float(os.environ.get("SV_LENS", "85")))
     cam.data.dof.use_dof = True
@@ -214,10 +216,11 @@ def main():
     meta = {"model": "Horse Statue 01, Poly Haven, CC0", "printer": PRINTER, "stukken": len(stukken),
             "stuk": st["sj_stuk"], "buur": bu["sj_stuk"], "label": v["label"]["tekst"],
             "label_hoogte_mm": round(v["label"]["h"], 1), "label_diepte_mm": st.get("sj_label_diepte_mm"),
-            "gaten_op_vlak": len(v["gaten"]), "pen_d_mm": v["gaten"][0]["pen_d"],
+            "gaten_op_vlak": len(v["gaten"]), "pen_d_mm": v["gaten"][0]["pen_d"], "magneet": v["gaten"][0].get("magneet"),
             "speling_mm": round(v["gaten"][0]["r_gat"] - v["gaten"][0]["pen_d"] / 2, 2),
             "status": [st.get("sj_status"), bu.get("sj_status")],
-            "label_beeld": [lp.x, 1 - lp.y], "vak_stuk": vak([st]), "vak_buur": vak([bu])}
+            "label_beeld": [lp.x, 1 - lp.y],
+            "pennen_beeld": [[q.x, 1 - q.y] for q in (world_to_camera_view(s, cam, pp.matrix_world.translation) for pp in pens)], "vak_stuk": vak([st]), "vak_buur": vak([bu])}
     with open(META_JSON, "w") as f:
         json.dump(meta, f, indent=1)
     log("meta", json.dumps(meta))
