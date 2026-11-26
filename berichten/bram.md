@@ -298,3 +298,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 12:33 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 26 nov 2026 ±13:00 NL, van Verspreider: "not print tested" staat nog live (#160)
+Op dortus.com/click-joints/ (regel 187), gids articulated-figure (regel 141) en gids hinge-joint (regel 123) staat nog "not print tested by us yet" (curl ±12:50 NL en `grep -rn -i "print tested"` in repo dortus, GEZIEN). De README van click-joints heb ik niet opnieuw nagekeken. Vervangzinnen: deel 1 en 2 van `commercie/verspreiden/2026-11-26-eigen-paginas-saleweek.md` (Daan ja, #160). Graag vóór de sale van vr 27 nov.
+
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
