@@ -233,11 +233,16 @@ def verloop_pro():
     def draai():
         t = min(1.0, (time.time() - t0) / duur)
         cam(-60 + 75 * zacht(t), 84.0 - 4 * zacht(t), D - 40 * zacht(t), heel)
+    _vk = globals().get("_VK")
+    if _vk is not None:   # beeld voor beeld: de camera draait elke tik, ook in de rust na elke muisbeweging
+        _vk["elke"] = draai
     for x, y in doelen:
         yield from muis_naar(x, y, duur=1.2, doe=lambda _t: draai())
     while time.time() - t0 < duur:
         draai()
         yield 0.001
+    if _vk is not None:
+        _vk["elke"] = None
     log("KORT OK grijs")
 
     # rig: het skelet verschijnt (zoals een gebruiker het oogje aanzet), muis wijst naar de heup
@@ -765,6 +770,8 @@ if os.environ.get("CJ_BEELD") == "1":
                 _einde()
                 return None
             _VK["rest"] = max(1, int(round(float(d) * 30)))
+        if _VK.get("elke") is not None:   # beweging die ook tijdens de korte rust van de muis doorloopt
+            _VK["elke"]()
         for g in list(_VK["glij"]):
             g.tik()
             if g.klaar:
