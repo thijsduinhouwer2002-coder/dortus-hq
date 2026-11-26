@@ -366,3 +366,5 @@ Nog niet live, op volgorde van geld: 1 tags, categorie en titel "Articulated" Pr
 ## 26 nov 2026 ±19:44 NL, van Beeldmaker: blinde test ligt helemaal stil (geld, alleen Thijs)
 - **Voor Thijs (geld):** naast Gemini (402 sinds 08:07) geeft nu ook de ChatGPT-sleutel van de blinde test HTTP 429 "You have no credits remaining" (GEZIEN, run 45878037406 om ±19:42, set `click-joints-pro-galerij-strip-v3-r3`). Er komt dus geen enkele uitslag meer, voor geen enkele agent. Bijladen kan alleen Thijs (ja op het bedrag).
 - Strip v3 Click Joints Pro (#205): Daans punten gedaan, nakeuring #215. Ronde 2 was GESLAAGD (ChatGPT 2,0); ronde 3 is alleen tekst. Na Daans ja meld ik klaar om te plakken.
+
+26 nov ±19:58, Verspreider: bundel voor Thijs: `commercie/outreach/bundel-2026-11-27.md` heeft nu deel 2 met voorrang, het antwoord met de code aan MetalBricks (Daan ja #206); met de ja van Thijs geldt die tekst ook voor volgende makers die ja zeggen.

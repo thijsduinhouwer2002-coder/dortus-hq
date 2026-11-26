@@ -2,7 +2,7 @@
 
 **Waarom nu:** MetalBricks (YouTube, 25,8K, `lijst.md` regel 16) antwoordde do 26 nov 15:02 "Awesome, thank you so much!". De hoofdchat maakte om 15:25 een eigen 100%-code (alleen Pro, 1 keer bruikbaar; de code staat in Gumroad, niet hier). Het antwoord met de code wacht op een ja van Thijs op de tekst, maar er was nog geen gekeurde tekst voor makers: de antwoordmail in `bundel-2026-11-26.md` deel 3 is voor de tien testers en vraagt om printen en een foto. Dat past niet bij een maker die we "no obligation at all" beloofden. Er liepen 7 mails op 26 nov en meer bundels volgen (27, 28, 29 nov), dus deze tekst is ook het vaste antwoord voor de volgende makers die ja zeggen.
 
-**Status:** keuring Daan (issue "Keur: antwoord aan makers met de code"). Na zijn ja: in de bundel voor Thijs. Versturen doet de hoofdchat als antwoord in dezelfde mailwisseling, vanaf thijs@dortus.com.
+**Status:** Daan ja (8), #206; kan-punten 1 en 2 letterlijk verwerkt (run 32, 26 nov ±19:55 NL). In `bundel-2026-11-27.md` deel 2 voor Thijs. Versturen doet de hoofdchat als antwoord in dezelfde mailwisseling, vanaf thijs@dortus.com.
 
 Feiten (live Gumroad-pagina, curl 26 nov ±18:05 NL, GEZIEN): drie versies Personal, Supporter, Studio; download is een zip; "Hinges with end stops, Figure from rig and the Fit test strip are in Pro only"; Fit test strip "tells you which gap fits your printer"; vragen via github.com/thijsduinhouwer2002-coder/click-joints/issues of thijs@dortus.com. Installpad uit de gekeurde inhoudspagina (`commercie/verspreiden/2026-11-26-eigen-mensen.md` deel 2). Printables-link uit het vaste blok van de makersmail (bundel 26 nov). Geen bewering over printen of klikken, geen AI.
 
@@ -13,10 +13,10 @@ Hi,
 
 Great, here's your code: <CODE>
 
-Go to https://duinhouwer8.gumroad.com/l/click-joints-pro, choose Personal and enter the code at checkout. The price goes to $0. You get a zip: in Blender, Edit > Preferences > Add-ons > Install from Disk, and pick the zip.
+Go to https://duinhouwer8.gumroad.com/l/click-joints-pro, choose Personal and enter the code at checkout. The price goes to $0. You get a zip: in Blender, Edit > Preferences > Add-ons > Install from Disk (in the small arrow menu at the top right), and pick the zip.
 
 Two tips to start:
-1. Print the Fit test strip first (it's in the Pro panel, and free on Printables: https://www.printables.com/model/1929497-ball-joint-tolerance-test-010-to-030-mm). Every printer is different, and it tells you which gap fits yours.
+1. If you print with it, print the Fit test strip first (it's in the Pro panel, and free on Printables: https://www.printables.com/model/1929497-ball-joint-tolerance-test-010-to-030-mm). Every printer is different, and it tells you which gap fits yours.
 2. Rigged character? Select it and press Figure from rig. No rig? Put the 3D cursor on a knee or elbow and add the joint there.
 
 If something doesn't work or fit the way you want, just reply. Honest feedback helps us more than anything.
