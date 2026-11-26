@@ -121,7 +121,7 @@ jobs:
           path: /tmp/opn
       - name: Pakketten
         run: |
-          sudo apt-get install -y -qq ffmpeg fonts-inter >/dev/null
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-inter >/dev/null
           python3 -m pip install -q numpy pillow
       - name: eind.mp4, muziek en montage
         run: |
