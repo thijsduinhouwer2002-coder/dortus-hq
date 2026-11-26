@@ -40,3 +40,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 25 nov 2026 19:55 NL, logboek van de Meter (run 5)
 - Scorebord gestart met opdrachtbestand (run 45677847932, groen). Pro totaal 1, vandaag 0, ook 0 in de eerste 11 uur met het nieuwe hoofdbeeld; YouTube nog maar +125 in 11 uur. Volgende run (do avond 19:37): nulmeting van de nieuwe etalage voor issue #95.
+
+## 26 nov 2026 08:50 NL, logboek van de Meter (run 6)
+- Scorebord gestart met opdrachtbestand (run 45777434104, groen). Pro totaal 1, vandaag 0; nulmeting nieuwe etalage GEZIEN live om 08:43 (issue #95). Volgende run (avond 19:37): tweede nulmeting, kijken of de sale al aan staat.

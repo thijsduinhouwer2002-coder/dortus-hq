@@ -1,5 +1,15 @@
 # Stand van de Meter
 
+**do 26 nov 2026, 08:50 NL** (scorebord-run 45777434104, 07:45 UTC)
+- Verkopen Pro vandaag 0, totaal 1 ($19, 22 nov UTC, herkomst direct) (GEZIEN, Gumroad /v2/sales). CYBER25 en de 11 makerscodes 0 keer gebruikt; Superhive geen verkoopblok, dus onder 10 (GEZIEN).
+- Nulmeting nieuwe etalage (issue #95), GEZIEN met curl om 08:43: zoektitel "Click Joints Pro - Poseable 3D Print Figures from Your Rig (Hinges with End Stops, Ball Joints, Fit Test Strip)" live op Gumroad en Superhive, "Try it free first" in beide teksten, Superhive noemt 1.2.8, Gumroad $19 (sale nog niet aan). Alles vóór do 26 nov telt als oude etalage: 1 verkoop in 5 dagen (22 t/m 26 nov) (GEZIEN).
+- Groeit: Blender gratis 400 downloads, +7 sinds gisteravond, +149 in 7 dagen (GEZIEN). Bison & Flex 39 naar 40 (GEZIEN).
+- Groeit niet: YouTube 7.629 naar 7.708, +79 in 13 uur (GEZIEN, RSS); geen filmpje groeit meer dan +26. TikTok 1.309, 4 dagen gelijk; Kit 0, Discord 2 (GEZIEN).
+- dortus.com gisteren hele dag 3 bezoeken, geen verwijzer (GEZIEN, Amami); vandaag tot 08:44 4 bezoeken, 1 via bing.com, 0 op /click-joints (GEZIEN). Koopknop op /click-joints nog zonder utm (GEZIEN, curl 08:45).
+- Opvallend: door de nieuwe titel ziet het scorebord Pro als nieuw product ("gisteren geen meting"); het totaal klopt wel (1, $19). Zonder nieuwe filmpjes is het verkeer bijna nul: de sale van morgen met de sale-Shorts is de eerste echte toets.
+
+## Eerdere standen
+
 **wo 25 nov 2026, 19:55 NL** (scorebord-run 45677847932, 18:43 UTC)
 - Verkopen Pro vandaag 0, totaal 1 ($19, 22 nov UTC, herkomst direct) (GEZIEN, Gumroad /v2/sales). CYBER25 en de makerscodes 0 keer gebruikt; Superhive geen verkoopblok, dus onder 10 (GEZIEN).
 - Nieuw hoofdbeeld live sinds 08:45: in 11 uur 0 verkopen en 0 bezoeken op /click-joints (GEZIEN). Te kort en te weinig verkeer om iets over de cover te zeggen.
@@ -7,8 +17,6 @@
 - Groeit niet: YouTube totaal 7.504 naar 7.629, +125 in 11 uur; gisteren ruim +2.000 per dag (GEZIEN, RSS). De Shorts van 22 en 23 nov zijn uitgedoofd. TikTok 1.309, 3 dagen gelijk; Bison & Flex 39, Kit 0 (GEZIEN).
 - dortus.com vandaag tot 19:43: 3 bezoeken (voorpagina 1, overig 2), geen verwijzer (GEZIEN, Amami). Gisteren 12.
 - Opvallend: zonder nieuwe filmpjes of posts zakt het verkeer naar bijna nul; de sale van vr 27 nov met de 2 sale-Shorts wordt de eerste echte meting van de nieuwe etalage (issue #95). utm-koopknoppen nog steeds niet live (GEZIEN, curl 19:45).
-
-## Eerdere standen
 
 **wo 25 nov 2026, 08:50 NL** (scorebord-run 45569880880, 07:46 UTC)
 - Verkopen Pro vandaag 0, totaal 1 ($19, 22 nov UTC, herkomst direct, geen code, geen utm) (GEZIEN, Gumroad /v2/sales). Gratis op Gumroad 0; Superhive geen verkoopblok, dus onder 10 (GEZIEN).
