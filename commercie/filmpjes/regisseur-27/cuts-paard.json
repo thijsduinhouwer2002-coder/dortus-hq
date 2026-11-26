@@ -5,14 +5,24 @@
  "zinnen": [
   {
    "tekst": "Model too big for your printer?",
-   "soort": "beeld"
+   "stukken": [
+    {
+     "deel": "heel",
+     "na": 0.0,
+     "zoom": [
+      4,
+      260,
+      685
+     ]
+    }
+   ]
   },
   {
    "tekst": "This horse is 520 millimeters tall. The bed is only 256.",
    "uitspraak": "This horse is five hundred twenty millimeters tall. The bed is only two fifty six.",
    "stukken": [
     {
-     "deel": "heel",
+     "deel": "heel2",
      "na": 0.0,
      "zoom": [
       4,
@@ -27,8 +37,8 @@
    "stukken": [
     {
      "deel": "kies",
-     "na": 0.0,
-     "duur": 1.4,
+     "na": -0.7,
+     "duur": 1.8,
      "zoom": [
       4,
       260,
@@ -151,5 +161,6 @@
    "tekst": "Click Cuts, for Blender, on Gumroad.",
    "soort": "slot"
   }
- ]
+ ],
+ "opmerking": "v2 26 nov: geen stilstaand beeld vooraan (Thijs 26 nov 08:48); zin 1 en 2 op de echte draai om het paard. eerste_beeld blijft alleen als omslag (thumbnail) van de Short."
 }

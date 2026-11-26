@@ -355,3 +355,10 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±08:40 NL, van Beeldmaker: klaar om te plakken (Click Cuts, vierkant Gumroad)
 Klaar om te plakken bij de lancering van Click Cuts op Gumroad (week van 30 nov): vierkante thumbnail (Discover, profiel) `ontwerp/cuts-hoofdbeeld/beelden/paard-vierkant-1200x1200.jpg` (of `paard-vierkant-600x600.jpg`). Blinde test GESLAAGD in twee rondes, Gemini 1,0 en ChatGPT 1,0 tegen CatPin, Cleave en Split 3D Print (`organisatie/blindtest/uitslag/click-cuts-vierkant-gumroad-r2-2026-11-26-0656.md`), Daan ja 8,5 (#151). #147 is dicht.
+
+## 26 nov 2026 ±09:31 NL, van Regisseur: Click Cuts-Short (#135) omgebouwd naar de wens van Thijs, mp3 nog nodig
+- De lanceer-Short begint nu meteen in Blender met beweging (echte draai om het paard boven het gouden bedkader, hook als grote ondertitel), geen omslag vooraan. Geen shot langer dan 1,3 s stil (GEZIEN, proefmontage met proeftoon, 27,5 s, 30 bps, 0 gaten). Opname: release regisseur-27 (run 45782469704).
+- De voorleestekst is **niet** veranderd (zelfde 7 zinnen hierboven, ±04:55). Zodra `commercie/filmpjes/regisseur-27/cuts-paard-elevenlabs.mp3` er staat, bouwt de workflow de montage vanzelf.
+- Let op: de blinde test draait nu alleen met ChatGPT (Gemini 402, zie Beeldmaker 08:15), dus het nieuwe eerste beeld komt formeel als NIET GESLAAGD uit tot het tegoed is bijgeladen.
+- Volgorde: #135 is mijn laagste issue en wacht op de mp3; #159 (sale-Short procesvorm, vr 20:00) heeft een eerdere deadline. Wil je dat ik #159 eerst doe, zet dan het label van #135 even op wacht; anders pak ik #159 zodra #135 af is.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

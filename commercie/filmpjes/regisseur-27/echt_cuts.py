@@ -152,6 +152,23 @@ def wiel(knop, keer, tussen=0.07):
         yield tussen
 
 
+def zweef(s, r=55):
+    """Wachten zoals een mens: de hand rust niet, de muis drijft in kleine bogen rond de plek waar hij was
+    (wens Thijs 26 nov 08:48: geen shot langer dan ±2 s zonder beweging)."""
+    t0 = time.time()
+    x0, y0 = MUIS["x"], MUIS["y"]
+    k = 0
+    while True:
+        rest = s - (time.time() - t0) - 0.12
+        if rest < 0.3:
+            break
+        d = min(0.95, rest)
+        hoek = 2.1 * k + 0.6
+        yield from muis_naar(x0 + r * math.cos(hoek), y0 + 0.6 * r * math.sin(hoek), duur=d, boog=0.8)
+        k += 1
+    yield from wacht(max(0.0, s - (time.time() - t0)))
+
+
 def sleep_middel(dx, dy, duur):
     """Weergave draaien zoals een gebruiker: middelste muisknop vast, muis rustig opzij, los."""
     xdo("mousedown", "2")
@@ -320,9 +337,15 @@ def verloop():
     film["metingen"]["zijbalk"] = rect("UI")
     film["metingen"]["weergave"] = rect("WINDOW")
 
-    # 1. stil beeld: paard steekt ver boven het bed uit
+    # 1. vanaf seconde 0 beweging (Thijs 26 nov): de gebruiker draait de weergave rustig om het paard heen, dat ver
+    #    boven het gouden kader van het bed uitsteekt; daarna draait hij terug naar de voorkant
+    w = rect("WINDOW")
+    yield from muis_naar(w[0] + w[2] // 2 - 110, w[1] + w[3] // 2 + 150, duur=0.4)
     deel("heel")
-    yield from wacht(2.5)
+    yield from sleep_middel(220, 0, 2.6)
+    deel("heel2")
+    yield from sleep_middel(-220, 0, 2.4)
+    yield from zweef(1.2)
 
     # 2. klik het paard
     p = scherm_punt((0, 0, HOOGTE * 0.55)) or (540, 900)
@@ -335,7 +358,7 @@ def verloop():
         log("KORT vangnet: paard niet gekozen door de klik")
         paard.select_set(True)
         bpy.context.view_layer.objects.active = paard
-    yield from wacht(1.2)
+    yield from zweef(1.2, r=35)
 
     # 3. printer kiezen in de lijst (Blender opent de lijst met de huidige keus onder de muis)
     inst = bpy.context.scene.split_joints
@@ -367,7 +390,7 @@ def verloop():
         inst.printer = "A1"
         herteken()
     film["metingen"]["printer"] = inst.printer
-    yield from wacht(0.8)
+    yield from zweef(0.8, r=30)
 
     # 4. Split to fit
     q = yield from zoek("Split to fit")
@@ -395,14 +418,14 @@ def verloop():
     film["metingen"]["pennen"] = pennen
     log(f"KORT split {len(stukken)} stukken, {film['metingen']['groen']} groen, {pennen} pennen, "
         f"{film['metingen']['split_s']} s")
-    yield from wacht(2.0)
+    yield from zweef(2.0, r=45)
 
     # 5. draaien met de middelste muisknop
     w = rect("WINDOW")
     yield from muis_naar(w[0] + w[2] // 2, w[1] + w[3] // 2)
     deel("draai")
     yield from sleep_middel(-260, 20, 2.2)
-    yield from wacht(1.0)
+    yield from zweef(1.0, r=40)
 
     # 6. More settings open, scrollen naar de lijst met delen
     q = yield from zoek("More settings")
@@ -423,7 +446,7 @@ def verloop():
         yield from wiel("5", 3, 0.09)
         yield from wacht(0.25)
     deel("lijst_onder")
-    yield from wacht(2.5)
+    yield from zweef(2.5, r=40)
 
     # 7. dichtbij: klik het bovenste stuk (het hoofd), lokale weergave (numpad /), draai naar het snijvlak met
     #    pengaten en nummer, en zoom met het wiel in
@@ -489,7 +512,7 @@ def verloop():
             yield from wiel("4", 1, 0.08)
             yield from wacht(0.25)
         deel("zoom_dicht")
-        yield from wacht(3.0)
+        yield from zweef(3.0, r=50)
     deel("eind")
     yield from wacht(1.0)
     with open(os.path.join(MAP, "film.json"), "w") as f:
