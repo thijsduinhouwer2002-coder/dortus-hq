@@ -427,6 +427,11 @@ func _init() -> void:
 	ok(absf(u.kans_erbij("slijm") - 0.21) < 0.0001, "stap 4 tot 6: geen extra kans (wrok blijft)")
 	ok(u.kost("slijm") == 95 and u.koop("slijm", 95) == 0 and u.kost("slijm") == 115 and u.koop("slijm", 115) == 0 and u.goud_erbij() == 6, "stap 5 en 6: 95 en 115, samen +6 goud")
 	ok(u.kost("slijm") == -1 and u.volgende("slijm").is_empty() and u.beeld_niveau("slijm") == 3, "na zes stappen alles gekocht, beeld blijft stap 3")
+	# #162: stap 4 tot 6 zie je aan gouden stenen (systemen/stap_teken.gd): 0 tot stap 3, dan 1, 2, 3; rij gecentreerd
+	var stt = load("res://systemen/stap_teken.gd")
+	ok(stt.aantal(0) == 0 and stt.aantal(3) == 0 and stt.aantal(4) == 1 and stt.aantal(5) == 2 and stt.aantal(6) == 3 and stt.aantal(9) == 3, "stenen per stap: 0,0,1,2,3 (#162)")
+	ok(is_equal_approx(stt.plek(0, 1), 0.0) and is_equal_approx(stt.plek(0, 3), -stt.plek(2, 3)) and stt.plek(1, 2) - stt.plek(0, 2) >= stt.HALF * 2.0, "stenen gecentreerd en raken elkaar niet (#162)")
+	ok(stt.plek(2, 3) + stt.HALF <= 8.0, "drie stenen passen in een putkolom van 16 (#162)")
 	ok(u.verkoop("slijm") == 115 and u.verkoop("slijm") == 95 and u.verkoop("slijm") == 75 and u.verkoop("slijm") == 70 and u.niveau("slijm") == 2, "weghalen geeft de volle prijs terug")
 	var up_put = load("res://systemen/upgrades.gd").new()
 	for i in 3:

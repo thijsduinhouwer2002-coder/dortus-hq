@@ -21,7 +21,9 @@ const SOORTEN := ["slijm", "stekelput"]
 const MAX_NIVEAU := 6
 # Olaf 26 nov (#145, Iris aandacht 7): na de zesde koop (±11 min) was er 4 tot 9 min niets te kopen. Daarom per soort
 # stap 4, 5 en 6, alleen getallen, geen nieuwe kunst: het beeld blijft dat van stap 3 (beeld_niveau()) en het koopmoment
-# (wip van Gloop, schudden van de put, kroniekregel) is hetzelfde. Elk +2 goud per vangst (GOUD_STAP), geen extra
+# (wip van Gloop, schudden van de put, kroniekregel) is hetzelfde.
+# Olaf 26 nov (#162, Iris 499fd9f punt 1): wel blijvend te zien, per stap boven 3 één gouden steen voor Gloop en op elke put
+# (systemen/stap_teken.gd), dus stap 4, 5 en 6 tel je af aan 1, 2 en 3 stenen. Elk +2 goud per vangst (GOUD_STAP), geen extra
 # kans (dan ontsnapte bijna niemand meer, wrok weg); Sticky Gloop ligt ook maar 15 s plat. Prijs hoger dan stap 3.
 const BEELD_MAX := 3
 const BASIS := 45.0   # Sanne 10 nov 01:50 (balans.md): 45, 126, 353; was 60

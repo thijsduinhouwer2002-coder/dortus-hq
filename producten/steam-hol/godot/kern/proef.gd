@@ -38,13 +38,13 @@ static func lees_argumenten(s) -> void:
 			"drukte": s.proef_drukte = kv[1] == "1"   # Mila 16 nov: drie helden tegelijk in de winkelopname week
 			"deco_proef": s.proef_deco = kv[1] == "1"
 			"royal_proef": s.proef_royal = kv[1] == "1"
-			"slijm_proef": s.set_meta("slijm_proef", clampi(int(kv[1]), 0, 3))   # Mila 26 nov (Daan #112): Gloop meteen op die stap (2 = Bouncy, op de veren), voor de film van de veer
+			"slijm_proef": s.set_meta("slijm_proef", clampi(int(kv[1]), 0, 6))   # Mila 26 nov (Daan #112): Gloop meteen op die stap (2 = Bouncy, op de veren), voor de film van de veer; Olaf 26 nov (#162) tot stap 6
 			"graaf_proef": s.proef_graaf = kv[1] == "1"
 			"laars_proef": s.proef_laars = kv[1] == "1"
 			"plat_proef": s.proef_plat = kv[1] == "1"   # Daan 16 nov 20:35: Gloop plat zonder regel, om te keuren of hij zonder tekst leest
 			"spuug_proef": s.proef_spuug = clampi(int(kv[1]), 0, 3)
 			"moment": s.proef_moment = kv[1] if kv[1] in ["hap", "val", "munt"] else ""
-			"put_proef": s.proef_put = clampi(int(kv[1]), 0, 3)
+			"put_proef": s.proef_put = clampi(int(kv[1]), 0, 6)   # tot stap 6 (#162)
 			"figuur": s.proef_figuur = clampf(float(kv[1]), 0.5, 2.0)
 			"uit3d": s.proef_uit3d = kv[1].split(",", false)
 

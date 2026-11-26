@@ -30,6 +30,9 @@ const HOL3D := preload("res://hol/hol_3d.gd")
 var met_3d := true
 # Het vaste deel van het hol in een eigen beeld (hol/hol_vast.gd). Uit = elk beeld alles opnieuw, zoals voor 13 nov.
 const HOLVAST := preload("res://hol/hol_vast.gd")
+const STAP_TEKEN := preload("res://systemen/stap_teken.gd")   # stap 4 tot 6: gouden stenen op de put (#162)
+const STAP_STENEN := preload("res://systemen/stap_stenen.gd")
+var _stenen: Node2D = null
 var met_vast := true   # alleen een testschakelaar: uit = geen gemeten bovenrand, dan is het gras op Windows weg (strook.gd muisvlak)
 var deco_proef := false      # deco_proef=1 (strook.gd): vaste versiering in de gang om op te keuren, niet in het echte spel
 var vast
@@ -455,6 +458,16 @@ func _draw() -> void:
 			draw_texture_rect_region(PUT_UPG, Rect2(k * KOL + sx, vloer - 7 + sy, KOL, 8), Rect2(f * KOL, (put_niv - 1) * 8, KOL, 8))
 		else:
 			draw_texture_rect_region(PUT, Rect2(k * KOL + sx, vloer - 7 + sy, KOL, 8), Rect2(f * KOL, 0, KOL, 8))
+	# stap 4 tot 6 (#162): per stap boven Trick Lid één gouden steen op het luik, schudt mee met de koop
+	var put_tekens: int = STAP_TEKEN.aantal(upgrades.niveau("stekelput")) if upgrades != null else 0
+	var put_plekken := []
+	for k in (vallen if put_tekens > 0 else {}):
+		if vallen[k] == "stekelput":
+			put_plekken.append(Vector2(k * KOL + KOL / 2.0 + sx, GANG_ONDER - 1 + put_schok(k)))
+	if put_tekens > 0 or _stenen != null:
+		if _stenen == null:
+			_stenen = STAP_STENEN.maak(self)   # eigen laag: alleen opnieuw tekenen als er iets aan verandert (CPU)
+		_stenen.zet(put_plekken, put_tekens)
 	# stofwolkje van de val, voor de put (Olaf 15 nov, juice 5)
 	for k in val_stof:
 		for st in stof_stofjes(k):

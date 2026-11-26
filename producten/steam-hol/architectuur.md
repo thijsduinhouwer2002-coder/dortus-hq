@@ -22,6 +22,7 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 | Tekstvak | `kern/tekst.gd` | Olaf | goud, laatste regel, paneel bij hover |
 | Regels | `kern/regels.gd` | Olaf | voorraad korte regels per soort (aangevuld uit `systemen/kroniek_regels.gd`), schudzak, max 42 tekens; `vul` vult {naam}, {held}, {oud} en {ouder} (die laatste uit de naam via `namen.gd`) |
 | Hol | `hol/hol.gd` | Olaf | raster, graven, put, schat, munten, tekenen |
+| Stap-tekens | `systemen/stap_teken.gd` | Olaf | stap 4 tot 6 zichtbaar (#162): per stap boven 3 één gouden steen, voor Gloop (`slijm.gd`) en op elke put (`hol.gd`); stilstaand, alleen getekend als er toch getekend wordt; toets in `toets_systemen.gd` |
 | Systemen | `systemen/*.gd` | Bram | held, slijm (Gloop), kroniek, upgrades, voortgang; toetsen in `systemen/toetsen/` |
 | Kunst | `kunst/` | Daan, Mila | plaatjes |
 

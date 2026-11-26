@@ -12,6 +12,15 @@ const LEVEN := preload("res://kunst/slijm_leven.png")   # 16 x 16: slapen 0-1, s
 # Big Gloop (niveau 1+): eigen bladen, lijf 1 spelpixel groter rondom getekend (niet geschaald), zelfde indeling en frames.
 const RUST_GROOT := preload("res://kunst/slijm_groot2.png")    # frames 20 x 16 (Mila 04:55: 2 spelpixels groter rondom)
 const LEVEN_GROOT := preload("res://kunst/slijm_leven_groot2.png")
+const STAP_TEKEN := preload("res://systemen/stap_teken.gd")   # stap 4 tot 6: gouden stenen voor zijn voet (#162)
+const STAP_STENEN := preload("res://systemen/stap_stenen.gd")
+var _stenen: Node2D = null
+func _zet_stenen(aantal: int) -> void:
+	if aantal <= 0 and _stenen == null:
+		return
+	if _stenen == null:
+		_stenen = STAP_STENEN.maak(self)
+	_stenen.zet([Vector2(0.0, -1.0)], aantal)
 const UPG := preload("res://kunst/slijm_upgrades2.png")  # cel 0 (x 0, 20 breed) glansster, cel 1 (x 20, 28 breed) mantel achter, cel 2 (x 48, 20 breed) bovenzoom met gesp voor
 const KOOP_S := 0.6         # het moment van kopen: 3 beelden op 5 fps (Sanne toets 8 punt 1: Gloop wipt en zwelt)
 const KOOP_WIP := [-2, -3, -1]   # hoeveel spelpixels hij omhoog is per beeld; in beeld 0 nog het oude lijf, daarna het nieuwe
@@ -1519,6 +1528,7 @@ func _draw() -> void:
 	if _knijp != Vector2.ONE:
 		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)   # hoeden niet knijpen: de toren schuift mee via knijp_dy()
 		_knijp = Vector2.ONE
+	_zet_stenen(STAP_TEKEN.aantal(n))   # #162: stap 4 tot 6, op de vloer voor hem (wipt niet mee), eigen laag
 	var t3 := toren_3d()
 	var valt := nacht_valt() and not t3.is_empty()
 	var idx0 := hoeden.size() - t3.size()   # index in hoeden van de onderste torenhoed
