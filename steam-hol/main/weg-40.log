@@ -1,26 +1,28 @@
-HOL balk gestart, pid 6696, hoogte 120
-HOL weg geweest 25210 s (klok terug: false): goud voor 660, helden 100, erbij 436, hoeden 30
+HOL balk gestart, pid 7060, hoogte 120
+HOL weg geweest 25209 s (klok terug: false): goud voor 612, helden 100, erbij 436, hoeden 32
 HOL weg faam afgekapt 7 van 56 (hooguit 2 niveaus)
 HOL hol-niveau 4 (faam 12, t 0.0)
 HOL hol-niveau 5 (faam 12, t 0.0)
-HOL hoeden van de nacht 30 (vallen vanaf 1.0 s, toren nu 40)
+HOL hoeden van de nacht 32 (vallen vanaf 1.0 s, toren nu 40)
 HOL berg zichtbaar 6 -> 8
-HOL kroniek 0.0 (wacht 0.0): 100 came, 56 fell, 30 hats. +436 gold.
+HOL kroniek 0.0 (wacht 0.0): 100 came, 56 fell, 32 hats. +436 gold.
 HOL optocht wip, 1.2 poef 4 munt; helden [5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1096 goud, faam 12
+HOL opslag geladen: 0 terugkomers, 1048 goud, faam 12
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795681628
+HOL zaad 1795683610
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 1096)
-HOL eerste koop mogelijk na 38 s speeltijd (goud 1096)
+HOL gloop ring aan na 0.1 s (goud 1048)
+HOL eerste koop mogelijk na 38 s speeltijd (goud 1048)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL held binnen: Gerda
+HOL held binnen: Fenna
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Gerda read about you in a tavern.
-HOL leven stofje t=7.5 x=72 y=26
-HOL meting t=10 beelden=100 helden=1 hol_vast=12
-HOL kroniek 10.7 (wacht 0.0): Merel brought a torch. And hope.
-HOL held binnen: Merel
-HOL einde na 12 s, fps=10, goud=1096, terugkomers=0
+HOL kroniek 2.5 (wacht 0.5): Fenna has a map. It is wrong.
+HOL leven stofje t=6.9 x=72 y=26
+HOL meting t=10 beelden=101 helden=1 hol_vast=13
+HOL kroniek zelfde held vervangen: Fenna has a map. It is wrong.
+HOL kroniek 10.5 (wacht 0.0): Fenna checked the floor. Too late. +9
+HOL put-hoed 1 naar de toren (hoeden nu 73, t 10.5)
+HOL zicht 10.6 0
+HOL einde na 12 s, fps=20, goud=1057, terugkomers=0

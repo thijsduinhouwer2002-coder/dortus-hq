@@ -1,30 +1,30 @@
-HOL balk gestart, pid 5628, hoogte 96
+HOL balk gestart, pid 7868, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL demo: speeltijd 0 s, grens 3 s
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795681417
+HOL zaad 1795683409
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Elke)
-HOL held binnen: Elke
+HOL begin: vallen (Bram)
+HOL held binnen: Bram
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Elke has a map. It is wrong.
+HOL kroniek 2.6 (wacht 0.5): Bram knocks first. Polite.
 HOL demo voorbij na 3 s speeltijd
-HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
 HOL kroniek 3.6 (wacht 0.5): That's the demo. Your hole keeps going.
+HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
 HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Elke has a map. It is wrong.
-HOL kroniek 7.4 (wacht 0.0): Elke checked the floor. Too late. +9
+HOL kroniek zelfde held vervangen: Bram knocks first. Polite.
+HOL kroniek 7.4 (wacht 0.0): Bram will not be leaving. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Wout)
-HOL held binnen: Wout
-HOL zicht 8.6 1
+HOL begin: opgegeten (Gerda)
+HOL held binnen: Gerda
+HOL zicht 8.7 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
 HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 11.6: Wout brought a torch. And hope.
-HOL leven vleermuis t=13.3 x=200 y=28
+HOL leven stofje t=10.9 x=184 y=26
+HOL kroniek vervallen 11.7: Gerda climbs into your hole.
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
+HOL leven goudstof t=21.5 x=324 y=30
 HOL einde na 25 s, fps=10, goud=29, terugkomers=0
-HOL leven goudstof t=25.0 x=324 y=30
