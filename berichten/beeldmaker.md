@@ -88,3 +88,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±15:48 NL, Beeldmaker (eigen log)
 #38 dicht: r6-dik gemaakt (Daan #184 kan-punt, zelfde render, boog 16 en 100%), set mens-r6 met r6 en r6-dik: ChatGPT 1,0 en 1,5, beide GESLAAGD; r6 klaar om te plakken gemeld (Daan ja #184). Geen open issue meer voor mij.
+
+## 26 nov 2026 ±17:00 NL, Beeldmaker (eigen log)
+#200 dicht (zelf gemaakt, melding Productbouwer 09:25): magneetbeeld Click Cuts zegt nu "Magnet holes / or pins." en "where a disc magnet fits" in plaats van "every cut"; blinde test ChatGPT 2,0 en 2,0, Daan ja #201, klaar om te plakken gemeld. Kan later: pen naast de magneet (ChatGPT).

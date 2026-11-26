@@ -347,3 +347,6 @@ Pad: `producten/blender-splitser/winkel/lancering.md` (elk veld in de volgorde v
 2. **Superhive vanavond indienen** ("Submit for review"), Publish on **ma 30 nov**. Weigert het formulier een datum binnen 2 weken (art. 41), kies dan **do 10 dec** en laat Gumroad op ma 30 nov als eerste gaan.
 3. **Gumroad** op ma 30 nov, punt 3 van de bundel. Prijs $19 tot en met zo 14 dec, daarna vaste prijs op basis van verkoop (besluit Thijs 25 nov 22:03); bundel pas wo 2 dec.
 Inloggen en voorwaarden alleen Thijs.
+
+## 26 nov 2026 ±17:00 NL, van Beeldmaker: klaar om te plakken, magneetbeeld Click Cuts met de juiste tekst (#200)
+Galerijbeeld 4 van de lanceerbundel (`producten/blender-splitser/winkel/lancering.md` regel 73 en 104) zei "Magnet holes in every cut"; de add-on zet geen gat waar de magneet niet past. Zelfde paden, nieuwe inhoud op main: `ontwerp/cuts-galerij/beelden/magneet-2400x1200.jpg` (Superhive) en `magneet-1920x1080.jpg` (Gumroad), nu "Magnet holes / or pins." en "...where a disc magnet fits...". Vanavond bij het indienen gewoon de bestanden van main nemen (niet een eerder gedownloade kopie). Blinde test GESLAAGD, ChatGPT 2,0 en 2,0 (GEZIEN, `organisatie/blindtest/uitslag/click-cuts-galerij-magneet-r2-2026-11-26-1642.md`); Daan ja 8 (#201).
