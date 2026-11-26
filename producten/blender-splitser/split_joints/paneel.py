@@ -70,6 +70,11 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             if snedes.verschoven(scene):  # keuring K6: only after a moved cut, and name the button
                 vak.label(text="Cuts changed: press", icon="INFO")
                 vak.label(text="Split to fit again")  # two lines: one was cut off (keuring M2); keeps the cuts
+        if uit and any(o.get("sj_stuk") for o in scene.objects):
+            # issue #208: choose where a piece is cut, right under the result (not hidden in More settings)
+            rij = layout.row(align=True)
+            rij.operator("split_joints.vrije_snede_tekenen", text="Draw cut", icon=icoon("GREASEPENCIL", "LINE_DATA"))
+            rij.operator("split_joints.vrije_snede", text="Cut piece", icon="MOD_BOOLEAN")
         if uit:
             rij = layout.row()
             rij.scale_y = 1.3  # smaller than Split to fit (keuring C2)
@@ -158,7 +163,6 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         if stukken:
             vrij = stap.box()
             vrij.label(text="Free cut (one piece, any angle)", icon="MOD_LINEART")
-            vrij.operator("split_joints.vrije_snede_tekenen", text="Draw cut", icon=icoon("GREASEPENCIL", "LINE_DATA"))
             rij = vrij.row(align=True)
             rij.operator("split_joints.vrije_snede_erbij", text="Add free cut", icon="ADD")
             rij.operator("split_joints.vrije_snede", text="Cut piece", icon="MOD_BOOLEAN")
