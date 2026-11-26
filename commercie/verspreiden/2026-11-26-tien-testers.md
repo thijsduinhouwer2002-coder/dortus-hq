@@ -46,10 +46,10 @@ Onderwerp: `Your free copy of Click Joints Pro`
 Hi <name>,
 
 Thanks for offering to test Click Joints Pro. Here is your code for a free copy: <CODE>
-Use it on https://duinhouwer8.gumroad.com/l/click-joints-pro (enter the code at checkout, the price goes to $0).
+Use it on https://duinhouwer8.gumroad.com/l/click-joints-pro: choose Personal and enter the code at checkout, the price goes to $0.
 
 What we ask, no deadline:
-1. Print the Fit test strip first (it's in the Pro panel, and free on Printables: https://www.printables.com/model/1929497). Every printer is different, and it tells you which clearance fits yours.
+1. Print the Fit test strip first (Fit test strip in the Pro panel). Every printer is different, and it tells you which clearance fits yours.
 2. Make a figure with Pro and print it.
 3. Send us a photo, whether it worked or not, and tell us what went wrong if something did. Tell us if we may show your photo, and with which name.
 

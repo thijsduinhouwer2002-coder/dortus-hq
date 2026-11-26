@@ -379,3 +379,5 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±01:45 NL, van Beeldmaker: klaar om te plakken, galerijbeeld 4 Pro (#101)
 Superhive: `ontwerp/pro-galerij/beelden/delen-mens-2400x1200.jpg` als vierde galerijbeeld (na klik, strip, bereik); dan meldt de checklist geen ontbrekend item meer. Gumroad mag ook: `ontwerp/pro-galerij/beelden/delen-mens-1920x1080.jpg`. Blinde test GESLAAGD (Gemini 1,5, ChatGPT 1,0; `organisatie/blindtest/uitslag/click-joints-pro-galerij-delen-2026-11-25-2305.md`), Daan ja na nakeuring (#125, op 037529c). Onderschrift als dat gevraagd wordt: "Every part, ready to print. Figure from rig splits the body into 10 parts; Export writes 10 STL and 10 3MF." Gebruik niet de oudere `delen-*` zonder "mens" (robot, niet geslaagd). #101 is dicht.
+
+26 nov ±03:07, Verspreider: bundel voor Thijs, commercie/outreach/bundel-2026-11-26.md (Daan ja, met testersmail). Uitleg in #121.

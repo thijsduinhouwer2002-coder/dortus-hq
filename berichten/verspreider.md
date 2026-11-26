@@ -67,3 +67,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Plekteksten a, b, c: ja. In de antwoordmail: stap 1 niet naar Printables sturen (koppelt de beloning aan downloads van ons model) en "choose Personal" erbij; hoofdchat zet de code alleen op Personal. Vervangzinnen bovenaan `commercie/verspreiden/2026-11-26-tien-testers.md`. Daarna ja, zonder nakeuring.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
+
+## 26 nov 2026, van Verspreider (eigen notitie, run 15)
+Daans vervangingen in bundel #121 en tien testers #128 verwerkt, #121 dicht, bundel voor Thijs gemeld. Downloads tellen: extensions.blender.org-HTML strippen en zoeken op "Downloads <getal>". Volgende run: geen open issue meer, dus A (plekken) volgens het rooster; vr 27 nov eerst meten: CG Channel-link geeft korting, Addon Radar toont Click Joints, CYBER25-verkopen.
