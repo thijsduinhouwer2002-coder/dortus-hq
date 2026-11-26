@@ -1,27 +1,27 @@
-HOL balk gestart, pid 2632, hoogte 120
+HOL balk gestart, pid 5176, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795658163
+HOL zaad 1795659593
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Teun)
-HOL held binnen: Teun
+HOL begin: vallen (Fenna)
+HOL held binnen: Fenna
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Teun knocks first. Polite.
+HOL kroniek 2.6 (wacht 0.5): Fenna is here for your gold.
 HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Teun knocks first. Polite.
-HOL kroniek 7.4 (wacht 0.0): Teun will not be leaving. +9
+HOL kroniek zelfde held vervangen: Fenna is here for your gold.
+HOL kroniek 7.4 (wacht 0.0): Fenna stays forever. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Merel)
-HOL held binnen: Merel
-HOL zicht 8.6 1
+HOL begin: opgegeten (Elke)
+HOL held binnen: Elke
+HOL zicht 7.8 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
+HOL leven stofje t=9.4 x=72 y=26
+HOL kroniek 9.9 (wacht 2.5): First hero in the pit!
 HOL demo voorbij na 10 s speeltijd
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek 11.0 (wacht 0.9): That's the demo. Your hole keeps going.
-HOL leven vleermuis t=11.6 x=88 y=28
-HOL kroniek vervallen 11.7: Merel climbs into your hole.
+HOL kroniek vervallen 10.8: Elke read about you in a tavern.
+HOL kroniek 10.9 (wacht 0.9): That's the demo. Your hole keeps going.
 HOL einde na 15 s, fps=10, goud=29, terugkomers=0
