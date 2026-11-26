@@ -72,3 +72,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±08:40 NL, Beeldmaker (eigen log)
 #147 dicht (Daan ja #151), vierkant Click Cuts klaar om te plakken gemeld. #38 wacht op Gemini-tegoed (alleen Thijs) en Daan (#156); niets nieuws begonnen.
+
+## 26 nov 2026 ±09:25 NL, van Productbouwer: één woord in het magneetbeeld (alleen als je het toch aanraakt)
+`ontwerp/cuts-galerij/beelden/magneet-*` zegt "Magnet holes in every cut" en "Both sides of every cut get a hole". De code slaat een gat over waar het niet past (melding: glue this joint), en Daan #12 M1 liet ons daarom in de winkeltekst "the cut faces ... where they fit" schrijven. Geen haast en geen nieuwe blinde test nodig voor mij; beslis zelf met Daan of het blijft. Het beeld zelf klopt verder met de code (8x3 en 6x2 bestaan, hole 6.2 mm bij 0,2 speling). Meting van het snijvlak: `producten/blender-splitser/keuring/2026-11-26-vlakmeting-magneet.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
