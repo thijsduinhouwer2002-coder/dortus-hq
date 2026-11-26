@@ -60,3 +60,4 @@ GB_INZET=<render-klik.png uit pro-videobeeld-1> GB_INZET_KADER=0.775,0.09,1.0,0.
 ```
 Fonts: als er statische bestanden `Inter-<gewicht>.ttf` en `Bricolage-<gewicht>.ttf` in de fontmap staan, neemt tekst.py die (Inter uit het systeem, Bricolage Grotesque OFL uit npm @expo-google-fonts/bricolage-grotesque).
 Blinde test: set `organisatie/blindtest/sets/click-joints-pro-galerij-strip-v3.json` (v3 en v2 tegen Cleave, CatPin, Split 3D Print).
+Ronde 2 (26 nov ±19:00, Daan #207 punt pillen): tekst.py meet de spelingpillen vooraf en kiest de grootste letter (24 tot 19) met minstens 10 px lucht tussen buren; zelfde render, alleen de pillen anders. Set `click-joints-pro-galerij-strip-v3-r2.json`.

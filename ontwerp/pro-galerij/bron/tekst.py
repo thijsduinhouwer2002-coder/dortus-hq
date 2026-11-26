@@ -186,9 +186,19 @@ def strip(img, s, meta, P):
 def strip3(img, s, meta, P):
     """Twee proefsets (kogel en scharnier): spelingen onder de voorste set, een soortpil boven elke set."""
     W, H = img.size
-    for getal, q in sorted(meta["labels"].items()):
-        x, y = P(q["voet"])
-        pil(img, s, (int(x), int(y + 64 * s)), f"{getal}\u00a0mm", maat=24, rand=GOUD if getal == "0.20" else ZACHT)
+    rij = [(getal, P(q["voet"])) for getal, q in sorted(meta["labels"].items())]
+    # Pillen mogen elkaar niet raken (Daan #207 en eigen blik: 0.25 en 0.30 plakten op 1920x1080). Meet de breedte
+    # vooraf en kies de grootste letter (24 tot 19) waarbij tussen buren minstens 10 px lucht zit.
+    meet = ImageDraw.Draw(img)
+    maat = 24
+    while maat > 19:
+        f = font("Inter.ttf", int(maat * s), "SemiBold")
+        br = [meet.textbbox((0, 0), f"{g}\u00a0mm", font=f)[2] + int(36 * s) for g, _ in rij]
+        if all(rij[i + 1][1][0] - rij[i][1][0] - (br[i] + br[i + 1]) / 2 >= 10 * s for i in range(len(rij) - 1)):
+            break
+        maat -= 1
+    for getal, (x, y) in rij:
+        pil(img, s, (int(x), int(y + 64 * s)), f"{getal}\u00a0mm", maat=maat, rand=GOUD if getal == "0.20" else ZACHT)
     for getal, q in sorted(meta.get("labels2", {}).items()):
         if os.environ.get("GB_LABELS2"):
             x, y = P(q["voet"])
