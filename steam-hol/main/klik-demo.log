@@ -1,32 +1,29 @@
-HOL balk gestart, pid 2536, hoogte 96
+HOL balk gestart, pid 2920, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL demo: speeltijd 0 s, grens 3 s
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795708348
+HOL zaad 1795709444
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Odo)
-HOL held binnen: Odo
-HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Odo knocks first. Polite.
+HOL begin: vallen (Gerda)
+HOL held binnen: Gerda
+HOL zicht 2.2 1
+HOL kroniek 2.6 (wacht 0.5): Gerda is here for your gold.
 HOL demo voorbij na 3 s speeltijd
-HOL kroniek 3.5 (wacht 0.5): That's the demo. Your hole keeps going.
+HOL kroniek 3.7 (wacht 0.6): That's the demo. Your hole keeps going.
 HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
-HOL uitleg stap 1 t=4.0 
-HOL kroniek zelfde held vervangen: Odo knocks first. Polite.
-HOL kroniek 7.3 (wacht 0.0): Odo took the short way down. +9
+HOL uitleg stap 1 t=4.1 
+HOL kroniek zelfde held vervangen: Gerda is here for your gold.
+HOL kroniek 7.4 (wacht 0.0): Gerda is part of the hole now. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Lotte)
-HOL held binnen: Lotte
-HOL zicht 7.7 1
+HOL begin: opgegeten (Odo)
+HOL held binnen: Odo
+HOL zicht 8.4 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL kroniek 9.9 (wacht 2.5): First hero in the pit!
+HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 10.8: Lotte is here for your gold.
-HOL leven mot t=10.8 x=184 y=26
+HOL kroniek vervallen 11.5: Odo says this is a quick one.
+HOL leven stofje t=14.3 x=184 y=26
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
-HOL reeks 2 (+0, t 24.6)
-HOL kroniek 24.6 (wacht 0.0): Gloop ate Lotte. Kept the crown. +9
-HOL zicht 24.7 0
-HOL einde na 25 s, fps=16, goud=38, terugkomers=0
+HOL einde na 25 s, fps=10, goud=29, terugkomers=0
