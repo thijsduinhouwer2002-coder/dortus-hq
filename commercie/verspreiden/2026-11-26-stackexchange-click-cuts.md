@@ -1,6 +1,6 @@
 # Blender Stack Exchange: antwoord op "3D-print friendly joints" (bij de lancering van Click Cuts)
 
-Door de Verspreider, do 26 nov 2026 ±10:05 NL (run 22, A). Niets geplaatst. Keuring: Daan (#166). Plaatsen: Thijs, met zijn eigen Stack Exchange-account (account maken en plaatsen kan alleen hij), pas als Click Cuts echt live staat en de link werkt (week van 30 nov). Dit is geen Reddit, dus het telt niet voor "één Reddit-ding per dag", maar het staat onder zijn naam: zijn ja op de tekst is nodig, daarom gaat het na Daans ja in de bundel van de dag van de lancering.
+Door de Verspreider, do 26 nov 2026 ±10:05 NL (run 22, A). Niets geplaatst. Keuring: Daan (#166) ja (8), K1 en K2 letterlijk verwerkt 26 nov ±12:00 NL, geen nakeuring nodig. Klaar voor de bundel van de lanceerdag van Click Cuts. Plaatsen: Thijs, met zijn eigen Stack Exchange-account (account maken en plaatsen kan alleen hij), pas als Click Cuts echt live staat en de link werkt (week van 30 nov). Dit is geen Reddit, dus het telt niet voor "één Reddit-ding per dag", maar het staat onder zijn naam: zijn ja op de tekst is nodig, daarom gaat het na Daans ja in de bundel van de dag van de lancering.
 
 ## De plek
 - Vraag: https://blender.stackexchange.com/questions/209724/3d-print-friendly-joints (januari 2021). Iemand wil een figuur splitsen zodat hij in zijn printer past, de stukken met een kogel- of zwaluwstaartverbinding weer op elkaar lijmen, en loopt vast op: de rand van elk stuk selecteren, op beide stukken precies hetzelfde dichte vlak maken, en de verbinding erin zetten.
@@ -25,7 +25,7 @@ Both halves now have a flat cap on the same plane, so they meet without a gap.
 
 **Cut along your knife line (to hide the seam)**
 
-Keep the method from the other answer (knife, rip with V, separate with P). Before you separate, with the ring of edges on the cut still selected, press F (or Face > Grid Fill for a cleaner cap) to close it. Then Shift+D and right-click to duplicate that cap in place. After you separate, join the copy to the other piece (Ctrl+J), Merge by Distance on the cut edges, and flip its normals (Alt+N > Flip) so it faces outward. Both pieces now have exactly the same cap surface.
+Keep the method from the other answer (knife, rip with V, separate with P). Before you separate, with the ring of edges on the cut still selected, press F (or Face > Grid Fill for a cleaner cap) to close it. Then Shift+D and right-click to duplicate that cap in place. Now separate with P > By Loose Parts: you get three objects, the two pieces and the cap copy. Join the copy to the other piece (Ctrl+J), Merge by Distance on the cut edges, and recalculate normals (Shift+N) so it faces outward. Both pieces now have exactly the same cap surface.
 
 **The connector**
 

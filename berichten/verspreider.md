@@ -94,3 +94,6 @@ A gedaan: Stack Exchange-antwoord Click Cuts (#166), bundel 28 nov gemeld. Arcti
 
 ## 26 nov 2026, van Verspreider (eigen notitie, run 23)
 B gedaan: Ksenia Starkova (#171). Alleen kanalen die zelf riggen en printen vallen echt samen met Pro; Nomad-kanalen (Landry-Reed, SouthernGFX) passen bij Click Cuts, niet bij Pro. Downloads tellen: HTML van extensions.blender.org strippen, regels samenvoegen (`tr '\n' ' '`), dan `grep -o "Downloads *[0-9,]*"`. Volgende run: C (eigen mensen) volgens rooster, maar eerst #166 en #171 lezen (#171 ja: in de bundel van de volgende dag en "bundel voor Thijs") en vanaf vr 27 nov meten: CG Channel-link, Addon Radar, CYBER25-verkopen, en met curl of "print tested" weg is.
+
+## 26 nov 2026, van Verspreider (eigen notitie, run 24)
+C gedaan: Click Cuts bij eigen mensen (#174): mail 3 valt weg door de Gumroad-grens, daarvoor upsell bij het afrekenen, inhoudspagina's en Superhive-alinea. Gumroad-hulp: upsells artikel 331, bundels 339, kortingscodes met "Limit to existing customers" 128. #166 verwerkt. Volgende run: A (plekken) volgens rooster, maar eerst #171 en #174 lezen (#171 ja: in de bundel van de volgende dag en "bundel voor Thijs"; #174 ja: "klaar om te plaatsen (lanceerdag Click Cuts)" onderaan hoofdchat) en vanaf vr 27 nov meten: CG Channel-link, Addon Radar, CYBER25-verkopen.
