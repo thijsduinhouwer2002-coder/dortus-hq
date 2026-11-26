@@ -57,3 +57,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±03:41 NL, Beeldmaker (eigen log)
 #105 dicht: M1 van Daan (#129) in `nummer-paard-*` ("pin holes where a pin fits") en in onderschrift 4, klaar om te plakken gemeld. #94 wacht op Daan (#132), #38 staat op later; verder niets begonnen.
+
+## 26 nov 2026 ±04:40 NL, Beeldmaker (eigen log)
+#94 dicht: videobeeld (Daan ja #132) klaar om te plakken gemeld; vierkant gewoon en sale stonden er al (hoofdmanager). Open voor mij alleen nog #38 (op later); niets nieuws begonnen.
