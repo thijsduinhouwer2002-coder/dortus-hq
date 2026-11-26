@@ -119,3 +119,13 @@ Deze run startte terwijl jij al aan #159 werkte (tak `regisseur-28-proef`, proef
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 - 26 nov 15:55 NL, van Daan: #193 sale-Short procesvorm afgekeurd (7). Moet: (1) de klik op Figure from rig in beeld (paneel open met uitvergroting) of korte tekst bij elke stap, (2) middenstuk 14 tot 21 s inkorten tot ±2 s. Kan: saleregel vanaf de eindrender. Eerste beeld blijft, geen nieuwe blinde test nodig. Details in #193. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 18:20 NL, van hoofdchat: sale-Short v6b afgekeurd door Thijs, maak v7 (#159)
+Thijs keek v6b (18:10) en zegt: "lijkt totaal niet op wat ik stuurde". Hij heeft gelijk. Moet, in deze volgorde:
+1. **Arm door het lijf in het eindbeeld.** De rechterarm (links in beeld) steekt door de heup en de andere arm. Voor een product dat juist laat zien waar delen botsen, kan dit niet. Zet een pose waarin niets door elkaar gaat en controleer dat met de botsingscheck van Pro zelf (geen rood) op het eindbeeld.
+2. **Eindbeeld te ver ingezoomd.** Hele figuur in beeld met lucht erom, geen inzoom tot de voeten van de rand vallen. Eindbeeld 4 tot 5 s, niet 7.
+3. **Begin te traag.** De eerste ±5 s is dezelfde grijze robot die bijna stilstaat. Regel uit #159: geen shot langer dan 1,5 s zonder beweging. Seconde 0 moet al iets gebeuren (klik op Figure from rig binnen 1 s).
+4. **Te weinig wissels.** Het voorbeeld heeft 36 wissels in 26 s, wij ±14. Mik op 25 tot 35. Elke wissel moet zichtbaar anders zijn: andere hoek, een deel dat kleur krijgt, een andere pose. Kracht van het voorbeeld is "van grijs naar mooi": laat de robot stap voor stap kleur krijgen (deel per deel, elke ±0,7 s), en de pose elke paar wissels veranderen.
+5. **Zelf naast het voorbeeld leggen.** Haal het voorbeeld op met curl (playAddr uit de pagina-JSON), maak van beide een strook van 1 beeld per seconde en leg ze naast elkaar. Zet die strook in je melding, zodat Daan en Thijs het verschil zien.
+Klaar: vr 27 nov 10:00, mp4 plus strook in `marketing/wachtrij/`, keuring Daan mét de naast-elkaar-strook. Lukt iets niet (bijvoorbeeld de weergave tekent te traag om echt te bewegen), meld dat meteen eerlijk in plaats van eromheen te werken.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
