@@ -46,7 +46,7 @@ const STAPPEN := {
 		{"naam": "Big Gloop", "uitleg": "Bigger mouth. More heroes fall."},
 		{"naam": "Bouncy Gloop", "uitleg": "Back up in 20 s instead of 30."},
 		{"naam": "Royal Gloop", "uitleg": "A royal cape. Heroes gulp."},
-		{"naam": "Sticky Gloop", "uitleg": "Up in 15 s. Heroes drop +2 gold."},
+		{"naam": "Sticky Gloop", "uitleg": "15 s nap. Heroes drop 2 more gold."},
 		{"naam": "Greedy Gloop", "uitleg": "Heroes drop 2 more gold."},
 		{"naam": "Gloop Prime", "uitleg": "Heroes drop 2 more gold. Again."},
 	],
@@ -54,9 +54,9 @@ const STAPPEN := {
 		{"naam": "Rusty Spikes", "uitleg": "Rust hurts. More heroes fall."},
 		{"naam": "Deep Pit", "uitleg": "Timid heroes forget to turn back."},
 		{"naam": "Trick Lid", "uitleg": "Looks like floor until it isn't."},
-		{"naam": "Sharp Spikes", "uitleg": "Sharper. Heroes drop 2 more gold."},
-		{"naam": "Endless Pit", "uitleg": "No bottom. Heroes drop +2 gold."},
-		{"naam": "Doom Pit", "uitleg": "Doom. Heroes drop 2 more gold."},
+		{"naam": "Sharp Spikes", "uitleg": "Shiny. Heroes drop 2 more gold."},
+		{"naam": "Endless Pit", "uitleg": "Endless. Heroes drop 2 more gold."},
+		{"naam": "Doom Pit", "uitleg": "Heroes drop 2 more gold. For doom."},
 	],
 }
 
@@ -175,7 +175,7 @@ const KOOP_REGELS := {
 	"Sticky Gloop": ["{b} is sticky now. Back up in 15 s.", "{b} got sticky. Nobody asked.", "Sticky {b}. Do not touch."],
 	"Greedy Gloop": ["{b} got greedy. Heroes pay more.", "Greedy {b}. Shake those pockets.", "{b} wants more gold. As always."],
 	"Gloop Prime": ["{b} Prime. Heroes pay even more.", "{b} is in its prime. Pay up.", "Prime {b}. Pockets empty faster."],
-	"Sharp Spikes": ["The spikes got sharper. Ouch.", "Sharp spikes. Very rude.", "Sharper spikes. On purpose."],
+	"Sharp Spikes": ["The spikes got shiny. Ouch.", "Shiny spikes. Very rude.", "Shiny spikes. On purpose."],
 	"Endless Pit": ["The pit has no bottom now.", "Endless pit. Hats still land.", "The pit goes down forever now."],
 	"Doom Pit": ["The Spike Pit is the Doom Pit now.", "Doom Pit. Heroes pay on the way down.", "Doom. Also, gold."],
 }

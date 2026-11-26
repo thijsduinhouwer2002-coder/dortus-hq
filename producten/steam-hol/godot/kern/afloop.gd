@@ -109,8 +109,10 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		# basis 9 (Sanne 25 nov, bouwblad I; was 6): koop 2 kwam 6 tot 8 min na koop 1 (Iris d27cfc3, GEZIEN)
 		# demo=1 (film) houdt de oude 6, zodat de gekeurde demo-film gelijk blijft (Daan #109 M1)
 		var buit := (GOUD_DEMO if bool(s.get("demo")) else goud_basis(s)) + 3 * int(info.get("bezoeken", 0)) + VOORTGANG.graafbonus(int(s.zelf_gegraven)) + reeks_bonus(reeks)
+		var stap_goud := 0
 		if s.hol.upgrades != null and s.hol.upgrades.has_method("goud_erbij"):
-			buit += int(s.hol.upgrades.goud_erbij())   # stap 4 tot 6 (systemen/upgrades.gd GOUD_STAP, #145)
+			stap_goud = int(s.hol.upgrades.goud_erbij())
+			buit += stap_goud   # stap 4 tot 6 (systemen/upgrades.gd GOUD_STAP, #145)
 		s.set_meta("laatste_vangst_t", s.t)   # droogte (kern/ritme.gd, bouwblad I)
 		s.hol.set_meta("droogte", false)
 		s.hol.set_meta("droogte_bezig", false)
@@ -122,7 +124,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		var naam: String = String(info.naam)
 		var basis := naam.split(" ")[0]
 		s.gevallen_namen[basis] = int(s.gevallen_namen.get(basis, 0)) + 1
-		s.hol.munt_regen(s.hol.pos_naar_cel(_held.position).x, 3 + mini(reeks - 1, 3))   # meer muntjes in een reeks
+		# meer muntjes in een reeks, en één extra muntje per gekochte stap 4 tot 6: zo zie je wat je kocht (Daan #154 K3)
+		s.hol.munt_regen(s.hol.pos_naar_cel(_held.position).x, 3 + mini(reeks - 1, 3) + stap_goud / 2)
 		if s.get("klap") != null and _held != null:
 			s.klap.vangst(_held.position, buit, reeks)
 		if s.get("geluid") != null:   # plof of hap, en net daarna de munt (kern/geluid.gd)
