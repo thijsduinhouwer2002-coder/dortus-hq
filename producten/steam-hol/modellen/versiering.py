@@ -33,7 +33,8 @@ WAND_HANG = ("wortels_a", "wortels_b")
 GANG_HOOG = 16 * SPX * 0.966 / 0.966  # 16 spelpixels gang (vloer z 0 tot plafond)
 
 _M = {}
-SCHAAL = {"bot": 1.15, "helm": 1.15, "zwaard": 1.2, "steen_diep": 1.1, "ton": 0.78, "krat": 0.82, "kristal": 0.75, "schedel": 0.85}  # kristal en schedel: frisse kijker 14 nov, te groot en te fel
+SCHAAL = {"bot": 1.4, "helm": 1.5, "zwaard": 1.2, "steen_diep": 1.1,  # Daan #133: helm groter dan het bot (M2), bot groter (K2)
+           "ton": 0.78, "krat": 0.82, "kristal": 0.75, "schedel": 0.85}  # kristal en schedel: frisse kijker 14 nov, te groot en te fel
 
 
 def m(naam, kleur, **kw):
@@ -93,6 +94,30 @@ def kluit(ouder, naam, loc, maat):
     return k
 
 
+def brok(ouder, naam, loc, b, h, d, mat, zaad=0, scheef=0.0):
+    """Hoekige steen met een platte onderkant (Daan #133 M1: de ronde paarse stenen lazen als naaktslakken).
+    Onder een onregelmatige zeshoek, boven een kleinere vijfhoek die iets opzij staat; daarover het omhulsel, vlak
+    gearceerd, zodat je op 120 px twee of drie vlakken ziet en geen glanzende bult."""
+    import bmesh
+    rnd = [((zaad * 7919 + i * 104729) % 1000) / 1000.0 for i in range(24)]
+    pts = []
+    for i in range(6):
+        a = math.tau * (i + 0.35 * rnd[i]) / 6
+        pts.append((math.cos(a) * b * (0.8 + 0.25 * rnd[i + 6]), math.sin(a) * d * (0.8 + 0.25 * rnd[i + 12]), 0.0))
+    for i in range(5):
+        a = math.tau * (i + 0.5 * rnd[i + 18]) / 5 + 0.4
+        pts.append((math.cos(a) * b * 0.55 + scheef * b, math.sin(a) * d * 0.55, h * (0.85 + 0.15 * rnd[i + 1])))
+    me = bpy.data.meshes.new(naam)
+    bm = bmesh.new()
+    for q in pts:
+        bm.verts.new(q)
+    bmesh.ops.convex_hull(bm, input=bm.verts)
+    bm.to_mesh(me); bm.free()
+    o = bpy.data.objects.new(naam, me); bpy.context.scene.collection.objects.link(o)
+    o.location = loc
+    return _af(o, mat, ouder, naam, glad=False)
+
+
 def wortel(ouder, naam, x, z, lengte, dik, buig, mat, tip):
     """Wortel die van boven schuin naar beneden hangt: dik bij de aarde, spits aan de punt (de punt donkerder).
     Let op: bij een kegel is radius1 de onderkant (-z), dus de dunne punt."""
@@ -115,7 +140,7 @@ def wand(ouder, p, naam, s):
     bot = m("bot", "c8b8a2", rough=0.7)
     if naam == "bot":
         # dijbeen schuin in de aarde, het rechtereind in een kluit
-        a = math.radians(-14)
+        a = math.radians(-26)   # Daan #133 K2: schuiner, leest meer als bot dan als streepje
         cil(ouder, p + "_schacht", (0, 0, 1.6 * s), 0.62 * s, 6.4 * s, bot, rot=(0, math.radians(90) + a, 0), verts=14)
         for zx in (-1, 1):
             for dz in (-0.55, 0.55):
@@ -130,7 +155,10 @@ def wand(ouder, p, naam, s):
         blok(ouder, p + "_kam", (0, -0.2 * s, 5.0 * s), (0.7 * s, 2.6 * s, 2.2 * s), ijzer_d, rond=0.25 * s, rot=(0, 0, 0))
         blok(ouder, p + "_spleet", (0, -2.05 * s, 3.0 * s), (4.2 * s, 0.4 * s, 0.55 * s), gat, rond=0.15 * s)
         blok(ouder, p + "_neus", (0, -2.15 * s, 2.3 * s), (0.6 * s, 0.4 * s, 1.6 * s), ijzer_d, rond=0.15 * s)
-        bol(ouder, p + "_pluim", (1.2 * s, 0.4 * s, 5.8 * s), (1.0 * s, 0.7 * s, 0.9 * s), m("pluim", "c23b2e", rough=0.8), 12)
+        # Daan #133 M2: de pluim is wat de helm op 120 px herkenbaar maakt; groter, waaiert naar achter
+        pl = m("pluim", "d8402f", rough=0.8)
+        for i, (dx, dz, r) in enumerate(((0.6, 6.0, 1.15), (1.9, 6.5, 1.05), (3.0, 6.1, 0.9))):
+            bol(ouder, p + f"_pluim{i}", (dx * s, 0.4 * s, dz * s), (r * s, 0.8 * s, r * 0.95 * s), pl, 12)
         # onderkant in de aarde: een brede lage kluit voor de kap
         kluit(ouder, p + "_kluit", (0.2 * s, -1.4 * s, 0.9 * s), (4.4 * s, 1.4 * s, 1.3 * s))
     elif naam == "zwaard":
@@ -146,22 +174,22 @@ def wand(ouder, p, naam, s):
         x, z = op(9.0 * s); bol(ouder, p + "_knop", (x, -0.1 * s, z + 0.4 * s), (0.65 * s,) * 3, goud, 12)
         kluit(ouder, p + "_kluit", (0.3 * s, -0.6 * s, 0.8 * s), (2.4 * s, 1.0 * s, 1.1 * s))
     elif naam == "steen_diep":
-        k = m("steen_k", "5c5a6e", rough=0.75, spec=0.2)
-        kl = m("steen_kl", "7f7c92", rough=0.7, spec=0.25)
-        o = bol(ouder, p + "_groot", (-0.6 * s, 0, 2.2 * s), (4.0 * s, 2.0 * s, 2.3 * s), k, 9)
-        o.rotation_euler = (0, math.radians(10), 0)
-        bol(ouder, p + "_licht", (-1.4 * s, -1.3 * s, 3.1 * s), (2.0 * s, 0.8 * s, 0.9 * s), kl, 8)
-        bol(ouder, p + "_klein", (3.4 * s, -0.2 * s, 1.1 * s), (1.6 * s, 1.2 * s, 1.1 * s), kl, 8)
+        # Daan #133 M1: twee ongelijke hoekige grijze stenen met een platte onderkant, niet paars, geen glans
+        k = m("steen_k", "4a4b52", rough=0.85, spec=0.15)
+        kl = m("steen_kl", "686a72", rough=0.8, spec=0.15)
+        brok(ouder, p + "_groot", (-0.9 * s, 0, 0), 3.0 * s, 4.4 * s, 1.6 * s, kl, zaad=3, scheef=-0.15)
+        brok(ouder, p + "_klein", (2.6 * s, -0.3 * s, 0), 1.9 * s, 2.5 * s, 1.2 * s, k, zaad=11, scheef=0.2)
     elif naam in ("kiezels_a", "kiezels_b"):
-        warm = m("kiezel_w", "c69383", rough=0.65, spec=0.25)
-        koel = m("kiezel_k", "7f7c92", rough=0.65, spec=0.25)
-        rij = ([(-2.6, 1.0, 1.0, warm), (-0.6, 0.8, 0.8, koel), (1.2, 1.6, 1.15, warm), (2.9, 0.7, 0.7, koel)]
+        # Daan #133 K1: grijzer en hoekig, zodat ze niet als kruimels of maden lezen
+        warm = m("kiezel_w", "7c7068", rough=0.8, spec=0.15)
+        koel = m("kiezel_k", "585a61", rough=0.8, spec=0.15)
+        rij = ([(-2.6, 1.2, warm), (-0.4, 0.9, koel), (1.8, 1.5, warm)]
                if naam == "kiezels_a" else
-               [(-2.2, 1.7, 0.85, koel), (0.2, 0.9, 1.2, warm), (2.4, 2.1, 0.75, warm)])
-        for i, (dx, dz, r, mt) in enumerate(rij):
-            bol(ouder, p + f"_k{i}", (dx * s, -0.3 * s, dz * s), (r * 1.3 * s, r * 0.7 * s, r * s), mt, 10)
+               [(-2.0, 1.4, koel), (0.6, 1.0, warm)])
+        for i, (dx, r, mt) in enumerate(rij):
+            brok(ouder, p + f"_k{i}", (dx * s, -0.3 * s, 0), r * 1.1 * s, r * 1.2 * s, r * 0.8 * s, mt, zaad=i + 5 * len(rij))
         if naam == "kiezels_b":
-            cil(ouder, p + "_botje", (1.6 * s, -0.4 * s, 0.4 * s), 0.35 * s, 2.0 * s, bot, rot=(0, math.radians(75), 0), verts=10)
+            cil(ouder, p + "_botje", (2.6 * s, -0.4 * s, 0.5 * s), 0.4 * s, 2.4 * s, bot, rot=(0, math.radians(70), 0), verts=10)
     elif naam in ("wortels_a", "wortels_b"):
         wm = m("wortel", "9a7352", rough=0.85)
         tip = m("wortel_tip", "5e4434", rough=0.9)

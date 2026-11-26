@@ -567,36 +567,51 @@ func _teken_hangend(d: CanvasItem, naam: String, punt: Vector2) -> void:
 # - midden: om de ±5 kolommen een ding van een gevallen held half in de aarde (bot, helm, zwaard) of kiezels;
 # - diep (dichte cellen in de gangrij): koeler en donkerder, met grote grijze stenen.
 # Alles uit versiering.py (deco-blad, 3D uit Blender). Dingen niet op een hoed van de hoedenwand, de schacht of de schatkamer.
-const GROND_DING := ["bot", "kiezels_a", "helm", "kiezels_b", "zwaard"]
-const GROND_DIEP := ["steen_diep", "kiezels_b", "kiezels_a", "steen_diep", "kiezels_a"]
+# Daan #133 M2: de helm is het herkenbaarste ding van "gevallen helden", dus het eerste ding is altijd een helm en hij
+# komt twee keer zo vaak als de rest.
+const GROND_DING := ["helm", "bot", "kiezels_a", "zwaard", "helm", "kiezels_b", "bot"]
+const GROND_DIEP := ["steen_diep", "kiezels_b", "steen_diep", "kiezels_a", "kiezels_b"]
 const GROND_VOCHT := [0.34, 0.40, 0.16]   # dekking per rij onder het gras (rij 2 dekt de lichte rand van de tegel)
 const GROND_VOCHT_KLEUR := Color(0.14, 0.06, 0.05)
 const GROND_KOEL := Color(0.22, 0.25, 0.42, 0.20)
 
+# Daan #133 M3: geen ritme. Elk soort ding kiest na elke plek zelf de afstand tot de volgende (dingen 3 tot 8 kolommen,
+# wortels en kiezels 2 tot 7), met toeval op een vaste hash per kolom, en soms valt een wortel of kiezelgroepje weg.
+# K3: een deel van de diepe stenen staat hoger, over de grens tussen de bovenste rij en de diepe rij.
 static func grond_dingen(h, schat_3d: bool, bezet: Dictionary) -> Array:
 	var uit := []
-	var laatst := -99
 	var n := 0
-	var wortel_laatst := -99
-	var diep_laatst := -99
+	var ding_vrij: int = 1 + h._hash(1, 56) % 3
+	var wortel_vrij := -99
+	var kiezel_vrij := -99
+	var diep_vrij := -99
 	var diep_n := 0
 	for k in h.kolommen:
 		var boven_aarde: bool = HOL3D.stuk(h, 0, k, schat_3d) == "aarde"
-		if boven_aarde and not bezet.has(k) and k - laatst >= 4 and (h._hash(k, 53) % 3 == 0 or k - laatst >= 7):
-			uit.append([GROND_DING[(n + h._hash(k, 54)) % GROND_DING.size()], Vector2(k * KOL + 5 + h._hash(k, 55) % 6, OPP + 13), false])
-			laatst = k
+		var gebruikt := false
+		if boven_aarde and not bezet.has(k) and k >= ding_vrij:
+			var soort: String = GROND_DING[0 if n == 0 else (n + h._hash(k, 54)) % GROND_DING.size()]
+			uit.append([soort, Vector2(k * KOL + 5 + h._hash(k, 55) % 6, OPP + 13), false])
+			ding_vrij = k + 3 + h._hash(k, 57) % 6
 			n += 1
-		elif boven_aarde and k - wortel_laatst >= 2 and h._hash(k, 41) % 5 < 2:
-			uit.append(["wortels_a" if h._hash(k, 42) % 2 == 0 else "wortels_b", Vector2(k * KOL + 4 + h._hash(k, 43) % 8, OPP + 1), true])
-			wortel_laatst = k
-		if boven_aarde and not bezet.has(k) and k != laatst and h._hash(k, 71) % 3 == 0:
-			# kleine steentjes los door de aarde, op wisselende hoogte (geen vast ritme meer zoals de oude tegel)
-			uit.append(["kiezels_a" if h._hash(k, 72) % 2 == 0 else "kiezels_b",
-				Vector2(k * KOL + 2 + h._hash(k, 73) % 12, OPP + 7 + h._hash(k, 74) % 7), false])
-		if HOL3D.stuk(h, 1, k, schat_3d) == "aarde" and k - diep_laatst >= 2 and h._hash(k, 61) % 3 < 2:
+			gebruikt = true
+		elif boven_aarde and k >= wortel_vrij:
+			wortel_vrij = k + 2 + h._hash(k, 44) % 6
+			if h._hash(k, 41) % 4 != 0:
+				uit.append(["wortels_a" if h._hash(k, 42) % 2 == 0 else "wortels_b", Vector2(k * KOL + 4 + h._hash(k, 43) % 8, OPP + 1), true])
+				gebruikt = true
+		if boven_aarde and not bezet.has(k) and not gebruikt and k >= kiezel_vrij:
+			kiezel_vrij = k + 2 + h._hash(k, 75) % 6
+			if h._hash(k, 71) % 3 != 0:
+				uit.append(["kiezels_a" if h._hash(k, 72) % 2 == 0 else "kiezels_b",
+					Vector2(k * KOL + 2 + h._hash(k, 73) % 12, OPP + 8 + h._hash(k, 74) % 7), false])
+		if HOL3D.stuk(h, 1, k, schat_3d) == "aarde" and k >= diep_vrij:
+			diep_vrij = k + 2 + h._hash(k, 66) % 5
 			var soort: String = GROND_DIEP[diep_n % GROND_DIEP.size()]
-			uit.append([soort, Vector2(k * KOL + 3 + h._hash(k, 63) % 10, GANG_BOVEN + 10 + h._hash(k, 64) % 5), false])
-			diep_laatst = k
+			var y: int = GANG_BOVEN + 10 + h._hash(k, 64) % 5
+			if soort == "steen_diep" and h._hash(k, 67) % 3 == 0:
+				y = GANG_BOVEN + 5   # steekt over de grens met de bovenste rij
+			uit.append([soort, Vector2(k * KOL + 3 + h._hash(k, 63) % 10, y), false])
 			diep_n += 1 + h._hash(k, 65) % 2
 	return uit
 

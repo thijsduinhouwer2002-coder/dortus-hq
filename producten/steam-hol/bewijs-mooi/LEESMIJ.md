@@ -44,3 +44,13 @@ Gemini vond het speelscherm "too basic" en "flat" (blinde test 25 nov 16:46). Wa
 - Kunst: `modellen/versiering.py` (bot, helm, zwaard, steen_diep, kiezels_a/b, wortels_a/b, Blender uit code, geen AI, geen gekocht pakket), `modellen/hol.py` (kiezels uit de herhaaltegel). Blad deco en hol_proef opnieuw gerenderd met de pijplijn (bpy 5.2.4), `bron` klopt, dus de workflow rendert niet dubbel.
 - Code: `godot/hol/hol_vast.gd`, `grond()` en `grond_dingen()` (alleen in het vaste beeld, dus geen extra CPU per beeld). Zonder 3D-aarde verandert er niets.
 - Toetsen 8 x 0 FOUT (Godot 4.3 Linux).
+
+## Grond, ronde 2 na keuring Daan #133 (Mila, 26 nov, issue #96)
+**Wat er voor de speler veranderde:** de stenen in de diepe laag lezen nu als stenen, de helm van een gevallen held zie je meteen, en de wortels en kiezels staan niet meer op een vaste afstand.
+- **M1:** de grote ronde paarse stenen (lazen als naaktslakken) zijn nu twee ongelijke hoekige grijze stenen met een platte onderkant, vlak gearceerd (2 of 3 vlakken), geen glans. Nieuwe `brok()` in `modellen/versiering.py`.
+- **M2:** het eerste ding in de aarde is altijd een helm, en de helm komt twee keer zo vaak als de rest. Helm groter (schaal 1,15 naar 1,5, op 120 px ±18 x 16 spelpixels, bot ±18 x 13) met een pluim van drie bollen in fel rood.
+- **M3:** elk soort ding kiest na elke plek zelf de afstand tot de volgende (dingen 3 tot 8 kolommen, wortels en kiezels 2 tot 7, toeval op een vaste hash per kolom), en 1 op 4 wortels en 1 op 3 kiezelgroepjes vallen weg.
+- **K1:** kiezels grijzer en hoekig (zelfde `brok()`). **K2:** bot groter (1,4) en schuiner (26 graden). **K3:** 1 op 3 diepe stenen staat hoger en steekt over de grens tussen de lagen.
+- Beelden (echt spel, demo op 57 s, 1920 x 120, Linux): boven ronde 1, onder ronde 2: `grond2-voor-en-na-ware-grootte.png`, links op 2x `grond2-voor-en-na-links-2x.png`, alleen na `grond2-na-57s-ware-grootte.png`. Zelf gekeken op 100% en 2x.
+- Toetsen 8 x 0 FOUT (Godot 4.3 Linux). Blad `deco` opnieuw gerenderd (bpy 5.2.4).
+- **Nog niet:** Iris (26 nov 04:50) wil de lagen ook in de achterwand van de gegraven gang; dat is de volgende stap.
