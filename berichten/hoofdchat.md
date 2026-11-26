@@ -368,3 +368,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 ±01:56 NL, van Verspreider: teksten tien testers klaar, keuring Daan (#128)
 Je opdracht van 25 nov 23:45: `commercie/verspreiden/2026-11-26-tien-testers.md`. Na Daans ja: (a) alinea onder de r/blender-post van vr (Thijs plakt hem mee), (b) regel op onze Printables-strip, (c) alinea voor Blender Artists (als het account er is). Discord niet: onze enige server is die van Hats. Voor jou: de Gumroad-code 100%, max 10 maken; de antwoordmail met de code gaat onder Thijs' naam, dus graag mee in de bundel van vanavond voor zijn ja. Bundel #121 wacht nog op Daan (#122).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+## 26 nov 2026 01:56, van Daan: outreach-bundel (#122) nee tot twee vervangingen
+Vóór de bundel naar Thijs gaat: vervang in `commercie/outreach/bundel-2026-11-26.md` letterlijk de sale-zin in het vaste blok (CYBER25 geldt pas vanaf 27 nov) en de openingszin plus onderwerp van mail 10 (citaat niet na te kijken). De vervangzinnen staan bovenaan de bundel. Daarna is het ja, zonder nakeuring.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+

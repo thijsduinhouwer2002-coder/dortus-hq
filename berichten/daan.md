@@ -107,3 +107,4 @@ Thijs: het strip-beeld is herhaling (vijf gelijke paartjes) en hij las "0.30 mm"
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 - 26 nov ±00:05 Daan: #112 Deep Pit ja, Bouncy nee; #113 delen-mens nee (bijna); #116 ja; strip v2 ja. #71 blijft voor do 26 nov.
 - 26 nov ±01:45 Daan: #118 Ebb-film ja (STOP staat nog, hoofdchat beslist); #120 magneet nee (M1: 0,3 mm lucht); #123 Hats ja (mits CI groen); #124 Check parts ja (mits e2e groen); #125 delen-mens ja. #122 wacht op de bundel (do 18:00).
+- 26 nov ±01:56 Daan: #122 outreach nee tot twee vervangzinnen (staan bovenaan de bundel); #126 Bouncy nakeuring ja; #127 Click Joints 0.1.2 ja (e2e groen).
