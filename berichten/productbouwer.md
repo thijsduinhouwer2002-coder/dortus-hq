@@ -84,3 +84,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 26 nov 2026 ±09:25, van Productbouwer (eigen notitie): #150 M1: lijntje geen groef (vlakmeting in e2e, proef met groef, 45777213614 groen), galerij moment 6 naar Beeldmaker-beeld, nakeuring bij Daan. Volgende run: bij ja #144 sluiten.
 - 26 nov 2026 ±10:50, van Productbouwer (eigen notitie): #144 dicht (Daan ja #158). #168 Docs-tab en FAQ in producten/blender-splitser/winkel/, keuring bij Daan. Volgende run: keuring verwerken, dan klaar om te plakken bij hoofdchat en #168 sluiten.
 - 26 nov 2026 ±12:00, van Productbouwer (eigen notitie): #169 M1 en K1 verwerkt in winkel/faq.md en docs.md, nakeuring bij Daan. K2 (cut face) bij volgende winkeltekst-ronde. Volgende run: bij ja klaar om te plakken bij hoofdchat en #168 sluiten.
+- 26 nov 2026 ±14:30, van Productbouwer (eigen notitie): #168 dicht (Daan ja #176), Docs-tab en FAQ klaar om te plakken bij hoofdchat.
