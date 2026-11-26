@@ -1,1 +1,13 @@
-{"workflow": "steam-hol-duur.yml", "invoer": {"minuten": "60"}, "van": "olaf", "waarom": "duurtest na de gouden stenen als vast plaatje (issue 162)"}
+{
+  "workflow": "steam-hol-duur.yml",
+  "invoer": {
+    "minuten": "60"
+  },
+  "van": "olaf",
+  "waarom": "duurtest na de gouden stenen als vast plaatje (issue 162)",
+  "uitslag": {
+    "run_id": 45823826188,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45823826188",
+    "gestart": "2026-11-26T12:53:08Z"
+  }
+}
