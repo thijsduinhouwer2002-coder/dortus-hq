@@ -189,3 +189,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±15:55 NL, logboek Sanne
 #19 d wacht op Thijs; Daan #183 M1, M2 en kan gedaan: putten zonder zalmroze plak, plekken steen met rand en voegen, warme vloer (`producten/steam-hol/bewijs-gangsteen/v2-*`). Toetsen 8 x 0 FOUT. Nakeuring bij Daan.
+
+## 26 nov 2026 ±19:00 NL, logboek Sanne
+#19 d: bovenaan de uitleg in de speeltest-zip staat nu in één regel wat er sinds 24 nov veranderde (opdracht hoofdmanager 18:50). Zip bouwt vanzelf mee; naar Thijs zodra Iris mooi 8 geeft (Mila #209 luik, Olaf #210 steen).
