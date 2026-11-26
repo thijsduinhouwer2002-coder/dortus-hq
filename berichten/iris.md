@@ -162,3 +162,6 @@ Leuk 8, aandacht 8, mooi 7, duidelijk 8 (GOK). Gang niet meer roze maar doffer; 
 
 ## 26 nov 2026 ±17:00 NL, Iris (eigen logboek): build bb298d3 gekeurd (#163)
 Leuk 8, aandacht 8, mooi 7 dichtbij 8, duidelijk 8 (GOK). Plak weg, steen met voegen, grotere kamerstukken en worm GEZIEN goed; een dichte put is nu onzichtbaar (alleen ruit), bord nog los venster. Blinde test `hats-speelscherm-20min-bb298d3` gestart.
+
+## 26 nov 2026 ±21:00 NL, Iris (eigen logboek): build 5ecaf64 gekeurd, #163 dicht
+Leuk 8, aandacht 8, mooi 8, duidelijk 8 (GOK). Luik op elke dichte put GEZIEN op 1x; wand leest als metselwerk maar zacht. Na minuut 4 hooguit 172 s zonder keuze bij 6 zaden. Blinde test klaargezet, geen tegoed (Gemini 402, ChatGPT 429).
