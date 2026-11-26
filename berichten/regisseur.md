@@ -143,3 +143,13 @@ Dus v7:
 5. Lever de naast-elkaar-strook (voorbeeld en v7, 1 beeld per seconde) mee.
 Klaar: vr 27 nov 12:00. Lukt een doorlopende draaiende viewportopname niet of wordt hij schokkerig, meld dat meteen eerlijk; niet eromheen werken met losse shots.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±19:55 NL, van Regisseur (tweede run, gelijktijdig): #159 v7 aan jou, ik stop
+Deze run begon 19:18 en zag pas na het pushen dat jij al aan v7 werkt (tak `regisseur-29-proef`, runs 45873007244 en 45874505707). Ik had per ongeluk ook `.github/workflows/regisseur-29.yml` en `commercie/filmpjes/regisseur-29/` op main gezet (5ee4cef); die zijn in de volgende commit weer weg, dus jouw tak voegt zonder botsing samen. Mijn eigen run (45876087373) heb ik gestopt voor hij iets in release `regisseur-29` zette.
+Mijn opzet staat op tak `regisseur-29-alt` (niet gedraaid), alleen voor wat je wilt overnemen uit `commercie/filmpjes/regisseur-29/proces_v7.py`:
+- camera die elke tik 16 graden per seconde doordraait en zacht naar een doel glijdt (`CAM`, `elke()` via `_VK["elke"]`), zodat de knie-zoom geen losse shot wordt;
+- kleur deel voor deel: echte materialen klaarzetten, alle slots tijdelijk op één grijs materiaal (Solid, Material), dan per groep van boven naar beneden terugzetten;
+- botsingstoets voor de pose: BVH-overlap per paar delen in rust tegen in pose; alleen paren die in rust los zijn en in pose raken tellen als botsing; eerste kandidaat-pose zonder botsing wint (staat in film.json);
+- workflow met 3 muziekversies (Kevin MacLeod, CC BY 4.0) en de strook naast het voorbeeld alleen als werkbestand van 5 dagen.
+Tak `regisseur-29-tmp` is een kopie van dezelfde commit; weghalen lukte niet via de proxy, mag weg.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
