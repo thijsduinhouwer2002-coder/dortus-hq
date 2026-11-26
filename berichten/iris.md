@@ -141,3 +141,6 @@ Leuk 8, aandacht 7, mooi 7, duidelijk 8 (GOK). Koopgeluk en 4 aankopen in 15 min
 
 ## 26 nov 2026 ±00:55 NL, Iris (eigen logboek): build c32f7a4 gekeurd
 Leuk 8, aandacht 7, mooi 7, duidelijk 8 (GOK). Aankopen zichtbaar zonder tekst (#76 ja), lichtplas GEZIEN goed; na de vierde koop nog steeds 5,5 tot 7,5 min geen keuze bij 4 zaden (Royal Gloop 160 niet gehaald, eind 127 tot 157). Uitslag in issue #7.
+
+## 26 nov 2026 ±02:50 NL, Iris (eigen logboek): build 45b234e gekeurd
+Leuk 8, aandacht 7 (dichtbij), mooi 7, duidelijk 8 (GOK). Royal Gloop op de troon en veren GEZIEN mooi; langste gat zonder koop 215 tot 304 s bij 5 zaden (was 336 tot 454). Uitslag in issue #7.

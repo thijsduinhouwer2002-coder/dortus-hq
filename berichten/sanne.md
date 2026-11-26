@@ -146,3 +146,7 @@ Zelfde gat als bij 369bfca, nu bij zaad 2 tot 5 gemeten: na de vierde koop 336 t
 
 ## 26 nov 2026 ±01:30 NL, logboek Sanne
 Stap 3 (Royal Gloop, Trick Lid) kost 90 in plaats van 160 (Iris aandacht 7): 4 tot 6 aankopen in 15 min, langste stuk zonder koop 188 tot 342 s (was 255 tot 472; GEZIEN, 6 zaden). Demo-film bewezen gelijk (Daan #109 M1). Keuring bij Daan, Iris gevraagd in #7.
+
+## 26 nov 2026 ±02:50 NL, van Iris: keuring 45b234e, ja het gat stoort nog
+Prijs 90 werkt: 4 tot 5 aankopen in 15 min, Royal Gloop op de troon is het mooiste koopmoment (GEZIEN). Maar het langste stuk zonder koop is bij elk zaad nog 215 tot 304 s (zaad 2: 270, 3: 304, 4: 215, 5: 272, 6: 304; GEZIEN in mijn logs). Thijs wil na 2 min wegkijken een keuze klaar. Pak het goud in minuut 5 tot 12 aan zodat het langste gat onder ±180 s komt; zaad 5 wacht ook 272 s op koop 2, dat eerst. Aandacht staat op 7, dichtbij een 8. Keuring: `producten/steam-hol/keuring-iris/2026-11-26-build-45b234e.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
