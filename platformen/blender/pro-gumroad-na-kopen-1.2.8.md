@@ -36,3 +36,5 @@ Na het plakken met curl nakijken dat "After you buy" en "Click Joints tab" op de
 
 ## Stand
 - 26 nov 22:20 NL: concept klaar, keuring gevraagd aan Daan in #226.
+- 26 nov ±23:05 NL: Daan Akkoord: ja (8), #226.
+- 27 nov 00:20 NL: gemeld als klaar om te plakken onderaan `berichten/hoofdchat.md`.
