@@ -1,0 +1,83 @@
+# gemaakt: 2026-11-26T12:30:10Z
+# workflow: Regisseur 28 (sale-Short in procesvorm #159: echte schermopname, grijs naar mooie render) (.github/workflows/regisseur-28.yml)
+# run: 45817719422 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45817719422
+# commit: 22e6fb08 tak regisseur-28-proef gestart door push
+# mislukte stappen: render (8): Run actions/download-artifact@v4; render (11): Run actions/download-artifact@v4; render (6): Run actions/download-artifact@v4; render (7): Run actions/download-artifact@v4; render (5): Run actions/download-artifact@v4; render (10): Run actions/download-artifact@v4; render (2): Run actions/download-artifact@v4; render (4): Run actions/download-artifact@v4; render (1): Run actions/download-artifact@v4; render (3): Run actions/download-artifact@v4; render (0): Run actions/download-artifact@v4; render (9): Run actions/download-artifact@v4
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== render (8) / Run actions/download-artifact@v4 (laatste 17 van 17 regels) =====
+##[group]Run actions/download-artifact@v4
+with:
+  name: eind-blend
+  path: /tmp/eb
+  merge-multiple: false
+  repository: thijsduinhouwer2002-coder/dortus-hq
+  run-id: 45817719422
+env:
+  TAG: regisseur-28
+  PRO_COMMIT_VOOR: a3c1ea1
+##[endgroup]
+Downloading single artifact
+(node:2308) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+##[error]Unable to download artifact(s): Artifact not found for name: eind-blend
+        Please ensure that your artifact is not expired and the artifact was uploaded using a compatible version of toolkit/upload-artifact.
+        For more information, visit the GitHub Artifacts FAQ: https://github.com/actions/toolkit/blob/main/packages/artifact/docs/faq.md
+
+===== render (11) / Run actions/download-artifact@v4 (laatste 17 van 17 regels) =====
+##[group]Run actions/download-artifact@v4
+with:
+  name: eind-blend
+  path: /tmp/eb
+  merge-multiple: false
+  repository: thijsduinhouwer2002-coder/dortus-hq
+  run-id: 45817719422
+env:
+  TAG: regisseur-28
+  PRO_COMMIT_VOOR: a3c1ea1
+##[endgroup]
+Downloading single artifact
+(node:2280) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+##[error]Unable to download artifact(s): Artifact not found for name: eind-blend
+        Please ensure that your artifact is not expired and the artifact was uploaded using a compatible version of toolkit/upload-artifact.
+        For more information, visit the GitHub Artifacts FAQ: https://github.com/actions/toolkit/blob/main/packages/artifact/docs/faq.md
+
+===== render (6) / Run actions/download-artifact@v4 (laatste 17 van 17 regels) =====
+##[group]Run actions/download-artifact@v4
+with:
+  name: eind-blend
+  path: /tmp/eb
+  merge-multiple: false
+  repository: thijsduinhouwer2002-coder/dortus-hq
+  run-id: 45817719422
+env:
+  TAG: regisseur-28
+  PRO_COMMIT_VOOR: a3c1ea1
+##[endgroup]
+Downloading single artifact
+(node:2072) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+##[error]Unable to download artifact(s): Artifact not found for name: eind-blend
+        Please ensure that your artifact is not expired and the artifact was uploaded using a compatible version of toolkit/upload-artifact.
+        For more information, visit the GitHub Artifacts FAQ: https://github.com/actions/toolkit/blob/main/packages/artifact/docs/faq.md
+
+===== render (7) / Run actions/download-artifact@v4 (laatste 17 van 17 regels) =====
+##[group]Run actions/download-artifact@v4
+with:
+  name: eind-blend
+  path: /tmp/eb
+  merge-multiple: false
+  repository: thijsduinhouwer2002-coder/dortus-hq
+  run-id: 45817719422
+env:
+  TAG: regisseur-28
+  PRO_COMMIT_VOOR: a3c1ea1
+##[endgroup]
+Downloading single artifact
+(node:2068) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+##[error]Unable to download artifact(s): Artifact not found for name: eind-blend
+        Please ensure that your artifact is not expired and the artifact was uploaded using a compatible version of toolkit/upload-artifact.
+        For more information, visit the GitHub Artifacts FAQ: https://github.com/actions/toolkit/blob/main/packages/artifact/docs/faq.md
