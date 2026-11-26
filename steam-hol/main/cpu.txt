@@ -1,1 +1,1 @@
-CPU hoogte 120 : 1.72 CPU-seconden per 10 s (mediaan van 1.46 / 2.53 / 1.72, alleen ter info: demo-film op een gedeelde runner, de maat is de duurtest), geheugen 157 MB
+CPU hoogte 120 : 1.61 CPU-seconden per 10 s (mediaan van 1.61 / 1.93 / 1.51, alleen ter info: demo-film op een gedeelde runner, de maat is de duurtest), geheugen 157 MB
