@@ -1,27 +1,25 @@
-HOL balk gestart, pid 3328, hoogte 120
+HOL balk gestart, pid 5220, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795679546
+HOL zaad 1795681359
 HOL balk aan
 HOL plat zonder regel (2 keer gemeld)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Bram)
-HOL held binnen: Bram
-HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Bram is here for your gold.
-HOL uitleg stap 1 t=4.0 
-HOL kroniek zelfde held vervangen: Bram is here for your gold.
-HOL kroniek 7.4 (wacht 0.0): Bram took the short way down. +9
-HOL zicht 7.4 0
-HOL begin: vluchten (Ineke)
+HOL begin: vallen (Ineke)
 HOL held binnen: Ineke
-HOL zicht 7.6 1
+HOL zicht 2.2 1
+HOL kroniek 2.6 (wacht 0.5): Ineke says this is a quick one.
+HOL uitleg stap 1 t=4.1 
+HOL leven stofje t=5.3 x=72 y=26
+HOL kroniek 7.1 (wacht 0.0): Odo knocks first. Polite.
+HOL begin: vluchten (Odo)
+HOL held binnen: Odo
+HOL kroniek zelfde held vervangen: Ineke says this is a quick one.
+HOL kroniek 8.2 (wacht 0.8): Ineke found the Spike Pit. Hard. +9
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL kroniek 9.9 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 10.5: Ineke knocks first. Polite.
-HOL leven stofje t=11.3 x=72 y=26
+HOL kroniek vervallen 10.5: First hero in the pit!
+HOL leven goudstof t=15.5 x=212 y=30
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
-HOL leven goudstof t=22.9 x=212 y=30
 HOL einde na 24 s, fps=10, goud=29, terugkomers=0

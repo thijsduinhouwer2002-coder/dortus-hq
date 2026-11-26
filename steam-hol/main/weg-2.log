@@ -1,16 +1,15 @@
-HOL balk gestart, pid 8236, hoogte 120
-HOL weg geweest 0 s (klok terug: true): goud voor 618, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 618 goud, faam 5
+HOL balk gestart, pid 4912, hoogte 120
+HOL weg geweest 0 s (klok terug: true): goud voor 660, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 660 goud, faam 5
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795679786
+HOL zaad 1795681619
 HOL balk aan
-HOL gloop ring aan na 0.2 s (goud 618)
-HOL eerste koop mogelijk na 30 s speeltijd (goud 618)
+HOL gloop ring aan na 0.1 s (goud 660)
+HOL eerste koop mogelijk na 30 s speeltijd (goud 660)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 2.0 (wacht 0.0): Tibbe brought a torch. And hope.
+HOL kroniek 2.1 (wacht 0.0): Tibbe is here for your gold.
 HOL begin: doorlopen (Tibbe)
 HOL held binnen: Tibbe
-HOL zicht 2.1 1
-HOL leven goudstof t=5.6 x=212 y=30
-HOL einde na 8 s, fps=10, goud=618, terugkomers=0
+HOL zicht 2.2 1
+HOL einde na 8 s, fps=10, goud=660, terugkomers=0
