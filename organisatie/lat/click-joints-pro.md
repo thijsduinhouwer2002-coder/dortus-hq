@@ -71,6 +71,49 @@ Niet gedaan, wel gezien: in te klappen koppen per stap (Cleave) en een Fast/Expe
 | Zoeken in de winkel | plek 1 op "ball joint" en "joints" (GEZIEN 21 nov); plek 7 op "3d print" (GEZIEN 24 nov) | plek 10 op "3d print" (GEZIEN 24 nov) | plek 1 op "articulated" (GEZIEN 21 nov) | niet in de top 24 op "articulated" of "3d print", plek 3 op "ball joint" (GEZIEN 21 en 24 nov) |
 | Sale, bundels, nieuwsbrief | doet mee aan sales GOK | doorgestreepte prijs nu | eerste maand $3,99 (web) | CYBER25 vanaf 27 nov; mail aan gratis Gumroad-lijst in de maak |
 
+## Gevonden worden (Bram, 26 nov 2026 ±10:15 NL, issue #161)
+Alles GEZIEN met curl op 26 nov tussen 10:05 en 10:15 NL, tenzij anders vermeld. Scripts en ruwe uitslag: `producten/blender-gewrichten/vindbaar/` (zoek_superhive.py, zoek_gumroad.py, uitslag-2026-11-26.json).
+
+**Hoe gezocht.** Superhive: `https://superhivemarket.com/search?search%5Bq%5D=<term>&page=1..4` (24 per pagina, alleen links met `search_id`, dus de echte uitslag; `search?query=` geeft HTTP 500). Gumroad Discover: `https://gumroad.com/products/search?query=<term>&from=N` (de JSON achter gumroad.com/discover, 9 per keer, tot plek 90).
+
+### Plek per zoekterm
+| Zoekterm | Superhive: wij | Cleave | CatPin | Split 3D Print | wie staat 1 (Superhive) | Gumroad Discover: wij | Cleave | CatPin | Split 3D Print |
+|---|---|---|---|---|---|---|---|---|---|
+| poseable figure | 4 van 8 | niet | niet | niet | Cut Flex | niet | niet | niet | niet (34 uitslagen) |
+| ball joint | 3 van 33 | 1 | niet | niet | Cleave | niet | 1 | niet | niet (81) |
+| articulated | 32 van 96+ | niet | 63 | niet | JointLab | niet | niet | 1 | niet (246, gekeken tot 90) |
+| 3d print joints | 11 van 61 | 1 | 4 | 21 | Cleave | niet | 2 | 1 | niet (34) |
+| action figure blender | **niet** (74 uitslagen) | niet | 15 | niet | NB Figure Joints | niet | 6 | niet | niet (400, tot 90) |
+| print in place | 67 van 94+ | 22 | 7 | 9 | LayerMechanic | niet | niet | niet | 25 (2.740, tot 90) |
+| extra: posable figure | 1 van 8 | niet | niet | niet | wij | | | | |
+| extra: action figure | 15 van 92+ | niet | 34 | niet | NB Figure Joints 5, Articulator 4 | | | | |
+| extra: articulated figure | 7 van 24 | niet | 8 | niet | NB Figure Joints 2 | | | | |
+| extra: hinge joint | 2 van 34 | niet | niet | niet | | | | | |
+
+**Gumroad Discover: wij staan er helemaal niet in.** Ook niet op "click joints pro" (22 uitslagen) of "dortus" (0), en de gratis Click Joints ook niet. Oorzaak (DERDEN, https://gumroad.com/help/article/79-gumroad-discover): een account komt pas op Discover na "a balance of at least $100 USD from enough genuine sales" en een controle door hun risicoteam, "on average 3 weeks after you pass the $100 threshold"; daarna per product: minstens één verkoop, een categorie, ratings aan. Wij hebben $19 (GEZIEN, kaart). **Tags en categorie op Gumroad doen dus niets voor de sale**; ze tellen pas na $100 plus ±3 weken.
+
+### Tags en categorie naast elkaar
+| | Superhive tags (12, GEZIEN op de productpagina) | Superhive categorie (GEZIEN via Browse per subcategorie) | Gumroad tags (GEZIEN via zoek-JSON, max 9 zichtbaar) | Gumroad categorie (GEZIEN via filter `taxonomy=`) |
+|---|---|---|---|---|
+| Cleave | miniature, 3d-model-for-printing, ball-joints, split, 3d-printing, magnet, connectors, split-model, dovetail, cosplay, connector, press-fit | Add-ons > Modeling én Import & Export | 3d print, 3d printing, blender, blender addon, figurine, miniatures, model splitting, resin printing, split model | 3D > 3D Assets > Blender |
+| CatPin | split, parts, 3d-model-for-printing, cut, stl, 3d-printing, keyed-joint, figurine, connector, slicer, resin, fdm | Add-ons > Modeling | 3d model cutting, 3d printing, blender, model splitting, printing | 3D > 3D Assets > Blender |
+| Split 3D Print | 3dprint, print, split, resin, fdm, connector, 3d-print, figurine, cut, cosplay, 3d-model-for-printing, magnets | Add-ons > Modeling én Import & Export | niet gelezen (zoeken op de naam gaf 0 of te veel) | 3D > 3D Modeling |
+| NB Figure Joints (nieuw, staat 1 op "action figure blender") | blender-addon, articulation, resin-printing, character-design, mesh-editing, digital-sculpting, action-figure, 3d-printing, ball-joint, fdm-printing, toy-design, joints | Add-ons > Modeling | niet op Gumroad | |
+| **Wij** | 3d-printing, hinge, joints, action-figure, 3mf, stl, ball-joint, poseable, articulated-figure, rig-to-print, posable, miniatures | alleen Add-ons > Modeling (nieuwste-lijst pagina 6) | 3d printing, ball joints, blender, blender addon, en verdeeld over gratis en Pro: action figure, articulated, hinge joint, poseable | onbekend (niet op Discover, dus niet te zien) |
+
+Wat opvalt: (1) niemand van de top staat in **Rigging**, terwijl alleen wij de rig lezen; (2) Cleave en Split staan ook in **Import & Export**, wij exporteren ook STL en 3MF; (3) bij "articulated" en "action figure" helpt de tag ons weinig (plek 32 en 15), NB Figure Joints en JointLab hebben het woord in de titel en staan bovenaan, dus het woord moet in de titel; (4) "miniatures" past niet bij ons (onze eigen tekst zegt: armen te dun onder 150 mm); (5) de tags uit `platformen/blender/superhive/zoekwoorden.md` (21 nov) zijn nooit geplakt, er staan nog de oude 12.
+
+### Andere markten van de top 3
+| Markt | Cleave | CatPin | Split 3D Print | Wij |
+|---|---|---|---|---|
+| Superhive | ja | ja | ja | ja |
+| Gumroad | ja, [v4ss3ur.gumroad.com/l/cleave](https://v4ss3ur.gumroad.com/l/cleave), 5 ratings | ja, [alexsokol.gumroad.com/l/catpin](https://alexsokol.gumroad.com/l/catpin), 87 ratings | ja, [auerblender.gumroad.com/l/kxxyq](https://auerblender.gumroad.com/l/kxxyq), 23 ratings | ja, maar niet op Discover |
+| Blender Extensions | niet gevonden | niet gevonden | niet gevonden | ja, gratis versie |
+| BlenderKit (add-ons) | niet (API, 0) | niet (0) | niet; wel 11 andere 3D-print-add-ons (BedSplit, RegoSplit, Printwright), 0 gewrichten voor figuren | niet |
+| Fab | niet ("Cleave - Realtime Mesh Slicer" is een ander product) | niet | niet | niet |
+| ArtStation, CGTrader | niet te lezen met curl (403 en 202-botcontrole) | | | |
+Conclusie: de top 3 verkoopt alleen op Superhive en Gumroad. De enige open markt met kopers voor 3D-print-add-ons en zonder gewrichten-add-on is BlenderKit (al gemeld door de Afkijker, 26 nov 09:35, account bij Thijs).
+
 ## Gaten, op volgorde van geld
 1. **Echte print in beeld.** Beide rechters vragen het bij elk beeld; geen concurrent heeft het wel, dus wie het eerst heeft, wint. Wij: testprint (besluit bij Thijs, kost geld) of een foto van een koper met toestemming. Wie: hoofdchat legt de keus bij Thijs. Wanneer: vóór het einde van de sale.
 2. **Gratis proberen bovenaan de Pro-pagina** (JointLab, Split 3D Print). Wij: een regel "Try it free first" met link naar de gratis versie direct onder de eerste zin, op Superhive en Gumroad. Wie: Bram, keuring Daan, hoofdchat plakt mee met de prijsstap van 2 dec.

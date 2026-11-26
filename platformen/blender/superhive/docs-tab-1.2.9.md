@@ -10,7 +10,7 @@ Vervangt `docs-tab-1.2.8.md` zodra 1.2.9 live is. **Plakken pas vanaf ma 30 nov,
 - Vak bovenaan bij een rig: "Rig found: <naam>", knop "Figure from rig", knop "More bones (ankles too)" (`betaald/figuur.py` regels 219 tot 223).
 - Stappen "1  Place", "2  Joint", "3  Fit and export"; "Check mesh"; "Place joint" (`click_joints/paneel.py` regels 79, 94, 97, 104, 109).
 - Veld "Clearance (mm)" (`eigenschappen.py` regel 28); daaronder "Not sure? Print a fit test first:" met "Fit test: ball" en "Fit test: hinge" (`betaald/testkaart.py` regels 213 tot 216); collectie "Fit test" (regel 153).
-- Onder Place joint: "Or a hinge that bends up to:" met 90°, 115°, 135° (`betaald/scharnier.py` regel 328 en verder).
+- Onder Place joint: "Or a hinge that bends up to:" met 90°, 115°, 135° (`betaald/scharnier.py` regel 327 en verder).
 - Stap 3 na een scharnier: "Hinge placed" (`betaald/scharnier.py` regel 290). Exportknop "Export STL" of "Export 3MF" (`paneel.py` regel 140).
 - Paneel "Figure joints" met "Or put the 3D cursor on a joint, then:" (met rig) of "Put the 3D cursor on a joint, then:" (zonder rig) en de presets (`betaald/figuur.py` regels 228 en 243).
 - Checklist en Support: gelijk aan de tab van 1.2.8 (gekeurd, Daan #130).
@@ -47,7 +47,7 @@ Questions or bugs: github.com/thijsduinhouwer2002-coder/click-joints/issues or t
 ```
 
 ## Regel op de productpagina (Superhive, tab Overview)
-Nu staat er (GEZIEN, curl op de productpagina, 26 nov ±10:20 NL):
+Nu staat er (GEZIEN, curl op de productpagina, 26 nov ±10:10 NL):
 "The free Click Joints (Blender Extensions) and Pro can not be enabled at the same time. Disable the free one first; your settings stay in the .blend file."
 
 Vervangen door:

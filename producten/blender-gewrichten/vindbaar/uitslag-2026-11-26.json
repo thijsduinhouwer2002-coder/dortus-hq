@@ -1,0 +1,861 @@
+{
+ "datum": "2026-11-26 10:05-10:15 NL",
+ "superhive": {
+  "poseable figure": {
+   "n": 8,
+   "top10": [
+    "cut-flex",
+    "wooden-articulated-figure-mannequin",
+    "rigged-wooden-mannequin-01",
+    "click-joints-pro",
+    "articulated-girl-model",
+    "articulated-girl-model-",
+    "amelia---perfect-base-shape-v3",
+    "realistic-mannequin-collection"
+   ],
+   "plek": {
+    "click-joints-pro": 4,
+    "click-joints-lite": null,
+    "cleave": null,
+    "catpin": null,
+    "split-3dprint": null,
+    "nb-figure-joints": null,
+    "jointlab-": null,
+    "articulator---easy-figure-joint-generator": null,
+    "cut-flex": 1
+   }
+  },
+  "ball joint": {
+   "n": 33,
+   "top10": [
+    "cleave",
+    "cut-flex",
+    "click-joints-pro",
+    "nb-figure-joints",
+    "dovetail-key",
+    "articulator---easy-figure-joint-generator",
+    "6901zz-bearings",
+    "hard-surface-kitbash-pack---bundle",
+    "hard-surface-kitbash-pack---real-components",
+    "split-helper"
+   ],
+   "plek": {
+    "click-joints-pro": 3,
+    "click-joints-lite": null,
+    "cleave": 1,
+    "catpin": null,
+    "split-3dprint": null,
+    "nb-figure-joints": 4,
+    "jointlab-": null,
+    "articulator---easy-figure-joint-generator": 6,
+    "cut-flex": 2
+   }
+  },
+  "articulated": {
+   "n": 96,
+   "top10": [
+    "jointlab-",
+    "articulated-lamp",
+    "articulated-clamp",
+    "articulated-girl-model",
+    "articulated-girl-model-",
+    "articulated-white-task-lamp",
+    "wooden-articulated-figure-mannequin",
+    "rigged-articulated-boom-lift---aerial-work-platform",
+    "anatomical-spine-with-pelvis--3d-skeletal-render--beshmesh-3d-model",
+    "articulated-skeleton"
+   ],
+   "plek": {
+    "click-joints-pro": 32,
+    "click-joints-lite": null,
+    "cleave": null,
+    "catpin": 63,
+    "split-3dprint": null,
+    "nb-figure-joints": 20,
+    "jointlab-": 1,
+    "articulator---easy-figure-joint-generator": 22,
+    "cut-flex": 19
+   }
+  },
+  "3d print joints": {
+   "n": 61,
+   "top10": [
+    "cleave",
+    "jointlab-",
+    "dovetail-key",
+    "catpin",
+    "cut-flex",
+    "nb-figure-joints",
+    "split-it",
+    "rego-kit-card",
+    "printcipal-",
+    "easy-slice"
+   ],
+   "plek": {
+    "click-joints-pro": 11,
+    "click-joints-lite": null,
+    "cleave": 1,
+    "catpin": 4,
+    "split-3dprint": 21,
+    "nb-figure-joints": 6,
+    "jointlab-": 2,
+    "articulator---easy-figure-joint-generator": 12,
+    "cut-flex": 5
+   }
+  },
+  "action figure blender": {
+   "n": 74,
+   "top10": [
+    "nb-figure-joints",
+    "cut-flex",
+    "infiniterator---geometry-machine",
+    "puzzleurprint",
+    "ultimate-city-addon",
+    "aircraft-avionics-kpack---kit-ops---kitbash",
+    "petik",
+    "dovetail-key",
+    "simple-camera-manager",
+    "animazing"
+   ],
+   "plek": {
+    "click-joints-pro": null,
+    "click-joints-lite": null,
+    "cleave": null,
+    "catpin": 15,
+    "split-3dprint": null,
+    "nb-figure-joints": 1,
+    "jointlab-": null,
+    "articulator---easy-figure-joint-generator": null,
+    "cut-flex": 2
+   }
+  },
+  "print in place": {
+   "n": 94,
+   "top10": [
+    "layermechanic-print-in-place-motion",
+    "fit-tolerance-test-generator",
+    "-world--places-emoji-pack--3d-printable-19-unique-emojis",
+    "printsupportpro",
+    "instantclean",
+    "speedsculpt",
+    "catpin",
+    "pro-align-tools",
+    "split-3dprint",
+    "keychain-name-tag-maker"
+   ],
+   "plek": {
+    "click-joints-pro": 67,
+    "click-joints-lite": null,
+    "cleave": 22,
+    "catpin": 7,
+    "split-3dprint": 9,
+    "nb-figure-joints": null,
+    "jointlab-": 46,
+    "articulator---easy-figure-joint-generator": null,
+    "cut-flex": null
+   }
+  }
+ },
+ "superhive_extra": {
+  "posable figure": {
+   "n": 8,
+   "top10": [
+    "click-joints-pro",
+    "cut-flex",
+    "wooden-articulated-figure-mannequin",
+    "rigged-wooden-mannequin-01",
+    "articulated-girl-model",
+    "articulated-girl-model-",
+    "amelia---perfect-base-shape-v3",
+    "realistic-mannequin-collection"
+   ],
+   "plek": {
+    "click-joints-pro": 1,
+    "click-joints-lite": null,
+    "cleave": null,
+    "catpin": null,
+    "split-3dprint": null,
+    "nb-figure-joints": null,
+    "jointlab-": null,
+    "articulator---easy-figure-joint-generator": null,
+    "cut-flex": 2
+   }
+  },
+  "action figure": {
+   "n": 92,
+   "top10": [
+    "emoji-statues--figures-and-action-collection",
+    "super-easy-stop-motion",
+    "printcipal-",
+    "articulator---easy-figure-joint-generator",
+    "nb-figure-joints",
+    "puzzleurprint",
+    "super-easy-ragdoll",
+    "super-easy-grab-release",
+    "super-easy-combo",
+    "cut-flex"
+   ],
+   "plek": {
+    "click-joints-pro": 15,
+    "click-joints-lite": null,
+    "cleave": null,
+    "catpin": 34,
+    "split-3dprint": null,
+    "nb-figure-joints": 5,
+    "jointlab-": null,
+    "articulator---easy-figure-joint-generator": 4,
+    "cut-flex": 10
+   }
+  },
+  "articulated figure": {
+   "n": 24,
+   "top10": [
+    "wooden-articulated-figure-mannequin",
+    "nb-figure-joints",
+    "cut-flex",
+    "articulator---easy-figure-joint-generator",
+    "articulated-girl-model",
+    "articulated-girl-model-",
+    "click-joints-pro",
+    "catpin",
+    "bipedal-humanoid-robotics-platform-hand-wave-animated-rigged-for-blender",
+    "advanced-humanoid-android-robot-white-rigged-for-blender"
+   ],
+   "plek": {
+    "click-joints-pro": 7,
+    "click-joints-lite": null,
+    "cleave": null,
+    "catpin": 8,
+    "split-3dprint": null,
+    "nb-figure-joints": 2,
+    "jointlab-": null,
+    "articulator---easy-figure-joint-generator": 4,
+    "cut-flex": 3
+   }
+  },
+  "hinge joint": {
+   "n": 34,
+   "top10": [
+    "hard-surface-kitbash-pack---real-components",
+    "click-joints-pro",
+    "physforge",
+    "cut-flex",
+    "articulator---easy-figure-joint-generator",
+    "security-camera---nrq4696",
+    "hard-surface-modeling-in-blender",
+    "split-helper",
+    "nb-figure-joints",
+    "hardkit-complete"
+   ],
+   "plek": {
+    "click-joints-pro": 2,
+    "click-joints-lite": null,
+    "cleave": null,
+    "catpin": null,
+    "split-3dprint": null,
+    "nb-figure-joints": 9,
+    "jointlab-": null,
+    "articulator---easy-figure-joint-generator": 5,
+    "cut-flex": 4
+   }
+  },
+  "blender 3d print figure": {
+   "n": 56,
+   "top10": [
+    "nb-figure-joints",
+    "cut-flex",
+    "puzzleurprint",
+    "napoleon-bonaparte-stylized-printable-figurine-3d-print-model",
+    "catpin",
+    "gaius-julius-caesar-bobblehead-printable-figurine-3d-print-model",
+    "gaius-julius-caesar-stylized-printable-figurine-3d-print-model",
+    "pawn-realistic-metallic-pawn-chess-piece",
+    "semi-realistic-gaius-julius-caesar-bust-printable-3d-model",
+    "napoleon-bonaparte-stylized-figurine-ready-for-3d-printing"
+   ],
+   "plek": {
+    "click-joints-pro": 25,
+    "click-joints-lite": null,
+    "cleave": null,
+    "catpin": 5,
+    "split-3dprint": null,
+    "nb-figure-joints": 1,
+    "jointlab-": null,
+    "articulator---easy-figure-joint-generator": null,
+    "cut-flex": 2
+   }
+  }
+ },
+ "gumroad": {
+  "poseable figure": {
+   "total": 34,
+   "top": [
+    [
+     "Street Drift Set",
+     "Fara McCaw",
+     "https://farafox.gumroad.com/l/StreetDriftSet",
+     2
+    ],
+    [
+     "Snaggletooth Kobold for VRChat",
+     "Krample's Kreetures",
+     "https://krample.gumroad.com/l/Snaggletooth",
+     203
+    ],
+    [
+     "Taenine Squeaky - Canine Avatar (VRChat)",
+     "Taeli Wolf",
+     "https://taeliouwolf.gumroad.com/l/taenine",
+     15
+    ],
+    [
+     "LEGO® Treebeard Instructions",
+     "Jonas Kramm",
+     "https://jonaskramm.gumroad.com/l/treebeard",
+     21
+    ],
+    [
+     "Ready, Action! Anatomy of an Action Figure Vol.1",
+     "Seba Dom",
+     "https://sebadom.gumroad.com/l/AFV1",
+     1
+    ],
+    [
+     "Fara Skateboard (VRCHAT)",
+     "Fara McCaw",
+     "https://farafox.gumroad.com/l/VRCSkateboard",
+     68
+    ],
+    [
+     "Beach Outfit for Novabeast & Nightbeast (VRChat PC and Quest Compatibl",
+     "Kureshu",
+     "https://kureshu.gumroad.com/l/NovabeastBeachOutfit",
+     11
+    ],
+    [
+     "3D PRINTABLE ACTION FIGURE STL  - SAM SPIDERGUY BODY UPGRADE KIT",
+     "3dzipguy",
+     "https://3dzipguy.gumroad.com/l/sam",
+     5
+    ],
+    [
+     "Free Low Poly 3D Character - Panty Anarchy from Panty & Stocking with ",
+     "Crashsune",
+     "https://crashsune.gumroad.com/l/LowPolyPantyAnarchy",
+     34
+    ],
+    [
+     "[VRCFT/SDK3] Havyn",
+     "flexuh",
+     "https://flexuh.gumroad.com/l/Havyn",
+     26
+    ],
+    [
+     "3DPrintable Female Articulated Figure",
+     "cgproasmr",
+     "https://cgproasmr.gumroad.com/l/YbOzG",
+     21
+    ],
+    [
+     "Daku | VRChat Zombie Femboy",
+     "blake",
+     "https://blakebunni.gumroad.com/l/daku",
+     16
+    ],
+    [
+     "Lord Admiral Jayne for Genesis 8 & 8.1 Female [DAZ|Blender]",
+     "scabam",
+     "https://scabam.gumroad.com/l/lqled",
+     1
+    ],
+    [
+     "Taenine Light - Canine Avatar (VRChat)",
+     "Taeli Wolf",
+     "https://taeliouwolf.gumroad.com/l/TaenineLight",
+     1
+    ],
+    [
+     "Sam (Femboy/Female) (Physbones) PC ONLY",
+     "Heartmarksman",
+     "https://heartmarksman.gumroad.com/l/krgpj",
+     39
+    ]
+   ]
+  },
+  "ball joint": {
+   "total": 81,
+   "top": [
+    [
+     "Cleave - Blender Add-on to Split & Cut  Models for 3D Printing With Co",
+     "V4SS3UR",
+     "https://v4ss3ur.gumroad.com/l/cleave",
+     5
+    ],
+    [
+     "Bowling After Fifty",
+     "Bowling With Burt",
+     "https://cookingwithcarol.gumroad.com/l/bowling-after-fifty",
+     2
+    ],
+    [
+     "Nawoo - A Hybrid VRChat Avatar (PC + FT + Good + Quest)",
+     "Nawty",
+     "https://nawty.gumroad.com/l/nawoo",
+     163
+    ],
+    [
+     "RBF Nodes – Node-Based RBF Solver for Blender",
+     "brave rabbit",
+     "https://braverabbit.gumroad.com/l/rbfNodesBlender",
+     5
+    ],
+    [
+     "VRChair - Reactive Seating System for VRChat",
+     "Wuffwick",
+     "https://wuffwick.gumroad.com/l/VRChair",
+     48
+    ],
+    [
+     "Spring Joint Ball Pack V1 [VRChat]",
+     "Pointless Creations",
+     "https://pointlesscreations.gumroad.com/l/SpringJoint",
+     50
+    ],
+    [
+     "SleightlyBall System",
+     "JustSleightly",
+     "https://justsleightly.gumroad.com/l/SleightlyBall",
+     216
+    ],
+    [
+     "CandyPop (Pc, Quest, Fbt Ready)",
+     "FunSize",
+     "https://funsize.gumroad.com/l/CandyPop",
+     4
+    ],
+    [
+     "HEALING & REGENERATION of ALL of Your Being & Your Whole Body  — Morph",
+     "True Power Fields",
+     "https://truepower.gumroad.com/l/ztucr",
+     1
+    ],
+    [
+     "PERFECT { HEALING - HEALED } Shoulders & Knees & Joints & Legs & Wrist",
+     "True Power Fields",
+     "https://truepower.gumroad.com/l/ktsmen",
+     1
+    ],
+    [
+     "Action Joint Generator (Blender Addon)",
+     "teenturtle.customs",
+     "https://teenturtlecustoms.gumroad.com/l/ajgenerator",
+     0
+    ],
+    [
+     "FreeCAD Complete Course: From Zero to Expert !",
+     "Amar Patel",
+     "https://mechnexus.gumroad.com/l/zkzhe",
+     1
+    ],
+    [
+     "The OCDemon",
+     "Apoc",
+     "https://apocvrc.gumroad.com/l/ocdemon",
+     3
+    ],
+    [
+     "The Elite  12 Week Program ",
+     "Judo Athletics",
+     "https://judoathletics.gumroad.com/l/cpkeaa",
+     0
+    ],
+    [
+     "(NOW BUDGET) ♡ ROSABELLE ♡ V1 | Hauntingly Sweet Porcelain Doll | Supe",
+     "Noelia",
+     "https://noeliavr.gumroad.com/l/rosabellevr",
+     64
+    ]
+   ]
+  },
+  "articulated": {
+   "total": 246,
+   "top": [
+    [
+     "CatPin - Blender Add-on for Splitting 3D Models for Printing",
+     "AlexSokol",
+     "https://alexsokol.gumroad.com/l/catpin",
+     87
+    ],
+    [
+     "Voicing Corridors - Volume 4 (ii-V7-I-VI7) + Video Masterclass",
+     "hristovitchev",
+     "https://hristovitchev.gumroad.com/l/voicingcorridors4",
+     2
+    ],
+    [
+     "Heretics for Hire: How to Get Paid to Disagree",
+     "JA Westenberg",
+     "https://jawestenberg.gumroad.com/l/heretics",
+     0
+    ],
+    [
+     "SEAL OF AZAZEL",
+     "SITHRI COVEN🩸",
+     "https://sithricoven.gumroad.com/l/ygehka",
+     0
+    ],
+    [
+     "SEAL OF EROS",
+     "SITHRI COVEN🩸",
+     "https://sithricoven.gumroad.com/l/ekumyj",
+     0
+    ],
+    [
+     "SlicerJoint Pro v1.1.0",
+     "AYHAN ÇELİK",
+     "https://blendarttools.gumroad.com/l/slicerjointpro",
+     0
+    ],
+    [
+     "THE PRIMORDIAL HEIR",
+     "BLACK PHALLUS",
+     "https://blackphallus.gumroad.com/l/xvbawl",
+     0
+    ],
+    [
+     "Fleet Marshal Complete - The Everything Listing ⭐",
+     "Fleet Marshal",
+     "https://fleetmarshal.gumroad.com/l/slrrh",
+     0
+    ],
+    [
+     "Contraflow",
+     "No Type No Tag Beats",
+     "https://notypenotag.gumroad.com/l/Contraflow",
+     0
+    ],
+    [
+     "Fastest Skill Learning & Greatest Memory & Photographic Memory & Great",
+     "True Power Fields",
+     "https://truepower.gumroad.com/l/gtxxre",
+     2
+    ],
+    [
+     "Apocalypse - Action Figure ( Xmen97)",
+     "Arkevz Studios",
+     "https://arkevzstudios.gumroad.com/l/vmxck",
+     18
+    ],
+    [
+     "ZIPGUY ALPHA  ZIP-TIE ACTION FIGURE ",
+     "3dzipguy",
+     "https://3dzipguy.gumroad.com/l/alpha",
+     21
+    ],
+    [
+     "Wattpad Ultra Male Archetype (Morphic Field)",
+     "Divine Alchemy Fields",
+     "https://divinealchemyfields.gumroad.com/l/Wattpad-Male-Archetype",
+     1
+    ],
+    [
+     "TREE OF LIFE BY BRO AA RASHID ",
+     "Bro. A A Rashid",
+     "https://aarashidart.gumroad.com/l/vbwcp",
+     0
+    ],
+    [
+     "Javali Classic",
+     "Javenchi",
+     "https://javenchiart.gumroad.com/l/javali",
+     102
+    ]
+   ]
+  },
+  "3d print joints": {
+   "total": 34,
+   "top": [
+    [
+     "CatPin - Blender Add-on for Splitting 3D Models for Printing",
+     "AlexSokol",
+     "https://alexsokol.gumroad.com/l/catpin",
+     87
+    ],
+    [
+     "Cleave - Blender Add-on to Split & Cut  Models for 3D Printing With Co",
+     "V4SS3UR",
+     "https://v4ss3ur.gumroad.com/l/cleave",
+     5
+    ],
+    [
+     "SlicerJoint Pro v1.1.0",
+     "AYHAN ÇELİK",
+     "https://blendarttools.gumroad.com/l/slicerjointpro",
+     0
+    ],
+    [
+     "Ready, Action! Anatomy of an Action Figure Vol.1",
+     "Seba Dom",
+     "https://sebadom.gumroad.com/l/AFV1",
+     1
+    ],
+    [
+     "3DPrintable Female Articulated Figure",
+     "cgproasmr",
+     "https://cgproasmr.gumroad.com/l/YbOzG",
+     21
+    ],
+    [
+     "Super Boy - Action figure",
+     "Arkevz Studios",
+     "https://arkevzstudios.gumroad.com/l/ehvig",
+     2
+    ],
+    [
+     "Interactive Mechanical & Electronic Book – STL + STEP + Manual",
+     "AxelMadeIt",
+     "https://axelmadeit.gumroad.com/l/zwwyke",
+     3
+    ],
+    [
+     "A Krusty Knight Porphyrion",
+     "Forg3D",
+     "https://forg3d.gumroad.com/l/porphyrion",
+     0
+    ],
+    [
+     "The 28 day Fusion Masterclass",
+     "Alex James",
+     "https://alexjproducts.gumroad.com/l/fusionguide",
+     0
+    ],
+    [
+     "Imperial Heavy Trench Trooper Squad",
+     "Dark Fire Designs",
+     "https://darkfiredesigns.gumroad.com/l/pydmyk",
+     0
+    ],
+    [
+     "SG Frame Generator PRO 3.0 plugin",
+     "Suraj Gupta",
+     "https://suraj12111.gumroad.com/l/SGframe",
+     5
+    ],
+    [
+     "Raven_Teen_Titans - Action_Figure",
+     "Arkevz Studios",
+     "https://arkevzstudios.gumroad.com/l/vaxtgn",
+     1
+    ],
+    [
+     "240+ Flexi Animals STL & 3MF Bundle – Print-in-Place Mini Animals & Ke",
+     "STL Models",
+     "https://primestl.gumroad.com/l/MiniAnimalsModles",
+     0
+    ],
+    [
+     "3D PRINTABLE ACTION FIGURE STL  - BATGUY (Complet)",
+     "3dzipguy",
+     "https://3dzipguy.gumroad.com/l/futurebat",
+     4
+    ],
+    [
+     "Imperial Trench Trooper Assaulters",
+     "Dark Fire Designs",
+     "https://darkfiredesigns.gumroad.com/l/avhlvu",
+     0
+    ]
+   ]
+  },
+  "action figure blender": {
+   "total": 400,
+   "top": [
+    [
+     "Auto-Rig Pro",
+     "artell",
+     "https://artell.gumroad.com/l/autorigpro",
+     7
+    ],
+    [
+     "AniMate Forge - all AniMate Add-ons Bundle",
+     "not that NDA",
+     "https://nda.gumroad.com/l/animate_forge",
+     10
+    ],
+    [
+     "23 Procreate Brushes for Textured Portraits Vol.2: Expand Your Process",
+     "Seal",
+     "https://drawsseal.gumroad.com/l/yagifc",
+     9
+    ],
+    [
+     "3D Cars: Inside and Out in Blender",
+     "CG Masters",
+     "https://cgmasters.gumroad.com/l/3d-cars",
+     101
+    ],
+    [
+     "12 Procreate Textured Hair Brushes Vol. 2",
+     "Seal",
+     "https://drawsseal.gumroad.com/l/oioxxb",
+     6
+    ],
+    [
+     "Cleave - Blender Add-on to Split & Cut  Models for 3D Printing With Co",
+     "V4SS3UR",
+     "https://v4ss3ur.gumroad.com/l/cleave",
+     5
+    ],
+    [
+     "COD Auto-Shader Blender Add-On + More",
+     "killshotttttt",
+     "https://killshotttttt.gumroad.com/l/autoshader",
+     19
+    ],
+    [
+     "Keyboard Render Kit 2",
+     "ImperfectLink",
+     "https://imperfectlink.gumroad.com/l/KRK2",
+     26
+    ],
+    [
+     "Delphy Kobo [VRChat Avatar]",
+     "zelf",
+     "https://zelfine.gumroad.com/l/delphykobo",
+     121
+    ],
+    [
+     "AniMate Pro - Core",
+     "not that NDA",
+     "https://nda.gumroad.com/l/animatepro",
+     22
+    ],
+    [
+     "Electric Arc System (VRChat)",
+     "Zekk",
+     "https://zekk.gumroad.com/l/ElectricArcSystem",
+     5
+    ],
+    [
+     "Batch Render Creator - Local Render Queue for Blender",
+     "Wanderson M. Pimenta",
+     "https://blender-addons.gumroad.com/l/batch_render_creator",
+     464
+    ],
+    [
+     "MeshFlow PRO - Smart Mesh Optimization for Blender",
+     "Artmesh Studios",
+     "https://artmesh.gumroad.com/l/MeshFlowPRO",
+     5
+    ],
+    [
+     "Spiri'vali - Altis Techwear (Furality Ultra)",
+     "Korvyn",
+     "https://korvyn.gumroad.com/l/AltisTechwear",
+     4
+    ],
+    [
+     "Vfx Toolkit - The Ultimate Blender Vfx Library",
+     "Casey Sheep",
+     "https://caseysheep.gumroad.com/l/owymdn",
+     2
+    ]
+   ]
+  },
+  "print in place": {
+   "total": 2740,
+   "top": [
+    [
+     "The Menopause Metabolic Blueprint — The Complete System for Women Afte",
+     "Victor",
+     "https://victorfitfleet.gumroad.com/l/Menopause-Metabolic-Blueprint",
+     2
+    ],
+    [
+     "No-Fuss Kitchen Collection + BONUSES",
+     "Earl's Recipe Book",
+     "https://earldawson.gumroad.com/l/nofusskitchen",
+     11
+    ],
+    [
+     "The Well-Led Home Binder",
+     "Chasity Williams",
+     "https://chasitykwill.gumroad.com/l/xiktm",
+     6
+    ],
+    [
+     "The Complete Playbook Collection",
+     "Senior Finance",
+     "https://seniorfinance.gumroad.com/l/playbook-collection",
+     6
+    ],
+    [
+     "Blossom and Root First Grade (Full Bundle)",
+     "Blossom and Root",
+     "https://blossomandroot.gumroad.com/l/oLUKF",
+     88
+    ],
+    [
+     "Blossom & Root Kindergarten (Level 0)",
+     "Blossom and Root",
+     "https://blossomandroot.gumroad.com/l/NLWYU",
+     112
+    ],
+    [
+     "Practice Book \"How To Draw People\": Improve your drawing skills with p",
+     "Daria Bogdanova @daribodrawing",
+     "https://daribodrawing.gumroad.com/l/fepxr",
+     65
+    ],
+    [
+     "Original Character Studio: The Complete Collection",
+     "Flux Destiny Universe",
+     "https://fluxdestiny.gumroad.com/l/ocs-complete",
+     5
+    ],
+    [
+     "Don't Blow the Blessing:  A Wealth Transfer Survival Manual",
+     "Thom Sieloff",
+     "https://realthomsieloff.gumroad.com/l/fkmgcn",
+     24
+    ],
+    [
+     "ADHD & Love: The Couple's Playbook (13 Worksheets to Save Your Relatio",
+     "ProductivityMSD",
+     "https://productivitymsd.gumroad.com/l/ADHDandLove",
+     0
+    ],
+    [
+     "Amber’s Viral Recipe Collection",
+     "Amber Recipes",
+     "https://ajgreatsrecipes.gumroad.com/l/ambers-recipe-collection",
+     9
+    ],
+    [
+     "The Retirement Tax Playbook : 13 legal ways to cut retirement taxes.",
+     "Wealtify",
+     "https://wealtify.gumroad.com/l/soydfj",
+     4
+    ],
+    [
+     "My 200lb Weight Loss Journey!",
+     "reesey4",
+     "https://reesey4.gumroad.com/l/200lbweightloss",
+     1
+    ],
+    [
+     "Claude Like a Pro",
+     "Gabi Saper",
+     "https://scalewithgabs.gumroad.com/l/claude-like-a-pro",
+     2
+    ],
+    [
+     "The Mountain Home Savings Almanac",
+     "Ezra Cade",
+     "https://ezracade07.gumroad.com/l/almanac",
+     7
+    ]
+   ]
+  }
+ }
+}

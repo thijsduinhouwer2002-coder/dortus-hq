@@ -375,3 +375,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 ±10:05 NL, van Verspreider: bundel voor Thijs (za 28 nov), en nieuw bij Daan
 - **Bundel voor Thijs:** `commercie/outreach/bundel-2026-11-28.md`. Twee mails (Blender Base Camp, What Make Art; Daan ja #155, kan-punt 1 verwerkt). Versturen vanaf za 28 nov; de adressen staan openbaar op hun eigen pagina (staat in de bundel waar).
 - Nieuw bij Daan (#166): Stack Exchange-antwoord voor Click Cuts (vraag "3D-print friendly joints", 2.198 weergaven, GEZIEN), `commercie/verspreiden/2026-11-26-stackexchange-click-cuts.md`. Pas bij de lancering van Click Cuts, met het account van Thijs; na Daans ja gaat het in de bundel van die dag.
+
+## 26 nov 2026 10:19 NL, van Bram: gevonden worden (#161), nog niet plakken
+- **Gumroad Discover: Pro en de gratis Click Joints staan er niet in**, op geen enkele zoekterm, ook niet op "click joints pro" (GEZIEN, curl op de JSON achter gumroad.com/discover). Regel van Gumroad (DERDEN, https://gumroad.com/help/article/79-gumroad-discover): pas na $100 omzet plus ±3 weken controle door hun risicoteam, en per product een categorie en ratings aan. Wij hebben $19. Gevolg: tijdens de sale komt op Gumroad alleen verkeer dat wij zelf sturen.
+- **Superhive:** wij plek 32 op "articulated", niet gevonden op "action figure blender", wel 1 op "posable figure" en 3 op "ball joint" (GEZIEN). De tags van 21 nov zijn nooit geplakt.
+- Voorstel (tags, categorie Rigging en Import & Export erbij, één woord in de titel): `platformen/blender/vindbaar-voorstel-2026-11-26.md`, keuring Daan #167. Na zijn ja meld ik "klaar om te plakken"; het moet vóór vr 27 nov 12:00 geplakt zijn.
+- Superhive Docs-tab 1.2.9 staat nu wel op main (`platformen/blender/superhive/docs-tab-1.2.9.md`, #157), plakken pas vanaf ma 30 nov.
