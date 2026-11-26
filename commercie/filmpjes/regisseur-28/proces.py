@@ -14,8 +14,8 @@ alleen het verloop door de stappen van het voorbeeld:
   tijdlijn   tijdlijn eronder, echte sleep van de afspeelkop: de robot loopt door drie poses (sleutelbeelden)
   licht      lamp feller en warmer (de muis sleept in de shader-editor op Roughness als OCR hem vindt)
   render     echte klik op het menu Render, dan Render Animation (2 beelden), resultaat op het scherm, Esc
-  eind       daarna (niet in de opname): de eindfilm door de studiocamera, Viewport Render Animation (EEVEE),
-             1080x1920, 7 s, langzame camera rond de robot in heldenpose (map eind/)
+  eind       daarna (niet in de opname): eind.blend met de studiocamera (langzame camera rond de robot in
+             heldenpose, 1080x1920, 7 s); de workflow rendert die in Cycles in 12 losse jobs
 Elk deel staat met zijn wandkloktijd in film.json ("delen"), zodat de montage de stukken kan knippen.
     blender --gpu-backend opengl start.blend --python proces.py -- <map> <betaalde zip>"""
 import os
@@ -479,7 +479,11 @@ def verloop_pro():
     deel("render")
     sc.frame_start, sc.frame_end = 40, 41
     sc.render.filepath = os.path.join(scherm_basis.uitmap, "proef", "r_")
-    sc.render.resolution_percentage = 50
+    sc.render.resolution_percentage = 25
+    try:
+        sc.eevee.taa_render_samples = 2
+    except Exception:  # noqa: BLE001
+        pass
     top = [venster.x, venster.y, venster.width, 70]
     rm = ocr("Render", top)
     film["metingen"]["render_menu_ocr"] = rm
@@ -496,9 +500,12 @@ def verloop_pro():
         yield 0.2
         klik()
         deel("render_klik")
-        yield 6.0
+        yield 5.0
         xdo("key", "Escape")
-        yield 0.8
+        yield 1.5
+        if grootste(venster, "VIEW_3D") is None:
+            xdo("key", "Escape")
+            yield 1.5
     else:
         xdo("key", "Escape")
         log("KORT render-menu: Render Animation niet gevonden")
@@ -534,10 +541,16 @@ def verloop_pro():
         cam_ob.keyframe_insert("rotation_quaternion", frame=f)
     sc.render.image_settings.file_format = "PNG"
     sc.render.filepath = os.path.join(scherm_basis.uitmap, "eind", "e_")
-    g3.spaces.active.shading.type = "MATERIAL"
-    with bpy.context.temp_override(window=venster, area=g3, region=next(r for r in g3.regions if r.type == "WINDOW")):
-        bpy.ops.render.opengl(animation=True, view_context=True)
-    log(f"KORT OK eind {n} beelden")
+    # Viewport Render in de opname kost op de runner minuten per beeld (64 samples, llvmpipe; proef 2): de eindfilm
+    # rendert daarom in Cycles in losse jobs van de workflow, uit deze .blend
+    sc.render.filepath = "//e_"
+    sc.render.engine = "CYCLES"
+    sc.cycles.device = "CPU"
+    sc.cycles.samples = int(os.environ.get("CJ_EIND_SAMPLES", "48"))
+    sc.cycles.use_denoising = True
+    sc.render.use_persistent_data = True
+    bpy.ops.wm.save_as_mainfile(filepath=os.path.join(scherm_basis.uitmap, "eind.blend"), copy=True)
+    log(f"KORT OK eind {n} beelden (eind.blend)")
 '''
 
 GEEN_FIGUUR_IMPORT = '''
