@@ -97,3 +97,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±19:50 NL, Beeldmaker (eigen log)
 #205 wacht op Daan (#207), dus zijn punt alvast gedaan: spelingpillen van strip v3 raken elkaar niet meer (tekst.py kiest de letter, zelfde render). Blinde test r2 (`click-joints-pro-galerij-strip-v3-r2-2026-11-26-1841.md`): v3 en v2 beide ChatGPT 2,0, GESLAAGD; v2 weer "for ball joints", v3 "ball/hinge". Gelijk, dus Daan beslist; rechters vragen verder echte printfoto's, die maken wij niet.
+
+## 26 nov 2026 ±19:44 NL, Beeldmaker (eigen log)
+#205 ronde 3 (Daan #207 M1, M2): ondertitel met "Five gaps", pil "gap 0.10 mm", spelingen onder de scharnieren, kaartje ruimer; zelfde render. Blinde test r3 niet gedraaid: ChatGPT nu ook zonder tegoed (429), gemeld in de hoofdchat. Nakeuring #215. Volgende: na Daans ja klaar om te plakken en #205 dicht.
