@@ -1,0 +1,295 @@
+{
+ "fps": 30,
+ "delen": {
+  "start": 1795717228.178,
+  "knop": 1795717229.178,
+  "uitelkaar": 1795717230.478,
+  "grijs_mat": 1795717232.378,
+  "knie": 1795717232.378,
+  "knie_rood": 1795717234.178,
+  "kleur": 1795717235.678,
+  "schaduw": 1795717240.178,
+  "pose": 1795717240.678,
+  "eind_weergave": 1795717243.778,
+  "eind": 1795717243.778
+ },
+ "n": 0,
+ "kliks": [],
+ "echt": true,
+ "metingen": {
+  "afstand": 251.4,
+  "gewrichten": 9,
+  "regels": [
+   "Left elbow \u00b7 Hinge \u00b7 0\u2013140\u00b0 \u00b7 from rig",
+   "Right elbow \u00b7 Hinge \u00b7 0\u2013140\u00b0 \u00b7 mirror",
+   "Left knee \u00b7 Hinge \u00b7 0\u2013120\u00b0 \u00b7 from rig",
+   "Right knee \u00b7 Hinge \u00b7 0\u2013120\u00b0 \u00b7 mirror",
+   "Neck \u00b7 Ball \u00b7 \u00b120\u00b0 \u00b7 preset",
+   "Left shoulder \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset",
+   "Right shoulder \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset",
+   "Left hip \u00b7 Ball \u00b7 \u00b122\u00b0 \u00b7 preset",
+   "Right hip \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset"
+  ],
+  "delen": 10,
+  "knie_stop": 119.96,
+  "knie_rood_vlakken": 13,
+  "pose_check": [
+   {
+    "nr": 0,
+    "nieuw": [
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_A_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_B",
+      "Figuur_A_B"
+     ]
+    ],
+    "onderarm": [
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_A_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_B",
+      "Figuur_A_B"
+     ]
+    ]
+   },
+   {
+    "nr": 1,
+    "nieuw": [
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_A_B"
+     ]
+    ],
+    "onderarm": [
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_A_B"
+     ]
+    ]
+   },
+   {
+    "nr": 2,
+    "nieuw": [
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_A_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_B",
+      "Figuur_A_B"
+     ]
+    ],
+    "onderarm": [
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_A_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_B",
+      "Figuur_A_B"
+     ]
+    ]
+   },
+   {
+    "nr": 3,
+    "nieuw": [
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_A_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_B",
+      "Figuur_A_B"
+     ]
+    ],
+    "onderarm": [
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_A_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_B",
+      "Figuur_A_B"
+     ]
+    ]
+   },
+   {
+    "nr": 4,
+    "nieuw": [
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_A_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_B",
+      "Figuur_A_B"
+     ]
+    ],
+    "onderarm": [
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_A_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_B",
+      "Figuur_A_B"
+     ]
+    ]
+   },
+   {
+    "nr": 5,
+    "nieuw": [
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_A_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_B",
+      "Figuur_A_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_B",
+      "Figuur_B"
+     ]
+    ],
+    "onderarm": [
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_A_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_A",
+      "Figuur_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_A_B",
+      "Figuur_A_B"
+     ],
+     [
+      "Figuur_A_A_A_A_A_A_A_B",
+      "Figuur_B"
+     ]
+    ]
+   },
+   {
+    "nr": 6,
+    "nieuw": [],
+    "onderarm": []
+   }
+  ],
+  "pose_botsingen": 0,
+  "pose": {
+   "Left hip": [
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     -9.0
+    ]
+   ],
+   "Right hip": [
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     9.0
+    ]
+   ],
+   "Left knee": 8.0,
+   "Right knee": 8.0,
+   "Left shoulder": [
+    [
+     [
+      1,
+      0,
+      0
+     ],
+     -18.0
+    ],
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     -28.0
+    ]
+   ],
+   "Left elbow": 95.0,
+   "Right shoulder": [
+    [
+     [
+      1,
+      0,
+      0
+     ],
+     10.799999999999999
+    ],
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     28.0
+    ]
+   ],
+   "Right elbow": 55.0,
+   "Neck": [
+    [
+     [
+      0,
+      0,
+      1
+     ],
+     -14.0
+    ],
+    [
+     [
+      1,
+      0,
+      0
+     ],
+     -5.0
+    ]
+   ]
+  },
+  "pose_rood_vlakken": 0,
+  "eind_camera": [
+   [
+    -709.6192626953125,
+    -655.05419921875,
+    211.67233276367188
+   ],
+   [
+    -135.0284423828125,
+    -930.4359741210938,
+    257.528564453125
+   ]
+  ]
+ },
+ "muis": [],
+ "vlakken": {},
+ "paneel_y": {}
+}
