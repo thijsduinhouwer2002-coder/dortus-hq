@@ -19,7 +19,14 @@ const HOL3D := preload("res://hol/hol_3d.gd")
 
 # vermenigvuldigers (r, g, b): koel in het donker, warm in het licht. Bijgesteld op het beeld van 120 px (GEZIEN).
 const AARDE_DONKER := Color(0.76, 0.73, 0.80)
-const GANG_DONKER := Color(0.62, 0.59, 0.68)
+# Sanne 26 nov (Iris 499fd9f, mooi 7: "de gang leest op 1x als één zalmroze buis, overal dezelfde lichtkleur"):
+# de gang krijgt minder rood (aarde, geen roze), wordt naar de vloer toe donkerder, en heeft plekken met een andere
+# steen: koele grijze steen en gele leem, zacht in elkaar over, elke ±5 tegels anders. Vast per kolom, dus geen flikkeren.
+const GANG_DONKER := Color(0.53, 0.61, 0.62)   # was (0.62, 0.59, 0.68): koel op zalm gaf roze
+const STEEN_KOEL := Color(0.47, 0.58, 0.68)
+const STEEN_LEEM := Color(0.64, 0.60, 0.45)
+const VLOER_DONKER := 0.86    # onderste spelpixel van de gang: zo veel van de kleur erboven
+const PLEK_KOL := 5.0         # zo veel tegels per plek steen
 const LICHT := Color(1.0, 0.98, 0.93)
 const TOP_LICHT := 0.55       # daglicht vlak onder het gras: zo veel van de weg naar LICHT, gaat over 10 spelpixels weg
 
@@ -78,10 +85,29 @@ static func kleur_op(hol, p: Vector2) -> Color:
 	var open := false
 	if k >= 0 and k < hol.kolommen:
 		open = hol.gang[k] if p.y >= GANG_BOVEN else (hol.boven[k] or k == hol.ingang_kol)
-	var basis := GANG_DONKER if open else AARDE_DONKER
+	var basis := gang_kleur(p) if open else AARDE_DONKER
 	var l := licht_op(bronnen(hol), p)
 	l = maxf(l, clampf(1.0 - (p.y - OPP) / 10.0, 0.0, 1.0) * TOP_LICHT)
 	return basis.lerp(LICHT, l)
+
+# kleur van een open cel in het donker: plekken steen langs de gang en donkerder naar de vloer (zie GANG_DONKER)
+static func gang_kleur(p: Vector2) -> Color:
+	var t := p.x / (KOL * PLEK_KOL)
+	var i := int(floor(t))
+	var f := t - i
+	f = f * f * (3.0 - 2.0 * f)
+	var w := lerpf(_plek(i), _plek(i + 1), f)   # -1 koele steen, 0 gewoon, +1 leem
+	var c := GANG_DONKER.lerp(STEEN_KOEL, -w) if w < 0.0 else GANG_DONKER.lerp(STEEN_LEEM, w)
+	if p.y >= GANG_BOVEN:
+		var d := lerpf(1.0, VLOER_DONKER, clampf((p.y - GANG_BOVEN) / float(H - GANG_BOVEN), 0.0, 1.0))
+		c = Color(c.r * d, c.g * d, c.b * d)
+	return c
+
+# vaste waarde -1..1 per plek: twee van de drie plekken een andere steen, nooit twee keer dezelfde naast elkaar
+static func _plek(i: int) -> float:
+	var hsh := absi((i * 73856093) ^ 19349663) % 1000
+	var keus: float = [0.0, -0.85, 0.7][i % 3]
+	return keus * (0.75 + 0.25 * (hsh / 1000.0))
 
 # midden van de vlam van de fakkel bij de ingang (zelfde plek als hol.gd hem tekent)
 static func fakkel_punt(hol) -> Vector2:
@@ -116,7 +142,7 @@ func _kleur(b: Array, p: Vector2) -> Color:
 	var open := false
 	if k >= 0 and k < h.kolommen:
 		open = h.gang[k] if p.y >= GANG_BOVEN else (h.boven[k] or k == h.ingang_kol)
-	var basis := GANG_DONKER if open else AARDE_DONKER
+	var basis := gang_kleur(p) if open else AARDE_DONKER
 	var l := maxf(licht_op(b, p), clampf(1.0 - (p.y - OPP) / 10.0, 0.0, 1.0) * TOP_LICHT)
 	return basis.lerp(LICHT, l)
 

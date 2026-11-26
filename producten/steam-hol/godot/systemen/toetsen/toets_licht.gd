@@ -44,6 +44,21 @@ func _init() -> void:
 	ok(hol.boven[2] == false, "meetplek aarde is dicht")
 	ok(ver < aarde, "gang ver van licht donkerder dan aarde ver van licht (%.2f tegen %.2f)" % [ver, aarde])
 	ok(ver > 0.5, "nooit zwart: donkerste gang %.2f" % ver)
+	# Sanne 26 nov (Iris 499fd9f mooi 7, "één zalmroze buis"): plekken steen, donkerder naar de vloer, minder rood
+	var a0: Color = L.gang_kleur(Vector2(L.KOL * L.PLEK_KOL * 0.0 + 1, 30))
+	var a1: Color = L.gang_kleur(Vector2(L.KOL * L.PLEK_KOL * 1.0 + 1, 30))
+	var a2: Color = L.gang_kleur(Vector2(L.KOL * L.PLEK_KOL * 2.0 + 1, 30))
+	var vk := func(x: Color, y: Color) -> float:
+		return absf(x.r - y.r) + absf(x.g - y.g) + absf(x.b - y.b)
+	ok(vk.call(a0, a1) > 0.08 and vk.call(a1, a2) > 0.08 and vk.call(a0, a2) > 0.08, "drie plekken naast elkaar elk een andere steen (%.2f, %.2f, %.2f)" % [vk.call(a0, a1), vk.call(a1, a2), vk.call(a0, a2)])
+	ok(L.gang_kleur(Vector2(200, 30)) == L.gang_kleur(Vector2(200, 30)), "plekken liggen vast (geen flikkeren)")
+	ok(helder(L.gang_kleur(Vector2(200, 39))) < helder(L.gang_kleur(Vector2(200, 25))) - 0.05, "gang donkerder naar de vloer")
+	var rood_meest := 0.0
+	for x in range(0, 480, 4):
+		var c: Color = L.gang_kleur(Vector2(x, 30))
+		rood_meest = maxf(rood_meest, c.r / c.g)
+		ok(helder(c) > 0.45, "steen nooit te donker op x %d (%.2f)" % [x, helder(c)]) if x % 80 == 0 else null
+	ok(rood_meest < 0.62 / 0.59, "minder rood dan de oude gangkleur (r/g hooguit %.2f, was %.2f)" % [rood_meest, 0.62 / 0.59])
 	var lo := 9.0
 	var hi := 0.0
 	for i in 2000:
