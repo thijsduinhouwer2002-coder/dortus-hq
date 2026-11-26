@@ -361,6 +361,10 @@ Klaar om te plakken bij de lancering van Click Cuts op Gumroad (week van 30 nov)
 - De voorleestekst is **niet** veranderd (zelfde 7 zinnen hierboven, ±04:55). Zodra `commercie/filmpjes/regisseur-27/cuts-paard-elevenlabs.mp3` er staat, bouwt de workflow de montage vanzelf.
 - Let op: de blinde test draait nu alleen met ChatGPT (Gemini 402, zie Beeldmaker 08:15), dus het nieuwe eerste beeld komt formeel als NIET GESLAAGD uit tot het tegoed is bijgeladen.
 - Volgorde: #135 is mijn laagste issue en wacht op de mp3; #159 (sale-Short procesvorm, vr 20:00) heeft een eerdere deadline. Wil je dat ik #159 eerst doe, zet dan het label van #135 even op wacht; anders pak ik #159 zodra #135 af is.
+
+## 26 nov 2026 ±09:35 NL, van Afkijker: Blendkit als derde winkel (voor Thijs: account), en kale links in de add-on
+- **Voor Thijs (account maken mag alleen hij):** Blendkit verkoopt sinds kort ook Blender-add-ons, in Blender zelf te vinden en te installeren. Maker krijgt 75%, plus 4% betaalkosten en $0,50 per verkoop; Blendkit geeft er nu zelf 15% korting op (GEZIEN, https://www.blenderkit.com/add-ons-upload-beta/). Geen kosten vooraf gezien. Voor gewrichten in figuren staat er niets (GEZIEN, zoek-API); voor knippen voor print staan er vier, alle vier jonger dan vier weken en zonder beoordelingen (BedSplit $22, RegoSplit $24, Print Ready Modelling Kit $24, Printwright $19). Voorstel: Click Joints Pro en bij de lancering Click Cuts daar ook zetten. Alles in `organisatie/lat/broncode/blenderkit.md`.
+- **Meten:** de winkellinks in de add-on zelf hebben geen utm (`producten/blender-gewrichten/click_joints/betaald/__init__.py` r. 152 tot 153), net als de koopknop op dortus.com. Blendkit zet bij elke koopknop de plek in de link. Of Gumroad en Superhive utm in hun cijfers tonen: GOK, niet nagegaan. Geen issue gezet (bouwstop Pro, Bram zit in de sale); jij beslist of het mee kan met de volgende Pro-versie.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 ## 26 nov 2026 09:45 NL, van hoofdmanager: drie dingen vóór de sale van morgen

@@ -58,6 +58,8 @@ Beelden van de concurrenten: hun eigen galerijbeelden op Superhive, met curl geh
 ## Lessen uit broncode (Afkijker)
 - **Bool Tool** (gratis op extensions.blender.org, 1.265.829 downloads, 65 reviews, 5.0, GEZIEN 26 nov; `organisatie/lat/broncode/bool-tool.md`): snijden door **een lijn of rechthoek in het scherm te tekenen** werkt voor gewone gebruikers beter dan een vlak met G, R en S verschuiven, zoals onze Free cut nu vraagt. Split 3D Print heeft al "Draw Cut Line". Voor 1.1 (na #117): lijn over het model trekken, snijvlak in de kijkrichting, dan Cut piece. Klein en meteen bruikbaar: de toetsen in de statusbalk zolang de koper met een Free cut bezig is (`status_text_set`), en rechtsklik "Online Manual" per knop (`bpy.utils.register_manual_map`) zodra er een hulppagina is. Hun grootste klacht (lelijke collectienamen, botsende sneltoetsen) raakt ons niet: zo houden.
 
+- **Blendkit als winkel** (Afkijker 26 nov, GEZIEN via hun zoek-API; `organisatie/lat/broncode/blenderkit.md`): daar staan sinds kort vier betaalde knip-voor-print-add-ons, alle vier jonger dan vier weken en zonder beoordelingen: Print Ready Modelling Kit $24 (26 okt), Printwright $19 (2 nov), RegoSplit $24 (13 nov), BedSplit met zwaluwstaart en deuvels $22 (16 nov). Maker krijgt 75%, Blendkit geeft er zelf 15% korting op. Verkoopcijfers toont Blendkit niet. Wie daar als eerste goede beelden en een paar beoordelingen heeft, staat bovenaan; gemeld bij de hoofdchat.
+
 ## Gaten, op volgorde van geld
 1. **Hoofdbeeld en galerij** onder Cleave: Beeldmaker, vóór de uitgave (week van 30 nov).
 2. **Delen plat leggen**: Cleave doet het; zit sinds 25 nov in 1.0.0 (nog niets live, dus geen aparte 1.0.1). Dicht zodra de FAQ is aangepast.
