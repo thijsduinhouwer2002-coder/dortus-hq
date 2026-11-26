@@ -1,6 +1,6 @@
 # Ebb met alle dieren (vervangt "Close your eyes and follow the buzz")
 
-- status: open
+- status: klaar om te plakken (Daan ja in #118, 26 nov 01:00)
 - kanaal: yt-short
 - soort: video
 - product: ebb
@@ -35,7 +35,7 @@ Screens from the Garmin simulator (fenix 8).
 - Geen medische claim: alleen "breathe in, hold, breathe out", geen gezondheidsbelofte.
 
 ## Keuring
-(leeg tot de Keurder komt)
+Daan 26 nov ±01:00 NL: Akkoord ja op film, eerste beeld en tekst (nakeuring #118, na nee in #71 om "New round, new friend").
 
 ## Oranje-besluit
 (alleen de hoofdchat, alleen bij oranje)

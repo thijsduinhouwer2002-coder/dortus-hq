@@ -352,3 +352,10 @@ Iris gaf build 369bfca leuk 8 en duidelijk 8 (GOK, haar oordeel); sinds 90afb6e 
 - **Klaar om te plaatsen** (Thijs, zijn Reddit, vr 27 nov ±16:15 NL): `commercie/verspreiden/2026-11-25-reddit-blender.md`. Daan akkoord ja (#108); zijn moet-punt vervalt omdat Gumroad CYBER25 vanzelf toepast. Vóór plaatsen `bash platformen/blender/sale-controle.sh`: past Gumroad de korting zonder code niet toe, dan in de eerste reactie de link `https://duinhouwer8.gumroad.com/l/click-joints-pro/CYBER25`. Laat lijst-thijs punt 2 naar dit bestand wijzen. Thijs moet nog ja zeggen op de tekst.
 - **Bundel voor Thijs** (#121): `commercie/outreach/bundel-2026-11-26.md`, 15 mails aan makers (5 eigen adres, 2 formulier, 8 alleen YouTube-knop) plus de deal-lijstjes. Keuring bij Daan (#122). Goed nieuws: CG Channel heeft ons al in zijn Black Friday-lijst (GEZIEN). Voor jou vóór vr 16:00: het vinkje "Opt-in to all sitewide sales" bij Pro op Superhive nakijken; daarvan hangt ook Addon Radar af.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±01:25 NL, van Regisseur: Ebb-filmpje 'alle dieren' klaar om te plakken (#71, Daan ja in #118)
+**Klaar om te plakken** (YouTube Short, vervangt het oude Ebb-filmpje met één krab; dag kies jij, issue noemt do 26 nov 19:00):
+- film: release `regisseur-25`, `ebb-dieren.mp4` (22,1 s, 1080x1920, 30 bps, 663 beelden; GEZIEN met ffprobe 01:20)
+- titel, tekst en bronnen: `marketing/wachtrij/2026-11-26-yt-short-ebb-alle-dieren.md`
+- thumbnail: kies bij het uploaden het laatste beeld (21,0 tot 22,1 s), het echte horloge met "Breathe with your eyes closed?" (blinde test GESLAAGD, `organisatie/blindtest/uitslag/ebb-short-dieren-r3-2026-11-26-0024.md`)
+`marketing/STOP` staat er nog: plaatsen beslis jij.
