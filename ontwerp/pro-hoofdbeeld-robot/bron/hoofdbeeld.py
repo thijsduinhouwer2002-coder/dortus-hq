@@ -344,12 +344,17 @@ def main():
     cam = scene(delen)
     bpy.context.view_layer.update()
     labels(cam)
-    pad = os.path.join(UIT, "hoofdbeeld-render.png")
+    if os.environ.get("HB_RAND"):   # #38: alleen een uitsnede (x0,x1,y0,y1 als 0..1, y van onder) voor een inzet
+        x0, x1, y0, y1 = (float(v) for v in os.environ["HB_RAND"].split(","))
+        r = bpy.context.scene.render
+        r.use_border, r.use_crop_to_border = True, True
+        r.border_min_x, r.border_max_x, r.border_min_y, r.border_max_y = x0, x1, y0, y1
+    pad = os.path.join(UIT, os.environ.get("HB_NAAM", "hoofdbeeld") + "-render.png")
     bpy.context.scene.render.filepath = pad
     t0 = time.time()
     bpy.ops.render.render(write_still=True)
     meting["render_s"] = round(time.time() - t0, 1)
-    json.dump(meting, open(os.path.join(UIT, "hoofdbeeld.json"), "w"), indent=1, ensure_ascii=False, default=str)
+    json.dump(meting, open(os.path.join(UIT, os.environ.get("HB_NAAM", "hoofdbeeld") + ".json"), "w"), indent=1, ensure_ascii=False, default=str)
     if os.environ.get("HB_BEWAAR"):
         bpy.ops.wm.save_as_mainfile(filepath=os.path.join(UIT, "hoofdbeeld.blend"))
     log("klaar", pad, meting["render_s"], "s")

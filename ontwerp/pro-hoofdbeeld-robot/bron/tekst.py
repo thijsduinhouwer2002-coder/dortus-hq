@@ -20,7 +20,7 @@ CREME, GOUD, ZACHT = (255, 246, 230), (255, 196, 84), (226, 216, 232)
 PUNTEN = [
     "One click: ball joints and hinges from your rig",
     "Elbows and knees stop where your rig stops",
-    "Bend range in degrees, before you print",
+    os.environ.get("TK_PUNT3", "Bend range in degrees, before you print"),   # #38: andere derde regel mogelijk
 ]
 
 
