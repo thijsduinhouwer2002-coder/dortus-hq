@@ -68,7 +68,7 @@ Beelden van de concurrenten: hun eigen galerijbeelden op Superhive, met curl geh
 3. **Snedes langs de vorm of zelf leggen.** **26 nov (#208): Draw cut gebouwd voor 1.1, lijn trekken zoals Split 3D Print "Draw Cut Line", op tak, keuring #212; daarmee dicht voor "zelf leggen", "langs de vorm" (automatisch) blijft open.** Alle vier de rechters in de blinde test (24 nov) vroegen erom ("doesn't slice through my character's face"); Cleave en Split doen het. Nu: Free cut noemen in de FAQ. Daarna eerste kandidaat voor 1.1.
 4. **Meer verbinders** (magneet, D-pen die maar op één manier past, deuvel): ook gevraagd door de rechters. Magneet gebouwd 26 nov (#117, Thijs 26 nov 00:20: dit is wat wij niet hebben); D-pen en deuvel na de eerste verkopen.
 
-5. **Startspeling per materiaal (1.0.1, na de lancering).** Resin en TPU beginnen nu op 0,20 mm en hun proefblok mist de waarde die past; SnapSplit begint per materiaal goed. Eerste print die niet past kost een review. Klein werk in `passing.py` en `eigenschappen.py`.
+5. **Startspeling per materiaal (1.0.1, na de lancering).** **26 nov (#227): gebouwd voor 1.1 op tak `claude/click-cuts-materiaal`, Resin 0,10, PETG en ABS 0,25, TPU 0,30; keuring #229.** Resin en TPU beginnen nu op 0,20 mm en hun proefblok mist de waarde die past; SnapSplit begint per materiaal goed. Eerste print die niet past kost een review. Klein werk in `passing.py` en `eigenschappen.py`.
 
 ## Ons voordeel
 Eén knop en alles past op jouw bed, met pennen die passen omdat je eerst het proefblokje met je eigen pen print, en een nummer op elk deel.
