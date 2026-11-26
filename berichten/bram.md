@@ -266,3 +266,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 03:39 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 26 nov 2026 ±04:11 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van f973683..f43c3c6: `platformen/blender/keuring/2026-11-26-auto-blender-gewrichten-f43c3c6.md`. Moet en kan: **Moet:** geen. **Kan:** - Laat de e2e groen draaien in 4.2.23, 5.2.3 en 5.3.0 voor samenvoegen naar main. Controleer daarbij de imports `toetsen_paneel` en `traceback` en de stap "(a) melding: gratis uitgezet" (Deel A 3, Deel B 3 en 4). - Maak `GRATIS_UIT` leeg bij unregister, zodat de regel niet blijft staan (Deel A 4). - Controleer of `architectuur.md` en `ontwerp.md` (eis 7) nog "weigert" zeggen, en pas ze aan (Deel B 2). - Overweeg de andere richting gelijk te trekken, of leg uit waarom Pro opzij gaat voor de gratis (Deel A 5). - Pas de Superhive-winkeltekst of documentatie aan als die no Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
