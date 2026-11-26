@@ -9,7 +9,7 @@ Write each line from the user's side, at most 5 lines per version.
 
 ### Added
 - "Report a problem" at the bottom of the Click Joints tab opens a bug report on GitHub with your Click Joints, Blender and system versions already filled in. Nothing is sent until you submit it yourself.
-- After a Good fit and an export, one small line at the bottom of the panel links to the reviews on Blender Extensions. Click a store or the X and it does not ask again. No popups.
+- After a Good fit and an export, one small line at the bottom of the panel links to the reviews on Blender Extensions. Click the link or the X and it does not ask again. No popups.
 
 ### Fixed
 - On some figures, a knee joint could leave the sole of the foot as a loose piece. The foot now stays with the leg.
