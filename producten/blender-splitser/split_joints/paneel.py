@@ -2,7 +2,7 @@
 one-line result, Export, and the four numbered steps folded under More settings."""
 import bpy
 
-from . import controle, exporteer, in_een_klik, passingproef, printers, schaal, snedes
+from . import controle, exporteer, in_een_klik, passingproef, printers, schaal, snedes, vrije_snede
 from .eigenschappen import bed, magneten
 
 
@@ -75,6 +75,8 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             rij = layout.row(align=True)
             rij.operator("split_joints.vrije_snede_tekenen", text="Draw cut", icon=icoon("GREASEPENCIL", "LINE_DATA"))
             rij.operator("split_joints.vrije_snede", text="Cut piece", icon="MOD_BOOLEAN")
+            if vrije_snede.stuk_van(context)[1] is not None:  # keuring #212 K1: the other part, without R 180
+                layout.operator("split_joints.vrije_snede_om", text="Flip side", icon=icoon("ARROW_LEFTRIGHT", "UV_SYNC_SELECT"))
         if uit:
             rij = layout.row()
             rij.scale_y = 1.3  # smaller than Split to fit (keuring C2)
@@ -166,6 +168,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             rij = vrij.row(align=True)
             rij.operator("split_joints.vrije_snede_erbij", text="Add free cut", icon="ADD")
             rij.operator("split_joints.vrije_snede", text="Cut piece", icon="MOD_BOOLEAN")
+            vrij.operator("split_joints.vrije_snede_om", text="Flip side", icon=icoon("ARROW_LEFTRIGHT", "UV_SYNC_SELECT"))
         if inst.meldingen:
             vak = stap.column(align=True)
             for regel in inst.meldingen.split("\n"):  # all of them (keuring winkeltekst K1: 8 of 16 showed)

@@ -211,6 +211,10 @@ def stap():
                 ok = xs and max(abs(x - lx) for x in xs) < 3 and min(ys) < min(ly1, ly2) + 3 and max(ys) > max(ly1, ly2) - 3
                 log(f"{'TEKENEN PLEK OK' if ok else 'TEKENEN PLEK FOUT'}: vlak op het scherm x {min(xs):.0f} tot {max(xs):.0f}, "
                     f"y {min(ys):.0f} tot {max(ys):.0f}; lijn x {lx:.0f}, y {min(ly1, ly2):.0f} tot {max(ly1, ly2):.0f}")
+            # keuring #212 M1: before Cut piece the part that comes off is lit, with an arrow "comes off"
+            st = vs.STAND
+            ok = st["driehoeken"] > 0 and st["pijl"] is not None and st["fout"] is None
+            log(f"{'TEKENEN ERAF OK' if ok else 'TEKENEN ERAF FOUT'}: {st['driehoeken']} driehoeken licht op, pijl {st['pijl']}, fout {st['fout']}")
             pad = os.path.join(uitmap, "tekenen-vlak.png")
             subprocess.run(["import", "-window", "root", pad], capture_output=True)
             if snede:

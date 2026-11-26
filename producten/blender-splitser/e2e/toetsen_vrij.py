@@ -211,6 +211,23 @@ def tekenen(uitmap=None):
         stap(f"tekenen {richting}: pijl wijst naar het armeinde", n.x > 0.999, f"{tuple(round(x, 3) for x in n)}")
         stap(f"tekenen {richting}: vlak hoort bij het stuk", snede.get("sj_vrij") == stuk.name)
         modellen.actief(snede)
+        # keuring #212 M1: what comes off is lit before Cut piece: only the arm end, in world space
+        tris, midden = vs._eraf_wereld(stuk, snede)
+        xs_l = [p[0] - d.x for p in tris] if tris else []
+        stap(f"tekenen {richting}: oplichtend deel is alleen het armeinde",
+             bool(xs_l) and min(xs_l) > 49.0 and max(xs_l) < 81.5, f"{len(tris or []) // 3} driehoeken, x {min(xs_l or [0]):.1f} tot {max(xs_l or [0]):.1f}")
+        # K1: Flip side turns it to the torso, twice is back
+        bpy.ops.split_joints.vrije_snede_om()
+        bpy.context.view_layer.update()
+        n2 = Vector(snede.matrix_world.to_3x3() @ Vector((0, 0, 1))).normalized()
+        tris2, _m = vs._eraf_wereld(stuk, snede)
+        xs2 = [p[0] - d.x for p in tris2] if tris2 else []
+        stap(f"tekenen {richting}: Flip side zet de pijl naar de romp", n2.x < -0.999 and bool(xs2) and min(xs2) < 0.0,
+             f"pijl {tuple(round(x, 3) for x in n2)}, x {min(xs2 or [0]):.1f}")
+        mid2 = snede.matrix_world @ (sum((Vector(v.co) for v in snede.data.vertices), Vector()) / 4.0)
+        stap(f"tekenen {richting}: Flip side laat het vlak op zijn plek", abs(mid2.x - (50.0 + d.x)) < 1e-3, f"x {mid2.x - d.x:.3f}")
+        bpy.ops.split_joints.vrije_snede_om()
+        bpy.context.view_layer.update()
         r = knip()
         lijst = stukken()
         stap(f"tekenen {richting}: snijden lukt", r == {"FINISHED"} and len(lijst) == 2, f"{r} {len(lijst)} '{LAATSTE[0][:90]}'")
@@ -222,6 +239,25 @@ def tekenen(uitmap=None):
         stap(f"tekenen {richting}: torso blijft heel", min(v.co.x for v in a.data.vertices) < -19.0)
         for o in (a, b):
             stap(f"tekenen {richting} stuk {o['sj_stuk']}: groen", o.get("sj_status") == "groen", f"{o.get('sj_status')}")
+    # K2: a drawn line that stops inside the piece says to drag across, not to scale (S)
+    modellen.mm_scene()
+    inst = bpy.context.scene.split_joints
+    inst.printer = "A1MINI"
+    ob = torso_met_arm()
+    modellen.actief(ob)
+    bpy.ops.split_joints.plan()
+    bpy.ops.split_joints.split()
+    stuk = stukken()[0]
+    modellen.actief(stuk)
+    d = Vector(stuk.matrix_world.translation)
+    kader = vs.vlak_uit_lijn((50.0 + d.x, -60.0 + d.y, 25.0 + d.z), (50.0 + d.x, -60.0 + d.y, 35.0 + d.z), (0.0, 1.0, 0.0),
+                             vs.punten_wereld(stuk), marge=1.0)
+    snede = vs.zet_vlak(bpy.context, stuk, *kader)
+    snede["sj_getekend"] = True
+    modellen.actief(snede)
+    r = knip()
+    stap("tekenen te kort: weigert met 'Drag the line all the way across'", r == {"CANCELLED"} and "all the way across" in LAATSTE[0],
+         f"{r} '{LAATSTE[0][:90]}'")
     if uitmap:
         bpy.ops.wm.save_as_mainfile(filepath=os.path.join(uitmap, "tekenen.blend"))
 
