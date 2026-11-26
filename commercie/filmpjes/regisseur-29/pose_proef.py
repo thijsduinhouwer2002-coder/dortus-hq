@@ -94,8 +94,8 @@ for naam in KIES:
     rood = sum(len(o.get("cj_rood_vlakken", [])) // 2 for o in delen)
     uitslag[naam] = {"nieuw": nieuw, "onderarm": arm_hits, "rood": rood, "gebruikt": gebruikt}
     print("POSE", naam, "botsing", len(nieuw) + len(arm_hits), "rood", rood, gebruikt, flush=True)
-    for d in (-50, 0, 40):
-        S.richt(cam, delen, "staand", draai=d, kantel=8, vul=0.86, midden_y=0.5)
+    for d in [int(x) for x in os.environ.get("CJ_HOEKEN", "-50,0,40").split(",")]:
+        S.richt(cam, delen, "staand", draai=d, kantel=int(os.environ.get("CJ_KANTEL", "8")), vul=0.86, midden_y=0.5)
         sc.render.resolution_percentage = 50
         sc.render.filepath = os.path.join(UIT, f"{naam}_{d:+d}.png")
         bpy.ops.render.render(write_still=True)

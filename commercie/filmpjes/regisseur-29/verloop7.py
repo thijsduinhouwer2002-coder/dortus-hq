@@ -303,7 +303,7 @@ def verloop_pro():
     beste, beste_n, uitslag = None, 99, []
     # v7b (Daan #217 M3): eerst de vaste open pose uit poses7.py (CJ_POSE), daarna de andere; de oude lijst alleen als
     # reserve. Dezelfde pose gaat naar de weergave en naar eind.blend (Cycles).
-    eerst = os.environ.get("CJ_POSE", "e_zwaai_voor_loop")
+    eerst = os.environ.get("CJ_POSE", "g_zwaai_achter_loop")
     lijst = [POSES[eerst]] + [v for k, v in POSES.items() if k != eerst] + kandidaten()
     for i, kand in enumerate(lijst):
         R.poseer(delen, kand, scharnier=scharnier)

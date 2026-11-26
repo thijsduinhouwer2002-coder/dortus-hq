@@ -32,7 +32,10 @@ POSES = {
     "b_zwaai_zij_loopL": {**LOOP_L, **ZWAAI_R, **ZIJ_L, **HOOFD},
     "c_zwaai_los_loop": {**LOOP, **ZWAAI_R, **LOS_L, **HOOFD},
     "d_zwaai_zij_breed": {**BENEN_BREED, **ZWAAI_R, **ZIJ_L, **HOOFD},
-    # gekozen voor v7b (proef 26 nov: 0 botsingen, 0 rood); hoofd iets naar de camera (die staat aan de +X-kant)
+    # proef 26 nov: 0 botsingen, maar in de weergave (camera aan de +X-kant) wijst de vuist naar de camera, voor de buik
     "e_zwaai_voor_loop": {**LOOP, **ZWAAI_R, **VOOR_L, "Neck": [((0, 0, 1), 12.0), ((0, 1, 0), 8.0)]},
     "f_zwaai_achter_loop": {**LOOP, **ZWAAI_R, **ACHTER_L, **HOOFD},
+    # gekozen voor v7b: linkerarm zwaait mee naar achter (niets voor het lijf), hoofd iets naar de camera (+X-kant)
+    "g_zwaai_achter_loop": {**LOOP, **ZWAAI_R, "Left shoulder": [((0, 1, 0), -14.0), ((1, 0, 0), 26.0)],
+                            "Left elbow": 55.0, "Neck": [((0, 0, 1), 12.0), ((0, 1, 0), 8.0)]},
 }
