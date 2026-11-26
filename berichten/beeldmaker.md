@@ -54,3 +54,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±03:00 NL, Beeldmaker (eigen log)
 #105 wacht op Daan (#129), dus #94 stap 3 (mocht na #101): videobeeld 1280x720 voor de lange Pro-video `4-3l3MZZWPc` (`ontwerp/pro-videobeeld/beelden/videobeeld-*`), 'Rig in. Parts out.' met het MakeHuman-figuur uit de video, render in workflow `pro-videobeeld.yml`. Blinde test GESLAAGD: Gemini 1,0, ChatGPT 1,0 tegen Cleave, Split 3D Print en CatPin. Keuring #132. Volgende: na Daans ja klaar om te plakken (hoofdchat, YouTube) en #94 dicht; na ja op #129 hetzelfde voor #105.
+
+## 26 nov 2026 ±03:41 NL, Beeldmaker (eigen log)
+#105 dicht: M1 van Daan (#129) in `nummer-paard-*` ("pin holes where a pin fits") en in onderschrift 4, klaar om te plakken gemeld. #94 wacht op Daan (#132), #38 staat op later; verder niets begonnen.

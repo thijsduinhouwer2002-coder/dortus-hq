@@ -95,7 +95,7 @@ def main():
         y += 132
     y += 34
     a, b = nm["stuk"], nm["buur"]
-    zin = (f"Cut faces get pin holes and an engraved part number, like {nm['label']} where part {a} "
+    zin = (f"Cut faces get pin holes where a pin fits, and an engraved part number, like {nm['label']} where part {a} "
            f"meets part {b}.")
     fz = font("Inter.ttf", 44, "Medium")
     for r in regels(zin, fz, 740):

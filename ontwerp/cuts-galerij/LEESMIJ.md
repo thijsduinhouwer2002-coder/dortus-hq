@@ -56,3 +56,5 @@ SV_STUK=5 SV_BUUR=9 SV_N_GAT=2 SV_RAND=55 SV_F=16 SV_LEEG=0 SV_BUUR_IN_BEELD=1 S
 python3 bron/tekst_nummer_paard.py render-paard.png nummer-paard.json render-naad.png nummer-naad.json beelden <fonts> ../../producten/blender-splitser/merk/icoon.svg
 ```
 Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-nummer-paard.json`, GESLAAGD: Gemini 2,0, ChatGPT 1,5 (`organisatie/blindtest/uitslag/click-cuts-galerij-nummer-paard-2026-11-26-0200.md`). Het oude `nummer-*` haalde 2,0 en 2,0.
+
+**M1 van Daan (#129), 26 nov ±03:41:** de zin links is nu "Cut faces get pin holes where a pin fits, and an engraved part number, like 5-9 where part 5 meets part 9." (de add-on zet geen pen waar er geen past en meldt dan "Glue this joint"). De renders waren niet bewaard, dus `bron/tekst_nummer_paard_m1.py` haalde de oude zin uit beide jpg's (inpainten op het donkere verloop) en zette de nieuwe erin met dezelfde letters (Inter, 44 Medium, 740 breed), plek en schaduw; paard en kaart zijn ongewijzigd. `bron/tekst_nummer_paard.py` heeft de nieuwe zin voor een volgende render. Geen nieuwe blinde test nodig (Daan).

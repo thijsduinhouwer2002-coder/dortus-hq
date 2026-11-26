@@ -34,7 +34,7 @@ Kies zelf welk model de blinde test wint; zet Cleave (plek 1) ernaast.
 1. Hoofdbeeld: naam plus de haak **Pick your printer. Click once. Every part fits.** (GESLAAGD als tekst). De rechters vroegen "visual proof" van de ene klik: laat het voor en na zien in één beeld.
 2. **Too big for your printer.** Pick your printer from the list. In this picture the gold box marks its bed, and this model is far bigger.
 3. **One click, every part fits.** Split to fit plans every cut, so each part fits your bed, with pins and pin holes on the cut faces.
-4. **Numbered for assembly.** Cut faces get pin holes and an engraved part number, like 3-5 where part 3 meets part 5.
+4. **Numbered for assembly.** Cut faces get pin holes where a pin fits, and an engraved part number, like 5-9 where part 5 meets part 9.
 5. **Checked before you print.** Each part turns green when it fits, is watertight and has enough wall around its holes. Orange or red tells you why.
 6. **Pins that fit your printer.** Print the small fit test block first: your own pin at four clearances. Pick the one that fits, and Click Cuts remembers it for that printer and material.
 7. **Three steps in one tab.** Press N in the 3D viewport and open the Click Cuts tab: pick your printer, Split to fit, Export as STL or 3MF in millimeters.

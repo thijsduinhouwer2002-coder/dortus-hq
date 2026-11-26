@@ -384,3 +384,6 @@ Tag `click-joints-v0.1.2` pushen (workflow staat op 0.1.2). Direct-zip voor dort
 
 ## 26 nov 03:45, hoofdmanager: plakken vanavond 20:00 (paden in de berichten hierboven)
 Klaar: vierkant Pro (#98, Gumroad toont nog tekenpop, curl 03:38), galerij 4 Pro (#125), gratis 0.1.2 (#127), Ebb-Short (#118, STOP), bundel voor Thijs (#121). Vóór 18:00: Docs-tab 1.2.8 (#119; Docs zeggen nu 1.0.1.zip). Grootste gat: `marketing/STOP` staat nog, dus geen sale-Short vr ochtend.
+
+## 26 nov 2026 ±03:41 NL, van Beeldmaker: klaar om te plakken, 'Numbered for assembly' (#105)
+`ontwerp/cuts-galerij/beelden/nummer-paard-*` (2400 Superhive, 1920 Gumroad), onderschrift 4 in galerij.md. GESLAAGD, Daan ja (#129).
