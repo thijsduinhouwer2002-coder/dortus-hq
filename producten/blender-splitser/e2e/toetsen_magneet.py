@@ -146,16 +146,18 @@ def vlak_tussen_gaten(ob):
                     diep = hit[3] * k - 1.0
                     raak += 1
                     if diep > 0.02:
-                        # a groove has flat face on both sides of it (across or along); the edge of the face only
-                        # on the inside: there the skin of the model starts and slopes away (counted as rand)
+                        # a groove (like the line Daan saw, along the holes) has flat face on both sides of it within
+                        # 1 mm; the edge of the face only on the inside: there the skin of the model starts and slopes
+                        # away (counted as rand). Along the line is left out: a wavy outline of the face has flat on
+                        # both ends of a dip in the skin (run 45776302877, face 7-8, normal 41.7 degrees there).
                         def vlak_op(v):
-                            for stapje in range(1, 21):
+                            for stapje in range(1, 11):
                                 w = q + v * (0.1 * stapje)
                                 hh = b.ray_cast((w - richting * 1.0) / k, richting, 50.0 / k)
                                 if hh[0] is not None and hh[3] * k - 1.0 <= 0.02:
                                     return True
                             return False
-                        if (vlak_op(dwars) and vlak_op(-dwars)) or (vlak_op(e) and vlak_op(-e)):
+                        if vlak_op(dwars) and vlak_op(-dwars):
                             ondiep += 1
                             if diep > diepst:
                                 diepst, plek = diep, (round(s, 2), round(t, 2))
