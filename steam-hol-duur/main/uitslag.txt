@@ -1,8 +1,8 @@
 metingen van 10 s: 358
-CPU-s per 10 s: gemiddeld 1.387, mediaan 1.266, laagste 0.688, hoogste 3.047
+CPU-s per 10 s: gemiddeld 1.803, mediaan 1.641, laagste 1.156, hoogste 3.375
 geheugen aan het eind: 63 MB
 proces leefde tot het eind: True
 soort: editor-Godot (--path)
-eerste koop mogelijk: HOL eerste koop mogelijk na 65 s speeltijd (goud 50)
-kroniekregels: 265, verschillend 258
-vaakst herhaald: 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Gloop says thanks for the snack. +17'; 2x 'Kobus II knocks first. Polite.'; 2x 'Odo brought a torch. And hope.'
+eerste koop mogelijk: HOL eerste koop mogelijk na 63 s speeltijd (goud 50)
+kroniekregels: 261, verschillend 256
+vaakst herhaald: 2x 'Bram says this is a quick one.'; 2x 'Gerda II knows every trap. Almost.'; 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Gloop says thanks for the snack. +17'
