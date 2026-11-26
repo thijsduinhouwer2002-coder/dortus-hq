@@ -112,4 +112,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 26 nov ±03:35 Daan: #129 paard-galerijbeeld ja mits M1 ("pin holes where a pin fits"); #130 Docs-tab Pro 1.2.8 ja mits M1 (Fit test vóór First click); #131 magneet nakeuring ja, samenvoegen mag.
 - 26 nov ±03:56 Daan: #132 Pro-videobeeld ja (8); #133 Hats grond nee bijna (M1 stenen lezen als slakken, M2 helm niet te zien, M3 ritme).
 - 26 nov ±05:05 Daan: #136 r/NomadSculpting-antwoord ja (8); #138 Pro zet gratis uit (code) ja (8), drie aanraders.
-- 26 nov ±06:00 Daan: #139 Hats grond nakeuring ja (8); #140 outreach ronde 2 ja (8), twee kan-zinnen; #141 Click Cuts magneetbeeld ja (8). #142 Hats #134 goud en prijzen ja (8). #143 wacht: bestand nog niet op main.
+- 26 nov ±06:00 Daan: #139 Hats grond nakeuring ja (8); #140 outreach ronde 2 ja (8), twee kan-zinnen; #141 Click Cuts magneetbeeld ja (8). #142 Hats #134 goud en prijzen ja (8). #143 eigen mensen ja mits M1 (Superhive-antwoordregel).
