@@ -195,3 +195,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±21:55 NL, logboek Sanne
 #19 d: Iris mooi 8, zip van 4cd1794 (run 45886975795) nagekeken (exe, uitleg met regel sinds 24 nov, VERSIE klopt) en in `berichten/hoofdchat.md` voor de lijst van Thijs gezet.
+
+## 27 nov 2026 ±01:00 NL, logboek Sanne
+#19 d wacht op Thijs; #231 (Olaf) en #222 (Mila) dicht na Daan ja; Mila op #30 (Steam-header, blinde test), Olaf op #85 (tekens poppen op).
