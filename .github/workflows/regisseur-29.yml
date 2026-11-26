@@ -1,0 +1,143 @@
+name: "Regisseur 29 (sale-Short v7 #159: één doorlopende echte opname van de weergave, camera draait, robot verandert)"
+
+# 26 nov 2026, Regisseur, issue #159. Thijs 26 nov 18:10 tot 18:16 keurde v6b af: "niet van beeld wisselen, alles in
+# één beeld", "niet ingezoomd maar dynamisch", "maak exact die tiktok na". Echte Blender 5.3.0 met interface onder
+# Xvfb (staand scherm 1080x1920), Click Joints Pro 1.2.8 (wat kopers in de sale krijgen), beeld voor beeld op een klok
+# van 1/30 s (zie regisseur-28/proces.py STAP). Verloop: commercie/filmpjes/regisseur-29/verloop7.py. Daarna de
+# Cycles-eindfilm (20 losse jobs) en de montage met 3 muziekopties (Kevin MacLeod, incompetech.com, CC BY 4.0).
+# Niets geplaatst.
+on:
+  workflow_dispatch:
+  push:
+    branches: [regisseur-29-proef]
+
+permissions:
+  contents: write
+
+env:
+  TAG: regisseur-29
+  PRO_COMMIT_VOOR: a3c1ea1   # eerste commit van 1.2.9; de zip komt van de commit ervoor (1.2.8)
+
+jobs:
+  opname:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Systeempakketten (apt-snel)
+        uses: ./.github/actions/apt-snel
+        with:
+          pakketten: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter tesseract-ocr x11-xserver-utils dmz-cursor-theme
+      - name: mss (scherm pakken in Blender, puur Python)
+        run: python3 -m pip install --target /tmp/pylib mss==9.0.2
+      - name: Blender 5.3.0 en de Pro-zip 1.2.8
+        run: |
+          V="5.3.0"; KORT="5.3"
+          B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          mkdir -p /tmp/v128 && git archive "${PRO_COMMIT_VOOR}~1" producten/blender-gewrichten | tar -x -C /tmp/v128
+          (cd /tmp/v128/producten/blender-gewrichten && PRO_VERSIE=1.2.8 bash e2e/maak_zip.sh betaald)
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Opnemen (echt scherm 1080x1920, beeld voor beeld 30 bps)
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_pro
+          BLENDER_USER_CONFIG: /tmp/cj_pro/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_pro/extensions
+          PYTHONPATH: /tmp/pylib
+          CJ_UI: "1.4"
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_s.blend')"
+          mkdir -p /tmp/klaar
+          timeout 6000 xvfb-run --auto-servernum --server-args="-screen 0 1080x1920x24 -noreset" \
+            bash commercie/filmpjes/regisseur-29/neem_op.sh /tmp/blender/blender /tmp/start_s.blend /tmp/opn /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/klaar/opname.log | grep -E "KORT|Traceback|Error" || true
+          [ -s /tmp/opn/scherm-ruw.ts ] || { echo "FOUT: geen opname"; exit 1; }
+          grep -q "KORT OK weergave" /tmp/klaar/opname.log || { echo "FOUT: weergave niet af"; exit 1; }
+          cp /tmp/opn/film.json /tmp/opn/start.txt /tmp/opn/scherm-ruw.ts /tmp/klaar/
+          gzip -9 /tmp/klaar/opname.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: opname
+          path: /tmp/klaar
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eind-blend
+          path: /tmp/opn/eind.blend
+
+  render:
+    needs: opname
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix:
+        stuk: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: eind-blend
+          path: /tmp/eb
+      - name: Blender 5.3.0
+        run: |
+          sudo apt-get install -y -qq libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 >/dev/null
+          V="5.3.0"; KORT="5.3"; B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break; rm -f /tmp/blender.tar.xz
+          done
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+      - name: Cycles-render van dit stuk
+        run: |
+          N=$(/tmp/blender/blender -b /tmp/eb/eind.blend --python-expr "import bpy; print('EINDN', bpy.context.scene.frame_end)" 2>/dev/null | grep EINDN | awk '{print $2}')
+          PER=$(( (N + 19) / 20 )); S=$(( ${{ matrix.stuk }} * PER + 1 )); E=$(( S + PER - 1 )); [ $E -gt $N ] && E=$N
+          echo "beelden $S tot $E van $N"
+          mkdir -p /tmp/fr
+          /tmp/blender/blender -b /tmp/eb/eind.blend -o /tmp/fr/e_#### -F PNG -s $S -e $E -a 2>&1 | grep -E "Fra:.*Time|Saved|Error" | tail -40
+          ls /tmp/fr | wc -l
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eind-${{ matrix.stuk }}
+          path: /tmp/fr
+
+  montage:
+    needs: [opname, render]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: eind-[0-9]*
+          path: /tmp/alle
+          merge-multiple: true
+      - uses: actions/download-artifact@v4
+        with:
+          name: opname
+          path: /tmp/opn
+      - name: Pakketten
+        run: |
+          sudo apt-get install -y -qq ffmpeg fonts-inter >/dev/null
+          python3 -m pip install -q numpy pillow
+      - name: eind.mp4, muziek en montage
+        run: |
+          n=$(ls /tmp/alle/e_*.png | wc -l); echo "$n eindbeelden"
+          ffmpeg -v error -framerate 30 -pattern_type glob -i '/tmp/alle/e_*.png' -c:v libx264 -preset slow -crf 15 -pix_fmt yuv420p /tmp/opn/eind.mp4
+          mkdir -p /tmp/muziek
+          for t in Dreamer Floating_Cities Lasting_Hope; do
+            curl -fsSL --retry 3 -o "/tmp/muziek/$t.mp3" "https://incompetech.com/music/royalty-free/mp3-royaltyfree/$(echo $t | sed 's/_/%20/g').mp3"
+          done
+          python3 commercie/filmpjes/regisseur-29/montage7.py /tmp/opn /tmp/muziek /tmp/uit
+          cp /tmp/opn/eind.mp4 /tmp/opn/film.json /tmp/opn/opname.log.gz /tmp/uit/
+          ls -la /tmp/uit
+      - name: In de release zetten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Regisseur 29 (issue #159): sale-Short v7, één doorlopende echte opname van Blender 5.3.0 met Click Joints Pro 1.2.8 (camera draait, robot verandert in hetzelfde beeld), Cycles-eindfilm, 3 muziekopties (Kevin MacLeod, incompetech.com, CC BY 4.0). Niets geplaatst." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 29 (sale-Short v7, één doorlopend beeld)" --notes-file /tmp/notes.md
+          find /tmp/uit -maxdepth 1 -type f -print0 | xargs -0 gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY"
