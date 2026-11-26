@@ -328,9 +328,20 @@ def punten_wereld(stuk):
     return co @ mw[:3, :3].T + mw[:3, 3]
 
 
+GEBEURD = []  # last mouse events of Draw cut, read by the screen test (e2e/scherm_paneel.py)
+
+
 def _teken_lijn(op, _context):
     if op.begin is None or op.eind is None:
         return
+    try:
+        _lijn_op_scherm(op)
+    except Exception as e:  # never break the viewport over the helper line
+        GEBEURD.append(f"teken fout {e!r}")
+        del GEBEURD[:-40]
+
+
+def _lijn_op_scherm(op):
     import gpu
     from gpu_extras.batch import batch_for_shader
     shader = gpu.shader.from_builtin("UNIFORM_COLOR")
@@ -373,6 +384,9 @@ class SPLIT_JOINTS_OT_vrije_snede_tekenen(bpy.types.Operator):
         context.area.tag_redraw()
 
     def modal(self, context, event):
+        if event.type not in {"TIMER", "INBETWEEN_MOUSEMOVE"}:
+            GEBEURD.append(f"{event.type} {event.value} {event.mouse_region_x} {event.mouse_region_y}")
+            del GEBEURD[:-40]
         if event.type in {"ESC", "RIGHTMOUSE"} and event.value == "PRESS":
             self._stop(context)
             return {"CANCELLED"}

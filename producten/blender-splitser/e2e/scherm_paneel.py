@@ -173,14 +173,19 @@ def stap():
             staat["lijn"] = (naar_scherm(mx, my + h), naar_scherm(mx, my - h))
             staat["stap"] = 41
             return 0.5
-        if staat["stap"] == 41:
+        if staat["stap"] == 41:  # every mouse step in its own timer call, so Blender handles it in between
             (x1, y1), (x2, y2) = staat["lijn"]
-            xdo("mousemove", x1, y1)
-            xdo("mousedown", "1")
-            for k in range(1, 6):
-                xdo("mousemove", x1, str(int(int(y1) + (int(y2) - int(y1)) * k / 5)))
-            staat["stap"] = 42
-            return 0.8
+            k = staat.get("k", 0)
+            if k == 0:
+                xdo("mousemove", x1, y1)
+            elif k == 1:
+                xdo("mousedown", "1")
+            else:
+                xdo("mousemove", x1, str(int(int(y1) + (int(y2) - int(y1)) * (k - 1) / 5)))
+            staat["k"] = k + 1
+            if k + 1 > 6:
+                staat["stap"] = 42
+            return 0.3
         if staat["stap"] == 42:
             pad = os.path.join(uitmap, "tekenen-lijn.png")  # the line on the screen, before the mouse goes up
             subprocess.run(["import", "-window", "root", pad], capture_output=True)
@@ -189,6 +194,9 @@ def stap():
             return 1.0
         if staat["stap"] == 43:
             snede = [o for o in bpy.context.scene.objects if o.get("sj_vrij") == staat["stuk"]]
+            import importlib
+            vs = importlib.import_module("bl_ext.user_default.click_cuts.vrije_snede")
+            log(f"tekenen: muis in de operator {vs.GEBEURD[-12:]}")
             log(f"{'TEKENEN OK' if snede else 'TEKENEN FOUT'}: {len(snede)} snedevlak voor {staat['stuk']}")
             pad = os.path.join(uitmap, "tekenen-vlak.png")
             subprocess.run(["import", "-window", "root", pad], capture_output=True)
