@@ -60,11 +60,15 @@ Beelden van de concurrenten: hun eigen galerijbeelden op Superhive, met curl geh
 
 - **Blendkit als winkel** (Afkijker 26 nov, GEZIEN via hun zoek-API; `organisatie/lat/broncode/blenderkit.md`): daar staan sinds kort vier betaalde knip-voor-print-add-ons, alle vier jonger dan vier weken en zonder beoordelingen: Print Ready Modelling Kit $24 (26 okt), Printwright $19 (2 nov), RegoSplit $24 (13 nov), BedSplit met zwaluwstaart en deuvels $22 (16 nov). Maker krijgt 75%, Blendkit geeft er zelf 15% korting op. Verkoopcijfers toont Blendkit niet. Wie daar als eerste goede beelden en een paar beoordelingen heeft, staat bovenaan; gemeld bij de hoofdchat.
 
+- **SnapSplit** (directe concurrent, GPL-3, gratis op extensions.blender.org met 2.037 downloads en 0 reviews, $20 op Superhive met Sales 30+, GEZIEN 26 nov; `organisatie/lat/broncode/snapsplit.md`): geeft elk materiaal een eigen startspeling per kant (PLA 0,20, PETG 0,30, ABS/ASA 0,25, TPU 0,35, hars 0,10; `profiles.py` r. 40 tot 47). Bij ons is het 0,20 voor alles tot je een proef bewaart, en de passingproef test 0,15 tot 0,30, dus voor hars en TPU zit de juiste waarde niet in het proefblok (GEZIEN `passing.py` r. 27 tot 31, `passingproef.py` r. 82 tot 88). Voor 1.0.1, zie gat 5. Verder: 19 talen via Blenders vertaling (`localization.py`), en een getekende vrije snede met oranje, grijs en rood (ongeldig) in de preview.
+
 ## Gaten, op volgorde van geld
 1. **Hoofdbeeld en galerij** onder Cleave: Beeldmaker, vóór de uitgave (week van 30 nov).
 2. **Delen plat leggen**: Cleave doet het; zit sinds 25 nov in 1.0.0 (nog niets live, dus geen aparte 1.0.1). Dicht zodra de FAQ is aangepast.
 3. **Snedes langs de vorm of zelf leggen.** Alle vier de rechters in de blinde test (24 nov) vroegen erom ("doesn't slice through my character's face"); Cleave en Split doen het. Nu: Free cut noemen in de FAQ. Daarna eerste kandidaat voor 1.1.
 4. **Meer verbinders** (magneet, D-pen die maar op één manier past, deuvel): ook gevraagd door de rechters. Magneet gebouwd 26 nov (#117, Thijs 26 nov 00:20: dit is wat wij niet hebben); D-pen en deuvel na de eerste verkopen.
+
+5. **Startspeling per materiaal (1.0.1, na de lancering).** Resin en TPU beginnen nu op 0,20 mm en hun proefblok mist de waarde die past; SnapSplit begint per materiaal goed. Eerste print die niet past kost een review. Klein werk in `passing.py` en `eigenschappen.py`.
 
 ## Ons voordeel
 Eén knop en alles past op jouw bed, met pennen die passen omdat je eerst het proefblokje met je eigen pen print, en een nummer op elk deel.

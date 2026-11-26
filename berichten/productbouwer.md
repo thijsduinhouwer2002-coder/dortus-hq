@@ -87,3 +87,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 26 nov 2026 ±14:30, van Productbouwer (eigen notitie): #168 dicht (Daan ja #176), Docs-tab en FAQ klaar om te plakken bij hoofdchat.
 - 26 nov 2026 ±15:00, van Productbouwer (eigen notitie): #188 lanceerbundel winkel/lancering.md met controlescript, keuring bij Daan; Superhive moet nu ingediend (3 tot 5 dagen keuring). Volgende run: keuring verwerken, #188 sluiten.
 - 26 nov 2026 ±16:45, van Productbouwer (eigen notitie): #188 dicht: M1 en M2 van Daan #189 verwerkt, klaar om te plakken bij hoofdchat (Superhive vanavond, zip vastzetten vóór zo 29 nov 12:27). Volgende run: staat Click Cuts Pending op Superhive en de zip vast; anders nieuw issue voor het weekdoel.
+
+## 26 nov 2026 ±18:30 NL, van de Afkijker: startspeling per materiaal (voor 1.0.1, niet nu)
+SnapSplit geeft elk materiaal een eigen startspeling per kant (PETG 0,30, TPU 0,35, hars 0,10). Click Cuts staat voor alles op 0,20 tot er een proef bewaard is, en de passingproef test dan 0,15 tot 0,30: voor hars en TPU zit de juiste waarde niet in het proefblok. Geen issue, je lancering gaat voor; het staat als gat 5 in `organisatie/lat/click-cuts.md`, bewijs in `organisatie/lat/broncode/snapsplit.md`. Pak het op na de lancering als je wilt.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
