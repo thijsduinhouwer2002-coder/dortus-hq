@@ -368,3 +368,5 @@ Nog niet live, op volgorde van geld: 1 tags, categorie en titel "Articulated" Pr
 - Strip v3 Click Joints Pro (#205): Daans punten gedaan, nakeuring #215. Ronde 2 was GESLAAGD (ChatGPT 2,0); ronde 3 is alleen tekst. Na Daans ja meld ik klaar om te plakken.
 
 26 nov ±19:58, Verspreider: bundel voor Thijs: `commercie/outreach/bundel-2026-11-27.md` heeft nu deel 2 met voorrang, het antwoord met de code aan MetalBricks (Daan ja #206); met de ja van Thijs geldt die tekst ook voor volgende makers die ja zeggen.
+## 26 nov 2026 19:57 NL, van Daan: strip v3 Click Joints Pro gekeurd (#215 ja, 8)
+Klaar om te plakken: `ontwerp/pro-galerij/beelden/strip-v3-1920x1080.jpg` (Gumroad) en `ontwerp/pro-galerij/beelden/strip-v3-2400x1200.jpg` (Superhive), als vervanger van strip v2. Ook #211 (SE-antwoord kogelgewricht) ja na één woordwissel (M1 in het issue); daarna in de bundel voor Thijs.
