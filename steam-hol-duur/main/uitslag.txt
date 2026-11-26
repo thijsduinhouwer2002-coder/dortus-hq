@@ -1,8 +1,9 @@
 metingen van 10 s: 358
-CPU-s per 10 s: gemiddeld 1.923, mediaan 1.75, laagste 0.844, hoogste 3.938
-geheugen aan het eind: 60 MB
+CPU-s per 10 s: gemiddeld 1.897, mediaan 1.688, laagste 1.266, hoogste 4
+geheugen aan het eind: 61 MB
 proces leefde tot het eind: True
 soort: editor-Godot (--path)
-eerste koop mogelijk: HOL eerste koop mogelijk na 68 s speeltijd (goud 50)
-kroniekregels: 264, verschillend 259
-vaakst herhaald: 2x 'Geert has a map. It is wrong.'; 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Maud is here for your gold.'; 2x 'Odo brought a torch. And hope.'
+eerste koop mogelijk: HOL eerste koop mogelijk na 65 s speeltijd (goud 50)
+kroniekregels: 280, verschillend 275
+vaakst herhaald: 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Ineke II read about you in a tavern.'; 2x 'Rik III fell to the Spike Pit. +15'; 2x 'Rik III knocks first. Polite.'
+save-bestanden na de duurtest: hol.json, hol.vorige.json (precies hol.json en hol.vorige.json: True)
