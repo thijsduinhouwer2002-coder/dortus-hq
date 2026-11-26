@@ -1,8 +1,8 @@
 metingen van 10 s: 358
-CPU-s per 10 s: gemiddeld 1.643, mediaan 1.562, laagste 0.984, hoogste 3.328
-geheugen aan het eind: 60 MB
+CPU-s per 10 s: gemiddeld 1.387, mediaan 1.266, laagste 0.688, hoogste 3.047
+geheugen aan het eind: 63 MB
 proces leefde tot het eind: True
 soort: editor-Godot (--path)
-eerste koop mogelijk: HOL eerste koop mogelijk na 186 s speeltijd (goud 47)
-kroniekregels: 285, verschillend 270
-vaakst herhaald: 3x 'Wout fled. Grudge: Gloop.'; 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Gloop says thanks for the snack. +6'; 2x 'Henk II left. Took nothing. Angry.'
+eerste koop mogelijk: HOL eerste koop mogelijk na 65 s speeltijd (goud 50)
+kroniekregels: 265, verschillend 258
+vaakst herhaald: 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Gloop says thanks for the snack. +17'; 2x 'Kobus II knocks first. Polite.'; 2x 'Odo brought a torch. And hope.'
