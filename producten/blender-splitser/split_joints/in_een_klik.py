@@ -6,6 +6,7 @@ import math
 import bpy
 
 from . import gesloten, snedes
+from .eigenschappen import magneten
 
 
 def _maak_actief(context, ob):
@@ -110,7 +111,12 @@ def uitslag_tekst(scene):
         hoofd = f"{n} parts, all fit the bed" if n != 1 else "1 part, it fits the bed"
     else:
         hoofd = f"{n} parts, {len(niet)} need attention"  # "see step 4" is its own line in the panel (cut off)
-    detail = f"{pennen} pins, {inst.speling_mm:.2f} mm clearance"
+    mag = magneten(scene)
+    if mag:
+        detail = ", ".join(f"{n} magnets {k} mm" for k, n in sorted(mag.items()))
+        detail += f", {inst.speling_mm:.2f} mm clearance"
+    else:
+        detail = f"{pennen} pins, {inst.speling_mm:.2f} mm clearance"
     return hoofd, detail, not niet
 
 

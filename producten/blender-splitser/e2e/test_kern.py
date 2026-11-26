@@ -16,6 +16,7 @@ import modellen  # noqa: E402
 import toetsen_extra  # noqa: E402
 import toetsen_klik  # noqa: E402
 import toetsen_kleur  # noqa: E402
+import toetsen_magneet  # noqa: E402
 import toetsen_passing  # noqa: E402
 import toetsen_vrij  # noqa: E402
 from hulp import (SCHAAL, bestaat, dicht, fouten, gat_maten, gaten, label_punten, labels, lees_3mf,  # noqa: E402
@@ -275,7 +276,7 @@ def main():
             stap(f"{naam}: geen fout", False)
     for naam, f in (("buis", te_klein), ("extra", lambda: toetsen_extra.alles(model, uitmap)),
                     ("passing", lambda: toetsen_passing.alles(uitmap)), ("vrij", lambda: toetsen_vrij.alles(uitmap)),
-                    ("klik", lambda: toetsen_klik.alles(uitmap))):
+                    ("klik", lambda: toetsen_klik.alles(uitmap)), ("magneet", lambda: toetsen_magneet.alles(uitmap))):
         try:
             f()
         except Exception:

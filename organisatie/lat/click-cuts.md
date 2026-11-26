@@ -14,7 +14,7 @@ De 3 sterkste concurrenten op Superhive voor "model splitsen voor 3D-print", en 
 |---|---|---|---|---|---|
 | Snijdt zelf tot alles op je bed past (printer kiezen) | controleert per printer, aantal delen kies je zelf | bouwplaatcheck | nee | **ja, één knop** | voordeel |
 | Delen zoeken langs de vorm (nek, schouders) | ja | ja (Automatic Detection) | nee | nee, vlakke sneden | gat, later |
-| Verbinders | pen 4 profielen, deuvel, staaf, magneet, kogel | pen, socket, magneet, boorgat | pen, tap, zwaluwstaart, snap, eigen vorm | alleen ronde pen | gat (lat: genoeg voor 1.0) |
+| Verbinders | pen 4 profielen, deuvel, staaf, magneet, kogel | pen, socket, magneet, boorgat | pen, tap, zwaluwstaart, snap, eigen vorm | ronde pen of magneetgat (5x2 tot 10x3 mm, minstens 1,2 mm wand; op main 26 nov, #117) | magneet dicht (zit in 1.0.0); deuvel en D-pen nog open |
 | Passingproef met je eigen verbinder, onthouden per printer | nee | nee | materiaalprofielen, "test on a small sample" | **ja** | voordeel |
 | Controle per deel met reden (past, dicht, wand rond gaten) | ja, tegen printer | Mesh Check | nee | **ja, groen/oranje/rood** | gelijk of beter |
 | Onderdeelnummers gegraveerd | nee | nee | nee | **ja** | voordeel |
@@ -62,7 +62,7 @@ Beelden van de concurrenten: hun eigen galerijbeelden op Superhive, met curl geh
 1. **Hoofdbeeld en galerij** onder Cleave: Beeldmaker, vóór de uitgave (week van 30 nov).
 2. **Delen plat leggen**: Cleave doet het; zit sinds 25 nov in 1.0.0 (nog niets live, dus geen aparte 1.0.1). Dicht zodra de FAQ is aangepast.
 3. **Snedes langs de vorm of zelf leggen.** Alle vier de rechters in de blinde test (24 nov) vroegen erom ("doesn't slice through my character's face"); Cleave en Split doen het. Nu: Free cut noemen in de FAQ. Daarna eerste kandidaat voor 1.1.
-4. **Meer verbinders** (magneet, D-pen die maar op één manier past, deuvel): ook gevraagd door de rechters; na de eerste verkopen.
+4. **Meer verbinders** (magneet, D-pen die maar op één manier past, deuvel): ook gevraagd door de rechters. Magneet gebouwd 26 nov (#117, Thijs 26 nov 00:20: dit is wat wij niet hebben); D-pen en deuvel na de eerste verkopen.
 
 ## Ons voordeel
 Eén knop en alles past op jouw bed, met pennen die passen omdat je eerst het proefblokje met je eigen pen print, en een nummer op elk deel.

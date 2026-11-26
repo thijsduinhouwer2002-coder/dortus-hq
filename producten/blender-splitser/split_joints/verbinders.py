@@ -11,6 +11,27 @@ import numpy as np
 
 LABEL_HOOGTES = (8.0, 6.0, 5.0, 4.0, 3.0, 2.5)  # text height in mm, largest that fits
 MAX_PENNEN = 4
+# Magnet sizes (diameter x thickness in mm) that are sold as standard neodymium discs. Key = what the panel shows.
+MAGNETEN = (("5x2", 5.0, 2.0), ("6x2", 6.0, 2.0), ("6x3", 6.0, 3.0), ("8x3", 8.0, 3.0), ("10x3", 10.0, 3.0))
+MAGNEET_LUCHT_MM = 0.3  # each magnet hole is this much deeper than the magnet: room for glue, and for a bridged
+# hole bottom that sags a little when the cut face lies on the bed (Lay parts flat)
+MAGNEET_WAND_MM = 1.2  # never less wall than this around a magnet hole, whatever Min. wall says
+
+
+def magneet_maat(sleutel):
+    """(diameter, thickness) in mm of a magnet size key such as "6x2"."""
+    for k, d, t in MAGNETEN:
+        if k == sleutel:
+            return d, t
+    raise KeyError(sleutel)
+
+
+def magneet_opties(sleutel, speling, wand):
+    """Planner options for magnets: one fixed size (no smaller fallback), clearance on the diameter (half per
+    side), hole as deep as the magnet plus a little, at least 1.2 mm wall."""
+    d, t = magneet_maat(sleutel)
+    return {"pen_d": d, "speling": speling / 2.0, "wand": max(wand, MAGNEET_WAND_MM), "auto": False, "min_d": d,
+            "diepte": t + MAGNEET_LUCHT_MM, "soort": "magneet", "magneet": sleutel, "naam": f"{sleutel} mm magnet"}
 
 
 def doel_aantal(oppervlak, d):
@@ -106,6 +127,12 @@ def melding_geen_pen(k, d_min, opties):
     of numbers that read as a contradiction (7.6 mm across, needs 5.8 mm)."""
     breed = 2.0 * float(k.max()) if len(k) else 0.0
     nodig = d_min + 2 * (opties["speling"] + opties["wand"])
+    if opties.get("soort") == "magneet":
+        if breed < nodig:
+            return (f"too small for a magnet: the face is {breed:.1f} mm across, a {opties['naam']} needs "
+                    f"{nodig:.1f} mm with {opties['wand']:.1f} mm wall. Glue this joint or pick a smaller magnet")
+        return ("no safe spot for a magnet: the wall around the hole would be under "
+                f"{opties['wand']:.1f} mm or it would hit another hole. Glue this joint or pick a smaller magnet")
     if breed < nodig:
         return (f"too small for a pin: the face is {breed:.1f} mm across, a {d_min:g} mm pin needs "
                 f"{nodig:.1f} mm. Glue this joint")

@@ -56,8 +56,8 @@ Good to know:
 - Clearance is 0.20 mm per side by default. Print the fit test first; every printer and material is different.
 - Open meshes are made watertight first with a voxel remesh on a copy; your original is kept.
 - A model in millimeters in a scene in meters is caught at once, with a Convert to mm button.
-- Hollow models with thin walls (a vase, a thin shell) often have no room for a pin. Click Cuts then tells you the joint is too small for a pin and to glue it.
-- Version 1.0 has round pins only: no snap connectors, magnets or dovetails yet. Cuts follow the X, Y and Z axes, plus the free cut.
+- Hollow models with thin walls (a vase, a thin shell) often have no room for a pin or magnet. Click Cuts then tells you the joint is too small and to glue it.
+- Version 1.0 has round pins or holes for disc magnets (magnets not included): no snap connectors or dovetails yet. Cuts follow the X, Y and Z axes, plus the free cut.
 - Blender 4.2 and newer. Tested in Blender 4.2 and 5.3 on every change.
 - Pure Python, no other add-ons needed.
 
@@ -134,9 +134,9 @@ Beeld: het splitsbeeld uit release `splitser-merk-1` of een echte print zodra di
 | open mesh dicht met voxel op een kopie, origineel bewaard | `gesloten.py` r. 47 |
 | mm in meters gevangen, Convert to mm | `schaal.py` r. 38, CHANGELOG |
 | holle dunne wanden geen pen, "Glue this joint" | `verbinders.py` r. 99, `ontwerp.md` deel 8 (vaas: 16 van 28 naden zonder pen, GEZIEN door de bouwer) |
-| alleen ronde pennen, assen plus vrije snede | `ontwerp.md` deel 6 (klik, zwaluwstaart op "later"); geen magneet in de code (`grep magnet` leeg) |
+| alleen ronde pennen, assen plus vrije snede | `ontwerp.md` deel 6 (klik, zwaluwstaart op "later"); magneetgaten in `verbinders.magneet_opties` (issue #117) |
 | Lay parts flat bij export, platte kant (meestal snijvlak) onder, alleen als het past, standaard aan | `eigenschappen.py` (`plat`, default True), `exporteer.py` r. 123 tot 132, `plat.py`; in 1.0.0 sinds 25 nov (issue #104) |
 | Tested in Blender 4.2 and 5.3 on every change | `.github/workflows/blender-splitser-e2e.yml`: start bij elke push op `producten/blender-splitser/**`, matrix 4.2.23 en 5.3.0 |
 | Click Joints Pro: 3D cursor, scharnier met eindstop of kogel, bereik in graden | gekeurde Pro-tekst in `README.md` van deze map ("Split with anything. Make it move.") |
 
-Bewust niet: "AI models" (niet getest op AI-modellen in deze versie), "snap", "magnets", "click" als belofte over de print, "first time right".
+Bewust niet: "AI models" (niet getest op AI-modellen in deze versie), "snap", "click" als belofte over de print, "first time right".

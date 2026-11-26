@@ -8,6 +8,7 @@ First version.
 - Check: every part is green (fits, watertight, enough wall around the holes), orange or red, with the reason.
 - Free cut: an extra cut at any angle through one part.
 - Color per part in the exploded view.
+- Magnets (Joint: Pins / Magnets): holes for disc magnets instead of pins, sizes 5x2, 6x2, 6x3, 8x3 and 10x3 mm (you buy the magnets). Each hole gets your clearance on the diameter and 0.3 mm extra depth for glue. A joint with less than 1.2 mm wall around the hole gets no hole and a message to glue it or pick a smaller magnet.
 - Export all parts and pins as STL or 3MF in millimeters.
 - Lay parts flat (on by default, in Export): every part is exported lying on a cut face (the largest one that still fits your printer), so it goes on the bed the right way up without supports under that face. A part with no cut face that fits keeps its own way up. Pins are not changed.
 - Wrong unit (a millimeter model in a meter scene) is caught at once, with Convert to mm.
