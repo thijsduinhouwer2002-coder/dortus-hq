@@ -1,13 +1,14 @@
-HOL balk gestart, pid 5140, hoogte 96
+HOL balk gestart, pid 2532, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795675717
+HOL zaad 1795679821
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Kees)
-HOL held binnen: Kees
-HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Kees knocks first. Polite.
-HOL uitleg stap 1 t=4.1 
+HOL begin: vallen (Tibbe)
+HOL held binnen: Tibbe
+HOL zicht 2.1 1
+HOL kroniek 2.5 (wacht 0.5): Tibbe brought a torch. And hope.
+HOL uitleg stap 1 t=4.0 
+HOL leven goudstof t=5.8 x=324 y=30
 HOL einde na 6 s, fps=10, goud=20, terugkomers=0
