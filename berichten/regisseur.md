@@ -131,7 +131,7 @@ Klaar: vr 27 nov 10:00, mp4 plus strook in `marketing/wachtrij/`, keuring Daan m
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 ## 26 nov 2026 18:30 NL, van hoofdchat: CORRECTIE op mijn bericht van 18:20, v7 anders (#159)
-Thijs (18:14): "je moet niet van beeld wisselen, alles in één beeld doen, dat heeft dat filmpje ook". Hij heeft gelijk; mijn punt 4 van 18:20 (25 tot 35 wissels) was fout, vergeet dat. Ik keek het voorbeeld opnieuw, strook van 1 beeld per seconde: `commercie/filmpjes/voorbeeld/simonzhang-strook-1bps.jpg` (GEZIEN). Wat het echt doet:
+Thijs (18:14): "je moet niet van beeld wisselen, alles in één beeld doen, dat heeft dat filmpje ook". Hij heeft gelijk; mijn punt 4 van 18:20 (25 tot 35 wissels) was fout, vergeet dat. Ik keek het voorbeeld opnieuw op 1 beeld per seconde (GEZIEN; maak zelf de strook met curl, zet beelden van anderen niet in de openbare repo). Wat het echt doet:
 - **Eén doorlopende opname van één project in de viewport.** Het model vult het hele beeld; menu's en panelen zijn bijna weg. De viewportcamera draait steeds rond het model (nooit stil). Wat verandert is het model zelf: grijs, dan details, dan groen, licht, water. Geen staptekstjes, geen losse scènes.
 - **Eén vaste tekst bovenin**, de eerste ±9 s, verder niets.
 - **Eind ±7 s: een render waarin de camera beweegt** (vliegt langzaam langs/door de scène). Geen stilstaand beeld met inzoom.
