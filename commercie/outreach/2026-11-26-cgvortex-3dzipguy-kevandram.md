@@ -31,7 +31,7 @@ Onderwerp: `Blender add-on for 3D printed figures, free license for a look`
 ```
 Hi,
 
-Your "Amazing Blender Addon For 3D Printing" (https://www.youtube.com/watch?v=Mt5f-AIHydE) made me think ours could fit one of your add-on videos. It does a step most people still do by hand: turning a rigged character into a printable, poseable figure.
+Your "Amazing Blender Addon For 3D Printing" (https://www.youtube.com/watch?v=Mt5f-AIHydE) made me think ours could fit one of your add-on videos. It does a step that usually takes a lot of manual work: turning a rigged character into a printable, poseable figure.
 ```
 Eerste zin vast blok: `Click Joints Pro is a Blender add-on for exactly that step.`
 
@@ -41,7 +41,7 @@ Onderwerp: `Free Blender joint add-on for your next figure`
 ```
 Hi,
 
-I watched "Filament Printed Action Figure in 2 Sizes" (https://www.youtube.com/watch?v=cvz8HkTj7zQ). Your zip-tie joints are a clever way around tight friction fits. If you ever model a figure in Blender and want printed hinges and ball joints instead, this might save you the fiddly part.
+I watched "Filament Printed Action Figure in 2 Sizes" (https://www.youtube.com/watch?v=cvz8HkTj7zQ). Your zip-tie joints are a clever solution. If you ever model a figure in Blender and want printed hinges and ball joints instead, this might save you the fiddly part.
 ```
 Eerste zin vast blok: `Click Joints Pro is a Blender add-on for joints.`
 Extra zin, direct na de eerste alinea van het vaste blok: `It works best on figures with separate arms and legs, at about 200 mm tall or more.`

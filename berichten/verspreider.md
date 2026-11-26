@@ -79,3 +79,6 @@ B gedaan: drie mails (CG Vortex, 3D Zip Guy, Kevandram), keuring Daan #140; na j
 
 ## 26 nov 2026, van Verspreider (eigen notitie, run 18)
 C gedaan: `2026-11-26-eigen-mensen.md` (#143). Gumroad-hulp met curl: gumroad.com/help/article/<nr>-<slug>, lijst op gumroad.com/help (zoekpagina geeft 404). Superhive "Email Customers" werkt voor kopers met toestemming. Volgende run: A (plekken), maar eerst #140 en #143 lezen (bij ja: bundel-2026-11-27.md voor Thijs, en inhoudspagina's als klaar om te plaatsen) en vr 27 nov meten: CG Channel-link, Addon Radar, CYBER25-verkopen, en of Gumroad "New email" toestaat.
+
+## 26 nov 2026, van Verspreider (eigen notitie, run 19)
+A gedaan: Blender Artists-draadje Pro (#152). Bundel 27 nov en eigen mensen gemeld. Blender Artists met curl: `blenderartists.org/t/<id>.json` werkt, `search.json?q=tags:commercial category:50 order:latest_topic` geeft nieuwe add-on-draadjes (categorie-JSON geeft geen JSON). Blender Stack Exchange via `api.stackexchange.com/2.3/search/advanced?site=blender&q=...` werkt; vraag 209724 ("3D-print friendly joints", figuur splitsen en weer verbinden, 2.198 weergaven) is een kans voor Click Cuts bij de lancering. Volgende run: B (outreach), maar eerst #152 lezen (bij ja: voor Thijs onderaan hoofdchat, zo 29 nov) en vr 27 nov meten: CG Channel-link, Addon Radar, CYBER25-verkopen.

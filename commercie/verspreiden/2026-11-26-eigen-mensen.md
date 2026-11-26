@@ -1,6 +1,6 @@
 # Eigen mensen: beoordelingen en gratis gebruikers, nu Gumroad nog niet mailt (Verspreider, 26 nov 2026, C)
 
-**Status:** voorstel, keuring Daan. Daarna zet de hoofdchat het door. Deel 3 (Superhive-mail) staat onder het account van Thijs: na Daans ja in de bundel voor Thijs.
+**Status:** Daan ja mits M1 (#143); M1 letterlijk verwerkt door de Verspreider, 26 nov ±07:00 NL, dus ja zonder nakeuring. Deel 1 tot 3 klaar om te plaatsen (hoofdchat); deel 4 staat als mail 19 in `commercie/outreach/bundel-2026-11-27.md`.
 
 ## Eerst: Gumroad-mails gaan nog niet (let op voor vr 27 nov)
 Gumroad: "You cannot send emails until you've earned $100 after fees and received a payout." Dat geldt voor losse mails (Emails) en voor Workflows (DERDEN, https://gumroad.com/help/article/169-how-to-send-an-update en https://gumroad.com/help/article/131-using-workflows-to-send-automated-updates). Wij staan op 1 koper van Pro à $19 (volgens `2026-11-24-review-vraag-pro-koper.md`; ook met salekopen deze week komt er niet op tijd een uitbetaling bij, GOK; de Pro-pagina toont 0 beoordelingen, GEZIEN 26 nov ±06:00 NL). Dit wisten we al op 20 nov (`commercie/blender-click-joints/plekken-boost-2026-11-20.md`, 2a geschrapt), maar daarna zijn weer twee Gumroad-mails klaargezet:
@@ -57,7 +57,7 @@ What changed: with a rig, Figure from rig is now the first thing in the panel. T
 
 If you bought Pro and it saves you time, a rating on the product page helps other Blender users find it.
 
-Something not working the way you hoped? Reply here and we'll fix it.
+Something not working the way you hoped? Email thijs@dortus.com and we'll help.
 
 Dortus
 ```
