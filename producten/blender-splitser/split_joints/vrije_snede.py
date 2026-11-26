@@ -328,6 +328,20 @@ def punten_wereld(stuk):
     return co @ mw[:3, :3].T + mw[:3, 3]
 
 
+def naar_3d(region, rv3d, xy, diepte, ndc_z=None):
+    """Pixel of the 3D view region to a point in the world at the depth of `diepte` (or at a fixed ndc_z).
+    The exact inverse of what Blender draws (perspective_matrix), for perspective and orthographic views alike.
+    Why not bpy_extras region_2d_to_location_3d: in an orthographic view with a far Clip End (100000, common in
+    mm scenes) it lands 33 to 113 px off the mouse (measured 26 nov in Blender 4.2.23 and 5.3.0); this one
+    lands on the pixel in both kinds of view."""
+    pm = rv3d.perspective_matrix
+    if ndc_z is None:
+        d = pm @ Vector((diepte[0], diepte[1], diepte[2], 1.0))
+        ndc_z = d.z / d.w if abs(d.w) > 1e-12 else 0.0
+    q = pm.inverted() @ Vector((2.0 * xy[0] / region.width - 1.0, 2.0 * xy[1] / region.height - 1.0, ndc_z, 1.0))
+    return Vector((q.x / q.w, q.y / q.w, q.z / q.w))
+
+
 GEBEURD = []  # last mouse events of Draw cut, read by the screen test (e2e/scherm_paneel.py)
 
 
@@ -438,7 +452,6 @@ class SPLIT_JOINTS_OT_vrije_snede_tekenen(bpy.types.Operator):
         return (event.mouse_x - r.x, event.mouse_y - r.y)
 
     def plaats(self, context):
-        from bpy_extras import view3d_utils
         stuk = bpy.data.objects.get(self.stuk_naam)
         if stuk is None:
             return {"CANCELLED"}
@@ -448,19 +461,15 @@ class SPLIT_JOINTS_OT_vrije_snede_tekenen(bpy.types.Operator):
         region, rv3d = self.regio, self.rv3d
         pts = punten_wereld(stuk)
         midden = Vector(((pts.min(axis=0) + pts.max(axis=0)) / 2.0).tolist())
-        p1 = view3d_utils.region_2d_to_location_3d(region, rv3d, self.begin, midden)
-        p2 = view3d_utils.region_2d_to_location_3d(region, rv3d, self.eind, midden)
+        p1 = naar_3d(region, rv3d, self.begin, midden)
+        p2 = naar_3d(region, rv3d, self.eind, midden)
         mid = ((self.begin[0] + self.eind[0]) / 2.0, (self.begin[1] + self.eind[1]) / 2.0)
-        kijk = view3d_utils.region_2d_to_vector_3d(region, rv3d, mid)
+        kijk = naar_3d(region, rv3d, mid, midden, ndc_z=0.5) - naar_3d(region, rv3d, mid, midden, ndc_z=-0.5)
         u = eenheid_per_mm(context.scene)
         kader_ = vlak_uit_lijn(p1, p2, kijk, pts, marge=1.0 * u)
         if kader_ is None:
             self.report({"WARNING"}, "Drag a longer line across the piece")
             return {"CANCELLED"}
-        terug = [view3d_utils.location_3d_to_region_2d(region, rv3d, Vector(np.asarray(q).tolist()))
-                 for q in (p1, p2, kader_[1])]
-        GEBEURD.append(f"plaats {self.begin} {self.eind} terug {[tuple(round(c) for c in t) if t else None for t in terug]} "
-                       f"regio {region.x},{region.y} {region.width}x{region.height} persp {rv3d.is_perspective}")
         _s, oud = stuk_van(context)
         snede = zet_vlak(context, stuk, *kader_, snede=oud if oud is not None and oud.get("sj_vrij") == stuk.name else None)
         for o in context.view_layer.objects:

@@ -204,7 +204,6 @@ def stap():
                 venster, gebied, ui, hoofd = gebied_3d()
                 rv3d = gebied.spaces.active.region_3d
                 mw = snede[0].matrix_world
-                log(f"tekenen: hoofd {hoofd.x},{hoofd.y} {hoofd.width}x{hoofd.height}, matrix vlak {[round(x, 1) for x in mw.translation]}, na {vs.GEBEURD[-1]}")
                 hoeken = [view3d_utils.location_3d_to_region_2d(hoofd, rv3d, mw @ v.co) for v in snede[0].data.vertices]
                 xs = [p.x for p in hoeken if p is not None]
                 ys = [p.y for p in hoeken if p is not None]
