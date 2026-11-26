@@ -43,21 +43,48 @@ func _init() -> void:
 	var aarde: float = helder(px.call(40, 20))
 	ok(hol.boven[2] == false, "meetplek aarde is dicht")
 	ok(ver < aarde, "gang ver van licht donkerder dan aarde ver van licht (%.2f tegen %.2f)" % [ver, aarde])
-	ok(ver > 0.5, "nooit zwart: donkerste gang %.2f" % ver)
+	ok(ver > 0.4, "nooit zwart: donkerste gang %.2f (ook op een voeg, Daan #183)" % ver)
 	# Sanne 26 nov (Iris 499fd9f mooi 7, "één zalmroze buis"): plekken steen, donkerder naar de vloer, minder rood
-	var a0: Color = L.gang_kleur(Vector2(L.KOL * L.PLEK_KOL * 0.0 + 1, 30))
-	var a1: Color = L.gang_kleur(Vector2(L.KOL * L.PLEK_KOL * 1.0 + 1, 30))
-	var a2: Color = L.gang_kleur(Vector2(L.KOL * L.PLEK_KOL * 2.0 + 1, 30))
+	# Daan #183 M2: soort per plek uit een hash, nooit gelijk aan de buur, geen vast ritme van drie, harde voeg ertussen
 	var vk := func(x: Color, y: Color) -> float:
 		return absf(x.r - y.r) + absf(x.g - y.g) + absf(x.b - y.b)
-	ok(vk.call(a0, a1) > 0.08 and vk.call(a1, a2) > 0.08 and vk.call(a0, a2) > 0.08, "drie plekken naast elkaar elk een andere steen (%.2f, %.2f, %.2f)" % [vk.call(a0, a1), vk.call(a1, a2), vk.call(a0, a2)])
+	var buur_gelijk := 0
+	var ritme_anders := 0
+	var smal := 99.0
+	var breed := 0.0
+	for i in range(-3, 40):
+		if L.plek_soort(i) == L.plek_soort(i + 1):
+			buur_gelijk += 1
+		if L.plek_soort(i) != L.plek_soort(i + 3):
+			ritme_anders += 1
+		var w: float = L.plek_begin(i + 1) - L.plek_begin(i)
+		smal = minf(smal, w)
+		breed = maxf(breed, w)
+	ok(buur_gelijk == 0, "nooit twee plekken met dezelfde steen naast elkaar (%d keer)" % buur_gelijk)
+	ok(ritme_anders >= 10, "geen vaste volgorde om de drie plekken (%d van 43 anders)" % ritme_anders)
+	ok(smal >= 3.4 * L.KOL and breed <= 6.6 * L.KOL and breed - smal > L.KOL, "plekken verschillend breed (%.0f tot %.0f spelpx)" % [smal, breed])
+	var m0: float = (L.plek_begin(4) + L.plek_begin(5)) / 2.0
+	var m1: float = (L.plek_begin(5) + L.plek_begin(6)) / 2.0
+	ok(vk.call(L.gang_kleur(Vector2(m0, 27)), L.gang_kleur(Vector2(m1, 27))) > 0.08, "twee plekken naast elkaar zie je als andere steen (%.2f)" % vk.call(L.gang_kleur(Vector2(m0, 27)), L.gang_kleur(Vector2(m1, 27))))
+	var rand: Color = L.gang_kleur(Vector2(L.plek_begin(5) + 0.3, 27))
+	var vlak: Color = L.gang_kleur(Vector2(L.plek_begin(5) + 6.0, 27))
+	ok(helder(rand) < helder(vlak) - 0.08, "donkere voeg op de rand van een plek (%.2f tegen %.2f)" % [helder(rand), helder(vlak)])
+	var liggend := 0
+	for i in range(0, 20):
+		var mx: float = (L.plek_begin(i) + L.plek_begin(i + 1)) / 2.0
+		for y in [29, 31, 33]:
+			if helder(L.gang_kleur(Vector2(mx, y))) < helder(L.gang_kleur(Vector2(mx, 27))) - 0.08:
+				liggend += 1
+	ok(liggend >= 10, "liggende voegjes in de plekken (%d van 20)" % liggend)
+	var vl: Color = L.gang_kleur(Vector2(m0 + 3.0, 37))
+	ok(vl.r / vl.b > 1.15, "vloerstrook warm, niet grijspaars (r/b %.2f)" % (vl.r / vl.b))
 	ok(L.gang_kleur(Vector2(200, 30)) == L.gang_kleur(Vector2(200, 30)), "plekken liggen vast (geen flikkeren)")
 	ok(helder(L.gang_kleur(Vector2(200, 39))) < helder(L.gang_kleur(Vector2(200, 25))) - 0.05, "gang donkerder naar de vloer")
 	var rood_meest := 0.0
 	for x in range(0, 480, 4):
 		var c: Color = L.gang_kleur(Vector2(x, 30))
 		rood_meest = maxf(rood_meest, c.r / c.g)
-		ok(helder(c) > 0.45, "steen nooit te donker op x %d (%.2f)" % [x, helder(c)]) if x % 80 == 0 else null
+		ok(helder(c) > (0.38 if c != L.gang_kleur(Vector2(L.plek_begin(L.plek_nr(x)) + 6.0, 30)) else 0.45), "steen nooit te donker op x %d (%.2f; een voeg mag tot 0,38)" % [x, helder(c)]) if x % 80 == 0 else null
 	ok(rood_meest < 0.62 / 0.59, "minder rood dan de oude gangkleur (r/g hooguit %.2f, was %.2f)" % [rood_meest, 0.62 / 0.59])
 	var lo := 9.0
 	var hi := 0.0

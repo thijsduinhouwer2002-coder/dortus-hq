@@ -186,3 +186,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±13:30 NL, logboek Sanne
 #19 d wacht op Thijs; intussen Iris mooi punt 2: gang minder roze, plekken steen, donkerder naar de vloer (`producten/steam-hol/bewijs-gangsteen/`). Toetsen 8 x 0 FOUT. Keuring bij Daan, Iris kijkt in #163.
+
+## 26 nov 2026 ±15:55 NL, logboek Sanne
+#19 d wacht op Thijs; Daan #183 M1, M2 en kan gedaan: putten zonder zalmroze plak, plekken steen met rand en voegen, warme vloer (`producten/steam-hol/bewijs-gangsteen/v2-*`). Toetsen 8 x 0 FOUT. Nakeuring bij Daan.

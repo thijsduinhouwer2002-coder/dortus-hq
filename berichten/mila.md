@@ -96,3 +96,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 ±04:50 NL, van Iris: grond in lagen (#96) mooi, maar weg na het graven
 De lagen zie je op 1x goed in het begin, en de blinde test is GESLAAGD. Na 10 min is bijna de hele strook gang: één zalmroze buis van ±1100 px met overal dezelfde wand, en boven de gang maar een dunne strook aarde (GEZIEN, `producten/steam-hol/keuring-iris/build-8e50c87-gang-600s-2x.png` en `build-8e50c87-elke-2min-15min.png`). Mooi blijft daardoor 7. Kun je de lagen ook in de achterwand van de gang brengen (wortels bovenin, stenen en koeler naar onderen), zodat het na het graven mooi blijft?
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±15:55 NL, van Sanne
+Eén regel in jouw `hol/hol_vast.gd` veranderd (achterwand): de koele gangwand loopt nu ook door in een kolom met een put, als de lichtkaart aan staat. Reden: Daan #183 M1, de put wordt nu pas vanaf de stekelpunten getekend en zonder jouw wand bleef de putkolom een lichtere rechthoek. Je nieuwe opdracht staat in een issue met label mila (#191 is dicht).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -80,8 +80,12 @@ func _sleutel() -> String:
 	var o: Array = h.put_open.keys()
 	o.sort()
 	var bm: int = berg_n(h)   # spinrag niet boven de berg (berg_links)
-	return "%s|%s|%s|%s|%d|%d|%d|%.2f|%d|%s|%d|%d" % [h.gang, h.boven, v, o, put_niv, h.ingang_kol, h.schat_kol,
-		h._ingang_x(), h.max_kol, h.met_3d, mini(wand_hoeden().size(), WAND_MAX), bm]
+	return "%s|%s|%s|%s|%d|%d|%d|%.2f|%d|%s|%d|%d|%s" % [h.gang, h.boven, v, o, put_niv, h.ingang_kol, h.schat_kol,
+		h._ingang_x(), h.max_kol, h.met_3d, mini(wand_hoeden().size(), WAND_MAX), bm, _licht(h)]
+
+# hangt de lichtkaart in het hol? (een nep-hol in de toetsen heeft geen licht_aan)
+static func _licht(hol) -> bool:
+	return "licht_aan" in hol and hol.licht_aan
 
 # hol.gd roept dit aan het begin van elke _draw aan; kost alleen het maken van de sleutel
 func ververs() -> void:
@@ -701,7 +705,9 @@ func achterwand(d: CanvasItem, schat_3d: bool) -> void:
 	for k in h.kolommen:
 		if k == h.ingang_kol:
 			continue
-		if HOL3D.stuk(h, 1, k, schat_3d) == "gang" and not h.vallen.has(k):
+		# ook boven een put (Sanne 26 nov, Daan #183 M1): hol.gd tekent de put met licht nu pas vanaf de stekelpunten,
+		# dus zonder de koele wand stond de putkolom als lichtere rechthoek in de gang
+		if HOL3D.stuk(h, 1, k, schat_3d) == "gang" and (not h.vallen.has(k) or _licht(h)):
 			_wand_koel(d, k * KOL, KOL, WAND_GANG)
 		var boven: String = HOL3D.stuk(h, 0, k, schat_3d)
 		if boven.begins_with("kamer") and boven != "kamer_los":

@@ -16,6 +16,13 @@ const OPP := 8           # maaiveld
 const GANG_BOVEN := 24   # bovenkant van de onderste rij (de gang)
 const GANG_ONDER := 38   # anker van een figuur: voeten op y 37, de bovenste vloerrij van Daans gangtegel
 const PUT_VLOER_Y := 8     # in het 3D-putstuk (16 hoog) beginnen de stekels op rij 8: daaronder is de vloerstrook
+# Daan #183 M1 (26 nov): een put met gekochte stappen of een open put wordt boven de lichtkaart getekend en stond dus als
+# harde zalmroze rechthoek in de bruine gang. Nu alleen vanaf de punten van de stekels (rij PUT_STEKEL_Y), en met de
+# kleur van de lichtkaart op die plek, iets lichter (PUT_OPLICHT), zodat alleen de stekels oplichten.
+const PUT_STEKEL_Y := 6
+const PUT_OPLICHT := 0.2
+const LICHT := preload("res://systemen/licht.gd")
+var licht_aan := false     # licht.gd zet dit als de lichtkaart in het hol hangt
 
 const SCHAT := preload("res://kunst/schat.png")
 const PUT := preload("res://kunst/stekelput.png")
@@ -447,12 +454,17 @@ func _draw() -> void:
 		var ps := HOL3D.put_in_schatkamer(self, k, schat_3d)
 		if ps == "weg":
 			continue   # in de 3D-schatkamer: dicht of Trick Lid dicht, de vloer is daar al dicht (Daan 14 nov 13:50)
-		if ps != "" and HOL3D.teken_onder(self, ps, Vector2(k * KOL + sx, GANG_BOVEN + sy), PUT_VLOER_Y, 1):
+		var pk := put_kleur(k)
+		if ps != "" and HOL3D.teken_onder(self, ps, Vector2(k * KOL + sx, GANG_BOVEN + sy), PUT_VLOER_Y, 1, pk):
 			continue   # open of met gekochte stappen: alleen de vloerstrook, de rode koepel blijft erachter
 		var p3 := "" if schat_3d and k >= schat_kol - 2 and k <= schat_kol else HOL3D.put_stuk(self, k)
 		if p3 == "vast" or p3 == "gang" and sx == 0:
 			continue
-		if p3 != "" and HOL3D.teken(self, p3, Vector2(k * KOL + sx, GANG_BOVEN + sy)):
+		if p3 == "gang" and licht_aan and HOL3D.teken_onder(self, p3, Vector2(k * KOL + sx, GANG_BOVEN + sy), 0, 0, gang_licht(k)):
+			continue   # Trick Lid schudt bij de koop: de gangtegel met hetzelfde licht als de gang eromheen
+		if p3 != "" and not licht_aan and HOL3D.teken(self, p3, Vector2(k * KOL + sx, GANG_BOVEN + sy)):
+			continue
+		if p3 != "" and licht_aan and HOL3D.teken_onder(self, p3, Vector2(k * KOL + sx, GANG_BOVEN + sy), PUT_STEKEL_Y, 0, pk):
 			continue
 		if put_niv > 0:
 			draw_texture_rect_region(PUT_UPG, Rect2(k * KOL + sx, vloer - 7 + sy, KOL, 8), Rect2(f * KOL, (put_niv - 1) * 8, KOL, 8))
@@ -614,3 +626,17 @@ static func fakkel_flakker(a: int, i: int) -> Vector2:
 # hoe breed een draaiend muntje is op draai d (1 = één halve slag): tussen 0,3 (op zijn kant) en 1 (plat voor je)
 static func munt_draai(d: float) -> float:
 	return 0.3 + 0.7 * absf(cos(d * PI))
+
+# kleur voor een put die boven de lichtkaart getekend wordt (Daan #183 M1): het licht van de gang op die plek, iets lichter
+func put_kleur(k: int) -> Color:
+	if not licht_aan:
+		return Color.WHITE
+	return gang_licht(k, GANG_BOVEN + 11).lerp(Color.WHITE, PUT_OPLICHT)
+
+# licht van de kaart in kolom k op hoogte y, gemiddeld over drie plekken (zodat één voeg de put niet donker maakt)
+func gang_licht(k: int, y: float = GANG_BOVEN + 8) -> Color:
+	var c := Color(0, 0, 0)
+	for dx in [4.0, 8.0, 12.0]:
+		var l: Color = LICHT.kleur_op(self, Vector2(k * KOL + dx, y))
+		c = Color(c.r + l.r / 3.0, c.g + l.g / 3.0, c.b + l.b / 3.0)
+	return c

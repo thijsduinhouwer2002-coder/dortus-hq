@@ -84,13 +84,13 @@ static func teken_vanaf(doek: CanvasItem, naam: String, plek: Vector2, van_y: in
 # de 3D-schatkamer: alleen de vloerstrook, zodat de koepel erachter blijft (Daan 14 nov 13:50). `rand` spelpixels links
 # en rechts vallen weg (kan 1 van Daan 14:40: losse lichte snipper in de rechterkolom). De bovenste rij half doorzichtig,
 # zodat het gat zacht in de vloer zakt (kan 2 van Daan 14:40). false = niet getekend.
-static func teken_onder(doek: CanvasItem, naam: String, plek: Vector2, van_y: int, rand: int = 0) -> bool:
+static func teken_onder(doek: CanvasItem, naam: String, plek: Vector2, van_y: int, rand: int = 0, kleur: Color = Color.WHITE) -> bool:
 	if not heeft(naam):
 		return false
 	var r := onder_rects(naam, plek, van_y, rand)
 	var boven := boven_rij(r, float(stukken[naam]["vak_px"][3]) / float(stukken[naam]["maat"][1]))
-	doek.draw_texture_rect_region(blad, boven[0], boven[1], Color(1, 1, 1, ZACHTE_RAND))
-	doek.draw_texture_rect_region(blad, boven[2], boven[3])
+	doek.draw_texture_rect_region(blad, boven[0], boven[1], Color(kleur.r, kleur.g, kleur.b, ZACHTE_RAND))
+	doek.draw_texture_rect_region(blad, boven[2], boven[3], kleur)
 	return true
 
 const ZACHTE_RAND := 0.5   # dekking van de bovenste rij bij teken_onder

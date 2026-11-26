@@ -23,10 +23,15 @@ const AARDE_DONKER := Color(0.76, 0.73, 0.80)
 # de gang krijgt minder rood (aarde, geen roze), wordt naar de vloer toe donkerder, en heeft plekken met een andere
 # steen: koele grijze steen en gele leem, zacht in elkaar over, elke ±5 tegels anders. Vast per kolom, dus geen flikkeren.
 const GANG_DONKER := Color(0.53, 0.61, 0.62)   # was (0.62, 0.59, 0.68): koel op zalm gaf roze
-const STEEN_KOEL := Color(0.47, 0.58, 0.68)
-const STEEN_LEEM := Color(0.64, 0.60, 0.45)
+const STEEN_KOEL := Color(0.50, 0.555, 0.61)  # was (0.47, 0.58, 0.68): grijzer, geen paars (Daan #183 M2)
+const STEEN_LEEM := Color(0.64, 0.615, 0.40)  # was (0.64, 0.60, 0.45): geler, niet roder
 const VLOER_DONKER := 0.86    # onderste spelpixel van de gang: zo veel van de kleur erboven
-const PLEK_KOL := 5.0         # zo veel tegels per plek steen
+const PLEK_KOL := 5.0         # zo veel tegels per plek steen (gemiddeld; elke rand schuift vast -0,75 tot +0,75 tegel)
+const VOEG := 0.80            # donkere voeg tussen twee plekken en de liggende voeg: zo veel van de kleur
+const VOEG_BREED := 1.0       # halve breedte van de staande voeg in spelpixels
+const VLOER_Y := 35           # vanaf hier de vloerstrook waar de helden lopen (Daan #183 kan: warmer)
+const VLOER_WARM := Color(0.66, 0.55, 0.44)   # warme vloerkleur, de vloerstrook gaat er voor VLOER_MENG naartoe
+const VLOER_MENG := 0.7
 const LICHT := Color(1.0, 0.98, 0.93)
 const TOP_LICHT := 0.55       # daglicht vlak onder het gras: zo veel van de weg naar LICHT, gaat over 10 spelpixels weg
 
@@ -42,6 +47,8 @@ static func maak_in(hol) -> Node2D:
 	l.set_script(load("res://systemen/licht.gd"))
 	l.name = "Licht"
 	l.h = hol
+	if "licht_aan" in hol:
+		hol.licht_aan = true   # puts boven de kaart nemen dan zijn kleur over (Daan #183 M1)
 	var m := CanvasItemMaterial.new()
 	m.blend_mode = CanvasItemMaterial.BLEND_MODE_MUL
 	l.material = m
@@ -91,23 +98,67 @@ static func kleur_op(hol, p: Vector2) -> Color:
 	return basis.lerp(LICHT, l)
 
 # kleur van een open cel in het donker: plekken steen langs de gang en donkerder naar de vloer (zie GANG_DONKER)
+# Daan #183 M2 (26 nov): de plekken lazen als zachte waas van licht, niet als steen, en de vaste volgorde gewoon, koel,
+# leem om de 15 tegels zag je op een breed scherm. Nu: de soort per plek uit een hash (nooit gelijk aan de buur), de
+# plekken 3,5 tot 6,5 tegels breed, een harde rand met een donkere voeg ertussen en per plek één liggende voeg, zodat
+# het blokken steen worden. Kan: de vloerstrook (waar de helden lopen) warmer in plaats van dof grijspaars.
 static func gang_kleur(p: Vector2) -> Color:
-	var t := p.x / (KOL * PLEK_KOL)
-	var i := int(floor(t))
-	var f := t - i
-	f = f * f * (3.0 - 2.0 * f)
-	var w := lerpf(_plek(i), _plek(i + 1), f)   # -1 koele steen, 0 gewoon, +1 leem
-	var c := GANG_DONKER.lerp(STEEN_KOEL, -w) if w < 0.0 else GANG_DONKER.lerp(STEEN_LEEM, w)
+	var i := plek_nr(p.x)
+	var c: Color = [GANG_DONKER, STEEN_KOEL, STEEN_LEEM][plek_soort(i)]
+	# iets verschil binnen een soort, zodat twee koele plekken met één plek ertussen niet precies gelijk zijn
+	var d := 0.96 + 0.08 * (_hash(i, 7) % 1000) / 1000.0
+	c = Color(c.r * d, c.g * d, c.b * d)
+	var voeg := 1.0
+	var rand := minf(p.x - plek_begin(i), plek_begin(i + 1) - p.x)
+	if rand < VOEG_BREED:
+		voeg = VOEG
+	elif p.y >= GANG_BOVEN + 3 and p.y < VLOER_Y - 1:
+		# één liggende voeg per plek, over een deel van de breedte (hoogte en stuk uit de hash)
+		var vy := GANG_BOVEN + 5 + 2 * (_hash(i, 3) % 3)   # 29, 31 of 33: oneven, dus precies één rij van de kaart (STAP 2)
+		var b0 := plek_begin(i)
+		var b1 := plek_begin(i + 1)
+		var van := lerpf(b0, b1, 0.1 + 0.3 * (_hash(i, 5) % 100) / 100.0)
+		var tot := lerpf(b0, b1, 0.6 + 0.3 * (_hash(i, 9) % 100) / 100.0)
+		if absf(p.y - vy) < 1.0 and p.x > van and p.x < tot:
+			voeg = VOEG
+	c = Color(c.r * voeg, c.g * voeg, c.b * voeg)
 	if p.y >= GANG_BOVEN:
-		var d := lerpf(1.0, VLOER_DONKER, clampf((p.y - GANG_BOVEN) / float(H - GANG_BOVEN), 0.0, 1.0))
-		c = Color(c.r * d, c.g * d, c.b * d)
+		var dv := lerpf(1.0, VLOER_DONKER, clampf((p.y - GANG_BOVEN) / float(H - GANG_BOVEN), 0.0, 1.0))
+		c = Color(c.r * dv, c.g * dv, c.b * dv)
+		if p.y >= VLOER_Y:
+			c = c.lerp(Color(VLOER_WARM.r * dv, VLOER_WARM.g * dv, VLOER_WARM.b * dv), VLOER_MENG)
 	return c
 
-# vaste waarde -1..1 per plek: twee van de drie plekken een andere steen, nooit twee keer dezelfde naast elkaar
-static func _plek(i: int) -> float:
-	var hsh := absi((i * 73856093) ^ 19349663) % 1000
-	var keus: float = [0.0, -0.85, 0.7][i % 3]
-	return keus * (0.75 + 0.25 * (hsh / 1000.0))
+# nummer van de plek steen waar x (spelpixels) in ligt
+static func plek_nr(x: float) -> int:
+	var i := int(floor(x / (KOL * PLEK_KOL)))
+	if x < plek_begin(i):
+		return i - 1
+	if x >= plek_begin(i + 1):
+		return i + 1
+	return i
+
+# linkerrand van plek i in spelpixels: om de PLEK_KOL tegels, met een vaste schuif van -0,75 tot +0,75 tegel
+static func plek_begin(i: int) -> float:
+	return (i * PLEK_KOL + (_hash(i, 1) % 1000) / 1000.0 * 1.5 - 0.75) * KOL
+
+# 0 gewoon, 1 koele steen, 2 leem. Even plekken uit de hash; een oneven plek kiest uit wat zijn twee buren niet zijn,
+# dus nooit twee keer dezelfde soort naast elkaar en geen vast ritme.
+static func plek_soort(i: int) -> int:
+	if posmod(i, 2) == 0:
+		return _hash(i, 0) % 3
+	var l := _hash(i - 1, 0) % 3
+	var r := _hash(i + 1, 0) % 3
+	var vrij: Array = []
+	for s in 3:
+		if s != l and s != r:
+			vrij.append(s)
+	return vrij[_hash(i, 2) % vrij.size()]
+
+static func _hash(i: int, zout: int) -> int:
+	var v := (i * 73856093) ^ (zout * 19349663) ^ 83492791
+	v = (v ^ (v >> 13)) * 1274126177
+	return absi(v ^ (v >> 16)) % 100000
 
 # midden van de vlam van de fakkel bij de ingang (zelfde plek als hol.gd hem tekent)
 static func fakkel_punt(hol) -> Vector2:
