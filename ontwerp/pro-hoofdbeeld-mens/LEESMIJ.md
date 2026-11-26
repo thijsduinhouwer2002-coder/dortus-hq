@@ -53,3 +53,7 @@ HB_POSE='{... "Right knee": 120 ...}' HB_UIT=0 HB_KNIE_CAM="Right knee" HB_KNIE_
 IZ_BOOG=<uit>/knie.json IZ_X=1105 IZ_Y=660 IZ_M=400 IZ_SNEDE=0.40,0.54,0.70 python3 bron/inzet.py <uitmap>/mens-r4-2400x1200.png <uit>/knie-render.png <uit>/hoofdbeeld.json beelden/mens-knie-r4-2400x1200.jpg <fontmap>
 ```
 Set `click-joints-pro-superhive-mens-r4.json`.
+
+**Uitslag ronde 4 (26 nov 11:56):** ChatGPT 2,0 en 2,0 (eerste keus Cleave), Gemini nog 402 (`organisatie/blindtest/uitslag/click-joints-pro-superhive-mens-r4-2026-11-26-1156.md`). ChatGPT mist: delen opsplitsen en exporteren naar STL.
+
+**Ronde 5:** `beelden/mens-knie-r5-2400x1200.jpg` = ronde 4 met een vierde regel "Every part exports to STL and 3MF" (waar: echte Export gaf 10 STL en 10 3MF, `ontwerp/pro-galerij/beelden/delen-mens.json`, GEZIEN), inzet 5 px naar rechts. `TK_PUNT4="Every part exports to STL and 3MF"` bij tekst.py, `IZ_X=1110`. Set `click-joints-pro-superhive-mens-r5.json`.

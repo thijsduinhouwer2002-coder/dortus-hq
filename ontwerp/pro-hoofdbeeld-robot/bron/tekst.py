@@ -21,7 +21,7 @@ PUNTEN = [
     "One click: ball joints and hinges from your rig",
     "Elbows and knees stop where your rig stops",
     os.environ.get("TK_PUNT3", "Bend range in degrees, before you print"),   # #38: andere derde regel mogelijk
-]
+] + ([os.environ["TK_PUNT4"]] if os.environ.get("TK_PUNT4") else [])   # #38 ronde 5: vierde regel (export)
 
 
 def font(naam, maat, gewicht):
