@@ -190,10 +190,13 @@ def verloop_pro():
     def camera(t):
         # doorlopend rustig rond: 7 graden per seconde, licht kantelen. v7b (Daan #217 M2): niet meer uitzoomen bij de
         # pose; de camera komt over de hele opname heel langzaam 8% dichterbij, zodat de robot het beeld blijft vullen.
-        draai = -55.0 + 7.2 * t
-        kantel = 81.0 - 5.0 * zacht(t / 15.0)
-        d = D * (1.0 - 0.08 * zacht(t / 15.6))
-        punt = midden + Vector((0.0, 0.0, 4.0 * zacht((t - 12.5) / 1.5)))   # bij de pose gaat de arm omhoog
+        # v7c (Daan #228 K2): eerst zacht naar de zijkant (draai -85) zodat de knieboog als echte beweging van het
+        # onderbeen te zien is (van voren klapte het onderbeen weg), dan rustig terug rond naar schuin rechts (55) voor
+        # kleur en pose. Beeld 0 blijft gelijk aan v7 (draai -55, zelfde kantel en afstand).
+        draai = -55.0 - 30.0 * zacht(t / 4.0) + 140.0 * zacht((t - 3.0) / 10.5)
+        kantel = 81.0 - 5.0 * zacht(t / 13.0)
+        d = D * (1.0 - 0.08 * zacht(t / 13.5))
+        punt = midden + Vector((0.0, 0.0, 4.0 * zacht((t - 10.2) / 1.5)))   # bij de pose gaat de arm omhoog
         zicht(g3, draai, kantel, d, punt)
 
     T = {"t": 0.0}
@@ -219,7 +222,7 @@ def verloop_pro():
 
     deel("start")
     camera(0.0)
-    yield from tot(1.0)
+    yield from tot(0.6)
 
     # Figure from rig (de echte knop van Pro; blokkeert Blender, kost in de film 0 s)
     deel("knop")
@@ -238,14 +241,14 @@ def verloop_pro():
     delen = [o for o in bpy.context.scene.objects if o.get("cj_figuur") and o.type == "MESH" and o.visible_get()]
     film["metingen"]["delen"] = len(delen)
     sh.color_type = "RANDOM"
-    yield from tot(2.3)
+    yield from tot(1.3)
 
     deel("uitelkaar")
     inst = bpy.context.scene.click_joints
     inst.uit_elkaar = True
-    yield from tot(3.6)
+    yield from tot(2.1)
     inst.uit_elkaar = False
-    yield from tot(4.2)
+    yield from tot(2.4)
 
     # materialen: per deel een eigen kopie (voor deel voor deel kleur), eerst alles grijs
     for o in delen:
@@ -265,21 +268,24 @@ def verloop_pro():
     sh.color_type = "MATERIAL"
 
     # knie tot de stop, voorbij de stop rood, terug
-    a, b = paar("Left knee")
+    # v7c: de rechterknie, want die staat aan de kant waar de camera nu kijkt (anders staat het andere been ervoor)
+    a, b = paar("Right knee")
+    if a is None or b is None:
+        a, b = paar("Left knee")
     if a is not None and b is not None:
         stop = float(a["cj_bereik_graden"])
         film["metingen"]["knie_stop"] = stop
         s = math.floor(stop * 10) / 10
         deel("knie")
-        yield from tot(4.4)
-        yield from doe_tot(5.4, lambda t: buig(b, s * zacht(t)))
-        yield from tot(6.0)
+        yield from tot(2.5)
+        yield from doe_tot(3.6, lambda t: buig(b, s * zacht(t)))
+        yield from tot(3.9)
         deel("knie_rood")
-        yield from doe_tot(6.3, lambda t: buig(b, s + 15.0 * zacht(t)))
+        yield from doe_tot(4.2, lambda t: buig(b, s + 15.0 * zacht(t)))
         film["metingen"]["knie_rood_vlakken"] = len(a.get("cj_rood_vlakken", [])) // 2
         log(f"KORT knie stop {stop} rood {film['metingen']['knie_rood_vlakken']}")
-        yield from tot(6.9)
-        yield from doe_tot(7.5, lambda t: buig(b, (s + 15.0) * (1 - zacht(t))))
+        yield from tot(4.5)
+        yield from doe_tot(5.1, lambda t: buig(b, (s + 15.0) * (1 - zacht(t))))
         buig(b, 0.0)
     else:
         log("KORT FOUT knie: geen linkerknie")
@@ -330,7 +336,7 @@ def verloop_pro():
     # deel voor deel kleur (van de voeten naar het hoofd), elke ±0,3 s een deel
     volg = sorted(delen, key=lambda o: (o.matrix_world @ Vector(o.bound_box[0])).z + o.dimensions.z / 2)
     deel("kleur")
-    t0, t1 = 7.6, 11.8
+    t0, t1 = 5.2, 9.4
     for k, o in enumerate(volg):
         yield from tot(t0 + (t1 - t0) * k / max(1, len(volg)))
         for m in o.data.materials:
@@ -340,12 +346,12 @@ def verloop_pro():
         for m in o.data.materials:
             if m is not None and m.name in echt:
                 m.diffuse_color = echt[m.name]
-    yield from tot(12.0)
+    yield from tot(9.6)
     deel("schaduw")
     sh.show_shadows = True
     sh.show_cavity = True
     ov.show_floor = True
-    yield from tot(12.5)
+    yield from tot(10.2)
 
     # pose: van rechtop naar de gekozen pose
     deel("pose")
@@ -356,10 +362,10 @@ def verloop_pro():
         geen_selectie()
         bpy.context.view_layer.objects.active = None   # proef 2: anders tekent Pro de waaier van de laatste knie
         rood_max["n"] = max(rood_max["n"], sum(len(o.get("cj_rood_vlakken", [])) // 2 for o in delen))
-    yield from doe_tot(14.0, zet)
+    yield from doe_tot(11.7, zet)
     film["metingen"]["pose_rood_vlakken"] = rood_max["n"]
     log(f"KORT pose rood {rood_max['n']}")
-    yield from tot(15.6)
+    yield from tot(13.5)
     deel("eind_weergave")
     if _vk is not None:
         _vk["elke"] = None
