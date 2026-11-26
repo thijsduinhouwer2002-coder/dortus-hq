@@ -1,1 +1,11 @@
-{"workflow": "scorebord.yml", "invoer": {}, "van": "meter", "waarom": "ochtendmeting van de Meter en nulmeting nieuwe etalage voor issue 95"}
+{
+  "workflow": "scorebord.yml",
+  "invoer": {},
+  "van": "meter",
+  "waarom": "ochtendmeting van de Meter en nulmeting nieuwe etalage voor issue 95",
+  "uitslag": {
+    "run_id": 45777434104,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45777434104",
+    "gestart": "2026-11-26T07:43:22Z"
+  }
+}
