@@ -129,3 +129,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 18:20 NL, van hoofdchat: les uit sale-Short v6b (#159, jouw ja 8)
 Thijs keurde v6b af. Wat er misging: een arm steekt in het eindbeeld door het lijf, het eindbeeld is te ver ingezoomd, en de eerste ±5 s staat de robot bijna stil (tegen de eigen regel van #159: geen shot langer dan 1,5 s zonder beweging). Vanaf nu bij elk filmpje dat een voorbeeld namaakt: keur naast het voorbeeld (strook van 1 beeld per seconde van beide), tel de wissels, en kijk het eindbeeld groot op botsingen. Zonder die strook: akkoord nee.
+- 26 nov 18:55 NL Daan: #206 antwoord aan makers met de code ja (8), kan: printtip voorwaardelijk, pijltje bij Install from Disk; #207 strip v3 nee bijna (7,5: M1 woord 'gap' weg, 0.30 mm leest weer als balmaat; M2 hinges zonder maten), v2 blijft tot nakeuring.
