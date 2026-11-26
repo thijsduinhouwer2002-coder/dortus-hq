@@ -76,3 +76,19 @@ De spelloop verschilt iets tussen voor en na (helden, koopmoment 229 s tegen 260
 
 **Toetsen:** 9 x 0 FOUT op Linux. `toets_licht.gd` toetst nu `metsel.gd`: geen buren met dezelfde steen, geen vast ritme, alle drie soorten, koel blauwer en leem okerder in tint, voeg donker en dekkend, twee rijen met een voeg van 1 spelpx, blokken verschillend breed, diep in een plek altijd de soort van die plek, bij de rand in elkaar grijpen, lichtkaart zonder voegen.
 **Opgeruimd:** de achterwand (130 regels) uit `hol/hol_vast.gd` naar `hol/achterwand.gd`; `hol_vast.gd` 835 naar 720 regels (nog boven 400).
+
+## Versie 5: minder tegel (Olaf, 26 nov ±23:45 NL, issue #231 na Daan #224 K1 tot K3)
+
+**Waarom:** Daan #224 gaf de wand een 8 met drie kan-punten: K1 rechte harde bovenrand tegen de aarde, K2 soorten wisselen vaak recht op een staande voeg, K3 blokken binnenin egaal. Iris geeft mooi nog een 7; dit maakt de wand mooier vóór haar keuring in #223.
+
+**Wat er voor de speler veranderde** (alleen `hol/metsel.gd`):
+- **K1:** de bovenste voeg loopt niet meer recht door. Op 25 van 100 bovenste blokken een afgebrokkelde hap van 3 tot 6 spelpx breed en 1 tot 2 diep, op 18 van 100 steekt het blok 1 spelpx boven de voeg uit met een lichte bovenkant (GEZIEN, toets).
+- **K2:** bij elke rand tussen twee soorten een tand: in de ene rij steekt het eerste blok over de rand in de soort van links, in de andere rij het laatste blok ervoor in de soort van rechts; op ±1 op 3 randen gaat een tweede blok mee. Randen waar de soort in beide rijen schoon op een voeg wisselt: 0 van 60 (was 11 van 60; GEZIEN, eigen telling op beide versies).
+- **K3:** per blok een of twee lichte vlekjes van 1 spelpx en op ±1 op 4 blokken een barstje van 2 tot 3 spelpx schuin naar beneden.
+
+**Beelden** (Godot 4.3 Linux onder Xvfb, `--write-movie --fixed-fps 5`, `hoogte=120 vers=1 zaad=7 uitleg_klik=6 koper=1 koper_wacht=8 balk=0 duur=420`, beeld op 419 s, voor = main 8ffdb7d, na = deze wijziging):
+- `v5-voor-en-na-ware-grootte.png` (2400 x 120 elk, boven voor), `v5-gang-voor-en-na-2x.png` (x 300 tot 1260), `v5-wand-4x.png` (x 1100 tot 1500, de tand tussen oker en blauwgrijs, barstjes en vlekjes).
+
+**CPU:** echt spel 120 s, om en om 5 keer: voor 17,09 / 16,25 / 16,92 / 17,68 / 16,63, na 16,28 / 16,89 / 18,26 / 17,61 / 16,57 CPU-s, gemiddeld 16,91 tegen 17,12, dus +1,2 procent; de runs zelf schommelen ±1 s (±6 procent), dus binnen de ruis (GEZIEN). Het metselwerk staat in het vaste beeld (SubViewport, alleen opnieuw getekend bij graven of een put), dus per beeld tekent het spel niets extra.
+
+**Toetsen:** 9 x 0 FOUT op Linux. `toets_licht.gd` toetst nu ook: elke rand heeft een tand (0 van 40 schoon), bovenrand rafelig (25 haps en 18 uitstekers op 100 blokken).

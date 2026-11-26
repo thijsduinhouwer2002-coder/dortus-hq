@@ -88,6 +88,30 @@ func _init() -> void:
 		if M.blok_soort(nb, 0) != M.plek_soort(pn):
 			gemengd += 1
 	ok(gemengd >= 2, "bij de rand van een plek grijpen de soorten in elkaar (%d blokken van 60)" % gemengd)
+	# Daan #224 K2: geen rand meer waar de soort recht op een staande voeg wisselt (in beide rijen schoon)
+	var schoon := 0
+	for pi in range(0, 40):
+		var g: float = M.plek_begin(pi + 1)
+		var tand := false
+		for rb in 2:
+			for nb in range(int(g / M.BLOK_B) - 4, int(g / M.BLOK_B) + 4):
+				var mb: float = (M.blok_rand(nb, rb) + M.blok_rand(nb + 1, rb)) / 2.0
+				var sb: int = M.blok_soort(nb, rb)
+				if (mb < g and sb == M.plek_soort(pi + 1)) or (mb >= g and sb == M.plek_soort(pi)):
+					tand = true
+		if not tand:
+			schoon += 1
+	ok(schoon == 0, "elke rand tussen twee soorten heeft een tand (schoon: %d van 40)" % schoon)
+	# Daan #224 K1: bovenrand rafelig, een deel van de bovenste blokken heeft een hap of steekt uit
+	var hap := 0
+	var uitst := 0
+	for nb in range(0, 100):
+		var hb: int = M._hash(nb * 59, 13)
+		if hb % M.BOVEN_HAP_KANS == 0 and M.blok_breed(nb, 0) >= 8:
+			hap += 1
+		elif M.uitsteker(nb, M.blok_breed(nb, 0)):
+			uitst += 1
+	ok(hap >= 20 and hap <= 45 and uitst >= 8 and hap + uitst <= 60, "bovenrand rafelig: %d haps en %d uitstekers op 100 blokken" % [hap, uitst])
 	ok(gelijk, "soort per heel blok, diep in een plek altijd de soort van die plek")
 	var bmin := 99
 	var bmax := 0
