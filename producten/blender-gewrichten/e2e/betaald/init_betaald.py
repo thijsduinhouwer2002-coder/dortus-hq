@@ -7,7 +7,7 @@ _register_kern, _unregister_kern = register, unregister  # noqa: F821  (fragment
 
 
 def register():  # noqa: F811
-    _betaald.weiger_dubbel(__package__)
+    _betaald.zet_gratis_uit(__package__)  # issue 114: gratis aan? Pro zet hem netjes uit
     _register_kern()
     _betaald.register(__package__)
 
