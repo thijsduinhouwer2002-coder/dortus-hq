@@ -76,10 +76,15 @@ def frames_uit_film(pad, n, start=0.0):
 
 def main():
     sc = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+    if len(sys.argv) > 4:   # v7: zelfde montage met een andere muziek (naam, muziek, muziek_bron)
+        sc.update(json.loads(sys.argv[4]))
     opn, uit = Path(sys.argv[2]), Path(sys.argv[3])
     uit.mkdir(parents=True, exist_ok=True)
     film = json.loads((opn / "film.json").read_text())
     start = float((opn / "start.txt").read_text().strip())
+    for s in sc["stukken"]:   # v7: één doorlopend stuk van een deel tot een ander deel (plus tot_na)
+        if s.get("tot"):
+            s["duur"] = round(film["delen"][s["tot"]] - film["delen"][s["deel"]] - s.get("na", 0.0) + s.get("tot_na", 0.0), 3)
     mkv = opn / "scherm.mkv"
     muis = lees_muis(opn / "muis.txt")
     pijl = pijl_beeld()

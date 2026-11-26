@@ -1,0 +1,7 @@
+{"naam": "pro-sale-v7", "boven": ["Turning a rig into", "a poseable figure:"], "boven_tot": 9.0, "boven_y": 300,
+ "slot": ["Click Joints Pro", "25% off this week", "on Gumroad"], "slot_duur": 3.0, "slot_y": 1640, "eind_duur": 6.5, "eind_zoom": 1.0,
+ "muziek": "A.mp3", "muziek_start": 0.0, "muziek_bron": "zie muziek-bron.txt",
+ "opmerking": "v7 na Thijs 26 nov 18:10: één doorlopende opname, camera draait steeds rond, de robot verandert in hetzelfde beeld; eind Cycles met bewegende camera, saleregel de laatste 3 s",
+ "stukken": [
+  {"deel": "grijs", "na": 0.0, "tot": "render_klik", "tot_na": 0.35}
+ ]}
