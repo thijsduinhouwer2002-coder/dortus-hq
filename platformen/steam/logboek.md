@@ -2331,3 +2331,4 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - 25 nov ±15:40 NL (Olaf, #79, Daan #80 M1 M2): fakkelvlam zonder hard staafje, de vlam uit de render rekt en wiegt, punt spits; toetsen 7 x 0 FOUT, film opnieuw, langste stil 0,2 s.
 - 25 nov ±19:45 Olaf #86: na Daan #92 kristallen niet onder de berg, put-hoed achteraan de lopende rij; 7 x 0 FOUT.
 - 26 nov ±03:30 Mila (#96): de grond in lagen: vochtige bovenlaag met wortels, bot/helm/zwaard in de aarde, koele diepe rij met stenen, geen herhaalde kiezels meer (`steam-hol/bewijs-mooi/`); #76 dicht.
+- 26 nov ±08:15 Mila #146: lagen in de achterwand van gegraven gang en kamer (wortels boven, koeler en stenen onder, 3D uit Blender), CPU +0,7%, toetsen 8x0 FOUT; keuring Daan loopt.

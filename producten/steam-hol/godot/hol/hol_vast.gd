@@ -639,6 +639,108 @@ func grond(d: CanvasItem, schat_3d: bool) -> void:
 			bezet[int(wp[i].x) / KOL] = true
 	for ding in grond_dingen(h, schat_3d, bezet):
 		HOL3D.teken_deco_op(d, ding[0], ding[1], ding[2])
+	achterwand(d, schat_3d)
+
+# De lagen ook in de achterwand van wat je graaft (Mila 26 nov, issue 146; Iris: "mooi, maar weg na het graven"). Na
+# 10 min is bijna de hele strook gang en kamer, en die stukken hadden één egale zalmroze wand. Nu krijgt de wand van
+# elke gegraven cel dezelfde lagen als de grond eromheen: bovenin een donkere vochtige rand met korte wortels uit het
+# plafond, onderin koeler en donkerder met stenen die half in de wand zitten. Alles in het vaste beeld (hol_vast), dus
+# alleen opnieuw getekend bij graven of een put: geen extra werk per beeld.
+# Wand van de 3D-stukken (gemeten in hol_proef.png): gang van GANG_BOVEN tot +11, daaronder de vloer; kamer van
+# OPP + 4 tot OPP + 12. Stenen en wortels uit versiering.py (wand_steen, om en om gespiegeld, en wand_wortels); in een
+# oud blad zonder die stukken de gewone steen en wortels kleiner.
+const WAND_GANG := [GANG_BOVEN, GANG_BOVEN + 11]
+const WAND_KAMER := [OPP + 4, OPP + 12]
+const WAND_VOCHT := [0.30, 0.18, 0.08]       # dekking per rij onder het plafond, zelfde kleur als GROND_VOCHT_KLEUR
+const WAND_KOEL := Color(0.16, 0.20, 0.36)   # onderin de wand, zoals de koele diepe rij
+const WAND_KOEL_MAX := 0.22
+const WAND_DING_KLEUR := Color(1.0, 0.97, 0.94)   # een tikje warmer, zodat de stenen in het donkere deel niet paars worden
+
+# Wat in de wand van de gegraven cellen komt: [naam, punt, hangend, schaal, gespiegeld]. Zelfde aanpak als grond_dingen: elk soort
+# kiest zelf de afstand tot de volgende plek (hash per kolom), zodat er geen ritme in zit.
+static func wand_dingen(h, schat_3d: bool) -> Array:
+	var uit := []
+	var steen_vrij: int = h._hash(3, 81) % 3
+	var wortel_vrij: int = h._hash(4, 82) % 2
+	var steen_n := 0
+	var bl: float = berg_links(h)
+	var kamer_bezet := {}
+	for kd in kamer_dingen(h, schat_3d):
+		var kk: int = int(kd[1].x) / KOL
+		for j in [kk - 1, kk, kk + 1]:
+			kamer_bezet[j] = true
+	for k in h.kolommen:
+		if k <= h.ingang_kol + 1 or k * KOL + KOL > bl:
+			continue
+		var stuk: String = HOL3D.stuk(h, 1, k, schat_3d)
+		if stuk == "gang" and not h.vallen.has(k):
+			var steen := false
+			if k >= steen_vrij and not h.vallen.has(k - 1) and not h.vallen.has(k + 1):
+				steen_vrij = k + 3 + h._hash(k, 83) % 4
+				if h._hash(k, 84) % 5 != 0:
+					uit.append(["wand_steen", Vector2(k * KOL + 3 + h._hash(k, 86) % 10, WAND_GANG[1] + 1), false, 1.0,
+						(steen_n + h._hash(k, 85)) % 2 == 1])
+					steen_n += 1
+					steen = true
+			if not steen and k >= wortel_vrij:   # ook onder een kamer: tussen kamervloer en gang zit aarde
+				wortel_vrij = k + 2 + h._hash(k, 87) % 4
+				if h._hash(k, 88) % 4 != 0:
+					uit.append(["wand_wortels", Vector2(k * KOL + 4 + h._hash(k, 89) % 8, GANG_BOVEN), true, 1.4, h._hash(k, 90) % 2 == 1])
+		var boven: String = HOL3D.stuk(h, 0, k, schat_3d)
+		if boven.begins_with("kamer") and boven != "kamer_begin" and boven != "kamer_eind" and boven != "kamer_los" \
+				and not kamer_bezet.has(k):
+			# kamer: wortels uit het plafond, of soms een steen onderin (fakkel en kistje staan in begin en eind)
+			if h._hash(k, 91) % 3 == 0:
+				uit.append(["wand_steen", Vector2(k * KOL + 3 + h._hash(k, 93) % 10, WAND_KAMER[1] + 1), false, 0.85, h._hash(k, 92) % 2 == 1])
+			elif h._hash(k, 94) % 3 != 0:
+				uit.append(["wand_wortels", Vector2(k * KOL + 3 + h._hash(k, 95) % 10, WAND_KAMER[0] - 1), true, 0.85, h._hash(k, 96) % 2 == 1])
+	return uit
+
+func achterwand(d: CanvasItem, schat_3d: bool) -> void:
+	for k in h.kolommen:
+		if k == h.ingang_kol:
+			continue
+		if HOL3D.stuk(h, 1, k, schat_3d) == "gang" and not h.vallen.has(k):
+			_wand_lagen(d, k * KOL, KOL, WAND_GANG)
+		var boven: String = HOL3D.stuk(h, 0, k, schat_3d)
+		if boven.begins_with("kamer") and boven != "kamer_los":
+			# op de ronde einden lopen de banden zacht uit naar de rand (een rechte rand gaf een harde hoek)
+			var links: bool = boven in ["kamer_begin", "kamer_links"]
+			var rechts: bool = boven in ["kamer_eind", "kamer_rechts"]
+			if links or rechts:
+				for x in KOL:
+					var f: float = clampf((x - 5.0) / 9.0 if links else (10.0 - x) / 9.0, 0.0, 1.0)
+					if f > 0.0:
+						_wand_lagen(d, k * KOL + x, 1, WAND_KAMER, f)
+			else:
+				_wand_lagen(d, k * KOL, KOL, WAND_KAMER)
+	for ding in wand_dingen(h, schat_3d):
+		var naam: String = ding[0]
+		var schaal: float = ding[3]
+		if HOL3D.deco_maat(naam) == Vector2.ZERO:
+			# oud blad: de grond-dingen kleiner
+			naam = "wortels_a" if naam == "wand_wortels" else "steen_diep"
+			schaal *= 0.5 if naam == "wortels_a" else 0.62
+		var punt: Vector2 = ding[1]
+		if ding[4]:
+			d.draw_set_transform(Vector2(2.0 * punt.x, 0.0), 0.0, Vector2(-1.0, 1.0))   # gespiegeld om het ankerpunt
+		HOL3D.teken_deco_op(d, naam, punt, ding[2], schaal, WAND_DING_KLEUR)
+		if ding[4]:
+			d.draw_set_transform(Vector2.ZERO)
+
+func _wand_lagen(d: CanvasItem, x: float, b: float, wand: Array, f: float = 1.0) -> void:
+	var top: int = wand[0]
+	var bodem: int = wand[1]
+	for i in WAND_VOCHT.size():
+		var c := GROND_VOCHT_KLEUR
+		c.a = WAND_VOCHT[i] * f
+		d.draw_rect(Rect2(x, top + i, b, 1), c)
+	# koeler naar onderen: vanaf het midden van de wand oplopend tot WAND_KOEL_MAX bij de vloer
+	var midden: int = (top + bodem) / 2
+	for y in range(midden, bodem):
+		var c := WAND_KOEL
+		c.a = WAND_KOEL_MAX * float(y - midden + 1) / float(bodem - midden) * f
+		d.draw_rect(Rect2(x, y, b, 1), c)
 
 func _tegel(d: CanvasItem, x: float, y: float, r: int, k: int, schat_3d: bool) -> void:
 	var stuk: String = HOL3D.stuk(h, r, k, schat_3d)

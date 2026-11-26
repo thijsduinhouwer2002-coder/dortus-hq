@@ -21,7 +21,7 @@ import bpy
 import gedeeld as g
 
 SPX = 4.5 / 40
-HANGT = ("spinrag", "stut", "vaandel", "wortels_a", "wortels_b")
+HANGT = ("spinrag", "stut", "vaandel", "wortels_a", "wortels_b", "wand_wortels")
 GANG = ("paddenstoel", "lichtzwam", "ton", "krat", "schedel", "kristal", "spinrag", "stut", "vaandel")
 MAAIVELD_NAMEN = ("bloemen", "struik", "steen", "bordje", "vliegenzwam")
 # Mila 26 nov (issue 96, Gemini "too basic"): dingen in de aardwand die het verhaal vertellen. Staand (voet onderaan):
@@ -30,6 +30,10 @@ MAAIVELD_NAMEN = ("bloemen", "struik", "steen", "bordje", "vliegenzwam")
 # spelpixels hetzelfde is.
 WAND_STAAND = ("bot", "helm", "zwaard", "steen_diep", "kiezels_a", "kiezels_b")
 WAND_HANG = ("wortels_a", "wortels_b")
+# Mila 26 nov (issue 146, Iris "weg na het graven"): voor de achterwand van een gegraven gang of kamer. Stenen die half
+# in de wand zitten (plat, met een donkere kom eromheen, koel grijs) en korte wortels die uit het plafond hangen; laag
+# genoeg (±6 spelpixels) dat ze boven de hoofden van de helden blijven.
+ACHTERWAND = ("wand_steen", "wand_wortels")
 GANG_HOOG = 16 * SPX * 0.966 / 0.966  # 16 spelpixels gang (vloer z 0 tot plafond)
 
 _M = {}
@@ -190,6 +194,24 @@ def wand(ouder, p, naam, s):
             brok(ouder, p + f"_k{i}", (dx * s, -0.3 * s, 0), r * 1.1 * s, r * 1.2 * s, r * 0.8 * s, mt, zaad=i + 5 * len(rij))
         if naam == "kiezels_b":
             cil(ouder, p + "_botje", (2.6 * s, -0.4 * s, 0.5 * s), 0.4 * s, 2.4 * s, bot, rot=(0, math.radians(70), 0), verts=10)
+    elif naam == "wand_steen":
+        # drie hoekige stenen die met hun platte kant naar voren half uit de wand steken (gedraaid, zodat je de
+        # facetten ziet en geen grafsteen), warm lichtgrijs met één lichtere. Lichter en warmer dan steen_diep: het licht
+        # (licht.gd) vermenigvuldigt de gang donker en rood, en koel grijs las daar als paarse vlekken. Het spel spiegelt hem om en om.
+        k = m("wsteen_k", "8c857e", rough=0.85, spec=0.15)
+        kl = m("wsteen_kl", "a39a90", rough=0.8, spec=0.15)
+        kk = m("wsteen_kk", "bdb5aa", rough=0.8, spec=0.15)
+        for i, (dx, dz, b, h, mt, z) in enumerate([(-2.6, 1.7, 2.2, 1.5, k, 31), (0.4, 2.2, 2.9, 1.8, kk, 33),
+                                                   (3.3, 1.4, 1.7, 1.2, kl, 37)]):
+            o = brok(ouder, p + f"_s{i}", (dx * s, 0.4 * s, dz * s), b * s, h * s, b * 0.75 * s, mt, zaad=z,
+                     scheef=0.15 * (i - 1))
+            o.rotation_euler = (math.radians(80), math.radians(17 * (i - 1)), 0)
+    elif naam == "wand_wortels":
+        # korte wortels uit het plafond, dikker dan ze in het echt zijn, zodat ze op 120 px als wortel lezen
+        wm = m("wortel", "9a7352", rough=0.85)
+        tip = m("wortel_tip", "5e4434", rough=0.9)
+        for i, (dx, l, d, b) in enumerate([(-2.0, 4.6, 0.62, 0.28), (0.3, 6.0, 0.74, -0.12), (2.3, 3.4, 0.55, 0.38)]):
+            wortel(ouder, p + f"_w{i}", dx * s, 0, l * s, d * s, b, wm, tip)
     elif naam in ("wortels_a", "wortels_b"):
         wm = m("wortel", "9a7352", rough=0.85)
         tip = m("wortel_tip", "5e4434", rough=0.9)
@@ -389,7 +411,7 @@ def bouw(naam, x, z, y=0.35):
     elif naam == "vliegenzwam":
         rood = m("rood", "d9483b", rough=0.45, spec=0.4)
         hoed_zwam(ouder, p + "_a", 0, 4.4 * s, 3.4 * s, rood, room)
-    elif naam in WAND_STAAND or naam in WAND_HANG:
+    elif naam in WAND_STAAND or naam in WAND_HANG or naam in ACHTERWAND:
         wand(ouder, p, naam, s)
     else:
         raise SystemExit("onbekende versiering: " + naam)
@@ -425,7 +447,10 @@ if __name__ == "__main__":
         plek[n] = (LINKS + (i + 0.5) * STAP + KOL * 0.2, 1.75)
     for i, n in enumerate(WAND_HANG):
         plek[n] = (LINKS + (i + 6.5) * STAP + KOL * 0.2, MAAIVELD - 0.12)
-    WAND = WAND_STAAND + WAND_HANG
+    # achterwand (issue 146): op de vrije plekken rechts; de steen in de wandrij iets hoger, want onder vak 8 hangt het vaandel
+    plek["wand_steen"] = (LINKS + 8.5 * STAP + KOL * 0.2, 2.1)
+    plek["wand_wortels"] = (LINKS + 8.5 * STAP + KOL * 0.2, MAAIVELD + 0.55)
+    WAND = WAND_STAAND + WAND_HANG + ACHTERWAND
     ouders = {n: bouw(n, x, z, y=0.0 if n in WAND else 0.35) for n, (x, z) in plek.items()}
     cam = g.camera(hoogte_midden=CAM_MIDDEN, schaal=BREED)
     g.licht()

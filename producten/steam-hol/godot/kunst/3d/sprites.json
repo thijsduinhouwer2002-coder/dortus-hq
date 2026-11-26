@@ -114,8 +114,8 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bron": "0c23e74c68c085c2",
-  "bytes": 68464,
+  "bron": "4b38707fe6a20bc8",
+  "bytes": 72075,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -531,6 +531,46 @@
     "voet": [
      5.4,
      7.2
+    ]
+   },
+   "wand_steen": {
+    "maat": [
+     14,
+     9
+    ],
+    "uit": [
+     214,
+     13
+    ],
+    "vak_px": [
+     1556,
+     4,
+     56,
+     36
+    ],
+    "voet": [
+     6.8,
+     6.4
+    ]
+   },
+   "wand_wortels": {
+    "hang": [
+     4.8,
+     3.3
+    ],
+    "maat": [
+     11,
+     12
+    ],
+    "uit": [
+     216,
+     0
+    ],
+    "vak_px": [
+     1620,
+     4,
+     44,
+     48
     ]
    },
    "wortels_a": {

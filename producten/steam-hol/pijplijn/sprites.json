@@ -1753,6 +1753,12 @@
         },
         "wortels_b": {
           "laag": "versiering"
+        },
+        "wand_steen": {
+          "laag": "versiering"
+        },
+        "wand_wortels": {
+          "laag": "versiering"
         }
       }
     },

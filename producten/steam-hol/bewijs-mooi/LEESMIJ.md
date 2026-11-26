@@ -54,3 +54,10 @@ Gemini vond het speelscherm "too basic" en "flat" (blinde test 25 nov 16:46). Wa
 - Beelden (echt spel, demo op 57 s, 1920 x 120, Linux): boven ronde 1, onder ronde 2: `grond2-voor-en-na-ware-grootte.png`, links op 2x `grond2-voor-en-na-links-2x.png`, alleen na `grond2-na-57s-ware-grootte.png`. Zelf gekeken op 100% en 2x.
 - Toetsen 8 x 0 FOUT (Godot 4.3 Linux). Blad `deco` opnieuw gerenderd (bpy 5.2.4).
 - **Nog niet:** Iris (26 nov 04:50) wil de lagen ook in de achterwand van de gegraven gang; dat is de volgende stap.
+
+## Lagen ook in de achterwand van wat je graaft (Mila 26 nov, issue 146)
+Iris (26 nov): de grond in lagen is mooi, maar na het graven weg: de gang wordt één egale zalmroze buis. Nu krijgt de achterwand van elke gegraven gang en kamer dezelfde lagen als de grond eromheen: bovenin een donkere vochtige rand met korte wortels uit het plafond, onderin koeler en donkerder met stenen die half in de wand zitten. Op de ronde einden van een kamer lopen de banden zacht uit.
+- Nieuw in Blender (`modellen/versiering.py`, deco-blad): `wand_steen` (drie hoekige stenen met de platte kant naar voren, warm lichtgrijs, het spel spiegelt hem om en om) en `wand_wortels` (korte wortels, ±6 spelpixels, blijven boven de hoofden). Code: `godot/hol/hol_vast.gd`, `achterwand()` en `wand_dingen()`, alleen in het vaste beeld.
+- Bewijs (GEZIEN, Godot 4.3 Linux onder Xvfb, `--write-movie --fixed-fps 5`, `hoogte=120 vers=1 zaad=7 uitleg_klik=6 koper=1 koper_wacht=8 balk=0`, zelfde zaad als Iris, beeld op 292 s; boven main 648e7c5, onder nieuw; hetzelfde hol, de helden staan net anders): `wand-voor-en-na-292s-ware-grootte.png`, `wand-voor-en-na-links-2x.png`, `wand-voor-en-na-rechts-2x.png`, `wand-na-292s-ware-grootte.png`.
+- CPU (GEZIEN, 1920 x 1080, zaad 4242, koper=1, 130 s gemeten na 12 s, om en om): oud 1,093 / 1,189 / 1,068, nieuw 1,143 / 1,081 / 1,150 CPU-s per 10 s; gemiddeld 1,117 tegen 1,125, **+0,7 procent** (grens 1). De spreiding tussen runs is groter dan het verschil.
+- Toetsen 8 x 0 FOUT (Godot 4.3 Linux).
