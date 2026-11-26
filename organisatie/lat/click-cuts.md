@@ -55,6 +55,9 @@ Beelden van de concurrenten: hun eigen galerijbeelden op Superhive, met curl geh
 
 **Verbeterd in 1.0.0 (#69):** (1) het paneel noemt het model dat gesneden wordt, of zegt wat je moet doen als er geen is; (2) bij "Custom size" staan X, Y en Z meteen onder de printer, niet meer verstopt onder More settings stap 1; (3) uitleg bij hover voor printer en eigen maat. **Nog open:** een "?"-knop zoals Cleave, pas als er een hulppagina is.
 
+## Lessen uit broncode (Afkijker)
+- **Bool Tool** (gratis op extensions.blender.org, 1.265.829 downloads, 65 reviews, 5.0, GEZIEN 26 nov; `organisatie/lat/broncode/bool-tool.md`): snijden door **een lijn of rechthoek in het scherm te tekenen** werkt voor gewone gebruikers beter dan een vlak met G, R en S verschuiven, zoals onze Free cut nu vraagt. Split 3D Print heeft al "Draw Cut Line". Voor 1.1 (na #117): lijn over het model trekken, snijvlak in de kijkrichting, dan Cut piece. Klein en meteen bruikbaar: de toetsen in de statusbalk zolang de koper met een Free cut bezig is (`status_text_set`), en rechtsklik "Online Manual" per knop (`bpy.utils.register_manual_map`) zodra er een hulppagina is. Hun grootste klacht (lelijke collectienamen, botsende sneltoetsen) raakt ons niet: zo houden.
+
 ## Gaten, op volgorde van geld
 1. **Hoofdbeeld en galerij** onder Cleave: Beeldmaker, vóór de uitgave (week van 30 nov).
 2. **Delen plat leggen**: Cleave doet het; zit sinds 25 nov in 1.0.0 (nog niets live, dus geen aparte 1.0.1). Dicht zodra de FAQ is aangepast.
