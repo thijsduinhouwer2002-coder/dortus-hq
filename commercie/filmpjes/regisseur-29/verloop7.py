@@ -399,5 +399,8 @@ def verloop_pro():
     sc.cycles.use_denoising = True
     sc.render.use_persistent_data = True
     sc.render.resolution_x, sc.render.resolution_y, sc.render.resolution_percentage = 1080, 1920, 100
+    for o in bpy.data.objects:   # v7b: verborgen tussenstappen van het snijden ook uit de render (zie eind_fix.py)
+        if o.type == "MESH" and not o.visible_get():
+            o.hide_render = True
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(scherm_basis.uitmap, "eind.blend"), copy=True)
     log(f"KORT OK eind {n} beelden (eind.blend)")
