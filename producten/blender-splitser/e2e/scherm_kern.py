@@ -79,6 +79,14 @@ def render(naam):
     return ok
 
 
+def gaten_op(o, lb):
+    """Holes on the same cut face as label lb (same axis, same plane)."""
+    if "as" not in lb or "n" in lb:
+        return 0
+    return sum(1 for g in json.loads(o.get("sj_gaten", "[]"))
+               if g["as"] == lb["as"] and abs(g["p"][lb["as"]] - lb["p"][lb["as"]]) < 1.0)
+
+
 def model(naam):
     pad = os.path.join(bron, f"{naam}.blend")
     if not os.path.exists(pad):
@@ -94,6 +102,8 @@ def model(naam):
     kader(stukken + pennen, Vector((1.0, -1.5, 0.9)))
     render(f"{naam}-1-stukken.png")
     # close-up: the first piece with a number, looking straight at that cut face
+    if naam == "magneet":  # gallery (issue #144): the cut face with the most magnet holes, centred on them
+        stukken = sorted(stukken, key=lambda o: -max([gaten_op(o, lb) for lb in json.loads(o.get("sj_labels", "[]"))] + [0]))
     for o in stukken:
         lbs = json.loads(o.get("sj_labels", "[]"))
         if naam == "vrij":  # the free cut face, not a grid face
@@ -101,6 +111,8 @@ def model(naam):
         if not lbs:
             continue
         lb = lbs[0]
+        if naam == "magneet":
+            lb = max(lbs, key=lambda x: gaten_op(o, x))
         for p in s.objects:
             p.hide_render = p is not o
         if "n" in lb:  # free cut: the normal of the plane
@@ -112,6 +124,13 @@ def model(naam):
         gaten = [g for g in json.loads(o.get("sj_gaten", "[]")) if g["as"] == lb["as"]]
         straal = max([lb["h"] * len(lb["tekst"])] + [(Vector(g["p"]) - Vector(lb["p"])).length + 8 for g in gaten])
         schuin = n + Vector((0.18, -0.12, 0.15))
+        if naam == "magneet":
+            gaten = [g for g in gaten if abs(g["p"][lb["as"]] - lb["p"][lb["as"]]) < 1.0]
+            pts = [Vector(lb["p"])] + [Vector(g["p"]) for g in gaten]
+            c = sum(pts, Vector()) / len(pts)
+            midden = o.matrix_world @ c
+            straal = max((q - c).length for q in pts) + 10.0
+            schuin = n + Vector((0.08, -0.06, 0.08))
         camera(midden, schuin, straal * 2.6, lens=50)
         render(f"{naam}-2-snijvlak-{lb['tekst']}.png")
         break
