@@ -122,6 +122,7 @@ def figuur():
 
 
 GOUD_PLEK = {}   # gewricht -> [(object, vlak)] van de gouden vlakken, voor de labels
+AS_PLEK = {}     # scharnier -> (drager, punt lokaal, as lokaal), voor labels op de as en de knie-camera
 
 
 def goud_gewrichten(delen):
@@ -140,6 +141,19 @@ def goud_gewrichten(delen):
             c = Vector(o["cj_scharnier_punt"])
             r = max(float(o.get("cj_breedte", 8)) * 0.85, float(o.get("cj_knokkel_r", 2)) * 4.5)
             zones[n] = (c, c, r)
+    # #38 M3 (Daan #156): het label van een scharnier wijst naar de as zelf, niet naar het midden van het goud
+    # (dat lag bij de elleboog op de hand). Punt en as vastgemaakt aan het deel waar het scharnier aan vastzit
+    # (bovenarm, bovenbeen = deel B van schouder of heup, R.KETEN), in rusthouding. Deel A kan niet: dat object is na
+    # latere sneden de romp; deel B (onderarm) schuift bij "uit elkaar" weg van de as.
+    for o in bpy.context.scene.objects:
+        n = o.get("cj_naam")
+        if o.get("cj_figuur") and o.get("cj_soort") == "SCHARNIER" and o.get("cj_deel") in ("A", "B") and "cj_scharnier_punt" in o and n not in AS_PLEK:
+            drager = R._deel_b(R.KETEN.get(n)) if R.KETEN.get(n) else None
+            if drager is None:
+                continue
+            inv = drager.matrix_world.inverted()
+            as_ = Vector(o.get("cj_scharnier_as", (1, 0, 0)))
+            AS_PLEK[n] = (drager.name, inv @ Vector(o["cj_scharnier_punt"]), (inv.to_3x3() @ as_).normalized())
 
     def afstand(p, a, b):
         ab = b - a
@@ -317,7 +331,11 @@ def labels(cam):
             o = sc.objects[on]
             som += o.matrix_world @ o.data.polygons[pi].center
             n += 1
-        v = world_to_camera_view(sc, cam, som / max(n, 1))
+        p = som / max(n, 1)
+        if naam in AS_PLEK and naam in os.environ.get("HB_LABEL_AS", "Left elbow,Right elbow").split(","):
+            an, lp, _la = AS_PLEK[naam]
+            p = sc.objects[an].matrix_world @ lp
+        v = world_to_camera_view(sc, cam, p)
         uit[naam] = {"x": round(v.x, 4), "y": round(1 - v.y, 4), "soort": None, "graden": None}
     for o in sc.objects:
         n = o.get("cj_naam")
@@ -326,6 +344,65 @@ def labels(cam):
             if o.get("cj_bereik_graden"):
                 uit[n]["graden"] = float(o.get("cj_bereik_graden"))
     meting["labels"] = uit
+
+
+def knie_camera(cam, delen, naam):
+    """#38 M2 (Daan #156): inzet die in één blik 'scharnier' zegt. Alleen de twee delen van dit scharnier in beeld,
+    camera precies langs de as (pen en oog als rondje), vierkant. HB_KNIE_AFSTAND: mm van de as, HB_KNIE_KANT=-1
+    kijkt van de andere kant, HB_KNIE_SCHUIF=x,y verschuift het midden in mm (beeldvlak)."""
+    sc = bpy.context.scene
+    a, b = paar(naam)
+    an, lp, la = AS_PLEK[naam]
+    mw = sc.objects[an].matrix_world
+    p = mw @ lp
+    straal = float(os.environ.get("HB_KNIE_STRAAL", "25"))
+    zicht = []
+    for o in delen:   # alleen de delen die het scharnier raken (bovenbeen en onderbeen)
+        dichtbij = any(((o.matrix_world @ v.co) - p).length < straal for i, v in enumerate(o.data.vertices) if i % 5 == 0)
+        if dichtbij:
+            zicht.append(o.name)
+        else:
+            o.hide_render = True
+    meting["knie_delen"] = zicht
+    if os.environ.get("HB_KNIE_GEEST"):   # alleen voor het beeld: het bovenbeen half doorzichtig, zodat pen en oog
+        drager = sc.objects[an]           # achter het ronde eind van het bovenbeen te zien zijn (vermeld in LEESMIJ)
+        a_ = float(os.environ["HB_KNIE_GEEST"])
+        for i, m in enumerate(list(drager.data.materials)):
+            if m is None or m.name == "hb_goud":
+                continue
+            g = m.copy()
+            g.name = m.name + "_geest"
+            b = next((n for n in g.node_tree.nodes if n.type == "BSDF_PRINCIPLED"), None)
+            if b is not None:
+                b.inputs["Alpha"].default_value = a_
+            drager.data.materials[i] = g
+        meting["knie_geest"] = {"deel": drager.name, "alpha": a_}
+    as_ = (mw.to_3x3() @ la).normalized() * float(os.environ.get("HB_KNIE_KANT", "1"))
+    afst = float(os.environ.get("HB_KNIE_AFSTAND", "140"))
+    cam.location = p + as_ * afst
+    cam.rotation_euler = (-as_).to_track_quat("-Z", "Y").to_euler()
+    cd = cam.data
+    cd.lens = float(os.environ.get("HB_KNIE_LENS", "70"))
+    cd.shift_x = cd.shift_y = 0.0
+    sx, sy = (float(v) for v in os.environ.get("HB_KNIE_SCHUIF", "0,0").split(","))
+    bpy.context.view_layer.update()
+    rot = cam.matrix_world.to_3x3()
+    cam.location = cam.location + rot @ Vector((sx, sy, 0))
+    m = int(os.environ.get("HB_KNIE_MAAT", "1000"))
+    sc.render.resolution_x = sc.render.resolution_y = m
+    # licht van de camerakant zodat het goud en de pen gaan glanzen
+    ld = bpy.data.lights.new("hb_knie_licht", "AREA")
+    ld.size = afst * 0.8
+    ld.energy = float(os.environ.get("HB_KNIE_LICHT", "1.0")) * 2.0e5 * (afst / 140) ** 2
+    lo_ = bpy.data.objects.new("hb_knie_licht", ld)
+    sc.collection.objects.link(lo_)
+    lo_.location = p + as_ * afst + rot @ Vector((-afst * 0.6, afst * 0.5, 0))
+    lo_.rotation_euler = (p - lo_.location).to_track_quat("-Z", "Y").to_euler()
+    lo_.visible_glossy = False
+    meting["knie_cam"] = {"scharnier": naam, "punt": list(p), "as": list(as_), "afstand": afst,
+                          "pose_graden": float(b.get("cj_pose_graden", 0) or 0) if b else None,
+                          "bereik": float(a.get("cj_bereik_graden", 0) or 0) if a else None}
+    log("knie-camera", meting["knie_cam"])
 
 
 def main():
@@ -344,6 +421,8 @@ def main():
     cam = scene(delen)
     bpy.context.view_layer.update()
     labels(cam)
+    if os.environ.get("HB_KNIE_CAM"):
+        knie_camera(cam, delen, os.environ["HB_KNIE_CAM"])
     if os.environ.get("HB_RAND"):   # #38: alleen een uitsnede (x0,x1,y0,y1 als 0..1, y van onder) voor een inzet
         x0, x1, y0, y1 = (float(v) for v in os.environ["HB_RAND"].split(","))
         r = bpy.context.scene.render

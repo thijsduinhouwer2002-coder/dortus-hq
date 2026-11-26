@@ -1,0 +1,205 @@
+{
+ "figuur": "MakeHuman base mesh (CC0 1.0, commercie/filmpjes/studio/modellen/makehuman-base-LICENTIE.md), aangekleed door figuur_laden.py",
+ "uit_mm": 4.0,
+ "knop_s": 87.6,
+ "gewrichten": [
+  "Left elbow · Hinge · 0–140° · from rig",
+  "Right elbow · Hinge · 0–140° · mirror",
+  "Left knee · Hinge · 0–120° · from rig",
+  "Right knee · Hinge · 0–120° · mirror",
+  "Neck · Ball · ±20° · preset",
+  "Left shoulder · Ball · ±20° · preset",
+  "Right shoulder · Ball · ±20° · preset",
+  "Left hip · Ball · ±20° · preset",
+  "Right hip · Ball · ±20° · preset"
+ ],
+ "records": [
+  {
+   "naam": "Left elbow",
+   "soort": "HINGE",
+   "graden": 140.0,
+   "punt": [
+    42.3468,
+    10.0688,
+    152.8846
+   ]
+  },
+  {
+   "naam": "Right elbow",
+   "soort": "HINGE",
+   "graden": 140.0,
+   "punt": [
+    -42.3457,
+    10.0693,
+    152.8825
+   ]
+  },
+  {
+   "naam": "Left knee",
+   "soort": "HINGE",
+   "graden": 120.0,
+   "punt": [
+    20.8809,
+    10.2929,
+    59.0681
+   ]
+  },
+  {
+   "naam": "Right knee",
+   "soort": "HINGE",
+   "graden": 120.0,
+   "punt": [
+    -20.8809,
+    10.2929,
+    59.0681
+   ]
+  },
+  {
+   "naam": "Neck",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    0.0045,
+    11.4899,
+    185.4816
+   ]
+  },
+  {
+   "naam": "Left shoulder",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    28.2948,
+    12.8324,
+    169.8787
+   ]
+  },
+  {
+   "naam": "Right shoulder",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    -28.2948,
+    12.8328,
+    169.8788
+   ]
+  },
+  {
+   "naam": "Left hip",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    14.1203,
+    11.2695,
+    98.676
+   ]
+  },
+  {
+   "naam": "Right hip",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    -14.1201,
+    11.2696,
+    98.676
+   ]
+  }
+ ],
+ "goud_vlakken": 18368,
+ "pose": {
+  "Neck": 12.0,
+  "Left elbow": 55.0,
+  "Right elbow": 25.0,
+  "Left knee": 30.0,
+  "Right knee": 120.0
+ },
+ "kader": [
+  [
+   -69.64554595947266,
+   -43.04607009887695,
+   -0.8545066118240356
+  ],
+  [
+   66.52505493164062,
+   70.72957611083984,
+   235.3717041015625
+  ]
+ ],
+ "labels": {
+  "Left elbow": {
+   "x": 0.7877,
+   "y": 0.3501,
+   "soort": "SCHARNIER",
+   "graden": 140.0
+  },
+  "Right elbow": {
+   "x": 0.6194,
+   "y": 0.3641,
+   "soort": "SCHARNIER",
+   "graden": 140.0
+  },
+  "Left knee": {
+   "x": 0.7471,
+   "y": 0.6989,
+   "soort": "SCHARNIER",
+   "graden": 119.96
+  },
+  "Right knee": {
+   "x": 0.6654,
+   "y": 0.7036,
+   "soort": "SCHARNIER",
+   "graden": 120.0
+  },
+  "Neck": {
+   "x": 0.7054,
+   "y": 0.1984,
+   "soort": "KOGEL",
+   "graden": null
+  },
+  "Left shoulder": {
+   "x": 0.7634,
+   "y": 0.2986,
+   "soort": "KOGEL",
+   "graden": null
+  },
+  "Right shoulder": {
+   "x": 0.6421,
+   "y": 0.3071,
+   "soort": "KOGEL",
+   "graden": null
+  },
+  "Left hip": {
+   "x": 0.7327,
+   "y": 0.5603,
+   "soort": "KOGEL",
+   "graden": null
+  },
+  "Right hip": {
+   "x": 0.6781,
+   "y": 0.5522,
+   "soort": "KOGEL",
+   "graden": null
+  }
+ },
+ "knie_delen": [
+  "Figuur_gesloten_A_A_A_B",
+  "Figuur_gesloten_A_A_A_A_A_A_A_A_B"
+ ],
+ "knie_cam": {
+  "scharnier": "Right knee",
+  "punt": [
+   -21.365257263183594,
+   7.894761085510254,
+   64.21158599853516
+  ],
+  "as": [
+   -0.9868360757827759,
+   -1.7959885667551134e-07,
+   0.1617237776517868
+  ],
+  "afstand": 46.0,
+  "pose_graden": 0.0,
+  "bereik": 120.0
+ },
+ "render_s": 163.2
+}

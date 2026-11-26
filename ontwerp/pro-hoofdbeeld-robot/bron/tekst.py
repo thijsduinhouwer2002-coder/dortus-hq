@@ -63,7 +63,7 @@ def links_donker(img, breed):
     img.paste(zwart, (0, 0), m)
 
 
-def label(img, s, p, tekst, kant):
+def label(img, s, p, tekst, kant, zak=0):
     """Plaatje met tekst, met een lijntje en een stip naar het gewricht op p (pixels)."""
     d = ImageDraw.Draw(img)
     f = font("Inter.ttf", int(30 * s), "SemiBold")
@@ -72,7 +72,7 @@ def label(img, s, p, tekst, kant):
     px, py = p
     dx = int((150 if kant == "r" else -150) * s)
     bx = px + dx if kant == "r" else px + dx - w - int(36 * s)
-    by = py - h // 2 - int(14 * s)
+    by = py - h // 2 - int(14 * s) + int(zak * s)   # zak: plaatje lager (#38, labels niet tegen elkaar)
     bw, bh = w + int(36 * s), h + int(28 * s)
     laag = Image.new("RGBA", img.size, (0, 0, 0, 0))
     ImageDraw.Draw(laag).rounded_rectangle((bx, by + 6, bx + bw, by + bh + 6), radius=bh // 2, fill=(0, 0, 0, 150))
@@ -134,7 +134,8 @@ def maak(basis, W, H, meta, dy, schaal_xy):
         keus = [("Left shoulder", "Ball", "r"), ("Left elbow", "Hinge", "r"), ("Left knee", "Hinge", "r")]
         for naam, woord, kant in keus:
             if naam in lab:
-                label(img, s, p(naam), f"{woord} {graden(naam, lab[naam]['soort'])}", kant)
+                zak = json.loads(os.environ.get("TK_ZAK", "{}")).get(naam, 0)
+                label(img, s, p(naam), f"{woord} {graden(naam, lab[naam]['soort'])}", kant, zak)
     return img.convert("RGB")
 
 

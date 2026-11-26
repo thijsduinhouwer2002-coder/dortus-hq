@@ -34,3 +34,14 @@ python3 bron/inzet.py <uitmap>/mens-r2-2400x1200.png <uit>/knie-render.png beeld
 Set `click-joints-pro-superhive-mens-r2.json`.
 
 **Uitslag ronde 2 (26 nov 08:07):** ChatGPT 1,0 en 1,0 (eerste keus beide keren). Gemini deed niet mee: HTTP 402, het tegoed van de Gemini-sleutel is op (`organisatie/blindtest/uitslag/click-joints-pro-superhive-mens-r2-2026-11-26-0807.md`). Daarom formeel NIET GESLAAGD. Zodra het tegoed er weer is: set `click-joints-pro-superhive-mens-r2` opnieuw draaien (skill `actions`, workflow `blindtest.yml` met de setnaam).
+
+**Ronde 3 (26 nov ±10:45, Daan #156 M2 en M3):** `beelden/mens-knie-r3-2400x1200.jpg`.
+- M3: de labels van de ellebogen wijzen nu naar de as van het scharnier aan het eind van de bovenarm (punt `cj_scharnier_punt` van de add-on, meebewogen met de bovenarm), niet meer naar het midden van het goud op de hand. Het label staat iets lager zodat het niet tegen "Ball ±20°" aan zit (`TK_ZAK`).
+- M2: de inzet is een eigen render met de camera precies langs de as van de rechterknie (`HB_KNIE_CAM`, `beelden/knie-as-render.jpg`, `beelden/knie-as.json`): alleen boven- en onderbeen, onderbeen gebogen tot de stop van 120° met de schuif van de add-on, delen 4 mm uit elkaar zodat de pen en het oog als rondje te zien zijn. Dun goud lijntje van de inzet naar die knie. Goud vult de inzet niet voor de helft: het ronde eind van het bovenbeen ligt ervoor (GEZIEN; geteld met een kleurdrempel 15% goud, 48% blauw, GOK want schaduwen tellen niet mee). Geprobeerd: bovenbeen half doorzichtig, dat werd een roze vlek met binnenkant, niet gebruikt.
+```
+HB_POSE='{"Left elbow": 55, "Right elbow": 25, "Left knee": 30, "Right knee": 8, "Neck": [[[0,0,1], -12]]}' HB_UIT=18 <HB_* als ronde 1> blender ... hoofdbeeld.py -- <pro-zip> <uit> 48 100
+HB_POSE='{... "Right knee": 120 ...}' HB_UIT=4 HB_KNIE_CAM="Right knee" HB_KNIE_KANT=1 HB_KNIE_AFSTAND=46 HB_KNIE_SCHUIF=-0.5,1.5 HB_KNIE_LICHT=2.5 HB_KNIE_MAAT=1000 HB_NAAM=knie blender ... -- <pro-zip> <uit> 64 100
+TK_ZAK='{"Left elbow": 34}' TK_PUNT3="Fit test strip: 0.10 to 0.30 mm clearance" TK_GROOT=1.12 TK_BOVEN=0.08 python3 ontwerp/pro-hoofdbeeld-robot/bron/tekst.py ... mens-r3 labels
+IZ_X=1112 IZ_Y=690 IZ_M=380 IZ_SNEDE=0.43,0.69,0.58 python3 bron/inzet.py <uit>/mens-r3-2400x1200.png <uit>/knie-render.png <uit>/hoofdbeeld.json beelden/mens-knie-r3-2400x1200.jpg <fontmap>
+```
+Set `click-joints-pro-superhive-mens-r3.json`. Gemini geeft nog HTTP 402 (tegoed op, alleen Thijs), dus de uitslag telt voorlopig alleen ChatGPT.
