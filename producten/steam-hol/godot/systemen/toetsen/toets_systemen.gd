@@ -413,9 +413,13 @@ func _init() -> void:
 	ok(stem.kies("afgerekend_val", {"naam": "Bartholomew-Maximus", "val": "the Spike Pit"}, 4) != "", "getal-vorm: afloop-regel nooit leeg")
 	# upgrades (Bram 10 nov, feature 5, balans.md): 45, 126, 353 (Sanne 01:50), drie per soort, volle prijs terug, opslaan
 	var u = load("res://systemen/upgrades.gd").new()
-	ok(u.kost("slijm") == 45 and u.kost("stekelput") == 45 and u.kost("draak") == -1, "eerste upgrade kost 45")
-	ok(u.koop("slijm", 44) == -1 and u.niveau("slijm") == 0, "te weinig goud: niets gekocht")
-	ok(u.koop("slijm", 100) == 55 and u.niveau("slijm") == 1 and u.kost("slijm") == 60, "kopen: 55 over, volgende kost 60")
+	ok(u.kost("slijm") == 40 and u.kost("stekelput") == 40 and u.kost("draak") == -1, "eerste upgrade kost 40 (Sanne 26 nov, Iris 499fd9f punt 3)")
+	var udemo = load("res://systemen/upgrades.gd").new()
+	udemo.demo = true
+	ok(udemo.kost("slijm") == 45 and udemo.kost("stekelput") == 45, "demo-film houdt 45 voor stap 1 (Daan #109 M1)")
+	ok(FileAccess.get_file_as_string("res://kern/strook.gd").find("hol.upgrades.demo = demo") > 0, "strook zet de demo-vlag op de upgrades")
+	ok(u.koop("slijm", 39) == -1 and u.niveau("slijm") == 0, "te weinig goud: niets gekocht")
+	ok(u.koop("slijm", 100) == 60 and u.niveau("slijm") == 1 and u.kost("slijm") == 60, "kopen: 60 over, volgende kost 60")
 	ok(u.koop("slijm", 60) == 0 and u.kost("slijm") == 70, "derde kost 70 (#134, Iris aandacht 7)")
 	ok(u.koop("slijm", 70) == 0 and u.kost("slijm") == 75 and u.beeld_niveau("slijm") == 3, "na stap 3 nog stap 4 voor 75 (#145)")
 	ok(absf(u.kans_erbij("slijm") - 0.21) < 0.0001 and u.kans_erbij("stekelput") == 0.0, "+7 procentpunt per stap")
@@ -479,7 +483,7 @@ func _init() -> void:
 		var kost_u6: int = u6.kost("stekelput")
 		u6.koop("stekelput", 1000)
 		terug_ok = terug_ok and u6.terug("stekelput") == kost_u6
-	ok(terug_ok and u6.terug("stekelput") == 70, "terug() is steeds de prijs van de bovenste stap (45, 60, 70)")
+	ok(terug_ok and u6.terug("stekelput") == 70, "terug() is steeds de prijs van de bovenste stap (40, 60, 70)")
 	ok(u6.verkoop("stekelput") == 70 and u6.terug("stekelput") == 60, "na weghalen: terug() de prijs van de stap eronder")
 	# #134 (Iris aandacht 7): minuut 0 tot 4 gelijk, daarna meer goud en een krappe droogte zolang er iets te koop is
 	var AFL134 := load("res://kern/afloop.gd")
@@ -498,10 +502,10 @@ func _init() -> void:
 	# volgend doel in het paneel (Iris keuring 1, probleem 2)
 	var ud = load("res://systemen/upgrades.gd").new()
 	var d0: Dictionary = ud.doel(["slijm", "stekelput"], 20)
-	ok(d0.get("soort") == "slijm" and int(d0.get("kost")) == 45 and int(d0.get("tekort")) == 25, "doel: nieuw spel Big Gloop, 45, nog 25")
+	ok(d0.get("soort") == "slijm" and int(d0.get("kost")) == 40 and int(d0.get("tekort")) == 20, "doel: nieuw spel Big Gloop, 40, nog 20")
 	ok(ud.doel(["slijm"], 50).get("tekort") == 0, "doel: tekort 0 als het kan")
 	ud.koop("slijm", 1000)
-	ok(ud.doel(["slijm", "stekelput"], 0).get("soort") == "stekelput", "doel: goedkoopste wint (put 45 voor Bouncy 60)")
+	ok(ud.doel(["slijm", "stekelput"], 0).get("soort") == "stekelput", "doel: goedkoopste wint (put 40 voor Bouncy 60)")
 	ok(ud.doel(["slijm"], 0).get("naam") == "Bouncy Gloop", "doel: zonder put alleen Gloop")
 	for i in ud.MAX_NIVEAU - 1:
 		ud.koop("slijm", 1000)

@@ -185,6 +185,8 @@ func _ready() -> void:
 	hol.position = Vector2(0, boven)
 	add_child(hol)
 	hol.deco_proef = proef_deco
+	if hol.get("upgrades") != null:
+		hol.upgrades.demo = demo   # demo-film houdt de oude prijs van stap 1 (systemen/upgrades.gd DEMO_EERSTE)
 	if "hol" in proef_uit3d:
 		hol.met_3d = false
 	if "helden" in proef_uit3d:

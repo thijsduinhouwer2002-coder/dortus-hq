@@ -34,7 +34,13 @@ const FACTOR := 2.8   # niet meer gebruikt voor de prijs, zie PRIJZEN
 # goud (kern/afloop.gd GOUD_LAAT); 90 vroeg 6 tot 7 vangsten en gaf het langste gat (meting platformen/steam/data/minuut4-15/olaf-134/).
 # Olaf 26 nov (#145): stap 4, 5 en 6 kosten 75, 95 en 115 (de put 10 meer, PUT_LATER); 2 of 4 stappen erbij gaf
 # steeds een lege winkel of een lang gat (meting en geprobeerde varianten in platformen/steam/data/minuut11-20/olaf-145/).
-const PRIJZEN := [45, 60, 70, 75, 95, 115]
+# Sanne 26 nov (Iris keuring 499fd9f punt 3): van koop 1 naar koop 2 zat 175 tot 197 s bij 4 van 6 zaden. Stap 1 naar 40
+# (was 45): koop 2 mediaan 257 naar 219 s, gat koop 1 tot 2 mediaan 183 naar 145 s, boven 170 s in 17 van 48 runs
+# (was 41 van 48); koop 1 blijft 73 tot 79 s, minuut 11 tot 20 gelijk (meting platformen/steam/data/koop2/).
+# De demo-film houdt 45 (DEMO_EERSTE), zodat hij gelijk blijft aan de gekeurde (Daan #109 M1).
+const PRIJZEN := [40, 60, 70, 75, 95, 115]
+const DEMO_EERSTE := 45
+var demo := false   # kern/strook.gd zet dit bij demo=1
 const KANS_PER := 0.07
 # Per stap wat hij erbij doet (#145): stap 1 tot 3 elk +7 procentpunt kans; stap 4 tot 6 elk +2 goud per vangst.
 const KANS_STAP := [0.07, 0.07, 0.07, 0.0, 0.0, 0.0]
@@ -79,6 +85,8 @@ func kost(soort: String) -> int:
 # klaar zijn en niet twee kopen vlak na elkaar komen met daarna een lang gat (#145, meting olaf-145).
 const PUT_LATER := 10
 func prijs(soort: String, i: int) -> int:
+	if demo and i == 0:
+		return DEMO_EERSTE
 	return int(PRIJZEN[i]) + (PUT_LATER if soort == "stekelput" and i >= BEELD_MAX else 0)
 
 func kan_kopen(soort: String, goud: int) -> bool:

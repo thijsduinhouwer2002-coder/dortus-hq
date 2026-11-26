@@ -1,0 +1,12 @@
+l45a: runs 24 | koop1 med 75 | koop2 med 257 | gat 1-2 med 183 max 212, boven 170: 21 | koop3 med 369 | langste gat na koop1 tot 1200 med 189 max 215 | kopen tot 1200: 8-11
+   gat min 11-20 med 152 max 215 onder 180: 22/24 | ontsnapt na 240 s 8%
+l45b: runs 24 | koop1 med 75 | koop2 med 260 | gat 1-2 med 186 max 222, boven 170: 20 | koop3 med 364 | langste gat na koop1 tot 1200 med 194 max 222 | kopen tot 1200: 8-11
+   gat min 11-20 med 138 max 197 onder 180: 22/24 | ontsnapt na 240 s 6%
+l40a: runs 24 | koop1 med 75 | koop2 med 219 | gat 1-2 med 143 max 210, boven 170: 8 | koop3 med 334 | langste gat na koop1 tot 1200 med 171 max 210 | kopen tot 1200: 9-12
+   gat min 11-20 med 143 max 187 onder 180: 23/24 | ontsnapt na 240 s 9%
+l40b: runs 24 | koop1 med 75 | koop2 med 224 | gat 1-2 med 147 max 218, boven 170: 9 | koop3 med 334 | langste gat na koop1 tot 1200 med 170 max 218 | kopen tot 1200: 8-11
+   gat min 11-20 med 145 max 206 onder 180: 21/24 | ontsnapt na 240 s 9%
+fix45: runs 24 | koop1 med 75 | koop2 med 270 | gat 1-2 med 195 max 272, boven 170: 23 | koop3 med 397 | langste gat na koop1 tot 1200 med 202 max 272 | kopen tot 1200: 8-10
+   gat min 11-20 med 170 max 206 onder 180: 19/24 | ontsnapt na 240 s 17%
+fix40: runs 24 | koop1 med 75 | koop2 med 214 | gat 1-2 med 141 max 211, boven 170: 9 | koop3 med 349 | langste gat na koop1 tot 1200 med 182 max 221 | kopen tot 1200: 9-11
+   gat min 11-20 med 142 max 221 onder 180: 21/24 | ontsnapt na 240 s 13%
