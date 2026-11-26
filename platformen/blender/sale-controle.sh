@@ -84,6 +84,11 @@ print("6. Gumroad Pro noemt de versie:", versie.group(0) if versie else "NEE")
 if not versie:
     print("   FOUT: het versieblok (platformen/blender/pro-gumroad-versieblok-1.2.8.md) staat er niet. Meld het de hoofdchat.")
     fout = 1
+na = "After you buy" in lees("plain") and "Click Joints tab" in lees("plain")
+print("6b. Gumroad Pro zegt wat te doen na het kopen (gratis uit, paneel in de zijbalk):", "ja" if na else "NEE")
+if not na:
+    print("   FOUT: de alinea 'After you buy' (platformen/blender/pro-gumroad-na-kopen-1.2.8.md) staat er niet. Meld het de hoofdchat.")
+    fout = 1
 vies = [n for n in ("site", "gids1", "gids2") if "print tested" in lees(n).lower()]
 print("7. dortus.com/click-joints en de twee gidsen zonder 'print tested':", "ja" if not vies else "NEE, nog op " + ", ".join(vies))
 if vies:
