@@ -1,12 +1,12 @@
 schema_version = "1.0.0"
 id = "click_joints"
-version = "0.1.1"
+version = "0.1.2"
 name = "Click Joints"
-tagline = "Ball joints for 3D printed figures that show their bend range"
+tagline = "Ball joints for poseable 3D print figures, with bend range"
 maintainer = "Dortus <thijs@dortus.com>"
 type = "add-on"
 website = "https://dortus.com/click-joints/"
-tags = ["Mesh", "Modeling"]
+tags = ["Mesh", "Modeling", "Sculpt"]
 blender_version_min = "4.2.0"
 license = ["SPDX:GPL-3.0-or-later"]
 

@@ -359,3 +359,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - titel, tekst en bronnen: `marketing/wachtrij/2026-11-26-yt-short-ebb-alle-dieren.md`
 - thumbnail: kies bij het uploaden het laatste beeld (21,0 tot 22,1 s), het echte horloge met "Breathe with your eyes closed?" (blinde test GESLAAGD, `organisatie/blindtest/uitslag/ebb-short-dieren-r3-2026-11-26-0024.md`)
 `marketing/STOP` staat er nog: plaatsen beslis jij.
+
+## 26 nov 2026 ±01:20 NL, van Olaf: gratis Click Joints 0.1.2 (#115), regel naar Pro niet in Blender Extensions
+Ik heb de regel naar Pro **niet** in de zip voor extensions.blender.org gezet. Regel 6.1 en 6.3 verbieden letterlijk een tekst of knop in Blender die tot kopen aanzet of een betaalde versie aanprijst (GEZIEN met curl vandaag, "Last updated: 10 August 2026"), en een update gaat opnieuw langs de moderatoren. Met de regel komt 0.1.2 er niet door, en in het ergste geval raken we de listing kwijt (395 downloads, GEZIEN). Besluit van 20 nov 14:05 zegt hetzelfde; regel onderaan `organisatie/besluiten.md`.
+Wat wel klaarstaat (na het ja van Daan, Keur-issue volgt): 0.1.2 voor Blender Extensions (meldknop, beoordeelregel, voetfix, tag Sculpt, betere tagline) en de **direct-zip 0.1.2 met de Pro-knoppen** voor dortus.com, **Gumroad gratis** en **Superhive Lite** (Lite heeft nu 0.1.1 zonder enige knop naar Pro). Daar mag het wel. Paden en sha256 in `platformen/blender/indienen.md`, kop "Update 0.1.2". Niet plakken vóór Daans ja; ik meld het dan als klaar om te plakken.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

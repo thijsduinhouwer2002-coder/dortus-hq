@@ -5,11 +5,14 @@ This file feeds the GitHub release and the release notes on extensions.blender.o
 (`click-joints-uitgave.yml` takes the section of the version it ships, max 1024 characters).
 Write each line from the user's side, at most 5 lines per version.
 
-## Unreleased
+## 0.1.2 (2026-11-26)
 
 ### Added
 - "Report a problem" at the bottom of the Click Joints tab opens a bug report on GitHub with your Click Joints, Blender and system versions already filled in. Nothing is sent until you submit it yourself.
 - After a Good fit and an export, one small line at the bottom of the panel links to the reviews on Blender Extensions. Click a store or the X and it does not ask again. No popups.
+
+### Fixed
+- On some figures, a knee joint could leave the sole of the foot as a loose piece. The foot now stays with the leg.
 
 ## 0.1.1 (2026-11-16)
 
