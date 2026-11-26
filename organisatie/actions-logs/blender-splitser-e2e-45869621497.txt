@@ -1,0 +1,148 @@
+# gemaakt: 2026-11-26T17:44:07Z
+# workflow: Blender splitser e2e (Click Cuts, echte Blender) (.github/workflows/blender-splitser-e2e.yml)
+# run: 45869621497 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45869621497
+# commit: 462acac8 tak claude/click-cuts-tekenen gestart door push
+# mislukte stappen: e2e (4.2.23): Schermafbeelding van het paneel (echte interface); e2e (5.3.0): Schermafbeelding van het paneel (echte interface)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (4.2.23) / Schermafbeelding van het paneel (echte interface) (laatste 69 van 69 regels) =====
+##[group]Run [ -s /tmp/sj_uit/suzanne.blend ] || { echo "geen suzanne.blend"; exit 1; }
+[ -s /tmp/sj_uit/suzanne.blend ] || { echo "geen suzanne.blend"; exit 1; }
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start.blend --python e2e/scherm_paneel.py -- "$PWD/e2e/screenshots/4.2.23" /tmp/click_cuts.zip /tmp/sj_uit/suzanne.blend 2>&1 | tee /tmp/paneel.log || true
+grep "\[sj-scherm\]\|Traceback\|Error" /tmp/paneel.log | head -20 || true
+grep -q "PANEEL OK" /tmp/paneel.log || { echo "FOUT: geen schermafbeelding van het paneel"; exit 1; }
+grep -q "PANEEL START OK" /tmp/paneel.log || { echo "FOUT: geen beeld van de beginstand (issue #69)"; exit 1; }
+grep -q "TEKENEN OK" /tmp/paneel.log || { echo "FOUT: Draw cut met de muis gaf geen snedevlak (issue #208)"; exit 1; }
+grep -q "TEKENEN PLEK OK" /tmp/paneel.log || { echo "FOUT: snedevlak ligt niet op de getrokken lijn (issue #208)"; exit 1; }
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: splitser-kern-1
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/sj_ui
+  BLENDER_USER_CONFIG: /tmp/sj_ui/config
+  BLENDER_USER_EXTENSIONS: /tmp/sj_ui/extensions
+##[endgroup]
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+Writing userprefs: "/tmp/sj_ui/config/userpref.blend" ok
+Info: Total files 0 | Changed 0 | Failed 0
+Info: Preferences saved
+Info: Saved "start.blend"
+
+Blender quit
+ALSA lib confmisc.c:855:(parse_card) [error.core] cannot find card '0'
+ALSA lib conf.c:5211:(_snd_config_evaluate) [error.core] function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) [error.core] error evaluating strings
+ALSA lib conf.c:5211:(_snd_config_evaluate) [error.core] function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) [error.core] error evaluating name
+ALSA lib conf.c:5211:(_snd_config_evaluate) [error.core] function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5734:(snd_config_expand) [error.core] Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) [error.pcm] Unknown PCM default
+[sj-scherm] klaar: 8 stukken, statussen ['groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen']
+[sj-scherm] TABBLAD OK
+[sj-scherm] PANEEL OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/4.2.23/paneel-x.png
+[sj-scherm] PANEEL MEER OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/4.2.23/paneel-meer.png
+[sj-scherm] noten: voorbeeldnoten gezet (deze Split had geen noten)
+[sj-scherm] PANEEL NOTEN OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/4.2.23/paneel-noten.png
+[sj-scherm] tekenen: operator {'RUNNING_MODAL'}, stuk Piece 07, lijn x 664, y 498 tot 745
+Read blend: "/tmp/start.blend"
+Info: Cut placed along your line. Press Cut piece, or adjust it with G, R and S
+[sj-scherm] tekenen: muis in de operator ['NONE NOTHING 283 448', 'MOUSEMOVE NOTHING -632 745', 'LEFTMOUSE PRESS -632 745', 'MOUSEMOVE NOTHING -632 696', 'MOUSEMOVE NOTHING -632 646', 'MOUSEMOVE NOTHING -632 597', 'MOUSEMOVE NOTHING -632 547', 'MOUSEMOVE NOTHING -632 497', 'LEFTMOUSE RELEASE -632 497']
+[sj-scherm] TEKENEN OK: 1 snedevlak voor Piece 07
+[sj-scherm] TEKENEN PLEK FOUT: vlak op het scherm x 550 tot 550, y 600 tot 851; lijn x 664, y 498 tot 745
+Warning: Piece 7 and new piece 9, 1 pins, check the red piece
+[sj-scherm] TEKENEN SNEDE OK: Cut piece {'FINISHED'}, 8 naar 9 stukken
+[sj-scherm] PANEEL START OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/4.2.23/paneel-start.png
+[sj-scherm] PANEEL LEEG OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/4.2.23/paneel-leeg.png
+Saved session recovery to "/tmp/quit.blend"
+Writing userprefs: "/tmp/sj_ui/config/userpref.blend" ok
+Info: Preferences saved
+
+Blender quit
+[sj-scherm] klaar: 8 stukken, statussen ['groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen']
+[sj-scherm] TABBLAD OK
+[sj-scherm] PANEEL OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/4.2.23/paneel-x.png
+[sj-scherm] PANEEL MEER OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/4.2.23/paneel-meer.png
+[sj-scherm] noten: voorbeeldnoten gezet (deze Split had geen noten)
+[sj-scherm] PANEEL NOTEN OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/4.2.23/paneel-noten.png
+[sj-scherm] tekenen: operator {'RUNNING_MODAL'}, stuk Piece 07, lijn x 664, y 498 tot 745
+[sj-scherm] tekenen: muis in de operator ['NONE NOTHING 283 448', 'MOUSEMOVE NOTHING -632 745', 'LEFTMOUSE PRESS -632 745', 'MOUSEMOVE NOTHING -632 696', 'MOUSEMOVE NOTHING -632 646', 'MOUSEMOVE NOTHING -632 597', 'MOUSEMOVE NOTHING -632 547', 'MOUSEMOVE NOTHING -632 497', 'LEFTMOUSE RELEASE -632 497']
+[sj-scherm] TEKENEN OK: 1 snedevlak voor Piece 07
+[sj-scherm] TEKENEN PLEK FOUT: vlak op het scherm x 550 tot 550, y 600 tot 851; lijn x 664, y 498 tot 745
+[sj-scherm] TEKENEN SNEDE OK: Cut piece {'FINISHED'}, 8 naar 9 stukken
+[sj-scherm] PANEEL START OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/4.2.23/paneel-start.png
+[sj-scherm] PANEEL LEEG OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/4.2.23/paneel-leeg.png
+FOUT: snedevlak ligt niet op de getrokken lijn (issue #208)
+##[error]Process completed with exit code 1.
+
+===== e2e (5.3.0) / Schermafbeelding van het paneel (echte interface) (laatste 68 van 68 regels) =====
+##[group]Run [ -s /tmp/sj_uit/suzanne.blend ] || { echo "geen suzanne.blend"; exit 1; }
+[ -s /tmp/sj_uit/suzanne.blend ] || { echo "geen suzanne.blend"; exit 1; }
+/tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
+timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+  /tmp/blender/blender --gpu-backend opengl /tmp/start.blend --python e2e/scherm_paneel.py -- "$PWD/e2e/screenshots/5.3.0" /tmp/click_cuts.zip /tmp/sj_uit/suzanne.blend 2>&1 | tee /tmp/paneel.log || true
+grep "\[sj-scherm\]\|Traceback\|Error" /tmp/paneel.log | head -20 || true
+grep -q "PANEEL OK" /tmp/paneel.log || { echo "FOUT: geen schermafbeelding van het paneel"; exit 1; }
+grep -q "PANEEL START OK" /tmp/paneel.log || { echo "FOUT: geen beeld van de beginstand (issue #69)"; exit 1; }
+grep -q "TEKENEN OK" /tmp/paneel.log || { echo "FOUT: Draw cut met de muis gaf geen snedevlak (issue #208)"; exit 1; }
+grep -q "TEKENEN PLEK OK" /tmp/paneel.log || { echo "FOUT: snedevlak ligt niet op de getrokken lijn (issue #208)"; exit 1; }
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: splitser-kern-1
+  LIBGL_ALWAYS_SOFTWARE: 1
+  BLENDER_USER_RESOURCES: /tmp/sj_ui
+  BLENDER_USER_CONFIG: /tmp/sj_ui/config
+  BLENDER_USER_EXTENSIONS: /tmp/sj_ui/extensions
+##[endgroup]
+00:00.320  blend            | Writing user preferences: "/tmp/sj_ui/config/userpref.blend" 
+Info: Preferences saved
+Info: Saved as "start.blend"
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:18)
+
+Blender quit
+ALSA lib confmisc.c:855:(parse_card) [error.core] cannot find card '0'
+ALSA lib conf.c:5211:(_snd_config_evaluate) [error.core] function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) [error.core] error evaluating strings
+ALSA lib conf.c:5211:(_snd_config_evaluate) [error.core] function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) [error.core] error evaluating name
+ALSA lib conf.c:5211:(_snd_config_evaluate) [error.core] function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5734:(snd_config_expand) [error.core] Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) [error.pcm] Unknown PCM default
+00:01.163  blend            | Read blend: "/tmp/start.blend"
+[sj-scherm] klaar: 8 stukken, statussen ['groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen']
+[sj-scherm] TABBLAD OK
+[sj-scherm] PANEEL OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/paneel-x.png
+[sj-scherm] PANEEL MEER OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/paneel-meer.png
+[sj-scherm] noten: voorbeeldnoten gezet (deze Split had geen noten)
+[sj-scherm] PANEEL NOTEN OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/paneel-noten.png
+[sj-scherm] tekenen: operator {'RUNNING_MODAL'}, stuk Piece 07, lijn x 658, y 498 tot 745
+00:17.575  operator         | Cut placed along your line. Press Cut piece, or adjust it with G, R and S
+[sj-scherm] tekenen: muis in de operator ['NONE NOTHING 284 448', 'MOUSEMOVE NOTHING -625 745', 'LEFTMOUSE PRESS -625 745', 'MOUSEMOVE NOTHING -625 696', 'MOUSEMOVE NOTHING -625 646', 'MOUSEMOVE NOTHING -625 597', 'MOUSEMOVE NOTHING -625 547', 'MOUSEMOVE NOTHING -625 497', 'LEFTMOUSE RELEASE -625 497']
+[sj-scherm] TEKENEN OK: 1 snedevlak voor Piece 07
+[sj-scherm] TEKENEN PLEK FOUT: vlak op het scherm x 544 tot 544, y 600 tot 851; lijn x 658, y 498 tot 745
+Info: Piece 7 and new piece 9, 1 pins
+[sj-scherm] TEKENEN SNEDE OK: Cut piece {'FINISHED'}, 8 naar 9 stukken
+[sj-scherm] PANEEL START OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/paneel-start.png
+[sj-scherm] PANEEL LEEG OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/paneel-leeg.png
+00:23.246  blend            | Saved session recovery to "/tmp/quit.blend"
+00:23.247  blend            | Writing user preferences: "/tmp/sj_ui/config/userpref.blend" 
+00:23.248  reports          | Preferences saved
+
+Blender quit
+[sj-scherm] klaar: 8 stukken, statussen ['groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen', 'groen']
+[sj-scherm] TABBLAD OK
+[sj-scherm] PANEEL OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/paneel-x.png
+[sj-scherm] PANEEL MEER OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/paneel-meer.png
+[sj-scherm] noten: voorbeeldnoten gezet (deze Split had geen noten)
+[sj-scherm] PANEEL NOTEN OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/paneel-noten.png
+[sj-scherm] tekenen: operator {'RUNNING_MODAL'}, stuk Piece 07, lijn x 658, y 498 tot 745
+[sj-scherm] tekenen: muis in de operator ['NONE NOTHING 284 448', 'MOUSEMOVE NOTHING -625 745', 'LEFTMOUSE PRESS -625 745', 'MOUSEMOVE NOTHING -625 696', 'MOUSEMOVE NOTHING -625 646', 'MOUSEMOVE NOTHING -625 597', 'MOUSEMOVE NOTHING -625 547', 'MOUSEMOVE NOTHING -625 497', 'LEFTMOUSE RELEASE -625 497']
+[sj-scherm] TEKENEN OK: 1 snedevlak voor Piece 07
+[sj-scherm] TEKENEN PLEK FOUT: vlak op het scherm x 544 tot 544, y 600 tot 851; lijn x 658, y 498 tot 745
+[sj-scherm] TEKENEN SNEDE OK: Cut piece {'FINISHED'}, 8 naar 9 stukken
+[sj-scherm] PANEEL START OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/paneel-start.png
+[sj-scherm] PANEEL LEEG OK /home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/screenshots/5.3.0/paneel-leeg.png
+FOUT: snedevlak ligt niet op de getrokken lijn (issue #208)
+##[error]Process completed with exit code 1.
