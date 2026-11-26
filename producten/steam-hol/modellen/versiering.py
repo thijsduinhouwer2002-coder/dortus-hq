@@ -79,6 +79,43 @@ def blok(ouder, naam, loc, maat, mat, rond=0.03, rot=(0, 0, 0)):
     return _af(o, mat, ouder, naam, glad=False)
 
 
+def _omtrek_mat():
+    mt = bpy.data.materials.get("deco_omtrek")
+    if mt:
+        return mt
+    mt = bpy.data.materials.new("deco_omtrek"); mt.use_nodes = True
+    nt = mt.node_tree; nt.nodes.clear()
+    uit_ = nt.nodes.new("ShaderNodeOutputMaterial"); geo = nt.nodes.new("ShaderNodeNewGeometry")
+    mix = nt.nodes.new("ShaderNodeMixShader"); em = nt.nodes.new("ShaderNodeEmission")
+    em.inputs["Color"].default_value = (*g.hex2("2a1418"), 1); em.inputs["Strength"].default_value = 1.0
+    door = nt.nodes.new("ShaderNodeBsdfTransparent")
+    nt.links.new(geo.outputs["Backfacing"], mix.inputs["Fac"])
+    nt.links.new(em.outputs["Emission"], mix.inputs[1]); nt.links.new(door.outputs["BSDF"], mix.inputs[2])
+    nt.links.new(mix.outputs["Shader"], uit_.inputs["Surface"])
+    return mt
+
+
+def omtrek(o, dikte):
+    """Donkere omtrek (Mila 26 nov, Iris op #179: de wortels waren 4 tot 8 px en bijna wandkleur; een donkere rand
+    zoals vat en schedel). Omgekeerde schil zoals in beestjes.py; heet <naam>_rand en hangt aan o, dus hij gaat mee
+    met HOL_ALLEEN ["deco_"] en met spiegelen en schalen in het spel."""
+    import bmesh
+    bpy.ops.object.select_all(action="DESELECT")
+    o.select_set(True); bpy.context.view_layer.objects.active = o
+    bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
+    me = o.data.copy(); bm = bmesh.new(); bm.from_mesh(me)
+    bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-6)
+    bm.normal_update()
+    for v in bm.verts:
+        v.co += v.normal * dikte
+    bmesh.ops.reverse_faces(bm, faces=bm.faces)
+    bm.to_mesh(me); bm.free()
+    me.materials.clear(); me.materials.append(_omtrek_mat())
+    r = bpy.data.objects.new(o.name + "_rand", me); bpy.context.scene.collection.objects.link(r)
+    r.parent = o; r.visible_shadow = False
+    return o
+
+
 def hoed_zwam(ouder, pre, x, hoog, r, hoedmat, steelmat, stippen=True, scheef=0.0):
     """Paddenstoel: steel en een bolle hoed, witte stippen op de voorkant."""
     cil(ouder, pre + "_steel", (x, 0, hoog / 2), r * 0.42, hoog, steelmat, r2=r * 0.34)
@@ -140,7 +177,7 @@ def wortel(ouder, naam, x, z, lengte, dik, buig, mat, tip):
         rot=(0, -zb, 0), verts=8, r2=dik * 0.35)
 
 
-def kronkel(ouder, naam, x, z, lengte, dik, buig, mat, zaad=0, zijkant=None):
+def kronkel(ouder, naam, x, z, lengte, dik, buig, mat, zaad=0, zijkant=None, rand=0.0):
     """Dunne wortel die kronkelend naar beneden hangt (Daan #153 M1): een ketting van korte stukjes die om en om
     een andere kant op buigen, bijna even dik tot de punt, een ronde punt en een zijtak op ongeveer een derde."""
     n = 6
@@ -151,9 +188,11 @@ def kronkel(ouder, naam, x, z, lengte, dik, buig, mat, zaad=0, zijkant=None):
         hoek += (0.55 if (i + zaad) % 2 == 0 else -0.55) + buig * 0.12
         nx, nz = px + math.sin(hoek) * stuk, pz - math.cos(hoek) * stuk
         r = dik * (1.0 - 0.35 * i / n)
-        cil(ouder, naam + f"_{i}", ((px + nx) / 2, 0, (pz + nz) / 2), r * 0.9, stuk * 1.12, mat, rot=(0, -hoek, 0),
-            verts=10, r2=r)
-        bol(ouder, naam + f"_k{i}", (nx, 0, nz), (r * 0.9, r * 0.9, r * 0.9), mat, 10)
+        c = cil(ouder, naam + f"_{i}", ((px + nx) / 2, 0, (pz + nz) / 2), r * 0.9, stuk * 1.12, mat, rot=(0, -hoek, 0),
+                verts=10, r2=r)
+        k = bol(ouder, naam + f"_k{i}", (nx, 0, nz), (r * 0.9, r * 0.9, r * 0.9), mat, 10)
+        if rand:
+            omtrek(c, rand); omtrek(k, rand)
         if i == 2:
             zij = (nx, nz, hoek, r)
         px, pz = nx, nz
@@ -163,8 +202,10 @@ def kronkel(ouder, naam, x, z, lengte, dik, buig, mat, zaad=0, zijkant=None):
     for j in range(3):
         zh2 += -0.5 if j % 2 == 0 else 0.5
         ex, ez = zx + math.sin(zh2) * stuk * 0.7, zz - math.cos(zh2) * stuk * 0.7
-        cil(ouder, naam + f"_z{j}", ((zx + ex) / 2, 0, (zz + ez) / 2), zr * 0.5, stuk * 0.78, mat, rot=(0, -zh2, 0),
-            verts=8, r2=zr * 0.6)
+        c = cil(ouder, naam + f"_z{j}", ((zx + ex) / 2, 0, (zz + ez) / 2), zr * 0.5, stuk * 0.78, mat, rot=(0, -zh2, 0),
+                verts=8, r2=zr * 0.6)
+        if rand:
+            omtrek(c, rand)
         zx, zz = ex, ez
 
 
@@ -238,12 +279,13 @@ def wand(ouder, p, naam, s):
         # Daan #153 M1: geen spitse driehoeken meer (die lazen als de stekels van de put). Dunne, kronkelige wortels
         # in licht beige, overal bijna even dik met een ronde punt, en elk met een zijtak; ze komen uit een kleine
         # donkere kluit in het plafond.
-        wm = m("wwortel", "c9ab86", rough=0.8)
-        wd = m("wwortel_d", "a88a68", rough=0.85)
-        kluit(ouder, p + "_kluit", (0.2 * s, 0.2 * s, -0.05 * s), (3.2 * s, 0.6 * s, 0.45 * s))
-        for i, (dx, l, d, b, mt) in enumerate([(-1.8, 5.2, 0.36, 0.35, wm), (0.4, 6.4, 0.40, -0.25, wm),
-                                               (2.3, 3.6, 0.32, 0.5, wd)]):
-            kronkel(ouder, p + f"_w{i}", dx * s, -0.2 * s, l * s, d * s, b, mt, zaad=i * 3 + 1)
+        # Mila 26 nov (Iris op #179: 4 tot 8 px en bijna wandkleur, "liever minder maar groter met een donkere rand"):
+        # twee wortels in plaats van drie, bijna anderhalf keer zo dik, lichter room, met een donkere omtrek.
+        wm = m("wwortel_l", "ecd7ad", rough=0.8)
+        wd = m("wwortel_ld", "d2b98c", rough=0.85)
+        kluit(ouder, p + "_kluit", (0.2 * s, 0.2 * s, -0.05 * s), (3.4 * s, 0.6 * s, 0.6 * s))
+        for i, (dx, l, d, b, mt) in enumerate([(-1.4, 6.4, 0.52, 0.3, wm), (1.6, 5.0, 0.48, -0.35, wd)]):
+            kronkel(ouder, p + f"_w{i}", dx * s, -0.2 * s, l * s, d * s, b, mt, zaad=i * 3 + 1, rand=0.3 * s)
     elif naam in ("wortels_a", "wortels_b"):
         # Daan #164 (kan): de oude bruine spitse wortels in de dichte grond lazen als driehoeken en pasten niet meer bij
         # de nieuwe wortels in de kamer. Nu dezelfde vorm: dun, kronkelig, licht beige, ronde punt, zijtak. Iets langer

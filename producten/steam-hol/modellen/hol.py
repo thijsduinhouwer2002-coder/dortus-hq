@@ -81,6 +81,44 @@ def afronden(o, breedte=0.12, seg=3):
     b = o.modifiers.new("rond", "BEVEL"); b.width = breedte; b.segments = seg; b.limit_method = "NONE"
 
 
+def rand_mat():
+    """Donkere omtrek (Mila 26 nov, Iris #179: stut, houweel en ton lazen als wandkleur). Zelfde truc als beestjes.py:
+    een omgekeerde schil, de voorkant doorzichtig, de binnenkant donker pruimbruin en zonder licht."""
+    m = bpy.data.materials.get("omtrek")
+    if m:
+        return m
+    m = bpy.data.materials.new("omtrek"); m.use_nodes = True
+    nt = m.node_tree; nt.nodes.clear()
+    uit_ = nt.nodes.new("ShaderNodeOutputMaterial"); geo = nt.nodes.new("ShaderNodeNewGeometry")
+    mix = nt.nodes.new("ShaderNodeMixShader"); em = nt.nodes.new("ShaderNodeEmission")
+    em.inputs["Color"].default_value = (*g.hex2("2a1418"), 1); em.inputs["Strength"].default_value = 1.0
+    door = nt.nodes.new("ShaderNodeBsdfTransparent")
+    nt.links.new(geo.outputs["Backfacing"], mix.inputs["Fac"])
+    nt.links.new(em.outputs["Emission"], mix.inputs[1]); nt.links.new(door.outputs["BSDF"], mix.inputs[2])
+    nt.links.new(mix.outputs["Shader"], uit_.inputs["Surface"])
+    return m
+
+
+def omtrek(o, dikte=0.035):
+    """Schil om o: kopie van het net, langs de normalen naar buiten, vlakken omgedraaid. Heet <naam>_rand, zodat de
+    lagen van de pijplijn (HOL_ALLEEN, HOL_VERBERG op het begin van de naam) hem met het ding meenemen."""
+    import bmesh
+    bpy.ops.object.select_all(action="DESELECT")
+    o.select_set(True); bpy.context.view_layer.objects.active = o
+    bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
+    me = o.data.copy(); bm = bmesh.new(); bm.from_mesh(me)
+    bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-5)
+    bm.normal_update()
+    for v in bm.verts:
+        v.co += v.normal * dikte
+    bmesh.ops.reverse_faces(bm, faces=bm.faces)
+    bm.to_mesh(me); bm.free()
+    me.materials.clear(); me.materials.append(rand_mat())
+    s = bpy.data.objects.new(o.name + "_rand", me); sc.collection.objects.link(s)
+    s.parent = o; s.visible_shadow = False
+    return o
+
+
 def uithollen(doel, gat, eigen_mat=False):
     mod = doel.modifiers.new("hol", "BOOLEAN"); mod.operation = "DIFFERENCE"; mod.object = gat
     mod.solver = "EXACT"
@@ -412,17 +450,35 @@ blok("kamervloer", (LOS, 0.8, KZ - 0.6), (1.2, 1.2, 0.06), VLOER)
 fakkel(BREDE[0] - 0.4, KZ - 0.3, 20)
 STUT = g.mat("stut", "34180e", rough=0.75)       # Mila 15 nov kleur H: donkerder en roder (was 6e4632), anders verdwijnt het hout in de lichte warme kamerwand
 BAND = g.mat("band", "d9a441", rough=0.4, spec=0.5)
+# Mila 26 nov (Iris op #179, build 3fddb22: "wortels, haakjes en schappen zijn 4 tot 8 px en bijna wandkleur; liever
+# minder maar groter en met een donkere rand, zoals vat en schedel"). Houweel en ton zijn nu groter, van lichter warm
+# hout (STUT_L) en hebben een donkere omtrek, zodat ze op 120 px als ding voor de kamerwand staan.
+STUT_L = g.mat("stut_l", "9a5a2e", rough=0.7, spec=0.2)
+# De stut zelf blijft voorlopig zoals hij was: dikker met omtrek las hij bij een blinde lezer als tafel (twee keer, ook
+# met schuine poten). Volgende stap: een vorm die als mijnraam leest, eerst blind testen.
 for dx in (-0.55, 0.55):
     blok("stut", (MID_A + dx, 0.5, KZ - 0.05), (0.16, 0.16, 2 * KH - 0.1), STUT)
 blok("stut", (MID_A, 0.5, KZ + KH - 0.12), (1.45, 0.18, 0.16), STUT)
 for dx, a in ((-0.38, 45), (0.38, -45)):
     blok("stut", (MID_A + dx, 0.5, KZ + KH - 0.3), (0.42, 0.12, 0.1), STUT, rot=(0, math.radians(a), 0))
-HOUWEEL = g.mat("houweel", "b8b4c8", rough=0.35, spec=0.6, metaal=0.6)
-blok("houweelsteel", (MID_B - 0.25, 0.5, KZ - 0.2), (0.07, 0.07, 0.75), STUT, rot=(0, math.radians(-18), 0))
-blok("houweelkop", (MID_B - 0.14, 0.5, KZ + 0.15), (0.5, 0.07, 0.08), HOUWEEL, rot=(0, math.radians(-8), 0))
-cil("ton", (MID_B + 0.35, 0.5, KZ - 0.36), 0.2, 0.42, STUT, verts=20)
-for dz in (-0.12, 0.12):
-    cil("tonband", (MID_B + 0.35, 0.5, KZ - 0.36 + dz), 0.21, 0.04, BAND, verts=20)
+# houweel: dikke lichte steel schuin tegen de ton, een gebogen ijzeren kop met twee punten (las als wit streepje)
+HOUWEEL = g.mat("houweel", "a9b0c2", rough=0.35, spec=0.6, metaal=0.6)
+HOUWEEL_D = g.mat("houweel_d", "6c7388", rough=0.4, metaal=0.6)
+_hx, _ha = MID_B - 0.3, math.radians(-20)   # voet van de steel, helling naar rechts
+_sl = 0.95
+omtrek(cil("houweelsteel", (_hx + math.sin(-_ha) * _sl / 2, 0.45, KZ - KH + 0.04 + math.cos(_ha) * _sl / 2), 0.055, _sl,
+           STUT_L, rot=(0, -_ha, 0), verts=10))
+_kx, _kz = _hx + math.sin(-_ha) * _sl * 0.96, KZ - KH + 0.04 + math.cos(_ha) * _sl * 0.96
+for _kant in (-1, 1):   # twee helften van de kop, elk een kegel die naar buiten spits toeloopt en iets omlaag buigt
+    # haaks op de steel (rechts: hoek 90 - helling), elke punt 14 graden terug naar de steel; de kegel wijst met z naar buiten
+    _r = math.radians(90) - _ha + math.radians(14) if _kant > 0 else -math.radians(90) - _ha - math.radians(14)
+    omtrek(cil("houweelkop", (_kx + _kant * 0.2 * math.cos(_ha), 0.4, _kz + _kant * 0.2 * math.sin(_ha) - 0.02), 0.075, 0.42,
+               HOUWEEL, rot=(0, _r, 0), verts=12, r2=0.018))
+omtrek(bol("houweelkop", (_kx, 0.4, _kz), (0.1, 0.08, 0.1), HOUWEEL_D, 12))
+cil("ton", (MID_B + 0.33, 0.5, KZ - KH + 0.29), 0.27, 0.55, STUT_L, verts=24)
+omtrek(bpy.context.object)
+for dz in (-0.16, 0.16):
+    cil("tonband", (MID_B + 0.33, 0.5, KZ - KH + 0.29 + dz), 0.282, 0.06, BAND, verts=24)
 blok("kistje", (BREDE[1] + 0.1, 0.45, KZ - 0.36), (0.5, 0.36, 0.38), STUT)
 blok("kistje", (BREDE[1] + 0.1, 0.45, KZ - 0.2), (0.52, 0.38, 0.05), BAND)
 # licht van binnen over de hele brede kamer, naar achteren gericht: licht de kamer, niet de voorkant van de aarde
