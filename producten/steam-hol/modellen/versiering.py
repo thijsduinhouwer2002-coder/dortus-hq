@@ -140,6 +140,33 @@ def wortel(ouder, naam, x, z, lengte, dik, buig, mat, tip):
         rot=(0, -zb, 0), verts=8, r2=dik * 0.35)
 
 
+def kronkel(ouder, naam, x, z, lengte, dik, buig, mat, zaad=0):
+    """Dunne wortel die kronkelend naar beneden hangt (Daan #153 M1): een ketting van korte stukjes die om en om
+    een andere kant op buigen, bijna even dik tot de punt, een ronde punt en een zijtak op ongeveer een derde."""
+    n = 6
+    stuk = lengte / n
+    px, pz, hoek = x, z, buig * 0.4
+    zij = None
+    for i in range(n):
+        hoek += (0.55 if (i + zaad) % 2 == 0 else -0.55) + buig * 0.12
+        nx, nz = px + math.sin(hoek) * stuk, pz - math.cos(hoek) * stuk
+        r = dik * (1.0 - 0.35 * i / n)
+        cil(ouder, naam + f"_{i}", ((px + nx) / 2, 0, (pz + nz) / 2), r * 0.9, stuk * 1.12, mat, rot=(0, -hoek, 0),
+            verts=10, r2=r)
+        bol(ouder, naam + f"_k{i}", (nx, 0, nz), (r * 0.9, r * 0.9, r * 0.9), mat, 10)
+        if i == 2:
+            zij = (nx, nz, hoek, r)
+        px, pz = nx, nz
+    zx, zz, zh, zr = zij
+    zh2 = zh + (0.9 if buig < 0 else -0.9)
+    for j in range(3):
+        zh2 += -0.5 if j % 2 == 0 else 0.5
+        ex, ez = zx + math.sin(zh2) * stuk * 0.7, zz - math.cos(zh2) * stuk * 0.7
+        cil(ouder, naam + f"_z{j}", ((zx + ex) / 2, 0, (zz + ez) / 2), zr * 0.5, stuk * 0.78, mat, rot=(0, -zh2, 0),
+            verts=8, r2=zr * 0.6)
+        zx, zz = ex, ez
+
+
 def wand(ouder, p, naam, s):
     bot = m("bot", "c8b8a2", rough=0.7)
     if naam == "bot":
@@ -195,23 +222,27 @@ def wand(ouder, p, naam, s):
         if naam == "kiezels_b":
             cil(ouder, p + "_botje", (2.6 * s, -0.4 * s, 0.5 * s), 0.4 * s, 2.4 * s, bot, rot=(0, math.radians(70), 0), verts=10)
     elif naam == "wand_steen":
-        # drie hoekige stenen die met hun platte kant naar voren half uit de wand steken (gedraaid, zodat je de
-        # facetten ziet en geen grafsteen), warm lichtgrijs met één lichtere. Lichter en warmer dan steen_diep: het licht
-        # (licht.gd) vermenigvuldigt de gang donker en rood, en koel grijs las daar als paarse vlekken. Het spel spiegelt hem om en om.
-        k = m("wsteen_k", "8c857e", rough=0.85, spec=0.15)
-        kl = m("wsteen_kl", "a39a90", rough=0.8, spec=0.15)
-        kk = m("wsteen_kk", "bdb5aa", rough=0.8, spec=0.15)
-        for i, (dx, dz, b, h, mt, z) in enumerate([(-2.6, 1.7, 2.2, 1.5, k, 31), (0.4, 2.2, 2.9, 1.8, kk, 33),
-                                                   (3.3, 1.4, 1.7, 1.2, kl, 37)]):
-            o = brok(ouder, p + f"_s{i}", (dx * s, 0.4 * s, dz * s), b * s, h * s, b * 0.75 * s, mt, zaad=z,
-                     scheef=0.15 * (i - 1))
-            o.rotation_euler = (math.radians(80), math.radians(17 * (i - 1)), 0)
+        # Daan #153 M2: stenen die echt half in de achterwand zitten. Twee hoekige stenen, een grote en een kleine, met de
+        # platte kant naar voren en weinig diepte, in een donkere kom aarde die er rondom net onder uitkomt (een lichte aardrand eronder las als een plankje); donker
+        # koel grijs zodat ze bij de koele gang horen en niet als los puin lezen. Het spel kiest maat, hoogte en spiegelen.
+        k = m("wsteen_k", "6e6863", rough=0.9, spec=0.1)
+        kl = m("wsteen_kl", "817a73", rough=0.9, spec=0.1)
+        kom = m("wsteen_kom", "5a3027", rough=0.95)
+        bol(ouder, p + "_kom", (0.5 * s, 0.25 * s, 1.35 * s), (3.4 * s, 0.4 * s, 1.35 * s), kom, 16)
+        for i, (dx, dz, b, h, mt, z, rx) in enumerate([(-0.9, 1.5, 2.6, 1.0, kl, 41, 84), (2.2, 1.1, 1.5, 0.8, k, 43, 78)]):
+            o = brok(ouder, p + f"_s{i}", (dx * s, 0.05 * s, dz * s), b * s, h * s, b * 0.7 * s, mt, zaad=z,
+                     scheef=0.12 * (1 - 2 * i))
+            o.rotation_euler = (math.radians(rx), math.radians(12 - 26 * i), 0)
     elif naam == "wand_wortels":
-        # korte wortels uit het plafond, dikker dan ze in het echt zijn, zodat ze op 120 px als wortel lezen
-        wm = m("wortel", "9a7352", rough=0.85)
-        tip = m("wortel_tip", "5e4434", rough=0.9)
-        for i, (dx, l, d, b) in enumerate([(-2.0, 4.6, 0.62, 0.28), (0.3, 6.0, 0.74, -0.12), (2.3, 3.4, 0.55, 0.38)]):
-            wortel(ouder, p + f"_w{i}", dx * s, 0, l * s, d * s, b, wm, tip)
+        # Daan #153 M1: geen spitse driehoeken meer (die lazen als de stekels van de put). Dunne, kronkelige wortels
+        # in licht beige, overal bijna even dik met een ronde punt, en elk met een zijtak; ze komen uit een kleine
+        # donkere kluit in het plafond.
+        wm = m("wwortel", "c9ab86", rough=0.8)
+        wd = m("wwortel_d", "a88a68", rough=0.85)
+        kluit(ouder, p + "_kluit", (0.2 * s, 0.2 * s, -0.05 * s), (3.2 * s, 0.6 * s, 0.45 * s))
+        for i, (dx, l, d, b, mt) in enumerate([(-1.8, 5.2, 0.36, 0.35, wm), (0.4, 6.4, 0.40, -0.25, wm),
+                                               (2.3, 3.6, 0.32, 0.5, wd)]):
+            kronkel(ouder, p + f"_w{i}", dx * s, -0.2 * s, l * s, d * s, b, mt, zaad=i * 3 + 1)
     elif naam in ("wortels_a", "wortels_b"):
         wm = m("wortel", "9a7352", rough=0.85)
         tip = m("wortel_tip", "5e4434", rough=0.9)
