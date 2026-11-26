@@ -49,7 +49,7 @@ Voorwaarde: `[Gumroad link Click Cuts]` vervangen door de echte link, pas als di
 ## 3. Superhive: één zin extra in de mail van 1.2.9 (alleen als Click Cuts die dag op Superhive staat)
 De mail aan Pro-kopers bij 1.2.9 staat klaar (`2026-11-26-eigen-mensen.md` deel 4, Daan ja #143), via Superhive Email Customers, dat geen grens noemt zoals Gumroad (DERDEN, https://support.superhivemarket.com/article/199-how-to-engage-customers). Staat Click Cuts op de dag van versturen al live op Superhive, dan deze alinea erbij, direct boven "Something not working the way you hoped?":
 ```
-Also new from us: Click Cuts splits a model that is too big for your printer into parts that fit your bed, with pins and part numbers on the cut faces: [Superhive link Click Cuts]
+Also new from us: Click Cuts splits a model that is too big for your printer into parts that fit your bed, with pins and part numbers: [Superhive link Click Cuts]
 ```
 Staat Click Cuts er nog niet: mail zonder deze alinea versturen, niet wachten. Eén mail, geen tweede; deze kopers kozen voor updates, niet voor reclame.
 
