@@ -51,6 +51,7 @@ def klaarzetten():
         if ob.name.endswith("_watertight"):
             s.split_joints.bron = ob.name
     s["sj_midden_mm"] = [0.0, 0.0, 0.0]
+    s["sj_speling_bij_split"] = 0.2  # scene props do not come with the objects: Suzanne was cut at 0.20 (#227)
     s.split_joints.printer = "A1MINI"
     venster, gebied, ui, hoofd = gebied_3d()
     sp = gebied.spaces.active
