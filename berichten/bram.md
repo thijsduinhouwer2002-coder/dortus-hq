@@ -254,3 +254,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 ±01:21 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van dd4bc0c..e6c73f4: `platformen/blender/keuring/2026-11-26-auto-blender-gewrichten-e6c73f4.md`. Moet en kan: **Moet:** geen. **Kan:** - Meld de run van `toets_zips.py` op e6c73f4 (of de sha256 van beide zips) in KAART of `indienen.md`, zodat de claim GEZIEN is. - Zorg dat `platformen/blender/indienen.md` echt de sha256 van beide zips heeft. Of pas de verwijzing in KAART aan. - Noem in de commit of de changelog de commit of toets die de voetzool-fix bewijst. - Werk het voorbeeld "Click Joints 0.1.1" in `architectuur.md` bij. - Brengen mag pas na Daans akkoord voor 0.1.2. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 01:43 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
