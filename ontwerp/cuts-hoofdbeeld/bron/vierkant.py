@@ -98,6 +98,14 @@ def main():
     w1 = d.textlength(t1, font=fs)
     schaduwtekst(img, (x, y), t1, fs, CREME)
     schaduwtekst(img, (x + w1, y), "One click.", fs, GOUD)
+    # ronde 2: ChatGPT vroeg twee keer om "Blender add-on" in beeld
+    fpil = font("Inter.ttf", 28, "Bold")
+    tp = "Blender add-on"
+    px0 = x + w1 + d.textlength("One click.", font=fs) + 24
+    bb = d.textbbox((0, 0), tp, font=fpil)
+    d.rounded_rectangle((px0, y + 8, px0 + bb[2] + 32, y + 66), radius=29, fill=(24, 16, 30, 235),
+                        outline=GOUD + (255,), width=3)
+    d.text((px0 + 16, y + 37 - (bb[3] + bb[1]) / 2), tp, font=fpil, fill=CREME)
 
     v, n, b = meta["vak_voor"], meta["vak_na"], meta["vak_bed"]
     vx0, vy0 = naar(v[0] * 2400, v[2] * 1350)
@@ -112,14 +120,14 @@ def main():
     pijl(img, vx1 + 10, py, nx0 - 4, py, GOUD)
     schaduwtekst(img, ((vx1 + nx0) / 2, py - 112), "1 click", font("Bricolage.ttf", 50, "Bold"), GOUD, anchor="ma")
     # labels
-    onder = min(max(vy1, ny1) + 14, S - 96)
-    fl = font("Inter.ttf", 38, "SemiBold")
-    fk = font("Inter.ttf", 32, "Medium")
+    onder = min(max(vy1, ny1) + 10, S - 116)  # ronde 2: labels groter (Gemini)
+    fl = font("Inter.ttf", 42, "Bold")
+    fk = font("Inter.ttf", 38, "SemiBold")
     schaduwtekst(img, (bx_mid, onder), f"{meta['hoogte_mm']:.0f} mm tall", fl, CREME, schaduw=6, anchor="ma")
-    schaduwtekst(img, (bx_mid, onder + 46), f"gold box: {meta['bed_mm']:.0f} mm bed", fk, GOUD, schaduw=6, anchor="ma")
+    schaduwtekst(img, (bx_mid, onder + 50), f"gold box: {meta['bed_mm']:.0f} mm bed", fk, GOUD, schaduw=6, anchor="ma")
     nm = (nx0 + nx1) / 2
     schaduwtekst(img, (nm, onder), f"{meta['stukken']} parts, {meta['pennen']} pins", fl, CREME, schaduw=6, anchor="ma")
-    schaduwtekst(img, (nm, onder + 46), "every part fits", fk, GOUD, schaduw=6, anchor="ma")
+    schaduwtekst(img, (nm, onder + 50), "every part fits", fk, GOUD, schaduw=6, anchor="ma")
 
     rgb = img.convert("RGB")
     rgb.save(os.path.join(UIT, "paard-vierkant-1200x1200.jpg"), quality=93, subsampling=0)
