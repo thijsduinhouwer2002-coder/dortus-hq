@@ -1,34 +1,34 @@
 # Rapport koersverschil-scanner
 
-Gemaakt 2026-11-26 05:31 UTC uit 40 runs, samen ±126.4 uur gemeten (GEZIEN).
+Gemaakt 2026-11-26 09:04 UTC uit 40 runs, samen ±130.0 uur gemeten (GEZIEN).
 Echte kans = winst na alle kosten (opnamekosten bekend), opnemen en storten open (en een netwerk dat aan beide kanten open is, als de beurzen dat geven), minstens €100,00 op het boek, minstens 2 minuten blijven staan, geen andere munt met dezelfde naam.
 **Vergund** = beide beurzen hebben een MiCA-vergunning (ESMA-register), vaak via een EU-dochter die minder munten kan hebben dan de wereldwijde API die we meten (GOK). **Grijs** = minstens één beurs zonder vergunning (MEXC, Bitget, HTX, Poloniex, XT, Bitfinex, Binance). Zie README.md.
 **Kraken-tarief:** Kraken rekent 0,80% taker op munt tegen EUR, USD, USDT of USDC (GEZIEN, kraken.com/pro/fees, laagste trede); de scanner rekende tot 19 nov met 0,40%. 399 opgeslagen kansen met Kraken uit die runs zijn hier **opnieuw doorgerekend met 0,80%** (GOK-benadering: 0,40% van de inzet aan de Kraken-kant extra op elk gemeten punt van het boek; het boek zelf is niet bewaard). 233 houden daarna nog winst op het boek. Dat ze met hogere kosten ook korter bleven staan, telt niet mee (dus eerder te gunstig).
 
 ## Hoeveel wordt er gecontroleerd? (GEZIEN, stand.jsonl)
 
-Per ronde (mediaan over 1514 metingen): 1054 kandidaten (verschil op de ticker groter dan de takerkosten), 120 met het orderboek gecontroleerd, 2 nog nooit gecontroleerd (0%).
+Per ronde (mediaan over 1557 metingen): 1050 kandidaten (verschil op de ticker groter dan de takerkosten), 120 met het orderboek gecontroleerd, 2 nog nooit gecontroleerd (0%).
 Bijna alle kandidaten komen aan de beurt; de aantallen hieronder missen weinig.
 
 ## Trechter (GEZIEN, eigen metingen)
 
 | Stap | Alle beurzen | Alleen MiCA-beurzen | Met minstens één grijze beurs |
 |---|---|---|---|
-| Verschillen met winst op het boek na alle kosten | 107152 | 14487 | 92665 |
-| ...waarvan opnemen of storten dicht | 19843 | 2225 | 17618 |
-| ...waarvan status onbekend (beurs geeft het niet openbaar) | 63171 | 10169 | 53002 |
-| Opnemen en storten open | 24138 | 2093 | 22045 |
-| ...en geen netwerk dat aan beide kanten open is: valt af | 875 | 79 | 796 |
+| Verschillen met winst op het boek na alle kosten | 110349 | 14792 | 95557 |
+| ...waarvan opnemen of storten dicht | 20321 | 2272 | 18049 |
+| ...waarvan status onbekend (beurs geeft het niet openbaar) | 64798 | 10377 | 54421 |
+| Opnemen en storten open | 25230 | 2143 | 23087 |
+| ...en geen netwerk dat aan beide kanten open is: valt af | 897 | 79 | 818 |
 | ...en opnamekosten onbekend: valt af | 5 | 5 | 0 |
-| ...en minstens €100,00 op het boek | 6977 | 1219 | 5758 |
-| ...en minstens 2 minuten blijven staan | 1898 | 464 | 1434 |
-| ...en geen andere munt met dezelfde naam | 1830 | 429 | 1401 |
-|    ...waarvan contractadres bekend en gelijk | 305 | 82 | 223 |
-|    ...waarvan contractadres onbekend (telt mee, kan een andere munt zijn) | 1525 | 347 | 1178 |
-|    ...waarvan netwerk gekoppeld en open | 1156 | 206 | 950 |
-|    ...waarvan netwerk niet te koppelen (telt mee) | 674 | 223 | 451 |
-| **Echte kansen** (zelfde munt overlappend in de tijd samengevoegd, beste beurspaar telt) | 1152 | 419 | 851 |
-| Ter vergelijking: zelfde eisen, maar opnamestatus onbekend (niet meegeteld) | 4504 | 1138 | 3786 |
+| ...en minstens €100,00 op het boek | 7145 | 1247 | 5898 |
+| ...en minstens 2 minuten blijven staan | 1942 | 478 | 1464 |
+| ...en geen andere munt met dezelfde naam | 1874 | 443 | 1431 |
+|    ...waarvan contractadres bekend en gelijk | 311 | 83 | 228 |
+|    ...waarvan contractadres onbekend (telt mee, kan een andere munt zijn) | 1563 | 360 | 1203 |
+|    ...waarvan netwerk gekoppeld en open | 1178 | 210 | 968 |
+|    ...waarvan netwerk niet te koppelen (telt mee) | 696 | 233 | 463 |
+| **Echte kansen** (zelfde munt overlappend in de tijd samengevoegd, beste beurspaar telt) | 1185 | 433 | 871 |
+| Ter vergelijking: zelfde eisen, maar opnamestatus onbekend (niet meegeteld) | 4585 | 1169 | 3848 |
 
 ## Echte kansen per dag (GEZIEN)
 
@@ -41,19 +41,19 @@ Bijna alle kandidaten komen aan de beurt; de aantallen hieronder missen weinig.
 | 2026-11-23 | 53 | 113 | €1,10 / €1,00 | 6.8 min |
 | 2026-11-24 | 42 | 129 | €0,65 / €0,53 | 4.3 min |
 | 2026-11-25 | 5 | 16 | €0,27 / €24,94 | 4.3 min |
-| 2026-11-26 | 3 | 3 | €1,37 / €0,28 | 9.2 min |
-| Totaal | 326 | 826 | €1,03 / €0,88 | 6.3 min |
+| 2026-11-26 | 17 | 22 | €1,95 / €0,29 | 10.0 min |
+| Totaal | 340 | 845 | €1,10 / €0,87 | 6.3 min |
 
 ## Beste munten (GEZIEN)
 
 | | Soort | Kansen | Som winst bij €500 per kans |
 |---|---|---|---|
-| MERL-EUR | vergund | 76 | €1.015,64 |
+| MERL-EUR | vergund | 81 | €1.025,81 |
 | AI-USDT | grijs | 44 | €791,44 |
 | PYR-USDT | grijs | 15 | €184,06 |
-| LUNC-USDT | grijs | 44 | €171,85 |
-| USTC-USDT | grijs en vergund | 58 | €127,37 |
-| XMR-USDT | grijs | 82 | €103,39 |
+| LUNC-USDT | grijs | 45 | €172,08 |
+| USTC-USDT | grijs en vergund | 61 | €131,37 |
+| XMR-USDT | grijs | 83 | €104,98 |
 | NES-USDT | grijs en vergund | 8 | €95,21 |
 | DCR-USDT | grijs en vergund | 3 | €58,78 |
 | IR-USDT | grijs en vergund | 19 | €48,47 |
@@ -63,18 +63,18 @@ Bijna alle kandidaten komen aan de beurt; de aantallen hieronder missen weinig.
 
 | | Soort | Kansen | Som winst bij €500 per kans |
 |---|---|---|---|
-| bitvavo > kraken | vergund | 185 | €1.168,16 |
-| htx > kucoin | grijs | 62 | €750,78 |
+| bitvavo > kraken | vergund | 195 | €1.191,76 |
+| htx > kucoin | grijs | 66 | €752,25 |
 | htx > gate | grijs | 41 | €269,19 |
 | bitget > htx | grijs | 102 | €205,10 |
-| gate > kucoin | vergund | 59 | €168,70 |
-| kucoin > bitget | grijs | 99 | €148,69 |
-| htx > bitget | grijs | 38 | €140,49 |
+| gate > kucoin | vergund | 60 | €175,71 |
+| kucoin > bitget | grijs | 102 | €149,31 |
+| htx > bitget | grijs | 39 | €140,72 |
 | bitget > kucoin | grijs | 98 | €133,15 |
 | kucoin > htx | grijs | 52 | €108,15 |
-| gate > htx | grijs | 41 | €105,19 |
+| kucoin > gate | vergund | 69 | €107,31 |
 
-Beurzen die het vaakst meedoen (koop of verkoop): kucoin 532, bitget (grijs) 472, htx (grijs) 386, gate 270, kraken 225, bitvavo 200, poloniex (grijs) 124, xt (grijs) 92 (GEZIEN).
+Beurzen die het vaakst meedoen (koop of verkoop): kucoin 544, bitget (grijs) 482, htx (grijs) 393, gate 276, kraken 239, bitvavo 210, poloniex (grijs) 128, xt (grijs) 95 (GEZIEN).
 
 ## Hoeveel kansen blijven staan terwijl je geld schuift? (GEZIEN, duur uit eigen metingen)
 
@@ -82,25 +82,25 @@ Wie geen voorraad op beide beurzen heeft, moet kopen, de munt opnemen, wachten t
 
 | Overmaaktijd | Alle beurzen | Alleen MiCA-beurzen | Met minstens één grijze beurs |
 |---|---|---|---|
-| 5 min | 666 van 1152 (58%) | 253 van 419 (60%) | 489 van 851 (57%) |
-| 10 min | 441 van 1152 (38%) | 175 van 419 (42%) | 324 van 851 (38%) |
-| 30 min | 220 van 1152 (19%) | 87 van 419 (21%) | 169 van 851 (20%) |
-| 60 min | 122 van 1152 (11%) | 54 van 419 (13%) | 95 van 851 (11%) |
+| 5 min | 691 van 1185 (58%) | 266 van 433 (61%) | 502 van 871 (58%) |
+| 10 min | 457 van 1185 (39%) | 183 van 433 (42%) | 333 van 871 (38%) |
+| 30 min | 227 van 1185 (19%) | 93 van 433 (21%) | 171 van 871 (20%) |
+| 60 min | 126 van 1185 (11%) | 57 van 433 (13%) | 96 van 871 (11%) |
 
 ## Wat zou het opleveren over 3 maanden? (GOK, doorgetrokken uit de metingen)
 
-Gemeten over ±126.4 uur (GEZIEN), doorgetrokken naar 90 dagen (GOK: aanname dat de week die we maten gewoon is).
+Gemeten over ±130.0 uur (GEZIEN), doorgetrokken naar 90 dagen (GOK: aanname dat de week die we maten gewoon is).
 
 | Beurzen | Inleg | Model | Kansen per uur | Per kans (mediaan) | 3 maanden |
 |---|---|---|---|---|---|
-| Alleen MiCA | €2.000,00 | bovengrens: elke kans, geld overal tegelijk | 3.31 | €1,41 | €10.098,08 |
-| Alleen MiCA | €2.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 1.46 | €1,78 | €35.815,15 |
-| Alleen MiCA | €5.000,00 | bovengrens: elke kans, geld overal tegelijk | 3.31 | €1,75 | €12.554,23 |
-| Alleen MiCA | €5.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 1.46 | €2,80 | €65.766,62 |
-| Alle (met grijs) | €2.000,00 | bovengrens: elke kans, geld overal tegelijk | 9.11 | €1,29 | €25.387,06 |
-| Alle (met grijs) | €2.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 1.46 | €1,78 | €35.815,15 |
-| Alle (met grijs) | €5.000,00 | bovengrens: elke kans, geld overal tegelijk | 9.11 | €1,51 | €29.678,76 |
-| Alle (met grijs) | €5.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 1.46 | €2,80 | €65.766,62 |
+| Alleen MiCA | €2.000,00 | bovengrens: elke kans, geld overal tegelijk | 3.33 | €1,51 | €10.842,80 |
+| Alleen MiCA | €2.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 1.50 | €1,95 | €35.393,08 |
+| Alleen MiCA | €5.000,00 | bovengrens: elke kans, geld overal tegelijk | 3.33 | €1,78 | €12.839,13 |
+| Alleen MiCA | €5.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 1.50 | €2,92 | €64.622,71 |
+| Alle (met grijs) | €2.000,00 | bovengrens: elke kans, geld overal tegelijk | 9.11 | €1,28 | €25.259,66 |
+| Alle (met grijs) | €2.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 1.50 | €1,95 | €35.393,08 |
+| Alle (met grijs) | €5.000,00 | bovengrens: elke kans, geld overal tegelijk | 9.11 | €1,50 | €29.604,80 |
+| Alle (met grijs) | €5.000,00 | alleen het beste beurspaar (bitvavo > kraken) | 1.50 | €2,92 | €64.622,71 |
 
 Bovengrens: elke kans met de helft van de inleg aan elke kant, alsof het geld op alle beurzen tegelijk staat (kan in het echt niet). Beste beurspaar: het paar is **achteraf** gekozen uit de metingen (vooraf kiezen levert minder op), en het model neemt aan dat je van elke munt al voorraad op de verkoopbeurs hebt.
 
@@ -110,7 +110,7 @@ Waarom dit te rooskleurig is (GOK): elke kans wordt maar één keer geteld met h
 
 Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen het boek zoals gemeten (niet meer dan de ruimte op het boek en niet meer dan de voorraad op die beurs), terugschuiven als een kant leeg dreigt te raken (met opnamekosten en tijd onderweg), en het koerseffect van de aangehouden munten apart. Netto = bruto min kosten terugschuiven plus koerseffect. **Gemeten** (GEZIEN): de kansen, het boek en de koersen; **de rest is een rekenmodel** (GOK, aannames onder de tabel). Geen advies.
 
-**Met €150: netto €0,19 per dag op bitstamp - kraken (koerseffect erbovenop €-0,51), €0,00 per dag op bitstamp - kucoin (koerseffect erbovenop €-0,01), €0,00 per dag op bitvavo - kraken (koerseffect erbovenop €-0,27), €0,01 per dag op bitvavo - kucoin (koerseffect erbovenop €-0,26), €0,00 per dag op gate - kucoin (koerseffect erbovenop €-1,05), €0,00 per dag op kraken - kucoin (koerseffect erbovenop €-0,01) (GOK: netto handel, rekenmodel op ±15.8 uur meting per dag, alleen MiCA).** "Per dag" is hier gemiddeld over 8 gemeten dagen achter elkaar; de eerste begint met een gelijk verdeelde voorraad; aan het eind staat de voorraad scheef, dus een volgende dag levert waarschijnlijk minder op, tenzij kansen de andere kant op hem terugbrengen (GOK).
+**Met €150: netto €0,19 per dag op bitstamp - kraken (koerseffect erbovenop €-0,45), €0,00 per dag op bitstamp - kucoin (koerseffect erbovenop €-0,01), €0,00 per dag op bitvavo - kraken (koerseffect erbovenop €-0,33), €0,01 per dag op bitvavo - kucoin (koerseffect erbovenop €-0,26), €0,00 per dag op gate - kucoin (koerseffect erbovenop €-1,06), €0,00 per dag op kraken - kucoin (koerseffect erbovenop €-0,01) (GOK: netto handel, rekenmodel op ±16.2 uur meting per dag, alleen MiCA).** "Per dag" is hier gemiddeld over 8 gemeten dagen achter elkaar; de eerste begint met een gelijk verdeelde voorraad; aan het eind staat de voorraad scheef, dus een volgende dag levert waarschijnlijk minder op, tenzij kansen de andere kant op hem terugbrengen (GOK).
 
 ### Alleen MiCA-beurzen (alle paren met echte kansen)
 
@@ -123,7 +123,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitstamp - kraken | €100,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,23 | €-0,23 | -0.23% |
 | bitstamp - kraken | €100,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,19 | €0,19 | 0.19% |
 | bitstamp - kraken | €100,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,44 | €1,44 | 1.44% |
-| bitstamp - kraken | €100,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,98 | €0,98 | 0.98% |
+| bitstamp - kraken | €100,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,29 | €1,29 | 1.29% |
 | bitstamp - kraken | €150,00 | 2026-11-19 | 14.9 u | 2 | 1 | 1 | €0,89 | €0,00 (0x) | **€0,89** | 0.59% | €-0,03 | €0,85 | 0.57% |
 | bitstamp - kraken | €150,00 | 2026-11-20 | 22.8 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-4,43 | €-4,43 | -2.95% |
 | bitstamp - kraken | €150,00 | 2026-11-21 | 22.9 u | 1 | 0 | 1 | €0,67 | €0,00 (0x) | **€0,67** | 0.45% | €-1,05 | €-0,38 | -0.25% |
@@ -131,7 +131,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitstamp - kraken | €150,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,34 | €-0,34 | -0.23% |
 | bitstamp - kraken | €150,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,28 | €0,28 | 0.19% |
 | bitstamp - kraken | €150,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,15 | €2,15 | 1.44% |
-| bitstamp - kraken | €150,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,46 | €1,46 | 0.98% |
+| bitstamp - kraken | €150,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,94 | €1,94 | 1.29% |
 | bitstamp - kraken | €200,00 | 2026-11-19 | 14.9 u | 2 | 1 | 1 | €1,18 | €0,00 (0x) | **€1,18** | 0.59% | €-0,04 | €1,14 | 0.57% |
 | bitstamp - kraken | €200,00 | 2026-11-20 | 22.8 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-5,91 | €-5,91 | -2.95% |
 | bitstamp - kraken | €200,00 | 2026-11-21 | 22.9 u | 1 | 0 | 1 | €0,89 | €0,00 (0x) | **€0,89** | 0.45% | €-1,40 | €-0,51 | -0.25% |
@@ -139,7 +139,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitstamp - kraken | €200,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,46 | €-0,46 | -0.23% |
 | bitstamp - kraken | €200,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,38 | €0,38 | 0.19% |
 | bitstamp - kraken | €200,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,87 | €2,87 | 1.44% |
-| bitstamp - kraken | €200,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,95 | €1,95 | 0.98% |
+| bitstamp - kraken | €200,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,58 | €2,58 | 1.29% |
 | bitstamp - kraken | €2.000,00 | 2026-11-19 | 14.9 u | 2 | 1 | 0 | €11,71 | €0,98 (1x) | **€10,73** | 0.54% | €-0,46 | €10,27 | 0.51% |
 | bitstamp - kraken | €2.000,00 | 2026-11-20 | 22.8 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-59,03 | €-59,03 | -2.95% |
 | bitstamp - kraken | €2.000,00 | 2026-11-21 | 22.9 u | 1 | 0 | 0 | €5,30 | €0,00 (0x) | **€5,30** | 0.26% | €-14,01 | €-8,71 | -0.44% |
@@ -147,7 +147,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitstamp - kraken | €2.000,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-4,54 | €-4,54 | -0.23% |
 | bitstamp - kraken | €2.000,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €3,78 | €3,78 | 0.19% |
 | bitstamp - kraken | €2.000,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €28,71 | €28,71 | 1.44% |
-| bitstamp - kraken | €2.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €19,49 | €19,49 | 0.97% |
+| bitstamp - kraken | €2.000,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €25,79 | €25,79 | 1.29% |
 | bitstamp - kraken | €5.000,00 | 2026-11-19 | 14.9 u | 2 | 1 | 0 | €11,71 | €0,00 (0x) | **€11,71** | 0.23% | €-1,10 | €10,60 | 0.21% |
 | bitstamp - kraken | €5.000,00 | 2026-11-20 | 22.8 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-147,75 | €-147,75 | -2.95% |
 | bitstamp - kraken | €5.000,00 | 2026-11-21 | 22.9 u | 1 | 0 | 0 | €5,30 | €0,00 (0x) | **€5,30** | 0.11% | €-35,01 | €-29,71 | -0.59% |
@@ -155,7 +155,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitstamp - kraken | €5.000,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-11,41 | €-11,41 | -0.23% |
 | bitstamp - kraken | €5.000,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €9,49 | €9,49 | 0.19% |
 | bitstamp - kraken | €5.000,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €71,83 | €71,83 | 1.44% |
-| bitstamp - kraken | €5.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €48,79 | €48,79 | 0.98% |
+| bitstamp - kraken | €5.000,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €64,58 | €64,58 | 1.29% |
 | bitstamp - kucoin | €100,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,11 | €0,11 | 0.11% |
 | bitstamp - kucoin | €100,00 | 2026-11-20 | 22.8 u | 1 | 0 | 1 | €0,00 | €0,01 (1x) | **€-0,01** | -0.01% | €0,11 | €0,10 | 0.10% |
 | bitstamp - kucoin | €100,00 | 2026-11-21 | 22.9 u | 6 | 5 | 1 | €0,01 | €0,00 (0x) | **€0,01** | 0.01% | €-0,16 | €-0,15 | -0.15% |
@@ -163,7 +163,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitstamp - kucoin | €100,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,29 | €0,29 | 0.29% |
 | bitstamp - kucoin | €100,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,25 | €-0,25 | -0.25% |
 | bitstamp - kucoin | €100,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,07 | €-0,07 | -0.07% |
-| bitstamp - kucoin | €100,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,02 | €0,02 | 0.02% |
+| bitstamp - kucoin | €100,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,01 | €-0,01 | -0.01% |
 | bitstamp - kucoin | €150,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,16 | €0,16 | 0.11% |
 | bitstamp - kucoin | €150,00 | 2026-11-20 | 22.8 u | 1 | 0 | 1 | €0,00 | €0,01 (1x) | **€-0,01** | -0.00% | €0,16 | €0,16 | 0.11% |
 | bitstamp - kucoin | €150,00 | 2026-11-21 | 22.9 u | 6 | 5 | 1 | €0,02 | €0,00 (0x) | **€0,02** | 0.01% | €-0,24 | €-0,22 | -0.15% |
@@ -171,7 +171,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitstamp - kucoin | €150,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,44 | €0,44 | 0.29% |
 | bitstamp - kucoin | €150,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,38 | €-0,38 | -0.25% |
 | bitstamp - kucoin | €150,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,11 | €-0,11 | -0.07% |
-| bitstamp - kucoin | €150,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,03 | €0,03 | 0.02% |
+| bitstamp - kucoin | €150,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,02 | €-0,02 | -0.01% |
 | bitstamp - kucoin | €200,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,22 | €0,22 | 0.11% |
 | bitstamp - kucoin | €200,00 | 2026-11-20 | 22.8 u | 1 | 0 | 1 | €0,01 | €0,01 (1x) | **€-0,00** | -0.00% | €0,22 | €0,22 | 0.11% |
 | bitstamp - kucoin | €200,00 | 2026-11-21 | 22.9 u | 6 | 5 | 1 | €0,03 | €0,23 (1x) | **€-0,21** | -0.10% | €-0,32 | €-0,53 | -0.26% |
@@ -179,7 +179,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitstamp - kucoin | €200,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,58 | €0,58 | 0.29% |
 | bitstamp - kucoin | €200,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,50 | €-0,50 | -0.25% |
 | bitstamp - kucoin | €200,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,15 | €-0,15 | -0.07% |
-| bitstamp - kucoin | €200,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,04 | €0,04 | 0.02% |
+| bitstamp - kucoin | €200,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,02 | €-0,02 | -0.01% |
 | bitstamp - kucoin | €2.000,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,19 | €2,19 | 0.11% |
 | bitstamp - kucoin | €2.000,00 | 2026-11-20 | 22.8 u | 1 | 0 | 1 | €0,05 | €0,01 (1x) | **€0,04** | 0.00% | €2,19 | €2,24 | 0.11% |
 | bitstamp - kucoin | €2.000,00 | 2026-11-21 | 22.9 u | 6 | 5 | 1 | €0,27 | €1,23 (2x) | **€-0,97** | -0.05% | €-3,24 | €-4,20 | -0.21% |
@@ -187,7 +187,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitstamp - kucoin | €2.000,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €5,81 | €5,81 | 0.29% |
 | bitstamp - kucoin | €2.000,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-5,05 | €-5,05 | -0.25% |
 | bitstamp - kucoin | €2.000,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,48 | €-1,48 | -0.07% |
-| bitstamp - kucoin | €2.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,44 | €0,44 | 0.02% |
+| bitstamp - kucoin | €2.000,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,22 | €-0,22 | -0.01% |
 | bitstamp - kucoin | €5.000,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €5,49 | €5,49 | 0.11% |
 | bitstamp - kucoin | €5.000,00 | 2026-11-20 | 22.8 u | 1 | 0 | 1 | €0,13 | €0,01 (1x) | **€0,12** | 0.00% | €5,48 | €5,60 | 0.11% |
 | bitstamp - kucoin | €5.000,00 | 2026-11-21 | 22.9 u | 6 | 5 | 1 | €0,64 | €1,23 (2x) | **€-0,59** | -0.01% | €-8,09 | €-8,68 | -0.17% |
@@ -195,47 +195,47 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitstamp - kucoin | €5.000,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €14,53 | €14,53 | 0.29% |
 | bitstamp - kucoin | €5.000,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-12,61 | €-12,61 | -0.25% |
 | bitstamp - kucoin | €5.000,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,70 | €-3,70 | -0.07% |
-| bitstamp - kucoin | €5.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,10 | €1,10 | 0.02% |
-| bitvavo - kraken | €100,00 | 2026-11-19 | 14.9 u | 43 | 43 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,66 | €-0,66 | -0.66% |
-| bitvavo - kraken | €100,00 | 2026-11-20 | 22.8 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,98 | €-1,98 | -1.98% |
-| bitvavo - kraken | €100,00 | 2026-11-21 | 22.9 u | 26 | 26 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,46 | €-0,46 | -0.46% |
-| bitvavo - kraken | €100,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,07 | €-0,07 | -0.07% |
-| bitvavo - kraken | €100,00 | 2026-11-23 | 19.7 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,45 | €1,45 | 1.45% |
-| bitvavo - kraken | €100,00 | 2026-11-24 | 19.5 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,52 | €-1,52 | -1.52% |
-| bitvavo - kraken | €100,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,12 | €1,12 | 1.12% |
-| bitvavo - kraken | €100,00 | 2026-11-26 | 1.0 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,68 | €0,68 | 0.68% |
-| bitvavo - kraken | €150,00 | 2026-11-19 | 14.9 u | 43 | 43 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,99 | €-0,99 | -0.66% |
-| bitvavo - kraken | €150,00 | 2026-11-20 | 22.8 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,97 | €-2,97 | -1.98% |
-| bitvavo - kraken | €150,00 | 2026-11-21 | 22.9 u | 26 | 26 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,69 | €-0,69 | -0.46% |
-| bitvavo - kraken | €150,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,11 | €-0,11 | -0.07% |
-| bitvavo - kraken | €150,00 | 2026-11-23 | 19.7 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,17 | €2,17 | 1.45% |
-| bitvavo - kraken | €150,00 | 2026-11-24 | 19.5 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,28 | €-2,28 | -1.52% |
-| bitvavo - kraken | €150,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,69 | €1,69 | 1.12% |
-| bitvavo - kraken | €150,00 | 2026-11-26 | 1.0 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,02 | €1,02 | 0.68% |
-| bitvavo - kraken | €200,00 | 2026-11-19 | 14.9 u | 43 | 43 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,32 | €-1,32 | -0.66% |
-| bitvavo - kraken | €200,00 | 2026-11-20 | 22.8 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,96 | €-3,96 | -1.98% |
-| bitvavo - kraken | €200,00 | 2026-11-21 | 22.9 u | 26 | 26 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,92 | €-0,92 | -0.46% |
-| bitvavo - kraken | €200,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,14 | €-0,14 | -0.07% |
-| bitvavo - kraken | €200,00 | 2026-11-23 | 19.7 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,89 | €2,89 | 1.45% |
-| bitvavo - kraken | €200,00 | 2026-11-24 | 19.5 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,03 | €-3,03 | -1.52% |
-| bitvavo - kraken | €200,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,25 | €2,25 | 1.12% |
-| bitvavo - kraken | €200,00 | 2026-11-26 | 1.0 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,36 | €1,36 | 0.68% |
-| bitvavo - kraken | €2.000,00 | 2026-11-19 | 14.9 u | 43 | 25 | 18 | €7,68 | €6,00 (17x) | **€1,68** | 0.08% | €-13,10 | €-11,41 | -0.57% |
-| bitvavo - kraken | €2.000,00 | 2026-11-20 | 22.8 u | 15 | 11 | 4 | €9,18 | €1,32 (2x) | **€7,86** | 0.39% | €-39,30 | €-31,44 | -1.57% |
-| bitvavo - kraken | €2.000,00 | 2026-11-21 | 22.9 u | 26 | 23 | 3 | €1,21 | €0,32 (1x) | **€0,89** | 0.04% | €-9,18 | €-8,29 | -0.41% |
-| bitvavo - kraken | €2.000,00 | 2026-11-22 | 22.1 u | 40 | 37 | 3 | €1,40 | €0,64 (2x) | **€0,75** | 0.04% | €-1,35 | €-0,60 | -0.03% |
-| bitvavo - kraken | €2.000,00 | 2026-11-23 | 19.7 u | 28 | 27 | 1 | €0,37 | €0,30 (1x) | **€0,07** | 0.00% | €28,87 | €28,94 | 1.45% |
-| bitvavo - kraken | €2.000,00 | 2026-11-24 | 19.5 u | 28 | 26 | 2 | €1,32 | €0,33 (1x) | **€0,99** | 0.05% | €-30,27 | €-29,28 | -1.46% |
-| bitvavo - kraken | €2.000,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €22,41 | €22,41 | 1.12% |
-| bitvavo - kraken | €2.000,00 | 2026-11-26 | 1.0 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €13,62 | €13,62 | 0.68% |
-| bitvavo - kraken | €5.000,00 | 2026-11-19 | 14.9 u | 43 | 25 | 18 | €19,39 | €6,00 (17x) | **€13,39** | 0.27% | €-32,87 | €-19,48 | -0.39% |
-| bitvavo - kraken | €5.000,00 | 2026-11-20 | 22.8 u | 15 | 9 | 6 | €37,79 | €3,46 (6x) | **€34,32** | 0.69% | €-98,41 | €-64,08 | -1.28% |
-| bitvavo - kraken | €5.000,00 | 2026-11-21 | 22.9 u | 26 | 16 | 10 | €41,04 | €2,66 (8x) | **€38,38** | 0.77% | €-22,96 | €15,42 | 0.31% |
-| bitvavo - kraken | €5.000,00 | 2026-11-22 | 22.1 u | 40 | 21 | 19 | €18,83 | €8,11 (21x) | **€10,72** | 0.21% | €-3,61 | €7,12 | 0.14% |
-| bitvavo - kraken | €5.000,00 | 2026-11-23 | 19.7 u | 28 | 15 | 13 | €5,42 | €6,12 (15x) | **€-0,70** | -0.01% | €72,28 | €71,58 | 1.43% |
-| bitvavo - kraken | €5.000,00 | 2026-11-24 | 19.5 u | 28 | 23 | 5 | €3,55 | €2,25 (5x) | **€1,30** | 0.03% | €-75,64 | €-74,34 | -1.49% |
-| bitvavo - kraken | €5.000,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €56,09 | €56,09 | 1.12% |
-| bitvavo - kraken | €5.000,00 | 2026-11-26 | 1.0 u | 2 | 0 | 2 | €0,81 | €0,32 (1x) | **€0,49** | 0.01% | €34,22 | €34,71 | 0.69% |
+| bitstamp - kucoin | €5.000,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,55 | €-0,55 | -0.01% |
+| bitvavo - kraken | €100,00 | 2026-11-19 | 14.9 u | 43 | 43 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,65 | €-0,65 | -0.65% |
+| bitvavo - kraken | €100,00 | 2026-11-20 | 22.8 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,89 | €-1,89 | -1.89% |
+| bitvavo - kraken | €100,00 | 2026-11-21 | 22.9 u | 26 | 26 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,49 | €-0,49 | -0.49% |
+| bitvavo - kraken | €100,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,03 | €-0,03 | -0.03% |
+| bitvavo - kraken | €100,00 | 2026-11-23 | 19.7 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,43 | €1,43 | 1.43% |
+| bitvavo - kraken | €100,00 | 2026-11-24 | 19.5 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,51 | €-1,51 | -1.51% |
+| bitvavo - kraken | €100,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,04 | €1,04 | 1.04% |
+| bitvavo - kraken | €100,00 | 2026-11-26 | 4.6 u | 12 | 12 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,35 | €0,35 | 0.35% |
+| bitvavo - kraken | €150,00 | 2026-11-19 | 14.9 u | 43 | 43 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,98 | €-0,98 | -0.65% |
+| bitvavo - kraken | €150,00 | 2026-11-20 | 22.8 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,84 | €-2,84 | -1.89% |
+| bitvavo - kraken | €150,00 | 2026-11-21 | 22.9 u | 26 | 26 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,74 | €-0,74 | -0.49% |
+| bitvavo - kraken | €150,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,05 | €-0,05 | -0.03% |
+| bitvavo - kraken | €150,00 | 2026-11-23 | 19.7 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,14 | €2,14 | 1.43% |
+| bitvavo - kraken | €150,00 | 2026-11-24 | 19.5 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,26 | €-2,26 | -1.51% |
+| bitvavo - kraken | €150,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,56 | €1,56 | 1.04% |
+| bitvavo - kraken | €150,00 | 2026-11-26 | 4.6 u | 12 | 12 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,53 | €0,53 | 0.35% |
+| bitvavo - kraken | €200,00 | 2026-11-19 | 14.9 u | 43 | 43 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,30 | €-1,30 | -0.65% |
+| bitvavo - kraken | €200,00 | 2026-11-20 | 22.8 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,78 | €-3,78 | -1.89% |
+| bitvavo - kraken | €200,00 | 2026-11-21 | 22.9 u | 26 | 26 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,99 | €-0,99 | -0.49% |
+| bitvavo - kraken | €200,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,07 | €-0,07 | -0.03% |
+| bitvavo - kraken | €200,00 | 2026-11-23 | 19.7 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,85 | €2,85 | 1.43% |
+| bitvavo - kraken | €200,00 | 2026-11-24 | 19.5 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,01 | €-3,01 | -1.51% |
+| bitvavo - kraken | €200,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,08 | €2,08 | 1.04% |
+| bitvavo - kraken | €200,00 | 2026-11-26 | 4.6 u | 12 | 12 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,71 | €0,71 | 0.35% |
+| bitvavo - kraken | €2.000,00 | 2026-11-19 | 14.9 u | 43 | 27 | 16 | €5,22 | €5,03 (14x) | **€0,19** | 0.01% | €-12,94 | €-12,76 | -0.64% |
+| bitvavo - kraken | €2.000,00 | 2026-11-20 | 22.8 u | 15 | 13 | 2 | €5,62 | €0,00 (0x) | **€5,62** | 0.28% | €-37,60 | €-31,97 | -1.60% |
+| bitvavo - kraken | €2.000,00 | 2026-11-21 | 22.9 u | 26 | 23 | 3 | €1,13 | €0,00 (0x) | **€1,13** | 0.06% | €-9,88 | €-8,75 | -0.44% |
+| bitvavo - kraken | €2.000,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,64 | €-0,64 | -0.03% |
+| bitvavo - kraken | €2.000,00 | 2026-11-23 | 19.7 u | 28 | 27 | 1 | €0,34 | €0,30 (1x) | **€0,04** | 0.00% | €28,49 | €28,53 | 1.43% |
+| bitvavo - kraken | €2.000,00 | 2026-11-24 | 19.5 u | 28 | 26 | 2 | €1,24 | €1,33 (2x) | **€-0,10** | -0.00% | €-30,07 | €-30,17 | -1.51% |
+| bitvavo - kraken | €2.000,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €20,72 | €20,72 | 1.04% |
+| bitvavo - kraken | €2.000,00 | 2026-11-26 | 4.6 u | 12 | 11 | 1 | €0,67 | €0,00 (0x) | **€0,67** | 0.03% | €7,07 | €7,73 | 0.39% |
+| bitvavo - kraken | €5.000,00 | 2026-11-19 | 14.9 u | 43 | 26 | 17 | €15,51 | €5,67 (16x) | **€9,83** | 0.20% | €-32,46 | €-22,62 | -0.45% |
+| bitvavo - kraken | €5.000,00 | 2026-11-20 | 22.8 u | 15 | 9 | 6 | €35,32 | €2,46 (5x) | **€32,86** | 0.66% | €-94,03 | €-61,17 | -1.22% |
+| bitvavo - kraken | €5.000,00 | 2026-11-21 | 22.9 u | 26 | 16 | 10 | €38,30 | €3,66 (9x) | **€34,64** | 0.69% | €-24,75 | €9,88 | 0.20% |
+| bitvavo - kraken | €5.000,00 | 2026-11-22 | 22.1 u | 40 | 21 | 19 | €17,54 | €8,10 (21x) | **€9,44** | 0.19% | €-1,81 | €7,63 | 0.15% |
+| bitvavo - kraken | €5.000,00 | 2026-11-23 | 19.7 u | 28 | 15 | 13 | €5,04 | €4,15 (13x) | **€0,89** | 0.02% | €71,30 | €72,19 | 1.44% |
+| bitvavo - kraken | €5.000,00 | 2026-11-24 | 19.5 u | 28 | 23 | 5 | €3,31 | €2,30 (5x) | **€1,01** | 0.02% | €-75,25 | €-74,24 | -1.48% |
+| bitvavo - kraken | €5.000,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €51,87 | €51,87 | 1.04% |
+| bitvavo - kraken | €5.000,00 | 2026-11-26 | 4.6 u | 12 | 6 | 6 | €3,27 | €2,04 (6x) | **€1,24** | 0.02% | €17,89 | €19,13 | 0.38% |
 | bitvavo - kucoin | €100,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,52 | €-0,52 | -0.52% |
 | bitvavo - kucoin | €100,00 | 2026-11-20 | 22.8 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,80 | €-1,80 | -1.80% |
 | bitvavo - kucoin | €100,00 | 2026-11-21 | 22.9 u | 7 | 5 | 2 | €0,04 | €0,00 (0x) | **€0,04** | 0.04% | €0,78 | €0,82 | 0.82% |
@@ -243,7 +243,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitvavo - kucoin | €100,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,05 | €0,05 | 0.05% |
 | bitvavo - kucoin | €100,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,60 | €-0,60 | -0.60% |
 | bitvavo - kucoin | €100,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,14 | €0,14 | 0.14% |
-| bitvavo - kucoin | €100,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,10 | €0,10 | 0.10% |
+| bitvavo - kucoin | €100,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,10 | €0,10 | 0.10% |
 | bitvavo - kucoin | €150,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,78 | €-0,78 | -0.52% |
 | bitvavo - kucoin | €150,00 | 2026-11-20 | 22.8 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,71 | €-2,71 | -1.80% |
 | bitvavo - kucoin | €150,00 | 2026-11-21 | 22.9 u | 7 | 5 | 2 | €0,07 | €0,00 (0x) | **€0,07** | 0.04% | €1,17 | €1,23 | 0.82% |
@@ -251,7 +251,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitvavo - kucoin | €150,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,08 | €0,08 | 0.05% |
 | bitvavo - kucoin | €150,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,90 | €-0,90 | -0.60% |
 | bitvavo - kucoin | €150,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,21 | €0,21 | 0.14% |
-| bitvavo - kucoin | €150,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,16 | €0,16 | 0.10% |
+| bitvavo - kucoin | €150,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,15 | €0,15 | 0.10% |
 | bitvavo - kucoin | €200,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,04 | €-1,04 | -0.52% |
 | bitvavo - kucoin | €200,00 | 2026-11-20 | 22.8 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,61 | €-3,61 | -1.80% |
 | bitvavo - kucoin | €200,00 | 2026-11-21 | 22.9 u | 7 | 5 | 2 | €0,09 | €0,00 (0x) | **€0,09** | 0.04% | €1,56 | €1,65 | 0.82% |
@@ -259,7 +259,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitvavo - kucoin | €200,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,10 | €0,10 | 0.05% |
 | bitvavo - kucoin | €200,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,20 | €-1,20 | -0.60% |
 | bitvavo - kucoin | €200,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,28 | €0,28 | 0.14% |
-| bitvavo - kucoin | €200,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,21 | €0,21 | 0.10% |
+| bitvavo - kucoin | €200,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,21 | €0,21 | 0.10% |
 | bitvavo - kucoin | €2.000,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-10,39 | €-10,39 | -0.52% |
 | bitvavo - kucoin | €2.000,00 | 2026-11-20 | 22.8 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-36,07 | €-36,07 | -1.80% |
 | bitvavo - kucoin | €2.000,00 | 2026-11-21 | 22.9 u | 7 | 4 | 3 | €0,91 | €2,73 (3x) | **€-1,82** | -0.09% | €15,55 | €13,72 | 0.69% |
@@ -267,7 +267,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitvavo - kucoin | €2.000,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,02 | €1,02 | 0.05% |
 | bitvavo - kucoin | €2.000,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-12,01 | €-12,01 | -0.60% |
 | bitvavo - kucoin | €2.000,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,75 | €2,75 | 0.14% |
-| bitvavo - kucoin | €2.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,06 | €2,06 | 0.10% |
+| bitvavo - kucoin | €2.000,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,06 | €2,06 | 0.10% |
 | bitvavo - kucoin | €5.000,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-25,99 | €-25,99 | -0.52% |
 | bitvavo - kucoin | €5.000,00 | 2026-11-20 | 22.8 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-90,18 | €-90,18 | -1.80% |
 | bitvavo - kucoin | €5.000,00 | 2026-11-21 | 22.9 u | 7 | 4 | 3 | €2,24 | €2,73 (3x) | **€-0,49** | -0.01% | €38,94 | €38,45 | 0.77% |
@@ -275,47 +275,47 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitvavo - kucoin | €5.000,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,55 | €2,55 | 0.05% |
 | bitvavo - kucoin | €5.000,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-30,06 | €-30,06 | -0.60% |
 | bitvavo - kucoin | €5.000,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €6,89 | €6,89 | 0.14% |
-| bitvavo - kucoin | €5.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €5,17 | €5,17 | 0.10% |
-| gate - kucoin | €100,00 | 2026-11-19 | 14.9 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,29 | €-0,29 | -0.29% |
-| gate - kucoin | €100,00 | 2026-11-20 | 22.8 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,78 | €-0,78 | -0.78% |
-| gate - kucoin | €100,00 | 2026-11-21 | 22.9 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,74 | €-1,74 | -1.74% |
-| gate - kucoin | €100,00 | 2026-11-22 | 22.1 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,94 | €-1,94 | -1.94% |
-| gate - kucoin | €100,00 | 2026-11-23 | 19.7 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,34 | €-0,34 | -0.34% |
-| gate - kucoin | €100,00 | 2026-11-24 | 19.5 u | 20 | 20 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,62 | €-0,62 | -0.62% |
-| gate - kucoin | €100,00 | 2026-11-25 | 3.3 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,51 | €0,51 | 0.51% |
-| gate - kucoin | €100,00 | 2026-11-26 | 1.0 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,41 | €-0,41 | -0.41% |
-| gate - kucoin | €150,00 | 2026-11-19 | 14.9 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,44 | €-0,44 | -0.29% |
-| gate - kucoin | €150,00 | 2026-11-20 | 22.8 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,18 | €-1,18 | -0.78% |
-| gate - kucoin | €150,00 | 2026-11-21 | 22.9 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,61 | €-2,61 | -1.74% |
-| gate - kucoin | €150,00 | 2026-11-22 | 22.1 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,90 | €-2,90 | -1.94% |
-| gate - kucoin | €150,00 | 2026-11-23 | 19.7 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,50 | €-0,50 | -0.34% |
-| gate - kucoin | €150,00 | 2026-11-24 | 19.5 u | 20 | 20 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,94 | €-0,94 | -0.62% |
-| gate - kucoin | €150,00 | 2026-11-25 | 3.3 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,76 | €0,76 | 0.51% |
-| gate - kucoin | €150,00 | 2026-11-26 | 1.0 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,61 | €-0,61 | -0.41% |
-| gate - kucoin | €200,00 | 2026-11-19 | 14.9 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,58 | €-0,58 | -0.29% |
-| gate - kucoin | €200,00 | 2026-11-20 | 22.8 u | 46 | 45 | 1 | €0,12 | €0,00 (0x) | **€0,12** | 0.06% | €-1,57 | €-1,45 | -0.73% |
-| gate - kucoin | €200,00 | 2026-11-21 | 22.9 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,48 | €-3,48 | -1.74% |
-| gate - kucoin | €200,00 | 2026-11-22 | 22.1 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,87 | €-3,87 | -1.94% |
-| gate - kucoin | €200,00 | 2026-11-23 | 19.7 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,67 | €-0,67 | -0.34% |
-| gate - kucoin | €200,00 | 2026-11-24 | 19.5 u | 20 | 20 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,25 | €-1,25 | -0.62% |
-| gate - kucoin | €200,00 | 2026-11-25 | 3.3 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,02 | €1,02 | 0.51% |
-| gate - kucoin | €200,00 | 2026-11-26 | 1.0 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,81 | €-0,81 | -0.41% |
-| gate - kucoin | €2.000,00 | 2026-11-19 | 14.9 u | 25 | 17 | 8 | €0,83 | €0,00 (0x) | **€0,83** | 0.04% | €-5,84 | €-5,01 | -0.25% |
-| gate - kucoin | €2.000,00 | 2026-11-20 | 22.8 u | 46 | 25 | 21 | €5,70 | €0,05 (3x) | **€5,65** | 0.28% | €-15,70 | €-10,05 | -0.50% |
-| gate - kucoin | €2.000,00 | 2026-11-21 | 22.9 u | 46 | 34 | 12 | €3,04 | €0,01 (1x) | **€3,03** | 0.15% | €-34,78 | €-31,75 | -1.59% |
-| gate - kucoin | €2.000,00 | 2026-11-22 | 22.1 u | 28 | 21 | 7 | €0,66 | €0,01 (2x) | **€0,64** | 0.03% | €-38,73 | €-38,09 | -1.90% |
-| gate - kucoin | €2.000,00 | 2026-11-23 | 19.7 u | 32 | 26 | 6 | €0,91 | €0,10 (1x) | **€0,81** | 0.04% | €-6,71 | €-5,90 | -0.30% |
-| gate - kucoin | €2.000,00 | 2026-11-24 | 19.5 u | 20 | 18 | 2 | €0,65 | €0,10 (1x) | **€0,55** | 0.03% | €-12,49 | €-11,94 | -0.60% |
-| gate - kucoin | €2.000,00 | 2026-11-25 | 3.3 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €10,15 | €10,15 | 0.51% |
-| gate - kucoin | €2.000,00 | 2026-11-26 | 1.0 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-8,14 | €-8,14 | -0.41% |
-| gate - kucoin | €5.000,00 | 2026-11-19 | 14.9 u | 25 | 10 | 15 | €2,82 | €2,11 (12x) | **€0,71** | 0.01% | €-14,59 | €-13,88 | -0.28% |
-| gate - kucoin | €5.000,00 | 2026-11-20 | 22.8 u | 46 | 15 | 31 | €15,11 | €2,81 (19x) | **€12,30** | 0.25% | €-39,21 | €-26,91 | -0.54% |
-| gate - kucoin | €5.000,00 | 2026-11-21 | 22.9 u | 46 | 15 | 31 | €10,46 | €3,50 (22x) | **€6,96** | 0.14% | €-86,96 | €-80,00 | -1.60% |
-| gate - kucoin | €5.000,00 | 2026-11-22 | 22.1 u | 28 | 6 | 22 | €3,68 | €2,37 (17x) | **€1,31** | 0.03% | €-96,72 | €-95,40 | -1.91% |
-| gate - kucoin | €5.000,00 | 2026-11-23 | 19.7 u | 32 | 14 | 18 | €4,11 | €2,11 (15x) | **€2,00** | 0.04% | €-17,01 | €-15,01 | -0.30% |
-| gate - kucoin | €5.000,00 | 2026-11-24 | 19.5 u | 20 | 6 | 14 | €3,47 | €2,93 (14x) | **€0,54** | 0.01% | €-30,79 | €-30,24 | -0.60% |
-| gate - kucoin | €5.000,00 | 2026-11-25 | 3.3 u | 2 | 0 | 2 | €0,15 | €0,32 (2x) | **€-0,17** | -0.00% | €25,17 | €25,00 | 0.50% |
-| gate - kucoin | €5.000,00 | 2026-11-26 | 1.0 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-20,38 | €-20,38 | -0.41% |
+| bitvavo - kucoin | €5.000,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €5,15 | €5,15 | 0.10% |
+| gate - kucoin | €100,00 | 2026-11-19 | 14.9 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,31 | €-0,31 | -0.31% |
+| gate - kucoin | €100,00 | 2026-11-20 | 22.8 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,87 | €-0,87 | -0.87% |
+| gate - kucoin | €100,00 | 2026-11-21 | 22.9 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,69 | €-1,69 | -1.69% |
+| gate - kucoin | €100,00 | 2026-11-22 | 22.1 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,91 | €-1,91 | -1.91% |
+| gate - kucoin | €100,00 | 2026-11-23 | 19.7 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,35 | €-0,35 | -0.35% |
+| gate - kucoin | €100,00 | 2026-11-24 | 19.5 u | 20 | 20 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,64 | €-0,64 | -0.64% |
+| gate - kucoin | €100,00 | 2026-11-25 | 3.3 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,53 | €0,53 | 0.53% |
+| gate - kucoin | €100,00 | 2026-11-26 | 4.6 u | 5 | 5 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,39 | €-0,39 | -0.39% |
+| gate - kucoin | €150,00 | 2026-11-19 | 14.9 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,47 | €-0,47 | -0.31% |
+| gate - kucoin | €150,00 | 2026-11-20 | 22.8 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,31 | €-1,31 | -0.87% |
+| gate - kucoin | €150,00 | 2026-11-21 | 22.9 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,54 | €-2,54 | -1.69% |
+| gate - kucoin | €150,00 | 2026-11-22 | 22.1 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,86 | €-2,86 | -1.91% |
+| gate - kucoin | €150,00 | 2026-11-23 | 19.7 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,52 | €-0,52 | -0.35% |
+| gate - kucoin | €150,00 | 2026-11-24 | 19.5 u | 20 | 20 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,96 | €-0,96 | -0.64% |
+| gate - kucoin | €150,00 | 2026-11-25 | 3.3 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,80 | €0,80 | 0.53% |
+| gate - kucoin | €150,00 | 2026-11-26 | 4.6 u | 5 | 5 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,59 | €-0,59 | -0.39% |
+| gate - kucoin | €200,00 | 2026-11-19 | 14.9 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,63 | €-0,63 | -0.31% |
+| gate - kucoin | €200,00 | 2026-11-20 | 22.8 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,75 | €-1,75 | -0.87% |
+| gate - kucoin | €200,00 | 2026-11-21 | 22.9 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,38 | €-3,38 | -1.69% |
+| gate - kucoin | €200,00 | 2026-11-22 | 22.1 u | 28 | 28 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,81 | €-3,81 | -1.91% |
+| gate - kucoin | €200,00 | 2026-11-23 | 19.7 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,70 | €-0,70 | -0.35% |
+| gate - kucoin | €200,00 | 2026-11-24 | 19.5 u | 20 | 20 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,28 | €-1,28 | -0.64% |
+| gate - kucoin | €200,00 | 2026-11-25 | 3.3 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,06 | €1,06 | 0.53% |
+| gate - kucoin | €200,00 | 2026-11-26 | 4.6 u | 5 | 5 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,79 | €-0,79 | -0.39% |
+| gate - kucoin | €2.000,00 | 2026-11-19 | 14.9 u | 25 | 17 | 8 | €0,81 | €0,00 (0x) | **€0,81** | 0.04% | €-6,25 | €-5,44 | -0.27% |
+| gate - kucoin | €2.000,00 | 2026-11-20 | 22.8 u | 46 | 25 | 21 | €5,57 | €0,05 (3x) | **€5,52** | 0.28% | €-17,45 | €-11,93 | -0.60% |
+| gate - kucoin | €2.000,00 | 2026-11-21 | 22.9 u | 46 | 34 | 12 | €2,97 | €0,01 (1x) | **€2,96** | 0.15% | €-33,80 | €-30,84 | -1.54% |
+| gate - kucoin | €2.000,00 | 2026-11-22 | 22.1 u | 28 | 21 | 7 | €0,64 | €0,01 (2x) | **€0,63** | 0.03% | €-38,14 | €-37,51 | -1.88% |
+| gate - kucoin | €2.000,00 | 2026-11-23 | 19.7 u | 32 | 26 | 6 | €0,89 | €0,10 (1x) | **€0,79** | 0.04% | €-6,96 | €-6,18 | -0.31% |
+| gate - kucoin | €2.000,00 | 2026-11-24 | 19.5 u | 20 | 18 | 2 | €0,64 | €0,10 (1x) | **€0,54** | 0.03% | €-12,85 | €-12,31 | -0.62% |
+| gate - kucoin | €2.000,00 | 2026-11-25 | 3.3 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €10,60 | €10,60 | 0.53% |
+| gate - kucoin | €2.000,00 | 2026-11-26 | 4.6 u | 5 | 4 | 1 | €0,88 | €0,00 (0x) | **€0,88** | 0.04% | €-7,89 | €-7,01 | -0.35% |
+| gate - kucoin | €5.000,00 | 2026-11-19 | 14.9 u | 25 | 10 | 15 | €2,75 | €2,11 (12x) | **€0,64** | 0.01% | €-15,62 | €-14,98 | -0.30% |
+| gate - kucoin | €5.000,00 | 2026-11-20 | 22.8 u | 46 | 15 | 31 | €14,76 | €2,81 (19x) | **€11,95** | 0.24% | €-43,59 | €-31,65 | -0.63% |
+| gate - kucoin | €5.000,00 | 2026-11-21 | 22.9 u | 46 | 15 | 31 | €10,21 | €3,51 (22x) | **€6,70** | 0.13% | €-84,51 | €-77,81 | -1.56% |
+| gate - kucoin | €5.000,00 | 2026-11-22 | 22.1 u | 28 | 6 | 22 | €3,59 | €2,37 (17x) | **€1,22** | 0.02% | €-95,23 | €-94,02 | -1.88% |
+| gate - kucoin | €5.000,00 | 2026-11-23 | 19.7 u | 32 | 14 | 18 | €4,01 | €2,11 (15x) | **€1,89** | 0.04% | €-17,64 | €-15,75 | -0.31% |
+| gate - kucoin | €5.000,00 | 2026-11-24 | 19.5 u | 20 | 6 | 14 | €3,38 | €2,02 (13x) | **€1,36** | 0.03% | €-31,68 | €-30,32 | -0.61% |
+| gate - kucoin | €5.000,00 | 2026-11-25 | 3.3 u | 2 | 0 | 2 | €0,14 | €1,23 (3x) | **€-1,09** | -0.02% | €26,29 | €25,20 | 0.50% |
+| gate - kucoin | €5.000,00 | 2026-11-26 | 4.6 u | 5 | 1 | 4 | €2,62 | €0,48 (3x) | **€2,14** | 0.04% | €-19,82 | €-17,68 | -0.35% |
 | kraken - kucoin | €100,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,11 | €0,11 | 0.11% |
 | kraken - kucoin | €100,00 | 2026-11-20 | 22.8 u | 15 | 13 | 2 | €0,03 | €0,01 (1x) | **€0,02** | 0.02% | €0,11 | €0,13 | 0.13% |
 | kraken - kucoin | €100,00 | 2026-11-21 | 22.9 u | 12 | 12 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,16 | €-0,16 | -0.16% |
@@ -323,7 +323,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | kraken - kucoin | €100,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,29 | €0,29 | 0.29% |
 | kraken - kucoin | €100,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,25 | €-0,25 | -0.25% |
 | kraken - kucoin | €100,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,07 | €-0,07 | -0.07% |
-| kraken - kucoin | €100,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,02 | €0,02 | 0.02% |
+| kraken - kucoin | €100,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,01 | €-0,01 | -0.01% |
 | kraken - kucoin | €150,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,16 | €0,16 | 0.11% |
 | kraken - kucoin | €150,00 | 2026-11-20 | 22.8 u | 15 | 13 | 2 | €0,05 | €0,01 (1x) | **€0,04** | 0.02% | €0,16 | €0,20 | 0.13% |
 | kraken - kucoin | €150,00 | 2026-11-21 | 22.9 u | 12 | 12 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,24 | €-0,24 | -0.16% |
@@ -331,7 +331,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | kraken - kucoin | €150,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,44 | €0,44 | 0.29% |
 | kraken - kucoin | €150,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,38 | €-0,38 | -0.25% |
 | kraken - kucoin | €150,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,11 | €-0,11 | -0.07% |
-| kraken - kucoin | €150,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,03 | €0,03 | 0.02% |
+| kraken - kucoin | €150,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,02 | €-0,02 | -0.01% |
 | kraken - kucoin | €200,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,22 | €0,22 | 0.11% |
 | kraken - kucoin | €200,00 | 2026-11-20 | 22.8 u | 15 | 13 | 2 | €0,06 | €0,24 (2x) | **€-0,18** | -0.09% | €0,22 | €0,04 | 0.02% |
 | kraken - kucoin | €200,00 | 2026-11-21 | 22.9 u | 12 | 12 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,32 | €-0,32 | -0.16% |
@@ -339,7 +339,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | kraken - kucoin | €200,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,58 | €0,58 | 0.29% |
 | kraken - kucoin | €200,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,50 | €-0,50 | -0.25% |
 | kraken - kucoin | €200,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,15 | €-0,15 | -0.07% |
-| kraken - kucoin | €200,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,04 | €0,04 | 0.02% |
+| kraken - kucoin | €200,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,02 | €-0,02 | -0.01% |
 | kraken - kucoin | €2.000,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,19 | €2,19 | 0.11% |
 | kraken - kucoin | €2.000,00 | 2026-11-20 | 22.8 u | 15 | 13 | 2 | €0,61 | €1,24 (3x) | **€-0,63** | -0.03% | €2,19 | €1,56 | 0.08% |
 | kraken - kucoin | €2.000,00 | 2026-11-21 | 22.9 u | 12 | 12 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,24 | €-3,24 | -0.16% |
@@ -347,7 +347,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | kraken - kucoin | €2.000,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €5,81 | €5,81 | 0.29% |
 | kraken - kucoin | €2.000,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-5,05 | €-5,05 | -0.25% |
 | kraken - kucoin | €2.000,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,48 | €-1,48 | -0.07% |
-| kraken - kucoin | €2.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,44 | €0,44 | 0.02% |
+| kraken - kucoin | €2.000,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,22 | €-0,22 | -0.01% |
 | kraken - kucoin | €5.000,00 | 2026-11-19 | 14.9 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €5,49 | €5,49 | 0.11% |
 | kraken - kucoin | €5.000,00 | 2026-11-20 | 22.8 u | 15 | 13 | 2 | €1,53 | €1,24 (3x) | **€0,28** | 0.01% | €5,48 | €5,77 | 0.12% |
 | kraken - kucoin | €5.000,00 | 2026-11-21 | 22.9 u | 12 | 12 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-8,09 | €-8,09 | -0.16% |
@@ -355,7 +355,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | kraken - kucoin | €5.000,00 | 2026-11-23 | 19.7 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €14,53 | €14,53 | 0.29% |
 | kraken - kucoin | €5.000,00 | 2026-11-24 | 19.5 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-12,61 | €-12,61 | -0.25% |
 | kraken - kucoin | €5.000,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,70 | €-3,70 | -0.07% |
-| kraken - kucoin | €5.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,10 | €1,10 | 0.02% |
+| kraken - kucoin | €5.000,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,55 | €-0,55 | -0.01% |
 
 - bitstamp - kraken, €100,00: munten IMX, SKY; bruto zonder voorraadgrens zou €28,19 zijn, met voorraad €1,04 (GEZIEN boek, GOK model).
 - bitstamp - kraken, €150,00: munten IMX, SKY; bruto zonder voorraadgrens zou €27,89 zijn, met voorraad €1,56 (GEZIEN boek, GOK model).
@@ -367,21 +367,21 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 - bitstamp - kucoin, €200,00: munten USDC, USDT; bruto zonder voorraadgrens zou €13,16 zijn, met voorraad €0,03 (GEZIEN boek, GOK model).
 - bitstamp - kucoin, €2.000,00: munten USDC, USDT; bruto zonder voorraadgrens zou €13,16 zijn, met voorraad €0,32 (GEZIEN boek, GOK model).
 - bitstamp - kucoin, €5.000,00: munten USDC, USDT; bruto zonder voorraadgrens zou €13,16 zijn, met voorraad €0,77 (GEZIEN boek, GOK model).
-- bitvavo - kraken, €100,00: munten AERO, AVA, BABY, CVX, CYBER, DYM, GMT, KERNEL, LUNA, MERL, MLN, PROMPT, VELO, ZRC; bruto zonder voorraadgrens zou €5.571,57 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- bitvavo - kraken, €150,00: munten AERO, AVA, BABY, CVX, CYBER, DYM, GMT, KERNEL, LUNA, MERL, MLN, PROMPT, VELO, ZRC; bruto zonder voorraadgrens zou €5.571,57 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- bitvavo - kraken, €200,00: munten AERO, AVA, BABY, CVX, CYBER, DYM, GMT, KERNEL, LUNA, MERL, MLN, PROMPT, VELO, ZRC; bruto zonder voorraadgrens zou €5.571,57 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- bitvavo - kraken, €2.000,00: munten AERO, AVA, BABY, CVX, CYBER, DYM, GMT, KERNEL, LUNA, MERL, MLN, PROMPT, VELO, ZRC; bruto zonder voorraadgrens zou €5.556,44 zijn, met voorraad €21,15 (GEZIEN boek, GOK model).
-- bitvavo - kraken, €5.000,00: munten AERO, AVA, BABY, CVX, CYBER, DYM, GMT, KERNEL, LUNA, MERL, MLN, PROMPT, VELO, ZRC; bruto zonder voorraadgrens zou €5.469,18 zijn, met voorraad €126,82 (GEZIEN boek, GOK model).
+- bitvavo - kraken, €100,00: munten AERO, AVA, BABY, BTT, CVX, CYBER, DYM, GMT, KERNEL, LUNA, MERL, MLN, PROMPT, VELO, ZRC; bruto zonder voorraadgrens zou €5.617,79 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- bitvavo - kraken, €150,00: munten AERO, AVA, BABY, BTT, CVX, CYBER, DYM, GMT, KERNEL, LUNA, MERL, MLN, PROMPT, VELO, ZRC; bruto zonder voorraadgrens zou €5.617,79 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- bitvavo - kraken, €200,00: munten AERO, AVA, BABY, BTT, CVX, CYBER, DYM, GMT, KERNEL, LUNA, MERL, MLN, PROMPT, VELO, ZRC; bruto zonder voorraadgrens zou €5.617,79 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- bitvavo - kraken, €2.000,00: munten AERO, AVA, BABY, BTT, CVX, CYBER, DYM, GMT, KERNEL, LUNA, MERL, MLN, PROMPT, VELO, ZRC; bruto zonder voorraadgrens zou €5.607,06 zijn, met voorraad €14,21 (GEZIEN boek, GOK model).
+- bitvavo - kraken, €5.000,00: munten AERO, AVA, BABY, BTT, CVX, CYBER, DYM, GMT, KERNEL, LUNA, MERL, MLN, PROMPT, VELO, ZRC; bruto zonder voorraadgrens zou €5.524,69 zijn, met voorraad €118,29 (GEZIEN boek, GOK model).
 - bitvavo - kucoin, €100,00: munten ETH, USDC; bruto zonder voorraadgrens zou €19,28 zijn, met voorraad €0,04 (GEZIEN boek, GOK model).
 - bitvavo - kucoin, €150,00: munten ETH, USDC; bruto zonder voorraadgrens zou €19,28 zijn, met voorraad €0,07 (GEZIEN boek, GOK model).
 - bitvavo - kucoin, €200,00: munten ETH, USDC; bruto zonder voorraadgrens zou €19,28 zijn, met voorraad €0,09 (GEZIEN boek, GOK model).
 - bitvavo - kucoin, €2.000,00: munten ETH, USDC; bruto zonder voorraadgrens zou €19,28 zijn, met voorraad €0,91 (GEZIEN boek, GOK model).
 - bitvavo - kucoin, €5.000,00: munten ETH, USDC; bruto zonder voorraadgrens zou €19,28 zijn, met voorraad €2,24 (GEZIEN boek, GOK model).
-- gate - kucoin, €100,00: munten ALKIMI, AVAIL, BARD, CAMP, CCD, CHR, CWEB, CYBER, DCR, DMTR, EDEN, ENSO, EPIC, ERG, ESPORTS, EVAA, FTT, HIGH, HTR, IKA, IR, JST, KAVA, KYO, LSK, LUNC, NAKA, NES, NIM, ON, OVR, POKT, POND, RARI, SD, SOUL, STREAM, SUPRA, USDS, USTC, VERONA, XU3O8; bruto zonder voorraadgrens zou €642,50 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- gate - kucoin, €150,00: munten ALKIMI, AVAIL, BARD, CAMP, CCD, CHR, CWEB, CYBER, DCR, DMTR, EDEN, ENSO, EPIC, ERG, ESPORTS, EVAA, FTT, HIGH, HTR, IKA, IR, JST, KAVA, KYO, LSK, LUNC, NAKA, NES, NIM, ON, OVR, POKT, POND, RARI, SD, SOUL, STREAM, SUPRA, USDS, USTC, VERONA, XU3O8; bruto zonder voorraadgrens zou €642,50 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- gate - kucoin, €200,00: munten ALKIMI, AVAIL, BARD, CAMP, CCD, CHR, CWEB, CYBER, DCR, DMTR, EDEN, ENSO, EPIC, ERG, ESPORTS, EVAA, FTT, HIGH, HTR, IKA, IR, JST, KAVA, KYO, LSK, LUNC, NAKA, NES, NIM, ON, OVR, POKT, POND, RARI, SD, SOUL, STREAM, SUPRA, USDS, USTC, VERONA, XU3O8; bruto zonder voorraadgrens zou €642,50 zijn, met voorraad €0,12 (GEZIEN boek, GOK model).
-- gate - kucoin, €2.000,00: munten ALKIMI, AVAIL, BARD, CAMP, CCD, CHR, CWEB, CYBER, DCR, DMTR, EDEN, ENSO, EPIC, ERG, ESPORTS, EVAA, FTT, HIGH, HTR, IKA, IR, JST, KAVA, KYO, LSK, LUNC, NAKA, NES, NIM, ON, OVR, POKT, POND, RARI, SD, SOUL, STREAM, SUPRA, USDS, USTC, VERONA, XU3O8; bruto zonder voorraadgrens zou €641,49 zijn, met voorraad €11,79 (GEZIEN boek, GOK model).
-- gate - kucoin, €5.000,00: munten ALKIMI, AVAIL, BARD, CAMP, CCD, CHR, CWEB, CYBER, DCR, DMTR, EDEN, ENSO, EPIC, ERG, ESPORTS, EVAA, FTT, HIGH, HTR, IKA, IR, JST, KAVA, KYO, LSK, LUNC, NAKA, NES, NIM, ON, OVR, POKT, POND, RARI, SD, SOUL, STREAM, SUPRA, USDS, USTC, VERONA, XU3O8; bruto zonder voorraadgrens zou €639,71 zijn, met voorraad €39,79 (GEZIEN boek, GOK model).
+- gate - kucoin, €100,00: munten ALKIMI, AVAIL, BARD, CAMP, CCD, CHR, CTC, CWEB, CYBER, DCR, DMTR, EDEN, ENSO, EPIC, ERG, ESPORTS, EVAA, FTT, HIGH, HTR, IKA, IR, JST, KAVA, KYO, LSK, LUNC, NAKA, NES, NIM, ON, OVR, POKT, POND, RARI, SD, SOUL, STREAM, SUPRA, USDS, USTC, VERONA, XU3O8; bruto zonder voorraadgrens zou €655,40 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- gate - kucoin, €150,00: munten ALKIMI, AVAIL, BARD, CAMP, CCD, CHR, CTC, CWEB, CYBER, DCR, DMTR, EDEN, ENSO, EPIC, ERG, ESPORTS, EVAA, FTT, HIGH, HTR, IKA, IR, JST, KAVA, KYO, LSK, LUNC, NAKA, NES, NIM, ON, OVR, POKT, POND, RARI, SD, SOUL, STREAM, SUPRA, USDS, USTC, VERONA, XU3O8; bruto zonder voorraadgrens zou €655,40 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- gate - kucoin, €200,00: munten ALKIMI, AVAIL, BARD, CAMP, CCD, CHR, CTC, CWEB, CYBER, DCR, DMTR, EDEN, ENSO, EPIC, ERG, ESPORTS, EVAA, FTT, HIGH, HTR, IKA, IR, JST, KAVA, KYO, LSK, LUNC, NAKA, NES, NIM, ON, OVR, POKT, POND, RARI, SD, SOUL, STREAM, SUPRA, USDS, USTC, VERONA, XU3O8; bruto zonder voorraadgrens zou €655,40 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- gate - kucoin, €2.000,00: munten ALKIMI, AVAIL, BARD, CAMP, CCD, CHR, CTC, CWEB, CYBER, DCR, DMTR, EDEN, ENSO, EPIC, ERG, ESPORTS, EVAA, FTT, HIGH, HTR, IKA, IR, JST, KAVA, KYO, LSK, LUNC, NAKA, NES, NIM, ON, OVR, POKT, POND, RARI, SD, SOUL, STREAM, SUPRA, USDS, USTC, VERONA, XU3O8; bruto zonder voorraadgrens zou €654,42 zijn, met voorraad €12,39 (GEZIEN boek, GOK model).
+- gate - kucoin, €5.000,00: munten ALKIMI, AVAIL, BARD, CAMP, CCD, CHR, CTC, CWEB, CYBER, DCR, DMTR, EDEN, ENSO, EPIC, ERG, ESPORTS, EVAA, FTT, HIGH, HTR, IKA, IR, JST, KAVA, KYO, LSK, LUNC, NAKA, NES, NIM, ON, OVR, POKT, POND, RARI, SD, SOUL, STREAM, SUPRA, USDS, USTC, VERONA, XU3O8; bruto zonder voorraadgrens zou €652,68 zijn, met voorraad €41,46 (GEZIEN boek, GOK model).
 - kraken - kucoin, €100,00: munten USDC, USDT; bruto zonder voorraadgrens zou €120,83 zijn, met voorraad €0,03 (GEZIEN boek, GOK model).
 - kraken - kucoin, €150,00: munten USDC, USDT; bruto zonder voorraadgrens zou €120,83 zijn, met voorraad €0,05 (GEZIEN boek, GOK model).
 - kraken - kucoin, €200,00: munten USDC, USDT; bruto zonder voorraadgrens zou €120,82 zijn, met voorraad €0,06 (GEZIEN boek, GOK model).
@@ -392,46 +392,46 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 
 | Beurspaar | Inleg | Dag | Gemeten | Kansen | Gemist (geen voorraad) | Kleiner door voorraad | Bruto winst | Kosten terugschuiven | **Netto handel (bruto min kosten)** | Rendement handel | Koerseffect voorraad | Netto met koerseffect | Rendement met koerseffect |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| htx - kucoin | €100,00 | 2026-11-19 | 14.9 u | 16 | 16 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,01 | €-1,01 | -1.01% |
-| htx - kucoin | €100,00 | 2026-11-20 | 22.8 u | 42 | 42 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,88 | €-2,88 | -2.88% |
-| htx - kucoin | €100,00 | 2026-11-21 | 22.9 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,13 | €0,13 | 0.13% |
+| htx - kucoin | €100,00 | 2026-11-19 | 14.9 u | 16 | 16 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,02 | €-1,02 | -1.02% |
+| htx - kucoin | €100,00 | 2026-11-20 | 22.8 u | 42 | 42 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,87 | €-2,87 | -2.87% |
+| htx - kucoin | €100,00 | 2026-11-21 | 22.9 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,12 | €0,12 | 0.12% |
 | htx - kucoin | €100,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,12 | €-0,12 | -0.12% |
-| htx - kucoin | €100,00 | 2026-11-23 | 19.7 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,77 | €0,77 | 0.77% |
-| htx - kucoin | €100,00 | 2026-11-24 | 19.5 u | 43 | 43 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,68 | €-0,68 | -0.68% |
-| htx - kucoin | €100,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,58 | €1,58 | 1.58% |
-| htx - kucoin | €100,00 | 2026-11-26 | 1.0 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,20 | €0,20 | 0.20% |
-| htx - kucoin | €150,00 | 2026-11-19 | 14.9 u | 16 | 16 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,51 | €-1,51 | -1.01% |
-| htx - kucoin | €150,00 | 2026-11-20 | 22.8 u | 42 | 42 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-4,32 | €-4,32 | -2.88% |
-| htx - kucoin | €150,00 | 2026-11-21 | 22.9 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,20 | €0,20 | 0.13% |
-| htx - kucoin | €150,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,18 | €-0,18 | -0.12% |
-| htx - kucoin | €150,00 | 2026-11-23 | 19.7 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,15 | €1,15 | 0.77% |
-| htx - kucoin | €150,00 | 2026-11-24 | 19.5 u | 43 | 43 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,01 | €-1,01 | -0.68% |
-| htx - kucoin | €150,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,37 | €2,37 | 1.58% |
-| htx - kucoin | €150,00 | 2026-11-26 | 1.0 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,31 | €0,31 | 0.20% |
-| htx - kucoin | €200,00 | 2026-11-19 | 14.9 u | 16 | 16 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,02 | €-2,02 | -1.01% |
-| htx - kucoin | €200,00 | 2026-11-20 | 22.8 u | 42 | 42 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-5,76 | €-5,76 | -2.88% |
-| htx - kucoin | €200,00 | 2026-11-21 | 22.9 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,26 | €0,26 | 0.13% |
-| htx - kucoin | €200,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,24 | €-0,24 | -0.12% |
-| htx - kucoin | €200,00 | 2026-11-23 | 19.7 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,53 | €1,53 | 0.77% |
-| htx - kucoin | €200,00 | 2026-11-24 | 19.5 u | 43 | 43 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,35 | €-1,35 | -0.68% |
-| htx - kucoin | €200,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €3,17 | €3,17 | 1.58% |
-| htx - kucoin | €200,00 | 2026-11-26 | 1.0 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,41 | €0,41 | 0.20% |
-| htx - kucoin | €2.000,00 | 2026-11-19 | 14.9 u | 16 | 16 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-20,18 | €-20,18 | -1.01% |
-| htx - kucoin | €2.000,00 | 2026-11-20 | 22.8 u | 42 | 42 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-57,60 | €-57,60 | -2.88% |
-| htx - kucoin | €2.000,00 | 2026-11-21 | 22.9 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,64 | €2,64 | 0.13% |
-| htx - kucoin | €2.000,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,45 | €-2,45 | -0.12% |
-| htx - kucoin | €2.000,00 | 2026-11-23 | 19.7 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €15,34 | €15,34 | 0.77% |
-| htx - kucoin | €2.000,00 | 2026-11-24 | 19.5 u | 43 | 42 | 1 | €0,05 | €0,00 (0x) | **€0,05** | 0.00% | €-13,52 | €-13,47 | -0.67% |
-| htx - kucoin | €2.000,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €31,66 | €31,66 | 1.58% |
-| htx - kucoin | €2.000,00 | 2026-11-26 | 1.0 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €4,10 | €4,10 | 0.20% |
-| htx - kucoin | €5.000,00 | 2026-11-19 | 14.9 u | 16 | 9 | 7 | €1,22 | €0,00 (1x) | **€1,21** | 0.02% | €-50,45 | €-49,23 | -0.98% |
-| htx - kucoin | €5.000,00 | 2026-11-20 | 22.8 u | 42 | 24 | 18 | €7,01 | €0,00 (1x) | **€7,01** | 0.14% | €-144,01 | €-136,99 | -2.74% |
-| htx - kucoin | €5.000,00 | 2026-11-21 | 22.9 u | 32 | 13 | 19 | €2,37 | €0,11 (4x) | **€2,27** | 0.05% | €6,60 | €8,87 | 0.18% |
-| htx - kucoin | €5.000,00 | 2026-11-22 | 22.1 u | 40 | 26 | 14 | €6,65 | €0,14 (3x) | **€6,50** | 0.13% | €-6,12 | €0,39 | 0.01% |
-| htx - kucoin | €5.000,00 | 2026-11-23 | 19.7 u | 15 | 8 | 7 | €1,84 | €0,10 (1x) | **€1,74** | 0.03% | €38,35 | €40,09 | 0.80% |
-| htx - kucoin | €5.000,00 | 2026-11-24 | 19.5 u | 43 | 36 | 7 | €1,34 | €0,17 (1x) | **€1,18** | 0.02% | €-33,80 | €-32,62 | -0.65% |
-| htx - kucoin | €5.000,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €79,14 | €79,14 | 1.58% |
-| htx - kucoin | €5.000,00 | 2026-11-26 | 1.0 u | 1 | 0 | 1 | €0,06 | €0,00 (1x) | **€0,06** | 0.00% | €10,25 | €10,31 | 0.21% |
+| htx - kucoin | €100,00 | 2026-11-23 | 19.7 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,78 | €0,78 | 0.78% |
+| htx - kucoin | €100,00 | 2026-11-24 | 19.5 u | 43 | 43 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,69 | €-0,69 | -0.69% |
+| htx - kucoin | €100,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,59 | €1,59 | 1.59% |
+| htx - kucoin | €100,00 | 2026-11-26 | 4.6 u | 6 | 6 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,03 | €-0,03 | -0.03% |
+| htx - kucoin | €150,00 | 2026-11-19 | 14.9 u | 16 | 16 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,52 | €-1,52 | -1.02% |
+| htx - kucoin | €150,00 | 2026-11-20 | 22.8 u | 42 | 42 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-4,30 | €-4,30 | -2.87% |
+| htx - kucoin | €150,00 | 2026-11-21 | 22.9 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,17 | €0,17 | 0.12% |
+| htx - kucoin | €150,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,17 | €-0,17 | -0.12% |
+| htx - kucoin | €150,00 | 2026-11-23 | 19.7 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,17 | €1,17 | 0.78% |
+| htx - kucoin | €150,00 | 2026-11-24 | 19.5 u | 43 | 43 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,04 | €-1,04 | -0.69% |
+| htx - kucoin | €150,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,38 | €2,38 | 1.59% |
+| htx - kucoin | €150,00 | 2026-11-26 | 4.6 u | 6 | 6 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,05 | €-0,05 | -0.03% |
+| htx - kucoin | €200,00 | 2026-11-19 | 14.9 u | 16 | 16 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,03 | €-2,03 | -1.02% |
+| htx - kucoin | €200,00 | 2026-11-20 | 22.8 u | 42 | 42 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-5,74 | €-5,74 | -2.87% |
+| htx - kucoin | €200,00 | 2026-11-21 | 22.9 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,23 | €0,23 | 0.12% |
+| htx - kucoin | €200,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,23 | €-0,23 | -0.12% |
+| htx - kucoin | €200,00 | 2026-11-23 | 19.7 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,56 | €1,56 | 0.78% |
+| htx - kucoin | €200,00 | 2026-11-24 | 19.5 u | 43 | 43 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,38 | €-1,38 | -0.69% |
+| htx - kucoin | €200,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €3,17 | €3,17 | 1.59% |
+| htx - kucoin | €200,00 | 2026-11-26 | 4.6 u | 6 | 6 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,06 | €-0,06 | -0.03% |
+| htx - kucoin | €2.000,00 | 2026-11-19 | 14.9 u | 16 | 16 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-20,33 | €-20,33 | -1.02% |
+| htx - kucoin | €2.000,00 | 2026-11-20 | 22.8 u | 42 | 42 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-57,39 | €-57,39 | -2.87% |
+| htx - kucoin | €2.000,00 | 2026-11-21 | 22.9 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,32 | €2,32 | 0.12% |
+| htx - kucoin | €2.000,00 | 2026-11-22 | 22.1 u | 40 | 40 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,30 | €-2,30 | -0.12% |
+| htx - kucoin | €2.000,00 | 2026-11-23 | 19.7 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €15,64 | €15,64 | 0.78% |
+| htx - kucoin | €2.000,00 | 2026-11-24 | 19.5 u | 43 | 42 | 1 | €0,05 | €0,00 (0x) | **€0,05** | 0.00% | €-13,85 | €-13,79 | -0.69% |
+| htx - kucoin | €2.000,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €31,70 | €31,70 | 1.59% |
+| htx - kucoin | €2.000,00 | 2026-11-26 | 4.6 u | 6 | 6 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,64 | €-0,64 | -0.03% |
+| htx - kucoin | €5.000,00 | 2026-11-19 | 14.9 u | 16 | 9 | 7 | €1,22 | €0,00 (1x) | **€1,21** | 0.02% | €-50,81 | €-49,60 | -0.99% |
+| htx - kucoin | €5.000,00 | 2026-11-20 | 22.8 u | 42 | 24 | 18 | €7,01 | €0,00 (1x) | **€7,01** | 0.14% | €-143,47 | €-136,46 | -2.73% |
+| htx - kucoin | €5.000,00 | 2026-11-21 | 22.9 u | 32 | 13 | 19 | €2,37 | €0,11 (4x) | **€2,27** | 0.05% | €5,80 | €8,06 | 0.16% |
+| htx - kucoin | €5.000,00 | 2026-11-22 | 22.1 u | 40 | 26 | 14 | €6,65 | €0,14 (3x) | **€6,50** | 0.13% | €-5,75 | €0,75 | 0.01% |
+| htx - kucoin | €5.000,00 | 2026-11-23 | 19.7 u | 15 | 8 | 7 | €1,84 | €0,10 (1x) | **€1,74** | 0.03% | €39,09 | €40,83 | 0.82% |
+| htx - kucoin | €5.000,00 | 2026-11-24 | 19.5 u | 43 | 36 | 7 | €1,34 | €0,17 (1x) | **€1,18** | 0.02% | €-34,61 | €-33,43 | -0.67% |
+| htx - kucoin | €5.000,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €79,24 | €79,24 | 1.58% |
+| htx - kucoin | €5.000,00 | 2026-11-26 | 4.6 u | 6 | 4 | 2 | €0,11 | €0,00 (2x) | **€0,11** | 0.00% | €-1,59 | €-1,48 | -0.03% |
 | bitget - htx | €100,00 | 2026-11-19 | 14.9 u | 20 | 20 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €100,00 | 2026-11-20 | 22.8 u | 39 | 39 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €100,00 | 2026-11-21 | 22.9 u | 47 | 47 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
@@ -439,7 +439,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitget - htx | €100,00 | 2026-11-23 | 19.7 u | 27 | 27 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €100,00 | 2026-11-24 | 19.5 u | 33 | 33 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €100,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
-| bitget - htx | €100,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
+| bitget - htx | €100,00 | 2026-11-26 | 4.6 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €150,00 | 2026-11-19 | 14.9 u | 20 | 20 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €150,00 | 2026-11-20 | 22.8 u | 39 | 39 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €150,00 | 2026-11-21 | 22.9 u | 47 | 47 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
@@ -447,7 +447,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitget - htx | €150,00 | 2026-11-23 | 19.7 u | 27 | 27 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €150,00 | 2026-11-24 | 19.5 u | 33 | 33 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €150,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
-| bitget - htx | €150,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
+| bitget - htx | €150,00 | 2026-11-26 | 4.6 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €200,00 | 2026-11-19 | 14.9 u | 20 | 20 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €200,00 | 2026-11-20 | 22.8 u | 39 | 39 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €200,00 | 2026-11-21 | 22.9 u | 47 | 47 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
@@ -455,7 +455,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitget - htx | €200,00 | 2026-11-23 | 19.7 u | 27 | 27 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €200,00 | 2026-11-24 | 19.5 u | 33 | 33 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €200,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
-| bitget - htx | €200,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
+| bitget - htx | €200,00 | 2026-11-26 | 4.6 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €2.000,00 | 2026-11-19 | 14.9 u | 20 | 20 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €2.000,00 | 2026-11-20 | 22.8 u | 39 | 39 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €2.000,00 | 2026-11-21 | 22.9 u | 47 | 47 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
@@ -463,55 +463,55 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitget - htx | €2.000,00 | 2026-11-23 | 19.7 u | 27 | 27 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €2.000,00 | 2026-11-24 | 19.5 u | 33 | 32 | 1 | €0,05 | €0,00 (0x) | **€0,05** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €2.000,00 | 2026-11-25 | 3.3 u | 10 | 10 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
-| bitget - htx | €2.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
+| bitget - htx | €2.000,00 | 2026-11-26 | 4.6 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €5.000,00 | 2026-11-19 | 14.9 u | 20 | 6 | 14 | €1,23 | €0,70 (10x) | **€0,53** | 0.01% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €5.000,00 | 2026-11-20 | 22.8 u | 39 | 8 | 31 | €6,69 | €0,64 (26x) | **€6,05** | 0.12% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €5.000,00 | 2026-11-21 | 22.9 u | 47 | 8 | 39 | €3,77 | €1,59 (31x) | **€2,18** | 0.04% | onbekend | onbekend* | onbekend* |
-| bitget - htx | €5.000,00 | 2026-11-22 | 22.1 u | 39 | 17 | 22 | €4,48 | €0,72 (16x) | **€3,77** | 0.08% | onbekend | onbekend* | onbekend* |
-| bitget - htx | €5.000,00 | 2026-11-23 | 19.7 u | 27 | 10 | 17 | €1,99 | €0,84 (15x) | **€1,14** | 0.02% | onbekend | onbekend* | onbekend* |
+| bitget - htx | €5.000,00 | 2026-11-22 | 22.1 u | 39 | 17 | 22 | €4,48 | €0,72 (16x) | **€3,76** | 0.08% | onbekend | onbekend* | onbekend* |
+| bitget - htx | €5.000,00 | 2026-11-23 | 19.7 u | 27 | 10 | 17 | €1,99 | €0,85 (15x) | **€1,14** | 0.02% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €5.000,00 | 2026-11-24 | 19.5 u | 33 | 18 | 15 | €2,16 | €0,86 (13x) | **€1,30** | 0.03% | onbekend | onbekend* | onbekend* |
 | bitget - htx | €5.000,00 | 2026-11-25 | 3.3 u | 10 | 8 | 2 | €0,12 | €0,08 (1x) | **€0,04** | 0.00% | onbekend | onbekend* | onbekend* |
-| bitget - htx | €5.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | onbekend | onbekend* | onbekend* |
-| gate - htx | €100,00 | 2026-11-19 | 14.9 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,82 | €-0,82 | -0.82% |
-| gate - htx | €100,00 | 2026-11-20 | 22.8 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,64 | €-2,64 | -2.64% |
-| gate - htx | €100,00 | 2026-11-21 | 22.9 u | 36 | 36 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,09 | €0,09 | 0.09% |
-| gate - htx | €100,00 | 2026-11-22 | 22.1 u | 35 | 35 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,67 | €-0,67 | -0.67% |
-| gate - htx | €100,00 | 2026-11-23 | 19.7 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,45 | €0,45 | 0.45% |
-| gate - htx | €100,00 | 2026-11-24 | 19.5 u | 14 | 14 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,97 | €-0,97 | -0.97% |
-| gate - htx | €100,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,50 | €1,50 | 1.50% |
-| gate - htx | €100,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,49 | €0,49 | 0.49% |
-| gate - htx | €150,00 | 2026-11-19 | 14.9 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,22 | €-1,22 | -0.82% |
-| gate - htx | €150,00 | 2026-11-20 | 22.8 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,95 | €-3,95 | -2.64% |
-| gate - htx | €150,00 | 2026-11-21 | 22.9 u | 36 | 36 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,14 | €0,14 | 0.09% |
-| gate - htx | €150,00 | 2026-11-22 | 22.1 u | 35 | 35 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,01 | €-1,01 | -0.67% |
-| gate - htx | €150,00 | 2026-11-23 | 19.7 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,67 | €0,67 | 0.45% |
-| gate - htx | €150,00 | 2026-11-24 | 19.5 u | 14 | 14 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,46 | €-1,46 | -0.97% |
-| gate - htx | €150,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,26 | €2,26 | 1.50% |
-| gate - htx | €150,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,74 | €0,74 | 0.49% |
-| gate - htx | €200,00 | 2026-11-19 | 14.9 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,63 | €-1,63 | -0.82% |
-| gate - htx | €200,00 | 2026-11-20 | 22.8 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-5,27 | €-5,27 | -2.64% |
-| gate - htx | €200,00 | 2026-11-21 | 22.9 u | 36 | 36 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,19 | €0,19 | 0.09% |
-| gate - htx | €200,00 | 2026-11-22 | 22.1 u | 35 | 35 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,34 | €-1,34 | -0.67% |
-| gate - htx | €200,00 | 2026-11-23 | 19.7 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,90 | €0,90 | 0.45% |
-| gate - htx | €200,00 | 2026-11-24 | 19.5 u | 14 | 14 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,94 | €-1,94 | -0.97% |
-| gate - htx | €200,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €3,01 | €3,01 | 1.50% |
-| gate - htx | €200,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,98 | €0,98 | 0.49% |
-| gate - htx | €2.000,00 | 2026-11-19 | 14.9 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-16,33 | €-16,33 | -0.82% |
-| gate - htx | €2.000,00 | 2026-11-20 | 22.8 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-52,72 | €-52,72 | -2.64% |
-| gate - htx | €2.000,00 | 2026-11-21 | 22.9 u | 36 | 36 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,86 | €1,86 | 0.09% |
-| gate - htx | €2.000,00 | 2026-11-22 | 22.1 u | 35 | 34 | 1 | €0,17 | €0,00 (0x) | **€0,17** | 0.01% | €-13,41 | €-13,24 | -0.66% |
-| gate - htx | €2.000,00 | 2026-11-23 | 19.7 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €8,96 | €8,96 | 0.45% |
-| gate - htx | €2.000,00 | 2026-11-24 | 19.5 u | 14 | 14 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-19,42 | €-19,42 | -0.97% |
-| gate - htx | €2.000,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €30,08 | €30,08 | 1.50% |
-| gate - htx | €2.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €9,82 | €9,82 | 0.49% |
-| gate - htx | €5.000,00 | 2026-11-19 | 14.9 u | 19 | 14 | 5 | €0,91 | €0,17 (1x) | **€0,74** | 0.01% | €-40,83 | €-40,09 | -0.80% |
-| gate - htx | €5.000,00 | 2026-11-20 | 22.8 u | 32 | 12 | 20 | €6,74 | €0,66 (8x) | **€6,08** | 0.12% | €-131,78 | €-125,70 | -2.51% |
-| gate - htx | €5.000,00 | 2026-11-21 | 22.9 u | 36 | 13 | 23 | €4,59 | €1,00 (14x) | **€3,59** | 0.07% | €4,63 | €8,22 | 0.16% |
-| gate - htx | €5.000,00 | 2026-11-22 | 22.1 u | 35 | 11 | 24 | €6,29 | €0,97 (18x) | **€5,31** | 0.11% | €-33,54 | €-28,22 | -0.56% |
-| gate - htx | €5.000,00 | 2026-11-23 | 19.7 u | 25 | 17 | 8 | €2,79 | €0,40 (5x) | **€2,39** | 0.05% | €22,32 | €24,71 | 0.49% |
-| gate - htx | €5.000,00 | 2026-11-24 | 19.5 u | 14 | 9 | 5 | €2,01 | €0,00 (1x) | **€2,01** | 0.04% | €-48,48 | €-46,47 | -0.93% |
-| gate - htx | €5.000,00 | 2026-11-25 | 3.3 u | 3 | 1 | 2 | €0,81 | €0,01 (1x) | **€0,80** | 0.02% | €75,16 | €75,96 | 1.52% |
-| gate - htx | €5.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €24,51 | €24,51 | 0.49% |
+| bitget - htx | €5.000,00 | 2026-11-26 | 4.6 u | 2 | 1 | 1 | €0,04 | €0,08 (1x) | **€-0,05** | -0.00% | onbekend | onbekend* | onbekend* |
+| gate - htx | €100,00 | 2026-11-19 | 14.9 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,83 | €-0,83 | -0.83% |
+| gate - htx | €100,00 | 2026-11-20 | 22.8 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,62 | €-2,62 | -2.62% |
+| gate - htx | €100,00 | 2026-11-21 | 22.9 u | 36 | 36 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,07 | €0,07 | 0.07% |
+| gate - htx | €100,00 | 2026-11-22 | 22.1 u | 35 | 35 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,66 | €-0,66 | -0.66% |
+| gate - htx | €100,00 | 2026-11-23 | 19.7 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,47 | €0,47 | 0.47% |
+| gate - htx | €100,00 | 2026-11-24 | 19.5 u | 14 | 14 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,99 | €-0,99 | -0.99% |
+| gate - htx | €100,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,51 | €1,51 | 1.51% |
+| gate - htx | €100,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,47 | €0,47 | 0.47% |
+| gate - htx | €150,00 | 2026-11-19 | 14.9 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,24 | €-1,24 | -0.83% |
+| gate - htx | €150,00 | 2026-11-20 | 22.8 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-3,94 | €-3,94 | -2.62% |
+| gate - htx | €150,00 | 2026-11-21 | 22.9 u | 36 | 36 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,11 | €0,11 | 0.07% |
+| gate - htx | €150,00 | 2026-11-22 | 22.1 u | 35 | 35 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,99 | €-0,99 | -0.66% |
+| gate - htx | €150,00 | 2026-11-23 | 19.7 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,70 | €0,70 | 0.47% |
+| gate - htx | €150,00 | 2026-11-24 | 19.5 u | 14 | 14 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,48 | €-1,48 | -0.99% |
+| gate - htx | €150,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €2,26 | €2,26 | 1.51% |
+| gate - htx | €150,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,71 | €0,71 | 0.47% |
+| gate - htx | €200,00 | 2026-11-19 | 14.9 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,65 | €-1,65 | -0.83% |
+| gate - htx | €200,00 | 2026-11-20 | 22.8 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-5,25 | €-5,25 | -2.62% |
+| gate - htx | €200,00 | 2026-11-21 | 22.9 u | 36 | 36 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,15 | €0,15 | 0.07% |
+| gate - htx | €200,00 | 2026-11-22 | 22.1 u | 35 | 35 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,32 | €-1,32 | -0.66% |
+| gate - htx | €200,00 | 2026-11-23 | 19.7 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,93 | €0,93 | 0.47% |
+| gate - htx | €200,00 | 2026-11-24 | 19.5 u | 14 | 14 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,98 | €-1,98 | -0.99% |
+| gate - htx | €200,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €3,01 | €3,01 | 1.51% |
+| gate - htx | €200,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,95 | €0,95 | 0.47% |
+| gate - htx | €2.000,00 | 2026-11-19 | 14.9 u | 19 | 19 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-16,50 | €-16,50 | -0.83% |
+| gate - htx | €2.000,00 | 2026-11-20 | 22.8 u | 32 | 32 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-52,47 | €-52,47 | -2.62% |
+| gate - htx | €2.000,00 | 2026-11-21 | 22.9 u | 36 | 36 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,48 | €1,48 | 0.07% |
+| gate - htx | €2.000,00 | 2026-11-22 | 22.1 u | 35 | 34 | 1 | €0,17 | €0,00 (0x) | **€0,17** | 0.01% | €-13,24 | €-13,08 | -0.65% |
+| gate - htx | €2.000,00 | 2026-11-23 | 19.7 u | 25 | 25 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €9,30 | €9,30 | 0.47% |
+| gate - htx | €2.000,00 | 2026-11-24 | 19.5 u | 14 | 14 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-19,79 | €-19,79 | -0.99% |
+| gate - htx | €2.000,00 | 2026-11-25 | 3.3 u | 3 | 3 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €30,12 | €30,12 | 1.51% |
+| gate - htx | €2.000,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €9,49 | €9,49 | 0.47% |
+| gate - htx | €5.000,00 | 2026-11-19 | 14.9 u | 19 | 14 | 5 | €0,91 | €0,17 (1x) | **€0,74** | 0.01% | €-41,25 | €-40,52 | -0.81% |
+| gate - htx | €5.000,00 | 2026-11-20 | 22.8 u | 32 | 12 | 20 | €6,74 | €0,66 (8x) | **€6,08** | 0.12% | €-131,16 | €-125,08 | -2.50% |
+| gate - htx | €5.000,00 | 2026-11-21 | 22.9 u | 36 | 13 | 23 | €4,59 | €1,00 (14x) | **€3,59** | 0.07% | €3,70 | €7,29 | 0.15% |
+| gate - htx | €5.000,00 | 2026-11-22 | 22.1 u | 35 | 11 | 24 | €6,29 | €0,97 (18x) | **€5,31** | 0.11% | €-33,12 | €-27,80 | -0.56% |
+| gate - htx | €5.000,00 | 2026-11-23 | 19.7 u | 25 | 17 | 8 | €2,79 | €0,40 (5x) | **€2,39** | 0.05% | €23,18 | €25,57 | 0.51% |
+| gate - htx | €5.000,00 | 2026-11-24 | 19.5 u | 14 | 9 | 5 | €2,01 | €0,00 (1x) | **€2,01** | 0.04% | €-49,43 | €-47,41 | -0.95% |
+| gate - htx | €5.000,00 | 2026-11-25 | 3.3 u | 3 | 1 | 2 | €0,81 | €0,01 (1x) | **€0,80** | 0.02% | €75,26 | €76,07 | 1.52% |
+| gate - htx | €5.000,00 | 2026-11-26 | 4.6 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €23,69 | €23,69 | 0.47% |
 | bitget - kucoin | €100,00 | 2026-11-19 | 14.9 u | 21 | 21 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,41 | €-0,41 | -0.41% |
 | bitget - kucoin | €100,00 | 2026-11-20 | 22.8 u | 24 | 24 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,47 | €-1,47 | -1.47% |
 | bitget - kucoin | €100,00 | 2026-11-21 | 22.9 u | 39 | 39 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,13 | €-0,13 | -0.13% |
@@ -519,7 +519,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitget - kucoin | €100,00 | 2026-11-23 | 19.7 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,07 | €-0,07 | -0.07% |
 | bitget - kucoin | €100,00 | 2026-11-24 | 19.5 u | 63 | 63 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,22 | €0,22 | 0.22% |
 | bitget - kucoin | €100,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,50 | €0,50 | 0.50% |
-| bitget - kucoin | €100,00 | 2026-11-26 | 1.0 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,09 | €0,09 | 0.09% |
+| bitget - kucoin | €100,00 | 2026-11-26 | 4.6 u | 5 | 5 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,42 | €-0,42 | -0.42% |
 | bitget - kucoin | €150,00 | 2026-11-19 | 14.9 u | 21 | 21 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,62 | €-0,62 | -0.41% |
 | bitget - kucoin | €150,00 | 2026-11-20 | 22.8 u | 24 | 24 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,20 | €-2,20 | -1.47% |
 | bitget - kucoin | €150,00 | 2026-11-21 | 22.9 u | 39 | 39 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,20 | €-0,20 | -0.13% |
@@ -527,7 +527,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitget - kucoin | €150,00 | 2026-11-23 | 19.7 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,10 | €-0,10 | -0.07% |
 | bitget - kucoin | €150,00 | 2026-11-24 | 19.5 u | 63 | 63 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,33 | €0,33 | 0.22% |
 | bitget - kucoin | €150,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,75 | €0,75 | 0.50% |
-| bitget - kucoin | €150,00 | 2026-11-26 | 1.0 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,13 | €0,13 | 0.09% |
+| bitget - kucoin | €150,00 | 2026-11-26 | 4.6 u | 5 | 5 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,62 | €-0,62 | -0.42% |
 | bitget - kucoin | €200,00 | 2026-11-19 | 14.9 u | 21 | 21 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,83 | €-0,83 | -0.41% |
 | bitget - kucoin | €200,00 | 2026-11-20 | 22.8 u | 24 | 24 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,93 | €-2,93 | -1.47% |
 | bitget - kucoin | €200,00 | 2026-11-21 | 22.9 u | 39 | 39 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,27 | €-0,27 | -0.13% |
@@ -535,7 +535,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitget - kucoin | €200,00 | 2026-11-23 | 19.7 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,14 | €-0,14 | -0.07% |
 | bitget - kucoin | €200,00 | 2026-11-24 | 19.5 u | 63 | 63 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,44 | €0,44 | 0.22% |
 | bitget - kucoin | €200,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,99 | €0,99 | 0.50% |
-| bitget - kucoin | €200,00 | 2026-11-26 | 1.0 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,17 | €0,17 | 0.09% |
+| bitget - kucoin | €200,00 | 2026-11-26 | 4.6 u | 5 | 5 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,83 | €-0,83 | -0.42% |
 | bitget - kucoin | €2.000,00 | 2026-11-19 | 14.9 u | 21 | 14 | 7 | €0,50 | €0,00 (0x) | **€0,50** | 0.03% | €-8,26 | €-7,75 | -0.39% |
 | bitget - kucoin | €2.000,00 | 2026-11-20 | 22.8 u | 24 | 14 | 10 | €1,60 | €0,00 (2x) | **€1,60** | 0.08% | €-29,30 | €-27,71 | -1.39% |
 | bitget - kucoin | €2.000,00 | 2026-11-21 | 22.9 u | 39 | 25 | 14 | €0,58 | €0,57 (9x) | **€0,01** | 0.00% | €-2,69 | €-2,68 | -0.13% |
@@ -543,15 +543,15 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | bitget - kucoin | €2.000,00 | 2026-11-23 | 19.7 u | 46 | 46 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,37 | €-1,37 | -0.07% |
 | bitget - kucoin | €2.000,00 | 2026-11-24 | 19.5 u | 63 | 57 | 6 | €2,19 | €0,00 (0x) | **€2,19** | 0.11% | €4,37 | €6,56 | 0.33% |
 | bitget - kucoin | €2.000,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €9,93 | €9,93 | 0.50% |
-| bitget - kucoin | €2.000,00 | 2026-11-26 | 1.0 u | 2 | 1 | 1 | €0,00 | €0,08 (1x) | **€-0,07** | -0.00% | €1,72 | €1,65 | 0.08% |
+| bitget - kucoin | €2.000,00 | 2026-11-26 | 4.6 u | 5 | 4 | 1 | €0,00 | €0,08 (1x) | **€-0,07** | -0.00% | €-8,31 | €-8,38 | -0.42% |
 | bitget - kucoin | €5.000,00 | 2026-11-19 | 14.9 u | 21 | 8 | 13 | €3,07 | €2,26 (12x) | **€0,81** | 0.02% | €-20,63 | €-19,82 | -0.40% |
 | bitget - kucoin | €5.000,00 | 2026-11-20 | 22.8 u | 24 | 6 | 18 | €6,24 | €1,79 (12x) | **€4,44** | 0.09% | €-73,16 | €-68,71 | -1.37% |
-| bitget - kucoin | €5.000,00 | 2026-11-21 | 22.9 u | 39 | 12 | 27 | €4,32 | €2,96 (21x) | **€1,36** | 0.03% | €-6,54 | €-5,19 | -0.10% |
-| bitget - kucoin | €5.000,00 | 2026-11-22 | 22.1 u | 49 | 39 | 10 | €1,70 | €1,39 (6x) | **€0,31** | 0.01% | €-65,00 | €-64,69 | -1.29% |
-| bitget - kucoin | €5.000,00 | 2026-11-23 | 19.7 u | 46 | 36 | 10 | €0,69 | €1,00 (6x) | **€-0,32** | -0.01% | €-3,48 | €-3,79 | -0.08% |
-| bitget - kucoin | €5.000,00 | 2026-11-24 | 19.5 u | 63 | 53 | 10 | €6,09 | €0,91 (5x) | **€5,17** | 0.10% | €11,00 | €16,17 | 0.32% |
-| bitget - kucoin | €5.000,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €24,82 | €24,82 | 0.50% |
-| bitget - kucoin | €5.000,00 | 2026-11-26 | 1.0 u | 2 | 1 | 1 | €0,01 | €0,08 (1x) | **€-0,07** | -0.00% | €4,26 | €4,19 | 0.08% |
+| bitget - kucoin | €5.000,00 | 2026-11-21 | 22.9 u | 39 | 12 | 27 | €4,37 | €3,27 (22x) | **€1,10** | 0.02% | €-6,55 | €-5,45 | -0.11% |
+| bitget - kucoin | €5.000,00 | 2026-11-22 | 22.1 u | 49 | 40 | 9 | €1,69 | €1,39 (6x) | **€0,31** | 0.01% | €-65,00 | €-64,69 | -1.29% |
+| bitget - kucoin | €5.000,00 | 2026-11-23 | 19.7 u | 46 | 34 | 12 | €1,61 | €1,00 (6x) | **€0,61** | 0.01% | €-3,40 | €-2,78 | -0.06% |
+| bitget - kucoin | €5.000,00 | 2026-11-24 | 19.5 u | 63 | 53 | 10 | €6,09 | €1,19 (6x) | **€4,90** | 0.10% | €10,96 | €15,86 | 0.32% |
+| bitget - kucoin | €5.000,00 | 2026-11-25 | 3.3 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €24,87 | €24,87 | 0.50% |
+| bitget - kucoin | €5.000,00 | 2026-11-26 | 4.6 u | 5 | 3 | 2 | €0,10 | €0,08 (1x) | **€0,02** | 0.00% | €-20,68 | €-20,66 | -0.41% |
 | htx - xt | €100,00 | 2026-11-19 | 14.9 u | 18 | 18 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,05 | €-1,05 | -1.05% |
 | htx - xt | €100,00 | 2026-11-20 | 22.8 u | 17 | 17 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,70 | €-2,70 | -2.70% |
 | htx - xt | €100,00 | 2026-11-21 | 22.9 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,15 | €-0,15 | -0.15% |
@@ -559,7 +559,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | htx - xt | €100,00 | 2026-11-23 | 19.7 u | 9 | 9 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,81 | €0,81 | 0.81% |
 | htx - xt | €100,00 | 2026-11-24 | 19.5 u | 5 | 5 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,52 | €-0,52 | -0.52% |
 | htx - xt | €100,00 | 2026-11-25 | 3.3 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,71 | €0,71 | 0.71% |
-| htx - xt | €100,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,59 | €0,59 | 0.59% |
+| htx - xt | €100,00 | 2026-11-26 | 4.6 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,49 | €0,49 | 0.49% |
 | htx - xt | €150,00 | 2026-11-19 | 14.9 u | 18 | 18 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,57 | €-1,57 | -1.05% |
 | htx - xt | €150,00 | 2026-11-20 | 22.8 u | 17 | 17 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-4,05 | €-4,05 | -2.70% |
 | htx - xt | €150,00 | 2026-11-21 | 22.9 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,22 | €-0,22 | -0.15% |
@@ -567,7 +567,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | htx - xt | €150,00 | 2026-11-23 | 19.7 u | 9 | 9 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,21 | €1,21 | 0.81% |
 | htx - xt | €150,00 | 2026-11-24 | 19.5 u | 5 | 5 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,77 | €-0,77 | -0.52% |
 | htx - xt | €150,00 | 2026-11-25 | 3.3 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,06 | €1,06 | 0.71% |
-| htx - xt | €150,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,88 | €0,88 | 0.59% |
+| htx - xt | €150,00 | 2026-11-26 | 4.6 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,73 | €0,73 | 0.49% |
 | htx - xt | €200,00 | 2026-11-19 | 14.9 u | 18 | 18 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-2,10 | €-2,10 | -1.05% |
 | htx - xt | €200,00 | 2026-11-20 | 22.8 u | 17 | 17 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-5,40 | €-5,40 | -2.70% |
 | htx - xt | €200,00 | 2026-11-21 | 22.9 u | 15 | 15 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-0,29 | €-0,29 | -0.15% |
@@ -575,7 +575,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | htx - xt | €200,00 | 2026-11-23 | 19.7 u | 9 | 9 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,61 | €1,61 | 0.81% |
 | htx - xt | €200,00 | 2026-11-24 | 19.5 u | 5 | 5 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €-1,03 | €-1,03 | -0.52% |
 | htx - xt | €200,00 | 2026-11-25 | 3.3 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,42 | €1,42 | 0.71% |
-| htx - xt | €200,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €1,18 | €1,18 | 0.59% |
+| htx - xt | €200,00 | 2026-11-26 | 4.6 u | 2 | 2 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €0,98 | €0,98 | 0.49% |
 | htx - xt | €2.000,00 | 2026-11-19 | 14.9 u | 18 | 14 | 4 | €0,62 | €0,00 (0x) | **€0,62** | 0.03% | €-20,97 | €-20,35 | -1.02% |
 | htx - xt | €2.000,00 | 2026-11-20 | 22.8 u | 17 | 9 | 8 | €3,71 | €0,12 (2x) | **€3,59** | 0.18% | €-53,94 | €-50,36 | -2.52% |
 | htx - xt | €2.000,00 | 2026-11-21 | 22.9 u | 15 | 7 | 8 | €2,91 | €0,01 (1x) | **€2,90** | 0.14% | €-2,90 | €0,00 | 0.00% |
@@ -583,7 +583,7 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | htx - xt | €2.000,00 | 2026-11-23 | 19.7 u | 9 | 6 | 3 | €0,51 | €0,00 (0x) | **€0,51** | 0.03% | €16,14 | €16,64 | 0.83% |
 | htx - xt | €2.000,00 | 2026-11-24 | 19.5 u | 5 | 4 | 1 | €0,19 | €0,00 (0x) | **€0,19** | 0.01% | €-10,31 | €-10,12 | -0.51% |
 | htx - xt | €2.000,00 | 2026-11-25 | 3.3 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €14,18 | €14,18 | 0.71% |
-| htx - xt | €2.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €11,77 | €11,77 | 0.59% |
+| htx - xt | €2.000,00 | 2026-11-26 | 4.6 u | 2 | 1 | 1 | €0,05 | €0,01 (1x) | **€0,04** | 0.00% | €9,79 | €9,84 | 0.49% |
 | htx - xt | €5.000,00 | 2026-11-19 | 14.9 u | 18 | 5 | 13 | €5,99 | €4,29 (11x) | **€1,69** | 0.03% | €-52,48 | €-50,78 | -1.02% |
 | htx - xt | €5.000,00 | 2026-11-20 | 22.8 u | 17 | 2 | 15 | €13,28 | €2,81 (9x) | **€10,48** | 0.21% | €-134,57 | €-124,10 | -2.48% |
 | htx - xt | €5.000,00 | 2026-11-21 | 22.9 u | 15 | 6 | 9 | €7,75 | €0,01 (1x) | **€7,74** | 0.15% | €-6,59 | €1,15 | 0.02% |
@@ -591,50 +591,50 @@ Per beurspaar: geld en munten op beide beurzen, elke echte kans uitgevoerd tegen
 | htx - xt | €5.000,00 | 2026-11-23 | 19.7 u | 9 | 6 | 3 | €1,27 | €0,27 (1x) | **€1,00** | 0.02% | €39,88 | €40,88 | 0.82% |
 | htx - xt | €5.000,00 | 2026-11-24 | 19.5 u | 5 | 4 | 1 | €0,47 | €0,38 (1x) | **€0,09** | 0.00% | €-25,97 | €-25,88 | -0.52% |
 | htx - xt | €5.000,00 | 2026-11-25 | 3.3 u | 1 | 1 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €35,26 | €35,26 | 0.71% |
-| htx - xt | €5.000,00 | 2026-11-26 | 1.0 u | 0 | 0 | 0 | €0,00 | €0,00 (0x) | **€0,00** | 0.00% | €29,37 | €29,37 | 0.59% |
+| htx - xt | €5.000,00 | 2026-11-26 | 4.6 u | 2 | 1 | 1 | €0,14 | €0,01 (1x) | **€0,13** | 0.00% | €24,49 | €24,62 | 0.49% |
 
-- htx - kucoin, €100,00: munten ACN, AI, ALGO, ANIME, APT, ATOM, BIO, BONK, BRISE, BSV, BTT, CAP, CELO, CFX, CHIP, CVX, DCR, DYDX, ELA, ENJ, ENS, ENSO, FET, JASMY, JST, KSM, LAT, LISTA, LTC, LUNA, LUNC, MANTRA, MAPO, MEME, MINA, MOVR, NES, NIGHT, NPC, ONE, PEOPLE, PUMP, QNT, RUNE, SAND, SD, SHIB, SOMI, SSV, TAO, TLOS, TRAC, USDS, USTC, VIRTUAL, WAN, WARD, WIN, WLD, XCH, XCN, XDC, XEC, XMR, XTZ, ZBCN; bruto zonder voorraadgrens zou €1.441,57 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- htx - kucoin, €150,00: munten ACN, AI, ALGO, ANIME, APT, ATOM, BIO, BONK, BRISE, BSV, BTT, CAP, CELO, CFX, CHIP, CVX, DCR, DYDX, ELA, ENJ, ENS, ENSO, FET, JASMY, JST, KSM, LAT, LISTA, LTC, LUNA, LUNC, MANTRA, MAPO, MEME, MINA, MOVR, NES, NIGHT, NPC, ONE, PEOPLE, PUMP, QNT, RUNE, SAND, SD, SHIB, SOMI, SSV, TAO, TLOS, TRAC, USDS, USTC, VIRTUAL, WAN, WARD, WIN, WLD, XCH, XCN, XDC, XEC, XMR, XTZ, ZBCN; bruto zonder voorraadgrens zou €1.441,57 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- htx - kucoin, €200,00: munten ACN, AI, ALGO, ANIME, APT, ATOM, BIO, BONK, BRISE, BSV, BTT, CAP, CELO, CFX, CHIP, CVX, DCR, DYDX, ELA, ENJ, ENS, ENSO, FET, JASMY, JST, KSM, LAT, LISTA, LTC, LUNA, LUNC, MANTRA, MAPO, MEME, MINA, MOVR, NES, NIGHT, NPC, ONE, PEOPLE, PUMP, QNT, RUNE, SAND, SD, SHIB, SOMI, SSV, TAO, TLOS, TRAC, USDS, USTC, VIRTUAL, WAN, WARD, WIN, WLD, XCH, XCN, XDC, XEC, XMR, XTZ, ZBCN; bruto zonder voorraadgrens zou €1.441,57 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- htx - kucoin, €2.000,00: munten ACN, AI, ALGO, ANIME, APT, ATOM, BIO, BONK, BRISE, BSV, BTT, CAP, CELO, CFX, CHIP, CVX, DCR, DYDX, ELA, ENJ, ENS, ENSO, FET, JASMY, JST, KSM, LAT, LISTA, LTC, LUNA, LUNC, MANTRA, MAPO, MEME, MINA, MOVR, NES, NIGHT, NPC, ONE, PEOPLE, PUMP, QNT, RUNE, SAND, SD, SHIB, SOMI, SSV, TAO, TLOS, TRAC, USDS, USTC, VIRTUAL, WAN, WARD, WIN, WLD, XCH, XCN, XDC, XEC, XMR, XTZ, ZBCN; bruto zonder voorraadgrens zou €1.441,57 zijn, met voorraad €0,05 (GEZIEN boek, GOK model).
-- htx - kucoin, €5.000,00: munten ACN, AI, ALGO, ANIME, APT, ATOM, BIO, BONK, BRISE, BSV, BTT, CAP, CELO, CFX, CHIP, CVX, DCR, DYDX, ELA, ENJ, ENS, ENSO, FET, JASMY, JST, KSM, LAT, LISTA, LTC, LUNA, LUNC, MANTRA, MAPO, MEME, MINA, MOVR, NES, NIGHT, NPC, ONE, PEOPLE, PUMP, QNT, RUNE, SAND, SD, SHIB, SOMI, SSV, TAO, TLOS, TRAC, USDS, USTC, VIRTUAL, WAN, WARD, WIN, WLD, XCH, XCN, XDC, XEC, XMR, XTZ, ZBCN; bruto zonder voorraadgrens zou €1.440,89 zijn, met voorraad €20,51 (GEZIEN boek, GOK model).
-- bitget - htx, €100,00: munten AB, ACN, AI, ALGO, ANIME, ATOM, BABY, BIO, BONK, BSV, BTT, CBK, CFX, CORE, DYDX, ENA, ENJ, ENS, ENSO, GALA, HBAR, HIVE, INJ, IOST, JASMY, JOE, KAITO, KAS, KSM, LAT, LINK, LISTA, LIT, LUNA, LUNC, M, MANTA, MAPO, MEME, MINA, MOVR, NES, NPC, O, PCI, PEOPLE, PONS, PUFFER, PUMP, QNT, RIVER, S, SAND, SHIB, SNEK, SOMI, SSV, TAO, TIA, TLOS, USTC, VIRTUAL, WARD, WLD, XDC, XTZ, ZEN; bruto zonder voorraadgrens zou €1.411,10 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- bitget - htx, €150,00: munten AB, ACN, AI, ALGO, ANIME, ATOM, BABY, BIO, BONK, BSV, BTT, CBK, CFX, CORE, DYDX, ENA, ENJ, ENS, ENSO, GALA, HBAR, HIVE, INJ, IOST, JASMY, JOE, KAITO, KAS, KSM, LAT, LINK, LISTA, LIT, LUNA, LUNC, M, MANTA, MAPO, MEME, MINA, MOVR, NES, NPC, O, PCI, PEOPLE, PONS, PUFFER, PUMP, QNT, RIVER, S, SAND, SHIB, SNEK, SOMI, SSV, TAO, TIA, TLOS, USTC, VIRTUAL, WARD, WLD, XDC, XTZ, ZEN; bruto zonder voorraadgrens zou €1.411,10 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- bitget - htx, €200,00: munten AB, ACN, AI, ALGO, ANIME, ATOM, BABY, BIO, BONK, BSV, BTT, CBK, CFX, CORE, DYDX, ENA, ENJ, ENS, ENSO, GALA, HBAR, HIVE, INJ, IOST, JASMY, JOE, KAITO, KAS, KSM, LAT, LINK, LISTA, LIT, LUNA, LUNC, M, MANTA, MAPO, MEME, MINA, MOVR, NES, NPC, O, PCI, PEOPLE, PONS, PUFFER, PUMP, QNT, RIVER, S, SAND, SHIB, SNEK, SOMI, SSV, TAO, TIA, TLOS, USTC, VIRTUAL, WARD, WLD, XDC, XTZ, ZEN; bruto zonder voorraadgrens zou €1.411,10 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- bitget - htx, €2.000,00: munten AB, ACN, AI, ALGO, ANIME, ATOM, BABY, BIO, BONK, BSV, BTT, CBK, CFX, CORE, DYDX, ENA, ENJ, ENS, ENSO, GALA, HBAR, HIVE, INJ, IOST, JASMY, JOE, KAITO, KAS, KSM, LAT, LINK, LISTA, LIT, LUNA, LUNC, M, MANTA, MAPO, MEME, MINA, MOVR, NES, NPC, O, PCI, PEOPLE, PONS, PUFFER, PUMP, QNT, RIVER, S, SAND, SHIB, SNEK, SOMI, SSV, TAO, TIA, TLOS, USTC, VIRTUAL, WARD, WLD, XDC, XTZ, ZEN; bruto zonder voorraadgrens zou €1.411,10 zijn, met voorraad €0,05 (GEZIEN boek, GOK model).
-- bitget - htx, €5.000,00: munten AB, ACN, AI, ALGO, ANIME, ATOM, BABY, BIO, BONK, BSV, BTT, CBK, CFX, CORE, DYDX, ENA, ENJ, ENS, ENSO, GALA, HBAR, HIVE, INJ, IOST, JASMY, JOE, KAITO, KAS, KSM, LAT, LINK, LISTA, LIT, LUNA, LUNC, M, MANTA, MAPO, MEME, MINA, MOVR, NES, NPC, O, PCI, PEOPLE, PONS, PUFFER, PUMP, QNT, RIVER, S, SAND, SHIB, SNEK, SOMI, SSV, TAO, TIA, TLOS, USTC, VIRTUAL, WARD, WLD, XDC, XTZ, ZEN; bruto zonder voorraadgrens zou €1.410,48 zijn, met voorraad €20,44 (GEZIEN boek, GOK model).
+- htx - kucoin, €100,00: munten ACN, AI, ALGO, ANIME, APT, ATOM, BIO, BONK, BRISE, BSV, BTT, CAP, CELO, CFX, CHIP, CVX, DCR, DYDX, ELA, ENJ, ENS, ENSO, FET, JASMY, JST, KSM, LAT, LISTA, LTC, LUNA, LUNC, MANTRA, MAPO, MEME, MINA, MOVR, NES, NIGHT, NPC, ONE, PEOPLE, PUMP, QNT, RUNE, SAND, SD, SHIB, SOMI, SSV, TAO, TLOS, TRAC, USDS, USTC, VIRTUAL, WAN, WARD, WIN, WLD, XCH, XCN, XDC, XEC, XMR, XTZ, ZBCN; bruto zonder voorraadgrens zou €1.443,57 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- htx - kucoin, €150,00: munten ACN, AI, ALGO, ANIME, APT, ATOM, BIO, BONK, BRISE, BSV, BTT, CAP, CELO, CFX, CHIP, CVX, DCR, DYDX, ELA, ENJ, ENS, ENSO, FET, JASMY, JST, KSM, LAT, LISTA, LTC, LUNA, LUNC, MANTRA, MAPO, MEME, MINA, MOVR, NES, NIGHT, NPC, ONE, PEOPLE, PUMP, QNT, RUNE, SAND, SD, SHIB, SOMI, SSV, TAO, TLOS, TRAC, USDS, USTC, VIRTUAL, WAN, WARD, WIN, WLD, XCH, XCN, XDC, XEC, XMR, XTZ, ZBCN; bruto zonder voorraadgrens zou €1.443,57 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- htx - kucoin, €200,00: munten ACN, AI, ALGO, ANIME, APT, ATOM, BIO, BONK, BRISE, BSV, BTT, CAP, CELO, CFX, CHIP, CVX, DCR, DYDX, ELA, ENJ, ENS, ENSO, FET, JASMY, JST, KSM, LAT, LISTA, LTC, LUNA, LUNC, MANTRA, MAPO, MEME, MINA, MOVR, NES, NIGHT, NPC, ONE, PEOPLE, PUMP, QNT, RUNE, SAND, SD, SHIB, SOMI, SSV, TAO, TLOS, TRAC, USDS, USTC, VIRTUAL, WAN, WARD, WIN, WLD, XCH, XCN, XDC, XEC, XMR, XTZ, ZBCN; bruto zonder voorraadgrens zou €1.443,57 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- htx - kucoin, €2.000,00: munten ACN, AI, ALGO, ANIME, APT, ATOM, BIO, BONK, BRISE, BSV, BTT, CAP, CELO, CFX, CHIP, CVX, DCR, DYDX, ELA, ENJ, ENS, ENSO, FET, JASMY, JST, KSM, LAT, LISTA, LTC, LUNA, LUNC, MANTRA, MAPO, MEME, MINA, MOVR, NES, NIGHT, NPC, ONE, PEOPLE, PUMP, QNT, RUNE, SAND, SD, SHIB, SOMI, SSV, TAO, TLOS, TRAC, USDS, USTC, VIRTUAL, WAN, WARD, WIN, WLD, XCH, XCN, XDC, XEC, XMR, XTZ, ZBCN; bruto zonder voorraadgrens zou €1.443,57 zijn, met voorraad €0,05 (GEZIEN boek, GOK model).
+- htx - kucoin, €5.000,00: munten ACN, AI, ALGO, ANIME, APT, ATOM, BIO, BONK, BRISE, BSV, BTT, CAP, CELO, CFX, CHIP, CVX, DCR, DYDX, ELA, ENJ, ENS, ENSO, FET, JASMY, JST, KSM, LAT, LISTA, LTC, LUNA, LUNC, MANTRA, MAPO, MEME, MINA, MOVR, NES, NIGHT, NPC, ONE, PEOPLE, PUMP, QNT, RUNE, SAND, SD, SHIB, SOMI, SSV, TAO, TLOS, TRAC, USDS, USTC, VIRTUAL, WAN, WARD, WIN, WLD, XCH, XCN, XDC, XEC, XMR, XTZ, ZBCN; bruto zonder voorraadgrens zou €1.442,89 zijn, met voorraad €20,55 (GEZIEN boek, GOK model).
+- bitget - htx, €100,00: munten AB, ACN, AI, ALGO, ANIME, ATOM, BABY, BIO, BONK, BSV, BTT, CBK, CFX, CORE, DYDX, ENA, ENJ, ENS, ENSO, GALA, HBAR, HIVE, INJ, IOST, JASMY, JOE, KAITO, KAS, KSM, LAT, LINK, LISTA, LIT, LUNA, LUNC, M, MANTA, MAPO, MEME, MINA, MOVR, NES, NPC, O, PCI, PEOPLE, PONS, PUFFER, PUMP, QNT, RIVER, S, SAND, SHIB, SNEK, SOMI, SSV, TAO, TIA, TLOS, USTC, VIRTUAL, WARD, WLD, XDC, XTZ, ZEN; bruto zonder voorraadgrens zou €1.413,20 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- bitget - htx, €150,00: munten AB, ACN, AI, ALGO, ANIME, ATOM, BABY, BIO, BONK, BSV, BTT, CBK, CFX, CORE, DYDX, ENA, ENJ, ENS, ENSO, GALA, HBAR, HIVE, INJ, IOST, JASMY, JOE, KAITO, KAS, KSM, LAT, LINK, LISTA, LIT, LUNA, LUNC, M, MANTA, MAPO, MEME, MINA, MOVR, NES, NPC, O, PCI, PEOPLE, PONS, PUFFER, PUMP, QNT, RIVER, S, SAND, SHIB, SNEK, SOMI, SSV, TAO, TIA, TLOS, USTC, VIRTUAL, WARD, WLD, XDC, XTZ, ZEN; bruto zonder voorraadgrens zou €1.413,20 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- bitget - htx, €200,00: munten AB, ACN, AI, ALGO, ANIME, ATOM, BABY, BIO, BONK, BSV, BTT, CBK, CFX, CORE, DYDX, ENA, ENJ, ENS, ENSO, GALA, HBAR, HIVE, INJ, IOST, JASMY, JOE, KAITO, KAS, KSM, LAT, LINK, LISTA, LIT, LUNA, LUNC, M, MANTA, MAPO, MEME, MINA, MOVR, NES, NPC, O, PCI, PEOPLE, PONS, PUFFER, PUMP, QNT, RIVER, S, SAND, SHIB, SNEK, SOMI, SSV, TAO, TIA, TLOS, USTC, VIRTUAL, WARD, WLD, XDC, XTZ, ZEN; bruto zonder voorraadgrens zou €1.413,20 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- bitget - htx, €2.000,00: munten AB, ACN, AI, ALGO, ANIME, ATOM, BABY, BIO, BONK, BSV, BTT, CBK, CFX, CORE, DYDX, ENA, ENJ, ENS, ENSO, GALA, HBAR, HIVE, INJ, IOST, JASMY, JOE, KAITO, KAS, KSM, LAT, LINK, LISTA, LIT, LUNA, LUNC, M, MANTA, MAPO, MEME, MINA, MOVR, NES, NPC, O, PCI, PEOPLE, PONS, PUFFER, PUMP, QNT, RIVER, S, SAND, SHIB, SNEK, SOMI, SSV, TAO, TIA, TLOS, USTC, VIRTUAL, WARD, WLD, XDC, XTZ, ZEN; bruto zonder voorraadgrens zou €1.413,20 zijn, met voorraad €0,05 (GEZIEN boek, GOK model).
+- bitget - htx, €5.000,00: munten AB, ACN, AI, ALGO, ANIME, ATOM, BABY, BIO, BONK, BSV, BTT, CBK, CFX, CORE, DYDX, ENA, ENJ, ENS, ENSO, GALA, HBAR, HIVE, INJ, IOST, JASMY, JOE, KAITO, KAS, KSM, LAT, LINK, LISTA, LIT, LUNA, LUNC, M, MANTA, MAPO, MEME, MINA, MOVR, NES, NPC, O, PCI, PEOPLE, PONS, PUFFER, PUMP, QNT, RIVER, S, SAND, SHIB, SNEK, SOMI, SSV, TAO, TIA, TLOS, USTC, VIRTUAL, WARD, WLD, XDC, XTZ, ZEN; bruto zonder voorraadgrens zou €1.412,58 zijn, met voorraad €20,47 (GEZIEN boek, GOK model).
 - gate - htx, €100,00: munten AKT, ALGO, APEPE, APT, ATOM, BIO, BRISE, BSV, BTT, CBK, CELO, CORE, CRTS, CVX, DKA, ENJ, ENS, ENSO, GOMINING, GT, HBAR, HIVE, INJ, KAS, KCT, KSM, LAT, LINK, LUNA, LUNC, M, MBX, MEGA, MEME, MOVR, NES, NPC, PENGU, PEOPLE, PYR, QNT, SAND, SC, SD, SEI, SHIB, SOMI, SSV, TLOS, ULTIMA, VIRTUAL, WARD, WLD, XCH, XCN, XDC, ZBCN; bruto zonder voorraadgrens zou €863,79 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
 - gate - htx, €150,00: munten AKT, ALGO, APEPE, APT, ATOM, BIO, BRISE, BSV, BTT, CBK, CELO, CORE, CRTS, CVX, DKA, ENJ, ENS, ENSO, GOMINING, GT, HBAR, HIVE, INJ, KAS, KCT, KSM, LAT, LINK, LUNA, LUNC, M, MBX, MEGA, MEME, MOVR, NES, NPC, PENGU, PEOPLE, PYR, QNT, SAND, SC, SD, SEI, SHIB, SOMI, SSV, TLOS, ULTIMA, VIRTUAL, WARD, WLD, XCH, XCN, XDC, ZBCN; bruto zonder voorraadgrens zou €863,79 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
 - gate - htx, €200,00: munten AKT, ALGO, APEPE, APT, ATOM, BIO, BRISE, BSV, BTT, CBK, CELO, CORE, CRTS, CVX, DKA, ENJ, ENS, ENSO, GOMINING, GT, HBAR, HIVE, INJ, KAS, KCT, KSM, LAT, LINK, LUNA, LUNC, M, MBX, MEGA, MEME, MOVR, NES, NPC, PENGU, PEOPLE, PYR, QNT, SAND, SC, SD, SEI, SHIB, SOMI, SSV, TLOS, ULTIMA, VIRTUAL, WARD, WLD, XCH, XCN, XDC, ZBCN; bruto zonder voorraadgrens zou €863,79 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
 - gate - htx, €2.000,00: munten AKT, ALGO, APEPE, APT, ATOM, BIO, BRISE, BSV, BTT, CBK, CELO, CORE, CRTS, CVX, DKA, ENJ, ENS, ENSO, GOMINING, GT, HBAR, HIVE, INJ, KAS, KCT, KSM, LAT, LINK, LUNA, LUNC, M, MBX, MEGA, MEME, MOVR, NES, NPC, PENGU, PEOPLE, PYR, QNT, SAND, SC, SD, SEI, SHIB, SOMI, SSV, TLOS, ULTIMA, VIRTUAL, WARD, WLD, XCH, XCN, XDC, ZBCN; bruto zonder voorraadgrens zou €863,79 zijn, met voorraad €0,17 (GEZIEN boek, GOK model).
 - gate - htx, €5.000,00: munten AKT, ALGO, APEPE, APT, ATOM, BIO, BRISE, BSV, BTT, CBK, CELO, CORE, CRTS, CVX, DKA, ENJ, ENS, ENSO, GOMINING, GT, HBAR, HIVE, INJ, KAS, KCT, KSM, LAT, LINK, LUNA, LUNC, M, MBX, MEGA, MEME, MOVR, NES, NPC, PENGU, PEOPLE, PYR, QNT, SAND, SC, SD, SEI, SHIB, SOMI, SSV, TLOS, ULTIMA, VIRTUAL, WARD, WLD, XCH, XCN, XDC, ZBCN; bruto zonder voorraadgrens zou €863,13 zijn, met voorraad €24,14 (GEZIEN boek, GOK model).
-- bitget - kucoin, €100,00: munten ACE, BARD, BTC, CARV, CHR, DMC, EDEN, EGL1, ENJ, ENSO, ETH, HMSTR, HYPER, IOST, IR, JST, KAVA, KLV, KNC, LAT, LISTA, LUNC, MASK, MHA, MTX, NES, NOM, PROVE, PYUSD, SNEK, TAC, TLOS, USDC, USDT, USTC, VERONA; bruto zonder voorraadgrens zou €642,25 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- bitget - kucoin, €150,00: munten ACE, BARD, BTC, CARV, CHR, DMC, EDEN, EGL1, ENJ, ENSO, ETH, HMSTR, HYPER, IOST, IR, JST, KAVA, KLV, KNC, LAT, LISTA, LUNC, MASK, MHA, MTX, NES, NOM, PROVE, PYUSD, SNEK, TAC, TLOS, USDC, USDT, USTC, VERONA; bruto zonder voorraadgrens zou €642,25 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- bitget - kucoin, €200,00: munten ACE, BARD, BTC, CARV, CHR, DMC, EDEN, EGL1, ENJ, ENSO, ETH, HMSTR, HYPER, IOST, IR, JST, KAVA, KLV, KNC, LAT, LISTA, LUNC, MASK, MHA, MTX, NES, NOM, PROVE, PYUSD, SNEK, TAC, TLOS, USDC, USDT, USTC, VERONA; bruto zonder voorraadgrens zou €642,25 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- bitget - kucoin, €2.000,00: munten ACE, BARD, BTC, CARV, CHR, DMC, EDEN, EGL1, ENJ, ENSO, ETH, HMSTR, HYPER, IOST, IR, JST, KAVA, KLV, KNC, LAT, LISTA, LUNC, MASK, MHA, MTX, NES, NOM, PROVE, PYUSD, SNEK, TAC, TLOS, USDC, USDT, USTC, VERONA; bruto zonder voorraadgrens zou €641,88 zijn, met voorraad €5,40 (GEZIEN boek, GOK model).
-- bitget - kucoin, €5.000,00: munten ACE, BARD, BTC, CARV, CHR, DMC, EDEN, EGL1, ENJ, ENSO, ETH, HMSTR, HYPER, IOST, IR, JST, KAVA, KLV, KNC, LAT, LISTA, LUNC, MASK, MHA, MTX, NES, NOM, PROVE, PYUSD, SNEK, TAC, TLOS, USDC, USDT, USTC, VERONA; bruto zonder voorraadgrens zou €640,34 zijn, met voorraad €22,11 (GEZIEN boek, GOK model).
-- htx - xt, €100,00: munten ALGO, APEPE, APT, BIO, BSV, CARV, CBK, CELO, CFX, GT, HBAR, KSM, LUNA, LUNC, MEME, MINA, PENGU, PEOPLE, RAIN, SC, SEI, SHIB, SOMI, TLOS, XCH, XDC, XMR; bruto zonder voorraadgrens zou €914,40 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- htx - xt, €150,00: munten ALGO, APEPE, APT, BIO, BSV, CARV, CBK, CELO, CFX, GT, HBAR, KSM, LUNA, LUNC, MEME, MINA, PENGU, PEOPLE, RAIN, SC, SEI, SHIB, SOMI, TLOS, XCH, XDC, XMR; bruto zonder voorraadgrens zou €914,40 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- htx - xt, €200,00: munten ALGO, APEPE, APT, BIO, BSV, CARV, CBK, CELO, CFX, GT, HBAR, KSM, LUNA, LUNC, MEME, MINA, PENGU, PEOPLE, RAIN, SC, SEI, SHIB, SOMI, TLOS, XCH, XDC, XMR; bruto zonder voorraadgrens zou €914,40 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
-- htx - xt, €2.000,00: munten ALGO, APEPE, APT, BIO, BSV, CARV, CBK, CELO, CFX, GT, HBAR, KSM, LUNA, LUNC, MEME, MINA, PENGU, PEOPLE, RAIN, SC, SEI, SHIB, SOMI, TLOS, XCH, XDC, XMR; bruto zonder voorraadgrens zou €914,19 zijn, met voorraad €9,40 (GEZIEN boek, GOK model).
-- htx - xt, €5.000,00: munten ALGO, APEPE, APT, BIO, BSV, CARV, CBK, CELO, CFX, GT, HBAR, KSM, LUNA, LUNC, MEME, MINA, PENGU, PEOPLE, RAIN, SC, SEI, SHIB, SOMI, TLOS, XCH, XDC, XMR; bruto zonder voorraadgrens zou €912,92 zijn, met voorraad €32,42 (GEZIEN boek, GOK model).
+- bitget - kucoin, €100,00: munten ACE, BARD, BTC, CARV, CHR, DMC, EDEN, EGL1, ENJ, ENSO, ETH, HMSTR, HYPER, IOST, IR, JST, KAVA, KLV, KNC, LAT, LISTA, LUNC, MASK, MHA, MTX, NES, NOM, PROVE, PYUSD, SNEK, TAC, TLOS, USDC, USDT, USTC, VERONA; bruto zonder voorraadgrens zou €650,36 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- bitget - kucoin, €150,00: munten ACE, BARD, BTC, CARV, CHR, DMC, EDEN, EGL1, ENJ, ENSO, ETH, HMSTR, HYPER, IOST, IR, JST, KAVA, KLV, KNC, LAT, LISTA, LUNC, MASK, MHA, MTX, NES, NOM, PROVE, PYUSD, SNEK, TAC, TLOS, USDC, USDT, USTC, VERONA; bruto zonder voorraadgrens zou €650,36 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- bitget - kucoin, €200,00: munten ACE, BARD, BTC, CARV, CHR, DMC, EDEN, EGL1, ENJ, ENSO, ETH, HMSTR, HYPER, IOST, IR, JST, KAVA, KLV, KNC, LAT, LISTA, LUNC, MASK, MHA, MTX, NES, NOM, PROVE, PYUSD, SNEK, TAC, TLOS, USDC, USDT, USTC, VERONA; bruto zonder voorraadgrens zou €650,36 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- bitget - kucoin, €2.000,00: munten ACE, BARD, BTC, CARV, CHR, DMC, EDEN, EGL1, ENJ, ENSO, ETH, HMSTR, HYPER, IOST, IR, JST, KAVA, KLV, KNC, LAT, LISTA, LUNC, MASK, MHA, MTX, NES, NOM, PROVE, PYUSD, SNEK, TAC, TLOS, USDC, USDT, USTC, VERONA; bruto zonder voorraadgrens zou €650,00 zijn, met voorraad €5,40 (GEZIEN boek, GOK model).
+- bitget - kucoin, €5.000,00: munten ACE, BARD, BTC, CARV, CHR, DMC, EDEN, EGL1, ENJ, ENSO, ETH, HMSTR, HYPER, IOST, IR, JST, KAVA, KLV, KNC, LAT, LISTA, LUNC, MASK, MHA, MTX, NES, NOM, PROVE, PYUSD, SNEK, TAC, TLOS, USDC, USDT, USTC, VERONA; bruto zonder voorraadgrens zou €648,45 zijn, met voorraad €23,17 (GEZIEN boek, GOK model).
+- htx - xt, €100,00: munten ALGO, APEPE, APT, BIO, BSV, CARV, CBK, CELO, CFX, GT, HBAR, KSM, LUNA, LUNC, MEME, MINA, PENGU, PEOPLE, RAIN, SC, SEI, SHIB, SOMI, TLOS, XCH, XDC, XMR; bruto zonder voorraadgrens zou €920,16 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- htx - xt, €150,00: munten ALGO, APEPE, APT, BIO, BSV, CARV, CBK, CELO, CFX, GT, HBAR, KSM, LUNA, LUNC, MEME, MINA, PENGU, PEOPLE, RAIN, SC, SEI, SHIB, SOMI, TLOS, XCH, XDC, XMR; bruto zonder voorraadgrens zou €920,16 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- htx - xt, €200,00: munten ALGO, APEPE, APT, BIO, BSV, CARV, CBK, CELO, CFX, GT, HBAR, KSM, LUNA, LUNC, MEME, MINA, PENGU, PEOPLE, RAIN, SC, SEI, SHIB, SOMI, TLOS, XCH, XDC, XMR; bruto zonder voorraadgrens zou €920,16 zijn, met voorraad €0,00 (GEZIEN boek, GOK model).
+- htx - xt, €2.000,00: munten ALGO, APEPE, APT, BIO, BSV, CARV, CBK, CELO, CFX, GT, HBAR, KSM, LUNA, LUNC, MEME, MINA, PENGU, PEOPLE, RAIN, SC, SEI, SHIB, SOMI, TLOS, XCH, XDC, XMR; bruto zonder voorraadgrens zou €919,95 zijn, met voorraad €9,46 (GEZIEN boek, GOK model).
+- htx - xt, €5.000,00: munten ALGO, APEPE, APT, BIO, BSV, CARV, CBK, CELO, CFX, GT, HBAR, KSM, LUNA, LUNC, MEME, MINA, PENGU, PEOPLE, RAIN, SC, SEI, SHIB, SOMI, TLOS, XCH, XDC, XMR; bruto zonder voorraadgrens zou €918,68 zijn, met voorraad €32,56 (GEZIEN boek, GOK model).
 
 ### Andere keuzes bij bitvavo - kraken (netto handel, alle dagen samen; GOK)
 
 | Keuze | Inleg | Kansen | Gemist | Bruto winst | Kosten terugschuiven | Netto handel |
 |---|---|---|---|---|---|---|
-| standaard (schuifdrempel 25%, kostengrens 1%) | €150,00 | 185 | 185 | €0,00 | €0,00 | **€0,00** |
-| standaard (schuifdrempel 25%, kostengrens 1%) | €2.000,00 | 185 | 154 | €21,15 | €8,92 | **€12,24** |
-| schuifdrempel 10% | €150,00 | 185 | 185 | €0,00 | €0,00 | **€0,00** |
-| schuifdrempel 10% | €2.000,00 | 185 | 155 | €19,96 | €8,62 | **€11,34** |
-| schuifdrempel 40% | €150,00 | 185 | 185 | €0,00 | €0,00 | **€0,00** |
-| schuifdrempel 40% | €2.000,00 | 185 | 154 | €21,15 | €9,92 | **€11,24** |
-| kostengrens 2% (achteraf vergeleken) | €150,00 | 185 | 185 | €0,00 | €0,00 | **€0,00** |
-| kostengrens 2% (achteraf vergeleken) | €2.000,00 | 185 | 113 | €48,64 | €25,83 | **€22,82** |
-| kostengrens 5% (achteraf vergeleken) | €150,00 | 185 | 185 | €0,00 | €0,00 | **€0,00** |
-| kostengrens 5% (achteraf vergeleken) | €2.000,00 | 185 | 79 | €52,25 | €68,33 | **€-16,08** |
-| alleen MERL en GMT (meer voorraad per munt, achteraf gekozen) | €150,00 | 153 | 151 | €0,19 | €0,00 | **€0,19** |
-| alleen MERL en GMT (meer voorraad per munt, achteraf gekozen) | €2.000,00 | 153 | 52 | €273,47 | €97,99 | **€175,48** |
+| standaard (schuifdrempel 25%, kostengrens 1%) | €150,00 | 195 | 195 | €0,00 | €0,00 | **€0,00** |
+| standaard (schuifdrempel 25%, kostengrens 1%) | €2.000,00 | 195 | 170 | €14,21 | €6,67 | **€7,55** |
+| schuifdrempel 10% | €150,00 | 195 | 195 | €0,00 | €0,00 | **€0,00** |
+| schuifdrempel 10% | €2.000,00 | 195 | 170 | €14,21 | €5,67 | **€8,55** |
+| schuifdrempel 40% | €150,00 | 195 | 195 | €0,00 | €0,00 | **€0,00** |
+| schuifdrempel 40% | €2.000,00 | 195 | 169 | €15,25 | €6,99 | **€8,26** |
+| kostengrens 2% (achteraf vergeleken) | €150,00 | 195 | 195 | €0,00 | €0,00 | **€0,00** |
+| kostengrens 2% (achteraf vergeleken) | €2.000,00 | 195 | 119 | €45,39 | €27,21 | **€18,18** |
+| kostengrens 5% (achteraf vergeleken) | €150,00 | 195 | 195 | €0,00 | €0,00 | **€0,00** |
+| kostengrens 5% (achteraf vergeleken) | €2.000,00 | 195 | 86 | €49,71 | €67,03 | **€-17,33** |
+| alleen MERL en GMT (meer voorraad per munt, achteraf gekozen) | €150,00 | 160 | 158 | €0,19 | €0,00 | **€0,19** |
+| alleen MERL en GMT (meer voorraad per munt, achteraf gekozen) | €2.000,00 | 160 | 54 | €278,30 | €102,92 | **€175,38** |
 
 Kostengrens: terugschuiven mag alleen als de opnamekosten hooguit dat deel van het bedrag zijn. De standaard van 1% is **achteraf** gekozen, nadat bleek dat bij 5% de kosten de winst opaten; de rijen met 2% en 5% laten zien hoeveel de uitkomst van die ene regel afhangt. Bij "alleen ..." tellen de kansen in andere munten niet mee (je hebt die munten dan niet).
 
@@ -654,8 +654,8 @@ Dag en Gemeten: de kansen komen alleen uit de uren dat de scanner mat (GEZIEN); 
 
 ## Over de meting
 
-- Opnamekosten bij de echte kansen: 568 van een netwerk dat aan beide kanten open is, 389 van de beurs zelf (laagste open netwerk), 195 geschat uit wat andere beurzen voor die munt vragen (GOK). Onbekende opnamekosten tellen niet als echte kans.
+- Opnamekosten bij de echte kansen: 583 van een netwerk dat aan beide kanten open is, 400 van de beurs zelf (laagste open netwerk), 202 geschat uit wat andere beurzen voor die munt vragen (GOK). Onbekende opnamekosten tellen niet als echte kans.
 - Netwerk: KuCoin, Gate, Bitget, HTX, XT, Bitstamp, Bitvavo en Poloniex geven hun netwerken per munt. Als beide beurzen dat doen en de namen te koppelen zijn, moet er een netwerk zijn dat aan beide kanten open is. Anders is het netwerk "niet te koppelen" en telt de kans mee (staat apart in de trechter).
 - De duur is gemeten in stappen van ±20 seconden; een kans kan een paar rondes eerder begonnen zijn dan we zagen.
 - Takerkosten: uit de API waar die ze per paar geeft, anders het standaardtarief uit de README (deels GOK).
-- Laatste run: 15 beurzen antwoordden, 2269 munt-quote-paren op minstens twee beurzen (GEZIEN).
+- Laatste run: 15 beurzen antwoordden, 2268 munt-quote-paren op minstens twee beurzen (GEZIEN).
