@@ -88,7 +88,13 @@ def passend(d, tekst, f, breed):
 
 def maak(basis, meta):
     """Alles op 1920x1080; daarna verkleind naar 1280x720."""
-    img = basis.convert("RGBA").resize((1920, 1080), Image.LANCZOS)
+    img = basis.convert("RGBA")
+    if os.environ.get("VB_SUPERHIVE"):   # #38: 2:1 voor Superhive, render 2400x1350 bijgesneden tot 2400x1200
+        if img.size[1] * 2 != img.size[0]:   # 16:9 render: bijsnijden; een 2:1 render (HB_H=1200) blijft heel
+            img = img.resize((2400, 1350), Image.LANCZOS).crop((0, 75, 2400, 1275))
+        img = img.resize((1920, 960), Image.LANCZOS)
+    else:
+        img = img.resize((1920, 1080), Image.LANCZOS)
     W, H = img.size
     donker_links(img, int(W * float(os.environ.get("VB_DONKER_BREED", "0.62"))), int(os.environ.get("VB_DONKER", "215")))
     x0, y = 84, 70
@@ -124,7 +130,10 @@ def maak(basis, meta):
     n_s = sum(1 for g in meta.get("gewrichten", []) if " Hinge " in g)
     n_k = sum(1 for g in meta.get("gewrichten", []) if " Ball " in g)
     if os.environ.get("VB_TELLER", "1") == "1" and n_s + n_k:
-        pil(img, (int((kd[0][0] + kd[1][0]) / 2 * W), int(H * 0.92)), f"{n_s + n_k} joints", 40)
+        if os.environ.get("VB_TELLER_PIJL") and x2 - x1 > 120:   # #38: onder de pijl, niet over de voeten
+            pil(img, ((x1 + x2) // 2, py + 74), f"{n_s + n_k} joints", 40)
+        else:
+            pil(img, (int((kd[0][0] + kd[1][0]) / 2 * W), int(H * 0.92)), f"{n_s + n_k} joints", 40)
     return img.convert("RGB")
 
 
@@ -132,6 +141,10 @@ def main():
     meta = json.load(open(META, encoding="utf-8"))
     r = Image.open(RENDER)
     groot = maak(r, meta)
+    if os.environ.get("VB_SUPERHIVE"):
+        groot.resize((2400, 1200), Image.LANCZOS).save(os.path.join(UIT, f"{NAAM}-2400x1200.jpg"), quality=93)
+        print("klaar", NAAM, "2400x1200")
+        return
     groot.save(os.path.join(UIT, f"{NAAM}-1920x1080.jpg"), quality=92)
     groot.resize((1280, 720), Image.LANCZOS).save(os.path.join(UIT, f"{NAAM}-1280x720.jpg"), quality=92)
     for f in os.listdir(UIT):

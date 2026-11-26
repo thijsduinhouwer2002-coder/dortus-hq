@@ -90,9 +90,10 @@ def label(img, s, p, tekst, kant):
 def maak(basis, W, H, meta, dy, schaal_xy):
     img = basis.copy()
     s = H / 1200.0 if W / H > 1.9 else H / 1080.0 * 0.92
+    s *= float(os.environ.get("TK_GROOT", "1"))   # #38: Daan (#17) wil de tekst 10 tot 15% groter
     links_donker(img, int(W * 0.62))
     x0 = int(W * 0.055)
-    y = int(H * 0.11)
+    y = int(H * float(os.environ.get("TK_BOVEN", "0.11")))
     ic = icoon(int(96 * s))
     img.alpha_composite(ic, (x0, y))
     f_klein = font("Inter.ttf", int(36 * s), "Medium")

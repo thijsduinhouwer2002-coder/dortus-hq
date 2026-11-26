@@ -333,7 +333,9 @@ def main():
     R.kleur_herstel(delen)
     S.plastic(delen, gewricht="contrast", gewricht_kleur=R.GEWRICHT)
     goud_gewrichten(delen)
-    meting["pose"] = R.poseer(delen, R.HELD, uit=UIT_MM, scharnier=lambda n, g: buig(n, g))
+    # HB_POSE: eigen pose als json (#38, organisch figuur), zelfde vorm als R.HELD; anders de heldenpose van de robot
+    pose = json.loads(os.environ["HB_POSE"]) if os.environ.get("HB_POSE") else R.HELD
+    meting["pose"] = R.poseer(delen, pose, uit=UIT_MM, scharnier=lambda n, g: buig(n, g))
     bpy.context.view_layer.update()
     for o in bpy.context.scene.objects:   # alleen de delen van de add-on in beeld (het origineel en hulpvormen weg)
         if o.type in ("MESH", "CURVE", "FONT", "EMPTY") and o not in delen:
