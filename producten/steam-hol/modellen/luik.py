@@ -8,11 +8,12 @@ eronder), twee ijzeren banden en een ring vooraan. Klapt de put, dan is het luik
 Vier beelden naast elkaar, één per stap van de put, zodat je ook ziet wat je kocht:
   0  Spike Pit: honinghout, donkere ijzeren banden.
   1  Rusty Spikes: roestige banden, en achter het luik steken drie roestige stekelpunten uit de kier.
-  2  Deep Pit: dikkere zwarte rand en vier lange stalen punten achter het luik.
+  2  Deep Pit: veel dikkere zwarte rand met zwart beslag op de hoeken, lichte stalen banden en vier dikke stalen punten
+     achter het luik (Daan #213 M1: moet zwaarder lezen dan Rusty Spikes).
   3  Trick Lid: luik met aarde en een plukje gras erop (vermomd als vloer), koperen scharnieren.
 Stap 4 tot 6 houden beeld 3; de gouden ruiten (#162) liggen er bovenop.
 
-Cel 18 x 10 spelpixels per beeld, midden van de cel = midden van het luik op de vloer (Godot: kolom midden, y 37).
+Cel 18 x 12 spelpixels per beeld, onderkant van de cel op y 40,5 (Godot: kolom midden, midden cel op y 34,5).
 Camera kijkt 26 graden schuin op de vloer: het luik is plat en ±5 spelpixels hoog op het scherm (15 px op 120).
 
     <venv>/bin/python luik.py <uit.png> <px_per_spelpixel> <samples>
@@ -21,17 +22,19 @@ Bpy alleen, geen AI-beeld, geen gekocht pakket.
 import sys, os, math, tempfile
 import bpy
 
-CEL_W, CEL_H = 18, 10    # spelpixels per beeld
+CEL_W, CEL_H = 18, 12    # spelpixels per beeld (12 hoog sinds Daan #213: de stalen punten van Deep Pit passen erin)
 BEELDEN = 4
 HOEK = 26.0              # graden: camera kijkt schuin op de vloer
-MIDDEN_Z = 1.2           # hoogte van het cel-midden boven de vloer (spelpixels), het luik ligt mooi in het midden
+MIDDEN_Z = 2.313         # hoogte van het cel-midden boven de vloer: onderkant cel gelijk aan toen (1,2 bij 10 hoog), 2 spelpx meer lucht boven
 
 HOUT = ("c48a4a", "b47a3c", "c99352", "b98040")   # honinghout, lichter dan de gangvloer (±7a4630): het luik springt eruit
 HOUT_NERF = "7a4a22"
 RAND = "160b07"
 IJZER = "3b3632"
 ROEST = ("b4521e", "7c3214")
-STAAL = "c9ccd2"
+STAAL = "dfe3ea"
+STAAL_DONKER = "4a4e57"
+BESLAG = "0c0705"
 KOPER = "c7843a"
 AARDE = ("6e4030", "4c2a1e")
 GRAS = "5aa83c"
@@ -114,9 +117,9 @@ def bol(naam, x, y, z, rx, ry, rz, m):
 def bouw(stap):
     BW, BD = 7.4, 5.3          # halve buitenmaat van de rand (x) en diepte (y): 15,2 breed, net binnen de kolom van 16
     LW, LD = 6.4, 4.4          # halve maat van het luik
-    rand_hoog = 0.9 if stap == 2 else 0.55
+    rand_hoog = 1.2 if stap == 2 else 0.55
     if stap == 2:
-        BW, BD = 7.8, 5.8
+        BW, BD = 8.6, 6.3     # Daan #213 M1: rand rondom ±2 spelpx dikker dan gewoon, Deep Pit leest zwaarder
     # zwarte rand: de put onder het luik, iets boven de vloer zodat de voorkant als donkere streep leest
     blok("rand", -BW, -BD, BW, BD, -0.1, rand_hoog, mat("rand", RAND, 0.8), 0.25)
     # planken in de lengte (van voor naar achter): op het scherm staande voegen, die lees je ook op 1x
@@ -130,6 +133,8 @@ def bouw(stap):
     # twee banden over de planken, voor en achter
     if stap == 1:
         band = mat("roest", ROEST[0], 0.85, 0.3)
+    elif stap == 2:
+        band = mat("staalband", STAAL, 0.35, 0.35)   # licht staal: duurder dan ijzer, op 1x twee lichte strepen
     elif stap == 3:
         band = None
     else:
@@ -154,9 +159,29 @@ def bouw(stap):
         for i, x in enumerate((-4.0, 0.0, 4.0)):
             punt(f"punt{i}", x, LD + 0.6, top + 2.0, 0.7, pm)
     elif stap == 2:
-        pm = mat("staalpunt", STAAL, 0.25, 1.0)
-        for i, x in enumerate((-5.1, -1.7, 1.7, 5.1)):
-            punt(f"punt{i}", x, LD + 0.7, top + 3.0, 0.75, pm)
+        # Daan #213 M1: vier dikke stalen punten, vier vlakken zodat links het licht valt en rechts een donkere kant
+        # ligt; op 1x ±5 px breed onderaan en 6 px boven het luik uit (was 4 grijze stipjes van 2 px)
+        pm = mat("staalpunt", STAAL, 0.3, 0.35)
+        pd = mat("staalpunt_d", STAAL_DONKER, 0.4, 0.5)
+        for i, x in enumerate((-5.0, -1.7, 1.7, 5.0)):
+            bpy.ops.mesh.primitive_cone_add(radius1=1.25, radius2=0.0, depth=3.6, vertices=4,
+                                            location=(x, LD + 0.9, top + 0.9))   # 4 hoeken: vlakken linksvoor en rechtsvoor
+            o = bpy.context.object
+            o.name = f"punt{i}"
+            o.data.materials.append(pm)
+            o.data.materials.append(pd)
+            for f in o.data.polygons:   # de kant van de fakkel af (rechts) donker staal
+                f.material_index = 1 if f.normal.x > 0.1 else 0
+        # zwart ijzerbeslag op de vier hoeken van de rand, met een lichte stalen nagel
+        bm = mat("beslag", BESLAG, 0.6, 0.6)
+        nm = mat("beslagnagel", STAAL, 0.3, 0.4)
+        for sx in (-1, 1):
+            for sy in (-1, 1):
+                bx0, bx1 = sorted((sx * 6.9, sx * 8.9))   # binnen de cel van 18 breed
+                blok(f"beslag{sx}{sy}", bx0, sy * BD - 1.4, bx1, sy * BD + 1.4,
+                     rand_hoog - 0.2, top + 0.35, bm, 0.12)
+                if sy < 0:
+                    bol(f"bnagel{sx}", sx * 7.9, -BD + 0.1, top + 0.45, 0.42, 0.42, 0.3, nm)
     # Trick Lid: koperen scharnieren achteraan, aarde en een plukje gras erop (vermomd als vloer)
     if stap == 3:
         km = mat("koper", KOPER, 0.35, 0.95)

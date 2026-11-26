@@ -9,9 +9,9 @@ extends RefCounted
 
 const BLAD := preload("res://kunst/luik.png")
 const CEL_W := 18.0      # spelpixels per beeld (modellen/luik.py)
-const CEL_H := 10.0
+const CEL_H := 12.0      # 12 sinds Daan #213 M1: de dikke stalen punten van Deep Pit passen erin
 const BEELDEN := 4
-const MIDDEN_Y := 35.5   # midden van het luik op de gangvloer (voeten staan op 37)
+const MIDDEN_Y := 34.5   # midden van de cel; onderkant op 40,5 zoals toen (voeten staan op 37)
 
 const OPLICHT := 0.3     # het luik licht iets meer op dan de put (PUT_OPLICHT 0,2 bovenop): ook ver van de fakkel lees je het hout
 

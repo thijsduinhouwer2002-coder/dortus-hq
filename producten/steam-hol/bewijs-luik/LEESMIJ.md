@@ -21,3 +21,15 @@
 **CPU (GEZIEN):** 9 paren runs om en om met en zonder luik (600 s spel, `--fixed-fps 5` zonder film, zelfde zaad, CPU-tijd van het proces): met luik gemiddeld 29,45 s, zonder 29,66 s (-0,7 procent; per run spreiding ±3 procent, dus het verschil is ruis; gemeten vóór de laatste kleurstap `OPLICHT`, één kleurmenging per put). Tekenbeurten: het luik zet geen eigen opnieuw-tekenen aan; het is één plaatje per put in een beeld dat hol.gd toch al tekent, en voor stap 1 en 2 komt het in de plaats van de putstekels.
 
 **Toetsen:** alle 9 toetsen 0 FOUT op Linux; nieuw in `toets_systemen.gd`: luik staat aan, vaste beeld toont gang onder een dichte put, maat van het blad, elk beeld minstens 14 spelpixels breed.
+
+## Nakeuring Daan #213 M1: Deep Pit zwaarder dan Rusty Spikes (Mila, 26 nov ±21:15 NL)
+
+**Wat er voor de speler veranderde:** Deep Pit (de duurdere stap) leest nu meteen als de zwaarste put. Vier dikke stalen punten achter het luik, links licht staal en rechts een donkere kant, op 1x ±5 px breed onderaan en 6 tot 7 px hoog (GEZIEN, geteld in het blad op 1x; was 4 grijze stipjes van ±2 px). De zwarte rand is rondom ±2 spelpx dikker en hoger, met zwart ijzerbeslag en een lichte nagel op de hoeken, en de twee banden zijn licht staal in plaats van donker ijzer. Gewoon, Rusty en Trick Lid zijn niet veranderd.
+
+**Bron:** `modellen/luik.py` (cel nu 18 x 12 spelpixels, onderkant op dezelfde plek, zodat de punten er niet meer boven afgesneden worden), `godot/hol/luik.gd` (CEL_H 12, MIDDEN_Y 34,5), toets in `toets_systemen.gd` meet de breedte op de rij van het luik.
+
+**Beelden (GEZIEN, Godot 4.3 Linux onder xvfb, `--fixed-fps 1`, `hoogte=120 vers=1 zaad=7 uitleg_klik=6 balk=0 duur=40 put_proef=0..3`, beeld op 38 s):**
+- `vier-stappen-in-spel-gewoon-rusty-deep-trick-1x.png` en `-3x.png`: dezelfde plek in het spel op 1x, van links naar rechts gewoon, Rusty Spikes, Deep Pit, Trick Lid.
+- `blad-voor-daan213-4x.png` en `blad-na-daan213-4x.png`: het blad op 1x (3 px per spelpixel) en 4x uitvergroot, voor en na.
+
+**CPU:** niets aan het tekenen veranderd: nog steeds één plaatje per dichte put, het blad is 288 x 48 in plaats van 288 x 40 (GEZIEN). **Toetsen:** alle 9 toetsen 0 FOUT op Linux (GEZIEN).
