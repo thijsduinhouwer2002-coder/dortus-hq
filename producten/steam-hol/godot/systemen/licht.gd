@@ -22,18 +22,10 @@ const AARDE_DONKER := Color(0.76, 0.73, 0.80)
 # Sanne 26 nov (Iris 499fd9f, mooi 7: "de gang leest op 1x als één zalmroze buis, overal dezelfde lichtkleur"):
 # de gang krijgt minder rood (aarde, geen roze), wordt naar de vloer toe donkerder, en heeft plekken met een andere
 # steen: koele grijze steen en gele leem, zacht in elkaar over, elke ±5 tegels anders. Vast per kolom, dus geen flikkeren.
-# Olaf 26 nov (#210, Iris bb298d3 punt 3: "op 1x weinig verschil tussen de vlakken"): de drie soorten lagen in
-# helderheid binnen 0,035 van elkaar (0,59, 0,56, 0,55). Nu een trap: koele steen donker, gewoon midden, leem licht
-# (0,54, 0,66, 0,75), en de wand wordt metselwerk (zie gang_kleur).
-const GANG_DONKER := Color(0.62, 0.69, 0.68)   # gewoon; was (0.53, 0.61, 0.62)
-const STEEN_KOEL := Color(0.49, 0.54, 0.59)   # was (0.50, 0.555, 0.61): iets donkerder, koel grijs (Daan #183 M2: geen paars)
-const STEEN_LEEM := Color(0.86, 0.83, 0.56)   # was (0.64, 0.615, 0.40): lichter, geel, r/g gelijk (niet roder)
-const VOEG_KOEL := 0.86       # voeg in koele steen (die is al donker; toets "nooit zwart" 0,4)
-const RAND_LICHT := 1.15      # rij texels onder de liggende voeg van elk blok: zo veel lichter (leest als blok)
-const KANT_LICHT := 1.08      # rij texels rechts van de staande voeg van elk blok
+# Olaf 26 nov (#210, Daan #214): voegen, blokken en soorten steen zitten niet meer in deze kaart (die is wazig: 1 texel
+# per 2 x 2 spelpixels, lineair) maar scherp in de wandkunst zelf (hol/metsel.gd). Hier alleen het donker van de gang.
+const GANG_DONKER := Color(0.62, 0.69, 0.68)
 const VLOER_DONKER := 0.86    # onderste spelpixel van de gang: zo veel van de kleur erboven
-const PLEK_KOL := 5.0         # zo veel tegels per plek steen (gemiddeld; elke rand schuift vast -0,75 tot +0,75 tegel)
-const VOEG := 0.80            # donkere voeg tussen twee plekken en de liggende voeg: zo veel van de kleur
 const VLOER_Y := 35           # vanaf hier de vloerstrook waar de helden lopen (Daan #183 kan: warmer)
 const VLOER_WARM := Color(0.66, 0.55, 0.44)   # warme vloerkleur, de vloerstrook gaat er voor VLOER_MENG naartoe
 const VLOER_MENG := 0.7
@@ -102,82 +94,16 @@ static func kleur_op(hol, p: Vector2) -> Color:
 	l = maxf(l, clampf(1.0 - (p.y - OPP) / 10.0, 0.0, 1.0) * TOP_LICHT)
 	return basis.lerp(LICHT, l)
 
-# kleur van een open cel in het donker: blokken steen in rijen, plekken met een andere soort, donkerder naar de vloer.
-# Daan #183 M2 (26 nov): de soort per plek uit een hash (nooit gelijk aan de buur), plekken 3,5 tot 6,5 tegels breed.
-# Olaf #210 (Iris bb298d3 punt 3): een blinde lezer noemde de wand met één voeg per plek nog "aarde" met "zachte banden".
-# Nu metselwerk: rijen van BLOK_H spelpx, blokken van BLOK_B breed, elke rij een half blok verschoven, een donkere voeg
-# boven en links van elk blok en een lichte rand eronder en ernaast, zodat elk blok leest als steen. De soort hoort bij
-# het hele blok (midden van het blok), dus de rand van een plek loopt langs de voegen. Vloerstrook blijft glad en warm.
-const BLOK_H := 8             # rij in spelpx: 1 texel voeg, 1 texel lichte rand, 2 texels steen (STAP 2)
-const BLOK_B := 16            # blok in spelpx (één tegel); oneven rijen een half blok verschoven
+# kleur van een open cel in het donker: donkerder naar de vloer, de vloerstrook warm (Daan #183 kan). Het metselwerk
+# en de soorten steen staan scherp in het vaste beeld (hol/metsel.gd, #210); deze kaart legt er alleen licht en donker op.
 static func gang_kleur(p: Vector2) -> Color:
-	var c: Color
-	var voeg := 1.0
-	if p.y < VLOER_Y:
-		var rij := int(floor((p.y - OPP) / BLOK_H))
-		var ry := fposmod(p.y - OPP, BLOK_H)
-		var schuif := (BLOK_B / 2.0) * posmod(rij, 2)
-		var bx := int(floor((p.x - schuif) / BLOK_B))
-		var jx := fposmod(p.x - schuif, BLOK_B)
-		var midden := schuif + bx * BLOK_B + BLOK_B / 2.0
-		var i := plek_nr(midden)
-		var soort := plek_soort(i)
-		c = [GANG_DONKER, STEEN_KOEL, STEEN_LEEM][soort]
-		# elk blok net iets anders, zodat het geen behang wordt
-		var d := 0.94 + 0.12 * (_hash(bx * 31 + rij, 7) % 1000) / 1000.0
-		c = Color(c.r * d, c.g * d, c.b * d)
-		if ry < 2.0 or jx < 2.0:
-			voeg = VOEG_KOEL if soort == 1 else VOEG   # koele steen is al donker: voeg minder diep, nooit zwart
-		elif ry < 4.0:
-			voeg = RAND_LICHT
-		elif jx < 4.0:
-			voeg = KANT_LICHT
-	else:
-		var i := plek_nr(p.x)
-		c = [GANG_DONKER, STEEN_KOEL, STEEN_LEEM][plek_soort(i)]
-	c = Color(c.r * voeg, c.g * voeg, c.b * voeg)
+	var c := GANG_DONKER
 	if p.y >= GANG_BOVEN:
 		var dv := lerpf(1.0, VLOER_DONKER, clampf((p.y - GANG_BOVEN) / float(H - GANG_BOVEN), 0.0, 1.0))
 		c = Color(c.r * dv, c.g * dv, c.b * dv)
 		if p.y >= VLOER_Y:
 			c = c.lerp(Color(VLOER_WARM.r * dv, VLOER_WARM.g * dv, VLOER_WARM.b * dv), VLOER_MENG)
 	return c
-
-# helderheid van de kleur van een soort (0 gewoon, 1 koel, 2 leem), voor de toets
-static func helder_soort(k: int) -> float:
-	var c: Color = [GANG_DONKER, STEEN_KOEL, STEEN_LEEM][k]
-	return (c.r + c.g + c.b) / 3.0
-
-# nummer van de plek steen waar x (spelpixels) in ligt
-static func plek_nr(x: float) -> int:
-	var i := int(floor(x / (KOL * PLEK_KOL)))
-	if x < plek_begin(i):
-		return i - 1
-	if x >= plek_begin(i + 1):
-		return i + 1
-	return i
-
-# linkerrand van plek i in spelpixels: om de PLEK_KOL tegels, met een vaste schuif van -0,75 tot +0,75 tegel
-static func plek_begin(i: int) -> float:
-	return (i * PLEK_KOL + (_hash(i, 1) % 1000) / 1000.0 * 1.5 - 0.75) * KOL
-
-# 0 gewoon, 1 koele steen, 2 leem. Even plekken uit de hash; een oneven plek kiest uit wat zijn twee buren niet zijn,
-# dus nooit twee keer dezelfde soort naast elkaar en geen vast ritme.
-static func plek_soort(i: int) -> int:
-	if posmod(i, 2) == 0:
-		return _hash(i, 0) % 3
-	var l := _hash(i - 1, 0) % 3
-	var r := _hash(i + 1, 0) % 3
-	var vrij: Array = []
-	for s in 3:
-		if s != l and s != r:
-			vrij.append(s)
-	return vrij[_hash(i, 2) % vrij.size()]
-
-static func _hash(i: int, zout: int) -> int:
-	var v := (i * 73856093) ^ (zout * 19349663) ^ 83492791
-	v = (v ^ (v >> 13)) * 1274126177
-	return absi(v ^ (v >> 16)) % 100000
 
 # midden van de vlam van de fakkel bij de ingang (zelfde plek als hol.gd hem tekent)
 static func fakkel_punt(hol) -> Vector2:

@@ -9,6 +9,7 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 | Proef | `kern/proef.gd` | Olaf | startargumenten (hoogte, duur, log, demo, film, zaad, fps en alle `*_proef`), en de winkelmomenten `moment=hap/val/munt` met de logregel `HOL moment vast` |
 | Hol-lagen | `kern/hol_lagen.gd` | Olaf | maakt de lagen in het hol in tekenvolgorde: klein leven, licht, vleermuis, bordje, Wezens (helden en Gloop bovenop) |
 | Licht | `systemen/licht.gd`, `systemen/licht_gloed.gd` | Olaf | lichtkaart (vermenigvuldigen, halve spelpixels, alleen opnieuw als het hol verandert) en warme gloed (optellen, flakkert 90 tot 100%) om fakkel, schatkamer en schacht; `uit3d=licht` zet licht en leven uit (#97) |
+| Gangwand | `hol/achterwand.gd`, `hol/metsel.gd` | Olaf | achterwand van gegraven cellen (uit `hol_vast.gd`) en scherp metselwerk op de gangwand: voeg 1 spelpx, drie soorten steen in tint, vóór het decor, in het vaste beeld (#210) |
 | Leven | `systemen/leven.gd`, `systemen/leven_beest.gd` | Olaf | om de 5 tot 15 s één klein ding: stofje, goudstof, vleermuis wiegt, worm, mot (bladen Mila, #190); één tegelijk per hol; logregel `HOL leven`; `leven_proef=worm|mot` om te filmen, `wissel=leven|nep` om de CPU binnen één run te meten; toets `toets_licht.gd` (#97) |
 | Ritme | `kern/ritme.gd` | Olaf | wanneer de volgende held komt (ook na het lied van een bard) en het graven in de demo-film |
 | Kroniek-wachtrij | `kern/wachtrij.gd` | Olaf | welke regel wanneer in het tekstvak komt (gebeurtenis gaat voor, binnenkom-regel vervalt na 3 s) |

@@ -54,3 +54,25 @@ De spelloop verschilt iets tussen voor en na (helden, koopmoment 229 s tegen 260
 **CPU:** het beeld per frame is gelijk (dezelfde lichtkaart als textuur in het vaste beeld). De kaart zelf maken kost nu minder: 34 ms tegen 45 ms voor een hele kaart van 46 tegels breed (GEZIEN, twee keer gemeten in één run, Godot headless). In 420 s werd 46 keer gegraven, dus de kaart wordt hooguit ±50 keer opnieuw gemaakt. CPU dus niet hoger (GEZIEN voor de kaart; het geheel binnen +1 procent).
 
 **Toetsen:** 9 x 0 FOUT op Linux (de 9 uit de Windows-toetsrun). `toets_licht.gd` toetst nu: staande voeg tussen blokken, liggende voeg boven elk blok, lichte rand eronder, rijen verschoven, alle drie soorten komen voor, leem minstens 0,15 lichter dan koel, gang gemiddeld donkerder naar de vloer. In koele steen is de voeg minder diep (0,86 in plaats van 0,80), zodat "nooit zwart" (0,4) blijft gelden.
+
+## Versie 4: scherp metselwerk in de wandkunst (Olaf, 26 nov ±21:50 NL, issue #210 na Daan #214)
+
+**Waarom:** Daan #214 nee 7: M1 voegen wazig (de lichtkaart heeft 1 texel per 2 x 2 spelpixels en wordt lineair uitgerekt), M2 soorten alleen verschillend in helderheid, M3 voegen liepen over stut, houweel en ton.
+
+**Wat er voor de speler veranderde:**
+- **M1:** het metselwerk staat nu in het vaste beeld van het hol zelf (`hol/metsel.gd`, aangeroepen uit `hol/achterwand.gd`), op hele spelpixels met nearest: een voeg is 1 spelpx breed en hard. De lichtkaart legt er alleen nog licht en donker op (`systemen/licht.gd`, geen voegen of plekken meer).
+- **M2:** elke soort heeft een eigen tint over de wand: koel blauwgrijs, gewoon zoals de wand, leem oker. Bij de rand van een plek nemen sommige blokken de soort van de buur, zodat de soorten in elkaar grijpen in plaats van te verspringen.
+- **M3:** alleen op de gangwand, getekend ná de koele wand en vóór stenen in de wand, stutten, spinrag, vloerdingen, putten en figuren. De kamers boven de gang (waar stut, houweel en ton in de tegel zitten) krijgen geen voegen meer.
+- Na de eerste blinde lezer ("plat tegelpatroon, goedkoop behang"): blokken 10 tot 22 spelpx breed (vast per blok), lichte bovenkant, donkere onderkant en zijkant, op ±1 op 3 blokken een afgebrokkelde hoek.
+
+**Blinde lezers** (agents zonder code of uitleg, alleen het beeld op 1x, GEZIEN):
+- Lezer 1 (versie zonder breedteverschil): eerste woord "steen", "muur van rechthoekige stenen"; telt 3 soorten (aarde, blauwgrijze blokken, oker blokken); grijs en oker "deels alleen andere kleur of belichting". Noemt de muur "herhaald plat tegelpatroon".
+- Lezer 2 (`v4-blind-beeld-1x.png` op de versie met verschillende breedtes, nog zonder in elkaar grijpen): eerste woord "aarde" (hij bedoelt de kamers boven de gang), dan "in de onderste helft loopt een muur van stenen blokken"; telt 3 materialen, waarvan "grijs en zandkleurig lijken me ook twee soorten steen". Geen voegen over voorwerpen gezien. Kritiek: harde rechte overgang van aarde naar steen, en de kleur verspringt zonder reden (daarop kwam het in elkaar grijpen; dat is niet meer blind getoetst).
+
+**Beelden** (Godot 4.3 Linux onder Xvfb, `--write-movie --fixed-fps 5`, `hoogte=120 vers=1 zaad=7 uitleg_klik=6 koper=1 koper_wacht=8 balk=0 duur=420`, voor = main cac2cc7, na = deze wijziging):
+- `v4-voor-en-na-ware-grootte.png` (2400 x 120 elk, boven voor), `v4-gang-voor-en-na-2x.png` (x 300 tot 1260), `v4-blind-beeld-1x.png`, `v4-na-hoogte160-60s.png` (zaad 3, eerste minuut).
+
+**CPU:** echt spel 120 s, om en om 3 keer: voor 16,66 / 16,04 / 15,81, na 16,05 / 16,01 / 16,59 CPU-s, gemiddeld 16,17 tegen 16,22, dus +0,3 procent, binnen de ruis (GEZIEN). Het metselwerk kost alleen iets als het vaste beeld opnieuw getekend wordt; de lichtkaart rekent minder per texel.
+
+**Toetsen:** 9 x 0 FOUT op Linux. `toets_licht.gd` toetst nu `metsel.gd`: geen buren met dezelfde steen, geen vast ritme, alle drie soorten, koel blauwer en leem okerder in tint, voeg donker en dekkend, twee rijen met een voeg van 1 spelpx, blokken verschillend breed, diep in een plek altijd de soort van die plek, bij de rand in elkaar grijpen, lichtkaart zonder voegen.
+**Opgeruimd:** de achterwand (130 regels) uit `hol/hol_vast.gd` naar `hol/achterwand.gd`; `hol_vast.gd` 835 naar 720 regels (nog boven 400).
