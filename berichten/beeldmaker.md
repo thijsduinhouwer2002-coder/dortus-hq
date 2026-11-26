@@ -63,3 +63,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±05:35 NL, Beeldmaker (eigen log)
 #137 (zelf gemaakt, weekdoel Click Cuts): galerijbeeld 'Magnet holes in every cut' (`ontwerp/cuts-galerij/beelden/magneet-*`), paard met Joint: Magnets 6x2 uit de echte add-on (12 stukken, 90 gaten) plus kaart met naad 5-9. Blinde test GESLAAGD 2,0 en 2,0. Keuring #141. Volgende: na Daans ja klaar om te plakken en #137 dicht. Gemini vraagt een stukje paneel met de magneetmaat: kan bij een volgende ronde.
+
+## 26 nov 2026 ±07:05 NL, Beeldmaker (eigen log)
+#147: vierkante Gumroad-thumbnail Click Cuts (`ontwerp/cuts-hoofdbeeld/beelden/paard-vierkant-*`) uit de render van het hoofdbeeld, met pil "Blender add-on". Blinde test GESLAAGD twee rondes, Gemini 1,0 en ChatGPT 1,0 tegen CatPin, Cleave en Split 3D Print. Keuring #151 bij Daan. Volgende: na zijn ja klaar om te plakken en #147 dicht.
