@@ -18,6 +18,7 @@ import numpy as np
 from mathutils import Matrix, Vector
 
 from . import controle, eigenschappen, kleuren, splitsen, uit_elkaar, verbind_3d, vormen
+from .lijn import vlak_uit_lijn
 from .eigenschappen import bed, eenheid_per_mm
 
 NAAM = "Free cut"
@@ -302,6 +303,126 @@ def _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report):
     return a_ob, b_ob, pob, sum(n for _d, n in pennen)
 
 
+def zet_vlak(context, stuk, R, o, a, b, snede=None):
+    """Places the free cut of the piece on the frame (world space, Blender units). Reuses the plane if there is
+    one, else makes it. Returns the plane object."""
+    if snede is None:
+        snede = maak_vrije_snede(context, stuk)
+    me = snede.data
+    me.clear_geometry()
+    me.from_pydata([(-a, -b, 0), (a, -b, 0), (a, b, 0), (-a, b, 0)], [], [(0, 1, 2, 3)])
+    me.update()
+    m = Matrix(np.asarray(R, dtype=float).tolist()).to_4x4()
+    m.translation = Vector(np.asarray(o, dtype=float).tolist())
+    snede.matrix_world = m
+    return snede
+
+
+def punten_wereld(stuk):
+    """N x 3 points of the piece in world space (Blender units)."""
+    me = stuk.data
+    co = np.empty(len(me.vertices) * 3)
+    me.vertices.foreach_get("co", co)
+    co = co.reshape(-1, 3)
+    mw = np.array(stuk.matrix_world)
+    return co @ mw[:3, :3].T + mw[:3, 3]
+
+
+def _teken_lijn(op, _context):
+    if op.begin is None or op.eind is None:
+        return
+    import gpu
+    from gpu_extras.batch import batch_for_shader
+    shader = gpu.shader.from_builtin("UNIFORM_COLOR")
+    batch = batch_for_shader(shader, "LINES", {"pos": [tuple(op.begin), tuple(op.eind)]})
+    gpu.state.blend_set("ALPHA")
+    gpu.state.line_width_set(2.0)
+    shader.bind()
+    shader.uniform_float("color", (0.85, 0.35, 0.9, 1.0))
+    batch.draw(shader)
+    gpu.state.line_width_set(1.0)
+    gpu.state.blend_set("NONE")
+
+
+class SPLIT_JOINTS_OT_vrije_snede_tekenen(bpy.types.Operator):
+    bl_idname = "split_joints.vrije_snede_tekenen"
+    bl_label = "Draw cut"
+    bl_description = ("Drag a line across the active piece where you want to cut it. The cut goes along the line, "
+                      "straight away from you, and only as wide as the line. Then press Cut piece")
+    bl_options = {"REGISTER", "UNDO"}
+
+    @classmethod
+    def poll(cls, context):
+        stuk, _snede = stuk_van(context)
+        return stuk is not None and context.area is not None and context.area.type == "VIEW_3D"
+
+    def invoke(self, context, event):
+        self.begin = None
+        self.eind = None
+        self.stuk_naam = stuk_van(context)[0].name
+        self.handle = bpy.types.SpaceView3D.draw_handler_add(_teken_lijn, (self, context), "WINDOW", "POST_PIXEL")
+        context.workspace.status_text_set("Draw cut: click and drag a line across the piece   Esc: cancel")
+        context.window.cursor_modal_set("CROSSHAIR")
+        context.window_manager.modal_handler_add(self)
+        return {"RUNNING_MODAL"}
+
+    def _stop(self, context):
+        bpy.types.SpaceView3D.draw_handler_remove(self.handle, "WINDOW")
+        context.workspace.status_text_set(None)
+        context.window.cursor_modal_restore()
+        context.area.tag_redraw()
+
+    def modal(self, context, event):
+        if event.type in {"ESC", "RIGHTMOUSE"} and event.value == "PRESS":
+            self._stop(context)
+            return {"CANCELLED"}
+        if event.type == "MOUSEMOVE":
+            if self.begin is not None:
+                self.eind = (event.mouse_region_x, event.mouse_region_y)
+                context.area.tag_redraw()
+            return {"RUNNING_MODAL"}
+        if event.type == "LEFTMOUSE" and event.value == "PRESS":
+            self.begin = (event.mouse_region_x, event.mouse_region_y)
+            self.eind = self.begin
+            return {"RUNNING_MODAL"}
+        if event.type == "LEFTMOUSE" and event.value == "RELEASE" and self.begin is not None:
+            self.eind = (event.mouse_region_x, event.mouse_region_y)
+            self._stop(context)
+            return self.plaats(context)
+        if event.type in {"MIDDLEMOUSE", "WHEELUPMOUSE", "WHEELDOWNMOUSE"}:
+            return {"PASS_THROUGH"}  # turning and zooming the view still works before you drag
+        return {"RUNNING_MODAL"}
+
+    def plaats(self, context):
+        from bpy_extras import view3d_utils
+        stuk = bpy.data.objects.get(self.stuk_naam)
+        if stuk is None:
+            return {"CANCELLED"}
+        if math.dist(self.begin, self.eind) < 8:
+            self.report({"WARNING"}, "Drag a longer line across the piece")
+            return {"CANCELLED"}
+        region, rv3d = context.region, context.region_data
+        pts = punten_wereld(stuk)
+        midden = Vector(((pts.min(axis=0) + pts.max(axis=0)) / 2.0).tolist())
+        p1 = view3d_utils.region_2d_to_location_3d(region, rv3d, self.begin, midden)
+        p2 = view3d_utils.region_2d_to_location_3d(region, rv3d, self.eind, midden)
+        mid = ((self.begin[0] + self.eind[0]) / 2.0, (self.begin[1] + self.eind[1]) / 2.0)
+        kijk = view3d_utils.region_2d_to_vector_3d(region, rv3d, mid)
+        u = eenheid_per_mm(context.scene)
+        kader_ = vlak_uit_lijn(p1, p2, kijk, pts, marge=1.0 * u)
+        if kader_ is None:
+            self.report({"WARNING"}, "Drag a longer line across the piece")
+            return {"CANCELLED"}
+        _s, oud = stuk_van(context)
+        snede = zet_vlak(context, stuk, *kader_, snede=oud if oud is not None and oud.get("sj_vrij") == stuk.name else None)
+        for o in context.view_layer.objects:
+            o.select_set(False)
+        snede.select_set(True)
+        context.view_layer.objects.active = snede
+        self.report({"INFO"}, "Cut placed along your line. Press Cut piece, or adjust it with G, R and S")
+        return {"FINISHED"}
+
+
 class SPLIT_JOINTS_OT_vrije_snede_erbij(bpy.types.Operator):
     bl_idname = "split_joints.vrije_snede_erbij"
     bl_label = "Add free cut"
@@ -367,4 +488,4 @@ class SPLIT_JOINTS_OT_vrije_snede(bpy.types.Operator):
         return {"FINISHED"}
 
 
-KLASSEN = (SPLIT_JOINTS_OT_vrije_snede_erbij, SPLIT_JOINTS_OT_vrije_snede)
+KLASSEN = (SPLIT_JOINTS_OT_vrije_snede_erbij, SPLIT_JOINTS_OT_vrije_snede_tekenen, SPLIT_JOINTS_OT_vrije_snede)

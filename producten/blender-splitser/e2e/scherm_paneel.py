@@ -137,6 +137,76 @@ def stap():
             subprocess.run(["import", "-window", "root", pad], capture_output=True)
             ok = os.path.exists(pad) and os.path.getsize(pad) > 20000
             log(f"{'PANEEL NOTEN OK' if ok else 'PANEEL NOTEN FOUT'} {pad}")
+            staat["stap"] = 40
+            return 0.5
+        if staat["stap"] == 40:
+            # issue #208: Draw cut for real, with the mouse. Start the modal operator on the largest piece and
+            # drag a line with xdotool straight down over the middle of that piece, as a buyer would.
+            from bpy_extras import view3d_utils
+            import numpy as np
+            inst = bpy.context.scene.split_joints
+            inst.meldingen = ""
+            stukken = [o for o in bpy.context.scene.objects if o.get("sj_stuk")]
+            stuk = max(stukken, key=lambda o: len(o.data.vertices))
+            staat["stuk"] = stuk.name
+            staat["aantal"] = len(stukken)
+            for o in bpy.context.view_layer.objects:
+                if o is not None:
+                    o.select_set(False)
+            stuk.select_set(True)
+            bpy.context.view_layer.objects.active = stuk
+            venster, gebied, ui, hoofd = gebied_3d()
+            rv3d = gebied.spaces.active.region_3d
+            mw = np.array(stuk.matrix_world)
+            co = np.array([tuple(v.co) for v in stuk.data.vertices]) @ mw[:3, :3].T + mw[:3, 3]
+            scherm = [view3d_utils.location_3d_to_region_2d(hoofd, rv3d, p) for p in co]
+            scherm = np.array([tuple(p) for p in scherm if p is not None])
+            mx, my = scherm.mean(axis=0)
+            h = (scherm[:, 1].max() - scherm[:, 1].min()) * 0.65 + 10
+            with bpy.context.temp_override(window=venster, area=gebied, region=hoofd):
+                r = bpy.ops.split_joints.vrije_snede_tekenen("INVOKE_DEFAULT")
+            log(f"tekenen: operator {r}, stuk {stuk.name}, lijn x {mx:.0f}, y {my - h:.0f} tot {my + h:.0f}")
+
+            def naar_scherm(x, y):
+                return str(int(venster.x + hoofd.x + x)), str(int(venster.y + venster.height - (hoofd.y + y)))
+
+            staat["lijn"] = (naar_scherm(mx, my + h), naar_scherm(mx, my - h))
+            staat["stap"] = 41
+            return 0.5
+        if staat["stap"] == 41:
+            (x1, y1), (x2, y2) = staat["lijn"]
+            xdo("mousemove", x1, y1)
+            xdo("mousedown", "1")
+            for k in range(1, 6):
+                xdo("mousemove", x1, str(int(int(y1) + (int(y2) - int(y1)) * k / 5)))
+            staat["stap"] = 42
+            return 0.8
+        if staat["stap"] == 42:
+            pad = os.path.join(uitmap, "tekenen-lijn.png")  # the line on the screen, before the mouse goes up
+            subprocess.run(["import", "-window", "root", pad], capture_output=True)
+            xdo("mouseup", "1")
+            staat["stap"] = 43
+            return 1.0
+        if staat["stap"] == 43:
+            snede = [o for o in bpy.context.scene.objects if o.get("sj_vrij") == staat["stuk"]]
+            log(f"{'TEKENEN OK' if snede else 'TEKENEN FOUT'}: {len(snede)} snedevlak voor {staat['stuk']}")
+            pad = os.path.join(uitmap, "tekenen-vlak.png")
+            subprocess.run(["import", "-window", "root", pad], capture_output=True)
+            if snede:
+                venster, gebied, ui, hoofd = gebied_3d()
+                with bpy.context.temp_override(window=venster, area=gebied, region=hoofd):
+                    try:
+                        r = bpy.ops.split_joints.vrije_snede()
+                    except RuntimeError as e:
+                        r = str(e).strip()[:160]
+                n = len([o for o in bpy.context.scene.objects if o.get("sj_stuk")])
+                log(f"{'TEKENEN SNEDE OK' if n == staat['aantal'] + 1 else 'TEKENEN SNEDE FOUT'}: Cut piece {r}, "
+                    f"{staat['aantal']} naar {n} stukken")
+            staat["stap"] = 44
+            return 1.5
+        if staat["stap"] == 44:
+            pad = os.path.join(uitmap, "tekenen-gesneden.png")
+            subprocess.run(["import", "-window", "root", pad], capture_output=True)
             # issue #69: what a buyer sees first. A fresh scene: no pieces, the model selected, custom printer
             s = bpy.context.scene
             for ob in list(bpy.data.objects):

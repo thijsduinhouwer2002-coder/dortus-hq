@@ -158,6 +158,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         if stukken:
             vrij = stap.box()
             vrij.label(text="Free cut (one piece, any angle)", icon="MOD_LINEART")
+            vrij.operator("split_joints.vrije_snede_tekenen", text="Draw cut", icon=icoon("GREASEPENCIL", "LINE_DATA"))
             rij = vrij.row(align=True)
             rij.operator("split_joints.vrije_snede_erbij", text="Add free cut", icon="ADD")
             rij.operator("split_joints.vrije_snede", text="Cut piece", icon="MOD_BOOLEAN")
@@ -173,6 +174,12 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         if h:
             stap.label(text=h)
         grote_knop(stap, "split_joints.exporteer", f"Export {inst.formaat}", "EXPORT")
+
+
+def icoon(*namen):
+    """First icon name this Blender knows (icon names change between 4.2 and 5.x), else none."""
+    bekend = bpy.types.UILayout.bl_rna.functions["operator"].parameters["icon"].enum_items.keys()
+    return next((n for n in namen if n in bekend), "NONE")
 
 
 KLASSEN = (SPLIT_JOINTS_PT_paneel,)

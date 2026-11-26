@@ -260,7 +260,7 @@ def main():
     log(f"Blender {bpy.app.version_string}")
     bpy.ops.extensions.package_install_files(filepath=zip_pad, repo="user_default", enable_on_install=True)
     for op in ("plan", "split", "exporteer", "maak_gesloten", "snede_erbij", "snede_weg", "vrije_snede_erbij",
-               "vrije_snede", "split_to_fit"):
+               "vrije_snede", "vrije_snede_tekenen", "split_to_fit"):
         stap(f"operator split_joints.{op} bestaat", op in dir(bpy.ops.split_joints))
     for naam, maak in (("suzanne", modellen.suzanne), ("vaas", lambda: modellen.vaas(vaas_pad)),
                        ("schedel", lambda: modellen.schedel(schedel_pad))):
@@ -276,6 +276,7 @@ def main():
             stap(f"{naam}: geen fout", False)
     for naam, f in (("buis", te_klein), ("extra", lambda: toetsen_extra.alles(model, uitmap)),
                     ("passing", lambda: toetsen_passing.alles(uitmap)), ("vrij", lambda: toetsen_vrij.alles(uitmap)),
+                    ("tekenen", lambda: toetsen_vrij.tekenen(uitmap)),
                     ("klik", lambda: toetsen_klik.alles(uitmap)), ("magneet", lambda: toetsen_magneet.alles(uitmap))):
         try:
             f()
