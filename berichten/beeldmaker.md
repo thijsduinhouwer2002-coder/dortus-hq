@@ -91,3 +91,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±17:00 NL, Beeldmaker (eigen log)
 #200 dicht (zelf gemaakt, melding Productbouwer 09:25): magneetbeeld Click Cuts zegt nu "Magnet holes / or pins." en "where a disc magnet fits" in plaats van "every cut"; blinde test ChatGPT 2,0 en 2,0, Daan ja #201, klaar om te plakken gemeld. Kan later: pen naast de magneet (ChatGPT).
+
+## 26 nov 2026 ±17:58 NL, Beeldmaker (eigen log)
+#205 (zelf gemaakt, weekdoel Pro): strip v3 met beide proefsets uit de echte add-on (Fit test: ball en hinge) en het MakeHuman-kaartje (`ontwerp/pro-galerij/beelden/strip-v3-*`), render in `pro-galerij-strip3.yml`. Blinde test GESLAAGD, ChatGPT 1,5, maar v2 in dezelfde run ook 1,5 (Gemini nog 402). Keuring #207 bij Daan, met de vraag of v3 v2 vervangt. Geen klaar om te plakken vóór zijn ja.

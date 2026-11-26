@@ -51,3 +51,12 @@ CJ_HALS=rond HB_FIGUUR=mens GB_LEG=lichaam GB_MODUS=delen GB_PLAATRAND=18 GB_GAT
 GB_KNIE="Right knee" GB_KNIE_D=-40,-230 python3 bron/tekst.py delen <uit>/render-delen.png <uit>/delen.json <uit> <fonts> ../click-joints/bron/icoon.svg   (daarna hernoemd naar delen-mens-*)
 ```
 Fonts: Bricolage Grotesque en Inter (OFL) uit github.com/google/fonts.
+
+## Strip v3 (issue #205, 26 nov ±18:00): `strip-v3-*`, beide proefsets
+Waarom: bij strip v2 zeiden beide rechters elke ronde "lijkt alleen voor kogels" (Gemini 2,0, ChatGPT 2,0, Cleave wint). Pro heeft twee knoppen, Fit test: ball en Fit test: hinge; v3 toont beide, gemaakt door de echte knoppen (zip Pro 1.2.8 in de workflow), plus het kaartje met het MakeHuman-figuur (CC0) uit release pro-videobeeld-1 in plaats van de robot. Kleur, plaats (scharnierset naast de kogelset, `GB_NAAST=40`) en camera zijn van ons; spelingen 0.10 tot 0.30 mm uit `beelden/strip-v3.json` (GEZIEN).
+Render: workflow `.github/workflows/pro-galerij-strip3.yml` (drie varianten; gekozen `naast`, de rij-variant was rommelig), release `pro-galerij-strip-3`.
+```
+GB_INZET=<render-klik.png uit pro-videobeeld-1> GB_INZET_KADER=0.775,0.09,1.0,0.92 python3 bron/tekst.py strip3 render-naast.png naast.json <uit> <fonts> ../click-joints/bron/icoon.svg
+```
+Fonts: als er statische bestanden `Inter-<gewicht>.ttf` en `Bricolage-<gewicht>.ttf` in de fontmap staan, neemt tekst.py die (Inter uit het systeem, Bricolage Grotesque OFL uit npm @expo-google-fonts/bricolage-grotesque).
+Blinde test: set `organisatie/blindtest/sets/click-joints-pro-galerij-strip-v3.json` (v3 en v2 tegen Cleave, CatPin, Split 3D Print).
