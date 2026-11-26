@@ -1,8 +1,8 @@
-metingen van 10 s: 178
-CPU-s per 10 s: gemiddeld 1.039, mediaan 1.062, laagste 0.031, hoogste 2.578
-geheugen aan het eind: 54 MB
+metingen van 10 s: 358
+CPU-s per 10 s: gemiddeld 2.367, mediaan 2.172, laagste 1.594, hoogste 3.578
+geheugen aan het eind: 63 MB
 proces leefde tot het eind: True
 soort: editor-Godot (--path)
-eerste koop mogelijk: HOL eerste koop mogelijk na 212 s speeltijd (goud 47)
-kroniekregels: 137, verschillend 134
-vaakst herhaald: 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Gloop says thanks for the snack. +6'
+eerste koop mogelijk: HOL eerste koop mogelijk na 71 s speeltijd (goud 50)
+kroniekregels: 270, verschillend 264
+vaakst herhaald: 2x 'Anouk brought a torch. And hope.'; 2x 'Anouk II brought a torch. And hope.'; 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Gloop says thanks for the snack. +14'
