@@ -1,6 +1,6 @@
 # r/customactionfigures: vraagpost over gewrichten, ma 30 nov (Verspreider, run 25, do 26 nov 2026, A)
 
-**Status:** keuring Daan (#181). Na zijn ja: onderaan `berichten/hoofdchat.md` voor Thijs (ma 30 nov).
+**Status:** Daan ja, 8 (#181, 26 nov ±14:15 NL). Voorwaarde verwerkt: beeld is nu het geteste `bereik-2400x1200.jpg`; zijn kan-punt ook: de vraag staat nu vóór in de titel. Klaar voor de ja van Thijs (ma 30 nov), gemeld op #182 omdat `berichten/hoofdchat.md` vol is.
 
 Rooster A (plekken). Eén eigen post van Thijs (zijn Reddit-account, zijn ja op de tekst, CLAUDE.md regel 4). Vervangt tekst 8 in `commercie/blender-click-joints/plekken-boost-2026-11-20.md`: die zei nog "We haven't print tested it yet" (mag niet meer sinds 24 nov 15:32, besluiten regel 20), ging over Pro 1.1 en een oude render. Niets geplaatst, niemand benaderd.
 
@@ -19,20 +19,20 @@ Rooster A (plekken). Eén eigen post van Thijs (zijn Reddit-account, zijn ja op 
 - **Verwacht:** 0 tot 2 verkopen en 0 tot 10 downloads van de gratis versie (GOK). Klein, maar het kost Thijs 3 minuten, en de antwoorden zijn gratis onderzoek bij precies ons publiek.
 
 ## Beeld
-`ontwerp/pro-galerij/beelden/bereik-1920x1080.jpg` ("Every joint knows its limit", robot met bereik per gewricht en de knie van dichtbij). GESLAAGD in de blinde test: `organisatie/blindtest/uitslag/click-joints-pro-galerij-knie-2026-11-25-0859.md`. Het is een render uit Blender van onze eigen robot; de post zegt dat ook.
+`ontwerp/pro-galerij/beelden/bereik-2400x1200.jpg` (precies dit bestand staat in de uitslag; niet de 1920x1080-versie, die heeft een andere uitsnede. Reddit toont 2:1 goed) ("Every joint knows its limit", robot met bereik per gewricht en de knie van dichtbij). GESLAAGD in de blinde test: `organisatie/blindtest/uitslag/click-joints-pro-galerij-knie-2026-11-25-0859.md`. Het is een render uit Blender van onze eigen robot; de post zegt dat ook.
 
 Bewust niet: het hoofdbeeld met "Rig in. Joints out." (leest op deze sub als advertentie, GOK) en de schermopname `commercie/blender-click-joints/reddit-pro-buig-11s.mp4` (eerlijker beeld, maar het eerste beeld van die video staat niet GESLAAGD in de blinde test, dus mag niet naar een klant, CLAUDE.md regel 9).
 
 ## Voor Thijs: zo plaats je hem
 1. Ga naar https://www.reddit.com/r/customactionfigures/submit en kies **Images**.
-2. Upload `bereik-1920x1080.jpg` (pad hierboven).
+2. Upload `bereik-2400x1200.jpg` (pad hierboven; niet de 1920x1080-versie).
 3. Flair: niet verplicht; kies er geen, of "user generated" als Reddit erom vraagt.
 4. Plak de titel en de tekst hieronder.
 5. Vraagt iemand naar de tool of de prijs: plak de reactie onderaan. Anders niets plakken.
 
 **Titel**
 ```
-We make a Blender add-on that cuts printable hinges and ball joints into figures. Which joints break first on yours?
+Which joints break first on your printed figures? We make a Blender add-on that cuts hinges and ball joints, and want to know what to fix next.
 ```
 
 **Tekst**
