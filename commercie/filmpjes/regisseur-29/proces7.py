@@ -9,7 +9,8 @@ R26 = os.path.abspath(os.path.join(HIER, "..", "regisseur-26", "echt_opname.py")
 STUDIO = os.path.abspath(os.path.join(HIER, "..", "studio"))
 r26 = open(R26, encoding="utf-8").read()
 
-VERLOOP = open(os.path.join(HIER, "verloop7.py"), encoding="utf-8").read()
+VERLOOP = (open(os.path.join(HIER, "poses7.py"), encoding="utf-8").read() + "\n"
+           + open(os.path.join(HIER, "verloop7.py"), encoding="utf-8").read())   # v7b: vaste pose uit poses7.py
 
 GEEN_FIGUUR_IMPORT = '''
 import sys as _sys2

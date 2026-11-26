@@ -8,11 +8,17 @@ name: "Regisseur 29 (sale-Short v7 #159: één doorlopende echte opname van de w
 # Niets geplaatst.
 on:
   workflow_dispatch:
+    inputs:
+      opname_run:
+        description: "run-id met een goede opname (artifacts opname en eind-blend); leeg = opnieuw opnemen"
+        required: false
+        default: ""
   push:
     branches: [regisseur-29-proef]
 
 permissions:
   contents: write
+  actions: read
 
 env:
   TAG: regisseur-29
@@ -20,6 +26,7 @@ env:
 
 jobs:
   opname:
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.opname_run == '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -73,6 +80,7 @@ jobs:
 
   render:
     needs: opname
+    if: ${{ always() && (needs.opname.result == 'success' || needs.opname.result == 'skipped') }}
     runs-on: ubuntu-latest
     timeout-minutes: 150
     strategy:
@@ -80,10 +88,15 @@ jobs:
       matrix:
         stuk: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
     steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: commercie/filmpjes/regisseur-29
       - uses: actions/download-artifact@v4
         with:
           name: eind-blend
           path: /tmp/eb
+          run-id: ${{ inputs.opname_run || github.run_id }}
+          github-token: ${{ github.token }}
       - name: Blender 5.3.0
         run: |
           sudo apt-get install -y -qq libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 >/dev/null
@@ -94,6 +107,7 @@ jobs:
           mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
       - name: Cycles-render van dit stuk
         run: |
+          /tmp/blender/blender -b /tmp/eb/eind.blend --python commercie/filmpjes/regisseur-29/eind_fix.py 2>&1 | grep -E "EIND_FIX|Error"
           N=$(/tmp/blender/blender -b /tmp/eb/eind.blend --python-expr "import bpy; print('EINDN', bpy.context.scene.frame_end)" 2>/dev/null | grep EINDN | awk '{print $2}')
           PER=$(( (N + 19) / 20 )); S=$(( ${{ matrix.stuk }} * PER + 1 )); E=$(( S + PER - 1 )); [ $E -gt $N ] && E=$N
           echo "beelden $S tot $E van $N"
@@ -107,6 +121,7 @@ jobs:
 
   montage:
     needs: [opname, render]
+    if: ${{ always() && needs.render.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -119,9 +134,11 @@ jobs:
         with:
           name: opname
           path: /tmp/opn
+          run-id: ${{ inputs.opname_run || github.run_id }}
+          github-token: ${{ github.token }}
       - name: Pakketten
         run: |
-          sudo apt-get install -y -qq ffmpeg fonts-inter >/dev/null
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-inter >/dev/null
           python3 -m pip install -q numpy pillow
       - name: eind.mp4, muziek en montage
         run: |

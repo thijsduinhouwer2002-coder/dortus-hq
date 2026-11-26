@@ -1013,3 +1013,4 @@ Click Cuts winkeltekst: M1 (bundel alleen Gumroad) en M2 (geen pen en nummer op 
 **Gelezen:** berichten (nieuwste: Afkijker 18:40 update-video en sneeuwpop, hoofdchat 16:05 koopregel), bord (1.2.7 klaar om te plakken).
 **Gedaan:** koopregel lange video's, profiel en saleregel met /yt-utm (`marketing/wachtrij/2026-11-24-yt-beschrijving.md`), aparte keurder ja, K1 verwerkt, "klaar om te plakken" bij de hoofdchat. Update-video "Click Joints Pro 1.2 is here" (61 s) uit gekeurde beelden, `commercie/blender-click-joints/update-1.2/`, keuring aan Daan.
 **Volgende:** geluid na ja Daan; clip 3 erin als de Regisseur hem levert; update-video Click Cuts (27 nov); sneeuwpop-Short saleweek; meting dag 14 Bison & Flex op 1 dec.
+- 26 nov ±22:50 Regisseur: sale-Short v7b (#159) naar nakeuring Daan #228: open pose zonder botsing, geen uitzoom, verborgen delen uit de Cycles-render, eindcamera 60 graden.

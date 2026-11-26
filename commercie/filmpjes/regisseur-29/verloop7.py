@@ -187,14 +187,13 @@ def verloop_pro():
     log(f"KORT afstand {D:.0f}")
     film["metingen"]["afstand"] = round(D, 1)
 
-    ZOOM = {"f": 1.0}   # tijdens de pose verder weg: met de armen uit is de robot breder dan het staande scherm
-
     def camera(t):
-        # doorlopend rustig rond: 7 graden per seconde, licht kantelen en ademen in afstand
+        # doorlopend rustig rond: 7 graden per seconde, licht kantelen. v7b (Daan #217 M2): niet meer uitzoomen bij de
+        # pose; de camera komt over de hele opname heel langzaam 8% dichterbij, zodat de robot het beeld blijft vullen.
         draai = -55.0 + 7.2 * t
         kantel = 81.0 - 5.0 * zacht(t / 15.0)
-        d = D * (1.0 - 0.10 * math.sin(math.pi * min(1.0, t / 15.5))) * ZOOM["f"]
-        punt = midden + Vector((0.0, 0.0, -6.0 * math.sin(math.pi * min(1.0, t / 15.5))))
+        d = D * (1.0 - 0.08 * zacht(t / 15.6))
+        punt = midden + Vector((0.0, 0.0, 4.0 * zacht((t - 12.5) / 1.5)))   # bij de pose gaat de arm omhoog
         zicht(g3, draai, kantel, d, punt)
 
     T = {"t": 0.0}
@@ -302,7 +301,11 @@ def verloop_pro():
     onder = [x for x in (paar("Left elbow")[1], paar("Right elbow")[1]) if x is not None]
     eigen = {x.name: (paar(x["cj_naam"])[0].name if paar(x["cj_naam"])[0] else "") for x in onder}
     beste, beste_n, uitslag = None, 99, []
-    for i, kand in enumerate(kandidaten()):
+    # v7b (Daan #217 M3): eerst de vaste open pose uit poses7.py (CJ_POSE), daarna de andere; de oude lijst alleen als
+    # reserve. Dezelfde pose gaat naar de weergave en naar eind.blend (Cycles).
+    eerst = os.environ.get("CJ_POSE", "g_zwaai_achter_loop")
+    lijst = [POSES[eerst]] + [v for k, v in POSES.items() if k != eerst] + kandidaten()
+    for i, kand in enumerate(lijst):
         R.poseer(delen, kand, scharnier=scharnier)
         nu = raakparen()
         nieuw = nu - rust
@@ -319,6 +322,7 @@ def verloop_pro():
     log(f"KORT pose gekozen met {beste_n} botsingen ({len(uitslag)} geprobeerd)")
     POSE = beste
     film["metingen"]["pose"] = {k: v for k, v in POSE.items()}
+    film["metingen"]["pose_naam"] = next((k for k, v in POSES.items() if v is POSE), "reserve")
     R.poseer(delen, {}, scharnier=scharnier)
     geen_selectie()
     bpy.context.view_layer.objects.active = None
@@ -348,7 +352,6 @@ def verloop_pro():
     rood_max = {"n": 0}
 
     def zet(t):
-        ZOOM["f"] = 1.0 + 0.22 * zacht(t)
         R.poseer(delen, schaal_pose(POSE, zacht(t)), scharnier=scharnier)
         geen_selectie()
         bpy.context.view_layer.objects.active = None   # proef 2: anders tekent Pro de waaier van de laatste knie
@@ -374,9 +377,11 @@ def verloop_pro():
     sc.render.fps = 30
     # proef 1 (GEZIEN): matrix_world is pas na een update bijgewerkt, dus de sleutels stonden alle op 0 (camera in de
     # wand). Daarom location en rotatie zelf overnemen.
-    S.richt(cam_ob, delen, "staand", draai=-48, kantel=6, vul=0.84, midden_y=0.52)
+    # v7b (Daan #217 K1): meer draai, 60 graden over de eindfilm, aan dezelfde kant als waar de weergave eindigt
+    # (draai ±57 graden), van schuin rechts van de robot naar voren
+    S.richt(cam_ob, delen, "staand", draai=62, kantel=6, vul=0.82, midden_y=0.52)
     l0, q0 = cam_ob.location.copy(), cam_ob.rotation_euler.to_quaternion()
-    S.richt(cam_ob, delen, "staand", draai=-8, kantel=9, vul=0.86, midden_y=0.52)
+    S.richt(cam_ob, delen, "staand", draai=2, kantel=9, vul=0.84, midden_y=0.52)
     l1, q1 = cam_ob.location.copy(), cam_ob.rotation_euler.to_quaternion()
     film["metingen"]["eind_camera"] = [list(l0), list(l1)]
     cam_ob.rotation_mode = "QUATERNION"
@@ -394,5 +399,8 @@ def verloop_pro():
     sc.cycles.use_denoising = True
     sc.render.use_persistent_data = True
     sc.render.resolution_x, sc.render.resolution_y, sc.render.resolution_percentage = 1080, 1920, 100
+    for o in bpy.data.objects:   # v7b: verborgen tussenstappen van het snijden ook uit de render (zie eind_fix.py)
+        if o.type == "MESH" and not o.visible_get():
+            o.hide_render = True
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(scherm_basis.uitmap, "eind.blend"), copy=True)
     log(f"KORT OK eind {n} beelden (eind.blend)")
