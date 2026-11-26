@@ -10,6 +10,12 @@ T=$(mktemp -d)
 curl -sL -A "$UA" "$G" -o "$T/plain.html"
 curl -sL -A "$UA" "$G/CYBER25" -o "$T/link.html"
 curl -sL -A "$UA" "$S" -o "$T/sh.html"
+# Stap 4 t/m 7 (26 nov, #178): de rest van de kopersreis.
+curl -sL -A "$UA" "https://extensions.blender.org/add-ons/click-joints/" -o "$T/gratis.html"
+curl -sL -A "$UA" "$S/docs" -o "$T/docs.html"
+curl -sL -A "$UA" "https://dortus.com/click-joints/" -o "$T/site.html"
+curl -sL -A "$UA" "https://dortus.com/click-joints/gids/articulated-figure-3d-print-blender/" -o "$T/gids1.html"
+curl -sL -A "$UA" "https://dortus.com/click-joints/gids/hinge-joint-3d-print-blender/" -o "$T/gids2.html"
 python3 - "$T" <<'PY'
 import sys, re, html
 d = sys.argv[1]
@@ -60,6 +66,27 @@ elif prijzen and min(prijzen) < 12:
     print("   LAGER dan $12, maar niet $7.80: kijk zelf of het de saleprijs is.")
 else:
     print("   GEEN saleprijs te zien. Op 27 nov t/m 2 dec is dat fout of de sale staat alleen bij het afrekenen: kijk na in het dashboard.")
+    fout = 1
+gratis = lees("gratis")
+naar_g = "duinhouwer8.gumroad.com/l/click-joints-pro" in gratis
+naar_s = "superhivemarket.com/products/click-joints-pro" in gratis
+print(f"4. Gratis pagina (extensions.blender.org) linkt naar Gumroad Pro: {'ja' if naar_g else 'NEE'}, naar Superhive Pro: {'ja' if naar_s else 'NEE'}")
+if not (naar_g and naar_s):
+    print("   FOUT: een koper van de gratis versie vindt Pro niet meer. Meld het de hoofdchat.")
+    fout = 1
+zips = sorted(set(re.findall(r"click_joints_pro-[0-9.]+\.zip", lees("docs"))))
+print("5. Superhive Docs noemt:", zips or "geen zip")
+if "click_joints_pro-1.2.8.zip" not in zips:
+    print("   FOUT: de docs noemen niet click_joints_pro-1.2.8.zip.")
+    fout = 1
+versie = re.search(r"Version 1\.2\.8[^<]{0,40}", lees("plain"))
+print("6. Gumroad Pro noemt de versie:", versie.group(0) if versie else "NEE")
+if not versie:
+    print("   FOUT: het versieblok (platformen/blender/pro-gumroad-versieblok-1.2.8.md) staat er niet. Meld het de hoofdchat.")
+    fout = 1
+vies = [n for n in ("site", "gids1", "gids2") if "print tested" in lees(n).lower()]
+print("7. dortus.com/click-joints en de twee gidsen zonder 'print tested':", "ja" if not vies else "NEE, nog op " + ", ".join(vies))
+if vies:
     fout = 1
 sys.exit(fout)
 PY

@@ -385,3 +385,6 @@ Klaar om te plakken, vanavond 20:00 vóór de sale (vr 27 nov 12:00): `ontwerp/p
 
 ## 26 nov 2026 ±16:05 NL, van Verspreider: bundel voor Thijs (zo 29 nov), nu twee mails
 `commercie/outreach/bundel-2026-11-29.md` heeft er een mail bij: Loft Studios (Daan ja 8, #186), via zijn contactformulier, dus geen type B: na de ja van Thijs kan de hoofdchat hem zelf versturen. Ksenia blijft type B. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+
+## 26 nov 2026 16:30 NL, van Bram: README click-joints klaar om te plakken (#160)
+"Not print tested" is weg van dortus.com/click-joints en de twee gidsen (dortus 9e3d0d4, live GEZIEN). De README van repo click-joints kan ik niet bereiken: graag pushen uit `producten/blender-gewrichten/repo-click-joints/README.md` (regel 30 vervangen, Daan ja #160; de reviewregel onderaan stond al klaar). `bash platformen/blender/sale-controle.sh` loopt nu ook gratis pagina, Superhive Docs, versieblok Gumroad en dortus.com na.

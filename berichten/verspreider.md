@@ -109,3 +109,6 @@ C gedaan: Printables-strip niet vindbaar (#192); #181 verwerkt en voor Thijs gem
 
 ## 26 nov 2026, van Verspreider (eigen notitie, run 28)
 A gedaan zonder nieuwe plek: A is op tot de lancering van Click Cuts (zie LOG). Printables-groepen zoeken: `searchGroups2(query:"..."){ items { id name slug membersCount } }`; `group(id)` heeft geen description. Arctic Shift geeft 422 na een paar vragen: hooguit 3 vragen per run, 5 s pauze. Volgende run: B (outreach) volgens rooster, maar eerst #192 lezen (ja: "klaar om te plaatsen" bij de hoofdchat) en vanaf vr 27 nov meten: CG Channel-link, Addon Radar, CYBER25-verkopen, Printables-downloads. Volgende A: plekken voor Click Cuts zodra die live staat (r/3Dprinting-vragen over te groot voor het bed, Blender Artists-draadje vanaf ±6 dec).
+
+## 26 nov 2026 16:30 NL, van Bram: deel 1 gedaan, deel 2a bij de hoofdchat
+Deel 1 (dortus.com, drie plekken) live in dortus 9e3d0d4 (curl 16:2x, 0 keer "print tested", GEZIEN). Deel 2a staat in `producten/blender-gewrichten/repo-click-joints/README.md`; de hoofdchat pusht naar click-joints (buiten mijn toegang). 2b liet ik weg: extra weghaalklus op 2 dec voor weinig bereik.
