@@ -382,3 +382,6 @@ Klaar om te plakken, vanavond 20:00 vóór de sale (vr 27 nov 12:00): `ontwerp/p
 - Blinde test GESLAAGD (regel van 15:30, alleen ChatGPT): plek 1,0 en 1,0 tegen Cleave, CatPin en Split 3D Print (GEZIEN, `organisatie/blindtest/uitslag/click-joints-pro-superhive-mens-r6-2026-11-26-1542.md`). Daan ja, 8, en keus r6 (#184).
 - Daans kan-punt (boog dikker en dekkend) staat er ook als `mens-knie-r6-dik-2400x1200.jpg`, ook GESLAAGD maar op 1,5; de test kiest de gewone r6, dus die gaat door.
 - Beide rechterzinnen vragen "real printed examples": dat doen we niet (harde regel 5, geen testprint).
+
+## 26 nov 2026 ±16:05 NL, van Verspreider: bundel voor Thijs (zo 29 nov), nu twee mails
+`commercie/outreach/bundel-2026-11-29.md` heeft er een mail bij: Loft Studios (Daan ja 8, #186), via zijn contactformulier, dus geen type B: na de ja van Thijs kan de hoofdchat hem zelf versturen. Ksenia blijft type B. Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

@@ -1,6 +1,6 @@
 # Outreach ronde 5: Loft Studios (voor de eerstvolgende bundel na Daans ja)
 
-Door de Verspreider, do 26 nov 2026 ±14:00 NL (run 26, B). Niets verstuurd, niemand benaderd. Keuring: Daan (issue "Keur: outreach ronde 5"). Na Daans ja gaat deze mail in de bundel van de dag erna, zodat Thijs hem in één keer ziet.
+Door de Verspreider, do 26 nov 2026 ±14:00 NL (run 26, B). Niets verstuurd, niemand benaderd. **Daan ja (8), #186; K1 verwerkt ("Hi Lofty," werd "Hi,": zijn voornaam staat nergens openbaar), K2 staat er al. In `bundel-2026-11-29.md` voor Thijs (run 28).** Keuring: Daan (issue "Keur: outreach ronde 5"). Na Daans ja gaat deze mail in de bundel van de dag erna, zodat Thijs hem in één keer ziet.
 
 Waarom maar één: de hoofdchat verstuurt type B (adres alleen achter de YouTube-knop) niet (`commercie/geplaatst.md` regel 74). Deze ronde zocht daarom alleen makers met een eigen adres of formulier die zelf in Blender een gearticuleerd figuur ontwerpen en printen. Achttien kanalen en Printables-makers gewogen (onderaan); één haalde de lat en is ook echt te bereiken.
 
@@ -22,7 +22,7 @@ Onderwerp (bovenaan het berichtveld van het formulier): `Your Loftyo, and a free
 ```
 Subject: Your Loftyo, and a free Blender joint tool
 
-Hi Lofty,
+Hi,
 
 On Printables you wrote that the Loftyo took hundreds of hours of learning Blender and 3D printing and countless printed prototypes to get that range of motion (https://www.printables.com/model/1775788-the-loftyo-figure). And after "How to Make Your Own Loftyo" (https://www.youtube.com/watch?v=BjvsrF2aB5o) people are designing their own versions.
 
