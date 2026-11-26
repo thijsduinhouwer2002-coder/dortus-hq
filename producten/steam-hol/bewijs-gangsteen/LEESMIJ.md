@@ -32,3 +32,25 @@ De spelloop verschilt iets tussen voor en na (helden, koopmoment 229 s tegen 260
 
 **Toetsen:** 8 x 0 FOUT op Linux. `toets_licht.gd` toetst nu: geen buren met dezelfde steen, geen vast ritme, plekken verschillend breed, donkere voeg op de rand, liggende voegjes, warme vloer. Twee oude grenzen zijn verlaagd omdat een voeg nu met opzet donkerder is: "nooit zwart" 0,5 naar 0,4 en "steen nooit te donker" 0,45 naar 0,38 op een voeg (gewone steen houdt 0,45).
 **Eerlijk:** tussen de stekels blijft iets van de oude putkleur te zien; CPU niet gemeten (de kaart wordt alleen opnieuw gemaakt als het hol verandert, per texel een paar rekenstappen meer; GOK: niet merkbaar).
+
+## Versie 3: metselwerk (Olaf, 26 nov ±19:45 NL, issue #210)
+
+**Waarom:** Iris (keuring bb298d3 punt 3): op 1x weinig verschil tussen de vlakken steen. Gemeten: de drie soorten lagen in helderheid binnen 0,035 van elkaar (gewoon 0,59, koel 0,56, leem 0,55; GEZIEN in `licht.gd`). Een eerste poging met alleen meer verschil per plek en een lichte bovenrand gaf een blinde lezer "aarde" met "zachte banden", geen steen (GEZIEN).
+
+**Wat er voor de speler veranderde** (alleen de lichtkaart `systemen/licht.gd`, geen nieuwe kunst):
+- **Blokken steen:** de wand van de gang is nu metselwerk: rijen van 8 spelpx, blokken van één tegel breed, elke rij een half blok verschoven, een donkere voeg boven en links van elk blok en een lichte rand eronder en ernaast. De soort hoort bij het hele blok, dus de rand van een plek loopt langs de voegen. Elk blok is net iets anders (plus of min 6 procent).
+- **Meer verschil tussen de soorten:** koel 0,54, gewoon 0,66, leem 0,75 helder (was 0,56, 0,59, 0,55). In het beeld op 420 s: gewoon tegen koel 11 tot 22 grijswaarden verschil (was 5; GEZIEN, gemiddeld per plek, y 28 tot 112).
+- **Niet roziger:** gemiddelde tint van de gang (x 400 tot 1500) 14,5 naar 15,4 graden (GEZIEN, zelfde meetvlak voor en na; hoger is minder roze). Leem houdt r/g 1,04.
+- Vloerstrook blijft glad en warm, licht om fakkel en schat gelijk.
+
+**Blinde lezer** (agent zonder code of uitleg, alleen `v3-blind-beeld-1x.png`): "achterwand van baksteen. Eerste woord: baksteen. Donkere, bruinpaarse metselsteentjes in rijen." Hij telt "ongeveer 2 soorten": een lichtere warmere band en een donkerder paarsbruine (GEZIEN). **Eerlijk:** de 2 soorten die hij telt beschrijft hij als licht en donker "door lichtval", niet als ander materiaal, en hij noemt de wand "vrij eentonig". De leemplekken vallen in dit zaad in het licht van fakkel en kamers, dus geel zie je hier weinig. Bij de vorige versie (zelfde vraag, nieuwe lezer) was het eerste woord "aarde".
+
+**Beelden (GEZIEN, Godot 4.3 Linux onder Xvfb, `--write-movie --fixed-fps 5`, `hoogte=120 vers=1 zaad=7 uitleg_klik=6 koper=1 koper_wacht=8 balk=0 duur=420`, voor = main 8180855, na = deze wijziging):**
+- `v3-voor-en-na-ware-grootte.png`: 2200 x 120, boven voor, onder na, beeld op 420 s.
+- `v3-gang-voor-en-na-2x.png`: gang x 300 tot 1260 op 2x.
+- `v3-blind-beeld-1x.png`: het beeld dat de blinde lezer kreeg (twee helften op 1x).
+- `v3-na-hoogte160-60s.png`: hoogte 160, zaad 3, 60 s, het korte hol van de eerste minuut.
+
+**CPU:** het beeld per frame is gelijk (dezelfde lichtkaart als textuur in het vaste beeld). De kaart zelf maken kost nu minder: 34 ms tegen 45 ms voor een hele kaart van 46 tegels breed (GEZIEN, twee keer gemeten in één run, Godot headless). In 420 s werd 46 keer gegraven, dus de kaart wordt hooguit ±50 keer opnieuw gemaakt. CPU dus niet hoger (GEZIEN voor de kaart; het geheel binnen +1 procent).
+
+**Toetsen:** 9 x 0 FOUT op Linux (de 9 uit de Windows-toetsrun). `toets_licht.gd` toetst nu: staande voeg tussen blokken, liggende voeg boven elk blok, lichte rand eronder, rijen verschoven, alle drie soorten komen voor, leem minstens 0,15 lichter dan koel, gang gemiddeld donkerder naar de vloer. In koele steen is de voeg minder diep (0,86 in plaats van 0,80), zodat "nooit zwart" (0,4) blijft gelden.

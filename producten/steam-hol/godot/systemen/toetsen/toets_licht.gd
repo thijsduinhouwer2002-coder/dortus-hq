@@ -66,20 +66,37 @@ func _init() -> void:
 	var m0: float = (L.plek_begin(4) + L.plek_begin(5)) / 2.0
 	var m1: float = (L.plek_begin(5) + L.plek_begin(6)) / 2.0
 	ok(vk.call(L.gang_kleur(Vector2(m0, 27)), L.gang_kleur(Vector2(m1, 27))) > 0.08, "twee plekken naast elkaar zie je als andere steen (%.2f)" % vk.call(L.gang_kleur(Vector2(m0, 27)), L.gang_kleur(Vector2(m1, 27))))
-	var rand: Color = L.gang_kleur(Vector2(L.plek_begin(5) + 0.3, 27))
-	var vlak: Color = L.gang_kleur(Vector2(L.plek_begin(5) + 6.0, 27))
-	ok(helder(rand) < helder(vlak) - 0.08, "donkere voeg op de rand van een plek (%.2f tegen %.2f)" % [helder(rand), helder(vlak)])
+	# Olaf #210: metselwerk. Rij 2 loopt van y 24 tot 32 (voeg 24-26, lichte rand 26-28, steen 28-32), niet verschoven,
+	# dus x 80-82 is een staande voeg en x 88 het midden van hetzelfde blok; rij 1 (y 16-24) is een half blok verschoven.
+	var voeg_s: Color = L.gang_kleur(Vector2(81, 29))
+	var blok: Color = L.gang_kleur(Vector2(89, 29))
+	ok(helder(voeg_s) < helder(blok) - 0.08, "donkere staande voeg tussen twee blokken (%.2f tegen %.2f)" % [helder(voeg_s), helder(blok)])
 	var liggend := 0
+	var rand_licht := 0
 	for i in range(0, 20):
-		var mx: float = (L.plek_begin(i) + L.plek_begin(i + 1)) / 2.0
-		for y in [29, 31, 33]:
-			if helder(L.gang_kleur(Vector2(mx, y))) < helder(L.gang_kleur(Vector2(mx, 27))) - 0.08:
-				liggend += 1
-	ok(liggend >= 10, "liggende voegjes in de plekken (%d van 20)" % liggend)
+		var mx: float = i * 16 + 9
+		if helder(L.gang_kleur(Vector2(mx, 25))) < helder(L.gang_kleur(Vector2(mx, 29))) - 0.05:
+			liggend += 1
+		if helder(L.gang_kleur(Vector2(mx, 27))) > helder(L.gang_kleur(Vector2(mx, 29))) + 0.04:
+			rand_licht += 1
+	ok(liggend == 20, "liggende voeg boven elk blok (%d van 20)" % liggend)
+	ok(rand_licht == 20, "lichte rand onder de voeg van elk blok, leest als blok (%d van 20)" % rand_licht)
+	ok(helder(L.gang_kleur(Vector2(81, 21))) > helder(voeg_s) + 0.05, "rijen een half blok verschoven (geen voeg recht boven een voeg)")
+	var soorten := {}
+	for x in range(8, 800, 16):
+		var c3: Color = L.gang_kleur(Vector2(x + 1, 29))
+		soorten[L.plek_soort(L.plek_nr(float(x / 16) * 16 + 8))] = helder(c3)
+	ok(soorten.size() == 3, "alle drie soorten steen komen voor (%d)" % soorten.size())
+	ok(L.helder_soort(2) - L.helder_soort(1) > 0.15, "leem duidelijk lichter dan koele steen (%.2f tegen %.2f, was 0,55 tegen 0,56)" % [L.helder_soort(2), L.helder_soort(1)])
 	var vl: Color = L.gang_kleur(Vector2(m0 + 3.0, 37))
 	ok(vl.r / vl.b > 1.15, "vloerstrook warm, niet grijspaars (r/b %.2f)" % (vl.r / vl.b))
 	ok(L.gang_kleur(Vector2(200, 30)) == L.gang_kleur(Vector2(200, 30)), "plekken liggen vast (geen flikkeren)")
-	ok(helder(L.gang_kleur(Vector2(200, 39))) < helder(L.gang_kleur(Vector2(200, 25))) - 0.05, "gang donkerder naar de vloer")
+	var vloer_som := 0.0
+	var wand_som := 0.0
+	for x in range(8, 800, 16):
+		vloer_som += helder(L.gang_kleur(Vector2(x + 1, 39)))
+		wand_som += helder(L.gang_kleur(Vector2(x + 1, 29)))
+	ok(vloer_som / 50.0 < wand_som / 50.0 - 0.03, "gang donkerder naar de vloer (gemiddeld %.2f tegen %.2f in het midden van de blokken)" % [vloer_som / 50.0, wand_som / 50.0])
 	var rood_meest := 0.0
 	for x in range(0, 480, 4):
 		var c: Color = L.gang_kleur(Vector2(x, 30))
