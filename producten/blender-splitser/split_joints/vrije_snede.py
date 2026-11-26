@@ -332,8 +332,10 @@ GEBEURD = []  # last mouse events of Draw cut, read by the screen test (e2e/sche
 
 
 def _teken_lijn(op, _context):
-    if op.begin is None or op.eind is None:
+    if op.begin is None or op.eind is None or op.regio is None:
         return
+    if bpy.context.region is None or bpy.context.region.as_pointer() != op.regio.as_pointer():
+        return  # only in the view where you draw
     try:
         _lijn_op_scherm(op)
     except Exception as e:  # never break the viewport over the helper line
@@ -368,8 +370,12 @@ class SPLIT_JOINTS_OT_vrije_snede_tekenen(bpy.types.Operator):
         return stuk is not None and context.area is not None and context.area.type == "VIEW_3D"
 
     def invoke(self, context, event):
+        # the button sits in the sidebar, so context.region is the sidebar: the line is measured in the 3D view
+        # region itself (window coordinates minus its corner), the one under the mouse when you press
         self.begin = None
         self.eind = None
+        self.regio = None
+        self.rv3d = None
         self.stuk_naam = stuk_van(context)[0].name
         self.handle = bpy.types.SpaceView3D.draw_handler_add(_teken_lijn, (self, context), "WINDOW", "POST_PIXEL")
         context.workspace.status_text_set("Draw cut: click and drag a line across the piece   Esc: cancel")
@@ -392,20 +398,44 @@ class SPLIT_JOINTS_OT_vrije_snede_tekenen(bpy.types.Operator):
             return {"CANCELLED"}
         if event.type == "MOUSEMOVE":
             if self.begin is not None:
-                self.eind = (event.mouse_region_x, event.mouse_region_y)
+                self.eind = self._in_regio(event)
                 context.area.tag_redraw()
             return {"RUNNING_MODAL"}
         if event.type == "LEFTMOUSE" and event.value == "PRESS":
-            self.begin = (event.mouse_region_x, event.mouse_region_y)
+            regio = self._regio_onder(context, event)
+            if regio is None:  # pressed outside the 3D view (sidebar, header): ignore, keep waiting
+                return {"RUNNING_MODAL"}
+            self.regio, self.rv3d = regio
+            self.begin = self._in_regio(event)
             self.eind = self.begin
             return {"RUNNING_MODAL"}
         if event.type == "LEFTMOUSE" and event.value == "RELEASE" and self.begin is not None:
-            self.eind = (event.mouse_region_x, event.mouse_region_y)
+            self.eind = self._in_regio(event)
             self._stop(context)
             return self.plaats(context)
         if event.type in {"MIDDLEMOUSE", "WHEELUPMOUSE", "WHEELDOWNMOUSE"}:
             return {"PASS_THROUGH"}  # turning and zooming the view still works before you drag
         return {"RUNNING_MODAL"}
+
+    @staticmethod
+    def _regio_onder(context, event):
+        """(3D view region, its RegionView3D) under the mouse; with quad view each quarter is its own region."""
+        regios = [r for r in context.area.regions if r.type == "WINDOW"]
+        vlakken = [r for r in regios if r.x <= event.mouse_x < r.x + r.width and r.y <= event.mouse_y < r.y + r.height]
+        if not vlakken:
+            return None
+        r = vlakken[0]
+        sp = context.area.spaces.active
+        if len(regios) > 1 and getattr(sp, "region_quadviews", None):
+            vlakken_rv = list(sp.region_quadviews)
+            idx = regios.index(r)
+            if idx < len(vlakken_rv):
+                return r, vlakken_rv[idx]
+        return r, sp.region_3d
+
+    def _in_regio(self, event):
+        r = self.regio
+        return (event.mouse_x - r.x, event.mouse_y - r.y)
 
     def plaats(self, context):
         from bpy_extras import view3d_utils
@@ -415,7 +445,7 @@ class SPLIT_JOINTS_OT_vrije_snede_tekenen(bpy.types.Operator):
         if math.dist(self.begin, self.eind) < 8:
             self.report({"WARNING"}, "Drag a longer line across the piece")
             return {"CANCELLED"}
-        region, rv3d = context.region, context.region_data
+        region, rv3d = self.regio, self.rv3d
         pts = punten_wereld(stuk)
         midden = Vector(((pts.min(axis=0) + pts.max(axis=0)) / 2.0).tolist())
         p1 = view3d_utils.region_2d_to_location_3d(region, rv3d, self.begin, midden)

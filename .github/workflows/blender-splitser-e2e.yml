@@ -109,6 +109,7 @@ jobs:
           grep -q "PANEEL OK" /tmp/paneel.log || { echo "FOUT: geen schermafbeelding van het paneel"; exit 1; }
           grep -q "PANEEL START OK" /tmp/paneel.log || { echo "FOUT: geen beeld van de beginstand (issue #69)"; exit 1; }
           grep -q "TEKENEN OK" /tmp/paneel.log || { echo "FOUT: Draw cut met de muis gaf geen snedevlak (issue #208)"; exit 1; }
+          grep -q "TEKENEN PLEK OK" /tmp/paneel.log || { echo "FOUT: snedevlak ligt niet op de getrokken lijn (issue #208)"; exit 1; }
       - uses: actions/upload-artifact@v4
         if: always()
         with:

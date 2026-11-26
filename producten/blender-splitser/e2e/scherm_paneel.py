@@ -163,7 +163,7 @@ def stap():
             scherm = np.array([tuple(p) for p in scherm if p is not None])
             mx, my = (scherm.min(axis=0) + scherm.max(axis=0)) / 2.0  # middle of the piece on the screen
             h = (scherm[:, 1].max() - scherm[:, 1].min()) * 0.5 + 25  # the line runs 25 px past both ends
-            with bpy.context.temp_override(window=venster, area=gebied, region=hoofd):
+            with bpy.context.temp_override(window=venster, area=gebied, region=ui):  # as a click in the sidebar
                 r = bpy.ops.split_joints.vrije_snede_tekenen("INVOKE_DEFAULT")
             log(f"tekenen: operator {r}, stuk {stuk.name}, lijn x {mx:.0f}, y {my - h:.0f} tot {my + h:.0f}")
 
@@ -171,6 +171,7 @@ def stap():
                 return str(int(venster.x + hoofd.x + x)), str(int(venster.y + venster.height - (hoofd.y + y)))
 
             staat["lijn"] = (naar_scherm(mx, my + h), naar_scherm(mx, my - h))
+            staat["lijn_regio"] = (mx, (my + h, my - h))
             staat["stap"] = 41
             return 0.5
         if staat["stap"] == 41:  # every mouse step in its own timer call, so Blender handles it in between
@@ -198,6 +199,18 @@ def stap():
             vs = importlib.import_module("bl_ext.user_default.click_cuts.vrije_snede")
             log(f"tekenen: muis in de operator {vs.GEBEURD[-12:]}")
             log(f"{'TEKENEN OK' if snede else 'TEKENEN FOUT'}: {len(snede)} snedevlak voor {staat['stuk']}")
+            if snede:  # the plane stands edge-on: on the screen it must lie on the drawn line
+                from bpy_extras import view3d_utils
+                venster, gebied, ui, hoofd = gebied_3d()
+                rv3d = gebied.spaces.active.region_3d
+                mw = snede[0].matrix_world
+                hoeken = [view3d_utils.location_3d_to_region_2d(hoofd, rv3d, mw @ v.co) for v in snede[0].data.vertices]
+                xs = [p.x for p in hoeken if p is not None]
+                ys = [p.y for p in hoeken if p is not None]
+                lx, (ly1, ly2) = staat["lijn_regio"]
+                ok = xs and max(abs(x - lx) for x in xs) < 3 and min(ys) < min(ly1, ly2) + 3 and max(ys) > max(ly1, ly2) - 3
+                log(f"{'TEKENEN PLEK OK' if ok else 'TEKENEN PLEK FOUT'}: vlak op het scherm x {min(xs):.0f} tot {max(xs):.0f}, "
+                    f"y {min(ys):.0f} tot {max(ys):.0f}; lijn x {lx:.0f}, y {min(ly1, ly2):.0f} tot {max(ly1, ly2):.0f}")
             pad = os.path.join(uitmap, "tekenen-vlak.png")
             subprocess.run(["import", "-window", "root", pad], capture_output=True)
             if snede:
