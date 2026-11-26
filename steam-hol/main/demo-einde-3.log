@@ -1,16 +1,16 @@
-HOL balk gestart, pid 2076, hoogte 120
+HOL balk gestart, pid 3240, hoogte 120
 HOL weg geweest 1 s (klok terug: false): goud voor 29, helden 0, erbij 0, hoeden 0
 HOL opslag geladen: 0 terugkomers, 29 goud, faam 1
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL demo: speeltijd 15 s, grens 10 s
 HOL kroniek 0.0 (wacht 0.0): Demo over. The full game keeps it all.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795651487
+HOL zaad 1795658178
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vluchten (Bram)
-HOL held binnen: Bram
+HOL begin: vluchten (Fenna)
+HOL held binnen: Fenna
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Bram knocks first. Polite.
-HOL leven stofje t=7.1 x=72 y=26
+HOL kroniek 2.6 (wacht 0.5): Fenna climbs into your hole.
 HOL einde na 8 s, fps=10, goud=29, terugkomers=0
+HOL leven stofje t=8.1 x=72 y=26
