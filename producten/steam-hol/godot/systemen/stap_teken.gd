@@ -4,15 +4,15 @@ extends RefCounted
 # dus Royal Gloop en Gloop Prime zagen er gelijk uit. Nu krijgt Gloop en elke put per gekochte stap boven 3 één gouden
 # steen op de vloer: stap 4 één, stap 5 twee, stap 6 drie. Tellen kan iedereen, dus de volgorde lees je zonder uitleg.
 # Zelfde vier kleuren als het muntje (hol.gd munt_3d), zodat het bij het goud hoort; ruitvorm, zodat het geen
-# munt is (een rond muntje boven Gloop of de put betekent "dit kun je kopen"). Geen beweging: kost niets extra per beeld.
-# Getekend in schermpixels met een gladde rand, net als munt_3d (op schaal 3 tot 4 anders trappetjes).
+# munt is (een rond muntje boven Gloop of de put betekent "dit kun je kopen"). Geen beweging.
+# In schermpixels met een gladde rand, net als munt_3d (op schaal 3 tot 4 anders trappetjes).
 
 const RAND := Color("#6e3f0e")      # donkerder dan de munt-rand, anders verdwijnt hij op de gele veren van Gloop
 const GOUD := Color("#f2b632")
 const GLIM := Color("#fff0aa")
 const SCHADUW := Color(0.12, 0.04, 0.12, 0.5)
 const HALF := 2.0        # halve breedte van een steen in spelpixels (4 breed, 12 schermpixels op 120)
-const AFSTAND := 4.5     # midden tot midden
+const AFSTAND := 5.0     # midden tot midden (Daan #177 kan 2: 4,5 raakte elkaar bijna, nu 1 schermpixel lucht)
 
 # Hoeveel stenen bij dit niveau (0 tot 6): alleen boven stap 3.
 static func aantal(niveau: int, beeld_max: int = 3) -> int:
@@ -22,26 +22,65 @@ static func aantal(niveau: int, beeld_max: int = 3) -> int:
 static func plek(i: int, n: int) -> float:
 	return (float(i) - float(n - 1) / 2.0) * AFSTAND
 
-# Teken n stenen in een rij met het midden op c (spelpixels, lokaal van doek).
+# CPU (#162, hoofdmanager 26 nov 12:40): de rij wordt één keer per (aantal, schaal) naar een klein plaatje gebakken
+# (pixel voor pixel, 4 x 4 monsters per pixel voor de gladde rand) en daarna alleen nog als één plaatje getekend.
+# Eerst waren het per steen vier veelhoeken en drie gladde lijnen; dat kostte op een machine zonder grafische kaart
+# per beeld rekenwerk, ook als de laag niet opnieuw tekende.
+static var _bak := {}
+
+# Plaatje van een rij van n stenen op schaal k (schermpixels per spelpixel, op 0,05 afgerond); midden van de rij = midden van het plaatje.
+static func plaatje(n: int, k: float) -> ImageTexture:
+	var sleutel := Vector2i(n, roundi(k * 20.0))
+	if _bak.has(sleutel):
+		return _bak[sleutel]
+	# zelfde maat als de eerste versie op het scherm (die met gladde lijnen was 1 schermpixel ruimer dan HALF): rand ±1 px
+	var h := HALF * k + 1.0
+	var g := h - 1.2
+	var breed := int(ceil(2.0 * absf(plek(0, n)) * k + 2.0 * h)) + 4
+	var hoog := int(ceil(2.0 * h)) + 4
+	breed += breed % 2
+	hoog += hoog % 2
+	var img := Image.create(breed, hoog, false, Image.FORMAT_RGBA8)
+	var m0 := Vector2(breed, hoog) / 2.0
+	var middens := []
+	for i in n:
+		middens.append(m0 + Vector2(plek(i, n) * k, 0.0))
+	for y in hoog:
+		for x in breed:
+			var som := Color(0, 0, 0, 0)
+			for sy in 4:
+				for sx in 4:
+					var q := Vector2(x + (sx + 0.5) / 4.0, y + (sy + 0.5) / 4.0)
+					som += _monster(q, middens, h, g) / 16.0
+			if som.a > 0.0:
+				img.set_pixel(x, y, Color(som.r / som.a, som.g / som.a, som.b / som.a, som.a))
+	var tex := ImageTexture.create_from_image(img)
+	_bak[sleutel] = tex
+	return tex
+
+# Kleur van één monster (voorvermenigvuldigd met alfa): schaduw, rand, goud, glimvlak, van onder naar boven.
+static func _monster(q: Vector2, middens: Array, h: float, g: float) -> Color:
+	for m in middens:
+		var d: Vector2 = q - m
+		if absf(d.x) + absf(d.y) <= g:
+			# glimvlak linksboven: driehoek (0,-g), (-g,0), (-g/4,-g/4)
+			var kl := GLIM if Geometry2D.point_is_inside_triangle(d, Vector2(0, -g), Vector2(-g, 0), Vector2(-g * 0.25, -g * 0.25)) else GOUD
+			return Color(kl.r, kl.g, kl.b, 1.0)
+		if absf(d.x) + absf(d.y) <= h:
+			return Color(RAND.r, RAND.g, RAND.b, 1.0)
+	for m in middens:
+		var d: Vector2 = q - m - Vector2(0.5, 1.0)
+		if absf(d.x) + absf(d.y) <= h:
+			return Color(SCHADUW.r * SCHADUW.a, SCHADUW.g * SCHADUW.a, SCHADUW.b * SCHADUW.a, SCHADUW.a)
+	return Color(0, 0, 0, 0)
+
+# Teken n stenen in een rij met het midden op c (spelpixels, lokaal van doek): één plaatje, op hele schermpixels.
 static func teken(doek: CanvasItem, c: Vector2, n: int) -> void:
 	if n <= 0:
 		return
-	var k := maxf(doek.get_global_transform().get_scale().x, 1.0)
-	for i in n:
-		var m := c + Vector2(plek(i, n), 0.0)
-		doek.draw_set_transform(m, 0.0, Vector2.ONE / k)
-		var h := HALF * k
-		_ruit(doek, Vector2(0.5, 1.0), h, SCHADUW)
-		_ruit(doek, Vector2.ZERO, h, RAND)
-		_ruit(doek, Vector2.ZERO, h - 1.6, GOUD)
-		# glimvlak linksboven: een kleine driehoek, leest als een geslepen steen
-		var g := h - 1.6
-		doek.draw_colored_polygon(PackedVector2Array([Vector2(0, -g), Vector2(-g, 0), Vector2(-g * 0.25, -g * 0.25)]), GLIM)
+	var k := maxf(roundf(doek.get_global_transform().get_scale().x * 20.0) / 20.0, 1.0)   # Gloop staat op 3,45: ook 1 op 1
+	var tex := plaatje(n, k)
+	var lt := (c * k - tex.get_size() / 2.0).round()
+	doek.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE / k)
+	doek.draw_texture(tex, lt)
 	doek.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-
-static func _ruit(doek: CanvasItem, o: Vector2, h: float, kleur: Color) -> void:
-	var p := PackedVector2Array([o + Vector2(0, -h), o + Vector2(h, 0), o + Vector2(0, h), o + Vector2(-h, 0)])
-	doek.draw_colored_polygon(p, kleur)
-	var r := p.duplicate()
-	r.append(p[0])
-	doek.draw_polyline(r, kleur, 1.0, true)   # gladde rand van 1 schermpixel

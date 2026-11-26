@@ -432,6 +432,10 @@ func _init() -> void:
 	ok(stt.aantal(0) == 0 and stt.aantal(3) == 0 and stt.aantal(4) == 1 and stt.aantal(5) == 2 and stt.aantal(6) == 3 and stt.aantal(9) == 3, "stenen per stap: 0,0,1,2,3 (#162)")
 	ok(is_equal_approx(stt.plek(0, 1), 0.0) and is_equal_approx(stt.plek(0, 3), -stt.plek(2, 3)) and stt.plek(1, 2) - stt.plek(0, 2) >= stt.HALF * 2.0, "stenen gecentreerd en raken elkaar niet (#162)")
 	ok(stt.plek(2, 3) + stt.HALF <= 8.0, "drie stenen passen in een putkolom van 16 (#162)")
+	var spl: ImageTexture = stt.plaatje(3, 3.0)
+	var spi := spl.get_image()
+	ok(spl == stt.plaatje(3, 3.0) and spi.get_width() < 64 and spi.get_height() < 24, "stenen één keer gebakken, klein plaatje (#162 CPU)")
+	ok(spi.get_pixel(spi.get_width() / 2, spi.get_height() / 2).a > 0.99 and spi.get_pixel(0, 0).a == 0.0, "plaatje: midden goud, hoek leeg (#162)")
 	ok(u.verkoop("slijm") == 115 and u.verkoop("slijm") == 95 and u.verkoop("slijm") == 75 and u.verkoop("slijm") == 70 and u.niveau("slijm") == 2, "weghalen geeft de volle prijs terug")
 	var up_put = load("res://systemen/upgrades.gd").new()
 	for i in 3:

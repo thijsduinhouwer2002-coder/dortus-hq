@@ -20,7 +20,7 @@ func _zet_stenen(aantal: int) -> void:
 		return
 	if _stenen == null:
 		_stenen = STAP_STENEN.maak(self)
-	_stenen.zet([Vector2(0.0, -1.0)], aantal)
+	_stenen.zet([Vector2(0.0, 0.0)], aantal)   # Daan #177 kan 2: 1 spelpixel lager, los van de onderste veer
 const UPG := preload("res://kunst/slijm_upgrades2.png")  # cel 0 (x 0, 20 breed) glansster, cel 1 (x 20, 28 breed) mantel achter, cel 2 (x 48, 20 breed) bovenzoom met gesp voor
 const KOOP_S := 0.6         # het moment van kopen: 3 beelden op 5 fps (Sanne toets 8 punt 1: Gloop wipt en zwelt)
 const KOOP_WIP := [-2, -3, -1]   # hoeveel spelpixels hij omhoog is per beeld; in beeld 0 nog het oude lijf, daarna het nieuwe

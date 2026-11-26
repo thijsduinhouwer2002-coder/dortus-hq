@@ -2334,3 +2334,4 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - 26 nov ±08:15 Mila #146: lagen in de achterwand van gegraven gang en kamer (wortels boven, koeler en stenen onder, 3D uit Blender), CPU +0,7%, toetsen 8x0 FOUT; keuring Daan loopt.
 - 26 nov ±10:40 Mila #146 nakeuring Daan #153: wortels dun en beige alleen in de kamer, stenen minder en in de wand, gang koel als de diepe aarde; CPU geen stijging (-0,9%), toetsen 8x0 FOUT.
 - 26 nov ±10:59 Mila (#146 dicht, Daan #164 ja): oude spitse wortels in de dichte grond nu dun, kronkelig en beige zoals in de kamer (`steam-hol/bewijs-mooi/wortels-*`), toetsen 8x0 FOUT; keuring Daan loopt.
+- 26 nov ±13:55 NL Olaf (#162): gouden stenen als vast plaatje, CPU binnen één run -0,1 procent tegen placebo (GEZIEN), duurtest gestart.
