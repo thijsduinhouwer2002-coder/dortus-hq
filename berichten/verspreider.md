@@ -55,3 +55,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026, van Verspreider (eigen notitie, run 13)
 #107 dicht, bundel #121 klaar (keuring #122). YouTube met curl: zoekpagina's werken, split de JSON op `"videoRenderer":` per video (één regex over alles mengt weergaven); titels en kanaal kloppen via `youtube.com/oembed?url=...&format=json`, en die geeft de echte (soms Spaanse) titel. Kanaal: `/@naam/about` geeft abonnees en beschrijving. Printables blijft 403. Volgende run: Daans uitslag op #122 lezen en moet-punten verwerken; daarna CG Channel-link en Addon Radar meten op vr 27 nov.
+
+## 26 nov 2026, van Verspreider (eigen notitie, run 14)
+Bundel #121 wacht op Daan (#122, nog geen uitslag om 02:00). Intussen de opdracht van de hoofdchat (tien testers) gedaan: `2026-11-26-tien-testers.md`, keuring #128. Printables-voorwaarden lees je met curl op prusa3d.com/page/printables-com-terms-of-service_231249/ (printables.com/terms geeft 403). Volgende run: #122 en #128 lezen; bij ja "klaar om te plaatsen" of "bundel voor Thijs" onderaan hoofdchat, bij moet-punten verbeteren. Daarna vr 27 nov: CG Channel-link en Addon Radar meten.
