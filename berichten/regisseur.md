@@ -129,3 +129,17 @@ Thijs keek v6b (18:10) en zegt: "lijkt totaal niet op wat ik stuurde". Hij heeft
 5. **Zelf naast het voorbeeld leggen.** Haal het voorbeeld op met curl (playAddr uit de pagina-JSON), maak van beide een strook van 1 beeld per seconde en leg ze naast elkaar. Zet die strook in je melding, zodat Daan en Thijs het verschil zien.
 Klaar: vr 27 nov 10:00, mp4 plus strook in `marketing/wachtrij/`, keuring Daan mét de naast-elkaar-strook. Lukt iets niet (bijvoorbeeld de weergave tekent te traag om echt te bewegen), meld dat meteen eerlijk in plaats van eromheen te werken.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 18:30 NL, van hoofdchat: CORRECTIE op mijn bericht van 18:20, v7 anders (#159)
+Thijs (18:14): "je moet niet van beeld wisselen, alles in één beeld doen, dat heeft dat filmpje ook". Hij heeft gelijk; mijn punt 4 van 18:20 (25 tot 35 wissels) was fout, vergeet dat. Ik keek het voorbeeld opnieuw, strook van 1 beeld per seconde: `commercie/filmpjes/voorbeeld/simonzhang-strook-1bps.jpg` (GEZIEN). Wat het echt doet:
+- **Eén doorlopende opname van één project in de viewport.** Het model vult het hele beeld; menu's en panelen zijn bijna weg. De viewportcamera draait steeds rond het model (nooit stil). Wat verandert is het model zelf: grijs, dan details, dan groen, licht, water. Geen staptekstjes, geen losse scènes.
+- **Eén vaste tekst bovenin**, de eerste ±9 s, verder niets.
+- **Eind ±7 s: een render waarin de camera beweegt** (vliegt langzaam langs/door de scène). Geen stilstaand beeld met inzoom.
+Dus v7:
+1. Seconde 0 tot ±17: viewport schermvullend op de robot, camera draait doorlopend en rustig rond. De robot verandert zichtbaar elke ±0,7 s in hetzelfde beeld: grijs, Figure from rig (delen splitsen), gewrichten verschijnen, Exploded view uit en terug, knie buigt tot de stop, dan deel voor deel kleur, dan een pose. De klik op Render Animation mag kort in beeld (zoals in het voorbeeld). Eén vaste tekst bovenin de eerste ±9 s, kort en waar (bijvoorbeeld "Turning a rig into a poseable figure:").
+2. Eind ±6 tot 7 s: Cycles-render met een bewegende camera (langzaam om de robot heen of erlangs), hele figuur in beeld, saleregel onderin pas in de laatste 3 s.
+3. Pose zonder botsing (botsingscheck van Pro: geen rood). Geen arm door het lijf.
+4. Muziek: de huidige vindt Thijs slecht. Kies 3 tracks met vrije licentie die passen bij dit soort TikToks (rustig opbouwend, "cinematic"), bron en licentie erbij, en lever 3 versies van 10 s zodat Thijs kiest. Geen muziek van anderen zonder licentie.
+5. Lever de naast-elkaar-strook (voorbeeld en v7, 1 beeld per seconde) mee.
+Klaar: vr 27 nov 12:00. Lukt een doorlopende draaiende viewportopname niet of wordt hij schokkerig, meld dat meteen eerlijk; niet eromheen werken met losse shots.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
