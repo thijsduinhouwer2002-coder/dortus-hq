@@ -21,9 +21,9 @@ env:
 jobs:
   opname:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 170   # proef 7: beeld voor beeld, Blender tekent elk beeld helemaal (±0,3 tot 0,6 s per beeld)
     outputs:
-      eind_al: ${{ steps.al.outputs.al }}
+      eind_al: ${{ steps.al.outputs.al || steps.al2.outputs.al }}
     steps:
       - name: Staat de eindfilm al in de release? (dan niet opnieuw renderen; robot en camera zijn gelijk)
         id: al
@@ -36,10 +36,33 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Eindfilm uit de Cycles-beelden van run 45810164930 (die renderde alles, alleen de laatste stap faalde op apt)
+        if: steps.al.outputs.al != '1'
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: eind-[0-9]*
+          path: /tmp/alle
+          merge-multiple: true
+          run-id: 45810164930
+          github-token: ${{ github.token }}
       - name: Systeempakketten (apt-snel)
         uses: ./.github/actions/apt-snel
         with:
           pakketten: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg fonts-inter tesseract-ocr x11-xserver-utils dmz-cursor-theme
+      - name: mss (scherm pakken in Blender, puur Python)
+        run: python3 -m pip install --target /tmp/pylib mss==9.0.2
+      - name: eind.mp4 samenzetten en in de release
+        id: al2
+        if: steps.al.outputs.al != '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(ls /tmp/alle/e_*.png 2>/dev/null | wc -l); echo "$n beelden"
+          [ "$n" -ge 200 ] || exit 0
+          ffmpeg -v error -framerate 30 -pattern_type glob -i '/tmp/alle/e_*.png' -c:v libx264 -preset slow -crf 15 -pix_fmt yuv420p /tmp/eind.mp4
+          gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY" /tmp/eind.mp4 && echo "al=1" >> "$GITHUB_OUTPUT"
+          rm -rf /tmp/alle
       - name: Blender 5.3.0 en de Pro-zip 1.2.8
         run: |
           V="5.3.0"; KORT="5.3"
@@ -59,10 +82,12 @@ jobs:
           BLENDER_USER_RESOURCES: /tmp/cj_pro
           BLENDER_USER_CONFIG: /tmp/cj_pro/config
           BLENDER_USER_EXTENSIONS: /tmp/cj_pro/extensions
+          CJ_BEELD: "1"
+          PYTHONPATH: /tmp/pylib
         run: |
           /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_s.blend')"
           mkdir -p /tmp/klaar
-          timeout 2400 xvfb-run --auto-servernum --server-args="-screen 0 2160x1920x24 -noreset" \
+          timeout 9000 xvfb-run --auto-servernum --server-args="-screen 0 2160x1920x24 -noreset" \
             bash commercie/filmpjes/regisseur-28/neem_op.sh /tmp/blender/blender /tmp/start_s.blend /tmp/opn /tmp/click_joints_betaald.zip 2160x1920 2>&1 | tee /tmp/klaar/opname.log || true
           grep -E "KORT|Traceback|Error|opname klaar" /tmp/klaar/opname.log | cut -c1-400 || true
           [ -s /tmp/opn/scherm-ruw.ts ] || { echo "FOUT: geen opname"; exit 1; }

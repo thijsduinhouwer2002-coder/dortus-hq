@@ -10,6 +10,12 @@ set -u
 BL=$1; START=$2; MAP=$3; ZIP=$4; MAAT=$5
 mkdir -p "$MAP"
 xsetroot -xcf /usr/share/icons/DMZ-White/cursors/left_ptr 32 || echo "LET OP: geen pijl gezet"
+if [ "${CJ_BEELD:-0}" = "1" ]; then
+  # beeld voor beeld (proef 7): Blender schrijft zelf scherm-ruw.ts, muis.txt en start.txt (zie proces.py, STAP)
+  "$BL" --gpu-backend opengl "$START" --python "$(dirname "$0")/proces.py" -- "$MAP" "$ZIP"
+  echo "opname klaar: $(du -h "$MAP/scherm-ruw.ts" | cut -f1)"
+  exit 0
+fi
 python3 "$(dirname "$0")/../regisseur-26/muisspoor.py" "$MAP/muis.txt" &
 MS=$!
 STARTGOK=$(date +%s.%N)
