@@ -87,6 +87,48 @@ def sleutels(delen, frame):
         o.keyframe_insert("rotation_quaternion", frame=frame)
 
 
+def grootste(venster, soort):
+    g = [a for a in venster.screen.areas if a.type == soort]
+    return max(g, key=lambda a: a.width * a.height) if g else None
+
+
+def zicht(g, draai, kantel, afstand, punt):
+    rv = g.spaces.active.region_3d
+    rv.view_perspective = "PERSP"
+    rv.view_rotation = Euler((math.radians(kantel), 0.0, math.radians(draai)), "XYZ").to_quaternion()
+    rv.view_distance = afstand
+    rv.view_location = Vector(punt)
+    g.tag_redraw()
+
+
+def mat_zicht(g):
+    r = g.spaces.active
+    r.shading.type = "MATERIAL"
+    r.shading.use_scene_world = True
+    r.shading.use_scene_lights = True
+    r.overlay.show_floor = False
+    r.overlay.show_axis_x = r.overlay.show_axis_y = False
+    r.overlay.show_extras = False
+    r.overlay.show_relationship_lines = False
+    r.clip_start, r.clip_end = 1.0, 20000.0
+    r.lens = 50.0
+
+
+def naar_tab(naam):
+    """Echte klik op het tabblad van een werkruimte bovenin; lukt dat niet, dan zet het script hem."""
+    venster = bpy.context.window_manager.windows[0]
+    t = ocr(naam, [venster.x, venster.y, venster.width, 50])
+    film["metingen"][f"tab_{naam}"] = t
+    if t:
+        yield from muis_naar(t[0], t[1], duur=0.8)
+        klik()
+        yield 1.2
+    if venster.workspace.name != naam:
+        log(f"KORT vangnet tab {naam}")
+        venster.workspace = bpy.data.workspaces[naam]
+        yield 1.2
+
+
 def verloop_pro():
     log(f"Blender {bpy.app.version_string}, zip {zip_pad}")
     bpy.ops.extensions.package_install_files(filepath=zip_pad, repo="user_default", enable_on_install=True)
@@ -115,13 +157,6 @@ def verloop_pro():
     yield 1.0
     MUIS["x"], MUIS["y"] = 700, 1200
     xdo("mousemove", "700", "1200")
-    kop = ocr("Click Joints")
-    if kop:   # hoofdpaneel dicht: Figure joints met de knop staat dan bovenaan
-        xdo("mousemove", str(kop[0]), str(kop[1]))
-        time.sleep(0.2)
-        xdo("click", "1")
-        time.sleep(0.2)
-        xdo("mousemove", "700", "1200")
     yield 0.8
     heel = (0.0, 0.0, 112.0)
     D = 330.0
@@ -183,11 +218,20 @@ def verloop_pro():
     if knop is None:
         knop = (rect("UI")[0] + rect("UI")[2] // 2, rect("UI")[1] + 160)
     yield from muis_naar(knop[0], knop[1], duur=0.8)
-    yield 0.3
-    klik()
-    yield 0.5
+    for poging in range(3):
+        yield 0.4
+        tk = time.time()
+        klik()
+        yield 0.5
+        heeft = any(o.get("cj_figuur") and o.get("cj_deel") for o in bpy.context.scene.objects)
+        log(f"KORT knop poging {poging + 1}: {time.time() - tk:.1f} s, delen {heeft}")
+        if heeft or time.time() - tk > 4.0:   # de knop blokkeert Blender zolang hij werkt: lang = hij draaide
+            break
+        knop2 = ocr("Figure from rig")
+        if knop2:
+            yield from muis_naar(knop2[0] + 25 * (poging + 1), knop2[1], duur=0.4)
     t0 = time.time()
-    while not any(o.get("cj_figuur") and o.get("cj_deel") for o in bpy.context.scene.objects) and time.time() - t0 < 240:
+    while not any(o.get("cj_figuur") and o.get("cj_deel") for o in bpy.context.scene.objects) and time.time() - t0 < 20:
         yield 0.5
     if not any(o.get("cj_figuur") and o.get("cj_deel") for o in bpy.context.scene.objects):
         log("KORT vangnet knop: Figure from rig via script")
@@ -260,12 +304,12 @@ def verloop_pro():
         buig(b, 0.0)
         bpy.context.view_layer.objects.active = b
         yield 0.4
-        kop = ocr("Click Joints")
-        if kop:
-            yield from muis_naar(kop[0], kop[1], duur=0.6)
-            klik()
-            yield 1.0
-        schuif = yield from zoek("Bend")
+        schuif = ocr("Bend")
+        if schuif is None:
+            sb = yield from zoek("Show bend range", 3)
+            if sb:
+                schuif = (sb[0], sb[1] + int(20 * UI))
+        film["metingen"]["bend_ocr"] = schuif
         film["metingen"]["bend_ocr"] = schuif
         wm = bpy.context.window_manager
         z = rect("UI")
@@ -274,24 +318,26 @@ def verloop_pro():
         yield from muis_naar(links, y_s, duur=0.6)
         s = math.floor(stop * 10) / 10
         deel("knie_buig")
-        yield from sleep_schuif(links + s * 0.5 * (z[2] - 140) / 150.0, 1.1)
-        v2 = yield from typ_waarde(s, midden)
+        if schuif:
+            yield from sleep_schuif(links + s * 0.5 * (z[2] - 140) / 150.0, 1.1)
+            yield from typ_waarde(s, midden)
         if abs(float(wm.cj_scharnier_pose) - s) > 1.0:
             log("KORT vangnet schuif: script zet de stand")
-            buig(b, s)
+            yield from stuk(30, lambda t: buig(b, s * t))
         deel("knie_stop")
         yield 0.9
         deel("knie_rood")
-        yield from typ_waarde(round(stop + 15.0), midden)
+        if schuif:
+            yield from typ_waarde(round(stop + 15.0), midden)
+        if float(wm.cj_scharnier_pose) < stop + 5:
+            log("KORT vangnet rood: script zet de stand")
+            yield from stuk(15, lambda t: buig(b, s + 15.0 * t))
         film["metingen"]["knie_rood_vlakken"] = len(a.get("cj_rood_vlakken", [])) // 2
         yield 1.2
-        yield from typ_waarde(0, midden)
+        if schuif:
+            yield from typ_waarde(0, midden)
+        buig(b, 0.0)
         log(f"KORT knie stop {stop} rood {film['metingen']['knie_rood_vlakken']}")
-        kop = ocr("Click Joints")
-        if kop:
-            yield from muis_naar(kop[0], kop[1], duur=0.6)
-            klik()
-            yield 0.5
     else:
         log("KORT FOUT knie: geen linkerknie")
 
@@ -323,23 +369,31 @@ def verloop_pro():
     S.richt(cam_ob, delen, "staand", draai=-32, kantel=7, vul=0.74, midden_y=0.56)
     yield 0.5
     sc.frame_set(1)
-    venster, g3 = gebied3d()
-    ruimte = g3.spaces.active
-    ruimte.shading.type = "MATERIAL"
-    ruimte.shading.use_scene_world = True
-    ruimte.shading.use_scene_lights = True
-    ruimte.overlay.show_floor = False
-    ruimte.overlay.show_axis_x = ruimte.overlay.show_axis_y = False
-    ruimte.overlay.show_extras = False
-    D3 = 300.0
-    cam(-20, 84.0, D3, heel)
-    yield 1.0
+    # terug uit het volle scherm (echte klik op "Back to Previous"), dan de echte klik op het tabblad Shading
     deel("kleur")
-    ne = onder_gebied("NODE_EDITOR", "ShaderNodeTree", 0.34)
+    venster, g3 = gebied3d()
+    top = [venster.x, venster.y, venster.width, 50]
+    terug = ocr("Back to Previous", top)
+    film["metingen"]["terug_ocr"] = terug
+    if terug:
+        yield from muis_naar(terug[0], terug[1], duur=0.7)
+        klik()
+        yield 0.8
+    if len(venster.screen.areas) < 3:
+        log("KORT vangnet terug: script verlaat het volle scherm")
+        with bpy.context.temp_override(window=venster, area=g3, region=next(r for r in g3.regions if r.type == "WINDOW")):
+            bpy.ops.screen.screen_full_area()
+        yield 0.6
     romp = max(delen, key=lambda o: len(o.data.vertices))
+    geen_selectie()
     bpy.context.view_layer.objects.active = romp
     romp.select_set(True)
-    yield 0.6
+    yield from naar_tab("Shading")
+    deel("shading")
+    g3 = grootste(venster, "VIEW_3D")
+    mat_zicht(g3)
+    zicht(g3, -20, 80.0, 330.0, heel)
+    ne = grootste(venster, "NODE_EDITOR")
     if ne is not None:
         with bpy.context.temp_override(window=venster, area=ne, region=next(r for r in ne.regions if r.type == "WINDOW")):
             try:
@@ -349,9 +403,13 @@ def verloop_pro():
         nr = gebied_rect(ne)
         film["vlakken"]["nodes"] = nr
         yield 0.5
-        yield from muis_naar(nr[0] + 300, nr[1] + nr[3] // 2, duur=0.8)
-        yield from drijf(1.5, nr)
-    yield from stuk(45, lambda t: cam(-20 + 30 * t, 84.0, D3, heel))
+        yield from muis_naar(nr[0] + nr[2] // 2, nr[1] + nr[3] // 2, duur=0.8,
+                             doe=lambda t: zicht(g3, -20 + 10 * t, 80.0, 330.0, heel))
+        t0 = time.time()
+        for _ in range(2):
+            yield from muis_naar(MUIS["x"] + _rnd.randint(-200, 200), nr[1] + _rnd.randint(80, nr[3] - 80), duur=0.8,
+                                 doe=lambda t: zicht(g3, -10 + 20 * min(1, (time.time() - t0) / 1.8), 80.0, 330.0, heel))
+    film["vlakken"]["shading_3d"] = gebied_rect(g3)
     log("KORT OK kleur")
 
     # licht: Roughness slepen als OCR hem vindt, lamp feller en warmer
@@ -374,10 +432,19 @@ def verloop_pro():
 
     # tijdlijn: de editor onderin wordt de tijdlijn, echte sleep van de afspeelkop door drie poses
     deel("tijdlijn")
+    yield from naar_tab("Layout")
+    g3 = grootste(venster, "VIEW_3D")
+    mat_zicht(g3)
+    ruimte = g3.spaces.active
+    zicht(g3, 15, 82.0, 380.0, heel)
+    film["vlakken"]["layout_3d"] = gebied_rect(g3)
+    ne = None
+    for a_ in venster.screen.areas:
+        if a_.type == "DOPESHEET_EDITOR":
+            ne = a_
     if ne is not None:
-        ne.type = "DOPESHEET_EDITOR"
-        ne.ui_type = "TIMELINE"
-        yield 0.6
+        if ne.height < 160:
+            log(f"KORT tijdlijn laag: {ne.height}")
         with bpy.context.temp_override(window=venster, area=ne, region=next(r for r in ne.regions if r.type == "WINDOW")):
             try:
                 bpy.ops.action.view_all()
@@ -396,7 +463,7 @@ def verloop_pro():
         yield 0.3
         xdo("mousedown", "1")
         film["kliks"].append(round(time.time(), 3))
-        yield from muis_naar(vx + x120, y_kop, duur=3.6, boog=0.0)
+        yield from muis_naar(vx + x120, y_kop, duur=3.6, boog=0.0, doe=lambda t: zicht(g3, 15 - 30 * t, 82.0, 380.0, heel))
         yield from muis_naar(vx + (x1 + x120) / 2, y_kop, duur=1.2, boog=0.0)
         xdo("mouseup", "1")
         yield 0.3
@@ -439,6 +506,8 @@ def verloop_pro():
 
     # eind: de eindfilm door de studiocamera (niet in de opname gebruikt)
     deel("eind_render")
+    g3 = grootste(venster, "VIEW_3D")
+    ruimte = g3.spaces.active
     ruimte.region_3d.view_perspective = "CAMERA"
     ruimte.overlay.show_overlays = False
     for o in lampen:
