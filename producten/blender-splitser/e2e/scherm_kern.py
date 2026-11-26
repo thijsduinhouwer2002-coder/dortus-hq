@@ -131,7 +131,8 @@ def model(naam):
             midden = o.matrix_world @ c
             straal = max((q - c).length for q in pts) + 10.0
             schuin = n + Vector((0.08, -0.06, 0.08))
-        camera(midden, schuin, straal * 2.6, lens=50)
+        # magneet: whole circle of holes in the frame (vertical half view at 50 mm lens is tan 0.225, plus margin)
+        camera(midden, schuin, straal * (5.2 if naam == "magneet" else 2.6), lens=50)
         render(f"{naam}-2-snijvlak-{lb['tekst']}.png")
         break
 
