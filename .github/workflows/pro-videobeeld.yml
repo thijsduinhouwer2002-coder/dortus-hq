@@ -1,0 +1,76 @@
+name: Pro videobeeld (YouTube-thumbnail lange Pro-video)
+
+# 26 nov 2026, Beeldmaker (issue #94 stap 3): render voor een eigen videobeeld bij de lange YouTube-video
+# 4-3l3MZZWPc (ook de video op Superhive). Nu toont YouTube een grijs MakeHuman-figuur in het Blender-scherm.
+# Zelfde studio als galerijbeeld 'Rig in. Parts out.' (ontwerp/pro-galerij/bron/galerij.py, modus klik), nu met het
+# MakeHuman-figuur (CC0) uit de video zelf. De echte knop Figure from rig van Pro (zip van deze commit) maakt de delen.
+# Alleen de kale render en de json gaan naar release pro-videobeeld-1; de tekst komt er in de repo op
+# (ontwerp/pro-videobeeld/). Niets wordt geplaatst, niets kost geld.
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/pro-videobeeld.yml"]
+  workflow_dispatch:
+    inputs:
+      samples:
+        description: "Samples per render (standaard 64)"
+        default: "64"
+      shift:
+        description: "HB_SHIFT (negatief: figuren naar rechts)"
+        default: "-0.19"
+      vul:
+        description: "HB_VUL (deel van de beeldhoogte)"
+        default: "0.74"
+
+permissions:
+  contents: write
+
+env:
+  TAG: pro-videobeeld-1
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Blender 5.3.0 en de Pro-zip
+        run: |
+          sudo apt-get install -y -q libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 libgl1 libegl1 >/dev/null || true
+          B="release/Blender5.3/blender-5.3.0-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          (cd producten/blender-gewrichten && PRO_VERSIE=1.2.8 bash e2e/maak_zip.sh betaald)
+          sha256sum /tmp/click_joints_betaald.zip
+      - name: Render klik met het MakeHuman-figuur
+        env:
+          SAMPLES: ${{ github.event.inputs.samples || '64' }}
+          HB_SHIFT: ${{ github.event.inputs.shift || '-0.19' }}
+          HB_VUL: ${{ github.event.inputs.vul || '0.74' }}
+          BLENDER_USER_RESOURCES: /tmp/cj
+          BLENDER_USER_CONFIG: /tmp/cj/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj/extensions
+        run: |
+          mkdir -p /tmp/uit
+          case "$SAMPLES" in ''|*[!0-9]*) SAMPLES=64 ;; esac
+          export CJ_HALS=rond HB_FIGUUR=mens GB_MODUS=klik HB_DRAAI=-8 HB_KANTEL=5 HB_LICHT=2.6 GB_AFSTAND_X=1.30
+          timeout 3000 /tmp/blender/blender -b --factory-startup --python ontwerp/pro-galerij/bron/galerij.py -- /tmp/click_joints_betaald.zip /tmp/uit "$SAMPLES" 100 2>&1 | tee /tmp/uit/klik.log | grep -E "\[|Traceback|Error" | cut -c1-400
+          [ -s /tmp/uit/render-klik.png ] || { echo "FOUT: geen render"; exit 1; }
+          python3 -c "import json; d=json.load(open('/tmp/uit/klik.json')); print('GEWRICHTEN', len(d.get('gewrichten', [])), 'delen', d.get('delen'), 'botten', d.get('botten'))"
+      - name: In release pro-videobeeld-1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          printf '%s\n' "Render voor het videobeeld van de lange Click Joints Pro-video (YouTube 4-3l3MZZWPc), 26 nov 2026, Beeldmaker Dortus (issue #94)." "Blender 5.3.0, Cycles, in deze workflow. Geen AI-beeld, geen foto van een echte print." "Figuur: MakeHuman base mesh (CC0 1.0), aangekleed door commercie/filmpjes/studio/figuur_laden.py. Links het figuur zoals je het aanlevert (half doorzichtig, met de botten van de rig), rechts de delen uit de echte knop Figure from rig van Click Joints Pro (zip van commit $GITHUB_SHA)." "klik.json: wat de add-on meldde. Werkmateriaal, niets geplaatst." > /tmp/notes.md
+          for i in 1 2 3; do
+            if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              gh release upload "$TAG" /tmp/uit/render-klik.png /tmp/uit/klik.json /tmp/uit/klik.log --clobber -R "$GITHUB_REPOSITORY" && break
+            else
+              gh release create "$TAG" /tmp/uit/render-klik.png /tmp/uit/klik.json /tmp/uit/klik.log -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Pro videobeeld 1" --notes-file /tmp/notes.md && break
+            fi
+            sleep 20
+          done
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'

@@ -152,7 +152,10 @@ def glas_spook(o):
 
 def klik():
     bpy.ops.extensions.package_install_files(filepath=ZIP, repo="user_default", enable_on_install=True)
-    arm, ob, _p = FL.laad_figuur("robot", 220.0)
+    keuze = os.environ.get("HB_FIGUUR", "robot")   # "mens": MakeHuman base (CC0), videobeeld #94 stap 3
+    arm, ob, _p = FL.laad_figuur(keuze, 220.0)
+    if keuze == "mens":
+        meting["figuur"] = "MakeHuman base mesh (CC0 1.0, commercie/filmpjes/studio/modellen/makehuman-base-LICENTIE.md), aangekleed door figuur_laden.py"
     # kopie van het figuur zoals de koper het aanlevert, vóór de knop
     spook = ob.copy()
     spook.data = ob.data.copy()
