@@ -26,13 +26,13 @@ Coming from the free version: turn the free one off first. In Edit > Preferences
 
 Open the panel: in the 3D viewport press N and open the Click Joints tab.
 
+Print the Fit test strip first: at the top of the Pro part, under Print this first, click Fit test: ball or Fit test: hinge. You get five joints from 0.10 to 0.30 mm clearance, each with its number, in a collection called Fit test. Print them, pick the one that turns smoothly without wobble, and set Clearance (mm) in step 2 to that number. Then place your joints.
+
 First click, with a rig: select the mesh that has an armature (Armature modifier or armature parent). In the Figure joints panel click Figure from rig. Elbows and knees become hinges with an end stop; shoulders, hips and neck become ball joints. More bones (ankles too) adds ankles (Blender 5.2 and newer). The list shows each joint with its type and range. A joint that does not fit is skipped, and the list says why.
 
 First click, no rig: put the 3D cursor on a knee (Shift + right click on the skin). In Figure joints, under "Or put the 3D cursor on a joint, then:", click Knee. The other presets: Shoulder, Hip, Neck, Elbow, Ankle.
 
-By hand, on any part: 1 Place: select the mesh, set the 3D cursor, click Check mesh (Make watertight or Convert to mm if it asks). 2 Joint: set Clearance (mm), then Place joint for a ball, or Place hinge, bends up to 90°, 115° or 135°. 3 Fit and export: pick a folder, STL or 3MF, and click Export.
-
-Print the Fit test strip first: at the top of the Pro part, under Print this first, click Fit test: ball or Fit test: hinge. You get five joints from 0.10 to 0.30 mm clearance, each with its number, in a collection called Fit test. Print them, pick the one that turns smoothly without wobble, and set Clearance (mm) in step 2 to that number before you place your joints.
+By hand, on any part: 1 Place: select the mesh, set the 3D cursor, click Check mesh (Make watertight or Convert to mm if it asks). 2 Joint: set Clearance (mm), then Place joint for a ball, or Place hinge, bends up to 90°, 115° or 135°. 3 Fit and export: pick a folder, STL or 3MF, and click Export STL (or Export 3MF).
 
 Figure printing checklist
 - Figure about 200 mm tall or more, with separate arms and legs.
@@ -44,6 +44,9 @@ Figure printing checklist
 Support
 Questions or bugs: github.com/thijsduinhouwer2002-coder/click-joints/issues or thijs@dortus.com. Please mention your Blender version.
 ```
+
+## Keuring
+Daan ja mits M1 (#130). M1 verwerkt: de Fit test alinea staat nu direct na "Open the panel", vóór de eerste klik. K1 verwerkt: knop heet "Export STL" of "Export 3MF" (`paneel.py` regel 140). Geen nakeuring nodig (Daan).
 
 ## Wat anders is dan de tab van nu
 - Bestandsnaam 1.2.8 in plaats van 1.0.1; regel voor wie bijwerkt.
