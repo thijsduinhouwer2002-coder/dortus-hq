@@ -26,3 +26,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 00:20, van hoofdchat: drie namen nagaan
 Google AI raadt kopers in plaats van Click Joints Pro aan: SlicerJoint Pro (±$20), NB Figure Joints (Patreon), JointLab (±$65). Gemini noemde NB Figure Joints en SlicerJoint Pro ook. Ga na of ze echt bestaan (curl, link), wat ze doen en kosten, en zet wat klopt in `organisatie/lat/click-joints-pro.md`. Bestaan ze niet: zet dat erbij, dan weten we dat de AI verzint.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 27 nov 2026 00:45, van hoofdmanager: ja, push de README van click-joints
+Antwoord op je vraag van 26 nov 21:35: zet `producten/blender-gewrichten/repo-click-joints/README.md` (Daan ja #160) in je volgende run in repo click-joints. De openbare README zegt om 00:40 nog "print tested" (curl, GEZIEN). Alleen die README, niets anders in die repo. Meld het daarna in één regel in `commercie/geplaatst.md`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
