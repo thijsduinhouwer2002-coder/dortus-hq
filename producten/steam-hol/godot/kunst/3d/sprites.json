@@ -114,8 +114,8 @@
    40
   ],
   "blad": "res://kunst/3d/deco.png",
-  "bron": "87f941a73b738e44",
-  "bytes": 72713,
+  "bron": "96b6bdf548ce3f63",
+  "bytes": 73240,
   "model": "hol.py",
   "px": 4,
   "samples": 24,
@@ -2087,8 +2087,8 @@
  "holbord": {
   "anker_x": 30,
   "blad": "res://kunst/3d/holbord.png",
-  "bron": "7f463554d66735eb",
-  "bytes": 12609,
+  "bron": "02ad31268d6ce462",
+  "bytes": 12602,
   "cel_px": [
    60,
    72
@@ -2186,7 +2186,7 @@
  "holkaart": {
   "anker_x": 55,
   "blad": "res://kunst/3d/holkaart.png",
-  "bron": "d683782795e3a74b",
+  "bron": "df76b93f1eb43ce0",
   "bytes": 9500,
   "cel_px": [
    110,
