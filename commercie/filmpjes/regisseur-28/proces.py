@@ -38,6 +38,37 @@ POSE2 = {
 }
 
 
+def ocr2(tekst, vak=None, drempels=("65%", "45%", "30%")):
+    """Als ocr, maar 2x vergroot en met meer drempels: grijze tekst (tabbladen die niet actief zijn, menu-regels) en
+    kleine tekst leest tesseract anders niet (proef 3: Shading, Layout, Render Animation, Bend niet gevonden)."""
+    vak = vak or rect("UI")
+    x0, y0, b, h = vak
+    subprocess.run(["import", "-window", "root", "/tmp/cj_ocr2.png"], capture_output=True)
+    doel = tekst.lower().split()
+    for dr in drempels:
+        subprocess.run(["convert", "/tmp/cj_ocr2.png", "-crop", f"{b}x{h}+{x0}+{y0}", "+repage", "-colorspace", "Gray",
+                        "-resize", "200%", "-threshold", dr, "-negate", "/tmp/cj_ocr2_v.png"], capture_output=True)
+        r = subprocess.run(["tesseract", "/tmp/cj_ocr2_v.png", "stdout", "--psm", "11", "tsv"], capture_output=True,
+                           text=True)
+        regels = {}
+        for regel in r.stdout.splitlines()[1:]:
+            d = regel.split("\t")
+            if len(d) == 12 and d[11].strip():
+                w = (d[11].strip().lower().strip(".,:;(){}[]'\"|"), int(d[6]) // 2, int(d[7]) // 2, int(d[8]) // 2,
+                     int(d[9]) // 2)
+                regels.setdefault((d[2], d[3], d[4]), []).append(w)
+        for alleen_begin in (True, False):
+            for ws in regels.values():
+                ws.sort(key=lambda w: w[1])
+                for i in ([0] if alleen_begin else range(len(ws) - len(doel) + 1)):
+                    if i + len(doel) <= len(ws) and all(ws[i + j][0] == doel[j] for j in range(len(doel))):
+                        s_ = ws[i:i + len(doel)]
+                        return (x0 + (min(w[1] for w in s_) + max(w[1] + w[3] for w in s_)) // 2,
+                                y0 + (min(w[2] for w in s_) + max(w[2] + w[4] for w in s_)) // 2)
+    log(f"KORT ocr2 niet gevonden: {tekst!r}")
+    return None
+
+
 def drijf(sec, vak=None):
     """De hand rust nooit: kleine rustige bewegingen binnen vak [x, y, b, h] (standaard de 3D-weergave)."""
     t_eind = time.time() + sec
@@ -102,10 +133,16 @@ def zicht(g, draai, kantel, afstand, punt):
 
 
 def mat_zicht(g):
+    # proef 4 (GEZIEN): Material Preview tekent op de runner (llvmpipe, 2160x1920) maar eens per 2 tot 3 s een nieuw
+    # beeld, dus alles in kleur was een diashow. Solid met de kleuren van de materialen tekent vloeiend; het mooie
+    # licht komt uit de Cycles-eindfilm.
     r = g.spaces.active
-    r.shading.type = "MATERIAL"
-    r.shading.use_scene_world = True
-    r.shading.use_scene_lights = True
+    r.shading.type = "SOLID"
+    r.shading.color_type = "MATERIAL"
+    r.shading.light = "STUDIO"
+    r.shading.show_cavity = False
+    r.shading.background_type = "VIEWPORT"
+    r.shading.background_color = (0.30, 0.48, 0.45)
     r.overlay.show_floor = False
     r.overlay.show_axis_x = r.overlay.show_axis_y = False
     r.overlay.show_extras = False
@@ -117,7 +154,7 @@ def mat_zicht(g):
 def naar_tab(naam):
     """Echte klik op het tabblad van een werkruimte bovenin; lukt dat niet, dan zet het script hem."""
     venster = bpy.context.window_manager.windows[0]
-    t = ocr(naam, [venster.x, venster.y, venster.width, 50])
+    t = ocr(naam, [venster.x, venster.y, venster.width, 50]) or ocr2(naam, [venster.x, venster.y, venster.width, 50])
     film["metingen"][f"tab_{naam}"] = t
     if t:
         yield from muis_naar(t[0], t[1], duur=0.8)
@@ -133,6 +170,25 @@ def verloop_pro():
     log(f"Blender {bpy.app.version_string}, zip {zip_pad}")
     bpy.ops.extensions.package_install_files(filepath=zip_pad, repo="user_default", enable_on_install=True)
     yield 1.0
+    # proef 4 en 5 (GEZIEN): de weergave tekende maar ±2 keer per seconde (llvmpipe, 2160x1920, ffmpeg ernaast).
+    # Anti-aliasing van de weergave uit (anders tekent hij elk beeld meerdere keren) en meten hoe vaak hij tekent.
+    try:
+        bpy.context.preferences.system.viewport_aa = "OFF"
+        for sc_ in bpy.data.scenes:
+            sc_.display.viewport_aa = "OFF"
+    except Exception as f:  # noqa: BLE001
+        log(f"KORT viewport_aa {f}")
+    _teller = {"n": 0}
+
+    def _tel():
+        _teller["n"] += 1
+    bpy.types.SpaceView3D.draw_handler_add(_tel, (), "WINDOW", "POST_PIXEL")
+
+    def _meld():
+        log(f"KORT tekenen {_teller['n'] / 5.0:.1f} per s")
+        _teller["n"] = 0
+        return 5.0
+    bpy.app.timers.register(_meld, first_interval=5.0)
     ob, arm, p = figuur()
     naam = ob.name
     SM["rustig"]()
@@ -304,7 +360,7 @@ def verloop_pro():
         buig(b, 0.0)
         bpy.context.view_layer.objects.active = b
         yield 0.4
-        schuif = ocr("Bend")
+        schuif = ocr("Bend") or ocr2("Bend")
         if schuif is None:
             sb = yield from zoek("Show bend range", 3)
             if sb:
@@ -369,6 +425,11 @@ def verloop_pro():
     S.richt(cam_ob, delen, "staand", draai=-32, kantel=7, vul=0.74, midden_y=0.56)
     yield 0.5
     sc.frame_set(1)
+    # proef 3: in Shading bleef de weergave 25 s op "Compiling EEVEE engine shaders" (llvmpipe). Daarom eerst hier,
+    # in het volle scherm, Material Preview aan tot de shaders klaar zijn (dit stuk knipt de montage weg), dan terug
+    # naar Solid zodat de stap naar kleur in Shading echt te zien is.
+    deel("shaders")
+    yield 0.5
     # terug uit het volle scherm (echte klik op "Back to Previous"), dan de echte klik op het tabblad Shading
     deel("kleur")
     venster, g3 = gebied3d()
@@ -388,7 +449,25 @@ def verloop_pro():
     geen_selectie()
     bpy.context.view_layer.objects.active = romp
     romp.select_set(True)
+    # vooraf de werkruimte Shading klaarzetten (proef 4: de klik liet hem 33 s hangen op EEVEE-shaders en de
+    # bestandsbrowser): weergave in Solid met materiaalkleuren, bestandsbrowser wordt Properties
+    try:
+        for a_ in bpy.data.workspaces["Shading"].screens[0].areas:
+            if a_.type == "VIEW_3D":
+                mat_zicht(a_)
+            elif a_.type == "FILE_BROWSER":
+                a_.type = "PROPERTIES"
+    except Exception as f:  # noqa: BLE001
+        log(f"KORT shading vooraf {f}")
     yield from naar_tab("Shading")
+    # de bestandsbrowser links (toont mappen van de runner) wordt het materiaal in Properties
+    for a_ in venster.screen.areas:
+        if a_.type == "FILE_BROWSER":
+            a_.type = "PROPERTIES"
+            try:
+                a_.spaces.active.context = "MATERIAL"
+            except Exception as f:  # noqa: BLE001
+                log(f"KORT properties {f}")
     deel("shading")
     g3 = grootste(venster, "VIEW_3D")
     mat_zicht(g3)
@@ -417,7 +496,7 @@ def verloop_pro():
     lampen = [o for o in sc.objects if o.type == "LIGHT"]
     kracht = {o.name: o.data.energy for o in lampen}
     if ne is not None:
-        rv = ocr("Roughness", gebied_rect(ne))
+        rv = ocr("Roughness", gebied_rect(ne)) or ocr2("Roughness", gebied_rect(ne))
         film["metingen"]["roughness_ocr"] = rv
         if rv:
             yield from muis_naar(rv[0], rv[1], duur=0.6)
@@ -493,7 +572,7 @@ def verloop_pro():
     yield 0.2
     klik()
     yield 0.6
-    ra = ocr("Render Animation", [venster.x, venster.y, 900, 500])
+    ra = ocr("Render Animation", [venster.x, venster.y, 900, 500]) or ocr2("Render Animation", [venster.x, venster.y, 900, 500])
     film["metingen"]["render_anim_ocr"] = ra
     if ra:
         yield from muis_naar(ra[0], ra[1], duur=0.5)
