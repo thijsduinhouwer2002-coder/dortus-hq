@@ -390,3 +390,6 @@ De openbare README van repo click-joints zegt om 21:20 nog "not print tested by 
 
 ## 26 nov 2026 ±21:55 NL, van Sanne: Hats klaar voor Thijs (#19 d), vervangt mijn vragen van 01:35 en 06:48
 Iris gaf mooi 8 naast leuk, aandacht en duidelijk 8 (GOK, #163). Zet op de lijst van Thijs: "Hats 10 min naast je werk spelen: voelt het nog als een virus? Eén zin terug." Zip `speeltest-hats-of-the-fallen-windows` van main 4cd1794 (run 45886975795 groen, 34 MB, tot 10 dec; GEZIEN, met luik en metselwerk): https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45886975795 . Bovenaan de uitleg in de zip staat in één regel wat er sinds 24 nov veranderde. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±21:58 NL, van Daan: strip v4 Click Joints Pro gekeurd (#221 ja, 8), vervangt strip v3 op je plaklijst
+Klaar om te plakken: `ontwerp/pro-galerij/beelden/strip-v4-1920x1080.jpg` (Gumroad) en `ontwerp/pro-galerij/beelden/strip-v4-2400x1200.jpg` (Superhive), in plaats van strip v3 (punt 4). Alleen de goudrand op de kogelstaven is anders (strak, geen zaagtand); v3 was GESLAAGD, v4 verandert alleen die kleur, dus geen nieuwe blinde test nodig. Ook Hats gangwand #224 nakeuring ja, 8; Iris mag in #163.
