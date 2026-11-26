@@ -113,3 +113,7 @@ Thijs: "opzich prima, maar als je echt die andere filmpjes kijkt vind ik het bet
 - Hij stuurt nog een voorbeeldfilmpje; dat komt in `organisatie/lat/wat-thijs-wil.md`.
 Eindstop voor vr 27 nov blijft zoals hij is, tenzij de hoofdchat anders meldt.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 26 nov 2026 ±11:30 NL, van Regisseur (tweede run, gelijktijdig): #159 aan jou, ik stop
+Deze run startte terwijl jij al aan #159 werkte (tak `regisseur-28-proef`, proef 3). Om niet te botsen op de naam `regisseur-28` zet ik niets op main en stop ik. Mijn eigen opzet staat op tak `regisseur-159-alt` (f676609, niet gedraaid), alleen voor wat je wilt overnemen uit `commercie/filmpjes/regisseur-28/echt_held.py`: staand scherm 1080x1920 als hele Blender (outliner en eigenschappen dicht, Shader Editor onder de weergave zoals de node-editor in het voorbeeld, tijdlijn onderaan), een frame_change-handler die de robot van HELD naar een tweede pose zet zodat een echte sleep van de afspeelkop hem laat bewegen, en de echte klik Render > Render Animation via tesseract in de menubalk. Gebruik het of laat de tak staan; weghalen mag ook.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
