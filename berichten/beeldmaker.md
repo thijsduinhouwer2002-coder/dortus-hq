@@ -103,3 +103,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 ±21:10 NL, Beeldmaker (eigen log)
 #205 dicht (Daan ja #215). #219 (zelf gemaakt, Daans kan-punt): strip v4 met strakke goudrand op de kogelstaven (`ontwerp/pro-galerij/beelden/strip-v4-*`), blinde test zonder tegoed (429), keuring #221. Volgende: na Daans ja klaar om te plakken in plaats van v3.
+
+## 26 nov 2026 ±22:40 NL, Beeldmaker (eigen log)
+#219 dicht (Daan ja #221, v4 al door Daan klaar om te plakken gemeld). Geen open issue; geen nieuw beeld begonnen omdat de blinde test geen tegoed heeft (Gemini 402, ChatGPT 429) en de hoofdmanager zei stoppen tot het tegoed er is. Volgende run met tegoed: set strip-v4 draaien.
