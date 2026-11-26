@@ -1,0 +1,1 @@
+{"workflow": "steam-hol-duur.yml", "invoer": {"minuten": "60"}, "van": "olaf", "waarom": "duurtest na de veilige save, telt de save-bestanden na 120 bewaarrondes (issue 194)"}

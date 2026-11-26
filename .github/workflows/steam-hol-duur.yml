@@ -179,7 +179,12 @@ jobs:
           # CPU-grens 1,0: rood alleen bij de .exe (Sanne 17 nov 03:09, poort b); in de editor schommelt de runner te veel, daar een waarschuwing
           $cpuRood = ($gem -ge 1.0) -and ($env:EXE -eq 'ja')
           if (($gem -ge 1.0) -and ($env:EXE -ne 'ja')) { Write-Output "::warning::CPU gemiddeld $gem boven 1,0 in de editor (alleen waarschuwing; de .exe beslist)" }
-          $rood = (-not $einde) -or $dood -or (@($fouten).Count -gt 0) -or $cpuRood -or ($metingen.Count -eq 0)
+          # Olaf 26 nov (#194): na ±120 bewaarrondes staan er precies hol.json en hol.vorige.json, geen achtergebleven .tmp
+          $saves = @(Get-ChildItem (Join-Path $env:APPDATA "Dortus/Het Hol") -Filter "hol*.json*" -Name -ErrorAction SilentlyContinue | Sort-Object)
+          $saveGoed = (($saves -join ',') -eq 'hol.json,hol.vorige.json')
+          $saveRegel = "save-bestanden na de duurtest: $($saves -join ', ') (precies hol.json en hol.vorige.json: $saveGoed)"
+          Write-Output "===== $saveRegel"; Add-Content "$vol/uitslag.txt" $saveRegel
+          $rood = (-not $einde) -or $dood -or (@($fouten).Count -gt 0) -or $cpuRood -or ($metingen.Count -eq 0) -or (-not $saveGoed)
           if ($rood) { Write-Output "== DUURTEST ROOD"; exit 1 } else { Write-Output "== DUURTEST GROEN" }
       - name: Uitslag openbaar zetten (tak schermen)
         if: always()

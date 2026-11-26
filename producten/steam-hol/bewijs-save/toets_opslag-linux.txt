@@ -1,0 +1,24 @@
+[hol-toets] OK 10 bewaarrondes lukten
+[hol-toets] OK na 10 rondes alleen hol.json en hol.vorige.json (["hol.json", "hol.vorige.json"])
+[hol-toets] OK hol.json is ronde 10 (goud 170, hoeden 10)
+[hol-toets] OK hol.vorige.json is ronde 9
+[hol-toets] OK half geschreven hol.json: hol uit hol.vorige.json terug (goud 163, hoeden 9)
+[hol-toets] OK bron is hol.vorige.json (hol.vorige.json)
+[hol-toets] OK hol.kapot.json bestaat nog
+[hol-toets] OK hol.kapot.json is het halve bestand, niet overschreven
+[hol-toets] OK bewaren na het kapotte bestand lukt
+[hol-toets] OK hol.vorige.json is na die ronde nog ronde 9
+[hol-toets] OK hol.json is ronde 12
+[hol-toets] OK hol.kapot.json staat er na het bewaren nog
+[hol-toets] OK lege hol.json: hol uit hol.vorige.json terug (goud 163)
+[hol-toets] OK twee kapotte bestanden naast elkaar, geen overschreven (["hol.kapot.1795709991_1.json", "hol.kapot.json"])
+[hol-toets] OK zonder hol.json komt het hol uit hol.vorige.json (goud 114)
+[hol-toets] OK daarna bewaren ruimt de .tmp op (["hol.json", "hol.vorige.json"])
+[hol-toets] OK halve .tmp raakt hol.json niet (goud 128)
+[hol-toets] OK bewaren overschrijft de halve .tmp en laat niets achter
+[hol-toets] OK oudere versie bewaard als hol.v2.json
+[hol-toets] OK tweede oude save naast de eerste (hol.v2.1795709991_1.json)
+[hol-toets] OK bewaren over een onleesbare hol.json lukt
+[hol-toets] OK hol.vorige.json is nog de goede ronde 1, niet het kapotte bestand
+[hol-toets] OK het onleesbare bestand staat als hol.kapot.json
+[hol-toets] klaar: 0 FOUT

@@ -4,7 +4,8 @@ extends RefCounted
 const VOORTGANG := preload("res://systemen/voortgang.gd")
 const AFLOOP := preload("res://kern/afloop.gd")   # faam_erbij (hol-niveau)
 const HOL_NIVEAU := preload("res://systemen/hol_niveau.gd")   # weg_regel en optocht (Sanne 16 nov 14:50)
-const OPSLAG_VERSIE := 3   # 3: hol groeit naar links, schat rechts (oudere saves: vers begin, er zijn nog geen spelers)
+const VEILIG := preload("res://kern/veilig_bestand.gd")   # save nooit stilletjes weg: .tmp, vorige, kapot (Olaf 26 nov, #194)
+const OPSLAG_VERSIE := 3   # 3: hol groeit naar links, schat rechts (oudere saves: vers begin, de oude blijft als hol.v<versie>.json)
 const OPSLAG := "user://hol.json"
 # voortgang.gd belooft dat de bewaarde tijd nooit achteruit gaat (nieuwe_laatst). Stond de klok terug, dan blijft de
 # hoogste tijd bewaard; anders telt het gat nog een keer als de klok weer goed staat (controleur 13 nov, kan-punt).
@@ -21,10 +22,8 @@ static func bewaar(s) -> void:
 		"slijm": s.slijm.naar_dict() if s.slijm.has_method("naar_dict") else {},
 		"upgrades": s.hol.upgrades.naar_dict() if s.hol.upgrades != null else {},
 		"boek": s.boek.naar_dict() if s.boek != null else {}}
-	var f := FileAccess.open(OPSLAG, FileAccess.WRITE)
-	if f:
-		f.store_string(JSON.stringify(data))
-		f.close()
+	if not VEILIG.schrijf(OPSLAG, JSON.stringify(data)):
+		s.log_regel("HOL opslag niet gelukt, de vorige save blijft staan")
 
 # Pure rekensom (toets in systemen/toetsen/toets_systemen.gd): schuif gang, kamers en vallen zo dat de schat op
 # de laatste kolom voor het tekstvak staat (min(max_kol, kolommen - 1)). Wat links van kolom 1 valt is weg; de ingang
@@ -60,14 +59,22 @@ static func schuif_naar_vak(g: Array, b: Array, v: Dictionary, schat: int, ingan
 	return {"gang": ng, "boven": nb, "vallen": nv, "schat_kol": doel, "ingang_kol": ni, "schuif": d}
 
 static func laad(s, begin) -> void:
-	if not FileAccess.file_exists(OPSLAG):
+	if not FileAccess.file_exists(OPSLAG) and not FileAccess.file_exists(VEILIG.vorige(OPSLAG)) and not FileAccess.file_exists(VEILIG.tmp(OPSLAG)):
 		return
-	var data = JSON.parse_string(FileAccess.get_file_as_string(OPSLAG))
-	if typeof(data) != TYPE_DICTIONARY:
+	# Olaf 26 nov (#194): een kapotte save wordt hol.kapot.json en het hol komt uit hol.vorige.json; nooit overschreven
+	var l := VEILIG.lees(OPSLAG)
+	if String(l.kapot) != "":
+		s.log_regel("HOL opslag onleesbaar, bewaard als %s" % String(l.kapot).get_file())
+	var data = l.data
+	if data == null:
 		s.log_regel("HOL opslag onleesbaar, vers begin")
 		return
+	if String(l.bron) != OPSLAG:
+		s.log_regel("HOL opslag geladen uit %s" % String(l.bron).get_file())
 	if int(data.get("versie", 0)) < OPSLAG_VERSIE:
-		s.log_regel("HOL opslag van een oudere versie, vers begin")
+		# vers begin, maar de oude save blijft (vóór Steam: omzetten in stappen, zoals Antimatter Dimensions)
+		var oud := VEILIG.zet_opzij(String(l.bron), "v%d" % int(data.get("versie", 0)))
+		s.log_regel("HOL opslag van een oudere versie, vers begin (oude bewaard als %s)" % oud.get_file())
 		return
 	# Olaf 14 nov (kan Daan 22:40): de save kan van een breder scherm of een lagere strook komen (week-save op 1920,
 	# opname op 1280; of de hoogte via rechtsklik naar 160). Dan schuift het hele hol zo dat de schat weer rechts
