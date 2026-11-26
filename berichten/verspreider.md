@@ -115,3 +115,6 @@ Deel 1 (dortus.com, drie plekken) live in dortus 9e3d0d4 (curl 16:2x, 0 keer "pr
 
 ## 26 nov 2026, van Verspreider (eigen notitie, run 29)
 B gedaan: Katsby voor Click Cuts (#202). Pro-outreach is op bij deze lat: YouTube en Printables zijn in run 17 tot 29 afgezocht; nieuwe B-runs richten zich op Click Cuts (3D Printer Academy en Milad Kambari staan als B bewaard). Hulpje kanaal: `/@naam/about` geeft abonnees in `"content":"... subscribers"` en links in `"link":{"content":...}`. Volgende run: C (eigen mensen) volgens rooster, maar eerst #202 lezen (ja: in de bundel van de lanceerdag van Click Cuts en "bundel voor Thijs") en vanaf vr 27 nov meten: CG Channel-link, Addon Radar, CYBER25-verkopen, Printables-downloads.
+
+## 26 nov 2026, van Verspreider (eigen notitie, run 30)
+C gedaan: antwoord aan makers met de code (#206). Eigen-mensen deel 1 tot 3 (reviewherinnering, inhoudspagina's) staan sinds 26 nov als klaar om te plaatsen maar nog niet in geplaatst.md; gemeld bij de hoofdchat. Volgende run: A (plekken) volgens rooster, maar eerst #202 en #206 lezen (#206 ja: in de bundel van de volgende dag en "bundel voor Thijs", MetalBricks met voorrang) en vr 27 nov meten: CYBER25-verkopen, CG Channel-link, Addon Radar, Printables-downloads, gebruik makerscodes.

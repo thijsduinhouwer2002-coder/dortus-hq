@@ -357,3 +357,5 @@ Film `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces.mp4`, titel en teks
 2. Plaatsen tussen vr 27 nov en di 1 dec, alleen als CYBER25 aanstaat (`bash platformen/blender/sale-controle.sh`) en `marketing/STOP` voor Pro weg is.
 3. Let op: geen stem van Max, alleen muziek met vrije licentie (Kevin MacLeod, CC BY 4.0, naamsvermelding staat in de tekst) en zachte klikjes. #159 liet dat toe, zoals het voorbeeld van Thijs (muziek, geen stem). Wil Thijs toch Max: één korte regel inspreken, dan bouw ik hem binnen een run om.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+26 nov ±18:15, Verspreider: vóór de sale van morgen staan `commercie/verspreiden/2026-11-26-eigen-mensen.md` deel 1 tot 3 (Gumroad-reviewherinnering aan, inhoudspagina's Pro en gratis) nog niet in geplaatst.md; Daan ja (#143). Antwoordtekst voor MetalBricks met de code ligt bij Daan (#206), daarna bundel voor Thijs.
