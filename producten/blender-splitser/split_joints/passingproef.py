@@ -289,7 +289,7 @@ def teken(layout, context):
                          icon="LOOP_BACK").waarde = opgeslagen
     elif not context.scene.get("sj_speling_eigen") and \
             abs(inst.speling_mm - passing.startspeling(inst.materiaal)) < 1e-6:
-        vak.label(text=f"Start value for {materiaal_naam(inst.materiaal)}, not tested", icon="INFO")
+        vak.label(text=f"Start value for {materiaal_naam(inst.materiaal)}: print the fit test", icon="INFO")
     lijst = passing.spelingen(inst.speling_mm)
     vak.operator(SPLIT_JOINTS_OT_passing_maak.bl_idname,
                  text=f"Make fit test ({passing.tekst(lijst[0])} to {passing.tekst(lijst[-1])} mm)", icon="MESH_CUBE")

@@ -150,6 +150,16 @@ def alles(uitmap=None):
     s.split_joints.materiaal = "PLA"
     s.split_joints.speling_mm = 0.2  # (A1 mini + PLA has a saved 0.25 from the fit test toets)
     stap("klik: terug op 0,20 niets gemeld", not klikmod.speling_anders(s), f"{s.split_joints.speling_mm:.2f}")
+    # Daan #229 K1: cut at a typed 0.1234 (stored rounded 0.123) is not a change
+    bewaard_bij_split = s.get("sj_speling_bij_split")
+    s["sj_speling_bij_split"] = round(0.1234, 3)
+    s.split_joints.speling_mm = 0.1234
+    stap("klik: getypte 0,1234 na split niet als wijziging gemeld", not klikmod.speling_anders(s),
+         f"{s.split_joints.speling_mm} tegen {s['sj_speling_bij_split']}")
+    s["sj_speling_bij_split"] = bewaard_bij_split
+    s.split_joints.speling_mm = 0.2
+    if "sj_speling_eigen" in s:
+        del s["sj_speling_eigen"]
 
     # second click with a piece active: same model again, no double pieces
     modellen.actief(stukken()[0])

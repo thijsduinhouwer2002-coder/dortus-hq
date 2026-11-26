@@ -106,7 +106,7 @@ def speling_bij_split(scene):
 def speling_anders(scene):
     """True when the clearance was changed after the last Split (for example by picking another material), so
     the panel can say: press Split to fit again (#227)."""
-    return abs(speling_bij_split(scene) - scene.split_joints.speling_mm) > 1e-6
+    return abs(speling_bij_split(scene) - scene.split_joints.speling_mm) > 0.0005  # typed 0.1234 is not a change (Daan #229 K1)
 
 
 def uitslag_tekst(scene):
