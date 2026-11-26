@@ -7,7 +7,8 @@ Doel: minstens 60% product. Gebruik: python3 organisatie/controle/ruismeter.py [
 import re, subprocess, sys
 from collections import Counter
 
-PRODUCT = re.compile(r"\.(py|gd|ts|js|png|jpg|jpeg|webp|mp4|mp3|wav|ogg|json|yml|yaml|html|css|blend|cs|kt|java|mc|xml)$|^producten/.*/(app|godot|src|addon)/")
+# Sinds 26 nov telt ook marketingwerk mee als werk: plaatsteksten, mails aan makers, wachtrij van filmpjes.
+PRODUCT = re.compile(r"\.(py|gd|ts|js|png|jpg|jpeg|webp|mp4|mp3|wav|ogg|json|yml|yaml|html|css|blend|cs|kt|java|mc|xml)$|^producten/.*/(app|godot|src|addon)/|^commercie/(outreach|verspreiden)/|^marketing/wachtrij/")
 
 
 def soort(bestanden):

@@ -2,7 +2,8 @@ name: Actions-log (log van mislukte runs in de repo)
 
 # Agents kunnen logs niet zonder sleutel lezen. Faalt een workflow, dan zet deze workflow de laatste
 # 200 regels van de mislukte stap in organisatie/actions-logs/<workflow>-<run>.txt (persoonsgegevens eruit,
-# na 7 dagen opgeruimd). Lezen: python3 organisatie/controle/actions.py <run> --log. Uitleg: skill actions.
+# na 7 dagen opgeruimd). Sinds 26 nov 2026 op de aparte tak actions-logs, niet op main (Thijs: "die ruis kan ik
+# niet tegen"; deze logs waren 1 op de 7 commits op main). actions.py --log leest ze daar. Lezen: python3 organisatie/controle/actions.py <run> --log. Uitleg: skill actions.
 # Draait na elke workflow, maar doet alleen iets bij een mislukte run (anders "overgeslagen", kost niets).
 # workflow_run gaat NIET af voor runs die met de workflow-sleutel zijn gestart (zoals runs uit een
 # opdrachtbestand), daarom veegt hij ook: mislukte runs van 24 uur zonder logbestand. Vegen gebeurt bij elke
@@ -48,6 +49,9 @@ jobs:
           sparse-checkout: |
             organisatie/controle
             organisatie/actions-logs
+      - name: Bestaande logs ophalen (tak actions-logs), zodat de veegronde ze niet opnieuw maakt
+        run: |
+          if git fetch -q --depth=1 origin actions-logs; then git checkout -q FETCH_HEAD -- organisatie/actions-logs 2>/dev/null || true; fi
       - name: Log ophalen
         env:
           GH_TOKEN: ${{ github.token }}
@@ -55,23 +59,30 @@ jobs:
         run: |
           if [ -n "$RUN" ]; then python3 organisatie/controle/actions_log.py maak "$RUN" "$RUNNER_TEMP/uit"
           else python3 organisatie/controle/actions_log.py zoek "$RUNNER_TEMP/uit"; fi
-      - name: Opslaan in de repo (en logs ouder dan 7 dagen weg)
+      - name: Opslaan op de tak actions-logs (en logs ouder dan 7 dagen weg)
         env:
           RUN: ${{ github.event.workflow_run.id || inputs.run || 'veegronde' }}
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
         run: |
           mkdir -p "$RUNNER_TEMP/uit"
-          git config user.name "dortus-actions-log"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          W="$GITHUB_WORKSPACE"
           for i in 1 2 3 4 5 6; do
-            git fetch -q --depth=1 origin main
-            git reset -q --hard origin/main
+            d="$RUNNER_TEMP/tak"; rm -rf "$d"; mkdir -p "$d"; cd "$d"
+            git init -q
+            git config user.name "dortus-actions-log"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
+            if git fetch -q --depth=1 origin actions-logs; then git checkout -q -B actions-logs FETCH_HEAD; BASIS=HEAD
+            else git checkout -q --orphan actions-logs; BASIS=4b825dc642cb6eb9a060e54bf8d69288fbee4904; fi
+            mkdir -p organisatie/actions-logs
             cp -r "$RUNNER_TEMP/uit/." .
-            python3 organisatie/controle/actions_log.py opruimen
-            if [ -d organisatie/actions-logs ]; then git add -A organisatie/actions-logs; fi
+            python3 "$W/organisatie/controle/actions_log.py" opruimen
+            git add -A organisatie/actions-logs
             if git diff --cached --quiet; then echo "Niets veranderd."; exit 0; fi
             git commit -q -m "Actions-log: log van mislukte run ($RUN)"
-            python3 organisatie/controle/check.py origin/main HEAD || exit 1
-            if git push -q origin HEAD:main; then echo "Log staat in de repo."; exit 0; fi
+            (cd "$d" && python3 "$W/organisatie/controle/check.py" "$BASIS" HEAD) || exit 1
+            if git push -q origin HEAD:actions-logs; then echo "Log staat op de tak actions-logs."; exit 0; fi
             sleep $((i * 5))
           done
           echo "Opslaan lukte niet na 6 pogingen."; exit 1

@@ -24,6 +24,7 @@ import urllib.request
 REPO = "thijsduinhouwer2002-coder/dortus-hq"
 API = f"https://api.github.com/repos/{REPO}"
 RAW = f"https://raw.githubusercontent.com/{REPO}/main/"
+RAW_LOGS = f"https://raw.githubusercontent.com/{REPO}/actions-logs/"  # logs sinds 26 nov op eigen tak
 HIER = os.path.dirname(os.path.abspath(__file__))
 WORTEL = os.path.dirname(os.path.dirname(HIER))
 TEKEN = {"success": "OK  ", "failure": "FOUT", "cancelled": "STOP", "skipped": "--  ", None: "..  "}
@@ -98,10 +99,12 @@ def toon_log(r, jobs):
     if os.path.isfile(lokaal):
         tekst = open(lokaal, encoding="utf-8", errors="replace").read()
     else:
-        try:
-            tekst = haal(RAW + pad, ruw=True)
-        except urllib.error.HTTPError:
-            pass
+        for basis in (RAW_LOGS, RAW):
+            try:
+                tekst = haal(basis + pad, ruw=True)
+                break
+            except urllib.error.HTTPError:
+                pass
     if tekst:
         print(f"\n--- {pad} ---\n{tekst}")
         return
