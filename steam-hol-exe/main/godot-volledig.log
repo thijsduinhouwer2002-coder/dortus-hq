@@ -9,7 +9,7 @@ USER ERROR: WASAPI: init_output_device error.
 USER WARNING: All audio drivers failed, falling back to the dummy driver.
    at: initialize (servers/audio_server.cpp:247)
 
-HOL balk gestart, pid 7884, hoogte 120
+HOL balk gestart, pid 7824, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
@@ -25,28 +25,27 @@ HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
 HOL kroniek 7.0 (wacht 0.0): Anouk the Bard tunes a lute.
 HOL begin: vluchten (Anouk)
 HOL held binnen: Anouk
-HOL leven stofje t=8.3 x=72 y=26
 HOL gegraven kolom 5 (zelf 1, graafbonus 0)
 HOL kroniek zelfde held vervangen: Kees is here for your gold.
 HOL kroniek 9.1 (wacht 0.0): Kees will not be leaving. +6
-HOL meting t=10 beelden=114 helden=1 hol_vast=3
-HOL kroniek 12.4 (wacht 0.0): Siem climbs into your hole.
+HOL leven stofje t=9.8 x=72 y=26
+HOL meting t=10 beelden=116 helden=1 hol_vast=3
+HOL kroniek 12.5 (wacht 0.0): Siem climbs into your hole.
 HOL begin: opgegeten (Siem)
 HOL held binnen: Siem
 HOL gegraven kolom 2 (zelf 2, graafbonus 0)
 HOL demo klik op Gloop
 HOL kaartje open 18.6: slijm
-HOL leven mot t=19.1 x=56 y=26
-HOL meting t=20 beelden=109 helden=2 hol_vast=9
+HOL meting t=20 beelden=108 helden=2 hol_vast=9
 HOL demo klik op Buy
 HOL koop 20.1: slijm niveau 1, goud 27
 HOL gloop ring uit na 20.2 s (goud 27)
+HOL leven mot t=22.1 x=56 y=26
 HOL kaartje dicht 22.6
 HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Teun)
 HOL held binnen: Teun
-HOL kroniek 25.2 (wacht 2.2): Teun has a map. It is wrong.
+HOL kroniek 25.1 (wacht 2.0): Teun has a map. It is wrong.
 HOL gegraven kolom 4 (zelf 3, graafbonus 0)
-HOL kroniek 28.6 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
-HOL leven goudstof t=28.8 x=212 y=30
-HOL einde na 30 s, fps=17, goud=33, terugkomers=1
+HOL kroniek 28.7 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
+HOL einde na 30 s, fps=20, goud=33, terugkomers=1
