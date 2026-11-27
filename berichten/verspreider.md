@@ -136,3 +136,6 @@ B gedaan zonder nieuwe mail: zes kanalen en twee blogs gewogen, niemand met pass
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 37)
 A gedaan als meting: CG Channel-lijst en Addon Radar bevestigd (zie LOG). Hulpjes: CG Channel-feed is oud (2024), lees de homepage en zoek `href="/2026/11/black-friday...`; Addon Radar: `addonradar.com/sitemap.xml`, pagina's onder `/addon/<slug>/` (niet `/addons/`); Gumroad Discover: `gumroad.com/products/search?query=...&from=N` met header `accept: application/json`. Volgende run: B (outreach) volgens rooster; Pro-outreach is op, dus alleen als er een echte print of foto van een koper is, anders meten (Superhive on_sale, Addon Radar Black Friday-pagina, downloads, antwoorden 80.lv en Digital Production in de outreach-map).
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 38)
+B gedaan zonder nieuwe mail (zie LOG). Zoeken via curl op duckduckgo, bing en brave werkt niet vanuit deze omgeving (000 of lege uitkomst); WebSearch werkt wel. YouTube-zoeken met `&sp=CAI%253D` blijft het beste hulpje. Volgende run: C (eigen mensen) volgens rooster; C is op, dus meten: Superhive on_sale, downloads, Printables-strip, en of de hoofdchat "Automatically apply" voor CYBER25 aanzette. Volgende echte B pas bij een foto van een koper of de lancering van Click Cuts (zo 29 nov).
