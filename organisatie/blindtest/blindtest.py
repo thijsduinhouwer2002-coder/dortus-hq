@@ -10,7 +10,7 @@ import base64, hashlib, io, json, os, random, sys, time, urllib.request, urllib.
 
 RONDES = 2
 LETTERS = "ABCD"
-GEMINI_MODELLEN = os.environ.get("GEMINI_MODELLEN", "gemini-2.5-flash,gemini-2.5-pro,gemini-3.1-pro-preview").split(",")  # flash eerst: gratis laag
+GEMINI_MODELLEN = os.environ.get("GEMINI_MODELLEN", "gemini-flash-latest,gemini-3.5-flash,gemini-3.6-flash,gemini-3.8-flash,gemini-flash-lite-latest").split(",")  # flash eerst: gratis laag (2.5 bestaat niet meer, pro is betaald)
 OPENAI_MODELLEN = os.environ.get("OPENAI_MODELLEN", "gpt-5,gpt-4.1,gpt-4o").split(",")
 # GitHub Models: gratis, met de GITHUB_TOKEN van de workflow (permissions: models: read). Zelfde OpenAI-vorm.
 GITHUB_MODELLEN = os.environ.get("GITHUB_MODELLEN", "openai/gpt-4.1,openai/gpt-4o").split(",")
@@ -143,7 +143,7 @@ def gemini_lijst():
              if "generateContent" in m.get("supportedGenerationMethods", [])]
     namen = [n for n in namen if n.startswith("gemini-") and ("pro" in n or "flash" in n)
              and not any(w in n for w in ("tts", "image", "audio", "live", "embedding", "lite"))]
-    return sorted(namen, key=lambda n: (("pro" in n), n), reverse=True)[:6]
+    return sorted(namen, key=lambda n: (("flash" in n), n), reverse=True)[:8]  # flash eerst: gratis laag
 
 
 def vraag(naam, modellen, functie, prompt, beelden, gekozen):
@@ -159,7 +159,7 @@ def vraag(naam, modellen, functie, prompt, beelden, gekozen):
             return data
         except Exception as e:
             kort = " ".join(str(e).split())
-            fouten.append(f"{m}: {kort[:90]}")
+            fouten.append(f"{m}: {kort[:90] if fouten else kort[:400]}")
     raise RuntimeError(f"{naam} gaf geen bruikbaar antwoord: " + " | ".join(fouten))
 
 
