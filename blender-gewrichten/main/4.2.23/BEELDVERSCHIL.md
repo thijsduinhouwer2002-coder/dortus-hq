@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (main)
 GROOT: 2 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 37 plaatjes vergeleken)
-Referentie: referentie uit run 45992657564, commit 88ba169f86ca4aaec5bdbf66def83e8975283432, commitdatum 1795779741, 2026-11-27T12:06:07Z
+Referentie: referentie uit run 46008143979, commit 4329a3a10354292b7e24872bfa676048b76fc06c, commitdatum 1795786272, 2026-11-27T13:52:27Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -8,10 +8,10 @@ Referentie: referentie uit run 45992657564, commit 88ba169f86ca4aaec5bdbf66def83
 | 10-winkel-paneel-x.png | gelijk | |
 | 11-scharnier-x.png | gelijk | |
 | 12-scharnier-rood-x.png | gelijk | |
-| 13-pro-knie-schoon-x.png | gelijk | |
+| 13-pro-knie-schoon-x.png | 19 px (0.001%), ruis | |
 | 13-pro-knie-x.png | gelijk | |
-| 13d-pro-knie-dicht-x.png | gelijk | |
-| 14-pro-knie-rood-x.png | gelijk | |
+| 13d-pro-knie-dicht-x.png | 130 px (0.006%), ruis | |
+| 14-pro-knie-rood-x.png | 12 px (0.001%), ruis | |
 | 14b-pro-knie-rood-los-x.png | gelijk | |
 | 15-figuur-paneel.png | gelijk | |
 | 15-figuur-x.png | gelijk | |
@@ -23,21 +23,21 @@ Referentie: referentie uit run 45992657564, commit 88ba169f86ca4aaec5bdbf66def83
 | 17-figuur-heel-x.png | gelijk | |
 | 19-mens-paneel.png | gelijk | |
 | 19-mens-x.png | gelijk | |
-| 2-gewricht-x.png | gelijk | |
+| 2-gewricht-x.png | 61 px (0.003%), ruis | |
 | 20-testkaart.png | gelijk | |
 | 20d-testkaart-getal.png | gelijk | |
 | 20h-testkaart-scharnier.png | gelijk | |
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
-| 5-waaier-x.png | 10 px (0.000%), ruis | |
+| 5-waaier-x.png | 31 px (0.001%), ruis | |
 | 6-rood-x.png | gelijk | |
-| 7-plat-x.png | 53 px (0.003%), ruis | |
-| 8-winkel-x.png | gelijk | |
-| 9-winkel-rood-x.png | gelijk | |
+| 7-plat-x.png | 116 px (0.006%), ruis | |
+| 8-winkel-x.png | 28 px (0.001%), ruis | |
+| 9-winkel-rood-x.png | 36 px (0.002%), ruis | |
 | d1-slot-paneel.png | gelijk | |
 | d1-slot.png | gelijk | |
 | d2-venster-paneel.png | gelijk | |
 | d2-venster.png | gelijk | |
-| p13-d-x.png | gelijk | |
-| p13-e-x.png | gelijk | |
-| p14b-e-x.png | gelijk | |
+| p13-d-x.png | 33 px (0.002%), ruis | |
+| p13-e-x.png | 1 px (0.000%), ruis | |
+| p14b-e-x.png | 7 px (0.000%), ruis | |
