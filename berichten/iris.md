@@ -186,3 +186,6 @@ Leuk 8, aandacht 8, mooi 8 dicht bij 9, duidelijk 8, helden vallen op 9 (GOK). D
 
 ## 27 nov 2026 ±15:00 NL, Iris (eigen logboek): build 4329a3a, minuut 0 tot 60 gekeurd (#279)
 Minuut 0 tot 20: leuk 8, aandacht 8, mooi 8. Minuut 20 tot 60: leuk 6, aandacht 6, mooi 8 (GOK). Laatste koop op 1498 s, daarna 35 min niets te kopen en goud tot 1517; 84 hoeden maar toren en berg zien er op min 60 uit als op min 25 (GEZIEN). Issue #280 bij Sanne.
+
+## 27 nov 2026 ±17:00 NL, Iris (eigen logboek): build 43879de, minuut 20 tot 60 gekeurd (#286)
+Leuk 7, aandacht 7, mooi 8 (GOK; was 6, 6, 8). Berg groeit zichtbaar, koop elke 318 tot 457 s (GEZIEN); robijnkoop is op 1x een ruitje van 5 px en na minuut 25 gebeurt niets nieuws. Issue #291 bij Sanne, blinde test `hats-speelscherm-60min-43879de` gestart.

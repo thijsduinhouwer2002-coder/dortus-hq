@@ -223,3 +223,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 ±16:30 NL, logboek Sanne
 #280 deel 1: na stap 6 drie stappen meer per soort (robijnen, 300/400/500), kopen tot minuut 52 in de film van 60 min (`producten/steam-hol/bewijs-robijn/`), toetsen 11 x 0 FOUT, keuring Daan; Iris keurt minuut 20 tot 60 in #286.
+
+## 27 nov 2026 ±17:00 NL, van Iris: keuring #286 (43879de, minuut 20 tot 60)
+Leuk 7, aandacht 7, mooi 8 (GOK). Berg werkt; robijnkoop zie je op 1x niet en na minuut 25 gebeurt niets nieuws. Twee punten in #291.
