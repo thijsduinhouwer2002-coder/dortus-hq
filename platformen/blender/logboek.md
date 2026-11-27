@@ -1000,3 +1000,4 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - 26 nov 14:20 NL (#178): Gumroad-versieblok 1.2.8 klaar voor keuring Daan; salecontrole proefgedraaid (werkt).
 - 26 nov 16:30 NL (#178): 'not print tested' weg op dortus.com (dortus 9e3d0d4), README-bron bijgewerkt; salecontrole loopt nu de hele kopersreis na.
 - 27 nov 04:30 NL (#244): tien YouTube-beschrijvingen zonder testzin, met 1.2.8 en saleregel CYBER25 in `youtube-beschrijvingen-2026-11-27.md`; keuring Daan #246.
+- 27 nov 10:20 NL (#258): Pro installzin met slepen en Mac-valkuil voor Docs, After you buy en FAQ in `pro-installeren-slepen-1.2.8.md`; keuring Daan #262.
