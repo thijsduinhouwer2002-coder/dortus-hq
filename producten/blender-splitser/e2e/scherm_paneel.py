@@ -156,8 +156,18 @@ def stap():
             subprocess.run(["import", "-window", "root", pad], capture_output=True)
             ok = os.path.exists(pad) and os.path.getsize(pad) > 20000
             log(f"{'PANEEL NOTEN OK' if ok else 'PANEEL NOTEN FOUT'} {pad}")
+            venster, gebied, ui, hoofd = gebied_3d()
+            # 1.1 (#238): the wheel clicks for the fit test picture can reach the viewport and zoom it, so the
+            # piece fell off the screen. Put the view back as at the start before measuring the line.
+            bpy.context.preferences.view.smooth_view = 0  # otherwise the view moves over 0.2 s and the line is measured too soon
+            with bpy.context.temp_override(window=venster, area=gebied, region=hoofd):
+                bpy.ops.view3d.view_axis(type="FRONT")
+                bpy.ops.view3d.view_orbit(angle=0.5, type="ORBITUP")
+                bpy.ops.view3d.view_orbit(angle=0.6, type="ORBITLEFT")
+                bpy.ops.view3d.view_all()
+            hoofd.tag_redraw()
             staat["stap"] = 40
-            return 0.5
+            return 1.0
         if staat["stap"] == 40:
             # issue #208: Draw cut for real, with the mouse. Start the modal operator on the largest piece and
             # drag a line with xdotool straight down over the middle of that piece, as a buyer would.
@@ -175,13 +185,6 @@ def stap():
             stuk.select_set(True)
             bpy.context.view_layer.objects.active = stuk
             venster, gebied, ui, hoofd = gebied_3d()
-            # 1.1 (#238): the wheel clicks for the fit test picture can reach the viewport and zoom it, so the
-            # piece fell off the screen. Put the view back as at the start before measuring the line.
-            with bpy.context.temp_override(window=venster, area=gebied, region=hoofd):
-                bpy.ops.view3d.view_axis(type="FRONT")
-                bpy.ops.view3d.view_orbit(angle=0.5, type="ORBITUP")
-                bpy.ops.view3d.view_orbit(angle=0.6, type="ORBITLEFT")
-                bpy.ops.view3d.view_all()
             rv3d = gebied.spaces.active.region_3d
             mw = np.array(stuk.matrix_world)
             co = np.array([tuple(v.co) for v in stuk.data.vertices]) @ mw[:3, :3].T + mw[:3, 3]
