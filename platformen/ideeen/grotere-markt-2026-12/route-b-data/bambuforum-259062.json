@@ -1,0 +1,26 @@
+{
+ "id": 259062,
+ "title": "STL models into articulated prints — FlexySliceSTL",
+ "created_at": "2026-08-31T18:32:10.339Z",
+ "views": 436,
+ "posts_count": 4,
+ "like_count": 1,
+ "posts": [
+  {
+   "date": "2026-08-31",
+   "text": "Hi everyone! For the past several months, I’ve been developing FlexySliceSTL — a program that transforms suitable static STL models into flexible, articulated designs. The program automatically generates the flexible structure and connections. You can then: choose from patterns such as Hex, Fish, and Soft Square adjust the generated structure manually edit selected elements and connections preview the articulated model in 3D export the result for slicing and printing The goal is to make creating print-in-place models much faster, without having to design every individual joint manually in CAD. I’ve tested the program with real models and physical prints, including the articulated cat shown in the attached campaign video. FlexySliceSTL now has a crowdfunding campaign on MakerWorld : makerwo"
+  },
+  {
+   "date": "2026-09-10",
+   "text": "Nice work, the cat’s great. Two questions from someone who’s been down a similar road. How do you handle gap direction? A print-in-place hinge lying flat gives you a horizontal gap, which prints clean, but the moment a model has joints on more than one axis some of those gaps end up vertical, and vertical gaps close from elephant foot and a bit of sag. Do you force an orientation, or reorient the joints themselves? And scaling. The clearances are absolute millimetres, so someone who takes your output and scales it to 60% fuses every joint. Do you regenerate at final size, or is the export locked to one scale? Not criticism, these are just the two things that decide whether people get a working print first try, and both are worth stating on the campaign page before someone finds out the har"
+  },
+  {
+   "date": "2026-09-28",
+   "text": "FlexySliceSTL is live on MakerWorld — and the initial funding target has already been reached! Thank you to everyone who has backed the project. 02-KROKODYLEK-render-Blender 1920×1440 278 KB 03-KROKODYLEK-prawdziwy-wydruk 1920×1446 305 KB I’ve been building FlexySliceSTL to turn compatible STL models into articulated creations for 3D printing. Start with your own model or an included sample, then make it yours: Choose from three articulation styles. Refine connections and keep selected areas solid. Paint the surface, add eyes, or apply your own image stamps. Export STL or coloured 3MF for your slicer. You can also paint existing models without adding articulation, and create presentation images in Render Studio. One payment. No subscription. Maker and Commercial access options are availabl"
+  },
+  {
+   "date": "2026-10-27",
+   "text": "I’ve been working on FlexySliceSTL since my last post and wanted to show you where it is now. I’ve added Classic Joints for long-bodied models, Bouncy Buddy for bobble-head figures and Click Buddy for clicker projects. You can still choose which parts of a compatible model move or stay solid, add colour and export it for your slicer. Here’s the new demo. If there’s a part you’d like to see in more detail, let me know. The campaign ends on 27 October 2026 at 20:56 UTC / 21:56 CET. The program will still be available afterwards, but at a higher price. More examples, licences and access details: https://flexyslice.com/"
+  }
+ ]
+}

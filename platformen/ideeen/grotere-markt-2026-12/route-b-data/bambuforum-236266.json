@@ -1,0 +1,18 @@
+{
+ "id": 236266,
+ "title": "3d splitter multipart",
+ "created_at": "2026-02-22T08:11:29.075Z",
+ "views": 177,
+ "posts_count": 2,
+ "like_count": 0,
+ "posts": [
+  {
+   "date": "2026-02-22",
+   "text": "The possibility to automatically split a large 3D print into multiple smaller parts with automatic connector placement; essentially, upgrading the existing utility to a more advanced tool similar to Luban."
+  },
+  {
+   "date": "2026-02-23",
+   "text": "The closest to this is the cut tool but its not automatic, here is a video explaining this: But sadly, no fully automatic no. The cut tool is simple to use."
+  }
+ ]
+}

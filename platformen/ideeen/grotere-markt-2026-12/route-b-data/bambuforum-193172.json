@@ -1,0 +1,30 @@
+{
+ "id": 193172,
+ "title": "A proper \"cutting and re-scaling\" feature",
+ "created_at": "2025-09-02T13:26:52.624Z",
+ "views": 143,
+ "posts_count": 5,
+ "like_count": 2,
+ "posts": [
+  {
+   "date": "2025-09-02",
+   "text": "There’s an app out there that as far as I can tell only people making money and content creators are using for cutting a model into multiple parts in order to create large prints. The app is called Luban . The problem is their pricing is imo ridiculously expensive for hobbyists that wouldn’t be using it often enough to justify the cost and their free option doesn’t allow printing anything of any meaningful file size. Anyway, I know there’s a built in cutting feature that is a torture to use for more than 1 cut. I’m talking about automatically cutting a model like Batman/superman/whatever and re-scaling it to the size you want, along with that, numbering the parts in the parts when printing. Anyway, that’s it, a feature request to have some rescaling/cutting that can turn a 8 inch model int"
+  },
+  {
+   "date": "2025-09-02",
+   "text": "Is rescaling different than resizing? If not, how would you like the current resize command enhanced/changed?"
+  },
+  {
+   "date": "2025-09-02",
+   "text": "I think you should try “Luban” to see what I’m talking about. It’s not just resizing/rescaling that’s important, the the automatic cutting/numbering that takes place after you rescale the model. Incidentally, the resizing option in studio often doesn’t work for me, it sometimes won’t adjust to what I put and if you’re fitting parts together, that could be the difference between something fitting and not fitting."
+  },
+  {
+   "date": "2026-04-16",
+   "text": "I would love to see Bambu “incorporate lubans functionality – it would be a game changer - lubans software is SUPER pricey – ive found it deletes itself or causes my pc’s security to remove it after it expires.. being able to drop a model into bambu - scale it to life size - let it break it up into the plates and hit print would be a GAME CHANGER for me.. the new blend colors might be cool to some people – but i can buy whaterver color filament I want.. I hate the idea of lubans subscription for scaled models"
+  },
+  {
+   "date": "2026-04-16",
+   "text": "Lubans is a ripoff, even if you’re using it to make money with life size models. I don’t get the dev’s logic with the pricing."
+  }
+ ]
+}

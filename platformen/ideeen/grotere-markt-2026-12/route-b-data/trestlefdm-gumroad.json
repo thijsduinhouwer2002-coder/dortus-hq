@@ -1,0 +1,23 @@
+{
+ "name": "TrestleFDM",
+ "sales_count": 268,
+ "price_cents": 1200,
+ "currency_code": "usd",
+ "pwyw": {
+  "suggested_price_cents": 1200,
+  "default_price_cents": null
+ },
+ "ratings": {
+  "count": 8,
+  "average": 5.0,
+  "percentages": [
+   0,
+   0,
+   0,
+   0,
+   100
+  ]
+ },
+ "summary": "Windows and Linux (beta) app. Tree supports with resin-fine tips, and a cut tool that splits models into parts with pins or magnets. Exported as a 3MF for any slicer.",
+ "is_recurring_billing": false
+}

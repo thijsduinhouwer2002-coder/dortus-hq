@@ -1,0 +1,702 @@
+[
+{
+"id": "1y6u9it",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-27",
+"title": "GCODES To trigger filament runout?"
+},
+{
+"id": "1y6rpuy",
+"score": 0,
+"num_comments": 0,
+"date": "2026-11-27",
+"title": "TrestleFDM: FDM tree supports with resin-style tips for miniatures, plus model cutting with pins and magnet pockets"
+},
+{
+"id": "1y6cspf",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-26",
+"title": "Just got  creator 5 pro and i dont like there slicer"
+},
+{
+"id": "1y66kyg",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-26",
+"title": "Fichiers anciens, anomalie de mouvement d'Orca et d'Axis..."
+},
+{
+"id": "1y5z56n",
+"score": 84,
+"num_comments": 22,
+"date": "2026-11-26",
+"title": "OrcaSlicer Pluginator: Install Plugins without Orca Cloud Login"
+},
+{
+"id": "1y5w737",
+"score": 2,
+"num_comments": 0,
+"date": "2026-11-26",
+"title": "STEP file export not watertight"
+},
+{
+"id": "1y5j924",
+"score": 9,
+"num_comments": 10,
+"date": "2026-11-25",
+"title": "Transparent Filament around Basic White Infill Experiment Questions/Help(?)"
+},
+{
+"id": "1y5i7n6",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-25",
+"title": "Guider 2s help"
+},
+{
+"id": "1y5he10",
+"score": 1,
+"num_comments": 4,
+"date": "2026-11-25",
+"title": "What happened to Section View?"
+},
+{
+"id": "1y5fn5y",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-25",
+"title": "NEED HELP: I recently upgraded to a Creator 5 pro and I’m having a ton of issues with connection and use of Orca slicer. I’m getting this screen in the device tab. Has anyone had this issue?"
+},
+{
+"id": "1y5876o",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-25",
+"title": "adding U1 to vanilla Orca"
+},
+{
+"id": "1y586zm",
+"score": 0,
+"num_comments": 4,
+"date": "2026-11-25",
+"title": "Why since version 2.5.2 I cannot view my X1C live camera?"
+},
+{
+"id": "1y545ri",
+"score": 186,
+"num_comments": 10,
+"date": "2026-11-25",
+"title": "OrcaSlicer plugin that FIXES HOLES into printable teardrops"
+},
+{
+"id": "1y4vw8b",
+"score": 2,
+"num_comments": 0,
+"date": "2026-11-25",
+"title": "Bridging Fun"
+},
+{
+"id": "1y4tv40",
+"score": 2,
+"num_comments": 0,
+"date": "2026-11-25",
+"title": "New RPMs OrcaSlicer 2.5.2 for Fedora 45 x86_64 and aarch64 is ready."
+},
+{
+"id": "1y4jpdh",
+"score": 3,
+"num_comments": 5,
+"date": "2026-11-24",
+"title": "How do I import a 3mf while maintaining the color profiles?"
+},
+{
+"id": "1y4c3zg",
+"score": 3,
+"num_comments": 7,
+"date": "2026-11-24",
+"title": "How do you manage different filament profiles?"
+},
+{
+"id": "1y4ax90",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-24",
+"title": "I got tired of some things in OrcaSlicer, forked it, and ended up with 60+ tools (tilted layers, painted settings, wave overhangs). Open source, Windows."
+},
+{
+"id": "1y4518n",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-24",
+"title": "I made SwapPilot, a free Klipper macro for multi-color printing with a single extruder — guided swaps on KlipperScreen, Mainsail and Telegram (with camera)"
+},
+{
+"id": "1y40l5y",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-24",
+"title": "ASA PA Calibration"
+},
+{
+"id": "1y3yzsl",
+"score": 2,
+"num_comments": 1,
+"date": "2026-11-24",
+"title": "A workflow for Orca: 3D model to flat parts, as 3MF plates with the settings for each part"
+},
+{
+"id": "1y3sd9x",
+"score": 0,
+"num_comments": 7,
+"date": "2026-11-23",
+"title": "I made a plugin for OrcaSlicer 2.5 that sends your slice to a photoreal render, without exporting (beta, MIT)"
+},
+{
+"id": "1y3qt7o",
+"score": 0,
+"num_comments": 0,
+"date": "2026-11-23",
+"title": "I made a free tool that slices whole folders of models with your own OrcaSlicer / Bambu Studio / Creality Print presets, handles multi-colour, and sends the G-code to your Klipper or OctoPrint printer"
+},
+{
+"id": "1y3pwqb",
+"score": 0,
+"num_comments": 5,
+"date": "2026-11-23",
+"title": "Single nozzle multi color purge reduction plugin ideas?"
+},
+{
+"id": "1y3khlp",
+"score": 1,
+"num_comments": 11,
+"date": "2026-11-23",
+"title": "Snapmaker U1, Windows10  2.5.2 crashes when slicing"
+},
+{
+"id": "1y3hv1v",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-23",
+"title": "G-Code Error for pressure advanced test"
+},
+{
+"id": "1y3g1vl",
+"score": 1,
+"num_comments": 2,
+"date": "2026-11-23",
+"title": "New user. Was printing on my Q2, but now the \"print\" button stays grayed out."
+},
+{
+"id": "1y3buka",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-23",
+"title": "Problem with air filtration settings? Elegoo Centauri Carbon"
+},
+{
+"id": "1y35m56",
+"score": 354,
+"num_comments": 26,
+"date": "2026-11-23",
+"title": "Auto Arrange drives me bananas"
+},
+{
+"id": "1y34ex6",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-23",
+"title": "Issues with Orca 2.5.2 and Snapmaker"
+},
+{
+"id": "1y2zcnz",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-22",
+"title": "Kobra 3 Max GCode and Macro documentations"
+},
+{
+"id": "1y2xlph",
+"score": 2,
+"num_comments": 1,
+"date": "2026-11-22",
+"title": "Holographic plate settings - orca"
+},
+{
+"id": "1y2v2vy",
+"score": 0,
+"num_comments": 0,
+"date": "2026-11-22",
+"title": "I got tired of some things in Bambu Studio, forked it, and ended up with 60+ tools (tilted layers, painted settings, wave overhangs). Open source, Windows."
+},
+{
+"id": "1y2uyzj",
+"score": 1,
+"num_comments": 4,
+"date": "2026-11-22",
+"title": "Overhang/wall issues"
+},
+{
+"id": "1y2u43p",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-22",
+"title": "Title: Linux Mint testing: ElegooSlicer freezes and Radeon graphics corruption — OrcaSlicer 2.5.2 works much better on the same computer"
+},
+{
+"id": "1y2qc7r",
+"score": 0,
+"num_comments": 11,
+"date": "2026-11-22",
+"title": "Orca and my CC1"
+},
+{
+"id": "1y2lah2",
+"score": 0,
+"num_comments": 11,
+"date": "2026-11-22",
+"title": "Orcaslicer 2.5: when developers are in charge of the UX, you end up with this..."
+},
+{
+"id": "1y2l6qa",
+"score": 1,
+"num_comments": 5,
+"date": "2026-11-22",
+"title": "Swaping to Orca"
+},
+{
+"id": "1y2l1g7",
+"score": 1,
+"num_comments": 3,
+"date": "2026-11-22",
+"title": "Importing profiles from another slicer into OrcaSlicer — Elegoo CC with ElegooSlicer/Canvas"
+},
+{
+"id": "1y2l0hj",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-22",
+"title": "Import settings to Orca"
+},
+{
+"id": "1y2kzzw",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-22",
+"title": "Swaping back to Orca from Elegoo Slicer"
+},
+{
+"id": "1y2kxyq",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-22",
+"title": "Remigrate to OrcaSlicer for Elegoo CC"
+},
+{
+"id": "1y2k4zt",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-22",
+"title": "Remigrate to Orca"
+},
+{
+"id": "1y2ia4o",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-22",
+"title": "what's a good baseline for an orca slicer profile optimized for an ender 3 v2 with cr touch and stock hotend and bed?"
+},
+{
+"id": "1y2fr2o",
+"score": 1,
+"num_comments": 8,
+"date": "2026-11-22",
+"title": "Orca no longer working"
+},
+{
+"id": "1y2ehtt",
+"score": 3,
+"num_comments": 2,
+"date": "2026-11-22",
+"title": "Profiles Deleted after exiting Stealth Mode"
+},
+{
+"id": "1y2ch87",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-22",
+"title": "Snapmaker Orca 2.5 ?"
+},
+{
+"id": "1y24lxf",
+"score": 1,
+"num_comments": 3,
+"date": "2026-11-21",
+"title": "Filament profile retract interpretation"
+},
+{
+"id": "1y22kkx",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-21",
+"title": "Vasiera da muro modulare pROJECT 5 Pareri sinceri? (Makerlab LiLINE)"
+},
+{
+"id": "1y22dz7",
+"score": 0,
+"num_comments": 3,
+"date": "2026-11-21",
+"title": "pROJECT 5 BY LiLINE"
+},
+{
+"id": "1y1rxfe",
+"score": 2,
+"num_comments": 6,
+"date": "2026-11-21",
+"title": "Floating support problem"
+},
+{
+"id": "1y1khcm",
+"score": 4,
+"num_comments": 0,
+"date": "2026-11-21",
+"title": "Help with eye details?"
+},
+{
+"id": "1y178nu",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-20",
+"title": "Print-Handy. Bambu-Handy for Everyone. Pasta Cam, Time-lapse, Spool management Drop a Link or File in Discord/Matrix/Telegram/Web, Then Print!"
+},
+{
+"id": "1y15hbx",
+"score": 2,
+"num_comments": 0,
+"date": "2026-11-20",
+"title": "Changing Color in Orca after importing WMF file"
+},
+{
+"id": "1y12wpp",
+"score": 3,
+"num_comments": 4,
+"date": "2026-11-20",
+"title": "What's wrong with the Prusa CoreOne INDX profile in OrcaSlicer?"
+},
+{
+"id": "1y11fpc",
+"score": 0,
+"num_comments": 14,
+"date": "2026-11-20",
+"title": "Any way to view bambu camera on phone (lan only)"
+},
+{
+"id": "1y10ghm",
+"score": 3,
+"num_comments": 0,
+"date": "2026-11-20",
+"title": "Printer is still \"bridging\" when using 0 gap supports?"
+},
+{
+"id": "1y0tnkl",
+"score": 9,
+"num_comments": 0,
+"date": "2026-11-20",
+"title": "Blender Studio"
+},
+{
+"id": "1y0n1ly",
+"score": 4,
+"num_comments": 3,
+"date": "2026-11-19",
+"title": "2.5.1 Volumetric Flow Broken?"
+},
+{
+"id": "1y0duc0",
+"score": 3,
+"num_comments": 5,
+"date": "2026-11-19",
+"title": "orca slicer 2.5 breaks step file import"
+},
+{
+"id": "1y0b2l5",
+"score": 32,
+"num_comments": 12,
+"date": "2026-11-19",
+"title": "New Orca Slicer Plugin for Monitoring All Printers"
+},
+{
+"id": "1y07i4f",
+"score": 0,
+"num_comments": 15,
+"date": "2026-11-19",
+"title": "Am I retarded?"
+},
+{
+"id": "1xzyyi4",
+"score": 15,
+"num_comments": 24,
+"date": "2026-11-19",
+"title": "Are you kidding me?!?! How good are script plugins!!!"
+},
+{
+"id": "1xzw0od",
+"score": 2,
+"num_comments": 12,
+"date": "2026-11-19",
+"title": "How do you fix these supports?"
+},
+{
+"id": "1xzriif",
+"score": 4,
+"num_comments": 9,
+"date": "2026-11-18",
+"title": "How to add holes to fill the printed part with sand?"
+},
+{
+"id": "1xzqou3",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-18",
+"title": "How do I disable z hoping"
+},
+{
+"id": "1xzqkti",
+"score": 4,
+"num_comments": 3,
+"date": "2026-11-18",
+"title": "Brim and First Layer have low Flow"
+},
+{
+"id": "1xznh9u",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-18",
+"title": "ChromaSave v1.1.0-beta released: Now with experimental Bambu Lab (AMS / AMS Lite) support! Looking for beta testers"
+},
+{
+"id": "1xza5x0",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-18",
+"title": "BicuSlicer: Self hosted Cloud frontend for OrcaSlicer"
+},
+{
+"id": "1xz8ht1",
+"score": 3,
+"num_comments": 9,
+"date": "2026-11-18",
+"title": "Infill type idea: Stacked Rectilinear"
+},
+{
+"id": "1xz89ai",
+"score": 1,
+"num_comments": 4,
+"date": "2026-11-18",
+"title": "Plugin help?"
+},
+{
+"id": "1xz7qb0",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-18",
+"title": "I made a tool that checks your sliced file and tells you if anything that needs support doesn't have it"
+},
+{
+"id": "1xz6nyj",
+"score": 0,
+"num_comments": 6,
+"date": "2026-11-18",
+"title": "Automating OrcaSlicer with Python — slicing STLs without even opening the GUI"
+},
+{
+"id": "1xz5tfj",
+"score": 2,
+"num_comments": 2,
+"date": "2026-11-18",
+"title": "Printing a fillament spool, and the top part/joint between spools keep failing."
+},
+{
+"id": "1xz5kxh",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-18",
+"title": "Join today fibber com discover New today"
+},
+{
+"id": "1xywekl",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-17",
+"title": "Simplify3D v6 apparently"
+},
+{
+"id": "1xyt6bl",
+"score": 2,
+"num_comments": 3,
+"date": "2026-11-17",
+"title": "What happens here???"
+},
+{
+"id": "1xyl9fj",
+"score": 3,
+"num_comments": 0,
+"date": "2026-11-17",
+"title": "Update: OrcaCAD plugin at 0.9.27 - Gridfinity vase bin, highlighted editor, fewer permission headaches"
+},
+{
+"id": "1xykncm",
+"score": 6,
+"num_comments": 25,
+"date": "2026-11-17",
+"title": "Hello people, im strugling with Orca since the last update the upper/bottom shells look horrible with bad adhesion, and its not a one solid layer is like multiple small segments, what can i do to resolve it, before update it was all fine i didnt change any profile settings (Eolas ABS) after update"
+},
+{
+"id": "1xyj7u5",
+"score": 22,
+"num_comments": 1,
+"date": "2026-11-17",
+"title": "My first Orca Plugin"
+},
+{
+"id": "1xyh0mb",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-17",
+"title": "Centauri Carbon + Canvas on Cosmos: toolhead doesn’t reach the poop chute lever, so the chute clogs on long multi-colour prints"
+},
+{
+"id": "1xy8s0e",
+"score": 0,
+"num_comments": 2,
+"date": "2026-11-17",
+"title": "Pareri sui miei primi 3 design"
+},
+{
+"id": "1xy6xbx",
+"score": 3,
+"num_comments": 13,
+"date": "2026-11-17",
+"title": "ASA Calibration"
+},
+{
+"id": "1xy3ii4",
+"score": 3,
+"num_comments": 1,
+"date": "2026-11-16",
+"title": "Orca slicer doesn't work and crashes."
+},
+{
+"id": "1xxybo6",
+"score": 2,
+"num_comments": 6,
+"date": "2026-11-16",
+"title": "Support / Overhang settings - trying to find a balance between sagging and over-adhesion"
+},
+{
+"id": "1xxv0oc",
+"score": 1,
+"num_comments": 4,
+"date": "2026-11-16",
+"title": "Orca Slicer no longer uploading prints on SV08"
+},
+{
+"id": "1xxpf36",
+"score": 3,
+"num_comments": 2,
+"date": "2026-11-16",
+"title": "Help with profiles after updating from 2.3 to 2.5"
+},
+{
+"id": "1xxjx2o",
+"score": 2,
+"num_comments": 1,
+"date": "2026-11-16",
+"title": "Is it better to reduce print speed in Orca by keying in linear speeds, or limiting Max Volumetric Flow?"
+},
+{
+"id": "1xxailq",
+"score": 3,
+"num_comments": 12,
+"date": "2026-11-15",
+"title": "Bridges take long paths between supporting walls."
+},
+{
+"id": "1xwzbzk",
+"score": 1,
+"num_comments": 1,
+"date": "2026-11-15",
+"title": "Orca-FlashForge - Apple Silicon"
+},
+{
+"id": "1xwx2v5",
+"score": 4,
+"num_comments": 5,
+"date": "2026-11-15",
+"title": "Retraction tower error"
+},
+{
+"id": "1xwuggw",
+"score": 1,
+"num_comments": 6,
+"date": "2026-11-15",
+"title": "What settings should I change to avoid such ugly surface at the back?"
+},
+{
+"id": "1xwq4nl",
+"score": 1,
+"num_comments": 2,
+"date": "2026-11-15",
+"title": "orcaslicer for multiple printers / multiple projects"
+},
+{
+"id": "1xwm0w5",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-15",
+"title": "AD5X - New User"
+},
+{
+"id": "1xwfz3o",
+"score": 3,
+"num_comments": 4,
+"date": "2026-11-14",
+"title": "X2D LAN Connection Issue 2.5.1? First time set up"
+},
+{
+"id": "1xwfa1m",
+"score": 3,
+"num_comments": 0,
+"date": "2026-11-14",
+"title": "Print Parameters - Profile Hierarchy Flaws"
+},
+{
+"id": "1xwd9so",
+"score": 2,
+"num_comments": 0,
+"date": "2026-11-14",
+"title": "Slicer upgrade/programming Suggestion"
+},
+{
+"id": "1xvx4j8",
+"score": 2,
+"num_comments": 6,
+"date": "2026-11-14",
+"title": "What is the best way to position a 3D thing into the cutout of another 3D thing so it fits perfectly?"
+},
+{
+"id": "1xvte6c",
+"score": 1,
+"num_comments": 0,
+"date": "2026-11-14",
+"title": "Empty first layer error"
+},
+{
+"id": "1xuutsp",
+"score": 0,
+"num_comments": 2,
+"date": "2026-11-13",
+"title": "Orca settings for filament swap?"
+}
+]
