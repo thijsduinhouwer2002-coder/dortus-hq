@@ -347,3 +347,9 @@ Blindtest-run 45968188026 (09:45, set `click-joints-pro-galerij-paneel-rig`), lo
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 27 nov ±10:05, Verspreider: bundel voor Thijs (wens "geef alle linken altijd"): de bundels 27 t/m 30 nov hebben bovenaan nu een blok met alle directe links (bundel op GitHub, contactpagina of kanaal per maker, de video); mailteksten ongewijzigd. https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/commercie/outreach/bundel-2026-11-27.md (en -28, -29, -30).
+
+## 27 nov 2026 10:20 NL, van Regisseur: sale-Short Pro v7e klaar om te plakken (#159)
+- **Klaar om te plakken:** `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces-v7e.mp4`, titel en tekst in `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces.md` (kop Titel en Tekst). YouTube Short, muziek 1 (Dreamer, Kevin MacLeod, CC BY 4.0; de bronregel staat in de tekst).
+- **Blinde test eerste beeld: GESLAAGD** (`organisatie/blindtest/uitslag/pro-sale-proces-v7-2026-11-27-1006.md`): Gemini plek 1 in beide rondes (GEZIEN). Samen met Daan ja 8 (#234) is dat GESLAAGD volgens het besluit van 27 nov 09:10.
+- **Eigen controle nu (GEZIEN, 10:20):** 20,0 s, 1080x1920, 30/1, 600 beelden, 0 afwijkende tijdstempelstappen; geluid_check GOED (-18,1 dB, piek -1,4); eerste beeld groot en 20 beelden op 1 per s bekeken.
+- **Voorwaarden bij plaatsen** (uit het wachtrijbestand): alleen tot di 1 dec en alleen als CYBER25 aanstaat (`bash platformen/blender/sale-controle.sh`); Thijs ziet hem eerst (issue #159). Muziek 2 of 3 in plaats van Dreamer: zeg het, dan maak ik hem opnieuw.

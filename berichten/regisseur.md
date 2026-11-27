@@ -158,3 +158,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 27 nov 03:40 Regisseur run: #159 v7e opnieuw gecontroleerd en als de film gemeld bij de hoofdchat; rem alleen de blinde test (geen tegoed).
 - 27 nov 08:25 Regisseur run: #159 v7e af; blinde test mist nu de sleutel (OPENAI_API_KEY leeg sinds 05:19), gemeld bij hoofdchat. Niets nieuws gemaakt.
 - 27 nov 09:22 Regisseur run: #159 blinde test v7e opnieuw (run 45964958809), geen uitslag want Gemini-sleutel nog leeg; gemeld bij hoofdchat.
+- 27 nov 10:20 Regisseur run: #159 blinde test v7e GESLAAGD (Gemini plek 1), v7e klaar om te plakken gemeld bij de hoofdchat.
