@@ -62,6 +62,50 @@ def hol(doel, gat):
     bpy.context.view_layer.objects.active = doel; bpy.ops.object.modifier_apply(modifier=md.name)
     bpy.data.objects.remove(gat, do_unlink=True)
 
+# v4: het gat is geen rechthoek meer maar een rafelige trechter (Daan #243 kan 1). Eigen dobbelsteen,
+# zodat de rest van het beeld (kiezels, sprieten) precies blijft zoals in v3.
+RG = random.Random(11)
+GAT_N = 22
+def _gatrand(z0, z1):
+    """Linker- en rechterkant van het gat van z0 tot z1: licht golvend, bovenaan rond uitlopend (geen hoeken)."""
+    zs = [z0 + (z1 - z0) * i / GAT_N for i in range(GAT_N + 1)]
+    links, rechts = [], []
+    for z in zs:
+        t = max(0.0, min(1.0, (z - (MV - 0.5)) / 0.7))
+        flare = 0.38 * (1 - math.cos(t * math.pi / 2)) ** 0.8 if z < MV + 0.2 else 0.38
+        links.append((SX0 - flare + RG.uniform(-0.07, 0.07) * (1 - t), z))
+        rechts.append((SX1 + flare + RG.uniform(-0.07, 0.07) * (1 - t), z))
+    return links, rechts
+def boog_z(x):
+    cx, hw = (KX0 + KX1) / 2, (KX1 - KX0) / 2
+    u = min(1.0, abs(x - cx) / hw)
+    return KRECHT + (KTOP - KRECHT) * math.sqrt(1 - u * u)
+GAT_L, GAT_R = _gatrand(KRECHT, MV + 1.0)
+def prisma(naam, omtrek, y0, y1, m=None):
+    """Omtrek (x, z) als dicht blok van y0 tot y1 (manifold, voor de boolean)."""
+    import bmesh
+    me = bpy.data.meshes.new(naam); o = bpy.data.objects.new(naam, me); sc.collection.objects.link(o)
+    bm = bmesh.new()
+    voor = [bm.verts.new((x, y0, z)) for x, z in omtrek]
+    f = bm.faces.new(voor)
+    r = bmesh.ops.extrude_face_region(bm, geom=[f])
+    for v in [e for e in r["geom"] if isinstance(e, bmesh.types.BMVert)]:
+        v.co.y = y1
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    bmesh.ops.triangulate(bm, faces=bm.faces[:])
+    bm.to_mesh(me); bm.free()
+    if m: kies(o, m)
+    return o
+def gatomtrek(met_boog=False):
+    """Omtrek tegen de klok: rechterkant omhoog, linkerkant omlaag. met_boog: onderkant volgt de boog van de kamer."""
+    if not met_boog:
+        return GAT_R + GAT_L[::-1]
+    l = [(x, z) for x, z in GAT_L if z >= boog_z(x) + 0.05]
+    r = [(x, z) for x, z in GAT_R if z >= boog_z(x) + 0.05]
+    xa, xb = l[0][0], r[0][0]
+    onder = [(xa + (xb - xa) * i / 12, boog_z(xa + (xb - xa) * i / 12) - 0.12) for i in range(1, 12)]
+    return [(xa, boog_z(xa) - 0.12)] + onder + [(xb, boog_z(xb) - 0.12)] + r + l[::-1]
+
 def aardemat(naam, donker, licht, schaal=0.9, bump=0.3):
     m = g.mat(naam, donker, rough=0.88, spec=0.12)
     nt = m.node_tree; b = nt.nodes["Principled BSDF"]
@@ -119,7 +163,7 @@ kamer = blok("kamer_gat", ((KX0 + KX1) / 2, 0.3, KRECHT / 2 - 0.5), (KX1 - KX0, 
 hol(aarde, kamer)
 bpy.ops.mesh.primitive_cylinder_add(vertices=96, radius=1.0, depth=2.6, location=((KX0 + KX1) / 2, 0.3, KRECHT), rotation=(math.radians(90), 0, 0))
 boog = bpy.context.object; boog.scale = ((KX1 - KX0) / 2, KTOP - KRECHT, 1); hol(aarde, boog)
-gat = blok("val_gat", ((SX0 + SX1) / 2, 0.3, (KRECHT + MV + 1) / 2), (SX1 - SX0, 2.6, MV + 1 - KRECHT)); hol(aarde, gat)
+gat = prisma("val_gat", gatomtrek(), -1.0, 1.6); hol(aarde, gat)
 gang = blok("gang_gat", ((-12 + KX0 + 0.2) / 2, 0.3, GANGTOP / 2 - 0.5), (KX0 + 0.2 + 12, 2.6, GANGTOP + 1.0)); hol(aarde, gang)
 bv = aarde.modifiers.new("rond", "BEVEL"); bv.width = 0.15; bv.segments = 4; bv.limit_method = "ANGLE"
 # snijvlakken (binnenkant van de gaten) iets licht van zichzelf, zodat ze nooit zwart worden
@@ -129,7 +173,9 @@ w = blok("kamerwand", ((KX0 + KX1) / 2, 1.55, (KTOP + 0.2) / 2), (KX1 - KX0 + 0.
 blok("gangwand", ((-12 + KX0 + 0.4) / 2, 1.56, GANGTOP / 2), (KX0 + 12.4, 0.1, GANGTOP + 0.2), GANGWAND)
 # v3: de schacht is donker van binnen, zodat je in één blik een gat ziet (Daan #236 M2)
 SCHACHT = g.mat("schacht", "3a1c14", rough=0.95, spec=0.05)
-blok("valwand", ((SX0 + SX1) / 2, 1.55, (KTOP - 0.6 + MV) / 2), (SX1 - SX0 + 0.2, 0.1, MV - KTOP + 0.6), SCHACHT)
+# v4: de donkere achterkant volgt de rafelige rand en loopt onderaan mee met de boog (geen zwart vak, Daan #243 kan 1)
+vw = [(x, z if z < MV + 0.06 else MV + 0.06) for x, z in gatomtrek(met_boog=True)]
+prisma("valwand", vw, 1.40, 1.44, SCHACHT)
 blok("vloer", (0, 0.8, -0.05), (BREED + 8, 1.6, 0.1), VLOER)
 
 # stenen, botjes en wortels in de aarde (minder dingen dan v1: alleen in de lege aarde links onder de titel en tussen)
@@ -151,25 +197,34 @@ for x in (-7.8, -2.4, 0.2):
 
 # ---------- gras ----------
 gp = blok("grasplak", (0, 1.4, MV + 0.1), (BREED + 8, 2.9, 0.24), GRAS_D)
-hol(gp, blok("gras_gat", ((SX0 + SX1) / 2, 0.4, MV), (SX1 - SX0, 1.7, 1.0)))
+hol(gp, prisma("gras_gat", gatomtrek(), -0.5, 1.45))
+# v4: de verre rand van het gat is gras, met een paar sprieten: zo lees je een gat en geen zwart vak
+for i in range(26):
+    x = RG.uniform(SX0 - 0.3, SX1 + 0.3); h = RG.uniform(0.12, 0.26)
+    cil("verspriet", (x, RG.uniform(1.5, 1.7), MV + 0.2 + h / 2), 0.055, h, RG.choice([GRAS, GRAS_D]),
+        rot=(RG.uniform(-0.3, 0.3), RG.uniform(-0.35, 0.35), 0), verts=4, r2=0.0)
+for i in range(14):   # en een paar die over de verre rand naar binnen hangen (rafelige bovenkant)
+    x = RG.uniform(SX0 - 0.1, SX1 + 0.1); h = RG.uniform(0.12, 0.3)
+    cil("hangachter", (x, 1.36, MV + 0.08 - h / 2), 0.05, h, RG.choice([GRAS, GRAS_D]),
+        rot=(math.radians(180) + RG.uniform(-0.2, 0.2), RG.uniform(-0.4, 0.4), 0), verts=4, r2=0.0)
 bl = gp.modifiers.new("rond", "BEVEL"); bl.width = 0.08; bl.segments = 3
 for i in range(420):
     x = random.uniform(-10.5, 10.5)
-    if SX0 - 0.05 < x < SX1 + 0.05: continue
+    if SX0 - 0.36 < x < SX1 + 0.36: continue
     y = random.uniform(-0.08, 0.9); h = random.uniform(0.16, 0.4)
     cil("spriet", (x, y, MV + 0.2 + h / 2), 0.06, h, random.choice([GRAS, GRAS, GRAS_D]),
         rot=(random.uniform(-0.3, 0.3), random.uniform(-0.35, 0.35), 0), verts=4, r2=0.0)
 for i in range(70):
     x = -10.4 + i * 0.3
-    if SX0 - 0.1 < x < SX1 + 0.1: continue
+    if SX0 - 0.42 < x < SX1 + 0.42: continue
     cil("rand", (x, -0.06, MV - 0.04), 0.09, 0.2, GRAS_D, rot=(math.radians(180), 0, 0), verts=4, r2=0.0)
 # v3: rafelige graskant: sprieten hangen over de rand het gat in, en kluitjes vallen mee
-for kant, xr in ((-1, SX0), (1, SX1)):
+for kant, xr in ((-1, SX0 - 0.3), (1, SX1 + 0.3)):   # v4: rand ligt verder naar buiten (trechter)
     for i in range(9):
         x = xr - kant * random.uniform(0.0, 0.3); h = random.uniform(0.2, 0.42)
         cil("hangspriet", (x, random.uniform(-0.15, 0.1), MV - h / 2 + 0.12), 0.05, h, random.choice([GRAS, GRAS_D]),
             rot=(math.radians(180) + random.uniform(-0.3, 0.3), kant * random.uniform(0.2, 0.6), 0), verts=4, r2=0.0)
-    blok("graskant", (xr, -0.05, MV + 0.06), (0.25, 0.5, 0.2), GRAS_D)
+    bol("graskant", (xr + kant * 0.05, -0.05, MV + 0.08), (0.2, 0.25, 0.12), GRAS_D, 14)
 KLUIT = g.mat("kluit", "7a4430", rough=0.9); KLUIT_L = g.mat("kluit_l", "c07a50", rough=0.9)
 # kluitjes vallen mee: licht op de donkere schacht, donker op het lichte metselwerk eronder
 for (x, z, r, m, mg) in [(1.55, 4.3, 0.11, KLUIT_L, True), (2.8, 4.05, 0.09, KLUIT_L, False), (2.95, 3.75, 0.07, KLUIT_L, True),
@@ -178,6 +233,19 @@ for (x, z, r, m, mg) in [(1.55, 4.3, 0.11, KLUIT_L, True), (2.8, 4.05, 0.09, KLU
     bol("kluit", (x, -0.6, z), (r * 1.25, r, r), m, 12)
     if mg:
         cil("kluitgras", (x + 0.03, -0.6, z + r + 0.05), 0.035, 0.16, GRAS, rot=(0.2, 0.35, 0), verts=4, r2=0.0)
+# v4: rand van aarde en wortels binnen in het gat (Daan #243 kan 1): lichte kluiten langs beide wanden,
+# zodat de rand rafelig is, en drie wortels die van boven het donker in hangen.
+RAND_L = g.mat("rand_l", "b8704c", rough=0.9); RAND_D = g.mat("rand_d", "8e4e34", rough=0.9)
+for kant, rand in ((-1, GAT_L), (1, GAT_R)):
+    for x, z in rand:
+        if z < boog_z(x) + 0.1 or z > MV - 0.05: continue
+        r = RG.uniform(0.07, 0.13)
+        bol("randkluit", (x - kant * RG.uniform(0.0, 0.06), RG.uniform(0.15, 0.9), z), (r * 1.1, r, r * 0.9),
+            RG.choice([RAND_L, RAND_L, RAND_D]), 10)
+WORTEL_L = g.mat("wortel_l", "b77a4e", rough=0.8)
+for (x, l, sc_) in [(SX0 + 0.25, 0.55, 0.2), (SX0 + 1.05, 0.38, -0.25), (SX1 - 0.2, 0.62, -0.15)]:
+    cil("gatwortel", (x, 0.2, MV - 0.05 - l / 2), 0.035, l, WORTEL_L, rot=(0, sc_, 0), verts=6, r2=0.008)
+    cil("gatwortel2", (x + 0.08, 0.25, MV - 0.12 - l * 0.3), 0.02, l * 0.45, WORTEL_L, rot=(0, sc_ + 0.6, 0), verts=5, r2=0.005)
 for x, k in [(-9.0, "ff6f91"), (-0.6, "ffd23a"), (4.2, "ff6f91"), (7.6, "ffffff"), (9.3, "ffd23a"), (3.4, "ffffff")]:
     cil("steel", (x, 0.15, MV + 0.45), 0.03, 0.5, GRAS_D, verts=6)
     bol("bloem", (x, 0.15, MV + 0.72), (0.14, 0.14, 0.1), g.mat("bl" + k, k, rough=0.6), 12)

@@ -23,3 +23,10 @@ Maken: `<venv>/bin/python header_v2.py r.png 1840 860 28` (bpy 5.2.4, ±2,5 min 
 - Na een frisse kijker (een losse Claude, blind op 460, telt niet als test: plek 3 van 4, tip "logo groter, minder rommel"): titel ±22% groter, HATS nu ±38% van de breedte.
 - Bekeken met Read op 920, 460 en 2x (`rechts-2x.png`). Voor en na: `voor-na.png` (v2 boven, v3 onder).
 - Blinde test: set `hats-header-v2.json` wijst nu naar v3. ChatGPT had om 01:19 nog geen tegoed (run 45921830896, HTTP 429, GEZIEN), dus een uitslag komt pas als er weer tegoed is.
+
+## Ronde 4 (27 nov ±05:30 NL, kan-punten 1 en 2 van Daan #243)
+- **Gat:** geen zwart vak meer maar een rafelige trechter (golvende wanden, bovenaan rond uitlopend, geen rechte hoeken). Langs beide wanden lichte kluiten aarde, drie wortels hangen van boven het donker in, en de verre rand is gras met sprieten die naar binnen hangen. De donkere achterkant loopt onderaan mee met de boog van de kamer.
+- **Valstreepjes:** drie in plaats van vier, elk een andere lengte (30, 18, 12 px), dunner, spits naar boven en iets schuin mee met de val.
+- De rest van het beeld is gelijk aan v3 (eigen dobbelsteen voor het gat, zodat kiezels en sprieten niet verschuiven).
+- Bekeken met Read op 920, 460 en 2x. Voor en na van het gat: `voor-na.png` (v3 links, v4 rechts).
+- Set `hats-header-v2.json` wijst nu naar v4 (`?v=4`); de push start de test vanzelf. Geen tegoed bij de rechters = geen uitslag, dan opnieuw starten zodra er tegoed is.

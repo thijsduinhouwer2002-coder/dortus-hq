@@ -87,9 +87,14 @@ ds.polygon([(x + 2 * k, y + 2 * k) for x, y in pts], fill=(0, 0, 0, 90))
 sch = sch.filter(ImageFilter.GaussianBlur(1.5 * k)); beeld.alpha_composite(sch)
 d.polygon(pts, fill=(255, 255, 255), outline=(20, 20, 28), width=max(1, int(1.4 * k)))
 
-# valstreepjes boven de schouders van de held (Pillow, zodat ze niet als stokjes door hem heen steken)
-for (x, y0s, l) in [(float(v) for v in t.split(":")) for t in os.environ.get("STREEP", "512:172:22,548:166:26,606:200:26,620:216:16").split(",")]:
-    d.rounded_rectangle([x * k - 2 * k, y0s * k, x * k + 2 * k, (y0s + l) * k], radius=int(2 * k), fill=(255, 250, 236, 230))
+# valstreepjes boven de held (Pillow, zodat ze niet als stokjes door hem heen steken).
+# v4 (Daan #243 kan 2): drie in plaats van vier, elk een andere lengte, dunner en spits naar boven, iets schuin
+# mee met de val, zodat ze als beweging lezen en niet als kaarsjes.
+for (x, y0s, l) in [(float(v) for v in t.split(":")) for t in os.environ.get("STREEP", "522:166:30,566:172:18,612:196:12").split(",")]:
+    yb = (y0s + l) * k; yt = y0s * k; xb = x * k; xt = xb - 0.12 * l * k   # top iets naar links: schuin mee
+    bw = 1.5 * k
+    d.polygon([(xt - 0.25 * k, yt), (xt + 0.25 * k, yt), (xb + bw, yb - bw), (xb, yb), (xb - bw, yb - bw)], fill=(255, 250, 236, 235))
+    d.ellipse([xb - bw, yb - 2 * bw, xb + bw, yb], fill=(255, 250, 236, 235))
 
 # ondertitel: donker pilletje onder de titel, in de aarde
 if ONDER:
