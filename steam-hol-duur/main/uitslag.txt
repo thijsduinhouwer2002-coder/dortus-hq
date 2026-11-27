@@ -1,9 +1,9 @@
 metingen van 10 s: 358
-CPU-s per 10 s: gemiddeld 1.951, mediaan 1.766, laagste 1.156, hoogste 3.781
-geheugen aan het eind: 60 MB
+CPU-s per 10 s: gemiddeld 1.868, mediaan 1.672, laagste 1.234, hoogste 3.625
+geheugen aan het eind: 63 MB
 proces leefde tot het eind: True
 soort: editor-Godot (--path)
-eerste koop mogelijk: HOL eerste koop mogelijk na 70 s speeltijd (goud 50)
-kroniekregels: 279, verschillend 274
-vaakst herhaald: 3x 'Gloop says thanks for the snack. +17'; 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Kees II casts Light. It is a candle.'
+eerste koop mogelijk: HOL eerste koop mogelijk na 73 s speeltijd (goud 50)
+kroniekregels: 258, verschillend 254
+vaakst herhaald: 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'; 2x 'Rik the Thief tiptoes in.'; 2x 'Sir Pim II clanked all the way down. +17'
 save-bestanden na de duurtest: hol.json, hol.vorige.json (precies hol.json en hol.vorige.json: True)
