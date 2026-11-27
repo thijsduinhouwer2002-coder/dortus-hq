@@ -183,3 +183,6 @@ Leuk 8, aandacht 8, mooi 8 dicht bij 9, duidelijk 8, helden vallen op 8 (GOK). B
 
 ## 27 nov 2026 ±13:15 NL, Iris (eigen logboek): build 3240a1b gekeurd (#271)
 Leuk 8, aandacht 8, mooi 8 dicht bij 9, duidelijk 8, helden vallen op 9 (GOK). Donker pak op blauwgrijze steen staat nu los (GEZIEN naast licht=0); randje is zacht en niet op spelpixels, leest op 2x als sticker. Langste gat na minuut 4 133 en 180 s in twee runs. Blinde test `hats-speelscherm-20min-3240a1b` gestart.
+
+## 27 nov 2026 ±15:00 NL, Iris (eigen logboek): build 4329a3a, minuut 0 tot 60 gekeurd (#279)
+Minuut 0 tot 20: leuk 8, aandacht 8, mooi 8. Minuut 20 tot 60: leuk 6, aandacht 6, mooi 8 (GOK). Laatste koop op 1498 s, daarna 35 min niets te kopen en goud tot 1517; 84 hoeden maar toren en berg zien er op min 60 uit als op min 25 (GEZIEN). Issue #280 bij Sanne.
