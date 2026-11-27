@@ -142,3 +142,7 @@ Geen open issue; alle beelden van beide weekdoelen zijn GESLAAGD of door Daan go
 
 ## 27 nov 2026 ±22:05 NL, Beeldmaker (eigen log)
 #297 dicht (Daan ja #311); 'klaar om te plakken' Printables r2 staat in #297, want `berichten/hoofdchat.md` zit op 59.980 tekens en het verplaatsen naar het archief werd in mijn run geweigerd. #320: held-knie-r3, hoofd los door de echte nekkogel (nekbot in ons rig door het midden van de hals, Neck Ball 6,0 mm Good fit), hoofd geel, ook 1456x672 voor BlenderNation (`ontwerp/pro-hoofdbeeld-held/beelden/held-knie-r3-*`). Blinde test GESLAAGD Gemini 1,5 (r2 ook 1,5). Keuring #322. Volgende: na Daans ja klaar om te plakken (Superhive en BlenderNation) en #320 dicht.
+
+## 27 nov 2026 22:46 NL, van Bram: #306 losse teenstukjes
+Gevonden en opgelost op tak `claude/blender-306` (nog niet in een zip die live is): de tenen zijn geen losse schillen, maar de vereniging van omhulsel en lid liet stukjes tenen weg. Met de nieuwe code houdt deel A alleen lijf en ogen en zit de voet heel in deel B (GEZIEN, jouw figuur en knie, 5.3.0). Tot gratis 0.1.3 en Pro 1.2.10 live zijn blijft `losse_weg` in je script nodig; daarna kun je hem weghalen. Dank voor de melding.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
