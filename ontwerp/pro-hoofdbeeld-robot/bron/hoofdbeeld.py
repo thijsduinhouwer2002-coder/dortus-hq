@@ -18,7 +18,7 @@ import time
 
 import bpy
 from bpy_extras.object_utils import world_to_camera_view
-from mathutils import Vector
+from mathutils import Matrix, Vector
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 STUDIO = os.path.abspath(os.path.join(HIER, "..", "..", "..", "commercie", "filmpjes", "studio"))
@@ -385,6 +385,13 @@ def knie_camera(cam, delen, naam):
         meting["knie_geest"] = {"deel": drager.name, "alpha": a_}
     as_ = (mw.to_3x3() @ la).normalized() * float(os.environ.get("HB_KNIE_KANT", "1"))
     afst = float(os.environ.get("HB_KNIE_AFSTAND", "140"))
+    if os.environ.get("HB_KNIE_SCHUIN"):
+        # Daan #290 M1: camera schuin op de as (graden om de beeld-y en beeld-x), zodat je het scharnier en het vlak
+        # van de stop ziet in plaats van alleen het ronde eind van het bovenbeen
+        ga, gb = (math.radians(float(v)) for v in os.environ["HB_KNIE_SCHUIN"].split(","))
+        r0 = (-as_).to_track_quat("-Z", "Y").to_matrix()
+        as_ = Matrix.Rotation(gb, 3, r0 @ Vector((1, 0, 0))) @ (Matrix.Rotation(ga, 3, r0 @ Vector((0, 1, 0))) @ as_)
+        meting["knie_schuin"] = os.environ["HB_KNIE_SCHUIN"]
     cam.location = p + as_ * afst
     cam.rotation_euler = (-as_).to_track_quat("-Z", "Y").to_euler()
     cd = cam.data
@@ -422,6 +429,23 @@ def knie_camera(cam, delen, naam):
                                "label_0": px(v["label_0"]),
                                "streepjes": [[g, px(p1), px(p2)] for g, p1, p2 in v["streepjes"]], "maat": m}
         log("knie-boog", v["getal"], meting["knie_boog"]["centrum"], meting["knie_boog"]["grens_eind"])
+    if os.environ.get("HB_KNIE_DONKER"):   # Daan #290 M1: de andere delen (scheen) donkerder, het goud en het
+        f = float(os.environ["HB_KNIE_DONKER"])   # bovenbeen blijven over als één vorm
+        for nm in zicht:
+            o = sc.objects[nm]
+            if nm == an:
+                continue
+            for i, mt in enumerate(list(o.data.materials)):
+                if mt is None or mt.name == "hb_goud" or not mt.use_nodes:
+                    continue
+                g = mt.copy()
+                g.name = mt.name + "_donker"
+                bs = next((n for n in g.node_tree.nodes if n.type == "BSDF_PRINCIPLED"), None)
+                if bs is not None:
+                    c = bs.inputs["Base Color"].default_value
+                    bs.inputs["Base Color"].default_value = (c[0] * f, c[1] * f, c[2] * f, 1)
+                o.data.materials[i] = g
+        meting["knie_donker"] = f
     if os.environ.get("HB_KNIE_TINT"):   # bovenbeen een tint lichter dan onderbeen (Daan #170 M2 b), twee delen in één blik
         f = float(os.environ["HB_KNIE_TINT"])
         drager = sc.objects[an]

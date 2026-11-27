@@ -29,3 +29,14 @@ IZ_TEKST="Knee hinge, stops at 135°" IZ_BOOG=<uit2>/knie.json IZ_BOOG_DUN=1 IZ_
 Nieuw in de gedeelde scripts (alleen aan met hun eigen variabele, oude beelden veranderen niet): `HB_DEELKLEUR` en `HB_KOGEL_MINST` in `hoofdbeeld.py`, `TK_PUNT_DY` en de heup als derde label zonder schouder in `tekst.py`. `TK_PUNT_DY`: de heupkogel zelf heeft geen goud (alleen de kom in de dij), dus het punt van het label schuift 76 px omhoog naar de kogel (op het oog, GOK binnen ±10 px). Boogmidden van de inzet op het oog gemeten (GOK ±15 px); hoeken 0° en 135° zoals de add-on ze tekent.
 
 **Blinde test:** set `organisatie/blindtest/sets/click-joints-pro-superhive-held.json`: held-knie, held en mens-r6 in dezelfde run tegen Cleave, CatPin en Split 3D Print. Klaar als: GESLAAGD met gemiddeld 1,5 of beter bij Gemini en beter dan mens-r6, plus Daans ja.
+
+**Ronde 2 (27 nov ±18:00, Daan #290 M1):** `beelden/held-knie-r2-2400x1200.jpg` = held-r1 met een nieuwe knie-inzet. In r1 lag het goud van het scharnier in de schaduw (metaalglans die de donkere ruimte spiegelt) en keek de camera precies langs de as, dus je zag alleen het ronde eind van het bovenbeen. Nu: camera 35° om en 8° over de as (`HB_KNIE_SCHUIN=35,8`, nieuw in `hoofdbeeld.py`), goud zonder metaal (`HB_METAAL=0`, alleen in deze close-up), scheen donkerder (`HB_KNIE_DONKER=0.45`, nieuw), alleen bovenbeen en scheen in beeld (`HB_KNIE_STRAAL=12`), uitsnede zonder de lichte wig links. Je ziet het gouden scharnier met de pen en het blok waar het bovenbeen op de stop ligt (GEZIEN, ook op 480 px breed). Render lokaal (Blender 5.3.0, Cycles 48, zip van main als 1.2.9): `beelden/knie-r2-render.jpg`, `beelden/knie-r2.json`. Boogmidden op de pen, op het oog (GOK ±15 px); hoeken 0° en 135° zoals de add-on ze tekent, in perspectief van de schuine camera.
+```
+HB_DEELKLEUR="$K" HB_KOGEL_MINST="Left hip,Right hip" HB_POSE='{"Left elbow": 55, "Right elbow": 25, "Left knee": 30, "Right knee": 135}' HB_FIGUUR=<fig>/held.blend \
+  HB_LICHT=2.6 HB_VUL=0.80 HB_DRAAI=-22 HB_KANTEL=9 HB_SHIFT=-0.2 HB_UIT=4 HB_KNIE_CAM="Right knee" HB_KNIE_KANT=1 HB_KNIE_AFSTAND=58 HB_KNIE_SCHUIF=0,-4.3 \
+  HB_KNIE_LICHT=2.5 HB_KNIE_MAAT=1000 HB_KNIE_BOOG=1 HB_NAAM=knie HB_METAAL=0 HB_KNIE_STRAAL=12 HB_KNIE_DONKER=0.45 HB_KNIE_SCHUIN=35,8 \
+  blender -b --factory-startup --python ontwerp/pro-hoofdbeeld-robot/bron/hoofdbeeld.py -- <pro-zip> <uit2> 48 100
+IZ_TEKST="Knee hinge, stops at 135°" IZ_BOOG=<uit2>/knie.json IZ_BOOG_DUN=1 IZ_BOOG_MIDDEN=465,505 IZ_BOOG_STRAAL=150 IZ_BOOG_DIK=10 IZ_BOOG_ALFA=0.9 \
+  IZ_SCHADUW=0 IZ_X=1112 IZ_Y=690 IZ_M=380 IZ_SNEDE=0.45,0.46,0.56 python3 ontwerp/pro-hoofdbeeld-mens/bron/inzet.py beelden/held-r1-2400x1200.jpg <uit2>/knie-render.png beelden/held-r1.json beelden/held-knie-r2-2400x1200.jpg <f>
+```
+Blinde test: set `organisatie/blindtest/sets/click-joints-pro-superhive-held-r2.json` (held-knie-r2, held-knie-r1, mens-r6).
