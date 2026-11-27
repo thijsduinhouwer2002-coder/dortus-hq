@@ -171,3 +171,6 @@ Leuk 8, aandacht 8, mooi 8, duidelijk 8 (GOK). Wand nu scherp steen in tint, lui
 
 ## 27 nov 2026 ±03:30 NL, Iris (eigen logboek): build aef9f5f gekeurd (#239, dicht)
 Leuk 8, aandacht 8, mooi 8, duidelijk 8, helden vallen op 7 (GOK). Tekens en klap GEZIEN op 1x; lijf van de held niet (geen rand, verdwijnt in het fakkellicht), issue #242 voor Sanne. Tempo één voor één: 1 van 6 zaden boven 180 s (189 s), dus vooral last in #223.
+
+## 27 nov 2026 ±06:55 NL, Iris (eigen logboek): build deea47d gekeurd (#245, dicht)
+Leuk 8, aandacht 8, mooi 8, duidelijk 8, helden vallen op 8 (GOK). Rand om de held GEZIEN op 1x: links in het fakkellicht los van de gele stenen. Voor een 9: donker geklede held in het midden valt weg tegen de donkere stenen, schaduwvlek bijna onzichtbaar. 11 aankopen, langste gat na minuut 4 178 s.
