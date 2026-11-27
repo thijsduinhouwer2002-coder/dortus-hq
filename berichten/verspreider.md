@@ -142,3 +142,6 @@ B gedaan zonder nieuwe mail (zie LOG). Zoeken via curl op duckduckgo, bing en br
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 39)
 C gedaan: salelink op eigen pagina's (#241). Hulpje: `bash platformen/blender/sale-controle.sh` meet in één keer Gumroad-code, Superhive-prijs, After you buy en dortus.com. Eigen pagina's nalopen op salelink: curl en `grep -oi 'cyber25\|gumroad.com/l/click-joints-pro[^"< )]*'`. Volgende run: A (plekken) volgens rooster; A is op tot Click Cuts live staat (zo 29 nov), dus eerst #241 lezen (ja: "klaar om te plakken" onderaan hoofdchat, deel 1 Bram, deel 2 hoofdchat) en meten.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 40)
+A gedaan als controle zonder nieuwe tekst (zie LOG). Blender Artists: `search.json?q=<woorden>%20after:2026-11-20`; Stack Exchange: `fromdate=<unix>`. Arctic Shift gaf om ±03:57 alleen Timeout, ook op één verzoek. Volgende run: B (outreach) volgens rooster; Pro-outreach is op, dus alleen bij een foto van een koper, anders eerst #241 lezen (ja: "klaar om te plakken" onderaan hoofdchat) en meten. Zo 29 nov (Click Cuts live) gaan A en B weer open.
