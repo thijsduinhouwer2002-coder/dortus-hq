@@ -54,3 +54,14 @@ TK_PUNT_DY='{"Left hip": -76}' TK_PUNT3="Fit test strip: 0.10 to 0.30 mm clearan
 IZ_* als ronde 2: inzet.py <t>/held-r3-2400x1200.png beelden/knie-r2-render.jpg <uit>/hoofdbeeld.json beelden/held-knie-r3-2400x1200.jpg <f>
 ```
 Render lokaal: Blender 5.3.0, Cycles 40 samples, 210 s (GEZIEN). Blinde test: set `organisatie/blindtest/sets/click-joints-pro-superhive-held-r3.json` (r3 naast r2).
+
+**Ronde 4 (27 nov ±23:50, #327, Daan #322 K1 tot K3):** `beelden/held-knie-r4-2400x1200.jpg` en `beelden/held-knie-r4-blendernation-1456x672.jpg` (zelfde bijsnede als r3).
+- **Kom en halsrand in eigen kleur** (K1, K2): `HB_NEK_TINT=0.78` (nieuw in `hoofdbeeld.py`, alleen aan met die variabele) geeft de vlakken binnen 24 mm van de nekkogel die na het goud nog antraciet zijn de kleur van hun eigen deel maal 0,78: de kom onder het hoofd donkergeel, de snederand van de hals donker turquoise. 3.854 vlakken, alleen kleur, geen vorm (GEZIEN, log).
+- **Label "Neck ball ±20°"** links van het hoofd (K3): `TK_NEK="Neck ball"` (nieuw in `tekst.py`); de graden komen uit de add-on (`beelden/held-r4.json`, Neck · Ball · ±20°).
+- Figuur, rig, zip (main als 1.2.9), pose, camera, inzet en tekst als r3. Render lokaal Blender 5.3.0, Cycles 40, 245 s (GEZIEN).
+```
+HB_NEK_TINT=0.78 <HB_* als ronde 3> blender ... hoofdbeeld.py -- <pro-zip> <uit> 40 100
+TK_NEK="Neck ball" <TK_* als ronde 3> python3 tekst.py ... held-r4 labels
+IZ_* als ronde 2: inzet.py <t>/held-r4-2400x1200.png beelden/knie-r2-render.jpg <uit>/hoofdbeeld.json beelden/held-knie-r4-2400x1200.jpg <f>
+```
+Blinde test: set `organisatie/blindtest/sets/click-joints-pro-superhive-held-r4.json` (r4 naast r3).

@@ -136,6 +136,8 @@ def maak(basis, W, H, meta, dy, schaal_xy):
         keus = [("Left shoulder", "Ball", "r"), ("Left elbow", "Hinge", "r"), ("Left knee", "Hinge", "r")]
         if "Left shoulder" not in lab and "Left hip" in lab:   # #285 held: geen schouderkogel, dan de heupkogel
             keus[0] = ("Left hip", "Ball", "r")
+        if os.environ.get("TK_NEK") and "Neck" in lab:   # #327 (Daan #322 K3): label bij het losse hoofd
+            keus.append(("Neck", os.environ["TK_NEK"], os.environ.get("TK_NEK_KANT", "l")))
         for naam, woord, kant in keus:
             if naam in lab:
                 zak = json.loads(os.environ.get("TK_ZAK", "{}")).get(naam, 0)

@@ -146,3 +146,6 @@ Geen open issue; alle beelden van beide weekdoelen zijn GESLAAGD of door Daan go
 ## 27 nov 2026 22:46 NL, van Bram: #306 losse teenstukjes
 Gevonden en opgelost op tak `claude/blender-306` (nog niet in een zip die live is): de tenen zijn geen losse schillen, maar de vereniging van omhulsel en lid liet stukjes tenen weg. Met de nieuwe code houdt deel A alleen lijf en ogen en zit de voet heel in deel B (GEZIEN, jouw figuur en knie, 5.3.0). Tot gratis 0.1.3 en Pro 1.2.10 live zijn blijft `losse_weg` in je script nodig; daarna kun je hem weghalen. Dank voor de melding.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 27 nov 2026 ±23:55 NL, Beeldmaker (eigen log)
+#320 dicht (Daan ja 8 #322): held-knie-r3 klaar om te plakken in de hoofdchat (Superhive en BlenderNation; mijn r2-melding daar vervangen, het bestand zit tegen de grens). #327 (zelf gemaakt, weekdoel plek 1): held-knie-r4 met Daans kan-punten (kom en halsrand in eigen kleur, label Neck ball ±20°), set r4 naast r3 gepusht. Volgende: uitslag lezen, dan keuring bij Daan; r3 blijft tot r4 beter is.

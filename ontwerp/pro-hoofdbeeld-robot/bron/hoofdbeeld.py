@@ -186,6 +186,55 @@ def goud_gewrichten(delen):
     log("goud vlakken", teller, "zones", len(zones))
 
 
+def nek_kleur(delen):
+    """HB_NEK_TINT (#327, Daan #322 K1 en K2): de vlakken rond de nekkogel die na goud_gewrichten nog donker zijn
+    (kom onder het hoofd, snederand van de hals) krijgen de kleur van hun eigen deel, maal deze factor (bijvoorbeeld
+    0.78: iets donkerder). Alleen de kleur verandert, niet de vorm. Straal in mm met HB_NEK_STRAAL (standaard 24)."""
+    f = float(os.environ["HB_NEK_TINT"])
+    straal = float(os.environ.get("HB_NEK_STRAAL", "24"))
+    c = None
+    for o in bpy.context.scene.objects:
+        if o.get("cj_naam") == "Neck" and o.get("cj_figuur") and "cj_centrum" in o:
+            c = Vector(o["cj_centrum"])
+            break
+    if c is None:
+        log("nek_kleur: geen nekkogel")
+        return
+    teller = 0
+    for o in delen:
+        mats = list(o.data.materials)
+        donker = {i for i, m in enumerate(mats) if m is None or m.name in ("toy_donker", "studio_gewricht")
+                  or m.name.startswith("Click Joints")}
+        eigen = [i for i, m in enumerate(mats) if m is not None and m.name.startswith("hb_deel_")]
+        if not donker or not eigen:
+            continue
+        mw = o.matrix_world
+        raak = [p for p in o.data.polygons if p.material_index in donker and (mw @ p.center - c).length < straal]
+        if not raak:
+            continue
+        from collections import Counter
+        tel = Counter(p.material_index for p in o.data.polygons if p.material_index in eigen)
+        basis = mats[tel.most_common(1)[0][0]] if tel else mats[eigen[0]]
+        nm = basis.name + "_nek"
+        g = bpy.data.materials.get(nm)
+        if g is None:
+            g = basis.copy()
+            g.name = nm
+            bs = next((n for n in g.node_tree.nodes if n.type == "BSDF_PRINCIPLED"), None)
+            if bs is not None:
+                k = bs.inputs["Base Color"].default_value
+                bs.inputs["Base Color"].default_value = (k[0] * f, k[1] * f, k[2] * f, 1)
+        if nm not in [getattr(m, "name", "") for m in o.data.materials]:
+            o.data.materials.append(g)
+        gi = [getattr(m, "name", "") for m in o.data.materials].index(nm)
+        for p in raak:
+            p.material_index = gi
+            teller += 1
+        o.data.update()
+    meting["nek_kleur"] = {"factor": f, "straal_mm": straal, "vlakken": teller}
+    log("nek_kleur", teller)
+
+
 def printbed(m, stap=10.0, dik=0.35):
     """Vloer als een donkere printplaat: fijne rasterlijnen om de 10 mm (alleen kleur, geen vorm)."""
     nt = m.node_tree
@@ -514,6 +563,8 @@ def main():
     R.kleur_herstel(delen)
     S.plastic(delen, gewricht="contrast", gewricht_kleur=R.GEWRICHT)
     goud_gewrichten(delen)
+    if os.environ.get("HB_NEK_TINT"):
+        nek_kleur(delen)
     # HB_POSE: eigen pose als json (#38, organisch figuur), zelfde vorm als R.HELD; anders de heldenpose van de robot
     pose = json.loads(os.environ["HB_POSE"]) if os.environ.get("HB_POSE") else R.HELD
     if os.environ.get("HB_KNIE_BOOG") and os.environ.get("HB_KNIE_CAM"):
