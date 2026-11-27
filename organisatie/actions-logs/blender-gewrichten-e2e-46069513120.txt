@@ -1,0 +1,69 @@
+# gemaakt: 2026-11-27T21:45:13Z
+# workflow: Blender gewrichten e2e (Click Joints, echte Blender) (.github/workflows/blender-gewrichten-e2e.yml)
+# run: 46069513120 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46069513120
+# commit: 6e7a2076 tak claude/blender-306 gestart door push
+# mislukte stappen: e2e (4.2.23): Tenen blijven bij het lid (0.1.3, issue 306, Human Base Meshes)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (4.2.23) / Tenen blijven bij het lid (0.1.3, issue 306, Human Base Meshes) (laatste 60 van 60 regels) =====
+##[group]Run u="https://download.blender.org/demo/asset-bundles/human-base-meshes/human-base-meshes-bundle-v1.4.1.zip"
+u="https://download.blender.org/demo/asset-bundles/human-base-meshes/human-base-meshes-bundle-v1.4.1.zip"
+if curl -sfL --retry 3 --retry-all-errors -m 300 -o /tmp/hbm.zip "$u" && unzip -q -o /tmp/hbm.zip -d /tmp/hbm; then
+  b=$(find /tmp/hbm -name human_base_meshes_bundle.blend | head -1)
+  for z in click_joints click_joints_betaald; do
+    d="/tmp/cj_tenen_$z"
+    BLENDER_USER_RESOURCES="$d" BLENDER_USER_CONFIG="$d/config" BLENDER_USER_EXTENSIONS="$d/extensions" \
+      /tmp/blender/blender -b --factory-startup --python e2e/toetsen_tenen.py -- "/tmp/$z.zip" "$b" 2>&1 | tee "/tmp/tenen_$z.log"
+    grep -q "KLAAR 0 FOUT" "/tmp/tenen_$z.log" || { echo "FOUT: tenen ($z)"; exit 1; }
+  done
+else
+  echo "OVERGESLAGEN: Human Base Meshes niet te downloaden"
+fi
+shell: /usr/bin/bash -e {0}
+env:
+  PRO_VERSIE: 1.2.9
+##[endgroup]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_arms"].show_viewport[0]
+WARN (bke.anim_sys): source/blender/blenkernel/intern/anim_sys.cc:4218 BKE_animsys_eval_driver: invalid driver - modifiers["mask_legs"].show_viewport[0]
+[cj-tenen] Blender 4.2.23 LTS, figuur 14106 punten, 3 schillen
+STATUS Installed "click_joints"
+Info: Joint placed. Good fit. 4.304 s.
+[cj-tenen] uitslag {'FINISHED'}, een_lid {'lussen': 2, 'lid': 'B', 'h_soort': 'voxel', 'h_pogingen': [(False, 8262.8, 7136.7, 26, False), (True, 0.0, 7136.7, -1, False)], 'h_voxel_buiten': 0}
+[cj-tenen] OK   twee delen
+[cj-tenen] A schillen [14140] open 0; B schillen [4470] open 0 laagste 0.00
+[cj-tenen] FOUT deel A: lijf en ogen, geen losse stukjes (1 schillen, 3 in het figuur, klein [])
+[cj-tenen] OK   deel B één stuk (1 schillen)
+[cj-tenen] OK   beide delen gesloten (open A 0, B 0)
+[cj-tenen] OK   rechtervoet in B (A rechts laagste 61.3, B laagste 0.00)
+[cj-tenen] KLAAR 1 FOUT
+Blender 4.2.23 LTS (hash d0cbe84903e8 built 2026-07-21 01:31:03)
+Read blend: "/tmp/hbm/human-base-meshes-bundle-v1.4.1/human_base_meshes_bundle.blend"
+
+Blender quit
+FOUT: tenen (click_joints)
+##[error]Process completed with exit code 1.
