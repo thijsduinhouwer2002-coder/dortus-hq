@@ -1,24 +1,26 @@
-HOL balk gestart, pid 852, hoogte 120
-HOL weg geweest 25210 s (klok terug: false): goud voor 558, helden 100, erbij 484, hoeden 38
-HOL weg faam afgekapt 7 van 64 (hooguit 2 niveaus)
+HOL balk gestart, pid 5432, hoogte 120
+HOL weg geweest 25210 s (klok terug: false): goud voor 558, helden 100, erbij 388, hoeden 27
+HOL weg faam afgekapt 7 van 48 (hooguit 2 niveaus)
 HOL hol-niveau 4 (faam 12, t 0.0)
 HOL hol-niveau 5 (faam 12, t 0.0)
-HOL hoeden van de nacht 38 (vallen vanaf 1.0 s, toren nu 40)
+HOL hoeden van de nacht 27 (vallen vanaf 1.0 s, toren nu 40)
 HOL berg zichtbaar 6 -> 8
-HOL kroniek 0.0 (wacht 0.0): 100 came, 64 fell, 38 hats. +484 gold.
+HOL kroniek 0.0 (wacht 0.0): 100 came, 48 fell, 27 hats. +388 gold.
 HOL optocht wip, 1.2 poef 4 munt; helden [5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1042 goud, faam 12
+HOL opslag geladen: 0 terugkomers, 946 goud, faam 12
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795774061
+HOL zaad 1795778290
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 1042)
-HOL eerste koop mogelijk na 38 s speeltijd (goud 1042)
+HOL gloop ring aan na 0.1 s (goud 946)
+HOL eerste koop mogelijk na 38 s speeltijd (goud 946)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL held binnen: Kees
+HOL held binnen: Henk
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Kees says this is a quick one.
-HOL leven goudstof t=6.0 x=212 y=30
+HOL kroniek 2.5 (wacht 0.5): Henk brought a torch. And hope.
+HOL leven stofje t=6.5 x=72 y=26
 HOL meting t=10 beelden=100 helden=1 hol_vast=12
-HOL einde na 12 s, fps=10, goud=1042, terugkomers=0
+HOL kroniek 10.1 (wacht 0.0): Teun has a map. It is wrong.
+HOL held binnen: Teun
+HOL einde na 12 s, fps=10, goud=946, terugkomers=0
