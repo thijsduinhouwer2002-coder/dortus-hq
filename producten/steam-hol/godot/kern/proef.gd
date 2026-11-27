@@ -24,6 +24,7 @@ static func lees_argumenten(s) -> void:
 			"vak": s.proef_vak = kv[1]   # vak=pauze|geluid|stop: doen alsof die regel in het systeemvak gekozen is (toets)
 			"demo": s.demo = kv[1] == "1"
 			"film": s.film = kv[1] == "1"
+			"reus_proef": s.reus_wacht = int(kv[1])   # reus_proef=<9..12>: de reus van dat hol-niveau komt na het begin (#291, om te filmen)
 			"vers": s.vers = kv[1] == "1"
 			"demo_einde": s.demo_grens = maxf(1.0, float(kv[1]))
 			"fps":

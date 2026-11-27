@@ -1,0 +1,30 @@
+HOL hol-niveau 2 (faam 3, t 65.0)
+HOL koop 74.1: slijm niveau 1, goud 10
+HOL hol-niveau 3 (faam 5, t 163.7)
+HOL koop 201.7: stekelput niveau 1, goud 8
+HOL hol-niveau 4 (faam 7, t 220.6)
+HOL koop 298.6: slijm niveau 2, goud 9
+HOL koop 360.6: stekelput niveau 2, goud 0
+HOL hol-niveau 5 (faam 12, t 389.1)
+HOL koop 493.6: slijm niveau 3, goud 15
+HOL hol-niveau 6 (faam 17, t 549.1)
+HOL koop 597.6: slijm niveau 4, goud 8
+HOL koop 694.6: stekelput niveau 3, goud 9
+HOL hol-niveau 7 (faam 25, t 817.9)
+HOL koop 862.6: stekelput niveau 4, goud 0
+HOL hol-niveau 8 (faam 31, t 981.6)
+HOL koop 982.6: slijm niveau 5, goud 31
+HOL koop 1088.5: slijm niveau 6, goud 8
+HOL koop 1193.0: stekelput niveau 5, goud 3
+HOL hol-niveau 9 (faam 39, t 1214.4)
+HOL koop 1322.8: stekelput niveau 6, goud 15
+HOL koop 1662.7: slijm niveau 7, goud 24
+HOL hol-niveau 10 (faam 53, t 1686.8)
+HOL koop 1938.8: stekelput niveau 7, goud 55
+HOL hol-niveau 11 (faam 69, t 2160.3)
+HOL koop 2245.7: slijm niveau 8, goud 18
+HOL koop 2575.7: stekelput niveau 8, goud 28
+HOL hol-niveau 12 (faam 88, t 2697.6)
+HOL koop 3064.1: slijm niveau 9, goud 25
+HOL koop 3368.8: stekelput niveau 9, goud 7
+HOL einde na 3600 s, fps=3027, goud=241, terugkomers=0

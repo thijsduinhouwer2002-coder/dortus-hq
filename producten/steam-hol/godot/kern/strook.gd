@@ -137,6 +137,8 @@ var kaart_gekocht := false  # het kaartje staat in die 2,5 s (alleen de nieuwe n
 var helden_nr := 0          # hoeveelste nieuwe held van dit spel (in de save); de eerste 10 zijn gewoon (heldensoort.gd)
 var boek = BOEK.new()        # wat er in het Heldenboek staat (in de save); de bladzijde in het paneel volgt in stap 2
 var lied_helden := 0        # zoveel helden komen nog snel na het lied van een gevluchte bard (in de save)
+var reuzen_gezien: Array = []   # hol-niveaus waarvan de reus al kwam (kern/reus.gd, #291; in de save)
+var reus_wacht := 0             # hol-niveau van de reus die nu binnen moet komen, 0 = geen (in de save)
 # Demo: de held die moet vluchten is een bard, zodat de minuut één lied laat zien (2 helden snel erachter, Bram 02:30)
 const DEMO_BARD := true
 

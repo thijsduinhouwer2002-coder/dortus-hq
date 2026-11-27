@@ -1,6 +1,7 @@
 extends RefCounted
 const VOORTGANG := preload("res://systemen/voortgang.gd")   # met_pensioen (Bram 04:35)
 const HOL_NIVEAU := preload("res://systemen/hol_niveau.gd")
+const REUS := preload("res://kern/reus.gd")   # reuzen na minuut 25 (#291)
 const GOUD_BASIS := 9   # goud per vangst zonder bonus (Sanne 25 nov, bouwblad I; was 6)
 const GOUD_DEMO := 6    # in de demo-film (demo=1) de oude basis, Daan #109 M1
 # Olaf 26 nov (#134, Iris aandacht 7): vanaf minuut 4 open tijd (speeltijd_s, ook over saves heen) GOUD_LAAT erbij per
@@ -20,6 +21,8 @@ static func faam_erbij(s, n: int) -> void:
 	s.faam += n
 	for niv in HOL_NIVEAU.erbij(oud, s.faam):
 		s.log_regel("HOL hol-niveau %d (faam %d, t %.1f)" % [niv, s.faam, s.t])
+		if s.get("reuzen_gezien") != null:   # nep-strook in de toetsen heeft geen reuzen
+			REUS.niveau_erbij(s, niv)
 
 # Vangst of vlucht die terugslaat op de binnenkomst (Sanne 17 nov 09:02, features.md, Iris keuring 21): een held die
 # bij binnenkomst een soort- of trekregel kreeg, krijgt bij zijn vangst in de put of vlucht een regel uit "val_<soort>" of
@@ -119,13 +122,16 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		if bool(info.get("koop_geluk", false)):
 			buit *= 2   # koopgeluk: de eerste vangst bij een net gekocht ding brengt dubbel (systemen/held_val.gd)
 			s.log_regel("HOL koopgeluk vangst +%d (t %.1f)" % [buit, s.t])
+		if REUS.is_reus(info):
+			buit *= REUS.BUIT_X   # een reus is goud waard (#291)
+			s.log_regel("HOL reus gevangen: %s +%d (t %.1f)" % [String(info.naam), buit, s.t])
 		s.hol.goud += buit
 		faam_erbij(s, 1)
 		var naam: String = String(info.naam)
 		var basis := naam.split(" ")[0]
 		s.gevallen_namen[basis] = int(s.gevallen_namen.get(basis, 0)) + 1
 		# meer muntjes in een reeks, en één extra muntje per gekochte stap 4 tot 6: zo zie je wat je kocht (Daan #154 K3)
-		s.hol.munt_regen(s.hol.pos_naar_cel(_held.position).x, 3 + mini(reeks - 1, 3) + stap_goud / 2)
+		s.hol.munt_regen(s.hol.pos_naar_cel(_held.position).x, 3 + mini(reeks - 1, 3) + stap_goud / 2 + (6 if REUS.is_reus(info) else 0))
 		if s.get("klap") != null and _held != null:
 			s.klap.vangst(_held.position, buit, reeks)
 		if s.get("geluid") != null:   # plof of hap, en net daarna de munt (kern/geluid.gd)
@@ -165,6 +171,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				r = s.regels.kies(hap_soort(s, info), {"naam": naam, "bewoner": s._bewoner()}, extra.length())
 		else:
 			r = s.regels.kies(terugslag(s, info, "val"), {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
+		if REUS.is_reus(info) and int(info.get("bezoeken", 0)) == 0 and not wat.begins_with("finally"):
+			r = REUS.val_regel(info)   # eigen regel voor de reus (concept tot Thijs schrijft)
 		s._kroniek(r + extra)
 		if r.contains("boot"):   # dan mag zijn naamgenoot later "wants mom's boot back" zeggen (Iris 19 nov)
 			s.laars_namen[naam] = true

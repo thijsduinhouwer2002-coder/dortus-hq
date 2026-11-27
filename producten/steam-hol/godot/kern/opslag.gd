@@ -15,7 +15,7 @@ static func bewaar(s) -> void:
 	var data := {"versie": OPSLAG_VERSIE, "tijd": maxi(int(Time.get_unix_time_from_system()), tijd_vloer), "gang": s.hol.gang, "boven": s.hol.boven,
 		"eerste_held_gedaan": s.eerste_held_gedaan, "vallen": s.hol.vallen, "ingang_kol": s.hol.ingang_kol, "gevallen_namen": s.gevallen_namen,
 		"schat_kol": s.hol.schat_kol, "goud": s.hol.goud, "terugkomers": s.terugkomers, "kroniek": s._kroniek_bewaar(),
-		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht, "helden_nr": s.helden_nr, "lied_helden": s.lied_helden,
+		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht, "helden_nr": s.helden_nr, "lied_helden": s.lied_helden, "reuzen": s.reuzen_gezien, "reus_wacht": s.reus_wacht,
 		"pensioen_namen": s.pensioen_namen, "speeltijd_s": s.speeltijd_s, "faam": s.faam, "rij": s.rij, "rij_t": s.rij_t, "gegraven": s.zelf_gegraven,
 		"uitleg": int(s.uitleg.stap) if s.uitleg != null else 4,
 		"gloop_les": bool(s.uitleg.gloop_gezien) if s.uitleg != null else s.uitleg_gloop,
@@ -101,6 +101,10 @@ static func laad(s, begin) -> void:
 	s.begin_vlucht = String(data.get("begin_vlucht", ""))
 	s.helden_nr = int(data.get("helden_nr", 0))
 	s.lied_helden = int(data.get("lied_helden", 0))
+	s.reuzen_gezien = []   # reuzen (kern/reus.gd, #291); oude saves: nog geen gezien
+	for n in data.get("reuzen", []):
+		s.reuzen_gezien.append(int(n))
+	s.reus_wacht = int(data.get("reus_wacht", 0))
 	s.faam = maxi(0, int(data.get("faam", 0)))
 	s.zelf_gegraven = maxi(0, int(data.get("gegraven", 0)))   # graafbonus (Sanne 16 nov 21:00); oude saves 0
 	s.uitleg_stap = clampi(int(data.get("uitleg", 4)), 0, 4)   # eerste minuut (kern/eerste_minuut.gd); oude saves: klaar

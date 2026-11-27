@@ -226,3 +226,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 ±17:00 NL, van Iris: keuring #286 (43879de, minuut 20 tot 60)
 Leuk 7, aandacht 7, mooi 8 (GOK). Berg werkt; robijnkoop zie je op 1x niet en na minuut 25 gebeurt niets nieuws. Twee punten in #291.
+
+## 27 nov 2026 ±19:15 NL, logboek Sanne
+#291 punt 2: reuzen bij hol-niveau 9 tot 12, na minuut 25 elke 10 tot 13 min iets nieuws (`producten/steam-hol/bewijs-reus/`), toetsen 11 x 0 FOUT, keuring Daan; punt 1 bouwt Olaf in #298.

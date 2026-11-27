@@ -1,0 +1,82 @@
+HOL hol-niveau 2 (faam 3, t 67.7)
+HOL koop 77.4: slijm niveau 1, goud 10
+HOL hol-niveau 3 (faam 5, t 164.9)
+HOL koop 184.1: stekelput niveau 1, goud 7
+HOL hol-niveau 4 (faam 7, t 203.1)
+HOL koop 345.6: slijm niveau 2, goud 7
+HOL hol-niveau 5 (faam 12, t 409.0)
+HOL koop 455.6: stekelput niveau 2, goud 7
+HOL koop 564.6: slijm niveau 3, goud 1
+HOL hol-niveau 6 (faam 17, t 588.3)
+HOL koop 774.6: slijm niveau 4, goud 7
+HOL koop 871.6: stekelput niveau 3, goud 18
+HOL hol-niveau 7 (faam 25, t 900.9)
+HOL koop 980.6: stekelput niveau 4, goud 9
+HOL hol-niveau 8 (faam 31, t 1109.3)
+HOL koop 1118.2: slijm niveau 5, goud 19
+HOL koop 1216.1: stekelput niveau 5, goud 6
+HOL koop 1347.0: slijm niveau 6, goud 16
+HOL hol-niveau 9 (faam 39, t 1372.6)
+HOL reus klaar: niveau 9 (t 1372.6)
+HOL kroniek 1378.7 (wacht 0.0): Sir Hulk ducks in. He does not fit.
+HOL reus binnen: Hulk (niveau 9, t 1378.7)
+HOL held binnen: Hulk
+HOL kroniek zelfde held vervangen: Sir Hulk ducks in. He does not fit.
+HOL kroniek 1386.3 (wacht 0.0): Hulk licked a coin and ran.
+HOL kroniek zelfde held vervangen: Hulk licked a coin and ran.
+HOL kroniek 1399.6 (wacht 0.0): Hulk ran off, giggling.
+HOL kroniek zelfde held vervangen: Hulk ran off, giggling.
+HOL kroniek 1407.5 (wacht 0.0): Hulk the Hoard-Toucher is back for Gloop.
+HOL held binnen: Hulk
+HOL reus gevangen: Hulk +52 (t 1411.9)
+HOL kroniek zelfde held vervangen: Hulk the Hoard-Toucher is back for Gloop.
+HOL kroniek 1411.9 (wacht 0.0): Gloop ate Hulk. Burp. +52
+HOL koop 1482.3: stekelput niveau 6, goud 20
+HOL koop 1816.7: slijm niveau 7, goud 19
+HOL hol-niveau 10 (faam 53, t 1905.1)
+HOL reus klaar: niveau 10 (t 1905.1)
+HOL kroniek 1911.2 (wacht 0.0): Big Pip tiptoes in. Loudly.
+HOL reus binnen: Big Pip (niveau 10, t 1911.2)
+HOL held binnen: Big Pip
+HOL kroniek zelfde held vervangen: Big Pip tiptoes in. Loudly.
+HOL kroniek 1917.0 (wacht 0.0): Big Pip is now the Hoard-Toucher.
+HOL kroniek zelfde held vervangen: Big Pip is now the Hoard-Toucher.
+HOL kroniek 1926.1 (wacht 0.0): Big Pip ran. Hands smell of gold.
+HOL kroniek 2012.9 (wacht 0.0): Big Pip wrote a song about Gloop.
+HOL held binnen: Big Pip
+HOL kroniek zelfde held vervangen: Big Pip wrote a song about Gloop.
+HOL kroniek 2017.9 (wacht 0.0): Big Pip licked a coin and ran.
+HOL kroniek zelfde held vervangen: Big Pip licked a coin and ran.
+HOL kroniek 2025.0 (wacht 0.0): Big Pip the Hoard-Toucher ran.
+HOL koop 2195.1: stekelput niveau 7, goud 19
+HOL kroniek 2321.0 (wacht 0.0): Big Pip wrote a song about Gloop.
+HOL held binnen: Big Pip
+HOL reus gevangen: Big Pip +70 (t 2325.4)
+HOL kroniek zelfde held vervangen: Big Pip wrote a song about Gloop.
+HOL kroniek 2325.4 (wacht 0.0): Big Pip is gone. The crown stays. +70
+HOL hol-niveau 11 (faam 69, t 2467.7)
+HOL reus klaar: niveau 11 (t 2467.7)
+HOL kroniek 2473.8 (wacht 0.0): Grand Mage Oom floats in. Huge.
+HOL reus binnen: Grand Mage Oom (niveau 11, t 2473.8)
+HOL held binnen: Grand Mage Oom
+HOL kroniek zelfde held vervangen: Grand Mage Oom floats in. Huge.
+HOL kroniek 2481.4 (wacht 0.0): Grand Mage Oom is now the Hoard-Toucher.
+HOL kroniek zelfde held vervangen: Grand Mage Oom is now the Hoard-Toucher.
+HOL kroniek 2494.7 (wacht 0.0): Grand Mage Oom ran off, giggling.
+HOL kroniek zelfde held vervangen: Grand Mage Oom ran off, giggling.
+HOL kroniek 2547.1 (wacht 0.0): Grand Mage Oom is back for Gloop.
+HOL held binnen: Grand Mage Oom
+HOL reus gevangen: Grand Mage Oom +64 (t 2551.5)
+HOL koop 2561.4: slijm niveau 8, goud 32
+HOL koop 2892.5: stekelput niveau 8, goud 2
+HOL hol-niveau 12 (faam 88, t 3239.3)
+HOL reus klaar: niveau 12 (t 3239.3)
+HOL kroniek 3245.4 (wacht 0.0): Bard Colossus brings a giant lute.
+HOL reus binnen: Bard Colossus (niveau 12, t 3245.4)
+HOL held binnen: Bard Colossus
+HOL kroniek zelfde held vervangen: Bard Colossus brings a giant lute.
+HOL kroniek 3253.6 (wacht 0.0): Bard Colossus escaped with a limp.
+HOL kroniek zelfde held vervangen: Bard Colossus escaped with a limp.
+HOL kroniek 3258.8 (wacht 5.2): Bard Colossus's song got popular. Uh oh.
+HOL koop 3482.1: slijm niveau 9, goud 18
+HOL einde na 3600 s, fps=1762, goud=172, terugkomers=0

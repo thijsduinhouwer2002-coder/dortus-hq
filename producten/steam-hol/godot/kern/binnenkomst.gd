@@ -1,4 +1,5 @@
 extends RefCounted
+const REUS := preload("res://kern/reus.gd")   # reuzen na minuut 25 (#291)
 const SOORT := preload("res://systemen/heldensoort.gd")   # ridder, dief, magier, bard en drie trekken (Bram, versie 1)
 # Deel van kern/strook.gd (Olaf): een nieuwe held of een terugkomer laten binnenkomen.
 # Losgehaald 13 nov 2026 (strook.gd was 512 regels, regel onder ±400). Statisch; `s` is de strook.
@@ -34,6 +35,8 @@ static func nieuwe_held(s) -> bool:
 	var kies := -1
 	if stap == "terug":
 		kies = s._terugkomer_i(s.begin_vlucht)
+	elif stap == "" and int(s.get("reus_wacht") if s.get("reus_wacht") != null else 0) > 0:
+		pass   # een reus is aan de beurt: hij gaat voor op een terugkomer (kern/reus.gd)
 	elif stap == "" and not s.terugkomers.is_empty() and s.rng.randf() < (0.5 if s.demo else 0.25):
 		var kan: Array = []
 		for i in s.terugkomers.size():
@@ -56,6 +59,12 @@ static func nieuwe_held(s) -> bool:
 			s._kroniek(s._terug_regel("terug_val", info, {"val": w}))
 		else:
 			s._kroniek(s.regels.kies("terug", {"naam": info.naam, "held": s._held_naam(info)}))
+	elif stap == "" and int(s.get("reus_wacht") if s.get("reus_wacht") != null else 0) > 0:
+		info = REUS.neem(s)
+		s.helden_nr += 1
+		info["binnen_soort"] = String(info.soort_held)
+		s._kroniek(REUS.binnen_regel(info), false, "reus")   # gebeurtenis: gaat voor en vervalt niet
+		s.log_regel("HOL reus binnen: %s (niveau %d, t %.1f)" % [String(info.naam), int(info.reus), s.t])
 	else:
 		var naam: String = s._vrije_naam()
 		s.helden_nr += 1
@@ -152,7 +161,7 @@ static func nieuwe_held(s) -> bool:
 	var held := Node2D.new()
 	held.set_script(s.held_script)
 	s.wezens.add_child(held)
-	held.scale = Vector2.ONE * float(s.proef_figuur)   # figuur=<factor> (keurstand), oorsprong is het voetpunt
+	held.scale = Vector2.ONE * float(s.proef_figuur) * REUS.schaal(info)   # figuur=<factor> (keurstand), oorsprong is het voetpunt; reus 1,5
 	held.klaar.connect(s._held_klaar)
 	held.start(s.hol, d)
 	return true

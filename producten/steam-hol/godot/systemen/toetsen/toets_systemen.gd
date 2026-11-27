@@ -1518,5 +1518,27 @@ func _nieuwe_held() -> bool:
 	# Hernoem je het project, laat deze map dan staan (of kopieer de oude map eenmalig) en pas pas daarna deze toets aan.
 	ok(ProjectSettings.get_setting("application/config/use_custom_user_dir", false) == true, "savemap: eigen map aan")
 	ok(ProjectSettings.get_setting("application/config/custom_user_dir_name", "") == "Dortus/Het Hol", "savemap blijft Dortus/Het Hol: " + str(ProjectSettings.get_setting("application/config/custom_user_dir_name", "")))
+	# reuzen na minuut 25 (Sanne 27 nov, #291): één keer per hol-niveau 9 tot 12, niet in de demo, regels passen
+	var RS = load("res://kern/reus.gd")
+	var rsrc = GDScript.new()
+	rsrc.source_code = "extends RefCounted\nvar demo := false\nvar reuzen_gezien: Array = []\nvar reus_wacht := 0\nvar volgende_held := 100.0\nvar t := 10.0\nvar log: Array[String] = []\nfunc log_regel(r: String) -> void:\n\tlog.append(r)\n"
+	rsrc.reload()
+	var rs = rsrc.new()
+	RS.niveau_erbij(rs, 8)
+	ok(rs.reus_wacht == 0, "reus: niet op hol-niveau 8")
+	RS.niveau_erbij(rs, 10)
+	ok(rs.reus_wacht == 10 and rs.volgende_held <= 16.0 + 0.01, "reus: hol-niveau 10 zet hem klaar, binnen 6 s")
+	var ri: Dictionary = RS.neem(rs)
+	ok(rs.reus_wacht == 0 and RS.is_reus(ri) and ri.hoed_nr == RS.KROON and RS.schaal(ri) == 1.5, "reus: neem geeft kroon en schaal 1,5")
+	RS.niveau_erbij(rs, 10)
+	ok(rs.reus_wacht == 0, "reus: per niveau maar één keer")
+	ok(RS.neem(rs).is_empty() and RS.schaal({}) == 1.0, "reus: geen reus aan de beurt, gewone held")
+	var rd = rsrc.new()
+	rd.demo = true
+	RS.niveau_erbij(rd, 9)
+	ok(rd.reus_wacht == 0, "reus: niet in de demo-film")
+	for rn in RS.REUZEN:
+		var reus_d: Dictionary = RS.REUZEN[rn]
+		ok(String(reus_d.binnen).length() <= 42 and String(reus_d.val).length() + 4 <= 42 and load("res://systemen/heldensoort.gd").geldig(String(reus_d.soort)), "reus %d: regels passen en soort bestaat" % rn)
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

@@ -1,0 +1,76 @@
+HOL hol-niveau 2 (faam 3, t 66.0)
+HOL koop 75.2: slijm niveau 1, goud 10
+HOL hol-niveau 3 (faam 5, t 136.2)
+HOL koop 246.8: stekelput niveau 1, goud 6
+HOL hol-niveau 4 (faam 7, t 266.0)
+HOL koop 385.6: slijm niveau 2, goud 20
+HOL hol-niveau 5 (faam 12, t 437.6)
+HOL koop 474.6: slijm niveau 3, goud 1
+HOL koop 563.6: stekelput niveau 2, goud 3
+HOL hol-niveau 6 (faam 17, t 630.6)
+HOL koop 735.6: slijm niveau 4, goud 3
+HOL koop 836.6: stekelput niveau 3, goud 28
+HOL hol-niveau 7 (faam 25, t 872.3)
+HOL koop 950.6: slijm niveau 5, goud 9
+HOL hol-niveau 8 (faam 31, t 1075.6)
+HOL koop 1085.2: stekelput niveau 4, goud 8
+HOL koop 1232.6: slijm niveau 6, goud 4
+HOL hol-niveau 9 (faam 39, t 1312.3)
+HOL reus klaar: niveau 9 (t 1312.3)
+HOL kroniek 1318.4 (wacht 0.0): Sir Hulk ducks in. He does not fit.
+HOL reus binnen: Hulk (niveau 9, t 1318.4)
+HOL held binnen: Hulk
+HOL koop 1321.7: stekelput niveau 5, goud 11
+HOL kroniek zelfde held vervangen: Sir Hulk ducks in. He does not fit.
+HOL kroniek 1326.9 (wacht 0.9): Hulk tried to lift it. Too heavy.
+HOL kroniek zelfde held vervangen: Hulk tried to lift it. Too heavy.
+HOL kroniek 1339.3 (wacht 0.0): Hulk ran off, giggling.
+HOL kroniek 1383.2 (wacht 0.0): Hulk the Hoard-Toucher is back for Gloop.
+HOL held binnen: Hulk
+HOL reus gevangen: Hulk +104 (t 1387.6)
+HOL kroniek zelfde held vervangen: Hulk the Hoard-Toucher is back for Gloop.
+HOL kroniek 1387.6 (wacht 0.0): Gloop ate Hulk. Wears the crown now. +104
+HOL koop 1396.5: stekelput niveau 6, goud 13
+HOL koop 1763.9: slijm niveau 7, goud 14
+HOL hol-niveau 10 (faam 53, t 1827.8)
+HOL reus klaar: niveau 10 (t 1827.8)
+HOL kroniek 1833.9 (wacht 0.0): Big Pip tiptoes in. Loudly.
+HOL reus binnen: Big Pip (niveau 10, t 1833.9)
+HOL held binnen: Big Pip
+HOL kroniek zelfde held vervangen: Big Pip tiptoes in. Loudly.
+HOL kroniek 1839.7 (wacht 0.0): Big Pip touched your hoard!
+HOL kroniek zelfde held vervangen: Big Pip touched your hoard!
+HOL kroniek 1848.8 (wacht 0.0): Big Pip ran. Hands smell of gold.
+HOL kroniek 1874.4 (wacht 0.0): Big Pip wrote a song about Gloop.
+HOL held binnen: Big Pip
+HOL reus gevangen: Big Pip +60 (t 1878.8)
+HOL kroniek zelfde held vervangen: Big Pip wrote a song about Gloop.
+HOL kroniek 1878.8 (wacht 0.0): Big Pip is gone. The crown stays. +60
+HOL koop 2062.0: stekelput niveau 7, goud 56
+HOL hol-niveau 11 (faam 69, t 2328.2)
+HOL reus klaar: niveau 11 (t 2328.2)
+HOL kroniek 2334.3 (wacht 0.0): Grand Mage Oom floats in. Huge.
+HOL reus binnen: Grand Mage Oom (niveau 11, t 2334.3)
+HOL held binnen: Grand Mage Oom
+HOL kroniek zelfde held vervangen: Grand Mage Oom floats in. Huge.
+HOL kroniek 2341.9 (wacht 0.0): Grand Mage Oom licked a coin and ran.
+HOL kroniek zelfde held vervangen: Grand Mage Oom licked a coin and ran.
+HOL kroniek 2355.2 (wacht 0.0): Grand Mage Oom ran. Hands smell of gold.
+HOL koop 2454.7: slijm niveau 8, goud 25
+HOL koop 2818.8: stekelput niveau 8, goud 4
+HOL hol-niveau 12 (faam 88, t 2970.0)
+HOL reus klaar: niveau 12 (t 2970.0)
+HOL kroniek 2976.1 (wacht 0.0): Bard Colossus brings a giant lute.
+HOL reus binnen: Bard Colossus (niveau 12, t 2976.1)
+HOL held binnen: Bard Colossus
+HOL kroniek zelfde held vervangen: Bard Colossus brings a giant lute.
+HOL kroniek 2982.9 (wacht 0.0): Bard Colossus tried to lift it. Too heavy.
+HOL kroniek zelfde held vervangen: Bard Colossus tried to lift it. Too heavy.
+HOL kroniek 2994.3 (wacht 0.0): Bard Colossus the Hoard-Toucher ran.
+HOL kroniek 3145.6 (wacht 0.0): Bard Colossus wrote a song about Gloop.
+HOL held binnen: Bard Colossus
+HOL reus gevangen: Bard Colossus +80 (t 3150.0)
+HOL kroniek zelfde held vervangen: Bard Colossus wrote a song about Gloop.
+HOL kroniek 3150.0 (wacht 0.0): Gloop ate Bard Colossus. Burp. +80
+HOL koop 3168.6: slijm niveau 9, goud 14
+HOL einde na 3600 s, fps=2520, goud=470, terugkomers=0

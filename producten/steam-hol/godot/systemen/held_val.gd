@@ -40,6 +40,9 @@ static func onderweg(h) -> void:
 		valt = b != null       # een bewoner krijgt hem (held 5: eerste hoed op Gloop); een val overleeft hij
 	if bool(h.info.get("moet_afgerekend", false)):
 		valt = is_vijand       # alles onderweg overleeft hij, zijn eigen vijand krijgt hem
+	var reus_eerst: bool = int(h.info.get("reus", 0)) > 0 and int(h.info.get("bezoeken", 0)) == 0 and h.verdedigingen == 1
+	if reus_eerst:
+		valt = false           # reus (kern/reus.gd, #291): de eerste val springt hij over (ook bij koopgeluk), zo zie je hem langer dan 4 s
 	# Bouwblad I "minuut 4 tot 15" (Sanne 25 nov, platformen/steam/spelgevoel.md). Iris zag na de eerste koop 6 helden
 	# op rij vluchten en 6 min geen goud (keuring d27cfc3, GEZIEN): een koop voelde als een fout. Twee vlaggen op het hol:
 	# - koop_geluk (kern/kaartje.gd): de eerste held die na een koop bij een val of Gloop komt valt zeker, en brengt
@@ -47,7 +50,7 @@ static func onderweg(h) -> void:
 	# - droogte (kern/ritme.gd): al DROOGTE_S geen vangst, dan valt de volgende held bij de eerste verdediging.
 	# Niet voor de vaste uitkomsten van het begin en niet voor een held die al zeker bij zijn vijand valt.
 	var vast: bool = h.info.has("moet_doorlopen") or h.info.has("moet_vluchten") or h.info.has("moet_opgegeten") or h.info.has("moet_afgerekend")
-	if not valt and not vast:
+	if not valt and not vast and not reus_eerst:   # koopgeluk en droogte blijven staan voor de volgende verdediging
 		if String(h.hol.get_meta("koop_geluk", "")) != "":
 			valt = true
 			h.info["koop_geluk"] = true
