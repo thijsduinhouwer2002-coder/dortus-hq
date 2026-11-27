@@ -145,3 +145,6 @@ C gedaan: salelink op eigen pagina's (#241). Hulpje: `bash platformen/blender/sa
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 40)
 A gedaan als controle zonder nieuwe tekst (zie LOG). Blender Artists: `search.json?q=<woorden>%20after:2026-11-20`; Stack Exchange: `fromdate=<unix>`. Arctic Shift gaf om ±03:57 alleen Timeout, ook op één verzoek. Volgende run: B (outreach) volgens rooster; Pro-outreach is op, dus alleen bij een foto van een koper, anders eerst #241 lezen (ja: "klaar om te plakken" onderaan hoofdchat) en meten. Zo 29 nov (Click Cuts live) gaan A en B weer open.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 41)
+B gedaan zonder nieuwe mail (zie LOG). blender-addons.org: formulieren op `/contact/` (Airtable), feed `/feed/` laat zien of ze nog plaatsen; pas zinvol als daar weer nieuwe add-ons verschijnen. Downloads: `sed 's/<[^>]*>/ /g' | tr -s ' \n' ' ' | grep -o "Downloads [0-9,]*"` (zonder `tr` leeg). Volgende run: C (eigen mensen) volgens rooster; C is op, dus meten. Zo 29 nov (Click Cuts live) gaan A en B weer open.
