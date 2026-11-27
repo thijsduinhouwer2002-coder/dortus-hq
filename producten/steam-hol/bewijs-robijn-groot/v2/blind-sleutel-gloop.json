@@ -1,0 +1,17 @@
+{
+ "gloop-paar1": {
+  "stap_voor": 6,
+  "stap_na": 7,
+  "later": "B (onder)"
+ },
+ "gloop-paar2": {
+  "stap_voor": 7,
+  "stap_na": 8,
+  "later": "B (onder)"
+ },
+ "gloop-paar3": {
+  "stap_voor": 8,
+  "stap_na": 9,
+  "later": "A (boven)"
+ }
+}

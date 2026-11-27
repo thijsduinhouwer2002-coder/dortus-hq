@@ -450,6 +450,16 @@ func _init() -> void:
 	var gi: Image = rb.plaatje(27).get_image()
 	var gm: Color = gi.get_pixel(gi.get_width() / 2, gi.get_height() / 2 + 3)
 	ok(gi.get_width() >= 27 and gm.r > gm.g + 0.4 and gm.a > 0.99 and gi.get_pixel(0, 0).a < 0.01, "robijn: rood dicht midden, lege hoek, eigen maat (#298)")
+	# Daan #307 M1 M2: op de troon gezet in goud (niet groter dan de kroon), op het luik raken ze elkaar niet, luik en gloed per stap duidelijk roder
+	ok(rpp[1].x - rpp[0].x >= rb.PUT_MAAT + 1.0, "robijnen op het luik raken elkaar niet (Daan #307 M2)")
+	ok(rb.luik_kleur(Color.WHITE, 7).g - rb.luik_kleur(Color.WHITE, 8).g > 0.15 and rb.luik_kleur(Color.WHITE, 8).g - rb.luik_kleur(Color.WHITE, 9).g > 0.15, "luik per stap duidelijk roder (Daan #307 M2)")
+	var gzi: Image = rb.plaatje(24, true).get_image()
+	var grm: Color = gzi.get_pixel(gzi.get_width() / 2, gzi.get_height() / 2)
+	var grk: Color = gzi.get_pixel(gzi.get_width() / 2, gzi.get_height() / 2 - 10)
+	var maxm := 0.0
+	for t in rb.TROON:
+		maxm = maxf(maxm, float(t[1]))
+	ok(rb.plaatje(24, true) != rb.plaatje(24) and grm.r > grm.g + 0.4 and grk.g > 0.45 and grk.r > 0.8 and maxm <= 5.0, "troon: ronde robijn in een gouden kastje, klein (Daan #307 M1)")
 	ok(is_equal_approx(stt.plek(0, 1), 0.0) and is_equal_approx(stt.plek(0, 3), -stt.plek(2, 3)) and stt.plek(1, 2) - stt.plek(0, 2) >= stt.HALF * 2.0, "stenen gecentreerd en raken elkaar niet (#162)")
 	ok(stt.plek(2, 3) + stt.HALF <= 8.0, "drie stenen passen in een putkolom van 16 (#162)")
 	# #222 (Iris 5ecaf64 punt 3): op het luik kleiner, rij van drie binnen het hout van het luik (±7 spelpixels), eigen plaatje
