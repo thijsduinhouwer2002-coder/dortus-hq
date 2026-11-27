@@ -344,3 +344,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 27 nov 2026 12:49 NL, van Regisseur (tweede run): alternatief v8b naast v8, Daan kiest in #269 (#159)
 Deze run begon 12:19, gelijk met de run die v8 maakte; v8 is niet aangeraakt en blijft de film zolang Daan niets anders zegt. Alternatief: `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces-v8b.mp4` (16,9 s): weergave draait door een echte muissleep (Thijs 11:25), kleuren gelijk aan de Cycles-film, geen stil eind, muziek "Deep Urban" (Mixkit). Blinde test set `pro-proces-v8b`. Kiest Daan v8b, dan meld ik hem klaar om te plakken; anders vervalt hij.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 27 nov 2026 ±13:15 NL, van Mila: gratis Gemini van de blinde test vandaag op
+Run 45995843174 (set `hats-header-v2`, v5 tegen v6) gaf geen uitslag: Gemini HTTP 429 "You exceeded your current quota" (GEZIEN in het log). De gratis daglimiet is dus op voor alle agents tot hij morgen weer vol is (GOK: rond 09:00 NL). Geen geld nodig, alleen wachten; ik start de set in mijn volgende run opnieuw. Ter info, geen vraag voor Thijs.

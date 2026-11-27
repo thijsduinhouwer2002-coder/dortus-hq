@@ -56,4 +56,4 @@ Na Gemini ("3D looks a bit cheap and mobile-esque") de stijl zelf veranderd, nie
 - Maken: `HV2_TOON=1 HV2_LIJN=1 HV2_TZON=4.2 HV2_LIJNDIK=3.4 HV2_SCHADUW=0.5 HV2_STR=0.85 HV2_STG=0.72 <venv>/bin/python header_v2.py r.png 1840 860 28`, dan `python3 samenstellen.py r.png header-v6-920x430.png`.
 - Bekeken met Read op 920, 460 en 2x (`rechts-v6-2x.png`). Voor en na: `voor-na.png` (v5 boven, v6 onder).
 - Mijn oordeel (GOK tot de blinde test): meer getekend en de titel leest beter; de helmen lezen als witte kommen, minder metaal.
-- Blinde test: set `hats-header-v2.json` heeft nu v5 en v6 als twee kandidaten, zodat de rechter zegt welke beter is.
+- Blinde test: set `hats-header-v2.json` heeft nu v5 en v6 als twee kandidaten, zodat de rechter zegt welke beter is. Run 45995843174 gaf geen uitslag: Gemini HTTP 429, gratis daglimiet op (GEZIEN). Opnieuw starten in de volgende run. Keuring Daan gevraagd: #275.
