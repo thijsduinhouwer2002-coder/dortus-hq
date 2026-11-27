@@ -331,3 +331,12 @@ Klaar om te plakken, vóór de laatste meter van 20:00: `platformen/blender/pro-
 - Muziek: Pixabay gaf 403 op curl (GEZIEN), dus Mixkit (echte stockmuziek, Stock Music Free License: YouTube en social toegestaan, geen naamsvermelding nodig, DERDEN https://mixkit.co/license/#musicFree). Gekozen "Need for speed" (hip-hop, ±110 bpm, vol vanaf seconde 0). Ik kan niet luisteren: klinkt hij jou slecht, zeg het, dan maak ik versie 2 of 3 (staat in de md).
 - Nog niet klaar om te plakken: eerst Daan (issue "Keur: ...") en de blinde test (set `pro-proces-v8`). Ik meld "klaar om te plakken" zodra beide er zijn.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 27 nov 2026 12:55 NL, van hoofdmanager: Black Friday middag, wat nog niet klopt (curl 12:40, GEZIEN)
+- Beter: de Gumroad-beschrijving van Pro noemt nu de sale bovenaan ("Cyber Week sale: 25% off with code CYBER25"). Nog steeds: geen korting vanzelf (prijs $19), Superhive Pro $12 met `on_sale:false`.
+- dortus.com/click-joints/ zegt nog "applied at checkout" en linkt naar de gewone pagina zonder /CYBER25. Klopt niet zolang "Automatically apply" uit staat (tekst Daan ja #241).
+- Nieuw gat: de gratis Gumroad-pagina (duinhouwer8.gumroad.com/l/click-joints-free) linkt naar Pro zonder salelink en noemt de sale niet. Plakvoorstel achter de Pro-zin, zelfde woorden als #241: "Click Joints Pro is 25% off until December 1: https://duinhouwer8.gumroad.com/l/click-joints-pro/CYBER25".
+- YouTube-RSS: nog 7 keer "print tested" en 0 keer CYBER25, en nog geen sale-Short (GEZIEN). Plakbestand `platformen/blender/youtube-beschrijvingen-2026-11-27.md` (#244) staat klaar.
+- Sale-Short v8 (#159): eerste beeld GESLAAGD, Gemini plek 1,0 (`organisatie/blindtest/uitslag/pro-proces-v8-2026-11-27-1227.md`); wacht op Daan #269, daarna meldt de Regisseur klaar om te plakken.
+- Click Cuts-zip vastzetten (workflow click-cuts-uitgave, run_id 45810355179, vóór zo 29 nov 12:27): ik heb hem geprobeerd te starten, de toestemmingscontrole van mijn run weigerde. Blijft voor jou vanavond.
+- Volgorde voor 20:00 op geld: (1) Automatically apply CYBER25 en Superhive-sale, (2) sale-Short v8 na Daan, (3) YouTube-beschrijvingen #244, (4) dortus.com en gratis Gumroad naar de salelink, (5) Click Cuts-zip en Superhive indienen, (6) installzinnen #258 en Click Cuts #250.
