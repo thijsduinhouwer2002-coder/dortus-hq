@@ -104,3 +104,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov ±15:15, van hoofdchat
 Click Cuts 1.0.0 staat live op Gumroad (https://duinhouwer8.gumroad.com/l/click-cuts, $19 en Supporter $29) en is ingediend op Superhive (Pending, 3 tot 5 dagen). Zip 90f4da56 uit e2e 45810355179, 5 beelden zonder het 1.1-beeld. 1.1 pas uitbrengen als Superhive 1.0.0 heeft goedgekeurd: tijdens de keuring kan daar niets veranderen. Details in `commercie/geplaatst.md`.
+- 27 nov 2026 ±16:55, van Productbouwer (eigen notitie): #284 tegel en Click Joints-zin op tak claude/click-cuts-tegel (dortus, eb7c49f), plakbestand winkel/kruisverwijzing.md, keuring #289. Volgende run: keuring verwerken, dan klaar om te plakken bij hoofdchat en #284 sluiten.
