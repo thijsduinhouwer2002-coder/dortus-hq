@@ -1,25 +1,25 @@
-HOL balk gestart, pid 864, hoogte 120
-HOL weg geweest 28802 s (klok terug: false): goud voor 29, helden 115, erbij 583, hoeden 46
-HOL weg faam afgekapt 4 van 78 (hooguit 2 niveaus)
+HOL balk gestart, pid 3648, hoogte 120
+HOL weg geweest 28802 s (klok terug: false): goud voor 29, helden 115, erbij 535, hoeden 40
+HOL weg faam afgekapt 4 van 70 (hooguit 2 niveaus)
 HOL hol-niveau 2 (faam 5, t 0.0)
 HOL hol-niveau 3 (faam 5, t 0.0)
-HOL hoeden van de nacht 46 (vallen vanaf 1.0 s, toren nu 0)
-HOL berg zichtbaar 0 -> 7
-HOL kroniek 0.0 (wacht 0.0): 115 came, 78 fell, 46 hats. +583 gold.
+HOL hoeden van de nacht 40 (vallen vanaf 1.0 s, toren nu 0)
+HOL berg zichtbaar 0 -> 6
+HOL kroniek 0.0 (wacht 0.0): 115 came, 70 fell, 40 hats. +535 gold.
 HOL optocht wip, geen poef; helden [3]; duur 0.0 s
-HOL opslag geladen: 0 terugkomers, 612 goud, faam 5
+HOL opslag geladen: 0 terugkomers, 564 goud, faam 5
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795763823
+HOL zaad 1795765959
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 612)
-HOL eerste koop mogelijk na 15 s speeltijd (goud 612)
+HOL gloop ring aan na 0.1 s (goud 564)
+HOL eerste koop mogelijk na 15 s speeltijd (goud 564)
 HOL bordje wip na weg (niveau 3)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vluchten (Teun)
-HOL held binnen: Teun
+HOL begin: vluchten (Tibbe)
+HOL held binnen: Tibbe
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Teun says this is a quick one.
-HOL leven goudstof t=6.3 x=212 y=30
+HOL kroniek 2.6 (wacht 0.5): Tibbe has a map. It is wrong.
+HOL leven mot t=6.8 x=72 y=26
 HOL meting t=10 beelden=100 helden=1 hol_vast=12
-HOL einde na 15 s, fps=10, goud=612, terugkomers=0
+HOL einde na 15 s, fps=10, goud=564, terugkomers=0
