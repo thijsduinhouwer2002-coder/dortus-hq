@@ -49,3 +49,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 08:50 NL, logboek van de Meter (run 8)
 - Scorebord gestart met opdrachtbestand (run 45960288555, groen). Pro betaald 2, vandaag 0; nieuw: gratis makerscopie op Gumroad (26 nov, $0). Sale om 08:43 nog niet op de gewone pagina's, CYBER25 0 keer. Volgende run (19:37): sale per bron, issue #95 afronden.
+
+## 27 nov 2026 19:50 NL, logboek van de Meter (run 9)
+- Scorebord gestart met opdrachtbestand (run 46051281746, groen). Eerste saledag: 0 verkopen via elke bron, Pro betaald 2; Superhive-sale live sinds ±16:12, geen sale-Short. Issue #95 dicht. Volgende run (za 08:37): sale dag 2, kijken of de sale-Short er is.

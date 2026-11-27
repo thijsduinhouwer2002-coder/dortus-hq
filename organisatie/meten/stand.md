@@ -1,5 +1,17 @@
 # Stand van de Meter
 
+**vr 27 nov 2026, 19:50 NL, Black Friday avond** (scorebord-run 46051281746, 18:42 UTC)
+- Verkopen Pro vandaag 0, totaal betaald 2: Gumroad 1 ($19, 22 nov, direct) en Superhive 1 (26 nov 17:05, $7,22, bron onbekend) (GEZIEN). Plus 1 gratis makerscopie op Gumroad (26 nov, $0).
+- Sale per bron (issue #95), eerste dag: CYBER25 0, salelink 0, utm 0, Superhive-sale 0 verkopen (GEZIEN, Gumroad /v2/sales en offer_codes, Superhive-meldingen tot 19:50). Kijkers wel: dortus.com 3 bezoeken, 1 op /click-joints, 1 via youtube.com (GEZIEN, Amami tot 19:41).
+- Wat werkte: geen enkele bron bracht vandaag een koper. YouTube bracht alleen kijkers (+31 weergaven sinds 08:43, 1 bezoek op dortus.com); Superhive-sale en CYBER25 nog 0 kopers (GEZIEN). Te vroeg om een bron af te schrijven: de Superhive-sale draait pas ±3,5 uur en er is nog geen sale-Short (GOK).
+- Nulmeting nieuwe etalage (do 26 nov 08:43 en 19:43, GEZIEN): oude etalage 1 verkoop in 5 dagen, nieuwe etalage 1 verkoop in ruim 1 dag. Zie de standen hieronder.
+- Sale nu zichtbaar (GEZIEN, curl 19:41): Superhive $7,80 in plaats van $12, on_sale true sinds ±16:12; Gumroad nog $19 op de pagina met "25% off with code CYBER25" in tekst en kaartje, salelink /CYBER25 werkt; dortus.com/click-joints en de YouTube-beschrijvingen wijzen naar CYBER25 (RSS: 12 keer CYBER25).
+- Groeit: Blender gratis 418 downloads, +12 vandaag, +151 in 7 dagen (GEZIEN). Rollwright 56 (+4) (GEZIEN).
+- Groeit niet: YouTube 7.814, +67 vandaag, geen sale-Short in de RSS (GEZIEN). TikTok 1.309, 5 dagen gelijk; Kit 0, Discord 2; Click Cuts Gumroad 0 (GEZIEN).
+- Opvallend: Black Friday bracht minder bezoek op dortus.com (3) dan donderdag (13), terwijl de sale-Short v8c al sinds 14:45 klaarstaat om te plakken. Zonder nieuw filmpje komt er geen verkeer, ook niet met korting (GOK).
+
+## Eerdere standen
+
 **vr 27 nov 2026, 08:50 NL, Black Friday ochtend** (scorebord-run 45960288555, 07:43 UTC)
 - Verkopen Pro vandaag 0, totaal betaald 2: Gumroad 1 ($19, 22 nov, direct) en Superhive 1 (26 nov 17:05, opbrengst $7,22, bron onbekend) (GEZIEN). Gumroad telt nu 2 "verkopen" maar de tweede is een gratis makerscopie van 26 nov ($0, 100%-makerscode), geen omzet (GEZIEN, /v2/sales).
 - Sale per bron (issue #95), ochtend: nog 0 verkopen via CYBER25, salelink, utm of Superhive-sale (GEZIEN). De sale staat om 08:43 nog niet op de gewone pagina's: Gumroad $19 zonder korting, Superhive $12 zonder sale; de salelink /CYBER25 werkt wel (GEZIEN, curl). dortus.com/click-joints zegt nog "applied at checkout" (GEZIEN).
@@ -7,8 +19,6 @@
 - Groeit niet: YouTube 7.783, +36 in 13 uur, geen sale-Short in de RSS (GEZIEN). TikTok 1.309, 5 dagen gelijk; Kit 0, Discord 2 (GEZIEN).
 - dortus.com vandaag tot 08:43: 2 bezoeken, 1 op /click-joints, 1 via youtube.com (GEZIEN, Amami). Gisteren hele dag 13, 6 op /click-joints (GEZIEN).
 - Opvallend: de sale is begonnen maar een gewone bezoeker ziet hem nergens. Elk uur zonder "Automatically apply" bij CYBER25 is een uur van de beste verkoopdag zonder korting op de pagina (GOK). Vanavond 19:37 de sale per bron.
-
-## Eerdere standen
 
 **do 26 nov 2026, 19:55 NL** (scorebord-run 45878217029, 18:45 UTC)
 - Verkopen Pro vandaag 1, totaal 2: Superhive 1 Personal om 17:05 (opbrengst $7,22, GEZIEN, melding Superhive) en Gumroad 1 ($19, 22 nov, direct) (GEZIEN, Gumroad /v2/sales). Eerste verkoop met de nieuwe etalage.
