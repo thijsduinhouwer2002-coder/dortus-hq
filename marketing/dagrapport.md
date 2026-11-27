@@ -73,3 +73,13 @@ Schrijft: de Maker (geplande taak "Dortus Roep: maken en plaatsen"), één blok 
 - quotum november: 11 gewone posts in Metricool plus 3 TikTok-drafts (GEZIEN); of drafts en opnieuw gemaakte posts meetellen is niet bekend (GOK). Lang YouTube november 0 over volgens het plan. December: 2 lange video's ingepland (1 en 3 dec, nieuwe nummers 440578342 en 440578360 na tekstwijziging door de hoofdchat), over volgens het plan: lang 2, reserve 2; TikTok 14 staat stil.
 - wachtrij: lang ingepland 1 en 3 dec; lang 1.2-update wacht op keuring Daan; oranje 0; open vooral Shorts. Niets gemaakt: TikTok-concepten mogen niet, lange video's maakt Chris.
 - stopregel: beste TikTok 306 weergaven (GEZIEN), onder 1.000; TikTok staat al stil op besluit van Thijs. Geldklok: laatste verkoop van Pro 22 nov, dag 2 zonder verkoop.
+
+### vr 27 nov 2026 NL
+- uitgegaan vandaag via Metricool: niets. De TikTok van 18:00 (440577888) stond op draft en ging niet uit (GEZIEN getScheduledPosts 20:15).
+- ingepland deze ronde: sale-Short Pro v8c, za 28 nov 19:00 NL, Metricool 444765056, PENDING (groen door de hoofdchat, reserve november). 19:00 in plaats van 17:00 omdat om 17:00 al een Short uit YouTube Studio uitgaat.
+- cijfers (GEZIEN, `organisatie/scorebord.md`, meting 27 nov 18:42 UTC): Shorts beste WqgDSDL5twg 1.484, lcUBuWMaJ_A 1.296, 65JiRlDupNc 1.221; lange video's 4-3l3MZZWPc 18, m3sNvDOJYQ0 24; YouTube samen 7.814 (RSS). TikTok beste 306 (videopagina, playCount). Kijktijd niet gelezen.
+- geld: Gumroad Pro 2 verkopen in totaal, $19 omzet: 1 betaald op 22 nov, 1 op 26 nov met 100%-code (CJPMETALBRICKS, $0). CYBER25 0 keer gebruikt (GEZIEN, scorebord). Bezoeken dortus.com/tt: 0 vandaag (tot 19:41); dortus.com/yt: 1 vandaag (tot 19:41) (GEZIEN, Amami-tabel scorebord).
+- quotum november: 17 posts in Metricool aangemaakt in november, 3 daarvan drafts (GEZIEN); of drafts en ERROR meetellen is niet bekend (GOK). Reserve november nu op 1 over. December: 2 lange video's ingepland (1 en 3 dec).
+- wachtrij: groen 0, oranje 0; lange 1.2-update wacht op Daan; Click Cuts-Short (1 dec) en een paar Shorts staan op "klaar om te plakken" voor de hoofdchat. Maken staat uit (REGELS 27 nov).
+- stopregel: beste TikTok 306 weergaven, onder 1.000; TikTok staat al stil. Geldklok: laatste betaalde verkoop van Pro 22 nov, dag 5 van 14 zonder betaalde verkoop.
+- voor de hoofdchat (berichten/hoofdchat.md zit boven de grens van 60.000 tekens, dus hier): oude lange video's di 1 dec 17:00 (440578342) en do 3 dec 17:00 (440578360) staan nog PENDING in Metricool, op een MakeHuman-figuur en zonder stem van Max; laten lopen of op draft? Ik laat ze staan.

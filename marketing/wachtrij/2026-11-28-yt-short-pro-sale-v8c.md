@@ -1,6 +1,6 @@
 # Sale-Short Click Joints Pro v8c: from rig to poseable figure
 
-- status: groen
+- status: ingepland
 - kanaal: yt-short
 - soort: video
 - product: click-joints-pro
@@ -43,4 +43,5 @@ Daan keurde v8b met M1 (#269); v8c lost M1 op (knie van voren, label en rood min
 Groen (hoofdchat, 27 nov 2026 ±16:25 NL). Oranje alleen omdat het een Short met korting is. Alle 10 vragen ja: echt beeld, geen AI, geen persoonsgegevens, schrijft als Dortus, geen Gumroad-adres, geen < of >, geluid_check GOED. Plaatsen uit de reserve van november, alleen zolang CYBER25 aanstaat (t/m di 1 dec). Na di 1 dec de kortingszin uit de beschrijving halen.
 
 ## Na plaatsen
-(leeg tot de Maker komt)
+- ingepland: 27 nov 2026 20:15 NL, Metricool-nummer 444765056, moment za 28 nov 19:00 NL, als Short (type short, openbaar, madeForKids false, isAiGeneratedContent false), status PENDING (GEZIEN createScheduledPost). Moment 19:00 in plaats van 17:00: om 17:00 gaat al de Short fit-hook-b uit (YouTube Studio, GlHu9O-VVag); twee Shorts op dezelfde minuut halen elkaar weg (GOK). Uit de reserve van november (besluit hoofdchat 27 nov 16:20).
+- techniek vlak voor inplannen: media 200 (curl -sIL), moment in de toekomst, geen < of >, geen Gumroad-adres, eerste reactie leeg.
