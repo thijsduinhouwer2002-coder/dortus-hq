@@ -12,6 +12,8 @@ RONDES = 2
 LETTERS = "ABCD"
 GEMINI_MODELLEN = os.environ.get("GEMINI_MODELLEN", "gemini-3.1-pro-preview,gemini-3-pro-preview,gemini-2.5-flash").split(",")
 OPENAI_MODELLEN = os.environ.get("OPENAI_MODELLEN", "gpt-5,gpt-4.1,gpt-4o").split(",")
+# GitHub Models: gratis, met de GITHUB_TOKEN van de workflow (permissions: models: read). Zelfde OpenAI-vorm.
+GITHUB_MODELLEN = os.environ.get("GITHUB_MODELLEN", "openai/gpt-4.1,openai/gpt-4o").split(",")
 
 VRAAG = """{rol}
 
@@ -92,6 +94,25 @@ def vraag_gemini(prompt, beelden, model):
     return r["candidates"][0]["content"]["parts"][0]["text"]
 
 
+def openai_inhoud(prompt, beelden):
+    content = [{"type": "text", "text": prompt}]
+    for letter, b64 in beelden:
+        if isinstance(b64, tuple):
+            content += [{"type": "text", "text": f"Product {letter} (store text):\n{b64[1]}"}]
+        else:
+            content += [{"type": "text", "text": f"Image {letter}:"},
+                        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}}]
+    return content
+
+
+def vraag_github(prompt, beelden, model):
+    r = post("https://models.github.ai/inference/chat/completions",
+             {"model": model, "messages": [{"role": "user", "content": openai_inhoud(prompt, beelden)}],
+              "response_format": {"type": "json_object"}},
+             {"Authorization": "Bearer " + os.environ["GITHUB_MODELS_TOKEN"].strip()})
+    return r["choices"][0]["message"]["content"]
+
+
 def vraag_openai(prompt, beelden, model):
     content = [{"type": "text", "text": prompt}]
     for letter, b64 in beelden:
@@ -145,8 +166,10 @@ def main(setpad, uitpad):
         rechters.append(("Gemini", GEMINI_MODELLEN, vraag_gemini))
     if os.environ.get("OPENAI_API_KEY", "").strip():
         rechters.append(("ChatGPT", OPENAI_MODELLEN, vraag_openai))
+    elif os.environ.get("GITHUB_MODELS_TOKEN", "").strip():
+        rechters.append(("ChatGPT", GITHUB_MODELLEN, vraag_github))
     if not rechters:
-        print("Geen sleutels (GEMINI_API_KEY, OPENAI_API_KEY): niets getest.")
+        print("Geen sleutels (GEMINI_API_KEY, OPENAI_API_KEY, GITHUB_MODELS_TOKEN): niets getest.")
         return 0
     prompt = VRAAG.format(rol=s["rol"])
     plaatjes = {i["naam"]: (("tekst", i["tekst"]) if "tekst" in i else als_jpeg(haal(i["url"])))

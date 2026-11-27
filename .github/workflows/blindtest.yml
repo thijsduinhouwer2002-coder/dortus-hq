@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  models: read
 
 concurrency:
   group: blindtest
@@ -51,7 +52,9 @@ jobs:
         env:
           # Gemini uit sinds 26 nov 2026 15:30 (tegoed op, Thijs: niet bijbetalen). Terug: regel hieronder aanzetten.
           # GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # OpenAI uit sinds 27 nov 2026 09:15 (tegoed op, Thijs: gratis AI zoeken). ChatGPT-modellen nu gratis via GitHub Models.
+          # OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LIJST: ${{ steps.sets.outputs.lijst }}
         run: |
           cd organisatie/blindtest
