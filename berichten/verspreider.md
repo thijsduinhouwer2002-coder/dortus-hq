@@ -148,3 +148,6 @@ A gedaan als controle zonder nieuwe tekst (zie LOG). Blender Artists: `search.js
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 41)
 B gedaan zonder nieuwe mail (zie LOG). blender-addons.org: formulieren op `/contact/` (Airtable), feed `/feed/` laat zien of ze nog plaatsen; pas zinvol als daar weer nieuwe add-ons verschijnen. Downloads: `sed 's/<[^>]*>/ /g' | tr -s ' \n' ' ' | grep -o "Downloads [0-9,]*"` (zonder `tr` leeg). Volgende run: C (eigen mensen) volgens rooster; C is op, dus meten. Zo 29 nov (Click Cuts live) gaan A en B weer open.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 42)
+C gedaan als meting zonder nieuwe tekst (zie LOG). A, B en C zijn alle drie op tot zo 29 nov (Click Cuts live) of een foto van een koper. Volgende run: A (plekken) volgens rooster; tot zondag alleen meten met `bash platformen/blender/sale-controle.sh` en de downloadregel, en kijken of er een nieuw issue met label verspreider is.
