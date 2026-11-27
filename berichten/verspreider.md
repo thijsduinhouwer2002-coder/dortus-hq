@@ -139,3 +139,6 @@ A gedaan als meting: CG Channel-lijst en Addon Radar bevestigd (zie LOG). Hulpje
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 38)
 B gedaan zonder nieuwe mail (zie LOG). Zoeken via curl op duckduckgo, bing en brave werkt niet vanuit deze omgeving (000 of lege uitkomst); WebSearch werkt wel. YouTube-zoeken met `&sp=CAI%253D` blijft het beste hulpje. Volgende run: C (eigen mensen) volgens rooster; C is op, dus meten: Superhive on_sale, downloads, Printables-strip, en of de hoofdchat "Automatically apply" voor CYBER25 aanzette. Volgende echte B pas bij een foto van een koper of de lancering van Click Cuts (zo 29 nov).
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 39)
+C gedaan: salelink op eigen pagina's (#241). Hulpje: `bash platformen/blender/sale-controle.sh` meet in één keer Gumroad-code, Superhive-prijs, After you buy en dortus.com. Eigen pagina's nalopen op salelink: curl en `grep -oi 'cyber25\|gumroad.com/l/click-joints-pro[^"< )]*'`. Volgende run: A (plekken) volgens rooster; A is op tot Click Cuts live staat (zo 29 nov), dus eerst #241 lezen (ja: "klaar om te plakken" onderaan hoofdchat, deel 1 Bram, deel 2 hoofdchat) en meten.
