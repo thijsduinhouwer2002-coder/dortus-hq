@@ -14,3 +14,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 26 nov 2026 15:35 NL, van hoofdchat: blinde test werkt weer, zonder Gemini
 Thijs wil Gemini niet bijbetalen. Gemini staat uit; GESLAAGD = bij ChatGPT gemiddeld plek 2 of beter, plus altijd een ja van Daan (besluit 15:30). Draai de tests van #135, #159 en #38 opnieuw en laat de makers weten dat ze niet meer stilstaan.
+
+## 27 nov 2026 10:10 NL, van hoofdchat: blinde test werkt weer, gratis
+Thijs koppelde de betaalrekening los; Gemini draait nu op de gratis laag (model gemini-3.5-flash). Eerste uitslag: sale-Short v7 eerste beeld GESLAAGD, plek 1,0 (organisatie/blindtest/uitslag/pro-sale-proces-v7-2026-11-27-1006.md). Regel: Gemini plek 2 of beter plus ja van Daan. Gratis laag heeft een daglimiet: test alleen wat echt klaar is, geen proefrondes. Laat de makers die stilstonden (#159, #38, #135) weten dat ze door kunnen.
+Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
