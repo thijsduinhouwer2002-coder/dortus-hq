@@ -60,15 +60,17 @@ for n in namen:
 # Opnieuw 25 nov (Bram, issue 100): meld.py vraagt pas na een export, en niet meer na een klik op de winkel (merkje in de
 # gebruikersmap van de extensie), met een kruisje "Don't ask again". Geen netwerk vanzelf, nergens de betaalde versie.
 # Opnieuw 26 nov (Olaf, issue 115): manifest naar 0.1.2, tagline en tag Sculpt uit de gekeurde tak claude/blender-0.1.2b. Geen Pro-regel in de extensions-zip (regels 6.1 en 6.3), die zit alleen in de direct-zip.
+# Opnieuw 27 nov (Bram, issue 306): een_lid.py controleert of het omhulsel het hele lid bevat (tenen van Human Base Meshes
+# bleven als losse stukjes in deel A) en valt dan terug op een voxelvorm; manifest naar 0.1.3. Wacht op keuring Daan.
 GEKEURD = {
     "__init__.py": "526d677349cf407344d268dc15dbcb1bb68116dcdff387ceb221f6e80d88861e",
     "beweeg.py": "f7d9f2f26d2e780984b3b94e4e21ec983557f79e6d54f6f406b1ff83517219c6",
-    "blender_manifest.toml": "fc806d2d6ffd931b0f989469c4d4150129a12805f7e4932dfa2fe21501772525",
+    "blender_manifest.toml": "5019f44b4c76232c138460f632a9524fb1edce0750b508eb2066419a910d1da7",
     "drie_mf.py": "2cf1603e681bb5c4d1fb9a3f6fb46d73b7c264800ee6adf566a65d0f73f4f1f3",
     "eigenschappen.py": "677238f80391b6ddc7db3831ed074ea663b9a918100da1110d95414ec0117101",
     "exporteer.py": "d0e8b467db37c190b4173cbb8ce7bb075f2520b53a0b59325a8c233f7e3bd03f",
     "gesloten.py": "b1ef9a537c311735387be2b0c9a7eaac18f0d518de3a83b9aab393df17d65902",
-    "een_lid.py": "354b26d7ddf7e4fc3b44e95e1f8498bf7861700123bba5d34f9841d24d0f1f2a",
+    "een_lid.py": "549b2fcd0f19543edf92095f8e44e7a6fd9cfa8ac71171f679cb12f726d96674",
     "gewricht.py": "4762e9be3bda78faf36794fca1207798a47723829e7c9ec13d1c07444d202ce5",
     "gradenboog.py": "159a503b3621da1073c8c29ee026454c9146a9b46a90d0028fec97096612e251",
     "kleur.py": "9f98ca165bfbe06d5c5737185bd4eee973accb8818563dbec0c794c2e5c9e1c4",

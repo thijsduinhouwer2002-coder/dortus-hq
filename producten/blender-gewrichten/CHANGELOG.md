@@ -5,6 +5,11 @@ This file feeds the GitHub release and the release notes on extensions.blender.o
 (`click-joints-uitgave.yml` takes the section of the version it ships, max 1024 characters).
 Write each line from the user's side, at most 5 lines per version.
 
+## 0.1.3 (not released yet)
+
+### Fixed
+- A knee joint on a figure with separate toes (for example Blender's Human Base Meshes) no longer leaves small loose pieces of the toes in the body part. The whole foot stays with the lower leg.
+
 ## 0.1.2 (2026-11-26)
 
 ### Added

@@ -1,6 +1,6 @@
 schema_version = "1.0.0"
 id = "click_joints"
-version = "0.1.2"
+version = "0.1.3"
 name = "Click Joints"
 tagline = "Ball joints for poseable 3D print figures, with bend range"
 maintainer = "Dortus <thijs@dortus.com>"

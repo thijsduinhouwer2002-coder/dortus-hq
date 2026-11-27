@@ -178,6 +178,7 @@ def bereid_diep(werk, frame, vlak_z, diepte, marge, solver, hulp):
     bmesh.ops.holes_fill(lb, edges=lb.edges[:], sides=0)
     bmesh.ops.recalc_face_normals(lb, faces=lb.faces[:])
     lb.normal_update()
+    _l.PROEF[:] = [v.co.copy() for v in lb.verts]  # 0.1.3 (#306): _samen kijkt of H het lid zelf bevat
     for v in lb.verts:
         v.co += v.normal * m
     lid_open = sum(1 for e in lb.edges if len(e.link_faces) != 2)

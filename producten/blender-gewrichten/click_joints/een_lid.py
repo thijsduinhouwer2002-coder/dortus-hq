@@ -30,10 +30,12 @@ MELD_DICHT = ("Another part of the mesh is too close to this limb (for example t
 
 STAND = {"h": None, "kant": None, "solver": None, "bronnen": {}}
 LAATSTE = {}  # voor de toetsen: wat bereid de laatste keer besloot
+PROEF = []  # 0.1.3 (#306): punten van het lid zelf (zonder marge), in het frame; _samen kijkt of H ze bevat
 
 
 def reset():
     STAND.update(h=None, kant=None, solver=None, bronnen={})
+    PROEF.clear()
 
 
 def _kant(f, z):
@@ -225,6 +227,7 @@ def bereid(werk, frame, vlak_z, diepte, marge, solver, hulp):
     bmesh.ops.holes_fill(lb, edges=lb.edges[:], sides=0)
     bmesh.ops.recalc_face_normals(lb, faces=lb.faces[:])
     lb.normal_update()
+    PROEF[:] = [v.co.copy() for v in lb.verts]
     for v in lb.verts:
         v.co += v.normal * m
     lid_open = sum(1 for e in lb.edges if len(e.link_faces) != 2)
@@ -288,7 +291,12 @@ def _samen(hb, lb, frame, hulp, lid_dicht):
             tol = 0.02 * max(b - a for a, b in zip(*doel_kader))
             bevat = goed and vol >= 0.98 * doel_vol and all(
                 kader[0][i] <= doel_kader[0][i] + tol and kader[1][i] >= doel_kader[1][i] - tol for i in range(3))
-            LAATSTE.setdefault("h_pogingen", []).append((zelf, round(vol, 1), round(doel_vol, 1), bevat))
+            # 0.1.3 (#306): volume en kader zien niet dat kleine stukken van het lid ontbreken. Op Human Base Meshes
+            # (tenen dicht op elkaar: de verschoven huid snijdt zichzelf tussen de tenen) liet de vereniging delen
+            # van de tenen weg; die stukjes bleven dan in deel A. Nu moet elk punt van het lid zelf in H liggen.
+            buiten = _lid_buiten(nm, frame) if goed else -1
+            bevat = bevat and buiten == 0
+            LAATSTE.setdefault("h_pogingen", []).append((zelf, round(vol, 1), round(doel_vol, 1), buiten, bevat))
             if bevat:
                 oud = h.data
                 h.data = nm
@@ -297,7 +305,17 @@ def _samen(hb, lb, frame, hulp, lid_dicht):
                 break
             bpy.data.meshes.remove(nm)
         bpy.data.objects.remove(lo)
-    if not str(LAATSTE.get("h_soort", "")).startswith("samen"):
+    if lid_dicht and not str(LAATSTE.get("h_soort", "")).startswith("samen"):
+        # 0.1.3 (#306): lukt de vereniging niet (of mist ze een stuk van het lid), dan beide vormen door een
+        # voxel-remesh: dat maakt van overlappende of zichzelf snijdende schillen één gesloten huid. Alleen als die
+        # het hele lid bevat; anders de oude terugval hieronder.
+        nieuw = _voxel(hb, lb, hulp, frame)
+        if nieuw is not None:
+            oud = h.data
+            h.data = nieuw
+            bpy.data.meshes.remove(oud)
+            LAATSTE["h_soort"] = "voxel"
+    if not str(LAATSTE.get("h_soort", "")).startswith(("samen", "voxel")):
         # terugval: beide vormen los in één mesh; de booleans rekenen dan met Self Intersection
         alle = bmesh.new()
         alle.from_mesh(h.data)
@@ -344,6 +362,65 @@ def voor_boolean(doel, gereedschap, actie):
     kant = STAND["bronnen"].get(doel.name)
     if kant is not None and kant != STAND["kant"]:
         _snijd_met_h(gereedschap)
+
+
+def _voxel(hb, lb, hulp, frame):
+    """Omhulsel en lid (al in wereldmaat) samen door een voxel-remesh. Mesh of None (niet gesloten of lid niet binnen)."""
+    import math
+    from .gesloten import is_gesloten
+    from .gewricht import solver_naam
+    m = float(LAATSTE.get("marge") or 0.0)
+    if m <= 0:
+        return None
+    opp = sum(f.calc_area() for f in hb.faces) + sum(f.calc_area() for f in lb.faces)
+    # Exact rekent met exacte getallen: daar een grovere vorm, anders loopt het geheugen op (issue 14: bij 214.150 vlakken meer dan 15 GB).
+    v = math.sqrt(opp / (30000 if solver_naam() == "EXACT" else 250000))
+    v = max(v, 0.5 * m) if solver_naam() != "EXACT" else v
+    alle = hb.copy()
+    kaart = {x: alle.verts.new(x.co) for x in lb.verts}
+    for f in lb.faces:
+        try:
+            alle.faces.new([kaart[x] for x in f.verts])
+        except ValueError:
+            pass
+    me = bpy.data.meshes.new("cj_een_lid_bron")
+    alle.to_mesh(me)
+    alle.free()
+    tmp = bpy.data.objects.new("cj_een_lid_bron", me)
+    hulp.objects.link(tmp)
+    mod = tmp.modifiers.new("cj_voxel", "REMESH")
+    mod.mode, mod.voxel_size, mod.adaptivity = "VOXEL", v, 0.0
+    dg = bpy.context.evaluated_depsgraph_get()
+    nm = bpy.data.meshes.new_from_object(tmp.evaluated_get(dg))
+    bpy.data.objects.remove(tmp)
+    bpy.data.meshes.remove(me)
+    ok = is_gesloten(nm)[0]
+    buiten = _lid_buiten(nm, frame) if ok else -1
+    LAATSTE.update(h_voxel=round(v, 4), h_vlakken=len(nm.polygons), h_voxel_buiten=buiten)
+    if not ok or buiten != 0:
+        bpy.data.meshes.remove(nm)
+        return None
+    return nm
+
+
+def _lid_buiten(me, frame):
+    """Hoeveel punten van het lid zelf (PROEF, zonder marge) buiten de gesloten mesh `me` liggen. Een punt telt pas
+    als buiten als het meer dan een kwart van de marge buiten de huid ligt (afronding bij scherpe randen)."""
+    if not PROEF:
+        return 0
+    b = bmesh.new()
+    b.from_mesh(me)
+    b.normal_update()
+    bvh = BVHTree.FromBMesh(b)
+    b.free()
+    speling = 0.25 * float(LAATSTE.get("marge") or 0.0)
+    buiten = 0
+    for p in PROEF:
+        q = p if frame is None else frame @ p
+        plek, normaal, _i, _a = bvh.find_nearest(q)
+        if plek is None or (q - plek).dot(normaal.normalized()) > speling:
+            buiten += 1
+    return buiten
 
 
 def _volume(b):
