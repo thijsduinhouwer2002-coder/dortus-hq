@@ -236,3 +236,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 ±22:30 NL, logboek Sanne
 #314 punt 2: itch.io-plakkaart in `producten/steam-hol/itch/` (omslag uit echt spelbeeld, 5 schermen, tekst CONCEPT), blinde test `hats-itch-omslag` gestart, keuring Daan; Mila's vraag in #30 beantwoord (2D uit code mag).
+Omslag v1 tot v3 NIET GESLAAGD (plek 3, "cheap mobile-game", "geen teken dat het een pc-maatje is"); volgende ronde uit een echt bureaubladscherm met vlakke titel. Keuring tekst en schermen: #324.

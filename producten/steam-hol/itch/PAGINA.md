@@ -57,3 +57,6 @@ Regels die deze tekst volgt: elke zin klopt met het spel op main van 27 nov (reu
 ## Omslag
 
 `omslag-630x500.png`, gemaakt met `maak_omslag.py` uit een echt beeld van het spel (zie `LEESMIJ.md`): lucht van een bureaublad met het logo (`ontwerp/steam/winkelpagina/logo-1082x720.png`, gekeurd door Daan 17 nov), daaronder het hol 1,75x vergroot, onderaan een taakbalk. Blinde test: set `organisatie/blindtest/sets/hats-itch-omslag.json`, uitslag in `organisatie/blindtest/uitslag/`. Gaat pas naar buiten als hij daar GESLAAGD staat en Daan ja zegt (CLAUDE.md regel 9).
+
+### Uitslag blinde test omslag (27 nov, Gemini flash-lite, GEZIEN in de runs 46067538274 en 46067751109)
+v1 (hol 1,75x), v2 (ware grootte, groot logo) en v3 (1,25x): alle drie **NIET GESLAAGD**, plek 3,0, eerste keus steeds Spirit City. Zinnen: "cheap and generic mobile-game", "no clear indication that it makes a good background PC companion", "adopt a softer, less saturated art style that feels more native to a PC desktop". De echte bureaubladschermen halen wel plek 2. **Volgende ronde:** omslag als uitsnede van een echt bureaubladscherm (venster plus hol op ware grootte, zoals scherm 1) met een vlakke, rustige titel in plaats van het 3D-logo, minder verzadigd. Tot dan geen omslag naar buiten.
