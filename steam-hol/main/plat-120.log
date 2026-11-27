@@ -1,27 +1,27 @@
-HOL balk gestart, pid 8984, hoogte 120
+HOL balk gestart, pid 10040, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795759022
+HOL zaad 1795763587
 HOL balk aan
 HOL plat zonder regel (2 keer gemeld)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Anouk)
-HOL held binnen: Anouk
+HOL begin: vallen (Odo)
+HOL held binnen: Odo
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Anouk is here for your gold.
+HOL kroniek 2.6 (wacht 0.5): Odo says this is a quick one.
 HOL uitleg stap 1 t=4.1 
-HOL leven mot t=5.5 x=72 y=26
-HOL kroniek zelfde held vervangen: Anouk is here for your gold.
-HOL kroniek 7.3 (wacht 0.0): Anouk will not be leaving. +9
+HOL kroniek zelfde held vervangen: Odo says this is a quick one.
+HOL kroniek 7.4 (wacht 0.0): Odo will not be leaving. +9
 HOL zicht 7.4 0
-HOL begin: vluchten (Tibbe)
-HOL held binnen: Tibbe
-HOL zicht 8.4 1
+HOL begin: vluchten (Wout)
+HOL held binnen: Wout
+HOL zicht 8.9 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL kroniek 9.9 (wacht 2.6): First hero in the pit!
+HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 11.4: Tibbe climbs into your hole.
-HOL leven stofje t=18.6 x=72 y=26
+HOL kroniek vervallen 12.0: Wout read about you in a tavern.
+HOL leven vleermuis t=12.6 x=88 y=28
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
+HOL leven stofje t=21.4 x=72 y=26
 HOL einde na 24 s, fps=10, goud=29, terugkomers=0
