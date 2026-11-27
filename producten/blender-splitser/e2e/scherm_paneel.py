@@ -136,7 +136,7 @@ def stap():
             subprocess.run(["import", "-window", "root", pad], capture_output=True)
             ok = os.path.exists(pad) and os.path.getsize(pad) > 20000
             log(f"{'PANEEL PROEF OK' if ok else 'PANEEL PROEF FOUT'} {pad}")
-            for _ in range(20):
+            for _ in range(12):  # as many up as down, so a wheel that reaches the viewport ends where it began
                 xdo("click", "4")
             # third picture: More settings closed with notes, so the notes line can be seen whole (keuring
             # run 10, M1). Uses the notes of this Split; when there are none, two example notes (logged).
@@ -175,6 +175,13 @@ def stap():
             stuk.select_set(True)
             bpy.context.view_layer.objects.active = stuk
             venster, gebied, ui, hoofd = gebied_3d()
+            # 1.1 (#238): the wheel clicks for the fit test picture can reach the viewport and zoom it, so the
+            # piece fell off the screen. Put the view back as at the start before measuring the line.
+            with bpy.context.temp_override(window=venster, area=gebied, region=hoofd):
+                bpy.ops.view3d.view_axis(type="FRONT")
+                bpy.ops.view3d.view_orbit(angle=0.5, type="ORBITUP")
+                bpy.ops.view3d.view_orbit(angle=0.6, type="ORBITLEFT")
+                bpy.ops.view3d.view_all()
             rv3d = gebied.spaces.active.region_3d
             mw = np.array(stuk.matrix_world)
             co = np.array([tuple(v.co) for v in stuk.data.vertices]) @ mw[:3, :3].T + mw[:3, 3]
