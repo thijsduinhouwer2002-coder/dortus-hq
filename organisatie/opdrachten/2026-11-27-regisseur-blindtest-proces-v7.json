@@ -1,1 +1,10 @@
-{"workflow": "blindtest.yml", "invoer": {"set": "pro-sale-proces-v7"}, "van": "regisseur", "waarom": "eerste beeld sale-Short v7e (#159) nu Gemini gratis weer rechter is"}
+{
+  "workflow": "blindtest.yml",
+  "invoer": {
+    "set": "pro-sale-proces-v7"
+  },
+  "van": "regisseur",
+  "waarom": "eerste beeld sale-Short v7e (#159) nu Gemini gratis weer rechter is",
+  "fout": "workflow 'blindtest.yml' staat niet op de lijst in organisatie/controle/opdracht.py",
+  "fout_tijd": "2026-11-27T08:19:28Z"
+}
