@@ -1,0 +1,192 @@
+{
+ "fps": 30,
+ "delen": {
+  "start": 1795778151.511,
+  "knop": 1795778152.478,
+  "uitelkaar": 1795778153.078,
+  "grijs_mat": 1795778154.111,
+  "knie": 1795778154.478,
+  "knie_rood": 1795778156.144,
+  "kleur": 1795778157.811,
+  "schaduw": 1795778160.911,
+  "pose": 1795778161.211,
+  "eind_weergave": 1795778163.811,
+  "eind": 1795778163.811
+ },
+ "n": 0,
+ "kliks": [
+  1.467,
+  2.2,
+  2.8,
+  3.667,
+  4.067,
+  7.333
+ ],
+ "echt": true,
+ "metingen": {
+  "afstand": 274.5,
+  "paneel_breed": 393,
+  "selectie_echt": true,
+  "knop_figuur": [
+   881,
+   1130
+  ],
+  "klik_figuur": 1,
+  "knop_echt": true,
+  "gewrichten": 9,
+  "regels": [
+   "Left elbow \u00b7 Hinge \u00b7 0\u2013140\u00b0 \u00b7 from rig",
+   "Right elbow \u00b7 Hinge \u00b7 0\u2013140\u00b0 \u00b7 mirror",
+   "Left knee \u00b7 Hinge \u00b7 0\u2013120\u00b0 \u00b7 from rig",
+   "Right knee \u00b7 Hinge \u00b7 0\u2013120\u00b0 \u00b7 mirror",
+   "Neck \u00b7 Ball \u00b7 \u00b120\u00b0 \u00b7 preset",
+   "Left shoulder \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset",
+   "Right shoulder \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset",
+   "Left hip \u00b7 Ball \u00b7 \u00b122\u00b0 \u00b7 preset",
+   "Right hip \u00b7 Ball \u00b7 \u00b130\u00b0 \u00b7 preset"
+  ],
+  "delen": 10,
+  "knop_uit": [
+   881,
+   559
+  ],
+  "klik_uit_aan": 1,
+  "uit_echt": true,
+  "klik_uit_uit": 1,
+  "knie_stop": 119.96,
+  "been_echt": true,
+  "schuif": [
+   755,
+   1134
+  ],
+  "knie_sleep_stop": 120.3,
+  "knie_sleep_rood": 134.9,
+  "knie_rood_vlakken": 13,
+  "knie_sleep_terug": 0.0,
+  "knie_echt": true,
+  "pil_plekken": 3,
+  "pil_min_x_tekst": 67.7,
+  "verschuiving": 1.8,
+  "pose_check": [
+   {
+    "nr": 0,
+    "nieuw": [],
+    "onderarm": []
+   }
+  ],
+  "pose_botsingen": 0,
+  "pose": {
+   "Left hip": [
+    [
+     [
+      1,
+      0,
+      0
+     ],
+     -14.0
+    ],
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     -4.0
+    ]
+   ],
+   "Left knee": 6.0,
+   "Right hip": [
+    [
+     [
+      1,
+      0,
+      0
+     ],
+     18.0
+    ],
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     5.0
+    ]
+   ],
+   "Right knee": 48.0,
+   "Right shoulder": [
+    [
+     [
+      0,
+      0,
+      1
+     ],
+     -90.0
+    ],
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     30.0
+    ]
+   ],
+   "Right elbow": 135.0,
+   "Left shoulder": [
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     -14.0
+    ],
+    [
+     [
+      1,
+      0,
+      0
+     ],
+     26.0
+    ]
+   ],
+   "Left elbow": 55.0,
+   "Neck": [
+    [
+     [
+      0,
+      0,
+      1
+     ],
+     12.0
+    ],
+    [
+     [
+      0,
+      1,
+      0
+     ],
+     8.0
+    ]
+   ]
+  },
+  "pose_naam": "g_zwaai_achter_loop",
+  "pose_rood_vlakken": 0,
+  "eind_camera": [
+   [
+    761.4017944335938,
+    -389.345703125,
+    201.90728759765625
+   ],
+   [
+    30.840341567993164,
+    -819.0381469726562,
+    243.59002685546875
+   ]
+  ]
+ },
+ "muis": [],
+ "vlakken": {},
+ "paneel_y": {}
+}

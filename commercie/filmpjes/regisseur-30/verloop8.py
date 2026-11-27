@@ -1,0 +1,783 @@
+# Verloop v7 van de sale-Short (issue #159, Regisseur 26 nov 2026). Wordt door proces7.py in de opname van regisseur-28
+# gezet (zelfde echte Blender, zelfde beeld-voor-beeld-klok). Thijs 26 nov 18:14: "niet van beeld wisselen, alles in
+# één beeld", "niet ingezoomd maar dynamisch", "maak exact die tiktok na". Dus: één doorlopende opname van de
+# weergave, de robot vult het staande scherm, de camera van de weergave draait de hele tijd rustig rond, en in
+# hetzelfde beeld verandert de robot elke ±0,7 s: grijs met rig, Figure from rig (delen in willekeurige kleuren),
+# Exploded view, knie tot de stop en voorbij (rood), deel voor deel kleur, schaduw, pose. Daarna eind.blend voor de
+# Cycles-eindfilm met een bewegende camera. De pose wordt gekozen met een botsingscheck (geen deel door een ander).
+import random as _rnd
+_rnd.seed(29)
+FPS7 = 30
+EIND_SEC = float(os.environ.get("CJ_EIND_SEC", "6.5"))
+GRIJS = (0.62, 0.62, 0.64, 1.0)
+
+
+def zacht(t):
+    t = min(1.0, max(0.0, t))
+    return t * t * (3 - 2 * t)
+
+
+def gebied3d():
+    for venster in bpy.context.window_manager.windows:
+        for g in venster.screen.areas:
+            if g.type == "VIEW_3D":
+                return venster, g
+    return None, None
+
+
+def zicht(g, draai, kantel, afstand, punt):
+    rv = g.spaces.active.region_3d
+    rv.view_perspective = "PERSP"
+    rv.view_rotation = Euler((math.radians(kantel), 0.0, math.radians(draai)), "XYZ").to_quaternion()
+    rv.view_distance = afstand
+    rv.view_location = Vector(punt)
+
+
+def hoogte_px(g, objs):
+    from bpy_extras.view3d_utils import location_3d_to_region_2d
+    regio = next(r for r in g.regions if r.type == "WINDOW")
+    rv = g.spaces.active.region_3d
+    ys, xs = [], []
+    for o in objs:
+        for c in o.bound_box:
+            q = location_3d_to_region_2d(regio, rv, o.matrix_world @ Vector(c))
+            if q is not None:
+                ys.append(q.y)
+                xs.append(q.x)
+    if not ys:
+        return 0.0, regio.height
+    return max(ys) - min(ys), regio.height
+
+
+def sleutels(delen, frame):
+    for o in delen:
+        o.keyframe_insert("location", frame=frame)
+        o.keyframe_insert("rotation_quaternion", frame=frame)
+
+
+def maak_toets(delen, per_deel=500):
+    """Snelle botsingscheck: per deel één BVH in eigen ruimte (één keer), en per deel ±500 punten van het oppervlak.
+    Een punt van deel X zit in deel Y als het meer dan 0,6 mm van het oppervlak van Y ligt en een straal in twee
+    richtingen Y een oneven aantal keer raakt; vanaf 3 zulke punten telt het paar als botsing. Geeft een functie die de paren (X, Y) teruggeeft waarvan punten in elkaar zitten."""
+    from mathutils.bvhtree import BVHTree
+    dg = bpy.context.evaluated_depsgraph_get()
+    bomen, punten = {}, {}
+    for o in delen:
+        bomen[o.name] = BVHTree.FromObject(o, dg)
+        vs = o.data.vertices
+        stap = max(1, len(vs) // per_deel)
+        punten[o.name] = [vs[i].co.copy() for i in range(0, len(vs), stap)]
+
+    def binnen(boom, lp):
+        """Echt binnen: een straal in twee richtingen raakt het oppervlak een oneven aantal keer."""
+        for r in (Vector((0.013, 0.007, 1.0)).normalized(), Vector((1.0, 0.011, 0.017)).normalized()):
+            o_, k = lp.copy(), 0
+            while k < 40:
+                hit, _n, _i, _d = boom.ray_cast(o_, r)
+                if hit is None:
+                    break
+                k += 1
+                o_ = hit + r * 0.01
+            if k % 2 == 0:
+                return False
+        return True
+
+    def paren():
+        uit = set()
+        mw = {o.name: o.matrix_world.copy() for o in delen}
+        inv = {k: m.inverted() for k, m in mw.items()}
+        for x in delen:
+            wereld = [mw[x.name] @ c for c in punten[x.name]]
+            for y in delen:
+                if y is x:
+                    continue
+                boom, iv = bomen[y.name], inv[y.name]
+                diep = 0
+                for wp in wereld:
+                    lp = iv @ wp
+                    loc, nor, _i, d = boom.find_nearest(lp, 60.0)
+                    if loc is None or d < 0.6:
+                        continue
+                    if binnen(boom, lp):
+                        diep += 1
+                        if diep >= 3:
+                            uit.add(tuple(sorted((x.name, y.name))))
+                            break
+        return uit
+    return paren
+
+
+def schaal_pose(pose, t):
+    uit = {}
+    for k, v in pose.items():
+        uit[k] = [(a, g * t) for a, g in v] if isinstance(v, list) else v * t
+    return uit
+
+
+def kandidaten():
+    lijst = []
+    for sy in (1, -1):
+        for el in ((95.0, 55.0), (70.0, 35.0), (45.0, 20.0)):
+            for sx in (-18.0, 0.0):
+                lijst.append({
+                    "Left hip": [((0, 1, 0), -9.0)], "Right hip": [((0, 1, 0), 9.0)],
+                    "Left knee": 8.0, "Right knee": 8.0,
+                    "Left shoulder": [((1, 0, 0), sx), ((0, 1, 0), sy * 28.0)], "Left elbow": el[0],
+                    "Right shoulder": [((1, 0, 0), -sx * 0.6), ((0, 1, 0), -sy * 28.0)], "Right elbow": el[1],
+                    "Neck": [((0, 0, 1), -14.0), ((1, 0, 0), -5.0)],
+                })
+    return lijst
+
+
+def verloop_pro():
+    log(f"Blender {bpy.app.version_string}, zip {zip_pad}")
+    bpy.ops.extensions.package_install_files(filepath=zip_pad, repo="user_default", enable_on_install=True)
+    yield 1.0
+    try:
+        bpy.context.preferences.system.viewport_aa = "OFF"
+        for sc_ in bpy.data.scenes:
+            sc_.display.viewport_aa = "OFF"
+    except Exception as f:  # noqa: BLE001
+        log(f"KORT viewport_aa {f}")
+    ob, arm, p = figuur()
+    naam = ob.name
+    bpy.context.preferences.view.ui_scale = UI
+    bpy.context.preferences.view.show_tooltips = False
+    leeg_beeld()
+    venster, g3 = gebied3d()
+    ruimte = g3.spaces.active
+    # gewone Blender: kop van de weergave, assenkruis rechtsboven, vloerraster, standaard donkergrijze achtergrond
+    ruimte.show_region_header = True
+    ruimte.show_region_toolbar = False
+    ruimte.show_region_ui = True
+    ruimte.show_gizmo_navigate = True
+    ov = ruimte.overlay
+    ov.show_floor = ov.show_axis_x = ov.show_axis_y = True
+    ov.show_text = False
+    ov.show_cursor = False
+    ov.show_outline_selected = True
+    sh = ruimte.shading
+    sh.type = "SOLID"
+    sh.light = "STUDIO"
+    sh.color_type = "SINGLE"
+    sh.single_color = GRIJS[:3]
+    sh.background_type = "THEME"
+    try:
+        gr = bpy.context.preferences.themes[0].view_3d.space.gradients
+        gr.background_type = "SINGLE_COLOR"
+        gr.high_gradient = (0.188, 0.188, 0.188)
+    except Exception as f:  # noqa: BLE001
+        log(f"KORT thema {f}")
+    ruimte.clip_start, ruimte.clip_end = 1.0, 20000.0
+    ruimte.lens = 50.0
+    arm.hide_set(False)
+    geen_selectie()
+    bpy.context.view_layer.objects.active = None
+    midden = Vector((0.0, 0.0, 112.0))
+
+    # afstand meten zodat de robot ±72% van de hoogte vult (twee keer bijstellen; deze beelden knipt de montage weg)
+    D = 600.0
+    for _ in range(3):
+        zicht(g3, -50, 80.0, D, midden)
+        herteken()
+        yield 0.1
+        h, hr = hoogte_px(g3, [ob])
+        if h > 10:
+            D = D * h / (0.72 * hr)   # v8: kleiner dan v7 (0,80), want rechts staat het paneel
+    log(f"KORT afstand {D:.0f}")
+    film["metingen"]["afstand"] = round(D, 1)
+
+    # v8 (Thijs 27 nov 11:15): het N-paneel van Click Joints staat rechts open (echte klik op het tabblad vóór de
+    # film); de robot staat daarom links van het midden van het open stuk weergave.
+    _regio = next(r for r in g3.regions if r.type == "WINDOW")
+    _ui = next(r for r in g3.regions if r.type == "UI")
+    from bpy_extras.view3d_utils import location_3d_to_region_2d as _naar2d
+    zicht(g3, -55.0, 81.0, D, midden)
+    herteken()
+    yield 0.1
+    _rv = g3.spaces.active.region_3d
+    _rechts = _rv.view_rotation @ Vector((1.0, 0.0, 0.0))
+    _p0, _p1 = _naar2d(_regio, _rv, midden), _naar2d(_regio, _rv, midden + _rechts * 10.0)
+    UPP = 10.0 / max(1.0, (_p1 - _p0).length)            # wereldmaat per pixel op afstand D
+    SCHUIF_PX = min(105.0, _ui.width * 0.27)   # proef 13:50: met 196 px viel de hand links uit beeld
+    film["metingen"]["paneel_breed"] = _ui.width
+    log(f"KORT paneel {_ui.width} px, schuif {SCHUIF_PX:.0f} px")
+
+    _cam = {"terug": 99.0, "pose": 99.0}
+
+    def camera(t):
+        # zoals v7e (Thijs: "die van 20 sec is echt goed"), alleen sneller: eerst naar de zijkant voor de knie, dan
+        # rustig rond naar schuin rechts voor kleur en pose
+        draai = -55.0 - 30.0 * zacht(t / 3.6) + 140.0 * zacht((t - _cam["terug"]) / 6.2)
+        kantel = 81.0 - 5.0 * zacht(t / 11.0)
+        d = D * (1.0 - 0.08 * zacht(t / 11.5))
+        punt = midden + Vector((0.0, 0.0, 4.0 * zacht((t - _cam["pose"]) / 1.3)))
+        rv = g3.spaces.active.region_3d
+        rv.view_rotation = Euler((math.radians(kantel), 0.0, math.radians(draai)), "XYZ").to_quaternion()
+        rechts = rv.view_rotation @ Vector((1.0, 0.0, 0.0))
+        zicht(g3, draai, kantel, d, punt + rechts * (SCHUIF_PX * UPP * d / D))
+
+    T = {"t": 0.0}
+    _vk = globals().get("_VK")
+
+    def tik():
+        camera(T["t"])
+        T["t"] += 1.0 / FPS7
+    if _vk is not None:
+        _vk["elke"] = tik
+
+    def tot(sec):
+        """Laat de film lopen tot filmtijd sec (camera draait elke tik)."""
+        while T["t"] < sec - 1e-6:
+            yield 1.0 / FPS7
+
+    def doe_tot(sec, f):
+        t0 = T["t"]
+        while T["t"] < sec - 1e-6:
+            f((T["t"] - t0) / max(1e-6, sec - t0))
+            yield 1.0 / FPS7
+        f(1.0)
+
+    def scherm(p3):
+        """Schermplek (x, y) van een punt in de wereld, in de weergave zoals hij nu staat."""
+        q = _naar2d(_regio, g3.spaces.active.region_3d, p3)
+        if q is None:
+            return None
+        return int(venster.x + _regio.x + q.x), int(venster.y + venster.height - (_regio.y + q.y))
+
+    def naar(x, y, duur, boog=1.0):
+        """De echte muis glijdt (xdotool, per tik één stap) naar x, y."""
+        g = _glij(x, y, duur, boog)
+        while not g.klaar:
+            yield 1.0 / FPS7
+        MUIS["x"], MUIS["y"] = int(x), int(y)
+
+    def klik_hier():
+        subprocess.run(["xdotool", "click", "1"], check=False)
+        film["kliks"].append(round(T["t"], 3))
+
+    def klik_knop(x, y, gelukt, naam_):
+        """Echte klik op een knop van het paneel. Blender licht een knop pas op na een paar muisbewegingen erboven
+        (proef 27 nov 13:00: direct klikken deed niets), dus eerst 1 px heen en weer, dan klikken, dan kijken."""
+        _VK["rust"] = True   # geen redraw_timer tijdens de klik: die bouwt de knoppen elke tik opnieuw op
+        for poging in range(3):
+            for dx in (1, 0, 1, 0):
+                subprocess.run(["xdotool", "mousemove", str(x + dx), str(y)], check=False)
+                yield 1.0 / FPS7
+            klik_hier()
+            for _k in range(8):
+                yield 1.0 / FPS7
+                if gelukt():
+                    film["metingen"][f"klik_{naam_}"] = poging + 1
+                    _VK["rust"] = False
+                    return True
+            log(f"KORT klik {naam_} poging {poging + 1} niets")
+        film["metingen"][f"klik_{naam_}"] = 0
+        _VK["rust"] = False
+        return False
+
+    def zoek(tekst, vak=(680, 0, 400, 1920)):
+        """Echte plek van een knop in het paneel (tesseract op het scherm). Kost geen filmtijd."""
+        herteken()
+        _teken_nu()
+        x0, y0, b, h = vak
+        subprocess.run(["import", "-window", "root", "/tmp/cj_ocr8.png"], capture_output=True)
+        doel = tekst.lower().split()
+        for dr in ("60%", "45%", "30%"):
+            subprocess.run(["convert", "/tmp/cj_ocr8.png", "-crop", f"{b}x{h}+{x0}+{y0}", "+repage", "-colorspace",
+                            "Gray", "-resize", "200%", "-threshold", dr, "-negate", "/tmp/cj_ocr8_v.png"],
+                           capture_output=True)
+            r = subprocess.run(["tesseract", "/tmp/cj_ocr8_v.png", "stdout", "--psm", "11", "tsv"],
+                               capture_output=True, text=True)
+            regels = {}
+            for regel in r.stdout.splitlines()[1:]:
+                d_ = regel.split("\t")
+                if len(d_) == 12 and d_[11].strip():
+                    regels.setdefault((d_[2], d_[3], d_[4]), []).append(
+                        (d_[11].strip().lower().strip(".,:;()'\"|"), int(d_[6]) // 2, int(d_[7]) // 2,
+                         int(d_[8]) // 2, int(d_[9]) // 2))
+            # eerst alleen aan het begin van een regel (proef 14:05: "Bend" vond anders "Show bend range")
+            for alleen_begin in (True, False):
+                for ws in regels.values():
+                    ws.sort(key=lambda w: w[1])
+                    for i in ([0] if alleen_begin else range(len(ws) - len(doel) + 1)):
+                        if i + len(doel) <= len(ws) and all(ws[i + j][0] == doel[j] for j in range(len(doel))):
+                            s_ = ws[i:i + len(doel)]
+                            return (x0 + (min(w[1] for w in s_) + max(w[1] + w[3] for w in s_)) // 2,
+                                    y0 + (min(w[2] for w in s_) + max(w[2] + w[4] for w in s_)) // 2)
+        log(f"KORT zoek niet gevonden: {tekst!r}")
+        return None
+
+    def zoek_vast(tekst):
+        """Zoek pas als het paneel stilstaat: na een klik bouwt Blender het paneel een paar tikken later om (proef 27
+        nov 13:10: de knop schoof 123 px omlaag nadat de robot gekozen was)."""
+        vorig = zoek(tekst)
+        for _k in range(6):
+            yield 1.0 / FPS7
+            yield 1.0 / FPS7
+            nu = zoek(tekst)
+            if nu is not None and nu == vorig:
+                return nu
+            vorig = nu
+        return vorig
+
+    def _teken_nu():
+        try:
+            with bpy.context.temp_override(window=venster, screen=venster.screen):
+                bpy.ops.wm.redraw_timer(type="DRAW_WIN_SWAP", iterations=1)
+        except Exception:  # noqa: BLE001
+            pass
+
+    def zwerf(sec, gebied=(90, 520, 560, 1500)):
+        """Tussen de kliks rust de hand nooit helemaal: korte rustige bewegingen in de weergave."""
+        while T["t"] < sec - 0.25:
+            x = min(max(MUIS["x"] + _rnd.randint(-170, 170), gebied[0]), gebied[2])
+            y = min(max(MUIS["y"] + _rnd.randint(-140, 140), gebied[1]), gebied[3])
+            yield from naar(x, y, min(sec - T["t"], _rnd.uniform(0.45, 0.8)))
+        yield from tot(sec)
+
+    _oud_teken = globals()["_teken"]
+
+    def _teken_rust():
+        if _VK.get("rust"):
+            herteken()
+            return
+        _oud_teken()
+    globals()["_teken"] = _teken_rust
+    camera(0.0)
+    herteken()
+    yield 0.2
+    # vóór de film (de montage knipt dit weg): echte klik op het tabblad Click Joints van de zijbalk
+    arm.hide_select = True   # anders pakt een klik op de robot het skelet (dat tekent erdoorheen)
+    log(f"KORT ui x {_ui.x} y {_ui.y} b {_ui.width} h {_ui.height}, venster {venster.width}x{venster.height}")
+    for poging in range(8):
+        if _ui.active_panel_category == "Click Joints":
+            break
+        if poging < 3:
+            subprocess.run(["xdotool", "mousemove", "1062", str(350 + 25 * poging), "click", "1"], check=False)
+        else:   # zoals een gebruiker: Ctrl + wiel boven de tabbladen
+            subprocess.run(["xdotool", "mousemove", "1062", "300", "keydown", "ctrl", "click",
+                            "5" if poging < 6 else "4", "keyup", "ctrl"], check=False)
+        yield 0.4
+    log(f"KORT tabblad {_ui.active_panel_category} na {poging} poging(en)")
+    yield 0.3
+    try:
+        bpy.context.preferences.inputs.use_mouse_continuous = False   # muis blijft zichtbaar tijdens het slepen
+    except Exception as f:  # noqa: BLE001
+        log(f"KORT continuous {f}")
+    MUIS["x"], MUIS["y"] = 300, 1350
+    xdo("mousemove", "300", "1350")
+    yield 0.2
+
+    deel("start")
+    # 0,0 s: de hand gaat naar de robot en klikt hem aan (echte selectie)
+    buik = scherm(midden + Vector((0.0, 0.0, 8.0)))
+    yield from naar(buik[0], buik[1], 0.30)
+    yield from tot(0.30)
+    klik_hier()
+    for _k in range(12):
+        yield 1.0 / FPS7
+        if bpy.context.view_layer.objects.active == ob:
+            break
+    log(f"KORT selectie na {_k + 1} tikken: actief {getattr(bpy.context.view_layer.objects.active, 'name', None)}, "
+        f"klik op {buik}, gekozen {[o.name for o in bpy.context.selected_objects]}")
+    if os.environ.get("CJ_PROEF") == "2":
+        subprocess.run(["import", "-window", "root", os.path.join(scherm_basis.uitmap, "sel.png")])
+        return
+    if bpy.context.view_layer.objects.active != ob:
+        log("KORT vangnet selectie: script maakt de robot actief")
+        A["actief"](ob)
+    film["metingen"]["selectie_echt"] = bpy.context.view_layer.objects.active == ob
+    knop_fig = (yield from zoek_vast("Figure from rig")) or (869, 1129)
+    film["metingen"]["knop_figuur"] = list(knop_fig)
+    log(f"KORT knop Figure from rig op {knop_fig}")
+    # Figure from rig: echte klik op de knop van Pro (Blender rekent, kost in de film 0 s)
+    yield from naar(knop_fig[0], knop_fig[1], 0.38)
+    yield from tot(0.68)
+    deel("knop")
+    fig = importlib.import_module("bl_ext.user_default.click_joints.betaald.figuur")
+    yield from klik_knop(knop_fig[0], knop_fig[1],
+                         lambda: len(fig.figuur_gewrichten(bpy.context.scene.objects, naam)) >= 6, "figuur")
+    lijst = fig.figuur_gewrichten(bpy.context.scene.objects, naam)
+    if os.environ.get("CJ_PROEF") == "3":
+        log(f"KORT PROEF3 figuur {len(lijst)}")
+        subprocess.run(["import", "-window", "root", os.path.join(scherm_basis.uitmap, "p3.png")])
+        return
+    if len(lijst) < 6:
+        log("KORT vangnet knop: script drukt Figure from rig")
+        A["actief"](ob)
+        bpy.ops.click_joints.figuur_uit_rig()
+        lijst = fig.figuur_gewrichten(bpy.context.scene.objects, naam)
+        film["metingen"]["knop_echt"] = False
+    else:
+        film["metingen"]["knop_echt"] = True
+    arm.hide_set(True)
+    film["metingen"]["gewrichten"] = len(lijst)
+    film["metingen"]["regels"] = [fig.regel(r) for r in lijst]
+    log(f"KORT {'OK' if len(lijst) >= 6 else 'FOUT'} knop {len(lijst)} gewrichten")
+    delen = [o for o in bpy.context.scene.objects if o.get("cj_figuur") and o.type == "MESH" and o.visible_get()]
+    film["metingen"]["delen"] = len(delen)
+    sh.color_type = "RANDOM"
+
+    # Exploded view: echte klik aan, even kijken, echte klik uit
+    inst = bpy.context.scene.click_joints
+    knop_uit = (yield from zoek_vast("Exploded view")) or (881, 557)
+    film["metingen"]["knop_uit"] = list(knop_uit)
+    yield from naar(knop_uit[0], knop_uit[1], 0.30)
+    yield from tot(1.15)
+    deel("uitelkaar")
+    yield from klik_knop(knop_uit[0], knop_uit[1], lambda: inst.uit_elkaar, "uit_aan")
+    if not inst.uit_elkaar:
+        log("KORT vangnet uit elkaar aan")
+        inst.uit_elkaar = True
+    film["metingen"]["uit_echt"] = True
+    yield from naar(knop_uit[0] - 70, knop_uit[1] + 30, 0.35)
+    yield from naar(knop_uit[0] + 6, knop_uit[1] + 2, 0.25)
+    yield from tot(1.90)
+    yield from klik_knop(knop_uit[0], knop_uit[1], lambda: not inst.uit_elkaar, "uit_uit")
+    if inst.uit_elkaar:
+        log("KORT vangnet uit elkaar uit")
+        inst.uit_elkaar = False
+
+    # materialen: per deel een eigen kopie (voor deel voor deel kleur), eerst alles grijs
+    for o in delen:
+        o.rotation_mode = "QUATERNION"
+    R.kleur_herstel(delen)
+    S.plastic(delen, gewricht="contrast", gewricht_kleur=R.GEWRICHT)
+    echt = {}
+    for o in delen:
+        for i, m in enumerate(o.data.materials):
+            if m is None:
+                continue
+            c = m.copy()
+            o.data.materials[i] = c
+            echt[c.name] = tuple(c.diffuse_color)
+            c.diffuse_color = GRIJS
+    deel("grijs_mat")
+    sh.color_type = "MATERIAL"
+
+    a, b = paar("Right knee")
+    if a is None or b is None:
+        a, b = paar("Left knee")
+    if a is not None and b is not None:
+        stop = float(a["cj_bereik_graden"])
+        film["metingen"]["knie_stop"] = stop
+        s = math.floor(stop * 10) / 10
+        # v7d (Daan #232 K1): het label "Right knee 0-120°" en "+N° past limit" van Pro anderhalf keer zo groot,
+        # zodat ze op een telefoon leesbaar zijn. Alleen de tekstmaat van de echte overlay, verder niets.
+        import sys as _sys
+        _sb = [m for n, m in list(_sys.modules.items()) if n.endswith(".betaald.scharnier_boog")]
+        _oud = [(m, m.FIGUUR_PX, m.ROOD_PX) for m in _sb]
+        for m in _sb:
+            m.FIGUUR_PX, m.ROOD_PX = int(m.FIGUUR_PX * 1.5), int(m.ROOD_PX * 1.5)
+        log(f"KORT labels groter: {len(_sb)} module(s)")
+        # v7e (Daan #234 M1 en K1): de grotere pil "+N° past limit" schoof tegen de linkerrand (x = 2). Zelfde
+        # zoekregel als Pro (_rood_plek), maar met 56 px marge tot elke rand, en de plek die eenmaal gekozen is
+        # blijft staan zolang hij vrij is (anders sprong hij van boven het been naar onder de boog).
+        _oud_plek = [(m, m._rood_plek) for m in _sb]
+        _vast = {}
+
+        def _maak_plek(mod):
+            def plek(regio, rv3d, q, uit, delen, tekst_, px, schaal):
+                import blf
+                from bpy_extras.view3d_utils import location_3d_to_region_2d as naar2d
+                blf.size(0, px)
+                breed, hoog = blf.dimensions(0, tekst_)
+                hullen = [mod._omhulsel([naar2d(regio, rv3d, d.matrix_world @ Vector(h)) for h in d.bound_box])
+                          for d in delen]
+                rand, marge = 8.0 * schaal, 56.0
+
+                def proef(t, g):
+                    r = math.radians(g)
+                    rich = Vector((uit.x * math.cos(r) - uit.y * math.sin(r), uit.x * math.sin(r) + uit.y * math.cos(r)))
+                    m_ = q["pose_eind"] + rich * (t * schaal)
+                    x0, x1 = m_.x - breed / 2 - rand, m_.x + breed / 2 + rand
+                    y0, y1 = m_.y - hoog / 2 - rand, m_.y + hoog / 2 + rand
+                    if x0 < marge or y0 < marge or x1 > regio.width - marge or y1 > regio.height - 100.0 * schaal:
+                        return None
+                    pr = [(x, y) for x in (x0, m_.x, x1) for y in (y0, m_.y, y1)]
+                    if q["label"] is not None and (m_ - q["label"]).length < breed / 2 + 40.0 * schaal:
+                        return None
+                    if any(mod._binnen(h, x, y) for h in hullen for x, y in pr):
+                        return None
+                    if any(x0 <= hx <= x1 and y0 <= hy <= y1 for h in hullen for hx, hy in h):
+                        return None
+                    return m_
+                if "tg" in _vast:
+                    m_ = proef(*_vast["tg"])
+                    if m_ is not None:
+                        _vast["x0"] = min(_vast.get("x0", 9e9), m_.x - breed / 2)
+                        return m_, True, (breed, hoog)
+                for t in [70.0 + 30.0 * i for i in range(40)]:
+                    for g in sorted(range(-180, 180, 15), key=abs):
+                        m_ = proef(t, g)
+                        if m_ is not None:
+                            _vast["tg"] = (t, g)
+                            _vast["wissel"] = _vast.get("wissel", 0) + 1
+                            _vast["x0"] = min(_vast.get("x0", 9e9), m_.x - breed / 2)
+                            return m_, True, (breed, hoog)
+                return mod.__dict__["_rood_plek_oud"](regio, rv3d, q, uit, delen, tekst_, px, schaal)
+            return plek
+        for m, f in _oud_plek:
+            m._rood_plek_oud = f
+            m._rood_plek = _maak_plek(m)
+        # echte klik op het onderbeen (kiest het deel), dan de echte sleep op de schuif Bend van Pro
+        _hoeken = [b.matrix_world @ Vector(c) for c in b.bound_box]
+        _z0, _z1 = min(h.z for h in _hoeken), max(h.z for h in _hoeken)
+        _m = sum(_hoeken, Vector()) / 8.0
+        been = scherm(Vector((_m.x, _m.y, _z0 + 0.4 * (_z1 - _z0))))
+        yield from naar(been[0], been[1], 0.32)
+        deel("knie")
+        klik_hier()
+        for _k in range(6):
+            yield 1.0 / FPS7
+            if bpy.context.view_layer.objects.active == b:
+                break
+        log(f"KORT onderbeen klik op {been}: actief {getattr(bpy.context.view_layer.objects.active, 'name', None)}, "
+            f"doel {b.name}")
+        if bpy.context.view_layer.objects.active != b:
+            log("KORT vangnet onderbeen: script kiest het deel")
+            geen_selectie()
+            A["actief"](b)
+        film["metingen"]["been_echt"] = bpy.context.view_layer.objects.active == b
+        schuif = yield from zoek_vast("Bend")
+        log(f"KORT schuif Bend op {schuif}")
+        film["metingen"]["schuif"] = list(schuif) if schuif else None
+        wm = bpy.context.window_manager
+
+        def graden():
+            return float(b.get("cj_pose_graden", 0.0) or 0.0)
+        echt_sleep = schuif is not None
+        if echt_sleep:
+            sx, sy = venster.x + _ui.x + 40, schuif[1]
+            yield from naar(sx, sy, 0.30)
+            for dx in (1, 0, 1, 0):
+                subprocess.run(["xdotool", "mousemove", str(sx + dx), str(sy)], check=False)
+                yield 1.0 / FPS7
+            _VK["rust"] = True   # geen redraw_timer tijdens de sleep (proef 13:40: met redraw_timer bleef Bend 0)
+            subprocess.run(["xdotool", "mousedown", "1"], check=False)
+            k0 = T["t"]
+            x = float(sx)
+            rechts_max = venster.x + _ui.x + _ui.width - 30
+
+            def sleep_naar(doel, tot_sec):
+                """Echt slepen tot Bend het doel haalt (Blender rekent zelf de waarde uit de muis)."""
+                nonlocal x
+                while T["t"] < tot_sec - 1e-6:
+                    over = max(1, round((tot_sec - T["t"]) * FPS7))
+                    nu = graden()
+                    if (doel - nu) * (1 if doel >= nu else -1) <= 0.5:
+                        yield 1.0 / FPS7
+                        continue
+                    stap = (doel - nu) / over
+                    px_per = _VK.setdefault("px_per_graad", 3.0)
+                    x = min(max(x + stap * px_per, venster.x + _ui.x + 8), rechts_max)
+                    voor = nu
+                    subprocess.run(["xdotool", "mousemove", str(int(round(x))), str(int(sy))], check=False)
+                    MUIS["x"], MUIS["y"] = int(round(x)), int(sy)
+                    yield 1.0 / FPS7
+                    na = graden()
+                    if abs(na - voor) > 0.3 and abs(stap) > 0.3:
+                        _VK["px_per_graad"] = max(0.3, min(20.0, 0.7 * px_per + 0.3 * abs(stap * px_per / (na - voor))))
+            yield from sleep_naar(s, k0 + 0.85)
+            if graden() < 1.0:
+                # de sleep pakte niet: los laten en de waarde echt intypen in het veld Bend (klik, typen, Enter)
+                subprocess.run(["xdotool", "mouseup", "1"], check=False)
+                film["metingen"]["knie_getypt"] = True
+                log("KORT sleep pakte niet, Bend wordt getypt")
+
+                def typ(waarde):
+                    for dx in (1, 0, 1, 0):
+                        subprocess.run(["xdotool", "mousemove", str(sx + 140 + dx), str(sy)], check=False)
+                        yield 1.0 / FPS7
+                    klik_hier()
+                    for _k in range(3):
+                        yield 1.0 / FPS7
+                    subprocess.run(["xdotool", "key", "ctrl+a"], check=False)
+                    yield 1.0 / FPS7
+                    for ch in str(waarde):
+                        subprocess.run(["xdotool", "type", ch], check=False)
+                        yield 1.0 / FPS7
+                    subprocess.run(["xdotool", "key", "Return"], check=False)
+                    for _k in range(3):
+                        yield 1.0 / FPS7
+
+                def sleep_naar(doel, tot_sec):   # noqa: F811 (zelfde naam, nu met typen)
+                    yield from typ(int(round(doel)))
+                    yield from tot(tot_sec)
+                yield from sleep_naar(s, k0 + 0.85)
+            film["metingen"]["knie_sleep_stop"] = round(graden(), 1)
+            yield from tot(k0 + 1.05)
+            deel("knie_rood")
+            yield from sleep_naar(s + 15.0, k0 + 1.40)
+            film["metingen"]["knie_sleep_rood"] = round(graden(), 1)
+            film["metingen"]["knie_rood_vlakken"] = len(a.get("cj_rood_vlakken", [])) // 2
+            yield from tot(k0 + 1.90)
+            yield from sleep_naar(0.0, k0 + 2.30)
+            subprocess.run(["xdotool", "mouseup", "1"], check=False)
+            _VK["rust"] = False
+            film["metingen"]["knie_sleep_terug"] = round(graden(), 1)
+            log(f"KORT sleep stop {film['metingen']['knie_sleep_stop']} rood {film['metingen']['knie_sleep_rood']} "
+                f"terug {film['metingen']['knie_sleep_terug']} px/graad {_VK.get('px_per_graad')}")
+            if abs(film["metingen"]["knie_sleep_stop"] - s) > 6 or film["metingen"]["knie_sleep_rood"] < s + 5:
+                log("KORT LET OP sleep haalde het doel niet")
+        else:
+            log("KORT vangnet knie: geen schuif gevonden, script buigt")
+            k0 = T["t"]
+            yield from doe_tot(k0 + 0.85, lambda t: buig(b, s * zacht(t)))
+            yield from tot(k0 + 1.05)
+            yield from doe_tot(k0 + 1.4, lambda t: buig(b, s + 15.0 * zacht(t)))
+            film["metingen"]["knie_rood_vlakken"] = len(a.get("cj_rood_vlakken", [])) // 2
+            yield from tot(k0 + 1.9)
+            yield from doe_tot(k0 + 2.3, lambda t: buig(b, (s + 15.0) * (1 - zacht(t))))
+        film["metingen"]["knie_echt"] = echt_sleep
+        if abs(graden()) > 0.5:
+            buig(b, 0.0)
+        for m, f_, r_ in _oud:
+            m.FIGUUR_PX, m.ROOD_PX = f_, r_
+        for m, f in _oud_plek:
+            m._rood_plek = f
+        film["metingen"]["pil_plekken"] = _vast.get("wissel", 0)
+        film["metingen"]["pil_min_x_tekst"] = round(_vast.get("x0", -1), 1)
+        log(f"KORT pil plekken {_vast.get('wissel', 0)} min x {_vast.get('x0', -1)}")
+    else:
+        log("KORT FOUT knie: geen linkerknie")
+    # echte klik op een lege plek in de weergave: niets gekozen
+    yield from naar(170, 1660, 0.30)
+    klik_hier()
+    yield 1.0 / FPS7
+    yield 1.0 / FPS7
+    TK = T["t"] - 5.6
+    _cam["terug"], _cam["pose"] = T["t"] - 0.3, TK + 9.4   # alles hierna schuift mee met de echte duur van de kliks hiervoor
+    film["metingen"]["verschuiving"] = round(TK, 2)
+    if any(o.select_get() for o in delen):
+        log("KORT vangnet leeg: script haalt de selectie weg")
+    geen_selectie()
+    bpy.context.view_layer.objects.active = None
+    inst.toon_bereik = False   # proef 1: de waaier en "Right knee 0-120°" bleven anders tot het eind in beeld
+
+    def scharnier(n, gr_):
+        _a, bb = paar(n)
+        if bb is not None:
+            buig(bb, gr_)
+            bpy.context.view_layer.update()
+
+    # pose kiezen met de botsingscheck: in de rusthouding rakende paren (gewrichten) mogen, nieuwe niet;
+    # onderarmen (deel B van de ellebogen) mogen niets raken behalve hun eigen bovenarm
+    R.poseer(delen, {}, scharnier=scharnier)
+    raakparen = maak_toets(delen)
+    rust = raakparen()
+    onder = [x for x in (paar("Left elbow")[1], paar("Right elbow")[1]) if x is not None]
+    eigen = {x.name: (paar(x["cj_naam"])[0].name if paar(x["cj_naam"])[0] else "") for x in onder}
+    beste, beste_n, uitslag = None, 99, []
+    # v7b (Daan #217 M3): eerst de vaste open pose uit poses7.py (CJ_POSE), daarna de andere; de oude lijst alleen als
+    # reserve. Dezelfde pose gaat naar de weergave en naar eind.blend (Cycles).
+    eerst = os.environ.get("CJ_POSE", "g_zwaai_achter_loop")
+    lijst = [POSES[eerst]] + [v for k, v in POSES.items() if k != eerst] + kandidaten()
+    for i, kand in enumerate(lijst):
+        R.poseer(delen, kand, scharnier=scharnier)
+        nu = raakparen()
+        nieuw = nu - rust
+        arm_hits = [pr for pr in nu if any(n in pr for n in eigen) and not any(set(pr) == {k, v} for k, v in eigen.items())]
+        n = len(nieuw) + len(arm_hits)
+        uitslag.append({"nr": i, "nieuw": sorted(nieuw), "onderarm": sorted(arm_hits)})
+        if n < beste_n:
+            beste, beste_n = kand, n
+        log(f"KORT pose kandidaat {i}: {n}")
+        if n == 0:
+            break
+    film["metingen"]["pose_check"] = uitslag
+    film["metingen"]["pose_botsingen"] = beste_n
+    log(f"KORT pose gekozen met {beste_n} botsingen ({len(uitslag)} geprobeerd)")
+    POSE = beste
+    film["metingen"]["pose"] = {k: v for k, v in POSE.items()}
+    film["metingen"]["pose_naam"] = next((k for k, v in POSES.items() if v is POSE), "reserve")
+    R.poseer(delen, {}, scharnier=scharnier)
+    geen_selectie()
+    bpy.context.view_layer.objects.active = None
+
+    # deel voor deel kleur (van de voeten naar het hoofd), elke ±0,3 s een deel
+    volg = sorted(delen, key=lambda o: (o.matrix_world @ Vector(o.bound_box[0])).z + o.dimensions.z / 2)
+    deel("kleur")
+    t0, t1 = TK + 5.7, TK + 8.5
+    _zw = {"x": None}
+    for k, o in enumerate(volg):
+        # de hand wijst mee langs de delen die kleur krijgen
+        doel_t = t0 + (t1 - t0) * k / max(1, len(volg))
+        p_ = scherm(o.matrix_world @ (sum((Vector(c) for c in o.bound_box), Vector()) / 8.0))
+        if p_ is not None and doel_t - T["t"] > 0.12:
+            yield from naar(min(max(p_[0] - 90, 60), 640), min(max(p_[1], 400), 1800), doel_t - T["t"] - 0.03, boog=0.6)
+        yield from tot(doel_t)
+        for m in o.data.materials:
+            if m is not None and m.name in echt:
+                m.diffuse_color = echt[m.name]
+    for o in delen:
+        for m in o.data.materials:
+            if m is not None and m.name in echt:
+                m.diffuse_color = echt[m.name]
+    yield from tot(TK + 8.7)
+    deel("schaduw")
+    sh.show_shadows = True
+    sh.show_cavity = True
+    ov.show_floor = True
+    yield from naar(330, 1500, 0.25)
+    yield from tot(TK + 8.95)
+
+    # pose: van rechtop naar de gekozen pose
+    deel("pose")
+    rood_max = {"n": 0}
+
+    def zet(t):
+        R.poseer(delen, schaal_pose(POSE, zacht(t)), scharnier=scharnier)
+        geen_selectie()
+        bpy.context.view_layer.objects.active = None   # proef 2: anders tekent Pro de waaier van de laatste knie
+        rood_max["n"] = max(rood_max["n"], sum(len(o.get("cj_rood_vlakken", [])) // 2 for o in delen))
+    yield from doe_tot(TK + 10.25, zet)
+    film["metingen"]["pose_rood_vlakken"] = rood_max["n"]
+    log(f"KORT pose rood {rood_max['n']}")
+    yield from zwerf(TK + 11.6, (120, 900, 600, 1650))
+    deel("eind_weergave")
+    if _vk is not None:
+        _vk["elke"] = None
+    log("KORT OK weergave")
+
+    # eind.blend: Cycles-film, camera vliegt langzaam om de geposeerde robot, hele figuur met lucht erom
+    sc = bpy.context.scene
+    for o in delen:
+        o.animation_data_clear()
+    S.bouw(220.0)
+    cam_ob = S.camera()
+    cam_ob.rotation_mode = "XYZ"
+    n = int(EIND_SEC * 30)
+    sc.frame_start, sc.frame_end = 1, n
+    sc.render.fps = 30
+    # proef 1 (GEZIEN): matrix_world is pas na een update bijgewerkt, dus de sleutels stonden alle op 0 (camera in de
+    # wand). Daarom location en rotatie zelf overnemen.
+    # v7b (Daan #217 K1): meer draai, 60 graden over de eindfilm, aan dezelfde kant als waar de weergave eindigt
+    # (draai ±57 graden), van schuin rechts van de robot naar voren
+    S.richt(cam_ob, delen, "staand", draai=62, kantel=6, vul=0.82, midden_y=0.52)
+    l0, q0 = cam_ob.location.copy(), cam_ob.rotation_euler.to_quaternion()
+    S.richt(cam_ob, delen, "staand", draai=2, kantel=9, vul=0.84, midden_y=0.52)
+    l1, q1 = cam_ob.location.copy(), cam_ob.rotation_euler.to_quaternion()
+    film["metingen"]["eind_camera"] = [list(l0), list(l1)]
+    cam_ob.rotation_mode = "QUATERNION"
+    for f in range(1, n + 1, 6):
+        t = zacht((f - 1) / (n - 1))
+        cam_ob.location = l0.lerp(l1, t)
+        cam_ob.rotation_quaternion = q0.slerp(q1, t)
+        cam_ob.keyframe_insert("location", frame=f)
+        cam_ob.keyframe_insert("rotation_quaternion", frame=f)
+    sc.render.image_settings.file_format = "PNG"
+    sc.render.filepath = "//e_"
+    sc.render.engine = "CYCLES"
+    sc.cycles.device = "CPU"
+    sc.cycles.samples = int(os.environ.get("CJ_EIND_SAMPLES", "40"))
+    sc.cycles.use_denoising = True
+    sc.render.use_persistent_data = True
+    sc.render.resolution_x, sc.render.resolution_y, sc.render.resolution_percentage = 1080, 1920, 100
+    for o in bpy.data.objects:   # v7b: verborgen tussenstappen van het snijden ook uit de render (zie eind_fix.py)
+        if o.type == "MESH" and not o.visible_get():
+            o.hide_render = True
+    bpy.ops.wm.save_as_mainfile(filepath=os.path.join(scherm_basis.uitmap, "eind.blend"), copy=True)
+    log(f"KORT OK eind {n} beelden (eind.blend)")
+

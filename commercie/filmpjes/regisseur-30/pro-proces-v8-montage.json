@@ -1,0 +1,19 @@
+{
+ "duur": 18.8,
+ "weergave_s": 12.3,
+ "eind_s": 6.5,
+ "boven": [
+  "This changes how you",
+  "3D print poseable figures:"
+ ],
+ "boven_tot": 9.0,
+ "slot": [
+  "Click Joints Pro,",
+  "add-on for Blender"
+ ],
+ "slot_s": 3.0,
+ "muziek": {
+  "pro-proces-v8": "Need for speed (Mixkit, mixkit.co, Stock Music Free License)"
+ },
+ "bron": "lokale opname in de Regisseur-sessie van 27 nov ±12:10 (Blender 5.3.0, Click Joints Pro 1.2.8, Xvfb 1080x1920, verloop8.py), Cycles-eind uit run 45896469352 (release regisseur-29, eind.mp4)"
+}

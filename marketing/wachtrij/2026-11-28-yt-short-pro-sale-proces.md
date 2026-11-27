@@ -1,4 +1,23 @@
-# Sale-Short Click Joints Pro (procesvorm v7b): From rig to poseable figure in Blender 🤖
+# Short Click Joints Pro (procesvorm v8): From rig to poseable figure in Blender 🤖
+
+- **status (27 nov 12:25 NL): v8 klaar voor keuring door Daan; eerste beeld naar de blinde test (set `pro-proces-v8`).** Film: `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces-v8.mp4`. Gaat voor v7e (Thijs 27 nov 11:05 tot 11:25: nieuwe hook, geen sale in beeld, sneller met echte muis en paneel, andere muziek).
+- **wat v8 anders doet dan v7e:** de echte interface met het N-paneel van Click Joints Pro rechts open en een zichtbare muis die echt klikt en sleept, in de echte Blender 5.3.0 met Click Joints Pro 1.2.8 (Xvfb 1080x1920, beeld voor beeld op een klok van 1/30 s, zoals v7e). Echt gedaan met de muis (GEZIEN, `commercie/filmpjes/regisseur-30/film-v8.json` en het log, 0 vangnetten): klik op het tabblad Click Joints (vóór seconde 0), klik op de robot (selectie), klik op Figure from rig (9 gewrichten), klik op Exploded view aan en weer uit, klik op het rechteronderbeen, echte sleep op de schuif Bend van Pro tot 120,3 graden (de stop van 120), door tot 134,9 graden (13 rode vlakken, "+N° past limit" van Pro) en terug naar 0, klik op een lege plek. Door het script gezet (geen knop in Pro): de draai van de weergave, de kleuren deel voor deel (de muis wijst mee), schaduw en de pose. Die pose is dezelfde als in v7e (`g_zwaai_achter_loop`, 0 botsingen, 0 rood), dus de Cycles-eindfilm van v7e (run 45896469352) past er precies achter.
+- **muiswijzer:** mss pakt het scherm zonder cursor; de montage zet het echte cursorbeeld van de X-server (DMZ-White, 48 px) op de plek waar de muis per beeld echt stond (`muis.txt`), zoals ffmpeg x11grab dat ook doet.
+- **muis en knoppen gevonden met tesseract op het echte scherm**, niet met vaste plekken (behalve het tabblad).
+- hook bovenin tot 9 s: "This changes how you / 3D print poseable figures:" (letterlijk Thijs). Eind (laatste 3 s): "Click Joints Pro, / add-on for Blender". Geen sale in beeld; sale en link in de beschrijving en de vastgepinde reactie (hoofdchat).
+- **muziek:** "Need for speed" van Mixkit (hip-hop, ±110 bpm, GEZIEN gemeten), vanaf 11,5 s in het nummer, dus vol vanaf seconde 0 met een vaste tel; in de film gemiddeld -12,9 dB (het voorbeeld ±-13 dB, meting hoofdchat). Licentie: Mixkit Stock Music Free License (DERDEN, https://mixkit.co/license/#musicFree, met curl gelezen 27 nov): toegestaan in YouTube-video's en social video posts, ook commercieel, gratis, geen naamsvermelding nodig; niet toegestaan: losse muziek-remix, cd/dvd, tv/radio, games, registreren bij een rechtenbeheerder. Pixabay gaf 403 op curl (GEZIEN), dus niet gebruikt.
+- **kandidaten (gemeten, niet beluisterd: ik kan niet luisteren; meting met ffmpeg per halve seconde en een tempo-schatting):**
+  1. Need for speed (Mixkit 267, hip-hop): ±110 bpm, vol vanaf 11,5 s, gelijkmatig. Gekozen: hip-hop beat zoals in snelle Blender- en maakfilmpjes, tempo midden in 100 tot 130.
+  2. Sports Highlights (Mixkit 989): ±120 bpm, de strakste tel van allemaal, maar de naam en het genre klinken als standaard sportmuziek; reserve.
+  3. Stylz (Mixkit 726, electronic): ±134 bpm, strak en luid, net boven de 130; reserve.
+  4. Kraft Twerk (Mixkit 721): ±117 bpm, maar minder gelijkmatig (spreiding 2,4 dB); niet.
+  5. Uplifting Bass (Mixkit 136): heel luid en strak, maar ±97 bpm en EDM-drops; niet.
+  6. Trapanomics (Mixkit 476): luid en gelijkmatig, maar ±95 bpm; niet.
+  Niemand van ons heeft ze beluisterd. Klinkt 1 slecht voor Daan of de hoofdchat: dan wordt het 2 of 3 (`montage8.py` maakt die versies in een halve minuut uit dezelfde opname).
+- kanaal: yt-short; product: click-joints-pro; issue: #159
+- plaatsen: na keuring Daan en GESLAAGD in de blinde test; de saleregel en salelink alleen in de beschrijving zolang CYBER25 aanstaat (`bash platformen/blender/sale-controle.sh`), daarna de regel met 25% weghalen.
+
+## Eerder (v7 tot v7e)
 
 - **status (27 nov 10:20 NL): klaar om te plakken. Blinde test eerste beeld GESLAAGD (Gemini plek 1, uitslag `pro-sale-proces-v7-2026-11-27-1006.md`), Daan ja 8.**
 - **status (27 nov ±03:40 NL): de film is v7e** (`marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces-v7e.mp4`, muziek 1 Dreamer). Daan ja, 8 (#234, M1 dicht in v7e met x = 81). Opnieuw zelf gecontroleerd (GEZIEN, 03:35): 20,0 s, 1080x1920, 30/1, 600 beelden, 0 afwijkende tijdstempelstappen; geluid_check GOED (-18,1 dB, piek -1,4); eerste beeld groot, 20 beelden op 1 per s en het eindbeeld met saleregel bekeken. **Enige rem: eerste beeld nog niet GESLAAGD**, de blinde test heeft geen tegoed (run 45925747232 om 03:00: "niets getest"). v7b, v7c, v7d en de oude `...-proces.mp4` niet meer gebruiken.
@@ -29,8 +48,7 @@ Rig in, poseable figure out. Click Figure from rig in Click Joints Pro: knees an
 
 Print the Fit test strip first: every printer is different.
 Click Joints Pro, 25% off this week (until Tuesday December 1, 23:59 CET):
-https://duinhouwer8.gumroad.com/l/click-joints-pro/CYBER25?utm_source=yt&utm_medium=video
+https://duinhouwer8.gumroad.com/l/click-joints-pro/CYBER25
 
-Music: "Dreamer" Kevin MacLeod (incompetech.com), licensed under Creative Commons: By Attribution 4.0, https://creativecommons.org/licenses/by/4.0/
+Music: "Need for speed" from Mixkit (mixkit.co), Mixkit Stock Music Free License
 ```
-(Kiest Thijs muziek 2 of 3: zet "Floating Cities" of "Lasting Hope" in de regel Music.)
