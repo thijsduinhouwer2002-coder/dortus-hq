@@ -123,7 +123,9 @@ def maak(basis, W, H, meta, dy, schaal_xy):
 
         def p(naam):
             q = lab[naam]
-            return (q["x"] * schaal_xy[0], q["y"] * schaal_xy[1] - dy)
+            # #285: TK_PUNT_DY schuift het punt (px op 2400 breed) naar het gewricht zelf, als het goud alleen in de kom zit
+            ddy = json.loads(os.environ.get("TK_PUNT_DY", "{}")).get(naam, 0) * W / 2400
+            return (q["x"] * schaal_xy[0], q["y"] * schaal_xy[1] - dy + ddy)
 
         def graden(naam, soort):
             g = lab[naam].get("graden")
@@ -132,6 +134,8 @@ def maak(basis, W, H, meta, dy, schaal_xy):
             regel = next((r for r in meta.get("gewrichten", []) if r.startswith(naam + " ")), "")
             return regel.split(" · ")[2] if regel.count(" · ") >= 2 else ""
         keus = [("Left shoulder", "Ball", "r"), ("Left elbow", "Hinge", "r"), ("Left knee", "Hinge", "r")]
+        if "Left shoulder" not in lab and "Left hip" in lab:   # #285 held: geen schouderkogel, dan de heupkogel
+            keus[0] = ("Left hip", "Ball", "r")
         for naam, woord, kant in keus:
             if naam in lab:
                 zak = json.loads(os.environ.get("TK_ZAK", "{}")).get(naam, 0)

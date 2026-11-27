@@ -97,6 +97,8 @@ def figuur():
     arm, ob, _p = FL.laad_figuur(keuze, 220.0)
     if keuze == "mens":
         meting["figuur"] = "MakeHuman base mesh (CC0 1.0, commercie/filmpjes/studio/modellen/makehuman-base-LICENTIE.md), aangekleed door figuur_laden.py"
+    elif keuze not in ("robot", "tekenpop"):   # #285: eigen .blend of .glb met rig
+        meting["figuur"] = os.environ.get("HB_FIGUUR_BRON", keuze)
     inst = bpy.context.scene.click_joints
     inst.speling_mm, inst.as_bron, inst.uit_elkaar, inst.kogel_auto = 0.2, "CURSOR", False, True
     naam = ob.name
@@ -325,7 +327,10 @@ def labels(cam):
     uit = {}
     for naam, lijst in GOUD_PLEK.items():
         from collections import Counter
-        meest = Counter(on for on, _pi in lijst).most_common(1)[0][0]   # het deel met het meeste goud (kogel)
+        tel = Counter(on for on, _pi in lijst).most_common()
+        meest = tel[0][0]   # het deel met het meeste goud (kogel)
+        if naam in os.environ.get("HB_KOGEL_MINST", "").split(",") and len(tel) > 1:
+            meest = tel[-1][0]   # #285: de kogel zelf heeft hier minder goud dan de kom
         lijst = [x for x in lijst if x[0] == meest]
         som, n = Vector(), 0
         for on, pi in lijst[::7] or lijst:
@@ -432,8 +437,54 @@ def knie_camera(cam, delen, naam):
             drager.data.materials[i] = g
 
 
+def deel_kleur(delen):
+    """HB_DEELKLEUR (#285, held): elk deel één eigen kleur filament, zoals op het hoofdbeeld van Cleave. Alleen het
+    materiaal held_* van het figuur wordt vervangen; de vlakken van de gewrichten houden hun eigen materiaal."""
+    kl = json.loads(os.environ["HB_DEELKLEUR"])   # {"romp": hex, "onderarm": hex, "dij": hex, "scheen": hex}
+    zs = []
+    for o in delen:
+        bb = [o.matrix_world @ Vector(c) for c in o.bound_box]
+        zs.append((o, sum(v.z for v in bb) / 8, max(v.z for v in bb) - min(v.z for v in bb)))
+    hoog = max(z for _o, z, _h in zs) if zs else 1
+    romp = max(zs, key=lambda t: t[2])[0] if zs else None
+    for o, zc, _h in zs:
+        if o is romp:
+            soort = "romp"
+        elif zc > 0.42 * 220:
+            soort = "onderarm"
+        elif zc > 0.25 * 220:
+            soort = "dij"
+        else:
+            soort = "scheen"
+        m = mat("hb_deel_" + soort, kl.get(soort, "DDDDDD"), rough=0.5)
+        for i, mm in enumerate(list(o.data.materials)):
+            if mm is not None and mm.name.startswith("held_"):
+                o.data.materials[i] = m
+        if o is romp and ("kop" in kl or "bovenarm" in kl):
+            # op de romp: kop boven de hals en de bovenarmen (buiten de schouder) een eigen kleur, in rusthouding
+            mats = list(o.data.materials)
+            ri = mats.index(m)
+            extra = {}
+            for soort2 in ("kop", "bovenarm"):
+                if soort2 in kl:
+                    o.data.materials.append(mat("hb_deel_" + soort2, kl[soort2], rough=0.5))
+                    extra[soort2] = len(o.data.materials) - 1
+            mw = o.matrix_world
+            for f in o.data.polygons:
+                if f.material_index != ri:
+                    continue
+                c = mw @ f.center
+                if "kop" in extra and c.z > 0.845 * 220:
+                    f.material_index = extra["kop"]
+                elif "bovenarm" in extra and abs(c.x) > 0.118 * 220 and 0.40 * 220 < c.z < 0.86 * 220:
+                    f.material_index = extra["bovenarm"]
+    meting["deelkleur"] = kl
+
+
 def main():
     naam, delen = figuur()
+    if os.environ.get("HB_DEELKLEUR"):
+        deel_kleur(delen)
     R.kleur_herstel(delen)
     S.plastic(delen, gewricht="contrast", gewricht_kleur=R.GEWRICHT)
     goud_gewrichten(delen)
