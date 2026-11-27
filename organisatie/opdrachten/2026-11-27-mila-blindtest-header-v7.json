@@ -1,0 +1,1 @@
+{"workflow": "blindtest.yml", "invoer": {"set": "hats-header-v2"}, "van": "mila", "waarom": "opnieuw na Gemini HTTP 503 (druk), header v6 tegen v7"}
