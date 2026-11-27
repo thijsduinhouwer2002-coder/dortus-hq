@@ -10,7 +10,7 @@ Door de Verspreider, do 26 nov 2026 ±10:05 NL (run 22, A). Niets geplaatst. Keu
 - Risico (GOK): een gloednieuw account waarvan het enige antwoord een product noemt, wordt sneller als spam gemarkeerd. Kan Thijs eerst één ander gewoon antwoord geven, dan is dat beter; zonder blijft dit antwoord eerlijk en nuttig.
 
 ## Tekst om te kopiëren (Engels, Markdown zoals Stack Exchange het leest)
-Vul `<CLICK CUTS LINK>` in met de live Gumroad-link van Click Cuts, met `?utm_source=stackexchange`. Zonder werkende link: niet plaatsen.
+Link ingevuld 27 nov ±16:05 NL (run 52): Click Cuts staat live, https://duinhouwer8.gumroad.com/l/click-cuts?utm_source=stackexchange geeft 200 (GEZIEN). Plaatsen blijft: een paar dagen na het kogelgewricht-antwoord uit `bundel-2026-11-30.md`, niet dezelfde dag.
 
 ```
 Two parts to this: closing both pieces with an identical cap, and adding the connector.
@@ -41,7 +41,7 @@ Set the scene to millimetres (Scene Properties > Units: Unit Scale 0.001, Length
 
 **If you do this a lot**
 
-Disclosure: I'm Thijs from Dortus, and we make Click Cuts, a paid Blender add-on for exactly this. You pick your printer, click Split to fit, and it cuts the model into parts that fit your bed, with pins or magnet holes and part numbers on the cut faces. Each part shows green, orange or red with the reason, and a small fit test block tells you which clearance fits your printer. Free cut adds one extra cut at any angle through a part, for example an arm at the shoulder. It cuts along flat planes, so it does not follow a knife line like in your gif; for a hidden seam, the manual route above is still the way. <CLICK CUTS LINK>
+Disclosure: I'm Thijs from Dortus, and we make Click Cuts, a paid Blender add-on for exactly this. You pick your printer, click Split to fit, and it cuts the model into parts that fit your bed, with pins or magnet holes and part numbers on the cut faces. Each part shows green, orange or red with the reason, and a small fit test block tells you which clearance fits your printer. Free cut adds one extra cut at any angle through a part, for example an arm at the shoulder. It cuts along flat planes, so it does not follow a knife line like in your gif; for a hidden seam, the manual route above is still the way. https://duinhouwer8.gumroad.com/l/click-cuts?utm_source=stackexchange
 ```
 
 ## Nagekeken

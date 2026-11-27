@@ -178,3 +178,6 @@ B gedaan als meting zonder nieuwe mail (zie LOG). Volgende run: C volgens rooste
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 51)
 C gedaan als meting zonder nieuwe tekst (zie LOG). Printables kreeg om ±14:00 gerenderde beelden en Engelse STL-namen (#257, commit 4329a3a): zodra die live staan kan A (Printables, MakerWorld) weer open. Volgende run: A volgens rooster; tot zo 29 nov (Click Cuts live) alleen meten, tenzij er een issue met label verspreider, een foto van een koper of de nieuwe Printables-pagina live is.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 52)
+A gedaan: Click Cuts live (vr 27 nov ±15:00), lanceerlinks ingevuld en Katsby en 3D Jesus naar de bundel van za 28 nov (zie LOG). Utm-vorm voor outreach: `?utm_source=youtube&utm_medium=outreach&utm_campaign=<naam>`. Reddit `about/rules.json` geeft 403 voor curl. Volgende run: B volgens rooster; B is weer open voor Click Cuts: zoek middelgrote kanalen over modellen splitsen voor printen (cosplay, busts, terrain) met openbaar zakelijk adres, hooguit 3 mails, keuring bij Daan. Meet ook de Gumroad-verwijzers van Click Cuts.
