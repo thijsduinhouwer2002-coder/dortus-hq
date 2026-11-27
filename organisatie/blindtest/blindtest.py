@@ -10,7 +10,7 @@ import base64, hashlib, io, json, os, random, sys, time, urllib.request, urllib.
 
 RONDES = 2
 LETTERS = "ABCD"
-GEMINI_MODELLEN = os.environ.get("GEMINI_MODELLEN", "gemini-3.1-pro-preview,gemini-3-pro-preview,gemini-2.5-flash").split(",")
+GEMINI_MODELLEN = os.environ.get("GEMINI_MODELLEN", "gemini-2.5-flash,gemini-2.5-pro,gemini-3.1-pro-preview").split(",")  # flash eerst: gratis laag
 OPENAI_MODELLEN = os.environ.get("OPENAI_MODELLEN", "gpt-5,gpt-4.1,gpt-4o").split(",")
 # GitHub Models: gratis, met de GITHUB_TOKEN van de workflow (permissions: models: read). Zelfde OpenAI-vorm.
 GITHUB_MODELLEN = os.environ.get("GITHUB_MODELLEN", "openai/gpt-4.1,openai/gpt-4o").split(",")

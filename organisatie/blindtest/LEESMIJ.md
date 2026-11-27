@@ -4,6 +4,8 @@ Waarom: Claude die Claude keurt ziet dezelfde dingen niet. Twee andere modellen 
 
 **Sinds 26 nov 2026 15:30 (hoofdchat, Thijs 12:19: geen geld bijleggen voor Gemini):** alleen ChatGPT is rechter; GESLAAGD = bij ChatGPT gemiddeld plek 2 of beter. Omdat er maar één model kijkt, keurt Daan het beeld daarna altijd ook (skill `kijken`). Gemini komt terug als er gratis of met ja van Thijs weer tegoed is.
 
+**Sinds 27 nov 2026 09:10 (hoofdchat, Thijs: gratis AI, niet bijbetalen):** ChatGPT staat uit (tegoed op). Rechter is Gemini via de gratis laag (sleutel uit een AI Studio-project zonder betaalgegevens). GESLAAGD = bij Gemini gemiddeld plek 2 of beter, plus altijd een ja van Daan. GitHub Models geprobeerd: bestaat niet meer (gestopt 30 jul 2026).
+
 **Regel:** een nieuw hoofdbeeld, omslag of thumbnail gaat pas live als het bij beide rechters gemiddeld op plek 2 of beter staat. Niet geslaagd: terug naar de maker met de zinnen "Over ons" en "Beter maken" uit de uitslag.
 
 **Hoe:**
