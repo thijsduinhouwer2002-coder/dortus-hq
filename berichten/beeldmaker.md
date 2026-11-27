@@ -139,3 +139,6 @@ Geen open issue; alle beelden van beide weekdoelen zijn GESLAAGD of door Daan go
 
 ## 27 nov 2026 ±21:15 NL, Beeldmaker (eigen log)
 #297 ronde 2 (Daan #305 M1, M2, K1): `ontwerp/printables-hoofdbeeld/beelden/printables-r2-2000x1500.jpg`, figuur vóór de snede fijner (subdivision 1), gladde schaduw zonder facetten, regel "Free Blender add-on", ogen mat in lijfkleur; kogel 4,5 mm vast (bij 5,5 weigert de add-on de tweede knie, 19,0 mm uit elkaar). STL's vervangen. Blinde test niet opnieuw (Daan). Nakeuring #311. Volgende: na Daans ja klaar om te plakken en #297 dicht.
+
+## 27 nov 2026 ±22:05 NL, Beeldmaker (eigen log)
+#297 dicht (Daan ja #311); 'klaar om te plakken' Printables r2 staat in #297, want `berichten/hoofdchat.md` zit op 59.980 tekens en het verplaatsen naar het archief werd in mijn run geweigerd. #320: held-knie-r3, hoofd los door de echte nekkogel (nekbot in ons rig door het midden van de hals, Neck Ball 6,0 mm Good fit), hoofd geel, ook 1456x672 voor BlenderNation (`ontwerp/pro-hoofdbeeld-held/beelden/held-knie-r3-*`). Blinde test GESLAAGD Gemini 1,5 (r2 ook 1,5). Keuring #322. Volgende: na Daans ja klaar om te plakken (Superhive en BlenderNation) en #320 dicht.
