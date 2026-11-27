@@ -198,19 +198,22 @@ static func pose(h) -> String:
 # Eigen tekens bij de sprong (Sanne B), getekend in de held (alleen tijdens zijn _draw). onder = rij net boven de hoed.
 # streep: dief, twee witte strepen achter hem (te snel); oog: magier, een oog boven zijn hoofd (ziet de val).
 # false = geen eigen teken, dan tekent held_beeld.gd het gewone teken.
-static func teken_eigen(h, tk: String, onder: int) -> bool:
+static func teken_eigen(h, tk: String, onder: int, alfa := 1.0, dy := 0) -> bool:
+	if tk != "streep" and tk != "oog":
+		return false
+	h.draw_set_transform(Vector2(0, dy), 0, Vector2.ONE)   # wip in hele spelpixels, nooit schalen (#85)
 	if tk == "streep":
-		var wit := Color(1, 1, 1, 0.9)
+		var wit := Color(1, 1, 1, 0.9 * alfa)
 		h.draw_rect(Rect2(-12, -9, 6, 1), wit)
 		h.draw_rect(Rect2(-14, -6, 7, 1), wit)
 		h.draw_rect(Rect2(-11, -3, 5, 1), wit)
-		return true
-	if tk == "oog":
+	else:
 		var y := float(onder) - 3.0
-		h.draw_rect(Rect2(-4, y - 2, 8, 5), Color(0.12, 0.08, 0.16))   # donkere rand
-		h.draw_rect(Rect2(-3, y - 1, 6, 3), Color(1, 1, 1))
-		h.draw_rect(Rect2(-1, y - 1, 2, 3), Color(0.35, 0.2, 0.75))    # paarse pupil, de kleur van de magier
-		h.draw_rect(Rect2(-5, y, 1, 1), Color(0.12, 0.08, 0.16))
-		h.draw_rect(Rect2(4, y, 1, 1), Color(0.12, 0.08, 0.16))
-		return true
-	return false
+		var rand := Color(0.12, 0.08, 0.16, alfa)
+		h.draw_rect(Rect2(-4, y - 2, 8, 5), rand)   # donkere rand
+		h.draw_rect(Rect2(-3, y - 1, 6, 3), Color(1, 1, 1, alfa))
+		h.draw_rect(Rect2(-1, y - 1, 2, 3), Color(0.35, 0.2, 0.75, alfa))    # paarse pupil, de kleur van de magier
+		h.draw_rect(Rect2(-5, y, 1, 1), rand)
+		h.draw_rect(Rect2(4, y, 1, 1), rand)
+	h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
+	return true

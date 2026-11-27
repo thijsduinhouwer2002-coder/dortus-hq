@@ -25,6 +25,7 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 | Regels | `kern/regels.gd` | Olaf | voorraad korte regels per soort (aangevuld uit `systemen/kroniek_regels.gd`), schudzak, max 42 tekens; `vul` vult {naam}, {held}, {oud} en {ouder} (die laatste uit de naam via `namen.gd`) |
 | Hol | `hol/hol.gd` | Olaf | raster, graven, put, schat, munten, tekenen |
 | Stap-tekens | `systemen/stap_teken.gd` | Olaf | stap 4 tot 6 zichtbaar (#162): per stap boven 3 één gouden steen, voor Gloop (`slijm.gd`) en op elke put (`hol.gd`); stilstaand, één keer per aantal en schaal gebakken tot een klein plaatje, eigen laag `systemen/stap_stenen.gd` (meten: `wissel=stenen`, `wissel=nep`, `stenen_keer=<n>`); toets in `toets_systemen.gd` |
+| Tekens-wip | `systemen/held_wip.gd` | Olaf | tekens boven een held poppen op en gaan zacht weg (#85, les uit Godot Open RPG): komen 0,2 s (3D-teken groeit met een zachte rem, pixelteken wipt 2 hele spelpx), elke 2,5 s een wip van 1 spelpx, weg 0,15 s; sprongteken alleen de komwip; stand op de held (`h.wip`); meten `wissel=tekens` of `wissel=nep`; toets `toets_tekens.gd` |
 | Systemen | `systemen/*.gd` | Bram | held, slijm (Gloop), kroniek, upgrades, voortgang; toetsen in `systemen/toetsen/` |
 | Kunst | `kunst/` | Daan, Mila | plaatjes |
 

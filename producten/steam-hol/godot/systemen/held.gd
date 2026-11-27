@@ -107,6 +107,7 @@ var spring_t := -1.0         # >= 0: in de sprong over een val
 var spring_van := 0.0
 var spring_naar := 0.0
 var spring_teken := ""
+var wip := {}                # teken boven het hoofd: wat en sinds wanneer, voor oppoppen en zacht weggaan (systemen/held_wip.gd, #85)
 var na_sprong := ""          # "vluchten": na de landing omdraaien
 var terug_gesprongen := {}   # kolommen met een val waar hij bij het vluchten al overheen terugsprong
 var rng_loop := RandomNumberGenerator.new()   # eigen dobbelsteen voor rondkijken, zodat de val-uitkomsten gelijk blijven

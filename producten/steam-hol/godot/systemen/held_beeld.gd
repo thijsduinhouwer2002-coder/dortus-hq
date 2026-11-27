@@ -13,6 +13,7 @@ const KLEDING := preload("res://kunst/held_soort.png")          # Mila 10 nov: 4
 const POEF := preload("res://kunst/poef.png")                 # Mila 10 nov: boze wolkje knapt, 4 x (12 x 10)
 const TEKENS := preload("res://kunst/tekens.png")            # boos, uitroep, zweet, zzz, ster
 const TEKEN := {"boos": 0, "uitroep": 1, "zweet": 2, "zzz": 3, "ster": 4}
+const WIP := preload("res://systemen/held_wip.gd")            # tekens poppen op en gaan zacht weg (#85)
 const NOOT := preload("res://systemen/held_noot.gd")          # muzieknootjes (los sinds 25 nov)
 
 # Daans lijf + kleding per soort (Mila) + litteken + hoed + wapen (16 x 16, anker midden onder), teken erboven.
@@ -105,17 +106,23 @@ static func flits_zet(h, f: float) -> void:
 	m.set_shader_parameter("flits", f)
 
 # Teken (boos, uitroep, ...), poef en nootjes boven het hoofd; onder = de rij net boven de bovenkant van de hoed.
+# Elk teken popt op en gaat zacht weg (#85, systemen/held_wip.gd); de poef is zijn eigen beeldje en wipt niet.
 static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> void:
 	var tk: String = String(h.teken_nu()) if staat != "vallen" else String(vb.teken)
 	if staat != "vallen":
 		for nt in nootjes(String(h.soort_held), bool(h.info.get("lied_held", false)), staat, t):
 			NOOT.noot(h, int(nt[0]), onder - 6 + int(nt[1]), float(nt[2]))
-	if tk == "":
-		return
+	for v in WIP.stand(h, tk, t, float(h.spring_t) >= 0.0):
+		_een_teken(h, v, vb, onder)
+
+static func _een_teken(h, v: Dictionary, vb: Dictionary, onder: int) -> void:
+	var tk: String = String(v.tk)
 	if tk == "poef":
-		_poef(h, onder - 4, float(vb.poef_fase))
+		_poef(h, onder - 4, float(vb.get("poef_fase", 1.0)))
 		return
-	if h.HELD_LOOP.teken_eigen(h, tk, onder):
+	var kleur := Color(1, 1, 1, float(v.a))
+	var dy: int = int(v.dy)
+	if h.HELD_LOOP.teken_eigen(h, tk, onder, kleur.a, dy + int(v.hop)):
 		return   # strepen (dief) of oog (magier) bij een sprong over een val
 	var eigen := onder
 	onder = maxi(onder, teken_onder_min(h))   # Daan 14 nov 01:40: teken minstens 1 spelpixel onder de bovenrand
@@ -124,9 +131,9 @@ static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> v
 	# Daan #46 (kan 2): in de sprong stak de "!" boven de gang uit tot in het gras; dan mag hij de hele sprong lager.
 	var ruim := 2 + int(ceil(-float(h.HELD_LOOP.sprong_hop(h))))
 	onder = maxi(onder, mini(teken_onder_gras(h), eigen + ruim))
-	if teken_3d(h, tk, 0.0, float(onder)):
+	if teken_3d(h, tk, 0.0, float(onder + dy), kleur, float(v.s)):
 		return
-	h.draw_texture_rect_region(TEKENS, Rect2(-4, onder - 8, 8, 8), Rect2(int(TEKEN[tk]) * 8, 0, 8, 8))
+	h.draw_texture_rect_region(TEKENS, Rect2(-4, onder + dy + int(v.hop) - 8, 8, 8), Rect2(int(TEKEN[tk]) * 8, 0, 8, 8), kleur)
 
 # Tekens in 3D (Daan 14 nov 00:55, modellen/tekens.py; blad "tekens" uit de pijplijn, 5 vakken van 8 x 8 spelpixels in de
 # volgorde van tekens.png). Punt van het staartje op (x, onder), dus op dezelfde plek als het pixelteken. Lineair gefilterd
@@ -175,7 +182,7 @@ static func teken_onder_min(h) -> int:
 static func _gedeeld(y: int, h) -> int:
 	var s: float = (h as Node2D).scale.y
 	return y if s == 1.0 else int(ceil(float(y) / s))
-static func teken_3d(doek: CanvasItem, naam: String, x: float, onder: float, kleur := Color.WHITE) -> bool:
+static func teken_3d(doek: CanvasItem, naam: String, x: float, onder: float, kleur := Color.WHITE, schaal := 1.0) -> bool:
 	if not met_3d:
 		return false
 	_laad_3d()
@@ -189,7 +196,8 @@ static func teken_3d(doek: CanvasItem, naam: String, x: float, onder: float, kle
 	var px: float = float(info["px"])
 	var cw: float = float(info["cel_px"][0])
 	var ch: float = float(info["cel_px"][1])
-	doek.draw_texture_rect_region(ct, Rect2(x - float(info["anker_x"]) / px, onder - ch / px, cw / px, ch / px),
+	var k := schaal / px   # schaal om de punt van het staartje (x, onder): zo groeit een teken uit het hoofd (#85)
+	doek.draw_texture_rect_region(ct, Rect2(x - float(info["anker_x"]) * k, onder - ch * k, cw * k, ch * k),
 		Rect2(i * cw, 0, cw, ch), kleur)
 	return true
 
