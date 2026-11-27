@@ -229,5 +229,53 @@ func _init() -> void:
 		tel[met] = lt.beurten
 		lt.queue_free()
 	ok(int(tel[true]) <= int(tel[false]), "met worm en mot niet meer tekenbeurten in 30 min (%d tegen %d zonder)" % [tel[true], tel[false]])
+	_toets_kamerwand()
 	print("[licht] klaar: FOUT %d" % fout)
 	quit(1 if fout > 0 else 0)
+
+# Olaf #252 (Iris 74f03c9 punt 1): korrel en harde rand op de buis van de bovenste gang, nooit over decor in het kamerstuk.
+# pixels() geeft wat teken() zet; elke pixel moet op kale wand van het masker vallen.
+func _toets_kamerwand() -> void:
+	var K = load("res://hol/kamerwand.gd")
+	var m: Array = K.masker("kamer_midden_c")
+	ok(m.size() == 16, "masker van het kale kamerstuk heeft 16 rijen")
+	var kaal := 0
+	for y in m.size():
+		kaal += m[y].count("1")
+	ok(kaal >= 9 * 16, "kale kamer: hele buis van rij 4 tot 12 is wand (%d pixels)" % kaal)
+	# in kamer_midden_b (houweel en ton) en kamer_begin (fakkel) blijft het masker weg van het ding
+	var mb: Array = K.masker("kamer_midden_b")
+	ok(mb.size() == 16 and mb[9].substr(6, 6) == "......", "houweel en ton: geen korrel op rij 9, x 6 tot 11")
+	var mbe: Array = K.masker("kamer_begin")
+	ok(mbe.size() == 16 and mbe[8].substr(0, 5) == ".....", "fakkel: geen korrel op rij 8, x 0 tot 4")
+	# alles wat teken() zet valt op wand van het masker, in alle stukken, over 40 kolommen
+	var buiten := 0
+	var totaal := 0
+	var donker_rand := 0
+	for stuk in ["kamer_begin", "kamer_eind", "kamer_midden_a", "kamer_midden_b", "kamer_midden_c"]:
+		var mm: Array = K.masker(stuk)
+		for k in 40:
+			for p in K.pixels(k, stuk):
+				totaal += 1
+				var x: int = p[0] - k * 16
+				var y: int = p[1]
+				if not K.wand(mm, x, y):
+					buiten += 1
+				elif y == K.RIJ_BOVEN and p[2].a >= 0.5:
+					donker_rand += 1
+	ok(totaal > 2000 and buiten == 0, "korrel alleen op kale wand: %d pixels, %d buiten het masker" % [totaal, buiten])
+	ok(donker_rand >= 40 * 16, "harde donkere bovenrand van 1 spelpx (%d pixels)" % donker_rand)
+	# vast: twee keer geeft hetzelfde, en de buurkolom heeft een ander patroon (geen tegel)
+	var a: Array = K.pixels(5, "kamer_midden_c")
+	ok(str(a) == str(K.pixels(5, "kamer_midden_c")), "korrel ligt vast (geen flikkeren)")
+	var c := {}
+	for p in K.pixels(6, "kamer_midden_c"):
+		c[Vector2i(p[0] - 16, p[1])] = p[2]
+	var zelfde := 0
+	var korrel := 0
+	for p in a:
+		if p[1] > K.RIJ_BOVEN + 1 and p[1] < K.RIJ_ONDER:   # rand en vloerlijn lopen met opzet door
+			korrel += 1
+			if c.get(Vector2i(p[0], p[1])) == p[2]:
+				zelfde += 1
+	ok(korrel > 8 and zelfde < korrel * 0.3, "buurkolom heeft andere korrel (%d van %d gelijk)" % [zelfde, korrel])

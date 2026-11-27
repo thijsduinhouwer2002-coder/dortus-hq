@@ -9,6 +9,7 @@ const OPP := 8
 const GANG_BOVEN := 24
 const HOL3D := preload("res://hol/hol_3d.gd")
 const METSEL := preload("res://hol/metsel.gd")
+const KAMERWAND := preload("res://hol/kamerwand.gd")   # #252: korrel en harde rand op de buis van de bovenste gang
 const GROND_VOCHT_KLEUR := Color(0.14, 0.06, 0.05)   # zelfde als in hol_vast.gd
 
 # De lagen ook in de achterwand van wat je graaft (Mila 26 nov, issue 146; Iris: "mooi, maar weg na het graven"). Na
@@ -89,6 +90,7 @@ static func achterwand(hv, d: CanvasItem, schat_3d: bool) -> void:
 						_wand_vocht(d, k * KOL + x, 1, WAND_KAMER, f)
 			else:
 				_wand_vocht(d, k * KOL, KOL, WAND_KAMER)
+			KAMERWAND.teken(d, k, boven)   # #252: alleen op kale buiswand (masker), vóór wortels en kamer_dingen
 	for ding in wand_dingen(hv, h, schat_3d):
 		var naam: String = ding[0]
 		var schaal: float = ding[3]
