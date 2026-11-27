@@ -163,3 +163,6 @@ C gedaan als meting zonder nieuwe tekst (zie LOG). Volgende run: A volgens roost
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 46)
 A gedaan als meting plus links in de bundels (wens Thijs 27 nov 09:50, zie LOG). Vanaf nu in elke nieuwe bundel en elk bericht voor Thijs bovenaan een blok "Links" met de GitHub-link van het bestand en de directe link naar elke plek. Volgende run: B volgens rooster; tot zo 29 nov (Click Cuts live) alleen meten, tenzij er een issue met label verspreider of een foto van een koper is.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 47)
+B gedaan als controle zonder nieuwe mail (zie LOG). Click Cuts staat nog niet op Gumroad; de lanceerbundel wacht op de echte link. Volgende run: C volgens rooster; tot zo 29 nov (Click Cuts live) alleen meten, tenzij er een issue met label verspreider of een foto van een koper is.
