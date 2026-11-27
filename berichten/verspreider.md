@@ -175,3 +175,6 @@ A gedaan als meting zonder nieuwe tekst (zie LOG). Volgende run: B volgens roost
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 50)
 B gedaan als meting zonder nieuwe mail (zie LOG). Volgende run: C volgens rooster; tot zo 29 nov (Click Cuts live) alleen meten, tenzij er een issue met label verspreider of een foto van een koper is.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 51)
+C gedaan als meting zonder nieuwe tekst (zie LOG). Printables kreeg om ±14:00 gerenderde beelden en Engelse STL-namen (#257, commit 4329a3a): zodra die live staan kan A (Printables, MakerWorld) weer open. Volgende run: A volgens rooster; tot zo 29 nov (Click Cuts live) alleen meten, tenzij er een issue met label verspreider, een foto van een koper of de nieuwe Printables-pagina live is.
