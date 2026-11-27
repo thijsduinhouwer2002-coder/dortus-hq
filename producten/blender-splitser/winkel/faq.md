@@ -13,7 +13,10 @@ Which Blender versions does it work with?
 4.2 and newer, as an extension. Tested in Blender 4.2 and 5.3 on every change.
 
 How do I install it?
-Edit > Preferences > Get Extensions, open the drop-down menu at the top right, choose Install from Disk and pick click_cuts-1.0.0.zip (do not unzip it). Then press N in the 3D viewport and open the Click Cuts tab.
+Drag click_cuts-1.1.0.zip into the Blender window and confirm. Do not unzip it. Or go to Edit > Preferences > Get Extensions, open the drop-down menu at the top right, choose Install from Disk and pick the zip. Then press N in the 3D viewport and open the Click Cuts tab.
+
+The install failed or I got a folder instead of a zip. What now?
+Safari on a Mac can unzip downloads by itself, and Blender cannot install a folder. Download it again with another browser, such as Chrome or Firefox, and drag the zip into Blender without opening it. Also check your Blender version: click the Blender logo at the top left, then About Blender. Click Cuts needs Blender 4.2 or newer and does not install in older versions. Still stuck? Send a message through the store with your Blender version and a screenshot of the error.
 
 Why not just use my slicer's cut tool?
 A slicer cuts one plane at a time, and you set every cut and connector yourself. Click Cuts plans all the cuts so every part fits your bed, checks each part (green fits, orange or red tells you why), numbers the parts, and uses the clearance from your own fit test print.
@@ -75,6 +78,7 @@ Send a message through the store or mail thijs@dortus.com, with your Blender ver
 
 ## Bronnen voor de nieuwe vragen (GEZIEN in de code op main, zelfde regels als `winkel/docs.md`)
 - **Installeren:** zelfde zin als de Docs-tab (installatieweg van de gekeurde Pro-tab), zipnaam uit `blender-splitser-e2e.yml` r. 121.
+- **Slepen en map in plaats van zip (issue #250, Daan ja #254):** Blender 4.2 handboek "drag-and-drop an extension .zip package into Blender" (DERDEN, https://docs.blender.org/manual/en/4.2/editors/preferences/extensions.html); Apple "Safari decompresses files such as .zip files after it downloads them" (DERDEN, https://support.apple.com/en-gb/guide/safari/sfri40598/mac), daarom "can"; `blender_version_min = "4.2.0"` en geen `bl_info` (GEZIEN). Zelfde zinnen als op main (527385c9), zipnaam 1.1.0 (K1 van Daan #254).
 - **Te los of te strak:** `passingproef.teken` en `passing.py` r. 4 tot 6; onthouden per printer en materiaal en gebruikt bij elke split via `pas_toe`, ook in een nieuw bestand (`sj_laden`, behalve waar de koper zelf een speling typte).
 - **Proef bij magneten:** `verbinders.magneet_opties` (`speling / 2` per kant), `passing_maak` gebruikt `inst.pen_mm`.
 - **Sneden verschuiven:** `paneel.py` r. 100 tot 108 (`sj_plek_mm` "Cut X (mm)", X-knop), `in_een_klik` r. 160 ("kept your moved cuts").
