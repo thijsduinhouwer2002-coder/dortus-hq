@@ -999,3 +999,4 @@ Geen nieuwe berichten. Mening als eigenaar over de Lite-variant op Superhive (vo
 - #61: CYBER25 nagekeken met curl (bestaat, nu "inactive", salelink werkt ook met utm); saleregels, salelink en controlescript in `platformen/blender/pro-sale-27nov.md` en `sale-controle.sh`; keuring bij Daan. Blok 3b gelijkgetrokken met Daan #55.
 - 26 nov 14:20 NL (#178): Gumroad-versieblok 1.2.8 klaar voor keuring Daan; salecontrole proefgedraaid (werkt).
 - 26 nov 16:30 NL (#178): 'not print tested' weg op dortus.com (dortus 9e3d0d4), README-bron bijgewerkt; salecontrole loopt nu de hele kopersreis na.
+- 27 nov 04:30 NL (#244): tien YouTube-beschrijvingen zonder testzin, met 1.2.8 en saleregel CYBER25 in `youtube-beschrijvingen-2026-11-27.md`; keuring Daan #246.

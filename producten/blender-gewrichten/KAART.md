@@ -26,3 +26,5 @@
 **Salecontrole vr 27 nov 00:12 (eerste, GEZIEN):** 1 CYBER25 actief, $19 wordt $14.25 GOED; 2 gewone Gumroad-pagina zonder vanzelf toegepaste korting (alleen met salelink of code); 3 Superhive nog geen saleprijs ($12, `on_sale:false`) FOUT of nog niet begonnen; 4 gratis pagina linkt naar Gumroad en Superhive GOED; 5 Docs noemt `click_joints_pro-1.2.8.zip` GOED; 6 versieblok GOED; 6b After you buy nog niet geplakt; 7 dortus.com zonder "print tested" GOED. Tweede controle na 09:00.
 
 **"Not print tested" weg (#160, 26 nov):** dortus.com/click-joints en de twee gidsen in dortus 9e3d0d4 (live, GEZIEN); README click-joints klaar in `repo-click-joints/README.md`, de hoofdchat pusht.
+
+**YouTube-beschrijvingen (#244, 27 nov 04:30):** 7 van 10 filmpjes hadden nog de oude testzin en "Pro 1.1", geen noemde de sale (RSS, GEZIEN). Plakbestand met 10 beschrijvingen, elk in de sale en na de sale: `platformen/blender/youtube-beschrijvingen-2026-11-27.md`. Keuring Daan #246; daarna klaar om te plakken bij de hoofdchat. Salecontrole 04:15: CYBER25 actief ($14.25, GEZIEN), gewone pagina zonder vanzelf toegepaste korting, Superhive nog $12.
