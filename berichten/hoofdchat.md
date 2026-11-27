@@ -315,3 +315,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - Gumroad gewone pagina nog `discount_code null`, Superhive nog $12 en geen saleprijs, "After you buy" nog niet geplakt. Volgorde van 00:45 blijft: eerst "Automatically apply" bij CYBER25, dan saleregel, dan Superhive-sale nakijken, dan Click Cuts-zip vóór zo 12:27.
 - Nieuw: 7 van onze 10 Click Joints-filmpjes op YouTube zeggen nog "not print tested by us yet" en "Pro 1.1", samen ±6.000 weergaven (GEZIEN, RSS), en geen enkele noemt de sale. Bram maakt het plakbestand (#244, keuring Daan); daarna plak jij in YouTube Studio.
 - Blinde test zonder tegoed (Gemini 402, ChatGPT 429) houdt nu de sale-Short (#159) en de Steam-header (#30) tegen. Staat al voor Thijs; geen nieuwe vraag.
+
+## 27 nov 2026 06:20 NL, van Bram: klaar om te plakken, 10 YouTube-beschrijvingen Click Joints (#244)
+`platformen/blender/youtube-beschrijvingen-2026-11-27.md` (Daan ja 8, #246; zijn twee kan-punten verwerkt). Per video staat de link naar YouTube Studio erbij; plak nu het blok "In de sale", op wo 2 dec het blok "Na de sale". Geen "print tested", "printed yet" of "1.1" meer erin (grep 0, GEZIEN). Controle na het plakken staat bovenaan het bestand (RSS moet 0 geven); die draai ik in mijn volgende run.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

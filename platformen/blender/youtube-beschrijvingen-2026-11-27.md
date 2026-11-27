@@ -1,6 +1,6 @@
 # YouTube-beschrijvingen Click Joints: zonder de oude testzin, versie 1.2.8, met saleregel (Bram, vr 27 nov 2026, issue #244)
 
-**Status:** keuring Daan gevraagd. Na zijn ja: klaar om te plakken voor de hoofdchat (YouTube Studio, per video "Details", hele beschrijving vervangen).
+**Status:** Daan ja (8, #246, 27 nov ±05:00). Zijn twee kan-punten verwerkt (27 nov 06:20 NL): in de saleregel van de Shorts de dubbele "Type dortus.com/yt" weg (die staat al onderaan), en in 65JiRlDupNc de saleregel direct na de eerste zin. Klaar om te plakken voor de hoofdchat (YouTube Studio, per video "Details", hele beschrijving vervangen).
 
 **Waarom (geld en eerlijkheid):** 7 van onze 10 Click Joints-filmpjes hadden de oude zin dat wij nog niet testten met printen, en 2 een kortere vorm daarvan, tegen het besluit van Thijs van 24 nov 15:32 (harde regel 5). Samen hebben de 10 filmpjes 7.670 weergaven (GEZIEN, RSS van ons kanaal, curl 27 nov ±04:10 NL), het meeste verkeer dat we hebben. Geen enkele noemde de sale. Effect op verkoop: GOK, klein maar zeker niet negatief.
 
@@ -28,7 +28,7 @@ https://studio.youtube.com/video/awtDyH5hOPI/edit (weergaven 27 nov ±04:10 NL: 
 ```
 From a rigged character to a poseable figure for 3D printing.
 
-Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25. Type dortus.com/yt in your browser.
+Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25.
 
 One button, Figure from rig, cuts hinges at elbows and knees and ball joints at shoulders, hips and neck from the figure itself. Then check the whole pose before you print. Measured in Blender. Print a test joint first: every printer is different.
 
@@ -57,7 +57,7 @@ https://studio.youtube.com/video/lcUBuWMaJ_A/edit (weergaven 27 nov ±04:10 NL: 
 ```
 How far can a 3D printed knee bend?
 
-Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25. Type dortus.com/yt in your browser.
+Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25.
 
 This knee stops at 120 degrees, read from the rig. Bend past it and the arc turns red and says how far. Back inside the stop, the red is gone. Measured in Blender. Print a test joint first: every printer is different.
 
@@ -86,7 +86,7 @@ https://studio.youtube.com/video/pCyyQ4Qa9Gw/edit (weergaven 27 nov ±04:10 NL: 
 ```
 From one rigged character to separate printable parts with joints, in Blender.
 
-Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25. Type dortus.com/yt in your browser.
+Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25.
 
 1. Select the rigged figure and press Figure from rig.
 2. It is cut into parts with 9 joints.
@@ -125,7 +125,7 @@ https://studio.youtube.com/video/eQsepIbHdgU/edit (weergaven 27 nov ±04:10 NL: 
 ```
 Make your rigged character poseable for 3D printing, step by step in Blender.
 
-Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25. Type dortus.com/yt in your browser.
+Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25.
 
 1. Select your rigged character.
 2. Press Figure from rig: hinges at elbows and knees, ball joints at shoulders, hips and neck.
@@ -166,7 +166,7 @@ https://studio.youtube.com/video/I78weVdhwdw/edit (weergaven 27 nov ±04:10 NL: 
 ```
 One button turns a rigged figure into printable parts.
 
-Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25. Type dortus.com/yt in your browser.
+Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25.
 
 Hinges with an end stop at elbows and knees, ball joints at shoulders, hips and neck. 9 joints, 10 parts, and every joint shows its range in degrees. Measured in Blender. Print a test joint first: every printer is different.
 
@@ -195,7 +195,7 @@ https://studio.youtube.com/video/Ij-jc6t4WNo/edit (weergaven 27 nov ±04:10 NL: 
 ```
 How far can the knee of your 3D printed figure bend? Check it in Blender before you print.
 
-Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25. Type dortus.com/yt in your browser.
+Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25.
 
 1. Our rig has a Limit Rotation of 120° on the left knee.
 2. Select the figure and press Figure from rig.
@@ -344,7 +344,7 @@ https://studio.youtube.com/video/WqgDSDL5twg/edit (weergaven 27 nov ±04:10 NL: 
 ```
 We made a Blender add-on that places a hinge with an end stop for knees and elbows: in Blender it bends to 115° and stops there, instead of flopping backwards.
 
-Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25. Type dortus.com/yt in your browser.
+Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25.
 
 Bend it past the stop and the overshoot shows in red. Ball joints are free on Blender Extensions; the hinge is in Click Joints Pro. Measured in Blender. Print a test joint first: every printer is different. #blender #3dprinting #b3d #blenderaddon #articulated
 
@@ -367,11 +367,13 @@ https://studio.youtube.com/video/65JiRlDupNc/edit (weergaven 27 nov ±04:10 NL: 
 
 **In de sale (plak vr 27 nov, weg op wo 2 dec):**
 ```
-See how far a joint bends, before you print. Click Joints is a free Blender add-on for articulated, poseable 3D prints. Get it: in Blender, open Edit, Preferences, Get Extensions and search "Click Joints".
+See how far a joint bends, before you print.
+
+Click Joints Pro is 25% off until Tuesday 1 December, 23:59 CET: from $14.25 instead of $19 with code CYBER25 at dortus.com/yt
+
+Click Joints is a free Blender add-on for articulated, poseable 3D prints. Get it: in Blender, open Edit, Preferences, Get Extensions and search "Click Joints".
 
 Want a whole figure that moves? Click Joints Pro reads your rig and puts a hinge with an end stop at every elbow and knee: dortus.com/yt
-
-Until Tuesday 1 December, 23:59 CET, Pro is 25% off: from $14.25 instead of $19 with code CYBER25.
 
 #blender #3dprinting #articulated #blenderaddon
 ```
