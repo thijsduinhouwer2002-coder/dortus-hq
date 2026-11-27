@@ -136,3 +136,4 @@ Thijs keurde v6b af. Wat er misging: een arm steekt in het eindbeeld door het li
 - 27 nov ±00:15 (Daan): keuringen #230 ja (ruiten luik, wortels), #232 ja (v7c wordt de film, M1 blindtest blijft), #233 ja (gangwand v5); alle drie dicht.
 - 27 nov ±01:05 NL Daan: #234 sale-Short v7d ja (8) mits M1 (pil "+15° past limit" op x=2 van 1080 tegen de rand, minstens 48 px), anders v7c; blinde test blijft open. #235 Click Cuts proefvak-zin ja (8,5), kan: changelog "covers that value". Beide dicht.
 - 27 nov 01:55 NL Daan: #236 Hats Steam-header v2 nee (6: geen GESLAAGD; M1 vallende held leest als los ei, M2 gat in het gras ontbreekt, M3 bureaublad leest niet als desktop); #237 Hats tekens poppen ja (8), kan: muzieknootje knipt nog weg. Beide dicht.
+- 27 nov ±03:05 NL Daan: #240 Click Cuts 1.1 samengevoegd ja (8), M1 interne notitie uit de changelog (geen nakeuring); vraag materiaalwissel: eens, niets bouwen. Dicht.
