@@ -41,6 +41,7 @@ const LUIK := preload("res://hol/luik.gd")   # dichte put: luik van hout met ran
 const STAP_TEKEN := preload("res://systemen/stap_teken.gd")   # stap 4 tot 6: gouden stenen op de put (#162)
 const PUT_STEEN_Y := 38.0   # midden van de stenen op de put: onderaan op het luik (hout 33,5 tot 38,5, luik.gd); lager valt onder de rand van het scherm (40) weg (#222)
 const STAP_STENEN := preload("res://systemen/stap_stenen.gd")
+const ROBIJN := preload("res://systemen/robijn.gd")   # stap 7 tot 9: robijnrood luik en grote robijnen erop (#298)
 var _stenen: Node2D = null
 var met_vast := true   # alleen een testschakelaar: uit = geen gemeten bovenrand, dan is het gras op Windows weg (strook.gd muisvlak)
 var deco_proef := false      # deco_proef=1 (strook.gd): vaste versiering in de gang om op te keuren, niet in het echte spel
@@ -444,6 +445,7 @@ func _draw() -> void:
 	# vallen: stekelput dicht, en even open na een klap
 	# gekochte stappen (Rusty Spikes, Deep Pit, Trick Lid) hebben elk een eigen rij in stekelput_upgrades.png
 	var put_niv: int = upgrades.beeld_niveau("stekelput") if upgrades != null else 0   # stap 4 tot 6: beeld van stap 3 (#145)
+	var put_echt: int = upgrades.niveau("stekelput") if upgrades != null else 0   # echte stap (tot 9), voor de robijnen (#298)
 	var sx := 0
 	if put_schud > 0.0:
 		sx = int(SCHUD_X[mini(SCHUD_X.size() - 1, int((SCHUD_S - put_schud) / SCHUD_S * SCHUD_X.size()))])
@@ -451,7 +453,7 @@ func _draw() -> void:
 		var f := 2 if put_open.has(k) else 0
 		var sy := put_schok(k)
 		# dicht: een luik van hout met een donkere rand, ook in de 3D-schatkamer (Mila #209, Iris bb298d3 punt 1)
-		if not put_open.has(k) and LUIK.teken(self, k * KOL + KOL / 2.0 + sx, sy, put_niv, LUIK.kleur(put_kleur(k))):
+		if not put_open.has(k) and LUIK.teken(self, k * KOL + KOL / 2.0 + sx, sy, put_niv, ROBIJN.luik_kleur(LUIK.kleur(put_kleur(k)), put_echt)):
 			continue
 		if HOL3D.stuk(self, 1, k, schat_3d) == "put":
 			continue   # deze dichte put zit al in het 3D-stuk
@@ -484,11 +486,16 @@ func _draw() -> void:
 	for k in (vallen if put_tekens > 0 else {}):
 		if vallen[k] == "stekelput":
 			put_plekken.append(Vector2(k * KOL + KOL / 2.0 + sx, put_y + put_schok(k)))
+	var put_groot := []   # #298: grote robijnen op een dicht luik (stap 7 tot 9)
+	if LUIK.aan():
+		for k in (vallen if ROBIJN.put_aantal(put_echt) > 0 else {}):
+			if vallen[k] == "stekelput" and not put_open.has(k):
+				put_groot.append_array(ROBIJN.put_plekken(k * KOL + KOL / 2.0 + sx, put_schok(k), put_echt))
 	if put_tekens > 0 or _stenen != null:
 		if _stenen == null:
 			_stenen = STAP_STENEN.maak(self)   # eigen laag: alleen opnieuw tekenen als er iets aan verandert (CPU)
 			_stenen.maat = STAP_TEKEN.PUT_MAAT if LUIK.aan() else 1.0
-		_stenen.zet(put_plekken, put_tekens, STAP_TEKEN.rood(upgrades.niveau("stekelput")) if upgrades != null else 0)
+		_stenen.zet(put_plekken, put_tekens, STAP_TEKEN.rood(put_echt), put_groot)
 	# stofwolkje van de val, voor de put (Olaf 15 nov, juice 5)
 	for k in val_stof:
 		for st in stof_stofjes(k):

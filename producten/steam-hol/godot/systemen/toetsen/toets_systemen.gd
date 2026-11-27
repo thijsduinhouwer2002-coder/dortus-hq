@@ -440,6 +440,16 @@ func _init() -> void:
 	var rl: Color = rpi.get_pixel(rpi.get_width() / 2 - roundi(stt.AFSTAND * 3.0), rpi.get_height() / 2)
 	var rm: Color = rpi.get_pixel(rpi.get_width() / 2, rpi.get_height() / 2)
 	ok(rl.r > rl.g + 0.3 and rm.g > 0.55 and stt.plaatje(3, 3.0, 1.0, 1) != stt.plaatje(3, 3.0), "één robijn: linker steen rood, midden goud, eigen plaatje (#280)")
+	# #298 (Iris #286 punt 1): stap 7 tot 9 grote robijnen, op de troon 2, 4, 6 en op het luik 1, 2, 3; luik robijnrood
+	var rb = load("res://systemen/robijn.gd")
+	ok(rb.troon_aantal(6) == 0 and rb.troon_aantal(7) == 2 and rb.troon_aantal(8) == 4 and rb.troon_aantal(9) == 6 and rb.troon_aantal(12) == 6 and rb.TROON.size() >= 6, "grote robijnen op de troon: 0, 2, 4, 6 (#298)")
+	ok(rb.put_aantal(6) == 0 and rb.put_aantal(7) == 1 and rb.put_aantal(9) == 3 and rb.put_plekken(0.0, 0.0, 6).is_empty() and rb.put_plekken(8.0, 0.0, 9).size() == 3, "grote robijnen op het luik: 0, 1, 2, 3 (#298)")
+	var rpp: Array = rb.put_plekken(8.0, 0.0, 9)
+	ok(absf(rpp[0].x - 8.0) + rb.PUT_MAAT / 2.0 <= 9.0 and is_equal_approx(rpp[1].x, 8.0), "drie robijnen binnen het luik van 18 breed (#298)")
+	ok(rb.luik_kleur(Color.WHITE, 6) == Color.WHITE and rb.luik_kleur(Color.WHITE, 7).g < 0.8 and rb.luik_kleur(Color.WHITE, 9).g < rb.luik_kleur(Color.WHITE, 7).g, "luik robijnrood vanaf stap 7, dieper per stap (#298)")
+	var gi: Image = rb.plaatje(27).get_image()
+	var gm: Color = gi.get_pixel(gi.get_width() / 2, gi.get_height() / 2 + 3)
+	ok(gi.get_width() >= 27 and gm.r > gm.g + 0.4 and gm.a > 0.99 and gi.get_pixel(0, 0).a < 0.01, "robijn: rood dicht midden, lege hoek, eigen maat (#298)")
 	ok(is_equal_approx(stt.plek(0, 1), 0.0) and is_equal_approx(stt.plek(0, 3), -stt.plek(2, 3)) and stt.plek(1, 2) - stt.plek(0, 2) >= stt.HALF * 2.0, "stenen gecentreerd en raken elkaar niet (#162)")
 	ok(stt.plek(2, 3) + stt.HALF <= 8.0, "drie stenen passen in een putkolom van 16 (#162)")
 	# #222 (Iris 5ecaf64 punt 3): op het luik kleiner, rij van drie binnen het hout van het luik (±7 spelpixels), eigen plaatje

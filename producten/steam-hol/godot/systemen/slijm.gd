@@ -14,6 +14,7 @@ const RUST_GROOT := preload("res://kunst/slijm_groot2.png")    # frames 20 x 16 
 const LEVEN_GROOT := preload("res://kunst/slijm_leven_groot2.png")
 const STAP_TEKEN := preload("res://systemen/stap_teken.gd")   # stap 4 tot 6: gouden stenen voor zijn voet (#162)
 const STAP_STENEN := preload("res://systemen/stap_stenen.gd")
+const ROBIJN := preload("res://systemen/robijn.gd")   # stap 7 tot 9: grote robijnen op de troon (#298)
 var _stenen: Node2D = null
 func _zet_stenen(aantal: int, rood := 0) -> void:
 	if aantal <= 0 and _stenen == null:
@@ -1527,6 +1528,8 @@ func _draw() -> void:
 		draw_set_transform(Vector2.ZERO, 0.0, _knijp)   # vanaf de voet (y 0 = vloer): de onderkant blijft op de grond
 	if royal3:
 		_teken_royal("achter", wip)   # Royal in 3D: mantel en scepter achter hem
+		if _stenen == null or _stenen.visible:   # wissel=stenen (meten) zet ze samen met de stenen uit
+			ROBIJN.teken_troon(self, royal_rect("achter", wip), n, _knijp)   # #298: op de troonrand, achter zijn lijf
 	elif n >= 3 and not is_plat():
 		draw_texture_rect_region(UPG, Rect2(-14, -16 + wip, 28, 16), Rect2(20, 0, 28, 16))   # Royal: cape erachter, op de vloer (wipt mee bij het koop-moment)
 	var laars_achter := leven == "spugen" and b3 != ""

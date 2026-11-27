@@ -7,10 +7,12 @@ extends Node2D
 # "HOL wissel stenen aan|uit unix=<s> t=<speltijd>" in de uitvoer. Zo meet je de CPU binnen één run (balans.md: alleen dat telt).
 const STAP_TEKEN := preload("res://systemen/stap_teken.gd")
 const WISSEL_S := 20.0
+const ROBIJN := preload("res://systemen/robijn.gd")   # grote robijnen op het luik, stap 7 tot 9 (#298)
 
 var plekken: Array = []   # middens van de rijen (Vector2, spelpixels in de ouder)
 var n := 0
 var rood := 0             # hoeveel stenen robijn zijn (stap 7 tot 9, stap_teken.gd rood())
+var groot: Array = []    # middens van grote robijnen (robijn.gd), ook alleen opnieuw tekenen als ze veranderen
 var maat := 1.0           # kleiner op het luik van de put (stap_teken.gd PUT_MAAT, #222)
 var _wissel := false
 var _nep := false   # wissel=nep: zelfde regels, stenen blijven aan (placebo voor de ruis)
@@ -40,9 +42,10 @@ func _process(_delta: float) -> void:
 		var t: float = float(sc.get("t")) if sc != null and sc.get("t") != null else -1.0
 		print("HOL wissel stenen %s unix=%.2f t=%.2f pad=%s" % ["aan" if aan else "uit", Time.get_unix_time_from_system(), t, get_parent().name])
 
-func zet(nieuw_plekken: Array, nieuw_n: int, nieuw_rood: int = 0) -> void:
-	if nieuw_n == n and nieuw_rood == rood and nieuw_plekken == plekken:
+func zet(nieuw_plekken: Array, nieuw_n: int, nieuw_rood: int = 0, nieuw_groot: Array = []) -> void:
+	if nieuw_n == n and nieuw_rood == rood and nieuw_plekken == plekken and nieuw_groot == groot:
 		return
+	groot = nieuw_groot
 	plekken = nieuw_plekken
 	n = nieuw_n
 	rood = nieuw_rood
@@ -52,6 +55,8 @@ func _draw() -> void:
 	for i in _keer:
 		for p in plekken:
 			STAP_TEKEN.teken(self, p + Vector2(0.0, -0.01 * i), n, maat, rood)
+		for g in groot:
+			ROBIJN.teken(self, g + Vector2(0.0, -0.01 * i), ROBIJN.PUT_MAAT)
 
 # stenen_keer=<n> (alleen meten): elke rij n keer over elkaar, zodat de kost van één rij n keer zo groot en meetbaar wordt
 var _keer := 1
