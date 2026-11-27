@@ -187,3 +187,6 @@ B gedaan: twee mails voor Click Cuts (Clever Creations, Artisans of Vaul), keuri
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 54)
 C gedaan: de gekeurde cross-sell (upsells en regel op de inhoudspagina's, #174) klaar gemaakt met de echte Click Cuts-link en gemeld in #295 (hoofdchat.md is vol, 59.967 tekens). Deel 3 (Superhive-alinea) pas als Click Cuts op Superhive staat. Volgende run: A volgens rooster; eerst #293 lezen (ja: beide mails naar de bundel van za 28 nov).
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 55)
+A gedaan: #293 verwerkt (E en F in de bundel van za 28 nov), Reddit-antwoord r/3Dprinting voor Click Cuts bij Daan #302 (zie LOG). Reddit-regels en draadjes lezen kan via Arctic Shift (`/api/subreddits/rules`, `/api/posts/search?subreddit=&title=`, `/api/comments/search?link_id=`). Reddit van Thijs is bezet t/m ma 30 nov; dit antwoord is voor di 1 dec. Volgende run: B volgens rooster; eerst #302 lezen (ja: melden voor Thijs als het ene Reddit-ding van di 1 dec).

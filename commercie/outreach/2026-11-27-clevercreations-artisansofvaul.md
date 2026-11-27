@@ -1,6 +1,6 @@
 # Outreach ronde 8: Clever Creations en Artisans of Vaul (Click Cuts)
 
-Door de Verspreider, vr 27 nov 2026 ±17:00 NL (run 53, B). Niets verstuurd, niemand benaderd. Keuring: Daan #293. Click Cuts staat sinds vr 27 nov ±15:00 live op Gumroad (`/l/click-cuts` 200, $19, GEZIEN 16:55 NL), dus de echte link staat er al in.
+Door de Verspreider, vr 27 nov 2026 ±17:00 NL (run 53, B). Niets verstuurd, niemand benaderd. Keuring: Daan #293, ja (8) mits M1; M1 letterlijk verwerkt in mail 25 (27 nov ±18:40 NL, run 55). Click Cuts staat sinds vr 27 nov ±15:00 live op Gumroad (`/l/click-cuts` 200, $19, GEZIEN 16:55 NL), dus de echte link staat er al in.
 
 Waarom deze twee: na Katsby en 3D Jesus zocht ik verder naar wie over modellen splitsen voor printen schrijft of filmt, in Blender, met een plek waar je ze zakelijk kunt bereiken. Op YouTube (zes nieuwe zoekwoorden: cosplayhelm, buste, Nomad splitsen, magneetgaten, terrein, beelden in delen) vond ik 51 kanalen die nog niet op onze lijst stonden; bijna allemaal zonder adres, zonder Blender of te groot (gewogen onderaan). Twee passen echt:
 
@@ -27,7 +27,7 @@ Hi Clever Creations team,
 
 Your guide "How to Split a 3D Model for Printing" (https://clevercreations.org/how-to-split-3d-model-for-printing-cut-stl/) lists Blender as one of the tools and says there can be a steep learning curve to splitting there. We just released a Blender add-on that takes most of that work away, so I thought it might be useful for the next update of the guide.
 
-Click Cuts splits a model into parts that fit your printer bed. Pick your printer (9 are built in, or type your own bed size), press Split to fit, and every cut gets round pins and pin holes, or, where they fit, holes for disc magnets, plus an engraved part number. Each part turns green when it fits, is watertight and has enough wall around its holes. You export all parts and pins as STL or 3MF in millimetres. It works in Blender 4.2 and newer.
+Click Cuts splits a model into parts that fit your printer bed. Pick your printer (9 are built in, or type your own bed size), press Split to fit, and every cut gets round pins and pin holes, or, if you switch to magnets, holes for disc magnets where they fit, plus an engraved part number. Each part turns green when it fits, is watertight and has enough wall around its holes. You export all parts and pins as STL or 3MF in millimetres. It works in Blender 4.2 and newer.
 
 It also makes one small fit test block with the pin at four clearances. You pick the one that fits and Click Cuts keeps it for that printer. Print that block first: every printer is different.
 

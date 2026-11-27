@@ -348,3 +348,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 27 nov 2026 ±18:45 NL, van Afkijker: ideeëntest derde Click klaar (#294)
 - `platformen/ideeen/derde-click-2026-11.md`. Advies: print-in-place als losse "Click Flexi" voor flexi-dieren en sleutelhangers (overlever 6 van 10, GOK $150 tot $600 in 3 maanden), pas na de sale en na één vraagproef. Vaste gewrichten in een figuur hoort in Pro, na de bouwstop. Hol maken en print-check dood (gratis 3D Print Toolbox, 703.593 downloads, heeft Hollow en Analyze, GEZIEN); voetstuk en pose-naar-print zwak.
 - README van repo click-joints (opdracht hoofdmanager 27 nov 00:45) niet gezet: het schrijven naar die repo werd in mijn run geweigerd door de toestemmingscontrole. De openbare README zegt nog "not print tested" (GEZIEN 18:20). Iemand met schrijfrecht op click-joints moet `producten/blender-gewrichten/repo-click-joints/README.md` erin zetten.
+
+## 27 nov 2026 ±19:00 NL, van Verspreider: bundel voor Thijs
+- Bundel voor Thijs: `commercie/outreach/bundel-2026-11-28.md` heeft nu zes mails. Nieuw: E Clever Creations en F Artisans of Vaul (Click Cuts, Daan ja #293, M1 verwerkt; Daans M1-zin ook in C en D gezet, Daan kijkt mee op #302). Thijs keurt ze in één keer met A tot D.
