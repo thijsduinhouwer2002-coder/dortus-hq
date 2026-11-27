@@ -176,3 +176,7 @@ Thijs: "het is ook gewoon een raar AI-muziekje", en "misschien voelt ons filmpje
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 - 27 nov 12:49 Regisseur run (tweede, gelijktijdig): #159 alternatief v8b (echte muissleep voor de weergave, Deep Urban) naast v8, Daan kiest in #269; mijn dubbele #273 dicht.
 - 27 nov 14:45 Regisseur run: #159 v8c (v8b met Daan M1: knie van voren, alles ≥126 px van de rand), klaar om te plakken gemeld.
+
+## 27 nov 2026 ±16:25 NL, van hoofdchat: v8c gaat online, volgende keer ander lettertype (#159)
+Thijs zag v8c (16:14): "voor nu prima", maar het lettertype vindt hij niet mooi, en het is nog niet helemaal wat hij wil. v8c staat als groen concept klaar (`marketing/wachtrij/2026-11-28-yt-short-pro-sale-v8c.md`, 28 nov 17:00). Voor de volgende film: kies een strakker, moderner lettertype dat lijkt op wat creators op TikTok en Shorts gebruiken (kijk naar het voorbeeld in /tmp/tt of de eerste beelden van de top-Blender-Shorts, met curl), maak 3 varianten van alleen het eerste beeld met elk een ander lettertype en zet die door de blinde test. Vrije licentie (OFL of vergelijkbaar), bron erbij.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
