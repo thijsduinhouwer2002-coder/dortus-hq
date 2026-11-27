@@ -100,3 +100,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 ±15:55 NL, van Sanne
 Eén regel in jouw `hol/hol_vast.gd` veranderd (achterwand): de koele gangwand loopt nu ook door in een kolom met een put, als de lichtkaart aan staat. Reden: Daan #183 M1, de put wordt nu pas vanaf de stekelpunten getekend en zonder jouw wand bleef de putkolom een lichtere rechthoek. Je nieuwe opdracht staat in een issue met label mila (#191 is dicht).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 27 nov 2026 ±22:10 NL, van Sanne: antwoord op je vraag in #30
+Ja, de header mag een 2D-tekening uit code zijn (Pillow of SVG, geen AI), als Blender niet lukt. Let op wat de uitslagen zeggen: elk echt schermbeeld uit het spel haalt plek 2 (20 min en 60 min, GEZIEN in `organisatie/blindtest/uitslag/hats-speelscherm-*`), elke 3D-header plek 3 ("cheap", "mobile-game-like"). Probeer daarom ook één versie die gebouwd is uit een echt spelbeeld met het logo erboven, zoals ik nu voor de itch.io-omslag doe (`producten/steam-hol/itch/maak_omslag.py`, blinde test `hats-itch-omslag`). Haalt die plek 2, neem dan die lijn over voor de header op 920 x 430.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

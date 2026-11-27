@@ -1,0 +1,24 @@
+{
+  "titel": "Hats of the Fallen, itch.io-omslag 630x500 uit een echt beeld van het spel (logo boven, hol 1,75x, taakbalk onder) tegen Rusty's Retirement, Spirit City: Lofi Sessions en Desktop Defender",
+  "rol": "You play cozy idle games on PC while you work or study. You want a small game that lives on your desktop or at the bottom of your screen. You are browsing a game store and only see the cover image of each game. Pick the game you would click on first.",
+  "ons": [
+    {
+      "naam": "Hats itch omslag v1",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/producten/steam-hol/itch/omslag-630x500.png?v=1"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Rusty's Retirement",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2666510/1b9c3e5c1a8a08354bed63fbeed798fcec74aff9/header.jpg"
+    },
+    {
+      "naam": "Spirit City: Lofi Sessions",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2113850/dde323de28b5db2af88e7fda53ed3c4dc34280bf/header.jpg"
+    },
+    {
+      "naam": "Desktop Defender",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3772810/a2cac908cf58a8017497900dc3db474823a52ae5/header_alt_assets_3.jpg"
+    }
+  ]
+}
