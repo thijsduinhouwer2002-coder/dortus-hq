@@ -1,14 +1,14 @@
 {
-  "titel": "Hats of the Fallen, Steam header v9 en v10 (v10: held kleiner, pet bij zijn hoofd, hoge hoed en munten in de lege aarde) tegen Rusty's Retirement, Spirit City: Lofi Sessions en Desktop Defender",
+  "titel": "Hats of the Fallen, Steam header v11a (echt spelbeeld onderaan een bureaublad met spreadsheet, nieuw pixellogo) en v11b (v10 in 3D met alleen het nieuwe pixellogo, zonder pilletje) tegen Rusty's Retirement, Spirit City: Lofi Sessions en Desktop Defender",
   "rol": "You play cozy idle games on PC while you work or study. You want a small game that lives on your desktop or at the bottom of your screen. You are scrolling the Steam store and only see the small header image of each game. Pick the game you would click on first.",
   "ons": [
     {
-      "naam": "Hats header v9",
-      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/steam/capsule-v2/header-v9-920x430.png?v=9c"
+      "naam": "Hats header v11a",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/steam/capsule-v2/header-v11a-920x430.png?v=11a"
     },
     {
-      "naam": "Hats header v10",
-      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/steam/capsule-v2/header-v10-920x430.png?v=10"
+      "naam": "Hats header v11b",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/steam/capsule-v2/header-v11b-920x430.png?v=11b"
     }
   ],
   "concurrenten": [

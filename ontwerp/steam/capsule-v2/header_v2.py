@@ -386,8 +386,9 @@ def tekst(woord, loc, maat, kantel=0, rand=0.09, kleur="ffd23a"):
     cu2.materials.clear(); cu2.materials.append(g.mat("titelrand", "3a1a14", rough=0.6))
     return o
 TX, TZ = E("TX", "-8.9"), E("TZ", "5.5")
-tekst("HATS", (TX, -2.5, TZ), E("TH", "2.75"), kantel=E("TK", "3"))
-tekst("OF THE FALLEN", (TX + 0.15, -2.5, TZ - 1.15), E("TO", "1.2"), kantel=E("TK", "3"), rand=0.12)
+GEENTITEL = os.environ.get("HV2_GEENTITEL", "0") == "1"   # v11: titel getekend in samenstellen, niet in 3D
+if not GEENTITEL: tekst("HATS", (TX, -2.5, TZ), E("TH", "2.75"), kantel=E("TK", "3"))
+if not GEENTITEL: tekst("OF THE FALLEN", (TX + 0.15, -2.5, TZ - 1.15), E("TO", "1.2"), kantel=E("TK", "3"), rand=0.12)
 
 # ---------- licht ----------
 def lamp(naam, soort, loc, kleur, kracht, grootte=1.0, doel=(0, 0, 1.0)):
