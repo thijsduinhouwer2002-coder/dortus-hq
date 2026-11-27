@@ -355,8 +355,20 @@ for o in list(sc.objects):
 for o in list(HV.children_recursive):
     if o.name.startswith("hoed"):
         o.hide_render = True
-hoeden.bouw(3, plek=(E("PETX", "3.1"), 0.0, E("PETZ", "5.75")), schaal=E("PETS", "1.6"), kantel=E("PETK", "15"), draai=E("PETD", "-30"))   # v5: koepel boven, klep opzij (v4 las als rode lippen)
+PET = hoeden.bouw(3, plek=(E("PETX", "3.1"), 0.0, E("PETZ", "5.75")), schaal=E("PETS", "1.6"), kantel=E("PETK", "15"), draai=E("PETD", "-30"))
+if os.environ.get("HV2_V10", "0") == "1":   # v10: pet laag naast zijn hoofd, iets naar de camera gekanteld zodat de koepel blijft lezen
+    PET.rotation_euler.x = math.radians(E("PETVOOR", "30"))   # v5: koepel boven, klep opzij (v4 las als rode lippen)
 # (bewegingsstreepjes weggelaten: op 2x lazen ze als stokjes door de held)
+# v10 (Daan #304 K3): de lege aarde linksonder krijgt een hoed van een eerder gevallen held en een paar munten,
+# half in de grond, zoals de lagen in het spel. Held kleiner (K1) en pet dichter bij zijn hoofd (K2) gaan via HVS/PETX/PETZ.
+if os.environ.get("HV2_V10", "0") == "1":
+    hoeden.bouw(int(E("BHNR", "0")), plek=(E("BHX", "-4.3"), -0.05, E("BHZ", "1.05")), schaal=E("BHS", "1.25"),
+                kantel=E("BHK", "-28"), draai=E("BHD", "20"))
+    for (mx, mz, mr, mk) in [(-5.6, 0.85, 0.2, 12), (-2.9, 1.25, 0.18, -18), (-3.35, 0.7, 0.16, 25)]:
+        # plat naar de camera (as langs y), iets scheef: lezen als munt, niet als streepje
+        bpy.ops.mesh.primitive_cylinder_add(vertices=24, radius=mr, depth=0.06, location=(mx + E("BHX", "-4.3") + 4.3, -0.04, mz),
+                                            rotation=(math.radians(90 - 20), math.radians(mk), 0))
+        mo = bpy.context.object; mo.name = "munt"; bpy.ops.object.shade_smooth(); kies(mo, GOUD)
 # 2. in de gang loopt een ridder nietsvermoedend naar de kamer
 if not V9: held.bouw("ridder", "stap2", plek=(E("RX", "-1.6"), 0.35, 0.0), draai=60, schaal=E("RS", "1.55"), gloed=40)
 

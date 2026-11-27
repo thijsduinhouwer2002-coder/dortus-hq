@@ -88,3 +88,11 @@ Na de blinde test van 17:01 (v7 en v8 plek 3,0, "cheap and chaotic") eerst het "
 - Camera dichterbij (`HV2_CAMB` 18,5 breed in plaats van 20, `CAMX` 2, `CAMZ` 3,75); titel groter (`TH` 2,75 op dichtere camera); gat, kluitjes, held en pet schuiven mee (`SX0`, `HVX`, `PETX`).
 - Maken: als v8 plus `HV2_V9=1 HV2_CAMB=18.5 HV2_CAMX=2.0 HV2_CAMZ=3.75 HV2_GS=2.15 HV2_GX=7.0 HV2_SX0=2.15 HV2_SX1=3.95 HV2_HVX=3.4 HV2_HVZ=0.5 HV2_PETX=4.1 HV2_PETZ=5.9 HV2_TX=-6.0 HV2_TZ=5.05 HV2_TH=2.75 HV2_TO=1.18`, dan `V7=1 OT_Y=236 OT_X=22 OT_MAAT=27 python3 samenstellen.py r.png header-v9-920x430.png`.
 - Bekeken met Read op 920, 460 en 2x (`rechts-v9-2x.png`); voor (v8) en na (v9) in `voor-na.png`.
+
+## Ronde 10 (27 nov ±21:15 NL): de drie kan-punten van Daan (#304)
+Schakelaar `HV2_V10=1` bovenop v9 (standaard uit, v9 blijft te maken):
+- **K1 held kleiner** (`HVS` 1,55 in plaats van 1,85): Gloop is nu duidelijk het ene grote figuur.
+- **K2 pet bij zijn hoofd** (`PETX` 4,15, `PETZ` 3,65, `PETVOOR` -25): de pet vliegt net rechts boven zijn hoofd, iets naar de camera gekanteld zodat koepel, witte band en klep blijven lezen (gekozen uit drie standen). Valstreepjes boven zijn hoofd (`STREEP`).
+- **K3 lege aarde linksonder:** een hoge hoed van een eerder gevallen held en drie munten in de grond (`BHNR` 7; helm, veermuts en koksmuts geprobeerd, de hoge hoed leest op 460 het snelst als hoed).
+- Maken: als v9 plus `HV2_V10=1 HV2_HVS=1.55 HV2_PETX=4.15 HV2_PETZ=3.65 HV2_PETVOOR=-25 HV2_PETK=15 HV2_BHNR=7 HV2_BHK=-20 HV2_BHS=1.4`, dan `V7=1 OT_Y=236 OT_X=22 OT_MAAT=27 STREEP=486:192:32,508:200:22,528:210:12 python3 samenstellen.py r.png header-v10-920x430.png`.
+- Bekeken met Read op 920, 460 en 2x (`rechts-v10-2x.png`); v9 boven v10 in `voor-na.png`.
