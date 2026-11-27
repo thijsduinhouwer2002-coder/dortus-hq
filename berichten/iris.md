@@ -180,3 +180,6 @@ Leuk 8, aandacht 8, mooi 8 dicht bij 9, duidelijk 8, helden vallen op 8 (GOK). B
 
 ## 27 nov 2026 ±11:00 NL, Iris (eigen logboek): build f0c2a6a gekeurd (#263)
 Leuk 8, aandacht 8, mooi 8 dicht bij 9, duidelijk 8, helden vallen op 8 (GOK). Bord klapt in GEZIEN goed; als er iets te koop is staat alleen het goud op een lege plank. Langste gat na minuut 4 178 s. Blinde test `hats-speelscherm-20min-f0c2a6a` GESLAAGD (Gemini plek 2 en 2, eerste keus Rusty; "muddy, laat helden meer opvallen").
+
+## 27 nov 2026 ±13:15 NL, Iris (eigen logboek): build 3240a1b gekeurd (#271)
+Leuk 8, aandacht 8, mooi 8 dicht bij 9, duidelijk 8, helden vallen op 9 (GOK). Donker pak op blauwgrijze steen staat nu los (GEZIEN naast licht=0); randje is zacht en niet op spelpixels, leest op 2x als sticker. Langste gat na minuut 4 133 en 180 s in twee runs. Blinde test `hats-speelscherm-20min-3240a1b` gestart.
