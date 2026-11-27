@@ -19,6 +19,7 @@ verbinders = importlib.import_module("split_joints.verbinders")
 passing = importlib.import_module("split_joints.passing")
 kleuren = importlib.import_module("split_joints.kleuren")
 plat = importlib.import_module("split_joints.plat")
+lijn = importlib.import_module("split_joints.lijn")
 
 fouten = []
 
@@ -356,6 +357,49 @@ n9, a9, _ = plat.grootste_vlak(nrm / 3.0, pts, opp)
 stap("plat: korte normalen (geschaald stuk) tellen nog mee", n9 is not None and abs(a9 - 6000.0) < 1e-6, f"{a9:.0f}")
 stap("plat: geen enkel plat vlak: stuk houdt zijn eigen stand", plat.kies_stand(np.zeros((0, 3)), np.zeros((0, 3)),
      np.zeros(0), hoeken5, (176.0, 176.0, 178.0))[0] is None)
+
+# 11. Draw cut (issue #208): a line drawn over the arm of a torso, front view (looking along +Y)
+torso_v, _ = doos((-20, -20, 0), (20, 20, 40))
+arm_v, _ = doos((15, -8, 22), (80, 8, 38))
+romp = np.vstack([torso_v, arm_v, [[x, y, z] for x in np.linspace(-20, 80, 21) for y in (-8, 8) for z in (22, 38)]])
+for naam, p1, p2 in (("van onder naar boven", (50, -30, 15), (50, -30, 45)), ("van boven naar onder", (50, -30, 45), (50, -30, 15))):
+    R, o, a, b = lijn.vlak_uit_lijn(p1, p2, (0, 1, 0), romp, marge=1.0)
+    stap(f"tekenen {naam}: pijl naar het armeinde (+X)", np.allclose(R[:, 2], [1, 0, 0], atol=1e-9), f"{np.round(R[:, 2], 3)}")
+    stap(f"tekenen {naam}: rechtshandig", abs(np.linalg.det(R) - 1.0) < 1e-9)
+    stap(f"tekenen {naam}: vlak door de lijn op x = 50", abs(o[0] - 50.0) < 1e-9 and abs(o[2] - 30.0) < 1e-9, f"{np.round(o, 3)}")
+    stap(f"tekenen {naam}: breed als de lijn plus 1 mm, diep als het stuk plus 1 mm", abs(a - 16.0) < 1e-9 and abs(b - 21.0) < 1e-9 and abs(o[1]) < 1e-9, f"a {a} b {b}")
+# a line over the whole height of the torso: both sides lie fully inside the rectangle
+R, o, a, b = lijn.vlak_uit_lijn((10, -30, 0), (10, -30, 50), (0, 1, 0), romp)
+stap("tekenen: lijn over de hele hoogte: beide kanten binnen, de kant die minder ver doorloopt (-X, 30 tegen 70 mm)", R[:, 2][0] < -0.99, f"{np.round(R[:, 2], 3)}")
+# slanted view: the plane still holds the view direction and the line
+k = np.array([0.3, 1.0, -0.2])
+R, o, a, b = lijn.vlak_uit_lijn((50, -30, 15), (50, -30, 45), k, romp)
+stap("tekenen: schuine blik ligt in het vlak", abs(R[:, 2] @ (k / np.linalg.norm(k))) < 1e-9 and abs(R[:, 2] @ [0, 0, 1.0]) < 1e-9)
+stap("tekenen: te korte lijn of lijn langs de blik geweigerd", lijn.vlak_uit_lijn((0, 0, 0), (0, 5, 0), (0, 1, 0), romp) is None
+     and lijn.vlak_uit_lijn((0, 0, 0), (0, 0, 0), (0, 1, 0), romp) is None)
+# keuring #212 M1: the part that comes off is lit before Cut piece; K1: Flip side turns it to the other part
+R, o, a, b = lijn.vlak_uit_lijn((50, -30, 15), (50, -30, 45), (0, 1, 0), romp, marge=1.0)
+proef = np.array([[60, 0, 30], [70, 0, 30], [65, 0, 35],  # arm end: comes off
+                  [0, 0, 30], [10, 0, 30], [5, 0, 35],  # torso: stays
+                  [60, 0, 60], [70, 0, 60], [65, 0, 65]])  # past the arm, outside the rectangle: stays
+tri3 = np.array([[0, 1, 2], [3, 4, 5], [6, 7, 8]])
+m = lijn.deel_eraf(proef, tri3, R, o, a, b)
+stap("tekenen: alleen het armeinde licht op", m.tolist() == [True, False, False], f"{m.tolist()}")
+R2 = lijn.omdraaien(R)
+m2 = lijn.deel_eraf(proef, tri3, R2, o, a, b)
+stap("tekenen: Flip side zet de pijl om en blijft rechtshandig", np.allclose(R2[:, 2], -R[:, 2]) and abs(np.linalg.det(R2) - 1.0) < 1e-9)
+stap("tekenen: na Flip side licht de romp op, niet het armeinde", m2.tolist() == [False, True, False], f"{m2.tolist()}")
+stap("tekenen: twee keer Flip side is terug bij af", np.allclose(lijn.omdraaien(R2), R))
+stap("tekenen: leeg stuk geeft niets", lijn.deel_eraf(proef, np.zeros((0, 3)), R, o, a, b).shape == (0,))
+# a triangle across the cut line is clipped at the plane: the light stops on the line (x = 50)
+schuin = np.array([[40, 0, 30], [60, 0, 28], [60, 0, 32]])
+h = lijn.eraf_hoeken(schuin, np.array([[0, 1, 2]]), R, o, a, b)
+stap("tekenen: driehoek over de snede wordt op het vlak afgeknipt", len(h) >= 1 and h[:, :, 0].min() > 49.999 and h[:, :, 0].max() < 60.001,
+     f"{len(h)} stukjes, x {h[:, :, 0].min():.3f} tot {h[:, :, 0].max():.3f}")
+opp = sum(0.5 * np.linalg.norm(np.cross(t[1] - t[0], t[2] - t[0])) for t in h)
+stap("tekenen: afgeknipt deel heeft driekwart van de oppervlakte (punt links valt weg)", abs(opp - 30.0) < 1e-6, f"{opp:.3f} mm2 (heel 40)")
+h3 = lijn.eraf_hoeken(proef, tri3, R, o, a, b)
+stap("tekenen: hele driehoeken blijven heel", len(h3) == 1 and np.allclose(h3[0], proef[:3]))
 
 print(f"[sj-logica] KLAAR {len(fouten)} FOUT {fouten}")
 sys.exit(1 if fouten else 0)

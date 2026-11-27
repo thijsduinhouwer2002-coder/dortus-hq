@@ -2,7 +2,7 @@
 one-line result, Export, and the four numbered steps folded under More settings."""
 import bpy
 
-from . import controle, exporteer, in_een_klik, passingproef, printers, schaal, snedes
+from . import controle, exporteer, in_een_klik, passingproef, printers, schaal, snedes, vrije_snede
 from .eigenschappen import bed, magneten
 
 
@@ -70,6 +70,13 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             if snedes.verschoven(scene):  # keuring K6: only after a moved cut, and name the button
                 vak.label(text="Cuts changed: press", icon="INFO")
                 vak.label(text="Split to fit again")  # two lines: one was cut off (keuring M2); keeps the cuts
+        if uit and any(o.get("sj_stuk") for o in scene.objects):
+            # issue #208: choose where a piece is cut, right under the result (not hidden in More settings)
+            rij = layout.row(align=True)
+            rij.operator("split_joints.vrije_snede_tekenen", text="Draw cut", icon=icoon("GREASEPENCIL", "LINE_DATA"))
+            rij.operator("split_joints.vrije_snede", text="Cut piece", icon="MOD_BOOLEAN")
+            if vrije_snede.stuk_van(context)[1] is not None:  # keuring #212 K1: the other part, without R 180
+                layout.operator("split_joints.vrije_snede_om", text="Flip side", icon=icoon("ARROW_LEFTRIGHT", "UV_SYNC_SELECT"))
         if uit:
             rij = layout.row()
             rij.scale_y = 1.3  # smaller than Split to fit (keuring C2)
@@ -161,6 +168,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             rij = vrij.row(align=True)
             rij.operator("split_joints.vrije_snede_erbij", text="Add free cut", icon="ADD")
             rij.operator("split_joints.vrije_snede", text="Cut piece", icon="MOD_BOOLEAN")
+            vrij.operator("split_joints.vrije_snede_om", text="Flip side", icon=icoon("ARROW_LEFTRIGHT", "UV_SYNC_SELECT"))
         if inst.meldingen:
             vak = stap.column(align=True)
             for regel in inst.meldingen.split("\n"):  # all of them (keuring winkeltekst K1: 8 of 16 showed)
@@ -173,6 +181,12 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         if h:
             stap.label(text=h)
         grote_knop(stap, "split_joints.exporteer", f"Export {inst.formaat}", "EXPORT")
+
+
+def icoon(*namen):
+    """First icon name this Blender knows (icon names change between 4.2 and 5.x), else none."""
+    bekend = bpy.types.UILayout.bl_rna.functions["operator"].parameters["icon"].enum_items.keys()
+    return next((n for n in namen if n in bekend), "NONE")
 
 
 KLASSEN = (SPLIT_JOINTS_PT_paneel,)

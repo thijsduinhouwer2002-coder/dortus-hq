@@ -11,10 +11,12 @@ def register():
             bpy.utils.register_class(k)
     eigenschappen.koppel()
     passingproef.koppel()
+    vrije_snede.koppel()
 
 
 def unregister():
     import bpy
+    vrije_snede.ontkoppel()
     passingproef.ontkoppel()
     eigenschappen.ontkoppel()
     for m in reversed(MODULES):
