@@ -27,7 +27,7 @@ Nooit een concept weghalen, ook niet als het rood is. Een verbeterde versie is e
 ```
 # <korte naam van de post>
 
-- status: open
+- status: vervallen (hoofdchat 27 nov 16:20, Thijs koos "1": marketing weer aan alleen voor nieuw gekeurd werk; oud werk gaat niet meer uit)
 - kanaal: tiktok | yt-lang | yt-short
 - soort: video | diashow
 - product: click-joints-pro

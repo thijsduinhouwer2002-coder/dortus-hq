@@ -1,6 +1,6 @@
 # Split a figure into printable parts
 
-- status: groen
+- status: vervallen (hoofdchat 27 nov 16:20, Thijs koos "1": marketing weer aan alleen voor nieuw gekeurd werk; oud werk gaat niet meer uit)
 - kanaal: tiktok
 - soort: tip
 - product: click-joints-pro

@@ -1,6 +1,6 @@
 # Pro-Short: Already split your figure? Add a working knee in Blender 🦿
 
-- status: open
+- status: vervallen (hoofdchat 27 nov 16:20, Thijs koos "1": marketing weer aan alleen voor nieuw gekeurd werk; oud werk gaat niet meer uit)
 - kanaal: yt-short
 - soort: video
 - soort_reeks: Pro (eigen onderwerp: model dat al in delen is, knie op de 3D-cursor; geen Short van de laatste 14 dagen over losse delen of Shift + rechtsklik)

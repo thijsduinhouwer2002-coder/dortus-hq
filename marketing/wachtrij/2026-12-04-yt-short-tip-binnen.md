@@ -1,6 +1,6 @@
 # Tip-reeks 7: Is your model inside out? Find it in 2 clicks 🔴
 
-- status: open
+- status: vervallen (hoofdchat 27 nov 16:20, Thijs koos "1": marketing weer aan alleen voor nieuw gekeurd werk; oud werk gaat niet meer uit)
 - bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-9).
 - nagekeken run 25 (GEZIEN, release regisseur-9, run 45430299112): lengte 42,1 s, geluid GOED (-16,3 dB), synchroon GOED 10 van 10 (0,287 s). Eerlijkheidszin en slotzin staan in beeld en stem.
 - kanaal: yt-short

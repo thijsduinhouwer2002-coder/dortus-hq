@@ -1,6 +1,6 @@
 # Tip-reeks 13: Your ball joint gap, measured, not guessed 🔥
 
-- status: open
+- status: vervallen (hoofdchat 27 nov 16:20, Thijs koos "1": marketing weer aan alleen voor nieuw gekeurd werk; oud werk gaat niet meer uit)
 - bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Click Joints is free. Want more? Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-18).
 - nagekeken run 25 (GEZIEN, release regisseur-18, run 45430299174): lengte 46,8 s, geluid GOED (-16,7 dB), synchroon GOED 12 van 12 (0,187 s); 5 beelden bekeken. Eerlijkheidszin en slotzin staan in beeld en stem.
 - kanaal: yt-short

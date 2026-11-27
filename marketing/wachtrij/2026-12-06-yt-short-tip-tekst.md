@@ -1,6 +1,6 @@
 # Tip-reeks 9: Put your name on a 3D print with Blender ✍️
 
-- status: open (run 12: nieuwe opname nagekeken, Object > Convert > Mesh nu echt in beeld, `t_conv_menu` true, GEZIEN)
+- status: vervallen (hoofdchat 27 nov 16:20, Thijs koos "1": marketing weer aan alleen voor nieuw gekeurd werk; oud werk gaat niet meer uit)
 - bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-11).
 - nagekeken run 25 (GEZIEN, release regisseur-11, run 45430298839): lengte 42,9 s, geluid GOED (-16,9 dB), synchroon whisper 10 van 11 (zin 9 -0,62 s: whisper plakt "Dimensions" aan zin 9), met RMS nagemeten 11 van 11: stem zin 8 stopt 28,55 s, stil tot 29,25, zin 9 begint 29,3 bij scène 29,2. Eerlijkheidszin en slotzin staan in beeld en stem.
 - kanaal: yt-short

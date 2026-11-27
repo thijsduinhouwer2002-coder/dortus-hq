@@ -1,6 +1,6 @@
 # Click Cuts Short 3: Which printed part goes where? Number every cut 🔥
 
-- status: open (plaatsen pas als Click Cuts live is en de winkellink werkt)
+- status: vervallen (hoofdchat 27 nov 16:20, Thijs koos "1": marketing weer aan alleen voor nieuw gekeurd werk; oud werk gaat niet meer uit)
 - bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en printzin "Every printer is different: print the fit test first." (slot blijft Click Cuts, want de opdracht gaat over Click Joints Pro). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-21).
 - nagekeken run 25 (GEZIEN, release regisseur-21, run 45430299493): lengte 45,2 s, geluid GOED (-16,7 dB), synchroon GOED 11 van 11 (0,18 s). Eerlijkheidszin en slotzin staan in beeld en stem.
 - kanaal: youtube-short

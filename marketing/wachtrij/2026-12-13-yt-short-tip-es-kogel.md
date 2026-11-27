@@ -1,6 +1,6 @@
 # Spaanse tip 1: Cómo hacer un ball joint en Blender para figuras de acción ⚙️
 
-- status: open
+- status: vervallen (hoofdchat 27 nov 16:20, Thijs koos "1": marketing weer aan alleen voor nieuw gekeurd werk; oud werk gaat niet meer uit)
 - bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "¿Quieres más? Click Joints Pro, en Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-22).
 - nagekeken run 25 (GEZIEN, release regisseur-22, run 45430952433): lengte 51,2 s, geluid GOED (-16,3 dB), synchroon GOED 12 van 12 (0,18 s); 3 beelden bekeken, daarna kop "Sin imprimir aún" vervangen door "Primero una prueba" (nieuwe montage loopt). Eerlijkheidszin en slotzin staan in beeld en stem.
 - kanaal: youtube-short

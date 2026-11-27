@@ -1,6 +1,6 @@
 # YouTube Short reeks 1, nr 3: His elbow stops at 140 degrees, red past it: 3D printed figure in Blender
 
-- status: groen
+- status: vervallen (hoofdchat 27 nov 16:20, Thijs koos "1": marketing weer aan alleen voor nieuw gekeurd werk; oud werk gaat niet meer uit)
 - kanaal: youtube-short
 - soort: video
 - product: click-joints-pro

@@ -1,6 +1,6 @@
 # YouTube Short reeks 1, nr 8: Free Blender add-on: ball joint neck for a 3D printed figure
 
-- status: groen
+- status: vervallen (hoofdchat 27 nov 16:20, Thijs koos "1": marketing weer aan alleen voor nieuw gekeurd werk; oud werk gaat niet meer uit)
 - kanaal: youtube-short
 - soort: video
 - product: click-joints (gratis) en click-joints-pro

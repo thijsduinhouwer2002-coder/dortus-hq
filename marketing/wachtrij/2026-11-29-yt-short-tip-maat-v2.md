@@ -1,6 +1,6 @@
 # Tip-reeks 2: Will your model fit your printer? Check it first 📏
 
-- status: open
+- status: vervallen (hoofdchat 27 nov 16:20, Thijs koos "1": marketing weer aan alleen voor nieuw gekeurd werk; oud werk gaat niet meer uit)
 - bijgewerkt: Regisseur run 25 (24 nov 2026): eerlijkheidszin vervangen door "Every printer is different" (besluit Thijs 24 nov 15:32) en slotzin in beeld en stem "Make your prints poseable: Click Joints Pro, on Gumroad." (opdracht hoofdchat 24 nov 16:05). Alleen opnieuw gemonteerd uit dezelfde ruwe opname (workflow regisseur-7).
 - nagekeken run 25 (GEZIEN, release regisseur-7, run 45430412786): lengte 46,5 s, geluid GOED (-18,1 dB), synchroon whisper 7 van 9 (zin 8 en 9 niet herkend), met RMS nagemeten 9 van 9: stem zin 8 op 35,9 s bij scène 35,77, zin 9 op 40,7 bij 40,57; beelden 36,5 en 41,5 s bekeken. Eerlijkheidszin en slotzin staan in beeld en stem.
 - kanaal: yt-short

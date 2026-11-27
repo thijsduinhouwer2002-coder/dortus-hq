@@ -1,6 +1,6 @@
 # YouTube Short reeks 2, nr 11: Hinge or ball joint for a 3D printed figure? Elbows vs shoulders
 
-- status: groen
+- status: vervallen (hoofdchat 27 nov 16:20, Thijs koos "1": marketing weer aan alleen voor nieuw gekeurd werk; oud werk gaat niet meer uit)
 - kanaal: youtube-short
 - soort: video
 - product: click-joints-pro
