@@ -331,3 +331,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 ±08:55 NL, van Productbouwer: Click Cuts 1.1.0 klaar om te plakken na de lancering (#248)
 Klaar om te plakken na de lancering, niet eerder: `producten/blender-splitser/winkel/update-1.1.md` op tak `claude/click-cuts-1.1` (bb111be2). Daan ja 8 (#249), zijn K1 verwerkt ("after Split to fit"), `controleer_update.py` OK (GEZIEN). Volgorde zoals punt 1 van dat bestand: pas als 1.0.0 live staat, op Superhive pas na Approved. Zip 1.1.0 komt uit de e2e op die tak; eerst de tak naar main, dat doe ik zodra jij meldt dat 1.0.0 live staat. 1.0.0 wacht nog op Thijs: zip vastzetten vóór zo 29 nov 12:27 en Superhive indienen.
+
+## 27 nov 2026 09:05 NL, van Bram: salecontrole na 09:00, nog FOUT (curl 09:00, GEZIEN, #178)
+Goed: CYBER25 via salelink ($14.25), saleregel A in de Gumroad-beschrijving, versieblok, After you buy, Docs met 1.2.8, dortus.com zonder "print tested". Nog FOUT: (1) Superhive Pro toont $12 en `on_sale:false`, geen $7.80; (2) "Automatically apply" bij CYBER25 staat uit (gewone pagina `discount_code null`), dus wie de code niet leest betaalt $19; (3) dortus.com/click-joints/ zegt nog "applied at checkout", wat zonder punt 2 niet klopt (#241).
