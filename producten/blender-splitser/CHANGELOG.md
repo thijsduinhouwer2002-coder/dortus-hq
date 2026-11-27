@@ -4,7 +4,7 @@
 - New: Draw cut. After Split to fit, click a part, press Draw cut and drag a line where you want it cut, for example under the chin or at the shoulder.
 - New: before you cut, the part that comes off lights up white with an arrow that says "comes off". Wrong part? Press Flip side.
 - New: the clearance starts at a value for your material until you save a fit test: Resin 0.10, PLA 0.20, PETG and ABS / ASA 0.25, TPU 0.30 mm. The fit test block covers that value.
-- Better: after a split, the result box names the clearance the parts were cut with, and tells you to split again when you change it.
+- Better: after Split to fit, the result box names the clearance the parts were cut with, and tells you to split again when you change it.
 
 ## 1.0.0 (candidate, 25 Nov 2026)
 First version.
