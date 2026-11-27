@@ -1,32 +1,29 @@
-HOL balk gestart, pid 4496, hoogte 96
+HOL balk gestart, pid 4928, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL demo: speeltijd 0 s, grens 3 s
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795813837
+HOL zaad 1795816220
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Bram)
-HOL held binnen: Bram
+HOL begin: vallen (Teun)
+HOL held binnen: Teun
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Bram knocks first. Polite.
+HOL kroniek 2.5 (wacht 0.5): Teun read about you in a tavern.
 HOL demo voorbij na 3 s speeltijd
 HOL kroniek 3.5 (wacht 0.5): That's the demo. Your hole keeps going.
 HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
 HOL uitleg stap 1 t=4.0 
-HOL kroniek zelfde held vervangen: Bram knocks first. Polite.
-HOL kroniek 7.3 (wacht 0.0): Bram left gold and one boot. +9
+HOL kroniek zelfde held vervangen: Teun read about you in a tavern.
+HOL kroniek 7.4 (wacht 0.0): Teun will not be leaving. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Odo)
-HOL held binnen: Odo
-HOL zicht 7.7 1
+HOL begin: opgegeten (Maud)
+HOL held binnen: Maud
+HOL zicht 8.7 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
 HOL kroniek 9.9 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 10.7: Odo climbs into your hole.
-HOL leven goudstof t=10.9 x=324 y=30
+HOL leven stofje t=11.2 x=184 y=26
+HOL kroniek vervallen 11.6: Maud says this is a quick one.
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
-HOL reeks 2 (+0, t 24.6)
-HOL kroniek 24.6 (wacht 0.0): Gloop ate Odo. Kept the crown. +9
-HOL zicht 24.7 0
-HOL einde na 25 s, fps=15, goud=38, terugkomers=0
+HOL einde na 25 s, fps=10, goud=29, terugkomers=0
