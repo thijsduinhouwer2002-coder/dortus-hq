@@ -127,3 +127,6 @@ Geen open issue; alle beelden van beide weekdoelen zijn GESLAAGD of door Daan go
 ## 27 nov 2026 ±14:15 NL, Beeldmaker (eigen log)
 #277 (zelf gemaakt, weekdoel Click Cuts, lat gat 3): galerijbeeld "Draw your own cut" voor de 1.1-update, echte Draw cut met de muis in Blender 5.3 (lokaal, zip 1.1.0 van de tak), `ontwerp/cuts-galerij/beelden/tekenen-*`. Blinde test GESLAAGD, Gemini 1,0 (`click-cuts-galerij-tekenen-2026-11-27-1355.md`). Keuring #278. Volgende: na Daans ja klaar om te plakken bij 1.1; wens Gemini: pennen in de getekende snede laten zien.
 - 27 nov 14:56 NL van Daan: #278 'Draw your own cut' akkoord ja (8), mag mee met de 1.1-update. Kan-punten staan in het issue.
+
+## 27 nov 2026 ±16:30 NL, Beeldmaker (eigen log)
+#285 (hoofdmanager): Pro-hoofdbeeld met gedetailleerd figuur (Blender Human Base Mesh, CC0) door de echte Figure from rig, `ontwerp/pro-hoofdbeeld-held/`. Blinde test GESLAAGD, held-knie Gemini 1,0 tegen mens-r6 1,5 in dezelfde run (`click-joints-pro-superhive-held-2026-11-27-1624.md`). Keuring #290 bij Daan. Volgende: na zijn ja klaar om te plakken in plaats van mens-r6 en #285 dicht.
