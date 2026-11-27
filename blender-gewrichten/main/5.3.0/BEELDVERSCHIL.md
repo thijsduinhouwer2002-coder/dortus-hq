@@ -1,6 +1,6 @@
 ## Beeldvergelijking Click Joints, Blender 5.3.0 (main)
 GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 37 plaatjes vergeleken)
-Referentie: referentie uit run 46008143979, commit 4329a3a10354292b7e24872bfa676048b76fc06c, commitdatum 1795786272, 2026-11-27T13:53:52Z
+Referentie: referentie uit run 46039645892, commit d9f2c6e833ecf148f04a1ea3ee75aaea9b256f64, commitdatum 1795799374, 2026-11-27T17:27:14Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
@@ -9,10 +9,10 @@ Referentie: referentie uit run 46008143979, commit 4329a3a10354292b7e24872bfa676
 | 11-scharnier-x.png | gelijk | |
 | 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | 31 px (0.001%), ruis | |
-| 13-pro-knie-x.png | 8 px (0.000%), ruis | |
+| 13-pro-knie-x.png | gelijk | |
 | 13d-pro-knie-dicht-x.png | 52 px (0.003%), ruis | |
 | 14-pro-knie-rood-x.png | 13 px (0.001%), ruis | |
-| 14b-pro-knie-rood-los-x.png | 9 px (0.000%), ruis | |
+| 14b-pro-knie-rood-los-x.png | 7 px (0.000%), ruis | |
 | 15-figuur-paneel.png | gelijk | |
 | 15-figuur-x.png | gelijk | |
 | 16-figuur-rig-paneel.png | gelijk | |
@@ -30,14 +30,14 @@ Referentie: referentie uit run 46008143979, commit 4329a3a10354292b7e24872bfa676
 | 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
 | 5-waaier-x.png | 17 px (0.001%), ruis | |
-| 6-rood-x.png | 23 px (0.001%), ruis | |
+| 6-rood-x.png | gelijk | |
 | 7-plat-x.png | 24 px (0.001%), ruis | |
-| 8-winkel-x.png | 98 px (0.005%), ruis | |
-| 9-winkel-rood-x.png | 84 px (0.004%), ruis | |
+| 8-winkel-x.png | 72 px (0.003%), ruis | |
+| 9-winkel-rood-x.png | 64 px (0.003%), ruis | |
 | d1-slot-paneel.png | gelijk | |
 | d1-slot.png | gelijk | |
 | d2-venster-paneel.png | gelijk | |
 | d2-venster.png | gelijk | |
-| p13-d-x.png | 40 px (0.002%), ruis | |
-| p13-e-x.png | 1 px (0.000%), ruis | |
-| p14b-e-x.png | 7 px (0.000%), ruis | |
+| p13-d-x.png | 57 px (0.003%), ruis | |
+| p13-e-x.png | 8 px (0.000%), ruis | |
+| p14b-e-x.png | 9 px (0.000%), ruis | |
