@@ -1,1 +1,10 @@
-{"workflow": "blindtest.yml", "invoer": {"set": "hats-header-v2"}, "van": "mila", "waarom": "opnieuw na Gemini HTTP 503 (druk), header v6 tegen v7"}
+{
+  "workflow": "blindtest.yml",
+  "invoer": {
+    "set": "hats-header-v2"
+  },
+  "van": "mila",
+  "waarom": "opnieuw na Gemini HTTP 503 (druk), header v6 tegen v7",
+  "fout": "workflow 'blindtest.yml' staat niet op de lijst in organisatie/controle/opdracht.py",
+  "fout_tijd": "2026-11-27T14:06:32Z"
+}
