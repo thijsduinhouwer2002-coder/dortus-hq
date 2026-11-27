@@ -1,5 +1,5 @@
 {
- "paren": 1353,
+ "paren": 1354,
  "driehoeken": 2352,
  "status": "MiCA",
  "ritme_s": 5,
@@ -8,7 +8,7 @@
   "GEZIEN kraken.com/pro/fees 19 nov 2026: crypto 0,80% (tier 1)": {
    "hoog": 0.008,
    "laag": 0.008,
-   "paren": 1292
+   "paren": 1293
   },
   "GEZIEN kraken.com/pro/fees 19 nov 2026: FX en stablecoin 0,20%": {
    "hoog": 0.002,
@@ -31,8 +31,8 @@
    "paren": 3
   }
  },
- "minima_paren": 1353,
- "geladen": "2026-11-27T20:29:14Z",
+ "minima_paren": 1354,
+ "geladen": "2026-11-27T20:59:15Z",
  "min_inleg": {
   "driehoeken": 2352,
   "mediaan_eur": 10.0,
