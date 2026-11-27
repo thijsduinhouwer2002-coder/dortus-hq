@@ -1,0 +1,28 @@
+{
+  "titel": "Click Joints (gratis add-on) als model op Printables: hoofdbeeld (issue #257)",
+  "rol": "You 3D print at home and sometimes model or sculpt your own figures in Blender. You are browsing Printables, searching for 'ball joint' and 'blender addon', to find something that helps you make poseable, jointed prints. You see the main image of each model in the search results and decide which one you click and download first.",
+  "ons": [
+    {
+      "naam": "Extensions-hoofdbeeld 'See how far it bends'",
+      "url": "https://extensions.blender.org/media/thumbnails/59/59df72d364d844de93cf7e747a48b26f48b61d27f7a975ca690740bfa2d65440_1920x1080.webp"
+    },
+    {
+      "naam": "Extensions-beeld 'Drag the bend. Red means too far.'",
+      "url": "https://extensions.blender.org/media/thumbnails/90/90622aee7ef0fa8d5edcbbdf71aabdda4a628de2f6d85484411ee21724c1cf5a_1920x1080.webp"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "TrailPrint3D Blender Addon (1e op 'blender addon', 3885 downloads)",
+      "url": "https://media.printables.com/media/prints/9443311f-d647-488f-b70f-4ca40c930f78/images/9317744_d656907e-f9b7-4387-b2f1-b70c402e0455_2a594c79-70ad-48c0-9238-96e8f23fd20f/dsc00801.jpg"
+    },
+    {
+      "naam": "Snap-fit ball joint (1e op 'ball joint', 11047 downloads)",
+      "url": "https://media.printables.com/media/prints/3ac251aa-4c0a-464b-bda4-775e951b8b98/images/12832428_57c59d1b-1e65-456f-9f3c-4b71ff0e56a7_396ac2d7-9045-4b93-a88d-55d2c0fb96f2/catturat10c.png"
+    },
+    {
+      "naam": "Generic lockable ball joint (2e op 'ball joint', 6744 downloads)",
+      "url": "https://media.printables.com/media/prints/370429/images/3120740_622adb00-c345-4ef7-b7a5-da823a58f89b/20230115_220947.jpg"
+    }
+  ]
+}
