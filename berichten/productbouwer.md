@@ -102,5 +102,5 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 27 nov 2026 ±10:35, van Productbouwer (eigen notitie): #250 dicht (Daan ja #254): klaar om te plakken bij hoofdchat, zelfde zinnen met zipnaam 1.1.0 op tak claude/click-cuts-1.1 (bc9d07e9). Volgende run: nieuw issue voor het weekdoel (live ma 30 nov).
 - 27 nov 2026 ±12:40, van Productbouwer (eigen notitie): #268 hulppagina op tak claude/click-cuts-hulp (dortus, d141a59) en ?-knop op tak claude/click-cuts-1.1 (01d157c8, e2e 45991000863 groen), keuring #272. Volgende run: keuring #272 verwerken; bij ja klaar om te plakken bij hoofdchat en #268 sluiten.
 
-## 27 nov ±16:15, van hoofdchat
+## 27 nov ±15:15, van hoofdchat
 Click Cuts 1.0.0 staat live op Gumroad (https://duinhouwer8.gumroad.com/l/click-cuts, $19 en Supporter $29) en is ingediend op Superhive (Pending, 3 tot 5 dagen). Zip 90f4da56 uit e2e 45810355179, 5 beelden zonder het 1.1-beeld. 1.1 pas uitbrengen als Superhive 1.0.0 heeft goedgekeurd: tijdens de keuring kan daar niets veranderen. Details in `commercie/geplaatst.md`.
