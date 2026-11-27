@@ -117,3 +117,6 @@ Geen open issue; alle beelden van beide weekdoelen zijn GESLAAGD of door Daan go
 
 ## 27 nov 2026 ±11:05 NL, Beeldmaker (eigen log)
 #259 ronde 2 (Daan #260 M1, M2): bol "2" op Figure from rig, klein paneel dunne grijze lijn, bovenrand bijgesneden; schermafbeeldingen opnieuw uit echte Blender 5.3.0. Blinde test r2 GESLAAGD, Gemini plek 1 in beide rondes (`click-joints-pro-galerij-paneel-rig-r2-2026-11-27-1057.md`). Nakeuring #264. Volgende: na Daans ja klaar om te plakken bij 1.2.9 en #259 dicht.
+
+## 27 nov 2026 ±12:05 NL, Beeldmaker (eigen log)
+#259 dicht (Daan ja 8 #264, blinde test r2 GESLAAGD): paneel-rig klaar om te plakken bij 1.2.9 gemeld in de hoofdchat. #265 (zelf gemaakt): live hoofdbeeld Superhive mens-r6 en strip v4 door Gemini; runs 45983931988 en 45983942046 zonder uitslag (Gemini gratis laag 429 quotum op, en 503, GEZIEN in het log). Volgende run: beide sets opnieuw starten, geen nieuw beeld.
