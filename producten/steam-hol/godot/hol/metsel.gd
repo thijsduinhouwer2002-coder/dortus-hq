@@ -18,8 +18,10 @@ const RIJEN := [[25, 30], [31, 35]]
 const VOEG := Color(0.07, 0.04, 0.05, 0.62)
 const BOVENKANT := Color(1.0, 0.93, 0.80, 0.16)    # bovenste rij van elk blok: licht valt erop
 const ONDERKANT := Color(0.0, 0.0, 0.0, 0.16)      # onderste rij: schaduw, het blok steekt iets uit
-# tint per soort over de wand (0 gewoon, 1 koel, 2 leem); gewoon houdt de wand zoals hij was
-const TINT := [Color(0.0, 0.0, 0.0, 0.0), Color(0.30, 0.42, 0.62, 0.42), Color(0.92, 0.70, 0.30, 0.40)]
+# tint per soort over de wand (0 baksteen, 1 koel, 2 leem). Sanne 27 nov (Iris 74f03c9, punt 2 voor een 9): de derde
+# soort hield de wand zoals hij was en viel als warm bruin weg tegen de aarde; nu rode baksteen, zodat je op 1x drie
+# soorten ziet (blauwgrijs, rood, oker). Bewijs in bewijs-gangsteen/v6-*.
+const TINT := [Color(0.80, 0.26, 0.14, 0.50), Color(0.30, 0.42, 0.62, 0.42), Color(0.92, 0.70, 0.30, 0.40)]
 const VERSCHIL := 0.10        # elk blok tot zo veel donkerder (vast per blok), zodat het geen behang wordt
 
 # Na de eerste blinde lezer ("plat tegelpatroon, geen diepte of slijtage, goedkoop behang"): blokken 13 tot 19 spelpx
@@ -171,7 +173,7 @@ static func plek_nr(x: float) -> int:
 static func plek_begin(i: int) -> float:
 	return (i * PLEK_KOL + (_hash(i, 1) % 1000) / 1000.0 * 1.5 - 0.75) * KOL
 
-# 0 gewoon, 1 koele steen, 2 leem. Even plekken uit de hash; een oneven plek kiest uit wat zijn twee buren niet zijn,
+# 0 baksteen, 1 koele steen, 2 leem. Even plekken uit de hash; een oneven plek kiest uit wat zijn twee buren niet zijn,
 # dus nooit twee keer dezelfde soort naast elkaar en geen vast ritme (Daan #183 M2).
 static func plek_soort(i: int) -> int:
 	if posmod(i, 2) == 0:

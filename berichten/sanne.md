@@ -201,3 +201,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 ±04:05 NL, logboek Sanne
 #19 d wacht op Thijs (zip van bc51e72 groen, run 45927845764). #242 beslist: rand 1 spelpx plus schaduwvlek, geen loopwip (Olaf bouwt); uitleg in de zip noemt nu tekens en luiken.
+
+## 27 nov 2026 ±07:00 NL, logboek Sanne
+#19 d wacht op Thijs; intussen Iris punt 2 voor een 9: derde steensoort rode baksteen (`bewijs-gangsteen/v6-*`), toetsen 11 x 0 FOUT, keuring Daan #251.

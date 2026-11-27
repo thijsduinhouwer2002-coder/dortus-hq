@@ -72,7 +72,9 @@ func _init() -> void:
 	var tl: Color = M.TINT[2]
 	ok(tk.b > tk.r + 0.2 and tk.a >= 0.3, "koele steen blauwgrijs (r %.2f, b %.2f, dekking %.2f)" % [tk.r, tk.b, tk.a])
 	ok(tl.r > tl.b + 0.4 and tl.g > tl.b + 0.3 and tl.a >= 0.3, "leem oker (r %.2f, g %.2f, b %.2f)" % [tl.r, tl.g, tl.b])
-	ok(M.TINT[0].a == 0.0, "gewone steen houdt de wand zoals hij was")
+	var tb: Color = M.TINT[0]
+	# Sanne 27 nov (Iris 74f03c9 punt 2): de derde soort viel weg tegen de aarde; nu rode baksteen
+	ok(tb.r > tb.g + 0.4 and tb.r > tb.b + 0.4 and tb.a >= 0.4, "baksteen rood (r %.2f, g %.2f, b %.2f, dekking %.2f)" % [tb.r, tb.g, tb.b, tb.a])
 	# M1: een voeg is 1 spelpx en hard (hele spelpixels, donker genoeg); rijen een half blok verschoven
 	ok(M.VOEG.a >= 0.5 and M.VOEG.r + M.VOEG.g + M.VOEG.b < 0.3, "voeg donker en dekkend (dekking %.2f)" % M.VOEG.a)
 	ok(M.RIJEN.size() == 2 and M.RIJEN[0][0] > 24 and M.RIJEN[1][1] <= 35 and M.RIJEN[1][0] == M.RIJEN[0][1] + 1, "twee rijen blokken op de gangwand (y 24 tot 35), voeg van 1 spelpx ertussen")

@@ -92,3 +92,16 @@ De spelloop verschilt iets tussen voor en na (helden, koopmoment 229 s tegen 260
 **CPU:** echt spel 120 s, om en om 5 keer: voor 17,09 / 16,25 / 16,92 / 17,68 / 16,63, na 16,28 / 16,89 / 18,26 / 17,61 / 16,57 CPU-s, gemiddeld 16,91 tegen 17,12, dus +1,2 procent; de runs zelf schommelen ±1 s (±6 procent), dus binnen de ruis (GEZIEN). Het metselwerk staat in het vaste beeld (SubViewport, alleen opnieuw getekend bij graven of een put), dus per beeld tekent het spel niets extra.
 
 **Toetsen:** 9 x 0 FOUT op Linux. `toets_licht.gd` toetst nu ook: elke rand heeft een tand (0 van 40 schoon), bovenrand rafelig (25 haps en 18 uitstekers op 100 blokken).
+
+## v6, Sanne 27 nov ±07:00 NL (Iris 74f03c9, punt 2 voor een 9: "derde steensoort, warm bruin, valt weg tegen de aarde")
+De derde soort hield de wand zoals hij was (geen tint) en las daardoor als aarde. Nu rode baksteen: `TINT[0]` in `godot/hol/metsel.gd` is `Color(0.80, 0.26, 0.14, 0.50)`. Op 1x zie je nu drie soorten: blauwgrijs, rood, oker. Geen nieuwe kunst, alleen de tint van één soort.
+
+**Beelden** (GEZIEN, Godot 4.3 Linux onder Xvfb, `--write-movie --fixed-fps 5`, `hoogte=120 vers=1 zaad=7 uitleg_klik=6 koper=1 koper_wacht=8 balk=0 duur=420`, beeld op 420 s, voor = main deea47d, na = deze wijziging):
+- `v6-voor-en-na-ware-grootte.png` (2560 x 120 elk, boven voor), `v6-gang-voor-en-na-2x.png` (x 300 tot 1260).
+- Gekozen uit vier proeven (rood licht, mos, donker, rood sterk, rood donker): licht rood leek even hard op de aarde (gemiddelde kleur 79,56,54 tegen aarde 80,49,54), mos leek op oker, donker viel weg in de schaduw. Rood sterk las het best.
+
+**Blinde lezer** (losse Claude, twee beelden op 1x in andere volgorde, wist niet welke nieuw was): in het nieuwe beeld "rood, blauwgrijs en geel duidelijk verschillende kleurvlakken", geen soort valt weg; in het oude "de donkerbruine steen valt bijna weg tegen de aarde". Hij koos het nieuwe als duidelijkst (GEZIEN, zijn antwoord).
+
+**CPU:** het metselwerk staat in het vaste beeld en wordt alleen opnieuw getekend bij graven of een put; per blok van deze soort komt één rechthoek erbij, net als bij de andere twee soorten. Per beeld tekent het spel niets extra (GOK op grond van de code, niet apart gemeten).
+
+**Toetsen:** 11 x 0 FOUT op Linux (de 11 uit de Windows-toetsrun). `toets_licht.gd` toetst nu dat de derde soort rood is (r minstens 0,4 boven g en b, dekking minstens 0,4).
