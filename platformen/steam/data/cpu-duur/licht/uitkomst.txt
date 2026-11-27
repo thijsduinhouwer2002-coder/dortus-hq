@@ -1,0 +1,12 @@
+echt3: blokken aan 65, uit 65; aan 18.43 uit 18.62 ticks/s, verschil -1.05 procent
+  buurparen 64: gemiddeld +3.71 procent, fout van het gemiddelde 3.63
+nep3: blokken aan 64, uit 65; aan 20.23 uit 18.67 ticks/s, verschil +8.35 procent
+  buurparen 63: gemiddeld +14.16 procent, fout van het gemiddelde 4.08
+keer20: blokken aan 50, uit 49; aan 23.19 uit 19.45 ticks/s, verschil +19.23 procent
+  buurparen 49: gemiddeld +27.44 procent, fout van het gemiddelde 5.20
+keer20nep: blokken aan 49, uit 50; aan 24.04 uit 20.81 ticks/s, verschil +15.52 procent
+  buurparen 48: gemiddeld +19.94 procent, fout van het gemiddelde 5.15
+keer100: blokken aan 45, uit 45; aan 32.80 uit 18.20 ticks/s, verschil +80.24 procent
+  buurparen 44: gemiddeld +93.17 procent, fout van het gemiddelde 8.94
+keer100nep: blokken aan 45, uit 44; aan 31.08 uit 32.55 ticks/s, verschil -4.51 procent
+  buurparen 44: gemiddeld -1.20 procent, fout van het gemiddelde 2.86

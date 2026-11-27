@@ -2,7 +2,7 @@
 
 **Waarom:** Iris (keuring 1b0e933, punt 2 voor een 9, ook al bij deea47d): een held met donker pak zakt weg in de blauwgrijze stenen in het midden. De donkere rand van #242 helpt daar niet: donker op donker. Thijs zei 24 nov zelf dat helden niet opvallen. Rusty's Retirement (lat `organisatie/lat/hats.md`): figuren staan altijd los van de achtergrond.
 
-**Stand: staat standaard UIT** (aan met startargument `licht=1`), omdat het nu +7 procent CPU kost en de eis hooguit +2 is (zie CPU). De speler ziet dus nog niets; het werk staat klaar om aan te zetten zodra de kosten gevonden zijn.
+**Stand (27 nov ±12:45 NL): staat AAN** (uit met startargument `licht=0`). De +7 procent van de eerste meting was het verschil tussen losse runs; binnen één run kost het hooguit enkele tienden van een procent (zie "CPU binnen één run" onderaan).
 
 **Wat de speler ziet als het aan staat** (`godot/systemen/held_licht.gd`, aangeroepen uit `held_rand.gd`):
 - Buiten de donkere rand een warm licht randje van 1 spelpx (kleur als het fakkellicht), hard op hele pixels (nearest), dekking 0,5. Volgorde van buiten naar binnen: licht, donker, lijf.
@@ -31,3 +31,22 @@ Eerlijk: beide lezers vinden de held met randje beter te zien, en beide vinden h
 - **Boven de eis van 2 procent.** Minder tekenbeurten maakte het nauwelijks goedkoper, dus het zit niet in het tekenen. Nog te zoeken (volgende run): meten met een wissel binnen één run (les uit `platformen/steam/balans.md`: een los paar kan veel schelen), en per stuk uitzetten (meten van de plek, de meta op de held, het tekenen).
 
 **Toetsen:** 11 x 0 FOUT op Linux. `toets_rand.gd` toetst nu ook: 2 spelpx naar buiten, vol voor blauwgrijs, niets voor leem, uit in vol licht, vol in de donkere gang, geen randje zonder hol.
+
+## CPU binnen één run (Olaf, 27 nov ±12:40 NL)
+
+Les uit `platformen/steam/balans.md`: tussen losse runs scheelt het hier ±10 procent, alleen een wissel binnen één run telt.
+- Startargumenten: `wissel=licht licht_blok=3` zet het licht om de 3 s aan en uit (op de klok, oneven blokken uit); `wissel=nep` doet hetzelfde maar laat het aan (placebo). `licht_keer=<n>` doet alles n keer (meten en tekenen), om de kosten boven de ruis te tillen, zoals de 100 keer stenen bij #162.
+- Linux, xvfb 1920 x 1080, software-OpenGL, `hoogte=120 vers=1 zaad=5 koper=1 balk=0 drukte=1` (altijd een held in beeld), 5 tot 7 min per run. Script `platformen/steam/data/cpu-duur/cpu_licht.py`, ruwe meting in `platformen/steam/data/cpu-duur/licht/`.
+
+| run | aan | uit | verschil |
+|---|---|---|---|
+| 1 keer, echt | 18,43 | 18,62 | -1,1 procent |
+| 1 keer, placebo | 20,23 | 18,67 | +8,4 procent |
+| 20 keer, echt | 23,19 | 19,45 | +19,2 procent |
+| 20 keer, placebo | 24,04 | 20,81 | +15,5 procent |
+| 100 keer, echt | 32,80 | 18,20 | +80,2 procent |
+| 100 keer, placebo | 31,08 | 32,55 | -4,5 procent |
+
+(CPU-ticks per seconde van het Godot-proces, GEZIEN.) Eén keer valt weg in de ruis (de placebo alleen al geeft tot +8). 100 keer is duidelijk: +80 procent, dus **één keer ±0,8 procent**; 20 keer min placebo geeft ±0,2 procent per keer (GEZIEN, afgeleid). Beide onder de eis van +2. Mipmaps of minder tekenen hoeft dus niet; het licht staat aan.
+
+Toetsen 11 x 0 FOUT op Linux (GEZIEN); de Windows-toetsrun draait na de push. Nog open: de opmerking van lezer 2 ("iets opgeplakt"); dat beslist Daan in zijn keuring.

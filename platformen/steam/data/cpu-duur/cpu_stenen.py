@@ -13,12 +13,13 @@ de aan-blokken ervoor en erna), zodat langzame drift wegvalt.
 import os, re, sys, statistics as S
 
 ALLES = os.environ.get('ALLES') == '1'   # ALLES=1: ook seconden met een held (ter vergelijking, veel ruis)
+HELD = os.environ.get('HELD') == '1'     # HELD=1: juist alleen seconden met een held in beeld (licht om de held, #256)
 
 TCK = 100.0
 BLOK = 20
 for d in sys.argv[1:]:
     uit = open(d + '/uit.txt').read()
-    paren_tu = [(float(u), float(t)) for u, t in re.findall(r'HOL wissel (?:stenen|leven|tekens) \w+ unix=([\d.]+) t=([\d.]+) pad=Hol', uit)]
+    paren_tu = [(float(u), float(t)) for u, t in re.findall(r'HOL wissel (?:stenen|leven|tekens|licht) \w+ unix=([\d.]+) t=([\d.]+) pad=Hol', uit)]
     paren_tu = [p for p in paren_tu if p[1] > 1.0]
     off = S.median(u - t for u, t in paren_tu)
     zicht = [(float(t) + off, int(n)) for t, n in re.findall(r'HOL zicht ([\d.]+) (\d+)', open(d + '/hol.log').read())]
@@ -30,7 +31,7 @@ for d in sys.argv[1:]:
                 return False
             if u <= m:
                 held = n
-        return held == 0
+        return held > 0 if HELD else held == 0
 
     rijen = [tuple(map(float, r.split())) for r in open(d + '/cpu.txt') if len(r.split()) == 2]
     blok = {}
@@ -45,7 +46,7 @@ for d in sys.argv[1:]:
     aan = [v for b, v in gem.items() if b % 2 == 0]
     weg = [v for b, v in gem.items() if b % 2 == 1]
     rel = [((gem[b - 1] + gem[b + 1]) / 2 / gem[b] - 1) * 100 for b in gem if b % 2 == 1 and b - 1 in gem and b + 1 in gem]
-    print(f"{d.rstrip('/').split('/')[-1]}: {len(aan)} blokken aan, {len(weg)} uit (" + ("alle seconden" if ALLES else "alleen stille seconden") + ")")
+    print(f"{d.rstrip('/').split('/')[-1]}: {len(aan)} blokken aan, {len(weg)} uit (" + ("alle seconden" if ALLES else ("alleen seconden met held" if HELD else "alleen stille seconden")) + ")")
     print(f"  aan {S.mean(aan):.3f}  uit {S.mean(weg):.3f} CPU-s per 10 s, verschil {(S.mean(aan) / S.mean(weg) - 1) * 100:+.2f} procent")
     if len(rel) > 1:
         print(f"  buurparen ({len(rel)}): gemiddeld {S.mean(rel):+.2f} procent, spreiding {S.stdev(rel):.2f}, "
