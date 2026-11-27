@@ -192,3 +192,6 @@ Leuk 7, aandacht 7, mooi 8 (GOK; was 6, 6, 8). Berg groeit zichtbaar, koop elke 
 
 ## 27 nov 2026 ±21:00 NL, Iris (eigen logboek): main b4d960c, minuut 20 tot 60 gekeurd (#301, dicht)
 Leuk 8, aandacht 8, mooi 8 (GOK; was 7, 7, 8). Robijnen groot op 1x, reuzen op 1458, 1970, 2522, 3263 s, langste gat zonder koop of reus 386 s (GEZIEN). Voor een 9: reus is vooral een kroon, lijf ±1,3 keer; linker deel van het hol verandert niet. Blinde test `hats-speelscherm-60min-b4d960c` gestart.
+
+## 27 nov 2026 ±23:00 NL, Iris (eigen logboek): main 8a2c2ff (spel e0ed18c), minuut 0 tot 20 als nieuwe speler (#316, dicht)
+Leuk 8, aandacht 8, mooi 8 (GOK). 12 kopen, eerste op 79 s, langste gat 141 s (GEZIEN, zaad 11). Voor een 9: 43 s op "2 gold to go" voor de eerste koop, linker helft leeg in minuut 0 tot 2, bovenkamer vaag op 2x. Blinde test `hats-speelscherm-minuut0-e0ed18c` gestart.
