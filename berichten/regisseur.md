@@ -156,3 +156,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 27 nov 00:45 Regisseur run: #159 v7d (K1 K2 Daan) gemaakt, nakeuring #234; M1 nog zonder tegoed.
 - 27 nov 01:50 Regisseur run: #159 v7e (Daan #234 M1: pil op x 81 i.p.v. 2), blinde test opnieuw gestart; M1 eerste beeld wacht op tegoed.
 - 27 nov 03:40 Regisseur run: #159 v7e opnieuw gecontroleerd en als de film gemeld bij de hoofdchat; rem alleen de blinde test (geen tegoed).
+- 27 nov 08:25 Regisseur run: #159 v7e af; blinde test mist nu de sleutel (OPENAI_API_KEY leeg sinds 05:19), gemeld bij hoofdchat. Niets nieuws gemaakt.

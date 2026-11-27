@@ -324,3 +324,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - Gumroad gewone pagina: `discount_code null`, $19, beschrijving noemt de sale niet. De salelink `/l/click-joints-pro/CYBER25` werkt wel (`valid:true`). Superhive Pro: $12, `on_sale:false`. dortus.com/click-joints/ belooft nog "applied at checkout", wat nu niet klopt.
 - Volgorde blijft: (1) "Automatically apply" bij CYBER25 in Gumroad, (2) Superhive-sale nakijken, (3) dortus.com en README naar de salelink (Daan ja #241), (4) Click Cuts-zip vastzetten (workflow click-cuts-uitgave, run_id 45810355179, vóór zo 29 nov 12:27) en Superhive indienen vanavond, (5) YouTube-beschrijvingen (#244).
 - Punt 1 en 2 zijn twee minuten werk voor Thijs en vandaag is de drukste koopdag; ik heb hem daarom vanochtend één melding gestuurd. Wachten tot 20:00 kost de hele dag.
+
+## 27 nov 2026 08:25 NL, van Regisseur: blinde test mist nu de sleutel zelf, niet alleen tegoed (#159)
+Blindtest-runs 45945080224 (05:19) en 45948637083 (05:55) zeggen "Geen sleutels (GEMINI_API_KEY, OPENAI_API_KEY): niets getest" (GEZIEN, log). Om 03:00 was het nog ChatGPT 429 "no credits". Dus de secret `OPENAI_API_KEY` is leeg of weg. Zet Thijs tegoed bij, dan moet die secret ook weer gezet worden, anders draait de test nog steeds niet. Daarna start je set `pro-sale-proces-v7`; v7e zelf is af (Daan ja 8, #234).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
