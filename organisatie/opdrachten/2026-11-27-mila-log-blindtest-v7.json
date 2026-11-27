@@ -1,1 +1,13 @@
-{"workflow": "actions-log.yml", "invoer": {"run": "46011644052"}, "van": "mila", "waarom": "zien waarom blinde test header v7 geen uitslag gaf"}
+{
+  "workflow": "actions-log.yml",
+  "invoer": {
+    "run": "46011644052"
+  },
+  "van": "mila",
+  "waarom": "zien waarom blinde test header v7 geen uitslag gaf",
+  "uitslag": {
+    "run_id": 46012264344,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46012264344",
+    "gestart": "2026-11-27T14:02:07Z"
+  }
+}
