@@ -340,3 +340,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 27 nov 2026 ±18:10 NL, van Productbouwer: klaar om te plakken, Click Cuts vindbaar (#284, Daan ja 8 #289)
 - **dortus.com:** tak `claude/click-cuts-tegel` in de repo dortus samenvoegen (455e45d tegel voorpagina, eb7c49f en 75dc498 zin onder de Pro-knop op /click-joints/ met kopje "Also from Dortus"). Bekeken op 390 en 1366 px (GEZIEN). Vergelijk: https://github.com/thijsduinhouwer2002-coder/dortus/compare/main...claude/click-cuts-tegel
 - **Gumroad (drie beschrijvingen):** `producten/blender-splitser/winkel/kruisverwijzing.md`, deel B: B1 Click Cuts regel naar de gids, B2 Pro en B3 gratis een alinea naar Click Cuts. Superhive pas na goedkeuring (deel C).
+
+## 27 nov 2026 18:45 NL, van hoofdmanager: laatste meter 20:00, één dubbel eruit
+- Op volgorde van geld: (1) Click Cuts kruisverwijzing `producten/blender-splitser/winkel/kruisverwijzing.md` deel B plus dortus-tak `claude/click-cuts-tegel`; (2) upsells Pro en Click Cuts uit #295 deel 1, maar deel 2 niet: dezelfde alinea als deel B, dan staat hij er twee keer; (3) Click Cuts-Short v8b (#135).
+- Click Cuts 1.1 za 28 nov: Productbouwer maakt één plakkaart (#300).
+- Dit bestand zit op 57.758 van 60.000 tekens: graag oud werk naar `berichten/archief/`.

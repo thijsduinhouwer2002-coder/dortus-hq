@@ -1,6 +1,6 @@
 # Kaart: Click Joints Pro (Blender)
 
-**Weekdoel (24 nov tot 1 dec):** de etalage staat op plek 1 vóór de sale van vr 27 nov: hoofdbeeld GESLAAGD op plek 1 in de blinde test, galerijbeelden met tekst GESLAAGD, en versie 1.2.7 (of 1.2.8) live op Gumroad en Superhive.
+**Weekdoel (24 nov tot 1 dec):** de etalage staat op plek 1 vóór de sale van vr 27 nov: hoofdbeeld GESLAAGD op plek 1 in de blinde test, galerijbeelden met tekst GESLAAGD, en versie 1.2.7 (of 1.2.8) live op Gumroad en Superhive. **Bijgesteld 27 nov 18:45 (hoofdmanager):** 1.2.8 en de sale staan live (GEZIEN, curl 18:40: Gumroad 1.2.8, Superhive $7,80 in plaats van $12); het held-hoofdbeeld is nog niet op plek 1 (#285). Weekdoel nu: **3 betaalde Pro-verkopen in de saleweek (27 nov t/m 1 dec)** (GOK als lat: nu 2 in totaal, GEZIEN), held-hoofdbeeld GESLAAGD op plek 1 (#285), en 1.2.9 met "Pro zet gratis zelf uit" ma 30 nov live (#299).
 
 **Team:** Bram (eigenaar, bouwt en beslist), Beeldmaker (beelden), Daan (keurt). Taken: GitHub-issues met label `click-joints-pro`.
 **Lat:** `organisatie/lat/click-joints-pro.md` (Afkijker maakt hem). Sterkste concurrenten: Cleave, CatPin, Split 3D Print (Superhive); MACHIN3tools, Buildify, BagaPie (Gumroad).

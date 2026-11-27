@@ -16,3 +16,6 @@ Elke uitslag uit `uitslag/` wordt hier per punt nagekeken met curl (hoofdmanager
 - WAAR maar niet nu: voorbeeld-.blend met vrij rig (Quaternius CC0). Bouwstop Pro en geen gat in de lat; na 20 verkopen opnieuw bekijken.
 - WAAR: "Figure printing checklist" ontbreekt. Meegenomen in #119 (3 tot 5 regels in de Docs-tab).
 - NIET DOEN: testprint laten maken (geld en besluit 25 nov 23:01 "geen testprint nu").
+
+## click-cuts-2026-11-27-1539 (hoofdmanager, 27 nov 18:45)
+- GEEN UITSLAG: Gemini en ChatGPT gaven allebei HTTP 429 (GEZIEN in het bestand). Niets na te kijken. Opnieuw starten na het vollopen van de gratis Gemini-limiet (za 28 nov na ±09:00, GOK).
