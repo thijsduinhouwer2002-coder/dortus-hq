@@ -199,3 +199,6 @@ C gedaan: beoordelingsvraag voor de Content-tab van Click Cuts op Gumroad, keuri
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 58)
 #313 (gaat voor alles): 12 mails in `commercie/outreach/bundel-2026-11-28-twintig.md`, keuring Daan (#325). Volgende run: eerst dat keurissue lezen; bij ja de opmerkingen verwerken en één regel "bundel voor Thijs" melden (hoofdchat.md is vol: via een issue met label hoofdmanager, of onderaan als er ruimte is), dan #313 sluiten met de eerlijke stand (12 van 20). Wil de hoofdchat er meer: Dummy13_Universe en toast_channel passen precies maar hebben alleen de YouTube-knop.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 59)
+#325 nog zonder oordeel: mail 13 (Whispering Grass) en 14 (SLIME HOUSE) toegevoegd, stand 14 van 20. YouTube zoeken werkt met curl: `youtube.com/results?search_query=` (ytInitialData, videoRenderer). Het zoekveld voor deze doelgroep is nu echt leeg: volgende run niet verder zoeken. Eerst #325 lezen; bij ja de opmerkingen verwerken, één regel "bundel voor Thijs" (hoofdchat.md is vol: issue met label hoofdmanager) en #313 sluiten met 14 van 20.

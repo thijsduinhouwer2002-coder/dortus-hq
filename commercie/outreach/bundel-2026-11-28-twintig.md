@@ -2,7 +2,7 @@
 
 Door de Verspreider, vr 27 nov 2026 ±22:10 NL (run 58). Niets verstuurd, niemand benaderd. Keuring: Daan #325. Na Daans ja: één regel voor de hoofdchat, dan Thijs één keer ja op de hele bundel.
 
-**Eerlijk: 12 mails, niet 20.** Ongeveer 80 kanalen en sites nagekeken (27 nov, curl, zoeken met WebSearch). De meeste passende makers tonen geen zakelijk adres zonder inloggen (alleen de YouTube-knop, Linktree of een formulier met captcha), of zijn al gemaild. Liever 12 die passen dan 20 waarvan 8 als reclame voelen. Afgevallen staan onderaan, met reden.
+**Eerlijk: 14 mails, niet 20** (12 in run 58, mail 13 en 14 erbij in run 59). Ongeveer 80 kanalen en sites nagekeken (27 nov, curl, zoeken met WebSearch). De meeste passende makers tonen geen zakelijk adres zonder inloggen (alleen de YouTube-knop, Linktree of een formulier met captcha), of zijn al gemaild. Liever 12 die passen dan 20 waarvan 8 als reclame voelen. Afgevallen staan onderaan, met reden.
 
 Gezien met curl, 27 nov ±21:30 tot 22:05 NL: kanaalpagina's (abonnees, beschrijving, adresregel), video's per kanaal, elke video-id via YouTube oEmbed (titel en kanaal kloppen, GEZIEN 22:04), contactpagina's van eigen sites. Productfeiten uit de live Gumroad-pagina (curl 27 nov ±21:56 NL: $19, hinge with end stop, ball joint, millimetres, degrees, STL, 3MF, 3D cursor, Fit test strip, 200 mm).
 
@@ -179,11 +179,41 @@ You covered PancakeSlicer as a free tool from a small developer. Here's another 
 
 ---
 
+## Aanvulling run 59 (vr 27 nov ±22:55 NL): mail 13 en 14
+Nog ±30 kanalen en sites nagekeken (YouTube-zoekresultaten en kanaalpagina's met curl, WebSearch). Twee nieuwe met een openbaar zakelijk adres die passen. Stand nu: **14 van 20.** Daan: keur deze twee in dezelfde keuring (#325).
+
+## 13. Whispering Grass (Iryna Ivakhnenko) · [site](https://wgrass.org), [Buy Me a Coffee](https://buymeacoffee.com/wgrass)
+Waarom: maakt BJD's en ontwerpt ze in Blender; schreef zelf hoe ze elk gewricht met de 3D cursor, origins en Booleans bouwt ("Useful links for 3D sculpting BJDs", 12 aug 2023, 1.472 keer gelezen, DERDEN) en hoe ze de delen print ("Tips on 3D printing small BJD doll parts", 2 sep 2023, 5.877 keer gelezen, DERDEN). Actief: pre-order XingXing 1/3 loopt tot 30 nov (GEZIEN). Publiek: 38 supporters op Buy Me a Coffee, YouTube @wgrassbjd (DERDEN); bereik verder GOK. Kans middelmatig: haar poppen zijn geregen (elastiek), Pro maakt gewrichten die zonder rijgen een pose houden. Dat staat eerlijk in de mail.
+Adres: wgrass.org, voettekst "Contact me:" (adres op eigen domein: info@wgrass.org, GEZIEN ±22:45).
+utm: `wgrass`, en in de link `utm_source=blog` in plaats van `youtube`.
+Onderwerp: `Your BJD joint workflow in Blender, and a free license`
+```
+Hi Iryna,
+
+I read your post "Useful links for 3D sculpting BJDs" (https://buymeacoffee.com/wgrass/useful-links-3d-sculpting-bjds), where you snap the 3D cursor to the joint, set the origin and build each joint with Booleans, and your tips on printing small BJD parts (https://buymeacoffee.com/wgrass/tips-3d-printing-small-bjd-doll-parts). We make a Blender add-on that does part of that joint work for you. Its joints hold a pose without stringing, so it is a different kind of doll than your strung BJDs, but it may be handy for a printed pose body or a test figure.
+```
+Daarna vast blok A ongewijzigd (alleen de utm zoals hierboven).
+
+## 14. SLIME HOUSE (Theo Cane) · [kanaal](https://www.youtube.com/@slimehousetv), 39,5K abonnees (DERDEN, YouTube, 27 nov)
+Waarom: voltijds speelgoedontwerper; boetseert actiefiguren in Nomad en print ze ("NOMAD Sculpt to 3D printed action figures! ARTICULATED art toy!", 9.803 weergaven, 1 jaar; "Making a Retro SOUL REAVER Action figure", 7.942 weergaven, 2 jaar; beide GEZIEN, titels via oEmbed). Laatste lange video 7 maanden geleden ("Zbrush & Nomad sculpt", 16.467 weergaven). Kans middelmatig: werkt in Nomad en ZBrush, niet in Blender; past bij "Nomad naar Blender". Zijn beschrijving: "Do not contact me to promote A.I": wij noemen nergens AI, dus geen bezwaar.
+Adres: kanaalbeschrijving, "Business enquires" (gmail).
+utm: `slimehouse`
+Onderwerp: `Articulated art toys from Nomad via Blender, free license`
+```
+Hi Theo,
+
+I watched "NOMAD Sculpt to 3D printed action figures! ARTICULATED art toy!" (https://www.youtube.com/watch?v=jEGIQDF0V5A) and your retro Soul Reaver figure (https://www.youtube.com/watch?v=EVS82wkko5k). You sculpt in Nomad; if you ever take a figure through Blender, this could save you the joint work.
+```
+Daarna vast blok A ongewijzigd.
+
+---
+
 ## Afgevallen (nagekeken, niet gemaild)
 - Geen openbaar adres (alleen YouTube-knop, Linktree, of niets): Dummy13_Universe en toast_channel (passen precies), Toymakr3D, MWSculpts, SmallRobotStudio, PapitoLoco, KYNStudio, I COULD DO THAT DIY, Frankly Built, Painted4Combat, Trikvlt, Sonia Verdu, en meer.
 - Formulier met captcha (doen wij niet): Fansee3d, cupiopax.
 - Vraagt zelf geen ongevraagde pitches: Jawylin.
 - Adres wel, past niet goed: sheikoner (recent vooral gesponsorde printers en een AI-model), Nymphai Dolls (klei, geen 3D), KostaWorks FDM (schildert, ontwerpt niet), Lukis3D (printerreviews), 3D Print Dood (algemeen), TinyLittles3D (1 jaar stil), 3DPrint.com en 3D Printing Industry (industrie), Make: (adres editor@ niet zelf gezien, breed).
 - 403 voor curl, adres niet te zien: All3DP, Fabbaloo, Blender Secrets, CG Cookie, Cults3D, MyMiniFactory.
+- Run 59 nagekeken, valt af: tilimakeit (43,2K, eigen adres, maar art toys zonder gewrichten of rig), Brandon Tucker 3D (109K, print ontwerpen van anderen, geen Blender), Avionyx (16,5K, recensent, ontwerpt niet), Lomi's Playground (40,8K, BJD aanpassen, geen adres), Azrach Toys (al gemaild 23 nov), ArticheDolls, Troodaloo, Aelithart, katesamostudio, Copperthumb, Nemos3DLab, milkyboo42 (te klein of geen adres), Patreon-makers Morphonauts, polygonsmith, flexigoji, Anaua, Forg3dLayers (Patreon geeft curl 403), 3DWithUs (algemeen).
 - Te groot: Wylfi, Galactic Armory, FlyCat, Geek Garage.
 - Gezien op Superhive: "Jointlab" en "FigureCut" (waarschijnlijk concurrenten), en "299 Tools" (gratis, BlenderNation 10 sep). Voor de lat van Pro: de Afkijker kan kijken.

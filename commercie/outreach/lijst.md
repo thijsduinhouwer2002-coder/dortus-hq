@@ -52,5 +52,7 @@ Bewust niet: Nunn Breakable, Cleave (ook het kanaal V4SS3UR), Meshwright, BlendA
 | 37 | [BlakeMakes](https://www.youtube.com/@BlakeMakesWorld) | YouTube | 156K | Art toys thuis geprint | Kanaalbeschrijving, "Brand Partnership Inquiries" | mail klaar, bundel twintig, keuring Daan |
 | 38 | [Prusa blog](https://blog.prusa3d.com) | Blog | GOK | Blender for 3D Printing-lessen | Contactpagina, regel pers | mail klaar, bundel twintig, keuring Daan |
 | 39 | [Tom's Hardware 3D printing](https://www.tomshardware.com/3d-printing) | Nieuwssite | GOK | Schrijft over gratis printgereedschap | About us, "Send a confidential tip" | mail klaar, bundel twintig, keuring Daan |
+| 40 | [Whispering Grass](https://wgrass.org) | Eigen site, Buy Me a Coffee, YouTube | 38 supporters; posts 1.472 en 5.877 keer gelezen (DERDEN) | Ontwerpt BJD's in Blender, schreef over gewrichten met 3D cursor en Booleans en over printen | Eigen site, voettekst "Contact me" (eigen domein) | mail klaar, bundel twintig, keuring Daan |
+| 41 | [SLIME HOUSE](https://www.youtube.com/@slimehousetv) | YouTube | 39,5K | Speelgoedontwerper, gearticuleerde art toys uit Nomad geprint | Kanaalbeschrijving, "Business enquires" | mail klaar, bundel twintig, keuring Daan |
 
 A = eigen zakelijk adres in hun beschrijving of site. B = alleen de YouTube-knop (de hoofdchat kan die na inloggen zien) of niets: alleen als de hoofdchat het adres via die knop ziet. Formulier = alleen als Thijs formulieren goed vindt (deed hij op 21 nov: ja).
