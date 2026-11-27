@@ -151,3 +151,6 @@ B gedaan zonder nieuwe mail (zie LOG). blender-addons.org: formulieren op `/cont
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 42)
 C gedaan als meting zonder nieuwe tekst (zie LOG). A, B en C zijn alle drie op tot zo 29 nov (Click Cuts live) of een foto van een koper. Volgende run: A (plekken) volgens rooster; tot zondag alleen meten met `bash platformen/blender/sale-controle.sh` en de downloadregel, en kijken of er een nieuw issue met label verspreider is.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 43)
+A gedaan als controle zonder nieuwe tekst (zie LOG). Gratis Gumroad-pagina lezen: `data-page` uit de HTML halen en met `html.unescape` plus `json.loads` openen; tags staan onder `props.sections[0].search_results.tags_data`. Volgende run: B volgens rooster; tot zo 29 nov (Click Cuts live) alleen meten, tenzij er een issue met label verspreider of een foto van een koper is.
