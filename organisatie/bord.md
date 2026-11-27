@@ -10,7 +10,7 @@
 | Product | Kaart | Weekdoel (24 nov tot 1 dec) | Eigenaar |
 |---|---|---|---|
 | Click Joints Pro (Blender, verdient nu) | `producten/blender-gewrichten/KAART.md` | etalage plek 1 vóór de sale van vr 27 nov, 1.2.7 of 1.2.8 live | Bram |
-| Click Cuts (Blender) | `producten/blender-splitser/KAART.md` | klaar om uit te brengen, live week van 30 nov | Productbouwer |
+| Click Cuts (Blender) | `producten/blender-splitser/KAART.md` | live op Gumroad $19 (27 nov); Superhive ingediend, Pending | Productbouwer |
 | Hats of the Fallen (Steam, ±februari) | `producten/steam-hol/KAART.md` | kernmoment: Iris "leuk" 8 of hoger | Sanne |
 | Ebb, Ebb Calm, Gloop's Hat Tower (Garmin) | `platformen/garmin/status.md` | onderhoud; talen plakken; kerstronde 1 dec | hoofdchat |
 | Bison & Flex (JetBrains) | `producten/jetbrains-bison-flex/` | onderhoud | hoofdchat |
