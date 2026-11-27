@@ -109,9 +109,17 @@ static func flits_zet(h, f: float) -> void:
 # Elk teken popt op en gaat zacht weg (#85, systemen/held_wip.gd); de poef is zijn eigen beeldje en wipt niet.
 static func _tekens(h, staat: String, vb: Dictionary, t: float, onder: int) -> void:
 	var tk: String = String(h.teken_nu()) if staat != "vallen" else String(vb.teken)
-	if staat != "vallen":
-		for nt in nootjes(String(h.soort_held), bool(h.info.get("lied_held", false)), staat, t):
-			NOOT.noot(h, int(nt[0]), onder - 6 + int(nt[1]), float(nt[2]))
+	# Daan #237: nootjes knipten weg als de held viel of een teken opkwam; nu vervagen ze in NOOT.UIT_S.
+	var weg: float = 1.0 if staat != "vallen" else 1.0 - float(h.val_t) / NOOT.UIT_S
+	# Nootjes zweven los in de lucht: ze springen niet mee met een sprong over een val (anders staken ze boven het gras
+	# uit en knipten daar weg, Daan #237 strip 1 beeld 304).
+	var zweef: int = -int(round(h.HELD_LOOP.sprong_hop(h))) if staat in ["lopen", "vluchten"] and h.HELD_LOOP.pose(h) == "sprong" else 0
+	if weg > 0.0:
+		var w: Dictionary = h.wip
+		var tv: float = float(w.get("van", -1.0)) if String(w.get("tk", "")) != "" else -1.0
+		var nb := NOOT.glij(w, float(onder + zweef), t)   # kruin van een ander beeld (sprong) ligt hoger: glijden, niet springen
+		for nt in nootjes(String(h.soort_held), bool(h.info.get("lied_held", false)), "lopen" if staat == "vallen" else staat, t, tv):
+			NOOT.noot(h, int(nt[0]), nb - 6 + int(nt[1]), float(nt[2]) * weg)
 	for v in WIP.stand(h, tk, t, float(h.spring_t) >= 0.0):
 		_een_teken(h, v, vb, onder)
 
@@ -393,8 +401,8 @@ static func _poef(h, midden_y: int, fase: float) -> void:   # midden_y = onder -
 	h.draw_texture_rect_region(POEF, Rect2(-6, midden_y - 4, 12, 10), Rect2(poef_beeld(fase) * 12, 0, 12, 10))
 
 # Muzieknootjes: systemen/held_noot.gd (doorgeefluik, zodat toetsen HB.nootjes en HB.noot_alfa houden).
-static func nootjes(soort_held: String, lied_held: bool, staat: String, t: float) -> Array:
-	return NOOT.nootjes(soort_held, lied_held, staat, t)
+static func nootjes(soort_held: String, lied_held: bool, staat: String, t: float, teken_van: float = -1.0) -> Array:
+	return NOOT.nootjes(soort_held, lied_held, staat, t, teken_van)
 
 static func noot_alfa(u: float) -> float:
 	return NOOT.noot_alfa(u)

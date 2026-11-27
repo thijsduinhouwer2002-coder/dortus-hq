@@ -3,6 +3,7 @@ extends SceneTree
 # weg 0,15 s, pauze-wip elke 2,5 s, sprongteken alleen de komwip, pixeltekens schalen nooit).
 # Draaien: godot --headless --path <godot-map> -s systemen/toetsen/toets_tekens.gd
 const WIP := preload("res://systemen/held_wip.gd")
+const NOOT := preload("res://systemen/held_noot.gd")
 var fout := 0
 
 class Nep:
@@ -20,6 +21,7 @@ func _init() -> void:
 	pauze_wip()
 	weggaan()
 	in_het_spel()
+	nootjes()
 	print("[tekens-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
 
@@ -136,3 +138,35 @@ func in_het_spel() -> void:
 		hol.free()
 	ok(gezien.has("uitroep") and gezien.has("zweet") and wissels >= 6, "in het spel: tekens komen en gaan (%s, %d wissels)" % [str(gezien.keys()), wissels])
 	ok(knip == 0, "in het spel: geen teken knipt aan of uit (%d keer)" % knip)
+
+# Daan #237 (kan): het nootje van een lied-held knipte weg naast de zachte tekens. Geen nootje springt meer meer dan
+# 0,4 dekking tussen twee beelden van 50 per s (komen 0,2 s = 0,25 per beeld, weg 0,15 s = 0,33 per beeld).
+func nootjes() -> void:
+	var sprong := 0.0
+	var vorig := 0.0
+	for i in range(0, 121):
+		var t := i * 0.02
+		var l: Array = NOOT.nootjes("", true, "lopen", t)
+		var a: float = float(l[0][2]) if not l.is_empty() else 0.0
+		sprong = maxf(sprong, absf(a - vorig))
+		vorig = a
+	ok(sprong <= 0.4 and vorig == 0.0, "lied-nootje komt en gaat zacht (grootste stap %.2f per beeld)" % sprong)
+	sprong = 0.0
+	vorig = 0.0
+	for i in range(0, 121):
+		var t := i * 0.02
+		var l: Array = NOOT.nootjes("", true, "lopen", t, 1.0)   # teken komt op t = 1,0
+		var a: float = float(l[0][2]) if not l.is_empty() else 0.0
+		sprong = maxf(sprong, absf(a - vorig))
+		vorig = a
+	ok(sprong <= 0.4 and NOOT.lied_alfa(1.2, 1.0) == 0.0 and NOOT.lied_alfa(0.99, 1.0) == 1.0, "lied-nootje gaat in 0,15 s weg als een teken het overneemt (grootste stap %.2f)" % sprong)
+	sprong = 0.0
+	for k in range(0, 4):
+		var l: Array = NOOT.nootjes("bard", false, "lopen", k * NOOT.NOOT_ELKE_S + 0.01)
+		sprong = maxf(sprong, float(l[0][2]))   # eerst in de lijst = het nieuwste nootje
+	ok(sprong <= 0.1, "bard: een nieuw nootje begint bijna doorzichtig (%.2f)" % sprong)
+	var w := {}
+	var y0 := NOOT.glij(w, -24.0, 5.0)
+	var y1 := NOOT.glij(w, -26.0, 5.05)   # kruin van het sprongbeeld 2 hoger
+	var y2 := NOOT.glij(w, -26.0, 5.10)
+	ok(y0 == -24 and y1 == -25 and y2 == -26, "nootjes glijden 1 spelpx per beeld naar een hogere kruin (%d, %d, %d), springen niet" % [y0, y1, y2])

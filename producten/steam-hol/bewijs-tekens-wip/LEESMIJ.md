@@ -31,3 +31,12 @@ De aan-blokken zijn in deze runs vanzelf duurder (placebo +11). Echt min placebo
 2. **Wat het werk zelf kost (GEZIEN, 200.000 aanroepen headless):** `held_wip.stand` kost 1,5 microseconde per held per beeld. Het spel tekent 100 tot 140 beelden per 10 s met 1 tot 2 helden (`HOL meting` in de run), dus hooguit ±420 aanroepen per 10 s = 0,0006 CPU-s per 10 s, tegen 1,35 CPU-s per 10 s voor het hele spel: **±0,05 procent**. Tekenen kost niets extra behalve 0,15 s lang een tweede teken als het oude weggaat terwijl het nieuwe komt; het 3D-teken schalen is dezelfde tekenbeurt.
 
 **Mijn oordeel:** ruim binnen +1 procent (punt 2, GEZIEN); de om-en-om-meting ziet geen stijging (punt 1).
+
+## Nakeuring Daan #237: het nootje knipt niet meer (Olaf, 27 nov ±04:30 NL)
+Daan zag in strip 1 een muzieknootje dat in beeld 303 nog vol was en in 304 ineens weg. Oorzaak (GEZIEN in een logregel per beeld): de nootjes hangen aan de kruin van het hoofd; bij het sprongbeeld ligt die kruin 2 spelpx hoger, het nootje kwam dan 3 spelpx boven de grens onder het gras en werd daar in één beeld op 0 gezet. Wat de speler nu ziet:
+- De hoogte van de nootjes glijdt zacht mee (hooguit 20 spelpx per s) in plaats van te springen, dus aan die rand vervaagt een nootje geleidelijk. Ze doen de hop van de sprong ook niet meer mee: ze zweven los in de lucht.
+- Elk nieuw nootje komt in 0,2 s op van doorzichtig naar vol (eerst stond het er meteen vol).
+- Het nootje van een held die door het lied komt gaat in 0,15 s weg: aan het eind van zijn 2 s, of eerder als er een teken boven die held opkomt. Valt een held, dan vervagen zijn nootjes in 0,15 s (eerst meteen weg).
+- Bewijs, zelfde demo-film als hierboven, beeld per beeld op 4x (GEZIEN): `5-nootje-voor-knipt-4x.png` (beeld 303 vol, 304 weg) en `6-nootje-na-vervaagt-4x.png` (303 vol, 304 half doorzichtig, 305 weg).
+- Toetsen: `toets_tekens.gd` 18 OK, 0 FOUT (nieuw: lied-nootje komt en gaat met hooguit 0,4 dekking per beeld, gaat weg als een teken het overneemt, nieuw bard-nootje begint bijna doorzichtig, glijden 1 spelpx per beeld). Alle 10 toetsen 0 FOUT op Linux (GEZIEN).
+- CPU: per held per beeld een paar rekenstappen en twee getallen in `h.wip`, geen extra tekenbeurt (GOK: niet te meten naast de ±0,05 procent van de tekens zelf).

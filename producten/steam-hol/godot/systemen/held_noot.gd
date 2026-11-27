@@ -9,7 +9,12 @@ extends RefCounted
 const NOOT_ELKE_S := 2.0
 const NOOT_LEEF_S := 4.0
 const NOOT_LIED_S := 2.0
-static func nootjes(soort_held: String, lied_held: bool, staat: String, t: float) -> Array:
+# Daan #237 (kan): het nootje knipte nog aan en uit naast de zachte tekens van #85. Nu komt elk nootje in IN_S op (van
+# doorzichtig naar vol) en gaat het nootje van een lied-held in UIT_S weg: aan het eind van zijn 2 s, of eerder zodra er
+# een teken boven die held opkomt (teken_van = speltijd waarop dat teken begon, -1 = geen teken).
+const IN_S := 0.2
+const UIT_S := 0.15
+static func nootjes(soort_held: String, lied_held: bool, staat: String, t: float, teken_van: float = -1.0) -> Array:
 	var uit := []
 	if staat in ["weg", "vallen"]:
 		return uit
@@ -23,10 +28,34 @@ static func nootjes(soort_held: String, lied_held: bool, staat: String, t: float
 				continue
 			var u: float = leef / NOOT_LEEF_S
 			var x := (2 if i % 2 == 0 else -5) + int(round(sin(leef * 3.0)))   # om en om links en rechts, wiebelt een pixel
-			uit.append([x, -int(round(8.0 * u)), noot_alfa(u)])
+			uit.append([x, -int(round(8.0 * u)), noot_alfa(u) * clampf(leef / IN_S, 0.0, 1.0)])
 	elif lied_held and t < NOOT_LIED_S:
-		uit.append([-2, -int(round(sin(t * 6.0))), 1.0])   # wipt op de maat
+		var a := lied_alfa(t, teken_van)
+		if a > 0.0:
+			uit.append([-2, -int(round(sin(t * 6.0))), a])   # wipt op de maat
 	return uit
+
+# Dekking van het nootje van een lied-held: op in IN_S, weg in UIT_S voor het eind of vanaf het teken dat het overneemt.
+static func lied_alfa(t: float, teken_van: float = -1.0) -> float:
+	var a := minf(clampf(t / IN_S, 0.0, 1.0), clampf((NOOT_LIED_S - t) / UIT_S, 0.0, 1.0))
+	if teken_van >= 0.0 and t >= teken_van:
+		a = minf(a, clampf(1.0 - (t - teken_van) / UIT_S, 0.0, 1.0))
+	return a
+
+# Hoogte waar de nootjes van een held aan hangen (rij boven de hoed). Die springt per beeld (de kruin van het sprongbeeld
+# ligt 2 spelpx hoger) en een nootje vlak onder het gras werd dan in één beeld weggeknipt (Daan #237). Nu glijdt de
+# hoogte met hooguit GLIJ_PX per s naar het doel; de stand staat in w (h.wip). Geeft hele spelpixels.
+const GLIJ_PX := 20.0
+static func glij(w: Dictionary, doel: float, t: float) -> int:
+	var nu: float = float(w.get("noot_y", doel))
+	var dt: float = clampf(t - float(w.get("noot_t", t)), 0.0, 0.5)
+	if absf(doel - nu) > 12.0:
+		nu = doel   # nieuwe plek (ladder, ander venster): meteen
+	else:
+		nu = move_toward(nu, doel, GLIJ_PX * dt)
+	w["noot_y"] = nu
+	w["noot_t"] = t
+	return int(round(nu))
 
 # Alfa van een opstijgend nootje: vervaagt, en in het laatste kwart sneller naar 0, zodat hij verdwijnt voor hij een rand
 # raakt (Daan 14 nov 03:50: niet doormidden gaan).
