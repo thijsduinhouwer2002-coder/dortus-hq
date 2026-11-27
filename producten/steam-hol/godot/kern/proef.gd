@@ -38,6 +38,7 @@ static func lees_argumenten(s) -> void:
 			"drukte": s.proef_drukte = kv[1] == "1"   # Mila 16 nov: drie helden tegelijk in de winkelopname week
 			"deco_proef": s.proef_deco = kv[1] == "1"
 			"royal_proef": s.proef_royal = kv[1] == "1"
+			"hoeden_proef": s.set_meta("hoeden_proef", clampi(int(kv[1]), 0, 5000))   # Olaf 27 nov (#282): Gloop begint met zoveel hoeden (meten van de berg)
 			"slijm_proef": s.set_meta("slijm_proef", clampi(int(kv[1]), 0, 6))   # Mila 26 nov (Daan #112): Gloop meteen op die stap (2 = Bouncy, op de veren), voor de film van de veer; Olaf 26 nov (#162) tot stap 6
 			"graaf_proef": s.proef_graaf = kv[1] == "1"
 			"laars_proef": s.proef_laars = kv[1] == "1"
@@ -83,6 +84,10 @@ static func na_laad(s) -> void:
 	if s.proef_plat and "plat_tot" in s.slijm:
 		s.plat_keer = preload("res://kern/wachtrij.gd").PLAT_KEER
 		s.slijm.plat_tot = float(s.slijm.t) + 9999.0
+	if int(s.get_meta("hoeden_proef", 0)) > 0 and "hoeden" in s.slijm:
+		for i in int(s.get_meta("hoeden_proef")):
+			s.slijm.hoeden.append(i % 10)
+		s.slijm.queue_redraw()
 	if s.proef_put > 0 and hol.upgrades != null:
 		hol.upgrades.niveaus["stekelput"] = s.proef_put
 		hol.queue_redraw()

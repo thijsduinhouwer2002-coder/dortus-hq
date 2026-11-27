@@ -216,3 +216,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 27 nov 2026 ±15:00 NL, van Olaf: lichte rand blijft zoals hij is (#276)
 Iris (3240a1b mooi punt 1) en Daan (#266 K1, K2) vroegen het randje om de held hard, koel en strak te maken. Ik bouwde het (tak `olaf-276-licht-v2`), maar twee blinde lezers kozen beide keren het randje van nu als mooiste en noemden juist de harde of koele versie "een uitsnede" (4 tegen 2 en 4 tegen 2,5, GEZIEN, `producten/steam-hol/bewijs-held-licht/LEESMIJ.md` v2). Daarom niet op main. Als jij of Iris het toch anders wilt, zeg het; anders pak ik volgende run punt 2 of 3 van Iris (iets nieuws in minuut 15 tot 20, of het gat rond minuut 8 tot 11 onder 150 s). Wil je dat ik eerst een van die twee doe, zet het in een issue met label olaf.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 27 nov 2026 ±15:45 NL, van Olaf: deel 2 van #280 (berg groeit) staat erin, #282
+De hoedenberg naast Gloop groeit na minuut 25 echt mee: grenzen 25 / 45 / 65 / 90 hoeden (was 25 / 100 / 300 / 1000), minuut 0 tot 20 gelijk. Film van 60 min (zaad 7, koper): 7 naar 17 zichtbaar, langste gat tussen twee keer groter 294 s (GEZIEN, `producten/steam-hol/bewijs-hoedenberg/LEESMIJ.md`). Keuring Daan #287. Iets om goud aan uit te geven na stap 6 (deel 1) blijft bij jou; zeg het in een issue met label olaf als ik het moet bouwen.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -50,7 +50,11 @@ const RUST_TOP := [6, 7, 6, 6, 3, 7]                          # bovenkant van Gl
 const LEVEN_TOP := [6, 7, 7, 3, 3, 6, 3, 7, 6, 7, 6, 10, 7]   # idem slijm_leven.png (plat = 10)
 const OP_HOOFD := 4                # hooguit 4 op zijn hoofd, de rest op de hoedenberg
 const SCHEEF := [0, 1, -1, 1]      # x-verschuiving om en om, zodat het wiebelt
-const BERG_MAAT := [5, 25, 100, 300, 1000, 3000]   # vanaf zoveel hoeden wordt de berg een maat groter (Sanne 21:50: zesde maat bij 3000)
+# vanaf zoveel hoeden wordt de berg een maat groter (Sanne 21:50: zesde maat bij 3000). Olaf 27 nov (#282, Iris #279 punt 2):
+# sinds ook put-hoeden op de toren komen (#86) vallen er ±84 per uur, en bleef de berg van minuut 25 tot 60 bijna gelijk
+# (6 naar 9). Nu 25 / 45 / 65 / 90: tot 25 hoeden alles gelijk, daarna elke 4 tot 5 hoeden één plekje erbij, vol (21) bij 90
+# (±minuut 63 voor een koper), breder (33) pas bij 1000.
+const BERG_MAAT := [5, 25, 45, 65, 90, 1000]
 const BERG_ZICHTBAAR := [0, 3, 6, 10, 15, 21, 33] # hoeveel hoeden je per maat op de berg ziet
 const BERG_RIJEN := 6              # maat 6 wordt breder, niet hoger dan maat 5 (Gloops plek is twee rijen, Sanne)
 # 3D-lijf (Bram 13 nov, besluit Thijs 13:35, ontwerp/steam/3d-stijl.md): gerenderd door producten/steam-hol/pijplijn/.
@@ -1301,7 +1305,25 @@ func berg(tel := -1) -> Array:
 	lijst.sort()   # rij omhoog, dan x van links naar rechts (pos van groot naar klein)
 	for e in lijst:
 		uit.append(e[2])
+	if _wissel_berg != 0:
+		uit = _wissel_berg_stap(uit)
 	return uit
+
+# wissel=berg (alleen meten, #282): in oneven blokken van 20 s (unix-klok) tekent de berg hooguit 9 hoeden (zoveel als
+# vroeger bij 84), in even blokken alles; wissel=nep schrijft dezelfde regels en tekent altijd alles (placebo).
+# Meten met platformen/steam/data/cpu-duur/cpu_stenen.py, samen met hoeden_proef=<n> (kern/proef.gd).
+static var _wissel_berg := (1 if "wissel=berg" in OS.get_cmdline_user_args() else (2 if "wissel=nep" in OS.get_cmdline_user_args() else 0))
+static var _wb_was := -1
+func _wissel_berg_stap(uit: Array) -> Array:
+	var aan := int(Time.get_unix_time_from_system() / 20.0) % 2 == 0
+	if int(aan) != _wb_was:
+		_wb_was = int(aan)
+		var sc := get_tree().current_scene if is_inside_tree() else null
+		var ts: float = float(sc.get("t")) if sc != null and sc.get("t") != null else -1.0
+		print("HOL wissel berg %s unix=%.2f t=%.2f pad=Hol" % ["aan" if aan else "uit", Time.get_unix_time_from_system(), ts])
+	if aan or _wissel_berg == 2:
+		return uit
+	return uit.slice(0, mini(uit.size(), 9))
 
 # Plekje k op de berg: Vector2i(rij, pos), pos 0 = het rechtse plekje van die rij (naast Gloop). De plekjes vullen per
 # schuine rij d = rij + pos, van onder naar boven: elk plekje ligt op twee plekjes die er al waren. Na d schuine rijen

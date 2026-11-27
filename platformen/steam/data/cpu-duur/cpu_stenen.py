@@ -19,7 +19,7 @@ TCK = 100.0
 BLOK = 20
 for d in sys.argv[1:]:
     uit = open(d + '/uit.txt').read()
-    paren_tu = [(float(u), float(t)) for u, t in re.findall(r'HOL wissel (?:stenen|leven|tekens|licht) \w+ unix=([\d.]+) t=([\d.]+) pad=Hol', uit)]
+    paren_tu = [(float(u), float(t)) for u, t in re.findall(r'HOL wissel (?:stenen|leven|tekens|licht|berg) \w+ unix=([\d.]+) t=([\d.]+) pad=Hol', uit)]
     paren_tu = [p for p in paren_tu if p[1] > 1.0]
     off = S.median(u - t for u, t in paren_tu)
     zicht = [(float(t) + off, int(n)) for t, n in re.findall(r'HOL zicht ([\d.]+) (\d+)', open(d + '/hol.log').read())]
