@@ -5,7 +5,7 @@ en geschaald naar 200 mm, normalen naar buiten. Kogel, Auto, as langs de 3D-curs
 Printables-beeld van de Beeldmaker, #297). Oorzaak: de tenen staan zo dicht op elkaar dat de verschoven huid van het
 lid zichzelf tussen de tenen snijdt; de vereniging met het omhulsel liet dan stukjes tenen weg en die bleven in deel A.
 Toetsen:
-- deel A: het lijf en de twee ogen, verder geen losse schillen;
+- deel A: het lijf en de twee ogen (met Exact soms één schil), geen schil kleiner dan 2% van het lijf;
 - deel B: één stuk (de tenen zitten aan de voet);
 - beide delen gesloten;
 - de laagste punten van het rechterbeen (de voet) zitten in B, niet in A.
@@ -126,7 +126,8 @@ def main():
     sb, ob_, laag_b = schillen(B)
     log(f"A schillen {sa[:12]} open {oa}; B schillen {sb[:12]} open {ob_} laagste {laag_b:.2f}")
     klein = [n for n in sa if n < 0.02 * sa[0]]
-    check(len(sa) == n0, f"deel A: lijf en ogen, geen losse stukjes ({len(sa)} schillen, {n0} in het figuur, klein {klein[:10]})")
+    # Met Exact (4.2) smelten de ogen soms met het hoofd samen (1 schil); dat is goed. Fout zijn kleine stukjes.
+    check(len(sa) <= n0 and not klein, f"deel A: lijf en ogen, geen losse stukjes ({len(sa)} schillen, {n0} in het figuur, klein {klein[:10]})")
     check(len(sb) == 1, f"deel B één stuk ({len(sb)} schillen)")
     check(oa == 0 and ob_ == 0, f"beide delen gesloten (open A {oa}, B {ob_})")
     laag_a_rechts = min(((A.matrix_world @ v.co).z for v in A.data.vertices if (A.matrix_world @ v.co).x > 2), default=99)
