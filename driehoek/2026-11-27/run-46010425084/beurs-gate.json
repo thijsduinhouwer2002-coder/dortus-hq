@@ -1,0 +1,27 @@
+{
+ "paren": 2134,
+ "driehoeken": 372,
+ "status": "MiCA-dochter",
+ "ritme_s": 4,
+ "max_boeken": 8,
+ "kosten": {
+  "GEZIEN uit de API, per paar": {
+   "hoog": 0.002,
+   "laag": 0.002,
+   "paren": 2134
+  }
+ },
+ "minima_paren": 2134,
+ "geladen": "2026-11-27T14:19:50Z",
+ "min_inleg": {
+  "driehoeken": 372,
+  "mediaan_eur": 10.0,
+  "met_eur": 0,
+  "tot_100": 372,
+  "met_eur_tot_100": 0,
+  "tot_150": 372,
+  "met_eur_tot_150": 0,
+  "tot_200": 372,
+  "met_eur_tot_200": 0
+ }
+}
