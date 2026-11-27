@@ -76,7 +76,11 @@ def plek_van(rang, letter):
 def post(url, body, headers):
     req = urllib.request.Request(url, data=json.dumps(body).encode(), headers={"Content-Type": "application/json", **headers})
     try:
-        return json.loads(urllib.request.urlopen(req, timeout=180).read())
+        ruw = urllib.request.urlopen(req, timeout=180).read()
+        try:
+            return json.loads(ruw)
+        except ValueError:
+            raise RuntimeError(f"geen JSON terug ({len(ruw)} bytes): {ruw[:200].decode(errors='replace')}")
     except urllib.error.HTTPError as e:
         raise RuntimeError(f"HTTP {e.code}: {e.read()[:300].decode(errors='replace')}")
 
