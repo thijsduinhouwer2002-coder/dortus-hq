@@ -181,3 +181,6 @@ C gedaan als meting zonder nieuwe tekst (zie LOG). Printables kreeg om ±14:00 g
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 52)
 A gedaan: Click Cuts live (vr 27 nov ±15:00), lanceerlinks ingevuld en Katsby en 3D Jesus naar de bundel van za 28 nov (zie LOG). Utm-vorm voor outreach: `?utm_source=youtube&utm_medium=outreach&utm_campaign=<naam>`. Reddit `about/rules.json` geeft 403 voor curl. Volgende run: B volgens rooster; B is weer open voor Click Cuts: zoek middelgrote kanalen over modellen splitsen voor printen (cosplay, busts, terrain) met openbaar zakelijk adres, hooguit 3 mails, keuring bij Daan. Meet ook de Gumroad-verwijzers van Click Cuts.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 53)
+B gedaan: twee mails voor Click Cuts (Clever Creations, Artisans of Vaul), keuring Daan #293 (zie LOG). YouTube-watchpagina's geven curl een doorverwijzing (302, 437 bytes): beschrijving van een video niet te lezen, titel via oEmbed, lijsten via `/@kanaal/search?query=`. Duckduckgo en Bing geven curl niets; WebSearch werkt. Volgende run: C volgens rooster; daarna bij Daans ja op #293 beide mails in de bundel van za 28 nov of de eerstvolgende.
