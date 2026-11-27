@@ -1,0 +1,147 @@
+{
+ "rechterknie": {
+  "cj_deel": "A",
+  "cj_passing": "groen",
+  "cj_bron": "Figure",
+  "cj_gespiegeld": false,
+  "cj_soort": "KOGEL",
+  "cj_speling_mm": 0.20000000298023224,
+  "cj_wand_mm": 1.566,
+  "cj_centrum": [
+   9.464048385620117,
+   2.9938912391662598,
+   64.61504364013672
+  ],
+  "cj_as": [
+   0.032665692269802094,
+   0.02250775694847107,
+   -0.9992128610610962
+  ],
+  "cj_as_bron": "CURSOR",
+  "cj_as_terugval": false,
+  "cj_snijpunt": [
+   9.36159896850586,
+   2.923295736312866,
+   67.7488784790039
+  ],
+  "cj_kogel_r": 2.2499998931307394,
+  "cj_open_r": 1.9124999091611286,
+  "cj_nek_r": 1.06695771316777,
+  "cj_naad_r": 8.505201500188562,
+  "cj_lip_d": 1.5312881968639829,
+  "cj_grens_graden": 25.5,
+  "cj_solver": "MANIFOLD",
+  "cj_hoek": 25,
+  "cj_kogel_auto": false,
+  "cj_auto_keuze": "",
+  "cj_breedte_mm": 12.847,
+  "cj_speling_gemeten_mm": 0.1996,
+  "cj_duur_s": 1.909,
+  "cj_ring_vak": 4,
+  "cj_ring_deel": 0.0536,
+  "cj_eenheid_per_mm": 0.9999999525025509,
+  "cj_buig_graden": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cj_buig_duur_s": 0.161,
+  "cj_buig_toetsen": 152,
+  "cj_buig_vlakken": [
+   64,
+   64,
+   577,
+   1459
+  ],
+  "cj_buig_opnieuw": 8,
+  "cj_buig_tijden": [
+   0.022,
+   0.048,
+   0.065,
+   0.026
+  ]
+ },
+ "linkerknie": {
+  "cj_deel": "A",
+  "cj_passing": "groen",
+  "cj_bron": "Figure_A",
+  "cj_gespiegeld": false,
+  "cj_soort": "KOGEL",
+  "cj_speling_mm": 0.20000000298023224,
+  "cj_wand_mm": 1.566,
+  "cj_centrum": [
+   -9.464040756225586,
+   2.9938910007476807,
+   64.61504364013672
+  ],
+  "cj_as": [
+   -0.032665692269802094,
+   0.02250775694847107,
+   -0.9992128610610962
+  ],
+  "cj_as_bron": "CURSOR",
+  "cj_as_terugval": false,
+  "cj_snijpunt": [
+   -9.361591339111328,
+   2.923295497894287,
+   67.7488784790039
+  ],
+  "cj_kogel_r": 2.2499998931307394,
+  "cj_open_r": 1.9124999091611286,
+  "cj_nek_r": 1.06695771316777,
+  "cj_naad_r": 8.505201500188562,
+  "cj_lip_d": 1.5312881968639829,
+  "cj_grens_graden": 25.5,
+  "cj_solver": "MANIFOLD",
+  "cj_hoek": 25,
+  "cj_kogel_auto": false,
+  "cj_auto_keuze": "",
+  "cj_breedte_mm": 12.847,
+  "cj_speling_gemeten_mm": 0.1996,
+  "cj_duur_s": 1.865,
+  "cj_ring_vak": 4,
+  "cj_ring_deel": 0.0861,
+  "cj_eenheid_per_mm": 0.9999999525025509,
+  "cj_buig_graden": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cj_buig_duur_s": 0.171,
+  "cj_buig_toetsen": 152,
+  "cj_buig_vlakken": [
+   64,
+   64,
+   522,
+   1459
+  ],
+  "cj_buig_opnieuw": 8,
+  "cj_buig_tijden": [
+   0.02,
+   0.048,
+   0.077,
+   0.026
+  ]
+ },
+ "losse_stukjes_weg": 12,
+ "pix": {
+  "rechterknie": [
+   701,
+   956
+  ],
+  "linkerknie": [
+   601,
+   967
+  ]
+ }
+}

@@ -136,3 +136,6 @@ Geen open issue; alle beelden van beide weekdoelen zijn GESLAAGD of door Daan go
 
 ## 27 nov 2026 ±19:15 NL, Beeldmaker (eigen log)
 #285 dicht (Daan ja 8 #296, kiest r2; klaar om te plakken in de hoofdchat). #297 (hoofdchat): Printables-hoofdbeeld gratis Click Joints r1, figuur met twee kniekogels uit de echte 0.1.2 plus STL's (`ontwerp/printables-hoofdbeeld/`), blinde test GESLAAGD Gemini 1,0 (kogelpaar 2,0). Keuring #305. Volgende: na Daans ja klaar om te plakken; wens Gemini: stukje paneel in beeld.
+
+## 27 nov 2026 ±21:15 NL, Beeldmaker (eigen log)
+#297 ronde 2 (Daan #305 M1, M2, K1): `ontwerp/printables-hoofdbeeld/beelden/printables-r2-2000x1500.jpg`, figuur vóór de snede fijner (subdivision 1), gladde schaduw zonder facetten, regel "Free Blender add-on", ogen mat in lijfkleur; kogel 4,5 mm vast (bij 5,5 weigert de add-on de tweede knie, 19,0 mm uit elkaar). STL's vervangen. Blinde test niet opnieuw (Daan). Nakeuring #311. Volgende: na Daans ja klaar om te plakken en #297 dicht.

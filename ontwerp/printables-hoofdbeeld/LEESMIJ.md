@@ -27,3 +27,19 @@ OP_MAAT=66 python3 ontwerp/printables-hoofdbeeld/bron/opmaak.py <uit>/beeld.png 
 **Blinde test:** set `organisatie/blindtest/sets/click-joints-printables-figuur.json`: r1 en de huidige tijdelijke cover (kogelpaar) in dezelfde run, tegen TrailPrint3D, Snap-fit ball joint en Generic lockable ball joint (dezelfde drie als bij #257).
 
 **Uitslag r1 (27 nov 19:05):** GESLAAGD, Gemini 1,0 (plek 1 in beide rondes); huidige cover kogelpaar 2,0 in dezelfde run (`organisatie/blindtest/uitslag/click-joints-printables-figuur-2026-11-27-1905.md`). Wens van Gemini in beide rondes: een stukje van het paneel van de add-on in beeld. Keuring #305 bij Daan.
+
+## Ronde 2 (27 nov ±21:15 NL, Daan #305 M1, M2 en K1)
+**Beeld r2:** `beelden/printables-r2-2000x1500.jpg` (4:3), zelfde scène en camera als r1.
+- M1, geen facetten in de inzet: het figuur is vóór de snede één keer fijner gemaakt (Subdivision Surface niveau 1 vastgezet, 56.534 punten, `PR_SUBDIV=1`); dat is de invoer, zoals een gebruiker met een fijner figuur. De snede maakt daarna gewoon de add-on. Bij het renderen Shade Smooth by Angle 45 graden (`PR_HOEK=45`) en minder glans (`PR_RUW=0.6`, `PR_GLANS=0.05`), zodat platte vlakjes geen lichtvlekken meer geven.
+- Kogel nu 4,5 mm vast in plaats van Auto (5,5): met het fijnere figuur liggen de knieën 19,0 mm uit elkaar (GEZIEN, `cj_centrum` in `beelden/r2.json`) en de add-on wil dan bij 5,5 mm minstens 20 mm ("Too close to another joint"). Bij 4,5 mm beide knieën Good fit (`cj_passing` groen, GEZIEN in `beelden/r2.json`).
+- M2: tweede regel "Free Blender add-on" onder de kop.
+- K1: ogen in de lijfkleur, mat (`PR_KLEUR_OOG=5A3FB0`, `PR_OOG_RUW=0.6`, `PR_OOG_GLANS=0`).
+- STL's in `stl/` vervangen door die van r2 (zelfde figuur als het beeld): lijf 97,5 x 32,0 x 137,6 mm, onderbenen 17,7 x 30,7 x 71,3 mm (GEZIEN, gemeten uit de STL).
+- Blinde test niet opnieuw: Daan zei in #305 dat dat na alleen M1 en M2 niet hoeft.
+
+Opdracht r2: zoals r1, plus
+```
+export PR_SUBDIV=1 PR_HOEK=45 PR_RUW=0.6 PR_GLANS=0.05 PR_KLEUR_OOG=5A3FB0 PR_OOG_RUW=0.6 PR_OOG_GLANS=0 PR_IZ_AFSTAND=50 \
+  PR_GEWRICHTEN='[{"naam": "rechterknie", "x0": 1, "x1": 30, "z": 61, "richting": "neer", "mm": 4.5}, {"naam": "linkerknie", "x0": -30, "x1": -1, "z": 61, "richting": "neer", "mm": 4.5}]'
+OP_MAAT=66 OP_ONDER="Free Blender add-on" OP_MAAT2=44 python3 ontwerp/printables-hoofdbeeld/bron/opmaak.py <uit>/beeld.png <uit>/inzet.png <uit>/beeld.json beelden/printables-r2-2000x1500.jpg <f>
+```

@@ -56,6 +56,12 @@ else:
         bpy.data.objects.remove(o)
 bpy.context.view_layer.objects.active = ob
 ob.select_set(True)
+# r2 (Daan #305 M1): het figuur zelf fijner maken vóór de add-on snijdt (Subdivision Surface vastgezet, PR_SUBDIV niveaus).
+# Dat is de invoer, net als een gebruiker met een fijner figuur; de snede maakt daarna gewoon de add-on.
+if int(E("PR_SUBDIV", "0")) > 0:
+    _m = ob.modifiers.new("fijner", "SUBSURF"); _m.levels = _m.render_levels = int(E("PR_SUBDIV"))
+    bpy.ops.object.modifier_apply(modifier=_m.name)
+    log(f"figuur fijner: subdivision {E('PR_SUBDIV')}, {len(ob.data.vertices)} punten")
 # 1 eenheid = 1 mm, figuur PR_HOOGTE mm hoog, midden op x=0, voeten op z=0
 sc.unit_settings.system = "METRIC"; sc.unit_settings.scale_length = 0.001; sc.unit_settings.length_unit = "MILLIMETERS"
 V = [ob.matrix_world @ v.co for v in ob.data.vertices]
@@ -194,9 +200,10 @@ def mat(naam, hexkleur, ruw=0.42, glans=0.0):
 
 
 K_ROMP = E("PR_KLEUR_ROMP", "F2A541"); K_DEEL = E("PR_KLEUR_DEEL", "2F9C95")
-m_romp = mat("romp", K_ROMP, 0.38, 0.15); m_deel = mat("deel", K_DEEL, 0.38, 0.15)
+RUW = float(E("PR_RUW", "0.38")); GL = float(E("PR_GLANS", "0.15"))
+m_romp = mat("romp", K_ROMP, RUW, GL); m_deel = mat("deel", K_DEEL, RUW, GL)
 rest = [o for o in bpy.data.objects if o.type == "MESH" and o.visible_get() and o is not romp and o not in losse]
-m_oog = mat("oog", E("PR_KLEUR_OOG", "2A2230"), 0.2, 0.8)
+m_oog = mat("oog", E("PR_KLEUR_OOG", "2A2230"), float(E("PR_OOG_RUW", "0.2")), float(E("PR_OOG_GLANS", "0.8")))
 for o, m in [(romp, m_romp)] + [(o, m_deel) for o in losse] + [(o, m_romp) for o in rest]:
     if o is None:
         continue
@@ -206,6 +213,12 @@ for o, m in [(romp, m_romp)] + [(o, m_deel) for o in losse] + [(o, m_romp) for o
         o.data.materials.append(m)
     for p in o.data.polygons:
         p.use_smooth = True
+    if E("PR_HOEK"):
+        # r2 (Daan #305 M1): gladde schaduw met scherpe snijranden (Shade Smooth by Angle); de vorm blijft wat de add-on maakte
+        for x in bpy.context.view_layer.objects:
+            x.select_set(False)
+        bpy.context.view_layer.objects.active = o; o.select_set(True)
+        bpy.ops.object.shade_smooth_by_angle(angle=math.radians(float(E("PR_HOEK"))), keep_sharp_edges=False)
     log(f"kleur {o.name} {m.name}")
 for o in bpy.data.objects:
     if o.type == "MESH" and not o.visible_get():
