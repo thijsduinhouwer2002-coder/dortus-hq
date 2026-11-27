@@ -36,7 +36,7 @@ ZTOP = E("ZTOP", "8.35"); ZBOT = ZTOP - HOOG
 MV = E("MV", "4.72")                 # graslijn (maaiveld)
 KX0, KX1, KTOP = 1.0, 9.9, E("KTOP", "4.15")   # schatkamer
 KRECHT = 2.4                          # tot hier recht, daarboven de boog
-GX = E("GX", "6.4")                   # Gloop
+GX = E("GX", "6.55")                   # Gloop
 SX0, SX1 = 1.35, 2.85                 # gat waar de held door valt
 GANGTOP = 1.75
 
@@ -127,7 +127,7 @@ bv = aarde.modifiers.new("rond", "BEVEL"); bv.width = 0.15; bv.segments = 4; bv.
 # achterwanden: kamer licht metselwerk, gang koeler
 w = blok("kamerwand", ((KX0 + KX1) / 2, 1.55, (KTOP + 0.2) / 2), (KX1 - KX0 + 0.4, 0.1, KTOP + 0.4), KAMERWAND)
 blok("gangwand", ((-12 + KX0) / 2, 1.55, GANGTOP / 2), (KX0 + 12, 0.1, GANGTOP + 0.2), GANGWAND)
-blok("valwand", ((SX0 + SX1) / 2, 1.55, (KTOP + MV) / 2), (SX1 - SX0 + 0.2, 0.1, MV - KTOP + 0.4), aardemat("valwand", "7a4232", "93573f"))
+blok("valwand", ((SX0 + SX1) / 2, 1.55, (KTOP + MV) / 2), (SX1 - SX0 + 0.2, 0.1, MV - KTOP + 0.4), AARDE_SNIJ)
 blok("vloer", (0, 0.8, -0.05), (BREED + 8, 1.6, 0.1), VLOER)
 
 # stenen, botjes en wortels in de aarde (minder dingen dan v1: alleen in de lege aarde links onder de titel en tussen)
@@ -136,7 +136,7 @@ def vrij(x, z):
     if SX0 - 0.4 < x < SX1 + 0.4: return False
     if z < GANGTOP + 0.35 and x < KX0 + 0.3: return False
     return z < MV - 0.35
-for i in range(60):
+for i in range(30):
     x = random.uniform(-9.8, 9.8); z = random.uniform(ZBOT + 0.2, MV - 0.3)
     if not vrij(x, z): continue
     r = random.uniform(0.09, 0.22)
@@ -225,7 +225,7 @@ ns = {"bpy": bpy, "g": g, "math": math, "sc": sc, "VERSIE": 1, "HOEDEN": int(E("
       "STAND": os.environ.get("GSTAND", "rust"), "PLUIM_KNAK": False}
 exec(bron[bron.index("def bol("):begin], ns)
 exec(bron[begin:eind], ns)
-GS = E("GS", "2.0")
+GS = E("GS", "2.2")
 GZ = E("GZ", "0.72")
 anker = bpy.data.objects.new("gloop_anker", None); sc.collection.objects.link(anker)
 for o in [o for o in bpy.data.objects if o not in voor]:
@@ -239,17 +239,23 @@ anker.rotation_euler = (math.radians(E("GKANTEL", "-6")), 0, math.radians(E("GDR
 km = bpy.data.materials.get("kroon")
 if km:
     b = km.node_tree.nodes["Principled BSDF"]; b.inputs["Roughness"].default_value = 0.38
+# Gloop minder wit uitgeslagen in het felle licht: minder doorschijn, iets matter (alleen hier; gloop.py blijft gelijk)
+lm = bpy.data.materials.get("lijf")
+if lm:
+    b = lm.node_tree.nodes["Principled BSDF"]
+    for naam, w in (("Subsurface Weight", E("GSSS", "0.1")), ("Roughness", E("GRUW", "0.32"))):
+        if naam in b.inputs: b.inputs[naam].default_value = w
 # lichtring om zijn voet (gloopring.py: mint met wit hart), de kleur van Gloop op het goud
 bpy.ops.mesh.primitive_torus_add(major_radius=1.55, minor_radius=0.07, location=(GX, 0.15, GZ + 0.05))
 ring = bpy.context.object; ring.scale = (1.0, 0.42, 1.0); ring.visible_shadow = False
 kies(ring, g.mat("ring", "b8ffd8", emis=E("RING", "5.0")))
-lr = bpy.data.lights.new("ringlicht", "POINT"); lr.color = (0.55, 1.0, 0.75); lr.energy = E("RINGLICHT", "70"); lr.shadow_soft_size = 1.0
+lr = bpy.data.lights.new("ringlicht", "POINT"); lr.color = (0.55, 1.0, 0.75); lr.energy = E("RINGLICHT", "40"); lr.shadow_soft_size = 1.0
 lo = bpy.data.objects.new("ringlicht", lr); lo.location = (GX, -0.6, GZ + 0.4); sc.collection.objects.link(lo)
 
 # ---------- helden ----------
 import held, hoeden
 # 1. valt kop eerst door het gat de kamer in; zijn pet vliegt los
-HV = held.bouw("held", "vallen", plek=(E("HVX", "2.1"), 0.2, E("HVZ", "2.05")), draai=E("HVD", "20"), schaal=E("HVS", "1.9"), kleur=0)
+HV = held.bouw("held", "vallen", plek=(E("HVX", "2.1"), 0.2, E("HVZ", "1.75")), draai=E("HVD", "20"), schaal=E("HVS", "2.2"), kleur=int(E("HVKLEUR", "2")))   # paarse tuniek: los van de oranje stenen
 for o in list(sc.objects):
     if o.name.startswith("hoed_") and o.parent is not None and o.parent == HV:
         o.hide_render = True
@@ -257,9 +263,7 @@ for o in list(HV.children_recursive):
     if o.name.startswith("hoed"):
         o.hide_render = True
 hoeden.bouw(3, plek=(E("PETX", "3.7"), 0.0, E("PETZ", "6.2")), schaal=E("PETS", "1.6"), kantel=E("PETK", "-35"), draai=20)
-# bewegingsstreepjes boven de held (val), wit en zacht
-for dx, lz in [(-0.35, 0.9), (0.0, 1.2), (0.35, 0.8)]:
-    cil("streep", (E("HVX", "2.1") + dx, -0.2, E("HVZ", "2.05") + 2.0 + lz / 2), 0.035, lz, g.mat("streep", "fff6e0", emis=1.5), verts=8)
+# (bewegingsstreepjes weggelaten: op 2x lazen ze als stokjes door de held)
 # 2. in de gang loopt een ridder nietsvermoedend naar de kamer
 held.bouw("ridder", "stap2", plek=(E("RX", "-1.2"), 0.35, 0.0), draai=60, schaal=E("RS", "1.25"), gloed=40)
 
@@ -287,13 +291,13 @@ def lamp(naam, soort, loc, kleur, kracht, grootte=1.0, doel=(0, 0, 1.0)):
     o = bpy.data.objects.new(naam, d); o.location = loc; sc.collection.objects.link(o)
     o.rotation_euler = (Vector(doel) - Vector(loc)).to_track_quat("-Z", "Y").to_euler(); o.visible_camera = False
     return o
-lamp("sleutel", "AREA", (3.0, -12.0, 10.0), (1.0, 0.9, 0.78), E("SLEUTEL", "3800"), 10.0, (2.0, 0.5, 2.0))
+lamp("sleutel", "AREA", (3.0, -12.0, 10.0), (1.0, 0.9, 0.78), E("SLEUTEL", "3300"), 10.0, (2.0, 0.5, 2.0))
 lamp("vul", "AREA", (-6.0, -12.0, 3.0), (0.8, 0.88, 1.0), E("VUL", "1500"), 10.0, (-3.0, 0.5, 2.5))
 lamp("kamer", "AREA", (GX, -3.0, 3.6), (1.0, 0.82, 0.6), E("KAMERL", "350"), 4.0, (GX, 1.0, 1.4))
 lamp("titellamp", "AREA", (-5.0, -8.0, 9.0), (1.0, 0.97, 0.9), E("TITELL", "1400"), 5.0, (-5.0, -2.5, 6.0))
 lamp("zon", "SUN", (0, 0, 10), (1.0, 0.95, 0.85), E("ZON", "2.0"), 1.0, (1.0, 2.0, 0.0))
 sc.world = bpy.data.worlds.new("w"); sc.world.use_nodes = True
-bg = sc.world.node_tree.nodes["Background"]; bg.inputs["Color"].default_value = (0.55, 0.72, 1.0, 1); bg.inputs["Strength"].default_value = E("WERELD", "0.25")
+bg = sc.world.node_tree.nodes["Background"]; bg.inputs["Color"].default_value = (0.55, 0.72, 1.0, 1); bg.inputs["Strength"].default_value = E("WERELD", "0.2")
 
 # ---------- camera ----------
 cam = bpy.data.cameras.new("cam"); cam.sensor_fit = "HORIZONTAL"; cam.sensor_width = 36

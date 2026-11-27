@@ -63,10 +63,13 @@ xi = x0 + len(kleuren) * (knop + gap) - int(1 * k)
 beeld.alpha_composite(ico, (xi, y0 - int(1 * k)))
 d.rounded_rectangle([xi + int(4 * k), H - int(4 * k), xi + knop - int(2 * k), H - int(2 * k)], radius=int(1 * k), fill=(140, 200, 255))
 
+fk = ImageFont.truetype(os.path.join(HIER, "..", "capsule-3d", "LilitaOne-Regular.ttf"), int(12 * k))
+d.text((W - int(14 * k), H - TB // 2), "11:21", font=fk, fill=(230, 236, 248), anchor="rm")
+d.rounded_rectangle([int(12 * k), y0, int(12 * k) + knop, y0 + knop], radius=int(4 * k), fill=(70, 78, 100))
 # ondertitel: donker pilletje onder de titel, in de aarde
 if ONDER:
-    f = ImageFont.truetype(os.path.join(HIER, "..", "capsule-3d", "LilitaOne-Regular.ttf"), int(float(os.environ.get("OT_MAAT", "25")) * k))
-    tx, ty = float(os.environ.get("OT_X", "26")) * k, float(os.environ.get("OT_Y", "214")) * k
+    f = ImageFont.truetype(os.path.join(HIER, "..", "capsule-3d", "LilitaOne-Regular.ttf"), int(float(os.environ.get("OT_MAAT", "29")) * k))
+    tx, ty = float(os.environ.get("OT_X", "26")) * k, float(os.environ.get("OT_Y", "210")) * k
     bb = d.textbbox((0, 0), ONDER, font=f)
     pw, ph = bb[2] - bb[0], bb[3] - bb[1]
     px, py = int(14 * k), int(8 * k)
