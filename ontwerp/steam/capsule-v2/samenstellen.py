@@ -48,24 +48,49 @@ beeld = lucht.convert("RGBA")
 beeld.alpha_composite(r)
 d = ImageDraw.Draw(beeld)
 
-# taakbalk onderaan
-TB = int(30 * k)
-balk = Image.new("RGBA", (W, TB), (24, 28, 40, 238))
+# taakbalk onderaan (v3, Daan #236 M3: hoger, knoppen groter, Hats-knop opgelicht als open app, en een muispijl,
+# zodat "dit is je bureaublad" ook zonder ondertitel leest)
+TB = int(float(os.environ.get("TB", "40")) * k)
+balk = Image.new("RGBA", (W, TB), (24, 28, 40, 242))
 beeld.alpha_composite(balk, (0, H - TB))
-knop = int(18 * k); y0 = H - TB + (TB - knop) // 2
+d.line([(0, H - TB), (W, H - TB)], fill=(70, 80, 104), width=max(1, int(1 * k)))
+knop = int(24 * k); y0 = H - TB + (TB - knop) // 2
 kleuren = [(77, 148, 240), (240, 196, 72), (110, 200, 130), (230, 108, 90)]
-n = len(kleuren) + 1; gap = int(8 * k); x0 = W // 2 - (n * knop + (n - 1) * gap) // 2
+ik = int(32 * k)   # Hats-knop groter dan de rest
+n = len(kleuren); gap = int(12 * k); x0 = W // 2 - (n * knop + n * gap + ik) // 2
 for i, c in enumerate(kleuren):
     x = x0 + i * (knop + gap)
-    d.rounded_rectangle([x, y0, x + knop, y0 + knop], radius=int(4 * k), fill=c)
-ico = Image.open(os.path.join(HIER, "..", "icoon", "icoon-tegel-256.png")).convert("RGBA").resize((knop + int(2 * k), knop + int(2 * k)), Image.LANCZOS)
-xi = x0 + len(kleuren) * (knop + gap) - int(1 * k)
-beeld.alpha_composite(ico, (xi, y0 - int(1 * k)))
-d.rounded_rectangle([xi + int(4 * k), H - int(4 * k), xi + knop - int(2 * k), H - int(2 * k)], radius=int(1 * k), fill=(140, 200, 255))
+    d.rounded_rectangle([x, y0, x + knop, y0 + knop], radius=int(5 * k), fill=c)
+    d.rounded_rectangle([x + int(6 * k), y0 + int(6 * k), x + knop - int(6 * k), y0 + knop - int(6 * k)], radius=int(2 * k), fill=(255, 255, 255, 120))
+xi = x0 + n * (knop + gap); yi = H - TB + (TB - ik) // 2 - int(1 * k)
+gl = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dg = ImageDraw.Draw(gl)
+dg.rounded_rectangle([xi - int(5 * k), H - TB + int(2 * k), xi + ik + int(5 * k), H - int(2 * k)], radius=int(7 * k), fill=(120, 190, 255, 90))
+beeld.alpha_composite(gl)
+ico = Image.open(os.path.join(HIER, "..", "icoon", "icoon-tegel-256.png")).convert("RGBA").resize((ik, ik), Image.LANCZOS)
+beeld.alpha_composite(ico, (xi, yi))
+d.rounded_rectangle([xi + int(6 * k), H - int(4 * k), xi + ik - int(6 * k), H - int(1.5 * k)], radius=int(1 * k), fill=(140, 210, 255))
 
-fk = ImageFont.truetype(os.path.join(HIER, "..", "capsule-3d", "LilitaOne-Regular.ttf"), int(12 * k))
-d.text((W - int(14 * k), H - TB // 2), "11:21", font=fk, fill=(230, 236, 248), anchor="rm")
-d.rounded_rectangle([int(12 * k), y0, int(12 * k) + knop, y0 + knop], radius=int(4 * k), fill=(70, 78, 100))
+fk = ImageFont.truetype(os.path.join(HIER, "..", "capsule-3d", "LilitaOne-Regular.ttf"), int(15 * k))
+d.text((W - int(16 * k), H - TB // 2), "11:21", font=fk, fill=(230, 236, 248), anchor="rm")
+d.rounded_rectangle([int(14 * k), y0, int(14 * k) + knop, y0 + knop], radius=int(5 * k), fill=(70, 78, 100))
+for dx in (0, 1):
+    for dy in (0, 1):
+        q = int(5 * k); xx = int(14 * k) + int(5 * k) + dx * (q + int(2 * k)); yy = y0 + int(5 * k) + dy * (q + int(2 * k))
+        d.rectangle([xx, yy, xx + q, yy + q], fill=(200, 210, 230))
+
+# muispijl in de lucht: klassieke pijl, wit met donkere rand
+mx, my, ms = float(os.environ.get("MX", "462")) * k, float(os.environ.get("MY", "62")) * k, float(os.environ.get("MS", "1.45")) * k
+pijl = [(0, 0), (0, 17), (4, 13), (7, 20), (10, 19), (7, 12), (12, 12)]
+pts = [(mx + x * ms, my + y * ms) for x, y in pijl]
+sch = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ds = ImageDraw.Draw(sch)
+ds.polygon([(x + 2 * k, y + 2 * k) for x, y in pts], fill=(0, 0, 0, 90))
+sch = sch.filter(ImageFilter.GaussianBlur(1.5 * k)); beeld.alpha_composite(sch)
+d.polygon(pts, fill=(255, 255, 255), outline=(20, 20, 28), width=max(1, int(1.4 * k)))
+
+# valstreepjes boven de schouders van de held (Pillow, zodat ze niet als stokjes door hem heen steken)
+for (x, y0s, l) in [(float(v) for v in t.split(":")) for t in os.environ.get("STREEP", "512:172:22,548:166:26,606:200:26,620:216:16").split(",")]:
+    d.rounded_rectangle([x * k - 2 * k, y0s * k, x * k + 2 * k, (y0s + l) * k], radius=int(2 * k), fill=(255, 250, 236, 230))
+
 # ondertitel: donker pilletje onder de titel, in de aarde
 if ONDER:
     f = ImageFont.truetype(os.path.join(HIER, "..", "capsule-3d", "LilitaOne-Regular.ttf"), int(float(os.environ.get("OT_MAAT", "29")) * k))
@@ -77,6 +102,8 @@ if ONDER:
     d.text((tx + px - bb[0], ty + py - bb[1]), ONDER, font=f, fill=(255, 244, 222))
 
 beeld = beeld.convert("RGB")
+if os.environ.get("RECHTS2X"):   # uitsnede midden en rechts op 2x, om zelf te kijken
+    beeld.crop((int(470 * k), 0, W, H)).save(os.environ["RECHTS2X"])
 beeld.resize((920, 430), Image.LANCZOS).save(uit)
 beeld.resize((460, 215), Image.LANCZOS).save(uit.replace(".png", "-460.png"))
 print("klaar", uit)

@@ -37,8 +37,8 @@ MV = E("MV", "4.72")                 # graslijn (maaiveld)
 KX0, KX1, KTOP = 1.0, 9.9, E("KTOP", "4.15")   # schatkamer
 KRECHT = 2.4                          # tot hier recht, daarboven de boog
 GX = E("GX", "6.55")                   # Gloop
-SX0, SX1 = 1.35, 2.85                 # gat waar de held door valt
-GANGTOP = 1.75
+SX0, SX1 = E("SX0", "1.25"), E("SX1", "3.05")   # gat waar de held door valt (v3: breder en donker, Daan #236 M2)
+GANGTOP = E("GANGTOP", "2.45")   # v3: gang hoger, minder lege aarde links midden (Daan #236 kan)
 
 # ---------- hulpjes ----------
 def kies(o, m):
@@ -126,8 +126,10 @@ bv = aarde.modifiers.new("rond", "BEVEL"); bv.width = 0.15; bv.segments = 4; bv.
 
 # achterwanden: kamer licht metselwerk, gang koeler
 w = blok("kamerwand", ((KX0 + KX1) / 2, 1.55, (KTOP + 0.2) / 2), (KX1 - KX0 + 0.4, 0.1, KTOP + 0.4), KAMERWAND)
-blok("gangwand", ((-12 + KX0) / 2, 1.55, GANGTOP / 2), (KX0 + 12, 0.1, GANGTOP + 0.2), GANGWAND)
-blok("valwand", ((SX0 + SX1) / 2, 1.55, (KTOP + MV) / 2), (SX1 - SX0 + 0.2, 0.1, MV - KTOP + 0.4), AARDE_SNIJ)
+blok("gangwand", ((-12 + KX0 + 0.4) / 2, 1.56, GANGTOP / 2), (KX0 + 12.4, 0.1, GANGTOP + 0.2), GANGWAND)
+# v3: de schacht is donker van binnen, zodat je in één blik een gat ziet (Daan #236 M2)
+SCHACHT = g.mat("schacht", "3a1c14", rough=0.95, spec=0.05)
+blok("valwand", ((SX0 + SX1) / 2, 1.55, (KTOP - 0.6 + MV) / 2), (SX1 - SX0 + 0.2, 0.1, MV - KTOP + 0.6), SCHACHT)
 blok("vloer", (0, 0.8, -0.05), (BREED + 8, 1.6, 0.1), VLOER)
 
 # stenen, botjes en wortels in de aarde (minder dingen dan v1: alleen in de lege aarde links onder de titel en tussen)
@@ -136,16 +138,12 @@ def vrij(x, z):
     if SX0 - 0.4 < x < SX1 + 0.4: return False
     if z < GANGTOP + 0.35 and x < KX0 + 0.3: return False
     return z < MV - 0.35
-for i in range(30):
+for i in range(18):
     x = random.uniform(-9.8, 9.8); z = random.uniform(ZBOT + 0.2, MV - 0.3)
     if not vrij(x, z): continue
     r = random.uniform(0.09, 0.22)
     bol("kiezel", (x, -0.03, z), (r * 1.3, r * 0.6, r), random.choice([STEEN, STEEN, STEEN_D]), 12)
 # een bot en een schedeltje in de aarde (er vielen er meer)
-cil("bot", (-6.2, -0.04, 2.55), 0.06, 0.6, BOT, rot=(0, math.radians(70), 0), verts=10)
-for dx in (-0.3, 0.3):
-    for dz in (-0.07, 0.07):
-        bol("botknop", (-6.2 + dx * math.cos(math.radians(20)), -0.04, 2.55 + dx * 0.34 + dz), (0.08,) * 3, BOT, 12)
 for x in (-7.8, -2.4, 0.2):
     for k in range(3):
         cil("wortel", (x + k * 0.12 - 0.12, -0.05 + k * 0.1, GANGTOP - 0.18 - k * 0.05), 0.04, 0.4 + 0.1 * k, WORTEL,
@@ -165,6 +163,21 @@ for i in range(70):
     x = -10.4 + i * 0.3
     if SX0 - 0.1 < x < SX1 + 0.1: continue
     cil("rand", (x, -0.06, MV - 0.04), 0.09, 0.2, GRAS_D, rot=(math.radians(180), 0, 0), verts=4, r2=0.0)
+# v3: rafelige graskant: sprieten hangen over de rand het gat in, en kluitjes vallen mee
+for kant, xr in ((-1, SX0), (1, SX1)):
+    for i in range(9):
+        x = xr - kant * random.uniform(0.0, 0.3); h = random.uniform(0.2, 0.42)
+        cil("hangspriet", (x, random.uniform(-0.15, 0.1), MV - h / 2 + 0.12), 0.05, h, random.choice([GRAS, GRAS_D]),
+            rot=(math.radians(180) + random.uniform(-0.3, 0.3), kant * random.uniform(0.2, 0.6), 0), verts=4, r2=0.0)
+    blok("graskant", (xr, -0.05, MV + 0.06), (0.25, 0.5, 0.2), GRAS_D)
+KLUIT = g.mat("kluit", "7a4430", rough=0.9); KLUIT_L = g.mat("kluit_l", "c07a50", rough=0.9)
+# kluitjes vallen mee: licht op de donkere schacht, donker op het lichte metselwerk eronder
+for (x, z, r, m, mg) in [(1.55, 4.3, 0.11, KLUIT_L, True), (2.8, 4.05, 0.09, KLUIT_L, False), (2.95, 3.75, 0.07, KLUIT_L, True),
+                         (1.05, 3.05, 0.12, KLUIT, True), (3.35, 2.85, 0.1, KLUIT, False), (3.05, 2.2, 0.07, KLUIT, False),
+                         (0.95, 2.3, 0.07, KLUIT, False)]:
+    bol("kluit", (x, -0.6, z), (r * 1.25, r, r), m, 12)
+    if mg:
+        cil("kluitgras", (x + 0.03, -0.6, z + r + 0.05), 0.035, 0.16, GRAS, rot=(0.2, 0.35, 0), verts=4, r2=0.0)
 for x, k in [(-9.0, "ff6f91"), (-0.6, "ffd23a"), (4.2, "ff6f91"), (7.6, "ffffff"), (9.3, "ffd23a"), (3.4, "ffffff")]:
     cil("steel", (x, 0.15, MV + 0.45), 0.03, 0.5, GRAS_D, verts=6)
     bol("bloem", (x, 0.15, MV + 0.72), (0.14, 0.14, 0.1), g.mat("bl" + k, k, rough=0.6), 12)
@@ -190,7 +203,7 @@ def fakkel(x, z, y=1.4, kracht=220, groot=1.6):
     d = bpy.data.lights.new("fakkellicht", "POINT"); d.color = (1.0, 0.62, 0.3); d.energy = kracht; d.shadow_soft_size = 0.3
     l = bpy.data.objects.new("fakkellicht", d); l.location = (x, y - 0.7, zv + 0.5); sc.collection.objects.link(l)
 fakkel(KX1 - 0.8, 2.2)
-fakkel(-4.2, 0.95, kracht=160, groot=1.3)
+fakkel(-4.2, 1.45, kracht=190, groot=1.4)
 # licht in het valgat, zodat de held en zijn laarzen niet in het donker hangen
 lg_ = bpy.data.lights.new("gatlicht", "POINT"); lg_.color = (1.0, 0.92, 0.8); lg_.energy = E("GATLICHT", "260"); lg_.shadow_soft_size = 0.8
 lgo_ = bpy.data.objects.new("gatlicht", lg_); lgo_.location = ((SX0 + SX1) / 2, -1.5, 3.9); sc.collection.objects.link(lgo_)
@@ -235,6 +248,10 @@ for o in [o for o in bpy.data.objects if o not in voor]:
         o.parent = anker
 anker.location = (GX, 0.1, GZ); anker.scale = (GS, GS, GS)
 anker.rotation_euler = (math.radians(E("GKANTEL", "-6")), 0, math.radians(E("GDRAAI", "-16")))
+# v3: één mond; de losse tand las op 2x als een tweede mondje onder het oog (Daan #236 kan)
+for o in list(anker.children_recursive):
+    if o.material_slots and o.material_slots[0].material and o.material_slots[0].material.name.startswith("tand"):
+        o.hide_render = True
 # kroon minder munt (zoals capsule v1, Daan)
 km = bpy.data.materials.get("kroon")
 if km:
@@ -255,17 +272,20 @@ lo = bpy.data.objects.new("ringlicht", lr); lo.location = (GX, -0.6, GZ + 0.4); 
 # ---------- helden ----------
 import held, hoeden
 # 1. valt kop eerst door het gat de kamer in; zijn pet vliegt los
-HV = held.bouw("held", "vallen", plek=(E("HVX", "2.1"), 0.2, E("HVZ", "1.75")), draai=E("HVD", "20"), schaal=E("HVS", "2.2"), kleur=int(E("HVKLEUR", "2")))   # paarse tuniek: los van de oranje stenen
+# v3 (Daan #236 M1): niet meer kop eerst (omgekeerd gezicht las als een los ei), maar voeten eerst met armen omhoog
+# van schrik, iets schuin, gezicht rechtop: één silhouet. Hij zakt net uit het gat, de pet vliegt erboven.
+HV = held.bouw("held", "schrik", plek=(E("HVX", "2.15"), -0.35, E("HVZ", "0.75")), draai=E("HVD", "-15"), schaal=E("HVS", "1.85"), kleur=int(E("HVKLEUR", "2")))
+HV.rotation_mode = "ZYX"; HV.rotation_euler = (0, math.radians(E("HVKANTEL", "-14")), math.radians(15))   # paarse tuniek: los van de oranje stenen
 for o in list(sc.objects):
     if o.name.startswith("hoed_") and o.parent is not None and o.parent == HV:
         o.hide_render = True
 for o in list(HV.children_recursive):
     if o.name.startswith("hoed"):
         o.hide_render = True
-hoeden.bouw(3, plek=(E("PETX", "3.7"), 0.0, E("PETZ", "6.2")), schaal=E("PETS", "1.6"), kantel=E("PETK", "-35"), draai=20)
+hoeden.bouw(3, plek=(E("PETX", "3.1"), 0.0, E("PETZ", "5.75")), schaal=E("PETS", "1.6"), kantel=E("PETK", "-35"), draai=20)
 # (bewegingsstreepjes weggelaten: op 2x lazen ze als stokjes door de held)
 # 2. in de gang loopt een ridder nietsvermoedend naar de kamer
-held.bouw("ridder", "stap2", plek=(E("RX", "-1.2"), 0.35, 0.0), draai=60, schaal=E("RS", "1.25"), gloed=40)
+held.bouw("ridder", "stap2", plek=(E("RX", "-1.6"), 0.35, 0.0), draai=60, schaal=E("RS", "1.55"), gloed=40)
 
 # ---------- titel ----------
 def tekst(woord, loc, maat, kantel=0, rand=0.09, kleur="ffd23a"):
@@ -280,9 +300,9 @@ def tekst(woord, loc, maat, kantel=0, rand=0.09, kleur="ffd23a"):
     o2.location = (loc[0], loc[1] + 0.16 * maat, loc[2]); o2.rotation_euler = o.rotation_euler
     cu2.materials.clear(); cu2.materials.append(g.mat("titelrand", "3a1a14", rough=0.6))
     return o
-TX, TZ = E("TX", "-8.9"), E("TZ", "5.75")
-tekst("HATS", (TX, -2.5, TZ), E("TH", "2.25"), kantel=E("TK", "3"))
-tekst("OF THE FALLEN", (TX + 0.15, -2.5, TZ - 1.15), E("TO", "0.98"), kantel=E("TK", "3"), rand=0.12)
+TX, TZ = E("TX", "-8.9"), E("TZ", "5.5")
+tekst("HATS", (TX, -2.5, TZ), E("TH", "2.75"), kantel=E("TK", "3"))
+tekst("OF THE FALLEN", (TX + 0.15, -2.5, TZ - 1.15), E("TO", "1.2"), kantel=E("TK", "3"), rand=0.12)
 
 # ---------- licht ----------
 def lamp(naam, soort, loc, kleur, kracht, grootte=1.0, doel=(0, 0, 1.0)):
@@ -291,7 +311,7 @@ def lamp(naam, soort, loc, kleur, kracht, grootte=1.0, doel=(0, 0, 1.0)):
     o = bpy.data.objects.new(naam, d); o.location = loc; sc.collection.objects.link(o)
     o.rotation_euler = (Vector(doel) - Vector(loc)).to_track_quat("-Z", "Y").to_euler(); o.visible_camera = False
     return o
-lamp("sleutel", "AREA", (3.0, -12.0, 10.0), (1.0, 0.9, 0.78), E("SLEUTEL", "3300"), 10.0, (2.0, 0.5, 2.0))
+lamp("sleutel", "AREA", (3.0, -12.0, 10.0), (1.0, 0.9, 0.78), E("SLEUTEL", "3300"), E("SLEUTELMAAT", "18"), (2.0, 0.5, 2.0))
 lamp("vul", "AREA", (-6.0, -12.0, 3.0), (0.8, 0.88, 1.0), E("VUL", "1500"), 10.0, (-3.0, 0.5, 2.5))
 lamp("kamer", "AREA", (GX, -3.0, 3.6), (1.0, 0.82, 0.6), E("KAMERL", "350"), 4.0, (GX, 1.0, 1.4))
 lamp("titellamp", "AREA", (-5.0, -8.0, 9.0), (1.0, 0.97, 0.9), E("TITELL", "1400"), 5.0, (-5.0, -2.5, 6.0))
