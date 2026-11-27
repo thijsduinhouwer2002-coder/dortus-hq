@@ -1,27 +1,29 @@
-HOL balk gestart, pid 6516, hoogte 96
+HOL balk gestart, pid 7008, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795790899
+HOL zaad 1795791975
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Geert)
-HOL held binnen: Geert
+HOL begin: vallen (Siem)
+HOL held binnen: Siem
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Geert knocks first. Polite.
+HOL kroniek 2.6 (wacht 0.5): Siem knocks first. Polite.
 HOL klik op (200, 90): niets
 HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Geert knocks first. Polite.
-HOL kroniek 7.4 (wacht 0.0): Geert fell to the Spike Pit. +9
+HOL kroniek zelfde held vervangen: Siem knocks first. Polite.
+HOL kroniek 7.4 (wacht 0.0): Siem left gold and one boot. +9
 HOL zicht 7.4 0
-HOL leven goudstof t=8.5 x=324 y=30
-HOL begin: opgegeten (Pim)
-HOL held binnen: Pim
-HOL zicht 9.1 1
-HOL uitleg stap 2 t=9.1 Click the dirt to dig.
+HOL begin: opgegeten (Joost)
+HOL held binnen: Joost
+HOL zicht 7.7 1
+HOL uitleg stap 2 t=9.0 Click the dirt to dig.
 HOL kroniek 9.9 (wacht 2.5): First hero in the pit!
-HOL meting t=10 beelden=123 helden=1 hol_vast=3
-HOL kroniek vervallen 12.0: Pim is here for your gold.
+HOL meting t=10 beelden=125 helden=1 hol_vast=3
+HOL leven mot t=10.4 x=184 y=26
+HOL kroniek vervallen 10.7: Joost says this is a quick one.
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
-HOL leven mot t=22.5 x=184 y=26
-HOL einde na 25 s, fps=10, goud=29, terugkomers=0
+HOL reeks 2 (+0, t 24.6)
+HOL kroniek 24.6 (wacht 0.0): Gloop ate Joost. Kept the crown. +9
+HOL zicht 24.7 0
+HOL einde na 25 s, fps=14, goud=38, terugkomers=0
