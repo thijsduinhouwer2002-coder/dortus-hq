@@ -1,0 +1,21 @@
+# gemaakt: 2026-11-27T09:41:51Z
+# workflow: Blender gewrichten e2e (Click Joints, echte Blender) (.github/workflows/blender-gewrichten-e2e.yml)
+# run: 45971544335 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/45971544335
+# commit: ee1ddf8a tak main gestart door push
+# mislukte stappen: beeldbericht: Beeldbericht aan Bram (alleen bij een groot of leeg plaatje dat nog niet gemeld is)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== beeldbericht / Beeldbericht aan Bram (alleen bij een groot of leeg plaatje dat nog niet gemeld is) (laatste 12 van 12 regels) =====
+##[group]Run mkdir -p /tmp/bv
+mkdir -p /tmp/bv
+bash organisatie/controle/beelden.sh meld blender-gewrichten bram /tmp/bv main
+shell: /usr/bin/bash -e {0}
+env:
+  TOKEN: ***
+##[endgroup]
+blender-gewrichten main 1df3d6dd38df
+Controle omvang: NIET OK.
+  berichten/bram.md: 60261 tekens, grens 60000. Maak het korter (oud naar het archief) en commit opnieuw.
+controle NIET OK, bericht niet geplaatst
+##[error]Process completed with exit code 1.
