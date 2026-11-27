@@ -393,8 +393,74 @@ if os.environ.get("HV2_MAT", "0") == "1":
         if "Specular IOR Level" in b.inputs: b.inputs["Specular IOR Level"].default_value = min(b.inputs["Specular IOR Level"].default_value, E("GLANS", "0.25"))
         b.inputs["Roughness"].default_value = max(b.inputs["Roughness"].default_value, E("RUW", "0.55"))
     lamp("rand", "AREA", (4.0, 6.0, 7.0), (1.0, 0.85, 0.65), E("RANDL", "0"), 8.0, (4.0, 0.0, 1.5))
+TOON = os.environ.get("HV2_TOON", "0") == "1"
+if TOON:
+    # v6 (Gemini 27 nov: "3D looks cheap and mobile-esque"): toon-schaduw zoals een getekend spel.
+    # Elk materiaal wordt licht + vlakke schaduw: een harde Toon-lichtkant op de basiskleur, plus een vaste
+    # schaduwtint (basiskleur, iets koeler en paarser) als emissie, zodat de schaduwkant een eigen vlakke kleur is
+    # en niet zwart of glad. Glanzende dingen (oog, goud, kroon, stenen, helm) krijgen één harde witte glimvlek.
+    ST = (E("STR", "0.78"), E("STG", "0.70"), E("STB", "1.0"))     # schaduwtint (koel en paars)
+    SK = E("SCHADUW", "0.42")                                       # hoe licht de schaduwkant is
+    GEENRAND = ("aarde", "gangwand", "kamerwand", "vloer", "steen", "gras", "kluit", "wortel", "rand_", "schacht", "titel", "hout", "mond", "hmond", "pupil", "hpupil", "brauw")
+    GLIM = ("goud", "kroon", "hgoud", "gesp", "band")
+    for m in bpy.data.materials:
+        if not m.use_nodes: continue
+        nt = m.node_tree; b = nt.nodes.get("Principled BSDF")
+        if not b: continue
+        if m.name.startswith("titelgoud"): b.inputs["Emission Strength"].default_value = 0.0   # titel ook getekend
+        es = b.inputs["Emission Strength"].default_value if "Emission Strength" in b.inputs else 0.0
+        if es > 0.0 or b.inputs["Emission Strength"].is_linked: continue
+        uitn = next((n for n in nt.nodes if n.type == "OUTPUT_MATERIAL"), None)
+        if not uitn: continue
+        bc = b.inputs["Base Color"]
+        src = bc.links[0].from_socket if bc.is_linked else None
+        def kleur_naar(sock):
+            if src is not None: nt.links.new(src, sock)
+            else: sock.default_value = bc.default_value
+        td = nt.nodes.new("ShaderNodeBsdfToon"); td.component = "DIFFUSE"
+        td.inputs["Size"].default_value = E("TSIZE", "0.62"); td.inputs["Smooth"].default_value = E("TSMOOTH", "0.03")
+        kleur_naar(td.inputs["Color"])
+        mul = nt.nodes.new("ShaderNodeMix"); mul.data_type = "RGBA"; mul.blend_type = "MULTIPLY"
+        mul.inputs[0].default_value = 1.0
+        kleur_naar(mul.inputs[6]); mul.inputs[7].default_value = (ST[0], ST[1], ST[2], 1)
+        em = nt.nodes.new("ShaderNodeEmission"); em.inputs["Strength"].default_value = E("TITELSCH", "0.8") if m.name.startswith("titelgoud") else SK
+        nt.links.new(mul.outputs[2], em.inputs["Color"])
+        add = nt.nodes.new("ShaderNodeAddShader")
+        nt.links.new(td.outputs[0], add.inputs[0]); nt.links.new(em.outputs[0], add.inputs[1])
+        laatst = add
+        if not m.name.lower().startswith(GEENRAND) and E("RAND", "0.5") > 0:
+            # randlicht: een smalle lichte rand langs de buitenkant van de figuren, zoals in getekende spellen
+            lw = nt.nodes.new("ShaderNodeLayerWeight"); lw.inputs["Blend"].default_value = E("RANDBLEND", "0.35")
+            cr = nt.nodes.new("ShaderNodeValToRGB"); cr.color_ramp.interpolation = "CONSTANT"
+            cr.color_ramp.elements[0].position = 0.0; cr.color_ramp.elements[0].color = (0, 0, 0, 1)
+            cr.color_ramp.elements[1].position = E("RANDPOS", "0.72"); cr.color_ramp.elements[1].color = (1, 1, 1, 1)
+            nt.links.new(lw.outputs["Facing"], cr.inputs[0])
+            mr = nt.nodes.new("ShaderNodeMix"); mr.data_type = "RGBA"; mr.blend_type = "SCREEN"; mr.inputs[0].default_value = 1.0
+            kleur_naar(mr.inputs[6]); mr.inputs[7].default_value = (1.0, 0.86, 0.62, 1)
+            mm = nt.nodes.new("ShaderNodeMix"); mm.data_type = "RGBA"; mm.blend_type = "MULTIPLY"; mm.inputs[0].default_value = 1.0
+            nt.links.new(mr.outputs[2], mm.inputs[6]); nt.links.new(cr.outputs["Color"], mm.inputs[7])
+            er = nt.nodes.new("ShaderNodeEmission"); er.inputs["Strength"].default_value = E("RAND", "0.5")
+            nt.links.new(mm.outputs[2], er.inputs["Color"])
+            a3 = nt.nodes.new("ShaderNodeAddShader")
+            nt.links.new(add.outputs[0], a3.inputs[0]); nt.links.new(er.outputs[0], a3.inputs[1]); laatst = a3
+        if m.name.lower().startswith(GLIM):
+            tg = nt.nodes.new("ShaderNodeBsdfToon"); tg.component = "GLOSSY"
+            tg.inputs["Size"].default_value = E("GSIZE", "0.08"); tg.inputs["Smooth"].default_value = 0.0
+            g_ = E("GKLEUR", "0.45"); tg.inputs["Color"].default_value = (g_, g_ * 0.97, g_ * 0.9, 1)
+            a2 = nt.nodes.new("ShaderNodeAddShader")
+            nt.links.new(add.outputs[0], a2.inputs[0]); nt.links.new(tg.outputs[0], a2.inputs[1]); laatst = a2
+        nt.links.new(laatst.outputs[0], uitn.inputs["Surface"])
+    # minder lampen: één harde zon als lichtkant, de kamerlamp zacht; de rest uit (anders veel banden)
+    for o in sc.objects:
+        if o.type == "LIGHT" and o.name in ("vul", "titellamp", "sleutel"): o.data.energy = 0
+        if o.type == "LIGHT" and o.name == "zon":
+            o.data.energy = E("TZON", "3.2"); o.data.angle = math.radians(E("ZONHOEK", "4"))
+            o.rotation_euler = (math.radians(E("ZONX", "52")), math.radians(E("ZONY", "-28")), math.radians(E("ZONZ", "-18")))
+        if o.type == "LIGHT" and o.name == "kamer": o.data.energy = E("TKAMER", "0")
+    for o in sc.objects:   # de titel werpt geen schaduw op de muur
+        if o.name.split(".")[0].startswith("titel"): o.visible_shadow = False
 sc.world = bpy.data.worlds.new("w"); sc.world.use_nodes = True
-bg = sc.world.node_tree.nodes["Background"]; bg.inputs["Color"].default_value = (0.55, 0.72, 1.0, 1); bg.inputs["Strength"].default_value = E("WERELD", "0.2")
+bg = sc.world.node_tree.nodes["Background"]; bg.inputs["Color"].default_value = (0.55, 0.72, 1.0, 1); bg.inputs["Strength"].default_value = E("WERELD", "0.0" if TOON else "0.2")
 
 # ---------- camera ----------
 cam = bpy.data.cameras.new("cam"); cam.sensor_fit = "HORIZONTAL"; cam.sensor_width = 36

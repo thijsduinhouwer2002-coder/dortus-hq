@@ -46,3 +46,14 @@ Proef in dezelfde run (`proef-v6-licht.jpg`, boven v5, midden en onder twee proe
 - Mijn oordeel (GEZIEN met Read op 920): geen van de proeven is duidelijk beter dan v5, dus geen nieuwe testronde op de gratis daglimiet.
 
 Wat de volgende stap moet zijn: niet nog meer poetsen aan licht, maar de stijl zelf. De drie concurrenten zijn getekend (Rusty pixels, Spirit City en Desktop Defender vlak getekend met harde schaduwvlakken). Plan v6: toon-schaduw (twee of drie vlakke tinten per materiaal in plaats van glad plastic), een dikke inktlijn op 2x om de figuren, en minder glimmende hoogtelichten; eerst één losse proef op Gloop alleen, dan pas het hele beeld.
+
+## Ronde 6 (27 nov ±13:30 NL): getekende stijl in plaats van glad plastic
+Na Gemini ("3D looks a bit cheap and mobile-esque") de stijl zelf veranderd, niet het licht. Schakelaar `HV2_TOON=1` in `header_v2.py` (standaard uit, v5 blijft te maken):
+- Elk materiaal is nu lichtkant plus vlakke schaduwkant: een harde Toon-schaduw (Cycles Toon BSDF) op de basiskleur en een vaste, iets koelere en paarsere schaduwtint, zoals een getekend spel met twee tinten per vlak.
+- Smalle warme randlijn langs de buitenkant van de figuren (Gloop, helden, hoeden, pet), niet op muur en aarde.
+- Inktlijn om de figuren (`HV2_LIJN=1`, dikte 3,4 op 2x). Kleine harde glimvlek alleen op goud en kroon.
+- Eén harde zon als licht (vul-, sleutel- en titellamp uit), dus duidelijke schaduwen; de titel ook getekend, feller geel.
+- Maken: `HV2_TOON=1 HV2_LIJN=1 HV2_TZON=4.2 HV2_LIJNDIK=3.4 HV2_SCHADUW=0.5 HV2_STR=0.85 HV2_STG=0.72 <venv>/bin/python header_v2.py r.png 1840 860 28`, dan `python3 samenstellen.py r.png header-v6-920x430.png`.
+- Bekeken met Read op 920, 460 en 2x (`rechts-v6-2x.png`). Voor en na: `voor-na.png` (v5 boven, v6 onder).
+- Mijn oordeel (GOK tot de blinde test): meer getekend en de titel leest beter; de helmen lezen als witte kommen, minder metaal.
+- Blinde test: set `hats-header-v2.json` heeft nu v5 en v6 als twee kandidaten, zodat de rechter zegt welke beter is.
