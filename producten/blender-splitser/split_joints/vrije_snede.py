@@ -18,11 +18,16 @@ import numpy as np
 from mathutils import Matrix, Vector
 
 from . import controle, eigenschappen, kleuren, splitsen, uit_elkaar, verbind_3d, vormen
+from .lijn import deel_eraf, eraf_hoeken, omdraaien, vlak_uit_lijn
 from .eigenschappen import bed, eenheid_per_mm
 
 NAAM = "Free cut"
 WAND_TOL_MM = 0.002  # a face this close to a side wall of the box lies on that wall
 WAND_OPP_MM2 = 0.05  # more wall area than this on the new piece: the box touched the piece at its side
+# keuring #212 K2: after Draw cut the buyer thinks in lines, not in scaling (S)
+LIJN_TE_KORT = "Drag the line all the way across the piece: Draw cut again, with the line past both edges"
+ERAF_KLEUR = (0.85, 0.35, 0.9)  # the colour of the cut plane: the arrow belongs to the cut
+LICHT = (1.0, 1.0, 1.0, 0.5)  # the part that comes off lights up white: pieces have every colour, white none
 
 
 def stuk_van(context):
@@ -151,15 +156,17 @@ def snijd(context, stuk, snede, report):
     inst = scene.split_joints
     u = eenheid_per_mm(scene)
     R, o, a, b = kader(stuk, snede, u)
+    getekend = bool(snede.get("sj_getekend"))
     if a < 1.0 or b < 1.0:
-        report({"ERROR"}, "The free cut is too small: scale it up (S) so it covers the part you want to cut off")
+        report({"ERROR"}, LIJN_TE_KORT if getekend else
+               "The free cut is too small: scale it up (S) so it covers the part you want to cut off")
         return None
     alle = uit_elkaar.stukken(scene)
     with uit_elkaar.echte_plek(alle):
-        return _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report)
+        return _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report, getekend)
 
 
-def _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report):
+def _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report, getekend=False):
     punten, tri = mesh_lokaal_mm(stuk, u)
     lok = (punten - o) @ R
     c = splitsen.SCHUIF_MM
@@ -201,8 +208,9 @@ def _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report):
     opp = wand_vlak(ruw_b, R, o, a, b, u)
     if opp > WAND_OPP_MM2 or len(ruw_b.data.polygons) == 0:
         opruimen()
-        report({"ERROR"}, f"The free cut box touches {stuk.name} at its side ({opp:.1f} mm2). Scale the plane "
-                          "up (S) so it goes around the whole part, or turn it")
+        report({"ERROR"}, LIJN_TE_KORT if getekend else
+               f"The free cut box touches {stuk.name} at its side ({opp:.1f} mm2). Scale the plane "
+               "up (S) so it goes around the whole part, or turn it")
         return None
     ruw_a, f_a = splitsen.verschil(stuk, doos, solver, "sj_ruw_a", hulp, u)
     fout_a, fout_b = list(f_a), list(f_b)
@@ -302,6 +310,184 @@ def _snijd(context, scene, inst, u, stuk, snede, R, o, a, b, alle, report):
     return a_ob, b_ob, pob, sum(n for _d, n in pennen)
 
 
+def zet_vlak(context, stuk, R, o, a, b, snede=None):
+    """Places the free cut of the piece on the frame (world space, Blender units). Reuses the plane if there is
+    one, else makes it. Returns the plane object."""
+    if snede is None:
+        snede = maak_vrije_snede(context, stuk)
+    me = snede.data
+    me.clear_geometry()
+    me.from_pydata([(-a, -b, 0), (a, -b, 0), (a, b, 0), (-a, b, 0)], [], [(0, 1, 2, 3)])
+    me.update()
+    m = Matrix(np.asarray(R, dtype=float).tolist()).to_4x4()
+    m.translation = Vector(np.asarray(o, dtype=float).tolist())
+    snede.matrix_world = m
+    return snede
+
+
+def punten_wereld(stuk):
+    """N x 3 points of the piece in world space (Blender units)."""
+    me = stuk.data
+    co = np.empty(len(me.vertices) * 3)
+    me.vertices.foreach_get("co", co)
+    co = co.reshape(-1, 3)
+    mw = np.array(stuk.matrix_world)
+    return co @ mw[:3, :3].T + mw[:3, 3]
+
+
+def naar_3d(region, rv3d, xy, diepte, ndc_z=None):
+    """Pixel of the 3D view region to a point in the world at the depth of `diepte` (or at a fixed ndc_z).
+    The exact inverse of what Blender draws (perspective_matrix), for perspective and orthographic views alike.
+    Why not bpy_extras region_2d_to_location_3d: in an orthographic view with a far Clip End (100000, common in
+    mm scenes) it lands 33 to 113 px off the mouse (measured 26 nov in Blender 4.2.23 and 5.3.0); this one
+    lands on the pixel in both kinds of view."""
+    pm = rv3d.perspective_matrix
+    if ndc_z is None:
+        d = pm @ Vector((diepte[0], diepte[1], diepte[2], 1.0))
+        ndc_z = d.z / d.w if abs(d.w) > 1e-12 else 0.0
+    q = pm.inverted() @ Vector((2.0 * xy[0] / region.width - 1.0, 2.0 * xy[1] / region.height - 1.0, ndc_z, 1.0))
+    return Vector((q.x / q.w, q.y / q.w, q.z / q.w))
+
+
+GEBEURD = []  # last mouse events of Draw cut, read by the screen test (e2e/scherm_paneel.py)
+
+
+def _teken_lijn(op, _context):
+    if op.begin is None or op.eind is None or op.regio is None:
+        return
+    if bpy.context.region is None or bpy.context.region.as_pointer() != op.regio.as_pointer():
+        return  # only in the view where you draw
+    try:
+        _lijn_op_scherm(op)
+    except Exception as e:  # never break the viewport over the helper line
+        GEBEURD.append(f"teken fout {e!r}")
+        del GEBEURD[:-40]
+
+
+def _lijn_op_scherm(op):
+    import gpu
+    from gpu_extras.batch import batch_for_shader
+    shader = gpu.shader.from_builtin("UNIFORM_COLOR")
+    batch = batch_for_shader(shader, "LINES", {"pos": [tuple(op.begin), tuple(op.eind)]})
+    gpu.state.blend_set("ALPHA")
+    gpu.state.line_width_set(2.0)
+    shader.bind()
+    shader.uniform_float("color", (0.85, 0.35, 0.9, 1.0))
+    batch.draw(shader)
+    gpu.state.line_width_set(1.0)
+    gpu.state.blend_set("NONE")
+
+
+class SPLIT_JOINTS_OT_vrije_snede_tekenen(bpy.types.Operator):
+    bl_idname = "split_joints.vrije_snede_tekenen"
+    bl_label = "Draw cut"
+    bl_description = ("Drag a line across the active piece where you want to cut it. The cut goes along the line, "
+                      "straight away from you, and only as wide as the line. Then press Cut piece")
+    bl_options = {"REGISTER", "UNDO"}
+
+    @classmethod
+    def poll(cls, context):
+        stuk, _snede = stuk_van(context)
+        return stuk is not None and context.area is not None and context.area.type == "VIEW_3D"
+
+    def invoke(self, context, event):
+        # the button sits in the sidebar, so context.region is the sidebar: the line is measured in the 3D view
+        # region itself (window coordinates minus its corner), the one under the mouse when you press
+        self.begin = None
+        self.eind = None
+        self.regio = None
+        self.rv3d = None
+        self.stuk_naam = stuk_van(context)[0].name
+        self.handle = bpy.types.SpaceView3D.draw_handler_add(_teken_lijn, (self, context), "WINDOW", "POST_PIXEL")
+        context.workspace.status_text_set("Draw cut: click and drag a line across the piece   Esc: cancel")
+        context.window.cursor_modal_set("CROSSHAIR")
+        context.window_manager.modal_handler_add(self)
+        return {"RUNNING_MODAL"}
+
+    def _stop(self, context):
+        bpy.types.SpaceView3D.draw_handler_remove(self.handle, "WINDOW")
+        context.workspace.status_text_set(None)
+        context.window.cursor_modal_restore()
+        context.area.tag_redraw()
+
+    def modal(self, context, event):
+        if event.type not in {"TIMER", "INBETWEEN_MOUSEMOVE"}:
+            GEBEURD.append(f"{event.type} {event.value} {event.mouse_region_x} {event.mouse_region_y}")
+            del GEBEURD[:-40]
+        if event.type in {"ESC", "RIGHTMOUSE"} and event.value == "PRESS":
+            self._stop(context)
+            return {"CANCELLED"}
+        if event.type == "MOUSEMOVE":
+            if self.begin is not None:
+                self.eind = self._in_regio(event)
+                context.area.tag_redraw()
+            return {"RUNNING_MODAL"}
+        if event.type == "LEFTMOUSE" and event.value == "PRESS":
+            regio = self._regio_onder(context, event)
+            if regio is None:  # pressed outside the 3D view (sidebar, header): ignore, keep waiting
+                return {"RUNNING_MODAL"}
+            self.regio, self.rv3d = regio
+            self.begin = self._in_regio(event)
+            self.eind = self.begin
+            return {"RUNNING_MODAL"}
+        if event.type == "LEFTMOUSE" and event.value == "RELEASE" and self.begin is not None:
+            self.eind = self._in_regio(event)
+            self._stop(context)
+            return self.plaats(context)
+        if event.type in {"MIDDLEMOUSE", "WHEELUPMOUSE", "WHEELDOWNMOUSE"}:
+            return {"PASS_THROUGH"}  # turning and zooming the view still works before you drag
+        return {"RUNNING_MODAL"}
+
+    @staticmethod
+    def _regio_onder(context, event):
+        """(3D view region, its RegionView3D) under the mouse; with quad view each quarter is its own region."""
+        regios = [r for r in context.area.regions if r.type == "WINDOW"]
+        vlakken = [r for r in regios if r.x <= event.mouse_x < r.x + r.width and r.y <= event.mouse_y < r.y + r.height]
+        if not vlakken:
+            return None
+        r = vlakken[0]
+        sp = context.area.spaces.active
+        if len(regios) > 1 and getattr(sp, "region_quadviews", None):
+            vlakken_rv = list(sp.region_quadviews)
+            idx = regios.index(r)
+            if idx < len(vlakken_rv):
+                return r, vlakken_rv[idx]
+        return r, sp.region_3d
+
+    def _in_regio(self, event):
+        r = self.regio
+        return (event.mouse_x - r.x, event.mouse_y - r.y)
+
+    def plaats(self, context):
+        stuk = bpy.data.objects.get(self.stuk_naam)
+        if stuk is None:
+            return {"CANCELLED"}
+        if math.dist(self.begin, self.eind) < 8:
+            self.report({"WARNING"}, "Drag a longer line across the piece")
+            return {"CANCELLED"}
+        region, rv3d = self.regio, self.rv3d
+        pts = punten_wereld(stuk)
+        midden = Vector(((pts.min(axis=0) + pts.max(axis=0)) / 2.0).tolist())
+        p1 = naar_3d(region, rv3d, self.begin, midden)
+        p2 = naar_3d(region, rv3d, self.eind, midden)
+        mid = ((self.begin[0] + self.eind[0]) / 2.0, (self.begin[1] + self.eind[1]) / 2.0)
+        kijk = naar_3d(region, rv3d, mid, midden, ndc_z=0.5) - naar_3d(region, rv3d, mid, midden, ndc_z=-0.5)
+        u = eenheid_per_mm(context.scene)
+        kader_ = vlak_uit_lijn(p1, p2, kijk, pts, marge=1.0 * u)
+        if kader_ is None:
+            self.report({"WARNING"}, "Drag a longer line across the piece")
+            return {"CANCELLED"}
+        _s, oud = stuk_van(context)
+        snede = zet_vlak(context, stuk, *kader_, snede=oud if oud is not None and oud.get("sj_vrij") == stuk.name else None)
+        for o in context.view_layer.objects:
+            o.select_set(False)
+        snede.select_set(True)
+        context.view_layer.objects.active = snede
+        snede["sj_getekend"] = True
+        self.report({"INFO"}, "Cut placed: the lit part comes off. Press Cut piece, or Flip side for the other part")
+        return {"FINISHED"}
+
+
 class SPLIT_JOINTS_OT_vrije_snede_erbij(bpy.types.Operator):
     bl_idname = "split_joints.vrije_snede_erbij"
     bl_label = "Add free cut"
@@ -367,4 +553,211 @@ class SPLIT_JOINTS_OT_vrije_snede(bpy.types.Operator):
         return {"FINISHED"}
 
 
-KLASSEN = (SPLIT_JOINTS_OT_vrije_snede_erbij, SPLIT_JOINTS_OT_vrije_snede)
+class SPLIT_JOINTS_OT_vrije_snede_om(bpy.types.Operator):
+    bl_idname = "split_joints.vrije_snede_om"
+    bl_label = "Flip side"
+    bl_description = "Cut off the other part: turns the free cut half a turn, so the arrow and the lit part change side"
+    bl_options = {"REGISTER", "UNDO"}
+
+    @classmethod
+    def poll(cls, context):
+        stuk, snede = stuk_van(context)
+        return stuk is not None and snede is not None
+
+    def execute(self, context):
+        _stuk, snede = stuk_van(context)
+        draai_om(snede)
+        for area in context.screen.areas if context.screen else ():
+            if area.type == "VIEW_3D":
+                area.tag_redraw()
+        self.report({"INFO"}, "The other part comes off now. Press Cut piece")
+        return {"FINISHED"}
+
+
+def draai_om(snede):
+    """Flip side (keuring #212 K1): half a turn around the local Y through the middle of the rectangle."""
+    ps = [Vector(v.co) for v in snede.data.vertices]
+    mid = sum(ps, Vector()) / max(len(ps), 1)
+    mw = snede.matrix_world
+    loc, rot, sca = mw.decompose()
+    R = omdraaien(np.array(rot.to_matrix()))
+    m_mid = mw @ mid
+    nieuw = Matrix(R.tolist()).to_4x4() @ Matrix.Diagonal(sca.to_4d())
+    nieuw.translation = m_mid - (nieuw.to_3x3() @ mid)
+    snede.matrix_world = nieuw
+
+
+# keuring #212 M1: before Cut piece the buyer sees what comes off. The part of the piece on the arrow side and
+# inside the rectangle is lit in the colour of the cut, and an arrow with "comes off" points to it on the screen.
+STAND = {"driehoeken": 0, "pijl": None, "fout": None}  # last drawing, read by the screen test (e2e/scherm_paneel.py)
+_CACHE = {"sleutel": None, "tris": None, "midden": None}
+_HANDLES = []
+
+
+def _actief_paar():
+    ctx = bpy.context
+    try:
+        stuk, snede = stuk_van(ctx)
+    except (AttributeError, ReferenceError):
+        return None, None
+    if stuk is None or snede is None or stuk.hide_get() or snede.hide_get():
+        return None, None
+    return stuk, snede
+
+
+def _eraf_wereld(stuk, snede):
+    """(triangle corners K x 3 in world space, slightly lifted along the normals; middle of the lit part) for the
+    pair, cached on the placement of the cut and the piece."""
+    sleutel = (stuk.name, len(stuk.data.vertices), len(stuk.data.polygons),
+               tuple(round(x, 6) for r in stuk.matrix_world for x in r),
+               tuple(round(x, 6) for r in snede.matrix_world for x in r),
+               tuple(round(c, 6) for v in snede.data.vertices for c in v.co))
+    if _CACHE["sleutel"] == sleutel:
+        return _CACHE["tris"], _CACHE["midden"]
+    punten, tri = mesh_lokaal_mm(stuk, 1.0)
+    R, o, a, b = kader(stuk, snede, 1.0)
+    keus = deel_eraf(punten, tri, R, o, a, b)
+    tris, midden = None, None
+    if keus.any():
+        me = stuk.data
+        nrm = np.empty(len(me.vertices) * 3)
+        me.vertices.foreach_get("normal", nrm)
+        grootte = float(np.ptp(punten, axis=0).max()) or 1.0
+        opgetild = punten + nrm.reshape(-1, 3) * grootte * 0.002  # above the surface, no flicker with the piece
+        mw = np.array(stuk.matrix_world)
+        hoeken = eraf_hoeken(punten, tri, R, o, a, b, mee=opgetild).reshape(-1, 3) @ mw[:3, :3].T + mw[:3, 3]
+        tris = [tuple(p) for p in hoeken.tolist()]
+        mid_l = punten[np.unique(tri[keus].ravel())]
+        midden = Vector(((mid_l.min(axis=0) + mid_l.max(axis=0)) / 2.0 @ mw[:3, :3].T + mw[:3, 3]).tolist())
+    _CACHE.update(sleutel=sleutel, tris=tris, midden=midden)
+    return tris, midden
+
+
+def _teken_eraf_3d():
+    stuk, snede = _actief_paar()
+    if stuk is None:
+        return
+    try:
+        import gpu
+        from gpu_extras.batch import batch_for_shader
+        tris, _m = _eraf_wereld(stuk, snede)
+        STAND["driehoeken"] = len(tris) // 3 if tris else 0
+        if not tris:
+            return
+        shader = gpu.shader.from_builtin("UNIFORM_COLOR")
+        batch = batch_for_shader(shader, "TRIS", {"pos": tris})
+        gpu.state.blend_set("ALPHA")
+        gpu.state.depth_test_set("LESS_EQUAL")
+        gpu.state.depth_mask_set(False)
+        shader.bind()
+        shader.uniform_float("color", LICHT)
+        batch.draw(shader)
+        gpu.state.depth_mask_set(True)
+        gpu.state.depth_test_set("NONE")
+        gpu.state.blend_set("NONE")
+    except Exception as e:  # never break the viewport over the highlight
+        STAND["fout"] = repr(e)
+
+
+def naar_scherm(region, rv3d, p):
+    """World point to a pixel of the region with perspective_matrix (the same matrix naar_3d inverts)."""
+    q = rv3d.perspective_matrix @ Vector((p[0], p[1], p[2], 1.0))
+    if q.w <= 1e-9:
+        return None
+    return Vector(((q.x / q.w + 1.0) * region.width / 2.0, (q.y / q.w + 1.0) * region.height / 2.0))
+
+
+PIJL_PX = 70
+
+
+def _teken_eraf_2d():
+    stuk, snede = _actief_paar()
+    if stuk is None:
+        return
+    try:
+        region, rv3d = bpy.context.region, bpy.context.region_data
+        if region is None or rv3d is None:
+            return
+        tris, midden = _eraf_wereld(stuk, snede)
+        if not tris:
+            return
+        R, o, a, b = kader(stuk, snede, 1.0)
+        mw = np.array(stuk.matrix_world)
+        c3 = Vector((np.asarray(o) @ mw[:3, :3].T + mw[:3, 3]).tolist())
+        n3 = Vector((R[:, 2] @ mw[:3, :3].T).tolist()).normalized()
+        c = naar_scherm(region, rv3d, c3)
+        m = naar_scherm(region, rv3d, midden)
+        if c is None or m is None:
+            return
+        # the arrow starts at the cut and points to the lit part; seen face-on the arrow is the way to the middle
+        stap_ = naar_scherm(region, rv3d, c3 + n3 * (max(a, b) * 0.05 or 1.0))
+        d = (stap_ - c) if stap_ is not None else Vector((0.0, 0.0))
+        if d.length < 2.0:
+            d = m - c
+        if d.length < 2.0:
+            return
+        d.normalize()
+        sc = bpy.context.preferences.system.ui_scale
+        begin = c + d * 4.0 * sc
+        punt = c + d * PIJL_PX * sc
+        zij = Vector((-d.y, d.x))
+        kop = [punt, punt - d * 20.0 * sc + zij * 12.0 * sc, punt - d * 20.0 * sc - zij * 12.0 * sc]
+        import blf
+        import gpu
+        from gpu_extras.batch import batch_for_shader
+        shader = gpu.shader.from_builtin("UNIFORM_COLOR")
+        gpu.state.blend_set("ALPHA")
+
+        def vlak(punten, kleur):
+            shader.bind()
+            shader.uniform_float("color", kleur)
+            batch_for_shader(shader, "TRIS", {"pos": [tuple(p) for p in punten]}).draw(shader)
+
+        def balk(p, q, dik):  # a line as two triangles: line_width is 1 px on some drivers
+            z = Vector((-(q - p).y, (q - p).x)).normalized() * dik / 2.0
+            return [p + z, p - z, q + z, p - z, q - z, q + z]
+
+        rand = 2.0 * sc
+        schacht = (begin, punt - d * 18.0 * sc)
+        donker = (0.05, 0.05, 0.05, 0.85)
+        vlak(balk(*schacht, 5.0 * sc + 2 * rand), donker)
+        vlak([kop[0] + d * rand * 1.8, kop[1] - d * rand + zij * rand * 1.4, kop[2] - d * rand - zij * rand * 1.4], donker)
+        vlak(balk(*schacht, 5.0 * sc), (*ERAF_KLEUR, 1.0))
+        vlak(kop, (*ERAF_KLEUR, 1.0))
+        tekst = "comes off"
+        blf.size(0, int(14 * sc))
+        breed, hoog = blf.dimensions(0, tekst)
+        t = punt + d * 10.0 * sc
+        x = t.x if d.x >= -0.3 else t.x - breed
+        x = t.x - breed / 2.0 if abs(d.x) < 0.3 else x
+        y = t.y - hoog / 2.0 if abs(d.y) < 0.7 else (t.y if d.y > 0 else t.y - hoog)
+        m_ = 5.0 * sc  # dark label behind the text, readable on the white light and on every piece colour
+        a_, b_ = Vector((x - m_, y - m_)), Vector((x + breed + m_, y + hoog + m_))
+        vlak([a_, Vector((b_.x, a_.y)), b_, a_, b_, Vector((a_.x, b_.y))], donker)
+        blf.position(0, x, y, 0)
+        blf.color(0, 1.0, 1.0, 1.0, 1.0)
+        blf.draw(0, tekst)
+        gpu.state.blend_set("NONE")
+        STAND["pijl"] = (round(c.x), round(c.y), round(punt.x), round(punt.y))
+    except Exception as e:
+        STAND["fout"] = repr(e)
+
+
+def koppel():
+    if _HANDLES:
+        return
+    _HANDLES.append((bpy.types.SpaceView3D.draw_handler_add(_teken_eraf_3d, (), "WINDOW", "POST_VIEW"), "WINDOW"))
+    _HANDLES.append((bpy.types.SpaceView3D.draw_handler_add(_teken_eraf_2d, (), "WINDOW", "POST_PIXEL"), "WINDOW"))
+
+
+def ontkoppel():
+    while _HANDLES:
+        h, soort = _HANDLES.pop()
+        try:
+            bpy.types.SpaceView3D.draw_handler_remove(h, soort)
+        except (ValueError, RuntimeError):
+            pass
+
+
+KLASSEN = (SPLIT_JOINTS_OT_vrije_snede_erbij, SPLIT_JOINTS_OT_vrije_snede_tekenen, SPLIT_JOINTS_OT_vrije_snede_om,
+           SPLIT_JOINTS_OT_vrije_snede)

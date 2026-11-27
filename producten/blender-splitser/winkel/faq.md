@@ -13,7 +13,7 @@ Which Blender versions does it work with?
 4.2 and newer, as an extension. Tested in Blender 4.2 and 5.3 on every change.
 
 How do I install it?
-Drag click_cuts-1.0.0.zip into the Blender window and confirm. Do not unzip it. Or go to Edit > Preferences > Get Extensions, open the drop-down menu at the top right, choose Install from Disk and pick the zip. Then press N in the 3D viewport and open the Click Cuts tab.
+Drag click_cuts-1.1.0.zip into the Blender window and confirm. Do not unzip it. Or go to Edit > Preferences > Get Extensions, open the drop-down menu at the top right, choose Install from Disk and pick the zip. Then press N in the 3D viewport and open the Click Cuts tab.
 
 The install failed or I got a folder instead of a zip. What now?
 Safari on a Mac can unzip downloads by itself, and Blender cannot install a folder. Download it again with another browser, such as Chrome or Firefox, and drag the zip into Blender without opening it. Also check your Blender version: click the Blender logo at the top left, then About Blender. Click Cuts needs Blender 4.2 or newer and does not install in older versions. Still stuck? Send a message through the store with your Blender version and a screenshot of the error.
@@ -34,7 +34,7 @@ Does the fit test work for magnets?
 The fit test uses a pin. With Magnets, the same clearance goes on the diameter of the magnet hole, half on each side: a 6 mm magnet with 0.20 mm clearance gets a hole of 6.2 mm across.
 
 Can I choose where it cuts, so it does not go through a character's face?
-Partly. Split to fit cuts along the X, Y and Z axes. After splitting, Free cut adds a cut at any angle through one part, for example an arm at the shoulder, with pins and numbers like the other cuts.
+Yes. Split to fit cuts along the X, Y and Z axes. After splitting, click a part, click Draw cut and drag a line where you want it cut, for example an arm at the shoulder or under the chin. The part that comes off lights up white before you cut, and it gets pins and numbers like the other cuts. Click Cuts does not find those places by itself.
 
 Can I move the cuts?
 Yes. Open More settings, step 2: every cut has a row, for example Cut X (mm). Drag or type to move it, or remove it. Then click Split to fit again: your moved cuts are kept.

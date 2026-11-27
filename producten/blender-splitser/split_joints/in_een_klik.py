@@ -98,6 +98,17 @@ def geheugen_regel(context):
     return geheugen_tekst(len(ob.data.polygons), solver_naam())
 
 
+def speling_bij_split(scene):
+    """Clearance the pieces were cut with; older scenes without it give the clearance that is set."""
+    return float(scene.get("sj_speling_bij_split", scene.split_joints.speling_mm))
+
+
+def speling_anders(scene):
+    """True when the clearance was changed after the last Split (for example by picking another material), so
+    the panel can say: press Split to fit again (#227)."""
+    return abs(speling_bij_split(scene) - scene.split_joints.speling_mm) > 0.0005  # typed 0.1234 is not a change (Daan #229 K1)
+
+
 def uitslag_tekst(scene):
     """(main line, detail line, ok) from the pieces in the scene, or None when there are none."""
     stukken = [o for o in scene.objects if o.get("sj_stuk")]
@@ -114,9 +125,9 @@ def uitslag_tekst(scene):
     mag = magneten(scene)
     if mag:
         detail = ", ".join(f"{n} magnets {k} mm" for k, n in sorted(mag.items()))
-        detail += f", {inst.speling_mm:.2f} mm clearance"
+        detail += f", {speling_bij_split(scene):.2f} mm clearance"
     else:
-        detail = f"{pennen} pins, {inst.speling_mm:.2f} mm clearance"
+        detail = f"{pennen} pins, {speling_bij_split(scene):.2f} mm clearance"
     return hoofd, detail, not niet
 
 

@@ -392,6 +392,7 @@ class SPLIT_JOINTS_OT_split(bpy.types.Operator):
         ob.hide_set(True)
         scene["sj_gesneden_model"] = ob.name
         scene["sj_snedes_bij_split"] = json.dumps(snedes.handtekening(scene))
+        scene["sj_speling_bij_split"] = round(inst.speling_mm, 3)  # result box names what was cut (#227)
         for s in snedes.snede_objecten(scene):
             s.hide_set(True)
         scene["sj_midden_mm"] = [(lo[a] + hi[a]) / 2.0 for a in range(3)]

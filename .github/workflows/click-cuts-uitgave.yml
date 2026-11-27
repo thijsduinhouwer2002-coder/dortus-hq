@@ -6,6 +6,7 @@ name: Click Cuts uitgave (vaste zip als artefact, 30 dagen)
 # Zoals bij Pro (besluit Thijs 15 nov 19:52): de betaalde zip komt NIET in een openbare release, alleen
 # als Actions-artefact. Bewaartijd 30 dagen in plaats van 3: Superhive gaat pas na 2 dec, het artefact
 # van de e2e (3 dagen) is dan weg.
+# Versie (27 nov 2026, #248): uit de naam van de kandidaat-zip, gelijk aan het manifest erin (1.0.0, 1.1.0).
 # Tag-route (25 nov 2026, Productbouwer, organisatie/toegang.md): "Run workflow" kan de ploeg niet, dus
 # een tag click-cuts-uitgave-<run_id> pushen start deze workflow met die e2e-run. Dezelfde controles.
 on:
@@ -22,7 +23,6 @@ permissions:
   actions: read
 
 env:
-  VERSIE: "1.0.0"
   BASIS: b26177a   # laatste commit vóór 1.0.0 met Lay parts flat (25 nov); alleen runs ná deze tellen
   INVOER_RUN: ${{ inputs.run_id }}
 
@@ -59,6 +59,13 @@ jobs:
         run: |
           gh run download "$RUN" -R "$GITHUB_REPOSITORY" -n click-cuts-kandidaat -D /tmp/k
           ls -la /tmp/k
+          # 1.1.0 (#248): de versie komt uit de zipnaam, niet meer vast 1.0.0; de stap hierna kijkt of
+          # het manifest in de zip dezelfde versie noemt. Precies één click_cuts-<x.y.z>.zip.
+          n=$(ls /tmp/k | grep -cE '^click_cuts-[0-9]+\.[0-9]+\.[0-9]+\.zip$' || true)
+          [ "$n" = "1" ] || { echo "FOUT: niet precies één click_cuts-x.y.z.zip ($n)"; exit 1; }
+          v=$(ls /tmp/k | sed -nE 's/^click_cuts-([0-9]+\.[0-9]+\.[0-9]+)\.zip$/\1/p')
+          echo "VERSIE=$v" >> "$GITHUB_ENV"
+          echo "versie: $v"
       - name: Zip nakijken (sha256, naam, id, versie, inhoud)
         run: |
           z=/tmp/k/click_cuts-$VERSIE.zip
