@@ -175,3 +175,4 @@ Thijs: "het is ook gewoon een raar AI-muziekje", en "misschien voelt ons filmpje
 3. **Nieuwe tijd: klaar vandaag 16:00** (meer werk dan alleen tekst en muziek). Liever 16:00 en goed dan 14:00 en weer sloom.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 - 27 nov 12:49 Regisseur run (tweede, gelijktijdig): #159 alternatief v8b (echte muissleep voor de weergave, Deep Urban) naast v8, Daan kiest in #269; mijn dubbele #273 dicht.
+- 27 nov 14:45 Regisseur run: #159 v8c (v8b met Daan M1: knie van voren, alles ≥126 px van de rand), klaar om te plakken gemeld.

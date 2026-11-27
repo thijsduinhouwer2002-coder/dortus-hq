@@ -1,0 +1,68 @@
+{
+ "fps": 30,
+ "delen": {
+  "start": 1795786170.932,
+  "knop": 1795786171.598,
+  "knie": 1795786174.432,
+  "knie_rood": 1795786176.498,
+  "kleur": 1795786177.865,
+  "pose": 1795786179.631,
+  "eind_weergave": 1795786182.065,
+  "eind": 1795786182.065
+ },
+ "n": 0,
+ "kliks": [
+  0.633,
+  2.1,
+  3.433,
+  3.833,
+  4.3
+ ],
+ "echt": true,
+ "metingen": {
+  "afstand": 267.4,
+  "knop_ocr": [
+   881,
+   1130
+  ],
+  "weergave": [
+   0,
+   70,
+   687,
+   1850
+  ],
+  "paneel": [
+   687,
+   70,
+   393,
+   1850
+  ],
+  "gewrichten": 9,
+  "delen": 10,
+  "draai_1": [
+   -40.0,
+   -105.6
+  ],
+  "exploded_ocr": [
+   881,
+   559
+  ],
+  "knie_stop": 119.96,
+  "bend_ocr": [
+   755,
+   1134
+  ],
+  "knie_bij_stop": 122.7,
+  "knie_rood": 135.9,
+  "knie_rood_vlakken": 13,
+  "pose_botsingen": 0,
+  "pose_naam": "g_zwaai_achter_loop",
+  "pose_rood_vlakken": 0,
+  "vangnet": [],
+  "draai_eind": 137.5,
+  "weergave_sec": 11.13
+ },
+ "muis": [],
+ "vlakken": {},
+ "paneel_y": {}
+}

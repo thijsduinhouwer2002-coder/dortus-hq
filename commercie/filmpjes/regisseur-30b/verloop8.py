@@ -200,7 +200,8 @@ def verloop_pro():
         vangnet.append("exploded")
         inst.uit_elkaar = True
     yield from naar(rust[0] + 60, rust[1] - 60, 0.3)
-    yield from sleep_draai(-150, 10, 0.6)
+    # v8c (Daan #269 M1): CJ_DX2 kiest de hoek waaronder de knie straks buigt (v8b: -150, been zwaait naar links)
+    yield from sleep_draai(int(os.environ.get("CJ_DX2", "-300")), 10, 0.6)
     yield from naar(ex[0] - 40, ex[1], 0.3)
     klik8()
     yield 1.0 / FPS7
@@ -226,12 +227,34 @@ def verloop_pro():
     sh.color_type = "MATERIAL"
 
     # 4. knie: klik op het rechteronderbeen, dan de Bend-schuif echt slepen tot voorbij de stop (rood) en terug
-    a, b = paar("Right knee")
+    eerst_knie = os.environ.get("CJ8_KNIE", "Left knee")   # v8c: welke knie (vanaf voren ligt de linker vrij van de rand)
+    a, b = paar(eerst_knie)
     if a is None or b is None:
-        a, b = paar("Left knee")
+        a, b = paar("Left knee" if eerst_knie == "Right knee" else "Right knee")
     stop = float(a["cj_bereik_graden"]) if a is not None else 120.0
     film["metingen"]["knie_stop"] = stop
     deel("knie")
+    # v8c (Daan #269 M1): het label "Right knee" stond op x 19 van 1080. Zoals iemand dat zelf doet: de weergave met
+    # Shift en de middelste muisknop echt 140 px naar rechts schuiven (bij 80 stond de rode pil "+N° past limit" nog op x 8) (Blender schuift zelf, view3d.move).
+    PAN = int(os.environ.get("CJ_PAN", "0"))
+
+    def schuif_weergave(dx):
+        x0, y0 = MUIS["x"], MUIS["y"]
+        xdo("keydown", "shift")
+        xdo("mousedown", "2")
+        yield 1.0 / FPS7
+        n = 9
+        for i in range(1, n + 1):
+            xdo("mousemove", str(int(x0 + dx * zacht(i / n))), str(y0))
+            yield 1.0 / FPS7
+        xdo("mouseup", "2")
+        xdo("keyup", "shift")
+        MUIS["x"], MUIS["y"] = x0 + dx, y0
+        yield 1.0 / FPS7
+    if PAN:
+        yield from naar(rust[0] - 150, rust[1] + 120, 0.26)
+        yield from schuif_weergave(PAN)
+        film["metingen"]["pan_px"] = PAN
     if b is not None:
         bb = [b.matrix_world @ Vector(c) for c in b.bound_box]
         mid = sum(bb, Vector()) / 8.0
@@ -308,6 +331,9 @@ def verloop_pro():
                 yield 1.0 / FPS7
         buig(b, 0.0)
     inst.toon_bereik = False
+    if PAN:   # terugschuiven, anders draait de weergave straks om een punt naast de robot (arm uit beeld)
+        yield from naar(rust[0] - 100, rust[1] + 120, 0.26)
+        yield from schuif_weergave(-PAN)
 
     # pose kiezen met de botsingscheck (zoals v7: vaste pose g_zwaai_achter_loop eerst)
     def scharnier(n, gr_):
@@ -353,7 +379,8 @@ def verloop_pro():
         if t > 1.5:
             sh.show_shadows = True
             sh.show_cavity = True
-    yield from sleep_draai(300, -10, 1.7, tijdens=kleur)
+    # v8c: 150 px extra, zodat de weergave na de kleur weer op dezelfde hoek uitkomt als v8b (CJ_DX2 draaide 150 px minder)
+    yield from sleep_draai(int(os.environ.get("CJ_DX3", "450")), -10, 1.7, tijdens=kleur)
     kleur(9.0)
     deel("pose")
     rood_max = {"n": 0}

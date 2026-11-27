@@ -47,6 +47,13 @@ Deze run begon 12:19 en zag pas bij het pushen dat v8 er al stond. Niets van v8 
 - **eigen controle (GEZIEN):** 1080x1920, 30/1, 508 beelden, 0 afwijkende tijdstempelstappen; geluid_check GOED (-13,4 dB, piek -2,3 dB); stilstaand (mpdecimate) alleen 0 tot 0,17 s en 0,6 s op het rood; eerste beeld groot en 30 beelden bekeken (`v8b-strook.jpg`, `v8b-zes-momenten.jpg`). Blinde test eerste beeld: set `pro-proces-v8b`. Opname in een virtueel scherm (Xvfb) in de cloudsessie, zelfde beeld-voor-beeld-klok als v7e en v8.
 - **korter dan 18 tot 22 s:** bewust; elke stap hooguit ±1 s, langer rekken gaf weer een rustig stuk.
 
+## v8c: DE FILM (v8b met de knie vrij van de rand, Daan #269 M1; 27 nov ±14:40 NL)
+- **bestand:** `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces-v8c.mp4`, 16,9 s (interface 10,4 s plus dezelfde Cycles-film van 6,5 s). Vervangt v8b; v8 en v8b vervallen.
+- **wat anders is dan v8b:** de tweede echte muissleep (na Exploded view aan) draait 300 px in plaats van 150, dus de knie zie je van voren; daarna klikt de muis het linkeronderbeen (vanaf voren aan de rechterkant van het beeld) en sleept de echte Bend-schuif voorbij de stop. De sleep tijdens de kleur draait 150 px meer, zodat het eind van de weergave op dezelfde hoek uitkomt als v8b. Hook, eindtekst, muziek (Deep Urban vanaf 173,9 s), Cycles-eind en pose (`g_zwaai_achter_loop`, 0 botsingen, 0 rood) gelijk aan v8b. `vangnet: []` (`commercie/filmpjes/regisseur-30b/film-v8c.json`).
+- **rand (M1), GEZIEN (gemeten in de opname), 10 beelden per s over de hele knie (3,8 tot 6,9 s):** rood (rood been en pil "+N° past limit") links op x 126 of meer, groen bolletje en boog x 224 of meer, witte labeltekst "Left knee 0-120°" x 248 of meer (`meet_rand.py`). Eis is 48. Eerst geprobeerd: de weergave met Shift en middelste knop naar rechts schuiven (80 en 140 px); dan blijft de pil op x 8 en x 2 hangen, want Pro zet de pil op de eerste vrije plek binnen de weergave en het been zwaaide naar links. Vanaf voren wijst de pil naar onder (x ±280).
+- **eigen controle (GEZIEN):** 1080x1920, 30/1, 508 beelden, 0 afwijkende tijdstempelstappen; `vloeiend.py` GOED; geluid_check GOED (-13,4 dB, piek -2,6 dB); eerste beeld groot bekeken, 36 beelden in `v8c-strook.jpg`, het rood groot in `v8c-knie-rood.jpg`. Eerste beeld gelijk aan v8b op 747 pixels na (de mapnaam in het veld Folder van het paneel: `/tmp/opn_96/export`), dus de blinde test van `pro-proces-v8b` (GESLAAGD, Gemini plek 1) blijft gelden.
+- **let op (kan):** in de knie (vanaf voren) komt de rechterhand van de robot dicht bij de linkerrand (in v8b gebeurt dat ook aan het eind van de weergave). Geen tekst of rood daar.
+
 ## Titel
 From rig to poseable figure in Blender 🤖 | Click Joints Pro
 
@@ -58,5 +65,5 @@ Print the Fit test strip first: every printer is different.
 Click Joints Pro, 25% off this week (until Tuesday December 1, 23:59 CET):
 https://duinhouwer8.gumroad.com/l/click-joints-pro/CYBER25
 
-Music: "Need for speed" from Mixkit (mixkit.co), Mixkit Stock Music Free License
+Music: "Deep Urban" by Eugenio Mininni (Mixkit)
 ```
