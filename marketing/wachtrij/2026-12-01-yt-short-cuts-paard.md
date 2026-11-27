@@ -1,11 +1,11 @@
 # Lanceer-Short Click Cuts v8 (vorm van v8c): Too big for your printer? One click splits it to fit | Blender
 
-- status: concept, wacht op de blinde test (set `click-cuts-short-v8-lettertype`, kiest ook het lettertype) en keuring Daan
+- status: concept, eerste beeld GESLAAGD (`organisatie/blindtest/uitslag/click-cuts-short-v8-lettertype-2026-11-27-1656.md`), wacht op keuring Daan (#292)
 - kanaal: yt-short
 - soort: video
 - product: click-cuts
 - issue: #135
-- bestand: `marketing/wachtrij/2026-12-01-yt-short-cuts-v8.mp4` (1080x1920, 30/1, 19,1 s); lettertype volgt uit de blinde test, de film staat nu in TikTok Sans (de andere twee bouwt `montage_cuts.py` in 1 minuut)
+- bestand: `marketing/wachtrij/2026-12-01-yt-short-cuts-v8.mp4` (1080x1920, 30/1, 19,1 s); lettertype Poppins ExtraBold (blinde test: Poppins Gemini 1,0, Montserrat 1,5, TikTok Sans 2,0; alle drie GESLAAGD, GEZIEN)
 - beeld: echte schermopname van Blender 5.3.0 met interface onder Xvfb, Click Cuts 1.0.0 (main), Horse Statue 01 van Poly Haven (CC0). Werkwijze als v8c: beeld voor beeld op een klok van 1/30 s, echte X-muis en echte kliks (XTest), scherm gepakt met mss (`commercie/filmpjes/regisseur-31/cuts8.py`). Wat de gebruiker in de film doet: draait om het paard boven het gouden kader van 256 mm, klikt het paard, zet de printer in de lijst van A1 mini naar A1, klikt Split to fit, draait om de 12 stukken, opent More settings en scrolt naar de lijst met vinkjes per deel, klikt het hoofd, lokale weergave, draait naar het snijvlak met pengaten en nummer, terug naar alle stukken. Uitkomst in de opname (GEZIEN, film.json): paard 520 mm hoog, 12 stukken, alle 12 groen, 48 pennen, 0,20 mm speling, vangnet leeg (elke klik raakte echt)
 - Eerlijk over de opname: het naar alle stukken schuiven van de weergave na het splitsen en de draai naar het snijvlak zet het script (zoals in v7e/v8c), de rest is echte muis
 - hook (vast in beeld tot de klik op Split to fit, 4,2 s): "Model too big for / your printer? / One click splits it:"
@@ -34,4 +34,4 @@ Model: Horse Statue 01 by Poly Haven (CC0).
 ```
 
 ## Controle (Regisseur, GEZIEN)
-Zie de reactie in issue #135: ffprobe, vloeiend, geluid_check, beelden bekeken.
+ffprobe 1080x1920, 30/1, 559 beelden, 18,6 s, 0 afwijkende tijdstappen; vloeiend.py GOED; geluid_check GOED (gemiddeld -13,3 dB, piek -2,1 dB); eerste beeld groot en 13 beelden bekeken. Details in #135.
