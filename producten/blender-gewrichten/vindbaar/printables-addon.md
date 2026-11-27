@@ -28,9 +28,12 @@ Waarom dit mag:
 
 Printables-regel: "Preview images must accurately depict what users will download and print" (DERDEN, https://help.prusa3d.com/article/printables-ai-tag-rules-guidelines_1306155). Dus alleen echte beelden uit Blender van het gratis add-on en van het kogelpaar. Geen figuur met scharnieren (dat is Pro), geen foto van een print (wij hebben er geen).
 
-1. **Hoofdbeeld:** in de blinde test, set `organisatie/blindtest/sets/click-joints-printables-addon.json` (twee kandidaten: de twee echte Blender-beelden van onze Extensions-pagina, tegen TrailPrint3D en de twee best gedownloade "ball joint"-modellen). Uitslag in `organisatie/blindtest/uitslag/`. Pas bij GESLAAGD en Daans ja mag het erop. Niet geslaagd: de Beeldmaker maakt een beeld voor Printables met hun opmerkingen.
-2. Tweede beeld: het andere Extensions-beeld ("Drag the bend. Red means too far." of "Good fit, measured in mm.", paneel met maten).
-3. Derde beeld: render van het kogelpaar uit de twee STL's (kan de Beeldmaker of ik maken met `commercie/verspreiden/beeld/render_stl.py`, zoals bij de strip).
+1. **Hoofdbeeld: `2-featured` van onze Extensions-pagina, "See how far it bends, before you print."** (https://extensions.blender.org/media/thumbnails/59/59df72d364d844de93cf7e747a48b26f48b61d27f7a975ca690740bfa2d65440_1920x1080.webp). **GESLAAGD**, plek 1 in beide rondes (Gemini 1,0), tegen TrailPrint3D en de twee best gedownloade ball joints: `organisatie/blindtest/uitslag/click-joints-printables-addon-2026-11-27-1213.md` (GEZIEN). Eerlijke kanttekening: de rol noemde "blender addon" als zoekterm, wat ons helpt; op alleen "ball joint" staan echte foto's van prints ernaast. Beide rondes zeiden "Beter maken: show a full character figure in the Blender viewport". Dat is werk voor een volgend beeld (Beeldmaker), niet nodig om te plaatsen.
+2. **Tweede beeld:** "Drag the bend. Red means too far." (https://extensions.blender.org/media/thumbnails/90/90622aee7ef0fa8d5edcbbdf71aabdda4a628de2f6d85484411ee21724c1cf5a_1920x1080.webp), ook GESLAAGD, plek 1 (zelfde uitslag).
+3. **Derde beeld:** het paneel "Good fit, measured in mm." (https://extensions.blender.org/media/thumbnails/c7/c75737396a3ffede6aed6954f9b8a9e67c29fa49f1ac5ec2575ef3fca74c378a_1920x1080.webp).
+4. **Vierde beeld:** render van precies de twee STL's, `producten/blender-gewrichten/vindbaar/printables-kogelpaar.png` (2400 x 1350, deel A met de kogel links, deel B omgedraaid met de kom naar boven rechts; trimesh en matplotlib, script `render_kogelpaar.py` ernaast). Zelf bekeken met de Read-tool: geen streepjes of gaten.
+
+De drie Extensions-beelden: downloaden als webp en zo uploaden (Printables neemt webp, GOK; anders omzetten naar png). Printables snijdt de kaart in de zoeklijst bij tot een smaller vlak (GOK op de verhouding): de kop "See how far it bends" staat links en blijft dan het best zichtbaar. Kijk na het plaatsen op de zoeklijst of de kop leesbaar is; zo niet, meld het mij.
 
 ## Categorie, tags, licentie
 
