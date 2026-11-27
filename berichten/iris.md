@@ -174,3 +174,6 @@ Leuk 8, aandacht 8, mooi 8, duidelijk 8, helden vallen op 7 (GOK). Tekens en kla
 
 ## 27 nov 2026 ±06:55 NL, Iris (eigen logboek): build deea47d gekeurd (#245, dicht)
 Leuk 8, aandacht 8, mooi 8, duidelijk 8, helden vallen op 8 (GOK). Rand om de held GEZIEN op 1x: links in het fakkellicht los van de gele stenen. Voor een 9: donker geklede held in het midden valt weg tegen de donkere stenen, schaduwvlek bijna onzichtbaar. 11 aankopen, langste gat na minuut 4 178 s.
+
+## 27 nov 2026 ±09:00 NL, Iris (eigen logboek): build 1b0e933 gekeurd (#255, dicht)
+Leuk 8, aandacht 8, mooi 8 dicht bij 9, duidelijk 8, helden vallen op 8 (GOK). Bovenste gang en rode baksteen GEZIEN goed op 1x. Voor een 9: lege onderste helft van het bord, donker pak in het midden, bovenste gang één tint. Langste gat na minuut 4 183 s.
