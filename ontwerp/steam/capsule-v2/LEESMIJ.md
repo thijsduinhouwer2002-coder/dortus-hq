@@ -68,3 +68,11 @@ Schakelaar `HV2_V7=1` in `header_v2.py` en `V7=1` in `samenstellen.py` (standaar
 - Bekeken met Read op 920, 460 en 2x (`rechts-v7-2x.png`). Voor en na: `voor-na.png` (v6 boven, v7 onder).
 - Blinde test: set `hats-header-v2.json` heeft nu v6 en v7 als kandidaten.
 - Twee runs (14:58 en 15:08 NL) gaven geen uitslag: Gemini HTTP 503 (druk), daarna HTTP 429 gratis daglimiet op (GEZIEN in het log van run 46013097424). Nakeuring Daan gevraagd: #281.
+
+## Ronde 8 (27 nov ±17:00 NL, Daan #281 kan-punten K1 en K2)
+Schakelaar `HV2_V8=1` bovenop v7 (standaard uit, v7 blijft te maken):
+- **K1 emmer:** de glans van het metaal spiegelde de lichte muur en las als glas. Nu geen spiegeling meer maar een getekende glimstreep (vaste richting, harde rand, wit). Emmer op Gloop en helm van de ridder lezen als vlak grijs metaal.
+- **K2 lijn held:** tweede lijnset alleen om de vallende held (`HV2_HELDLIJN` 1,5), zonder extra lijntjes in het gezicht. Leest op 920 en 460 even zwaar als de lijn om Gloop.
+- Maken: als v7 plus `HV2_V8=1 HV2_HELDLIJN=1.5`, dan `V7=1 python3 samenstellen.py r.png header-v8-920x430.png`.
+- Bekeken met Read op 920, 460 en 2x (`rechts-v8-2x.png`). Voor en na: `voor-na.png` (v7 boven, v8 onder).
+- Blinde test: set `hats-header-v2.json` heeft nu v7 en v8.

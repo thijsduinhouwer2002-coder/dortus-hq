@@ -463,7 +463,23 @@ if TOON:
             nt.links.new(mm.outputs[2], er.inputs["Color"])
             a3 = nt.nodes.new("ShaderNodeAddShader")
             nt.links.new(add.outputs[0], a3.inputs[0]); nt.links.new(er.outputs[0], a3.inputs[1]); laatst = a3
-        if m.name.lower().startswith(GLIM) or METAAL:
+        V8 = os.environ.get("HV2_V8", "0") == "1"
+        if METAAL and V8:
+            # v8 (Daan #281 K1): de glans spiegelde de lichte muur en las als glas. Nu een getekende glimstreep:
+            # vaste richting tegen de normaal, harde rand, wit. Geen spiegeling meer, dus vlak grijs metaal.
+            gn = nt.nodes.new("ShaderNodeNewGeometry")
+            vd = nt.nodes.new("ShaderNodeVectorMath"); vd.operation = "DOT_PRODUCT"
+            vd.inputs[1].default_value = Vector((E("GLX", "-0.45"), E("GLY", "-0.75"), E("GLZ", "0.5"))).normalized()
+            nt.links.new(gn.outputs["Normal"], vd.inputs[0])
+            gr = nt.nodes.new("ShaderNodeValToRGB"); gr.color_ramp.interpolation = "CONSTANT"
+            gr.color_ramp.elements[0].color = (0, 0, 0, 1); gr.color_ramp.elements[1].position = E("GLPOS", "0.93")
+            gr.color_ramp.elements[1].color = (1, 0.98, 0.94, 1)
+            nt.links.new(vd.outputs["Value"], gr.inputs[0])
+            ge = nt.nodes.new("ShaderNodeEmission"); ge.inputs["Strength"].default_value = E("GLSTERK", "0.9")
+            nt.links.new(gr.outputs["Color"], ge.inputs["Color"])
+            a2 = nt.nodes.new("ShaderNodeAddShader")
+            nt.links.new(laatst.outputs[0], a2.inputs[0]); nt.links.new(ge.outputs[0], a2.inputs[1]); laatst = a2
+        elif m.name.lower().startswith(GLIM) or METAAL:
             tg = nt.nodes.new("ShaderNodeBsdfToon"); tg.component = "GLOSSY"
             tg.inputs["Size"].default_value = E("MGSIZE", "0.16") if METAAL else E("GSIZE", "0.08"); tg.inputs["Smooth"].default_value = 0.0
             g_ = E("MGKLEUR", "1.6") if METAAL else E("GKLEUR", "0.45"); tg.inputs["Color"].default_value = (g_, g_ * 0.97, g_ * 0.9, 1)
@@ -518,6 +534,21 @@ if os.environ.get("HV2_LIJN", "0") == "1":
     ls.linestyle.color = (0.16, 0.07, 0.05); ls.linestyle.thickness = 1.0; ls.linestyle.alpha = 0.85
     if os.environ.get("HV2_V7", "0") == "1":   # v7 (Daan #275 M3): dikker en donkerder, zichtbaar op 460
         ls.linestyle.color = (0.09, 0.035, 0.025); ls.linestyle.alpha = 1.0
+    if os.environ.get("HV2_V8", "0") == "1":   # v8 (Daan #281 K2): de vallende held krijgt dezelfde lijn als Gloop
+        # Gloop is groot en rond, de held bestaat uit kleine delen: dezelfde lijn leest daar dunner. Een tweede
+        # lijnset alleen om de held, iets dikker, zodat beide op 920 en 460 even zwaar lezen.
+        dik = bpy.data.collections.new("heldlijn"); sc.collection.children.link(dik)
+        for o in HV.children_recursive:
+            mn = o.active_material.name.split(".")[0] if o.active_material else ""
+            if mn.startswith(("brauw", "hmond", "hpupil", "hwit", "hglim", "hblos", "neus", "lichtje")): continue   # gezicht: geen extra lijntjes
+            if o.type in ("MESH", "CURVE") and not o.hide_render:
+                dik.objects.link(o)
+        l2 = fs.linesets.new("heldlijn")
+        l2.select_by_visibility = True; l2.select_by_edge_types = True
+        l2.select_silhouette = True; l2.select_border = False; l2.select_crease = False; l2.select_external_contour = False
+        l2.select_by_collection = True; l2.collection = dik; l2.collection_negation = "INCLUSIVE"
+        l2.linestyle = bpy.data.linestyles.new("inktheld"); l2.linestyle.color = ls.linestyle.color
+        l2.linestyle.alpha = 1.0; l2.linestyle.thickness = E("HELDLIJN", "1.45")
 sc.render.image_settings.file_format = "PNG"; sc.render.image_settings.color_mode = "RGBA"; sc.render.filepath = uit
 bpy.ops.render.render(write_still=True)
 print("klaar", uit)
