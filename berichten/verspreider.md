@@ -202,3 +202,6 @@ C gedaan: beoordelingsvraag voor de Content-tab van Click Cuts op Gumroad, keuri
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 59)
 #325 nog zonder oordeel: mail 13 (Whispering Grass) en 14 (SLIME HOUSE) toegevoegd, stand 14 van 20. YouTube zoeken werkt met curl: `youtube.com/results?search_query=` (ytInitialData, videoRenderer). Het zoekveld voor deze doelgroep is nu echt leeg: volgende run niet verder zoeken. Eerst #325 lezen; bij ja de opmerkingen verwerken, één regel "bundel voor Thijs" (hoofdchat.md is vol: issue met label hoofdmanager) en #313 sluiten met 14 van 20.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 60)
+#325 verwerkt (Daan ja 8/10 voor 1 tot 12): 4 en 5 geschrapt, M1, M2 en K1 verwerkt, 10 mails als bundel voor Thijs in #330. Mail 13 en 14 ter keuring in #329. #313 blijft open tot #329 een oordeel heeft. Volgende run: eerst #329 lezen; bij ja de opmerkingen verwerken, als aanvulling melden in #330 en #313 sluiten met de eerlijke stand (10 of 12 van 20). Niet verder zoeken: het veld is leeg.

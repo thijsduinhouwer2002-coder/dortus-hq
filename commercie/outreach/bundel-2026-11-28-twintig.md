@@ -1,8 +1,10 @@
 # Bundel za 28 nov: creator-mails Click Joints Pro met affiliate-aanbod (issue #313)
 
-Door de Verspreider, vr 27 nov 2026 ±22:10 NL (run 58). Niets verstuurd, niemand benaderd. Keuring: Daan #325. Na Daans ja: één regel voor de hoofdchat, dan Thijs één keer ja op de hele bundel.
+Door de Verspreider, vr 27 nov 2026 ±22:10 NL (run 58). Niets verstuurd, niemand benaderd. Keuring: Daan #325, **JA 8/10** (27 nov ±23:20 NL) voor mail 1 tot 12; mail 4 (Karmieh) en 5 (Chaos Costumes) geschrapt op zijn advies, M1 (affiliate melden) en K1 (link gratis versie) verwerkt in blok A (run 60, vr 27 nov ±23:55 NL). **Klaar voor Thijs: mail 1, 2, 3, 6, 7, 8, 9, 10, 11, 12 (10 mails).** Mail 13 en 14 zijn nog niet gekeurd (apart keurissue): niet versturen tot daar een ja staat.
 
-**Eerlijk: 14 mails, niet 20** (12 in run 58, mail 13 en 14 erbij in run 59). Ongeveer 80 kanalen en sites nagekeken (27 nov, curl, zoeken met WebSearch). De meeste passende makers tonen geen zakelijk adres zonder inloggen (alleen de YouTube-knop, Linktree of een formulier met captcha), of zijn al gemaild. Liever 12 die passen dan 20 waarvan 8 als reclame voelen. Afgevallen staan onderaan, met reden.
+**Voor de hoofdchat:** verstuurd na ma 30 nov? Dan de regel met CYBER25 weghalen en alleen de gewone link laten staan (Daan M2).
+
+**Eerlijk: 10 gekeurde mails plus 2 in keuring, niet 20** (12 in run 58, mail 13 en 14 erbij in run 59). Ongeveer 80 kanalen en sites nagekeken (27 nov, curl, zoeken met WebSearch). De meeste passende makers tonen geen zakelijk adres zonder inloggen (alleen de YouTube-knop, Linktree of een formulier met captcha), of zijn al gemaild. Liever 12 die passen dan 20 waarvan 8 als reclame voelen. Afgevallen staan onderaan, met reden.
 
 Gezien met curl, 27 nov ±21:30 tot 22:05 NL: kanaalpagina's (abonnees, beschrijving, adresregel), video's per kanaal, elke video-id via YouTube oEmbed (titel en kanaal kloppen, GEZIEN 22:04), contactpagina's van eigen sites. Productfeiten uit de live Gumroad-pagina (curl 27 nov ±21:56 NL: $19, hinge with end stop, ball joint, millimetres, degrees, STL, 3MF, 3D cursor, Fit test strip, 200 mm).
 
@@ -16,12 +18,12 @@ Adressen: een adres op een eigen domein staat erbij (zakelijk en openbaar door h
 ```
 Click Joints Pro is a Blender add-on that turns a rigged character into a printable, poseable figure: a hinge with an end stop at every elbow and knee, and a ball joint at the shoulders, hips and neck, with the clearance you set in millimetres. You see how far each joint bends, in degrees, before you print, and you export to STL or 3MF. No rig? Put the 3D cursor on a knee and it adds the joint right there. It works best on figures with separate arms and legs, at about 200 mm tall or more.
 
-I'd like to give you a free Pro license. No obligation at all: if you don't like it, just don't mention it. If you do want to show it, we'd also give you your own link that pays you [PCT]% of every sale through it. Please just say you got the license for free.
+I'd like to give you a free Pro license. No obligation at all: if you don't like it, just don't mention it. If you do want to show it, we'd also give you your own link that pays you [PCT]% of every sale through it. If you mention it, please say you got the license for free, and that your link is an affiliate link.
 
 If you print with it: print the Fit test strip first, every printer is different. It's free on Printables: https://www.printables.com/model/1929497-ball-joint-tolerance-test-010-to-030-mm
 
 Click Joints Pro is 25% off until December 1 with code CYBER25: https://duinhouwer8.gumroad.com/l/click-joints-pro?utm_source=youtube&utm_medium=outreach&utm_campaign=<naam>
-There's also a free version with ball and pin joints on Blender Extensions.
+There's also a free version with ball and pin joints on Blender Extensions: https://extensions.blender.org/add-ons/click-joints/
 
 Just reply and I'll send you a key.
 
@@ -76,28 +78,6 @@ Onderwerp: `Your Nomad + Blender posing video, and joints for bigger figures`
 Hi,
 
 Your "How to Sculpt & Pose Hands | Nomad Sculpt & Blender" (https://www.youtube.com/watch?v=De6LTpMPji8) is exactly the Nomad-to-Blender path. For when you go bigger than a mini and want the pose to stay changeable after printing:
-```
-
-## 4. Oasim Karmieh (Karmieh Design) · [kanaal](https://www.youtube.com/@karmieh), 19,6K abonnees (DERDEN, 27 nov)
-Waarom: designer toys, groot geprint in hars (60 cm), dus ruim boven 200 mm. Let op: werkt in ZBrush, zijn toys staan stil; lagere kans.
-Adres: eigen site karmieh.com, knop "Email": oasim@karmieh.com
-utm: `karmieh`
-Onderwerp: `TELOS AL-KARMA, and a poseable version`
-```
-Hi Oasim,
-
-"I Built a 60cm Resin Designer Toy From Scratch" (https://www.youtube.com/watch?v=za-uAji79_k) is a great build. If one of your toys ever goes through Blender, there's a quick way to make it poseable instead of fixed.
-```
-
-## 5. Chaos Costumes · [kanaal](https://www.youtube.com/@ChaosCostumes), 17,7K abonnees (DERDEN, 27 nov)
-Waarom: Nomad Sculpt leren, boetseren en printen (cosplay, props). Let op: laatste upload 7 maanden oud.
-Adres: eigen winkel, chaoscostumes.store/pages/contact (gmail).
-utm: `chaoscostumes`
-Onderwerp: `Sculpt, print, and now pose: free license`
-```
-Hi,
-
-Your "Nomad Sculpt Basics: Sculpting and Printing a Functional Object!" (https://www.youtube.com/watch?v=VwpPf9uyvOY) shows sculpting for print really clearly. If you ever take a character from Nomad into Blender, this makes it a figure that poses.
 ```
 
 ## 6. permew_art · [kanaal](https://www.youtube.com/@Permew_art), 24,9K abonnees (DERDEN, 27 nov)
@@ -179,8 +159,8 @@ You covered PancakeSlicer as a free tool from a small developer. Here's another 
 
 ---
 
-## Aanvulling run 59 (vr 27 nov ±22:55 NL): mail 13 en 14
-Nog ±30 kanalen en sites nagekeken (YouTube-zoekresultaten en kanaalpagina's met curl, WebSearch). Twee nieuwe met een openbaar zakelijk adres die passen. Stand nu: **14 van 20.** Daan: keur deze twee in dezelfde keuring (#325).
+## Aanvulling run 59 (vr 27 nov ±22:55 NL): mail 13 en 14 (NOG NIET GEKEURD, niet versturen)
+Nog ±30 kanalen en sites nagekeken (YouTube-zoekresultaten en kanaalpagina's met curl, WebSearch). Twee nieuwe met een openbaar zakelijk adres die passen. Stand nu: **14 van 20.** Daans ja op #325 gold niet voor deze twee; aparte keuring aangevraagd (run 60).
 
 ## 13. Whispering Grass (Iryna Ivakhnenko) · [site](https://wgrass.org), [Buy Me a Coffee](https://buymeacoffee.com/wgrass)
 Waarom: maakt BJD's en ontwerpt ze in Blender; schreef zelf hoe ze elk gewricht met de 3D cursor, origins en Booleans bouwt ("Useful links for 3D sculpting BJDs", 12 aug 2023, 1.472 keer gelezen, DERDEN) en hoe ze de delen print ("Tips on 3D printing small BJD doll parts", 2 sep 2023, 5.877 keer gelezen, DERDEN). Actief: pre-order XingXing 1/3 loopt tot 30 nov (GEZIEN). Publiek: 38 supporters op Buy Me a Coffee, YouTube @wgrassbjd (DERDEN); bereik verder GOK. Kans middelmatig: haar poppen zijn geregen (elastiek), Pro maakt gewrichten die zonder rijgen een pose houden. Dat staat eerlijk in de mail.
@@ -209,6 +189,7 @@ Daarna vast blok A ongewijzigd.
 ---
 
 ## Afgevallen (nagekeken, niet gemaild)
+- Geschrapt na keuring Daan (#325): Oasim Karmieh (ZBrush, toys staan stil, intro leest als reclame), Chaos Costumes (7 maanden stil, cosplay en props, geen figuren).
 - Geen openbaar adres (alleen YouTube-knop, Linktree, of niets): Dummy13_Universe en toast_channel (passen precies), Toymakr3D, MWSculpts, SmallRobotStudio, PapitoLoco, KYNStudio, I COULD DO THAT DIY, Frankly Built, Painted4Combat, Trikvlt, Sonia Verdu, en meer.
 - Formulier met captcha (doen wij niet): Fansee3d, cupiopax.
 - Vraagt zelf geen ongevraagde pitches: Jawylin.
