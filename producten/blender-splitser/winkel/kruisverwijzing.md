@@ -1,5 +1,7 @@
 # Click Cuts vindbaar maken: kruisverwijzingen (issue #284)
 
+**Gekeurd: Daan ja 8 (#289), 27 nov.**
+
 Productbouwer, 27 nov 2026 ±16:50 NL. Eén zin per pagina, met waar hij komt. Alles in het Engels, zoals de pagina's zelf. Geen nieuwe beloftes: elke bewering staat al in de gekeurde winkeltekst (`lancering.md`, Daan #12, #188) of in de gekeurde FAQ (`faq.md`, Daan #176).
 
 ## A. dortus.com (repo dortus, tak `claude/click-cuts-tegel`, samenvoegen doet de hoofdchat)
@@ -9,6 +11,7 @@ Al gedaan op de tak, niets te plakken:
    > Model too big for your printer bed? Click Cuts splits it into parts that fit, with pins or magnet holes and a number on every part, $19 once. It works side by side with Click Joints.
 
    "Click Cuts" linkt naar /click-cuts/ (de gids, met Get-knop naar Gumroad). Bekeken op 390 en 1366 px (GEZIEN).
+   Boven de zin een dunne lijn en het kopje "Also from Dortus" (Daan kan-punt #289, 75dc498), zodat het leest als ander product en niet als uitleg bij Pro. Opnieuw bekeken op 390 en 1366 px, scrollWidth gelijk aan de breedte (GEZIEN).
 
 ## B. Gumroad (alleen de hoofdchat plakt; Edit product, veld Description)
 
