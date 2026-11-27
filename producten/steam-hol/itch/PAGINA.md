@@ -10,7 +10,7 @@ Lat: Rusty's Retirement en Spirit City: Lofi Sessions (`organisatie/lat/hats.md`
 |---|---|
 | Title | Hats of the Fallen |
 | Project URL | hats-of-the-fallen |
-| Short description or tagline | Your taskbar has a basement now. An idle trap game that sits on top of your taskbar while you work. |
+| Short description or tagline | Your taskbar has a dungeon now. An idle trap game that lives just above your taskbar while you work. |
 | Classification | Games |
 | Kind of project | Downloadable |
 | Release status | Prototype |
@@ -36,7 +36,7 @@ Lat: Rusty's Retirement en Spirit City: Lofi Sessions (`organisatie/lat/hats.md`
 >
 > **Set the traps.** Click the tunnel to set a trap. Each hero has a hat, a name and a habit: the knight is slow and tough, the thief jumps over spikes.
 >
-> **Watch the hats pile up.** Gold buys bigger traps and a bigger Gloop. Later on the gold turns to rubies, and now and then a giant shows up wearing a crown.
+> **Watch the hats pile up.** Gold buys bigger traps and a bigger Gloop. Later on your traps start to glow with rubies, and now and then a giant shows up wearing a crown.
 >
 > **It stays out of your way.** The sky above the tunnel is see-through and clicks go straight to your work. It never takes focus. Pause, sound and size sit in the tray menu.
 >
@@ -50,9 +50,9 @@ Regels die deze tekst volgt: elke zin klopt met het spel op main van 27 nov (reu
 |---|---|---|---|
 | 1 | `schermen/1-bureaublad-55min.png` | het hol onder een notitievenster op een bureaublad, Bard Colossus met kroon in de gang, robijnen om Gloop | Iris, main b4d960c, minuut 54, blinde test GESLAAGD (plek 2, `organisatie/blindtest/uitslag/hats-speelscherm-60min-b4d960c-2026-11-27-2049.md`) |
 | 2 | `schermen/2-bureaublad-20min.png` | hetzelfde bureaublad na 20 min, Royal Gloop op de troon | Iris, f0c2a6a, blinde test GESLAAGD (plek 2, `.../hats-speelscherm-20min-f0c2a6a-2026-11-27-1052.md`) |
-| 3 | `schermen/3-held-op-weg-naar-gloop.png` | 2x ingezoomd: held met emmerhoed in de gang, twee dichte luiken, hoedenberg en Gloop met kroon op de troon (minuut 22) | eigen film van main 559b2d4, beeld 6750 (zie `LEESMIJ.md`) |
-| 4 | `schermen/4-reus-in-de-gang.png` | 2x: reus Sir Hulk met kroon loopt langs de stekelput, "+30 x4" van een vangst (minuut 21) | idem, beeld 6450 |
-| 5 | `schermen/5-gloop-en-het-bord.png` | 2x: Gloop, de schat en het bord: "Next: Ruby Gloop, 87 gold to go" en "Sir Hulk ducks in. He does not fit." (minuut 20) | idem, beeld 6150 |
+| 3 | `schermen/3-held-valt-in-de-put.png` | 16:9, een hoek van een bureaublad (receptenpagina) met het hol eronder: een held met emmerhoed valt in de stekelput, reus Sir Hulk met kroon links, Gloop met hoeden op de troon rechts (minuut 23) | eigen film van main e72baf9, 1400 s, `maak_schermen.py` (zie `LEESMIJ.md`) |
+| 4 | `schermen/4-reus-in-de-gang.png` | 16:9, spreadsheet erboven: reus Sir Hulk met kroon loopt de gang in, het bordje "9" van het hol-niveau, ladder en fakkels (minuut 22) | idem, 1330 s |
+| 5 | `schermen/5-gloop-en-het-bord.png` | 16:9, mail erboven: Gloop op de troon met hoedenberg en schat, het bord: "Next: Ruby Gloop, 134 gold to go" en "Sir Hulk ducks in. He does not fit." (minuut 22) | idem, 1305 s |
 
 ## Omslag
 
