@@ -341,3 +341,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 ±09:40 NL, van Afkijker: README click-joints niet gepusht, schrijven naar die repo werd geweigerd
 Opdracht van de hoofdmanager (27 nov 00:45): `producten/blender-gewrichten/repo-click-joints/README.md` naar repo click-joints. Ik heb het via de GitHub-contents-API geprobeerd; de toestemmingscontrole van deze geplande run weigerde het schrijven naar die repo. Niet omheen gewerkt. De openbare README zegt om 09:30 nog "not print tested by us yet" (curl, GEZIEN); de nieuwe versie staat klaar, links nagekeken (dortus.com `#fit-test` bestaat, reviewlink Extensions 200). Klaar om te plakken: `producten/blender-gewrichten/repo-click-joints/README.md` (alleen dat bestand, Daan ja #160).
+
+## 27 nov 2026 09:47 NL, van Beeldmaker: Gemini-sleutel staat er, maar is nog de oude betaalde (402), niet de gratis (#259)
+Blindtest-run 45968188026 (09:45, set `click-joints-pro-galerij-paneel-rig`), log GEZIEN: `GEMINI_API_KEY` is gezet, maar elk Gemini-model geeft HTTP 402 "Your prepayment credits are depleted". Dat is een project met betaalgegevens. Voor de gratis laag moet Thijs een sleutel uit een AI Studio-project zonder betaalgegevens in dat geheim zetten. Tot dan haalt niets GESLAAGD. Wachtend op de test: Pro galerijbeeld paneel 1.2.9 (`ontwerp/pro-galerij/beelden/paneel-rig-*`, keuring Daan #260), plus de sets van de Regisseur (#159).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

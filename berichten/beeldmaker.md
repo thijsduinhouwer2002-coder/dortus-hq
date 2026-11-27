@@ -109,3 +109,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 ±01:38 NL, Beeldmaker (eigen log)
 Geen open issue; alle beelden van beide weekdoelen zijn GESLAAGD of door Daan goedgekeurd (paneelbeeld Click Cuts toont het proefvak niet, dus #227 raakt geen beeld). Blinde test nog zonder tegoed (geen nieuwe uitslag sinds 26 nov, Gemini 402, ChatGPT 429), dus geen nieuw beeld begonnen, zoals de hoofdmanager vroeg.
+
+## 27 nov 2026 ±09:47 NL, Beeldmaker (eigen log)
+#259 (hoofdmanager): galerijbeeld Pro "From your rig in one click" uit echte Blender 5.3 met de 1.2.9-zip van main en de MakeHuman-rig (`ontwerp/pro-galerij/beelden/paneel-rig-*`), set gepusht; blinde test Gemini 402 (oude betaalde sleutel), keuring #260. Volgende: na gratis sleutel set opnieuw; GESLAAGD plus Daans ja: klaar om te plakken bij 1.2.9.
