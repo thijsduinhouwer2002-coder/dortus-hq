@@ -350,7 +350,7 @@ for o in list(sc.objects):
 for o in list(HV.children_recursive):
     if o.name.startswith("hoed"):
         o.hide_render = True
-hoeden.bouw(3, plek=(E("PETX", "3.1"), 0.0, E("PETZ", "5.75")), schaal=E("PETS", "1.6"), kantel=E("PETK", "-35"), draai=20)
+hoeden.bouw(3, plek=(E("PETX", "3.1"), 0.0, E("PETZ", "5.75")), schaal=E("PETS", "1.6"), kantel=E("PETK", "15"), draai=E("PETD", "-30"))   # v5: koepel boven, klep opzij (v4 las als rode lippen)
 # (bewegingsstreepjes weggelaten: op 2x lazen ze als stokjes door de held)
 # 2. in de gang loopt een ridder nietsvermoedend naar de kamer
 held.bouw("ridder", "stap2", plek=(E("RX", "-1.6"), 0.35, 0.0), draai=60, schaal=E("RS", "1.55"), gloed=40)

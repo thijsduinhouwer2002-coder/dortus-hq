@@ -30,3 +30,8 @@ Maken: `<venv>/bin/python header_v2.py r.png 1840 860 28` (bpy 5.2.4, ±2,5 min 
 - De rest van het beeld is gelijk aan v3 (eigen dobbelsteen voor het gat, zodat kiezels en sprieten niet verschuiven).
 - Bekeken met Read op 920, 460 en 2x. Voor en na van het gat: `voor-na.png` (v3 links, v4 rechts).
 - Set `hats-header-v2.json` wijst nu naar v4 (`?v=4`); de push start de test vanzelf. Geen tegoed bij de rechters = geen uitslag, dan opnieuw starten zodra er tegoed is.
+
+## Ronde 5 (27 nov ±07:15 NL, eigen kijken terwijl de blinde test op tegoed wacht)
+- **Pet:** de rode pet in de lucht las op 460 als rode lippen (wit band als tanden, koepel van opzij). Nu koepel boven, witte band als rand en de klep steekt rechts opzij (`PETK` 15, `PETD` -30): op 920 en 460 een pet, op 2x ook. Gekozen uit zes standen die ik los renderde.
+- Rest gelijk aan v4. Voor en na van de pet: `voor-na.png` (v4 links, v5 rechts). Bekeken met Read op 920, 460 en 2x.
+- Set `hats-header-v2.json` wijst nu naar v5 (`?v=5`).
