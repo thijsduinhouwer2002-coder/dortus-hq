@@ -55,6 +55,15 @@ def schillen(ob):
     return sorted(uit, reverse=True), open_, laag
 
 
+def volume(o):
+    bm = bmesh.new()
+    bm.from_mesh(o.data)
+    bm.transform(o.matrix_world)
+    v = abs(bm.calc_volume(signed=True))
+    bm.free()
+    return v
+
+
 def main():
     a = sys.argv[sys.argv.index("--") + 1:]
     zip_pad, blend = a[0], a[1]
@@ -89,6 +98,7 @@ def main():
     bm.to_mesh(ob.data)
     bm.free()
     n0 = len(schillen(ob)[0])
+    vol0 = volume(ob)
     log(f"Blender {bpy.app.version_string}, figuur {len(ob.data.vertices)} punten, {n0} schillen")
 
     bpy.ops.extensions.package_install_files(filepath=zip_pad, repo="user_default", enable_on_install=True)
@@ -130,6 +140,12 @@ def main():
     check(len(sa) <= n0 and not klein, f"deel A: lijf en ogen, geen losse stukjes ({len(sa)} schillen, {n0} in het figuur, klein {klein[:10]})")
     check(len(sb) == 1, f"deel B één stuk ({len(sb)} schillen)")
     check(oa == 0 and ob_ == 0, f"beide delen gesloten (open A {oa}, B {ob_})")
+    # Keuring #326 K1: de voxelvorm mag niet ongemerkt veel van het figuur wegeten. A + B is iets kleiner dan het
+    # figuur (speling en gat rond de kogel); meer dan 6% verlies is fout.
+    va, vb = volume(A), volume(B)
+    verlies = 100.0 * (1 - (va + vb) / vol0) if vol0 > 0 else 100.0
+    log(f"VOLUME figuur {vol0:.0f}, A {va:.0f} + B {vb:.0f}, verlies {verlies:.1f}% (h_soort {lid.get('h_soort')})")
+    check(-0.5 <= verlies <= 6.0, f"volume A+B hooguit 6% onder het figuur (verlies {verlies:.1f}%)")
     laag_a_rechts = min(((A.matrix_world @ v.co).z for v in A.data.vertices if (A.matrix_world @ v.co).x > 2), default=99)
     check(laag_a_rechts > 20 and laag_b < 1.0, f"rechtervoet in B (A rechts laagste {laag_a_rechts:.1f}, B laagste {laag_b:.2f})")
     log(f"KLAAR {len(FOUT)} FOUT")
