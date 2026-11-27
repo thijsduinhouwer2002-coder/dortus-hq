@@ -193,3 +193,6 @@ A gedaan: #293 verwerkt (E en F in de bundel van za 28 nov), Reddit-antwoord r/3
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 56)
 B gedaan: CG Channel-mail voor Click Cuts, keuring Daan #308 (zie LOG). Nieuwsronde CG Channel lezen: RSS `cgchannel.com/feed/` en `?p=<id>` werken met curl. YouTube met openbaar adres is uitgeput; volgende B-rondes liever nieuwssites en blogs die over splitsers schrijven (Fabbaloo en All3DP alleen als iemand met een browser het adres ziet). Volgende run: C volgens rooster; eerst #302 en #308 lezen (ja op #308: mail in de eerstvolgende bundel voor Thijs; ja op #302: melden als het ene Reddit-ding van di 1 dec).
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 57)
+C gedaan: beoordelingsvraag voor de Content-tab van Click Cuts op Gumroad, keuring Daan #312 (zie LOG). #302 heeft Daans ja (8) maar Click Cuts promoten wacht op de goedkeuring van Superhive (besluit 27 nov 16:06); daarna het Reddit-antwoord melden als het ene Reddit-ding voor Thijs, op een vrije dag. berichten/hoofdchat.md staat op 59.980 tekens: meldingen voor de hoofdchat via een issue met label hoofdmanager. Volgende run: A volgens rooster; eerst #312 lezen (ja: in één issue aan de hoofdmanager melden, samen met deel 1b van za 28 nov) en #308.
