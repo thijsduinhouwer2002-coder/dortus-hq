@@ -1,13 +1,13 @@
 ## Beeldvergelijking Click Joints, Blender 4.2.23 (main)
-GROOT: 1 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 37 plaatjes vergeleken)
-Referentie: referentie uit run 45944366176, commit 1811632743a5aa7e7fc0de83b0c4547994d58c7b, commitdatum 1795756180, 2026-11-27T05:41:12Z
+GROOT: 0 (grens 0.02% van de pixels, drempel 24/255 per kanaal; 37 plaatjes vergeleken)
+Referentie: referentie uit run 45962500810, commit cf46b996ecf635b03eed2449cb2542dea5677f13, commitdatum 1795766469, 2026-11-27T08:32:48Z
 
 | plaatje | verschil met de vorige geslaagde run | |
 |---|---|---|
 | 1-paneel-x.png | gelijk | |
 | 10-winkel-paneel-x.png | gelijk | |
-| 11-scharnier-x.png | 2 px (0.000%), ruis | |
-| 12-scharnier-rood-x.png | 7 px (0.000%), ruis | |
+| 11-scharnier-x.png | gelijk | |
+| 12-scharnier-rood-x.png | gelijk | |
 | 13-pro-knie-schoon-x.png | gelijk | |
 | 13-pro-knie-x.png | gelijk | |
 | 13d-pro-knie-dicht-x.png | gelijk | |
@@ -27,10 +27,10 @@ Referentie: referentie uit run 45944366176, commit 1811632743a5aa7e7fc0de83b0c45
 | 20-testkaart.png | gelijk | |
 | 20d-testkaart-getal.png | gelijk | |
 | 20h-testkaart-scharnier.png | gelijk | |
-| 3-kijkrichting-x.png | 429 px (0.021%), x 9 tot 811, y 263 tot 976 | GROOT |
+| 3-kijkrichting-x.png | gelijk | |
 | 4-material-preview-x.png | gelijk | |
 | 5-waaier-x.png | gelijk | |
-| 6-rood-x.png | 13 px (0.001%), ruis | |
+| 6-rood-x.png | gelijk | |
 | 7-plat-x.png | gelijk | |
 | 8-winkel-x.png | 7 px (0.000%), ruis | |
 | 9-winkel-rood-x.png | gelijk | |
