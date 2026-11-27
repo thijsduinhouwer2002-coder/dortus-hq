@@ -1,0 +1,9 @@
+# gemaakt: 2026-11-27T14:02:34Z
+# workflow: Blinde test (Gemini en ChatGPT) (.github/workflows/blindtest.yml)
+# run: 46011644052 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46011644052
+# commit: b2dc961c tak main gestart door push
+# mislukte stappen: geen stap gemarkeerd (zie de run)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+(geen log gevonden; misschien faalde de run voor er een stap draaide, bijvoorbeeld een fout in de yml)
