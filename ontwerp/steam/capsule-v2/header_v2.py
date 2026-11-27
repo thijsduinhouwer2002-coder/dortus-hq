@@ -26,6 +26,9 @@ W, H, SAMPLES = int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
 FONT = os.path.join(HIER, "..", "capsule-3d", "LilitaOne-Regular.ttf")
 def E(n, d):
     return float(os.environ.get("HV2_" + n, d))
+# v9 (blinde test 27 nov 17:01, Gemini: "cheap and chaotic"): minder dingen, één groot figuur zoals Rusty en
+# Spirit City. Geen gang, geen ridder, geen tweede fakkel; de camera dichterbij zodat Gloop het vak vult.
+V9 = os.environ.get("HV2_V9", "0") == "1"
 random.seed(5)
 g.leeg()
 sc = bpy.context.scene
@@ -34,7 +37,7 @@ BREED = 20.0
 HOOG = BREED * H / W                 # 9,35
 ZTOP = E("ZTOP", "8.35"); ZBOT = ZTOP - HOOG
 MV = E("MV", "4.72")                 # graslijn (maaiveld)
-KX0, KX1, KTOP = 1.0, 9.9, E("KTOP", "4.15")   # schatkamer
+KX0, KX1, KTOP = E("KX0", "1.0"), E("KX1", "9.9"), E("KTOP", "4.15")   # schatkamer
 KRECHT = 2.4                          # tot hier recht, daarboven de boog
 GX = E("GX", "6.55")                   # Gloop
 SX0, SX1 = E("SX0", "1.25"), E("SX1", "3.05")   # gat waar de held door valt (v3: breder en donker, Daan #236 M2)
@@ -164,13 +167,13 @@ hol(aarde, kamer)
 bpy.ops.mesh.primitive_cylinder_add(vertices=96, radius=1.0, depth=2.6, location=((KX0 + KX1) / 2, 0.3, KRECHT), rotation=(math.radians(90), 0, 0))
 boog = bpy.context.object; boog.scale = ((KX1 - KX0) / 2, KTOP - KRECHT, 1); hol(aarde, boog)
 gat = prisma("val_gat", gatomtrek(), -1.0, 1.6); hol(aarde, gat)
-gang = blok("gang_gat", ((-12 + KX0 + 0.2) / 2, 0.3, GANGTOP / 2 - 0.5), (KX0 + 0.2 + 12, 2.6, GANGTOP + 1.0)); hol(aarde, gang)
+if not V9: gang = blok("gang_gat", ((-12 + KX0 + 0.2) / 2, 0.3, GANGTOP / 2 - 0.5), (KX0 + 0.2 + 12, 2.6, GANGTOP + 1.0)); hol(aarde, gang) if not V9 else None
 bv = aarde.modifiers.new("rond", "BEVEL"); bv.width = 0.15; bv.segments = 4; bv.limit_method = "ANGLE"
 # snijvlakken (binnenkant van de gaten) iets licht van zichzelf, zodat ze nooit zwart worden
 
 # achterwanden: kamer licht metselwerk, gang koeler
 w = blok("kamerwand", ((KX0 + KX1) / 2, 1.55, (KTOP + 0.2) / 2), (KX1 - KX0 + 0.4, 0.1, KTOP + 0.4), KAMERWAND)
-blok("gangwand", ((-12 + KX0 + 0.4) / 2, 1.56, GANGTOP / 2), (KX0 + 12.4, 0.1, GANGTOP + 0.2), GANGWAND)
+if not V9: blok("gangwand", ((-12 + KX0 + 0.4) / 2, 1.56, GANGTOP / 2), (KX0 + 12.4, 0.1, GANGTOP + 0.2), GANGWAND)
 # v3: de schacht is donker van binnen, zodat je in één blik een gat ziet (Daan #236 M2)
 SCHACHT = g.mat("schacht", "3a1c14", rough=0.95, spec=0.05)
 # v4: de donkere achterkant volgt de rafelige rand en loopt onderaan mee met de boog (geen zwart vak, Daan #243 kan 1)
@@ -182,15 +185,16 @@ blok("vloer", (0, 0.8, -0.05), (BREED + 8, 1.6, 0.1), VLOER)
 def vrij(x, z):
     if KX0 - 0.5 < x < KX1 + 0.5 and z < KTOP + 0.35: return False
     if SX0 - 0.4 < x < SX1 + 0.4: return False
-    if z < GANGTOP + 0.35 and x < KX0 + 0.3: return False
+    if z < GANGTOP + 0.35 and x < KX0 + 0.3 and not V9: return False
     return z < MV - 0.35
 for i in range(18):
     x = random.uniform(-9.8, 9.8); z = random.uniform(ZBOT + 0.2, MV - 0.3)
     if not vrij(x, z): continue
     r = random.uniform(0.09, 0.22)
+    if V9 and z < 0.9: continue   # v9: geen losse kiezels vlak boven de taakbalk (lazen als botjes in de hoek)
     bol("kiezel", (x, -0.03, z), (r * 1.3, r * 0.6, r), random.choice([STEEN, STEEN, STEEN_D]), 12)
 # een bot en een schedeltje in de aarde (er vielen er meer)
-for x in (-7.8, -2.4, 0.2):
+for x in ((-7.8, -2.4, 0.2) if not V9 else ()):   # v9: geen gang, dus geen wortels boven de gang
     for k in range(3):
         cil("wortel", (x + k * 0.12 - 0.12, -0.05 + k * 0.1, GANGTOP - 0.18 - k * 0.05), 0.04, 0.4 + 0.1 * k, WORTEL,
             rot=(0, random.uniform(-0.3, 0.3), 0), verts=6, r2=0.01)
@@ -230,6 +234,7 @@ KLUIT = g.mat("kluit", "7a4430", rough=0.9); KLUIT_L = g.mat("kluit_l", "c07a50"
 for (x, z, r, m, mg) in [(1.55, 4.3, 0.11, KLUIT_L, True), (2.8, 4.05, 0.09, KLUIT_L, False), (2.95, 3.75, 0.07, KLUIT_L, True),
                          (1.05, 3.05, 0.12, KLUIT, True), (3.35, 2.85, 0.1, KLUIT, False), (3.05, 2.2, 0.07, KLUIT, False),
                          (0.95, 2.3, 0.07, KLUIT, False)]:
+    x += SX0 - 1.25   # v9: kluitjes schuiven mee met het gat
     bol("kluit", (x, -0.6, z), (r * 1.25, r, r), m, 12)
     if mg:
         cil("kluitgras", (x + 0.03, -0.6, z + r + 0.05), 0.035, 0.16, GRAS, rot=(0.2, 0.35, 0), verts=4, r2=0.0)
@@ -271,7 +276,7 @@ def fakkel(x, z, y=1.4, kracht=220, groot=1.6):
     d = bpy.data.lights.new("fakkellicht", "POINT"); d.color = (1.0, 0.62, 0.3); d.energy = kracht * E("FAKKEL", "1.0"); d.shadow_soft_size = 0.3
     l = bpy.data.objects.new("fakkellicht", d); l.location = (x, y - 0.7, zv + 0.5); sc.collection.objects.link(l)
 fakkel(KX1 - 0.8, 2.2)
-fakkel(-4.2, 1.45, kracht=190, groot=1.4)
+if not V9: fakkel(-4.2, 1.45, kracht=190, groot=1.4)
 # licht in het valgat, zodat de held en zijn laarzen niet in het donker hangen
 lg_ = bpy.data.lights.new("gatlicht", "POINT"); lg_.color = (1.0, 0.92, 0.8); lg_.energy = E("GATLICHT", "260"); lg_.shadow_soft_size = 0.8
 lgo_ = bpy.data.objects.new("gatlicht", lg_); lgo_.location = ((SX0 + SX1) / 2, -1.5, 3.9); sc.collection.objects.link(lgo_)
@@ -353,7 +358,7 @@ for o in list(HV.children_recursive):
 hoeden.bouw(3, plek=(E("PETX", "3.1"), 0.0, E("PETZ", "5.75")), schaal=E("PETS", "1.6"), kantel=E("PETK", "15"), draai=E("PETD", "-30"))   # v5: koepel boven, klep opzij (v4 las als rode lippen)
 # (bewegingsstreepjes weggelaten: op 2x lazen ze als stokjes door de held)
 # 2. in de gang loopt een ridder nietsvermoedend naar de kamer
-held.bouw("ridder", "stap2", plek=(E("RX", "-1.6"), 0.35, 0.0), draai=60, schaal=E("RS", "1.55"), gloed=40)
+if not V9: held.bouw("ridder", "stap2", plek=(E("RX", "-1.6"), 0.35, 0.0), draai=60, schaal=E("RS", "1.55"), gloed=40)
 
 # ---------- titel ----------
 def tekst(woord, loc, maat, kantel=0, rand=0.09, kleur="ffd23a"):
@@ -502,7 +507,10 @@ bg = sc.world.node_tree.nodes["Background"]; bg.inputs["Color"].default_value = 
 cam = bpy.data.cameras.new("cam"); cam.sensor_fit = "HORIZONTAL"; cam.sensor_width = 36
 D = 30.0; cam.lens = 36 * D / BREED
 co = bpy.data.objects.new("cam", cam); sc.collection.objects.link(co); sc.camera = co
-co.location = (0, -D, (ZTOP + ZBOT) / 2); co.rotation_euler = (math.radians(90), 0, 0)
+co.location = (0, -D, (ZTOP + ZBOT) / 2)
+if V9:
+    CB = E("CAMB", "15"); cam.lens = 36 * D / CB
+    co.location = (E("CAMX", "2.5"), -D, E("CAMZ", "3.9")); co.rotation_euler = (math.radians(90), 0, 0)
 sc.render.engine = "CYCLES"; sc.cycles.samples = SAMPLES; sc.cycles.device = "CPU"; sc.cycles.use_denoising = True
 if os.environ.get("HV2_PIXEL", "0") == "1":
     # v9 (blinde test 27 nov 17:01, Gemini: "3D looks cheap and chaotic, adopt a cleaner pixel art style"):

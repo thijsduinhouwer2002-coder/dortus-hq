@@ -81,3 +81,10 @@ Schakelaar `HV2_V8=1` bovenop v7 (standaard uit, v7 blijft te maken):
 ## Proef v9 pixel (27 nov ±17:30 NL, niet getest)
 Schakelaar `HV2_PIXEL=1` (smal pixelfilter) plus render op halve maat en 2x vergroten zonder vervaging. `proef-v9-pixel.jpg`: boven direct op 460 gerenderd (lijnen vallen weg, leest als slechtere 3D, niet als pixelkunst), onder v8 verkleind tot 307 breed met één gedeeld palet (kleuren gaan stuk: paarse hoed wordt grijs, rode pet bruin). Geen van beide goed genoeg om de gratis Gemini-limiet aan te besteden.
 Plan v9 echt: render op 307x143 (pixel 3) met alleen vlakke kleuren per materiaal (emissie, geen verloop), een eigen vast palet per materiaal in plaats van kwantiseren, en een 1 px donkere omtrek uit een object-pass in Pillow (niet Freestyle). Minder dingen: gang en ridder links eruit of rustiger, zodat het beeld niet meer "chaotic" leest.
+
+## Ronde 9 (27 nov ±19:00 NL): minder dingen, één groot figuur
+Na de blinde test van 17:01 (v7 en v8 plek 3,0, "cheap and chaotic") eerst het "chaotic" aangepakt, niet de stijl gewisseld: pixelkunst zou niet het spel laten zien. Schakelaar `HV2_V9=1` bovenop v8 (standaard uit, v8 blijft te maken):
+- Geen gang, geen ridder, geen tweede fakkel, geen wortels in de lege aarde. Er staan nu drie dingen in beeld: titel, vallende held met pet, Gloop met hoedentoren. Zoals Rusty en Spirit City: één groot figuur dat het vak vult.
+- Camera dichterbij (`HV2_CAMB` 18,5 breed in plaats van 20, `CAMX` 2, `CAMZ` 3,75); titel groter (`TH` 2,75 op dichtere camera); gat, kluitjes, held en pet schuiven mee (`SX0`, `HVX`, `PETX`).
+- Maken: als v8 plus `HV2_V9=1 HV2_CAMB=18.5 HV2_CAMX=2.0 HV2_CAMZ=3.75 HV2_GS=2.15 HV2_GX=7.0 HV2_SX0=2.15 HV2_SX1=3.95 HV2_HVX=3.4 HV2_HVZ=0.5 HV2_PETX=4.1 HV2_PETZ=5.9 HV2_TX=-6.0 HV2_TZ=5.05 HV2_TH=2.75 HV2_TO=1.18`, dan `V7=1 OT_Y=236 OT_X=22 OT_MAAT=27 python3 samenstellen.py r.png header-v9-920x430.png`.
+- Bekeken met Read op 920, 460 en 2x (`rechts-v9-2x.png`); voor (v8) en na (v9) in `voor-na.png`.
