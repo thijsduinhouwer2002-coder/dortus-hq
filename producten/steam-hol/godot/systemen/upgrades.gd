@@ -18,7 +18,10 @@ extends RefCounted
 # Geen tijdsdruk en geen straf: kopen kan altijd, weghalen geeft de volle prijs terug (balans.md), dus niets is fout te kiezen.
 
 const SOORTEN := ["slijm", "stekelput"]
-const MAX_NIVEAU := 6
+const MAX_NIVEAU := 9
+# Sanne 27 nov (#280 deel 1, Iris #279 leuk en aandacht 6 na minuut 25): na stap 6 (±minuut 23 tot 25) was er 35 min
+# niets te kopen en liep het goud op naar ±1400 zonder doel. Daarom per soort stap 7, 8 en 9: elk +2 goud per vangst,
+# net als 4 tot 6, en zichtbaar: per stap wordt één gouden steen een robijn (systemen/stap_teken.gd rood()).
 # Olaf 26 nov (#145, Iris aandacht 7): na de zesde koop (±11 min) was er 4 tot 9 min niets te kopen. Daarom per soort
 # stap 4, 5 en 6, alleen getallen, geen nieuwe kunst: het beeld blijft dat van stap 3 (beeld_niveau()) en het koopmoment
 # (wip van Gloop, schudden van de put, kroniekregel) is hetzelfde.
@@ -40,13 +43,16 @@ const FACTOR := 2.8   # niet meer gebruikt voor de prijs, zie PRIJZEN
 # (was 45): koop 2 mediaan 257 naar 219 s, gat koop 1 tot 2 mediaan 183 naar 145 s, boven 170 s in 17 van 48 runs
 # (was 41 van 48); koop 1 blijft 73 tot 79 s, minuut 11 tot 20 gelijk (meting platformen/steam/data/koop2/).
 # De demo-film houdt 45 (DEMO_EERSTE), zodat hij gelijk blijft aan de gekeurde (Daan #109 M1).
-const PRIJZEN := [40, 60, 70, 75, 95, 115]
+# Sanne 27 nov (#280): stap 7, 8 en 9 kosten 300, 400, 500 (de put 10 meer). Met 150, 200, 250 was alles op minuut 38
+# op (elke koop geeft meer goud en een koopgeluk-vangst); met 250, 350, 450 de laatste op minuut 52 tot 55. Met 300, 400, 500
+# komt koop 7 tot 12 om de 5 tot 7 min tot minuut 55 tot 58 (zaad 7 en 3, meting in producten/steam-hol/bewijs-robijn/LEESMIJ.md).
+const PRIJZEN := [40, 60, 70, 75, 95, 115, 300, 400, 500]
 const DEMO_EERSTE := 45
 var demo := false   # kern/strook.gd zet dit bij demo=1
 const KANS_PER := 0.07
 # Per stap wat hij erbij doet (#145): stap 1 tot 3 elk +7 procentpunt kans; stap 4 tot 6 elk +2 goud per vangst.
-const KANS_STAP := [0.07, 0.07, 0.07, 0.0, 0.0, 0.0]
-const GOUD_STAP := [0, 0, 0, 2, 2, 2]   # goud erbij per vangst (kern/afloop.gd)
+const KANS_STAP := [0.07, 0.07, 0.07, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+const GOUD_STAP := [0, 0, 0, 2, 2, 2, 2, 2, 2]   # goud erbij per vangst (kern/afloop.gd)
 
 # Naam en korte uitleg per stap, Engels zoals in het spel (hooguit 22 en 34 tekens, past in het paneel).
 const STAPPEN := {
@@ -57,6 +63,9 @@ const STAPPEN := {
 		{"naam": "Sticky Gloop", "uitleg": "15 s nap. Heroes drop 2 more gold."},
 		{"naam": "Greedy Gloop", "uitleg": "Heroes drop 2 more gold."},
 		{"naam": "Gloop Prime", "uitleg": "Heroes drop 2 more gold. Again."},
+		{"naam": "Ruby Gloop", "uitleg": "A ruby. Heroes drop 2 more gold."},
+		{"naam": "Rubier Gloop", "uitleg": "Two rubies. 2 more gold."},
+		{"naam": "Ruby Rex", "uitleg": "All rubies. 2 more gold."},
 	],
 	"stekelput": [
 		{"naam": "Rusty Spikes", "uitleg": "Rust hurts. More heroes fall."},
@@ -65,6 +74,9 @@ const STAPPEN := {
 		{"naam": "Sharp Spikes", "uitleg": "Shiny. Heroes drop 2 more gold."},
 		{"naam": "Endless Pit", "uitleg": "Endless. Heroes drop 2 more gold."},
 		{"naam": "Doom Pit", "uitleg": "Heroes drop 2 more gold. For doom."},
+		{"naam": "Ruby Spikes", "uitleg": "A ruby. Heroes drop 2 more gold."},
+		{"naam": "Ruby Pit", "uitleg": "Two rubies. 2 more gold."},
+		{"naam": "Ruby Doom", "uitleg": "All rubies. 2 more gold."},
 	],
 }
 
@@ -188,6 +200,12 @@ const KOOP_REGELS := {
 	"Sharp Spikes": ["The spikes got shiny. Ouch.", "Shiny spikes. Very rude.", "Shiny spikes. On purpose."],
 	"Endless Pit": ["The pit has no bottom now.", "Endless pit. Hats still land.", "The pit goes down forever now."],
 	"Doom Pit": ["The Spike Pit is the Doom Pit now.", "Doom Pit. Heroes pay on the way down.", "Doom. Also, gold."],
+	"Ruby Gloop": ["{b} found a ruby. Heroes pay more.", "A ruby for {b}. Do not ask where.", "Ruby {b}. Shinier. Hungrier."],
+	"Rubier Gloop": ["Two rubies now. {b} is unbearable.", "{b} got another ruby. Show-off.", "Rubier {b}. Pockets emptier."],
+	"Ruby Rex": ["{b} is Ruby Rex now. Bow.", "All rubies. {b} rules. Badly.", "Long live Ruby Rex. Burp."],
+	"Ruby Spikes": ["A ruby on the Spike Pit. Fancy.", "The pit got a ruby. Still spiky.", "Ruby Spikes. Pretty. Pointy."],
+	"Ruby Pit": ["Two rubies on the pit now. Posh.", "The Ruby Pit. Heroes pay extra.", "Rubies in the pit. On purpose."],
+	"Ruby Doom": ["The Spike Pit is Ruby Doom now.", "All rubies. Still doom.", "Ruby Doom. Very fancy doom."],
 }
 const REGEL_MAX := 42
 var _regel_tel := {}   # hoe vaak elke stap al een regel gaf (niet bewaard: na herstart begint hij weer bij de eerste; Undo en opnieuw kopen geeft de volgende grap)

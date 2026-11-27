@@ -11,6 +11,12 @@ const RAND := Color("#6e3f0e")      # donkerder dan de munt-rand, anders verdwij
 const GOUD := Color("#f2b632")
 const GLIM := Color("#fff0aa")
 const SCHADUW := Color(0.12, 0.04, 0.12, 0.5)
+# Stap 7 tot 9 (Sanne 27 nov, #280 deel 1: na stap 6 was er 35 min niets te kopen): per stap wordt één gouden steen een
+# robijn, van links naar rechts. Zelfde ruit, zelfde plek, alleen de kleur: 3 goud, dan 1, 2 en 3 rood. Rood leest op 1x
+# als "zeldzamer" naast het goud, en de rij blijft even breed (geen nieuwe plek nodig op het luik of voor Gloop).
+const RAND_ROOD := Color("#4a0b18")
+const ROOD := Color("#d8344a")
+const GLIM_ROOD := Color("#ffb0bb")
 const HALF := 2.0        # halve breedte van een steen in spelpixels (4 breed, 12 schermpixels op 120)
 const AFSTAND := 5.0     # midden tot midden (Daan #177 kan 2: 4,5 raakte elkaar bijna, nu 1 schermpixel lucht)
 # Op het luik van de put kleiner (Mila #222, Iris 5ecaf64 punt 3: twee ruiten van volle maat bedekten bijna het hele
@@ -23,6 +29,10 @@ const PUT_MAAT := 0.7
 static func aantal(niveau: int, beeld_max: int = 3) -> int:
 	return clampi(niveau - beeld_max, 0, 3)
 
+# Hoeveel van die stenen rood zijn (stap 7 tot 9): 0 tot en met stap 6, dan 1, 2, 3.
+static func rood(niveau: int) -> int:
+	return clampi(niveau - 6, 0, 3)
+
 # Midden van steen i van n, ten opzichte van het midden van de rij (spelpixels).
 static func plek(i: int, n: int, maat: float = 1.0) -> float:
 	return (float(i) - float(n - 1) / 2.0) * AFSTAND * maat
@@ -34,8 +44,8 @@ static func plek(i: int, n: int, maat: float = 1.0) -> float:
 static var _bak := {}
 
 # Plaatje van een rij van n stenen op schaal k (schermpixels per spelpixel, op 0,05 afgerond); midden van de rij = midden van het plaatje.
-static func plaatje(n: int, k: float, maat: float = 1.0) -> ImageTexture:
-	var sleutel := Vector3i(n, roundi(k * 20.0), roundi(maat * 20.0))
+static func plaatje(n: int, k: float, maat: float = 1.0, r: int = 0) -> ImageTexture:
+	var sleutel := Vector4i(n, roundi(k * 20.0), roundi(maat * 20.0), r)
 	if _bak.has(sleutel):
 		return _bak[sleutel]
 	# zelfde maat als de eerste versie op het scherm (die met gladde lijnen was 1 schermpixel ruimer dan HALF): rand ±1 px
@@ -56,7 +66,7 @@ static func plaatje(n: int, k: float, maat: float = 1.0) -> ImageTexture:
 			for sy in 4:
 				for sx in 4:
 					var q := Vector2(x + (sx + 0.5) / 4.0, y + (sy + 0.5) / 4.0)
-					som += _monster(q, middens, h, g) / 16.0
+					som += _monster(q, middens, h, g, r) / 16.0
 			if som.a > 0.0:
 				img.set_pixel(x, y, Color(som.r / som.a, som.g / som.a, som.b / som.a, som.a))
 	var tex := ImageTexture.create_from_image(img)
@@ -64,15 +74,19 @@ static func plaatje(n: int, k: float, maat: float = 1.0) -> ImageTexture:
 	return tex
 
 # Kleur van één monster (voorvermenigvuldigd met alfa): schaduw, rand, goud, glimvlak, van onder naar boven.
-static func _monster(q: Vector2, middens: Array, h: float, g: float) -> Color:
-	for m in middens:
+static func _monster(q: Vector2, middens: Array, h: float, g: float, r: int = 0) -> Color:
+	for j in middens.size():
+		var m: Vector2 = middens[j]
+		var robijn := j < r
 		var d: Vector2 = q - m
 		if absf(d.x) + absf(d.y) <= g:
 			# glimvlak linksboven: driehoek (0,-g), (-g,0), (-g/4,-g/4)
-			var kl := GLIM if Geometry2D.point_is_inside_triangle(d, Vector2(0, -g), Vector2(-g, 0), Vector2(-g * 0.25, -g * 0.25)) else GOUD
+			var glim := Geometry2D.point_is_inside_triangle(d, Vector2(0, -g), Vector2(-g, 0), Vector2(-g * 0.25, -g * 0.25))
+			var kl := (GLIM_ROOD if glim else ROOD) if robijn else (GLIM if glim else GOUD)
 			return Color(kl.r, kl.g, kl.b, 1.0)
 		if absf(d.x) + absf(d.y) <= h:
-			return Color(RAND.r, RAND.g, RAND.b, 1.0)
+			var rk := RAND_ROOD if robijn else RAND
+			return Color(rk.r, rk.g, rk.b, 1.0)
 	for m in middens:
 		var d: Vector2 = q - m - Vector2(0.5, 1.0)
 		if absf(d.x) + absf(d.y) <= h:
@@ -80,11 +94,11 @@ static func _monster(q: Vector2, middens: Array, h: float, g: float) -> Color:
 	return Color(0, 0, 0, 0)
 
 # Teken n stenen in een rij met het midden op c (spelpixels, lokaal van doek): één plaatje, op hele schermpixels.
-static func teken(doek: CanvasItem, c: Vector2, n: int, maat: float = 1.0) -> void:
+static func teken(doek: CanvasItem, c: Vector2, n: int, maat: float = 1.0, r: int = 0) -> void:
 	if n <= 0:
 		return
 	var k := maxf(roundf(doek.get_global_transform().get_scale().x * 20.0) / 20.0, 1.0)   # Gloop staat op 3,45: ook 1 op 1
-	var tex := plaatje(n, k, maat)
+	var tex := plaatje(n, k, maat, r)
 	var lt := (c * k - tex.get_size() / 2.0).round()
 	doek.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE / k)
 	doek.draw_texture(tex, lt)

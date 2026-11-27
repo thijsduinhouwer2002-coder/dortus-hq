@@ -39,13 +39,13 @@ static func lees_argumenten(s) -> void:
 			"deco_proef": s.proef_deco = kv[1] == "1"
 			"royal_proef": s.proef_royal = kv[1] == "1"
 			"hoeden_proef": s.set_meta("hoeden_proef", clampi(int(kv[1]), 0, 5000))   # Olaf 27 nov (#282): Gloop begint met zoveel hoeden (meten van de berg)
-			"slijm_proef": s.set_meta("slijm_proef", clampi(int(kv[1]), 0, 6))   # Mila 26 nov (Daan #112): Gloop meteen op die stap (2 = Bouncy, op de veren), voor de film van de veer; Olaf 26 nov (#162) tot stap 6
+			"slijm_proef": s.set_meta("slijm_proef", clampi(int(kv[1]), 0, 9))   # Mila 26 nov (Daan #112): Gloop meteen op die stap (2 = Bouncy, op de veren), voor de film van de veer; Olaf 26 nov (#162) tot stap 6, Sanne 27 nov (#280) tot 9
 			"graaf_proef": s.proef_graaf = kv[1] == "1"
 			"laars_proef": s.proef_laars = kv[1] == "1"
 			"plat_proef": s.proef_plat = kv[1] == "1"   # Daan 16 nov 20:35: Gloop plat zonder regel, om te keuren of hij zonder tekst leest
 			"spuug_proef": s.proef_spuug = clampi(int(kv[1]), 0, 3)
 			"moment": s.proef_moment = kv[1] if kv[1] in ["hap", "val", "munt"] else ""
-			"put_proef": s.proef_put = clampi(int(kv[1]), 0, 6)   # tot stap 6 (#162)
+			"put_proef": s.proef_put = clampi(int(kv[1]), 0, 9)   # tot stap 9 (#162, #280)
 			"figuur": s.proef_figuur = clampf(float(kv[1]), 0.5, 2.0)
 			"uit3d": s.proef_uit3d = kv[1].split(",", false)
 

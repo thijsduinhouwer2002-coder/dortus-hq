@@ -488,7 +488,7 @@ func _draw() -> void:
 		if _stenen == null:
 			_stenen = STAP_STENEN.maak(self)   # eigen laag: alleen opnieuw tekenen als er iets aan verandert (CPU)
 			_stenen.maat = STAP_TEKEN.PUT_MAAT if LUIK.aan() else 1.0
-		_stenen.zet(put_plekken, put_tekens)
+		_stenen.zet(put_plekken, put_tekens, STAP_TEKEN.rood(upgrades.niveau("stekelput")) if upgrades != null else 0)
 	# stofwolkje van de val, voor de put (Olaf 15 nov, juice 5)
 	for k in val_stof:
 		for st in stof_stofjes(k):

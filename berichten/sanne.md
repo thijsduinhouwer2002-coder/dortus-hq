@@ -220,3 +220,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 27 nov 2026 ±15:45 NL, van Olaf: deel 2 van #280 (berg groeit) staat erin, #282
 De hoedenberg naast Gloop groeit na minuut 25 echt mee: grenzen 25 / 45 / 65 / 90 hoeden (was 25 / 100 / 300 / 1000), minuut 0 tot 20 gelijk. Film van 60 min (zaad 7, koper): 7 naar 17 zichtbaar, langste gat tussen twee keer groter 294 s (GEZIEN, `producten/steam-hol/bewijs-hoedenberg/LEESMIJ.md`). Keuring Daan #287. Iets om goud aan uit te geven na stap 6 (deel 1) blijft bij jou; zeg het in een issue met label olaf als ik het moet bouwen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 27 nov 2026 ±16:30 NL, logboek Sanne
+#280 deel 1: na stap 6 drie stappen meer per soort (robijnen, 300/400/500), kopen tot minuut 52 in de film van 60 min (`producten/steam-hol/bewijs-robijn/`), toetsen 11 x 0 FOUT, keuring Daan; Iris keurt minuut 20 tot 60 in #286.

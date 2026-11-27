@@ -426,10 +426,20 @@ func _init() -> void:
 	ok(u.goud_erbij() == 0 and u.koop("slijm", 75) == 0 and u.goud_erbij() == 2 and absf(u.plat_factor() * 30.0 - 15.0) < 0.01, "Sticky Gloop: 15 s plat en +2 goud per vangst")
 	ok(absf(u.kans_erbij("slijm") - 0.21) < 0.0001, "stap 4 tot 6: geen extra kans (wrok blijft)")
 	ok(u.kost("slijm") == 95 and u.koop("slijm", 95) == 0 and u.kost("slijm") == 115 and u.koop("slijm", 115) == 0 and u.goud_erbij() == 6, "stap 5 en 6: 95 en 115, samen +6 goud")
-	ok(u.kost("slijm") == -1 and u.volgende("slijm").is_empty() and u.beeld_niveau("slijm") == 3, "na zes stappen alles gekocht, beeld blijft stap 3")
+	ok(u.kost("slijm") == 300 and u.volgende("slijm").get("naam") == "Ruby Gloop" and u.beeld_niveau("slijm") == 3, "na zes stappen nog Ruby Gloop voor 300 (#280), beeld blijft stap 3")
+	# #280 (Sanne 27 nov): stap 7 tot 9 kosten 300, 400, 500 (put 10 meer), elk +2 goud, daarna alles gekocht
+	var u79 = load("res://systemen/upgrades.gd").new()
+	u79.van_dict({"slijm": 6, "stekelput": 6})
+	ok(u79.kost("stekelput") == 310 and u79.koop("slijm", 300) == 0 and u79.kost("slijm") == 400 and u79.koop("slijm", 400) == 0 and u79.koop("slijm", 500) == 0 and u79.kost("slijm") == -1 and u79.goud_erbij() == 18, "stap 7 tot 9: 300, 400, 500, put 310, samen +18 goud (#280)")
+	ok(u79.volgende("slijm").is_empty() and u79.beeld_niveau("slijm") == 3 and absf(u79.kans_erbij("slijm") - 0.21) < 0.0001, "na negen stappen alles gekocht, geen extra kans (#280)")
 	# #162: stap 4 tot 6 zie je aan gouden stenen (systemen/stap_teken.gd): 0 tot stap 3, dan 1, 2, 3; rij gecentreerd
 	var stt = load("res://systemen/stap_teken.gd")
 	ok(stt.aantal(0) == 0 and stt.aantal(3) == 0 and stt.aantal(4) == 1 and stt.aantal(5) == 2 and stt.aantal(6) == 3 and stt.aantal(9) == 3, "stenen per stap: 0,0,1,2,3 (#162)")
+	ok(stt.rood(6) == 0 and stt.rood(7) == 1 and stt.rood(8) == 2 and stt.rood(9) == 3 and stt.rood(12) == 3, "robijnen per stap: 0 tot stap 6, dan 1, 2, 3 (#280)")
+	var rpi: Image = stt.plaatje(3, 3.0, 1.0, 1).get_image()
+	var rl: Color = rpi.get_pixel(rpi.get_width() / 2 - roundi(stt.AFSTAND * 3.0), rpi.get_height() / 2)
+	var rm: Color = rpi.get_pixel(rpi.get_width() / 2, rpi.get_height() / 2)
+	ok(rl.r > rl.g + 0.3 and rm.g > 0.55 and stt.plaatje(3, 3.0, 1.0, 1) != stt.plaatje(3, 3.0), "één robijn: linker steen rood, midden goud, eigen plaatje (#280)")
 	ok(is_equal_approx(stt.plek(0, 1), 0.0) and is_equal_approx(stt.plek(0, 3), -stt.plek(2, 3)) and stt.plek(1, 2) - stt.plek(0, 2) >= stt.HALF * 2.0, "stenen gecentreerd en raken elkaar niet (#162)")
 	ok(stt.plek(2, 3) + stt.HALF <= 8.0, "drie stenen passen in een putkolom van 16 (#162)")
 	# #222 (Iris 5ecaf64 punt 3): op het luik kleiner, rij van drie binnen het hout van het luik (±7 spelpixels), eigen plaatje
@@ -448,8 +458,8 @@ func _init() -> void:
 	var u2 = load("res://systemen/upgrades.gd").new()
 	u2.van_dict(u.naar_dict())
 	ok(u2.niveau("slijm") == 2 and absf(u2.plat_factor() * 30.0 - 20.0) < 0.01, "opslaan en laden, Bouncy Gloop 20 s")
-	u2.van_dict({"slijm": 9, "stekelput": -3})
-	ok(u2.niveau("slijm") == 6 and u2.niveau("stekelput") == 0, "kapotte save: niveaus tussen 0 en 6")
+	u2.van_dict({"slijm": 12, "stekelput": -3})
+	ok(u2.niveau("slijm") == 9 and u2.niveau("stekelput") == 0, "kapotte save: niveaus tussen 0 en 9")
 	var stap_lang := 0
 	for soort in ["slijm", "stekelput"]:
 		for st in u2.STAPPEN[soort]:
@@ -480,7 +490,7 @@ func _init() -> void:
 				r45 += 1
 			elif n >= 3:
 				print("  stap 4 tot 6 zonder eigen regel: ", r45s)
-	ok(r45 == 6, "stap 4 tot 6 hebben een eigen kroniekregel die past (%d van 6, #145)" % r45)
+	ok(r45 == 12, "stap 4 tot 9 hebben een eigen kroniekregel die past (%d van 12, #145, #280)" % r45)
 	var u5 = load("res://systemen/upgrades.gd").new()
 	u5.koop("slijm", 1000)
 	ok(u5.koop_regel("slijm") == "Gloop is now Big Gloop. Bigger mouth.", "eerste koop: eerste grap van Sanne")
