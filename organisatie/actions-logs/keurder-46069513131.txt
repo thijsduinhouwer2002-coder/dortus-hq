@@ -1,0 +1,11 @@
+# gemaakt: 2026-11-27T21:21:26Z
+# workflow: Automatische keurder (.github/workflows/keurder.yml)
+# run: 46069513131 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46069513131
+# commit: 6e7a2076 tak claude/blender-306 gestart door push
+# mislukte stappen: keuren: Controle en opslaan (altijd bovenop de nieuwste main)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+# workflow met secrets of klantgegevens: alleen de foutregels, niet het hele log.
+
+===== keuren / Controle en opslaan (altijd bovenop de nieuwste main) (alleen foutregels: 1) =====
+##[error]Process completed with exit code 1.
