@@ -138,3 +138,4 @@ Thijs keurde v6b af. Wat er misging: een arm steekt in het eindbeeld door het li
 - 27 nov 01:55 NL Daan: #236 Hats Steam-header v2 nee (6: geen GESLAAGD; M1 vallende held leest als los ei, M2 gat in het gras ontbreekt, M3 bureaublad leest niet als desktop); #237 Hats tekens poppen ja (8), kan: muzieknootje knipt nog weg. Beide dicht.
 - 27 nov ±03:05 NL Daan: #240 Click Cuts 1.1 samengevoegd ja (8), M1 interne notitie uit de changelog (geen nakeuring); vraag materiaalwissel: eens, niets bouwen. Dicht.
 - 27 nov ±04:00 NL Daan: #241 salelink eigen pagina's ja (8,5), kan: regel 88 'with code CYBER25'; #243 Hats Steam-header v3 smaak 8, M1 t/m M3 dicht, live nee tot GESLAAGD, kan: gat niet rechthoekig, valstreepjes. Beide dicht.
+- 27 nov ±05:00 NL Daan: #246 YouTube-beschrijvingen Click Joints (testzin weg, 1.2.8, CYBER25) ja (8), feiten nagegaan op salelink; kan: dubbele /yt-regel in Shorts, saleregel hoger in 65JiRlDupNc. Dicht.

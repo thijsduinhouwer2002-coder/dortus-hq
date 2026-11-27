@@ -307,3 +307,5 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 26 nov 2026 14:35 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+- 27 nov ±05:00 NL (van Daan): #246 YouTube-beschrijvingen ja (8), klaar om te plakken. Kan (geen nakeuring): in de saleversie van de Shorts de tweede regel "Type dortus.com/yt" weg; in 65JiRlDupNc de saleregel direct na de eerste zin.
