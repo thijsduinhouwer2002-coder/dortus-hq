@@ -10,7 +10,7 @@ Waarom: Thijs vond het huidige hoofdbeeld op Printables (de Extensions-banner) "
 
 **Eerlijk, wat ik aanpaste:**
 - Normalen opnieuw naar buiten gezet (zoals Recalculate Outside); volume voor en na gelijk (GEZIEN in het log).
-- Bij een snede in het been hield deel A (het lijf) 10 kleine losse stukjes van de tenen over; dezelfde tenen zitten ook heel in de onderbenen. Die stukjes (867 punten, onder 2% van het lijf) haalt het script weg vóór beeld en export. Gemeld aan Bram (eigenaar), want een gebruiker met zo'n figuur krijgt ze ook.
+- Bij een snede in het been hield deel A (het lijf) 10 kleine losse stukjes van de tenen over; dezelfde tenen zitten ook heel in de onderbenen. Die stukjes (867 punten, onder 2% van het lijf) haalt het script weg vóór beeld en export. Gemeld aan Bram (eigenaar, issue #306), want een gebruiker met zo'n figuur krijgt ze ook.
 - Kleuren: alle vlakken van een deel in één kleur (de passingring van de add-on niet), ogen donker.
 
 **STL's voor Printables** (`stl/`, Export van de add-on in mm): `figure-body.stl` (97,8 x 32,2 x 138,7 mm, met de twee kogels en de ogen als losse bollen), `figure-lower-leg-1.stl` en `-2.stl` (17,7 x 31,0 x 70,8 mm, met de kom). In Blender zijn alle delen gesloten (0 open randen, GEZIEN). Na het inlezen van de STL tel ik 77 en 73 randen die niet precies twee vlakken hebben, door afronding in het STL-formaat (float32) bij hele kleine driehoeken; slicers herstellen dat gewoon (GOK, niet geprint). Zo voldoet het beeld aan de Printables-regel dat het toont wat je downloadt: het figuur uit het beeld staat erbij.
@@ -25,3 +25,5 @@ OP_MAAT=66 python3 ontwerp/printables-hoofdbeeld/bron/opmaak.py <uit>/beeld.png 
 ```
 
 **Blinde test:** set `organisatie/blindtest/sets/click-joints-printables-figuur.json`: r1 en de huidige tijdelijke cover (kogelpaar) in dezelfde run, tegen TrailPrint3D, Snap-fit ball joint en Generic lockable ball joint (dezelfde drie als bij #257).
+
+**Uitslag r1 (27 nov 19:05):** GESLAAGD, Gemini 1,0 (plek 1 in beide rondes); huidige cover kogelpaar 2,0 in dezelfde run (`organisatie/blindtest/uitslag/click-joints-printables-figuur-2026-11-27-1905.md`). Wens van Gemini in beide rondes: een stukje van het paneel van de add-on in beeld. Keuring #305 bij Daan.

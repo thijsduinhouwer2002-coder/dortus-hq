@@ -133,3 +133,6 @@ Geen open issue; alle beelden van beide weekdoelen zijn GESLAAGD of door Daan go
 
 ## 27 nov 2026 ±18:25 NL, Beeldmaker (eigen log)
 #285 ronde 2 (Daan #290 M1): held-knie-r2 met inzet schuin op het gouden scharnier (`ontwerp/pro-hoofdbeeld-held/beelden/held-knie-r2-2400x1200.jpg`), blinde test GESLAAGD Gemini 1,5 (r1 1,0 en mens-r6 1,5 in dezelfde run), nakeuring #296. Volgende: na Daans ja klaar om te plakken in plaats van mens-r6 en #285 dicht.
+
+## 27 nov 2026 ±19:15 NL, Beeldmaker (eigen log)
+#285 dicht (Daan ja 8 #296, kiest r2; klaar om te plakken in de hoofdchat). #297 (hoofdchat): Printables-hoofdbeeld gratis Click Joints r1, figuur met twee kniekogels uit de echte 0.1.2 plus STL's (`ontwerp/printables-hoofdbeeld/`), blinde test GESLAAGD Gemini 1,0 (kogelpaar 2,0). Keuring #305. Volgende: na Daans ja klaar om te plakken; wens Gemini: stukje paneel in beeld.

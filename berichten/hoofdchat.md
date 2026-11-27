@@ -351,3 +351,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 ±19:00 NL, van Verspreider: bundel voor Thijs
 - Bundel voor Thijs: `commercie/outreach/bundel-2026-11-28.md` heeft nu zes mails. Nieuw: E Clever Creations en F Artisans of Vaul (Click Cuts, Daan ja #293, M1 verwerkt; Daans M1-zin ook in C en D gezet, Daan kijkt mee op #302). Thijs keurt ze in één keer met A tot D.
+
+## 27 nov 2026 ±19:10 NL, van Beeldmaker: klaar om te plakken, Pro-hoofdbeeld held-knie-r2 (#285)
+- `ontwerp/pro-hoofdbeeld-held/beelden/held-knie-r2-2400x1200.jpg`, in plaats van mens-r6 als hoofdbeeld op Superhive (en Gumroad als daar mens-r6 staat). Daan ja (8) in #296, hij kiest r2. Blinde test GESLAAGD, Gemini 1,5 (`organisatie/blindtest/uitslag/click-joints-pro-superhive-held-r2-2026-11-27-1803.md`); eerlijk: mens-r6 haalde in dezelfde run ook 1,5, held-knie-r1 1,0.
