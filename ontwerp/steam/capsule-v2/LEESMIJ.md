@@ -76,3 +76,8 @@ Schakelaar `HV2_V8=1` bovenop v7 (standaard uit, v7 blijft te maken):
 - Maken: als v7 plus `HV2_V8=1 HV2_HELDLIJN=1.5`, dan `V7=1 python3 samenstellen.py r.png header-v8-920x430.png`.
 - Bekeken met Read op 920, 460 en 2x (`rechts-v8-2x.png`). Voor en na: `voor-na.png` (v7 boven, v8 onder).
 - Blinde test: set `hats-header-v2.json` heeft nu v7 en v8.
+- **Uitslag 17:01 NL** (`organisatie/blindtest/uitslag/hats-header-v2-2026-11-27-1701.md`, GEZIEN): v7 en v8 allebei NIET GESLAAGD, Gemini (flash-lite) gemiddeld plek 3,0, vier keer plek 3. Telkens: idee taakbalk-kelder "clever", maar de 3D "cheap and chaotic"; twee keer het advies "cleaner pixel art style".
+
+## Proef v9 pixel (27 nov ±17:30 NL, niet getest)
+Schakelaar `HV2_PIXEL=1` (smal pixelfilter) plus render op halve maat en 2x vergroten zonder vervaging. `proef-v9-pixel.jpg`: boven direct op 460 gerenderd (lijnen vallen weg, leest als slechtere 3D, niet als pixelkunst), onder v8 verkleind tot 307 breed met één gedeeld palet (kleuren gaan stuk: paarse hoed wordt grijs, rode pet bruin). Geen van beide goed genoeg om de gratis Gemini-limiet aan te besteden.
+Plan v9 echt: render op 307x143 (pixel 3) met alleen vlakke kleuren per materiaal (emissie, geen verloop), een eigen vast palet per materiaal in plaats van kwantiseren, en een 1 px donkere omtrek uit een object-pass in Pillow (niet Freestyle). Minder dingen: gang en ridder links eruit of rustiger, zodat het beeld niet meer "chaotic" leest.

@@ -504,6 +504,11 @@ D = 30.0; cam.lens = 36 * D / BREED
 co = bpy.data.objects.new("cam", cam); sc.collection.objects.link(co); sc.camera = co
 co.location = (0, -D, (ZTOP + ZBOT) / 2); co.rotation_euler = (math.radians(90), 0, 0)
 sc.render.engine = "CYCLES"; sc.cycles.samples = SAMPLES; sc.cycles.device = "CPU"; sc.cycles.use_denoising = True
+if os.environ.get("HV2_PIXEL", "0") == "1":
+    # v9 (blinde test 27 nov 17:01, Gemini: "3D looks cheap and chaotic, adopt a cleaner pixel art style"):
+    # zelfde 3D-scène, maar op halve maat gerenderd met een smal pixelfilter, daarna 2x zonder vervaging
+    # vergroot (samenstellen.py, PIXEL=1). Elk pixel is dan een hard blokje van 2x2, zoals in de lat.
+    sc.cycles.filter_width = E("PXFILTER", "0.45")
 sc.render.resolution_x = W; sc.render.resolution_y = H; sc.render.resolution_percentage = 100
 sc.render.film_transparent = True
 sc.view_settings.view_transform = "Standard"; sc.view_settings.look = "None"
