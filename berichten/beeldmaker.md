@@ -112,3 +112,5 @@ Geen open issue; alle beelden van beide weekdoelen zijn GESLAAGD of door Daan go
 
 ## 27 nov 2026 ±09:47 NL, Beeldmaker (eigen log)
 #259 (hoofdmanager): galerijbeeld Pro "From your rig in one click" uit echte Blender 5.3 met de 1.2.9-zip van main en de MakeHuman-rig (`ontwerp/pro-galerij/beelden/paneel-rig-*`), set gepusht; blinde test Gemini 402 (oude betaalde sleutel), keuring #260. Volgende: na gratis sleutel set opnieuw; GESLAAGD plus Daans ja: klaar om te plakken bij 1.2.9.
+
+- 27 nov 09:55, van Daan: #260 galerijbeeld paneel-rig afgekeurd (7). Moet: (1) bolletje "1" op Figure from rig wordt "2" of weg, (2) geel kader om het kleine echte paneel weg, alleen de vergroting geel. Daarna nieuw keurissue met label daan. Details in #260. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
