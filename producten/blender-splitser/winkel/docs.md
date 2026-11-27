@@ -35,7 +35,7 @@ Print the fit test first
 Every printer prints holes a little differently. The fit test tells you which clearance fits yours, so pins are not loose or stuck.
 
 1. Open More settings, step 3. In the box Fit test: print this first, pick your Material.
-2. Click Make fit test. You get a small block with four holes for your own pin, each with its clearance engraved in front of it, plus four pins. Until you save one, the clearance starts at a value for your material (PLA 0.20 mm: holes at 0.15, 0.20, 0.25 and 0.30 mm; Resin 0.10 mm: holes at 0.05, 0.10, 0.15 and 0.20 mm; PETG and ABS / ASA 0.25 mm; TPU 0.30 mm).
+2. Click Make fit test. You get a small block with four holes for your own pin, each with its clearance engraved in front of it, plus four pins. Until you save a fit test, the clearance starts at a value for your material (PLA 0.20 mm: holes at 0.15, 0.20, 0.25 and 0.30 mm; Resin 0.10 mm: holes at 0.05, 0.10, 0.15 and 0.20 mm; PETG and ABS / ASA 0.25 mm; TPU 0.30 mm).
 3. Click Export fit test (STL) and print the block and the pins.
 4. Push a pin into every hole. Under "Printed? Click the one that fits:", click the clearance where the pin goes in by hand and does not wobble.
 

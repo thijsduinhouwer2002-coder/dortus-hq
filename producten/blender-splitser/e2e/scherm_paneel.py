@@ -138,6 +138,15 @@ def stap():
             log(f"{'PANEEL PROEF OK' if ok else 'PANEEL PROEF FOUT'} {pad}")
             for _ in range(12):  # as many up as down, so a wheel that reaches the viewport ends where it began
                 xdo("click", "4")
+            # Daan #240 K2: in 5.3 the wheel clicks still zoomed the viewport, so put the view back before the
+            # notes picture too (that picture is used to judge the panel)
+            bpy.context.preferences.view.smooth_view = 0
+            venster, gebied, ui, hoofd = gebied_3d()
+            with bpy.context.temp_override(window=venster, area=gebied, region=hoofd):
+                bpy.ops.view3d.view_axis(type="FRONT")
+                bpy.ops.view3d.view_orbit(angle=0.5, type="ORBITUP")
+                bpy.ops.view3d.view_orbit(angle=0.6, type="ORBITLEFT")
+                bpy.ops.view3d.view_all()
             # third picture: More settings closed with notes, so the notes line can be seen whole (keuring
             # run 10, M1). Uses the notes of this Split; when there are none, two example notes (logged).
             inst = bpy.context.scene.split_joints
