@@ -57,3 +57,13 @@ Na Gemini ("3D looks a bit cheap and mobile-esque") de stijl zelf veranderd, nie
 - Bekeken met Read op 920, 460 en 2x (`rechts-v6-2x.png`). Voor en na: `voor-na.png` (v5 boven, v6 onder).
 - Mijn oordeel (GOK tot de blinde test): meer getekend en de titel leest beter; de helmen lezen als witte kommen, minder metaal.
 - Blinde test: set `hats-header-v2.json` heeft nu v5 en v6 als twee kandidaten, zodat de rechter zegt welke beter is. Run 45995843174 gaf geen uitslag: Gemini HTTP 429, gratis daglimiet op (GEZIEN). Opnieuw starten in de volgende run. Keuring Daan gevraagd: #275.
+
+## Ronde 7 (27 nov ±15:00 NL, Daan #275 M1 tot M3 en twee kan-punten)
+Schakelaar `HV2_V7=1` in `header_v2.py` en `V7=1` in `samenstellen.py` (standaard uit, v6 blijft te maken):
+- **M1 helmen metaal:** emmer en ridderhelm koel donkergrijs (`HV2_MGRIJS` 0,12), schaduwkant donker grijsblauw, één harde witte glimstreep. Lezen nu als metaal, niet als witte kom.
+- **M2 één stijl:** wolken vlakke vormen met harde rand, platte onderkant, lichte bovenkant en dunne blauwe lijn, geen waas; heuvels ook scherp. Metselwerk en aarde zonder zachte bobbels, vaste tinten (geen verloop in de ruis) en donkerdere, bredere voegen.
+- **M3 inktlijn:** 4,6 px op 2x (±2,3 op 920), donkerbruin en vol (niet meer doorschijnend).
+- **Kan:** Gloop een donkerder teal schaduwkant (volume). Muispijl kleiner en op de Hats-knop in de taakbalk, alsof je hem aanklikt.
+- Maken: `HV2_V7=1 HV2_MGRIJS=0.12 HV2_MGSIZE=0.12 HV2_TOON=1 HV2_LIJN=1 HV2_TZON=4.2 HV2_LIJNDIK=4.6 HV2_SCHADUW=0.5 HV2_STR=0.85 HV2_STG=0.72 <venv>/bin/python header_v2.py r.png 1840 860 28`, dan `V7=1 python3 samenstellen.py r.png header-v7-920x430.png`.
+- Bekeken met Read op 920, 460 en 2x (`rechts-v7-2x.png`). Voor en na: `voor-na.png` (v6 boven, v7 onder).
+- Blinde test: set `hats-header-v2.json` heeft nu v6 en v7 als kandidaten.

@@ -30,7 +30,33 @@ for cx, cy, s in [(150, 40, 1.0), (520, 30, 1.3), (800, 70, 0.9), (380, 120, 0.7
         rx = (40 + random.uniform(0, 30)) * s * k; ry = rx * 0.55
         x = cx * k + random.uniform(-70, 70) * s * k; y = cy * k + random.uniform(-10, 12) * s * k
         dw.ellipse([x - rx, y - ry, x + rx, y + ry], fill=(255, 255, 255, 200))
-wl = wl.filter(ImageFilter.GaussianBlur(9 * k))
+V7 = os.environ.get("V7", "0") == "1"
+if V7:
+    # v7 (Daan #275 M2): wolken als vlakke getekende vormen met harde rand, geen waas: een lichte bovenkant,
+    # een vlakke blauwgrijze onderkant en een dunne donkere lijn, zoals de rest van het beeld.
+    wl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    random.seed(3)
+    for cx, cy, s in [(150, 40, 1.0), (520, 30, 1.3), (800, 70, 0.9), (380, 120, 0.7), (690, 150, 0.8)]:
+        bollen = []
+        for i in range(7):
+            rx = (40 + random.uniform(0, 30)) * s * k; ry = rx * 0.55
+            x = cx * k + random.uniform(-70, 70) * s * k; y = cy * k + random.uniform(-10, 12) * s * k
+            bollen.append((x, y, rx, ry))
+        m = Image.new("L", (W, H), 0); dm = ImageDraw.Draw(m)
+        for x, y, rx, ry in bollen: dm.ellipse([x - rx, y - ry, x + rx, y + ry], fill=255)
+        bodem = max(y + ry * 0.35 for x, y, rx, ry in bollen)
+        dm.rectangle([0, bodem, W, H], fill=0)   # platte onderkant
+        lijn = m.filter(ImageFilter.MaxFilter(2 * int(1.2 * k) + 1))
+        wl.paste((70, 104, 160, 150), (0, 0), lijn)
+        onder = Image.new("L", (W, H), 0); do = ImageDraw.Draw(onder)
+        for x, y, rx, ry in bollen: do.ellipse([x - rx, y - ry + ry * 0.28, x + rx, y + ry + ry * 0.28], fill=255)
+        wl.paste((206, 226, 246, 255), (0, 0), m)
+        boven = Image.new("L", (W, H), 0); db = ImageDraw.Draw(boven)
+        for x, y, rx, ry in bollen: db.ellipse([x - rx * 0.92, y - ry, x + rx * 0.92, y + ry * 0.55], fill=255)
+        from PIL import ImageChops
+        wl.paste((255, 255, 255, 255), (0, 0), ImageChops.multiply(boven, m))
+else:
+    wl = wl.filter(ImageFilter.GaussianBlur(9 * k))
 lucht.paste(wl, (0, 0), wl)
 # heuvels achter de graslijn, wazig
 hv = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dh = ImageDraw.Draw(hv)
@@ -41,7 +67,7 @@ for kleur, basis, amp, fase in [((122, 196, 120), 150, 26, 0.3), ((96, 176, 98),
         y = (basis - amp * (0.6 * math.sin(x / (W / 2.3) + fase) + 0.4 * math.sin(x / (W / 5.1) + 2 * fase))) * k
         pts.append((x, y))
     pts.append((W, H)); dh.polygon(pts, fill=kleur + (255,))
-hv = hv.filter(ImageFilter.GaussianBlur(4 * k))
+if not V7: hv = hv.filter(ImageFilter.GaussianBlur(4 * k))
 lucht.paste(hv, (0, 0), hv)
 
 beeld = lucht.convert("RGBA")
@@ -97,7 +123,9 @@ for dx in (0, 1):
         d.rectangle([xx, yy, xx + q, yy + q], fill=(200, 210, 230))
 
 # muispijl in de lucht: klassieke pijl, wit met donkere rand
-mx, my, ms = float(os.environ.get("MX", "462")) * k, float(os.environ.get("MY", "62")) * k, float(os.environ.get("MS", "1.45")) * k
+# v7 (Daan #275 kan): pijl kleiner en vlak boven de Hats-knop in de taakbalk, alsof je hem net aanklikt
+mx, my, ms = (float(os.environ.get("MX", "540" if V7 else "462")) * k, float(os.environ.get("MY", "398" if V7 else "62")) * k,
+              float(os.environ.get("MS", "1.1" if V7 else "1.45")) * k)
 pijl = [(0, 0), (0, 17), (4, 13), (7, 20), (10, 19), (7, 12), (12, 12)]
 pts = [(mx + x * ms, my + y * ms) for x, y in pijl]
 sch = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ds = ImageDraw.Draw(sch)

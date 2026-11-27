@@ -413,6 +413,26 @@ if TOON:
         uitn = next((n for n in nt.nodes if n.type == "OUTPUT_MATERIAL"), None)
         if not uitn: continue
         bc = b.inputs["Base Color"]
+        V7 = os.environ.get("HV2_V7", "0") == "1"
+        METAAL = V7 and m.name.lower().startswith(("staal", "hstaal"))
+        sk_m, st_m = SK, ST
+        if METAAL:
+            # v7 (Daan #275 M1): helm en emmer lezen als metaal, niet als witte porseleinen kom:
+            # koel middengrijs, donkere grijsblauwe schaduwkant, één harde witte glimstreep.
+            for l_ in list(bc.links): nt.links.remove(l_)
+            bc.default_value = (E("MGRIJS", "0.20"), E("MGRIJS", "0.20") * 1.08, E("MGRIJS", "0.20") * 1.28, 1)
+            sk_m, st_m = E("MSCH", "0.55"), (0.42, 0.52, 0.80)
+        elif V7 and m.name.lower().startswith("lijf"):
+            # v7 (Daan #275 kan): Gloop een duidelijke donkerder teal schaduwkant, voor volume
+            sk_m, st_m = E("LSCH", "0.26"), (0.45, 0.80, 0.95)
+        elif V7 and m.name.lower().startswith(("aarde", "kamerwand", "gangwand")):
+            # v7 (Daan #275 M2): steen en aarde vlak getekend: geen zachte bobbels, vaste tinten
+            for n_ in list(nt.nodes):
+                if n_.type == "BUMP": nt.nodes.remove(n_); continue
+                if n_.type == "VALTORGB": n_.color_ramp.interpolation = "CONSTANT"
+                if n_.type == "TEX_BRICK":
+                    n_.inputs["Mortar Smooth"].default_value = 0.0; n_.inputs["Mortar Size"].default_value = E("VOEG", "0.05")
+                    vk = n_.inputs["Mortar"].default_value; n_.inputs["Mortar"].default_value = (vk[0] * 0.55, vk[1] * 0.5, vk[2] * 0.5, 1)
         src = bc.links[0].from_socket if bc.is_linked else None
         def kleur_naar(sock):
             if src is not None: nt.links.new(src, sock)
@@ -422,8 +442,8 @@ if TOON:
         kleur_naar(td.inputs["Color"])
         mul = nt.nodes.new("ShaderNodeMix"); mul.data_type = "RGBA"; mul.blend_type = "MULTIPLY"
         mul.inputs[0].default_value = 1.0
-        kleur_naar(mul.inputs[6]); mul.inputs[7].default_value = (ST[0], ST[1], ST[2], 1)
-        em = nt.nodes.new("ShaderNodeEmission"); em.inputs["Strength"].default_value = E("TITELSCH", "0.8") if m.name.startswith("titelgoud") else SK
+        kleur_naar(mul.inputs[6]); mul.inputs[7].default_value = (st_m[0], st_m[1], st_m[2], 1)
+        em = nt.nodes.new("ShaderNodeEmission"); em.inputs["Strength"].default_value = E("TITELSCH", "0.8") if m.name.startswith("titelgoud") else sk_m
         nt.links.new(mul.outputs[2], em.inputs["Color"])
         add = nt.nodes.new("ShaderNodeAddShader")
         nt.links.new(td.outputs[0], add.inputs[0]); nt.links.new(em.outputs[0], add.inputs[1])
@@ -443,10 +463,10 @@ if TOON:
             nt.links.new(mm.outputs[2], er.inputs["Color"])
             a3 = nt.nodes.new("ShaderNodeAddShader")
             nt.links.new(add.outputs[0], a3.inputs[0]); nt.links.new(er.outputs[0], a3.inputs[1]); laatst = a3
-        if m.name.lower().startswith(GLIM):
+        if m.name.lower().startswith(GLIM) or METAAL:
             tg = nt.nodes.new("ShaderNodeBsdfToon"); tg.component = "GLOSSY"
-            tg.inputs["Size"].default_value = E("GSIZE", "0.08"); tg.inputs["Smooth"].default_value = 0.0
-            g_ = E("GKLEUR", "0.45"); tg.inputs["Color"].default_value = (g_, g_ * 0.97, g_ * 0.9, 1)
+            tg.inputs["Size"].default_value = E("MGSIZE", "0.16") if METAAL else E("GSIZE", "0.08"); tg.inputs["Smooth"].default_value = 0.0
+            g_ = E("MGKLEUR", "1.6") if METAAL else E("GKLEUR", "0.45"); tg.inputs["Color"].default_value = (g_, g_ * 0.97, g_ * 0.9, 1)
             a2 = nt.nodes.new("ShaderNodeAddShader")
             nt.links.new(add.outputs[0], a2.inputs[0]); nt.links.new(tg.outputs[0], a2.inputs[1]); laatst = a2
         nt.links.new(laatst.outputs[0], uitn.inputs["Surface"])
@@ -496,6 +516,8 @@ if os.environ.get("HV2_LIJN", "0") == "1":
     ls.select_by_collection = True; ls.collection = geen; ls.collection_negation = "EXCLUSIVE"
     if ls.linestyle is None: ls.linestyle = bpy.data.linestyles.new("inkt")
     ls.linestyle.color = (0.16, 0.07, 0.05); ls.linestyle.thickness = 1.0; ls.linestyle.alpha = 0.85
+    if os.environ.get("HV2_V7", "0") == "1":   # v7 (Daan #275 M3): dikker en donkerder, zichtbaar op 460
+        ls.linestyle.color = (0.09, 0.035, 0.025); ls.linestyle.alpha = 1.0
 sc.render.image_settings.file_format = "PNG"; sc.render.image_settings.color_mode = "RGBA"; sc.render.filepath = uit
 bpy.ops.render.render(write_still=True)
 print("klaar", uit)
