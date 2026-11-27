@@ -67,3 +67,4 @@ Schakelaar `HV2_V7=1` in `header_v2.py` en `V7=1` in `samenstellen.py` (standaar
 - Maken: `HV2_V7=1 HV2_MGRIJS=0.12 HV2_MGSIZE=0.12 HV2_TOON=1 HV2_LIJN=1 HV2_TZON=4.2 HV2_LIJNDIK=4.6 HV2_SCHADUW=0.5 HV2_STR=0.85 HV2_STG=0.72 <venv>/bin/python header_v2.py r.png 1840 860 28`, dan `V7=1 python3 samenstellen.py r.png header-v7-920x430.png`.
 - Bekeken met Read op 920, 460 en 2x (`rechts-v7-2x.png`). Voor en na: `voor-na.png` (v6 boven, v7 onder).
 - Blinde test: set `hats-header-v2.json` heeft nu v6 en v7 als kandidaten.
+- Twee runs (14:58 en 15:08 NL) gaven geen uitslag: Gemini HTTP 503 (druk), daarna HTTP 429 gratis daglimiet op (GEZIEN in het log van run 46013097424). Nakeuring Daan gevraagd: #281.
