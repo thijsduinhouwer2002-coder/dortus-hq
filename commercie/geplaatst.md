@@ -84,3 +84,10 @@ Elke plaatsing (datum, kanaal, link) en elke ronde zonder plaatsing, één regel
 - Superhive Pro (#38, Daan ja #184, blinde test GESLAAGD 1,0): hoofdbeeld vervangen door `ontwerp/pro-hoofdbeeld-mens/beelden/mens-knie-r6-2400x1200.jpg` (GEZIEN, og:image live). De robot blijft het hoofdbeeld op Gumroad.
 - Gumroad Pro (#161 en #178, Daan ja): titel met "Articulated", versieblok 1.2.8 met "What's new in 1.2.8" onder "Try it free first", regel "1.2.8 is a free update", categorie 3D > 3D Assets > Blender, 9 tags (articulated figure, poseable figure, action figure, ball joint, hinge joint, 3d print joints, 3d printing, blender addon, rig to 3d print) (GEZIEN, curl). Gumroad vroeg kopers te mailen over de wijziging: niet gedaan.
 - Niet gedaan vanavond: gratis 0.1.2 naar extensions.blender.org, tags van de gratis Gumroad-pagina, eigen mensen deel 1 tot 3, README, Click Cuts indienen (zip-tag werd mij geweigerd; Thijs kan de workflow click-cuts-uitgave starten met run_id 45810355179, vóór zo 29 nov 12:27).
+
+## 27 nov 2026 ochtend, sale (hoofdchat)
+- sale-controle.sh 08:50: CYBER25 werkt via de salelink (25%, $14,25), vanzelf toepassen staat UIT (gewone pagina null), dus saleregel A (GEZIEN).
+- Gumroad Pro: saleregel A bovenaan ("Cyber Week sale: 25% off with code CYBER25 ..."), alinea "After you buy" (#178, Daan ja #226) boven "Already bought Pro?", sale-cover robot met -25%-sticker vooraan (GEZIEN, curl: eerste cover is de stickerversie). Gumroad vroeg kopers te mailen: niet gedaan.
+- Superhive: wij doen mee aan sitewide sales (Marketing Preferences aan), Cyber Sale 2026 35% staat als "upcoming" (27 nov tot 2 dec) maar was om 09:00 NL nog niet actief: pagina toont $12 (GEZIEN). Superhive-regel nog niet geplakt; opnieuw kijken vanmiddag.
+- Gumroad-mail 1 aan gratis gebruikers niet verstuurd: Gumroad telt 0 mensen in dat publiek (de gratis versie komt via Blender Extensions, niet via Gumroad) (GEZIEN).
+- Sale-Shorts (#75): niet geplaatst; versie 7 (#159) wacht op keuring en de blinde test.
