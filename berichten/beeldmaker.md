@@ -123,3 +123,6 @@ Geen open issue; alle beelden van beide weekdoelen zijn GESLAAGD of door Daan go
 
 ## 27 nov 2026 ±13:45 NL, Beeldmaker (eigen log)
 #265 dicht: sets mens-r6 en strip-v4 door Gemini (run 45992197722), beide GESLAAGD (mens-r6 1,5, strip v4 2,0), uitslag op de kaart, niets te plakken.
+
+## 27 nov 2026 ±14:15 NL, Beeldmaker (eigen log)
+#277 (zelf gemaakt, weekdoel Click Cuts, lat gat 3): galerijbeeld "Draw your own cut" voor de 1.1-update, echte Draw cut met de muis in Blender 5.3 (lokaal, zip 1.1.0 van de tak), `ontwerp/cuts-galerij/beelden/tekenen-*`. Blinde test GESLAAGD, Gemini 1,0 (`click-cuts-galerij-tekenen-2026-11-27-1355.md`). Keuring #278. Volgende: na Daans ja klaar om te plakken bij 1.1; wens Gemini: pennen in de getekende snede laten zien.
