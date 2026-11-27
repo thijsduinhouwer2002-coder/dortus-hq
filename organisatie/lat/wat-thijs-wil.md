@@ -55,3 +55,6 @@ Dit zijn dingen die Thijs vaak heeft moeten herhalen. Elke nieuwe correctie van 
 
 ## Filmpjes: beweging vanaf het eerste beeld (Thijs 26 nov 08:48)
 Over de sale-Shorts: "opzich prima", maar te veel stilstaand beeld. Meer beweging, en geen thumbnail of mooi eindbeeld vooraan: meteen in Blender zelf beginnen, met iets wat beweegt. De maat blijven de filmpjes die hij stuurde (@malikose.studio).
+
+## Altijd de links erbij (Thijs 27 nov 2026 09:50)
+"geef alle linken altijd". Elke keer dat we Thijs iets vragen of melden: de directe link erbij (naar de pagina, de instelling, het bestand op GitHub, de bron). Ook in berichten van agents aan de hoofdchat die naar Thijs gaan.
