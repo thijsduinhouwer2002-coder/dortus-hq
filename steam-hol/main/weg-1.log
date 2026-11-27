@@ -1,25 +1,25 @@
-HOL balk gestart, pid 7312, hoogte 120
-HOL weg geweest 28802 s (klok terug: false): goud voor 29, helden 115, erbij 553, hoeden 34
-HOL weg faam afgekapt 4 van 73 (hooguit 2 niveaus)
+HOL balk gestart, pid 7220, hoogte 120
+HOL weg geweest 28802 s (klok terug: false): goud voor 29, helden 115, erbij 535, hoeden 42
+HOL weg faam afgekapt 4 van 70 (hooguit 2 niveaus)
 HOL hol-niveau 2 (faam 5, t 0.0)
 HOL hol-niveau 3 (faam 5, t 0.0)
-HOL hoeden van de nacht 34 (vallen vanaf 1.0 s, toren nu 0)
+HOL hoeden van de nacht 42 (vallen vanaf 1.0 s, toren nu 0)
 HOL berg zichtbaar 0 -> 6
-HOL kroniek 0.0 (wacht 0.0): 115 came, 73 fell, 34 hats. +553 gold.
+HOL kroniek 0.0 (wacht 0.0): 115 came, 70 fell, 42 hats. +535 gold.
 HOL optocht wip, geen poef; helden [3]; duur 0.0 s
-HOL opslag geladen: 0 terugkomers, 582 goud, faam 5
+HOL opslag geladen: 0 terugkomers, 564 goud, faam 5
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795781541
+HOL zaad 1795783794
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 582)
-HOL eerste koop mogelijk na 15 s speeltijd (goud 582)
+HOL gloop ring aan na 0.1 s (goud 564)
+HOL eerste koop mogelijk na 15 s speeltijd (goud 564)
 HOL bordje wip na weg (niveau 3)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vluchten (Henk)
-HOL held binnen: Henk
+HOL begin: vluchten (Anouk)
+HOL held binnen: Anouk
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Henk knocks first. Polite.
+HOL kroniek 2.6 (wacht 0.5): Anouk brought a torch. And hope.
 HOL meting t=10 beelden=100 helden=1 hol_vast=12
-HOL leven stofje t=13.7 x=72 y=26
-HOL einde na 15 s, fps=10, goud=582, terugkomers=0
+HOL leven mot t=10.4 x=72 y=26
+HOL einde na 15 s, fps=10, goud=564, terugkomers=0
