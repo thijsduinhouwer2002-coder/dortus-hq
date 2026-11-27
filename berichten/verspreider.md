@@ -157,3 +157,6 @@ A gedaan als controle zonder nieuwe tekst (zie LOG). Gratis Gumroad-pagina lezen
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 44)
 B gedaan als controle zonder nieuwe mail (zie LOG). De Printables-strip staat na 4 dagen op 0 downloads: niet meer elke run meten. Volgende run: C volgens rooster; tot zo 29 nov (Click Cuts live) alleen meten, tenzij er een issue met label verspreider of een foto van een koper is.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 45)
+C gedaan als meting zonder nieuwe tekst (zie LOG). Volgende run: A volgens rooster; tot zo 29 nov (Click Cuts live) alleen meten, tenzij er een issue met label verspreider of een foto van een koper is.
