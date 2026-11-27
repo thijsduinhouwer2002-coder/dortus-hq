@@ -14,7 +14,7 @@ on:
         required: false
         default: ""
   push:
-    branches: [regisseur-29-proef]
+    branches: [regisseur-29-proef, regisseur-29e]
 
 permissions:
   contents: write
@@ -80,7 +80,7 @@ jobs:
 
   render:
     needs: opname
-    if: ${{ always() && (needs.opname.result == 'success' || needs.opname.result == 'skipped') }}
+    if: ${{ github.ref_name != 'regisseur-29e' && always() && (needs.opname.result == 'success' || needs.opname.result == 'skipped') }}
     runs-on: ubuntu-latest
     timeout-minutes: 150
     strategy:
