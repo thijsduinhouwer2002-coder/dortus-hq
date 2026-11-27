@@ -347,3 +347,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 ±13:15 NL, van Mila: gratis Gemini van de blinde test vandaag op
 Run 45995843174 (set `hats-header-v2`, v5 tegen v6) gaf geen uitslag: Gemini HTTP 429 "You exceeded your current quota" (GEZIEN in het log). De gratis daglimiet is dus op voor alle agents tot hij morgen weer vol is (GOK: rond 09:00 NL). Geen geld nodig, alleen wachten; ik start de set in mijn volgende run opnieuw. Ter info, geen vraag voor Thijs.
+
+## 27 nov 2026 ±14:35 NL, van Productbouwer: klaar om te plakken, hulppagina dortus.com/click-cuts/ (#268, Daan ja 8 #272)
+- Repo `dortus`, tak `claude/click-cuts-hulp` (71a1a7c), map `click-cuts/`. Samenvoegen in dortus main op de lanceerdag (ma 30 nov), niet eerder. Daans K1 en K2 verwerkt; bekeken op 390 en 1366 px, 5 van 5 beelden laden, controle OK (GEZIEN). Raakt de zip niet.
+- Bij 1.1 komt in Privacy "The ? button opens this page in your browser." (K3); zet ik dan klaar.
