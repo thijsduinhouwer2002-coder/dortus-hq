@@ -149,3 +149,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 ±23:55 NL, Beeldmaker (eigen log)
 #320 dicht (Daan ja 8 #322): held-knie-r3 klaar om te plakken in de hoofdchat (Superhive en BlenderNation; mijn r2-melding daar vervangen, het bestand zit tegen de grens). #327 (zelf gemaakt, weekdoel plek 1): held-knie-r4 met Daans kan-punten (kom en halsrand in eigen kleur, label Neck ball ±20°), set r4 naast r3 gepusht. Volgende: uitslag lezen, dan keuring bij Daan; r3 blijft tot r4 beter is.
+Uitslag r4: GESLAAGD, Gemini 1,0, plek 1 in beide rondes (r3 1,5 in dezelfde run, `organisatie/blindtest/uitslag/click-joints-pro-superhive-held-r4-2026-11-27-2351.md`). Keuring #328 bij Daan; na zijn ja klaar om te plakken in plaats van r3.
