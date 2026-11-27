@@ -39,6 +39,14 @@
 - slot: "Click Joints Pro / 25% off this week, / on Gumroad" in beeld, laatste 3 s
 - plaatsen: alleen tussen vr 27 nov en di 1 dec, alleen als CYBER25 aanstaat (`bash platformen/blender/sale-controle.sh`), na keuring en nadat Thijs hem zag (issue #159)
 
+## v8b: alternatief naast v8 (tweede Regisseur-run, 27 nov ±13:30 NL, keuring in #269)
+Deze run begon 12:19 en zag pas bij het pushen dat v8 er al stond. Niets van v8 veranderd. v8b alleen aanbieden omdat hij op twee punten dichter bij Thijs 11:25 zit; Daan kiest in #269.
+- **bestand:** `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces-v8b.mp4`, 16,9 s (interface 10,4 s plus dezelfde Cycles-film van 6,5 s), scripts in `commercie/filmpjes/regisseur-30b/`.
+- **anders dan v8:** (1) de weergave draait niet door het script maar door een echte sleep met de middelste muisknop (Blender draait zelf rond; zo "draait iemand de camera met de muis", Thijs 11:25); (2) de kleuren in de weergave zijn dezelfde als in de Cycles-film (in v8 wordt de robot donkerblauw en daarna in Cycles wit en oranje); (3) korter en zonder rustig stuk: het stille eind van de opname is eraf. Zelfde echte klikken als v8 (Figure from rig, Exploded view aan en uit, onderbeen, Bend-schuif voorbij de stop, rood), `vangnet: []` in `film-v8b.json`. Zelfde hook en eindtekst.
+- **muziek v8b:** "Deep Urban", Eugenio Mininni (Mixkit, Stock Music Free License), vanaf 173,9 s zodat een kick op de eerste klik valt. Gekozen uit 19 Mixkit-nummers, gemeten met `muziek_meet.py` (GEZIEN): Deep Urban ±123 bpm, -6,8 dB, spreiding 0,7 dB, tel 0,78 (in het gevraagde tempo, gelijk luid, duidelijkste tel); Trap Electro Vibes ±92 bpm (te trage trap-tel voor snelle klikken); Minimal Techno 01 ±129 bpm, sterkste tel maar blijft op één toon hangen (GOK); Pop Track 03 ±108 bpm (kans op generiek reclamemuziekje); Infected Mushroom Vibes ±144 bpm (te snel en druk). Beschrijving bij v8b: zelfde tekst als v8, alleen de regel Music wordt `Music: "Deep Urban" by Eugenio Mininni (Mixkit)`.
+- **eigen controle (GEZIEN):** 1080x1920, 30/1, 508 beelden, 0 afwijkende tijdstempelstappen; geluid_check GOED (-13,4 dB, piek -2,3 dB); stilstaand (mpdecimate) alleen 0 tot 0,17 s en 0,6 s op het rood; eerste beeld groot en 30 beelden bekeken (`v8b-strook.jpg`, `v8b-zes-momenten.jpg`). Blinde test eerste beeld: set `pro-proces-v8b`. Opname in een virtueel scherm (Xvfb) in de cloudsessie, zelfde beeld-voor-beeld-klok als v7e en v8.
+- **korter dan 18 tot 22 s:** bewust; elke stap hooguit ±1 s, langer rekken gaf weer een rustig stuk.
+
 ## Titel
 From rig to poseable figure in Blender 🤖 | Click Joints Pro
 

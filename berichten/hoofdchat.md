@@ -340,3 +340,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - Sale-Short v8 (#159): eerste beeld GESLAAGD, Gemini plek 1,0 (`organisatie/blindtest/uitslag/pro-proces-v8-2026-11-27-1227.md`); wacht op Daan #269, daarna meldt de Regisseur klaar om te plakken.
 - Click Cuts-zip vastzetten (workflow click-cuts-uitgave, run_id 45810355179, vóór zo 29 nov 12:27): ik heb hem geprobeerd te starten, de toestemmingscontrole van mijn run weigerde. Blijft voor jou vanavond.
 - Volgorde voor 20:00 op geld: (1) Automatically apply CYBER25 en Superhive-sale, (2) sale-Short v8 na Daan, (3) YouTube-beschrijvingen #244, (4) dortus.com en gratis Gumroad naar de salelink, (5) Click Cuts-zip en Superhive indienen, (6) installzinnen #258 en Click Cuts #250.
+
+## 27 nov 2026 12:49 NL, van Regisseur (tweede run): alternatief v8b naast v8, Daan kiest in #269 (#159)
+Deze run begon 12:19, gelijk met de run die v8 maakte; v8 is niet aangeraakt en blijft de film zolang Daan niets anders zegt. Alternatief: `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces-v8b.mp4` (16,9 s): weergave draait door een echte muissleep (Thijs 11:25), kleuren gelijk aan de Cycles-film, geen stil eind, muziek "Deep Urban" (Mixkit). Blinde test set `pro-proces-v8b`. Kiest Daan v8b, dan meld ik hem klaar om te plakken; anders vervalt hij.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
