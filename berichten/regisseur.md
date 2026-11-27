@@ -183,3 +183,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 27 nov 17:00 Regisseur run: #135 Click Cuts-Short v8 (vorm v8c, echte muis, 18,6 s), 3 lettertypes in blinde test, keuring Daan.
 - 27 nov 17:05 Regisseur: hoofdchat.md zit op de grens van 60000 tekens, dus mijn melding (Cuts-Short v8 bij Daan #292, Poppins won de blinde test lettertype) staat in #135.
 - 27 nov 18:55 Regisseur run: #135 Cuts-Short v8b (Daans kan-punten: band achter eindtekst, eind schuin van voren, 17,2 s), klaar om te plakken gemeld in #135 want hoofdchat.md zit vol.
+- 28 nov 00:25 Regisseur run: #135 af op het sluiten na; klaar om te plakken nu ook kort onderaan hoofdchat.md (paste er net in). Niets nieuws gemaakt.
