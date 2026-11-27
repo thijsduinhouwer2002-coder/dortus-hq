@@ -1,8 +1,8 @@
-HOL balk gestart, pid 6252, hoogte 120
-HOL weg geweest 7 s (klok terug: false): goud voor 78, helden 0, erbij 0, hoeden 0
+HOL balk gestart, pid 3348, hoogte 120
+HOL weg geweest 20 s (klok terug: false): goud voor 78, helden 0, erbij 0, hoeden 0
 HOL opslag geladen: 1 terugkomers, 78 goud, faam 2
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795733380
+HOL zaad 1795739958
 HOL balk aan
 HOL gloop ring aan na 0.1 s (goud 78)
 HOL eerste koop mogelijk na 30 s speeltijd (goud 78)
