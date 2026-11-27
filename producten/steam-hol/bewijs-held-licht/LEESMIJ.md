@@ -1,0 +1,33 @@
+# Licht randje om een held op donkere steen (Olaf, 27 nov ±10:15 NL, issue #256)
+
+**Waarom:** Iris (keuring 1b0e933, punt 2 voor een 9, ook al bij deea47d): een held met donker pak zakt weg in de blauwgrijze stenen in het midden. De donkere rand van #242 helpt daar niet: donker op donker. Thijs zei 24 nov zelf dat helden niet opvallen. Rusty's Retirement (lat `organisatie/lat/hats.md`): figuren staan altijd los van de achtergrond.
+
+**Stand: staat standaard UIT** (aan met startargument `licht=1`), omdat het nu +7 procent CPU kost en de eis hooguit +2 is (zie CPU). De speler ziet dus nog niets; het werk staat klaar om aan te zetten zodra de kosten gevonden zijn.
+
+**Wat de speler ziet als het aan staat** (`godot/systemen/held_licht.gd`, aangeroepen uit `held_rand.gd`):
+- Buiten de donkere rand een warm licht randje van 1 spelpx (kleur als het fakkellicht), hard op hele pixels (nearest), dekking 0,5. Volgorde van buiten naar binnen: licht, donker, lijf.
+- Alleen waar het nodig is: voor koel blauwgrijs vol, voor rode baksteen half, voor oker leem niets. In het fakkellicht en bij de schat gaat het uit (lichtkaart), daar staat de donkere rand al goed.
+- Komt en gaat zacht over 0,4 s, dus het knipt niet als een held van de ene steen naar de andere loopt. Ook om de hoed. Niets nieuws dat beweegt, geen tekst.
+- Uit voor vergelijken: `uit3d=licht`. Voor dit bewijs: `licht_wissel=1` zet het om het andere beeld aan en uit (zelfde held, 0,2 s uit elkaar).
+
+**Beelden** (GEZIEN, Godot 4.3 Linux onder Xvfb, `--write-movie --fixed-fps 5`, `hoogte=120 vers=1 zaad=7 uitleg_klik=6 koper=1 koper_wacht=8 balk=0 duur=540 licht_wissel=1`; per paar is het ene beeld met en het volgende zonder randje):
+- `paren-boven-met-onder-zonder-1x.png` en `-2x.png`: drie helden op blauwgrijze steen, telkens boven met, onder zonder.
+- `links-met-rechts-zonder-4x.png`: drie keer dezelfde held van dichtbij. Onderste rij (tovenaar in het fakkellicht, uit de eerste film met de zachte versie): geen randje, zoals bedoeld.
+- `blind-a-1x.png` (met) en `blind-b-1x.png` (zonder): wat blinde lezer 2 kreeg.
+
+**Blinde lezers** (agents zonder code of uitleg, twee beelden op 1x, GEZIEN):
+| | eerste versie (zacht, dekking 0,6, 4 + 4 tekenbeurten) | deze versie (hard, 0,5) |
+|---|---|---|
+| hoe snel zie je het hele lijf, met randje | 4 | 4 |
+| zonder randje | 2 ("broek en benen gaan op in de donkere stenen") | 3 ("romp en benen gaan op in de donkere onderste rij") |
+| best los van de wand | met | met |
+| wat stoort | "dik en wazig, meer gloed dan een pixelrand, een beetje opgeplakt" | "leest een beetje als een gloed of sticker, niet lelijk wel merkbaar" |
+Eerlijk: beide lezers vinden de held met randje beter te zien, en beide vinden hem iets opgeplakt. Lezer 2 stelt een dunnere of donkerdere rand voor.
+
+**CPU** (GEZIEN, echt spel 120 s, `zaad=5`, onder Xvfb met software-OpenGL, CPU-tijd van Godot plus Xvfb, met tegen `uit3d=licht`):
+- Eerste versie (4 + 4 tekenbeurten): met 17,90 / 18,20 / 18,35 / 18,43, zonder 15,72 / 16,21 / 17,90 / 15,99; +10,7 procent.
+- Deze versie (1 + 1 tekenbeurt, ring per blad één keer gemaakt): met 17,97 / 17,60 / 18,38, zonder 16,51 / 16,23 / 17,65; +7,0 procent.
+- Een paar in omgekeerde volgorde (zonder eerst) liep niet meer in deze run.
+- **Boven de eis van 2 procent.** Minder tekenbeurten maakte het nauwelijks goedkoper, dus het zit niet in het tekenen. Nog te zoeken (volgende run): meten met een wissel binnen één run (les uit `platformen/steam/balans.md`: een los paar kan veel schelen), en per stuk uitzetten (meten van de plek, de meta op de held, het tekenen).
+
+**Toetsen:** 11 x 0 FOUT op Linux. `toets_rand.gd` toetst nu ook: 2 spelpx naar buiten, vol voor blauwgrijs, niets voor leem, uit in vol licht, vol in de donkere gang, geen randje zonder hol.

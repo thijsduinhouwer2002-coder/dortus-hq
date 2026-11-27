@@ -300,8 +300,10 @@ static func _teken_3d(h, staat: String, frame: int, zak: int, hop: int, vb: Dict
 	var doel := Rect2(x, y, cw / px, zicht)
 	var bron := Rect2(i * cw, 0, cw, zicht * px)
 	if RAND.is_aan():   # rand eerst, om lijf en hoed samen, zodat de hoedrand niet over het lijf valt (#242)
+		RAND.rand_lijf(h, ct, doel, bron, -1.0 if staat == "vluchten" else 1.0, 1.0, true)   # eerst licht buitenom (#256)
+		_teken_hoed_3d(h, info, i, x + float(info["anker_x"]) / px, y, staat, vb, kleur, 2)
 		RAND.rand_lijf(h, ct, doel, bron, -1.0 if staat == "vluchten" else 1.0)
-		_teken_hoed_3d(h, info, i, x + float(info["anker_x"]) / px, y, staat, vb, kleur, true)
+		_teken_hoed_3d(h, info, i, x + float(info["anker_x"]) / px, y, staat, vb, kleur, 1)
 		h.draw_set_transform(Vector2.ZERO, 0, Vector2(-1.0 if staat == "vluchten" else 1.0, 1))
 	h.draw_texture_rect_region(ct, doel, bron, kleur)
 	var tops: Array = info.get("top", [])
@@ -316,7 +318,7 @@ static func hoed_plek_3d(info: Dictionary, i: int, kx: float, ky: float, _hi: Di
 	var k: Array = kr[i] if i < kr.size() else [0.0, float(info.get("top", [0])[0])]
 	return Vector2(kx + float(k[0]), ky + float(k[1]) + HOED_IN_KOP)   # waar het nulpunt van de hoed komt
 
-static func _teken_hoed_3d(h, info: Dictionary, i: int, kx: float, ky: float, staat: String, vb: Dictionary, kleur: Color, rand := false) -> int:
+static func _teken_hoed_3d(h, info: Dictionary, i: int, kx: float, ky: float, staat: String, vb: Dictionary, kleur: Color, rand := 0) -> int:
 	if not held3d.has(HOEDEN3D) or not info.has("kruin"):
 		return 9999
 	var ct: CanvasTexture = held3d[HOEDEN3D][0]
@@ -352,8 +354,8 @@ static func _teken_hoed_3d(h, info: Dictionary, i: int, kx: float, ky: float, st
 	else:
 		plek = hoed_plek_3d(info, i, kx, ky, hi)
 	var sx := -1.0 if staat == "vluchten" else 1.0       # het lijf is dan gespiegeld (teken), de hoed dus ook
-	if rand:   # alleen de rand (#242), het lijf komt er daarna overheen
-		RAND.rand_hoed(h, ct, Vector2(plek.x * sx, plek.y), draai * sx, Vector2(sx * f, f), Rect2(-ax, -ny, cw / px, ch / px), Rect2(nr * cw, 0, cw, ch), alfa)
+	if rand > 0:   # alleen de rand (#242; 2 = lichte buitenrand #256), het lijf komt er daarna overheen
+		RAND.rand_hoed(h, ct, Vector2(plek.x * sx, plek.y), draai * sx, Vector2(sx * f, f), Rect2(-ax, -ny, cw / px, ch / px), Rect2(nr * cw, 0, cw, ch), alfa, rand == 2)
 		h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
 		return 9999
 	h.draw_set_transform(Vector2(plek.x * sx, plek.y), draai * sx, Vector2(sx * f, f))

@@ -8,6 +8,7 @@ extends RefCounted
 # 3. Witte flits op de held die valt (Mila #43, Daan #45), sinds #242 ook hier.
 # Uit voor vergelijken: startargument uit3d=rand (zelfde build, voor en na naast elkaar).
 
+const LICHTR := preload("res://systemen/held_licht.gd")   # lichte buitenrand op donkere steen (#256)
 const RAND_KLEUR := Color(0x1a / 255.0, 0x10 / 255.0, 0x08 / 255.0, 0.85)
 const RAND_PX := 1.0
 const RICHTING := [Vector2(-1, 0), Vector2(1, 0), Vector2(0, -1), Vector2(0, 1)]
@@ -66,9 +67,15 @@ static func silhouet(ct: CanvasTexture) -> CanvasTexture:
 	return s
 
 # De rand van het lijf: silhouet 4 keer, 1 spelpx naar elke kant. sx = -1 als het lijf gespiegeld staat.
-static func rand_lijf(h, ct: CanvasTexture, doel: Rect2, bron: Rect2, sx: float, alfa := 1.0) -> void:
+static func rand_lijf(h, ct: CanvasTexture, doel: Rect2, bron: Rect2, sx: float, alfa := 1.0, licht := false) -> void:
 	var s := silhouet(ct)
 	if s == null:
+		return
+	if licht:
+		var ls := LICHTR.sterkte(h)
+		if ls > 0.01:
+			LICHTR.rand_lijf(h, s, doel, bron, sx, ls, alfa)
+			h.draw_set_transform(Vector2.ZERO, 0, Vector2(sx, 1))
 		return
 	var c := Color(RAND_KLEUR.r, RAND_KLEUR.g, RAND_KLEUR.b, RAND_KLEUR.a * alfa)
 	for r in RICHTING:
@@ -77,9 +84,14 @@ static func rand_lijf(h, ct: CanvasTexture, doel: Rect2, bron: Rect2, sx: float,
 	h.draw_set_transform(Vector2.ZERO, 0, Vector2(sx, 1))
 
 # Rand van de hoed: zelfde transform als de hoed, verschoven in schermrichting (dus altijd 1 spelpx, ook bij draaien).
-static func rand_hoed(h, ct: CanvasTexture, plek: Vector2, draai: float, schaal: Vector2, doel: Rect2, bron: Rect2, alfa: float) -> void:
+static func rand_hoed(h, ct: CanvasTexture, plek: Vector2, draai: float, schaal: Vector2, doel: Rect2, bron: Rect2, alfa: float, licht := false) -> void:
 	var s := silhouet(ct)
 	if s == null:
+		return
+	if licht:
+		var ls := LICHTR.sterkte(h)
+		if ls > 0.01:
+			LICHTR.rand_hoed(h, s, plek, draai, schaal, doel, bron, ls, alfa)
 		return
 	var c := Color(RAND_KLEUR.r, RAND_KLEUR.g, RAND_KLEUR.b, RAND_KLEUR.a * alfa)
 	for r in RICHTING:

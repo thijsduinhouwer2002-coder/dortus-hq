@@ -17,6 +17,7 @@ func _init() -> void:
 	kleur()
 	silhouetten()
 	schaduw()
+	licht()
 	print("[rand-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
 
@@ -80,3 +81,33 @@ func schaduw() -> void:
 	var midden := img.get_pixel(img.get_width() / 2, img.get_height() / 2).a
 	var hoek := img.get_pixel(0, 0).a
 	ok(midden > 0.9 and hoek == 0.0, "vlek: midden vol (%.2f), hoek leeg (%.2f): ovaal met zachte rand" % [midden, hoek])
+
+# Lichte buitenrand op donkere steen (#256, systemen/held_licht.gd)
+func licht() -> void:
+	var L := preload("res://systemen/held_licht.gd")
+	var M := preload("res://hol/metsel.gd")
+	ok(L.PX == 2.0 and L.DEKKING > 0.0 and L.DEKKING <= 0.7, "licht: 2 spelpx naar buiten (buiten de donkere rand), dekking %.2f" % L.DEKKING)
+	var koel := -1.0
+	var leem := -1.0
+	for x in range(0, 6000, 2):
+		var s0 := M.blok_soort(_blok(M, x, 0), 0)
+		var s1 := M.blok_soort(_blok(M, x, 1), 1)
+		if s0 == 1 and s1 == 1 and koel < 0.0:
+			koel = x
+		if s0 == 2 and s1 == 2 and leem < 0.0:
+			leem = x
+	ok(koel >= 0.0 and L.steen_donker(koel) == 1.0, "licht: voor koel blauwgrijs vol (x %d: %.2f)" % [koel, L.steen_donker(koel)])
+	ok(leem >= 0.0 and L.steen_donker(leem) == 0.0, "licht: voor oker leem niets (x %d)" % leem)
+	ok(L.licht_donker(Color(1, 0.98, 0.93)) == 0.0, "licht: in vol fakkellicht uit")
+	ok(L.licht_donker(Color(0.62, 0.69, 0.68)) == 1.0, "licht: in de donkere gang vol")
+	var nep := Node2D.new()
+	ok(L.doel(nep) == 0.0, "licht: zonder hol geen rand")
+	nep.free()
+
+func _blok(M, x: float, r: int) -> int:
+	var n := int(floor((x - (M.BLOK_B / 2) * r) / M.BLOK_B))
+	while M.blok_rand(n, r) > x:
+		n -= 1
+	while M.blok_rand(n + 1, r) <= x:
+		n += 1
+	return n
