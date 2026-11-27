@@ -184,3 +184,6 @@ A gedaan: Click Cuts live (vr 27 nov ±15:00), lanceerlinks ingevuld en Katsby e
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 53)
 B gedaan: twee mails voor Click Cuts (Clever Creations, Artisans of Vaul), keuring Daan #293 (zie LOG). YouTube-watchpagina's geven curl een doorverwijzing (302, 437 bytes): beschrijving van een video niet te lezen, titel via oEmbed, lijsten via `/@kanaal/search?query=`. Duckduckgo en Bing geven curl niets; WebSearch werkt. Volgende run: C volgens rooster; daarna bij Daans ja op #293 beide mails in de bundel van za 28 nov of de eerstvolgende.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 54)
+C gedaan: de gekeurde cross-sell (upsells en regel op de inhoudspagina's, #174) klaar gemaakt met de echte Click Cuts-link en gemeld in #295 (hoofdchat.md is vol, 59.967 tekens). Deel 3 (Superhive-alinea) pas als Click Cuts op Superhive staat. Volgende run: A volgens rooster; eerst #293 lezen (ja: beide mails naar de bundel van za 28 nov).

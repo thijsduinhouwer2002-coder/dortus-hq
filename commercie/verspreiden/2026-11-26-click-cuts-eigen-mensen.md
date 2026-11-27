@@ -2,6 +2,9 @@
 
 Door de Verspreider, do 26 nov 2026 ±12:00 NL (run 24, C). Niets geplaatst of ingesteld. Keuring: Daan (#174). Na zijn ja: klaar om te zetten door de hoofdchat **op de dag dat Click Cuts live staat** (week van 30 nov). Niets hiervan staat onder de naam van Thijs, dus geen bundel voor Thijs nodig. Geen prijsbesluit nodig: er zit geen extra korting in.
 
+**Stand vr 27 nov ±17:55 NL (Verspreider, run 54):** Click Cuts staat live (GEZIEN, curl: $19, /l/click-cuts). Deel 1 en 2 zijn nu klaar om te zetten; Daan ja 8 (#174). Alle zinnen nagekeken tegen de live pagina's: upsell A uit de Click Cuts-pagina ("parts that fit your bed, with pins, pin holes and part numbers on the cut faces", "Print the small fit test block first and you know which clearance fits your printer"), upsell B letterlijk op de Pro-pagina (GEZIEN). Alleen de links in deel 2 zijn ingevuld, verder letterlijk de gekeurde tekst. Deel 3 wacht tot Click Cuts op Superhive staat.
+
+
 ## Waarom dit nu
 Het plan zegt voor de lancering: "mail aan bestaande gebruikers (mail 3, 2 dec)" (`organisatie/plan-tot-half-december.md`, fase 2). Die mail gaat via Gumroad, en Gumroad mailt pas na $100 omzet plus een uitbetaling (DERDEN, https://gumroad.com/help/article/169-how-to-send-an-update; zelfde vondst als `2026-11-26-eigen-mensen.md`). Wij staan op 1 verkoop van Pro (GEZIEN, `2026-11-24-review-vraag-pro-koper.md`); dat we vóór 2 dec $100 plus een uitbetaling halen is onwaarschijnlijk (GOK). **Mail 3 valt dus waarschijnlijk weg.** Hieronder drie gratis routes die wel werken, zonder lijst te exporteren en zonder mail onder de naam van Thijs.
 
@@ -37,14 +40,14 @@ Elke koper en elke gratis downloader ziet deze pagina na het kopen en via "View 
 
 **Onder de bestaande tekst van Click Joints Pro (de gekeurde tekst uit `2026-11-26-eigen-mensen.md` deel 2 blijft staan):**
 ```
-New from us: Click Cuts splits a model that is too big for your printer into parts that fit your bed, with pins and part numbers. [Gumroad link Click Cuts]
+New from us: Click Cuts splits a model that is too big for your printer into parts that fit your bed, with pins and part numbers. https://duinhouwer8.gumroad.com/l/click-cuts?utm_source=gumroad&utm_medium=content&utm_campaign=pro
 ```
 
 **Onder de bestaande tekst van de gratis Click Joints (deel 3 van hetzelfde bestand blijft staan):**
 ```
-Also new from us: Click Cuts, for models that are too big for one print. It splits them into parts that fit your bed, with pins and part numbers. [Gumroad link Click Cuts]
+Also new from us: Click Cuts, for models that are too big for one print. It splits them into parts that fit your bed, with pins and part numbers. https://duinhouwer8.gumroad.com/l/click-cuts?utm_source=gumroad&utm_medium=content&utm_campaign=free
 ```
-Voorwaarde: `[Gumroad link Click Cuts]` vervangen door de echte link, pas als die werkt.
+Link ingevuld vr 27 nov ±17:55 NL (Click Cuts live, /l/click-cuts 200, GEZIEN); utm laat zien welke pagina de koper bracht.
 
 ## 3. Superhive: één zin extra in de mail van 1.2.9 (alleen als Click Cuts die dag op Superhive staat)
 De mail aan Pro-kopers bij 1.2.9 staat klaar (`2026-11-26-eigen-mensen.md` deel 4, Daan ja #143), via Superhive Email Customers, dat geen grens noemt zoals Gumroad (DERDEN, https://support.superhivemarket.com/article/199-how-to-engage-customers). Staat Click Cuts op de dag van versturen al live op Superhive, dan deze alinea erbij, direct boven "Something not working the way you hoped?":
