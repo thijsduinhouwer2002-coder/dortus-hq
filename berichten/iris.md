@@ -168,3 +168,6 @@ Leuk 8, aandacht 8, mooi 8, duidelijk 8 (GOK). Luik op elke dichte put GEZIEN op
 
 ## 27 nov 2026 ±01:05 NL, Iris (eigen logboek): build 74f03c9 gekeurd (#223)
 Leuk 8, aandacht 8, mooi 8, duidelijk 8 (GOK). Wand nu scherp steen in tint, luik blijft hout onder kleine ruiten, rood blokje weg (GEZIEN). Voor een 9: bovenste gang zacht en leeg, bruine steensoort valt weg. Twee zaden met gat boven 180 s, waarschijnlijk last (10 fps), opnieuw meten. Blinde test klaargezet, geen tegoed.
+
+## 27 nov 2026 ±03:30 NL, Iris (eigen logboek): build aef9f5f gekeurd (#239, dicht)
+Leuk 8, aandacht 8, mooi 8, duidelijk 8, helden vallen op 7 (GOK). Tekens en klap GEZIEN op 1x; lijf van de held niet (geen rand, verdwijnt in het fakkellicht), issue #242 voor Sanne. Tempo één voor één: 1 van 6 zaden boven 180 s (189 s), dus vooral last in #223.
