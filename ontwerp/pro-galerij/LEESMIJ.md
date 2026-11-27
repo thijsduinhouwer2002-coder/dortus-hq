@@ -65,3 +65,17 @@ Ronde 3 (26 nov ±20:45, Daan #207 M1 en M2, plus kan-punt kaartje): ondertitel 
 
 ## Strip v4 (issue #219, 26 nov ±21:00): `strip-v4-*`, strakke goudrand
 Daan #215 kan-punt: de oranje rand bovenop de kogelstaven was rafelig (zaagtand), want galerij.py kleurde per driehoek op hoogte en de schuine draairuimte rond de nek viel half binnen, half buiten. Nu (`GB_STRAKKE_RAND=1`, alleen kogelstaven): alles in de bovenhelft goud behalve de buitenwand (opzij gericht en op de volle straal). Zelfde camera, zelfde geometrie (json gelijk aan v3, GEZIEN), zelfde tekst en kaartje (`GB_INZET_KADER=0.755,0.09,1.0,0.92`). Render: workflow `pro-galerij-strip3.yml` ronde 3 (run 45886830491), release `pro-galerij-strip-4`. Lokaal nagemaakt v3 uit strip-3 gaf exact hetzelfde beeld als op main (verschil 0), dus de tekstlaag is gelijk. Blinde test: set `click-joints-pro-galerij-strip-v4.json` (v4 en v3).
+
+## Beeld "From your rig in one click" (`beelden/paneel-rig-*`, 27 nov ±10:15, issue #259)
+Waarom: Pro had geen galerijbeeld van het paneel; Cleave en Split 3D Print tonen hun automatische knop als eerste (lat, kop Paneel). Dit beeld toont ons sterkste punt uit 1.2.9: heeft je mesh een rig, dan staat "Rig found" met Figure from rig bovenaan. Hoort bij 1.2.9 (uitbrengen ma 30 nov), niet eerder plakken.
+
+**Schermafbeeldingen:** echte Blender 5.3.0 met interface (Xvfb 2880x1620, schaal 1.5), Pro-zip van main (`e2e/maak_zip.sh betaald`, PRO_VERSIE 1.2.9), de MakeHuman-figuur met Mixamo-rig uit de e2e (`proef_mens.py`, base.obj van github.com/makehumancommunity/makehuman, CC0 1.0, als tekenpop zoals plaatje 19). `beelden/paneel-rig-scherm-voor.jpg`: figuur met zijn botten in beeld, paneel "Rig found: mixamo_rig", Figure from rig, More bones. `beelden/paneel-rig-scherm-na.jpg`: na één druk op die echte knop, rechterknie gebogen met de eigen Bend-schuif (60). Uitslag van de add-on in `beelden/paneel-rig.json` (GEZIEN): 9 joints, 2 rig, 2 mirror, 5 preset; ellebogen 0 tot 140°, knieën 0 tot 120° (uit Limit Rotation van de rig), heupen, schouders en nek kogel ±20°. Het vergrote paneel en het kaartje zijn pixel voor pixel uit die twee schermafbeeldingen; niets nagetekend. Geen AI-beeld, geen foto van een print.
+```
+cd producten/blender-gewrichten
+PR_AFSTAND=390 PR_MIDX=10 PR_MIDZ=108 CJ_MENS_OBJ=<base.obj> xvfb-run -a -s "-screen 0 2880x1620x24" \
+  <blender 5.3.0> --factory-startup --gpu-backend opengl --python ../../ontwerp/pro-galerij/bron/paneel_rig.py -- <uit> /tmp/click_joints_betaald.zip
+cd ../../ontwerp/pro-galerij
+PR_VERGROOT=1.45 PR_PY=330 PR_KH=500 PR_KX=420 python3 bron/tekst_paneel_rig.py <uit>/rig-voor.png <uit>/rig-na.png <uit>/paneel-rig.json beelden <fonts> ../click-joints/bron/icoon.svg
+```
+Fonts: Bricolage Grotesque en Inter (OFL), variabele bestanden uit github.com/google/fonts.
+Blinde test: set `organisatie/blindtest/sets/click-joints-pro-galerij-paneel-rig.json`, tegen de paneelbeelden van Cleave (robot), CatPin (figuur, galerijbeeld 8) en Split 3D Print.
