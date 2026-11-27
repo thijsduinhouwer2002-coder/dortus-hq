@@ -25,7 +25,7 @@ Waarom: Gumroad heeft geen Docs-tab; de gids is wat Superhive-kopers als Docs-ta
 
 De laatste twee zinnen staan al letterlijk in de FAQ van Click Cuts op Gumroad (GEZIEN met curl 27 nov), dus de twee pagina's zeggen hetzelfde.
 
-**B3. Click Joints (gratis)** (https://duinhouwer8.gumroad.com/l/click-joints). Zelfde alinea als B2, helemaal onderaan de beschrijving.
+**B3. Click Joints (gratis)** (https://duinhouwer8.gumroad.com/l/click-joints-free; /l/click-joints geeft 404, verbeterd 27 nov ±20:35, #300). Zelfde alinea als B2, helemaal onderaan de beschrijving.
 
 ## C. Superhive: nog niet
 Click Joints Pro op Superhive krijgt dezelfde zin pas als Click Cuts daar goedgekeurd is (nu Pending, GEZIEN 27 nov 15:10). Nu zou de link naar een pagina wijzen die bezoekers nog niet zien, en een link van Superhive naar Gumroad leidt kopers weg van de winkel die ons daar vindt. Na goedkeuring: zin B2 met de link https://superhivemarket.com/products/click-cuts.

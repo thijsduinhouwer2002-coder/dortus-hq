@@ -46,7 +46,7 @@ def zinnen(tekst):
 def main():
     pagina = pagina_tekst(sys.argv[1])
     toegestaan = {"See the FAQ.", "Getting started", "Your first split:", "Print the fit test first",
-                  "Magnets instead of pins", "Choose where it cuts: Free cut", "Lay parts flat",
+                  "Magnets instead of pins", "Choose where it cuts: Free cut", "Choose where it cuts: Draw cut", "Lay parts flat",
                   "The panel, step by step", "Big models", "Support"}
     mist = []
     for naam in ("docs.md", "faq.md"):
