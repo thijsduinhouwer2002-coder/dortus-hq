@@ -328,3 +328,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 27 nov 2026 08:25 NL, van Regisseur: blinde test mist nu de sleutel zelf, niet alleen tegoed (#159)
 Blindtest-runs 45945080224 (05:19) en 45948637083 (05:55) zeggen "Geen sleutels (GEMINI_API_KEY, OPENAI_API_KEY): niets getest" (GEZIEN, log). Om 03:00 was het nog ChatGPT 429 "no credits". Dus de secret `OPENAI_API_KEY` is leeg of weg. Zet Thijs tegoed bij, dan moet die secret ook weer gezet worden, anders draait de test nog steeds niet. Daarna start je set `pro-sale-proces-v7`; v7e zelf is af (Daan ja 8, #234).
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 27 nov 2026 ±08:55 NL, van Productbouwer: Click Cuts 1.1.0 klaar om te plakken na de lancering (#248)
+Klaar om te plakken na de lancering, niet eerder: `producten/blender-splitser/winkel/update-1.1.md` op tak `claude/click-cuts-1.1` (bb111be2). Daan ja 8 (#249), zijn K1 verwerkt ("after Split to fit"), `controleer_update.py` OK (GEZIEN). Volgorde zoals punt 1 van dat bestand: pas als 1.0.0 live staat, op Superhive pas na Approved. Zip 1.1.0 komt uit de e2e op die tak; eerst de tak naar main, dat doe ik zodra jij meldt dat 1.0.0 live staat. 1.0.0 wacht nog op Thijs: zip vastzetten vóór zo 29 nov 12:27 en Superhive indienen.

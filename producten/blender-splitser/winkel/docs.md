@@ -11,7 +11,7 @@ Opmaak zoals de Docs-tab van Click Joints Pro: de woorden voor de dubbele punt a
 ```
 Getting started
 
-Install: in Blender 4.2 or newer, go to Edit > Preferences > Get Extensions, open the drop-down menu at the top right and choose Install from Disk. Pick click_cuts-1.0.0.zip from your download (do not unzip it). Updating later? Install the new zip the same way.
+Install: open Blender 4.2 or newer. Drag click_cuts-1.0.0.zip into the Blender window and confirm. Do not unzip it. Or go to Edit > Preferences > Get Extensions, open the drop-down menu at the top right, choose Install from Disk and pick the zip. Got a folder instead of a zip? See the FAQ. Updating later? Install the new zip the same way.
 
 Open the panel: in the 3D viewport press N and open the Click Cuts tab.
 
@@ -97,6 +97,7 @@ Questions or bugs: send a message through the store or mail thijs@dortus.com. Pl
 
 | In de tekst | Code |
 |---|---|
+| Slepen naar het Blender-venster (issue #250) | Blender 4.2 handboek: "Use the drop-down menu in the top right, or drag-and-drop an extension .zip package into Blender" (DERDEN, https://docs.blender.org/manual/en/4.2/editors/preferences/extensions.html, curl 27 nov ±08:35 NL); werkt dus vanaf onze minimumversie |
 | Blender 4.2 or newer, Install from Disk, zip niet uitpakken | `blender_manifest.toml` `blender_version_min = "4.2.0"`; zelfde installatiezin als de gekeurde Docs-tab van Pro (`platformen/blender/superhive/docs-tab-1.2.9.md`, Daan #130) |
 | `click_cuts-1.0.0.zip` | `.github/workflows/blender-splitser-e2e.yml` r. 121 en `click-cuts-uitgave.yml` r. 64; versie 1.0.0 in het manifest |
 | N, tab Click Cuts | `paneel.py` `bl_category = "Click Cuts"`, `bl_region_type = "UI"` |
