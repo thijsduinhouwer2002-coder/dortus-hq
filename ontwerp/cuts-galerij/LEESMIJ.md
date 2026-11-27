@@ -79,3 +79,14 @@ Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-magneet.json`, z
 python3 bron/tekst_magneet_m1.py beelden <fonts>
 ```
 Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-magneet-r2.json`.
+
+## Beeld "Draw your own cut" (`beelden/tekenen-*`, 27 nov ±14:10, issue #277, voor de 1.1-update)
+Waarom: alle rechters vroegen "kan ik zelf kiezen waar het snijdt" (lat gat 3); Draw cut zit in 1.1 (tak `claude/click-cuts-1.1`). Gaat pas live met de 1.1-update, niet bij 1.0.0 ("New in 1.1" staat op het beeld).
+
+**Schermafbeelding:** echte Blender 5.3.0 met interface (Xvfb, schaal 1.5), zip 1.1.0 uit tak `claude/click-cuts-1.1` op 01d157c8 (sha256 4c659ea9..., GEZIEN), het paard (Poly Haven, CC0) 520 mm hoog, echte knop Split to fit met Bambu Lab A1: 12 stukken, alle groen, 48 pennen, 0,20 mm. Dan op stuk 9 (het hoofd) de echte knop Draw cut en met de muis (xdotool) een lijn onder de kin; de add-on licht het deel dat eraf gaat wit op met de pijl "comes off" (10.429 driehoeken, geen fout; GEZIEN, `beelden/tekenen.json`, kale schermafbeelding `beelden/tekenen-scherm.jpg`). Het vergrote paneel is pixel voor pixel uit dezelfde schermafbeelding. Lokaal in de sessie gemaakt.
+```
+xvfb-run -s "-screen 0 2880x1620x24" env PN_AFSTAND=0.85 PN_DZ=170 PN_DX=60 PN_DRAAI=-28 PN_KANTEL=74 TK_STUK=9 TK_LIJN=-0.08,0.20,1.08,0.24 \
+  blender --gpu-backend opengl <start.blend zonder splash> --python bron/tekenen.py -- <click_cuts-1.1.zip> <modelmap> <uitmap>
+python3 bron/tekst_tekenen.py <uitmap>/tekenen-scherm.png <uitmap>/tekenen.json beelden <fonts> ../../producten/blender-splitser/merk/icoon.svg
+```
+Blinde test: set `organisatie/blindtest/sets/click-cuts-galerij-tekenen.json`, zelfde concurrenten als "Three steps in one tab".
