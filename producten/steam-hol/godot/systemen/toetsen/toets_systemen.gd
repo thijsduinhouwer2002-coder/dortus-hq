@@ -1178,6 +1178,10 @@ func _init() -> void:
 	tk.schaal = 2; tk.hoogte = 96.0
 	ok(tk.bord_maten().tekst == 15 and 96 - int(tk.bord_maten().onder) - tk.bord_maten().regel_h * 2 - int(tk.bord_maten().boven) >= 96 * 0.3, "bord D: op 96 letter 15 en het bord laat het gras vrij")
 	ok(TKS.regel_zicht(0.0) == 1.0 and TKS.regel_zicht(5.3) == 1.0 and TKS.regel_zicht(5.7) > 0.0 and TKS.regel_zicht(5.7) < 1.0 and TKS.regel_zicht(6.0) == 0.0 and TKS.regel_zicht(60.0) == 0.0, "bord D: regel 5,4 s vol, dan zacht weg, op 6 s weg")
+	# bord klapt in (Sanne 27 nov, Iris 1b0e933 punt 1): na de regel naar één rij, bij een nieuwe regel weer op
+	ok(TKS.open_doel(0.0) == 1.0 and TKS.open_doel(5.9) == 1.0 and TKS.open_doel(6.0) == 0.0, "bord in: open zolang de regel er is")
+	ok(is_equal_approx(TKS.open_stap(1.0, 0.0, 0.35), 0.0) and TKS.open_stap(1.0, 0.0, 0.1) > 0.0 and TKS.open_stap(0.0, 1.0, 0.25) == 1.0, "bord in: zakt in 0,35 s, rijst in 0,25 s")
+	ok(TKS.open_glad(0.0) == 0.0 and TKS.open_glad(1.0) == 1.0 and TKS.open_glad(0.5) == 0.5, "bord in: zachte kromme")
 	var rz: Array[String] = ["Kees fell in."]
 	tk.zet(rz, 5)
 	ok(tk.regel_sinds == 0.0, "bord D: nieuwe regel begint opnieuw")

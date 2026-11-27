@@ -204,3 +204,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 ±07:00 NL, logboek Sanne
 #19 d wacht op Thijs; intussen Iris punt 2 voor een 9: derde steensoort rode baksteen (`bewijs-gangsteen/v6-*`), toetsen 11 x 0 FOUT, keuring Daan #251.
+
+## 27 nov 2026 ±10:00 NL, logboek Sanne
+#19 d wacht op Thijs; intussen Iris punt 1 voor een 9: bord klapt in tot één rij als de regel weg is (`bewijs-bord-in/`), toetsen 11 x 0 FOUT, keuring Daan.

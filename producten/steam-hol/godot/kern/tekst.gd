@@ -223,12 +223,37 @@ const REGEL_WEG := 0.6   # zacht weg in de laatste 0,6 s
 var regel_sleutel := ""
 var regel_sinds := 99.0
 
+# Bord klapt in (Sanne 27 nov, Iris 1b0e933 punt 1 voor mooi 9: "lege onderste helft na de regel, het grootste lege vlak
+# in beeld"). Is de regel weg, dan zakt het bord in 0,35 s zacht naar één rij (goud en doel); komt er een nieuwe regel,
+# dan rijst het in 0,25 s weer op. Zo zie je meer hol en minder plank, en het opkomen zelf zegt: er is nieuws.
+# open = 1 bord met regel, 0 alleen de kopregel. Muis erop, telling na terugkomst of het kaartje: altijd vol.
+const IN_S := 0.35
+const UIT_S := 0.25
+var open := 1.0
+
+static func open_doel(sinds: float) -> float:
+	return 1.0 if sinds < REGEL_TIJD else 0.0
+
+static func open_stap(nu: float, doel_: float, delta: float) -> float:
+	if doel_ > nu:
+		return minf(doel_, nu + delta / UIT_S)
+	return maxf(doel_, nu - delta / IN_S)
+
+# zachte s-kromme, zodat het bord niet stoot bij begin en einde
+static func open_glad(o: float) -> float:
+	return o * o * (3.0 - 2.0 * o)
+
 func _process(delta: float) -> void:
 	var voor := regel_sinds
 	regel_sinds += delta
+	var o := open_stap(open, open_doel(regel_sinds), delta)
+	var beweegt := o != open
+	open = o
 	if voor < REGEL_TIJD + 0.05:
-		if regel_sinds >= REGEL_TIJD - REGEL_WEG:
+		if regel_sinds >= REGEL_TIJD - REGEL_WEG or beweegt:
 			queue_redraw()
+	elif beweegt:
+		queue_redraw()
 	else:
 		set_process(false)
 
@@ -372,7 +397,11 @@ func _draw() -> void:
 	var regel_h: int = M.regel_h
 	var bw := vak_breedte()
 	var x := breedte - bw - 8
-	var y0 := hoogte - int(M.onder) - regel_h * (toon.size() + 1)
+	var y0 := float(hoogte - int(M.onder) - regel_h * (toon.size() + 1))
+	if not hover and vast == "" and met_3d and toon.size() > 0:
+		# ingeklapt bord (Iris 1b0e933 punt 1): de regel-rij schuift onder de strook weg, tot op hele pixels
+		y0 += roundf(float(regel_h * toon.size()) * (1.0 - open_glad(open)))
+		zicht *= open_glad(open)
 	# paneel van paneel_links(x) tot de rechterrand, van boven de kop tot onderaan de strook
 	var links := paneel_links(x)
 	var top := y0 - int(M.boven)
