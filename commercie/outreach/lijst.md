@@ -40,5 +40,17 @@ Bewust niet: Nunn Breakable, Cleave (ook het kanaal V4SS3UR), Meshwright, BlendA
 | - | [Milad Kambari Tutorials](https://www.youtube.com/@miladkambaritutorials) | YouTube | 198K | Bespreekt Blender-add-ons, ook "Dovetail Key: Cut & Join Any Mesh for 3D Printing" (30K): past bij Click Cuts | Geen adres (B) | bewaren: Click Cuts, alleen als type B kan |
 | - | [Guide Blocks](https://www.youtube.com/@GuideBlocks-fy5rk) | YouTube | 31,2K | Dummy 13-ombouw ("Dummy 13 → Iron Spider-Man Custom") | Geen adres gezien | niet mailen: geen adres |
 | - | [Markom3D](https://www.youtube.com/@Markom3D) | YouTube | 102K | Rigging en Character Creator 4; "Auto Rig Pro Review" 77K weergaven: past bij Figure from rig, maar print niet | Geen adres; alleen YouTube-knop (B) | bewaren: alleen als Thijs type B wil |
+| 28 | [Maritdoodles](https://www.youtube.com/@maritdoodles) | YouTube | 56,6K | Art toys in Blender, video over splitsen voor printen | Kanaalbeschrijving, "Contact me at" | mail klaar, bundel twintig (#313), keuring Daan |
+| 29 | [SouthernGFX](https://www.youtube.com/@SouthernGFX) | YouTube | 60K | Nomad Sculpt-lessen | Eigen site, contactpagina | mail klaar, bundel twintig, keuring Daan |
+| 30 | [iPaintSmallThings](https://www.youtube.com/@iPaintSmallThings) | YouTube | 15,1K | Nomad en Blender, print miniaturen | Eigen site, contactpagina | mail klaar, bundel twintig, keuring Daan |
+| 31 | [Oasim Karmieh](https://www.youtube.com/@karmieh) | YouTube | 19,6K | Grote geprinte designer toys (ZBrush) | Eigen site, knop Email | mail klaar, bundel twintig, keuring Daan |
+| 32 | [Chaos Costumes](https://www.youtube.com/@ChaosCostumes) | YouTube | 17,7K | Nomad, boetseren en printen | Eigen winkel, contactpagina | mail klaar, bundel twintig, keuring Daan |
+| 33 | [permew_art](https://www.youtube.com/@Permew_art) | YouTube | 24,9K | Eigen personages als geprint beeldje (Blender) | Kanaalbeschrijving | mail klaar, bundel twintig, keuring Daan |
+| 34 | [Samum Dolls](https://www.youtube.com/@samumdolls) | YouTube | 72,6K | Geprinte BJD's | Kanaalbeschrijving, "Business:" | mail klaar, bundel twintig, keuring Daan |
+| 35 | [Figure Feedback](https://www.youtube.com/@FigureFeedback) | YouTube | 34K | Print figuren, ook Dummy 13 | Kanaalbeschrijving, "For business inquiries" | mail klaar, bundel twintig, keuring Daan |
+| 36 | [SANIX3D](https://www.youtube.com/@SANIX3D) | YouTube | 4,36K | Figuren 1/6 als STL | Kanaalbeschrijving en eigen site | mail klaar, bundel twintig, keuring Daan |
+| 37 | [BlakeMakes](https://www.youtube.com/@BlakeMakesWorld) | YouTube | 156K | Art toys thuis geprint | Kanaalbeschrijving, "Brand Partnership Inquiries" | mail klaar, bundel twintig, keuring Daan |
+| 38 | [Prusa blog](https://blog.prusa3d.com) | Blog | GOK | Blender for 3D Printing-lessen | Contactpagina, regel pers | mail klaar, bundel twintig, keuring Daan |
+| 39 | [Tom's Hardware 3D printing](https://www.tomshardware.com/3d-printing) | Nieuwssite | GOK | Schrijft over gratis printgereedschap | About us, "Send a confidential tip" | mail klaar, bundel twintig, keuring Daan |
 
 A = eigen zakelijk adres in hun beschrijving of site. B = alleen de YouTube-knop (de hoofdchat kan die na inloggen zien) of niets: alleen als de hoofdchat het adres via die knop ziet. Formulier = alleen als Thijs formulieren goed vindt (deed hij op 21 nov: ja).

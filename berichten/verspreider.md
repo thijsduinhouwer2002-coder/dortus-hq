@@ -196,3 +196,6 @@ B gedaan: CG Channel-mail voor Click Cuts, keuring Daan #308 (zie LOG). Nieuwsro
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 57)
 C gedaan: beoordelingsvraag voor de Content-tab van Click Cuts op Gumroad, keuring Daan #312 (zie LOG). #302 heeft Daans ja (8) maar Click Cuts promoten wacht op de goedkeuring van Superhive (besluit 27 nov 16:06); daarna het Reddit-antwoord melden als het ene Reddit-ding voor Thijs, op een vrije dag. berichten/hoofdchat.md staat op 59.980 tekens: meldingen voor de hoofdchat via een issue met label hoofdmanager. Volgende run: A volgens rooster; eerst #312 lezen (ja: in één issue aan de hoofdmanager melden, samen met deel 1b van za 28 nov) en #308.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 58)
+#313 (gaat voor alles): 12 mails in `commercie/outreach/bundel-2026-11-28-twintig.md`, keuring Daan (#325). Volgende run: eerst dat keurissue lezen; bij ja de opmerkingen verwerken en één regel "bundel voor Thijs" melden (hoofdchat.md is vol: via een issue met label hoofdmanager, of onderaan als er ruimte is), dan #313 sluiten met de eerlijke stand (12 van 20). Wil de hoofdchat er meer: Dummy13_Universe en toast_channel passen precies maar hebben alleen de YouTube-knop.
