@@ -165,3 +165,6 @@ Leuk 8, aandacht 8, mooi 7 dichtbij 8, duidelijk 8 (GOK). Plak weg, steen met vo
 
 ## 26 nov 2026 ±21:00 NL, Iris (eigen logboek): build 5ecaf64 gekeurd, #163 dicht
 Leuk 8, aandacht 8, mooi 8, duidelijk 8 (GOK). Luik op elke dichte put GEZIEN op 1x; wand leest als metselwerk maar zacht. Na minuut 4 hooguit 172 s zonder keuze bij 6 zaden. Blinde test klaargezet, geen tegoed (Gemini 402, ChatGPT 429).
+
+## 27 nov 2026 ±01:05 NL, Iris (eigen logboek): build 74f03c9 gekeurd (#223)
+Leuk 8, aandacht 8, mooi 8, duidelijk 8 (GOK). Wand nu scherp steen in tint, luik blijft hout onder kleine ruiten, rood blokje weg (GEZIEN). Voor een 9: bovenste gang zacht en leeg, bruine steensoort valt weg. Twee zaden met gat boven 180 s, waarschijnlijk last (10 fps), opnieuw meten. Blinde test klaargezet, geen tegoed.
