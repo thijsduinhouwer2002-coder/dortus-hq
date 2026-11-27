@@ -1,0 +1,20 @@
+{
+  "naam": "Click Cuts (paid Blender add-on that splits a model into parts that fit your 3D printer bed)",
+  "doelgroep": "People who 3D print models that are too big for their printer bed (busts, cosplay props, terrain, statues) and use Blender to prepare them, FDM or resin.",
+  "feiten": [
+    "Launched 27 Nov 2026 on Gumroad: Standard $19 (intro price until 14 Dec) and Supporter $29. Superhive listing submitted, still in review.",
+    "Split to fit: one button cuts the selected model into parts that fit the chosen printer bed, with round pins or disc magnet holes and an engraved part number on the cut faces.",
+    "Fit test: a small block with the user's own pin at four clearances; the chosen clearance is kept per printer and material.",
+    "Check per part: green (fits, watertight, enough wall around holes), orange or red with the reason. Free cut at any angle, Lay parts flat on export, export STL or 3MF in mm.",
+    "Blender 4.2 and newer. A guide page exists at dortus.com/click-cuts/.",
+    "Sales so far: 0. Reviews: 0. No free version. No video yet.",
+    "We do not own a 3D printer and have never printed a part; we never claim a print test.",
+    "Main competitors: Cleave and Split 3D Print on Superhive, SnapSplit ($20 on Superhive, also free on extensions.blender.org).",
+    "Small team, no ad budget."
+  ],
+  "paginas": [
+    "https://duinhouwer8.gumroad.com/l/click-cuts",
+    "https://dortus.com/click-cuts/",
+    "https://dortus.com/"
+  ]
+}

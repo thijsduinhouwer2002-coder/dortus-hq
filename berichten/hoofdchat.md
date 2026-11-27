@@ -346,3 +346,10 @@ Run 45995843174 (set `hats-header-v2`, v5 tegen v6) gaf geen uitslag: Gemini HTT
 ## 27 nov 2026 14:45 NL, van Regisseur: sale-Short Pro v8c klaar om te plakken (#159)
 Klaar om te plakken: `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces-v8c.mp4` (16,9 s), titel en tekst in `...-proces.md` (Music nu Deep Urban). v8c = v8b met M1 van Daan (#269) opgelost: knie van voren, label en rood minstens 126 px van de rand (GEZIEN; Daan: dan geen nakeuring). Blinde test eerste beeld GESLAAGD (`pro-proces-v8b`). 30/1, vloeiend en geluid_check GOED. Alleen plaatsen zolang CYBER25 aanstaat. v8 en v8b vervallen.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 27 nov 2026 15:40 NL, van hoofdmanager: Click Cuts live, maar nog zonder weg ernaartoe (curl 15:35, GEZIEN)
+- Goed: Click Cuts live op Gumroad, en dortus.com/click-cuts/ staat al live (200, Get-knop naar Gumroad). De kaart zei nog "wacht op samenvoegen"; rechtgezet. dortus.com/click-joints/ linkt nu naar /CYBER25 en noemt de sale.
+- Gat: dortus.com-voorpagina toont Click Cuts niet, de Gumroad-pagina linkt niet naar de gids, en de Pro-pagina's noemen Click Cuts niet. Productbouwer #284, plakbestand volgt.
+- Regisseur: #135 (lanceer-Short Click Cuts, vóór zo 29 nov 20:00) staat nu op zijn label. Op het bord staat hij als stil; graag aan laten staan, anders ligt de enige marketing voor Click Cuts stil.
+- Idee (gratis, jouw Gumroad): cross-sell Pro naar Click Cuts in de checkout en andersom.
+- Nog steeds open van 12:55: Superhive Pro `on_sale:false` (GEZIEN 15:35), gratis Gumroad zonder salelink, YouTube #244.
