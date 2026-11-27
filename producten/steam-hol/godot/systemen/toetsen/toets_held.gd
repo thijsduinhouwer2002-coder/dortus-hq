@@ -359,7 +359,7 @@ func _init() -> void:
 	for i in 90:
 		g.raak(i % 4)
 	ok(g.hoeden.size() == 100 and g.berg_maat() == 5 and g.hoed_bijnaam() == "Milliner", "100 hoeden: maat 5, Milliner")
-	# Sanne 9 nov 21:50: zesde maat breder, niet hoger dan maat 5; Olaf 27 nov (#282): maat 5 bij 90, maat 6 bij 1000
+	# Sanne 9 nov 21:50: zesde maat breder, niet hoger dan maat 5; Olaf 27 nov (#282): maat 5 bij 80, maat 6 bij 150
 	hol5.ingang_kol = 0   # linkergrens (Bram 17 nov): hier gaat het om de maten, dus ruimte genoeg links van Gloop
 	g.stap(0.01)
 	var hoogste5 := 0
@@ -367,17 +367,17 @@ func _init() -> void:
 	for b in g.berg():
 		hoogste5 = mini(hoogste5, int(b[2]) + g.HOED_ONDER[int(b[0])])   # rij, niet de soort hoed (#282)
 		links5 = mini(links5, int(b[1]))
-	ok(g.berg().size() == 21, "100 hoeden: 21 zichtbaar, de berg is vol hoog (%d)" % g.berg().size())
-	for i in 899:
+	ok(g.berg().size() == 24, "100 hoeden: 24 zichtbaar, vol hoog en al breder (%d)" % g.berg().size())
+	for i in 49:
 		g.raak(i % 10)
-	ok(g.berg_maat() == 5, "999 hoeden: nog maat 5")
+	ok(g.berg_maat() == 5, "149 hoeden: nog maat 5")
 	g.raak(9)
 	var hoogste6 := 0
 	var links6 := 0
 	for b in g.berg():
 		hoogste6 = mini(hoogste6, int(b[2]) + g.HOED_ONDER[int(b[0])])   # rij, niet de soort hoed (#282)
 		links6 = mini(links6, int(b[1]))
-	ok(g.berg_maat() == 6 and g.berg().size() == 33, "1000 hoeden: maat 6, 33 zichtbaar (%d)" % g.berg().size())
+	ok(g.berg_maat() == 6 and g.berg().size() == 33, "150 hoeden: maat 6, 33 zichtbaar (%d)" % g.berg().size())
 	ok(hoogste6 >= hoogste5 and links6 < links5, "maat 6 is breder (x %d < %d), niet hoger (y %d >= %d)" % [links6, links5, hoogste6, hoogste5])
 	# Linkergrens (Daan 17 nov 08:40 punt 3 en 09:45 moet 4): de berg komt niet over de put of de ingang links van Gloop.
 	var vrij_max: int = g.berg_max
@@ -462,7 +462,7 @@ func _init() -> void:
 	g2.zet(hol5, 8)
 	ok(g2.hoeden.is_empty(), "elke slijm zijn eigen toren")
 	g2.van_dict(d)
-	ok(g2.hoeden == g.hoeden and g2.gegeten == g.gegeten and g.gegeten >= 1000, "hoeden komen terug uit de save (%d)" % g2.hoeden.size())
+	ok(g2.hoeden == g.hoeden and g2.gegeten == g.gegeten and g.gegeten >= 150, "hoeden komen terug uit de save (%d)" % g2.hoeden.size())
 	hol5.free()
 
 	# Sanne toets 6 punt 1: moet_afgerekend. Wrok tegen de put: overleeft Gloop (kolom 6), valt in de put (kolom 9)
@@ -1495,14 +1495,14 @@ func _init() -> void:
 	var zz := []
 	for tz in [0, 4, 5, 24, 25, 44, 70, 99, 100, 299, 300, 1000, 2999, 3000, 9000]:
 		zz.append(gz.berg_zichtbaar(tz))
-	ok(zz == [0, 0, 1, 5, 6, 9, 16, 21, 21, 23, 23, 33, 33, 33, 33], "berg binnen een maat (#282): 44 -> 9, 70 -> 16, 99 -> 21 (%s)" % str(zz))
+	ok(zz == [0, 0, 1, 5, 6, 11, 18, 24, 24, 33, 33, 33, 33, 33, 33], "berg binnen een maat (#282, Daan #287): 44 -> 11, 70 -> 18, 99 -> 24, 33 vanaf 150 (%s)" % str(zz))
 	for i in 70:
 		gz.krijg_hoed(i % 10)
 	var bz: Array = gz.berg()
 	var nieuwste_ok := false
 	for e in bz:
 		nieuwste_ok = nieuwste_ok or (int(e[3]) == gz.hoeden_op_berg() - 1 and int(e[0]) == gz.hoeden[gz.hoeden_op_berg() - 1])
-	ok(bz.size() == 16 and nieuwste_ok, "berg: 16 zichtbaar, de nieuwste ligt erop (%d)" % bz.size())
+	ok(bz.size() == 18 and nieuwste_ok, "berg: 18 zichtbaar, de nieuwste ligt erop (%d)" % bz.size())
 	# Vaste plekjes (Iris keuring 20, Sanne 17 nov 08:50): hoed voor hoed van 5 tot 3200 hoeden. Elk plekje houdt zijn plaats,
 	# er komen alleen plekjes bij, per hoed verandert hooguit één plekje (daar ligt de nieuwste), en je ziet de nieuwste n.
 	gz.hoeden.clear()
@@ -1560,7 +1560,7 @@ func _init() -> void:
 	gz._pk_kaart = []
 	gz._pk_waar = {}
 	var k70b: Array = gz.berg(74)
-	ok(k70.size() == 17 and k70 == k70b and gz.berg(3199).size() == 33, "vaste plekjes: zelfde tel geeft zelfde berg, ook opnieuw gerekend zoals na laden; 33 bij 3000+")
+	ok(k70.size() == 19 and k70 == k70b and gz.berg(3199).size() == 33, "vaste plekjes: zelfde tel geeft zelfde berg, ook opnieuw gerekend zoals na laden; 33 bij 3000+")
 	var kaart_ro: Array = gz.berg_plekken(74)
 	ok(kaart_ro.is_read_only(), "vaste plekjes: de bewaarde kaart kan niemand aanpassen")
 	gz.free()

@@ -52,9 +52,10 @@ const OP_HOOFD := 4                # hooguit 4 op zijn hoofd, de rest op de hoed
 const SCHEEF := [0, 1, -1, 1]      # x-verschuiving om en om, zodat het wiebelt
 # vanaf zoveel hoeden wordt de berg een maat groter (Sanne 21:50: zesde maat bij 3000). Olaf 27 nov (#282, Iris #279 punt 2):
 # sinds ook put-hoeden op de toren komen (#86) vallen er ±84 per uur, en bleef de berg van minuut 25 tot 60 bijna gelijk
-# (6 naar 9). Nu 25 / 45 / 65 / 90: tot 25 hoeden alles gelijk, daarna elke 4 tot 5 hoeden één plekje erbij, vol (21) bij 90
-# (±minuut 63 voor een koper), breder (33) pas bij 1000.
-const BERG_MAAT := [5, 25, 45, 65, 90, 1000]
+# (6 naar 9). Nu 25 / 38 / 55 / 80 (Daan #287: 25 / 45 leest op minuut 25 tegen 35 als gelijk): tot 25 hoeden alles gelijk,
+# daarna elke 3 tot 4 hoeden één plekje erbij, vol hoog (21) bij 80 (±minuut 55 tot 65 voor een koper). Daarna breder tot 33
+# bij 150 (was 1000, Daan #287 K1: anders staat de berg na een uur stil), elke ±6 hoeden één plekje.
+const BERG_MAAT := [5, 25, 38, 55, 80, 150]
 const BERG_ZICHTBAAR := [0, 3, 6, 10, 15, 21, 33] # hoeveel hoeden je per maat op de berg ziet
 const BERG_RIJEN := 6              # maat 6 wordt breder, niet hoger dan maat 5 (Gloops plek is twee rijen, Sanne)
 # 3D-lijf (Bram 13 nov, besluit Thijs 13:35, ontwerp/steam/3d-stijl.md): gerenderd door producten/steam-hol/pijplijn/.

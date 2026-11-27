@@ -2,7 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/holbord.png.ctex"
+uid="uid://ct66no72mud5w"
+path="res://.godot/imported/holbord.png-64adf4ee2cdf344b1ef5a9aa7ae96148.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/holbord.png"
-dest_files=["res://.godot/imported/holbord.png.ctex"]
+dest_files=["res://.godot/imported/holbord.png-64adf4ee2cdf344b1ef5a9aa7ae96148.ctex"]
 
 [params]
 
