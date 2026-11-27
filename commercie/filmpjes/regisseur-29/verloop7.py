@@ -285,6 +285,56 @@ def verloop_pro():
         for m in _sb:
             m.FIGUUR_PX, m.ROOD_PX = int(m.FIGUUR_PX * 1.5), int(m.ROOD_PX * 1.5)
         log(f"KORT labels groter: {len(_sb)} module(s)")
+        # v7e (Daan #234 M1 en K1): de grotere pil "+N° past limit" schoof tegen de linkerrand (x = 2). Zelfde
+        # zoekregel als Pro (_rood_plek), maar met 56 px marge tot elke rand, en de plek die eenmaal gekozen is
+        # blijft staan zolang hij vrij is (anders sprong hij van boven het been naar onder de boog).
+        _oud_plek = [(m, m._rood_plek) for m in _sb]
+        _vast = {}
+
+        def _maak_plek(mod):
+            def plek(regio, rv3d, q, uit, delen, tekst_, px, schaal):
+                import blf
+                from bpy_extras.view3d_utils import location_3d_to_region_2d as naar2d
+                blf.size(0, px)
+                breed, hoog = blf.dimensions(0, tekst_)
+                hullen = [mod._omhulsel([naar2d(regio, rv3d, d.matrix_world @ Vector(h)) for h in d.bound_box])
+                          for d in delen]
+                rand, marge = 8.0 * schaal, 56.0
+
+                def proef(t, g):
+                    r = math.radians(g)
+                    rich = Vector((uit.x * math.cos(r) - uit.y * math.sin(r), uit.x * math.sin(r) + uit.y * math.cos(r)))
+                    m_ = q["pose_eind"] + rich * (t * schaal)
+                    x0, x1 = m_.x - breed / 2 - rand, m_.x + breed / 2 + rand
+                    y0, y1 = m_.y - hoog / 2 - rand, m_.y + hoog / 2 + rand
+                    if x0 < marge or y0 < marge or x1 > regio.width - marge or y1 > regio.height - 100.0 * schaal:
+                        return None
+                    pr = [(x, y) for x in (x0, m_.x, x1) for y in (y0, m_.y, y1)]
+                    if q["label"] is not None and (m_ - q["label"]).length < breed / 2 + 40.0 * schaal:
+                        return None
+                    if any(mod._binnen(h, x, y) for h in hullen for x, y in pr):
+                        return None
+                    if any(x0 <= hx <= x1 and y0 <= hy <= y1 for h in hullen for hx, hy in h):
+                        return None
+                    return m_
+                if "tg" in _vast:
+                    m_ = proef(*_vast["tg"])
+                    if m_ is not None:
+                        _vast["x0"] = min(_vast.get("x0", 9e9), m_.x - breed / 2)
+                        return m_, True, (breed, hoog)
+                for t in [70.0 + 30.0 * i for i in range(40)]:
+                    for g in sorted(range(-180, 180, 15), key=abs):
+                        m_ = proef(t, g)
+                        if m_ is not None:
+                            _vast["tg"] = (t, g)
+                            _vast["wissel"] = _vast.get("wissel", 0) + 1
+                            _vast["x0"] = min(_vast.get("x0", 9e9), m_.x - breed / 2)
+                            return m_, True, (breed, hoog)
+                return mod.__dict__["_rood_plek_oud"](regio, rv3d, q, uit, delen, tekst_, px, schaal)
+            return plek
+        for m, f in _oud_plek:
+            m._rood_plek_oud = f
+            m._rood_plek = _maak_plek(m)
         yield from tot(2.5)
         yield from doe_tot(3.6, lambda t: buig(b, s * zacht(t)))
         yield from tot(3.9)
@@ -298,6 +348,11 @@ def verloop_pro():
         buig(b, 0.0)
         for m, f_, r_ in _oud:
             m.FIGUUR_PX, m.ROOD_PX = f_, r_
+        for m, f in _oud_plek:
+            m._rood_plek = f
+        film["metingen"]["pil_plekken"] = _vast.get("wissel", 0)
+        film["metingen"]["pil_min_x_tekst"] = round(_vast.get("x0", -1), 1)
+        log(f"KORT pil plekken {_vast.get('wissel', 0)} min x {_vast.get('x0', -1)}")
     else:
         log("KORT FOUT knie: geen linkerknie")
     geen_selectie()

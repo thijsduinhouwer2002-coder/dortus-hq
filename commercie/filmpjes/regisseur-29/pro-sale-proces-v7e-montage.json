@@ -1,0 +1,21 @@
+{
+ "duur": 20.0,
+ "weergave_s": 13.5,
+ "eind_s": 6.5,
+ "boven": [
+  "Turning a rig into",
+  "a poseable figure:"
+ ],
+ "boven_tot": 9.0,
+ "slot": [
+  "Click Joints Pro",
+  "25% off this week,",
+  "on Gumroad"
+ ],
+ "slot_s": 3.0,
+ "muziek": {
+  "pro-sale-proces-v7e": "Dreamer, Kevin MacLeod (incompetech.com), CC BY 4.0"
+ },
+ "bron": "opname run 45916133054 (verloop7.py met pil 56 px van de rand, Daan #234 M1), beelden 0 tot 404 nieuw gemonteerd met montage7.py; beelden 405 tot 599 (Cycles uit run 45896469352 met saleregel) en het geluid ongewijzigd uit v7d",
+ "pil_min_x_rood": 81
+}
