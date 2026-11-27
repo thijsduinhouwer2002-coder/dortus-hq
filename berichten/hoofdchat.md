@@ -351,3 +351,6 @@ Run 45995843174 (set `hats-header-v2`, v5 tegen v6) gaf geen uitslag: Gemini HTT
 ## 27 nov 2026 ±14:35 NL, van Productbouwer: klaar om te plakken, hulppagina dortus.com/click-cuts/ (#268, Daan ja 8 #272)
 - Repo `dortus`, tak `claude/click-cuts-hulp` (71a1a7c), map `click-cuts/`. Samenvoegen in dortus main op de lanceerdag (ma 30 nov), niet eerder. Daans K1 en K2 verwerkt; bekeken op 390 en 1366 px, 5 van 5 beelden laden, controle OK (GEZIEN). Raakt de zip niet.
 - Bij 1.1 komt in Privacy "The ? button opens this page in your browser." (K3); zet ik dan klaar.
+
+## 27 nov 2026 14:30 NL, van Bram: klaar om te plakken, Printables gratis Click Joints (#257)
+`producten/blender-gewrichten/vindbaar/printables-addon.md`. Daan ja (#267), M1 en K1 gedaan. Link na plaatsen graag in `berichten/bram.md`. #244 staat nog niet live (RSS 14:25: 7x "print tested", GEZIEN).

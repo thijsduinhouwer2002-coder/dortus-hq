@@ -1,5 +1,7 @@
 # Printables: gratis Click Joints als add-on-model (Bram, 27 nov 2026, issue #257)
 
+**Akkoord: ja**, Daan #267 (27 nov 12:58 NL), M1 opgelost en K1 gedaan op 27 nov 14:30 NL (Bram).
+
 **Waarom:** TrailPrint3D (gratis Blender-add-on, Premium op Patreon) staat als model op Printables: 3.885 downloads, 1.201 likes, 14 beoordelingen 5,0, en het is het eerste resultaat op "blender addon" (GEZIEN, api.printables.com 27 nov ±12:20 NL). Wie figuren print, zoekt op Printables, niet op extensions.blender.org. Wij staan daar alleen met de Fit test strip (model 1929497, 0 downloads op 27 nov ±12:20 NL, GEZIEN). Een tweede model met het add-on zelf geeft een tweede ingang bij "ball joint" en "blender addon".
 
 **Plaatsen doet de hoofdchat** met het Printables-account van Dortus, na Daans ja en pas als het hoofdbeeld GESLAAGD is (CLAUDE.md regel 9). Geen geld, geen nieuwe voorwaarden (account staat er sinds 25 nov).
@@ -19,7 +21,7 @@ Waarom dit mag:
 
 | Waar op Printables | Bestand in de repo | Waarom |
 |---|---|---|
-| Model files (STL) | `commercie/blender-click-joints/testprint/kogel-deel-A.stl` (44,5 mm hoog) en `kogel-deel-B.stl` (29 mm hoog), staaf 20 mm dik | Een kogelgewricht zoals Click Joints het maakt (automatische maat). Gemaakt met de echte add-oncode in Blender 5.3 (`testprint/maak.py`, 17 nov). Printables wil een printbaar bestand; dit is precies wat de download doet. |
+| Model files (STL) | `producten/blender-gewrichten/vindbaar/printables/ball-part-A.stl` (44,5 mm hoog) en `ball-part-B.stl` (29 mm hoog), staaf 20 mm dik. Byte voor byte gelijk aan `commercie/blender-click-joints/testprint/kogel-deel-A.stl` en `-B.stl` (sha256 e4b34bbf... en ccd2bc1a..., GEZIEN), alleen Engelse namen (K1 van Daan #267) | Een kogelgewricht zoals Click Joints het maakt (automatische maat). Gemaakt met de echte add-oncode in Blender 5.3 (`testprint/maak.py`, 17 nov). Printables wil een printbaar bestand; dit is precies wat de download doet. |
 | Other files | `producten/blender-gewrichten/uitgave/click_joints_direct-0.1.2.zip` | Het add-on zelf (zie besluit hierboven). Bij een nieuwe gratis versie: de nieuwe direct-zip erbij zetten, de oude laten staan (zoals TrailPrint3D). |
 
 **De Fit test strip gaat er niet bij als STL**, anders dan het issue voorstelt. Reden: hij staat al als eigen model (1929497), en Printables verbiedt dubbele uploads (voorwaarden, `commercie/blender-click-joints/verspreiding.md` regel 81; DERDEN). Twee keer hetzelfde bestand kan het account kosten. In de tekst staat een link naar het strip-model; zo helpen de twee pagina's elkaar.
@@ -31,7 +33,7 @@ Printables-regel: "Preview images must accurately depict what users will downloa
 1. **Hoofdbeeld: `2-featured` van onze Extensions-pagina, "See how far it bends, before you print."** (https://extensions.blender.org/media/thumbnails/59/59df72d364d844de93cf7e747a48b26f48b61d27f7a975ca690740bfa2d65440_1920x1080.webp). **GESLAAGD**, plek 1 in beide rondes (Gemini 1,0), tegen TrailPrint3D en de twee best gedownloade ball joints: `organisatie/blindtest/uitslag/click-joints-printables-addon-2026-11-27-1213.md` (GEZIEN). Eerlijke kanttekening: de rol noemde "blender addon" als zoekterm, wat ons helpt; op alleen "ball joint" staan echte foto's van prints ernaast. Beide rondes zeiden "Beter maken: show a full character figure in the Blender viewport". Dat is werk voor een volgend beeld (Beeldmaker), niet nodig om te plaatsen.
 2. **Tweede beeld:** "Drag the bend. Red means too far." (https://extensions.blender.org/media/thumbnails/90/90622aee7ef0fa8d5edcbbdf71aabdda4a628de2f6d85484411ee21724c1cf5a_1920x1080.webp), ook GESLAAGD, plek 1 (zelfde uitslag).
 3. **Derde beeld:** het paneel "Good fit, measured in mm." (https://extensions.blender.org/media/thumbnails/c7/c75737396a3ffede6aed6954f9b8a9e67c29fa49f1ac5ec2575ef3fca74c378a_1920x1080.webp).
-4. **Vierde beeld:** render van precies de twee STL's, `producten/blender-gewrichten/vindbaar/printables-kogelpaar.png` (2400 x 1350, deel A met de kogel links, deel B omgedraaid met de kom naar boven rechts; trimesh en matplotlib, script `render_kogelpaar.py` ernaast). Zelf bekeken met de Read-tool: geen streepjes of gaten.
+4. **Vierde beeld:** render van precies de twee STL's in Blender 5.3 (Cycles, gladde normalen), `producten/blender-gewrichten/vindbaar/printables-kogelpaar.png` (2400 x 1350; deel A met de kogel links, deel B omgedraaid met de kom naar boven rechts; script `render_kogelpaar.py` ernaast). Opnieuw gemaakt na M1 van Daan (#267): de oude matplotlib-render gaf streepjes en gaten. Bij deel B is alleen voor het beeld een voxel-remesh van 0,12 mm gebruikt, omdat de lange smalle driehoeken van de snede anders een gekartelde schaduw gaven; de vorm blijft binnen ±0,1 mm van de STL. Zelf bekeken met de Read-tool, ook ingezoomd op de plekken uit M1: geen streepjes, gaten of rafels (GEZIEN).
 
 De drie Extensions-beelden: downloaden als webp en zo uploaden (Printables neemt webp, GOK; anders omzetten naar png). Printables snijdt de kaart in de zoeklijst bij tot een smaller vlak (GOK op de verhouding): de kop "See how far it bends" staat links en blijft dan het best zichtbaar. Kijk na het plaatsen op de zoeklijst of de kop leesbaar is; zo niet, meld het mij.
 
@@ -71,7 +73,7 @@ What you get
 
 Files
 - click_joints_direct-0.1.2.zip (other files): the add-on. Install it in Blender: drag the zip onto the Blender window, or Edit > Preferences > Get Extensions > Install from Disk. Do not unzip it. The tab "Click Joints" appears in the sidebar (N).
-- kogel-deel-A.stl and kogel-deel-B.stl: a ball joint the add-on made on a 20 mm bar, auto size. Print both flat end down and push them together.
+- ball-part-A.stl and ball-part-B.stl: a ball joint the add-on made on a 20 mm bar, auto size. Print both flat end down and push them together.
 
 Not sure which clearance fits your printer? Print the Ball Joint Tolerance Test first: https://www.printables.com/model/1929497-ball-joint-tolerance-test-010-to-030-mm
 
