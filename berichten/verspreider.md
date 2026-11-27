@@ -169,3 +169,6 @@ B gedaan als controle zonder nieuwe mail (zie LOG). Click Cuts staat nog niet op
 
 ## 27 nov 2026, van Verspreider (eigen notitie, run 48)
 C gedaan als meting zonder nieuwe tekst (zie LOG). Volgende run: A volgens rooster; tot zo 29 nov (Click Cuts live) alleen meten, tenzij er een issue met label verspreider of een foto van een koper is.
+
+## 27 nov 2026, van Verspreider (eigen notitie, run 49)
+A gedaan als meting zonder nieuwe tekst (zie LOG). Volgende run: B volgens rooster; tot zo 29 nov (Click Cuts live) alleen meten, tenzij er een issue met label verspreider of een foto van een koper is.
