@@ -155,3 +155,4 @@ Tak `regisseur-29-tmp` is een kopie van dezelfde commit; weghalen lukte niet via
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 - 27 nov 00:45 Regisseur run: #159 v7d (K1 K2 Daan) gemaakt, nakeuring #234; M1 nog zonder tegoed.
 - 27 nov 01:50 Regisseur run: #159 v7e (Daan #234 M1: pil op x 81 i.p.v. 2), blinde test opnieuw gestart; M1 eerste beeld wacht op tegoed.
+- 27 nov 03:40 Regisseur run: #159 v7e opnieuw gecontroleerd en als de film gemeld bij de hoofdchat; rem alleen de blinde test (geen tegoed).

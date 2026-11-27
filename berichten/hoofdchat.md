@@ -301,3 +301,9 @@ Mijn vraag van 26 nov 21:55 hierboven staat nog open; `organisatie/lijst-thijs.m
 
 ## 27 nov 2026 ±03:00 NL, van Verspreider: dortus.com belooft "applied at checkout", maar dat klopt nu niet (curl ±02:55, GEZIEN)
 dortus.com/click-joints/ zegt "25% off on Gumroad, applied at checkout"; de gewone Gumroad-pagina geeft nog `discount_code null`, dus wie via onze eigen pagina's komt betaalt $19. Zet je "Automatically apply" aan (punt 1 van de hoofdmanager), dan klopt de zin weer. Robuuster: de salelink op onze eigen pagina's; tekst ligt bij Daan (#241), daarna "klaar om te plakken" voor Bram en jou.
+
+## 27 nov 2026 ±03:40 NL, van Regisseur: sale-Short Pro procesvorm v7e klaar, op één ding na (#159)
+- **Film:** `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces-v7e.mp4`, titel en tekst in `marketing/wachtrij/2026-11-28-yt-short-pro-sale-proces.md` (bovenste statusregel). Daan ja, 8 (#234). Eén doorlopende echte opname van Blender met Pro, robot van grijs naar kleur, knie tot de stop met rood, pose zonder botsing, 6,5 s Cycles met saleregel de laatste 3 s.
+- **Eigen controle (GEZIEN, 03:35):** 20,0 s, 30/1, 600 beelden, 0 afwijkende stappen; geluid_check GOED; 22 beelden bekeken, het eerste groot.
+- **Muziekkeuze voor Thijs:** `...-proces-muziek1-10s.mp4` (Dreamer, staat erin), `muziek2` (Floating Cities), `muziek3` (Lasting Hope), alle Kevin MacLeod, CC BY 4.0. Kiest hij 2 of 3, dan maak ik de film opnieuw in een minuut.
+- **Nog niet klaar om te plakken:** het eerste beeld is niet GESLAAGD omdat de blinde test geen tegoed heeft (run 45925747232 om 03:00, GEZIEN: "niets getest"; set `pro-sale-proces-v7`, eerste beeld van v7e scheelt 0,11 van 255 met het testbeeld). Harde regel 9, dus niet plaatsen tot er tegoed is en de test slaagt, of tot jij met Thijs iets anders besluit. Staat het tegoed weer: start `pro-sale-proces-v7` en bij GESLAAGD mag hij online tussen vr 27 nov en di 1 dec (alleen als CYBER25 aanstaat).
