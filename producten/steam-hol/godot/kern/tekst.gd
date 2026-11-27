@@ -5,7 +5,17 @@ extends Node2D
 var regels: Array[String] = []
 var goud := 0
 var doel := ""   # kopregel rechts als het kaartje dicht is: volgend doel (kern/kaartje.gd doel_regel, Iris 16 nov)
-var hover := false
+# Muis erop: het bord staat vol (open = 1). Gaat de muis weg terwijl de regel al weg is, dan glijdt het bord in
+# 0,35 s terug naar één rij in plaats van in één beeld te springen (Daan #261 kan-punt 1, Sanne 27 nov).
+var hover := false:
+	set(v):
+		if v == hover:
+			return
+		hover = v
+		if v:
+			open = 1.0
+		set_process(true)
+		queue_redraw()
 var vast := ""   # telling na terugkomst: bovenaan het kaartje tot de eerste nieuwe held binnen is (moet Daan 16 nov 23:30)
 var weg_regels: Array[String] = []   # het verhaal van de nacht (Iris keuring 16 punt 2): regels van vóór het weggaan niet meer op het kaartje
 var weg_tel := ""   # de telling van de laatste keer weg; blijft deze speelbeurt staan (vast gaat weg bij de eerste nieuwe held)
@@ -78,9 +88,9 @@ var knop_undo := Rect2()
 var knop_weg := Rect2()
 
 # Daans paneel als 9-slice, met de schaal van de strook (scherpe pixels)
-func _paneel(rect: Rect2) -> void:
+func _paneel(rect: Rect2, vol_h := 0.0) -> void:
 	if met_3d:
-		_paneel_3d(rect)
+		_paneel_3d(rect, vol_h)
 		return
 	var m := R * schaal
 	var xs := [rect.position.x, rect.position.x + m, rect.end.x - m, rect.end.x]
@@ -92,7 +102,10 @@ func _paneel(rect: Rect2) -> void:
 				Rect2(bx[i], bx[j], bx[i + 1] - bx[i], bx[j + 1] - bx[j]))
 
 # 3D-paneel: 4 px lucht rechts en onder (Daan ronde 2), zachte schaduw naar het hol, rand 4,5 spelpixel (18 px op 160)
-func _paneel_3d(rect: Rect2) -> void:
+# vol_h > 0: het bord klapt in of uit. Dan wordt het hout niet samengeperst maar van boven afgesneden (zelfde
+# dichtheid als het volle bord), zodat de naad tussen de planken met de tekst meeschuift en nooit door het goud
+# of het doel loopt (Sanne 27 nov, gezien in de film van muis weg bij Daan #261).
+func _paneel_3d(rect: Rect2, vol_h := 0.0) -> void:
 	var r := Rect2(rect.position, rect.size - Vector2(5, 2))   # rechts 7 px lucht tot de schermrand (Daan ronde 3, kan)
 	var sb := _doos("paneel_schaduw")
 	sb.set_corner_radius_all(int(3.5 * schaal))
@@ -102,10 +115,18 @@ func _paneel_3d(rect: Rect2) -> void:
 	var xs := [r.position.x, r.position.x + m, r.end.x - m, r.end.x]
 	var ys := [r.position.y, r.position.y + m, r.end.y - m, r.end.y]
 	var bx := [0.0, BRON_RAND, S - BRON_RAND, S]
+	var by := bx.duplicate()
+	by[2] = BRON_RAND + bron_midden(S - 2.0 * BRON_RAND, r.size.y - 2.0 * m, vol_h - 2.0 * m)
 	for i in 3:
 		for j in 3:
 			draw_texture_rect_region(PANEEL_3D, Rect2(xs[i], ys[j], xs[i + 1] - xs[i], ys[j + 1] - ys[j]),
-				Rect2(bx[i], bx[j], bx[i + 1] - bx[i], bx[j + 1] - bx[j]))
+				Rect2(bx[i], by[j], bx[i + 1] - bx[i], by[j + 1] - by[j]))
+
+# hoeveel bronpixels van het midden het bord toont: het hele midden, of bij een kleiner bord dan vol het bovenste deel
+static func bron_midden(bron: float, h: float, vol: float) -> float:
+	if vol <= 0.0 or h >= vol:
+		return bron
+	return bron * maxf(h, 1.0) / vol
 
 # muntje van 4 x 4 spelpixels: donkere rand, goud, één glimpixel
 func _munt(p: Vector2, f := 1.0) -> void:
@@ -234,6 +255,10 @@ var open := 1.0
 static func open_doel(sinds: float) -> float:
 	return 1.0 if sinds < REGEL_TIJD else 0.0
 
+# met de muis erop blijft het bord vol, dus het zakt pas als de muis weg is
+static func bord_doel(sinds: float, muis: bool) -> float:
+	return 1.0 if muis else open_doel(sinds)
+
 static func open_stap(nu: float, doel_: float, delta: float) -> float:
 	if doel_ > nu:
 		return minf(doel_, nu + delta / UIT_S)
@@ -246,7 +271,7 @@ static func open_glad(o: float) -> float:
 func _process(delta: float) -> void:
 	var voor := regel_sinds
 	regel_sinds += delta
-	var o := open_stap(open, open_doel(regel_sinds), delta)
+	var o := open_stap(open, bord_doel(regel_sinds, hover), delta)
 	var beweegt := o != open
 	open = o
 	if voor < REGEL_TIJD + 0.05:
@@ -405,7 +430,10 @@ func _draw() -> void:
 	# paneel van paneel_links(x) tot de rechterrand, van boven de kop tot onderaan de strook
 	var links := paneel_links(x)
 	var top := y0 - int(M.boven)
-	_paneel(Rect2(links, top, breedte - 2 - links, hoogte - 2 - top))
+	var vol_h := 0.0
+	if not hover and vast == "" and met_3d and toon.size() > 0:
+		vol_h = hoogte - 2 - (float(hoogte - int(M.onder) - regel_h * (toon.size() + 1)) - int(M.boven)) - 2.0
+	_paneel(Rect2(links, top, breedte - 2 - links, hoogte - 2 - top), vol_h)
 	# goud als muntje plus getal in plaats van "Hoard: 24 gold" (Mila 20:55, stijl.md punt 5); zelfde kleuren als de
 	# vliegende muntjes in hol.gd, 4 x 4 spelpixels, op de schaal van de strook (scherpe pixels)
 	_munt(_munt_p(x, y0 + kop + int(M.kop_dy), kop, f), f)

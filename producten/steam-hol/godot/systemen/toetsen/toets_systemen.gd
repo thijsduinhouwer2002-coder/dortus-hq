@@ -1182,6 +1182,14 @@ func _init() -> void:
 	ok(TKS.open_doel(0.0) == 1.0 and TKS.open_doel(5.9) == 1.0 and TKS.open_doel(6.0) == 0.0, "bord in: open zolang de regel er is")
 	ok(is_equal_approx(TKS.open_stap(1.0, 0.0, 0.35), 0.0) and TKS.open_stap(1.0, 0.0, 0.1) > 0.0 and TKS.open_stap(0.0, 1.0, 0.25) == 1.0, "bord in: zakt in 0,35 s, rijst in 0,25 s")
 	ok(TKS.open_glad(0.0) == 0.0 and TKS.open_glad(1.0) == 1.0 and TKS.open_glad(0.5) == 0.5, "bord in: zachte kromme")
+	ok(TKS.bord_doel(60.0, true) == 1.0 and TKS.bord_doel(60.0, false) == 0.0 and TKS.bord_doel(1.0, false) == 1.0, "bord in: met de muis erop blijft het vol")
+	tk.open = 0.0
+	tk.hover = true
+	var open_muis: float = tk.open
+	tk.hover = false
+	ok(open_muis == 1.0 and tk.open == 1.0 and TKS.open_stap(tk.open, TKS.bord_doel(60.0, false), 0.1) > 0.0, "bord in: muis weg, het bord glijdt terug en springt niet")
+	tk.hover = false
+	ok(TKS.bron_midden(128.0, 30.0, 0.0) == 128.0 and TKS.bron_midden(128.0, 30.0, 30.0) == 128.0 and is_equal_approx(TKS.bron_midden(128.0, 15.0, 30.0), 64.0), "bord in: hout van boven afgesneden, niet samengeperst")
 	var rz: Array[String] = ["Kees fell in."]
 	tk.zet(rz, 5)
 	ok(tk.regel_sinds == 0.0, "bord D: nieuwe regel begint opnieuw")

@@ -15,3 +15,14 @@ Iris 27 nov (build 1b0e933, #255): "nadat de regel na 6 s weggaat, is de onderst
 - Toetsen 11 x 0 FOUT op Linux (3 nieuwe toetsen "bord in" in `toets_systemen.gd`).
 
 **Code:** `godot/kern/tekst.gd` (`open`, `open_doel`, `open_stap`, `open_glad`, in `_process` en `_draw`).
+
+## Muis weg glijdt, en de naad loopt nooit door de tekst (Sanne 27 nov ±13:15, Daan #261 kan-punt 1)
+**Wat de speler ziet:**
+- Muis van het ingeklapte bord af: het bord springt niet meer in één beeld naar één rij, maar glijdt in 0,35 s terug, net als na een regel. Met de muis erop blijft het bord vol (`bord_doel`, setter op `hover` in `kern/tekst.gd`).
+- Tijdens het in- en uitklappen werd het hout van het bord samengeperst, waardoor de donkere naad tussen twee planken dwars door het goud en het doel schoof (gezien in een film van 20 beelden per s, ±0,15 s lang). Nu wordt het hout van boven afgesneden in plaats van samengeperst (`bron_midden`): de naad schuift mee met de tekst en blijft eronder.
+- Gevolg ingeklapt: de naad staat nu als een lijn onder goud en doel (was weggeperst). Zie `naad-60s-voor-en-na-2x.png`; keurder beslist of dat mag.
+
+**Bewijs (GEZIEN, Godot 4.3 Linux onder xvfb):**
+- `muis-weg-glijdt-2x.png`: alleen het bord (640 x 120, losse proef), ingeklapt, muis erop (vol, drie regels), dan muis weg na +0,04 tot +0,41 s: open 0,90, 0,74, 0,59, 0,44, 0,29, 0,00; de naad blijft in elk beeld onder de tekst.
+- `naad-60s-voor-en-na-2x.png` en `na-muis-60s-ware-grootte.png`: echt spel, `hoogte=120 vers=1 zaad=7 uitleg_klik=6 koper=1 koper_wacht=8 balk=0`, 5 beelden per s, op 60,0 s, b519038 tegen nu (zelfde stand van het spel).
+- Toetsen 11 x 0 FOUT op Linux (3 nieuwe in `toets_systemen.gd`: muis houdt het bord vol, muis weg glijdt, hout afgesneden).
