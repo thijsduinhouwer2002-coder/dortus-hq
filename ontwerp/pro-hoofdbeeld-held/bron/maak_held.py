@@ -92,6 +92,15 @@ bek = R(0.53)
 borst = R(0.72)
 hals = Vector((cx, snee(z(0.845), d=0.008, xmax=0.045)[0].y, z(0.84)))
 kin = Vector((cx, snee(z(0.865), d=0.008, xmax=0.05)[0].y, z(0.875)))
+# #320 (r3): HELD_HALS en HELD_KIN = "y,hoogte" (y in meter, hoogte als deel van H). Het oude nekbot lag vlak achter
+# de keel (y -0,034 waar het midden van de hals rond -0,01 ligt), dus Figure from rig vond daar alleen een te kleine
+# kogel. Zonder deze variabelen blijft het rig zoals in r1 en r2.
+if os.environ.get("HELD_HALS"):
+    _y, _f = (float(t) for t in os.environ["HELD_HALS"].split(","))
+    hals = Vector((cx, _y, z(_f)))
+if os.environ.get("HELD_KIN"):
+    _y, _f = (float(t) for t in os.environ["HELD_KIN"].split(","))
+    kin = Vector((cx, _y, z(_f)))
 bones["spine"] = (bek, R(0.60))
 bones["spine.001"] = (R(0.60), borst)
 bones["spine.002"] = (borst, R(0.80))

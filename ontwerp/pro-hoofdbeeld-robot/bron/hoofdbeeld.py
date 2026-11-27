@@ -474,6 +474,8 @@ def deel_kleur(delen):
     for o, zc, _h in zs:
         if o is romp:
             soort = "romp"
+        elif "kop_los" in kl and zc > 0.80 * 220:
+            soort = "kop_los"   # #320: het hoofd is los (nekkogel van Figure from rig) en krijgt een eigen kleur
         elif zc > 0.42 * 220:
             soort = "onderarm"
         elif zc > 0.25 * 220:

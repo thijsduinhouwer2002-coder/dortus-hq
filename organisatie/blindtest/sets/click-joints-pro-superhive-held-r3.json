@@ -1,0 +1,28 @@
+{
+  "titel": "Click Joints Pro, hoofdbeeld op Superhive held ronde 3 (#320, Thijs: hoofd los en eigen kleur): held-knie-r3 naast held-knie-r2",
+  "rol": "You design figures and action figures in Blender to 3D print at home. You are browsing the Superhive (Blender Market) store for an add-on that helps you turn your models into printable parts.",
+  "ons": [
+    {
+      "naam": "held-knie-r3: hoofd los met nekkogel, geel hoofd",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/pro-hoofdbeeld-held/beelden/held-knie-r3-2400x1200.jpg"
+    },
+    {
+      "naam": "held-knie-r2: huidig hoofdbeeld, hoofd vast",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/pro-hoofdbeeld-held/beelden/held-knie-r2-2400x1200.jpg"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Cleave",
+      "url": "https://assets.superhivemarket.com/store/product/264651/image/xlarge-40fa5c2d6ae39125cd932fe28b2ddab2.jpeg"
+    },
+    {
+      "naam": "CatPin",
+      "url": "https://assets.superhivemarket.com/store/product/261693/image/xlarge-93696e06c29a0ec3efe81b285cb8f995.png"
+    },
+    {
+      "naam": "Split 3D Print",
+      "url": "https://assets.superhivemarket.com/store/product/260162/image/xlarge-cbce8fe22af80b8910cefc7fa2b42080.png"
+    }
+  ]
+}
