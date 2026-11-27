@@ -1,0 +1,24 @@
+{
+  "titel": "Click Joints Pro, galerijbeeld 'From your rig in one click' op Superhive (echt Blender-paneel, 1.2.9), ronde 2 na Daan #260",
+  "rol": "You make poseable action figures and characters to 3D print at home. You already have a rigged character in Blender (for example from Mixamo) and want a Blender add-on that turns it into printable parts with working joints. You are not a Blender expert and want to know how easy the add-on is to use. You are browsing the Superhive (Blender Market) store and are now looking at the gallery images that show each add-on's panel inside Blender.",
+  "ons": [
+    {
+      "naam": "paneel met rig, Figure from rig bovenaan (r2)",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/pro-galerij/beelden/paneel-rig-2400x1200.jpg"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Cleave (galerij: paneel met robot)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1382774/image/xlarge-1d041584654c22028689b7890686595c.png"
+    },
+    {
+      "naam": "CatPin (galerij: paneel met figuur)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1329447/image/xlarge-6e53de006403f04f129dca8a57ed3b6d.png"
+    },
+    {
+      "naam": "Split 3D Print (galerij: paneel)",
+      "url": "https://assets.superhivemarket.com/cache/9af983d5b14e527399aa19c4d3724b61.webp"
+    }
+  ]
+}

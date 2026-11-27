@@ -85,7 +85,7 @@ def main():
     img.alpha_composite(gloed.filter(ImageFilter.GaussianBlur(220)))
 
     # rechts: de echte schermafbeelding (figuur met rig en de zijbalk)
-    sx0, sy0, sx1, sy1 = int(os.environ.get("PR_SX0", "860")), 60, SW, SH - 30
+    sx0, sy0, sx1, sy1 = int(os.environ.get("PR_SX0", "860")), int(os.environ.get("PR_SY0", "60")), SW, SH - 30
     uit = voor.crop((sx0, sy0, sx1, sy1))
     sh = 1040
     s = sh / uit.size[1]
@@ -104,14 +104,16 @@ def main():
     kx0, ky0 = bx + (k[0] - sx0) * s, by + (k[1] - sy0) * s
     kx1, ky1 = bx + (k[2] - sx0) * s, by + (k[3] - sy0) * s
     d = ImageDraw.Draw(img)
+    # Daan #260 M2: alleen de vergroting is geel; het kleine echte paneel krijgt een dunne grijze lijn
+    GRIJS = (150, 140, 160)
     for a, b in (((kx0, ky1), (px, py)), ((kx1, ky1), (px + pw, py))):
-        d.line([a, b], fill=GOUD + (150,), width=3)
-    d.rounded_rectangle((kx0, ky0, kx1, ky1), radius=8, outline=GOUD + (255,), width=3)
+        d.line([a, b], fill=GRIJS + (110,), width=2)
+    d.rounded_rectangle((kx0, ky0, kx1, ky1), radius=8, outline=GRIJS + (200,), width=2)
     schaduw(img, (px, py, px + pw, py + ph), 22, blur=30, kracht=220, dy=22)
     plak_rond(img, pan, (px, py), 22, rand=GOUD, dikte=4)
-    # rij "Figure from rig" in het vergrote paneel: bol 1 ervoor
+    # rij "Figure from rig" in het vergrote paneel: bol 2 ervoor (Daan #260 M1: het is stap 2 links)
     rij = int(os.environ.get("PR_RIJ", "241"))
-    bol(img, (px - 6, py + (rij - k[1]) * v), 38, "1", font("Bricolage.ttf", 50, "ExtraBold"))
+    bol(img, (px - 6, py + (rij - k[1]) * v), 38, "2", font("Bricolage.ttf", 50, "ExtraBold"))
 
     # kaartje: dezelfde figuur na één klik (tweede schermafbeelding)
     nk = [int(v) for v in os.environ.get("PR_NA", "1000,200,1840,1380").split(",")]

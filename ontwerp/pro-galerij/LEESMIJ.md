@@ -75,7 +75,9 @@ cd producten/blender-gewrichten
 PR_AFSTAND=390 PR_MIDX=10 PR_MIDZ=108 CJ_MENS_OBJ=<base.obj> xvfb-run -a -s "-screen 0 2880x1620x24" \
   <blender 5.3.0> --factory-startup --gpu-backend opengl --python ../../ontwerp/pro-galerij/bron/paneel_rig.py -- <uit> /tmp/click_joints_betaald.zip
 cd ../../ontwerp/pro-galerij
-PR_VERGROOT=1.45 PR_PY=330 PR_KH=500 PR_KX=420 python3 bron/tekst_paneel_rig.py <uit>/rig-voor.png <uit>/rig-na.png <uit>/paneel-rig.json beelden <fonts> ../click-joints/bron/icoon.svg
+PR_SY0=80 PR_VERGROOT=1.45 PR_PY=330 PR_KH=500 PR_KX=420 python3 bron/tekst_paneel_rig.py <uit>/rig-voor.png <uit>/rig-na.png <uit>/paneel-rig.json beelden <fonts> ../click-joints/bron/icoon.svg
 ```
 Fonts: Bricolage Grotesque en Inter (OFL), variabele bestanden uit github.com/google/fonts.
 Blinde test: set `organisatie/blindtest/sets/click-joints-pro-galerij-paneel-rig.json`, tegen de paneelbeelden van Cleave (robot), CatPin (figuur, galerijbeeld 8) en Split 3D Print.
+
+**Ronde 2 (27 nov ±11:00, Daan #260):** bol op Figure from rig is nu "2" (stap 2 links), het kleine echte paneel heeft een dunne grijze lijn in plaats van geel (alleen de vergroting is geel), bovenrand 20 px hoger bijgesneden (PR_SY0=80). Schermafbeeldingen opnieuw gemaakt met dezelfde opdracht; paneel-rig.json is gelijk aan ronde 1 (GEZIEN). Set `click-joints-pro-galerij-paneel-rig-r2.json`.
