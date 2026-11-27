@@ -191,6 +191,46 @@ jobs:
           Copy-Item producten/steam-hol/speeltest/LEES-MIJ-EERST.txt $d
           "Gebouwd uit commit $env:GITHUB_SHA, run $env:GITHUB_RUN_ID, $(Get-Date -AsUTC -Format 'yyyy-MM-dd HH:mm') UTC" | Set-Content "$d/VERSIE.txt"
           Get-ChildItem $d | ForEach-Object { Write-Output "$($_.Name) $([math]::Round($_.Length / 1MB, 1)) MB" }
+      # Olaf 27 nov (#315): starten zoals Thijs het doet. Schone save, dubbelklik zonder argumenten op de exe uit de
+      # speeltest-map, venster binnen 10 s, geen SCRIPT ERROR, schermbeeld. Daarna één echte zip met grootte en sha256.
+      - name: Dubbelklik-start en zip (speeltest)
+        if: success()
+        shell: pwsh
+        run: |
+          $uit = (Resolve-Path "producten/steam-hol/e2e/screenshots/exe").Path
+          $map = Join-Path $env:APPDATA "Dortus/Het Hol"
+          Remove-Item -Recurse -Force $map -ErrorAction SilentlyContinue
+          $d = (Resolve-Path "producten/steam-hol/bouw-speeltest").Path
+          $exe = Join-Path $d "HetHol.exe"
+          $r = @(); $fout = 0
+          $klok = [System.Diagnostics.Stopwatch]::StartNew()
+          $p = Start-Process -FilePath $exe -WorkingDirectory $d -PassThru
+          $h = [IntPtr]::Zero
+          while ($klok.Elapsed.TotalSeconds -lt 20 -and $h -eq [IntPtr]::Zero -and -not $p.HasExited) { Start-Sleep -Milliseconds 100; $p.Refresh(); $h = $p.MainWindowHandle }
+          $t = [math]::Round($klok.Elapsed.TotalSeconds, 1)
+          if ($h -eq [IntPtr]::Zero) { $r += "FOUT: geen venster binnen 20 s (proces gestopt: $($p.HasExited))"; $fout++ }
+          else { $r += "venster na $t s (eis 10 s), titel: $($p.MainWindowTitle)"; if ($t -gt 10) { $r += "FOUT: later dan 10 s"; $fout++ } }
+          Start-Sleep 10
+          $null = & producten/steam-hol/e2e/scherm.ps1 "$uit/dubbelklik-10s.png"
+          $r += "draait na 10 s nog: $(-not $p.HasExited)"
+          if ($p.HasExited) { $fout++ }
+          $glog = Join-Path $map "logs/godot.log"
+          Copy-Item $glog "$uit/godot-dubbelklik.log" -ErrorAction SilentlyContinue
+          $g = Get-Content $glog -ErrorAction SilentlyContinue | Out-String
+          if (-not $g) { $r += "FOUT: geen godot.log"; $fout++ }
+          elseif ($g -match "SCRIPT ERROR|Parse Error") { $r += "FOUT: SCRIPT ERROR in godot.log"; $fout++ }
+          else { $r += "godot.log: geen SCRIPT ERROR ($(($g -split "`n").Count) regels)" }
+          Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue
+          $zip = Join-Path $env:RUNNER_TEMP "hats-of-the-fallen-windows.zip"
+          Compress-Archive -Path "$d/*" -DestinationPath $zip -Force
+          $r += "zip van de map (zoals het artifact): $([math]::Round((Get-Item $zip).Length / 1MB, 1)) MB, sha256 $((Get-FileHash $zip -Algorithm SHA256).Hash.ToLower())"
+          $r += "exe: $([math]::Round((Get-Item $exe).Length / 1MB, 1)) MB, sha256 $((Get-FileHash $exe -Algorithm SHA256).Hash.ToLower())"
+          $r += "inhoud: $((Get-ChildItem $d -File | ForEach-Object { $_.Name }) -join ', ')"
+          $r += "commit $env:GITHUB_SHA, run $env:GITHUB_RUN_ID"
+          $r += "dubbelklik: $fout FOUT"
+          $r | ForEach-Object { Write-Output $_ }
+          $r | Set-Content "$uit/dubbelklik.txt"
+          if ($fout -gt 0) { exit 1 }
       - name: Speeltest bewaren (artifact, 14 dagen)
         if: success()
         uses: actions/upload-artifact@v4
