@@ -50,3 +50,24 @@ Les uit `platformen/steam/balans.md`: tussen losse runs scheelt het hier ±10 pr
 (CPU-ticks per seconde van het Godot-proces, GEZIEN.) Eén keer valt weg in de ruis (de placebo alleen al geeft tot +8). 100 keer is duidelijk: +80 procent, dus **één keer ±0,8 procent**; 20 keer min placebo geeft ±0,2 procent per keer (GEZIEN, afgeleid). Beide onder de eis van +2. Mipmaps of minder tekenen hoeft dus niet; het licht staat aan.
 
 Toetsen 11 x 0 FOUT op Linux (GEZIEN); de Windows-toetsrun draait na de push. Nog open: de opmerking van lezer 2 ("iets opgeplakt"); dat beslist Daan in zijn keuring.
+
+## v2: hard masker en sikkel aan de lichtkant (Olaf, 27 nov ±15:00 NL, issue #276): NIET op main
+
+**Waarom:** Iris 3240a1b (mooi punt 1 voor een 9): randje zacht en golvend, leest als sticker. Daan #266: K1 koeler en dekking ±0,35, K2 strak op het silhouet zonder bobbel bij tonhoed en elleboog.
+
+**Gebouwd** (code op tak `olaf-276-licht-v2`, commit 75d7119; toetsen `toets_rand` 0 FOUT): één masker voor lijf en hoed samen (geen dubbele rand), hard silhouet (alfa 0 of vol), gegroeid met afwisselend 4 en 8 buren (overal even breed), alles met Image-bewerkingen van de motor en één keer per beeld. Drie versies geprobeerd (GEZIEN, Godot 4.3 Linux, zelfde startargumenten als hierboven, `licht_wissel=1`):
+1. op het raster van spelpixels: grove trapjes, een vierkante waas om de held (niet verder getoond);
+2. rondom, koel blauwgrijs, dekking 0,42 (Daan K1);
+3. warm, alleen aan de kant van de dichtstbijzijnde lichtbron (sikkel), niets onder de voeten. Dit is de versie in `v2-*`.
+
+**Beelden:** `v2-boven-oud-midden-nieuw-onder-zonder-1x.png`, `-2x.png`, `-4x.png`: drie keer dezelfde held op hetzelfde moment (de films zijn tot ±250 s gelijk), boven het randje van nu (main), midden versie 3, onder zonder randje. `v2-blind-P-nieuw-2x.png` en `v2-blind-Q-oud-2x.png`: wat blinde lezer 2 kreeg.
+
+**Blinde lezers** (agents zonder code of uitleg, GEZIEN):
+| | lijf los op 1x (1 tot 5) | hoort erbij op 2x (1 sticker, 5 hoort erbij) | kiest |
+|---|---|---|---|
+| lezer 1: versie 2 (koel rondom) tegen main | 3 tegen 3 | 2 tegen 4: koel "leest als een uitsnede met witte contour", warm "als licht dat op de rand valt" | main |
+| lezer 2: versie 3 (warme sikkel) tegen main | 3 tegen 3,5 | 2,5 tegen 4: sikkel "donkere lijn met losse lichte stukjes, uitsnede" | main |
+
+**Besluit (Olaf):** niet op main. Beide lezers vinden het randje van nu (warm, zacht, rondom) het meest "licht dat erbij hoort" en het mooist; hard en koel (wat Iris en Daan vroegen) leest voor een frisse blik juist meer als sticker. De speler houdt het randje van #256. Wat de lezers nog noemen: rond benen en voeten wat dik en egaal (lezer 2), en echt licht is aan de lichtkant sterker (lezer 1).
+
+**CPU** (binnen één run, `wissel=licht licht_blok=3`, 360 s, versie 2; ruw in `platformen/steam/data/cpu-duur/licht-v2/`, GEZIEN): 1 keer +14,4, 20 keer +24,1, placebo 20 keer +5,9 procent (buurparen fout ±6). Liep tegelijk met een film en twee andere metingen, dus te veel ruis om er een getal uit te halen; niet nodig zolang het niet op main komt.
