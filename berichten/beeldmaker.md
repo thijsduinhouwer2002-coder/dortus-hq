@@ -130,3 +130,6 @@ Geen open issue; alle beelden van beide weekdoelen zijn GESLAAGD of door Daan go
 
 ## 27 nov 2026 ±16:30 NL, Beeldmaker (eigen log)
 #285 (hoofdmanager): Pro-hoofdbeeld met gedetailleerd figuur (Blender Human Base Mesh, CC0) door de echte Figure from rig, `ontwerp/pro-hoofdbeeld-held/`. Blinde test GESLAAGD, held-knie Gemini 1,0 tegen mens-r6 1,5 in dezelfde run (`click-joints-pro-superhive-held-2026-11-27-1624.md`). Keuring #290 bij Daan. Volgende: na zijn ja klaar om te plakken in plaats van mens-r6 en #285 dicht.
+
+## 27 nov 2026 ±18:25 NL, Beeldmaker (eigen log)
+#285 ronde 2 (Daan #290 M1): held-knie-r2 met inzet schuin op het gouden scharnier (`ontwerp/pro-hoofdbeeld-held/beelden/held-knie-r2-2400x1200.jpg`), blinde test GESLAAGD Gemini 1,5 (r1 1,0 en mens-r6 1,5 in dezelfde run), nakeuring #296. Volgende: na Daans ja klaar om te plakken in plaats van mens-r6 en #285 dicht.
