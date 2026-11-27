@@ -12,7 +12,7 @@
 [sj-e2e] OK   operator split_joints.split_to_fit bestaat 
 [sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
 [sj-e2e] suzanne: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] suzanne: split {'FINISHED'} in 2.92 s, solver MANIFOLD
+[sj-e2e] suzanne: split {'FINISHED'} in 3.19 s, solver MANIFOLD
 [sj-e2e] OK   suzanne: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   suzanne stuk 1: past op het bed [84.6, 96.1, 115.1]
 [sj-e2e] OK   suzanne stuk 1: waterdicht slechte randen 0, volume 255040 mm3, per stap [0, 0, 0, 0, 0]
@@ -335,7 +335,7 @@
 [sj-e2e] OK   verschuif stuk 8: past en waterdicht 
 [sj-e2e] waterdicht GlassAlpha: {'FINISHED'} -> GlassAlpha_watertight 345960 vlakken
 [sj-e2e] vaas: plan {'FINISHED'} 16 stukken, n=[2, 2, 4]
-[sj-e2e] vaas: split {'FINISHED'} in 16.13 s, solver MANIFOLD
+[sj-e2e] vaas: split {'FINISHED'} in 15.3 s, solver MANIFOLD
 [sj-e2e] OK   vaas: meer dan 1 stuk 16 stukken
 [sj-e2e] vaas: meldingen: 'Cut 9-10: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-14: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 11-12: too small for a pin: the face is 5.6 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 15-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 9-11: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 13-15: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 10-12: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 14-16: too small for a pin: the face is 5.3 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 5-9: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 7-11: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 6-10: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 8-12: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 9-13: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 11-15: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 10-14: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint\nCut 12-16: no safe spot for a pin: a hole here would break out of the model or hit another pin. Glue this joint'
 [sj-e2e] OK   vaas stuk 1: past op het bed [144.1, 144.1, 150.0]
@@ -752,7 +752,7 @@
 [sj-e2e] OK   vaas kleur: mesh en status blijven gelijk 
 [sj-e2e] waterdicht Skull: {'FINISHED'} -> Skull_watertight 79582 vlakken
 [sj-e2e] schedel: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] schedel: split {'FINISHED'} in 5.5 s, solver MANIFOLD
+[sj-e2e] schedel: split {'FINISHED'} in 5.74 s, solver MANIFOLD
 [sj-e2e] OK   schedel: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   schedel stuk 1: past op het bed [90.2, 149.9, 106.6]
 [sj-e2e] OK   schedel stuk 1: waterdicht slechte randen 0, volume 335329 mm3, per stap [0, 0, 0, 0, 0]
@@ -1089,7 +1089,7 @@
 [sj-e2e] OK   buis stuk 2: past en waterdicht 
 [sj-e2e] OK   doos: 8 hoekpunten, geen voxel 
 [sj-e2e] doos: plan {'FINISHED'} 3 stukken, n=[3, 1, 1]
-[sj-e2e] doos: split {'FINISHED'} in 0.25 s, solver MANIFOLD
+[sj-e2e] doos: split {'FINISHED'} in 0.27 s, solver MANIFOLD
 [sj-e2e] OK   doos: meer dan 1 stuk 3 stukken
 [sj-e2e] OK   doos stuk 1: past op het bed [166.7, 150.0, 120.0]
 [sj-e2e] OK   doos stuk 1: waterdicht slechte randen 0, volume 2999634 mm3, per stap [0, 0, 0, 0, 0]
@@ -1293,7 +1293,7 @@
 [sj-e2e] OK   meter fout: na omzetten 3 stukken 3
 [sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
 [sj-e2e] meter-suzanne: plan {'FINISHED'} 8 stukken, n=[2, 2, 2]
-[sj-e2e] meter-suzanne: split {'FINISHED'} in 2.86 s, solver MANIFOLD
+[sj-e2e] meter-suzanne: split {'FINISHED'} in 2.97 s, solver MANIFOLD
 [sj-e2e] OK   meter-suzanne: meer dan 1 stuk 8 stukken
 [sj-e2e] OK   meter-suzanne stuk 1: past op het bed [84.6, 96.1, 115.1]
 [sj-e2e] OK   meter-suzanne stuk 1: waterdicht slechte randen 0, volume 0 mm3, per stap [0, 0, 0, 0, 0]
@@ -1811,7 +1811,7 @@
 [sj-e2e] OK   klik: zwaar-regel vanaf de grens '0.0M faces: Split takes about 1 min'
 [sj-e2e] OK   klik: noten-regel bij dicht vak '2 notes: see More settings'
 [sj-e2e] OK   klik: geen noten-regel als het vak open is of zonder noten 
-[sj-e2e] OK   klik: rand met 4 vlakken wordt 2 randen met 2 vlakken ((1, 16.0), 2, 0, 16.0)
+[sj-e2e] OK   klik: rand met 4 vlakken wordt 2 randen met 2 vlakken ((1, 16.0), 2, 0, 15.999999999999998)
 [sj-e2e] OK   klik: schatting 999999 MANIFOLD None
 [sj-e2e] OK   klik: schatting 1000000 MANIFOLD '1.0M faces: Split takes about 1 min'
 [sj-e2e] OK   klik: schatting 3040000 MANIFOLD '3.0M faces: Split takes about 3 min'
