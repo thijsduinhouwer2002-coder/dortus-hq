@@ -31,7 +31,7 @@ Does the fit test work for magnets?
 The fit test uses a pin. With Magnets, the same clearance goes on the diameter of the magnet hole, half on each side: a 6 mm magnet with 0.20 mm clearance gets a hole of 6.2 mm across.
 
 Can I choose where it cuts, so it does not go through a character's face?
-Partly. Split to fit cuts along the X, Y and Z axes. After splitting, Free cut adds a cut at any angle through one part, for example an arm at the shoulder, with pins and numbers like the other cuts.
+Yes. Split to fit cuts along the X, Y and Z axes. After splitting, click a part, click Draw cut and drag a line where you want it cut, for example an arm at the shoulder or under the chin. The part that comes off lights up white before you cut, and it gets pins and numbers like the other cuts. Click Cuts does not find those places by itself.
 
 Can I move the cuts?
 Yes. Open More settings, step 2: every cut has a row, for example Cut X (mm). Drag or type to move it, or remove it. Then click Split to fit again: your moved cuts are kept.

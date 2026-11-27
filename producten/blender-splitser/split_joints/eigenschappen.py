@@ -15,6 +15,11 @@ def _onthouden(inst, context):
     passingproef.pas_toe(context)
 
 
+def _materiaal(inst, context):
+    from . import passingproef
+    passingproef.pas_toe(context, start=True)
+
+
 def _uit_elkaar(inst, context):
     from . import uit_elkaar
     uit_elkaar.zet(context.scene)
@@ -29,8 +34,10 @@ class SplitJointsInstellingen(bpy.types.PropertyGroup):
     printer: EnumProperty(name="Printer", description="Your printer. Split to fit cuts the model to fit its build volume",
                           items=printers.items(), default="A1", update=_onthouden)
     materiaal: EnumProperty(
-        name="Material", description="Your filament. The clearance that fits is remembered per printer and material",
-        items=passing.MATERIALEN, default="PLA", update=_onthouden)
+        name="Material", description="Your filament or resin. Each material starts at its own clearance "
+        "(Resin 0.10, PLA 0.20, PETG and ABS 0.25, TPU 0.30 mm) until you save a fit test. "
+        "The clearance that fits is remembered per printer and material",
+        items=passing.MATERIALEN, default="PLA", update=_materiaal)
     eigen_x: FloatProperty(name="X (mm)", description="Build width of your printer in millimeters",
                            default=200.0, min=20.0, max=2000.0, precision=0)
     eigen_y: FloatProperty(name="Y (mm)", description="Build depth of your printer in millimeters",

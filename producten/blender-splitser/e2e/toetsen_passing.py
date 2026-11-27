@@ -143,6 +143,40 @@ def alles(uitmap):
          f"{voorkeur()}")
     bpy.ops.split_joints.passing_kies(waarde=0.25)
 
+    # 3b. Start clearance per material (#227): nothing saved for MK4, nothing typed
+    modellen.mm_scene()
+    sc = bpy.context.scene
+    inst = sc.split_joints
+    inst.printer, inst.materiaal = "MK4", "PLA"
+    if "sj_speling_eigen" in sc:
+        del sc["sj_speling_eigen"]
+    inst.materiaal = "RESIN"
+    stap("hars zonder proef: speling 0,10", abs(inst.speling_mm - 0.1) < 1e-6, f"{inst.speling_mm}")
+    r = bpy.ops.split_joints.passing_maak()
+    stap("hars: knop werkt", r == {"FINISHED"}, f"{r}")
+    toets_blok("passing hars", 0.1)
+    inst.materiaal = "TPU"
+    stap("TPU zonder proef: speling 0,30", abs(inst.speling_mm - 0.3) < 1e-6, f"{inst.speling_mm}")
+    inst.materiaal = "PLA"
+    stap("PLA zonder proef: speling 0,20", abs(inst.speling_mm - 0.2) < 1e-6, f"{inst.speling_mm}")
+    inst.printer = "A1MINI"
+    stap("A1 mini PLA: bewaarde 0,25 gaat voor", abs(inst.speling_mm - 0.25) < 1e-6, f"{inst.speling_mm}")
+    inst.materiaal = "RESIN"
+    stap("A1 mini hars zonder proef: speling 0,10", abs(inst.speling_mm - 0.1) < 1e-6, f"{inst.speling_mm}")
+    inst.materiaal = "PETG"
+    stap("A1 mini PETG: bewaarde 0,30 gaat voor startwaarde 0,25", abs(inst.speling_mm - 0.3) < 1e-6, f"{inst.speling_mm}")
+    inst.printer = "MK4"
+    stap("andere printer zonder proef: speling blijft (geen startwaarde)", abs(inst.speling_mm - 0.3) < 1e-6,
+         f"{inst.speling_mm}")
+    inst.speling_mm = 0.18  # typed by the user
+    inst.materiaal = "RESIN"
+    stap("zelf getypte 0,18 blijft bij ander materiaal", abs(inst.speling_mm - 0.18) < 1e-6, f"{inst.speling_mm}")
+    inst.materiaal = "PLA"
+    stap("zelf getypte 0,18 blijft ook terug op PLA", abs(inst.speling_mm - 0.18) < 1e-6, f"{inst.speling_mm}")
+    del sc["sj_speling_eigen"]
+    inst.printer = "A1MINI"
+    stap("na de toetsen: A1 mini PLA weer 0,25", abs(inst.speling_mm - 0.25) < 1e-6, f"{inst.speling_mm}")
+
     # 4. Split after a fit test: the fit test stays, the piece export does not take it
     ob = modellen.suzanne()
     inst.speling_mm = 0.2

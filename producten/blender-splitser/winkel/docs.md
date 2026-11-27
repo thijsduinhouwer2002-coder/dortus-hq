@@ -1,4 +1,4 @@
-# Click Cuts 1.0.0: Docs-tab voor Superhive (en de pagina na het kopen op Gumroad)
+# Click Cuts: Docs-tab voor Superhive (en de pagina na het kopen op Gumroad)
 
 Productbouwer, do 26 nov 2026 ±10:45 NL, issue #168. Plakken bij de lancering (week van 30 nov) door de hoofdchat, na het ja van Daan: op Superhive in de tab Documentation, op Gumroad in het vak dat de koper na het kopen ziet ("Content"). Eén tekst voor beide winkels.
 
@@ -11,7 +11,7 @@ Opmaak zoals de Docs-tab van Click Joints Pro: de woorden voor de dubbele punt a
 ```
 Getting started
 
-Install: in Blender 4.2 or newer, go to Edit > Preferences > Get Extensions, open the drop-down menu at the top right and choose Install from Disk. Pick click_cuts-1.0.0.zip from your download (do not unzip it). Updating later? Install the new zip the same way.
+Install: in Blender 4.2 or newer, go to Edit > Preferences > Get Extensions, open the drop-down menu at the top right and choose Install from Disk. Pick the click_cuts zip from your download (do not unzip it). Updating later? Install the new zip the same way.
 
 Open the panel: in the 3D viewport press N and open the Click Cuts tab.
 
@@ -35,7 +35,7 @@ Print the fit test first
 Every printer prints holes a little differently. The fit test tells you which clearance fits yours, so pins are not loose or stuck.
 
 1. Open More settings, step 3. In the box Fit test: print this first, pick your Material.
-2. Click Make fit test. You get a small block with four holes for your own pin, each with its clearance engraved in front of it (with the default 0.20 mm: 0.15, 0.20, 0.25 and 0.30 mm), plus four pins.
+2. Click Make fit test. You get a small block with four holes for your own pin, each with its clearance engraved in front of it, plus four pins. Until you save one, the clearance starts at a value for your material (PLA 0.20 mm: holes at 0.15, 0.20, 0.25 and 0.30 mm; Resin 0.10 mm: holes at 0.05, 0.10, 0.15 and 0.20 mm; PETG and ABS / ASA 0.25 mm; TPU 0.30 mm).
 3. Click Export fit test (STL) and print the block and the pins.
 4. Push a pin into every hole. Under "Printed? Click the one that fits:", click the clearance where the pin goes in by hand and does not wobble.
 
@@ -55,14 +55,16 @@ Clearance with magnets: the fit test uses a pin. With Magnets, your clearance go
 Gluing the magnets: glue the magnets with matching poles. Glue the first magnet in one part. Then stick the next magnet onto the one already glued, and press it into the other part while they hold together. Now the poles always match.
 
 
-Choose where it cuts: Free cut
+Choose where it cuts: Draw cut
 
-Split to fit cuts along the X, Y and Z axes. Want an extra cut somewhere else, for example an arm at the shoulder?
+Split to fit cuts along the X, Y and Z axes. Want a cut somewhere else, for example an arm at the shoulder, or a cut that stays out of a face?
 
 1. After a split, click the part you want to cut.
-2. Open More settings, step 4, and click Add free cut. A cut plane appears on that part.
-3. Move it (G), turn it (R) and scale it (S). It only cuts what lies inside its rectangle, on the side its arrow points to.
+2. Under the result, click Draw cut. Drag a line across the part where you want it cut. The cut goes along your line, straight away from you, and only as wide as the line.
+3. The part that comes off lights up white, with an arrow that says "comes off". Wrong part? Click Flip side.
 4. Click Cut piece. The part is cut in two, with pins (or magnet holes) and numbers like the other cuts.
+
+Want to set the angle exactly? Move (G), turn (R) and scale (S) the cut plane before you click Cut piece. It only cuts what lies inside its rectangle. Add free cut (More settings, step 4) gives the same cut plane without drawing.
 
 
 Lay parts flat
@@ -123,6 +125,9 @@ Questions or bugs: send a message through the store or mail thijs@dortus.com. Pl
 | Speling op de diameter, half per kant, 6,2 mm | `magneet_opties`: `speling / 2` per kant; paneelregel "Magnets use half: clearance on the diameter"; proef gebruikt pen (`passing_maak` met `inst.pen_mm`) |
 | Polen gelijk lijmen | `ontwerp.md` deel 16 "Wat het niet doet"; FAQ-zin in de gekeurde winkeltekst |
 | Free cut: stuk aanklikken, Add free cut, G R S, rechthoek, pijl, Cut piece | `vrije_snede.py` r. 307 tot 336 (poll: actief object is een stuk; description met G, R, S, rechthoek en lokale Z) |
+| Draw cut onder de uitslag, lijn slepen, langs de lijn, recht van je af, zo breed als de lijn | `paneel.py` rij na het uitslagvak (alleen na een split met stukken); `SPLIT_JOINTS_OT_vrije_snede_tekenen` bl_description; `lijn.vlak_uit_lijn` (1.1, tak `claude/click-cuts-1.1`) |
+| Wit oplichten, "comes off", Flip side | changelog 1.1 en `SPLIT_JOINTS_OT_vrije_snede_om` ("Flip side", description "the arrow and the lit part change side") |
+| Startspeling per materiaal, Resin 0,05 tot 0,20 | `passing.py` startwaarden (#227); e2e `toetsen_passing.py` meet de vier harsgaten |
 | Lay parts flat, aan, snijvlak, anders eigen stand, scène blijft staan, pennen al plat | `eigenschappen.plat` (default True); `plat.kies_stand(alleen_snijvlak=True)`; `exporteer.py` `finally` zet `matrix_basis` terug; "pin plates are already flat" |
 | Margin (mm) 2, usable | `eigenschappen.marge_mm` default 2.0; `paneel.py` r. 85 |
 | Make watertight, Voxel (mm), Plan cuts, Cut X (mm), X-knop, Add cut: X Y Z, verschoven sneden blijven | `paneel.py` r. 92 tot 120; `snedes.py` description Plan cuts; `in_een_klik` r. 160 ("kept your moved cuts") |

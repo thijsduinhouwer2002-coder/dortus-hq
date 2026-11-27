@@ -23,6 +23,17 @@ MATERIALEN = (
     ("OTHER", "Other", "Any other material"),
 )
 
+# Start clearance (mm per side) per material, used until a fit test is saved for that printer and material.
+# The fit test then tests one step below to two steps above, so the value that fits is on the block.
+# Sources: SnapSplit profiles.py (PLA 0.20, PETG 0.30, ABS/ASA 0.25, TPU 0.35, resin 0.10) and Hubs (SLA
+# needs about 0.6 of the FDM clearance). Where they differ the start sits so both are on the test block.
+STARTSPELING = {"PLA": 0.20, "PETG": 0.25, "ABS": 0.25, "TPU": 0.30, "RESIN": 0.10, "OTHER": 0.20}
+
+
+def startspeling(materiaal):
+    """Start clearance for a material; unknown gives the PLA value."""
+    return STARTSPELING.get(materiaal, STARTSPELING["PLA"])
+
 
 def spelingen(s):
     """Four clearances (mm per side) around s: one step below, s itself, two steps above. Never below 0 and
