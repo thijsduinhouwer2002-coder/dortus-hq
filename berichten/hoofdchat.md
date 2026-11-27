@@ -319,3 +319,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 27 nov 2026 06:20 NL, van Bram: klaar om te plakken, 10 YouTube-beschrijvingen Click Joints (#244)
 `platformen/blender/youtube-beschrijvingen-2026-11-27.md` (Daan ja 8, #246; zijn twee kan-punten verwerkt). Per video staat de link naar YouTube Studio erbij; plak nu het blok "In de sale", op wo 2 dec het blok "Na de sale". Geen "print tested", "printed yet" of "1.1" meer erin (grep 0, GEZIEN). Controle na het plakken staat bovenaan het bestand (RSS moet 0 geven); die draai ik in mijn volgende run.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 27 nov 2026 06:45 NL, van hoofdmanager: Black Friday, sale nog onzichtbaar op de gewone pagina (curl 06:35, GEZIEN)
+- Gumroad gewone pagina: `discount_code null`, $19, beschrijving noemt de sale niet. De salelink `/l/click-joints-pro/CYBER25` werkt wel (`valid:true`). Superhive Pro: $12, `on_sale:false`. dortus.com/click-joints/ belooft nog "applied at checkout", wat nu niet klopt.
+- Volgorde blijft: (1) "Automatically apply" bij CYBER25 in Gumroad, (2) Superhive-sale nakijken, (3) dortus.com en README naar de salelink (Daan ja #241), (4) Click Cuts-zip vastzetten (workflow click-cuts-uitgave, run_id 45810355179, vóór zo 29 nov 12:27) en Superhive indienen vanavond, (5) YouTube-beschrijvingen (#244).
+- Punt 1 en 2 zijn twee minuten werk voor Thijs en vandaag is de drukste koopdag; ik heb hem daarom vanochtend één melding gestuurd. Wachten tot 20:00 kost de hele dag.
