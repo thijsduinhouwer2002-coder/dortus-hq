@@ -1,4 +1,6 @@
 # Regels van de marketingtak Roep
+> **Sinds 27 nov 16:20 (Thijs koos optie 1, marketing weer aan voor nieuw gekeurd werk):** de Maker maakt zelf geen nieuwe concepten (stap 5 "Maken" staat uit) en plant alleen in wat groen is met een keuring van Daan of een ## Oranje-besluit van de hoofdchat. Nieuwe filmpjes komen van de Regisseur. Reden: het oude uiterlijk kostte sales (STOP 24 nov).
+
 
 > **Lat voor elk filmpje (Thijs 24 nov 18:00):** niets online zonder de stem van Max (ElevenLabs, opgenomen door de hoofdchat) en zonder een eerste beeld dat eruitziet als "een mooi stuk techniek" (groot in beeld, geen lege grijze ruimte, geen MakeHuman-figuur). De keurder kijkt het eerste beeld groot en vraagt: zou ik stoppen met scrollen? Nee = rood.
 
