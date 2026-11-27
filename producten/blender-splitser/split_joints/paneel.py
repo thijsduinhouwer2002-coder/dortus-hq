@@ -2,7 +2,7 @@
 one-line result, Export, and the four numbered steps folded under More settings."""
 import bpy
 
-from . import controle, exporteer, in_een_klik, passingproef, printers, schaal, snedes, vrije_snede
+from . import controle, exporteer, hulp, in_een_klik, passingproef, printers, schaal, snedes, vrije_snede
 from .eigenschappen import bed, magneten
 
 
@@ -22,6 +22,9 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
     bl_category = "Click Cuts"
+
+    def draw_header_preset(self, context):
+        hulp.knop(self.layout)  # ? opens the guide on dortus.com, like the ? in Cleave's header (lat, Paneel)
 
     def draw(self, context):
         scene = context.scene

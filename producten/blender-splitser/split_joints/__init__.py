@@ -1,5 +1,5 @@
 """Click Cuts: cuts a model that is too big for the printer into pieces with pins that fit."""
-from . import eigenschappen, exporteer, gesloten, in_een_klik, paneel, passingproef, schaal, snedes, splitsen, vrije_snede
+from . import eigenschappen, exporteer, gesloten, hulp, in_een_klik, paneel, passingproef, schaal, snedes, splitsen, vrije_snede
 
 MODULES = (eigenschappen, gesloten, schaal, snedes, splitsen, vrije_snede, in_een_klik, exporteer, passingproef, paneel)
 
@@ -12,10 +12,12 @@ def register():
     eigenschappen.koppel()
     passingproef.koppel()
     vrije_snede.koppel()
+    hulp.koppel()
 
 
 def unregister():
     import bpy
+    hulp.ontkoppel()
     vrije_snede.ontkoppel()
     passingproef.ontkoppel()
     eigenschappen.ontkoppel()
