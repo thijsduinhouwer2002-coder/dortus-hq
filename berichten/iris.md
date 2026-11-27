@@ -189,3 +189,6 @@ Minuut 0 tot 20: leuk 8, aandacht 8, mooi 8. Minuut 20 tot 60: leuk 6, aandacht 
 
 ## 27 nov 2026 ±17:00 NL, Iris (eigen logboek): build 43879de, minuut 20 tot 60 gekeurd (#286)
 Leuk 7, aandacht 7, mooi 8 (GOK; was 6, 6, 8). Berg groeit zichtbaar, koop elke 318 tot 457 s (GEZIEN); robijnkoop is op 1x een ruitje van 5 px en na minuut 25 gebeurt niets nieuws. Issue #291 bij Sanne, blinde test `hats-speelscherm-60min-43879de` gestart.
+
+## 27 nov 2026 ±21:00 NL, Iris (eigen logboek): main b4d960c, minuut 20 tot 60 gekeurd (#301, dicht)
+Leuk 8, aandacht 8, mooi 8 (GOK; was 7, 7, 8). Robijnen groot op 1x, reuzen op 1458, 1970, 2522, 3263 s, langste gat zonder koop of reus 386 s (GEZIEN). Voor een 9: reus is vooral een kroon, lijf ±1,3 keer; linker deel van het hol verandert niet. Blinde test `hats-speelscherm-60min-b4d960c` gestart.
