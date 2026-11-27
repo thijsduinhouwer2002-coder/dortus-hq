@@ -1,9 +1,10 @@
 Hats of the Fallen, speeltest (bestand heet nog HetHol.exe)
 
 Nieuw sinds je vorige keer (24 nov): helden lopen echt en elke val doet iets
-zichtbaars, de eerste minuut zegt in één regel wat je doet, zacht geluid (uit
-te zetten), één grote regel op het bord, elke paar minuten iets te kopen, en
-een mooier hol (licht, steen in de gang, hoeden op Gloops toren).
+zichtbaars, een held laat met een teken boven zijn hoofd zien wat hij voelt,
+de eerste minuut zegt in één regel wat je doet, zacht geluid (uit te zetten),
+één grote regel op het bord, elke paar minuten iets te kopen, en een mooier
+hol (licht, steen in de gang, luiken op de putten, hoeden op Gloops toren).
 
 Starten
 1. Pak de zip uit en dubbelklik HetHol.exe.

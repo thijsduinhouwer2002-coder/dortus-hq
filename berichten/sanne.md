@@ -198,3 +198,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 27 nov 2026 ±01:00 NL, logboek Sanne
 #19 d wacht op Thijs; #231 (Olaf) en #222 (Mila) dicht na Daan ja; Mila op #30 (Steam-header, blinde test), Olaf op #85 (tekens poppen op).
+
+## 27 nov 2026 ±04:05 NL, logboek Sanne
+#19 d wacht op Thijs (zip van bc51e72 groen, run 45927845764). #242 beslist: rand 1 spelpx plus schaduwvlek, geen loopwip (Olaf bouwt); uitleg in de zip noemt nu tekens en luiken.
