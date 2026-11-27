@@ -15,6 +15,7 @@ const TEKENS := preload("res://kunst/tekens.png")            # boos, uitroep, zw
 const TEKEN := {"boos": 0, "uitroep": 1, "zweet": 2, "zzz": 3, "ster": 4}
 const WIP := preload("res://systemen/held_wip.gd")            # tekens poppen op en gaan zacht weg (#85)
 const NOOT := preload("res://systemen/held_noot.gd")          # muzieknootjes (los sinds 25 nov)
+const RAND := preload("res://systemen/held_rand.gd")          # rand, schaduwvlek en flits (#242)
 
 # Daans lijf + kleding per soort (Mila) + litteken + hoed + wapen (16 x 16, anker midden onder), teken erboven.
 static func teken(h) -> void:
@@ -45,6 +46,8 @@ static func teken(h) -> void:
 		hop = int(vb.hop)
 	elif pose == "sprong":
 		hop = int(round(h.HELD_LOOP.sprong_hop(h)))
+	if met_3d and RAND.is_aan():
+		RAND.schaduw(h, staat, float(h.val_t), float(hop), float(zak))   # onder alles, op de vloer (#242)
 	if links:
 		h.draw_set_transform(Vector2.ZERO, 0, Vector2(-1, 1))   # spiegelen, geen halve pixels
 	var y := -16 + zak + hop
@@ -72,38 +75,11 @@ static func teken(h) -> void:
 	var onder: int = y + (int(tops[hoed_nr]) if hoed_nr < tops.size() else 0) + omlaag - 1
 	_tekens(h, staat, vb, t, onder)
 
-# Witte flits op de held die valt (Mila #43, Daan #45): 0,12 s helemaal wit, dan 0,06 s half, dan niets. Een eigen
-# ShaderMaterial op de held, alleen zolang hij flitst (daarna weer null: geen extra werk voor de andere helden).
-const FLITS_WIT := 0.12
-const FLITS_HALF := 0.06
-const FLITS_SHADER := "shader_type canvas_item;\nuniform float flits = 0.0;\nvoid fragment() {\n\tvec4 c = texture(TEXTURE, UV) * COLOR;\n\tCOLOR = vec4(mix(c.rgb, vec3(1.0), flits), c.a);\n}\n"
-static var flits_shader: Shader
+# Witte flits, rand en schaduw: systemen/held_rand.gd (#242). Doorgeefluiken voor de toetsen.
 static func flits(staat: String, vt: float) -> float:
-	if staat != "vallen":
-		return 0.0
-	if vt < FLITS_WIT:
-		return 1.0
-	if vt < FLITS_WIT + FLITS_HALF:
-		return 0.5
-	return 0.0
-
+	return RAND.flits(staat, vt)
 static func flits_zet(h, f: float) -> void:
-	if not (h is CanvasItem):
-		return
-	var ci := h as CanvasItem
-	if f <= 0.0:
-		if ci.material != null:
-			ci.material = null
-		return
-	if flits_shader == null:
-		flits_shader = Shader.new()
-		flits_shader.code = FLITS_SHADER
-	var m := ci.material as ShaderMaterial
-	if m == null:
-		m = ShaderMaterial.new()
-		m.shader = flits_shader
-		ci.material = m
-	m.set_shader_parameter("flits", f)
+	RAND.flits_zet(h, f)
 
 # Teken (boos, uitroep, ...), poef en nootjes boven het hoofd; onder = de rij net boven de bovenkant van de hoed.
 # Elk teken popt op en gaat zacht weg (#85, systemen/held_wip.gd); de poef is zijn eigen beeldje en wipt niet.
@@ -321,7 +297,13 @@ static func _teken_3d(h, staat: String, frame: int, zak: int, hop: int, vb: Dict
 	var y := -hoog + float(zak + hop)
 	if zicht <= 0.0:   # helemaal in de put gezakt: geen lijf meer, de losse hoed kan nog net zichtbaar zijn, tekens wel
 		return mini(int(y), _teken_hoed_3d(h, info, i, x + float(info["anker_x"]) / px, y, staat, vb, kleur))
-	h.draw_texture_rect_region(ct, Rect2(x, y, cw / px, zicht), Rect2(i * cw, 0, cw, zicht * px), kleur)
+	var doel := Rect2(x, y, cw / px, zicht)
+	var bron := Rect2(i * cw, 0, cw, zicht * px)
+	if RAND.is_aan():   # rand eerst, om lijf en hoed samen, zodat de hoedrand niet over het lijf valt (#242)
+		RAND.rand_lijf(h, ct, doel, bron, -1.0 if staat == "vluchten" else 1.0)
+		_teken_hoed_3d(h, info, i, x + float(info["anker_x"]) / px, y, staat, vb, kleur, true)
+		h.draw_set_transform(Vector2.ZERO, 0, Vector2(-1.0 if staat == "vluchten" else 1.0, 1))
+	h.draw_texture_rect_region(ct, doel, bron, kleur)
 	var tops: Array = info.get("top", [])
 	var kop := int(floor(y + (float(tops[i]) if i < tops.size() else 0.0)))
 	var top_hoed := _teken_hoed_3d(h, info, i, x + float(info["anker_x"]) / px, y, staat, vb, kleur)
@@ -334,7 +316,7 @@ static func hoed_plek_3d(info: Dictionary, i: int, kx: float, ky: float, _hi: Di
 	var k: Array = kr[i] if i < kr.size() else [0.0, float(info.get("top", [0])[0])]
 	return Vector2(kx + float(k[0]), ky + float(k[1]) + HOED_IN_KOP)   # waar het nulpunt van de hoed komt
 
-static func _teken_hoed_3d(h, info: Dictionary, i: int, kx: float, ky: float, staat: String, vb: Dictionary, kleur: Color) -> int:
+static func _teken_hoed_3d(h, info: Dictionary, i: int, kx: float, ky: float, staat: String, vb: Dictionary, kleur: Color, rand := false) -> int:
 	if not held3d.has(HOEDEN3D) or not info.has("kruin"):
 		return 9999
 	var ct: CanvasTexture = held3d[HOEDEN3D][0]
@@ -370,6 +352,10 @@ static func _teken_hoed_3d(h, info: Dictionary, i: int, kx: float, ky: float, st
 	else:
 		plek = hoed_plek_3d(info, i, kx, ky, hi)
 	var sx := -1.0 if staat == "vluchten" else 1.0       # het lijf is dan gespiegeld (teken), de hoed dus ook
+	if rand:   # alleen de rand (#242), het lijf komt er daarna overheen
+		RAND.rand_hoed(h, ct, Vector2(plek.x * sx, plek.y), draai * sx, Vector2(sx * f, f), Rect2(-ax, -ny, cw / px, ch / px), Rect2(nr * cw, 0, cw, ch), alfa)
+		h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
+		return 9999
 	h.draw_set_transform(Vector2(plek.x * sx, plek.y), draai * sx, Vector2(sx * f, f))
 	var c := Color(kleur.r, kleur.g, kleur.b, kleur.a * alfa)
 	h.draw_texture_rect_region(ct, Rect2(-ax, -ny, cw / px, ch / px), Rect2(nr * cw, 0, cw, ch), c)
