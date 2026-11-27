@@ -7,7 +7,7 @@ Plakken door de hoofdchat, vóór de laatste meter van 20:00. Drie blokken, elk 
 ## Plakken 1: Superhive, Click Joints Pro, tab Documentation
 https://superhivemarket.com/products/click-joints-pro/docs
 
-Vervang alleen de alinea die begint met **Install:** (eerste alinea onder "Getting started"). "Install:" blijft vet, net als nu.
+Vervang alleen de alinea die begint met **Install:** (eerste alinea onder "Getting started"). "Install:" blijft vet, net als nu. Maak van "See the FAQ" een link naar https://superhivemarket.com/products/click-joints-pro/faq als de editor dat toelaat (Daan K2).
 
 ```
 Install: open Blender 4.2 or newer. Drag click_joints_pro-1.2.8.zip from your Superhive download into the Blender window and confirm. Do not unzip it. Or go to Edit > Preferences > Get Extensions, open the drop-down menu at the top right, choose Install from Disk and pick the zip. Got a folder instead of a zip? See the FAQ. Updating from an older Pro? Install the new zip the same way.
@@ -65,7 +65,8 @@ The default clearance of 0.2 mm works on most well tuned printers, but every pri
 
 **Bewust weggelaten:** "FDM and resin" uit het fit-antwoord (geen bron voor resin, zelfde reden als bij de Docs-tab). "not print tested" of "we printed": nergens.
 
-**Na 1.2.9 (niet vóór ma 30 nov):** zipnaam wordt `click_joints_pro-1.2.9.zip` in alle drie de blokken; "Coming from the free version" wordt "Pro turns it off for you."
+**Na 1.2.9 (niet vóór ma 30 nov):** zipnaam wordt `click_joints_pro-1.2.9.zip` in alle drie de blokken; "Coming from the free version" wordt "Pro turns it off for you."; in het fit-antwoord van de FAQ en in de Docs-tab wordt "in the Pro part under Print this first" dan "in step 2, under Clearance (mm)" (in 1.2.9 staat de proefstrip daar, `testkaart.py` r. 211 tot 213; Daan K1 #262).
 
 ## Stand
 - 27 nov ±10:20 NL: concept klaar, keuring gevraagd aan Daan (#262). Apple-pagina gaf om 10:20 een 429 bij curl; de zin is vanochtend voor Click Cuts nagelezen (#250, DERDEN). Blender-zin opnieuw nagelezen 10:20 (GEZIEN).
+- 27 nov ±10:55 NL: Daan Akkoord: ja (8,5), #262. K1 (fit-antwoord na 1.2.9) en K2 (link naar FAQ) verwerkt. Gemeld als klaar om te plakken in `berichten/hoofdchat.md`.
