@@ -1,0 +1,83 @@
+{
+ "fps": 30,
+ "delen": {
+  "start": 0.0,
+  "heel2": 1.367,
+  "kies": 1.7,
+  "printer": 2.5,
+  "knop": 3.833,
+  "klaar": 3.867,
+  "draai": 5.433,
+  "lijst": 7.767,
+  "lijst_onder": 9.433,
+  "zoom": 11.6,
+  "zoom_dicht": 13.933,
+  "alles": 14.633,
+  "eind": 18.633
+ },
+ "kliks": [
+  1.7,
+  2.5,
+  3.267,
+  3.833,
+  7.633,
+  11.467
+ ],
+ "metingen": {
+  "paard_mm": [
+   385.3,
+   254.8,
+   520.0
+  ],
+  "paneel": [
+   607,
+   99,
+   473,
+   1781
+  ],
+  "weergave": [
+   0,
+   99,
+   607,
+   1781
+  ],
+  "ocr": {
+   "printer": [
+    744,
+    229
+   ],
+   "split": null
+  },
+  "printer_regel": [
+   676,
+   315
+  ],
+  "printer": "A1",
+  "split_echte_s": 23.4,
+  "stukken": 12,
+  "groen": 12,
+  "pennen": 48,
+  "kader": [
+   [
+    17.2,
+    0.0,
+    259.7,
+    987.7
+   ],
+   [
+    17.2,
+    0.0,
+    259.7,
+    987.7
+   ]
+  ],
+  "close_up": [
+   9,
+   1,
+   1.0,
+   3
+  ]
+ },
+ "vangnet": [],
+ "echt": true
+}

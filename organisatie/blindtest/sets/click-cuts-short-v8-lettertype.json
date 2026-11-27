@@ -1,0 +1,32 @@
+{
+  "titel": "Click Cuts lanceer-Short in de vorm van v8c (#135): eerste beeld in drie lettertypes (Thijs 27 nov 16:14: lettertype v8c niet mooi)",
+  "rol": "You make or download 3D models and print them at home, and many models are bigger than your printer bed. You are scrolling YouTube Shorts and YouTube videos about Blender and 3D printing. Which of these first frames makes you stop and watch?",
+  "ons": [
+    {
+      "naam": "echte Blender met paneel, paard boven het bed, hook in TikTok Sans",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/commercie/filmpjes/regisseur-31/eerste-tiktok.jpg"
+    },
+    {
+      "naam": "echte Blender met paneel, paard boven het bed, hook in Montserrat ExtraBold",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/commercie/filmpjes/regisseur-31/eerste-montserrat.jpg"
+    },
+    {
+      "naam": "echte Blender met paneel, paard boven het bed, hook in Poppins ExtraBold",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/commercie/filmpjes/regisseur-31/eerste-poppins.jpg"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Cleave (hoofdfilm, Cleave Blender)",
+      "url": "https://i.ytimg.com/vi/q48XFwmtp-I/hqdefault.jpg"
+    },
+    {
+      "naam": "CatPin Short (AlexSokolArt)",
+      "url": "https://i.ytimg.com/vi/VyEpyAhcFQ0/hqdefault.jpg"
+    },
+    {
+      "naam": "LayerLab, 3D Print Too Big?",
+      "url": "https://i.ytimg.com/vi/1DTiraZxsio/hqdefault.jpg"
+    }
+  ]
+}
