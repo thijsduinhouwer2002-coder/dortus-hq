@@ -86,7 +86,7 @@ func schaduw() -> void:
 func licht() -> void:
 	var L := preload("res://systemen/held_licht.gd")
 	var M := preload("res://hol/metsel.gd")
-	ok(L.PX == 2.0 and L.DEKKING > 0.0 and L.DEKKING <= 0.7, "licht: 2 spelpx naar buiten (buiten de donkere rand), dekking %.2f" % L.DEKKING)
+	ok(L.PX > 1.5 and L.PX <= 2.0 and L.DEKKING > 0.0 and L.DEKKING <= 0.6, "licht: %.2f spelpx naar buiten (buiten de donkere rand), dekking %.2f" % [L.PX, L.DEKKING])
 	var koel := -1.0
 	var leem := -1.0
 	for x in range(0, 6000, 2):
@@ -103,6 +103,40 @@ func licht() -> void:
 	var nep := Node2D.new()
 	ok(L.doel(nep) == 0.0, "licht: zonder hol geen rand")
 	nep.free()
+	# Masker (#276): vierkant lijf van 4 x 4 spelpx (5 beeldpunten per spelpx), geen hoed.
+	var im := Image.create(20, 20, false, Image.FORMAT_RGBA8)
+	im.fill(Color(1, 1, 1, 1))
+	var lijf := {"img": L.hard(im), "doel": Rect2(0, 0, 4, 4), "bron": Rect2(0, 0, 20, 20), "px": 5.0}
+	var r: Array = L.masker(lijf, {})
+	var mi: Image = r[0]
+	var lt: Vector2 = r[1]
+	var hard := true
+	for y in mi.get_height():
+		for x in mi.get_width():
+			var a := mi.get_pixel(x, y).a
+			hard = hard and (a == 0.0 or a == 1.0)
+	var op := func(p: Vector2) -> float:
+		var q := Vector2i(((p - lt) * 5.0).floor())
+		return mi.get_pixel(q.x, q.y).a
+	ok(hard, "licht: masker is hard (alfa 0 of vol)")
+	ok(op.call(Vector2(2, 2)) == 0.0 and op.call(Vector2(0.2, 2)) == 0.0, "licht: niets op het lijf zelf")
+	ok(op.call(Vector2(-1.5, 2)) == 1.0 and op.call(Vector2(-2.2, 2)) == 0.0, "licht: zijkant tot ±1,9 spelpx, niet verder")
+	ok(op.call(Vector2(-1.1, -1.1)) == 1.0 and op.call(Vector2(-1.9, -1.9)) == 0.0, "licht: hoek rond, geen vierkante bobbel")
+	var rk: Array = L.masker(lijf, {}, 1)
+	var mk: Image = rk[0]
+	var ltk: Vector2 = rk[1]
+	var opk := func(p: Vector2) -> float:
+		var q := Vector2i(((p - ltk) * 5.0).floor())
+		return mk.get_pixel(q.x, q.y).a
+	ok(opk.call(Vector2(5.5, 2)) == 1.0 and opk.call(Vector2(-1.5, 2)) == 0.0 and opk.call(Vector2(2, 5.5)) == 0.0, "licht: licht van rechts geeft een randje rechts, niet links en niet onder de voeten")
+	# hoed tegen het lijf: één masker, dus nergens dubbel (alfa blijft 0 of vol)
+	var hoed := {"img": L.hard(im), "doel": Rect2(-2, -4, 4, 4), "bron": Rect2(0, 0, 20, 20), "px": 5.0, "f": 0.5, "plek": Vector2(2, 0)}
+	var r2: Array = L.masker(lijf, hoed)
+	var mi2: Image = r2[0]
+	var lt2: Vector2 = r2[1]
+	var q2 := Vector2i(((Vector2(2, -1) - lt2) * 5.0).floor())
+	var q3 := Vector2i(((Vector2(2, -3.5) - lt2) * 5.0).floor())
+	ok(mi2.get_pixel(q2.x, q2.y).a == 0.0 and mi2.get_pixel(q3.x, q3.y).a == 1.0, "licht: hoed hoort bij het masker (niet op de hoed, wel erboven)")
 
 func _blok(M, x: float, r: int) -> int:
 	var n := int(floor((x - (M.BLOK_B / 2) * r) / M.BLOK_B))

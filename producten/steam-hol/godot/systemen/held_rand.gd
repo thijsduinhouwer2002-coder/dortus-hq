@@ -67,15 +67,9 @@ static func silhouet(ct: CanvasTexture) -> CanvasTexture:
 	return s
 
 # De rand van het lijf: silhouet 4 keer, 1 spelpx naar elke kant. sx = -1 als het lijf gespiegeld staat.
-static func rand_lijf(h, ct: CanvasTexture, doel: Rect2, bron: Rect2, sx: float, alfa := 1.0, licht := false) -> void:
+static func rand_lijf(h, ct: CanvasTexture, doel: Rect2, bron: Rect2, sx: float, alfa := 1.0) -> void:
 	var s := silhouet(ct)
 	if s == null:
-		return
-	if licht:
-		var ls := LICHTR.sterkte(h)
-		if ls > 0.01:
-			LICHTR.rand_lijf(h, s, doel, bron, sx, ls, alfa)
-			h.draw_set_transform(Vector2.ZERO, 0, Vector2(sx, 1))
 		return
 	var c := Color(RAND_KLEUR.r, RAND_KLEUR.g, RAND_KLEUR.b, RAND_KLEUR.a * alfa)
 	for r in RICHTING:
@@ -83,15 +77,23 @@ static func rand_lijf(h, ct: CanvasTexture, doel: Rect2, bron: Rect2, sx: float,
 		h.draw_texture_rect_region(s, doel, bron, c)
 	h.draw_set_transform(Vector2.ZERO, 0, Vector2(sx, 1))
 
-# Rand van de hoed: zelfde transform als de hoed, verschoven in schermrichting (dus altijd 1 spelpx, ook bij draaien).
-static func rand_hoed(h, ct: CanvasTexture, plek: Vector2, draai: float, schaal: Vector2, doel: Rect2, bron: Rect2, alfa: float, licht := false) -> void:
+# Lichte buitenrand om lijf en hoed samen, op het raster van spelpixels (#256, #276; held_licht.gd). hoed: {ct, doel,
+# bron, px, f, plek} of leeg (geen hoed, of hij tuimelt).
+static func licht(h, ct: CanvasTexture, doel: Rect2, bron: Rect2, px: float, sx: float, hoed: Dictionary) -> void:
 	var s := silhouet(ct)
 	if s == null:
 		return
-	if licht:
-		var ls := LICHTR.sterkte(h)
-		if ls > 0.01:
-			LICHTR.rand_hoed(h, s, plek, draai, schaal, doel, bron, ls, alfa)
+	var hd := hoed.duplicate()
+	if not hd.is_empty():
+		hd["sil"] = silhouet(hd["ct"])
+		if hd["sil"] == null:
+			hd = {}
+	LICHTR.teken(h, {"sil": s, "doel": doel, "bron": bron, "px": px}, hd, sx)
+
+# Rand van de hoed: zelfde transform als de hoed, verschoven in schermrichting (dus altijd 1 spelpx, ook bij draaien).
+static func rand_hoed(h, ct: CanvasTexture, plek: Vector2, draai: float, schaal: Vector2, doel: Rect2, bron: Rect2, alfa: float) -> void:
+	var s := silhouet(ct)
+	if s == null:
 		return
 	var c := Color(RAND_KLEUR.r, RAND_KLEUR.g, RAND_KLEUR.b, RAND_KLEUR.a * alfa)
 	for r in RICHTING:

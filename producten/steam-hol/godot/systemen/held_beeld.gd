@@ -205,6 +205,7 @@ const HELD3D_ANDER := ["ridder", "heks"]
 const NIET_3D := -9999
 const HOEDEN3D := "hoeden"       # blad met de 10 hoeden in de volgorde van held.gd
 const HOEDEN3D_HAP := "hoeden_hap"   # dezelfde hoeden met drie tandbogen eruit (Daan 21:45: bovenste hoed van de toren)
+static var hoed_licht := {}   # gegevens van de hoed voor de lichte rand (#276)
 const HOED_IN_KOP := 1.0         # onderrand van de hoed zoveel spelpixels in de kruin (Daan: nooit zwevend)
 static var held3d := {}          # blad-naam -> [CanvasTexture, info]
 static var held3d_gezocht := false
@@ -300,8 +301,9 @@ static func _teken_3d(h, staat: String, frame: int, zak: int, hop: int, vb: Dict
 	var doel := Rect2(x, y, cw / px, zicht)
 	var bron := Rect2(i * cw, 0, cw, zicht * px)
 	if RAND.is_aan():   # rand eerst, om lijf en hoed samen, zodat de hoedrand niet over het lijf valt (#242)
-		RAND.rand_lijf(h, ct, doel, bron, -1.0 if staat == "vluchten" else 1.0, 1.0, true)   # eerst licht buitenom (#256)
-		_teken_hoed_3d(h, info, i, x + float(info["anker_x"]) / px, y, staat, vb, kleur, 2)
+		hoed_licht = {}
+		_teken_hoed_3d(h, info, i, x + float(info["anker_x"]) / px, y, staat, vb, kleur, 2)   # vult hoed_licht (#276)
+		RAND.licht(h, ct, doel, bron, px, -1.0 if staat == "vluchten" else 1.0, hoed_licht)   # eerst licht buitenom (#256)
 		RAND.rand_lijf(h, ct, doel, bron, -1.0 if staat == "vluchten" else 1.0)
 		_teken_hoed_3d(h, info, i, x + float(info["anker_x"]) / px, y, staat, vb, kleur, 1)
 		h.draw_set_transform(Vector2.ZERO, 0, Vector2(-1.0 if staat == "vluchten" else 1.0, 1))
@@ -354,8 +356,12 @@ static func _teken_hoed_3d(h, info: Dictionary, i: int, kx: float, ky: float, st
 	else:
 		plek = hoed_plek_3d(info, i, kx, ky, hi)
 	var sx := -1.0 if staat == "vluchten" else 1.0       # het lijf is dan gespiegeld (teken), de hoed dus ook
-	if rand > 0:   # alleen de rand (#242; 2 = lichte buitenrand #256), het lijf komt er daarna overheen
-		RAND.rand_hoed(h, ct, Vector2(plek.x * sx, plek.y), draai * sx, Vector2(sx * f, f), Rect2(-ax, -ny, cw / px, ch / px), Rect2(nr * cw, 0, cw, ch), alfa, rand == 2)
+	if rand == 2:   # lichte buitenrand (#276): alleen gegevens, held_licht.gd maakt één masker met het lijf
+		if draai == 0.0:
+			hoed_licht = {"ct": ct, "doel": Rect2(-ax, -ny, cw / px, ch / px), "bron": Rect2(nr * cw, 0, cw, ch), "px": px, "f": f, "plek": plek}
+		return 9999
+	if rand > 0:   # alleen de rand (#242), het lijf komt er daarna overheen
+		RAND.rand_hoed(h, ct, Vector2(plek.x * sx, plek.y), draai * sx, Vector2(sx * f, f), Rect2(-ax, -ny, cw / px, ch / px), Rect2(nr * cw, 0, cw, ch), alfa)
 		h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
 		return 9999
 	h.draw_set_transform(Vector2(plek.x * sx, plek.y), draai * sx, Vector2(sx * f, f))
