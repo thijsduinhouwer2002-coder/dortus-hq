@@ -268,7 +268,7 @@ def fakkel(x, z, y=1.4, kracht=220, groot=1.6):
     druppel("vlam", (x, y - 0.12, zv + 0.12 * groot), 0.15 * groot, 2.3, V_BUIT, 0.05)
     druppel("vlammid", (x, y - 0.18, zv + 0.1 * groot), 0.11 * groot, 2.0, V_MID, 0.04)
     druppel("kern", (x, y - 0.24, zv + 0.06 * groot), 0.06 * groot, 1.7, V_HART, 0.02)
-    d = bpy.data.lights.new("fakkellicht", "POINT"); d.color = (1.0, 0.62, 0.3); d.energy = kracht; d.shadow_soft_size = 0.3
+    d = bpy.data.lights.new("fakkellicht", "POINT"); d.color = (1.0, 0.62, 0.3); d.energy = kracht * E("FAKKEL", "1.0"); d.shadow_soft_size = 0.3
     l = bpy.data.objects.new("fakkellicht", d); l.location = (x, y - 0.7, zv + 0.5); sc.collection.objects.link(l)
 fakkel(KX1 - 0.8, 2.2)
 fakkel(-4.2, 1.45, kracht=190, groot=1.4)
@@ -384,6 +384,15 @@ lamp("vul", "AREA", (-6.0, -12.0, 3.0), (0.8, 0.88, 1.0), E("VUL", "1500"), 10.0
 lamp("kamer", "AREA", (GX, -3.0, 3.6), (1.0, 0.82, 0.6), E("KAMERL", "350"), 4.0, (GX, 1.0, 1.4))
 lamp("titellamp", "AREA", (-5.0, -8.0, 9.0), (1.0, 0.97, 0.9), E("TITELL", "1400"), 5.0, (-5.0, -2.5, 6.0))
 lamp("zon", "SUN", (0, 0, 10), (1.0, 0.95, 0.85), E("ZON", "2.0"), 1.0, (1.0, 2.0, 0.0))
+if os.environ.get("HV2_MAT", "0") == "1":
+    # minder plastic: matter, minder glans, behalve goud, edelstenen en het oog
+    for m in bpy.data.materials:
+        if not m.use_nodes or m.name.startswith(("goud", "robijn", "safier", "kroon", "oog", "glim", "ring")): continue
+        b = m.node_tree.nodes.get("Principled BSDF")
+        if not b: continue
+        if "Specular IOR Level" in b.inputs: b.inputs["Specular IOR Level"].default_value = min(b.inputs["Specular IOR Level"].default_value, E("GLANS", "0.25"))
+        b.inputs["Roughness"].default_value = max(b.inputs["Roughness"].default_value, E("RUW", "0.55"))
+    lamp("rand", "AREA", (4.0, 6.0, 7.0), (1.0, 0.85, 0.65), E("RANDL", "0"), 8.0, (4.0, 0.0, 1.5))
 sc.world = bpy.data.worlds.new("w"); sc.world.use_nodes = True
 bg = sc.world.node_tree.nodes["Background"]; bg.inputs["Color"].default_value = (0.55, 0.72, 1.0, 1); bg.inputs["Strength"].default_value = E("WERELD", "0.2")
 
@@ -396,6 +405,31 @@ sc.render.engine = "CYCLES"; sc.cycles.samples = SAMPLES; sc.cycles.device = "CP
 sc.render.resolution_x = W; sc.render.resolution_y = H; sc.render.resolution_percentage = 100
 sc.render.film_transparent = True
 sc.view_settings.view_transform = "Standard"; sc.view_settings.look = "None"
+# v6 (blinde test 27 nov 10:50, Gemini: "3D looks a bit cheap and mobile-esque, refine the lighting"):
+# AgX met meer contrast in plaats van Standard, en een warme inktlijn om de vormen zoals bij een getekend spel.
+if os.environ.get("HV2_AGX", "0") == "1":
+    sc.view_settings.view_transform = "AgX"
+    sc.view_settings.look = os.environ.get("HV2_LOOK", "AgX - Punchy")
+    sc.view_settings.exposure = E("BELICHT", "0.0")
+if os.environ.get("HV2_LIJN", "0") == "1":
+    geen = bpy.data.collections.new("geenlijn"); sc.collection.children.link(geen)
+    for o in list(sc.objects):
+        n = o.name.split(".")[0]
+        if o.type != "MESH" and o.type != "CURVE": continue
+        if n in ("spriet", "rand", "verspriet", "hangachter", "hangspriet", "kluitgras", "munt", "kiezel", "randkluit",
+                 "gatwortel", "gatwortel2", "wortel", "aarde", "grasplak", "vloer", "kamerwand", "gangwand", "valwand",
+                 "berg", "titel", "titelrand", "vlam", "vlammid", "kern", "bloem", "hart", "steel") or n.startswith("Sphere"):
+            for c in list(o.users_collection): c.objects.unlink(o)
+            geen.objects.link(o)
+    sc.render.use_freestyle = True
+    sc.render.line_thickness_mode = "ABSOLUTE"; sc.render.line_thickness = E("LIJNDIK", "2.6") * W / 1840
+    fs = bpy.context.view_layer.freestyle_settings
+    ls = fs.linesets[0] if fs.linesets else fs.linesets.new("lijn")
+    ls.select_by_visibility = True; ls.select_by_edge_types = True
+    ls.select_silhouette = True; ls.select_border = True; ls.select_crease = False; ls.select_external_contour = True
+    ls.select_by_collection = True; ls.collection = geen; ls.collection_negation = "EXCLUSIVE"
+    if ls.linestyle is None: ls.linestyle = bpy.data.linestyles.new("inkt")
+    ls.linestyle.color = (0.16, 0.07, 0.05); ls.linestyle.thickness = 1.0; ls.linestyle.alpha = 0.85
 sc.render.image_settings.file_format = "PNG"; sc.render.image_settings.color_mode = "RGBA"; sc.render.filepath = uit
 bpy.ops.render.render(write_still=True)
 print("klaar", uit)

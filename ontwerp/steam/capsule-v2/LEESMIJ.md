@@ -35,3 +35,14 @@ Maken: `<venv>/bin/python header_v2.py r.png 1840 860 28` (bpy 5.2.4, ±2,5 min 
 - **Pet:** de rode pet in de lucht las op 460 als rode lippen (wit band als tanden, koepel van opzij). Nu koepel boven, witte band als rand en de klep steekt rechts opzij (`PETK` 15, `PETD` -30): op 920 en 460 een pet, op 2x ook. Gekozen uit zes standen die ik los renderde.
 - Rest gelijk aan v4. Voor en na van de pet: `voor-na.png` (v4 links, v5 rechts). Bekeken met Read op 920, 460 en 2x.
 - Set `hats-header-v2.json` wijst nu naar v5 (`?v=5`).
+
+## Blinde test v5 (27 nov 10:50 NL): NIET GESLAAGD, Gemini gemiddeld plek 3,0
+Uitslag: `organisatie/blindtest/uitslag/hats-header-v2-2026-11-27-1050.md` (GEZIEN). Beide rondes plek 3 van 4 (eerste keus Spirit City en Rusty). Gemini letterlijk: "The concept of a taskbar basement is clever and clearly displayed, but the 3D graphic style looks a bit cheap and mobile-esque." Beter maken: "Refine the lighting and 3D asset quality to give the game a more premium aesthetic." Het idee werkt dus (de taakbalk leest), de afwerking niet.
+
+Proef in dezelfde run (`proef-v6-licht.jpg`, boven v5, midden en onder twee proeven), alles als schakelaar in de scripts, standaard uit, zodat v5 gelijk blijft:
+- `HV2_AGX=1` (AgX met Punchy): alles valt flets en grijs uit, titel crème. Niet doen.
+- `HV2_LIJN=1` (warme inktlijn om Gloop, helden, pet en hoeden) en `HV2_MAT=1` (matter, minder glans): iets meer getekend, maar op 920 nauwelijks verschil.
+- `GLOED=1` in `samenstellen.py` (gloed om fel licht, warme toon, vignet): maakt het waziger, de titel verliest zijn rand. Niet doen in deze vorm.
+- Mijn oordeel (GEZIEN met Read op 920): geen van de proeven is duidelijk beter dan v5, dus geen nieuwe testronde op de gratis daglimiet.
+
+Wat de volgende stap moet zijn: niet nog meer poetsen aan licht, maar de stijl zelf. De drie concurrenten zijn getekend (Rusty pixels, Spirit City en Desktop Defender vlak getekend met harde schaduwvlakken). Plan v6: toon-schaduw (twee of drie vlakke tinten per materiaal in plaats van glad plastic), een dikke inktlijn op 2x om de figuren, en minder glimmende hoogtelichten; eerst één losse proef op Gloop alleen, dan pas het hele beeld.

@@ -46,6 +46,24 @@ lucht.paste(hv, (0, 0), hv)
 
 beeld = lucht.convert("RGBA")
 beeld.alpha_composite(r)
+if os.environ.get("GLOED", "0") == "1":
+    # v6: zachte gloed om het felle licht (fakkels, ring, goud) en een warme kleurtoon met lichte vignet,
+    # zodat het minder als kaal plastic leest (Gemini 27 nov: "refine the lighting").
+    import numpy as np
+    a = np.asarray(beeld.convert("RGB")).astype(np.float32) / 255.0
+    lum = a.max(axis=2, keepdims=True)
+    hel = np.clip((lum - float(os.environ.get("GLOEDDREMPEL", "0.8"))) / 0.2, 0, 1) * a
+    hi = Image.fromarray((hel * 255).astype(np.uint8))
+    g1 = np.asarray(hi.filter(ImageFilter.GaussianBlur(6 * k))).astype(np.float32) / 255.0
+    g2 = np.asarray(hi.filter(ImageFilter.GaussianBlur(22 * k))).astype(np.float32) / 255.0
+    a = 1 - (1 - a) * (1 - float(os.environ.get("GLOEDK", "0.35")) * (g1 + g2) / 2 * 2)
+    # warm in de lichten, iets koeler in de schaduw
+    w = np.array([1.03, 1.0, 0.94], np.float32); c = np.array([0.96, 0.99, 1.04], np.float32)
+    a = a * (lum * w + (1 - lum) * c)
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    v = ((xx - W / 2) / (W * 0.62)) ** 2 + ((yy - H * 0.55) / (H * 0.85)) ** 2
+    a = a * (1 - float(os.environ.get("VIGNET", "0.18")) * np.clip(v, 0, 1))[..., None]
+    beeld = Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8)).convert("RGBA")
 d = ImageDraw.Draw(beeld)
 
 # taakbalk onderaan (v3, Daan #236 M3: hoger, knoppen groter, Hats-knop opgelicht als open app, en een muispijl,
