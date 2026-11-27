@@ -32,7 +32,7 @@ In het blok Description uit `lancering.md` punt 2 verandert alleen dit. De rest 
 
 Regel **Free cut** wordt:
 ```
-- **Draw cut:** after Split to fit, click a part and drag a line where you want it cut, for example under the chin or at the shoulder. The part that comes off lights up white before you cut. Or add a free cut and set it with G, R and S.
+- **Draw cut:** after Split to fit, click a part, press Draw cut and drag a line where you want it cut, for example under the chin or at the shoulder. The part that comes off lights up white before you cut. Or add a free cut and set it with G, R and S.
 ```
 Regel **Fit test** wordt:
 ```

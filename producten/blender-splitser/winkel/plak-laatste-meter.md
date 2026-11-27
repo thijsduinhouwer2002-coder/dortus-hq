@@ -4,6 +4,8 @@ Productbouwer, vr 27 nov 2026 ±20:35 NL. **Eén kaart voor alles wat nog geplak
 
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
+**Gekeurd:** Daan ja (8), #310, 27 nov ±22:05: deel 1 mag za 28 nov. K1 (regel New in 1.1.0 onder de kop Draw cut, tak 541ccc1) en K2 (1c: "press Draw cut") verwerkt 27 nov ±22:40.
+
 ## Wat al staat (niet opnieuw doen)
 | Wat | Stand |
 |---|---|
@@ -53,7 +55,7 @@ Drie plekken. De rest blijft woord voor woord.
 
 Regel die begint met **Free cut:** wordt (met "Draw cut:" vet, zoals de andere regels):
 ```
-- **Draw cut:** after Split to fit, click a part and drag a line where you want it cut, for example under the chin or at the shoulder. The part that comes off lights up white before you cut. Or add a free cut and set it with G, R and S.
+- **Draw cut:** after Split to fit, click a part, press Draw cut and drag a line where you want it cut, for example under the chin or at the shoulder. The part that comes off lights up white before you cut. Or add a free cut and set it with G, R and S.
 ```
 Regel die begint met **Fit test:** wordt:
 ```
@@ -73,7 +75,7 @@ Beeld toevoegen en naar **plek 2** slepen, direct na het hoofdbeeld (het beantwo
 Opslaan. Gumroad vraagt kopers te mailen over de wijziging: **niet doen** (gaat onder de naam van Thijs, en hij gaf geen ja op een tekst).
 
 ### 1e. dortus.com/click-cuts/ naar 1.1.0 (repo dortus)
-Tak `claude/click-cuts-hulp-1.1` (1cb650f) samenvoegen in main, op hetzelfde moment als 1c. Wat er verandert: zipnaam 1.1.0, startspeling per materiaal bij de fit test, het stuk "Choose where it cuts: Draw cut" met het GESLAAGDE beeld `draw-cut.jpg` (1600 x 900, uit `tekenen-1920x1080.jpg`), FAQ "Yes", en één regel "New in 1.1.0. Bought 1.0.0? Download the new zip from the page where you bought it and install it the same way." Alle zinnen gelijk aan de gekeurde `docs.md` en `faq.md` (`python3 producten/blender-splitser/winkel/controleer_hulppagina.py <index.html van de tak>`: OK, GEZIEN). Bekeken op 390 en 1366 px, geen zijwaartse scroll (`keuring/beelden/2026-11-27-hulppagina-1.1-drawcut-*.jpg`, GEZIEN). Waarom nu: de ?-knop en Online Manual in 1.1 openen deze pagina; Draw cut springt naar `#free-cut`, en daar staat nu nog alleen Free cut.
+Tak `claude/click-cuts-hulp-1.1` (541ccc1, met Daans K1) samenvoegen in main, op hetzelfde moment als 1c. Wat er verandert: zipnaam 1.1.0, startspeling per materiaal bij de fit test, het stuk "Choose where it cuts: Draw cut" met het GESLAAGDE beeld `draw-cut.jpg` (1600 x 900, uit `tekenen-1920x1080.jpg`), FAQ "Yes", en direct onder de kop Draw cut één regel "New in 1.1.0. Bought 1.0.0? Download the new zip from the page where you bought it and install it the same way." Alle zinnen gelijk aan de gekeurde `docs.md` en `faq.md` (`python3 producten/blender-splitser/winkel/controleer_hulppagina.py <index.html van de tak>`: OK, GEZIEN). Bekeken op 390 en 1366 px, geen zijwaartse scroll (`keuring/beelden/2026-11-27-hulppagina-1.1-drawcut-*.jpg`, GEZIEN). Waarom nu: de ?-knop en Online Manual in 1.1 openen deze pagina; Draw cut springt naar `#free-cut`, en daar staat nu nog alleen Free cut.
 
 ### Controle deel 1
 `bash producten/blender-splitser/winkel/controle-laatste-meter.sh 1`
