@@ -1,26 +1,26 @@
-HOL balk gestart, pid 6048, hoogte 120
-HOL weg geweest 28802 s (klok terug: false): goud voor 29, helden 115, erbij 595, hoeden 50
-HOL weg faam afgekapt 4 van 80 (hooguit 2 niveaus)
+HOL balk gestart, pid 7072, hoogte 120
+HOL weg geweest 28802 s (klok terug: false): goud voor 29, helden 115, erbij 523, hoeden 41
+HOL weg faam afgekapt 4 van 68 (hooguit 2 niveaus)
 HOL hol-niveau 2 (faam 5, t 0.0)
 HOL hol-niveau 3 (faam 5, t 0.0)
-HOL hoeden van de nacht 50 (vallen vanaf 1.0 s, toren nu 0)
-HOL berg zichtbaar 0 -> 13
-HOL kroniek 0.0 (wacht 0.0): 115 came, 80 fell, 50 hats. +595 gold.
+HOL hoeden van de nacht 41 (vallen vanaf 1.0 s, toren nu 0)
+HOL berg zichtbaar 0 -> 10
+HOL kroniek 0.0 (wacht 0.0): 115 came, 68 fell, 41 hats. +523 gold.
 HOL optocht wip, geen poef; helden [3]; duur 0.0 s
-HOL opslag geladen: 0 terugkomers, 624 goud, faam 5
+HOL opslag geladen: 0 terugkomers, 552 goud, faam 5
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795879991
+HOL zaad 1795884277
 HOL balk aan
 HOL grond zacht
-HOL gloop ring aan na 0.1 s (goud 624)
-HOL eerste koop mogelijk na 15 s speeltijd (goud 624)
+HOL gloop ring aan na 0.1 s (goud 552)
+HOL eerste koop mogelijk na 15 s speeltijd (goud 552)
 HOL bordje wip na weg (niveau 3)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vluchten (Teun)
-HOL held binnen: Teun
+HOL begin: vluchten (Femke)
+HOL held binnen: Femke
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Teun read about you in a tavern.
-HOL meting t=10 beelden=119 helden=1 hol_vast=12 langste_ms=139 script_ms=2739
+HOL kroniek 2.5 (wacht 0.5): Femke is here for your gold.
+HOL meting t=10 beelden=119 helden=1 hol_vast=12 langste_ms=133 script_ms=2623
 HOL leven mot t=14.3 x=72 y=26
-HOL einde na 15 s, fps=12, goud=624, terugkomers=0
+HOL einde na 15 s, fps=12, goud=552, terugkomers=0
