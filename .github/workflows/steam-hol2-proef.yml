@@ -1,6 +1,6 @@
 name: Hol 2.0 proef (tak hol2-proef, Windows)
 
-# Olaf, 28 nov 2026 (issue #388). Alleen voor de proeftak: toetsen, een echte .exe voor Thijs (artifact), de .exe
+# Olaf, 28 nov 2026 (issue #388; #401 voegt de stap besturen en focus toe). Alleen voor de proeftak: toetsen, een echte .exe voor Thijs (artifact), de .exe
 # starten op 120 en 240 px met Kladblok erachter, en CPU van de .exe: Hol 2.0 op 120 tegen het hol van nu op 96
 # (zelfde .exe, scène-argument res://main.tscn), om en om, met een placebo (twee keer het hol van nu).
 # Uitslag op tak schermen, map steam-hol2-proef/.
@@ -103,6 +103,13 @@ jobs:
           $r += "starten: $fout FOUT"
           $r | Set-Content "$uit/starten.txt"; $r | ForEach-Object { Write-Output $_ }
           if ($fout -gt 0) { exit 1 }
+      - name: Besturen krijgt echte toetsen en de focus gaat terug naar Kladblok (#401, Daan #394 moet 2 en 3)
+        shell: pwsh
+        run: |
+          $uit = (Resolve-Path "producten/steam-hol/e2e/screenshots/hol2").Path -replace '\\','/'
+          $exe = (Resolve-Path "producten/steam-hol/bouw-hol2/HetHol.exe").Path
+          & producten/steam-hol/e2e/hol2_focus.ps1 $exe $uit
+          if ($LASTEXITCODE -ne 0) { exit 1 }
       - name: CPU van de .exe, om en om, met placebo (alleen ter info naast de Linux-meting)
         shell: pwsh
         run: |

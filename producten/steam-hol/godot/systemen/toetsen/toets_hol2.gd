@@ -5,6 +5,7 @@ extends SceneTree
 # - scharrelen: 15 min spel met de tabel, Gloop staat nooit 40 s stil zonder gedraging, minstens 8 soorten gedrag;
 # - helden: in 15 min vallen er helden op verdieping 1 en 2, en niemand blijft hangen;
 # - besturen: W/S klimt alleen bij een ladder.
+# - maat (#401, Daan #394 moet 1): op elk scherm 120 spelpx en 3 lagen in beeld; het venster is hoogte x schaal.
 # Gebruik: godot --headless --path . -s systemen/toetsen/toets_hol2.gd  (0 fouten = groen)
 
 var fout := 0
@@ -114,5 +115,17 @@ func _init() -> void:
 		gl.stap(0.1)
 		t3 += 0.1
 	ok(gl.niveau == 2, "na het klimmen op verdieping 2 (%d)" % gl.niveau)
+
+	# maat op elk scherm
+	var H2 = load("res://hol2/hol2.gd")
+	for sc in [[1, Vector2i(1920, 1080)], [2, Vector2i(3840, 2160)], [3, Vector2i(5760, 3240)]]:
+		var m: Dictionary = H2.maten(120, sc[0], sc[1])
+		ok(m.spel_h == 120 and m.venster_h == 120 * sc[0] and m.breed == 1920 and H2.lagen_in_beeld(m.spel_h) == 3,
+			"schaal %d op %s: 120 spelpx, venster %d, breed %d, %d lagen in beeld" % [sc[0], sc[1], m.venster_h, m.breed, H2.lagen_in_beeld(m.spel_h)])
+	var klein: Dictionary = H2.maten(240, 3, Vector2i(1280, 720))
+	ok(klein.venster_h <= 360 and klein.spel_h == 240, "te grote schaal op een klein scherm gaat omlaag (schaal %d)" % klein.schaal)
+	ok(H2.lagen_in_beeld(96) == 2 and H2.lagen_in_beeld(240) == 5, "96 spelpx 2 lagen, 240 spelpx 5 lagen")
+	var F = load("res://hol2/focus.gd")
+	ok(OS.get_name() == "Windows" or F.terug() == "niet op Windows", "focus-hulpje doet niets buiten Windows")
 	print("[hol2] FOUT %d" % fout)
 	quit(1 if fout > 0 else 0)

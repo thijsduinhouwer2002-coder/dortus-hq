@@ -3,13 +3,15 @@
 # met het muiswiel. Klik in het hol en Gloop loopt erheen via de ladders; klik op Gloop voor de besturen-stand (WASD of
 # pijltjes, W/S klimt, gouden rand, stopt bij Esc, klik buiten of 10 s geen toets). Gloop scharrelt zelf met de tabel.
 # Retro: tekenen op breedte x spel_h spelpixels en vergroten met een heel getal (rekstand viewport), figuren op hele px.
-# Startargumenten na "--": hoogte=120 (96 tot 240, vensterpixels) duur=<s> log=<pad> zaad=<n> film=1 schaal=<n> fps=<n>
+# Startargumenten na "--": hoogte=120 (96 tot 240, spelpixels; het venster is hoogte x schaal) duur=<s> log=<pad> zaad=<n>
+# film=1 schaal=<n> fps=<n> toetsproef=1 (Gloop staat stil tot de besturen-stand, voor de Windows-run van #401)
 extends Node2D
 
 const KAART := preload("res://hol2/kaart.gd")
 const GLOOP := preload("res://hol2/gloop2.gd")
 const HELD := preload("res://hol2/held2.gd")
 const BORD := preload("res://hol2/bord.gd")
+const FOCUS := preload("res://hol2/focus.gd")
 const SOORTEN := ["held0", "held1", "held2", "dief", "bard", "heks", "ridder"]
 const NAMEN := ["Bert", "Lot", "Fenna", "Joost", "Mira", "Kees", "Ada", "Wout", "Noor", "Pim", "Saar", "Teun"]
 
@@ -20,6 +22,7 @@ var spel_h := 120
 var duur := 0.0
 var log_pad := ""
 var film := false
+var toetsproef := false
 var fps := 12
 var zaad := 0
 var rng := RandomNumberGenerator.new()
@@ -72,6 +75,7 @@ func _lees_argumenten() -> void:
 			"log": log_pad = kv[1]
 			"zaad": zaad = int(kv[1])
 			"film": film = kv[1] == "1"
+			"toetsproef": toetsproef = kv[1] == "1"
 			"schaal": schaal = maxi(1, int(kv[1]))
 			"fps": fps = maxi(4, int(kv[1]))
 
@@ -81,8 +85,11 @@ func _ready() -> void:
 	var scherm := DisplayServer.screen_get_usable_rect()
 	if schaal == 0:
 		schaal = maxi(1, int(round(DisplayServer.screen_get_size().y / 1080.0)))
-	breed = int(scherm.size.x / schaal)
-	spel_h = int(hoogte / schaal)
+	var m := maten(hoogte, schaal, scherm.size)
+	schaal = m.schaal
+	breed = m.breed
+	spel_h = m.spel_h
+	var venster_h: int = m.venster_h
 	rng.seed = zaad if zaad != 0 else int(Time.get_unix_time_from_system())
 	if log_pad != "" and FileAccess.file_exists(log_pad):
 		DirAccess.remove_absolute(log_pad)
@@ -98,15 +105,15 @@ func _ready() -> void:
 		w.content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
 		w.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
 		w.content_scale_stretch = Window.CONTENT_SCALE_STRETCH_INTEGER
-	DisplayServer.window_set_size(Vector2i(scherm.size.x, hoogte))
-	DisplayServer.window_set_position(Vector2i(scherm.position.x, scherm.position.y + scherm.size.y - hoogte))
+	DisplayServer.window_set_size(Vector2i(scherm.size.x, venster_h))
+	DisplayServer.window_set_position(Vector2i(scherm.position.x, scherm.position.y + scherm.size.y - venster_h))
 
 	info = JSON.parse_string(FileAccess.get_file_as_string("res://hol2/kunst/kunst.json"))
 	tex_tegels = load("res://hol2/kunst/tegels.png")
 	for s in SOORTEN + ["gloop", "hoeden"]:
 		tex_fig[s] = load("res://hol2/kunst/%s.png" % s)
 
-	var n_verd := maxi(3, int(ceil((spel_h - 26) / 48.0)) + 1)
+	var n_verd: int = m.n_verd
 	wereld = Node2D.new()
 	add_child(wereld)
 	kaart = Node2D.new()
@@ -142,8 +149,27 @@ func _ready() -> void:
 	gloop.zet(kaart, kaart.troon_niveau, kaart.troon_x - 8)
 	gloop.kies()
 	_muisvlak()
+	var gp: Vector2 = (gloop.pos() + Vector2(0, -8)) * schaal
+	log_regel("HOL2 gloop venster x=%d y=%d" % [int(gp.x), int(gp.y)])
 	log_regel("HOL2 start hoogte=%d schaal=%d spelpixels=%dx%d verdiepingen=%d wereld=%d venster=%s zaad=%d" % [hoogte, schaal,
 		breed, spel_h, n_verd, KAART.hoogte_wereld(n_verd), DisplayServer.window_get_size(), rng.seed])
+
+# De maat van de strook (Daan #394 moet 1): hoogte is in spelpixels, dus op elk scherm 120 spelpx (tuin en 2
+# verdiepingen); het venster is hoogte x schaal vensterpixels hoog. Past dat niet op het scherm (heel klein scherm met
+# een grote schaal), dan gaat de schaal omlaag tot het past.
+static func maten(h: int, s: int, scherm: Vector2i) -> Dictionary:
+	s = maxi(1, s)
+	while s > 1 and h * s > scherm.y / 2:
+		s -= 1
+	return {"schaal": s, "spel_h": h, "venster_h": h * s, "breed": int(scherm.x / s),
+		"n_verd": maxi(3, int(ceil((h - 26) / 48.0)) + 1)}
+
+# Hoeveel verdiepingen (tuin = 0) staan er zonder schuiven helemaal in beeld?
+static func lagen_in_beeld(spel_h: int) -> int:
+	var n := 0
+	while n < 8 and KAART.voet_y(n) <= spel_h:
+		n += 1
+	return n
 
 func _process(delta: float) -> void:
 	delta = minf(delta, 0.25)
@@ -151,7 +177,8 @@ func _process(delta: float) -> void:
 	beelden += 1
 	if film:
 		_film()
-	gloop.werk(delta)
+	if besturen or not toetsproef:
+		gloop.werk(delta)
 	# helden
 	volgende_held -= delta
 	if volgende_held <= 0.0 and helden.size() < 10:
@@ -278,6 +305,9 @@ func _zet_besturen(aan: bool, waarom: String) -> void:
 	rechts = false
 	toets_t = 0.0
 	# alleen in deze stand pakt het spel de focus; anders blijft het venster no_focus (nooit toetsen van het werk)
+	var f := ""
+	if aan:
+		f = "vorig venster " + FOCUS.neem()   # onthouden waar je werkte, vóór het hol de focus pakt
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_NO_FOCUS, not aan)
 	if aan:
 		DisplayServer.window_move_to_foreground()
@@ -285,7 +315,11 @@ func _zet_besturen(aan: bool, waarom: String) -> void:
 	else:
 		gloop.doet = ""
 		gloop.kies()
-	log_regel("HOL2 besturen %s (%s)" % ["aan" if aan else "uit", waarom])
+		# Daan #394 moet 2: no_focus aan geeft de focus niet terug; het hulpje zet het vorige venster weer vooraan
+		# (niet bij "klik buiten": dan koos je zelf al een ander venster)
+		if waarom != "klik buiten":
+			f = "focus " + FOCUS.terug()
+	log_regel("HOL2 besturen %s (%s) gloop x=%d niveau=%d %s" % ["aan" if aan else "uit", waarom, int(gloop.x), gloop.niveau, f])
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
