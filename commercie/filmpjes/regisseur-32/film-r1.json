@@ -1,0 +1,104 @@
+{
+ "fps": 30,
+ "delen": {
+  "start": 0.0,
+  "antwoord": 7.0,
+  "h2": 9.867,
+  "toets N": 10.467,
+  "knop Bambu Lab A1 mini": 12.033,
+  "paard gekozen": 14.6,
+  "knop Split to fit": 17.133,
+  "gesplitst": 17.167,
+  "h2 eind": 25.0,
+  "h3": 25.0,
+  "knop Draw cut": 27.933,
+  "lijn getrokken": 30.533,
+  "knop Flip side": 34.567,
+  "knop Cut piece": 35.8,
+  "gesneden": 35.833,
+  "h3 eind": 40.8,
+  "h4": 40.8,
+  "knop More settings": 41.233,
+  "knop Make fit test": 43.9,
+  "proef dichtbij": 45.667,
+  "h4 eind": 50.333,
+  "h5": 50.333,
+  "knop Exploded view": 51.867,
+  "knop Export parts": 59.233,
+  "geexporteerd": 59.267,
+  "h6": 61.167,
+  "eind": 69.167
+ },
+ "kliks": [
+  12.033,
+  13.033,
+  14.467,
+  17.133,
+  26.867,
+  27.933,
+  32.933,
+  34.567,
+  35.8,
+  41.233,
+  43.9,
+  51.867,
+  59.233
+ ],
+ "metingen": {
+  "paard_mm": [
+   385.3,
+   254.8,
+   520.0
+  ],
+  "weergave": [
+   74,
+   96,
+   1502,
+   880
+  ],
+  "split_echte_s": 27.5,
+  "stukken": 12,
+  "pennen": 48,
+  "groen": 12,
+  "uitslag": "",
+  "draw_stuk": "Piece 09",
+  "lijn": [
+   [
+    470,
+    597
+   ],
+   [
+    781,
+    523
+   ]
+  ],
+  "snedevlak": 1,
+  "draw_voor_na": [
+   12,
+   13
+  ],
+  "proef": 2,
+  "speling": 0.2,
+  "export": [
+   "piece_01.stl",
+   "piece_02.stl",
+   "piece_03.stl",
+   "piece_04.stl",
+   "piece_05.stl",
+   "piece_06.stl",
+   "piece_07.stl",
+   "piece_08.stl",
+   "piece_09.stl",
+   "piece_10.stl",
+   "piece_11.stl",
+   "piece_12.stl",
+   "piece_13.stl",
+   "pins_5mm_x2.stl",
+   "pins_5mm_x48.stl"
+  ]
+ },
+ "vangnet": [
+  "exploded"
+ ],
+ "echt": true
+}
