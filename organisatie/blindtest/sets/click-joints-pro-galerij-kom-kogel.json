@@ -1,0 +1,24 @@
+{
+  "titel": "Click Joints Pro, galerijbeeld 'Clean cuts. Closed parts.' (kom en kogel van de heup met het echte gaas, issue #331)",
+  "rol": "You design figures and action figures in Blender to 3D print at home. You are browsing the Superhive (Blender Market) store for an add-on that turns your models into printable parts with joints. You worry that automatic cutting ruins the mesh or gives parts that do not fit. You are now looking at the gallery images on the product pages to see what each add-on really does.",
+  "ons": [
+    {
+      "naam": "kom en kogel van de heup, gaas zichtbaar, speling gemeten",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/pro-galerij/beelden/kom-kogel-1920x1080.jpg"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Cleave (galerij: Connectors that fit)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1385307/image/xlarge-217a3e0da44f8801d1e83b7bcbae19f5.jpg"
+    },
+    {
+      "naam": "CatPin (galerij: More tools 1.0.7)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1338008/image/xlarge-057298506b83164a27600ce01597a458.png"
+    },
+    {
+      "naam": "Split 3D Print (enige galerijbeeld)",
+      "url": "https://assets.superhivemarket.com/store/productimage/1398051/image/xlarge-32eaf9ab9695881dcea508674d158d72.webp"
+    }
+  ]
+}

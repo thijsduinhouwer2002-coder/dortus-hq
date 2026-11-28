@@ -1,0 +1,67 @@
+{
+ "gewricht": "Left hip",
+ "delen": 8,
+ "open_randen": {
+  "Figuur_B": 0,
+  "Figuur_A_B": 0,
+  "Figuur_A_A_B": 0,
+  "Figuur_A_A_A_B": 0,
+  "Figuur_A_A_A_A_B": 0,
+  "Figuur_A_A_A_A_A_B": 0,
+  "Figuur_A_A_A_A_A_A_A": 0,
+  "Figuur_A_A_A_A_A_A_B": 0
+ },
+ "kogel_r_mm": 6.5,
+ "kogel_d_mm": 13.0,
+ "speling_mm": 0.2,
+ "speling_gemeten_mm": 0.1996,
+ "naad_r_mm": 13.67,
+ "graden": 20.0,
+ "grens_graden": 20.5,
+ "kogel_op": "Figuur_A_A_A_A_A_A_A",
+ "kom_in": "Figuur_A_A_A_A_B",
+ "op_plek": [
+  "Figuur_A_B",
+  "Figuur_A_A_A_A_A_B"
+ ],
+ "mee": [
+  "Figuur_B"
+ ],
+ "punten": {
+  "Figuur_A_A_A_A_A_A_A": 38451,
+  "Figuur_A_A_A_A_B": 5140
+ },
+ "kogel_vlakken_goud": 3872,
+ "snede_vlakken": {
+  "Figuur_A_A_A_A_A_A_A": 2,
+  "Figuur_A_A_A_A_B": 480,
+  "Figuur_A_B": 1436,
+  "Figuur_A_A_A_A_A_B": 425,
+  "Figuur_B": 52
+ },
+ "uit_mm": 22.0,
+ "kantel_graden": 40.0,
+ "beeld": {
+  "kogel": [
+   1428.0,
+   408.0
+  ],
+  "kogel_midden": [
+   1421.3,
+   334.8
+  ],
+  "kom": [
+   1458.4,
+   741.8
+  ],
+  "rand_dij": [
+   1229.0,
+   761.8
+  ],
+  "romp_snede": [
+   1651.8,
+   276.3
+  ]
+ },
+ "render_s": 240.2
+}

@@ -81,3 +81,23 @@ Fonts: Bricolage Grotesque en Inter (OFL), variabele bestanden uit github.com/go
 Blinde test: set `organisatie/blindtest/sets/click-joints-pro-galerij-paneel-rig.json`, tegen de paneelbeelden van Cleave (robot), CatPin (figuur, galerijbeeld 8) en Split 3D Print.
 
 **Ronde 2 (27 nov ±11:00, Daan #260):** bol op Figure from rig is nu "2" (stap 2 links), het kleine echte paneel heeft een dunne grijze lijn in plaats van geel (alleen de vergroting is geel), bovenrand 20 px hoger bijgesneden (PR_SY0=80). Schermafbeeldingen opnieuw gemaakt met dezelfde opdracht; paneel-rig.json is gelijk aan ronde 1 (GEZIEN). Set `click-joints-pro-galerij-paneel-rig-r2.json`.
+
+## Kom en kogel met het echte gaas (#331, Beeldmaker, 28 nov 2026)
+
+`beelden/kom-kogel-1920x1080.jpg` (maten in `beelden/kom-kogel.json`). Waarom: Gemini vroeg bij held-knie-r4 in beide rondes om "a close-up of the resulting mesh topology around the socket"; Cleave en Split 3D Print tonen hun snijvlak groot, wij nog niet (lat `organisatie/lat/click-joints-pro.md`).
+
+- **Wat je ziet:** de held uit r4 (Human Base Meshes, CC0, `ontwerp/pro-hoofdbeeld-held/bron/LICENTIE-figuur.md`), alle delen gemaakt door de echte knop Figure from rig (zip van main als 1.2.9). Romp met rechterbeen op zijn plek; linkerbeen 22 mm langs de as van de heup naar beneden geschoven en 40° naar de camera gekanteld, zodat je in de kom kijkt. Kogel en kom in goud, snijvlakken in de eigen kleur maal 0,72, gaas als dunne lijnen (Wireframe-modifier op een kopie, 0,07 mm). Alleen kleur, plek en stand veranderen; vorm en gaas zijn die van de add-on.
+- **Getallen (GEZIEN, uit de add-on in de .blend):** kogel 6,5 mm straal, dus 13,0 mm; speling ingesteld 0,20 mm, gemeten door de add-on 0,1996 mm (`cj_speling_gemeten_mm`, zelfde maat als "Clearance: … (measured)" in het paneel); hoek ±20° (`cj_hoek`); alle 8 delen 0 open randen (randen die niet precies 2 vlakken hebben, zelfde maat als `gesloten.foute_randen`).
+- **Render:** lokaal Blender 5.3.0, Cycles 96 samples, 240 s, doorzichtige achtergrond; achtergrond, tekst en labels met Pillow (Bricolage en Inter, OFL). Labelpunten op het oog in de render (GOK ±10 px).
+
+```
+PRO_VERSIE=1.2.9 bash producten/blender-gewrichten/e2e/maak_zip.sh betaald
+# held-r3.blend als in ontwerp/pro-hoofdbeeld-held/LEESMIJ.md ronde 3; dan de .blend met alle delen bewaren:
+HB_BEWAAR=1 HB_NEK_TINT=0.78 HB_KOGEL_MINST="Left hip,Right hip" HB_DEELKLEUR="$K" HB_POSE='{"Left knee": 0}' HB_FIGUUR=<fig>/held-r3.blend HB_UIT=0 \
+  blender -b --factory-startup --python ontwerp/pro-hoofdbeeld-robot/bron/hoofdbeeld.py -- <pro-zip> <basis> 4 25
+KK_DOORZICHTIG=1 KK_SHIFT=-0.25 KK_MEE="Left knee" KK_ANDER="Right hip,Right knee" KK_LICHT=6 KK_CAM=240,34,10 KK_DOEL=0,0,0 KK_UIT=22 KK_KANTEL=40 \
+  blender -b <basis>/hoofdbeeld.blend --python ontwerp/pro-galerij/bron/kom_kogel.py -- <uit> 96 100
+KT_KOGEL=1542,330 KT_KOGEL_DX=60 KT_KOM=1585,560 KT_KOM_PIL=1712,470 \
+  python3 ontwerp/pro-galerij/bron/kom_kogel_tekst.py <uit>/kom-kogel-render.png <uit>/kom-kogel.json beelden/kom-kogel-1920x1080.jpg <fonts> ontwerp/click-joints/bron/icoon.svg
+```
+Blinde test: set `organisatie/blindtest/sets/click-joints-pro-galerij-kom-kogel.json` tegen Cleave (Connectors that fit), CatPin (More tools 1.0.7) en Split 3D Print.
