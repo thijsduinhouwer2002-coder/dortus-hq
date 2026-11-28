@@ -15,7 +15,7 @@ static func lees_argumenten(s) -> void:
 			continue
 		match kv[0]:
 			"hoogte":
-				s.hoogte = clampi(int(kv[1]), 96, 160)
+				s.hoogte = clampi(int(kv[1]), 96, 240)
 				s.hoogte_gekozen = true
 			"dpi": s.proef_dpi = clampi(int(kv[1]), 48, 480)   # dpi=<n>: doen alsof het scherm n dpi heeft (eerste start), om de grote stand op de runner te toetsen
 			"duur": s.duur = float(kv[1])
@@ -54,7 +54,11 @@ static func lees_argumenten(s) -> void:
 # met schaal 125% of meer is 120 px dan klein (Gloop ±48 schermpixels, op 150% oogt dat als 32). Zonder bewaarde
 # hoogte en zonder hoogte=<n> kiezen we daarom de stand die bij de schaal past. Het rechtsklikmenu blijft wisselen en bewaart.
 static func hoogte_voor_dpi(dpi: int) -> int:
-	return 160 if dpi >= 120 else 120   # 96 dpi = 100%: 120; 120 dpi = 125%: 120 x 1,25 = 150, dichtst bij 160
+	# #333 (28 nov): een stap hoger, want drie blinde tests noemden de strook van 120 "cluttered" en "goedkoop mobiel";
+	# Rusty's strook is op 1080 ±300 px (GEZIEN). 100%: 160 (schaal 4), 125% en 150%: 200 (schaal 5), 175% en meer: 240.
+	if dpi >= 168:
+		return 240
+	return 200 if dpi >= 120 else 160
 
 static func kies_begin_hoogte(s) -> void:
 	if s.hoogte_gekozen:

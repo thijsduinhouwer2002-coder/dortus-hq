@@ -1,6 +1,6 @@
 extends Node2D
 # Kern van Het Hol (Olaf): de strook boven de taakbalk.
-# - hoogte instelbaar (standaard 120 px, 96 tot 160), over de hele breedte, net boven de taakbalk
+# - hoogte instelbaar (standaard 160 px, 96 tot 240; #333), over de hele breedte, net boven de taakbalk
 # - alleen de strook vangt klikken, de rest laat ze door
 # - zuinig: 10 fps (20 tijdens een moment, kern/beeldtempo.gd) en alleen tekenen wat beweegt
 # - geen kaartjes over andere vensters: alle tekst staat klein in de strook
@@ -23,12 +23,13 @@ const MUISVLAK := preload("res://kern/muisvlak.gd")
 const VENSTER := preload("res://kern/venster.gd")   # venster plaatsen, invoer, hoogte, stoppen (issue #24)   # welk deel van het venster de muis vangt
 const BOEK := preload("res://systemen/boek.gd")         # het Heldenboek (Bram 03:45); stap 1: bijhouden, opslaan, regel
 const VOORTGANG := preload("res://systemen/voortgang.gd")   # graafbonus (Sanne 16 nov 21:00)
-# Hoogte van de strook, in het spel te kiezen in het rechtsklikmenu of het systeemvak (96, 120, 160), bewaard los van het spel
+# Hoogte van de strook, in het spel te kiezen in het rechtsklikmenu of het systeemvak (96, 120, 160, 200, 240), bewaard los van het spel
 # (eerlijk in de winkeltekst: "you can set it from 96 to 160", Sanne en Daan 10 nov 00:00)
 const INSTELLING := "user://instellingen.json"
-const HOOGTES := [96, 120, 160]
+const HOOGTES := [96, 120, 160, 200, 240]   # #333: strook een stap hoger, Rusty is ±300 px op 1080 (GEZIEN)
 
 const REGELS := preload("res://kern/regels.gd")
+const PALET := preload("res://kern/palet.gd")
 # Demo: elke nieuwe held een andere hoed uit Mila's tien, zodat de minuut zelf laat zien dat er veel hoeden zijn
 # (Sanne toets 6, punt 2). Index: 0 helm, 1 puntmuts, 2 kap, 3 pet, 4 kroon, 5 koksmuts, 6 emmer, 7 hoge hoed, 8 pan,
 # 9 veermuts. De kroon blijft voor de held die Gloop opeet (eerste hoed op Gloop).
@@ -155,7 +156,7 @@ func _ready() -> void:
 	if FileAccess.file_exists(INSTELLING):
 		var inst = JSON.parse_string(FileAccess.get_file_as_string(INSTELLING))
 		if inst is Dictionary and inst.has("hoogte"):
-			hoogte = clampi(int(inst.hoogte), 96, 160)
+			hoogte = clampi(int(inst.hoogte), 96, 240)
 			hoogte_gekozen = true
 		if inst is Dictionary and inst.get("stil", false):
 			AudioServer.set_bus_mute(0, true)   # geluid uit via het systeemvak, bewaard
@@ -239,6 +240,7 @@ func _ready() -> void:
 		zelf_gegraven += 1   # graafbonus (Sanne 16 nov 21:00): alleen wat de speler graaft, de begingang telt niet
 		log_regel("HOL gegraven kolom %d (zelf %d, graafbonus %d)" % [cel.x, zelf_gegraven, VOORTGANG.graafbonus(zelf_gegraven)]))
 	VENSTER.log_start(self, scherm, spel_h)
+	PALET.zet(self, scherm.size.x, hoogte)   # palet=zacht: gedempte kleuren over alles (kern/palet.gd, #333)
 
 # De kroniek-wachtrij (welke regel wanneer): kern/wachtrij.gd. Hier alleen de toestand.
 var wachtrij: Array = []        # [{r, binnen, sinds}]

@@ -244,3 +244,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 28 nov 2026 ±01:30 NL, logboek Sanne
 #314: bericht voor Thijs naar de hoofdmanager (#336, speelversie run 46075642060); itch-tekst M1 en K1 van Daan recht, schermen 3 tot 5 nieuw in 16:9 uit een eigen film van e72baf9 (`itch/maak_schermen.py`), nakeuring Daan.
+
+## 28 nov 2026 ±01:30 NL, van Olaf: strook hoger en een palet om te kiezen (#333)
+De eerste start is nu 160 px op 100% (was 120) en 200 op 125 en 150%; het menu Height gaat van 96 tot 240. Twee dingen voor jou: (1) kies in #333 met één reactie het palet: `vol` (zoals het was) of `zacht` (gedempt, `kern/palet.gd`), het liefst met Mila en met de uitslag van de blinde test `hats-speelscherm-minuut0-hoger` erbij; (2) staat er ergens in een winkeltekst "96 to 160", dan klopt dat niet meer: nu "96 to 240". Beelden in `producten/steam-hol/bewijs-strook-hoger/`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

@@ -48,7 +48,7 @@ jobs:
             $alles += $uit
           }
           if ($alles -match "SCRIPT ERROR|Parse Error") { exit 1 }
-      - name: Strook op 96, 120 en 160 px met Kladblok erachter, CPU op 120
+      - name: Strook op 96, 120, 160, 200 en 240 px met Kladblok erachter, CPU op 120
         shell: pwsh
         run: |
           $uit = "producten/steam-hol/e2e/screenshots"
@@ -56,7 +56,7 @@ jobs:
           Start-Process notepad.exe
           Start-Sleep 3
           $samen = @()
-          foreach ($h in @(96, 120, 160)) {
+          foreach ($h in @(96, 120, 160, 200, 240)) {
             $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/hol-$h.log"
             $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
               -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$h demo=1 vers=1 duur=50 log=$log" -PassThru
@@ -354,10 +354,10 @@ jobs:
           $fout = 0
           $a = Start1 "$uit/schaal-gewoon.log" ""
           Write-Output "===== gewoon"; Write-Output $a
-          if ($a -notmatch "HOL eerste start .*dpi=(\d+) hoogte=(120|160)") { Write-Output "FOUT: geen eerste-startregel"; $fout++ }
+          if ($a -notmatch "HOL eerste start .*dpi=(\d+) hoogte=(160|200|240)") { Write-Output "FOUT: geen eerste-startregel"; $fout++ }
           $b = Start1 "$uit/schaal-150.log" "dpi=144"
           Write-Output "===== dpi=144 (150%)"; Write-Output $b
-          if ($b -notmatch "HOL eerste start .*dpi=144 hoogte=160" -or $b -notmatch "HOL start hoogte=160 .*venster=\(\d+, 160\)") { Write-Output "FOUT: op 150% niet 160 px"; $fout++ }
+          if ($b -notmatch "HOL eerste start .*dpi=144 hoogte=200" -or $b -notmatch "HOL start hoogte=200 .*venster=\(\d+, 200\)") { Write-Output "FOUT: op 150% niet 200 px (#333)"; $fout++ }
           $c = Start1 "$uit/schaal-gekozen.log" "dpi=144 hoogte=96"
           Write-Output "===== dpi=144 hoogte=96"; Write-Output $c
           if ($c -match "HOL eerste start" -or $c -notmatch "HOL start hoogte=96 ") { Write-Output "FOUT: gekozen hoogte niet gevolgd"; $fout++ }
