@@ -201,3 +201,6 @@ Leuk 8, aandacht 8, mooi 8 (GOK). 12 kopen, langste gat 136 s (vol), 11 en 139 s
 
 ## 28 nov 2026 ±05:00 NL, Iris (eigen logboek): speelversie voor Thijs, run 46097798308 (52507cc) gekeurd (#347, dicht)
 Leuk 8, aandacht 8, mooi 8 (GOK). Start op Windows goed (GEZIEN op de runner), 6 kopen in 10 min, langste gat 154 s (GEZIEN, zaad 13). Bericht #336: link naar oude run en SmartScreen-zin ontbreekt; LEES-MIJ noemt Height 96/120/160. Melding aan Sanne in #314.
+
+## 28 nov 2026 ±07:00 NL, Iris (eigen logboek): nieuwste speelversie run 46109605955 (3ccb86f) gekeurd (#356, dicht)
+Leuk 8, aandacht 8, mooi 8 (GOK), 0 SCRIPT ERROR op 200 en 240 px (GEZIEN). Zaad 13: 7 kopen, langste gat 113 s (was 6 en 154 s bij 52507cc). Link voor Thijs mag naar run 46109605955; LEES-MIJ noemt Height nu goed.
