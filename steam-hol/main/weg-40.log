@@ -1,25 +1,25 @@
-HOL balk gestart, pid 2268, hoogte 120
-HOL weg geweest 25210 s (klok terug: false): goud voor 618, helden 100, erbij 448, hoeden 34
-HOL weg faam afgekapt 7 van 58 (hooguit 2 niveaus)
+HOL balk gestart, pid 6656, hoogte 120
+HOL weg geweest 25210 s (klok terug: false): goud voor 582, helden 100, erbij 472, hoeden 39
+HOL weg faam afgekapt 7 van 62 (hooguit 2 niveaus)
 HOL hol-niveau 4 (faam 12, t 0.0)
 HOL hol-niveau 5 (faam 12, t 0.0)
-HOL hoeden van de nacht 34 (vallen vanaf 1.0 s, toren nu 40)
-HOL berg zichtbaar 10 -> 19
-HOL kroniek 0.0 (wacht 0.0): 100 came, 58 fell, 34 hats. +448 gold.
+HOL hoeden van de nacht 39 (vallen vanaf 1.0 s, toren nu 40)
+HOL berg zichtbaar 10 -> 20
+HOL kroniek 0.0 (wacht 0.0): 100 came, 62 fell, 39 hats. +472 gold.
 HOL optocht wip, 1.2 poef 4 munt; helden [5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1066 goud, faam 12
+HOL opslag geladen: 0 terugkomers, 1054 goud, faam 12
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795867270
+HOL zaad 1795870843
 HOL balk aan
 HOL grond zacht
-HOL gloop ring aan na 0.1 s (goud 1066)
-HOL eerste koop mogelijk na 38 s speeltijd (goud 1066)
+HOL gloop ring aan na 0.1 s (goud 1054)
+HOL eerste koop mogelijk na 38 s speeltijd (goud 1054)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL held binnen: Ineke
+HOL held binnen: Fenna
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Ineke is here for your gold.
-HOL leven goudstof t=9.0 x=212 y=30
-HOL meting t=10 beelden=119 helden=1 hol_vast=12 langste_ms=141 script_ms=6279
-HOL einde na 12 s, fps=12, goud=1066, terugkomers=0
+HOL kroniek 2.5 (wacht 0.5): Fenna read about you in a tavern.
+HOL leven mot t=5.8 x=72 y=26
+HOL meting t=10 beelden=119 helden=1 hol_vast=12 langste_ms=141 script_ms=5735
+HOL einde na 12 s, fps=12, goud=1054, terugkomers=0

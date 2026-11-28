@@ -1,27 +1,27 @@
-HOL balk gestart, pid 8476, hoogte 120
+HOL balk gestart, pid 7944, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795866992
+HOL zaad 1795870575
 HOL balk aan
 HOL grond zacht
 HOL plat zonder regel (2 keer gemeld)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Pim)
-HOL held binnen: Pim
+HOL begin: vallen (Joost)
+HOL held binnen: Joost
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Pim climbs into your hole.
+HOL kroniek 2.5 (wacht 0.5): Joost says this is a quick one.
 HOL uitleg stap 1 t=4.0 
-HOL kroniek zelfde held vervangen: Pim climbs into your hole.
-HOL kroniek 7.3 (wacht 0.0): Pim is part of the hole now. +9
+HOL kroniek zelfde held vervangen: Joost says this is a quick one.
+HOL kroniek 7.3 (wacht 0.0): Joost checked the floor. Too late. +9
 HOL zicht 7.4 0
-HOL begin: vluchten (Merel)
-HOL held binnen: Merel
-HOL zicht 7.5 1
+HOL begin: vluchten (Rik)
+HOL held binnen: Rik
+HOL zicht 7.7 1
 HOL uitleg stap 2 t=8.9 Click the dirt to dig.
 HOL kroniek 9.8 (wacht 2.5): First hero in the pit!
-HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=145 script_ms=3066
-HOL kroniek vervallen 10.5: Merel knocks first. Polite.
-HOL leven mot t=12.3 x=72 y=26
-HOL meting t=20 beelden=120 helden=1 hol_vast=3 langste_ms=84 script_ms=597
+HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=134 script_ms=2863
+HOL kroniek vervallen 10.8: Rik climbs into your hole.
+HOL leven goudstof t=14.3 x=212 y=30
+HOL meting t=20 beelden=120 helden=1 hol_vast=3 langste_ms=84 script_ms=555
 HOL einde na 24 s, fps=12, goud=29, terugkomers=0
