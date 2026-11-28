@@ -1,0 +1,94 @@
+# gemaakt: 2026-11-28T07:51:07Z
+# workflow: Regisseur 32 (zoekvideo Click Cuts #332: echte Blender-opname op de stem van Max) (.github/workflows/regisseur-32.yml)
+# run: 46121668638 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46121668638
+# commit: f2a5312f tak regisseur-32-proef gestart door workflow_dispatch
+# mislukte stappen: film: Controles (ffprobe, geluid, whisper); film: In de release zetten
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== film / Controles (ffprobe, geluid, whisper) (laatste 58 van 58 regels) =====
+##[group]Run cd /tmp/klaar; ok=0
+cd /tmp/klaar; ok=0
+ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate,avg_frame_rate,nb_frames -show_entries format=duration -of default=nw=1 cuts-lang.mp4 | tee ffprobe.txt
+ffprobe -v error -select_streams v:0 -show_entries packet=pts_time -of csv=p=0 cuts-lang.mp4 | sort -n | awk 'NR>1{d=$1-p; if (d<0.030||d>0.037) b++} {p=$1} END{print "tijdstempels buiten 1/30 s:", b+0}' | tee -a ffprobe.txt
+grep -q "tijdstempels buiten 1/30 s: 0" ffprobe.txt || ok=1
+python3 organisatie/controle/geluid_check.py cuts-lang.mp4 | tee geluid_check.txt
+grep -q "FOUT" geluid_check.txt && ok=1
+python3 $GITHUB_WORKSPACE/$MAP/monteer_lang.py --controle cuts-lang.mp4 /tmp/tijden > synchroon.txt || ok=1; cat synchroon.txt
+# echte kliks op hun zin: een klik mag niet later vallen dan 0,5 s na het eind van de zin die hem noemt
+python3 - <<'PY' > kliksync.txt || ok=1
+import json, sys
+f = json.load(open("film.json")); fout = 0
+for k in f.get("kliksync", []):
+    laat = k["na_begin"] > k["zin_duur"] + 0.5
+    fout += laat
+    print(f'{k["knop"]:15s} zin {k["zin"]:2d}: {k["na_begin"]:5.2f} s na begin (zin {k["zin_duur"]:.2f} s){"  TE LAAT" if laat else ""}')
+print("vangnet:", f.get("vangnet"), " laat:", f.get("laat"))
+sys.exit(1 if fout or f.get("vangnet") else 0)
+PY
+cat kliksync.txt
+exit $ok
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-32-proef
+  PROEF: 1
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  MAP: commercie/filmpjes/regisseur-32
+  pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+  PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+  Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+##[endgroup]
+width=1920
+height=1080
+r_frame_rate=30/1
+avg_frame_rate=30/1
+nb_frames=3607
+duration=120.233008
+tijdstempels buiten 1/30 s: 0
+python3: can't open file '/tmp/klaar/organisatie/controle/geluid_check.py': [Errno 2] No such file or directory
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{"zinnen": 24, "gemeten": 24, "buiten_0_3": 3, "grootste": 1.32, "per_zin": [[1, 0.03], [2, 0.03], [3, 0.03], [4, 0.07], [5, 0.03], [6, 0.09], [7, -0.97], [8, 0.03], [9, 0.04], [10, 0.04], [11, 0.08], [12, 0.05], [13, -1.07], [14, 0.04], [15, 0.04], [16, 0.04], [17, 0.06], [18, 0.06], [19, 0.08], [20, 0.04], [21, 0.03], [22, 0.05], [23, -1.32], [24, 0.06]]}
+N               zin  4:  0.44 s na begin (zin 2.28 s)
+Split to fit    zin  7:  0.49 s na begin (zin 1.33 s)
+Draw cut        zin 11:  1.41 s na begin (zin 3.62 s)
+Flip side       zin 12:  2.81 s na begin (zin 4.36 s)
+Cut piece       zin 13:  0.86 s na begin (zin 4.46 s)
+More settings   zin 15:  0.85 s na begin (zin 2.78 s)
+Make fit test   zin 15:  2.25 s na begin (zin 2.78 s)
+0.20            zin 18:  2.73 s na begin (zin 5.26 s)
+Exploded view   zin 21:  0.44 s na begin (zin 4.25 s)
+Export parts    zin 22:  0.91 s na begin (zin 9.15 s)
+vangnet: []  laat: []
+##[error]Process completed with exit code 1.
+
+===== film / In de release zetten (laatste 25 van 25 regels) =====
+##[group]Run cd /tmp/klaar 2>/dev/null || exit 1
+cd /tmp/klaar 2>/dev/null || exit 1
+: > /tmp/notes.md; if [ "$PROEF" = "1" ]; then echo "PROEF met Kokoro als tijdelijke stem: alleen om de keten te toetsen, NIET voor keuring of plaatsen." > /tmp/notes.md; fi
+echo "Zoekvideo Click Cuts (#332): echte Blender-opname op de stem van Max, liggend 1920x1080. Controles: ffprobe.txt, geluid_check.txt, synchroon.txt. Niets geplaatst." >> /tmp/notes.md
+gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 32 (zoekvideo Click Cuts)" --notes-file /tmp/notes.md
+find . -maxdepth 1 -type f -print0 | xargs -0 gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY"
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-32-proef
+  PROEF: 1
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  MAP: commercie/filmpjes/regisseur-32
+  pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+  PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+  Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+  GH_TOKEN: ***
+##[endgroup]
+https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/regisseur-32-proef
+HTTP 400: Bad Content-Length (https://uploads.github.com/repos/thijsduinhouwer2002-coder/dortus-hq/releases/461392035/assets?label=&name=geluid_check.txt)
+##[error]Process completed with exit code 123.
