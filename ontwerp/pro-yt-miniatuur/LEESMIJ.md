@@ -31,3 +31,8 @@ Plek van de lijn naar de kogel en van de uitsnede op het oog (GOK ±10 px).
 MT_Y=140 MT_PANEEL=ontwerp/pro-galerij/beelden/paneel-rig-scherm-voor.jpg,2462,122,2828,268 MT_KNOP=2477,220,2817,262 <MT_* als r1> python3 ontwerp/pro-yt-miniatuur/bron/miniatuur_tekst.py ... beelden/yt-pro-r2-1280x720.jpg BricolageGrotesque-Bold.ttf
 ```
 Uitslag r2: GESLAAGD Gemini 1,0 tegen Cleave, CatPin en Print That Thing (`click-joints-pro-yt-miniatuur-2026-11-28-0407.md`); kop aan kop met de huidige miniatuur 1,5 (één ronde plek 1, één ronde plek 2 achter de huidige; `click-joints-pro-yt-miniatuur-kop-*`). Zelfde render als r1.
+
+**Ronde 3:** `beelden/yt-pro-r3-1280x720.jpg` = r2 plus een kaartje met de echte regels "Diameter (mm) 7.0 Auto" en "Clearance (mm) 0.20" uit het schermbeeld `ontwerp/pro-galerij/beelden/paneel-rig-scherm-na.jpg` (Blender 5.3.0, Pro 1.2.9). Waarom: Gemini vroeg bij r2 kop aan kop "Show more of the configuration settings panel" en "Add visual indicators of customization options or tolerances". Zelfde render en tekst als r2.
+```
+python3 ontwerp/pro-yt-miniatuur/bron/miniatuur_r3.py beelden/yt-pro-r2-1280x720.jpg ontwerp/pro-galerij/beelden/paneel-rig-scherm-na.jpg beelden/yt-pro-r3-1280x720.jpg
+```
