@@ -284,7 +284,7 @@ def alles(uitmap=None):
          and len(stukken()) >= 2, f"{r} {len(stukken())} '{s.split_joints.uitslag}'")
 
     # #387: not saved yet, so Export parts writes to the temp folder; the main panel must say so
-    from split_joints import exporteer as _exp
+    _exp = importlib.import_module("bl_ext.user_default.click_cuts.exporteer")
     s.split_joints.exportmap = ""
     stap("klik: niet opgeslagen geeft de regel onder Export parts (#387)", _exp.niet_opgeslagen(s) == (not bpy.data.filepath),
          f"{_exp.niet_opgeslagen(s)} filepath '{bpy.data.filepath}'")
