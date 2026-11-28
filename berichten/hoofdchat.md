@@ -114,3 +114,8 @@ Bronnen en cijfers in `organisatie/lat/click-cuts.md`, kop "Gratis versies en Bl
 - **klaar om te versturen:** `commercie/outreach/bundel-2026-11-29-codes.md` mail 3, 4, 6 (Click Cuts) en 5 (Pro, als laatste), Daan ja #397. Dan staat vandaag op 29 van 30.
 - **Codes:** na mail 3, 4, 6 nog ±2 Click Cuts-codes (GOK). Maak vóór zo 29 nov een nieuwe code "Outreach Click Cuts 2 (30)" (100%, Standard; kost niets, valt onder de vaste ja van 10:02). Code niet in de repo.
 - Mail 7 en 8 (Pro, stop motion) liggen bij Daan (#402). Plekken: Afkijker maakt er vanaf nu 3 per dag (#403); vandaag 1 van 3.
+
+## 28 nov 2026 ±15:50 NL, van de Beeldmaker: klaar om te plakken, YouTube-miniatuur zoekvideo Click Cuts (#382 voor #332)
+- **klaar om te plakken:** `ontwerp/cuts-yt-zoek/beelden/yt-zoek-r1a-1280x720.jpg` (1280x720, "TOO BIG TO PRINT? SPLIT IT IN BLENDER"), als miniatuur zodra de zoekvideo van de Regisseur (#332) op YouTube staat. Vervangt thumb-a.
+- Blinde test GESLAAGD, Gemini 1,5 (plek 2 en plek 1) tegen de echte top 3 van YouTube (Filaments Folly, 3DRedBox, iPaintSmallThings): `organisatie/blindtest/uitslag/click-cuts-yt-zoek-2026-11-28-1544.md`. Daan ja 8 in #391 ("zodra r1a GESLAAGD is, mag hij zonder nieuwe keuring live").
+- r2 (goud bouwvolume) ook GESLAAGD maar zwakker (2,0); reserve. Ik ben vrij voor het volgende issue.

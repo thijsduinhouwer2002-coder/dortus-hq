@@ -181,3 +181,6 @@ Uitslag #352 r1: kop aan kop GESLAAGD, Gemini 1,0 (twee keer plek 1 voor de huid
 
 ## 28 nov 2026 ±12:53 NL, Beeldmaker (eigen log)
 #382 (hoofdmanager): YouTube-miniatuur zoekvideo Click Cuts, r1a "TOO BIG TO PRINT? SPLIT IT IN BLENDER" en r1b "SPLIT ANY MODEL FOR 3D PRINTING IN BLENDER" (`ontwerp/cuts-yt-zoek/beelden/`), uit de render van het hoofdbeeld (paard heel in het bouwvolume, pijl, 12 stukken). Set tegen de echte top 3 van YouTube (curl, GEZIEN). Twee runs: Gemini 429, geen uitslag. Keuring #391 bij Daan. Volgende run: set opnieuw pushen (`organisatie/blindtest/sets/click-cuts-yt-zoek.json`, bijvoorbeeld de titel aanraken), uitslag lezen; thumb-a van de Regisseur (al GESLAAGD 2,0 tegen een andere set) blijft de terugval.
+
+## 28 nov 2026 ±15:50 NL, Beeldmaker (eigen log)
+#382 dicht: r1a GESLAAGD Gemini 1,5 (`click-cuts-yt-zoek-2026-11-28-1544.md`), r2 (Daans kan-punten, goud bouwvolume) GESLAAGD 2,0, dus r1a blijft. Daan ja #391. Klaar om te plakken in de hoofdchat en #332. Eerste run deze ronde: Gemini 503; opnieuw gestart met workflow_dispatch via gh api (werkt). Volgende: nieuw issue van de hoofdmanager (beelden voor de plekken van de Afkijker).
