@@ -154,8 +154,9 @@ def te_groot_tekst(ob, scene):
     """Message when the model is far outside a printable size (wrong unit), or None."""
     from . import schaal
     if schaal.buiten_bereik(ob, scene):
-        return (f"{ob.name} is {schaal.maat_mm(ob, scene):.4g} mm: the unit of the scene is probably wrong. "
-                "Use Convert to mm first")
+        keuze = schaal.beste_keuze(ob)
+        return plan.eenheid_tekst(ob.name, schaal.maat_mm(ob, scene), scene.unit_settings.scale_length,
+                                  keuze[0] if keuze else None)
     return None
 
 

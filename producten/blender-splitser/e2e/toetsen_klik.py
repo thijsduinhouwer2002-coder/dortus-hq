@@ -237,11 +237,16 @@ def alles(uitmap=None):
     ob = modellen.doos(500.0, 150.0, 120.0)
     modellen.actief(ob)
     t0 = time.time()
+    melding = ""
     try:
         r = bpy.ops.split_joints.split_to_fit()
     except RuntimeError as e:  # an ERROR report raises in bpy.ops
+        melding = str(e)
         log(f"klik: melding {e}")
         r = {"CANCELLED"}
+    stap("klik: meters melding in gewone getallen (#386)", "Box is 500,000 mm (about 500 m)" in melding
+         and "1,000 times too big: a mm model in a meter scene" in melding and "press Convert to mm" in melding
+         and "e+" not in melding, f"'{melding}'")
     stap("klik: meters geweigerd met uitleg", r == {"CANCELLED"} and "Convert to mm" in s.split_joints.uitslag and
          time.time() - t0 < 5 and not stukken(), f"{r} '{s.split_joints.uitslag}'")
     r = bpy.ops.split_joints.zet_om_mm()
@@ -277,6 +282,15 @@ def alles(uitmap=None):
         r = {"CANCELLED"}
     stap("klik: standaardkubus op 0.2 snijdt wel (#385)", r == {"FINISHED"} and s.split_joints.uitslag == ""
          and len(stukken()) >= 2, f"{r} {len(stukken())} '{s.split_joints.uitslag}'")
+
+    # #387: not saved yet, so Export parts writes to the temp folder; the main panel must say so
+    from split_joints import exporteer as _exp
+    s.split_joints.exportmap = ""
+    stap("klik: niet opgeslagen geeft de regel onder Export parts (#387)", _exp.niet_opgeslagen(s) == (not bpy.data.filepath),
+         f"{_exp.niet_opgeslagen(s)} filepath '{bpy.data.filepath}'")
+    s.split_joints.exportmap = "/tmp/cc_eigen_map/"
+    stap("klik: eigen map geeft geen temp-regel (#387)", not _exp.niet_opgeslagen(s))
+    s.split_joints.exportmap = ""
 
     # position in mm in a meter scene
     s = modellen.meter_scene()

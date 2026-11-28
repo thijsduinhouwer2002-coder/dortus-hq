@@ -106,11 +106,41 @@ def te_veel_tekst(naam, maat, bed, minimaal):
     keer = max(maat) / max(bed)
     afm = " x ".join(f"{m:,.0f}" for m in maat)
     bedtekst = " x ".join(f"{b:,.0f}" for b in bed)
-    melding = (f"{naam} is {afm} mm, about {keer:.0f} times your bed ({bedtekst} mm): that needs at least "
+    melding = (f"{naam} is {afm} mm, about {keer:.0f} times as long as your bed ({bedtekst} mm): that needs at least "
                f"{minimaal:,} pieces (limit {MAX_CELLEN}). Scale it down (S) or pick a bigger printer")
     # short lines: the sidebar cut "Scale it down (S) or pick a bigger p..." off at its default width (GEZIEN)
     paneel = [f"Too big: {afm} mm", f"About {keer:.0f} times your bed", "Scale it down (S)", "or pick a bigger printer"]
     return melding, paneel
+
+
+def maat_tekst(mm):
+    """A size in mm as a maker reads it (kopersreis #386: "3.985e+05 mm" was unreadable).
+    398500 -> "398,500 mm (about 400 m)", 120 -> "120 mm", 0.3985 -> "0.4 mm"."""
+    if mm >= 1000.0:
+        meter = float(f"{mm / 1000.0:.2g}")
+        return f"{mm:,.0f} mm (about {meter:,.0f} m)" if meter >= 10 else f"{mm:,.0f} mm (about {meter:g} m)"
+    if mm >= 10.0:
+        return f"{mm:,.0f} mm"
+    if mm <= 0:
+        return "0 mm"
+    decimalen = max(1, 1 - math.floor(math.log10(mm)))  # two digits that mean something, never e-05
+    return f"{mm:.{decimalen}f}".rstrip("0").rstrip(".") + " mm"
+
+
+_EENHEID = {0.001: "mm", 0.01: "cm", 1.0: "meter"}
+
+
+def eenheid_tekst(naam, mm, nu, keuze):
+    """Message when the unit of the scene is wrong (#386). mm: largest size now; nu: unit scale of the scene
+    (1.0 = meters); keuze: unit scale that gives a printable size, or None. The button is named as in the panel."""
+    if keuze is None:
+        return f"{naam} is {maat_tekst(mm)}: no unit (mm, cm or m) makes that printable. Scale it yourself (S)"
+    keer = nu / keuze
+    hoe = f"{keer:,.0f} times too big" if keer > 1 else f"{1 / keer:,.0f} times too small"
+    van, in_ = _EENHEID.get(keuze), _EENHEID.get(nu)
+    waarom = f": a {van} model in a {in_} scene" if van and in_ else ""
+    return (f"{naam} is {maat_tekst(mm)}, it looks {hoe}{waarom}. "
+            "Open More settings and press Convert to mm, then Split to fit again")
 
 
 def maak(punten, bed, driehoeken=None):

@@ -2,6 +2,8 @@
 
 ## 1.1.1
 - Better: when a model is far too big for your bed (like the 2 m default cube), Split to fit now says how big it is, about how many times your bed, and what to do: scale it down (S) or pick a bigger printer. Before, it only said "No plan".
+- Better: a model in the wrong unit (a mm model in a meter scene) now shows its size in plain numbers, like "398,500 mm (about 400 m)", says it looks 1,000 times too big and names the button: Convert to mm. Before, it showed "3.985e+05 mm".
+- Better: if your .blend is not saved yet, the panel says so right under Export parts, because the files then go to a temporary folder. The quick start now saves before step 4.
 
 ## 1.1.0 (after the launch of 1.0.0)
 - New: Draw cut. After Split to fit, click a part, press Draw cut and drag a line where you want it cut, for example under the chin or at the shoulder.

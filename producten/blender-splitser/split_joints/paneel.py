@@ -2,7 +2,7 @@
 one-line result, Export, and the four numbered steps folded under More settings."""
 import bpy
 
-from . import controle, exporteer, hulp, in_een_klik, passingproef, printers, schaal, snedes, vrije_snede
+from . import controle, exporteer, hulp, in_een_klik, passingproef, plan, printers, schaal, snedes, vrije_snede
 from .eigenschappen import bed, magneten
 
 
@@ -88,6 +88,10 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             rij = layout.row()
             rij.scale_y = 1.3  # smaller than Split to fit (keuring C2)
             rij.operator("split_joints.exporteer", text=f"Export parts ({inst.formaat})", icon="EXPORT")
+            if exporteer.niet_opgeslagen(scene):  # #387: two short lines, the sidebar cuts long ones off
+                waar = layout.column(align=True)
+                waar.label(text="Not saved: goes to a temp folder", icon="INFO")
+                waar.label(text="Save first (Ctrl+S)")
         layout.prop(inst, "meer", icon="TRIA_DOWN" if inst.meer else "TRIA_RIGHT", emboss=False)
         if not inst.meer:
             return
@@ -106,7 +110,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             if schaal.buiten_bereik(ob, scene):
                 let = stap.column(align=True)
                 let.alert = True
-                let.label(text=f"Model is {schaal.maat_mm(ob, scene):.4g} mm in size", icon="ERROR")
+                let.label(text=f"Model is {plan.maat_tekst(schaal.maat_mm(ob, scene)).split(' (')[0]}", icon="ERROR")
                 let.label(text="Wrong unit? (mm model in a meter scene)")
                 let.operator("split_joints.zet_om_mm", icon="SETTINGS")
             stap.operator("split_joints.maak_gesloten", icon="MOD_REMESH")

@@ -19,9 +19,9 @@ Your first split:
 1. Under Your printer, pick your printer. Not in the list? Pick Custom size and type your bed size in mm (X, Y, Z).
 2. Click your model in the viewport. The panel shows its name and face count, for example "Statue: 500 faces".
 3. Click Split to fit. Click Cuts plans the cuts, cuts the model into parts that fit your bed, adds pins and pin holes, and engraves a part number on the cut faces. The result box says, for example, "8 parts, all fit the bed" and "12 pins, 0.20 mm clearance".
-4. Click Export parts (STL). Every part and the pins are written in millimeters, one file per part: piece_01.stl, piece_02.stl and so on, plus pins_5mm_x12.stl.
+4. Save your .blend (Ctrl+S), then click Export parts (STL). Every part and the pins are written in millimeters, one file per part: piece_01.stl, piece_02.stl and so on, plus pins_5mm_x12.stl.
 
-Where the files go: into a click_cuts folder next to your .blend file. Save your .blend first, or the files go to a temporary folder. To pick your own folder, open More settings, step 4, Folder.
+Where the files go: into a click_cuts folder next to your .blend file. Not saved yet? Then they go to a temporary folder, and the panel says so under Export parts. To pick your own folder, open More settings, step 4, Folder.
 
 Your original model is kept: it is hidden, not changed. The parts are in a new collection called Click Cuts pieces. Click Split to fit again and the old parts are replaced. Ctrl+Z undoes a split.
 

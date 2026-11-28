@@ -100,6 +100,17 @@ stap("te veel: melding noemt maat, keer en uitweg (#385)", m.startswith("Cube is
      and "Scale it down (S)" in m and "bigger printer" in m and "e+" not in m, m)
 stap("te veel: vier korte paneelregels (#385)", len(regels) == 4 and regels[0] == "Too big: 2,000 x 2,000 x 2,000 mm"
      and all(len(r) <= 34 for r in regels), str(regels))
+# #386: sizes in plain numbers, never 3.985e+05
+stap("maat in gewone getallen (#386)", plan.maat_tekst(398500.0) == "398,500 mm (about 400 m)"
+     and plan.maat_tekst(120.0) == "120 mm" and plan.maat_tekst(0.3985) == "0.4 mm"
+     and plan.maat_tekst(0.00004) == "0.00004 mm" and "e" not in plan.maat_tekst(4e9),
+     f"{plan.maat_tekst(398500.0)} | {plan.maat_tekst(0.00004)} | {plan.maat_tekst(4e9)}")
+m = plan.eenheid_tekst("aap_mm", 398500.0, 1.0, 0.001)
+stap("eenheid fout: oorzaak en knop zoals in het paneel (#386)", m.startswith("aap_mm is 398,500 mm (about 400 m)")
+     and "1,000 times too big: a mm model in a meter scene" in m and "press Convert to mm" in m, m)
+m = plan.eenheid_tekst("klein", 0.45, 0.001, 1.0)
+stap("eenheid fout: te klein (#386)", "1,000 times too small: a meter model in a mm scene" in m, m)
+stap("eenheid fout: geen eenheid past (#386)", "Scale it yourself (S)" in plan.eenheid_tekst("x", 4e9, 1.0, None))
 stap("aantal cellen zonder ze te maken", plan.aantal_cellen((0, 0, 0), (10, 10, 10), [(0, 3.0), (0, 6.0), (2, 5.0), (1, 20.0)]) == 6)
 
 # 3. cross-section of a box at x = 100: a 150 x 120 rectangle

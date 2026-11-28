@@ -22,6 +22,13 @@ def exportmap(scene):
     return bpy.path.abspath(pad)
 
 
+def niet_opgeslagen(scene):
+    """True when Export parts would write to the temp folder of the system (kopersreis #387: on Windows a
+    hidden folder, and the main panel did not say so)."""
+    pad = scene.split_joints.exportmap or STANDAARD
+    return pad.startswith("//") and not bpy.data.filepath
+
+
 def hint(scene):
     if scene.split_joints.exportmap:
         return None
@@ -152,7 +159,11 @@ class SPLIT_JOINTS_OT_exporteer(bpy.types.Operator):
                 o.select_set(o in gekozen)
         context.view_layer.objects.active = actief
         context.scene["sj_laatste_export"] = geschreven
-        self.report({"INFO"}, f"{len(geschreven)} {formaat} files in {map_}")
+        if niet_opgeslagen(context.scene):  # #387: say it where people look, not only in More settings
+            self.report({"WARNING"}, f"{len(geschreven)} {formaat} files in a temporary folder: {map_}. "
+                                     "Save your .blend (Ctrl+S) and export again to get them next to it")
+        else:
+            self.report({"INFO"}, f"{len(geschreven)} {formaat} files in {map_}")
         return {"FINISHED"}
 
 

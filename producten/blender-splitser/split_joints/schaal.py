@@ -6,6 +6,7 @@ as they are, only the meaning of one unit changes (mm, m or cm)."""
 import bpy
 
 from .eigenschappen import eenheid_per_mm
+from .plan import maat_tekst
 
 MIN_MM = 10.0
 MAX_MM = 3000.0  # a big cosplay prop or statue; a model in mm read as meters is 1000 times more
@@ -49,7 +50,7 @@ class SPLIT_JOINTS_OT_zet_om_mm(bpy.types.Operator):
         keuze = beste_keuze(ob)
         if keuze is None:
             self.report({"WARNING"}, f"No unit (mm, cm or m) gives a size between 10 and 3000 mm "
-                                     f"(now {oud:.4g} mm). Scale the model yourself.")
+                                     f"(now {maat_tekst(oud)}). Scale the model yourself.")
             return {"CANCELLED"}
         us = context.scene.unit_settings
         us.system = "METRIC"
@@ -58,7 +59,7 @@ class SPLIT_JOINTS_OT_zet_om_mm(bpy.types.Operator):
         context.scene["sj_schaal_omgezet"] = [oud, nieuw]
         if context.scene.split_joints.uitslag.startswith("Wrong unit"):
             context.scene.split_joints.uitslag = ""  # the red line of Split to fit is solved (keuring C5)
-        self.report({"INFO"}, f"Unit scale {keuze[0]:g}: the model now measures {nieuw:.1f} mm (was {oud:.4g} mm)")
+        self.report({"INFO"}, f"Unit scale {keuze[0]:g}: the model now measures {maat_tekst(nieuw)} (was {maat_tekst(oud)})")
         return {"FINISHED"}
 
 
