@@ -109,11 +109,27 @@ static func achterwand(hv, d: CanvasItem, schat_3d: bool) -> void:
 			d.draw_set_transform(Vector2.ZERO)
 
 # bovenste rij: de warme vochtige laag onder het gras loopt door in de achterwand
+# Mila 28 nov (Iris #334 punt 1): vanaf schaal 4 een glad verloop op schermpixels in plaats van 6 treden van een
+# spelpx (op schaal 5 banden van 5 schermpx); zelfde sterkte per rij in het midden van elke spelpx.
 static func _wand_vocht(d: CanvasItem, x: float, b: float, wand: Array, f: float = 1.0) -> void:
-	for i in WAND_VOCHT_KAMER.size():
+	var s: float = d.scale.x if d is Node2D else 1.0
+	var n := WAND_VOCHT_KAMER.size()
+	if s < 4.0:
+		for i in n:
+			var c := GROND_VOCHT_KLEUR
+			c.a = WAND_VOCHT_KAMER[i] * f
+			d.draw_rect(Rect2(x, wand[0] + i, b, 1), c)
+		return
+	var stappen := int(roundf(s)) * n
+	for j in stappen:
+		var t := (float(j) + 0.5) / roundf(s) - 0.5     # plek in spelpx, 0 = midden van de eerste rij
+		var i0 := clampi(int(floor(t)), 0, n - 1)
+		var i1 := clampi(i0 + 1, 0, n - 1)
+		var w := clampf(t - floor(t), 0.0, 1.0) if t >= 0.0 else 0.0
+		var a: float = lerpf(WAND_VOCHT_KAMER[i0], WAND_VOCHT_KAMER[i1], w) if i1 != i0 else WAND_VOCHT_KAMER[i0] * (1.0 - clampf(t - float(n - 1), 0.0, 1.0))
 		var c := GROND_VOCHT_KLEUR
-		c.a = WAND_VOCHT_KAMER[i] * f
-		d.draw_rect(Rect2(x, wand[0] + i, b, 1), c)
+		c.a = a * f
+		d.draw_rect(Rect2(x, wand[0] + float(j) / roundf(s), b, 1.0 / roundf(s)), c)
 
 # onderste rij: koel zoals de diepe aarde, met een donkere naad bovenin en nog koeler naar de vloer
 static func _wand_koel(d: CanvasItem, x: float, b: float, wand: Array) -> void:

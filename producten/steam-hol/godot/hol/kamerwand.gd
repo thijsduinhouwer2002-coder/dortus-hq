@@ -41,9 +41,98 @@ static func masker(stuk: String) -> Array:
 static func wand(m: Array, x: int, y: int) -> bool:
 	return x >= 0 and x < KOL and y >= 0 and y < m.size() and m[y][x] == "1"
 
+# Mila 28 nov (Iris #334 punt 1, #333 c): op schaal 5 werd elk spelpixel een blok van 5 x 5 schermpixels naast gladde
+# 3D, "twee soorten beeld door elkaar". Het vaste beeld tekent op schermpixels (hol_vast.gd: SubViewport van s per
+# spelpx), dus vanaf schaal 4 (160 px en hoger) tekenen we de korrel fijner: spikkels van ±2 schermpx op een vaste plek in hun spelpixel,
+# dunne randen en laagjes, steentjes met een rand van 1 schermpx lucht en een glimlijntje, barstjes als lijn. Welke
+# spelpixels iets krijgen blijft precies hetzelfde (pixels()), dus op 96 en 120 px (schaal 2 en 3) verandert er niets.
+const SOORT_RAND := 0
+const SOORT_HAP := 1
+const SOORT_SCHADUW := 2
+const SOORT_VLOER := 3
+const SOORT_SPIK := 4
+const SOORT_LIJF := 5
+const SOORT_VOET := 6
+const SOORT_KOP := 7
+const SOORT_BARST := 8
+const SOORT_LAAG := 9
+
+static func schaal_van(d) -> float:
+	return d.scale.x if d is Node2D else 1.0
+
 static func teken(d: CanvasItem, k: int, stuk: String) -> void:
+	var s := schaal_van(d)
+	if s < 4.0:
+		for p in pixels(k, stuk):
+			d.draw_rect(Rect2(p[0], OPP + p[1], 1, 1), p[2])
+		return
+	var f := 1.0 / s
 	for p in pixels(k, stuk):
-		d.draw_rect(Rect2(p[0], OPP + p[1], 1, 1), p[2])
+		_fijn(d, p, s, f)
+
+# dikte van v spelpx, afgerond op hele schermpixels (minstens 1)
+static func _dik(v: float, s: float) -> float:
+	return maxf(1.0, round(v * s)) / s
+
+static func _fijn(d: CanvasItem, p: Array, s: float, f: float) -> void:
+	var x: float = p[0]
+	var y: float = OPP + p[1]
+	var c: Color = p[2]
+	var soort: int = p[3] if p.size() > 3 else SOORT_SPIK
+	var h := _hash(int(p[0]) * 7 + int(p[1]) * 131, 9)
+	match soort:
+		SOORT_RAND:
+			# rafelige lijn van 2 tot 4 schermpx (op schaal 5), elke spelpx een eigen dikte, en eronder een doorlopende
+			# zachte schaduw die naar beneden uitloopt (geen blokjes: elke kolom even sterk)
+			var t := _dik(0.4 + 0.2 * float(h % 2), s)
+			var t0 := _dik(0.4, s)
+			var sc := c
+			var stap := 1.0 / s
+			var n := int(roundf(1.4 * s))
+			for j in n:
+				sc.a = SCHADUW_A * 1.2 * (1.0 - float(j) / float(n))
+				d.draw_rect(Rect2(x, y + t0 + float(j) * stap, 1, stap), sc)
+			d.draw_rect(Rect2(x, y, 1, t), c)
+		SOORT_HAP:
+			# druppel aarde omlaag uit de rand: ±3 schermpx breed, sluit aan op de rand erboven
+			var b := _dik(0.6, s)
+			var ox := float(h % maxi(1, int(roundf((1.0 - b) * s)) + 1)) * f
+			d.draw_rect(Rect2(x + ox, y - 0.4, b, 0.4 + _dik(0.5, s)), c)
+			d.draw_rect(Rect2(x + ox + f, y - 0.4, maxf(f, b - 2.0 * f), 0.4 + _dik(0.8, s)), c)
+		SOORT_SCHADUW:
+			pass   # zit al onder de rand (SOORT_RAND)
+		SOORT_VLOER:
+			var t := _dik(0.4, s)
+			d.draw_rect(Rect2(x, y + 1.0 - t, 1, t), c)
+		SOORT_SPIK:
+			var q := _dik(0.4, s)
+			var vrij := maxi(1, int(round((1.0 - q) * s)) + 1)
+			var ox := float(h % vrij) * f
+			var oy := float((h / 7) % vrij) * f
+			c.a = minf(1.0, c.a * 1.3)
+			d.draw_rect(Rect2(x + ox, y + oy, q, q), c)
+		SOORT_LIJF, SOORT_VOET:
+			var rand: int = p[4] if p.size() > 4 else 0
+			var l := f if rand & 1 else 0.0
+			var r := f if rand & 2 else 0.0
+			var b := f if rand & 4 else 0.0     # onderste rij: 1 schermpx van de voet af
+			if soort == SOORT_VOET:
+				d.draw_rect(Rect2(x + l, y, 1.0 - l - r, _dik(0.6, s)), c)
+			else:
+				d.draw_rect(Rect2(x + l, y + (f if rand & 8 else 0.0), 1.0 - l - r, 1.0 - b), c)
+		SOORT_KOP:
+			# glimlijntje linksboven op het steentje
+			d.draw_rect(Rect2(x + 2.0 * f, y + f, _dik(0.6, s), _dik(0.2, s)), c)
+		SOORT_BARST:
+			var rechts: bool = (p[4] if p.size() > 4 else 1) > 0
+			var a := Vector2(x, y) if rechts else Vector2(x + 1.0, y)
+			var e := Vector2(x + 1.0, y + 1.0) if rechts else Vector2(x, y + 1.0)
+			d.draw_line(a, e, c, _dik(0.35, s), true)
+		SOORT_LAAG:
+			var t := _dik(0.3, s)
+			d.draw_rect(Rect2(x, y + 0.5 - t * 0.5, 1, t), c)
+		_:
+			d.draw_rect(Rect2(x, y, 1, 1), c)
 
 # alle pixels die op kamerkolom k komen: [x in het hol, rij in het stuk, kleur]; los van tekenen, zodat de toets ze kan nagaan
 # Vast per kolom en stuk, dus één keer uitgerekend en bewaard: opnieuw tekenen (graven, een put) rekent niets meer.
@@ -65,14 +154,14 @@ static func _reken(k: int, stuk: String) -> Array:
 		var h := _hash(hx, 1)
 		# bovenrand: harde donkere lijn; op ±1 op 5 pixels een hap van 1 spelpx omlaag, op ±1 op 9 geen schaduw
 		if wand(m, x, RIJ_BOVEN):
-			_pix(d, x0 + x, RIJ_BOVEN, DONKER, RAND_A)
+			_pix(d, x0 + x, RIJ_BOVEN, DONKER, RAND_A, SOORT_RAND)
 			if wand(m, x, RIJ_BOVEN + 1):
 				if h % 5 == 0:
-					_pix(d, x0 + x, RIJ_BOVEN + 1, DONKER, RAND_A * 0.8)
+					_pix(d, x0 + x, RIJ_BOVEN + 1, DONKER, RAND_A * 0.8, SOORT_HAP)
 				elif h % 9 != 1:
-					_pix(d, x0 + x, RIJ_BOVEN + 1, DONKER, SCHADUW_A)
+					_pix(d, x0 + x, RIJ_BOVEN + 1, DONKER, SCHADUW_A, SOORT_SCHADUW)
 		if wand(m, x, RIJ_ONDER) and wand(m, x, RIJ_ONDER - 1):
-			_pix(d, x0 + x, RIJ_ONDER, DONKER, VLOER_A)
+			_pix(d, x0 + x, RIJ_ONDER, DONKER, VLOER_A, SOORT_VLOER)
 		# korrel op de wand, niet op de rij direct onder de rand (daar zit de schaduw)
 		for y in range(RIJ_BOVEN + 2, RIJ_ONDER):
 			if not wand(m, x, y):
@@ -86,9 +175,9 @@ static func _reken(k: int, stuk: String) -> Array:
 			elif dicht == 2:
 				s = s / 2
 			if s < SPIK_DONKER:
-				_pix(d, x0 + x, y, DONKER, SPIK_DONKER_A)
+				_pix(d, x0 + x, y, DONKER, SPIK_DONKER_A, SOORT_SPIK)
 			elif s < SPIK_DONKER + SPIK_LICHT:
-				_pix(d, x0 + x, y, LICHT, SPIK_LICHT_A)
+				_pix(d, x0 + x, y, LICHT, SPIK_LICHT_A, SOORT_SPIK)
 	_steentjes(d, k, m)
 	_laagjes(d, k, m)
 	return d
@@ -110,7 +199,7 @@ static func _laagjes(d: Array, k: int, m: Array) -> void:
 				ok = false
 		if ok:
 			for i in lang:
-				_pix(d, x0 + x + i, y, DONKER, LAAG_A)
+				_pix(d, x0 + x + i, y, DONKER, LAAG_A, SOORT_LAAG)
 
 # Steentjes en barstjes: per blok van 6 spelpx breed hooguit één, plek en maat vast uit de hash.
 static func _steentjes(d: Array, k: int, m: Array) -> void:
@@ -134,7 +223,7 @@ static func _steentjes(d: Array, k: int, m: Array) -> void:
 					ok = false
 			if ok:
 				for j in lang:
-					_pix(d, x0 + x + (j if naar_rechts else -j), y + j, DONKER, BARST_A)
+					_pix(d, x0 + x + (j if naar_rechts else -j), y + j, DONKER, BARST_A, SOORT_BARST, 1 if naar_rechts else -1)
 			continue
 		var w := 2
 		var hg := 1 + soort % 2
@@ -146,14 +235,15 @@ static func _steentjes(d: Array, k: int, m: Array) -> void:
 		if not ok:
 			continue
 		for i in w:
+			var zij: int = (1 if i == 0 else 0) | (2 if i == w - 1 else 0)
 			for j in hg:
-				_pix(d, x0 + x + i, y + j, DONKER, STEEN_A)
-			_pix(d, x0 + x + i, y + hg, DONKER, STEEN_VOET_A)
-		_pix(d, x0 + x, y, LICHT, STEEN_KOP_A)
+				_pix(d, x0 + x + i, y + j, DONKER, STEEN_A, SOORT_LIJF, zij | (8 if j == 0 else 0))
+			_pix(d, x0 + x + i, y + hg, DONKER, STEEN_VOET_A, SOORT_VOET, zij)
+		_pix(d, x0 + x, y, LICHT, STEEN_KOP_A, SOORT_KOP)
 
-static func _pix(d: Array, x: int, y: int, c: Color, a: float) -> void:
+static func _pix(d: Array, x: int, y: int, c: Color, a: float, soort: int = SOORT_SPIK, rand: int = 0) -> void:
 	c.a = a
-	d.append([x, y, c])
+	d.append([x, y, c, soort, rand])
 
 static func _hash(i: int, zout: int) -> int:
 	var v := (i * 73856093) ^ (zout * 19349663) ^ 83492791

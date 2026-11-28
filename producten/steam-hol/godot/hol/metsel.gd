@@ -33,15 +33,28 @@ const SCHUIF_MAX := 3         # elke blokrand schuift vast -3 tot +3 spelpx
 static func blok_rand(n: int, r: int) -> int:
 	return (BLOK_B / 2) * r + n * BLOK_B + _hash(n * 7 + r * 1013, 5) % (2 * SCHUIF_MAX + 1) - SCHUIF_MAX
 
+# Mila 28 nov (Iris #334 punt 1): op schaal 5 waren voeg, lichte bovenkant, schaduw en vlekjes allemaal 5 schermpx
+# breed, grove blokken naast gladde 3D. Het vaste beeld tekent op schermpixels, dus vanaf schaal 4 (160 px en hoger) zijn ze dunner:
+# voeg ±3 schermpx, bovenkant, onderkant en zijkant ±2, vlekjes ±2 x 2 op een vaste plek in hun spelpixel. Waar wat
+# zit verandert niet, en op 96 en 120 px (schaal 2 en 3) blijft alles zoals het was.
+static var S := 1.0
+static func _dik(v: float) -> float:
+	if S < 4.0:
+		return 1.0
+	return maxf(1.0, round(v * S)) / S
+
 # tekent het metselwerk op gangkolom k (alleen binnen die kolom; blokken lopen door over de kolomrand)
 static func teken(d: CanvasItem, k: int) -> void:
+	S = d.scale.x if d is Node2D else 1.0
 	var x0 := k * KOL
 	var x1 := x0 + KOL
+	var tv := _dik(0.6)
+	var tk := _dik(0.4)
 	for r in RIJEN.size():
 		var y0: int = RIJEN[r][0]
 		var y1: int = RIJEN[r][1]
 		if r > 0:
-			d.draw_rect(Rect2(x0, y0 - 1, KOL, 1), VOEG)
+			d.draw_rect(Rect2(x0, y0 - 0.5 - tv * 0.5, KOL, tv), VOEG)
 		var n: int = int(floor(float(x0 - (BLOK_B / 2) * r) / BLOK_B)) - 1
 		while blok_rand(n, r) < x1:
 			var bl: int = blok_rand(n, r)
@@ -58,12 +71,12 @@ static func teken(d: CanvasItem, k: int) -> void:
 				d.draw_rect(Rect2(a, y0, b - a, y1 - y0), t)
 			var hb := _hash(n * 31 + r, 7)
 			d.draw_rect(Rect2(a, y0, b - a, y1 - y0), Color(0, 0, 0, VERSCHIL * float(hb % 1000) / 1000.0))
-			d.draw_rect(Rect2(a, y0, b - a, 1), BOVENKANT)
-			d.draw_rect(Rect2(a, y1 - 1, b - a, 1), ONDERKANT)
+			d.draw_rect(Rect2(a, y0, b - a, tk), BOVENKANT)
+			d.draw_rect(Rect2(a, y1 - tk, b - a, tk), ONDERKANT)
 			if br - 1 < x1:
-				d.draw_rect(Rect2(br - 1, y0 + 1, 1, y1 - y0 - 1), ZIJKANT)
+				d.draw_rect(Rect2(br - tk, y0 + tk, tk, y1 - y0 - tk), ZIJKANT)
 			if bl >= x0:
-				d.draw_rect(Rect2(bl, y0, 1, y1 - y0), VOEG)
+				d.draw_rect(Rect2(bl + 0.5 - tv * 0.5, y0, tv, y1 - y0), VOEG)
 			# afgebrokkelde hoek: één spelpx in de kleur van de voeg, linksboven of rechtsonder
 			if hb % 3 == 0:
 				var hx: int = bl + 1 if hb % 2 == 0 else br - 1
@@ -106,9 +119,17 @@ static func _bovenrand(d: CanvasItem, n: int, bl: int, br: int, y0: int, x0: int
 		var w: int = 3 + (hb / 3) % 4
 		var hx: int = bl + 1 + (hb / 13) % (b - w - 1)
 		var diep: int = 1 + (hb / 7) % 2
+		if S >= 4.0:
+			# fijn (Mila 28 nov): ondiepere hap die naar de randen uitloopt, in treden van 1 schermpx
+			var dd := _dik(0.6 * diep)
+			var f := 1.0 / S
+			_fijnvak(d, hx, y0, float(w), dd * 0.5, x0, x1)
+			_fijnvak(d, hx + f, y0, float(w) - 2.0 * f, dd, x0, x1)
+			_fijnvak(d, hx + 3.0 * f, y0, float(w) - 6.0 * f, dd + f, x0, x1)
+			return
 		_pix(d, hx, y0, w, diep, VOEG, x0, x1)
 		if diep == 2:
-			_pix(d, hx - 1, y0, 1, 1, VOEG, x0, x1)   # hap loopt schuin uit, geen rechte bak
+			_vak(d, hx - 1, y0, 1, 1, VOEG, x0, x1)   # hap loopt schuin uit, geen rechte bak
 
 # bovenste voeg boven blok n: gewoon een voeg, behalve bij een blok dat uitsteekt; daar komt zijn lichte bovenkant
 # 1 spelpx hoger in plaats van de voeg (alleen tussen zijn randen, de voeg ernaast blijft)
@@ -117,18 +138,39 @@ static func uitsteker(n: int, b: int) -> bool:
 	return hb % BOVEN_HAP_KANS != 0 and hb % BOVEN_UIT_KANS == 1 and b >= 6
 static func _bovenvoeg(d: CanvasItem, n: int, bl: int, br: int, y0: int, x0: int, x1: int) -> void:
 	if uitsteker(n, br - bl):
-		_pix(d, bl, y0 - 1, 1, 1, VOEG, x0, x1)
-		_pix(d, br - 1, y0 - 1, 1, 1, VOEG, x0, x1)
+		_vak(d, bl, y0 - 1, 1, 1, VOEG, x0, x1)
+		_vak(d, br - 1, y0 - 1, 1, 1, VOEG, x0, x1)
 		_pix(d, bl + 1, y0 - 1, br - bl - 2, 1, BOVENKANT, x0, x1)
 	else:
 		_pix(d, bl, y0 - 1, br - bl, 1, VOEG, x0, x1)
 
-# rechthoek, afgeknipt op de gangkolom [x0, x1)
-static func _pix(d: CanvasItem, x: int, y: int, w: int, h: int, c: Color, x0: int, x1: int) -> void:
+static func _fijnvak(d: CanvasItem, x: float, y: float, w: float, h: float, x0: int, x1: int) -> void:
+	var a := maxf(x, float(x0))
+	var b := minf(x + w, float(x1))
+	if b > a and h > 0.0:
+		d.draw_rect(Rect2(a, y, b - a, h), VOEG)
+
+# hele rechthoek op spelpixels, ook op grote schaal (randen die op elkaar moeten aansluiten)
+static func _vak(d: CanvasItem, x: int, y: int, w: int, h: int, c: Color, x0: int, x1: int) -> void:
 	var a := maxi(x, x0)
 	var b := mini(x + w, x1)
 	if b > a:
 		d.draw_rect(Rect2(a, y, b - a, h), c)
+
+# rechthoek, afgeknipt op de gangkolom [x0, x1). Een los spelpixel (vlekje, barstje, hoekje) wordt vanaf schaal 4 een
+# stipje van ±2 tot 3 schermpx op een vaste plek in dat spelpixel.
+static func _pix(d: CanvasItem, x: int, y: int, w: int, h: int, c: Color, x0: int, x1: int) -> void:
+	var a := maxi(x, x0)
+	var b := mini(x + w, x1)
+	if b <= a:
+		return
+	if S >= 4.0 and w == 1 and h == 1:
+		var q := _dik(0.6 if c.a >= 0.4 else 0.4)
+		var vrij := maxi(1, int(round((1.0 - q) * S)) + 1)
+		var hh := _hash(x * 7 + y * 131, 9)
+		d.draw_rect(Rect2(a + float(hh % vrij) / S, y + float((hh / 7) % vrij) / S, q, q), c)
+		return
+	d.draw_rect(Rect2(a, y, b - a, h), c)
 
 # soort van blok n in rij r. Diep in een plek de soort van die plek. Bij elke rand grijpen de soorten in elkaar als
 # tanden (Daan #224 K2: met een willekeurige schuif van 12 spelpx wisselden de soorten nog vaak recht op een staande
