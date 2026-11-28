@@ -242,9 +242,10 @@ def controle():
     drempel = 0.2 * np.percentile(rms, 95)
 
     def opkomst(t):
-        """De opkomst in [t-0,6, t+0,6] met het langste stille stuk ervoor (de pauze tussen zinnen wint van een
-        korte stilte binnen een zin)."""
-        a_, b_ = max(1, int((t - 0.6) * 100)), min(len(rms) - 1, int((t + 0.6) * 100))
+        """De opkomst in [t-0,6, t+1,0] met het langste stille stuk ervoor (de pauze tussen zinnen wint van een
+        korte stilte binnen een zin). Tot 1,0 s erna: in de proef van 28 nov zette whisper "now" van zin 7 0,59 s
+        te vroeg, midden in de pauze, en viel de echte opkomst net buiten het oude venster van 0,6 s."""
+        a_, b_ = max(1, int((t - 0.6) * 100)), min(len(rms) - 1, int((t + 1.0) * 100))
         beste, lang = t, 0
         for j in range(a_, b_):
             if rms[j] > drempel and rms[j - 1] <= drempel:
@@ -254,7 +255,7 @@ def controle():
                 if n > lang:
                     beste, lang = j / 100, n
         return beste
-    uitslag, fout = [], 0
+    uitslag, fout, uitleg = [], 0, []
     for i, z in enumerate(tijden["zinnen"]):
         if i not in eerste or eerste[i][0] > 2:
             uitslag.append([z["nr"], None])
@@ -262,6 +263,13 @@ def controle():
         verschil = round(opkomst(float(eerste[i][1])) - z["begin"], 2)
         fout += int(abs(verschil) > 0.3)
         uitslag.append([z["nr"], verschil])
+        if abs(verschil) > 0.3:
+            # om na te gaan of het de stem is of de meting: welk woord whisper koos en wat hij rond het begin hoorde
+            rond = [(w, round(float(t), 2)) for w, t in ws if z["begin"] - 2.5 <= t <= z["begin"] + 1.5]
+            uitleg.append({"zin": z["nr"], "begin": z["begin"], "woord_nr": eerste[i][0],
+                           "woord_t": round(float(eerste[i][1]), 2), "rond_begin": rond})
+    for u in uitleg:
+        print(json.dumps(u), file=sys.stderr)
     gemeten = [abs(u[1]) for u in uitslag if u[1] is not None]
     print(json.dumps({"zinnen": len(uitslag), "gemeten": len(gemeten), "buiten_0_3": fout,
                       "grootste": max(gemeten) if gemeten else None, "per_zin": uitslag}))

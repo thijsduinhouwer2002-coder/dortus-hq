@@ -42,10 +42,17 @@ jobs:
         uses: ./.github/actions/apt-snel
         with:
           pakketten: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip ffmpeg tesseract-ocr x11-xserver-utils
+      # vaste Python 3.12: de runner heeft nu 3.14, waar kokoro-onnx en onnxruntime nog niet op draaien (proef 28 nov)
+      - uses: actions/setup-python@v5
+        if: steps.stem.outputs.ok == '1'
+        with:
+          python-version: "3.12"
       - name: Python-pakketten
         if: steps.stem.outputs.ok == '1'
         run: |
-          python3 -m pip install --target /tmp/pylib mss==9.0.2 python-xlib numpy
+          # alleen pure Python in /tmp/pylib: Blender heeft zijn eigen numpy, een numpy van een andere Python-versie
+          # vooraan in sys.path zou het laden in Blender breken
+          python3 -m pip install --target /tmp/pylib mss==9.0.2 python-xlib
           python3 -m pip install -q faster-whisper==1.2.1 numpy pillow soundfile
           if [ "$PROEF" = "1" ]; then
             python3 -m pip install -q kokoro-onnx==0.6.1
@@ -117,9 +124,9 @@ jobs:
           ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate,avg_frame_rate,nb_frames -show_entries format=duration -of default=nw=1 cuts-lang.mp4 | tee ffprobe.txt
           ffprobe -v error -select_streams v:0 -show_entries packet=pts_time -of csv=p=0 cuts-lang.mp4 | sort -n | awk 'NR>1{d=$1-p; if (d<0.030||d>0.037) b++} {p=$1} END{print "tijdstempels buiten 1/30 s:", b+0}' | tee -a ffprobe.txt
           grep -q "tijdstempels buiten 1/30 s: 0" ffprobe.txt || ok=1
-          python3 organisatie/controle/geluid_check.py cuts-lang.mp4 | tee geluid_check.txt
+          python3 $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py cuts-lang.mp4 | tee geluid_check.txt
           grep -q "FOUT" geluid_check.txt && ok=1
-          python3 $GITHUB_WORKSPACE/$MAP/monteer_lang.py --controle cuts-lang.mp4 /tmp/tijden > synchroon.txt || ok=1; cat synchroon.txt
+          python3 $GITHUB_WORKSPACE/$MAP/monteer_lang.py --controle cuts-lang.mp4 /tmp/tijden > synchroon.txt 2> synchroon-uitleg.txt || ok=1; cat synchroon.txt synchroon-uitleg.txt
           # echte kliks op hun zin: een klik mag niet later vallen dan 0,5 s na het eind van de zin die hem noemt
           python3 - <<'PY' > kliksync.txt || ok=1
           import json, sys
@@ -142,4 +149,8 @@ jobs:
           : > /tmp/notes.md; if [ "$PROEF" = "1" ]; then echo "PROEF met Kokoro als tijdelijke stem: alleen om de keten te toetsen, NIET voor keuring of plaatsen." > /tmp/notes.md; fi
           echo "Zoekvideo Click Cuts (#332): echte Blender-opname op de stem van Max, liggend 1920x1080. Controles: ffprobe.txt, geluid_check.txt, synchroon.txt. Niets geplaatst." >> /tmp/notes.md
           gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 32 (zoekvideo Click Cuts)" --notes-file /tmp/notes.md
-          find . -maxdepth 1 -type f -print0 | xargs -0 gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY"
+          # elk bestand apart en de film eerst: een leeg bestand gaf HTTP 400 en hield de rest tegen (proef 28 nov)
+          for f in cuts-lang.mp4 $(ls | grep -v '^cuts-lang.mp4$'); do
+            [ -s "$f" ] || { echo "leeg, overgeslagen: $f"; continue; }
+            gh release upload "$TAG" "$f" --clobber -R "$GITHUB_REPOSITORY" || echo "upload mislukt: $f"
+          done
