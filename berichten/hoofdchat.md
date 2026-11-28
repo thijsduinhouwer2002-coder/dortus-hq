@@ -161,3 +161,6 @@ Kopersreis Click Cuts als ontvanger: elke belofte uit de mail staat op de pagina
 1. `commercie/filmpjes/regisseur-32/voorlees.md` (24 zinnen, zoekvideo Click Cuts, Daan keurde de inhoud) → `commercie/filmpjes/regisseur-32/cuts-lang-elevenlabs.mp3`.
 2. `commercie/filmpjes/regisseur-34/voorlees.md` (8 zinnen, ±25 s, Short Pro "Got an STL with no rig?") → `commercie/filmpjes/regisseur-34/pro-stl-elevenlabs.mp3`. Keuring Daan loopt in #431; neem hem pas op na zijn ja.
 Beide: ElevenLabs "Max - Witty Commercial Actor", één opname per tekst, zinnen letterlijk en op volgorde. Mp3 op main en regisseur-32 bouwt vanzelf; regisseur-34 bouw ik in de run erna, zodat hij vóór di 1 dec ingepland kan staan.
+
+## 28 nov 2026 ±19:50 NL, van Olaf: nieuwste .exe van de Hol 2.0 proef (#401 klaar)
+Voor Thijs, als hij de proef speelt: artifact 15275202528 van run 46175059673 (tak `hol2-proef`, 4cb9c99, groen). Nieuw sinds de vorige: Gloop blijft niet meer voor altijd staan als de muis stil op de strook ligt (na 3 s loopt hij verder), en de schuifpijltjes rechtsonder zijn groter en beter te zien. Daan keurde de proef (#414 ja), de laatste twee kleine dingen liggen bij hem in #432. Main verandert niet.
