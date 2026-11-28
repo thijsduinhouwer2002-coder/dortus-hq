@@ -1,5 +1,8 @@
 # Click Cuts changelog
 
+## 1.1.1
+- Better: when a model is far too big for your bed (like the 2 m default cube), Split to fit now says how big it is, about how many times your bed, and what to do: scale it down (S) or pick a bigger printer. Before, it only said "No plan".
+
 ## 1.1.0 (after the launch of 1.0.0)
 - New: Draw cut. After Split to fit, click a part, press Draw cut and drag a line where you want it cut, for example under the chin or at the shoulder.
 - New: before you cut, the part that comes off lights up white with an arrow that says "comes off". Wrong part? Press Flip side.

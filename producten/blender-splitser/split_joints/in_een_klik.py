@@ -178,10 +178,18 @@ class SPLIT_JOINTS_OT_split_to_fit(bpy.types.Operator):
         eigen_snedes = snedes.verschoven(scene) and scene.get("sj_gesneden_model") == ob.name
         if eigen_snedes:
             stappen.append("kept your moved cuts")
-        elif _doe(bpy.ops.split_joints.plan) is not True:
-            inst.uitslag = "No plan: check the unit or pick a bigger printer"
-            self.report({"ERROR"}, inst.uitslag)
-            return {"CANCELLED"}
+        else:
+            scene.pop("sj_te_veel", None)
+            gelukt = _doe(bpy.ops.split_joints.plan)
+            if gelukt is not True:
+                te_veel = scene.get("sj_te_veel")
+                if te_veel:  # #385: name the size and the way out, not only "No plan"
+                    inst.uitslag = te_veel
+                    self.report({"ERROR"}, gelukt.replace("Error: ", "") if gelukt else te_veel.replace("\n", ". "))
+                else:
+                    inst.uitslag = "No plan: check the unit or pick a bigger printer"
+                    self.report({"ERROR"}, inst.uitslag)
+                return {"CANCELLED"}
         gelukt = _doe(bpy.ops.split_joints.split)
         if gelukt is not True:
             inst.uitslag = "Split did not work: " + (gelukt.replace("Error: ", "") if gelukt else "see the info log")

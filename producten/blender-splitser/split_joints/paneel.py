@@ -59,7 +59,8 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
         if inst.uitslag:
             vak = layout.box().column(align=True)
             vak.alert = True
-            vak.label(text=inst.uitslag, icon="ERROR")
+            for i, regel in enumerate(inst.uitslag.split("\n")):  # #385: size and way out on their own lines
+                vak.label(text=regel, icon="ERROR" if i == 0 else "BLANK1")
         elif uit:
             hoofd, detail, goed = uit
             vak = layout.box().column(align=True)

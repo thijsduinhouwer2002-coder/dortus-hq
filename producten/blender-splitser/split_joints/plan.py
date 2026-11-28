@@ -100,6 +100,19 @@ def roosters(n_min, n_max):
                 yield (nx, ny, nz)
 
 
+def te_veel_tekst(naam, maat, bed, minimaal):
+    """(message, panel lines) when a model needs more than MAX_CELLEN pieces (kopersreis #385: the default
+    cube of 2 m said only "No plan", without its size or a way out). maat and bed in mm (x, y, z)."""
+    keer = max(maat) / max(bed)
+    afm = " x ".join(f"{m:,.0f}" for m in maat)
+    bedtekst = " x ".join(f"{b:,.0f}" for b in bed)
+    melding = (f"{naam} is {afm} mm, about {keer:.0f} times your bed ({bedtekst} mm): that needs at least "
+               f"{minimaal:,} pieces (limit {MAX_CELLEN}). Scale it down (S) or pick a bigger printer")
+    # short lines: the sidebar cut "Scale it down (S) or pick a bigger p..." off at its default width (GEZIEN)
+    paneel = [f"Too big: {afm} mm", f"About {keer:.0f} times your bed", "Scale it down (S)", "or pick a bigger printer"]
+    return melding, paneel
+
+
 def maak(punten, bed, driehoeken=None):
     """Plan for a mesh (points N x 3 and triangles M x 3, mm) and a bed (x, y, z, mm, margin taken off).
 

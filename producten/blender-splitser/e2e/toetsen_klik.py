@@ -254,6 +254,30 @@ def alles(uitmap=None):
         r = {"CANCELLED"}
     stap("klik: na Convert to mm snijdt hij wel", r == {"FINISHED"} and len(stukken()) >= 2, f"{r} {len(stukken())}")
 
+    # #385: the default cube of a new scene (2 m) is too big but not 1000 times: name size and way out
+    s = modellen.meter_scene()
+    s.split_joints.printer = "A1"
+    ob = modellen.doos(2.0, 2.0, 2.0, naam="Cube")
+    modellen.actief(ob)
+    melding = ""
+    try:
+        r = bpy.ops.split_joints.split_to_fit()
+    except RuntimeError as e:
+        melding = str(e)
+        r = {"CANCELLED"}
+    regels = s.split_joints.uitslag.split("\n")
+    stap("klik: standaardkubus noemt maat en uitweg (#385)", r == {"CANCELLED"} and "Cube is 2,000 x 2,000 x 2,000 mm" in melding
+         and "Scale it down (S)" in melding and regels[0] == "Too big: 2,000 x 2,000 x 2,000 mm"
+         and regels[2:] == ["Scale it down (S)", "or pick a bigger printer"] and not stukken(), f"{r} '{melding}' {regels}")
+    ob.scale = (0.2, 0.2, 0.2)
+    try:
+        r = bpy.ops.split_joints.split_to_fit()
+    except RuntimeError as e:
+        log(f"klik: melding {e}")
+        r = {"CANCELLED"}
+    stap("klik: standaardkubus op 0.2 snijdt wel (#385)", r == {"FINISHED"} and s.split_joints.uitslag == ""
+         and len(stukken()) >= 2, f"{r} {len(stukken())} '{s.split_joints.uitslag}'")
+
     # position in mm in a meter scene
     s = modellen.meter_scene()
     ob = modellen.doos(0.5, 0.15, 0.12)

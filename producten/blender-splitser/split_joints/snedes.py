@@ -186,8 +186,10 @@ class SPLIT_JOINTS_OT_plan(bpy.types.Operator):
             self.report({"ERROR"}, "No plan found: the model has no points")
             return {"CANCELLED"}
         if uit.get("fout") == "te_veel":
-            self.report({"ERROR"}, f"This needs at least {uit['minimaal']} pieces (limit {plan.MAX_CELLEN}). "
-                                   "Check the unit of the scene or pick a bigger printer")
+            maat = tuple(h - l for l, h in zip(uit["lo"], uit["hi"]))
+            melding, paneel = plan.te_veel_tekst(ob.name, maat, b, uit["minimaal"])
+            scene["sj_te_veel"] = "\n".join(paneel)  # Split to fit shows these lines in the panel (#385)
+            self.report({"ERROR"}, melding)
             return {"CANCELLED"}
         wis(scene)
         lo, hi = uit["lo"], uit["hi"]

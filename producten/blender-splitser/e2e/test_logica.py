@@ -94,6 +94,12 @@ duur = time.time() - t0
 stap("plan 1000 keer te groot: weigert met te_veel", p is not None and p.get("fout") == "te_veel" and p["minimaal"] > plan.MAX_CELLEN,
      str(p and {k: p.get(k) for k in ("fout", "minimaal")}))
 stap("plan 1000 keer te groot: binnen 2 s", duur < 2.0, f"{duur:.2f} s")
+# #385: the default cube (2 m) on an A1 names its size and the way out, in plain numbers
+m, regels = plan.te_veel_tekst("Cube", (2000.0, 2000.0, 2000.0), (246.0, 246.0, 251.0), 729)
+stap("te veel: melding noemt maat, keer en uitweg (#385)", m.startswith("Cube is 2,000 x 2,000 x 2,000 mm, about 8 times")
+     and "Scale it down (S)" in m and "bigger printer" in m and "e+" not in m, m)
+stap("te veel: vier korte paneelregels (#385)", len(regels) == 4 and regels[0] == "Too big: 2,000 x 2,000 x 2,000 mm"
+     and all(len(r) <= 34 for r in regels), str(regels))
 stap("aantal cellen zonder ze te maken", plan.aantal_cellen((0, 0, 0), (10, 10, 10), [(0, 3.0), (0, 6.0), (2, 5.0), (1, 20.0)]) == 6)
 
 # 3. cross-section of a box at x = 100: a 150 x 120 rectangle

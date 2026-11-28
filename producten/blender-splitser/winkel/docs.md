@@ -29,6 +29,8 @@ Open model? If the model has holes, Split to fit first makes a watertight copy (
 
 Wrong unit? If your model is 1000 times too big or too small (a model made in mm, in a scene in meters), Split to fit stops and tells you. Open More settings, step 2, and click Convert to mm. The model itself does not change.
 
+Too big for your bed? If a model needs more than 200 parts, Split to fit stops and the panel says how big it is, for example "Too big: 2,000 x 2,000 x 2,000 mm". Scale it down (S) or pick a bigger printer. Trying it on the default cube? It is 2 m: press S, type 0.2 and press Enter first.
+
 
 Print the fit test first
 
