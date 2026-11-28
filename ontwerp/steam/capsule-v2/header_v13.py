@@ -31,9 +31,11 @@ def mix(a, b, t):
 k = int(round(SCH * S))  # hele factor op het doek
 assert abs(k - SCH * S) < 1e-6, "schaal x 4 moet heel zijn"
 GB = -(-W // k)
-spel = Image.open(BRON).convert("RGB").crop((X0, 0, X0 + GB, 160))
-spel = spel.resize((GB * k, 160 * k), Image.NEAREST).crop((0, 0, W, 160 * k))
-SH = 160 * k
+bron_img = Image.open(BRON).convert("RGB")
+HB = bron_img.height  # 160 (v13) of 240 (v14, film op hoogte=240)
+spel = bron_img.crop((X0, 0, X0 + GB, HB))
+spel = spel.resize((GB * k, HB * k), Image.NEAREST).crop((0, 0, W, HB * k))
+SH = HB * k
 TOP = H - TB - SH
 
 img = Image.new("RGB", (W, H))

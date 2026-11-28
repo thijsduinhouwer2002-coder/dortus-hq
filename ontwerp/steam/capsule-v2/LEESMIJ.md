@@ -122,3 +122,11 @@ Uitslag (GEZIEN, `organisatie/blindtest/uitslag/hats-header-v2-2026-11-28-0451.m
 - `header-v13a-920x430.png`: `bron-scherm3-1400s.png 690 1.25`: links valt een held met zijn emmer en kroon de stekelput in, rechts Gloop op de troon met hoedenberg en schat. Strook 200 px, lucht 194 px.
 - `header-v13b-920x430.png`: `bron-scherm5-1305s.png 850 1.5`: de uitsnede van v12a, om te meten of de nieuwe titel en het weghalen van het label de plek houden.
 Bekeken met Read op 920, 460 en 2x (pixelranden scherp, titel leest op 460).
+
+## Ronde 14 (28 nov 2026, Mila, #30): held zonder rafelrand (Daan #357 M1)
+Uitgezocht: de lichte geblokte rand om de held in v13a zit in het spel, niet alleen in de opname. Het is de lichte buitenrand van `systemen/held_licht.gd` (#256): die wordt op de grootte van het blad gemaakt en NEAREST verkleind getekend, en bij een vallende (gedraaide) held voor koele steen wordt dat rafelig. In het fakkellicht staat die rand uit. Gemeld aan Olaf (`berichten/olaf.md`).
+- Nieuwe eigen film van main 891e144, Godot 4.3 Linux onder Xvfb, `--write-movie` (avi) `--fixed-fps 5`, argumenten `hoogte=240 vers=1 zaad=7 balk=0 duur=1500 uitleg_klik=6 koper=1 koper_wacht=8`. Geen SCRIPT ERROR in het log (GEZIEN).
+- Beeld 1409,4 s (`bron-v14-1409s.png`): een tovenaar valt in het fakkellicht ondersteboven de stekelput in, met alleen de donkere rand, geen lichte. `bron-v14-1409s-b.png` is 0,2 s later, met het uitroepteken erboven.
+- `header_v13.py` leest nu de hoogte van het bronbeeld (160 of 240). v14 op 1,0x: het hol op ware grootte, geen vergroten. Strook 240 px, lucht 154 px, titel 58 px.
+- `header-v14a-920x430.png`: `bron-v14-1409s.png 380 1.0`. `header-v14b-920x430.png`: `bron-v14-1409s-b.png 380 1.0`.
+Bekeken met Read op 920, 460 en links en rechts op 2x: held schoon, Gloop met troon heel in beeld.
