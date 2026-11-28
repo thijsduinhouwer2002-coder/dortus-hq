@@ -523,6 +523,11 @@ def opzet():
     yield from sleep_zijbalk(PANEEL)
     inst = bpy.context.scene.split_joints
     inst.printer = "A1MINI"   # begin op de kleine A1 mini: de gebruiker kiest echt
+    if TIJDEN:
+        # bekend punt (a) opgelost (tweede run 28 nov, proef r2c zonder vangnet): Exploded view staat standaard AAN, dus
+        # de echte klik bij zin 21 zette hem juist UIT en het vangnet zette hem terug. Op de stem begint hij uit, zodat
+        # de echte klik de delen uit elkaar trekt, precies als zin 21 zegt.
+        inst.uit_elkaar = False
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(MAP, "horse_statue.blend"))
     yield 0.5
     _, gebied = gebied_3d()

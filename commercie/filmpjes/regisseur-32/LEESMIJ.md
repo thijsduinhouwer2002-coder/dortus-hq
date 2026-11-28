@@ -19,6 +19,10 @@ Blender eenmalig zonder het welkomstvenster: `blender -b --factory-startup --pyt
 Proef r3 (28 nov ±03:15, Kokoro am_michael als tijdelijke stem, NIET voor keuring, niet bewaard): 115,9 s, 3478 beelden op 30 bps, 0 afwijkende tijdstempels, geluid_check GOED (-18,2 dB, piek -1,3 dB), whisper-controle 24 van 24 zinnen binnen 0,3 s (grootste 0,09 s), 13 echte kliks, 15 STL-bestanden. Bijna gelijke beelden (mpdecimate) alleen bij het op gang komen en afremmen van de hand, hooguit 6 achter elkaar (0,2 s), niet midden in een beweging. Alles GEZIEN; strook `strook-proef-r3.jpg` (16 beelden).
 Bekende punten: (a) Exploded view: de echte klik valt op het vinkje maar de eigenschap verandert niet, dus het script zet hem 1 beeld later (vangnet, zelfde beeld); nog uitzoeken. (b) Export parts valt ±2 s na "Then click Export parts" (scrollen), zin 16 de proef ±1,4 s laat in beeld.
 
+Tweede run 28 nov ±03:20 tot 04:30 (gelijktijdig, zag pas bij het pushen dat het bovenstaande er al stond; eigen dubbele versie niet gepusht):
+- (a) opgelost: Exploded view staat standaard AAN, dus de echte klik zette hem juist UIT. Met `CC_TIJDEN` begint hij nu uit (`opzet()`), en de klik bij zin 21 trekt de delen echt uit elkaar. Getoetst in een eigen proefopname met dezelfde stap (geschatte tijdlijn, 94,9 s, 2848 beelden op 1/30 s, 13 echte kliks, vangnet leeg, GEZIEN).
+- Workflow `.github/workflows/regisseur-32.yml`: draait stap 1 tot 3 en de controles (ffprobe tijdstempels, geluid_check, `monteer_lang.py --controle`) vanzelf zodra `cuts-lang-elevenlabs.mp3` op main komt, en zet film, beelden en uitslagen in release `regisseur-32`. Dan hoeft de volgende run alleen na te kijken en Daan te vragen.
+
 ## Nog te doen (volgende run, zodra `cuts-lang-elevenlabs.mp3` er is)
 1. `STEM_MP3=.../cuts-lang-elevenlabs.mp3 python3 tijden_lang.py <stem>`, dan `cuts_lang.py` met `CC_TIJDEN` (±15 min), dan `monteer_lang.py`, dan `--controle`, geluid_check, ffprobe, beelden zelf bekijken. Komt Max boven 2:00: `PAUZE=0.35 HOOFDSTUK_PAUZE=0.7`.
 2. Thumbnail is al GESLAAGD (`organisatie/blindtest/uitslag/click-cuts-zoek-split-2026-11-28-0150.md`, Gemini plek 2 en 2).

@@ -1,0 +1,113 @@
+name: "Regisseur 32 (zoekvideo Click Cuts #332: echte Blender-opname op de stem van Max)"
+
+# 28 nov 2026, Regisseur, issue #332. Loopt vanzelf zodra de hoofdchat de stem van Max in de map zet
+# (commercie/filmpjes/regisseur-32/cuts-lang-elevenlabs.mp3). Volgorde: stem knippen en op een tijdlijn leggen
+# (tijden_lang.py), dan de echte opname op die tijdlijn (cuts_lang.py met CC_TIJDEN: Blender 5.3 met interface onder Xvfb
+# 1920x1080, Click Cuts 1.1.0 van main, echte muis en kliks, beeld voor beeld 30 bps), dan de montage (monteer_lang.py:
+# ondertitels, muispijl, alleen stem en zachte klikjes) en de controles: ffprobe, geluid_check, whisper (monteer_lang --controle).
+# Alles in release regisseur-32. Niets geplaatst; de Regisseur kijkt de beelden zelf na en vraagt Daan om keuring.
+on:
+  push:
+    branches: [main]
+    paths: ["commercie/filmpjes/regisseur-32/cuts-lang-elevenlabs.mp3", ".github/workflows/regisseur-32.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: regisseur-32
+  MAP: commercie/filmpjes/regisseur-32
+
+jobs:
+  film:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stem aanwezig?
+        id: stem
+        run: |
+          if [ -s "$MAP/cuts-lang-elevenlabs.mp3" ]; then echo "ok=1" >> "$GITHUB_OUTPUT"; else echo "Nog geen stem van Max in $MAP, niets te doen."; fi
+      - name: Systeempakketten (apt-snel)
+        if: steps.stem.outputs.ok == '1'
+        uses: ./.github/actions/apt-snel
+        with:
+          pakketten: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip ffmpeg tesseract-ocr x11-xserver-utils
+      - name: Python-pakketten
+        if: steps.stem.outputs.ok == '1'
+        run: |
+          python3 -m pip install --target /tmp/pylib mss==9.0.2 python-xlib numpy
+          python3 -m pip install -q faster-whisper==1.2.1 numpy pillow soundfile
+      - name: Blender 5.3.0, Click Cuts zip en het paard
+        if: steps.stem.outputs.ok == '1'
+        run: |
+          V="5.3.0"; KORT="5.3"; B="release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          for u in "https://download.blender.org/$B" "https://ftp.nluug.nl/pub/graphics/blender/$B" "https://mirrors.ocf.berkeley.edu/blender/$B"; do
+            curl -fsSL --retry 3 --retry-delay 10 -o /tmp/blender.tar.xz "$u" && break
+            echo "niet gelukt: $u"; rm -f /tmp/blender.tar.xz
+          done
+          [ -s /tmp/blender.tar.xz ] || { echo "FOUT: Blender $V niet te downloaden"; exit 1; }
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1 && rm /tmp/blender.tar.xz
+          bash producten/blender-splitser/e2e/maak_zip.sh
+          sha256sum /tmp/click_cuts.zip
+          M=/tmp/mod/horse_statue_01 && mkdir -p $M
+          curl -fsSL --retry 3 -o /tmp/ph.json https://api.polyhaven.com/files/horse_statue_01
+          python3 - <<'PY'
+          import json, subprocess
+          d = json.load(open("/tmp/ph.json"))["gltf"]["1k"]["gltf"]
+          m = "/tmp/mod/horse_statue_01"
+          subprocess.run(["curl", "-fsSL", "--retry", "3", "-o", f"{m}/horse_statue_01_1k.gltf", d["url"]], check=True)
+          for pad, inc in d.get("include", {}).items():
+              if pad.endswith(".bin"):
+                  subprocess.run(["curl", "-fsSL", "--retry", "3", "--create-dirs", "-o", f"{m}/{pad}", inc["url"]], check=True)
+          PY
+      - name: Stem knippen en tijdlijn
+        if: steps.stem.outputs.ok == '1'
+        env:
+          STEM_MP3: ${{ github.workspace }}/commercie/filmpjes/regisseur-32/cuts-lang-elevenlabs.mp3
+          STEM_BRON: elevenlabs
+        run: python3 $MAP/tijden_lang.py /tmp/tijden && head -c 1500 /tmp/tijden/tijden.json
+      - name: Opnemen op de stem (echt scherm 1920x1080, 30 bps)
+        if: steps.stem.outputs.ok == '1'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          CJ_PYLIB: /tmp/pylib
+          BLENDER_USER_RESOURCES: /tmp/cc
+          BLENDER_USER_CONFIG: /tmp/cc/config
+          BLENDER_USER_EXTENSIONS: /tmp/cc/ext
+          CC_TIJDEN: /tmp/tijden/tijden.json
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
+          mkdir -p /tmp/klaar
+          timeout 6600 xvfb-run -a --server-args="-screen 0 1920x1080x24 -noreset" /tmp/blender/blender --gpu-backend opengl -p 0 0 1920 1080 /tmp/start.blend \
+            --python $MAP/cuts_lang.py -- /tmp/opn /tmp/click_cuts.zip /tmp/mod/horse_statue_01 2>&1 | tee /tmp/klaar/opname.log | grep -E "KORT|Traceback|Error" || true
+          [ -s /tmp/opn/film.json ] || { echo "FOUT: geen film.json"; exit 1; }
+          gzip -9 /tmp/klaar/opname.log
+      - name: Montage
+        if: steps.stem.outputs.ok == '1'
+        run: |
+          python3 $MAP/monteer_lang.py /tmp/opn /tmp/tijden /tmp/klaar/cuts-lang.mp4
+          cp /tmp/opn/film.json /tmp/klaar/film.json; cp /tmp/tijden/tijden.json /tmp/klaar/
+          ffmpeg -v error -y -i /tmp/klaar/cuts-lang.mp4 -vf "fps=12/$(ffprobe -v error -show_entries format=duration -of csv=p=0 /tmp/klaar/cuts-lang.mp4),scale=480:-1,tile=4x3" -frames:v 1 /tmp/klaar/overzicht.jpg
+          ffmpeg -v error -y -i /tmp/klaar/cuts-lang.mp4 -frames:v 1 -q:v 2 /tmp/klaar/eerste-beeld.jpg
+      - name: Controles (ffprobe, geluid, whisper)
+        if: steps.stem.outputs.ok == '1'
+        run: |
+          cd /tmp/klaar; ok=0
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate,avg_frame_rate,nb_frames -show_entries format=duration -of default=nw=1 cuts-lang.mp4 | tee ffprobe.txt
+          ffprobe -v error -select_streams v:0 -show_entries packet=pts_time -of csv=p=0 cuts-lang.mp4 | sort -n | awk 'NR>1{d=$1-p; if (d<0.030||d>0.037) b++} {p=$1} END{print "tijdstempels buiten 1/30 s:", b+0}' | tee -a ffprobe.txt
+          grep -q "tijdstempels buiten 1/30 s: 0" ffprobe.txt || ok=1
+          python3 organisatie/controle/geluid_check.py cuts-lang.mp4 | tee geluid_check.txt
+          grep -q "FOUT" geluid_check.txt && ok=1
+          python3 $GITHUB_WORKSPACE/$MAP/monteer_lang.py --controle cuts-lang.mp4 /tmp/tijden > synchroon.txt || ok=1; cat synchroon.txt
+          exit $ok
+      - name: In de release zetten
+        if: ${{ always() && steps.stem.outputs.ok == '1' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd /tmp/klaar 2>/dev/null || exit 1
+          echo "Zoekvideo Click Cuts (#332): echte Blender-opname op de stem van Max, liggend 1920x1080. Controles: ffprobe.txt, geluid_check.txt, synchroon.txt. Niets geplaatst." > /tmp/notes.md
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 32 (zoekvideo Click Cuts)" --notes-file /tmp/notes.md
+          find . -maxdepth 1 -type f -print0 | xargs -0 gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY"
