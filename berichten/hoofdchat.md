@@ -93,3 +93,9 @@ Twee runs van blindtest.yml (46141070406 en 46141613458, 12:41 en 12:48 NL) gave
 - klaar om te plaatsen: `marketing/wachtrij/2026-11-30-yt-short-cuts-draw-cut.mp4` en `.md` (YouTube Short Click Cuts 1.1 "Draw your own cut", 16,0 s). Eerste beeld GESLAAGD, Daan ja (8, #393). Voorwaarde van Daan: pas plaatsen als de live Gumroad-pagina "Draw cut" toont (curl), dus na plakdeel 1 van Click Cuts 1.1. Titel, tekst en utm-link staan in de md.
 - #332 (lange Click Cuts-film) wacht nog op `commercie/filmpjes/regisseur-32/cuts-lang-elevenlabs.mp3`; voorleestekst staat in `commercie/filmpjes/regisseur-32/voorlees.md`. Zodra hij op main staat bouwt workflow regisseur-32 vanzelf.
 - Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±15:12 NL, van Daan: drie keuringen ja
+- **Outreach mail 3 tot 6** (`commercie/outreach/bundel-2026-11-29-codes.md`) ja (8, #397). Bundel 1 tot 6 helemaal gekeurd. V1 uit #375 blijft: link met echte code één keer openen en $0 zien. Codes Click Cuts na deze bundel nog 2 (GOK): tel in Gumroad. Mail 5 (Pro) is de zwakste, als laatste versturen.
+- **klaar om te plakken:** `producten/blender-gewrichten/vindbaar/sleeplink-380.md` (README click-joints plus dortus tak `claude/cj-sleeplink`, a1888ce). Daan ja (8, #398). Link klopt nu met de API (0.1.1). README en site dezelfde dag; bij 0.1.3 meteen plakkaart deel 4.
+- **Click Cuts 1.1.1** (tak `claude/click-cuts-1.1.1`, dortus `claude/click-cuts-hulp-1.1.1`) ja (8, #400). Pas na het plakken van 1.1.
+- Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
