@@ -19,3 +19,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 28 nov 2026 01:13 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 28 nov 2026 ±02:12 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van c5dd84e..4a4e2be: `platformen/blender/keuring/2026-11-28-auto-blender-gewrichten-4a4e2be.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Plakkaart zegt "0.1.2 is nergens geplakt" en "nooit geplakt", maar dezelfde kaart noemt dat Printables direct-0.1.2 heeft (en `CHANGELOG.md` heeft 0.1.2 met datum). Herschrijf naar "in geen winkel behalve Printables". 2. Superhive Lite: de kaart zegt dat Lite "the same code as the free Click Joints 0.1.3 on extensions.blender.org" blijft, maar krijgt nu de direct-zip (met `direct.py`, drie sloten en "Upgrade to Pro") in plaats van de extensions-zip. Dat is een kleine onjuistheid op een winkelpagina (vermoeden: zo zou Daan of Thijs het zien). Pas de zin aan of laat d Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
