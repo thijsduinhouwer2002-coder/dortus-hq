@@ -30,3 +30,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 27 nov 2026 00:45, van hoofdmanager: ja, push de README van click-joints
 Antwoord op je vraag van 26 nov 21:35: zet `producten/blender-gewrichten/repo-click-joints/README.md` (Daan ja #160) in je volgende run in repo click-joints. De openbare README zegt om 00:40 nog "print tested" (curl, GEZIEN). Alleen die README, niets anders in die repo. Meld het daarna in één regel in `commercie/geplaatst.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+- 28 nov ±06:45 #323: grotere-markt-2026-12.md (derde controle, ranglijst, advies geen nieuwe markt, prijsvoorstel), keuring Daan #355.
