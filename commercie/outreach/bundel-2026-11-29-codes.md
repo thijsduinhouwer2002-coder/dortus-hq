@@ -2,7 +2,7 @@
 
 Door de Verspreider, za 28 nov 2026 ±13:00 NL (run 73). Niets verstuurd, niemand benaderd. Naam met `-codes` omdat `bundel-2026-11-29.md` al een oude bundel van 26 nov is (Ksenia Starkova en Loft Studios, type B en formulier); die laat ik staan.
 
-**Sjabloon:** `commercie/outreach/sjabloon-gratis-code.md` (Daan ja, #375). **Deze bundel:** nakeuring Daan, issue "Keur: outreachbundel 2026-11-29". Wordt per run aangevuld tot hooguit 30.
+**Sjabloon:** `commercie/outreach/sjabloon-gratis-code.md` (Daan ja, #375). **Deze bundel:** mail 1 en 2 Daan ja (8, #392, za 28 nov ±13:58 NL; zijn kan-punt "Magnets are not included." bij mail 2 verwerkt). Mail 3 tot 6: nakeuring in een nieuw issue (run 74). Wordt per run aangevuld tot hooguit 30.
 
 **Voor de hoofdchat:**
 - Versturen vanaf zo 29 nov 00:00 NL (dagteller van zondag), of eerder als je vandaag ruimte hebt.
@@ -40,7 +40,7 @@ Hi,
 
 In "BEST way to put magnets in my 3D prints?" (https://www.youtube.com/watch?v=CrTbAv3gpM4) you were looking for an easier, more consistent way to place magnets, and now the axolotl has removable magnetic limbs (https://www.youtube.com/watch?v=Yg9y4aUSrD0).
 
-Click Cuts is a Blender add-on that splits a model into parts, with pins or magnet holes and an engraved part number on the cut faces. Switch Joint to Magnets and it puts a hole for a disc magnet on both sides of each cut (5x2 up to 10x3 mm). Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+Click Cuts is a Blender add-on that splits a model into parts, with pins or magnet holes and an engraved part number on the cut faces. Switch Joint to Magnets and it puts a hole for a disc magnet on both sides of each cut (5x2 up to 10x3 mm). Magnets are not included. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
 
 I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
 No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
@@ -50,6 +50,97 @@ Print the fit test block first: every printer is different.
 Thijs
 Dortus, dortus.com
 ```
+
+## Aanvulling run 74 (za 28 nov ±14:10 NL): mail 3 tot 6
+
+Gezien met curl, za 28 nov ±13:55 tot 14:10 NL: adresregel en abonnees op de kanaalpagina (/about), de nieuwste video's via de YouTube-feed, elke genoemde video via YouTube oEmbed (titel en kanaal kloppen). Live pagina's Click Cuts en Pro opnieuw nagekeken (curl ±14:05 NL): alle zinnen uit het sjabloon staan er nog. In de repo nagekeken: geen van de vier staat in `lijst.md`, `geplaatst.md`, `antwoorden.md` of een eerdere bundel (grep op naam en handle, ±14:08 NL).
+
+**Codes (GOK):** mail 3, 4 en 6 zijn Click Cuts; na mail 1 en 2 waren er nog 5 (Daan, #392), na deze drie nog 2. Mail 5 is Pro ("Outreach Pro (15)"; de 11 Pro-mails van 28 nov gingen zonder code, dus GOK: nog ruim). Verwachting (GOK): 0 tot 1 antwoord op deze vier.
+
+## 3. Chris Bosh Props · [kanaal](https://www.youtube.com/@ChrisBoshProps), 37,6K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: propmaker die alles print: "3D Printed Terminator Head" (13 nov, 4,7K weergaven) en "3D Printed Robocop Head" (12 nov, 4,0K), en droeg zijn eigen RoboCop-pak bij het echte OCP-gebouw ("I Returned to the REAL OCP Headquarters in Full RoboCop Armor", 8 okt, 29K) (DERDEN, feed en oEmbed). Hoofden en pantserdelen op ware grootte zijn groter dan een gewoon bed: Click Cuts. Welk programma hij gebruikt is niet gezien: geen zin die Blender aanneemt. Naam Chris staat in de kanaalnaam. Adres: in de kanaalbeschrijving, regel "contact @:" (twee adressen; neem het eerste) (https://www.youtube.com/@ChrisBoshProps/about).
+
+Onderwerp: `Life size props on a normal bed: free Click Cuts license`
+```
+Hi Chris,
+
+Your 3D printed Terminator head (https://www.youtube.com/watch?v=u35j34XvpGk) and RoboCop head (https://www.youtube.com/watch?v=umVcBWwzjO8) are exactly the kind of life size build we made something for.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 4. El Diablo Studios · [kanaal](https://www.youtube.com/@ElDiablo_Studios), 1,26K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: print beelden op ware grootte: "Life Size 3D printed Wolverine" (5 nov), "Some of my Life Size Projects" (10 nov), eerder "Life Size Cyclops 3D Printed Statue" (28 aug) en "3D Printed Life Size Spider-Man Statue" (19,6K weergaven) (DERDEN, feed, zoekpagina en oEmbed). Een beeld op ware grootte is per definitie te groot voor één bed: Click Cuts past precies. Klein kanaal, maar elke video gaat over dit ene onderwerp. Programma niet gezien: geen zin die Blender aanneemt. Geen naam ("Just some guy making things"): daarom "Hi,". Adres: in de kanaalbeschrijving, regel "Contact Me - Email:" (https://www.youtube.com/@ElDiablo_Studios/about).
+
+Onderwerp: `Life size statues in parts: free Click Cuts license`
+```
+Hi,
+
+Your life size 3D printed Wolverine (https://www.youtube.com/watch?v=AkDME-fn3Og) and the round-up of your life size projects (https://www.youtube.com/watch?v=D-LNguTg2Mo) are exactly the kind of build Click Cuts is for.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 5. Smalls3dPrints · [kanaal](https://www.youtube.com/@Smalls3dprints), 46,8K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: maakt elke dag eigen geprinte actiefiguren van bekende personages, "Your favorite characters. Remixed" (beschrijving): Marv uit Home Alone (18 nov, 450K weergaven), Majin Vegeta (17 nov, 104K), Kratos, Agent J en K (DERDEN, feed en oEmbed). Figuren van personages: Pro. Of ze beweegbaar zijn en welk programma hij gebruikt is niet gezien: de mail beweert geen van beide. Geen naam in de beschrijving: daarom "Hi,". Adres: in de kanaalbeschrijving, regel "Collabs:" (https://www.youtube.com/@Smalls3dprints/about).
+
+Onderwerp: `Your remixed figures: free Click Joints Pro license`
+```
+Hi,
+
+Your remixed figures keep coming, from Marv from Home Alone (https://www.youtube.com/shorts/TDirfiaQodU) to Majin Vegeta (https://www.youtube.com/shorts/c-tgFKi31ts).
+
+Click Joints Pro is a Blender add-on that turns a rigged character into a printable, poseable figure: a hinge with an end stop at every elbow and knee, and a ball joint at the shoulders, hips and neck, with the clearance you set in millimetres. You see how far each joint bends, in degrees, before you print, and you export to STL or 3MF. No rig? Put the 3D cursor on a knee and it adds the joint right there.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-joints-pro/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the Fit test strip first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 6. maker pangpangman · [kanaal](https://www.youtube.com/@pangpangman), 20K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: Koreaanse maker die grote figuren print: "I 3D printed GIANT LEGO Spider-Man" (12 aug, 592K weergaven), "I 3D printed the Toy Story Trio (Woody, Buzz, Jessie)" (6 aug, 480K) (DERDEN, feed en oEmbed). Een reuzenfiguur past niet in één keer op een bed: Click Cuts. Laatste video 23 aug, dus drie maanden stil: kans kleiner (GOK). Programma niet gezien: geen zin die Blender aanneemt. Naam: "I am 3D Maker pangpangman" (beschrijving). Adres: in de kanaalbeschrijving, regel "For Business Inquiries:" (https://www.youtube.com/@pangpangman/about).
+
+Onderwerp: `Giant figures in parts: free Click Cuts license`
+```
+Hi pangpangman,
+
+Your giant LEGO Spider-Man (https://www.youtube.com/watch?v=dMI7uyyLCCk) is exactly the kind of print we made something for.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## Nagekeken en afgevallen (run 74, ±90 kanalen)
+- Concurrent: LayerLab Australia (maakt zelf de Blender-add-on Snappy, en besprak een splitstool; staat al bij "bewust niet").
+- Geen openbaar adres: MatMire Makes (animator, ontwerpt beweegbare figuren: sterkste Pro-kandidaat, maar alleen taplink zonder adres; B), Mofutora Modeling (anime-figuren in Blender), Frank Montano/TheFeastStudio, Skillful Toys (al B), Caleb Kraft, Stardust3D, Weak Milk, Caballero 3D, Demarcation Media.
+- Adres wel, past niet: Ullaiin (vooral klei, één printvideo een jaar geleden), etellan (BJD geprint, maar 15 maanden stil en 299K), DustBunnyDoll (7 maanden stil), SherlockSpiner (print kant-en-klare Warhammer-kits), Abyssalcactus3D (mechanismen, geen figuren), tomgrave3D (geen printen), CNC Bratan (lasers en printers algemeen), josiahslab (nu scheikunde), 5MinutesBlender, Mitch and Bailey, jakexwars, puggospizzeria.
 
 ## Nagekeken en afgevallen (run 73, ±60 kanalen)
 - Geen openbaar adres: Nunn Breakable (Blender Auto Joints, klein), Frankly Built (1,21M, alleen Linktree), Impact Props, Ben's 3D Lab (levensgrote Terminator), kekreations (gearticuleerde Nomad-figuren, alleen Patreon), Seba Numata (maakt zelf een Blender-add-on voor printen), SantBran (flexi's), Cosplay Chris, RMCV.

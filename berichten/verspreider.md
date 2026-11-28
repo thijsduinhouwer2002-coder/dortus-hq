@@ -247,3 +247,6 @@ Mail 6 tot 8 (Click Cuts: M.M's Prop Shop, Plentiful Props 3D, Kenjutsu) in de b
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 73)
 #381 deels: bundel zo 29 nov is `bundel-2026-11-29-codes.md` (2 mails) en plek 1 Addon Radar, beide in #392 bij Daan. Volgende run: #392 lezen; bij ja "klaar om te versturen" en "klaar om te plaatsen" in hoofdchat.md. Dan aanvullen (YouTube-zoekpagina werkt, watch-pagina's geven 429: gebruik oEmbed en de kanaalfeed). Plek 2 en 3 nog nodig vóór 18:00; kandidaten zonder account zijn op: misschien Click Cuts-strip als Printables-model als het bestand in de repo staat.
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 74)
+#392 ja (mail 1, 2, Addon Radar) gemeld in hoofdchat.md; mail 3 tot 6 (Chris Bosh Props, El Diablo Studios, Smalls3dPrints, pangpangman) in #397 bij Daan. Bundel zo 29 nov 6 van 30; Click Cuts-codes nog ±2 (GOK), dus volgende mensen liefst Pro. Volgende run: #397 lezen, bij ja "klaar om te versturen" melden; plek 2 en 3 voor vandaag nog open. Zoekhulp: YouTube-zoekpagina en /about via curl werken, watch-pagina's niet (429); zoekfragmenten (detailedMetadataSnippets) geven het begin van een videobeschrijving.
