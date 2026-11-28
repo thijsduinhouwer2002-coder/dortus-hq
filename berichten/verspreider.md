@@ -259,3 +259,6 @@ Mail 9 tot 12 (Click Cuts: Almost Shiny, DaBuild, Mimic Hobby, Matthew Trahan) i
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 77)
 Mail 13 tot 16 (Click Cuts: Tiffany Gordon, Greedy 3D, Brandon Tucker 3D, All Things Art) in de bundel codes, nakeuring in #413; 9 tot 12 kregen Daans ja (#408) en zijn gemeld. Werkende hoek: lange props, bustes en beelden, opgeschaalde figuren; zoekopdrachten met "statue", "bust", "cosplay prop" leveren nog wat op. Volgende run: #413 lezen, bij ja "klaar om te versturen" melden (mail 13 tot 16). Pro pas weer als #410 dicht is; reserve Click Cuts: universeofemily (geprinte vleugels 23 nov, 235K). Plek 2 en 3 voor vandaag nog open.
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 78)
+Mail 17 tot 20 (Click Cuts: MandicReally, Outworld Atelier, universeofemily, Brian's Big List) in de bundel codes, nakeuring als reactie in #413 (13 tot 16 nog zonder Daan). Werkende hoek: "life size", "1:1", vleugels en lange prints; zoek ook zonder datumfilter (sp=EgQIBBAB) en volg zoekfragmenten naar het kanaal (zo vond ik Brian). Volgende run: #413 lezen, bij ja "klaar om te versturen" melden (mail 13 tot 20). Bundel 20 van 30; nog hooguit 10. Pro pas weer als #410 dicht is. Plek 2 en 3 van vandaag niet gehaald.

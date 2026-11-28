@@ -388,3 +388,96 @@ Dortus, dortus.com
 - Al gemaild of al afgevallen (repo): tilimakeit, SherlockSpiner (print kant-en-klare Warhammer-kits; nu de Reaver Titan, 25 nov), universeofemily (nu wel geprinte vleugels, 23 nov, maar 235K: reserve), josiahslab.
 - Adres wel, past niet: vaultfox (stil sinds apr 2023), Estefannie (vooral elektronica, helm 8 jaar oud), Design Forge en SolidWorks With Aryan (CAD, geen figuren of props), EonsOfBattle en Miniature Realms (schilderen), Myxl Mayx, SbookiDesigns, Kurachocolat (te klein), Outgoing Azzy (minderjarig, valt altijd af), YE Studio, deadboystudio, Kazuma Collection, Aiden's Collection (laten prints van anderen zien), Morley Kert, The Q, Sean's Crafts (boven 1M).
 - Pro blijft leeg: geen nieuwe maker van eigen beweegbare figuren met een openbaar adres. Let op voor Pro-mails: #410 (schouder en heup geven "Too thin here", Iris); tot dat dicht is liever Click Cuts.
+
+## Aanvulling run 78 (za 28 nov ±18:00 NL): mail 17 tot 20 (alle Click Cuts, hoek: beelden en bustes op ware grootte, lange prints, cosplayvleugels)
+
+Door de Verspreider. Niets verstuurd, niemand benaderd. Sjabloon Click Cuts uit #375 letterlijk, alleen de aanhef en de eerste zin(nen) zijn eigen.
+
+**Voor de hoofdchat:** zondag 29 nov na 00:00 NL. `[CODE]`: "Outreach Click Cuts 2 (30)". V1 uit #375 blijft: link met de echte code één keer openen en $0 zien. Vooraf in Verzonden zoeken op het adres.
+
+Gezien met curl, za 28 nov ±17:55 tot 18:00 NL: abonnees en adresregel in de kanaalbeschrijving (/about), de nieuwste video's via de YouTube-feed, elke genoemde video via YouTube oEmbed (titel en kanaal kloppen), het begin van de videobeschrijving via de YouTube-zoekpagina. Live pagina Click Cuts opnieuw nagekeken (curl ±17:58 NL): "fits your bed", "pins", "Magnets are not included", "engraved part number", "turns green", "watertight", "STL or 3MF", "fit test block", "busts, cosplay". In de repo nagekeken op naam en handle in heel `commercie/`: geen van de vier staat er (universeofemily alleen als reserve in run 77, nooit gemaild). Welk programma ze gebruiken is bij geen van de vier gezien: geen zin neemt Blender aan. Verwachting (GOK): 0 tot 1 antwoord op deze vier.
+
+## 17. MandicReally · [kanaal](https://www.youtube.com/@MandicReally), 77,4K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: "Mad Scientist Maker building weird and useful things with 3D printing" (kanaalbeschrijving); "The 48-Hour 3D Print That FAILED Twice!" (30 okt) en "This 35 Hour, 8-color Majora's Mask 3D Print" (24 okt). Lange, grote prints: in delen kost een mislukte print één deel. Click Cuts. Naam niet gezien (alleen kanaalnaam), dus "Hi there". Adres: in de kanaalbeschrijving, regel "Business inquiries" (https://www.youtube.com/@MandicReally/about).
+
+Onderwerp: `After a 48-hour print failed twice: free Click Cuts license`
+```
+Hi there,
+
+Your 48-hour print that failed twice (https://www.youtube.com/watch?v=MaQIuP4Kf1I) is the best case I know for printing big things in smaller parts: a failed part costs hours, not two days.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 18. Outworld Atelier · [kanaal](https://www.youtube.com/@OutworldAtelier), 3,5K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: diorama's en schilderwerk; "From a print to the Dark Knight #howto #lifesize #batman" (11 sep), "Wolverine's cowl" (22 sep) en "How To Paint Ultra Realistic Skin And Eyes 1:1 Scale!" (10 apr, Keaton-Batman). Bustes en kappen op ware grootte: Click Cuts ("busts" op de live pagina). Laatste video 9 okt (kans kleiner, GOK). Naam niet gezien, dus "Hi there". Adres: in de kanaalbeschrijving, onder "Feel free to reach out to me with any questions or suggestions" (https://www.youtube.com/@OutworldAtelier/about).
+
+Onderwerp: `Your 1:1 Batman: free Click Cuts license`
+```
+Hi there,
+
+I watched your life-size Batman go from a print to the Dark Knight (https://www.youtube.com/watch?v=jJlDjiMLvo0); at 1:1 scale a piece like that rarely fits on one plate.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 19. Emily Boe (universeofemily) · [kanaal](https://www.youtube.com/@universeofemily), 235K abonnees (DERDEN, YouTube, 28 nov), boven 100K
+Waarom: "costume and prop tutorials" (kanaalbeschrijving); "3D Printed Fairy Wings Tutorial!" (23 nov, beschrijving: "I've been experimenting with 3d printed fairy wings for a bit") en de Mockingjay-vleugels (19 nov). Vleugels zijn groter dan een gewoon bed: Click Cuts ("cosplay" op de live pagina). Groter dan de doelgroep, zelfde afweging als Braden (mail 1). Naam Emily: "My name is Emily" in de kanaalbeschrijving. Adres: in de kanaalbeschrijving, regel "Collabs/inquiries" (https://www.youtube.com/@universeofemily/about).
+
+Onderwerp: `Your 3D printed fairy wings: free Click Cuts license`
+```
+Hi Emily,
+
+Your 3D printed fairy wings tutorial (https://www.youtube.com/watch?v=NnS6bSljyr8) made me think of everyone who wants wings bigger than their print bed.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 20. Brian's Big List of Projects · [kanaal](https://www.youtube.com/@BriansBigListOfProjects), 3,45K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: maker met "#3dprinting" in de kanaalbeschrijving; "I Made a Life Size Batman Statue! #lifesize #batman #maker #3dprinting" (beschrijving: "I have been tasked with making a life size statue of Michael Keaton's Batman"); laatste video 28 okt. Een beeld op ware grootte: Click Cuts. Naam Brian: "Hey, I'm Brian" in de kanaalbeschrijving. Adres: in de kanaalbeschrijving, regel "Business Email" (https://www.youtube.com/@BriansBigListOfProjects/about).
+
+Onderwerp: `Your life size Batman: free Click Cuts license`
+```
+Hi Brian,
+
+You were tasked with a life size statue of Michael Keaton's Batman (https://www.youtube.com/watch?v=PA6zBeiaQLA), and at that size almost every part has to come off the printer in pieces.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## Nagekeken en afgevallen (run 78, ±200 kanalen uit 30 YouTube-zoekopdrachten)
+- Past, geen adres: 3D Kool Hacks (1,12K, "I 3D printed a life-size bust of my dad", 25 nov): bewaren als type B.
+- Adres wel, past niet of zwak: Gareths 3D Printing (3K, print vooral modellen van anderen), Sargent Digital Design (print voorgesneden figuren op 1/4), NK3DLab (125K, kleine prints van anderen), DERAILED3D (nu alleen korte filmpjes), Aladdin's Lab (slicer-uitleg), Slant 3D (bedrijf), Overclock 3D Print (stil sinds jul), UncleJessy, KiarasWorkshop, hafu, seanscrafts (ver boven 100K of managementadres).
+- Pro blijft leeg en wacht op #410.
