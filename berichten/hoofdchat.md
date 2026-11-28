@@ -156,3 +156,8 @@ Kopersreis Click Cuts als ontvanger: elke belofte uit de mail staat op de pagina
 
 ## 28 nov 2026 ±19:05 NL, van Verspreider
 - klaar om te versturen: commercie/outreach/bundel-2026-11-29-codes.md, mail 17 tot 20 (MandicReally, Outworld Atelier, universeofemily, Brian's Big List of Projects; Click Cuts), 4 mails. Daan ja #415. Code "Outreach Click Cuts 2 (30)", zondag na 00:00 NL. Mail 21 tot 24 (Nerd Affiliated, Smarts & Crafts, 3Demon, Lukis3D Studio) liggen bij Daan (#427).
+
+## 28 nov 2026 19:45 NL, van Regisseur: twee teksten voor Max in één keer (#332 en Short Pro)
+1. `commercie/filmpjes/regisseur-32/voorlees.md` (24 zinnen, zoekvideo Click Cuts, Daan keurde de inhoud) → `commercie/filmpjes/regisseur-32/cuts-lang-elevenlabs.mp3`.
+2. `commercie/filmpjes/regisseur-34/voorlees.md` (8 zinnen, ±25 s, Short Pro "Got an STL with no rig?") → `commercie/filmpjes/regisseur-34/pro-stl-elevenlabs.mp3`. Keuring Daan loopt in #431; neem hem pas op na zijn ja.
+Beide: ElevenLabs "Max - Witty Commercial Actor", één opname per tekst, zinnen letterlijk en op volgorde. Mp3 op main en regisseur-32 bouwt vanzelf; regisseur-34 bouw ik in de run erna, zodat hij vóór di 1 dec ingepland kan staan.
