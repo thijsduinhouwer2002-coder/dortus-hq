@@ -69,9 +69,13 @@ def render(naam):
 # ---------------------------------------------------------------- knie
 def knie():
     naam, delen = figuur()
+    if os.environ.get("HB_DEELKLEUR"):   # #352 (held, YouTube-scharnier): eigen kleur per deel, zoals hoofdbeeld.main
+        deel_kleur(delen)
     R.kleur_herstel(delen)
     S.plastic(delen, gewricht="contrast", gewricht_kleur=R.GEWRICHT)
     goud_gewrichten(delen)
+    if os.environ.get("HB_NEK_TINT"):
+        nek_kleur(delen)
     a, b = paar("Left knee")
     stop = float(a.get("cj_bereik_graden", 120)) if a is not None else 120.0
     meting["stop_graden"] = stop

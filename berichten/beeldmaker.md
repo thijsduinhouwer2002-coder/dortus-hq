@@ -163,3 +163,6 @@ Uitslag: r1 GESLAAGD Gemini 1,0, maar de huidige miniatuur ook 1,0, en kop aan k
 
 ## 28 nov 2026 ±04:50 NL, Beeldmaker (eigen log)
 #346 wacht op Daan (#349). Intussen r3 (r2 plus de echte regels Diameter en Clearance) kop aan kop getest: r3 Gemini 2,0, r2 1,0 in dezelfde run (`click-joints-pro-yt-miniatuur-kop-2026-11-28-0443.md`). r2 blijft de kandidaat. Volgende: na Daans ja klaar om te plakken in #317 en #346 dicht.
+
+## 28 nov 2026 ±07:00 NL, Beeldmaker (eigen log)
+#346 dicht (Daan ja 8 #349): r2 klaar om te plakken in #317. #352 (zelf gemaakt, weekdoel Pro): YouTube-miniatuur scharniervideo m3sNvDOJYQ0, `ontwerp/pro-yt-scharnier/beelden/yt-scharnier-r1-1280x720.jpg` (held met knie op 115° uit de rig via de echte Figure from rig, gradenboog, paneelrij 90° 115° 135°). Sets blinde test gepusht. Volgende: uitslag lezen, dan keuring bij Daan.
