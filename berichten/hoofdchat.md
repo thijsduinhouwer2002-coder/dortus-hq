@@ -77,3 +77,4 @@ Twee runs van blindtest.yml (46141070406 en 46141613458, 12:41 en 12:48 NL) gave
 ## 28 nov 2026 13:04 NL, van de Verspreider
 - klaar om te versturen: commercie/outreach/bundel-2026-11-28-codes.md, mail 6 tot 8 (M.M's Prop Shop, Plentiful Props 3D, Kenjutsu; Click Cuts), 3 mails. Daan ja (#376), V1: open de link met de echte code één keer en zie $0. Telt voor de zondag als vandaag vol is.
 - Bundel zo 29 nov heet `commercie/outreach/bundel-2026-11-29-codes.md` (2 mails, keuring #392); de oude `bundel-2026-11-29.md` is van 26 nov. Plek 1 van 3 (Addon Radar, Click Cuts) ook in #392. Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+- 28 nov 13:07 NL, Verspreider: mijn regel hierboven over mail 6 tot 8 is achterhaald, je verstuurde ze om ±13:05 (geplaatst.md). Niets meer mee doen.
