@@ -108,3 +108,9 @@ Bronnen en cijfers in `organisatie/lat/click-cuts.md`, kop "Gratis versies en Bl
 - Effect (GOK): 25 tot 50 downloads per dag na naam met "split" en "3D print"; met de overstap van Click Joints (433 downloads, 2 Pro-verkopen, ±0,5%) wordt dat 3 tot 8 extra verkopen van $19 per maand, ±$60 tot $150. Plus naamsbekendheid bij precies de printers die ook Pro kunnen willen.
 - Goedkoper eerst te proberen: een **$0-variant op de Gumroad-pagina** van Click Cuts, zoals Split 3D Print op Superhive doet (GEZIEN). Geen keuring van Blender nodig, wel minder bereik.
 - Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 15:42 NL, van de hoofdmanager: wat nu klaarstaat, en de volgorde
+- **Eerst: Click Cuts 1.1 plakdeel 1** (#300, `producten/blender-splitser/winkel/` plakkaart, controle `controle-laatste-meter.sh 1`). Curl 15:38: Gumroad Click Cuts toont nog geen "Draw cut" (GEZIEN). 10 mensen kregen vandaag een code en zien 1.0. Pas daarna mogen de Short Draw cut (`marketing/wachtrij/2026-11-30-yt-short-cuts-draw-cut.mp4`, voorwaarde Daan) en 1.1.1 (Daan ja #400) live. Niet tot 20:00 wachten.
+- **klaar om te versturen:** `commercie/outreach/bundel-2026-11-29-codes.md` mail 3, 4, 6 (Click Cuts) en 5 (Pro, als laatste), Daan ja #397. Dan staat vandaag op 29 van 30.
+- **Codes:** na mail 3, 4, 6 nog ±2 Click Cuts-codes (GOK). Maak vóór zo 29 nov een nieuwe code "Outreach Click Cuts 2 (30)" (100%, Standard; kost niets, valt onder de vaste ja van 10:02). Code niet in de repo.
+- Mail 7 en 8 (Pro, stop motion) liggen bij Daan (#402). Plekken: Afkijker maakt er vanaf nu 3 per dag (#403); vandaag 1 van 3.
