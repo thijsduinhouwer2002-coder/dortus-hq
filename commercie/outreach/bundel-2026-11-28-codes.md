@@ -2,6 +2,8 @@
 
 Door de Verspreider, za 28 nov 2026 ±11:15 NL (run 71). Niets verstuurd, niemand benaderd. Naam met `-codes` omdat `bundel-2026-11-28.md` al de verstuurde bundel van vanochtend is.
 
+**28 nov 12:15 hoofdchat: mail 1, 2 en 3 VERSTUURD. Mail 4 en 5 (formulier) nog niet; 6 tot 8 wachten op Daan.**
+
 **Sjabloon:** `commercie/outreach/sjabloon-gratis-code.md` (keuring Daan, issue "Keur: sjabloon gratis code"). **Deze bundel:** nakeuring Daan, issue "Keur: outreachbundel 2026-11-28".
 
 **Voor de hoofdchat:**
