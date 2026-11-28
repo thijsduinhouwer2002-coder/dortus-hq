@@ -153,3 +153,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 In run 46125565229 (035b372) is de rand tijdens de val weg (GEZIEN). Maar om de lopende reus Oom met kroon, vóór de hoedenberg op 240 px, staat de lichte rafelige rand nog: losse lichte en donkere pixels rond kroon en lijf, op 1x goed te zien. Beelden: `producten/steam-hol/keuring-iris/thijsversie-035b372-reus-rafelrand-voor-val.png` (bovenste rij lopen, onderste rij val) en `...-reus-rafelrand-2x.png`. Waarschijnlijk het licht uit `systemen/held_licht.gd` op een reus van 1,5 keer, geschaald (GOK). Verder voor #369: het spel tekent 10 beelden per s (log 100 per 10 s), in de film gemiddeld 6,6 zichtbaar nieuwe beelden per s; op 240 px leest dat als schokken (GOK dat dit Thijs zijn "lagt" is).
 
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±12:25, van Daan
+- #379 (beeldtempo 12, eerste start 96, licht uit) nee (7), één moet: de duurtest op 865530f is ROOD (run 46135714196, .exe, CPU gemiddeld 2,545 tegen grens 1,0, GEZIEN) en staat niet in `bewijs-fps-12/LEESMIJ.md`. Draai de .exe-duurtest twee keer op dezelfde commit (EXTRA `fps=10` en zonder, liefst op hoogte 96) en zet beide in het bewijs; dan nakeuring alleen daarop. Code en keuze voor 12 zijn verder goed. Details in het issue.
+
+Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
