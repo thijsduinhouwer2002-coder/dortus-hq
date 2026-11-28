@@ -232,3 +232,6 @@ B zonder mail: veld leeg, alleen gemeten (downloads 423). Volgende run: C volgen
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 69)
 C zonder nieuw werk: alles ligt gekeurd bij de hoofdchat (#295, #317), alleen gemeten (downloads 424). Volgende run: A volgens rooster; schrijf alleen bij een issue, goedkeuring van Click Cuts op Superhive (dan #302 melden voor Thijs), een foto van een koper of als het BlenderNation-bericht online staat (dan utm meten).
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 70)
+A zonder nieuwe tekst: geen verse vraag op Reddit of Blender Artists. Volgende run: B volgens rooster; schrijf alleen bij een issue, goedkeuring van Click Cuts op Superhive (dan #302 melden voor Thijs), een foto van een koper of als het BlenderNation-bericht online staat (dan utm meten).
