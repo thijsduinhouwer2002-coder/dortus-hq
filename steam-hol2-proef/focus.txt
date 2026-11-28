@@ -8,10 +8,10 @@ log: gloop staat stil (muis bij Gloop) gloop x=866
 na de klik op Gloop vooraan: notepad (moet notepad blijven)
 na de klik op de stuurknop vooraan: HetHol
 D 1,2 s: Gloop x 866 naar 911 (45 spelpx)
-log bij Esc: besturen uit (Esc) gloop x=911 niveau=2 focus terug naar 328082 (Notepad, vorig venster, weg 1)
+log bij Esc: besturen uit (Esc) gloop x=911 niveau=2 focus terug naar 393718 (Notepad, vorig venster, weg 1)
 na Esc vooraan: notepad
 vensters in Kladblok: Edit msctls_statusbar32 
 tekst in Kladblok na de letter q: 'q'
 na 12 s stil vooraan: notepad
-log: besturen uit (10 s geen toets) gloop x=911 niveau=2 focus terug naar 328082 (Notepad, vorig venster, weg 1)
+log: besturen uit (10 s geen toets) gloop x=911 niveau=2 focus terug naar 393718 (Notepad, vorig venster, weg 1)
 focus en besturen: 0 FOUT

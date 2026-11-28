@@ -17,7 +17,7 @@ HOL2 held Bert (held0) komt binnen via de tuin
 HOL2 klik op 358,113: niveau 2
 HOL2 gloop loopt naar niveau 2 x 358 (klik)
 HOL2 held Lot (held1) komt binnen via de tuin
-HOL2 beelden 122 in 10.0 s, helden 2, goud 10, muisbewegingen 0
+HOL2 beelden 122 in 10.1 s, helden 2, goud 10, muisbewegingen 0
 HOL2 held Fenna (held2) komt binnen via de tuin
 HOL2 beelden 120 in 10.0 s, helden 3, goud 10, muisbewegingen 0
 HOL2 klik op 512,65: niveau 1
@@ -29,9 +29,11 @@ HOL2 gloop is op niveau 1
 HOL2 film gloop x=327 na 1 s muis
 HOL2 held Mira (bard) komt binnen via de tuin
 HOL2 beelden 120 in 10.0 s, helden 5, goud 10, muisbewegingen 0
+HOL2 film gloop x=366 na 2,5 s stille muis
 HOL2 val: Bert valt in een luik op verdieping 2 (goud 13, hoeden 1)
-HOL2 film gloop x=431 na 5 s muis
+HOL2 film gloop x=457 na 6 s stille muis (loopt weer)
 HOL2 val: Lot valt in een stekels op verdieping 1 (goud 16, hoeden 2)
 HOL2 held Kees (heks) komt binnen via de tuin
+HOL2 gloop naar_troon (plek vloer)
 HOL2 beelden 120 in 10.0 s, helden 4, goud 16, muisbewegingen 0
 HOL2 einde na 40 s, goud=16, hoeden=2
