@@ -9,6 +9,9 @@ Variabelen:
   ST_STRAAL=0.2    straal van de boog als deel van de hoogte
   ST_PANEEL=x0,y0,x1,y1  uitsnede uit het schermbeeld (rij 'Or a hinge that bends up to:' met 90°, 115°, 135°)
   ST_KNOP=x0,y0,x1,y1    de knop 115° in het schermbeeld (gouden rand)
+  ST_INZET=rx,ry,maat,zoom,dx,dy  r3: rondje met het scharnier vergroot (uit de render zelf, punt rx,ry in render-px,
+                         uitsnede maat px, zoom keer, middelpunt dx,dy op het doek 2560x1440), wens Daan #354
+  ST_VLAK=60             doorzichtigheid van het vlak van de boog (0..255); ST_PUNT=16 straal van het draaipunt
 """
 import math, os, sys
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -39,7 +42,7 @@ R = float(os.environ.get("ST_STRAAL", "0.2")) * H
 laag = Image.new("RGBA", (W, H), (0, 0, 0, 0))
 ld = ImageDraw.Draw(laag)
 # vlak van de boog, licht goud
-ld.pieslice([cx - R, cy - R, cx + R, cy + R], start=eind, end=90, fill=GOUD + (60,))
+ld.pieslice([cx - R, cy - R, cx + R, cy + R], start=eind, end=90, fill=GOUD + (int(os.environ.get("ST_VLAK", "60")),))
 ld.arc([cx - R, cy - R, cx + R, cy + R], start=eind, end=90, fill=GOUD + (255,), width=14)
 for i in range(0, int(g) + 1, 15):   # streepjes elke 15 graden
     a = math.radians(90 - i * (90 - eind) / g)
@@ -48,8 +51,28 @@ for i in range(0, int(g) + 1, 15):   # streepjes elke 15 graden
 for a_ in (90, eind):   # benen van de hoek
     a = math.radians(a_)
     ld.line([(cx, cy), (cx + (R + 40) * math.cos(a), cy + (R + 40) * math.sin(a))], fill=GOUD + (255,), width=8)
-ld.ellipse([cx - 16, cy - 16, cx + 16, cy + 16], fill=GOUD + (255,))
+pr = int(os.environ.get("ST_PUNT", "16"))
+ld.ellipse([cx - pr, cy - pr, cx + pr, cy + pr], fill=GOUD + (255,))
 im.alpha_composite(laag)
+# r3: het scharnier zelf vergroot in een rondje, met een lijn naar de knie (wens Daan #354, kan-punt 1)
+if os.environ.get("ST_INZET"):
+    rx, ry, mt, zm, dx, dy = (float(v) for v in os.environ["ST_INZET"].split(","))
+    bron_r = Image.open(render).convert("RGBA")
+    sk = bron_r.width / H
+    uit_r = bron_r.crop((int((rx - mt / 2) * sk), int((ry - mt / 2) * sk), int((rx + mt / 2) * sk), int((ry + mt / 2) * sk)))
+    D = int(mt * zm)
+    uit_r = uit_r.resize((D, D), Image.LANCZOS)
+    tx, ty = X0 + rx, ry
+    ln = ImageDraw.Draw(im)
+    ln.line([(tx, ty), (dx, dy)], fill=GOUD + (255,), width=6)
+    ln.ellipse([tx - mt / 2, ty - mt / 2, tx + mt / 2, ty + mt / 2], outline=GOUD + (255,), width=6)
+    sl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(sl).ellipse([dx - D / 2 - 10, dy - D / 2 + 10, dx + D / 2 + 10, dy + D / 2 + 30], fill=(0, 0, 0, 210))
+    im.alpha_composite(sl.filter(ImageFilter.GaussianBlur(26)))
+    mk = Image.new("L", (D, D), 0)
+    ImageDraw.Draw(mk).ellipse([0, 0, D - 1, D - 1], fill=255)
+    im.paste(uit_r, (int(dx - D / 2), int(dy - D / 2)), mk)
+    ImageDraw.Draw(im).ellipse([dx - D / 2, dy - D / 2, dx + D / 2, dy + D / 2], outline=GOUD + (255,), width=12)
 d = ImageDraw.Draw(im)
 fl = ImageFont.truetype(font, 76)
 def kaart(tekst, x, y, f, vul, inkt):
