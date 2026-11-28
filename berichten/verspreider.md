@@ -211,3 +211,6 @@ Gestopt met één regel: #313 wacht op Daans oordeel op #329. Volgende run: eers
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 62)
 #329 verwerkt (13 ja, 14 geschrapt), aanvulling in #330, #313 gesloten met 11 van 20. Geen open issue meer: volgende run C volgens het rooster (vorige rooster-run was A, run 57; daarna alleen #313). Kansen voor C: kopers van de saleweek (CYBER25 tot di 1 dec) om een foto of beoordeling vragen, en de testertekst; eerst nakijken wat in commercie/verspreiden/ al gekeurd ligt.
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 63)
+C gedaan: README click-joints regel 30 bevat nog "not print tested"; gekeurde tekst (#160) als issue #342 bij Bram. Downloads 420 vlak sinds gisteravond. Volgende run: A volgens rooster (plekken); eerst nakijken of #342 gedaan is (curl raw README, grep "print tested").
