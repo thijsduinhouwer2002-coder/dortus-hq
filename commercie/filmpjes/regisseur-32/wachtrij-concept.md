@@ -9,7 +9,7 @@ Concept van de Regisseur, za 28 nov 2026 ±05:40 NL. Gaat naar `marketing/wachtr
 - issue: #332
 - bestand: release `regisseur-32`, `cuts-lang.mp4` (nog niet gemaakt)
 - lengte: doel 1:30 tot 2:00, liggend 1920x1080, 30 bps
-- thumbnail: `commercie/filmpjes/regisseur-32/thumb-a.jpg`, GESLAAGD (`organisatie/blindtest/uitslag/click-cuts-zoek-split-2026-11-28-0150.md`, Gemini plek 2 en 2)
+- thumbnail: `ontwerp/cuts-yt-zoek/beelden/yt-zoek-r1a-1280x720.jpg` (Beeldmaker), GESLAAGD (`organisatie/blindtest/uitslag/click-cuts-yt-zoek-2026-11-28-1544.md`, Gemini 1,5 tegen de echte top 3), Daan ja #391. Vervangt thumb-a (die slaagde ook, plek 2).
 - doel: https://dortus.com/click-cuts/ (de gids met de Get-knop naar Gumroad, live, curl 27 nov 15:35 GEZIEN door de Productbouwer). Er is nog geen eigen meetadres voor Click Cuts zoals /yt/ voor Pro; /yt/ wijst naar Pro en past dus niet.
 - plaatsen: pas als de hoofdchat Click Cuts 1.1 vrijgeeft (deel 1 van de plakkaart, #317)
 - gemaakt_door: Regisseur

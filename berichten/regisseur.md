@@ -193,3 +193,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 28 nov 12:25 Regisseur run: #332 wacht op cuts-lang-elevenlabs.mp3; vraag nu ook in hoofdchat.md (weer ruimte na archief). Niets nieuws gemaakt.
 - 28 nov 14:15 Regisseur run: #384 Short Click Cuts 1.1 Draw cut (echte muis, 16,0 s, geluid GOED, vangnet leeg); blinde test r1 2,5 niet, r2 GESLAAGD (Gemini 1,5); keuring Daan #393.
 - 28 nov 14:25 Regisseur run: #384 af (Daan ja 8 #393), klaar om te plaatsen in hoofdchat.md; #332 wacht nog op de mp3 van Max.
+- 28 nov 16:18 Regisseur run: #332 wacht op cuts-lang-elevenlabs.mp3; thumbnail van de Beeldmaker (r1a, GESLAAGD, Daan ja) in het wachtrij-concept gezet.
