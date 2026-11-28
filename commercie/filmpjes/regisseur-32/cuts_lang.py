@@ -216,6 +216,14 @@ def op(zin, na=0.0, draai=False, vaart=105):
         yield from wacht(TIJDEN["zinnen"][zin - 1]["begin"] + na, draai, f"zin {zin}+{na}", vaart)
 
 
+def sync(naam, zin):
+    """Noteer hoe ver na het begin van zin `zin` een echte klik viel (alleen met CC_TIJDEN), voor de controle."""
+    if TIJDEN:
+        z = TIJDEN["zinnen"][zin - 1]
+        film.setdefault("kliksync", []).append({"knop": naam, "zin": zin, "na_begin": round(tijd() - z["begin"], 2),
+                                                "zin_duur": round(z["eind"] - z["begin"], 2)})
+
+
 # ---------------------------------------------------------------- scherm en scène
 def rect(soort="UI"):
     venster, gebied = gebied_3d()
@@ -242,9 +250,9 @@ def ocr(tekst, vak=None, niet=None, laatste=False):
     x0, y0, b, h = vak
     arr = np.frombuffer(g.raw, np.uint8).reshape(g.height, g.width, 4)[y0:y0 + h, x0:x0 + b, :3].mean(axis=2)
     pgm = np.where(arr > 165, 0, 255).astype(np.uint8)
-    with open("/tmp/claude-0/w/ocr_v.pgm", "wb") as f_:
+    with open(os.path.join(MAP, "ocr_v.pgm"), "wb") as f_:
         f_.write(f"P5 {pgm.shape[1]} {pgm.shape[0]} 255\n".encode() + pgm.tobytes())
-    r = subprocess.run(["tesseract", "/tmp/claude-0/w/ocr_v.pgm", "stdout", "--psm", "11", "tsv"], capture_output=True,
+    r = subprocess.run(["tesseract", os.path.join(MAP, "ocr_v.pgm"), "stdout", "--psm", "11", "tsv"], capture_output=True,
                        text=True)
     regels = {}
     for regel in r.stdout.splitlines()[1:]:
@@ -438,8 +446,8 @@ def kies(ob, dx=0, dy=0):
         bpy.context.view_layer.objects.active = ob
 
 
-def knop(tekst, vak=None, niet=None, laatste=False, scrol=0):
-    """Zoek de knop met OCR; scrol in het paneel als hij er (nog) niet staat. Geeft (x, y) of None."""
+def knop(tekst, vak=None, niet=None, laatste=False, scrol=0, stap=2):
+    """Zoek de knop met OCR; scrol in het paneel als hij er (nog) niet staat (stap tikjes per keer). Geeft (x, y) of None."""
     teken()
     q = ocr(tekst, vak=vak, niet=niet, laatste=laatste)
     n = 0
@@ -447,11 +455,11 @@ def knop(tekst, vak=None, niet=None, laatste=False, scrol=0):
         z = rect("UI")
         if abs(MUIS["x"] - (z[0] + z[2] // 2)) > 60 or not (z[1] < MUIS["y"] < z[1] + z[3]):
             yield from naar(z[0] + z[2] // 2, z[1] + int(z[3] * 0.5), 0.3)
-        yield from wiel(scrol > 0, 2)
-        yield 0.12
+        yield from wiel(scrol > 0, stap)
+        yield 0.12 if stap <= 2 else 0.06
         teken()
         q = ocr(tekst, vak=vak, niet=niet, laatste=laatste)
-        n += 2
+        n += stap
     # gevonden maar tegen de onderrand (of bovenrand) van het paneel: nog wat verder scrollen, anders mist de klik
     # (r2 28 nov: Exploded view stond half onder de rand, klik viel ernaast)
     for _ in range(4):
@@ -490,9 +498,9 @@ def tab_click_cuts():
     rot = np.rot90(arr, k=1)
     rot = np.repeat(np.repeat(rot, 2, axis=0), 2, axis=1)
     pgm = np.where(rot > 125, 0, 255).astype(np.uint8)
-    with open("/tmp/claude-0/w/ocr_tab.pgm", "wb") as f_:
+    with open(os.path.join(MAP, "ocr_tab.pgm"), "wb") as f_:
         f_.write(f"P5 {pgm.shape[1]} {pgm.shape[0]} 255\n".encode() + pgm.tobytes())
-    r = subprocess.run(["tesseract", "/tmp/claude-0/w/ocr_tab.pgm", "stdout", "--psm", "11", "tsv"], capture_output=True, text=True)
+    r = subprocess.run(["tesseract", os.path.join(MAP, "ocr_tab.pgm"), "stdout", "--psm", "11", "tsv"], capture_output=True, text=True)
     ws = []
     for regel in r.stdout.splitlines()[1:]:
         d = regel.split("\t")
@@ -566,6 +574,7 @@ def verloop():
     yield from op(4, 0.45)
     xtoets("n")
     deel("toets N")
+    sync("N", 4)
     yield 0.7
     venster, gebied = gebied_3d()
     ui = next(r for r in gebied.regions if r.type == "UI")
@@ -612,6 +621,7 @@ def verloop():
     yield 1.0
     yield from op(7, 0.15)
     q = yield from druk("Split to fit")
+    sync("Split to fit", 7)
     t0 = time.time()
     yield 1.0 / FPS
     if not stukken():
@@ -660,6 +670,7 @@ def verloop():
     yield from kies(kop)
     yield 0.4
     q = yield from druk("Draw cut")
+    sync("Draw cut", 11)
     yield 0.5
     import numpy as np
     venster, gebied = gebied_3d()
@@ -692,12 +703,14 @@ def verloop():
     yield 1.6
     yield from op(12, 2.3)
     q = yield from druk("Flip side")
+    sync("Flip side", 12)
     yield 1.3
     q = yield from druk("Flip side")
     yield 0.9
     n_voor = len(stukken())
     yield from op(13, 0.2)
     q = yield from druk("Cut piece")
+    sync("Cut piece", 13)
     yield 1.0 / FPS
     film["metingen"]["draw_voor_na"] = [n_voor, len(stukken())]
     deel("gesneden")
@@ -710,20 +723,28 @@ def verloop():
     deel("h3 eind")
     # HOOFDSTUK 4: Fit test
     deel("h4")
-    yield from op(15, 0.5)
+    yield from op(15, 0.25 if TIJDEN else 0.5)
     q = yield from druk("More settings", laatste=True)
-    yield 0.4
+    sync("More settings", 15)
+    yield 0.25 if TIJDEN else 0.4
     if not inst.meer:
         film["vangnet"].append("meer")
         inst.meer = True
-    q = yield from knop("Make fit test", scrol=-24)
+    # Op de stem: sneller scrollen (4 tikjes per keer) en meteen naar de knop, anders valt de klik pas in zin 16
+    # (proef r3: blok ±1,4 s laat in beeld).
+    q = yield from knop("Make fit test", scrol=-24, stap=4 if TIJDEN else 2)
     if q:
-        yield from naar(q[0] - 60, q[1] - int(60 * UI), 0.4)   # langs "Fit test: print this first"
-        yield 0.6
+        if not TIJDEN:
+            yield from naar(q[0] - 60, q[1] - int(60 * UI), 0.4)   # langs "Fit test: print this first"
+            yield 0.6
         yield from naar(*q, 0.35)
         yield 0.12
+        if TIJDEN:   # klik niet vóór "click Make fit test" is uitgesproken
+            z15 = TIJDEN["zinnen"][14]
+            yield from wacht(z15["eind"] - 0.6, label="fit test")
         klik()
         deel("knop Make fit test")
+        sync("Make fit test", 15)
     yield 1.0 / FPS
     proef = [o for o in bpy.context.scene.objects if o.get("sj_passing")]
     if not proef:
@@ -750,6 +771,7 @@ def verloop():
             yield 0.15
             klik()
             deel("knop 0.20")
+            sync("0.20", 18)
     yield 1.2
     film["metingen"]["speling"] = round(inst.speling_mm, 3)
     deel("h4 eind")
@@ -766,6 +788,7 @@ def verloop():
             yield from naar(z[0] + z[2] // 2 - 40, min(q4[1] + int(36 * UI), z[1] + z[3] - 60), 0.45)
         yield from op(21, 0.1)
     q = yield from druk("Exploded view", scrol=-24)
+    sync("Exploded view", 21)
     for _ in range(8):   # een echte klik komt pas een paar beelden later in de eigenschap aan
         yield 1.0 / FPS
         if inst.uit_elkaar:
@@ -781,9 +804,21 @@ def verloop():
     yield from naar(midden_x, w[1] + int(w[3] * 0.55), 0.4)
     rot5 = Quaternion((0, 0, 1), math.radians(35)) @ Quaternion((1, 0, 0), math.radians(70))
     yield kader(stukken(), 0.8, factor=0.95, rot=rot5)
-    yield from sleep_middel(-220, 0, 2.2)
-    yield from op(22, 0.3, draai=True)
-    q = yield from druk("Export parts", scrol=40)
+    if TIJDEN:
+        # Op de stem: de knop al zoeken (scrollen) in de pauze vóór zin 22 en klikken als "Export parts" klinkt
+        # (proef r3: scrollen na de zin, klik ±2 s laat).
+        yield from sleep_middel(-160, 0, 1.6)
+        yield from op(22, -1.3, draai=True)
+        q = yield from knop("Export parts", scrol=40, stap=4)
+        if q:
+            yield from naar(*q, 0.4)
+            yield from op(22, 0.9)
+            klik()
+            deel("knop Export parts")
+            sync("Export parts", 22)
+    else:
+        yield from sleep_middel(-220, 0, 2.2)
+        q = yield from druk("Export parts", scrol=40)
     yield 1.0 / FPS
     bestanden = [f for f in os.listdir(os.path.join(MAP, "click_cuts"))] if os.path.isdir(os.path.join(MAP, "click_cuts")) else []
     film["metingen"]["export"] = sorted(bestanden)

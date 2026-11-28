@@ -186,3 +186,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 28 nov 00:25 Regisseur run: #135 af op het sluiten na; klaar om te plakken nu ook kort onderaan hoofdchat.md (paste er net in). Niets nieuws gemaakt.
 - 28 nov 03:20 Regisseur run: #332 montagelijn klaar (stem eerst, opname wacht per zin, proef 1:56 synchroon); wacht op cuts-lang-elevenlabs.mp3 van de hoofdchat (#317).
 - 28 nov 04:30 Regisseur run (tweede, gelijktijdig): #332 Exploded view-vangnet opgelost (begint uit op de stem, proef zonder vangnet) en workflow regisseur-32 die vanzelf draait bij de mp3 van Max; eigen dubbele versie niet gepusht.
+- 28 nov 05:25 Regisseur run: #332 workflow-fout weg (OCR-map bestond alleen hier), kliks op de stem strakker (Make fit test, Export parts) met kliksync-controle; proef 128 s, alle 10 kliks binnen hun zin, vangnet leeg. Wacht op cuts-lang-elevenlabs.mp3.

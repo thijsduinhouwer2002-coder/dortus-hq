@@ -23,6 +23,11 @@ Tweede run 28 nov ±03:20 tot 04:30 (gelijktijdig, zag pas bij het pushen dat he
 - (a) opgelost: Exploded view staat standaard AAN, dus de echte klik zette hem juist UIT. Met `CC_TIJDEN` begint hij nu uit (`opzet()`), en de klik bij zin 21 trekt de delen echt uit elkaar. Getoetst in een eigen proefopname met dezelfde stap (geschatte tijdlijn, 94,9 s, 2848 beelden op 1/30 s, 13 echte kliks, vangnet leeg, GEZIEN).
 - Workflow `.github/workflows/regisseur-32.yml`: draait stap 1 tot 3 en de controles (ffprobe tijdstempels, geluid_check, `monteer_lang.py --controle`) vanzelf zodra `cuts-lang-elevenlabs.mp3` op main komt, en zet film, beelden en uitslagen in release `regisseur-32`. Dan hoeft de volgende run alleen na te kijken en Daan te vragen.
 
+Derde run 28 nov ±04:20 (wacht nog steeds op de stem van Max):
+- **Workflow zou zijn vastgelopen:** `cuts_lang.py` schreef de OCR-plaatjes naar een vaste map die alleen in onze eigen sessie bestaat (`/tmp/claude-0/w`), dus in GitHub Actions faalde de eerste knopzoektocht (bij "Bambu Lab A1 mini"). Nu in de opnamemap.
+- (b) aangepakt: Make fit test op de stem sneller (4 tikjes per scroll, geen omweg langs de uitleg, klik op het eind van zin 15), Export parts wordt al in de pauze vóór zin 22 gezocht en geklikt 0,9 s na het begin van "Then click Export parts".
+- Elke echte klik schrijft nu `kliksync` in `film.json` (welke zin, hoeveel s na het begin). De workflow zet dat in `kliksync.txt` en geeft rood bij een klik later dan 0,5 s na het eind van zijn zin of bij een vangnet.
+
 ## Nog te doen (volgende run, zodra `cuts-lang-elevenlabs.mp3` er is)
 1. `STEM_MP3=.../cuts-lang-elevenlabs.mp3 python3 tijden_lang.py <stem>`, dan `cuts_lang.py` met `CC_TIJDEN` (±15 min), dan `monteer_lang.py`, dan `--controle`, geluid_check, ffprobe, beelden zelf bekijken. Komt Max boven 2:00: `PAUZE=0.35 HOOFDSTUK_PAUZE=0.7`.
 2. Thumbnail is al GESLAAGD (`organisatie/blindtest/uitslag/click-cuts-zoek-split-2026-11-28-0150.md`, Gemini plek 2 en 2).

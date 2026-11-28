@@ -101,6 +101,18 @@ jobs:
           python3 organisatie/controle/geluid_check.py cuts-lang.mp4 | tee geluid_check.txt
           grep -q "FOUT" geluid_check.txt && ok=1
           python3 $GITHUB_WORKSPACE/$MAP/monteer_lang.py --controle cuts-lang.mp4 /tmp/tijden > synchroon.txt || ok=1; cat synchroon.txt
+          # echte kliks op hun zin: een klik mag niet later vallen dan 0,5 s na het eind van de zin die hem noemt
+          python3 - <<'PY' > kliksync.txt || ok=1
+          import json, sys
+          f = json.load(open("film.json")); fout = 0
+          for k in f.get("kliksync", []):
+              laat = k["na_begin"] > k["zin_duur"] + 0.5
+              fout += laat
+              print(f'{k["knop"]:15s} zin {k["zin"]:2d}: {k["na_begin"]:5.2f} s na begin (zin {k["zin_duur"]:.2f} s){"  TE LAAT" if laat else ""}')
+          print("vangnet:", f.get("vangnet"), " laat:", f.get("laat"))
+          sys.exit(1 if fout or f.get("vangnet") else 0)
+          PY
+          cat kliksync.txt
           exit $ok
       - name: In de release zetten
         if: ${{ always() && steps.stem.outputs.ok == '1' }}
