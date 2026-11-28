@@ -1,15 +1,14 @@
-HOL balk gestart, pid 7452, hoogte 120
-HOL weg geweest 8 s (klok terug: false): goud voor 78, helden 0, erbij 0, hoeden 0
+HOL balk gestart, pid 3396, hoogte 120
+HOL weg geweest 7 s (klok terug: false): goud voor 78, helden 0, erbij 0, hoeden 0
 HOL opslag geladen: 1 terugkomers, 78 goud, faam 2
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795862119
+HOL zaad 1795878140
 HOL balk aan
 HOL grond zacht
 HOL gloop ring aan na 0.1 s (goud 78)
 HOL eerste koop mogelijk na 30 s speeltijd (goud 78)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 2.0 (wacht 0.0): Anouk limps back to the Spike Pit.
+HOL kroniek 2.0 (wacht 0.0): Anouk remembers the Spike Pit.
 HOL begin: terug (Anouk)
 HOL held binnen: Anouk
 HOL zicht 2.1 1
-HOL leven mot t=7.0 x=72 y=26
