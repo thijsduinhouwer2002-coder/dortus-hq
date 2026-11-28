@@ -1,9 +1,9 @@
 # Olaf, 28 nov 2026 (issue #401, Daan #394 moet 2 en 3). Windows-runner: krijgt de besturen-stand van Hol 2.0 echte
 # toetsen, en gaat de focus daarna terug naar Kladblok?
 #   1. Kladblok vooraan (klik erin), dan HetHol.exe met toetsproef=1 (Gloop staat stil tot de besturen-stand).
-#   2. Echte muisklik op Gloop, echte toets D 1,2 s, dan Esc.  Moet: "besturen aan", Gloop x anders, "focus terug naar".
+#   2. Echte klik op Gloop (stand blijft uit), dan op de stuurknop, echte toets D 1,2 s, dan Esc.  Moet: "besturen aan", Gloop x anders, "focus terug naar".
 #   3. Na Esc een echte letter q typen: die moet in Kladblok staan, niet in het hol.
-#   4. Nog een klik op Gloop en 12 s niets: "10 s geen toets" en Kladblok weer vooraan.
+#   4. Nog een klik op de stuurknop en 12 s niets: "10 s geen toets" en Kladblok weer vooraan.
 # Gebruik: hol2_focus.ps1 <exe> <uitmap>   Schrijft <uitmap>/focus.txt en focus.log; exit 1 bij een FOUT.
 param([string]$exe, [string]$uit)
 Add-Type -AssemblyName System.Windows.Forms
@@ -53,16 +53,22 @@ $s = [regex]::Match((Log), "venster=\((\d+), (\d+)\)")
 $vh = [int]$s.Groups[2].Value
 $gx = $wa.X + [int]$m.Groups[1].Value; $gy = $wa.Bottom - $vh + [int]$m.Groups[2].Value
 $r += "Gloop op het scherm: $gx,$gy (venster $vh hoog, werkvlak $($wa.Width)x$($wa.Height))"
+$k = [regex]::Match((Log), "stuurknop venster x=(-?\d+) y=(-?\d+)")
+$kx = $wa.X + [int]$k.Groups[1].Value; $ky = $wa.Bottom - $vh + [int]$k.Groups[2].Value
+$r += "stuurknop op het scherm: $kx,$ky"
 
-# 2. klik op Gloop, D, Esc
+# 2. klik op Gloop doet niets met de stand; klik op de stuurknop, D, Esc
 & $klik $gx $gy | Out-Null; Start-Sleep 1
-$r += "na de klik op Gloop vooraan: $(Voor)"
+$r += "na de klik op Gloop vooraan: $(Voor) (moet notepad blijven)"
+if ((Log) -match "besturen aan") { $r += "FOUT: klik op Gloop zette de besturen-stand aan"; $fout++ }
+& $klik $kx $ky | Out-Null; Start-Sleep 1
+$r += "na de klik op de stuurknop vooraan: $(Voor)"
 Toets 0x44 1200; Start-Sleep -Milliseconds 600
 Toets 0x1B 80; Start-Sleep 1
 $l = Log
-$aan = [regex]::Match($l, "besturen aan \(klik op Gloop\) gloop x=(\d+)")
+$aan = [regex]::Match($l, "besturen aan \(stuurknop\) gloop x=(\d+)")
 $esc = [regex]::Match($l, "besturen uit \(Esc\) gloop x=(\d+)[^\r\n]*")
-if (-not $aan.Success) { $r += "FOUT: geen 'besturen aan (klik op Gloop)'"; $fout++ }
+if (-not $aan.Success) { $r += "FOUT: geen 'besturen aan (stuurknop)'"; $fout++ }
 elseif (-not $esc.Success) { $r += "FOUT: geen 'besturen uit (Esc)'"; $fout++ }
 else {
   $dx = [int]$esc.Groups[1].Value - [int]$aan.Groups[1].Value
@@ -84,8 +90,8 @@ $r += "vensters in Kladblok: $([W]::Klassen)"
 $r += "tekst in Kladblok na de letter q: '$txt'"
 if ($txt -notmatch "q") { $r += "FOUT: de letter kwam niet in Kladblok"; $fout++ }
 
-# 4. klik op Gloop en 12 s niets: terug na 10 s
-& $klik $gx $gy | Out-Null; Start-Sleep 12
+# 4. klik op de stuurknop en 12 s niets: terug na 10 s
+& $klik $kx $ky | Out-Null; Start-Sleep 12
 $l = Log
 $tien = [regex]::Match($l, "besturen uit \(10 s geen toets\)[^\r\n]*")
 $r += "na 12 s stil vooraan: $(Voor)"

@@ -1,6 +1,6 @@
 # Hol 2.0 proef (Olaf, #388, ontwerp Sanne: producten/steam-hol/ontwerp-hol2/LEESMIJ.md). Alleen op tak hol2-proef.
 # Een strook van 120 spelpx: tuin, maaiveld, verdieping 1 en 2; een derde verdieping eronder zie je door te schuiven
-# met het muiswiel. Klik in het hol en Gloop loopt erheen via de ladders; klik op Gloop voor de besturen-stand (WASD of
+# met het muiswiel. Klik in het hol en Gloop loopt erheen via de ladders; klik op de stuurknop links van het bord voor de besturen-stand (WASD of
 # pijltjes, W/S klimt, gouden rand, stopt bij Esc, klik buiten of 10 s geen toets). Gloop scharrelt zelf met de tabel.
 # Retro: tekenen op breedte x spel_h spelpixels en vergroten met een heel getal (rekstand viewport), figuren op hele px.
 # Startargumenten na "--": hoogte=120 (96 tot 240, spelpixels; het venster is hoogte x schaal) duur=<s> log=<pad> zaad=<n>
@@ -151,6 +151,8 @@ func _ready() -> void:
 	_muisvlak()
 	var gp: Vector2 = (gloop.pos() + Vector2(0, -8)) * schaal
 	log_regel("HOL2 gloop venster x=%d y=%d" % [int(gp.x), int(gp.y)])
+	var kp: Vector2 = (BORD.knop_rect(self).get_center()) * schaal
+	log_regel("HOL2 stuurknop venster x=%d y=%d" % [int(kp.x), int(kp.y)])
 	log_regel("HOL2 start hoogte=%d schaal=%d spelpixels=%dx%d verdiepingen=%d wereld=%d venster=%s zaad=%d" % [hoogte, schaal,
 		breed, spel_h, n_verd, KAART.hoogte_wereld(n_verd), DisplayServer.window_get_size(), rng.seed])
 
@@ -260,7 +262,10 @@ func _unhandled_input(event: InputEvent) -> void:
 				log_regel("HOL2 schuif naar %d" % int(scroll_doel))
 			MOUSE_BUTTON_LEFT:
 				muis_t = t
-				_klik(p)
+				if BORD.knop_rect(self).grow(1).has_point(event.position):
+					_zet_besturen(not besturen, "stuurknop")
+				else:
+					_klik(p)
 			MOUSE_BUTTON_RIGHT:
 				# proef: geen menu of systeemvak, rechtsklik stopt (staat in LEES-MIJ-EERST.txt)
 				log_regel("HOL2 stop met rechtsklik")
@@ -287,8 +292,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _klik(p: Vector2) -> void:
 	var g: Vector2 = gloop.pos()
-	if Rect2(g.x - 9, g.y - 16, 18, 17).has_point(p) and not besturen:
-		_zet_besturen(true, "klik op Gloop")
+	if Rect2(g.x - 9, g.y - 16, 18, 17).has_point(p):
+		log_regel("HOL2 klik op Gloop (in het echte spel opent dit zijn kaartje; sturen gaat met de stuurknop)")
 		return
 	var n: int = kaart.niveau_bij(p.y)
 	log_regel("HOL2 klik op %d,%d: niveau %d" % [int(p.x), int(p.y), n])

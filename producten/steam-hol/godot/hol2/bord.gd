@@ -77,8 +77,26 @@ static func teken_scherm(s) -> void:
 		var hi: Dictionary = s.info.hoeden
 		laag.draw_texture_rect_region(s.tex_fig.hoeden, Rect2(x + 6, y, hi.w, hi.h), Rect2(0, 0, hi.w, hi.h))
 		_getal(laag, s.hoeden.size(), Vector2(x + 8 + hi.w, y), Color8(230, 226, 214))
+		_knop(laag, knop_rect(s), s.besturen)
 	if s.besturen:
 		laag.draw_rect(Rect2(0, 0, w, 1), GOUD)
 		laag.draw_rect(Rect2(0, h - 1, w, 1), GOUD)
 		laag.draw_rect(Rect2(0, 0, 1, h), GOUD)
 		laag.draw_rect(Rect2(w - 1, 0, 1, h), GOUD)
+
+# Stuurknop (Sanne #401 punt 5, ontwerpblad punt 2): vierkant van 9 spelpx links van het bord, vier pijltjes.
+# Een klik zet de besturen-stand aan of uit (een klik op Gloop is voor het kaartje van het echte spel).
+static func knop_rect(s) -> Rect2:
+	return Rect2(s.breed - 84.0, 9.0 - roundf(s.scroll), 9, 9)
+
+static func _knop(laag: CanvasItem, r: Rect2, aan: bool) -> void:
+	laag.draw_rect(r, GOUD if aan else Color(0.08, 0.06, 0.07, 0.85))
+	laag.draw_rect(r, GOUD, false, 1.0)
+	var k := Color(0.08, 0.06, 0.07) if aan else GOUD
+	var c := r.position + Vector2(4, 4)
+	for d in [Vector2(0, -1), Vector2(0, 1), Vector2(-1, 0), Vector2(1, 0)]:
+		var p: Vector2 = c + d * 3
+		laag.draw_rect(Rect2(p, Vector2(1, 1)), k)                      # punt van het pijltje
+		laag.draw_rect(Rect2(p - d + Vector2(d.y, d.x), Vector2(1, 1)), k)  # twee schouders
+		laag.draw_rect(Rect2(p - d - Vector2(d.y, d.x), Vector2(1, 1)), k)
+	laag.draw_rect(Rect2(c, Vector2(1, 1)), k)                          # midden: Gloop
