@@ -1,0 +1,100 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:360)
+OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.5 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+Movie Maker mode enabled, recording movie at 5 FPS...
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
+HOL start hoogte=240 schaal=6 spelpixels=384x40 venster=(2304, 240) pos=(512, 588) held=res://systemen/held.gd
+HOL zaad 13
+HOL balk uit
+HOL grond zacht
+HELD3D geladen: ridder, heks, dief, bard, held0, held1, held2, held3, held4, hoeden, hoeden_hap, tekens; zonder eigen blad: geen; terugval op ridder/heks: true
+HOL muisvlak passthrough, lucht vrij op x=-1
+HOL begin: vallen (Siem)
+HOL held binnen: Siem
+HOL kroniek 2.6 (wacht 0.4): Siem is here for your gold.
+HOL uitleg stap 1 t=4.2 
+HOL kroniek zelfde held vervangen: Siem is here for your gold.
+HOL kroniek 7.6 (wacht 0.0): Siem checked the floor. Too late. +9
+HOL begin: opgegeten (Kees)
+HOL held binnen: Kees
+HOL leven mot t=8.6 x=152 y=26
+HOL gegraven kolom 10 (zelf 1, graafbonus 0)
+HOL uitleg stap 2 t=9.2 Click the dirt to dig.
+HOL kroniek 10.2 (wacht 2.6): First hero in the pit!
+HOL kroniek vervallen 11.6: Kees has a map. It is wrong.
+HOL uitleg stap 3 t=15.2 Click the tunnel to set a trap.
+HOL gegraven kolom 11 (zelf 2, graafbonus 0)
+HOL uitleg proefklik (1104, 96): kamer
+HOL gegraven kolom 7 (zelf 3, graafbonus 0)
+HOL uitleg proefklik (816, 186): val
+HOL uitleg stap 4 t=21.4 
+HOL leven vleermuis t=21.8 x=152 y=28
+HOL reeks 2 (+0, t 25.8)
+HOL kroniek 25.8 (wacht 0.0): Gloop ate Kees. Kept the crown. +9
+HOL gegraven kolom 9 (zelf 4, graafbonus 0)
+HOL kroniek 28.4 (wacht 2.6): First hero for Gloop!
+HOL begin: vluchten (Odo)
+HOL held binnen: Odo
+HOL kroniek 31.0 (wacht 1.0): Odo climbs into your hole.
+HOL leven mot t=32.6 x=136 y=26
+HOL gegraven kolom 6 (zelf 5, graafbonus 0)
+HOL kroniek zelfde held vervangen: Odo climbs into your hole.
+HOL kroniek 42.8 (wacht 0.0): Odo left. Took nothing. Angry.
+HOL kroniek 45.4 (wacht 2.6): First hero got away.
+HOL gegraven kolom 12 (zelf 6, graafbonus 0)
+HOL leven goudstof t=48.0 x=292 y=30
+HOL gegraven kolom 5 (zelf 7, graafbonus 0)
+HOL kroniek zelfde held vervangen: Odo left. Took nothing. Angry.
+HOL kroniek 59.0 (wacht 0.0): Odo is back for the Spike Pit.
+HOL begin: terug (Odo)
+HOL held binnen: Odo
+HOL leven mot t=60.2 x=104 y=26
+HOL gegraven kolom 7 (zelf 8, graafbonus 1)
+HOL hol-niveau 2 (faam 3, t 67.8)
+HOL kroniek 67.8 (wacht 0.0): The Spike Pit won. Grudge settled. +13
+HOL put-hoed 6 naar de toren (hoeden nu 2, t 67.8)
+HOL gloop ring aan na 68.0 s (goud 51)
+HOL uitleg gloop aan t=68.0 Click Gloop to grow him.
+HOL eerste koop mogelijk na 67 s speeltijd (goud 51)
+HOL bordje wip niveau 2
+HOL gegraven kolom 4 (zelf 9, graafbonus 1)
+HOL uitleg gloop proefklik
+HOL kaartje open 74.0: slijm
+HOL uitleg gloop weg t=74.0 na 6.0 s (klik)
+HOL koop 76.0: slijm niveau 1, goud 11
+HOL gloop ring uit na 76.2 s (goud 11)
+HOL kaartje dicht 78.6
+HOL kroniek 78.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
+HOL leven vleermuis t=79.8 x=104 y=28
+HOL gegraven kolom 6 (zelf 10, graafbonus 1)
+HOL gegraven kolom 3 (zelf 11, graafbonus 1)
+HOL kroniek 93.0 (wacht 0.0): Maud says this is a quick one.
+HOL begin: doorlopen (Maud)
+HOL held binnen: Maud
+HOL leven worm t=93.6 x=104 y=38
+HOL gegraven kolom 5 (zelf 12, graafbonus 1)
+HOL leven mot t=106.6 x=72 y=26
+HOL gegraven kolom 2 (zelf 13, graafbonus 1)
+HOL gegraven kolom 4 (zelf 14, graafbonus 1)
+HOL kroniek 118.0 (wacht 0.0): Gloop is flat. Back soon.
+HOL leven worm t=124.8 x=88 y=38
+HOL gegraven kolom 1 (zelf 15, graafbonus 1)
+HOL kroniek zelfde held vervangen: Maud says this is a quick one.
+HOL kroniek 127.2 (wacht 0.0): Maud touched your hoard!
+HOL kroniek 130.8 (wacht 0.0): Rik read about you in a tavern.
+HOL held binnen: Rik
+HOL gegraven kolom 3 (zelf 16, graafbonus 2)
+HOL droogte (t 142.8)
+HOL leven goudstof t=143.8 x=292 y=30
+HOL gegraven kolom 13 (zelf 17, graafbonus 2)
+HOL kroniek 148.0 (wacht 0.0): Gloop is up again. Wobbly.
+HOL einde na 150 s, fps=12, goud=11, terugkomers=0
+----------------
+Done recording movie at path: /tmp/claude-0/-home-claude/ebdd0095-9e6a-572c-b52c-15a95091db31/scratchpad/film240.avi
+751 frames at 5 FPS (movie length: 00:02:30), recorded in 00:00:52 (288% of real-time speed).
+CPU time: 4.66 seconds (average: 6.21 ms/frame)
+GPU time: 12.52 seconds (average: 16.67 ms/frame)
+----------------
