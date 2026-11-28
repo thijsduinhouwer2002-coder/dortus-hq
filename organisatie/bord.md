@@ -21,17 +21,17 @@
 |---|---|---|---|
 | Hoofdmanager | hartslag: stand lezen, issues zetten, bijsturen | elke 3 uur op :31 | trig_01T6m3fN6stQ6tvMcFRDuiBx |
 | Bram | eigenaar en bouwer Click Joints Pro | elke 2 uur op :07 | trig_014wDJpubVbsB8252j9bGNbR |
-| Beeldmaker | beelden Click Joints Pro en Click Cuts | elke 2 uur op :37 | trig_015rerrwSZhWajsAJTXn8rph |
+| Beeldmaker | beelden Click Joints Pro en Click Cuts | elke 3 uur op :37 (28 nov) | trig_015rerrwSZhWajsAJTXn8rph |
 | Productbouwer | eigenaar en bouwer Click Cuts | elke 2 uur op :23 | trig_01Wao7EMmHNbD9Qk4deMNebB |
 | Sanne | eigenaar en ontwerper Hats | elke 3 uur op :43 | trig_01V8SZxV4BKwn6R5LKnm96YH |
 | Olaf | bouwer Hats | elke 2 uur op :13 (oneven uren) | trig_018wyRdBX8EUYZYWxYA6wAet |
-| Mila | kunst Hats | elke 2 uur op :47 | trig_01Pi6A5y8PYntQD5C7W5ybLE |
+| Mila | kunst Hats | UIT sinds 28 nov 10:15 (Steam-header af) | trig_01Pi6A5y8PYntQD5C7W5ybLE |
 | Iris | speelkeurder Hats | elke 4 uur op :39 | trig_01EXsgLj9b6xr5TPS2QLSuso |
 | Daan | smaakkeurder, maakt niets | elke 2 uur op :53 | trig_01Efydrtanp3s6rECgcVQW33 |
 | Afkijker | verkenner: lat per product, concurrenten en hun klachten | elke 3 uur op :28 | trig_01KVTZyPXGZSodyhhAYzbD9n |
 | Meter | cijfers 2 keer per dag, maandag wat werkt | 08:37 en 19:37 | trig_01Wu8kn12PfZdy1KSD3nRsaX |
 
-**Stil:** Regisseur en Verspreider (aan zodra de etalage van Click Joints Pro geslaagd is). **Gestopt:** Chris, kwaliteitscheck, Analist (naar de Meter), onderzoeker A, repo-radar, Garmin-weekronde. Roep Maker, Roep Keurder en de hoofdchat-ronde zijn door Thijs gemaakt; ze doen niets door `marketing/STOP` en `organisatie/STIL`, en alleen Thijs kan ze weghalen.
+**Hoofdchat-rondes (28 nov):** proactieve ronde elk uur op :00 in de hoofdchat met Chrome (trig_013DpvY5didCd8KGxHc2LZv9). De oude hoofdchat-ronde op :40 (trig_01WXTY6eYGjPACccv5wRdidE) heeft Thijs om 10:34 uitgezet. Afkijker blijft aan (lat voor de grotere markt). **Gestopt:** Chris, kwaliteitscheck, Analist (naar de Meter), onderzoeker A, repo-radar, Garmin-weekronde. Roep Maker, Roep Keurder en de hoofdchat-ronde zijn door Thijs gemaakt; ze doen niets door `marketing/STOP` en `organisatie/STIL`, en alleen Thijs kan ze weghalen.
 
 ## Vaste momenten en herinneringen (in de sessie van de hoofdchat)
 - Elke avond 20:00 laatste meter (Chrome op de HP, venster niet geminimaliseerd): trig_016KoRkkMN91MyzYGKRUiMf1. Elke avond 21:30 dagrapport: trig_01Gt1HgAqkh7oH1EKQiCyGco. 19:00 mailrij: trig_01Gi5f71ni8QSFEuLZAb2SiG (persmails pas als de etalage geslaagd is).
