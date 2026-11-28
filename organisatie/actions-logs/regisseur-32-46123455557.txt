@@ -1,4 +1,4 @@
-# gemaakt: 2026-11-28T08:08:17Z
+# gemaakt: 2026-11-28T08:08:30Z
 # workflow: Regisseur 32 (zoekvideo Click Cuts #332: echte Blender-opname op de stem van Max) (.github/workflows/regisseur-32.yml)
 # run: 46123455557 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46123455557
 # commit: c308c3b2 tak regisseur-32-proef gestart door workflow_dispatch
