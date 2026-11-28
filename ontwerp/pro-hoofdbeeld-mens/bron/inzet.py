@@ -37,6 +37,8 @@ W, H = img.size
 meta = json.load(open(META, encoding="utf-8"))
 q = meta["labels"][os.environ.get("IZ_KNIE", "Right knee")]
 kx, ky = q["x"] * 2400 * W / 2400, q["y"] * 1350 - 75   # zelfde omrekening als tekst.py (render 2400x1350, rand 75)
+if os.environ.get("IZ_VOL") == "1":   # #361: beeld is de hele render verkleind (Gumroad 1920x1080, geen rand)
+    kx, ky = q["x"] * W, q["y"] * H
 
 k = Image.open(KNIE).convert("RGBA")
 kw, kh = k.size

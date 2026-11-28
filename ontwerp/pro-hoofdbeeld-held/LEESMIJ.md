@@ -65,3 +65,12 @@ TK_NEK="Neck ball" <TK_* als ronde 3> python3 tekst.py ... held-r4 labels
 IZ_* als ronde 2: inzet.py <t>/held-r4-2400x1200.png beelden/knie-r2-render.jpg <uit>/hoofdbeeld.json beelden/held-knie-r4-2400x1200.jpg <f>
 ```
 Blinde test: set `organisatie/blindtest/sets/click-joints-pro-superhive-held-r4.json` (r4 naast r3).
+
+**Gumroad-cover (28 nov ±09:45, #361):** `beelden/held-knie-r4-gumroad-1920x1080.jpg` en `beelden/held-knie-r4-gumroad-sale-1920x1080.jpg` (met dezelfde sticker "-25% CYBER25 until Dec 1" als de robot-sale; alleen Gumroad, t/m di 1 dec, daarna de versie zonder sticker). Zelfde figuur, rig, zip (main als 1.2.9), pose, kleuren en camera als r4; opnieuw gerenderd (Blender 5.3.0, Cycles 40, 205 s, GEZIEN), 7 gewrichten gelijk aan `held-r4.json` (diff leeg, GEZIEN; meta in `beelden/held-r4-gumroad.json`). Op 16:9 is er minder plek: tekst iets kleiner (`TK_GROOT=1.0` in plaats van 1.12), knie-inzet onder rechts van de opsomming (290 px kleiner dan op 2400) en de knie-inzet wijst naar de echte rechterknie via `IZ_VOL=1` (nieuw in `inzet.py`: het beeld is de hele render verkleind, zonder rand; zonder die variabele verandert niets).
+```
+<render als r4: HB_NEK_TINT=0.78 ... hoofdbeeld.py -- <pro-zip> <uit> 40 100>
+TK_NEK="Neck ball" TK_NEK_KANT=l TK_PUNT_DY='{"Left hip": -76}' TK_PUNT3="Fit test strip: 0.10 to 0.30 mm clearance" TK_GROOT=1.0 TK_BOVEN=0.08 python3 ontwerp/pro-hoofdbeeld-robot/bron/tekst.py <uit>/hoofdbeeld-render.png <uit>/hoofdbeeld.json <t> <f> ontwerp/click-joints/bron/icoon.svg held-r4 labels
+IZ_VOL=1 IZ_TEKST="Knee hinge, stops at 135°" IZ_BOOG=beelden/knie-r2.json IZ_BOOG_DUN=1 IZ_BOOG_MIDDEN=465,505 IZ_BOOG_STRAAL=150 IZ_BOOG_DIK=10 IZ_BOOG_ALFA=0.9 IZ_X=905 IZ_Y=705 IZ_M=280 IZ_SNEDE=0.45,0.46,0.56 python3 ../pro-hoofdbeeld-mens/bron/inzet.py <t>/held-r4-1920x1080.png beelden/knie-r2-render.jpg <uit>/hoofdbeeld.json beelden/held-knie-r4-gumroad-1920x1080.jpg <f>
+python3 ../pro-hoofdbeeld-robot/bron/sale.py beelden/held-knie-r4-gumroad-1920x1080.jpg beelden/held-knie-r4-gumroad-sale-1920x1080.jpg <f>
+```
+Lettertypen: Bricolage Grotesque en Inter (OFL, google/fonts). Blinde test: set `organisatie/blindtest/sets/click-joints-pro-gumroad-held-r4.json` (held met en zonder sticker naast de robot-sale die nu live is, tegen MACHIN3tools, Buildify en BagaPie).

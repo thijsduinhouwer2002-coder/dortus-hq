@@ -1,0 +1,163 @@
+{
+ "figuur": "/home/claude/w/held-r3.blend",
+ "uit_mm": 18.0,
+ "knop_s": 94.4,
+ "gewrichten": [
+  "Left knee · Hinge · 0–135° · preset",
+  "Right knee · Hinge · 0–135° · preset",
+  "Left elbow · Hinge · 0–135° · preset",
+  "Right elbow · Hinge · 0–135° · preset",
+  "Left hip · Ball · ±20° · preset",
+  "Right hip · Ball · ±20° · preset",
+  "Neck · Ball · ±20° · preset"
+ ],
+ "records": [
+  {
+   "naam": "Left knee",
+   "soort": "HINGE",
+   "graden": 135.0,
+   "punt": [
+    13.3554,
+    5.9533,
+    62.6885
+   ]
+  },
+  {
+   "naam": "Right knee",
+   "soort": "HINGE",
+   "graden": 135.4,
+   "punt": [
+    -13.3765,
+    6.0291,
+    62.6576
+   ]
+  },
+  {
+   "naam": "Left elbow",
+   "soort": "HINGE",
+   "graden": 135.0,
+   "punt": [
+    41.2875,
+    2.9854,
+    134.4886
+   ]
+  },
+  {
+   "naam": "Right elbow",
+   "soort": "HINGE",
+   "graden": 135.0,
+   "punt": [
+    -41.2516,
+    2.989,
+    134.5085
+   ]
+  },
+  {
+   "naam": "Left hip",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    12.7877,
+    1.0704,
+    96.0956
+   ]
+  },
+  {
+   "naam": "Right hip",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    -12.7973,
+    1.0685,
+    96.0761
+   ]
+  },
+  {
+   "naam": "Neck",
+   "soort": "BALL",
+   "graden": 20.0,
+   "punt": [
+    -0.0016,
+    2.0736,
+    185.2029
+   ]
+  }
+ ],
+ "deelkleur": {
+  "romp": "6EC6C0",
+  "kop_los": "F4D03F",
+  "bovenarm": "B9A3E3",
+  "onderarm": "B9A3E3",
+  "dij": "F08A7E",
+  "scheen": "7FA8E8"
+ },
+ "goud_vlakken": 14266,
+ "nek_kleur": {
+  "factor": 0.78,
+  "straal_mm": 24.0,
+  "vlakken": 3854
+ },
+ "pose": {
+  "Left elbow": 55.0,
+  "Right elbow": 25.0,
+  "Left knee": 30.0,
+  "Right knee": 8.0
+ },
+ "kader": [
+  [
+   -72.1497802734375,
+   -27.188093185424805,
+   -0.9522281885147095
+  ],
+  [
+   76.80856323242188,
+   51.29183578491211,
+   271.4238586425781
+  ]
+ ],
+ "labels": {
+  "Left knee": {
+   "x": 0.7221,
+   "y": 0.6516,
+   "soort": "SCHARNIER",
+   "graden": 135.04
+  },
+  "Right knee": {
+   "x": 0.6751,
+   "y": 0.7082,
+   "soort": "SCHARNIER",
+   "graden": 135.39
+  },
+  "Left elbow": {
+   "x": 0.7761,
+   "y": 0.4457,
+   "soort": "SCHARNIER",
+   "graden": 134.96
+  },
+  "Right elbow": {
+   "x": 0.6335,
+   "y": 0.4605,
+   "soort": "SCHARNIER",
+   "graden": 134.96
+  },
+  "Left hip": {
+   "x": 0.724,
+   "y": 0.5865,
+   "soort": "KOGEL",
+   "graden": null
+  },
+  "Right hip": {
+   "x": 0.6804,
+   "y": 0.5922,
+   "soort": "KOGEL",
+   "graden": null
+  },
+  "Neck": {
+   "x": 0.704,
+   "y": 0.2476,
+   "soort": "KOGEL",
+   "graden": null
+  }
+ },
+ "render_s": 205.1
+}
