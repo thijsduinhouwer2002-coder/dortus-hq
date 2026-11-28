@@ -1,8 +1,9 @@
-HOL balk gestart, pid 9088, hoogte 120
+HOL balk gestart, pid 9164, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
 HOL balk aan
+HOL grond zacht
 HOL gloop ring aan na 0.1 s (goud 66)
 HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
 HOL muisvlak via de balk, lucht vrij op x=-1
@@ -17,10 +18,10 @@ HOL gegraven kolom 5 (zelf 1, graafbonus 0)
 HOL kroniek zelfde held vervangen: Kees is here for your gold.
 HOL kroniek 9.1 (wacht 0.0): Kees will not be leaving. +6
 HOL meting t=10 beelden=114 helden=1 hol_vast=3
+HOL leven mot t=10.3 x=72 y=26
 HOL kroniek 12.4 (wacht 0.0): Siem climbs into your hole.
 HOL begin: opgegeten (Siem)
 HOL held binnen: Siem
-HOL leven goudstof t=13.2 x=212 y=30
 HOL gegraven kolom 2 (zelf 2, graafbonus 0)
 HOL demo klik op Gloop
 HOL kaartje open 18.6: slijm
@@ -32,9 +33,9 @@ HOL kaartje dicht 22.6
 HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Teun)
 HOL held binnen: Teun
+HOL leven stofje t=25.0 x=56 y=26
 HOL kroniek 25.1 (wacht 2.1): Teun has a map. It is wrong.
 HOL gegraven kolom 4 (zelf 3, graafbonus 0)
-HOL leven mot t=27.3 x=56 y=26
 HOL kroniek 28.6 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
 HOL meting t=30 beelden=129 helden=1 hol_vast=11
 HOL kroniek 31.1 (wacht 1.8): Gloop ate Siem. Kept the crown. +6
@@ -42,9 +43,9 @@ HOL begin: terug (Anouk)
 HOL held binnen: Anouk
 HOL kroniek zelfde held vervangen: Anouk fled. Grudge: the Spike Pit.
 HOL kroniek 33.7 (wacht 0.9): Anouk is back for the Spike Pit.
-HOL gegraven kolom 1 (zelf 4, graafbonus 0)
 HOL kroniek 36.2 (wacht 2.0): Gloop is flat. Back soon.
-HOL leven goudstof t=38.6 x=212 y=30
+HOL gegraven kolom 1 (zelf 4, graafbonus 0)
+HOL leven goudstof t=37.7 x=212 y=30
 HOL kroniek zelfde held vervangen: Anouk is back for the Spike Pit.
 HOL kroniek 38.7 (wacht 10.1): Anouk's song got popular. Uh oh.
 HOL kroniek weggedrukt na 1.0 s, komt terug: Anouk's song got popular. Uh oh.
@@ -54,10 +55,10 @@ HOL kroniek 42.2 (wacht 2.5): Anouk's song got popular. Uh oh.
 HOL kroniek 44.7 (wacht 1.5): Gloop is up again. Wobbly.
 HOL begin: opgegeten2 (Rik)
 HOL held binnen: Rik
-HOL gegraven kolom 3 (zelf 5, graafbonus 0)
 HOL hol-niveau 2 (faam 3, t 45.1)
 HOL reeks 2 (+0, t 45.1)
 HOL bordje wip niveau 2
+HOL gegraven kolom 3 (zelf 5, graafbonus 0)
 HOL kroniek 45.7 (wacht 0.6): Rik came for the gold in the song.
 HOL kroniek 48.3 (wacht 3.2): Anouk came back. The Spike Pit won. +9
 HOL einde na 50 s, fps=10, goud=42, terugkomers=0

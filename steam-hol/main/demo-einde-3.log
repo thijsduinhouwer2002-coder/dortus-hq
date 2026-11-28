@@ -1,16 +1,16 @@
-HOL balk gestart, pid 5600, hoogte 120
-HOL weg geweest 2 s (klok terug: false): goud voor 29, helden 0, erbij 0, hoeden 0
+HOL balk gestart, pid 5816, hoogte 120
+HOL weg geweest 1 s (klok terug: false): goud voor 29, helden 0, erbij 0, hoeden 0
 HOL opslag geladen: 0 terugkomers, 29 goud, faam 1
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL demo: speeltijd 15 s, grens 10 s
 HOL kroniek 0.0 (wacht 0.0): Demo over. The full game keeps it all.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795846002
+HOL zaad 1795848395
 HOL balk aan
+HOL grond zacht
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vluchten (Kobus)
-HOL held binnen: Kobus
+HOL begin: vluchten (Kees)
+HOL held binnen: Kees
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Kobus read about you in a tavern.
-HOL leven mot t=6.0 x=72 y=26
+HOL kroniek 2.6 (wacht 0.5): Kees is here for your gold.
 HOL einde na 8 s, fps=10, goud=29, terugkomers=0
