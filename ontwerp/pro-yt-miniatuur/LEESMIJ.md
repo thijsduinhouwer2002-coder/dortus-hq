@@ -23,3 +23,11 @@ MT_INZET=500,505,225 MT_PLEK=0.862,0.25,0.215 MT_KOGEL=0.686,0.752 python3 ontwe
 Plek van de lijn naar de kogel en van de uitsnede op het oog (GOK ±10 px).
 
 **Blinde test:** set `organisatie/blindtest/sets/click-joints-pro-yt-miniatuur.json`: r1 en de huidige miniatuur tegen Cleave (Ball Joints Quick Tip), CatPin en Print That Thing (plek 1 op de zoekterm). Miniaturen van i.ytimg.com (curl 200, GEZIEN).
+
+**Uitslag r1** (`organisatie/blindtest/uitslag/click-joints-pro-yt-miniatuur-2026-11-28-0359.md`): GESLAAGD, Gemini 1,0 tegen Cleave, CatPin en Print That Thing. De huidige miniatuur haalde in diezelfde set ook 1,0, dus daarna kop aan kop (huidige miniatuur als concurrent, set `...-kop.json`): r1 1,5 en later 2,0. Gemini vroeg in elke ronde om het echte paneel van de add-on.
+
+**Ronde 2:** `beelden/yt-pro-r2-1280x720.jpg` = r1 plus een uitsnede van het echte paneel uit Blender 5.3.0 (`ontwerp/pro-galerij/beelden/paneel-rig-scherm-voor.jpg`: kop "Click Joints", "Rig found: mixamo_rig", knop "Figure from rig") met een gouden rand om de knop en een getekende muispijl. Let op: dat schermbeeld is van het CC0-figuur van de paneel-rig-beelden, niet van de held; de rignaam is die van dat bestand.
+```
+MT_Y=140 MT_PANEEL=ontwerp/pro-galerij/beelden/paneel-rig-scherm-voor.jpg,2462,122,2828,268 MT_KNOP=2477,220,2817,262 <MT_* als r1> python3 ontwerp/pro-yt-miniatuur/bron/miniatuur_tekst.py ... beelden/yt-pro-r2-1280x720.jpg BricolageGrotesque-Bold.ttf
+```
+Uitslag r2: GESLAAGD Gemini 1,0 tegen Cleave, CatPin en Print That Thing (`click-joints-pro-yt-miniatuur-2026-11-28-0407.md`); kop aan kop met de huidige miniatuur 1,5 (één ronde plek 1, één ronde plek 2 achter de huidige; `click-joints-pro-yt-miniatuur-kop-*`). Zelfde render als r1.
