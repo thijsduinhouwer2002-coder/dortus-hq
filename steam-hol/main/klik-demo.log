@@ -1,34 +1,34 @@
-HOL balk gestart, pid 3132, hoogte 96
+HOL balk gestart, pid 1124, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
 HOL demo: speeltijd 0 s, grens 3 s
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795870633
+HOL zaad 1795874921
 HOL balk aan
 HOL grond zacht
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Tibbe)
-HOL held binnen: Tibbe
+HOL begin: vallen (Femke)
+HOL held binnen: Femke
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Tibbe read about you in a tavern.
+HOL kroniek 2.5 (wacht 0.5): Femke climbs into your hole.
 HOL demo voorbij na 3 s speeltijd
 HOL kroniek 3.5 (wacht 0.5): That's the demo. Your hole keeps going.
-HOL uitleg stap 1 t=4.0 
 HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
-HOL kroniek zelfde held vervangen: Tibbe read about you in a tavern.
-HOL kroniek 7.3 (wacht 0.0): Tibbe fell to the Spike Pit. +9
+HOL uitleg stap 1 t=4.0 
+HOL kroniek zelfde held vervangen: Femke climbs into your hole.
+HOL kroniek 7.3 (wacht 0.0): Femke checked the floor. Too late. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Kobus)
-HOL held binnen: Kobus
-HOL zicht 7.8 1
+HOL begin: opgegeten (Anouk)
+HOL held binnen: Anouk
+HOL zicht 7.6 1
 HOL uitleg stap 2 t=8.9 Click the dirt to dig.
 HOL kroniek 9.8 (wacht 2.5): First hero in the pit!
-HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=149 script_ms=3164
-HOL kroniek vervallen 10.8: Kobus brought a torch. And hope.
-HOL leven mot t=14.5 x=184 y=26
-HOL meting t=20 beelden=121 helden=1 hol_vast=3 langste_ms=83 script_ms=558
-HOL leven stofje t=24.5 x=184 y=26
-HOL reeks 2 (+0, t 24.7)
-HOL kroniek 24.7 (wacht 0.0): Gloop ate Kobus. Kept the crown. +9
-HOL zicht 24.8 0
-HOL einde na 25 s, fps=22, goud=38, terugkomers=0
+HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=150 script_ms=1585
+HOL kroniek vervallen 10.6: Anouk read about you in a tavern.
+HOL leven vleermuis t=11.7 x=200 y=28
+HOL meting t=20 beelden=120 helden=1 hol_vast=3 langste_ms=84 script_ms=457
+HOL leven mot t=22.3 x=184 y=26
+HOL reeks 2 (+0, t 24.5)
+HOL kroniek 24.5 (wacht 0.0): Gloop ate Anouk. Kept the crown. +9
+HOL zicht 24.5 0
+HOL einde na 25 s, fps=20, goud=38, terugkomers=0
