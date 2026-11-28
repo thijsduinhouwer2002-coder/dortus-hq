@@ -1,0 +1,59 @@
+name: Hats uitlegfilm voor Thijs (ruwe opname, Sanne #370)
+
+# Sanne 28 nov (#370): een echte opname van een nieuw spel op 1920 breed, waarin een "speler" doet wat er staat
+# (uitleg_klik) en daarna koopt zodra het kan (koper=1, graaft zoals de demo). Uitkomst: mp4 als artifact plus film.log.
+# Ondertitels en ringen komen er daarna bij in producten/steam-hol/uitlegfilm/maak_film.py. Raakt main niet.
+on:
+  workflow_dispatch:
+  push:
+    branches: ["claude/hats-uitlegfilm"]
+    paths: [".github/workflows/steam-hol-uitlegfilm.yml"]
+
+jobs:
+  opname:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    env:
+      HOOGTE: "240"
+      SECONDEN: "300"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scherm op 1920 x 1080
+        shell: pwsh
+        run: |
+          try { Set-DisplayResolution -Width 1920 -Height 1080 -Force } catch { Write-Output "Set-DisplayResolution: $_" }
+          Start-Sleep 3
+      - name: Godot 4.3 downloaden en importeren
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip" -OutFile godot.zip
+          Expand-Archive godot.zip -DestinationPath godot
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
+          if (-not $p.WaitForExit(600000)) { Stop-Process -Id $p.Id -Force }
+      - name: Opnemen (Movie Maker, 30 fps, nieuw spel, speler doet wat er staat, koper)
+        shell: pwsh
+        run: |
+          $uit = "uitleg"
+          New-Item -ItemType Directory -Force "$uit/f" | Out-Null
+          $f = (Resolve-Path "$uit/f").Path
+          $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/film.log"
+          $n = [int]$env:SECONDEN * 30
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$f/f.png`" --fixed-fps 30 --quit-after $n -- hoogte=$env:HOOGTE vers=1 uitleg_klik=3 koper=1 koper_wacht=4 zaad=7 log=$log" -PassThru
+          if (-not $p.WaitForExit(2400000)) { Stop-Process -Id $p.Id -Force }
+          (Get-ChildItem $f -Filter *.png).Count
+          Select-String -Path $log -Pattern "SCRIPT ERROR" | Measure-Object | Select-Object -ExpandProperty Count
+      - name: Naar mp4
+        shell: pwsh
+        run: |
+          python -m pip install --quiet imageio-ffmpeg
+          $ff = python -c "import imageio_ffmpeg;print(imageio_ffmpeg.get_ffmpeg_exe())"
+          & $ff -y -loglevel error -framerate 30 -i "uitleg/f/f%08d.png" -c:v libx264 -preset veryfast -crf 16 -pix_fmt yuv420p "uitleg/ruw.mp4"
+          Get-Item "uitleg/ruw.mp4" | Select-Object Length
+      - uses: actions/upload-artifact@v4
+        with:
+          name: uitlegfilm-ruw
+          path: |
+            uitleg/ruw.mp4
+            uitleg/film.log
+          retention-days: 7
