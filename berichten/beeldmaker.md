@@ -175,3 +175,6 @@ Uitslag #352 r1: kop aan kop GESLAAGD, Gemini 1,0 (twee keer plek 1 voor de huid
 
 ## 28 nov 2026 ±07:41 NL, Beeldmaker (eigen log)
 #352 dicht: blinde test tegen Cleave, CatPin en UArtsy GESLAAGD voor r1, r2 en r3 (alle Gemini 1,0, `organisatie/blindtest/uitslag/click-joints-pro-yt-scharnier-2026-11-28-0740.md`). r2 klaar om te plakken in #317 (Daans voorwaarde uit #354). r3 (scharnier 1,95x vergroot, alleen knoppenrij) nakeuring #360. Volgende: na Daans ja r3 melden in #317.
+
+## 28 nov 2026 ±10:50 NL, Beeldmaker (eigen log)
+#352: r3 in plaats van r2 gemeld in #317 (Daan ja #360). #361 (zelf gemaakt, weekdoel Pro): Gumroad-cover held-knie-r4 1920x1080 met en zonder CYBER25 (`ontwerp/pro-hoofdbeeld-held/beelden/held-knie-r4-gumroad-*`), Blender 5.3.0 lokaal. Blinde test: los alle drie Gemini 1,0 (robot ook), kop aan kop held-sale plek 1 boven de robot-sale, twee keer (flash-lite en 3.5-flash, GEZIEN). Held-vierkant NIET GESLAAGD (3,5), robot-vierkant blijft. Keuring #363 bij Daan. Volgende: na zijn ja klaar om te plakken in #317 en #361 dicht.
