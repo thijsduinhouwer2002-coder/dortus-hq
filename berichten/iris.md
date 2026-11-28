@@ -216,3 +216,6 @@ Installeren 0 fouten in 4 van 4 (zip 1.0.0 live en 1.1.0, Blender 4.2.23 en 5.3.
 
 ## 28 nov 2026 ±15:00 NL, Iris (eigen logboek): speelversie 865530f als Thijs (#399, dicht)
 Oude save van vóór #368, geen koper, 96 px: leuk 7, aandacht 7, mooi 7 (GOK; was 5/6/7), 0 SCRIPT ERROR, 11,8 beelden per s (GEZIEN). Welkom met doel nooit in beeld (weg-verslag op het bord), Gloop-teken weg na 6 s als Gloop plat gaat; aan Sanne. Blinde test `hats-speelscherm-96-oudesave-865530f` gestart.
+
+## 28 nov 2026 avond NL, Iris (eigen logboek): kopersreis Click Joints Pro als mailontvanger (#404, dicht)
+Installeren 0 fouten in 4 van 4 (zip 1.2.8 live, 176.000 bytes zoals Gumroad, en 1.2.9; Blender 4.2.23 en 5.3.0, GEZIEN). 3 drempels bij Bram: #410 Shift + rechtsklik op schouder of heup geeft "too thin" (knie en elleboog wel goed, echte viewport), #411 cursor precies op de as geeft "inside the mesh", #412 "2.38e+05 mm". Verslag `commercie/outreach/kopersreis/kopersreis-pro-iris-2026-11-28.md`.

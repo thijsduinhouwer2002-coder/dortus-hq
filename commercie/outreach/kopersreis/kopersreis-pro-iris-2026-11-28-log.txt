@@ -1,0 +1,67 @@
+== log2-4.2.23-1.2.8.txt
+[reis] GOED installeren {'FINISHED'} tab=Click Joints figuurpaneel=Figure joints
+[reis] GOED figuur maken (STL in mm, 210 mm hoog) my_figure.stl 238 x 98 x 238 (eenheden = mm)
+[reis] GOED STL importeren in een nieuwe scene (meters) my_figure maat=2.38e+05 mm paneelwaarschuwing=True
+[reis] GOED Convert to mm {'FINISHED'} maat=238 mm scale_length=0.0010000000474974513 dim=(238.0, 98.0, 238.0)
+[reis] GOED Fit test: ball {'FINISHED'} nieuw=['Fit 0.10 A', 'Fit 0.10 B', 'Fit 0.15 A', 'Fit 0.15 B', 'Fit 0.20 A', 'Fit 0.20 B']
+[reis] GOED Fit test strip exporteren (niet opgeslagen) {'FINISHED'} 10 bestanden: ['click_joints/Fit_0_10_A.stl', 'click_joints/Fit_0_10_B.stl', 'click_joints/Fit_0_15_A.stl', 'click_joints/Fit_0_15_B.stl', 'click_joints/Fit_0_20_A.stl', 'click_joints/Fit_0_20_B.stl']
+[reis] GOED strip weghalen, terug naar de figuur over: ['Camera', 'Light', 'my_figure']
+[reis] GOED Shoulder, cursor midden in de arm {'FINISHED'} delen=2 my_figure_A:groen my_figure_B:groen
+[reis] FOUT Knee, cursor midden in het been RuntimeError('Error: Put the 3D cursor inside the mesh to place a hinge\n')
+[reis] GOED Export STL zonder opslaan {'FINISHED'} hint='Saves to a temporary folder' 2 bestanden, map=/tmp/click_joints
+[reis] GOED Export STL na opslaan {'FINISHED'} 2 bestanden naast de .blend: [('my_figure_A.stl', 270384), ('my_figure_B.stl', 636984)]
+[reis] GOED STL terug inlezen: maat in mm my_figure_A 81.0 mm; my_figure_B 238.0 mm
+[reis] GOED Figure from rig (Mixamo-namen, 210 mm) {'FINISHED'} delen=6 my_figure_A:groen my_figure_B:groen my_figure_A_A:groen my_figure_A_B:groen my_figure_A_A_A:groen my_figure_A_A_B:groen
+[reis] GOED Export STL na Figure from rig {'FINISHED'} 4 bestanden
+[reis] KLAAR
+== log2-4.2.23-1.2.9.txt
+[reis] GOED installeren {'FINISHED'} tab=Click Joints figuurpaneel=Figure joints
+[reis] GOED figuur maken (STL in mm, 210 mm hoog) my_figure.stl 238 x 98 x 238 (eenheden = mm)
+[reis] GOED STL importeren in een nieuwe scene (meters) my_figure maat=2.38e+05 mm paneelwaarschuwing=True
+[reis] GOED Convert to mm {'FINISHED'} maat=238 mm scale_length=0.0010000000474974513 dim=(238.0, 98.0, 238.0)
+[reis] GOED Fit test: ball {'FINISHED'} nieuw=['Fit 0.10 A', 'Fit 0.10 B', 'Fit 0.15 A', 'Fit 0.15 B', 'Fit 0.20 A', 'Fit 0.20 B']
+[reis] GOED Fit test strip exporteren (niet opgeslagen) {'FINISHED'} 10 bestanden: ['click_joints/Fit_0_10_A.stl', 'click_joints/Fit_0_10_B.stl', 'click_joints/Fit_0_15_A.stl', 'click_joints/Fit_0_15_B.stl', 'click_joints/Fit_0_20_A.stl', 'click_joints/Fit_0_20_B.stl']
+[reis] GOED strip weghalen, terug naar de figuur over: ['Camera', 'Light', 'my_figure']
+[reis] GOED Shoulder, cursor midden in de arm {'FINISHED'} delen=2 my_figure_A:groen my_figure_B:groen
+[reis] FOUT Knee, cursor midden in het been RuntimeError('Error: Put the 3D cursor inside the mesh to place a hinge\n')
+[reis] GOED Export STL zonder opslaan {'FINISHED'} hint='Saves to a temporary folder' 2 bestanden, map=/tmp/click_joints
+[reis] GOED Export STL na opslaan {'FINISHED'} 2 bestanden naast de .blend: [('my_figure_A.stl', 270384), ('my_figure_B.stl', 636984)]
+[reis] GOED STL terug inlezen: maat in mm my_figure_A 81.0 mm; my_figure_B 238.0 mm
+[reis] GOED Figure from rig (Mixamo-namen, 210 mm) {'FINISHED'} delen=6 my_figure_A:groen my_figure_B:groen my_figure_A_A:groen my_figure_A_B:groen my_figure_A_A_A:groen my_figure_A_A_B:groen
+[reis] GOED Export STL na Figure from rig {'FINISHED'} 4 bestanden
+[reis] KLAAR
+== log2-5.3.0-1.2.8.txt
+[reis] GOED installeren {'FINISHED'} tab=Click Joints figuurpaneel=Figure joints
+[reis] GOED figuur maken (STL in mm, 210 mm hoog) my_figure.stl 238 x 98 x 238 (eenheden = mm)
+[reis] GOED STL importeren in een nieuwe scene (meters) my_figure maat=2.38e+05 mm paneelwaarschuwing=True
+[reis] GOED Convert to mm {'FINISHED'} maat=238 mm scale_length=0.0010000000474974513 dim=(238.0, 98.0, 238.0)
+[reis] GOED Fit test: ball {'FINISHED'} nieuw=['Fit 0.10 A', 'Fit 0.10 B', 'Fit 0.15 A', 'Fit 0.15 B', 'Fit 0.20 A', 'Fit 0.20 B']
+[reis] GOED Fit test strip exporteren (niet opgeslagen) {'FINISHED'} 10 bestanden: ['click_joints/Fit_0_10_A.stl', 'click_joints/Fit_0_10_B.stl', 'click_joints/Fit_0_15_A.stl', 'click_joints/Fit_0_15_B.stl', 'click_joints/Fit_0_20_A.stl', 'click_joints/Fit_0_20_B.stl']
+[reis] GOED strip weghalen, terug naar de figuur over: ['Camera', 'Light', 'my_figure']
+[reis] GOED Shoulder, cursor midden in de arm {'FINISHED'} delen=2 my_figure_A:groen my_figure_B:groen
+[reis] FOUT Knee, cursor midden in het been RuntimeError('Error: Put the 3D cursor inside the mesh to place a hinge\n')
+[reis] GOED Export STL zonder opslaan {'FINISHED'} hint='Saves to a temporary folder' 2 bestanden, map=/tmp/click_joints
+[reis] GOED Export STL na opslaan {'FINISHED'} 2 bestanden naast de .blend: [('my_figure_A.stl', 270384), ('my_figure_B.stl', 642184)]
+[reis] GOED STL terug inlezen: maat in mm my_figure_A 81.0 mm; my_figure_B 238.0 mm
+[reis] GOED Figure from rig (Mixamo-namen, 210 mm) {'FINISHED'} delen=8 my_figure_A:groen my_figure_B:groen my_figure_A_A:groen my_figure_A_B:groen my_figure_A_A_A:groen my_figure_A_A_B:groen my_figure_A_A_A_A:groen my_figure_A_A_A_B:groen
+[reis] GOED Export STL na Figure from rig {'FINISHED'} 5 bestanden
+[reis] KLAAR
+== log2-5.3.0-1.2.9.txt
+[reis] GOED installeren {'FINISHED'} tab=Click Joints figuurpaneel=Figure joints
+[reis] GOED figuur maken (STL in mm, 210 mm hoog) my_figure.stl 238 x 98 x 238 (eenheden = mm)
+[reis] GOED STL importeren in een nieuwe scene (meters) my_figure maat=2.38e+05 mm paneelwaarschuwing=True
+[reis] GOED Convert to mm {'FINISHED'} maat=238 mm scale_length=0.0010000000474974513 dim=(238.0, 98.0, 238.0)
+[reis] GOED Fit test: ball {'FINISHED'} nieuw=['Fit 0.10 A', 'Fit 0.10 B', 'Fit 0.15 A', 'Fit 0.15 B', 'Fit 0.20 A', 'Fit 0.20 B']
+[reis] GOED Fit test strip exporteren (niet opgeslagen) {'FINISHED'} 10 bestanden: ['click_joints/Fit_0_10_A.stl', 'click_joints/Fit_0_10_B.stl', 'click_joints/Fit_0_15_A.stl', 'click_joints/Fit_0_15_B.stl', 'click_joints/Fit_0_20_A.stl', 'click_joints/Fit_0_20_B.stl']
+[reis] GOED strip weghalen, terug naar de figuur over: ['Camera', 'Light', 'my_figure']
+[reis] GOED Shoulder, cursor midden in de arm {'FINISHED'} delen=2 my_figure_A:groen my_figure_B:groen
+[reis] FOUT Knee, cursor midden in het been RuntimeError('Error: Put the 3D cursor inside the mesh to place a hinge\n')
+[reis] GOED Export STL zonder opslaan {'FINISHED'} hint='Saves to a temporary folder' 2 bestanden, map=/tmp/click_joints
+[reis] GOED Export STL na opslaan {'FINISHED'} 2 bestanden naast de .blend: [('my_figure_A.stl', 270384), ('my_figure_B.stl', 642184)]
+[reis] GOED STL terug inlezen: maat in mm my_figure_A 81.0 mm; my_figure_B 238.0 mm
+[reis] GOED Figure from rig (Mixamo-namen, 210 mm) {'FINISHED'} delen=8 my_figure_A:groen my_figure_B:groen my_figure_A_A:groen my_figure_A_B:groen my_figure_A_A_A:groen my_figure_A_A_B:groen my_figure_A_A_A_A:groen my_figure_A_A_A_B:groen
+[reis] GOED Export STL na Figure from rig {'FINISHED'} 5 bestanden
+[reis] KLAAR
+== huid (xvfb)
+5.3.0 1.2.8 en 1.2.9: SHOULDER too thin, HIP too thin, KNEE Hinge placed (Cursor on the surface), ELBOW Hinge placed, SHOULDER midden Good fit
+4.2.23 1.2.8: SHOULDER too thin, HIP too thin, KNEE no watertight parts, ELBOW FINISHED, SHOULDER midden FINISHED
