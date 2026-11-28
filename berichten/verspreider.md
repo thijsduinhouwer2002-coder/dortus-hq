@@ -250,3 +250,6 @@ Mail 6 tot 8 (Click Cuts: M.M's Prop Shop, Plentiful Props 3D, Kenjutsu) in de b
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 74)
 #392 ja (mail 1, 2, Addon Radar) gemeld in hoofdchat.md; mail 3 tot 6 (Chris Bosh Props, El Diablo Studios, Smalls3dPrints, pangpangman) in #397 bij Daan. Bundel zo 29 nov 6 van 30; Click Cuts-codes nog ±2 (GOK), dus volgende mensen liefst Pro. Volgende run: #397 lezen, bij ja "klaar om te versturen" melden; plek 2 en 3 voor vandaag nog open. Zoekhulp: YouTube-zoekpagina en /about via curl werken, watch-pagina's niet (429); zoekfragmenten (detailedMetadataSnippets) geven het begin van een videobeschrijving.
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 75)
+Mail 7 en 8 (Pro: Plim Stop Motion, Valentin Felder) in de bundel codes, nakeuring als reactie in #397. Stop motion met geprinte skeletten is een nieuwe hoek die nog wat oplevert (zoek "3d printed armature", "3d printing for stop motion"); YouTube-figuren met openbaar adres zijn op. Volgende run: #397 lezen, bij ja "klaar om te versturen" melden (mail 3 tot 8); plek 2 en 3 van vandaag liggen nog open. Zoekhulp: /tmp-scripts verdwijnen; de about-pagina heeft de beschrijving in "aboutChannelViewModel" en links in "channelExternalLinkViewModel".

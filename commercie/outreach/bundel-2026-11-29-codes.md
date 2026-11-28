@@ -2,7 +2,7 @@
 
 Door de Verspreider, za 28 nov 2026 ±13:00 NL (run 73). Niets verstuurd, niemand benaderd. Naam met `-codes` omdat `bundel-2026-11-29.md` al een oude bundel van 26 nov is (Ksenia Starkova en Loft Studios, type B en formulier); die laat ik staan.
 
-**Sjabloon:** `commercie/outreach/sjabloon-gratis-code.md` (Daan ja, #375). **Deze bundel:** mail 1 en 2 Daan ja (8, #392, za 28 nov ±13:58 NL; zijn kan-punt "Magnets are not included." bij mail 2 verwerkt). Mail 3 tot 6: nakeuring in een nieuw issue (run 74). Wordt per run aangevuld tot hooguit 30.
+**Sjabloon:** `commercie/outreach/sjabloon-gratis-code.md` (Daan ja, #375). **Deze bundel:** mail 1 en 2 Daan ja (8, #392, za 28 nov ±13:58 NL; zijn kan-punt "Magnets are not included." bij mail 2 verwerkt). Mail 3 tot 6: nakeuring in een nieuw issue (run 74). Mail 7 en 8: aanvulling run 75, nakeuring in hetzelfde issue (#397). Wordt per run aangevuld tot hooguit 30.
 
 **Voor de hoofdchat:**
 - Versturen vanaf zo 29 nov 00:00 NL (dagteller van zondag), of eerder als je vandaag ruimte hebt.
@@ -138,6 +138,59 @@ Print the fit test block first: every printer is different.
 Thijs
 Dortus, dortus.com
 ```
+
+## Aanvulling run 75 (za 28 nov ±15:10 NL): mail 7 en 8 (Pro, nieuwe hoek: stop motion met geprinte skeletten)
+
+Gezien met curl, za 28 nov ±15:00 tot 15:10 NL: abonnees en adresregel op de kanaalpagina (/about) of de contactpagina van de eigen site, de nieuwste video's via de YouTube-feed, elke genoemde video via YouTube oEmbed (titel en kanaal kloppen). Live pagina Pro opnieuw nagekeken (curl ±15:05 NL): "hinge at every elbow and knee", "ball joint at the shoulders, hips and neck, with the clearance you set in millimetres", "how far each joint bends, in degrees", "export to STL or 3MF", "Put the 3D cursor on a knee", "Fit test strip" staan er. In de repo nagekeken: geen van beiden staat in `lijst.md`, `geplaatst.md`, `antwoorden.md` of een eerdere bundel (grep op naam en handle, ±15:00 NL).
+
+**Codes:** beide Pro ("Outreach Pro (15)"; GOK: nog ruim, de Pro-mails van 28 nov gingen zonder code, mail 5 is de eerste). Welk programma ze gebruiken is bij geen van beiden gezien: geen zin die Blender aanneemt. Niets over stevigheid of wrijving voor stop motion beloofd: dat staat niet op de live pagina. Verwachting (GOK): 0 tot 1 antwoord.
+
+## 7. Plim Stop Motion · [kanaal](https://www.youtube.com/@plim_stopmotion), 41,2K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: maakt stop-motionpoppen en zette op 28 okt "Stopmotion how to make / assemble 3d Printed Armatures" online (DERDEN, feed en oEmbed): hij print de skeletten van zijn poppen. Pro maakt van een figuur in Blender printbare scharnieren met eindstop en kogelgewrichten met een speling in millimeters; past bij geprinte skeletten. Naam Chris: uit zijn Instagram-link chris_plim op de kanaalpagina. Adres: in de kanaalbeschrijving, zin "Available for commissions, email me at" (https://www.youtube.com/@plim_stopmotion/about).
+
+Onderwerp: `3D printed armatures: free Click Joints Pro license`
+```
+Hi Chris,
+
+I saw your video on making and assembling 3D printed armatures (https://www.youtube.com/watch?v=2YMlONXvAWM), and it made me think of something we built.
+
+Click Joints Pro is a Blender add-on that turns a rigged character into a printable, poseable figure: a hinge with an end stop at every elbow and knee, and a ball joint at the shoulders, hips and neck, with the clearance you set in millimetres. You see how far each joint bends, in degrees, before you print, and you export to STL or 3MF. No rig? Put the 3D cursor on a knee and it adds the joint right there.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-joints-pro/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the Fit test strip first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 8. Valentin Felder · [kanaal](https://www.youtube.com/@ValentinFelder), 9,9K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: filmmaker en "mechanical artist" die aan een stop-motionfilm werkt; maakte "4 Ways to use 3D Printing for Stopmotion" (23 mei 2026) en "My Tortoise Stopmotion Armature" (4 apr 2026), laatste video 4 nov (DERDEN, feed en oEmbed). Printen voor stop motion en zelfgemaakte skeletten: Pro. Zijn skeletten zijn deels metaal en gesoldeerd; daarom geen zin die zegt dat Pro dat vervangt. Naam Valentin: kanaalnaam. Adres: op de contactpagina van zijn site (https://valentin-felder.de/contact).
+
+Onderwerp: `3D printing for stop motion: free Click Joints Pro license`
+```
+Hi Valentin,
+
+Your "4 Ways to use 3D Printing for Stopmotion" (https://www.youtube.com/watch?v=0OXRJwJJz3w) and the tortoise armature (https://www.youtube.com/watch?v=mYnbJ9jcZAo) are why I'm writing.
+
+Click Joints Pro is a Blender add-on that turns a rigged character into a printable, poseable figure: a hinge with an end stop at every elbow and knee, and a ball joint at the shoulders, hips and neck, with the clearance you set in millimetres. You see how far each joint bends, in degrees, before you print, and you export to STL or 3MF. No rig? Put the 3D cursor on a knee and it adds the joint right there.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-joints-pro/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the Fit test strip first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## Nagekeken en afgevallen (run 75, ±400 kanalen, Printables-zoekopdracht en een paar nieuwssites)
+- Concurrent: Nunn Breakable (NB Figure Joints, eigen add-on), Granite Studio (Flexi Articulator), Cleave (V4SS3UR), 299 Tools (BlenderNation 10 sep).
+- Adres wel, past niet: KostaWorks FDM (schildert geprinte beelden van anderen), cyphsdesigns (Blender-animatie, geen printen), Bambu3Design (elektronica), Ashe's Crafting Corner (schildert beelden van anderen), I COULD DO THAT DIY (eigen BJD, adres op eigen site, maar 11 maanden stil), xykit (terreintegels), SculptTales (ZBrush-beelden), Craftknights (5 maanden stil), JollyJunk en edu puertas (stop motion zonder printen; edu boven 100K), MAKEORAMA (printernieuws, Duits), CG Record en Libre Arts (nieuwssites, Blender-nieuws te oud of buiten onderwerp).
+- Geen openbaar adres: Rust Studio (27,5K, geprinte stop-motionfiguren: sterk, maar alleen Patreon en MakerWorld), Sam Makes Toys (geprinte Transformers), sakika (figuren in Nomad en Blender, alleen fanbox), mJeff3D (mecha in Blender), Dummy 13 Universe, Kitbash Customs, bearmtn7, Make It Move Media (alleen formulier), Azrach Toys (al gemaild 23 nov).
+- Printables: makers van eigen beweegbare figuren (MODULYR, Substratum Protobody, ETP-Robot, FigBash, OpenFigure3D) hebben geen site of adres in hun profiel.
+- Boven 100K en daarom bewaard: The Nick of Time (264K, "Articulated 3D-Printed Toy Animatronics", adres in beschrijving).
 
 ## Nagekeken en afgevallen (run 74, ±90 kanalen)
 - Concurrent: LayerLab Australia (maakt zelf de Blender-add-on Snappy, en besprak een splitstool; staat al bij "bewust niet").
