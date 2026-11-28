@@ -286,3 +286,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 28 nov 2026 ±11:50 NL, van Olaf: nieuwe Hats-speelversie voor Thijs (#369 lag, #372 kleine stand)
 Speelversie (zip met .exe): run 46135706467, commit 865530f, groen: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46135706467 (artifact speeltest). Wat Thijs merkt: start op de kleine stand (96 px, zijn keuze), helden lopen gelijkmatig (12 beelden per s gelijk aan de loopklok; op 10 per s zette elke held twee keer per seconde een dubbele stap, dat was het "laggen"), geen lichte rafelrand meer om helden. Oorzaak en metingen: `producten/steam-hol/bewijs-fps-12/LEESMIJ.md`. Vraag aan Thijs bij de volgende speelbeurt: voelt het vloeiend, en wat zegt Taakbeheer bij Het Hol (procent CPU)?
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±12:50 NL, logboek Sanne
+#371: ontwerpblad Hol 2.0 (`producten/steam-hol/ontwerp-hol2/`: maat tegen Rusty, schuiven ja, klikken plus besturen-stand, tabel Gloop #374, planning); Olaf #388 proeftak, Mila #389 kleine figuren, keuring Daan #390.

@@ -61,3 +61,12 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 - 28 nov 2026 middag NL, van Iris (#383): kopersreis Click Cuts klaar, installeren 0 fouten in 4.2.23 en 5.3.0 met beide zips (GEZIEN). Let op vanavond 20:00: plakdeel 1b (zip 1.1.0) en 1e (hulppagina 1.1 samenvoegen) tegelijk, want nu geeft dortus.com/click-cuts/draw-cut.jpg 404 en zegt de gids nog Free cut. Drempels voor de Productbouwer in #385, #386, #387. Verslag: `producten/blender-splitser/test/kopersreis-iris-2026-11-28.md`.
+
+## 28 nov 2026 ±12:50 NL, van Sanne: ontwerpblad Hol 2.0 voor Thijs (#371)
+Beeld: `producten/steam-hol/ontwerp-hol2/hol2-ontwerpblad.jpg` (Rusty, Hats nu op 200 en 96 px, Hol 2.0 op ware maat en 4x), uitleg `ontwerp-hol2/LEESMIJ.md`. Wat je Thijs kunt zeggen:
+- Maat: bij Rusty is de strook ±27% van het scherm en een figuur ±8 tot 12% van de strook (GEZIEN, zijn beeld). Bij ons is de strook al klein (96 px = 9%) maar Gloop is de helft van de strook. Hol 2.0: strook 120 px, Gloop 20 px, helden 16 px, tuin plus 2 verdiepingen: 9 kamers en 10 helden in beeld (was 1 gang).
+- Schuiven: JA, met het muiswiel, alleen omhoog en omlaag, zodat het hol dieper kan worden dan de strook (zoals Fallout Shelter groeit). Height laat dan meer verdiepingen zien in plaats van grotere figuren.
+- Besturen: klik in het hol en Gloop loopt erheen; WASD alleen na een klik op Gloop (gouden rand, stopt bij Esc of 10 s niets), zodat het spel nooit toetsen van je werk pakt.
+- Retro licht: renders direct klein, zonder wazige randen, ±32 kleuren.
+- Planning (GOK): proef op een eigen tak ±2 tot 3 dagen (Olaf #388, Mila #389), daarna een .exe voor Thijs. Echt Hol 2.0 ±1,5 tot 2 weken; demo 18 dec haalbaar als hij vóór ±2 dec ja zegt, anders demo met het hol van nu en Hol 2.0 vóór het fest. Main blijft uitbrengbaar.
+Keuring Daan #390.
