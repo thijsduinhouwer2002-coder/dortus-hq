@@ -1,0 +1,33 @@
+{
+ "eind": "2026-11-28T00:54:09Z",
+ "start": "2026-11-27T19:29:02Z",
+ "vorige_lijst": "2026-11-27T19:20:28Z",
+ "rondes": {
+  "paren": 109,
+  "noteringen": 0,
+  "funding": 163,
+  "stable": 1300
+ },
+ "noteringen": 0,
+ "pieken_gesloten": 595,
+ "stable_boeken": 25662,
+ "fouten": {
+  "htx:boek": 2
+ },
+ "ok": {
+  "perp:dydx": 163,
+  "perp:kraken": 163,
+  "perp:hyperliquid": 163,
+  "perp:okx": 163,
+  "perp:bitget": 163,
+  "perp:mexc": 163,
+  "perp:bingx": 163,
+  "perp:kucoin": 163,
+  "perp:gate": 163
+ },
+ "pieken_overgenomen": 358,
+ "pieken_open_bewaard": 278,
+ "a_gesloten": 0,
+ "c1_gesloten": 74,
+ "c2_gesloten": 29
+}
