@@ -1,5 +1,13 @@
 # Stand van de Meter
 
+**za 28 nov 2026, 08:50 NL, saleweekend dag 2 ochtend** (scorebord-run 46122192445, 07:41 UTC)
+- Verkopen Pro vandaag 0, totaal betaald 2: Gumroad 1 ($19, 22 nov, direct) en Superhive 1 (26 nov, $7,22, bron onbekend) (GEZIEN). Click Cuts Gumroad 0, upsells 0 (GEZIEN, /products en /v2/sales).
+- Sale per bron (issue #318), nacht en ochtend: CYBER25 0 keer gebruikt, salelink 0, utm 0, Superhive-sale 0 (GEZIEN, offer_codes 07:41 UTC; geen nieuwe Superhive-melding in de repo tot 08:50). Sale staat aan: Superhive $7,80 on_sale true, Gumroad met CYBER25 tot di 1 dec (GEZIEN, curl 08:45).
+- Welke bron bracht een koper of klik: geen koper; kliks wel, dortus.com 12 bezoeken tot 08:40 waarvan 7 op /click-joints, verwijzer alleen bing.com 2, de rest zonder verwijzer (GEZIEN, Amami).
+- Groeit: dortus.com 12 bezoeken in een halve nacht tegen 4 op heel vrijdag; Blender gratis 423 downloads, +5 sinds gisteravond (GEZIEN). Rollwright 57 (+1) (GEZIEN).
+- Groeit niet: TikTok 1.309, 6 dagen gelijk; Kit 0, Discord 2 (GEZIEN). YouTube onbekend: RSS gaf 503 bij het scorebord en drie keer bij mij (GEZIEN); sale-Short staat voor vanavond 19:00.
+- Opvallend: 7 bezoeken op /click-joints vannacht zonder verwijzer en zonder nieuw filmpje, maar 0 kopers. Waar ze vandaan komen is niet te zien; de koopknop daar heeft nog geen utm (GOK: een app of mail die geen verwijzer doorgeeft).
+
 **vr 27 nov 2026, 19:50 NL, Black Friday avond** (scorebord-run 46051281746, 18:42 UTC)
 - Verkopen Pro vandaag 0, totaal betaald 2: Gumroad 1 ($19, 22 nov, direct) en Superhive 1 (26 nov 17:05, $7,22, bron onbekend) (GEZIEN). Plus 1 gratis makerscopie op Gumroad (26 nov, $0).
 - Sale per bron (issue #95), eerste dag: CYBER25 0, salelink 0, utm 0, Superhive-sale 0 verkopen (GEZIEN, Gumroad /v2/sales en offer_codes, Superhive-meldingen tot 19:50). Kijkers wel: dortus.com 3 bezoeken, 1 op /click-joints, 1 via youtube.com (GEZIEN, Amami tot 19:41).

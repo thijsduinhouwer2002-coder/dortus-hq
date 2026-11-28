@@ -2,7 +2,7 @@
 
 **Stand: di 24 nov 2026, 22:00 NL** (hoofdchat). **Hoofdzaak: snel veel geld verdienen.** Nieuw team sinds vanavond (`organisatie/team-plan-2026-11-24.md`): per product een klein team, werk als GitHub-issues met "Klaar als", hartslag van de hoofdmanager elke 3 uur, blinde test vóór live. Marketing stil tot de etalage van een product geslaagd is. Oud bord: `organisatie/archief/bord-t-m-2026-11-24.md`.
 
-**Verkopen Pro (Meter, vr 27 nov 19:50 NL):** 2 betaald in totaal, 0 vandaag: Gumroad 1 ($19, 22 nov, direct) en Superhive 1 (26 nov, $7,22, bron onbekend) (GEZIEN). Plus 1 gratis makerscopie op Gumroad (26 nov, $0). Eerste saledag: 0 verkopen via CYBER25, salelink, utm of Superhive-sale; Superhive-sale $7,80 live sinds ±16:12, Gumroad $19 met code in de tekst; geen sale-Short geplaatst (GEZIEN). Stand: `organisatie/meten/stand.md`.
+**Verkopen Pro (Meter, za 28 nov 08:50 NL):** 2 betaald in totaal, 0 vandaag: Gumroad 1 ($19, 22 nov, direct) en Superhive 1 (26 nov, $7,22, bron onbekend) (GEZIEN). Plus 1 gratis makerscopie op Gumroad. Sale dag 2 ochtend: 0 verkopen via CYBER25, salelink, utm of Superhive-sale; dortus.com 12 bezoeken tot 08:40, 7 op /click-joints, geen koper; Click Cuts 0 (GEZIEN). Stand: `organisatie/meten/stand.md`.
 
 **Regel voor de hoofdchat:** vraagt Thijs "hoe staat het?", lees eerst dit bord en de kaarten. Verandert er iets aan een product, agent of belofte: bord bijwerken in dezelfde commit.
 
