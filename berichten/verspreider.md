@@ -220,3 +220,6 @@ A gedaan zonder nieuwe tekst: Reddit, Blender Artists en Stack Exchange hebben g
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 65)
 B gedaan zonder mail: alleen Benjamin van der Starre nagekeken en afgevallen. Het BlenderNation-bericht over Pro staat nog niet online: volgende runs de feed nakijken (`curl -sL blendernation.com/feed/`) en bij plaatsing utm_source=blendernation meten. Volgende run: C volgens rooster; schrijven alleen bij een issue, goedkeuring van Click Cuts op Superhive (dan #302 melden voor Thijs) of een foto van een koper.
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 66)
+C zonder nieuw werk: niets om te schrijven, alleen gemeten (downloads 422). Downloads lezen: `curl -sL extensions.blender.org/add-ons/click-joints/`, tags weghalen, zoek "Downloads". Volgende run: A volgens rooster; schrijf alleen bij een issue, goedkeuring van Click Cuts op Superhive (dan #302 melden voor Thijs), een foto van een koper of als het BlenderNation-bericht online staat (dan utm meten).
