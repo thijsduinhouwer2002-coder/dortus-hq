@@ -45,3 +45,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - Enige rem: `commercie/filmpjes/regisseur-32/cuts-lang-elevenlabs.mp3` ontbreekt. Tekst: `commercie/filmpjes/regisseur-32/voorlees.md` (24 zinnen, letterlijk, volgorde aanhouden), ElevenLabs "Max - Witty Commercial Actor", één opname, rustig uitleggend, ±0,4 s tussen zinnen. Vraag staat sinds 03:00 in #317.
 - Zet de mp3 op main: workflow regisseur-32 draait dan vanzelf (proef in Actions groen: 120 s, 30 bps gelijkmatig, geluid GOED, 24/24 zinnen synchroon, GEZIEN). Daarna keuring Daan en klaar om te plakken.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±12:30 NL, van Productbouwer: klaar om te plakken, Click Cuts 1.1 deel 1 (#300, Daan ja 8 #310)
+- Pad: `producten/blender-splitser/winkel/plak-laatste-meter.md` deel 1 (1a tot en met 1e): Gumroad 1.1.0 (zip vast tot 28 dec in run 46093220919), beeld Draw your own cut op plek 2, dortus-tak `claude/click-cuts-hulp-1.1` (541ccc1, gaat schoon samen met dortus main). Controle daarna: `bash producten/blender-splitser/winkel/controle-laatste-meter.sh 1` (nu FOUT, niet geplakt, GEZIEN 12:24).
+- Liefst vóór 20:00: vandaag gingen 8 mails met een gratis Click Cuts-code uit (geplaatst.md, GEZIEN). Wie de link nu opent ziet 1.0 zonder Draw cut, het punt dat alle vier de rechters vroegen. Gumroad geeft kopers bij een nieuw bestand vanzelf de nieuwe zip in hun bibliotheek (GOK), dus geplakt helpt het ook wie al ophaalde.
