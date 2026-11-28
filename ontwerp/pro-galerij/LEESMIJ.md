@@ -101,3 +101,17 @@ KT_KOGEL=1542,330 KT_KOGEL_DX=60 KT_KOM=1585,560 KT_KOM_PIL=1712,470 \
   python3 ontwerp/pro-galerij/bron/kom_kogel_tekst.py <uit>/kom-kogel-render.png <uit>/kom-kogel.json beelden/kom-kogel-1920x1080.jpg <fonts> ontwerp/click-joints/bron/icoon.svg
 ```
 Blinde test: set `organisatie/blindtest/sets/click-joints-pro-galerij-kom-kogel.json` tegen Cleave (Connectors that fit), CatPin (More tools 1.0.7) en Split 3D Print.
+
+**Ronde 2 (28 nov ±04:00, Daan #338 M1 en M2):** `beelden/kom-kogel-1920x1080.jpg` (vervangen) en nieuw `beelden/kom-kogel-2400x1200.jpg` (maten `beelden/kom-kogel-2400.json`).
+- **M1:** het rechterbeen staat niet meer in beeld (`KK_ANDER=""`), dus geen kniesnede, geen oranje knieschijf en geen goud vierkantje meer onder "Clean cuts.". Nu zie je de romp met allebei zijn heupkogels; bij de rechterkogel zie je ook de hals tussen romp en kogel (Daans kan-punt dat de kogel los leek te zweven). Verder alles als ronde 1.
+- **M2:** zelfde scène op 2400x1200 (`KK_MAAT=2400x1200`, nieuw in `kom_kogel.py`; lens 75,6 in plaats van 85 zodat de hoogte van het beeld hetzelfde stuk laat zien). `kom_kogel_tekst.py` neemt nu de maat van de render en schaalt letters en marges mee met de hoogte; op 1920x1080 tekent hij precies als eerst.
+- Getallen gelijk aan ronde 1 (json vergeleken, GEZIEN): kogel 13,0 mm, speling gemeten 0,1996 mm, ±20°, 8 delen met 0 open randen. Code van de add-on en scripts van het hoofdbeeld uit f340da1 (zelfde stand als ronde 1). Render lokaal Blender 5.3.0, Cycles 96: 178 s en 225 s (GEZIEN).
+- Kan-punt roze puntje rechtsonder: blijft, het is een stukje van het kniescharnier van het linkerbeen aan de onderrand; klein en valt weg op de duim.
+```
+KK_DOORZICHTIG=1 KK_SHIFT=-0.25 KK_MEE="Left knee" KK_ANDER="" KK_LICHT=6 KK_CAM=240,34,10 KK_DOEL=0,0,0 KK_UIT=22 KK_KANTEL=40 \
+  blender -b <basis>/hoofdbeeld.blend --python ontwerp/pro-galerij/bron/kom_kogel.py -- <uit> 96 100
+KK_MAAT=2400x1200 KK_LENS=75.6 <KK_* als hierboven> blender ... kom_kogel.py -- <uit2> 96 100
+KT_KOGEL=1542,330 KT_KOGEL_DX=60 KT_KOM=1585,560 KT_KOM_PIL=1712,470 python3 ontwerp/pro-galerij/bron/kom_kogel_tekst.py <uit>/kom-kogel-render.png <uit>/kom-kogel.json beelden/kom-kogel-1920x1080.jpg <fonts> ontwerp/click-joints/bron/icoon.svg
+KT_KOGEL=1913,366 KT_KOGEL_DX=67 KT_KOM=1961,622 KT_KOM_PIL=2102,522 python3 ontwerp/pro-galerij/bron/kom_kogel_tekst.py <uit2>/kom-kogel-render.png <uit2>/kom-kogel.json beelden/kom-kogel-2400x1200.jpg <fonts> ontwerp/click-joints/bron/icoon.svg
+```
+Fonts: Bricolage Grotesque en Inter (OFL), variabel, uit de npm-pakketten @fontsource-variable (latin, naar ttf gezet met fonttools). Blinde test niet opnieuw (Daan #338: alleen knie en maat veranderen).

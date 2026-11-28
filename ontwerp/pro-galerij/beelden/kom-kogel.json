@@ -20,10 +20,7 @@
  "grens_graden": 20.5,
  "kogel_op": "Figuur_A_A_A_A_A_A_A",
  "kom_in": "Figuur_A_A_A_A_B",
- "op_plek": [
-  "Figuur_A_B",
-  "Figuur_A_A_A_A_A_B"
- ],
+ "op_plek": [],
  "mee": [
   "Figuur_B"
  ],
@@ -35,8 +32,6 @@
  "snede_vlakken": {
   "Figuur_A_A_A_A_A_A_A": 2,
   "Figuur_A_A_A_A_B": 480,
-  "Figuur_A_B": 1436,
-  "Figuur_A_A_A_A_A_B": 425,
   "Figuur_B": 52
  },
  "uit_mm": 22.0,
@@ -63,5 +58,5 @@
    276.3
   ]
  },
- "render_s": 240.2
+ "render_s": 178.0
 }

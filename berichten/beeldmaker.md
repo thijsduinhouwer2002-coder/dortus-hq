@@ -153,3 +153,6 @@ Uitslag r4: GESLAAGD, Gemini 1,0, plek 1 in beide rondes (r3 1,5 in dezelfde run
 
 ## 28 nov 2026 ±02:10 NL, Beeldmaker (eigen log)
 #331 (hoofdmanager): Pro-galerijbeeld kom en kogel van de heup met het echte gaas (`ontwerp/pro-galerij/beelden/kom-kogel-1920x1080.jpg`), blinde test GESLAAGD Gemini 1,0 (`click-joints-pro-galerij-kom-kogel-2026-11-28-0103.md`), keuring #338. Volgende: na Daans ja klaar om te plakken in #317 en #331 dicht.
+
+## 28 nov 2026 ±02:49 NL, Beeldmaker (eigen log)
+#331 ronde 2 (Daan #338 M1, M2): rechterbeen uit beeld, nu romp met beide heupkogels (hals zichtbaar), geen kniesnede meer; ook 2400x1200 (`ontwerp/pro-galerij/beelden/kom-kogel-*`). Getallen gelijk aan r1. Nakeuring aangevraagd. Volgende: na Daans ja klaar om te plakken in #317 en #331 dicht.

@@ -12,7 +12,7 @@ Uit: kom-kogel-render.png (1920x1080, zonder tekst) en kom-kogel.json (maten uit
 en waar kogel, kom en snederand in beeld staan, voor tekst.py).
 Variabelen: KK_GEWRICHT (standaard Left hip), KK_UIT (mm uit elkaar langs de as), KK_KANTEL (graden dat de dij naar de
 camera kantelt), KK_CAM (afstand,draai,hoogte in mm en graden), KK_DOEL (x,y,z verschuiving van het midden in mm),
-KK_LENS, KK_GAAS (lijndikte in mm), KK_GAAS_ALFA.
+KK_LENS, KK_GAAS (lijndikte in mm), KK_GAAS_ALFA, KK_MAAT (breedtexhoogte, standaard 1920x1080).
 """
 import json
 import math
@@ -230,7 +230,8 @@ cd.dof.use_dof = bool(os.environ.get("KK_DOF"))
 if cd.dof.use_dof:
     cd.dof.focus_distance = (doel - cam.location).length
     cd.dof.aperture_fstop = float(os.environ["KK_DOF"])
-sc.render.resolution_x, sc.render.resolution_y = 1920, 1080
+RW, RH = (int(v) for v in os.environ.get("KK_MAAT", "1920x1080").split("x"))   # 2400x1200 voor Superhive (#338 M2)
+sc.render.resolution_x, sc.render.resolution_y = RW, RH
 sc.render.resolution_percentage = SCHAAL
 sc.render.use_border = False
 sc.render.film_transparent = bool(os.environ.get("KK_DOORZICHTIG"))   # achtergrond komt dan uit tekst.py
@@ -247,7 +248,7 @@ bpy.context.view_layer.update()
 
 def px(w):
     q = world_to_camera_view(sc, cam, w)
-    return [round(q.x * 1920, 1), round((1 - q.y) * 1080, 1)]
+    return [round(q.x * RW, 1), round((1 - q.y) * RH, 1)]
 
 
 # ankerpunten voor de labels: onderkant van de kogel, midden van de kom, rand van de snede op de dij
