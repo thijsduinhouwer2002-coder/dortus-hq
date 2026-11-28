@@ -1,10 +1,10 @@
 # Bundel za 28 nov: creator-mails Click Joints Pro met affiliate-aanbod (issue #313)
 
-Door de Verspreider, vr 27 nov 2026 ±22:10 NL (run 58). Niets verstuurd, niemand benaderd. Keuring: Daan #325, **JA 8/10** (27 nov ±23:20 NL) voor mail 1 tot 12; mail 4 (Karmieh) en 5 (Chaos Costumes) geschrapt op zijn advies, M1 (affiliate melden) en K1 (link gratis versie) verwerkt in blok A (run 60, vr 27 nov ±23:55 NL). **Klaar voor Thijs: mail 1, 2, 3, 6, 7, 8, 9, 10, 11, 12 (10 mails).** Mail 13 en 14 zijn nog niet gekeurd (apart keurissue): niet versturen tot daar een ja staat.
+Door de Verspreider, vr 27 nov 2026 ±22:10 NL (run 58). Niets verstuurd, niemand benaderd. Keuring: Daan #325, **JA 8/10** (27 nov ±23:20 NL) voor mail 1 tot 12; mail 4 (Karmieh) en 5 (Chaos Costumes) geschrapt op zijn advies, M1 (affiliate melden) en K1 (link gratis versie) verwerkt in blok A (run 60, vr 27 nov ±23:55 NL). Mail 13 (Whispering Grass) kreeg Daans ja 8/10 op #329 (za 28 nov ±01:05 NL); mail 14 (SLIME HOUSE) geschrapt op zijn advies (run 62). **Klaar voor Thijs: mail 1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 13 (11 mails).**
 
 **Voor de hoofdchat:** verstuurd na ma 30 nov? Dan de regel met CYBER25 weghalen en alleen de gewone link laten staan (Daan M2).
 
-**Eerlijk: 10 gekeurde mails plus 2 in keuring, niet 20** (12 in run 58, mail 13 en 14 erbij in run 59). Ongeveer 80 kanalen en sites nagekeken (27 nov, curl, zoeken met WebSearch). De meeste passende makers tonen geen zakelijk adres zonder inloggen (alleen de YouTube-knop, Linktree of een formulier met captcha), of zijn al gemaild. Liever 12 die passen dan 20 waarvan 8 als reclame voelen. Afgevallen staan onderaan, met reden.
+**Eerlijk: 11 gekeurde mails, niet 20** (12 in run 58, mail 13 en 14 erbij in run 59; 4, 5 en 14 geschrapt na keuring). Ongeveer 80 kanalen en sites nagekeken (27 nov, curl, zoeken met WebSearch). De meeste passende makers tonen geen zakelijk adres zonder inloggen (alleen de YouTube-knop, Linktree of een formulier met captcha), of zijn al gemaild. Liever 11 die passen dan 20 waarvan 9 als reclame voelen. Afgevallen staan onderaan, met reden.
 
 Gezien met curl, 27 nov ±21:30 tot 22:05 NL: kanaalpagina's (abonnees, beschrijving, adresregel), video's per kanaal, elke video-id via YouTube oEmbed (titel en kanaal kloppen, GEZIEN 22:04), contactpagina's van eigen sites. Productfeiten uit de live Gumroad-pagina (curl 27 nov ±21:56 NL: $19, hinge with end stop, ball joint, millimetres, degrees, STL, 3MF, 3D cursor, Fit test strip, 200 mm).
 
@@ -159,8 +159,10 @@ You covered PancakeSlicer as a free tool from a small developer. Here's another 
 
 ---
 
-## Aanvulling run 59 (vr 27 nov ±22:55 NL): mail 13 en 14 (NOG NIET GEKEURD, niet versturen)
-Nog ±30 kanalen en sites nagekeken (YouTube-zoekresultaten en kanaalpagina's met curl, WebSearch). Twee nieuwe met een openbaar zakelijk adres die passen. Stand nu: **14 van 20.** Daans ja op #325 gold niet voor deze twee; aparte keuring aangevraagd (run 60).
+## Aanvulling run 59 (vr 27 nov ±22:55 NL): mail 13 (Daan ja 8/10, #329)
+Nog ±30 kanalen en sites nagekeken (YouTube-zoekresultaten en kanaalpagina's met curl, WebSearch). Twee nieuwe gevonden; na keuring blijft er één over. Mail 14 (SLIME HOUSE) staat nu bij Afgevallen.
+
+**Voor de hoofdchat bij mail 13:** de twee Buy Me a Coffee-links geven curl een 403; even in een browser openen voor versturen (Daan K1). Na ma 30 nov de regel met CYBER25 weghalen, net als bij de andere mails (Daan K2).
 
 ## 13. Whispering Grass (Iryna Ivakhnenko) · [site](https://wgrass.org), [Buy Me a Coffee](https://buymeacoffee.com/wgrass)
 Waarom: maakt BJD's en ontwerpt ze in Blender; schreef zelf hoe ze elk gewricht met de 3D cursor, origins en Booleans bouwt ("Useful links for 3D sculpting BJDs", 12 aug 2023, 1.472 keer gelezen, DERDEN) en hoe ze de delen print ("Tips on 3D printing small BJD doll parts", 2 sep 2023, 5.877 keer gelezen, DERDEN). Actief: pre-order XingXing 1/3 loopt tot 30 nov (GEZIEN). Publiek: 38 supporters op Buy Me a Coffee, YouTube @wgrassbjd (DERDEN); bereik verder GOK. Kans middelmatig: haar poppen zijn geregen (elastiek), Pro maakt gewrichten die zonder rijgen een pose houden. Dat staat eerlijk in de mail.
@@ -174,22 +176,11 @@ I read your post "Useful links for 3D sculpting BJDs" (https://buymeacoffee.com/
 ```
 Daarna vast blok A ongewijzigd (alleen de utm zoals hierboven).
 
-## 14. SLIME HOUSE (Theo Cane) · [kanaal](https://www.youtube.com/@slimehousetv), 39,5K abonnees (DERDEN, YouTube, 27 nov)
-Waarom: voltijds speelgoedontwerper; boetseert actiefiguren in Nomad en print ze ("NOMAD Sculpt to 3D printed action figures! ARTICULATED art toy!", 9.803 weergaven, 1 jaar; "Making a Retro SOUL REAVER Action figure", 7.942 weergaven, 2 jaar; beide GEZIEN, titels via oEmbed). Laatste lange video 7 maanden geleden ("Zbrush & Nomad sculpt", 16.467 weergaven). Kans middelmatig: werkt in Nomad en ZBrush, niet in Blender; past bij "Nomad naar Blender". Zijn beschrijving: "Do not contact me to promote A.I": wij noemen nergens AI, dus geen bezwaar.
-Adres: kanaalbeschrijving, "Business enquires" (gmail).
-utm: `slimehouse`
-Onderwerp: `Articulated art toys from Nomad via Blender, free license`
-```
-Hi Theo,
-
-I watched "NOMAD Sculpt to 3D printed action figures! ARTICULATED art toy!" (https://www.youtube.com/watch?v=jEGIQDF0V5A) and your retro Soul Reaver figure (https://www.youtube.com/watch?v=EVS82wkko5k). You sculpt in Nomad; if you ever take a figure through Blender, this could save you the joint work.
-```
-Daarna vast blok A ongewijzigd.
-
 ---
 
 ## Afgevallen (nagekeken, niet gemaild)
 - Geschrapt na keuring Daan (#325): Oasim Karmieh (ZBrush, toys staan stil, intro leest als reclame), Chaos Costumes (7 maanden stil, cosplay en props, geen figuren).
+- Geschrapt na keuring Daan (#329): SLIME HOUSE (werkt in Nomad en ZBrush, niet in Blender; de regel "laatste lange video 7 maanden geleden" klopte niet: hij plaatst elke week, maar reisvlogs over speelgoed jagen in Japan, laatste 3D-printvideo 20 okt, GEZIEN in zijn RSS-feed door Daan).
 - Geen openbaar adres (alleen YouTube-knop, Linktree, of niets): Dummy13_Universe en toast_channel (passen precies), Toymakr3D, MWSculpts, SmallRobotStudio, PapitoLoco, KYNStudio, I COULD DO THAT DIY, Frankly Built, Painted4Combat, Trikvlt, Sonia Verdu, en meer.
 - Formulier met captcha (doen wij niet): Fansee3d, cupiopax.
 - Vraagt zelf geen ongevraagde pitches: Jawylin.

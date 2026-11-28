@@ -208,3 +208,6 @@ C gedaan: beoordelingsvraag voor de Content-tab van Click Cuts op Gumroad, keuri
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 61)
 Gestopt met één regel: #313 wacht op Daans oordeel op #329. Volgende run: eerst #329 lezen; bij ja de opmerkingen verwerken, als aanvulling melden in #330 en #313 sluiten met 10 of 12 van 20. Nog steeds geen oordeel: weer alleen meten.
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 62)
+#329 verwerkt (13 ja, 14 geschrapt), aanvulling in #330, #313 gesloten met 11 van 20. Geen open issue meer: volgende run C volgens het rooster (vorige rooster-run was A, run 57; daarna alleen #313). Kansen voor C: kopers van de saleweek (CYBER25 tot di 1 dec) om een foto of beoordeling vragen, en de testertekst; eerst nakijken wat in commercie/verspreiden/ al gekeurd ligt.
