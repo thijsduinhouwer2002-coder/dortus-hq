@@ -1,27 +1,25 @@
-HOL balk gestart, pid 7808, hoogte 120
+HOL balk gestart, pid 8892, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795834793
+HOL zaad 1795834869
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Merel)
-HOL held binnen: Merel
+HOL begin: vallen (Maud)
+HOL held binnen: Maud
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Merel climbs into your hole.
+HOL kroniek 2.6 (wacht 0.5): Maud is here for your gold.
 HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Merel climbs into your hole.
-HOL kroniek 7.4 (wacht 0.0): Merel will not be leaving. +9
-HOL zicht 7.4 0
-HOL begin: opgegeten (Joost)
-HOL held binnen: Joost
-HOL zicht 7.7 1
+HOL kroniek 7.4 (wacht 0.0): Teun climbs into your hole.
+HOL begin: opgegeten (Teun)
+HOL held binnen: Teun
+HOL kroniek zelfde held vervangen: Maud is here for your gold.
+HOL kroniek 8.4 (wacht 1.0): Maud stays forever. +9
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL leven stofje t=9.1 x=72 y=26
-HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
 HOL demo voorbij na 10 s speeltijd
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 10.7: Joost is here for your gold.
+HOL kroniek vervallen 10.5: First hero in the pit!
 HOL kroniek 11.0 (wacht 0.9): That's the demo. Your hole keeps going.
+HOL leven stofje t=13.3 x=72 y=26
 HOL einde na 15 s, fps=10, goud=29, terugkomers=0
