@@ -1,28 +1,28 @@
-HOL balk gestart, pid 3988, hoogte 120
+HOL balk gestart, pid 6796, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795874864
+HOL zaad 1795877680
 HOL balk aan
 HOL grond zacht
 HOL plat zonder regel (2 keer gemeld)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Merel)
-HOL held binnen: Merel
-HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Merel says this is a quick one.
-HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Merel says this is a quick one.
-HOL kroniek 7.4 (wacht 0.0): Merel found the Spike Pit. Hard. +9
+HOL begin: vallen (Lotte)
+HOL held binnen: Lotte
+HOL zicht 2.1 1
+HOL kroniek 2.5 (wacht 0.5): Lotte knocks first. Polite.
+HOL uitleg stap 1 t=4.0 
+HOL leven mot t=6.0 x=72 y=26
+HOL kroniek zelfde held vervangen: Lotte knocks first. Polite.
+HOL kroniek 7.3 (wacht 0.0): Lotte stays forever. +9
 HOL zicht 7.4 0
 HOL begin: vluchten (Femke)
 HOL held binnen: Femke
 HOL zicht 7.8 1
-HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL kroniek 9.9 (wacht 2.5): First hero in the pit!
-HOL meting t=10 beelden=149 helden=1 hol_vast=3 langste_ms=150 script_ms=1508
-HOL kroniek vervallen 10.7: Femke climbs into your hole.
-HOL leven vleermuis t=12.2 x=88 y=28
-HOL meting t=20 beelden=120 helden=1 hol_vast=3 langste_ms=84 script_ms=312
-HOL leven stofje t=20.3 x=72 y=26
+HOL uitleg stap 2 t=8.9 Click the dirt to dig.
+HOL kroniek 9.8 (wacht 2.5): First hero in the pit!
+HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=135 script_ms=1837
+HOL kroniek vervallen 10.8: Femke says this is a quick one.
+HOL leven stofje t=19.8 x=72 y=26
+HOL meting t=20 beelden=120 helden=1 hol_vast=3 langste_ms=84 script_ms=523
 HOL einde na 24 s, fps=12, goud=29, terugkomers=0
