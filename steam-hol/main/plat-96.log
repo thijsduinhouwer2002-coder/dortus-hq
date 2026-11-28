@@ -1,27 +1,27 @@
-HOL balk gestart, pid 3964, hoogte 96
+HOL balk gestart, pid 7400, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795845105
+HOL zaad 1795845617
 HOL balk aan
 HOL plat zonder regel (2 keer gemeld)
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Merel)
-HOL held binnen: Merel
-HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Merel read about you in a tavern.
-HOL uitleg stap 1 t=4.1 
-HOL leven stofje t=6.5 x=184 y=26
-HOL kroniek zelfde held vervangen: Merel read about you in a tavern.
-HOL kroniek 7.4 (wacht 0.0): Merel left gold and one boot. +9
+HOL begin: vallen (Bram)
+HOL held binnen: Bram
+HOL zicht 2.1 1
+HOL kroniek 2.5 (wacht 0.5): Bram knocks first. Polite.
+HOL uitleg stap 1 t=4.0 
+HOL kroniek zelfde held vervangen: Bram knocks first. Polite.
+HOL kroniek 7.4 (wacht 0.0): Bram found the Spike Pit. Hard. +9
 HOL zicht 7.4 0
-HOL begin: vluchten (Femke)
-HOL held binnen: Femke
-HOL zicht 7.5 1
+HOL begin: vluchten (Pim)
+HOL held binnen: Pim
+HOL zicht 8.5 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
-HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 10.5: Femke has a map. It is wrong.
-HOL leven mot t=19.8 x=184 y=26
+HOL kroniek 9.9 (wacht 2.5): First hero in the pit!
+HOL leven goudstof t=10.0 x=324 y=30
+HOL meting t=10 beelden=125 helden=1 hol_vast=3
+HOL kroniek vervallen 11.5: Pim climbs into your hole.
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
+HOL leven mot t=22.8 x=184 y=26
 HOL einde na 24 s, fps=10, goud=29, terugkomers=0
