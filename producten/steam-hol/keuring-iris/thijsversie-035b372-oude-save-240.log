@@ -1,0 +1,78 @@
+HOL weg geweest 11 s (klok terug: false): goud voor 1043, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 1043 goud, faam 67
+HOL uitleg stap 2 t=0.0 Click the dirt to dig.
+HOL start hoogte=240 schaal=6 spelpixels=320x40 venster=(1920, 240) pos=(320, 480) held=res://systemen/held.gd
+HOL zaad 1795859227
+HOL balk uit
+HOL grond zacht
+HOL gloop ring aan na 0.2 s (goud 1043)
+HOL eerste koop mogelijk na 2400 s speeltijd (goud 1043)
+HOL muisvlak passthrough, lucht vrij op x=-1
+HOL kroniek 2.1 (wacht 0.0): Gerda slew a dragon. Says Gerda.
+HOL held binnen: Gerda
+HOL zicht 2.2 1
+HOL leven stofje t=7.6 x=88 y=26
+HOL kroniek 9.6 (wacht 0.0): Joost says this is a quick one.
+HOL held binnen: Joost
+HOL meting t=10 beelden=100 helden=2 hol_vast=1
+HOL leven mot t=18.5 x=88 y=26
+HOL kroniek zelfde held vervangen: Gerda slew a dragon. Says Gerda.
+HOL kroniek 19.0 (wacht 0.0): Gloop ate Gerda, saved the top hat. +13
+HOL uitleg duw stap 2
+HOL meting t=20 beelden=118 helden=1 hol_vast=1
+HOL hol-niveau 11 (faam 69, t 26.5)
+HOL reus klaar: niveau 11 (t 26.5)
+HOL reeks 2 (+0, t 26.5)
+HOL kroniek zelfde held vervangen: Joost says this is a quick one.
+HOL kroniek 26.5 (wacht 0.0): Gloop ate Joost. Burp. +13
+HOL zicht 26.5 0
+HOL bordje wip niveau 11
+HOL meting t=30 beelden=132 helden=0 hol_vast=2
+HOL leven stofje t=32.0 x=88 y=26
+HOL kroniek 32.5 (wacht 0.0): Grand Mage Oom floats in. Huge.
+HOL reus binnen: Grand Mage Oom (niveau 11, t 32.5)
+HOL held binnen: Grand Mage Oom
+HOL zicht 32.6 1
+HOL meting t=40 beelden=100 helden=1 hol_vast=2
+HOL leven goudstof t=48.1 x=228 y=30
+HOL meting t=50 beelden=101 helden=1 hol_vast=2
+HOL droogte (t 60.0)
+HOL meting t=60 beelden=101 helden=1 hol_vast=2
+HOL leven vleermuis t=61.0 x=104 y=28
+HOL reus gevangen: Grand Mage Oom +28 (t 65.6)
+HOL reeks 3 (+1, t 65.6)
+HOL kroniek 65.6 (wacht 0.0): Oom fell. His crown stays here. +28
+HOL zicht 65.6 0
+HOL kroniek 69.2 (wacht 0.0): Siem climbs into your hole.
+HOL held binnen: Siem
+HOL zicht 69.3 1
+HOL meting t=70 beelden=137 helden=1 hol_vast=2
+HOL kroniek 75.8 (wacht 0.0): Femke read about you in a tavern.
+HOL held binnen: Femke
+HOL leven mot t=76.9 x=88 y=26
+HOL reeks 4 (+2, t 77.7)
+HOL kroniek zelfde held vervangen: Siem climbs into your hole.
+HOL kroniek 77.7 (wacht 0.0): Siem checked the floor. Too late. +15
+HOL put-hoed 1 naar de toren (hoeden nu 70, t 77.7)
+HOL meting t=80 beelden=129 helden=1 hol_vast=4
+HOL reeks 5 (+3, t 84.4)
+HOL kroniek zelfde held vervangen: Femke read about you in a tavern.
+HOL kroniek 84.4 (wacht 0.0): Femke took the short way down. +16
+HOL put-hoed 9 naar de toren (hoeden nu 71, t 84.4)
+HOL zicht 84.5 0
+HOL meting t=90 beelden=130 helden=0 hol_vast=6
+HOL leven stofje t=90.9 x=88 y=26
+HOL meting t=100 beelden=101 helden=0 hol_vast=6
+HOL leven mot t=102.2 x=88 y=26
+HOL kroniek 105.6 (wacht 0.0): Henk is here for your gold.
+HOL held binnen: Henk
+HOL zicht 105.7 1
+HOL meting t=110 beelden=101 helden=1 hol_vast=6
+HOL reeks 6 (+4, t 114.1)
+HOL kroniek zelfde held vervangen: Henk is here for your gold.
+HOL kroniek 114.1 (wacht 0.0): Henk stays forever. +17
+HOL put-hoed 0 naar de toren (hoeden nu 72, t 114.1)
+HOL zicht 114.2 0
+HOL meting t=120 beelden=130 helden=0 hol_vast=9
+HOL leven stofje t=121.6 x=88 y=26
+HOL einde na 125 s, fps=10, goud=1145, terugkomers=0

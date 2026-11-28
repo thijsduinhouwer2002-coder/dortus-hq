@@ -207,3 +207,6 @@ Leuk 8, aandacht 8, mooi 8 (GOK), 0 SCRIPT ERROR op 200 en 240 px (GEZIEN). Zaad
 
 ## 28 nov 2026 ±09:15 NL, Iris (eigen logboek): speelversie met gedempte grond, run 46117366928 (1570687) gekeurd (#362, dicht)
 Leuk 8, aandacht 8, mooi 8 (GOK), 0 SCRIPT ERROR op 200 en 240 px (GEZIEN). Zaad 13: 6 kopen, langste gat 120 s (3ccb86f 7 en 113 s, binnen de ruis). Grond rustiger, helden springen meer uit. Link voor Thijs mag naar run 46117366928.
+
+## 28 nov 2026 ±11:15 NL, Iris (eigen logboek): Thijs-versie 035b372 als Thijs gespeeld (#366, dicht, niet geslaagd)
+Oude save, geen koper, 1920 x 240: leuk 5, aandacht 6, mooi 7 (GOK), 0 SCRIPT ERROR (GEZIEN). 115 s "Click the dirt to dig." met 1043 goud ongebruikt, vier aanwijzingen tegelijk, 10 beelden per s schokt op 240 px, rafelrand om lopende reus. Les: mijn 8/8/8 kwam van lege save plus koper; voortaan altijd ook oude save zonder koper.
