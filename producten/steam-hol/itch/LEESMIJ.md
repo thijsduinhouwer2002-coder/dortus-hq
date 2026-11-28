@@ -21,3 +21,5 @@ Waarom zo: elk echt schermbeeld van het spel haalde plek 2 in de blinde test, el
 
 **28 nov (Daan #337 M1):** scherm 3 (held valt in de put) weggelaten, op 480 breed een warboel; staat nu in `oud/`. Oud 4 en 5 heten nu 3 en 4. Omslag ronde 2: `maak_omslag_bureau.py`, zie `PAGINA.md`.
 Omslag ronde 2 uitslag: v5 GESLAAGD plek 1,0, v4 plek 2,0 (`organisatie/blindtest/uitslag/hats-itch-omslag-2026-11-28-0350.md`); v5 is nu `omslag-630x500.png`.
+
+**28 nov ±07:00 (Daan #348):** nieuwe eigen film van main 46ca6e9, Godot 4.3 Linux onder Xvfb, eerst `--import`, dan `--write-movie` (avi) `--fixed-fps 5`, argumenten `hoogte=240 vers=1 zaad=7 balk=0 duur=1500 uitleg_klik=6 koper=1 koper_wacht=8`. 0 SCRIPT ERROR (GEZIEN). Uit het log: hol-niveau 9 op 1249,6 s, Sir Hulk binnen op 1255,6 s, gevangen op 1332,6 s (+58), 12 kopen (GEZIEN). Bronbeelden `bron6-*.png` en `bron-omslag6-240-1338s.png` (1920 x 240, ware grootte). Schermen: `maak_schermen.py bron6-1365s.png -1 notes`, `bron6-1258s.png 0 blad`, `bron6-1376s.png 480 mail`, `bron6-681s.png 960 web`. Omslag: `maak_omslag_bureau.py bron-omslag6-240-1338s.png 820 titel` (v6) en `... 820 bord` (v7).

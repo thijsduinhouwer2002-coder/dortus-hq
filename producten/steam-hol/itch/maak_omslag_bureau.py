@@ -3,7 +3,10 @@ Waarom: omslag v1 tot v3 (spelbeeld met 3D-logo) NIET GESLAAGD, de rechter zag "
 pc-maatje is" en "cheap mobile-game". Echte bureaubladschermen halen wel plek 2. Dus hier: een werkvenster,
 het echte hol eronder en een taakbalk, met een vlakke titel in plaats van het 3D-logo.
 Het spelbeeld is een beeld uit een eigen film van het spel (hoogte=160); niets aan de figuren nagetekend.
-Gebruik: python3 maak_omslag_bureau.py <spelbeeld.png> <x0> <notes|titel> <uit.png>
+Gebruik: python3 maak_omslag_bureau.py <spelbeeld.png> <x0> <notes|titel|bord> <uit.png>
+v6 en v7 (28 nov, Daan #348 M1): bron op hoogte=240 uit main 46ca6e9 (na de fijne korrel ca6f928 en de knoppen
+52507cc). Het hol staat dan op ware maat op de omslag (240 px hoog, 630 breed), niet meer 1,5x opgeschaald.
+"bord" (v7, Daan K1): dezelfde titel met de gouden rand van het houten bord uit het spel.
 """
 import sys, random
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -11,7 +14,6 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 BRON, X0, SOORT, UIT = sys.argv[1], int(sys.argv[2]), sys.argv[3], sys.argv[4]
 S = 2                       # we tekenen op 2x en verkleinen aan het eind
 W, H = 630 * S, 500 * S
-GB = 420                    # breedte uit het spelbeeld (wordt 1,5x op de omslag)
 TB = 40 * S                 # taakbalk
 F_I = "/usr/share/fonts/opentype/inter/Inter-%s.otf"
 F_P = "/usr/share/fonts/truetype/google-fonts/Poppins-%s.ttf"
@@ -23,8 +25,15 @@ ICOON = __file__.rsplit("/", 1)[0] + "/../../../ontwerp/steam/icoon/icoon-tegel-
 def mix(a, b, t):
     return tuple(int(a[i] + (b[i] - a[i]) * t) for i in range(3))
 
-spel = Image.open(BRON).convert("RGB").crop((X0, 0, X0 + GB, 160))
-spel = spel.resize((GB * 3, 160 * 3), Image.NEAREST).resize((W, int(160 * 3 * W / (GB * 3))), Image.NEAREST)
+bron = Image.open(BRON).convert("RGB")
+BH = bron.height                       # 160 (v1 tot v5) of 240 (v6 en later)
+F = 240 / BH                           # op de omslag is het hol 240 px hoog
+GB = round(630 / F)                    # 420 bij 160, 630 bij 240 (ware maat)
+spel = bron.crop((X0, 0, X0 + GB, BH))
+if BH == 240:
+    spel = spel.resize((W, BH * S), Image.NEAREST)   # precies 2x, aan het eind weer /2: ware maat, geen zachte rand
+else:
+    spel = spel.resize((GB * 3, BH * 3), Image.NEAREST).resize((W, int(BH * 3 * W / (GB * 3))), Image.NEAREST)
 SH = spel.height
 TOP = H - TB - SH
 
@@ -86,9 +95,23 @@ else:
         d.text((740, y + 36), o, font=fi("Regular", 24), fill=(96, 100, 112))
     t1 = "Hats of the Fallen"
     f1 = fp("Bold", 96)
-    for dx, dy in [(-5, 0), (5, 0), (0, -5), (0, 7), (-4, -4), (4, 4), (4, -4), (-4, 4), (0, 9)]:
-        d.text((60 + dx, 50 + dy), t1, font=f1, fill=(34, 28, 50))
-    d.text((60, 50), t1, font=f1, fill=(255, 246, 214))
+    if SOORT == "bord":
+        # gouden rand zoals het houten bord in het spel: donkere buitenlijn, gouden binnenlijn, room vlak
+        for dx, dy in [(-7, 0), (7, 0), (0, -7), (0, 10), (-6, -6), (6, 6), (6, -6), (-6, 6), (0, 12), (-5, 10), (5, 10)]:
+            d.text((60 + dx, 50 + dy), t1, font=f1, fill=(46, 30, 22))
+        for dx, dy in [(-3, 0), (3, 0), (0, -3), (0, 3), (-2, -2), (2, 2), (2, -2), (-2, 2)]:
+            d.text((60 + dx, 50 + dy), t1, font=f1, fill=(232, 168, 52))
+        lg = Image.new("L", (W, H), 0)
+        ImageDraw.Draw(lg).text((60, 50), t1, font=f1, fill=255)
+        verloop = Image.new("RGB", (W, H))
+        dv = ImageDraw.Draw(verloop)
+        for y in range(40, 190):
+            dv.line((0, y, W, y), fill=mix((255, 248, 222), (250, 214, 130), (y - 40) / 150))
+        img.paste(verloop, (0, 0), lg)
+    else:
+        for dx, dy in [(-5, 0), (5, 0), (0, -5), (0, 7), (-4, -4), (4, 4), (4, -4), (-4, 4), (0, 9)]:
+            d.text((60 + dx, 50 + dy), t1, font=f1, fill=(34, 28, 50))
+        d.text((60, 50), t1, font=f1, fill=(255, 246, 214))
     pill = "Lives above your taskbar"
     f2 = fi("SemiBold", 34)
     pw = d.textlength(pill, font=f2)

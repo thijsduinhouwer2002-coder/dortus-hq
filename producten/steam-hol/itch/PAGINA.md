@@ -24,8 +24,8 @@ Lat: Rusty's Retirement en Spirit City: Lofi Sessions (`organisatie/lat/hats.md`
 | Custom noun | leeg |
 | Community | Comments aan (vragen van spelers komen dan bij ons binnen; triage via skill `triage`) |
 | Visibility | **Draft** tot het ja van Thijs |
-| Cover image | `omslag-630x500.png` (= v5, blinde test GESLAAGD plek 1,0, keuring Daan nodig) |
-| Screenshots | `schermen/1-*.png` tot en met `schermen/4-*.png`, in die volgorde (vier, scherm 3 met de vallende held is weg: op 480 breed een warboel, Daan #337 M1) |
+| Cover image | `omslag-630x500.png` (= v5, blinde test GESLAAGD plek 1,0). Opvolger v6 of v7 (hol op ware maat, Daan #348 M1) in de blinde test; de geslaagde wordt de omslag na een ja van Daan |
+| Screenshots | `schermen/1-*.png` tot en met `schermen/4-*.png`, in die volgorde (ronde 3, 28 nov: één overzicht en drie grote spelmomenten, Daan #348) |
 | Trailer | leeg (er is nog geen trailer) |
 
 ## Description (CONCEPT, Engels, ±170 woorden)
@@ -48,10 +48,12 @@ Regels die deze tekst volgt: elke zin klopt met het spel op main van 27 nov (reu
 
 | Nr | Bestand | Wat je ziet | Bron |
 |---|---|---|---|
-| 1 | `schermen/1-bureaublad-55min.png` | het hol onder een notitievenster op een bureaublad, Bard Colossus met kroon in de gang, robijnen om Gloop | Iris, main b4d960c, minuut 54, blinde test GESLAAGD (plek 2, `organisatie/blindtest/uitslag/hats-speelscherm-60min-b4d960c-2026-11-27-2049.md`) |
-| 2 | `schermen/2-bureaublad-20min.png` | hetzelfde bureaublad na 20 min, Royal Gloop op de troon | Iris, f0c2a6a, blinde test GESLAAGD (plek 2, `.../hats-speelscherm-20min-f0c2a6a-2026-11-27-1052.md`) |
-| 3 | `schermen/3-reus-in-de-gang.png` | 16:9, spreadsheet erboven: reus Sir Hulk met kroon loopt de gang in, het bordje "9" van het hol-niveau, ladder en fakkels (minuut 22) | idem, 1330 s |
-| 4 | `schermen/4-gloop-en-het-bord.png` | 16:9, mail erboven: Gloop op de troon met hoedenberg en schat, het bord: "Next: Ruby Gloop, 134 gold to go" en "Sir Hulk ducks in. He does not fit." (minuut 22) | idem, 1305 s |
+| 1 | `schermen/1-op-je-scherm.png` | "zo zit het op je scherm": een heel bureaublad van 1920 x 1080 met een notitievenster, onderaan de strook op ware maat (240 px), een val vangt een held: "+26 x2", het bord "Tibbe II took the short way down. +26" | eigen film main 46ca6e9, `hoogte=240`, 1365 s |
+| 2 | `schermen/2-reus-met-kroon.png` | 16:9, spreadsheet erboven, spel 2x: reus Sir Hulk met kroon komt de ladder af, bordje "9" van het hol-niveau, kamers met fijne korrel | idem, 1258 s |
+| 3 | `schermen/3-gloop-en-een-held.png` | 16:9, mail erboven, spel 2x: een held met een zweetdruppel loopt de gang in naar Gloop met kroon op de troon, hoedenberg en schat | idem, 1376 s |
+| 4 | `schermen/4-kopen-met-undo.png` | 16:9, recepten erboven, spel 2x: Gloop op de troon en het kaartje "Trick Lid, Bought." met Undo +70 | idem, 681 s |
+
+Ronde 3 (28 nov, Daan #348 M2, M3, K2): de oude vier (twee bijna gelijke bureaubladen en twee schermen van vóór de fijne korrel ca6f928) staan in `oud/v5-schermen/`. Alle vier nu uit één eigen film van main 46ca6e9 (na ca6f928 en 52507cc), op `hoogte=240`: geen blokjes van 5 x 5 meer, scherm 2 tot 4 elke pixel precies 2x (NEAREST). Het echte icoon staat in elke taakbalk.
 
 ## Omslag
 
@@ -65,3 +67,9 @@ v1 (hol 1,75x), v2 (ware grootte, groot logo) en v3 (1,25x): alle drie **NIET GE
 - `omslag-v4-630x500.png`: de titel staat als kop in een Notes-venster ("A tiny dungeon above your taskbar.", afvinklijst met "check on Gloop").
 - `omslag-v5-630x500.png`: titel vlak in de lucht met het label "Lives above your taskbar", een mailvenster rechts.
 **Uitslag (Gemini flash-lite, GEZIEN, `organisatie/blindtest/uitslag/hats-itch-omslag-2026-11-28-0350.md`): v5 GESLAAGD plek 1,0 (beide rondes eerste keus, vóór Rusty's Retirement), v4 GESLAAGD plek 2,0.** Het eerste beeld van Hats ooit op plek 1. Reden letterlijk: "It explicitly shows it lives above your taskbar next to real windows". Wens van de rechter: titel iets eigener en verzorgder. v5 is nu `omslag-630x500.png` (oude v1 heet `omslag-v1-630x500.png`). Gaat naar buiten na ja van Daan en het ja van Thijs op het spel.
+
+### Ronde 3 omslag (28 nov, Sanne, Daan #348 M1 en K1)
+Zelfde opbouw, titel en venster als v5, maar het hol komt uit een nieuwe eigen film van main 46ca6e9 (na de fijne korrel ca6f928 en de knoppen 52507cc) op `hoogte=240`, dus op ware maat: `bron-omslag6-240-1338s.png`, x 820 tot 1450 (hoedenberg, Gloop met kroon op de troon, schat), niet meer 1,5x opgeschaald.
+- `omslag-v6-630x500.png`: alleen het nieuwe hol.
+- `omslag-v7-630x500.png`: ook de titel met de gouden rand van het houten bord uit het spel (K1), vlak, geen 3D.
+Blinde test: set `hats-itch-omslag` ronde 3. Uitslag volgt in `organisatie/blindtest/uitslag/`.

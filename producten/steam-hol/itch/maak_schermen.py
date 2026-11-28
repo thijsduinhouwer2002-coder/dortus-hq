@@ -4,13 +4,23 @@ Een hoek van een bureaublad, zoals op een scherm met schaal 200%: bovenin een st
 Het spelbeeld is een beeld uit een eigen film van het spel (hoogte=160, 1920 breed); we nemen er 960 px
 van en verdubbelen elke pixel (NEAREST, geen Lanczos), dus scherp en zonder verzonnen rand.
 Venster en taakbalk tekenen we direct op 2x, zodat de letters scherp zijn.
-Gebruik: python3 maak_schermen.py <spelbeeld.png> <x0> <venster: blad|mail|web> <uit.png>
+Gebruik: python3 maak_schermen.py <spelbeeld.png> <x0> <venster: blad|mail|web|notes> <uit.png>
+28 nov (Daan #348 M2, M3, K2): bron nu op hoogte=240 (main 46ca6e9, fijne korrel). 960 x 240 uit de film, elke
+pixel 2x, dus het spel is 480 hoog: een groot spelmoment. x0 = -1: de hele strook op ware maat (1920 x 240),
+zoals hij op een scherm van 1920 x 1080 staat ("zo zit het op je scherm"). Het echte icoon staat altijd in de taakbalk.
 """
 import sys, math, random
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 BRON, X0, VENSTER, UIT = sys.argv[1], int(sys.argv[2]), sys.argv[3], sys.argv[4]
-W, H, TB, SH = 1920, 1080, 96, 320
+W, H, TB = 1920, 1080, 96
+BRONBEELD = Image.open(BRON).convert("RGB")
+BH = BRONBEELD.height
+HEEL = X0 < 0
+SH = BH if HEEL else BH * 2
+if HEEL:
+    TB = 48            # taakbalk op 100%, net als de strook
+ICOON = __file__.rsplit("/", 1)[0] + "/../../../ontwerp/steam/icoon/icoon-tegel-256.png" if "/" in __file__ else "../../../ontwerp/steam/icoon/icoon-tegel-256.png"
 F = "/usr/share/fonts/opentype/inter/Inter-%s.otf"
 f_r = lambda s: ImageFont.truetype(F % "Regular", s)
 f_m = lambda s: ImageFont.truetype(F % "Medium", s)
@@ -51,7 +61,7 @@ img.paste((30, 40, 60), (0, 0), sch.filter(ImageFilter.GaussianBlur(22)))
 d.rounded_rectangle((wx0, wy0, wx1, wy1), 16, fill=(250, 250, 252))
 d.rounded_rectangle((wx0, wy0, wx1, wy0 + 80), 16, fill=(234, 236, 241))
 d.rectangle((wx0, wy0 + 60, wx1, wy0 + 80), fill=(234, 236, 241))
-titel = {"blad": "Budget 2027.xlsx", "mail": "Inbox (3)", "web": "Recipes: easy pasta"}[VENSTER]
+titel = {"blad": "Budget 2027.xlsx", "mail": "Inbox (3)", "web": "Recipes: easy pasta", "notes": "Notes.txt"}[VENSTER]
 d.text((wx0 + 76 if links else wx0 + 36, wy0 + 24), titel, font=f_r(30), fill=(40, 44, 56))
 bx = wx1 - 60 if wx1 < W else W - 60
 for i, s in enumerate(["x", "o", "-"]):
@@ -90,6 +100,15 @@ elif VENSTER == "mail":
         d.text((wx0 + 76, y + 50), onderwerp, font=f_r(28), fill=(96, 100, 112))
         d.text((W - 220, y + 10), t, font=f_r(26), fill=(120, 124, 136))
         d.line((wx0 + 36, y + 94, W, y + 94), fill=(228, 230, 236), width=2)
+elif VENSTER == "notes":
+    d.text((wx0 + 120, cy0 + 60), "Monday", font=f_m(56), fill=(30, 34, 46))
+    for i, (klaar, t) in enumerate([(True, "answer emails"), (True, "call the dentist"), (False, "finish the report"), (False, "check on Gloop")]):
+        y = cy0 + 170 + i * 70
+        d.rounded_rectangle((wx0 + 124, y + 4, wx0 + 162, y + 42), 7, outline=(120, 124, 140), width=3)
+        if klaar:
+            d.line((wx0 + 132, y + 24, wx0 + 141, y + 34), fill=(70, 150, 90), width=5)
+            d.line((wx0 + 141, y + 34, wx0 + 156, y + 13), fill=(70, 150, 90), width=5)
+        d.text((wx0 + 186, y), t, font=f_r(36), fill=(120, 124, 140) if klaar else (40, 44, 56))
 else:
     d.rounded_rectangle((wx0 + 76, cy0 + 16, wx0 + 1100, cy0 + 72), 28, fill=(238, 240, 245))
     d.text((wx0 + 110, cy0 + 28), "recipes.example/easy-pasta", font=f_r(26), fill=(90, 94, 106))
@@ -98,18 +117,26 @@ else:
         d.text((wx0 + 120, cy0 + 200 + i * 54), regel, font=f_r(30), fill=(70, 74, 86))
 
 # het echte spelbeeld: 960 x 160 uit de film, elke pixel 2x (NEAREST)
-spel = Image.open(BRON).convert("RGB").crop((X0, 0, X0 + 960, 160)).resize((1920, SH), Image.NEAREST)
+if HEEL:
+    spel = BRONBEELD                                         # ware maat
+else:
+    spel = BRONBEELD.crop((X0, 0, X0 + 960, BH)).resize((1920, SH), Image.NEAREST)
 img.paste(spel, (0, TOP))
-# taakbalk op 2x
+# taakbalk (2x, of 1x bij de hele strook), altijd met het echte icoon van het spel
+k = TB / 96
 d.rectangle((0, H - TB, W, H), fill=(32, 36, 46))
 iconen = [(70, 140, 230), (240, 196, 70), (100, 190, 120), (226, 100, 90), (200, 202, 210)]
-start = 560 if X0 == 0 else (-160 if X0 >= 900 else 200)
+stap, maat, boven = int(96 * k), int(52 * k), int(22 * k)
+start = W // 2 - 3 * stap
 for i, c in enumerate(iconen):
-    x = start + i * 96
-    if -60 < x < W:
-        d.rounded_rectangle((x, H - TB + 22, x + 52, H - TB + 74), 12, fill=c)
-if X0 >= 900:
-    d.text((W - 190, H - TB + 14), "11:21 AM", font=f_r(26), fill=(230, 232, 238))
-    d.text((W - 190, H - TB + 50), "Sat 28 Nov", font=f_r(24), fill=(190, 194, 204))
+    x = start + i * stap
+    d.rounded_rectangle((x, H - TB + boven, x + maat, H - TB + boven + maat), int(12 * k), fill=c)
+gx = start + len(iconen) * stap
+ico = Image.open(ICOON).convert("RGBA").resize((maat, maat), Image.LANCZOS)
+img.paste(ico, (gx, H - TB + boven), ico)
+d = ImageDraw.Draw(img)
+d.line((gx + maat // 4, H - int(8 * k), gx + maat * 3 // 4, H - int(8 * k)), fill=(200, 210, 230), width=max(2, int(4 * k)))
+d.text((W - int(190 * k), H - TB + int(14 * k)), "11:21 AM", font=f_r(int(26 * k)), fill=(230, 232, 238))
+d.text((W - int(190 * k), H - TB + int(50 * k)), "Sat 28 Nov", font=f_r(int(24 * k)), fill=(190, 194, 204))
 img.save(UIT, optimize=True)
 print(UIT, img.size)
