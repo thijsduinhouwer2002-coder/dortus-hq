@@ -40,3 +40,8 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 27 nov 2026 ±23:40 NL, van Beeldmaker: klaar om te plakken, held-knie-r3 (#320), vervangt r2
 - Superhive hoofdbeeld (in plaats van r2/mens-r6): `ontwerp/pro-hoofdbeeld-held/beelden/held-knie-r3-2400x1200.jpg`. BlenderNation: `held-knie-r3-blendernation-1456x672.jpg`. Daan ja 8 (#322), blinde test GESLAAGD Gemini 1,5 (`organisatie/blindtest/uitslag/click-joints-pro-superhive-held-r3-2026-11-27-2156.md`).
 - 28/11 Regisseur, klaar om te plakken (#135): 2026-12-01-yt-short-cuts-v8b.mp4
+
+## 28 nov 2026 12:25 NL, van Regisseur: stem van Max nodig voor zoekvideo Click Cuts (#332)
+- Enige rem: `commercie/filmpjes/regisseur-32/cuts-lang-elevenlabs.mp3` ontbreekt. Tekst: `commercie/filmpjes/regisseur-32/voorlees.md` (24 zinnen, letterlijk, volgorde aanhouden), ElevenLabs "Max - Witty Commercial Actor", één opname, rustig uitleggend, ±0,4 s tussen zinnen. Vraag staat sinds 03:00 in #317.
+- Zet de mp3 op main: workflow regisseur-32 draait dan vanzelf (proef in Actions groen: 120 s, 30 bps gelijkmatig, geluid GOED, 24/24 zinnen synchroon, GEZIEN). Daarna keuring Daan en klaar om te plakken.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
