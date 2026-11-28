@@ -29,7 +29,9 @@ HOOGTE = 520.0
 UI = float(os.environ.get("CC_UI", "1.25"))
 PANEEL = int(os.environ.get("CC_PANEEL", "440"))
 FPS = 30
-film = {"fps": FPS, "delen": {}, "kliks": [], "metingen": {}, "vangnet": [], "echt": True}
+film = {"fps": FPS, "delen": {}, "kliks": [], "metingen": {}, "vangnet": [], "echt": True, "laat": []}
+# Stem eerst (tijden_lang.py): elke stap wacht op zijn zin, zodat beeld en stem zonder knippen gelijk lopen.
+TIJDEN = json.load(open(os.environ["CC_TIJDEN"])) if os.environ.get("CC_TIJDEN") else None
 D = xdisplay.Display()
 MUIS = {"x": 300, "y": 1100}
 K = {"n": 0, "rec": False, "haken": [], "ff": None, "sct": None, "muis": None}
@@ -182,6 +184,36 @@ def sleep_middel(dx, dy, duur):
     yield glij(MUIS["x"] + dx, MUIS["y"] + dy, duur, boog=0.25)
     xknop(2, False)
     yield 1.0 / FPS
+
+
+def wacht(doel, draai=False, label="", vaart=105):
+    """Wacht tot filmtijd `doel`. Met draai: lange wachttijd vullen met rustig draaien (middelste knop, dan de hand
+    terug zonder knop, zoals iemand die verder draait), alleen als de muis boven de weergave staat."""
+    if tijd() > doel + 0.4:
+        film["laat"].append([label, round(tijd() - doel, 2)])
+    while tijd() < doel - 1.0 / FPS:
+        rest = doel - tijd()
+        if draai and rest > 1.7:
+            w = rect("WINDOW")
+            z = rect("UI")
+            rechts = min(w[0] + w[2], z[0]) - 140
+            if not (w[0] + 140 < MUIS["x"] < rechts - 220 and w[1] + 120 < MUIS["y"] < w[1] + w[3] - 120):
+                yield from naar(w[0] + int(w[2] * 0.42), w[1] + int(w[3] * 0.55), 0.4)
+                continue
+            d = min(2.3, rest - 0.75)
+            x0, y0 = MUIS["x"], MUIS["y"]
+            yield from sleep_middel(int(vaart * d), int(6 * math.sin(tijd())), d)
+            yield from naar(x0, y0, 0.35, boog=0.4)
+            yield 0.12
+        else:
+            yield rest
+            break
+
+
+def op(zin, na=0.0, draai=False, vaart=105):
+    """Wacht tot `na` s na het begin van zin `zin` (alleen met CC_TIJDEN)."""
+    if TIJDEN:
+        yield from wacht(TIJDEN["zinnen"][zin - 1]["begin"] + na, draai, f"zin {zin}+{na}", vaart)
 
 
 # ---------------------------------------------------------------- scherm en scène
@@ -420,6 +452,18 @@ def knop(tekst, vak=None, niet=None, laatste=False, scrol=0):
         teken()
         q = ocr(tekst, vak=vak, niet=niet, laatste=laatste)
         n += 2
+    # gevonden maar tegen de onderrand (of bovenrand) van het paneel: nog wat verder scrollen, anders mist de klik
+    # (r2 28 nov: Exploded view stond half onder de rand, klik viel ernaast)
+    for _ in range(4):
+        z = rect("UI")
+        if q is None or not scrol or (z[1] + 60 < q[1] < z[1] + z[3] - 90):
+            break
+        if abs(MUIS["x"] - (z[0] + z[2] // 2)) > 60 or not (z[1] < MUIS["y"] < z[1] + z[3]):
+            yield from naar(z[0] + z[2] // 2, z[1] + int(z[3] * 0.5), 0.3)
+        yield from wiel(q[1] < z[1] + 60, 2)
+        yield 0.15
+        teken()
+        q = ocr(tekst, vak=vak, niet=niet, laatste=laatste)
     return q
 
 
@@ -509,10 +553,12 @@ def verloop():
     yield 0.6
     yield from sleep_middel(-160, 0, 1.8)
     yield 0.4
+    yield from op(4, -0.8, draai=True)
     # HOOFDSTUK 2: N, printer, model, Split to fit
     deel("h2")
     yield from naar(midden_x + 80, w[1] + int(w[3] * 0.45), 0.4)
     yield 0.2
+    yield from op(4, 0.45)
     xtoets("n")
     deel("toets N")
     yield 0.7
@@ -535,6 +581,7 @@ def verloop():
             yield 0.2
     yield 0.4
     inst = bpy.context.scene.split_joints
+    yield from op(5, 0.7)
     q = yield from druk("Bambu Lab A1 mini")
     if q:
         yield 0.4
@@ -551,12 +598,14 @@ def verloop():
         xtoets("Escape")
         inst.printer = "A1"
     yield 0.6
+    yield from op(6, 0.3)
     yield from kies(paard, 10, 10)
     deel("paard gekozen")
     yield 0.8
     z = rect("UI")
     yield from naar(z[0] + z[2] // 2 - 40, z[1] + int(z[3] * 0.18), 0.4)   # de muis wijst naar "Horse: ... faces"
     yield 1.0
+    yield from op(7, 0.15)
     q = yield from druk("Split to fit")
     t0 = time.time()
     yield 1.0 / FPS
@@ -574,14 +623,23 @@ def verloop():
     film["metingen"]["uitslag"] = inst.uitslag
     deel("gesplitst")
     yield 0.4
-    if q:
-        yield from naar(q[0] - 30, q[1] + int(52 * UI), 0.4)   # langs de uitslag
-    yield 1.4
-    yield from naar(midden_x, w[1] + int(w[3] * 0.55), 0.4)
-    yield kader(st, 0.6)
-    yield from sleep_middel(220, 0, 2.2)
-    yield 0.3
-    yield from sleep_middel(180, -20, 2.0)
+    if TIJDEN:   # zin 8 (wat het deed) bij het paard in delen, zin 9 (het uitslagvak) bij het vak
+        yield from naar(midden_x, w[1] + int(w[3] * 0.55), 0.4)
+        yield kader(st, 0.6)
+        yield from sleep_middel(220, 0, 2.2)
+        yield from op(9, -0.1, draai=True)
+        if q:
+            yield from naar(q[0] - 30, q[1] + int(52 * UI), 0.4)   # langs de uitslag
+        yield from op(10, -0.6)
+    else:
+        if q:
+            yield from naar(q[0] - 30, q[1] + int(52 * UI), 0.4)   # langs de uitslag
+        yield 1.4
+        yield from naar(midden_x, w[1] + int(w[3] * 0.55), 0.4)
+        yield kader(st, 0.6)
+        yield from sleep_middel(220, 0, 2.2)
+        yield 0.3
+        yield from sleep_middel(180, -20, 2.0)
     deel("h2 eind")
     # HOOFDSTUK 3: Draw cut op het bovenste stuk (hoofd en hals)
     deel("h3")
@@ -593,6 +651,7 @@ def verloop():
     yield from naar(midden_x - 100, w[1] + int(w[3] * 0.6), 0.35)
     yield kader([kop], 0.9, factor=1.25, rot=zij)
     yield 0.3
+    yield from op(11, 0.0, draai=True)
     yield from kies(kop)
     yield 0.4
     q = yield from druk("Draw cut")
@@ -626,11 +685,13 @@ def verloop():
     snede = [o for o in bpy.context.scene.objects if o.get("sj_vrij") == kop.name]
     film["metingen"]["snedevlak"] = len(snede)
     yield 1.6
+    yield from op(12, 2.3)
     q = yield from druk("Flip side")
     yield 1.3
     q = yield from druk("Flip side")
     yield 0.9
     n_voor = len(stukken())
+    yield from op(13, 0.2)
     q = yield from druk("Cut piece")
     yield 1.0 / FPS
     film["metingen"]["draw_voor_na"] = [n_voor, len(stukken())]
@@ -640,9 +701,11 @@ def verloop():
     yield from sleep_middel(240, -40, 2.0)
     yield 0.3
     yield from sleep_middel(-120, 40, 1.6)
+    yield from op(15, -0.2, draai=True)
     deel("h3 eind")
     # HOOFDSTUK 4: Fit test
     deel("h4")
+    yield from op(15, 0.5)
     q = yield from druk("More settings", laatste=True)
     yield 0.4
     if not inst.meer:
@@ -665,17 +728,20 @@ def verloop():
     film["metingen"]["proef"] = len(proef)
     yield 0.3
     yield from naar(midden_x, w[1] + int(w[3] * 0.55), 0.35)
+    yield from op(16, -0.1)
     boven = Quaternion((0, 0, 1), math.radians(8)) @ Quaternion((1, 0, 0), math.radians(38))
-    yield kader(proef, 1.1, factor=1.7, rot=boven)
+    yield kader(proef, 1.1, factor=1.25 if TIJDEN else 1.7, rot=boven)
     deel("proef dichtbij")
     yield 1.8
-    yield from sleep_middel(120, 0, 1.6)
+    yield from sleep_middel(40 if TIJDEN else 120, 0, 1.6)
+    yield from op(18, 0.0, draai=True, vaart=22)
     q0 = yield from knop("Click the one that fits")
     if q0:
         z = rect("UI")
         q = ocr("0.20", vak=[z[0], q0[1] + 6, z[2], int(40 * UI)])
         if q:
             yield from naar(*q, 0.45)
+            yield from op(18, 2.6)
             yield 0.15
             klik()
             deel("knop 0.20")
@@ -684,19 +750,34 @@ def verloop():
     deel("h4 eind")
     # HOOFDSTUK 5: controleren en exporteren
     deel("h5")
+    if TIJDEN:   # zin 20 (de lijst) eerst bij de lijst, zin 21 Exploded view
+        yield from op(19, 0.8)
+        yield from op(20, -0.9, draai=True, vaart=22)
+        yield from op(20, -0.6)
+        # stap 4 in beeld scrollen (zoals een gebruiker), dan langs de lijst met groene stukken
+        q4 = yield from knop("Per piece", scrol=-30)
+        z = rect("UI")
+        if q4:
+            yield from naar(z[0] + z[2] // 2 - 40, min(q4[1] + int(36 * UI), z[1] + z[3] - 60), 0.45)
+        yield from op(21, 0.1)
     q = yield from druk("Exploded view", scrol=-24)
-    yield 1.0 / FPS
+    for _ in range(8):   # een echte klik komt pas een paar beelden later in de eigenschap aan
+        yield 1.0 / FPS
+        if inst.uit_elkaar:
+            break
     if not inst.uit_elkaar:
         film["vangnet"].append("exploded")
         inst.uit_elkaar = True
     yield 0.3
-    z = rect("UI")
-    yield from naar(z[0] + z[2] // 2, z[1] + int(z[3] * 0.62), 0.4)   # langs de lijst met groene stukken
-    yield 1.4
+    if not TIJDEN:
+        z = rect("UI")
+        yield from naar(z[0] + z[2] // 2, z[1] + int(z[3] * 0.62), 0.4)   # langs de lijst met groene stukken
+        yield 1.4
     yield from naar(midden_x, w[1] + int(w[3] * 0.55), 0.4)
     rot5 = Quaternion((0, 0, 1), math.radians(35)) @ Quaternion((1, 0, 0), math.radians(70))
     yield kader(stukken(), 0.8, factor=0.95, rot=rot5)
     yield from sleep_middel(-220, 0, 2.2)
+    yield from op(22, 0.3, draai=True)
     q = yield from druk("Export parts", scrol=40)
     yield 1.0 / FPS
     bestanden = [f for f in os.listdir(os.path.join(MAP, "click_cuts"))] if os.path.isdir(os.path.join(MAP, "click_cuts")) else []
@@ -706,11 +787,14 @@ def verloop():
     yield from naar(midden_x - 40, w[1] + int(w[3] * 0.5), 0.4)
     # HOOFDSTUK 6: eind, draaien om het paard in delen
     deel("h6")
-    yield from sleep_middel(260, 0, 2.6)
-    yield 0.2
-    yield from sleep_middel(220, 0, 2.4)
-    yield 0.2
-    yield from sleep_middel(200, 0, 2.4)
+    if TIJDEN:
+        yield from wacht(TIJDEN["lengte"] - 0.05, draai=True, label="eind")
+    else:
+        yield from sleep_middel(260, 0, 2.6)
+        yield 0.2
+        yield from sleep_middel(220, 0, 2.4)
+        yield 0.2
+        yield from sleep_middel(200, 0, 2.4)
     deel("eind")
     einde_opname()
     with open(os.path.join(MAP, "film.json"), "w") as f:

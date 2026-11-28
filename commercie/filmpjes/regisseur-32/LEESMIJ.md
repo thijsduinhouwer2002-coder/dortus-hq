@@ -9,9 +9,19 @@ Liggend 1920x1080, doel 1:30 tot 2:00, stem Max (ElevenLabs, via de hoofdchat). 
 - `voorlees.md`: 24 zinnen voor Max, met bron per zin. Wacht op de hoofdchat (`cuts-lang-elevenlabs.mp3`).
 - `thumb.py`: thumbnail uit een echt beeld van de opname, kop in Poppins ExtraBold (OFL).
 
-## Nog te doen (volgende run)
-1. Montage zodra de mp3 er is: beeld per hoofdstuk op de gemeten zinnen (stem.py/splits.py met STEM_MP3), grote ondertitels, muispijl uit muis.txt, zachte klik bij elke klik in film.json, geen andere geluiden. Controle: ffprobe 30 bps gelijkmatig, geluid_check GOED, synchroon.py binnen 0,3 s.
-2. Blinde test van de thumbnail (set `organisatie/blindtest/sets/click-cuts-zoek-split.json`).
+## Stem eerst, beeld volgt (run 28 nov ±02:30)
+De voorleestekst duurt langer dan de oude opname (69 s tegen ±1:55 met stem, GOK). Knippen of vertragen zou haperen of de stem van het beeld losmaken. Daarom loopt het nu andersom, in één doorlopende opname:
+1. `tijden_lang.py <stemmap>`: zinnen uit `voorlees.md`, per zin een wav (met `STEM_MP3=.../cuts-lang-elevenlabs.mp3` geknipt met `stem/splits.py`; zonder: Kokoro als proef, nooit voor keuring), vaste pauzes (0,45 s, 0,9 s voor een nieuw hoofdstuk). Uit `stem-lang.wav` en `tijden.json`.
+2. `cuts_lang.py` met `CC_TIJDEN=<stemmap>/tijden.json`: elke klik wacht op zijn zin (N bij "Press N", Split to fit bij "Now click Split to fit", Flip side bij "Click Flip side", 0.20 bij "click the one that goes in by hand", Exploded view bij zin 21, Export bij zin 22). Lange wachttijd vult de hand met rustig doordraaien (middelste knop, hand terug, verder draaien). Te laat dan 0,4 s staat in `film.json` onder `laat`.
+3. `monteer_lang.py <opnamemap> <stemmap> <uit.mp4>`: stem op t=0, echte muispijl uit muis.txt, grote ondertitels (Poppins ExtraBold) op de gemeten zinnen, geel hoofdstuklabel 2,8 s, zacht tikje bij elke echte klik, geen muziek of ondergrond. Schrijft ook `.srt` en `-hoofdstukken.txt`. `--controle <mp4> <stemmap>` laat whisper het begin van elke zin naluisteren (moet binnen 0,3 s). `--beeld` maakt één beeld.
+Blender eenmalig zonder het welkomstvenster: `blender -b --factory-startup --python-expr "import bpy; bpy.ops.wm.save_userpref()"`.
+
+Proef r3 (28 nov ±03:15, Kokoro am_michael als tijdelijke stem, NIET voor keuring, niet bewaard): 115,9 s, 3478 beelden op 30 bps, 0 afwijkende tijdstempels, geluid_check GOED (-18,2 dB, piek -1,3 dB), whisper-controle 24 van 24 zinnen binnen 0,3 s (grootste 0,09 s), 13 echte kliks, 15 STL-bestanden. Bijna gelijke beelden (mpdecimate) alleen bij het op gang komen en afremmen van de hand, hooguit 6 achter elkaar (0,2 s), niet midden in een beweging. Alles GEZIEN; strook `strook-proef-r3.jpg` (16 beelden).
+Bekende punten: (a) Exploded view: de echte klik valt op het vinkje maar de eigenschap verandert niet, dus het script zet hem 1 beeld later (vangnet, zelfde beeld); nog uitzoeken. (b) Export parts valt ±2 s na "Then click Export parts" (scrollen), zin 16 de proef ±1,4 s laat in beeld.
+
+## Nog te doen (volgende run, zodra `cuts-lang-elevenlabs.mp3` er is)
+1. `STEM_MP3=.../cuts-lang-elevenlabs.mp3 python3 tijden_lang.py <stem>`, dan `cuts_lang.py` met `CC_TIJDEN` (±15 min), dan `monteer_lang.py`, dan `--controle`, geluid_check, ffprobe, beelden zelf bekijken. Komt Max boven 2:00: `PAUZE=0.35 HOOFDSTUK_PAUZE=0.7`.
+2. Thumbnail is al GESLAAGD (`organisatie/blindtest/uitslag/click-cuts-zoek-split-2026-11-28-0150.md`, Gemini plek 2 en 2).
 3. Keuring Daan, dan `marketing/wachtrij/` met datum na Click Cuts 1.1 live, melding in #317.
 
 ## Titel en beschrijving (concept)
