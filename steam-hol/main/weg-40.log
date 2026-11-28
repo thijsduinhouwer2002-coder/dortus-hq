@@ -1,24 +1,24 @@
-HOL balk gestart, pid 6592, hoogte 120
-HOL weg geweest 25211 s (klok terug: false): goud voor 576, helden 100, erbij 472, hoeden 40
-HOL weg faam afgekapt 7 van 62 (hooguit 2 niveaus)
+HOL balk gestart, pid 9008, hoogte 120
+HOL weg geweest 25210 s (klok terug: false): goud voor 630, helden 100, erbij 448, hoeden 33
+HOL weg faam afgekapt 7 van 58 (hooguit 2 niveaus)
 HOL hol-niveau 4 (faam 12, t 0.0)
 HOL hol-niveau 5 (faam 12, t 0.0)
-HOL hoeden van de nacht 40 (vallen vanaf 1.0 s, toren nu 40)
-HOL berg zichtbaar 10 -> 21
-HOL kroniek 0.0 (wacht 0.0): 100 came, 62 fell, 40 hats. +472 gold.
+HOL hoeden van de nacht 33 (vallen vanaf 1.0 s, toren nu 40)
+HOL berg zichtbaar 10 -> 19
+HOL kroniek 0.0 (wacht 0.0): 100 came, 58 fell, 33 hats. +448 gold.
 HOL optocht wip, 1.2 poef 4 munt; helden [5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1048 goud, faam 12
+HOL opslag geladen: 0 terugkomers, 1078 goud, faam 12
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795824242
+HOL zaad 1795825869
 HOL balk aan
-HOL gloop ring aan na 0.1 s (goud 1048)
-HOL eerste koop mogelijk na 38 s speeltijd (goud 1048)
+HOL gloop ring aan na 0.1 s (goud 1078)
+HOL eerste koop mogelijk na 38 s speeltijd (goud 1078)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL held binnen: Wout
-HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Wout climbs into your hole.
-HOL leven mot t=6.5 x=72 y=26
+HOL held binnen: Tibbe
+HOL zicht 2.1 1
+HOL kroniek 2.5 (wacht 0.5): Tibbe says this is a quick one.
 HOL meting t=10 beelden=100 helden=1 hol_vast=12
-HOL einde na 12 s, fps=10, goud=1048, terugkomers=0
+HOL leven stofje t=11.6 x=72 y=26
+HOL einde na 12 s, fps=10, goud=1078, terugkomers=0
