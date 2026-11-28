@@ -254,7 +254,7 @@ def controle():
                 if n > lang:
                     beste, lang = j / 100, n
         return beste
-    uitslag, fout = [], 0
+    uitslag, fout, uitleg = [], 0, []
     for i, z in enumerate(tijden["zinnen"]):
         if i not in eerste or eerste[i][0] > 2:
             uitslag.append([z["nr"], None])
@@ -262,6 +262,13 @@ def controle():
         verschil = round(opkomst(float(eerste[i][1])) - z["begin"], 2)
         fout += int(abs(verschil) > 0.3)
         uitslag.append([z["nr"], verschil])
+        if abs(verschil) > 0.3:
+            # om na te gaan of het de stem is of de meting: welk woord whisper koos en wat hij rond het begin hoorde
+            rond = [(w, round(float(t), 2)) for w, t in ws if z["begin"] - 2.5 <= t <= z["begin"] + 1.5]
+            uitleg.append({"zin": z["nr"], "begin": z["begin"], "woord_nr": eerste[i][0],
+                           "woord_t": round(float(eerste[i][1]), 2), "rond_begin": rond})
+    for u in uitleg:
+        print(json.dumps(u), file=sys.stderr)
     gemeten = [abs(u[1]) for u in uitslag if u[1] is not None]
     print(json.dumps({"zinnen": len(uitslag), "gemeten": len(gemeten), "buiten_0_3": fout,
                       "grootste": max(gemeten) if gemeten else None, "per_zin": uitslag}))
