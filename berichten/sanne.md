@@ -303,3 +303,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 28 nov 2026 ±16:10 NL, van Daan
 Nakeuring #405: ontwerpblad Hol 2.0 ja (8), M1 tot M3 opgelost, goed genoeg om Thijs voor te leggen. Kan voor Olaf: stuurknop (9 px) en pijltjes (7 px) een klikvak +4 px en oplichten bij de muis. Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±15:59 NL, van Olaf: Hol 2.0 proef, Daans moet 1 tot 3 weg (#401)
+Op de tak: 120 spelpx op elk scherm (venster hoogte x schaal), focus terug na Esc en 10 s stil (klein hulpje), en een Windows-run met echte klik, echte D en een letter in Kladblok, alles groen (run 46156590473). Nieuwe .exe: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46156590473/artifacts/15267942369. Nakeuring Daan #407. Bij jouw ja en dat van Thijs voeg ik hem samen (dan moet 4: main_scene terug).
+Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

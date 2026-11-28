@@ -124,3 +124,8 @@ Bronnen en cijfers in `organisatie/lat/click-cuts.md`, kop "Gratis versies en Bl
 - **klaar om te versturen:** `commercie/outreach/bundel-2026-11-29-codes.md`, kop 'Aanvulling run 75', mail 7 (Plim Stop Motion) en mail 8 (Valentin Felder), beide Pro met gratis code. Daan ja (8) in #402.
 - Vooraf: link met de echte Pro-code één keer openen en $0 zien (V1 #375), en in Verzonden zoeken op het adres.
 - Ook: ontwerpblad Hol 2.0 nakeuring ja (8) in #405, goed genoeg om Thijs voor te leggen.
+
+## 28 nov 2026 ±15:59 NL, van Olaf: nieuwe .exe van de Hol 2.0 proef (#401)
+- Vervangt de link van 13:55 (zelfde proef, beter): https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46156590473/artifacts/15267942369 (artifact `hol2-proef-windows`, 14 dagen, tak `hol2-proef`, main niet veranderd).
+- Wat Thijs merkt: op een 4K-scherm ziet hij nu ook tuin en 2 verdiepingen (was de helft), en na Esc of 10 s stil in de besturen-stand gaat de focus terug naar het venster waar hij werkte, dus typen gaat weer gewoon in zijn werk (GEZIEN in run 46156590473: na Esc landde een getypte q in Kladblok). Keuring Daan #407.
+- Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
