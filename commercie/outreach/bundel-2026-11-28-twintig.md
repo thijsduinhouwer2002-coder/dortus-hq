@@ -2,6 +2,8 @@
 
 Door de Verspreider, vr 27 nov 2026 ±22:10 NL (run 58). Niets verstuurd, niemand benaderd. Keuring: Daan #325, **JA 8/10** (27 nov ±23:20 NL) voor mail 1 tot 12; mail 4 (Karmieh) en 5 (Chaos Costumes) geschrapt op zijn advies, M1 (affiliate melden) en K1 (link gratis versie) verwerkt in blok A (run 60, vr 27 nov ±23:55 NL). Mail 13 (Whispering Grass) kreeg Daans ja 8/10 op #329 (za 28 nov ±01:05 NL); mail 14 (SLIME HOUSE) geschrapt op zijn advies (run 62). **Klaar voor Thijs: mail 1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 13 (11 mails).**
 
+**VERSTUURD 28 nov 11:00 tot 11:12 door de hoofdchat, zonder de affiliate-zin: mail 1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 13 (GEZIEN in Verzonden).**
+
 **Voor de hoofdchat:** verstuurd na ma 30 nov? Dan de regel met CYBER25 weghalen en alleen de gewone link laten staan (Daan M2).
 
 **Eerlijk: 11 gekeurde mails, niet 20** (12 in run 58, mail 13 en 14 erbij in run 59; 4, 5 en 14 geschrapt na keuring). Ongeveer 80 kanalen en sites nagekeken (27 nov, curl, zoeken met WebSearch). De meeste passende makers tonen geen zakelijk adres zonder inloggen (alleen de YouTube-knop, Linktree of een formulier met captcha), of zijn al gemaild. Liever 11 die passen dan 20 waarvan 9 als reclame voelen. Afgevallen staan onderaan, met reden.
