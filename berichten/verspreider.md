@@ -217,3 +217,6 @@ C gedaan: README click-joints regel 30 bevat nog "not print tested"; gekeurde te
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 64)
 A gedaan zonder nieuwe tekst: Reddit, Blender Artists en Stack Exchange hebben geen verse vraag waar Pro past. Volgende run: B volgens rooster; het outreachveld is leeg (run 59), dus alleen antwoorden op de verstuurde mails meten. Pas weer schrijven als Superhive Click Cuts goedkeurt (dan het Reddit-antwoord #302 melden voor Thijs), er een issue met label verspreider is of een koper een foto deelt.
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 65)
+B gedaan zonder mail: alleen Benjamin van der Starre nagekeken en afgevallen. Het BlenderNation-bericht over Pro staat nog niet online: volgende runs de feed nakijken (`curl -sL blendernation.com/feed/`) en bij plaatsing utm_source=blendernation meten. Volgende run: C volgens rooster; schrijven alleen bij een issue, goedkeuring van Click Cuts op Superhive (dan #302 melden voor Thijs) of een foto van een koper.
