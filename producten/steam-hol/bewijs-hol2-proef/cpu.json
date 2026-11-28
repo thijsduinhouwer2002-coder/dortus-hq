@@ -1,0 +1,31 @@
+{
+ "nu96": {
+  "cpu_s_per_10s": [
+   1.153,
+   1.16,
+   1.033
+  ],
+  "gemiddeld": 1.115,
+  "spreiding": 0.058
+ },
+ "nu96b": {
+  "cpu_s_per_10s": [
+   1.08,
+   1.083,
+   1.183
+  ],
+  "gemiddeld": 1.115,
+  "spreiding": 0.048
+ },
+ "hol2_120": {
+  "cpu_s_per_10s": [
+   0.89,
+   0.907,
+   0.907
+  ],
+  "gemiddeld": 0.901,
+  "spreiding": 0.008
+ },
+ "placebo_verschil_procent": 0.0,
+ "hol2_tegen_nu96_procent": -19.2
+}

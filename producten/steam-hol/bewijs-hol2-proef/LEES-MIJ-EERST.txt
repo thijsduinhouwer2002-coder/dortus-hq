@@ -1,0 +1,28 @@
+Hats of the Fallen, PROEF Hol 2.0 (bestand heet nog HetHol.exe)
+
+Dit is een proef om te voelen, niet het spel. Je save van het gewone spel blijft
+zoals hij is; de proef bewaart niets.
+
+Wat is nieuw
+- Alles is kleiner, dus het hol is groter: een tuin, verdieping 1 en verdieping 2
+  in een strook van 120 px. Gloop is 20 px, helden 16 px.
+- Muiswiel boven het hol: schuif naar beneden naar verdieping 3.
+  Na 10 s zonder muis schuift het beeld vanzelf terug.
+- Klik ergens in het hol: Gloop loopt erheen, via de ladders.
+- Klik op Gloop zelf: besturen. Er komt een gouden rand om de strook.
+  A/D of pijltjes lopen, W/S klimt op een ladder.
+  Stopt met Esc, met een klik buiten het hol, of na 10 s zonder toets.
+  Alleen in deze stand pakt het spel je toetsen; anders nooit.
+- Doe je niets, dan scharrelt Gloop zelf: zitten, slapen, munten tellen,
+  wandelen, klimmen, zonnen in de tuin, aan een val snuffelen.
+- Helden komen binnen via de tuin, zakken af via de ladders naar de schat,
+  en vallen in luiken en stekels. Rechtsboven: goud en hoeden.
+
+Wat er nog niet in zit: kopen, de eerste minuut, het menu en het systeemvak.
+De kunst is de oude, verkleind; Mila maakt de echte kleine figuren.
+
+Starten: pak de zip uit en dubbelklik HetHol.exe (Windows waarschuwt: Meer
+informatie, Toch uitvoeren). Stoppen: rechtsklik op het hol (de proef
+heeft nog geen menu).
+
+Eén zin terug is genoeg: voelt dit beter dan het hol van nu?

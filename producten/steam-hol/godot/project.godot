@@ -4,7 +4,8 @@ config_version=5
 
 [application]
 config/name="Het Hol"
-run/main_scene="res://main.tscn"
+; tak hol2-proef (#388): de proef start standaard; het hol van nu met res://main.tscn als scène-argument
+run/main_scene="res://hol2/hol2.tscn"
 config/features=PackedStringArray("4.3")
 ; demo en volle spel delen de save (demo-einde, ontwerp.md): %APPDATA%/Dortus/Het Hol
 config/use_custom_user_dir=true

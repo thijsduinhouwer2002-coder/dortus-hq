@@ -1,0 +1,281 @@
+{
+ "gloop": {
+  "w": 32,
+  "h": 20,
+  "frames": [
+   "rust",
+   "plat",
+   "knipper",
+   "blij",
+   "hap",
+   "kneep",
+   "spuug",
+   "rust_groot",
+   "knipper_groot",
+   "blij_groot",
+   "hap_groot",
+   "plat_groot"
+  ],
+  "anker_x": 15
+ },
+ "held0": {
+  "w": 17,
+  "h": 16,
+  "frames": [
+   "rust",
+   "stap1",
+   "stap2",
+   "stap3",
+   "stap4",
+   "stap5",
+   "stap6",
+   "schrik",
+   "vallen",
+   "kijk",
+   "draai",
+   "sprong"
+  ],
+  "anker_x": 4
+ },
+ "held1": {
+  "w": 17,
+  "h": 16,
+  "frames": [
+   "rust",
+   "stap1",
+   "stap2",
+   "stap3",
+   "stap4",
+   "stap5",
+   "stap6",
+   "schrik",
+   "vallen",
+   "kijk",
+   "draai",
+   "sprong"
+  ],
+  "anker_x": 4
+ },
+ "held2": {
+  "w": 17,
+  "h": 16,
+  "frames": [
+   "rust",
+   "stap1",
+   "stap2",
+   "stap3",
+   "stap4",
+   "stap5",
+   "stap6",
+   "schrik",
+   "vallen",
+   "kijk",
+   "draai",
+   "sprong"
+  ],
+  "anker_x": 4
+ },
+ "dief": {
+  "w": 19,
+  "h": 16,
+  "frames": [
+   "rust",
+   "stap1",
+   "stap2",
+   "stap3",
+   "stap4",
+   "stap5",
+   "stap6",
+   "schrik",
+   "vallen",
+   "kijk",
+   "draai",
+   "sprong"
+  ],
+  "anker_x": 7
+ },
+ "bard": {
+  "w": 17,
+  "h": 16,
+  "frames": [
+   "rust",
+   "stap1",
+   "stap2",
+   "stap3",
+   "stap4",
+   "stap5",
+   "stap6",
+   "schrik",
+   "vallen",
+   "kijk",
+   "draai",
+   "sprong"
+  ],
+  "anker_x": 5
+ },
+ "heks": {
+  "w": 11,
+  "h": 16,
+  "frames": [
+   "rust",
+   "stap1",
+   "stap2",
+   "stap3",
+   "stap4",
+   "stap5",
+   "stap6",
+   "schrik",
+   "vallen",
+   "kijk",
+   "draai",
+   "sprong"
+  ],
+  "anker_x": 3
+ },
+ "ridder": {
+  "w": 15,
+  "h": 16,
+  "frames": [
+   "rust",
+   "stap1",
+   "stap2",
+   "stap3",
+   "stap4",
+   "stap5",
+   "stap6",
+   "schrik",
+   "vallen",
+   "kijk",
+   "draai",
+   "sprong"
+  ],
+  "anker_x": 6
+ },
+ "hoeden": {
+  "w": 6,
+  "h": 5,
+  "frames": [
+   "helm",
+   "puntmuts",
+   "kap",
+   "pet",
+   "kroon",
+   "koksmuts",
+   "emmer",
+   "hoge_hoed",
+   "pan",
+   "veermuts"
+  ],
+  "anker_x": 3
+ },
+ "tegels": {
+  "aarde": [
+   0,
+   0,
+   16,
+   16
+  ],
+  "wand": [
+   17,
+   0,
+   16,
+   8
+  ],
+  "vloer": [
+   34,
+   0,
+   8,
+   4
+  ],
+  "gras": [
+   43,
+   0,
+   16,
+   6
+  ],
+  "ladder": [
+   60,
+   0,
+   7,
+   4
+  ],
+  "fakkel0": [
+   68,
+   0,
+   5,
+   9
+  ],
+  "fakkel1": [
+   74,
+   0,
+   5,
+   9
+  ],
+  "luik": [
+   80,
+   0,
+   12,
+   4
+  ],
+  "luik_open": [
+   93,
+   0,
+   12,
+   4
+  ],
+  "stekels": [
+   106,
+   0,
+   12,
+   6
+  ],
+  "troon": [
+   119,
+   0,
+   26,
+   16
+  ],
+  "bloem0": [
+   146,
+   0,
+   5,
+   6
+  ],
+  "bloem1": [
+   152,
+   0,
+   5,
+   6
+  ],
+  "bloem2": [
+   158,
+   0,
+   5,
+   6
+  ],
+  "struik": [
+   164,
+   0,
+   12,
+   8
+  ],
+  "kool": [
+   177,
+   0,
+   6,
+   5
+  ],
+  "z": [
+   184,
+   0,
+   3,
+   3
+  ],
+  "munt": [
+   188,
+   0,
+   2,
+   2
+  ]
+ }
+}

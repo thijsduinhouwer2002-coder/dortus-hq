@@ -47,3 +47,9 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 - Het programma houdt met een eigen onzichtbaar venster een strook vrij bij Windows (ABM_NEW, QUERYPOS, SETPOS), zet het spel daarin, haalt de taakbalkknop weg, verstopt het spel bij volledig scherm, en laat de muis door (WS_EX_LAYERED + WS_EX_TRANSPARENT) behalve op het vlak dat `kern/muisvlak.gd` stuurt. Pijp dicht of venster weg: ABM_REMOVE en stoppen, ook na hard afsluiten.
 - Zonder het programma (geen Windows, `balk=0`) blijft het oude `window_set_mouse_passthrough`.
 - Systeemvak: `kern/systeemvak.gd` (Pause, Sound, Height, Quit). Naamsvermelding: `godot/DERDEN.txt`.
+
+## Hol 2.0 proef (Olaf 28 nov 2026, issue #388, alleen op tak `hol2-proef`)
+- Ontwerp: `ontwerp-hol2/LEESMIJ.md` (Sanne). Op de tak start `hol2/hol2.tscn`; het hol van nu start met het scène-argument `res://main.tscn`.
+- `hol2/hol2.gd` (venster, rekstand viewport met heel getal, schuiven met het wiel, klikken, besturen-stand, helden, filmscript), `hol2/kaart.gd` (indeling: tuin 22, maaiveld 4, verdiepingen van 44 met balken van 4; ladders, kamers, vallen; vaste achtergrond één keer getekend), `hol2/loper.gd` (lopen en klimmen via ladders), `hol2/gloop2.gd` (tabel per plek, punt 4 van het blad), `hol2/held2.gd` (binnen via de tuin, naar de schat, vallen), `hol2/bord.gd` (wat elk beeld getekend wordt, bord met twee getallen, gouden rand).
+- Kunst: `hol2/maak_kunst.py` verkleint de renders van Mila naar 20 en 16 px en maakt eenvoudige tegels; `hol2/kunst/`.
+- Toets: `systemen/toetsen/toets_hol2.gd`. Workflow: `.github/workflows/steam-hol2-proef.yml` (toetsen, .exe als artifact, starten op 120 en 240, CPU om en om).
