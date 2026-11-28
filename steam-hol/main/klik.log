@@ -1,28 +1,30 @@
-HOL balk gestart, pid 6016, hoogte 96
+HOL balk gestart, pid 7004, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795861446
+HOL zaad 1795862423
 HOL balk aan
 HOL grond zacht
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Tibbe)
-HOL held binnen: Tibbe
-HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Tibbe knocks first. Polite.
+HOL begin: vallen (Henk)
+HOL held binnen: Henk
+HOL zicht 2.1 1
+HOL kroniek 2.5 (wacht 0.5): Henk read about you in a tavern.
 HOL klik op (200, 90): niets
-HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Tibbe knocks first. Polite.
-HOL kroniek 7.4 (wacht 0.0): Tibbe left gold and one boot. +9
+HOL uitleg stap 1 t=4.0 
+HOL kroniek zelfde held vervangen: Henk read about you in a tavern.
+HOL kroniek 7.3 (wacht 0.0): Henk will not be leaving. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Elke)
-HOL held binnen: Elke
-HOL zicht 8.5 1
-HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
-HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL leven mot t=10.4 x=184 y=26
-HOL kroniek vervallen 11.6: Elke climbs into your hole.
-HOL meting t=20 beelden=100 helden=1 hol_vast=3
-HOL leven stofje t=23.8 x=184 y=26
-HOL einde na 25 s, fps=10, goud=29, terugkomers=0
+HOL begin: opgegeten (Rik)
+HOL held binnen: Rik
+HOL zicht 7.6 1
+HOL uitleg stap 2 t=8.9 Click the dirt to dig.
+HOL kroniek 9.8 (wacht 2.5): First hero in the pit!
+HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=149 script_ms=1797
+HOL kroniek vervallen 10.7: Rik climbs into your hole.
+HOL leven mot t=14.6 x=184 y=26
+HOL meting t=20 beelden=120 helden=1 hol_vast=3 langste_ms=84 script_ms=521
+HOL reeks 2 (+0, t 24.6)
+HOL kroniek 24.6 (wacht 0.0): Gloop ate Rik. Kept the crown. +9
+HOL zicht 24.6 0
+HOL einde na 25 s, fps=18, goud=38, terugkomers=0
