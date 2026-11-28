@@ -1,17 +1,15 @@
-HOL balk gestart, pid 7600, hoogte 120
-HOL weg geweest 0 s (klok terug: true): goud voor 594, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 594 goud, faam 5
+HOL balk gestart, pid 5740, hoogte 120
+HOL weg geweest 0 s (klok terug: true): goud voor 570, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 570 goud, faam 5
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795840531
+HOL zaad 1795842241
 HOL balk aan
-HOL palet zacht
-HOL gloop ring aan na 0.1 s (goud 594)
-HOL eerste koop mogelijk na 30 s speeltijd (goud 594)
+HOL gloop ring aan na 0.2 s (goud 570)
+HOL eerste koop mogelijk na 30 s speeltijd (goud 570)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 2.1 (wacht 0.0): Lotte brought a torch. And hope.
-HOL begin: doorlopen (Lotte)
-HOL held binnen: Lotte
-HOL zicht 2.2 1
-HOL leven mot t=7.7 x=72 y=26
-HOL einde na 8 s, fps=10, goud=594, terugkomers=0
+HOL kroniek 2.0 (wacht 0.0): Henk is here for your gold.
+HOL begin: doorlopen (Henk)
+HOL held binnen: Henk
+HOL zicht 2.1 1
+HOL einde na 8 s, fps=10, goud=570, terugkomers=0

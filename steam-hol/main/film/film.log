@@ -1,9 +1,8 @@
-HOL balk gestart, pid 3520, hoogte 120
+HOL balk gestart, pid 7028, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
 HOL balk aan
-HOL palet zacht
 HOL gloop ring aan na 0.0 s (goud 66)
 HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
 HOL muisvlak via de balk, lucht vrij op x=-1
@@ -11,10 +10,10 @@ HOL begin: vallen (Kees)
 HOL held binnen: Kees
 HOL zicht 0.6 1
 HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
+HOL leven mot t=5.1 x=72 y=26
 HOL kroniek 6.9 (wacht 0.0): Anouk the Bard tunes a lute.
 HOL begin: vluchten (Anouk)
 HOL held binnen: Anouk
-HOL leven stofje t=7.2 x=72 y=26
 HOL kroniek zelfde held vervangen: Kees is here for your gold.
 HOL kroniek 9.0 (wacht 0.0): Kees will not be leaving. +6
 HOL gegraven kolom 5 (zelf 1, graafbonus 0)
@@ -29,11 +28,11 @@ HOL meting t=20 beelden=200 helden=2 hol_vast=13
 HOL demo klik op Buy
 HOL koop 20.0: slijm niveau 1, goud 27
 HOL gloop ring uit na 20.1 s (goud 27)
-HOL leven mot t=20.7 x=56 y=26
 HOL kaartje dicht 22.5
 HOL kroniek 22.5 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Teun)
 HOL held binnen: Teun
+HOL leven stofje t=23.8 x=56 y=26
 HOL kroniek 25.0 (wacht 2.2): Teun has a map. It is wrong.
 HOL gegraven kolom 4 (zelf 3, graafbonus 0)
 HOL kroniek 28.4 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
@@ -41,9 +40,9 @@ HOL meting t=30 beelden=200 helden=1 hol_vast=15
 HOL kroniek 30.9 (wacht 1.8): Gloop ate Siem. Kept the crown. +6
 HOL begin: terug (Anouk)
 HOL held binnen: Anouk
-HOL leven stofje t=32.6 x=56 y=26
 HOL kroniek zelfde held vervangen: Anouk fled. Grudge: the Spike Pit.
 HOL kroniek 33.4 (wacht 1.0): Anouk is back for the Spike Pit.
+HOL leven mot t=35.8 x=56 y=26
 HOL kroniek 36.0 (wacht 2.0): Gloop is flat. Back soon.
 HOL gegraven kolom 1 (zelf 4, graafbonus 0)
 HOL kroniek 38.5 (wacht 0.0): Teun is now the Hoard-Toucher.
@@ -58,11 +57,11 @@ HOL bordje wip niveau 2
 HOL begin: opgegeten2 (Pim)
 HOL held binnen: Pim
 HOL gegraven kolom 3 (zelf 5, graafbonus 0)
+HOL leven stofje t=46.4 x=40 y=26
 HOL kroniek 47.3 (wacht 2.4): Pim knows all the words. Sadly.
 HOL meting t=50 beelden=200 helden=2 hol_vast=27
 HOL kroniek 50.5 (wacht 0.0): Gerda brought a torch. And hope.
 HOL held binnen: Gerda
-HOL leven mot t=51.3 x=40 y=26
 HOL kroniek 51.6 (wacht 0.0): Teun ran. Hands smell of gold.
 HOL gegraven kolom 7 (zelf 6, graafbonus 0)
 HOL kroniek 58.3 (wacht 0.0): Lotte read about you in a tavern.
