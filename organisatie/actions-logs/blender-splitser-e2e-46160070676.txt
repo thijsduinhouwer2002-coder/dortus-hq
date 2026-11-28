@@ -1,0 +1,411 @@
+# gemaakt: 2026-11-28T15:33:22Z
+# workflow: Blender splitser e2e (Click Cuts, echte Blender) (.github/workflows/blender-splitser-e2e.yml)
+# run: 46160070676 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46160070676
+# commit: 742c90ed tak claude/click-cuts-1.1.1 gestart door push
+# mislukte stappen: e2e (5.3.0): Test zonder scherm (passen, waterdicht, pen in gat, nummers, export); e2e (4.2.23): Test zonder scherm (passen, waterdicht, pen in gat, nummers, export)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== e2e (5.3.0) / Test zonder scherm (passen, waterdicht, pen in gat, nummers, export) (laatste 200 van 2550 regels) =====
+[sj-e2e] OK   magneet doos stuk 2: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 2: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 2: diepte 2.30 mm (magneet 2 + 0.3) 
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 2: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 2: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 2: diepte 2.30 mm (magneet 2 + 0.3) 
+[sj-e2e] OK   magneet doos: gat (0.014, 22.6, 52.6) in twee verschillende stukken [1, 2]
+[sj-e2e] OK   magneet doos: gat (0.014, -22.6, 7.4) in twee verschillende stukken [1, 2]
+[sj-e2e] OK   magneet doos: paneeltelling gelijk aan de gaten {'6x2': 4}
+[sj-e2e] OK   magneet doos: uitslagregel noemt de magneten ('2 parts, all fit the bed', '4 magnets 6x2 mm, 0.20 mm clearance', True)
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/sj_uit/magneet_doos/
+[sj-e2e] OK   magneet doos: export alleen de stukken, geen pennen ['piece_01.stl', 'piece_02.stl']
+Info: Watertight copy Figure_watertight made (80556 faces)
+[sj-e2e] waterdicht Figure: {'FINISHED'} -> Figure_watertight 80556 vlakken
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Warning: 2 pieces, holes for 2 magnets of 6x2 mm, all fit. 1 notes in the panel
+[sj-e2e] magneet arm 6x2: split {'FINISHED'}, meldingen 'Cut 1-2: no room for the number on a part of this face'
+[sj-e2e] OK   magneet arm: 2 stukken 2
+[sj-e2e] OK   magneet arm stuk 1: waterdicht slechte randen 0
+[sj-e2e] OK   magneet arm stuk 1: past en groen groen, wand 2.75
+[sj-e2e] OK   magneet arm stuk 2: waterdicht slechte randen 0
+[sj-e2e] OK   magneet arm stuk 2: past en groen groen, wand 2.75
+[sj-e2e] OK   magneet arm: geen penplaatjes []
+[sj-e2e] OK   magneet arm: er zijn magneetgaten 2 gaten
+[sj-e2e] OK   magneet arm: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet arm stuk 1: gat gevonden 
+[sj-e2e] OK   magneet arm stuk 1: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet arm stuk 1: diepte 2.30 mm (magneet 2 + 0.3) 
+[sj-e2e] OK   magneet arm: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet arm stuk 2: gat gevonden 
+[sj-e2e] OK   magneet arm stuk 2: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet arm stuk 2: diepte 2.30 mm (magneet 2 + 0.3) 
+[sj-e2e] OK   magneet arm: gat (105.014, 0.15, 30.15) in twee verschillende stukken [1, 2]
+[sj-e2e] OK   magneet arm: paneeltelling gelijk aan de gaten {'6x2': 2}
+[sj-e2e] OK   magneet arm: uitslagregel noemt de magneten ('2 parts, all fit the bed', '2 magnets 6x2 mm, 0.20 mm clearance', True)
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/sj_uit/magneet_arm/
+[sj-e2e] OK   magneet arm: export alleen de stukken, geen pennen ['piece_01.stl', 'piece_02.stl']
+[sj-e2e] OK   magneet arm: het gat zit in de arm [105.01370239257812]
+Info: Watertight copy Figure_watertight made (80556 faces)
+[sj-e2e] waterdicht Figure: {'FINISHED'} -> Figure_watertight 80556 vlakken
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Warning: 2 pieces, holes for 0 magnets of 10x3 mm, all fit. 1 notes in the panel
+[sj-e2e] magneet arm-dun 10x3: split {'FINISHED'}, meldingen 'Cut 1-2: too small for a magnet: the face is 11.7 mm across, a 10x3 mm magnet needs 12.6 mm with 1.2 mm wall. Glue this joint or pick a smaller magnet'
+[sj-e2e] OK   magneet arm 10x3: geen gaten in de te dunne arm [0, 0]
+[sj-e2e] OK   magneet arm 10x3: melding zegt waarom 'Cut 1-2: too small for a magnet: the face is 11.7 mm across, a 10x3 mm magnet needs 12.6 mm with 1.2 mm wall. Glue this joint or pick a smaller magnet'
+[sj-e2e] OK   magneet arm 10x3: stukken passen en zijn dicht 
+[sj-e2e] magneet: wand -1.0
+Info: Watertight copy Suzanne_watertight made (34934 faces)
+[sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
+Info: 8 pieces, 3 cuts. Move a cut with G if you like.
+Info: 8 pieces, holes for 50 magnets of 8x3 mm, all fit
+[sj-e2e] magneet suzanne 8x3: split {'FINISHED'}, meldingen ''
+[sj-e2e] OK   magneet suzanne: stukken met magneetgaten en geen penplaatjes 8 stukken, 50 gaten
+[sj-e2e] vlakmeting stuk Piece 01 gaten 0-1 (112.0 mm uit elkaar, r 4.10): 75779 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 643 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 1 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 01 gaten 2-3 (51.6 mm uit elkaar, r 4.10): 2319 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 1 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 01 gaten 4-5 (93.5 mm uit elkaar, r 4.10): 28088 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 1 gaten 4-5: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 02 gaten 0-1 (112.0 mm uit elkaar, r 4.10): 75779 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 643 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 2 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 02 gaten 2-3 (51.6 mm uit elkaar, r 4.10): 2315 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 2 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 02 gaten 4-5 (93.5 mm uit elkaar, r 4.10): 28085 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 2 gaten 4-5: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 03 gaten 0-1 (68.6 mm uit elkaar, r 4.10): 13536 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 3 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 03 gaten 2-3 (51.6 mm uit elkaar, r 4.10): 2319 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 3 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 03 gaten 4-5 (89.1 mm uit elkaar, r 4.10): 51645 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 37 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 3 gaten 4-5: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 04 gaten 0-1 (68.6 mm uit elkaar, r 4.10): 13536 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 4 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 04 gaten 2-3 (51.6 mm uit elkaar, r 4.10): 2315 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 4 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 04 gaten 4-5 (89.1 mm uit elkaar, r 4.10): 51638 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 38 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 4 gaten 4-5: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 05 gaten 0-1 (116.8 mm uit elkaar, r 4.10): 52820 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 5 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 05 gaten 2-3 (117.8 mm uit elkaar, r 4.10): 46706 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 5 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 05 gaten 2-4 (74.9 mm uit elkaar, r 4.10): 57911 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 5 gaten 2-4: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 05 gaten 3-4 (74.3 mm uit elkaar, r 4.10): 53991 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 5 gaten 3-4: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 05 gaten 5-6 (93.5 mm uit elkaar, r 4.10): 28088 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 5 gaten 5-6: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 06 gaten 0-1 (116.8 mm uit elkaar, r 4.10): 52820 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 6 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 06 gaten 2-3 (117.8 mm uit elkaar, r 4.10): 46871 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 6 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 06 gaten 4-5 (93.5 mm uit elkaar, r 4.10): 28085 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 6 gaten 4-5: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 07 gaten 0-1 (121.2 mm uit elkaar, r 4.10): 49957 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 7 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 07 gaten 2-3 (117.8 mm uit elkaar, r 4.10): 46706 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 7 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 07 gaten 2-4 (74.9 mm uit elkaar, r 4.10): 57911 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 7 gaten 2-4: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 07 gaten 3-4 (74.3 mm uit elkaar, r 4.10): 53991 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 7 gaten 3-4: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 07 gaten 5-6 (89.1 mm uit elkaar, r 4.10): 51682 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 27 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 41.73 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 7 gaten 5-6: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 08 gaten 0-1 (121.2 mm uit elkaar, r 4.10): 49957 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 8 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 08 gaten 2-3 (117.8 mm uit elkaar, r 4.10): 46871 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 8 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 08 gaten 4-5 (89.1 mm uit elkaar, r 4.10): 51676 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 26 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 41.70 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 8 gaten 4-5: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] OK   magneet suzanne: er zijn paren gaten op één vlak gemeten 28 paren
+Info: Saved as "magneet.blend"
+[sj-e2e] vlakmeting proef: zonder groef ((1, 0, 1), 77364, 0, 0.0, None, 0, 0.0, 100.0, 4.1, 0), met groef ((1, 0, 1), 77364, 1920, 0.20000088214874268, (10.36, 4.0), 0, 0.0, 100.0, 4.1, 0)
+[sj-e2e] OK   vlakmeting proef: vlakke doos geeft geen groef ((1, 0, 1), 77364, 0, 0.0, None, 0, 0.0, 100.0, 4.1, 0)
+[sj-e2e] OK   vlakmeting proef: groef van 0.2 mm wordt gevonden ((1, 0, 1), 77364, 1920, 0.20000088214874268, (10.36, 4.0), 0, 0.0, 100.0, 4.1, 0)
+[sj-e2e] KLAAR 1 FOUT ['klik: geen fout']
+r 'STL Export' took 0.48 ms
+Timer 'STL Export' took 0.44 ms
+Timer 'STL Export' took 0.60 ms
+Timer 'STL Export' took 2.15 ms
+Timer 'STL Export' took 1.73 ms
+Timer 'STL Export' took 1.49 ms
+Timer 'STL Export' took 1.43 ms
+Timer 'STL Export' took 1.94 ms
+Timer 'STL Export' took 1.97 ms
+Timer 'STL Export' took 2.22 ms
+Timer 'STL Export' took 2.20 ms
+Timer 'STL Export' took 1.52 ms
+Timer 'STL Export' took 1.78 ms
+Timer 'STL Export' took 1.61 ms
+Timer 'STL Export' took 1.31 ms
+Timer 'STL Export' took 1.29 ms
+Timer 'STL Export' took 1.87 ms
+Timer 'STL Export' took 1.85 ms
+Timer 'STL Export' took 2.10 ms
+Timer 'STL Export' took 2.06 ms
+Timer 'STL Export' took 1.54 ms
+Timer 'STL Export' took 1.90 ms
+Timer 'STL Export' took 1.62 ms
+Timer 'STL Export' took 1.34 ms
+Timer 'STL Export' took 1.26 ms
+Timer 'STL Export' took 1.74 ms
+Timer 'STL Export' took 1.78 ms
+Timer 'STL Export' took 1.98 ms
+Timer 'STL Export' took 1.98 ms
+Timer 'STL Export' took 1.49 ms
+Timer 'STL Export' took 0.77 ms
+Timer 'STL Export' took 0.40 ms
+Timer 'STL Export' took 2.06 ms
+Timer 'STL Export' took 1.84 ms
+Timer 'STL Export' took 1.56 ms
+Timer 'STL Export' took 1.54 ms
+Timer 'STL Export' took 2.02 ms
+Timer 'STL Export' took 2.05 ms
+Timer 'STL Export' took 2.32 ms
+Timer 'STL Export' took 2.28 ms
+Timer 'STL Export' took 1.61 ms
+Timer 'STL Export' took 0.47 ms
+Timer 'STL Export' took 0.39 ms
+Timer 'STL Export' took 10.20 ms
+Timer 'STL Export' took 4.92 ms
+FOUT: kerntest
+Error: Suzanne open is not watertight (42 bad edges). Use Make watertight first.
+[sj-e2e] open: melding 'Error: Suzanne open is not watertight (42 bad edges). Use Make watertight first.\n'
+Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit again
+[sj-e2e] melding: 'Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit'
+Error: Box would need 250000 voxels across (limit 3000). Check the unit of the scene (Convert to mm) or use a bigger voxel size
+[sj-e2e] melding: 'Error: Box would need 250000 voxels across (limit 3000). Check the unit of the scene (Convert to mm) or use a bigger voxel size\n'
+Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit again
+[sj-e2e] melding: 'Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit'
+Error: These cuts make 301 cells (limit 200). Remove cuts or plan again
+[sj-e2e] melding: 'Error: These cuts make 301 cells (limit 200). Remove cuts or plan again\n'
+Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+[sj-e2e] vrij: melding Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+[sj-e2e] vrij: melding Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] vrij: melding Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] OK   vrij: snede door een pengat geweigerd {'CANCELLED'} 'Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2'
+Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] vrij: melding Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] OK   vrij: 1,0 mm voorbij het gat nog geweigerd {'CANCELLED'} 'Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2'
+Error: Drag the line all the way across the piece: Draw cut again, with the line past both edges
+[sj-e2e] vrij: melding Error: Drag the line all the way across the piece: Draw cut again, with the line past both edges
+[sj-e2e] OK   tekenen te kort: weigert met 'Drag the line all the way across' {'CANCELLED'} 'Error: Drag the line all the way across the piece: Draw cut again, with the line past both'
+Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit again
+[sj-e2e] klik: melding Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit again
+[sj-e2e] OK   klik: meters melding in gewone getallen (#386) 'Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit again
+Error: Cube is 2,000 x 2,000 x 2,000 mm, about 8 times as long as your bed (252 x 252 x 254 mm): that needs at least 512 pieces (limit 200). Scale it down (S) or pick a bigger printer
+Error: Cube is 2,000 x 2,000 x 2,000 mm, about 8 times as long as your bed (252 x 252 x 254 mm): that needs at least 512 pieces (limit 200). Scale it down (S) or pick a bigger printer
+[sj-e2e] OK   klik: standaardkubus noemt maat en uitweg (#385) {'CANCELLED'} 'Error: Cube is 2,000 x 2,000 x 2,000 mm, about 8 times as long as your bed (252 x 252 x 254 mm): that needs at least 512 pieces (limit 200). Scale it down (S) or pick a bigger printer
+Traceback (most recent call last):
+ModuleNotFoundError: No module named 'split_joints'
+[sj-e2e] FOUT klik: geen fout 
+[sj-e2e] KLAAR 1 FOUT ['klik: geen fout']
+##[error]Process completed with exit code 1.
+
+===== e2e (4.2.23) / Test zonder scherm (passen, waterdicht, pen in gat, nummers, export) (laatste 200 van 2379 regels) =====
+    ("klik", lambda: toetsen_klik.alles(uitmap)), ("hulp", lambda: toetsen_hulp.alles(uitmap)), ("magneet", lambda: toetsen_magneet.alles(uitmap))):
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/dortus-hq/dortus-hq/producten/blender-splitser/e2e/toetsen_klik.py", line 287, in alles
+    from split_joints import exporteer as _exp
+ModuleNotFoundError: No module named 'split_joints'
+[sj-e2e] FOUT klik: geen fout 
+[sj-e2e] OK   handboek bpy.ops.split_joints.split_to_fit https://dortus.com/click-cuts/#first-split
+[sj-e2e] OK   handboek bpy.ops.split_joints.passing_maak https://dortus.com/click-cuts/#fit-test
+[sj-e2e] OK   handboek bpy.ops.split_joints.vrije_snede_tekenen https://dortus.com/click-cuts/#free-cut
+[sj-e2e] OK   handboek bpy.ops.split_joints.plan https://dortus.com/click-cuts/#panel
+[sj-e2e] OK   handboek bpy.types.SplitJointsInstellingen.verbinder https://dortus.com/click-cuts/#magnets
+[sj-e2e] OK   handboek bpy.types.SplitJointsInstellingen.plat https://dortus.com/click-cuts/#flat
+[sj-e2e] OK   handboek bpy.types.SplitJointsInstellingen.speling_mm https://dortus.com/click-cuts/#panel
+[sj-e2e] OK   paneel heeft een ?-knop in de kop 
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Info: 2 pieces, holes for 4 magnets of 6x2 mm, all fit
+[sj-e2e] magneet doos 6x2: split {'FINISHED'}, meldingen ''
+[sj-e2e] OK   magneet doos: 2 stukken 2
+[sj-e2e] OK   magneet doos stuk 1: waterdicht slechte randen 0
+[sj-e2e] OK   magneet doos stuk 1: past en groen groen, wand 4.3
+[sj-e2e] OK   magneet doos stuk 2: waterdicht slechte randen 0
+[sj-e2e] OK   magneet doos stuk 2: past en groen groen, wand 4.3
+[sj-e2e] OK   magneet doos: geen penplaatjes []
+[sj-e2e] OK   magneet doos: er zijn magneetgaten 4 gaten
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 1: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 1: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 1: diepte 2.30 mm (magneet 2 + 0.3) 
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 1: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 1: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 1: diepte 2.30 mm (magneet 2 + 0.3) 
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 2: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 2: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 2: diepte 2.30 mm (magneet 2 + 0.3) 
+[sj-e2e] OK   magneet doos: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet doos stuk 2: gat gevonden 
+[sj-e2e] OK   magneet doos stuk 2: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet doos stuk 2: diepte 2.30 mm (magneet 2 + 0.3) 
+[sj-e2e] OK   magneet doos: gat (0.014, 22.6, 52.6) in twee verschillende stukken [1, 2]
+[sj-e2e] OK   magneet doos: gat (0.014, -22.6, 7.4) in twee verschillende stukken [1, 2]
+[sj-e2e] OK   magneet doos: paneeltelling gelijk aan de gaten {'6x2': 4}
+[sj-e2e] OK   magneet doos: uitslagregel noemt de magneten ('2 parts, all fit the bed', '4 magnets 6x2 mm, 0.20 mm clearance', True)
+Info: 2 STL files in /tmp/sj_uit/magneet_doos/
+[sj-e2e] OK   magneet doos: export alleen de stukken, geen pennen ['piece_01.stl', 'piece_02.stl']
+Info: Watertight copy Figure_watertight made (80556 faces)
+[sj-e2e] waterdicht Figure: {'FINISHED'} -> Figure_watertight 80556 vlakken
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Warning: 2 pieces, holes for 2 magnets of 6x2 mm, all fit. 1 notes in the panel
+[sj-e2e] magneet arm 6x2: split {'FINISHED'}, meldingen 'Cut 1-2: no room for the number on a part of this face'
+[sj-e2e] OK   magneet arm: 2 stukken 2
+[sj-e2e] OK   magneet arm stuk 1: waterdicht slechte randen 0
+[sj-e2e] OK   magneet arm stuk 1: past en groen groen, wand 2.75
+[sj-e2e] OK   magneet arm stuk 2: waterdicht slechte randen 0
+[sj-e2e] OK   magneet arm stuk 2: past en groen groen, wand 2.75
+[sj-e2e] OK   magneet arm: geen penplaatjes []
+[sj-e2e] OK   magneet arm: er zijn magneetgaten 2 gaten
+[sj-e2e] OK   magneet arm: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet arm stuk 1: gat gevonden 
+[sj-e2e] OK   magneet arm stuk 1: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet arm stuk 1: diepte 2.30 mm (magneet 2 + 0.3) 
+[sj-e2e] OK   magneet arm: gat is een magneetgat van 6x2 magneet 6x2
+[sj-e2e] OK   magneet arm stuk 2: gat gevonden 
+[sj-e2e] OK   magneet arm stuk 2: speling op de diameter 0.207 mm gat r 3.104, magneet 6 mm
+[sj-e2e] OK   magneet arm stuk 2: diepte 2.30 mm (magneet 2 + 0.3) 
+[sj-e2e] OK   magneet arm: gat (105.014, -0.15, 29.85) in twee verschillende stukken [1, 2]
+[sj-e2e] OK   magneet arm: paneeltelling gelijk aan de gaten {'6x2': 2}
+[sj-e2e] OK   magneet arm: uitslagregel noemt de magneten ('2 parts, all fit the bed', '2 magnets 6x2 mm, 0.20 mm clearance', True)
+Info: 2 STL files in /tmp/sj_uit/magneet_arm/
+[sj-e2e] OK   magneet arm: export alleen de stukken, geen pennen ['piece_01.stl', 'piece_02.stl']
+[sj-e2e] OK   magneet arm: het gat zit in de arm [105.01370239257812]
+Info: Watertight copy Figure_watertight made (80556 faces)
+[sj-e2e] waterdicht Figure: {'FINISHED'} -> Figure_watertight 80556 vlakken
+Info: 2 pieces, 1 cuts. Move a cut with G if you like.
+Warning: 2 pieces, holes for 0 magnets of 10x3 mm, all fit. 1 notes in the panel
+[sj-e2e] magneet arm-dun 10x3: split {'FINISHED'}, meldingen 'Cut 1-2: too small for a magnet: the face is 11.7 mm across, a 10x3 mm magnet needs 12.6 mm with 1.2 mm wall. Glue this joint or pick a smaller magnet'
+[sj-e2e] OK   magneet arm 10x3: geen gaten in de te dunne arm [0, 0]
+[sj-e2e] OK   magneet arm 10x3: melding zegt waarom 'Cut 1-2: too small for a magnet: the face is 11.7 mm across, a 10x3 mm magnet needs 12.6 mm with 1.2 mm wall. Glue this joint or pick a smaller magnet'
+[sj-e2e] OK   magneet arm 10x3: stukken passen en zijn dicht 
+[sj-e2e] magneet: wand -1.0
+Info: Watertight copy Suzanne_watertight made (34934 faces)
+[sj-e2e] waterdicht Suzanne: {'FINISHED'} -> Suzanne_watertight 34934 vlakken
+Info: 8 pieces, 3 cuts. Move a cut with G if you like.
+Info: 8 pieces, holes for 50 magnets of 8x3 mm, all fit
+[sj-e2e] magneet suzanne 8x3: split {'FINISHED'}, meldingen ''
+[sj-e2e] OK   magneet suzanne: stukken met magneetgaten en geen penplaatjes 8 stukken, 50 gaten
+[sj-e2e] vlakmeting stuk Piece 01 gaten 0-1 (112.0 mm uit elkaar, r 4.10): 75779 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 643 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 1 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 01 gaten 2-3 (51.6 mm uit elkaar, r 4.10): 2319 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 1 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 01 gaten 4-5 (93.5 mm uit elkaar, r 4.10): 28088 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 1 gaten 4-5: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 02 gaten 0-1 (112.0 mm uit elkaar, r 4.10): 75779 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 643 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 2 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 02 gaten 2-3 (51.6 mm uit elkaar, r 4.10): 2315 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 2 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 02 gaten 4-5 (93.5 mm uit elkaar, r 4.10): 28085 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 2 gaten 4-5: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 03 gaten 0-1 (68.6 mm uit elkaar, r 4.10): 13536 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 3 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 03 gaten 2-3 (51.6 mm uit elkaar, r 4.10): 2319 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 3 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 03 gaten 4-5 (89.1 mm uit elkaar, r 4.10): 51645 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 37 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 3 gaten 4-5: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 04 gaten 0-1 (68.6 mm uit elkaar, r 4.10): 13536 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 4 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 04 gaten 2-3 (51.6 mm uit elkaar, r 4.10): 2315 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 4 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 04 gaten 4-5 (89.1 mm uit elkaar, r 4.10): 51638 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 38 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 4 gaten 4-5: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 05 gaten 0-1 (116.8 mm uit elkaar, r 4.10): 52820 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 5 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 05 gaten 2-3 (117.8 mm uit elkaar, r 4.10): 46706 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 5 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 05 gaten 2-4 (74.9 mm uit elkaar, r 4.10): 57911 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 5 gaten 2-4: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 05 gaten 3-4 (74.3 mm uit elkaar, r 4.10): 53991 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 5 gaten 3-4: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 05 gaten 5-6 (93.5 mm uit elkaar, r 4.10): 28088 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 5 gaten 5-6: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 06 gaten 0-1 (116.8 mm uit elkaar, r 4.10): 52820 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 6 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 06 gaten 2-3 (117.8 mm uit elkaar, r 4.10): 46871 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 6 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 06 gaten 4-5 (93.5 mm uit elkaar, r 4.10): 28085 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 6 gaten 4-5: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 07 gaten 0-1 (121.2 mm uit elkaar, r 4.10): 49957 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 7 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 07 gaten 2-3 (117.8 mm uit elkaar, r 4.10): 46706 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 7 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 07 gaten 2-4 (74.9 mm uit elkaar, r 4.10): 57911 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 7 gaten 2-4: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 07 gaten 3-4 (74.3 mm uit elkaar, r 4.10): 53991 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 7 gaten 3-4: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 07 gaten 5-6 (89.1 mm uit elkaar, r 4.10): 51682 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 27 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 41.73 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 7 gaten 5-6: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 08 gaten 0-1 (121.2 mm uit elkaar, r 4.10): 49957 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 8 gaten 0-1: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 08 gaten 2-3 (117.8 mm uit elkaar, r 4.10): 46871 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 0 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 0.00 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 8 gaten 2-3: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] vlakmeting stuk Piece 08 gaten 4-5 (89.1 mm uit elkaar, r 4.10): 51676 raak, 0 in een groef dieper dan 0.02 mm (diepst 0.000 mm op None), 26 aan de rand van het vlak, 0 buiten het vlak, normaal hooguit 41.70 graden scheef
+[sj-e2e] OK   magneet suzanne stuk 8 gaten 4-5: vlak tussen de gaten, geen groef 0 punten dieper dan 0.02 mm, diepst 0.000 mm
+[sj-e2e] OK   magneet suzanne: er zijn paren gaten op één vlak gemeten 28 paren
+Info: Saved "magneet.blend"
+[sj-e2e] vlakmeting proef: zonder groef ((1, 0, 1), 77364, 0, 0.0, None, 0, 0.0, 100.0, 4.1, 0), met groef ((1, 0, 1), 77364, 1920, 0.20000088214874268, (10.36, 4.0), 0, 0.0, 100.0, 4.1, 0)
+[sj-e2e] OK   vlakmeting proef: vlakke doos geeft geen groef ((1, 0, 1), 77364, 0, 0.0, None, 0, 0.0, 100.0, 4.1, 0)
+[sj-e2e] OK   vlakmeting proef: groef van 0.2 mm wordt gevonden ((1, 0, 1), 77364, 1920, 0.20000088214874268, (10.36, 4.0), 0, 0.0, 100.0, 4.1, 0)
+[sj-e2e] KLAAR 1 FOUT ['klik: geen fout']
+Timer 'STL Export' took 0.92 ms
+Timer 'STL Export' took 0.38 ms
+Timer 'STL Export' took 0.19 ms
+Timer 'STL Export' took 1.12 ms
+Timer 'STL Export' took 1.13 ms
+Timer 'STL Export' took 1.01 ms
+Timer 'STL Export' took 0.90 ms
+Timer 'STL Export' took 1.31 ms
+Timer 'STL Export' took 1.50 ms
+Timer 'STL Export' took 1.74 ms
+Timer 'STL Export' took 1.79 ms
+Timer 'STL Export' took 0.96 ms
+Timer 'STL Export' took 0.15 ms
+Timer 'STL Export' took 0.13 ms
+Timer 'STL Export' took 9.71 ms
+Timer 'STL Export' took 4.50 ms
+FOUT: kerntest
+Error: Suzanne open is not watertight (42 bad edges). Use Make watertight first.
+[sj-e2e] open: melding 'Error: Suzanne open is not watertight (42 bad edges). Use Make watertight first.\n'
+Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit again
+[sj-e2e] melding: 'Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit'
+Error: Box would need 250000 voxels across (limit 3000). Check the unit of the scene (Convert to mm) or use a bigger voxel size
+[sj-e2e] melding: 'Error: Box would need 250000 voxels across (limit 3000). Check the unit of the scene (Convert to mm) or use a bigger voxel size\n'
+Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit again
+[sj-e2e] melding: 'Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit'
+Error: These cuts make 301 cells (limit 200). Remove cuts or plan again
+[sj-e2e] melding: 'Error: These cuts make 301 cells (limit 200). Remove cuts or plan again\n'
+Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+[sj-e2e] vrij: melding Error: The free cut box touches Piece 01 at its side (691.2 mm2). Scale the plane up (S) so it goes around the whole part, or turn it
+Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+[sj-e2e] vrij: melding Error: The free cut does not go through Piece 01. Move it (G) so it crosses the piece
+Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] vrij: melding Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] OK   vrij: snede door een pengat geweigerd {'CANCELLED'} 'Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2'
+Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] vrij: melding Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2 mm away from the hole
+[sj-e2e] OK   vrij: 1,0 mm voorbij het gat nog geweigerd {'CANCELLED'} 'Error: The free cut goes through a pin hole of Piece 02 (to piece 1). Move it at least 1.2'
+Error: Drag the line all the way across the piece: Draw cut again, with the line past both edges
+[sj-e2e] vrij: melding Error: Drag the line all the way across the piece: Draw cut again, with the line past both edges
+[sj-e2e] OK   tekenen te kort: weigert met 'Drag the line all the way across' {'CANCELLED'} 'Error: Drag the line all the way across the piece: Draw cut again, with the line past both'
+Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit again
+[sj-e2e] klik: melding Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit again
+[sj-e2e] OK   klik: meters melding in gewone getallen (#386) 'Error: Box is 500,000 mm (about 500 m), it looks 1,000 times too big: a mm model in a meter scene. Open More settings and press Convert to mm, then Split to fit again
+Error: Cube is 2,000 x 2,000 x 2,000 mm, about 8 times as long as your bed (252 x 252 x 254 mm): that needs at least 512 pieces (limit 200). Scale it down (S) or pick a bigger printer
+Error: Cube is 2,000 x 2,000 x 2,000 mm, about 8 times as long as your bed (252 x 252 x 254 mm): that needs at least 512 pieces (limit 200). Scale it down (S) or pick a bigger printer
+[sj-e2e] OK   klik: standaardkubus noemt maat en uitweg (#385) {'CANCELLED'} 'Error: Cube is 2,000 x 2,000 x 2,000 mm, about 8 times as long as your bed (252 x 252 x 254 mm): that needs at least 512 pieces (limit 200). Scale it down (S) or pick a bigger printer
+Traceback (most recent call last):
+ModuleNotFoundError: No module named 'split_joints'
+[sj-e2e] FOUT klik: geen fout 
+[sj-e2e] KLAAR 1 FOUT ['klik: geen fout']
+##[error]Process completed with exit code 1.
