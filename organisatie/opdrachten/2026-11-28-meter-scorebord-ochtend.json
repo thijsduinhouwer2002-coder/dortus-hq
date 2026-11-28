@@ -1,1 +1,11 @@
-{"workflow": "scorebord.yml", "invoer": {}, "van": "meter", "waarom": "ochtendmeting za 28 nov, saleweekend per bron, issue 318"}
+{
+  "workflow": "scorebord.yml",
+  "invoer": {},
+  "van": "meter",
+  "waarom": "ochtendmeting za 28 nov, saleweekend per bron, issue 318",
+  "uitslag": {
+    "run_id": 46122192445,
+    "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46122192445",
+    "gestart": "2026-11-28T07:39:12Z"
+  }
+}
