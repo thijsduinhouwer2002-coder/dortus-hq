@@ -69,41 +69,56 @@ KLEUR_GEDEMPT = {
 }
 
 
-def _toon_mat(naam, kleur, metaal=0.0):
-    """Getekende afwerking: twee tinten met een harde grens (Toon BSDF), schaduwkant koeler en donkerder,
-    een kleine harde glimvlek alleen bij metaal. Geen glas, geen natte glans."""
-    m = bpy.data.materials.new(naam)
-    m.use_nodes = True
-    nt = m.node_tree
-    for n in list(nt.nodes):
-        nt.nodes.remove(n)
-    uit = nt.nodes.new("ShaderNodeOutputMaterial")
-    licht = nt.nodes.new("ShaderNodeBsdfToon")
-    licht.component = "DIFFUSE"
-    licht.inputs["Size"].default_value = 0.55
-    licht.inputs["Smooth"].default_value = 0.03
-    # vier lampen tellen op bij een harde Toon-grens; daarom de lichte kant gedempt tot hij de kleur zelf geeft
-    licht.inputs["Color"].default_value = (kleur[0] * 0.46, kleur[1] * 0.46, kleur[2] * 0.46, 1)
-    # vaste schaduwtint: koeler en donkerder, zodat de schaduwkant nooit zwart wordt
-    sch = nt.nodes.new("ShaderNodeEmission")
-    r, gg, b = kleur
-    sch.inputs["Color"].default_value = (r * 0.38, gg * 0.36, b * 0.50 + 0.004, 1)
-    sch.inputs["Strength"].default_value = 1.0
-    som = nt.nodes.new("ShaderNodeAddShader")
-    nt.links.new(licht.outputs[0], som.inputs[0])
-    nt.links.new(sch.outputs[0], som.inputs[1])
-    if metaal:
-        glim = nt.nodes.new("ShaderNodeBsdfToon")
-        glim.component = "GLOSSY"
-        glim.inputs["Size"].default_value = 0.18
-        glim.inputs["Smooth"].default_value = 0.02
-        glim.inputs["Color"].default_value = (0.35, 0.35, 0.35, 1)
-        som2 = nt.nodes.new("ShaderNodeAddShader")
-        nt.links.new(som.outputs[0], som2.inputs[0])
-        nt.links.new(glim.outputs[0], som2.inputs[1])
-        som = som2
-    nt.links.new(som.outputs[0], uit.inputs["Surface"])
-    return m
+def _maak_getekend():
+    """Getekende afwerking vlak voor het renderen, voor elk materiaal met een Principled BSDF (ook die een model
+    zelf met textuur vult, zoals hol.py en royal.py): twee tinten met een harde grens (Toon BSDF) uit dezelfde
+    kleur of textuur, schaduwkant koeler en donkerder, nooit zwart; metaal een kleine harde glimvlek.
+    Gloeiende en doorzichtige materialen blijven zoals ze zijn."""
+    for m in bpy.data.materials:
+        if not m.use_nodes or m.get("getekend"):
+            continue
+        nt = m.node_tree
+        b = nt.nodes.get("Principled BSDF")
+        if b is None or not b.outputs[0].is_linked:
+            continue
+        if b.inputs["Emission Strength"].default_value >= 1.0 or b.inputs["Transmission Weight"].default_value > 0:
+            continue
+        doel = b.outputs[0].links[0].to_socket
+        bron = b.inputs["Base Color"].links[0].from_socket if b.inputs["Base Color"].is_linked else None
+        kleur = tuple(b.inputs["Base Color"].default_value)[:3]
+
+        def keer(f):
+            v = nt.nodes.new("ShaderNodeVectorMath")
+            v.operation = "MULTIPLY"
+            if bron is not None:
+                nt.links.new(bron, v.inputs[0])
+            else:
+                v.inputs[0].default_value = kleur
+            v.inputs[1].default_value = f
+            return v.outputs[0]
+        licht = nt.nodes.new("ShaderNodeBsdfToon")
+        licht.component = "DIFFUSE"
+        licht.inputs["Size"].default_value = 0.55
+        licht.inputs["Smooth"].default_value = 0.03
+        # vier lampen tellen op bij een harde grens; daarom de lichte kant gedempt tot hij de kleur zelf geeft
+        nt.links.new(keer((0.46, 0.46, 0.46)), licht.inputs["Color"])
+        sch = nt.nodes.new("ShaderNodeEmission")
+        nt.links.new(keer((0.38, 0.36, 0.50)), sch.inputs["Color"])
+        som = nt.nodes.new("ShaderNodeAddShader")
+        nt.links.new(licht.outputs[0], som.inputs[0])
+        nt.links.new(sch.outputs[0], som.inputs[1])
+        if b.inputs["Metallic"].default_value > 0.3:
+            glim = nt.nodes.new("ShaderNodeBsdfToon")
+            glim.component = "GLOSSY"
+            glim.inputs["Size"].default_value = 0.18
+            glim.inputs["Smooth"].default_value = 0.02
+            glim.inputs["Color"].default_value = (0.35, 0.35, 0.35, 1)
+            som2 = nt.nodes.new("ShaderNodeAddShader")
+            nt.links.new(som.outputs[0], som2.inputs[0])
+            nt.links.new(glim.outputs[0], som2.inputs[1])
+            som = som2
+        nt.links.new(som.outputs[0], doel)
+        m["getekend"] = 1
 
 
 def mat(naam, kleur, rough=0.5, spec=0.4, emis=0.0, sss=0.0, glas=0.0, metaal=0.0):
@@ -119,8 +134,6 @@ def mat(naam, kleur, rough=0.5, spec=0.4, emis=0.0, sss=0.0, glas=0.0, metaal=0.
         emis = emis if emis >= 1.0 else emis * 0.5
     if isinstance(kleur, str):
         kleur = hex2(KLEUR.get(kleur, kleur))
-    if _palet() == "gedempt" and not emis and os.environ.get("HOL_TOON", "1") == "1":
-        return _toon_mat(naam, kleur, metaal)
     m = bpy.data.materials.new(naam)
     m.use_nodes = True
     b = m.node_tree.nodes["Principled BSDF"]
@@ -295,6 +308,8 @@ def _render_een(pad, breedte, hoogte, samples=64, doorzichtig=True):
     sc.render.image_settings.file_format = "PNG"
     sc.render.image_settings.color_mode = "RGBA"
     sc.view_settings.view_transform = "Standard"
+    if _palet() == "gedempt" and os.environ.get("HOL_TOON", "1") == "1":
+        _maak_getekend()
     if _palet() == "gedempt" and os.environ.get("HOL_LIJN", "0") == "1":
         # getekende inktlijn om het figuur (Freestyle), dikte in renderpixels naar de maat van de render
         sc.render.use_freestyle = True
