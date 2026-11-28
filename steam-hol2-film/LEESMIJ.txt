@@ -1,0 +1,1 @@
+Hol 2.0 proef (#388), commit eef8866 op tak hol2-proef. Godot 4.3 Linux onder Xvfb, --write-movie --fixed-fps 12, hoogte=120 film=1 zaad=7, 122 s. Val op verdieping 2 op 72,7 s.
