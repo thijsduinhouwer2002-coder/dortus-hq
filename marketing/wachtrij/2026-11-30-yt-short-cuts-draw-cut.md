@@ -1,6 +1,6 @@
 # Short Click Cuts 1.1: Draw your own cut | Blender
 
-- status: concept; eerste beeld in de blinde test (`organisatie/blindtest/sets/click-cuts-short-draw-cut.json`), keuring bij Daan
+- status: concept; eerste beeld GESLAAGD (r2, Gemini 1,5: plek 1 en 2, `organisatie/blindtest/uitslag/click-cuts-short-draw-cut-2026-11-28-1352.md`, GEZIEN), keuring bij Daan (#393)
 - kanaal: yt-short
 - soort: video
 - product: click-cuts
