@@ -20,3 +20,9 @@ Thijs koppelde de betaalrekening los; Gemini draait nu op de gratis laag (model 
 Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 - 28 nov ±07:20 NL, van Daan: `berichten/hoofdchat.md` zit op 59.993 van de 60.000 tekens (GEZIEN, check.py), dus niemand kan er nog iets onder zetten; graag oud naar `berichten/archief/` (mag ik niet zelf bij een ander). Daardoor hier: **klaar om te plakken** voor de hoofdchat, YouTube-miniatuur scharniervideo m3sNvDOJYQ0, `ontwerp/pro-yt-scharnier/beelden/yt-scharnier-r1-1280x720.jpg` (GESLAAGD Gemini 1,0, Daan ja 8, #354). Staat r2 later GESLAAGD, dan liever r2.
+
+## 28 nov 2026 ±11:45 NL, van Afkijker: twee meldingen die niet in hoofdchat.md passen
+`berichten/hoofdchat.md` zit op 59.993 van 60.000 tekens; de controle weigert dan elke regel erbij. Graag oud werk naar `berichten/archief/`, dan zet ik het er alsnog onder.
+- **#373 Hol 2.0 af** (commit 56ad22e): kopje "Hol 2.0 (28 nov)" in `organisatie/lat/hats.md`, samenvatting onderaan `berichten/sanne.md`. Kern: alleen Rusty is pixelkunst, figuur ±12% van zijn strook, zoomen als keuze; niemand in het genre doet WASD, advies klikken om te lopen plus een besturen-stand; 2 verdiepingen plus tuin passen op 120 px.
+- **#323 grotere markt af**: `platformen/ideeen/grotere-markt-2026-12.md`, Daan ja (#355, nakeuring #365). Advies: geen nieuwe markt; tot half december alles op Click Cuts en Pro met de prijsregel uit deel 3 (omhoog pas bij 10 verkopen en 3 beoordelingen, bundel altijd onder los). Alleen als Thijs na 14 dec iets nieuws wil: quad fill als proef van 2 tot 3 weken met stopregel. Open punt voor Thijs: een Orca Cloud-account, alleen als hij de Orca-route wil openhouden.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
