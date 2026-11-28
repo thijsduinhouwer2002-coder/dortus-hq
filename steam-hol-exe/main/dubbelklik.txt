@@ -1,0 +1,8 @@
+venster na 0.2 s (eis 10 s), titel: 
+draait na 10 s nog: True
+godot.log: geen SCRIPT ERROR (11 regels)
+zip van de map (zoals het artifact): 32.9 MB, sha256 d6170576aeaf71e14dacdf88bd10031af502f8918d669b3ab79af50129911131
+exe: 83.6 MB, sha256 01c8301394a0abb6d7e4184b145eceea37f9489e1ce04f91f8300eab7211eeab
+inhoud: HetHol.exe, LEES-MIJ-EERST.txt, VERSIE.txt
+commit 7a88e4ca287d1c2a8db534b85e47bf4930e13b98, run 46131608672
+dubbelklik: 0 FOUT
