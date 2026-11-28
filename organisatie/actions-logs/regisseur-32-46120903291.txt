@@ -1,0 +1,68 @@
+# gemaakt: 2026-11-28T07:23:57Z
+# workflow: Regisseur 32 (zoekvideo Click Cuts #332: echte Blender-opname op de stem van Max) (.github/workflows/regisseur-32.yml)
+# run: 46120903291 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46120903291
+# commit: 7d6cdf14 tak main gestart door workflow_dispatch
+# mislukte stappen: film: Python-pakketten; film: In de release zetten
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== film / Python-pakketten (laatste 40 van 40 regels) =====
+##[group]Run python3 -m pip install --target /tmp/pylib mss==9.0.2 python-xlib numpy
+python3 -m pip install --target /tmp/pylib mss==9.0.2 python-xlib numpy
+python3 -m pip install -q faster-whisper==1.2.1 numpy pillow soundfile
+if [ "$PROEF" = "1" ]; then
+  python3 -m pip install -q kokoro-onnx==0.6.1
+  mkdir -p /tmp/kokoro
+  curl -fsSL --retry 3 -o /tmp/kokoro/kokoro-v1.0.onnx "$KOKORO_URL/kokoro-v1.0.onnx"
+  curl -fsSL --retry 3 -o /tmp/kokoro/voices-v1.0.bin "$KOKORO_URL/voices-v1.0.bin"
+  echo "$KOKORO_ONNX_SHA  /tmp/kokoro/kokoro-v1.0.onnx" | sha256sum -c
+  echo "$KOKORO_VOICES_SHA  /tmp/kokoro/voices-v1.0.bin" | sha256sum -c
+fi
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-32-proef
+  PROEF: 1
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  MAP: commercie/filmpjes/regisseur-32
+##[endgroup]
+Collecting mss==9.0.2
+  Downloading mss-9.0.2-py3-none-any.whl.metadata (6.1 kB)
+Collecting python-xlib
+  Downloading python_xlib-0.33-py2.py3-none-any.whl.metadata (6.2 kB)
+Collecting numpy
+  Downloading numpy-2.5.5-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting six>=1.10.0 (from python-xlib)
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Downloading mss-9.0.2-py3-none-any.whl (23 kB)
+Downloading python_xlib-0.33-py2.py3-none-any.whl (182 kB)
+Downloading numpy-2.5.5-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 93.4 MB/s eta 0:00:00
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: six, numpy, mss, python-xlib
+
+Successfully installed mss-9.0.2 numpy-2.5.5 python-xlib-0.33 six-1.17.0
+ERROR: Ignored the following versions that require a different python version: 0.2.4 Requires-Python <3.11,>=3.9; 0.2.5 Requires-Python <3.13,>=3.9; 0.2.6 Requires-Python <3.13,>=3.9; 0.2.7 Requires-Python <3.13,>=3.9; 0.2.8 Requires-Python <3.13,>=3.9; 0.2.9 Requires-Python <3.13,>=3.9; 0.3.0 Requires-Python <3.13,>=3.9; 0.3.1 Requires-Python <3.13,>=3.9; 0.3.2 Requires-Python <3.13,>=3.9; 0.3.3 Requires-Python <3.13,>=3.9; 0.3.4 Requires-Python <3.13,>=3.9; 0.3.5 Requires-Python <3.13,>=3.9; 0.3.6 Requires-Python <3.13,>=3.9; 0.3.7 Requires-Python <3.13,>=3.9; 0.3.8 Requires-Python <3.13,>=3.9; 0.3.9 Requires-Python <3.13,>=3.9; 0.4.0 Requires-Python <3.13,>=3.9; 0.4.1 Requires-Python <3.13,>=3.9; 0.4.2 Requires-Python <3.13,>=3.9; 0.4.3 Requires-Python <3.13,>=3.9; 0.4.8 Requires-Python <3.14,>=3.10; 0.4.9 Requires-Python <3.14,>=3.10; 0.5.0 Requires-Python <3.14,>=3.10; 0.6.0 Requires-Python <3.14,>=3.10; 0.6.1 Requires-Python <3.14,>=3.10
+ERROR: Could not find a version that satisfies the requirement kokoro-onnx==0.6.1 (from versions: 0.1.0, 0.1.1, 0.1.2, 0.1.3, 0.1.4, 0.1.5, 0.1.6, 0.1.7, 0.1.8, 0.1.9, 0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.4.4, 0.4.5, 0.4.6b0, 0.4.6b1, 0.4.6, 0.4.7)
+ERROR: No matching distribution found for kokoro-onnx==0.6.1
+##[error]Process completed with exit code 1.
+
+===== film / In de release zetten (laatste 17 van 17 regels) =====
+##[group]Run cd /tmp/klaar 2>/dev/null || exit 1
+cd /tmp/klaar 2>/dev/null || exit 1
+: > /tmp/notes.md; if [ "$PROEF" = "1" ]; then echo "PROEF met Kokoro als tijdelijke stem: alleen om de keten te toetsen, NIET voor keuring of plaatsen." > /tmp/notes.md; fi
+echo "Zoekvideo Click Cuts (#332): echte Blender-opname op de stem van Max, liggend 1920x1080. Controles: ffprobe.txt, geluid_check.txt, synchroon.txt. Niets geplaatst." >> /tmp/notes.md
+gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 32 (zoekvideo Click Cuts)" --notes-file /tmp/notes.md
+find . -maxdepth 1 -type f -print0 | xargs -0 gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY"
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-32-proef
+  PROEF: 1
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  MAP: commercie/filmpjes/regisseur-32
+  GH_TOKEN: ***
+##[endgroup]
+##[error]Process completed with exit code 1.
