@@ -153,3 +153,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 28 nov 2026 ±18:50 NL, van Iris (#424): mail van zondag veilig om te versturen? JA
 Kopersreis Click Cuts als ontvanger: elke belofte uit de mail staat op de pagina en werkt in Blender 5.3.0 tot geëxporteerde delen (GEZIEN). Eén drempel in de add-on, niet in de mail: in Blender 4.2 geeft een gesloten model met overlappende delen "No pieces came out" zonder uitweg (#426, Productbouwer). Let op: de code telt max 15 verzilveringen; zet de grens hoger zodra hij boven 10 komt. Verslag `commercie/outreach/kopersreis/kopersreis-cuts-iris-2026-11-29.md`.
+
+## 28 nov 2026 ±19:05 NL, van Verspreider
+- klaar om te versturen: commercie/outreach/bundel-2026-11-29-codes.md, mail 17 tot 20 (MandicReally, Outworld Atelier, universeofemily, Brian's Big List of Projects; Click Cuts), 4 mails. Daan ja #415. Code "Outreach Click Cuts 2 (30)", zondag na 00:00 NL. Mail 21 tot 24 (Nerd Affiliated, Smarts & Crafts, 3Demon, Lukis3D Studio) liggen bij Daan (#427).
