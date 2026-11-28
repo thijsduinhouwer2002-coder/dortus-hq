@@ -268,7 +268,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventMouseMotion:
 		muis_t = t
 	elif event is InputEventKey and besturen:
-		var k: int = event.physical_keycode
+		# plek op het toetsenbord (WASD ook op azerty); zonder scancode (sommige hulpprogramma's) de letter zelf
+		var k: int = event.physical_keycode if event.physical_keycode != KEY_NONE else event.keycode
 		if event.pressed:
 			toets_t = 0.0
 		match k:

@@ -13,6 +13,7 @@ public class W {
   [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow();
   [DllImport("user32.dll")] public static extern uint GetWindowThreadProcessId(IntPtr h, out uint pid);
   [DllImport("user32.dll")] public static extern void keybd_event(byte vk, byte scan, uint f, IntPtr e);
+  [DllImport("user32.dll")] public static extern uint MapVirtualKey(uint code, uint type);
   [DllImport("user32.dll")] public static extern IntPtr FindWindowEx(IntPtr p, IntPtr a, string klas, string titel);
   [DllImport("user32.dll", CharSet = CharSet.Unicode)] public static extern IntPtr SendMessage(IntPtr h, uint m, IntPtr w, StringBuilder l);
   [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr h, out RECT r);
@@ -24,7 +25,8 @@ public class W {
 $klik = Join-Path $PSScriptRoot "klik.ps1"
 $fout = 0; $r = @()
 function Voor { $p = [W]::Pid([W]::GetForegroundWindow()); try { (Get-Process -Id $p).ProcessName } catch { "?" } }
-function Toets([byte]$vk, [int]$ms) { [W]::keybd_event($vk, 0, 0, [IntPtr]::Zero); Start-Sleep -Milliseconds $ms; [W]::keybd_event($vk, 0, 2, [IntPtr]::Zero) }
+# met scancode, zoals een echt toetsenbord (het hol leest de plek van de toets)
+function Toets([byte]$vk, [int]$ms) { $sc = [byte][W]::MapVirtualKey($vk, 0); [W]::keybd_event($vk, $sc, 0, [IntPtr]::Zero); Start-Sleep -Milliseconds $ms; [W]::keybd_event($vk, $sc, 2, [IntPtr]::Zero) }
 function Log { Get-Content "$uit/focus.log" -ErrorAction SilentlyContinue | Out-String }
 
 # 1. Kladblok vooraan
