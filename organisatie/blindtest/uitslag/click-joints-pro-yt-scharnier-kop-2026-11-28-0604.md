@@ -1,0 +1,19 @@
+# Blinde test: Click Joints Pro, YouTube-miniatuur scharniervideo (#352) kop aan kop ronde 1: yt-scharnier-r1 tegen de huidige miniatuur, Cleave en UArtsy
+
+Rol voor de rechters: You design figures and action figures in Blender and want to 3D print them at home, poseable, with knees and elbows that bend like a real joint and stop at the right angle. You searched YouTube for 'blender hinge for 3D printed figures'. You see these video thumbnails in the results. Which video would you click first, because it looks like it will solve your problem best?
+
+Concurrenten: [huidige miniatuur Dortus scharniervideo (schermbeeld met ondertitel)](https://i.ytimg.com/vi/m3sNvDOJYQ0/maxresdefault.jpg), [Cleave Quick Tip: Ball Joints for 3D Printed Figures](https://i.ytimg.com/vi/H8kdXLhU8XQ/maxresdefault.jpg), [UArtsy, 3D Printing Action Figures: Understanding The Swivel Hinge Joint](https://i.ytimg.com/vi/fY7pwHtGQTE/maxresdefault.jpg)
+
+Geslaagd = bij elke rechter gemiddeld plek 2 of beter (van 4), over 2 rondes met een andere volgorde.
+
+## yt-scharnier-r1: held met knie op de stop van 115 graden, gradenboog en het echte paneel: GESLAAGD
+
+Kandidaat: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/pro-yt-scharnier/beelden/yt-scharnier-r1-1280x720.jpg
+
+Gemiddelde plek: Gemini 1.0
+
+- Ronde 1, Gemini: wij plek 1, eerste keus yt-scharnier-r1: held met knie op de stop van 115 graden, gradenboog en het echte paneel. Over ons: Directly highlights exactly what I need in Blender—hinges that stop at specific precise angles like 115 degrees for realistic limbs. Beter maken: Include a small icon or text showing the Blender interface logo to instantly confirm the software being used.
+- Ronde 2, Gemini: wij plek 1, eerste keus yt-scharnier-r1: held met knie op de stop van 115 graden, gradenboog en het echte paneel. Over ons: Directly addresses hinges with specific angle stops matching my exact requirement for knees and elbows in Blender. Beter maken: Show the Blender UI panel directly in the thumbnail to confirm it's an addon or tool for Blender.
+
+Modellen: Gemini = gemini-flash-lite-latest
+Alles is GEZIEN: letterlijke antwoorden van de modellen, ingekort tot één zin per punt.
