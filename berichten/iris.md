@@ -213,3 +213,6 @@ Oude save, geen koper, 1920 x 240: leuk 5, aandacht 6, mooi 7 (GOK), 0 SCRIPT ER
 
 ## 28 nov 2026 middag NL, Iris (eigen logboek): kopersreis Click Cuts als mailontvanger (#383, dicht)
 Installeren 0 fouten in 4 van 4 (zip 1.0.0 live en 1.1.0, Blender 4.2.23 en 5.3.0, GEZIEN). 3 drempels als issue bij de Productbouwer: #385 standaardkubus geeft "No plan" zonder maat of uitweg, #386 "3.985e+05 mm", #387 export zonder opslaan gaat stil naar een tempmap. Verslag `producten/blender-splitser/test/kopersreis-iris-2026-11-28.md`.
+
+## 28 nov 2026 ±15:00 NL, Iris (eigen logboek): speelversie 865530f als Thijs (#399, dicht)
+Oude save van vóór #368, geen koper, 96 px: leuk 7, aandacht 7, mooi 7 (GOK; was 5/6/7), 0 SCRIPT ERROR, 11,8 beelden per s (GEZIEN). Welkom met doel nooit in beeld (weg-verslag op het bord), Gloop-teken weg na 6 s als Gloop plat gaat; aan Sanne. Blinde test `hats-speelscherm-96-oudesave-865530f` gestart.

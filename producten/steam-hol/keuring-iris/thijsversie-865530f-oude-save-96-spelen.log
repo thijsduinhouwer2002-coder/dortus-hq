@@ -1,0 +1,125 @@
+HOL save geschoven 30 kolommen: schat 44, ingang 34, vallen [37]
+HOL weg geweest 519 s (klok terug: false): goud voor 1059, helden 2, erbij 14, hoeden 2
+HOL hol-niveau 11 (faam 69, t 0.0)
+HOL reus klaar: niveau 11 (t 0.0)
+HOL hoeden van de nacht 2 (vallen vanaf 1.0 s, toren nu 66)
+HOL berg zichtbaar 17 -> 18
+HOL kroniek 0.0 (wacht 0.0): 2 came, 2 fell, 2 hats. +14 gold.
+HOL optocht wip, geen poef; helden [11]; duur 0.0 s
+HOL opslag geladen: 0 terugkomers, 1073 goud, faam 69
+HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
+HOL start hoogte=96 schaal=2 spelpixels=960x48 venster=(1920, 96) pos=(320, 480) held=res://systemen/held.gd
+HOL zaad 1795874117
+HOL balk uit
+HOL grond zacht
+HOL gloop ring aan na 0.1 s (goud 1073)
+HOL eerste koop mogelijk na 2400 s speeltijd (goud 1073)
+HOL bordje wip na weg (niveau 11)
+HOL muisvlak passthrough, lucht vrij op x=200
+HOL reus binnen: Grand Mage Oom (niveau 11, t 2.0)
+HOL held binnen: Grand Mage Oom
+HOL zicht 2.1 1
+HOL kroniek 2.5 (wacht 2.5): Hole level 11: a royal problem.
+HOL uitleg stap 2 t=4.0 Click the dirt to dig.
+HOL kroniek 5.1 (wacht 3.1): Grand Mage Oom floats in. Huge.
+HOL leven vleermuis t=7.2 x=584 y=28
+HOL meting t=10 beelden=119 helden=1 hol_vast=2 langste_ms=133 script_ms=3585
+HOL uitleg stap 3 t=13.4 Click the tunnel to set a trap.
+HOL gegraven kolom 36 (zelf 1, graafbonus 0)
+HOL klik op (1168, 46): kamer
+HOL leven stofje t=19.3 x=568 y=26
+HOL meting t=20 beelden=120 helden=1 hol_vast=3 langste_ms=85 script_ms=1913
+HOL klik op (1168, 76): val
+HOL uitleg stap 4 t=21.5 
+HOL uitleg gloop aan t=21.5 Click Gloop to grow him.
+HOL kaartje open 23.9: slijm
+HOL klik op (1360, 72): kaartje
+HOL uitleg gloop weg t=24.0 na 2.5 s (klik)
+HOL koop 26.4: slijm niveau 1, goud 1033
+HOL klik op (1512, 64): kaartje
+HOL kaartje dicht 29.0
+HOL kroniek 29.0 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
+HOL meting t=30 beelden=140 helden=1 hol_vast=4 langste_ms=126 script_ms=2534
+HOL leven mot t=30.5 x=568 y=26
+HOL koopgeluk vangst +26 (t 35.2)
+HOL reus gevangen: Grand Mage Oom +52 (t 35.2)
+HOL kroniek 35.2 (wacht 0.0): Oom fell. His crown stays here. +52
+HOL zicht 35.2 0
+HOL held binnen: Teun
+HOL zicht 37.7 1
+HOL kroniek 37.7 (wacht 2.5): First wizard for Gloop!
+HOL meting t=40 beelden=160 helden=1 hol_vast=4 langste_ms=91 script_ms=2742
+HOL kroniek 40.3 (wacht 2.7): Teun read about you in a tavern.
+HOL leven stofje t=48.0 x=568 y=26
+HOL meting t=50 beelden=120 helden=1 hol_vast=4 langste_ms=83 script_ms=1740
+HOL kroniek zelfde held vervangen: Teun read about you in a tavern.
+HOL kroniek 52.5 (wacht 0.0): Teun fled. Grudge: the Spike Pit.
+HOL zicht 52.6 0
+HOL kaartje open 59.4: slijm
+HOL klik op (1360, 72): kaartje
+HOL meting t=60 beelden=100 helden=0 hol_vast=4 langste_ms=84 script_ms=1451
+HOL koop 62.4: slijm niveau 2, goud 1025
+HOL klik op (1512, 64): kaartje
+HOL kaartje dicht 64.9
+HOL kroniek 64.9 (wacht 0.0): Gloop bounces now. Back up in 20 s.
+HOL leven mot t=65.8 x=568 y=26
+HOL meting t=70 beelden=122 helden=0 hol_vast=4 langste_ms=84 script_ms=2037
+HOL kroniek zelfde held vervangen: Teun fled. Grudge: the Spike Pit.
+HOL kroniek 72.7 (wacht 0.0): Teun limps back to the Spike Pit.
+HOL held binnen: Teun
+HOL zicht 72.8 1
+HOL leven goudstof t=75.8 x=708 y=30
+HOL kroniek 78.3 (wacht 0.0): The Spike Pit wins round two. +16
+HOL put-hoed 8 naar de toren (hoeden nu 70, t 78.3)
+HOL zicht 78.4 0
+HOL meting t=80 beelden=142 helden=0 hol_vast=6 langste_ms=91 script_ms=2348
+HOL leven mot t=85.9 x=568 y=26
+HOL meting t=90 beelden=101 helden=0 hol_vast=6 langste_ms=84 script_ms=1800
+HOL kaartje open 99.4: slijm
+HOL klik op (1360, 72): kaartje
+HOL meting t=100 beelden=73 helden=0 hol_vast=6 langste_ms=83 script_ms=1535
+HOL leven goudstof t=100.8 x=708 y=30
+HOL koop 102.4: slijm niveau 3, goud 971
+HOL klik op (1512, 64): kaartje
+HOL kaartje dicht 105.0
+HOL kroniek 105.0 (wacht 0.0): Gloop wears a royal cape now.
+HOL kroniek 107.6 (wacht 0.0): Fenna brought a torch. And hope.
+HOL held binnen: Fenna
+HOL zicht 107.7 1
+HOL meting t=110 beelden=123 helden=1 hol_vast=6 langste_ms=84 script_ms=2220
+HOL koopgeluk vangst +26 (t 113.3)
+HOL reeks 2 (+0, t 113.3)
+HOL kroniek zelfde held vervangen: Fenna brought a torch. And hope.
+HOL kroniek 113.3 (wacht 0.0): Fenna will not be leaving. +26
+HOL put-hoed 7 naar de toren (hoeden nu 71, t 113.3)
+HOL zicht 113.3 0
+HOL leven mot t=116.0 x=568 y=26
+HOL meting t=120 beelden=148 helden=0 hol_vast=8 langste_ms=91 script_ms=2320
+HOL leven stofje t=128.9 x=568 y=26
+HOL meting t=130 beelden=102 helden=0 hol_vast=8 langste_ms=83 script_ms=1571
+HOL meting t=140 beelden=104 helden=0 hol_vast=8 langste_ms=88 script_ms=1647
+HOL leven goudstof t=142.1 x=708 y=30
+HOL kroniek 143.4 (wacht 0.0): Kees sneaks in. Nobody saw. You saw.
+HOL held binnen: Kees
+HOL zicht 143.5 1
+HOL reeks 3 (+1, t 148.7)
+HOL kroniek zelfde held vervangen: Kees sneaks in. Nobody saw. You saw.
+HOL kroniek 148.7 (wacht 0.0): Kees picked the wrong floor. +14
+HOL put-hoed 0 naar de toren (hoeden nu 72, t 148.7)
+HOL zicht 148.7 0
+HOL meting t=150 beelden=144 helden=0 hol_vast=11 langste_ms=83 script_ms=2629
+HOL leven mot t=157.0 x=568 y=26
+HOL meting t=160 beelden=104 helden=0 hol_vast=11 langste_ms=83 script_ms=2435
+HOL meting t=170 beelden=89 helden=0 hol_vast=11 langste_ms=83 script_ms=1800
+HOL leven stofje t=172.1 x=568 y=26
+HOL kroniek 175.6 (wacht 0.0): Henk has a map. It is wrong.
+HOL held binnen: Henk
+HOL zicht 175.7 1
+HOL droogte (t 178.7)
+HOL meting t=180 beelden=118 helden=1 hol_vast=12 langste_ms=83 script_ms=1861
+HOL reeks 4 (+2, t 181.3)
+HOL kroniek zelfde held vervangen: Henk has a map. It is wrong.
+HOL kroniek 181.3 (wacht 0.0): Henk stays forever. +15
+HOL put-hoed 6 naar de toren (hoeden nu 73, t 181.3)
+HOL zicht 181.3 0
+HOL einde na 182 s, fps=19, goud=1026, terugkomers=0

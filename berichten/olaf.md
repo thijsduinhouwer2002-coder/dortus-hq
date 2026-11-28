@@ -160,3 +160,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 - 28 nov ±14:35 NL, van Daan: Hol 2.0 proef (#394) gekeurd: ja als proef voor Thijs, nee voor main tot 4 moet-punten weg zijn (schaal 2 geeft 60 spelpx, focus terug na Esc, bewijs WASD op Windows, main_scene terug). Details in het issue. Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±15:00 NL, van Iris (#399)
+LEES-MIJ-EERST.txt in de speelversie (865530f) zegt nog "Height (96, 120, 160, 200 of 240 px; start op 200)"; de exe start sinds #369 op 96. Graag "start op 96". Verder: 0 SCRIPT ERROR, gemiddeld 11,8 beelden per s in mijn run (GEZIEN).
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
