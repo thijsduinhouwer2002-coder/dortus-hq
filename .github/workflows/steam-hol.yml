@@ -48,7 +48,7 @@ jobs:
             $alles += $uit
           }
           if ($alles -match "SCRIPT ERROR|Parse Error") { exit 1 }
-      - name: Strook op 96, 120, 160, 200 en 240 px met Kladblok erachter, CPU op 120
+      - name: Strook op 96, 120, 160, 200 en 240 px met Kladblok erachter, CPU op 120, 200 en 240 (en 200 met palet=vol)
         shell: pwsh
         run: |
           $uit = "producten/steam-hol/e2e/screenshots"
@@ -56,13 +56,17 @@ jobs:
           Start-Process notepad.exe
           Start-Sleep 3
           $samen = @()
-          foreach ($h in @(96, 120, 160, 200, 240)) {
-            $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/hol-$h.log"
+          # Daan #339 M2: de standaard is 200 px (2,8 keer de pixels van 120) met palet=zacht (een laag die het scherm
+          # terugleest), dus CPU ook op 200 en 240, en 200 met palet=vol ernaast om te zien wat de laag kost.
+          foreach ($hh in @("96", "120", "160", "200", "240", "200vol")) {
+            $h = [int]($hh -replace 'vol','')
+            $extra = if ($hh -like "*vol") { "palet=vol" } else { "" }
+            $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/hol-$hh.log"
             $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$h demo=1 vers=1 duur=50 log=$log" -PassThru
+              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$h demo=1 vers=1 duur=50 $extra log=$log" -PassThru
             Start-Sleep 22
-            & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-$h.png"
-            if ($h -eq 120) {
+            & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-$hh.png"
+            if ($hh -in @("120", "200", "240", "200vol")) {
               # drie metingen van 6 s en de mediaan (Bram 15 nov: één meting van 20 s op een gedeelde runner sprong tussen 0,6 en 1,4
               # met dezelfde code). Alleen ter info: dit is de drukke demo-film; de maat voor demolijst 2 is de duurtest (steam-hol-duur.yml).
               $m = @()
@@ -73,12 +77,12 @@ jobs:
                 $m += [math]::Round(($c2 - $c1) * 10 / $dt, 2)
               }
               $med = ($m | Sort-Object)[1]
-              $regel = "CPU hoogte $h : $med CPU-seconden per 10 s (mediaan van $($m -join ' / '), alleen ter info: demo-film op een gedeelde runner, de maat is de duurtest), geheugen $([int]($p.WorkingSet64 / 1MB)) MB"
+              $regel = "CPU hoogte $hh : $med CPU-seconden per 10 s (mediaan van $($m -join ' / '), alleen ter info: demo-film op een gedeelde runner, de maat is de duurtest), geheugen $([int]($p.WorkingSet64 / 1MB)) MB"
               Write-Output $regel; $samen += $regel
             }
             $p.WaitForExit(40000) | Out-Null
             if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
-            Write-Output "===== log $h"; Get-Content $log -ErrorAction SilentlyContinue
+            Write-Output "===== log $hh"; Get-Content $log -ErrorAction SilentlyContinue
           }
           $samen | Set-Content "$uit/cpu.txt"
       - name: Gloop plat zonder regel op 96 en 120 px (Daan 16 nov 20:35)

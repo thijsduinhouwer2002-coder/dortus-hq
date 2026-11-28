@@ -17,7 +17,7 @@ static func knop(t, x: float, y: float, h: float, tekst_: String, maat: int, fon
 	var tw: float = font.get_string_size(tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x
 	var mw := 0.0   # muntje plus getal
 	if getal != "":
-		mw = 2 * sc + 5 * sc + font.get_string_size(getal, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x
+		mw = 2 * sc + 5 * sc + 1 + font.get_string_size(getal, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x
 	var w := tw + mw + 6 * sc
 	var r := Rect2(x, y, w, h)
 	var tx := x + 3 * sc
@@ -52,7 +52,7 @@ static func knop(t, x: float, y: float, h: float, tekst_: String, maat: int, fon
 	if getal != "":
 		var mx := tx + tw + 2 * sc
 		t._munt(Vector2(mx, ty - maat * 0.35 - 2 * sc))
-		var gp := Vector2(mx + 5 * sc, ty)
+		var gp := Vector2(mx + 5 * sc + 1, ty)   # Daan #344 K2: 1 px lucht tussen munt en getal (op 120 raakte hij de 4)
 		if t.met_3d:
 			t._tekst(font, gp, getal, -1, maat, kleur)
 		else:

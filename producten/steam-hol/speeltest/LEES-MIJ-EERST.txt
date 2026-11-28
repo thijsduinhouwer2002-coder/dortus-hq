@@ -17,7 +17,7 @@ Spelen
 Doe niets en kijk. Het spel zegt zelf in één regel wat je moet doen.
 
 Menu (rechtsklik op het hol, of op het icoon in het systeemvak)
-Pause, Sound, Height (96, 120 of 160 px), Quit.
+Pause, Sound, Height (96, 120, 160, 200 of 240 px; start op 200), Quit.
 Stoppen met Quit; het spel bewaart zelf en gaat later verder.
 Geen Alt+F4: het hol pakt nooit de focus, dus Alt+F4 sluit je andere venster.
 

@@ -1,10 +1,11 @@
 # Palet over de hele strook (Olaf 28 nov, #333): drie blinde tests noemden Hats "cheap mobile game" en vroegen om
 # "a softer, less saturated art style". Eén laag bovenop alles leest het beeld terug en dempt de kleuren, zodat de
 # kunst zelf (Blender, licht, bord) niet per stuk hoeft te veranderen. Kiezen: palet=vol (zoals het was), palet=zacht.
-# De standaard kiezen Sanne en Mila na de blinde test; tot dan blijft het vol.
+# Sanne 28 nov (#333): grond zacht als standaard, want de omslag- en headertests vragen letterlijk "softer, less
+# saturated" en de speelscherm-test gaf vol en zacht dezelfde plek. palet=vol blijft als keuze voor wie het fel wil.
 extends RefCounted
 
-const STANDAARD := "vol"
+const STANDAARD := "zacht"
 
 # zacht: verzadiging 0,78, schaduwen iets opgelicht, hoge lichten iets terug, een vleug warm (oud papier, geen sepia)
 const SHADER := """
@@ -33,7 +34,7 @@ static func keuze() -> String:
 	return STANDAARD
 
 # Legt de laag over de strook. Muis gaat er dwars doorheen; de laag tekent niets bij palet=vol.
-static func zet(s, breedte: int, hoogte: int) -> void:
+static func zet(s, _breedte: int, _hoogte: int) -> void:
 	var k := keuze()
 	if k != "zacht":
 		return
@@ -42,8 +43,9 @@ static func zet(s, breedte: int, hoogte: int) -> void:
 	laag.layer = 100
 	var vlak := ColorRect.new()
 	vlak.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	vlak.position = Vector2.ZERO
-	vlak.size = Vector2(breedte, hoogte)
+	# Daan #339 (1): ankers over het hele venster, zodat de laag meegroeit als het venster na _ready nog van maat
+	# verandert (een andere hoogte herlaadt de scène, maar een venster dat later zijn maat krijgt mag geen volle rand laten)
+	vlak.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var mat := ShaderMaterial.new()
 	var sh := Shader.new()
 	sh.code = SHADER
