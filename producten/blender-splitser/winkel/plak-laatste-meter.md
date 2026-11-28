@@ -29,7 +29,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 | | |
 |---|---|
 | Bestand | `click_cuts-1.1.0.zip` |
-| Waar | e2e-run **46056960861** op main (commit a3d23511, 1.1 samengevoegd), artefact `click-cuts-kandidaat`; ingelogd te downloaden via https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46056960861 . **Verloopt ma 30 nov 20:31 NL** (GitHub `expires_at` 19:31 UTC, GEZIEN): dus za 28 nov downloaden. Voor Superhive (deel 3, later) vastzetten met tag `click-cuts-uitgave-46056960861` (workflow `click-cuts-uitgave`, leest de versie uit de zip), of dezelfde gedownloade zip bewaren. |
+| Waar | **Vastgezet tot ma 28 dec** (za 28 nov ±02:30, Productbouwer): artefact `click-cuts-zip-1.1.0` uit uitgave-run **46093220919** (van e2e 46056960861 op main, commit a3d23511), ingelogd te downloaden via https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46093220919 . Zelfde zip als de kandidaat: sha256 hieronder, 72.966 bytes (GEZIEN, zelf gedownload). Geen haast meer voor ma 30 nov; dezelfde zip dient ook voor Superhive (deel 3). De oude kandidaat in e2e-run 46056960861 verloopt ma 30 nov 20:31 NL en is niet meer nodig. |
 | Groen in | Blender 4.2.23 en 5.3.0 (beide e2e-jobs `success`, GEZIEN via de API 27 nov ±20:36 NL) |
 | sha256 | `bd591759e8c9aae943fad45ed871d8c8126447906b3c04955497e3b0640d3e7a` (GEZIEN: zelf gedownload en nagerekend, gelijk aan `SHA256SUMS.txt` in het artefact) |
 | Nagekeken | 72.966 bytes, 26 bestanden; `blender_manifest.toml`: `version = "1.1.0"`, `name = "Click Cuts"`; `lijn.py` (Draw cut) en `hulp.py` (?-knop) zitten erin (GEZIEN) |
