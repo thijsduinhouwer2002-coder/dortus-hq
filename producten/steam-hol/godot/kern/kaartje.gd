@@ -93,7 +93,7 @@ static func beschrijving(s, soort: String) -> Dictionary:
 	var up = s.hol.upgrades
 	var bew: String = s._bewoner()
 	var d := {"soort": soort, "titel": "", "uitleg": "", "kost": -1, "kan": false, "tekort": 0, "terug": 0,
-		"weg": soort == "stekelput"}   # een put kun je ook weghalen (controleur: anders was een put zetten onomkeerbaar)
+		"weg": soort == "stekelput", "stap": int(up.niveau(soort)), "stappen": UPG.MAX_NIVEAU}   # een put kun je ook weghalen (controleur: anders was een put zetten onomkeerbaar)
 	var v: Dictionary = up.volgende(soort)
 	if v.is_empty():
 		var laatste: String = UPG.STAPPEN[soort][UPG.MAX_NIVEAU - 1]["naam"]

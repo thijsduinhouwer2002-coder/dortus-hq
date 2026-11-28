@@ -1,0 +1,32 @@
+{
+  "titel": "Hats of the Fallen, 200 px, alles van #333 erin: grond zacht (gedempte aarde en steen, zonder extra CPU) en stappen op het kaartje (Daan #344 K1), zaad 11, 75 s met uitlegbordje en 78 s met kaartje open, naast het beeld van 03:23 als controle, ware maat",
+  "rol": "You play cozy idle games on PC while you work or study. You want a small game that lives on your desktop or at the bottom of your screen and is fun to glance at. You are browsing Steam and look at the first screenshot of each game. Pick the game you would buy first this week.",
+  "ons": [
+    {
+      "naam": "controle 03:23 uitlegbordje (vol)",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/producten/steam-hol/bewijs-ui-af/minuut1-200-plaat-ware-maat.png"
+    },
+    {
+      "naam": "nieuw 75 s grond zacht",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/producten/steam-hol/bewijs-grond-zacht/minuut1-200-plaat-ware-maat.png"
+    },
+    {
+      "naam": "nieuw 78 s kaartje met stappen",
+      "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/producten/steam-hol/bewijs-grond-zacht/minuut1-200-kaartje-ware-maat.png"
+    }
+  ],
+  "concurrenten": [
+    {
+      "naam": "Rusty's Retirement",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2666510/ss_f15441bfd5758bae1c69fa51a068c9869d26a200.1920x1080.jpg"
+    },
+    {
+      "naam": "Spirit City: Lofi Sessions",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2113850/7d288079dbc0eb12cb613ff81680f811f2d7fc42/ss_7d288079dbc0eb12cb613ff81680f811f2d7fc42.1920x1080.jpg"
+    },
+    {
+      "naam": "Desktop Defender",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3772810/277332e2a279915a806c0e6d25e59d5c92d0ea18/ss_277332e2a279915a806c0e6d25e59d5c92d0ea18.1920x1080.jpg"
+    }
+  ]
+}

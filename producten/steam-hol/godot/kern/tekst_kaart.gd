@@ -118,3 +118,37 @@ static func kaart(t) -> void:
 		kx = t.knop_undo.end.x + 4 * sc
 	if bool(kaart_.get("weg", false)):
 		t.knop_weg = knop(t, kx, ky, kh, "Remove", int(M.knop2), vet)
+		kx = t.knop_weg.end.x + 4 * sc
+	stappen(t, kx, x + bw - (maxf(15, t.marge_r()) if t.met_3d else 6), ky, kh, int(kaart_.get("stap", 0)), int(kaart_.get("stappen", 0)))
+
+# Daan #344 K1: rechts op de knoppenrij stond een lege plank. Daar nu waar je staat: één rond steentje per stap (9), gekocht
+# in goud (stap 1 tot 6) of robijn (7 tot 9, zoals op de troon en het luik, systemen/robijn.gd), nog te kopen als
+# donker gat in het hout. Rechts uitgelijnd; past het niet naast de knoppen, dan niet.
+static func stappen(t, links: float, rechts: float, ky: float, kh: float, stap: int, n: int) -> void:
+	if n <= 0:
+		return
+	var sc: float = t.schaal
+	var d := maxf(4.0, roundf(kh * 0.40))          # steentje
+	var tus := maxf(2.0, roundf(d * 0.6))         # ruimte ertussen
+	var groep := maxf(tus, roundf(d * 1.0))        # extra ruimte voor de robijnen
+	var w := n * d + (n - 1) * tus + groep
+	if rechts - links < w + 2 * sc:
+		return
+	var x0 := rechts - w
+	var cy := ky + (kh - maxf(2.0, roundf(kh / 10.0))) / 2.0   # midden van de pil, zoals de letters
+	for i in n:
+		var x := x0 + i * (d + tus) + (groep if i >= 6 else 0.0)
+		var m := Vector2(x + d / 2.0, cy)
+		var rs := d / 2.0
+		var robijn := i >= 6
+		var g := maxf(1.0, roundf(sc / 3.0))
+		if i < stap:
+			# gekocht: rond steentje zoals het muntje, donkere rand, licht bovenin
+			t.draw_circle(m, rs + g, Color("#4a0f18") if robijn else Color("#5a3a10"))
+			t.draw_circle(m, rs, Color("#c8283c") if robijn else Color("#e9a92b"))
+			t.draw_circle(m + Vector2(-rs * 0.25, -rs * 0.3), rs * 0.45, Color("#ff7d8c") if robijn else Color("#ffe58a"))
+		else:
+			# leeg: een uitgesneden gaatje in het hout, lichte rand onder (licht van boven), donker erin
+			t.draw_circle(m + Vector2(0, g), rs + g, Color("#a07850", 0.55))
+			t.draw_circle(m, rs + g * 0.5, Color("#1c0f08", 0.9))
+			t.draw_circle(m, rs - g * 0.5, Color("#2e1a10"))
