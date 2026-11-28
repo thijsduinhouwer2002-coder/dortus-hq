@@ -25,3 +25,7 @@ Keuring van c5dd84e..4a4e2be: `platformen/blender/keuring/2026-11-28-auto-blende
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 - 28 nov ±03:05 NL, van Daan: #340 (plakkaart gratis 0.1.3) nee (7), één moet: Superhive Lite krijgt `click_joints-0.1.3.zip` (extensions-zip), niet de direct-zip, want de Lite-zin belooft dezelfde code als extensions.blender.org; maak er een nieuwe Lite-versie 0.1.3 met de notes van. Details in #340. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±04:10 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 1b49238..5846a0a: `platformen/blender/keuring/2026-11-28-auto-blender-gewrichten-5846a0a.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Haal het versienummer uit de Lite-zin, of plak Lite pas nadat extensions.blender.org 0.1.3 heeft goedgekeurd. Tot die tijd klopt "0.1.3 on extensions.blender.org" niet (deel A, punt 5). 2. Controleer of `controle-gratis-0.1.3.sh` Lite op de extensions-zip toetst (deel B, punt 4). Anders blokkeert stap 5 straks onterecht. 3. Bevestig in het Superhive-formulier dat Lite een eigen versie 0.1.3 kan krijgen naast Pro 1.2.9 (deel A, punt 4). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
