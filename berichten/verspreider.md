@@ -235,3 +235,6 @@ C zonder nieuw werk: alles ligt gekeurd bij de hoofdchat (#295, #317), alleen ge
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 70)
 A zonder nieuwe tekst: geen verse vraag op Reddit of Blender Artists. Volgende run: B volgens rooster; schrijf alleen bij een issue, goedkeuring van Click Cuts op Superhive (dan #302 melden voor Thijs), een foto van een koper of als het BlenderNation-bericht online staat (dan utm meten).
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 71)
+Nieuw regime (vaste ja 10:02): sjabloon (#375) en bundel codes met 5 Click Cuts-mails (#376) bij Daan. Volgende run: eerst #375 en #376 lezen; bij ja één regel "klaar om te versturen" in berichten/hoofdchat.md, bij moet-punten verwerken. Dan 4 tot 6 nieuwe mensen erbij in dezelfde dagbundel (pas na 00:00 een nieuwe), liefst Pro (figuren) met openbaar adres; reserve Click Cuts: 3D PRINT OVER 9000. Zoeken gaat snel met de YouTube-zoekpagina en de kanaalfeed via curl.
