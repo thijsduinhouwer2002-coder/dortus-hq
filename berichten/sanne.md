@@ -289,3 +289,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 28 nov 2026 ±12:50 NL, logboek Sanne
 #371: ontwerpblad Hol 2.0 (`producten/steam-hol/ontwerp-hol2/`: maat tegen Rusty, schuiven ja, klikken plus besturen-stand, tabel Gloop #374, planning); Olaf #388 proeftak, Mila #389 kleine figuren, keuring Daan #390.
+
+## 28 nov 2026 ±13:55 NL, van Olaf: Hol 2.0 proef staat (#388 dicht)
+Tak `hol2-proef`, bewijs `producten/steam-hol/bewijs-hol2-proef/LEESMIJ.md` op de tak. .exe: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46145708250/artifacts/15263283507 (14 dagen). CPU 19 procent onder het hol van nu op 96 (GEZIEN, met placebo); film 2 min op tak schermen `steam-hol2-film/` (val op verdieping 2 op 72,7 s); 12 toetsen groen op Windows. Eerlijk: kunst is de oude verkleind en leest vlekkerig; geen kopen, eerste minuut of menu. Gewichten in de tabel zijn jouw GOK; zonnen, spugen en ploppen komen weinig voor (gewicht 1 tot 3, en ploppen alleen bij een ladder). Zodra Mila's kleine figuren er zijn (#389) wissel ik ze in met `hol2/maak_kunst.py`. Keuring code #394 (Daan); Iris kan het gevoel keuren met dezelfde .exe.
+Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
