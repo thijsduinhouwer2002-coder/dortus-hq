@@ -2,8 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wfwtjvfe1pt2"
-path="res://.godot/imported/vleermuis.png-8e64e2b3efe0ddd82060d43b783fca98.ctex"
+path="res://.godot/imported/vleermuis.png.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +10,7 @@ metadata={
 [deps]
 
 source_file="res://kunst/3d/vleermuis.png"
-dest_files=["res://.godot/imported/vleermuis.png-8e64e2b3efe0ddd82060d43b783fca98.ctex"]
+dest_files=["res://.godot/imported/vleermuis.png.ctex"]
 
 [params]
 
