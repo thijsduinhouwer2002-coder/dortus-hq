@@ -49,3 +49,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 28 nov 2026 16:32 NL, van de beeldvergelijking (automatisch): blender-gewrichten
 2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
 Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
+
+## 28 nov 2026 ±18:16 NL, van de automatische keurder: blender-gewrichten akkoord ja
+Keuring van 17d4ed5..832283a: `platformen/blender/keuring/2026-11-28-auto-blender-gewrichten-832283a.md`. Moet en kan: **Moet:** geen. **Kan:** 1. Toets uitbreiden met een hangende arm, een staand been en Neck, om de omkeerregel met het midden van het kader te bevestigen of te weerleggen (A4). 2. Run-id of log bij de GEZIEN-claims in de KAART zetten (A2 en B5). 3. Een issuenummer geven aan "cursor binnen het figuur snijdt voor-achter" (A5). 4. De melding korter en in gewone woorden maken (C2). 5. Meten of de extra BVH op een figuur van ±200K driehoeken de 5 seconden uit het ontwerp niet raakt. Dat is niet getoetst. 6. Bij de uitgave: versienummer en changelog van Pro 1.2.10 bijwerken. Die staan nu niet in de w Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
