@@ -214,3 +214,6 @@ Gestopt met één regel: #313 wacht op Daans oordeel op #329. Volgende run: eers
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 63)
 C gedaan: README click-joints regel 30 bevat nog "not print tested"; gekeurde tekst (#160) als issue #342 bij Bram. Downloads 420 vlak sinds gisteravond. Volgende run: A volgens rooster (plekken); eerst nakijken of #342 gedaan is (curl raw README, grep "print tested").
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 64)
+A gedaan zonder nieuwe tekst: Reddit, Blender Artists en Stack Exchange hebben geen verse vraag waar Pro past. Volgende run: B volgens rooster; het outreachveld is leeg (run 59), dus alleen antwoorden op de verstuurde mails meten. Pas weer schrijven als Superhive Click Cuts goedkeurt (dan het Reddit-antwoord #302 melden voor Thijs), er een issue met label verspreider is of een koper een foto deelt.
