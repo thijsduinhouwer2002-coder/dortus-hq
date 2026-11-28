@@ -50,29 +50,50 @@ for (cx, cy) in [(u(560), TOP - u(18)), (u(380), u(30))]:
         dw.ellipse((x - r * 1.7, y - r, x + r * 1.7, y + r * 0.7), fill=255)
 img.paste((255, 255, 255), (0, 0), wl.filter(ImageFilter.GaussianBlur(u(8))).point(lambda v: int(v * 0.75)))
 
-# mailvenster rechts, half over de rand (Daan kan-punt: kleiner), zonder woorden
-vx0, vy0, vx1, vy1 = u(712), u(40), W + u(30), TOP + u(20)
-sch = Image.new("L", (W, H), 0)
-ImageDraw.Draw(sch).rounded_rectangle((vx0 + u(4), vy0 + u(8), vx1 + u(4), vy1 + u(8)), u(9), fill=110)
-img.paste((30, 40, 60), (0, 0), sch.filter(ImageFilter.GaussianBlur(u(10))))
-d.rounded_rectangle((vx0, vy0, vx1, vy1), u(8), fill=(250, 250, 252))
-d.rounded_rectangle((vx0, vy0, vx1, vy0 + u(30)), u(8), fill=(232, 235, 241))
-d.rectangle((vx0, vy0 + u(20), vx1, vy0 + u(30)), fill=(232, 235, 241))
-d.rounded_rectangle((vx0 + u(14), vy0 + u(11), vx0 + u(64), vy0 + u(19)), u(4), fill=(176, 182, 196))
-for i, c in enumerate([(226, 104, 90), (240, 196, 80), (100, 190, 130)]):
-    cx = vx0 + u(118) + i * u(20); cy = vy0 + u(15)
-    d.ellipse((cx - u(5), cy - u(5), cx + u(5), cy + u(5)), fill=c)
-d.line((vx0 + u(70), vy0 + u(30), vx0 + u(70), vy1), fill=(232, 235, 241), width=u(1))
-for i in range(4):
-    y = vy0 + u(42) + i * u(22)
-    if y + u(14) > TOP: break
-    d.rounded_rectangle((vx0 + u(12), y, vx0 + u(58), y + u(7)), u(3), fill=(214, 218, 228))
-for i in range(3):
-    y = vy0 + u(44) + i * u(34)
-    if y + u(20) > TOP: break
-    d.ellipse((vx0 + u(82), y, vx0 + u(98), y + u(16)), fill=[(120, 160, 230), (240, 170, 90), (130, 200, 150)][i])
-    d.rounded_rectangle((vx0 + u(106), y + u(1), vx0 + u(170), y + u(7)), u(3), fill=(70, 76, 92))
-    d.rounded_rectangle((vx0 + u(106), y + u(11), vx0 + u(196), y + u(16)), u(3), fill=(188, 192, 204))
+import os
+if os.environ.get("HV_RAAM") == "groot":
+    # v15: venster zoals v12a (GESLAAGD), groot en rechtsboven tot op het hol, maar zonder woorden (Daan #351 M1)
+    vx0, vy0, vx1, vy1 = u(645), u(32), W - u(0), TOP
+    sch = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(sch).rectangle((vx0 + u(3), vy0 + u(6), vx1 + u(3), vy1), fill=110)
+    img.paste((30, 40, 60), (0, 0), sch.filter(ImageFilter.GaussianBlur(u(9))))
+    d.rectangle((vx0, vy0, vx1, vy1), fill=(250, 250, 252))
+    d.rectangle((vx0, vy0, vx1, vy0 + u(30)), fill=(240, 242, 246))
+    d.rounded_rectangle((vx0 + u(14), vy0 + u(11), vx0 + u(74), vy0 + u(19)), u(4), fill=(150, 156, 170))
+    g = u(1.6); c = (60, 64, 76); my = vy0 + u(15)
+    x = vx1 - u(26); d.line((x - u(6), my - u(6), x + u(6), my + u(6)), fill=c, width=g); d.line((x - u(6), my + u(6), x + u(6), my - u(6)), fill=c, width=g)
+    x = vx1 - u(62); d.rectangle((x - u(6), my - u(6), x + u(6), my + u(6)), outline=c, width=g)
+    x = vx1 - u(98); d.line((x - u(6), my, x + u(6), my), fill=c, width=g)
+    for i in range(3):
+        y = vy0 + u(46) + i * u(36)
+        if y + u(22) > TOP: break
+        d.ellipse((vx0 + u(16), y, vx0 + u(36), y + u(20)), fill=[(120, 160, 230), (240, 170, 90), (130, 200, 150)][i])
+        d.rounded_rectangle((vx0 + u(46), y + u(2), vx0 + u(120), y + u(9)), u(3), fill=(60, 66, 82))
+        d.rounded_rectangle((vx0 + u(46), y + u(13), vx0 + u(180), y + u(19)), u(3), fill=(184, 188, 200))
+else:
+    # mailvenster rechts, half over de rand (Daan kan-punt: kleiner), zonder woorden
+    vx0, vy0, vx1, vy1 = u(712), u(40), W + u(30), TOP + u(20)
+    sch = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(sch).rounded_rectangle((vx0 + u(4), vy0 + u(8), vx1 + u(4), vy1 + u(8)), u(9), fill=110)
+    img.paste((30, 40, 60), (0, 0), sch.filter(ImageFilter.GaussianBlur(u(10))))
+    d.rounded_rectangle((vx0, vy0, vx1, vy1), u(8), fill=(250, 250, 252))
+    d.rounded_rectangle((vx0, vy0, vx1, vy0 + u(30)), u(8), fill=(232, 235, 241))
+    d.rectangle((vx0, vy0 + u(20), vx1, vy0 + u(30)), fill=(232, 235, 241))
+    d.rounded_rectangle((vx0 + u(14), vy0 + u(11), vx0 + u(64), vy0 + u(19)), u(4), fill=(176, 182, 196))
+    for i, c in enumerate([(226, 104, 90), (240, 196, 80), (100, 190, 130)]):
+        cx = vx0 + u(118) + i * u(20); cy = vy0 + u(15)
+        d.ellipse((cx - u(5), cy - u(5), cx + u(5), cy + u(5)), fill=c)
+    d.line((vx0 + u(70), vy0 + u(30), vx0 + u(70), vy1), fill=(232, 235, 241), width=u(1))
+    for i in range(4):
+        y = vy0 + u(42) + i * u(22)
+        if y + u(14) > TOP: break
+        d.rounded_rectangle((vx0 + u(12), y, vx0 + u(58), y + u(7)), u(3), fill=(214, 218, 228))
+    for i in range(3):
+        y = vy0 + u(44) + i * u(34)
+        if y + u(20) > TOP: break
+        d.ellipse((vx0 + u(82), y, vx0 + u(98), y + u(16)), fill=[(120, 160, 230), (240, 170, 90), (130, 200, 150)][i])
+        d.rounded_rectangle((vx0 + u(106), y + u(1), vx0 + u(170), y + u(7)), u(3), fill=(70, 76, 92))
+        d.rounded_rectangle((vx0 + u(106), y + u(11), vx0 + u(196), y + u(16)), u(3), fill=(188, 192, 204))
 
 # titel: twee kleuren, donkere rand en een dieptekant, hoge hoed op de H
 gr = u(68) if TOP > u(185) else u(58)

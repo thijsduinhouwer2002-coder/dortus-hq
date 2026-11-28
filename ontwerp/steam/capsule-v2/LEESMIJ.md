@@ -130,3 +130,8 @@ Uitgezocht: de lichte geblokte rand om de held in v13a zit in het spel, niet all
 - `header_v13.py` leest nu de hoogte van het bronbeeld (160 of 240). v14 op 1,0x: het hol op ware grootte, geen vergroten. Strook 240 px, lucht 154 px, titel 58 px.
 - `header-v14a-920x430.png`: `bron-v14-1409s.png 380 1.0`. `header-v14b-920x430.png`: `bron-v14-1409s-b.png 380 1.0`.
 Bekeken met Read op 920, 460 en links en rechts op 2x: held schoon, Gloop met troon heel in beeld.
+Uitslag v14a en v14b: allebei NIET GESLAAGD, plek 3,0 bij Gemini (GEZIEN, `organisatie/blindtest/uitslag/hats-header-v2-2026-11-28-0856.md`): "cluttered", "messy", "tiny side characters". De schone held hielp de plek niet.
+
+## Ronde 15 (28 nov 2026, Mila, #30): terug naar de opbouw van v12a (GESLAAGD 1,5), zonder woorden
+- `header-v15a-920x430.png`: `HV_RAAM=groot header_v13.py bron-v14-1409s.png 520 1.0 hoed-hoge-hoed.png`. Gloop op de troon in het midden rechts met de gloeiende schat, de hoedenberg ervoor, links rustig (geen vallende held, dus geen kleine figuurtjes). Venster groot zoals v12a, met titelbalk en de tekens voor kleiner, groter en sluiten, maar zonder woorden; geen label, geen klok.
+- In dezelfde set v13b (de uitsnede van v12a met de nieuwe titel, nooit getest door de 429 van 05:52): zo meten we of het label de reden was dat v12a slaagde.
