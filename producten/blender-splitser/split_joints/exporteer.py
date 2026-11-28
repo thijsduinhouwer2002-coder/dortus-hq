@@ -22,11 +22,11 @@ def exportmap(scene):
     return bpy.path.abspath(pad)
 
 
-def niet_opgeslagen(scene):
+def niet_opgeslagen(scene, blend=None):
     """True when Export parts would write to the temp folder of the system (kopersreis #387: on Windows a
     hidden folder, and the main panel did not say so)."""
     pad = scene.split_joints.exportmap or STANDAARD
-    return pad.startswith("//") and not bpy.data.filepath
+    return pad.startswith("//") and not (bpy.data.filepath if blend is None else blend)
 
 
 def hint(scene):

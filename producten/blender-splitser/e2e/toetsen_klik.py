@@ -288,8 +288,11 @@ def alles(uitmap=None):
     s.split_joints.exportmap = ""
     stap("klik: niet opgeslagen geeft de regel onder Export parts (#387)", _exp.niet_opgeslagen(s) == (not bpy.data.filepath),
          f"{_exp.niet_opgeslagen(s)} filepath '{bpy.data.filepath}'")
+    s.split_joints.exportmap = ""
+    stap("klik: nooit opgeslagen .blend geeft de temp-regel (#387)", _exp.niet_opgeslagen(s, blend="")
+         and not _exp.niet_opgeslagen(s, blend="/tmp/a.blend"))
     s.split_joints.exportmap = "/tmp/cc_eigen_map/"
-    stap("klik: eigen map geeft geen temp-regel (#387)", not _exp.niet_opgeslagen(s))
+    stap("klik: eigen map geeft geen temp-regel (#387)", not _exp.niet_opgeslagen(s) and not _exp.niet_opgeslagen(s, blend=""))
     s.split_joints.exportmap = ""
 
     # position in mm in a meter scene
