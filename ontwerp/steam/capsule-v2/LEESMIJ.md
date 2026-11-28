@@ -112,3 +112,4 @@ Sanne (#30, 04:50): itch-omslag v5 haalde plek 1,0 met een bureaublad, een werkv
 - `header-v12a-920x430.png`: `x0 850, schaal 1.5` (zoals de omslag), strook 240 px, lucht 154 px, Gloop op de troon in het midden rechts met de schat ernaast.
 - `header-v12b-920x430.png`: `x0 755, schaal 1.3`, strook 208 px, lucht 186 px, titel groter (Poppins Bold 112 op 2x).
 Bekeken met Read op 920, 460 en 2x. Figuren niet nagetekend: alles in de strook is spelbeeld.
+Uitslag (GEZIEN, `organisatie/blindtest/uitslag/hats-header-v2-2026-11-28-0451.md`): v12a GESLAAGD plek 1,5, v12b GESLAAGD plek 2,0 bij Gemini. Keuring v12a door Daan: #351. Pas na zijn ja wordt v12a `header-920x430.png`.
