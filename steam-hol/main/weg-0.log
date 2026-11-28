@@ -1,25 +1,23 @@
-HOL balk gestart, pid 7904, hoogte 120
+HOL balk gestart, pid 5216, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795877897
+HOL zaad 1795878597
 HOL balk aan
 HOL grond zacht
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Mara)
+HOL begin: vallen (Jop)
+HOL held binnen: Jop
+HOL zicht 2.2 1
+HOL kroniek 2.6 (wacht 0.5): Jop says this is a quick one.
+HOL uitleg stap 1 t=4.1 
+HOL leven mot t=6.5 x=72 y=26
+HOL kroniek 7.3 (wacht 0.0): Mara read about you in a tavern.
+HOL begin: opgegeten (Mara)
 HOL held binnen: Mara
-HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Mara says this is a quick one.
-HOL uitleg stap 1 t=4.0 
-HOL kroniek zelfde held vervangen: Mara says this is a quick one.
-HOL kroniek 7.3 (wacht 0.0): Mara fell to the Spike Pit. +9
-HOL zicht 7.3 0
-HOL leven mot t=8.1 x=72 y=26
-HOL begin: opgegeten (Geert)
-HOL held binnen: Geert
-HOL zicht 8.4 1
-HOL uitleg stap 2 t=8.9 Click the dirt to dig.
-HOL kroniek 9.8 (wacht 2.5): First hero in the pit!
-HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=142 script_ms=1996
-HOL kroniek vervallen 11.4: Geert climbs into your hole.
+HOL kroniek zelfde held vervangen: Jop says this is a quick one.
+HOL kroniek 8.3 (wacht 0.9): Jop took the short way down. +9
+HOL uitleg stap 2 t=9.0 Click the dirt to dig.
+HOL meting t=10 beelden=149 helden=1 hol_vast=3 langste_ms=150 script_ms=1282
+HOL kroniek vervallen 10.4: First hero in the pit!
 HOL einde na 15 s, fps=12, goud=29, terugkomers=0
