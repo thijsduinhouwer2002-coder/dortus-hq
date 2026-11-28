@@ -6,6 +6,18 @@ extends RefCounted
 const CIJFERS := ["111101101101111", "010110010010111", "111001111100111", "111001111001111", "101101111001001",
 	"111100111001111", "111100111101111", "111001010010010", "111101111101111", "111101111001111"]
 const GOUD := Color8(246, 204, 76)
+const DONKER := Color(0.08, 0.06, 0.07)
+const MUIS := preload("res://hol2/muis.gd")
+# kleine letters van 5 hoog voor de uitleg bij de stuurknop (Daan #407 kan 2)
+const LETTERS := {
+	"S": ["111", "100", "111", "001", "111"], "T": ["111", "010", "010", "010", "010"],
+	"E": ["111", "100", "110", "100", "111"], "R": ["110", "101", "110", "101", "101"],
+	"G": ["111", "100", "101", "101", "111"], "L": ["100", "100", "100", "100", "111"],
+	"O": ["111", "101", "101", "101", "111"], "P": ["111", "101", "111", "100", "100"],
+	"W": ["10001", "10001", "10101", "10101", "01010"], "A": ["010", "101", "111", "101", "101"],
+	"D": ["110", "101", "101", "101", "110"], "(": ["01", "10", "10", "10", "01"], ")": ["10", "01", "01", "01", "10"],
+	" ": ["0", "0", "0", "0", "0"],
+}
 
 static func _tegel(s, laag: CanvasItem, naam: String, pos: Vector2) -> void:
 	var v: Array = s.info.tegels[naam]
@@ -77,26 +89,61 @@ static func teken_scherm(s) -> void:
 		var hi: Dictionary = s.info.hoeden
 		laag.draw_texture_rect_region(s.tex_fig.hoeden, Rect2(x + 6, y, hi.w, hi.h), Rect2(0, 0, hi.w, hi.h))
 		_getal(laag, s.hoeden.size(), Vector2(x + 8 + hi.w, y), Color8(230, 226, 214))
-		_knop(laag, knop_rect(s), s.besturen)
+		var kr := knop_rect(s)
+		_knop(laag, kr, s.besturen)
+		if kr.grow(1).has_point(s.muis_scherm):
+			_uitleg(laag, "STEER GLOOP (WASD)", Vector2(kr.position.x - 3, kr.position.y + 4))
+	var pr: Array = MUIS.pijlen(s)
+	for i in 2:
+		if MUIS.pijl_aan(s, i):
+			_pijl(laag, pr[i], i == 0)
 	if s.besturen:
 		laag.draw_rect(Rect2(0, 0, w, 1), GOUD)
 		laag.draw_rect(Rect2(0, h - 1, w, 1), GOUD)
 		laag.draw_rect(Rect2(0, 0, 1, h), GOUD)
 		laag.draw_rect(Rect2(w - 1, 0, 1, h), GOUD)
 
-# Stuurknop (Sanne #401 punt 5, ontwerpblad punt 2): vierkant van 9 spelpx links van het bord, vier pijltjes.
-# Een klik zet de besturen-stand aan of uit (een klik op Gloop is voor het kaartje van het echte spel).
+# Stuurknop (Sanne #401 punt 5, Daan #407 kan 1 en 2): vierkant van 12 spelpx links van het bord met een duidelijk
+# pijlkruis; bij hover staat er "STEER GLOOP (WASD)" naast. Een klik zet de besturen-stand aan of uit
+# (een klik op Gloop is voor het kaartje van het echte spel).
 static func knop_rect(s) -> Rect2:
-	return Rect2(s.breed - 84.0, 9.0 - roundf(s.scroll), 9, 9)
+	return Rect2(s.breed - 89.0, 8.0 - roundf(s.scroll), 12, 12)
 
 static func _knop(laag: CanvasItem, r: Rect2, aan: bool) -> void:
 	laag.draw_rect(r, GOUD if aan else Color(0.08, 0.06, 0.07, 0.85))
-	laag.draw_rect(r, GOUD, false, 1.0)
-	var k := Color(0.08, 0.06, 0.07) if aan else GOUD
-	var c := r.position + Vector2(4, 4)
-	for d in [Vector2(0, -1), Vector2(0, 1), Vector2(-1, 0), Vector2(1, 0)]:
-		var p: Vector2 = c + d * 3
-		laag.draw_rect(Rect2(p, Vector2(1, 1)), k)                      # punt van het pijltje
-		laag.draw_rect(Rect2(p - d + Vector2(d.y, d.x), Vector2(1, 1)), k)  # twee schouders
-		laag.draw_rect(Rect2(p - d - Vector2(d.y, d.x), Vector2(1, 1)), k)
-	laag.draw_rect(Rect2(c, Vector2(1, 1)), k)                          # midden: Gloop
+	laag.draw_rect(Rect2(r.position + Vector2(0.5, 0.5), r.size - Vector2.ONE), GOUD, false, 1.0)
+	var k := DONKER if aan else GOUD
+	var c := r.position + Vector2(5, 5)   # midden: een blok van 2 x 2
+	laag.draw_rect(Rect2(c, Vector2(2, 2)), k)
+	# vier pijlen van 3 breed met hun punt naar buiten
+	laag.draw_rect(Rect2(c + Vector2(0, -3), Vector2(2, 1)), k)
+	laag.draw_rect(Rect2(c + Vector2(-1, -2), Vector2(4, 1)), k)
+	laag.draw_rect(Rect2(c + Vector2(0, 4), Vector2(2, 1)), k)
+	laag.draw_rect(Rect2(c + Vector2(-1, 3), Vector2(4, 1)), k)
+	laag.draw_rect(Rect2(c + Vector2(-3, 0), Vector2(1, 2)), k)
+	laag.draw_rect(Rect2(c + Vector2(-2, -1), Vector2(1, 4)), k)
+	laag.draw_rect(Rect2(c + Vector2(4, 0), Vector2(1, 2)), k)
+	laag.draw_rect(Rect2(c + Vector2(3, -1), Vector2(1, 4)), k)
+
+# Uitleg met de kleine letters, rechts uitgelijnd tegen `rechts` (x) en verticaal gecentreerd op y.
+static func _uitleg(laag: CanvasItem, txt: String, rechts: Vector2) -> void:
+	var w := 0
+	for c in txt:
+		w += LETTERS[c][0].length() + 1
+	var p := Vector2(rechts.x - w - 2, rechts.y - 3)
+	laag.draw_rect(Rect2(p - Vector2(2, 2), Vector2(w + 3, 9)), Color(0.08, 0.06, 0.07, 0.9))
+	var x := p.x
+	for c in txt:
+		var g: Array = LETTERS[c]
+		for rij in 5:
+			for k in g[rij].length():
+				if g[rij][k] == "1":
+					laag.draw_rect(Rect2(x + k, p.y + rij, 1, 1), Color8(236, 230, 214))
+		x += g[0].length() + 1
+
+# Terugvalpijltje van 7 spelpx (Sanne #401): omhoog of omlaag, voor wie geen muiswiel heeft.
+static func _pijl(laag: CanvasItem, r: Rect2, omhoog: bool) -> void:
+	laag.draw_rect(r, Color(0.08, 0.06, 0.07, 0.8))
+	for i in 3:
+		var y: float = r.position.y + (2 + i if omhoog else 4 - i)
+		laag.draw_rect(Rect2(r.position.x + 3 - i, y, 1 + 2 * i, 1), GOUD)

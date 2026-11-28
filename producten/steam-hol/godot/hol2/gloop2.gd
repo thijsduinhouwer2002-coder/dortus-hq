@@ -33,6 +33,8 @@ var log_f: Callable       # log_regel van hol2.gd
 var na_pad := ""          # wat te doen als het pad af is ("snuffelen", "eten", ...)
 var kijk_held = null
 var gekozen := ""         # de laatst gelote gedraging (voor de log en de toets)
+var muis_dicht := false   # Sanne #401 punt 6: muis binnen 4 spelpx, gezet door hol2.gd (muis.gd)
+var muis_x := 0.0
 
 func _init() -> void:
 	snel = 26.0
@@ -142,10 +144,25 @@ func _dichtste(soort: String):
 			beste = b
 	return beste
 
+# Zijn lijf in spelpixels van de wereld (zonder de lege randen van het blad). Het klikvak en de muiszone zijn dit
+# plus 4 spelpx rondom (Sanne #401 punt 6).
+func lijf() -> Rect2:
+	return Rect2(x - 9, y - 16, 18, 17)
+
 func werk(delta: float) -> void:
 	t += delta
 	if bestuurd:
 		_bestuur(delta)
+		return
+	if muis_dicht:
+		# muis bij Gloop: een klim maakt hij af, lopen stopt op een hele spelpx, dan blijft hij staan en kijkt naar
+		# de muis; het pad en de tijd van zijn gedraging blijven bewaard en gaan verder als de muis weg is
+		if klimt:
+			stap(delta)
+			return
+		x = roundf(x)
+		naar_rechts = muis_x > x
+		frame = F_KNIPPER if fmod(t, 2.5) < 0.2 else F_BLIJ
 		return
 	# een held dichtbij gaat voor
 	kijk_held = null

@@ -6,10 +6,15 @@ zoals hij is; de proef bewaart niets.
 Wat is nieuw
 - Alles is kleiner, dus het hol is groter: een tuin, verdieping 1 en verdieping 2
   in een strook van 120 px. Gloop is 20 px, helden 16 px.
-- Muiswiel boven het hol: schuif naar beneden naar verdieping 3.
-  Na 10 s zonder muis schuift het beeld vanzelf terug.
+- Muiswiel boven het hol: schuif naar beneden naar verdieping 3. Geen wiel?
+  De pijltjes rechtsonder doen hetzelfde. Na 10 s zonder muis schuift het
+  beeld vanzelf terug.
+- Meer verdiepingen in beeld: maak een snelkoppeling met als doel
+  HetHol.exe -- hoogte=168 (3 verdiepingen) of -- hoogte=216 (4). Alles blijft even klein; je ziet alleen meer hol.
 - Klik ergens in het hol: Gloop loopt erheen, via de ladders.
-- Klik op Gloop zelf: besturen. Er komt een gouden rand om de strook.
+- Muis bij Gloop: hij blijft staan en kijkt je aan.
+- Klik op het knopje met de vier pijltjes, links van goud: besturen.
+  Er komt een gouden rand om de strook.
   A/D of pijltjes lopen, W/S klimt op een ladder.
   Stopt met Esc, met een klik buiten het hol, of na 10 s zonder toets.
   Alleen in deze stand pakt het spel je toetsen; anders nooit.

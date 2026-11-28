@@ -3,7 +3,8 @@
 # met het muiswiel. Klik in het hol en Gloop loopt erheen via de ladders; klik op de stuurknop links van het bord voor de besturen-stand (WASD of
 # pijltjes, W/S klimt, gouden rand, stopt bij Esc, klik buiten of 10 s geen toets). Gloop scharrelt zelf met de tabel.
 # Retro: tekenen op breedte x spel_h spelpixels en vergroten met een heel getal (rekstand viewport), figuren op hele px.
-# Startargumenten na "--": hoogte=120 (96 tot 240, spelpixels; het venster is hoogte x schaal) duur=<s> log=<pad> zaad=<n>
+# Startargumenten na "--": hoogte=120 (120, 168 of 216 spelpixels = 2, 3 of 4 verdiepingen in beeld; andere getallen
+# gaan naar de dichtstbijzijnde; het venster is hoogte x schaal) duur=<s> log=<pad> zaad=<n>
 # film=1 schaal=<n> fps=<n> toetsproef=1 (Gloop staat stil tot de besturen-stand, voor de Windows-run van #401)
 extends Node2D
 
@@ -12,6 +13,9 @@ const GLOOP := preload("res://hol2/gloop2.gd")
 const HELD := preload("res://hol2/held2.gd")
 const BORD := preload("res://hol2/bord.gd")
 const FOCUS := preload("res://hol2/focus.gd")
+const MUIS := preload("res://hol2/muis.gd")
+const FILM := preload("res://hol2/film.gd")
+const HOOGTES := [120, 168, 216]   # Height = aantal verdiepingen (ontwerpblad punt 1, Sanne #401)
 const SOORTEN := ["held0", "held1", "held2", "dief", "bard", "heks", "ridder"]
 const NAMEN := ["Bert", "Lot", "Fenna", "Joost", "Mira", "Kees", "Ada", "Wout", "Noor", "Pim", "Saar", "Teun"]
 
@@ -54,6 +58,9 @@ var rechts := false
 var beelden := 0
 var meet_t := 0.0
 var film_stap := 0
+var muis_film := Vector2(-1, -1)    # film=1: waar de muis staat (geen echte muis in de film)
+var muis_scherm := Vector2(-1, -1)  # muis in spelpixels van het scherm, of -1 als hij niet boven het hol is
+var muis_n := 0                      # muisbewegingen die aankwamen in de laatste 10 s
 
 func log_regel(r: String) -> void:
 	print(r)
@@ -70,7 +77,7 @@ func _lees_argumenten() -> void:
 		if kv.size() != 2:
 			continue
 		match kv[0]:
-			"hoogte": hoogte = clampi(int(kv[1]), 96, 240)
+			"hoogte": hoogte = hoogte_stap(int(kv[1]))
 			"duur": duur = float(kv[1])
 			"log": log_pad = kv[1]
 			"zaad": zaad = int(kv[1])
@@ -166,6 +173,15 @@ static func maten(h: int, s: int, scherm: Vector2i) -> Dictionary:
 	return {"schaal": s, "spel_h": h, "venster_h": h * s, "breed": int(scherm.x / s),
 		"n_verd": maxi(3, int(ceil((h - 26) / 48.0)) + 1)}
 
+# Height kiest het aantal verdiepingen: 120, 168 of 216 spelpx (tuin plus 2, 3 of 4 verdiepingen). Een ander getal
+# (een oud startargument zoals 96 of 240) gaat naar de dichtstbijzijnde.
+static func hoogte_stap(h: int) -> int:
+	var beste: int = HOOGTES[0]
+	for k in HOOGTES:
+		if absi(k - h) < absi(beste - h):
+			beste = k
+	return beste
+
 # Hoeveel verdiepingen (tuin = 0) staan er zonder schuiven helemaal in beeld?
 static func lagen_in_beeld(spel_h: int) -> int:
 	var n := 0
@@ -178,7 +194,8 @@ func _process(delta: float) -> void:
 	t += delta
 	beelden += 1
 	if film:
-		_film()
+		FILM.stap(self)
+	MUIS.werk(self)
 	if besturen or not toetsproef:
 		gloop.werk(delta)
 	# helden
@@ -223,8 +240,9 @@ func _process(delta: float) -> void:
 	scherm_laag.queue_redraw()
 	meet_t += delta
 	if meet_t >= 10.0:
-		log_regel("HOL2 beelden %d in %.1f s, helden %d, goud %d" % [beelden, meet_t, helden.size(), goud])
+		log_regel("HOL2 beelden %d in %.1f s, helden %d, goud %d, muisbewegingen %d" % [beelden, meet_t, helden.size(), goud, muis_n])
 		beelden = 0
+		muis_n = 0
 		meet_t = 0.0
 	if duur > 0.0 and t > duur:
 		log_regel("HOL2 einde na %d s, goud=%d, hoeden=%d" % [int(duur), goud, hoeden.size()])
@@ -264,7 +282,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				muis_t = t
 				if BORD.knop_rect(self).grow(1).has_point(event.position):
 					_zet_besturen(not besturen, "stuurknop")
-				else:
+				elif not MUIS.klik_pijl(self, event.position):
 					_klik(p)
 			MOUSE_BUTTON_RIGHT:
 				# proef: geen menu of systeemvak, rechtsklik stopt (staat in LEES-MIJ-EERST.txt)
@@ -272,6 +290,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				get_tree().quit()
 	elif event is InputEventMouseMotion:
 		muis_t = t
+		MUIS.beweging(self)
 	elif event is InputEventKey and besturen:
 		# plek op het toetsenbord (WASD ook op azerty); zonder scancode (sommige hulpprogramma's) de letter zelf
 		var k: int = event.physical_keycode if event.physical_keycode != KEY_NONE else event.keycode
@@ -291,9 +310,11 @@ func _unhandled_input(event: InputEvent) -> void:
 					_zet_besturen(false, "Esc")
 
 func _klik(p: Vector2) -> void:
-	var g: Vector2 = gloop.pos()
-	if Rect2(g.x - 9, g.y - 16, 18, 17).has_point(p):
+	if MUIS.op_gloop(self, p):
 		log_regel("HOL2 klik op Gloop (in het echte spel opent dit zijn kaartje; sturen gaat met de stuurknop)")
+		return
+	if MUIS.op_troon(self, p):
+		log_regel("HOL2 klik op de troon (in het echte spel opent dit het kaartje van Gloop)")
 		return
 	var n: int = kaart.niveau_bij(p.y)
 	log_regel("HOL2 klik op %d,%d: niveau %d" % [int(p.x), int(p.y), n])
@@ -337,37 +358,3 @@ func _teken_leven() -> void:
 
 func _teken_scherm() -> void:
 	BORD.teken_scherm(self)
-
-# film=1: een vast script voor de film van 2 minuten (lopen, klimmen, besturen, schuiven).
-func _film() -> void:
-	var plan := [
-		[5.0, func(): _klik(Vector2(breed * 0.35, KAART.voet_y(2) - 5))],
-		[22.0, func(): _klik(Vector2(breed * 0.5, KAART.voet_y(1) - 5))],
-		[45.0, func(): _klik(Vector2(breed * 0.55, KAART.voet_y(0) - 5))],
-		[70.0, func(): _zet_besturen(true, "film")],
-		[70.5, func(): _toets(KEY_D, true)],
-		[73.0, func(): _toets(KEY_D, false)],
-		[74.0, func(): _toets(KEY_A, true)],
-		[76.0, func(): _toets(KEY_A, false)],
-		[79.0, func(): _toets(KEY_ESCAPE, true)],
-		[82.0, func(): _klik(Vector2(breed * 0.4, KAART.voet_y(3) - 5))],
-		[84.0, func(): _wiel(false, 4)],
-		[100.0, func(): _wiel(true, 4)],
-	]
-	while film_stap < plan.size() and t >= plan[film_stap][0]:
-		plan[film_stap][1].call()
-		film_stap += 1
-
-func _toets(k: Key, aan: bool) -> void:
-	var e := InputEventKey.new()
-	e.physical_keycode = k
-	e.keycode = k
-	e.pressed = aan
-	_unhandled_input(e)
-
-func _wiel(op: bool, n: int) -> void:
-	for i in n:
-		var e := InputEventMouseButton.new()
-		e.button_index = MOUSE_BUTTON_WHEEL_UP if op else MOUSE_BUTTON_WHEEL_DOWN
-		e.pressed = true
-		_unhandled_input(e)

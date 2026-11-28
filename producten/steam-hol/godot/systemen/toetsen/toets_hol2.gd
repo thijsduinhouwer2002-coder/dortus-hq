@@ -6,6 +6,9 @@ extends SceneTree
 # - helden: in 15 min vallen er helden op verdieping 1 en 2, en niemand blijft hangen;
 # - besturen: W/S klimt alleen bij een ladder.
 # - maat (#401, Daan #394 moet 1): op elk scherm 120 spelpx en 3 lagen in beeld; het venster is hoogte x schaal.
+# - Height (#401, Sanne): 120, 168, 216 spelpx = tuin plus 2, 3, 4 verdiepingen; andere getallen naar de dichtste.
+# - muis (#401, Sanne punt 6): muis bij Gloop laat hem stilstaan (klim maakt hij af), daarna loopt hij verder;
+#   klikvak is zijn lijf plus 4 spelpx.
 # Gebruik: godot --headless --path . -s systemen/toetsen/toets_hol2.gd  (0 fouten = groen)
 
 var fout := 0
@@ -125,6 +128,48 @@ func _init() -> void:
 	var klein: Dictionary = H2.maten(240, 3, Vector2i(1280, 720))
 	ok(klein.venster_h <= 360 and klein.spel_h == 240, "te grote schaal op een klein scherm gaat omlaag (schaal %d)" % klein.schaal)
 	ok(H2.lagen_in_beeld(96) == 2 and H2.lagen_in_beeld(240) == 5, "96 spelpx 2 lagen, 240 spelpx 5 lagen")
+	for hh in [[96, 120, 3], [120, 120, 3], [150, 168, 4], [168, 168, 4], [200, 216, 5], [216, 216, 5], [240, 216, 5]]:
+		var st: int = H2.hoogte_stap(hh[0])
+		ok(st == hh[1] and H2.lagen_in_beeld(st) == hh[2] and H2.maten(st, 1, Vector2i(1920, 1080)).n_verd == hh[2],
+			"Height %d wordt %d spelpx, %d lagen in beeld en één verdieping eronder om te schuiven" % [hh[0], st, H2.lagen_in_beeld(st)])
+
+	# muis bij Gloop: lopend stopt hij op een hele spelpx en blijft staan; muis weg: hij loopt verder
+	gl.bestuurd = false
+	gl.zet(kaart, 1, 400.0)
+	gl.pad.clear()
+	gl.klik_naar(1, 900.0)
+	for i in 10:
+		gl.werk(0.1)
+	gl.muis_dicht = true
+	gl.muis_x = gl.x + 10.0
+	gl.werk(0.1)
+	var stil_x: float = gl.x
+	for i in 50:
+		gl.werk(0.1)
+	ok(gl.x == stil_x and stil_x == roundf(stil_x) and gl.loopt() and gl.naar_rechts, "muis bij Gloop: hij staat stil op x %d en kijkt naar de muis" % stil_x)
+	gl.muis_dicht = false
+	for i in 20:
+		gl.werk(0.1)
+	ok(gl.x > stil_x + 5.0, "muis weg: Gloop loopt verder (x %d naar %d)" % [stil_x, gl.x])
+	# een klim maakt hij af
+	gl.zet(kaart, 1, kaart.ladder_tussen(1, 2, 960.0).x + kaart.LAD_B / 2.0)
+	gl.pad.clear()
+	gl.klik_naar(2, gl.x)
+	var t4 := 0.0
+	while not gl.klimt and t4 < 5.0:
+		gl.werk(0.1)
+		t4 += 0.1
+	gl.muis_dicht = true
+	t4 = 0.0
+	while gl.klimt and t4 < 20.0:
+		gl.werk(0.1)
+		t4 += 0.1
+	ok(gl.niveau == 2 and not gl.klimt, "muis bij Gloop tijdens een klim: hij klimt hem af (niveau %d)" % gl.niveau)
+	gl.muis_dicht = false
+	var lijf: Rect2 = gl.lijf()
+	var g: Vector2 = gl.pos()
+	ok(lijf.grow(4).has_point(g + Vector2(12, -5)) and not lijf.grow(4).has_point(g + Vector2(14, -5)) and lijf.size.x == 18,
+		"klikvak is het lijf (18 breed) plus 4 spelpx")
 	var F = load("res://hol2/focus.gd")
 	ok(OS.get_name() == "Windows" or F.terug() == "niet op Windows", "focus-hulpje doet niets buiten Windows")
 	print("[hol2] FOUT %d" % fout)

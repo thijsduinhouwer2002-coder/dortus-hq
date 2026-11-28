@@ -47,3 +47,12 @@ Artifact `hol2-proef-windows` (33 MB) van run 46145708250 op commit eef8866, 14 
 - **Moet 4** blijft: bij samenvoegen `run/main_scene` terug naar `res://main.tscn`.
 - **Sanne #401 punt 5, stuurknop:** vierkant van 9 spelpx met vier pijltjes links van het bord (`stuurknop-4x.png`); een klik zet de besturen-stand aan of uit, een klik op Gloop niet meer (die is voor zijn kaartje in het echte spel). De Windows-stap klikt eerst op Gloop (stand moet uit blijven), dan op de knop. Punt 6 (stilstaan bij de muis) en de Height-maat 120, 168, 216 komen hierna.
 - Uitslag run 46156590473 (vóór de stuurknop, GEZIEN): D liet Gloop 42 spelpx lopen, na Esc stond een getypte q in Kladblok, na 10 s stil Kladblok weer vooraan.
+
+## (d) Muis, stuurknop, pijltjes en Height (#401, Sanne punt 5 en 6, Daan #407 kan 1 en 2)
+
+Film onder Xvfb, `hoogte=120 film=1 zaad=7`, Godot 4.3, 12 beelden per s, 0 SCRIPT ERROR (GEZIEN, log):
+- 28,1 s muis vlak naast Gloop terwijl hij naar de ladder loopt: "gloop staat stil (muis bij Gloop) x=1346"; na 1 s en na 5 s nog x 1346; 33,6 s muis weg: hij loopt verder. Beeld `muis-gloop-stil-5x.png` (links 27 s lopend, rechts 30 s stil en kijkend).
+- 40 s muis boven de stuurknop: uitleg "STEER GLOOP (WASD)" ernaast. Knop nu 12 spelpx met een duidelijk pijlkruis. Beeld `stuurknop12-uitleg-5x.png`.
+- 104 s klik op pijltje omlaag: "schuif naar 48"; 110 s pijltje omhoog: "schuif naar 0". Beeld `pijltjes-5x.png` (rechtsonder, alleen te zien als je die kant op kunt).
+- Height: 120, 168, 216 spelpx is tuin plus 2, 3, 4 verdiepingen, steeds één eronder om te schuiven; oude getallen (96, 240) gaan naar de dichtste (toets_hol2, GEZIEN).
+- Of muisbewegingen zonder focus aankomen meet de Windows-run (`focus.txt`, stap 1b). Gloop stopt hoe dan ook: het hol leest de plek van de muis elk beeld.

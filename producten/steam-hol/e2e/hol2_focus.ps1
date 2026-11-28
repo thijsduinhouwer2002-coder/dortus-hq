@@ -3,6 +3,8 @@
 #   1. Kladblok vooraan (klik erin), dan HetHol.exe met toetsproef=1 (Gloop staat stil tot de besturen-stand).
 #   2. Echte klik op Gloop (stand blijft uit), dan op de stuurknop, echte toets D 1,2 s, dan Esc.  Moet: "besturen aan", Gloop x anders, "focus terug naar".
 #   3. Na Esc een echte letter q typen: die moet in Kladblok staan, niet in het hol.
+#   1b. (Sanne #401 punt 6) muis zonder klik over het hol naar Gloop: komen bewegingen aan zonder focus, en ziet het
+#       hol de muis bij Gloop? Alleen meten en opschrijven; FOUT alleen als "muis bij Gloop" niet in de log komt.
 #   4. Nog een klik op de stuurknop en 12 s niets: "10 s geen toets" en Kladblok weer vooraan.
 # Gebruik: hol2_focus.ps1 <exe> <uitmap>   Schrijft <uitmap>/focus.txt en focus.log; exit 1 bij een FOUT.
 param([string]$exe, [string]$uit)
@@ -16,6 +18,7 @@ public class W {
   [DllImport("user32.dll")] public static extern uint MapVirtualKey(uint code, uint type);
   [DllImport("user32.dll")] public static extern IntPtr FindWindowEx(IntPtr p, IntPtr a, string klas, string titel);
   [DllImport("user32.dll", CharSet = CharSet.Unicode)] public static extern IntPtr SendMessage(IntPtr h, uint m, IntPtr w, StringBuilder l);
+  [DllImport("user32.dll")] public static extern bool SetCursorPos(int x, int y);
   [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr h, out RECT r);
   public struct RECT { public int L, T, R, B; }
   public static uint Pid(IntPtr h) { uint p; GetWindowThreadProcessId(h, out p); return p; }
@@ -56,6 +59,17 @@ $r += "Gloop op het scherm: $gx,$gy (venster $vh hoog, werkvlak $($wa.Width)x$($
 $k = [regex]::Match((Log), "stuurknop venster x=(-?\d+) y=(-?\d+)")
 $kx = $wa.X + [int]$k.Groups[1].Value; $ky = $wa.Bottom - $vh + [int]$k.Groups[2].Value
 $r += "stuurknop op het scherm: $kx,$ky"
+
+# 1b. muis bewegen zonder klik, Kladblok houdt de focus
+for ($i = 0; $i -le 20; $i++) { [W]::SetCursorPos($gx - 400 + $i * 20, $gy) | Out-Null; Start-Sleep -Milliseconds 50 }
+Start-Sleep 2
+$l = Log
+$beweeg = [regex]::Match($l, "muisbeweging aangekomen \(focus (\w+)\)")
+$r += "muis zonder klik over het hol, vooraan: $(Voor)"
+$r += $(if ($beweeg.Success) { "muisbewegingen komen aan zonder klik (focus $($beweeg.Groups[1].Value))" } else { "muisbewegingen komen NIET aan zonder focus (de plek wordt elk beeld gelezen, dus Gloop stopt toch)" })
+$stil = [regex]::Match($l, "gloop staat stil \(muis bij Gloop\)[^\r\n]*")
+if ($stil.Success) { $r += "log: $($stil.Value)" } else { $r += "FOUT: het hol zag de muis bij Gloop niet"; $fout++ }
+[W]::SetCursorPos($gx, $gy - 300) | Out-Null; Start-Sleep 1
 
 # 2. klik op Gloop doet niets met de stand; klik op de stuurknop, D, Esc
 & $klik $gx $gy | Out-Null; Start-Sleep 1

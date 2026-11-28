@@ -78,7 +78,7 @@ jobs:
           name: hol2-proef-windows
           path: producten/steam-hol/bouw-hol2/
           retention-days: 14
-      - name: De .exe starten op 120 en 240 px, met Kladblok erachter
+      - name: De .exe starten op 120, 168 en 216 px, met Kladblok erachter
         shell: pwsh
         run: |
           $uit = (Resolve-Path "producten/steam-hol/e2e/screenshots/hol2").Path -replace '\\','/'
@@ -86,7 +86,7 @@ jobs:
           $glog = Join-Path $env:APPDATA "Dortus/Het Hol/logs/godot.log"
           Start-Process notepad.exe; Start-Sleep 3
           $fout = 0; $r = @()
-          foreach ($h in @(120, 240)) {
+          foreach ($h in @(120, 168, 216)) {
             Remove-Item $glog -ErrorAction SilentlyContinue
             $p = Start-Process -FilePath $exe -ArgumentList "-- hoogte=$h film=1 zaad=7 duur=40 log=$uit/hol2-$h.log" -PassThru
             Start-Sleep 30
