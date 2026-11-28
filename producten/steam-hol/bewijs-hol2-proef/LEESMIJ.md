@@ -12,11 +12,11 @@ Binnen één meetronde, om en om, met een placebo (twee keer precies hetzelfde h
 | placebo: hol van nu, 96 px, nog eens | 1,080 / 1,083 / 1,183 | 1,115 (verschil 0,0 procent) |
 | **Hol 2.0, 120 px** | 0,890 / 0,907 / 0,907 | **0,901 (19 procent minder)** |
 
-Eis uit het issue (niet meer dan nu): gehaald, met 4 keer zoveel hol in beeld. Eerste poging kostte 65 procent meer (1,81, GEZIEN, eerste ronde van een eerdere meting): de achtergrond waren duizenden losse tegels die elk beeld opnieuw naar de kaart gingen. Nu wordt die één keer gebakken in een eigen beeld (`SubViewport`, `UPDATE_ONCE`) en als één plaatje getekend; op schaal 1 slaan we ook de extra kopie van de rekstand over. De workflow `steam-hol2-proef.yml` meet hetzelfde nog eens met de echte .exe op Windows (alleen ter info, `cpu.txt` op tak schermen).
+Eis uit het issue (niet meer dan nu): gehaald, met 4 keer zoveel hol in beeld. Eerste poging kostte 65 procent meer (1,81, GEZIEN, eerste ronde van een eerdere meting): de achtergrond waren duizenden losse tegels die elk beeld opnieuw naar de kaart gingen. Nu wordt die één keer gebakken in een eigen beeld (`SubViewport`, `UPDATE_ONCE`) en als één plaatje getekend; op schaal 1 slaan we ook de extra kopie van de rekstand over. Windows, echte .exe, run 46145708250 (alleen ter info, `steam-hol2-proef/cpu.txt` op tak schermen, GEZIEN): hol van nu 96 gemiddeld 1,47, placebo 2,05, Hol 2.0 op 120 gemiddeld 1,14 CPU-s per 10 s. De placebo zit daar 39 procent naast het origineel, dus de gedeelde runner is te onrustig om er een procent uit te halen; de richting is wel dezelfde. De Linux-meting hierboven is de maat.
 
 ## (b) Film van 2 minuten
 
-Op tak schermen, map `steam-hol2-proef/film/`: `hol2-film-2min-1x.mp4` (hele strook, ware maat), `...-links-2x.mp4` en `...-rechts-2x.mp4` (helft, 2 keer). Godot 4.3 onder Xvfb, `--write-movie --fixed-fps 12`, `hoogte=120 film=1 zaad=7`. Wat erin gebeurt (log, GEZIEN):
+Op tak schermen, map `steam-hol2-film/` (commit 8e54faf): `hol2-film-2min-1x.mp4` (hele strook, ware maat), `...-links-2x.mp4` en `...-rechts-2x.mp4` (helft, 2 keer). Godot 4.3 onder Xvfb, `--write-movie --fixed-fps 12`, `hoogte=120 film=1 zaad=7`. Wat erin gebeurt (log, GEZIEN):
 - 5 s klik op verdieping 2 links: Gloop loopt van de troon weg; 22 s klik op verdieping 1: hij loopt naar de ladder en klimt (36,9 s op verdieping 1); 45 s klik in de tuin: klimt naar boven (55,6 s in de tuin).
 - 70 s besturen-stand aan (gouden rand), D en A lopen, 79 s Esc.
 - **72,7 s: Bert valt in een luik op verdieping 2**; daarna nog 4 keer op verdieping 2 en 3 keer op verdieping 1.
@@ -30,7 +30,7 @@ Beelden hier: `hol2-120-1x-25s.png` (ware maat), `hol2-120-geschoven-85s.png` (g
 
 ## (d) .exe
 
-Artifact `hol2-proef-windows` van de workflow `steam-hol2-proef.yml` op de tak (14 dagen), met `LEES-MIJ-EERST.txt`. Link staat in het issue en onderaan `berichten/hoofdchat.md` en `berichten/sanne.md`.
+Artifact `hol2-proef-windows` (33 MB) van run 46145708250 op commit eef8866, 14 dagen: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46145708250/artifacts/15263283507 (ophalen met een GitHub-account), met `LEES-MIJ-EERST.txt`. In die run: alle 12 toetsen groen op Windows, de .exe start op 120 en 240 px boven de taakbalk met Kladblok erachter, geen SCRIPT ERROR, Gloop loopt na de klik (`starten.txt`, `hol2-240.png` op tak schermen, GEZIEN). Link staat in het issue en onderaan `berichten/hoofdchat.md` en `berichten/sanne.md`.
 
 ## Wat er (nog) niet in zit, eerlijk
 
