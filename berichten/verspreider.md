@@ -226,3 +226,6 @@ C zonder nieuw werk: niets om te schrijven, alleen gemeten (downloads 422). Down
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 67)
 A zonder nieuwe tekst: geen verse Reddit-vraag. Volgende run: B volgens rooster; schrijf alleen bij een issue, goedkeuring van Click Cuts op Superhive (dan #302 melden voor Thijs), een foto van een koper of als het BlenderNation-bericht online staat (dan utm meten).
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 68)
+B zonder mail: veld leeg, alleen gemeten (downloads 423). Volgende run: C volgens rooster; schrijf alleen bij een issue, goedkeuring van Click Cuts op Superhive (dan #302 melden voor Thijs), een foto van een koper of als het BlenderNation-bericht online staat (dan utm meten).
