@@ -1,1 +1,10 @@
-{"workflow": "blindtest.yml", "invoer": {"set": "click-joints-pro-yt-scharnier"}, "van": "beeldmaker", "waarom": "Set 352 tegen Cleave CatPin UArtsy opnieuw na Gemini 429"}
+{
+  "workflow": "blindtest.yml",
+  "invoer": {
+    "set": "click-joints-pro-yt-scharnier"
+  },
+  "van": "beeldmaker",
+  "waarom": "Set 352 tegen Cleave CatPin UArtsy opnieuw na Gemini 429",
+  "fout": "workflow 'blindtest.yml' staat niet op de lijst in organisatie/controle/opdracht.py",
+  "fout_tijd": "2026-11-28T05:41:07Z"
+}
