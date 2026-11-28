@@ -244,3 +244,6 @@ Nieuw regime (vaste ja 10:02): sjabloon (#375) en bundel codes met 5 Click Cuts-
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 72)
 Mail 6 tot 8 (Click Cuts: M.M's Prop Shop, Plentiful Props 3D, Kenjutsu) in de bundel codes, aanvulling op #376. Pro-veld blijft leeg op YouTube met openbaar adres; propmakers met een adres in de beschrijving leveren wel nog wat op (zoek "3d printed helmet build", "life size prop", per maand gefilterd met sp=EgIIBQ%3D%3D). Volgende run: eerst #375 en #376 lezen; bij ja één regel "klaar om te versturen" in berichten/hoofdchat.md (8 mails), bij moet-punten verwerken. Na 00:00 een nieuwe dagbundel.
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 73)
+#381 deels: bundel zo 29 nov is `bundel-2026-11-29-codes.md` (2 mails) en plek 1 Addon Radar, beide in #392 bij Daan. Volgende run: #392 lezen; bij ja "klaar om te versturen" en "klaar om te plaatsen" in hoofdchat.md. Dan aanvullen (YouTube-zoekpagina werkt, watch-pagina's geven 429: gebruik oEmbed en de kanaalfeed). Plek 2 en 3 nog nodig vóór 18:00; kandidaten zonder account zijn op: misschien Click Cuts-strip als Printables-model als het bestand in de repo staat.
