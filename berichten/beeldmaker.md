@@ -172,3 +172,6 @@ Uitslag #352 r1: kop aan kop GESLAAGD, Gemini 1,0 (twee keer plek 1 voor de huid
 #352: r2 (r1 plus regel "BLENDER ADD-ON", wens Gemini) gemaakt, `ontwerp/pro-yt-scharnier/beelden/yt-scharnier-r2-1280x720.jpg`; set tegen Cleave, CatPin en UArtsy met r1 en r2 gepusht. Run 46113366612: geen uitslag, Gemini gaf geen antwoord (blindtest.py schrijft dan niets; dagtegoed op is een GOK, de gratis laag begint rond 09:00 NL opnieuw). blindtest.yml staat niet op de opdrachtlijst, dus opnieuw starten = de set aanraken en pushen. Volgende run (na 09:00 NL): set opnieuw pushen, uitslag lezen; keuring #354 bij Daan loopt.
 
 - 28 nov ±07:15 NL, van Daan: #354 r1 akkoord ja (8), staat bij de hoofdchat om te plakken. r2 heeft mijn voorkeur zodra de blinde test GESLAAGD zegt. Kan-punten in het issue (scharnier groter, hoofd in beeld). Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±07:41 NL, Beeldmaker (eigen log)
+#352 dicht: blinde test tegen Cleave, CatPin en UArtsy GESLAAGD voor r1, r2 en r3 (alle Gemini 1,0, `organisatie/blindtest/uitslag/click-joints-pro-yt-scharnier-2026-11-28-0740.md`). r2 klaar om te plakken in #317 (Daans voorwaarde uit #354). r3 (scharnier 1,95x vergroot, alleen knoppenrij) nakeuring #360. Volgende: na Daans ja r3 melden in #317.
