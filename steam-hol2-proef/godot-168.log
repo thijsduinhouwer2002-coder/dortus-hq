@@ -9,26 +9,29 @@ USER ERROR: WASAPI: init_output_device error.
 USER WARNING: All audio drivers failed, falling back to the dummy driver.
    at: initialize (servers/audio_server.cpp:247)
 
-HOL2 gloop wandelen (plek vloer)
+HOL2 gloop naar_troon (plek vloer)
 HOL2 gloop venster x=866 y=110
-HOL2 stuurknop venster x=944 y=13
-HOL2 start hoogte=240 schaal=1 spelpixels=1024x240 verdiepingen=6 wereld=314 venster=(1024, 240) zaad=7
+HOL2 stuurknop venster x=941 y=14
+HOL2 start hoogte=168 schaal=1 spelpixels=1024x168 verdiepingen=4 wereld=218 venster=(1024, 168) zaad=7
 HOL2 held Bert (held0) komt binnen via de tuin
 HOL2 klik op 358,113: niveau 2
 HOL2 gloop loopt naar niveau 2 x 358 (klik)
 HOL2 held Lot (held1) komt binnen via de tuin
-HOL2 beelden 122 in 10.0 s, helden 2, goud 10
+HOL2 beelden 122 in 10.0 s, helden 2, goud 10, muisbewegingen 0
 HOL2 held Fenna (held2) komt binnen via de tuin
-HOL2 gloop wandelen (plek vloer)
-HOL2 beelden 120 in 10.0 s, helden 3, goud 10
-HOL2 gloop snuffelen (plek vloer)
+HOL2 beelden 120 in 10.0 s, helden 3, goud 10, muisbewegingen 0
 HOL2 klik op 512,65: niveau 1
 HOL2 gloop loopt naar niveau 1 x 512 (klik)
 HOL2 held Joost (dief) komt binnen via de tuin
+HOL2 gloop staat stil (muis bij Gloop) gloop x=327
+HOL2 gloop gaat verder (muis weg) gloop x=327
 HOL2 gloop is op niveau 1
-HOL2 beelden 120 in 10.0 s, helden 4, goud 10
+HOL2 film gloop x=327 na 1 s muis
 HOL2 held Mira (bard) komt binnen via de tuin
-HOL2 gloop naar_troon (plek vloer)
+HOL2 beelden 120 in 10.0 s, helden 5, goud 10, muisbewegingen 0
+HOL2 val: Bert valt in een luik op verdieping 2 (goud 13, hoeden 1)
+HOL2 film gloop x=431 na 5 s muis
+HOL2 val: Lot valt in een stekels op verdieping 1 (goud 16, hoeden 2)
 HOL2 held Kees (heks) komt binnen via de tuin
-HOL2 beelden 120 in 10.0 s, helden 6, goud 10
-HOL2 einde na 40 s, goud=10, hoeden=0
+HOL2 beelden 120 in 10.0 s, helden 4, goud 16, muisbewegingen 0
+HOL2 einde na 40 s, goud=16, hoeden=2

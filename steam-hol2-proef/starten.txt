@@ -1,3 +1,4 @@
 hoogte 120 : 0.0 HOL2 start hoogte=120 schaal=1 spelpixels=1024x120 verdiepingen=3 wereld=170 venster=(1024, 120) zaad=7
-hoogte 240 : 0.0 HOL2 start hoogte=240 schaal=1 spelpixels=1024x240 verdiepingen=6 wereld=314 venster=(1024, 240) zaad=7
+hoogte 168 : 0.0 HOL2 start hoogte=168 schaal=1 spelpixels=1024x168 verdiepingen=4 wereld=218 venster=(1024, 168) zaad=7
+hoogte 216 : 0.0 HOL2 start hoogte=216 schaal=1 spelpixels=1024x216 verdiepingen=5 wereld=266 venster=(1024, 216) zaad=7
 starten: 0 FOUT

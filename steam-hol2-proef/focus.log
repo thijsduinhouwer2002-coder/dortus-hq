@@ -1,19 +1,30 @@
 0.0 HOL2 gloop wandelen (plek vloer)
 0.0 HOL2 gloop venster x=866 y=110
-0.0 HOL2 stuurknop venster x=944 y=13
+0.0 HOL2 stuurknop venster x=941 y=14
 0.0 HOL2 start hoogte=120 schaal=1 spelpixels=1024x120 verdiepingen=3 wereld=170 venster=(1024, 120) zaad=7
-2.1 HOL2 held Bert (held0) komt binnen via de tuin
-8.1 HOL2 klik op Gloop (in het echte spel opent dit zijn kaartje; sturen gaat met de stuurknop)
-9.3 HOL2 besturen aan (stuurknop) gloop x=866 niveau=2 vorig venster 262316
-10.0 HOL2 beelden 122 in 10.0 s, helden 1, goud 10
+2.0 HOL2 held Bert (held0) komt binnen via de tuin
+7.8 HOL2 muisbeweging aangekomen (focus ja)
+9.2 HOL2 gloop staat stil (muis bij Gloop) gloop x=866
+10.0 HOL2 beelden 122 in 10.0 s, helden 1, goud 10, muisbewegingen 16
+11.2 HOL2 gloop gaat verder (muis weg) gloop x=866
 11.4 HOL2 held Lot (held1) komt binnen via de tuin
-12.3 HOL2 gloop spugen (plek vloer)
-12.3 HOL2 besturen uit (Esc) gloop x=908 niveau=2 focus terug naar 262316 (Notepad, vorig venster, weg 1)
-20.1 HOL2 beelden 121 in 10.1 s, helden 2, goud 10
-22.4 HOL2 schuift terug
-24.6 HOL2 held Fenna (held2) komt binnen via de tuin
-26.0 HOL2 besturen aan (stuurknop) gloop x=908 niveau=2 vorig venster 262316
-30.1 HOL2 beelden 120 in 10.0 s, helden 3, goud 10
+12.2 HOL2 gloop staat stil (muis bij Gloop) gloop x=866
+12.2 HOL2 muisbeweging aangekomen (focus ja)
+12.4 HOL2 klik op Gloop (in het echte spel opent dit zijn kaartje; sturen gaat met de stuurknop)
+13.5 HOL2 gloop gaat verder (muis weg) gloop x=866
+13.7 HOL2 besturen aan (stuurknop) gloop x=866 niveau=2 vorig venster 328082
+16.6 HOL2 gloop spugen (plek vloer)
+16.6 HOL2 besturen uit (Esc) gloop x=911 niveau=2 focus terug naar 328082 (Notepad, vorig venster, weg 1)
+20.0 HOL2 beelden 120 in 10.0 s, helden 2, goud 10, muisbewegingen 7
+24.5 HOL2 held Fenna (held2) komt binnen via de tuin
+26.8 HOL2 schuift terug
+26.8 HOL2 muisbeweging aangekomen (focus nee)
+30.0 HOL2 beelden 120 in 10.0 s, helden 3, goud 10, muisbewegingen 1
+30.1 HOL2 muisbeweging aangekomen (focus nee)
+30.3 HOL2 besturen aan (stuurknop) gloop x=911 niveau=2 vorig venster 328082
 31.4 HOL2 val: Bert valt in een stekels op verdieping 1 (goud 13, hoeden 1)
-36.0 HOL2 gloop spugen (plek vloer)
-36.0 HOL2 besturen uit (10 s geen toets) gloop x=908 niveau=2 focus terug naar 262316 (Notepad, vorig venster, weg 1)
+38.2 HOL2 held Joost (dief) komt binnen via de tuin
+40.1 HOL2 beelden 121 in 10.1 s, helden 3, goud 13, muisbewegingen 4
+40.4 HOL2 gloop snuffelen (plek vloer)
+40.4 HOL2 besturen uit (10 s geen toets) gloop x=911 niveau=2 focus terug naar 328082 (Notepad, vorig venster, weg 1)
+40.4 HOL2 muisbeweging aangekomen (focus ja)
