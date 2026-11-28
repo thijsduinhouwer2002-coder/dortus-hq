@@ -1,4 +1,4 @@
-HOL balk gestart, pid 4256, hoogte 240
+HOL balk gestart, pid 4692, hoogte 240
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=240 schaal=6 spelpixels=170x40 venster=(1024, 240) pos=(0, 480) held=res://systemen/held.gd
 HOL zaad 7
@@ -19,8 +19,8 @@ HOL held binnen: Jop
 HOL zicht 7.0 1
 HOL kroniek 7.9 (wacht 1.0): Jop is here for a story.
 HOL gegraven kolom 3 (zelf 1, graafbonus 0)
+HOL leven mot t=9.9 x=40 y=26
 HOL meting t=10 beelden=122 helden=1 hol_vast=4
-HOL leven mot t=10.9 x=40 y=26
 HOL kroniek 13.5 (wacht 0.0): Siem climbs into your hole.
 HOL begin: opgegeten (Siem)
 HOL held binnen: Siem
@@ -33,46 +33,45 @@ HOL meting t=20 beelden=110 helden=0 hol_vast=5
 HOL demo klik op Buy
 HOL koop 20.0: slijm niveau 1, goud 33
 HOL gloop ring uit na 20.1 s (goud 33)
+HOL leven stofje t=20.7 x=40 y=26
 HOL kaartje dicht 22.6
 HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
-HOL leven stofje t=22.9 x=40 y=26
 HOL begin: doorlopen (Femke)
 HOL held binnen: Femke
-HOL zicht 24.3 1
+HOL zicht 24.4 1
 HOL kroniek 25.1 (wacht 5.4): Gloop ate Siem. Kept the crown. +6
-HOL kroniek 27.6 (wacht 3.4): Femke knows all the words. Sadly.
+HOL kroniek 27.6 (wacht 3.3): Femke knows all the words. Sadly.
 HOL begin: terug (Jop)
 HOL held binnen: Jop
-HOL meting t=30 beelden=104 helden=2 hol_vast=5
-HOL kroniek 30.1 (wacht 0.8): Jop is back for the Spike Pit.
+HOL meting t=30 beelden=114 helden=2 hol_vast=5
+HOL kroniek 30.1 (wacht 0.7): Jop is back for the Spike Pit.
 HOL kroniek zelfde held vervangen: Femke knows all the words. Sadly.
-HOL kroniek 32.6 (wacht 1.2): Femke is now the Hoard-Toucher.
-HOL leven goudstof t=32.7 x=100 y=30
-HOL hol-niveau 2 (faam 3, t 34.1)
-HOL reeks 2 (+0, t 34.1)
+HOL kroniek 32.6 (wacht 1.1): Femke is now the Hoard-Toucher.
+HOL hol-niveau 2 (faam 3, t 34.2)
+HOL reeks 2 (+0, t 34.2)
 HOL bordje wip niveau 2
 HOL kroniek zelfde held vervangen: Jop is back for the Spike Pit.
-HOL kroniek 35.1 (wacht 1.0): Jop came back. The Spike Pit won. +9
+HOL kroniek 35.1 (wacht 0.9): Jop came back. The Spike Pit won. +9
+HOL leven mot t=36.5 x=40 y=26
+HOL kroniek 37.7 (wacht 19.9): A song about you! Heroes on the way.
 HOL begin: opgegeten2 (Pim)
 HOL held binnen: Pim
-HOL kroniek 37.7 (wacht 19.9): A song about you! Heroes on the way.
 HOL kroniek weggedrukt na 1.0 s, komt terug: A song about you! Heroes on the way.
-HOL kroniek 38.7 (wacht 0.9): Femke ran off, giggling.
+HOL kroniek 38.7 (wacht 0.8): Femke ran off, giggling.
 HOL meting t=40 beelden=127 helden=1 hol_vast=7
-HOL kroniek vervallen 40.6: Pim has a map. It is wrong.
+HOL kroniek vervallen 40.7: Pim has a map. It is wrong.
 HOL kroniek 41.2 (wacht 2.5): A song about you! Heroes on the way.
-HOL zicht 41.9 0
-HOL kroniek 42.2 (wacht 0.3): Gloop ate Pim, saved the bucket. +6
+HOL zicht 42.0 0
+HOL kroniek 42.2 (wacht 0.2): Gloop ate Pim, saved the bucket. +6
 HOL held binnen: Rik
-HOL zicht 43.3 1
-HOL kroniek 44.7 (wacht 1.5): Rik brought a torch. And hope.
-HOL hol-niveau 3 (faam 5, t 48.0)
-HOL reeks 2 (+0, t 48.0)
+HOL zicht 43.4 1
+HOL kroniek 44.8 (wacht 1.4): Rik brought a torch. And hope.
+HOL hol-niveau 3 (faam 5, t 48.2)
+HOL reeks 2 (+0, t 48.2)
 HOL kroniek zelfde held vervangen: Rik brought a torch. And hope.
-HOL kroniek 48.0 (wacht 0.0): Rik is part of the hole now. +6
-HOL zicht 48.1 0
+HOL kroniek 48.2 (wacht 0.0): Rik is part of the hole now. +6
+HOL zicht 48.2 0
 HOL bordje wip niveau 3
-HOL leven mot t=49.4 x=40 y=26
 HOL held binnen: Elke
-HOL zicht 49.6 1
+HOL zicht 49.7 1
 HOL einde na 50 s, fps=20, goud=54, terugkomers=1
