@@ -1,27 +1,27 @@
-HOL balk gestart, pid 7904, hoogte 96
+HOL balk gestart, pid 2468, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795862367
+HOL zaad 1795863323
 HOL balk aan
 HOL grond zacht
 HOL plat zonder regel (2 keer gemeld)
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Ineke)
-HOL held binnen: Ineke
+HOL begin: vallen (Maud)
+HOL held binnen: Maud
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Ineke read about you in a tavern.
+HOL kroniek 2.5 (wacht 0.5): Maud climbs into your hole.
 HOL uitleg stap 1 t=4.0 
-HOL kroniek zelfde held vervangen: Ineke read about you in a tavern.
-HOL kroniek 7.3 (wacht 0.0): Ineke checked the floor. Too late. +9
+HOL kroniek zelfde held vervangen: Maud climbs into your hole.
+HOL kroniek 7.3 (wacht 0.0): Maud found the Spike Pit. Hard. +9
 HOL zicht 7.4 0
-HOL begin: vluchten (Jop)
-HOL held binnen: Jop
-HOL zicht 8.9 1
+HOL begin: vluchten (Kees)
+HOL held binnen: Kees
+HOL zicht 8.4 1
 HOL uitleg stap 2 t=8.9 Click the dirt to dig.
+HOL leven mot t=9.4 x=184 y=26
 HOL kroniek 9.8 (wacht 2.5): First hero in the pit!
-HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=133 script_ms=1845
-HOL kroniek vervallen 11.9: Jop is here for your gold.
-HOL leven goudstof t=14.1 x=324 y=30
-HOL meting t=20 beelden=120 helden=1 hol_vast=3 langste_ms=84 script_ms=544
+HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=140 script_ms=3179
+HOL kroniek vervallen 11.3: Kees read about you in a tavern.
+HOL meting t=20 beelden=120 helden=1 hol_vast=3 langste_ms=84 script_ms=638
 HOL einde na 24 s, fps=12, goud=29, terugkomers=0

@@ -1,14 +1,17 @@
-HOL balk gestart, pid 9244, hoogte 96
+HOL balk gestart, pid 5880, hoogte 200
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
-HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795862677
+HOL start hoogte=200 schaal=5 spelpixels=204x40 venster=(1024, 200) pos=(0, 520) held=res://systemen/held.gd
+HOL zaad 1795863663
 HOL balk aan
 HOL grond zacht
-HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Joost)
-HOL held binnen: Joost
+HOL muisvlak via de balk, lucht vrij op x=-1
+HOL begin: vallen (Henk)
+HOL held binnen: Henk
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Joost knocks first. Polite.
+HOL kroniek 2.5 (wacht 0.5): Henk is here for your gold.
 HOL uitleg stap 1 t=4.0 
-HOL einde na 6 s, fps=12, goud=20, terugkomers=0
+HOL kroniek zelfde held vervangen: Henk is here for your gold.
+HOL kroniek 5.1 (wacht 0.0): Henk took the short way down. +9
+HOL zicht 5.1 0
+HOL einde na 6 s, fps=21, goud=29, terugkomers=0

@@ -1,26 +1,28 @@
-HOL balk gestart, pid 1156, hoogte 120
+HOL balk gestart, pid 8580, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795862584
+HOL zaad 1795863567
 HOL balk aan
 HOL grond zacht
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Siem)
-HOL held binnen: Siem
+HOL begin: vallen (Geert)
+HOL held binnen: Geert
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Siem knocks first. Polite.
+HOL kroniek 2.5 (wacht 0.5): Geert knocks first. Polite.
 HOL uitleg stap 1 t=4.0 
-HOL kroniek 7.3 (wacht 0.0): Kees brought a torch. And hope.
-HOL begin: opgegeten (Kees)
-HOL held binnen: Kees
-HOL kroniek zelfde held vervangen: Siem knocks first. Polite.
-HOL kroniek 8.3 (wacht 1.0): Siem is part of the hole now. +9
+HOL kroniek zelfde held vervangen: Geert knocks first. Polite.
+HOL kroniek 7.3 (wacht 0.0): Geert left gold and one boot. +9
+HOL zicht 7.4 0
+HOL leven mot t=7.6 x=72 y=26
+HOL begin: opgegeten (Anouk)
+HOL held binnen: Anouk
+HOL zicht 8.6 1
 HOL uitleg stap 2 t=8.9 Click the dirt to dig.
+HOL kroniek 9.8 (wacht 2.5): First hero in the pit!
 HOL demo voorbij na 10 s speeltijd
-HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=133 script_ms=1969
-HOL kroniek vervallen 10.3: First hero in the pit!
+HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=133 script_ms=2700
 HOL kroniek 10.8 (wacht 0.8): That's the demo. Your hole keeps going.
-HOL leven stofje t=12.0 x=72 y=26
+HOL kroniek vervallen 11.7: Anouk climbs into your hole.
 HOL einde na 15 s, fps=12, goud=29, terugkomers=0
