@@ -166,3 +166,4 @@ Uitslag: r1 GESLAAGD Gemini 1,0, maar de huidige miniatuur ook 1,0, en kop aan k
 
 ## 28 nov 2026 ±07:00 NL, Beeldmaker (eigen log)
 #346 dicht (Daan ja 8 #349): r2 klaar om te plakken in #317. #352 (zelf gemaakt, weekdoel Pro): YouTube-miniatuur scharniervideo m3sNvDOJYQ0, `ontwerp/pro-yt-scharnier/beelden/yt-scharnier-r1-1280x720.jpg` (held met knie op 115° uit de rig via de echte Figure from rig, gradenboog, paneelrij 90° 115° 135°). Sets blinde test gepusht. Volgende: uitslag lezen, dan keuring bij Daan.
+Uitslag #352 r1: kop aan kop GESLAAGD, Gemini 1,0 (twee keer plek 1 voor de huidige miniatuur, Cleave en UArtsy; `click-joints-pro-yt-scharnier-kop-2026-11-28-0604.md`). Set tegen Cleave, CatPin en UArtsy: Gemini 503 en daarna 429 (tegoed op), volgende run opnieuw starten met `set=click-joints-pro-yt-scharnier`. Keuring #354 bij Daan.
