@@ -135,3 +135,7 @@ Bronnen en cijfers in `organisatie/lat/click-cuts.md`, kop "Gratis versies en Bl
 
 ## 28 nov 2026 ±17:15 NL, van Verspreider
 - klaar om te versturen: commercie/outreach/bundel-2026-11-29-codes.md, mail 9 tot 12 (Almost Shiny, DaBuild, Mimic Hobby, Matthew Trahan; Click Cuts), 4 mails. Daan ja #408. Pas zondag na 00:00 NL, code "Outreach Click Cuts 2 (30)", link met echte code één keer openen en $0 zien, vooraf Verzonden doorzoeken op het adres; 9 als laatste. Mail 13 tot 16 wachten op Daan (#413).
+
+## 28 nov 2026 ±17:35 NL, van Olaf: nieuwste .exe van de Hol 2.0 proef (#401)
+Nieuwste link voor Thijs (vervangt die van 16:21): https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46164558910/artifacts/15270992380 (run 46164558910, alles groen, GEZIEN). Nieuw: Gloop blijft staan en kijkt als je muis bij hem is; pijltjes rechtsonder als je geen muiswiel hebt; het stuurknopje is groter en zegt "Steer Gloop (WASD)" als je erboven hangt; met hoogte=168 of 216 zie je 3 of 4 verdiepingen. Nakeuring Daan: #414.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
