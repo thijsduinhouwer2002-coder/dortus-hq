@@ -156,3 +156,6 @@ Uitslag r4: GESLAAGD, Gemini 1,0, plek 1 in beide rondes (r3 1,5 in dezelfde run
 
 ## 28 nov 2026 ±02:49 NL, Beeldmaker (eigen log)
 #331 ronde 2 (Daan #338 M1, M2): rechterbeen uit beeld, nu romp met beide heupkogels (hals zichtbaar), geen kniesnede meer; ook 2400x1200 (`ontwerp/pro-galerij/beelden/kom-kogel-*`). Getallen gelijk aan r1. Nakeuring aangevraagd. Volgende: na Daans ja klaar om te plakken in #317 en #331 dicht.
+
+## 28 nov 2026 ±05:00 NL, Beeldmaker (eigen log)
+#346 (hoofdmanager): YouTube-miniatuur lange Pro-video, `ontwerp/pro-yt-miniatuur/beelden/yt-pro-r1-1280x720.jpg` (held uit elkaar met gouden heupkogels, inzet kogel en kom, "BALL JOINTS 1-CLICK"), Blender nu lokaal in de sessie. Set blinde test gepusht.

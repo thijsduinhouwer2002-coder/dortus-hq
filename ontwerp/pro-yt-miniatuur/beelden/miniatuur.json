@@ -1,0 +1,15 @@
+{
+ "delen": 8,
+ "kogels": [
+  [
+   "Left hip",
+   13.0
+  ],
+  [
+   "Right hip",
+   13.0
+  ]
+ ],
+ "kogel_vlakken_goud": 3872,
+ "render_s": 429.1
+}
