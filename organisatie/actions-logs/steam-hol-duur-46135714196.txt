@@ -1,0 +1,147 @@
+# gemaakt: 2026-11-28T10:49:11Z
+# workflow: Het Hol duurtest (60 minuten, Windows) (.github/workflows/steam-hol-duur.yml)
+# run: 46135714196 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46135714196
+# commit: 865530fb tak main gestart door workflow_dispatch
+# mislukte stappen: duur: Een uur draaien met Kladblok erachter
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== duur / Een uur draaien met Kladblok erachter (laatste 138 van 138 regels) =====
+##[group]Run $uit = "producten/steam-hol/e2e/screenshots/duur"
+$uit = "producten/steam-hol/e2e/screenshots/duur"
+New-Item -ItemType Directory -Force $uit | Out-Null
+$vol = (Resolve-Path $uit).Path
+Start-Process notepad.exe
+Start-Sleep 3
+$sec = [int]$env:MINUTEN * 60
+$log = ($vol -replace '\\','/') + "/hol.log"
+# Het spel stopt zelf na duur+30 s; wij meten tot duur.
+$glog = Join-Path $env:APPDATA "Dortus/Het Hol/logs/godot.log"
+if ($env:EXE -eq 'ja') {
+  # de echte .exe: geen --path, het project zit in de .pck naast de exe
+  $prog = (Resolve-Path "producten/steam-hol/bouw/volledig/HetHol.exe").Path
+  $voor = ""
+  Remove-Item $glog -ErrorAction SilentlyContinue
+} else {
+  $prog = "godot/Godot_v4.3-stable_win64.exe"
+  $voor = "--path producten/steam-hol/godot "
+}
+Write-Output "SOORT: $(if ($env:EXE -eq 'ja') { 'echte .exe (release)' } else { 'editor-Godot (--path)' })"
+$p = Start-Process -FilePath $prog `
+  -ArgumentList "$($voor)--rendering-driver opengl3_angle -- hoogte=120 vers=1 duur=$($sec + 30) $env:EXTRA log=$log" `
+  -RedirectStandardOutput "$vol/uit.txt" -RedirectStandardError "$vol/fout.txt" -PassThru
+$null = $p.Handle
+Start-Sleep 20
+if ($p.HasExited) { Write-Output "PROCES GESTOPT binnen 20 s, code $($p.ExitCode)"; Get-Content "$vol/uit.txt", "$vol/fout.txt" -ErrorAction SilentlyContinue; exit 1 }
+$metingen = @()
+$p.Refresh(); $vorig = $p.TotalProcessorTime.TotalSeconds
+$stappen = [int](($sec - 20) / 10)
+$dood = $false
+for ($i = 1; $i -le $stappen; $i++) {
+  Start-Sleep 10
+  if ($p.HasExited) { $dood = $true; Write-Output "PROCES GESTOPT na $(20 + $i * 10) s, code $($p.ExitCode)"; break }
+  $p.Refresh(); $nu = $p.TotalProcessorTime.TotalSeconds
+  $metingen += [math]::Round($nu - $vorig, 3); $vorig = $nu
+  if ($i % 60 -eq 0) {
+    & producten/steam-hol/e2e/scherm.ps1 "$vol/strook-$([int]($i / 6))min.png"
+    Write-Output "na $([int]($i / 6)) min: geheugen $([int]($p.WorkingSet64 / 1MB)) MB, laatste 10 s $($metingen[-1]) CPU-s"
+  }
+}
+$gesorteerd = $metingen | Sort-Object
+$gem = if ($metingen.Count) { [math]::Round(($metingen | Measure-Object -Average).Average, 3) } else { -1 }
+$med = if ($metingen.Count) { $gesorteerd[[int]($gesorteerd.Count / 2)] } else { -1 }
+$samen = @(
+  "metingen van 10 s: $($metingen.Count)",
+  "CPU-s per 10 s: gemiddeld $gem, mediaan $med, laagste $($gesorteerd[0]), hoogste $($gesorteerd[-1])",
+  "geheugen aan het eind: $(if (-not $p.HasExited) { [int]($p.WorkingSet64 / 1MB) } else { 'proces weg' }) MB",
+  "proces leefde tot het eind: $(-not $dood)",
+  "soort: $(if ($env:EXE -eq 'ja') { 'echte .exe (release)' } else { 'editor-Godot (--path)' })",
+  "eerste koop mogelijk: $((Select-String -Path ($vol + '/hol.log') -Pattern 'HOL eerste koop mogelijk.*' -ErrorAction SilentlyContinue | Select-Object -First 1).Matches.Value)"
+)
+# Iris keuring 9 (16 nov): hoe vaak dezelfde kroniekzin terugkwam, de vijf vaakste (getoonde regels)
+$zinnen = Select-String -Path ($vol + '/hol.log') -Pattern 'HOL kroniek [0-9.]+ \(wacht [0-9.]+\): (.*)$' -ErrorAction SilentlyContinue | ForEach-Object { $_.Matches[0].Groups[1].Value }
+$vaak = $zinnen | Group-Object | Where-Object { $_.Count -gt 1 } | Sort-Object Count -Descending | Select-Object -First 5
+$samen += "kroniekregels: $(@($zinnen).Count), verschillend $(@($zinnen | Sort-Object -Unique).Count)"
+$samen += "vaakst herhaald: $(if ($vaak) { ($vaak | ForEach-Object { "$($_.Count)x '$($_.Name)'" }) -join '; ' } else { 'geen' })"
+$samen | Set-Content "$vol/uitslag.txt"
+($metingen -join "`n") | Set-Content "$vol/cpu-per-10s.txt"
+$samen | ForEach-Object { Write-Output $_ }
+if (-not $p.HasExited) { $p.WaitForExit(150000) | Out-Null }
+if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
+Write-Output "===== hol.log (laatste 40 regels)"; Get-Content $log -Tail 40 -ErrorAction SilentlyContinue
+if ($env:EXE -eq 'ja') { Copy-Item $glog "$vol/godot.log" -ErrorAction SilentlyContinue }
+$fouten = (Get-Content "$vol/uit.txt", "$vol/fout.txt", "$vol/godot.log" -ErrorAction SilentlyContinue | Select-String -CaseSensitive -Pattern "SCRIPT ERROR|Parse Error" | Select-Object -First 20)
+Write-Output "===== fouten in de uitvoer: $(@($fouten).Count)"; $fouten | ForEach-Object { Write-Output $_.Line }
+$einde = [bool](Select-String -Path $log -Pattern "HOL einde" -Quiet -ErrorAction SilentlyContinue)
+Write-Output "===== spel stopte zelf netjes (HOL einde in hol.log): $einde; regels in uit.txt: $(@(Get-Content "$vol/uit.txt" -ErrorAction SilentlyContinue).Count)"
+# CPU-grens 1,0: rood alleen bij de .exe (Sanne 17 nov 03:09, poort b); in de editor schommelt de runner te veel, daar een waarschuwing
+$cpuRood = ($gem -ge 1.0) -and ($env:EXE -eq 'ja')
+if (($gem -ge 1.0) -and ($env:EXE -ne 'ja')) { Write-Output "::warning::CPU gemiddeld $gem boven 1,0 in de editor (alleen waarschuwing; de .exe beslist)" }
+# Olaf 26 nov (#194): na ±120 bewaarrondes staan er precies hol.json en hol.vorige.json, geen achtergebleven .tmp
+$saves = @(Get-ChildItem (Join-Path $env:APPDATA "Dortus/Het Hol") -Filter "hol*.json*" -Name -ErrorAction SilentlyContinue | Sort-Object)
+$saveGoed = (($saves -join ',') -eq 'hol.json,hol.vorige.json')
+$saveRegel = "save-bestanden na de duurtest: $($saves -join ', ') (precies hol.json en hol.vorige.json: $saveGoed)"
+Write-Output "===== $saveRegel"; Add-Content "$vol/uitslag.txt" $saveRegel
+$rood = (-not $einde) -or $dood -or (@($fouten).Count -gt 0) -or $cpuRood -or ($metingen.Count -eq 0) -or (-not $saveGoed)
+if ($rood) { Write-Output "== DUURTEST ROOD"; exit 1 } else { Write-Output "== DUURTEST GROEN" }
+shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+env:
+  MINUTEN: 10
+  EXTRA: 
+  EXE: ja
+##[endgroup]
+SOORT: echte .exe (release)
+metingen van 10 s: 58
+CPU-s per 10 s: gemiddeld 2.545, mediaan 2.391, laagste 1.312, hoogste 3.875
+geheugen aan het eind: 70 MB
+proces leefde tot het eind: True
+soort: echte .exe (release)
+eerste koop mogelijk: HOL eerste koop mogelijk na 70 s speeltijd (goud 50)
+kroniekregels: 49, verschillend 47
+vaakst herhaald: 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'
+===== hol.log (laatste 40 regels)
+HOL reeks 12 (+4, t 546.5)
+HOL kroniek zelfde held vervangen: Pim the Bard tunes a lute.
+HOL kroniek 546.5 (wacht 0.0): Pim hit a low note. Very low. +17
+HOL put-hoed 5 naar de toren (hoeden nu 14, t 546.5)
+HOL zicht 546.5 0
+HOL meting t=551 beelden=155 helden=0 hol_vast=41 langste_ms=84 script_ms=1403
+HOL leven stofje t=555.1 x=328 y=26
+HOL meting t=561 beelden=120 helden=0 hol_vast=41 langste_ms=83 script_ms=714
+HOL leven goudstof t=567.5 x=468 y=30
+HOL kroniek 571.2 (wacht 0.0): Kees knocks first. Polite.
+HOL held binnen: Kees
+HOL zicht 571.2 1
+HOL meting t=571 beelden=121 helden=1 hol_vast=41 langste_ms=83 script_ms=761
+HOL droogte (t 576.6)
+HOL reeks 13 (+4, t 579.6)
+HOL kroniek zelfde held vervangen: Kees knocks first. Polite.
+HOL kroniek 579.6 (wacht 0.0): Kees fell to the Spike Pit. +17
+HOL put-hoed 8 naar de toren (hoeden nu 15, t 579.6)
+HOL zicht 579.7 0
+HOL meting t=581 beelden=151 helden=0 hol_vast=44 langste_ms=83 script_ms=1608
+HOL leven mot t=582.9 x=328 y=26
+HOL meting t=591 beelden=124 helden=0 hol_vast=44 langste_ms=83 script_ms=1002
+HOL leven goudstof t=592.7 x=468 y=30
+HOL meting t=601 beelden=120 helden=0 hol_vast=44 langste_ms=83 script_ms=756
+HOL leven vleermuis t=605.5 x=344 y=28
+HOL kroniek 606.4 (wacht 0.0): Lotte has a map. It is wrong.
+HOL held binnen: Lotte
+HOL zicht 606.4 1
+HOL droogte (t 609.7)
+HOL meting t=611 beelden=120 helden=1 hol_vast=44 langste_ms=83 script_ms=779
+HOL hol-niveau 6 (faam 17, t 614.8)
+HOL reeks 14 (+4, t 614.8)
+HOL kroniek zelfde held vervangen: Lotte has a map. It is wrong.
+HOL kroniek 614.8 (wacht 0.0): Lotte stays forever. +17
+HOL put-hoed 7 naar de toren (hoeden nu 16, t 614.8)
+HOL zicht 614.9 0
+HOL bordje wip niveau 6
+HOL leven goudstof t=621.1 x=468 y=30
+HOL meting t=621 beelden=155 helden=0 hol_vast=47 langste_ms=84 script_ms=1606
+HOL einde na 630 s, fps=12, goud=269, terugkomers=0
+===== fouten in de uitvoer: 0
+===== spel stopte zelf netjes (HOL einde in hol.log): True; regels in uit.txt: 312
+===== save-bestanden na de duurtest: hol.json, hol.vorige.json (precies hol.json en hol.vorige.json: True)
+== DUURTEST ROOD
+##[error]Process completed with exit code 1.
