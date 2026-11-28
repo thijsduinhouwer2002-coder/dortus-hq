@@ -1,25 +1,28 @@
-HOL balk gestart, pid 7544, hoogte 96
+HOL balk gestart, pid 2152, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
-HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
+HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795861010
+HOL zaad 1795861390
 HOL balk aan
 HOL grond zacht
 HOL plat zonder regel (2 keer gemeld)
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Tibbe)
-HOL held binnen: Tibbe
+HOL begin: vallen (Joost)
+HOL held binnen: Joost
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Tibbe read about you in a tavern.
+HOL kroniek 2.6 (wacht 0.5): Joost says this is a quick one.
 HOL uitleg stap 1 t=4.1 
-HOL leven stofje t=6.0 x=184 y=26
-HOL kroniek 7.2 (wacht 0.0): Kees knocks first. Polite.
-HOL begin: vluchten (Kees)
-HOL held binnen: Kees
-HOL kroniek zelfde held vervangen: Tibbe read about you in a tavern.
-HOL kroniek 8.3 (wacht 0.9): Tibbe left gold and one boot. +9
+HOL leven mot t=5.9 x=184 y=26
+HOL kroniek zelfde held vervangen: Joost says this is a quick one.
+HOL kroniek 7.4 (wacht 0.0): Joost checked the floor. Too late. +9
+HOL zicht 7.4 0
+HOL begin: vluchten (Ineke)
+HOL held binnen: Ineke
+HOL zicht 7.8 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
+HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 10.5: First hero in the pit!
+HOL kroniek vervallen 10.8: Ineke is here for your gold.
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
+HOL leven stofje t=24.0 x=184 y=26
 HOL einde na 24 s, fps=10, goud=29, terugkomers=0

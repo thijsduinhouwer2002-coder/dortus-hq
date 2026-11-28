@@ -1,26 +1,26 @@
-HOL balk gestart, pid 5108, hoogte 120
-HOL weg geweest 28802 s (klok terug: false): goud voor 29, helden 115, erbij 541, hoeden 45
-HOL weg faam afgekapt 4 van 71 (hooguit 2 niveaus)
+HOL balk gestart, pid 8732, hoogte 120
+HOL weg geweest 28802 s (klok terug: false): goud voor 29, helden 115, erbij 547, hoeden 38
+HOL weg faam afgekapt 4 van 72 (hooguit 2 niveaus)
 HOL hol-niveau 2 (faam 5, t 0.0)
 HOL hol-niveau 3 (faam 5, t 0.0)
-HOL hoeden van de nacht 45 (vallen vanaf 1.0 s, toren nu 0)
-HOL berg zichtbaar 0 -> 12
-HOL kroniek 0.0 (wacht 0.0): 115 came, 71 fell, 45 hats. +541 gold.
+HOL hoeden van de nacht 38 (vallen vanaf 1.0 s, toren nu 0)
+HOL berg zichtbaar 0 -> 10
+HOL kroniek 0.0 (wacht 0.0): 115 came, 72 fell, 38 hats. +547 gold.
 HOL optocht wip, geen poef; helden [3]; duur 0.0 s
-HOL opslag geladen: 0 terugkomers, 570 goud, faam 5
+HOL opslag geladen: 0 terugkomers, 576 goud, faam 5
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795861270
+HOL zaad 1795861651
 HOL balk aan
 HOL grond zacht
-HOL gloop ring aan na 0.1 s (goud 570)
-HOL eerste koop mogelijk na 15 s speeltijd (goud 570)
+HOL gloop ring aan na 0.1 s (goud 576)
+HOL eerste koop mogelijk na 15 s speeltijd (goud 576)
 HOL bordje wip na weg (niveau 3)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vluchten (Merel)
-HOL held binnen: Merel
-HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Merel knocks first. Polite.
+HOL begin: vluchten (Kees)
+HOL held binnen: Kees
+HOL zicht 2.2 1
+HOL kroniek 2.6 (wacht 0.5): Kees says this is a quick one.
+HOL leven mot t=9.0 x=72 y=26
 HOL meting t=10 beelden=100 helden=1 hol_vast=12
-HOL leven mot t=12.6 x=72 y=26
-HOL einde na 15 s, fps=10, goud=570, terugkomers=0
+HOL einde na 15 s, fps=10, goud=576, terugkomers=0
