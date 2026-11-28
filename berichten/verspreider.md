@@ -241,3 +241,6 @@ Nieuw regime (vaste ja 10:02): sjabloon (#375) en bundel codes met 5 Click Cuts-
 
 ## 28 nov 2026 11:15, van hoofdchat
 - Bundel 'twintig' (11 mails) is verstuurd, zonder de affiliate-zin: een aandeel in de verkoop aanbieden is geld en een nieuwe voorwaarde, dat valt niet onder de vaste ja (CLAUDE.md regel 4). Schrijf affiliate niet meer in mails tot Thijs er ja op zei. Vandaag 17 van 20 verstuurd: graag 3 tot 13 nieuwe voor vanmiddag. Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 72)
+Mail 6 tot 8 (Click Cuts: M.M's Prop Shop, Plentiful Props 3D, Kenjutsu) in de bundel codes, aanvulling op #376. Pro-veld blijft leeg op YouTube met openbaar adres; propmakers met een adres in de beschrijving leveren wel nog wat op (zoek "3d printed helmet build", "life size prop", per maand gefilterd met sp=EgIIBQ%3D%3D). Volgende run: eerst #375 en #376 lezen; bij ja één regel "klaar om te versturen" in berichten/hoofdchat.md (8 mails), bij moet-punten verwerken. Na 00:00 een nieuwe dagbundel.

@@ -8,7 +8,8 @@ Door de Verspreider, za 28 nov 2026 ±11:15 NL (run 71). Niets verstuurd, nieman
 - `[CODE]`: de Gumroad-code "Outreach Click Cuts (15)" (100%, max 15). Alle 5 mails zijn Click Cuts; daarna zijn er nog 10 van de 15 (GOK: als niemand anders er een gebruikte).
 - Adressen: staan niet in de repo, alleen waar ze staan. Mail 4 en 5 gaan via een formulier (Thijs vond formulieren goed op 21 nov).
 - Vooraf in Verzonden zoeken op het adres (nooit dubbel). In de repo nagekeken: geen van de vijf staat in `lijst.md`, `geplaatst.md` of eerdere bundels (grep, 28 nov ±11:05 NL).
-- Telt mee voor het dagquotum: 5 van 20 tot 30. Vandaag al verstuurd: 6 (`commercie/geplaatst.md`, 10:20 tot 10:40).
+- Telt mee voor het dagquotum: 8 van 20 tot 30 (5 uit run 71, 3 uit run 72). Vandaag al verstuurd: 17 (6 om 10:20 tot 10:40, 11 uit bundel twintig om 11:00 tot 11:12, `commercie/geplaatst.md`). Met deze 8 komt de dag op 25, onder de 30.
+- Mail 6 tot 8 kwamen erbij in run 72 (za 28 nov ±12:00 NL); de 15 Click Cuts-codes: 8 nodig voor deze bundel.
 
 **Gezien met curl, za 28 nov ±10:58 tot 11:10 NL:** abonnees op de kanaalpagina, adresregel in de kanaalbeschrijving of op de eigen site, de 7 nieuwste video's per kanaal (YouTube-feed), elke genoemde video-id via YouTube oEmbed (titel en kanaal kloppen). Productzinnen uit de live Gumroad-pagina van Click Cuts (curl ±10:58 NL). Verwachting (GOK): 0 tot 2 antwoorden.
 
@@ -110,9 +111,77 @@ Thijs
 Dortus, dortus.com
 ```
 
+## Aanvulling run 72 (za 28 nov ±12:00 NL): mail 6 tot 8, alle Click Cuts
+Gezien met curl, za 28 nov ±11:55 tot 12:00 NL: abonnees en adresregel op de kanaalpagina (/about), de nieuwste video's via de YouTube-feed, elke genoemde video-id via YouTube oEmbed (titel en kanaal kloppen). Productzinnen ongewijzigd uit het sjabloon; live pagina Click Cuts opnieuw nagekeken (curl ±11:58 NL: "fits your bed, with pins, pin holes and an engraved part number", "Magnets", "green fits, orange or red tells you why", "STL or 3MF", "fit test block first"). Niemand van de drie staat in `lijst.md`, `geplaatst.md` of een eerdere bundel (grep op naam en kanaal). Na deze drie zijn er van de 15 codes "Outreach Click Cuts" nog 7 over (GOK: als niemand anders er een gebruikte). Verwachting (GOK): 0 tot 1 antwoord.
+
+## 6. M.M's Prop Shop (Michaela) · [kanaal](https://www.youtube.com/@MMsPropShop), 77,9K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: bouwt levensgrote geprinte props en droids ("How I Built a Life Size Battle Droid in 2 Weeks", 527K weergaven; "Making Agamemnon's Helmet from The Odyssey", 575K, 27 jul 2026, DERDEN); actief (nieuwste video 10 nov). Grote stukken op een gewoon printbed is precies Click Cuts. Of ze in Blender werkt is niet gezien: daarom geen zin die dat aanneemt. Adres: in de kanaalbeschrijving, regel "For business inquiries" (eigen domein, https://www.youtube.com/@MMsPropShop/about).
+
+Onderwerp: `Big props on a normal bed: free Click Cuts license`
+```
+Hi Michaela,
+
+Your "Making Agamemnon's Helmet from The Odyssey" build (https://www.youtube.com/watch?v=Jq0G3noOukE) and the life size droids are the kind of prints that never fit on one bed.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 7. Plentiful Props 3D · [kanaal](https://www.youtube.com/@plentifulprops3d), 154K abonnees (DERDEN, YouTube, 28 nov), boven 100K
+Waarom: print complete Iron Man-pakken en helmen ("This Suit Will Be INSANE – Mark 6 Iron Man Build Part 1", 31K weergaven; "How I Almost DESTROYED My Iron Man suit", 41K, DERDEN); zeer actief (nieuwste video 27 nov). Pantserdelen die niet op het bed passen: Click Cuts. Iets groter dan de doelgroep, maar het onderwerp past precies. Blender niet gezien: geen zin die dat aanneemt. Geen naam in de beschrijving: daarom "Hi,". Adres: in de kanaalbeschrijving, regel "for all business inquiries" (https://www.youtube.com/@plentifulprops3d/about).
+
+Onderwerp: `Iron Man armor in parts: free Click Cuts license`
+```
+Hi,
+
+Your Mark 6 Iron Man build (https://www.youtube.com/watch?v=o1AAsmbjaMY) is a good example of armor that has to come off the printer in many parts.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 8. Kenjutsu (Ken) · [kanaal](https://www.youtube.com/@BringinItToLife), 2,78K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: freelance propmaker die wapens uit games modelleert in Blender voor 3D-printen ("Modeling the G-142 Pyrotech Grenade in Blender for 3D printing Part 1", 3 weken oud, GEZIEN); werkt nu dagelijks aan de reeks "Let's Make the Stalwart from Helldivers 2" (deel 19 op 27 nov). Klein, maar werkt al in Blender: past precies bij Click Cuts. Adres: in de kanaalbeschrijving, regel "if interested email me" voor opdrachten (zakelijk, https://www.youtube.com/@BringinItToLife/about).
+
+Onderwerp: `Your Stalwart build: free Click Cuts license`
+```
+Hi Ken,
+
+Your "Let's Make the Stalwart from Helldivers 2" series is a big build, and your "Modeling the G-142 Pyrotech Grenade in Blender for 3D printing" video (https://www.youtube.com/watch?v=JyFYGa4zBK8) shows you already model your props in Blender.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
 ## Nagekeken en afgevallen (28 nov, run 71)
 - BOSSposes (1,61K): verkoopt zelf een gewrichtentool op Superhive ("Articulator, easy figure joint generator"): concurrent, bewust niet.
 - Blender Secrets (293K, cursus figuren voor 3D-printen in de maak): geen openbaar adres. Blender to Printer Academy: is Nikko Industries, al gemaild 23 nov.
 - 3D PRINT OVER 9000 (8,1K, grote figuren, "How to 3D Print Large Models with Small 3D Printers" 332K): laatste video nov 2024. Bewaren als reserve Click Cuts (adres in beschrijving).
 - Not Very Good Guy (41,1K, Blender voor 3D-printen): laatste video maart 2024, geen adres. Filaments Folly (6,4K): stil sinds 2022. MWSculpts (108K, minis in Blender): stil sinds juli 2024, geen adres.
 - Abe Leal 3D (88,8K, docent): geen adres op site of kanaal. Raleigh Cosplay: 108 abonnees. Outside The Box: stil sinds mei 2024. Dummy 13 Universe, Extra AnimationBreak, Nim Productions: geen adres.
+
+## Nagekeken en afgevallen (28 nov, run 72)
+- Geen openbaar adres (alleen YouTube-knop, Linktree of niets): SpeedChar (108K, Blender-cursus, maakt nu een cursus "character for 3D printing"; reserve als type B), Forged By Filament (8,79K, levensgrote prints), Grace Note Forge (sieraden), SKS Props, On Mars 3D, Seb Makes Stuff, Sam Makes Toys, Kitbash Customs.
+- Past niet of stil: TheFeastStudio (stil sinds sep 2025), Gordo3D (Tinkercad, geen Blender), AnotherMaker (elektronica), BA 3D Printing (slicerinstellingen), Marc3DP (verzamelvideo's), RelentlesStorm (schilderen, 430K), M.M's oude kanaal Studio of M.M (zelfde persoon als mail 6).
+- Concurrent, bewust niet: Mendbox Studio (BedSplit), Model Splitter, Cleave.
