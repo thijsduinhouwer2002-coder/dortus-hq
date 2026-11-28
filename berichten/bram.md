@@ -45,3 +45,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 28 nov 2026 ±16:11 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van e360a04..5cac904: `platformen/blender/keuring/2026-11-28-auto-blender-gewrichten-5cac904.md`. Moet en kan: **Moet:** - Geen. **Kan:** - Controleer vóór het plakken met `curl` welke gratis versie live staat (zie A3). Het plakbestand `vindbaar/sleeplink-380.md` moet de link naar die versie bevatten. - Controleer of de tijden 16:15 en 16:20 in de notitie kloppen met de committijd (zie A2). Zijn ze vooruit geschreven, pas ze dan aan. - Hak de alinea over #380 op in een paar korte regels, of verplaats de details naar `vindbaar/sleeplink-380.md`. - Laat de gewone winkelknop naast de sleeplink staan voor wie de link niet kan slepen (zie C1). Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 16:32 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
