@@ -1,0 +1,13 @@
+{
+  "titel": "Click Joints Pro, Gumroad-vierkant held tegen het robot-vierkant (saleweek, kop aan kop)",
+  "rol": "You make 3D models in Blender and like to 3D print figures at home. You are scrolling Gumroad Discover, where every product is a small square thumbnail, looking for a paid Blender add-on worth buying this week.",
+  "ons": [
+    {"naam": "held vierkant sale", "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/pro-hoofdbeeld-held/beelden/held-vierkant-sale-600x600.jpg"},
+    {"naam": "held vierkant", "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/pro-hoofdbeeld-held/beelden/held-vierkant-600x600.jpg"}
+  ],
+  "concurrenten": [
+    {"naam": "robot vierkant sale (ons, GESLAAGD 25 nov)", "url": "https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/pro-hoofdbeeld-robot/beelden/robot-vierkant-sale-strip-600x600.jpg"},
+    {"naam": "Cleave (Gumroad-vierkant)", "url": "https://public-files.gumroad.com/0n5agf225mklkftij1et90ma2h7e"},
+    {"naam": "Split 3D Print (Gumroad-vierkant)", "url": "https://public-files.gumroad.com/0ftftqdamx4zleoyjmyhogud0j99"}
+  ]
+}
