@@ -90,7 +90,9 @@ $r += "vensters in Kladblok: $([W]::Klassen)"
 $r += "tekst in Kladblok na de letter q: '$txt'"
 if ($txt -notmatch "q") { $r += "FOUT: de letter kwam niet in Kladblok"; $fout++ }
 
-# 4. klik op de stuurknop en 12 s niets: terug na 10 s
+# 4. klik op de stuurknop en 12 s niets: terug na 10 s. Eerst 11 s wachten: in de besturen-stand schoof de camera
+#    met Gloop mee (verdieping 2), en het bord met de knop staat pas na 10 s zonder muis weer op zijn plek.
+Start-Sleep 11
 & $klik $kx $ky | Out-Null; Start-Sleep 12
 $l = Log
 $tien = [regex]::Match($l, "besturen uit \(10 s geen toets\)[^\r\n]*")
