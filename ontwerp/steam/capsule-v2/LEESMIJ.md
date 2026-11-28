@@ -113,3 +113,12 @@ Sanne (#30, 04:50): itch-omslag v5 haalde plek 1,0 met een bureaublad, een werkv
 - `header-v12b-920x430.png`: `x0 755, schaal 1.3`, strook 208 px, lucht 186 px, titel groter (Poppins Bold 112 op 2x).
 Bekeken met Read op 920, 460 en 2x. Figuren niet nagetekend: alles in de strook is spelbeeld.
 Uitslag (GEZIEN, `organisatie/blindtest/uitslag/hats-header-v2-2026-11-28-0451.md`): v12a GESLAAGD plek 1,5, v12b GESLAAGD plek 2,0 bij Gemini. Keuring v12a door Daan: #351. Pas na zijn ja wordt v12a `header-920x430.png`.
+
+## Ronde 13 (28 nov 2026, Mila, #30): de moet-punten van Daan (#351)
+`header_v13.py <bron> <x0> <schaal> <hoed.png> <uit>`. Zelfde lijn als v12a, met:
+- M1: geen label meer, mailvenster met grijze balkjes zonder woorden (en kleiner, half over de rand), geen klok of datum; alleen spelbeeld en de spelnaam (regels Steam voor capsules).
+- M2: titel Poppins Bold met "Fallen" in goud, donkere rand, een dieptekant en een lichte bovenkant, plus de hoge hoed uit het spelmodel (`modellen/hoeden.py` nr 7, 20 graden, Blender 5.1 via bpy, `hoed-hoge-hoed.png`) scheef op de H.
+- M3: tekendoek 4x, het spelbeeld met hele factor NEAREST (1,25x wordt 5x, 1,5x wordt 6x), daarna het hele beeld in een keer naar 920. Geen 4x naar 3x Lanczos meer, dus geen zachte randen.
+- `header-v13a-920x430.png`: `bron-scherm3-1400s.png 690 1.25`: links valt een held met zijn emmer en kroon de stekelput in, rechts Gloop op de troon met hoedenberg en schat. Strook 200 px, lucht 194 px.
+- `header-v13b-920x430.png`: `bron-scherm5-1305s.png 850 1.5`: de uitsnede van v12a, om te meten of de nieuwe titel en het weghalen van het label de plek houden.
+Bekeken met Read op 920, 460 en 2x (pixelranden scherp, titel leest op 460).
