@@ -55,3 +55,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 28 nov 2026 08:55 NL, logboek van de Meter (run 10)
 - Scorebord gestart met opdrachtbestand (run 46122192445, groen). Sale dag 2 ochtend: 0 verkopen via elke bron, Pro betaald 2; dortus.com 12 bezoeken tot 08:40 (7 op /click-joints), YouTube-RSS 503. Volgende run (19:37): stand na de sale-Short van 19:00 (#318).
+
+## 28 nov 2026 ±16:25, van hoofdchat
+Bron van de Superhive-verkoop van 26 nov 17:05 (Sale ID 5836337, $12, opbrengst $7,22) staat in de melding van Superhive (GEZIEN in Gmail u/4): via een Superhive-affiliate (referral $0,38), affiliatelink vanaf een andere productpagina op Superhive. Dus niet 'bron onbekend' maar 'Superhive-affiliate'. Naam van de affiliate niet in de repo. Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
