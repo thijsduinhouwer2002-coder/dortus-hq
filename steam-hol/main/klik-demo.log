@@ -1,33 +1,31 @@
-HOL balk gestart, pid 5084, hoogte 96
+HOL balk gestart, pid 8248, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
 HOL demo: speeltijd 0 s, grens 3 s
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795884090
+HOL zaad 1795889241
 HOL balk aan
 HOL grond zacht
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Elke)
-HOL held binnen: Elke
+HOL begin: vallen (Ineke)
+HOL held binnen: Ineke
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Elke climbs into your hole.
+HOL kroniek 2.5 (wacht 0.5): Ineke read about you in a tavern.
 HOL demo voorbij na 3 s speeltijd
+HOL kroniek 3.5 (wacht 0.5): That's the demo. Your hole keeps going.
 HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
-HOL kroniek 3.6 (wacht 0.6): That's the demo. Your hole keeps going.
 HOL uitleg stap 1 t=4.0 
-HOL kroniek zelfde held vervangen: Elke climbs into your hole.
-HOL kroniek 7.3 (wacht 0.0): Elke checked the floor. Too late. +9
-HOL zicht 7.4 0
-HOL begin: opgegeten (Henk)
-HOL held binnen: Henk
-HOL zicht 7.5 1
+HOL kroniek 7.2 (wacht 0.0): Wout knocks first. Polite.
+HOL begin: opgegeten (Wout)
+HOL held binnen: Wout
+HOL kroniek 8.2 (wacht 0.9): Ineke is part of the hole now. +9
 HOL uitleg stap 2 t=8.9 Click the dirt to dig.
-HOL kroniek 9.9 (wacht 2.6): First hero in the pit!
-HOL meting t=10 beelden=149 helden=1 hol_vast=3 langste_ms=147 script_ms=3118
-HOL kroniek vervallen 10.6: Henk brought a torch. And hope.
-HOL leven mot t=13.6 x=184 y=26
-HOL meting t=20 beelden=121 helden=1 hol_vast=3 langste_ms=83 script_ms=594
-HOL reeks 2 (+0, t 24.3)
-HOL kroniek 24.3 (wacht 0.0): Gloop ate Henk. Kept the crown. +9
-HOL zicht 24.4 0
-HOL einde na 25 s, fps=16, goud=38, terugkomers=0
+HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=133 script_ms=1813
+HOL kroniek vervallen 10.3: First hero in the pit!
+HOL leven goudstof t=12.5 x=324 y=30
+HOL meting t=20 beelden=120 helden=1 hol_vast=3 langste_ms=83 script_ms=494
+HOL reeks 2 (+0, t 24.1)
+HOL kroniek zelfde held vervangen: Wout knocks first. Polite.
+HOL kroniek 24.1 (wacht 0.0): Gloop ate Wout. Kept the crown. +9
+HOL zicht 24.2 0
+HOL einde na 25 s, fps=23, goud=38, terugkomers=0

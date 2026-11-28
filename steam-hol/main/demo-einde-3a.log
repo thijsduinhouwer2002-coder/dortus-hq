@@ -1,28 +1,28 @@
-HOL balk gestart, pid 5080, hoogte 120
+HOL balk gestart, pid 5472, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
 HOL demo: speeltijd 0 s, grens 10 s
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795884234
+HOL zaad 1795889374
 HOL balk aan
 HOL grond zacht
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Fenna)
-HOL held binnen: Fenna
+HOL begin: vallen (Femke)
+HOL held binnen: Femke
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Fenna brought a torch. And hope.
+HOL kroniek 2.5 (wacht 0.5): Femke read about you in a tavern.
 HOL uitleg stap 1 t=4.0 
-HOL kroniek zelfde held vervangen: Fenna brought a torch. And hope.
-HOL kroniek 7.3 (wacht 0.0): Fenna will not be leaving. +9
+HOL kroniek zelfde held vervangen: Femke read about you in a tavern.
+HOL kroniek 7.3 (wacht 0.0): Femke is part of the hole now. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Henk)
-HOL held binnen: Henk
-HOL zicht 7.4 1
-HOL leven mot t=7.6 x=72 y=26
+HOL begin: opgegeten (Jop)
+HOL held binnen: Jop
+HOL zicht 7.7 1
 HOL uitleg stap 2 t=8.9 Click the dirt to dig.
+HOL leven stofje t=9.5 x=72 y=26
 HOL kroniek 9.8 (wacht 2.5): First hero in the pit!
 HOL demo voorbij na 10 s speeltijd
-HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=141 script_ms=2899
-HOL kroniek vervallen 10.4: Henk climbs into your hole.
+HOL meting t=10 beelden=148 helden=1 hol_vast=3 langste_ms=144 script_ms=1764
+HOL kroniek vervallen 10.8: Jop says this is a quick one.
 HOL kroniek 10.8 (wacht 0.8): That's the demo. Your hole keeps going.
 HOL einde na 15 s, fps=12, goud=29, terugkomers=0

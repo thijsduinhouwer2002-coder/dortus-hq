@@ -1,18 +1,17 @@
-HOL balk gestart, pid 3536, hoogte 200
+HOL balk gestart, pid 8584, hoogte 200
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
 HOL start hoogte=200 schaal=5 spelpixels=204x40 venster=(1024, 200) pos=(0, 520) held=res://systemen/held.gd
-HOL zaad 1795884330
+HOL zaad 1795889468
 HOL balk aan
 HOL grond zacht
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Joost)
-HOL held binnen: Joost
+HOL begin: vallen (Mara)
+HOL held binnen: Mara
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Joost read about you in a tavern.
+HOL kroniek 2.5 (wacht 0.5): Mara knocks first. Polite.
 HOL uitleg stap 1 t=4.0 
-HOL leven mot t=5.0 x=40 y=26
-HOL kroniek zelfde held vervangen: Joost read about you in a tavern.
-HOL kroniek 5.1 (wacht 0.0): Joost stays forever. +9
+HOL kroniek zelfde held vervangen: Mara knocks first. Polite.
+HOL kroniek 5.1 (wacht 0.0): Mara fell to the Spike Pit. +9
 HOL zicht 5.1 0
-HOL einde na 6 s, fps=21, goud=29, terugkomers=0
+HOL einde na 6 s, fps=24, goud=29, terugkomers=0
