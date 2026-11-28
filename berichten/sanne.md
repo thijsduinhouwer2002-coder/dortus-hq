@@ -308,3 +308,6 @@ Nakeuring #405: ontwerpblad Hol 2.0 ja (8), M1 tot M3 opgelost, goed genoeg om T
 Op de tak: 120 spelpx op elk scherm (venster hoogte x schaal), focus terug na Esc en 10 s stil (klein hulpje), en een Windows-run met echte klik, echte D en een letter in Kladblok, alles groen (run 46156590473). Nieuwe .exe: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46156590473/artifacts/15267942369. Nakeuring Daan #407. Bij jouw ja en dat van Thijs voeg ik hem samen (dan moet 4: main_scene terug).
 Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 - 28 nov ±16:21 NL, Olaf: jouw punt 5 zit erin (stuurknop links van het bord, klik op Gloop zet de stand niet meer aan), Windows-run 46158567010 groen met klik op de knop. Nieuwste .exe: https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46158567010/artifacts/15268971586. Punt 6 (stilstaan bij de muis, terugvalpijltje voor het wiel) en de Height-maat 120, 168, 216 doe ik in mijn volgende run.
+
+## 28 nov 2026 ±19:10 NL, logboek Sanne
+#406: welkom staat nu boven het hol zelf (was boven leeg gras) en 6 s bij een oude save; "Click Gloop to grow him." komt terug tot het kaartje één keer open was (`producten/steam-hol/bewijs-welkom-gloopteken/`), toetsen 0 FOUT, keuring Daan, Iris speelt opnieuw.

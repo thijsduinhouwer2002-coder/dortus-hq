@@ -20,6 +20,12 @@ extends Node2D
 # dezelfde regel met pijl op Gloop: "Click Gloop to grow him." Weg zodra hij op Gloop klikt (kaartje open), de ring
 # uitgaat, of na 20 s. Daarna nooit meer: de ring alleen zegt het dan. Zo leert de speler wat de ring betekent en
 # blijft het bord rustig (Thijs 25 nov). Bewaard als "gloop_les" in de save.
+# Sanne 28 nov (#406, Iris #399 punt 1 en 2): (1) het welkom stond midden boven het hele hol, en bij een oude save is
+# dat leeg gras ver links van waar het hol echt is (x ±1085 tot 1440 op 1920); niemand zag het. Nu staat het boven het
+# hol zelf (ingang tot schat), nooit over het bord, en bij een oude save 6 s (de eerste 1 tot 2 s tekent het venster
+# nog niet). (2) "Click Gloop to grow him." ging na 6 s weg als Gloop plat ging en kwam nooit terug. Nu telt de les pas
+# als gehad als de speler één keer het kaartje van Gloop opende ("gloop_klik" in de save); tot dan komt de regel terug
+# zodra de ring weer aangaat, en staat de ring aan zonder klik, dan na GLOOP_TERUG_S opnieuw.
 
 const HOL := preload("res://hol/hol.gd")
 const FREDOKA := preload("res://kunst/letters/Fredoka.ttf")
@@ -38,8 +44,11 @@ const TEKST := {
 }
 const GLOOP_TEKST := "Click Gloop to grow him."
 const GLOOP_MAX_S := 20.0
+const GLOOP_TERUG_S := 45.0   # ring aan, les weg zonder klik: zo lang later komt hij terug (#406)
+const WELKOM_OPNIEUW_S := 6.0 # oude save: welkom langer, de eerste 1 tot 2 s tekent het venster nog niet (#406)
 
-var gloop_gezien := false      # de Gloop-les stond al eens in beeld (save "gloop_les")
+var gloop_gezien := false      # de speler opende één keer het kaartje van Gloop (save "gloop_klik", #406)
+var gloop_rust := 0.0          # tijd sinds de Gloop-les wegging zonder klik, met de ring aan
 var gloop_t := -1.0            # >= 0: de Gloop-les staat nu in beeld, zo lang al
 
 var s                          # de strook
@@ -73,7 +82,7 @@ func zet(strook, begin_stap: int) -> void:
 	goud_start = int(s.hol.goud)
 	vallen_start = s.hol.vallen.size()
 	s.hol.gegraven.connect(_gegraven)
-	set_process(stap != KLAAR)
+	set_process(true)   # ook na de les: de Gloop-les kan terugkomen tot het kaartje één keer open was (#406)
 	if stap != KLAAR:
 		_log()
 
@@ -87,12 +96,26 @@ static func gloop_les_mag(gezien: bool, stap_: int, ring: bool) -> bool:
 static func gloop_les_weg(t_: float, kaart: String, ring: bool) -> bool:
 	return t_ >= GLOOP_MAX_S or kaart != "" or not ring
 
+# Komt de Gloop-les terug? Alleen na de eerste minuut, zonder klik ooit, met de ring aan en lang genoeg rust (#406).
+static func gloop_les_terug(gezien: bool, stap_: int, ring: bool, rust: float) -> bool:
+	return not gezien and stap_ == KLAAR and ring and rust >= GLOOP_TERUG_S
+
+# Hoe lang het welkom staat (#406): bij een oude save langer.
+static func welkom_s(opnieuw_: bool) -> float:
+	return WELKOM_OPNIEUW_S if opnieuw_ else WELKOM_S
+
+# kern/kaartje.gd open roept dit: kaartje van Gloop open = les gehad (#406)
+func kaartje_open(soort: String) -> void:
+	if soort == "slijm" and not gloop_gezien:
+		gloop_gezien = true
+		s.log_regel("HOL uitleg gloop gehad: kaartje open t=%.1f" % s.t)
+
 # kern/kaartje.gd tik roept dit als de ring aangaat
 func ring_aan() -> void:
-	if not gloop_les_mag(gloop_gezien, stap, true):
+	if not gloop_les_mag(gloop_gezien, stap, true) or gloop_t >= 0.0:
 		return
-	gloop_gezien = true
 	gloop_t = 0.0
+	gloop_rust = 0.0
 	s.log_regel("HOL uitleg gloop aan t=%.1f %s" % [s.t, GLOOP_TEKST])
 	set_process(true)
 	queue_redraw()
@@ -107,7 +130,7 @@ func _gloop_tik(delta: float) -> void:
 		s.log_regel("HOL uitleg gloop weg t=%.1f na %.1f s (%s)" % [s.t, gloop_t,
 			"klik" if s.kaart_soort != "" else ("ring uit" if not ring else "tijd")])
 		gloop_t = -1.0
-		set_process(stap != KLAAR)
+		gloop_rust = 0.0
 	queue_redraw()
 
 func _log() -> void:
@@ -122,7 +145,6 @@ func _naar(n: int) -> void:
 		vallen_start = s.hol.vallen.size()
 	_log()
 	if stap == KLAAR:
-		set_process(false)
 		if s.slijm != null and s.slijm.has_method("ring_aan") and s.slijm.ring_aan():
 			ring_aan()   # de ring ging al aan tijdens de les: de Gloop-les nu
 	queue_redraw()
@@ -136,10 +158,17 @@ func _process(delta: float) -> void:
 	if gloop_t >= 0.0:
 		_gloop_tik(delta)
 		return
+	if stap == KLAAR:
+		if not gloop_gezien:
+			var ring: bool = s.slijm != null and s.slijm.has_method("ring_aan") and s.slijm.ring_aan()
+			gloop_rust = gloop_rust + delta if ring else 0.0
+			if gloop_les_terug(gloop_gezien, stap, ring, gloop_rust):
+				ring_aan()
+		return
 	stap_t += delta
 	match stap:
 		WELKOM:
-			if stap_t >= WELKOM_S:
+			if stap_t >= welkom_s(opnieuw):
 				_naar(GRAAF if opnieuw else KIJK)
 		KIJK:
 			if munt_t < 0.0 and int(s.hol.goud) > goud_start:
@@ -268,7 +297,13 @@ func _teken_plaat(t: String, pijl_x: float, doel_y_in: float, tijd: float, groot
 		if px + pw > hol_breed:
 			px = pijl_x - 4.0 * sc - pw
 	else:
-		px = s.hol.position.x + maxf(8.0, (hol_breed - pw) / 2.0)
+		# welkom (#406): midden boven het hol zelf (ingang tot schat), niet boven het hele venster
+		var midden: float = s.hol.position.x + (float(s.hol.ingang_kol + s.hol.schat_kol + 1) / 2.0) * HOL.KOL * sc
+		px = midden - pw / 2.0
+	# nooit over het bord rechts (kern/tekst.gd), daar zag Iris hem niet (#406)
+	if s.tekst != null and s.tekst.has_method("vak_breedte"):
+		var bord_x: float = s.tekst.position.x + s.tekst.paneel_links(s.tekst.breedte - s.tekst.vak_breedte() - 8) - 4.0
+		px = minf(px, bord_x - pw)
 	px = maxf(2.0, px)
 	var plaat := Rect2(px, py, pw, ph)
 	var rond := int(ph / 2.0)

@@ -238,7 +238,7 @@ func _ready() -> void:
 	add_child(uitleg)
 	uitleg.opnieuw = uitleg_opnieuw and not demo
 	uitleg.zet(self, 4 if demo else uitleg_stap)   # de demo-film koopt zelf; de Steam-demo krijgt wel de les
-	uitleg.gloop_gezien = uitleg_gloop or demo
+	uitleg.gloop_gezien = uitleg_gloop or demo or (hol.upgrades != null and int(hol.upgrades.niveau("slijm")) > 0)   # wie Gloop kocht, opende zijn kaartje (#406)
 	DEMO_EINDE.bij_start(self)
 	hol.gegraven.connect(func(cel):
 		zelf_gegraven += 1   # graafbonus (Sanne 16 nov 21:00): alleen wat de speler graaft, de begingang telt niet

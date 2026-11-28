@@ -132,6 +132,8 @@ static func open(s, soort: String, kol := -1) -> void:
 	ververs(s)
 	s._muis_vlak(true)   # de knoppen moeten de muis vangen, ook zonder hover (Sanne)
 	s.log_regel("HOL kaartje open %.1f: %s" % [s.t, soort])
+	if s.uitleg != null and s.uitleg.has_method("kaartje_open"):
+		s.uitleg.kaartje_open(soort)   # kaartje van Gloop open: de Gloop-les is gehad (#406)
 
 static func dicht(s, toon := true) -> void:
 	if s.kaart_soort == "":

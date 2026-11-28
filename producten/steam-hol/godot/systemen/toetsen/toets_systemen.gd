@@ -577,10 +577,15 @@ func _init() -> void:
 	# Gloop-les (Daan #68): de eerste keer dat de ring aangaat één keer de regel met pijl, weg na klik, ring uit of 20 s
 	var EM = load("res://kern/eerste_minuut.gd")
 	ok(EM.gloop_les_mag(false, EM.KLAAR, true), "gloop-les: eerste keer ring aan na de les")
-	ok(not EM.gloop_les_mag(true, EM.KLAAR, true), "gloop-les: nooit een tweede keer")
+	ok(not EM.gloop_les_mag(true, EM.KLAAR, true), "gloop-les: niet na één keer kaartje open")
 	ok(not EM.gloop_les_mag(false, EM.VAL, true), "gloop-les: niet tijdens de eerste minuut (één regel tegelijk)")
 	ok(not EM.gloop_les_weg(5.0, "", true) and EM.gloop_les_weg(EM.GLOOP_MAX_S, "", true), "gloop-les: blijft tot 20 s")
 	ok(EM.gloop_les_weg(1.0, "slijm", true) and EM.gloop_les_weg(1.0, "", false), "gloop-les: weg na klik of als de ring uitgaat")
+	# #406 (Iris #399): de Gloop-les komt terug tot het kaartje één keer open was; welkom bij oude save langer
+	ok(not EM.gloop_les_terug(false, EM.KLAAR, true, EM.GLOOP_TERUG_S - 1.0) and EM.gloop_les_terug(false, EM.KLAAR, true, EM.GLOOP_TERUG_S), "gloop-les: komt terug na rust met de ring aan")
+	ok(not EM.gloop_les_terug(true, EM.KLAAR, true, 999.0), "gloop-les: nooit terug na één keer kaartje open")
+	ok(not EM.gloop_les_terug(false, EM.KLAAR, false, 999.0) and not EM.gloop_les_terug(false, EM.GRAAF, true, 999.0), "gloop-les: niet terug zonder ring of tijdens de eerste minuut")
+	ok(EM.welkom_s(true) >= 6.0 and EM.welkom_s(false) == EM.WELKOM_S, "welkom: oude save 6 s (venster tekent de eerste 1 tot 2 s nog niet)")
 	# #368 (speeltest Thijs 28 nov): een oude save krijgt de les één keer opnieuw, zonder kijkstap; een nieuwe niet twee keer
 	ok(EM.begin_uit_save({}) == EM.WELKOM and EM.opnieuw_uit_save({}), "les opnieuw: save zonder uitleg_v begint bij het welkom")
 	ok(EM.begin_uit_save({"uitleg": 4}) == EM.WELKOM and EM.opnieuw_uit_save({"uitleg": 4}), "les opnieuw: oude save met les klaar krijgt hem nog één keer")

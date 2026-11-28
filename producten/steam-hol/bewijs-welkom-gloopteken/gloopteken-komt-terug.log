@@ -1,0 +1,17 @@
+HOL uitleg stap 0 t=0.0 Heroes want your gold. Trap them first!
+HOL gloop ring aan na 0.1 s (goud 1074)
+HOL uitleg stap 2 t=6.0 Click the dirt to dig.
+HOL gloop ring uit na 18.3 s (goud 1074)
+HOL uitleg duw stap 2
+HOL uitleg stap 3 t=31.0 Click the tunnel to set a trap.
+HOL uitleg proefklik (1168, 48): kamer
+HOL gloop ring aan na 48.3 s (goud 1074)
+HOL uitleg duw stap 3
+HOL uitleg proefklik (1168, 78): val
+HOL uitleg stap 4 t=56.1 
+HOL uitleg gloop aan t=56.1 Click Gloop to grow him.
+HOL uitleg gloop weg t=76.1 na 20.0 s (tijd)
+HOL uitleg gloop aan t=121.2 Click Gloop to grow him.
+HOL uitleg gloop weg t=141.3 na 20.1 s (tijd)
+HOL uitleg gloop aan t=186.3 Click Gloop to grow him.
+HOL einde na 200 s, fps=12, goud=1105, terugkomers=3
