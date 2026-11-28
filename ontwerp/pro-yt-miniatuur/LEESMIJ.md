@@ -36,3 +36,4 @@ Uitslag r2: GESLAAGD Gemini 1,0 tegen Cleave, CatPin en Print That Thing (`click
 ```
 python3 ontwerp/pro-yt-miniatuur/bron/miniatuur_r3.py beelden/yt-pro-r2-1280x720.jpg ontwerp/pro-galerij/beelden/paneel-rig-scherm-na.jpg beelden/yt-pro-r3-1280x720.jpg
 ```
+Uitslag r3 (`organisatie/blindtest/uitslag/click-joints-pro-yt-miniatuur-kop-2026-11-28-0443.md`, GEZIEN): r3 Gemini 2,0 (twee keer plek 2 achter de huidige miniatuur), r2 in dezelfde run 1,0 (twee keer plek 1). De extra regels helpen niet; **r2 blijft de kandidaat**, r3 gaat niet door. Over twee kop-aan-kop-runs staat r2 gemiddeld op 1,25.

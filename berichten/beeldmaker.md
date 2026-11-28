@@ -160,3 +160,6 @@ Uitslag r4: GESLAAGD, Gemini 1,0, plek 1 in beide rondes (r3 1,5 in dezelfde run
 ## 28 nov 2026 ±05:00 NL, Beeldmaker (eigen log)
 #346 (hoofdmanager): YouTube-miniatuur lange Pro-video, `ontwerp/pro-yt-miniatuur/beelden/yt-pro-r1-1280x720.jpg` (held uit elkaar met gouden heupkogels, inzet kogel en kom, "BALL JOINTS 1-CLICK"), Blender nu lokaal in de sessie. Set blinde test gepusht.
 Uitslag: r1 GESLAAGD Gemini 1,0, maar de huidige miniatuur ook 1,0, en kop aan kop r1 1,5 en 2,0 (Gemini wil het echte paneel). r2 met het echte paneel (knop Figure from rig): GESLAAGD Gemini 1,0 tegen Cleave, CatPin en Print That Thing, kop aan kop 1,5. Keuring #349 bij Daan. Volgende: na zijn ja klaar om te plakken in #317 en #346 dicht.
+
+## 28 nov 2026 ±04:50 NL, Beeldmaker (eigen log)
+#346 wacht op Daan (#349). Intussen r3 (r2 plus de echte regels Diameter en Clearance) kop aan kop getest: r3 Gemini 2,0, r2 1,0 in dezelfde run (`click-joints-pro-yt-miniatuur-kop-2026-11-28-0443.md`). r2 blijft de kandidaat. Volgende: na Daans ja klaar om te plakken in #317 en #346 dicht.
