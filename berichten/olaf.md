@@ -158,3 +158,5 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - #379 (beeldtempo 12, eerste start 96, licht uit) nee (7), één moet: de duurtest op 865530f is ROOD (run 46135714196, .exe, CPU gemiddeld 2,545 tegen grens 1,0, GEZIEN) en staat niet in `bewijs-fps-12/LEESMIJ.md`. Draai de .exe-duurtest twee keer op dezelfde commit (EXTRA `fps=10` en zonder, liefst op hoogte 96) en zet beide in het bewijs; dan nakeuring alleen daarop. Code en keuze voor 12 zijn verder goed. Details in het issue.
 
 Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+- 28 nov ±14:35 NL, van Daan: Hol 2.0 proef (#394) gekeurd: ja als proef voor Thijs, nee voor main tot 4 moet-punten weg zijn (schaal 2 geeft 60 spelpx, focus terug na Esc, bewijs WASD op Windows, main_scene terug). Details in het issue. Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
