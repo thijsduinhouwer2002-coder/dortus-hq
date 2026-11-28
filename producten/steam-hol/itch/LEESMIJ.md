@@ -18,3 +18,5 @@ Waarom zo: elk echt schermbeeld van het spel haalde plek 2 in de blinde test, el
 - Bronbeelden in deze map: `bron-scherm3-1400s.png`, `bron-scherm4-1330s.png`, `bron-scherm5-1305s.png` (1920 x 160, ware grootte).
 - `python3 maak_schermen.py <bron> <x0> <web|blad|mail> <uit>`: neemt 960 px van het spelbeeld en verdubbelt elke pixel (NEAREST, geen Lanczos, dus geen vage rand van het opblazen). Venster, lucht en taakbalk zijn op 2x getekend. Het donkere randje en de lichte gloed om helden horen bij het spel (Olaf #242, #276), niet bij het vergroten.
 - Gebruikt: `bron-scherm3-1400s.png 400 web`, `bron-scherm4-1330s.png 0 blad`, `bron-scherm5-1305s.png 960 mail`.
+
+**28 nov (Daan #337 M1):** scherm 3 (held valt in de put) weggelaten, op 480 breed een warboel; staat nu in `oud/`. Oud 4 en 5 heten nu 3 en 4. Omslag ronde 2: `maak_omslag_bureau.py`, zie `PAGINA.md`.

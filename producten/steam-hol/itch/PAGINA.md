@@ -25,7 +25,7 @@ Lat: Rusty's Retirement en Spirit City: Lofi Sessions (`organisatie/lat/hats.md`
 | Community | Comments aan (vragen van spelers komen dan bij ons binnen; triage via skill `triage`) |
 | Visibility | **Draft** tot het ja van Thijs |
 | Cover image | `omslag-630x500.png` (blinde test: zie onder) |
-| Screenshots | `schermen/1-*.png` tot en met `schermen/5-*.png`, in die volgorde |
+| Screenshots | `schermen/1-*.png` tot en met `schermen/4-*.png`, in die volgorde (vier, scherm 3 met de vallende held is weg: op 480 breed een warboel, Daan #337 M1) |
 | Trailer | leeg (er is nog geen trailer) |
 
 ## Description (CONCEPT, Engels, ±170 woorden)
@@ -50,9 +50,8 @@ Regels die deze tekst volgt: elke zin klopt met het spel op main van 27 nov (reu
 |---|---|---|---|
 | 1 | `schermen/1-bureaublad-55min.png` | het hol onder een notitievenster op een bureaublad, Bard Colossus met kroon in de gang, robijnen om Gloop | Iris, main b4d960c, minuut 54, blinde test GESLAAGD (plek 2, `organisatie/blindtest/uitslag/hats-speelscherm-60min-b4d960c-2026-11-27-2049.md`) |
 | 2 | `schermen/2-bureaublad-20min.png` | hetzelfde bureaublad na 20 min, Royal Gloop op de troon | Iris, f0c2a6a, blinde test GESLAAGD (plek 2, `.../hats-speelscherm-20min-f0c2a6a-2026-11-27-1052.md`) |
-| 3 | `schermen/3-held-valt-in-de-put.png` | 16:9, een hoek van een bureaublad (receptenpagina) met het hol eronder: een held met emmerhoed valt in de stekelput, reus Sir Hulk met kroon links, Gloop met hoeden op de troon rechts (minuut 23) | eigen film van main e72baf9, 1400 s, `maak_schermen.py` (zie `LEESMIJ.md`) |
-| 4 | `schermen/4-reus-in-de-gang.png` | 16:9, spreadsheet erboven: reus Sir Hulk met kroon loopt de gang in, het bordje "9" van het hol-niveau, ladder en fakkels (minuut 22) | idem, 1330 s |
-| 5 | `schermen/5-gloop-en-het-bord.png` | 16:9, mail erboven: Gloop op de troon met hoedenberg en schat, het bord: "Next: Ruby Gloop, 134 gold to go" en "Sir Hulk ducks in. He does not fit." (minuut 22) | idem, 1305 s |
+| 3 | `schermen/3-reus-in-de-gang.png` | 16:9, spreadsheet erboven: reus Sir Hulk met kroon loopt de gang in, het bordje "9" van het hol-niveau, ladder en fakkels (minuut 22) | idem, 1330 s |
+| 4 | `schermen/4-gloop-en-het-bord.png` | 16:9, mail erboven: Gloop op de troon met hoedenberg en schat, het bord: "Next: Ruby Gloop, 134 gold to go" en "Sir Hulk ducks in. He does not fit." (minuut 22) | idem, 1305 s |
 
 ## Omslag
 
@@ -60,3 +59,9 @@ Regels die deze tekst volgt: elke zin klopt met het spel op main van 27 nov (reu
 
 ### Uitslag blinde test omslag (27 nov, Gemini flash-lite, GEZIEN in de runs 46067538274 en 46067751109)
 v1 (hol 1,75x), v2 (ware grootte, groot logo) en v3 (1,25x): alle drie **NIET GESLAAGD**, plek 3,0, eerste keus steeds Spirit City. Zinnen: "cheap and generic mobile-game", "no clear indication that it makes a good background PC companion", "adopt a softer, less saturated art style that feels more native to a PC desktop". De echte bureaubladschermen halen wel plek 2. **Volgende ronde:** omslag als uitsnede van een echt bureaubladscherm (venster plus hol op ware grootte, zoals scherm 1) met een vlakke, rustige titel in plaats van het 3D-logo, minder verzadigd. Tot dan geen omslag naar buiten.
+
+### Ronde 2 omslag (28 nov, Sanne): bureaublad met vlakke titel
+`maak_omslag_bureau.py` (zie de kop van het script): hol uit een eigen film (`bron-scherm5-1305s.png`, x 1035 tot 1455, 1,5x), erboven een werkvenster, onderaan een taakbalk met het echte icoon, titel vlak (Poppins Bold), geen 3D-logo.
+- `omslag-v4-630x500.png`: de titel staat als kop in een Notes-venster ("A tiny dungeon above your taskbar.", afvinklijst met "check on Gloop").
+- `omslag-v5-630x500.png`: titel vlak in de lucht met het label "Lives above your taskbar", een mailvenster rechts.
+Blinde test: zelfde set, uitslag volgt in `organisatie/blindtest/uitslag/hats-itch-omslag-2026-11-28-*.md`. De winnaar wordt `omslag-630x500.png` zodra hij GESLAAGD is en Daan ja zegt.
