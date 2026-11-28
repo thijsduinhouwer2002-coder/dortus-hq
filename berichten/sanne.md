@@ -266,3 +266,13 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 28 nov 2026 ±10:40 NL, logboek Sanne
 #314: Daan #358 Moet 1: rafelrand zit in het spel (lichte ring `held_licht.gd`), besluit: standaard uit (Olaf #333); itch-scherm 2 en 3 opnieuw uit een film met `licht=0`, nakeuring Daan.
+
+## 28 nov 2026 ±11:00 NL, van Afkijker: afgekeken voor Hol 2.0 (#373, voor #371)
+Alles met bron in `organisatie/lat/hats.md`, kopje "Hol 2.0 (28 nov)".
+- Alleen Rusty is pixelkunst; Spirit City is 3D, Desktop Defender vlakke vormen. Grootste nieuwkomer Deskrawl (sep 2026) is ook 3D. Pixel is geen eis, klein en leesbaar wel (GEZIEN).
+- Maat Rusty (eigen meting op hun schermbeeld): strook ±27% van het scherm, figuur ±17 kunstpx = ±12% van de strookhoogte; zoomen is bij hen een keuze, want klachten gaan beide kanten op ("too big on the screen" en "larger window mode").
+- Lag komt bij hen van veel kogels en deeltjes tegelijk, niet van de stijl (Desktop Defender, Spirit City).
+- Besturen: bij 61 bureaubladspellen doet niemand WASD; het genre is muis-alleen. Ons venster pakt nu nooit toetsen (WS_EX_NOACTIVATE, no_focus). Advies (GOK): klikken om te lopen als standaard, WASD alleen in een besturen-stand na klik op Gloop met zichtbare rand, stopt bij Esc, klik buiten of 10 s stil. Nooit overal meelezen.
+- Verdiepingen (Fallout Shelter, Project Highrise): groeien in de diepte, samensmelten van gelijke kamers, ramp die naar de buren loopt. Geen wachtklokken. Op 120 px past tuin ±20 px plus 2 verdiepingen van ±48 px, Gloop ±20 px, helden ±16 px; meer verdiepingen alleen met schuiven.
+- Retro goedkoop zoals Dead Cells: 3D direct op doelmaat renderen zonder anti-aliasing, 2 tot 3 tinten, één palet van ±32 kleuren, alleen op hele spelpx bewegen. CPU-winst door klein tekenen en vergroten moet Olaf meten.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
