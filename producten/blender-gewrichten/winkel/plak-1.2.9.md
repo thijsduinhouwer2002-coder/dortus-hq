@@ -18,13 +18,13 @@
 | | |
 |---|---|
 | Bestand | `click_joints_pro-1.2.9.zip` (179.325 bytes, GEZIEN) |
-| Waar | e2e-run **46043092572** op main (commit fea86da), artefact `click-joints-pro-zip-e2e-5.3.0`; ingelogd te downloaden via https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46043092572 |
-| Groen in | Blender 4.2.23, 5.2.3 en 5.3.0 (alle drie de e2e-jobs `success`, GEZIEN via de API op 27 nov ±20:05 NL) |
-| sha256 | `b419de10f271805472be5178dbc73f24b58263235ad4c561371135646450b9e7` (GEZIEN: zelf gedownload en nagerekend, gelijk aan het .sha256-bestand in het artefact) |
+| Waar | e2e-run **46120199131** op main (commit 0fb5564, verse run van za 28 nov), artefact `click-joints-pro-zip-e2e-5.3.0`; ingelogd te downloaden via https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46120199131 |
+| Groen in | Blender 4.2.23, 5.2.3 en 5.3.0 (alle drie de e2e-jobs `success`, GEZIEN via `actions.py` op 28 nov ±09:35 NL) |
+| sha256 | `ebafe2149b9da88610a69942f0ef5985054678278a75ba5b3c23a6d3dc168a24` (GEZIEN: zelf gedownload en nagerekend op 28 nov, gelijk aan het .sha256-bestand in het artefact) |
 | Inhoud nagekeken | `blender_manifest.toml`: `version = "1.2.9"`, `name = "Click Joints Pro"`; 49 bestanden; `betaald/__init__.py` heeft de regel "Free Click Joints was turned off; Pro includes everything in it." (GEZIEN) |
-| Code gelijk aan main | geen wijziging in `producten/blender-gewrichten/click_joints`, `e2e` of de e2e-workflow tussen fea86da en main 239a5d8 (git diff leeg, GEZIEN). #114 zit erin (op main sinds 99a3c69). |
+| Code gelijk aan main | geen wijziging in `producten/blender-gewrichten/click_joints`, `e2e` of de e2e-workflow tussen fea86da (de eerste 1.2.9-run 46043092572) en main 32c1d5f (GitHub compare: 0 bestanden, GEZIEN 28 nov). #114 zit erin (op main sinds 99a3c69). |
 
-**Let op de bewaartijd:** het artefact verloopt op **ma 30 nov 18:53 NL** (GitHub `expires_at` 17:53 UTC, GEZIEN). Download de zip dus vóór 18:50, of start ma 30 nov vóór 17:00 een verse e2e (opdrachtbestand met `blender-gewrichten-e2e.yml`, skill `actions`; duurt ±60 minuten) en neem de zip uit die run. Een verse run geeft een andere sha256 (tijdstempels in de zip); zet dan dat runnummer en die sha256 in `commercie/geplaatst.md`. Na het downloaden: `sha256sum click_joints_pro-1.2.9.zip` moet de waarde hierboven geven (of die van de verse run).
+**Let op de bewaartijd:** de betaalde zip bewaart GitHub maar 3 dagen (besluit Thijs 15 nov, niet in de openbare release). De eerste run 46043092572 verliep ma 30 nov 18:53 NL, vóór de plak van 20:00; daarom op za 28 nov een verse run. Dit artefact verloopt op **di 1 dec 08:34 NL** (GitHub `expires_at` 07:34 UTC, GEZIEN), dus ruim na de plak van ma 30 nov 20:00. Na het downloaden: `sha256sum click_joints_pro-1.2.9.zip` moet de waarde hierboven geven. Schuift de plak op naar na di 08:30: start eerst een verse e2e (opdrachtbestand met `blender-gewrichten-e2e.yml`, skill `actions`; duurt ±80 minuten) en neem runnummer en sha256 van die run over in `commercie/geplaatst.md`.
 
 Niet uitpakken, niet hernoemen. Op Superhive als nieuwe versie uploaden (versie 1.2.9, Blender 4.2 tot 5.3 zoals nu), op Gumroad in de Content-tab de oude 1.2.8-zip vervangen door deze.
 
