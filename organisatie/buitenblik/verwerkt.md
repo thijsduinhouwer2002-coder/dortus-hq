@@ -19,3 +19,6 @@ Elke uitslag uit `uitslag/` wordt hier per punt nagekeken met curl (hoofdmanager
 
 ## click-cuts-2026-11-27-1539 (hoofdmanager, 27 nov 18:45)
 - GEEN UITSLAG: Gemini en ChatGPT gaven allebei HTTP 429 (GEZIEN in het bestand). Niets na te kijken. Opnieuw starten na het vollopen van de gratis Gemini-limiet (za 28 nov na ±09:00, GOK).
+
+## click-cuts-2026-11-28-0934 (hoofdmanager, 28 nov 12:45)
+- GEEN UITSLAG: Gemini en ChatGPT gaven weer HTTP 429 (GEZIEN). Niets na te kijken. Niet opnieuw vandaag: de vier blinde-test-rechters noemden Draw cut al, en dat gaat vanavond live.
