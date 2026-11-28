@@ -1,0 +1,16 @@
+# gemaakt: 2026-11-28T08:19:04Z
+# workflow: Wegwijzer (dode verwijzingen in instructies) (.github/workflows/wegwijzer.yml)
+# run: 46125166124 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46125166124
+# commit: 14c898c0 tak main gestart door push
+# mislukte stappen: wegwijzer: Run python3 organisatie/controle/wegwijzer.py
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== wegwijzer / Run python3 organisatie/controle/wegwijzer.py (laatste 7 van 7 regels) =====
+##[group]Run python3 organisatie/controle/wegwijzer.py
+python3 organisatie/controle/wegwijzer.py
+shell: /usr/bin/bash -e {0}
+##[endgroup]
+Wegwijzer: dode verwijzingen (pas de verwijzing aan of zet het bestand terug):
+  CLAUDE.md:25: `marketing/STOP` bestaat niet
+##[error]Process completed with exit code 1.
