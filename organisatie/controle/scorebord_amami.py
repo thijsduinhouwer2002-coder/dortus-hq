@@ -220,3 +220,52 @@ def bezoek_tabel(alles):
         regels.append(f"| {d} | " + " | ".join(totaal + per) + " |")
     return regels
 
+
+
+# Detail per bezoek (hoofdchat 28 nov, vraag Thijs "kan je niet zien waar ze vandaan komen?"):
+# land, apparaat, browser en kliks op winkelknoppen (data-umami-event, dortus PR #132), alleen gisteren en vandaag.
+DETAIL = {}
+DETAIL_SOORTEN = (("country", "Land"), ("device", "Apparaat"), ("browser", "Browser"), ("event", "Kliks op knoppen"))
+
+
+def dortus_detail(haal, noten):
+    sleutel = os.environ.get("AMAMI_API_KEY", "").strip()
+    if not sleutel:
+        return
+    html = haal("https://dortus.com/", json_=False) or ""
+    m = re.search(r'data-website-id="([0-9a-f-]{36})"', html)
+    if not m:
+        return
+    site = m.group(1)
+    from zoneinfo import ZoneInfo
+    tz = ZoneInfo("Europe/Amsterdam")
+    nu = dt.datetime.now(tz)
+    for naam, begin in (("gisteren", dt.datetime.combine(nu.date() - dt.timedelta(days=1), dt.time(0), tz)),
+                        ("vandaag tot " + nu.strftime("%H:%M"), dt.datetime.combine(nu.date(), dt.time(0), tz))):
+        eind = min(begin + dt.timedelta(days=1), nu)
+        bereik = {"startAt": int(begin.timestamp() * 1000), "endAt": int(eind.timestamp() * 1000) - 1}
+        for soort, _ in DETAIL_SOORTEN:
+            r = amami_get(f"/websites/{site}/metrics", dict(bereik, type=soort, limit=20), sleutel)
+            rijen = r.get("data", []) if isinstance(r, dict) else r
+            if not isinstance(rijen, list):
+                noten.append(f"dortus.com: detail {soort} ({naam}) niet leesbaar.")
+                continue
+            DETAIL[(naam, soort)] = [(str(x.get("x") or "onbekend"), int(getal_uit(x.get("y")) or 0))
+                                     for x in rijen if isinstance(x, dict)]
+
+
+def detail_tabel():
+    if not DETAIL:
+        return []
+    dagen = list(dict.fromkeys(k[0] for k in DETAIL))
+    regels = ["", "## Wie bezoekt dortus.com (Amami: land, apparaat, browser, kliks op winkelknoppen)", "",
+              "Kliks tellen pas sinds de knoppen een data-umami-event hebben (dortus PR #132). "
+              "Geen kliks naar Gumroad bij wel bezoek: het lek zit op de site. Wel kliks, geen verkoop: op Gumroad.", "",
+              "| Wat | " + " | ".join(dagen) + " |", "|---|" + "---|" * len(dagen)]
+    for soort, label in DETAIL_SOORTEN:
+        cellen = []
+        for d in dagen:
+            lijst = sorted(DETAIL.get((d, soort), []), key=lambda t: -t[1])
+            cellen.append(", ".join(f"{x} {n}" for x, n in lijst[:8]) or "geen")
+        regels.append(f"| {label} | " + " | ".join(cellen) + " |")
+    return regels

@@ -388,6 +388,7 @@ def main():
     al = totaal_al & met_verw
     try:
         amami.dortus_bezoek(al, haal, NOTEN, zonder_verw=totaal_al - met_verw)
+        amami.dortus_detail(haal, NOTEN)
     except Exception as e:  # noqa: BLE001
         NOTEN.append(f"dortus_bezoek: fout tijdens meten ({type(e).__name__}).")
     # bezoekrijen hebben de bezoekdag als datum; ze blijven staan, behalve een dag die opnieuw gehaald is
@@ -422,6 +423,7 @@ def main():
     regels += codes_tabel(codes)
     regels += amami.bezoek_tabel(alles)
     regels += amami.verwijzer_tabel(alles)
+    regels += amami.detail_tabel()
     regels += ["", "## Wat niet te zien is", "",
                "- Gumroad-bezoekers staan niet in de Gumroad API v2 (verkopen per product, en sinds 23 nov per verkoop de bron via /sales); bezoekers van de productpagina's op dortus.com staan hierboven (Amami).",
                "- YouTube: de RSS toont alleen de nieuwste openbare filmpjes (max 15); oudere filmpjes en abonnees vragen de YouTube Data API (sleutel ontbreekt nog, zie toegang.md).",
