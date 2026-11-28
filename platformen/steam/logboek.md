@@ -2340,3 +2340,4 @@ Opdracht hoofdchat 23 nov (e2e Pro op de studiofiguren). Nieuwe workflow `cj-rig
 - 27 nov ±05:30 NL Olaf (#242): rand van 1 spelpx en schaduwvlek om elke held, CPU +3,1 procent, blinde lezers 6 van 6 met en zonder (GEZIEN, `producten/steam-hol/bewijs-held-rand/`), keuring Daan.
 27 nov 17:30 Olaf #282: hoedenberg 25/38/55/80, breder tot 150; film 60 min 10 naar 23, blinde lezer 5 van 5 (andere 60/75 om).
 27 nov 19:55 Olaf #298: grote robijnen op troonrand (2/4/6) en luik (1/2/3); blinde lezer 5 van 5 voor/na, 4 van 5 ding; CPU binnen ruis.
+28 nov 07:50 Olaf #333: grond zacht standaard in het vaste beeld (CPU niet meetbaar, wissel +2,2 ±5,2 tegen placebo +12,4), 9 stap-steentjes op het kaartje (Daan K1); keuring #359; blinde test wacht op Gemini-tegoed.
