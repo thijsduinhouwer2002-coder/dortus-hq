@@ -1566,8 +1566,12 @@ func _init() -> void:
 	gz.free()
 	# eerste start: hoogte bij de schaal van het scherm (Olaf 16 nov)
 	var PR = load("res://kern/proef.gd")
-	ok(PR.hoogte_voor_dpi(96) == 200 and PR.hoogte_voor_dpi(110) == 200, "schaal 100% en 115%: 200 px (#333)")
-	ok(PR.hoogte_voor_dpi(120) == 240 and PR.hoogte_voor_dpi(144) == 240 and PR.hoogte_voor_dpi(192) == 240, "schaal 125%, 150% en 200%: 240 px")
+	ok(PR.hoogte_voor_dpi(96) == 96 and PR.hoogte_voor_dpi(120) == 96 and PR.hoogte_voor_dpi(192) == 96, "eerste start altijd 96 px, de stand van Thijs (#372)")
+	# beeldtempo gelijk aan de loopklok (#369): gewoon precies één stap per beeld, tijdens een moment om het andere beeld
+	var BTL = load("res://kern/beeldtempo.gd")
+	var HLP = load("res://systemen/held_loop.gd")
+	ok(is_equal_approx(float(BTL.GEWOON), HLP.LOOP_FPS) and BTL.MOMENT % BTL.GEWOON == 0, "beeldtempo %d (moment %d) past op de loopklok %d: geen dubbele stap" % [BTL.GEWOON, BTL.MOMENT, int(HLP.LOOP_FPS)])
+	ok(not load("res://systemen/held_licht.gd").aan, "lichte buitenrand om helden staat standaard uit (Sanne #369)")
 	# een hapering (één beeld van 2,5 s) mag een held niet over een val laten springen (Bram 16 nov, vraag Sanne
 	# over de koper-duurtest): hij loopt dan 25 pixels in één keer, meer dan een kolom van 16
 	var hh := Node2D.new()

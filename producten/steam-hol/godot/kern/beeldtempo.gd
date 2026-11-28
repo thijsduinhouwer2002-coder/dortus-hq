@@ -1,13 +1,16 @@
 extends RefCounted
 # Beelden per seconde van de strook (Olaf, demolijst 2; Daan 13 nov 17:35).
-# Gewoon 10 per s: lopen leest op ware grootte als gewoon pixelart lopen en kost een derde van 15
-# (duurtest zaad 4242: gemiddeld 0,157 tegen 0,434 CPU-s per 10 s, pieken 0,44 tegen 1,33).
-# Tijdens een moment (val met schrik, hap van Gloop, vliegende muntjes) even sneller, zodat juist die vloeiend zijn.
-# Sneller is 20 en niet 15: 20 is een veelvoud van de loopklok in held.gd (een stap per 0,1 s), dus helden die
-# tijdens een moment lopen blijven in gelijke stappen (bij 15 zou elke derde beeld een stap overslaan: een hikje).
+# Gewoon 12 per s (#369, 28 nov): gelijk aan de loopklok van de 3D-helden (held_loop.gd LOOP_FPS 12). Op 10 per s
+# kwam elk vijfde beeld een dubbele stap (12 stappen over 10 beelden), een hikje twee keer per seconde; op 240 px is
+# een stap ±3 schermpixels en leest dat als haperen ("het lagt", Thijs 28 nov). Gemeten in één run per held: stappen
+# met gelijke tussentijd en lengte 58% op 10, 74% op 12, 63% op 24 (GEZIEN, bewijs-fps-12/LEESMIJ.md).
+# Was 10 (Daan 13 nov 17:35, duurtest zaad 4242: 0,157 tegen 0,434 CPU-s per 10 s op 15); 12 kost ±20% meer beelden.
+# Tijdens een moment (val met schrik, hap van Gloop, vliegende muntjes) even sneller, zodat juist die vloeiend zijn:
+# 24, een veelvoud van 12, zodat lopende helden om het andere beeld precies één stap zetten.
+# Klimmen loopt op een klok van 0,1 s (held.gd PAS): op 12 per s blijft één op de zes beelden een klimstap staan.
 # Met fps=<n> op de opdrachtregel (CPU-proef) blijft het vast op n.
-const GEWOON := 10
-const MOMENT := 20
+const GEWOON := 12
+const MOMENT := 24
 const NA_S := 0.3            # na het moment nog even door, dan terug naar GEWOON
 
 # Fakkels (en de pixelschat) krijgen een nieuw beeldje: 6 per s als er een held loopt, 3 per s in een leeg hol.

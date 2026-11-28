@@ -1,0 +1,1 @@
+{"workflow": "steam-hol-duur.yml", "invoer": {"minuten": "10", "breed": "1920x1080", "exe": "ja"}, "van": "olaf", "waarom": "issue 369: echte exe op 1920 breed met de nieuwe standaard (96 px, 12 beelden per s, licht uit), CPU en beeldtijden"}

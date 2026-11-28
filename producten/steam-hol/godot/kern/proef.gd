@@ -53,11 +53,12 @@ static func lees_argumenten(s) -> void:
 # Eerste start (Olaf 16 nov, voor de speeltest van Thijs): het spel rekent in echte schermpixels. Op een laptop
 # met schaal 125% of meer is 120 px dan klein (Gloop ±48 schermpixels, op 150% oogt dat als 32). Zonder bewaarde
 # hoogte en zonder hoogte=<n> kiezen we daarom de stand die bij de schaal past. Het rechtsklikmenu blijft wisselen en bewaart.
-static func hoogte_voor_dpi(dpi: int) -> int:
-	# #333 (28 nov): een stap hoger, want drie blinde tests noemden de strook van 120 "cluttered" en "goedkoop mobiel";
-	# Rusty's strook is op 1080 ±300 px (GEZIEN). Blinde test 28 nov 01:21: 200 px op plek 2,0, 160 px op 2,5 (GEZIEN).
-	# 100%: 200 (schaal 5), 125% en meer: 240 (schaal 6). Kleiner kan altijd in het menu Height.
-	return 240 if dpi >= 120 else 200
+static func hoogte_voor_dpi(_dpi: int) -> int:
+	# #372 en #369 (28 nov): Thijs zette Height zelf lager en zei "ik zou hem standaard op die versie uitbrengen, zo is
+	# het een stuk beter al". Op 240 px kostte het spel ±2 keer zoveel rekenwerk als op 96 (GEZIEN, bewijs-fps-12/) en
+	# sprong elke stap 6 schermpixels. Daarom altijd 96, ook op 125% en hoger; groter kan in het menu Height.
+	# (Was 200 op 100% en 240 vanaf 125%, #333: blinde test op plaatjes. Winkelbeelden mogen groter gemaakt blijven.)
+	return 96
 
 static func kies_begin_hoogte(s) -> void:
 	if s.hoogte_gekozen:

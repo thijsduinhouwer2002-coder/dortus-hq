@@ -68,6 +68,8 @@ var volgende_koop := 3.0
 var proef_drukte := false    # drukte=1: helden elke 5 tot 8 s (hooguit 3 tegelijk), alleen voor de winkelopname week (Mila 16 nov, punt 3)
 var meet_t := 0.0             # elke 10 s: hoeveel beelden echt getekend (alleen met log=)
 var meet_beelden := 0
+var meet_lang := 0.0          # #369: langste tijd tussen twee beelden in dit blok van 10 s (hapering), in ms
+var meet_script := 0.0        # #369: opgetelde rekentijd van het script (_process) in dit blok, in ms
 var zicht_was := false        # Iris keuring 6: log 'HOL zicht' als er een held in beeld komt of de laatste weg is (e2e/ritme_meting.py)
 var steamdemo := false        # de gratis Steam-demo (feature steamdemo of argument steamdemo=1)
 var demo_grens := 7200.0      # demo_einde=<s> voor de toets
@@ -316,12 +318,17 @@ func _process(delta: float) -> void:
 		log_regel("HOL zicht %.1f %d" % [t, helden])
 	if logpad != "":
 		meet_t += delta
+		meet_lang = maxf(meet_lang, delta * 1000.0)
+		meet_script += Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0
 		if meet_t >= 10.0:
 			meet_t = 0.0
 			var nu_b := Engine.get_frames_drawn()
 			var vast_keer: int = hol.vast.keer if hol.vast != null else -1
-			log_regel("HOL meting t=%d beelden=%d helden=%d hol_vast=%d" % [int(t), nu_b - meet_beelden, helden, vast_keer])
+			log_regel("HOL meting t=%d beelden=%d helden=%d hol_vast=%d langste_ms=%d script_ms=%d" % [int(t), nu_b - meet_beelden,
+				helden, vast_keer, int(meet_lang), int(meet_script)])
 			meet_beelden = nu_b
+			meet_lang = 0.0
+			meet_script = 0.0
 	_toon()
 	KAARTJE.tik(self)
 	if demo:

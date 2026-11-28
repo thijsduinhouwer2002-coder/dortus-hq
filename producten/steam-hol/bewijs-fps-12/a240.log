@@ -1,0 +1,45 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
+HOL start hoogte=240 schaal=6 spelpixels=320x40 venster=(1920, 240) pos=(320, 480) held=res://systemen/held.gd
+HOL zaad 7
+HOL balk uit
+HOL grond zacht
+HOL muisvlak passthrough, lucht vrij op x=-1
+HOL begin: vallen (Kees)
+HOL held binnen: Kees
+HOL zicht 2.2 1
+HOL kroniek 2.6 (wacht 0.5): Kees is here for your gold.
+HOL uitleg stap 1 t=4.1 
+HOL kroniek zelfde held vervangen: Kees is here for your gold.
+HOL kroniek 7.4 (wacht 0.0): Kees took the short way down. +9
+HOL zicht 7.4 0
+HOL begin: opgegeten (Jop)
+HOL held binnen: Jop
+HOL zicht 8.5 1
+HOL uitleg stap 2 t=9.0 Click the dirt to dig.
+HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
+HOL meting t=10 beelden=124 helden=1 hol_vast=3 langste_ms=141 script_ms=4254
+HOL leven mot t=10.3 x=88 y=26
+HOL kroniek vervallen 11.5: Jop says this is a quick one.
+HOL meting t=20 beelden=100 helden=1 hol_vast=3 langste_ms=100 script_ms=1825
+HOL leven goudstof t=25.2 x=228 y=30
+HOL reeks 2 (+0, t 25.4)
+HOL kroniek 25.4 (wacht 0.0): Gloop ate Jop. Kept the crown. +9
+HOL zicht 25.4 0
+HOL kroniek 27.9 (wacht 2.5): First hero for Gloop!
+HOL uitleg duw stap 2
+HOL begin: vluchten (Siem)
+HOL held binnen: Siem
+HOL zicht 29.5 1
+HOL meting t=30 beelden=126 helden=1 hol_vast=4 langste_ms=100 script_ms=2524
+HOL kroniek 30.4 (wacht 1.0): Siem read about you in a tavern.
+HOL leven mot t=34.9 x=88 y=26
+HOL meting t=40 beelden=100 helden=1 hol_vast=4 langste_ms=101 script_ms=1963
+HOL kroniek zelfde held vervangen: Siem read about you in a tavern.
+HOL kroniek 47.6 (wacht 0.0): Siem ran. Swore revenge.
+HOL zicht 47.7 0
+HOL kroniek 50.1 (wacht 2.5): First hero got away.
+HOL meting t=50 beelden=101 helden=0 hol_vast=4 langste_ms=100 script_ms=1901
+HOL leven goudstof t=54.1 x=228 y=30
+HOL meting t=60 beelden=101 helden=0 hol_vast=4 langste_ms=100 script_ms=1817
+HOL einde na 65 s, fps=10, goud=38, terugkomers=1

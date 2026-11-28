@@ -7,9 +7,9 @@ extends RefCounted
 # - het licht op die plek (systemen/licht.gd): in het fakkellicht en bij de schat gaat hij uit, want daar is de
 #   achtergrond licht en staat de donkere rand al goed.
 # Hij komt en gaat zacht (over ±0,4 s), zodat hij niet knipt als een held van de ene steen naar de andere loopt.
-# STAAT AAN (27 nov ±12:45). De +7 procent van de eerste meting was het verschil tussen losse runs; binnen één run met
-# 20 en 100 keer het licht tegen een placebo kost één keer hooguit enkele tienden van een procent (bewijs-held-licht/LEESMIJ.md).
-# Uit met startargument licht=0.
+# STAAT UIT (28 nov, besluit Sanne #333 en #369): om een lopende reus gaf de ring een lichte rafelrand (Iris #366,
+# Daan #357 en #358), en Thijs speelt nu op de kleine stand. Aan voor een proef met startargument licht=1.
+# Kosten (27 nov): binnen één run hooguit enkele tienden van een procent (bewijs-held-licht/LEESMIJ.md).
 # Uit voor vergelijken: startargument uit3d=licht (zelfde build, voor en na naast elkaar). Met licht_wissel=1 staat hij
 # om het andere getekende beeld aan en uit (alleen voor het bewijs: zelfde held op dezelfde plek, 1 beeld uit elkaar).
 
@@ -26,7 +26,7 @@ const OPKOM_S := 0.4                      # zo lang om van 0 naar vol te gaan
 const MEET_S := 0.2                       # zo vaak de plek opnieuw meten (per held)
 const TORSO := 6.0                        # zo veel spelpx boven de voeten meten
 static var _scherp := {}  # silhouet en stap -> ring (zie ring())
-static var aan := true
+static var aan := false
 static var wissel := false
 static var _gelezen := false
 # Meten binnen één run (balans.md): wissel=licht zet hem om de 20 s aan en uit (oneven blokken uit), wissel=nep schrijft
@@ -45,11 +45,14 @@ static func is_aan() -> bool:
 		for a in args:
 			if a == "licht=0":
 				aan = false
+			if a == "licht=1":
+				aan = true
 			if a == "licht_wissel=1":
 				wissel = true
 				aan = true
 			if a == "wissel=licht" or a == "wissel=nep":
 				_blok = 1 if a == "wissel=licht" else 2
+				aan = true
 			if a.begins_with("licht_blok="):
 				WISSEL_S = clampf(float(a.substr(11)), 1.0, 60.0)
 			if a.begins_with("licht_keer="):
