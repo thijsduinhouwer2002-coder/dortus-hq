@@ -1,6 +1,9 @@
-metingen van 10 s: 118
-CPU-s per 10 s: gemiddeld 0.938, mediaan 1.172, laagste 0.016, hoogste 2.031
-geheugen aan het eind: 50 MB
+metingen van 10 s: 58
+CPU-s per 10 s: gemiddeld 2.545, mediaan 2.391, laagste 1.312, hoogste 3.875
+geheugen aan het eind: 70 MB
 proces leefde tot het eind: True
 soort: echte .exe (release)
-eerste koop mogelijk: HOL eerste koop mogelijk na 175 s speeltijd (goud 47)
+eerste koop mogelijk: HOL eerste koop mogelijk na 70 s speeltijd (goud 50)
+kroniekregels: 49, verschillend 47
+vaakst herhaald: 2x 'Gloop is flat. Back soon.'; 2x 'Gloop is up again. Wobbly.'
+save-bestanden na de duurtest: hol.json, hol.vorige.json (precies hol.json en hol.vorige.json: True)
