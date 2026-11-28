@@ -1,17 +1,16 @@
-HOL balk gestart, pid 2420, hoogte 120
-HOL weg geweest 0 s (klok terug: true): goud voor 570, helden 0, erbij 0, hoeden 0
-HOL opslag geladen: 0 terugkomers, 570 goud, faam 5
+HOL balk gestart, pid 8108, hoogte 120
+HOL weg geweest 0 s (klok terug: true): goud voor 624, helden 0, erbij 0, hoeden 0
+HOL opslag geladen: 0 terugkomers, 624 goud, faam 5
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795852927
+HOL zaad 1795854886
 HOL balk aan
 HOL grond zacht
-HOL gloop ring aan na 0.1 s (goud 570)
-HOL eerste koop mogelijk na 30 s speeltijd (goud 570)
+HOL gloop ring aan na 0.1 s (goud 624)
+HOL eerste koop mogelijk na 30 s speeltijd (goud 624)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL kroniek 2.1 (wacht 0.0): Lotte has a map. It is wrong.
-HOL begin: doorlopen (Lotte)
-HOL held binnen: Lotte
+HOL kroniek 2.1 (wacht 0.0): Merel climbs into your hole.
+HOL begin: doorlopen (Merel)
+HOL held binnen: Merel
 HOL zicht 2.2 1
-HOL leven goudstof t=7.7 x=212 y=30
-HOL einde na 8 s, fps=10, goud=570, terugkomers=0
+HOL einde na 8 s, fps=10, goud=624, terugkomers=0

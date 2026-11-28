@@ -1,27 +1,29 @@
-HOL balk gestart, pid 8308, hoogte 120
-HOL weg geweest 25211 s (klok terug: false): goud voor 570, helden 100, erbij 466, hoeden 35
-HOL weg faam afgekapt 7 van 61 (hooguit 2 niveaus)
+HOL balk gestart, pid 7904, hoogte 120
+HOL weg geweest 25211 s (klok terug: false): goud voor 624, helden 100, erbij 508, hoeden 39
+HOL weg faam afgekapt 7 van 68 (hooguit 2 niveaus)
 HOL hol-niveau 4 (faam 12, t 0.0)
 HOL hol-niveau 5 (faam 12, t 0.0)
-HOL hoeden van de nacht 35 (vallen vanaf 1.0 s, toren nu 40)
-HOL berg zichtbaar 10 -> 19
-HOL kroniek 0.0 (wacht 0.0): 100 came, 61 fell, 35 hats. +466 gold.
+HOL hoeden van de nacht 39 (vallen vanaf 1.0 s, toren nu 40)
+HOL berg zichtbaar 10 -> 20
+HOL kroniek 0.0 (wacht 0.0): 100 came, 68 fell, 39 hats. +508 gold.
 HOL optocht wip, 1.2 poef 4 munt; helden [5]; duur 1.2 s
-HOL opslag geladen: 0 terugkomers, 1036 goud, faam 12
+HOL opslag geladen: 0 terugkomers, 1132 goud, faam 12
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795852936
+HOL zaad 1795854895
 HOL balk aan
 HOL grond zacht
-HOL gloop ring aan na 0.1 s (goud 1036)
-HOL eerste koop mogelijk na 38 s speeltijd (goud 1036)
+HOL gloop ring aan na 0.1 s (goud 1132)
+HOL eerste koop mogelijk na 38 s speeltijd (goud 1132)
 HOL bordje wip na weg (niveau 5)
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL held binnen: Wout
+HOL held binnen: Fenna
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Wout brought a torch. And hope.
-HOL leven mot t=7.2 x=72 y=26
-HOL meting t=10 beelden=100 helden=1 hol_vast=12
-HOL kroniek 10.4 (wacht 0.0): Henk has a map. It is wrong.
-HOL held binnen: Henk
-HOL einde na 12 s, fps=10, goud=1036, terugkomers=0
+HOL kroniek 2.6 (wacht 0.5): Fenna knocks first. Polite.
+HOL leven goudstof t=8.5 x=212 y=30
+HOL meting t=10 beelden=100 helden=1 hol_vast=13
+HOL kroniek zelfde held vervangen: Fenna knocks first. Polite.
+HOL kroniek 10.6 (wacht 0.0): Fenna checked the floor. Too late. +9
+HOL put-hoed 7 naar de toren (hoeden nu 80, t 10.6)
+HOL zicht 10.6 0
+HOL einde na 12 s, fps=20, goud=1141, terugkomers=0

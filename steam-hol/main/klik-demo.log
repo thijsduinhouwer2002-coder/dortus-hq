@@ -1,31 +1,33 @@
-HOL balk gestart, pid 5412, hoogte 96
+HOL balk gestart, pid 3224, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL demo: speeltijd 0 s, grens 3 s
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795852723
+HOL zaad 1795854676
 HOL balk aan
 HOL grond zacht
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Wout)
-HOL held binnen: Wout
+HOL begin: vallen (Gerda)
+HOL held binnen: Gerda
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Wout says this is a quick one.
+HOL kroniek 2.6 (wacht 0.5): Gerda is here for your gold.
 HOL demo voorbij na 3 s speeltijd
-HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
 HOL kroniek 3.6 (wacht 0.5): That's the demo. Your hole keeps going.
 HOL uitleg stap 1 t=4.1 
-HOL kroniek 7.4 (wacht 0.0): Geert climbs into your hole.
-HOL begin: opgegeten (Geert)
-HOL held binnen: Geert
-HOL kroniek 8.4 (wacht 1.0): Wout will not be leaving. +9
-HOL leven mot t=8.7 x=184 y=26
+HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
+HOL kroniek zelfde held vervangen: Gerda is here for your gold.
+HOL kroniek 7.4 (wacht 0.0): Gerda took the short way down. +9
+HOL zicht 7.4 0
+HOL begin: opgegeten (Lotte)
+HOL held binnen: Lotte
+HOL zicht 7.6 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
+HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 10.5: First hero in the pit!
+HOL leven stofje t=10.2 x=184 y=26
+HOL kroniek vervallen 10.6: Lotte brought a torch. And hope.
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
-HOL reeks 2 (+0, t 24.3)
-HOL kroniek zelfde held vervangen: Geert climbs into your hole.
-HOL kroniek 24.3 (wacht 0.0): Gloop ate Geert. Kept the crown. +9
-HOL zicht 24.3 0
-HOL einde na 25 s, fps=15, goud=38, terugkomers=0
+HOL reeks 2 (+0, t 24.5)
+HOL kroniek 24.5 (wacht 0.0): Gloop ate Lotte. Kept the crown. +9
+HOL zicht 24.5 0
+HOL einde na 25 s, fps=12, goud=38, terugkomers=0
