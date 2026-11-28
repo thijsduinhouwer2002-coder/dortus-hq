@@ -1,0 +1,56 @@
+{
+ "fps": 30,
+ "delen": {
+  "start": 0.0,
+  "kop": 1.2,
+  "knop Draw cut": 1.633,
+  "lijn": 3.467,
+  "knop Flip side": 5.933,
+  "knop Cut piece": 6.733,
+  "gesneden": 6.767,
+  "alles": 10.533,
+  "eind": 15.967
+ },
+ "kliks": [
+  1.067,
+  1.633,
+  4.833,
+  5.933,
+  6.733
+ ],
+ "metingen": {
+  "paard_mm": [
+   385.3,
+   254.8,
+   520.0
+  ],
+  "stukken_voor": 12,
+  "groen_voor": 12,
+  "uitslag": "",
+  "draw_stuk": "Piece 09",
+  "lijn": [
+   [
+    103,
+    942
+   ],
+   [
+    595,
+    824
+   ]
+  ],
+  "snedevlak": 1,
+  "draw_voor_na": [
+   12,
+   13
+  ],
+  "stukken_na": 13,
+  "groen_na": 13,
+  "pennen": 51
+ },
+ "vangnet": [],
+ "echt": true,
+ "kruis": [
+  55,
+  104
+ ]
+}

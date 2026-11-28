@@ -1,0 +1,7 @@
+# Regisseur 33: Short Click Cuts 1.1 "Draw your own cut" (#384)
+
+Lokaal opgenomen (cloudsessie, 28 nov 2026 ±13:30 NL): Blender 5.3.0 met interface onder Xvfb 1080x1920, Click Cuts 1.1.0 (main, `producten/blender-splitser/e2e/maak_zip.sh`), Horse Statue 01 (Poly Haven, CC0).
+- `cuts9.py`: zelfde motor als `regisseur-31/cuts8.py` (klok van 1/30 s, echte X-muis en kliks met XTest, scherm met mss). Split to fit vooraf; in beeld: hoofd klikken, Draw cut, echte lijn slepen, Flip side twee keer, Cut piece, rondkijken. Schrijft in `film.json` onder `kruis` de beelden waarin Draw cut loopt.
+  `xvfb-run -a --server-args="-screen 0 1080x1920x24 -noreset" blender --gpu-backend opengl -p 0 0 1080 1920 start.blend --python cuts9.py -- <map> /tmp/click_cuts.zip <modelmap>` met `LIBGL_ALWAYS_SOFTWARE=1`, `CJ_PYLIB` (mss, python-xlib), eigen `BLENDER_USER_*`. Duurt ±5 min.
+- `montage9.py`: kopie van `regisseur-31/montage_cuts.py` met de hook "Don't want a seam / through the face? / Draw your own cut:", eindtekst "Click Cuts 1.1, / add-on for Blender" op een donkere band, kruisje als wijzer tijdens Draw cut. Muziek Deep Urban (Mixkit 623, vanaf 175,9 s). `--eerste` maakt alleen het eerste beeld.
+- `film.json`, `opname.log.gz`, `strook.jpg` (12 beelden uit de film), `eerste-beeld.jpg` horen bij `marketing/wachtrij/2026-11-30-yt-short-cuts-draw-cut.mp4` (opname 3; opname 1 en 2 hadden een te kort of scheef eind).
