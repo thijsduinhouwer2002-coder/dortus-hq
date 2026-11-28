@@ -12,6 +12,7 @@ Gebruik in een model:
     g.render(pad, breedte, hoogte, samples, doorzichtig=True)
 """
 import math
+import os
 import bpy
 from mathutils import Vector
 
@@ -37,9 +38,88 @@ def leeg():
     bpy.ops.wm.read_factory_settings(use_empty=True)
 
 
+# Mila 28 nov (#333): het palet voor alle bladen. "" = zoals tot nu (glanzend), "gedempt" = minder verzadigd,
+# mat, twee tinten met harde grens en een inktlijn. Zet je dit op "gedempt", dan rendert de pijplijn alle bladen
+# opnieuw (gedeeld.py zit in de vingerafdruk). HOL_PALET in de omgeving gaat voor (proeven).
+PALET_STANDAARD = "gedempt"   # proeftak claude/steam-palet-gedempt; op main ""
+
+
+def _palet():
+    return os.environ.get("HOL_PALET", PALET_STANDAARD).strip()
+
+
+def _demp_hex(h):
+    """Gedempt palet: verzadiging omlaag (maal 0,8), heel licht naar warm schemer, nooit vlakker dan 0,12."""
+    import colorsys
+    h = h.lstrip("#")
+    r, gr, b = (int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+    hh, ss, vv = colorsys.rgb_to_hsv(r, gr, b)
+    ss = ss * 0.8 if ss > 0.12 else ss
+    vv = min(1.0, vv * 0.94 + 0.03)
+    r, gr, b = colorsys.hsv_to_rgb(hh, ss, vv)
+    r, b = min(1.0, r * 1.02), b * 0.97
+    return "%02x%02x%02x" % (round(r * 255), round(gr * 255), round(b * 255))
+
+
+# Vaste tinten in het gedempte palet (de rest gaat via _demp_hex)
+KLEUR_GEDEMPT = {
+    "munt": "72cfa6", "munt_d": "389072", "munt_l": "b0e9cf",
+    "goud": "e2b04e", "goud_d": "a67428", "staal": "a3a9b6",
+}
+
+
+def _toon_mat(naam, kleur, metaal=0.0):
+    """Getekende afwerking: twee tinten met een harde grens (Toon BSDF), schaduwkant koeler en donkerder,
+    een kleine harde glimvlek alleen bij metaal. Geen glas, geen natte glans."""
+    m = bpy.data.materials.new(naam)
+    m.use_nodes = True
+    nt = m.node_tree
+    for n in list(nt.nodes):
+        nt.nodes.remove(n)
+    uit = nt.nodes.new("ShaderNodeOutputMaterial")
+    licht = nt.nodes.new("ShaderNodeBsdfToon")
+    licht.component = "DIFFUSE"
+    licht.inputs["Size"].default_value = 0.55
+    licht.inputs["Smooth"].default_value = 0.03
+    # vier lampen tellen op bij een harde Toon-grens; daarom de lichte kant gedempt tot hij de kleur zelf geeft
+    licht.inputs["Color"].default_value = (kleur[0] * 0.46, kleur[1] * 0.46, kleur[2] * 0.46, 1)
+    # vaste schaduwtint: koeler en donkerder, zodat de schaduwkant nooit zwart wordt
+    sch = nt.nodes.new("ShaderNodeEmission")
+    r, gg, b = kleur
+    sch.inputs["Color"].default_value = (r * 0.38, gg * 0.36, b * 0.50 + 0.004, 1)
+    sch.inputs["Strength"].default_value = 1.0
+    som = nt.nodes.new("ShaderNodeAddShader")
+    nt.links.new(licht.outputs[0], som.inputs[0])
+    nt.links.new(sch.outputs[0], som.inputs[1])
+    if metaal:
+        glim = nt.nodes.new("ShaderNodeBsdfToon")
+        glim.component = "GLOSSY"
+        glim.inputs["Size"].default_value = 0.18
+        glim.inputs["Smooth"].default_value = 0.02
+        glim.inputs["Color"].default_value = (0.35, 0.35, 0.35, 1)
+        som2 = nt.nodes.new("ShaderNodeAddShader")
+        nt.links.new(som.outputs[0], som2.inputs[0])
+        nt.links.new(glim.outputs[0], som2.inputs[1])
+        som = som2
+    nt.links.new(som.outputs[0], uit.inputs["Surface"])
+    return m
+
+
 def mat(naam, kleur, rough=0.5, spec=0.4, emis=0.0, sss=0.0, glas=0.0, metaal=0.0):
+    if _palet() == "gedempt":
+        # mat en getekend: geen glas en geen natte glans, die lazen als "cheap mobile" (blinde tests 27 nov)
+        if isinstance(kleur, str):
+            sleutel = kleur
+            kleur = KLEUR_GEDEMPT.get(sleutel) or _demp_hex(KLEUR.get(sleutel, sleutel))
+        rough = max(rough, 0.6 if not metaal else 0.42)
+        spec = min(spec, 0.2)
+        glas = 0.0
+        sss = min(sss, 0.12)
+        emis = emis if emis >= 1.0 else emis * 0.5
     if isinstance(kleur, str):
         kleur = hex2(KLEUR.get(kleur, kleur))
+    if _palet() == "gedempt" and not emis and os.environ.get("HOL_TOON", "1") == "1":
+        return _toon_mat(naam, kleur, metaal)
     m = bpy.data.materials.new(naam)
     m.use_nodes = True
     b = m.node_tree.nodes["Principled BSDF"]
@@ -214,5 +294,22 @@ def _render_een(pad, breedte, hoogte, samples=64, doorzichtig=True):
     sc.render.image_settings.file_format = "PNG"
     sc.render.image_settings.color_mode = "RGBA"
     sc.view_settings.view_transform = "Standard"
+    if _palet() == "gedempt" and os.environ.get("HOL_LIJN", "0") == "1":
+        # getekende inktlijn om het figuur (Freestyle), dikte in renderpixels naar de maat van de render
+        sc.render.use_freestyle = True
+        sc.render.line_thickness_mode = "ABSOLUTE"
+        sc.render.line_thickness = max(1.0, breedte / 70)
+        vl = bpy.context.view_layer
+        vl.use_freestyle = True
+        fs = vl.freestyle_settings
+        ls = fs.linesets[0] if fs.linesets else fs.linesets.new("lijn")
+        ls.select_by_visibility = True
+        ls.select_silhouette = True
+        ls.select_border = True
+        ls.select_crease = False
+        if ls.linestyle is None:
+            ls.linestyle = bpy.data.linestyles.new("inkt")
+        ls.linestyle.color = (0.11, 0.06, 0.07)
+        ls.linestyle.thickness = 1.0
     sc.render.filepath = pad
     bpy.ops.render.render(write_still=True)
