@@ -1,6 +1,6 @@
 extends Node2D
 # Kern van Het Hol (Olaf): de strook boven de taakbalk.
-# - hoogte instelbaar (standaard 160 px, 96 tot 240; #333), over de hele breedte, net boven de taakbalk
+# - hoogte instelbaar (standaard 200 px, 96 tot 240; #333), over de hele breedte, net boven de taakbalk
 # - alleen de strook vangt klikken, de rest laat ze door
 # - zuinig: 10 fps (20 tijdens een moment, kern/beeldtempo.gd) en alleen tekenen wat beweegt
 # - geen kaartjes over andere vensters: alle tekst staat klein in de strook

@@ -55,10 +55,9 @@ static func lees_argumenten(s) -> void:
 # hoogte en zonder hoogte=<n> kiezen we daarom de stand die bij de schaal past. Het rechtsklikmenu blijft wisselen en bewaart.
 static func hoogte_voor_dpi(dpi: int) -> int:
 	# #333 (28 nov): een stap hoger, want drie blinde tests noemden de strook van 120 "cluttered" en "goedkoop mobiel";
-	# Rusty's strook is op 1080 ±300 px (GEZIEN). 100%: 160 (schaal 4), 125% en 150%: 200 (schaal 5), 175% en meer: 240.
-	if dpi >= 168:
-		return 240
-	return 200 if dpi >= 120 else 160
+	# Rusty's strook is op 1080 ±300 px (GEZIEN). Blinde test 28 nov 01:21: 200 px op plek 2,0, 160 px op 2,5 (GEZIEN).
+	# 100%: 200 (schaal 5), 125% en meer: 240 (schaal 6). Kleiner kan altijd in het menu Height.
+	return 240 if dpi >= 120 else 200
 
 static func kies_begin_hoogte(s) -> void:
 	if s.hoogte_gekozen:

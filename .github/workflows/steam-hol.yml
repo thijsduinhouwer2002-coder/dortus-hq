@@ -354,10 +354,10 @@ jobs:
           $fout = 0
           $a = Start1 "$uit/schaal-gewoon.log" ""
           Write-Output "===== gewoon"; Write-Output $a
-          if ($a -notmatch "HOL eerste start .*dpi=(\d+) hoogte=(160|200|240)") { Write-Output "FOUT: geen eerste-startregel"; $fout++ }
+          if ($a -notmatch "HOL eerste start .*dpi=(\d+) hoogte=(200|240)") { Write-Output "FOUT: geen eerste-startregel"; $fout++ }
           $b = Start1 "$uit/schaal-150.log" "dpi=144"
           Write-Output "===== dpi=144 (150%)"; Write-Output $b
-          if ($b -notmatch "HOL eerste start .*dpi=144 hoogte=200" -or $b -notmatch "HOL start hoogte=200 .*venster=\(\d+, 200\)") { Write-Output "FOUT: op 150% niet 200 px (#333)"; $fout++ }
+          if ($b -notmatch "HOL eerste start .*dpi=144 hoogte=240" -or $b -notmatch "HOL start hoogte=240 .*venster=\(\d+, 240\)") { Write-Output "FOUT: op 150% niet 240 px (#333)"; $fout++ }
           $c = Start1 "$uit/schaal-gekozen.log" "dpi=144 hoogte=96"
           Write-Output "===== dpi=144 hoogte=96"; Write-Output $c
           if ($c -match "HOL eerste start" -or $c -notmatch "HOL start hoogte=96 ") { Write-Output "FOUT: gekozen hoogte niet gevolgd"; $fout++ }
