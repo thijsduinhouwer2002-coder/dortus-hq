@@ -1,24 +1,24 @@
-HOL balk gestart, pid 7380, hoogte 120
+HOL balk gestart, pid 7884, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795833897
+HOL zaad 1795834819
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vallen (Merel)
-HOL held binnen: Merel
+HOL begin: vallen (Kobus)
+HOL held binnen: Kobus
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Merel knocks first. Polite.
+HOL kroniek 2.6 (wacht 0.5): Kobus climbs into your hole.
 HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Merel knocks first. Polite.
-HOL kroniek 7.4 (wacht 0.0): Merel took the short way down. +9
+HOL kroniek zelfde held vervangen: Kobus climbs into your hole.
+HOL kroniek 7.4 (wacht 0.0): Kobus took the short way down. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Anouk)
-HOL held binnen: Anouk
-HOL zicht 7.8 1
-HOL leven mot t=8.6 x=72 y=26
+HOL begin: opgegeten (Fenna)
+HOL held binnen: Fenna
+HOL zicht 9.0 1
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL kroniek 9.9 (wacht 2.5): First hero in the pit!
-HOL meting t=10 beelden=123 helden=1 hol_vast=3
-HOL kroniek vervallen 10.8: Anouk has a map. It is wrong.
+HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
+HOL meting t=10 beelden=124 helden=1 hol_vast=3
+HOL leven mot t=11.3 x=72 y=26
+HOL kroniek vervallen 12.1: Fenna knocks first. Polite.
 HOL einde na 15 s, fps=10, goud=29, terugkomers=0
