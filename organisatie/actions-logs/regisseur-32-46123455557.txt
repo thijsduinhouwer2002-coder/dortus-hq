@@ -1,0 +1,68 @@
+# gemaakt: 2026-11-28T08:08:17Z
+# workflow: Regisseur 32 (zoekvideo Click Cuts #332: echte Blender-opname op de stem van Max) (.github/workflows/regisseur-32.yml)
+# run: 46123455557 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46123455557
+# commit: c308c3b2 tak regisseur-32-proef gestart door workflow_dispatch
+# mislukte stappen: film: Controles (ffprobe, geluid, whisper)
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== film / Controles (ffprobe, geluid, whisper) (laatste 59 van 59 regels) =====
+##[group]Run cd /tmp/klaar; ok=0
+cd /tmp/klaar; ok=0
+ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate,avg_frame_rate,nb_frames -show_entries format=duration -of default=nw=1 cuts-lang.mp4 | tee ffprobe.txt
+ffprobe -v error -select_streams v:0 -show_entries packet=pts_time -of csv=p=0 cuts-lang.mp4 | sort -n | awk 'NR>1{d=$1-p; if (d<0.030||d>0.037) b++} {p=$1} END{print "tijdstempels buiten 1/30 s:", b+0}' | tee -a ffprobe.txt
+grep -q "tijdstempels buiten 1/30 s: 0" ffprobe.txt || ok=1
+python3 $GITHUB_WORKSPACE/organisatie/controle/geluid_check.py cuts-lang.mp4 | tee geluid_check.txt
+grep -q "FOUT" geluid_check.txt && ok=1
+python3 $GITHUB_WORKSPACE/$MAP/monteer_lang.py --controle cuts-lang.mp4 /tmp/tijden > synchroon.txt 2> synchroon-uitleg.txt || ok=1; cat synchroon.txt synchroon-uitleg.txt
+# echte kliks op hun zin: een klik mag niet later vallen dan 0,5 s na het eind van de zin die hem noemt
+python3 - <<'PY' > kliksync.txt || ok=1
+import json, sys
+f = json.load(open("film.json")); fout = 0
+for k in f.get("kliksync", []):
+    laat = k["na_begin"] > k["zin_duur"] + 0.5
+    fout += laat
+    print(f'{k["knop"]:15s} zin {k["zin"]:2d}: {k["na_begin"]:5.2f} s na begin (zin {k["zin_duur"]:.2f} s){"  TE LAAT" if laat else ""}')
+print("vangnet:", f.get("vangnet"), " laat:", f.get("laat"))
+sys.exit(1 if fout or f.get("vangnet") else 0)
+PY
+cat kliksync.txt
+exit $ok
+shell: /usr/bin/bash -e {0}
+env:
+  TAG: regisseur-32-proef
+  PROEF: 1
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: [weggehaald: lange hex-reeks]
+  KOKORO_VOICES_SHA: [weggehaald: lange hex-reeks]
+  MAP: commercie/filmpjes/regisseur-32
+  pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+  PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+  Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+  LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+##[endgroup]
+width=1920
+height=1080
+r_frame_rate=30/1
+avg_frame_rate=30/1
+nb_frames=3607
+duration=120.233008
+tijdstempels buiten 1/30 s: 0
+GOED: cuts-lang.mp4: gemiddeld -16.4 dB, piek -1.3 dB
+{"zinnen": 24, "gemeten": 24, "buiten_0_3": 1, "grootste": 0.96, "per_zin": [[1, 0.03], [2, 0.03], [3, 0.03], [4, 0.06], [5, 0.03], [6, 0.09], [7, -0.96], [8, 0.03], [9, 0.03], [10, 0.04], [11, 0.08], [12, 0.05], [13, 0.08], [14, 0.04], [15, 0.05], [16, 0.03], [17, 0.05], [18, 0.07], [19, 0.08], [20, 0.04], [21, 0.03], [22, 0.05], [23, 0.08], [24, 0.06]]}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{"zin": 7, "begin": 28.248, "woord_nr": 0, "woord_t": 27.66, "rond_begin": [["and", 25.96], ["how", 26.24], ["many", 26.44], ["faces", 26.62], ["it", 26.98], ["has", 27.28], ["now", 27.66], ["click", 28.5], ["split", 28.8], ["to", 29.08], ["fit", 29.3]]}
+N               zin  4:  0.46 s na begin (zin 2.28 s)
+Split to fit    zin  7:  0.49 s na begin (zin 1.33 s)
+Draw cut        zin 11:  1.40 s na begin (zin 3.62 s)
+Flip side       zin 12:  2.80 s na begin (zin 4.40 s)
+Cut piece       zin 13:  0.81 s na begin (zin 4.46 s)
+More settings   zin 15:  0.87 s na begin (zin 2.78 s)
+Make fit test   zin 15:  2.27 s na begin (zin 2.78 s)
+0.20            zin 18:  2.75 s na begin (zin 5.26 s)
+Exploded view   zin 21:  0.43 s na begin (zin 4.25 s)
+Export parts    zin 22:  0.90 s na begin (zin 9.15 s)
+vangnet: []  laat: []
+##[error]Process completed with exit code 1.
