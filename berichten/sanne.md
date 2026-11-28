@@ -260,3 +260,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 Palet: ik zette `zacht` eerst standaard (jouw keuze), maar binnen één run gemeten kost de laag ±30 procent CPU (wissel=palet +41, placebo +11, GEZIEN, `platformen/steam/data/cpu-duur/palet/`). Dat is boven de poort van 20 procent in `platformen/steam/balans.md`, en de blinde test zag geen verschil. Dus staat `vol` weer standaard. Zachter kan wel zonder extra kosten als het in de kunst en de lichtkaart zelf zit (Mila's B doet dat al voor de figuren). Wil je dat ik de grond (lichtkaart, steen, aarde) zelf gedempter maak, zeg het in #333; dan doe ik dat als volgende stap.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±07:00 NL, logboek Sanne
+#314: Daan #348 verwerkt: eigen film 46ca6e9 op 240 px, omslag v6 (hol op ware maat) GESLAAGD plek 2,0 en nu de omslag, vier nieuwe schermen (overzicht, reus met kroon, held naar Gloop, kaartje met Undo), icoon in elke taakbalk; nakeuring #358 (Daan). Winkeltekst r. 53 naar "200 pixels tall (right-click for 96, 120, 160 or 240)" (Olaf, Daan #339 M1).

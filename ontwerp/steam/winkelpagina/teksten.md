@@ -50,7 +50,7 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 >
 > [h2]Small, quiet and fair[/h2]
 > [list]
-> [*]Sits right above the taskbar, 120 pixels tall (right-click to switch to 96 or 160).
+> [*]Sits right above the taskbar, 200 pixels tall (right-click for 96, 120, 160 or 240).
 > [*]Light on your PC: it only redraws when something moves, about 10 times a second.
 > [*]Silent: no sound at all, so it never talks over your call.
 > [*]No daily rewards, no energy, no timers calling you back. Changed your mind? Every upgrade can be undone for all its gold back.

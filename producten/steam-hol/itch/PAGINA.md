@@ -24,7 +24,7 @@ Lat: Rusty's Retirement en Spirit City: Lofi Sessions (`organisatie/lat/hats.md`
 | Custom noun | leeg |
 | Community | Comments aan (vragen van spelers komen dan bij ons binnen; triage via skill `triage`) |
 | Visibility | **Draft** tot het ja van Thijs |
-| Cover image | `omslag-630x500.png` (= v5, blinde test GESLAAGD plek 1,0). Opvolger v6 of v7 (hol op ware maat, Daan #348 M1) in de blinde test; de geslaagde wordt de omslag na een ja van Daan |
+| Cover image | `omslag-630x500.png`. Nu v6 (hol op ware maat uit 46ca6e9, Daan #348 M1), blinde test GESLAAGD plek 2,0; keuring Daan |
 | Screenshots | `schermen/1-*.png` tot en met `schermen/4-*.png`, in die volgorde (ronde 3, 28 nov: één overzicht en drie grote spelmomenten, Daan #348) |
 | Trailer | leeg (er is nog geen trailer) |
 
@@ -72,4 +72,4 @@ v1 (hol 1,75x), v2 (ware grootte, groot logo) en v3 (1,25x): alle drie **NIET GE
 Zelfde opbouw, titel en venster als v5, maar het hol komt uit een nieuwe eigen film van main 46ca6e9 (na de fijne korrel ca6f928 en de knoppen 52507cc) op `hoogte=240`, dus op ware maat: `bron-omslag6-240-1338s.png`, x 820 tot 1450 (hoedenberg, Gloop met kroon op de troon, schat), niet meer 1,5x opgeschaald.
 - `omslag-v6-630x500.png`: alleen het nieuwe hol.
 - `omslag-v7-630x500.png`: ook de titel met de gouden rand van het houten bord uit het spel (K1), vlak, geen 3D.
-Blinde test: set `hats-itch-omslag` ronde 3. Uitslag volgt in `organisatie/blindtest/uitslag/`.
+**Uitslag (Gemini flash-lite, GEZIEN, `organisatie/blindtest/uitslag/hats-itch-omslag-2026-11-28-0654.md`): v6 GESLAAGD plek 2,0 (ronde 1 plek 1, ronde 2 plek 3), v7 GESLAAGD plek 2,0 (plek 3 en plek 1).** v6: "It literally shows a screenshot of it living right above the taskbar"; in de andere ronde "cartoon mascot art style looks a bit too cheap". De gouden rand van v7 hielp niet zichtbaar (één ronde "cluttered and messy"). **Keuze Sanne: v6 is nu `omslag-630x500.png`**: zelfde opbouw als v5 (die plek 1,0 haalde), alleen het hol scherp en op ware maat zoals Daan vroeg. Keuring: Daan.
