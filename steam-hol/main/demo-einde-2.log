@@ -1,4 +1,4 @@
-HOL balk gestart, pid 1840, hoogte 120
+HOL balk gestart, pid 4528, hoogte 120
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL zaad 7
@@ -8,17 +8,17 @@ HOL eerste koop mogelijk na 0 s speeltijd (goud 66)
 HOL muisvlak via de balk, lucht vrij op x=-1
 HOL begin: vallen (Kees)
 HOL held binnen: Kees
-HOL zicht 0.7 1
-HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
-HOL kroniek 7.0 (wacht 0.0): Anouk the Bard tunes a lute.
+HOL zicht 0.6 1
+HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
+HOL kroniek 6.9 (wacht 0.0): Anouk the Bard tunes a lute.
 HOL begin: vluchten (Anouk)
 HOL held binnen: Anouk
 HOL gegraven kolom 5 (zelf 1, graafbonus 0)
 HOL kroniek zelfde held vervangen: Kees is here for your gold.
-HOL kroniek 9.1 (wacht 0.0): Kees will not be leaving. +6
+HOL kroniek 9.0 (wacht 0.0): Kees will not be leaving. +6
 HOL meting t=10 beelden=114 helden=1 hol_vast=3
-HOL leven mot t=11.8 x=72 y=26
-HOL kroniek 12.5 (wacht 0.0): Siem climbs into your hole.
+HOL leven goudstof t=11.0 x=212 y=30
+HOL kroniek 12.4 (wacht 0.0): Siem climbs into your hole.
 HOL begin: opgegeten (Siem)
 HOL held binnen: Siem
 HOL gegraven kolom 2 (zelf 2, graafbonus 0)
@@ -28,12 +28,12 @@ HOL meting t=20 beelden=109 helden=2 hol_vast=9
 HOL demo klik op Buy
 HOL koop 20.1: slijm niveau 1, goud 27
 HOL gloop ring uit na 20.2 s (goud 27)
+HOL leven mot t=21.0 x=56 y=26
 HOL kaartje dicht 22.6
 HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Teun)
 HOL held binnen: Teun
-HOL kroniek 25.1 (wacht 2.0): Teun has a map. It is wrong.
+HOL kroniek 25.1 (wacht 2.1): Teun has a map. It is wrong.
 HOL gegraven kolom 4 (zelf 3, graafbonus 0)
-HOL leven stofje t=27.4 x=56 y=26
-HOL kroniek 28.6 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
-HOL einde na 30 s, fps=13, goud=33, terugkomers=1
+HOL kroniek 28.5 (wacht 0.0): Anouk fled. Grudge: the Spike Pit.
+HOL einde na 30 s, fps=18, goud=33, terugkomers=1
