@@ -8,7 +8,7 @@ import addon_utils
 import bpy
 
 from .. import gewricht, meld, uit_elkaar
-from . import afstand, figuur, figuur_teken, labels, scharnier, scharnier_beweeg, scharnier_boog, snippers, een_lid_diep, omhulsel, terugval, testkaart
+from . import afstand, figuur, kogel_huid, figuur_teken, labels, scharnier, scharnier_beweeg, scharnier_boog, snippers, een_lid_diep, omhulsel, terugval, testkaart
 
 ACTIEF = True
 KLASSEN = scharnier.KLASSEN + testkaart.KLASSEN
@@ -190,6 +190,7 @@ def register(eigen=None):
     omhulsel.register()  # 1.2.3: H als één schone voxelvorm (anders zijn de booleans met H niet bepaald)
     snippers.register(gewricht)  # 1.1: losse snippers na een snede met één lid weg (gratis deel onveranderd)
     afstand.register(gewricht)  # kogel naast scharnier: gewricht.te_dicht en gewricht.markeer (zie afstand.py)
+    kogel_huid.register(gewricht)  # 1.2.10 (issue 410): kogel na Shift + rechtsklik naar het midden van het lid
     terugval.register(gewricht)  # 1.2.2: open deel na Manifold, één keer opnieuw met Exact (na snippers en afstand: buitenom)
     if _oude_enable[0] is None and eigen:
         _oude_enable[0] = addon_utils.enable
@@ -225,6 +226,7 @@ def unregister():
             uit_elkaar.zet = _oude_zet[0]
         _oude_zet[0] = None
     terugval.unregister(gewricht)
+    kogel_huid.unregister(gewricht)
     snippers.unregister(gewricht)
     omhulsel.unregister()
     een_lid_diep.unregister()

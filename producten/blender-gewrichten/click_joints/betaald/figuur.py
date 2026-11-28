@@ -178,7 +178,10 @@ def plaats_gewricht(context, sleutel, naam=None, graden_vrij=0, herkomst="preset
             # Daan (16 nov, moet 2): anders zegt "3 Fit and export" "No joint yet" naast acht gewrichten. Een scharnier
             # bestaat alleen bij Good fit (Tight wordt geweigerd), dus groen is waar. Alleen bij figuurdelen.
             d["cj_passing"] = "groen"
-    return True, f"{naam}: {SOORT_TEKST[soort_echt].lower()}, {bereik_tekst(soort_echt, g)}.", nieuw
+    noot = ""
+    if soort_echt != "HINGE" and nieuw[0].get("cj_bijgesteld"):  # 1.2.10 (issue 410): zelfde zin als het scharnier
+        noot = f" Cursor on the surface: {nieuw[0]['cj_bijgesteld']}."
+    return True, f"{naam}: {SOORT_TEKST[soort_echt].lower()}, {bereik_tekst(soort_echt, g)}.{noot}", nieuw
 
 
 class CLICK_JOINTS_OT_plaats_preset(bpy.types.Operator):

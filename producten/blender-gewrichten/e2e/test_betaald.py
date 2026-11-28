@@ -16,6 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import toetsen_scharnier  # noqa: E402
 import toetsen_scharnier_afstand  # noqa: E402
 import toetsen_paneel  # noqa: E402
+import toetsen_kogel_huid  # noqa: E402
 from hulp_scharnier import cursor as _cursor  # noqa: E402
 
 args = sys.argv[sys.argv.index("--") + 1:]
@@ -63,9 +64,16 @@ def main():
     except Exception:
         traceback.print_exc()
         stap("toetsen paneel liepen zonder fout", False)
+    try:
+        toetsen_kogel_huid.toets(stap, eigen)  # 1.2.10 (issue 410): kogelpreset na Shift + rechtsklik op de huid
+    except Exception:
+        traceback.print_exc()
+        stap("toetsen kogel op de huid liepen zonder fout", False)
     gewricht, maat = sys.modules[eigen + ".gewricht"], sys.modules[eigen + ".maat"]
     stap("betaalde omhult gewricht.te_dicht en gewricht.markeer zolang hij aan staat",
          gewricht.te_dicht is not maat.te_dicht and gewricht.markeer.__module__ != gewricht.__name__)
+    stap("betaalde omhult gewricht.as_en_punt zolang hij aan staat (issue 410)",
+         gewricht.as_en_punt.__module__ != gewricht.__name__)
     # Rekentoets van de weigering zelf.
     stap("andere_versies ziet gratis naast betaald",
          betaald.andere_versies(["bl_ext.blender_org.click_joints", eigen], eigen) == ["bl_ext.blender_org.click_joints"])
@@ -77,6 +85,7 @@ def main():
     stap("uitzetten zet addon_utils.enable terug", addon_utils.enable is enable_orig)
     stap("uitzetten zet gewricht.te_dicht en gewricht.markeer terug",
          gewricht.te_dicht is maat.te_dicht and gewricht.markeer.__module__ == gewricht.__name__)
+    stap("uitzetten zet gewricht.as_en_punt terug", gewricht.as_en_punt.__module__ == gewricht.__name__)
     bpy.ops.preferences.extension_repo_add(name="cj_gratis", type="LOCAL")
     repo = bpy.context.preferences.extensions.repos[-1]
     bpy.ops.extensions.package_install_files(filepath=zip_gratis, repo=repo.module, enable_on_install=True)

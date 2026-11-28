@@ -130,3 +130,60 @@ def bijstellen(bvh, punt, lid, kijk, u):
         punt = nieuw
         wat.append("centred in the limb")
     return punt, lid, " and ".join(wat)
+
+
+ROND = 1.5  # breedste / smalste doorsnede in het schermvlak onder dit getal: je kijkt langs het lid
+
+
+def kogel_bijstellen(bvh, punt, kijk, u, centrum=None):
+    """Issue 410 (kopersreis Iris 28 nov): (punt, as, wat) voor een kogel met as-bron View direction na Shift + rechtsklik.
+
+    Shift + rechtsklik zet de cursor op de huid. De kogelpresets (Shoulder, Hip, Neck) zeiden daar "Too thin" op een
+    arm van 36 mm. Erger: met de cursor midden in de arm en een vooraanzicht liep de as van de kogel langs de
+    kijkrichting, dus dwars door de arm, en sneed hij het hele figuur in een voor- en achterhelft (GEZIEN, delen
+    238 x 65 x 238 en 238 x 49 x 238 mm, toch Good fit). Een kogel hoort dwars op het lid te staan.
+    Daarom, alleen als het punt op de huid ligt:
+    1. naar het midden tussen voorkant en achterkant langs de kijkrichting;
+    2. ligt het lid in het schermvlak (breedste doorsnede minstens ROND keer de smalste), dan wordt de as de lidas
+       uit het figuur, gericht van centrum (midden van het figuur) naar het punt, zodat deel B het lid is (arm, been,
+       hoofd) en de kogel aan de kant van het lijf zit; anders (je kijkt langs het lid) blijft de kijkrichting;
+    3. dwars op het lid naar het midden van de doorsnede.
+    Een cursor binnen het figuur blijft precies zoals hij was. wat: lege tekst als er niets veranderde."""
+    if kijk is None:
+        return punt, kijk, ""
+    punt, kijk = Vector(punt), Vector(kijk).normalized()
+    if not op_huid(bvh, punt, u):
+        return punt, kijk, ""
+    start = diepte_midden(bvh, punt, kijk, u)
+    if start is None:
+        return punt, kijk, ""
+    e1, e2 = _basis(kijk)
+    breedtes = []
+    for i in range(STAPPEN):
+        a = math.pi * i / STAPPEN
+        d = (e1 * math.cos(a) + e2 * math.sin(a)).normalized()
+        b = _breedte(bvh, start, d)
+        if b is not None:
+            breedtes.append((b[0], d))
+    if not breedtes:
+        return punt, kijk, ""
+    smal, breed = min(breedtes, key=lambda b: b[0]), max(breedtes, key=lambda b: b[0])
+    wat = []
+    if breed[0] >= ROND * smal[0]:
+        lid = kijk.cross(smal[1]).normalized()
+        if centrum is not None and lid.dot(start - Vector(centrum)) < 0:
+            lid = -lid
+        nieuw = naar_midden(bvh, punt, lid, kijk, u)
+        wat.append("joint axis along the limb")
+        as_ = lid
+    else:
+        nieuw = start
+        for d in (e1, e2):
+            b = _breedte(bvh, nieuw, d)
+            if b is not None:
+                nieuw = nieuw + d * b[1]
+        as_ = kijk
+    if (nieuw - punt).length > 1e-9:
+        punt = nieuw
+        wat.append("centred in the limb")
+    return punt, as_, " and ".join(wat)
