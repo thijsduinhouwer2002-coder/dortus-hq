@@ -219,3 +219,6 @@ Oude save van vóór #368, geen koper, 96 px: leuk 7, aandacht 7, mooi 7 (GOK; w
 
 ## 28 nov 2026 avond NL, Iris (eigen logboek): kopersreis Click Joints Pro als mailontvanger (#404, dicht)
 Installeren 0 fouten in 4 van 4 (zip 1.2.8 live, 176.000 bytes zoals Gumroad, en 1.2.9; Blender 4.2.23 en 5.3.0, GEZIEN). 3 drempels bij Bram: #410 Shift + rechtsklik op schouder of heup geeft "too thin" (knie en elleboog wel goed, echte viewport), #411 cursor precies op de as geeft "inside the mesh", #412 "2.38e+05 mm". Verslag `commercie/outreach/kopersreis/kopersreis-pro-iris-2026-11-28.md`.
+
+## 28 nov 2026 ±18:50 NL, Iris (eigen logboek): kopersreis Click Cuts als mailontvanger, live 1.1.0 (#424, dicht)
+Mail klopt met pagina en add-on; Blender 5.3.0 van codelink tot STL en 3MF zonder drempel (GEZIEN). Blender 4.2.23: gesloten model met overlappende delen geeft "No pieces came out" zonder uitweg, Make watertight lost het op: #426 bij de Productbouwer. Mail zondag: ja.

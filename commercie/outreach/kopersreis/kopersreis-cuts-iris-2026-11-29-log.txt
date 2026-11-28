@@ -1,0 +1,77 @@
+# Kort log kopersreis Click Cuts #424 (Iris, 28 nov 2026). Zip 1.1.0 sha256 bd591759...
+## Blender 4.2.23
+[reis] GOED 1 installeren {'FINISHED'} tab=Click Cuts
+[reis] GOED model maken (buiten de reis) maat=(420, 250, 299) vlakken=15912
+Error: buste_420mm is 4.2e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[reis] FOUT 2 STL 420 mm importeren, A1, Split to fit RuntimeError('Error: buste_420mm is 4.2e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n')
+Info: Unit scale 0.001: the model now measures 420.0 mm (was 4.2e+05 mm)
+Info: 4 pieces, 2 cuts. Move a cut with G if you like.
+Info: 0 pieces, 0 pins, all fit
+Error: No pieces came out
+[reis] FOUT 3 Convert to mm en opnieuw Split to fit RuntimeError('Error: No pieces came out\n')
+[reis] DREMPEL 4 belofte: elk stuk groen, oranje of rood 
+Info: Total files 0 | Changed 0 | Failed 0
+Info: Saved "buste.blend"
+Warning: Split the model first
+[reis] FOUT 5 opslaan, Export parts (STL), maat van elk bestand FileNotFoundError(2, 'No such file or directory')
+Info: 4 pieces, 2 cuts. Move a cut with G if you like.
+Info: 0 pieces, holes for 0 magnets of 6x3 mm, all fit
+Error: No pieces came out
+[reis] FOUT 6 Joint op Magnets (6x3), Split to fit RuntimeError('Error: No pieces came out\n')
+Warning: Split the model first
+[reis] FOUT 7 Export parts (3MF) FileNotFoundError(2, 'No such file or directory')
+Info: Fit test made: 5 mm pin, clearances 0.15, 0.20, 0.25, 0.30 mm
+Info: 2 STL files in /tmp/claude-0/reis/uit4.2.23/click_cuts/
+[reis] GOED 8 belofte: fit test block maken en exporteren {'FINISHED'} {'FINISHED'} speling=0.20 ['fit_test_block.stl', 'fit_test_pins.stl']
+Info: Watertight copy Suzanne_watertight made (380186 faces)
+Info: 4 pieces, 2 cuts. Move a cut with G if you like.
+Info: 4 pieces, 16 pins, all fit
+Info: 4 parts, all fit the bed. 16 pins, 0.20 mm clearance
+Info: 5 STL files in /tmp/click_cuts
+[reis] GOED 9 eigen Blender-model 0,42 m, Split to fit, export zonder opslaan {'FINISHED'} uitslag='' stukken=4 kleuren={'groen': 4} gaten=32 nummers=8 pennen=[16] meldingen=''; export zonder opslaan: {'FINISHED'} naar /tmp/click_cuts (5 bestanden)
+[reis] KLAAR 4.2.23 LTS
+## Blender 5.3.0
+[reis] GOED 1 installeren {'FINISHED'} tab=Click Cuts
+Info: File exported successfully
+[reis] GOED model maken (buiten de reis) maat=(420, 250, 299) vlakken=15912
+Error: buste_420mm is 4.2e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first
+[reis] FOUT 2 STL 420 mm importeren, A1, Split to fit RuntimeError('Error: buste_420mm is 4.2e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n')
+Info: Unit scale 0.001: the model now measures 420.0 mm (was 4.2e+05 mm)
+Info: 4 pieces, 2 cuts. Move a cut with G if you like.
+Warning: 4 pieces, 16 pins, all fit. 2 notes in the panel
+Info: 4 parts, all fit the bed. 16 pins, 0.20 mm clearance
+[reis] GOED 3 Convert to mm en opnieuw Split to fit {'FINISHED'} unit=MILLIMETERS; daarna {'FINISHED'} uitslag='' stukken=4 kleuren={'groen': 4} gaten=32 nummers=8 pennen=[16] meldingen='Cut 1-3: too small for a pin: the face is 1.5 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 2-4: too small for a pin: the face is 1.5 mm across, a 3 mm pin needs 5.8 mm. Glue this joint'
+[reis] GOED 4 belofte: elk stuk groen, oranje of rood ieder stuk heeft een kleur: uitslag='' stukken=4 kleuren={'groen': 4} gaten=32 nummers=8 pennen=[16] meldingen='Cut 1-3: too small for a pin: the face is 1.5 mm across, a 3 mm pin needs 5.8 mm. Glue this joint\nCut 2-4: too small for a pin: the face is 1.5 mm across, a 3 mm pin needs 5.8 mm. Glue this joint'
+Info: Saved as "buste.blend"
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: 5 STL files in /tmp/claude-0/reis/uit5.3.0/click_cuts/
+[reis] GOED 5 opslaan, Export parts (STL), maat van elk bestand {'FINISHED'} bestanden=['piece_01.stl', 'piece_02.stl', 'piece_03.stl', 'piece_04.stl', 'pins_5mm_x16.stl'] grootste=250.0 te_groot_voor_A1=[]
+Info: 4 pieces, 2 cuts. Move a cut with G if you like.
+Warning: 4 pieces, holes for 28 magnets of 6x3 mm, all fit. 2 notes in the panel
+Info: 4 parts, all fit the bed. 28 magnets 6x3 mm, 0.20 mm clearance
+[reis] GOED 6 Joint op Magnets (6x3), Split to fit {'FINISHED'} gatsoorten=['magneet'] uitslag='' stukken=4 kleuren={'groen': 4} gaten=28 nummers=8 pennen=[] meldingen='Cut 1-3: too small for a magnet: the face is 1.5 mm across, a 6x3 mm magnet needs 8.6 mm with 1.2 mm wall. Glue this joint or pick a smaller magnet\nCut 2-4: too small for a magnet: the face is 1.5 mm '
+Info: 4 3MF files in /tmp/claude-0/reis/uit5.3.0/click_cuts/
+[reis] GOED 7 Export parts (3MF) {'FINISHED'} ['piece_01.3mf', 'piece_02.3mf', 'piece_03.3mf', 'piece_04.3mf']
+Info: Fit test made: 5 mm pin, clearances 0.15, 0.20, 0.25, 0.30 mm
+Info: File exported successfully
+Info: File exported successfully
+Info: 2 STL files in /tmp/claude-0/reis/uit5.3.0/click_cuts/
+[reis] GOED 8 belofte: fit test block maken en exporteren {'FINISHED'} {'FINISHED'} speling=0.20 ['fit_test_block.stl', 'fit_test_pins.stl']
+Info: Watertight copy Suzanne_watertight made (380186 faces)
+Info: 4 pieces, 2 cuts. Move a cut with G if you like.
+Info: 4 pieces, 16 pins, all fit
+Info: 4 parts, all fit the bed. 16 pins, 0.20 mm clearance
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: File exported successfully
+Info: 5 STL files in /tmp/click_cuts
+[reis] GOED 9 eigen Blender-model 0,42 m, Split to fit, export zonder opslaan {'FINISHED'} uitslag='' stukken=4 kleuren={'groen': 4} gaten=32 nummers=8 pennen=[16] meldingen=''; export zonder opslaan: {'FINISHED'} naar /tmp/click_cuts (5 bestanden)
+[reis] KLAAR 5.3.0
+## Uitweg 4.2.23: Make watertight, dan Split to fit
+is_gesloten (True, 0); eerste: Error: No pieces came out; maak_gesloten FINISHED (393666 faces); daarna FINISHED, 4 stukken
