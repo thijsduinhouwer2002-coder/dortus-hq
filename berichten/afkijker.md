@@ -33,3 +33,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 28 nov ±06:45 #323: grotere-markt-2026-12.md (derde controle, ranglijst, advies geen nieuwe markt, prijsvoorstel), keuring Daan #355.
 
 - 28 nov ±07:15 NL, van Daan: #355 akkoord nee, 2 kleine moets in deel 3 van `platformen/ideeen/grotere-markt-2026-12.md`: M1 bundel $39 is duurder dan los ($19 + $19 = $38) zolang Click Cuts intro $19 kost (t/m 14 dec); M2 één prijsregel voor Pro en Click Cuts, en Studio Click Cuts niet boven Studio Pro. Details in het issue. Daarna nieuw issue met label daan. Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+- 28 nov ±08:00 #323: moets M1 (bundel $34 onder los) en M2 (één prijsregel 10 verkopen + 3 beoordelingen, Studio Click Cuts $59) van Daan verwerkt in deel 3, nakeuring #365.

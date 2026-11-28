@@ -48,7 +48,7 @@ Euro per maand na 3 maanden is de middenschatting uit de route-bestanden (GOK, r
 | 5 | B2 Website STL naar gewrichten | ±€60 (€0 tot €300) | 5 tot 8 weken | ±€9 | drie gratis alternatieven, ons voordeel (rig lezen) valt weg bij een STL |
 | 6 | B3 Zelf beweegbare modellen verkopen | €0 tot €50 | 1 tot 2 weken plus prints | n.v.t. | geen printer, dus nu dood |
 
-Ter vergelijking, zonder bouwtijd: een nieuwkomer in onze eigen hoek haalt ±150 tot 170 stuks per maand (Cleave, CatPin, Dovetail Key; GOK op GEZIEN, teller gedeeld door leeftijd). Dat is ±€2.000 tot €3.000 netto per maand voor de maker (GOK). Wij staan daar nog niet: Click Joints Pro 1 verkoop, Click Cuts sinds vr 27 nov live op Gumroad (`organisatie/lat/click-joints-pro.md`, `producten/blender-splitser/KAART.md`). Het gat tussen ons en hen zit in etalage, reviews en bereik, en dat kost geen nieuwe weken bouwen.
+Ter vergelijking, zonder bouwtijd: een nieuwkomer in onze eigen hoek haalt ±150 tot 170 stuks per maand (Cleave, CatPin, Dovetail Key; GOK op GEZIEN, teller gedeeld door leeftijd). Dat is ±€2.000 tot €3.000 netto per maand voor de maker (GOK). Wij staan daar nog niet: Click Joints Pro 1 verkoop, Click Cuts sinds vr 27 nov live op Gumroad (`organisatie/lat/click-joints-pro.md`, `producten/blender-splitser/KAART.md`). Het gat tussen ons en hen zit in etalage, reviews en bereik, en dat kost geen nieuwe weken bouwen. Let op: die ±150 stuks en ±€2.000 per maand zijn het plafond van de winnaars die je ziet, geen verwachting voor ons; de nieuwe markten zijn met dezelfde winnaarsmaat gemeten (TopoPen, Adaptive), dus de vergelijking blijft eerlijk.
 
 Mijn eigen kijk naast B en C: beide routes zijn eerlijk en de cijfers kloppen. De ranglijst van C (retopologie boven quad fill) en mijn ranglijst verschillen alleen omdat ik snel geld per bouwweek weeg; C weegt het plafond. Bij "snel veel geld" wint de korte proef.
 
@@ -57,16 +57,28 @@ Mijn eigen kijk naast B en C: beide routes zijn eerlijk en de cijfers kloppen. D
 
 **Wat al besloten is:** Click Cuts $19 intro tot en met zo 14 dec, vaste prijs daarna op basis van verkoop (Thijs 25 nov 22:03); Supporter $29. Pro Gumroad $19, $24, $59; Superhive van $12 en $45 naar $19 en $59 op do 3 dec (besluiten r. 27 en 90).
 
-**Voorstel Click Cuts vanaf ma 15 dec** (past in "op basis van verkoop"):
-- Standard **$25**, Supporter **$35**, nieuw **Studio $79** (5 plekken, voor wie verkoopt of in een team print; CatPin vraagt $100).
-- Hoger, Standard $29, pas als Click Cuts op 14 dec minstens 10 verkopen en 3 beoordelingen heeft; minder dan 3 verkopen in totaal: op $22 blijven, want dan is het bereik het probleem en niet de prijs.
-- Waarom $25 en niet $30: CatPin bewijst dat $30 in deze hoek verkoopt, maar heeft al 500+ verkopen en 4 ratings als bewijs; wij beginnen met 0. $25 zit tussen Cleave ($23) en CatPin ($30), gelijk aan NB Figure Joints.
+**Eén prijsregel voor beide producten** (nakeuring na Daan #355, 28 nov ±08:00): een product gaat pas een stap omhoog als het in totaal **minstens 10 verkopen en 3 beoordelingen** heeft (alle winkels samen). Anders blijft de prijs staan, want dan is het bereik het probleem en niet de prijs. We kijken op ma 15 dec voor het eerst, daarna elke maandag. Daarbij geldt: **Click Cuts kost nooit meer dan Pro**, per niveau (Standard, Studio), want Pro doet meer (rig lezen, gewrichten met eindstop).
+
+**Click Cuts vanaf ma 15 dec** (past in "vaste prijs daarna op basis van verkoop"):
+- Onder de grens: Standard blijft **$19**, Supporter blijft $29 (besluit), nieuw **Studio $59** (5 plekken, voor wie verkoopt of in een team print), gelijk aan Studio Pro en dus niet erboven. CatPin vraagt $100 voor Studio.
+- Boven de grens: Standard **$25**, Supporter $35, Studio $59. Haalt Click Cuts de grens eerder dan Pro, dan gaat Pro mee naar $25, zodat de splitser niet duurder is dan het product dat meer doet.
+- Waarom $25 en niet $30: CatPin bewijst dat $30 in deze hoek verkoopt, maar heeft al 500+ verkopen en 4 ratings als bewijs. $25 zit tussen Cleave ($23) en CatPin ($30), gelijk aan NB Figure Joints.
 - Rekensom (GOK, Superhive-formule): bij 30 verkopen per maand geeft $25 per stuk ±$16,19 netto, samen ±$486; $19 geeft ±$12,23, samen ±$367. Verschil ±$119 per maand bij gelijke stuks (+32%).
 
-**Voorstel Click Joints Pro:**
+**Click Joints Pro:**
 - **Geen prijsstap boven $19 nu.** Met 1 verkoop is de prijs niet het probleem; bereik en etalage wel (lat Pro, gat 2 en 3). De stap naar $19 op Superhive op 3 dec gaat gewoon door.
-- Naar **$29 Personal** (Supporter $35, Studio $59 blijft) zodra Pro 10 verkopen en 3 beoordelingen heeft. Grond: Pro doet meer dan een splitser (rig lezen, gewrichten met eindstop), NB Figure Joints vraagt $25 zonder rig, JointLab $65.
-- **Bundel Pro plus Click Cuts voor $39** (los samen $44 bij $19 plus $25), zodra Click Cuts op Superhive is goedgekeurd en Pro daar $19 kost. Past bij het besluit "later een bundel" (besluiten r. 36 en 105) en de keuring van Daan ("geen bundel zolang Pro $12 kost"). Een bundel is ook een kans op de bundellijst van Superhive (lat Pro, RetopoFlow).
+- Boven de grens: **$29 Personal**, Supporter $35, Studio $59 blijft. Grond: NB Figure Joints vraagt $25 zonder rig, JointLab $65.
+
+**Bundel Pro plus Click Cuts, vanaf het moment uit besluit r. 105 (2 dec, na de goedkeuring van Click Cuts op Superhive en Pro daar op $19):** de bundel kost steeds ±$4 tot $8 minder dan los samen, nooit meer.
+
+| Pro | Click Cuts | Los samen | Bundel |
+|---|---|---|---|
+| $19 | $19 | $38 | **$34** |
+| $25 | $25 | $50 | **$44** |
+| $29 | $19 | $48 | **$42** |
+| $29 | $25 | $54 | **$47** |
+
+Past bij "later een bundel" (besluiten r. 36 en 105) en de keuring van Daan ("geen bundel zolang Pro $12 kost"). Een bundel is ook een kans op de bundellijst van Superhive (lat Pro, RetopoFlow).
 
 Eigenaar van de prijzen: hoofdchat met Bram (Pro) en de Productbouwer (Click Cuts). Dit is een voorstel, geen besluit; een prijsverhoging kost geen geld, dus Thijs hoeft er volgens regel 1 geen ja op te geven, maar de intro-afspraak van Click Cuts loopt tot 14 dec en blijft staan.
 
