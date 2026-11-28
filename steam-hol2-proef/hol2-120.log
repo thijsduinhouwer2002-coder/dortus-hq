@@ -1,22 +1,23 @@
 0.0 HOL2 gloop wandelen (plek vloer)
 0.0 HOL2 gloop venster x=866 y=110
+0.0 HOL2 stuurknop venster x=944 y=13
 0.0 HOL2 start hoogte=120 schaal=1 spelpixels=1024x120 verdiepingen=3 wereld=170 venster=(1024, 120) zaad=7
-2.0 HOL2 held Bert (held0) komt binnen via de tuin
-5.0 HOL2 klik op 358,113: niveau 2
-5.0 HOL2 gloop loopt naar niveau 2 x 358 (klik)
+2.1 HOL2 held Bert (held0) komt binnen via de tuin
+5.1 HOL2 klik op 358,113: niveau 2
+5.1 HOL2 gloop loopt naar niveau 2 x 358 (klik)
 7.3 HOL2 held Lot (held1) komt binnen via de tuin
-10.0 HOL2 beelden 121 in 10.0 s, helden 2, goud 10
+10.1 HOL2 beelden 122 in 10.1 s, helden 2, goud 10
 14.7 HOL2 held Fenna (held2) komt binnen via de tuin
-19.6 HOL2 gloop wandelen (plek vloer)
-20.0 HOL2 beelden 120 in 10.0 s, helden 3, goud 10
-22.0 HOL2 klik op 512,65: niveau 1
-22.0 HOL2 gloop loopt naar niveau 1 x 512 (klik)
-22.0 HOL2 held Joost (dief) komt binnen via de tuin
+19.7 HOL2 gloop wandelen (plek vloer)
+20.1 HOL2 beelden 120 in 10.0 s, helden 3, goud 10
+22.1 HOL2 klik op 512,65: niveau 1
+22.1 HOL2 gloop loopt naar niveau 1 x 512 (klik)
+22.1 HOL2 held Joost (dief) komt binnen via de tuin
 27.8 HOL2 held Mira (bard) komt binnen via de tuin
 28.2 HOL2 gloop is op niveau 1
-30.0 HOL2 beelden 120 in 10.0 s, helden 5, goud 10
+30.1 HOL2 beelden 120 in 10.0 s, helden 5, goud 10
 35.4 HOL2 held Kees (heks) komt binnen via de tuin
-35.4 HOL2 gloop naar_troon (plek vloer)
-36.6 HOL2 val: Lot valt in een stekels op verdieping 1 (goud 13, hoeden 1)
-40.0 HOL2 beelden 120 in 10.0 s, helden 5, goud 13
-40.0 HOL2 einde na 40 s, goud=13, hoeden=1
+35.5 HOL2 gloop naar_troon (plek vloer)
+36.7 HOL2 val: Lot valt in een stekels op verdieping 1 (goud 13, hoeden 1)
+40.1 HOL2 beelden 120 in 10.0 s, helden 5, goud 13
+40.1 HOL2 einde na 40 s, goud=13, hoeden=1

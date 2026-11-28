@@ -1,21 +1,22 @@
 0.0 HOL2 gloop wandelen (plek vloer)
 0.0 HOL2 gloop venster x=866 y=110
+0.0 HOL2 stuurknop venster x=944 y=13
 0.0 HOL2 start hoogte=240 schaal=1 spelpixels=1024x240 verdiepingen=6 wereld=314 venster=(1024, 240) zaad=7
-2.0 HOL2 held Bert (held0) komt binnen via de tuin
-5.0 HOL2 klik op 358,113: niveau 2
-5.0 HOL2 gloop loopt naar niveau 2 x 358 (klik)
+2.1 HOL2 held Bert (held0) komt binnen via de tuin
+5.1 HOL2 klik op 358,113: niveau 2
+5.1 HOL2 gloop loopt naar niveau 2 x 358 (klik)
 9.8 HOL2 held Lot (held1) komt binnen via de tuin
-10.0 HOL2 beelden 122 in 10.0 s, helden 2, goud 10
+10.1 HOL2 beelden 123 in 10.1 s, helden 2, goud 10
 16.3 HOL2 held Fenna (held2) komt binnen via de tuin
 19.7 HOL2 gloop wandelen (plek vloer)
-20.0 HOL2 beelden 120 in 10.0 s, helden 3, goud 10
+20.1 HOL2 beelden 120 in 10.0 s, helden 3, goud 10
 20.9 HOL2 gloop snuffelen (plek vloer)
-22.0 HOL2 klik op 512,65: niveau 1
-22.0 HOL2 gloop loopt naar niveau 1 x 512 (klik)
-24.4 HOL2 held Joost (dief) komt binnen via de tuin
-27.9 HOL2 gloop is op niveau 1
-30.1 HOL2 beelden 121 in 10.1 s, helden 4, goud 10
-32.6 HOL2 held Mira (bard) komt binnen via de tuin
-38.1 HOL2 gloop naar_troon (plek vloer)
-39.4 HOL2 held Kees (heks) komt binnen via de tuin
-40.0 HOL2 einde na 40 s, goud=10, hoeden=0
+22.1 HOL2 klik op 512,65: niveau 1
+22.1 HOL2 gloop loopt naar niveau 1 x 512 (klik)
+24.5 HOL2 held Joost (dief) komt binnen via de tuin
+28.1 HOL2 gloop is op niveau 1
+30.2 HOL2 beelden 121 in 10.1 s, helden 4, goud 10
+32.7 HOL2 held Mira (bard) komt binnen via de tuin
+38.2 HOL2 gloop naar_troon (plek vloer)
+39.5 HOL2 held Kees (heks) komt binnen via de tuin
+40.1 HOL2 einde na 40 s, goud=10, hoeden=0

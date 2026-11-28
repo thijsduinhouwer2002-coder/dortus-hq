@@ -1,13 +1,16 @@
 0.0 HOL2 gloop wandelen (plek vloer)
 0.0 HOL2 gloop venster x=866 y=110
+0.0 HOL2 stuurknop venster x=944 y=13
 0.0 HOL2 start hoogte=120 schaal=1 spelpixels=1024x120 verdiepingen=3 wereld=170 venster=(1024, 120) zaad=7
-2.0 HOL2 held Bert (held0) komt binnen via de tuin
-8.0 HOL2 besturen aan (klik op Gloop) gloop x=866 niveau=2 vorig venster 262604
+2.1 HOL2 held Bert (held0) komt binnen via de tuin
+8.1 HOL2 klik op Gloop (in het echte spel opent dit zijn kaartje; sturen gaat met de stuurknop)
+9.3 HOL2 besturen aan (stuurknop) gloop x=866 niveau=2 vorig venster 197142
 10.0 HOL2 beelden 122 in 10.0 s, helden 1, goud 10
-10.9 HOL2 gloop spugen (plek vloer)
-10.9 HOL2 besturen uit (Esc) gloop x=908 niveau=2 focus terug naar 262604 (Notepad, vorig venster, weg 1)
 11.4 HOL2 held Lot (held1) komt binnen via de tuin
-13.7 HOL2 besturen aan (klik op Gloop) gloop x=908 niveau=2 vorig venster 262604
+12.3 HOL2 gloop spugen (plek vloer)
+12.3 HOL2 besturen uit (Esc) gloop x=908 niveau=2 focus terug naar 197142 (Notepad, vorig venster, weg 1)
+15.0 HOL2 klik op 944,21: niveau 0
+15.0 HOL2 gloop loopt naar niveau 0 x 944 (klik)
 20.1 HOL2 beelden 121 in 10.1 s, helden 2, goud 10
-23.8 HOL2 gloop naar_troon (plek vloer)
-23.8 HOL2 besturen uit (10 s geen toets) gloop x=908 niveau=2 focus terug naar 262604 (Notepad, vorig venster, weg 1)
+24.6 HOL2 held Fenna (held2) komt binnen via de tuin
+25.2 HOL2 schuift terug

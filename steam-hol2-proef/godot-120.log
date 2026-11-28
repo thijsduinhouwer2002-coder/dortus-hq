@@ -11,12 +11,13 @@ USER WARNING: All audio drivers failed, falling back to the dummy driver.
 
 HOL2 gloop wandelen (plek vloer)
 HOL2 gloop venster x=866 y=110
+HOL2 stuurknop venster x=944 y=13
 HOL2 start hoogte=120 schaal=1 spelpixels=1024x120 verdiepingen=3 wereld=170 venster=(1024, 120) zaad=7
 HOL2 held Bert (held0) komt binnen via de tuin
 HOL2 klik op 358,113: niveau 2
 HOL2 gloop loopt naar niveau 2 x 358 (klik)
 HOL2 held Lot (held1) komt binnen via de tuin
-HOL2 beelden 121 in 10.0 s, helden 2, goud 10
+HOL2 beelden 122 in 10.1 s, helden 2, goud 10
 HOL2 held Fenna (held2) komt binnen via de tuin
 HOL2 gloop wandelen (plek vloer)
 HOL2 beelden 120 in 10.0 s, helden 3, goud 10

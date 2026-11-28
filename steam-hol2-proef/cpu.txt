@@ -1,3 +1,0 @@
-nu96 : 0.719 / 0.773 / 0.953 CPU-s per 10 s, gemiddeld 0.815
-nu96b : 1.945 / 1.726 / 2.219 CPU-s per 10 s, gemiddeld 1.963
-hol2_120 : 0.031 / 0.742 / 0.062 CPU-s per 10 s, gemiddeld 0.278
