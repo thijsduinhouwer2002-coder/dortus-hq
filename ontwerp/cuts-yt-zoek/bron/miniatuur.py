@@ -5,6 +5,7 @@ Split to fit van Click Cuts maakte (paard.json). Twee uitsneden uit die ene rend
 met een pijl en een grote kop. Geen AI-beeld, geen foto van een print.
     python3 miniatuur.py <paard-render.jpg> <uit.jpg> [variant]
 variant a: kop "TOO BIG / TO PRINT?" plus "SPLIT IT IN BLENDER"; variant b: "SPLIT ANY / MODEL" plus "FOR 3D PRINTING".
+variant c (r2, kan-punten Daan #391): als a, bouwvolume nagetrokken in goud 3 px, stukken 30 px van de randen, minder verscherpt.
 Letters: Poppins ExtraBold (OFL 1.1, commercie/filmpjes/regisseur-31/fonts)."""
 import sys
 
@@ -57,16 +58,28 @@ def plak(vak, hoogte, x, y):
 heel = (1080, 300, 1530, 1000)   # paard in het gouden bouwvolume
 delen = (1770, 120, 2330, 1010)  # de 12 stukken met pennen
 wh = plak(heel, 440, 540, 250)
-wd = plak(delen, 620, 1280 - 18 - int(560 * 620 / 890), 60)
+if variant == "c":
+    wd = plak(delen, 590, 1280 - 48 - int(560 * 590 / 890), 50)
+    rechts = 1280 - 48
+else:
+    wd = plak(delen, 620, 1280 - 18 - int(560 * 620 / 890), 60)
+    rechts = 1280 - 18
 
 d = ImageDraw.Draw(bg, "RGBA")
 # pijl tussen heel en delen
-ax0, ax1, ay = 540 + wh[0] - 6, 1280 - 18 - wd[0] + 14, 470
+ax0, ax1, ay = 540 + wh[0] - 6, rechts - wd[0] + 14, 470
+if variant == "c":
+    # het bouwvolume van 256 mm uit de render nagetrokken in goud, zodat "te groot" ook op 168x94 leest
+    A, B, C, Dk = (551, 470), (736, 482), (809, 447), (636, 442)
+    E, F, G, Hk = (554, 663), (737, 679), (810, 633), (636, 603)
+    for p0, p1, w in [(Dk, Hk, 2), (A, Dk, 3), (Dk, C, 3), (A, B, 4), (B, C, 4), (A, E, 4), (B, F, 4),
+                      (C, G, 4), (E, F, 4), (F, G, 4)]:
+        d.line([p0, p1], fill=GOUD + (255,), width=w)
 d.polygon([(ax0, ay - 16), (ax1 - 34, ay - 16), (ax1 - 34, ay - 38), (ax1, ay), (ax1 - 34, ay + 38),
            (ax1 - 34, ay + 16), (ax0, ay + 16)], fill=(255, 255, 255, 240))
 
 f = lambda n: ImageFont.truetype(FONT, n)
-if variant == "a":
+if variant in ("a", "c"):
     regels = [("TOO BIG", 100, (255, 255, 255)), ("TO PRINT?", 100, GOUD)]
     onder = "SPLIT IT IN"
 else:
@@ -85,7 +98,7 @@ bb = d.textbbox((0, 0), "BLENDER", font=fb)
 pw, ph = bb[2] - bb[0] + 48, bb[3] - bb[1] + 34
 d.rounded_rectangle((44, y, 44 + pw, y + ph), radius=18, fill=(234, 118, 0, 255))
 d.text((44 + 24 - bb[0], y + 17 - bb[1]), "BLENDER", font=fb, fill=(255, 255, 255))
-bg = bg.filter(ImageFilter.UnsharpMask(radius=2, percent=50, threshold=2))
+bg = bg.filter(ImageFilter.UnsharpMask(radius=2, percent=25 if variant == "c" else 50, threshold=2))
 bg.save(uit, quality=93)
 bg.resize((168, 94), Image.LANCZOS).save(uit.replace(".jpg", "-168.jpg"), quality=93)
 print(uit, bg.size)
