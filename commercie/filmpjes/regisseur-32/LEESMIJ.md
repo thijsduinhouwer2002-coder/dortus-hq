@@ -37,3 +37,5 @@ Derde run 28 nov ±04:20 (wacht nog steeds op de stem van Max):
 Titel: `How to split a model for 3D printing in Blender (with pins that fit)`
 
 Hoofdstukken volgen de voorleestekst; tijden pas na de montage.
+
+Vierde run 28 nov ±08:30 (wacht nog op de stem van Max): de workflow liep in Actions nog nooit echt door (alleen overgeslagen zonder mp3). Nu met `workflow_dispatch` en `proef=1`: de hele keten met Kokoro als tijdelijke stem (am_michael, nooit voor keuring), uitkomst in release `regisseur-32-proef`. Zo vallen fouten nu al op en niet pas als de mp3 van Max er is.

@@ -11,12 +11,20 @@ on:
     branches: [main]
     paths: ["commercie/filmpjes/regisseur-32/cuts-lang-elevenlabs.mp3", ".github/workflows/regisseur-32.yml"]
   workflow_dispatch:
+    inputs:
+      proef:
+        description: "1 = proef met Kokoro (tijdelijke stem, nooit voor keuring) om de hele keten in Actions te toetsen"
+        default: "0"
 
 permissions:
   contents: write
 
 env:
-  TAG: regisseur-32
+  TAG: ${{ github.event.inputs.proef == '1' && 'regisseur-32-proef' || 'regisseur-32' }}
+  PROEF: ${{ github.event.inputs.proef == '1' && '1' || '0' }}
+  KOKORO_URL: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1
+  KOKORO_ONNX_SHA: beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a
+  KOKORO_VOICES_SHA: bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d
   MAP: commercie/filmpjes/regisseur-32
 
 jobs:
@@ -28,7 +36,7 @@ jobs:
       - name: Stem aanwezig?
         id: stem
         run: |
-          if [ -s "$MAP/cuts-lang-elevenlabs.mp3" ]; then echo "ok=1" >> "$GITHUB_OUTPUT"; else echo "Nog geen stem van Max in $MAP, niets te doen."; fi
+          if [ "$PROEF" = "1" ] || [ -s "$MAP/cuts-lang-elevenlabs.mp3" ]; then echo "ok=1" >> "$GITHUB_OUTPUT"; else echo "Nog geen stem van Max in $MAP, niets te doen."; fi
       - name: Systeempakketten (apt-snel)
         if: steps.stem.outputs.ok == '1'
         uses: ./.github/actions/apt-snel
@@ -39,6 +47,14 @@ jobs:
         run: |
           python3 -m pip install --target /tmp/pylib mss==9.0.2 python-xlib numpy
           python3 -m pip install -q faster-whisper==1.2.1 numpy pillow soundfile
+          if [ "$PROEF" = "1" ]; then
+            python3 -m pip install -q kokoro-onnx==0.6.1
+            mkdir -p /tmp/kokoro
+            curl -fsSL --retry 3 -o /tmp/kokoro/kokoro-v1.0.onnx "$KOKORO_URL/kokoro-v1.0.onnx"
+            curl -fsSL --retry 3 -o /tmp/kokoro/voices-v1.0.bin "$KOKORO_URL/voices-v1.0.bin"
+            echo "$KOKORO_ONNX_SHA  /tmp/kokoro/kokoro-v1.0.onnx" | sha256sum -c
+            echo "$KOKORO_VOICES_SHA  /tmp/kokoro/voices-v1.0.bin" | sha256sum -c
+          fi
       - name: Blender 5.3.0, Click Cuts zip en het paard
         if: steps.stem.outputs.ok == '1'
         run: |
@@ -65,9 +81,12 @@ jobs:
       - name: Stem knippen en tijdlijn
         if: steps.stem.outputs.ok == '1'
         env:
-          STEM_MP3: ${{ github.workspace }}/commercie/filmpjes/regisseur-32/cuts-lang-elevenlabs.mp3
-          STEM_BRON: elevenlabs
-        run: python3 $MAP/tijden_lang.py /tmp/tijden && head -c 1500 /tmp/tijden/tijden.json
+          KOKORO_MODEL: /tmp/kokoro/kokoro-v1.0.onnx
+          KOKORO_VOICES: /tmp/kokoro/voices-v1.0.bin
+          KOKORO_STEM: am_michael
+        run: |
+          if [ "$PROEF" != "1" ]; then export STEM_MP3="$GITHUB_WORKSPACE/$MAP/cuts-lang-elevenlabs.mp3" STEM_BRON=elevenlabs; fi
+          python3 $MAP/tijden_lang.py /tmp/tijden && head -c 1500 /tmp/tijden/tijden.json
       - name: Opnemen op de stem (echt scherm 1920x1080, 30 bps)
         if: steps.stem.outputs.ok == '1'
         env:
@@ -120,6 +139,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           cd /tmp/klaar 2>/dev/null || exit 1
-          echo "Zoekvideo Click Cuts (#332): echte Blender-opname op de stem van Max, liggend 1920x1080. Controles: ffprobe.txt, geluid_check.txt, synchroon.txt. Niets geplaatst." > /tmp/notes.md
+          : > /tmp/notes.md; if [ "$PROEF" = "1" ]; then echo "PROEF met Kokoro als tijdelijke stem: alleen om de keten te toetsen, NIET voor keuring of plaatsen." > /tmp/notes.md; fi
+          echo "Zoekvideo Click Cuts (#332): echte Blender-opname op de stem van Max, liggend 1920x1080. Controles: ffprobe.txt, geluid_check.txt, synchroon.txt. Niets geplaatst." >> /tmp/notes.md
           gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Regisseur 32 (zoekvideo Click Cuts)" --notes-file /tmp/notes.md
           find . -maxdepth 1 -type f -print0 | xargs -0 gh release upload "$TAG" --clobber -R "$GITHUB_REPOSITORY"
