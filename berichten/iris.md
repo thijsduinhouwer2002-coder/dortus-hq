@@ -198,3 +198,6 @@ Leuk 8, aandacht 8, mooi 8 (GOK). 12 kopen, eerste op 79 s, langste gat 141 s (G
 
 ## 28 nov 2026 ±03:00 NL, Iris (eigen logboek): main e70eab3, strook 200 px, minuut 0 tot 20 als nieuwe speler (#334, dicht)
 Leuk 8, aandacht 8, mooi 8 (GOK). 12 kopen, langste gat 136 s (vol), 11 en 139 s (zacht) (GEZIEN, zaad 12). Voor een 9: grove blokjes van de lichtkaart op schaal 5 naast gladde 3D, lege randen links en rechts boven het bord, leeg plankenbord. Voorkeur palet zacht (klein verschil). Blinde test `hats-speelscherm-min10-200-e70eab3` gestart.
+
+## 28 nov 2026 ±05:00 NL, Iris (eigen logboek): speelversie voor Thijs, run 46097798308 (52507cc) gekeurd (#347, dicht)
+Leuk 8, aandacht 8, mooi 8 (GOK). Start op Windows goed (GEZIEN op de runner), 6 kopen in 10 min, langste gat 154 s (GEZIEN, zaad 13). Bericht #336: link naar oude run en SmartScreen-zin ontbreekt; LEES-MIJ noemt Height 96/120/160. Melding aan Sanne in #314.
