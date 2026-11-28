@@ -19,6 +19,15 @@ public class W {
   [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr h, out RECT r);
   public struct RECT { public int L, T, R, B; }
   public static uint Pid(IntPtr h) { uint p; GetWindowThreadProcessId(h, out p); return p; }
+  public delegate bool Elk(IntPtr h, IntPtr l);
+  [DllImport("user32.dll")] public static extern bool EnumChildWindows(IntPtr p, Elk f, IntPtr l);
+  [DllImport("user32.dll", CharSet = CharSet.Unicode)] public static extern int GetClassName(IntPtr h, StringBuilder s, int n);
+  public static string Klassen = "";
+  // het tekstvak van Kladblok, ook in de nieuwe Kladblok (dieper genest, RichEditD2DPT)
+  public static IntPtr Vak(IntPtr top) { IntPtr gevonden = IntPtr.Zero; Klassen = "";
+    EnumChildWindows(top, (h, l) => { var sb = new StringBuilder(64); GetClassName(h, sb, 64); Klassen += sb + " ";
+      if (gevonden == IntPtr.Zero && (sb.ToString() == "Edit" || sb.ToString().StartsWith("RichEdit"))) gevonden = h; return true; }, IntPtr.Zero);
+    return gevonden; }
   public static string Tekst(IntPtr h) { var sb = new StringBuilder(4096); SendMessage(h, 0x000D, (IntPtr)4096, sb); return sb.ToString(); }
 }
 "@
@@ -60,16 +69,18 @@ else {
   $r += "D 1,2 s: Gloop x $($aan.Groups[1].Value) naar $($esc.Groups[1].Value) ($dx spelpx)"
   if ($dx -le 3) { $r += "FOUT: Gloop liep niet naar rechts met D"; $fout++ }
   $r += "log bij Esc: $($esc.Value)"
+  $gx = $wa.X + [int]$esc.Groups[1].Value * ($vh / 120)   # Gloop staat nu verderop
   if ($esc.Value -notmatch "focus terug naar") { $r += "FOUT: focus niet teruggezet"; $fout++ }
 }
 
 # 3. een letter na Esc moet in Kladblok staan
 $r += "na Esc vooraan: $(Voor)"
+Start-Sleep -Milliseconds 500
 Toets 0x51 60; Start-Sleep -Milliseconds 800
 $np.Refresh()
-$ed = [W]::FindWindowEx($np.MainWindowHandle, [IntPtr]::Zero, "Edit", $null)
-if ($ed -eq [IntPtr]::Zero) { $ed = [W]::FindWindowEx($np.MainWindowHandle, [IntPtr]::Zero, "RichEditD2DPT", $null) }
+$ed = [W]::Vak($np.MainWindowHandle)
 $txt = if ($ed -ne [IntPtr]::Zero) { [W]::Tekst($ed) } else { "(geen tekstvak gevonden)" }
+$r += "vensters in Kladblok: $([W]::Klassen)"
 $r += "tekst in Kladblok na de letter q: '$txt'"
 if ($txt -notmatch "q") { $r += "FOUT: de letter kwam niet in Kladblok"; $fout++ }
 

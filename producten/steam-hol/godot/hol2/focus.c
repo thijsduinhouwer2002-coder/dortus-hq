@@ -8,7 +8,7 @@
  *                              venster onder het hol (zoals Alt+Tab doet). Schrijft wat het deed.
  *
  * Mag het venster naar voren? Windows staat dat toe als het proces gestart is door het proces dat vooraan staat; het hol
- * start dit hulpje terwijl het zelf vooraan staat. Lukt het toch niet, dan nog één keer na een losse Alt-tik.
+ * start dit hulpje terwijl het zelf vooraan staat. Lukt het toch niet, dan nog één keer met AttachThreadInput.
  * Bouwen: x86_64-w64-mingw32-gcc-win32 -O2 -s -Wall -mwindows -Wl,--no-insert-timestamp focus.c -o focus.exe -luser32 -ldwmapi
  */
 #include <windows.h>
@@ -39,13 +39,28 @@ static BOOL CALLBACK zoek(HWND h, LPARAM l) {
 	return TRUE;
 }
 
+static int is_voor(HWND h) {
+	int i;
+	for (i = 0; i < 20; i++) {   /* Windows zet het venster soms pas een paar ms later vooraan */
+		if (GetForegroundWindow() == h) return 1;
+		Sleep(10);
+	}
+	return 0;
+}
+
+/* 1: gewoon gelukt. 2: gelukt door even mee te luisteren met de invoer van het venster dat vooraan staat (geen
+ * Alt-tik: die zet in Kladblok het menu aan en dan verdwijnt de eerste letter). 0: mislukt. */
 static int naar_voren(HWND h) {
-	if (SetForegroundWindow(h) && GetForegroundWindow() == h) return 1;
-	/* een losse Alt-tik geeft dit proces het recht om een venster naar voren te halen */
-	keybd_event(VK_MENU, 0, 0, 0);
-	keybd_event(VK_MENU, 0, KEYEVENTF_KEYUP, 0);
-	SetForegroundWindow(h);
-	return GetForegroundWindow() == h ? 2 : 0;
+	DWORD wij, zij;
+	if (SetForegroundWindow(h) && is_voor(h)) return 1;
+	wij = GetCurrentThreadId();
+	zij = GetWindowThreadProcessId(GetForegroundWindow(), NULL);
+	if (zij && zij != wij && AttachThreadInput(wij, zij, TRUE)) {
+		SetForegroundWindow(h);
+		BringWindowToTop(h);
+		AttachThreadInput(wij, zij, FALSE);
+	}
+	return is_voor(h) ? 2 : 0;
 }
 
 static void schrijf(const char *s) {
@@ -80,8 +95,8 @@ int main(int argc, char **argv) {
 	}
 	ok = naar_voren(doel);
 	GetClassNameA(doel, naam, sizeof(naam));
-	snprintf(r, sizeof(r), "%s %llu (%s, %s)\n", ok ? "terug naar" : "MISLUKT", (unsigned long long)(ULONG_PTR)doel, naam,
-		doel == vorig ? "vorig venster" : "bovenste gewone venster");
+	snprintf(r, sizeof(r), "%s %llu (%s, %s, weg %d)\n", ok ? "terug naar" : "MISLUKT", (unsigned long long)(ULONG_PTR)doel, naam,
+		doel == vorig ? "vorig venster" : "bovenste gewone venster", ok);
 	schrijf(r);
 	return ok ? 0 : 1;
 }
