@@ -97,3 +97,4 @@ Stop-Process -Id $np.Id -Force -ErrorAction SilentlyContinue
 $r += "focus en besturen: $fout FOUT"
 $r | Set-Content "$uit/focus.txt"; $r | ForEach-Object { Write-Output $_ }
 if ($fout -gt 0) { exit 1 }
+exit 0
