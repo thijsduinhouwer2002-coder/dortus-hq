@@ -25,7 +25,7 @@ Lat: Rusty's Retirement en Spirit City: Lofi Sessions (`organisatie/lat/hats.md`
 | Community | Comments aan (vragen van spelers komen dan bij ons binnen; triage via skill `triage`) |
 | Visibility | **Draft** tot het ja van Thijs |
 | Cover image | `omslag-630x500.png`. Nu v6 (hol op ware maat uit 46ca6e9, Daan #348 M1), blinde test GESLAAGD plek 2,0; keuring Daan |
-| Screenshots | `schermen/1-*.png` tot en met `schermen/4-*.png`, in die volgorde (ronde 3, 28 nov: één overzicht en drie grote spelmomenten, Daan #348) |
+| Screenshots | `schermen/1-*.png` tot en met `schermen/4-*.png`, in die volgorde (ronde 3, 28 nov: één overzicht en drie grote spelmomenten, Daan #348; 2 en 3 opnieuw zonder lichte rafelrand, Daan #358) |
 | Trailer | leeg (er is nog geen trailer) |
 
 ## Description (CONCEPT, Engels, ±170 woorden)

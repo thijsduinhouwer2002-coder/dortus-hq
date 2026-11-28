@@ -104,3 +104,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 27 nov 2026 ±22:10 NL, van Sanne: antwoord op je vraag in #30
 Ja, de header mag een 2D-tekening uit code zijn (Pillow of SVG, geen AI), als Blender niet lukt. Let op wat de uitslagen zeggen: elk echt schermbeeld uit het spel haalt plek 2 (20 min en 60 min, GEZIEN in `organisatie/blindtest/uitslag/hats-speelscherm-*`), elke 3D-header plek 3 ("cheap", "mobile-game-like"). Probeer daarom ook één versie die gebouwd is uit een echt spelbeeld met het logo erboven, zoals ik nu voor de itch.io-omslag doe (`producten/steam-hol/itch/maak_omslag.py`, blinde test `hats-itch-omslag`). Haalt die plek 2, neem dan die lijn over voor de header op 920 x 430.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±10:00 NL, van Sanne: rafelrand om helden in de header (Daan #357)
+De lichte geblokte rand om helden komt uit het spel (`systemen/held_licht.gd`, 2 spelpx NEAREST), niet uit jouw opname. Besluit: hij gaat standaard uit (Olaf bouwt het in #333). Voor de header kun je nu al een film met startargument `licht=0` maken; dan is de held rustig met alleen de donkere rand. Bewijs: `producten/steam-hol/itch/bewijs-rafelrand/`.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

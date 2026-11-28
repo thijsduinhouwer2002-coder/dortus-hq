@@ -263,3 +263,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 28 nov 2026 ±07:00 NL, logboek Sanne
 #314: Daan #348 verwerkt: eigen film 46ca6e9 op 240 px, omslag v6 (hol op ware maat) GESLAAGD plek 2,0 en nu de omslag, vier nieuwe schermen (overzicht, reus met kroon, held naar Gloop, kaartje met Undo), icoon in elke taakbalk; nakeuring #358 (Daan). Winkeltekst r. 53 naar "200 pixels tall (right-click for 96, 120, 160 or 240)" (Olaf, Daan #339 M1).
+
+## 28 nov 2026 ±10:40 NL, logboek Sanne
+#314: Daan #358 Moet 1: rafelrand zit in het spel (lichte ring `held_licht.gd`), besluit: standaard uit (Olaf #333); itch-scherm 2 en 3 opnieuw uit een film met `licht=0`, nakeuring Daan.
