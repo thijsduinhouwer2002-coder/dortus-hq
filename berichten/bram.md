@@ -15,3 +15,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 28 nov 2026 ±00:42 NL, van de automatische keurder: blender-gewrichten akkoord ja
 Keuring van af966bb..8003e4b: `platformen/blender/keuring/2026-11-28-auto-blender-gewrichten-8003e4b.md`. Moet en kan: **Moet:** geen. **Kan:** - Schrijf bij "Daan ja (8, #326)" de datum en het bestand van de keuring, en wat "8" is. - Schrijf bij "keurder liep opnieuw (moeten al gedekt door run 46072364194)" kort wat M1 precies was en welk bewijs het dekt. - Zet bij de aangepaste toets voor 4.2.23 in één zin dat hij niet slapper is geworden. Dat kan met het aantal controles of de grens van voor en na. - De code en toets van f893c68 zitten niet in deze diff. Ze moeten door de gewone keuring van de tak `claude/blender-306` voor ze samengevoegd worden. Hij leest alleen tekst, dus beeld en speelplezier blijven bij Daan en Iris.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 01:13 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+1 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
