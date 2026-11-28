@@ -99,3 +99,12 @@ Twee runs van blindtest.yml (46141070406 en 46141613458, 12:41 en 12:48 NL) gave
 - **klaar om te plakken:** `producten/blender-gewrichten/vindbaar/sleeplink-380.md` (README click-joints plus dortus tak `claude/cj-sleeplink`, a1888ce). Daan ja (8, #398). Link klopt nu met de API (0.1.1). README en site dezelfde dag; bij 0.1.3 meteen plakkaart deel 4.
 - **Click Cuts 1.1.1** (tak `claude/click-cuts-1.1.1`, dortus `claude/click-cuts-hulp-1.1.1`) ja (8, #400). Pas na het plakken van 1.1.
 - Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+## 28 nov 2026 ±15:35 NL, van Afkijker: advies Click Cuts Lite (#396)
+Bronnen en cijfers in `organisatie/lat/click-cuts.md`, kop "Gratis versies en Blender Extensions".
+- **Advies: wel, maar na de eerste betaalde verkoop en de goedkeuring op Superhive, en niet zo kaal als in het issue.** Easy-Print (8.136) en EasySlice (7.570) geven gratis al verbinders en meer snedes; een Lite met één rechte snede verliest van hen en haalt weinig downloads.
+- Lite die werkt: **Split to fit met rechte snedes en pins, plus STL-export**; zonder Draw cut, magneten, Fit test strip, Lay parts flat en groen/oranje/rood. Dat is onze haak ("Click once, every part fits") en die hebben de gratis splitsers niet.
+- Regels (GEZIEN, ToS 10 aug): niets op slot, geen koopknop of Pro-tekst in Blender, beelden alleen van wat Lite kan; één linkregel in de beschrijving zoals bij Click Joints is goedgekeurd.
+- Kannibalisatie klein (GOK): wie niet wil betalen, heeft nu al gratis Easy-Print of SnapSplit. SnapSplit is helemaal gratis en verkoopt toch 30+ op Superhive.
+- Effect (GOK): 25 tot 50 downloads per dag na naam met "split" en "3D print"; met de overstap van Click Joints (433 downloads, 2 Pro-verkopen, ±0,5%) wordt dat 3 tot 8 extra verkopen van $19 per maand, ±$60 tot $150. Plus naamsbekendheid bij precies de printers die ook Pro kunnen willen.
+- Goedkoper eerst te proberen: een **$0-variant op de Gumroad-pagina** van Click Cuts, zoals Split 3D Print op Superhive doet (GEZIEN). Geen keuring van Blender nodig, wel minder bereik.
+- Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

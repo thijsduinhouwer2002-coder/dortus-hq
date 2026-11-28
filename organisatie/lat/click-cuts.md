@@ -64,6 +64,31 @@ Beelden van de concurrenten: hun eigen galerijbeelden op Superhive, met curl geh
 
 - **SnapSplit** (directe concurrent, GPL-3, gratis op extensions.blender.org met 2.037 downloads en 0 reviews, $20 op Superhive met Sales 30+, GEZIEN 26 nov; `organisatie/lat/broncode/snapsplit.md`): geeft elk materiaal een eigen startspeling per kant (PLA 0,20, PETG 0,30, ABS/ASA 0,25, TPU 0,35, hars 0,10; `profiles.py` r. 40 tot 47). Bij ons is het 0,20 voor alles tot je een proef bewaart, en de passingproef test 0,15 tot 0,30, dus voor hars en TPU zit de juiste waarde niet in het proefblok (GEZIEN `passing.py` r. 27 tot 31, `passingproef.py` r. 82 tot 88). Voor 1.0.1, zie gat 5. Verder: 19 talen via Blenders vertaling (`localization.py`), en een getekende vrije snede met oranje, grijs en rood (ongeldig) in de preview.
 
+## Gratis versies en Blender Extensions (Afkijker, 28 nov ±15:30 NL, issue #396)
+Alles met curl gelezen op 28 nov ±15:20 NL (GEZIEN).
+
+**Wie heeft een gratis versie:**
+| Product | Gratis versie | Wat die doet | Bereik |
+|---|---|---|---|
+| Cleave | geen | | Superhive Sales 400+, 4 ratings ([link](https://superhivemarket.com/products/cleave)) |
+| Split 3D Print | ja, als $0-variant op de eigen Superhive-pagina | "Limited Cuts Line with its adjustable peg and socket connector, and STL export" | Sales 400+ en Downloads 400+, telt de $0 mee, 3 ratings ([link](https://superhivemarket.com/products/split-3dprint)); niet op Extensions |
+| Split It | geen | | Sales 20+ ([link](https://superhivemarket.com/products/split-it)) |
+| SnapSplit | ja, de hele add-on gratis op Extensions | alles; Superhive $20 is dezelfde add-on als steun | Extensions 2.120 downloads, 0 reviews ([link](https://extensions.blender.org/add-ons/snapsplit/)); Superhive Sales 30+ ([link](https://superhivemarket.com/products/snapsplit)) |
+| FigureCut | niet gevonden op Superhive of Extensions (GEZIEN: niet in de API-lijst van Extensions, 1.719 regels) | | |
+
+**Gratis splitsers op Extensions die alleen gratis zijn:** Easy-Print 8.136 downloads, 3 reviews, sinds 29 jul ([link](https://extensions.blender.org/add-ons/easy-print/)); EasySlice Print 7.570 downloads, 21 reviews, sinds 3 sep ([link](https://extensions.blender.org/add-ons/easy-slice-print/)); Cut Plane 2.295 ([link](https://extensions.blender.org/add-ons/cut-plane/)). Ter vergelijking onze gratis Click Joints: 433 downloads sinds 8 nov, 0 reviews ([link](https://extensions.blender.org/add-ons/click-joints/)). Een gratis splitser haalt daar dus ±25 tot 70 downloads per dag (GOK uit GEZIEN, downloads gedeeld door dagen sinds publicatie).
+
+**Hoe Extensions verkeer verdeelt:** zoeken gaat op tekst, niet op downloads. Op "split" staat SnapSplit bovenaan, daarna allemaal add-ons die niets met printen te maken hebben; op "3d print" komt na Bake Shape Keys: SnapSplit, Easy-Print, 3D Print Toolbox, EasySlice Print; op "connector" SnapSplit, Easy-Print, EasySlice Print (GEZIEN, `extensions.blender.org/search/?q=...`). Een Lite met "split" en "3D print" in naam en ondertitel komt dus meteen in de bovenste 3 tot 5. De voorpagina toont add-ons met veel reviews (Bool Tool 1M, UniV 116K, GEZIEN): daar komen we niet zonder reviews.
+
+**Regels van Extensions** ([Terms of Service](https://extensions.blender.org/terms-of-service/), bijgewerkt 10 aug 2026, GEZIEN):
+- 3.3 en 3.10: de add-on moet volledig werken; niets mag op slot zitten achter een aankoop. Dus geen grijze knoppen "Pro only".
+- 6.1: geen links, knoppen of teksten in de Blender-UI die tot kopen aanzetten. Alleen links naar "funding platforms" in de beschrijving.
+- 6.2: beschrijving en beelden tonen alleen wat de gratis versie kan; functies van de betaalde versie laten zien geldt als reclame.
+- 6.3: de UI mag geen betaalde versie of andere extensies aanprijzen.
+- In de praktijk staat één regel met een link naar de betaalde versie wel in de beschrijving: onze Click Joints ("Get Click Joints Pro on Superhive or Gumroad") en SnapSplit ("Support it on Superhive / Gumroad"), beide goedgekeurd (GEZIEN). Strikt gelezen mag dat alleen voor steunplatforms: klein risico (GOK).
+
+**Les:** wie in deze markt gratis geeft, geeft veel (SnapSplit alles, Easy-Print en EasySlice met verbinders); de bestbetaalde (Cleave) geeft niets gratis en verkoopt het meest. Een Lite die minder kan dan Easy-Print haalt weinig downloads.
+
 ## Gaten, op volgorde van geld
 1. **Hoofdbeeld en galerij** onder Cleave: Beeldmaker, vóór de uitgave (week van 30 nov).
 2. **Delen plat leggen**: Cleave doet het; zit sinds 25 nov in 1.0.0 (nog niets live, dus geen aparte 1.0.1). Dicht zodra de FAQ is aangepast.
