@@ -12,6 +12,7 @@
 3. Superhive Lite: deel 3, eerste blok (ook de extensions-zip, als nieuwe versie 0.1.3).
 4. dortus.com, Gumroad gratis en Printables: deel 3, de andere blokken (direct-zip, met de Pro-knoppen).
 5. Controle: `bash producten/blender-gewrichten/winkel/controle-gratis-0.1.3.sh` moet eindigen op `ALLES GOED`. De regel voor extensions.blender.org blijft `WACHT` tot een moderator 0.1.3 goedkeurt (dagen); dat is geen fout.
+5b. Zodra extensions.blender.org 0.1.3 toont: deel 4 (sleeplink wisselen), daarna de controle nog een keer.
 6. Regel in `commercie/geplaatst.md` en een regel onderaan `berichten/bram.md` (of een reactie in #306).
 
 ## 1. De zips (allebei op main, raw-link werkt zonder inloggen)
@@ -49,6 +50,13 @@ De direct-zip `click_joints_direct-0.1.3.zip` gaat naar:
 - **dortus.com:** in repo `dortus` het bestand `click-joints/click-joints-free.zip` vervangen door `click_joints_direct-0.1.3.zip` (zelfde naam houden: `click-joints-free.zip`).
 - **Gumroad gratis** (https://duinhouwer8.gumroad.com/l/click-joints-free): Content-tab, oude zip vervangen. Kopers niet mailen ("Skip for now"; een mail is een bericht onder de naam van Thijs).
 - **Printables** (https://www.printables.com/model/1931596-click-joints-free-blender-add-on-for-ball-joints-i): bij Other files `click_joints_direct-0.1.2.zip` vervangen door `click_joints_direct-0.1.3.zip`.
+
+## 4. Sleeplink wisselen (pas als extensions.blender.org 0.1.3 toont; #380)
+De README van `click-joints` en dortus.com/click-joints hebben een regel "drag this link into Blender" met de link van 0.1.1. Blender zoekt een gesleepte link op in de lijst van de **nieuwste** versie; zodra 0.1.3 live is, geeft de link van 0.1.1 bij de gebruiker "not found in the remote repository" (GEZIEN in Blender 4.2.23 en 5.3.0 met de link van 0.1.0 terwijl 0.1.1 live is; toets `e2e/toets_sleeplink.py`). Dus dezelfde dag wisselen:
+- Nieuwe link: neem hem van de knop "Drag and Drop into Blender" op https://extensions.blender.org/add-ons/click-joints/ . Verwacht (zelfde sha256 als onze zip, het platform verandert de zip niet; bij 0.1.1 klopte dat, GEZIEN): `https://extensions.blender.org/download/sha256:144664a2f9cd5a3c1b0357fd3c34ba69eff1e2bf23ae74815ebe567eae51104f/add-on-click-joints-v0.1.3.zip?repository=%2Fapi%2Fv1%2Fextensions%2F&blender_version_min=4.2.0`
+- README `click-joints`: de link in de regel onder "Free on the Blender Extensions platform" vervangen (bron `producten/blender-gewrichten/repo-click-joints/README.md`).
+- dortus.com: in `click-joints/index.html` de href met `data-umami-event="gratis-sleeplink"` vervangen (in HTML `&amp;` in plaats van `&`).
+- Controle regel 5 moet voor beide `GOED ... v0.1.3.zip` geven. Dit geldt bij **elke** volgende gratis versie opnieuw.
 
 ## Na het plakken (Bram)
 Tak `claude/blender-306` naar main (hoofdmanager 28 nov: na de plak van 1.2.9), kop in `CHANGELOG.md` naar "## 0.1.3 (2026-11-30)", `click-joints-uitgave.yml` naar VERSIE 0.1.3 met deze zip en sha256. De tenenfix in Pro komt in 1.2.10.

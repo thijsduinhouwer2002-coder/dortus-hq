@@ -34,6 +34,22 @@ curl -sL -A "$UA" -o "$T/ext.html" https://extensions.blender.org/add-ons/click-
 if grep -q "0\.1\.3" "$T/ext.html"; then echo "GOED  extensions.blender.org toont 0.1.3"
 else echo "WACHT extensions.blender.org toont nog geen 0.1.3 (moderator; geen fout)"; fi
 
+# 5. Sleeplink (#380): Blender vindt een gesleepte link alleen als hij gelijk is aan de archive_url
+#    van de NIEUWSTE versie op het platform. Oude link = "not found" bij de gebruiker.
+api=$(curl -sL -A "$UA" "https://extensions.blender.org/api/v1/extensions/?blender_version=4.2.0" | python3 -c "
+import json, sys
+print(next((x['archive_url'] for x in json.load(sys.stdin)['data'] if x['id'] == 'click_joints'), ''))")
+curl -sL -A "$UA" -o "$T/readme.md" https://raw.githubusercontent.com/thijsduinhouwer2002-coder/click-joints/main/README.md
+curl -sL -A "$UA" -o "$T/site.html" https://dortus.com/click-joints/
+for plek in "README click-joints:$T/readme.md" "dortus.com/click-joints:$T/site.html"; do
+  naam="${plek%%:*}"; bestand="${plek#*:}"
+  link=$(grep -o 'https://extensions.blender.org/download/sha256:[0-9a-f]*/[^?"]*\.zip' "$bestand" | head -1)
+  if [ -z "$api" ]; then echo "FOUT  API van extensions.blender.org gaf geen click_joints"; fout=1
+  elif [ -z "$link" ]; then echo "WACHT $naam heeft nog geen sleeplink (#380, nog niet geplakt)"
+  elif [ "$link" = "$api" ]; then echo "GOED  $naam sleeplink is de nieuwste (${api##*/})"
+  else echo "FOUT  $naam sleeplink is ${link##*/}, platform heeft ${api##*/}: link wisselen (plakkaart deel 4)"; fout=1; fi
+done
+
 rm -rf "$T"
 if [ $fout -eq 0 ]; then echo "ALLES GOED"; else echo "NIET GOED: plak het blok met FOUT opnieuw en draai opnieuw"; fi
 exit $fout

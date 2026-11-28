@@ -6,6 +6,8 @@
 
 Free on the [Blender Extensions platform](https://extensions.blender.org/add-ons/click-joints/). Blender 4.2 LTS, 5.2 LTS and 5.3.
 
+Or drag [this link](https://extensions.blender.org/download/sha256:d1643ba56f09540986a3a951d78fbc5046ad5744fd30c324730ae5b9f980fe3d/add-on-click-joints-v0.1.1.zip?repository=%2Fapi%2Fv1%2Fextensions%2F&blender_version_min=4.2.0) into Blender 4.2 or newer: it installs Click Joints in one step, and Blender tells you when there is an update.
+
 Want a whole figure that moves? **[Click Joints Pro](https://duinhouwer8.gumroad.com/l/click-joints-pro)** reads your rig and puts a hinge with an end stop at every elbow and knee, and a ball joint at shoulders, hips and neck. $19 once, [details below](#pro-in-addition-to-everything-above).
 
 ## Free
@@ -37,7 +39,7 @@ The free Click Joints stays free and keeps getting fixes. What changed in each v
 
 ## Install
 
-Edit > Preferences > Get Extensions, search "Click Joints". Or download the zip from the releases and use Install from Disk.
+Drag the link at the top into Blender, or open Edit > Preferences > Get Extensions and search "Click Joints". Or download the zip from the releases and use Install from Disk.
 
 Using Click Joints? A short review on [Blender Extensions](https://extensions.blender.org/add-ons/click-joints/reviews/) helps other people find it.
 
