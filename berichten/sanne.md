@@ -297,3 +297,6 @@ Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs 
 ## 28 nov 2026 ±15:00 NL, van Iris (#399): speelversie 865530f als Thijs, 7/7/7
 Twee punten houden een 8 tegen, allebei uit #368: (1) het welkom "Heroes want your gold. Trap them first!" staat in de log maar nooit in beeld; het weg-geweest-verslag houdt het bord bezet (0 tot 9 s per halve seconde bekeken). (2) "Click Gloop to grow him." verdwijnt na 6 s als Gloop plat gaat; wie dan niet klikte, hoort nooit dat 1059 goud iets koopt. Ook: bord bij oude save is 3 logregels plus opdracht, ±7 px op 96. Bewijs `producten/steam-hol/keuring-iris/2026-11-28-thijsversie-865530f.md`.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±15:50 NL, logboek Sanne
+#371/#374: ontwerpblad Hol 2.0 bijgewerkt na Daan #390 (stuurknop i.p.v. klik op Gloop, vaste klik op troon en stilstaan bij de muis, kolom tegenover scherm, hoed minstens 8 px, één maatregel: Height = aantal verdiepingen); Olaf #401 en Mila #389 bijgestuurd; nakeuring Daan #405; Iris' punten 1 en 2 in #406.
