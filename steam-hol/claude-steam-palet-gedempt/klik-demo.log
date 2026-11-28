@@ -1,30 +1,30 @@
-HOL balk gestart, pid 4872, hoogte 96
+HOL balk gestart, pid 516, hoogte 96
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
 HOL demo: speeltijd 0 s, grens 3 s
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL zaad 1795824574
+HOL zaad 1795825102
 HOL balk aan
 HOL muisvlak via de balk, lucht vrij op x=200
-HOL begin: vallen (Joost)
-HOL held binnen: Joost
+HOL begin: vallen (Elke)
+HOL held binnen: Elke
 HOL zicht 2.2 1
-HOL kroniek 2.6 (wacht 0.5): Joost is here for your gold.
+HOL kroniek 2.6 (wacht 0.5): Elke has a map. It is wrong.
 HOL demo voorbij na 3 s speeltijd
-HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
 HOL kroniek 3.6 (wacht 0.5): That's the demo. Your hole keeps going.
+HOL demo voorbij: graven/kopen geweigerd (klik in het hol)
 HOL uitleg stap 1 t=4.1 
-HOL kroniek zelfde held vervangen: Joost is here for your gold.
-HOL kroniek 7.4 (wacht 0.0): Joost fell to the Spike Pit. +9
+HOL leven mot t=7.3 x=184 y=26
+HOL kroniek zelfde held vervangen: Elke has a map. It is wrong.
+HOL kroniek 7.4 (wacht 0.0): Elke checked the floor. Too late. +9
 HOL zicht 7.4 0
-HOL begin: opgegeten (Kobus)
-HOL held binnen: Kobus
+HOL begin: opgegeten (Fenna)
+HOL held binnen: Fenna
 HOL zicht 8.7 1
-HOL leven mot t=8.9 x=184 y=26
 HOL uitleg stap 2 t=9.0 Click the dirt to dig.
-HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
+HOL kroniek 9.9 (wacht 2.6): First hero in the pit!
 HOL meting t=10 beelden=124 helden=1 hol_vast=3
-HOL kroniek vervallen 11.8: Kobus says this is a quick one.
+HOL kroniek vervallen 11.6: Fenna climbs into your hole.
 HOL meting t=20 beelden=100 helden=1 hol_vast=3
-HOL leven vleermuis t=21.2 x=200 y=28
+HOL leven stofje t=21.1 x=184 y=26
 HOL einde na 25 s, fps=10, goud=29, terugkomers=0
