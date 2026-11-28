@@ -1,6 +1,6 @@
 # Scorebord Dortus
 
-Gemeten op 2026-11-28 om 08:16 UTC met `organisatie/controle/scorebord.py`, openbare bronnen, plus Gumroad, Kit en bezoekers van dortus.com (Amami) met leessleutels. Elk cijfer is GEZIEN: het script leest het zelf; de bron staat per regel. Draait elke dag om 06:41 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
+Gemeten op 2026-11-28 om 08:20 UTC met `organisatie/controle/scorebord.py`, openbare bronnen, plus Gumroad, Kit en bezoekers van dortus.com (Amami) met leessleutels. Elk cijfer is GEZIEN: het script leest het zelf; de bron staat per regel. Draait elke dag om 06:41 UTC (workflow "Scorebord"). Gisteren en 7 dagen terug: de laatste meting op of vóór die dag; staat er een datum tussen haakjes, dan is dat een oudere meting. Geschiedenis in `organisatie/scorebord-data.csv`.
 
 | Product | Platform | Maat | Vandaag | Gisteren | 7 dagen terug | Erbij in 7 dagen | Stand | Bron |
 |---|---|---|---|---|---|---|---|---|
@@ -25,7 +25,7 @@ Gemeten op 2026-11-28 om 08:16 UTC met `organisatie/controle/scorebord.py`, open
 | Click Joints Pro - Articulated, Poseable 3D Print Action Figures from Your Rig (Hinges with End Stops, Ball Joints, Fit Test Strip) | Gumroad | omzet USD | 19.00 | 19.00 | geen meting |  | bruto, vóór kosten van Gumroad | GEZIEN, Gumroad API v2 /products (leessleutel) |
 | Kit (alle) | Kit | abonnees | 0 | 0 | 0 | 0 | actief, alle tags samen | GEZIEN, Kit API (leessleutel), alleen aantallen |
 | Hats of the Fallen | Discord | leden | 2 | 2 | 1 | +1 | server Hats of the Fallen | GEZIEN, discord.com invite-API (with_counts) |
-| Hats of the Fallen | Discord | online | 0 | 1 | 0 | 0 | op het moment van meten | GEZIEN, discord.com invite-API (with_counts) |
+| Hats of the Fallen | Discord | online | 1 | 1 | 0 | +1 | op het moment van meten | GEZIEN, discord.com invite-API (with_counts) |
 | YouTube @Dortusapps | YouTube | weergaven awtDyH5hOPI | 403 | 395 | geen meting |  | 2026-11-23 Rigged character to poseable 3D print in Blender: one button | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven lcUBuWMaJ_A | 1303 | 1296 | geen meting |  | 2026-11-23 How far can a 3D printed knee bend? Check it in Blender | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
 | YouTube @Dortusapps | YouTube | weergaven pCyyQ4Qa9Gw | 853 | 851 | geen meting |  | 2026-11-23 Your rigged character as printable parts with joints 🧩 / Ble | GEZIEN, youtube.com/feeds/videos.xml (RSS) |
@@ -82,7 +82,7 @@ Bezoekers, bezoeken en weergaven gelden voor de hele site. Per pagina: het getal
 
 | Dag | Bezoekers | Bezoeken | Weergaven | voorpagina | Click Joints | Ebb | Rollwright | Bison & Flex | TikTok-adres | YouTube-adres | overig |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 2026-11-28 tot 09:15 (nog niet om, niet in de csv) | 11 | 12 | 12 | 0 | 7 | 0 | 0 | 0 | 0 | 0 | 5 |
+| 2026-11-28 tot 09:19 (nog niet om, niet in de csv) | 11 | 12 | 12 | 0 | 7 | 0 | 0 | 0 | 0 | 0 | 5 |
 | 2026-11-27 | 4 | 4 | 5 | 0 | 2 | 0 | 0 | 0 | 0 | 1 | 1 |
 | 2026-11-26 | 13 | 13 | 15 | 3 | 6 | 0 | 0 | 0 | 0 | 0 | 6 |
 | 2026-11-25 | 3 | 3 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 2 |
@@ -102,7 +102,7 @@ Per dag het aantal bezoeken per verwijzende site (Umami-metrics type referrer). 
 
 | Dag | Bezoeken per verwijzer |
 |---|---|
-| 2026-11-28 tot 09:15 (nog niet om) | bing.com 2 |
+| 2026-11-28 tot 09:19 (nog niet om) | bing.com 2 |
 | 2026-11-27 | youtube.com 1 |
 | 2026-11-26 | bing.com 1 |
 | 2026-11-25 | geen 0 |
@@ -118,7 +118,7 @@ Per dag het aantal bezoeken per verwijzende site (Umami-metrics type referrer). 
 
 Kliks tellen pas sinds de knoppen een data-umami-event hebben (dortus PR #132). Geen kliks naar Gumroad bij wel bezoek: het lek zit op de site. Wel kliks, geen verkoop: op Gumroad.
 
-| Wat | gisteren | vandaag tot 09:16 |
+| Wat | gisteren | vandaag tot 09:19 |
 |---|---|---|
 | Land | BR 1, HK 1, KR 1, VN 1 | US 11 |
 | Apparaat | desktop 2, laptop 2 | laptop 9, desktop 1, mobile 1 |
