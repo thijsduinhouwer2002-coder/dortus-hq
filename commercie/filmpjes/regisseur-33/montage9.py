@@ -23,9 +23,9 @@ FONTS = {   # alle drie SIL Open Font License 1.1, uit github.com/google/fonts (
     "montserrat": (FONTMAP / "Montserrat.ttf", b"ExtraBold"),
     "poppins": (FONTMAP / "Poppins-ExtraBold.ttf", None),
 }
-BOVEN = ["Don't want a seam", "through the face?", "Draw your own cut:"]
+BOVEN = ["No seam through the face?", "Draw your own cut:"]   # r2: twee regels, onderin op een band (blinde test r1: tekst bedekte het model)
 BOVEN_TOT = 3.6      # hook staat vast in beeld tot net na de getekende lijn
-BOVEN_Y = 1450
+BOVEN_Y = 1690
 SLOT = ["Click Cuts 1.1,", "add-on for Blender"]
 SLOT_SEC = 3.0
 SLOT_Y = 1500
@@ -57,6 +57,13 @@ def tekst_png(naam, regels, grootte, y_mid):
         d.text((x, y), r, font=f, fill=(255, 255, 255), stroke_width=7, stroke_fill=(12, 12, 12))
         y += lh
     return im
+
+
+def hook_laag(naam):
+    tekst = tekst_png(naam, BOVEN, 100, BOVEN_Y)
+    band = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(band).rounded_rectangle((24, BOVEN_Y - 150, W - 24, BOVEN_Y + 150), radius=34, fill=(10, 10, 12, 200))
+    return Image.alpha_composite(band, tekst)
 
 
 def slot_laag(naam):
@@ -147,7 +154,7 @@ def main():
     if sys.argv[1] == "--eerste":
         opn, uit, naam = Path(sys.argv[2]), Path(sys.argv[3]), sys.argv[4]
         b = next(beelden(opn / "scherm-ruw.ts", 1))
-        im, _ = beeld(b, 0, 9999, muis_lees(opn), None, tekst_png(naam, BOVEN, 104, BOVEN_Y),
+        im, _ = beeld(b, 0, 9999, muis_lees(opn), None, hook_laag(naam),
                       slot_laag(naam), pijl())
         im.save(uit, quality=92)
         return
@@ -159,7 +166,7 @@ def main():
     n = int(round(film["delen"]["eind"] * FPS))
     totaal = n / FPS
     muis = muis_lees(opn)
-    boven, slot, pl = tekst_png(naam, BOVEN, 104, BOVEN_Y), slot_laag(naam), pijl()
+    boven, slot, pl = hook_laag(naam), slot_laag(naam), pijl()
     tmp = uit.with_suffix(".beeld.mp4")
     enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
                             "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "medium", "-crf", "17",
