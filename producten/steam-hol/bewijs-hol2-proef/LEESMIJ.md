@@ -56,3 +56,9 @@ Film onder Xvfb, `hoogte=120 film=1 zaad=7`, Godot 4.3, 12 beelden per s, 0 SCRI
 - 104 s klik op pijltje omlaag: "schuif naar 48"; 110 s pijltje omhoog: "schuif naar 0". Beeld `pijltjes-5x.png` (rechtsonder, alleen te zien als je die kant op kunt).
 - Height: 120, 168, 216 spelpx is tuin plus 2, 3, 4 verdiepingen, steeds één eronder om te schuiven; oude getallen (96, 240) gaan naar de dichtste (toets_hol2, GEZIEN).
 - Of muisbewegingen zonder focus aankomen meet de Windows-run (`focus.txt`, stap 1b). Gloop stopt hoe dan ook: het hol leest de plek van de muis elk beeld.
+
+## (e) Stilliggende muis en grotere pijltjes (Daan #414 kan 1 en 2), Olaf 28 nov ±19:45 NL
+
+- **Muis die 3 s stil ligt telt niet meer.** Laat iemand de muis op de strook liggen en loopt Gloop ertegenaan, dan blijft hij nu niet voor altijd staan: na 3 s zonder beweging loopt hij verder; beweegt de muis weer bij hem, dan stopt hij weer. Film onder Xvfb (`hoogte=120 film=1 zaad=7`, Godot 4.3, 12 beelden per s, 0 SCRIPT ERROR, GEZIEN, log): 28,1 s "staat stil (muis bij Gloop) x=1346", na 1 s en 2,5 s nog x 1346, dan "gaat verder (muis 3 s stil)", na 6 s x 1421. Beeld `muis-stil-3s-5x.png` (links 30 s stil en kijkend, rechts 33 s weer op weg).
+- **Pijltjes:** pijl van 7 op een donker plaatje van 9 met een gouden rand; klikvak per pijltje 14 x 12 (de onderste 24 spelpx van de rechterrand, boven en onder los). Op 1080p bij schaal 1 is dat 14 x 12 echte pixels in plaats van 9 x 9. Beeld `pijltjes-groot-5x.png` (links alleen omlaag, rechts beide tijdens het schuiven).
+- toets_hol2 lokaal (Linux, Godot 4.3) 0 FOUT, met 4 nieuwe regels: muis telt 2,9 s nog, na 3,2 s niet meer, bij een nieuwe beweging weer; de log zegt waarom; klikvak 14 x 12 en los van elkaar; plaatje van 9 binnen het vak (GEZIEN).

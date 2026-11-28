@@ -96,7 +96,7 @@ static func teken_scherm(s) -> void:
 	var pr: Array = MUIS.pijlen(s)
 	for i in 2:
 		if MUIS.pijl_aan(s, i):
-			_pijl(laag, pr[i], i == 0)
+			_pijl(laag, MUIS.plaat(pr[i], i == 0), i == 0)
 	if s.besturen:
 		laag.draw_rect(Rect2(0, 0, w, 1), GOUD)
 		laag.draw_rect(Rect2(0, h - 1, w, 1), GOUD)
@@ -141,9 +141,11 @@ static func _uitleg(laag: CanvasItem, txt: String, rechts: Vector2) -> void:
 					laag.draw_rect(Rect2(x + k, p.y + rij, 1, 1), Color8(236, 230, 214))
 		x += g[0].length() + 1
 
-# Terugvalpijltje van 7 spelpx (Sanne #401): omhoog of omlaag, voor wie geen muiswiel heeft.
+# Terugvalpijltje (Sanne #401, Daan #414 kan 2): een pijl van 7 breed op een donker plaatje van 9 met een gouden
+# rand, zodat hij ook op een drukke muur opvalt. Omhoog of omlaag, voor wie geen muiswiel heeft.
 static func _pijl(laag: CanvasItem, r: Rect2, omhoog: bool) -> void:
-	laag.draw_rect(r, Color(0.08, 0.06, 0.07, 0.8))
-	for i in 3:
-		var y: float = r.position.y + (2 + i if omhoog else 4 - i)
-		laag.draw_rect(Rect2(r.position.x + 3 - i, y, 1 + 2 * i, 1), GOUD)
+	laag.draw_rect(r, Color(0.06, 0.045, 0.05, 0.92))
+	laag.draw_rect(Rect2(r.position + Vector2(0.5, 0.5), r.size - Vector2.ONE), Color(GOUD, 0.55), false, 1.0)
+	for i in 4:
+		var y: float = r.position.y + (2 + i if omhoog else 6 - i)
+		laag.draw_rect(Rect2(r.position.x + 4 - i, y, 1 + 2 * i, 1), GOUD)

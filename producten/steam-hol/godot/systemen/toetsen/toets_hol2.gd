@@ -8,7 +8,8 @@ extends SceneTree
 # - maat (#401, Daan #394 moet 1): op elk scherm 120 spelpx en 3 lagen in beeld; het venster is hoogte x schaal.
 # - Height (#401, Sanne): 120, 168, 216 spelpx = tuin plus 2, 3, 4 verdiepingen; andere getallen naar de dichtste.
 # - muis (#401, Sanne punt 6): muis bij Gloop laat hem stilstaan (klim maakt hij af), daarna loopt hij verder;
-#   klikvak is zijn lijf plus 4 spelpx.
+#   klikvak is zijn lijf plus 4 spelpx; een muis die 3 s stil ligt telt niet meer (Daan #414 kan 1).
+# - pijltjes (Daan #414 kan 2): klikvak 14 x 12 per pijltje, plaatje van 9 erin, de twee vakken raken elkaar niet.
 # Gebruik: godot --headless --path . -s systemen/toetsen/toets_hol2.gd  (0 fouten = groen)
 
 var fout := 0
@@ -170,6 +171,37 @@ func _init() -> void:
 	var g: Vector2 = gl.pos()
 	ok(lijf.grow(4).has_point(g + Vector2(12, -5)) and not lijf.grow(4).has_point(g + Vector2(14, -5)) and lijf.size.x == 18,
 		"klikvak is het lijf (18 breed) plus 4 spelpx")
+	# stilliggende muis (Daan #414 kan 1): de muis via muis.gd met een nep-hol, film-stand zodat er geen echte muis is
+	var M = load("res://hol2/muis.gd")
+	var nep := GDScript.new()
+	nep.source_code = "extends RefCounted\nvar film := true\nvar muis_film := Vector2(-1, -1)\nvar muis_scherm := Vector2(-1, -1)\nvar muis_vorig := Vector2(-2, -2)\nvar muis_beweeg_t := -100.0\nvar besturen := false\nvar scroll := 0.0\nvar t := 0.0\nvar gloop\nvar logs := []\nvar breed := 1920.0\nvar spel_h := 120.0\nfunc log_regel(r): logs.append(r)\n"
+	nep.reload()
+	var hs = nep.new()
+	hs.gloop = gl
+	gl.zet(kaart, 1, 400.0)
+	hs.muis_film = gl.pos() + Vector2(10, -6)
+	M.werk(hs)
+	var dicht0: bool = gl.muis_dicht
+	hs.t = 2.9
+	M.werk(hs)
+	var dicht29: bool = gl.muis_dicht
+	hs.t = 3.2
+	M.werk(hs)
+	var dicht32: bool = gl.muis_dicht
+	hs.muis_film += Vector2(1, 0)
+	hs.t = 3.3
+	M.werk(hs)
+	ok(dicht0 and dicht29 and not dicht32 and gl.muis_dicht,
+		"stilliggende muis: telt 2,9 s nog, na 3,2 s niet meer, bij een nieuwe beweging weer (%s %s %s %s)" % [dicht0, dicht29, dicht32, gl.muis_dicht])
+	ok(hs.logs.any(func(r): return r.contains("muis 3 s stil")), "log zegt waarom Gloop verder gaat (muis 3 s stil)")
+	gl.muis_dicht = false
+	var pv: Array = M.pijlen(hs)
+	var pl0: Rect2 = M.plaat(pv[0], true)
+	var pl1: Rect2 = M.plaat(pv[1], false)
+	ok(pv[0].size.x >= 12 and pv[0].size.y >= 12 and not pv[0].intersects(pv[1]) and pv[1].end.y == 120.0 and pv[1].end.x == 1920.0,
+		"pijltjes: klikvak 14 x 12, boven en onder los, onderste tot de rand van de strook")
+	ok(pv[0].encloses(pl0) and pv[1].encloses(pl1) and pl0.size.x == 9 and pl1.position.y - pl0.end.y <= 3.0,
+		"pijltjes: plaatje van 9 binnen het klikvak, de twee dicht bij elkaar (%d spelpx ertussen)" % int(pl1.position.y - pl0.end.y))
 	var F = load("res://hol2/focus.gd")
 	ok(OS.get_name() == "Windows" or F.terug() == "niet op Windows", "focus-hulpje doet niets buiten Windows")
 	print("[hol2] FOUT %d" % fout)

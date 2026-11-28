@@ -61,6 +61,8 @@ var film_stap := 0
 var muis_film := Vector2(-1, -1)    # film=1: waar de muis staat (geen echte muis in de film)
 var muis_scherm := Vector2(-1, -1)  # muis in spelpixels van het scherm, of -1 als hij niet boven het hol is
 var muis_n := 0                      # muisbewegingen die aankwamen in de laatste 10 s
+var muis_vorig := Vector2(-2, -2)    # muis.gd: vorige plek, en wanneer hij voor het laatst bewoog (3 s regel)
+var muis_beweeg_t := -100.0
 
 func log_regel(r: String) -> void:
 	print(r)

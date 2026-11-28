@@ -12,8 +12,9 @@ static func stap(s) -> void:
 		[22.0, func(): s._klik(Vector2(s.breed * 0.5, KAART.voet_y(1) - 5))],
 		[28.0, func(): s.muis_film = s.gloop.pos() + Vector2(10, -6 - roundf(s.scroll))],   # muis vlak naast Gloop
 		[29.0, func(): s.log_regel("HOL2 film gloop x=%d na 1 s muis" % int(s.gloop.x))],
-		[33.0, func(): s.log_regel("HOL2 film gloop x=%d na 5 s muis" % int(s.gloop.x))],
-		[33.5, func(): s.muis_film = Vector2(-1, -1)],
+		[30.5, func(): s.log_regel("HOL2 film gloop x=%d na 2,5 s stille muis" % int(s.gloop.x))],
+		[34.0, func(): s.log_regel("HOL2 film gloop x=%d na 6 s stille muis (loopt weer)" % int(s.gloop.x))],
+		[34.5, func(): s.muis_film = Vector2(-1, -1)],
 		[40.0, func(): s.muis_film = s.BORD.knop_rect(s).get_center()],   # muis boven de stuurknop: uitleg
 		[43.0, func(): s.muis_film = Vector2(-1, -1)],
 		[45.0, func(): s._klik(Vector2(s.breed * 0.55, KAART.voet_y(0) - 5))],
