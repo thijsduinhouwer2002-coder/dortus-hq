@@ -1,0 +1,19 @@
+# Blinde test: Click Cuts, cover van het gratis testblok (pen 5 mm, vier spelingen) op Printables (issue #423)
+
+Rol voor de rechters: You own a home 3D printer. You often print large models split into parts that are joined with printed pins or dowels, and you want to know which clearance gives a pin that slides in by hand without wobble on your printer. You are browsing free models on Printables for a small tolerance or fit test to print first. You are now looking at the cover images in the search results.
+
+Concurrenten: [Clearance Tolerance Test (Printables 116911, 7250 likes, de bekendste)](https://media.printables.com/media/prints/116911/images/7015971_eb8bc5a2-636a-492f-9c2e-e5cf134ecac8_5cd0fbcf-3549-4e7e-bfd1-60927f4fae57/p1899388.jpg), [Press/Tight/Loose-Fit Offset Gauge (Printables 484641, pen in gaten)](https://media.printables.com/media/prints/484641/images/3976164_9776da1b-dfed-45c2-be62-b05a6395dd79/maatblok_2023-may-21_06-14-11pm-000_customizedview35970355615.png), [FDM Tolerance Test 5 mm Pin (Printables 1887707, zelfde soort blok)](https://media.printables.com/media/prints/92f9b722-0895-4aec-98fa-31484bbb6f81/images/14184076_713ff1c7-be3a-45c0-aaab-6e3b573908fc_be6e28cd-1965-4155-8230-1f75d749a0b9/fdm-toleranztest-mit-5-mm-pins-2.png)
+
+Geslaagd = bij elke rechter gemiddeld plek 2 of beter (van 4), over 2 rondes met een andere volgorde.
+
+## testblok r1: blok met vier gegraveerde spelingen, pen boven het gat, drie pennen ervoor: GESLAAGD
+
+Kandidaat: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/cuts-testblok/beelden/testblok-cover-r1-1600x1200.jpg
+
+Gemiddelde plek: Gemini 2.0
+
+- Ronde 1, Gemini: wij plek 2, eerste keus FDM Tolerance Test 5 mm Pin (Printables 1887707, zelfde soort blok). Over ons: It provides a straightforward test with only 4 hole variations, but lacks the wider range of C. Beter maken: Include at least two more tolerance steps up to 0.4 mm to cover worst-case printer calibrations.
+- Ronde 2, Gemini: wij plek 2, eerste keus FDM Tolerance Test 5 mm Pin (Printables 1887707, zelfde soort blok). Over ons: It provides a straightforward test block for split prints, though it offers fewer clearance steps than the top choice. Beter maken: Expand the range to include more tolerance steps down to 0.05 and up to 0.5 mm for a more complete test.
+
+Modellen: Gemini = gemini-flash-lite-latest
+Alles is GEZIEN: letterlijke antwoorden van de modellen, ingekort tot één zin per punt.
