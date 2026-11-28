@@ -105,6 +105,11 @@ static func doel(h) -> float:
 static func sterkte(h) -> float:
 	if not is_aan():
 		return 0.0
+	# Mila 28 nov (Daan #357, #358): een vallende held draait, en de ring (NEAREST, op de maat van het blad) gaf dan een
+	# geblokte rafelrand. In de put is het toch donker achter hem: geen ring tijdens de val, meteen weg, niet uitfaden.
+	if h.get("staat") == "vallen":
+		h.set_meta("licht_s", 0.0)
+		return 0.0
 	if wissel:
 		return 0.0 if Engine.get_frames_drawn() % 2 == 1 else doel(h)
 	var t: float = float(h.get("t")) if h.get("t") != null else 0.0

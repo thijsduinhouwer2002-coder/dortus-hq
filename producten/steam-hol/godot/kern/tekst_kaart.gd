@@ -124,9 +124,18 @@ static func kaart(t) -> void:
 # Daan #344 K1: rechts op de knoppenrij stond een lege plank. Daar nu waar je staat: één rond steentje per stap (9), gekocht
 # in goud (stap 1 tot 6) of robijn (7 tot 9, zoals op de troon en het luik, systemen/robijn.gd), nog te kopen als
 # donker gat in het hout. Rechts uitgelijnd; past het niet naast de knoppen, dan niet.
+static var _toon := -2   # startargument stap_toon=<n>, -1 = niet gezet
+
 static func stappen(t, links: float, rechts: float, ky: float, kh: float, stap: int, n: int) -> void:
 	if n <= 0:
 		return
+	if _toon < -1:
+		_toon = -1
+		for a in OS.get_cmdline_user_args():
+			if a.begins_with("stap_toon="):
+				_toon = clampi(int(a.substr(10)), 0, 9)
+	if _toon >= 0:
+		stap = _toon   # Daan #359 K2: alleen voor bewijsbeelden (robijn zien), het spel zelf telt gewoon
 	var sc: float = t.schaal
 	var d := maxf(4.0, roundf(kh * 0.40))          # steentje
 	var tus := maxf(2.0, roundf(d * 0.6))         # ruimte ertussen
@@ -144,6 +153,8 @@ static func stappen(t, links: float, rechts: float, ky: float, kh: float, stap: 
 		var g := maxf(1.0, roundf(sc / 3.0))
 		if i < stap:
 			# gekocht: rond steentje zoals het muntje, donkere rand, licht bovenin
+			# Daan #359 K1: dezelfde lichte rand eronder als het gat, dan is het even groot en leest het als "gat gevuld"
+			t.draw_circle(m + Vector2(0, g), rs + g, Color("#a07850", 0.55))
 			t.draw_circle(m, rs + g, Color("#4a0f18") if robijn else Color("#5a3a10"))
 			t.draw_circle(m, rs, Color("#c8283c") if robijn else Color("#e9a92b"))
 			t.draw_circle(m + Vector2(-rs * 0.25, -rs * 0.3), rs * 0.45, Color("#ff7d8c") if robijn else Color("#ffe58a"))
