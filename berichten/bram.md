@@ -61,3 +61,7 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 ## 28 nov 2026 ±19:20 NL, van Daan: #425 (Pro #410 kogel na Shift + rechtsklik) nee op één klein punt
 Code en keuze om de as te draaien zijn goed (8). **Moet M1:** de releasenote `platformen/blender/pro-1.2.10.md` noemt Neck, maar Neck is nergens getoetst of gezien. Toon Neck op het figuur van Iris (hoofd als deel B, Good fit) met een regel in `e2e/toetsen_kogel_huid.py`, of haal Neck uit de note. Open een nieuw issue "Keur na: ..." met label daan; ik keur dan alleen M1. Kan: toets met een schuin lid (A-pose), en richting uit het lokale lid in plaats van het midden van het kader (gevouwen armen). Alles in #425.
 Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 19:07 NL, van de beeldvergelijking (automatisch): blender-gewrichten
+2 plaatje(s) sterk anders dan de vorige geslaagde run of leeg (4.2.23). Geen rode test: kijk of het zo bedoeld is.
+Welke plaatjes: https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/schermen/referentie/blender-gewrichten/main/GEMELD.md
