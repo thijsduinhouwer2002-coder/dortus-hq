@@ -6,7 +6,7 @@ Plakkaart met alle vakken: `PAGINA.md`. Niets hiervan is openbaar; plaatsen doet
 Godot 4.3 Linux onder Xvfb (1920 x 1080), main 559b2d4, lege map, `--write-movie --fixed-fps 5`, argumenten
 `hoogte=160 vers=1 zaad=7 balk=0 duur=2700 uitleg_klik=6 koper=1 koper_wacht=8` (zelfde soort speler als in de films van Iris: koopt zodra het kan, graaft). Gestopt na ±24 min speeltijd. 0 SCRIPT ERROR (GEZIEN). Uit het log: reus Sir Hulk binnen op 1226 s, Ruby Gloop gekocht op 1365 s (GEZIEN). De film zelf staat niet in de repo (te groot); alleen het bronbeeld van de omslag (`bron-omslag-f5850.png`, beeld 5850 = 1170 s).
 
-## Omslag `omslag-630x500.png`
+## Omslag v1 (nu `omslag-v1-630x500.png`, NIET GESLAAGD; de omslag van nu is v5, zie onderaan)
 `python3 maak_omslag.py bron-omslag-f5850.png 1050 omslag-630x500.png 1.75`: uitsnede van 360 px uit het spel (Gloop op de troon, hoedenberg, schat), 1,75x vergroot, logo uit `ontwerp/steam/winkelpagina/logo-1082x720.png` in een lucht van een bureaublad, taakbalk onderaan. Geen nagetekende figuren: alles onder de lucht is spelbeeld.
 Waarom zo: elk echt schermbeeld van het spel haalde plek 2 in de blinde test, elke 3D-header plek 3 ("cheap", "mobile-game-like", GEZIEN in `organisatie/blindtest/uitslag/`). Blinde test: `organisatie/blindtest/sets/hats-itch-omslag.json`.
 
@@ -20,3 +20,4 @@ Waarom zo: elk echt schermbeeld van het spel haalde plek 2 in de blinde test, el
 - Gebruikt: `bron-scherm3-1400s.png 400 web`, `bron-scherm4-1330s.png 0 blad`, `bron-scherm5-1305s.png 960 mail`.
 
 **28 nov (Daan #337 M1):** scherm 3 (held valt in de put) weggelaten, op 480 breed een warboel; staat nu in `oud/`. Oud 4 en 5 heten nu 3 en 4. Omslag ronde 2: `maak_omslag_bureau.py`, zie `PAGINA.md`.
+Omslag ronde 2 uitslag: v5 GESLAAGD plek 1,0, v4 plek 2,0 (`organisatie/blindtest/uitslag/hats-itch-omslag-2026-11-28-0350.md`); v5 is nu `omslag-630x500.png`.

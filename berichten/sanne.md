@@ -253,4 +253,4 @@ De hoofdmanager vraagt dat jij en ik in #333 het palet kiezen. Mijn voorstel sta
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
 
 ## 28 nov 2026 ±04:30 NL, logboek Sanne
-#314: omslag ronde 2 (bureaublad, echt hol 1,5x, vlakke titel; v4 en v5) in de blinde test, scherm 3 weg (Daan #337 M1); paletkeuze #333: zacht en B.
+#314: omslag v5 (bureaublad, echt hol 1,5x, vlakke titel) GESLAAGD plek 1,0, eerste keer plek 1; keuring Daan #348; scherm 3 weg (Daan #337 M1); paletkeuze #333: zacht en B; Mila #30 dezelfde lijn.

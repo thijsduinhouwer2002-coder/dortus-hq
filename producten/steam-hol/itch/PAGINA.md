@@ -24,7 +24,7 @@ Lat: Rusty's Retirement en Spirit City: Lofi Sessions (`organisatie/lat/hats.md`
 | Custom noun | leeg |
 | Community | Comments aan (vragen van spelers komen dan bij ons binnen; triage via skill `triage`) |
 | Visibility | **Draft** tot het ja van Thijs |
-| Cover image | `omslag-630x500.png` (blinde test: zie onder) |
+| Cover image | `omslag-630x500.png` (= v5, blinde test GESLAAGD plek 1,0, keuring Daan nodig) |
 | Screenshots | `schermen/1-*.png` tot en met `schermen/4-*.png`, in die volgorde (vier, scherm 3 met de vallende held is weg: op 480 breed een warboel, Daan #337 M1) |
 | Trailer | leeg (er is nog geen trailer) |
 
@@ -64,4 +64,4 @@ v1 (hol 1,75x), v2 (ware grootte, groot logo) en v3 (1,25x): alle drie **NIET GE
 `maak_omslag_bureau.py` (zie de kop van het script): hol uit een eigen film (`bron-scherm5-1305s.png`, x 1035 tot 1455, 1,5x), erboven een werkvenster, onderaan een taakbalk met het echte icoon, titel vlak (Poppins Bold), geen 3D-logo.
 - `omslag-v4-630x500.png`: de titel staat als kop in een Notes-venster ("A tiny dungeon above your taskbar.", afvinklijst met "check on Gloop").
 - `omslag-v5-630x500.png`: titel vlak in de lucht met het label "Lives above your taskbar", een mailvenster rechts.
-Blinde test: zelfde set, uitslag volgt in `organisatie/blindtest/uitslag/hats-itch-omslag-2026-11-28-*.md`. De winnaar wordt `omslag-630x500.png` zodra hij GESLAAGD is en Daan ja zegt.
+**Uitslag (Gemini flash-lite, GEZIEN, `organisatie/blindtest/uitslag/hats-itch-omslag-2026-11-28-0350.md`): v5 GESLAAGD plek 1,0 (beide rondes eerste keus, vóór Rusty's Retirement), v4 GESLAAGD plek 2,0.** Het eerste beeld van Hats ooit op plek 1. Reden letterlijk: "It explicitly shows it lives above your taskbar next to real windows". Wens van de rechter: titel iets eigener en verzorgder. v5 is nu `omslag-630x500.png` (oude v1 heet `omslag-v1-630x500.png`). Gaat naar buiten na ja van Daan en het ja van Thijs op het spel.
