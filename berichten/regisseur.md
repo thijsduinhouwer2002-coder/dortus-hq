@@ -189,3 +189,4 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - 28 nov 05:25 Regisseur run: #332 workflow-fout weg (OCR-map bestond alleen hier), kliks op de stem strakker (Make fit test, Export parts) met kliksync-controle; proef 128 s, alle 10 kliks binnen hun zin, vangnet leeg. Wacht op cuts-lang-elevenlabs.mp3.
 - 28 nov 05:45 Regisseur run: #332 wacht nog op cuts-lang-elevenlabs.mp3; beschrijving voor YouTube klaargezet (titel uit YouTube-suggesties, hoofdstukken, dortus.com/click-cuts/, bron per bewering) in regisseur-32/wachtrij-concept.md.
 - 28 nov 09:25 Regisseur run: #332 wacht op cuts-lang-elevenlabs.mp3; hele keten in Actions met proefstem getoetst (120 s, 30 bps gelijkmatig, geluid GOED, 24/24 synchroon), 4 fouten eruit die de run met Max hadden gebroken.
+- 28 nov 10:25 Regisseur run: #332 wacht nog op cuts-lang-elevenlabs.mp3; één herinnering in #317 (vraag stond niet op het bord), niets nieuws gemaakt.
