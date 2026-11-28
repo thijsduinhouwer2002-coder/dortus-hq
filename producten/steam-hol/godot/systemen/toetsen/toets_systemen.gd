@@ -581,6 +581,12 @@ func _init() -> void:
 	ok(not EM.gloop_les_mag(false, EM.VAL, true), "gloop-les: niet tijdens de eerste minuut (één regel tegelijk)")
 	ok(not EM.gloop_les_weg(5.0, "", true) and EM.gloop_les_weg(EM.GLOOP_MAX_S, "", true), "gloop-les: blijft tot 20 s")
 	ok(EM.gloop_les_weg(1.0, "slijm", true) and EM.gloop_les_weg(1.0, "", false), "gloop-les: weg na klik of als de ring uitgaat")
+	# #368 (speeltest Thijs 28 nov): een oude save krijgt de les één keer opnieuw, zonder kijkstap; een nieuwe niet twee keer
+	ok(EM.begin_uit_save({}) == EM.WELKOM and EM.opnieuw_uit_save({}), "les opnieuw: save zonder uitleg_v begint bij het welkom")
+	ok(EM.begin_uit_save({"uitleg": 4}) == EM.WELKOM and EM.opnieuw_uit_save({"uitleg": 4}), "les opnieuw: oude save met les klaar krijgt hem nog één keer")
+	ok(EM.begin_uit_save({"uitleg": 4, "uitleg_v": EM.UITLEG_V}) == EM.KLAAR and not EM.opnieuw_uit_save({"uitleg": 4, "uitleg_v": EM.UITLEG_V}), "les opnieuw: nooit een tweede keer")
+	ok(EM.begin_uit_save({"uitleg": 3, "uitleg_v": EM.UITLEG_V}) == EM.VAL, "les opnieuw: halverwege gestopt gaat verder waar hij was")
+	ok(String(EM.TEKST[EM.WELKOM]).length() <= 42 and String(EM.TEKST[EM.WELKOM]).contains("gold"), "welkom zegt het doel (goud) in hooguit 42 tekens")
 	ok(EM.GLOOP_TEKST.length() <= 30, "gloop-les: regel kort (%d tekens)" % EM.GLOOP_TEKST.length())
 	var langste := 0
 	for st in ["slijm", "stekelput"]:

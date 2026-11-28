@@ -11,6 +11,11 @@ extends Node2D
 #   4 KLAAR   niets meer; het doel op het bord (kern/kaartje.gd doel_regel) neemt het over
 # Doet de speler 20 s niets bij stap 2 of 3, dan wipt de pijl één keer groter. Nooit een tweede regel.
 # Een bestaande save zonder "uitleg" telt als KLAAR (wie al speelde krijgt geen les).
+# Sanne 28 nov (#368, speeltest Thijs 10:36 "ik snap echt niet wat ik moet doen"): zijn save van 24 nov liep door, dus hij
+# kreeg nooit een les. Nu: een save van vóór uitleg-versie 2 (UITLEG_V) krijgt de les één keer opnieuw, zonder de
+# kijkstap (er lopen al helden): welkom met het doel, graven, val. Kan een stap nergens (alles gegraven, overal een
+# put), dan gaat hij na 1 s door, zodat de les nooit vastloopt. Het welkom zegt nu het doel en niet alleen de naam:
+# Thijs wist niet waarom hij iets zou doen.
 # Gloop-les (Daan #68, issue #62): de eerste keer dat Gloops ring aangaat (systemen/gloop_ring.gd) staat één keer
 # dezelfde regel met pijl op Gloop: "Click Gloop to grow him." Weg zodra hij op Gloop klikt (kaartje open), de ring
 # uitgaat, of na 20 s. Daarna nooit meer: de ring alleen zegt het dan. Zo leert de speler wat de ring betekent en
@@ -24,8 +29,10 @@ const WELKOM_S := 4.0
 const KIJK_MAX_S := 30.0      # komt er toch geen vangst (vreemde save), dan na 30 s door naar graven
 const NA_MUNT_S := 1.6        # na de eerste muntjes even kijken, dan pas de regel
 const DUW_S := 20.0           # zo lang niets gedaan: de pijl wipt één keer groter
+const UITLEG_V := 2           # saves met een lagere "uitleg_v" krijgen de les één keer opnieuw (#368)
+const GEEN_DOEL_S := 1.0      # zo lang geen plek om te klikken: stap overslaan
 const TEKST := {
-	WELKOM: "Hats of the Fallen. Your taskbar has a basement.",
+	WELKOM: "Heroes want your gold. Trap them first!",   # concept tot Thijs hem schrijft
 	GRAAF: "Click the dirt to dig.",
 	VAL: "Click the tunnel to set a trap.",
 }
@@ -44,6 +51,18 @@ var munt_t := -1.0
 var vallen_start := 0
 var gegraven_kol := -1
 var letter: FontVariation
+var opnieuw := false           # oude save: na het welkom meteen graven, geen kijkstap
+var geen_doel_t := 0.0
+
+# Waar begint de les bij het laden van een save (los te toetsen). Geen save: 0 (welkom).
+static func begin_uit_save(data: Dictionary) -> int:
+	var st := clampi(int(data.get("uitleg", KLAAR)), WELKOM, KLAAR)
+	if st == KLAAR and int(data.get("uitleg_v", 0)) < UITLEG_V:
+		return WELKOM
+	return st
+
+static func opnieuw_uit_save(data: Dictionary) -> bool:
+	return int(data.get("uitleg_v", 0)) < UITLEG_V and int(data.get("uitleg", KLAAR)) == KLAAR
 
 func zet(strook, begin_stap: int) -> void:
 	s = strook
@@ -97,6 +116,7 @@ func _log() -> void:
 func _naar(n: int) -> void:
 	stap = n
 	stap_t = 0.0
+	geen_doel_t = 0.0
 	duw_t = -1.0
 	if stap == VAL:
 		vallen_start = s.hol.vallen.size()
@@ -120,7 +140,7 @@ func _process(delta: float) -> void:
 	match stap:
 		WELKOM:
 			if stap_t >= WELKOM_S:
-				_naar(KIJK)
+				_naar(GRAAF if opnieuw else KIJK)
 		KIJK:
 			if munt_t < 0.0 and int(s.hol.goud) > goud_start:
 				munt_t = stap_t
@@ -131,6 +151,15 @@ func _process(delta: float) -> void:
 				_naar(KLAAR)
 			else:
 				vallen_start = mini(vallen_start, s.hol.vallen.size())   # put weggehaald: de volgende telt
+	if (stap == GRAAF or stap == VAL) and doel_kol() < 0:
+		geen_doel_t += delta
+		if geen_doel_t >= GEEN_DOEL_S:
+			s.log_regel("HOL uitleg stap %d overgeslagen: geen plek" % stap)
+			_naar(VAL if stap == GRAAF else KLAAR)
+			queue_redraw()
+			return
+	else:
+		geen_doel_t = 0.0
 	if (stap == GRAAF or stap == VAL) and duw_t < 0.0 and stap_t >= DUW_S:
 		duw_t = stap_t
 		s.log_regel("HOL uitleg duw stap %d" % stap)

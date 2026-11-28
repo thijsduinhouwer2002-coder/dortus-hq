@@ -279,3 +279,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 28 nov 2026 ±11:50 NL, logboek Sanne
 #370: uitlegfilm 55 s uit een echte opname (`producten/steam-hol/uitlegfilm/`, run 46131690893), 10 beelden bekeken; release geweigerd, mp4 in de repo; #333 op later zodat Olaf alleen #369 heeft.
+
+## 28 nov 2026 ±12:10 NL, logboek Sanne
+#370 was al af (vorige run); #368: oude save krijgt de les één keer opnieuw, welkom zegt het doel, vastloopvrij; blinde lezer 6 en 7, toetsen 0 FOUT (`producten/steam-hol/bewijs-les-opnieuw/`), keuring Daan.

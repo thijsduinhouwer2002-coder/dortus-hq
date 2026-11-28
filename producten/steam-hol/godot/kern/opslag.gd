@@ -4,6 +4,7 @@ extends RefCounted
 const VOORTGANG := preload("res://systemen/voortgang.gd")
 const AFLOOP := preload("res://kern/afloop.gd")   # faam_erbij (hol-niveau)
 const HOL_NIVEAU := preload("res://systemen/hol_niveau.gd")   # weg_regel en optocht (Sanne 16 nov 14:50)
+const EERSTE_MINUUT := preload("res://kern/eerste_minuut.gd")   # uitleg_v: oude saves krijgen de les opnieuw (#368)
 const VEILIG := preload("res://kern/veilig_bestand.gd")   # save nooit stilletjes weg: .tmp, vorige, kapot (Olaf 26 nov, #194)
 const OPSLAG_VERSIE := 3   # 3: hol groeit naar links, schat rechts (oudere saves: vers begin, de oude blijft als hol.v<versie>.json)
 const OPSLAG := "user://hol.json"
@@ -17,7 +18,7 @@ static func bewaar(s) -> void:
 		"schat_kol": s.hol.schat_kol, "goud": s.hol.goud, "terugkomers": s.terugkomers, "kroniek": s._kroniek_bewaar(),
 		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht, "helden_nr": s.helden_nr, "lied_helden": s.lied_helden, "reuzen": s.reuzen_gezien, "reus_wacht": s.reus_wacht,
 		"pensioen_namen": s.pensioen_namen, "speeltijd_s": s.speeltijd_s, "faam": s.faam, "rij": s.rij, "rij_t": s.rij_t, "gegraven": s.zelf_gegraven,
-		"uitleg": int(s.uitleg.stap) if s.uitleg != null else 4,
+		"uitleg": int(s.uitleg.stap) if s.uitleg != null else 4, "uitleg_v": EERSTE_MINUUT.UITLEG_V,
 		"gloop_les": bool(s.uitleg.gloop_gezien) if s.uitleg != null else s.uitleg_gloop,
 		"slijm": s.slijm.naar_dict() if s.slijm.has_method("naar_dict") else {},
 		"upgrades": s.hol.upgrades.naar_dict() if s.hol.upgrades != null else {},
@@ -107,7 +108,8 @@ static func laad(s, begin) -> void:
 	s.reus_wacht = int(data.get("reus_wacht", 0))
 	s.faam = maxi(0, int(data.get("faam", 0)))
 	s.zelf_gegraven = maxi(0, int(data.get("gegraven", 0)))   # graafbonus (Sanne 16 nov 21:00); oude saves 0
-	s.uitleg_stap = clampi(int(data.get("uitleg", 4)), 0, 4)   # eerste minuut (kern/eerste_minuut.gd); oude saves: klaar
+	s.uitleg_stap = EERSTE_MINUUT.begin_uit_save(data)   # eerste minuut (kern/eerste_minuut.gd); save van vóór uitleg_v 2: les opnieuw (#368)
+	s.uitleg_opnieuw = EERSTE_MINUUT.opnieuw_uit_save(data)
 	s.uitleg_gloop = bool(data.get("gloop_les", false))   # Gloop-les één keer (Daan #68); oude saves krijgen hem ook één keer
 	s.rij = maxi(0, int(data.get("rij", 0)))   # rij bij de ingang (Sanne 16 nov 16:00); oude saves 0
 	s.rij_t = float(data.get("rij_t", 0.0))   # oude saves vanaf 0 (hol-niveau 1); versie blijft gelijk

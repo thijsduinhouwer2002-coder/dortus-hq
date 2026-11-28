@@ -87,7 +87,8 @@ var terugkomers: Array = []   # ontsnapte helden die terugkomen
 var held_script
 var uitleg                   # de eerste minuut: één doel met een pijl (kern/eerste_minuut.gd, Sanne 25 nov)
 var uitleg_gloop := false    # de Gloop-les stond al eens in beeld (kern/eerste_minuut.gd, save "gloop_les")
-var uitleg_stap := 0         # 0 = nieuw spel begint bij het welkom; laad() zet 4 (klaar) voor een oude save
+var uitleg_stap := 0         # 0 = nieuw spel begint bij het welkom; laad() zet 4 (klaar) voor een save met de les al gehad
+var uitleg_opnieuw := false  # save van vóór uitleg_v 2: de les nog één keer, zonder kijkstap (#368)
 var proef_uitleg_klik := 0.0 # uitleg_klik=<s>: doe wat de regel zegt na s seconden (film en toets)
 var eerste_held_gedaan := false   # de eerste held van een nieuw spel valt altijd (balans.md, Sanne)
 # De eerste tien minuten van een nieuw spel (features.md; Sanne toets 2 punt 9, toets 3 punt 1): vijf vaste uitkomsten,
@@ -233,6 +234,7 @@ func _ready() -> void:
 	uitleg.set_script(load("res://kern/eerste_minuut.gd"))
 	uitleg.name = "Uitleg"
 	add_child(uitleg)
+	uitleg.opnieuw = uitleg_opnieuw and not demo
 	uitleg.zet(self, 4 if demo else uitleg_stap)   # de demo-film koopt zelf; de Steam-demo krijgt wel de les
 	uitleg.gloop_gezien = uitleg_gloop or demo
 	DEMO_EINDE.bij_start(self)
