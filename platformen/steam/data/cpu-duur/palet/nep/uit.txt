@@ -1,0 +1,264 @@
+HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
+HOL uitleg stap 0 t=0.0 Hats of the Fallen. Your taskbar has a basement.
+HOL start hoogte=200 schaal=5 spelpixels=384x40 venster=(1920, 200) pos=(320, 480) held=res://systemen/held.gd
+HOL zaad 5
+HOL balk uit
+HOL palet zacht
+HOL muisvlak passthrough, lucht vrij op x=-1
+HOL begin: vallen (Jop)
+HOL held binnen: Jop
+HOL zicht 2.2 1
+HOL kroniek 2.6 (wacht 0.5): Jop says this is a quick one.
+HOL uitleg stap 1 t=4.1 
+HOL wissel leven uit unix=1795841140.10 t=4.26 pad=Hol
+HOL wissel palet uit unix=1795841140.10 t=4.26 pad=Hol
+HOL wissel licht uit unix=1795841140.10 t=4.26 pad=Hol
+HOL wissel tekens uit unix=1795841140.10 t=4.26 pad=Hol
+HOL kroniek zelfde held vervangen: Jop says this is a quick one.
+HOL kroniek 7.4 (wacht 0.0): Jop is part of the hole now. +9
+HOL zicht 7.4 0
+HOL leven mot t=7.9 x=136 y=26
+HOL uitleg stap 2 t=9.0 Click the dirt to dig.
+HOL begin: opgegeten (Kees)
+HOL held binnen: Kees
+HOL zicht 9.1 1
+HOL kroniek 10.0 (wacht 2.6): First hero in the pit!
+HOL meting t=10 beelden=124 helden=1 hol_vast=3
+HOL kroniek vervallen 12.2: Kees knocks first. Polite.
+HOL meting t=20 beelden=100 helden=1 hol_vast=3
+HOL leven goudstof t=23.9 x=276 y=30
+HOL wissel leven aan unix=1795841160.10 t=24.27 pad=Hol
+HOL wissel palet aan unix=1795841160.10 t=24.27 pad=Hol
+HOL wissel licht aan unix=1795841160.10 t=24.27 pad=Hol
+HOL wissel tekens aan unix=1795841160.10 t=24.27 pad=Hol
+HOL reeks 2 (+0, t 26.0)
+HOL kroniek 26.0 (wacht 0.0): Gloop ate Kees. Kept the crown. +9
+HOL zicht 26.1 0
+HOL kroniek 28.6 (wacht 2.6): First hero for Gloop!
+HOL uitleg duw stap 2
+HOL meting t=30 beelden=126 helden=0 hol_vast=4
+HOL begin: vluchten (Joost)
+HOL held binnen: Joost
+HOL zicht 30.6 1
+HOL kroniek 31.1 (wacht 0.6): Joost climbs into your hole.
+HOL meting t=40 beelden=100 helden=1 hol_vast=4
+HOL leven stofje t=42.1 x=136 y=26
+HOL wissel leven uit unix=1795841180.05 t=44.21 pad=Hol
+HOL wissel licht uit unix=1795841180.05 t=44.21 pad=Hol
+HOL wissel tekens uit unix=1795841180.05 t=44.21 pad=Hol
+HOL wissel palet uit unix=1795841180.15 t=44.31 pad=Hol
+HOL kroniek zelfde held vervangen: Joost climbs into your hole.
+HOL kroniek 48.7 (wacht 0.0): Joost fled, crying a little.
+HOL zicht 48.8 0
+HOL meting t=50 beelden=101 helden=0 hol_vast=4
+HOL kroniek 51.2 (wacht 2.5): First hero got away.
+HOL leven mot t=59.1 x=136 y=26
+HOL meting t=60 beelden=100 helden=0 hol_vast=4
+HOL wissel leven aan unix=1795841200.05 t=64.21 pad=Hol
+HOL wissel palet aan unix=1795841200.15 t=64.31 pad=Hol
+HOL kroniek zelfde held vervangen: Joost fled, crying a little.
+HOL kroniek 65.0 (wacht 0.0): Joost remembers the Spike Pit.
+HOL begin: terug (Joost)
+HOL held binnen: Joost
+HOL wissel licht aan unix=1795841200.85 t=65.01 pad=Hol
+HOL wissel tekens aan unix=1795841200.85 t=65.01 pad=Hol
+HOL zicht 65.1 1
+HOL leven stofje t=69.9 x=136 y=26
+HOL meting t=70 beelden=101 helden=1 hol_vast=4
+HOL hol-niveau 2 (faam 3, t 73.5)
+HOL kroniek zelfde held vervangen: Joost remembers the Spike Pit.
+HOL kroniek 73.5 (wacht 0.0): Joost came back. The Spike Pit won. +12
+HOL put-hoed 3 naar de toren (hoeden nu 2, t 73.5)
+HOL zicht 73.6 0
+HOL gloop ring aan na 73.6 s (goud 50)
+HOL eerste koop mogelijk na 73 s speeltijd (goud 50)
+HOL bordje wip niveau 2
+HOL meting t=80 beelden=125 helden=0 hol_vast=7
+HOL wissel leven uit unix=1795841220.10 t=84.26 pad=Hol
+HOL wissel palet uit unix=1795841220.10 t=84.26 pad=Hol
+HOL leven mot t=88.2 x=136 y=26
+HOL meting t=90 beelden=100 helden=0 hol_vast=7
+HOL kroniek 96.5 (wacht 0.0): Siem has a map. It is wrong.
+HOL begin: doorlopen (Siem)
+HOL held binnen: Siem
+HOL wissel licht uit unix=1795841232.30 t=96.46 pad=Hol
+HOL wissel tekens uit unix=1795841232.30 t=96.46 pad=Hol
+HOL zicht 96.6 1
+HOL meting t=100 beelden=101 helden=1 hol_vast=7
+HOL leven vleermuis t=100.6 x=152 y=28
+HOL wissel leven aan unix=1795841240.10 t=104.26 pad=Hol
+HOL wissel palet aan unix=1795841240.10 t=104.26 pad=Hol
+HOL wissel licht aan unix=1795841240.10 t=104.26 pad=Hol
+HOL wissel tekens aan unix=1795841240.10 t=104.26 pad=Hol
+HOL meting t=110 beelden=100 helden=1 hol_vast=7
+HOL kroniek 112.8 (wacht 0.0): Gloop is flat. Back soon.
+HOL gloop ring uit na 112.8 s (goud 50)
+HOL leven mot t=114.8 x=136 y=26
+HOL meting t=120 beelden=100 helden=1 hol_vast=7
+HOL kroniek zelfde held vervangen: Siem has a map. It is wrong.
+HOL kroniek 121.8 (wacht 0.0): Siem is now the Hoard-Toucher.
+HOL wissel leven uit unix=1795841260.10 t=124.27 pad=Hol
+HOL wissel palet uit unix=1795841260.10 t=124.27 pad=Hol
+HOL wissel licht uit unix=1795841260.10 t=124.27 pad=Hol
+HOL wissel tekens uit unix=1795841260.10 t=124.27 pad=Hol
+HOL meting t=130 beelden=101 helden=1 hol_vast=7
+HOL leven vleermuis t=132.2 x=152 y=28
+HOL kroniek 132.8 (wacht 0.0): Femke read about you in a tavern.
+HOL held binnen: Femke
+HOL meting t=140 beelden=101 helden=2 hol_vast=7
+HOL kroniek 142.9 (wacht 0.0): Gloop is up again. Wobbly.
+HOL gloop ring aan na 142.9 s (goud 50)
+HOL held binnen: Tibbe
+HOL kroniek 144.0 (wacht 0.5): Siem ran. Hands smell of gold.
+HOL wissel leven aan unix=1795841280.10 t=144.26 pad=Hol
+HOL wissel palet aan unix=1795841280.10 t=144.26 pad=Hol
+HOL wissel licht aan unix=1795841280.10 t=144.26 pad=Hol
+HOL wissel tekens aan unix=1795841280.10 t=144.26 pad=Hol
+HOL leven mot t=145.6 x=136 y=26
+HOL kroniek 146.6 (wacht 3.0): Tibbe is here for your gold.
+HOL droogte (t 148.6)
+HOL meting t=150 beelden=106 helden=2 hol_vast=8
+HOL kroniek 150.7 (wacht 0.0): Gloop says thanks for the snack. +9
+HOL hol-niveau 3 (faam 5, t 160.4)
+HOL reeks 2 (+0, t 160.4)
+HOL kroniek zelfde held vervangen: Tibbe is here for your gold.
+HOL kroniek 160.4 (wacht 0.0): Gloop ate Tibbe. Burp. +9
+HOL zicht 160.4 0
+HOL bordje wip niveau 3
+HOL meting t=160 beelden=128 helden=0 hol_vast=9
+HOL leven goudstof t=160.9 x=276 y=30
+HOL wissel leven uit unix=1795841300.05 t=164.21 pad=Hol
+HOL wissel palet uit unix=1795841300.15 t=164.31 pad=Hol
+HOL meting t=170 beelden=117 helden=0 hol_vast=9
+HOL kroniek 176.1 (wacht 0.0): Merel brought a torch. And hope.
+HOL held binnen: Merel
+HOL wissel licht uit unix=1795841311.96 t=176.11 pad=Hol
+HOL wissel tekens uit unix=1795841311.96 t=176.11 pad=Hol
+HOL zicht 176.2 1
+HOL leven mot t=177.2 x=136 y=26
+HOL meting t=180 beelden=101 helden=1 hol_vast=9
+HOL wissel leven aan unix=1795841320.05 t=184.22 pad=Hol
+HOL wissel licht aan unix=1795841320.05 t=184.22 pad=Hol
+HOL wissel tekens aan unix=1795841320.05 t=184.22 pad=Hol
+HOL wissel palet aan unix=1795841320.10 t=184.27 pad=Hol
+HOL reeks 3 (+1, t 184.6)
+HOL kroniek zelfde held vervangen: Merel brought a torch. And hope.
+HOL kroniek 184.6 (wacht 0.0): Merel found the Spike Pit. Hard. +10
+HOL put-hoed 7 naar de toren (hoeden nu 5, t 184.6)
+HOL zicht 184.7 0
+HOL wissel berg aan unix=1795841322.00 t=186.17 pad=Hol
+HOL meting t=191 beelden=128 helden=0 hol_vast=12
+HOL leven stofje t=192.4 x=136 y=26
+HOL meting t=201 beelden=100 helden=0 hol_vast=12
+HOL leven vleermuis t=203.3 x=152 y=28
+HOL wissel leven uit unix=1795841340.05 t=204.21 pad=Hol
+HOL wissel palet uit unix=1795841340.15 t=204.31 pad=Hol
+HOL wissel berg uit unix=1795841340.45 t=204.61 pad=Hol
+HOL meting t=211 beelden=101 helden=0 hol_vast=12
+HOL kroniek 212.0 (wacht 0.0): Siem the Hoard-Toucher is back for Gloop.
+HOL held binnen: Siem
+HOL wissel licht uit unix=1795841347.85 t=212.01 pad=Hol
+HOL wissel tekens uit unix=1795841347.85 t=212.01 pad=Hol
+HOL zicht 212.1 1
+HOL leven goudstof t=217.2 x=276 y=30
+HOL meting t=221 beelden=100 helden=1 hol_vast=12
+HOL wissel leven aan unix=1795841360.05 t=224.21 pad=Hol
+HOL wissel licht aan unix=1795841360.05 t=224.21 pad=Hol
+HOL wissel tekens aan unix=1795841360.05 t=224.21 pad=Hol
+HOL wissel palet aan unix=1795841360.15 t=224.31 pad=Hol
+HOL wissel berg aan unix=1795841361.45 t=225.61 pad=Hol
+HOL kroniek zelfde held vervangen: Siem the Hoard-Toucher is back for Gloop.
+HOL kroniek 230.2 (wacht 0.0): Siem fled. Grudge: the Spike Pit.
+HOL zicht 230.3 0
+HOL leven vleermuis t=230.6 x=152 y=28
+HOL meting t=231 beelden=101 helden=0 hol_vast=12
+HOL droogte (t 240.0)
+HOL meting t=241 beelden=100 helden=0 hol_vast=12
+HOL kroniek 244.0 (wacht 0.0): Ineke read about you in a tavern.
+HOL held binnen: Ineke
+HOL zicht 244.1 1
+HOL wissel leven uit unix=1795841380.05 t=244.21 pad=Hol
+HOL wissel licht uit unix=1795841380.05 t=244.21 pad=Hol
+HOL wissel tekens uit unix=1795841380.05 t=244.21 pad=Hol
+HOL wissel palet uit unix=1795841380.15 t=244.31 pad=Hol
+HOL wissel berg uit unix=1795841380.85 t=245.01 pad=Hol
+HOL leven mot t=247.6 x=136 y=26
+HOL meting t=251 beelden=101 helden=1 hol_vast=12
+HOL hol-niveau 4 (faam 7, t 252.5)
+HOL kroniek zelfde held vervangen: Ineke read about you in a tavern.
+HOL kroniek 252.5 (wacht 0.0): Ineke checked the floor. Too late. +13
+HOL put-hoed 8 naar de toren (hoeden nu 6, t 252.5)
+HOL zicht 252.6 0
+HOL bordje wip niveau 4
+HOL meting t=261 beelden=125 helden=0 hol_vast=15
+HOL leven vleermuis t=263.1 x=152 y=28
+HOL wissel leven aan unix=1795841400.10 t=264.27 pad=Hol
+HOL wissel palet aan unix=1795841400.10 t=264.27 pad=Hol
+HOL wissel berg aan unix=1795841400.10 t=264.27 pad=Hol
+HOL meting t=271 beelden=100 helden=0 hol_vast=15
+HOL leven mot t=274.1 x=136 y=26
+HOL kroniek 277.5 (wacht 0.0): Pim says this is a quick one.
+HOL held binnen: Pim
+HOL wissel licht aan unix=1795841413.30 t=277.47 pad=Hol
+HOL wissel tekens aan unix=1795841413.30 t=277.47 pad=Hol
+HOL zicht 277.6 1
+HOL meting t=281 beelden=101 helden=1 hol_vast=15
+HOL droogte (t 282.6)
+HOL wissel leven uit unix=1795841420.10 t=284.27 pad=Hol
+HOL wissel palet uit unix=1795841420.10 t=284.27 pad=Hol
+HOL wissel licht uit unix=1795841420.10 t=284.27 pad=Hol
+HOL wissel tekens uit unix=1795841420.10 t=284.27 pad=Hol
+HOL wissel berg uit unix=1795841420.10 t=284.27 pad=Hol
+HOL reeks 2 (+0, t 286.0)
+HOL kroniek zelfde held vervangen: Pim says this is a quick one.
+HOL kroniek 286.0 (wacht 0.0): Pim will not be leaving. +13
+HOL put-hoed 5 naar de toren (hoeden nu 7, t 286.0)
+HOL zicht 286.1 0
+HOL leven stofje t=287.2 x=136 y=26
+HOL meting t=291 beelden=126 helden=0 hol_vast=18
+HOL meting t=301 beelden=100 helden=0 hol_vast=18
+HOL wissel leven aan unix=1795841440.05 t=304.21 pad=Hol
+HOL wissel palet aan unix=1795841440.15 t=304.31 pad=Hol
+HOL wissel berg aan unix=1795841440.25 t=304.41 pad=Hol
+HOL leven mot t=304.7 x=136 y=26
+HOL meting t=311 beelden=100 helden=0 hol_vast=18
+HOL kroniek 312.8 (wacht 0.0): Teun is here for your gold.
+HOL held binnen: Teun
+HOL wissel licht aan unix=1795841448.66 t=312.81 pad=Hol
+HOL wissel tekens aan unix=1795841448.66 t=312.81 pad=Hol
+HOL zicht 312.9 1
+HOL droogte (t 316.1)
+HOL leven stofje t=321.0 x=136 y=26
+HOL reeks 3 (+1, t 321.3)
+HOL kroniek zelfde held vervangen: Teun is here for your gold.
+HOL kroniek 321.3 (wacht 0.0): Teun fell to the Spike Pit. +14
+HOL put-hoed 2 naar de toren (hoeden nu 8, t 321.3)
+HOL zicht 321.4 0
+HOL meting t=321 beelden=108 helden=0 hol_vast=19
+HOL wissel leven uit unix=1795841460.05 t=324.21 pad=Hol
+HOL wissel berg uit unix=1795841460.05 t=324.21 pad=Hol
+HOL wissel palet uit unix=1795841460.15 t=324.31 pad=Hol
+HOL meting t=331 beelden=120 helden=0 hol_vast=21
+HOL leven mot t=332.3 x=136 y=26
+HOL meting t=341 beelden=100 helden=0 hol_vast=21
+HOL wissel leven aan unix=1795841480.05 t=344.21 pad=Hol
+HOL wissel berg aan unix=1795841480.05 t=344.21 pad=Hol
+HOL wissel palet aan unix=1795841480.15 t=344.31 pad=Hol
+HOL leven stofje t=344.9 x=136 y=26
+HOL kroniek 347.7 (wacht 0.0): Sir Geert clanks in.
+HOL held binnen: Geert
+HOL zicht 347.8 1
+HOL droogte (t 351.4)
+HOL meting t=351 beelden=101 helden=1 hol_vast=21
+HOL reeks 4 (+2, t 358.0)
+HOL kroniek zelfde held vervangen: Sir Geert clanks in.
+HOL kroniek 358.0 (wacht 0.0): Sir Geert was very sure. Was. +15
+HOL put-hoed 6 naar de toren (hoeden nu 9, t 358.0)
+HOL zicht 358.0 0
+HOL kroniek 360.5 (wacht 2.5): The pit's first knight.
+HOL leven mot t=360.5 x=136 y=26
+HOL meting t=361 beelden=129 helden=0 hol_vast=24
+HOL wissel leven uit unix=1795841500.10 t=364.26 pad=Hol
+HOL wissel palet uit unix=1795841500.10 t=364.26 pad=Hol
+HOL wissel berg uit unix=1795841500.10 t=364.26 pad=Hol
+HOL einde na 370 s, fps=10, goud=133, terugkomers=0

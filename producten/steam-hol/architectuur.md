@@ -5,7 +5,7 @@ Godot 4.3, map `godot/`. Eén scène (`main.tscn`) met de strook als wortel.
 | Deel | Bestand | Wie | Wat |
 |---|---|---|---|
 | Strook | `kern/strook.gd` | Olaf | venster boven de taakbalk, hoogte (96, 120, 160, 200, 240; eerste start 200 op 100%, 240 vanaf 125%, #333), de toestand van het spel, de eerste tien minuten (BEGIN, BEGIN_DEMO; de keuze van de stap staat in `binnenkomst.gd`), `_process` |
-| Palet | `kern/palet.gd` | Olaf | `palet=zacht`: één laag bovenop de strook die het beeld terugleest en dempt (verzadiging 0,78, schaduwen op, warm); standaard `zacht` sinds 28 nov (keuze Sanne, #333), `palet=vol` voor fel; de laag hangt met ankers over het hele venster |
+| Palet | `kern/palet.gd` | Olaf | `palet=zacht`: één laag bovenop de strook die het beeld terugleest en dempt (verzadiging 0,78, schaduwen op, warm); standaard `vol`: zacht kost binnen één run ±30 procent CPU (boven de poort, GEZIEN, `bewijs-palet-zacht/`), dus alleen als proef; `wissel=palet` meet het; de laag hangt met ankers over het hele venster |
 | Muisvlak | `kern/muisvlak.gd` | Olaf | welk deel van het venster de muis vangt (hol, gras, bult boven Gloop, paneel bij hover); strook.gd houdt `_muis_vlak`, `muis_vlak_punten` en `gloop_bult` als doorgeefluik |
 | Proef | `kern/proef.gd` | Olaf | startargumenten (hoogte, duur, log, demo, film, zaad, fps en alle `*_proef`), en de winkelmomenten `moment=hap/val/munt` met de logregel `HOL moment vast` |
 | Hol-lagen | `kern/hol_lagen.gd` | Olaf | maakt de lagen in het hol in tekenvolgorde: klein leven, licht, vleermuis, bordje, Wezens (helden en Gloop bovenop) |

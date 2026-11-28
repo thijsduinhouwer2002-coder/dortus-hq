@@ -1,8 +1,8 @@
-# Palet zacht als standaard (#333, Olaf 28 nov)
+# Palet zacht: gemeten en niet standaard (#333, Olaf 28 nov)
 
 Keuze Sanne in #333 (28 nov ±04:00): grond `zacht`, figuren B van Mila. Dit is het deel voor de grond.
 
-Wat de speler ziet: het hele hol is iets gedempter (verzadiging 0,78, schaduwen iets op, hoge lichten iets terug, een vleug warm). Wie het fel wil, start met `palet=vol`.
+**Uitkomst:** `zacht` stond kort standaard (commit 702d264) maar staat weer op `vol`. Binnen één run gemeten (`wissel=palet` zet de laag om de 20 s aan en uit, `wissel=nep` is de placebo; 200 px, 1920 x 1080, Linux software-tekenen, 6 min elk, zaad 5) kost de laag **±30 procent CPU**: palet buurparen +41,0 procent (fout ±10,6), placebo +11,3 (±4,5), dus ±30 (GEZIEN, ruwe meting `platformen/steam/data/cpu-duur/palet/`, script `cpu_stenen.py`, `ALLES=1`). De Windows-run 46107305080 gaf los 200 zacht 3,65 tegen 200 vol 2,86 CPU-s per 10 s (+28 procent, GEZIEN, losse runs). Dat is boven de poort van 20 procent in `platformen/steam/balans.md`, en de blinde test zag geen verschil tussen vol en zacht. Op een pc met grafische kaart kost zo'n laag waarschijnlijk veel minder (GOK), maar onze poort meet zo.
 
 Daan #339 punt (1): de laag hangt nu met ankers over het hele venster (`set_anchors_and_offsets_preset(FULL_RECT)`), dus hij groeit mee als het venster na de start nog van maat verandert. Een andere hoogte kiezen herlaadt de scène al, dus daar ging het niet mis; nu kan het ook niet meer bij een late venstermaat.
 

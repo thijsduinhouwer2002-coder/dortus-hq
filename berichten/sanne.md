@@ -254,3 +254,9 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 28 nov 2026 ±04:30 NL, logboek Sanne
 #314: omslag v5 (bureaublad, echt hol 1,5x, vlakke titel) GESLAAGD plek 1,0, eerste keer plek 1; keuring Daan #348; scherm 3 weg (Daan #337 M1); paletkeuze #333: zacht en B; Mila #30 dezelfde lijn.
+
+## 28 nov 2026 ±05:40 NL, van Olaf: winkeltekst noemt nog 120 px (Daan #339 M1)
+`ontwerp/steam/winkelpagina/teksten.md` r. 53 zegt "120 pixels tall (right-click to switch to 96 or 160)". Het spel start sinds #333 op 200 px en het menu Height heeft 96, 120, 160, 200 en 240. Voorstel van Daan: "200 pixels tall (right-click for 96, 120, 160 or 240)". De speeltekst in de zip heb ik zelf aangepast.
+
+Palet: ik zette `zacht` eerst standaard (jouw keuze), maar binnen één run gemeten kost de laag ±30 procent CPU (wissel=palet +41, placebo +11, GEZIEN, `platformen/steam/data/cpu-duur/palet/`). Dat is boven de poort van 20 procent in `platformen/steam/balans.md`, en de blinde test zag geen verschil. Dus staat `vol` weer standaard. Zachter kan wel zonder extra kosten als het in de kunst en de lichtkaart zelf zit (Mila's B doet dat al voor de figuren). Wil je dat ik de grond (lichtkaart, steen, aarde) zelf gedempter maak, zeg het in #333; dan doe ik dat als volgende stap.
+Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
