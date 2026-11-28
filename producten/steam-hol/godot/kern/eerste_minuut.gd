@@ -222,27 +222,43 @@ func _teken_plaat(t: String, pijl_x: float, doel_y_in: float, tijd: float, groot
 	var sc: float = s.schaal
 	var lucht: float = s.hol.position.y + HOL.OPP * sc   # hoogte van de lucht boven het gras, in vensterpixels
 	var tb := letter.get_string_size(t, HORIZONTAL_ALIGNMENT_LEFT, -1, m)
-	var ph := float(m) + 6.0
+	# 28 nov (#333 c, "UI looks too plain"): een afgewerkt bordje in plaats van een dun lijntje: donkere buitenrand,
+	# gouden rand die meegroeit met de schaal, glansstrook bovenin, donkere onderlip en een letter met schaduw.
+	# Op 120 en lager blijft de maat van het bordje gelijk (rand 1, ruimte 6), alleen buitenrand, lip en glans komen erbij.
+	var rand := maxf(1.0, roundf(sc * 0.4))
+	var lip := maxf(1.0, roundf(sc * 0.4))
+	var ruim := maxf(6.0, 2.0 * sc)
+	var ph := float(m) + maxf(6.0, 1.6 * sc) + lip
 	var py := maxf(0.0, lucht - ph - 1.0)
 	# plaatje met de regel: naast de pijl, of midden boven het hol bij het welkom
 	var px: float
+	var pw := tb.x + 2.0 * ruim
 	var hol_breed: float = (s.hol.max_kol + 1) * HOL.KOL * sc
 	if pijl_x >= 0.0:
 		px = pijl_x + 4.0 * sc
-		if px + tb.x + 12.0 > hol_breed:
-			px = pijl_x - 4.0 * sc - tb.x - 12.0
+		if px + pw > hol_breed:
+			px = pijl_x - 4.0 * sc - pw
 	else:
-		px = s.hol.position.x + maxf(8.0, (hol_breed - tb.x) / 2.0)
+		px = s.hol.position.x + maxf(8.0, (hol_breed - pw) / 2.0)
 	px = maxf(2.0, px)
-	var plaat := Rect2(px, py, tb.x + 12.0, ph)
-	var sb := StyleBoxFlat.new()
-	sb.bg_color = Color(0.13, 0.07, 0.05, 0.9)
-	sb.border_color = Color("#e8b040")
-	sb.set_border_width_all(1)
-	sb.set_corner_radius_all(int(ph / 2.0))
-	sb.anti_aliasing = true
-	draw_style_box(sb, plaat)
-	draw_string(letter, Vector2(px + 6.0, py + ph / 2.0 + m * 0.36), t, HORIZONTAL_ALIGNMENT_LEFT, -1, m, Color("#ffe07a"))
+	var plaat := Rect2(px, py, pw, ph)
+	var rond := int(ph / 2.0)
+	var buiten := _doos("buiten")
+	buiten.set_corner_radius_all(rond + 1)
+	draw_style_box(buiten, plaat.grow(1.0))
+	var lp := _doos("lip")
+	lp.set_corner_radius_all(rond)
+	draw_style_box(lp, plaat)
+	var sb := _doos("plaat")
+	sb.set_border_width_all(int(rand))
+	sb.set_corner_radius_all(int((ph - lip) / 2.0))
+	draw_style_box(sb, Rect2(px, py, pw, ph - lip))
+	var gl := _doos("glans")
+	gl.set_corner_radius_all(int(ph * 0.2))
+	draw_style_box(gl, Rect2(px + ph * 0.45, py + rand + maxf(1.0, sc * 0.3), pw - ph * 0.9, maxf(1.0, (ph - lip) * 0.18)))
+	var ty := py + (ph - lip) / 2.0 + m * 0.36
+	draw_string(letter, Vector2(px + ruim, ty + maxf(1.0, roundf(sc / 3.0))), t, HORIZONTAL_ALIGNMENT_LEFT, -1, m, Color(0.09, 0.04, 0.02, 0.7))
+	draw_string(letter, Vector2(px + ruim, ty), t, HORIZONTAL_ALIGNMENT_LEFT, -1, m, Color("#ffe07a"))
 	if pijl_x >= 0.0:
 		# pijltje naar beneden in de lucht, wipt zacht 2 spelpixels; na 20 s niets één keer groter
 		var wip := (0.5 + 0.5 * sin(tijd * TAU / 0.9)) * 2.0 * sc
@@ -262,4 +278,25 @@ func _teken_plaat(t: String, pijl_x: float, doel_y_in: float, tijd: float, groot
 			draw_rect(steel, Color("#ffe07a"), true)
 		var pts := PackedVector2Array([Vector2(pijl_x - bw, kop_top), Vector2(pijl_x + bw, kop_top), Vector2(pijl_x, punt)])
 		draw_colored_polygon(pts, Color("#ffe07a"))
-		draw_polyline(PackedVector2Array([pts[0], pts[1], pts[2], pts[0]]), donker, 1.5, true)
+		draw_polyline(PackedVector2Array([pts[0], pts[1], pts[2], pts[0]]), donker, maxf(1.5, sc * 0.4), true)
+
+# StyleBoxen van het bordje één keer maken (zoals tekst.gd _doos)
+var dozen := {}
+
+func _doos(naam: String) -> StyleBoxFlat:
+	if dozen.has(naam):
+		return dozen[naam]
+	var sb := StyleBoxFlat.new()
+	sb.anti_aliasing = true
+	match naam:
+		"buiten":
+			sb.bg_color = Color(0.07, 0.03, 0.02, 0.85)
+		"plaat":
+			sb.bg_color = Color("#3a2016")
+			sb.border_color = Color("#e8b040")
+		"lip":
+			sb.bg_color = Color("#8a5a18")   # donkere onderkant van de gouden rand
+		"glans":
+			sb.bg_color = Color(1.0, 0.86, 0.6, 0.16)
+	dozen[naam] = sb
+	return sb

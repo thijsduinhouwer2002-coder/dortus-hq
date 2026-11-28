@@ -33,6 +33,7 @@ static var met_3d := true
 const PANEEL_3D := preload("res://kunst/paneel_hol.png")
 const BRON_RAND := 128
 const FREDOKA := preload("res://kunst/letters/Fredoka.ttf")
+const KAART := preload("res://kern/tekst_kaart.gd")
 var letters := {}   # gewicht -> FontVariation
 
 func _letter(gewicht: int) -> Font:
@@ -71,6 +72,11 @@ func _doos(naam: String) -> StyleBoxFlat:
 			sb.anti_aliasing = true
 		"knop_glans":
 			sb.bg_color = Color("#c4825a")
+		"knop_lip":
+			sb.bg_color = Color("#5e2e1a")   # donkere onderlip van de drukknop (28 nov, #333 c)
+			sb.border_color = Color("#b07a2a")
+			sb.set_border_width_all(2)
+			sb.anti_aliasing = true
 		_:
 			push_error("tekst.gd: onbekende doos " + naam)
 	dozen[naam] = sb
@@ -79,7 +85,8 @@ func _doos(naam: String) -> StyleBoxFlat:
 # tekst met een zachte donkere schaduw van 1 px eronder (Daan ronde 2: titel en getal)
 func _tekst(font: Font, p: Vector2, t: String, breed: float, maat: int, kleur: Color, schaduw := true) -> void:
 	if schaduw and met_3d:
-		draw_string(font, p + Vector2(0, 1), t, HORIZONTAL_ALIGNMENT_LEFT, breed, maat, Color(0.09, 0.04, 0.02, 0.65))
+		# vanaf 200 px 2 px diep (28 nov, #333 c: op schaal 5 viel 1 px weg en las de letter dun en plat)
+		draw_string(font, p + Vector2(0, maxf(1.0, roundf(schaal / 3.0))), t, HORIZONTAL_ALIGNMENT_LEFT, breed, maat, Color(0.09, 0.04, 0.02, 0.65))
 	draw_string(font, p, t, HORIZONTAL_ALIGNMENT_LEFT, breed, maat, kleur)
 # Het kaartje voor upgrades (kern/kaartje.gd): als dit niet leeg is, toont het paneel het kaartje in plaats van de kroniek.
 var kaart := {}
@@ -158,10 +165,14 @@ func _munt(p: Vector2, f := 1.0) -> void:
 # boven: ruimte boven de kopregel tot de bovenkant van het paneel; knop_h en knop_dy: hoogte en extra ruimte boven de knop;
 # kop_dy: kopregel iets hoger (op 160 3 px, anders plakt de grote kop tegen de regel eronder); op 96 1 px lager, vrij van het hout
 # bovenaan (kan Daan nakeuring #52, Mila 25 nov); munt: maat van het muntje.
-func maten() -> Dictionary:
+# Vanaf 200 px (schaal 5) groeien kaartje en hover mee, hooguit 1,25 keer de maat van 160 (28 nov, #333 c: op 200 was
+# het kaartje een klein regeltje in een groot leeg bord). Het dichte bord (bord_maten) houdt de maat van 160.
+func maten(groei := true) -> Dictionary:
 	if met_3d and hoogte >= 140:
-		return {"kop": 18, "tekst": 15, "uitleg": 15, "knop": 16, "knop2": 16, "regel_h": 20, "onder": 12, "boven": 14,
-			"knop_h": 28.0, "knop_dy": 7, "munt": 1.2, "kop_dy": -3}
+		var k := clampf(schaal / 4.0, 1.0, 1.25) if groei else 1.0
+		return {"kop": roundi(18 * k), "tekst": roundi(15 * k), "uitleg": roundi(15 * k), "knop": roundi(16 * k),
+			"knop2": roundi(16 * k), "regel_h": roundi(20 * k), "onder": roundi(12 * k), "boven": roundi(14 * k),
+			"knop_h": roundf(28.0 * k), "knop_dy": roundi(7 * k), "munt": 1.2, "kop_dy": roundi(-3 * k)}
 	var m := 12 if hoogte < 110 else 13
 	var binnen := 5 * schaal
 	return {"kop": m, "tekst": m, "uitleg": m - 1, "knop": m, "knop2": m - 1, "regel_h": m + 4, "onder": binnen,
@@ -293,7 +304,7 @@ static func regel_zicht(sinds: float) -> float:
 func bord_maten() -> Dictionary:
 	if not met_3d:
 		return maten()
-	var M := maten()
+	var M := maten(false)
 	if hoogte >= 140:
 		M.kop = 24; M.tekst = 24; M.uitleg = 22; M.regel_h = 29
 	elif hoogte >= 110:
@@ -315,93 +326,12 @@ func hover_vak() -> Rect2:
 	var top := y0 - int(M.boven)
 	return Rect2(links, top, breedte - links, hoogte - top)
 
-# Een knop in het paneel: donker vlak, gouden rand van één spelpixel, tekst in het midden. Geeft het vak terug.
-# getal (Daan 15 nov 14:45, kan): achter de tekst een muntje en dan het getal, zodat "Undo" plus muntje "+45" in een
-# blik zegt dat je goud terugkrijgt. Leeg = alleen de tekst, zoals voorheen.
+# Knop en kaartje staan sinds 28 nov in kern/tekst_kaart.gd (dit bestand was 480 regels).
 func _knop(x: float, y: float, h: float, tekst_: String, maat: int, font: Font, getal := "") -> Rect2:
-	var tw := font.get_string_size(tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x
-	var mw := 0.0   # muntje plus getal
-	if getal != "":
-		mw = 2 * schaal + 5 * schaal + font.get_string_size(getal, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x
-	var w := tw + mw + 6 * schaal
-	var r := Rect2(x, y, w, h)
-	var tx := x + 3 * schaal
-	var kleur := Color("#f3e2c0")
-	if met_3d:
-		# ronde pil (Daan ronde 2): gouden rand, warm terracotta, glansstrook bovenin, zachte schaduw eronder
-		var sch := _doos("knop_schaduw")
-		sch.set_corner_radius_all(int(h / 2.0))
-		draw_style_box(sch, r)
-		var sb := _doos("knop")
-		sb.set_corner_radius_all(int(h / 2.0))
-		draw_style_box(sb, r)
-		var gl := _doos("knop_glans")
-		gl.set_corner_radius_all(int(h * 0.15))
-		draw_style_box(gl, Rect2(x + 4, y + 3, w - 8, h * 0.27))
-		tx = x + (w - tw - mw) / 2.0
-		kleur = Color("#ffe8a0")
-		_tekst(font, Vector2(tx, y + h / 2.0 + maat * 0.35), tekst_, -1, maat, kleur)
-	else:
-		draw_rect(r, Color("#f2c14e"))
-		draw_rect(r.grow(-schaal), Color("#5e3e33"))   # pixelterugval warm (kan 2 Daan 15 nov, was pruim 503856)
-		draw_string(font, Vector2(tx, y + h / 2.0 + maat * 0.35), tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, kleur)
-	if getal != "":
-		var mx := tx + tw + 2 * schaal
-		_munt(Vector2(mx, y + h / 2.0 - 2 * schaal))
-		var gp := Vector2(mx + 5 * schaal, y + h / 2.0 + maat * 0.35)
-		if met_3d:
-			_tekst(font, gp, getal, -1, maat, kleur)
-		else:
-			draw_string(font, gp, getal, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, kleur)
-	return r
+	return KAART.knop(self, x, y, h, tekst_, maat, font, getal)
 
-# Het kaartje (Sanne, features.md feature 5): naam, uitleg, kost met muntje, "Buy" of "x more gold", en "Undo" met muntje "+45".
-# Zelfde vak als het paneel bij hover (hover_vak), dus ook op 96 px past het en vangt strook.gd daar de muis.
 func _draw_kaart() -> void:
-	var font := _letter(450)
-	var vet := _letter(600)
-	var M := maten()
-	var kop: int = M.kop
-	var maat: int = M.tekst
-	var regel_h: int = M.regel_h
-	var f: float = M.munt
-	var bw := vak_breedte()
-	var x := breedte - bw - 8
-	var vak := hover_vak()
-	_paneel(Rect2(vak.position.x, vak.position.y, breedte - 2 - vak.position.x, hoogte - 2 - vak.position.y))
-	var y0 := hoogte - int(M.onder) - regel_h * 4
-	_tekst(vet, Vector2(x, y0 + kop + int(M.kop_dy)), String(kaart.titel), bw * 0.62, kop, Color("#ffe07a"))
-	# rechts op de kopregel: wat je hebt, als muntje plus getal (zelfde plek als bij de kroniek)
-	var gw := vet.get_string_size(str(goud), HORIZONTAL_ALIGNMENT_LEFT, -1, kop).x
-	var gx: float = x + bw - gw - 5 * schaal * f - (maxf(15, marge_r()) if met_3d else 6)   # 3D: niet tegen de lijst (15: paneel rechts 3 px smaller, ronde 3)
-	_munt(_munt_p(gx, y0 + kop + int(M.kop_dy), kop, f), f)
-	_tekst(vet, Vector2(gx + 5 * schaal * f + 2, y0 + kop + int(M.kop_dy)), str(goud), -1, kop, Color("#f6e8ce") if met_3d else Color("#ffe07a"))
-	draw_string(font, Vector2(x, y0 + regel_h + maat), String(kaart.uitleg), HORIZONTAL_ALIGNMENT_LEFT, bw - marge_r(), int(M.uitleg), Color("#f3e2c0"))
-	var ky := y0 + regel_h * 2 + int(M.knop_dy)
-	var kh: float = M.knop_h
-	var kx := x
-	knop_koop = Rect2()
-	knop_undo = Rect2()
-	knop_weg = Rect2()
-	if int(kaart.kost) >= 0 and bool(kaart.get("demo_over", false)):
-		# demo voorbij: tekst in plaats van de knop, zonder klikvlak (kern/demo_einde.gd)
-		var vol: String = preload("res://kern/demo_einde.gd").KAART
-		draw_string(font, Vector2(kx, ky + kh / 2.0 + maat * 0.35), vol, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#ffe07a"))
-		kx += font.get_string_size(vol, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 4 * schaal
-	elif int(kaart.kost) >= 0:
-		if bool(kaart.kan):
-			knop_koop = _knop(kx, ky, kh, "Buy  %d" % int(kaart.kost), int(M.knop), vet)
-			kx = knop_koop.end.x + 4 * schaal
-		else:
-			var grijs := "%d  (%d more gold)" % [int(kaart.kost), int(kaart.tekort)]
-			_munt(Vector2(kx, ky + kh / 2.0 - 2 * schaal))
-			draw_string(font, Vector2(kx + 5 * schaal + 2, ky + kh / 2.0 + maat * 0.35), grijs, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#a8968a"))
-			kx += 5 * schaal + 2 + font.get_string_size(grijs, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 4 * schaal
-	if int(kaart.terug) > 0:
-		knop_undo = _knop(kx, ky, kh, "Undo", int(M.knop2), vet, "+%d" % int(kaart.terug))
-		kx = knop_undo.end.x + 4 * schaal
-	if bool(kaart.get("weg", false)):
-		knop_weg = _knop(kx, ky, kh, "Remove", int(M.knop2), vet)
+	KAART.kaart(self)
 
 func _draw() -> void:
 	if not kaart.is_empty():
