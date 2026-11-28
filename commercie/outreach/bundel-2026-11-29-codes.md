@@ -300,7 +300,7 @@ Dortus, dortus.com
 
 Door de Verspreider. Niets verstuurd, niemand benaderd. Sjabloon Click Cuts uit #375 letterlijk, alleen de aanhef en de eerste zin(nen) zijn eigen.
 
-**Voor de hoofdchat:** zondag 29 nov na 00:00 NL. `[CODE]`: "Outreach Click Cuts 2 (30)". V1 uit #375 blijft: link met de echte code één keer openen en $0 zien. Vooraf in Verzonden zoeken op het adres.
+**Daan ja op mail 13 tot 16 (#413, ±18:00 NL); zijn kan-punt bij mail 14 (tweede zin) verwerkt.** **Voor de hoofdchat:** zondag 29 nov na 00:00 NL. `[CODE]`: "Outreach Click Cuts 2 (30)". V1 uit #375 blijft: link met de echte code één keer openen en $0 zien. Vooraf in Verzonden zoeken op het adres.
 
 Gezien met curl, za 28 nov ±16:30 tot 17:10 NL: abonnees en adresregel in de kanaalbeschrijving (/about), de nieuwste video's en hun beschrijving via de YouTube-feed, elke genoemde video via YouTube oEmbed (titel en kanaal kloppen). Live pagina Click Cuts opnieuw nagekeken (curl ±17:00 NL): "fits your bed", "pins", "Magnets", "engraved part number", "turns green", "watertight", "STL or 3MF", "fit test block", en "Made for busts, cos(play)" staan er. In de repo nagekeken op naam en handle in heel `commercie/`: Tiffany Gordon, Greedy 3D en All Things Art staan nergens. Brandon Tucker 3D viel in run 59 af ("print ontwerpen van anderen, geen Blender"); herzien, omdat run 76 ook makers zonder gezien Blender mailde en een figuur op 800% precies het werk van Click Cuts is (opnieuw in delen die op het bed passen). Welk programma ze gebruiken is bij geen van de vier gezien: geen zin neemt Blender aan. Twee kanalen zitten boven 100K (Brandon 109K, All Things Art 255K), zoals Braden in mail 1. Verwachting (GOK): 0 tot 1 antwoord op deze vier.
 
@@ -331,7 +331,7 @@ Onderwerp: `Bigger isn't always better: free Click Cuts license`
 ```
 Hi Tony,
 
-In your Anycubic line-up you asked whether bigger is always better (https://www.youtube.com/watch?v=t5ok96ntW8k). For anyone who keeps the smaller printer, a big bust like your Hulk (https://www.youtube.com/watch?v=6LrKHDcFIVg) still has to come off the plate in parts.
+In your Anycubic line-up you asked whether bigger is always better (https://www.youtube.com/watch?v=t5ok96ntW8k). If you stick with the smaller printer, a big bust like your Hulk (https://www.youtube.com/watch?v=6LrKHDcFIVg) has to come off the plate in parts.
 
 Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
 
@@ -393,7 +393,7 @@ Dortus, dortus.com
 
 Door de Verspreider. Niets verstuurd, niemand benaderd. Sjabloon Click Cuts uit #375 letterlijk, alleen de aanhef en de eerste zin(nen) zijn eigen.
 
-**Voor de hoofdchat:** zondag 29 nov na 00:00 NL. `[CODE]`: "Outreach Click Cuts 2 (30)". V1 uit #375 blijft: link met de echte code één keer openen en $0 zien. Vooraf in Verzonden zoeken op het adres.
+**Voor de hoofdchat:** zondag 29 nov na 00:00 NL. `[CODE]`: "Outreach Click Cuts 2 (30)". V1 uit #375 blijft: link met de echte code één keer openen en $0 zien. Vooraf in Verzonden zoeken op het adres. Nakeuring Daan: #415.
 
 Gezien met curl, za 28 nov ±17:55 tot 18:00 NL: abonnees en adresregel in de kanaalbeschrijving (/about), de nieuwste video's via de YouTube-feed, elke genoemde video via YouTube oEmbed (titel en kanaal kloppen), het begin van de videobeschrijving via de YouTube-zoekpagina. Live pagina Click Cuts opnieuw nagekeken (curl ±17:58 NL): "fits your bed", "pins", "Magnets are not included", "engraved part number", "turns green", "watertight", "STL or 3MF", "fit test block", "busts, cosplay". In de repo nagekeken op naam en handle in heel `commercie/`: geen van de vier staat er (universeofemily alleen als reserve in run 77, nooit gemaild). Welk programma ze gebruiken is bij geen van de vier gezien: geen zin neemt Blender aan. Verwachting (GOK): 0 tot 1 antwoord op deze vier.
 
