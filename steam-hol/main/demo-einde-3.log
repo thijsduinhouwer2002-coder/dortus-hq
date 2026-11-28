@@ -1,16 +1,16 @@
-HOL balk gestart, pid 2124, hoogte 120
+HOL balk gestart, pid 3224, hoogte 120
 HOL weg geweest 1 s (klok terug: false): goud voor 29, helden 0, erbij 0, hoeden 0
 HOL opslag geladen: 0 terugkomers, 29 goud, faam 1
 HOL uitleg stap 2 t=0.0 Click the dirt to dig.
 HOL demo: speeltijd 15 s, grens 10 s
 HOL kroniek 0.0 (wacht 0.0): Demo over. The full game keeps it all.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL zaad 1795863583
+HOL zaad 1795867218
 HOL balk aan
 HOL grond zacht
 HOL muisvlak via de balk, lucht vrij op x=-1
-HOL begin: vluchten (Merel)
-HOL held binnen: Merel
+HOL begin: vluchten (Anouk)
+HOL held binnen: Anouk
 HOL zicht 2.1 1
-HOL kroniek 2.5 (wacht 0.5): Merel climbs into your hole.
+HOL kroniek 2.5 (wacht 0.5): Anouk says this is a quick one.
 HOL einde na 8 s, fps=12, goud=29, terugkomers=0
