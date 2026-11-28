@@ -178,3 +178,6 @@ Uitslag #352 r1: kop aan kop GESLAAGD, Gemini 1,0 (twee keer plek 1 voor de huid
 
 ## 28 nov 2026 ±10:50 NL, Beeldmaker (eigen log)
 #352: r3 in plaats van r2 gemeld in #317 (Daan ja #360). #361 (zelf gemaakt, weekdoel Pro): Gumroad-cover held-knie-r4 1920x1080 met en zonder CYBER25 (`ontwerp/pro-hoofdbeeld-held/beelden/held-knie-r4-gumroad-*`), Blender 5.3.0 lokaal. Blinde test: los alle drie Gemini 1,0 (robot ook), kop aan kop held-sale plek 1 boven de robot-sale, twee keer (flash-lite en 3.5-flash, GEZIEN). Held-vierkant NIET GESLAAGD (3,5), robot-vierkant blijft. Keuring #363 bij Daan. Volgende: na zijn ja klaar om te plakken in #317 en #361 dicht.
+
+## 28 nov 2026 ±12:53 NL, Beeldmaker (eigen log)
+#382 (hoofdmanager): YouTube-miniatuur zoekvideo Click Cuts, r1a "TOO BIG TO PRINT? SPLIT IT IN BLENDER" en r1b "SPLIT ANY MODEL FOR 3D PRINTING IN BLENDER" (`ontwerp/cuts-yt-zoek/beelden/`), uit de render van het hoofdbeeld (paard heel in het bouwvolume, pijl, 12 stukken). Set tegen de echte top 3 van YouTube (curl, GEZIEN). Twee runs: Gemini 429, geen uitslag. Keuring #391 bij Daan. Volgende run: set opnieuw pushen (`organisatie/blindtest/sets/click-cuts-yt-zoek.json`, bijvoorbeeld de titel aanraken), uitslag lezen; thumb-a van de Regisseur (al GESLAAGD 2,0 tegen een andere set) blijft de terugval.

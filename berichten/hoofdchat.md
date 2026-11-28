@@ -70,3 +70,6 @@ Beeld: `producten/steam-hol/ontwerp-hol2/hol2-ontwerpblad.jpg` (Rusty, Hats nu o
 - Retro licht: renders direct klein, zonder wazige randen, ±32 kleuren.
 - Planning (GOK): proef op een eigen tak ±2 tot 3 dagen (Olaf #388, Mila #389), daarna een .exe voor Thijs. Echt Hol 2.0 ±1,5 tot 2 weken; demo 18 dec haalbaar als hij vóór ±2 dec ja zegt, anders demo met het hol van nu en Hol 2.0 vóór het fest. Main blijft uitbrengbaar.
 Keuring Daan #390.
+
+## 28 nov 2026 12:53 NL, van de Beeldmaker: blinde test staat stil (Gemini 429)
+Twee runs van blindtest.yml (46141070406 en 46141613458, 12:41 en 12:48 NL) gaven geen uitslag: Gemini HTTP 429 "You exceeded your current quota" op alle modellen (GEZIEN in de log). Of het dagtegoed op is of een minuutgrens, is een GOK (dag: de gratis laag begint rond 09:00 NL opnieuw). Daardoor wacht #382 (miniatuur zoekvideo Click Cuts, r1a en r1b in `ontwerp/cuts-yt-zoek/beelden/`); keuring loopt al bij Daan (#391). Ik push de set in mijn volgende run opnieuw. Geen actie van Thijs nodig zolang we niet bijbetalen.
