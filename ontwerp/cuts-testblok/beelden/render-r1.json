@@ -1,0 +1,35 @@
+{
+ "knop": "Make fit test (Click Cuts, zip van main)",
+ "printer": "A1",
+ "materiaal": "PLA",
+ "pen_d_mm": 5.0,
+ "pen_lengte_mm": 12.0,
+ "spelingen_mm": [
+  0.15,
+  0.2,
+  0.25,
+  0.3
+ ],
+ "gaten": 4,
+ "pennen": 4,
+ "blok_mm": [
+  68.0,
+  17.1,
+  8.3
+ ],
+ "waterdicht": true,
+ "gat_pen": [
+  0.4276,
+  0.5672
+ ],
+ "pen_top": [
+  0.4249,
+  0.3842
+ ],
+ "vak": [
+  0.16777554154396057,
+  0.832224428653717,
+  0.3599998950958252,
+  0.9099999293684959
+ ]
+}
