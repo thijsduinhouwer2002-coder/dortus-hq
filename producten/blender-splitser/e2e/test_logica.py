@@ -105,6 +105,8 @@ stap("maat in gewone getallen (#386)", plan.maat_tekst(398500.0) == "398,500 mm 
      and plan.maat_tekst(120.0) == "120 mm" and plan.maat_tekst(0.3985) == "0.4 mm"
      and plan.maat_tekst(0.00004) == "0.00004 mm" and "e" not in plan.maat_tekst(4e9),
      f"{plan.maat_tekst(398500.0)} | {plan.maat_tekst(0.00004)} | {plan.maat_tekst(4e9)}")
+stap("maat net onder 10 mm leest niet als 10 mm (keuring #409 K2)", plan.maat_tekst(9.96) == "9.96 mm"
+     and plan.maat_tekst(5.0) == "5 mm", plan.maat_tekst(9.96))
 m = plan.eenheid_tekst("aap_mm", 398500.0, 1.0, 0.001)
 stap("eenheid fout: oorzaak en knop zoals in het paneel (#386)", m.startswith("aap_mm is 398,500 mm (about 400 m)")
      and "1,000 times too big: a mm model in a meter scene" in m and "press Convert to mm" in m, m)

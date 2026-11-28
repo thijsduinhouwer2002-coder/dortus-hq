@@ -111,6 +111,11 @@ jobs:
           grep -q "TEKENEN OK" /tmp/paneel.log || { echo "FOUT: Draw cut met de muis gaf geen snedevlak (issue #208)"; exit 1; }
           grep -q "TEKENEN PLEK OK" /tmp/paneel.log || { echo "FOUT: snedevlak ligt niet op de getrokken lijn (issue #208)"; exit 1; }
           grep -q "TEKENEN ERAF OK" /tmp/paneel.log || { echo "FOUT: na Draw cut licht niet op wat eraf gaat (keuring #212 M1)"; exit 1; }
+          # keuring #409 M1: Blender without a file (a never saved .blend), picture of the lines under Export parts
+          timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender --gpu-backend opengl --python e2e/scherm_paneel.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_cuts.zip /tmp/sj_uit/suzanne.blend nooit 2>&1 | tee /tmp/nooit.log || true
+          grep "\[sj-scherm\]\|Traceback\|Error" /tmp/nooit.log | head -20 || true
+          grep -q "PANEEL NIET OPGESLAGEN OK" /tmp/nooit.log || { echo "FOUT: geen beeld van de regels onder Export parts bij een nooit opgeslagen .blend (keuring #409 M1)"; exit 1; }
       - uses: actions/upload-artifact@v4
         if: always()
         with:

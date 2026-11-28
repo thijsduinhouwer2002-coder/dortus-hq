@@ -90,7 +90,7 @@ class SPLIT_JOINTS_PT_paneel(bpy.types.Panel):
             rij.operator("split_joints.exporteer", text=f"Export parts ({inst.formaat})", icon="EXPORT")
             if exporteer.niet_opgeslagen(scene):  # #387: two short lines, the sidebar cuts long ones off
                 waar = layout.column(align=True)
-                waar.label(text="Not saved: goes to a temp folder", icon="INFO")
+                waar.label(text="Not saved: files go to temp", icon="INFO")
                 waar.label(text="Save first (Ctrl+S)")
         layout.prop(inst, "meer", icon="TRIA_DOWN" if inst.meer else "TRIA_RIGHT", emboss=False)
         if not inst.meer:

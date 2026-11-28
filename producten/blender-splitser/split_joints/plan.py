@@ -124,6 +124,8 @@ def maat_tekst(mm):
     if mm <= 0:
         return "0 mm"
     decimalen = max(1, 1 - math.floor(math.log10(mm)))  # two digits that mean something, never e-05
+    if float(f"{mm:.{decimalen}f}") >= 10.0:  # keuring #409 K2: 9.96 must not read "10 mm" under a 10 mm limit
+        decimalen += 1
     return f"{mm:.{decimalen}f}".rstrip("0").rstrip(".") + " mm"
 
 

@@ -11,6 +11,9 @@ import bpy
 
 args = sys.argv[sys.argv.index("--") + 1:]
 uitmap, zip_pad, blend = args[0], args[1], args[2]
+# keuring #409 M1: "nooit" = Blender started without a file (never saved .blend), one picture of the lines
+# under Export parts, then quit
+NOOIT = len(args) > 3 and args[3] == "nooit"
 os.makedirs(uitmap, exist_ok=True)
 DOEL = "Click Cuts"
 staat = {"stap": 0, "pogingen": 0}
@@ -96,13 +99,27 @@ def stap():
         if staat["stap"] == 1:
             if tabblad():
                 log("TABBLAD OK")
-                staat["stap"] = 2
+                staat["stap"] = 20 if NOOIT else 2
                 return 1.5
             if staat["pogingen"] > 14:
                 log("PANEEL FOUT: tabblad Click Cuts niet actief")
                 bpy.ops.wm.quit_blender()
                 return None
             return 0.6
+        if staat["stap"] == 20:
+            import importlib
+            exp = importlib.import_module("bl_ext.user_default.click_cuts.exporteer")
+            kik = importlib.import_module("bl_ext.user_default.click_cuts.in_een_klik")
+            s = bpy.context.scene
+            regel = exp.niet_opgeslagen(s) and not bpy.data.filepath and bool(kik.uitslag_tekst(s))
+            venster, gebied, ui, hoofd = gebied_3d()
+            log(f"niet opgeslagen: filepath '{bpy.data.filepath}', regel {regel}, zijbalk {ui.width} px breed")
+            pad = os.path.join(uitmap, "paneel-niet-opgeslagen.png")
+            subprocess.run(["import", "-window", "root", pad], capture_output=True)
+            ok = regel and os.path.exists(pad) and os.path.getsize(pad) > 20000
+            log(f"{'PANEEL NIET OPGESLAGEN OK' if ok else 'PANEEL NIET OPGESLAGEN FOUT'} {pad}")
+            bpy.ops.wm.quit_blender()
+            return None
         if staat["stap"] == 2:
             pad = os.path.join(uitmap, "paneel-x.png")
             subprocess.run(["import", "-window", "root", pad], capture_output=True)
