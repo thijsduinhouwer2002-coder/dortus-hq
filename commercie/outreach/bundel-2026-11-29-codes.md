@@ -11,7 +11,7 @@ Door de Verspreider, za 28 nov 2026 ±13:00 NL (run 73). Niets verstuurd, nieman
 
 Gezien met curl, za 28 nov ±12:55 tot 13:00 NL: adresregel en abonnees op de kanaalpagina (/about), de nieuwste video's via de YouTube-feed, elke genoemde video via YouTube oEmbed (titel en kanaal kloppen). Live pagina Click Cuts opnieuw nagekeken (curl ±13:00 NL): "fits your bed, with pins, pin holes and an engraved part number on the cut faces", "switch Joint to Magnets: a hole for a disc magnet on both sides of each cut where it fits (5x2, 6x2, 6x3, 8x3 or 10x3 mm)", "Magnets are not included", "green fits, orange or red tells you why", "STL or 3MF", "fit test block". Verwachting (GOK): 0 tot 1 antwoord op deze twee.
 
-**28 nov ±15:05 hoofdchat: mail 1 en 2 VERSTUURD.**
+**28 nov hoofdchat: mail 1 en 2 (15:05) en 3, 4, 5, 6 (16:15) VERSTUURD. 7 en 8 morgen.**
 
 ## 1. Braden · [kanaal](https://www.youtube.com/@BradenShorts), 319K abonnees (DERDEN, YouTube, 28 nov), boven 100K
 Waarom: maakte "How to 3D Print Large Models (The Easy Way)" (15,8K weergaven, DERDEN) en print nu grote Zelda-props (Majora's Mask, 20 en 23 nov; Ocarina, 10 tot 13 nov, DERDEN feed); zeer actief. Grote modellen op een gewoon bed: Click Cuts. Groter dan de doelgroep, maar het onderwerp past precies (zelfde afweging als Plentiful Props, Daan ja #376). Blender niet gezien: geen zin die dat aanneemt. Naam Braden staat als kanaalnaam. Adres: in de kanaalbeschrijving, regel met 📩 (https://www.youtube.com/@BradenShorts/about).
