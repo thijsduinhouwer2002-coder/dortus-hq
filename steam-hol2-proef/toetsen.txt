@@ -1,0 +1,13 @@
+toets_systemen groen
+toets_namen groen
+toets_held groen
+toets_vleermuis groen
+toets_berg_wand groen
+toets_klap groen
+toets_aanloop groen
+toets_licht groen
+toets_opslag groen
+toets_tekens groen
+toets_rand groen
+toets_hol2 groen
+toetsen: 0 ROOD
