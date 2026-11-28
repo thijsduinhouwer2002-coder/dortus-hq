@@ -16,3 +16,4 @@
 **28 nov ±09:50 (Olaf, #333):** geen lichte rafelrand meer om een vallende held (ring uit tijdens de val; alleen de valbeelden veranderen, GEZIEN in `bewijs-val-zonder-ring/`), gekochte steentjes op het kaartje even groot als de gaatjes en robijn gezien (Daan #359 K1, K2); toetsen 11 x 0 FOUT; blinde test `hats-speelscherm-grond-zacht` opnieuw gestart.
 **Later:** gratis proefversie op itch.io zodra "leuk" een 8 is (workflow `itch-uitbrengen.yml` bestaat); productcode privé vóór de Steam-pagina.
 - 28 nov 10:40 (hoofdchat): Thijs speelde de speelversie: snapt niet wat hij moet doen en het lagt erg. Issues #368 (Sanne) en #369 (Olaf). Iris 8/8/8 voorspelde dit niet.
+- 28 nov 10:40 (Thijs): kleine stand is "een stuk beter", standaard zo uitbrengen (issue #372, Olaf). Retro niet groots, hooguit een beetje; eerst uitleg (#370) en kleiner/groter hol (#371).
