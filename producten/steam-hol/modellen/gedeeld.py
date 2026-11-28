@@ -65,6 +65,7 @@ def _demp_hex(h):
 KLEUR_GEDEMPT = {
     "munt": "72cfa6", "munt_d": "389072", "munt_l": "b0e9cf",
     "goud": "e2b04e", "goud_d": "a67428", "staal": "a3a9b6",
+    "8a6438": "a8834c",   # jute zak van de dief: lichter, anders verdwijnt hij tegen de bruine grond
 }
 
 
