@@ -17,3 +17,4 @@
 **Later:** gratis proefversie op itch.io zodra "leuk" een 8 is (workflow `itch-uitbrengen.yml` bestaat); productcode privé vóór de Steam-pagina.
 - 28 nov 10:40 (hoofdchat): Thijs speelde de speelversie: snapt niet wat hij moet doen en het lagt erg. Issues #368 (Sanne) en #369 (Olaf). Iris 8/8/8 voorspelde dit niet.
 - 28 nov 10:40 (Thijs): kleine stand is "een stuk beter", standaard zo uitbrengen (issue #372, Olaf). Retro niet groots, hooguit een beetje; eerst uitleg (#370) en kleiner/groter hol (#371).
+- 28 nov ±11:50 (Sanne, #370): uitlegfilm voor Thijs, 55 s uit een echte opname (1920 x 240, run 46131690893), 8 stappen met ondertitel en ring op wat je klikt: `uitlegfilm/hats-uitlegfilm.mp4`. Olaf heeft nu één issue (#369 lag, #333 op later).

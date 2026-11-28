@@ -276,3 +276,6 @@ Alles met bron in `organisatie/lat/hats.md`, kopje "Hol 2.0 (28 nov)".
 - Verdiepingen (Fallout Shelter, Project Highrise): groeien in de diepte, samensmelten van gelijke kamers, ramp die naar de buren loopt. Geen wachtklokken. Op 120 px past tuin ±20 px plus 2 verdiepingen van ±48 px, Gloop ±20 px, helden ±16 px; meer verdiepingen alleen met schuiven.
 - Retro goedkoop zoals Dead Cells: 3D direct op doelmaat renderen zonder anti-aliasing, 2 tot 3 tinten, één palet van ±32 kleuren, alleen op hele spelpx bewegen. CPU-winst door klein tekenen en vergroten moet Olaf meten.
 Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±11:50 NL, logboek Sanne
+#370: uitlegfilm 55 s uit een echte opname (`producten/steam-hol/uitlegfilm/`, run 46131690893), 10 beelden bekeken; release geweigerd, mp4 in de repo; #333 op later zodat Olaf alleen #369 heeft.

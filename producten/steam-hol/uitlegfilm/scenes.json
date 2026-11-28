@@ -1,0 +1,137 @@
+[
+ {
+  "stap": "1 van 8",
+  "titel": "Jij bent het hol",
+  "start": 17.0,
+  "dur": 7.0,
+  "zoom_x": 1250,
+  "ringen": [
+   [
+    1345,
+    170,
+    75
+   ]
+  ],
+  "zin": "Je hol zit onder je taakbalk. Helden komen voor jouw goud.\nVangen ze niet, dan nemen ze het mee."
+ },
+ {
+  "stap": "2 van 8",
+  "titel": "Hier komen de helden binnen",
+  "start": 64.5,
+  "dur": 7.0,
+  "zoom_x": 480,
+  "ringen": [
+   [
+    145,
+    50,
+    55
+   ]
+  ],
+  "zin": "Linksboven klimmen ze naar binnen.\nDan lopen ze naar rechts, naar je goud."
+ },
+ {
+  "stap": "3 van 8",
+  "titel": "Graven: klik in de aarde",
+  "start": 8.95,
+  "dur": 5.0,
+  "stil": true,
+  "zoom_x": 700,
+  "ringen": [
+   [
+    624,
+    94,
+    50
+   ]
+  ],
+  "zin": "\"Click the dirt to dig.\" Klik op een donker vak aarde.\nZo wordt je hol groter.",
+  "pijl": false
+ },
+ {
+  "stap": "4 van 8",
+  "titel": "Val zetten: klik in de gang",
+  "start": 9.1,
+  "dur": 5.5,
+  "zoom_x": 700,
+  "ringen": [
+   [
+    624,
+    184,
+    50
+   ]
+  ],
+  "zin": "\"Click the tunnel to set a trap.\" Klik op de vloer van de gang.\nEen held die erin valt, laat goud achter.",
+  "pijl": false
+ },
+ {
+  "stap": "5 van 8",
+  "titel": "Kopen: let op het muntje",
+  "start": 236.0,
+  "dur": 7.5,
+  "zoom_x": 1000,
+  "ringen": [
+   [
+    622,
+    172,
+    40
+   ],
+   [
+    718,
+    172,
+    40
+   ]
+  ],
+  "zin": "Zweeft er een gouden munt boven iets, dan kun je het beter maken.\nKlik erop: rechts komt een kaartje, kies Buy.",
+  "ring_tot": 4.0
+ },
+ {
+  "stap": "6 van 8",
+  "titel": "Gloop: klik als hij een ring heeft",
+  "start": 78.3,
+  "dur": 7.5,
+  "zoom_x": 1300,
+  "ringen": [
+   [
+    1200,
+    182,
+    75
+   ]
+  ],
+  "zin": "Gloop eet helden. Gloeit er een ring onder hem,\nklik dan op Gloop en kies Buy: hij wordt groter en eet meer."
+ },
+ {
+  "stap": "7 van 8",
+  "titel": "Het bordje linksboven: je hol-niveau",
+  "start": 290.0,
+  "dur": 9.0,
+  "zoom_x": 400,
+  "ringen": [
+   [
+    50,
+    45,
+    62
+   ]
+  ],
+  "zin": "Elke held die je vangt vult het balkje onder het getal.\nVol? Dan gaat je hol een niveau omhoog. Meer vangen = hoger."
+ },
+ {
+  "stap": "8 van 8",
+  "titel": "Rechtsklik: het menu",
+  "start": 140.0,
+  "dur": 6.0,
+  "zoom_x": 900,
+  "pijl": false,
+  "zin": "Rechtsklik ergens op het hol (of op het icoontje bij de klok).\nDaar zet je hem op pauze, geluid uit, de hoogte, of stop je.",
+  "kaart": {
+   "x": 1300,
+   "y": 500,
+   "regels": [
+    "Pause",
+    "Sound",
+    "-",
+    "Height 96 tot 240 px",
+    "-",
+    "Quit"
+   ]
+  }
+ }
+]
