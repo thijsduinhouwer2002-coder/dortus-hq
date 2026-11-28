@@ -25,3 +25,5 @@ ST_KNIE=0.422,0.55 ST_SCHEEN=-23 ST_PANEEL=2468,708,2826,776 ST_KOP_Y=118 ST_KOP
 Nieuw in `ontwerp/pro-galerij/bron/galerij.py` (modus knie): `HB_DEELKLEUR` en `HB_NEK_TINT` werken nu ook daar (alleen aan met hun variabele; oude beelden veranderen niet). Niet gebruikt voor r1, wel voor de proeven.
 
 **Blinde test:** set `organisatie/blindtest/sets/click-joints-pro-yt-scharnier.json` (r1 tegen Cleave, CatPin en UArtsy "Swivel Hinge Joint", 71.430 views, top 20 op "articulated figure blender", GEZIEN in de uitslag van de Afkijker) en `...-yt-scharnier-kop.json` (r1 tegen de huidige miniatuur, Cleave en UArtsy).
+
+**r2 (28 nov ±06:55):** `beelden/yt-scharnier-r2-1280x720.jpg`, gelijk aan r1 plus de regel "BLENDER ADD-ON" boven "HINGES" (wens Gemini in de kop-aan-kop-uitslag: laat zien dat het om Blender gaat). Geen Blender-logo (merk van de Blender Foundation). Zelfde opdracht als r1 met `ST_LABEL="BLENDER ADD-ON" ST_Y=250`.

@@ -76,6 +76,15 @@ y1 = int(os.environ.get("ST_Y", "190"))
 for dx, dy in ((0, 10), (0, 6)):
     d.text((X + dx, y1 - asc + dy), w1, font=f, fill=(0, 0, 0, 160))
 d.text((X, y1 - asc), w1, font=f, fill=CREME + (255,))
+# r2: kleine regel boven het woord, zodat je meteen ziet dat het om Blender gaat (wens Gemini, #352)
+if os.environ.get("ST_LABEL"):
+    fk = ImageFont.truetype(font, int(os.environ.get("ST_LABELMAAT", "72")))
+    lab = os.environ["ST_LABEL"]
+    lb = fk.getbbox(lab)
+    lh = fk.getbbox("B")[3] - fk.getbbox("B")[1]
+    ly = y1 - lh - int(os.environ.get("ST_LABELGAT", "70"))
+    d.ellipse([X + 4, ly + lh / 2 - 16, X + 36, ly + lh / 2 + 16], fill=GOUD + (255,))
+    d.text((X + 62 - lb[0], ly - fk.getbbox("B")[1]), lab, font=fk, fill=CREME + (235,))
 fp = ImageFont.truetype(font, int(os.environ.get("ST_PILMAAT", "150")))
 bb = fp.getbbox(pil)
 pw, ph = bb[2] - bb[0], fp.getbbox("S")[3] - fp.getbbox("S")[1]
