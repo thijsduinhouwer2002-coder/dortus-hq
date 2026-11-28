@@ -295,3 +295,96 @@ Dortus, dortus.com
 - Adres wel, past niet: Solo Solitude (120K, vooral clickers van anderen), MoldMayhem Studio (schildert beelden van anderen), mfactory33 (RC-carrosserieën, CAD), Freddyprops (130K), TabletopLenny (terrein uit schuim), paintbyblunders en The Old Painter Man (schilderen), Creatorrific (stil sinds mrt 2025).
 - Geen openbaar adres: NicoPrintedAntiques (geprinte harnassen voor kleine printers: sterk voor Click Cuts, maar alleen Etsy, Printables en Instagram), kmech toys (eigen 1/18 actiefiguren, site blokkeert curl), The Fuzz Academy (Nomad, alleen formulier), BibilissaLevy (geprinte BJD, alleen Patreon), Toymakr3D (alleen formulier), Cre8Xtrusion, makeitnerdie, Tiohkatrah, Kenzo's Creations, MarcoMakes, tobeyartstudio, PunkPrints3d.
 - Pro blijft het moeilijke veld: makers van eigen beweegbare figuren zetten zelden een adres openbaar. Click Cuts levert nog op bij helm- en propmakers en bij "ik print iets groots"-kanalen.
+
+## Aanvulling run 77 (za 28 nov ±17:15 NL): mail 13 tot 16 (alle Click Cuts, hoek: lange props, grote bustes en beelden, opgeschaalde figuren)
+
+Door de Verspreider. Niets verstuurd, niemand benaderd. Sjabloon Click Cuts uit #375 letterlijk, alleen de aanhef en de eerste zin(nen) zijn eigen.
+
+**Voor de hoofdchat:** zondag 29 nov na 00:00 NL. `[CODE]`: "Outreach Click Cuts 2 (30)". V1 uit #375 blijft: link met de echte code één keer openen en $0 zien. Vooraf in Verzonden zoeken op het adres.
+
+Gezien met curl, za 28 nov ±16:30 tot 17:10 NL: abonnees en adresregel in de kanaalbeschrijving (/about), de nieuwste video's en hun beschrijving via de YouTube-feed, elke genoemde video via YouTube oEmbed (titel en kanaal kloppen). Live pagina Click Cuts opnieuw nagekeken (curl ±17:00 NL): "fits your bed", "pins", "Magnets", "engraved part number", "turns green", "watertight", "STL or 3MF", "fit test block", en "Made for busts, cos(play)" staan er. In de repo nagekeken op naam en handle in heel `commercie/`: Tiffany Gordon, Greedy 3D en All Things Art staan nergens. Brandon Tucker 3D viel in run 59 af ("print ontwerpen van anderen, geen Blender"); herzien, omdat run 76 ook makers zonder gezien Blender mailde en een figuur op 800% precies het werk van Click Cuts is (opnieuw in delen die op het bed passen). Welk programma ze gebruiken is bij geen van de vier gezien: geen zin neemt Blender aan. Twee kanalen zitten boven 100K (Brandon 109K, All Things Art 255K), zoals Braden in mail 1. Verwachting (GOK): 0 tot 1 antwoord op deze vier.
+
+## 13. Tiffany Gordon Cosplay · [kanaal](https://www.youtube.com/@TiffanyGordonCosplay), 56,2K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: "costume and prop fabrication as well as education", verkoopt eigen "3D CAD Files" op haar site (kanaalbeschrijving); print props op de Bambu en Flashforge (Hornet's Needle 13 nov, Coco's Quill 19 nov). In "How to Make LadyDevimon's Ghost/Shadow" (28 nov) bouwt ze volgens de videobeschrijving "a sturdy 3 foot floating arm using a 3D printed PLA core". Lange props passen zelden op één bed: Click Cuts. Naam Tiffany: kanaalnaam. Adres: in de kanaalbeschrijving, regel "Business Inquires" (https://www.youtube.com/@TiffanyGordonCosplay/about).
+
+Onderwerp: `Your LadyDevimon arm: free Click Cuts license`
+```
+Hi Tiffany,
+
+In part 3 of your LadyDevimon series you built a 3 foot floating arm around a 3D printed PLA core (https://www.youtube.com/watch?v=YvBfboEKJHo), and a piece that long rarely fits on one bed.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 14. Greedy 3D (Tony) · [kanaal](https://www.youtube.com/@greedy3d480), 17K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: "all things 3D Printing and Painting those creations" (kanaalbeschrijving), test printers en verf; "My Top 5 Anycubic Printers – Bigger Isn't Always Better!" (13 nov) vergelijkt kleine en grote printers; eerder "HUGE 3D Printed Hulk Bust - Start To Finish Resin Painted 3D Print". Een grote buste op een kleinere printer: Click Cuts ("Made for busts" op de live pagina). Zwakker dan 13: hij test vooral, ontwerpt niet zichtbaar (kans kleiner, GOK). Naam Tony: "Tony AKA Greedy 3D" in de kanaalbeschrijving. Adres: in de kanaalbeschrijving, zin "To get in touch Email me at" (https://www.youtube.com/@greedy3d480/about).
+
+Onderwerp: `Bigger isn't always better: free Click Cuts license`
+```
+Hi Tony,
+
+In your Anycubic line-up you asked whether bigger is always better (https://www.youtube.com/watch?v=t5ok96ntW8k). For anyone who keeps the smaller printer, a big bust like your Hulk (https://www.youtube.com/watch?v=6LrKHDcFIVg) still has to come off the plate in parts.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 15. Brandon Tucker 3D · [kanaal](https://www.youtube.com/@BrandonTucker3D), 109K abonnees (DERDEN, YouTube, 28 nov), net boven 100K
+Waarom: "A 3D Printing Channel that makes props" (kanaalbeschrijving); "I 3D Printed a Dummy 13 at 800% scale, was it worth it?", daarna maskers en Stoick's bijl (13 mei 2026); laatste video 2 jul (bijna 5 maanden stil, kans kleiner, GOK). Een figuur op 800% moet opnieuw in delen die op het bed passen: Click Cuts. Naam Brandon: kanaalnaam. Adres: in de kanaalbeschrijving, eerste adres onder "reach out to me at" (https://www.youtube.com/@BrandonTucker3D/about).
+
+Onderwerp: `Your 800% Dummy 13: free Click Cuts license`
+```
+Hi Brandon,
+
+You printed a Dummy 13 at 800% scale (https://www.youtube.com/watch?v=9Xkh6NIiCjM), and at that size every part has to be cut again to fit the bed.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 16. All Things Art · [kanaal](https://www.youtube.com/@ItsAllThingsArt), 255K abonnees (DERDEN, YouTube, 28 nov), boven 100K
+Waarom: "3D Printing, Statues, Painting, Art Tutorials" (kanaalbeschrijving); "I Made a 1/3 Scale Statue at Home… Learn 3D Printing (GK3 Ultra)" (±6 maanden geleden, YouTube-zoekpagina), en lak- en airbrushvideo's voor geprinte beelden (20 nov). Een beeld op 1/3 schaal: Click Cuts. Naam niet gezien, dus "Hi there". Adres: in de kanaalbeschrijving, zin "For commissions, questions or info please contact me on social media or email" (https://www.youtube.com/@ItsAllThingsArt/about).
+
+Onderwerp: `Your 1/3 scale statue: free Click Cuts license`
+```
+Hi there,
+
+I watched you make a 1/3 scale statue at home on the GK3 Ultra (https://www.youtube.com/watch?v=L0NFTQmI5Y0); at that size a statue almost never fits the plate in one piece.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## Nagekeken en afgevallen (run 77, ±350 kanalen uit 60 YouTube-zoekopdrachten)
+- Al gemaild of al afgevallen (repo): tilimakeit, SherlockSpiner (print kant-en-klare Warhammer-kits; nu de Reaver Titan, 25 nov), universeofemily (nu wel geprinte vleugels, 23 nov, maar 235K: reserve), josiahslab.
+- Adres wel, past niet: vaultfox (stil sinds apr 2023), Estefannie (vooral elektronica, helm 8 jaar oud), Design Forge en SolidWorks With Aryan (CAD, geen figuren of props), EonsOfBattle en Miniature Realms (schilderen), Myxl Mayx, SbookiDesigns, Kurachocolat (te klein), Outgoing Azzy (minderjarig, valt altijd af), YE Studio, deadboystudio, Kazuma Collection, Aiden's Collection (laten prints van anderen zien), Morley Kert, The Q, Sean's Crafts (boven 1M).
+- Pro blijft leeg: geen nieuwe maker van eigen beweegbare figuren met een openbaar adres. Let op voor Pro-mails: #410 (schouder en heup geven "Too thin here", Iris); tot dat dicht is liever Click Cuts.

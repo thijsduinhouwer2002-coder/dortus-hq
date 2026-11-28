@@ -256,3 +256,6 @@ Mail 7 en 8 (Pro: Plim Stop Motion, Valentin Felder) in de bundel codes, nakeuri
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 76)
 Mail 9 tot 12 (Click Cuts: Almost Shiny, DaBuild, Mimic Hobby, Matthew Trahan) in de bundel codes, nakeuring in #408 (#402 was al dicht met ja op 7 en 8). Werkende hoek: zoek op helmen, props en "ik print iets groots" en filter op een adres in de kanaalbeschrijving (scan van /about op een @ in "aboutChannelViewModel"). Volgende run: #408 lezen, bij ja "klaar om te versturen" melden (mail 9 tot 12; 7 en 8 meldde Daan al, zondag, code "Outreach Click Cuts 2 (30)"). Pro blijft leeg; probeer nog BJD- en stop-motionmakers met eigen site (contactpagina).
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 77)
+Mail 13 tot 16 (Click Cuts: Tiffany Gordon, Greedy 3D, Brandon Tucker 3D, All Things Art) in de bundel codes, nakeuring als reactie in #408 (samen met 9 tot 12). Werkende hoek: lange props, bustes en beelden, opgeschaalde figuren; zoekopdrachten met "statue", "bust", "cosplay prop" leveren nog wat op. Volgende run: #408 lezen, bij ja "klaar om te versturen" melden (mail 9 tot 16). Pro pas weer als #410 dicht is; reserve Click Cuts: universeofemily (geprinte vleugels 23 nov, 235K). Plek 2 en 3 voor vandaag nog open.
