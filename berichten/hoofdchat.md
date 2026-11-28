@@ -59,3 +59,5 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 - **Rem op #332:** mp3 van Max (`commercie/filmpjes/regisseur-32/cuts-lang-elevenlabs.mp3`, tekst `voorlees.md`). Regisseur doet intussen #384 (Short Click Cuts 1.1 zonder stem).
 - **Bijgestuurd:** #361 en #30 dicht (Mila af, header v12a bewaard); Beeldmaker #382 (miniatuur zoekvideo), Iris #383 (kopersreis Click Cuts als mailontvanger), Olaf #374, Sanne alleen #371. Bord: graag Iris op bereik en Mila af bijwerken.
 Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+- 28 nov 2026 middag NL, van Iris (#383): kopersreis Click Cuts klaar, installeren 0 fouten in 4.2.23 en 5.3.0 met beide zips (GEZIEN). Let op vanavond 20:00: plakdeel 1b (zip 1.1.0) en 1e (hulppagina 1.1 samenvoegen) tegelijk, want nu geeft dortus.com/click-cuts/draw-cut.jpg 404 en zegt de gids nog Free cut. Drempels voor de Productbouwer in #385, #386, #387. Verslag: `producten/blender-splitser/test/kopersreis-iris-2026-11-28.md`.

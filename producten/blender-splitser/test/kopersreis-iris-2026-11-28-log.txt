@@ -1,0 +1,40 @@
+== blender-4.2.23-linux-x64_click_cuts-1.0.0.log
+[reis] GOED installeren {'FINISHED'} paneel=True tab=Click Cuts
+[reis] FOUT standaardkubus 2 m, A1, Split to fit RuntimeError('Error: No plan: check the unit or pick a bigger printer\n')
+[reis] FOUT aap 300 mm als STL, A1, Split to fit RuntimeError('Error: aap_mm is 3.985e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n
+[reis] GOED Convert to mm en opnieuw Split to fit {'FINISHED'} unit=MILLIMETERS scale=0.0010000000474974513; daarna {'FINISHED'} uitslag='' meldingen='' stukken
+[reis] GOED Export parts (STL), .blend niet bewaard {'FINISHED'} map='' bestanden=['__init__.py', 'blender_manifest.toml', 'controle.py', 'doorsnede.py', 'drie_
+[reis] GOED Export parts (STL), .blend bewaard {'FINISHED'} ['piece_01.stl', 'piece_02.stl', 'piece_03.stl', 'piece_04.stl', 'pins_5mm_x16.stl']
+[reis] GOED fit test maken en exporteren {'FINISHED'} {'FINISHED'} speling=0.20 materialen=['PLA', 'PETG', 'ABS', 'TPU', 'RESIN', 'OTHER'] bestanden=['fit_test_
+[reis] GOED Add free cut en Cut piece {'FINISHED'} {'FINISHED'} uitslag='' meldingen='' stukken=7
+[reis] KLAAR 4.2.23 LTS
+== blender-4.2.23-linux-x64_click_cuts-1.1.0.log
+[reis] GOED installeren {'FINISHED'} paneel=True tab=Click Cuts
+[reis] FOUT standaardkubus 2 m, A1, Split to fit RuntimeError('Error: No plan: check the unit or pick a bigger printer\n')
+[reis] FOUT aap 300 mm als STL, A1, Split to fit RuntimeError('Error: aap_mm is 3.985e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n
+[reis] GOED Convert to mm en opnieuw Split to fit {'FINISHED'} unit=MILLIMETERS scale=0.0010000000474974513; daarna {'FINISHED'} uitslag='' meldingen='' stukken
+[reis] GOED Export parts (STL), .blend niet bewaard {'FINISHED'} map='' bestanden=['__init__.py', '__init__.py', 'blender_manifest.toml', 'blender_manifest.toml
+[reis] GOED Export parts (STL), .blend bewaard {'FINISHED'} ['piece_01.stl', 'piece_02.stl', 'piece_03.stl', 'piece_04.stl', 'pins_5mm_x16.stl']
+[reis] GOED fit test maken en exporteren {'FINISHED'} {'FINISHED'} speling=0.20 materialen=['PLA', 'PETG', 'ABS', 'TPU', 'RESIN', 'OTHER'] bestanden=['fit_test_
+[reis] GOED Add free cut en Cut piece {'FINISHED'} {'FINISHED'} uitslag='' meldingen='' stukken=7
+[reis] KLAAR 4.2.23 LTS
+== blender-5.3.0-linux-x64_click_cuts-1.0.0.log
+[reis] GOED installeren {'FINISHED'} paneel=True tab=Click Cuts
+[reis] FOUT standaardkubus 2 m, A1, Split to fit RuntimeError('Error: No plan: check the unit or pick a bigger printer\n')
+[reis] FOUT aap 300 mm als STL, A1, Split to fit RuntimeError('Error: aap_mm is 3.985e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n
+[reis] GOED Convert to mm en opnieuw Split to fit {'FINISHED'} unit=MILLIMETERS scale=0.0010000000474974513; daarna {'FINISHED'} uitslag='' meldingen='' stukken
+[reis] GOED Export parts (STL), .blend niet bewaard {'FINISHED'} map='' bestanden=['__init__.py', '__init__.py', '__init__.py', 'blender_manifest.toml', 'blende
+[reis] GOED Export parts (STL), .blend bewaard {'FINISHED'} ['piece_01.stl', 'piece_02.stl', 'piece_03.stl', 'piece_04.stl', 'pins_5mm_x16.stl']
+[reis] GOED fit test maken en exporteren {'FINISHED'} {'FINISHED'} speling=0.20 materialen=['PLA', 'PETG', 'ABS', 'TPU', 'RESIN', 'OTHER'] bestanden=['fit_test_
+[reis] GOED Add free cut en Cut piece {'FINISHED'} {'FINISHED'} uitslag='' meldingen='' stukken=7
+[reis] KLAAR 5.3.0
+== blender-5.3.0-linux-x64_click_cuts-1.1.0.log
+[reis] GOED installeren {'FINISHED'} paneel=True tab=Click Cuts
+[reis] FOUT standaardkubus 2 m, A1, Split to fit RuntimeError('Error: No plan: check the unit or pick a bigger printer\n')
+[reis] FOUT aap 300 mm als STL, A1, Split to fit RuntimeError('Error: aap_mm is 3.985e+05 mm: the unit of the scene is probably wrong. Use Convert to mm first\n
+[reis] GOED Convert to mm en opnieuw Split to fit {'FINISHED'} unit=MILLIMETERS scale=0.0010000000474974513; daarna {'FINISHED'} uitslag='' meldingen='' stukken
+[reis] GOED Export parts (STL), .blend niet bewaard {'FINISHED'} map='' bestanden=['__init__.py', '__init__.py', '__init__.py', '__init__.py', 'blender_manifest
+[reis] GOED Export parts (STL), .blend bewaard {'FINISHED'} ['piece_01.stl', 'piece_02.stl', 'piece_03.stl', 'piece_04.stl', 'pins_5mm_x16.stl']
+[reis] GOED fit test maken en exporteren {'FINISHED'} {'FINISHED'} speling=0.20 materialen=['PLA', 'PETG', 'ABS', 'TPU', 'RESIN', 'OTHER'] bestanden=['fit_test_
+[reis] GOED Add free cut en Cut piece {'FINISHED'} {'FINISHED'} uitslag='' meldingen='' stukken=7
+[reis] KLAAR 5.3.0

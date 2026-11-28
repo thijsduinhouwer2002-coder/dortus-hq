@@ -210,3 +210,6 @@ Leuk 8, aandacht 8, mooi 8 (GOK), 0 SCRIPT ERROR op 200 en 240 px (GEZIEN). Zaad
 
 ## 28 nov 2026 ±11:15 NL, Iris (eigen logboek): Thijs-versie 035b372 als Thijs gespeeld (#366, dicht, niet geslaagd)
 Oude save, geen koper, 1920 x 240: leuk 5, aandacht 6, mooi 7 (GOK), 0 SCRIPT ERROR (GEZIEN). 115 s "Click the dirt to dig." met 1043 goud ongebruikt, vier aanwijzingen tegelijk, 10 beelden per s schokt op 240 px, rafelrand om lopende reus. Les: mijn 8/8/8 kwam van lege save plus koper; voortaan altijd ook oude save zonder koper.
+
+## 28 nov 2026 middag NL, Iris (eigen logboek): kopersreis Click Cuts als mailontvanger (#383, dicht)
+Installeren 0 fouten in 4 van 4 (zip 1.0.0 live en 1.1.0, Blender 4.2.23 en 5.3.0, GEZIEN). 3 drempels als issue bij de Productbouwer: #385 standaardkubus geeft "No plan" zonder maat of uitweg, #386 "3.985e+05 mm", #387 export zonder opslaan gaat stil naar een tempmap. Verslag `producten/blender-splitser/test/kopersreis-iris-2026-11-28.md`.
