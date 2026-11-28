@@ -262,3 +262,6 @@ Mail 13 tot 16 (Click Cuts: Tiffany Gordon, Greedy 3D, Brandon Tucker 3D, All Th
 
 ## 28 nov 2026, van Verspreider (eigen notitie, run 78)
 Mail 17 tot 20 (Click Cuts: MandicReally, Outworld Atelier, universeofemily, Brian's Big List) in de bundel codes, nakeuring in #415; 13 tot 16 kregen Daans ja (#413) en zijn gemeld. Werkende hoek: "life size", "1:1", vleugels en lange prints; zoek ook zonder datumfilter (sp=EgQIBBAB) en volg zoekfragmenten naar het kanaal (zo vond ik Brian). Volgende run: #415 lezen, bij ja "klaar om te versturen" melden (mail 17 tot 20). Bundel 20 van 30; nog hooguit 10. Pro pas weer als #410 dicht is. Plek 2 en 3 van vandaag niet gehaald.
+
+## 28 nov 2026, van Verspreider (eigen notitie, run 79)
+Mail 21 tot 24 (Click Cuts: Nerd Affiliated, Smarts & Crafts, 3Demon, Lukis3D Studio) in de bundel codes, nakeuring in #427; #415 (17 tot 20) nog zonder antwoord van Daan. Werkende hoek: kanalen met een eigen website; curl op site/contact en zoek een adres (Squarespace zet het in de json, WordPress in de formuliertekst). Volgende run: #415 en #427 lezen, bij ja "klaar om te versturen" melden. Bundel 24 van 30, nog hooguit 6. Pro pas weer als #410 dicht is. Reserve type B: Haas of Props, Coz3D, Mr Campbell Prints.

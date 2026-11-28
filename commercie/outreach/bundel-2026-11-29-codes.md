@@ -481,3 +481,95 @@ Dortus, dortus.com
 - Past, geen adres: 3D Kool Hacks (1,12K, "I 3D printed a life-size bust of my dad", 25 nov): bewaren als type B.
 - Adres wel, past niet of zwak: Gareths 3D Printing (3K, print vooral modellen van anderen), Sargent Digital Design (print voorgesneden figuren op 1/4), NK3DLab (125K, kleine prints van anderen), DERAILED3D (nu alleen korte filmpjes), Aladdin's Lab (slicer-uitleg), Slant 3D (bedrijf), Overclock 3D Print (stil sinds jul), UncleJessy, KiarasWorkshop, hafu, seanscrafts (ver boven 100K of managementadres).
 - Pro blijft leeg en wacht op #410.
+
+## Aanvulling run 79 (za 28 nov ±19:00 NL): mail 21 tot 24 (alle Click Cuts, hoek: makers en ontwerpers met een eigen site en een contactadres daarop)
+
+**Voor de hoofdchat:** zondag 29 nov na 00:00 NL. `[CODE]`: "Outreach Click Cuts 2 (30)". V1 uit #375 blijft: link met de echte code één keer openen en $0 zien. Vooraf in Verzonden zoeken op het adres. Nakeuring Daan: #427. Let op: bij mail 21, 23 en 24 staat het adres op hun eigen website (contactpagina), bij mail 22 in de kanaalbeschrijving.
+
+Gezien met curl, za 28 nov ±18:35 tot 18:58 NL: abonnees en beschrijving op de kanaalpagina (/about), de nieuwste video's via de YouTube-feed, elke genoemde video via YouTube oEmbed (titel en kanaal kloppen), het adres op de genoemde contactpagina. Live pagina Click Cuts opnieuw nagekeken (curl ±18:55 NL): "fits your bed", "pins, pin holes and an engraved part number on the cut faces", "turns green when it fits, is watertight and has enough wall around its holes", "STL or 3MF", "small fit test block", "busts, cosplay props, terrain and statues that are too big for one print". In de repo nagekeken op naam en handle in heel `commercie/`: geen van de vier staat er. Welk programma ze gebruiken is bij geen van de vier gezien: geen zin neemt Blender aan. Verwachting (GOK): 0 tot 1 antwoord op deze vier.
+
+## 21. Nerd Affiliated (HeyArcher) · [kanaal](https://www.youtube.com/@NerdAffiliated), 2,96K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: "HeyArcher and crew build props, suit up for cons" en "From the 3D printer to the con floor" (kanaalbeschrijving); "My Next Build: The Power Axe 🔥 Power Rangers" (24 nov). Een lange prop die nog gebouwd moet worden: Click Cuts ("cosplay props" op de live pagina). Lengte van de axe niet gezien, dus de zin zegt "most print beds" als redenering (GOK). Voornaam niet gezien (HeyArcher is een bijnaam), dus "Hi there". Adres: op hun website, contactpagina (https://nerdaffiliated.com/contact).
+
+Onderwerp: `Your next build, the Power Axe: free Click Cuts license`
+```
+Hi there,
+
+Your next build, the Power Axe (https://www.youtube.com/watch?v=-MaWWRmE60g), is the kind of prop that is longer than most print beds.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 22. Smarts & Crafts (Pops) · [kanaal](https://www.youtube.com/@smarts-n-crafts), 1,97K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: "I take 3D-printed statues from raw resin to fully painted display pieces" (kanaalbeschrijving); elke week een beeld, laatste "3D Printing & Painting Goku | Dragon Ball Z Statue Build" (27 nov), daarvoor Ryu vs. Ken als diorama. Beelden op resinplaten: zodra een beeld groter wordt dan één plaat, Click Cuts ("statues" op de live pagina; de pagina noemt ook een speling vanaf 0.10 mm voor resin). Naam: "I'm Pops" in de kanaalbeschrijving. Klein kanaal (1,97K), maar precies het onderwerp. Adres: in de kanaalbeschrijving, regel "Business & partnerships" (https://www.youtube.com/@smarts-n-crafts/about).
+
+Onderwerp: `Your Goku statue build: free Click Cuts license`
+```
+Hi Pops,
+
+I enjoyed your Goku statue build (https://www.youtube.com/watch?v=x8JGp-djS_c), from resin print to finished paint; once a statue gets bigger than one resin plate, it has to come off the printer in parts.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 23. 3Demon · [kanaal](https://www.youtube.com/@3demon_3dprint), 5,73K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: "A group of 3D designers based in Prague. We love cosplay, propmaking, art" (kanaalbeschrijving); ze verkopen STL-bestanden voor cosplay-armor, maskers en props, en laten de montage zien: "Sabine Wren blasters - WESTAR 35 3D printed Assembly" (26 nov), "3D printing a flying Thestral" (25 okt). Ontwerpers die hun modellen in delen aanbieden: Click Cuts. Geen persoonsnaam gezien, dus "Hi 3Demon team". Adres: op hun website, contactpagina, regel "Email" (https://3d-mon.com/contact).
+
+Onderwerp: `Your WESTAR-35 assembly: free Click Cuts license`
+```
+Hi 3Demon team,
+
+Your Sabine Wren WESTAR-35 assembly (https://www.youtube.com/watch?v=pC2RntDsVPQ) shows how much of good cosplay design is where the parts split.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## 24. Lukis3D Studio (Lukis) · [kanaal](https://www.youtube.com/@Lukis3D), 75,4K abonnees (DERDEN, YouTube, 28 nov)
+Waarom: printkanaal met eigen modellen op MakerWorld (link in de kanaalbeschrijving); "assembling Mega Charizard X" (5 sep), een groot model in delen in elkaar gezet, en "3D printing Macca the gator with the new Creality K3" (22 okt). Recent ook printerreviews: past minder sterk dan 21 tot 23 (GOK). Naam: "it's Lukis!" in de kanaalbeschrijving. Adres: op zijn website, contactpagina ("you can email us from your own email client to ...", https://lukisstudio.com/contact).
+
+Onderwerp: `Your Mega Charizard X: free Click Cuts license`
+```
+Hi Lukis,
+
+Watching you assemble your Mega Charizard X (https://www.youtube.com/watch?v=VcKeBdXvLhE) is the fun half of a big print in parts; the other half is cutting it so every piece fits the bed.
+
+Click Cuts is a Blender add-on that splits a model that is too big for your printer into parts that fit your bed, with pins or magnet holes and an engraved part number on the cut faces. Each part turns green when it fits, is watertight and has enough wall around its holes, or orange or red with the reason. It exports to STL or 3MF.
+
+I'd like to give you a free license. This link sets the price to $0: https://duinhouwer8.gumroad.com/l/click-cuts/[CODE]
+No obligation at all. If you try it, I'd love your honest feedback, and if you like it, a review or a mention. If you show it, please say you got it for free.
+
+Print the fit test block first: every printer is different.
+
+Thijs
+Dortus, dortus.com
+```
+
+## Nagekeken en afgevallen (run 79, ±125 kanalen uit 20 YouTube-zoekopdrachten)
+- Past, geen adres op kanaal of site: Haas of Props (6,61K, RT-97C op ware grootte, Mandalorian-zwaard 20 nov), Coz3D (5,58K, Star Wars-props), Millennium Workshop (3,14K, Han Solo in carboniet; beacons gaf 403), Mr Campbell Prints (23,9K, Power Rangers-wapens), 3D Printed Props (41,4K; site gaf 508): bewaren als type B.
+- Adres wel, past niet of zwak: The Layered Workshop (7,97K, vooral printerreviews), CNC Bratan (CNC, geen grote prints), Spartan Uruk (nu figuurreviews en GTA).
+- Pro blijft leeg en wacht op #410 (in keuring #425).
+
