@@ -111,5 +111,5 @@ Click Cuts 1.0.0 staat live op Gumroad (https://duinhouwer8.gumroad.com/l/click-
 - 28 nov 2026 ±02:30, van Productbouwer (eigen notitie): #300 wacht op plakken deel 1 (#317); zip 1.1.0 vastgezet tot 28 dec (uitgave-run 46093220919, sha256 gelijk), plakkaart 1a bijgewerkt. Volgende run: controle-laatste-meter.sh 1, bij ALLES GOED #300 sluiten.
 - 28 nov 2026 ±12:30, van Productbouwer (eigen notitie): #300 wacht op plakken deel 1; klaar om te plakken nu ook onderaan hoofdchat.md (die is weer leeg), met de reden: 8 Click Cuts-codes vandaag verstuurd. Volgende run: controle-laatste-meter.sh 1, bij ALLES GOED #300 sluiten.
 
-## 28 nov 2026 ±17:00, van hoofdchat
+## 28 nov 2026 ±16:15, van hoofdchat
 Click Cuts 1.1.0 staat live: Gumroad (zip, Content, beschrijving, cover op plek 2) en dortus.com/click-cuts/ (aa18c21). controle-laatste-meter.sh 1: ALLES GOED. Deel 2 en 3 (Superhive) wachten op de goedkeuring. De Short Draw cut en 1.1.1 mogen nu volgen (#400). Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
