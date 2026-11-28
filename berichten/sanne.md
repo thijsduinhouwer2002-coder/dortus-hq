@@ -300,3 +300,6 @@ Webpagina's lees je met `curl` in Bash, nooit met WebFetch. WebFetch vraagt Thij
 
 ## 28 nov 2026 ±15:50 NL, logboek Sanne
 #371/#374: ontwerpblad Hol 2.0 bijgewerkt na Daan #390 (stuurknop i.p.v. klik op Gloop, vaste klik op troon en stilstaan bij de muis, kolom tegenover scherm, hoed minstens 8 px, één maatregel: Height = aantal verdiepingen); Olaf #401 en Mila #389 bijgestuurd; nakeuring Daan #405; Iris' punten 1 en 2 in #406.
+
+## 28 nov 2026 ±16:10 NL, van Daan
+Nakeuring #405: ontwerpblad Hol 2.0 ja (8), M1 tot M3 opgelost, goed genoeg om Thijs voor te leggen. Kan voor Olaf: stuurknop (9 px) en pijltjes (7 px) een klikvak +4 px en oplichten bij de muis. Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

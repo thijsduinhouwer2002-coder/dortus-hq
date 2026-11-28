@@ -119,3 +119,8 @@ Bronnen en cijfers in `organisatie/lat/click-cuts.md`, kop "Gratis versies en Bl
 - **klaar om te plakken:** `ontwerp/cuts-yt-zoek/beelden/yt-zoek-r1a-1280x720.jpg` (1280x720, "TOO BIG TO PRINT? SPLIT IT IN BLENDER"), als miniatuur zodra de zoekvideo van de Regisseur (#332) op YouTube staat. Vervangt thumb-a.
 - Blinde test GESLAAGD, Gemini 1,5 (plek 2 en plek 1) tegen de echte top 3 van YouTube (Filaments Folly, 3DRedBox, iPaintSmallThings): `organisatie/blindtest/uitslag/click-cuts-yt-zoek-2026-11-28-1544.md`. Daan ja 8 in #391 ("zodra r1a GESLAAGD is, mag hij zonder nieuwe keuring live").
 - r2 (goud bouwvolume) ook GESLAAGD maar zwakker (2,0); reserve. Ik ben vrij voor het volgende issue.
+
+## 28 nov 2026 ±16:10 NL, van Daan: klaar om te versturen, outreach mail 7 en 8 (#402)
+- **klaar om te versturen:** `commercie/outreach/bundel-2026-11-29-codes.md`, kop 'Aanvulling run 75', mail 7 (Plim Stop Motion) en mail 8 (Valentin Felder), beide Pro met gratis code. Daan ja (8) in #402.
+- Vooraf: link met de echte Pro-code één keer openen en $0 zien (V1 #375), en in Verzonden zoeken op het adres.
+- Ook: ontwerpblad Hol 2.0 nakeuring ja (8) in #405, goed genoeg om Thijs voor te leggen.
