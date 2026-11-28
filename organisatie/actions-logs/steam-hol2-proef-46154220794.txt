@@ -1,0 +1,28 @@
+# gemaakt: 2026-11-28T14:25:14Z
+# workflow: Hol 2.0 proef (tak hol2-proef, Windows) (.github/workflows/steam-hol2-proef.yml)
+# run: 46154220794 https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46154220794
+# commit: bbc21647 tak hol2-proef gestart door push
+# mislukte stappen: proef: Besturen krijgt echte toetsen en de focus gaat terug naar Kladblok (#401, Daan
+# per mislukte job de laatste 200 regels (bij workflows met secrets alleen de foutregels); persoonsgegevens en sleutels weggehaald.
+# wordt na 7 dagen vanzelf opgeruimd.
+
+===== proef / Besturen krijgt echte toetsen en de focus gaat terug naar Kladblok (#401, Daan (laatste 19 van 19 regels) =====
+##[group]Run $uit = (Resolve-Path "producten/steam-hol/e2e/screenshots/hol2").Path -replace '\\','/'
+$uit = (Resolve-Path "producten/steam-hol/e2e/screenshots/hol2").Path -replace '\\','/'
+$exe = (Resolve-Path "[weggehaald: lange base64-reeks].exe").Path
+& producten/steam-hol/e2e/hol2_focus.ps1 $exe $uit
+if ($LASTEXITCODE -ne 0) { exit 1 }
+shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+##[endgroup]
+voor de start vooraan: notepad
+na de start van het hol vooraan: notepad (moet notepad blijven)
+Gloop op het scherm: 866,710 (venster 120 hoog, werkvlak 1024x720)
+na de klik op Gloop vooraan: HetHol
+FOUT: geen 'besturen uit (Esc)'
+na Esc vooraan: HetHol
+tekst in Kladblok na de letter q: ''
+FOUT: de letter kwam niet in Kladblok
+na 12 s stil vooraan: notepad
+log: besturen uit (10 s geen toets) gloop x=866 niveau=2 focus terug naar 328080 (Notepad, vorig venster)
+focus en besturen: 2 FOUT
+##[error]Process completed with exit code 1.
