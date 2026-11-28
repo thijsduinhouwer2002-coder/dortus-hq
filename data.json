@@ -1,0 +1,2721 @@
+{
+ "gebouwd": "2026-11-28T19:00+01:00",
+ "projecten_bijgewerkt": {
+  "datum": "2026-11-24 19:45",
+  "door": "hoofdchat",
+  "iso": "2026-11-24T19:45+01:00"
+ },
+ "fouten": [],
+ "repo": "thijsduinhouwer2002-coder/dortus-hq",
+ "totaal": {
+  "laag": 400,
+  "hoog": 1100,
+  "label": "GOK",
+  "zonder_schatting": [
+   "Click Cuts (splitser)",
+   "Roep, de marketing-tak"
+  ]
+ },
+ "doen": [
+  {
+   "titel": "Speeltest: de build spelen en zeggen of het leuk is (link komt vr 20 nov).",
+   "bron": "project",
+   "klein": false,
+   "project": "hats",
+   "voor": "2026-11-21"
+  },
+  {
+   "titel": "Samen met de hoofdchat devvit login doen met het account u/DortusGames (±5 min).",
+   "bron": "project",
+   "klein": false,
+   "project": "reddit-hat-tower",
+   "voor": "2026-11-23"
+  },
+  {
+   "titel": "Insider Gaming 'New Year, New Games 2027' inzenden (±10 min).",
+   "bron": "project",
+   "klein": false,
+   "project": "hats",
+   "voor": "2026-11-25"
+  },
+  {
+   "titel": "Reddit r/customactionfigures opnieuw plaatsen met je eigen account (3 min).",
+   "bron": "lijst",
+   "klein": false,
+   "project": "click-joints-pro",
+   "voor": "2026-11-27"
+  },
+  {
+   "titel": "BlenderNation EUR 25 betalen",
+   "bron": "lijst",
+   "klein": false,
+   "project": null,
+   "voor": null
+  },
+  {
+   "titel": "Blender Artists: 10 minuten lezen",
+   "bron": "lijst",
+   "klein": false,
+   "project": null,
+   "voor": null
+  },
+  {
+   "titel": "STL naar Toon sturen",
+   "bron": "lijst",
+   "klein": false,
+   "project": null,
+   "voor": null
+  },
+  {
+   "titel": "Hats speelversie proberen",
+   "bron": "lijst",
+   "klein": false,
+   "project": null,
+   "voor": null
+  }
+ ],
+ "deadlines": [
+  {
+   "datum": "2026-12-01",
+   "tijd": null,
+   "wat": "Stopregel: een video boven 1.000 weergaven, anders andere vorm",
+   "project": "roep",
+   "naam": "Roep"
+  },
+  {
+   "datum": "2026-12-09",
+   "tijd": "03:00",
+   "wat": "Inzending op Devpost (di 8 dec 18:00 PST)",
+   "project": "reddit-hat-tower",
+   "naam": "Reddit-dagspel"
+  }
+ ],
+ "projecten": [
+  {
+   "id": "reddit-hat-tower",
+   "naam": "Reddit Game of the Day",
+   "kort": "Reddit-dagspel",
+   "wat": "Gloop's Hat Tower als dagspel op Reddit, ingezonden in de wedstrijd van Reddit en Devpost (categorie ported).",
+   "soort": "geldroute",
+   "voor": "Dortus",
+   "platform": "Reddit (Devvit) en Devpost",
+   "status": {
+    "woord": "bouwen",
+    "kleur": "let-op",
+    "zin": "Afwisselingsronde gekeurd (akkoord). Speelkeuring Iris: plezier 6, beeld 8 (GOK, haar oordeel); stil tot de devvit-login met Thijs."
+   },
+   "eigenaar": "hoofdchat",
+   "agents": [
+    "Reddit-bouwer",
+    "Daan"
+   ],
+   "kans": {
+    "laag": 10,
+    "hoog": 20,
+    "label": "GOK",
+    "reden": "Keurder snel-geld, rangorde route 1: kans op meer dan €0. In bevinding A3 vond dezelfde keurder 5 tot 12% eerlijker, omdat de prijs naar de beste port gaat.",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "prognose": {
+    "laag": 0,
+    "verwacht": [
+     350,
+     800
+    ],
+    "hoog": 12900,
+    "label": "GOK",
+    "reden": "Keurder snel-geld, route 1: verwacht ±€350 tot €800 toegezegd; uitkomst €0, €860, €5.200 of €12.900. Geld komt pas eind dec tot half feb. Let op: €350 tot €800 is een gemiddelde over de uitkomsten; de meest waarschijnlijke uitkomst is €0 (80 tot 90% kans, GOK uit dezelfde keuring).",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "waarschijnlijk": 0,
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "volgende_stap": "Login met Thijs vóór ma 23 nov; in de test- en filmronde daarna eerst de drie punten van Iris (doel in beeld, omslag en eindsprint, hoeden husselen); ±1 dec bevriezen en insturen.",
+   "deadline": {
+    "datum": "2026-12-09",
+    "tijd": "03:00",
+    "wat": "Inzending op Devpost (di 8 dec 18:00 PST)"
+   },
+   "thijs": [
+    {
+     "doen": "Samen met de hoofdchat devvit login doen met het account u/DortusGames (±5 min).",
+     "voor": "2026-11-23"
+    }
+   ],
+   "risico": "Zonder werkende demopost op Reddit scoort het spel op alle vier jurypunten laag; het filmpje onder 1 minuut is in de praktijk verplicht.",
+   "laatste_update": {
+    "datum": "2026-11-19 14:55",
+    "door": "hoofdchat-ronde"
+   },
+   "links": [
+    {
+     "naam": "Wedstrijd",
+     "url": "https://redditgameofday2026.devpost.com/"
+    },
+    {
+     "naam": "Keuringen",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/producten/reddit-hat-tower/KEURING.md"
+    },
+    {
+     "naam": "Stand",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/producten/reddit-hat-tower/stand.md"
+    },
+    {
+     "naam": "Map",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/tree/main/producten/reddit-hat-tower"
+    }
+   ],
+   "cijfers": [],
+   "mappen": [
+    "producten/reddit-hat-tower"
+   ],
+   "keuringen": [
+    {
+     "pad": "producten/reddit-hat-tower/KEURING.md",
+     "link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/producten/reddit-hat-tower/KEURING.md",
+     "kop": "Keuring afwisseling",
+     "akkoord": "Geen moet-punten. Het filmpje blijft een concept tot de opname op Reddit (moet 4 van fase 2b).",
+     "oordeel": "ja",
+     "tijd": "2026-11-19T14:07+01:00"
+    },
+    {
+     "pad": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+     "link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+     "kop": "Keuring snel-geld-onderzoek",
+     "akkoord": "met correcties. De bronnen kloppen bijna overal (14 van 14 nagelopen bronnen bestaan en zeggen in hoofdzaak wat er staat). Wat niet klopt, zit in de schattingen: B rekent de hackathons te hoog, C rekent de kans op een \"lumabar\" te hoog,…",
+     "oordeel": "ja",
+     "tijd": "2026-11-19T08:26+01:00"
+    }
+   ],
+   "recent": [
+    {
+     "hash": "412af79",
+     "tijd": "2026-11-19T14:47+01:00",
+     "wie": "Iris",
+     "wat": "speelkeuring Hat Tower (plezier 6, beeld 8)"
+    },
+    {
+     "hash": "0c33a42",
+     "tijd": "2026-11-19T14:07+01:00",
+     "wie": "Keurder",
+     "wat": "akkoord, eerlijk nagerekend, deel C en filmpje"
+    },
+    {
+     "hash": "1bd4448",
+     "tijd": "2026-11-19T14:01+01:00",
+     "wie": "Reddit-bouwer",
+     "wat": "inzendfilmpje opnieuw met de wisselende helden (titel rechts, overgang op de knip, eindkaart New tower every day on r/GloopsHatTower), mijlpaal onder Gloop, lijst…"
+    },
+    {
+     "hash": "8a619ca",
+     "tijd": "2026-11-19T13:42+01:00",
+     "wie": "Reddit-bouwer",
+     "wat": "helden wisselen van kant (links, rechts, boven, stuiter tegen de wand), soort (6 helden), draaiing en tempo, vast per dag en heldnummer; Gloop kijkt naar de held,…"
+    },
+    {
+     "hash": "d558bb4",
+     "tijd": "2026-11-19T13:28+01:00",
+     "wie": "Keurder",
+     "wat": "Herkeuring inzendfilmpje Reddit Hat Tower: spel en filmpje (als concept) akkoord, knip kan netter"
+    },
+    {
+     "hash": "3fddb91",
+     "tijd": "2026-11-19T13:23+01:00",
+     "wie": "Reddit-bouwer",
+     "wat": "inzendfilmpje opnieuw (begint met actie, echt 1080x1920 beeld voor beeld, geen proefnamen, 34 s), mijlpaal links, grotere vlucht naar de gezamenlijke toren, pauzeren…"
+    }
+   ]
+  },
+  {
+   "id": "click-joints-pro",
+   "naam": "Click Joints Pro",
+   "kort": "Click Joints Pro",
+   "wat": "Betaalde Blender-add-on voor beweegbare 3D-printfiguren; doel is de Superhive Cyber Sale rond Black Friday.",
+   "soort": "product",
+   "voor": "Dortus",
+   "platform": "Superhive en Gumroad",
+   "status": {
+    "woord": "live",
+    "kleur": "op-koers",
+    "zin": "Pro 1.2.3 live op Gumroad en Superhive; 1 verkoop $19 op 22 nov (GEZIEN scorebord). Zip 1.2.6 (enkels ook op de robot) staat (uitgave-run 45406170269 groen) en de tekst heeft ja van Daan (24 nov 15:40). Besluit 24 nov 16:50: we plakken meteen 1.2.7 (fix voor Shift + rechtsklik, de weg uit de Gumroad-tekst), in Chrome op de werklaptop, vóór do 27 nov."
+   },
+   "eigenaar": "Bram",
+   "agents": [
+    "Bram",
+    "Daan",
+    "hoofdchat"
+   ],
+   "kans": {
+    "tekst": "middel",
+    "label": "GOK",
+    "reden": "Keurder snel-geld 19 nov, route 2: middel. Bijgewerkt 20 nov (hoofdchat): Superhive keurde Pro goed (19 nov), dus dat bezwaar vervalt; nu hangt het af van bereik in de saleweek (makers, filmpjes, Reddit).",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "prognose": {
+    "verwacht": [
+     50,
+     300
+    ],
+    "label": "GOK",
+    "reden": "Keurder snel-geld, route 2: €50 tot €300 in 12 weken. De gratis add-on mag in Blender niet naar Pro wijzen, dus kopers komen er niet vanzelf. Meest waarschijnlijk ±€30 (2 à 3 verkopen in de saleweek, GOK van de hoofdchat 20 nov): nog 0 verkopen (GEZIEN), maar sinds 20 nov trechter dicht, 11 makers gemaild op ma 23 nov, uitleg-video 23 nov, korting 27 nov tot 1 dec.",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "waarschijnlijk": 30,
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "volgende_stap": "Eén plak met 1.2.7 (Shift + rechtsklik-fix, Daan ja code, e2e loopt): Olaf uitgave-run na groene e2e (doel 24 nov 21:00), Bram tekst pro-1.2.7.md naar Daan; dan zip, tekst en Docs-tab plakken op Gumroad en Superhive, door de hoofdchat in Chrome op de werklaptop, vóór do 27 nov.",
+   "deadline": {
+    "datum": "2026-11-27",
+    "wat": "Superhive Cyber Sale (Black Friday)"
+   },
+   "thijs": [
+    {
+     "doen": "BlenderArtists: account aanmaken en ja op de gekeurde tekst (lijst-thijs punt 5), plaatsen op of na 27 nov.",
+     "voor": "2026-11-27"
+    }
+   ],
+   "risico": "Weinig bereik: Gumroad 8 keer bekeken in 30 dagen (GEZIEN). Of CYBER25 vanzelf werkt of getypt moet worden, is nog niet gezien.",
+   "laatste_update": "2026-11-24",
+   "links": [
+    {
+     "naam": "Winkelpagina",
+     "url": "https://dortus.com/click-joints/"
+    },
+    {
+     "naam": "Gratis versie",
+     "url": "https://extensions.blender.org/add-ons/click-joints/"
+    },
+    {
+     "naam": "Superhive-pakket",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/blender/superhive/README.md"
+    },
+    {
+     "naam": "Keuring pakket",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/blender/keuring/2026-11-19-superhive-pakket-daan.md"
+    },
+    {
+     "naam": "Map",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/tree/main/platformen/blender"
+    }
+   ],
+   "cijfers": [
+    {
+     "sleutel": "Click Joints Pro for Blender|Gumroad|verkopen",
+     "product": "Click Joints Pro for Blender",
+     "platform": "Gumroad",
+     "maat": "verkopen",
+     "waarde": "1",
+     "gisteren": "",
+     "stand": "",
+     "bron": "organisatie/scorebord-data.csv",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-25",
+     "reeks": [
+      [
+       "2026-11-18",
+       0.0
+      ],
+      [
+       "2026-11-19",
+       0.0
+      ],
+      [
+       "2026-11-20",
+       0.0
+      ],
+      [
+       "2026-11-21",
+       0.0
+      ],
+      [
+       "2026-11-22",
+       0.0
+      ],
+      [
+       "2026-11-23",
+       1.0
+      ],
+      [
+       "2026-11-24",
+       1.0
+      ],
+      [
+       "2026-11-25",
+       1.0
+      ]
+     ]
+    },
+    {
+     "sleutel": "Click Joints Pro for Blender|Gumroad|omzet USD",
+     "product": "Click Joints Pro for Blender",
+     "platform": "Gumroad",
+     "maat": "omzet USD",
+     "waarde": "19",
+     "gisteren": "",
+     "stand": "",
+     "bron": "organisatie/scorebord-data.csv",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-25",
+     "reeks": [
+      [
+       "2026-11-18",
+       0.0
+      ],
+      [
+       "2026-11-19",
+       0.0
+      ],
+      [
+       "2026-11-20",
+       0.0
+      ],
+      [
+       "2026-11-21",
+       0.0
+      ],
+      [
+       "2026-11-22",
+       0.0
+      ],
+      [
+       "2026-11-23",
+       19.0
+      ],
+      [
+       "2026-11-24",
+       19.0
+      ],
+      [
+       "2026-11-25",
+       19.0
+      ]
+     ]
+    },
+    {
+     "sleutel": "Click Joints Pro|Superhive|verkoopklasse",
+     "product": "Click Joints Pro",
+     "platform": "Superhive",
+     "maat": "verkoopklasse",
+     "waarde": null,
+     "gisteren": "geen verkoopblok (onder 10 of nog niet zichtbaar)",
+     "stand": "Superhive toont alleen klassen",
+     "bron": "superhivemarket.com productpagina",
+     "label": null,
+     "gemeten": "2026-11-28T08:20+00:00",
+     "reeks": []
+    },
+    {
+     "sleutel": "Click Joints|Blender|downloads",
+     "product": "Click Joints",
+     "platform": "Blender",
+     "maat": "downloads",
+     "waarde": "425",
+     "gisteren": "418",
+     "stand": "versie 0.1.1",
+     "bron": "extensions.blender.org (API en productpagina)",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-28T08:20+00:00",
+     "reeks": [
+      [
+       "2026-11-16",
+       171.0
+      ],
+      [
+       "2026-11-17",
+       197.0
+      ],
+      [
+       "2026-11-18",
+       240.0
+      ],
+      [
+       "2026-11-19",
+       251.0
+      ],
+      [
+       "2026-11-20",
+       267.0
+      ],
+      [
+       "2026-11-21",
+       288.0
+      ],
+      [
+       "2026-11-22",
+       316.0
+      ],
+      [
+       "2026-11-23",
+       347.0
+      ],
+      [
+       "2026-11-24",
+       376.0
+      ],
+      [
+       "2026-11-25",
+       393.0
+      ],
+      [
+       "2026-11-26",
+       406.0
+      ],
+      [
+       "2026-11-27",
+       418.0
+      ],
+      [
+       "2026-11-28",
+       425.0
+      ]
+     ]
+    },
+    {
+     "sleutel": "Click Joints|dortus.com|pagina",
+     "product": "Click Joints",
+     "platform": "dortus.com",
+     "maat": "bezoekers per dag",
+     "waarde": "2",
+     "gisteren": "",
+     "stand": "",
+     "bron": "bezoekers per dag op deze pagina van dortus.com (Amami), uit scorebord-data.csv",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-27",
+     "reeks": [
+      [
+       "2026-11-16",
+       2.0
+      ],
+      [
+       "2026-11-17",
+       3.0
+      ],
+      [
+       "2026-11-18",
+       31.0
+      ],
+      [
+       "2026-11-19",
+       10.0
+      ],
+      [
+       "2026-11-20",
+       4.0
+      ],
+      [
+       "2026-11-21",
+       5.0
+      ],
+      [
+       "2026-11-22",
+       4.0
+      ],
+      [
+       "2026-11-23",
+       3.0
+      ],
+      [
+       "2026-11-24",
+       3.0
+      ],
+      [
+       "2026-11-25",
+       0.0
+      ],
+      [
+       "2026-11-26",
+       6.0
+      ],
+      [
+       "2026-11-27",
+       2.0
+      ]
+     ]
+    }
+   ],
+   "mappen": [
+    "platformen/blender",
+    "producten/blender-gewrichten"
+   ],
+   "keuringen": [
+    {
+     "pad": "platformen/blender/keuring/2026-11-19-superhive-pakket-daan.md",
+     "link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/blender/keuring/2026-11-19-superhive-pakket-daan.md",
+     "kop": "Keuring Superhive-pakket Click Joints Pro",
+     "akkoord": "Superhive-pakket Click Joints Pro op 4cffa33, mits de tag print in place eruit gaat (zie moet 1; daarna geen nieuwe keuring nodig)",
+     "oordeel": "ja",
+     "tijd": "2026-11-19T10:27+01:00"
+    }
+   ],
+   "recent": [
+    {
+     "hash": "7c2081f",
+     "tijd": "2026-11-28T18:43+01:00",
+     "wie": "Keurder",
+     "wat": "Automatische keuring blender-gewrichten"
+    },
+    {
+     "hash": "727b32b",
+     "tijd": "2026-11-28T18:42+01:00",
+     "wie": "Bram",
+     "wat": "kogel na Shift + rechtsklik klaar op tak, keuring #425"
+    },
+    {
+     "hash": "45d0256",
+     "tijd": "2026-11-28T18:17+01:00",
+     "wie": "Keurder",
+     "wat": "Automatische keuring blender-gewrichten"
+    },
+    {
+     "hash": "b836daa",
+     "tijd": "2026-11-28T16:11+01:00",
+     "wie": "Keurder",
+     "wat": "Automatische keuring blender-gewrichten"
+    },
+    {
+     "hash": "5cac904",
+     "tijd": "2026-11-28T16:10+01:00",
+     "wie": "Bram",
+     "wat": "#380 sleeplink dicht (Daan ja, klaar om te plakken gemeld), kaart bijgewerkt"
+    },
+    {
+     "hash": "17010ef",
+     "tijd": "2026-11-28T14:19+01:00",
+     "wie": "Keurder",
+     "wat": "Automatische keuring blender-gewrichten"
+    }
+   ]
+  },
+  {
+   "id": "bison-flex",
+   "naam": "Bison & Flex",
+   "kort": "Bison & Flex",
+   "wat": "Betaalde JetBrains-plugin voor Bison- en Flex-bestanden, $19 per jaar na 30 dagen proef.",
+   "soort": "product",
+   "voor": "Dortus",
+   "platform": "JetBrains Marketplace",
+   "status": {
+    "woord": "live",
+    "kleur": "op-koers",
+    "zin": "Openbaar sinds 17 nov met prijs. Rode week-test verklaard door Olaf (23 nov): de EAP 263.8311.30 is een bugfix-EAP die een licentie vraagt; Plugin Verifier ertegen groen, vaste versie e2e groen (GEZIEN runs 45105452508, 45105565016). Chris keurt. Plug-in zelf niet geraakt, verkoop niet in gevaar."
+   },
+   "eigenaar": "Chris",
+   "agents": [
+    "Chris"
+   ],
+   "kans": {
+    "tekst": "laag",
+    "label": "GOK",
+    "reden": "Keurder snel-geld, route 15 (Bison & Flex, Rollwright en Garmin samen): laag. Laten lopen, geen extra werk.",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "prognose": {
+    "laag": 0,
+    "hoog": 80,
+    "samen": true,
+    "label": "GOK",
+    "reden": "Keurder snel-geld, route 15: €0 tot €80 voor Bison & Flex, Rollwright en Ebb (Garmin) samen.",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "volgende_stap": "2026.1.2 live (JetBrains approve en listed, GEZIEN 23 nov 16:59 NL). Niets meer; alleen bij een melding.",
+   "deadline": null,
+   "thijs": [],
+   "risico": "Kleine markt; zonder bereik blijft het bij een handvol downloads.",
+   "laatste_update": {
+    "datum": "2026-11-23 19:45",
+    "door": "hoofdchat"
+   },
+   "links": [
+    {
+     "naam": "Winkel",
+     "url": "https://plugins.jetbrains.com/plugin/35901-bison--flex"
+    },
+    {
+     "naam": "Map",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/tree/main/producten/jetbrains-bison-flex"
+    }
+   ],
+   "cijfers": [
+    {
+     "sleutel": "Bison & Flex|JetBrains|downloads",
+     "product": "Bison & Flex",
+     "platform": "JetBrains",
+     "maat": "downloads",
+     "waarde": "40",
+     "gisteren": "40",
+     "stand": "in keuring, freemium",
+     "bron": "plugins.jetbrains.com API",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-28T08:20+00:00",
+     "reeks": [
+      [
+       "2026-11-16",
+       1.0
+      ],
+      [
+       "2026-11-17",
+       1.0
+      ],
+      [
+       "2026-11-18",
+       6.0
+      ],
+      [
+       "2026-11-19",
+       12.0
+      ],
+      [
+       "2026-11-20",
+       16.0
+      ],
+      [
+       "2026-11-21",
+       16.0
+      ],
+      [
+       "2026-11-22",
+       19.0
+      ],
+      [
+       "2026-11-23",
+       22.0
+      ],
+      [
+       "2026-11-24",
+       32.0
+      ],
+      [
+       "2026-11-25",
+       39.0
+      ],
+      [
+       "2026-11-26",
+       40.0
+      ],
+      [
+       "2026-11-27",
+       40.0
+      ],
+      [
+       "2026-11-28",
+       40.0
+      ]
+     ]
+    },
+    {
+     "sleutel": "Bison & Flex|JetBrains|beoordelingen",
+     "product": "Bison & Flex",
+     "platform": "JetBrains",
+     "maat": "beoordelingen",
+     "waarde": "0",
+     "gisteren": "0",
+     "stand": "",
+     "bron": "plugins.jetbrains.com API",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-28T08:20+00:00",
+     "reeks": [
+      [
+       "2026-11-16",
+       0.0
+      ],
+      [
+       "2026-11-17",
+       0.0
+      ],
+      [
+       "2026-11-18",
+       0.0
+      ],
+      [
+       "2026-11-19",
+       0.0
+      ],
+      [
+       "2026-11-20",
+       0.0
+      ],
+      [
+       "2026-11-21",
+       0.0
+      ],
+      [
+       "2026-11-22",
+       0.0
+      ],
+      [
+       "2026-11-23",
+       0.0
+      ],
+      [
+       "2026-11-24",
+       0.0
+      ],
+      [
+       "2026-11-25",
+       0.0
+      ],
+      [
+       "2026-11-26",
+       0.0
+      ],
+      [
+       "2026-11-27",
+       0.0
+      ],
+      [
+       "2026-11-28",
+       0.0
+      ]
+     ]
+    }
+   ],
+   "mappen": [
+    "producten/jetbrains-bison-flex",
+    "platformen/jetbrains"
+   ],
+   "keuringen": [],
+   "recent": [
+    {
+     "hash": "26b52ec",
+     "tijd": "2026-11-24T05:19+01:00",
+     "wie": "Keurder",
+     "wat": "Automatische keuring jetbrains-bison-flex"
+    },
+    {
+     "hash": "d717843",
+     "tijd": "2026-11-24T05:18+01:00",
+     "wie": "Ploeg",
+     "wat": "Bison & Flex: bekende platformfouten in architectuur.md (kan Chris); logboek Olaf"
+    },
+    {
+     "hash": "a985e94",
+     "tijd": "2026-11-24T03:45+01:00",
+     "wie": "Keurder",
+     "wat": "Automatische keuring jetbrains-bison-flex"
+    },
+    {
+     "hash": "04bc44c",
+     "tijd": "2026-11-24T03:44+01:00",
+     "wie": "Chris",
+     "wat": "platformfout-filter breder (is not a child + OccurenceNavigatorSupport) naar main, e2e groen run 45311451884"
+    },
+    {
+     "hash": "5c2df5f",
+     "tijd": "2026-11-24T03:19+01:00",
+     "wie": "Keurder",
+     "wat": "Automatische keuring jetbrains-bison-flex"
+    },
+    {
+     "hash": "b8a1f9d",
+     "tijd": "2026-11-24T03:18+01:00",
+     "wie": "Ploeg",
+     "wat": "e2e Bison & Flex: platformfout ook bij Previous Conflict (argument is not a child), vierde unittest"
+    }
+   ]
+  },
+  {
+   "id": "rollwright",
+   "naam": "Rollwright",
+   "kort": "Rollwright",
+   "wat": "Dobbelsteen-plugin voor Obsidian.",
+   "soort": "product",
+   "voor": "Dortus",
+   "platform": "Obsidian",
+   "status": {
+    "woord": "geparkeerd",
+    "kleur": "stil",
+    "zin": "Live, alleen bugs oplossen; 0 verkopen."
+   },
+   "eigenaar": "Olaf",
+   "agents": [],
+   "kans": {
+    "tekst": "laag",
+    "label": "GOK",
+    "reden": "Keurder snel-geld, route 15: laag.",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "prognose": {
+    "laag": 0,
+    "hoog": 80,
+    "samen": true,
+    "label": "GOK",
+    "reden": "Keurder snel-geld, route 15: €0 tot €80 voor Bison & Flex, Rollwright en Ebb (Garmin) samen.",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "volgende_stap": "Niets; alleen als er een melding komt.",
+   "deadline": null,
+   "thijs": [],
+   "risico": "Geen.",
+   "laatste_update": {
+    "datum": "2026-11-19 12:22",
+    "door": "bouwer dashboard"
+   },
+   "links": [
+    {
+     "naam": "Winkel",
+     "url": "https://obsidian.md/plugins?id=rollwright"
+    },
+    {
+     "naam": "Pagina",
+     "url": "https://dortus.com/rollwright/"
+    },
+    {
+     "naam": "Map",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/tree/main/producten/obsidian-rollwright"
+    }
+   ],
+   "cijfers": [
+    {
+     "sleutel": "Rollwright|Obsidian|downloads",
+     "product": "Rollwright",
+     "platform": "Obsidian",
+     "maat": "downloads",
+     "waarde": "57",
+     "gisteren": "56",
+     "stand": "community-plugin-stats.json",
+     "bron": "obsidian-releases community-plugin-stats.json",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-28T08:20+00:00",
+     "reeks": [
+      [
+       "2026-11-16",
+       41.0
+      ],
+      [
+       "2026-11-17",
+       44.0
+      ],
+      [
+       "2026-11-18",
+       45.0
+      ],
+      [
+       "2026-11-19",
+       47.0
+      ],
+      [
+       "2026-11-20",
+       50.0
+      ],
+      [
+       "2026-11-21",
+       50.0
+      ],
+      [
+       "2026-11-22",
+       50.0
+      ],
+      [
+       "2026-11-23",
+       52.0
+      ],
+      [
+       "2026-11-24",
+       52.0
+      ],
+      [
+       "2026-11-25",
+       52.0
+      ],
+      [
+       "2026-11-26",
+       52.0
+      ],
+      [
+       "2026-11-27",
+       56.0
+      ],
+      [
+       "2026-11-28",
+       57.0
+      ]
+     ]
+    }
+   ],
+   "mappen": [
+    "producten/obsidian-rollwright",
+    "platformen/obsidian"
+   ],
+   "keuringen": [],
+   "recent": [
+    {
+     "hash": "a5f35a5",
+     "tijd": "2026-11-19T09:46+01:00",
+     "wie": "Keurder",
+     "wat": "Automatische keuring obsidian-rollwright"
+    },
+    {
+     "hash": "75de19b",
+     "tijd": "2026-11-19T09:45+01:00",
+     "wie": "Ploeg",
+     "wat": "Rollwright beeldvergelijking: bestandenlijst en tooltip op l1 tellen niet mee (vals alarm), bericht aan Olaf (R4)"
+    },
+    {
+     "hash": "47c8420",
+     "tijd": "2026-11-19T02:05+01:00",
+     "wie": "Keurder",
+     "wat": "Automatische keuring jetbrains-bison-flex obsidian-rollwright"
+    },
+    {
+     "hash": "faf3eff",
+     "tijd": "2026-11-19T02:04+01:00",
+     "wie": "Ploeg",
+     "wat": "Beeldvergelijking na herkeuring R4: dialogen met verschuiving vergeleken, kopmasker alleen op het hele IDE-venster, schermStil voor hernoem-plaatjes, l1 alleen…"
+    },
+    {
+     "hash": "544d3ab",
+     "tijd": "2026-11-19T01:18+01:00",
+     "wie": "Keurder",
+     "wat": "Automatische keuring blender-gewrichten jetbrains-bison-flex obsidian-rollwright"
+    },
+    {
+     "hash": "06622e7",
+     "tijd": "2026-11-19T01:17+01:00",
+     "wie": "Keurder",
+     "wat": "Automatische keuring obsidian-rollwright"
+    }
+   ]
+  },
+  {
+   "id": "ebb",
+   "naam": "Ebb",
+   "kort": "Ebb",
+   "wat": "Betaalde ademhalingsapp voor Garmin-horloges ($2,99).",
+   "soort": "product",
+   "voor": "Dortus",
+   "platform": "Garmin Connect IQ",
+   "status": {
+    "woord": "marketing",
+    "kleur": "op-koers",
+    "zin": "Live voor $2,99, 1+ downloads (GEZIEN 23 nov). Nieuwe titels gaven hogere zoekplekken (breathwork 33 naar 7); de 20 gekeurde teksten in 10 talen wachten op plakken."
+   },
+   "eigenaar": "hoofdchat",
+   "agents": [],
+   "kans": {
+    "tekst": "laag",
+    "label": "GOK",
+    "reden": "Keurder snel-geld, route 15: laag. Laten lopen, geen extra werk.",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "prognose": {
+    "laag": 0,
+    "hoog": 80,
+    "samen": true,
+    "label": "GOK",
+    "reden": "Keurder snel-geld, route 15: €0 tot €80 voor Bison & Flex, Rollwright en Ebb (Garmin) samen.",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "volgende_stap": "Ebb 1.0.2 (meer horloges) vervalt (besluit 24 nov 10:45: klein geld, Gijs draait niet). Wel: de 20 gekeurde talen plakken in Chrome door de hoofdchat; TikTok Ebb vandaag 18:00.",
+   "deadline": {
+    "datum": "2026-11-24",
+    "wat": "Eerste Ebb-TikTok (18:00)"
+   },
+   "thijs": [],
+   "risico": "Geen.",
+   "laatste_update": "2026-11-24 10:45",
+   "links": [
+    {
+     "naam": "Status Garmin",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/garmin/status.md"
+    }
+   ],
+   "cijfers": [
+    {
+     "sleutel": "Ebb|Garmin|downloads",
+     "product": "Ebb",
+     "platform": "Garmin",
+     "maat": "downloads",
+     "waarde": "1",
+     "gisteren": "1",
+     "stand": "app, $2.99 USD, versie 1.0.1",
+     "bron": "apps.garmin.com winkel-API",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-28T08:20+00:00",
+     "reeks": [
+      [
+       "2026-11-16",
+       0.0
+      ],
+      [
+       "2026-11-17",
+       0.0
+      ],
+      [
+       "2026-11-18",
+       1.0
+      ],
+      [
+       "2026-11-19",
+       1.0
+      ],
+      [
+       "2026-11-20",
+       1.0
+      ],
+      [
+       "2026-11-21",
+       1.0
+      ],
+      [
+       "2026-11-22",
+       1.0
+      ],
+      [
+       "2026-11-23",
+       1.0
+      ],
+      [
+       "2026-11-24",
+       1.0
+      ],
+      [
+       "2026-11-25",
+       1.0
+      ],
+      [
+       "2026-11-26",
+       1.0
+      ],
+      [
+       "2026-11-27",
+       1.0
+      ],
+      [
+       "2026-11-28",
+       1.0
+      ]
+     ]
+    },
+    {
+     "sleutel": "Ebb|Garmin|beoordelingen",
+     "product": "Ebb",
+     "platform": "Garmin",
+     "maat": "beoordelingen",
+     "waarde": "0",
+     "gisteren": "0",
+     "stand": "",
+     "bron": "apps.garmin.com winkel-API",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-28T08:20+00:00",
+     "reeks": [
+      [
+       "2026-11-16",
+       0.0
+      ],
+      [
+       "2026-11-17",
+       0.0
+      ],
+      [
+       "2026-11-18",
+       0.0
+      ],
+      [
+       "2026-11-19",
+       0.0
+      ],
+      [
+       "2026-11-20",
+       0.0
+      ],
+      [
+       "2026-11-21",
+       0.0
+      ],
+      [
+       "2026-11-22",
+       0.0
+      ],
+      [
+       "2026-11-23",
+       0.0
+      ],
+      [
+       "2026-11-24",
+       0.0
+      ],
+      [
+       "2026-11-25",
+       0.0
+      ],
+      [
+       "2026-11-26",
+       0.0
+      ],
+      [
+       "2026-11-27",
+       0.0
+      ],
+      [
+       "2026-11-28",
+       0.0
+      ]
+     ]
+    }
+   ],
+   "mappen": [
+    "producten/garmin-adem"
+   ],
+   "keuringen": [],
+   "bijgewerkt": {
+    "datum": "2026-11-23",
+    "door": "Garmin-ronde"
+   },
+   "recent": [
+    {
+     "hash": "f18ffa5",
+     "tijd": "2026-11-25T14:59+01:00",
+     "wie": "Daan",
+     "wat": "keuringen #78 ja, #81 ja, #82 nee (paneelregel), #83 nee (Rig found nog niet gezien), #80 nee (vlam), #71 blinde test ronde 2"
+    },
+    {
+     "hash": "16769eb",
+     "tijd": "2026-11-25T12:59+01:00",
+     "wie": "Daan",
+     "wat": "keuringen #68 nee, #72 ja, #74 ja, #77 ja, #71 nee (zin niet waar) plus blinde test ebb-short-dieren"
+    },
+    {
+     "hash": "047182c",
+     "tijd": "2026-11-19T01:11+01:00",
+     "wie": "Bram",
+     "wat": "echte opdrachten onderaan, beeldverschil-berichten van vannacht negeren"
+    }
+   ]
+  },
+  {
+   "id": "blender-splitser",
+   "naam": "Click Cuts (splitser)",
+   "kort": "Click Cuts",
+   "wat": "Tweede betaalde Blender-add-on: een model dat te groot is voor de printer in stukken snijden, met pennen of klikverbinders die passen. Doel: beter dan CatPin en Cleave.",
+   "soort": "product",
+   "voor": "Dortus",
+   "platform": "Superhive en Gumroad (gepland)",
+   "status": {
+    "woord": "bouwen",
+    "kleur": "op-koers",
+    "zin": "Kandidaat gekeurd, winkeltekst groen (Keurder, 065f7d7). Productbouwer run 10: tijdschatting per Blender-versie, kan-punten af; 4.2 is trager (1M ±106 s in CI, GEZIEN) en geeft 1 fout op 1M vlakken (5.3 schoon)."
+   },
+   "eigenaar": "Productbouwer",
+   "agents": [
+    "Productbouwer",
+    "merk-agent",
+    "keurder kern",
+    "hoofdchat"
+   ],
+   "kans": {
+    "tekst": "onbekend",
+    "label": "GOK",
+    "reden": "Nog geen keuring van kans of prognose; concurrentie.md is gekeurd, de omzet daarin is een scenario.",
+    "bron": "producten/blender-splitser/concurrentie.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/producten/blender-splitser/concurrentie.md"
+   },
+   "volgende_stap": "Daan keurt run 10; Chris zet de 4.2-zin op 'about 3 minutes'; Productbouwer herstelt de 4.2-fout; vaste zip do 27 nov.",
+   "thijs": [],
+   "laatste_update": "2026-11-24 10:45",
+   "links": [],
+   "cijfers": [],
+   "keuringen": [],
+   "recent": []
+  },
+  {
+   "id": "roep",
+   "naam": "Roep, de marketing-tak",
+   "kort": "Roep",
+   "wat": "Twee agents die zelf filmpjes maken, keuren en plaatsen op TikTok en YouTube om Click Joints Pro te verkopen.",
+   "soort": "geldroute",
+   "voor": "Dortus",
+   "platform": "TikTok en YouTube (via Metricool)",
+   "status": {
+    "woord": "draait",
+    "kleur": "op-koers",
+    "zin": "Maker draaide 22 nov 20:15: lange video 2 en TikTok 90/135 live (GEZIEN), twee lange zoekvideo's ingepland op 1 en 3 dec. Quotum november 14/20 (GEZIEN)."
+   },
+   "eigenaar": "hoofdchat",
+   "agents": [
+    "Roep",
+    "Chris",
+    "Daan"
+   ],
+   "kans": {
+    "tekst": "nog geen schatting",
+    "label": "GOK",
+    "reden": "De keuring van de marketing-tak geeft geen kans in procenten.",
+    "bron": "platformen/ideeen/marketing-tak-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/marketing-tak-2026-11-19/KEURING.md"
+   },
+   "prognose": {
+    "tekst": "nog geen schatting voor 12 weken",
+    "label": "GOK",
+    "reden": "Keuring marketing-tak, moet 6: tientallen dollars in de eerste weken, tenzij één post groot gaat. Het geld telt mee bij Click Joints Pro.",
+    "bron": "platformen/ideeen/marketing-tak-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/marketing-tak-2026-11-19/KEURING.md"
+   },
+   "volgende_stap": "Shorts knie hook A (25 nov) en B (27 nov) groen door Daan; Fit test hook A/B wachten op release Regisseur. De hoofdchat beslist oranje en kijkt mee via het dagrapport.",
+   "deadline": {
+    "datum": "2026-12-01",
+    "wat": "Stopregel: een video boven 1.000 weergaven, anders andere vorm"
+   },
+   "thijs": [],
+   "risico": "Er is nog geen klikbare weg van post naar verkoop: TikTok heeft geen bio-link (KvK-verificatie), alleen lange YouTube-video's met link.",
+   "laatste_update": "2026-11-23",
+   "links": [
+    {
+     "naam": "Keuring tak",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/marketing-tak-2026-11-19/KEURING.md"
+    },
+    {
+     "naam": "Regels",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/marketing/REGELS.md"
+    },
+    {
+     "naam": "Dagrapport",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/marketing/dagrapport.md"
+    },
+    {
+     "naam": "Map",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/tree/main/marketing"
+    }
+   ],
+   "cijfers": [
+    {
+     "sleutel": "YouTube @Dortusapps|YouTube|weergaven (RSS)",
+     "product": "YouTube @Dortusapps",
+     "platform": "YouTube",
+     "maat": "weergaven (RSS)",
+     "waarde": "7847",
+     "gisteren": "7814",
+     "stand": "11 filmpjes in de RSS (alleen de nieuwste openbare, max 15)",
+     "bron": "youtube.com/feeds/videos.xml (RSS)",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-28T08:20+00:00",
+     "reeks": [
+      [
+       "2026-11-18",
+       56.0
+      ],
+      [
+       "2026-11-19",
+       77.0
+      ],
+      [
+       "2026-11-20",
+       1299.0
+      ],
+      [
+       "2026-11-21",
+       2604.0
+      ],
+      [
+       "2026-11-22",
+       2651.0
+      ],
+      [
+       "2026-11-23",
+       5133.0
+      ],
+      [
+       "2026-11-24",
+       7215.0
+      ],
+      [
+       "2026-11-25",
+       7629.0
+      ],
+      [
+       "2026-11-26",
+       7747.0
+      ],
+      [
+       "2026-11-27",
+       7814.0
+      ],
+      [
+       "2026-11-28",
+       7847.0
+      ]
+     ]
+    },
+    {
+     "sleutel": "Kit (alle)|Kit|abonnees",
+     "product": "Kit (alle)",
+     "platform": "Kit",
+     "maat": "abonnees",
+     "waarde": "0",
+     "gisteren": "0",
+     "stand": "actief, alle tags samen",
+     "bron": "Kit API (leessleutel), alleen aantallen",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-28T08:20+00:00",
+     "reeks": [
+      [
+       "2026-11-18",
+       0.0
+      ],
+      [
+       "2026-11-19",
+       0.0
+      ],
+      [
+       "2026-11-20",
+       0.0
+      ],
+      [
+       "2026-11-21",
+       0.0
+      ],
+      [
+       "2026-11-22",
+       0.0
+      ],
+      [
+       "2026-11-23",
+       0.0
+      ],
+      [
+       "2026-11-24",
+       0.0
+      ],
+      [
+       "2026-11-25",
+       0.0
+      ],
+      [
+       "2026-11-26",
+       0.0
+      ],
+      [
+       "2026-11-27",
+       0.0
+      ],
+      [
+       "2026-11-28",
+       0.0
+      ]
+     ]
+    }
+   ],
+   "mappen": [
+    "marketing"
+   ],
+   "keuringen": [
+    {
+     "pad": "marketing/KEURING.md",
+     "link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/marketing/KEURING.md",
+     "kop": "Herkeuring",
+     "akkoord": "(alle 7 moet-punten zijn weg; niets nieuws onveiligs gevonden; twee kleine kan-punten hieronder)",
+     "oordeel": "ja",
+     "tijd": "2026-11-19T11:35+01:00"
+    },
+    {
+     "pad": "platformen/ideeen/marketing-tak-2026-11-19/KEURING.md",
+     "link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/marketing-tak-2026-11-19/KEURING.md",
+     "kop": "Keuring marketing-tak (nachtonderzoek A en B)",
+     "akkoord": "(de kern is goed en kan morgen starten, maar met de 6 moet-punten hieronder rechtgezet; het voorstel onderaan doet dat al)",
+     "oordeel": "nee",
+     "tijd": "2026-11-19T08:21+01:00"
+    }
+   ],
+   "recent": [
+    {
+     "hash": "8e9559c",
+     "tijd": "2026-11-28T17:07+01:00",
+     "wie": "Hoofdchat",
+     "wat": "Short Draw cut ingepland (zo 12:00), mail 7 (30 van 30), bron Superhive-verkoop"
+    },
+    {
+     "hash": "0354067",
+     "tijd": "2026-11-28T14:19+01:00",
+     "wie": "Ploeg",
+     "wat": "Regisseur: #384 Short Draw cut groen (Daan ja), klaar om te plaatsen gemeld"
+    },
+    {
+     "hash": "773080b",
+     "tijd": "2026-11-28T13:58+01:00",
+     "wie": "Ploeg",
+     "wat": "Regisseur #384: eerste beeld Draw cut-Short GESLAAGD (r2, Gemini 1,5)"
+    },
+    {
+     "hash": "696a93a",
+     "tijd": "2026-11-28T13:46+01:00",
+     "wie": "Ploeg",
+     "wat": "Regisseur #384: Draw cut-Short r2 (blinde test r1 2,5: meer kleur, hook op een band)"
+    },
+    {
+     "hash": "a21d57c",
+     "tijd": "2026-11-28T13:37+01:00",
+     "wie": "Ploeg",
+     "wat": "Regisseur #384: Short Click Cuts 1.1 Draw your own cut (echte Blender, 16,0 s), blinde test eerste beeld"
+    },
+    {
+     "hash": "3b13766",
+     "tijd": "2026-11-27T20:16+01:00",
+     "wie": "Roep",
+     "wat": "sale-Short v8c ingepland za 28 nov 19:00, dagrapport 27 nov"
+    }
+   ]
+  },
+  {
+   "id": "hats",
+   "naam": "Hats of the Fallen",
+   "kort": "Hats of the Fallen",
+   "wat": "Ons bureaubladspel voor Steam: Gloop eet helden en stapelt hun hoeden.",
+   "soort": "product",
+   "voor": "Dortus",
+   "platform": "Steam",
+   "status": {
+    "woord": "risico",
+    "kleur": "risico",
+    "zin": "Spel bevriest vanavond 20:00 voor de speeltest van za 21 nov; de Steam-app kan niet worden aangemaakt tot Valve de ID-controle goedkeurt (tot ±eind januari)."
+   },
+   "eigenaar": "Olaf",
+   "agents": [
+    "Olaf",
+    "Bram",
+    "Sanne",
+    "Daan",
+    "Iris"
+   ],
+   "kans": {
+    "laag": 0,
+    "hoog": 0,
+    "label": "GOK",
+    "reden": "Keurder snel-geld, route 16: nul kans op geld vóór 11 feb. Blijft het grote geld op een jaar.",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "prognose": {
+    "laag": 0,
+    "verwacht": 0,
+    "hoog": 0,
+    "label": "GOK",
+    "reden": "Keurder snel-geld, route 16: €0 in 12 weken; demo 4 jan, Next Fest 14 tot 18 jan.",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "volgende_stap": "Speeltest za 21 nov door Thijs; Steam-paginaconcept is gekeurd (Iris akkoord ja 21 nov) en wacht op ja van Thijs op de tekst; alle zes schermen staan klaar in schermen-steam (Iris akkoord, Sanne 22 nov); daarna trailer, indienen vr 27 nov.",
+   "deadline": {
+    "datum": "2026-11-21",
+    "wat": "Speeltest"
+   },
+   "thijs": [
+    {
+     "doen": "Speeltest: de build spelen en zeggen of het leuk is (link komt vr 20 nov).",
+     "voor": "2026-11-21"
+    },
+    {
+     "doen": "Insider Gaming 'New Year, New Games 2027' inzenden (±10 min).",
+     "voor": "2026-11-25"
+    }
+   ],
+   "risico": "Valve keurt de ID-controle pas ±eind januari; zonder app geen winkelpagina. Iris gaf aandacht een 6.",
+   "laatste_update": {
+    "datum": "2026-11-21 18:45",
+    "door": "hoofdchat"
+   },
+   "links": [
+    {
+     "naam": "Speeltest",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/steam/speeltest-21-nov.md"
+    },
+    {
+     "naam": "Plan B ID-controle",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/steam/plan-b-id-controle.md"
+    },
+    {
+     "naam": "Keuringen",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/tree/main/platformen/steam/keuring"
+    },
+    {
+     "naam": "Map",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/tree/main/platformen/steam"
+    }
+   ],
+   "cijfers": [
+    {
+     "sleutel": "Hats of the Fallen|Discord|leden",
+     "product": "Hats of the Fallen",
+     "platform": "Discord",
+     "maat": "leden",
+     "waarde": "2",
+     "gisteren": "2",
+     "stand": "server Hats of the Fallen",
+     "bron": "discord.com invite-API (with_counts)",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-28T08:20+00:00",
+     "reeks": [
+      [
+       "2026-11-18",
+       1.0
+      ],
+      [
+       "2026-11-19",
+       1.0
+      ],
+      [
+       "2026-11-20",
+       1.0
+      ],
+      [
+       "2026-11-21",
+       1.0
+      ],
+      [
+       "2026-11-22",
+       1.0
+      ],
+      [
+       "2026-11-23",
+       1.0
+      ],
+      [
+       "2026-11-24",
+       1.0
+      ],
+      [
+       "2026-11-25",
+       2.0
+      ],
+      [
+       "2026-11-26",
+       2.0
+      ],
+      [
+       "2026-11-27",
+       2.0
+      ],
+      [
+       "2026-11-28",
+       2.0
+      ]
+     ]
+    }
+   ],
+   "mappen": [
+    "producten/steam-hol",
+    "platformen/steam"
+   ],
+   "keuringen": [
+    {
+     "pad": "platformen/steam/keuring/2026-11-19-tags.md",
+     "link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/steam/keuring/2026-11-19-tags.md",
+     "kop": "Keuring tags-voorstel Hats of the Fallen",
+     "akkoord": "(met kan-punten, geen moet)",
+     "oordeel": "ja",
+     "tijd": "2026-11-19T08:51+01:00"
+    }
+   ],
+   "recent": [
+    {
+     "hash": "59d5b75",
+     "tijd": "2026-11-28T18:59+01:00",
+     "wie": "Sanne",
+     "wat": "welkom boven het hol en Gloop-teken komt terug tot het kaartje open was (Iris #399 punt 1 en 2)"
+    },
+    {
+     "hash": "6aa452a",
+     "tijd": "2026-11-28T17:32+01:00",
+     "wie": "Olaf",
+     "wat": "Hats (#401): nieuwste .exe Hol 2.0 proef gemeld, kaart bij (tak hol2-proef 74bd598)"
+    },
+    {
+     "hash": "16a92b4",
+     "tijd": "2026-11-28T16:21+01:00",
+     "wie": "Ploeg",
+     "wat": "Hats #401: stuurknop in de Hol 2.0 proef (tak d721007, run 46158567010 groen), nieuwste .exe gemeld"
+    },
+    {
+     "hash": "aa1d960",
+     "tijd": "2026-11-28T15:59+01:00",
+     "wie": "Ploeg",
+     "wat": "Hats #401: Hol 2.0 proef zonder Daans moet 1 tot 3 (tak hol2-proef ea2d62b, run 46156590473 groen), nieuwe .exe gemeld; speelversie-uitleg start op 96 (Iris #399)"
+    },
+    {
+     "hash": "a8114bf",
+     "tijd": "2026-11-28T15:47+01:00",
+     "wie": "Sanne",
+     "wat": "ontwerpblad Hol 2.0 na Daan #390 (stuurknop, vaste klik, maat tegenover scherm, hoed 8 px, één maatregel); Olaf #401, Mila #389 bijgestuurd; nakeuring #405"
+    },
+    {
+     "hash": "74fb15b",
+     "tijd": "2026-11-28T15:00+01:00",
+     "wie": "Ploeg",
+     "wat": "Hats: Iris speelt 865530f als Thijs (oude save, 96 px): 7/7/7, welkom onzichtbaar, blinde test gestart (#399)"
+    }
+   ]
+  },
+  {
+   "id": "gloop-garmin",
+   "naam": "Gloop's Hat Tower (Garmin)",
+   "kort": "Hat Tower Garmin",
+   "wat": "Gratis spelletje voor Garmin-horloges; de basis van het Reddit-dagspel.",
+   "soort": "product",
+   "voor": "Dortus",
+   "platform": "Garmin Connect IQ",
+   "status": {
+    "woord": "geparkeerd",
+    "kleur": "stil",
+    "zin": "Goedgekeurd en live sinds 17 nov; geen extra werk."
+   },
+   "eigenaar": "niemand",
+   "agents": [],
+   "kans": {
+    "laag": 0,
+    "hoog": 0,
+    "label": "GOK",
+    "reden": "Gratis spel zonder reclame of aankopen, dus geen inkomsten.",
+    "bron": "platformen/garmin/status.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/garmin/status.md"
+   },
+   "prognose": {
+    "laag": 0,
+    "verwacht": 0,
+    "hoog": 0,
+    "label": "GOK",
+    "reden": "Gratis spel: €0. De €0 tot €80 van route 15 in de keuring snel-geld hoort bij Ebb, Bison & Flex en Rollwright.",
+    "bron": "platformen/ideeen/snel-geld-2026-11-19/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/ideeen/snel-geld-2026-11-19/KEURING.md"
+   },
+   "volgende_stap": "Niets.",
+   "deadline": null,
+   "thijs": [],
+   "risico": "Geen.",
+   "laatste_update": {
+    "datum": "2026-11-19 12:22",
+    "door": "bouwer dashboard"
+   },
+   "links": [
+    {
+     "naam": "Status Garmin",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/platformen/garmin/status.md"
+    },
+    {
+     "naam": "Map",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/tree/main/ontwerp/garmin/gloop-spel"
+    }
+   ],
+   "cijfers": [
+    {
+     "sleutel": "Gloop's Hat Tower|Garmin|downloads",
+     "product": "Gloop's Hat Tower",
+     "platform": "Garmin",
+     "maat": "downloads",
+     "waarde": "10",
+     "gisteren": "10",
+     "stand": "app, gratis, versie 1.0.0",
+     "bron": "apps.garmin.com winkel-API",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-28T08:20+00:00",
+     "reeks": [
+      [
+       "2026-11-18",
+       10.0
+      ],
+      [
+       "2026-11-19",
+       10.0
+      ],
+      [
+       "2026-11-20",
+       10.0
+      ],
+      [
+       "2026-11-21",
+       10.0
+      ],
+      [
+       "2026-11-22",
+       10.0
+      ],
+      [
+       "2026-11-23",
+       10.0
+      ],
+      [
+       "2026-11-24",
+       10.0
+      ],
+      [
+       "2026-11-25",
+       10.0
+      ],
+      [
+       "2026-11-26",
+       10.0
+      ],
+      [
+       "2026-11-27",
+       10.0
+      ],
+      [
+       "2026-11-28",
+       10.0
+      ]
+     ]
+    },
+    {
+     "sleutel": "Gloop's Hat Tower|Garmin|beoordelingen",
+     "product": "Gloop's Hat Tower",
+     "platform": "Garmin",
+     "maat": "beoordelingen",
+     "waarde": "0",
+     "gisteren": "0",
+     "stand": "",
+     "bron": "apps.garmin.com winkel-API",
+     "label": "GEZIEN",
+     "gemeten": "2026-11-28T08:20+00:00",
+     "reeks": [
+      [
+       "2026-11-18",
+       0.0
+      ],
+      [
+       "2026-11-19",
+       0.0
+      ],
+      [
+       "2026-11-20",
+       0.0
+      ],
+      [
+       "2026-11-21",
+       0.0
+      ],
+      [
+       "2026-11-22",
+       0.0
+      ],
+      [
+       "2026-11-23",
+       0.0
+      ],
+      [
+       "2026-11-24",
+       0.0
+      ],
+      [
+       "2026-11-25",
+       0.0
+      ],
+      [
+       "2026-11-26",
+       0.0
+      ],
+      [
+       "2026-11-27",
+       0.0
+      ],
+      [
+       "2026-11-28",
+       0.0
+      ]
+     ]
+    }
+   ],
+   "mappen": [
+    "platformen/garmin"
+   ],
+   "keuringen": [],
+   "recent": [
+    {
+     "hash": "ef154fe",
+     "tijd": "2026-11-25T00:11+01:00",
+     "wie": "Gijs",
+     "wat": "broncode van concurrenten en reviews, 5 verbeteringen voor Ebb, issues #27 en #28"
+    },
+    {
+     "hash": "769d52f",
+     "tijd": "2026-11-24T16:29+01:00",
+     "wie": "Daan",
+     "wat": "keuringen clip 2 (ja), persblad (ja), Pro 1.2.7 Shift (ja code), Calm (ja), Ebb Wim Hof (nee); berichten, logboek"
+    },
+    {
+     "hash": "b5f1bab",
+     "tijd": "2026-11-24T15:51+01:00",
+     "wie": "Chris",
+     "wat": "Ebb Wim Hof-zin en tag, Calm THE FULL EBB omhoog, keuring Daan gevraagd"
+    },
+    {
+     "hash": "e195d76",
+     "tijd": "2026-11-24T13:31+01:00",
+     "wie": "Daan",
+     "wat": "zes keuringen (1.2.6 robot-enkels, Click Cuts M1, Docs-tab, review-zin, Ebb, video guide), logboek"
+    },
+    {
+     "hash": "7b615c9",
+     "tijd": "2026-11-24T12:49+01:00",
+     "wie": "Chris",
+     "wat": "tijden rechtgezet (klok), logboek"
+    },
+    {
+     "hash": "9c05848",
+     "tijd": "2026-11-24T12:49+01:00",
+     "wie": "Chris",
+     "wat": "Ebb apnea-woorden en tags (en, de), keuring aan Daan, logboek"
+    }
+   ]
+  },
+  {
+   "id": "scanner",
+   "naam": "Koersverschil-scanner",
+   "kort": "Scanner",
+   "wat": "Meet een week lang of er prijsverschillen tussen cryptobeurzen zijn die na alle kosten overblijven. Alleen lezen, geen geld.",
+   "soort": "meetproject",
+   "voor": "Thijs-zelf",
+   "platform": "GitHub Actions",
+   "status": {
+    "woord": "meten",
+    "kleur": "op-koers",
+    "zin": "Derde herkeuring ja (Kraken 0,80%). Met €150 ±€0 per dag, met €2.000 tussen ±€0 en ±€5 (GOK, ±7 uur gemeten)."
+   },
+   "eigenaar": "hoofdchat",
+   "agents": [],
+   "kans": {
+    "tekst": "niet van toepassing",
+    "label": "GOK",
+    "reden": "Meetproject van Thijs zelf, los van Dortus; geen geld in het spel.",
+    "bron": "onderzoek/ai-handel/scanner/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/scanner/KEURING.md"
+   },
+   "prognose": {
+    "tekst": "€150: ±€0 per dag",
+    "label": "GOK",
+    "reden": "Simulatie op ±7 uur meetdata, Bitvavo-Kraken; minimumbedragen en terugschuifkosten eten de winst op.",
+    "bron": "onderzoek/ai-handel/scanner/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/scanner/KEURING.md"
+   },
+   "volgende_stap": "Weekrapport met de €150-lijn per bot op wo 26 nov; stoppen als er niets uit komt.",
+   "deadline": {
+    "datum": "2026-11-26",
+    "wat": "Weekrapport"
+   },
+   "thijs": [],
+   "risico": "Geen geld in het spel; alleen leesverzoeken.",
+   "laatste_update": {
+    "datum": "2026-11-19 17:50",
+    "door": "hoofdchat"
+   },
+   "links": [
+    {
+     "naam": "Uitleg",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/scanner/README.md"
+    },
+    {
+     "naam": "Keuring",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/scanner/KEURING.md"
+    }
+   ],
+   "cijfers": [],
+   "mappen": [
+    "onderzoek/ai-handel/scanner"
+   ],
+   "keuringen": [
+    {
+     "pad": "onderzoek/ai-handel/scanner/KEURING.md",
+     "link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/scanner/KEURING.md",
+     "kop": "Derde herkeuring",
+     "akkoord": "Het moet-punt over Kraken is goed opgelost, herreken is eerlijk en als GOK gelabeld, en de splitsing verandert niets. Er blijven twee kan-punten over.",
+     "oordeel": "ja",
+     "tijd": "2026-11-22T10:49+01:00"
+    }
+   ],
+   "recent": [
+    {
+     "hash": "25929e9",
+     "tijd": "2026-11-22T10:49+01:00",
+     "wie": "Ploeg",
+     "wat": "Opruimen fase 2: platformen/ai-handel naar onderzoek/ai-handel (Thijs 19 nov 17:31 vraag 3, blijft openbaar); paden in scanner, schaduwbot, radar, driehoek en…"
+    }
+   ]
+  },
+  {
+   "id": "schaduwbot",
+   "naam": "Schaduwbot Polymarket",
+   "kort": "Schaduwbot",
+   "wat": "Doet alsof hij orders laat staan in temperatuurmarkten en meet wat dat zou opleveren. Geen account, geen geld.",
+   "soort": "meetproject",
+   "voor": "Thijs-zelf",
+   "platform": "GitHub Actions",
+   "status": {
+    "woord": "meten",
+    "kleur": "op-koers",
+    "zin": "Herkeuring ja; meet nu, data op de tak ai-handel-data."
+   },
+   "eigenaar": "hoofdchat",
+   "agents": [],
+   "kans": {
+    "tekst": "niet van toepassing",
+    "label": "GOK",
+    "reden": "Meetproject van Thijs zelf, los van Dortus; geen geld in het spel.",
+    "bron": "onderzoek/ai-handel/schaduwbot/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/schaduwbot/KEURING.md"
+   },
+   "prognose": {
+    "tekst": "€150: -$0,83 tot +$4,23 per dag",
+    "label": "GOK",
+    "reden": "Dag 1, opschaling met minimale ordergrootte; verlies -2,55% per gevulde dollar.",
+    "bron": "onderzoek/ai-handel/schaduwbot/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/schaduwbot/KEURING.md"
+   },
+   "volgende_stap": "Eerste uitslagen za 21 nov; na 2 weken (do 3 dec) de beslisregel uit de README.",
+   "deadline": {
+    "datum": "2026-11-21",
+    "wat": "Eerste uitslagen"
+   },
+   "thijs": [],
+   "risico": "Geen geld in het spel; alleen leesverzoeken.",
+   "laatste_update": {
+    "datum": "2026-11-19 17:50",
+    "door": "hoofdchat"
+   },
+   "links": [
+    {
+     "naam": "Uitleg",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/schaduwbot/README.md"
+    },
+    {
+     "naam": "Keuring",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/schaduwbot/KEURING.md"
+    }
+   ],
+   "cijfers": [],
+   "mappen": [
+    "onderzoek/ai-handel/schaduwbot"
+   ],
+   "keuringen": [
+    {
+     "pad": "onderzoek/ai-handel/schaduwbot/KEURING.md",
+     "link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/schaduwbot/KEURING.md",
+     "kop": "Herkeuring",
+     "akkoord": "Het moet-punt is opgelost; de opschaling is nu eerlijk binnen wat 32 minuten data kan zeggen.",
+     "oordeel": "ja",
+     "tijd": "2026-11-22T10:49+01:00"
+    }
+   ],
+   "recent": [
+    {
+     "hash": "25929e9",
+     "tijd": "2026-11-22T10:49+01:00",
+     "wie": "Ploeg",
+     "wat": "Opruimen fase 2: platformen/ai-handel naar onderzoek/ai-handel (Thijs 19 nov 17:31 vraag 3, blijft openbaar); paden in scanner, schaduwbot, radar, driehoek en…"
+    }
+   ]
+  },
+  {
+   "id": "driehoek",
+   "naam": "Driehoek-meter",
+   "kort": "Driehoek",
+   "wat": "Meet of een rondje van drie wissels op één beurs (bijv. EUR>BTC>ETH>EUR) na kosten winst geeft, op 8 beurzen. Alleen lezen, geen geld.",
+   "soort": "meetproject",
+   "voor": "Thijs-zelf",
+   "platform": "GitHub Actions",
+   "status": {
+    "woord": "meten",
+    "kleur": "op-koers",
+    "zin": "Tweede herkeuring ja; meet sinds 19 nov, data op ai-handel-data/driehoek."
+   },
+   "eigenaar": "hoofdchat",
+   "agents": [],
+   "kans": {
+    "tekst": "niet van toepassing",
+    "label": "GOK",
+    "reden": "Meetproject van Thijs zelf, los van Dortus; geen geld in het spel.",
+    "bron": "onderzoek/ai-handel/driehoek/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/driehoek/KEURING.md"
+   },
+   "prognose": {
+    "tekst": "€150: €0 per dag",
+    "label": "GOK",
+    "reden": "Na ±1 uur meten nog geen enkel rondje met €100 diepte dat 3 seconden bleef staan.",
+    "bron": "onderzoek/ai-handel/driehoek/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/driehoek/KEURING.md"
+   },
+   "volgende_stap": "Weekrapport met de €150-lijn per bot op wo 26 nov; stoppen als er niets uit komt.",
+   "deadline": {
+    "datum": "2026-11-26",
+    "wat": "Weekrapport"
+   },
+   "thijs": [],
+   "risico": "Geen geld in het spel; alleen leesverzoeken.",
+   "laatste_update": {
+    "datum": "2026-11-19 17:50",
+    "door": "hoofdchat"
+   },
+   "links": [
+    {
+     "naam": "Uitleg",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/driehoek/README.md"
+    },
+    {
+     "naam": "Keuring",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/driehoek/KEURING.md"
+    }
+   ],
+   "cijfers": [],
+   "mappen": [
+    "onderzoek/ai-handel/driehoek"
+   ],
+   "keuringen": [
+    {
+     "pad": "onderzoek/ai-handel/driehoek/KEURING.md",
+     "link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/driehoek/KEURING.md",
+     "kop": "Tweede herkeuring",
+     "akkoord": "Het moet-punt over samenvoegen is opgelost en de kan-punten zijn verwerkt.",
+     "oordeel": "ja",
+     "tijd": "2026-11-22T10:49+01:00"
+    }
+   ],
+   "recent": [
+    {
+     "hash": "25929e9",
+     "tijd": "2026-11-22T10:49+01:00",
+     "wie": "Ploeg",
+     "wat": "Opruimen fase 2: platformen/ai-handel naar onderzoek/ai-handel (Thijs 19 nov 17:31 vraag 3, blijft openbaar); paden in scanner, schaduwbot, radar, driehoek en…"
+    }
+   ]
+  },
+  {
+   "id": "radar",
+   "naam": "Kansenradar",
+   "kort": "Radar",
+   "wat": "Kijkt naar nieuwe munten, funding-pieken op perps en stablecoins die van hun gewone prijs afwijken. Alleen lezen, geen geld.",
+   "soort": "meetproject",
+   "voor": "Thijs-zelf",
+   "platform": "GitHub Actions",
+   "status": {
+    "woord": "meten",
+    "kleur": "op-koers",
+    "zin": "Tweede herkeuring ja; meet sinds 19 nov, data op ai-handel-data/radar. Elke hoek rekent met een eigen pot."
+   },
+   "eigenaar": "hoofdchat",
+   "agents": [],
+   "kans": {
+    "tekst": "niet van toepassing",
+    "label": "GOK",
+    "reden": "Meetproject van Thijs zelf, los van Dortus; geen geld in het spel.",
+    "bron": "onderzoek/ai-handel/radar/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/radar/KEURING.md"
+   },
+   "prognose": {
+    "tekst": "€150: €0 per dag tot nu toe",
+    "label": "GOK",
+    "reden": "Eerste uren: geen moment dat je met één pot van €150 had kunnen pakken; funding-uitkomsten komen pas na verrekeningen.",
+    "bron": "onderzoek/ai-handel/radar/KEURING.md",
+    "bron_link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/radar/KEURING.md"
+   },
+   "volgende_stap": "Weekrapport met de €150-lijn per bot op wo 26 nov; stoppen als er niets uit komt.",
+   "deadline": {
+    "datum": "2026-11-26",
+    "wat": "Weekrapport"
+   },
+   "thijs": [],
+   "risico": "Geen geld in het spel; alleen leesverzoeken.",
+   "laatste_update": {
+    "datum": "2026-11-19 17:50",
+    "door": "hoofdchat"
+   },
+   "links": [
+    {
+     "naam": "Uitleg",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/radar/README.md"
+    },
+    {
+     "naam": "Keuring",
+     "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/radar/KEURING.md"
+    }
+   ],
+   "cijfers": [],
+   "mappen": [
+    "onderzoek/ai-handel/radar"
+   ],
+   "keuringen": [
+    {
+     "pad": "onderzoek/ai-handel/radar/KEURING.md",
+     "link": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/blob/main/onderzoek/ai-handel/radar/KEURING.md",
+     "kop": "Tweede herkeuring",
+     "akkoord": "",
+     "oordeel": "ja",
+     "tijd": "2026-11-22T10:49+01:00"
+    }
+   ],
+   "recent": [
+    {
+     "hash": "25929e9",
+     "tijd": "2026-11-22T10:49+01:00",
+     "wie": "Ploeg",
+     "wat": "Opruimen fase 2: platformen/ai-handel naar onderzoek/ai-handel (Thijs 19 nov 17:31 vraag 3, blijft openbaar); paden in scanner, schaduwbot, radar, driehoek en…"
+    }
+   ]
+  }
+ ],
+ "ploeg": [
+  {
+   "naam": "Sanne",
+   "rol": "Game-ontwerper",
+   "team": "Steam",
+   "groep": "bezig",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [
+    "hats"
+   ],
+   "vandaag": 6,
+   "laatst": "2026-11-28T18:59+01:00",
+   "laatst_wat": "welkom boven het hol en Gloop-teken komt terug tot het kaartje open was (Iris #399 punt 1 en 2)"
+  },
+  {
+   "naam": "Daan",
+   "rol": "Ontwerper",
+   "team": "Apps + keuring",
+   "groep": "bezig",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [
+    "reddit-hat-tower",
+    "click-joints-pro",
+    "roep",
+    "hats"
+   ],
+   "vandaag": 19,
+   "laatst": "2026-11-28T18:56+01:00",
+   "laatst_wat": "keuringen #415 ja, #421 ja, #425 nee op releasenote Neck"
+  },
+  {
+   "naam": "Iris",
+   "rol": "Spelkeurder",
+   "team": "Steam",
+   "groep": "bezig",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [
+    "hats"
+   ],
+   "vandaag": 7,
+   "laatst": "2026-11-28T18:47+01:00",
+   "laatst_wat": "kopersreis Click Cuts als mailontvanger op live 1.1.0, drempel 4.2 in #426, mail zondag ja"
+  },
+  {
+   "naam": "Bram",
+   "rol": "Bouwer",
+   "team": "Steam + Click Joints",
+   "groep": "bezig",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [
+    "click-joints-pro",
+    "hats"
+   ],
+   "vandaag": 10,
+   "laatst": "2026-11-28T18:42+01:00",
+   "laatst_wat": "kogel na Shift + rechtsklik klaar op tak, keuring #425"
+  },
+  {
+   "naam": "Olaf",
+   "rol": "Hoofdbouwer",
+   "team": "Steam",
+   "groep": "bezig",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [
+    "rollwright",
+    "hats"
+   ],
+   "vandaag": 6,
+   "laatst": "2026-11-28T17:32+01:00",
+   "laatst_wat": "Hats (#401): nieuwste .exe Hol 2.0 proef gemeld, kaart bij (tak hol2-proef 74bd598)"
+  },
+  {
+   "naam": "Keurder",
+   "rol": "Losse keurders (agents en workflow)",
+   "team": "Keuring",
+   "groep": "vast",
+   "op_bord": false,
+   "schema": "na elk werkstuk",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 11,
+   "laatst": "2026-11-28T18:43+01:00",
+   "laatst_wat": "Automatische keuring blender-gewrichten"
+  },
+  {
+   "naam": "Hoofdchat",
+   "rol": "Leiding en rondes",
+   "team": "Leiding",
+   "groep": "vast",
+   "op_bord": false,
+   "schema": "4 rondes per dag",
+   "focus": "",
+   "projecten": [
+    "reddit-hat-tower",
+    "click-joints-pro",
+    "ebb",
+    "blender-splitser",
+    "roep",
+    "scanner",
+    "schaduwbot",
+    "driehoek",
+    "radar"
+   ],
+   "vandaag": 15,
+   "laatst": "2026-11-28T18:03+01:00",
+   "laatst_wat": "ronde 18:00 (Discover nagekeken, zondag-bundel klaar)"
+  },
+  {
+   "naam": "Mila",
+   "rol": "Ontwerper (wow)",
+   "team": "Steam + Garmin",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 7,
+   "laatst": "2026-11-28T08:59+01:00",
+   "laatst_wat": "header v15a (opbouw v12a, venster zonder woorden) en v13b in de blinde test; uitslag v14 in LEESMIJ"
+  },
+  {
+   "naam": "Roep",
+   "rol": "Marketing-tak (Maker en Keurder)",
+   "team": "Marketing",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "3 keer per dag",
+   "focus": "",
+   "projecten": [
+    "roep"
+   ],
+   "vandaag": 0,
+   "laatst": "2026-11-27T20:16+01:00",
+   "laatst_wat": "sale-Short v8c ingepland za 28 nov 19:00, dagrapport 27 nov"
+  },
+  {
+   "naam": "Gijs",
+   "rol": "Manager",
+   "team": "Garmin",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": "2026-11-25T00:11+01:00",
+   "laatst_wat": "broncode van concurrenten en reviews, 5 verbeteringen voor Ebb, issues #27 en #28"
+  },
+  {
+   "naam": "Chris",
+   "rol": "Commercie",
+   "team": "Lanceringen",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [
+    "bison-flex",
+    "roep"
+   ],
+   "vandaag": 0,
+   "laatst": "2026-11-24T18:50+01:00",
+   "laatst_wat": "update-video Pro 1.2 concept, keuring aan Daan, logboek"
+  },
+  {
+   "naam": "Reddit-bouwer",
+   "rol": "Bouwer Reddit-dagspel",
+   "team": "Reddit",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "agent van de hoofdchat",
+   "focus": "",
+   "projecten": [
+    "reddit-hat-tower"
+   ],
+   "vandaag": 0,
+   "laatst": "2026-11-19T14:01+01:00",
+   "laatst_wat": "inzendfilmpje opnieuw met de wisselende helden (titel rechts, overgang op de knip, eindkaart New tower every…"
+  },
+  {
+   "naam": "Tess",
+   "rol": "Manager",
+   "team": "TikTok Shop",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Jet",
+   "rol": "Bouwer",
+   "team": "TikTok Shop + JetBrains",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Hans",
+   "rol": "Hoofdmanager",
+   "team": "Leiding",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "08:44 en 20:44",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Vera",
+   "rol": "Verkenner",
+   "team": "Zoeken",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Noor",
+   "rol": "Pionier, radar nieuwe platformen",
+   "team": "Zoeken",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur 07-22",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Kees",
+   "rol": "Herweger",
+   "team": "Zoeken",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "uit",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Lotte",
+   "rol": "Zijpadzoeker",
+   "team": "Zoeken",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "uit",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Stijn",
+   "rol": "Strateeg",
+   "team": "Advies",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "5 keer per dag",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Patrick",
+   "rol": "Perfectionist",
+   "team": "Basis",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "nacht 9-10 nov",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Abel",
+   "rol": "Accountverzorger",
+   "team": "Basis",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Lars",
+   "rol": "Succesonderzoeker (teamleider)",
+   "team": "Onderzoek",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Fenna",
+   "rol": "Succesonderzoeker",
+   "team": "Onderzoek",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Joris",
+   "rol": "Succesonderzoeker",
+   "team": "Onderzoek",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Ruben",
+   "rol": "Blender-bouwer add-on 2",
+   "team": "Blender",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Sem",
+   "rol": "Marketeer spel",
+   "team": "Steam",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  },
+  {
+   "naam": "Kai",
+   "rol": "Bouwer Chrome-extensie",
+   "team": "Chrome",
+   "groep": "uit",
+   "op_bord": false,
+   "schema": "elk uur",
+   "focus": "",
+   "projecten": [],
+   "vandaag": 0,
+   "laatst": null,
+   "laatst_wat": ""
+  }
+ ],
+ "feed": [
+  {
+   "tijd": "2026-11-28T18:59+01:00",
+   "wie": "Sanne",
+   "wat": "welkom boven het hol en Gloop-teken komt terug tot het kaartje open was (Iris #399 punt 1 en 2)",
+   "hash": "59d5b75"
+  },
+  {
+   "tijd": "2026-11-28T18:59+01:00",
+   "wie": "dortus-blindtest",
+   "wat": "Blinde test: uitslag",
+   "hash": "49dd282"
+  },
+  {
+   "tijd": "2026-11-28T18:56+01:00",
+   "wie": "Daan",
+   "wat": "keuringen #415 ja, #421 ja, #425 nee op releasenote Neck",
+   "hash": "ac29bb0"
+  },
+  {
+   "tijd": "2026-11-28T18:55+01:00",
+   "wie": "Ploeg",
+   "wat": "Beeldmaker: cover gratis testblok Click Cuts r1 en set blinde test (#423)",
+   "hash": "a30f377"
+  },
+  {
+   "tijd": "2026-11-28T18:47+01:00",
+   "wie": "Iris",
+   "wat": "kopersreis Click Cuts als mailontvanger op live 1.1.0, drempel 4.2 in #426, mail zondag ja",
+   "hash": "29627d5"
+  },
+  {
+   "tijd": "2026-11-28T18:43+01:00",
+   "wie": "Keurder",
+   "wat": "Automatische keuring blender-gewrichten",
+   "hash": "7c2081f"
+  },
+  {
+   "tijd": "2026-11-28T18:42+01:00",
+   "wie": "Bram",
+   "wat": "kogel na Shift + rechtsklik klaar op tak, keuring #425",
+   "hash": "727b32b"
+  },
+  {
+   "tijd": "2026-11-28T18:34+01:00",
+   "wie": "Ploeg",
+   "wat": "Hoofdmanager 18:45: Beeldmaker #423, Iris #424, Productbouwer #395, Afkijker #403, Bram volgorde, mp3 Max als rem 1",
+   "hash": "bfe1e39"
+  },
+  {
+   "tijd": "2026-11-28T18:32+01:00",
+   "wie": "Ploeg",
+   "wat": "Afkijker: EasySlice Print uitgeplozen (#20), Draw cut-gat als #422",
+   "hash": "bec0de4"
+  },
+  {
+   "tijd": "2026-11-28T18:32+01:00",
+   "wie": "Ploeg",
+   "wat": "Productbouwer: #386/#387 moet 1 van #409 verwerkt op tak 1.1.1, nakeuring #421",
+   "hash": "b4472c2"
+  },
+  {
+   "tijd": "2026-11-28T18:21+01:00",
+   "wie": "Ploeg",
+   "wat": "Afkijker: Tissue uitgeplozen (#20), bijstellen na plaatsen als #420",
+   "hash": "ba6be1e"
+  },
+  {
+   "tijd": "2026-11-28T18:18+01:00",
+   "wie": "Ploeg",
+   "wat": "Afkijker: waarom kijkers Pro niet kopen, 5 punten in de lat, #417 en #418 bij Bram (#416)",
+   "hash": "2168f54"
+  },
+  {
+   "tijd": "2026-11-28T18:17+01:00",
+   "wie": "Keurder",
+   "wat": "Automatische keuring blender-gewrichten",
+   "hash": "45d0256"
+  },
+  {
+   "tijd": "2026-11-28T18:03+01:00",
+   "wie": "Hoofdchat",
+   "wat": "ronde 18:00 (Discover nagekeken, zondag-bundel klaar)",
+   "hash": "17d4ed5"
+  },
+  {
+   "tijd": "2026-11-28T18:00+01:00",
+   "wie": "Ploeg",
+   "wat": "Verspreider run 78: Daan ja op 13 tot 16 gemeld, kan-punt mail 14, nakeuring 17 tot 20 in #415",
+   "hash": "9c0174d"
+  },
+  {
+   "tijd": "2026-11-28T17:59+01:00",
+   "wie": "Ploeg",
+   "wat": "Verspreider run 78: outreach mail 17 tot 20 (Click Cuts) in bundel zo 29 nov, nakeuring #413",
+   "hash": "9c1160d"
+  },
+  {
+   "tijd": "2026-11-28T17:55+01:00",
+   "wie": "Daan",
+   "wat": "keuring #413 (outreach 13 tot 16 ja) en #414 (Hol 2.0 proef ja)",
+   "hash": "08a889e"
+  },
+  {
+   "tijd": "2026-11-28T17:32+01:00",
+   "wie": "Olaf",
+   "wat": "Hats (#401): nieuwste .exe Hol 2.0 proef gemeld, kaart bij (tak hol2-proef 74bd598)",
+   "hash": "6aa452a"
+  },
+  {
+   "tijd": "2026-11-28T17:18+01:00",
+   "wie": "Ploeg",
+   "wat": "Regisseur: #332 wacht op de mp3 van Max",
+   "hash": "ba774a9"
+  },
+  {
+   "tijd": "2026-11-28T17:07+01:00",
+   "wie": "Hoofdchat",
+   "wat": "Short Draw cut ingepland (zo 12:00), mail 7 (30 van 30), bron Superhive-verkoop",
+   "hash": "8e9559c"
+  },
+  {
+   "tijd": "2026-11-28T17:04+01:00",
+   "wie": "Ploeg",
+   "wat": "Verspreider run 77: mail 9 tot 12 klaar om te versturen, 13 tot 16 bij Daan (#413)",
+   "hash": "fddc7e6"
+  },
+  {
+   "tijd": "2026-11-28T17:04+01:00",
+   "wie": "Ploeg",
+   "wat": "Verspreider run 77: outreach mail 13 tot 16 (Click Cuts) in bundel zo 29 nov, keuring #408",
+   "hash": "9d4925b"
+  },
+  {
+   "tijd": "2026-11-28T16:59+01:00",
+   "wie": "Daan",
+   "wat": "keuring #407 Hol 2.0 proef (ja), #408 mail 9 tot 12 (ja), #409 Click Cuts 1.1.1 (nee, 1 moet)",
+   "hash": "27b715b"
+  },
+  {
+   "tijd": "2026-11-28T16:51+01:00",
+   "wie": "Iris",
+   "wat": "kopersreis Click Joints Pro als mailontvanger (#404), 3 drempels #410 #411 #412",
+   "hash": "ae4f490"
+  },
+  {
+   "tijd": "2026-11-28T16:43+01:00",
+   "wie": "Ploeg",
+   "wat": "Productbouwer: #300 dicht (1.1 live, ALLES GOED), Click Cuts 1.1.1 met #386 en #387 op tak (e2e 46160866320 groen), keuring #409",
+   "hash": "1583541"
+  }
+ ],
+ "tests": [
+  {
+   "naam": "Week-test (volgende Blender, IDE en Obsidian)",
+   "uitkomst": "success",
+   "tijd": "2026-11-28T19:00+01:00",
+   "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46173444847"
+  },
+  {
+   "naam": "Controle openbare repo",
+   "uitkomst": "success",
+   "tijd": "2026-11-28T18:59+01:00",
+   "url": "https://github.com/thijsduinhouwer2002-coder/dortus-hq/actions/runs/46173374546"
+  }
+ ],
+ "scorebord_gemeten": "2026-11-28T08:20+00:00"
+}
