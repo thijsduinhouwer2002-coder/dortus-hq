@@ -64,7 +64,7 @@ def _demp_hex(h):
 # Vaste tinten in het gedempte palet (de rest gaat via _demp_hex)
 KLEUR_GEDEMPT = {
     "munt": "72cfa6", "munt_d": "389072", "munt_l": "b0e9cf",
-    "goud": "e2b04e", "goud_d": "a67428", "staal": "a3a9b6",
+    "goud": "f2b632", "goud_d": "b87818", "staal": "a3a9b6",   # goud blijft vol: dat is de beloning
     "8a6438": "a8834c",   # jute zak van de dief: lichter, anders verdwijnt hij tegen de bruine grond
 }
 
@@ -83,6 +83,8 @@ def _maak_getekend():
             continue
         if b.inputs["Emission Strength"].default_value >= 1.0 or b.inputs["Transmission Weight"].default_value > 0:
             continue
+        if b.inputs["Metallic"].default_value > 0.5:
+            continue   # goud en staal houden hun echte glans: in de eerste proef werden schat, munten en kroon flets
         doel = b.outputs[0].links[0].to_socket
         bron = b.inputs["Base Color"].links[0].from_socket if b.inputs["Base Color"].is_linked else None
         kleur = tuple(b.inputs["Base Color"].default_value)[:3]
@@ -131,7 +133,6 @@ def mat(naam, kleur, rough=0.5, spec=0.4, emis=0.0, sss=0.0, glas=0.0, metaal=0.
         spec = min(spec, 0.2)
         glas = 0.0
         sss = min(sss, 0.12)
-        emis = emis if emis >= 1.0 else emis * 0.5
     if isinstance(kleur, str):
         kleur = hex2(KLEUR.get(kleur, kleur))
     m = bpy.data.materials.new(naam)
