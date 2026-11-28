@@ -1,4 +1,4 @@
-# Lat: Click Joints Pro (bijgewerkt 24 nov 2026 ±21:40 NL en 27 nov ±00:30 NL, door de Afkijker)
+# Lat: Click Joints Pro (bijgewerkt 24 nov 2026 ±21:40 NL en 27 nov ±00:30 NL en 28 nov ±18:30 NL, door de Afkijker)
 
 De 3 sterkste concurrenten in onze winkel (Superhive, waar kopers van Blender-add-ons voor 3D-print zoeken), en waar wij staan. Elk feit met GEZIEN (link) of GOK. Alles gelezen met curl op 24 nov 2026 tenzij anders vermeld. Elke agent leest dit vóór hij iets bouwt, verzint, schrijft of maakt (CLAUDE.md regel 10).
 
@@ -121,6 +121,29 @@ Conclusie: de top 3 verkoopt alleen op Superhive en Gumroad. De enige open markt
 4. **Titel met zoekwoorden** (alle drie). Staat al bij de hoofdchat (melding 21 nov); nog niet gedaan op Superhive (titel nog kaal, GEZIEN).
 5. **Gedetailleerd personage in plaats van de tekenpop** in het hoofdbeeld (rechters, Cleave toont orks en ridders). Wie: Bram met de heldenbeelden, blinde test.
 6. **Knippen voor het printbed ontbreekt in Pro.** Niet in Pro bouwen; bundel met Click Cuts na 2 dec (keuring Daan 24 nov: geen bundel zolang Pro $12 kost).
+
+**Stand van deze gaten op de echte pagina (curl za 28 nov ±18:20 NL, GEZIEN, https://superhivemarket.com/products/click-joints-pro):** 1 echte print: nog open (alle beelden zijn renders). 2 gratis proberen: half dicht, de regel "Try it free first" staat als tweede alinea, maar hij stuurt je weg naar Extensions; in de koopkolom staat Lite voor $3 (sale $1,95), niet gratis. 3 beoordelingen: nog open, 0 en geen regel "Rating" in de tabel; ook geen regel "Sales" (de teller verschijnt pas bij 10+). 4 titel met zoekwoorden: dicht ("Click Joints Pro - Articulated, Poseable 3D Print Action Figures from Your Rig ..."). 5 gedetailleerd personage: nog open (hoofdbeeld is de gladde mens-figuur met kleine tekst). 6 knippen: open, bewust.
+
+## Waarom kijkers niet kopen (28 nov)
+Opdracht #416 (Thijs: "Fix het!"). Feit (hoofdchat, GEZIEN 18:10): 114 bezoekers op Superhive in november, 1 koper op Superhive en Gumroad samen ($19), 0 verkopen in de sale. Naast elkaar gelegd met curl op za 28 nov ±18:20 NL (alles GEZIEN, links per punt):
+
+| | Cleave | Split 3D Print | JointLab | FLIP Fluids (bestseller) | Wij |
+|---|---|---|---|---|---|
+| Sales, ratings | 400+ (was 300+ op 24 nov), 4 ratings 100% vijf sterren | Sales 400+, Downloads 400+, 3 ratings | Sales 20+, 3 ratings | Sales 19100+, 106 ratings | geen teller, 0 ratings |
+| Prijs in de sale | $14,95 (van $23), steun $18,20 | $18,20 (van $28), **gratis $0**, $22,10, 5 plekken $42,25 | $42,25 (van $65) | $51,35 (van $79) | $7,80 (van $12), Lite $1,95 (van $3), Studio $29,25 |
+| Galerij en film | 24 beelden, 2 YouTube in de tekst, een voor-na-schuif (iframe v4ss3ur.com) | 4 beelden, 7 gif/film in de tekst | 12 beelden, 2 iframes | 30 beelden, 1 film | 8 beelden, 1 YouTube |
+| Categorie | Modeling | Modeling | Modeling | | Rigging |
+| Eerste regels | "Too big to print? Split it." Eén zin wat het doet. "Watch the 20-minute walkthrough". "One-time purchase, free updates forever." Tijdlijn "13 free updates since launch". | "NEW UPDATE · V4", één alinea, dan per functie een blok met "Where to find it" | twee knoppen: "GET JOINTLAB FOR BLENDER" en "USE ONLINE, FREE" | | saleregel, "Rig in. Joints out.", een alinea van ±85 woorden, Try it free, dan "New in Pro 1.2.8" (enkels, Shift + rechtsklik, knieschijf) |
+
+Op volgorde van verwacht effect:
+
+1. **Niemand ging je voor: 0 ratings, geen teller.** Zij: Split 3D Print zet een gratis variant van $0 in de koopkolom ("Free Limited Cuts Line ... and STL export") en heeft daardoor ook een teller "Downloads 400+" en kopers die mogen beoordelen ([Split 3D Print](https://superhivemarket.com/products/split-3dprint)); JointLab kreeg 2 van zijn 3 ratings van gratis exemplaren (lat, kop Wie). Wij missen: de gratis versie staat op Extensions (412 downloads, 0 reviews, GEZIEN 27 nov), dus die mensen tellen nergens mee op onze winkelpagina en kunnen daar niet beoordelen. Fix: maak van Lite ($3) op Superhive een variant "Free" van $0 met dezelfde direct-zip, zodat elke gratis download op de Pro-pagina meetelt en ratings kan geven. Wie: Bram (variantnaam en regel), hoofdchat plakt. Geld: nee (Lite bracht GOK $0 op; nagaan in de Superhive-verkopen). Issue #417.
+2. **Het eerste scherm verkoopt niet, en sluit de meeste printers buiten.** Zij: Cleave opent met een vraag van vier woorden, één zin, een walkthrough en "One-time purchase, free updates forever" ([Cleave](https://superhivemarket.com/products/cleave)); alle drie spreken over "your model" of "STL", niet over een rig. Wij missen: wie een STL heeft zonder rig (de meeste mensen die figuren printen, GOK) leest "Rig in." en haakt af; de route zonder rig staat als laatste zin van de lange alinea; meteen daarna komen release-notes voor wie al kocht. Fix: bovenaan twee korte regels voor beide routes ("Rigged? One button. Just an STL? Click the knee.") plus één zin en "Try it free", en "New in 1.2.8" naar onderen. Wie: Bram tekst, Daan keurt, hoofdchat plakt. Geld: nee. Issue #418.
+3. **Beeld: geen echte figuur, weinig om naar te kijken.** Zij: Cleave 24 beelden met orks, mechs en een geschilderde engel plus een voor-na-schuif; JointLab een foto van echte prints op tafel. Wij: 8 beelden met een gladde mens of robot, kleine tekst op het hoofdbeeld. Fix: een galerijrij met een gedetailleerd personage (vrij te gebruiken model, geen AI) in drie houdingen, en een korte lus van een knie die stopt. Wie: Beeldmaker, blinde test eerst. Geld: nee; een echte printfoto wel (ligt bij Thijs, gat 1).
+4. **Categorie Rigging in plaats van Modeling.** Zij: alle drie staan in Modeling. Wij in Rigging, waar printers niet zoeken (GOK; plek op "articulated" en "3d print" zie kop Gevonden worden). Fix: categorie naar Modeling op Superhive, rig blijft in de titel. Wie: Bram besluit, hoofdchat plakt. Geld: nee.
+5. **Prijs zegt "klein ding", koop zegt "alleen met code".** Zij: Cleave $14,95 en Split $18,20 in de sale; wij $7,80, de helft (GOK dat dit goedkoop en dus onaf oogt). Op Gumroad werkt de korting alleen met code CYBER25 in te typen (kop van de beschrijving, GEZIEN 28 nov). Fix: na de sale de geplande stap naar $19 (besluit 24 nov) houden en de regel "One-time purchase, every update free for 12 months" bovenaan zetten. Wie: Bram tekst, hoofdchat. Geld: nee.
+
+Niet meegenomen: reviews vragen aan bestaande gebruikers (mail onder de naam van Thijs, ligt bij hem en de vaste ja voor mails gaat alleen over een gratis code).
 
 ## Lessen uit broncode
 - **ND** (gratis op Extensions 114.986 downloads, 140 reviews 5,0; Gumroad met ondergrens A$20 en 549 beoordelingen 4,9; Superhive $15 Sales 700+; GPL, GEZIEN 27 nov; `organisatie/lat/broncode/nd.md`): ±1% van de gratis downloads betaalt (GOK), net als bij SnapSplit; het verschil is bereik. Onze gratis Click Joints staat op 412 downloads en 0 reviews (GEZIEN), dus de Extensions-pagina van de gratis versie is ook etalage van Pro (gat 2 en 3). ND noemt betalen "steunen", zet de gratis weg eerlijk in de tweede zin en heeft geen koopknop in de add-on.
