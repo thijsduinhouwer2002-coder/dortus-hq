@@ -42,10 +42,17 @@ jobs:
         uses: ./.github/actions/apt-snel
         with:
           pakketten: xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip ffmpeg tesseract-ocr x11-xserver-utils
+      # vaste Python 3.12: de runner heeft nu 3.14, waar kokoro-onnx en onnxruntime nog niet op draaien (proef 28 nov)
+      - uses: actions/setup-python@v5
+        if: steps.stem.outputs.ok == '1'
+        with:
+          python-version: "3.12"
       - name: Python-pakketten
         if: steps.stem.outputs.ok == '1'
         run: |
-          python3 -m pip install --target /tmp/pylib mss==9.0.2 python-xlib numpy
+          # alleen pure Python in /tmp/pylib: Blender heeft zijn eigen numpy, een numpy van een andere Python-versie
+          # vooraan in sys.path zou het laden in Blender breken
+          python3 -m pip install --target /tmp/pylib mss==9.0.2 python-xlib
           python3 -m pip install -q faster-whisper==1.2.1 numpy pillow soundfile
           if [ "$PROEF" = "1" ]; then
             python3 -m pip install -q kokoro-onnx==0.6.1
