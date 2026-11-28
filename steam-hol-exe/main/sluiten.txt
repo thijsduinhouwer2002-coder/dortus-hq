@@ -1,6 +1,0 @@
-voorgrond voor de taakbalkklik: notepad
-voorgrond na SwitchToThisWindow op het spel: HetHol (is dit niet HetHol, dan sluit Alt+F4 het verkeerde venster)
-SC_CLOSE (Venster sluiten in de taakbalk): spel gestopt binnen 15 s: True
-save bijgewerkt bij sluiten: True
-Kladblok leeft nog: True
-sluiten: 0 FOUT
