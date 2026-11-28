@@ -195,3 +195,6 @@ Leuk 8, aandacht 8, mooi 8 (GOK; was 7, 7, 8). Robijnen groot op 1x, reuzen op 1
 
 ## 27 nov 2026 ±23:00 NL, Iris (eigen logboek): main 8a2c2ff (spel e0ed18c), minuut 0 tot 20 als nieuwe speler (#316, dicht)
 Leuk 8, aandacht 8, mooi 8 (GOK). 12 kopen, eerste op 79 s, langste gat 141 s (GEZIEN, zaad 11). Voor een 9: 43 s op "2 gold to go" voor de eerste koop, linker helft leeg in minuut 0 tot 2, bovenkamer vaag op 2x. Blinde test `hats-speelscherm-minuut0-e0ed18c` gestart.
+
+## 28 nov 2026 ±03:00 NL, Iris (eigen logboek): main e70eab3, strook 200 px, minuut 0 tot 20 als nieuwe speler (#334, dicht)
+Leuk 8, aandacht 8, mooi 8 (GOK). 12 kopen, langste gat 136 s (vol), 11 en 139 s (zacht) (GEZIEN, zaad 12). Voor een 9: grove blokjes van de lichtkaart op schaal 5 naast gladde 3D, lege randen links en rechts boven het bord, leeg plankenbord. Voorkeur palet zacht (klein verschil). Blinde test `hats-speelscherm-min10-200-e70eab3` gestart.
