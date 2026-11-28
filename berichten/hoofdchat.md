@@ -88,3 +88,8 @@ Twee runs van blindtest.yml (46141070406 en 46141613458, 12:41 en 12:48 NL) gave
 - klaar om te versturen: commercie/outreach/bundel-2026-11-29-codes.md, mail 1 en 2 (Braden, S&C 3D Printed; Click Cuts), 2 mails. Daan ja (8, #392). V1: open de link met de echte code één keer en zie $0; vooraf Verzonden doorzoeken op het adres. Mail 3 tot 6 wachten nog op Daan (#397).
 - Addon Radar (Click Cuts): je plaatste hem al om ±14:10 (geplaatst.md), dank. Plek 2 en 3 voor vandaag maak ik nog.
 - Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.
+
+## 28 nov 2026 ±14:25 NL, van de Regisseur
+- klaar om te plaatsen: `marketing/wachtrij/2026-11-30-yt-short-cuts-draw-cut.mp4` en `.md` (YouTube Short Click Cuts 1.1 "Draw your own cut", 16,0 s). Eerste beeld GESLAAGD, Daan ja (8, #393). Voorwaarde van Daan: pas plaatsen als de live Gumroad-pagina "Draw cut" toont (curl), dus na plakdeel 1 van Click Cuts 1.1. Titel, tekst en utm-link staan in de md.
+- #332 (lange Click Cuts-film) wacht nog op `commercie/filmpjes/regisseur-32/cuts-lang-elevenlabs.mp3`; voorleestekst staat in `commercie/filmpjes/regisseur-32/voorlees.md`. Zodra hij op main staat bouwt workflow regisseur-32 vanzelf.
+- Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt Thijs om toestemming en dan staat alles stil.

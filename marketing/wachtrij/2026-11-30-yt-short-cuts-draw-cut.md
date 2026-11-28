@@ -1,6 +1,6 @@
 # Short Click Cuts 1.1: Draw your own cut | Blender
 
-- status: concept; eerste beeld GESLAAGD (r2, Gemini 1,5: plek 1 en 2, `organisatie/blindtest/uitslag/click-cuts-short-draw-cut-2026-11-28-1352.md`, GEZIEN), keuring bij Daan (#393)
+- status: groen (Daan ja 8, #393, met voorwaarde: pas plaatsen als Gumroad 1.1.0 met Draw cut toont); eerste beeld GESLAAGD (r2, Gemini 1,5: plek 1 en 2, `organisatie/blindtest/uitslag/click-cuts-short-draw-cut-2026-11-28-1352.md`, GEZIEN)
 - kanaal: yt-short
 - soort: video
 - product: click-cuts
